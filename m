@@ -4,80 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD58CD1284
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 18:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38A4CD1284
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 18:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4tj7syhPCoFj1vqASO4h6cZPqmTJo+t1mExSl35A/Qw=; b=sZxbVn9icUtwvP
-	2bkC6LgpL5EeQiiZOjNpZXtRKJARfLfMXeTAXZYjH3usqUHCzcIde7JKiUWhrSrUuobpfypg0a99r
-	qAG6ZuFTH0Oum4MtLggTaN22e5tEW2pcRfAUwKTFN/RcsI08EyHcbmPhH47+PjG5n3UFGxlEHhcuh
-	B9FCrLEmeTVcoKgeKzH46Ei1RSZleZ705d2YXZvVlnofvc+UaMekJ3Muub7GQYfRdWeKiER9wvyyh
-	ohjUEe44slOQQ4k/0JX6jch0WuK/wSiO70hjJccgAPxpBH2wmnBfgV3ASTmObPlV132lKUK1w3xZb
-	98pUd+W2DEQX3D5tuV7Q==;
+	List-Owner; bh=MAqBA74WWuouEqFDejCXMxfFvVAxxk++FvsbGSF4NCE=; b=mB2UDkqp+yfT4S
+	2/QkjK9qYyiO/RLjsQ98W5hfoE9vIvQcamPJFjkmE1C3PcqwwkmeC+fri9izzKWh2E0vKAywbM7ec
+	XGGhaax70G8S6qRuRKmvCIzJxaNkVZNvNoDlVjIvQh1lnsPmuonp2HkHyDpO3UaU4ftMboqqyHXHE
+	E2FcKVBxvjQTTW6syYwRoVZsjFLqMy0/AORZz18JYst1KPgXNQL6Hps2nEKX17ahoDODWAwacwz+E
+	RlVt8PTcuhJSBcdptXX3SMw0erbFtms8TqML/IOQPq85lNOVOSXuOk1s7LiHMLsjlDsZmZr8JfRR6
+	BzwDXcqHqTpwGKP7XzhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsS3o-00000003tYU-0oWZ;
-	Thu, 04 Apr 2024 18:43:40 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1rsSHz-00000003wPG-0gei;
+	Thu, 04 Apr 2024 18:58:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsS3j-00000003tUj-40wX
+	id 1rsSHv-00000003wOV-2iOT
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Apr 2024 18:43:37 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-5bdbe2de25fso1074381a12.3
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 11:43:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1712256210; x=1712861010; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lNeaNNlhbREvV2krr1ClfJeQ8ozUNbsQyuKB+WQvTCE=;
-        b=Szn8iSfXT2nFOkDRWIo3BwJjXov0Iooo9cp5Eo4rAzcleDkXNYaEwPIyyhnX+zAms+
-         q71ylp8uTiw+o9Y8k8NZ9s9fy+u7MfuBtVVHvd2JyKG545xCCYYSet8StWGSMu0MBblb
-         8NuPo3JDh+p9v6k0826ZMtwKzuIzh11DC0ve8XCcQoaacQoEn6pX7DJy6MYF9pe0sgTw
-         TNM9oFt2IAVQFiFbn25ewkrNDA69fFzunsihh4XMGnCBJd3EzUzprFCs4rygyLNw8bkS
-         tC2L1vQoQQifNAxr7UDnS2BJDDna44i1XYCALgeFBKkU4QkG53if8GxBXs8UI5ZY5VbV
-         EUXg==
+	Thu, 04 Apr 2024 18:58:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1712257093;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=iUpAfMHg+laFfCU8zqN8B3PSMZVWl02POndufzeitW0=;
+	b=Oil0Tc1HvnWGuD8vpAxluoDjs1d49z5KiAOvm8Hml0fDVdk6b7QPGp7ImQVk2DTQ9B9f1R
+	hC3nzFPSdm/8gUWk7slih3L6GqmXmR9jJiZ22oiZZdRksF1TAGjWeT3VeU/iduWRgSnGP0
+	KR1X5kueqtFNpU0rk6GLS7IPZzx4IIE=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-387-5H3HRftIMH6uzXiwR8CHiQ-1; Thu, 04 Apr 2024 14:58:11 -0400
+X-MC-Unique: 5H3HRftIMH6uzXiwR8CHiQ-1
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-34364bba472so652306f8f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 11:58:11 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712256210; x=1712861010;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lNeaNNlhbREvV2krr1ClfJeQ8ozUNbsQyuKB+WQvTCE=;
-        b=sw9tHVGbsRxIwTwIW4STTLxz/MP1f+OqrbkjZ9tobORVflGucfoNsMFQk9GegEYkjh
-         SNh/3Wg+Ym2XQZSApkhyz4Rv7lR1Xed5kqFuTij4jECca13VqUDltU+j9Kuoek4wbTvw
-         KjBVSshLKGXq/4nV4nDLOIfCr96Ma1VegOZ7fPS0A91Iqsk6kqNRn/1Wb9qtVnvzPQWt
-         wKhTUrljU5Ul/7uTp39XQCcv/LICn/a3DPU/UUbf1qAbOSa+bi8CRBDFKSYxqhkJnGD8
-         J/AcEwdu8iQyg8U8+0WC7AvzGt3ttvpyH/IOIC+nTJwQ/OCP9dYWR7hibdiU2xCTa5SP
-         +T2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWTOWlHt+axp2m88MeMBWFVOX10kIpRTt3iooi7W8Wqi2MnSVnQeTcZdljfRbOam39BBBWjN42a0rib/RL+4337NjgWzzsAJrXegO327rFA
-X-Gm-Message-State: AOJu0Yy2CsbQKRYIt2fL0VcuzcGjmAG4rLWtGFsuiKUn0oZ9Vie4l0FX
-	+atQRAVNcQzTWTC5J+UbSNnc3eFF786X7om+MuxHXGprqvWfoKx2CD+6M9lJdKd4/RffWHoXkPt
-	ddpFLuOBJCLm4XaUPs1cNR0XfDxM=
-X-Google-Smtp-Source: AGHT+IGL/ZuNDW+YAA14KxvITUONfWERjFMqYTVlIMjA2c3NxTdOFX1JFpnSxqA19fMs4gI4skjktyw1RgBSXBjql7I=
-X-Received: by 2002:a17:90b:78b:b0:2a2:8a0e:1b81 with SMTP id
- l11-20020a17090b078b00b002a28a0e1b81mr3277609pjz.30.1712256210175; Thu, 04
- Apr 2024 11:43:30 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1712257090; x=1712861890;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=iUpAfMHg+laFfCU8zqN8B3PSMZVWl02POndufzeitW0=;
+        b=ZiDVpn+a2ezHXYLPKq7RmATiuOkgAKM3eXbIHbbAHxZKNZzGfJc8ETmpB9YMcS60g5
+         YVP+6/Ve6JTF2rLXILdPw35d54HzMqXebdvXDnx2Gc9BdHJjeFO69Aeyn9xIZXktNF9Q
+         ksym6i4nMwtw7ouA3nm/QIutNiFc+syjoKF/Hry1gpEuq2ghVNOHNUGWrukLYbehkbua
+         xSsnPDvoAgKhg9E8bPM5z/BWfAM/slnIriR81eIkpAIOIOPB4QPdVBK/DXlHNQncsWiq
+         A9ukchYHA5/moPpdWmok6a6yyIDbddRVojsGOOWtsX1CDielPn3cWHwCJLX9wqtFp+E4
+         R9yg==
+X-Forwarded-Encrypted: i=1; AJvYcCV+EDH6JrVUzbXDMqxtgTkUbFvk1YWT6OXKF1hUd35EbKNTAKnbtPrx0XS/Wdu3ozRFx54t2CO23w1YL4w0ysHfcX8MhIgJ6K9KRU3VNA1z
+X-Gm-Message-State: AOJu0YyhWje6W6JtNcC9w58NGxclEK69dtF7lEqvjCfVJ9M+0zfYki0U
+	kQw5PeZsclus+mRbSdCnfsUm2JSXklWyp8ExnJGZIRU+dmMSnY+x+RcKMQbOpU1vgvKOeHTk2QP
+	KD05vZVpVsvMwR5usIREJvql7ttQcVM9nZ9gxd6XLlj+AzLFyEkG0W55KxdtZDL0zGA==
+X-Received: by 2002:adf:fa08:0:b0:343:3e49:d6d9 with SMTP id m8-20020adffa08000000b003433e49d6d9mr2425582wrr.47.1712257090529;
+        Thu, 04 Apr 2024 11:58:10 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHIR5jv3Y+pA9R56BJ+nFHyzZuCjuoYvHQwb+bhK5m09rZk21mZB5x6rbzPgcQOkLvLeAqwTQ==
+X-Received: by 2002:adf:fa08:0:b0:343:3e49:d6d9 with SMTP id m8-20020adffa08000000b003433e49d6d9mr2425540wrr.47.1712257089897;
+        Thu, 04 Apr 2024 11:58:09 -0700 (PDT)
+Received: from ?IPV6:2003:cb:c743:de00:7030:120f:d1c9:4c3c? (p200300cbc743de007030120fd1c94c3c.dip0.t-ipconnect.de. [2003:cb:c743:de00:7030:120f:d1c9:4c3c])
+        by smtp.gmail.com with ESMTPSA id k2-20020a5d5242000000b00343c0c24a65sm63462wrc.89.2024.04.04.11.58.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Apr 2024 11:58:09 -0700 (PDT)
+Message-ID: <8fb37319-288c-4f77-9cd7-92f17bb567ee@redhat.com>
+Date: Thu, 4 Apr 2024 20:58:06 +0200
 MIME-Version: 1.0
-References: <20240404-providing-emporium-e652e359c711@spud> <20240404153258.GA852748@dev-arch.thelio-3990X>
-In-Reply-To: <20240404153258.GA852748@dev-arch.thelio-3990X>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Thu, 4 Apr 2024 20:42:48 +0200
-Message-ID: <CANiq72kSfC2j07mAaV591i4kDwejWRYcFTvASgQmNnHVe5ZwCw@mail.gmail.com>
-Subject: Re: [PATCH v3] rust: make mutually exclusive with CFI_CLANG
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
-	Conor Dooley <conor.dooley@microchip.com>, stable@vger.kernel.org, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Wedson Almeida Filho <wedsonaf@gmail.com>, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>, 
-	Kees Cook <keescook@chromium.org>, llvm@lists.linux.dev
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 08/29] mm: Define VM_SHADOW_STACK for RISC-V
+To: Deepak Gupta <debug@rivosinc.com>, paul.walmsley@sifive.com,
+ rick.p.edgecombe@intel.com, broonie@kernel.org, Szabolcs.Nagy@arm.com,
+ kito.cheng@sifive.com, keescook@chromium.org, ajones@ventanamicro.com,
+ conor.dooley@microchip.com, cleger@rivosinc.com, atishp@atishpatra.org,
+ alex@ghiti.fr, bjorn@rivosinc.com, alexghiti@rivosinc.com,
+ samuel.holland@sifive.com, conor@kernel.org
+Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-mm@kvack.org, linux-arch@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, corbet@lwn.net, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, oleg@redhat.com,
+ akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
+ Liam.Howlett@oracle.com, vbabka@suse.cz, lstoakes@gmail.com,
+ shuah@kernel.org, brauner@kernel.org, andy.chiu@sifive.com,
+ jerry.shih@sifive.com, hankuan.chen@sifive.com, greentime.hu@sifive.com,
+ evan@rivosinc.com, xiao.w.wang@intel.com, charlie@rivosinc.com,
+ apatel@ventanamicro.com, mchitale@ventanamicro.com,
+ dbarboza@ventanamicro.com, sameo@rivosinc.com, shikemeng@huaweicloud.com,
+ willy@infradead.org, vincent.chen@sifive.com, guoren@kernel.org,
+ samitolvanen@google.com, songshuaishuai@tinylab.org, gerg@kernel.org,
+ heiko@sntech.de, bhe@redhat.com, jeeheng.sia@starfivetech.com,
+ cyy@cyyself.name, maskray@google.com, ancientmodern4@gmail.com,
+ mathis.salmen@matsal.de, cuiyunhui@bytedance.com, bgray@linux.ibm.com,
+ mpe@ellerman.id.au, baruch@tkos.co.il, alx@kernel.org,
+ catalin.marinas@arm.com, revest@chromium.org, josh@joshtriplett.org,
+ shr@devkernel.io, deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
+ jhubbard@nvidia.com
+References: <20240403234054.2020347-1-debug@rivosinc.com>
+ <20240403234054.2020347-9-debug@rivosinc.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <20240403234054.2020347-9-debug@rivosinc.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240404_114336_160272_CB10650B 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20240404_115817_243379_3B397D6E 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,39 +169,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBcHIgNCwgMjAyNCBhdCA1OjMz4oCvUE0gTmF0aGFuIENoYW5jZWxsb3IgPG5hdGhh
-bkBrZXJuZWwub3JnPiB3cm90ZToKPgo+IEFja2VkLWJ5OiBOYXRoYW4gQ2hhbmNlbGxvciA8bmF0
-aGFuQGtlcm5lbC5vcmc+CgpUaGFua3MhCgo+IEl0IHNlZW1zIGxpa2UgdGhpcyB3b24ndCBiZSBm
-b3Jnb3R0ZW4gYWJvdXQgYnV0IGlmIHRoZXJlIGlzIG5vdCBhbHJlYWR5Cj4gYW4gaXNzdWUgb3Bl
-biBmb3IgdGhpcyBzb21ld2hlcmUsIGl0IHdvdWxkIGJlIGdvb2QgdG8gaGF2ZSBvbmUsIHNpbmNl
-IHdlCj4gb2J2aW91c2x5IHdhbnQgdGhpcyBmb3IgYm90aCBDIGFuZCBSdXN0IGNvZGUuCgpXZSB0
-cmFjayB0aGUgdW5zdGFibGUgZmVhdHVyZShzKSBhdApodHRwczovL2dpdGh1Yi5jb20vUnVzdC1m
-b3ItTGludXgvbGludXgvaXNzdWVzLzIgKEkganVzdCBtb3ZlZCB0aGlzCm9uZSB0aGVyZSBzaW5j
-ZSBpdCBpcyBjbG9zZSB0byByZWFkeSwgYnV0IGl0IHdhcyBpbiAjMzU1IHByZXZpb3VzbHksCmFu
-ZCBjbGVhbmVkIHRoaW5ncyB1cCBhIGJpdCkuCgpPbiB0aGUgUnVzdCBzaWRlLCBJIHRoaW5rIHRo
-ZSBtYWluIG9uZSBpcwpodHRwczovL2dpdGh1Yi5jb20vcnVzdC1sYW5nL3J1c3QvaXNzdWVzLzg5
-NjUzLgoKSXQgaW5jbHVkZXMgS0NGSSwgYnV0IGl0IGlzIG1pc3NpbmcgTWF0dGhldydzIFBScyBm
-b3IgS0NGSSBldGMuIEkKYWRkZWQgYSBsaW5rIHRvIGdldCB0aG9zZSBpc3N1ZXMvUFJzIChvciBo
-b3BlZnVsbHkgbW9zdCBvZiB0aGVtKToKaHR0cHM6Ly9naXRodWIuY29tL3J1c3QtbGFuZy9ydXN0
-L3B1bGxzP3E9aXMlM0FwcitjZmkrbGFiZWwlM0FQRy1leHBsb2l0LW1pdGlnYXRpb25zKy1sYWJl
-bCUzQXJvbGx1cAoKV2UgY291bGQgY3JlYXRlIGFuIGV4cGxpY2l0L2NvbmNyZXRlIGlzc3VlIGZv
-ciByZW1vdmluZyB0aGUgYGRlcGVuZHMKb24gIWAgd2hlbiBNYXR0aGV3IHNlbmRzIHRoZSBwYXRj
-aGVzLCB0aG91Z2guCgo+IEFzIGEgZ2VuZXJhbCBtZXRhIGNvbW1lbnQgbm90IGRpcmVjdGVkIGF0
-IGFueW9uZSBpbiBwYXJ0aWN1YWxyLCBJIHRoaW5rCj4gdGhlc2UgJ2RlcGVuZHMgb24gIScgc2hv
-dWxkIGFsbCBoYXZlIHNvbWUgc29ydCBvZiBjb21tZW50IG9yIGRlc2NyaXB0aW9uCj4gYXMgdG8g
-d2h5IHRoZXkgYXJlIGRpc2FibGVkLiBJIGNhbiBpbmZlciBmcm9tIG1vc3Qgb2YgdGhlbSBidXQg
-aXQgd291bGQKPiBzdGlsbCBiZSBnb29kIHRvIGJlIGV4cGxpY2l0LCBlc3BlY2lhbGx5IHNpbmNl
-IHNvbWVvbmUgbWlnaHQgd2FudCB0bwo+IHdvcmsgb24gZml4aW5nIHRoZSBvbmVzIHRoYXQgYXJl
-IGR1ZSB0byBtaXNzaW5nIHN1cHBvcnQgYW5kIHN1Y2guCgpUaGF0IGlzIGRlZmluaXRlbHkgYSBn
-b29kIGlkZWEuIEFuIGFsdGVybmF0aXZlIGNvdWxkIGJlIGxpbmtpbmcgYW4KaXNzdWUgaW5zdGVh
-ZCAocGVyaGFwcyBjb25jcmV0ZSBvbmVzIGZvciB0aGF0LCBpLmUuIHlvdXIgb3RoZXIgaWRlYQph
-Ym92ZSkgc28gdGhhdCB3ZSBjYW4gdXBkYXRlIHRoZSBzdGF0dXMgZXRjLiBlYXNpbHkuCgpDaGVl
-cnMsCk1pZ3VlbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On 04.04.24 01:34, Deepak Gupta wrote:
+> VM_SHADOW_STACK is defined by x86 as vm flag to mark a shadow stack vma.
+> 
+> x86 uses VM_HIGH_ARCH_5 bit but that limits shadow stack vma to 64bit only.
+> arm64 follows same path (see links)
+> 
+> To keep things simple, RISC-V follows the same.
+> This patch adds `ss` for shadow stack in process maps.
+> 
+> Links:
+> https://lore.kernel.org/lkml/20231009-arm64-gcs-v6-12-78e55deaa4dd@kernel.org/#r
+> 
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>   fs/proc/task_mmu.c |  3 +++
+>   include/linux/mm.h | 11 ++++++++++-
+>   2 files changed, 13 insertions(+), 1 deletion(-)
+> 
+> diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
+> index 3f78ebbb795f..d9d63eb74f0d 100644
+> --- a/fs/proc/task_mmu.c
+> +++ b/fs/proc/task_mmu.c
+> @@ -702,6 +702,9 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
+>   #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_MINOR */
+>   #ifdef CONFIG_X86_USER_SHADOW_STACK
+>   		[ilog2(VM_SHADOW_STACK)] = "ss",
+> +#endif
+> +#ifdef CONFIG_RISCV_USER_CFI
+> +		[ilog2(VM_SHADOW_STACK)] = "ss",
+>   #endif
+>   	};
+>   	size_t i;
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index f5a97dec5169..64109f6c70f5 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -352,7 +352,16 @@ extern unsigned int kobjsize(const void *objp);
+>    * for more details on the guard size.
+>    */
+>   # define VM_SHADOW_STACK	VM_HIGH_ARCH_5
+> -#else
+> +#endif
+> +
+> +#ifdef CONFIG_RISCV_USER_CFI
+> +/*
+> + * RISC-V is going along with using VM_HIGH_ARCH_5 bit position for shadow stack
+> + */
+
+Wow, really?! I could never have guesses that from the code :P
+
+Just drop that comment. Are them semantics the same as for the x86 variant documented?
+("VM_SHADOW_STACK should not be set with VM_SHARED because of lack of")
+
+
+I assume so. So it might now make sense to merge both paths
+
+#if defined(CONFIG_X86_USER_SHADOW_STACK) || defined(CONFIG_RISCV_USER_CFI)
+
+
+or even introduce some ARCH_HAS_SHADOW_STACK so we can remove these
+arch-specific thingies here.
+
+-- 
+Cheers,
+
+David / dhildenb
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
