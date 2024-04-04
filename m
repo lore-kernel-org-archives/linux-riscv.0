@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DADCD1292
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 11:02:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25AABCD1284
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 11:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xe6gnDdhXe0lJN40hSON94CaZ4/apZ+7Oajo0ttJuWY=; b=mfIK6n45EG4MPV
-	+Wa1EQjYTIdvVWz4JpmUZPTlOkRYTU1wR1nHQ+WAwFqUuMRSGmmMb3ZyejWSD7EucI7Iex4CBFF/w
-	FpVGyvCfxx7B2Wo+NuofCghD1unKGB5nq5ela/0EZgV0xQh69Qs7Sc+YIfG/uoZs0JD7dR52r9zhr
-	AbpIlKzex2vKZuoYihrx2zaM4i3dTlSeqp5IglBIICRIF/+0lu7BHQcBBdAI7BzKyp8dqnqlOQZ2c
-	5t8j6EdS11DdPJ+8jOkcRjVML4pbZHRyB/9KjuKCwxGj5+wlLwmiXRZOQNP6HoH7iRmWRgsBW0OjU
-	WQJhvJNi5FFeu0dUOEJQ==;
+	List-Owner; bh=PbB+722CFak8ajM7Elx6cpGIuF+MHTqRvG6q/F85E64=; b=Bw3P8NJGe7gGUH
+	MgOwU/4/Rz1zNXH+mIzlyj42AlPvotCL7HAQ9c+fxzJ7eWWLZdCjRHi1kxZ6b9ABd8iP3kA/k9Jrt
+	ADmWQvQXK3pu25CMVyeKZ5s1nI5clNb7+7ldRD1513iCUUaZWvJQWYK3oTIbHFbOJUmznjmSSNJbU
+	MgycgYcCikBTNGyODnfsa7+Ssl8I6Z0/+JLcVIadj49zWRp4kDmZ/UkQVXcHj3PjjAXDVLJxmB7TE
+	QNEzcomvf+gBT1TcbTQr1c7ioIng1WbuLVWUrLUyBgEEjG3dsvxbIEJAn0Pt5zW5FnaCqUIFvzeF2
+	ayceJ4ryKcES4HdnUWHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsKrY-00000002IFz-27Nj;
-	Thu, 04 Apr 2024 11:02:32 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1rsKxA-00000002Joe-0WVF;
+	Thu, 04 Apr 2024 11:08:20 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsKrU-00000002IEg-3m3s
+	id 1rsKx6-00000002JlI-04xt
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Apr 2024 11:02:30 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-56bf6591865so1219138a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 04:02:27 -0700 (PDT)
+	Thu, 04 Apr 2024 11:08:17 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a50f170b7e3so116181666b.2
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 04:08:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1712228546; x=1712833346; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1712228893; x=1712833693; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WI/gpDqjLiJmsDmwk7gqvmJeMZiYROtcIjc07FyAt1I=;
-        b=Y3HOqIdrhmLb+/BEYwCKXxQ8GezR3kTDXVLHPlfc4e0zgU4NwhrVeXAQv/LQr1yDux
-         cDuOf2KiQuwub/iZU4MXqYan+lszqnmbnstILiklODv6e6YH450YdJPOSFMLTVg5n59I
-         Cw9t80R2bovxKWx3SffA+YVxNuYJNb20F3rr0MYCSn52cHhe4EwzCypD+3UYWNGjSw1B
-         sGtjs9hkOKgBA+XJiXkUJPEI/hZg5qmNCbc2QG9r0Lq1s4bmUVlcvUk2Mr2kD9dtbZ2m
-         dKDYbRPTj+pw4UMpYPqS93uVEHlN1dWb4P7/se/Fg+pFka8j+e++zEPtvjYVD9Ptc5JD
-         iFZA==
+        bh=XHYX+6wGVMHeamknM7Pg3k7ckv45aX0Tuc02oE5EGZo=;
+        b=mWrstkBfvhJiYQVJ24OUxfiNREz1DqKbVvwQe9NJIQY7UIuyMbLGOzUmPJdmWX3gJB
+         rKB3LDoSGDeSFPaAcrPYKVhm7Gcc/bgsVnbj/bgPTZ6r3OtHP1u+MOVOmqKFHhhGBBIm
+         yF/LnHEKtrK0hSrtxv1XPc05dObkNl8grB4VRSpUHkCAWlsabSU7ubF/nOaqW02uFOzL
+         i071dpqno0gq0Eb3gvMN3DoaE9NASu9GAWRrIEYcLj+S0azZDw/239+0se4BD9XVWQ4i
+         x4nR3WBR3Ztc5WlxgE9c7b0GszYxKmJbN0g721usfePfbpXhr3lZ7KPsy0dQ+vGRGopi
+         Yb6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712228546; x=1712833346;
+        d=1e100.net; s=20230601; t=1712228893; x=1712833693;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WI/gpDqjLiJmsDmwk7gqvmJeMZiYROtcIjc07FyAt1I=;
-        b=YAAfCwUMTiGC+n4XQK8N5fQ1XQQ8PfmtFKgly83PaJ+8HEnU0/ir2sx2raI01AOA+o
-         6t17B4CfB9CeynACJGyhLgsPQdM+Vd5TKsYan96io/hLx58cr3M6+WGLMD69jNt35dip
-         LCzAhLNorATQt9mHKUTgoJYVsl6cd6rQSDvbRacXafRp9lsySoqj3e6276VEQKvb68aE
-         3WBDO9koRkSPqOhSO2WttF9DeczJwlgcDUiKLOsVYPs3dFmBkIpCWnbStoLSKfHX7Auo
-         Rc8IYS/TzYKeBcUnho/RrottzxHP2VC292Yi9t9lilKVcuJ3iupadd2fU7n/3QGJmLG2
-         OAnA==
-X-Forwarded-Encrypted: i=1; AJvYcCXWzgUD1jLKwfWZYSpnGRWfqcAQ2BPdWCCUywFMsCGDDFHTdhLOPtGFA9/U8R85L4fd5dLPWsh0f90JFqxfKuo65UZTVvPt0o90ruJ6qkup
-X-Gm-Message-State: AOJu0YydGDf0o2RHA58CKoecPwovKtkHuNYHzG90iiR+h4f/L1bGq80Y
-	ry0i06ecgzWl8n7o+Kcof3r0OB3llIhZ2LeWE46P5OLDRbr5QiHbfF8M3yI6bIE=
-X-Google-Smtp-Source: AGHT+IH+cR5LnT4HHFFZfBDVpuneEFANhm0q0RefyMMIWR5DVI1nM63K0UMkrPub9LuoEZqin8kkoA==
-X-Received: by 2002:a17:906:7954:b0:a4e:a068:7f with SMTP id l20-20020a170906795400b00a4ea068007fmr1635905ejo.49.1712228545941;
-        Thu, 04 Apr 2024 04:02:25 -0700 (PDT)
+        bh=XHYX+6wGVMHeamknM7Pg3k7ckv45aX0Tuc02oE5EGZo=;
+        b=TTOogVmiZFN4i6pSaY+YSV14eGC858R+7a3/KHwGeqQ1/Qw3r0DNW7AM8o5U4d0tq4
+         lOn3dg04lsLW3NzAbPeZh5kXJXnPyJMLVBF9dorobOJQ8CNhMeudE5qW1jcY8U1V6Pb4
+         CrWM/sz5bTv3Ijiai+GTAttW0xfDeUWYZ9ofmjjmImg7nlSixE6Oe4SSZzPV1psr5+TG
+         RrrMnKdzbB5OsHpP9MBD2G9d7ZKzx4qx2zhjAibCa1z60DpQ+s2603pJYWeiPyqbwxlc
+         hNDO3QH0n37OUBTOdzhI0TusdwKj6aWkMiRkF2O6FWHmYCxPUV3cmiyRAkgOGYynJ8p5
+         mEcA==
+X-Forwarded-Encrypted: i=1; AJvYcCVQoZUepmMDHe5OOApbPCW1UFblZ+lfP2hPjta6sqefOriYj7FIIFBUCIbcX1a0v1FsAzbw42SCpH2xSh2jTWRvcH0keBy3B/84N4kEgi30
+X-Gm-Message-State: AOJu0YxMbjKYDyIA4BTnq+cphO7aaGCM/mpStwO78ky1/SekETmuVTtM
+	6AQ4mcLlcd62PPzcyxr75chzEWWjqgVBCxvxLkI0OQdkTxoS1pBSMN1drpRM5AM=
+X-Google-Smtp-Source: AGHT+IEwWasdhwJaS9vUXUMAlSdyN0d8CLHZIu2tQiTvCmJ1aDUIwnQzoZygayQdRyXB/log4Zvjmw==
+X-Received: by 2002:a17:906:a02:b0:a4e:2d69:e379 with SMTP id w2-20020a1709060a0200b00a4e2d69e379mr1481920ejf.4.1712228893383;
+        Thu, 04 Apr 2024 04:08:13 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id an19-20020a17090656d300b00a4e58c74c9fsm5892101ejc.6.2024.04.04.04.02.25
+        by smtp.gmail.com with ESMTPSA id xh12-20020a170906da8c00b00a4e579ce949sm6017903ejb.51.2024.04.04.04.08.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Apr 2024 04:02:25 -0700 (PDT)
-Date: Thu, 4 Apr 2024 13:02:24 +0200
+        Thu, 04 Apr 2024 04:08:12 -0700 (PDT)
+Date: Thu, 4 Apr 2024 13:08:11 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Anup Patel <anup@brainfault.org>, Ajay Kaher <akaher@vmware.com>, 
+Cc: linux-kernel@vger.kernel.org, Ajay Kaher <akaher@vmware.com>, 
 	Alexandre Ghiti <alexghiti@rivosinc.com>, Alexey Makhalov <amakhalov@vmware.com>, 
+	Anup Patel <anup@brainfault.org>, Conor Dooley <conor.dooley@microchip.com>, 
 	Juergen Gross <jgross@suse.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
 	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, 
 	VMware PV-Drivers Reviewers <pv-drivers@vmware.com>, Will Deacon <will@kernel.org>, x86@kernel.org
-Subject: Re: [PATCH v5 03/22] drivers/perf: riscv: Read upper bits of a
- firmware counter
-Message-ID: <20240404-89ee7d7f90a5fcc91809065e@orel>
+Subject: Re: [PATCH v5 04/22] drivers/perf: riscv: Use BIT macro for shifting
+ operations
+Message-ID: <20240404-9a84f2090d00f6b994e1de7c@orel>
 References: <20240403080452.1007601-1-atishp@rivosinc.com>
- <20240403080452.1007601-4-atishp@rivosinc.com>
+ <20240403080452.1007601-5-atishp@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240403080452.1007601-4-atishp@rivosinc.com>
+In-Reply-To: <20240403080452.1007601-5-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240404_040229_062752_4114E062 
-X-CRM114-Status: GOOD (  24.96  )
+X-CRM114-CacheID: sfid-20240404_040816_103554_C539A308 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,88 +101,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 03, 2024 at 01:04:32AM -0700, Atish Patra wrote:
-> SBI v2.0 introduced a explicit function to read the upper 32 bits
-> for any firmware counter width that is longer than 32bits.
-> This is only applicable for RV32 where firmware counter can be
-> 64 bit.
+On Wed, Apr 03, 2024 at 01:04:33AM -0700, Atish Patra wrote:
+> It is a good practice to use BIT() instead of (1UL << x).
+
+(1UL << x) isn't generally a problem. The problem is with (1 << x).
+
+> Replace the current usages with BIT().
 > 
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Anup Patel <anup@brainfault.org>
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 > ---
->  drivers/perf/riscv_pmu_sbi.c | 25 ++++++++++++++++++++-----
->  1 file changed, 20 insertions(+), 5 deletions(-)
+>  arch/riscv/include/asm/sbi.h | 20 ++++++++++----------
+>  drivers/perf/riscv_pmu_sbi.c |  2 +-
+>  2 files changed, 11 insertions(+), 11 deletions(-)
 > 
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index ef8311dafb91..4afa2cd01bae 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -233,20 +233,20 @@ enum sbi_pmu_ctr_type {
+>  #define SBI_PMU_EVENT_IDX_INVALID 0xFFFFFFFF
+>  
+>  /* Flags defined for config matching function */
+> -#define SBI_PMU_CFG_FLAG_SKIP_MATCH	(1 << 0)
+> -#define SBI_PMU_CFG_FLAG_CLEAR_VALUE	(1 << 1)
+> -#define SBI_PMU_CFG_FLAG_AUTO_START	(1 << 2)
+> -#define SBI_PMU_CFG_FLAG_SET_VUINH	(1 << 3)
+> -#define SBI_PMU_CFG_FLAG_SET_VSINH	(1 << 4)
+> -#define SBI_PMU_CFG_FLAG_SET_UINH	(1 << 5)
+> -#define SBI_PMU_CFG_FLAG_SET_SINH	(1 << 6)
+> -#define SBI_PMU_CFG_FLAG_SET_MINH	(1 << 7)
+> +#define SBI_PMU_CFG_FLAG_SKIP_MATCH	BIT(0)
+> +#define SBI_PMU_CFG_FLAG_CLEAR_VALUE	BIT(1)
+> +#define SBI_PMU_CFG_FLAG_AUTO_START	BIT(2)
+> +#define SBI_PMU_CFG_FLAG_SET_VUINH	BIT(3)
+> +#define SBI_PMU_CFG_FLAG_SET_VSINH	BIT(4)
+> +#define SBI_PMU_CFG_FLAG_SET_UINH	BIT(5)
+> +#define SBI_PMU_CFG_FLAG_SET_SINH	BIT(6)
+> +#define SBI_PMU_CFG_FLAG_SET_MINH	BIT(7)
+>  
+>  /* Flags defined for counter start function */
+> -#define SBI_PMU_START_FLAG_SET_INIT_VALUE (1 << 0)
+> +#define SBI_PMU_START_FLAG_SET_INIT_VALUE BIT(0)
+>  
+>  /* Flags defined for counter stop function */
+> -#define SBI_PMU_STOP_FLAG_RESET (1 << 0)
+> +#define SBI_PMU_STOP_FLAG_RESET BIT(0)
+>  
+>  enum sbi_ext_dbcn_fid {
+>  	SBI_EXT_DBCN_CONSOLE_WRITE = 0,
 > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 3e44d2fb8bf8..babf1b9a4dbe 100644
+> index babf1b9a4dbe..a83ae82301e3 100644
 > --- a/drivers/perf/riscv_pmu_sbi.c
 > +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -57,6 +57,8 @@ asm volatile(ALTERNATIVE(						\
->  PMU_FORMAT_ATTR(event, "config:0-47");
->  PMU_FORMAT_ATTR(firmware, "config:63");
->  
-> +static bool sbi_v2_available;
-> +
->  static struct attribute *riscv_arch_formats_attr[] = {
->  	&format_attr_event.attr,
->  	&format_attr_firmware.attr,
-> @@ -511,19 +513,29 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
->  	struct hw_perf_event *hwc = &event->hw;
->  	int idx = hwc->idx;
->  	struct sbiret ret;
-> -	union sbi_pmu_ctr_info info;
->  	u64 val = 0;
-> +	union sbi_pmu_ctr_info info = pmu_ctr_list[idx];
->  
->  	if (pmu_sbi_is_fw_event(event)) {
->  		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
->  				hwc->idx, 0, 0, 0, 0, 0);
-> -		if (!ret.error)
-> -			val = ret.value;
-> +		if (ret.error)
-> +			return 0;
-> +
-> +		val = ret.value;
-> +		if (IS_ENABLED(CONFIG_32BIT) && sbi_v2_available && info.width >= 32) {
-> +			ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ_HI,
-> +					hwc->idx, 0, 0, 0, 0, 0);
-> +			if (!ret.error)
-> +				val |= ((u64)ret.value << 32);
-> +			else
-> +				WARN_ONCE(1, "Unable to read upper 32 bits of firmware counter error: %d\n",
-> +					  sbi_err_map_linux_errno(ret.error));
-
-I don't think we should use sbi_err_map_linux_errno() in this case since
-we don't have a 1:1 mapping of SBI errors to Linux errors and we don't
-propagate the error as a Linux error. For warnings, it's better to output
-the exact SBI error.
-
-> +		}
->  	} else {
-> -		info = pmu_ctr_list[idx];
->  		val = riscv_pmu_ctr_read_csr(info.csr);
->  		if (IS_ENABLED(CONFIG_32BIT))
-> -			val = ((u64)riscv_pmu_ctr_read_csr(info.csr + 0x80)) << 31 | val;
-> +			val |= ((u64)riscv_pmu_ctr_read_csr(info.csr + 0x80)) << 32;
+> @@ -386,7 +386,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+>  			cmask = 1;
+>  		} else if (event->attr.config == PERF_COUNT_HW_INSTRUCTIONS) {
+>  			cflags |= SBI_PMU_CFG_FLAG_SKIP_MATCH;
+> -			cmask = 1UL << (CSR_INSTRET - CSR_CYCLE);
+> +			cmask = BIT(CSR_INSTRET - CSR_CYCLE);
+>  		}
 >  	}
 >  
->  	return val;
-> @@ -1135,6 +1147,9 @@ static int __init pmu_sbi_devinit(void)
->  		return 0;
->  	}
->  
-> +	if (sbi_spec_version >= sbi_mk_version(2, 0))
-> +		sbi_v2_available = true;
-> +
->  	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_RISCV_STARTING,
->  				      "perf/riscv/pmu:starting",
->  				      pmu_sbi_starting_cpu, pmu_sbi_dying_cpu);
 > -- 
 > 2.34.1
 >
+
+Other than the commit message,
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 Thanks,
 drew
