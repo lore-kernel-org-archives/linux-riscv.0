@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D8FC67861
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Apr 2024 15:59:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96158C67861
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Apr 2024 17:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xRlNA02hQnKut1RmzZs4MLFF9rZnHWs5sezNwHoSlZ0=; b=CVitZVpNzrhXga
-	5jozE8CfJ+Y9x/Vs1yU8+tJSHRjDvvl2vTFbj1Fwm6t0i30AV/+5k2SL7eOKeXW4r2mHgsEVJ0fhc
-	yjMQ6Vs5mz1HKm5kMWadmRfEZT7mFBq59OkzEnZ5fPfZQHgWwt+jPeU0g1FE7vZs/JKnJK4O2mrvq
-	qEfbE3z3OuosqcI/JkH+GN0Jb7exBuBGsmkmWkAWhyq74ymUv92tBBNh4h1bktAGDEoonLOpxQTfN
-	FgjnHTXg9iY5Os0qTq+62Dl7Ve1MKvPWLEMGVqv5O03JuiKhlrCtIT6bh2iy2cQX9YTTi9Ap/99o8
-	+UxVM9f/9ecR9hR6KAsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=2AsF9G0MQ4C9iyvXIE10cnpyFbgnAZUrJjGxUwbZ2Io=; b=UVB
+	HKxJ+XwzssDTFiUTahEJ7vZwPxkYYxy94ZvaXWQu6MAbOLDvCZ5FWtN58ONAr+wvhqS4KRfxnK0eA
+	X7HPnHi9ZvhafoezdxUZCzFhuRf/bhp10B+Ao5diiZqeP4gjwrNEMO2GfWeUrSSYE6+DEWbVREpSY
+	tqGGGUPeXjIe36k2ALP1/7XMrJfy7/6+sZ+ytad7htHjRR9ZGDm1Ssf5zHNE7NVbZx+faNlXf3d/C
+	bGS8LRW/SnP5UL1p9UXMJBKTppZCKZA3i3e/sewsrXWX17B3iw0jH+wmQ7dCIW9IZH9Zhk6426JRj
+	Eo7xcnj8N4NmIiE/9zo5IPD078FvnEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rslyn-00000007tKi-0WTq;
-	Fri, 05 Apr 2024 15:59:49 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1rsnNb-00000008Eco-2Syv;
+	Fri, 05 Apr 2024 17:29:31 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rslyk-00000007tJU-1PX7
+	id 1rsnNX-00000008EbY-3ITG
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Apr 2024 15:59:48 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4162fe73594so6317455e9.2
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Apr 2024 08:59:44 -0700 (PDT)
+	Fri, 05 Apr 2024 17:29:29 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6eaf1a3e917so2107093b3a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Apr 2024 10:29:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1712332783; x=1712937583; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z/+tn7yaOy1bWCod1Hwz4ffQkyy0MXOXzF4xEGdBkSM=;
-        b=dNsXVzvIzjeUCDREyk69mfhFMqxZl5G91u0DID5qS8kwy+48q4fGcMMWKYfW+cjgbA
-         l4cXmSw3KnbuWVSYELD1sdom+/gkq6G++fSaqdYCsD17f3tOFtI7W/2wgXlrWeRgRL1l
-         TcYjhOpfjHyXpyKpPyso9ljogVIHKdiykBVWqIMnCrqYxdGl6DJIHjZZVqcRp5/lKY5C
-         UFo5drJXh+u+ARxK7vWfLChSc5BGbZ9wlRnZCma1LcEs/K0bkzBlQTfzbDPKKAX+J+Sv
-         RNw2WEImNlS58rM6BPewFwzrqhDppz8GWpes+CTeLrQBYD8yKYra99JCa2wsJV4mTkEX
-         bKag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712332783; x=1712937583;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712338166; x=1712942966; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Z/+tn7yaOy1bWCod1Hwz4ffQkyy0MXOXzF4xEGdBkSM=;
-        b=hYV4nncdSaxaACCgZ6q3M29eANCN9BNViZd9sylngnONRyvRH5KE9wXLuYgRMzZ2Rx
-         J398M9kJcs78nOehLs74EW9mB1f3P+rTiqW6IgbjNq0a/f1AWlAoyRDtsJL4XmVajzRE
-         e45amukdmV+w55AK5LPwtaghBi8NyI/gzqbv+6VQkBA+CSb3Gz0HDJooUrllUNwgdnqO
-         aYNwSwdR+xWKRkKOwYIodWAYuFwtN56IPRb12LQpwnpW06VO7phR6q0X8jMiR632C6jQ
-         hUhD1+hQqsYPONwXmxixgYgt2qwXGFYRAIOtaUmw8ErnK9cNCRUu+BnsmfhNH6TH42uN
-         Gc6A==
-X-Forwarded-Encrypted: i=1; AJvYcCWpp+iAgvawr8iFtz3JlfYGoc4aLm/UkJ0crSettriAJbmRXmbJvYlHFZXz5N1LdRyZzS8XyMoHBeJLPpiJZKyRJX2NM9NtWByPUkCUpT5H
-X-Gm-Message-State: AOJu0YzzTBUkA3IqOX4yXvxJJhOf1R9BgP4i9ytLSFEhZ7+TbZQYTFu6
-	Oosj09wNTGrEuPO5y/otgSUWZYa7IgZbksS26Iwxt4gvhiEZb+zTbYCPqgFCsTE=
-X-Google-Smtp-Source: AGHT+IHm5FdCsOG2D2FwTVsRXO+4kOPqszWyczb81zB17ksFNLVDMEKpcib6RWK3ysnM3lM9cg2ZBw==
-X-Received: by 2002:a05:600c:3107:b0:414:7909:6680 with SMTP id g7-20020a05600c310700b0041479096680mr1487874wmo.16.1712332783307;
-        Fri, 05 Apr 2024 08:59:43 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id m20-20020a05600c4f5400b0041632171f51sm1770044wmq.13.2024.04.05.08.59.42
+        bh=YO5f4h758dBNmiDAJhldDYKOhisPvEGqSyQ4iiERmME=;
+        b=LDBcACaXCz1RZKXamwbcYE296bRz2CPCNb+aWe+fnTXkZ+SCH/SgAH4FRndlAgdrd1
+         q93OwN3+xfjSZGH+qKwnP3YoMdOQjOa5Y67hGeeVQarRgIcltPYx8Tou3v82se3gHfrM
+         BvEQVE9JyqVOtAO0yQV9FOLfPZoahtXV2umV8Xd0WooTiIym2TcANpFN2eDtP7navUo5
+         YHQfu93K1eMglHYSxnlKugVjBIeGwIUY1AoOKI5Rk1Gf3miaCg7iZM0Lk9uBNP5Z9NAP
+         VTq0eie2eUvMZnhpsLZo0/+UHMTNxtkSLPy4hAajsXG8+Amaw8pTFrzkYKmq55ux7b6x
+         PKgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712338166; x=1712942966;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YO5f4h758dBNmiDAJhldDYKOhisPvEGqSyQ4iiERmME=;
+        b=ipBtqOZikWi9KUnK1uCNMnhi7XIqgxXxYgxf3CHcV6EuOGFHXsUxtu+waaeFYT6d5U
+         WnJnMnzpiGN09tR21EFgkA3LN5UbCO+Ndtoe2dGI6i/fJ/8c662/ECAcMKKQug8AblJG
+         h3hrDSg5dMsQLpEDJcjYAl7iX0V3rSuMxtaDpm0g1UntiSK7pln9iY5z4tmYXM6w3par
+         w/mE0oJLi3Xn2ZaQNPWwAuMNn5yRepXGhKRbv26DEk6EAld1vPafhkA26ytAo6pXxqiQ
+         dmnfhyVNJVmVJGFQ90s8ec9CkNRS/r8f9g4RAsRkF9T9omeiOTnlzbNTzYjB6pB2n3+z
+         4QWA==
+X-Gm-Message-State: AOJu0YyqX5ZhmQ42Ps/kianFSgltlB5QhjdKktRF1LKseB+7EGKaLVMn
+	AGki+r/PUvQZxABjcnKZQ5e3QtaH0rCg/Z1eS+8VN/xbBo4eZQvC+34+Ug5J2rVWozPI27chL5p
+	E
+X-Google-Smtp-Source: AGHT+IE2251VrHWLZ0prAu7SSHn+DVyi5u3CH3BVvNzid0hoXLca2RkLGi9W3l4saSgMej+DT+662w==
+X-Received: by 2002:a05:6a00:22d1:b0:6ec:fdcc:3cce with SMTP id f17-20020a056a0022d100b006ecfdcc3ccemr2388441pfj.5.1712338165463;
+        Fri, 05 Apr 2024 10:29:25 -0700 (PDT)
+Received: from localhost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id x7-20020a056a00188700b006ecfe20d38csm1759033pfh.30.2024.04.05.10.29.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Apr 2024 08:59:42 -0700 (PDT)
-Date: Fri, 5 Apr 2024 17:59:41 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Max Hsu <max.hsu@sifive.com>, Conor Dooley <conor@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Pavel Machek <pavel@ucw.cz>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, Palmer Dabbelt <palmer@sifive.com>, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH RFC 02/11] dt-bindings: riscv: Add Sdtrig optional CSRs
- existence on DT
-Message-ID: <20240405-ebdb2943657ab08d2d563c03@orel>
-References: <20240329-dev-maxh-lin-452-6-9-v1-0-1534f93b94a7@sifive.com>
- <20240329-dev-maxh-lin-452-6-9-v1-2-1534f93b94a7@sifive.com>
- <20240329-affidavit-anatomist-1118a12c3e60@wendy>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240329-affidavit-anatomist-1118a12c3e60@wendy>
+        Fri, 05 Apr 2024 10:29:24 -0700 (PDT)
+Date: Fri, 05 Apr 2024 10:29:24 -0700 (PDT)
+X-Google-Original-Date: Fri, 05 Apr 2024 10:18:39 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.9-rc3
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-28e73e09-0100-4e0e-8c4a-490552b42c6f@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240405_085946_518502_43770804 
-X-CRM114-Status: GOOD (  25.66  )
+X-CRM114-CacheID: sfid-20240405_102927_848753_CFED2D3F 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,96 +83,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============5066200057906141573=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 29, 2024 at 10:31:10AM +0000, Conor Dooley wrote:
-> On Fri, Mar 29, 2024 at 05:26:18PM +0800, Max Hsu wrote:
-> > The mcontext/hcontext/scontext CSRs are optional in the Sdtrig extension,
-> > to prevent RW operations to the missing CSRs, which will cause
-> > illegal instructions.
-> > 
-> > As a solution, we have proposed the dt format for these CSRs.
-> 
-> As I mentioned in your other patch, I amn't sure what the actual value
-> is in being told about "sdtrig" itself if so many of the CSRs are
-> optional. I think we should define pseudo extensions that represent
-> usable subsets that are allowed by riscv,isa-extensions, such as
-> those you describe here: sdtrig + mcontext, sdtrig + scontext and
-> sdtrig + hcontext. Probably also for strig + mscontext. What
-> additional value does having a debug child node give us that makes
-> it worth having over something like the above?
+--===============5066200057906141573==
+Content-Type: text/plain
 
-Yeah, Sdtrig, which doesn't tell you what you get, isn't nice at all.
-I wonder if we can start with requiring Sdtrig to be accompanied by
-Ssstrict in order to enable the context CSRs, i.e.
+The following changes since commit 4cece764965020c22cff7665b18a012006359095:
 
- Sdtrig          - support without optional CSRs
- Sdtrig+Ssstrict - probe for optional CSRs, support what's found
+  Linux 6.9-rc1 (2024-03-24 14:10:05 -0700)
 
-If there are platforms with Sdtrig and optional CSRs, but not Ssstrict,
-then maybe the optional CSRs can be detected in some vendor-specific way,
-where the decision as to whether or not that vendor-specific way is
-acceptable is handled case-by-case.
+are available in the Git repository at:
 
-Thanks,
-drew
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.9-rc3
 
-> 
-> Thanks,
-> Conor.
-> 
-> > 
-> > Signed-off-by: Max Hsu <max.hsu@sifive.com>
-> > ---
-> >  Documentation/devicetree/bindings/riscv/cpus.yaml | 18 ++++++++++++++++++
-> >  1 file changed, 18 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > index d87dd50f1a4b..c713a48c5025 100644
-> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > @@ -137,6 +137,24 @@ properties:
-> >        DMIPS/MHz, relative to highest capacity-dmips-mhz
-> >        in the system.
-> >  
-> > +  debug:
-> > +    type: object
-> > +    properties:
-> > +      compatible:
-> > +        const: riscv,debug-v1.0.0
-> > +      trigger-module:
-> > +        type: object
-> > +        description: |
-> > +          An indication set of optional CSR existence from
-> > +          riscv-debug-spec Sdtrig extension
-> > +        properties:
-> > +          mcontext-present:
-> > +            type: boolean
-> > +          hcontext-present:
-> > +            type: boolean
-> > +          scontext-present:
-> > +            type: boolean
-> > +
-> >  anyOf:
-> >    - required:
-> >        - riscv,isa
-> > 
-> > -- 
-> > 2.43.2
-> > 
+for you to fetch changes up to d14fa1fcf69db9d070e75f1c4425211fa619dfc8:
+
+  riscv: process: Fix kernel gp leakage (2024-04-04 12:35:05 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 6.9-rc3
+
+* A fix for an __{get,put}_kernel_nofault to avoid an uninitialized
+  value causing spurious failures.
+* compat_vdso.so.dbg is now installed to the standard install location.
+* A fix to avoid initializing PERF_SAMPLE_BRANCH_*-related events, as
+  they aren't supported and will just later fail.
+* A fix to make AT_VECTOR_SIZE_ARCH correct now that we're providing
+  AT_MINSIGSTKSZ.
+* pgprot_nx() is now implemented, which fixes vmap W^X protection.
+* A fix for the vector save/restore code, which at least manifests as
+  corrupted vector state when a signal is taken.
+* A fix for a race condition in instruction patching.
+* A fix to avoid leaking the kernel-mode GP to userspace, which is a
+  kernel pointer leak that can be used to defeat KASLR in various ways.
+* A handful of smaller fixes to build warnings, an overzealous printk,
+  and some missing tracing annotations.
+
+----------------------------------------------------------------
+Alexandre Ghiti (2):
+      riscv: Fix warning by declaring arch_cpu_idle() as noinstr
+      riscv: Disable preemption when using patch_map()
+
+Andreas Schwab (1):
+      riscv: use KERN_INFO in do_trap
+
+Björn Töpel (1):
+      riscv: Fix vector state restore in rt_sigreturn()
+
+Jisheng Zhang (1):
+      riscv: mm: implement pgprot_nx
+
+Masahiro Yamada (2):
+      riscv: compat_vdso: install compat_vdso.so.dbg to /lib/modules/*/vdso/
+      riscv: compat_vdso: align VDSOAS build log
+
+Pu Lehui (1):
+      drivers/perf: riscv: Disable PERF_SAMPLE_BRANCH_* while not supported
+
+Sami Tolvanen (1):
+      riscv: Mark __se_sys_* functions __used
+
+Samuel Holland (2):
+      riscv: mm: Fix prototype to avoid discarding const
+      riscv: Fix spurious errors from __get/put_kernel_nofault
+
+Stefan O'Rear (1):
+      riscv: process: Fix kernel gp leakage
+
+Victor Isaev (1):
+      RISC-V: Update AT_VECTOR_SIZE_ARCH for new AT_MINSIGSTKSZ
+
+Vladimir Isaev (1):
+      riscv: hwprobe: do not produce frtace relocation
+
+ arch/riscv/Makefile                      |  2 +-
+ arch/riscv/include/asm/pgtable.h         |  6 ++++++
+ arch/riscv/include/asm/syscall_wrapper.h |  3 ++-
+ arch/riscv/include/asm/uaccess.h         |  4 ++--
+ arch/riscv/include/uapi/asm/auxvec.h     |  2 +-
+ arch/riscv/kernel/compat_vdso/Makefile   |  2 +-
+ arch/riscv/kernel/patch.c                |  8 ++++++++
+ arch/riscv/kernel/process.c              |  5 +----
+ arch/riscv/kernel/signal.c               | 15 ++++++++-------
+ arch/riscv/kernel/traps.c                |  2 +-
+ arch/riscv/kernel/vdso/Makefile          |  1 +
+ arch/riscv/mm/tlbflush.c                 |  4 ++--
+ drivers/perf/riscv_pmu.c                 |  4 ++++
+ 13 files changed, 38 insertions(+), 20 deletions(-)
 
 
-
-> -- 
-> kvm-riscv mailing list
-> kvm-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/kvm-riscv
-
+--===============5066200057906141573==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5066200057906141573==--
