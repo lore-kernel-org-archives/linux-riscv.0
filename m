@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3896CD11C2
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Apr 2024 14:33:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C006C67861
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Apr 2024 14:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hZhuzi3UflAiyhdu/iuXabDYq++3TLnr3Iy4djCSPBk=; b=cWo0uNK2Kp+RmL
-	R5a0Ji4Ryd7T9Vk8hyzUyO56flbr47g21D9CDoa4SFfYKLS5YLHpPVwmJGLCK4uHmHG1NEiQZQbxE
-	Y3U3tTtORRRlcgy+llN8cGRMn/BbCAXVBvJZkrtsoNJw0mtFsLQRSlzkZTXLJ11NcZIhEvZTs6IEv
-	vzxFXLa4JsuSDCu+fPiTiUMX8/0p13ySVuB+O+mMQO26uzSjJ9nniwpiyGx4K/BKwBzcOER8/5FTX
-	qFKU4OWBza7TQkUqqQ2Oob6kuS0hz2smBBJDmAPXRaX/COU7ZXQ++niTYuUXBu2aJszXJQ6ys2mYM
-	wVeXNq1bO9Py316igjnw==;
+	List-Owner; bh=+j5GTiZa3TTfnpTk6NJI5zWJPiBFyj1bGW8YKyTBZjo=; b=niQPfoHyPXr2eN
+	IpQgi1XS41ejZ/mrmYyRMtrIBDvlpOMLmBm/jOwtY0nK/ITSyonmxNO+pZnPhn1DvU5aXZmWdPJgY
+	r7FADNXuhPnfa8PQAPaGyCa4kFXlb9+rag3ESa7Hz98q6U+awolbBcmKDkLTVYGSMgB8+9Jlddw1Z
+	sXiZj/cWqFFn5pxipcLITEN/AvHczF3A/hGYSG3o39Gag0EihzxgkiltBDes61tcMXAc+zhNA2s+m
+	tCtyWraQaHa56J1KxeYJVLw6GN7OjNsTFXIopsU1CI/FLfgu19VwfARU3qJ5z/uS7QOWpM+cRQPCi
+	Nti+f1oTws1aGTPATLSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rskdW-00000007UIP-2xYS;
-	Fri, 05 Apr 2024 14:33:46 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1rskei-00000007Uf5-0Ntv;
+	Fri, 05 Apr 2024 14:35:00 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rskdS-00000007UDJ-2lHx
+	id 1rsjXU-00000007CXb-3Y2A
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Apr 2024 14:33:44 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-343e7c20686so485346f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Apr 2024 07:33:38 -0700 (PDT)
+	Fri, 05 Apr 2024 13:23:30 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-a51a8749478so59387466b.2
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Apr 2024 06:23:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1712327617; x=1712932417; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XE7bBtXjTLLxuBkd0cUQ4f+BnesVFs7jpuSpsklKO2U=;
-        b=X/jF/F+oiQqnd5Gg3BMyvHN2udx31OTLsH6YmDF4ClMBNbE3v4xJzW87H3m+0J/91l
-         T9fhtN185x6Pf+EwgI/N2j/6vkvHsrXaVC3ezuBCx1WA1tk11Zflf3hsZ0hLixJP7UrH
-         ERG3DuEhFvqCfnCYiONPOWB0xRaYu7jRJIwU5lsDRAOrM9sLhfFSddb3YoDh08ZOKhyd
-         ws4Pez6yBqUmqkPAThQ1gaRyc54+/B8I/X56aGrtuIm+GX6VpkUxDamIm8ixXgeaTh5e
-         ztTzeZM6IF2N+GzTdwY2LGsUINSF42I43FhgaKhL8KKgK91GjKVl7kdUeObcJF6W1oi5
-         U8Bw==
+        d=ventanamicro.com; s=google; t=1712323402; x=1712928202; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WAlEwvrkVW7t1ChXhk39Ejj3ZEPYPMlfWsiWP+NJhlQ=;
+        b=NKpo3yUe5SZGQdFLjmCn592xBfd5FzM6EQHMW/UIJ/8Fd9IX6FE/zQPBQnXV0a2s7a
+         d5C/kAYfKgby8QQ9GMKCczo1gO5IrlpCz0CsPa9Tza5IU43+ZADxeA0KGXEjbcdT/ExF
+         NDilGPufRTXX6mZ+US3gYgwv+KoqSm8TN1HSxUrr7OQ7exthI46G6wC+ymWpbGzdjVwY
+         cR7uMMERJWR7ArEJRQ1JJos3Cj/z/5xkVmabfIiNpB2Fc2S8ALmYeN4xSZvDJhH0/pXV
+         GMexeqnSDBCKQs59ZhTM6ozYQNr+YXfYaWWDNxf7dsT3x63ZT+2P9whMvxThDyHKpv7b
+         WTaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712327617; x=1712932417;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:to:from:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=XE7bBtXjTLLxuBkd0cUQ4f+BnesVFs7jpuSpsklKO2U=;
-        b=U8LGVKeoEywUEYZGRzyQHMtnkSt0l3FkYCs+AqNw+mUuMz1MROcDw7nCAjL65Jm2b/
-         eh08WFi3i/PwJxiFX8jcewAwpfJDik+fdQNz1q+Zjr7kWEw+3g9saVXnzdzNZtKSLGef
-         LwgwIgggCitJJpsZVrDJB1YvvLErbW5rPew1Id+yueHphGsRnIFk7/8U+qNJWz++7Rmu
-         mQqvTrQCLq5eDk3iR/W38rW8obuNkKkmu1XKuSz1+psvM1ZQx9iz81jMLlLm6zanooaF
-         AvZYSk7IEiknFETeA3RCer273YrfPaPUZ4HJu4QmRR3emSfCb6d6AebwYYku4MrAvQ77
-         OqPg==
-X-Forwarded-Encrypted: i=1; AJvYcCWFRCioAQT2eeL1HtECzDKtIKS6IAJ2AYQu26thQAAPCEVtp4Fa2jH8L3OnagdLz3/HDrNqM7ppe37sj3I5DVLst+JCDPjaLm2Lsig7Dy+G
-X-Gm-Message-State: AOJu0Yw0ZD6X7iJrnilmfX4Gdmm1Y41Ef7CwS65VEkERNISyGiCUs+X1
-	erbhlvNQFqXFMxh1ltZfASKWA7zWPpT4kcwNH1ozTrkKvs3qpqQDzCXjrB3WjMwRy83t
-X-Google-Smtp-Source: AGHT+IEZHLxAivag9esAnrX7FyCLYw7AgXgDUqm69jkpKf7pmtQeCzm4iQJH8oEUjk/4um4e6tEGng==
-X-Received: by 2002:a05:6000:229:b0:343:968e:f27c with SMTP id l9-20020a056000022900b00343968ef27cmr1223599wrz.27.1712327617094;
-        Fri, 05 Apr 2024 07:33:37 -0700 (PDT)
-Received: from localhost (54-240-197-231.amazon.com. [54.240.197.231])
-        by smtp.gmail.com with ESMTPSA id d11-20020adff84b000000b0033e7a102cfesm2167143wrq.64.2024.04.05.07.33.36
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 05 Apr 2024 07:33:36 -0700 (PDT)
-From: Puranjay Mohan <puranjay12@gmail.com>
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Alexei Starovoitov
- <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
- <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, "Eduard
- Zingerman" <eddyz87@gmail.com>, Song Liu <song@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, "KP
- Singh" <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
- <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Pu Lehui
- <pulehui@huawei.com>
-Subject: Re: [PATCH bpf-next] riscv, bpf: add internal-only MOV instruction
- to resolve per-CPU addrs
-In-Reply-To: <87wmpbnbce.fsf@all.your.base.are.belong.to.us>
-References: <20240405124348.27644-1-puranjay12@gmail.com>
- <87wmpbnbce.fsf@all.your.base.are.belong.to.us>
-Date: Fri, 05 Apr 2024 14:33:34 +0000
-Message-ID: <mb61pjzlb98w1.fsf@gmail.com>
+        d=1e100.net; s=20230601; t=1712323402; x=1712928202;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WAlEwvrkVW7t1ChXhk39Ejj3ZEPYPMlfWsiWP+NJhlQ=;
+        b=Q/1+z3OejKkhsPtDmNU+d+8CuzfVzvKR2/lBh2T9L4VFDnr4B5iP3TWidnynqBaD14
+         Paq0X1zrvw3aQBx8JO8Z6ZrOyVYVovJeBEKT9mqcLRuIJt+wmsPmfZUUQNwJSTCY73XS
+         1JSjtUShU7O9tgy11/Gidv0vGRwFOeFMRiM8EX11aThyTLDsVEkU3Nah11HYibulLu/W
+         Z931QKOjbMypNBuXI1VdDwJL6fTu+T+bZwJxW33+8Ug4ciBSJ7A/3UC1ITohWmim6WX3
+         Y+2zDHRthaxb2OikJQsks+l6FnhuWUDTbJSpksxWoLgsWqAda8snQehd1jeVlYKITq3a
+         x1zw==
+X-Forwarded-Encrypted: i=1; AJvYcCXb3vS4JYpf0Iga6if13pQO51GZKYgPJmHAOLStX0PqCZ9pc9PiDbWtuOjRpuz4sFlyzCmMj+5GqN5mwvqkK+zZXtFNlTXkb2RWyA4Fgt9k
+X-Gm-Message-State: AOJu0Yy6clfhESaQkUwNA5leENkxynlnChs1l2sITjeDRisM8bcYoEXY
+	EFQpLahv00WwuETJYMV8z6+QVrnqN/5DxxVmv+F8EQzvEqOBi80FOeAUVRM9zYw=
+X-Google-Smtp-Source: AGHT+IFT5fpj+iBK8UO32k7xz0OaaW2bIAmv7JHzJqwxSEHIQcNC0uhhtNFgJzf9NkGng4ZOEcQb2w==
+X-Received: by 2002:a17:906:4a81:b0:a4a:3663:2f51 with SMTP id x1-20020a1709064a8100b00a4a36632f51mr1265585eju.2.1712323402070;
+        Fri, 05 Apr 2024 06:23:22 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id dr2-20020a170907720200b00a4ea1fbb323sm822066ejc.98.2024.04.05.06.23.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Apr 2024 06:23:21 -0700 (PDT)
+Date: Fri, 5 Apr 2024 15:23:20 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>, 
+	Ajay Kaher <akaher@vmware.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Alexey Makhalov <amakhalov@vmware.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Juergen Gross <jgross@suse.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, 
+	VMware PV-Drivers Reviewers <pv-drivers@vmware.com>, Will Deacon <will@kernel.org>, x86@kernel.org
+Subject: Re: [PATCH v5 22/22] KVM: riscv: selftests: Add a test for counter
+ overflow
+Message-ID: <20240405-3a20fe10d65368651c2d23fa@orel>
+References: <20240403080452.1007601-1-atishp@rivosinc.com>
+ <20240403080452.1007601-23-atishp@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240403080452.1007601-23-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240405_073342_722152_58C26540 
-X-CRM114-Status: GOOD (  21.12  )
+X-CRM114-CacheID: sfid-20240405_062329_061826_90EAAED2 
+X-CRM114-Status: GOOD (  29.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,70 +96,211 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4gd3JpdGVzOgoKPiBQdXJhbmpheSBNb2hh
-biA8cHVyYW5qYXkxMkBnbWFpbC5jb20+IHdyaXRlczoKPgo+PiBTdXBwb3J0IGFuIGluc3RydWN0
-aW9uIGZvciByZXNvbHZpbmcgYWJzb2x1dGUgYWRkcmVzc2VzIG9mIHBlci1DUFUKPj4gZGF0YSBm
-cm9tIHRoZWlyIHBlci1DUFUgb2Zmc2V0cy4gVGhpcyBpbnN0cnVjdGlvbiBpcyBpbnRlcm5hbC1v
-bmx5IGFuZAo+PiB1c2VycyBhcmUgbm90IGFsbG93ZWQgdG8gdXNlIHRoZW0gZGlyZWN0bHkuIFRo
-ZXkgd2lsbCBvbmx5IGJlIHVzZWQgZm9yCj4+IGludGVybmFsIGlubGluaW5nIG9wdGltaXphdGlv
-bnMgZm9yIG5vdyBiZXR3ZWVuIEJQRiB2ZXJpZmllciBhbmQgQlBGCj4+IEpJVHMuCj4+Cj4+IFJJ
-U0MtViB1c2VzIGdlbmVyaWMgcGVyLWNwdSBpbXBsZW1lbnRhdGlvbiB3aGVyZSB0aGUgb2Zmc2V0
-cyBmb3IgQ1BVcwo+PiBhcmUga2VwdCBpbiBhbiBhcnJheSBjYWxsZWQgX19wZXJfY3B1X29mZnNl
-dFtjcHVfbnVtYmVyXS4gUklTQ1Ygc3RvcmVzCj4+IHRoZSBhZGRyZXNzIG9mIHRoZSB0YXNrX3N0
-cnVjdCBpbiBUUCByZWdpc3Rlci4gVGhlIGZpcnN0IGVsZW1lbnQgaW4KPj4gdGFzdF9zdHJ1Y3Qg
-aXMgc3RydWN0IHRocmVhZF9pbmZvLCBhbmQgd2UgY2FuIGdldCB0aGUgY3B1IG51bWJlciBieQo+
-ICAgICAgXgo+ICAgICAgayA7LSkKCkkgbmVlZCB0byBzdGFydCB1c2luZyBzb21lIGtpbmQgb2Yg
-c3BlbGwtY2hlY2sgaW4gdmltIDpELgoKPj4gcmVhZGluZyBmcm9tIHRoZSBUUCByZWdpc3RlciAr
-IG9mZnNldG9mKHN0cnVjdCB0aHJlYWRfaW5mbywgY3B1KS4KPj4KPj4gT25jZSB3ZSBoYXZlIHRo
-ZSBjcHUgbnVtYmVyIGluIGEgcmVnaXN0ZXIgd2UgcmVhZCB0aGUgb2Zmc2V0IGZvciB0aGF0Cj4+
-IGNwdSBmcm9tIGFkZHJlc3M6ICZfX3Blcl9jcHVfb2Zmc2V0ICsgY3B1X251bWJlciA8PCAzLiBU
-aGVuIHdlIGFkZCB0aGlzCj4+IG9mZnNldCB0byB0aGUgZGVzdGluYXRpb24gcmVnaXN0ZXIuCj4K
-PiBKdXN0IHRvIGNsYXJpZnkgZm9yIHJlYWRlcnM7IEJQRiBwcm9ncmFtcyBhcmUgcnVuIHdpdGgg
-bWlncmF0ZSBkaXNhYmxlLAo+IHdoaWNoIG1lYW5zIHRoYXQgb24gUlQgd2UgY2FuIGJlIHByZWVt
-cHRlZCwgd2hpY2ggbWVhbnMgdGhhdCBwZXItY3B1Cj4gb3BlcmF0aW9ucyBhcmUgdHJpY2tpZXIg
-KGRpc2FibGluZyBpbnRlcnJ1cHRzL3ByZWVtcHRpb24pLgo+Cj4gSG93ZXZlciwgdGhpcyBCUEYg
-aW5zdHJ1Y3Rpb24gaXMgYWJvdXQgY2FsY3VsYXRpbmcgdGhlIHBlci1jcHUgYWRkcmVzcywKPiBz
-byB0aGUgbG9vayB1cCBjYW4gYmUgaW5saW5lZC4KPgo+IEl0J3Mgbm90IGEgcGVyLWNwdSAqb3Bl
-cmF0aW9uKi4KCldpbGwgYWRkIHRoaXMgaW5mb3JtYXRpb24gdG8gdGhlIGNvbW1pdCBtZXNzYWdl
-LgoKPj4gVG8gbWVhc3VyZSB0aGUgaW1wcm92ZW1lbnQgZnJvbSB0aGlzIGNoYW5nZSwgdGhlIGJl
-bmNobWFyayBpbiBbMV0gd2FzCj4+IHVzZWQgb24gUWVtdToKPj4KPj4gQmVmb3JlOgo+PiBnbG9i
-LWFyci1pbmMgICA6ICAgIDEuMTI3IMKxIDAuMDEzTS9zCj4+IGFyci1pbmMgICAgICAgIDogICAg
-MS4xMjEgwrEgMC4wMDRNL3MKPj4gaGFzaC1pbmMgICAgICAgOiAgICAwLjY4MSDCsSAwLjA1Mk0v
-cwo+Pgo+PiBBZnRlcjoKPj4gZ2xvYi1hcnItaW5jICAgOiAgICAxLjEzOCDCsSAwLjAxMU0vcwo+
-PiBhcnItaW5jICAgICAgICA6ICAgIDEuMzY2IMKxIDAuMDA2TS9zCj4+IGhhc2gtaW5jICAgICAg
-IDogICAgMC42NzYgwrEgMC4wMDFNL3MKPj4KPj4gWzFdIGh0dHBzOi8vZ2l0aHViLmNvbS9hbmFr
-cnlpa28vbGludXgvY29tbWl0LzhkZWM5MDA5NzVlZgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBQdXJh
-bmpheSBNb2hhbiA8cHVyYW5qYXkxMkBnbWFpbC5jb20+Cj4+IC0tLQo+PiAgYXJjaC9yaXNjdi9u
-ZXQvYnBmX2ppdF9jb21wNjQuYyB8IDI0ICsrKysrKysrKysrKysrKysrKysrKysrKwo+PiAgMSBm
-aWxlIGNoYW5nZWQsIDI0IGluc2VydGlvbnMoKykKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlz
-Y3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5j
-Cj4+IGluZGV4IDE1ZTQ4MmYyYzY1Ny4uZTk1YmQxZDQ1OWE0IDEwMDY0NAo+PiAtLS0gYS9hcmNo
-L3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jCj4+ICsrKyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9q
-aXRfY29tcDY0LmMKPj4gQEAgLTEyLDYgKzEyLDcgQEAKPj4gICNpbmNsdWRlIDxsaW51eC9zdG9w
-X21hY2hpbmUuaD4KPj4gICNpbmNsdWRlIDxhc20vcGF0Y2guaD4KPj4gICNpbmNsdWRlIDxhc20v
-Y2ZpLmg+Cj4+ICsjaW5jbHVkZSA8YXNtL3BlcmNwdS5oPgo+PiAgI2luY2x1ZGUgImJwZl9qaXQu
-aCIKPj4gIAo+PiAgI2RlZmluZSBSVl9GRU5UUllfTklOU05TIDIKPj4gQEAgLTEwODksNiArMTA5
-MCwyNCBAQCBpbnQgYnBmX2ppdF9lbWl0X2luc24oY29uc3Qgc3RydWN0IGJwZl9pbnNuICppbnNu
-LCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCwKPj4gIAkJCWVtaXRfb3IoUlZfUkVHX1QxLCBy
-ZCwgUlZfUkVHX1QxLCBjdHgpOwo+PiAgCQkJZW1pdF9tdihyZCwgUlZfUkVHX1QxLCBjdHgpOwo+
-PiAgCQkJYnJlYWs7Cj4+ICsJCX0gZWxzZSBpZiAoaW5zbl9pc19tb3ZfcGVyY3B1X2FkZHIoaW5z
-bikpIHsKPj4gKwkJCWlmIChyZCAhPSBycykKPj4gKwkJCQllbWl0X212KHJkLCBycywgY3R4KTsK
-Pj4gKyNpZmRlZiBDT05GSUdfU01QCj4+ICsJCQkJLyogTG9hZCBjdXJyZW50IENQVSBudW1iZXIg
-aW4gVDEgKi8KPj4gKwkJCQllbWl0X2xkKFJWX1JFR19UMSwgb2Zmc2V0b2Yoc3RydWN0IHRocmVh
-ZF9pbmZvLCBjcHUpLCBSVl9SRUdfVFAsCj4+ICsJCQkJCWN0eCk7Cj4+ICsJCQkJLyogPDwgMyBi
-ZWNhdXNlIG9mZnNldHMgYXJlIDggYnl0ZXMgKi8KPj4gKwkJCQllbWl0X3NsbGkoUlZfUkVHX1Qx
-LCBSVl9SRUdfVDEsIDMsIGN0eCk7Cj4+ICsJCQkJLyogTG9hZCBhZGRyZXNzIG9mIF9fcGVyX2Nw
-dV9vZmZzZXQgYXJyYXkgaW4gVDIgKi8KPj4gKwkJCQllbWl0X2ltbShSVl9SRUdfVDIsICh1NjQp
-Jl9fcGVyX2NwdV9vZmZzZXQsIGN0eCk7Cj4KPiBEaWQgeW91IHRyeSB1c2luZyBlbWl0X2FkZHIo
-KSBoZXJlPyBJJ2QgZ3Vlc3MgdGhhdCdsbCBiZSBmZXdlcgo+IGluc3RydWN0aW9ucywgbm8/CgpZ
-ZXMsIEkgc2hvdWxkIGhhdmUgdXNlZCB0aGF0LCB0aGUgYWRkcmVzcyB3b3VsZCBhbHdheXMgYmUg
-aW4gdGhlIHJhbmdlCm9mIGF1aXBjK2FkZGkgcmlnaHQ/IEkgd2lsbCB0cnkgYW5kIHNlZS4gCgpU
-aGFua3MsClB1cmFuamF5CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On Wed, Apr 03, 2024 at 01:04:51AM -0700, Atish Patra wrote:
+> Add a test for verifying overflow interrupt. Currently, it relies on
+> overflow support on cycle/instret events. This test works for cycle/
+> instret events which support sampling via hpmcounters on the platform.
+> There are no ISA extensions to detect if a platform supports that. Thus,
+> this test will fail on platform with virtualization but doesn't
+> support overflow on these two events.
+
+Maybe we should give the user a command line option to disable this test
+in case the platform they're testing doesn't support it but they want to
+run the rest of the tests without getting a FAIL.
+
+> 
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  .../selftests/kvm/riscv/sbi_pmu_test.c        | 114 ++++++++++++++++++
+>  1 file changed, 114 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> index 7d195be5c3d9..451db956b885 100644
+> --- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> @@ -14,6 +14,7 @@
+>  #include "test_util.h"
+>  #include "processor.h"
+>  #include "sbi.h"
+> +#include "arch_timer.h"
+>  
+>  /* Maximum counters(firmware + hardware) */
+>  #define RISCV_MAX_PMU_COUNTERS 64
+> @@ -24,6 +25,9 @@ union sbi_pmu_ctr_info ctrinfo_arr[RISCV_MAX_PMU_COUNTERS];
+>  static void *snapshot_gva;
+>  static vm_paddr_t snapshot_gpa;
+>  
+> +static int vcpu_shared_irq_count;
+> +static int counter_in_use;
+> +
+>  /* Cache the available counters in a bitmask */
+>  static unsigned long counter_mask_available;
+>  
+> @@ -117,6 +121,31 @@ static void guest_illegal_exception_handler(struct ex_regs *regs)
+>  	regs->epc += 4;
+>  }
+>  
+> +static void guest_irq_handler(struct ex_regs *regs)
+> +{
+> +	unsigned int irq_num = regs->cause & ~CAUSE_IRQ_FLAG;
+> +	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
+> +	unsigned long overflown_mask;
+> +	unsigned long counter_val = 0;
+> +
+> +	/* Validate that we are in the correct irq handler */
+> +	GUEST_ASSERT_EQ(irq_num, IRQ_PMU_OVF);
+> +
+> +	/* Stop all counters first to avoid further interrupts */
+> +	stop_counter(counter_in_use, SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT);
+> +
+> +	csr_clear(CSR_SIP, BIT(IRQ_PMU_OVF));
+> +
+> +	overflown_mask = READ_ONCE(snapshot_data->ctr_overflow_mask);
+> +	GUEST_ASSERT(overflown_mask & 0x01);
+> +
+> +	WRITE_ONCE(vcpu_shared_irq_count, vcpu_shared_irq_count+1);
+> +
+> +	counter_val = READ_ONCE(snapshot_data->ctr_values[0]);
+> +	/* Now start the counter to mimick the real driver behavior */
+> +	start_counter(counter_in_use, SBI_PMU_START_FLAG_SET_INIT_VALUE, counter_val);
+> +}
+> +
+>  static unsigned long get_counter_index(unsigned long cbase, unsigned long cmask,
+>  				       unsigned long cflags,
+>  				       unsigned long event)
+> @@ -276,6 +305,33 @@ static void test_pmu_event_snapshot(unsigned long event)
+>  	stop_reset_counter(counter, 0);
+>  }
+>  
+> +static void test_pmu_event_overflow(unsigned long event)
+> +{
+> +	unsigned long counter;
+> +	unsigned long counter_value_post;
+> +	unsigned long counter_init_value = ULONG_MAX - 10000;
+> +	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
+> +
+> +	counter = get_counter_index(0, counter_mask_available, 0, event);
+> +	counter_in_use = counter;
+> +
+> +	/* The counter value is updated w.r.t relative index of cbase passed to start/stop */
+> +	WRITE_ONCE(snapshot_data->ctr_values[0], counter_init_value);
+> +	start_counter(counter, SBI_PMU_START_FLAG_INIT_SNAPSHOT, 0);
+> +	dummy_func_loop(10000);
+> +	udelay(msecs_to_usecs(2000));
+> +	/* irq handler should have stopped the counter */
+> +	stop_counter(counter, SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT);
+> +
+> +	counter_value_post = READ_ONCE(snapshot_data->ctr_values[0]);
+> +	/* The counter value after stopping should be less the init value due to overflow */
+> +	__GUEST_ASSERT(counter_value_post < counter_init_value,
+> +		       "counter_value_post %lx counter_init_value %lx for counter\n",
+> +		       counter_value_post, counter_init_value);
+> +
+> +	stop_reset_counter(counter, 0);
+> +}
+> +
+>  static void test_invalid_event(void)
+>  {
+>  	struct sbiret ret;
+> @@ -366,6 +422,34 @@ static void test_pmu_events_snaphost(void)
+>  	GUEST_DONE();
+>  }
+>  
+> +static void test_pmu_events_overflow(void)
+> +{
+> +	int num_counters = 0;
+> +
+> +	/* Verify presence of SBI PMU and minimum requrired SBI version */
+> +	verify_sbi_requirement_assert();
+> +
+> +	snapshot_set_shmem(snapshot_gpa, 0);
+> +	csr_set(CSR_IE, BIT(IRQ_PMU_OVF));
+> +	local_irq_enable();
+> +
+> +	/* Get the counter details */
+> +	num_counters = get_num_counters();
+> +	update_counter_info(num_counters);
+> +
+> +	/*
+> +	 * Qemu supports overflow for cycle/instruction.
+> +	 * This test may fail on any platform that do not support overflow for these two events.
+> +	 */
+> +	test_pmu_event_overflow(SBI_PMU_HW_CPU_CYCLES);
+> +	GUEST_ASSERT_EQ(vcpu_shared_irq_count, 1);
+> +
+> +	test_pmu_event_overflow(SBI_PMU_HW_INSTRUCTIONS);
+> +	GUEST_ASSERT_EQ(vcpu_shared_irq_count, 2);
+> +
+> +	GUEST_DONE();
+> +}
+> +
+>  static void run_vcpu(struct kvm_vcpu *vcpu)
+>  {
+>  	struct ucall uc;
+> @@ -451,6 +535,33 @@ static void test_vm_events_snapshot_test(void *guest_code)
+>  	test_vm_destroy(vm);
+>  }
+>  
+> +static void test_vm_events_overflow(void *guest_code)
+> +{
+> +	struct kvm_vm *vm = NULL;
+> +	struct kvm_vcpu *vcpu;
+> +
+> +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
+> +	__TEST_REQUIRE(__vcpu_has_sbi_ext(vcpu, KVM_RISCV_SBI_EXT_PMU),
+> +				   "SBI PMU not available, skipping test");
+> +
+> +	__TEST_REQUIRE(__vcpu_has_isa_ext(vcpu, KVM_RISCV_ISA_EXT_SSCOFPMF),
+> +				   "Sscofpmf is not available, skipping overflow test");
+> +
+> +
+
+extra blank line here
+
+> +	test_vm_setup_snapshot_mem(vm, vcpu);
+> +	vm_init_vector_tables(vm);
+> +	vm_install_interrupt_handler(vm, guest_irq_handler);
+> +
+> +	vcpu_init_vector_tables(vcpu);
+> +	/* Initialize guest timer frequency. */
+> +	vcpu_get_reg(vcpu, RISCV_TIMER_REG(frequency), &timer_freq);
+> +	sync_global_to_guest(vm, timer_freq);
+> +
+> +	run_vcpu(vcpu);
+> +
+> +	test_vm_destroy(vm);
+> +}
+> +
+>  int main(void)
+>  {
+>  	pr_info("SBI PMU basic test : starting\n");
+> @@ -463,5 +574,8 @@ int main(void)
+>  	test_vm_events_snapshot_test(test_pmu_events_snaphost);
+>  	pr_info("SBI PMU event verification with snapshot test : PASS\n");
+>  
+> +	test_vm_events_overflow(test_pmu_events_overflow);
+> +	pr_info("SBI PMU event verification with overflow test : PASS\n");
+> +
+>  	return 0;
+>  }
+> -- 
+> 2.34.1
+>
+
+Other than the command line option idea,
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
