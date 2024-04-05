@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD1ABCD11C2
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Apr 2024 12:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C59ECD11C2
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Apr 2024 12:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T2icQ7isws248soCS+8sRFQqXf3kJ3a9KRf+nhDW/bk=; b=LjEMJ99jeCsVfe
-	up3o6iMXWxHrZLrElO13YLUb7BvAkV0YibY5YIEZG5dvaN5SQUD43qKPfMNPgbh0H+dAEKaF30veT
-	ILRcOMwJSZLw+8x9R6s0vnrU1BtYvJ5I++C6XkhUru7ezcQTI/+j0uBnSQGgaJUFOKkvaEs5V9FYZ
-	THAZlw/XDdQ2rbadbt/cGiLv+jCXKXbra/X0Ofvt4DtpaVBdU49N9WyCWc9DOmiVwNfLiWKZCOu9V
-	/s0ykN3yfN33PDeHy6vd7pQqSWFm6Q22nV+gBlXun4GHQpcmGZUiYd9qn55i12Poyaq0CBarloZ83
-	tutPHldlibrgkr2ny8Nw==;
+	List-Owner; bh=uT1/Oeg0XamYYuIsNNI4fk141Ui0bfa0VLpRFI7TIIk=; b=lDRJ6XmerzJpcX
+	Fq3GRdPrf/gQl3/B+r3RFlbzYGe4rh83CaTGl5GswB52r3sPGXBh0F4YNqcwkhWtIB6ByMbCtRWXb
+	NqhG0tOQXOteP+UOVUfsNJtZuDBMVeei/Kr8tjL9J/JgtWz+YHLS4kwg2xl3QbdMim1g7cUo6viEa
+	OtVzG9MtLjEeNMtVHp8PeuNrsRwOVkv4EOBNs5MvkBcBxqdtQrEHvMy606T9+vHgdvThtPxg5c97Y
+	DsHfr3cSF5tCpNKqHZN7zW8TdLjqBwHg5hgu7Iu2Mw2alSDkjXY2N5BlS7gBS/waEUOY+9re5wWI4
+	f2LGadVsSkVE7Ovk5A7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsizW-0000000724A-22uF;
-	Fri, 05 Apr 2024 12:48:22 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1rsj1j-000000072gn-1D4p;
+	Fri, 05 Apr 2024 12:50:39 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsizT-0000000722u-2alk
+	id 1rsj1f-000000072dh-0TQk
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Apr 2024 12:48:21 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-516ab4b3251so2503951e87.0
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Apr 2024 05:48:18 -0700 (PDT)
+	Fri, 05 Apr 2024 12:50:37 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a46ea03c2a5so365845266b.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Apr 2024 05:50:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1712321296; x=1712926096; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1712321433; x=1712926233; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1gqJXCFhYHxuGeDzQHXUm6mF/uMGESwP7Rig2uzwTrg=;
-        b=aHnVkrpbZuzA19VkZsjH+/fTTVVOXzsqbZztygam4jnWKpzIKIODx+DgnX1ym+SVBn
-         07TY9ZsUCOmOdM73s+05KaJifDzr6x/KfN5BW4R3TRk9HeEebUZcWW/oSyvQ18o26qFp
-         XeOxnrfBPdBB43c0M8FkD2V7NNDEQTwsUyZrj8qtuTG6Edz6wCI21Z+EGBxifNBAgqvP
-         EFSFybMbn70FwwLgrFsX6IT2I+jZg+Dmv7GfoWalOvEnB/myYvqdLtimHjgB38ZmSDx2
-         2b0F9OF8Ub8fpmKGbrXuMdAU+UYRqJlimKq7YfpgCYJa7LqvUKfMeO+VQCSD2dp/xxaP
-         QHGg==
+        bh=d+KZChT2cdzkHkVrpBT1mwN6D5B3F3KpgiaxmMWQvAA=;
+        b=od2njVNmmeFGAxMPUJvEALRT9cbC595kyMP5XzUWkkIYbvlxI2ceCz57cU3Xt/D5IR
+         m4faCTxfwvNcLRutXZPeorAts0gFfazsAlxoPuM+KbJnDSVOC0yMAn6C0TqDSvd3AVe2
+         /FuLcGQszXRNc3ZvwQUUSbgzu0TbLXGutt4rnfGTy9zIe6e99L944HGzDz5FPeyHN+Au
+         437skFSokkKfTiGI6FhZSr/m73sdbQFa4dEm2RQ6drQGZ4vKg+fjeMdbTljr2iHMJD3J
+         6yelsZFC1YZ82xx868yf78wJwmhu0a87Pibau+ZOR0NcYNr/sUyFSX/ZTAp5CUQ/gjw1
+         nwYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712321296; x=1712926096;
+        d=1e100.net; s=20230601; t=1712321433; x=1712926233;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1gqJXCFhYHxuGeDzQHXUm6mF/uMGESwP7Rig2uzwTrg=;
-        b=LqZvS/DaqTARCLEOwHlBnnRK4f+niq2QQLhwO4ccJJllnE80pct17JTprU13iK7VHX
-         rRxkV1Oi1FnnKvZDBY5i4yaNVdMrX3AdfIhYW1y1ch6nmQTGtW0r3z6zQ04XbOMYts5N
-         Mdg6Wpf4S9b2ujwdZjWwmICkpfO0QUtx5WABosAKB4Qpm590/wcggiDsZcMLGWD5mOQK
-         pL8zD+6viNxyBB8EKgbMEQdn7Q11hFDlwJ7ucvQveiin7SGEfqxCLAQSD8fj7yk/3epr
-         pMhfc1WzzFoBn5wTeq7aI2IkaG7lt82aSDamDQOIRik5K1V27Adq9txd8xcdWpCw6ty/
-         fojQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXWdT1Td9OwicX6ZSevBys1qQ61A0zMUzF4js7n+DJl7qIZUFXd+tE5/9/pZN8m+tHCGBGTzIW110+s1L+F6Vn4Vyjqq3xYb7mShNC/2EcY
-X-Gm-Message-State: AOJu0YyEbtTnW9hGjOcsFogfeqsWPpxhitZFxWQobwV2R6tOCuBMA8N1
-	KT+aarON9SC+MsiDr09bFSFLaHtt/3eF933q+yhda8uPQEl8MWFR0uXtNhBkUDM=
-X-Google-Smtp-Source: AGHT+IFEgm+u9cR3VSBSNQtYk5knjRxPrUMvf+kSAsf2mgyfdrQjMfXWeVpxY5HnY8fvu518V/oPuQ==
-X-Received: by 2002:ac2:446d:0:b0:513:eeaa:8f1f with SMTP id y13-20020ac2446d000000b00513eeaa8f1fmr1128144lfl.47.1712321296604;
-        Fri, 05 Apr 2024 05:48:16 -0700 (PDT)
+        bh=d+KZChT2cdzkHkVrpBT1mwN6D5B3F3KpgiaxmMWQvAA=;
+        b=o1jR3aZ8hAF/QK6PJo/X02RJZjI/xnSKd2iA8VtTbGu55rLNi2pKR9Kji0dGGVcMg6
+         t56xw+mJNZtQQJhGDmkTneTsJisC80S1QRqMWxoCnhZfClKE6gQWf4FxWFd5uFwpiTLO
+         E5HR5xFINJlGSbwk370iFx92I34Jh0rVBkyoc27a37P/+eV+RF7iEOEHdrP18W90maum
+         Il7IrqqhRM6ipYNJTUjm9kMRJ0yh3WbOksmAOec5Kfx6HBxovqpXt4lYPbyrGLLrSKKJ
+         UTT3VK3A+dIOaouScT8iM2sjMDaFC6Buayzt82SQnVcH3Yj3Q1uN+ox1DfIE+LIWYzxQ
+         I+ng==
+X-Forwarded-Encrypted: i=1; AJvYcCUkUCjoljbdjB/kd7FEjR88RhTGAPLyP2M9z4JpxvzUQuCZhUX+61zJ3tHQOiKgqEiFHyDq+SS3aXO4MMDlxj7X6YaRw6D1h4Q53ulywPAC
+X-Gm-Message-State: AOJu0YxUm9zf+ZYR4pKpII6loYEGi4JoR4BY4oExAgu5lff+Uj7nf7iP
+	hd1LLEGtkr0qpxlZp8wemgMqW3QjYoOvx4CnTrPqEvrkDS/hxlRIkqKYoKUICDo=
+X-Google-Smtp-Source: AGHT+IG6XKFR7iCnTYVsn72OcFsqQ/CO3Rz0ggpBtTVg/0txMW6+hBUP+NpuyuP8ULhm5Cq9UuLdpA==
+X-Received: by 2002:a17:907:1711:b0:a51:8a0c:cf39 with SMTP id le17-20020a170907171100b00a518a0ccf39mr1906632ejc.20.1712321432731;
+        Fri, 05 Apr 2024 05:50:32 -0700 (PDT)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id n20-20020aa7c694000000b0056c56d18d07sm761088edq.48.2024.04.05.05.48.16
+        by smtp.gmail.com with ESMTPSA id jy5-20020a170907762500b00a466af74ef2sm806704ejc.2.2024.04.05.05.50.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Apr 2024 05:48:16 -0700 (PDT)
-Date: Fri, 5 Apr 2024 14:48:15 +0200
+        Fri, 05 Apr 2024 05:50:32 -0700 (PDT)
+Date: Fri, 5 Apr 2024 14:50:31 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@atishpatra.org>
-Subject: Re: [PATCH v4 13/15] KVM: riscv: selftests: Add SBI PMU selftest
-Message-ID: <20240405-3242460b23ce1daf905242df@orel>
-References: <20240229010130.1380926-1-atishp@rivosinc.com>
- <20240229010130.1380926-14-atishp@rivosinc.com>
- <20240302-ed6c516829dc0ed616f39a45@orel>
- <CAOnJCUK2D6-zP4=DiXRMeFQsMc9iG5nWY-yYHMhg83h_q+OtnQ@mail.gmail.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>, 
+	Ajay Kaher <akaher@vmware.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Alexey Makhalov <amakhalov@vmware.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Juergen Gross <jgross@suse.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, 
+	VMware PV-Drivers Reviewers <pv-drivers@vmware.com>, Will Deacon <will@kernel.org>, x86@kernel.org
+Subject: Re: [PATCH v5 20/22] KVM: riscv: selftests: Add SBI PMU selftest
+Message-ID: <20240405-d1a4cb9a441a05a9d2f8b1c8@orel>
+References: <20240403080452.1007601-1-atishp@rivosinc.com>
+ <20240403080452.1007601-21-atishp@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAOnJCUK2D6-zP4=DiXRMeFQsMc9iG5nWY-yYHMhg83h_q+OtnQ@mail.gmail.com>
+In-Reply-To: <20240403080452.1007601-21-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240405_054819_788334_425F55B5 
-X-CRM114-Status: GOOD (  26.35  )
+X-CRM114-CacheID: sfid-20240405_055035_220063_36DA30B4 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,60 +95,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-kselftest@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, kvm@vger.kernel.org, Will Deacon <will@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, kvm-riscv@lists.infradead.org, Paolo Bonzini <pbonzini@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 02, 2024 at 01:34:54AM -0700, Atish Patra wrote:
+On Wed, Apr 03, 2024 at 01:04:49AM -0700, Atish Patra wrote:
 ...
-> > > +static void guest_illegal_exception_handler(struct ex_regs *regs)
-> > > +{
-> > > +     __GUEST_ASSERT(regs->cause == EXC_INST_ILLEGAL,
-> > > +                    "Unexpected exception handler %lx\n", regs->cause);
-> >
-> > Shouldn't we be reporting somehow that we were here? We seem to be using
-> > this handler to skip instructions which don't work, which is fine, if
-> > we have some knowledge we skipped them and then do something else.
-> > Otherwise I don't understand.
-> >
-> 
-> This is only used in test_vm_basic_test to validate that the guest
-> will get an illegal
-> exception if they try to access without configuring first.
+> +static void test_pmu_basic_sanity(void)
+> +{
+> +	long out_val = 0;
+> +	bool probe;
+> +	struct sbiret ret;
+> +	int num_counters = 0, i;
+> +	union sbi_pmu_ctr_info ctrinfo;
+> +
+> +	probe = guest_sbi_probe_extension(SBI_EXT_PMU, &out_val);
+> +	GUEST_ASSERT(probe && out_val == 1);
+> +
+> +	num_counters = get_num_counters();
+> +
+> +	for (i = 0; i < num_counters; i++) {
+> +		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i,
+> +				0, 0, 0, 0, 0);
+> +
+> +		/* There can be gaps in logical counter indicies*/
+> +		if (ret.error)
+> +			continue;
+> +		GUEST_ASSERT_NE(ret.value, 0);
+> +
+> +		ctrinfo.value = ret.value;
+> +
+> +		/**
+> +		 * Accesibillity check of hardware and read capability of firmware counters.
 
-Yeah, that's good. I just don't see how we know we were ever here. We
-either got the exception and then stepped over the CSR read or we did
-the CSR read. Either way, the test progresses the same. Shouldn't this
-induce a test skip or something instead?
+Accessibility
 
-> > > +
-> > > +     counter_value_post = read_counter(counter, ctrinfo_arr[counter]);
-> > > +     __GUEST_ASSERT(counter_value_post > counter_value_pre,
-> > > +                    "counter_value_post %lx counter_value_pre %lx\n",
-> > > +                    counter_value_post, counter_value_pre);
-> > > +
-> > > +     /* Now set the initial value and compare */
-> > > +     start_counter(counter, SBI_PMU_START_FLAG_SET_INIT_VALUE, counter_init_value);
-> >
-> > We should try to confirm that we reset the counter, otherwise the check
-> > below only proves that the value we read is greater than 100, which it
-> > is possible even if the reset doesn't work.
-> >
-> 
-> Hmm. There is no way to just update the counter value without starting
-> it. Reading it without stopping is not reliable.
-> Maybe we can do this.
-> 
-> 1. Reset it to 100. Stop it immediately after and read it. Let's say
-> the value is X
-> 2. Now reset it to counter  X + 1000.
-> 3. Do the validation with the above reset value in #2.
-> 
-> Wdyt ?
+> +		 * The spec doesn't mandate any initial value. No need to check any value.
+> +		 */
+> +		read_counter(i, ctrinfo);
+> +	}
+> +
+> +	GUEST_DONE();
+> +}
+> +
+> +static void run_vcpu(struct kvm_vcpu *vcpu)
+> +{
+> +	struct ucall uc;
+> +
+> +	vcpu_run(vcpu);
+> +	switch (get_ucall(vcpu, &uc)) {
+> +	case UCALL_ABORT:
+> +		REPORT_GUEST_ASSERT(uc);
+> +		break;
+> +	case UCALL_DONE:
+> +	case UCALL_SYNC:
+> +		break;
+> +	default:
+> +		TEST_FAIL("Unknown ucall %lu", uc.cmd);
+> +		break;
+> +	}
+> +}
+> +
+> +void test_vm_destroy(struct kvm_vm *vm)
+> +{
+> +	memset(ctrinfo_arr, 0, sizeof(union sbi_pmu_ctr_info) * RISCV_MAX_PMU_COUNTERS);
+> +	counter_mask_available = 0;
+> +	kvm_vm_free(vm);
+> +}
+> +
+> +static void test_vm_basic_test(void *guest_code)
+> +{
+> +	struct kvm_vm *vm;
+> +	struct kvm_vcpu *vcpu;
+> +
+> +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
+> +	__TEST_REQUIRE(__vcpu_has_sbi_ext(vcpu, KVM_RISCV_SBI_EXT_PMU),
+> +				   "SBI PMU not available, skipping test");
+> +	vm_init_vector_tables(vm);
+> +	/* Illegal instruction handler is required to verify read access without configuration */
+> +	vm_install_exception_handler(vm, EXC_INST_ILLEGAL, guest_illegal_exception_handler);
 
-OK
+I still don't see where the "verify" part is. The handler doesn't record
+that it had to handle anything.
+
+> +
+> +	vcpu_init_vector_tables(vcpu);
+> +	run_vcpu(vcpu);
+> +
+> +	test_vm_destroy(vm);
+> +}
+> +
+> +static void test_vm_events_test(void *guest_code)
+> +{
+> +	struct kvm_vm *vm = NULL;
+> +	struct kvm_vcpu *vcpu = NULL;
+> +
+> +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
+> +	__TEST_REQUIRE(__vcpu_has_sbi_ext(vcpu, KVM_RISCV_SBI_EXT_PMU),
+> +				   "SBI PMU not available, skipping test");
+> +	run_vcpu(vcpu);
+> +
+> +	test_vm_destroy(vm);
+> +}
+> +
+> +int main(void)
+> +{
+> +	test_vm_basic_test(test_pmu_basic_sanity);
+> +	pr_info("SBI PMU basic test : PASS\n");
+> +
+> +	test_vm_events_test(test_pmu_events);
+> +	pr_info("SBI PMU event verification test : PASS\n");
+> +
+> +	return 0;
+> +}
+> -- 
+> 2.34.1
+>
 
 Thanks,
 drew
