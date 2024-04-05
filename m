@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DFACCD11C2
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Apr 2024 17:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA3ACD1284
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Apr 2024 17:40:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WamVUvRqWIJm4kC4x3IhAOjDK8QKkRxWkKGwj07fDHM=; b=KEIIjXsmxATlUN
-	Aub6kQ3QPVuUxYkn3O1+/PkJM51i4TmNXiK3PccNkoRIaSp2HTpHRAag+Lt2/ScO81r5WERg09Vtg
-	SirGibzQGrRpCntujVz9UcFipnUW7eoX5M2Z0wPHi5DVoLIvGC2IMK0U1R9WPblRm7Gj3+BhDTN6X
-	rN5pdt7BWuRGcZNu+a64B4QupUNJkk0/K5LS2za7nj6T/3UtfKfc2fuMzTfuCgM/gVCTWK/iEMVdD
-	0hazA1puXKtCSSRcWDbaBoJQH0xrCEHRtUnf0i/iGROKQOI+XfVdYlcpMmwzCRNXLLmbpyMfyGoLc
-	qmwrvaxoRN7L9RirUorQ==;
+	List-Owner; bh=vpiI7tUqKTYwTGxwAEhSGH/3xetBgrpArbDtUZhC1Uo=; b=DpPZAgKKWat3md
+	jykiPHOr4BsseUCNQWxMs9Sxj5dEl1km6P/tcDpjHZlXYMweWZQx/+fLiJ9ueMUf4ebjDwXXEgu4R
+	T21D0rhlZvUyE0LPBQGaSqy+m1AiZ8ANqzIzhQY9PtT7mAKx6+86WzhzAyswee1ECi8QmuHhFyXBU
+	FfxYXCwP+x3lS5JXa5lA2G+dUay/dzAIvE/r6zo2FdBJkOViF/R7DWklrUZ0kUyecuvMYndJuvREB
+	zb/B6vkKcX8EEuXKqo4h8AhRjVjzjyr1umymCF7ILymZP97dOUMiQgHCysFJY7wTvI6ts75MjLxiH
+	7wwhcLRFktO0dpqbOgSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsnSt-00000008Fq3-3plX;
-	Fri, 05 Apr 2024 17:34:59 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1rsnYH-00000008H4U-1MuJ;
+	Fri, 05 Apr 2024 17:40:33 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsmIo-00000007yO6-0HZ7;
-	Fri, 05 Apr 2024 16:20:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1712334030; x=1743870030;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=STODT/c3z6ypoEyUkP1OAtZ6EfyLMQK08sm/bPAw1AU=;
-  b=QNra9vHvc0tIXqg/7BPD80y4E+NZmNvtXQ17IMzwZ3Bz4BrO3wEgCiOa
-   YJYNAD3QDgJfUn/++KJFavcC06y+HNcUEF4b3g89zKBag5SkEhhkxHjp1
-   7jk/uEIRVzibOcSe27I1e9Ur8j9fFgf+BjhpEypcgMQcxeIqcAZndV7eT
-   DMBTaIo8YWnbivrctMZDswL9+mpI0NArARC2WyaTq1MtGXSeLas5HS9rZ
-   zMkApI54N29/hUNrvjWGReovaxkjC1A/fP3Fr5YfVQPHwHzoZhgQPCvPx
-   x4uwi8fR5FYqLfjp/ZV1Z6jfxEylZEqtAjWdjXGKCOnLGOaALf2BaaAKS
-   g==;
-X-CSE-ConnectionGUID: 01Ahg4GpQ7aK1IUD5r2T3g==
-X-CSE-MsgGUID: vdNsx1eTSw+npvazDovbqQ==
-X-IronPort-AV: E=McAfee;i="6600,9927,11035"; a="11462795"
-X-IronPort-AV: E=Sophos;i="6.07,181,1708416000"; 
-   d="scan'208";a="11462795"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Apr 2024 09:20:21 -0700
-X-CSE-ConnectionGUID: EGOUsw1jS4iffZcF7In7vA==
-X-CSE-MsgGUID: OzVkpaElRkSa/fAWFgBa3A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.07,181,1708416000"; 
-   d="scan'208";a="19141333"
-Received: from ahajda-mobl.ger.corp.intel.com (HELO [10.245.80.70]) ([10.245.80.70])
-  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Apr 2024 09:20:15 -0700
-Message-ID: <340d23fc-7abf-4ad0-bd95-f1760b9ac458@intel.com>
-Date: Fri, 5 Apr 2024 18:20:11 +0200
+	id 1rsnYE-00000008H3n-30g1
+	for linux-riscv@lists.infradead.org;
+	Fri, 05 Apr 2024 17:40:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id AD6A9CE2542;
+	Fri,  5 Apr 2024 17:40:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E43E1C433C7;
+	Fri,  5 Apr 2024 17:40:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1712338828;
+	bh=UvNDKM0UOnNcyat9LauY+9hj47mP0EeGvw/4ADSk8wU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=sdZuNBr8rl1qODzgpBJXziDwJzT2lzXtfPUUnGVvsHkhiB+kbM+r/Zo3hbcLyFaHU
+	 MYywkK4hw+adZYTH9CmbVLYe2NlR6jzCLAAiYpqpOz4sBEAXxlYChQhke/EIA5caMA
+	 +XhSrLppLH0PIl60QK7TL0Bgm7h3HjTtqR3MBZJ6zpmCazLG9ZRf1TcgEIdjOs+RFt
+	 v6eSOVGFGuuyy3pdU4Qfd16rZ+J3l2cY6gBibL41UX1czeyVkIzIVovqyO/WyU7fO5
+	 QPUYsbfmDwvyYsKIC2t8jqvcSveffcfKwxWCI6Keiji7TqbHbdeoeEtaXwd3cigqwk
+	 v7o2T+kUcPhGg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D6E75C395F6;
+	Fri,  5 Apr 2024 17:40:27 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Intel-gfx] [PATCH v5 0/7] Introduce __xchg, non-atomic xchg
-To: Jani Nikula <jani.nikula@linux.intel.com>,
- Peter Zijlstra <peterz@infradead.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-ia64@vger.kernel.org,
- linux-sh@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, linux-xtensa@linux-xtensa.org,
- Arnd Bergmann <arnd@arndb.de>, Boqun Feng <boqun.feng@gmail.com>,
- linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
- loongarch@lists.linux.dev, Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org, linux-parisc@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-alpha@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
-References: <20230118153529.57695-1-andrzej.hajda@intel.com>
- <Y/ZLH5F8LA3H10aL@hirez.programming.kicks-ass.net>
- <17f40b7c-f98d-789d-fa19-12ec077b756a@intel.com>
- <Y/y0/VoPAVCXGKp3@hirez.programming.kicks-ass.net> <87r0fjc1cz.fsf@intel.com>
-Content-Language: en-US
-From: Andrzej Hajda <andrzej.hajda@intel.com>
-Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298
- Gdansk - KRS 101882 - NIP 957-07-52-316
-In-Reply-To: <87r0fjc1cz.fsf@intel.com>
+Subject: Re: [PATCH bpf] MAINTAINERS: bpf: Add Lehui and Puranjay as riscv64
+ reviewers
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <171233882787.27871.641568432293387927.git-patchwork-notify@kernel.org>
+Date: Fri, 05 Apr 2024 17:40:27 +0000
+References: <20240405123352.2852393-1-bjorn@kernel.org>
+In-Reply-To: <20240405123352.2852393-1-bjorn@kernel.org>
+To: =?utf-8?b?QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4=?=@ci.codeaurora.org
+Cc: ast@kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
+ bpf@vger.kernel.org, netdev@vger.kernel.org, pulehui@huawei.com,
+ puranjay@kernel.org, bjorn@rivosinc.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240405_092030_318425_FDCF9286 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20240405_104031_124751_2A81DB0F 
+X-CRM114-Status: UNSURE (   7.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,64 +74,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 05.04.2024 16:47, Jani Nikula wrote:
-> On Mon, 27 Feb 2023, Peter Zijlstra <peterz@infradead.org> wrote:
->> On Thu, Feb 23, 2023 at 10:24:19PM +0100, Andrzej Hajda wrote:
->>> On 22.02.2023 18:04, Peter Zijlstra wrote:
->>>> On Wed, Jan 18, 2023 at 04:35:22PM +0100, Andrzej Hajda wrote:
->>>>
->>>>> Andrzej Hajda (7):
->>>>>     arch: rename all internal names __xchg to __arch_xchg
->>>>>     linux/include: add non-atomic version of xchg
->>>>>     arch/*/uprobes: simplify arch_uretprobe_hijack_return_addr
->>>>>     llist: simplify __llist_del_all
->>>>>     io_uring: use __xchg if possible
->>>>>     qed: use __xchg if possible
->>>>>     drm/i915/gt: use __xchg instead of internal helper
->>>> Nothing crazy in here I suppose, I somewhat wonder why you went through
->>>> the trouble, but meh.
->>> If you are asking why I have proposed this patchset, then the answer is
->>> simple, 1st I've tried to find a way to move internal i915 helper to core
->>> (see patch 7).
->>> Then I was looking for possible other users of this helper. And apparently
->>> there are many of them, patches 3-7 shows some.
->>>
->>>
->>>> You want me to take this through te locking tree (for the next cycle,
->>>> not this one) where I normally take atomic things or does someone else
->>>> want this?
->>> If you could take it I will be happy.
->> OK, I'll go queue it in tip/locking/core after -rc1. Thanks!
-> Is this where the series fell between the cracks, or was there some
-> follow-up that I missed?
->
-> I think this would still be useful. Andrzej, would you mind rebasing and
-> resending if there are no objections?
-
-The patchset was rejected/dropped by Linus at the pull-request stage.
-He didn't like many things, but the most __xchg name. However he was 
-quite positive about i915 name fetch_and_zero.
-I can try to revive patchset with fetch_and_zero, and maybe 
-fetch_and_set, instead of __xchg.
-
-Regards
-Andrzej
-
->
-> BR,
-> Jani.
->
->
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIGJwZi9icGYuZ2l0IChtYXN0ZXIpCmJ5
+IEFsZXhlaSBTdGFyb3ZvaXRvdiA8YXN0QGtlcm5lbC5vcmc+OgoKT24gRnJpLCAgNSBBcHIgMjAy
+NCAxNDozMzo1MSArMDIwMCB5b3Ugd3JvdGU6Cj4gRnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5A
+cml2b3NpbmMuY29tPgo+IAo+IExlaHVpIGFuZCBQdXJhbmpheSBoYXZlIGJlZW4gYWN0aXZlIFJJ
+U0MtViA2NC1iaXQgQlBGIEpJVAo+IGNvbnRyaWJ1dG9ycy9yZXZpZXdlcnMgZm9yIGEgbG9uZyB0
+aW1lIQo+IAo+IExldCdzIG1ha2UgaXQgbW9yZSBvZmZpY2lhbCBieSBhZGRpbmcgdGhlbSBhcyBy
+ZXZpZXdlcnMgaW4KPiBNQUlOVEFJTkVSUy4KPiAKPiBbLi4uXQoKSGVyZSBpcyB0aGUgc3VtbWFy
+eSB3aXRoIGxpbmtzOgogIC0gW2JwZl0gTUFJTlRBSU5FUlM6IGJwZjogQWRkIExlaHVpIGFuZCBQ
+dXJhbmpheSBhcyByaXNjdjY0IHJldmlld2VycwogICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9i
+cGYvYnBmL2MvNzZjZDMzODk5NDc3CgpZb3UgYXJlIGF3ZXNvbWUsIHRoYW5rIHlvdSEKLS0gCkRl
+ZXQtZG9vdC1kb3QsIEkgYW0gYSBib3QuCmh0dHBzOi8va29yZy5kb2NzLmtlcm5lbC5vcmcvcGF0
+Y2h3b3JrL3B3Ym90Lmh0bWwKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
