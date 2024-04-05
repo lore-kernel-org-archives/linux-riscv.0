@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A54CD11C2
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Apr 2024 18:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFB3CD1296
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Apr 2024 21:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AlYre34Bw9ujVKFpqW7v3XOmim4isrXiuxFNjuAvX1U=; b=FRcqbAfxFv+Eis
-	YAjafvWycjYo+b57xkFwkBW3orb/T+W29Swd2rXqEOrLfPpVH0aQish7PKybM2GO/N46icf2JWvya
-	MwpTXpn8rZijOxrefDp1jtHgQ4dgiTS/7yv4pZm4aLOkj3/pIyt5kiszDTBM3kUOAvQy0KVpZqBZR
-	J5QdOP6Yxk5NUgDcgoerhbTTvHg+mzu3KKTPVSHnv2VKIaTIHRwNUZN3oiE8TfrKUpfyCMw6Sgq/K
-	AjVuQp3hvgdAcNXJqijLR8rGFHtAgtCvRzOEQhyULo7+1GBkizw5OsLJAJpJvIfVNX/Fuws91NOG5
-	1tyzIueoH3Q6hKWwyoxA==;
+	List-Owner; bh=9KHi7eb+wXM7Xv5zUZBw/8H5c+REeYjz1NEr2wqFQi0=; b=LgG4+cXzpueBOi
+	bLfI5ditMJjIA6mkweu5+1knKSRa+C/7gDrjfA2jgo8uTfp8N9yKdf2raSzAFoMv3EQxeMrBS6xxi
+	fO0pZw+CStMkW0ssFF8ElR5fz4RCCqGHdyv9TwvFDBDmLc2Iir8Y8X9LFwSuUpl2qPL6r+UzHH+3i
+	fTgqtP4nS+G+Au8b97QLELYo38EdQopWI8hLyiimYDYWHGbq5+v2FIeU/Qqgp1HJSb2hve3W4UYT3
+	/RA2jYYcfmPhUE9CrK2F1++Q/k748bQdsV8AHKsxZlyDma5GjsQib5YlAjAGdguzuXoDe5HAtE4Pv
+	NDv0OFPmtbEo+CCLjdGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsoLP-00000008Sjg-2mV8;
-	Fri, 05 Apr 2024 18:31:19 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rsqlL-00000008pRb-29EG;
+	Fri, 05 Apr 2024 21:06:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsoLL-00000008Sgn-2VFJ;
-	Fri, 05 Apr 2024 18:31:17 +0000
+	id 1rsqlG-00000008pQI-3ZWV
+	for linux-riscv@lists.infradead.org;
+	Fri, 05 Apr 2024 21:06:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 034EFCE2447;
-	Fri,  5 Apr 2024 18:31:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C78FFC433F1;
-	Fri,  5 Apr 2024 18:31:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3C30E6123E;
+	Fri,  5 Apr 2024 21:06:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0284EC43390;
+	Fri,  5 Apr 2024 21:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712341871;
-	bh=SpJ5IQ9UhqrJWD/qugetHjxi8hPNKx//RaZUEP7dXMk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PjsNhh0fjSHbdf2868fr6XGX0ymVpLd72hs4QqY449d2ixqqIbiOZ9KGWsTScBEdM
-	 MmD6oO1ZFR5n/8XBcvJfrg+1fJuE6RWAslDhUeScY/894NlfAHOyDlBtG+Jpj6Xgim
-	 AEpzgBbfrsVfqV97+U4MIZvB6mlskGvejsxy0uQkrvJ6HQBnEonvJPKwG4UwRXSFPC
-	 sokGvl/2IbsBR2HRjgP5VVh/y6bBeOez+JNtA6wzhbGF/BxyaWGie9mhpM3y8Fsgqy
-	 nccatqMs+mRkE11DcKuPOVmzq2/2RT6tsP9WZvm4sK8QAsHlkDj+GzXZn741rHxhYU
-	 UZgSQsgWkKskQ==
-Date: Fri, 5 Apr 2024 19:31:02 +0100
-From: Simon Horman <horms@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Kees Cook <keescook@chromium.org>,
-	Daniel Diaz <daniel.diaz@linaro.org>,
-	David Gow <davidgow@google.com>,
-	Arthur Grillo <arthurgrillo@riseup.net>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, loongarch@lists.linux.dev,
-	netdev@vger.kernel.org, x86@kernel.org,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Subject: Re: [PATCH v3 13/15] sh: Move defines needed for suppressing warning
- backtraces
-Message-ID: <20240405183102.GU26556@kernel.org>
-References: <20240403131936.787234-1-linux@roeck-us.net>
- <20240403131936.787234-14-linux@roeck-us.net>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240403131936.787234-14-linux@roeck-us.net>
+	s=k20201202; t=1712351170;
+	bh=B4Sgbntbvj+AgCtEMDhyAntY5n2I43aIiKKUajYQXQU=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=S/9U4EyCVHhbABqdO9RfMuPqzFd9XcePxdpuF2xTL7NRm/s8by7mcRgOTF3OlYpCB
+	 7O3AS8LnR+aZwQlTouP/JkE2ubTM3eY9/J8u6Cpn5rXYfyEpZNjr+H7fC4E7BIv2W4
+	 TELu7a1+v0THJwkZR7XbYLbVlOz1/CYLOgDHedbLQZ3xLnCgdpn1kfaWY54p3/faCi
+	 ye9L65Uld/2/6YW+P2HBOt6iK44yax5P3mDJ1ZD8RLRRAbW8XP69FxJS0I9WhTb0HQ
+	 RhjdZ2NSw4TpewGY0pG4hmxt7p7q2MF+wyea3vS9yuF6ARm7FrYWZQoj5qQM6lR4pv
+	 5c7gde3iuKXyg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id EDFE0D8A100;
+	Fri,  5 Apr 2024 21:06:09 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.9-rc3
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-28e73e09-0100-4e0e-8c4a-490552b42c6f@palmer-ri-x1c9a>
+References: <mhng-28e73e09-0100-4e0e-8c4a-490552b42c6f@palmer-ri-x1c9a>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-28e73e09-0100-4e0e-8c4a-490552b42c6f@palmer-ri-x1c9a>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.9-rc3
+X-PR-Tracked-Commit-Id: d14fa1fcf69db9d070e75f1c4425211fa619dfc8
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 261b8e89b6274f7f9c2fee5ff494dfb384d3e2c7
+Message-Id: <171235116997.3156.1887417054016273983.pr-tracker-bot@kernel.org>
+Date: Fri, 05 Apr 2024 21:06:09 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240405_113115_994687_2D0AF0FD 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20240405_140610_980674_60858820 
+X-CRM114-Status: UNSURE (   2.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,72 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 03, 2024 at 06:19:34AM -0700, Guenter Roeck wrote:
-> Declaring the defines needed for suppressing warning inside
-> '#ifdef CONFIG_DEBUG_BUGVERBOSE' results in a kerneldoc warning.
-> 
-> .../bug.h:29: warning: expecting prototype for _EMIT_BUG_ENTRY().
-> 	Prototype was for HAVE_BUG_FUNCTION() instead
-> 
-> Move the defines above the kerneldoc entry for _EMIT_BUG_ENTRY
-> to make kerneldoc happy.
-> 
-> Reported-by: Simon Horman <horms@kernel.org>
-> Cc: Simon Horman <horms@kernel.org>
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: Rich Felker <dalias@libc.org>
-> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-> ---
-> v3: Added patch. Possibly squash into previous patch.
+The pull request you sent on Fri, 05 Apr 2024 10:29:24 -0700 (PDT):
 
-FWIIW, this looks good to me.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.9-rc3
 
->  arch/sh/include/asm/bug.h | 16 +++++++++-------
->  1 file changed, 9 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/sh/include/asm/bug.h b/arch/sh/include/asm/bug.h
-> index 470ce6567d20..bf4947d51d69 100644
-> --- a/arch/sh/include/asm/bug.h
-> +++ b/arch/sh/include/asm/bug.h
-> @@ -11,6 +11,15 @@
->  #define HAVE_ARCH_BUG
->  #define HAVE_ARCH_WARN_ON
->  
-> +#ifdef CONFIG_DEBUG_BUGVERBOSE
-> +#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
-> +# define HAVE_BUG_FUNCTION
-> +# define __BUG_FUNC_PTR	"\t.long %O2\n"
-> +#else
-> +# define __BUG_FUNC_PTR
-> +#endif /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
-> +#endif /* CONFIG_DEBUG_BUGVERBOSE */
-> +
->  /**
->   * _EMIT_BUG_ENTRY
->   * %1 - __FILE__
-> @@ -25,13 +34,6 @@
->   */
->  #ifdef CONFIG_DEBUG_BUGVERBOSE
->  
-> -#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
-> -# define HAVE_BUG_FUNCTION
-> -# define __BUG_FUNC_PTR	"\t.long %O2\n"
-> -#else
-> -# define __BUG_FUNC_PTR
-> -#endif /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
-> -
->  #define _EMIT_BUG_ENTRY				\
->  	"\t.pushsection __bug_table,\"aw\"\n"	\
->  	"2:\t.long 1b, %O1\n"			\
-> -- 
-> 2.39.2
-> 
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/261b8e89b6274f7f9c2fee5ff494dfb384d3e2c7
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
