@@ -4,54 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D756CD1284
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Apr 2024 10:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F383C67861
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Apr 2024 11:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=/e1E4XeF42n9VkapTsoZMOSEw9D0N/1wk0BkyfX5RO4=; b=YD4
-	64tlAMBRdOXvdF8z8prpIV1Uhy491j1/v1YC+sZZ//LQFUVa4TaQ87t0lgmLMoE87N3vfFjt2Q8Sb
-	ccASHrk/tbo18ZPlaVbOuctccmiaStnHlo8Z5/8THB8TGnLlvu1QcuvtcQdMzvgD/h3SFFyNGhzlJ
-	jSAgvMh3p+bZ3/PG7ku2M2QGCI/hUF5fB0R6i2vo3PRBb1iyJ+P1wsi2pHtTLbAPgJEinrY8JcLK4
-	BuI1g1jAFE1Jsp1PFR+CxsFPauBBJJfWvZt+KYTE2QVj9950RyLjvGxHW6xXmdWqoXsuSQxLRqjr4
-	pVQ1xWwMIpo1DsnyUOJT5eQSsHwa1tQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q30epaVw63ETitJ8gVP7p+huaxV7XiKtrP45smsoFg0=; b=pysXt8nt8eE16c
+	T7jAYaSf3r2xietnfMyHXd9c9ANL463JktReIrriGc+k9L9pKZlskUkQACwyTn8HLsdmGkc2beIP+
+	j6ddZDpZPsgFjE8i9AwGS3882cCv6WwqaZ8W6k01L3z7nZz5PDsJ4tadA4kYo9Vo+Kbrw1p8ApHyG
+	0WqkxnN4bZIfXcltgX5tNipdxrUCkpVllWOMm8cnI3hyYzBXnw1hL4kahNw4XFCAxHClYhUtCU5FD
+	T1TF8CO00y++jobL1blabDf2P05ZRehHEFDbcWDXIm/bP27NTneexThVgkbuGssDWeh1Iv/CP2D1x
+	8bhUqNBZGBUawPK0W1Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rt2wF-0000000A6G9-3diJ;
-	Sat, 06 Apr 2024 10:06:19 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rt4Gc-0000000ACy7-3O66;
+	Sat, 06 Apr 2024 11:31:26 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rt2wD-0000000A6FZ-1w4X
+	id 1rt4GZ-0000000ACw3-1V3I
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Apr 2024 10:06:19 +0000
+	Sat, 06 Apr 2024 11:31:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 2B29ECE0121
-	for <linux-riscv@lists.infradead.org>; Sat,  6 Apr 2024 10:06:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA48CC433C7;
-	Sat,  6 Apr 2024 10:06:10 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 358D8CE19BE;
+	Sat,  6 Apr 2024 11:31:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D00C9C43390;
+	Sat,  6 Apr 2024 11:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712397971;
-	bh=UswHsrNV9LSeiyLlBYcDPf/vvgGKaBRTaQl35aQpCDc=;
-	h=Date:From:List-Id:To:List-Id:Cc:Subject:From;
-	b=VZ5uNINX072DB9IKMo3gqFXi/GARYuPvnzBL0E1f6GG12qBhRYesfmgGK4hBsNT7m
-	 /43xUhCptY05BfA7pqQ9/xNOpO834aZKAYmTL666o9FjVwa6jmfkWc8GYxRGborA5X
-	 nzWE6qQdnJYliBLLBpiljbKph5UpyE4hfrBbUbwmYD0X/dCxN6sT/xK+TVtd7ys9IX
-	 tSY55ImhJ6xCTkZ60fyzECiywXSI2d8av3kfJFVGZWFxzhAmgWWscbdtzxrQ6rG1CK
-	 37QJC3ow8wBlx0ozLiJ93A1SjGsmWQ7HGrYDw7y7MeQjp7+TVBL2NP5Kb4zLV4BTXb
-	 NKd7CXvvubXnA==
-Date: Sat, 6 Apr 2024 11:06:08 +0100
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: linux-riscv@lists.infradead.org, soc@kernel.org
-Subject: [GIT PULL] RISC-V SoC driver fixes for v6.9-rc3
-Message-ID: <20240406-botch-disband-efc69b8236be@spud>
+	s=k20201202; t=1712403080;
+	bh=kxw8lEOeXnx/duF9z7ST9TT/zC6EoGrvtJe8oJFI1B0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=kD+KtTXj/GBjQUtr6D1v/myTGzsq973TWGwuzcxWDl6/CjFmbP50gM/JVNX58qrgd
+	 EUcASu06PHK5jfQ3QNBfcSNrsLpU7hjW9xVTzsUQ8BCdx59mBulPvueYfkwwhZh1D3
+	 Ro4Cs/FOBTRN2zGolCo9LGk43zQhmZC/ZB4Rs4/PXyJS0X35Gg8HyttKhBQHaT3erO
+	 PhwZfs16AI77tZ+6Py0jXcj9ZcBwMwW/U+hAbUGaslrA9P4Owjs/jFxLQmXH62SGvh
+	 DOVmIxFb0qf+tnmLIuXObaJkPONg1btiKj9dDq/7L+WYYej7XRoQ4vdH8MUDWbgsXP
+	 +8m3vR/9SczOQ==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 1/3] clocksource/drivers/timer-riscv: Add set_state_oneshot_stopped
+Date: Sat,  6 Apr 2024 19:17:55 +0800
+Message-ID: <20240406111757.1597-2-jszhang@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240406111757.1597-1-jszhang@kernel.org>
+References: <20240406111757.1597-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240406_030617_698527_E3743E62 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20240406_043123_608702_BC4B7F49 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,84 +72,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1315131314217921306=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+To avoid spurious timer interrupts when KTIME_MAX is used, we need to
+configure set_state_oneshot_stopped(). Although implementing this is
+optional, it still affects things like power management for the extra
+timer interrupt.
 
---===============1315131314217921306==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CQ5kpgt9McZtmp49"
-Content-Disposition: inline
+Check commit 8fff52fd5093 ("clockevents: Introduce
+CLOCK_EVT_STATE_ONESHOT_STOPPED state") for more information.
 
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ drivers/clocksource/timer-riscv.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
---CQ5kpgt9McZtmp49
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index 48ce50c5f5e6..e661fc037337 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -69,11 +69,12 @@ static int riscv_clock_shutdown(struct clock_event_device *evt)
+ 
+ static unsigned int riscv_clock_event_irq;
+ static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
+-	.name			= "riscv_timer_clockevent",
+-	.features		= CLOCK_EVT_FEAT_ONESHOT,
+-	.rating			= 100,
+-	.set_next_event		= riscv_clock_next_event,
+-	.set_state_shutdown	= riscv_clock_shutdown,
++	.name				= "riscv_timer_clockevent",
++	.features			= CLOCK_EVT_FEAT_ONESHOT,
++	.rating				= 100,
++	.set_next_event			= riscv_clock_next_event,
++	.set_state_shutdown		= riscv_clock_shutdown,
++	.set_state_oneshot_stopped	= riscv_clock_shutdown,
+ };
+ 
+ /*
+-- 
+2.43.0
 
-Hey Arnd,
-
-A single patch for ya, needed to fix boot on the JH7100.
-
-Cheers,
-Conor.
-
-The following changes since commit 4cece764965020c22cff7665b18a012006359095:
-
-  Linux 6.9-rc1 (2024-03-24 14:10:05 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-soc-fixes-for-v6.9-rc3
-
-for you to fetch changes up to c90847bcbfb65d0f1c48fcc73a2b3a2d4ceac6a1:
-
-  cache: sifive_ccache: Partially convert to a platform driver (2024-03-28 22:40:56 +0000)
-
-----------------------------------------------------------------
-RISC-V SoC driver fixes for v6.9-rc3
-
-A fix for the ccache driver which no longer probed after the PLIC driver
-was converted to a platform driver. The JH7100 SoC depends on this
-driver to provide cache management ops that must be registered with an
-arch_initcall, so the ccache driver is partly converted to a platform
-driver, registering only the cache management ops with the initcall and
-the debug/edac register provision features of the driver as a platform
-driver.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Samuel Holland (1):
-      cache: sifive_ccache: Partially convert to a platform driver
-
- drivers/cache/sifive_ccache.c | 72 +++++++++++++++++++++++++++----------------
- 1 file changed, 46 insertions(+), 26 deletions(-)
-
---CQ5kpgt9McZtmp49
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhEekAAKCRB4tDGHoIJi
-0i+qAPwKIR498gdGTGLZQ4L7qLVew9wjYsC1q3dMXjNTou1TUwD+OjPKotCFB40/
-Rs58J3JDo+b2AefiCoJM/X2myMrP6A8=
-=lYoR
------END PGP SIGNATURE-----
-
---CQ5kpgt9McZtmp49--
-
-
---===============1315131314217921306==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1315131314217921306==--
-
