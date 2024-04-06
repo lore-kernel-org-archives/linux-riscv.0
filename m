@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53392C67861
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Apr 2024 17:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A0EC67861
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Apr 2024 17:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UPv5m3XyljSPrl/rYZvfvLGkOiWcHq6oqXSyM1Zr7gQ=; b=GLJvaNvy312KtJ
-	cbGQYF50+3MinLyipXLeS5q1HA5Ow6lSiHErGK0VkTOAq+CLSBiMogZ1pCGv13VuJt5Aibv0k5W2o
-	0v3OvVC1po0BaCIsKqBulC3N2P9s//rMz2VKQiftJdJ0g1sfoRNxsPwWGyrnjBo2PUN4/SHEjwC8A
-	1cV81M/BZHbGoZEy5HH4XMDe02Fp0nf57OhS0sKHqgFthQVSF2llAayd874p/euJTzHPeU8UImRyQ
-	3eeemFD/fCi0KyxcrPQxnk14SF604HIzfDLaXNBz4L29mg9XbMzpUb7hN4KJoNLwTCptKOCD6G3SC
-	+FAvfFDpcteNcTwCGd1Q==;
+	List-Owner; bh=3XPyYsBwXOzgGvgwm89E0u+/gSFdvUC/4dTABrhlt6k=; b=2UJLQaXYKzEg4t
+	g81YVuNquyPlthELA0dHA3wk79uY0qoOKZOwF76tf/4okOIYbSzmEZWd6ZlOBHCK1f6Jmn5QYPrDg
+	EajYXK1w7ZQ3Pt2ji5KHP+ezxemjuUfVSJiEA4rNJWE5JuVsIMa8tPMCl4GKUzr8ujPktl2y21TFK
+	TWLrYyra036iczDDRmUgyuuRXC51okt9yIXdtPVgiVCxzA71FTYC5qZGL+q04UNZmKziqVXozhn5n
+	WbpZjv8sRCrXP82r4/nTG0MWgXk2Ubf/55fi9O9tjx0zrP2RLgzu9jqSe8eKDFlIuO2W+AE2vTqUr
+	BE5ZssshFdaLs6NQDeVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtA3G-0000000AlJg-2pd8;
-	Sat, 06 Apr 2024 17:42:02 +0000
-Received: from out162-62-57-210.mail.qq.com ([162.62.57.210])
+	id 1rtA96-0000000Am2b-3PYl;
+	Sat, 06 Apr 2024 17:48:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtA3C-0000000AlFT-28fB
+	id 1rtA95-0000000Am2O-0wt2
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 06 Apr 2024 17:48:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=6xbpb2z0qZF5gLcFrc+JYOexR0DC5lhr3RgErwZ1kd8=; b=nXXFW04DEBRP1Ot5wrQws/+KV3
+	2p+j+dc/shb6wOPR9zv/eWhf3vLbZz/UTgcNLlphJ81RDq49fA4CJTslnB5BAICGOP9vdQCQNXhp7
+	dStIt1ScgfvD+hxEDdSbnxGMscSp6aG2H0Qh5IB5ml6JUIQelpK07nA0cwykUAnmPbHBlx36z+Ahg
+	zzRpkBjmotk0lelaXAiJT6W+6YzbuG9frn1OBeusS/oteDFygnvsUdr4aqPnJpjSGY8LZ7IY7ujYU
+	bIPDZxeg8ZcoD1sDegjO4YtqIwcebvPA423u011kkMn/wVfOiwzSa9bSfaDDCvJEZ98fve2ZslE/q
+	oUv1qPhw==;
+Received: from out162-62-57-210.mail.qq.com ([162.62.57.210])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rtA8z-00000006J6C-3w7x
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Apr 2024 17:42:00 +0000
+	Sat, 06 Apr 2024 17:48:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1712425294; bh=jaM56XVEDkeOpfko2CLF+2oPCWKBzRPYG5Ofw5dlTQI=;
+	t=1712425662; bh=6xbpb2z0qZF5gLcFrc+JYOexR0DC5lhr3RgErwZ1kd8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=keAgr7lJKF2G10a6C8NtzWdPekl2hAGZ1TZ5lbZd4KPe3J0XSUvLDGbQGKAYVJes0
-	 HHEgMwYZyC/fdoGfvr9tf+Qz0YuLu5BPn4Ew2s8skwV/2Hm+6k8oHi6CcHKqC1+tgS
-	 PVAcG20HvCZtFRRaS8ItqCkg6D0XU3FTCJ/uBLUM=
+	b=Rfffz5B1vFMnxmpIz/ML6ArTs911H784CcNqtmUNNrqubZVYhxZ4f1Ap75R4cBoD+
+	 hZYOL1qRJ8Nc0S9Y69wDhIQyKxnwLA+0Quk8DLmtVkInrQuPvS+ag+uSC3Qks4S7vm
+	 F4uGHNcCPgvesaKuBUWY6/yCfQnjPMwnnzOafGs0=
 Received: from cyy-pc.lan ([240e:379:225a:6d00:f878:7a6f:5832:7f4d])
 	by newxmesmtplogicsvrszb6-0.qq.com (NewEsmtp) with SMTP
 	id A56026E1; Sun, 07 Apr 2024 01:41:22 +0800
-X-QQ-mid: xmsmtpt1712425291t10d8njzm
-Message-ID: <tencent_08AD70D16306421E1B27F8400595B4311D09@qq.com>
-X-QQ-XMAILINFO: MRw/zKT/0BpPuEAjjYc0zNkwXSefQdsO/pK7morQsdvep4U6aLOUTHdQBe6/iS
-	 kv8PoHzgIO2BLqZBIaUs80HJoxts5lfFoIPkfeGq3Q510EJdgedTMCCg0iRq+dfuUDwpApG/fm60
-	 VsxFnvoD8cRLXs3ORD7/RjVFxGFtoKlStSQCLOhvnuuoXllSn1GrG6wDsbmVmNTLj9jDIwDWEms1
-	 1mRjopi6AoUaLg1GURwEmdEJ9OeHGgLA1OAKO9tqdOM/Z66rHJhvY6uHnq0RKpNwPSCKeMMHYM/D
-	 KSqcVVnwpFgxrACcStTJDstPNyFTFM7C27oiZWy/PfOuvCQwIF4vVJ0WlIZkB7/z+VJJq926YQG+
-	 fwr9EJBZp+F8ZMoG01NrSjwaLSgwcraJ9DF/EekppzMucOu68qs5AKz10HkuV9U2/8XRdlBcRB8o
-	 7vxD+tBps7r7yd1HJmaFTNZYTsXeeeOcmIgU4MVds+qzw1nGkyS1Q0ycp0oG7HNtMuNg6UGMc2ng
-	 fykYDpW11XsTCpOEKh0u3xfEKlvrK2vynF4eO8Mu1sRAVyBetoDmk9IKV+2DFByZtDpSE9wHru+V
-	 LLThdJ9F4hPCOd5LfrZRAlIWbFD91zqK9V9Dkc2rEOqEM6dHhnu6jw6L2mx8+aWhKI8zlH5frGOv
-	 Y+4Lo3r5ePtJsMZucmvhdKaaPLlO7+rTkXko2CPf5gXU/ndu08qti5/A50zSS/4ebY+rWDnenT5i
-	 hZwRuou/Ecq5E3s+YoB2EsQTkax8AFtJqUjAbjFLx7VCXR9t7iUI6YQvoO530ovQCe13FIJc2WA1
-	 qRYgeTdH0P+8htYZVRzloifC27z6FaEnsXIZMQRf5aBXZQknf4roLYttZjKgy4hW2XeEAEGjMTyT
-	 o1KyZvNURaAhOo0W7shDJ2eJNhn4rR4faX/zNDwmzlwERMQs1Ll//CqDlqPmIFZliBUoolGdFVyq
-	 eY1pZePZLPHxBlBKaVWv7RHprfMlNl9B6Rkj9cxMe4Hbndk99xv09TjHT9SD2OObL4XSdYizpT+G
-	 xSdi8XqyzeHqL7tYfLTpESuH5uWsTSp+QlmEUOSQ==
-X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
+X-QQ-mid: xmsmtpt1712425293t6ye1i36l
+Message-ID: <tencent_288AE27AC4E085E4352EF1F1098A6A4F3A0A@qq.com>
+X-QQ-XMAILINFO: MUjlMaoygc42ewbi+VOeoeeIPRRReiFiNU1Vkq0nR5Kn86yGWQTwsdUfzLX0Sh
+	 TZRq8xzrEMQ991ZrYhe0AcLl5NqMjZVK58dL0w7tgAChQZQiHfSqi44bO7XuWsJiEWtJeFsadQgq
+	 YgUxoOPRr7hxaVBherkn2c5TbS6i1I5kle5t5q8Be4ksvbkAt8pX+/i0vmzHMeMXlRsnk+mWKGly
+	 YjdKNEX6TF7e/YX6MSohTWnXy5wk+xVHRj4eledKxGDVzdVErhzfKiZvW9XvqdElfrn11YWeA2kP
+	 TAvAoadR2s65ZE1V+VRreX5m3iiI0VQq3+6vSOjyQ2pE40CQ0VM6L9vDEOebjvFOuAu3NXC0EhnE
+	 AxKHJN9SMfQ1NH5fGi6xtit4zmhy80qXsMyp8xShYwtZaDZoQoVexPAQps+IcWbbPl1Qre7sOAhl
+	 0A0k9si2zkGQsEvslvqaMpPU6UsvT5mE3dm2lEI0Db+LR1Fmauwh6tLJhY0lFLNtvBJaBwlvp8CP
+	 MO6ygbLGTA0IQLNrBgzFPFoNHqUbiemdKszBmzsI7Sd9In4mxdgjiKzsQOGM0BDfFjTbDfrttN3V
+	 CfUiTW8ERwxzqhQfimk6gZuX/sJKMDML4z2pZLM8Cp0MHD1o/JTm10NiFSZMEwHNx2aeYRFx56To
+	 fkvun6iNK+zRP5zPoXbou1blanEUGDEuHTSt+I37OgmeJWG4ZpNjFr+db33/G9djvOWR83Y/1CbY
+	 y4MJo5dN5ERFn8L1yqxaOoWM1bAlS9YUGrWdmcLPyN/VXtqqO+kCO56Y+pAetQHsmmAjPOm3yfjP
+	 qfym9znPnkuYJMCxSyxh8EDYqg9FtD0sNz7CqOSOae844xv79vGWaMZgKyOVkhrzGp/ZML3GlAuO
+	 vCrPPqKbob5ptx3W8XfgOwZxZPR+PvpOJjCd+KhSyeZPV7gGiUDooQYAq2sz0z9NW8VGlqsuSbQg
+	 QcsNqwq9nZELq08GNK4FlAG1QT949zLeS634+vkLoxZdjIGGRwtQdRxlDIP33hZFwkCa4EIFLxXh
+	 ysEJyl97C2cMWte6avqwYgy82ZsM52wFleDJPMy6oi+PZ38wpr
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor@kernel.org>,
@@ -65,19 +80,17 @@ Cc: Conor Dooley <conor@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Guo Ren <guoren@kernel.org>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH v7 4/6] dt-bindings: interrupt-controller: Add Canaan K230 PLIC
-Date: Sun,  7 Apr 2024 01:41:14 +0800
-X-OQ-MSGID: <20240406174116.2945552-4-cyy@cyyself.name>
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH v7 5/6] riscv: dts: add initial canmv-k230 and k230-evb dts
+Date: Sun,  7 Apr 2024 01:41:15 +0800
+X-OQ-MSGID: <20240406174116.2945552-5-cyy@cyyself.name>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <tencent_F6392EE11AC6A485C43406F1BD09C268DB0A@qq.com>
 References: <tencent_F6392EE11AC6A485C43406F1BD09C268DB0A@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240406_104159_293188_B05CAD4C 
-X-CRM114-Status: UNSURE (   6.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240406_184758_894509_707CD21D 
+X-CRM114-Status: GOOD (  22.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,27 +107,307 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for Canaan K230 PLIC.
+Add initial dts for CanMV-K230 and K230-EVB powered by Canaan Kendryte
+K230 SoC [1].
+
+Some key consideration:
+
+- Only place BigCore which is 1.6GHz RV64GCBV
+
+The existence of cache coherence between the two cores remains unknown
+since they have dedicated L2 caches. And the factory SDK uses it for
+other OS by default. I don't know whether the two CPUs on K230 SoC
+can be used in one system. So only place BigCore here.
+
+Meanwhile, although docs from Canaan said 1.6GHz Core with Vector is
+CPU1, the CSR.MHARTID of this core is 0.
+
+- Support for "zba" "zbb" "zbc" "zbs" are tested by hand
+
+The user manual of C908 from T-Head does not document it specifically.
+It just said it supports B extension V1.0. [2]
+
+I have tested it by using this [3] which attempts to execute "add.uw",
+"andn", "clmulr", "bclr" and they doesn't traps on K230. But on JH7110,
+"clmulr" and "bclr" will trap.
+
+- Support for "zicbom" is tested by hand
+
+Have tested with some out-of-tree drivers from [4] that need DMA and they
+do not come to the dts currently.
+
+- Support for "zicboz" is tested by hand
+
+Have tested with my own bare mental M-Mode program [5] which tries to use
+zicboz to clear a 64B aligned block and got output[6] shows it supports
+zicboz.
+
+- Cache parameters are inferred from T-Head docs [2] and Canaan docs [1]
+
+L1i: 32KB, VIPT 4-Way set-associative, 64B Cacheline
+L1d: 32KB, VIPT 4-Way set-associative, 64B Cacheline
+L2: 256KB, PIPT 16-way set-associative, 64B Cacheline
+
+The numbers of cache sets are calculated from these parameters.
+
+- MMU only supports Sv39
+
+The T-Head docs [2] say the C908 core can be configured to support Sv48 and
+Sv39 or only Sv39. On K230, I tried to write "riscv,sv48" on mmu-type in
+dts and boot the mainline kernel. However, it failed during the kernel
+probe and fell back to Sv39. I also tested it on M-Mode software, writing
+Sv48 to satp.mode will not trap but will leave the CSR unchanged. While
+writing Sv39, it will take effect. It shows that this CPU does not support
+Sv48.
+
+- Svpbmt and T-Head MAEE both supported
+
+T-Head C908 does support both Svpbmt and T-Head MAEE for page-based memory
+attributes and is controlled by BIT(21) on CSR.MXSTATUS. The Svpbmt is used
+here for mainline kernel support for K230. If the kernel wants to use
+Svpbmt, the M-Mode software should unset BIT(21) of CSR.MXSTATUS before
+entering the S-Mode kernel. Otherwise, the kernel will not boot, as 0 on
+T-Head MAEE is NonCachable Memory. Once the kernel switches from bare metal
+to Sv39, It will lose dirty cache line modifications that haven't been
+written back to the memory.
+
+[1] https://developer.canaan-creative.com/k230/dev/zh/00_hardware/K230_datasheet.html#chapter-1-introduction
+[2] https://occ-intl-prod.oss-ap-southeast-1.aliyuncs.com/resource//1699268369347/XuanTie-C908-UserManual.pdf
+[3] https://github.com/cyyself/rvb_test
+[4] https://github.com/cyyself/linux/tree/k230-mainline
+[5] https://github.com/cyyself/simple-sw-workbench/commit/32657d807d64217323a80cb04ce114671e51ed60
+[6] https://gist.github.com/cyyself/aa98b07b8c77bb1d53b5a4c5e67a37cf
 
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-Acked-by: Rob Herring <robh@kernel.org>
-Reviewed-by: Guo Ren <guoren@kernel.org>
 ---
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/boot/dts/canaan/Makefile       |   2 +
+ arch/riscv/boot/dts/canaan/k230-canmv.dts |  24 ++++
+ arch/riscv/boot/dts/canaan/k230-evb.dts   |  24 ++++
+ arch/riscv/boot/dts/canaan/k230.dtsi      | 140 ++++++++++++++++++++++
+ 4 files changed, 190 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/canaan/k230-canmv.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k230-evb.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k230.dtsi
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 709b2211276b..122f9b7b3f52 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -65,6 +65,7 @@ properties:
-       - items:
-           - enum:
-               - allwinner,sun20i-d1-plic
-+              - canaan,k230-plic
-               - sophgo,cv1800b-plic
-               - sophgo,cv1812h-plic
-               - sophgo,sg2042-plic
+diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/canaan/Makefile
+index 987d1f0c41f0..7d54ea5c6f3d 100644
+--- a/arch/riscv/boot/dts/canaan/Makefile
++++ b/arch/riscv/boot/dts/canaan/Makefile
+@@ -1,6 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0
+ dtb-$(CONFIG_ARCH_CANAAN) += canaan_kd233.dtb
+ dtb-$(CONFIG_ARCH_CANAAN) += k210_generic.dtb
++dtb-$(CONFIG_ARCH_CANAAN) += k230-canmv.dtb
++dtb-$(CONFIG_ARCH_CANAAN) += k230-evb.dtb
+ dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_bit.dtb
+ dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_dock.dtb
+ dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_go.dtb
+diff --git a/arch/riscv/boot/dts/canaan/k230-canmv.dts b/arch/riscv/boot/dts/canaan/k230-canmv.dts
+new file mode 100644
+index 000000000000..9565915cead6
+--- /dev/null
++++ b/arch/riscv/boot/dts/canaan/k230-canmv.dts
+@@ -0,0 +1,24 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
++ */
++
++#include "k230.dtsi"
++
++/ {
++	model = "Canaan CanMV-K230";
++	compatible = "canaan,canmv-k230", "canaan,kendryte-k230";
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	ddr: memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x0 0x0 0x20000000>;
++	};
++};
++
++&uart0 {
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/canaan/k230-evb.dts b/arch/riscv/boot/dts/canaan/k230-evb.dts
+new file mode 100644
+index 000000000000..f898b8e62368
+--- /dev/null
++++ b/arch/riscv/boot/dts/canaan/k230-evb.dts
+@@ -0,0 +1,24 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
++ */
++
++#include "k230.dtsi"
++
++/ {
++	model = "Kendryte K230 EVB";
++	compatible = "canaan,k230-usip-lp3-evb", "canaan,kendryte-k230";
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	ddr: memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x0 0x0 0x20000000>;
++	};
++};
++
++&uart0 {
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/canaan/k230.dtsi b/arch/riscv/boot/dts/canaan/k230.dtsi
+new file mode 100644
+index 000000000000..75165fcbeceb
+--- /dev/null
++++ b/arch/riscv/boot/dts/canaan/k230.dtsi
+@@ -0,0 +1,140 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
++ */
++
++#include <dt-bindings/interrupt-controller/irq.h>
++
++/dts-v1/;
++/ {
++	#address-cells = <2>;
++	#size-cells = <2>;
++	compatible = "canaan,kendryte-k230";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <27000000>;
++
++		cpu@0 {
++			compatible = "thead,c908", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			riscv,isa = "rv64imafdcv_zba_zbb_zbc_zbs_zicbom_zicbop_zicboz_svpbmt";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zba", "zbb",
++					       "zbc", "zbs", "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicsr", "zifencei", "zihpm", "svpbmt";
++			riscv,cbom-block-size = <64>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <128>;
++			d-cache-size = <32768>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			next-level-cache = <&l2_cache>;
++			mmu-type = "riscv,sv39";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		l2_cache: l2-cache {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <262144>;
++			cache-sets = <256>;
++			cache-unified;
++		};
++	};
++
++	apb_clk: apb-clk-clock {
++		compatible = "fixed-clock";
++		clock-frequency = <50000000>;
++		clock-output-names = "apb_clk";
++		#clock-cells = <0>;
++	};
++
++	soc {
++		compatible = "simple-bus";
++		interrupt-parent = <&plic>;
++		#address-cells = <2>;
++		#size-cells = <2>;
++		dma-noncoherent;
++		ranges;
++
++		plic: interrupt-controller@f00000000 {
++			compatible = "canaan,k230-plic" ,"thead,c900-plic";
++			reg = <0xf 0x00000000 0x0 0x04000000>;
++			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++			interrupt-controller;
++			#address-cells = <0>;
++			#interrupt-cells = <2>;
++			riscv,ndev = <208>;
++		};
++
++		clint: timer@f04000000 {
++			compatible = "canaan,k230-clint", "thead,c900-clint";
++			reg = <0xf 0x04000000 0x0 0x00010000>;
++			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
++		};
++
++		uart0: serial@91400000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x91400000 0x0 0x1000>;
++			clocks = <&apb_clk>;
++			interrupts = <16 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart1: serial@91401000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x91401000 0x0 0x1000>;
++			clocks = <&apb_clk>;
++			interrupts = <17 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart2: serial@91402000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x91402000 0x0 0x1000>;
++			clocks = <&apb_clk>;
++			interrupts = <18 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart3: serial@91403000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x91403000 0x0 0x1000>;
++			clocks = <&apb_clk>;
++			interrupts = <19 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart4: serial@91404000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x91404000 0x0 0x1000>;
++			clocks = <&apb_clk>;
++			interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++	};
++};
 -- 
 2.43.0
 
