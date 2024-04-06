@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FCCCD1284
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA5CCD1292
 	for <linux-riscv@archiver.kernel.org>; Sat,  6 Apr 2024 11:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4f3MK30Sr5NXLUgPEh5OOANUn6OV50JXW6VmbsfjyFI=; b=QsIPbNujkP0NsK
-	h5nMsU/z/yp96Uo1Edt/4LCNTzJSEAEPCnMSnvCOLhPPib1s940tjKlZ351D52JAnnAuIfk3NE95R
-	NWxnZ50eMvwpDb/QhGHNJviRtnKPmha+aZiwY6pzL14IFtUpCf4Og8v3bHVi6LYoFSxN12BZIgBf/
-	Uz7x6Kd1VVv0nrUhWJZmB32RZxbsEN907uV2rMFVBApI9mprPZ1jYvlkNKVCF6XKHMqkmBTCMLLhC
-	ZrrdoXMtZBD2Ax67jk9UaBTr7aD2ebD7Hx6GIIZX8tdD/6bxXYuVPqPWLlA2Fv/+ot1rXY2L+Qg9U
-	x1XibJNGxO5XpVpEQt7Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0PFt1fqhA7NXGKO/x982oMu7MyCLh6Lw5VnsZX7Mcr8=; b=44h64dFFwpPnvd
+	T4B6wmlUYLkCnvB5lNxtey5IUgH9+/wCcrlgqh9nKAfXJXlsRk1dogENRK5L02Mm9N3Io+zjXF2xI
+	RnuYscjtDTFEq63iNoxwgtAt4C0ESAYQdAAWrLjwMhwblMAQ6/LUzTmZl9g1gHd9l5DuFJHBIGXiE
+	W/Q0n41zdOqetZ5sHWmFrpVhKXXS0anMQZ30szZqLg9gswkJLCM9chO4b3ZfGty4NI68Gzr54MZP8
+	y1DMx4Us7DdnCroYqxpX2WVaJaEHviDxFueA1MXe8OgqNp4fymcKMDCDHPfaP2MYHhnJcs9NDKO6T
+	pPm1UedAjqaI5aJhPdoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rt4KT-0000000ADej-1Cpc;
-	Sat, 06 Apr 2024 11:35:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rt4KV-0000000ADfe-2lr2;
+	Sat, 06 Apr 2024 11:35:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rt4KR-0000000ADe0-0atY
+	id 1rt4KT-0000000ADei-1tsS
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Apr 2024 11:35:24 +0000
+	Sat, 06 Apr 2024 11:35:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 19C6260B31;
-	Sat,  6 Apr 2024 11:35:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB3CFC433C7;
-	Sat,  6 Apr 2024 11:35:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EF37660B2C;
+	Sat,  6 Apr 2024 11:35:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0E50C43390;
+	Sat,  6 Apr 2024 11:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712403320;
-	bh=4HEh5WRadPdje54XUg02xBIGtsPiwVv0rVvT7xJfEk0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=uD0O65Wk9uJH8AXJ2ZmiqCtPoxCXg/KzCbxCB0QyR+OPe0U8JUsf7b+ZcA2KDIU9e
-	 jS69HJe/aT2pALTTIov1Fn6CL4IPzU+PQNKzRa+5+qqIeXHj0ijqENHdNlz1uX9GsY
-	 0r90y3yk6X9wiBp48G3owAIkbB1aohKHufqoHrkmG4Q908ALgcdwkXLVgEz82odRl8
-	 m4PUpJfIOdM/jqW1z2/LLODExoPFYbQRWqy2UbhLlxiI4bReShyONl0k/XeUUr3f8v
-	 yY2hQzYZcQYSdjjZIa4sxFZmo8+yqTMeEuptJvAMfmhVb6rawEQXJMk55+eZsO3IUB
-	 gok77/w7a1KPA==
+	s=k20201202; t=1712403324;
+	bh=P4a9KYACvIIRNW48O2VQT45jjUsOBcQvvKsYyjPbY5g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=l0ZeV5ZCLAozcfubDL9o5rFOQR1+aqsnMrGjnK5RkVMi0AK653WLvHm9FWjD/3bV/
+	 GPIq9K7BruLtMize8NP++CRewTgdCOYYrG1bwdb5C4b7yp2cZWVeKE9IxEW28tF9ks
+	 +9zW/QLnp5L6aGIUzIGEG2u7p6tnOMILYYL6VkJpFjTCw1WIjg1mPnaM5Z8f2dKMEp
+	 jf8yyeH8Tl9kLVRkhzK7zP4/byvejzsoROKUU92Ov8UXN90YAN3QgbsvOkkQ837gMO
+	 wSNXf4iTIpSdqVHhRnZoCNcwayoaG02MA6ydDoLRTKYLIszGRljPd3aksEK7B+EkTz
+	 ADbyryrsZY0yw==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -51,14 +51,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Samuel Holland <samuel.holland@sifive.com>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/3] riscv: improve nommu and timer-clint
-Date: Sat,  6 Apr 2024 19:21:56 +0800
-Message-ID: <20240406112159.1634-1-jszhang@kernel.org>
+Subject: [PATCH v2 2/3] clocksource/drivers/timer-clint: Add option to use CSR instead of mtime
+Date: Sat,  6 Apr 2024 19:21:58 +0800
+Message-ID: <20240406112159.1634-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240406112159.1634-1-jszhang@kernel.org>
+References: <20240406112159.1634-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240406_043523_263498_6355CF2B 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20240406_043525_625755_177620A1 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,16 +77,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As is known, the sophgo CV1800B contains so called little core, which
-is C906 w/o MMU, so I want to run nommu linux on it. This series is
-the result of the bring up. After this series, w/ proper dts, we can
-run nommu linux on milkv duo's little core.
-
-First of all, patch1 removes the PAGE_OFFSET hardcoding by introducing
-DRAM_BASE Kconfig option.
-
 As pointed out by commit ca7810aecdba ("lib: utils/timer: mtimer: add a
 quirk for lacking mtime register") of opensbi:
+
 "T-Head developers surely have a different understanding of time CSR and
 CLINT's mtime register with SiFive ones, that they did not implement
 the mtime register at all -- as shown in openC906 source code, their
@@ -97,31 +92,94 @@ generate timer interrupts. This makes it necessary to implement T-Head
 C9xx CLINT support in OpenSBI MTIMER driver, which skips implementing
 reading mtime register and falls back to default code that reads time
 CSR."
-So the second patch adds an option CONFIG_CLINT_USE_CSR_INSTEADOF_MTIME
-for this purpose.
 
-The last patch adds T-Head C9xxx clint support to timer-clint driver.
+To use the clint in RISCV-M NOMMU env on Milkv Duo little core, we
+need to fall back to read time CSR instead of mtime register. Add the
+option for this purpose.
 
-Since v1:
-  - fix c900_clint_timer_init_dt() defined but not used build warning
-  - add option CONFIG_CLINT_USE_CSR_INSTEADOF_MTIME instead of removing
-    mtime usage for all platforms, since not all platforms implement the
-    time CSR in HW in M mode.
-  - rebase on the timer-clint improvement series
-https://lore.kernel.org/linux-riscv/20240406111757.1597-1-jszhang@kernel.org/T/#t
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/include/asm/timex.h    | 6 +++---
+ drivers/clocksource/Kconfig       | 9 +++++++++
+ drivers/clocksource/timer-clint.c | 7 +++++++
+ 3 files changed, 19 insertions(+), 3 deletions(-)
 
-Jisheng Zhang (3):
-  riscv: nommu: remove PAGE_OFFSET hardcoding
-  clocksource/drivers/timer-clint: Add option to use CSR instead of
-    mtime
-  clocksource/drivers/timer-clint: Add T-Head C9xx clint
-
- arch/riscv/Kconfig                |  8 +++++++-
- arch/riscv/include/asm/timex.h    |  6 +++---
- drivers/clocksource/Kconfig       |  9 +++++++++
- drivers/clocksource/timer-clint.c | 31 +++++++++++++++++++++++++++++++
- 4 files changed, 50 insertions(+), 4 deletions(-)
-
+diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
+index a06697846e69..1c3eed4263cd 100644
+--- a/arch/riscv/include/asm/timex.h
++++ b/arch/riscv/include/asm/timex.h
+@@ -10,7 +10,7 @@
+ 
+ typedef unsigned long cycles_t;
+ 
+-#ifdef CONFIG_RISCV_M_MODE
++#if defined(CONFIG_RISCV_M_MODE) && !defined(CONFIG_CLINT_USE_CSR_INSTEADOF_MTIME)
+ 
+ #include <asm/clint.h>
+ 
+@@ -46,7 +46,7 @@ static inline unsigned long random_get_entropy(void)
+ }
+ #define random_get_entropy()	random_get_entropy()
+ 
+-#else /* CONFIG_RISCV_M_MODE */
++#else /* CONFIG_RISCV_M_MODE && !CONFIG_CLINT_USE_CSR_INSTEADOF_MTIME */
+ 
+ static inline cycles_t get_cycles(void)
+ {
+@@ -60,7 +60,7 @@ static inline u32 get_cycles_hi(void)
+ }
+ #define get_cycles_hi get_cycles_hi
+ 
+-#endif /* !CONFIG_RISCV_M_MODE */
++#endif /* !CONFIG_RISCV_M_MODE || CONFIG_CLINT_USE_CSR_INSTEADOF_MTIME */
+ 
+ #ifdef CONFIG_64BIT
+ static inline u64 get_cycles64(void)
+diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+index 34faa0320ece..7bbdbf2f96a8 100644
+--- a/drivers/clocksource/Kconfig
++++ b/drivers/clocksource/Kconfig
+@@ -650,6 +650,15 @@ config CLINT_TIMER
+ 	  This option enables the CLINT timer for RISC-V systems.  The CLINT
+ 	  driver is usually used for NoMMU RISC-V systems.
+ 
++config CLINT_USE_CSR_INSTEADOF_MTIME
++	bool "Use TIME CSR instead of the mtime register"
++	depends on CLINT_TIMER
++	help
++	  Use TIME CSR instead of mtime register. Enable this option if
++	  prefer TIME CSR over MTIME register, or if the implementation
++	  doesn't implement the mtime register in CLINT, so fall back on
++	  TIME CSR.
++
+ config CSKY_MP_TIMER
+ 	bool "SMP Timer for the C-SKY platform" if COMPILE_TEST
+ 	depends on CSKY
+diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
+index f468fa8bf5f0..0d3890e00b75 100644
+--- a/drivers/clocksource/timer-clint.c
++++ b/drivers/clocksource/timer-clint.c
+@@ -76,6 +76,12 @@ static void clint_ipi_interrupt(struct irq_desc *desc)
+ #define clint_get_cycles_hi()	readl_relaxed(((u32 *)clint_timer_val) + 1)
+ #endif
+ 
++#ifdef CONFIG_CLINT_USE_CSR_INSTEADOF_MTIME
++static u64 notrace clint_get_cycles64(void)
++{
++	return get_cycles64();
++}
++#else
+ #ifdef CONFIG_64BIT
+ static u64 notrace clint_get_cycles64(void)
+ {
+@@ -94,6 +100,7 @@ static u64 notrace clint_get_cycles64(void)
+ 	return ((u64)hi << 32) | lo;
+ }
+ #endif /* CONFIG_64BIT */
++#endif /* CONFIG_CLINT_USE_CSR_INSTEADOF_MTIME */
+ 
+ static u64 clint_rdtime(struct clocksource *cs)
+ {
 -- 
 2.43.0
 
