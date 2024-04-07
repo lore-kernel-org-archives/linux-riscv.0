@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A191ECD11C2
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2024 16:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD80CD1292
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2024 16:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A7ZcxgJMDEcF1ZtQwhuXye85QbL0opjF40NY4HDWyWA=; b=UIMt8rnFAJfPN3
-	O9Osi2xto74BbG319Wp1WWrx51kvoiy1sAgFyWq3/H/aPhRFAMkbcrFYO0fqWjmzGIdKZmcjcLTQe
-	jLA8SreUmZdxYEc5/CyN7M+wez810ZKim8Nz0CFvtVXT/X6OFw9bWOOUq9jad7g8W0JVBYhBAJNOr
-	gmuHZ7DZBjz5NQuRNsOHybR4Dhq1U3DMxJ4wc/rXhomZRwy7r/TdqDODGIEYukjpm8rkNcvIWqsTA
-	EjcY2GmysSfcyzPf9nFyOqqLsX+TCs2ai/5WUXtHl2iihnF9rVfDb81eIsBNxS+2NPQSyqbimcFGy
-	+ZwuUKQqDgI7+LZlUrjw==;
+	List-Owner; bh=cfXAcabfZlKVKjrPxhvy258YNXoddtXPGIU83RRam4M=; b=ZpykU29WTvTVHQ
+	kOvAMWnxv4BOakxAqouCVEUhcovbgtoSDFuuo4T2jFX3scU5vB3nwXUtm70ZQwi/Ix6wTIKeCcSkj
+	1MJ1FMONIEI/c4X0FBnaUqGH155TlruRRPwzL8ZpX8sY1/AsjS1lbytZfkoA3DpJPf9IWDggMC6ZF
+	485FH9zhY2BtQJ9tkW7nz0rO0+3ot33RENTe6nDoJKHxqzE1lzctlJVJcoVcwdmjtqH1e9fTfmDMI
+	HnEZZsICLztQUWPAJLfImDa/nTA8ZIvwl/ekdJ7uBAx1F3c9Te5gZnRhM48He2vp3tUCpqafGTRz6
+	hwPG0oscNNnyvlQfLdaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtVO6-0000000D0tf-23Zv;
-	Sun, 07 Apr 2024 16:28:58 +0000
-Received: from out203-205-251-36.mail.qq.com ([203.205.251.36])
+	id 1rtVO7-0000000D0uK-41IR;
+	Sun, 07 Apr 2024 16:28:59 +0000
+Received: from out203-205-221-239.mail.qq.com ([203.205.221.239])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtVO3-0000000D0re-090k
+	id 1rtVO5-0000000D0s9-13Mf
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Apr 2024 16:28:56 +0000
+	Sun, 07 Apr 2024 16:28:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1712507326; bh=rcU9GmGkfYObnRvy+6sIXXI4nFg1KITAK23jcYZUxzQ=;
+	t=1712507334; bh=kvuS7K0wl30nwl4M5zznAdLvDfFhfeZr9JFWkFZyoG8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=uQw3F+bAhsYsRxhukHC5AG+BE9UZMtfVa97fJMe4WMFYG2eqoswTFpTIyJYlw+Q8K
-	 T5bYlJWdGFsbcjVNjlp4iNsEfipyovuhGguNkNzU5eG8J2DJakYC4BJj+MuVbsQ16g
-	 b48FG31IlV92IkFAZsyL9u7TYgO1GU0WSoalI1X8=
+	b=mI6SjJEaUKQ5N//GJzIAn1/YNE7CQNcl7DYPK7ZicfPYxCJauOlI+fJhbjXH6Uts9
+	 7lhT1vXf7lewFdSrs+mD4dgwl8/SphpO11ci5zBOQ/ucu1yFCzpIn4WL8h3dbpzOq9
+	 Vixf8D0ti8NVHkZAlj21njmZ2ldr3cCApW+n75dI=
 Received: from cyy-pc.lan ([240e:379:225a:6d00:f878:7a6f:5832:7f4d])
 	by newxmesmtplogicsvrsza1-0.qq.com (NewEsmtp) with SMTP
 	id 726A94B5; Mon, 08 Apr 2024 00:28:38 +0800
-X-QQ-mid: xmsmtpt1712507323t1fs8ch17
-Message-ID: <tencent_CBA62384BD9191CF4FF0407BD17118B73605@qq.com>
-X-QQ-XMAILINFO: OakVxA/3u/8R12L76aW4bi3wLSBBjKGo+MGgTo8NYImiAKoZmXjzk+W6r1Qy0H
-	 kyMBROiT1RxVk8iEgN5L7Tlfb38tDH0mDfv9aH402v9A/kSN90FNKStOaXt456WeMEqrPDRa/hBz
-	 LiprRh4MSPNBxxPxtB6sG5W1JLxzhNTYyCb3g17mJunw4k8zAREtjKY2TFV3DGpi732HnPunD/MU
-	 MOar/ks4AePCm2X40YCxP1H7RyUYf9e0ffDGr4IEINGkLyJ3AR5fhRAkLibTU5/EqnyEK5TZRQjd
-	 QJvth/J9pD70ykbmSp00G7uNXxW8DEeL1ef+p9Yp2he8ulxKtGdZOv7WazVVri4YkgEWt9FzJg3Z
-	 inn2C+RZtvxbd8RClpEp7obd3mFlKf+mM3iZIIP7Ebk46Ww/O0kOF9fV+MVXTKRxsed4zOM13GIi
-	 wSS20ubsX9krBjqX3E1bcmk1BNDkhfJ1Ovg1Lotk3YdjPi9DRQ3lD7BCS2M/ZD456jJu3fMSUan3
-	 /RSwq4j/6rgKH0nRJgRHJ57u7K1FY5BuEW0lCj0nObLadSA2NU5v+TIymOXRe23w46xyXNDd0hMd
-	 vkWMh/FjRxkWHLXYu+9r69oNcdk1VHAufbK7TRNCpsBH3sX7HEItJBl64Yds2OYhDPLHmgBA9oGX
-	 MACG3Mi/BeaWrRMVOhSQKhTdKXbHSxggJ9AL5awAwKJJ3iDeZ17AlIvXPqeXkBOgKBaqxtNO6Wxy
-	 BaVBGJQR0Rx5JwgDxdbvBnZC5TB4oGq0LZcmqkxvYsE4OySf/tnE+V0ks8j35Ucf3E9KF7K4SO9E
-	 FhMO1bQojG0arbQIG+HK6kpyzhDV9eHQBxPGWRe/kxWOemKkwxGRbTgiUS2OK9BWm31wTFH19AEV
-	 FVLizEfz8gzNjqOJKh3zG2F1Vxml47SHi8V0bTpcxfbvugKkQFpsbUMId9i9+o2mp1+jlLWSpUdK
-	 6eFVml2pFdSKYutBo7jR29G06FZzv/GrgCEhONMOZQlwNu0EAuFJ9GE0PdxgXbOQAA0N0fUw5rd8
-	 /FBbbDE1vcTzzjDRPzkT8BQWP30ePC8BK37cYMKAiKERAnEHNFqT/scTL3Xu4=
+X-QQ-mid: xmsmtpt1712507322t25li118q
+Message-ID: <tencent_4D85743622F39109466913393EE2F6C5980A@qq.com>
+X-QQ-XMAILINFO: NY3HYYTs4gYSFCBfYc13/eYee6/t1+VQFnXBRNc5Skm+aaWl+3lKK0ti+e0dhX
+	 XBsaTfhi8W7XH3op554FblqV+VA0e8v06yPBRLBPj+IIjwOsry+ZuAsOXWHOH7RsPHHkx3Uaob5Y
+	 6Sz4ahIdg0CcgR0DMqko9hpivs7T39UXiLAT1Cqa8bIJKWEeHOOAQyL447jpTqGHz7UfK/mwhJ5V
+	 O3C520PDa16uv+iJfIHViWe0TiL26dHr4uizsEC7jL0x3es0KeQVLUfLl6s5jWvNK+Xu4F37DcAI
+	 AapG+IVhuf7EvQB8ld1HAZGr/OKuTJNSVUi/5aokfhvkbQTSrIFGbtT2j+VYfmR4kk+AbYrB30oP
+	 V0kOl9VTmk4yByRmMYGQA3dreUZAbeONzIfy6KdLOfAXyQE7UpCvmQ1uDdRy9rRAywpVWhSRUdeZ
+	 5zFjjQVJS6JoSzqSTzfzDP+8Cs5VyYd3nB6osaSPrSg9v9tUp6oaW4eUGIE5FK/Ra95Fd68JltyL
+	 G4zx69w7AGwW2rcxNn4XrBXGPPQdS0XGhr1rEFNWKfv6WtWyuBHy4FF21BZZ5v2icMsgRnjW32Pn
+	 V3ywvcOFhHTpSjqEq68GNZT83oL6oppnNXH9M69mJMtIjTqPsbJUG58zutR0GnDYgyuO4O75LUdu
+	 QHQDG3mig0vQhZxIGavM9yWXY84uSa34RffvnPy8yDizn4+00X1SYiUwlSJ2NkBoUeu6q4FWHnoW
+	 aHrpDE9FkwuCE5hUwHCab+PP5iHSbj3k7RfstGgHnICcvIR0M8ecmRfIVm0F3x1QU7gF0fhgHBcC
+	 ztVVWDSXTbADbGRRQEzZqbJ5XHhu2tu0NK+n+0nuaLW3PTKMuQuCb0jrGowchVGiwEhbN4oYWXmL
+	 ZjN8LpXrcxTiMFk1IkRzx4JVbM9TaGWPFL9HXOr/qcHFu+92Apjhg7ALoxuFHLst7YEIeUTaQ3X5
+	 bHUqHCagzFwg+QlveRBbxLLLarwo8V4VQFqtef5879yNREDuPvSH+uDSQ8L78qM4XPojpKCRLUhA
+	 ctCQYhGwjQyohmGO5aFcUqdkTh134=
 X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
@@ -68,17 +68,17 @@ Cc: Conor Dooley <conor@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yangyu Chen <cyy@cyyself.name>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH RESEND v8 3/6] dt-bindings: timer: Add Canaan K230 CLINT
-Date: Mon,  8 Apr 2024 00:28:32 +0800
-X-OQ-MSGID: <20240407162835.3199788-3-cyy@cyyself.name>
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH RESEND v8 2/6] dt-bindings: add Canaan K230 boards compatible strings
+Date: Mon,  8 Apr 2024 00:28:31 +0800
+X-OQ-MSGID: <20240407162835.3199788-2-cyy@cyyself.name>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <tencent_22BA0425B4DF1CA1713B62E4423C1BFBF809@qq.com>
 References: <tencent_22BA0425B4DF1CA1713B62E4423C1BFBF809@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240407_092855_442660_5661EE3B 
-X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-CacheID: sfid-20240407_092857_695346_0D5C31E0 
+X-CRM114-Status: UNSURE (   9.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,27 +96,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for Canaan K230 CLINT.
+Since K230 was released, K210 is no longer the only SoC in the Kendryte
+series, so remove the K210 string from the description. Also, add two
+boards based on k230 to compatible strings to allow them to be used in the
+dt.
 
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-Acked-by: Rob Herring <robh@kernel.org>
-Reviewed-by: Guo Ren <guoren@kernel.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
 ---
- Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/riscv/canaan.yaml | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index fced6f2d8ecb..06c67f20ad3c 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -38,6 +38,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/riscv/canaan.yaml b/Documentation/devicetree/bindings/riscv/canaan.yaml
+index 41fd11f70a49..f9854ff43ac6 100644
+--- a/Documentation/devicetree/bindings/riscv/canaan.yaml
++++ b/Documentation/devicetree/bindings/riscv/canaan.yaml
+@@ -10,7 +10,7 @@ maintainers:
+   - Damien Le Moal <dlemoal@kernel.org>
+ 
+ description:
+-  Canaan Kendryte K210 SoC-based boards
++  Canaan Kendryte SoC-based boards
+ 
+ properties:
+   $nodename:
+@@ -42,6 +42,12 @@ properties:
        - items:
-           - enum:
-               - allwinner,sun20i-d1-clint
-+              - canaan,k230-clint
-               - sophgo,cv1800b-clint
-               - sophgo,cv1812h-clint
-               - thead,th1520-clint
+           - const: canaan,kendryte-k210
+ 
++      - items:
++          - enum:
++              - canaan,canmv-k230
++              - canaan,k230-usip-lp3-evb
++          - const: canaan,kendryte-k230
++
+ additionalProperties: true
+ 
+ ...
 -- 
 2.43.0
 
