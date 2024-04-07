@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E4BCD11C2
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2024 16:33:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A2B9CD11C2
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2024 16:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LBqvNLeJhO+L/cZ+UNb0YXNKRAIOEEqVBc+N30gMdVg=; b=F0ds2h7XP1HvOx
-	Yawfp8tgCoiUp/S9b7VC75PVlcvnCiBwSZ37im+YA9YZANEEyTWOY+/mZtn4cL12+tfikLY3Yy3kn
-	Rlv+68EFk0AiVL2H73UeHdny80AweitYeZLAEEv3mluVTmiCSi9UgUtm1sd31wgJNAWhS4lAdmR6N
-	uD8ofuBxYc5Vrk7cXrzsbZR/KUgFE2ku1eUV/PO6iaMJHUtI2nmlYXx5JIm+D/mMNfoQaaVlRrr0z
-	TBn95UabnBObdRTt2y/xO8JWKaBYz7Mp/BN4Fe6rpPGriNW2q4F5u78yE2Ew/BaZq2EacBX7diLN4
-	sZG+ugqRdclp2uxxqx6A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sRjln73GQwZXS9BSL7/i+UI4gcLTfGi/vO+oFpXq+o4=; b=eCYmr1eMjkkq2U
+	TaEjAP5uMr89AGrsVdpHvo0C8GOrn6o4YBZ5Q1waoVQ2uw3QtmhRjoPCUCAA0uxWeFoBa5rEcU4Jl
+	J0L9mooZjju/n28gu2XYPRqjhB9+vvCcNk2OERanndAh0NfNSeK6mEycyqAs21PL7U43PwvUTnCCj
+	dtLCCqf2AorusEF4zl5cymhV2nEoELHt2Ac4bdGJH/X25X4erOpjU/gVnFur4KJTBb6ZtH8eP97HJ
+	PWZPNKpa4HJVsX9uj0W9ncHYLjeuiV4sj+9SGri0npT6nf2h7dAGLlgCSoD6knQDTw3nG4m8o49ou
+	7oyYFr6SUuhBbF2MLc0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtVSb-0000000D1oK-35CW;
-	Sun, 07 Apr 2024 16:33:37 +0000
-Received: from out162-62-57-252.mail.qq.com ([162.62.57.252])
+	id 1rtVTx-0000000D1yl-3tvp;
+	Sun, 07 Apr 2024 16:35:01 +0000
+Received: from out203-205-221-205.mail.qq.com ([203.205.221.205])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtVSX-0000000D1nW-1LiM
+	id 1rtVTt-0000000D1xj-37MN
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Apr 2024 16:33:35 +0000
+	Sun, 07 Apr 2024 16:34:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1712507602; bh=8u+cV9KILSoHh+LKeRuUnoqayiOf2plCmWOJHizy47E=;
-	h=From:To:Cc:Subject:Date;
-	b=TedochOc3K0btwX6G5JlWLxFxHHnQx/nkfdHiF3Dl5mDGNShi4jKk1ntv/uBK7FvK
-	 FrcOPH0bPYwH5A7pk5rzYcN5Id61aQLRlSBGx7cx1HiokiL5/m6Lo1KfVndCv0itAn
-	 0bfYc/TNcqupPEbneZ2C6PBNUHv6wZSsVL6+2csc=
+	t=1712507693; bh=k2XCyj2HtiyDsP/ZIm+qg3j+A+CGArLiMKptqsaRcss=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=BFKE0XsPMCmRMqJx6W7Ufa8qPAgA3ypm4lDlhEyPt6cu0kz6USUeLi4jdCpfyTrzk
+	 C/fpkv2/9nZuthmkhnkGBbEWvDBWsRxcLi7O/c+1f4WsT51iHUIA/aQ3+5aMVdIArC
+	 JOK1rL4OG5WtRsu7djiCNT0XlAUCROoSTv+taMQ4=
 Received: from cyy-pc.lan ([240e:379:225a:6d00:f878:7a6f:5832:7f4d])
-	by newxmesmtplogicsvrszc5-1.qq.com (NewEsmtp) with SMTP
-	id 6CE08642; Mon, 08 Apr 2024 00:27:14 +0800
-X-QQ-mid: xmsmtpt1712507234t2l6iwczm
-Message-ID: <tencent_22BA0425B4DF1CA1713B62E4423C1BFBF809@qq.com>
-X-QQ-XMAILINFO: Md8NwmqZYy3fDy3ETQuYENYYYUvQVOi8ulHLChbgsiQjywXmCazVr5/wXMezX+
-	 ZIVZ16anZUcYC/VT70cPfByk7LRdQrl/vE+RS1n6EHK6BzHzEwAlgEGPX2O4Oru6AYE5DxkOzccZ
-	 WhQUeYfjlUzLFMqjVXGddS2YnSK6tjYOrQs+AQsPbs4fX3gIvMxvcj+daf6tEjYlapEQGjJgcigQ
-	 SSyRojB4O+yOu9xseyY7QvM83OWr+e6ajLPNx6WxEyAjkJdXyFOJJ6Deo/Cbb75PL8lPVgoUnpid
-	 pFjpr6TlyLTkzwb4eSvQJZfoqiMnSGnjIKeAJu+6OxM1kQh3MlqhLwi1fGW87mZ3/AfmBNt5RJQa
-	 r1n2f9C9GjxK5/J0eX0cIAtC6XN8cFysZSzkYphgZywYxCwNj0ERDKImGw3BvzLS+438eUGtyver
-	 WQqoENcCJZwSScCYhF042MQN+KxHSdUpRDWUaax3AcTatqqWjVgMxSNv/qWpiqpi7I6QjZCNechE
-	 f7zEbKqVpBwLJSVPwC8hi/JPbxeAGEYEATAKj8B15rv2/AgJYqar0gWRS5bXXVguQhAw/IvCcQ3y
-	 HRk2JoJ+QsFteUvqf80NmcJlgmiHLhuHxu6x8p7AFdq8WOEdMuuNKsOsdvJE5SBff7I7SiYiIApU
-	 Av2xwZFWZeEDcM7h+fPnQIKTQqrHQtCPWlyQqbsaqjtsfh5oW5IKvYjCFcc6Ekg5O/BuMw3s++zq
-	 9NAhMKDpAf4mi6b4LkZl7eMDiDi0wmjiaaPoJleVJeVc7rsie637zIHg3Bks+/+PBWXEDuTaO7bo
-	 UfRiQZ1n6l39Yw9q2qGxYgpQa5O1p8KQtXwWqIq5KiDkHH15OGfgAbeZiGPfTl1ElXLtxRszNvkL
-	 vCIKqohNonf6XbHomSmwwZn4nXPyVQiiYaAR9Zo34La2sIdO7TlaL3HMFJC/rR2B7DczRiSU6Xo8
-	 CBbc7hkffK8fF63m6v0BA+rdtw32uTiSxzTQt0iT2RHzPb2jhb+57POjfkq9Y2RHzYaRjH4Qe63t
-	 JKTyDuCA==
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+	by newxmesmtplogicsvrsza1-0.qq.com (NewEsmtp) with SMTP
+	id 726A94B5; Mon, 08 Apr 2024 00:28:38 +0800
+X-QQ-mid: xmsmtpt1712507329te5faxais
+Message-ID: <tencent_444C9BD6510E173A262A84AA919D0F449005@qq.com>
+X-QQ-XMAILINFO: N7h1OCCDntujUM20gunPaMcDELA5CKx/0jtaWZDjXoyAIsc/x+iKqTXBOy9PIA
+	 ZOq8R7uN+6n1l4+1ybvkutPK0qsTqXW9JncdjaYy5yfxUTt86vJ0M75UwcDJfllnICH7HUEjDvd4
+	 xSzl7HCR7aJiG39kJgcDEqh0KqPV7ctYVhVZfOtaNeRcRAiGJLeScddDYxi10tInAGbPXRYTHXKs
+	 5Nr/3N9x5sOMHOJU7wCVSIgeudORwZPRmEGnGqo/doLXsOIJQXaTRskVnhNX8cNQltVmVsot2bVC
+	 tq/iN7O8KJuFeOvRZSVZAXC5xTnKwL0roWq1xnbFHwVdaWgnNe1FbXXNRB7rAt1iDp/Nvgef7ftN
+	 pABhkspOgU7m1m5VWszMymI3eNRd/m6N0jW0arWtkAKVi+AwbivAvMPaEXsHUl4knouI47YcnJdZ
+	 +P94hdDcGeZn/9kJD7Mkob8ukzcHGzab3IBo8ZxgRX1ixsxUq4soLbFGeC8AW67H3aykxvFtvOl5
+	 JLzG9zdew2FHl6XhS/Bkv8eiVjPTeMlcwutYUNmZDqWsBYYjJOQScdwC7/i93QYnxaHzvLroQZAt
+	 31UBGNpnZqsHLUyK8tATC/oe7/6RUtA2uKiZevVXI8Nub7SUQ5cCeZBCqmEEHWt8pOwTimcNT8eh
+	 7Ejp3qFMJvPrZMDbPZFpMCXs7aZZ5wHfOFcpnOVdWYzBsFxgE0SBPZdsDKRdr84TIHJaRVU5dPUK
+	 2lkKoyRW6qCWWbEjRZ7NlTjESIWA5IEvsUoqxxv07x2Lgi3HLzUluR41cctwhJFXT3TmJt8jxsRQ
+	 lZyKs8DvkHQ1LAoy+1d4B8eG9zUMhvFu42+5L7m+YKrPhCQ9W1xeg+oU6g96T72x9dhDbVphIkvc
+	 SFVL8FnVuds7SDh03vzb30MScnoEjSPCMHJqpmVHV5pN4/vxqW8suRxkdMKu4/FH130Lz9oKEPmC
+	 INDInv+6GVRdpLbykoS/HGGzYru5ewrCOzIBhA/i+PqYizwhDZ7F7nTr9oAjDiyg1evVnylIa+7q
+	 tz8A3i55u+1+OT5YL2NUCOpMBu2a79ANzv6sFhWuTzI2VAJ7CDIsonUjU0Tbs=
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor@kernel.org>,
@@ -67,15 +67,19 @@ Cc: Conor Dooley <conor@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH RESEND v8 0/6] riscv: add initial support for Canaan Kendryte K230
-Date: Mon,  8 Apr 2024 00:26:58 +0800
-X-OQ-MSGID: <20240407162658.3199215-1-cyy@cyyself.name>
+	Yangyu Chen <cyy@cyyself.name>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH RESEND v8 6/6] riscv: config: enable ARCH_CANAAN in defconfig
+Date: Mon,  8 Apr 2024 00:28:35 +0800
+X-OQ-MSGID: <20240407162835.3199788-6-cyy@cyyself.name>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <tencent_22BA0425B4DF1CA1713B62E4423C1BFBF809@qq.com>
+References: <tencent_22BA0425B4DF1CA1713B62E4423C1BFBF809@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240407_093334_002740_58764DBA 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20240407_093458_132240_FC4C15DF 
+X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,98 +96,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-K230 is an ideal chip for RISC-V Vector 1.0 evaluation now. Add initial
-support for it to allow more people to participate in building drivers
-to mainline for it.
+Since K230 has been supported, allow ARCH_CANAAN to be selected to build dt
+and drivers for it in defconfig.
 
-This kernel has been tested upon factory SDK [1] with
-k230_evb_only_linux_defconfig and patched mainline opensbi [2] to skip
-locked pmp and successfully booted to busybox on initrd with this log [3].
+Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes in resend v8:
-- Add missing cc to lkml and linux-dt list and correct Krzysztof's address
-- No change in content
-
-v8: https://lore.kernel.org/linux-riscv/tencent_9F423E3DC13F6D5FC7415C89988490F04607@qq.com/
-
-Changes since v7:
-- Add missing riscv,cbop-block-size and riscv,cboz-block-size in dts
-
-v7: https://lore.kernel.org/linux-riscv/tencent_F6392EE11AC6A485C43406F1BD09C268DB0A@qq.com/
-
-Changes since v6:
-- Split SOC_CANAAN clean up to a separate patch [4]
-- Add zicbop and zicboz in dts
-- Rebase to riscv-dt-for-next branch
-
-v6: https://lore.kernel.org/linux-riscv/tencent_F76EB8D731C521C18D5D7C4F8229DAA58E08@qq.com/
-
-Changes since v5:
-- Deprecate SOC_CANAAN and use SOC_CANAAN_K210 for K210 SoCs
-- Modify existing K210 drivers depends on SOC_CANAAN_K210 symbol
-- Reword dts commit message
-- Modify dts to use Full 512MB memory
-- Rebase to linux mainline master
-
-v5: https://lore.kernel.org/linux-riscv/tencent_FC10B3C630BE27412FED2547245CBE18D807@qq.com/
-
-Changes since v4:
-- Reword commit message on dts that the B-ext version of c908 is 1.0 rather
-  than 1.0-rc1
-
-v4: https://lore.kernel.org/linux-riscv/tencent_587730262984A011834F42D0563BC6B10405@qq.com/
-
-Changes since v3:
-- Refactor Kconfig.soc which uses ARCH_CANAAN for regular Canaan SoCs and
-  rename SOC_CANAAN to SOC_CANAAN_K210 for K210 in patch [5/7]
-- Sort dt-binding stings on Cannan SoCs in alphanumerical order
-
-v3: https://lore.kernel.org/linux-riscv/tencent_BB2364BBF1812F4E304F7BDDD11E57356605@qq.com/
-
-Changes since v2:
-- Add MIT License to dts file
-- Sort dt-binding stings in alphanumerical order
-- Sort filename in dts Makefile in alphanumerical order
-- Rename canmv-k230.dts to k230-canmv.dts
-
-v2: https://lore.kernel.org/linux-riscv/tencent_64A9B4B31C2D70D5633042461AC9F80C0509@qq.com/
-
-Changes since v1:
-- Patch dt-bindings in clint and plic
-- Use enum in K230 compatible dt bindings
-- Fix dts to pass `make dtbs_check`
-- Add more details in commit message
-
-v1: https://lore.kernel.org/linux-riscv/tencent_E15F8FE0B6769E6338AE690C7F4844A31706@qq.com/
-
-[1] https://github.com/kendryte/k230_sdk
-[2] https://github.com/cyyself/opensbi/tree/k230
-[3] https://gist.github.com/cyyself/b9445f38cc3ba1094924bd41c9086176
-[4] https://lore.kernel.org/linux-riscv/tencent_2E60E33C1F88A090B6B3A332AE528C6B8806@qq.com/
-
-Yangyu Chen (6):
-  dt-bindings: riscv: Add T-HEAD C908 compatible
-  dt-bindings: add Canaan K230 boards compatible strings
-  dt-bindings: timer: Add Canaan K230 CLINT
-  dt-bindings: interrupt-controller: Add Canaan K230 PLIC
-  riscv: dts: add initial canmv-k230 and k230-evb dts
-  riscv: config: enable ARCH_CANAAN in defconfig
-
- .../sifive,plic-1.0.0.yaml                    |   1 +
- .../devicetree/bindings/riscv/canaan.yaml     |   8 +-
- .../devicetree/bindings/riscv/cpus.yaml       |   1 +
- .../bindings/timer/sifive,clint.yaml          |   1 +
- arch/riscv/boot/dts/canaan/Makefile           |   2 +
- arch/riscv/boot/dts/canaan/k230-canmv.dts     |  24 +++
- arch/riscv/boot/dts/canaan/k230-evb.dts       |  24 +++
- arch/riscv/boot/dts/canaan/k230.dtsi          | 142 ++++++++++++++++++
- arch/riscv/configs/defconfig                  |   1 +
- 9 files changed, 203 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/boot/dts/canaan/k230-canmv.dts
- create mode 100644 arch/riscv/boot/dts/canaan/k230-evb.dts
- create mode 100644 arch/riscv/boot/dts/canaan/k230.dtsi
-
-base-commit: 0eea987088a22d73d81e968de7347cdc7e594f72
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index fc0ec2ee13bc..27bea8296b9d 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -33,6 +33,7 @@ CONFIG_SOC_STARFIVE=y
+ CONFIG_ARCH_SUNXI=y
+ CONFIG_ARCH_THEAD=y
+ CONFIG_SOC_VIRT=y
++CONFIG_ARCH_CANAAN=y
+ CONFIG_SMP=y
+ CONFIG_HOTPLUG_CPU=y
+ CONFIG_PM=y
 -- 
 2.43.0
 
