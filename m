@@ -4,82 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D4ACD128A
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2024 12:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 719D0CD11C2
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2024 13:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PYSDSumUPlJ5Gb7PSJMatuxf9vQMHqr+IezkVxOCWUI=; b=GlIfy/62yG7T4K
-	D3PSvEHaFMzYZlrNuuRgLR2SVxFXuBLqTuhpdsLr45VYBH+ynDkGX2Q2esJL9DDpHGLeHSqSCi4iF
-	x3K89hWaj5xej+DkYdENls2rm8uBc9Q3rCp0d+0oObUn0LoZqrVHyP+kksCJZivsnwZ329o1CuM6s
-	0DYBHozA6vNernRBMUMql9+1jozAZkohCcjrlW1UvDPc8fFo0xTNRa5hYc8BnfSiu7of6PiUSsH31
-	covlTxqwNZOE/Up4zDiarq7kcupX3r5zvkfylXS9+NRqGkkBP4NYHFYJdDotkH2VpadTb7H3rYDMr
-	FItb7SMVZKSPvvxuvMOg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Oj0nNYnF7Vnp4pHHRqlmrQWA1AC0xbDmskJDyqPlQIE=; b=0ZEAF3t7g0bgii
+	qjUtwFn9Q4uhdDJkOGl/FXBtw1+LokKIr5Iw9aldB+zy/D4luHqgbViVYZEO/qorNNIoAG58oCL/H
+	zuF9xSxXwUTNBySdCvg+JK5UO2h24eC0OqguI6fUUvOu74x3r1d3HLFc3q7ZBTmqbdl14VLl4U+5N
+	PPLf3XHHZjFA5nmZzft7d03gZ7Q1i/jRb4yMDQB/aLvsYLCxsUjylMK2VyptLOndCh2yMUnpGyOc0
+	+MNNshvwv4Ay6uaJ1ntpvKRB4Bc9bRTIXXdRNLX79v+disQUrfTBgrCTrDBAA+izHBCYPbMVThCXE
+	aqgee7rrJhfiBG1oiZ7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtRoM-0000000CY7n-2god;
-	Sun, 07 Apr 2024 12:39:50 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1rtSMC-0000000Cd1D-0BXo;
+	Sun, 07 Apr 2024 13:14:48 +0000
+Received: from mail-bjschn02on2071c.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::71c] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtRoI-0000000CY4L-3MSn
+	id 1rtSM3-0000000CcxP-0LFE
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Apr 2024 12:39:48 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6ed054f282aso1604125b3a.0
-        for <linux-riscv@lists.infradead.org>; Sun, 07 Apr 2024 05:39:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1712493581; x=1713098381; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vPBHKQJQEE6Ldq8xPlUpXcKmkLxliyIjm+yGQB4JHjw=;
-        b=OaFhuc6EJLqHAbLvemggBDoWFMJ1pxgPnSM/GbB34qv0lVp9VmxHNkf5MF+xcBHnA0
-         2urau1sXOYgjZSrhB7kpeeSnfAB/+vlcUYOcEVsIOm2YpUz9sLZkemzhpNHmvLFgfosF
-         rbZ9En1fKjlltJyCKp2k2v+BhQrIhF2qZRfzcG/Um2jvbS7c72n0V33ke6m44QBYDk/l
-         J+1avYd+e3BBsdfU2MqiRCaTHFlVd6Sas+oUSJhgJYutLjxM9us8ZWvbkwa7pV68SGpC
-         uJBod3SWWV+2TkkOdbFWI+LlNE992SPOEwL9GbHjtI+qUPfw/jHTwzBEY/vUmJ/bvrBC
-         Hgsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712493581; x=1713098381;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vPBHKQJQEE6Ldq8xPlUpXcKmkLxliyIjm+yGQB4JHjw=;
-        b=LvSPTW24xkjHRaDE/IOuO0GXCP0WAdS6W/ITtAgRwKyQjOelgKXXRxy3NrukpoM2np
-         0EjDqcuAFMaJ3jKtwwCMcy7cR9AxroOS7DNNSpX6IBKzbv+AQ1BnAMPIIY6eRdYGAAIq
-         la7CS9AMaPCky8epE5sg0asdleQrWG06zUZHfooJJjjwR0EvqQw4lxz1BqHWFa9Q690R
-         9bKzobHg6i5+Dh8wnjnvUV50K753jHZvSzKNijbn8jNP6s+2yGhTC2CLosOJU/Ueo+bG
-         L6Lmq+hkNaCCzirjyiPRFsRj+CbMaGo9qnxp4Gpw5/XDI1IlJvsv50FaNmFBcqODhT0g
-         5gTg==
-X-Forwarded-Encrypted: i=1; AJvYcCWfkbRd0++aYMDPCnxc70LTmRuS5oE7WSdddNSr1f+BQW/N9iKTm5Xk2oEV1dCu9e+zw6hTR7hH1Klbz9gMLgxIE4IUwgigKI6MifSC2lDu
-X-Gm-Message-State: AOJu0YwvXxhIAq+A2wAvjLBAl7mvS9lKMJczAJKF/zoFF4OOEVDng0br
-	MERZHh+hQ1pTzEFI3RYcseLSIMTk2GUg6vrABWkzNKbiRb8t9ZISUj11qcmTJmw=
-X-Google-Smtp-Source: AGHT+IFJUJpcaALlEKLwsTMy4Msxncvd4YWls0qgllSZsfvWQuz8O0EgJe+rILAvbChBvgUXtRbMgg==
-X-Received: by 2002:a05:6a20:8423:b0:1a3:64e8:eb8f with SMTP id c35-20020a056a20842300b001a364e8eb8fmr6675079pzd.11.1712493581235;
-        Sun, 07 Apr 2024 05:39:41 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.242])
-        by smtp.gmail.com with ESMTPSA id e7-20020a170902784700b001dd578121d4sm4933210pln.204.2024.04.07.05.39.38
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 07 Apr 2024 05:39:40 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: rafael@kernel.org,
-	lenb@kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org
-Cc: Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: [PATCH 1/2] ACPI: PPTT: Populate cacheinfo entirely with PPTT
-Date: Sun,  7 Apr 2024 20:38:28 +0800
-Message-Id: <20240407123829.36474-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	Sun, 07 Apr 2024 13:14:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Ypg+LvC5639Lz1KIt8F5hLboES06wjnF25CVmBnwY1KW2HtSD3nDqnoNN81ZmOdp1rOvho4Di73ltUjKX/H5AWoiniliY2mrH6nA8XTo3TVy8cxPOHURscftGD2lr35HIWICO8DQygQnOKoXJ2t5KTXYm16mkgl0uDGilQyt64pRJky89yOvyN5a4vYJOWCSpRCGd3Oi15iaW1abJSqAITDZajtQQEgQsLkRIwWeVLMP8AoNmU4au1FRn/hO/r0/bVD7n7xegyJic93KP0XC1LtOawIDQtpkR2OIOvfpaGSg+mdG1kZtCD9vJdYEIW77dk+P3YLu+LXCMzckhhnvYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9HOhyEyXjFJ5wY4pYwcOa2cnTWpX5SvWMGb7dRFsZfo=;
+ b=Tgb8RgFHmQ52hadbNpS+Pval8xcQrIwETg2mS35/uNmaqv6nFBIrn9vP3OP1+Eb3dsdK+c7w5ic/se7NqT824Kk5bLNxBpNFA7WyNFTmMYHrTI8XxaYg01Ml9kUHNUZBAVQjdYsqh8BJx09eb6UNS/LSNRYYDkvACGYIX3mI3hH9qR+9acF3562mCJoWvZ5IJ2gIang10hLrRRod7JLmSewp3QoYa1vQFz4nBcGyb4ymDP0S16WIjcD82Qb2SSt6cT/nNZTkY+BpMjVRI01x6fNXH8ova696NEtrW21bROB0dlwujycsrFJG6sEAsD+WpLpNehRQ1nJWfk7XtUGkfA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:8::10) by NTZPR01MB0953.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:a::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Sun, 7 Apr
+ 2024 13:14:22 +0000
+Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ ([fe80::6174:711d:d93:87c9]) by NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ ([fe80::6174:711d:d93:87c9%4]) with mapi id 15.20.7409.053; Sun, 7 Apr 2024
+ 13:14:22 +0000
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng
+	<hal.feng@starfivetech.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Conor
+ Dooley <conor@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Subject: RE: [PATCH v3] clk: starfive: pll: Fix lower rate of CPUfreq by
+ setting PLL0 rate to 1.5GHz
+Thread-Topic: [PATCH v3] clk: starfive: pll: Fix lower rate of CPUfreq by
+ setting PLL0 rate to 1.5GHz
+Thread-Index: AQHahN18qtXBKBZlXUquUnYUH2QsmrFVKPiAgACsqfCAAFBPgIAAA5cAgAJ6jgCABCt3UA==
+Date: Sun, 7 Apr 2024 13:14:22 +0000
+Message-ID: <NTZPR01MB09568C037BFC15CE7EF0E9A49F01A@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
+References: <20240402090920.11627-1-xingyu.wu@starfivetech.com>
+ <8d21b1bc-9402-41d4-bd81-c521c8a33d2d@kernel.org>
+ <NTZPR01MB095662C4A6FCAEB7B35C48FF9F3DA@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
+ <bcf12c0b-d569-4d64-adfb-bad053c182a8@kernel.org>
+ <NTZPR01MB09566AB865A0266332268DC69F3DA@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
+ <74d6213f-51de-4d48-a7fb-844d6bb57fa7@sifive.com>
+In-Reply-To: <74d6213f-51de-4d48-a7fb-844d6bb57fa7@sifive.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: NTZPR01MB0956:EE_|NTZPR01MB0953:EE_
+x-ms-office365-filtering-correlation-id: 32be69af-0085-47cd-448e-08dc5704a443
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: WVNCSC1JbXJZoqfy5vP1ZO4MZS7OsjLAjOCUs/4LcENF1i4XrhbHpVOmrATty3WO6GHB4OpL/Pg39HhivzpAPHRNYfRAlqgxqAGGyoiJnxDgqHrHLEzMSXXmKd4wIuZBZQLx98f5EuTQrUZSQDPf+dlbr0zss3YqHLorjS3BZE5aFhqd3iortnxdWfp0inlDsOXYhCtkHPC5lc7Qj5o/gW9ou74eI3DI1AyZRPeLlrkQRWPe8vq78duF8A4ZQ7hIozhvs4/6bmNThZu/aURIrTd+PqPDrSbkq2zN02AWmBQGO5sBCKDzPb+3oSjrPB3HKjpi8MJu/rxCXqEl53g/fmfdBh++Q5z2Rem4/2vLiL07fLZuzYE73HUL0+ST8fYjKVmIn/M2WqfDO+eu453tr/VO9yeHUvrqawIzoRv6uzYhrk3wVjuhS2yEqHALaeCMMguR67pWUdsfM6kF6wGHLE17Kf9nz2GVu5U+cfEOAruwgyUPNIx8W8T8OqttJSg2jP9GFtHuCfHcEXZWsXJgLvNFw5mT2YqFQKP4EeMTN/mlS+q5oKESQPFQ+NtLgfZKWJzNNKRJSrok/ojE2Ki7VTsOtThdymL0PlwD1tcSMs1ES4nkbtl9r/WqOvzQ1S53
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(366007)(41320700004)(1800799015)(7416005)(38070700009);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?a1NxUGFscmVRUUw1Y0dwcHZOUDd4dnY5c2xqSXFFZkJyeUk0ejlxK3VvSFNS?=
+ =?utf-8?B?SEpIUlBiV1RQdyswMDFnbXpTc2Y1M0Z6c3loMVBLblZEWHdDVmNLdk9SVGk2?=
+ =?utf-8?B?Rk8zaFFVQnpUbXMxRks5VGpaYlFnK3MxZExzbUJQYTRpNGhmSUhtcFB6RVEv?=
+ =?utf-8?B?cHNWcTF0WFA4dkxoTlZOWjlTN2RRM3A3VHp6ZFRuUDRVN0VXV3htS1JqaEJQ?=
+ =?utf-8?B?VGZXc0pnZDB5czhkOFR4MUpFcGlyR3RwUmJobk1pYlFINEtYRmU2MlhVZ0lM?=
+ =?utf-8?B?VzJwQkxRNWpCanB1Ykx6VWU0d0psbHcybTZDb2FZRU1hWmIxblI1ZUFBQXYx?=
+ =?utf-8?B?c3BWWXU1bzNIeStNM1BPeDkvdUZtMUpkaTVnaWl5MlpDb1Bnbm5aNkNwZThX?=
+ =?utf-8?B?VnNYZzNBaGRab2Z4b2J3dVpNOElrTWx4NC9lTTI5UWZIems5U2hNK2plY1Nn?=
+ =?utf-8?B?endZdUdUSTdENGpGVWRJWkNVZzRpc3U3Qnozb0ZKMnNCRlRnWC9VT2lRemFS?=
+ =?utf-8?B?OCtvVnZjOU9jQlVxbUZvSmlyNGdMaklXcEI5MDJTcFNoeDJmZmE3MFdjTG00?=
+ =?utf-8?B?WHBjc05kSG1oZCtSSVAvV3FlSDJ4czluRmtwODZKTXpwWVFBN3NEY1BNQk5p?=
+ =?utf-8?B?NWxCUWpaVXJXWkZ4dGdPZWkyZHdxeWxtcGNpakV1QzhmUUg2NklIZ0NrOTVG?=
+ =?utf-8?B?cms3U29DdGNtZnUyeENyb2hScmJEVjhnVWVoYW5zTlBCR3BBY0JCVmVXVDE0?=
+ =?utf-8?B?WG5yWWJ2WktwNmxvMGdWM3o1K1RxeHltR1FabUJtRGlWb1FiaWhJb1VXM3lV?=
+ =?utf-8?B?MnhHZTZBbHZ3L2hMY1hjbDRJNEVCSlI0Wks5aUJvdnJ5WnJDbDlTa1lTQlY3?=
+ =?utf-8?B?VG9QZFRXNDFweHBwQ2dSUjFSdzRLcmgzWmlkbEhYUXZVT09sQStTcTU5TDZT?=
+ =?utf-8?B?azA3UnFaYnREZkN1bUVSMnVZOWphVDI1YS9kRUd2WUNzeXpSVWR3cjV2YVRa?=
+ =?utf-8?B?VndtdGJYTTZseUFRQ1d0d2I1UUc3UnNENzJKVlZOYThkcExvRy8xdDNINFNN?=
+ =?utf-8?B?b2h0MlFBUk9MSm85a3FoWXVGV2dnR1RBV1EyTWpzejlKWGFHb0pBVDV2MlBi?=
+ =?utf-8?B?NDZBaGRQTnZDbmRseFRFQk1Ha3lTTmprSnoxbFk5UnRSOGVzR3VPN3R4UVYv?=
+ =?utf-8?B?Y1Q5WWROdkhacW1XQXV0QlFxMXlod2FuYmMzandLam5jUWlTMlA5SnJic2ow?=
+ =?utf-8?B?QXpiU2JUcTRjOGRIdm0yZDR0UUpadUo5UXhHRCtiMHQ3dzlPWUphYnA0dnV3?=
+ =?utf-8?B?cHN2eWk0TUNZbDcxaW53OE1rNml2SUlsUlBaSlFJQ2J6ZVpwVitnb1BtZG9U?=
+ =?utf-8?B?cEdlMXQvSE5oclFTT0JWa0w4b0UzcnFadDdiUjFjUVdsZ1ozd0JnWFU0anhr?=
+ =?utf-8?B?ajFyckI4b1pTZ1FCSWx5VHFubmJ4aWpVRzcyZDVyN2J2UDRWOGdJa3Jid1V6?=
+ =?utf-8?B?ZEl0ejkyVzQvNm1EdmpyMkIxU1A5aXNFUk1xVnVCNE1IcjRIUGlpblpiMjBJ?=
+ =?utf-8?B?UGtYbDBCWVIrZFN1TTMxNU4wS1RPVTFxWndtcW4vV3lkNElyQ3RsT3RKaUxv?=
+ =?utf-8?B?QlJtY1ZrOFBFOXpQMFJuMXQ2Z0V5bk1VYmdpZ1g2a3VaY3BEMTFCSVFRRFM4?=
+ =?utf-8?B?V0ZQNEEyWUJvbFpoNjVzYktIamFrR0cwcGJTYktxbjREd3h3T2E2ZklINDVJ?=
+ =?utf-8?B?dmsvUWdOVDJ2M3pkTUo2MWNsUldaQ05oSXJ1SHdtOFRaOHY2dmJnTlZQbURn?=
+ =?utf-8?B?Ukw5aG5tTllHcmU3ZnJiUGVSV2dGKzBGRWQ2ZGR3YklMVmVIUjBVYUdWNzk1?=
+ =?utf-8?B?QmpFWEVYM2JhNkN1Rkd2SGZaOGJyOTZGSzVvdUJnN1ZUb2JCYlZ5RGdtdVIv?=
+ =?utf-8?B?SGY3eU9HSDZZcGs5ckNHSTEyZTlESGRWSnB2bGFWQTNnOVBKMU1haGx4Zk12?=
+ =?utf-8?B?TTFyRTJ5WnVMRVBDcVE1OStDMVVLcG5NdzVVRVlJZUdYTHllYjZiNjNGYis0?=
+ =?utf-8?B?V2kwUHpKNkNxaGtBNkhtOEVVRFcrTUpZeDBvK2RkYitEQ3k2dWIvT0p5aVJL?=
+ =?utf-8?Q?f8ikLZW1dBnfC/Yklq7TxfKMB?=
 MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 32be69af-0085-47cd-448e-08dc5704a443
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Apr 2024 13:14:22.6724
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 9bQaoCm3sdaL0JT0EVvdK39+5isZuQUTib2aYLla7qf7oQEPDROHb9OPOSwsndexmJ3cwv58AZ4kLrN2hTLoNz4++1LoV0xriIcyYrhKunc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB0953
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240407_053947_186983_D1CEFA09 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20240407_061439_517209_583ED0E1 
+X-CRM114-Status: GOOD (  35.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,259 +154,164 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the type and level information of this_leaf cannot be obtained
-from arch, cacheinfo is completely filled in with the content of PPTT.
+On 2024-04-05 5:28 AM, Samuel Holland wrote:
+> 
+> Hi Xingyu,
+> 
+> On 2024-04-03 2:44 AM, Xingyu Wu wrote:
+> > On 03/04/2024 15:24, Krzysztof Kozlowski wrote:
+> >>
+> >> On 03/04/2024 09:19, Xingyu Wu wrote:
+> >>> On 03/04/2024 0:18, Krzysztof Kozlowski wrote:
+> >>>>
+> >>>> On 02/04/2024 11:09, Xingyu Wu wrote:
+> >>>>> CPUfreq supports 4 cpu frequency loads on 375/500/750/1500MHz.
+> >>>>> But now PLL0 rate is 1GHz and the cpu frequency loads become
+> >>>>> 333/500/500/1000MHz in fact.
+> >>>>>
+> >>>>> So PLL0 rate should be default set to 1.5GHz. But setting the
+> >>>>> PLL0 rate need certain steps:
+> >>>>>
+> >>>>> 1. Change the parent of cpu_root clock to OSC clock.
+> >>>>> 2. Change the divider of cpu_core if PLL0 rate is higher than
+> >>>>>    1.25GHz before CPUfreq boot.
+> >>>>> 3. Change the parent of cpu_root clock back to PLL0 clock.
+> >>>>>
+> >>>>> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> >>>>> Fixes: e2c510d6d630 ("riscv: dts: starfive: Add cpu scaling for
+> >>>>> JH7110
+> >>>>> SoC")
+> >>>>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> >>>>> ---
+> >>>>>
+> >>>>> Hi Stephen and Emil,
+> >>>>>
+> >>>>> This patch fixes the issue about lower rate of CPUfreq[1] by
+> >>>>> setting
+> >>>>> PLL0 rate to 1.5GHz.
+> >>>>>
+> >>>>> In order not to affect the cpu operation, setting the PLL0 rate
+> >>>>> need certain steps. The cpu_root's parent clock should be changed first.
+> >>>>> And the divider of the cpu_core clock should be set to 2 so they
+> >>>>> won't crash when setting 1.5GHz without voltage regulation. Due to
+> >>>>> PLL driver boot earlier than SYSCRG driver, cpu_core and cpu_root
+> >>>>> clocks are using by ioremap().
+> >>>>>
+> >>>>> [1]: https://github.com/starfive-tech/VisionFive2/issues/55
+> >>>>>
+> >>>>> Previous patch link:
+> >>>>> v2:
+> >>>>> https://lore.kernel.org/all/20230821152915.208366-1-xingyu.wu@star
+> >>>>> fi
+> >>>>> ve
+> >>>>> tech.com/
+> >>>>> v1:
+> >>>>> https://lore.kernel.org/all/20230811033631.160912-1-xingyu.wu@star
+> >>>>> fi
+> >>>>> ve
+> >>>>> tech.com/
+> >>>>>
+> >>>>> Thanks,
+> >>>>> Xingyu Wu
+> >>>>> ---
+> >>>>>  .../jh7110-starfive-visionfive-2.dtsi         |   5 +
+> >>>>>  .../clk/starfive/clk-starfive-jh7110-pll.c    | 102 ++++++++++++++++++
+> >>>>
+> >>>> Please do not mix DTS and driver code. That's not really portable.
+> >>>> DTS is being exported and used in other projects.
+> >>>
+> >>> OK, I will submit that in two patches.
+> >>>
+> >>>>
+> >>>> ...
+> >>>>
+> >>>>>
+> >>>>> @@ -458,6 +535,8 @@ static int jh7110_pll_probe(struct
+> >>>>> platform_device
+> >>>> *pdev)
+> >>>>>  	struct jh7110_pll_priv *priv;
+> >>>>>  	unsigned int idx;
+> >>>>>  	int ret;
+> >>>>> +	struct device_node *np;
+> >>>>> +	struct resource res;
+> >>>>>
+> >>>>>  	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+> >>>>>  	if (!priv)
+> >>>>> @@ -489,6 +568,29 @@ static int jh7110_pll_probe(struct
+> >>>>> platform_device
+> >>>> *pdev)
+> >>>>>  			return ret;
+> >>>>>  	}
+> >>>>>
+> >>>>> +	priv->is_first_set = true;
+> >>>>> +	np = of_find_compatible_node(NULL, NULL,
+> >>>>> +"starfive,jh7110-syscrg");
+> >>>>
+> >>>> Your drivers should not do it. It's fragile, hides true link/dependency.
+> >>>> Please use phandles.
+> >>>>
+> >>>>
+> >>>>> +	if (!np) {
+> >>>>> +		ret = PTR_ERR(np);
+> >>>>> +		dev_err(priv->dev, "failed to get syscrg node\n");
+> >>>>> +		goto np_put;
+> >>>>> +	}
+> >>>>> +
+> >>>>> +	ret = of_address_to_resource(np, 0, &res);
+> >>>>> +	if (ret) {
+> >>>>> +		dev_err(priv->dev, "failed to get syscrg resource\n");
+> >>>>> +		goto np_put;
+> >>>>> +	}
+> >>>>> +
+> >>>>> +	priv->syscrg_base = ioremap(res.start, resource_size(&res));
+> >>>>> +	if (!priv->syscrg_base)
+> >>>>> +		ret = -ENOMEM;
+> >>>>
+> >>>> Why are you mapping other device's IO? How are you going to ensure
+> >>>> synced access to registers?
+> >>>
+> >>> Because setting PLL0 rate need specific steps and use the clocks of SYSCRG.
+> >>
+> >> That's not a reason to map other device's IO. That could be a reason
+> >> for having syscon or some other sort of relationship, like clock or reset.
+> >>
+> >>> But SYSCRG driver also need PLL clock to be clock source when adding
+> >>> clock providers. I tried to add SYSCRG clocks in 'clocks' property
+> >>> in DT and use
+> >>> clk_get() to get the clocks. But it could not run and crash. So I
+> >>> use
+> >>> ioremap() instead.
+> >>
+> >> So instead of properly model the relationship, you entangle the
+> >> drivers even more.
+> >>
+> >> Please come with a proper design for this. I have no clue about your
+> >> hardware, but that looks like you are asynchronously configuring the
+> >> same hardware in two different places.
+> >>
+> >> Sorry, that's poor code.
+> >>
+> >> Best regards,
+> >> Krzysztof
+> >
+> > Hi Krzysztof,
+> >
+> > If I use the old patch[1] like v2 and set the PLL0 default rate in the
+> > SYSCRG driver, will it be better?
+> >
+> > [1]:
+> > https://lore.kernel.org/all/20230821152915.208366-1-xingyu.wu@starfive
+> > tech.com/
+> 
+> Both reparenting cpu_root and enforcing the maximum cpu_core frequency can
+> be accomplished with clk notifiers. See for example ccu_mux_notifier_register()
+> in drivers/clk/sunxi-ng/ccu_mux.c.
+> 
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
----
- drivers/acpi/pptt.c | 135 ++++++++++++++++++++++++++++++++++++++++----
- 1 file changed, 124 insertions(+), 11 deletions(-)
+This seems like a good idea. I'll try it.
 
-diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-index a35dd0e41c27..6c54fc8e3039 100644
---- a/drivers/acpi/pptt.c
-+++ b/drivers/acpi/pptt.c
-@@ -21,6 +21,9 @@
- #include <linux/cacheinfo.h>
- #include <acpi/processor.h>
- 
-+void acpi_fill_cacheinfo(struct acpi_pptt_cache *cache, struct acpi_table_header *table,
-+			 int cpu, int level, int *index);
-+
- static struct acpi_subtable_header *fetch_pptt_subtable(struct acpi_table_header *table_hdr,
- 							u32 pptt_ref)
- {
-@@ -77,6 +80,18 @@ static inline bool acpi_pptt_match_type(int table_type, int type)
- 		table_type & ACPI_PPTT_CACHE_TYPE_UNIFIED & type);
- }
- 
-+static inline u32 get_cache_id(struct acpi_pptt_cache *cache)
-+{
-+	struct acpi_pptt_cache_v1 *cache_v1;
-+
-+	if (cache->flags & ACPI_PPTT_CACHE_ID_VALID) {
-+		cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-+					cache, sizeof(struct acpi_pptt_cache));
-+		return cache_v1->cache_id;
-+	}
-+	return 0;
-+}
-+
- /**
-  * acpi_pptt_walk_cache() - Attempt to find the requested acpi_pptt_cache
-  * @table_hdr: Pointer to the head of the PPTT table
-@@ -104,7 +119,7 @@ static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
- 					 unsigned int *split_levels,
- 					 struct acpi_subtable_header *res,
- 					 struct acpi_pptt_cache **found,
--					 unsigned int level, int type)
-+					 unsigned int level, int type, int cpu, int *index)
- {
- 	struct acpi_pptt_cache *cache;
- 
-@@ -125,7 +140,7 @@ static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
- 		     acpi_pptt_match_type(cache->attributes, ACPI_PPTT_CACHE_TYPE_INSTR)))
- 			*split_levels = local_level;
- 
--		if (local_level == level &&
-+		if (level && local_level == level &&
- 		    acpi_pptt_match_type(cache->attributes, type)) {
- 			if (*found != NULL && cache != *found)
- 				pr_warn("Found duplicate cache level/type unable to determine uniqueness\n");
-@@ -137,7 +152,9 @@ static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
- 			 * to verify that we don't find a duplicate
- 			 * cache node.
- 			 */
--		}
-+		} else
-+			acpi_fill_cacheinfo(cache, table_hdr, cpu, local_level, index);
-+
- 		cache = fetch_pptt_cache(table_hdr, cache->next_level_of_cache);
- 	}
- 	return local_level;
-@@ -147,7 +164,7 @@ static struct acpi_pptt_cache *
- acpi_find_cache_level(struct acpi_table_header *table_hdr,
- 		      struct acpi_pptt_processor *cpu_node,
- 		      unsigned int *starting_level, unsigned int *split_levels,
--		      unsigned int level, int type)
-+		      unsigned int level, int type, int cpu, int *index)
- {
- 	struct acpi_subtable_header *res;
- 	unsigned int number_of_levels = *starting_level;
-@@ -161,7 +178,8 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
- 
- 		local_level = acpi_pptt_walk_cache(table_hdr, *starting_level,
- 						   split_levels, res, &ret,
--						   level, type);
-+						   level, type, cpu, index);
-+
- 		/*
- 		 * we are looking for the max depth. Since its potentially
- 		 * possible for a given node to have resources with differing
-@@ -197,7 +215,7 @@ static void acpi_count_levels(struct acpi_table_header *table_hdr,
- 			      unsigned int *levels, unsigned int *split_levels)
- {
- 	do {
--		acpi_find_cache_level(table_hdr, cpu_node, levels, split_levels, 0, 0);
-+		acpi_find_cache_level(table_hdr, cpu_node, levels, split_levels, 0, 0, 0, NULL);
- 		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
- 	} while (cpu_node);
- }
-@@ -316,6 +334,7 @@ static u8 acpi_cache_type(enum cache_type type)
- }
- 
- static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *table_hdr,
-+						    int cpu,
- 						    u32 acpi_cpu_id,
- 						    enum cache_type type,
- 						    unsigned int level,
-@@ -325,6 +344,7 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
- 	struct acpi_pptt_cache *found = NULL;
- 	struct acpi_pptt_processor *cpu_node;
- 	u8 acpi_type = acpi_cache_type(type);
-+	int index = 0;
- 
- 	pr_debug("Looking for CPU %d's level %u cache type %d\n",
- 		 acpi_cpu_id, level, acpi_type);
-@@ -333,7 +353,7 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
- 
- 	while (cpu_node && !found) {
- 		found = acpi_find_cache_level(table_hdr, cpu_node,
--					      &total_levels, NULL, level, acpi_type);
-+					      &total_levels, NULL, level, acpi_type, cpu, &index);
- 		*node = cpu_node;
- 		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
- 	}
-@@ -406,8 +426,14 @@ static void update_cache_properties(struct cacheinfo *this_leaf,
- 	 * specified in PPTT.
- 	 */
- 	if (this_leaf->type == CACHE_TYPE_NOCACHE &&
--	    found_cache->flags & ACPI_PPTT_CACHE_TYPE_VALID)
--		this_leaf->type = CACHE_TYPE_UNIFIED;
-+	    found_cache->flags & ACPI_PPTT_CACHE_TYPE_VALID) {
-+		if (acpi_pptt_match_type(found_cache->attributes, ACPI_PPTT_CACHE_TYPE_DATA))
-+			this_leaf->type = CACHE_TYPE_DATA;
-+		if (acpi_pptt_match_type(found_cache->attributes, ACPI_PPTT_CACHE_TYPE_INSTR))
-+			this_leaf->type = CACHE_TYPE_INST;
-+		if (acpi_pptt_match_type(found_cache->attributes, ACPI_PPTT_CACHE_TYPE_UNIFIED))
-+			this_leaf->type = CACHE_TYPE_UNIFIED;
-+	}
- 
- 	if (revision >= 3 && (found_cache->flags & ACPI_PPTT_CACHE_ID_VALID)) {
- 		found_cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-@@ -417,19 +443,106 @@ static void update_cache_properties(struct cacheinfo *this_leaf,
- 	}
- }
- 
-+static bool cache_is_filled_id(struct acpi_pptt_cache *cache, int cpu)
-+{
-+	u32 id = get_cache_id(cache);
-+	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
-+	struct cacheinfo *this_leaf;
-+	int index = 0;
-+
-+	while (index < get_cpu_cacheinfo(cpu)->num_leaves) {
-+		this_leaf = this_cpu_ci->info_list + index;
-+		if (this_leaf->id == id)
-+			return true;
-+		index++;
-+	}
-+	return false;
-+}
-+
-+static bool cache_is_filled_content(struct acpi_pptt_cache *cache,
-+				    struct acpi_table_header *table,
-+				    int cpu, int level, u8 revision)
-+{
-+	struct acpi_pptt_processor *cpu_node;
-+	struct cacheinfo *this_leaf, *tleaf;
-+	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
-+	struct cacheinfo tmp_leaf = {0};
-+	int index = 0;
-+
-+	cpu_node = acpi_find_processor_node(table, get_acpi_id_for_cpu(cpu));
-+	tleaf = &tmp_leaf;
-+	tleaf->level = level;
-+
-+	while (index < get_cpu_cacheinfo(cpu)->num_leaves) {
-+		this_leaf = this_cpu_ci->info_list + index;
-+		update_cache_properties(tleaf, cache,
-+					ACPI_TO_POINTER(ACPI_PTR_DIFF(cpu_node, table)),
-+					revision);
-+		if (!memcmp(this_leaf, tleaf, sizeof(struct cacheinfo)))
-+			return true;
-+		index++;
-+	}
-+	return false;
-+}
-+
-+static bool cache_is_filled(struct acpi_pptt_cache *cache, struct acpi_table_header *table,
-+				   int cpu, int level)
-+{
-+	u8 revision = table->revision;
-+
-+	/*
-+	 * If revision >= 3, compare the cacheid directly,
-+	 * otherwise compare the entire contents of the cache.
-+	 */
-+	if (revision >= 3)
-+		return cache_is_filled_id(cache, cpu);
-+	else
-+		return cache_is_filled_content(cache, table, cpu, level, revision);
-+}
-+
-+void acpi_fill_cacheinfo(struct acpi_pptt_cache *cache,
-+				struct acpi_table_header *table,
-+				int cpu, int level, int *index)
-+{
-+	struct cacheinfo *this_leaf;
-+	struct acpi_pptt_processor *cpu_node;
-+	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
-+
-+	if (!index)
-+		return;
-+
-+	cpu_node = acpi_find_processor_node(table, get_acpi_id_for_cpu(cpu));
-+	this_leaf = this_cpu_ci->info_list + *index;
-+	if (this_leaf) {
-+		this_leaf->level = level;
-+		if (cache_is_filled(cache, table, cpu, level))
-+			return;
-+		update_cache_properties(this_leaf, cache,
-+					ACPI_TO_POINTER(ACPI_PTR_DIFF(cpu_node,
-+							table)),
-+					table->revision);
-+		*index += 1;
-+	}
-+}
-+
- static void cache_setup_acpi_cpu(struct acpi_table_header *table,
- 				 unsigned int cpu)
- {
- 	struct acpi_pptt_cache *found_cache;
- 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
- 	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
--	struct cacheinfo *this_leaf;
-+	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
- 	unsigned int index = 0;
- 	struct acpi_pptt_processor *cpu_node = NULL;
- 
-+	if (!this_leaf->type && !this_leaf->level) {
-+		acpi_find_cache_node(table, acpi_cpu_id, cpu, 0, 0, &cpu_node);
-+		return;
-+	}
-+
- 	while (index < get_cpu_cacheinfo(cpu)->num_leaves) {
- 		this_leaf = this_cpu_ci->info_list + index;
--		found_cache = acpi_find_cache_node(table, acpi_cpu_id,
-+		found_cache = acpi_find_cache_node(table, acpi_cpu_id, cpu,
- 						   this_leaf->type,
- 						   this_leaf->level,
- 						   &cpu_node);
--- 
-2.20.1
-
-
+Thanks,
+Xingyu Wu
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
