@@ -4,71 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A0EC67861
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Apr 2024 17:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFBD2CD1284
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2024 01:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3XPyYsBwXOzgGvgwm89E0u+/gSFdvUC/4dTABrhlt6k=; b=2UJLQaXYKzEg4t
-	g81YVuNquyPlthELA0dHA3wk79uY0qoOKZOwF76tf/4okOIYbSzmEZWd6ZlOBHCK1f6Jmn5QYPrDg
-	EajYXK1w7ZQ3Pt2ji5KHP+ezxemjuUfVSJiEA4rNJWE5JuVsIMa8tPMCl4GKUzr8ujPktl2y21TFK
-	TWLrYyra036iczDDRmUgyuuRXC51okt9yIXdtPVgiVCxzA71FTYC5qZGL+q04UNZmKziqVXozhn5n
-	WbpZjv8sRCrXP82r4/nTG0MWgXk2Ubf/55fi9O9tjx0zrP2RLgzu9jqSe8eKDFlIuO2W+AE2vTqUr
-	BE5ZssshFdaLs6NQDeVw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tPmyB7I7rSpRb4wbqAHQLGMQxprnQ4Ks6vDx63Zt/vk=; b=Z8O6cubbqxQOxu
+	kZAfgeANMZeDut/CDblQJRCTQUvv0YP8l4qmAZNrR0m2uv3CXSw7aQj7ouWlJI/Kyc+RST7hWNbZx
+	dZQuI4/D29cJin9jf83UPg7pBb6wHBB+r6CFxLGBBVPahBd024AAovkGxXuKiHUFphBJg9GQBzVNn
+	ulnAOpq24JhKImSZdxca69FVyXGvaRE/Ow2uK72oMEhiEuAjWZ9Dvz/JTUAT6W/Ru6HHvAWIRJYhG
+	y/id1gVVGmwHfXm6PJpN47T/Zt9IBqaxX0U173bmKkWwyxA1rxkRfQePxNYLt/KJz0u8fu4t4JjCd
+	cuRCTA/dFyPMA3mERC2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtA96-0000000Am2b-3PYl;
-	Sat, 06 Apr 2024 17:48:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rtHLO-0000000BOFm-06vk;
+	Sun, 07 Apr 2024 01:29:14 +0000
+Received: from out203-205-251-27.mail.qq.com ([203.205.251.27])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtA95-0000000Am2O-0wt2
-	for linux-riscv@bombadil.infradead.org;
-	Sat, 06 Apr 2024 17:48:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=6xbpb2z0qZF5gLcFrc+JYOexR0DC5lhr3RgErwZ1kd8=; b=nXXFW04DEBRP1Ot5wrQws/+KV3
-	2p+j+dc/shb6wOPR9zv/eWhf3vLbZz/UTgcNLlphJ81RDq49fA4CJTslnB5BAICGOP9vdQCQNXhp7
-	dStIt1ScgfvD+hxEDdSbnxGMscSp6aG2H0Qh5IB5ml6JUIQelpK07nA0cwykUAnmPbHBlx36z+Ahg
-	zzRpkBjmotk0lelaXAiJT6W+6YzbuG9frn1OBeusS/oteDFygnvsUdr4aqPnJpjSGY8LZ7IY7ujYU
-	bIPDZxeg8ZcoD1sDegjO4YtqIwcebvPA423u011kkMn/wVfOiwzSa9bSfaDDCvJEZ98fve2ZslE/q
-	oUv1qPhw==;
-Received: from out162-62-57-210.mail.qq.com ([162.62.57.210])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtA8z-00000006J6C-3w7x
+	id 1rtHLJ-0000000BOEr-10WA
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Apr 2024 17:48:01 +0000
+	Sun, 07 Apr 2024 01:29:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1712425662; bh=6xbpb2z0qZF5gLcFrc+JYOexR0DC5lhr3RgErwZ1kd8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Rfffz5B1vFMnxmpIz/ML6ArTs911H784CcNqtmUNNrqubZVYhxZ4f1Ap75R4cBoD+
-	 hZYOL1qRJ8Nc0S9Y69wDhIQyKxnwLA+0Quk8DLmtVkInrQuPvS+ag+uSC3Qks4S7vm
-	 F4uGHNcCPgvesaKuBUWY6/yCfQnjPMwnnzOafGs0=
+	t=1712453333; bh=R30DYWI2Oc1ki/vS0DoXCyKd6wlS7oxyHQ43veszfbo=;
+	h=From:To:Cc:Subject:Date;
+	b=AbPTHG8jdem4z2viS4uASBzXnzIZy1R9NgKJmgqVk6YmC/+jxuzUC5iTxg9etoHC0
+	 DNtMgUcNHYCDIGugYlqvCB1Sy0tebQNhUNJvBXGAPA946IzzA03PkTY5hqTiLzVpMw
+	 dPVPQ3L3lV+84lsGdLRvIu31mfD9jiIGVOk7uFqg=
 Received: from cyy-pc.lan ([240e:379:225a:6d00:f878:7a6f:5832:7f4d])
-	by newxmesmtplogicsvrszb6-0.qq.com (NewEsmtp) with SMTP
-	id A56026E1; Sun, 07 Apr 2024 01:41:22 +0800
-X-QQ-mid: xmsmtpt1712425293t6ye1i36l
-Message-ID: <tencent_288AE27AC4E085E4352EF1F1098A6A4F3A0A@qq.com>
-X-QQ-XMAILINFO: MUjlMaoygc42ewbi+VOeoeeIPRRReiFiNU1Vkq0nR5Kn86yGWQTwsdUfzLX0Sh
-	 TZRq8xzrEMQ991ZrYhe0AcLl5NqMjZVK58dL0w7tgAChQZQiHfSqi44bO7XuWsJiEWtJeFsadQgq
-	 YgUxoOPRr7hxaVBherkn2c5TbS6i1I5kle5t5q8Be4ksvbkAt8pX+/i0vmzHMeMXlRsnk+mWKGly
-	 YjdKNEX6TF7e/YX6MSohTWnXy5wk+xVHRj4eledKxGDVzdVErhzfKiZvW9XvqdElfrn11YWeA2kP
-	 TAvAoadR2s65ZE1V+VRreX5m3iiI0VQq3+6vSOjyQ2pE40CQ0VM6L9vDEOebjvFOuAu3NXC0EhnE
-	 AxKHJN9SMfQ1NH5fGi6xtit4zmhy80qXsMyp8xShYwtZaDZoQoVexPAQps+IcWbbPl1Qre7sOAhl
-	 0A0k9si2zkGQsEvslvqaMpPU6UsvT5mE3dm2lEI0Db+LR1Fmauwh6tLJhY0lFLNtvBJaBwlvp8CP
-	 MO6ygbLGTA0IQLNrBgzFPFoNHqUbiemdKszBmzsI7Sd9In4mxdgjiKzsQOGM0BDfFjTbDfrttN3V
-	 CfUiTW8ERwxzqhQfimk6gZuX/sJKMDML4z2pZLM8Cp0MHD1o/JTm10NiFSZMEwHNx2aeYRFx56To
-	 fkvun6iNK+zRP5zPoXbou1blanEUGDEuHTSt+I37OgmeJWG4ZpNjFr+db33/G9djvOWR83Y/1CbY
-	 y4MJo5dN5ERFn8L1yqxaOoWM1bAlS9YUGrWdmcLPyN/VXtqqO+kCO56Y+pAetQHsmmAjPOm3yfjP
-	 qfym9znPnkuYJMCxSyxh8EDYqg9FtD0sNz7CqOSOae844xv79vGWaMZgKyOVkhrzGp/ZML3GlAuO
-	 vCrPPqKbob5ptx3W8XfgOwZxZPR+PvpOJjCd+KhSyeZPV7gGiUDooQYAq2sz0z9NW8VGlqsuSbQg
-	 QcsNqwq9nZELq08GNK4FlAG1QT949zLeS634+vkLoxZdjIGGRwtQdRxlDIP33hZFwkCa4EIFLxXh
-	 ysEJyl97C2cMWte6avqwYgy82ZsM52wFleDJPMy6oi+PZ38wpr
-X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+	by newxmesmtplogicsvrszc5-0.qq.com (NewEsmtp) with SMTP
+	id 730BB6C8; Sun, 07 Apr 2024 09:28:48 +0800
+X-QQ-mid: xmsmtpt1712453328te74up2fa
+Message-ID: <tencent_9F423E3DC13F6D5FC7415C89988490F04607@qq.com>
+X-QQ-XMAILINFO: MmpliBmRb3iCDSzsEAV2QCToiDNrhLsue84whWs8W/siOmqi5xnNSYjdgmC4nG
+	 a04IFwfzq+LnUPfaXyMaAOWO5B6j/kiBrtUJLZMBwx9j1fO931FucoybPhCHdw5/x4fQsp8j9GnL
+	 vgvnNJ+Nktuj7j1chsr+ARVzAuhvQwv8YjskUUwQzpTIaLWtF+oYegNP/nuzLdKyQkKJ3PhIiP2W
+	 LnF+qII/JCssrLVyoGOSdHkXiVxIl7e84HSduPXadVryJlmiFkrb7UnVSB8BdjsBRtCsYx+O+NN4
+	 i16mBAP3/IC9043hD22E3OLIX7Gv3wXONpc6cq4UUykB6e/JNGgaP5ePZT9Iaz/mYrhTtUGWwC27
+	 aKdfNwVfcVtJbr5KlTxW0qpR3sKEmWXukRj3jYfcVZqePdut14bTUBAZ/YUeuRkhsTQVDyjhaKyJ
+	 u+RsnLgsQaZOncdVzhBIPtCVgADULo8IkKkN1t7FcmxmVIW+/aCacraiJENs/KHjprKrlDPgym5c
+	 C9J6cV+dXCURrLLVPYjRFn4i678BBOlMvV2yh9vhVMcR+pH5B5d/Zzzz5MX9y92rQ4J8vJ4gfod2
+	 SpHzQ+ol16/CEV1QF1Yv1MZQnd6IXEN0NZNh9uXGiEUqGZjnW3XBCqAai4qHNRlovQq6IF5w7CLY
+	 hLmLKDVycQAt+7k/BEiVZA9ZGYpEx+eCAI65EJlWzL0y3AMy33plW9HyxljwKYhdMTmr2/S1E07H
+	 Nm+iAlY7SsTQDQ2amzvebNFsAHKFNhKpB++JkpvU9NyNSmWSYUH2gsP9u/MDTOjAKV0eOcA2y0b7
+	 tw3fy9m8GlkUdPpYl5ayfl14TTGsXSXcmZcIDxtnSeJopi1XLytQAA4e3OD/13JB8o6EDYBepWSb
+	 VKkITFoyXgDCqR3+tcMJMjtkIyZOixCgidUWFKbmQxKxS5SjjZvsOKwp56Jr5MgeYZawiEW0sJGV
+	 oPIwpsJmh2EyrlNfXoPBMsHR1uwIX7YhEJkfaNYHXxzQSGHqaSFcmZVAz1vJgTFcA5GfCsxocCEy
+	 c0VE4cSQbeZvjRpAbnFSa+8aV9gmE=
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor@kernel.org>,
@@ -81,16 +66,14 @@ Cc: Conor Dooley <conor@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Guo Ren <guoren@kernel.org>,
 	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH v7 5/6] riscv: dts: add initial canmv-k230 and k230-evb dts
-Date: Sun,  7 Apr 2024 01:41:15 +0800
-X-OQ-MSGID: <20240406174116.2945552-5-cyy@cyyself.name>
+Subject: [PATCH v8 0/6] riscv: add initial support for Canaan Kendryte K230
+Date: Sun,  7 Apr 2024 09:28:37 +0800
+X-OQ-MSGID: <20240407012837.2996164-1-cyy@cyyself.name>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <tencent_F6392EE11AC6A485C43406F1BD09C268DB0A@qq.com>
-References: <tencent_F6392EE11AC6A485C43406F1BD09C268DB0A@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240406_184758_894509_707CD21D 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20240406_182909_915083_57BDC52C 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,307 +90,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add initial dts for CanMV-K230 and K230-EVB powered by Canaan Kendryte
-K230 SoC [1].
+K230 is an ideal chip for RISC-V Vector 1.0 evaluation now. Add initial
+support for it to allow more people to participate in building drivers
+to mainline for it.
 
-Some key consideration:
+This kernel has been tested upon factory SDK [1] with
+k230_evb_only_linux_defconfig and patched mainline opensbi [2] to skip
+locked pmp and successfully booted to busybox on initrd with this log [3].
 
-- Only place BigCore which is 1.6GHz RV64GCBV
+Changes since v7:
+- Add missing riscv,cbop-block-size and riscv,cboz-block-size in dts
 
-The existence of cache coherence between the two cores remains unknown
-since they have dedicated L2 caches. And the factory SDK uses it for
-other OS by default. I don't know whether the two CPUs on K230 SoC
-can be used in one system. So only place BigCore here.
+v7: https://lore.kernel.org/linux-riscv/tencent_F6392EE11AC6A485C43406F1BD09C268DB0A@qq.com/
 
-Meanwhile, although docs from Canaan said 1.6GHz Core with Vector is
-CPU1, the CSR.MHARTID of this core is 0.
+Changes since v6:
+- Split SOC_CANAAN clean up to a separate patch [4]
+- Add zicbop and zicboz in dts
+- Rebase to riscv-dt-for-next branch
 
-- Support for "zba" "zbb" "zbc" "zbs" are tested by hand
+v6: https://lore.kernel.org/linux-riscv/tencent_F76EB8D731C521C18D5D7C4F8229DAA58E08@qq.com/
 
-The user manual of C908 from T-Head does not document it specifically.
-It just said it supports B extension V1.0. [2]
+Changes since v5:
+- Deprecate SOC_CANAAN and use SOC_CANAAN_K210 for K210 SoCs
+- Modify existing K210 drivers depends on SOC_CANAAN_K210 symbol
+- Reword dts commit message
+- Modify dts to use Full 512MB memory
+- Rebase to linux mainline master
 
-I have tested it by using this [3] which attempts to execute "add.uw",
-"andn", "clmulr", "bclr" and they doesn't traps on K230. But on JH7110,
-"clmulr" and "bclr" will trap.
+v5: https://lore.kernel.org/linux-riscv/tencent_FC10B3C630BE27412FED2547245CBE18D807@qq.com/
 
-- Support for "zicbom" is tested by hand
+Changes since v4:
+- Reword commit message on dts that the B-ext version of c908 is 1.0 rather
+  than 1.0-rc1
 
-Have tested with some out-of-tree drivers from [4] that need DMA and they
-do not come to the dts currently.
+v4: https://lore.kernel.org/linux-riscv/tencent_587730262984A011834F42D0563BC6B10405@qq.com/
 
-- Support for "zicboz" is tested by hand
+Changes since v3:
+- Refactor Kconfig.soc which uses ARCH_CANAAN for regular Canaan SoCs and
+  rename SOC_CANAAN to SOC_CANAAN_K210 for K210 in patch [5/7]
+- Sort dt-binding stings on Cannan SoCs in alphanumerical order
 
-Have tested with my own bare mental M-Mode program [5] which tries to use
-zicboz to clear a 64B aligned block and got output[6] shows it supports
-zicboz.
+v3: https://lore.kernel.org/linux-riscv/tencent_BB2364BBF1812F4E304F7BDDD11E57356605@qq.com/
 
-- Cache parameters are inferred from T-Head docs [2] and Canaan docs [1]
+Changes since v2:
+- Add MIT License to dts file
+- Sort dt-binding stings in alphanumerical order
+- Sort filename in dts Makefile in alphanumerical order
+- Rename canmv-k230.dts to k230-canmv.dts
 
-L1i: 32KB, VIPT 4-Way set-associative, 64B Cacheline
-L1d: 32KB, VIPT 4-Way set-associative, 64B Cacheline
-L2: 256KB, PIPT 16-way set-associative, 64B Cacheline
+v2: https://lore.kernel.org/linux-riscv/tencent_64A9B4B31C2D70D5633042461AC9F80C0509@qq.com/
 
-The numbers of cache sets are calculated from these parameters.
+Changes since v1:
+- Patch dt-bindings in clint and plic
+- Use enum in K230 compatible dt bindings
+- Fix dts to pass `make dtbs_check`
+- Add more details in commit message
 
-- MMU only supports Sv39
+v1: https://lore.kernel.org/linux-riscv/tencent_E15F8FE0B6769E6338AE690C7F4844A31706@qq.com/
 
-The T-Head docs [2] say the C908 core can be configured to support Sv48 and
-Sv39 or only Sv39. On K230, I tried to write "riscv,sv48" on mmu-type in
-dts and boot the mainline kernel. However, it failed during the kernel
-probe and fell back to Sv39. I also tested it on M-Mode software, writing
-Sv48 to satp.mode will not trap but will leave the CSR unchanged. While
-writing Sv39, it will take effect. It shows that this CPU does not support
-Sv48.
+[1] https://github.com/kendryte/k230_sdk
+[2] https://github.com/cyyself/opensbi/tree/k230
+[3] https://gist.github.com/cyyself/b9445f38cc3ba1094924bd41c9086176
+[4] https://lore.kernel.org/linux-riscv/tencent_2E60E33C1F88A090B6B3A332AE528C6B8806@qq.com/
 
-- Svpbmt and T-Head MAEE both supported
+Yangyu Chen (6):
+  dt-bindings: riscv: Add T-HEAD C908 compatible
+  dt-bindings: add Canaan K230 boards compatible strings
+  dt-bindings: timer: Add Canaan K230 CLINT
+  dt-bindings: interrupt-controller: Add Canaan K230 PLIC
+  riscv: dts: add initial canmv-k230 and k230-evb dts
+  riscv: config: enable ARCH_CANAAN in defconfig
 
-T-Head C908 does support both Svpbmt and T-Head MAEE for page-based memory
-attributes and is controlled by BIT(21) on CSR.MXSTATUS. The Svpbmt is used
-here for mainline kernel support for K230. If the kernel wants to use
-Svpbmt, the M-Mode software should unset BIT(21) of CSR.MXSTATUS before
-entering the S-Mode kernel. Otherwise, the kernel will not boot, as 0 on
-T-Head MAEE is NonCachable Memory. Once the kernel switches from bare metal
-to Sv39, It will lose dirty cache line modifications that haven't been
-written back to the memory.
-
-[1] https://developer.canaan-creative.com/k230/dev/zh/00_hardware/K230_datasheet.html#chapter-1-introduction
-[2] https://occ-intl-prod.oss-ap-southeast-1.aliyuncs.com/resource//1699268369347/XuanTie-C908-UserManual.pdf
-[3] https://github.com/cyyself/rvb_test
-[4] https://github.com/cyyself/linux/tree/k230-mainline
-[5] https://github.com/cyyself/simple-sw-workbench/commit/32657d807d64217323a80cb04ce114671e51ed60
-[6] https://gist.github.com/cyyself/aa98b07b8c77bb1d53b5a4c5e67a37cf
-
-Signed-off-by: Yangyu Chen <cyy@cyyself.name>
----
- arch/riscv/boot/dts/canaan/Makefile       |   2 +
- arch/riscv/boot/dts/canaan/k230-canmv.dts |  24 ++++
- arch/riscv/boot/dts/canaan/k230-evb.dts   |  24 ++++
- arch/riscv/boot/dts/canaan/k230.dtsi      | 140 ++++++++++++++++++++++
- 4 files changed, 190 insertions(+)
+ .../sifive,plic-1.0.0.yaml                    |   1 +
+ .../devicetree/bindings/riscv/canaan.yaml     |   8 +-
+ .../devicetree/bindings/riscv/cpus.yaml       |   1 +
+ .../bindings/timer/sifive,clint.yaml          |   1 +
+ arch/riscv/boot/dts/canaan/Makefile           |   2 +
+ arch/riscv/boot/dts/canaan/k230-canmv.dts     |  24 +++
+ arch/riscv/boot/dts/canaan/k230-evb.dts       |  24 +++
+ arch/riscv/boot/dts/canaan/k230.dtsi          | 142 ++++++++++++++++++
+ arch/riscv/configs/defconfig                  |   1 +
+ 9 files changed, 203 insertions(+), 1 deletion(-)
  create mode 100644 arch/riscv/boot/dts/canaan/k230-canmv.dts
  create mode 100644 arch/riscv/boot/dts/canaan/k230-evb.dts
  create mode 100644 arch/riscv/boot/dts/canaan/k230.dtsi
 
-diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/canaan/Makefile
-index 987d1f0c41f0..7d54ea5c6f3d 100644
---- a/arch/riscv/boot/dts/canaan/Makefile
-+++ b/arch/riscv/boot/dts/canaan/Makefile
-@@ -1,6 +1,8 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_CANAAN) += canaan_kd233.dtb
- dtb-$(CONFIG_ARCH_CANAAN) += k210_generic.dtb
-+dtb-$(CONFIG_ARCH_CANAAN) += k230-canmv.dtb
-+dtb-$(CONFIG_ARCH_CANAAN) += k230-evb.dtb
- dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_bit.dtb
- dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_dock.dtb
- dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_go.dtb
-diff --git a/arch/riscv/boot/dts/canaan/k230-canmv.dts b/arch/riscv/boot/dts/canaan/k230-canmv.dts
-new file mode 100644
-index 000000000000..9565915cead6
---- /dev/null
-+++ b/arch/riscv/boot/dts/canaan/k230-canmv.dts
-@@ -0,0 +1,24 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
-+ */
-+
-+#include "k230.dtsi"
-+
-+/ {
-+	model = "Canaan CanMV-K230";
-+	compatible = "canaan,canmv-k230", "canaan,kendryte-k230";
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	ddr: memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x0 0x0 0x20000000>;
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/canaan/k230-evb.dts b/arch/riscv/boot/dts/canaan/k230-evb.dts
-new file mode 100644
-index 000000000000..f898b8e62368
---- /dev/null
-+++ b/arch/riscv/boot/dts/canaan/k230-evb.dts
-@@ -0,0 +1,24 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
-+ */
-+
-+#include "k230.dtsi"
-+
-+/ {
-+	model = "Kendryte K230 EVB";
-+	compatible = "canaan,k230-usip-lp3-evb", "canaan,kendryte-k230";
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	ddr: memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x0 0x0 0x20000000>;
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/canaan/k230.dtsi b/arch/riscv/boot/dts/canaan/k230.dtsi
-new file mode 100644
-index 000000000000..75165fcbeceb
---- /dev/null
-+++ b/arch/riscv/boot/dts/canaan/k230.dtsi
-@@ -0,0 +1,140 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
-+ */
-+
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/dts-v1/;
-+/ {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+	compatible = "canaan,kendryte-k230";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		timebase-frequency = <27000000>;
-+
-+		cpu@0 {
-+			compatible = "thead,c908", "riscv";
-+			device_type = "cpu";
-+			reg = <0>;
-+			riscv,isa = "rv64imafdcv_zba_zbb_zbc_zbs_zicbom_zicbop_zicboz_svpbmt";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zba", "zbb",
-+					       "zbc", "zbs", "zicbom", "zicbop", "zicboz",
-+					       "zicntr", "zicsr", "zifencei", "zihpm", "svpbmt";
-+			riscv,cbom-block-size = <64>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <128>;
-+			i-cache-size = <32768>;
-+			next-level-cache = <&l2_cache>;
-+			mmu-type = "riscv,sv39";
-+
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		l2_cache: l2-cache {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <262144>;
-+			cache-sets = <256>;
-+			cache-unified;
-+		};
-+	};
-+
-+	apb_clk: apb-clk-clock {
-+		compatible = "fixed-clock";
-+		clock-frequency = <50000000>;
-+		clock-output-names = "apb_clk";
-+		#clock-cells = <0>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		interrupt-parent = <&plic>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		dma-noncoherent;
-+		ranges;
-+
-+		plic: interrupt-controller@f00000000 {
-+			compatible = "canaan,k230-plic" ,"thead,c900-plic";
-+			reg = <0xf 0x00000000 0x0 0x04000000>;
-+			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
-+			interrupt-controller;
-+			#address-cells = <0>;
-+			#interrupt-cells = <2>;
-+			riscv,ndev = <208>;
-+		};
-+
-+		clint: timer@f04000000 {
-+			compatible = "canaan,k230-clint", "thead,c900-clint";
-+			reg = <0xf 0x04000000 0x0 0x00010000>;
-+			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
-+		};
-+
-+		uart0: serial@91400000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x91400000 0x0 0x1000>;
-+			clocks = <&apb_clk>;
-+			interrupts = <16 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@91401000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x91401000 0x0 0x1000>;
-+			clocks = <&apb_clk>;
-+			interrupts = <17 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@91402000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x91402000 0x0 0x1000>;
-+			clocks = <&apb_clk>;
-+			interrupts = <18 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@91403000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x91403000 0x0 0x1000>;
-+			clocks = <&apb_clk>;
-+			interrupts = <19 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart4: serial@91404000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x91404000 0x0 0x1000>;
-+			clocks = <&apb_clk>;
-+			interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+	};
-+};
+base-commit: 0eea987088a22d73d81e968de7347cdc7e594f72
 -- 
 2.43.0
 
