@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1A4CD1284
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2024 01:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A43C9CD1296
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2024 01:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A7ZcxgJMDEcF1ZtQwhuXye85QbL0opjF40NY4HDWyWA=; b=BSdp0PpsH61fjz
-	HOeBaGuMu227XUbzi233bi/XpxI5PjFHsXo5C+BTWMBlc5rxqqt40yuGFoiH6c77TEBUw1+PZHGTh
-	buluYh1IEjICni+neyf1MLoeLhxw3yARNQ0CHhsffZbcDj/42YdHEpcemYPUNX+FyhqF1NNCYWRJo
-	I7+iY7P/WOY1jvVRyTzmQoxEe3m89Ub00F6MzKsxcGulOv618zMf5hbfp2hktCkD5ifF+sJ6+fmJX
-	Fy/ZZXThD5f55G+ZNwwD02bZF+2lZwLXAEzN+jB2Cowq3b61bqCU7sXYgeurM5/5gZjj3MyiNIFSq
-	Y2FWZBLLjxOIozHNUsVQ==;
+	List-Owner; bh=KVaU08z5HudZrLyUQEqyjYr76s3spH7p5rltj4jCtWw=; b=eEc+Md+7d+L2WY
+	hS1FE4HlJg/7F/jLdRebeWvZzXrHgoJvJuacRNmGS8Gv25v7xRDFAYdHQdiNQ/AMekkxulDor8sGM
+	3Bb6PAeU8PAFBPcFCWwlwot53tGlH0t7Lq5T/NWfaydnlOiiIPD0du44bFL0kcoIhrKsoIwHGtoVX
+	m7bvjaUH6GD2Zt5D9KgK9rfVda6xKh8y4uO4INwcuXy16K8NCtbywkCnxyhYKgyNVwWrkT4MDX7a9
+	ASwhjhNRvJ7+LgsihZZ7ljD4KZU4emBzHUR7Y+k/afX4NcmRTIbksNI7wrbE3dE9PHKvRM2FMYVmT
+	HGGD5uhzoovQQCY6DB2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtHMF-0000000BONX-3LV9;
-	Sun, 07 Apr 2024 01:30:07 +0000
-Received: from out203-205-251-60.mail.qq.com ([203.205.251.60])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtHMC-0000000BOLJ-1PeM
-	for linux-riscv@lists.infradead.org;
+	id 1rtHME-0000000BOMv-0AC0;
 	Sun, 07 Apr 2024 01:30:06 +0000
+Received: from out203-205-251-27.mail.qq.com ([203.205.251.27])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rtHMB-0000000BOLL-1Aec
+	for linux-riscv@lists.infradead.org;
+	Sun, 07 Apr 2024 01:30:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1712453400; bh=rcU9GmGkfYObnRvy+6sIXXI4nFg1KITAK23jcYZUxzQ=;
+	t=1712453396; bh=sxK2uMITViuWCRH/HETWDTh3a/M4c3Sxsj5q2qzVrG0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cczAhbesSdLhfdmtjEsvjJSBEosBfKVVF3k6rT5FTncar7kNIC8QoU2wSy/W/qO26
-	 HbfLZs7BopEx4jn6Rhi0B04kgT+GShlAwVUHXIz+Dbgj+egCPxMDCbZeHyYyDt9sfj
-	 EO70nr+20iCGvotnN4JNfocNxPQhWIKr8K43jbME=
+	b=OEl/t+Q8ci/I3GEBTNNo7XNE4f7jqj32soALjyFr3HysHL5YxPlLLVcdi2FzIWd92
+	 fKJcedfwHu3iBcWAF3phOMEeRkl67nf3554KadTcEjuD6I4SZqqKlyHLflrOMLiGZG
+	 656kObijfwGciNZ/zkRY+Tn4pkSka/FxeSjLdklI=
 Received: from cyy-pc.lan ([240e:379:225a:6d00:f878:7a6f:5832:7f4d])
 	by newxmesmtplogicsvrsza7-0.qq.com (NewEsmtp) with SMTP
 	id 7741FE3D; Sun, 07 Apr 2024 09:29:52 +0800
-X-QQ-mid: xmsmtpt1712453397tvn39vr8c
-Message-ID: <tencent_A655C73B5CA018F590A0C60ABE034113ED07@qq.com>
-X-QQ-XMAILINFO: MR/iVh5QLeie4AIX3n0T6n1gmCVIQK/LewveaTQKQp3z+c3jhqvprV+9XRHqVy
-	 sv9RGYfQPWhm8EdMBExygLre3yNlJbBcYeOiz2gTaA5/5OYPM5qI8udQdKRcEbgBl17JKqzXsPlB
-	 7BeZvWEp9abKkACq0jo1XdqG6uM1YJr9qmcxRD0upWBrsqvhTO6YcWTxPq3i9y4CVh2ikPQLLYH3
-	 pmdUO0Sc5wdzVHI7F7wy7g7CKGaFbwlcvy30IqFn39ZLDwKDjBzpZxTq5YseDq9HPAXUHNytK+DE
-	 NQfQCrVLu4Txbv6BZD0YJU83iG8KGH8zAfNz4tAyce+Nfn0D+T7HmzPSGDtNYwoM6tG73ZEdQELP
-	 0Qdl6JCfbl0TGpJ4hPvCBSWqhUsa1icD5dxOZSYOE5PswDUSnx4YgAV9E3NjofXDv5c4ZC7oDQLG
-	 n2VflqKiZIbfErJUaC9oQ7rk8pVtv1jfJEfoVFJFhZacEHjmCUyN2hCdcM7J/oSqtkpnaDbH6i9/
-	 67bjmPGa9DwmuPuKXhpQUamTGjf6AQcmYyQm9c1boUD+Yp8r+z14hgsorJl9wI7ifBPW5I26f4Uv
-	 Oyne0RGMHRM9mQyLMP+I8X1b+W9Pv6ooiskh/rjpGsFIw3LGNzQi+xYjKs5SEWiFbzGa/oWG9ERm
-	 Mgg+HF1uxBbkNjrwpl6ia7jTjD5apBuEIV0Z0t3l20l+YfqqF58plACd3CcnZftyjVbVRb8XjncI
-	 FUmmN14fK2+DxWbO/XsgvqeQNcXziOJy6sPu5EGZHIEM9XMsyNzRs3yapa0LNZkGcNyyeM+xmUKt
-	 hmqDVLcP4GuNJhJci5buKs81m7h5rbLuk0MjDceFsTXTSEuJt1wkgVtLHKbx8SAP45Ty06EubRrD
-	 1g2JiDiHyXAys510xEUYzC7r7cWu6DhiUgKkMoLfT6EWLaF/RKcbHpuAY7lU1maROIeL/m9G71ur
-	 6093O2gYs801BYUmGu+KEYavUpf1e9EhdtWbGxLUfffjUIxA11cr2JW6+6F1PIsV+29FCaNRsCcw
-	 VjicLySF2wXpBRDSHMG5cz0ruzwu6S+wh4MYYXRqjBgPi741+thXiETooWt/gv+CgkFNJcqfhh0K
-	 2QsZEfZNUvq6R1lgQ=
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-mid: xmsmtpt1712453392t19ym37jd
+Message-ID: <tencent_A5B50F1D87711D625443361A3BF996042B09@qq.com>
+X-QQ-XMAILINFO: Md0EpfRTqfgWnk8qoP/GWeCvf5JbI+UR1glwYtQp2wYl4oF+eAdbhgmeZPj2Vs
+	 AZSYTsAFl/LQybfYoLWNm8YHWjtljUmFsrEMiCJGaNsn7eEpSVsJNZAh04bNUKosr+3fr4mN7biM
+	 Xsi9hR/QJGf1YIOzT4Vx2US2VB7yWtIc9BmAud1OOVKUHpr3L5XbFWyirS/Qn4dBB5eXbkJ8Fe+m
+	 D98eUA/Cl9aneRyuzUlG/F0ftwstGbAoy3lximw3zNTt8tdrtsEDnsam9UF7pVq8oWYOn1T05ARX
+	 u+d7wiYu+7iMJnRquBpp5mMN9jnGTn3yhkiapls4I5/5s1SPmaq4UfYNJl/bUIfDT66fBM/+7Cw0
+	 HpPixXA0RO1M0SWB7ynqBuHHNUO0hvzWY+qU3s6uPLpFBoegMZ5pJZUxtE7yVol1Z4qyJKikzQ3M
+	 VUaiSIHMAuqiC7jXVLGq/OgVFju5qfnKzxuT4+IMzHpBz5crSALapRbHjFt6CkISWbKizcR4qBbV
+	 gfANrIkJTOptYxGz5tkrAWQEutT5vX2TUY3AGEm1mhVhE9J6c6kOg9cVMwhm0uOZ8gfV8tdmy74J
+	 zVDzq8nUPNIy6be6XYD9uK4XAzUXk4+ZKhwNofsPdcPqhkt4TJxklvqZzinhAYQn10LbqhhrpYIS
+	 DI4drxrJpUrgpW5RbHzIZEoTQ1ci7RRpJO/2rIURbHiaWwa6vn5oPejEXWGPpuUXBjBUe2vtjkBA
+	 XqI7tiMcTzc4YjxD4b+kO7aMLM65yjyLBb7n3h9K/BsYY1tg5HKe1AeyQb6zapuwjy8apnSmBjmG
+	 cmAnB3nfPFsOfdYK7sZj5xPdjpcueUWvDVlmKvVg2kGdasx+T/ndKQL68Ly9Y4xKnIWN6cAVHHj8
+	 8ZdedwQQLBb3Ws6/xG7F0+KatBF4kgiMNrLEo+fQDHvd/FOyBZbitl2KdjsKYVM+CV6ajjsYqxiH
+	 Rrjg/F0VK1d6jRjaM2sVHrXGP/dUtSfSMm0dzKRj1WIYI2sMCINEKKpFsq+9gMkdFkGrxSDWlfCv
+	 /LlmZfG6z8KWAk3jB7eYTnhlspwGTF05fYlIYOqw==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor@kernel.org>,
@@ -67,17 +66,17 @@ Cc: Conor Dooley <conor@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Guo Ren <guoren@kernel.org>,
 	Yangyu Chen <cyy@cyyself.name>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH v8 3/6] dt-bindings: timer: Add Canaan K230 CLINT
-Date: Sun,  7 Apr 2024 09:29:41 +0800
-X-OQ-MSGID: <20240407012944.2996666-3-cyy@cyyself.name>
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v8 1/6] dt-bindings: riscv: Add T-HEAD C908 compatible
+Date: Sun,  7 Apr 2024 09:29:39 +0800
+X-OQ-MSGID: <20240407012944.2996666-1-cyy@cyyself.name>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <tencent_9F423E3DC13F6D5FC7415C89988490F04607@qq.com>
 References: <tencent_9F423E3DC13F6D5FC7415C89988490F04607@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240406_183004_710393_5E3C3551 
-X-CRM114-Status: UNSURE (   6.69  )
+X-CRM114-CacheID: sfid-20240406_183003_648254_7D7BCC9A 
+X-CRM114-Status: UNSURE (   6.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,27 +94,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for Canaan K230 CLINT.
+The thead,c908 is a RISC-V CPU core from T-HEAD Semiconductor which used
+in Canaan Kendryte K230 SoC.
 
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-Acked-by: Rob Herring <robh@kernel.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Guo Ren <guoren@kernel.org>
 ---
- Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index fced6f2d8ecb..06c67f20ad3c 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -38,6 +38,7 @@ properties:
-       - items:
-           - enum:
-               - allwinner,sun20i-d1-clint
-+              - canaan,k230-clint
-               - sophgo,cv1800b-clint
-               - sophgo,cv1812h-clint
-               - thead,th1520-clint
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index d87dd50f1a4b..d067f2a468ee 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -47,6 +47,7 @@ properties:
+               - sifive,u74
+               - sifive,u74-mc
+               - thead,c906
++              - thead,c908
+               - thead,c910
+               - thead,c920
+           - const: riscv
 -- 
 2.43.0
 
