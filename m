@@ -4,132 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5575ACD1292
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Apr 2024 10:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F7F5C67861
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Apr 2024 11:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xqPgRfAVPytm2ycbTdyxyt864Ji+8DGGDPmtMs8Dlu0=; b=ESHBWEFZ4rAX0a
-	xSZ4zvwesEiG4hDHgGfNQwqpnkoh+q9xwSrZUlcx7/AokT1GpSNZ23QBZH43aSTXt8WGouvWqlCPY
-	fk3kZaFKcxfF9MsO6uQqnQv+xFpNDV2gAHtxb0Jonyih7ALUaQCtcb6S9mE+kyzHMtnIpBJ2GpzMT
-	bqNeqvGtbNJc/Mizzpxn2P+f6Egg2grgVMk4XA+8Xg6q7DF9h990vGpdaINRp6Qq9NFY8bNIBrYar
-	SoxcdY/uplktIy/hPFvqCd7PuvY1LcDy+OLxueXbwS97OT18rdw6D00RaDDFFXBo1/6oYGWT0R0zo
-	v/QOpa7pcR8h1PzpcbSg==;
+	List-Owner; bh=HI6xl0cVCCAFXzxFrZ1Lx+Wgsz92SPMNhlToz7+v7Ds=; b=ue/Wpy0LzXkxZI
+	swfYCrNouSfc80emKbetjADmPwBIln0qbghFkit5389oE/oJoAbYTXcY8/OhSypwSC7Lbm6RrCJPX
+	Zpjul4VVoMPRp02zUQb3B5Uo650kzKXnerDqwXvv5YAMj0dprqPUvfIfw/1OvmQ5GHgD8V+//hfjB
+	9zsmjiS17HtnUiwx7Cpykh1nUtuExGE81K67jI3mImbXygs+gSY53LiJBfNW8puTZSQvoI7Z40bl9
+	nCKm309NaFzs7F3gsEqk15fVOyi2S5MWCYb4wZTR/hfnVAv4AB3PNZEIkgV/XmUNG/GkhXy8vIYdD
+	Fj8e9bQDvx0hIkolrsag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtlqj-0000000FCLn-3GVu;
-	Mon, 08 Apr 2024 10:03:37 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1rtmnD-0000000FKRD-3Vcc;
+	Mon, 08 Apr 2024 11:04:03 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtlqX-0000000FCGS-3Rqs;
-	Mon, 08 Apr 2024 10:03:27 +0000
-Received: from pps.filterd (m0353727.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 4389vTLC024196;
-	Mon, 8 Apr 2024 10:03:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
- subject : reply-to : in-reply-to : references : message-id : content-type
- : content-transfer-encoding : mime-version; s=pp1;
- bh=WGRw+wpQ+8BkQKcdJ/jvqWzRkTuOQNEebcPy5PQD4Kw=;
- b=V1m9DY18uGHMz8vh9IxAKCdhy2XzRwg7vXDe5eU16f5nEfVNyFSH2bkwzlSGAU2+MppO
- 4KiihhZ6Fk01FJPzdXSR1BLEuGht8lFKOYZkgyQ+XDX6d86NzlDgaIq0J9qJC+jfnfB7
- aEeGTfrHV1qJLbUVw7VwF0wJD3GQGVNebGmuEEwqhBLJ9iqNw/OPA1h1UuFrYBwI63SP
- L8QiPE5Ov/+xNvSEFsQF6+fJ779nZgk/JgjuEZ8d5Yw4SPP9YYyN9phnIKPRv8VXU/FC
- LdWtpshSMMqQ0phdyUamMRN3ZDDlZNvPvkSzaRMK+nFo6z+Im4121GSQHwYWxTP0de2t 7g== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3xceda00e7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Apr 2024 10:03:21 +0000
-Received: from m0353727.ppops.net (m0353727.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 438A3KAu002830;
-	Mon, 8 Apr 2024 10:03:20 GMT
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3xceda00e4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Apr 2024 10:03:20 +0000
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 4387uZ0H019096;
-	Mon, 8 Apr 2024 10:03:18 GMT
-Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3xbh3yym76-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Apr 2024 10:03:18 +0000
-Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
-	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 438A3FKl53084522
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 8 Apr 2024 10:03:18 GMT
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D2E1D58058;
-	Mon,  8 Apr 2024 10:03:15 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F35F85806B;
-	Mon,  8 Apr 2024 10:03:10 +0000 (GMT)
-Received: from ltc.linux.ibm.com (unknown [9.5.196.140])
-	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  8 Apr 2024 10:03:10 +0000 (GMT)
-Date: Mon, 08 Apr 2024 12:03:10 +0200
-From: Harald Freudenberger <freude@linux.ibm.com>
-To: Allen Pais <apais@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, tj@kernel.org, keescook@chromium.org,
-        vkoul@kernel.org, marcan@marcan.st, sven@svenpeter.dev,
-        florian.fainelli@broadcom.com, rjui@broadcom.com,
-        sbranden@broadcom.com, paul@crapouillou.net,
-        Eugeniy.Paltsev@synopsys.com, manivannan.sadhasivam@linaro.org,
-        vireshk@kernel.org, Frank.Li@nxp.com, leoyang.li@nxp.com,
-        zw@zh-kernel.org, wangzhou1@hisilicon.com, haijie1@huawei.com,
-        shawnguo@kernel.org, s.hauer@pengutronix.de, sean.wang@mediatek.com,
-        matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-        afaerber@suse.de, logang@deltatee.com, daniel@zonque.org,
-        haojian.zhuang@gmail.com, robert.jarzmik@free.fr, andersson@kernel.org,
-        konrad.dybcio@linaro.org, orsonzhai@gmail.com,
-        baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com,
-        patrice.chotard@foss.st.com, linus.walleij@linaro.org, wens@csie.org,
-        jernej.skrabec@gmail.com, peter.ujfalusi@gmail.com, kys@microsoft.com,
-        haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
-        jassisinghbrar@gmail.com, mchehab@kernel.org,
-        maintainers@bluecherrydvr.com, aubin.constans@microchip.com,
-        ulf.hansson@linaro.org, manuel.lauss@gmail.com,
-        mirq-linux@rere.qmqm.pl, jh80.chung@samsung.com, oakad@yahoo.com,
-        hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
-        brucechang@via.com.tw, HaraldWelte@viatech.com, pierre@ossman.eu,
-        duncan.sands@free.fr, stern@rowland.harvard.edu, oneukum@suse.com,
-        openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org,
-        asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-        imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-mediatek@lists.infradead.org, linux-actions@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
-        linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org,
-        linux-media@vger.kernel.org, linux-mmc@vger.kernel.org,
-        linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-        linux-s390@vger.kernel.org, netdev@vger.kernel.org,
-        linux-usb@vger.kernel.org, Holger Dengler <dengler@linux.ibm.com>
-Subject: Re: [PATCH 7/9] s390: Convert from tasklet to BH workqueue
-Mail-Reply-To: freude@linux.ibm.com
-In-Reply-To: <20240327160314.9982-8-apais@linux.microsoft.com>
-References: <20240327160314.9982-1-apais@linux.microsoft.com>
- <20240327160314.9982-8-apais@linux.microsoft.com>
-Message-ID: <702594ec5852c482f96cfcf84a02cab2@linux.ibm.com>
-X-Sender: freude@linux.ibm.com
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: vcJ1PwKFq1RysBO3jh1OFUS_rcqMuAYv
-X-Proofpoint-ORIG-GUID: X3ilzQ7TzOIWEyFQfqPrw-z8aSdSkVVd
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+	id 1rtmn9-0000000FKQ8-0k4B
+	for linux-riscv@lists.infradead.org;
+	Mon, 08 Apr 2024 11:04:01 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a51e368c6dcso4740966b.3
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Apr 2024 04:03:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1712574236; x=1713179036; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=4g1Fe38jasdHywEL2euSnsmLnhOpgJ82XZytSUr/W9Q=;
+        b=l424SJLWEKDlzPGDu2ipwmvcNfnWchG3qxZ+ySSfFNTZyMz6FzInASfXgpUiQJmvn8
+         Ma/ekp/myS4XThESD47qWBXh1EcwpFVtCngXs+9TznP2U0OofQGTfkLQ8gaJOKk+/YOP
+         VYHZLjoUnH/bicZ0vHOCCu4Ph9wVO5WcFNCoKGo9NzUSorBb90ngbE3CGF6DsU+PHYoc
+         XTQuoBc4MRzMtFPqRMl0PIvdVhZeIN03e40rdlCa03o4pvsZcojOJF+Juns2alHPr8wI
+         AXqiWZV5+Bw9Mcby6mjgIEvaxucw/l/NnerTIEaHGLQeOsKnWN74pT2s1YSpQaCmo7ju
+         8YUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712574236; x=1713179036;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4g1Fe38jasdHywEL2euSnsmLnhOpgJ82XZytSUr/W9Q=;
+        b=UvCYSFgnmFKDFjLsmSQOx+RI90S8HuUtnrFQt+Q65esC22MAcAYLX4rvsMlx7xM1zq
+         U/VqHDacfm7ulAGGnv9YYY+EakvmTiVhMw/hPx7D8ivAZ9c+o4zL91p6VEEuCTUZttSb
+         5dYQhHK74m16a4N+4lzU35EsCoAVRtRT2YjNagYIJCB4kVM3kXQ5szOf/ACbyiJkKY1s
+         UKeqGjC59OXEXiADcTtcuYle4Tk1EMEvPlZPyaF96xG+CgYr7CV3yKCKKzy8vhrm8N58
+         mn/2L1TRklk6Cjoc0dpFCAgH7WhsRhTsi198Vagqpn7JrlfQsNaT7jS6g93abCqClnrO
+         uQQw==
+X-Forwarded-Encrypted: i=1; AJvYcCUFATtGQazZTLtMfcRvHrZWOW/RC9xzM0XKhDoZ0fIJP6Y6ywYXbTo0iMIwyR8ZHatttkWYUEvrZh7zOLAjfZMBJdF5opoRpdaf05exsVjx
+X-Gm-Message-State: AOJu0YyKzCNU0a0IitgCVkOojooqakIKqnN9B3YqPhU+/2l563+c1BE5
+	Y+RoWYZR3isCvhfG5K+5rgsJZxTlzo+wnGzblVbebhV13tmwfsXWoDCmC+cjK1o=
+X-Google-Smtp-Source: AGHT+IGnIHRj0+4dG4NgzsNXCqgJTww4f9iaHdQi6M7w7Zma3E/8aHUoufLLnKT3jNOOK2m1ikAHoA==
+X-Received: by 2002:a17:906:31d4:b0:a46:da28:992e with SMTP id f20-20020a17090631d400b00a46da28992emr5801257ejf.71.1712574236283;
+        Mon, 08 Apr 2024 04:03:56 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id b15-20020a170906d10f00b00a4df4243473sm4279042ejz.4.2024.04.08.04.03.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Apr 2024 04:03:55 -0700 (PDT)
+Date: Mon, 8 Apr 2024 13:03:54 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: Deepak Gupta <debug@rivosinc.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>, 
+	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 0/5] Add parsing for Zimop ISA extension
+Message-ID: <20240408-6c93f3f50b55234f3825ca33@orel>
+References: <20240404103254.1752834-1-cleger@rivosinc.com>
+ <20240405-091c6c174f023d74b434059d@orel>
+ <CAKC1njQ3qQ8mTMoYkhhoGQfRSVtp2Tfd2LjDhAmut7UcW9-bGw@mail.gmail.com>
+ <ddc5555a-3ae8-42e5-a08a-ca5ceaf0bf28@rivosinc.com>
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
- definitions=2024-04-08_08,2024-04-05_02,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 mlxlogscore=918
- lowpriorityscore=0 bulkscore=0 spamscore=0 adultscore=0 priorityscore=1501
- malwarescore=0 phishscore=0 impostorscore=0 clxscore=1011 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2404010000
- definitions=main-2404080077
+Content-Disposition: inline
+In-Reply-To: <ddc5555a-3ae8-42e5-a08a-ca5ceaf0bf28@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240408_030325_907734_3E1D3FE4 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20240408_040359_274714_7B7D24EE 
+X-CRM114-Status: GOOD (  30.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,46 +96,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: freude@linux.ibm.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-03-27 17:03, Allen Pais wrote:
-> The only generic interface to execute asynchronously in the BH context 
-> is
-> tasklet; however, it's marked deprecated and has some design flaws. To
-> replace tasklets, BH workqueue support was recently added. A BH 
-> workqueue
-> behaves similarly to regular workqueues except that the queued work 
-> items
-> are executed in the BH context.
-> 
-> This patch converts drivers/infiniband/* from tasklet to BH workqueue.
-> 
-> Based on the work done by Tejun Heo <tj@kernel.org>
-> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git 
-> for-6.10
-> 
-> Note: Not tested. Please test/review.
-> 
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
-> ---
-> ...
->  drivers/s390/crypto/ap_bus.c           | 24 +++++++-------
->  drivers/s390/crypto/ap_bus.h           |  2 +-
->  drivers/s390/crypto/zcrypt_msgtype50.c |  2 +-
->  drivers/s390/crypto/zcrypt_msgtype6.c  |  4 +--
-> ...
-
-Applied and tested the s390 AP bus and zcrypt part of the patch.
-Works fine, a sniff test did not show any problems.
-Thanks for your work.
-
-Reviewed-by: Harald Freudenberger <freude@linux.ibm.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBcHIgMDgsIDIwMjQgYXQgMTA6MDE6MTJBTSArMDIwMCwgQ2zDqW1lbnQgTMOpZ2Vy
+IHdyb3RlOgo+IAo+IAo+IE9uIDA1LzA0LzIwMjQgMTk6MzMsIERlZXBhayBHdXB0YSB3cm90ZToK
+PiA+IE9uIEZyaSwgQXByIDUsIDIwMjQgYXQgODoyNuKAr0FNIEFuZHJldyBKb25lcyA8YWpvbmVz
+QHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+ID4+Cj4gPj4gT24gVGh1LCBBcHIgMDQsIDIwMjQg
+YXQgMTI6MzI6NDZQTSArMDIwMCwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+ID4+PiBUaGUgWmlt
+b3AgSVNBIGV4dGVuc2lvbiB3YXMgcmF0aWZpZWQgcmVjZW50bHkuIFRoaXMgc2VyaWVzIGFkZHMg
+c3VwcG9ydAo+ID4+PiBmb3IgcGFyc2luZyBpdCBmcm9tIHJpc2N2LGlzYSwgaHdwcm9iZSBleHBv
+cnQgYW5kIGt2bSBzdXBwb3J0IGZvcgo+ID4+PiBHdWVzdC9WTS4KPiA+Pgo+ID4+IEknbSBub3Qg
+c3VyZSB3ZSBuZWVkIHRoaXMuIFppbW9wIGJ5IGl0c2VsZiBpc24ndCB1c2VmdWwsIHNvIEkgZG9u
+J3Qga25vdwo+ID4+IGlmIHdlIG5lZWQgdG8gYWR2ZXJ0aXNlIGl0IGF0IGFsbC4gV2hlbiBhbiBl
+eHRlbnNpb24gY29tZXMgYWxvbmcgdGhhdAo+ID4+IHJlZGVmaW5lcyBzb21lIE1PUHMsIHRoZW4g
+d2UnbGwgYWR2ZXJ0aXNlIHRoYXQgZXh0ZW5zaW9uLCBidXQgdGhlIGZhY3QKPiA+PiBaaW1vcCBp
+cyB1c2VkIGZvciB0aGF0IGV4dGVuc2lvbiBpcyByZWFsbHkganVzdCBhbiBpbXBsZW1lbnRhdGlv
+biBkZXRhaWwuCj4gPiAKPiA+IE9ubHkgc2l0dWF0aW9uIEkgc2VlIHRoaXMgY2FuIGJlIHVzZWZ1
+bCBpcyB0aGlzOi0tCj4gPiAKPiA+IEFuIGltcGxlbWVudGVyLCBpbXBsZW1lbnRlZCBaaW1vcHMg
+aW4gQ1BVIHNvbGVseSBmb3IgdGhlIHB1cnBvc2UgdGhhdCB0aGV5IGNhbgo+ID4gcnVuIG1haW5s
+aW5lIGRpc3RybyAmIHBhY2thZ2VzIG9uIHRoZWlyIGhhcmR3YXJlIGFuZCBkb24ndCB3YW50IHRv
+IGxldmVyYWdlIGFueQo+ID4gZmVhdHVyZSB3aGljaCBhcmUgYnVpbHQgb24gdG9wIG9mIFppbW9w
+Lgo+IAo+IFllcywgdGhlIHJhdGlvbmFsZSB3YXMgdGhhdCBzb21lIGJpbmFyaWVzIHVzaW5nIGV4
+dGVuc2lvbnMgdGhhdCBvdmVybG9hZAo+IE1PUHMgY291bGQgc3RpbGwgYmUgcnVuLiBXaXRoIFpp
+bW9wIGV4cG9zZWQsIHRoZSBsb2FkZXIgY291bGQgZGV0ZXJtaW5lCj4gaWYgdGhlIGJpbmFyeSBj
+YW4gYmUgZXhlY3V0ZWQgd2l0aG91dCBwb3RlbnRpYWxseSBjcmFzaGluZy4gV2UgY291bGQKPiBh
+bHNvIGxldCB0aGUgcHJvZ3JhbSBydW4gYW55d2F5IGJ1dCB0aGUgZXhlY3V0aW9uIGNvdWxkIHBv
+dGVudGlhbGx5Cj4gY3Jhc2ggdW5leHBlY3RlZGx5LCB3aGljaCBJTUhPIGlzIG5vdCByZWFsbHkg
+Z29vZCBmb3IgdGhlIHVzZXIKPiBleHBlcmllbmNlIG5vciBmb3IgZGVidWdnaW5nLiBJIGFscmVh
+ZHkgdGhpbmsgdGhhdCB0aGUgc2VnZmF1bHRzIHdoaWNoCj4gaGFwcGVucyB3aGVuIGV4ZWN1dGlu
+ZyBiaW5hcmllcyB0aGF0IG5lZWQgc29tZSBtaXNzaW5nIGV4dGVuc2lvbiBhcmUgbm90Cj4gc28g
+ZWFzeSB0byBkZWJ1Zywgc28gYmV0dGVyIGFkZCBtb3JlIGd1YXJkcy4KCk9LLiBJdCdzIG9ubHkg
+b25lIG1vcmUgZXh0ZW5zaW9uIG91dCBvZiBkb3plbnMsIHNvIEkgd29uJ3QgY29tcGxhaW4gbW9y
+ZSwKYnV0IEkgd2FzIHRoaW5raW5nIHRoYXQgYmluYXJpZXMgdGhhdCB1c2UgcGFydGljdWxhciBl
+eHRlbnNpb25zIHdvdWxkCmNoZWNrIGZvciB0aG9zZSBwYXJ0aWN1bGFyIGV4dGVuc2lvbnMgKHN0
+ZXAgMiksIHJhdGhlciB0aGFuIFppbW9wLgoKVGhhbmtzLApkcmV3Cgo+IAo+ID4gCj4gPiBBcyBh
+biBleGFtcGxlIHppY2ZpbHAgYW5kIHppY2Zpc3MgYXJlIGRlcGVuZGVudCBvbiB6aW1vcHMuIGds
+aWJjIGNhbgo+ID4gZG8gZm9sbG93aW5nCj4gPiAKPiA+IDEpIGNoZWNrIGVsZiBoZWFkZXIgaWYg
+YmluYXJ5IHdhcyBjb21waWxlZCB3aXRoIHppY2Zpc3MgYW5kIHppY2ZpbHAsCj4gPiBpZiB5ZXMg
+Z290byBzdGVwIDIsIGVsc2UgZ290byBzdGVwIDYuCj4gPiAyKSBjaGVjayBpZiB6aWNmaXNzL3pp
+Y2ZpbHAgaXMgYXZhaWxhYmxlIGluIGh3IHZpYSBod3Byb2JlLCBpZiB5ZXMKPiA+IGdvdG8gc3Rl
+cCA1LiBlbHNlIGdvdG8gc3RlcCAzCj4gPiAzKSBjaGVjayBpZiB6aW1vcCBpcyBhdmFpbGFibGUg
+dmlhIGh3cHJvYmUsIGlmIHllcyBnb3RvIHN0ZXAgNiwgZWxzZSBnb3RvIHN0ZXAgNAo+IAo+IEkg
+dGhpbmsgeW91IG1lYW50IHN0ZXAgNSByYXRoZXIgdGhhbiBzdGVwIDYuCj4gCj4gQ2zDqW1lbnQK
+PiAKPiA+IDQpIFRoaXMgYmluYXJ5IHdvbid0IGJlIGFibGUgdG8gcnVuIHN1Y2Nlc3NmdWxseSBv
+biB0aGlzIHBsYXRmb3JtLAo+ID4gaXNzdWUgZXhpdCBzeXNjYWxsLiA8LS0gdGVybWluYXRpb24K
+PiA+IDUpIGlzc3VlIHByY3RsIHRvIGVuYWJsZSBzaGFkb3cgc3RhY2sgYW5kIGxhbmRpbmcgcGFk
+IGZvciBjdXJyZW50IHRhc2sKPiA+IDwtLSBlbmFibGUgZmVhdHVyZQo+ID4gNikgbGV0IHRoZSBi
+aW5hcnkgcnVuIDwtLSBsZXQgdGhlIGJpbmFyeSBydW4gYmVjYXVzZSBubyBoYXJtIGNhbiBiZSBk
+b25lCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
