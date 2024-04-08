@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF53CD128A
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Apr 2024 09:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5575ACD1292
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Apr 2024 10:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ru0dyOcPAqdISY9fHe1WdrLnoH3TJ6bSLua+MItYRuI=; b=qaCyQJ0iF19K5b
-	zLX8cmGJXlZe2d1+4W479dLRCAsQvqMlAcOgpsMwpx8Cjsm7hzmhU3Ecc8j8rzUYSYdS5W1cQCEeA
-	vb7Q+ODkaJh6WxDeXpoNarM+mEz1EdT7Qp9g6Mo5sISnog5f4FZGtra9MK0nCM/VVS/f2d+/WkF+C
-	4/VR1LoRlIFX0or4aQtf4YcOJRnlVCm/oi62QLh5bX7FeHADpmMVlcurfzHXnGgaDkd/35J1fnmg8
-	LafGbAjHb2tGnd5KhU+oO1C9u1FXf1LgBptWX7Ms7D7VilI1vyAkP8oRuXozWU6+e4dZeNDxvm+Bq
-	+MKl7GqteRALTshmJXHg==;
+	List-Owner; bh=xqPgRfAVPytm2ycbTdyxyt864Ji+8DGGDPmtMs8Dlu0=; b=ESHBWEFZ4rAX0a
+	xSZ4zvwesEiG4hDHgGfNQwqpnkoh+q9xwSrZUlcx7/AokT1GpSNZ23QBZH43aSTXt8WGouvWqlCPY
+	fk3kZaFKcxfF9MsO6uQqnQv+xFpNDV2gAHtxb0Jonyih7ALUaQCtcb6S9mE+kyzHMtnIpBJ2GpzMT
+	bqNeqvGtbNJc/Mizzpxn2P+f6Egg2grgVMk4XA+8Xg6q7DF9h990vGpdaINRp6Qq9NFY8bNIBrYar
+	SoxcdY/uplktIy/hPFvqCd7PuvY1LcDy+OLxueXbwS97OT18rdw6D00RaDDFFXBo1/6oYGWT0R0zo
+	v/QOpa7pcR8h1PzpcbSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtlNj-0000000F710-3UAC;
-	Mon, 08 Apr 2024 09:33:40 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1rtlqj-0000000FCLn-3GVu;
+	Mon, 08 Apr 2024 10:03:37 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtlNY-0000000F6yY-148w;
-	Mon, 08 Apr 2024 09:33:35 +0000
-Received: from pps.filterd (m0353723.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 4389674X018763;
-	Mon, 8 Apr 2024 09:33:21 GMT
+	id 1rtlqX-0000000FCGS-3Rqs;
+	Mon, 08 Apr 2024 10:03:27 +0000
+Received: from pps.filterd (m0353727.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 4389vTLC024196;
+	Mon, 8 Apr 2024 10:03:21 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
- subject : message-id : references : content-type : in-reply-to :
- mime-version; s=pp1; bh=HRb08lOvL/RkQcGPtpnIO47HiV3JbnaC5Kla4WlkdPg=;
- b=HAJzuBNsO2JwyXcSUPA5KKjMXoa85ATgDBDMdlUVrWrD4LTczUD9Nzq1exAuSBYIXiod
- e0MbeFjiTJ8BhZHNrUhGGDzWKY8EITc7XduqdLDZ5GctKya+kVyoKq/IkOu0SedUx2z5
- pQp8LeJGmQfs2CM+LTbmD/KJRvxg9VmuuBuJ1NKV4C1xxrojFpma6UqwA03Fy2zslw5J
- vQkdyyQm/5xiBkjpSpVWZG0r2JfzA51m5ovZNnFXMysbeE8Tuv+bGvb6/0yFAENxHcVu
- qAKQ1mFWZTC2QuNZ6UtiF13rTIvo2INwrArwDWHsJE6MYCmUQBSAMU8Fvb7Q48Tb74E1 6A== 
+ subject : reply-to : in-reply-to : references : message-id : content-type
+ : content-transfer-encoding : mime-version; s=pp1;
+ bh=WGRw+wpQ+8BkQKcdJ/jvqWzRkTuOQNEebcPy5PQD4Kw=;
+ b=V1m9DY18uGHMz8vh9IxAKCdhy2XzRwg7vXDe5eU16f5nEfVNyFSH2bkwzlSGAU2+MppO
+ 4KiihhZ6Fk01FJPzdXSR1BLEuGht8lFKOYZkgyQ+XDX6d86NzlDgaIq0J9qJC+jfnfB7
+ aEeGTfrHV1qJLbUVw7VwF0wJD3GQGVNebGmuEEwqhBLJ9iqNw/OPA1h1UuFrYBwI63SP
+ L8QiPE5Ov/+xNvSEFsQF6+fJ779nZgk/JgjuEZ8d5Yw4SPP9YYyN9phnIKPRv8VXU/FC
+ LdWtpshSMMqQ0phdyUamMRN3ZDDlZNvPvkSzaRMK+nFo6z+Im4121GSQHwYWxTP0de2t 7g== 
 Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3xcahageb0-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3xceda00e7-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Apr 2024 09:33:21 +0000
-Received: from m0353723.ppops.net (m0353723.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 4389WAD8027701;
-	Mon, 8 Apr 2024 09:33:20 GMT
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3xcahageav-1
+	Mon, 08 Apr 2024 10:03:21 +0000
+Received: from m0353727.ppops.net (m0353727.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 438A3KAu002830;
+	Mon, 8 Apr 2024 10:03:20 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3xceda00e4-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Apr 2024 09:33:20 +0000
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 4388CHai022664;
-	Mon, 8 Apr 2024 09:33:19 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3xbhqnqanr-1
+	Mon, 08 Apr 2024 10:03:20 +0000
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 4387uZ0H019096;
+	Mon, 8 Apr 2024 10:03:18 GMT
+Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3xbh3yym76-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Apr 2024 09:33:19 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4389XFRb40632662
+	Mon, 08 Apr 2024 10:03:18 +0000
+Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
+	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 438A3FKl53084522
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 8 Apr 2024 09:33:17 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E7ADC2004B;
-	Mon,  8 Apr 2024 09:33:14 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 43F2D20040;
-	Mon,  8 Apr 2024 09:33:11 +0000 (GMT)
-Received: from osiris (unknown [9.171.19.167])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon,  8 Apr 2024 09:33:11 +0000 (GMT)
-Date: Mon, 8 Apr 2024 11:33:09 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
+	Mon, 8 Apr 2024 10:03:18 GMT
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D2E1D58058;
+	Mon,  8 Apr 2024 10:03:15 +0000 (GMT)
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id F35F85806B;
+	Mon,  8 Apr 2024 10:03:10 +0000 (GMT)
+Received: from ltc.linux.ibm.com (unknown [9.5.196.140])
+	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  8 Apr 2024 10:03:10 +0000 (GMT)
+Date: Mon, 08 Apr 2024 12:03:10 +0200
+From: Harald Freudenberger <freude@linux.ibm.com>
 To: Allen Pais <apais@linux.microsoft.com>
 Cc: linux-kernel@vger.kernel.org, tj@kernel.org, keescook@chromium.org,
         vkoul@kernel.org, marcan@marcan.st, sven@svenpeter.dev,
@@ -105,29 +106,30 @@ Cc: linux-kernel@vger.kernel.org, tj@kernel.org, keescook@chromium.org,
         linux-media@vger.kernel.org, linux-mmc@vger.kernel.org,
         linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
         linux-s390@vger.kernel.org, netdev@vger.kernel.org,
-        linux-usb@vger.kernel.org
+        linux-usb@vger.kernel.org, Holger Dengler <dengler@linux.ibm.com>
 Subject: Re: [PATCH 7/9] s390: Convert from tasklet to BH workqueue
-Message-ID: <20240408093309.9447-A-hca@linux.ibm.com>
+Mail-Reply-To: freude@linux.ibm.com
+In-Reply-To: <20240327160314.9982-8-apais@linux.microsoft.com>
 References: <20240327160314.9982-1-apais@linux.microsoft.com>
  <20240327160314.9982-8-apais@linux.microsoft.com>
-Content-Disposition: inline
-In-Reply-To: <20240327160314.9982-8-apais@linux.microsoft.com>
+Message-ID: <702594ec5852c482f96cfcf84a02cab2@linux.ibm.com>
+X-Sender: freude@linux.ibm.com
 X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: iEx_GL3tt0mvzHnM4XY0RznJTIWn8Sle
-X-Proofpoint-GUID: YubKogQl91W9lviSSqhJG7ZeEe8HfK38
+X-Proofpoint-GUID: vcJ1PwKFq1RysBO3jh1OFUS_rcqMuAYv
+X-Proofpoint-ORIG-GUID: X3ilzQ7TzOIWEyFQfqPrw-z8aSdSkVVd
 X-Proofpoint-UnRewURL: 0 URL was un-rewritten
 MIME-Version: 1.0
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
- definitions=2024-04-08_07,2024-04-05_02,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- priorityscore=1501 malwarescore=0 clxscore=1011 phishscore=0
- lowpriorityscore=0 impostorscore=0 mlxscore=0 adultscore=0 spamscore=0
- bulkscore=0 mlxlogscore=816 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-2404010000 definitions=main-2404080073
+ definitions=2024-04-08_08,2024-04-05_02,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 mlxlogscore=918
+ lowpriorityscore=0 bulkscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ malwarescore=0 phishscore=0 impostorscore=0 clxscore=1011 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2404010000
+ definitions=main-2404080077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240408_023329_424404_7161FDE9 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20240408_030325_907734_3E1D3FE4 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,53 +141,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: freude@linux.ibm.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 27, 2024 at 04:03:12PM +0000, Allen Pais wrote:
-> The only generic interface to execute asynchronously in the BH context is
+On 2024-03-27 17:03, Allen Pais wrote:
+> The only generic interface to execute asynchronously in the BH context 
+> is
 > tasklet; however, it's marked deprecated and has some design flaws. To
-> replace tasklets, BH workqueue support was recently added. A BH workqueue
-> behaves similarly to regular workqueues except that the queued work items
+> replace tasklets, BH workqueue support was recently added. A BH 
+> workqueue
+> behaves similarly to regular workqueues except that the queued work 
+> items
 > are executed in the BH context.
 > 
 > This patch converts drivers/infiniband/* from tasklet to BH workqueue.
 > 
 > Based on the work done by Tejun Heo <tj@kernel.org>
-> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
-
-I guess this dependency is a hard requirement due to commit 134874e2eee9
-("workqueue: Allow cancel_work_sync() and disable_work() from atomic contexts
-on BH work items")?
-
+> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git 
+> for-6.10
+> 
+> Note: Not tested. Please test/review.
+> 
+> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
 > ---
->  drivers/s390/block/dasd.c              | 42 ++++++++++++------------
->  drivers/s390/block/dasd_int.h          | 10 +++---
->  drivers/s390/char/con3270.c            | 27 ++++++++--------
+> ...
 >  drivers/s390/crypto/ap_bus.c           | 24 +++++++-------
 >  drivers/s390/crypto/ap_bus.h           |  2 +-
 >  drivers/s390/crypto/zcrypt_msgtype50.c |  2 +-
 >  drivers/s390/crypto/zcrypt_msgtype6.c  |  4 +--
->  drivers/s390/net/ctcm_fsms.c           |  4 +--
->  drivers/s390/net/ctcm_main.c           | 15 ++++-----
->  drivers/s390/net/ctcm_main.h           |  5 +--
->  drivers/s390/net/ctcm_mpc.c            | 12 +++----
->  drivers/s390/net/ctcm_mpc.h            |  7 ++--
->  drivers/s390/net/lcs.c                 | 26 +++++++--------
->  drivers/s390/net/lcs.h                 |  2 +-
->  drivers/s390/net/qeth_core_main.c      |  2 +-
->  drivers/s390/scsi/zfcp_qdio.c          | 45 +++++++++++++-------------
->  drivers/s390/scsi/zfcp_qdio.h          |  9 +++---
->  17 files changed, 117 insertions(+), 121 deletions(-)
+> ...
 
-I'm asking since this patch comes with multiple compile errors. Probably due
-to lack of cross compiler tool chain on your side.
+Applied and tested the s390 AP bus and zcrypt part of the patch.
+Works fine, a sniff test did not show any problems.
+Thanks for your work.
 
-If the above wouldn't be a hard dependency I'd say we could take those parts
-of your patch which are fine into the s390 tree for 6.10, fix the rest, and
-schedule that as well for 6.10 via the s390 tree.
+Reviewed-by: Harald Freudenberger <freude@linux.ibm.com>
 
 _______________________________________________
 linux-riscv mailing list
