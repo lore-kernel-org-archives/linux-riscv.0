@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CB0CD1292
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Apr 2024 08:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA9ECCD128A
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Apr 2024 09:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NjSn+kOc5PB0fLCSqu5yjQKEvEYEMGEZV6hrBWQ4XQI=; b=PbDcwJfkTe5JB/no0Xio33yfBy
-	AfFtcU56jf67KDnI+2H1lSrdNhXrManEvIUED9vauFFbhy+qPMSdvgPQzciTP2ctXs0jCjSsN7NoO
-	n+2Ki5IIhxAUiy66cCQ92RFWrVjL4HaJqa9zlmq9u7IM4FKnmNxbFy/twQVvHMibMKlZomvbgmiZQ
-	hdlFaKzGSW/8BbFJeloMcMiEJXiEa42DOz0QTK8uqx1S69MYoR3WpRWnGfG68z1jsbToShbtFjxmk
-	oDCtmDWzUMNbwLbdvScqhZMB/aiHkVWliI2lXujAYbGY/JZxYlc1VbIusQbaEPMZJBTdauT9lWQW/
-	w2JrrrNw==;
+	bh=Lk2Ivtb2aF9GD8bYNUbECEd1/W23+4Opp1aTthFkp2Q=; b=v9/NEqxzoV8eIisUKU6x+X222n
+	qckaD2SPzgEQyY4GEF4JHzpPe9XKj82EAbzB1fcU6vvCsYGnAWReWvyu2PTPY9D/Xq7rQSRTYpucH
+	MPzad1stus5BR4r/I2qv1d5ugVt0wrIiBqrKH8PfKrwA7hTD7HpIXkDYxxnaQVR7ZvmlOpVcvRr/2
+	CGKHGEqgioq4pNklKGqEgG2oy9UF3tu0lpaGSDG9QYr6QBaPcbO+WVNOChRWkb6Qdmp1w2rUzvf3u
+	iQlsPs7GjtI20jkIZFKpv0uxlvhQXXmK3dnWsbenV5XgAGxpT7acaszNpofOCUTs5QdknVXX3ZCYL
+	zToKNECA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtkGc-0000000EsNE-0tWa;
-	Mon, 08 Apr 2024 08:22:14 +0000
+	id 1rtky1-0000000F1Du-0eSX;
+	Mon, 08 Apr 2024 09:07:05 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rtkGY-0000000EsLJ-2WTF
+	id 1rtkxy-0000000F1DW-2Zfa
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Apr 2024 08:22:12 +0000
+	Mon, 08 Apr 2024 09:07:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B275060C51;
-	Mon,  8 Apr 2024 08:22:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EEA1C43394;
-	Mon,  8 Apr 2024 08:22:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1583A60ED4;
+	Mon,  8 Apr 2024 09:07:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDFE1C433C7;
+	Mon,  8 Apr 2024 09:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712564528;
-	bh=B2Rx1fNaMKY8f98NWO2r36aff0MZPSma76qGnIBadfk=;
+	s=k20201202; t=1712567221;
+	bh=akQc+U5hAZwoLZiwB/CcAXYMfBwyVM+4OQW51zKEobo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e284onaZX2LtwvM446cRTc0bcql4r1CP8PHC2I5ZJ/0fwevJO+tsWZseQRDJes6n2
-	 BaxanYG/FCjHoIRXZ7TN7eHlcx/S10S1eXMPR4n5Zz85eOnw7Eh2LYeXIALdit1V5Z
-	 xr+0nymQFtercGFZfPoJ/DI3SjltKzi7RzfjJrOSNuqOh1FQpUhw2oZ7jpSFA5yBpL
-	 a0D7OmaBurZ/abxZ3o+6AutOvhOgGqub3F/FCU7dBb3eKD63e6B2DWgILftG31NGvk
-	 vRn7HCeaF8BgvCK9cJZkiRBEqT5F1KfaNmZte3L5UNhl1mDl9Jr+5NGZgukIv6MJs+
-	 /I5xkHCTrWB/Q==
-Date: Mon, 8 Apr 2024 09:22:04 +0100
+	b=S8sH5GE+JsA1VWNrJMzYWSLpVutU1kiQTnwhqQ4Hy+1zE3J4QWlo0i5FgfCDgrzX8
+	 eY9ROiD7UO9GQiQ9TCHGXw8R2cUkT8qEaO9ZjnIVDS9ZJK/y4n1gQ9+vn0EegYLMoC
+	 tc6Eup9+UFqvbF32/eR/nXfHBcsdedvaY0k13/5BZtJ0+Lu2CDY8slo7VeriKhF2SE
+	 H3ShBmFOgG6HPXpOsiGtCwnV+XfD534/sqNojdcUcJQlZJXBAmruX7fRb/phMyWIv4
+	 /EpUfqSL2hNN9/+HXH3/afVp9dRycz++zI3hbXjj94C1+qymhRfEXJCXqAJ/ALfLZJ
+	 orKjEBzubdnMg==
+Date: Mon, 8 Apr 2024 10:06:55 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Yangyu Chen <cyy@cyyself.name>
-Cc: linux-riscv@lists.infradead.org, Damien Le Moal <dlemoal@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+Cc: Christoph =?iso-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>,
+	ajones@ventanamicro.com, alex@ghiti.fr, alistair.francis@wdc.com,
+	Albert Ou <aou@eecs.berkeley.edu>, bjorn@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	cooper.qu@linux.alibaba.com, dbarboza@ventanamicro.com,
+	Qingfang Deng <dqfext@gmail.com>, eric.huang@linux.alibaba.com,
+	heiko@sntech.de, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v8 0/6] riscv: add initial support for Canaan
- Kendryte K230
-Message-ID: <20240408-trimester-pusher-720882202b9e@spud>
-References: <tencent_22BA0425B4DF1CA1713B62E4423C1BFBF809@qq.com>
+	Paul Walmsley <paul.walmsley@sifive.com>, philipp.tomsich@vrull.eu,
+	samuel.holland@sifive.com, zhiwei_liu@linux.alibaba.com,
+	Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH v3 2/2] riscv: T-Head: Test availability bit before
+ enabling MAE errata
+Message-ID: <20240408-semisweet-class-39239c279adc@spud>
+References: <20240407213236.2121592-3-christoph.muellner@vrull.eu>
+ <tencent_CF232CDF85208DF6BFA3076E73CC4E087306@qq.com>
+ <CAEg0e7h0F_LaeMoS6Co1UjgLM6ML8SXtTfHW5+OQS6yedjdZPQ@mail.gmail.com>
+ <tencent_459BC09115173E0624A4A0F19D2F43704F05@qq.com>
+ <CAEg0e7jW=Sfc3tcc0eJwbTx=vb0HM49ZWpda972E-t=Fj1PG+g@mail.gmail.com>
+ <20240408-dispersal-foster-49c4e269216e@spud>
+ <tencent_D6D1043732E63644A4B1838F4210499BCF05@qq.com>
 MIME-Version: 1.0
-In-Reply-To: <tencent_22BA0425B4DF1CA1713B62E4423C1BFBF809@qq.com>
+In-Reply-To: <tencent_D6D1043732E63644A4B1838F4210499BCF05@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240408_012210_930708_BA4BE573 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20240408_020702_762275_FD70800F 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,61 +83,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6496795754853487754=="
+Content-Type: multipart/mixed; boundary="===============0076440974824808657=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6496795754853487754==
+--===============0076440974824808657==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="XQccMBluk0Im+Wo1"
+	protocol="application/pgp-signature"; boundary="Jkvao9Yo3z8s7tYF"
 Content-Disposition: inline
 
 
---XQccMBluk0Im+Wo1
+--Jkvao9Yo3z8s7tYF
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Apr 08, 2024 at 12:26:58AM +0800, Yangyu Chen wrote:
-> K230 is an ideal chip for RISC-V Vector 1.0 evaluation now. Add initial
-> support for it to allow more people to participate in building drivers
-> to mainline for it.
+On Mon, Apr 08, 2024 at 04:21:24PM +0800, Yangyu Chen wrote:
 >=20
-> This kernel has been tested upon factory SDK [1] with
-> k230_evb_only_linux_defconfig and patched mainline opensbi [2] to skip
-> locked pmp and successfully booted to busybox on initrd with this log [3].
->=20
-> Changes in resend v8:
-> - Add missing cc to lkml and linux-dt list and correct Krzysztof's address
-> - No change in content
+> So the solution might be to have some property like `xtheadmae` and test
+> th.sxstatus whether it has MAEE bit set when we have this in ISA string in
+> the DT rather than have MAE enabled for sure if `xtheadmae` exists as
+> discussed before. This will require changing the DT.
 
-=46rom v6:
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-https://lore.kernel.org/linux-riscv/mhng-08e43080-8679-43f8-80c5-b73304e4e6=
-80@palmer-ri-x1c9/#t
+Yeah, I think I don't mind what you propose, as long as we define in the
+binding that "xtheadmae" means the hardware supports it ***AND*** the bit
+in the CSR. That's easier on firmware and taps into the existing
+support in the kernel. I think it's more consistent with how we handle
+the standard extensions to do it that way than to assume "xtheadmae"
+being present means that it is enabled.
 
-No need to resend for this alone, but if you do resend, please add that
-ack to all patches.
+> However, since the
+> C908, the first core released by T-Head that supports MAE with non-zero
+> arch_id and imp_id hasn't merged to mainline yet. It's time to add this
+> dt-binding and some code to probe it. I can have it tested on K230
+> recently. Whatever, this patch can go first.
+
+I don't think adding something like this should block merging the
+initial c908 support though, can easily be follow-up work. I'll apply
+the k230 stuff Wednesday if nothing has come in on it by then.
 
 Cheers,
 Conor.
 
---XQccMBluk0Im+Wo1
+--Jkvao9Yo3z8s7tYF
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhOpKwAKCRB4tDGHoIJi
-0iN8AP4n+raany0JpQbFuEWJXAZCl6cajeGZNnjZguEGfmy4yAEA8cPhneIJ509I
-jVvZJAsAf8u5FhmXAOxmUaLDJ9NH+wM=
-=wz0I
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhOzrwAKCRB4tDGHoIJi
+0oB+AQCPgg96W0VvHOZrVatTzvKo8Ks06TKzM+xecKegEiQXkQD/YVqMa3ZG0Q+h
+USez/WU6aoulSTP1+1Aj3u0FXiWhUwM=
+=2F4L
 -----END PGP SIGNATURE-----
 
---XQccMBluk0Im+Wo1--
+--Jkvao9Yo3z8s7tYF--
 
 
---===============6496795754853487754==
+--===============0076440974824808657==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -138,5 +151,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6496795754853487754==--
+--===============0076440974824808657==--
 
