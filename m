@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F86CD1296
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 15:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E0BC67861
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 15:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DmWgH02M8Ocb/Nr/F/zeZdad0w9QqE6+L3/zAvDhN68=; b=2drUalp6Op5xmw32Qc/VUdWgEi
-	g4X/wid6nABVvIaoTr2PHAGoFEFVTStjKSRmYIWh/Emp06BrpiG6hTVmd0UmKH9X4hWcBZumlYTv+
-	5NGSJcbYbbxjulBMmvXxWCncuh79A9Q8EWspDe5HSKt/ilgO99mPJg5tLIKRmng9ybjXRCrxHWu3r
-	M0y0oQBXvraG4fiBk+2PV3wLGElpZT2Wj3DlAqESCLGY1o6nJLYmeLWdm1dDiPL9JnhIceKbWVpfT
-	ZZdVuYX7a+d4aAFJiu6zMYB8NPTtw8YPIrV1gVLLqtzAzn1ZfXIRgzDsYqUEVDJLXzj9AKiXX9gYP
-	4fjLbadQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9T8uwslGTjbsz/GCHOoPJfw1ch5dMPzZeT9E2MGP6zo=; b=mxwT17EHRJZ+q/
+	Slcir/6EggC3FyYwQ84x6R7IH8WN8mNLjt7VOBH+06Vh1CDrwlf5HdjLcm3AghH+q0le/0tlogQ3I
+	3wY6/uhxDevij/SEEODxa7K4DO08M/jMgTNZWnvgaeb/aqM15cy0FYboRaaiofreny2HELTJQgfPO
+	9h+i/XHdcHHcckm8tETqsGaSd/5iIjzKhfcNc/8kk1zKG+8zvGtkLrpNYe1eYTHdH9uu9O1M6miJA
+	52jK43XAuwfDQAhkGJyzBNUj+i5s0oeEDbuMd/bDIJyqvfrYTiRqWWeZdFVj60wumOZ5uc0Jy+jCs
+	8YmpWGmDoFs0hOaJIgvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruCyb-00000002Z6y-2NWf;
-	Tue, 09 Apr 2024 15:01:33 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1ruCz1-00000002ZJ1-0fGR;
+	Tue, 09 Apr 2024 15:01:59 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruCyQ-00000002Z1Y-3Jhz;
-	Tue, 09 Apr 2024 15:01:25 +0000
+	id 1ruCyx-00000002ZGJ-2xli
+	for linux-riscv@lists.infradead.org;
+	Tue, 09 Apr 2024 15:01:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id A6773CE2072;
-	Tue,  9 Apr 2024 15:01:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57233C433F1;
-	Tue,  9 Apr 2024 15:01:17 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 8933DCE20A8;
+	Tue,  9 Apr 2024 15:01:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 718E1C433F1;
+	Tue,  9 Apr 2024 15:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712674879;
-	bh=b1I7UNfssCV2gFy/ibu4NFSYAMUmL75Q0HBWqKqGBj8=;
+	s=k20201202; t=1712674913;
+	bh=Q8oZYTQPe7yxE75cZ/ybR1+HKZVuPqvv9xAWvwwsZDM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=K7FrzKg+6fobNHG/EEzWpZXVTUG9QTgkpqPWOW8uPmuWAp4su5stPl4oNr8fliSAn
-	 IfR7PQ5+PMPt0EhaMarEbBRsUjNvBh2mquygB2EpUeYaX7MSvSbiPYScGWBMSyy2eU
-	 fY6W67IddvSCbyBbjXynPG7UF4e/mXqORUGgVNhxRTo3Zs4vD4GrivL6pMlWH9ly+I
-	 K2kjHSaQTipwgC5WTRfNJlig2VwVL+swEwXxIaLgZgzaBwAQAJXGcCX19+WGE6nuJR
-	 Lre9pTqcRSeB4lcpNfxEPF1Z0vblR7jV7Ll/y6IdFf0aAO9WDAf6kDlHAGk8vFBiCh
-	 pmFGtmi7aqUTA==
-Date: Tue, 9 Apr 2024 16:01:15 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Eric Lin <eric.lin@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 0/6] SiFive cache controller PMU drivers
-Message-ID: <20240409-corral-untruth-591b29f6565d@spud>
-References: <20240216000837.1868917-1-samuel.holland@sifive.com>
- <20240216-shopping-unnoticed-e73e72a0e849@wendy>
+	b=erWrqUYzXjcyXobCYeBKxEdKina/eHfaim+ZDs8jUfJxvJlqmpfhE9nQFd1Hi06PD
+	 4LwfSGj13rk3Nonpjy0yDfG/0ZHHApJWdrRUWMW4nSHpFY2OATH35My72p0Z92ahft
+	 Ri3tMKkglNVrYNT5tHClAE5AEcGufqrW8J/emc3DHShYmx0TiZClXL5jBpxZAXbJDe
+	 AsVW9wp7d5njcqSJdx+k1EFO9BD7kkvGZRfp4gM9Rl1tQ2O3lsXjQJefcc8dfWf2AF
+	 DcP+94uGbC4IUJqI02PG+e9+lyievw6BXNcVR4r0odJXYMxyyH/XHdaNL3OzQUvJZC
+	 I5cnz43Rg1K3g==
+Date: Tue, 9 Apr 2024 22:48:28 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] clocksource/drivers/timer-clint: Add option to
+ use CSR instead of mtime
+Message-ID: <ZhVVPB0qD4pBna51@xhacker>
+References: <20240406112159.1634-1-jszhang@kernel.org>
+ <20240406112159.1634-3-jszhang@kernel.org>
+ <20240409-krypton-employed-b2e0e1b46ddf@spud>
 MIME-Version: 1.0
-In-Reply-To: <20240216-shopping-unnoticed-e73e72a0e849@wendy>
+Content-Disposition: inline
+In-Reply-To: <20240409-krypton-employed-b2e0e1b46ddf@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240409_080123_321640_1EBC3D62 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20240409_080156_131877_76E1AA43 
+X-CRM114-Status: GOOD (  30.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,65 +75,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0430697689024141312=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 09, 2024 at 03:26:18PM +0100, Conor Dooley wrote:
+> On Sat, Apr 06, 2024 at 07:21:58PM +0800, Jisheng Zhang wrote:
+> > As pointed out by commit ca7810aecdba ("lib: utils/timer: mtimer: add a
+> > quirk for lacking mtime register") of opensbi:
+> > 
+> > "T-Head developers surely have a different understanding of time CSR and
+> > CLINT's mtime register with SiFive ones, that they did not implement
+> > the mtime register at all -- as shown in openC906 source code, their
+> > time CSR value is just exposed at the top of their processor IP block
+> > and expects an external continous counter, which makes it not
+> > overrideable, and thus mtime register is not implemented, even not for
+> > reading. However, if CLINTEE is not enabled in T-Head's MXSTATUS
+> > extended CSR, these systems still rely on the mtimecmp registers to
+> > generate timer interrupts. This makes it necessary to implement T-Head
+> > C9xx CLINT support in OpenSBI MTIMER driver, which skips implementing
+> > reading mtime register and falls back to default code that reads time
+> > CSR."
+> > 
+> > To use the clint in RISCV-M NOMMU env on Milkv Duo little core, we
+> > need to fall back to read time CSR instead of mtime register. Add the
+> > option for this purpose.
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> 
+> > diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+> > index 34faa0320ece..7bbdbf2f96a8 100644
+> > --- a/drivers/clocksource/Kconfig
+> > +++ b/drivers/clocksource/Kconfig
+> > @@ -650,6 +650,15 @@ config CLINT_TIMER
+> >  	  This option enables the CLINT timer for RISC-V systems.  The CLINT
+> >  	  driver is usually used for NoMMU RISC-V systems.
+> >  
+> > +config CLINT_USE_CSR_INSTEADOF_MTIME
+> > +	bool "Use TIME CSR instead of the mtime register"
+> > +	depends on CLINT_TIMER
+> > +	help
+> > +	  Use TIME CSR instead of mtime register. Enable this option if
+> > +	  prefer TIME CSR over MTIME register, or if the implementation
+> > +	  doesn't implement the mtime register in CLINT, so fall back on
+> > +	  TIME CSR.
+> 
+> This, as a Kconfig option, seems a bit strange to me. We know at runtime
+> if we are on a T-Head device without the mtime register and should be
+> able decide to use the CSR implementation dynamically in that case,
+> right?
 
---===============0430697689024141312==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zsV7n7T3orhUeCCb"
-Content-Disposition: inline
+Dynamically decision can be done in clocksource/clockevnt:
+I can patch clint_clocksource.read to point to different clint_rdtime()
+implementation.
 
+But clint timer is also used in NOMMU RISCV-M's get_cycles(), this
+can't be dynamically chosen w/o an ugly "if (is_c900)"
+check, and I'm not sure whether this check in get_cycles() will
+introduce non-trival overhead or not. Or use code patching technology
+here?
 
---zsV7n7T3orhUeCCb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Or introduce a function pointer such as unsigned long (*rdtime)(void)
+for RISCV_M_MODE, then point it to different implementation?
 
-On Fri, Feb 16, 2024 at 10:05:04AM +0000, Conor Dooley wrote:
-> On Thu, Feb 15, 2024 at 04:08:12PM -0800, Samuel Holland wrote:
->=20
-> > All three of these cache controllers (with PMUs) have been integrated in
-> > SoCs by our customers. However, as none of those SoCs have been publicly
-> > announced yet, I cannot include SoC-specific compatible strings in this
-> > version of the devicetree bindings.
->=20
-> And I don't want to apply any of those dt-binding patches until then.
-> Stuff like "sifive,perfmon-counters" seems like a property that would
-> go away with a device-specific compatible, at least for the ccache.
-
-Reading the P550 stuff today reminded me that I had not got around to
-looking at this series again. You should be able to use that to satisfy
-my wish for some soc-specific compatibles, right?
-
-And w.r.r. the perfmon-counters property, looked to me like Rob was
-proposing it not even having to be vendor specific.
-
---zsV7n7T3orhUeCCb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhVYOwAKCRB4tDGHoIJi
-0jzBAP0bzyW1aj1y1ig0+xzeagwXGMmN9QO8TaiyNHylHG6STAD+Lz2fHDrW9lKK
-auwxSW/MgO1tt4GAH7rwtfp8pUBIMAA=
-=JS2J
------END PGP SIGNATURE-----
-
---zsV7n7T3orhUeCCb--
-
-
---===============0430697689024141312==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Any suggestion is welcome.
+Thanks
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0430697689024141312==--
-
