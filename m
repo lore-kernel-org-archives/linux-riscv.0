@@ -4,85 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3E0C67861
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 22:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B1EC67861
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 22:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ExzUbqubU4LVGCuSnHEMCcIleC4yDpEulDDMOXlkcWY=; b=lBaIuhW8AKRtrr
-	EM++EFdw8ZLjh3sAVkYEpnBtJ7hc+lxQcs6rliBEDLlwO5GBRfY5kYT1+GBM7ewvYOgnFe1ihgVmy
-	4jwpK+V67bKsii7sZGnb08oefZ1/mxQFmxwKw8eo0Yb7lWUgPylFq+16ljZwaYx1b8DRWnWqNFky5
-	3Z4Gm98kM3u9zfk/uuhMvz6IKegEBGWkj5qMIY3GyaRriWbIEEl8pN6qI33SGQ89XbkPGv+PQdzUO
-	ALC9JvUyXHK6Gl9AbLNeuhlmkxLs5W+2zoDtSY641jEaUDOZjbgSEXEZAKdfb8gZfVbItFtVtN2Z4
-	j1Dv7GzzmR99hdZBnVRw==;
+	List-Owner; bh=nRKTO078VnEo60dwVzsrrxUAIH/JZyE/GBV19iGC64k=; b=wrI9QqGhORQh4P
+	OAWD4UrTDd0q5Hk7Wn3eBW8m0sUWqZG5tvMPUJrBybmgxeLbk3EFb1rtmlAprKyjzLbqbVgduzypZ
+	EsW3+d8gzIqq4oGqr4TgmTw3jHAp4ZBTMghCiOGSvEv5W4jjdV5KEPawULzhYWM6nh8d9elX3CyuB
+	Q958h4QAmlXqRwBYUJAFo6BcKZEUius3x7Yy8B57sOxv4VgUJC+cnb1b31BinzeyJ2MQ7Yf2QQ7h9
+	7W1KtkFiijlP1X0cg0akFvr0Ho7isT40in8m1ARBwKLd/FPu7xhPF2UfjSeL8ONQnpiuthIBjiJSU
+	hHtrRYCFUE1oBv0IdoHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruJh3-000000040a9-1yJS;
-	Tue, 09 Apr 2024 22:11:53 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1ruKKf-000000046vZ-1xJL;
+	Tue, 09 Apr 2024 22:52:49 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruJgz-000000040Yu-45WL
+	id 1ruKKa-000000046u7-3z5L
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Apr 2024 22:11:51 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-516dc51bb72so4448522e87.1
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Apr 2024 15:11:49 -0700 (PDT)
+	Tue, 09 Apr 2024 22:52:46 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1e2232e30f4so54292065ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Apr 2024 15:52:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712700707; x=1713305507; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Cl1aEg9ZkKTDAHIndPvHsR0jY5Vb252ppSopDvYPPc0=;
-        b=jnc5DhoeLu+O8kulbZoiGozrFEgmK8TwcD8YQpYGwPyu/393HlYOPT/5gk1BC6cZfy
-         BLY2ICHs/s5XFzYhH0+qVJZF02RI4BGitDbIiF4XvL13LZjuJSBgqQli52ORsJEne5no
-         quQDb08WUktzkAMFM/FEPNlpNrpwiYf07ePwtviVA+jvhkp1CtGL9xSTmUhDqzjn7Vg5
-         TXxYxulsK6HKCZLO6UqmF9j39HBGDUJLFkSno4mcUY7KntLRYVfNPeifWI1iYmPauDE3
-         EmGbm43mbH0iwcg2XtJOSiNM8IECBc5gegKoqyQei0VnVTFKI/x6bL9TCvViKsX56K3E
-         rqLQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712703164; x=1713307964; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8646Xh8g5yQ0wp4lvVkVKpM6tKaisldaAHvB1jCcuIM=;
+        b=Gi0CngwidO04uFz+Om5jXukPfU1XGPX5wbvFduXTVPvfDA6ruNN9uTjX4HaoMn7Hjr
+         H6e1rTekCuUeOZ+qNBNxlax9XCR03KY50gxkO+xCDakYjhQrino9h97n7EluAF3eysue
+         vYoSeEEl+SRnFqaA7OZSa+H/dkIxZBRHqtYp5FGeWEzkytomWKO/dKY8Z5ON95ZlNBDT
+         ntaroB8jCfs9+gMizKkUZ/W4bxcvTpwNyhV1RR26+GzE6TnrKcQJpP85rrTkGPL04KWk
+         Y2qyz6P+45S3xcGfDCLt/F1QmVHkGmjhPLPYASlxfrLvB5CPsr0uoVWMLQOARW3m8l6Q
+         mtWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712700707; x=1713305507;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Cl1aEg9ZkKTDAHIndPvHsR0jY5Vb252ppSopDvYPPc0=;
-        b=f4ucqaijSqxHNV7iqsmOPqQ04/rxDDhvce5upZMMFDYPB3lBr1E1IGL3wY59FEihUj
-         cL+9cLb9G9GDMeuc8gdqU8+BNytWcIROXZ9mb7cUTOkmoLpEKljOQ4qv0saR3T4D+vYV
-         /tfYGBFni5Ozk2t7A0XES6KEgNvReb5ClZiQ0jWohp0cP5aM+rhcXXRrcaQ4J4Rxe+6p
-         k9t38xwer83KpQldwWkNXTnBnrj2gzc58DltULnvPgy+PEG9m+0cyvnrjxEMy1yjgS/5
-         4YRu0UXWyVhEHl9ra+/WaQHTvwKl2UfOFbyllIX3QlLrGf6qfWUUVXnBFO4iizRMU8Vl
-         XdHw==
-X-Forwarded-Encrypted: i=1; AJvYcCWiBj2GrhUGjm0/arh+bcX8PIH9a6nJXLLuJM6gv72+hTUXK7kJTSh4mGNveWI1w04olBHoc2mwOKIb46C5xiOtBSbHUX54QA5hxNWaRzhK
-X-Gm-Message-State: AOJu0YxvNvcn5o4/j7c+4Z5Y7XmIN4aLpErVcdRN56tKHj7UZjD+6pE0
-	XjRncMIDDpbsFqi+7NhMygVKExd1LAx6vgznTTsNFJXLjouwCh6b4emlQGW8UV4i7h/7X4ToW3z
-	8gpdFf2Rpi0ElLkY2T0m2Xc65WyRN2JoKdrywcg==
-X-Google-Smtp-Source: AGHT+IFTUPK3REgvGdMgOwGApDJXWXHwEqfkXjMrnKsgvS0JKy+X2AS1/dTWFN/mLB8J3aVxZ0Rh0sVUHLgSm3wYrPg=
-X-Received: by 2002:a19:f70b:0:b0:513:b90f:f4dd with SMTP id
- z11-20020a19f70b000000b00513b90ff4ddmr352775lfe.49.1712700707477; Tue, 09 Apr
- 2024 15:11:47 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1712703164; x=1713307964;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8646Xh8g5yQ0wp4lvVkVKpM6tKaisldaAHvB1jCcuIM=;
+        b=t1Jd74m1yoFfLBg9pgLVBPrv9rfitMK+k+4+taX7TbI7y/wiEIRMytDVYvJrg02ud6
+         sByl+ynI2mO+Pei9j83vSfwLQMUsx4WVb2idKy97OW/A8geA/E1sdN2wSzseGd0rcReY
+         Eq7mXp1M1EBokThKXY3GyGWiysDrZ9cf/4gYJGgD5+fglTF+Wy/ITnxiGqjEtSE5dXm9
+         BDCGt6iBCF2Fk0dCd4SOLvInNx6/SEEMoE/TKdCchNCHMuksb22OXaZ6FQ1hWU2T8qYZ
+         IGLlBfXhJIqPbNZ4zDf84x+PSRv4hW2M+YhCqD2ue9HN2jlMzDpkYhj3c3JqscpKQ41g
+         BBmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWjJhpzd1G1gnIDUbl4oDLKvDqf4a7qA30bjiNHC+3yDrQsMkS8W4TgWWXr2JmkuUPnXytjgCHqRWiLF40518/kjETKHxXolhGVByx5BXQY
+X-Gm-Message-State: AOJu0YyEknztaxeln2fvusIwAco/BsqA+e8zkFUdGiYk/KCGPe0Jmnq3
+	jyR/NBP/iaDisencSwxFtRp7b78i4eUJdU/ds1sWdutqwJezwqstP7Ot39iYjHk=
+X-Google-Smtp-Source: AGHT+IHPTK8LD9zQy/xLQpYsma/G3UlebQRk8nSskauRbNZ+/B4hgd1PN7d7FaruEdopv10/t5kwJg==
+X-Received: by 2002:a17:902:e548:b0:1e0:b9d0:f6b with SMTP id n8-20020a170902e54800b001e0b9d00f6bmr1177730plf.68.1712703163716;
+        Tue, 09 Apr 2024 15:52:43 -0700 (PDT)
+Received: from [10.0.16.226] ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id q12-20020a170902e30c00b001e290812d49sm9463411plc.226.2024.04.09.15.52.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 09 Apr 2024 15:52:42 -0700 (PDT)
+Message-ID: <8748dbed-d105-4f26-a808-667c3b56c8ec@rivosinc.com>
+Date: Tue, 9 Apr 2024 15:52:40 -0700
 MIME-Version: 1.0
-References: <20240403080452.1007601-1-atishp@rivosinc.com> <20240403080452.1007601-21-atishp@rivosinc.com>
- <20240405-d1a4cb9a441a05a9d2f8b1c8@orel> <976411ab-6ddf-4b10-8e13-1575928415ce@rivosinc.com>
- <20240409-dd055c3d08e027cf2a5cb4dc@orel>
-In-Reply-To: <20240409-dd055c3d08e027cf2a5cb4dc@orel>
-From: Atish Kumar Patra <atishp@rivosinc.com>
-Date: Tue, 9 Apr 2024 15:11:36 -0700
-Message-ID: <CAHBxVyEh0K5b0SdN-asrOuuggBztZ-mjCoOR=EC067pURRg3aA@mail.gmail.com>
-Subject: Re: [PATCH v5 20/22] KVM: riscv: selftests: Add SBI PMU selftest
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 21/22] KVM: riscv: selftests: Add a test for PMU
+ snapshot functionality
+Content-Language: en-US
 To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>, 
-	Ajay Kaher <akaher@vmware.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Alexey Makhalov <amakhalov@vmware.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	Juergen Gross <jgross@suse.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, 
-	VMware PV-Drivers Reviewers <pv-drivers@vmware.com>, Will Deacon <will@kernel.org>, x86@kernel.org
+Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
+ Ajay Kaher <akaher@vmware.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Alexey Makhalov <amakhalov@vmware.com>,
+ Conor Dooley <conor.dooley@microchip.com>, Juergen Gross <jgross@suse.com>,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Shuah Khan <shuah@kernel.org>,
+ virtualization@lists.linux.dev,
+ VMware PV-Drivers Reviewers <pv-drivers@vmware.com>,
+ Will Deacon <will@kernel.org>, x86@kernel.org
+References: <20240403080452.1007601-1-atishp@rivosinc.com>
+ <20240403080452.1007601-22-atishp@rivosinc.com>
+ <20240405-4e840120e8117c286cb593f9@orel>
+From: Atish Patra <atishp@rivosinc.com>
+In-Reply-To: <20240405-4e840120e8117c286cb593f9@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240409_151150_129482_9C6C6494 
-X-CRM114-Status: GOOD (  32.87  )
+X-CRM114-CacheID: sfid-20240409_155245_042328_B0BE8875 
+X-CRM114-Status: GOOD (  35.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,100 +102,313 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBcHIgOSwgMjAyNCBhdCAxOjAx4oCvQU0gQW5kcmV3IEpvbmVzIDxham9uZXNAdmVu
-dGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4KPiBPbiBNb24sIEFwciAwOCwgMjAyNCBhdCAwNTozNzox
-OVBNIC0wNzAwLCBBdGlzaCBQYXRyYSB3cm90ZToKPiA+IE9uIDQvNS8yNCAwNTo1MCwgQW5kcmV3
-IEpvbmVzIHdyb3RlOgo+ID4gPiBPbiBXZWQsIEFwciAwMywgMjAyNCBhdCAwMTowNDo0OUFNIC0w
-NzAwLCBBdGlzaCBQYXRyYSB3cm90ZToKPiA+ID4gLi4uCj4gPiA+ID4gK3N0YXRpYyB2b2lkIHRl
-c3RfcG11X2Jhc2ljX3Nhbml0eSh2b2lkKQo+ID4gPiA+ICt7Cj4gPiA+ID4gKyBsb25nIG91dF92
-YWwgPSAwOwo+ID4gPiA+ICsgYm9vbCBwcm9iZTsKPiA+ID4gPiArIHN0cnVjdCBzYmlyZXQgcmV0
-Owo+ID4gPiA+ICsgaW50IG51bV9jb3VudGVycyA9IDAsIGk7Cj4gPiA+ID4gKyB1bmlvbiBzYmlf
-cG11X2N0cl9pbmZvIGN0cmluZm87Cj4gPiA+ID4gKwo+ID4gPiA+ICsgcHJvYmUgPSBndWVzdF9z
-YmlfcHJvYmVfZXh0ZW5zaW9uKFNCSV9FWFRfUE1VLCAmb3V0X3ZhbCk7Cj4gPiA+ID4gKyBHVUVT
-VF9BU1NFUlQocHJvYmUgJiYgb3V0X3ZhbCA9PSAxKTsKPiA+ID4gPiArCj4gPiA+ID4gKyBudW1f
-Y291bnRlcnMgPSBnZXRfbnVtX2NvdW50ZXJzKCk7Cj4gPiA+ID4gKwo+ID4gPiA+ICsgZm9yIChp
-ID0gMDsgaSA8IG51bV9jb3VudGVyczsgaSsrKSB7Cj4gPiA+ID4gKyAgICAgICAgIHJldCA9IHNi
-aV9lY2FsbChTQklfRVhUX1BNVSwgU0JJX0VYVF9QTVVfQ09VTlRFUl9HRVRfSU5GTywgaSwKPiA+
-ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgIDAsIDAsIDAsIDAsIDApOwo+ID4gPiA+ICsK
-PiA+ID4gPiArICAgICAgICAgLyogVGhlcmUgY2FuIGJlIGdhcHMgaW4gbG9naWNhbCBjb3VudGVy
-IGluZGljaWVzKi8KPiA+ID4gPiArICAgICAgICAgaWYgKHJldC5lcnJvcikKPiA+ID4gPiArICAg
-ICAgICAgICAgICAgICBjb250aW51ZTsKPiA+ID4gPiArICAgICAgICAgR1VFU1RfQVNTRVJUX05F
-KHJldC52YWx1ZSwgMCk7Cj4gPiA+ID4gKwo+ID4gPiA+ICsgICAgICAgICBjdHJpbmZvLnZhbHVl
-ID0gcmV0LnZhbHVlOwo+ID4gPiA+ICsKPiA+ID4gPiArICAgICAgICAgLyoqCj4gPiA+ID4gKyAg
-ICAgICAgICAqIEFjY2VzaWJpbGxpdHkgY2hlY2sgb2YgaGFyZHdhcmUgYW5kIHJlYWQgY2FwYWJp
-bGl0eSBvZiBmaXJtd2FyZSBjb3VudGVycy4KPiA+ID4KPiA+ID4gQWNjZXNzaWJpbGl0eQo+ID4g
-Pgo+ID4KPiA+IEZpeGVkIGl0Lgo+ID4KPiA+ID4gPiArICAgICAgICAgICogVGhlIHNwZWMgZG9l
-c24ndCBtYW5kYXRlIGFueSBpbml0aWFsIHZhbHVlLiBObyBuZWVkIHRvIGNoZWNrIGFueSB2YWx1
-ZS4KPiA+ID4gPiArICAgICAgICAgICovCj4gPiA+ID4gKyAgICAgICAgIHJlYWRfY291bnRlcihp
-LCBjdHJpbmZvKTsKPiA+ID4gPiArIH0KPiA+ID4gPiArCj4gPiA+ID4gKyBHVUVTVF9ET05FKCk7
-Cj4gPiA+ID4gK30KPiA+ID4gPiArCj4gPiA+ID4gK3N0YXRpYyB2b2lkIHJ1bl92Y3B1KHN0cnVj
-dCBrdm1fdmNwdSAqdmNwdSkKPiA+ID4gPiArewo+ID4gPiA+ICsgc3RydWN0IHVjYWxsIHVjOwo+
-ID4gPiA+ICsKPiA+ID4gPiArIHZjcHVfcnVuKHZjcHUpOwo+ID4gPiA+ICsgc3dpdGNoIChnZXRf
-dWNhbGwodmNwdSwgJnVjKSkgewo+ID4gPiA+ICsgY2FzZSBVQ0FMTF9BQk9SVDoKPiA+ID4gPiAr
-ICAgICAgICAgUkVQT1JUX0dVRVNUX0FTU0VSVCh1Yyk7Cj4gPiA+ID4gKyAgICAgICAgIGJyZWFr
-Owo+ID4gPiA+ICsgY2FzZSBVQ0FMTF9ET05FOgo+ID4gPiA+ICsgY2FzZSBVQ0FMTF9TWU5DOgo+
-ID4gPiA+ICsgICAgICAgICBicmVhazsKPiA+ID4gPiArIGRlZmF1bHQ6Cj4gPiA+ID4gKyAgICAg
-ICAgIFRFU1RfRkFJTCgiVW5rbm93biB1Y2FsbCAlbHUiLCB1Yy5jbWQpOwo+ID4gPiA+ICsgICAg
-ICAgICBicmVhazsKPiA+ID4gPiArIH0KPiA+ID4gPiArfQo+ID4gPiA+ICsKPiA+ID4gPiArdm9p
-ZCB0ZXN0X3ZtX2Rlc3Ryb3koc3RydWN0IGt2bV92bSAqdm0pCj4gPiA+ID4gK3sKPiA+ID4gPiAr
-IG1lbXNldChjdHJpbmZvX2FyciwgMCwgc2l6ZW9mKHVuaW9uIHNiaV9wbXVfY3RyX2luZm8pICog
-UklTQ1ZfTUFYX1BNVV9DT1VOVEVSUyk7Cj4gPiA+ID4gKyBjb3VudGVyX21hc2tfYXZhaWxhYmxl
-ID0gMDsKPiA+ID4gPiArIGt2bV92bV9mcmVlKHZtKTsKPiA+ID4gPiArfQo+ID4gPiA+ICsKPiA+
-ID4gPiArc3RhdGljIHZvaWQgdGVzdF92bV9iYXNpY190ZXN0KHZvaWQgKmd1ZXN0X2NvZGUpCj4g
-PiA+ID4gK3sKPiA+ID4gPiArIHN0cnVjdCBrdm1fdm0gKnZtOwo+ID4gPiA+ICsgc3RydWN0IGt2
-bV92Y3B1ICp2Y3B1Owo+ID4gPiA+ICsKPiA+ID4gPiArIHZtID0gdm1fY3JlYXRlX3dpdGhfb25l
-X3ZjcHUoJnZjcHUsIGd1ZXN0X2NvZGUpOwo+ID4gPiA+ICsgX19URVNUX1JFUVVJUkUoX192Y3B1
-X2hhc19zYmlfZXh0KHZjcHUsIEtWTV9SSVNDVl9TQklfRVhUX1BNVSksCj4gPiA+ID4gKyAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAiU0JJIFBNVSBub3QgYXZhaWxhYmxlLCBza2lwcGluZyB0
-ZXN0Iik7Cj4gPiA+ID4gKyB2bV9pbml0X3ZlY3Rvcl90YWJsZXModm0pOwo+ID4gPiA+ICsgLyog
-SWxsZWdhbCBpbnN0cnVjdGlvbiBoYW5kbGVyIGlzIHJlcXVpcmVkIHRvIHZlcmlmeSByZWFkIGFj
-Y2VzcyB3aXRob3V0IGNvbmZpZ3VyYXRpb24gKi8KPiA+ID4gPiArIHZtX2luc3RhbGxfZXhjZXB0
-aW9uX2hhbmRsZXIodm0sIEVYQ19JTlNUX0lMTEVHQUwsIGd1ZXN0X2lsbGVnYWxfZXhjZXB0aW9u
-X2hhbmRsZXIpOwo+ID4gPgo+ID4gPiBJIHN0aWxsIGRvbid0IHNlZSB3aGVyZSB0aGUgInZlcmlm
-eSIgcGFydCBpcy4gVGhlIGhhbmRsZXIgZG9lc24ndCByZWNvcmQKPiA+ID4gdGhhdCBpdCBoYWQg
-dG8gaGFuZGxlIGFueXRoaW5nLgo+ID4gPgo+ID4KPiA+IFRoZSBvYmplY3RpdmUgb2YgdGhlIHRl
-c3QgaXMgdG8gZW5zdXJlIHRoYXQgd2UgZ2V0IGFuIGlsbGVnYWwgaW5zdHJ1Y3Rpb24KPiA+IHdp
-dGhvdXQgY29uZmlndXJhdGlvbi4KPgo+IFRoaXMgcGFydCBJIGd1ZXNzZWQuCj4KPiA+IFRoZSBw
-cmVzZW5jZSBvZiB0aGUgcmVnaXN0ZXJlZCBleGNlcHRpb24gaGFuZGxlciBpcwo+ID4gc3VmZmlj
-aWVudCBmb3IgdGhhdC4KPgo+IFRoaXMgcGFydCBJIGRpc2FncmVlIHdpdGguIFRoZSBoYW5kbGVy
-IG1heSBub3QgYmUgbmVjZXNzYXJ5IGFuZCBub3QgcnVuIGlmCj4gd2UgZG9uJ3QgZ2V0IHRoZSBJ
-TEwuIFVzdWFsbHkgd2hlbiBJIHdyaXRlIHRlc3RzIGxpa2UgdGhlc2UgSSBzZXQgYQo+IGJvb2xl
-YW4gaW4gdGhlIGhhbmRsZXIgYW5kIGNoZWNrIGl0IGFmdGVyIHRoZSBpbnN0cnVjdGlvbiB3aGlj
-aCBzaG91bGQKPiBoYXZlIHNlbnQgdXMgdGhlcmUgdG8gbWFrZSBzdXJlIHdlIGRpZCBpbmRlZWQg
-Z28gdGhlcmUuCj4KCkFoaCBJIGdvdCB5b3VyIHBvaW50IG5vdy4gVGhhdCBtYWtlcyBzZW5zZS4g
-U2luY2UgaXQgd2FzIGp1c3QgYSBzYW5pdHkgdGVzdCwKSSBoYWRuJ3QgcHV0IHRoZSBib29sZWFu
-IGNoZWNrIGVhcmxpZXIuIEJ1dCB5b3UgYXJlIGNvcnJlY3QgYWJvdXQgYnVncwppbiBrdm0gY29k
-ZSB3aGljaCB3b3VsZG4ndApnZW5lcmF0ZSBhbiBleHBlY3RlZCBJTEwgLgoKSSBoYXZlIGFkZGVk
-IGl0LiBUaGFua3MgZm9yIHRoZSBzdWdnZXN0aW9uIDopCgo+ID4KPiA+IFRoZSB2ZXJpZnkgcGFy
-dCBpcyB0aGF0IHRoZSB0ZXN0IGRvZXNuJ3QgZW5kIHVwIGluIGEgaWxsZWdhbCBpbnN0cnVjdGlv
-bgo+ID4gZXhjZXB0aW9uIHdoZW4geW91IHRyeSB0byBhY2Nlc3MgYSBjb3VudGVyIHdpdGhvdXQg
-Y29uZmlndXJpbmcuCj4gPgo+ID4gTGV0IG1lIGtub3cgaWYgeW91IHRoaW5rIHdlIHNob3VsZCBt
-b3JlIHZlcmJvc2UgY29tbWVudCB0byBleHBsYWluIHRoZQo+ID4gc2NlbmFyaW8uCj4gPgo+Cj4g
-V2l0aCBhIGJvb2xlYW4gdGhlIHRlc3QgY29kZSB3aWxsIGJlIG1vc3RseSBzZWxmIGRvY3VtZW50
-aW5nLCBidXQgYSBzaG9ydAo+IGNvbW1lbnQgc2F5aW5nIHdoeSB3ZSBleHBlY3QgdGhlIGJvb2xl
-YW4gdG8gYmUgc2V0IHdvdWxkIGJlIGdvb2QgdG9vLgo+Cj4gVGhhbmtzLAo+IGRyZXcKPgo+ID4K
-PiA+ID4gPiArCj4gPiA+ID4gKyB2Y3B1X2luaXRfdmVjdG9yX3RhYmxlcyh2Y3B1KTsKPiA+ID4g
-PiArIHJ1bl92Y3B1KHZjcHUpOwo+ID4gPiA+ICsKPiA+ID4gPiArIHRlc3Rfdm1fZGVzdHJveSh2
-bSk7Cj4gPiA+ID4gK30KPiA+ID4gPiArCj4gPiA+ID4gK3N0YXRpYyB2b2lkIHRlc3Rfdm1fZXZl
-bnRzX3Rlc3Qodm9pZCAqZ3Vlc3RfY29kZSkKPiA+ID4gPiArewo+ID4gPiA+ICsgc3RydWN0IGt2
-bV92bSAqdm0gPSBOVUxMOwo+ID4gPiA+ICsgc3RydWN0IGt2bV92Y3B1ICp2Y3B1ID0gTlVMTDsK
-PiA+ID4gPiArCj4gPiA+ID4gKyB2bSA9IHZtX2NyZWF0ZV93aXRoX29uZV92Y3B1KCZ2Y3B1LCBn
-dWVzdF9jb2RlKTsKPiA+ID4gPiArIF9fVEVTVF9SRVFVSVJFKF9fdmNwdV9oYXNfc2JpX2V4dCh2
-Y3B1LCBLVk1fUklTQ1ZfU0JJX0VYVF9QTVUpLAo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIlNCSSBQTVUgbm90IGF2YWlsYWJsZSwgc2tpcHBpbmcgdGVzdCIpOwo+ID4gPiA+
-ICsgcnVuX3ZjcHUodmNwdSk7Cj4gPiA+ID4gKwo+ID4gPiA+ICsgdGVzdF92bV9kZXN0cm95KHZt
-KTsKPiA+ID4gPiArfQo+ID4gPiA+ICsKPiA+ID4gPiAraW50IG1haW4odm9pZCkKPiA+ID4gPiAr
-ewo+ID4gPiA+ICsgdGVzdF92bV9iYXNpY190ZXN0KHRlc3RfcG11X2Jhc2ljX3Nhbml0eSk7Cj4g
-PiA+ID4gKyBwcl9pbmZvKCJTQkkgUE1VIGJhc2ljIHRlc3QgOiBQQVNTXG4iKTsKPiA+ID4gPiAr
-Cj4gPiA+ID4gKyB0ZXN0X3ZtX2V2ZW50c190ZXN0KHRlc3RfcG11X2V2ZW50cyk7Cj4gPiA+ID4g
-KyBwcl9pbmZvKCJTQkkgUE1VIGV2ZW50IHZlcmlmaWNhdGlvbiB0ZXN0IDogUEFTU1xuIik7Cj4g
-PiA+ID4gKwo+ID4gPiA+ICsgcmV0dXJuIDA7Cj4gPiA+ID4gK30KPiA+ID4gPiAtLQo+ID4gPiA+
-IDIuMzQuMQo+ID4gPiA+Cj4gPiA+Cj4gPiA+IFRoYW5rcywKPiA+ID4gZHJldwo+ID4KCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 4/5/24 06:11, Andrew Jones wrote:
+> On Wed, Apr 03, 2024 at 01:04:50AM -0700, Atish Patra wrote:
+>> Verify PMU snapshot functionality by setting up the shared memory
+>> correctly and reading the counter values from the shared memory
+>> instead of the CSR.
+>>
+>> Reviewed-by: Anup Patel <anup@brainfault.org>
+>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+>> ---
+>>   .../testing/selftests/kvm/include/riscv/sbi.h |  25 ++++
+>>   .../selftests/kvm/lib/riscv/processor.c       |  12 ++
+>>   .../selftests/kvm/riscv/sbi_pmu_test.c        | 127 ++++++++++++++++++
+>>   3 files changed, 164 insertions(+)
+>>
+>> diff --git a/tools/testing/selftests/kvm/include/riscv/sbi.h b/tools/testing/selftests/kvm/include/riscv/sbi.h
+>> index 6675ca673c77..8c98bd99d450 100644
+>> --- a/tools/testing/selftests/kvm/include/riscv/sbi.h
+>> +++ b/tools/testing/selftests/kvm/include/riscv/sbi.h
+>> @@ -8,6 +8,12 @@
+>>   #ifndef SELFTEST_KVM_SBI_H
+>>   #define SELFTEST_KVM_SBI_H
+>>   
+>> +/* SBI spec version fields */
+>> +#define SBI_SPEC_VERSION_DEFAULT	0x1
+>> +#define SBI_SPEC_VERSION_MAJOR_SHIFT	24
+>> +#define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
+>> +#define SBI_SPEC_VERSION_MINOR_MASK	0xffffff
+>> +
+>>   /* SBI return error codes */
+>>   #define SBI_SUCCESS				 0
+>>   #define SBI_ERR_FAILURE				-1
+>> @@ -33,6 +39,9 @@ enum sbi_ext_id {
+>>   };
+>>   
+>>   enum sbi_ext_base_fid {
+>> +	SBI_EXT_BASE_GET_SPEC_VERSION = 0,
+>> +	SBI_EXT_BASE_GET_IMP_ID,
+>> +	SBI_EXT_BASE_GET_IMP_VERSION,
+>>   	SBI_EXT_BASE_PROBE_EXT = 3,
+>>   };
+>>   enum sbi_ext_pmu_fid {
+>> @@ -60,6 +69,12 @@ union sbi_pmu_ctr_info {
+>>   	};
+>>   };
+>>   
+>> +struct riscv_pmu_snapshot_data {
+>> +	u64 ctr_overflow_mask;
+>> +	u64 ctr_values[64];
+>> +	u64 reserved[447];
+>> +};
+>> +
+>>   struct sbiret {
+>>   	long error;
+>>   	long value;
+>> @@ -113,4 +128,14 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+>>   
+>>   bool guest_sbi_probe_extension(int extid, long *out_val);
+>>   
+>> +/* Make SBI version */
+>> +static inline unsigned long sbi_mk_version(unsigned long major,
+>> +					    unsigned long minor)
+>> +{
+>> +	return ((major & SBI_SPEC_VERSION_MAJOR_MASK) <<
+>> +		SBI_SPEC_VERSION_MAJOR_SHIFT) | minor;
+> 
+> Should also also mask 'minor'. I see this matches what we have in the
+> kernel so we should fix it there too.
+> 
+
+Nice catch. I fixed it in both places.
+
+>> +}
+>> +
+>> +unsigned long get_host_sbi_spec_version(void);
+>> +
+>>   #endif /* SELFTEST_KVM_SBI_H */
+>> diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+>> index e8211f5d6863..ccb35573749c 100644
+>> --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
+>> +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+>> @@ -502,3 +502,15 @@ bool guest_sbi_probe_extension(int extid, long *out_val)
+>>   
+>>   	return true;
+>>   }
+>> +
+>> +unsigned long get_host_sbi_spec_version(void)
+>> +{
+>> +	struct sbiret ret;
+>> +
+>> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_SPEC_VERSION, 0,
+>> +		       0, 0, 0, 0, 0);
+>> +
+>> +	GUEST_ASSERT(!ret.error);
+>> +
+>> +	return ret.value;
+>> +}
+>> diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+>> index 8e7c7a3172d8..7d195be5c3d9 100644
+>> --- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+>> +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+>> @@ -19,6 +19,11 @@
+>>   #define RISCV_MAX_PMU_COUNTERS 64
+>>   union sbi_pmu_ctr_info ctrinfo_arr[RISCV_MAX_PMU_COUNTERS];
+>>   
+>> +/* Snapshot shared memory data */
+>> +#define PMU_SNAPSHOT_GPA_BASE		BIT(30)
+>> +static void *snapshot_gva;
+>> +static vm_paddr_t snapshot_gpa;
+>> +
+>>   /* Cache the available counters in a bitmask */
+>>   static unsigned long counter_mask_available;
+>>   
+>> @@ -178,6 +183,32 @@ static unsigned long read_counter(int idx, union sbi_pmu_ctr_info ctrinfo)
+>>   	return counter_val;
+>>   }
+>>   
+>> +static inline void verify_sbi_requirement_assert(void)
+>> +{
+>> +	long out_val = 0;
+>> +	bool probe;
+>> +
+>> +	probe = guest_sbi_probe_extension(SBI_EXT_PMU, &out_val);
+>> +	GUEST_ASSERT(probe && out_val == 1);
+>> +
+>> +	if (get_host_sbi_spec_version() < sbi_mk_version(2, 0))
+>> +		__GUEST_ASSERT(0, "SBI implementation version doesn't support PMU Snapshot");
+>> +}
+> 
+> It's a pity we can't check the SBI spec version that KVM is advertising
+> from KVM userspace. Normally we'd want to check something like this at
+> the start of the test with TEST_REQUIRE() before running a VCPU in order
+> to generate a skip exit.
+> 
+
+Agreed. I will send a separate series for that as it is an ABI change.
+
+> (We probably should allow reading and even writing the SBI spec version
+> from the VMM in order to better support migration.)
+> 
+
+How that would work for SBI spec version write use case ? For migraiton, 
+you can't go back to older SBI versions in the host. Isn't it ?
+
+Considering this case your VM is running with PMU snapshot as the host 
+has SBI v2.0. It can't be migrated to v1.0 and expecting it work. Correct ?
+
+
+>> +
+>> +static void snapshot_set_shmem(vm_paddr_t gpa, unsigned long flags)
+>> +{
+>> +	unsigned long lo = (unsigned long)gpa;
+>> +#if __riscv_xlen == 32
+>> +	unsigned long hi = (unsigned long)(gpa >> 32);
+>> +#else
+>> +	unsigned long hi = gpa == -1 ? -1 : 0;
+>> +#endif
+>> +	struct sbiret ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
+>> +				      lo, hi, flags, 0, 0, 0);
+>> +
+>> +	GUEST_ASSERT(ret.value == 0 && ret.error == 0);
+>> +}
+>> +
+>>   static void test_pmu_event(unsigned long event)
+>>   {
+>>   	unsigned long counter;
+>> @@ -210,6 +241,41 @@ static void test_pmu_event(unsigned long event)
+>>   	stop_reset_counter(counter, 0);
+>>   }
+>>   
+>> +static void test_pmu_event_snapshot(unsigned long event)
+>> +{
+>> +	unsigned long counter;
+>> +	unsigned long counter_value_pre, counter_value_post;
+>> +	unsigned long counter_init_value = 100;
+>> +	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
+>> +
+>> +	counter = get_counter_index(0, counter_mask_available, 0, event);
+>> +	counter_value_pre = read_counter(counter, ctrinfo_arr[counter]);
+>> +
+>> +	/* Do not set the initial value */
+>> +	start_counter(counter, 0, 0);
+>> +	dummy_func_loop(10000);
+>> +	stop_counter(counter, SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT);
+>> +
+>> +	/* The counter value is updated w.r.t relative index of cbase */
+>> +	counter_value_post = READ_ONCE(snapshot_data->ctr_values[0]);
+>> +	__GUEST_ASSERT(counter_value_post > counter_value_pre,
+>> +		       "counter_value_post %lx counter_value_pre %lx\n",
+>> +		       counter_value_post, counter_value_pre);
+>> +
+>> +	/* Now set the initial value and compare */
+>> +	WRITE_ONCE(snapshot_data->ctr_values[0], counter_init_value);
+>> +	start_counter(counter, SBI_PMU_START_FLAG_INIT_SNAPSHOT, 0);
+>> +	dummy_func_loop(10000);
+>> +	stop_counter(counter, SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT);
+>> +
+>> +	counter_value_post = READ_ONCE(snapshot_data->ctr_values[0]);
+>> +	__GUEST_ASSERT(counter_value_post > counter_init_value,
+>> +		       "counter_value_post %lx counter_init_value %lx for counter\n",
+>> +		       counter_value_post, counter_init_value);
+>> +
+>> +	stop_reset_counter(counter, 0);
+>> +}
+>> +
+>>   static void test_invalid_event(void)
+>>   {
+>>   	struct sbiret ret;
+>> @@ -272,6 +338,34 @@ static void test_pmu_basic_sanity(void)
+>>   	GUEST_DONE();
+>>   }
+>>   
+>> +static void test_pmu_events_snaphost(void)
+>> +{
+>> +	int num_counters = 0;
+>> +	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
+>> +	int i;
+>> +
+>> +	/* Verify presence of SBI PMU and minimum requrired SBI version */
+>> +	verify_sbi_requirement_assert();
+>> +
+>> +	snapshot_set_shmem(snapshot_gpa, 0);
+>> +
+>> +	/* Get the counter details */
+>> +	num_counters = get_num_counters();
+>> +	update_counter_info(num_counters);
+>> +
+>> +	/* Validate shared memory access */
+>> +	GUEST_ASSERT_EQ(READ_ONCE(snapshot_data->ctr_overflow_mask), 0);
+>> +	for (i = 0; i < num_counters; i++) {
+>> +		if (counter_mask_available & (BIT(i)))
+>> +			GUEST_ASSERT_EQ(READ_ONCE(snapshot_data->ctr_values[i]), 0);
+>> +	}
+>> +	/* Only these two events are guranteed to be present */
+>> +	test_pmu_event_snapshot(SBI_PMU_HW_CPU_CYCLES);
+>> +	test_pmu_event_snapshot(SBI_PMU_HW_INSTRUCTIONS);
+>> +
+>> +	GUEST_DONE();
+>> +}
+>> +
+>>   static void run_vcpu(struct kvm_vcpu *vcpu)
+>>   {
+>>   	struct ucall uc;
+>> @@ -328,13 +422,46 @@ static void test_vm_events_test(void *guest_code)
+>>   	test_vm_destroy(vm);
+>>   }
+>>   
+>> +static void test_vm_setup_snapshot_mem(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+>> +{
+>> +	/* PMU Snapshot requires single page only */
+>> +	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, PMU_SNAPSHOT_GPA_BASE, 1, 1, 0);
+>> +	/* PMU_SNAPSHOT_GPA_BASE is identity mapped */
+>> +	virt_map(vm, PMU_SNAPSHOT_GPA_BASE, PMU_SNAPSHOT_GPA_BASE, 1);
+>> +
+>> +	snapshot_gva = (void *)(PMU_SNAPSHOT_GPA_BASE);
+>> +	snapshot_gpa = addr_gva2gpa(vcpu->vm, (vm_vaddr_t)snapshot_gva);
+>> +	sync_global_to_guest(vcpu->vm, snapshot_gva);
+>> +	sync_global_to_guest(vcpu->vm, snapshot_gpa);
+>> +}
+>> +
+>> +static void test_vm_events_snapshot_test(void *guest_code)
+>> +{
+>> +	struct kvm_vm *vm = NULL;
+>> +	struct kvm_vcpu *vcpu;
+>> +
+>> +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
+>> +	__TEST_REQUIRE(__vcpu_has_sbi_ext(vcpu, KVM_RISCV_SBI_EXT_PMU),
+>> +				   "SBI PMU not available, skipping test");
+>> +
+>> +	test_vm_setup_snapshot_mem(vm, vcpu);
+>> +
+>> +	run_vcpu(vcpu);
+>> +
+>> +	test_vm_destroy(vm);
+>> +}
+>> +
+>>   int main(void)
+>>   {
+>> +	pr_info("SBI PMU basic test : starting\n");
+>>   	test_vm_basic_test(test_pmu_basic_sanity);
+>>   	pr_info("SBI PMU basic test : PASS\n");
+>>   
+>>   	test_vm_events_test(test_pmu_events);
+>>   	pr_info("SBI PMU event verification test : PASS\n");
+>>   
+>> +	test_vm_events_snapshot_test(test_pmu_events_snaphost);
+>> +	pr_info("SBI PMU event verification with snapshot test : PASS\n");
+>> +
+>>   	return 0;
+>>   }
+>> -- 
+>> 2.34.1
+>>
+> 
+> Since my comments are a bit out-of-scope for this patch,
+> 
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> 
+> Thanks,
+> drew
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
