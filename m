@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C97CD1284
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 06:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78166CD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 06:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HYy5JyHwsOMKOrnmM9AYTtO/UNkRUzz4kl4RTW18QVw=; b=SrqG+B7o850fID
-	PTY7pFxw7Bo7chq37mBeLmhaHIsqaW7qtP++04pKDtp5t53zygMmo0F3z3KVdD2j3hKYmADkeYhnd
-	OW/kK/d+BxVcyw22mdWGFppuvHmrGyrQcJx0tekR2rNVl1fz9DpYcDo4l6MrLbK/XbaNoeeCVsTyE
-	d5584MlVqbOvxPTisg53oPqvGm5x/HRvXX06naJhNTM4zL68SQMgoCY6XhNe2D1/Oyi+lwXLrp/xK
-	aUPhta8p7ZaotlfxCJtEaEYe7NnJ18tHVZFxjzRIizUdiZ1A4CeiGgZBGEgkPXaKmh5SriJdG+YCW
-	+DK19+KaFesfp+/9xkJA==;
+	List-Owner; bh=N0nLtLNMvYXtDyBQWYRHQ1RbI2RruYX8Qijn9ctigSQ=; b=PRTVSdKj2L3K2e
+	u9rLL+BUnI4zsE3JwQH5haxw1N+CcvEikOWKfDZ0zep5aOhtSrmm5Td4L4+fMzzuTugPpkpW7EACp
+	7kbesmQvU9dVwOT71k30ImLuhOVAZD4u48b7k8TB9jZJHlRVWxPRTuiNdpnS0pnIhh1FBu3BsR+xn
+	ErUF1lrYtBhoIgO955VO1TmRfKyqIw9kw3pbqo9k+86DuT+Djx8jg64xXTBvIPlFoPYwEBm3BXkhx
+	Fi5J/kmvj2pLZUr8g7f66zrNdA5Rl0u+7kOqmhyEh5jL5dduH4XNpgeb/rjuS0QuA/31wODCiBwHB
+	Toy74nUyLfbHXN/ZLJSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4j3-00000000WT1-3Dqe;
-	Tue, 09 Apr 2024 06:12:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ru4jC-00000000WYZ-1ZN1;
+	Tue, 09 Apr 2024 06:13:06 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4ic-00000000W3C-2t8Y
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 09 Apr 2024 06:12:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=vK6fRyMYl1P58cmeO0LU6+3feTaUZnDC3wku/DDJlMg=; b=BrDDcwrnHIEG7q3/Tm1BqFmYVC
-	RqvQ2PgjL0NSQSzAIEjo2SJCaHO6Hftbf5i+qefDWM+affRoEgZMT0+1/weh5OpMDfkrtJ1MCN5UZ
-	1zbweWw37RszMDjwmh5Q7MpbloacCP+evpZhX9rNHJOvAN+DrP2D+fO101nlSx+yfQLYbtpoaOhL1
-	m4Cy9HtSJQm2bxt7Pjo1vpRscV4SLnUNSui0VhGADtNjMJNJw7/+fq4TGvFpmx26SL1PT39Y/C4lt
-	0EiIGIFoFocziDe+abekjsFdiiTeFO56uhTAmprGCIHp9ZhGSo7eUtuziEjlQ4kk0cEBwF8gwlHEH
-	Z9LS1/NA==;
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4iW-00000007SnG-1X4r
+	id 1ru4iV-00000000Vv0-3xxj
 	for linux-riscv@lists.infradead.org;
 	Tue, 09 Apr 2024 06:12:28 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1e3cf5b171eso25670245ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Apr 2024 23:12:11 -0700 (PDT)
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-5e152c757a5so3254496a12.2
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Apr 2024 23:12:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712643129; x=1713247929; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712643137; x=1713247937; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vK6fRyMYl1P58cmeO0LU6+3feTaUZnDC3wku/DDJlMg=;
-        b=WNBQomlm+gKngRZ/IWl6TV3dg62N2YIpLkheFK7dVIdREUkKqIDAkretr2IeZKQGzd
-         4RdPWr/R6HovGnwVKKrSlsly+pd30O56M0P4bpsAgBAWl17WM+ws20EarLn6LCbf3RcJ
-         Li4zxyDvuwe28zpappx67zuPcH98xoitMTU2h7qexAW8UtzGKq9MimBz47rKswn6e52p
-         lQ94pcMxectuaehz/XCJ3ThzByuX47zhl73Tb0re1CWMUhUhujJhI5K1CPYMbd7LcJoc
-         GzFVmR5KCCBEpsUiPCENy0dAXm4qVBCqFdbRvfr7iJ/I+mOc1kokn/Y3UlnL4ls89UdJ
-         QExQ==
+        bh=2Dd+qicqNqOTXPUN+vfB0pN9kY+D/OYBSctt1TBOZeY=;
+        b=amie0gc4085Dej45Q/7xoj+YE6Zdb9K3HkWMg3834kVZqrwzmPEC6hqrMAozZrxWU9
+         n6Rx2xjbOFImBt0/VtQtA49sQ1zDSJ69ZBtYVEUz0FDni7M4lg83WGjDtKGplmEpFQLt
+         KNg5SnKuFn3VG8GFSeEKbYFKT5rYF5kznJFJFoxbD8f2lQGBM2vhMvYs8DvakATL+RAo
+         xzoUCT5ZsXl+Dn1RVq2mlj8YnK2/79r5IaKhNgA1dyhv4Xr+oYPImhmuzdD7hay8Diaw
+         XksRPphgX9KU6UsOLsm6NXsKdXept/2kx2omTsNSCiJkxeLlc2EmYVUMcv94W4wk99L5
+         zavQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712643129; x=1713247929;
+        d=1e100.net; s=20230601; t=1712643137; x=1713247937;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vK6fRyMYl1P58cmeO0LU6+3feTaUZnDC3wku/DDJlMg=;
-        b=iuxeKI8K7I24fVG++JKhbonVbAbTqy+qaHScqNgny9Bk0jII98sTpczg4740vTA8kW
-         tWm3RtwqESqmLHfGIWm/1NWkvyHxRf4QSETz++snNzzUUhGO3kjQym5uUt7dU/UX/UG3
-         n/UBZlrs5vP1WNYNh0pYsNRNmIrsO2MK8CBukIuQIBKSw8xN9Qur4SFF8dsUzzelekJP
-         60SQVs9lc+bFW8IHqkDPSRbJQkha7bDQ1fDM9YTwerucp56ukSVbS7EGUyC2MtcMIQTd
-         Qx6u6yERxE1PbasMJl2quUg1v2lf0RdAQOHxFBDlGNpZEcjbZqcbCc7TlnMCVWYkLTH7
-         yNuw==
-X-Gm-Message-State: AOJu0YwtlRpTBwqYI59g/LtTM++2Zx2CO+lY4RDGuqT5SbLrq6MrlFY5
-	4vqxtP5Wo5K3zRiaZSFQjYZnKMWAvLEsvJ+vD/SyCzBzWAIpfhbzaO+k8alyAJO+gSS2HWIi2Dz
-	3
-X-Google-Smtp-Source: AGHT+IHgZW6LjlIuQt5UvFz+14tJ+M4rswVyzT+uN214hG5uWWodDhWYY3GIvVhaCwgATxAIZVKVqw==
-X-Received: by 2002:a17:902:c407:b0:1e2:96d3:1bc1 with SMTP id k7-20020a170902c40700b001e296d31bc1mr13068819plk.1.1712643129552;
-        Mon, 08 Apr 2024 23:12:09 -0700 (PDT)
+        bh=2Dd+qicqNqOTXPUN+vfB0pN9kY+D/OYBSctt1TBOZeY=;
+        b=Q9MyRmRjo+p+Ldphcsvx5+j6dyy+5KYKuNapnw0kCZf5b3RjPVNKNWuF3liC3cd778
+         7IBElp9RQdoTrhd6tIKfKFmNGuqwR+QLpvzHfd7GsgkqvbiZQ7Ktis2uKyBmBh+MFT5n
+         nju3UAHusArRFszt8Jab4F5HSgXSKOCavYGyMvoJoSvFG/h+tXhAkLCTgtxkRNsdCJ2E
+         iJHndwlhlOm5aIwVg12RyAHWXqlmkkKOH5pAA9H++HxkKLuNyu+L0O4Bgb4qRDudu4cI
+         uqZu/Ij78jSoqI9aNGjrgKUAQX+IbJLWcyAesTsnzytd/hGRzmxsKFEG/HR/gePClnry
+         bPwg==
+X-Gm-Message-State: AOJu0YzXvBqy2ZJnezNIlst60QES6MILvvMZE3QBMLnX0GHKG4tQfQTn
+	JSdWADB3UaBSfjgxxWE8eUss4jHYlKADwV1aQil4gcZ7isjMvZpnuTWQs35zPihA7fAJSpSW9Hn
+	a
+X-Google-Smtp-Source: AGHT+IGcPqN2fScaedBq3ewRagrgaPjfyc3cvTGWCEiCpjBURAFRRAm2I2dL0qDPjIDkD3S3Bq2SLQ==
+X-Received: by 2002:a05:6a20:de15:b0:1a3:e2ed:62af with SMTP id kz21-20020a056a20de1500b001a3e2ed62afmr8155980pzb.34.1712643137498;
+        Mon, 08 Apr 2024 23:12:17 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id n3-20020a170902e54300b001e3dd5972ccsm5775564plf.185.2024.04.08.23.12.07
+        by smtp.gmail.com with ESMTPSA id n3-20020a170902e54300b001e3dd5972ccsm5775564plf.185.2024.04.08.23.12.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Apr 2024 23:12:09 -0700 (PDT)
+        Mon, 08 Apr 2024 23:12:17 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -131,16 +116,16 @@ Cc: paul.walmsley@sifive.com,
 	paulmck@kernel.org,
 	broonie@kernel.org,
 	rick.p.edgecombe@intel.com
-Subject: [RFC PATCH 06/12] scs: place init shadow stack in .shadowstack section
-Date: Mon,  8 Apr 2024 23:10:37 -0700
-Message-Id: <20240409061043.3269676-7-debug@rivosinc.com>
+Subject: [RFC PATCH 10/12] riscv/traps: Introduce software check exception
+Date: Mon,  8 Apr 2024 23:10:41 -0700
+Message-Id: <20240409061043.3269676-11-debug@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240409061043.3269676-1-debug@rivosinc.com>
 References: <20240409061043.3269676-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240409_071225_141619_7417E43F 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20240408_231224_423818_F1577F13 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,55 +142,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If compiled for riscv and dynamic scs is turned on, place shadow stack in
-`.shadowstack` section. Arch specific linker script can place logic to
-protect this section against regular stores.
+zicfiss / zicfilp introduces a new exception to priv isa `software check
+exception` with cause code = 18. This patch implements software check
+exception.
+
+If sw check exception was triggered while in usermode, unknown trap is
+triggered for usermode. If sw check exception was triggered for kernel
+mode, kernel dies.
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- include/linux/init_task.h |  5 +++++
- init/init_task.c          | 12 ++++++++++--
- 2 files changed, 15 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/asm-prototypes.h |  1 +
+ arch/riscv/kernel/entry.S               |  3 +++
+ arch/riscv/kernel/traps.c               | 20 ++++++++++++++++++++
+ 3 files changed, 24 insertions(+)
 
-diff --git a/include/linux/init_task.h b/include/linux/init_task.h
-index bccb3f1f6262..f025022e1164 100644
---- a/include/linux/init_task.h
-+++ b/include/linux/init_task.h
-@@ -40,4 +40,9 @@ extern struct cred init_cred;
- /* Attach to the thread_info data structure for proper alignment */
- #define __init_thread_info __section(".data..init_thread_info")
+diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
+index cd627ec289f1..5a27cefd7805 100644
+--- a/arch/riscv/include/asm/asm-prototypes.h
++++ b/arch/riscv/include/asm/asm-prototypes.h
+@@ -51,6 +51,7 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_u);
+ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
+ DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
+ DECLARE_DO_ERROR_INFO(do_trap_break);
++DECLARE_DO_ERROR_INFO(do_trap_software_check);
  
-+#if defined(CONFIG_RISCV) && defined(CONFIG_DYNAMIC_SCS)
-+/* init shadow stack page */
-+#define __init_shadow_stack __section(".shadowstack..init")
-+#endif
+ asmlinkage void handle_bad_stack(struct pt_regs *regs);
+ asmlinkage void do_page_fault(struct pt_regs *regs);
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 0262b46ab064..89aeae803702 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -353,6 +353,9 @@ SYM_DATA_START_LOCAL(excp_vect_table)
+ 	RISCV_PTR do_page_fault   /* load page fault */
+ 	RISCV_PTR do_trap_unknown
+ 	RISCV_PTR do_page_fault   /* store page fault */
++	RISCV_PTR do_trap_unknown /* cause=16 */
++	RISCV_PTR do_trap_unknown /* cause=17 */
++	RISCV_PTR do_trap_software_check /* cause=18 is sw check exception */
+ SYM_DATA_END_LABEL(excp_vect_table, SYM_L_LOCAL, excp_vect_table_end)
+ 
+ #ifndef CONFIG_MMU
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 05a16b1f0aee..b464355f62b2 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -354,6 +354,26 @@ void do_trap_ecall_u(struct pt_regs *regs)
+ 
+ }
+ 
++/*
++ * software check exception is defined with risc-v cfi spec. Software check
++ * exception is raised when:-
++ * a) An indirect branch doesn't land on 4 byte aligned PC or `lpad`
++ *    instruction or `label` value programmed in `lpad` instr doesn't
++ *    match with value setup in `x7`. reported code in `xtval` is 2.
++ * b) `sspopchk` instruction finds a mismatch between top of shadow stack (ssp)
++ *    and x1/x5. reported code in `xtval` is 3.
++ */
++asmlinkage __visible __trap_section void do_trap_software_check(struct pt_regs *regs)
++{
++	if (user_mode(regs)) {
++		/* deliver unknown trap to usermode */
++		do_trap_unknown(regs);
++	} else {
++		/* sw check exception coming from kernel is a bug in kernel, die */
++		die(regs, "Kernel BUG");
++	}
++}
 +
- #endif
-diff --git a/init/init_task.c b/init/init_task.c
-index 4daee6d761c8..3c0a01455978 100644
---- a/init/init_task.c
-+++ b/init/init_task.c
-@@ -52,10 +52,18 @@ static struct sighand_struct init_sighand = {
- };
- 
- #ifdef CONFIG_SHADOW_CALL_STACK
--unsigned long init_shadow_call_stack[SCS_SIZE / sizeof(long)] = {
-+unsigned long init_shadow_call_stack[SCS_SIZE / sizeof(long)]
-+#if defined(CONFIG_RISCV) && defined(CONFIG_DYNAMIC_SCS)
-+	/* RISC-V dynamic SCS implements shadow stack and must go in special section */
-+	__init_shadow_stack = {
-+	[0] = SCS_END_MAGIC
-+};
-+#else
-+	= {
- 	[(SCS_SIZE / sizeof(long)) - 1] = SCS_END_MAGIC
- };
--#endif
-+#endif /* CONFIG_RISCV && CONFIG_DYNAMIC_SCS */
-+#endif /* CONFIG_SHADOW_CALL_STACK */
- 
- /*
-  * Set up the first task table, touch at your own risk!. Base=0,
+ #ifdef CONFIG_MMU
+ asmlinkage __visible noinstr void do_page_fault(struct pt_regs *regs)
+ {
 -- 
 2.43.2
 
