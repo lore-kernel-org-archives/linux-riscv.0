@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D84CC67861
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 06:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678F8CD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 06:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=znBGb8gAwA9JV0QxU1T54yWeuxQvH0s/GsEz3+SABUA=; b=wmU4r6t63fCTxm
-	YfzmZh5djlaoR7BugVn4XnGkv04YeHTc2RTPyg3tHdWeiBha6V6VeZuG4xvqAy5xAfkpODMOLbNg+
-	uJnqDl9BZFxpq+9P2HbP77lR5/B0xmz3rZ8de20vCMty56x966ODStCfRxzu18TeuI6quqHtPBzMY
-	iEEAliPDt47QWQs3KkH2fYRrEw8UGInggUoK7QE6CR7jBLtmdmikvoT1qiVVRyhnsRP3NbwU+O+kx
-	+OJ4bOA03GHWZPBK78eCvuJlNs6W9piaw8AYl/WbeoPK5RZZPDY7oQ8bFebM5vPVcp6SDrM/v5OQc
-	1UX5eNWCiopASVin2H1Q==;
+	List-Owner; bh=/ufbzqTBz2q5QEb7CAhvKUdp16y/5kwG4BaaBM07Tf4=; b=H0XN154iQgl7H9
+	MYxDhDB6hqh3/rLI8QHFcmSGy9Wj7HJh1vu5ViQWqgR6qCUPL+UEo4fUBpjlbXT9ka+nldQGU7f6H
+	XgIyzC5AwvFzBj5l6mlptzyyGagiz2z5xk+nuTFDywhqEGIzIrvNP1AZYmSwHlCxIZkFsBmy8N0en
+	LsD7KP5Xf31pc48zeVE+FJNhwKyTOQpovJIuS5XYWWKMtHZKVyrJ/S/nr6pA2y+D6hRzi0CjiMl1S
+	ncJ36XjSpzFKkBHlmM0ftjT/kOPYC1gq5k1DurTeBxrNEruL80+W22tThmLLStmnCgiiCPFkTGWLc
+	4QgoCQsla+EFH+9SylZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4ij-00000000WAe-1UTC;
-	Tue, 09 Apr 2024 06:12:37 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1ru4in-00000000WEW-2MJe;
+	Tue, 09 Apr 2024 06:12:41 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4iM-00000000VpS-1qD4
+	id 1ru4iP-00000000VtJ-2pNR
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Apr 2024 06:12:18 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1e3e56c9d2cso20886225ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Apr 2024 23:12:12 -0700 (PDT)
+	Tue, 09 Apr 2024 06:12:23 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-5d81b08d6f2so4275718a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Apr 2024 23:12:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712643131; x=1713247931; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712643135; x=1713247935; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wNY0RFhYm6lPg3oBhR3wmdSfV39szkEasZZOlUo5Gu4=;
-        b=BnB+OIrXabE2rh8D9iyoIg5TSTJDHSAOfpDvQ9Pxm4n+FqsLHcWSk93iZXPj5+aBbU
-         Pn8vytxdE+yNHt9mJy+sUSq+h1ozhdLa7KRIW33nPnxeRTKTJJiEwYqTlsxW5mPpKcF+
-         s3arE92xbrYyOMIGw6CZ6Fn4jl0Y6a6QsaN/V/xVwA4BxNzRpfRmXHZmgCJ4jWYBOeJE
-         fmshxf8E8oEo9yGMCJFUOgmhIZ7xClCNHgAl5IbQHCnnEdzAAK1Q6plGMIw/1JpnyOzo
-         fv5Yp8QBC7Gf1dZKM5wCBQWxXczjuReCIsFPxYhN1Ey1L4YZEH+6bPb7tc6NAVm6XILP
-         3OdQ==
+        bh=VjvFClKwy+BYaRIrausKimMcjFw1vT5hOqvdsQGe/rs=;
+        b=UoDiUwjU/kU85Yn2p8BpwPIA2s+W+NAwgICU7ify7D3DeevbZThkqMpx0zy0DUPJ4E
+         KaeHl6Mdyy36e37mH8Q40RjIOgqEaQH/9X1GaPd8BJdhe2eh9E4SUpxpH9v9kuAYEpKI
+         sTIZ2MWRF0CpUGA//0LTib+D0vVJ5BEjI4O04NHyVuOAs0yHV4luZVIipDvQ12hQSzZm
+         q/6+eGe7ZkJr6fqlyAHnEeQ+IXkdaLWVh3sUFuGhtfWwV/5ZqHdAZcXJaT+4Nep+aJkY
+         tw4bVMkkA1gRSG1wxbt7h7v8p/kIi80/uem7mLOgnTbtPdDwuR+hPvdMDGohEQTIIp5D
+         QglQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712643131; x=1713247931;
+        d=1e100.net; s=20230601; t=1712643135; x=1713247935;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wNY0RFhYm6lPg3oBhR3wmdSfV39szkEasZZOlUo5Gu4=;
-        b=dCcGtqoI5lQtje16LNGsMIzY/HdeclXXwcuIClNrB1eSmCOM00XShQbt4sAzJJ7ojw
-         sXJO6tkcBJDrk8pLQK9lX/+YY+x02mMxZVPGZnmYZx7KiRZFmKXBTcDwQqRknX+yf5Mb
-         OGF4RMQO5FhWKwMufCCG4Yivtk0zV3MbImA84hmf7Abz4t17vKk+7itFKS5paFFtUZwo
-         027PP76wXO3bwq9+HN56c5VYLxJmx0Zj/dTSYpS5wbRCoTExeoM9ZCznuPtjkKQtd3Co
-         RwfGNLByTWBzS/Ln0q7Lp2OFsbxJtgwlHdEwkSAmca5kOfWabZgSPsER0C2LYTBLSrtD
-         Zd/g==
-X-Gm-Message-State: AOJu0YwAXNjd3lMaC8sdkfmc0HSbLYoRSPEY+8Mx0/WqFl1mpEhReGgx
-	GdLewO7jjO+UaqgslSZBIwQF4zsEivw7u7+GPQdITm9KD+xmyfou9VbfV1EwIIPjqhsnykNtHHv
-	5
-X-Google-Smtp-Source: AGHT+IFZDIZkA5N71LX8YU8JB8f+xPvbHs9xL8jZhoQEYjrihrilZVPxCloqSIoWg5GmlNSe0WLS6g==
-X-Received: by 2002:a17:903:40d2:b0:1e2:9676:c326 with SMTP id t18-20020a17090340d200b001e29676c326mr15385084pld.29.1712643131586;
-        Mon, 08 Apr 2024 23:12:11 -0700 (PDT)
+        bh=VjvFClKwy+BYaRIrausKimMcjFw1vT5hOqvdsQGe/rs=;
+        b=H2LnCr5hZcmDS+CgiohEm4Z7vO/dPJOrG7WKcOrmveYjtOlRtW2Wu5RuoadbwYj0Ub
+         1SUb83NhSzzPO1SBJIHkKbKd1Rl9JNxIqckpTENzdSyS5TEBAMC6CMATGT9b6pYsSD/G
+         UN1vkew9ToUKErBw0UQxIJ0FIS99sGyPo8Y8fzig0JGH136EGlJkRgI1MacAuzrhRad9
+         MQkBnd/LpNVTMQD8RgxDbw8oRgqWTNcnwTfeZGXzJkzkeD3EG7bTxbYG/qgI1aY5DLjR
+         JBi0MrcxAHjY8pAsJF984woDZwafGsJobmuUMpTb0+gHZ8UPP2/y0Rc2I3zeiMyiCqHx
+         7zag==
+X-Gm-Message-State: AOJu0YySShrkK7Oofr1zolIKOPxr6AageuiobZHsEXDsKic+Ari+q4pw
+	UMzvV+R77y3fJjOyya+goBTVn7kYweNGoMiD55+fC4fkB/R8pp6AXFd3sb9bdLtALMLGeGkt+Mk
+	T
+X-Google-Smtp-Source: AGHT+IEp8MmTA8LKx3GHOoxHTg1gStAegDNh1X4uTEZe5dJSLPSECO/RehYfY7RXVVoYxf41UDsgzg==
+X-Received: by 2002:a17:902:ecd0:b0:1e3:dfdc:6972 with SMTP id a16-20020a170902ecd000b001e3dfdc6972mr9975664plh.9.1712643135531;
+        Mon, 08 Apr 2024 23:12:15 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id n3-20020a170902e54300b001e3dd5972ccsm5775564plf.185.2024.04.08.23.12.09
+        by smtp.gmail.com with ESMTPSA id n3-20020a170902e54300b001e3dd5972ccsm5775564plf.185.2024.04.08.23.12.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Apr 2024 23:12:11 -0700 (PDT)
+        Mon, 08 Apr 2024 23:12:15 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -116,16 +116,16 @@ Cc: paul.walmsley@sifive.com,
 	paulmck@kernel.org,
 	broonie@kernel.org,
 	rick.p.edgecombe@intel.com
-Subject: [RFC PATCH 07/12] riscv/mm: prepare shadow stack for init task for kernel cfi
-Date: Mon,  8 Apr 2024 23:10:38 -0700
-Message-Id: <20240409061043.3269676-8-debug@rivosinc.com>
+Subject: [RFC PATCH 09/12] scs: kernel shadow stack with hardware assistance
+Date: Mon,  8 Apr 2024 23:10:40 -0700
+Message-Id: <20240409061043.3269676-10-debug@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240409061043.3269676-1-debug@rivosinc.com>
 References: <20240409061043.3269676-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240408_231215_529510_A30A71F8 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20240408_231217_956945_0ADAEF7E 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,182 +142,177 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Under CONFIG_SHADOW_CALL_STACK, shadow call stack goes into data section.
-Although with CONFIG_DYNAMIC_SCS on riscv, hardware assisted shadow stack
-are used. Hardware assisted shadow stack on riscv uses PTE.R=0, PTE.W=1 &
-PTE.X=0 encodings. Without CONFIG_DYNAMIC_SCS, shadow stack for init is
-placed in data section and thus regular read/write encodings are applied
-to it. Although with with CONFIG_DYNAMIC_SCS, they need to go into
-different section. This change places it into `.shadowstack` section.
-As part of this change early boot code (`setup_vm`), applies appropriate
-PTE encodings to shadow call stack for init placed in `.shadowstack`
-section.
+If shadow stack have memory protections from underlying cpu, use those
+protections. RISCV uses PAGE_KERNEL_SHADOWSTACK to vmalloc such shadow
+stack pages. Shadow stack pages on RISCV grows downwards like regular
+stack. Clang based software shadow call stack grows low to high address.
+Thus this patch addresses some of those needs due to opposite direction
+of shadow stack. Furthermore, RISCV hw shadow stack can't be memset
+because memset uses normal stores. Lastly to store magic word at base of
+shadow stack, arch specific shadow stack store has to be performed.
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/pgtable.h     |  4 ++++
- arch/riscv/include/asm/sections.h    | 22 +++++++++++++++++++++
- arch/riscv/include/asm/thread_info.h | 10 ++++++++--
- arch/riscv/kernel/vmlinux.lds.S      | 12 ++++++++++++
- arch/riscv/mm/init.c                 | 29 +++++++++++++++++++++-------
- 5 files changed, 68 insertions(+), 9 deletions(-)
+ include/linux/scs.h | 48 +++++++++++++++++++++++++++++++++------------
+ kernel/scs.c        | 28 ++++++++++++++++++++++----
+ 2 files changed, 59 insertions(+), 17 deletions(-)
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 9f8ea0e33eb1..3409b250390d 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -197,6 +197,10 @@ extern struct pt_alloc_ops pt_ops __initdata;
- #define PAGE_KERNEL_READ_EXEC	__pgprot((_PAGE_KERNEL & ~_PAGE_WRITE) \
- 					 | _PAGE_EXEC)
- 
-+#ifdef CONFIG_DYNAMIC_SCS
-+#define PAGE_KERNEL_SHADOWSTACK __pgprot(_PAGE_KERNEL & ~(_PAGE_READ | _PAGE_EXEC))
-+#endif
-+
- #define PAGE_TABLE		__pgprot(_PAGE_TABLE)
- 
- #define _PAGE_IOREMAP	((_PAGE_KERNEL & ~_PAGE_MTMASK) | _PAGE_IO)
-diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
-index a393d5035c54..4c4154d0021e 100644
---- a/arch/riscv/include/asm/sections.h
-+++ b/arch/riscv/include/asm/sections.h
-@@ -14,6 +14,10 @@ extern char __init_data_begin[], __init_data_end[];
- extern char __init_text_begin[], __init_text_end[];
- extern char __alt_start[], __alt_end[];
- extern char __exittext_begin[], __exittext_end[];
-+#ifdef CONFIG_DYNAMIC_SCS
-+extern char __init_shstk_start[], __init_shstk_end[];
-+#endif
-+extern char __end_srodata[];
- 
- static inline bool is_va_kernel_text(uintptr_t va)
- {
-@@ -31,4 +35,22 @@ static inline bool is_va_kernel_lm_alias_text(uintptr_t va)
- 	return va >= start && va < end;
- }
- 
-+#ifdef CONFIG_DYNAMIC_SCS
-+static inline bool is_va_init_shadow_stack_early(uintptr_t va)
-+{
-+	uintptr_t start = (uintptr_t)(kernel_mapping_pa_to_va(__init_shstk_start));
-+	uintptr_t end = (uintptr_t)(kernel_mapping_pa_to_va(__init_shstk_end));
-+
-+	return va >= start && va < end;
-+}
-+
-+static inline bool is_va_init_shadow_stack(uintptr_t va)
-+{
-+	uintptr_t start = (uintptr_t)(__init_shstk_start);
-+	uintptr_t end = (uintptr_t)(__init_shstk_end);
-+
-+	return va >= start && va < end;
-+}
-+#endif
-+
- #endif /* __ASM_SECTIONS_H */
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 5d473343634b..7ae28d627f84 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -63,12 +63,18 @@ struct thread_info {
- };
+diff --git a/include/linux/scs.h b/include/linux/scs.h
+index 4ab5bdc898cf..3a31433532d1 100644
+--- a/include/linux/scs.h
++++ b/include/linux/scs.h
+@@ -12,6 +12,7 @@
+ #include <linux/poison.h>
+ #include <linux/sched.h>
+ #include <linux/sizes.h>
++#include <asm/scs.h>
  
  #ifdef CONFIG_SHADOW_CALL_STACK
-+#ifdef CONFIG_DYNAMIC_SCS
- #define INIT_SCS							\
--	.scs_base	= init_shadow_call_stack,			\
-+	.scs_base	= init_shadow_call_stack,	\
-+	.scs_sp		= &init_shadow_call_stack[SCS_SIZE / sizeof(long)],
-+#else
-+#define INIT_SCS							\
-+	.scs_base	= init_shadow_call_stack,	\
- 	.scs_sp		= init_shadow_call_stack,
-+#endif /* CONFIG_DYNAMIC_SCS */
- #else
- #define INIT_SCS
--#endif
-+#endif /* CONFIG_SHADOW_CALL_STACK */
  
- /*
-  * macros/functions for gaining access to the thread information structure
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 002ca58dd998..cccc51f845ab 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -126,6 +126,18 @@ SECTIONS
- 		*(.srodata*)
+@@ -31,6 +32,29 @@ void scs_init(void);
+ int scs_prepare(struct task_struct *tsk, int node);
+ void scs_release(struct task_struct *tsk);
+ 
++#ifdef CONFIG_DYNAMIC_SCS
++/* dynamic_scs_enabled set to true if RISCV dynamic SCS */
++#ifdef CONFIG_RISCV
++DECLARE_STATIC_KEY_TRUE(dynamic_scs_enabled);
++#else
++DECLARE_STATIC_KEY_FALSE(dynamic_scs_enabled);
++#endif
++#endif
++
++static inline bool scs_is_dynamic(void)
++{
++	if (!IS_ENABLED(CONFIG_DYNAMIC_SCS))
++		return false;
++	return static_branch_likely(&dynamic_scs_enabled);
++}
++
++static inline bool scs_is_enabled(void)
++{
++	if (!IS_ENABLED(CONFIG_DYNAMIC_SCS))
++		return true;
++	return scs_is_dynamic();
++}
++
+ static inline void scs_task_reset(struct task_struct *tsk)
+ {
+ 	/*
+@@ -42,6 +66,9 @@ static inline void scs_task_reset(struct task_struct *tsk)
+ 
+ static inline unsigned long *__scs_magic(void *s)
+ {
++	if (scs_is_dynamic())
++		return (unsigned long *)(s);
++
+ 	return (unsigned long *)(s + SCS_SIZE) - 1;
+ }
+ 
+@@ -50,23 +77,18 @@ static inline bool task_scs_end_corrupted(struct task_struct *tsk)
+ 	unsigned long *magic = __scs_magic(task_scs(tsk));
+ 	unsigned long sz = task_scs_sp(tsk) - task_scs(tsk);
+ 
+-	return sz >= SCS_SIZE - 1 || READ_ONCE_NOCHECK(*magic) != SCS_END_MAGIC;
+-}
+-
+-DECLARE_STATIC_KEY_FALSE(dynamic_scs_enabled);
++	if (scs_is_dynamic())
++		sz = (task_scs(tsk) + SCS_SIZE) - task_scs_sp(tsk);
+ 
+-static inline bool scs_is_dynamic(void)
+-{
+-	if (!IS_ENABLED(CONFIG_DYNAMIC_SCS))
+-		return false;
+-	return static_branch_likely(&dynamic_scs_enabled);
++	return sz >= SCS_SIZE - 1 || READ_ONCE_NOCHECK(*magic) != SCS_END_MAGIC;
+ }
+ 
+-static inline bool scs_is_enabled(void)
++static inline void __scs_store_magic(unsigned long *s, unsigned long magic_val)
+ {
+-	if (!IS_ENABLED(CONFIG_DYNAMIC_SCS))
+-		return true;
+-	return scs_is_dynamic();
++	if (scs_is_dynamic())
++		arch_scs_store(s, magic_val);
++	else
++		*__scs_magic(s) = SCS_END_MAGIC;
+ }
+ 
+ #else /* CONFIG_SHADOW_CALL_STACK */
+diff --git a/kernel/scs.c b/kernel/scs.c
+index d7809affe740..e447483fa9f4 100644
+--- a/kernel/scs.c
++++ b/kernel/scs.c
+@@ -13,8 +13,13 @@
+ #include <linux/vmstat.h>
+ 
+ #ifdef CONFIG_DYNAMIC_SCS
++/* dynamic_scs_enabled set to true if RISCV dynamic SCS */
++#ifdef CONFIG_RISCV
++DEFINE_STATIC_KEY_TRUE(dynamic_scs_enabled);
++#else
+ DEFINE_STATIC_KEY_FALSE(dynamic_scs_enabled);
+ #endif
++#endif
+ 
+ static void __scs_account(void *s, int account)
+ {
+@@ -32,19 +37,29 @@ static void *__scs_alloc(int node)
+ {
+ 	int i;
+ 	void *s;
++	pgprot_t prot = PAGE_KERNEL;
++
++	if (scs_is_dynamic())
++		prot = PAGE_KERNEL_SHADOWSTACK;
+ 
+ 	for (i = 0; i < NR_CACHED_SCS; i++) {
+ 		s = this_cpu_xchg(scs_cache[i], NULL);
+ 		if (s) {
+ 			s = kasan_unpoison_vmalloc(s, SCS_SIZE,
+ 						   KASAN_VMALLOC_PROT_NORMAL);
+-			memset(s, 0, SCS_SIZE);
++/*
++ * If either of them undefined, its safe to memset. Else memset is not
++ * possible. memset constitutes stores and stores to shadow stack memory
++ * are disallowed and will fault.
++ */
++			if (!scs_is_dynamic())
++				memset(s, 0, SCS_SIZE);
+ 			goto out;
+ 		}
  	}
  
-+	. = ALIGN(SECTION_ALIGN);
-+	__end_srodata = .;
+ 	s = __vmalloc_node_range(SCS_SIZE, 1, VMALLOC_START, VMALLOC_END,
+-				    GFP_SCS, PAGE_KERNEL, 0, node,
++				    GFP_SCS, prot, 0, node,
+ 				    __builtin_return_address(0));
+ 
+ out:
+@@ -59,7 +74,7 @@ void *scs_alloc(int node)
+ 	if (!s)
+ 		return NULL;
+ 
+-	*__scs_magic(s) = SCS_END_MAGIC;
++	__scs_store_magic(__scs_magic(s), SCS_END_MAGIC);
+ 
+ 	/*
+ 	 * Poison the allocation to catch unintentional accesses to
+@@ -122,7 +137,12 @@ int scs_prepare(struct task_struct *tsk, int node)
+ 	if (!s)
+ 		return -ENOMEM;
+ 
+-	task_scs(tsk) = task_scs_sp(tsk) = s;
++	task_scs(tsk) = s;
++	if (scs_is_dynamic())
++		task_scs_sp(tsk) = s + SCS_SIZE;
++	else
++		task_scs_sp(tsk) = s;
 +
-+#ifdef CONFIG_DYNAMIC_SCS
-+	.shadowstack : AT(ADDR(.shadowstack) - LOAD_OFFSET){
-+		__init_shstk_start = .;
-+		KEEP(*(.shadowstack..init))
-+		. = __init_shstk_start + PAGE_SIZE;
-+		__init_shstk_end = .;
-+	}
-+#endif
-+
- 	. = ALIGN(SECTION_ALIGN);
- 	_data = .;
- 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index fe8e159394d8..5b6f0cfa5719 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -713,14 +713,22 @@ static __init pgprot_t pgprot_from_va(uintptr_t va)
- 	if (IS_ENABLED(CONFIG_64BIT) && is_va_kernel_lm_alias_text(va))
- 		return PAGE_KERNEL_READ;
- 
-+#ifdef CONFIG_DYNAMIC_SCS
-+	/* If init task's shadow stack va, return write only page protections */
-+	if (IS_ENABLED(CONFIG_64BIT) && is_va_init_shadow_stack(va)) {
-+		pr_info("Shadow stack protections are being applied to for init\n");
-+		return PAGE_KERNEL_SHADOWSTACK;
-+	}
-+#endif
-+
- 	return PAGE_KERNEL;
+ 	return 0;
  }
- 
- void mark_rodata_ro(void)
- {
--	set_kernel_memory(__start_rodata, _data, set_memory_ro);
-+	set_kernel_memory(__start_rodata, __end_srodata, set_memory_ro);
- 	if (IS_ENABLED(CONFIG_64BIT))
--		set_kernel_memory(lm_alias(__start_rodata), lm_alias(_data),
-+		set_kernel_memory(lm_alias(__start_rodata), lm_alias(__end_srodata),
- 				  set_memory_ro);
- }
- #else
-@@ -913,14 +921,21 @@ static void __init create_kernel_page_table(pgd_t *pgdir,
- static void __init create_kernel_page_table(pgd_t *pgdir, bool early)
- {
- 	uintptr_t va, end_va;
-+	pgprot_t prot;
- 
- 	end_va = kernel_map.virt_addr + kernel_map.size;
--	for (va = kernel_map.virt_addr; va < end_va; va += PMD_SIZE)
-+	for (va = kernel_map.virt_addr; va < end_va; va += PMD_SIZE) {
-+		prot = PAGE_KERNEL_EXEC;
-+#ifdef CONFIG_DYNAMIC_SCS
-+		if (early && is_va_init_shadow_stack_early(va))
-+			prot = PAGE_KERNEL_SHADOWSTACK;
-+#endif
- 		create_pgd_mapping(pgdir, va,
--				   kernel_map.phys_addr + (va - kernel_map.virt_addr),
--				   PMD_SIZE,
--				   early ?
--					PAGE_KERNEL_EXEC : pgprot_from_va(va));
-+					kernel_map.phys_addr + (va - kernel_map.virt_addr),
-+					PMD_SIZE,
-+					early ?
-+					prot : pgprot_from_va(va));
-+	}
- }
- #endif
  
 -- 
 2.43.2
