@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740B1CD1284
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 06:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDED1C67861
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 06:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Hnknu7k61Yy+zzNQ4j3dPe9XbeNpOUIefxRF8cmgkfg=; b=Xb9y9XNuc7q8lH
-	0ibyJvOVAgUAhlIfhx1xPY0Pk0LDYI3kAfdA2k8Vj9GWf8Zmvwbi5HkhG/fcwlscEFyXaxehprdej
-	bXCdUJEIKGsLiydexeHK6dfzo7eJjoU+cZy5rCK709ZQYDVbnQ0V/TUlWzpYY66lc1yDIau90/2Py
-	sVhMcFWwW5TMOxtAHVWtTg2T4XHqvt/GbamqdD/1lDl5DtLnfF2jrqqJPpX4TaIqaG7CYVv/olVd1
-	x4gnzPLePCreMMrrsgS+fo/3ncPde9xl9CbFYuON85rYbfcSWCDIhyw/eLD1gQCtiG7jELD6WyITs
-	I6sxa5NsKTtCzTJZQs9w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DOolnAj9oNvsAF8iNdKeuFiM51lxdlbZlh2fgiUbK+M=; b=wH11mwqufyfUL4
+	5sBBnPtebWq8XqnqhvrqiIasdZseD4VjGI8loXNL28B5CamLc2F6D9+Pac9N21HzoUno9QQjuTz5g
+	/n/L++6xkdJFYwZAKJ0yQptV394PKKlDFdtT4zUJNKC5KqC8vUPo6N7/wKobpJVY2aGmXHx9+RH2s
+	J2dr34jNyz8Wqn6eNEbNOTkchzTP2wsRWFawq7i0wHxWr9qHqmeJOsjBW4ZorSUuBjoE201nQaUKj
+	yUiy14N8aCEgqfTyj5avnqCBadiOFmf9ujbhZ19656lXfkmrZABnZ/ujP+lsr0nH0/aTzldBG0N9j
+	+o/k0m8VlYp3bWR8w0yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4iO-00000000VtO-1igF;
-	Tue, 09 Apr 2024 06:12:16 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1ru4iP-00000000VuI-34VK;
+	Tue, 09 Apr 2024 06:12:17 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4iI-00000000Vls-4496
+	id 1ru4iJ-00000000VnU-3278
 	for linux-riscv@lists.infradead.org;
 	Tue, 09 Apr 2024 06:12:13 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1e36b7e7dd2so31353575ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Apr 2024 23:11:57 -0700 (PDT)
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1e244c7cbf8so43834675ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Apr 2024 23:12:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712643117; x=1713247917; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LNu+GMI0LnpE6OoNqPaNP2xIRA7y3ywXaMFD3+hEy+U=;
-        b=KnvNLAL7OFGBW4koqtm2DUZPRpCJs285clKMIKlUA5qWP94wwQ4HBWhO7FIV7XlNL2
-         bW+Tji0WLbS12qGK2DN6bNMTOviMoa8YiEiGgfgQhuW56flxQ2dGiv0UAMboZXSLvTRa
-         3+fbBjG/kKOF0aT/OGtIYbvgQTm2w4SWBOR6ahm8J4bYsdFmK7iVJe77jZdnHG8ebejJ
-         HvXHarm07g+vgg46k/0C2wFvU2zRLQWMka/lzFAmsF7ittznw/GL1mShFYUmwxUckFFs
-         vidocnnbJajddNHWFOQ0Gmac6zeCiq5f5/CPD0Wg8tEKP+m80R5/qm4da056DAyEvOhS
-         acnQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712643127; x=1713247927; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sjtTgkYtpD1hbyyXFcP/z2jvjrG+SfaQnLJvf/Uiuoc=;
+        b=MwIVXecIzax4LaCj/tpeq/cVsD8EuM7V+HH0X7ribFhB1Rg2hDRv79lNiLAYmRrobk
+         S4IKiCurHCShWAYtCJeRrVu6RwyyU2m5lLxJb3ZwQ5+pWLphFrC6uVe0O3hbbKZn419N
+         +KbVqiTLQwIrIcbD/Z+6E4ays2RWOEQ8o5SQ7NjVMv5ypFUSWnVRqKShpkLyAGCCdfa0
+         Xuw7C5wNv1gTPHYOxL9bw38H/5THCoReu/lpmub14FaevIFI+3/uxW9iBwRDYE04X2qk
+         Xll3JBsE2X5jwUKL5VIgr8Lr+DsIPrNFn22ca6JqlwR8GNKMchnqmLC8qVLuvW20zQ5J
+         dUow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712643117; x=1713247917;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LNu+GMI0LnpE6OoNqPaNP2xIRA7y3ywXaMFD3+hEy+U=;
-        b=BSXBC0dHtAYOvhmtcbAHYrtxgfY7y/HN5KD3yXWwFip2OEutdZ8c/YUPDicAh0B0QQ
-         pANQFENq9Dp+Qp9eObSBRAL+OB0IC2KV/O0pfXzaVq3krdNEX3Zgo25BGCbKzT+gK76Y
-         pY4d69drf6O/RkPQjEg5jMnHNtqW3ju6AtR6lRQ7UGV+cFYHObGCj06PmaOKYvBoMHXE
-         o9M/cHtdNEVF7tyytIOXz3tHrJYoqqeC2WvSADCE66ckeE8/DojrbeU5w58AQaPNUqsa
-         J6aLKwGu3Z4zl8UJbFbT+lcMtv8ZWlz4g4ASeMAgeJW5xaH7UCuhbxiS8AuZAciDjcPM
-         Nqyw==
-X-Gm-Message-State: AOJu0YyUOe+bCK7j/LDBx831a94izVp24kiN2L65z3/BuPnyWCt6yzuz
-	yQ0v+hufCSlw9M1l52mP8dCgbgSQ6ZWiY0eKDyY9PMsW+M5fL+eQstY7/09pzGnYuxjMC02uJ+t
-	u
-X-Google-Smtp-Source: AGHT+IFAEx2oWQm/CjdpGB2Fg/5zWgfQFm9z3OMamljMoc1Ud/BPFjN+0/Vy6Ix6zi2EHTDC9jxG0Q==
-X-Received: by 2002:a17:902:cecc:b0:1e2:ac38:2657 with SMTP id d12-20020a170902cecc00b001e2ac382657mr10867433plg.24.1712643117037;
-        Mon, 08 Apr 2024 23:11:57 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1712643127; x=1713247927;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sjtTgkYtpD1hbyyXFcP/z2jvjrG+SfaQnLJvf/Uiuoc=;
+        b=rDv5SwdQL3hWYHfGsmmb8FLSMWGtw/vAiKq3cFhDVeB8p225OuQeAboCY7dRo/rbZA
+         P+As46X5ICTEUsqFVLvB0elTMYJ5+BRVbykMKNlmQgtrt0V5S+IAb+hVlQ+OH/ScVmtB
+         PmarPpJmUWTHDzQX3mpQvFwfcBc40I5oi3gkUJ5ndN/Id52An9XYyXPtn49R6TvSSAOg
+         bapzlghsIUikIWeuoAMliNfQdKWQoLoXGjIoYrAHPnyn1bY334x/O75c+3Z+DUZjzbnZ
+         3/PUMDCxfkMdV9+S8ilgBuYM0Lle9Qd3Bhi7K6OljYRK1GvpuHXhUBPJtryzd2VNtL5a
+         PCEg==
+X-Gm-Message-State: AOJu0YxL+mpfcGsuVDp2m6gIZAR5evkeDDHvk4leslQOt8DzZm0pb6Wm
+	kCfr7Xxhl2w00UpBk/re8vQz+KuZWoFhuQB/YUbC2nx7As/U90RdY/gbUBTlvLgMKpAyCF5Ho79
+	6
+X-Google-Smtp-Source: AGHT+IE/zrYmmP+jRMmProhU7OrEkAtvl+lojCdG3T5dMALi5Qk/NiBMoaQSS094JtfcnVR7MBKxhA==
+X-Received: by 2002:a17:902:e945:b0:1e4:363b:1d42 with SMTP id b5-20020a170902e94500b001e4363b1d42mr4916637pll.3.1712643127547;
+        Mon, 08 Apr 2024 23:12:07 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id n3-20020a170902e54300b001e3dd5972ccsm5775564plf.185.2024.04.08.23.11.55
+        by smtp.gmail.com with ESMTPSA id n3-20020a170902e54300b001e3dd5972ccsm5775564plf.185.2024.04.08.23.12.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Apr 2024 23:11:56 -0700 (PDT)
+        Mon, 08 Apr 2024 23:12:06 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -115,14 +116,16 @@ Cc: paul.walmsley@sifive.com,
 	paulmck@kernel.org,
 	broonie@kernel.org,
 	rick.p.edgecombe@intel.com
-Subject: [RFC PATCH v1] riscv kernel control flow integrity
-Date: Mon,  8 Apr 2024 23:10:31 -0700
-Message-Id: <20240409061043.3269676-1-debug@rivosinc.com>
+Subject: [RFC PATCH 05/12] riscv: fix certain indirect jumps for kernel cfi
+Date: Mon,  8 Apr 2024 23:10:36 -0700
+Message-Id: <20240409061043.3269676-6-debug@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240409061043.3269676-1-debug@rivosinc.com>
+References: <20240409061043.3269676-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240408_231211_019797_3124DA1C 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20240408_231211_785505_C8737999 
+X-CRM114-Status: UNSURE (   9.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -140,66 +143,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Basic overview
----------------
-This is a RFC patch series for enabling kernel control flow integrity on
-riscv architecture. This patch series enables kernel control flow
-integrity using proposed riscv cpu extensions `zicfilp` and `zicfiss` [1].
+Handwritten `__memset` asm routine performs certain static jumps within
+function and uses `a5` to do that. This would require a landing pad
+instruction at the target. Since its static jump and no memory load is
+involved, use `t2` instead which is exempt from requiring a landing pad.
 
-`zicfilp` enforces that all indirect calls and jumps must land on a landing
-pad instruction (`lpad`). Additionally `lpad` has 20bit encoded value as
-part of instruction and cpu will check this 20bit value with t2/x7 register
-, if they mismatch then cpu will raise an exception `software check
-exception` (a new exception with cause=18). In this patch series, a
-constant label value of 0x1 is used. As series will mature, it will switch
-to a 20 bit truncated hash over function signature. Label based on function
-signature allows stricter control flow and fewer call/jmp locations from a
-callsite.
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+---
+ arch/riscv/lib/memset.S | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-`zicfiss` protects the return path from functions where return relies on
-obtaining return address from stack which is corruptible. `zicfiss`
-provides a shadow stack which can be used by software to place return
-addresses on shadow stack and while returning from function it can be used
-to compare against return address from regular stack. If they dont match,
-cpu will raise software check exception. `zicfiss` based shadow stack are
-protected against tampering using special page table encodings (please
-refer to [1])
-
-To obtain more details about `zicfiss` and `zicfilp` ISA extension, please
-refer to [1]. There is an ongoing patchsets for enabling this feature for
-user mode software here [2]
-
-Enabling on kernel
-===================
-This patch series introduces new riscv config `CONFIG_RISCV_KERNEL_CFI`.
-If this config is selected, it turns on 
-	- forward control flow for kernel using `zicfilp`
-	- selects `CONFIG_SHADOW_CALL_STACK` /w `CONFIG_DYNAMIC_SCS` to enable
-	  backward control flow.
-
-forward control flow for kernel
-================================
-This patch series simply compiles kernel with `march=_zicfilp` compiler
-option. Currently toolchain uses constant label scheme of label = 0x1.
-This patch series manually fixes some of the assembly callsites and
-sequences to make sure they are not breaking rules setup by `zicfilp`.
-
-backward control flow for kernel
-=================================
-There is an existing support for riscv kernel for shadow call stack [3],
-which is a software based shadow stack and uses clang /w instrumentation
-to push/pop return address in prolog and epilog of functions. Although
-software based shadow stack lacks memory protections and thus suffers from
-same issue of return address susceptible to hijacking. shadow call stack
-uses `CONFIG_SHADOW_CALL_STACK` /w option of `CONFIG_DYNAMIC_SCS` so that
-hardware vendors hook into the flow to provide stronger guarantees. This
-patch uses `CONFIG_SHADOW_CALL_STACK` flow along with `CONFIG_DYNAMIC_SCS`
-to enable return control flow integrity on riscv kernel.
-
-[1] - https://github.com/riscv/riscv-cfi
-[2] - https://lore.kernel.org/all/20240403234054.2020347-1-debug@rivosinc.com/ 
-[3] - https://lore.kernel.org/all/20230927224757.1154247-8-samitolvanen@google.com/
-
+diff --git a/arch/riscv/lib/memset.S b/arch/riscv/lib/memset.S
+index 35f358e70bdb..e129ebf66986 100644
+--- a/arch/riscv/lib/memset.S
++++ b/arch/riscv/lib/memset.S
+@@ -56,12 +56,12 @@ SYM_FUNC_START(__memset)
+ 
+ 	/* Jump into loop body */
+ 	/* Assumes 32-bit instruction lengths */
+-	la a5, 3f
++	la t2, 3f
+ #ifdef CONFIG_64BIT
+ 	srli a4, a4, 1
+ #endif
+-	add a5, a5, a4
+-	jr a5
++	add t2, t2, a4
++	jr t2
+ 3:
+ 	REG_S a1,        0(t0)
+ 	REG_S a1,    SZREG(t0)
+-- 
+2.43.2
 
 
 _______________________________________________
