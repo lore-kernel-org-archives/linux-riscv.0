@@ -4,93 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B1EC67861
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 22:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9486C67861
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 23:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nRKTO078VnEo60dwVzsrrxUAIH/JZyE/GBV19iGC64k=; b=wrI9QqGhORQh4P
-	OAWD4UrTDd0q5Hk7Wn3eBW8m0sUWqZG5tvMPUJrBybmgxeLbk3EFb1rtmlAprKyjzLbqbVgduzypZ
-	EsW3+d8gzIqq4oGqr4TgmTw3jHAp4ZBTMghCiOGSvEv5W4jjdV5KEPawULzhYWM6nh8d9elX3CyuB
-	Q958h4QAmlXqRwBYUJAFo6BcKZEUius3x7Yy8B57sOxv4VgUJC+cnb1b31BinzeyJ2MQ7Yf2QQ7h9
-	7W1KtkFiijlP1X0cg0akFvr0Ho7isT40in8m1ARBwKLd/FPu7xhPF2UfjSeL8ONQnpiuthIBjiJSU
-	hHtrRYCFUE1oBv0IdoHg==;
+	List-Owner; bh=zERB/t6+EgImxwWgaYxt0a6N2twgjYLUEJEq83Qu7zM=; b=DmG/O47bIQZhVw
+	QQerqaLI3w/U9Flc1hiIOLKtIABFpzarOR+UtW9vfw6+IfyyNzih3N66RylV16P7s6EoF2VIgCW/B
+	PbnNFoUYCT80khD0mJlFjCbZKlODAnPZMl09w9+UgZvV2wU9/qNo9wy+5RPGZsXNAYW4KZBEV7uPk
+	nYnuvs1tBgoiOeA3ZwDyuvF+xm7x0y43l+mpl6jqTK/HvO8V9gnhRVqr7Ny1h/xJR2xh6RaL+b4MX
+	Fk60Wl3B9Qjx2YKplD8Y4/ydECDuoeaozSqEDQa968II2BvZq4qkSlYAs9xxBKe+4za78Nn0vBTUx
+	u7L1l4WwkQxShrbQxx0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruKKf-000000046vZ-1xJL;
-	Tue, 09 Apr 2024 22:52:49 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1ruL8O-00000004Gjx-1UUl;
+	Tue, 09 Apr 2024 23:44:12 +0000
+Received: from mail-bn8nam12on20701.outbound.protection.outlook.com ([2a01:111:f403:2418::701] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruKKa-000000046u7-3z5L
-	for linux-riscv@lists.infradead.org;
-	Tue, 09 Apr 2024 22:52:46 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1e2232e30f4so54292065ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Apr 2024 15:52:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712703164; x=1713307964; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8646Xh8g5yQ0wp4lvVkVKpM6tKaisldaAHvB1jCcuIM=;
-        b=Gi0CngwidO04uFz+Om5jXukPfU1XGPX5wbvFduXTVPvfDA6ruNN9uTjX4HaoMn7Hjr
-         H6e1rTekCuUeOZ+qNBNxlax9XCR03KY50gxkO+xCDakYjhQrino9h97n7EluAF3eysue
-         vYoSeEEl+SRnFqaA7OZSa+H/dkIxZBRHqtYp5FGeWEzkytomWKO/dKY8Z5ON95ZlNBDT
-         ntaroB8jCfs9+gMizKkUZ/W4bxcvTpwNyhV1RR26+GzE6TnrKcQJpP85rrTkGPL04KWk
-         Y2qyz6P+45S3xcGfDCLt/F1QmVHkGmjhPLPYASlxfrLvB5CPsr0uoVWMLQOARW3m8l6Q
-         mtWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712703164; x=1713307964;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8646Xh8g5yQ0wp4lvVkVKpM6tKaisldaAHvB1jCcuIM=;
-        b=t1Jd74m1yoFfLBg9pgLVBPrv9rfitMK+k+4+taX7TbI7y/wiEIRMytDVYvJrg02ud6
-         sByl+ynI2mO+Pei9j83vSfwLQMUsx4WVb2idKy97OW/A8geA/E1sdN2wSzseGd0rcReY
-         Eq7mXp1M1EBokThKXY3GyGWiysDrZ9cf/4gYJGgD5+fglTF+Wy/ITnxiGqjEtSE5dXm9
-         BDCGt6iBCF2Fk0dCd4SOLvInNx6/SEEMoE/TKdCchNCHMuksb22OXaZ6FQ1hWU2T8qYZ
-         IGLlBfXhJIqPbNZ4zDf84x+PSRv4hW2M+YhCqD2ue9HN2jlMzDpkYhj3c3JqscpKQ41g
-         BBmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWjJhpzd1G1gnIDUbl4oDLKvDqf4a7qA30bjiNHC+3yDrQsMkS8W4TgWWXr2JmkuUPnXytjgCHqRWiLF40518/kjETKHxXolhGVByx5BXQY
-X-Gm-Message-State: AOJu0YyEknztaxeln2fvusIwAco/BsqA+e8zkFUdGiYk/KCGPe0Jmnq3
-	jyR/NBP/iaDisencSwxFtRp7b78i4eUJdU/ds1sWdutqwJezwqstP7Ot39iYjHk=
-X-Google-Smtp-Source: AGHT+IHPTK8LD9zQy/xLQpYsma/G3UlebQRk8nSskauRbNZ+/B4hgd1PN7d7FaruEdopv10/t5kwJg==
-X-Received: by 2002:a17:902:e548:b0:1e0:b9d0:f6b with SMTP id n8-20020a170902e54800b001e0b9d00f6bmr1177730plf.68.1712703163716;
-        Tue, 09 Apr 2024 15:52:43 -0700 (PDT)
-Received: from [10.0.16.226] ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id q12-20020a170902e30c00b001e290812d49sm9463411plc.226.2024.04.09.15.52.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Apr 2024 15:52:42 -0700 (PDT)
-Message-ID: <8748dbed-d105-4f26-a808-667c3b56c8ec@rivosinc.com>
-Date: Tue, 9 Apr 2024 15:52:40 -0700
+	id 1ruL8K-00000004GgS-3SJK;
+	Tue, 09 Apr 2024 23:44:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Xi+3pvDvOVxI5yXfdGGEQhgvZpb+NKDP96OnbU3lTPZxmfFJxuI72YaIEktEJdLDtS8dTtF5+dxEgaFKn9dpdjO0dGfgBdUOa0iRMybTAJeVRfTAu723wxZN6FbbR4/fv+4hjZHbdXrfr1wrOMiJgn62bIjnIYoHRGhsvcmWOZ0DUh1EMKip5LvYZSK8qCwlhCKukGFl9bPmD+CvaL6AGhFIXo6KD3cYeAz8rIprwihx3zLcPjOxaDtoLn2x8POp/Lj/0Ql5pUS4O3awxM4iUwrezebj4mEm0SO6zVxKCbAffkwddfFN9XfdJvllRi4M4vv9rl0tWRjlaERwjN/UOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZtYTOEh4QaWorr43L3gIXx64bhliZyCJB+XpBOpnfnY=;
+ b=acpbnNMFSjuW2F/GF7XDJ2VI4xwM9sVYi7kcXFseCy5rM6Bser2UxfQtZHDM5PgFXLLakEAzgJOeLqARrZer0PydIAZh8YGsGIAzp8+sf40tFPy7EQMAcY+XRWEyfBrUJJyVZUbsz7GqvpmeQP7j4u6YnNB/c5B5w7g8tUWxQEljmAXWmaMTBFehxY+yfm4wZoDG4A9WvvE6ClJn3JlxB8HILipb0XM3QdU/s0OIosMVePW52tGx75UHawEnHdT3da11Wi0iqWS4x+SFGWTm5x0lyqUScllgEdZjWgL0jm3qISuW/mNiSZ0B87Z2iTqDAsMoajACRXBI2/r2UPpoiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZtYTOEh4QaWorr43L3gIXx64bhliZyCJB+XpBOpnfnY=;
+ b=nAcjPDAW0kACTUv5lj0Y/8tRiH/b3l1rt3VC8DswdR/Y9x2JskqMcO5yof+yx1xoRzs+RhlUszlFJMCKFqKyGM/j3Z9wb53p6NMN3vUnPidrWJp8kWBmWhsqbEv05qZSU5gy8xb6InpN6aX8Jwi3muJRcFYzks21wyEutN1UQCgGFkrObwsw4KRhQyTuc72hx3p57wOaubPe21ByEu9vigKyRRkTW5xHDP/i7Xhz+6MMX/7z3FVNi1iMZkv6ZQTS6wX7tBsYQBNN8qqx5EPXlYxlBTm3L3Gnii4tQ8ort7+34j5WkmL0/JgoscbdAbCqcco4TbKwwTTrFdM3JxTocQ==
+Received: from DM6PR12MB3849.namprd12.prod.outlook.com (2603:10b6:5:1c7::26)
+ by CY5PR12MB6371.namprd12.prod.outlook.com (2603:10b6:930:f::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.55; Tue, 9 Apr
+ 2024 23:43:57 +0000
+Received: from DM6PR12MB3849.namprd12.prod.outlook.com
+ ([fe80::6aec:dbca:a593:a222]) by DM6PR12MB3849.namprd12.prod.outlook.com
+ ([fe80::6aec:dbca:a593:a222%5]) with mapi id 15.20.7409.053; Tue, 9 Apr 2024
+ 23:43:57 +0000
+Date: Tue, 9 Apr 2024 20:43:55 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Peter Xu <peterx@redhat.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Matthew Wilcox <willy@infradead.org>,
+	Rik van Riel <riel@surriel.com>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yang Shi <shy828301@gmail.com>, John Hubbard <jhubbard@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Christoph Hellwig <hch@infradead.org>,
+	linux-riscv@lists.infradead.org,
+	James Houghton <jthoughton@google.com>,
+	David Hildenbrand <david@redhat.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Mike Kravetz <mike.kravetz@oracle.com>
+Subject: Re: [PATCH v3 00/12] mm/gup: Unify hugetlb, part 2
+Message-ID: <20240409234355.GJ5383@nvidia.com>
+References: <20240321220802.679544-1-peterx@redhat.com>
+ <20240322161000.GJ159172@nvidia.com>
+ <ZgHJaJSpoeJVEccN@x1n>
+ <20240326140252.GH6245@nvidia.com>
+ <Zg8gEyE4o_VJsTmx@x1n>
+ <20240405181633.GH5383@nvidia.com>
+ <ZhBwVLyHr8WEKSx2@x1n>
+Content-Disposition: inline
+In-Reply-To: <ZhBwVLyHr8WEKSx2@x1n>
+X-ClientProxiedBy: BL1PR13CA0252.namprd13.prod.outlook.com
+ (2603:10b6:208:2ba::17) To DM6PR12MB3849.namprd12.prod.outlook.com
+ (2603:10b6:5:1c7::26)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 21/22] KVM: riscv: selftests: Add a test for PMU
- snapshot functionality
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
- Ajay Kaher <akaher@vmware.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Alexey Makhalov <amakhalov@vmware.com>,
- Conor Dooley <conor.dooley@microchip.com>, Juergen Gross <jgross@suse.com>,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
- Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Shuah Khan <shuah@kernel.org>,
- virtualization@lists.linux.dev,
- VMware PV-Drivers Reviewers <pv-drivers@vmware.com>,
- Will Deacon <will@kernel.org>, x86@kernel.org
-References: <20240403080452.1007601-1-atishp@rivosinc.com>
- <20240403080452.1007601-22-atishp@rivosinc.com>
- <20240405-4e840120e8117c286cb593f9@orel>
-From: Atish Patra <atishp@rivosinc.com>
-In-Reply-To: <20240405-4e840120e8117c286cb593f9@orel>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB3849:EE_|CY5PR12MB6371:EE_
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: iXQTxovTY807gc9Dbk5H0zd9d0njVbKMhGDXOQQ6ZTfgqyaFPOgiRx4Mm4bl0xB8/31350HIhR084ItECUUS9eEcpvJqW3JxtpmM59l+Nu2rQCGLcq4OISstEP3jYYHjaDUN8g5XVvgfMUvzafeYWdwIrDNHzODw8jTGuwRjiYTmswad9tTkbQmFH8XKGqebBpVt/IcchePxCyZcJ6YmacEx5O4zWVPpkfj3gBLD8YVroioVW8QUWelKirZsM3CD6Kml3GZsn5G6nNUhqMG88wk/GJRjfobkkcxRAGqR0BsiyBXIA6j95P7wnfrNs07dGJbcKq51rcL3V6CjHtoEJRIIKQGqVMyvHKxdb1ikHXTH7dmFZA+uWT3b8biLb0OfshoICsnk0pZLix2Q8FALh1vvX/Y6OB61pAR2koybkQimnh5CCHlf/RmEfnTxIYkeUQIe2CoBvUnmsfTJEQ8H2Olwuijj2tn0a7t26qisAnGPCwrBOrP0RZGSz7czl0awcF4UB4aH4Ba02cVp/JkguACxwR2bRXlWx1VStVtu52JNseiF73W3+DGuGK5BXNlooS3TDobd+CE4AgVZlKDeLiYr9rGDnhWKgjts2A/J2Wb2BH8XY81uonrjBpgM/v5lL6OzW9Hch0PRZqIzzcx9cburqln0VWUxWN25AOVSMnI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3849.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(376005)(366007)(1800799015)(7416005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LsbAex/tFaOhbX5oXZtD2xnKSHaLeub2PpPUmpl9Y4EinNTpaBVG8vnUJOWG?=
+ =?us-ascii?Q?e/y7V8hJtgWVDC0rkXlLnKpc4TtC+9zKlae4wCl+pXU85lIFDQP9seYfJLYF?=
+ =?us-ascii?Q?oEANW1pktsvHbr6OZlSh8TkvzUGe6e/jJG6J6c9OJQjl3yAZKkRj2KAmAGuC?=
+ =?us-ascii?Q?7DWJR4SyjRGOln34+eJDGyo8OkRjSfnSmjkvn9UnXoTMqdzh8c08s1CVxqin?=
+ =?us-ascii?Q?piyxmajEGbJ8xSYtlc0qHVZZT9r4PqnZazYJUu3h2sFb8WULeXkEcjRn+2/T?=
+ =?us-ascii?Q?CL+wwDvuFk6ycyTyatRwdWkvZoR0xMP+3nqLp/aiLN1nJxiRf4EKH5BK0F5K?=
+ =?us-ascii?Q?+O7CmocJ4fIGpWNwXj/2sDYpUykq58u2jZGwxFlvEpxy3/Fg95YGadeOowqC?=
+ =?us-ascii?Q?J+RRMpxr0mF3gqyrSxQ6lu/QEgIMXeedjrl4a0tO6kmQqs+93a3I2lKgHdGw?=
+ =?us-ascii?Q?tHUTHInOH6556qlhkMptj5KeK2r92pPeG1U5+zY0NlgaGexxpnT7/GJWW6TR?=
+ =?us-ascii?Q?q+3WGX1ffFsk2yQAXMuvYVBDewEWi+zUKnHdxpxa1CMK0hqJyqdzUb3K7VrJ?=
+ =?us-ascii?Q?aWW/9BqXWMPBJT/7M4mNzozLBLiKipDlaQ4C4nq/UJuj8XfMWsvUf4O+Styo?=
+ =?us-ascii?Q?aEM9YwlIG4AzxxV65ZXH5BFJ0mSMo/rQpd++4tWJth8cLrfMwhUvgTl+exbk?=
+ =?us-ascii?Q?SjKlTW7yGaKIIIUAM35bfS7SVK4W7J4l+D5ymCFCH8M6QIgEM5ZlTU7hwL/m?=
+ =?us-ascii?Q?E++4/wtyRULEQd04V1YCuUZYMEX1+8NzhrE2eOuOoNMle0O3+c/qPvXv125V?=
+ =?us-ascii?Q?niP47nXoiMGXvSd9+GyYUnNkuwfiiXa9bqEXTRdwtAp2zNerQslFSA9j48yO?=
+ =?us-ascii?Q?0iWeN6EroSDCvRyhpTrj5HFTtpwjaCCglGLgXYe68aOxiDLqmXHuw/1f7NzZ?=
+ =?us-ascii?Q?ER4NULBHpqZW/H77fQLVa3KpkFueTW0qCMAaxz+2zEMC/WZwzSJnh6cc6wpg?=
+ =?us-ascii?Q?n2iVCPxpVhLcNm6LNkPBKDpcaemM65as+I39xolAOodWS0sVi02NmxWG95KC?=
+ =?us-ascii?Q?J48e5+W/77mvgrt8p/1edxo10TGzDdBSUj6fqojnZaDjGVeaQa5j/l7mRIgT?=
+ =?us-ascii?Q?YtW5amIZHFu1ScXv7QvJ8JUMuLKNyznJPJdNikPmoFc9Z3FKoAuwRo5FFkzA?=
+ =?us-ascii?Q?iziyqOneDlKtDUTooHdz+6xef+7poKlK1II4pe4VCX0xj9/3U/8XwSMNRKlX?=
+ =?us-ascii?Q?TcaQNtPGsdwlAcj9ZqrZq+7V9FS5MBHoN3oHgIPv4X1pi531SZUmJEAiMuvP?=
+ =?us-ascii?Q?laDiXae2IQ1TM1+QqUu/Taey/VgL0nJya/bbhVQu6XU1p4NiIOZ8BitSojst?=
+ =?us-ascii?Q?iXuUC1TEBRedIsRztPhmsrARqVSkLxjmuJrEvbnGHPVMDfkXz26fvgLAtSPr?=
+ =?us-ascii?Q?yKaQLoVnWrBmbcqfaf1OF4dse5IietzKQddHb/62jAYx/USjB0FD7vL/PMBH?=
+ =?us-ascii?Q?DT2+xLhhAtDQE4+/Ho/512dmzC9N4te2pdMA4wHNbAXfSISUOsAxb9UM/m8S?=
+ =?us-ascii?Q?ihV6z0q3kuX/QAwP5flrKN0tCFCiLbrObP4TA0aC?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85e3d269-d78b-41b7-d9ce-08dc58eeec68
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB3849.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2024 23:43:57.2831
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: W8tC1X3VQ0gDilRgFzcj7VTWoVsSZCmOuOX+sy3uB0ahEU1M7HHxIrKg+VfaSHQA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6371
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240409_155245_042328_B0BE8875 
-X-CRM114-Status: GOOD (  35.80  )
+X-CRM114-CacheID: sfid-20240409_164409_157417_73BA4D2B 
+X-CRM114-Status: GOOD (  24.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,311 +150,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/5/24 06:11, Andrew Jones wrote:
-> On Wed, Apr 03, 2024 at 01:04:50AM -0700, Atish Patra wrote:
->> Verify PMU snapshot functionality by setting up the shared memory
->> correctly and reading the counter values from the shared memory
->> instead of the CSR.
->>
->> Reviewed-by: Anup Patel <anup@brainfault.org>
->> Signed-off-by: Atish Patra <atishp@rivosinc.com>
->> ---
->>   .../testing/selftests/kvm/include/riscv/sbi.h |  25 ++++
->>   .../selftests/kvm/lib/riscv/processor.c       |  12 ++
->>   .../selftests/kvm/riscv/sbi_pmu_test.c        | 127 ++++++++++++++++++
->>   3 files changed, 164 insertions(+)
->>
->> diff --git a/tools/testing/selftests/kvm/include/riscv/sbi.h b/tools/testing/selftests/kvm/include/riscv/sbi.h
->> index 6675ca673c77..8c98bd99d450 100644
->> --- a/tools/testing/selftests/kvm/include/riscv/sbi.h
->> +++ b/tools/testing/selftests/kvm/include/riscv/sbi.h
->> @@ -8,6 +8,12 @@
->>   #ifndef SELFTEST_KVM_SBI_H
->>   #define SELFTEST_KVM_SBI_H
->>   
->> +/* SBI spec version fields */
->> +#define SBI_SPEC_VERSION_DEFAULT	0x1
->> +#define SBI_SPEC_VERSION_MAJOR_SHIFT	24
->> +#define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
->> +#define SBI_SPEC_VERSION_MINOR_MASK	0xffffff
->> +
->>   /* SBI return error codes */
->>   #define SBI_SUCCESS				 0
->>   #define SBI_ERR_FAILURE				-1
->> @@ -33,6 +39,9 @@ enum sbi_ext_id {
->>   };
->>   
->>   enum sbi_ext_base_fid {
->> +	SBI_EXT_BASE_GET_SPEC_VERSION = 0,
->> +	SBI_EXT_BASE_GET_IMP_ID,
->> +	SBI_EXT_BASE_GET_IMP_VERSION,
->>   	SBI_EXT_BASE_PROBE_EXT = 3,
->>   };
->>   enum sbi_ext_pmu_fid {
->> @@ -60,6 +69,12 @@ union sbi_pmu_ctr_info {
->>   	};
->>   };
->>   
->> +struct riscv_pmu_snapshot_data {
->> +	u64 ctr_overflow_mask;
->> +	u64 ctr_values[64];
->> +	u64 reserved[447];
->> +};
->> +
->>   struct sbiret {
->>   	long error;
->>   	long value;
->> @@ -113,4 +128,14 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
->>   
->>   bool guest_sbi_probe_extension(int extid, long *out_val);
->>   
->> +/* Make SBI version */
->> +static inline unsigned long sbi_mk_version(unsigned long major,
->> +					    unsigned long minor)
->> +{
->> +	return ((major & SBI_SPEC_VERSION_MAJOR_MASK) <<
->> +		SBI_SPEC_VERSION_MAJOR_SHIFT) | minor;
+On Fri, Apr 05, 2024 at 05:42:44PM -0400, Peter Xu wrote:
+> In short, hugetlb mappings shouldn't be special comparing to other huge pXd
+> and large folio (cont-pXd) mappings for most of the walkers in my mind, if
+> not all.  I need to look at all the walkers and there can be some tricky
+> ones, but I believe that applies in general.  It's actually similar to what
+> I did with slow gup here.
+
+I think that is the big question, I also haven't done the research to
+know the answer.
+
+At this point focusing on moving what is reasonable to the pXX_* API
+makes sense to me. Then reviewing what remains and making some
+decision.
+
+> Like this series, for cont-pXd we'll need multiple walks comparing to
+> before (when with hugetlb_entry()), but for that part I'll provide some
+> performance tests too, and we also have a fallback plan, which is to detect
+> cont-pXd existance, which will also work for large folios.
+
+I think we can optimize this pretty easy.
+ 
+> > I think if you do the easy places for pXX conversion you will have a
+> > good idea about what is needed for the hard places.
 > 
-> Should also also mask 'minor'. I see this matches what we have in the
-> kernel so we should fix it there too.
+> Here IMHO we don't need to understand "what is the size of this hugetlb
+> vma"
+
+Yeh, I never really understood why hugetlb was linked to the VMA.. The
+page table is self describing, obviously.
+
+> or "which level of pgtable does this hugetlb vma pages locate",
+
+Ditto
+
+> because we may not need that, e.g., when we only want to collect some smaps
+> statistics.  "whether it's hugetlb" may matter, though. E.g. in the mm
+> walker we see a huge pmd, it can be a thp, it can be a hugetlb (when
+> hugetlb_entry removed), we may need extra check later to put things into
+> the right bucket, but for the walker itself it doesn't necessarily need
+> hugetlb_entry().
+
+Right, places may still need to know it is part of a huge VMA because we
+have special stuff linked to that.
+
+> > But then again we come back to power and its big list of page sizes
+> > and variety :( Looks like some there have huge sizes at the pgd level
+> > at least.
 > 
+> Yeah this is something I want to be super clear, because I may miss
+> something: we don't have real pgd pages, right?  Powerpc doesn't even
+> define p4d_leaf(), AFAICT.
 
-Nice catch. I fixed it in both places.
+AFAICT it is because it hides it all in hugepd.
 
->> +}
->> +
->> +unsigned long get_host_sbi_spec_version(void);
->> +
->>   #endif /* SELFTEST_KVM_SBI_H */
->> diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
->> index e8211f5d6863..ccb35573749c 100644
->> --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
->> +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
->> @@ -502,3 +502,15 @@ bool guest_sbi_probe_extension(int extid, long *out_val)
->>   
->>   	return true;
->>   }
->> +
->> +unsigned long get_host_sbi_spec_version(void)
->> +{
->> +	struct sbiret ret;
->> +
->> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_SPEC_VERSION, 0,
->> +		       0, 0, 0, 0, 0);
->> +
->> +	GUEST_ASSERT(!ret.error);
->> +
->> +	return ret.value;
->> +}
->> diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
->> index 8e7c7a3172d8..7d195be5c3d9 100644
->> --- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
->> +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
->> @@ -19,6 +19,11 @@
->>   #define RISCV_MAX_PMU_COUNTERS 64
->>   union sbi_pmu_ctr_info ctrinfo_arr[RISCV_MAX_PMU_COUNTERS];
->>   
->> +/* Snapshot shared memory data */
->> +#define PMU_SNAPSHOT_GPA_BASE		BIT(30)
->> +static void *snapshot_gva;
->> +static vm_paddr_t snapshot_gpa;
->> +
->>   /* Cache the available counters in a bitmask */
->>   static unsigned long counter_mask_available;
->>   
->> @@ -178,6 +183,32 @@ static unsigned long read_counter(int idx, union sbi_pmu_ctr_info ctrinfo)
->>   	return counter_val;
->>   }
->>   
->> +static inline void verify_sbi_requirement_assert(void)
->> +{
->> +	long out_val = 0;
->> +	bool probe;
->> +
->> +	probe = guest_sbi_probe_extension(SBI_EXT_PMU, &out_val);
->> +	GUEST_ASSERT(probe && out_val == 1);
->> +
->> +	if (get_host_sbi_spec_version() < sbi_mk_version(2, 0))
->> +		__GUEST_ASSERT(0, "SBI implementation version doesn't support PMU Snapshot");
->> +}
-> 
-> It's a pity we can't check the SBI spec version that KVM is advertising
-> from KVM userspace. Normally we'd want to check something like this at
-> the start of the test with TEST_REQUIRE() before running a VCPU in order
-> to generate a skip exit.
-> 
+If the goal is to purge hugepd then some of the options might turn out
+to convert hugepd into huge p4d/pgd, as I understand it. It would be
+nice to have certainty on this at least.
 
-Agreed. I will send a separate series for that as it is an ABI change.
+We have effectively three APIs to parse a single page table and
+currently none of the APIs can return 100% of the data for power.
 
-> (We probably should allow reading and even writing the SBI spec version
-> from the VMM in order to better support migration.)
-> 
-
-How that would work for SBI spec version write use case ? For migraiton, 
-you can't go back to older SBI versions in the host. Isn't it ?
-
-Considering this case your VM is running with PMU snapshot as the host 
-has SBI v2.0. It can't be migrated to v1.0 and expecting it work. Correct ?
-
-
->> +
->> +static void snapshot_set_shmem(vm_paddr_t gpa, unsigned long flags)
->> +{
->> +	unsigned long lo = (unsigned long)gpa;
->> +#if __riscv_xlen == 32
->> +	unsigned long hi = (unsigned long)(gpa >> 32);
->> +#else
->> +	unsigned long hi = gpa == -1 ? -1 : 0;
->> +#endif
->> +	struct sbiret ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
->> +				      lo, hi, flags, 0, 0, 0);
->> +
->> +	GUEST_ASSERT(ret.value == 0 && ret.error == 0);
->> +}
->> +
->>   static void test_pmu_event(unsigned long event)
->>   {
->>   	unsigned long counter;
->> @@ -210,6 +241,41 @@ static void test_pmu_event(unsigned long event)
->>   	stop_reset_counter(counter, 0);
->>   }
->>   
->> +static void test_pmu_event_snapshot(unsigned long event)
->> +{
->> +	unsigned long counter;
->> +	unsigned long counter_value_pre, counter_value_post;
->> +	unsigned long counter_init_value = 100;
->> +	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
->> +
->> +	counter = get_counter_index(0, counter_mask_available, 0, event);
->> +	counter_value_pre = read_counter(counter, ctrinfo_arr[counter]);
->> +
->> +	/* Do not set the initial value */
->> +	start_counter(counter, 0, 0);
->> +	dummy_func_loop(10000);
->> +	stop_counter(counter, SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT);
->> +
->> +	/* The counter value is updated w.r.t relative index of cbase */
->> +	counter_value_post = READ_ONCE(snapshot_data->ctr_values[0]);
->> +	__GUEST_ASSERT(counter_value_post > counter_value_pre,
->> +		       "counter_value_post %lx counter_value_pre %lx\n",
->> +		       counter_value_post, counter_value_pre);
->> +
->> +	/* Now set the initial value and compare */
->> +	WRITE_ONCE(snapshot_data->ctr_values[0], counter_init_value);
->> +	start_counter(counter, SBI_PMU_START_FLAG_INIT_SNAPSHOT, 0);
->> +	dummy_func_loop(10000);
->> +	stop_counter(counter, SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT);
->> +
->> +	counter_value_post = READ_ONCE(snapshot_data->ctr_values[0]);
->> +	__GUEST_ASSERT(counter_value_post > counter_init_value,
->> +		       "counter_value_post %lx counter_init_value %lx for counter\n",
->> +		       counter_value_post, counter_init_value);
->> +
->> +	stop_reset_counter(counter, 0);
->> +}
->> +
->>   static void test_invalid_event(void)
->>   {
->>   	struct sbiret ret;
->> @@ -272,6 +338,34 @@ static void test_pmu_basic_sanity(void)
->>   	GUEST_DONE();
->>   }
->>   
->> +static void test_pmu_events_snaphost(void)
->> +{
->> +	int num_counters = 0;
->> +	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
->> +	int i;
->> +
->> +	/* Verify presence of SBI PMU and minimum requrired SBI version */
->> +	verify_sbi_requirement_assert();
->> +
->> +	snapshot_set_shmem(snapshot_gpa, 0);
->> +
->> +	/* Get the counter details */
->> +	num_counters = get_num_counters();
->> +	update_counter_info(num_counters);
->> +
->> +	/* Validate shared memory access */
->> +	GUEST_ASSERT_EQ(READ_ONCE(snapshot_data->ctr_overflow_mask), 0);
->> +	for (i = 0; i < num_counters; i++) {
->> +		if (counter_mask_available & (BIT(i)))
->> +			GUEST_ASSERT_EQ(READ_ONCE(snapshot_data->ctr_values[i]), 0);
->> +	}
->> +	/* Only these two events are guranteed to be present */
->> +	test_pmu_event_snapshot(SBI_PMU_HW_CPU_CYCLES);
->> +	test_pmu_event_snapshot(SBI_PMU_HW_INSTRUCTIONS);
->> +
->> +	GUEST_DONE();
->> +}
->> +
->>   static void run_vcpu(struct kvm_vcpu *vcpu)
->>   {
->>   	struct ucall uc;
->> @@ -328,13 +422,46 @@ static void test_vm_events_test(void *guest_code)
->>   	test_vm_destroy(vm);
->>   }
->>   
->> +static void test_vm_setup_snapshot_mem(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
->> +{
->> +	/* PMU Snapshot requires single page only */
->> +	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, PMU_SNAPSHOT_GPA_BASE, 1, 1, 0);
->> +	/* PMU_SNAPSHOT_GPA_BASE is identity mapped */
->> +	virt_map(vm, PMU_SNAPSHOT_GPA_BASE, PMU_SNAPSHOT_GPA_BASE, 1);
->> +
->> +	snapshot_gva = (void *)(PMU_SNAPSHOT_GPA_BASE);
->> +	snapshot_gpa = addr_gva2gpa(vcpu->vm, (vm_vaddr_t)snapshot_gva);
->> +	sync_global_to_guest(vcpu->vm, snapshot_gva);
->> +	sync_global_to_guest(vcpu->vm, snapshot_gpa);
->> +}
->> +
->> +static void test_vm_events_snapshot_test(void *guest_code)
->> +{
->> +	struct kvm_vm *vm = NULL;
->> +	struct kvm_vcpu *vcpu;
->> +
->> +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
->> +	__TEST_REQUIRE(__vcpu_has_sbi_ext(vcpu, KVM_RISCV_SBI_EXT_PMU),
->> +				   "SBI PMU not available, skipping test");
->> +
->> +	test_vm_setup_snapshot_mem(vm, vcpu);
->> +
->> +	run_vcpu(vcpu);
->> +
->> +	test_vm_destroy(vm);
->> +}
->> +
->>   int main(void)
->>   {
->> +	pr_info("SBI PMU basic test : starting\n");
->>   	test_vm_basic_test(test_pmu_basic_sanity);
->>   	pr_info("SBI PMU basic test : PASS\n");
->>   
->>   	test_vm_events_test(test_pmu_events);
->>   	pr_info("SBI PMU event verification test : PASS\n");
->>   
->> +	test_vm_events_snapshot_test(test_pmu_events_snaphost);
->> +	pr_info("SBI PMU event verification with snapshot test : PASS\n");
->> +
->>   	return 0;
->>   }
->> -- 
->> 2.34.1
->>
-> 
-> Since my comments are a bit out-of-scope for this patch,
-> 
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> 
-> Thanks,
-> drew
-
+Jason
 
 _______________________________________________
 linux-riscv mailing list
