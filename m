@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E821BC67861
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 08:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C6C3CD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 08:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OPRS2T+hR6kV5CqOLf4ZHWl90ydOEAnwiH9w62au+9o=; b=HlgKwrNDS2xm83
-	CyKkct0MWnIOaOnvMcA3I41o7w+4PjlwU5HHd+Jk4nFeuz4G6LMUF6zazh79VdH84b2+McFWLj0rx
-	kBm8LVPJYbocywrUo9hAJgXEzOEgZzpa4HpUIBh2+cA6kzNLPJ9EhL4PGN3ZrwWyx5LBYUPbkteXD
-	x986QBQXjAMTrS2b6qddFB5k8KY+u4KQ4Fj74PrUEp5kl9i7Wiv6uNCVViP8ULTIGzMsqdM1jiXRn
-	YpcblXWe7CsUCaA23iZo6L2VOdczqd3BGhvJrA7pWBM0KWO+Zj7xhOHYJ+EemyRhBDpaI1Ev2Z6Bd
-	5tpZ15qd0At1sqBPHOgg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:
+	To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x2aKpDBvjjZC9sF7Ifi5eVmdjllxNyis6qPQQ/llbPg=; b=Am+WBj7eSTvVImWZkpiwisO+5s
+	N0twD8ChRBjE4acybaK1E4neUfrQE9Wf2vJFYkTJmmNLUqFHldyFWw+meaX7k3JFs0BRyvocYgKHl
+	jbJk/uFkQEaRSgX0akzXV0LJ4YrqShuxg924lQCpYGkAji2uqbqXLa3MuG8Jb7SFZJyNHkWVVqROj
+	7txT3w2b8qMD7pMYktg3Q0g6WP6l1nY1japrLkV9KztYQ+/lj2FyKHnVDQKZpuidtzh/P/hTC79W9
+	eRiyEYYC0H/UWHiIJecdxTyIqaWOGMX+9s0C2+aYXOiOghB0LOCVISsQTJzsi+gFYT8rCPnQFxROP
+	3zgLg7OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru6Qq-00000000rOv-08wc;
-	Tue, 09 Apr 2024 08:02:16 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1ru6rT-00000000y3T-3179;
+	Tue, 09 Apr 2024 08:29:47 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru6QS-00000000rJ7-07EZ
+	id 1ru6rQ-00000000y1W-1dzA
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Apr 2024 08:02:13 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a44665605f3so599008566b.2
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Apr 2024 01:01:51 -0700 (PDT)
+	Tue, 09 Apr 2024 08:29:46 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-41641a889ccso42645e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Apr 2024 01:29:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1712649710; x=1713254510; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hCIVc0ToTPxKSHwFH39eeFiQ4Iaybjud05qpLdkE0so=;
-        b=AWvDAvMoOqT6NMduAPAknr9clcdPZNuFT7cDfSnl/HK2YRQOzX7fi84WoUrTIzU6Q/
-         hIXBeHG67rtWtJW9EzwVmMSC8TWIyHXblEGmddm6FqZfGVc42ekFs0k5fJQWbkJpjvJu
-         L1tGxtZI0h2dNcMfkhOLP3rq3HBzM4HuAHyo2Mhvudywy5sfqTRmYCZhO6uZ+4E3M6wU
-         AV3rcOIEh+AdNFpUfEykAxazC1Jhjbcvmebd5GLlFGkZDBLwZy5p8FWzrhSmj799ZvGP
-         lwNdkKLBb+SxZyA8Dhwl369tWJIW4d63tdBJiS+Ax+v/FLx66uov8J3vbsaMtsfMQ3ms
-         CUZQ==
+        d=google.com; s=20230601; t=1712651382; x=1713256182; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=mlcPRcUrJc8EAEkEoC0SjO/aCxW2hlO/I0fzXNdYsew=;
+        b=UBBHaZL5lvkfQgf37uZKR02jsWKgHFupCvzuQtlMssNSW6mD76ECFs+kXf0hTRRy9n
+         BIGdgVJZD2+QAFvA3EOKMBGfSOJQoaUdmkmRlwingqVjHQo34TGkqci3JHX1U5tJuI9a
+         BqK3SCQa07GrKIktRV3YkQw3ydZk9zp26Ymx6UNT94JcowCF6aJzRhcT3hMXf9FH2RIV
+         +b0YbIT+FtIZpusI9Gh/uR/+5rn83A1o+2nwhjtyqrmMld07QL/BhVx+Ba/RcvzzMrQ5
+         kuQLY1t+N7a37cOC9N2EIH3aw/+juvnq6zFUpWaBVXjXit9/CQCvB7Tmszzp+d6mjpH6
+         lceQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712649710; x=1713254510;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hCIVc0ToTPxKSHwFH39eeFiQ4Iaybjud05qpLdkE0so=;
-        b=RPulQTXUNqHLUFEPD/7S1MpIqB/Gn8YL9TSdwOlOcpTC5JAZyEu9ezOUtB+pEkVZNd
-         lRuw9qiXWYebPsRNOm1kB6UzTgsOPucS+ev2tk4fNo44fCbOS/Ht2VqdnCaICNXHLoBx
-         FMi5tm3DynpJDbAA7PdctjtNRmH8tzN9vijAj53Mz7V6ncjIHvKzg6+Tv87RZWoNsnQm
-         PK75s13SnQ/Id2jfMLYtY4lXPvr7r8DmtKYNkLaX+IXumgcKdMSZWRIo3bQ2/sqGf/GN
-         HA/824+UtK5DqmDXBC7Zjxu1/Jg2n7UUplCsMApwmXUttmGXQ3gyqcz6jOtRi1uTmVNl
-         DeUw==
-X-Forwarded-Encrypted: i=1; AJvYcCVHImRrGYyL/mjmk0BBm3j0IpW++MZ4RmSISoUFYPKHKd3kHiXLmS7/GLmbRiC1O3umflZy0irZLqqN6x/m7WbgsUsXTbvdGjzbp3l2UkBv
-X-Gm-Message-State: AOJu0Yy/PSZBU9HdSRrG5DZ49tfL4X3xg1hlV1FmIP2Prg7eLQpyEiOa
-	/BYvu8J61P0yfAeY7lrG2G5DH4rEtZg98k+7pbM90jtjydnfdSCGqGi17bhGE1XarklSoVFtqbu
-	W
-X-Google-Smtp-Source: AGHT+IG/T7uaqwe5y6oCGXamr2sprW/wjX+aVwR61ApsAhhRf7ZUfXSB3xs49ZIPwF/ZvGx/GUAiPw==
-X-Received: by 2002:a17:906:c454:b0:a4d:f5e6:2e34 with SMTP id ck20-20020a170906c45400b00a4df5e62e34mr6793646ejb.19.1712649710207;
-        Tue, 09 Apr 2024 01:01:50 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id xh13-20020a170906da8d00b00a51c0c0cb86sm3775778ejb.22.2024.04.09.01.01.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Apr 2024 01:01:49 -0700 (PDT)
-Date: Tue, 9 Apr 2024 10:01:48 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>, 
-	Ajay Kaher <akaher@vmware.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Alexey Makhalov <amakhalov@vmware.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	Juergen Gross <jgross@suse.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, 
-	VMware PV-Drivers Reviewers <pv-drivers@vmware.com>, Will Deacon <will@kernel.org>, x86@kernel.org
-Subject: Re: [PATCH v5 20/22] KVM: riscv: selftests: Add SBI PMU selftest
-Message-ID: <20240409-dd055c3d08e027cf2a5cb4dc@orel>
-References: <20240403080452.1007601-1-atishp@rivosinc.com>
- <20240403080452.1007601-21-atishp@rivosinc.com>
- <20240405-d1a4cb9a441a05a9d2f8b1c8@orel>
- <976411ab-6ddf-4b10-8e13-1575928415ce@rivosinc.com>
+        d=1e100.net; s=20230601; t=1712651382; x=1713256182;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mlcPRcUrJc8EAEkEoC0SjO/aCxW2hlO/I0fzXNdYsew=;
+        b=J7LLfdswryUDL8b6Ts0eZxdjkPYjYmp/fJJQLlQ/gwHtKt8r38vhiQkxJsyANkMVqE
+         g5VjH8gNRkBoJI1FHf37f2dcgZoSsN6s+tlJlAsUWC2AANOy9D4QTBBiXvVcDRh5FDLn
+         uuMxpMgDiv8rJLbFVgaJXgGib020NmjW045gaVOLuER9U4eiJ4Dzgll5ZaFifztu0a3m
+         pYrZkcvakfNRAGKdFHHIhfFYzNi/c2pom1b3Ad8c+cJBxQNyg0bGMHKipRnwErWAOsmn
+         q6Xj289FEUZsFs+PmoBR/yIE4bmTmaANOFvl9N7xbpQFD9lIbkhQl4gOCBoPLi6oo0pi
+         2ldA==
+X-Forwarded-Encrypted: i=1; AJvYcCWnryPeAjxQA78u7EPixRdqc5wpvemw0V+X3iyp8cjfM/MK1dAt8p/fzpJ+nDmiG+I0O4riu6gfURPVYU7rBcX6vZ5h8XiDmpUuhZNa6ziK
+X-Gm-Message-State: AOJu0YyR+HQptbx4hNTmZrLzYmjzZxMGf6z8QL5G5eWTFatGCNkobeon
+	ku5v9ZU/GY698IBrG+KRcIPwGESUxdcVoJ6rYH4zzt3z+j31LkSrLuRNQAcIYY+ISlUSLWt14HA
+	N+0YMZqJ8QGR+EvJd8pCrfEcF3WWL7fY9JUHT
+X-Google-Smtp-Source: AGHT+IGN60qikBJ2TnvXDkLiAKeGKJtA8lMoXuaba+mNhsm81NX1Ko+ouWfYtBMoYyMS+yzPrbNrpDENV0LLD28XTxw=
+X-Received: by 2002:a05:600c:314c:b0:416:7f8a:c6ea with SMTP id
+ h12-20020a05600c314c00b004167f8ac6eamr92410wmo.1.1712651381537; Tue, 09 Apr
+ 2024 01:29:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <976411ab-6ddf-4b10-8e13-1575928415ce@rivosinc.com>
+References: <20240403131936.787234-1-linux@roeck-us.net> <20240403131936.787234-2-linux@roeck-us.net>
+In-Reply-To: <20240403131936.787234-2-linux@roeck-us.net>
+From: David Gow <davidgow@google.com>
+Date: Tue, 9 Apr 2024 16:29:27 +0800
+Message-ID: <CABVgOSkNmmEn05B3HKopWt4T=6rNHCNgrd1JkQo46CS6C9hYJg@mail.gmail.com>
+Subject: Re: [PATCH v3 01/15] bug/kunit: Core support for suppressing warning backtraces
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>, 
+	Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Kees Cook <keescook@chromium.org>, 
+	Daniel Diaz <daniel.diaz@linaro.org>, Arthur Grillo <arthurgrillo@riseup.net>, 
+	Brendan Higgins <brendan.higgins@linux.dev>, Naresh Kamboju <naresh.kamboju@linaro.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Maxime Ripard <mripard@kernel.org>, 
+	=?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, 
+	Daniel Vetter <daniel@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, 
+	kunit-dev@googlegroups.com, linux-arch@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	loongarch@lists.linux.dev, netdev@vger.kernel.org, x86@kernel.org, 
+	Linux Kernel Functional Testing <lkft@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240409_010208_059506_3A3B8E2F 
-X-CRM114-Status: GOOD (  30.00  )
+X-CRM114-CacheID: sfid-20240409_012944_557930_8AF5EAE7 
+X-CRM114-Status: GOOD (  48.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,163 +98,576 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3526496894974121906=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 08, 2024 at 05:37:19PM -0700, Atish Patra wrote:
-> On 4/5/24 05:50, Andrew Jones wrote:
-> > On Wed, Apr 03, 2024 at 01:04:49AM -0700, Atish Patra wrote:
-> > ...
-> > > +static void test_pmu_basic_sanity(void)
-> > > +{
-> > > +	long out_val = 0;
-> > > +	bool probe;
-> > > +	struct sbiret ret;
-> > > +	int num_counters = 0, i;
-> > > +	union sbi_pmu_ctr_info ctrinfo;
-> > > +
-> > > +	probe = guest_sbi_probe_extension(SBI_EXT_PMU, &out_val);
-> > > +	GUEST_ASSERT(probe && out_val == 1);
-> > > +
-> > > +	num_counters = get_num_counters();
-> > > +
-> > > +	for (i = 0; i < num_counters; i++) {
-> > > +		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i,
-> > > +				0, 0, 0, 0, 0);
-> > > +
-> > > +		/* There can be gaps in logical counter indicies*/
-> > > +		if (ret.error)
-> > > +			continue;
-> > > +		GUEST_ASSERT_NE(ret.value, 0);
-> > > +
-> > > +		ctrinfo.value = ret.value;
-> > > +
-> > > +		/**
-> > > +		 * Accesibillity check of hardware and read capability of firmware counters.
-> > 
-> > Accessibility
-> > 
-> 
-> Fixed it.
-> 
-> > > +		 * The spec doesn't mandate any initial value. No need to check any value.
-> > > +		 */
-> > > +		read_counter(i, ctrinfo);
-> > > +	}
-> > > +
-> > > +	GUEST_DONE();
-> > > +}
-> > > +
-> > > +static void run_vcpu(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +	struct ucall uc;
-> > > +
-> > > +	vcpu_run(vcpu);
-> > > +	switch (get_ucall(vcpu, &uc)) {
-> > > +	case UCALL_ABORT:
-> > > +		REPORT_GUEST_ASSERT(uc);
-> > > +		break;
-> > > +	case UCALL_DONE:
-> > > +	case UCALL_SYNC:
-> > > +		break;
-> > > +	default:
-> > > +		TEST_FAIL("Unknown ucall %lu", uc.cmd);
-> > > +		break;
-> > > +	}
-> > > +}
-> > > +
-> > > +void test_vm_destroy(struct kvm_vm *vm)
-> > > +{
-> > > +	memset(ctrinfo_arr, 0, sizeof(union sbi_pmu_ctr_info) * RISCV_MAX_PMU_COUNTERS);
-> > > +	counter_mask_available = 0;
-> > > +	kvm_vm_free(vm);
-> > > +}
-> > > +
-> > > +static void test_vm_basic_test(void *guest_code)
-> > > +{
-> > > +	struct kvm_vm *vm;
-> > > +	struct kvm_vcpu *vcpu;
-> > > +
-> > > +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-> > > +	__TEST_REQUIRE(__vcpu_has_sbi_ext(vcpu, KVM_RISCV_SBI_EXT_PMU),
-> > > +				   "SBI PMU not available, skipping test");
-> > > +	vm_init_vector_tables(vm);
-> > > +	/* Illegal instruction handler is required to verify read access without configuration */
-> > > +	vm_install_exception_handler(vm, EXC_INST_ILLEGAL, guest_illegal_exception_handler);
-> > 
-> > I still don't see where the "verify" part is. The handler doesn't record
-> > that it had to handle anything.
-> > 
-> 
-> The objective of the test is to ensure that we get an illegal instruction
-> without configuration.
+--===============3526496894974121906==
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="000000000000436e3d0615a5b9a9"
 
-This part I guessed.
+--000000000000436e3d0615a5b9a9
+Content-Type: text/plain; charset="UTF-8"
 
-> The presence of the registered exception handler is
-> sufficient for that.
+On Wed, 3 Apr 2024 at 21:19, Guenter Roeck <linux@roeck-us.net> wrote:
+>
+> Some unit tests intentionally trigger warning backtraces by passing
+> bad parameters to API functions. Such unit tests typically check the
+> return value from those calls, not the existence of the warning backtrace.
+>
+> Such intentionally generated warning backtraces are neither desirable
+> nor useful for a number of reasons.
+> - They can result in overlooked real problems.
+> - A warning that suddenly starts to show up in unit tests needs to be
+>   investigated and has to be marked to be ignored, for example by
+>   adjusting filter scripts. Such filters are ad-hoc because there is
+>   no real standard format for warnings. On top of that, such filter
+>   scripts would require constant maintenance.
+>
+> One option to address problem would be to add messages such as "expected
+> warning backtraces start / end here" to the kernel log.  However, that
+> would again require filter scripts, it might result in missing real
+> problematic warning backtraces triggered while the test is running, and
+> the irrelevant backtrace(s) would still clog the kernel log.
+>
+> Solve the problem by providing a means to identify and suppress specific
+> warning backtraces while executing test code. Since the new functionality
+> results in an image size increase of about 1% if CONFIG_KUNIT is enabled,
+> provide configuration option KUNIT_SUPPRESS_BACKTRACE to be able to disable
+> the new functionality. This option is by default enabled since almost all
+> systems with CONFIG_KUNIT enabled will want to benefit from it.
+>
+> Cc: Dan Carpenter <dan.carpenter@linaro.org>
+> Cc: Daniel Diaz <daniel.diaz@linaro.org>
+> Cc: Naresh Kamboju <naresh.kamboju@linaro.org>
+> Cc: Kees Cook <keescook@chromium.org>
+> Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Reviewed-by: Kees Cook <keescook@chromium.org>
+> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+> ---
 
-This part I disagree with. The handler may not be necessary and not run if
-we don't get the ILL. Usually when I write tests like these I set a
-boolean in the handler and check it after the instruction which should
-have sent us there to make sure we did indeed go there.
+Sorry it took so long to get to this.
 
-> 
-> The verify part is that the test doesn't end up in a illegal instruction
-> exception when you try to access a counter without configuring.
-> 
-> Let me know if you think we should more verbose comment to explain the
-> scenario.
-> 
+I love the idea, we've needed this for a while.
 
-With a boolean the test code will be mostly self documenting, but a short
-comment saying why we expect the boolean to be set would be good too.
+There are some downsides to this being entirely based on the name of
+the function which contains WARN(). Partly because there could be
+several WARN()s within a function, and there'd be overlap, and partly
+because the function name is never actually printed during a warning
+(it may come from the stack trace, but that can be misleading with
+inlined functions).  I don't think either of these are showstoppers,
+though, but it'd be nice to extend this in the future with (a) other
+ways of identifying warnings, such as the format string, and (b) print
+the function name in the report, if it's present. The function name is
+probably a good middle ground, complexity-wise, though, so I'm happy
+to have it thus far.
+
+ I also think we're missing some opportunities to integrate this
+better with existing KUnit infrastructure, like the
+action/resource/cleanup system. In particular, it'd be nice to have a
+way of ensuring that suppressions won't get leaked if the test aborts
+between START_SUPPRESSED_WARNING() and END_SUPPRESSED_WARNING(). It's
+not difficult to use this as-is, but it'd be nice to have some
+helpers, rather than having to, for instance:
+KUNIT_DEFINE_ACTION_WRAPPER(kunit_stop_suppressing_warning,
+__end_suppress_warning, struct __suppressed_warning *);
+DEFINE_SUPPRESSED_WARNING(vfree);
+START_SUPPRESSED_WARNING(vfree);
+kunit_add_action(test, kunit_stop_suppressing_warning, (void
+*)&__kunit_suppress_vfree);
+
+(With the note that the DEFINE_SUPPRESSED_WARNING() will have to be
+global, or put on the heap, lest it become a dangling pointer by the
+time the suppression has stopped.)
+
+Equally, do we want to make the
+__{start,end,is}_suppress[ed]_warning()  functions KUnit 'hooks'? This
+would allow them to be used in modules which don't depend directly on
+KUnit. I suspect it's not important in this case: but worth keeping in
+mind in case we find a situation where we'd need to suppress a warning
+elsewhere.
+
+These are all things which could be added/changed in follow-up
+patches, though, so I don't think they're blockers. Otherwise, this
+looks good: perhaps the naming could be a bit more consistent with
+other KUnit things, but that depends on how much we want this to be 'a
+part of KUnit' versus an independent bit of functionality.
+
+> v2:
+> - Rebased to v6.9-rc1
+> - Added Tested-by:, Acked-by:, and Reviewed-by: tags
+> - Added CONFIG_KUNIT_SUPPRESS_BACKTRACE configuration option,
+>   enabled by default
+> v3:
+> - Rebased to v6.9-rc2
+>
+>  include/asm-generic/bug.h | 16 +++++++++---
+>  include/kunit/bug.h       | 51 +++++++++++++++++++++++++++++++++++++++
+>  include/kunit/test.h      |  1 +
+>  include/linux/bug.h       | 13 ++++++++++
+>  lib/bug.c                 | 51 ++++++++++++++++++++++++++++++++++++---
+>  lib/kunit/Kconfig         |  9 +++++++
+>  lib/kunit/Makefile        |  6 +++--
+>  lib/kunit/bug.c           | 40 ++++++++++++++++++++++++++++++
+>  8 files changed, 178 insertions(+), 9 deletions(-)
+>  create mode 100644 include/kunit/bug.h
+>  create mode 100644 lib/kunit/bug.c
+>
+> diff --git a/include/asm-generic/bug.h b/include/asm-generic/bug.h
+> index 6e794420bd39..c170b6477689 100644
+> --- a/include/asm-generic/bug.h
+> +++ b/include/asm-generic/bug.h
+> @@ -18,6 +18,7 @@
+>  #endif
+>
+>  #ifndef __ASSEMBLY__
+> +#include <kunit/bug.h>
+>  #include <linux/panic.h>
+>  #include <linux/printk.h>
+>
+> @@ -39,8 +40,14 @@ struct bug_entry {
+>  #ifdef CONFIG_DEBUG_BUGVERBOSE
+>  #ifndef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
+>         const char      *file;
+> +#ifdef HAVE_BUG_FUNCTION
+> +       const char      *function;
+> +#endif
+>  #else
+>         signed int      file_disp;
+> +#ifdef HAVE_BUG_FUNCTION
+> +       signed int      function_disp;
+> +#endif
+>  #endif
+>         unsigned short  line;
+>  #endif
+> @@ -96,15 +103,18 @@ extern __printf(1, 2) void __warn_printk(const char *fmt, ...);
+>  #define __WARN()               __WARN_printf(TAINT_WARN, NULL)
+>  #define __WARN_printf(taint, arg...) do {                              \
+>                 instrumentation_begin();                                \
+> -               warn_slowpath_fmt(__FILE__, __LINE__, taint, arg);      \
+> +               if (!IS_SUPPRESSED_WARNING(__func__))                   \
+> +                       warn_slowpath_fmt(__FILE__, __LINE__, taint, arg);\
+>                 instrumentation_end();                                  \
+>         } while (0)
+>  #else
+>  #define __WARN()               __WARN_FLAGS(BUGFLAG_TAINT(TAINT_WARN))
+>  #define __WARN_printf(taint, arg...) do {                              \
+>                 instrumentation_begin();                                \
+> -               __warn_printk(arg);                                     \
+> -               __WARN_FLAGS(BUGFLAG_NO_CUT_HERE | BUGFLAG_TAINT(taint));\
+> +               if (!IS_SUPPRESSED_WARNING(__func__)) {                 \
+> +                       __warn_printk(arg);                             \
+> +                       __WARN_FLAGS(BUGFLAG_NO_CUT_HERE | BUGFLAG_TAINT(taint));\
+> +               }                                                       \
+>                 instrumentation_end();                                  \
+>         } while (0)
+>  #define WARN_ON_ONCE(condition) ({                             \
+> diff --git a/include/kunit/bug.h b/include/kunit/bug.h
+> new file mode 100644
+> index 000000000000..bd0fe047572b
+> --- /dev/null
+> +++ b/include/kunit/bug.h
+> @@ -0,0 +1,51 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * KUnit helpers for backtrace suppression
+> + *
+> + * Copyright (c) 2024 Guenter Roeck <linux@roeck-us.net>
+> + */
+> +
+> +#ifndef _KUNIT_BUG_H
+> +#define _KUNIT_BUG_H
+> +
+> +#ifndef __ASSEMBLY__
+> +
+> +#include <linux/kconfig.h>
+> +
+> +#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
+> +
+> +#include <linux/stringify.h>
+> +#include <linux/types.h>
+> +
+> +struct __suppressed_warning {
+> +       struct list_head node;
+> +       const char *function;
+> +};
+> +
+> +void __start_suppress_warning(struct __suppressed_warning *warning);
+> +void __end_suppress_warning(struct __suppressed_warning *warning);
+> +bool __is_suppressed_warning(const char *function);
+
+Do we want to call these '__kunit_start_suppress_warning', etc., to
+match other similar functions exported by KUnit to be used in macros,
+et al.
+
+> +
+> +#define DEFINE_SUPPRESSED_WARNING(func)        \
+> +       struct __suppressed_warning __kunit_suppress_##func = \
+
+We use the __kunit_ prefix here...
+
+> +               { .function = __stringify(func) }
+> +
+> +#define START_SUPPRESSED_WARNING(func) \
+> +       __start_suppress_warning(&__kunit_suppress_##func)
+> +
+> +#define END_SUPPRESSED_WARNING(func) \
+> +       __end_suppress_warning(&__kunit_suppress_##func)
+> +
+> +#define IS_SUPPRESSED_WARNING(func) \
+> +       __is_suppressed_warning(func)
+> +
+
+Similarly, do we want to give these KUNIT_ prefixes to match other KUnit macros.
+
+One possibility would be to have both KUNIT_- and non-KUNIT_-
+variants, the latter of which accepts a struct kunit*, and registers
+the suppression with the test for automated cleanup.
+
+
+> +#else /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
+> +
+> +#define DEFINE_SUPPRESSED_WARNING(func)
+> +#define START_SUPPRESSED_WARNING(func)
+> +#define END_SUPPRESSED_WARNING(func)
+> +#define IS_SUPPRESSED_WARNING(func) (false)
+> +
+> +#endif /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
+> +#endif /* __ASSEMBLY__ */
+> +#endif /* _KUNIT_BUG_H */
+> diff --git a/include/kunit/test.h b/include/kunit/test.h
+> index 61637ef32302..d0c44594d34c 100644
+> --- a/include/kunit/test.h
+> +++ b/include/kunit/test.h
+> @@ -10,6 +10,7 @@
+>  #define _KUNIT_TEST_H
+>
+>  #include <kunit/assert.h>
+> +#include <kunit/bug.h>
+>  #include <kunit/try-catch.h>
+>
+>  #include <linux/args.h>
+> diff --git a/include/linux/bug.h b/include/linux/bug.h
+> index 348acf2558f3..c668762dc76a 100644
+> --- a/include/linux/bug.h
+> +++ b/include/linux/bug.h
+> @@ -36,6 +36,9 @@ static inline int is_warning_bug(const struct bug_entry *bug)
+>         return bug->flags & BUGFLAG_WARNING;
+>  }
+>
+> +void bug_get_file_function_line(struct bug_entry *bug, const char **file,
+> +                               const char **function, unsigned int *line);
+> +
+>  void bug_get_file_line(struct bug_entry *bug, const char **file,
+>                        unsigned int *line);
+>
+> @@ -62,6 +65,16 @@ static inline enum bug_trap_type report_bug(unsigned long bug_addr,
+>  }
+>
+>  struct bug_entry;
+> +static inline void bug_get_file_function_line(struct bug_entry *bug,
+> +                                             const char **file,
+> +                                             const char **function,
+> +                                             unsigned int *line)
+> +{
+> +       *file = NULL;
+> +       *function = NULL;
+> +       *line = 0;
+> +}
+> +
+>  static inline void bug_get_file_line(struct bug_entry *bug, const char **file,
+>                                      unsigned int *line)
+>  {
+> diff --git a/lib/bug.c b/lib/bug.c
+> index e0ff21989990..aa8bb12b9809 100644
+> --- a/lib/bug.c
+> +++ b/lib/bug.c
+> @@ -26,6 +26,14 @@
+>         when CONFIG_DEBUG_BUGVERBOSE is not enabled, so you must generate
+>         the values accordingly.
+>
+> +  2a.Optionally implement support for the "function" entry in struct
+> +     bug_entry. This entry must point to the name of the function triggering
+> +     the warning or bug trap (normally __func__). This is only needed if
+> +     both CONFIG_DEBUG_BUGVERBOSE and CONFIG_KUNIT_SUPPRESS_BACKTRACE are
+> +     enabled and if the architecture wants to implement support for suppressing
+> +     warning backtraces. The architecture must define HAVE_BUG_FUNCTION if it
+> +     adds pointers to function names to struct bug_entry.
+> +
+>    3. Implement the trap
+>       - In the illegal instruction trap handler (typically), verify
+>         that the fault was in kernel mode, and call report_bug()
+> @@ -127,14 +135,21 @@ static inline struct bug_entry *module_find_bug(unsigned long bugaddr)
+>  }
+>  #endif
+>
+> -void bug_get_file_line(struct bug_entry *bug, const char **file,
+> -                      unsigned int *line)
+> +void bug_get_file_function_line(struct bug_entry *bug, const char **file,
+> +                               const char **function, unsigned int *line)
+>  {
+> +       *function = NULL;
+>  #ifdef CONFIG_DEBUG_BUGVERBOSE
+>  #ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
+>         *file = (const char *)&bug->file_disp + bug->file_disp;
+> +#ifdef HAVE_BUG_FUNCTION
+> +       *function = (const char *)&bug->function_disp + bug->function_disp;
+> +#endif
+>  #else
+>         *file = bug->file;
+> +#ifdef HAVE_BUG_FUNCTION
+> +       *function = bug->function;
+> +#endif
+>  #endif
+>         *line = bug->line;
+>  #else
+> @@ -143,6 +158,13 @@ void bug_get_file_line(struct bug_entry *bug, const char **file,
+>  #endif
+>  }
+>
+> +void bug_get_file_line(struct bug_entry *bug, const char **file, unsigned int *line)
+> +{
+> +       const char *function;
+> +
+> +       bug_get_file_function_line(bug, file, &function, line);
+> +}
+> +
+>  struct bug_entry *find_bug(unsigned long bugaddr)
+>  {
+>         struct bug_entry *bug;
+> @@ -157,8 +179,9 @@ struct bug_entry *find_bug(unsigned long bugaddr)
+>  static enum bug_trap_type __report_bug(unsigned long bugaddr, struct pt_regs *regs)
+>  {
+>         struct bug_entry *bug;
+> -       const char *file;
+> +       const char *file, *function;
+
+As mentioned, I'd love to see the function plumbed through and
+reported some day, both to make it easier to know what to suppress,
+and also because it's possibly more reliable even outside the
+suppression use-case. Could be a follow-up patch later, though.
+
+
+>         unsigned line, warning, once, done;
+> +       char __maybe_unused sym[KSYM_SYMBOL_LEN];
+>
+>         if (!is_valid_bugaddr(bugaddr))
+>                 return BUG_TRAP_TYPE_NONE;
+> @@ -169,12 +192,32 @@ static enum bug_trap_type __report_bug(unsigned long bugaddr, struct pt_regs *re
+>
+>         disable_trace_on_warning();
+>
+> -       bug_get_file_line(bug, &file, &line);
+> +       bug_get_file_function_line(bug, &file, &function, &line);
+> +#if defined(CONFIG_KUNIT_SUPPRESS_BACKTRACE) && defined(CONFIG_KALLSYMS)
+> +       if (!function) {
+> +               /*
+> +                * This will be seen if report_bug is called on an architecture
+> +                * with no architecture-specific support for suppressing warning
+> +                * backtraces, if CONFIG_DEBUG_BUGVERBOSE is not enabled, or if
+> +                * the calling code is from assembler which does not record a
+> +                * function name. Extracting the function name from the bug
+> +                * address is less than perfect since compiler optimization may
+> +                * result in 'bugaddr' pointing to a function which does not
+> +                * actually trigger the warning, but it is better than no
+> +                * suppression at all.
+> +                */
+> +               sprint_symbol_no_offset(sym, bugaddr);
+> +               function = sym;
+> +       }
+> +#endif /* defined(CONFIG_KUNIT_SUPPRESS_BACKTRACE) && defined(CONFIG_KALLSYMS) */
+>
+>         warning = (bug->flags & BUGFLAG_WARNING) != 0;
+>         once = (bug->flags & BUGFLAG_ONCE) != 0;
+>         done = (bug->flags & BUGFLAG_DONE) != 0;
+>
+> +       if (warning && IS_SUPPRESSED_WARNING(function))
+> +               return BUG_TRAP_TYPE_WARN;
+> +
+>         if (warning && once) {
+>                 if (done)
+>                         return BUG_TRAP_TYPE_WARN;
+> diff --git a/lib/kunit/Kconfig b/lib/kunit/Kconfig
+> index 68a6daec0aef..b1b899265acc 100644
+> --- a/lib/kunit/Kconfig
+> +++ b/lib/kunit/Kconfig
+> @@ -15,6 +15,15 @@ menuconfig KUNIT
+>
+>  if KUNIT
+>
+> +config KUNIT_SUPPRESS_BACKTRACE
+> +       bool "KUnit - Enable backtrace suppression"
+> +       default y
+> +       help
+> +         Enable backtrace suppression for KUnit. If enabled, backtraces
+> +         generated intentionally by KUnit tests are suppressed. Disable
+> +         to reduce kernel image size if image size is more important than
+> +         suppression of backtraces generated by KUnit tests.
+> +
+>  config KUNIT_DEBUGFS
+>         bool "KUnit - Enable /sys/kernel/debug/kunit debugfs representation" if !KUNIT_ALL_TESTS
+>         default KUNIT_ALL_TESTS
+> diff --git a/lib/kunit/Makefile b/lib/kunit/Makefile
+> index 309659a32a78..545b57c3be48 100644
+> --- a/lib/kunit/Makefile
+> +++ b/lib/kunit/Makefile
+> @@ -14,8 +14,10 @@ ifeq ($(CONFIG_KUNIT_DEBUGFS),y)
+>  kunit-objs +=                          debugfs.o
+>  endif
+>
+> -# KUnit 'hooks' are built-in even when KUnit is built as a module.
+> -obj-y +=                               hooks.o
+> +# KUnit 'hooks' and bug handling are built-in even when KUnit is built
+> +# as a module.
+> +obj-y +=                               hooks.o \
+> +                                       bug.o
+>
+>  obj-$(CONFIG_KUNIT_TEST) +=            kunit-test.o
+>
+> diff --git a/lib/kunit/bug.c b/lib/kunit/bug.c
+> new file mode 100644
+> index 000000000000..f93544d7a9d1
+> --- /dev/null
+> +++ b/lib/kunit/bug.c
+> @@ -0,0 +1,40 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * KUnit helpers for backtrace suppression
+> + *
+> + * Copyright (c) 2024 Guenter Roeck <linux@roeck-us.net>
+> + */
+> +
+> +#include <kunit/bug.h>
+> +#include <linux/export.h>
+> +#include <linux/list.h>
+> +#include <linux/string.h>
+> +
+> +static LIST_HEAD(suppressed_warnings);
+> +
+> +void __start_suppress_warning(struct __suppressed_warning *warning)
+> +{
+> +       list_add(&warning->node, &suppressed_warnings);
+> +}
+> +EXPORT_SYMBOL_GPL(__start_suppress_warning);
+> +
+> +void __end_suppress_warning(struct __suppressed_warning *warning)
+> +{
+> +       list_del(&warning->node);
+> +}
+> +EXPORT_SYMBOL_GPL(__end_suppress_warning);
+> +
+> +bool __is_suppressed_warning(const char *function)
+> +{
+> +       struct __suppressed_warning *warning;
+> +
+> +       if (!function)
+> +               return false;
+> +
+> +       list_for_each_entry(warning, &suppressed_warnings, node) {
+> +               if (!strcmp(function, warning->function))
+> +                       return true;
+> +       }
+> +       return false;
+> +}
+> +EXPORT_SYMBOL_GPL(__is_suppressed_warning);
+> --
+> 2.39.2
+>
 
 Thanks,
-drew
+-- David
 
-> 
-> > > +
-> > > +	vcpu_init_vector_tables(vcpu);
-> > > +	run_vcpu(vcpu);
-> > > +
-> > > +	test_vm_destroy(vm);
-> > > +}
-> > > +
-> > > +static void test_vm_events_test(void *guest_code)
-> > > +{
-> > > +	struct kvm_vm *vm = NULL;
-> > > +	struct kvm_vcpu *vcpu = NULL;
-> > > +
-> > > +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-> > > +	__TEST_REQUIRE(__vcpu_has_sbi_ext(vcpu, KVM_RISCV_SBI_EXT_PMU),
-> > > +				   "SBI PMU not available, skipping test");
-> > > +	run_vcpu(vcpu);
-> > > +
-> > > +	test_vm_destroy(vm);
-> > > +}
-> > > +
-> > > +int main(void)
-> > > +{
-> > > +	test_vm_basic_test(test_pmu_basic_sanity);
-> > > +	pr_info("SBI PMU basic test : PASS\n");
-> > > +
-> > > +	test_vm_events_test(test_pmu_events);
-> > > +	pr_info("SBI PMU event verification test : PASS\n");
-> > > +
-> > > +	return 0;
-> > > +}
-> > > -- 
-> > > 2.34.1
-> > > 
-> > 
-> > Thanks,
-> > drew
-> 
+--000000000000436e3d0615a5b9a9
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+MIIPqgYJKoZIhvcNAQcCoIIPmzCCD5cCAQExDzANBglghkgBZQMEAgEFADALBgkqhkiG9w0BBwGg
+gg0EMIIEtjCCA56gAwIBAgIQeAMYYHb81ngUVR0WyMTzqzANBgkqhkiG9w0BAQsFADBMMSAwHgYD
+VQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSMzETMBEGA1UEChMKR2xvYmFsU2lnbjETMBEGA1UE
+AxMKR2xvYmFsU2lnbjAeFw0yMDA3MjgwMDAwMDBaFw0yOTAzMTgwMDAwMDBaMFQxCzAJBgNVBAYT
+AkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMSowKAYDVQQDEyFHbG9iYWxTaWduIEF0bGFz
+IFIzIFNNSU1FIENBIDIwMjAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCvLe9xPU9W
+dpiHLAvX7kFnaFZPuJLey7LYaMO8P/xSngB9IN73mVc7YiLov12Fekdtn5kL8PjmDBEvTYmWsuQS
+6VBo3vdlqqXZ0M9eMkjcKqijrmDRleudEoPDzTumwQ18VB/3I+vbN039HIaRQ5x+NHGiPHVfk6Rx
+c6KAbYceyeqqfuJEcq23vhTdium/Bf5hHqYUhuJwnBQ+dAUcFndUKMJrth6lHeoifkbw2bv81zxJ
+I9cvIy516+oUekqiSFGfzAqByv41OrgLV4fLGCDH3yRh1tj7EtV3l2TngqtrDLUs5R+sWIItPa/4
+AJXB1Q3nGNl2tNjVpcSn0uJ7aFPbAgMBAAGjggGKMIIBhjAOBgNVHQ8BAf8EBAMCAYYwHQYDVR0l
+BBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMEMBIGA1UdEwEB/wQIMAYBAf8CAQAwHQYDVR0OBBYEFHzM
+CmjXouseLHIb0c1dlW+N+/JjMB8GA1UdIwQYMBaAFI/wS3+oLkUkrk1Q+mOai97i3Ru8MHsGCCsG
+AQUFBwEBBG8wbTAuBggrBgEFBQcwAYYiaHR0cDovL29jc3AyLmdsb2JhbHNpZ24uY29tL3Jvb3Ry
+MzA7BggrBgEFBQcwAoYvaHR0cDovL3NlY3VyZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvcm9vdC1y
+My5jcnQwNgYDVR0fBC8wLTAroCmgJ4YlaHR0cDovL2NybC5nbG9iYWxzaWduLmNvbS9yb290LXIz
+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
+7xDrOPfX3COqq162RFg/MFcGA1UdIARQME4wCQYHZ4EMAQUBATBBBgkrBgEEAaAyASgwNDAyBggr
+BgEFBQcCARYmaHR0cHM6Ly93d3cuZ2xvYmFsc2lnbi5jb20vcmVwb3NpdG9yeS8wDAYDVR0TAQH/
+BAIwADCBmgYIKwYBBQUHAQEEgY0wgYowPgYIKwYBBQUHMAGGMmh0dHA6Ly9vY3NwLmdsb2JhbHNp
+Z24uY29tL2NhL2dzYXRsYXNyM3NtaW1lY2EyMDIwMEgGCCsGAQUFBzAChjxodHRwOi8vc2VjdXJl
+Lmdsb2JhbHNpZ24uY29tL2NhY2VydC9nc2F0bGFzcjNzbWltZWNhMjAyMC5jcnQwHwYDVR0jBBgw
+FoAUfMwKaNei6x4schvRzV2Vb4378mMwRgYDVR0fBD8wPTA7oDmgN4Y1aHR0cDovL2NybC5nbG9i
+YWxzaWduLmNvbS9jYS9nc2F0bGFzcjNzbWltZWNhMjAyMC5jcmwwDQYJKoZIhvcNAQELBQADggEB
+AK0lDd6/eSh3qHmXaw1YUfIFy07B25BEcTvWgOdla99gF1O7sOsdYaTz/DFkZI5ghjgaPJCovgla
+mRMfNcxZCfoBtsB7mAS6iOYjuwFOZxi9cv6jhfiON6b89QWdMaPeDddg/F2Q0bxZ9Z2ZEBxyT34G
+wlDp+1p6RAqlDpHifQJW16h5jWIIwYisvm5QyfxQEVc+XH1lt+taSzCfiBT0ZLgjB9Sg+zAo8ys6
+5PHxFaT2a5Td/fj5yJ5hRSrqy/nj/hjT14w3/ZdX5uWg+cus6VjiiR/5qGSZRjHt8JoApD6t6/tg
+ITv8ZEy6ByumbU23nkHTMOzzQSxczHkT+0q10/MxggJqMIICZgIBATBoMFQxCzAJBgNVBAYTAkJF
+MRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMSowKAYDVQQDEyFHbG9iYWxTaWduIEF0bGFzIFIz
+IFNNSU1FIENBIDIwMjACEAHS+TgZvH/tCq5FcDC0n9IwDQYJYIZIAWUDBAIBBQCggdQwLwYJKoZI
+hvcNAQkEMSIEIIOVQ6jwtkykbkD9amzlnbTHyE0Or6zi3BACy3iruk4SMBgGCSqGSIb3DQEJAzEL
+BgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI0MDQwOTA4Mjk0MlowaQYJKoZIhvcNAQkPMVww
+WjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFlAwQBAjAKBggqhkiG9w0DBzALBgkq
+hkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATANBgkqhkiG9w0BAQEFAASCAQCtHWwf
+mfxClU2onqR3lXpGpINgyKUw3mJPMZ2BKHpZm6FwjOdSewD4tJCFQ08wIVRlRkilRaWBdqvjCd+F
+Ow0O2i7RWiS9Uv6B86Cyc5hP/SgbDecrwJ1OzYfm/1AxXEKcPGTip6ms8d3g2EAyQ+SQiM3DM06a
+etT36e4P5cxQWoZ1CvbC2swun7Dd7wCN8UuWTrF9E9xiMTPXDHgsQVBXAda8FlwvkjDDqEH7uuId
+VmiVn9Osn0BAU4eEpCP/5Q4mJwNM+WIbtK+XsEKX1JIw3ajR9szm85DUUKWBhQfp+x/uF+xWrXNf
+PD1HLD5osEEsfCuPtFTZemoY05vKK9H3
+--000000000000436e3d0615a5b9a9--
+
+
+--===============3526496894974121906==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3526496894974121906==--
+
