@@ -4,128 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78166CD1284
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 06:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8395C67861
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 06:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N0nLtLNMvYXtDyBQWYRHQ1RbI2RruYX8Qijn9ctigSQ=; b=PRTVSdKj2L3K2e
-	u9rLL+BUnI4zsE3JwQH5haxw1N+CcvEikOWKfDZ0zep5aOhtSrmm5Td4L4+fMzzuTugPpkpW7EACp
-	7kbesmQvU9dVwOT71k30ImLuhOVAZD4u48b7k8TB9jZJHlRVWxPRTuiNdpnS0pnIhh1FBu3BsR+xn
-	ErUF1lrYtBhoIgO955VO1TmRfKyqIw9kw3pbqo9k+86DuT+Djx8jg64xXTBvIPlFoPYwEBm3BXkhx
-	Fi5J/kmvj2pLZUr8g7f66zrNdA5Rl0u+7kOqmhyEh5jL5dduH4XNpgeb/rjuS0QuA/31wODCiBwHB
-	Toy74nUyLfbHXN/ZLJSg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nrs+nitQgpIaJ3r1ghhwnsYeKiASpsAoNO3i3Xp5Wg8=; b=lQizhO2utnHBGJ
+	riUGrkdWaDaj5eRTOKyoMhXg4AUaIi9ljvi1oyEJbsEMcCxA7PPUUNWMDxToh7JuLw/8VlcNwcRc2
+	3eJMcP3ya9f2AgL8eAjA3ixUXmjThVkhRkKLfMrj844VyEr5Y4HnODirUO16nBS16390JwYLx8a08
+	/ud0R4Mn2dRM5tD8QTCwgT/jjDCTzBXtceGGvvhhx7+14MwdvHA2yUFaAEIc1YXmLCFBJhZ51hY5n
+	cdKlInYPUOIuUD8eAE5yQZuuUBIzfoE6pdn2f9zjrNfngTFJWDdF2Qm0yfpF61g4cRJg6b+XE/y9n
+	sMBYGuNZpq/yEjjh2YRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4jC-00000000WYZ-1ZN1;
-	Tue, 09 Apr 2024 06:13:06 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1ru5G1-00000000eNH-1Pja;
+	Tue, 09 Apr 2024 06:47:01 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4iV-00000000Vv0-3xxj
+	id 1ru5Fy-00000000eMA-2HEr
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Apr 2024 06:12:28 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-5e152c757a5so3254496a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Apr 2024 23:12:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712643137; x=1713247937; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2Dd+qicqNqOTXPUN+vfB0pN9kY+D/OYBSctt1TBOZeY=;
-        b=amie0gc4085Dej45Q/7xoj+YE6Zdb9K3HkWMg3834kVZqrwzmPEC6hqrMAozZrxWU9
-         n6Rx2xjbOFImBt0/VtQtA49sQ1zDSJ69ZBtYVEUz0FDni7M4lg83WGjDtKGplmEpFQLt
-         KNg5SnKuFn3VG8GFSeEKbYFKT5rYF5kznJFJFoxbD8f2lQGBM2vhMvYs8DvakATL+RAo
-         xzoUCT5ZsXl+Dn1RVq2mlj8YnK2/79r5IaKhNgA1dyhv4Xr+oYPImhmuzdD7hay8Diaw
-         XksRPphgX9KU6UsOLsm6NXsKdXept/2kx2omTsNSCiJkxeLlc2EmYVUMcv94W4wk99L5
-         zavQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712643137; x=1713247937;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2Dd+qicqNqOTXPUN+vfB0pN9kY+D/OYBSctt1TBOZeY=;
-        b=Q9MyRmRjo+p+Ldphcsvx5+j6dyy+5KYKuNapnw0kCZf5b3RjPVNKNWuF3liC3cd778
-         7IBElp9RQdoTrhd6tIKfKFmNGuqwR+QLpvzHfd7GsgkqvbiZQ7Ktis2uKyBmBh+MFT5n
-         nju3UAHusArRFszt8Jab4F5HSgXSKOCavYGyMvoJoSvFG/h+tXhAkLCTgtxkRNsdCJ2E
-         iJHndwlhlOm5aIwVg12RyAHWXqlmkkKOH5pAA9H++HxkKLuNyu+L0O4Bgb4qRDudu4cI
-         uqZu/Ij78jSoqI9aNGjrgKUAQX+IbJLWcyAesTsnzytd/hGRzmxsKFEG/HR/gePClnry
-         bPwg==
-X-Gm-Message-State: AOJu0YzXvBqy2ZJnezNIlst60QES6MILvvMZE3QBMLnX0GHKG4tQfQTn
-	JSdWADB3UaBSfjgxxWE8eUss4jHYlKADwV1aQil4gcZ7isjMvZpnuTWQs35zPihA7fAJSpSW9Hn
-	a
-X-Google-Smtp-Source: AGHT+IGcPqN2fScaedBq3ewRagrgaPjfyc3cvTGWCEiCpjBURAFRRAm2I2dL0qDPjIDkD3S3Bq2SLQ==
-X-Received: by 2002:a05:6a20:de15:b0:1a3:e2ed:62af with SMTP id kz21-20020a056a20de1500b001a3e2ed62afmr8155980pzb.34.1712643137498;
-        Mon, 08 Apr 2024 23:12:17 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id n3-20020a170902e54300b001e3dd5972ccsm5775564plf.185.2024.04.08.23.12.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Apr 2024 23:12:17 -0700 (PDT)
-From: Deepak Gupta <debug@rivosinc.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	nathan@kernel.org,
-	ndesaulniers@google.com,
-	morbo@google.com,
-	justinstitt@google.com,
-	andy.chiu@sifive.com,
-	debug@rivosinc.com,
-	hankuan.chen@sifive.com,
-	guoren@kernel.org,
-	greentime.hu@sifive.com,
-	samitolvanen@google.com,
-	cleger@rivosinc.com,
-	apatel@ventanamicro.com,
-	ajones@ventanamicro.com,
-	conor.dooley@microchip.com,
-	mchitale@ventanamicro.com,
-	dbarboza@ventanamicro.com,
-	waylingii@gmail.com,
-	sameo@rivosinc.com,
-	alexghiti@rivosinc.com,
-	akpm@linux-foundation.org,
-	shikemeng@huaweicloud.com,
-	rppt@kernel.org,
-	charlie@rivosinc.com,
-	xiao.w.wang@intel.com,
-	willy@infradead.org,
-	jszhang@kernel.org,
-	leobras@redhat.com,
-	songshuaishuai@tinylab.org,
-	haxel@fzi.de,
-	samuel.holland@sifive.com,
-	namcaov@gmail.com,
-	bjorn@rivosinc.com,
-	cuiyunhui@bytedance.com,
-	wangkefeng.wang@huawei.com,
-	falcon@tinylab.org,
-	viro@zeniv.linux.org.uk,
-	bhe@redhat.com,
-	chenjiahao16@huawei.com,
-	hca@linux.ibm.com,
-	arnd@arndb.de,
-	kent.overstreet@linux.dev,
-	boqun.feng@gmail.com,
-	oleg@redhat.com,
-	paulmck@kernel.org,
-	broonie@kernel.org,
-	rick.p.edgecombe@intel.com
-Subject: [RFC PATCH 10/12] riscv/traps: Introduce software check exception
-Date: Mon,  8 Apr 2024 23:10:41 -0700
-Message-Id: <20240409061043.3269676-11-debug@rivosinc.com>
+	Tue, 09 Apr 2024 06:47:00 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 04B2AFF807;
+	Tue,  9 Apr 2024 06:46:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1712645214;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6ryoNB5XpSfloz/6q8pX2eMqwyZYr/QlxtN0Gg+K+v4=;
+	b=E5uSnUx7BqUopQsp6ozzcgkCtcsjKkTgQQQyQ+wBwuE+uj9lHySZO1iUQ9b2o7+P0u89PH
+	2LAX5RZvUhgIPKEeIC2EvxuLYCV3/90NsUohDmxPZvqhkn7nxzg0awuHEH9kegMILNnSyO
+	+t2xm2w4BKEqiCH1CRYK20/rxyLsdySXXt+GwZ9g6b3ARfxAe1KNlG0U8mdY0hT3ufcVeu
+	AuyLZ9uHy5IRCOwNL9hB7kkYIeELzK1ASZ5CLUwjH6VJtY6bDqgJbPT9RHJHDQD6tqRdRP
+	G+2jGiHTCyDKiINh/P7U+q7ibBdpbCbO/eLKygVyjYM8b7XnON+2NGJEqn8e4w==
+From: michael.opdenacker@bootlin.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Michael Opdenacker <michael.opdenacker@bootlin.com>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: dts: sophgo: add initial Milk-V Duo S board device tree
+Date: Tue,  9 Apr 2024 08:45:04 +0200
+Message-Id: <20240409064504.4010353-1-michael.opdenacker@bootlin.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240409061043.3269676-1-debug@rivosinc.com>
-References: <20240409061043.3269676-1-debug@rivosinc.com>
 MIME-Version: 1.0
+X-GND-Sasl: michael.opdenacker@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240408_231224_423818_F1577F13 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20240408_234658_741264_76A792EA 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,80 +78,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zicfiss / zicfilp introduces a new exception to priv isa `software check
-exception` with cause code = 18. This patch implements software check
-exception.
+From: Michael Opdenacker <michael.opdenacker@bootlin.com>
 
-If sw check exception was triggered while in usermode, unknown trap is
-triggered for usermode. If sw check exception was triggered for kernel
-mode, kernel dies.
+This adds initial support for the Milk-V Duo S board
+(https://milkv.io/duo-s), enabling the serial port and
+read-only SD card support, allowing to boot Linux to the
+command line.
 
-Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+Signed-off-by: Michael Opdenacker <michael.opdenacker@bootlin.com>
+
 ---
- arch/riscv/include/asm/asm-prototypes.h |  1 +
- arch/riscv/kernel/entry.S               |  3 +++
- arch/riscv/kernel/traps.c               | 20 ++++++++++++++++++++
- 3 files changed, 24 insertions(+)
 
-diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-index cd627ec289f1..5a27cefd7805 100644
---- a/arch/riscv/include/asm/asm-prototypes.h
-+++ b/arch/riscv/include/asm/asm-prototypes.h
-@@ -51,6 +51,7 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_u);
- DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
- DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
- DECLARE_DO_ERROR_INFO(do_trap_break);
-+DECLARE_DO_ERROR_INFO(do_trap_software_check);
- 
- asmlinkage void handle_bad_stack(struct pt_regs *regs);
- asmlinkage void do_page_fault(struct pt_regs *regs);
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 0262b46ab064..89aeae803702 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -353,6 +353,9 @@ SYM_DATA_START_LOCAL(excp_vect_table)
- 	RISCV_PTR do_page_fault   /* load page fault */
- 	RISCV_PTR do_trap_unknown
- 	RISCV_PTR do_page_fault   /* store page fault */
-+	RISCV_PTR do_trap_unknown /* cause=16 */
-+	RISCV_PTR do_trap_unknown /* cause=17 */
-+	RISCV_PTR do_trap_software_check /* cause=18 is sw check exception */
- SYM_DATA_END_LABEL(excp_vect_table, SYM_L_LOCAL, excp_vect_table_end)
- 
- #ifndef CONFIG_MMU
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 05a16b1f0aee..b464355f62b2 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -354,6 +354,26 @@ void do_trap_ecall_u(struct pt_regs *regs)
- 
- }
- 
+Tested with linux-next as of Apr 9, 2024,
+using the risc-v "defconfig" configuration.
+---
+ arch/riscv/boot/dts/sophgo/Makefile           |  1 +
+ .../boot/dts/sophgo/sg2000-milkv-duos.dts     | 38 +++++++++++++++++++
+ 2 files changed, 39 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+
+diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
+index 57ad82a61ea6..e008acb5240f 100644
+--- a/arch/riscv/boot/dts/sophgo/Makefile
++++ b/arch/riscv/boot/dts/sophgo/Makefile
+@@ -1,4 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+ dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
++dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duos.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
+diff --git a/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+new file mode 100644
+index 000000000000..cf2cec3cc369
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+@@ -0,0 +1,38 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +/*
-+ * software check exception is defined with risc-v cfi spec. Software check
-+ * exception is raised when:-
-+ * a) An indirect branch doesn't land on 4 byte aligned PC or `lpad`
-+ *    instruction or `label` value programmed in `lpad` instr doesn't
-+ *    match with value setup in `x7`. reported code in `xtval` is 2.
-+ * b) `sspopchk` instruction finds a mismatch between top of shadow stack (ssp)
-+ *    and x1/x5. reported code in `xtval` is 3.
++ * Copyright (C) 2024 Michael Opdenacker <michael.opdenacker@bootlin.com>
 + */
-+asmlinkage __visible __trap_section void do_trap_software_check(struct pt_regs *regs)
-+{
-+	if (user_mode(regs)) {
-+		/* deliver unknown trap to usermode */
-+		do_trap_unknown(regs);
-+	} else {
-+		/* sw check exception coming from kernel is a bug in kernel, die */
-+		die(regs, "Kernel BUG");
-+	}
-+}
 +
- #ifdef CONFIG_MMU
- asmlinkage __visible noinstr void do_page_fault(struct pt_regs *regs)
- {
++/dts-v1/;
++
++#include "cv1800b.dtsi"
++
++/ {
++	model = "Milk-V Duo S";
++	compatible = "milkv,duos", "sophgo,sg2000";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x20000000>;
++	};
++};
++
++&osc {
++	clock-frequency = <25000000>;
++};
++
++&sdhci0 {
++	status = "okay";
++};
++
++&uart0 {
++	status = "okay";
++};
 -- 
-2.43.2
+2.34.1
 
 
 _______________________________________________
