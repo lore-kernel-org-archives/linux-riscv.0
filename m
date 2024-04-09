@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC50BC67861
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 06:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B6CC67861
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2024 06:12:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xdIvtd7lrwDauwwOqX9Ma4SXeRgu4VAE648troM/z7g=; b=ZXs6rHbdtCHv8u
-	5f+kAaP3QN4zUdw2TPECpkMIMsc083C315XfFn9whDfvfiHokzIoQKZw3BpUsXVdGbzJeNymwpaEN
-	erPnqB7KZxLrzWqkC+nGcWAyuSJk0XR/giwU/MIExMlDBX5PMoe8vY9ou62aaMaF9v0g4AgTYC4Qk
-	m0vfCww3AwZKps0fHUA5E1GMvJAfQ5A54maywYNEIeYH8hnMQrVHRvOuYZZwQ1t0buinxCSFTaoWH
-	ACqiLOtC4cOo4VxTlUB4h3zaWKvgrNrw/450xXaw78iqU98apxJ9ewctdUyjjdyh4pYg7O3q9iUns
-	/7HF/oZiDFPZT3ypaROw==;
+	List-Owner; bh=lEmv6NolJuvSnOEl2uB8YPhJS4uDAIcYJM7S5VdSoPE=; b=m+ZyEn8awQ00Zd
+	qoUi3XUKhMTO+3QBnL/urWPG/CA/wEQP0V83aQL0HrTgOZoBGGzy9PTKEu0sPQhOtg6zwuBdupOkb
+	aGFiNPvvlET47fTvn7VmKzLtRqm7n61nQGMcIUPdZ0KUxB+JAgWHnM7MVdi+YvXZ3DCEzZpdnntb9
+	JgFhLXo3IqEKmdhkmuv8iCmuwP1b3ZvtRJk3K9ONm0YVCcmTt9uEVaOmiWD2oNocG1iVD4seU1aaK
+	k76IoGkMX3kdnR61qrNGLFsavALFA1yUhrHiLzgj4M8lG1p1J6e2+08eAu3MA03meq9iFbJf6t+YX
+	abWp/ydBYOUoeDouoEFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4iX-00000000W0c-2hDM;
-	Tue, 09 Apr 2024 06:12:25 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1ru4iZ-00000000W2M-4AC9;
+	Tue, 09 Apr 2024 06:12:29 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ru4iJ-00000000Vm7-0Zl4
+	id 1ru4iJ-00000000VmN-32cx
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Apr 2024 06:12:13 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1e4266673bbso15469545ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Apr 2024 23:11:59 -0700 (PDT)
+	Tue, 09 Apr 2024 06:12:15 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1e2bbc2048eso43139995ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Apr 2024 23:12:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712643119; x=1713247919; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712643121; x=1713247921; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IcuZpfGRgGO4PsnKOQvZ0/6LAFx/q/APYxPAcu5uNV8=;
-        b=Vd37PgVGI7+q7xUWdvCnDjawPSzOTZFkX4itpLUuCK4BdUZ7ztUu7Xo6rAWPblik59
-         HXW4MWgswzOETFn3OppC7HmC9pU9/pflSeKgUUqHe9GkbT7PQsJ3jxisrxV2qI9ktDH4
-         7F5o3HGI/Pjn0a5thST53w3JxocBqWEk/mnTYXci2t3gCQ5Q+c7wL3LYag8xngjaBvGo
-         v5HhG4lPIB+1t9J38yDfCRwUZi3tcWyCj2tf+nAs0YwuVFHZz+D2Aa7e+IHMSiChwxdM
-         uD4C2ZGCmPkm4t4NTRG/npeMDheKsusT3fC70XFoa9gAAgRIRb82JE4GTyxhuFjUf3cj
-         sEyA==
+        bh=JiLAeIECyw84AGrUV1USEqteoHaPU8YvP/EXtLFxWio=;
+        b=HD78bOPzPC14t94S1VhddCge7N7ergjFL7hg4GVtdi+BZpy3PiXtZPXlRG//IDmPCG
+         9p3uUkM729Lt671e4G9XMP9BO3czmyyTo0h3mnMqoOTaqSyu4W+Cg715a2/sOjhSxcrO
+         lpu9uQ7wAGSugoyN8ZOgSVIjo4DGZJeScsrhpNwtBc3qaMTaF73Vx0UHH6s96Mi8uYrn
+         KjJJJjlgEN31kilicY9UMkjzxnDRwujtWlHw+btXiKOu6WuGTx8SOGw3QFGjnzvhOTUo
+         mqZ51FwJXjx01UDsfSLIZo/cCe9Ngry+oaBFfL+BH0g9OHn0m1Zf2qeRDTgpbEfd5Ow9
+         N/Mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712643119; x=1713247919;
+        d=1e100.net; s=20230601; t=1712643121; x=1713247921;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=IcuZpfGRgGO4PsnKOQvZ0/6LAFx/q/APYxPAcu5uNV8=;
-        b=YicQbdQo2dP7RJpB3uW4TzKmY2hGwpn/+qqikePd4zTpASg1e2SaD6+d/OMdeX/1i5
-         Fj3Rm+i5Hs5AnMKlW4xqcB8uEXUQN4OOhMTXcALCFotaIXtp3LXzu9IcqH4wnVKNz3au
-         kTY2BG0sKbcMKslVSYdq/TeLkDdAKGP6Q9fZU1hh1mnB9TpEQPN4GNtm7JVDPYnV4ARB
-         rR0MpWEx8TboemT/FjGFjJMyJhK+TYE8ouyajm3Lp9e9hfDgX3qGC0LSWhJ8uvQjE3u8
-         IqVmL+mcxkLIiqPXa5Nvj/D+1Cg8y4CL5AKoIAuF40TdFUvzOD0/5Og8WkF0OuWG8uIV
-         MoiQ==
-X-Gm-Message-State: AOJu0Yw40bsIreQ1BCmhAb8oKyHqkseKwUoMnuQLbOY+1tnR73KGmywf
-	mPoNzQPxqw5KL8chV9aYyCq7tP8YQnr6heSsAm/SRKCxnrMIDCAP+F+nadM6jGgq6sB0dOTgkc5
-	k
-X-Google-Smtp-Source: AGHT+IHz5LLDJm9L/ug/kMuH50Vd0ygUg9H1jlsD50c28BOoXEgFzWtj54FZrZCvoiYay1yGeroD0g==
-X-Received: by 2002:a17:902:c401:b0:1e4:6273:bff7 with SMTP id k1-20020a170902c40100b001e46273bff7mr3872287plk.25.1712643119038;
-        Mon, 08 Apr 2024 23:11:59 -0700 (PDT)
+        bh=JiLAeIECyw84AGrUV1USEqteoHaPU8YvP/EXtLFxWio=;
+        b=w2H3EpeXjk7+FEnr05aLH8U8rtWG9YkYoMfYJQyhO7zHzn047CK4zrHqgsG3BoOqGU
+         FP1CA+POYOH3Y0jaO1Fq5RP38XvR7X/HhKku7xoPBa9US9VBsnY5QMCk6eUNfb7pOBTi
+         G9bH+AuBceGg4kh8PIGashyHbKhZhHVoN7DBT/wKf6zJEs0MjdELZBS2oArEiSFQZtOM
+         doBN7i3oA/560saa4i4LGMqwjFPs7ofKs1gOdxOwJJHtrc8Pia97TKj3FIFT23otFjwv
+         lsHRKeJOB4qYBuhQNpYItrpdUFbXrbvjd97hpkTIWDy9RQdUUuFAINQmzaMRjwrAN/M2
+         2JMw==
+X-Gm-Message-State: AOJu0YyBPmidqtG9bdKb3yXAi6nLUM6xoZpNxpsJi9RMaita+r22uXKy
+	wuxgU9Fay5QdMePJQgu+tDW3kMcaSZNQIWKkmy2sZTN8UkAnH4Po23IVsKnEnt1PUVlCnX611bb
+	6
+X-Google-Smtp-Source: AGHT+IFEkDe2ZGfs1F8mvdmf/ch3SNQCuQFomQ5uVJDLwaNinIwMUeMD+w87Nmm/x+873W3JBq3PpA==
+X-Received: by 2002:a17:902:ce06:b0:1e4:70d0:9337 with SMTP id k6-20020a170902ce0600b001e470d09337mr3182383plg.45.1712643121070;
+        Mon, 08 Apr 2024 23:12:01 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id n3-20020a170902e54300b001e3dd5972ccsm5775564plf.185.2024.04.08.23.11.57
+        by smtp.gmail.com with ESMTPSA id n3-20020a170902e54300b001e3dd5972ccsm5775564plf.185.2024.04.08.23.11.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Apr 2024 23:11:58 -0700 (PDT)
+        Mon, 08 Apr 2024 23:12:00 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -116,17 +116,16 @@ Cc: paul.walmsley@sifive.com,
 	paulmck@kernel.org,
 	broonie@kernel.org,
 	rick.p.edgecombe@intel.com
-Subject: [RFC PATCH 01/12] riscv: zicfiss / zicfilp extension csr and bit definitions
-Date: Mon,  8 Apr 2024 23:10:32 -0700
-Message-Id: <20240409061043.3269676-2-debug@rivosinc.com>
+Subject: [RFC PATCH 02/12] riscv: add landing pad for asm routines.
+Date: Mon,  8 Apr 2024 23:10:33 -0700
+Message-Id: <20240409061043.3269676-3-debug@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240409061043.3269676-1-debug@rivosinc.com>
 References: <20240409061043.3269676-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240408_231211_198675_C50F4269 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240408_231211_785111_BEA4FDB7 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,65 +142,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zicfiss and zicfilp extension gets enabled via b3 and b2 in *envcfg CSR.
-menvcfg controls enabling for S/HS mode. henvcfg control enabling for VS
-while senvcfg controls enabling for U/VU mode.
-
-zicfilp extension extends *status CSR to hold `expected landing pad` bit.
-A trap or interrupt can occur between an indirect jmp/call and target
-instr. `expected landing pad` bit from CPU is recorded into xstatus CSR so
-that when supervisor performs xret, `expected landing pad` state of CPU can
-be restored.
-
-zicfiss adds one new CSR
-- CSR_SSP: CSR_SSP contains current shadow stack pointer.
+SYM_* macros are used to define assembly routines. In this patch series,
+re-define those macros in risc-v arch specific include file to include
+a landing pad instruction at the beginning. This is done only when the
+compiler flag for landing pad is enabled (i.e. __riscv_zicfilp).
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/csr.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/riscv/include/asm/linkage.h | 42 ++++++++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 2468c55933cd..9f2b2722b67c 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -18,6 +18,15 @@
- #define SR_MPP		_AC(0x00001800, UL) /* Previously Machine */
- #define SR_SUM		_AC(0x00040000, UL) /* Supervisor User Memory Access */
+diff --git a/arch/riscv/include/asm/linkage.h b/arch/riscv/include/asm/linkage.h
+index 9e88ba23cd2b..bb43ae7dadeb 100644
+--- a/arch/riscv/include/asm/linkage.h
++++ b/arch/riscv/include/asm/linkage.h
+@@ -6,7 +6,49 @@
+ #ifndef _ASM_RISCV_LINKAGE_H
+ #define _ASM_RISCV_LINKAGE_H
  
-+/* zicfilp landing pad status bit */
-+#define SR_SPELP	_AC(0x00800000, UL)
-+#define SR_MPELP	_AC(0x020000000000, UL)
-+#ifdef CONFIG_RISCV_M_MODE
-+#define SR_ELP		SR_MPELP
-+#else
-+#define SR_ELP		SR_SPELP
++#ifdef __ASSEMBLY__
++#include <asm/assembler.h>
 +#endif
 +
- #define SR_FS		_AC(0x00006000, UL) /* Floating-point Status */
- #define SR_FS_OFF	_AC(0x00000000, UL)
- #define SR_FS_INITIAL	_AC(0x00002000, UL)
-@@ -196,6 +205,8 @@
- #define ENVCFG_PBMTE			(_AC(1, ULL) << 62)
- #define ENVCFG_CBZE			(_AC(1, UL) << 7)
- #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
-+#define ENVCFG_LPE			(_AC(1, UL) << 2)
-+#define ENVCFG_SSE			(_AC(1, UL) << 3)
- #define ENVCFG_CBIE_SHIFT		4
- #define ENVCFG_CBIE			(_AC(0x3, UL) << ENVCFG_CBIE_SHIFT)
- #define ENVCFG_CBIE_ILL			_AC(0x0, UL)
-@@ -214,6 +225,11 @@
- #define SMSTATEEN0_HSENVCFG		(_ULL(1) << SMSTATEEN0_HSENVCFG_SHIFT)
- #define SMSTATEEN0_SSTATEEN0_SHIFT	63
- #define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
-+/*
-+ * zicfiss user mode csr
-+ * CSR_SSP holds current shadow stack pointer.
-+ */
-+#define CSR_SSP                 0x011
+ #define __ALIGN		.balign 4
+ #define __ALIGN_STR	".balign 4"
  
- /* symbolic CSR names: */
- #define CSR_CYCLE		0xc00
++#ifdef __riscv_zicfilp
++/*
++ * A landing pad instruction is needed at start of asm routines
++ * re-define macros for asm routines to have a landing pad at
++ * the beginning of function. Currently use label value of 0x1.
++ * Eventually, label should be calculated as a hash over function
++ * signature.
++ */
++#define SYM_FUNC_START(name)				\
++	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
++	lpad 0x1;
++
++#define SYM_FUNC_START_NOALIGN(name)			\
++	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE)	\
++	lpad 0x1;
++
++#define SYM_FUNC_START_LOCAL(name)			\
++	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN)	\
++	lpad 0x1;
++
++#define SYM_FUNC_START_LOCAL_NOALIGN(name)		\
++	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE)	\
++	lpad 0x1;
++
++#define SYM_FUNC_START_WEAK(name)			\
++	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN)	\
++	lpad 0x1;
++
++#define SYM_FUNC_START_WEAK_NOALIGN(name)		\
++	SYM_START(name, SYM_L_WEAK, SYM_A_NONE)		\
++	lpad 0x1;
++
++#define SYM_TYPED_FUNC_START(name)				\
++	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
++	lpad 0x1;
++
++#endif
++
+ #endif /* _ASM_RISCV_LINKAGE_H */
 -- 
 2.43.2
 
