@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7743ECD11C2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAB2CD128A
 	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 11:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VBkYYGvT9sqw5L0YnMqs4qJ4IOTrmt+jEvxSIQfkSP0=; b=U1OE9lluutBH2j
-	LjOQLi7KMVHcolkUniUq2FX39fwHdu+s5uAENlGlr4Fr8LlxHHl6mDToKS0jejg5WiDwcqUX9eE6o
-	uVWBUsC2v1wqcegtCMyROeQyU8polOR4b5fdi2/aYS5dIafr8koMhBPdcxZb+fqFjfCb1109W3MZg
-	SQ4oAZgeYQHy3Rlu1AIdiSVSGvQuyf1DnGxGvhrWFe1RNifVEFQDS4fFjqLQ1tjq82DJbnGxhfwuk
-	Z/6I5LuxUJ0G0BDjj6+emDgKyH7EAu1v7PxXNhNSP9gGMd6yxqACDqKVpeDBh8WCY6cJBOmKkvas3
-	70+DV78a/9UNcfCgTteA==;
+	List-Owner; bh=gCFNNIrXG5IMppTzD24wHQ8BAaE3wdPSCehtkTpv5Ew=; b=MBbXiFLhV3AU/w
+	Kxcyym3iAH2RqWrWSPHieomlv55zpe81kzxTklMuhEcosH3tg6jsvjlWPeoIKxiGFvvXPWVxKApGH
+	CtH9DBI9FKr5HzQA+Cv7aTXey0F4xav92xaLgUT5d3t4bn9Ny11aLMg70civd3ewFaoAufrxqhURa
+	Sez1MXhzFfJer9q56MQSbujJI3t7DS3b7bvy+XcuCnioMU8lq/GPvmUc7UcYihcNv8919ohFtcqMa
+	UNYU3v2LsX48/xFJUSCbMCrJKpmLetXT9JruLae2fuoNwU3PuP6f8g/4xihrWv/466ylFDKFdPanu
+	GOeuLnQM2jMAIF763WiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruWbO-00000006ljY-2fLU;
-	Wed, 10 Apr 2024 11:58:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ruWbM-00000006li2-2Yb8;
+	Wed, 10 Apr 2024 11:58:52 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruWbH-00000006ldf-0o0B
+	id 1ruWbG-00000006lcc-03ff
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Apr 2024 11:58:48 +0000
+	Wed, 10 Apr 2024 11:58:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A2F5B61C15;
-	Wed, 10 Apr 2024 11:58:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 224EEC43390;
-	Wed, 10 Apr 2024 11:58:44 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id E4E53CE27B3;
+	Wed, 10 Apr 2024 11:58:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93A5BC43390;
+	Wed, 10 Apr 2024 11:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712750326;
-	bh=I0ucffUjI9S2cz08Ial3I81TqrYvCDbjo9pZBliGHHs=;
+	s=k20201202; t=1712750322;
+	bh=hLF5VZ17pcPT+iEdSikbSqPPdiOP/ae+ULNTI7IT42U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=t5pvV5ZzYr/RzporQ5oxS0aMfiV+V0q4Y2GxhgF1z79jFoCE0gBmPkJy7lhMoquBE
-	 x5z4w5o7IMU/EeUHyW97iTep8pYcNF6KIh+C6IB1CYcLFVxgjZNCMMTbCIvMFB+BwK
-	 Szme+Lh+6kyqU/xCcuo6woWbxG6NduD1jomFGw6DXp9AdBzEZ/tjEm8rGLIakgd0RY
-	 npZInp/oD3QhFqLgV5ZO/OlqiFRHKixUjPiQCLE4yCKluiRNE6DxYAHJqYLS8Chb01
-	 R6SpQ+opJhACIPLeF7JZyq61Arnb3jTq/ZCsAu1QCNK1g8CO+Q5qModKWlw/T5WglX
-	 0v98rHwxKfdJA==
+	b=g6+1JWy2ltqVeLACEyfTQQ8B+ANNmaXO+i0uHM7LnBIiDhS1LVx6wLMBWvpq4UqAh
+	 zWU3yRPQs2pq5PSPzXMOwdKbEQqkQr2U8unUIwUM4PvfhQyDpoOYk+dZNInNtTtUS4
+	 6ppi8bYj/seXUUzuAhIDE5P8hzJEZ9YVQID5aiNMntUxHpoyMNIHrNbdUsVOuUVL8G
+	 WjZC5VblrRl7YHzpdl21FfZpPC1F0r0O1V8IYzh3NetWJ6s3d1jPIv2HKl53/5icQY
+	 CM9EDjCCZxcRoWthEsmsuV/zS+SKcSCoD2RNLV6TZjgqEvtPeMuvh8T8Jw/QTIoG/h
+	 wXyzcc/GWqRBA==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -49,18 +49,18 @@ Cc: conor@kernel.org,
 	Daire McNamara <daire.mcnamara@microchip.com>,
 	Cyril Jean <cyril.jean@microchip.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 3/5] firmware: microchip: clarify that sizes and addresses are in hex
-Date: Wed, 10 Apr 2024 12:58:06 +0100
-Message-ID: <20240410-elk-staleness-285063ef0433@spud>
+Subject: [PATCH v1 1/5] firmware: microchip: support writing bitstream info to flash
+Date: Wed, 10 Apr 2024 12:58:04 +0100
+Message-ID: <20240410-shabby-fineness-6e8662cf44e2@spud>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240410-opulently-epic-8654bdac3422@spud>
 References: <20240410-opulently-epic-8654bdac3422@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2012; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=BNSIAOq6X1LAhr9L0BQrr3EsDDjmIu+xC/kpYkZfVl4=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGlidVfOqLZ/vnLjSxXD8h3G/DkLbvKtbNCIX7r23GEmu ZX9mnmSHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZgImxEjw9U517olFpwtyuQL X5PH7H3p4OtWvTtsN/foftl8pObDp7cM/5PmMj+azXDi/pYJrpMub31nvWG+4a3j7w7zqk1h1wz beJQFAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4272; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=Mheo3lXIW1m+cEZnaJh1zYtTPgF5wFDCI953hFakqwY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGlidVe62P1CVnpYFjuaKwXP62QWc3Jrz97DM+0aE1N6f WLQ1A8dpSwMYhwMsmKKLIm3+1qk1v9x2eHc8xZmDisTyBAGLk4BmEjQQkaGbX8bv/nsVs6/Zzg1 xar7tOK50F95VywLck++bknStJ69l+EP11/9D2nJW8xXhEm0H5+f/NTF7eR7J7cbLucUOzcvfCn NCQA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_045847_305352_86481BBE 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20240410_045846_444926_B057EA7D 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +79,117 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-As it says on the tin. It can be kinda confusing when "22830" is in hex,
-so prefix the hex numbers with a "0x".
+Updating the FPGA image might bring with it changes visible to Linux,
+so it is helpful to also co-locate dt-overlays that describe the new
+image contents. If these are packaged in a specific format [1] (detected
+by first 4 bytes being MCHP, since FPGA images have no magic), load
+the file to the reserved 1 MiB region immediately after the directory in
+flash. The Beagle-V Fire's "gateware" already creates these files and
+puts them in flash [2].
 
+Link: exists on confluence, needs to be made public
+Link: https://openbeagle.org/beaglev-fire/gateware/-/blob/main/gateware_scripts/generate_gateware_overlays.py?ref_type=heads [2]
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/firmware/microchip/mpfs-auto-update.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/firmware/microchip/mpfs-auto-update.c | 47 +++++++++++++++----
+ 1 file changed, 39 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/firmware/microchip/mpfs-auto-update.c b/drivers/firmware/microchip/mpfs-auto-update.c
-index 298ad21e139b..078ff328f261 100644
+index 32394c24b37d..33343e83373c 100644
 --- a/drivers/firmware/microchip/mpfs-auto-update.c
 +++ b/drivers/firmware/microchip/mpfs-auto-update.c
-@@ -279,7 +279,7 @@ static int mpfs_auto_update_set_image_address(struct mpfs_auto_update_priv *priv
- 	       AUTO_UPDATE_DIRECTORY_WIDTH);
- 	memset(buffer + AUTO_UPDATE_BLANK_DIRECTORY, 0x0, AUTO_UPDATE_DIRECTORY_WIDTH);
+@@ -71,8 +71,9 @@
+ #define AUTO_UPDATE_UPGRADE_DIRECTORY	(AUTO_UPDATE_DIRECTORY_WIDTH * AUTO_UPDATE_UPGRADE_INDEX)
+ #define AUTO_UPDATE_BLANK_DIRECTORY	(AUTO_UPDATE_DIRECTORY_WIDTH * AUTO_UPDATE_BLANK_INDEX)
+ #define AUTO_UPDATE_DIRECTORY_SIZE	SZ_1K
+-#define AUTO_UPDATE_RESERVED_SIZE	SZ_1M
+-#define AUTO_UPDATE_BITSTREAM_BASE	(AUTO_UPDATE_DIRECTORY_SIZE + AUTO_UPDATE_RESERVED_SIZE)
++#define AUTO_UPDATE_INFO_BASE		AUTO_UPDATE_DIRECTORY_SIZE
++#define AUTO_UPDATE_INFO_SIZE		SZ_1M
++#define AUTO_UPDATE_BITSTREAM_BASE	(AUTO_UPDATE_DIRECTORY_SIZE + AUTO_UPDATE_INFO_SIZE)
  
--	dev_info(priv->dev, "Writing the image address (%x) to the flash directory (%llx)\n",
-+	dev_info(priv->dev, "Writing the image address (0x%x) to the flash directory (0x%llx)\n",
- 		 image_address, directory_address);
+ #define AUTO_UPDATE_TIMEOUT_MS		60000
  
- 	ret = mtd_write(priv->flash, 0x0, erase_size, &bytes_written, (u_char *)buffer);
-@@ -342,7 +342,7 @@ static int mpfs_auto_update_write_bitstream(struct fw_upload *fw_uploader, const
- 	erase.len = round_up(size, (size_t)priv->flash->erasesize);
- 	erase.addr = image_address;
+@@ -86,6 +87,17 @@ struct mpfs_auto_update_priv {
+ 	bool cancel_request;
+ };
  
--	dev_info(priv->dev, "Erasing the flash at address (%x)\n", image_address);
-+	dev_info(priv->dev, "Erasing the flash at address (0x%x)\n", image_address);
- 	ret = mtd_erase(priv->flash, &erase);
- 	if (ret)
++static bool mpfs_auto_update_is_bitstream_info(const u8 *data, u32 size)
++{
++	if (size < 4)
++		return false;
++
++	if (data[0] == 0x4d && data[1] == 0x43 && data[2] == 0x48 && data[3] == 0x50)
++		return true;
++
++	return false;
++}
++
+ static enum fw_upload_err mpfs_auto_update_prepare(struct fw_upload *fw_uploader, const u8 *data,
+ 						   u32 size)
+ {
+@@ -287,22 +299,37 @@ static int mpfs_auto_update_write_bitstream(struct fw_upload *fw_uploader, const
+ 	loff_t directory_address = AUTO_UPDATE_UPGRADE_DIRECTORY;
+ 	size_t erase_size = AUTO_UPDATE_DIRECTORY_SIZE;
+ 	size_t bytes_written = 0;
++	bool is_info = mpfs_auto_update_is_bitstream_info(data, size);
+ 	u32 image_address;
+ 	int ret;
+ 
+ 	erase_size = round_up(erase_size, (u64)priv->flash->erasesize);
+ 
+-	image_address = AUTO_UPDATE_BITSTREAM_BASE +
+-		AUTO_UPDATE_UPGRADE_INDEX * priv->size_per_bitstream;
++	if (is_info)
++		image_address = AUTO_UPDATE_INFO_BASE;
++	else
++		image_address = AUTO_UPDATE_BITSTREAM_BASE +
++				AUTO_UPDATE_UPGRADE_INDEX * priv->size_per_bitstream;
+ 
+ 	buffer = devm_kzalloc(priv->dev, erase_size, GFP_KERNEL);
+ 	if (!buffer)
+ 		return -ENOMEM;
+ 
+-	ret = mpfs_auto_update_set_image_address(priv, buffer, image_address, directory_address);
+-	if (ret) {
+-		dev_err(priv->dev, "failed to set image address in the SPI directory: %d\n", ret);
+-		goto out;
++	/*
++	 * For bitstream info, the descriptor is written to a fixed offset,
++	 * so there is no need to set the image address.
++	 */
++	if (!is_info) {
++		ret = mpfs_auto_update_set_image_address(priv, buffer, image_address, directory_address);
++		if (ret) {
++			dev_err(priv->dev, "failed to set image address in the SPI directory: %d\n", ret);
++			return ret;
++		}
++	} else {
++		if (size > AUTO_UPDATE_INFO_SIZE) {
++			dev_err(priv->dev, "bitstream info exceeds permitted size\n");
++			return -ENOSPC;
++		}
+ 	}
+ 
+ 	/*
+@@ -334,6 +361,7 @@ static int mpfs_auto_update_write_bitstream(struct fw_upload *fw_uploader, const
+ 	}
+ 
+ 	*written = bytes_written;
++	dev_info(priv->dev, "Wrote 0x%zx bytes to the flash\n", bytes_written);
+ 
+ out:
+ 	devm_kfree(priv->dev, buffer);
+@@ -360,6 +388,9 @@ static enum fw_upload_err mpfs_auto_update_write(struct fw_upload *fw_uploader,
  		goto out;
-@@ -352,7 +352,7 @@ static int mpfs_auto_update_write_bitstream(struct fw_upload *fw_uploader, const
- 	 * will do all of that itself - including verifying that the bitstream
- 	 * is valid.
- 	 */
--	dev_info(priv->dev, "Writing the image to the flash at address (%x)\n", image_address);
-+	dev_info(priv->dev, "Writing the image to the flash at address (0x%x)\n", image_address);
- 	ret = mtd_write(priv->flash, (loff_t)image_address, size, &bytes_written, data);
+ 	}
+ 
++	if (mpfs_auto_update_is_bitstream_info(data, size))
++		goto out;
++
+ 	ret = mpfs_auto_update_verify_image(fw_uploader);
  	if (ret)
- 		goto out;
+ 		err = FW_UPLOAD_ERR_FW_INVALID;
 -- 
 2.43.0
 
