@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E956CD11C2
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 14:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE022CD11C2
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 14:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F4hrE09JutfJ93qb1U9ysqaL+9Hp7kxjto46zj61qng=; b=y4ZSb0lPxhT5Ip
-	XBRAt2+hmd5gm73DaJ68LtuW0KxK4Nn9E1ZwQ/a/dDcse2dyYNV9fYiTjTYYnl5MAAzBvVWKA1HQz
-	hLyVmEV8RjnKiknrQ9rhwL5BDgIDyRmFISgFYKOtabQeY5D3iJixmGQi3I3gvBgmv5m7Dh0laAaFh
-	EFeozvb4/sAZAgj12yNBsB6pCfDLs5IpPj9B0q1hsCB1/TW5nCqtkzvpPxJTP9z9jG1G4c7sUjGzT
-	tkkIcVhKIv5AUTsNcLS1ValNDQgRPBhygeRGi8JoePsLkbnoj0nwwgkN3f/1fTzQn/uKTW+WY8xts
-	yBPJRmcoWLzwuHksjrIA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QjgPd+O6UXHOIQJpOGpXZTS3syRwduqdW4fy3TOmkKk=; b=SvEffTYGNmvLDx
+	2OhgLBsxhrq39RwSx4xStTbpYtUFoT8pq4l4uDfCRUEQnFssL2dp+tc79QhMtkXMKaqOhnMW9OkJL
+	Ezg0d/zSCX9Zl+vzBsJNy2/zLC++lYAOZkTFei7KQ7Gx4JYjLQjP8jBwNCHH3FqA6J8SE8TUERo/6
+	M9/iVlh4XraknB8wMZmqPc4Kqpzx13fl0k+5qjbIlnBoubvXJRPBSpVDblaijp08HJHpFX+zloR9M
+	yBHNMFAtT1Ug4I+vADni11ATvs4o9x3WouoaH2FlxpwkfCBcJLNe68v/zH5Ubav1+OAb6yLmL3Q8q
+	p4PTpty6PQQdPXwZBZ/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruYof-00000007RBx-2fv3;
-	Wed, 10 Apr 2024 14:20:45 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1ruZ4d-00000007V2Y-3EtM;
+	Wed, 10 Apr 2024 14:37:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruYoW-00000007R5B-2G3H
+	id 1ruZ4a-00000007Uzv-0kvT
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Apr 2024 14:20:38 +0000
+	Wed, 10 Apr 2024 14:37:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id AFD67CE29EB;
-	Wed, 10 Apr 2024 14:20:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 69078C43394;
-	Wed, 10 Apr 2024 14:20:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9F53361DCA;
+	Wed, 10 Apr 2024 14:37:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 164F7C43399;
+	Wed, 10 Apr 2024 14:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712758833;
-	bh=96EroGBucN/XgCKG058lK4TrE/wjf9osJZ/hchKA2Qc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=q8vc0L8SS+ED/SjnwXPSCTK/WjTR5+3x7tIMpmnNdvBupgN/Lc/A7g2ygw7978BME
-	 miUzhSbeVbmDcWBMp1ZA9Dnf1PWEU4hklH0n1CJJ7ytWmLcoWow0ptvKXloPkIOiT1
-	 Nl3QJ/MXEcttk4CsgHCiVJoN95uTi2g1s/VYhyIt8ExwomIk5xQPa72ls1vF8SV5Ab
-	 MV0FoVmc0YTIfDcL8x8Ms/hfsLGG0CJ8mlCY2+aSU1470yOkK/C04J3U/n4TkQlwfM
-	 K9usfAt75uDvCBr7H0FyG1R+P2hiXESDbTenHwZiiT5oQLYCZdEsTOF/Pztoe+Otpn
-	 hNDYfBKwNLAUA==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 5ACFDC395F8;
-	Wed, 10 Apr 2024 14:20:33 +0000 (UTC)
+	s=k20201202; t=1712759831;
+	bh=zr37AZ5P+Jsxgb/Gyxa03cQqGoKMeaJhEq3JPY4Fv7U=;
+	h=From:To:Cc:Subject:Date:From;
+	b=O7n5Jgf2lmc+U1ygdgCX+qRuGy1Y3+qW8hGz8Ub4A5eOdTbw00TpmssfAOwTSXy1y
+	 dVa/2yAMhIWsq2bEfs9HtNnnN0uxiK/Hn3f+lIUigthhLJARcpWNoWBNV0g7Nhr815
+	 I/xsOw2WJo5N/c0Bmw/O6qfCNwnKNhPRbV3XiC7iDW6j887tZ7Nl+dKaHMSyFuzZ+6
+	 DkwTXzFZaHe+LL6H8LVeerY75mNvAkW9KTbELBIzTaknOHWt2pHhBqmRTlIT79LgRe
+	 iIew2SZrURVtgmlyB0jqctrDZ2mzpXvVcHm7GcNVrcTLtebJsVbTSnFgtq8FvOdLMX
+	 AVuM5Yl43yZvQ==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/2] riscv: improve nommu and timer-clint
+Date: Wed, 10 Apr 2024 22:23:45 +0800
+Message-ID: <20240410142347.964-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 0/1] RISC-V: enable rust
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171275883336.18495.14519035632596668351.git-patchwork-notify@kernel.org>
-Date: Wed, 10 Apr 2024 14:20:33 +0000
-References: <20240409-unsaddle-skittle-c93eb77732bb@spud>
-In-Reply-To: <20240409-unsaddle-skittle-c93eb77732bb@spud>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, conor.dooley@microchip.com,
- ojeda@kernel.org, alex.gaynor@gmail.com, wedsonaf@gmail.com,
- boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com,
- corbet@lwn.net, paul.walmsley@sifive.com, palmer@dabbelt.com,
- nathan@kernel.org, ndesaulniers@google.com, rust-for-linux@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_072036_783748_B7B59BF5 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20240410_073712_353917_9A3E7ED0 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,35 +76,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+As is known, the sophgo CV1800B contains so called little core, which
+is C906 w/o MMU, so I want to run nommu linux on it. This series is
+the result of the bring up. After this series, w/ proper dts, we can
+run nommu linux on milkv duo's little core.
 
-This patch was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+First of all, patch1 removes the PAGE_OFFSET hardcoding by introducing
+DRAM_BASE Kconfig option.
 
-On Tue,  9 Apr 2024 18:25:15 +0100 you wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> I've intentionally not turned on the gcc support, as discussed on
-> v1. I've also switched over to using the target, but it is a bit heavier
-> than the one arm64 seems to be using. RISC-V has fewer targets available
-> and this was the closest. I preserved the redzone disabling, just moved
-> into the Makefile. Any comment from Gary or the LLVM lads on the target
-> would be great I think:
-> https://github.com/rust-lang/rust/blob/master/compiler/rustc_target/src/spec/targets/riscv64imac_unknown_none_elf.rs
-> arm64 is using:
-> https://github.com/rust-lang/rust/blob/master/compiler/rustc_target/src/spec/targets/aarch64_unknown_none.rs
-> 
-> [...]
+Secondly, to use the T-HEAD C9xx clint in RISCV-M NOMMU env, we need
+to take care two points:
 
-Here is the summary with links:
-  - [v3,1/1] RISC-V: enable building 64-bit kernels with rust support
-    https://git.kernel.org/riscv/c/81889e8523e6
+1.The mtimecmp in T-Head C9xx clint only supports 32bit read/write,
+implement such support.
 
-You are awesome, thank you!
+2. As pointed out by commit ca7810aecdba ("lib: utils/timer: mtimer:
+add a quirk for lacking mtime register") of opensbi:
+
+"T-Head developers surely have a different understanding of time CSR and
+CLINT's mtime register with SiFive ones, that they did not implement
+the mtime register at all -- as shown in openC906 source code, their
+time CSR value is just exposed at the top of their processor IP block
+and expects an external continous counter, which makes it not
+overrideable, and thus mtime register is not implemented, even not for
+reading. However, if CLINTEE is not enabled in T-Head's MXSTATUS
+extended CSR, these systems still rely on the mtimecmp registers to
+generate timer interrupts. This makes it necessary to implement T-Head
+C9xx CLINT support in OpenSBI MTIMER driver, which skips implementing
+reading mtime register and falls back to default code that reads time
+CSR."
+
+So, we need to fall back to read time CSR instead of mtime register.
+Add riscv_csr_time_available static key for this purpose.
+
+The second patch adds T-Head C9xxx clint support to timer-clint driver
+by taking care of above two points.
+
+Since v2:
+  - drop CONFIG_CLINT_USE_CSR_INSTEADOF_MTIME, instead we use runtime
+    code patch to dynamically enable CSR TIME code path or MTIME code
+    path.
+
+Since v1:
+  - fix c900_clint_timer_init_dt() defined but not used build warning
+  - add option CONFIG_CLINT_USE_CSR_INSTEADOF_MTIME instead of removing
+    mtime usage for all platforms, since not all platforms implement the
+    time CSR in HW in M mode.
+  - rebase on the timer-clint improvement series
+https://lore.kernel.org/linux-riscv/20240406111757.1597-1-jszhang@kernel.org/T/#t
+
+
+Jisheng Zhang (2):
+  riscv: nommu: remove PAGE_OFFSET hardcoding
+  clocksource/drivers/timer-clint: Add T-Head C9xx clint
+
+ arch/riscv/Kconfig                |  8 +++++-
+ arch/riscv/include/asm/clint.h    |  2 ++
+ arch/riscv/include/asm/timex.h    | 18 +++++++++---
+ drivers/clocksource/timer-clint.c | 48 +++++++++++++++++++++++++++----
+ 4 files changed, 66 insertions(+), 10 deletions(-)
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
 
 _______________________________________________
