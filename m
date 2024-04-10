@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23781CD128A
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 14:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A6CCD11C2
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 14:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CiNGWW09PyoQwU4eDjVXMPUjtMZoDGGp9dEsRAIT0xE=; b=HYnzUodimT3HNt
-	NWUh9zZ0EcSZyCFlv2TJQWLCSwWyItm2zL3LqSSGnsszUVA07kJLsGbFXfgMAaw0TMNuCmSsD3+88
-	R3wQ7p+i2gqRIkvRvbEkFNOa5voziWCjwNa2nM9IGJ4AmF2PqdRYAEV4aMXnUatTxJ1Spj/Qbci4k
-	uPNjeEB3QrDdVfyc9pBov5GE8rmGJoR3G5TiI7ZsAm6RUJkNL/Pg8et8Tk93jGJ5cj0mXmg3TAxl4
-	3ar6eHXhkbXoBJeWUti3+fNTN4wuG1uw4969eMKz43ULHHDB608CtxoqXZ0MpHSUPbuWAXdjM7+la
-	aJ/t+CYQGS2WbYgoq/Rw==;
+	List-Owner; bh=5PklyAW2X9x1gie9Acr1jM5VQDAtzuzDfcj0vGTabFU=; b=vk4pJKnA02tA8t
+	1GGUK2daz4s0bKNdM0mKgSwnrLQmRoGHjyGwXDPVN+3N9xh9Nl6mpo9bwDKmlXbRFk8DVJ2ORVcUL
+	7yDp32JAKMa6uEDDFns9mNCSTRplnOuAwQ8ZGGduH6HGCuAIy7jRIJ6T7yaIZKekEwawofmTdKd4B
+	rm5UHskz0F/8syPMX0uj22tZ6xaKw93x0kAyNJxDmLEeDgUoLcXAJWMVV5JLSvsqoROAXVKnlTUw9
+	qKIQ4sO+yiQNbU1duVuSqxLjFwcuKeadQi2RCrd8hY5uGRu2NFk3GkhyX4zzr7YfTAkaL6Hy1Z+ZA
+	7YmvpJ5tqg2D3BLsLWsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruYoX-00000007R6x-3pZk;
-	Wed, 10 Apr 2024 14:20:37 +0000
+	id 1ruYoa-00000007R8g-0glb;
+	Wed, 10 Apr 2024 14:20:40 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruYoU-00000007R3g-19J6
+	id 1ruYoU-00000007R42-2ZJO
 	for linux-riscv@lists.infradead.org;
 	Wed, 10 Apr 2024 14:20:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B9A6F61DA0;
-	Wed, 10 Apr 2024 14:20:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6366CC433C7;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 213BA61DAF;
+	Wed, 10 Apr 2024 14:20:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 73D93C43399;
 	Wed, 10 Apr 2024 14:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1712758833;
-	bh=eC+Z9N5ahPdK92RFfh/c+mNGqNL0+z2FsfyJ+SMTgvo=;
+	bh=4Kz3l5iBTcMk71coylVCtzT5pq2n7AmkPTmE+6qrX0w=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=gSgTtKc4jIBQvla84kxwNpeU6lyHv4ZNr0YSikGOIY4aRJaMKZqBxI3F6FPEwqDHB
-	 4O0WLOqbqwiZ2c+LI48F9A/FSv5YFTqyLz500eeqx8vqy8P7/9lq/Isfc2eqG/cytQ
-	 XBk/B9vueVJPwT5EtfVxir3rssao85wYThEeUMpItManb71hnlHe/eRXXzHRPQcofA
-	 sP4vYck9sSS/pu1n7iSUxiYEAl1OEyCxCuuEtjemSHh+7s9DBcS+pKI6H5pe3G5YxE
-	 LOg/TORLO2U2bxc9MwF90J85TOxW1TpIPI4ItBvqbp2TJpMKI3XNd1JDMwTi1uCv5u
-	 6ht5FKZYXUkXw==
+	b=B6qW9O7swP1wL84j3tLl3/lG+g8s/TCOA3SmRdcgQUwOvWQWxz5khRwK/tuIWnnjr
+	 jH1eIOvAhhTzYmC4BTtxd2G89aiJd6ZoI/MVIFR2U9qSposi/TCbEWiDqOG75y38OW
+	 FeNh/I4NybWZfbuC3Rtae438WkNoD59lJn67idghpWQZsj2G4sXghad1EHZpMmgBo+
+	 VDTeNGg+tJecTiOkThtU5PXxmg9YWprKhCeyn5tLI6JX9AsaY7PbkTwHguohOLt5hM
+	 YCIPficYT31yX65nnmtisdLu4ke3e47RiYqQuVzd5OXMmHkug7a8UNa2ba80V6pyBw
+	 3lu3dSC9a5OrA==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 53B30CF21C4;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 675D6CF21C7;
 	Wed, 10 Apr 2024 14:20:33 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/4] riscv: 64-bit NOMMU fixes and enhancements
+Subject: Re: [PATCH v2] selftests: sud_test: return correct emulated syscall value
+ on RISC-V
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171275883333.18495.7159115515897564807.git-patchwork-notify@kernel.org>
+Message-Id: <171275883341.18495.6912537160519241189.git-patchwork-notify@kernel.org>
 Date: Wed, 10 Apr 2024 14:20:33 +0000
-References: <20240227003630.3634533-1-samuel.holland@sifive.com>
-In-Reply-To: <20240227003630.3634533-1-samuel.holland@sifive.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- linux-kernel@vger.kernel.org
+References: <20231206134438.473166-1-cleger@rivosinc.com>
+In-Reply-To: <20231206134438.473166-1-cleger@rivosinc.com>
+To: =?utf-8?b?Q2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPg==?=@ci.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, tglx@linutronix.de, shuah@kernel.org,
+ krisman@collabora.com, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, palmer@rivosinc.com, bjorn@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_072034_408380_BAE38DBD 
-X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-CacheID: sfid-20240410_072034_725522_0C15767D 
+X-CRM114-Status: UNSURE (   9.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,45 +72,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Mon, 26 Feb 2024 16:34:45 -0800 you wrote:
-> This series aims to improve support for NOMMU, specifically by making it
-> easier to test NOMMU kernels in QEMU and on various widely-available
-> hardware (errata permitting). After all, everything supports Svbare...
-> 
-> After applying this series, a NOMMU kernel based on defconfig (changing
-> only the three options below*) boots to userspace on QEMU when passed as
-> -kernel.
-> 
-> [...]
-
-Here is the summary with links:
-  - [1/4] riscv: Fix TASK_SIZE on 64-bit NOMMU
-    (no matching commit)
-  - [2/4] riscv: Fix loading 64-bit NOMMU kernels past the start of RAM
-    (no matching commit)
-  - [3/4] riscv: Remove MMU dependency from Zbb and Zicboz
-    https://git.kernel.org/riscv/c/9c4319d69744
-  - [4/4] riscv: Allow NOMMU kernels to run in S-mode
-    https://git.kernel.org/riscv/c/f862bbf4cdca
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZm9yLW5l
+eHQpCmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIFdlZCwgIDYg
+RGVjIDIwMjMgMTQ6NDQ6MzcgKzAxMDAgeW91IHdyb3RlOgo+IEN1cnJlbnRseSwgdGhlIHN1ZF90
+ZXN0IGV4cGVjdHMgdGhlIGVtdWxhdGVkIHN5c2NhbGwgdG8gcmV0dXJuIHRoZQo+IGVtdWxhdGVk
+IHN5c2NhbGwgbnVtYmVyLiBUaGlzIGFzc3VtcHRpb24gb25seSB3b3JrcyBvbiBhcmNoaXRlY3R1
+cmVzCj4gd2VyZSB0aGUgc3lzY2FsbCBjYWxsaW5nIGNvbnZlbnRpb24gdXNlIHRoZSBzYW1lIHJl
+Z2lzdGVyIGZvciBzeXNjYWxsCj4gbnVtYmVyL3N5c2NhbGwgcmV0dXJuIHZhbHVlLiBUaGlzIGlz
+IG5vdCB0aGUgY2FzZSBmb3IgUklTQy1WIGFuZCB0aHVzCj4gdGhlIHJldHVybiB2YWx1ZSBtdXN0
+IGJlIGFsc28gZW11bGF0ZWQgdXNpbmcgdGhlIHByb3ZpZGVkIHVjb250ZXh0Lgo+IAo+IFNpZ25l
+ZC1vZmYtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4KPiBSZXZpZXdl
+ZC1ieTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+Cj4gQWNrZWQtYnk6IFBh
+bG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPgo+IAo+IFsuLi5dCgpIZXJlIGlzIHRo
+ZSBzdW1tYXJ5IHdpdGggbGlua3M6CiAgLSBbdjJdIHNlbGZ0ZXN0czogc3VkX3Rlc3Q6IHJldHVy
+biBjb3JyZWN0IGVtdWxhdGVkIHN5c2NhbGwgdmFsdWUgb24gUklTQy1WCiAgICBodHRwczovL2dp
+dC5rZXJuZWwub3JnL3Jpc2N2L2MvYmFjMjkyZTg0OWQ3CgpZb3UgYXJlIGF3ZXNvbWUsIHRoYW5r
+IHlvdSEKLS0gCkRlZXQtZG9vdC1kb3QsIEkgYW0gYSBib3QuCmh0dHBzOi8va29yZy5kb2NzLmtl
+cm5lbC5vcmcvcGF0Y2h3b3JrL3B3Ym90Lmh0bWwKCgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
