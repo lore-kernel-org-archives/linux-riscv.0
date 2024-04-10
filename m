@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A8DBCD128A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BE0CD11C2
 	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 11:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P7TKrlnLowpQ0210zGQ9lq7xJwyu+tlt94VCfwx/Pgg=; b=pKoWuUD/tpzPsJ
-	j7Kt9SZydT1+5qS2ntw1ndRnNsLyjrVi5P7DBT28CH6sOM0XLFf2mBFA6MI7CFxcVAqLZX/zgaKm+
-	b3CKVAgIZ5bu8Xp5qogNzv988uKmFXbf8FB8jqs5c3d1nyG+Hh6+hpeGSH/OpIDhVHqqOJVPtR4Xf
-	H35KpDRexm/bO5hhUzm1XxlNX3xXd1sBgpY3NsnPdvEIhI2bNIYxrbJxrG2nt5VqEWWlQ57bYE62N
-	c0gRUdNIPP0JVkm6S7S1KTkuWGsoOUMbTBaLCeqhOyLuOTUMaqm1r/pAJ+gVhkRGa6LhBrHvRwlYJ
-	PpXGKmFyzsBO0V1Mnkog==;
+	List-Owner; bh=wiWytukYbZFCL/h1siw3tkkehW2tfnI+mSALMjFgA6c=; b=EU1wUqjLyp0fGw
+	LEcdsk8QVSRPcdZCu2d4v5IdTkx3vp4ECDKEMOBqoBbtGpTvHGmJjRTaoh5Q3aPX+kXKTcHGMFVG5
+	fJMdM/5fWy/yICCEw0+GoB1N02l/73bOmfbhnsCex3FGc/Bq7mFfN7PFQqpFz0cbT2AE+8q7/Ij6H
+	j0xpUZFO9GMAYgA8u1lHd3IumVUQLFIsoyKMxP5BZJcfsmOUIYOAIY9NgLL0pSWXF6Hf1mk6nYEY5
+	q3EE+TyZICBrPfy4bwO9WxPbZrCNiRERKZFDiWt5/QFs30QeeljiOfPe4MC+j6PjwX5oIUM76+q1c
+	YTEbPDaJm1RzGiKv4S5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruWbR-00000006lmg-3yOc;
-	Wed, 10 Apr 2024 11:58:57 +0000
+	id 1ruWbQ-00000006llK-272L;
+	Wed, 10 Apr 2024 11:58:56 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruWbK-00000006lfz-328b
+	id 1ruWbI-00000006leZ-3mjU
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Apr 2024 11:58:52 +0000
+	Wed, 10 Apr 2024 11:58:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 31C8761C0C;
-	Wed, 10 Apr 2024 11:58:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6690C433F1;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6AEDC61BFD;
 	Wed, 10 Apr 2024 11:58:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEC8FC43390;
+	Wed, 10 Apr 2024 11:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712750330;
-	bh=rZ17Zq2r5GglmuwlVZDKvybg4wn7yP4nbMxcY1IRFwM=;
+	s=k20201202; t=1712750328;
+	bh=zozmtpGCyzauq3lW42w4fnyusZzE+3jFnWSCycg+74w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sYY9z9jcmEO9tTdM8vBgKwQv8FfuqM0s1bASlPyB8S1nbwPNs2+QMU+gpzIG9K6HC
-	 2Yoei5a+E1SBFZ78y6zTcN+ITA/9bl3K7XxPYKRIZPiPFLDy5XUdAcsbVC3anuBBXw
-	 g+NR7hD89euUY0/BntKr9OWjSxjn+LOXKXrGj4nLuS5k0jwUFfjQgUesO6PDRxxphQ
-	 a8d5GUkxpVC3ipWpreiUrRUym9Jy5U+L6vpZe8L1vdrFfWijsvtTsVC8EPlFaC+KZn
-	 PYkDjpWxomEjg3pTnTXGrWq+w6PRuP+vBqEBohOHO9X1C0fdWdpNE21WkD0De6eez0
-	 gLWvdA17qTVsA==
+	b=Ki2sL3MhTeMJTG3avbeH1rzNAe7ciJKLADcUu1fQX6z8ruJDN7zDZ+xQ8xSe28t4h
+	 YhkH6vqfVaZHU9te9wWvdi5pPKlKDCnRBeBnjIV+Rc48jKhTKBYFD9oeQnL8J4GVZb
+	 HVMEZKtFzlB2SOMIasbDU9Gzk2dtbZAuEFDIbmsoSKiape4vzIXXDm8sijBmwY5Sti
+	 iWJMcaxZjcQBA1vjeI1rInOjnB4e6VQaeljR0Y+zBZYvOIb0L+mTukLCuWeoyiufay
+	 ojFtgFrSaLueQnp9nfK2cr9h0aQ0arl+iRMn1B6ZC2csTJ49/U9Iqe4gmILb/nxfra
+	 gCiQ6tAqghoyw==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -49,18 +49,18 @@ Cc: conor@kernel.org,
 	Daire McNamara <daire.mcnamara@microchip.com>,
 	Cyril Jean <cyril.jean@microchip.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 5/5] firmware: microchip: use scope-based cleanup where possible
-Date: Wed, 10 Apr 2024 12:58:08 +0100
-Message-ID: <20240410-glory-patriot-2d7c7876dcfe@spud>
+Subject: [PATCH v1 4/5] firmware: microchip: move buffer allocation into mpfs_auto_update_set_image_address()
+Date: Wed, 10 Apr 2024 12:58:07 +0100
+Message-ID: <20240410-manhood-gathering-41ccbfdad649@spud>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240410-opulently-epic-8654bdac3422@spud>
 References: <20240410-opulently-epic-8654bdac3422@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3938; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=0WayOjS6Zyrbw3ItGJG9W3xsEKlmQEnuZ+2GI5oj4yg=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGlidVfT0uZ3P5i5Me39ZkGnq/U8rSpnHH9HVxjqTKkLK 7zx2Uq0o5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABNxWsHw36v1/Jo7G90V2U+6 XHXk051U6pXF8euz5hb5F0tnHBa5uZqRYefGd3/F2VQYhazl7R5/sHtbK/RP70suW5PTuW4JC3F ndgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4105; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=wFllIaLoSb4Gw+0g2yEUZWRr6LUeHyCfKeT7QJ6ExZU=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGlidVd1lBOmeBjKi02Xe3uSP7V/Pf+C1dOcTPVPX1Z9I PRvlXV4RykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbS6srIMPltMsdPBVHxzU9W FgTfqeLbN4m7+g1P2V2hKvkzOg+vpjEyXJ/q3iv1ePUiRh2XM1fvnfeUiNvy4aifBX/iRq4z6fp 57AA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_045851_001738_A4D1BF6B 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20240410_045849_142719_5FFE74CE 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,111 +79,116 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-There's a bunch of structs created and freed every time the mailbox is
-used. Move them to use the scope-based cleanup infrastructure to avoid
-manually tearing them down. mpfs_auto_update_available() didn't free the
-memory that it used (albeit it allocated exactly once during probe) so
-that gets moved over too.
+This buffer is used exclusively by mpfs_auto_update_set_image_address(),
+so move the management of it there, employing the recently added cleanup
+infrastructure to avoid littering the function with gotos.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/firmware/microchip/mpfs-auto-update.c | 59 +++++--------------
- 1 file changed, 16 insertions(+), 43 deletions(-)
+ drivers/firmware/microchip/mpfs-auto-update.c | 32 ++++++++-----------
+ 1 file changed, 13 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/firmware/microchip/mpfs-auto-update.c b/drivers/firmware/microchip/mpfs-auto-update.c
-index d7ce27f4ba1b..30de47895b1c 100644
+index 078ff328f261..d7ce27f4ba1b 100644
 --- a/drivers/firmware/microchip/mpfs-auto-update.c
 +++ b/drivers/firmware/microchip/mpfs-auto-update.c
-@@ -175,28 +175,17 @@ static enum fw_upload_err mpfs_auto_update_poll_complete(struct fw_upload *fw_up
- static int mpfs_auto_update_verify_image(struct fw_upload *fw_uploader)
+@@ -9,6 +9,7 @@
+  *
+  * Author: Conor Dooley <conor.dooley@microchip.com>
+  */
++#include <linux/cleanup.h>
+ #include <linux/debugfs.h>
+ #include <linux/firmware.h>
+ #include <linux/math.h>
+@@ -233,15 +234,17 @@ static int mpfs_auto_update_verify_image(struct fw_upload *fw_uploader)
+ 	return ret;
+ }
+ 
+-static int mpfs_auto_update_set_image_address(struct mpfs_auto_update_priv *priv, char *buffer,
++static int mpfs_auto_update_set_image_address(struct mpfs_auto_update_priv *priv,
+ 					      u32 image_address, loff_t directory_address)
  {
- 	struct mpfs_auto_update_priv *priv = fw_uploader->dd_handle;
--	struct mpfs_mss_response *response;
--	struct mpfs_mss_msg *message;
--	u32 *response_msg;
-+	u32 *response_msg __free(kfree) =
-+		kzalloc(AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(*response_msg), GFP_KERNEL);
-+	struct mpfs_mss_response *response __free(kfree) =
-+		kzalloc(sizeof(struct mpfs_mss_response), GFP_KERNEL);
-+	struct mpfs_mss_msg *message __free(kfree) =
-+		kzalloc(sizeof(struct mpfs_mss_msg), GFP_KERNEL);
+ 	struct erase_info erase;
+-	size_t erase_size = AUTO_UPDATE_DIRECTORY_SIZE;
++	size_t erase_size = round_up(AUTO_UPDATE_DIRECTORY_SIZE, (u64)priv->flash->erasesize);
+ 	size_t bytes_written = 0, bytes_read = 0;
++	char *buffer __free(kfree) = kzalloc(erase_size, GFP_KERNEL);
  	int ret;
  
--	response_msg = devm_kzalloc(priv->dev, AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(response_msg),
--				    GFP_KERNEL);
--	if (!response_msg)
-+	if (!response_msg || !response || !message)
- 		return -ENOMEM;
+-	erase_size = round_up(erase_size, (u64)priv->flash->erasesize);
++	if (!buffer)
++		return -ENOMEM;
  
--	response = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_response), GFP_KERNEL);
--	if (!response) {
--		ret = -ENOMEM;
--		goto free_response_msg;
--	}
--
--	message = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_msg), GFP_KERNEL);
--	if (!message) {
--		ret = -ENOMEM;
--		goto free_response;
--	}
+ 	erase.addr = AUTO_UPDATE_DIRECTORY_BASE;
+ 	erase.len = erase_size;
+@@ -287,7 +290,7 @@ static int mpfs_auto_update_set_image_address(struct mpfs_auto_update_priv *priv
+ 		return ret;
+ 
+ 	if (bytes_written != erase_size)
+-		return ret;
++		return -EIO;
+ 
+ 	return 0;
+ }
+@@ -297,7 +300,6 @@ static int mpfs_auto_update_write_bitstream(struct fw_upload *fw_uploader, const
+ {
+ 	struct mpfs_auto_update_priv *priv = fw_uploader->dd_handle;
+ 	struct erase_info erase;
+-	char *buffer;
+ 	loff_t directory_address = AUTO_UPDATE_UPGRADE_DIRECTORY;
+ 	size_t erase_size = AUTO_UPDATE_DIRECTORY_SIZE;
+ 	size_t bytes_written = 0;
+@@ -313,16 +315,12 @@ static int mpfs_auto_update_write_bitstream(struct fw_upload *fw_uploader, const
+ 		image_address = AUTO_UPDATE_BITSTREAM_BASE +
+ 				AUTO_UPDATE_UPGRADE_INDEX * priv->size_per_bitstream;
+ 
+-	buffer = devm_kzalloc(priv->dev, erase_size, GFP_KERNEL);
+-	if (!buffer)
+-		return -ENOMEM;
 -
  	/*
- 	 * The system controller can verify that an image in the flash is valid.
- 	 * Rather than duplicate the check in this driver, call the relevant
-@@ -218,20 +207,12 @@ static int mpfs_auto_update_verify_image(struct fw_upload *fw_uploader)
- 	ret = mpfs_blocking_transaction(priv->sys_controller, message);
- 	if (ret | response->resp_status) {
- 		dev_warn(priv->dev, "Verification of Upgrade Image failed!\n");
--		ret = ret ? ret : -EBADMSG;
--		goto free_message;
-+		return ret ? ret : -EBADMSG;
- 	}
+ 	 * For bitstream info, the descriptor is written to a fixed offset,
+ 	 * so there is no need to set the image address.
+ 	 */
+ 	if (!is_info) {
+-		ret = mpfs_auto_update_set_image_address(priv, buffer, image_address, directory_address);
++		ret = mpfs_auto_update_set_image_address(priv, image_address, directory_address);
+ 		if (ret) {
+ 			dev_err(priv->dev, "failed to set image address in the SPI directory: %d\n", ret);
+ 			return ret;
+@@ -345,7 +343,7 @@ static int mpfs_auto_update_write_bitstream(struct fw_upload *fw_uploader, const
+ 	dev_info(priv->dev, "Erasing the flash at address (0x%x)\n", image_address);
+ 	ret = mtd_erase(priv->flash, &erase);
+ 	if (ret)
+-		goto out;
++		return ret;
  
- 	dev_info(priv->dev, "Verification of Upgrade Image passed!\n");
+ 	/*
+ 	 * No parsing etc of the bitstream is required. The system controller
+@@ -355,19 +353,15 @@ static int mpfs_auto_update_write_bitstream(struct fw_upload *fw_uploader, const
+ 	dev_info(priv->dev, "Writing the image to the flash at address (0x%x)\n", image_address);
+ 	ret = mtd_write(priv->flash, (loff_t)image_address, size, &bytes_written, data);
+ 	if (ret)
+-		goto out;
++		return ret;
  
--free_message:
--	devm_kfree(priv->dev, message);
--free_response:
--	devm_kfree(priv->dev, response);
--free_response_msg:
--	devm_kfree(priv->dev, response_msg);
--
+-	if (bytes_written != size) {
+-		ret = -EIO;
+-		goto out;
+-	}
++	if (bytes_written != size)
++		return -EIO;
+ 
+ 	*written = bytes_written;
+ 	dev_info(priv->dev, "Wrote 0x%zx bytes to the flash\n", bytes_written);
+ 
+-out:
+-	devm_kfree(priv->dev, buffer);
 -	return ret;
 +	return 0;
  }
  
- static int mpfs_auto_update_set_image_address(struct mpfs_auto_update_priv *priv,
-@@ -406,23 +387,15 @@ static const struct fw_upload_ops mpfs_auto_update_ops = {
- 
- static int mpfs_auto_update_available(struct mpfs_auto_update_priv *priv)
- {
--	struct mpfs_mss_response *response;
--	struct mpfs_mss_msg *message;
--	u32 *response_msg;
-+	u32 *response_msg __free(kfree) =
-+		kzalloc(AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(*response_msg), GFP_KERNEL);
-+	struct mpfs_mss_response *response __free(kfree) =
-+		kzalloc(sizeof(struct mpfs_mss_response), GFP_KERNEL);
-+	struct mpfs_mss_msg *message __free(kfree) =
-+		kzalloc(sizeof(struct mpfs_mss_msg), GFP_KERNEL);
- 	int ret;
- 
--	response_msg = devm_kzalloc(priv->dev,
--				    AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(*response_msg),
--				    GFP_KERNEL);
--	if (!response_msg)
--		return -ENOMEM;
--
--	response = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_response), GFP_KERNEL);
--	if (!response)
--		return -ENOMEM;
--
--	message = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_msg), GFP_KERNEL);
--	if (!message)
-+	if (!response_msg || !response || !message)
- 		return -ENOMEM;
- 
- 	/*
+ static enum fw_upload_err mpfs_auto_update_write(struct fw_upload *fw_uploader, const u8 *data,
 -- 
 2.43.0
 
