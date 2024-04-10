@@ -4,118 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B65CD11C2
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 10:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0462CD128A
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 10:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PF8ebZC4mJphNXyVK7AvckuGXT+KIpTv04uDEvC2o9w=; b=2lQbpio7RiUuw4
-	L9pKRp8lbe1Q9C0E3Ab173JiQ+p/bXzaEr/q9iAeV7/7dmH1afK+aHUbmJwWT9+CI3jCQ/j6jhbL/
-	zpG9KkXjN3+noaAwqF0c7zRob//A4LsNVBR8bFdGydYQf1ANIbY337SdcibDmcml4fwxqme1Vy9IB
-	VqkvNOMS+371txVjrxec9SLInHFzloYcM/st6SaHnIWLIZ7BBq3tHINB3JZFXk75RkOvw6X/khosv
-	hshuBXptH3PnbCpGjLM9dHyAGxinCkU/BWRELVkXNaRQyERtKtt7rBxUHA3JSz5crTcwhAABHxIVK
-	99crNFl3H7Y/M5tHU4HQ==;
+	List-Owner; bh=zMGFiADyjU+g63TOK7zTm5sYYRJzQaWc3CbyHoilPuQ=; b=f9P5botefqP38P
+	R1fFFiY7NM4wpGFWCcyTkfATx/pSko8C8GnOiDK4Rb9G5bwPO7QyLQ0s/o9fSLfIPF5T5eZP46md3
+	pJaj5MHM/EkLwoAA1ApdN6JFQYPXPk1QyGVOPaZAwqKGRJv7xQ/+Cc2RXpdw0uiTdHb8mefCQXvOZ
+	/cVmZeKXj8ncSXxQBcAOKE8eYNXEzoAAlKGCqGPeCuZx8gPZp7K7DYD41DIlxBsMwNdynC68TOn6Z
+	ju32uZXlHNHmdGLusRmE2nJmjOOqawGa81LSva8hxhLNH8T4s8bWNHLTjqBGJW+JaBxv/1kN3yQxi
+	HNljd3hV+kK/lnOUY2mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruV0q-00000006LWn-1rmv;
-	Wed, 10 Apr 2024 10:17:04 +0000
-Received: from mail-mw2nam12olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2805::800] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1ruVEC-00000006Olj-3PQB;
+	Wed, 10 Apr 2024 10:30:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruV0o-00000006LV9-08Ns
+	id 1ruVE9-00000006Ok3-0sYM
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Apr 2024 10:17:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=P9iAKgpTtquGKCkZkRrfY4c8T+cYAluLIUWCz56cgHcPb2fLcw42HJ8C/7mRepjhXQeJq1RqvMvvmdvum9nS6T+8wPYw6SUyVRvkGVzmJ+0iigL3ftBPYfFoes+Y+437sZGAvJjbG6zj4GzEeeT2XjbSfBSungZhFJ5wNskpoSTpzRuEgcSMREfePfBef/TfTPFQ/OUqf4zPIA5KoNMmbpNwQbhSlemC6gPD8/JH6zrUZSHmkNdBO+U53EnUVavgIZ8MhLbkM/ynBBwek/6yt8vv5hlaIjYYvJVsb2WXz4/80rt4Gclug+d8m57T6HibaClXyKLorJdF4VoZPYhToA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Gn2f5ff8033IAMmi+7JVYLxi/c2u3VBTYdBB/CJnqNc=;
- b=P6eDfor1prMXxu+PKoH3C2B7pig2MOvNFwKekjWGEDrbZitye3nY9FaBwL9I5jKYdf+Mo7/RSCbXEvjiPWD6QQYIYwbddddWIpwetuv5w8KUMLnkqQ3suiiPJvSyzHmgsDDo/szYYHStoiyuRboh/2poT6wUWQPOoIbHniSC4AwLJ0k0x03/+I2a45E7tcDu5LpQKOnXOifFfMC9KRoeK2cSIm17rbTivf4FHKo9FgcAH+Vlsct/8O33qhTCBQshzBFK79Zn8WH3PKVk59on5BiSfwBAZMUe4Wsc2txWMVezS834V1O8jVEq6QgADDLvEgt8pNzRhPgn6dPZZxpiPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Gn2f5ff8033IAMmi+7JVYLxi/c2u3VBTYdBB/CJnqNc=;
- b=lVh6aH4thobfuJtpbeEUxQXbCRKUHvveCZtHsDiWvDbVrehqZMwFO4YipRwvlNs0fQyghg5gUexeC0IUPPemJ+z5Ww+x8jbgwMLIbYZ8gdnyG5BywQytwQh1pCTgUhoOxVqkXe0zGIarbhrEL8bWNWpKVg6XTMK4h7QH3YsfB73E773mllZ08+gAMTPai6/n7sKss2eJBpgBfV1N6yt/tBS18LOrvU4LjjHdsGEuEVpBpXg71m3f9WWTFMTcxs1dPHumnxl5OyhYoLuHSK29e91IPRuyDpt1lczwyCm8o/a8LVxZbDcP0igYp+Z+9naHbhI54eZxGz7fQ6LYVbMcew==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by PH7PR20MB5257.namprd20.prod.outlook.com (2603:10b6:510:1af::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Wed, 10 Apr
- 2024 10:16:57 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7409.042; Wed, 10 Apr 2024
- 10:16:56 +0000
-Date: Wed, 10 Apr 2024 18:17:14 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Michael Opdenacker <michael.opdenacker@bootlin.com>, 
-	Inochi Amaoto <inochiama@outlook.com>, Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	Wed, 10 Apr 2024 10:30:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 812D66162F;
+	Wed, 10 Apr 2024 10:30:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 725A9C433F1;
+	Wed, 10 Apr 2024 10:30:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1712745048;
+	bh=PFOYzkTQaz4RIV29s8crIVArTeI+klJddc4BaSfF6jM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=c10OJVwqruArl5g5dCIgIlZ3UQywtIqmha4t4djM5xAnA40tOoewe49ZDfgnbs38h
+	 kDjnmrcSFdYLitqgQsypKWVoUmWkDcXatkwBPlRgrTu6NvrT67UoxwtkRkKX1Y0pfJ
+	 Dv8WAyqZxbAAD5rnFwpGkX6xcLah7Ylzn0RqYthYchZ51lDX7xdbDjs/GxU3izIIpE
+	 +VSq7LX7heBJlX3KtXnAyQksjEqG6w68dA+JOgWYYz/O1cGRCAy4n3zcELfyYMEp4p
+	 kT/GiIQg5C1LiGKQ6M8jPFLf7nFfqoCHRO/c+Zr895CnKGEiv18IaCub+OvG4MR87f
+	 PpysPvsBYjKPQ==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org,
+	Yangyu Chen <cyy@cyyself.name>
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: add Milk-V Duo S board
- compatibles
-Message-ID: <IA1PR20MB49538EC805A17513DF396820BB062@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <20240410062254.2955647-1-michael.opdenacker@bootlin.com>
- <20240410062254.2955647-2-michael.opdenacker@bootlin.com>
- <IA1PR20MB49532EC9B654B5B1C2538851BB062@IA1PR20MB4953.namprd20.prod.outlook.com>
- <115662f6-a390-497e-903e-5a9bbb15e08b@bootlin.com>
-Content-Disposition: inline
-In-Reply-To: <115662f6-a390-497e-903e-5a9bbb15e08b@bootlin.com>
-X-TMN: [/kqvkq5bJNnQgR90TdcyEw6kzjs7e7jLq9SwCRz5ToI=]
-X-ClientProxiedBy: TYCP286CA0229.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:3c7::8) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <yj5oxxquzg4zrbqvvlsaj77n2cmbbp2uwtbjkhwkk3lrr6v72y@tbwnm67qtgyv>
+Subject: Re: (subset) [PATCH RESEND v8 0/6] riscv: add initial support for Canaan Kendryte K230
+Date: Wed, 10 Apr 2024 11:30:25 +0100
+Message-ID: <20240410-unwoven-march-299a9499f5f4@spud>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <tencent_22BA0425B4DF1CA1713B62E4423C1BFBF809@qq.com>
+References: <tencent_22BA0425B4DF1CA1713B62E4423C1BFBF809@qq.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH7PR20MB5257:EE_
-X-MS-Office365-Filtering-Correlation-Id: f6fa1d1d-d1ad-4234-389a-08dc594759e3
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: n+KNaoQq+1q/TdEh+kUYZ6F+OtGPZ2Dw8WCthKQ6ntBc8Uvr9kCgY0xuRkM1j3QNW7eR9pcPhd+L/rkwt0xk9iqB3SpYAVZUvWS/lNuQMKd33zYDxEnRve2mR/i5bb0YhKVu/RR7uVn9F9aj7L1OE6IjEUtg9Aignum3f++Umep6lI2dgYel/V3217+I9y7JONFjXYteKVpzJc/wXTyrF6uhMiUuHt3Q3oMx9b2gdLrM7wmUdLXl+Ni/iLkU10QBNHxqeIPWUmxOEXNvSvH8QiekMekDwAiymexXFkVWBCNK0+iSQGHCj13TYb2PX5jPYG0pnQRoGIlA6cyFA4In86gZSJOaG4u1+Qf6LcbC1yC4xon6VNywGPBYwsVKJJ6fl7jyez7DO1dAmVDPUqDMINiVC/c9RIkyGQkyt5n79bUoej5Qa2vQSIlnozGiNUeCECwN/OSmXn7rKimpZGHh8Hf49DqgD80CtLimkXJ6ubLHW+W8usz4EsXK+vSkJV5XE1I3H9p9CAqjx3O7uun9T48hRspPxXI1bIg/Ue42KCj625BKeZTlS3o54ACh5XRucLRga2YrQCa2SKcmY/6q/Ak+3aidkFdd9Lu0BC7hQTQbYomej7QBVqGpTMDNnnPETttW0igcICjIk2CpI/vLJqotR+0OE/R/S9QhG82n8RNMEp4y4Lh8Z23oZoaSlU8t
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JTGe9Bx1r2wqJLRZNQCw3QCaDihYTUf/EKmOTlI657bnKV3jFm0yDkp9pyfG?=
- =?us-ascii?Q?ctZLGmV9N02aiRv6cPzhCTz9hstCbk5mfAStPQp8RUYjnq1hR6aEZ1nB9qk2?=
- =?us-ascii?Q?toEkF7/RzkU3w9GNoD31z0+kJHMLoX0stwrHZx0RPoGBTC7LLSBFhLVDQb77?=
- =?us-ascii?Q?RUenM8PcdLUyJ1IbC5HIKwFVe1D2yN44nOzERAYtpTLTqh0+zk9vUWEDCne5?=
- =?us-ascii?Q?LjeBrFuUqUF3nPouu5XZzSx9w5BPAAlH78FJ1Smo3uUT/hq86r1wMnvQ1IFE?=
- =?us-ascii?Q?0YnUAsluZb4fFKgxzVxvCDTDfEpKe6UUlTb9Lr4wUgEOMh5mJE+RLJ6g0+kX?=
- =?us-ascii?Q?vGF0o4lMYFSUDJ+4u054M77SNdR+FnTReRk5iKR2Y5s6Qf4S/6W37OLQDNvE?=
- =?us-ascii?Q?kKjnYvH9e+2pV06246hNxE1wrypYaD+iGqwKN3LvuBEySkgVbRQTBnTbYKI8?=
- =?us-ascii?Q?wVRd9j9F9IXjkLv89xkS03G6tDOKFUxev5gEY5/dLrvx1bi5fZPqU7kBNxTH?=
- =?us-ascii?Q?yCtmlKHNrNO1MIVNSHjh7PbYeV4dW3yRf59S3PHx1A3Q6oACMBkUgxC2Zk5n?=
- =?us-ascii?Q?tkJWU3Sf9yewalpgYFPR12O/H6rSBnHdUVPTKzfycFp5bsy3eXW5elxuIkVz?=
- =?us-ascii?Q?BNlxj5nxB5zgl7K29DvVCd8dt+PaGGs6ggCm1rj7HmNGusi3CeX2MwcB/m0W?=
- =?us-ascii?Q?OIwhuBYUXC6rDfksmrIE1bh5ONzI4bDKzIBhTnctIIYmeqsZ6GfS0npOrzfa?=
- =?us-ascii?Q?zRS1RThZymmaLqRIJpNqTnVXQ76SPhLZ5Tr3V1o02LqAnVBM5C+5u8Zk770n?=
- =?us-ascii?Q?TJektZ/tRR84j9TdErtRzOl+mrxpMEPtDqXcUF96yPhPWwE6SbAvT/+n+G7M?=
- =?us-ascii?Q?c6uHawanDcG8elbxG8gvZo+UvS3AQDKuH+CYVGe05QLRIYERwWYzV75nrMYc?=
- =?us-ascii?Q?TqpNnKBNX0PdaP9IdD74JLnb1YLCmb8fd9JRPylA5gzAcpJnbD/TBl3ABEUm?=
- =?us-ascii?Q?K83jTTjH4fcr++onUz1RkW9zWYQt2Qhk9MoWmIWfrHCpis620B2iB1xrABNt?=
- =?us-ascii?Q?SFs1m2BV1hIb1Qd3ekjyoLPZVnRjfG8zozTxt/c24y0n4FKH/lj7Gk8mN1aX?=
- =?us-ascii?Q?hcEcJRyOuhSaHxnV+4VjRDZVITI+wAO7GkeJuElck+2NldkQ0DkzgucWUSIG?=
- =?us-ascii?Q?DvEevsRMQQa+VnHIfUReDjkUgL8VV0t1nsgK4aK0ntmD3/wTKLuXdBOYAamd?=
- =?us-ascii?Q?Jdk2v43LXgsNm5af8CPs?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6fa1d1d-d1ad-4234-389a-08dc594759e3
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2024 10:16:56.7689
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR20MB5257
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1058; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=g1jnmXwY+mRbkP1JjfYfibR7YG/ZdsVyF8SLWs6lEX0=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGliWY7L232dpH74pq6L8PmpOyv0rfqW0Nz7DkK6ErZKi soGl7d2lLIwiHEwyIopsiTe7muRWv/HZYdzz1uYOaxMIEMYuDgFYCJmKowMm6clMFUtl8+J0Rbv 1PZMy9sh+WNTGH9Jk9VBTqklmxheMfwVrewWtTDnvnTFcO2UWyI7hav2M4pdnCRn5xH9WjBVjoM LAA==
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_031702_308852_FA625FF7 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20240410_033049_334980_58C4396D 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,52 +86,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 10, 2024 at 09:55:17AM +0200, Michael Opdenacker wrote:
-> Hi Inochi
-> 
-> Thanks for the reviews!
-> 
-> On 4/10/24 at 09:19, Inochi Amaoto wrote:
-> > On Wed, Apr 10, 2024 at 08:22:53AM +0200, michael.opdenacker@bootlin.com wrote:
-> > > From: Michael Opdenacker <michael.opdenacker@bootlin.com>
-> > > 
-> > > Document the compatible strings for the Milk-V Duo S board[1] which uses
-> > > the SOPHGO SG2000 SoC, compatible with the SOPHGO CV1800B SoC[2].
-> > > 
-> > > Link: https://milkv.io/duo-s [1]
-> > > Link: https://en.sophgo.com/product/introduce/cv180xB.html [2]
-> > > 
-> > > Signed-off-by: Michael Opdenacker <michael.opdenacker@bootlin.com>
-> > > ---
-> > >   Documentation/devicetree/bindings/riscv/sophgo.yaml | 1 +
-> > >   1 file changed, 1 insertion(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/riscv/sophgo.yaml
-> > > index 9bc813dad098..1837bc550056 100644
-> > > --- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
-> > > +++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
-> > > @@ -21,6 +21,7 @@ properties:
-> > >         - items:
-> > >             - enum:
-> > >                 - milkv,duo
-> > > +              - milkv,duos
-> > >             - const: sophgo,cv1800b
-> > Why not adding sg2000 property? They are different series.
-> > IIRC, it at least a cv1813h not cv1800b. I suggest checking
-> > the vendor SDK to get the right board compatibles.
-> 
-> Here's what there was in the vendor provided DTB, if I noted it correctly:
-> compatible = "cvitek,cv181x";
-> 
-> Cheers
-> Michael
+From: Conor Dooley <conor.dooley@microchip.com>
 
-That's true, the chipcode can be only see in the build script or
-the board dts. You can use this as a base. For example, sg2000 
-can be something like: "sophgo,sg2000", "sophgo,cv1813h". 
-But in fact, I do not prefer to add "sophgo,cv1813h". Because
-sg2000 can also boot as an aarch64 board, but cv1813h can't.
+On Mon, 08 Apr 2024 00:26:58 +0800, Yangyu Chen wrote:
+> K230 is an ideal chip for RISC-V Vector 1.0 evaluation now. Add initial
+> support for it to allow more people to participate in building drivers
+> to mainline for it.
+> 
+> This kernel has been tested upon factory SDK [1] with
+> k230_evb_only_linux_defconfig and patched mainline opensbi [2] to skip
+> locked pmp and successfully booted to busybox on initrd with this log [3].
+> 
+> [...]
 
+Applied to riscv-dt-for-next, thanks!
+
+[1/6] dt-bindings: riscv: Add T-HEAD C908 compatible
+      https://git.kernel.org/conor/c/64cbc46bb854
+[2/6] dt-bindings: add Canaan K230 boards compatible strings
+      https://git.kernel.org/conor/c/b065da13ea9c
+[3/6] dt-bindings: timer: Add Canaan K230 CLINT
+      https://git.kernel.org/conor/c/b3ae796d0a4f
+[4/6] dt-bindings: interrupt-controller: Add Canaan K230 PLIC
+      https://git.kernel.org/conor/c/db54fda11b13
+[5/6] riscv: dts: add initial canmv-k230 and k230-evb dts
+      https://git.kernel.org/conor/c/5db2c4dc413e
+
+
+6/6 intentionally missing, it goes on another branch.
+
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
