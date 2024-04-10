@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB17FCD128A
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 17:28:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0723ACD11C2
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 18:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oO93C+nTv92cfaqlBUazYpS19UsfxZhU6vAWvrJQvGE=; b=tMQqsBKvkt5q1V
-	F9EXDfWR1y+nwIOo3o1tCMv8d9mBb4NVE3qrMdx3VGMEP/dkWkjjKpUA772ztuf+BwVVUNDng/S3V
-	x6X49Xyq6y2Lv7RzTGNRKm3WOUBiU/jA3zuzZKX2O4hWNUIuxBl84jz0Zo3jX5xfUsaAp30G8zApB
-	iutI3nr8w1y6W2Uf9TQxAehIF0Pz/mEMLDF+Le1l6UYXlgoa+3w3POjbQXiheHR7G/eGvTcrjJUCW
-	xGhNoBWOtmXkt8s69lqZDnJTheZuqi/MO+HtYvWb2Yag+M55QD5LFZ8GuU2FEGpljZrp/VB/Cn3Wr
-	vY/DuyeyjhPi4w7srprw==;
+	List-Owner; bh=KktmwwNOxg3wRCic5bCvRAliZuMsOoKt1htMmUcTneA=; b=V/yhJhMip4ErXC
+	MNWUbRV6cI50eGCuaWEGXxYXkbGdwZWmwhS4osP0qTo5aPl9rU/q9flk2fKOkGGfIBl05E6XE0eQQ
+	RukKFfbINZHBBmZEqdCsGEt9kFaIIN7seUrokzp0m9DD6mW3rQFPIKSLP5hRT0U8r3JlfXNxPyW4B
+	r0x/h/Bt3IwvOnJKzPuAoXB4VShGAI7zDnzPmB9bMMnX4cTJhO+J0j6vg9BCx97ShnrT/8VGFUOgQ
+	VIN9Jxz3D2wIa4WluHaLrFakET7iaUwdcuknQD05olDmNEzIcKSj+kgMSuOyNQtH/9Gr+rz1NqfPN
+	kG69O48RRGG2ktcvnfLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rubkg-00000008G5l-42ek;
-	Wed, 10 Apr 2024 17:28:50 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1rud9e-00000008Zvj-2Puu;
+	Wed, 10 Apr 2024 18:58:42 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rubkc-00000008G16-0gzq;
-	Wed, 10 Apr 2024 17:28:49 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 376E7C0004;
-	Wed, 10 Apr 2024 17:28:36 +0000 (UTC)
-Message-ID: <3493a2f4-9cae-4773-a6a1-2eeb2d23f0c8@ghiti.fr>
-Date: Wed, 10 Apr 2024 19:28:36 +0200
+	id 1rud9R-00000008ZEx-1CkV;
+	Wed, 10 Apr 2024 18:58:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=U8bqg6vv1xN246qvsvrQZYNVGTMrjTXzu9x/4q0URWY=; b=Eih04ugnqStfjTGj8LCSTHRa8I
+	JVKC9gkRyoCXJUkvOs3gxMIVb6pp3NE4PiFgKq38B/dWSfl77kt3RXU5fC9mMMM6OCB3O8hcgUx2S
+	Iv1Pl/+4KblR/zsHS7r1cSKoeP4zO0tKaJGaX6F+EpE3lDTPTujdhDVlzVNGQN9/rLbNsvowxTg2K
+	CWuVQR8+MaNkHOw8BqdKVjxzsNgCldrupd7faINLxt+omBYy9HAtuQW8d1cgHLKwfslwkV2lecqX8
+	goWQIWe7kLglAMnYY1F9r7DLY0WiKdfvrjCoo58dPUxqUlo+NqnwAQtfmvkjDxde80Y5aYlKd0JtS
+	qpMjAr0Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38784)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1rud77-0008Nd-2R;
+	Wed, 10 Apr 2024 19:56:05 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1rud73-0006BQ-2Q; Wed, 10 Apr 2024 19:56:01 +0100
+Date: Wed, 10 Apr 2024 19:56:00 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, acpica-devel@lists.linuxfoundation.org,
+	linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com,
+	James Morse <james.morse@arm.com>
+Subject: Re: [PATCH RFC v4 02/15] ACPI: processor: Register all CPUs from
+ acpi_processor_get_info()
+Message-ID: <ZhbgwBBvh6ccdO7x@shell.armlinux.org.uk>
+References: <Zbp5xzmFhKDAgHws@shell.armlinux.org.uk>
+ <E1rVDmU-0027YP-Jz@rmk-PC.armlinux.org.uk>
+ <CAJZ5v0iiJpUWq5GMSnKFWQTzn_bdwoQz9m=hDaXNg4Lj_ePF4g@mail.gmail.com>
+ <20240322185327.00002416@Huawei.com>
+ <20240410134318.0000193c@huawei.com>
+ <CAJZ5v0ggD042sfz3jDXQVDUxQZu_AWaF2ox-Me8CvFeRB8nczw@mail.gmail.com>
+ <20240410145005.00003050@Huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/7] riscv: mm: accelerate pagefault when badaccess
-Content-Language: en-US
-To: Kefeng Wang <wangkefeng.wang@huawei.com>, akpm@linux-foundation.org
-Cc: Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski
- <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- surenb@google.com, linux-mm@kvack.org
-References: <20240403083805.1818160-1-wangkefeng.wang@huawei.com>
- <20240403083805.1818160-6-wangkefeng.wang@huawei.com>
- <8fe1a53f-f031-4423-97e1-28d93d0cd59e@ghiti.fr>
- <ac978061-ce1a-40a4-8b0a-61883b42bea7@huawei.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <ac978061-ce1a-40a4-8b0a-61883b42bea7@huawei.com>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <20240410145005.00003050@Huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_102846_632405_A56FC46B 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20240410_115829_423031_E84C0F44 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,60 +89,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTAvMDQvMjAyNCAxMDowNywgS2VmZW5nIFdhbmcgd3JvdGU6Cj4KPgo+IE9uIDIwMjQvNC8x
-MCAxNTozMiwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+PiBIaSBLZWZlbmcsCj4+Cj4+IE9uIDAz
-LzA0LzIwMjQgMTA6MzgsIEtlZmVuZyBXYW5nIHdyb3RlOgo+Pj4gVGhlIGFjY2Vzc19lcnJvcigp
-IG9mIHZtYSBhbHJlYWR5IGNoZWNrZWQgdW5kZXIgcGVyLVZNQSBsb2NrLCBpZiBpdAo+Pj4gaXMg
-YSBiYWQgYWNjZXNzLCBkaXJlY3RseSBoYW5kbGUgZXJyb3IsIG5vIG5lZWQgdG8gcmV0cnkgd2l0
-aCBtbWFwX2xvY2sKPj4+IGFnYWluLiBTaW5jZSB0aGUgcGFnZSBmYXV0IGlzIGhhbmRsZWQgdW5k
-ZXIgcGVyLVZNQSBsb2NrLCBjb3VudCBpdCBhcwo+Pj4gYSB2bWEgbG9jayBldmVudCB3aXRoIFZN
-QV9MT0NLX1NVQ0NFU1MuCj4+Pgo+Pj4gUmV2aWV3ZWQtYnk6IFN1cmVuIEJhZ2hkYXNhcnlhbiA8
-c3VyZW5iQGdvb2dsZS5jb20+Cj4+PiBTaWduZWQtb2ZmLWJ5OiBLZWZlbmcgV2FuZyA8d2FuZ2tl
-ZmVuZy53YW5nQGh1YXdlaS5jb20+Cj4+PiAtLS0KPj4+IMKgIGFyY2gvcmlzY3YvbW0vZmF1bHQu
-YyB8IDUgKysrKy0KPj4+IMKgIDEgZmlsZSBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKyksIDEgZGVs
-ZXRpb24oLSkKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS9mYXVsdC5jIGIvYXJj
-aC9yaXNjdi9tbS9mYXVsdC5jCj4+PiBpbmRleCAzYmExZDRkZGU1ZGQuLmIzZmNmN2Q2N2VmYiAx
-MDA2NDQKPj4+IC0tLSBhL2FyY2gvcmlzY3YvbW0vZmF1bHQuYwo+Pj4gKysrIGIvYXJjaC9yaXNj
-di9tbS9mYXVsdC5jCj4+PiBAQCAtMjkyLDcgKzI5MiwxMCBAQCB2b2lkIGhhbmRsZV9wYWdlX2Zh
-dWx0KHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+Pj4gwqDCoMKgwqDCoCBpZiAodW5saWtlbHkoYWNj
-ZXNzX2Vycm9yKGNhdXNlLCB2bWEpKSkgewo+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgIHZtYV9lbmRf
-cmVhZCh2bWEpOwo+Pj4gLcKgwqDCoMKgwqDCoMKgIGdvdG8gbG9ja19tbWFwOwo+Pj4gK8KgwqDC
-oMKgwqDCoMKgIGNvdW50X3ZtX3ZtYV9sb2NrX2V2ZW50KFZNQV9MT0NLX1NVQ0NFU1MpOwo+Pj4g
-K8KgwqDCoMKgwqDCoMKgIHRzay0+dGhyZWFkLmJhZF9jYXVzZSA9IFNFR1ZfQUNDRVJSOwo+Pgo+
-Pgo+PiBJIHRoaW5rIHdlIHNob3VsZCB1c2UgdGhlIGNhdXNlIHZhcmlhYmxlIGhlcmUgaW5zdGVh
-ZCBvZiBTRUdWX0FDQ0VSUiwgCj4+IGFzIGJhZF9jYXVzZSBpcyBhIHJpc2N2IGludGVybmFsIHN0
-YXR1cyB3aGljaCBkZXNjcmliZXMgdGhlIHJlYWwgCj4+IGZhdWx0IHRoYXQgaGFwcGVuZWQuCj4K
-PiBPaCwgSSBzZWUsIGl0IGlzIGV4Y2VwdGlvbiBjYXVzZXMgb24gcmlzY3YsIHNvIGl0IHNob3Vs
-ZCBiZQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vZmF1bHQuYyBiL2FyY2gvcmlzY3Yv
-bW0vZmF1bHQuYwo+IGluZGV4IGIzZmNmN2Q2N2VmYi4uNTIyNGYzNzMzODAyIDEwMDY0NAo+IC0t
-LSBhL2FyY2gvcmlzY3YvbW0vZmF1bHQuYwo+ICsrKyBiL2FyY2gvcmlzY3YvbW0vZmF1bHQuYwo+
-IEBAIC0yOTMsOCArMjkzLDggQEAgdm9pZCBoYW5kbGVfcGFnZV9mYXVsdChzdHJ1Y3QgcHRfcmVn
-cyAqcmVncykKPiDCoMKgwqDCoMKgwqDCoCBpZiAodW5saWtlbHkoYWNjZXNzX2Vycm9yKGNhdXNl
-LCB2bWEpKSkgewo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB2bWFfZW5kX3JlYWQo
-dm1hKTsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgY291bnRfdm1fdm1hX2xvY2tf
-ZXZlbnQoVk1BX0xPQ0tfU1VDQ0VTUyk7Cj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-dHNrLT50aHJlYWQuYmFkX2NhdXNlID0gU0VHVl9BQ0NFUlI7Cj4gLcKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgYmFkX2FyZWFfbm9zZW1hcGhvcmUocmVncywgY29kZSwgYWRkcik7Cj4gK8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdHNrLT50aHJlYWQuYmFkX2NhdXNlID0gY2F1c2U7
-Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgYmFkX2FyZWFfbm9zZW1hcGhvcmUocmVn
-cywgU0VHVl9BQ0NFUlIsIGFkZHIpOwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBy
-ZXR1cm47Cj4gwqDCoMKgwqDCoMKgwqAgfQo+Cj4gSGkgQWxleCwgY291bGQgeW91IGhlbHAgdG8g
-Y2hlY2sgaXQ/Cj4KPiBIaSBBbmRyZXcsIHBsZWFzZSBoZWxwIHRvIHNxdWFzaCBpdCBhZnRlciBB
-bGV4IGFjayBpdC4KPgo+IFRoYW5rcyBib3RoLgoKClNvIEkgaGF2ZSBqdXN0IHRlc3RlZCBLZWZl
-bmcncyBmaXh1cCBvbiBteSB1c3VhbCBDSSBhbmQgd2l0aCBhIHNpbXBsZSAKcHJvZ3JhbSB0aGF0
-IHRyaWdnZXJzIHN1Y2ggYmFkIGFjY2VzcywgZXZlcnl0aGluZyB3ZW50IGZpbmUgc28gd2l0aCB0
-aGUgCmZpeHVwIGFwcGxpZWQ6CgpSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hp
-dGlAcml2b3NpbmMuY29tPgpUZXN0ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJp
-dm9zaW5jLmNvbT4KClRoYW5rcywKCkFsZXgKCgoKPgo+Cj4+Cj4+IFRoYW5rcywKPj4KPj4gQWxl
-eAo+Pgo+Pgo+Pj4gK8KgwqDCoMKgwqDCoMKgIGJhZF9hcmVhX25vc2VtYXBob3JlKHJlZ3MsIGNv
-ZGUsIGFkZHIpOwo+Pj4gK8KgwqDCoMKgwqDCoMKgIHJldHVybjsKPj4+IMKgwqDCoMKgwqAgfQo+
-Pj4gwqDCoMKgwqDCoCBmYXVsdCA9IGhhbmRsZV9tbV9mYXVsdCh2bWEsIGFkZHIsIGZsYWdzIHwg
-Cj4+PiBGQVVMVF9GTEFHX1ZNQV9MT0NLLCByZWdzKTsKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Apr 10, 2024 at 02:50:05PM +0100, Jonathan Cameron wrote:
+> If we get rid of this catch all, solution would be to move the
+> !acpi_disabled check into the arm64 version of arch_cpu_register()
+> because we would only want the delayed registration path to be
+> used on ACPI cases where the question of CPU availability can't
+> yet be resolved.
+
+Aren't we then needing two arch_register_cpu() implementations?
+I'm assuming that you're suggesting that the !acpi_disabled, then
+do nothing check is moved into arch_register_cpu() - or to put it
+another way, arch_register_cpu() does nothing if ACPI is enabled.
+
+If arch_register_cpu() does nothing if ACPI is enabled, how do
+CPUs get registered (and sysfs files get created to control them)
+on ACPI systems? ACPI wouldn't be able to call arch_register_cpu(),
+so I suspect you'll need an ACPI-specific version of this function.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
