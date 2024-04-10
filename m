@@ -4,83 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D65C67861
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 00:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 951F0CD128A
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 01:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JgstYBQqt38qwsFaukYiCHHkVwpROt+XFRVa2i76MgU=; b=watZA+N8lTIkoTz4T+CbPtGZMi
-	bIDtJ+1Yp8F5Cz9j2EAPA5anSQQL3MdsxqnWmBx1QtrqqTYn99/EWL22zSCKlCdOte9aF7fi9gfGM
-	pNE8P5ScfhrnDwWH3hGmRQCEfi/L/WAan7RbyiRkmvkTraEmawrpRG44uEOTKK5Qrj/bSXhpSqGqX
-	LMsIe1G424NR19qvKAgw7mdsvg6QuBwKakPixpSrMFyfW9+3bHlCivLpiAqhy3aHUaUfu6BtpwWlY
-	jV4TRkhXV1x/dNcLdDSCjVQO91lcxtuoq0p97Q2BE7HnvDarbK2wOTXHgxVakvqTrrt2EqtZzPNYb
-	hyMShOYQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=o/7d/9ovMqPFuuLAUTfceGp2KXgqksTLxr/95ZGX8Ko=; b=ZvQqQ1J7rValKg
+	wOqrQXY5+a4WhlgQRb2ltFSDZ/LiKLgmaC/CcHGA6EiR+XAO3dKv1HcpY/cnWilH6cPfflPc9dMnC
+	nbCm1HL0lYjLnp+06CzLXsb1e1sjX4oAtRLTDCxrQ68wR/wIjf5FAeUzYhSg6H4VscmvI1ChcuTLd
+	NxviSXwJc19N9dC78uWsaea2kHlg288IuwvaZBxYKVg3dX3CAtNuVVSF74fSb6MgijMDCzrqL1gGz
+	0KmTQmBtXI4LrT5PQz/Ef9Y2SgqgoCA9H/SPazrMukfYvba/JmFX6MD0jEu6ogCWq1VFujrlvgcph
+	aGATKUgqjPSGwgRYj5Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruLZ1-00000004NZs-3o7w;
-	Wed, 10 Apr 2024 00:11:43 +0000
-Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
+	id 1ruMdX-00000004ZIy-3YLF;
+	Wed, 10 Apr 2024 01:20:27 +0000
+Received: from mail-dm6nam12olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c17::801] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruLYy-00000004NUu-2gdE
+	id 1ruMdU-00000004ZI1-0mnJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Apr 2024 00:11:42 +0000
-Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-229a90b7aa9so2779569fac.1
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Apr 2024 17:11:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712707895; x=1713312695; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gtH2sd79QyaRF1BMJBe3s1Wc0LYZsHGHiseKLFNrnNM=;
-        b=zwhpncCGHB37STuMqXdE2CTv7U7LW6GMK+pWd8djxOL5v4YAVotzhvvZiwukxAVI5r
-         PXt9eqf3vaRsVJAXSJWqb1rLLIfp0ULkn872749wfCSJ5gH4/Ri7fuOIUGqixzi0R17Y
-         BH7N+k7sn4o7b6mOyZudl6jU4QVcnhQalrJucggxWmCwIpfXOa3QeDuzekfTDWQWZk9+
-         +R1tRYLTwauHgV7cUh7vuVGUg5HEPMjGifMtzOIprMaujdJ+h4tZ1wGbC3YZ8cciKVBW
-         Ge+ZtzrIyikVInfAjYKpUMVeImB5l/UUP6oSOXfb3X1CZmpvdcF4HrYNv1OwBHywGvnm
-         DwYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712707895; x=1713312695;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gtH2sd79QyaRF1BMJBe3s1Wc0LYZsHGHiseKLFNrnNM=;
-        b=kqOOQUNF+RV2GWbmiPaNJBn1NqDKkQmQBja6zIKlpbAUN1Hb3Mk8mW7wZ7D6OM2R3o
-         /uth5rIN9mLITI7e2QCmeGsQJMhMjkP0iRZGHFm23KBzefvVCSVHrgH4KdEhh3ekr+NG
-         J209OHGyJQLQMZ5uQ13sDhS9S9ke6bXGCRvkY0Q/PXNWOxdtsM1AJ5M/9RJ5e59EN8WJ
-         pp4D3EMnPntE58eRUjUxt/o173kC5S0XGPmaP6QWI9nkB2MhEYx1wn/XdCLwmadUB4u0
-         vqzostqDfEGLXZwNsjsIrns29xc8mL8C7OOQhrJRwPukchaHm1Ab7KmitvF/MuGrbjaM
-         SlzA==
-X-Forwarded-Encrypted: i=1; AJvYcCXqYtrXqZeYIyFjC7ln9uFoF3KPVAHVJKSSIAh8worpMzqHeda3K7fRj72WvaKW+qGvVzLlFZS6o4md2lEk4BwVYs61Uhy9N5iwU9LdNh/p
-X-Gm-Message-State: AOJu0Yxa8bg0S5PUX4DC1c6hXT2viXw5OwX3Q+uxXGj8EKmgX0gKJIRT
-	GMwbIT7A+O7CoxB/4EVUdIr8hINZ7cjpmf7RipJWH4ib3AJvsCzMBxZnW1nTys4=
-X-Google-Smtp-Source: AGHT+IEeDpvGXBqH/je10IHPu14YT86VdOv9pM7mB36It6cqAwKg+lgXt6Z2O4u7jJXtXFs/Sn2j4g==
-X-Received: by 2002:a05:6870:332b:b0:22a:7ce0:dd37 with SMTP id x43-20020a056870332b00b0022a7ce0dd37mr1322899oae.9.1712707894814;
-        Tue, 09 Apr 2024 17:11:34 -0700 (PDT)
-Received: from [10.0.16.226] ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id o5-20020a056a001b4500b006e72c8ece23sm8926609pfv.191.2024.04.09.17.11.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Apr 2024 17:11:34 -0700 (PDT)
-Message-ID: <388ef032-7030-47b5-bba5-852b00de7382@rivosinc.com>
-Date: Tue, 9 Apr 2024 17:11:31 -0700
+	Wed, 10 Apr 2024 01:20:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=nR6QuVbG/8UPTce68t7PCMV46zYHfILLApMxy5mL2aBi3+KVhdquB5xYR4mIYMA8un9DI46KPYADMwACoLxnoUwjZpaPK1VzRFPAL+cGExekBE4Vh7eLSsvXrEtGCciR0fV84o2j2iNRhfjiP/3ANK99cnnqSueK/Hfg9T9g7PJ0cOAydINaJ4OK32FNO0ww1cXc5cfb1rtpkmWmrKOS27ikAlkSCQxQIcBeMEqq5pP3MqqARwCGs8p8sxF2HQJtk7FVXVPAftrTEmo1t1MNY/pvvqNkdNAr/BSISwYaaJbM0+If+fy1Xf+tCgP+wG8QeRMoULtEmqYm7cdryFJOqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ibs8iOze464yYWMklmHSVYesiAGssNFJihBxVCmIszw=;
+ b=db++iqB2cz1NMWs7be8gIY1zBMVP5KS5cycmUtZt35/cGeQ7wjoPyX0XBjzprzZDDc1rfyAhTHKhh8/l2LQIQj/O2ZVwwT2FX6pELRWXPNfqQOWVRaqMurzKffFFEMti+yMpRL63e7u1DW9CGbsVFNAL2yjFd9igaTwhinKHWids1qnsW5S3+JZ7Bqh+FGQf0zQqHbYdKTJLGtHtX0nxTYWEsJD/aWyD6GMR25YSgIckO3GM0nSYAPavW/iifhb4dcjzBv0NAw9Qgw1gf64EKj9Y6vq4fct3enIolmI+qOZCNwxyzRgYHrUu89OpBOAEtpGl29r3Jy3jk7uQUKlzig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ibs8iOze464yYWMklmHSVYesiAGssNFJihBxVCmIszw=;
+ b=Wtt9ebvTfcj+tM0chQ25uPzVhPRW4uTDrr7mmYnL+HXP0BozMhg/7p16OguZedWJbj8XA5adn8wC5SzxRY0L1GhxC9yjKyjbi7Y5MQ+j9gJ/YGj0pIzfqTAxYCmr8t4rLUEmCXct5CXUmQ/VPD8uhJhfipNG/jn/ZBoP46gIKc6sYRZf0ugBu+iMkZ6RN7fH9oQe+Z+aDT+O/xpIpwZaBs8tTqlJhOAHuuwOACqA0jPK1b4ROYvyXwiJAFB39JpRNgELqkR3ZELDWRLTbcXvvnljKqajgiE9FzCeRYi77gifvgF3NlexmlQW+tH6jgXV9vfT+LMVbT7DQyUmsqy8eQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by CYYPR20MB6833.namprd20.prod.outlook.com (2603:10b6:930:c6::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Wed, 10 Apr
+ 2024 01:20:17 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7409.042; Wed, 10 Apr 2024
+ 01:20:16 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	dlan@gentoo.org,
+	dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v7 0/3] riscv: sophgo: add dmamux support for Sophgo CV1800/SG2000 SoCs
+Date: Wed, 10 Apr 2024 09:20:30 +0800
+Message-ID: <IA1PR20MB49538A66B7AAE7801C5A7C04BB062@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.44.0
+X-TMN: [tQf6glBFyMjo2sGxYaXX+u0tL0lAnx5Ut4s7nC75tZw=]
+X-ClientProxiedBy: TYCP286CA0288.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:3c8::16) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240410012031.165284-1-inochiama@outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/15] RISC-V: KVM: Add perf sampling support for
- guests
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>
-References: <20240229010130.1380926-1-atishp@rivosinc.com>
- <20240229010130.1380926-10-atishp@rivosinc.com>
- <20240302-f9732d962e5f7c7760059f2e@orel>
- <c46c57c2-95bc-4289-ac99-efd5bad093b5@rivosinc.com>
- <20240405-de92b25fdc1ecf53770c49d9@orel>
-From: Atish Patra <atishp@rivosinc.com>
-In-Reply-To: <20240405-de92b25fdc1ecf53770c49d9@orel>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CYYPR20MB6833:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3204baf8-0ee5-4e67-99f4-08dc58fc60cf
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: ThnLXL0NYu+4vvwHHDPLmv1c1NhZR6jfpnFgd1ooLZhrlu3uLLfnfx124AB02BoleuqdCxBtkKEInFaVWr27J570bB0R91OaOGqCSjJPN7LHvpcPhRXip8Hr+m48Wq+YitcWOESSoDI4odZm3fLhbQT23Ci2AXvUr8r29iiKO3V/0prbrY5gwYHpqGGFvzSV1llRaQGTW7wBhLKuUVIqwYFyRnmEbsPG3EvYsnJHIwG1pFDSO3meJukZPj4UcWXGZQ+ebluo1GNw4whSGEvnQkKH4We4onZ1MfpaQTUSPZuUhgd3MROEB/IGq5NbS/c9HDi7h9z54uISPeSDHafyVERrErbPihV5/0rr3/DQ4O9UEebnAgQ6QZ631WUWWaf40Y15TJc5zaQn7xbLYzhELvdi5J15oYnYW80DmpejUDJrK6B2JMqb+NWqD8PDF/l/gJyt197Q+m5fiDxtD/OArEDSDhuZTQAroHhX56fBdAa3Ru8/jHQxRsHzbCCiZkDP4SKvEcM+xLhrLoEkuILxl+YI/M718WCXM6BExt6t3ofPRCzEb4eh2VHBLTd43aMWMT1pP9wIiwyqW0Zx058QVaSAy/C8nlrBOFufLWxLfEs=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HhPkcOXW2TzHbPrY08t19HoAAckxjNuKjxif5xh6jMuGf6zBa2pSC5/cBe3f?=
+ =?us-ascii?Q?oX/ZJdrYZePNi3b6GLe+pGyVpwyDhZ+U6SS8By2386HtJnJ794Fq8vUKdkKy?=
+ =?us-ascii?Q?H/qww2gtITEYa47yX4Uzs2hsMPcbXIDaxXd5zyMU4eRmDwl2QFVCM6ew743l?=
+ =?us-ascii?Q?pg6F6nT6oIGKj6So/F5/ab2GfB+js2D90AdpRwUPVWVfDPu6/4ETPtY86vTn?=
+ =?us-ascii?Q?qbiXIcGHKS1X1JsdXGun9cPMGRVojc18B6GEDhKmIZ5OoirfRptQsdGnLIby?=
+ =?us-ascii?Q?7t4PKZEFJ5xBqyX2+cs4EQXgIOuYHDn/LXkbhwDtYgzcwLXNecYzuTkt+v4o?=
+ =?us-ascii?Q?BPR3Pv8oSeqJgYRjw5cf1ZZUywt9xo2WeiqjFhsoWtJCXts7qroQQwcS324q?=
+ =?us-ascii?Q?WQMCa9eR17U83SO3rTn/Dg4ByydP/uWSD+UakIFNiZBnoeKkynmAeD42Pzln?=
+ =?us-ascii?Q?GG1jFbSjuHug7yUMuSjjdadhzVsJTTGYvISGrrHDiDstfuuc6/kbd1pTO3wF?=
+ =?us-ascii?Q?trxW2aS+1J1oFZhFHtNuIIBGWzkgKmYxv8KrJZbktf/tLyW6mOPuEvGagf7c?=
+ =?us-ascii?Q?8xuxgEGb9JZ8diViZj2+DQPlL9DckCOyGAJvL1y+iniPBF6zFotQ7Tt1+LKr?=
+ =?us-ascii?Q?VgCkxwbzNJ8GIfKPRCmYi+6n+ycPj/8pyVEyBGwsOrPLS5ZHHKNZzzikT6x9?=
+ =?us-ascii?Q?0TC+K4LXPkRnkYvnCK/nK4DL3CFKvNORVGD8K0RCnDnqhlPUudPC1FWIdPql?=
+ =?us-ascii?Q?6hoa8R194OD6B6X6t57XDbQlZdV0BwE+LqiFGOXCaBEpaYE7QS0IfcrszrSS?=
+ =?us-ascii?Q?KdNC0/TSd/bwVPzH7mcBMCuAjX10KGez+GTj7gwrnZlg9wN9GemAf5xhBS1v?=
+ =?us-ascii?Q?+CFLoqCQzS/Ide5zhQ7y7ErFBmY0aJfTgVPuvRxBODrQNy+0nyXrR2KevzVX?=
+ =?us-ascii?Q?OiAWANGBrlUBchw7OxpOnCxhBhy3k4gqDeZ0siKf0q7Z5AAWo2jqsTfTiBhA?=
+ =?us-ascii?Q?U/Ju/8GBsawN8E4yUkx9yYJkTTmDiAfAcjinovbiB5/uvx29uNkUOp9GHGPg?=
+ =?us-ascii?Q?6c4Iem0REIlp8WSmf9r30+BApBRHQnFlIUJMbvgkQs5mSk7zqY+mBhAKCpeI?=
+ =?us-ascii?Q?4ii+7f/bA81RWFPqJb1G0NM5pH/Bgzo5qUKJq73ammoMzWiODl+qsU1GFXuW?=
+ =?us-ascii?Q?rE4VCXmD3PxJUICJKgzmejjr1RzKjtGMCEBBaaTo6K3qKqItJkDhE10fIJrI?=
+ =?us-ascii?Q?+TDhne895ibnrIPftVdu?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3204baf8-0ee5-4e67-99f4-08dc58fc60cf
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2024 01:20:16.3809
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR20MB6833
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240409_171140_984879_1CCE62C3 
-X-CRM114-Status: GOOD (  28.57  )
+X-CRM114-CacheID: sfid-20240409_182024_282312_A502E436 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,93 +131,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-kselftest@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, kvm@vger.kernel.org, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Paolo Bonzini <pbonzini@redhat.com>, Guo Ren <guoren@kernel.org>, kvm-riscv@lists.infradead.org, Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/5/24 05:05, Andrew Jones wrote:
-> On Tue, Apr 02, 2024 at 01:33:10AM -0700, Atish Patra wrote:
-> ...
->>> but it should be possible for the VMM to disable this extension in the
->>> guest. We just need to change all the checks in KVM of the host's ISA
->>> for RISCV_ISA_EXT_SSCOFPMF to checking the guest's ISA instead. Maybe
->>> it's not worth it, though, if the guest PMU isn't useful without overflow.
->>> But, sometimes it's nice to be able to disable stuff for debug and
->>> workarounds.
->>>
->>
->> As per my understanding, kvm_riscv_vcpu_isa_disable_allowed only returns
->> true for those extensions which can be disabled architecturally.
-> 
-> I think kvm_riscv_vcpu_isa_disable_allowed can return true for any
-> extensions that KVM can guarantee won't be exposed in any way to the
-> guest. Extensions that cannot be disabled architecturally must return
-> false, since their instructions will still be present in the guest, even
-> if KVM doesn't want to expose them, but extensions which KVM emulates
-> can return true because KVM can choose not to emulate them. IIUC, sscofpmf
-> falls in this latter category.
-> 
+Add dma multiplexer support for the Sophgo CV1800/SG2000 SoCs.
 
-hmm. The Sscofpmf is dependent on interrupt filtering via hvien and SBI 
-PMU. So you are suggesting to toggle off the CSR_HVIEN bit for overflow 
-interrupt or do more granular disabling for privilege mode filtering in 
-SBI PMU as well.
+As the syscon device of CV1800 have a usb phy subdevices. The
+binding of the syscon can not be complete without the usb phy
+is finished. As a result, the binding of syscon is removed
+and will be evolved in its original series after the usb phy
+binding is fully explored.
 
-Beyond that we can't disable SBI PMU. Is that okay ? A guest can still 
-cause counter overflow and interrupt the host. However, the guest won't 
-get any interrupt as hvien is not set.
+Changed from v6:
+1. fix copyright time.
+2. driver only output mapping info in when debugging.
+3. remove dma-master check in the driver init since the binding
+always require it.
 
-It can also still filter the events as that is tied with SBI PMU.
+Changed from v5:
+1. remove dead binding header.
+2. make "reg" required so the syscon binding can have the same
+example node of the dmamux binding.
 
-We can put more granular checks in SBI pmu but I am just wondering if it 
-provides anything additional beyond just disabling the sscofpmf in 
-device tree.
+Changed from v4:
+1. remove the syscon binding since it can not be complete (still
+lack some subdevices)
+2. add reg description for the binding,
+3. remove the fixed channel assign for dmamux binding
+3. driver adopt to the binding change. Now the driver allocates all the
+channel when initing and maps the request chan to the channel dynamicly.
 
+Changed from v3:
+1. fix dt-binding address issue.
 
->>
->> VMM can still disable any extension by not adding to the device tree.
->> In fact, that's how kvmtool can disable sstc or sscofpmf with
->> --disable-<isa-ext command>.
->>
->> The warning is bit confused though.
->>
->> For example: if you run kvmtool with --disable-sstc
->>
->> "Warning: Failed to disable sstc ISA exension"
-> 
-> I think Sstc should allow disabling since it has a corresponding henvcfg
-> bit which KVM could not set in order to force accesses to the Sstc CSRs
-> to raise ILL exceptions. So, let's put Sstc aside, since it's not a good
+Changed from v2:
+1. add reg property of dmamux node in the binding of patch 2
 
-Agreed. I will send a separate patch for that.
+Changed from v1:
+1. fix wrong title of patch 2.
 
-> example. An extension like Zihintpause, OTOH, cannot be disabled since
-> the 'pause' instruction will be present even if KVM does not put
-> Zihintpause in the guest's ISA string. If a kvmtool user uses
-> --disable-zihintpause, then I think this warning about failing to disable
-> the extension is appropriate.
-> 
->>
->> But sstc is disabled: Here is the cpuinfo output.
->> # cat /proc/cpuinfo
->> processor       : 0
->> hart            : 0
->> isa             : rv64imafdc_zicbom_zicboz_zicntr_zicsr_zifencei_zihintntl_zihintpause_zihpm_zfa_zba_zbb_zbc_zbs_smstateen_sscofpmf
->> mmu             : sv57
->> mvendorid       : 0x0
->> marchid         : 0x0
->> mimpid          : 0x0
->> hart isa        : rv64imafdc_zicbom_zicboz_zicntr_zicsr_zifencei_zihintntl_zihintpause_zihpm_zfa_zba_zbb_zbc_zbs_smstateen_sscofpmf
-> 
-> Removing from the ISA string is the best we can do in cases like
-> Zihintpause, and is likely good enough for well-behaved guests, but the
-> VMM's warning to the user is good for these cases too, since not all
-> guests are well-behaved.
-> 
-> Thanks,
-> drew
+Inochi Amaoto (3):
+  dt-bindings: dmaengine: Add dma multiplexer for CV18XX/SG200X series
+    SoC
+  soc/sophgo: add top sysctrl layout file for CV18XX/SG200X
+  dmaengine: add driver for Sophgo CV18XX/SG200X dmamux
+
+ .../bindings/dma/sophgo,cv1800-dmamux.yaml    |  51 ++++
+ drivers/dma/Kconfig                           |   9 +
+ drivers/dma/Makefile                          |   1 +
+ drivers/dma/cv1800-dmamux.c                   | 260 ++++++++++++++++++
+ include/soc/sophgo/cv1800-sysctl.h            |  30 ++
+ 5 files changed, 351 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+ create mode 100644 drivers/dma/cv1800-dmamux.c
+ create mode 100644 include/soc/sophgo/cv1800-sysctl.h
+
+--
+2.44.0
 
 
 _______________________________________________
