@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D30CD128A
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 19:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E60ACD11C2
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 19:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4n6KCJ3t2vvoLSXaPaF5kEBrUEnZZOVtMX3XGvBZEFA=; b=adqbg0aY29Ub8H
-	NBD3fUtWO+GgLOIRHCZdxpnqi0Sm+24gfttdZzicYTN+S2hy4uuBbLv1bgAnEWw4hpv+chFiDsO5b
-	NEuLeL8Xcng5VyolNNpofsmB0fOW3eH/PRvLMwBSQ1nv4n975FvjU/griE8Ll0rv3eegGXo5oRIgz
-	UhjuHt2O66p2vCKqswC2SZtO96Ax0/oaIaLPXgZPoKDkGCReEHDQ0f7yZD2Py3qOAomLgm/YFEYDj
-	xhcy0kaCBk+WQHKkKpaUGJxTdNlNoQgzoyO3qW96hWovMbv2ncR7UeyQp+iUFhxAEIMHabdwlFHF8
-	0MVWaLsgAlyXRoV9GZMg==;
+	List-Owner; bh=6xbYSLFwIQdtrbKA/q4AdguEwdU+in/VGDzIcBO9MKw=; b=1bLygFcXr2Jr3B
+	3fKSv3i8dqM5tDTwdfOV3ouQP8eozbCJr+5pKAvnUqjLwi1/Pt+ba9WJRwBafXB5oZuIr3dIrKWtr
+	zC9aXeDENNAtqDkaoLxV4/iccjSSRLIlsXgfL/Sbvk3i4Xkh/F4Xf1tFbPITiAnKj5ZJM9pxc2FGn
+	Y/xQUdw91TW49v35IHoUHpXrmDBJSVqRfC3K4+HS0N4tAgCeLFjaaiwPog5w05J0gTK/2itpWhrg7
+	4NTxqyA1dOfHjU5KNBUr+SAF4Q3yO3X7cLkfxj6fFsmeaTVyc4iAmBn674DD/e0yErYGUJ3n18viJ
+	xyK5o54CEFhENo/9iOaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rudJ5-00000008csX-3Xum;
-	Wed, 10 Apr 2024 19:08:27 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rue5e-00000008lXS-2FZD;
+	Wed, 10 Apr 2024 19:58:38 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rudIz-00000008cpC-36mL;
-	Wed, 10 Apr 2024 19:08:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 07A58CE2B57;
-	Wed, 10 Apr 2024 19:08:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48374C433F1;
-	Wed, 10 Apr 2024 19:08:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712776099;
-	bh=+eWLmlEP0bVT8/CZ2rvIUuWI74CBRr7mdsinkobDlzU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kBer6g/FSVcQNlQN/dT52LUBGg0hkyFCcgbXq3fUnv4hC2VilA1zuyGqPVGaoI9rz
-	 0/MBcRSiQDjk5VbvTar8s1MII5Y0adKzNxjkxeYxriw3mc+K55GlJawuRxte3IPF3T
-	 0yjLhDefgapwQ1FYh/ibQke8EUvsYSFf2Bt7tSkMULO3L6dgzwxMmS2ZrG0XpBh0qj
-	 TZ6p5zrmOCPyTsntakq4I6xUnUrHcUgIY7EjynOD9Edj3qR4Uj1GT2QnyWxaffty1+
-	 T4vEkU9e25UakyTkLUOKd2E5zgMj5xwEQfwgEcWbJ/DWijYATCohmlmkXXuvdqLrVa
-	 rpMLs6ScIMD8Q==
-Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-22ed9094168so486562fac.1;
-        Wed, 10 Apr 2024 12:08:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWTUoEGq8e/IOaQYSVLGW66EQC3A0ovVFb4p0y2tiGpg2l6BkzNRd/BzmLf8zXGiLC1ObJ61ptmAIbOc7qVU5fg9KOWiis9whbtHWpUeOkyjLEc59E7sFPPWtxlJ1VqATvz3jkM/p9tQXcz/6VQyXVPHHU9PIg=
-X-Gm-Message-State: AOJu0Yz4H+QCoClWQaSbNedSkF9XFR+sc7VJJgwdd5e/4dTC1wcOYsog
-	5g+ViCm1ECPiT3EXVercQVliIn/gStmPcyrLf1Uu/3EF/F/wUfB9tmws7MTiW4ieUELy52B3foz
-	XW8usKB1NSej5Zj99GhbedPvEV4o=
-X-Google-Smtp-Source: AGHT+IH4A92J5HCRnizSgBq3+DCMERDHMutgLTgDu/kxW+WK07c2IT8FOUNC46ZvoIhnKLsY7Mrt28XT6qdFy5OJWR8=
-X-Received: by 2002:a05:6870:219d:b0:22e:b2ea:5758 with SMTP id
- l29-20020a056870219d00b0022eb2ea5758mr3756127oae.0.1712776098584; Wed, 10 Apr
- 2024 12:08:18 -0700 (PDT)
+	id 1rue5b-00000008lWD-1YLx
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 Apr 2024 19:58:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1712779115; x=1744315115;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zLwmqMV4AThUNLY2C0AJAwuOIliylAKYtQ0vTEe64Gg=;
+  b=R7mz2ueh2i1IEvict9dXEVf1jAkjyFVReliK4VIkbRtNZVYiNL5IkICl
+   z59s/bmSQMXdeGh1mK9DwKtL4jePOvV0ECUREBsW3XiD64IWc7dJHC7ZG
+   vqwG5lred/yfBiKG0uDJt/naris5jXRbJ2UmePaFUVPBgy1Z8CK8fgDjt
+   YwXMNmBVzUSGojapapGkFhFL782Yn0zds9KGhXr6YbUCo9Go0T+4AnthV
+   bsDOM0aquFP17hB12AJDFjIuAlUmD6EnGJ7Qla7c6J/fjMhenJ/6kopo1
+   7F8UIkGBzZ1Ab8JX0RVzIxnvTB/5VxxQF78BxJUjLDHhij0SDYYfXD6Gh
+   g==;
+X-CSE-ConnectionGUID: Lv5wvQVnSE2nQcCe1ePbzQ==
+X-CSE-MsgGUID: MpzIL6a9RVaLY8Km5myCWw==
+X-IronPort-AV: E=McAfee;i="6600,9927,11039"; a="8026709"
+X-IronPort-AV: E=Sophos;i="6.07,191,1708416000"; 
+   d="scan'208";a="8026709"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2024 12:58:31 -0700
+X-CSE-ConnectionGUID: 81dFEfzJTEm0/J5lUQyriA==
+X-CSE-MsgGUID: f1p2tR/CRuyjiSt/lZUEyQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,191,1708416000"; 
+   d="scan'208";a="20753180"
+Received: from lkp-server01.sh.intel.com (HELO e61807b1d151) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 10 Apr 2024 12:58:29 -0700
+Received: from kbuild by e61807b1d151 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1rue5S-0007kO-26;
+	Wed, 10 Apr 2024 19:58:26 +0000
+Date: Thu, 11 Apr 2024 03:57:30 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jinglin Wen <jinglin.wen@shingroup.cn>, palmer@dabbelt.com
+Cc: oe-kbuild-all@lists.linux.dev, paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu, gregkh@linuxfoundation.org,
+	atishp@rivosinc.com, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Jinglin Wen <jinglin.wen@shingroup.cn>
+Subject: Re: [PATCH 1/3] riscv: Support for early console.
+Message-ID: <202404110326.Qa9YV4bV-lkp@intel.com>
+References: <20240410063432.23058-2-jinglin.wen@shingroup.cn>
 MIME-Version: 1.0
-References: <Zbp5xzmFhKDAgHws@shell.armlinux.org.uk> <E1rVDmU-0027YP-Jz@rmk-PC.armlinux.org.uk>
- <CAJZ5v0iiJpUWq5GMSnKFWQTzn_bdwoQz9m=hDaXNg4Lj_ePF4g@mail.gmail.com>
- <20240322185327.00002416@Huawei.com> <20240410134318.0000193c@huawei.com>
- <CAJZ5v0ggD042sfz3jDXQVDUxQZu_AWaF2ox-Me8CvFeRB8nczw@mail.gmail.com>
- <20240410145005.00003050@Huawei.com> <ZhbgwBBvh6ccdO7x@shell.armlinux.org.uk>
-In-Reply-To: <ZhbgwBBvh6ccdO7x@shell.armlinux.org.uk>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Wed, 10 Apr 2024 21:08:06 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0gG0xLajHsWXVM+-V+fQZAudvojechUa-DzFgwCs2q8Dg@mail.gmail.com>
-Message-ID: <CAJZ5v0gG0xLajHsWXVM+-V+fQZAudvojechUa-DzFgwCs2q8Dg@mail.gmail.com>
-Subject: Re: [PATCH RFC v4 02/15] ACPI: processor: Register all CPUs from acpi_processor_get_info()
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	linux-pm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev, x86@kernel.org, 
-	acpica-devel@lists.linuxfoundation.org, linux-csky@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-ia64@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, Salil Mehta <salil.mehta@huawei.com>, 
-	Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com, justin.he@arm.com, 
-	James Morse <james.morse@arm.com>
+Content-Disposition: inline
+In-Reply-To: <20240410063432.23058-2-jinglin.wen@shingroup.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_120822_204026_8DC12693 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20240410_125835_449328_F5FE33F6 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +87,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBBcHIgMTAsIDIwMjQgYXQgODo1NuKAr1BNIFJ1c3NlbGwgS2luZyAoT3JhY2xlKQo8
-bGludXhAYXJtbGludXgub3JnLnVrPiB3cm90ZToKPgo+IE9uIFdlZCwgQXByIDEwLCAyMDI0IGF0
-IDAyOjUwOjA1UE0gKzAxMDAsIEpvbmF0aGFuIENhbWVyb24gd3JvdGU6Cj4gPiBJZiB3ZSBnZXQg
-cmlkIG9mIHRoaXMgY2F0Y2ggYWxsLCBzb2x1dGlvbiB3b3VsZCBiZSB0byBtb3ZlIHRoZQo+ID4g
-IWFjcGlfZGlzYWJsZWQgY2hlY2sgaW50byB0aGUgYXJtNjQgdmVyc2lvbiBvZiBhcmNoX2NwdV9y
-ZWdpc3RlcigpCj4gPiBiZWNhdXNlIHdlIHdvdWxkIG9ubHkgd2FudCB0aGUgZGVsYXllZCByZWdp
-c3RyYXRpb24gcGF0aCB0byBiZQo+ID4gdXNlZCBvbiBBQ1BJIGNhc2VzIHdoZXJlIHRoZSBxdWVz
-dGlvbiBvZiBDUFUgYXZhaWxhYmlsaXR5IGNhbid0Cj4gPiB5ZXQgYmUgcmVzb2x2ZWQuCj4KPiBB
-cmVuJ3Qgd2UgdGhlbiBuZWVkaW5nIHR3byBhcmNoX3JlZ2lzdGVyX2NwdSgpIGltcGxlbWVudGF0
-aW9ucz8KPiBJJ20gYXNzdW1pbmcgdGhhdCB5b3UncmUgc3VnZ2VzdGluZyB0aGF0IHRoZSAhYWNw
-aV9kaXNhYmxlZCwgdGhlbgo+IGRvIG5vdGhpbmcgY2hlY2sgaXMgbW92ZWQgaW50byBhcmNoX3Jl
-Z2lzdGVyX2NwdSgpIC0gb3IgdG8gcHV0IGl0Cj4gYW5vdGhlciB3YXksIGFyY2hfcmVnaXN0ZXJf
-Y3B1KCkgZG9lcyBub3RoaW5nIGlmIEFDUEkgaXMgZW5hYmxlZC4KPgo+IElmIGFyY2hfcmVnaXN0
-ZXJfY3B1KCkgZG9lcyBub3RoaW5nIGlmIEFDUEkgaXMgZW5hYmxlZCwgaG93IGRvCj4gQ1BVcyBn
-ZXQgcmVnaXN0ZXJlZCAoYW5kIHN5c2ZzIGZpbGVzIGdldCBjcmVhdGVkIHRvIGNvbnRyb2wgdGhl
-bSkKPiBvbiBBQ1BJIHN5c3RlbXM/IEFDUEkgd291bGRuJ3QgYmUgYWJsZSB0byBjYWxsIGFyY2hf
-cmVnaXN0ZXJfY3B1KCksCj4gc28gSSBzdXNwZWN0IHlvdSdsbCBuZWVkIGFuIEFDUEktc3BlY2lm
-aWMgdmVyc2lvbiBvZiB0aGlzIGZ1bmN0aW9uLgoKYXJjaF9yZWdpc3Rlcl9jcHUoKSB3aWxsIGRv
-IHdoYXQgaXQgZG9lcywgYnV0IGl0IHdpbGwgY2hlY2sgKHVwZnJvbnQpCmlmIEFDUEkgaXMgZW5h
-YmxlZCBhbmQgaWYgc28sIGlmIHRoZSBBQ1BJIE5hbWVzcGFjZSBpcyBhdmFpbGFibGUuICBJbgp0
-aGUgY2FzZSB3aGVuIEFDUEkgaXMgZW5hYmxlZCBhbmQgdGhlIEFDUEkgTmFtZXNwYWNlIGlzIG5v
-dCByZWFkeSwgaXQKd2lsbCByZXR1cm4gLUVQUk9CRV9ERUZFUiAoc2F5KS4KCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Jinglin,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on tty/tty-testing]
+[also build test WARNING on tty/tty-next tty/tty-linus linus/master v6.9-rc3 next-20240410]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jinglin-Wen/riscv-Support-for-early-console/20240410-143840
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git tty-testing
+patch link:    https://lore.kernel.org/r/20240410063432.23058-2-jinglin.wen%40shingroup.cn
+patch subject: [PATCH 1/3] riscv: Support for early console.
+config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20240411/202404110326.Qa9YV4bV-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240411/202404110326.Qa9YV4bV-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202404110326.Qa9YV4bV-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   arch/riscv/kernel/early_console.c: In function 'early_console_printf':
+>> arch/riscv/kernel/early_console.c:51:17: warning: function 'early_console_printf' might be a candidate for 'gnu_printf' format attribute [-Wsuggest-attribute=format]
+      51 |                 vsnprintf(buf, EARLY_CONSOLE_BUFSIZE, fmt, args);
+         |                 ^~~~~~~~~
+
+
+vim +51 arch/riscv/kernel/early_console.c
+
+    42	
+    43	#define EARLY_CONSOLE_BUFSIZE 256
+    44	void early_console_printf(const char *fmt, ...)
+    45	{
+    46		if (riscv_early_console_putc) {
+    47			char buf[EARLY_CONSOLE_BUFSIZE];
+    48			va_list args;
+    49	
+    50			va_start(args, fmt);
+  > 51			vsnprintf(buf, EARLY_CONSOLE_BUFSIZE, fmt, args);
+    52			early_console_puts(buf);
+    53			va_end(args);
+    54		}
+    55	}
+    56	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
