@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A61D5CD128A
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 14:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B663CD11C2
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 14:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4TzRNGsvzHcx4K0dlFng4SQT248y0WhZjsJWSjBAJ3A=; b=sJw3WChWZmddAv
-	99QugQVBD4IkSutB+ScIhJcPV6xWGZ/KYXTLmOaIYAVBJ1RU9+N8s6UJadkmPqAMjYFqg5LR6Zpqw
-	pE9yvJia4HDRXg0xxQ/BP50ZVaFr+tJr+7LdKrKOGN+YtxsFSxKl2v2NHNRULeXxrhywcVt6Rz69+
-	vl0kDS4mJRsq7JT8YbnYqZGR2FxRxKKLpwbP3N/cCgLRMVbC1agGJsaRwClc+5ZBVwwxuahmNrwDY
-	1xXsUzFLbyCypu5yJhH9oLrxoIHahRC6nDF0iAQzUtl25NmVMCLB9Luo2xXW05g4ydPXDnsIc/dBK
-	QS+YTMQ/cy6SJYhl2qWQ==;
+	List-Owner; bh=Shl0bl9PRbdAOZ1Z/apJglcvcdkCTMvAL4sbyEkPMKM=; b=zmJvfivgNIdtig
+	gfOkqIPbAE+tjiB2XUq6tefPLTU3g01tqtEWGTzFPKp06RAl+xW44XnF6R8Mu1xJisg53jKCdB9uA
+	L22oVPpFj7jnci/entBylQmnhll49l1M6gAY9IdBLoBuGeOxPj2e8dsD9EnoEpPinOnVi0tsNyAvC
+	eqjDvIcF/LndXCVuo+q5Guwd1uCCInuVX0+yB5dqO6Elg2dy45iAuo500429HPd2WMJSUm3Vn/tOJ
+	djqvS6rN/NO7LsEtKAI7DhD4bEmhn5Nyb4NR4eSfpaXcf+2XNDhiSRyAg4L/vk3uzziw3AjX5iffo
+	Aa1Y+5YPCiUqvmvZE2tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruYV9-00000007LM3-0PlO;
-	Wed, 10 Apr 2024 14:00:35 +0000
+	id 1ruYen-00000007OQx-0xk9;
+	Wed, 10 Apr 2024 14:10:33 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruYV5-00000007LJt-2D7x
+	id 1ruYek-00000007OP9-1xFA
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Apr 2024 14:00:33 +0000
+	Wed, 10 Apr 2024 14:10:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5177761D92;
-	Wed, 10 Apr 2024 14:00:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id F0682C433C7;
-	Wed, 10 Apr 2024 14:00:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BBD3B61D92;
+	Wed, 10 Apr 2024 14:10:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 634B6C43390;
+	Wed, 10 Apr 2024 14:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712757630;
-	bh=Ja6AZniRSqEA6oBU1zr4PBdhcx8DSrD4UWpOIIKlY4o=;
+	s=k20201202; t=1712758229;
+	bh=eD02rCIxp2Gn2KKb+4Vh9Qm0xtxbnnnXHsw4g744NdE=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=B8a7kQ77dT7VsPRjXN8owihdda6AzTWc8w+PYqwj0i1FSbZi1V+vvACaoUTn3lhgI
-	 AWa+9VpZosKE+Wo2jGRVolWEXxdqs97ET23jWYIEaq41arE2j+eh2LrVwBgRt+TJm2
-	 AQpbbb4XaLwOFeJepGK6vpMdhhNa82+yydX6VE1zK3WntU3L6u312M5EaXkoS1CTZ5
-	 6yDZPpOA6rauqck3QhVMEtvkKidQ9PWk6yZLiI+uMjpqQDP9rWhfLrroq6RVLJwd/f
-	 UMIDbdJvCkTzHMXmNY6/G4kSMa0aA1ySwHlTSkIfdLHdNP+EYcS/0CJgKZcmbDrONm
-	 C6JZbnipGYLwg==
+	b=NRiK+DwV1z0am3phlRQoAFhCw5HhWVbiWsidi3BkPso0RvZBvLnX0Z/TkURuS4Ha9
+	 slcneo2VT2MuwT72bDEqUKcGtl1A+CDCoM3mOOKKwi24fs9Epfh1M+HDI+Yl2fpOiz
+	 cRVIJR8Dp7qIdH/eDgUgf11qUzPa2DlattHTimB6butNK0JkTM1EuSWfOaA78BaNPz
+	 RRvVQrCm3xSFt1/mtCOsfMEN8PzflM3N//hkbfNyYfbPGD0ElcpTMFSrWLTTMVkIbB
+	 Kn+Dlt/8aywnuSU4k1q7iFjOAANHFMH1D4EzRG8nRYj5ey4hnHryoT2xbvfpJWY0gd
+	 eF9yPlvFhTeoA==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id DE715D60310;
-	Wed, 10 Apr 2024 14:00:29 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 55A6DCF21C6;
+	Wed, 10 Apr 2024 14:10:29 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/4] riscv: 64-bit NOMMU fixes and enhancements
+Subject: Re: [PATCH] export.h: remove include/asm-generic/export.h
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171275762990.4679.14858564193959592140.git-patchwork-notify@kernel.org>
-Date: Wed, 10 Apr 2024 14:00:29 +0000
-References: <20240227003630.3634533-1-samuel.holland@sifive.com>
-In-Reply-To: <20240227003630.3634533-1-samuel.holland@sifive.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- linux-kernel@vger.kernel.org
+Message-Id: <171275822934.12683.6255352556602510987.git-patchwork-notify@kernel.org>
+Date: Wed, 10 Apr 2024 14:10:29 +0000
+References: <20240323090615.1244904-1-masahiroy@kernel.org>
+In-Reply-To: <20240323090615.1244904-1-masahiroy@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org,
+ linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, arnd@arndb.de,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, linux-arch@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_070031_762863_8A617C6B 
-X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-CacheID: sfid-20240410_071030_573439_06DB3F29 
+X-CRM114-Status: UNSURE (   7.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,29 +78,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
+This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Mon, 26 Feb 2024 16:34:45 -0800 you wrote:
-> This series aims to improve support for NOMMU, specifically by making it
-> easier to test NOMMU kernels in QEMU and on various widely-available
-> hardware (errata permitting). After all, everything supports Svbare...
+On Sat, 23 Mar 2024 18:06:15 +0900 you wrote:
+> Commit 3a6dd5f614a1 ("riscv: remove unneeded #include
+> <asm-generic/export.h>") removed the last use of
+> include/asm-generic/export.h.
 > 
-> After applying this series, a NOMMU kernel based on defconfig (changing
-> only the three options below*) boots to userspace on QEMU when passed as
-> -kernel.
+> This deprecated header can go away.
+> 
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/4] riscv: Fix TASK_SIZE on 64-bit NOMMU
-    https://git.kernel.org/riscv/c/6065e736f82c
-  - [2/4] riscv: Fix loading 64-bit NOMMU kernels past the start of RAM
-    https://git.kernel.org/riscv/c/aea702dde7e9
-  - [3/4] riscv: Remove MMU dependency from Zbb and Zicboz
-    (no matching commit)
-  - [4/4] riscv: Allow NOMMU kernels to run in S-mode
-    (no matching commit)
+  - export.h: remove include/asm-generic/export.h
+    https://git.kernel.org/riscv/c/36d37f11f555
 
 You are awesome, thank you!
 -- 
