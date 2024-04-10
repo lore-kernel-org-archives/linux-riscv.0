@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED5BACD128A
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 03:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDE7C67861
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2024 03:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ykEw112nHa7FBjPeyy+EjGffDI0axAQ1NNeNjyRg8O4=; b=w18sxyQyVB6BXl
-	mh9cDrXx//uTrjUhjQAXRzhBp27uoLqHZEt0zuHo7cjDBwtgTIWnzEwOwD3jzmNhcxyYgp+ozxiae
-	RVWlaGO4vfus54AOxUuoUn7qKx3IalSRifAbBRHbGIOnPPsE8M/osetXvLSdJRhlK+E96kZsVgosf
-	VM5x+DCsvMgjsjRsnqWGnC2Piz/fnVnd8CvahMOfiAPJjD1Dhv5lz7qM2k+MFY/DVvqyA4nKbm5NB
-	z53pP/tVeNh8Y+rqt3wgNTPot1he04E+eXQ9amQ9tt+O3MuRyrYWobBbo67Jum286q62JYBYukgv1
-	QfMFBZe47e4nEMGFtzjA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=c3MpimS+Ctl4YGGSVCoIRMYZzQI9jGUTRn3TPVAdWbs=; b=J3ya2vSTHogyUZ
+	7lZhqZqit4u4cKiDuCBhQab6GU0YKv4lDh2Hj0lvspCKorijlEvzsCqHBByI88KFSxqKWXNBYVhrD
+	L4FCy6BzeLbdYYXwhzBDHSZUWyVf/BmmiG3dhvTwcorf7JOoC31Ed3TvHG3wmrX5Hqrpd6lxkXENj
+	ENJGAMEkmaKFfnywY/wqRpOxG5VIttsJ5ixlFKnvK8i03vn80Dc9ScO7U0LxIKPuXcn/GQRb+4xhc
+	hkWaxjCcaSg0guiqiC9P9nRaiURWfsneBUFpazfXLLd/EV6ZGqQF8+WTMyDlCu2ckou2BTvpJTNwK
+	/Vv3EUF4gI/CGdWrPARg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruOgz-00000004smJ-3EOb;
-	Wed, 10 Apr 2024 03:32:09 +0000
-Received: from mail-sh0chn02on2072a.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::72a] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1ruOh1-00000004snL-2P0p;
+	Wed, 10 Apr 2024 03:32:11 +0000
+Received: from mail-sh0chn02on2071b.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::71b] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruOgv-00000004skV-2fDD
+	id 1ruOgy-00000004skU-1Agq
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Apr 2024 03:32:07 +0000
+	Wed, 10 Apr 2024 03:32:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=XzRMwmF2BNonP90W1AGjNUsKG6Xyan2SSwLfuGC1lm9h039HLLFZ6sLwaRCJXAw/mpClvw/g79nohakU5jUT7BQDMHfOmrhQmkSUaIQoKjug47I78TYIeCyCOshIAq+xej46Pu5KCs5nN5/vt0Icfng6gBC0qMUatd4UsfgQILezvQcoLe3xz3qp4zuH/WUh1EbiSKjPxvZI6A9vm1fuaeNgvcUe57IDTQzlaIbN14+kMrgvxW5YxISRZw6j+mgK7EcBtAmq89ww6/a0YOsad3kCtHRwNbznkmUqXbb/q7gWvVdwVYzkft3qbiZzORTU4JP/V6we2OPz+8RRJf6WxA==
+ b=I1//TsHPYbRhvzg40MUBvtqzmBZOYIqH2bRw6dEwPnPgafTu1GxeTOwJhRytC5V7alxlXDeZHEGSc06rHoQSVlY5wHMP/c38dqVyIPo+S3iNpy/waY556tt/o/r40rbfHY03VAneO0hsSrebG6bI7l+o7qUScXmM2CYAHMGUki6/cDlFxBr4MPFwuI2Ji3IcJ5AYKjdolRGmSBig3VAVkwZmOgTcGuemZR5AZK7hxc2TOkuL+zPAsilm7LQR9mAWkw4Y0q1AlBnt/l4HHveF9ezJdc3zYm/3YE2VodPT5/HZcpvGlqDin9PaUQuxGdyCMQta1NdWz1kf5DC5aEBXuQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bu6cW3D24AA4mHs3NGtLf1pUBG0FFD8Tm+W0JTNEtAI=;
- b=aQKrYjjd+fBjZPZESZTmlCP/ddnCh+W4DbpAMYbrRVx16j4Xqlq3fh8JkVTEYECrjA6JK0bWJ3JuwO5XNZD+JddMJ74hU+nPIvbS322svTFPuD6+A1tV8JaWextehIrHxsmkWBXud8Qvtvk2eeXmexHTYTW0v1N+XL3mNfjgs0WOtnxjUNsOuXmUVe8r+0t9tIfab34kcjjK0SNFU6q1y0A9lDGJEXBZC4jtREYQ97UPGFw5a/nDaRZ8II4jLTXtf+WR1Hy7GrPsvppzr8yZJwZFk2MB7hQbp1D6E4H5CcZhw4ulFRVLsdZIB8v0BHgOchRBRCHL/gfKc6gl6fR87w==
+ bh=/OyzaIpuYkm7hUH6I2Tsyav8LQgUQuoSS7RWMmfsqVw=;
+ b=d4payKHQxR2v6AoFuut3aDgw+ELZhNLi9p/4gqiRPsjjuiv2e13uMeYUYcxPeZ3nNhDr2cMx0tC8M2pAiB+bojWizNt0VHW0VBFFEJwuMMKflojcO39Mur0HhSPvnowc4fVjK3yvo8L5pzoi1V4xb7jrb5QRp0E1nV0H6Auxto+jkq1rfGasFKVsQD+DQRhXUYdMipj1pCx6fMMBAqfmyJTEiDTkmHL27AvF2i90hIwFO29ovNb2G16nk8mL9R3F71aBX5OSMaIYZJCvJEmwAcIKJGE3tA9HEUsZJehO8w1F+zLaq7xc0yHNYaIlSpJP+fVM3vBzQzLH4+lf0HjmrA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
 Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:8::10) by NTZPR01MB1084.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:9::10) with Microsoft SMTP Server (version=TLS1_2,
+ (2406:e500:c510:8::10) by NTZPR01MB1132.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:8::13) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Wed, 10 Apr
- 2024 03:31:56 +0000
+ 2024 03:31:55 +0000
 Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
  ([fe80::6174:711d:d93:87c9]) by NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
  ([fe80::6174:711d:d93:87c9%4]) with mapi id 15.20.7409.053; Wed, 10 Apr 2024
- 03:31:56 +0000
+ 03:31:55 +0000
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -65,67 +65,64 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>,
 	linux-clk@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH v4 2/2] riscv: dts: starfive: visionfive-2: Fix lower rate of CPUfreq by setting PLL0 rate to 1.5GHz
-Date: Wed, 10 Apr 2024 11:31:48 +0800
-Message-Id: <20240410033148.213991-3-xingyu.wu@starfivetech.com>
+Subject: [PATCH v4 0/2] Add notifier for PLL0 clock and set it 1.5GHz on
+Date: Wed, 10 Apr 2024 11:31:46 +0800
+Message-Id: <20240410033148.213991-1-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20240410033148.213991-1-xingyu.wu@starfivetech.com>
-References: <20240410033148.213991-1-xingyu.wu@starfivetech.com>
 X-ClientProxiedBy: NT0PR01CA0002.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c510::23) To NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c510:8::10)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: NTZPR01MB0956:EE_|NTZPR01MB1084:EE_
-X-MS-Office365-Filtering-Correlation-Id: e951561a-600d-44d9-4ceb-08dc590ec5ed
+X-MS-TrafficTypeDiagnostic: NTZPR01MB0956:EE_|NTZPR01MB1132:EE_
+X-MS-Office365-Filtering-Correlation-Id: ba8bb759-87f9-45c2-71b5-08dc590ec4f6
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: UwoNeYlbnaEzAr3pKIyhiiDkFpZLAyVVgUlnhm1U7PWkf8uwl/NK1zNLMsROsFT9lSv1w+BS0P350zc9YJ/XMhrkfBGOU7jNAzOI5x9XIGEkKy5KzmXVPUaXj6xuosQKepLX57z+Er9MNLdfAM6Ck9lEZCJ9wyWTP6IJ++meVdr1aJAOmsjx1bc2ybaRaE9AOlS54PQtLmiC9sVoSshegumrQepWsYlM4aXvtuAx2qZpreiksA6oPEiCL2d6715yIhmC3anM6QWjp0gm+0sZhthlS6ah6bn3+Ky1n6t1vhLm6wcH3IBcGS3NFlpHJUA65+bpse5WRRD+xjimsTyUjfHHdJg2dSis26eMkG5YHKpqzkDob90e743G8R5nH4A7Ck98w3jLw0mnjGF7Hg39bOEEybfskRNGpi8Gkqs8iNXGKa5wNIdE+nXt25gPj76/penr/5SOhJgLwskV+pTBZbYmO10Vhl7hN+9exaP9GfSkkh+o6rlm2oPkauTX+kWD0PadeyfNfflcHfuOoCe8H1oQQwCKYIaLeBi9u210H5Uy1ffyP17/2hQvmOQltpJ8tyKFrIHE5rgTpmSSUoijgJwO2nYyF0e2zgIbZOSay3T51YcmRpUBdhPDj8bTIFM1
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(7416005)(41320700004)(52116005)(366007)(38350700005);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam-Message-Info: v1BGuvOV2m3yd99T/nTPZ9raXRx/dhnbiuQP9bQC2SnpBydmzFvvcYFRyF3NckAPF2Ph+GSAWtFyEZPeYlv44WESJ10Zt0QDv4TrE5wUPblbrpd4jYuwBlcJNUt553CCReKt3fqC54Hp0ujGIINKvARyEuXjJZ2yelzso3C0RDGJ4woWNYWE8skW9Rui1YEbKVGLMyJsnb3Huq+7aOl5WGmjGU0cObWDyYJMaZ3JymNnI1kUKVkF54tUhQoOcYalPmNdJ8BqOg7MdDOs4kK9eeAtr3jKxju3GM5p4E1f8OGfunTQWZqQgcqYd8Z12g5aLpMwidSdFNcY0HMtjdBoA9enYk1SfQzhAfiGw9tH67YVK/Dv+h232LNBYQSPwb89uTjr9KHeM//7wC6WqB0zoqmamYBckGsdCNm62R98t40UiFYNyBqxV6MVn+g8MC4qMaf1B+5YWKyrdhwC6DQVa0ixy5sPFXc6JyPpiZjAl6zQqVhn3i2jVgbqKogQi/mT65yMbg+8GW1mTJ/ppJSH/zS++zwSr0MxtWMl/tCuBwgqoVCu5avW524fOYbV42AXekLgSCQcvu2HCrqCq+cs8B599ny5YsdIe7tZLUZyDs6j47reAmes97N/PzOkHFou
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(52116005)(7416005)(41320700004)(366007)(38350700005);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZBJZWPeztH2It8SDtqx1cmgwdDJYJZ1hMrOGdY5is5a7yHu6URBgv4klGsaF?=
- =?us-ascii?Q?FbSIwTTVQAsGRdQoLGACJN7RJTiuBikV5VzOhay4tcQnYsgzfCfQ4/jL1ggz?=
- =?us-ascii?Q?lasX07Z0Zp3yVy4L2qSquEa2kncpt8600b0FLzUd2FHsBLRhCwI/pV2CwdDp?=
- =?us-ascii?Q?Nqdl8h2oXUoykCcOOUOVPBkOUflfnBh40YdtV2tNo4iTLqN8tiuywEFixmdf?=
- =?us-ascii?Q?HQvrbhuRNNiVWOZDbkAH+qKqFkf4k3dKlO2x6/vNn00+yKwJmFk3/FI1I3PF?=
- =?us-ascii?Q?uucLZ+ZJwlgVs97vuBpH4GjGagbD+IogMJoVp2EBXFJLP91PO9WmOFLJEB6D?=
- =?us-ascii?Q?/Jq9vhDC4sr6Itb421fAduD+2Q9oxmSYUdJf07WtyFu+r0Pf3MAT7GLR84fd?=
- =?us-ascii?Q?DlQjlBum7gjtLarjGreZlDyc1mVi5ZeAJwFwnnhLpOrhAKH9VgXUPfaeJkvV?=
- =?us-ascii?Q?6Y9Klhd648DRIQmLb/yDxbM2W8f9ZJ5+2es8LoO+6rMS2OpI+7noquy5ydAv?=
- =?us-ascii?Q?clNDHsydarMtgDbF8hvuE2mj8rV0IZ4NcEdanTLzzdq/EAs+UHnCL/S7Irf+?=
- =?us-ascii?Q?ejr/cE65NNdPwtH5wD9GNlX6VpQ5u0V+Zx4I+KrMOl3SSNMQuGW/+D8Vl4AS?=
- =?us-ascii?Q?ziFNlWxUM7yancIWCMY3UwmaZVaGFibaUHxdqkNascsg9HJx2Khilw85XAS4?=
- =?us-ascii?Q?ZFMnVkdN8EjfdHSKd5XFYRsSkUT4V006V2CKBE+wsP9eyXihi3FXW5DwSnFw?=
- =?us-ascii?Q?qLk+Q70d8jaZW599l3Jth+UrjxybsLOGvFWn6a/hE2uGy2BtWUz32ebR9AQI?=
- =?us-ascii?Q?WlX1LlruoX+wVRKhqs320+rgSertuL3+OjO6qFo7K5QtoAVR8xZLuRutUU0G?=
- =?us-ascii?Q?RLg7qhCItg0zLu87kIIprYqispOmfK3bV2QoAiLSe3BZsRhUh1ir6eRWSycy?=
- =?us-ascii?Q?1DNtDelMUiLVL7aoKkTS0TW9M6oPzFzU9iHc9460O3bORf68VDOGJJYJaiJV?=
- =?us-ascii?Q?waK+i22PpLlb0aWuqmiiY6+eYN7MKzSHslq1vul24VS7dNBXC4RSJD4rmWnd?=
- =?us-ascii?Q?n/44nrGIr3qh28QCA8cyc6iE2jJWxTUYC51BZ46IhNv9sfS4VGmQmuBTkt5L?=
- =?us-ascii?Q?JbdUqLjHBAVTR4Tx/VBiV6dfu6tF0eac7dHQtVcMW8NF4vhfO9/19bBxelc8?=
- =?us-ascii?Q?8EibQbQNagLuVnh5jINl6SwaYLkdVFGinnSPB/Ml5hI6Sc+HhJUH70V9y6ps?=
- =?us-ascii?Q?BUND+DD764jf/qI9+gPyLo5vph7PVJyrz4edbM3bMwtzDhHuMypLMb0sStre?=
- =?us-ascii?Q?UfsQdvGOpR5F8XDSCv8tK3m/4h1FheM+qOhZc7GQwj2nQzNFMb5Gx31iNy5M?=
- =?us-ascii?Q?phTnyzhjKWWTulXeKJTQsu1cBSdlbLDHVH2gfei7mZUIxR1QexYX+uqe1BCo?=
- =?us-ascii?Q?Sc53kalj3P08wJxjYFAvTNfyaKqwuxjmzs+OqFYevRDblLBJsW47dzMES0Mn?=
- =?us-ascii?Q?a9NRrYUi25FFE4EUAIs8N//+i5lGbdFxXQApiUgNcLy08k1TG2M6Y83dICed?=
- =?us-ascii?Q?94dkCd9sEVI1i2/MczqIZLw6tYfYvcUnu2nSuJmbhawJ1aEOnJIlCMYW5LIl?=
- =?us-ascii?Q?Yw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3B5iQuNSYOGb29ylvKxQ9eqztyQrNrv29G4Q3YkG5PuUZwrAE/XlLQjw5+rv?=
+ =?us-ascii?Q?cbw1c5kFuEeQVxrEZvwY4OXIvEkuALMFrFhd1MfRH84yV3AnmPrc/RtX94Ni?=
+ =?us-ascii?Q?J8rxMRAEIep3MDo9k6I5Jh5foeqsYUdTTv38bKQHcs6DoDClVahhLGbFYuoI?=
+ =?us-ascii?Q?CZrU/dfzVC/nV/ujL9Wi/yH6WGFiLFqRzB1LBNp6yPt3XwmzfhwDVMP7I/qh?=
+ =?us-ascii?Q?dSpBs/oe8nx2RCcNGzolfzYtrq9H3RuYHRnSPvMNrLN2QIqnKpyAlCkA9ZPI?=
+ =?us-ascii?Q?zMRwJGAVaspHsjezgG3dNTOcJmsmNZSSRRVrLQPw0JrQff6haEQqPJdhRP46?=
+ =?us-ascii?Q?KIgkJCAB/IGjEHzlYxxDqo7U57wgKpUyx+VC5ODHs9eItn7hKDSIJNykgNGX?=
+ =?us-ascii?Q?iou0CbsfgQpAl//OU1Aake9Nt3meXFtB+UqEt12LAecWcGB4NBnbLMMfNmco?=
+ =?us-ascii?Q?zwVr8LICD/jGuUew2Akw/Pc5HxYU+Q3DAIBqXZUVLGAR3aym7jnY5FMGGDop?=
+ =?us-ascii?Q?tCE+yk/BUrLcu+rreyjXP8UJYdUTQggcoTxKKh9Qzo1+irZ9hZwCef/IxP77?=
+ =?us-ascii?Q?uckm9Y9dXrbdb5V2E4qK39SielyT/XOsmQhJqaR5vVORVpQJ+qkQxhmHd2pJ?=
+ =?us-ascii?Q?iGQ7YHRD3VRkCkyRzvliQhQk4HZak0+XU3r6/HOwE7OfrmZUdN5BbgA7Hdm2?=
+ =?us-ascii?Q?azqPShinIHSCIEBc1QIA/rkNg6uDWej9pYPFV2cUYYkH60RBAtE5NUU/8M6D?=
+ =?us-ascii?Q?ijTBUHPsMoMhhWPKketZF7hw1HfyrKnUHS5LAtEf9VUObA3hSR9v7dVxA5ov?=
+ =?us-ascii?Q?Q0i9MiFUeV+xJSuPac7OZteQRYQHuVT+RqfEX0ab0I4Pl+nVRsBrMmgSm69y?=
+ =?us-ascii?Q?03UWwLuRjij+Rv/IJTqZtnQW9ijEstaE7uciUIYPqjrE1OUfNmtB3pE8NXVM?=
+ =?us-ascii?Q?va3eOBL/hO0/V0ossOch15+iA35dFm9jUnaURA4h3hH79NfC9W0yYMHcm1e9?=
+ =?us-ascii?Q?Nc6+CpM8GyLy6Ch6ApYtGiwJVia296bP95boVvaIXd4O31qioPeAHHeb1Bs+?=
+ =?us-ascii?Q?xtdzOlgQQqoKQUWKJ+7Tnu1A+82k5SIL2wPhY4jQZ26DoK6tgctL0FRJekVc?=
+ =?us-ascii?Q?lQPuJnTkBdIHhrWTV8DgPC6TQlqqLjbqL27De4EAeqPZRZb46MyZvTZgHQsW?=
+ =?us-ascii?Q?xBlVoxiC+RP7BQRJGCR6ThGN7MRJeGBVhJTZqqwVWEgkqJz4M9xrULDLEMmN?=
+ =?us-ascii?Q?mIXACkPywLbQdk1KWPnrTRlloeMaqAc0Dy6We8+JOTamzPF6zLg2o91VyQ+4?=
+ =?us-ascii?Q?fswrGhrLsOLcRF2GZnC33hrbIWsELeMkJNvFiDmeGydANubs4ApQiUfUd5YD?=
+ =?us-ascii?Q?ps9wT5D71x/XjNOzewBjJti2zYaseZY+/80qFsTiYdkYDbvlH3IITJpj5BTz?=
+ =?us-ascii?Q?rF/7LjqIDAt6Pt6GiKWnWgiOPssao06iNxjLUs8TqhyVsrkkXUPw9nJ24im8?=
+ =?us-ascii?Q?y9qw97Dzra0b+J0+PhlvqiRqc6zam/J8vqztPk+OSgS4uSUlOVr5d4csGyrj?=
+ =?us-ascii?Q?4ubXpRU5d6A1NoKNOxlRUVL31C27k4USl8SpbYLRtt8GdfKNYPTiRmkq1H7o?=
+ =?us-ascii?Q?Pg=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e951561a-600d-44d9-4ceb-08dc590ec5ed
+X-MS-Exchange-CrossTenant-Network-Message-Id: ba8bb759-87f9-45c2-71b5-08dc590ec4f6
 X-MS-Exchange-CrossTenant-AuthSource: NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2024 03:31:56.6373
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2024 03:31:54.9810
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DFhEgKRBor53UbrkaxV7vaoyqSXbv+IBEjgJtevsVBitrHwUwfjTcTxZqDwpMjy2aUiLfiHFFk3qaE0acq4WKyKGyenKIHrv3M7hPHyVcJA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB1084
+X-MS-Exchange-CrossTenant-UserPrincipalName: i753RIXX+9pTsfJt81JCT5tsXo+5EyUUzX/T0C73pPLydFZKbsTbDy5s00ULq9sMhea4q+IfmTtKNE5lH7KoQpLww34VaHUF7j/n/P6q3sk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB1132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240409_203205_718212_5036FA3F 
-X-CRM114-Status: UNSURE (   8.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240409_203208_352489_EF0FEC33 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,36 +139,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CPUfreq supports 4 cpu frequency loads on 375/500/750/1500MHz.
-But now PLL0 rate is 1GHz and the cpu frequency loads become
-333/500/500/1000MHz in fact.
+This patch is to add the notifier for PLL0 clock and set the PLL0 rate
+to 1.5GHz to fix the lower rate of CPUfreq on the JH7110 SoC.
 
-So PLL0 rate should be default set to 1.5GHz and set the
-cpu_core rate to 500MHz in safe.
+The first patch is to add the notifier for PLL0 clock. Setting the PLL0
+rate need the son clock (cpu_root) to switch its parent clock to OSC
+clock and switch it back after setting PLL0 rate. It need to use the
+cpu_root clock from SYSCRG and register the notifier in the SYSCRG
+driver.
 
-Fixes: e2c510d6d630 ("riscv: dts: starfive: Add cpu scaling for JH7110 SoC")
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- .../boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi     | 6 ++++++
- 1 file changed, 6 insertions(+)
+The second patch is to set cpu_core rate to 500MHz and PLL0 rate to
+1.5GHz to fix the problem about the lower rate of CPUfreq on the
+visionfive board. The cpu_core clock rate is set to 500MHz first to
+ensure that the cpu frequency will not suddenly become high and the cpu
+voltage is not enough to cause a crash when the PLL0 is set to 1.5GHz.
+The cpu voltage and frequency are then adjusted together by CPUfreq.
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index 45b58b6f3df8..28981b267de4 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -390,6 +390,12 @@ spi_dev0: spi@0 {
- 	};
- };
- 
-+&syscrg {
-+	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>,
-+			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
-+	assigned-clock-rates = <500000000>, <1500000000>;
-+};
-+
- &sysgpio {
- 	i2c0_pins: i2c0-0 {
- 		i2c-pins {
+Changes since v3:
+- Added the notifier for PLL0 clock.
+- Set cpu_core rate in DTS
+
+v3: https://lore.kernel.org/all/20240402090920.11627-1-xingyu.wu@starfivetech.com/
+
+Changes since v2:
+- Made the steps into the process into the process of setting PLL0 rate
+
+v2: https://lore.kernel.org/all/20230821152915.208366-1-xingyu.wu@starfivetech.com/
+
+Changes since v1:
+- Added the fixes tag in the commit.
+
+v1: https://lore.kernel.org/all/20230811033631.160912-1-xingyu.wu@starfivetech.com/
+
+Xingyu Wu (2):
+  clk: starfive: jh7110-sys: Add notifier for PLL clock
+  riscv: dts: starfive: visionfive-2: Fix lower rate of CPUfreq by
+    setting PLL0 rate to 1.5GHz
+
+ .../jh7110-starfive-visionfive-2.dtsi         |  6 ++++
+ .../clk/starfive/clk-starfive-jh7110-sys.c    | 31 ++++++++++++++++++-
+ drivers/clk/starfive/clk-starfive-jh71x0.h    |  2 ++
+ 3 files changed, 38 insertions(+), 1 deletion(-)
+
 -- 
 2.25.1
 
