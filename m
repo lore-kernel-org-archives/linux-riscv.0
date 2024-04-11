@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DC8C4345F
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 18:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD7FC4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 19:18:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YU48yOuOFJXVXagGEm3VgKdFx2OUE3YZNPNaGmUdhE8=; b=KHBV84A9h8d19K
-	/MnBXVGwDpVbIXoysS0E2zKNAJvFS0dTPPOnkwDuoVcwGodZZHN4i9RFIZbqFl1iWu42lfSAluur3
-	jxqzulDarOOd7LSAa3GYPuFJQyfTlCMiSlsiUwumxzmQScdayPCQvOWbx7OKdW+Na/78LLKFi1Vyw
-	1FYil26or8X2dIb8FDNyxqfsQa1JBAdFBx94GX8xrJwDkjCCVVJHDQHTBfM/7XADn1FOyxRmm0CO1
-	/3T7Gk7St2qrcN7XwsekbsrMU4fR5HCKPwBn3u2nKZgzCNyL6mljnwP5hS388vz/vdzKYzAGfzaGv
-	euFGqd49hqlCtu0N7W0A==;
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gv9jHu3zKDyM6WNjgCLnAJ1jIMwNaULLn4uMaqbqLQw=; b=wpkfD7opdBR+yK
+	7gAe3BYCP1O00dO54Jb9KnynnzC+GdwrqyTBcLQ4lN1HEj+QM1SSAtP7yN5H0ldwEbP/S5P4lDnR+
+	ad961XlYiTnTsvT+G+Bq5w6I4Gy7szFXJScAoqED8gDWYG2Buu7j2AH/ACeclb+VxRUoyyYWySYxQ
+	171ZealXd+7TJZVmJsvelRq5GKrmQgdX9bvqzv5RVkLrmQR/PZNvazenoiumYGpujVEpCsJvmlSoq
+	60WQE2Hl+yEdVPkryCib2QvWdF2sM8nIBtKvODrZs3XEQDZsY0KBxmcotMgsCHdaT+kX8Jstjkgkn
+	qpHdxSc86XIJvWJOohTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruzFW-0000000Di09-14D3;
-	Thu, 11 Apr 2024 18:34:14 +0000
-Received: from mail-vs1-xe2e.google.com ([2607:f8b0:4864:20::e2e])
+	id 1ruzwg-0000000DrpK-2PPy;
+	Thu, 11 Apr 2024 19:18:50 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruzFT-0000000DhyQ-1GrX
+	id 1ruzwd-0000000Dro8-04xO
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Apr 2024 18:34:12 +0000
-Received: by mail-vs1-xe2e.google.com with SMTP id ada2fe7eead31-479dcaaf2b1so51139137.0
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Apr 2024 11:34:10 -0700 (PDT)
+	Thu, 11 Apr 2024 19:18:48 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-dd02fb9a31cso134861276.3
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Apr 2024 12:18:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1712860449; x=1713465249; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=stMEsNBdhDZHN0AAsq6vgx6+Ts1oyq4oANVAhdK9098=;
-        b=1XE5poW6Jkjd75IZAnZQCrZVJi4aUoByF952NZZx92Jf4DSEVmy4ANTkoLsTA8K5fD
-         3yAlhHTcbos5sOI4PgAOppGUxx95358kgRSf1ypt6oDyEEEdcaTHgxhZXhs06xLRBEU0
-         8aXGSCJToFDt0FDAr91FzCRoaCNGdTYQlvfxxm8azIlIkoXSNiAhOBlBfM10dwSMNyf5
-         Xhzixkrid7EPyUL00+D5ltLZGbOcaf3EKaPwZ9eIuoyTN843d18Q7crcjb6mIf4jGlSw
-         fmmqmliDHDkZ0IWTiFERoywAWvVkg2fUisIiGiHSHvsO3LWn1tnLQd3Ck4D/hwK30bYB
-         gazA==
+        d=google.com; s=20230601; t=1712863122; x=1713467922; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Gnx+Wh6mZm2zD93yijKpXlCXtlqxeyrEyl4n/ltYBHk=;
+        b=k0qMpDV94uOoGo4FY0kIWLBfHrsDQQ29TXWkthjr4I3DX7Pf8xXig+myw1sYyAPsaK
+         NvOjOYx4exLNZ9bTGElng11jLzM4EmxG/30r3sj33xHgyiLV+U5cVBaYi2TptIufzfY9
+         2+6I2IklSlXPsyhyIMfb6yAb+qTaBGrWS4BxUA7FsPJT7aKGg2W1GnQyyDRmfMNfJm4n
+         Iu4shrb9qH+eUBitvbYzZS0klUaTbNc6nIulwIhJE8tiBLLh3jRLyf9r/nTjHUulb0YK
+         klVyuDZwjYbq7zoYGP3F7RRMnljgwg+VLe80DyUt/MiPb6ZxfvzlbvW+vMcER1T4gZY1
+         2jVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712860449; x=1713465249;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=stMEsNBdhDZHN0AAsq6vgx6+Ts1oyq4oANVAhdK9098=;
-        b=DMWemM/W/1EFVIIe2LVviBOCurCVmuYMUHzR0hPpFo2QXU6cJhEas66x7knQ98X5XY
-         tLPps3Y74fK9LbaEOma5SdR0TdcXfmk8ol40M747Jq59sySI7+6fwKJCjNTovOHMg3ul
-         LKszNwjtcB06PDn4HOKw7ipvedyE+3qvl2t9qB2GvnUW3WkPhfir45uwPuY7rxe9MqZk
-         GHfKq5YfGvSx1V5x6CmcIBkRRKLg96Qx6mVi6oF9ptyHnbxDbCkrKQ2Zs0NJPuOaOC3g
-         3oMhWFuP1c6wxaldnWF+ZCPnMsv1zvcqj6XUZnPPM2TiFACpG87B9S89wVBOYrc+squN
-         Cb8g==
-X-Gm-Message-State: AOJu0Yxl8KKX842LfrSSr9asgpXRPLWmq8b1Z/fxMUY3Q4GTy5vhxGqB
-	/j1l5ym+8mYq7W/6N5pnnxxUIX8VCYUvSLUh8fFyav6t/S0pC188iM9QrhlE8E/gLrvp3nEuqKh
-	WGenIrRJRHNAwns+cBC2QSUT+QnzIdhZvlWhm
-X-Google-Smtp-Source: AGHT+IFfuK5+fQsC0QczQeo6WuoykTwpS5Kk4PpmnlC1hN0dL/Pi0+fTSQq1O1Njt6aog/wFbvvhl3lV/7VPrJZJ6bQ=
-X-Received: by 2002:a05:6102:b08:b0:47a:36b9:160b with SMTP id
- b8-20020a0561020b0800b0047a36b9160bmr819522vst.16.1712860449222; Thu, 11 Apr
- 2024 11:34:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1712863122; x=1713467922;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Gnx+Wh6mZm2zD93yijKpXlCXtlqxeyrEyl4n/ltYBHk=;
+        b=rU84JM04phA5FBoYBiWUxiRt5tR9njcwbEdYYceyceK3IOAxbzsQoc0Q2R1H9Uu2s6
+         B6JSjF/VlP6gbhI+KSPWHkj7VUCVaJFYYQKUD74Zhpas9fLl6t+kplSHRt8bJbaf3Tn+
+         pM4SAjHuVe7kDhUlIg2yuW81UUDKixCa5oiF/WpkLLpTHGKNU8LXkRluz3JL18Y++RWS
+         AzqhTadKhz87A0jfP278FKf6IsDKQFqDg3T7VJAU4xOs0D1is8XBtHKM2CEQmRDBZDi+
+         e81WrdCJLiNGyoDF2wCMIq2jga5OFyYy7IWggaFtvKxHkP8AXgbrGwlG91q9Ks9MHGbQ
+         VyTw==
+X-Forwarded-Encrypted: i=1; AJvYcCWLbZEf/uIws+xEFbdR1ItgMwl+8SovjVZdgf1e2epxUMf0ANkRQe4nX11rYjSj4vekBj/eDe3Jsay6S/fLR+7/lfBqQV01V2EwqwSS6U0w
+X-Gm-Message-State: AOJu0YxfIYdoUVg9mkbBg9ro6MLQdGhhCN6ogmajBs06jzHwQbgi0ecz
+	RN+MedsF/Ne1+lyPDKGanZWbE/rYZM9o+6B685IRrRqjO6Jhr2K+rpgwUeijGqcEeP2vex0JGE7
+	0sDpAE1H2m3X4gCvQ5vt6THUhE7Ea+DpN+rr5
+X-Google-Smtp-Source: AGHT+IGwHVaFdqdjG/q9Ei/kAzML7ZY1M3xdauS0D/3tbBhX3B8TE51QbULjO2jN+O7dDYP+/cenpRV4eilHJRZuRA4=
+X-Received: by 2002:a5b:40d:0:b0:dc6:bcb3:5d8e with SMTP id
+ m13-20020a5b040d000000b00dc6bcb35d8emr475726ybp.20.1712863121771; Thu, 11 Apr
+ 2024 12:18:41 -0700 (PDT)
 MIME-Version: 1.0
-References: <20240409061043.3269676-1-debug@rivosinc.com> <20240409061043.3269676-3-debug@rivosinc.com>
- <CABCJKuee-6GGDDjvByCkikR02gka2BNhwRVBw6UAwEcmSQposQ@mail.gmail.com> <ZhgjoyObf+nMihA4@debug.ba.rivosinc.com>
-In-Reply-To: <ZhgjoyObf+nMihA4@debug.ba.rivosinc.com>
-From: Sami Tolvanen <samitolvanen@google.com>
-Date: Thu, 11 Apr 2024 18:33:33 +0000
-Message-ID: <CABCJKuf5Jg5g3FVpU22vNUo4UituPEM7QwvcVP8YWrvSPK+onA@mail.gmail.com>
-Subject: Re: [RFC PATCH 02/12] riscv: add landing pad for asm routines.
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, nathan@kernel.org, ndesaulniers@google.com, 
-	morbo@google.com, justinstitt@google.com, andy.chiu@sifive.com, 
-	hankuan.chen@sifive.com, guoren@kernel.org, greentime.hu@sifive.com, 
-	cleger@rivosinc.com, apatel@ventanamicro.com, ajones@ventanamicro.com, 
-	conor.dooley@microchip.com, mchitale@ventanamicro.com, 
-	dbarboza@ventanamicro.com, waylingii@gmail.com, sameo@rivosinc.com, 
-	alexghiti@rivosinc.com, akpm@linux-foundation.org, shikemeng@huaweicloud.com, 
-	rppt@kernel.org, charlie@rivosinc.com, xiao.w.wang@intel.com, 
-	willy@infradead.org, jszhang@kernel.org, leobras@redhat.com, 
-	songshuaishuai@tinylab.org, haxel@fzi.de, samuel.holland@sifive.com, 
-	namcaov@gmail.com, bjorn@rivosinc.com, cuiyunhui@bytedance.com, 
-	wangkefeng.wang@huawei.com, falcon@tinylab.org, viro@zeniv.linux.org.uk, 
-	bhe@redhat.com, chenjiahao16@huawei.com, hca@linux.ibm.com, arnd@arndb.de, 
-	kent.overstreet@linux.dev, boqun.feng@gmail.com, oleg@redhat.com, 
-	paulmck@kernel.org, broonie@kernel.org, rick.p.edgecombe@intel.com
+From: enh <enh@google.com>
+Date: Thu, 11 Apr 2024 12:18:25 -0700
+Message-ID: <CAJgzZorn5anPH8dVPqvjVWmLKqTi5bkLDR=FH-ZAcdXFnNe8Eg@mail.gmail.com>
+Subject: [PATCH] Clarify risc-v hwprobe RISCV_HWPROBE_MISALIGNED_* docs.
+To: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240411_113411_371834_3E8A2D60 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20240411_121847_180931_5200C516 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,30 +81,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBcHIgMTEsIDIwMjQgYXQgNTo1M+KAr1BNIERlZXBhayBHdXB0YSA8ZGVidWdAcml2
-b3NpbmMuY29tPiB3cm90ZToKPgo+IEluIHByaW5jaXBsZSwgSSBhZ3JlZSBpdCBzaG91bGQgY29u
-dmVyZ2Ugd2l0aCBzb2Z0d2FyZSBiYXNlZCBrY2ZpIHNjaGVtZQo+IGFzIG11Y2ggYXMgcG9zc2li
-bGUuIEhvd2V2ZXIgYmxvY2tlciB0aGF0IEkgc2VlIGlzIGBoYXNoYCBpcyBwbGFjZWQganVzdAo+
-IGJlZm9yZSBmdW5jdGlvbi4gVGhpcyBicmVha3MgZm9yIGNvZGUgbWFwcGVkIGFzIGV4ZWN1dGUg
-b25seSBzY2VuYXJpb3MuCj4gQW5kIGlkZWFsbHkgd291bGQgbGlrZSB0byBoYXZlIGltbWVkaWF0
-ZXMgYXQgY2FsbHNpdGVzIGluc3RlYWQgb2YgbG9hZHMKPiAocHVyZWx5IHBlcmYgcmVhc29uIGFu
-ZCBub3Qgc2VjdXJpdHkpLgoKSSdtIG5vdCBzYXlpbmcgdGhlIHNjaGVtZXMgaGF2ZSB0byBiZSBj
-b21wYXRpYmxlLCBqdXN0IHRoYXQgaXQgd291bGQKYmUgZ3JlYXQgdG8gYXZvaWQgcmVpbnZlbnRp
-bmcgdHlwZSBhbm5vdGF0aW9ucyBldGMuIEZvciBleGFtcGxlLCB3aGVuCnlvdSBpbXBsZW1lbnQg
-dGhlIGZpbmUtZ3JhaW5lZCB2YXJpYW50LCB5b3UgY291bGQgc2ltcGx5IG92ZXJyaWRlClNZTV9U
-WVBFRF9FTlRSWSAoZGVmaW5lZCBpbiBpbmNsdWRlL2xpbnV4L2NmaV90eXBlcy5oKSB0byBtb3Zl
-Cl9fQ0ZJX1RZUEUgaW5zaWRlIHRoZSBmdW5jdGlvbiwgYW5kIHRoZW4gcmVkZWZpbmUgX19DRklf
-VFlQRSB0byBlbWl0IGEKbGFuZGluZyBwYWQgd2l0aCB0aGUgY29ycmVjdCBsYWJlbC4gVGhpcyBh
-bGxvd3MgU1lNX1RZUEVEXyogaW4KYXNzZW1ibHkgY29kZSB0byB3b3JrIHdpdGggYm90aCBLQ0ZJ
-IGFuZCBmaW5lLWdyYWluZWQgWmljZmlscC4gRm9yIHRoZQpjb2Fyc2UtZ3JhaW5lZCB2YXJpYW50
-LCB5b3VyIGN1cnJlbnQgbWFjcm9zIGFyZSBwZXJmZWN0bHkgZmluZS4KCj4gQnV0IHllcyBpbiBu
-ZXh0IHZlcnNpb24sIEknbGwgdGFrZSBhIGxvb2sgYW5kIHRyeSB0byBjb252ZXJnZSBhcyBtdWNo
-IGFzCj4gcG9zc2libGUuCgpHcmVhdCwgc291bmRzIGdvb2QhCgpTYW1pCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+These only tell you about scalar accesses, not vector accesses.
+
+Signed-off-by: Elliott Hughes <enh@google.com>
+---
+ Documentation/arch/riscv/hwprobe.rst | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/Documentation/arch/riscv/hwprobe.rst
+b/Documentation/arch/riscv/hwprobe.rst
+index b2bcc9eed9aa..239be63f5089 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -192,21 +192,21 @@ The following keys are defined:
+   information about the selected set of processors.
+
+   * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
+-    accesses is unknown.
++    scalar accesses is unknown.
+
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned accesses are
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned scalar
+accesses are
+     emulated via software, either in or below the kernel.  These accesses are
+     always extremely slow.
+
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned accesses are slower
+-    than equivalent byte accesses.  Misaligned accesses may be supported
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned scalar accesses are
++    slower than equivalent byte accesses.  Misaligned accesses may be supported
+     directly in hardware, or trapped and emulated by software.
+
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned accesses are faster
+-    than equivalent byte accesses.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned scalar accesses are
++    faster than equivalent byte accesses.
+
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
+-    not supported at all and will generate a misaligned address fault.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned scalar accesses
++    are not supported at all and will generate a misaligned address fault.
+
+ * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
+   represents the size of the Zicboz block in bytes.
+-- 
+2.44.0.478.gd926399ef9-goog
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
