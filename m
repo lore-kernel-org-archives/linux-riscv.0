@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CCAACD11C2
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 00:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9153BCD11C2
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 00:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Igg1/Pz7JxXB91N497A7jEBzgo+fMuk3Dv0eKGyfAEY=; b=VtkWUTu4d9EyEj
-	Riun7L1vt2so86gWxn/diMSpM8VvePfY+VeZ3TGoUU2SILEVEaveNVbBriH+k0Ivckyo2zdg7K4S8
-	Lv37f5hk4X2niG2dRJZOzI1V55SYA6CCPXEQsftDjkAs3RkGhtQ3XsPwZM+OQWR5TXI7RsATyFzti
-	q4IfmsawDd6ytDrEa7OupJWrf6Z+ZThw9H2VZh+7OVR5zc0VG/37nUKAkYoH0J+DiASVQnonjTEIv
-	9bcIvsRs8sDbACx7sXtPvjQ+br9PxAxvQfQ8fR7bICoyanCbxHuO13e9VPK/fwuht/LmEN+B9BVN4
-	z/qZtLBJd+mOt++kkkPw==;
+	List-Owner; bh=7Umy6/zfstJM0Eufgmh8MM1P0pR2r70/jClPHzqryvo=; b=3OFB/ZAEsAPBqS
+	HsFjjWTbHmLILdXNvpTNIhXrFHqBj1RGLG16z6XcRThLBqGfCB2uP16x1Mbh7IGAVPFwMDdn3u69f
+	SoSbrc6wy6gyYyIBETqi/Li3Gb+zvVvHooEztwwNlNlEoqhvhffPdFx08Uazo8J8Ac+AKVp/lOWFl
+	4ngpyLbFKG5NJLB5SaD+PHXd5WnpmOfSyizID0quKrzIWe13RRwQzmBEDZwTZvKCdSfz5PNFMu3Ps
+	ypzMRJ0nepvF3F1u7fCw+TccRC8AFPennnXnjZnpqQ0DDdQt/Ift/CBYCUtdirPgfAQvXAPg2EVPG
+	mEAiARoi6Pe9kcy++j0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruhzI-00000009ZZf-2NKl;
-	Thu, 11 Apr 2024 00:08:20 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1ruhzQ-00000009Zg7-3SzP;
+	Thu, 11 Apr 2024 00:08:28 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruhzB-00000009ZSP-1jXd
+	id 1ruhzF-00000009ZUL-0Ohy
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Apr 2024 00:08:15 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1e24c889618so59413225ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Apr 2024 17:08:13 -0700 (PDT)
+	Thu, 11 Apr 2024 00:08:20 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1e51398cc4eso7939995ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Apr 2024 17:08:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712794093; x=1713398893; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712794095; x=1713398895; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2nwzSC0mjOXawHhzlfTnID2LKW7HdSbdpZLlPlBet3o=;
-        b=UIa+eVqpAHZXWl3rjunHPWrS5k6oUj9VaXrki/YgPqEWxcHoFVFrsu17WdN8flpx8y
-         Raw+SLfGI0t4ukyKopZXmZC/PVeYL7V9TDLgytQee/zPk6uJi63PzMo1CGBJC9zMj9cg
-         2YLFdEiNecO5DhVU4qrT67k210t3LYcy8fYLqAQyWIDpHReN464bYKX1yIECkj8oKkps
-         J7AaDH2WZ68L660WrHh+af96XGdccfuDw2zwM/Uw3cBtxKozHikccaY+GcB5yTlcN2sH
-         q4bj8yBr9WKzsfQocZHzM8Bg2dxbgBrFShCOXOnpiSPxn3jWEsFgW+Ae98cs8lfEsVxV
-         aeJw==
+        bh=fUdjqPblbE6Q25Ekp/l365V3YEPrpPkLHh57fhpvEHQ=;
+        b=KzUo+ubC6n/AxxuDLtCQrRPj3gEL9zpHAaozfF9VQsmXUx2o/epfJk4P7mCuEcnGm6
+         QWkve5jRbnJkeiowMj/DiIyrC/coGhCtIOWu/UjPdX1iDcilDPgE4uHP1AyFrokXfrvf
+         /w0f50r1lAUcyRZXeNVoUkKNRvHh6EZhLjXI0NTrql2Psjb1ZEde8VyX0iu25uFCoUo5
+         3ZmSOLi3LXE8dJi7aSAg7Pg0wkqtyFbD6Mw445g1JVOPhJGsGzWqZfg/BRz65D7zy0j3
+         eWm3iTQzjHGRbF00o5VuKGHtYRBq4KY89r9acTLnSwEwNldK/Hfc1mNpsVtPQvNPeTcG
+         //pQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712794093; x=1713398893;
+        d=1e100.net; s=20230601; t=1712794095; x=1713398895;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2nwzSC0mjOXawHhzlfTnID2LKW7HdSbdpZLlPlBet3o=;
-        b=vscZDbfQ9gmogmYUpKBwjhFakTlQ/DUQeZ8Tky5BGOtEf+zOAHd/Rl3w5yHt5vFbP7
-         K2bgWd+qaREy7SNq90wyEzJgIGCi36YWCQjXP4+BA6qL8Bh21i/hNd6g4yiCI4AddoJF
-         nDmTU3ZgG2DmQPH35iWocKJeefj6w1GgI3GLG0lutuuMf1ITMqGncsGk6ckvgTUN7Fv9
-         Q2IvMIzzP8seqvCjag6gP57vp3Jhy+8Z02eZDuIomtrOeaUlZlLgKKOeHguULepYIyhj
-         spODd+o6JqBAVt4EYehWrppsuTQ4YRJkQQseCaupQ73WSlJcgsCsu5/YFOYS39lcmxpa
-         3igw==
-X-Forwarded-Encrypted: i=1; AJvYcCVe0l53xxHHkJiqkdbnhrT9j3kWqoL+oiGRWCsGOrbTBDUkZAy4Xs8VIVhI/zH9YCyiMcuWVT49DnKlJLrHJiGxXL6SUKK29/dEIhRjaVJP
-X-Gm-Message-State: AOJu0YwSMPNEQmHN5cIC28eGKxEx4ivG1fSOnuFQiwPApVdaMSHO//Ni
-	zJ6xkwRmDrrnCfrQn/UYo2k3UNbVzj6WFuhCIoNrrOkVUkzXMQ6hxWFRDOuK62U=
-X-Google-Smtp-Source: AGHT+IG6OqYaJjg7MK1R6d7hiCeHot83RH1wCuW5h1sC+EdY34oQu3GEIDBFrBS/g+puRrw/WL9vMQ==
-X-Received: by 2002:a17:902:d511:b0:1e0:b62a:c0a2 with SMTP id b17-20020a170902d51100b001e0b62ac0a2mr5130331plg.51.1712794092857;
-        Wed, 10 Apr 2024 17:08:12 -0700 (PDT)
+        bh=fUdjqPblbE6Q25Ekp/l365V3YEPrpPkLHh57fhpvEHQ=;
+        b=n7i6+Oj0Ss1M3uDr4C4UTAdFZU/DDxPUlyKI/7ayasnrMdbuVjdnji6Sm3LVC3Edwf
+         Dm9caMLe+VaHU7lq/K5VRfMGtTZXcorrVFgr7Is51jyE8ha0yAP2dqPjY2YfVjP0K5vo
+         EoLVYlCmGcnZTJivbs8hPzzDcFKI6+vAtKwT4e2CDyFZmBTqaTZ/qUCAr9lM/jCCVCoQ
+         PEMF9a7APYHmDo0eX0l7XngX4ZfiCFkb12gGpnOKwmUS6eJ7egMsR+WrzBsuZccTfjkJ
+         x1O+qQ65rASDwLXgfxMpN7NWg3BzrpHQISbHPwGl7Gtecbm20MfcHKnszUCSjQBRPR0g
+         vjrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWY4L61LT23sOVSLnTljgYelr6XPyDgD4BMMlxFcTMDTeJY/DlqKi1VqBa769Wk/oZMmFT/aa6ciJnA8kmc+HKqNI86mmDKmLwRvKopM29D
+X-Gm-Message-State: AOJu0YxSHeyysugfGZfb2N6NuO6VZQC+n5d4Q4HoKx2zX3D97sC+vzI7
+	l/3G4m/XN9wGNBmPc2LB4Rm5yVuDlM8ipj9frYJaQwEG8mEOyv22nyZ7DBDKsTg=
+X-Google-Smtp-Source: AGHT+IFIBD1SOaWsgt2948dyeKGyG07Tn/ktfC4uoEXfuxeDgccQR9pNsvZjwG3GwFp5aB5INBJAQw==
+X-Received: by 2002:a17:902:7618:b0:1e4:fd4:48db with SMTP id k24-20020a170902761800b001e40fd448dbmr4188157pll.43.1712794095332;
+        Wed, 10 Apr 2024 17:08:15 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id f7-20020a170902684700b001e3d8a70780sm130351pln.171.2024.04.10.17.08.10
+        by smtp.gmail.com with ESMTPSA id f7-20020a170902684700b001e3d8a70780sm130351pln.171.2024.04.10.17.08.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Apr 2024 17:08:11 -0700 (PDT)
+        Wed, 10 Apr 2024 17:08:14 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Anup Patel <anup@brainfault.org>,
 	Ajay Kaher <ajay.kaher@broadcom.com>,
@@ -89,17 +89,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	virtualization@lists.linux.dev,
 	Will Deacon <will@kernel.org>,
 	x86@kernel.org
-Subject: [PATCH v6 02/24] RISC-V: Add FIRMWARE_READ_HI definition
-Date: Wed, 10 Apr 2024 17:07:30 -0700
-Message-Id: <20240411000752.955910-3-atishp@rivosinc.com>
+Subject: [PATCH v6 03/24] drivers/perf: riscv: Read upper bits of a firmware counter
+Date: Wed, 10 Apr 2024 17:07:31 -0700
+Message-Id: <20240411000752.955910-4-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240411000752.955910-1-atishp@rivosinc.com>
 References: <20240411000752.955910-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_170813_514197_23E64C10 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240410_170817_345643_40AE1B94 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,27 +110,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U0JJIHYyLjAgYWRkZWQgYW5vdGhlciBmdW5jdGlvbiB0byBTQkkgUE1VIGV4dGVuc2lvbiB0byBy
-ZWFkCnRoZSB1cHBlciBiaXRzIG9mIGEgY291bnRlciB3aXRoIHdpZHRoIGxhcmdlciB0aGFuIFhM
-RU4uCgpBZGQgdGhlIGRlZmluaXRpb24gZm9yIHRoYXQgZnVuY3Rpb24uCgpSZXZpZXdlZC1ieTog
-QW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNvbT4KUmV2aWV3ZWQtYnk6IENsw6lt
-ZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4KQWNrZWQtYnk6IENvbm9yIERvb2xleSA8
-Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+ClJldmlld2VkLWJ5OiBBbnVwIFBhdGVsIDxhbnVw
-QGJyYWluZmF1bHQub3JnPgpTaWduZWQtb2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9z
-aW5jLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oIHwgMSArCiAxIGZpbGUg
-Y2hhbmdlZCwgMSBpbnNlcnRpb24oKykKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3NiaS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaAppbmRleCA2ZTY4ZjhkZmY3
-NmIuLmVmODMxMWRhZmI5MSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmku
-aAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oCkBAIC0xMzEsNiArMTMxLDcgQEAg
-ZW51bSBzYmlfZXh0X3BtdV9maWQgewogCVNCSV9FWFRfUE1VX0NPVU5URVJfU1RBUlQsCiAJU0JJ
-X0VYVF9QTVVfQ09VTlRFUl9TVE9QLAogCVNCSV9FWFRfUE1VX0NPVU5URVJfRldfUkVBRCwKKwlT
-QklfRVhUX1BNVV9DT1VOVEVSX0ZXX1JFQURfSEksCiB9OwogCiB1bmlvbiBzYmlfcG11X2N0cl9p
-bmZvIHsKLS0gCjIuMzQuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+SBI v2.0 introduced a explicit function to read the upper 32 bits
+for any firmware counter width that is longer than 32bits.
+This is only applicable for RV32 where firmware counter can be
+64 bit.
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ drivers/perf/riscv_pmu_sbi.c | 25 ++++++++++++++++++++-----
+ 1 file changed, 20 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 3e44d2fb8bf8..1823ffb25d35 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -57,6 +57,8 @@ asm volatile(ALTERNATIVE(						\
+ PMU_FORMAT_ATTR(event, "config:0-47");
+ PMU_FORMAT_ATTR(firmware, "config:63");
+ 
++static bool sbi_v2_available;
++
+ static struct attribute *riscv_arch_formats_attr[] = {
+ 	&format_attr_event.attr,
+ 	&format_attr_firmware.attr,
+@@ -511,19 +513,29 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
+ 	struct hw_perf_event *hwc = &event->hw;
+ 	int idx = hwc->idx;
+ 	struct sbiret ret;
+-	union sbi_pmu_ctr_info info;
+ 	u64 val = 0;
++	union sbi_pmu_ctr_info info = pmu_ctr_list[idx];
+ 
+ 	if (pmu_sbi_is_fw_event(event)) {
+ 		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
+ 				hwc->idx, 0, 0, 0, 0, 0);
+-		if (!ret.error)
+-			val = ret.value;
++		if (ret.error)
++			return 0;
++
++		val = ret.value;
++		if (IS_ENABLED(CONFIG_32BIT) && sbi_v2_available && info.width >= 32) {
++			ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ_HI,
++					hwc->idx, 0, 0, 0, 0, 0);
++			if (!ret.error)
++				val |= ((u64)ret.value << 32);
++			else
++				WARN_ONCE(1, "Unable to read upper 32 bits of firmware counter error: %ld\n",
++					  ret.error);
++		}
+ 	} else {
+-		info = pmu_ctr_list[idx];
+ 		val = riscv_pmu_ctr_read_csr(info.csr);
+ 		if (IS_ENABLED(CONFIG_32BIT))
+-			val = ((u64)riscv_pmu_ctr_read_csr(info.csr + 0x80)) << 31 | val;
++			val |= ((u64)riscv_pmu_ctr_read_csr(info.csr + 0x80)) << 32;
+ 	}
+ 
+ 	return val;
+@@ -1135,6 +1147,9 @@ static int __init pmu_sbi_devinit(void)
+ 		return 0;
+ 	}
+ 
++	if (sbi_spec_version >= sbi_mk_version(2, 0))
++		sbi_v2_available = true;
++
+ 	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_RISCV_STARTING,
+ 				      "perf/riscv/pmu:starting",
+ 				      pmu_sbi_starting_cpu, pmu_sbi_dying_cpu);
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
