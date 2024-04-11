@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E387CD1297
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 00:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B0BCD1299
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 00:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lNehsSTZi9moaj74D7v31T0S23tIywQyShg/HJnLnxo=; b=LRDoOQg/jP6XdE
-	YcorKY6z6ZA9sOmZBChRh+2sKnYP3fC1Aj1HQQMWHnDqJmwEd+suOTX+a9kDk0p/Gd35SCSuoScMj
-	whdQtC5yYt6o+tvIpbuAnWTFAu9c6MDSaGH590YkTggRgbDr8vz+2zuNaI1pw04R+1aHGXCpIlDd9
-	9uSj0VTsWjBYQtQEbJX5ukDp6vxz2havUyQOGpr2eRd5qST3jPubCmOnxrCSAYPytpXOfcmfv3z1b
-	8jGiCbximSO7X6tORaUozEumtBYYxH2OsgMvb97ulAjGfNla3xQBV15RVvIJ5YX6GvIzAZb7RkMMw
-	7oCWL1L66YbD73ktSQ/g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/tBYhixbr3S1QicPHzz1gmuwcH7HuaOQYdGNyMbHnzc=; b=k4P/NDAgYOwrao
+	v+aQHVSlLnTTnPmUHHD2XieRd86UlK38Y5Tp0OJZUyf9cRI4X/+xc6GVv14VS1BzLuQlYATrMiLLG
+	zPpQPcsobKRatiaaL5/sD8iWjJpI/sND9zIowTJ63yI4lVj1OutPNv8HtzV/PWJMlOfHGoj6bcZg6
+	auiMO6ox1BmNiZ0Ksw2ln1Qes97dE6pKVw+61dRIQ9PcAAoBseXgTr66k3I0jVBc8nZ3DPQF1n0VH
+	0eVl+V3UN+VSwU6+YYADFcZp5LRg7zA2svyP+f/6eBVbDhxuNpoJO7X1XKl1FQz3Bx5z7wXQlu3nq
+	SB8vChZ7648OCzzwejUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruhzD-00000009ZTj-1dFa;
-	Thu, 11 Apr 2024 00:08:15 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1ruhzB-00000009ZSd-2dDt;
+	Thu, 11 Apr 2024 00:08:13 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruhzA-00000009ZRB-0DIf
+	id 1ruhz6-00000009ZQY-4378
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Apr 2024 00:08:14 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6ed20fb620fso3520516b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Apr 2024 17:08:10 -0700 (PDT)
+	Thu, 11 Apr 2024 00:08:10 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1e4c4fb6af3so2252265ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Apr 2024 17:08:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712794090; x=1713398890; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wk9dPs2pdPMy/ouYyBMSDOPD1OQUOIvovvehkpc98kM=;
-        b=flWga+M8EdPwYn1CePcBxJB65R/MtVT4ItngdK3e5ax3D4X8rSkXI/bi46bpS3CX06
-         s9DsBOwnausEazm4qJduipgxT8qw74Rg59c9ISVu+xJQhgBk1EIvn6E35aKPyyppQ3TJ
-         tuBeZFKSfTnusalv3xYxy9xUJ3BVeqwwU7pBB6fN6ykYp67IfSRlKmMRXAK83V569zwr
-         oPC2g9FNhtE8W1hmRAEEvgGolzO0PVMEkSQdLlAwvTnXI8r5QCGvWy0S+Xg1POgB7ywQ
-         noKVxLvx+okf06zwVs6tbZZgmjN7yi4/pnZSsAYGinE5NJMB81NiEgAhgSsaUpv1LZYq
-         0GQA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712794088; x=1713398888; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0phIFwoBJCi+Fzzf56PNpg1jde4jtrCnjX2PmS8+4bo=;
+        b=K+MZeCuVOJmFEIMKCXjoJ9VboVwkS/fZ6WDQe5CWyc1LcHh1BP4s/1N6+Y6SK3XrtD
+         7Ea0jhzxzTdZAb8ivd1M+pQkhm530eR8/3c6+vRZiGjC3A0GVseICIZi4u/9KxcCN/ce
+         vwR7Tdb/eus70k5e2V/bG8gLTGrYaNF1A6tqnUPAFIOs7bcrnoiiEZOghxvdiA3klGuF
+         9XfuSebmujZm6CIC0n4UD/HWc4ESfu+FNNkvlmWW0Q3IKhg4CklbWDxCNRr2fIwCYHt6
+         V9X2xZlHNy235pYIRl2g+J3QgA0D1tYEqnP5d+fw9h1+168w5+DiYksC0zRvtPcoFGgb
+         RptA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712794090; x=1713398890;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wk9dPs2pdPMy/ouYyBMSDOPD1OQUOIvovvehkpc98kM=;
-        b=glxZGWD0A0rPFDd1A9hyTH1/IekTsgCkFmdI/rMrq3yM2BFRSlxynQmnta8SQTccBB
-         Grhpmgi0ZNIBCPRRCuTfZH26lVKPaKidkhtSgyC+Un+ZHZdBFqxIAOd5eFgp0BWjK5Kt
-         zHit5GxVf9QoGsDKyXXzqYWCb4kx22pw5R3hfrhRf2qj4UIe/PPgO+UxEPqGXT6D2mip
-         zVcdL0f+Vhy0zA/HDuECw8zOcbR+NkapX8sAtJlSM7o2nJXcZX2wNCUIRMZoyfX3Afz9
-         N8+1FlTvrISwfce9rUoxaL91Hilk9x/KQ7hvSl/R+C5LYbsTWIjge4L/eR/qJ2ry1fNd
-         rDVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUxhP27mqjguQvV/sVA1gyt2VvCImE7p5uOhf6jFYCqdklvCIQRxC6xS2mnnTf7CCym78Yg+fvgWlHSifpPcuTtR4Hq8W1/BvsMU9l+b31H
-X-Gm-Message-State: AOJu0Yx9XTpbV77vq6l3gsNjD0wTXSgBn3tKJ7BNpKP9FUP/uOnREUqM
-	jysZOnO7+qyNIIgwSOEfA33E+1yP1Tsb+4j2+OK4ZUhzfgHQdGNx5O6Di0X3IT4=
-X-Google-Smtp-Source: AGHT+IEUlLK4WAkAvm3dQl//UcwbrhAG4hAU1Ze/VITIGy9xvn1rUCggLrBxo4kkHL3eR04eJnJL9Q==
-X-Received: by 2002:a05:6a20:2d06:b0:1a9:4343:7649 with SMTP id g6-20020a056a202d0600b001a943437649mr5367555pzl.56.1712794089923;
-        Wed, 10 Apr 2024 17:08:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1712794088; x=1713398888;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0phIFwoBJCi+Fzzf56PNpg1jde4jtrCnjX2PmS8+4bo=;
+        b=jzc/wb7fyvyt+ncH9HBLHxQqrKf0CE4mxSnkLICCP6KXDmdr6WAfLTLnnJ50jL0FdD
+         GpjJ70AFfx0paZkgu0Oavr/9Kp6pBEsottJ8dwf6JBxgUR/FcrnhN/CfLEEJEuBsUSQ6
+         FYw2p1Joom5g4+zhaNMNIVEZuH1+emXJfuG/+Gh0Pt43BLWgkz8FOVd2ezu6vmhz4xPU
+         URiIQZnLno5DJL3fzgwBFfWKTHQMwV3+ZETwaaQmxtdoB+jyMkDox0l8hLBNd8zb7AOq
+         +cKqh5XG+06hbQSgoq4DdrpEtwOMo+j6gWv1D1O279CKC5zEfFInGuvRAc9EskCLMHnk
+         U0KA==
+X-Forwarded-Encrypted: i=1; AJvYcCVvflGWE3haG2QYRDl6/vforWvFE3zpFfvPkSGBrF9QaUwP6WR+Z33oTUa8nnw9eI5bzhQOd0LcDWdWlrcc9lL6Czg4Wd7SbpQCezevg5X9
+X-Gm-Message-State: AOJu0Yw9iYdojhSrZgIq2oKYQK6CrxwmUzBtWYQdM5ZcmTn9tFRHKoNx
+	+ohIzAe5rBl5VkwKARfcKIchcLz4u7Rh0Y044crn4py3clRWIPBPczotEZClRqQ=
+X-Google-Smtp-Source: AGHT+IF++9d4mpNVy4ymyqu2bjRlr80QcfEg5FB9y5MT6+XG1ZHr0TMgTO95oVGxO8PLzBuM/HD4Yw==
+X-Received: by 2002:a17:902:da87:b0:1e2:7734:63dd with SMTP id j7-20020a170902da8700b001e2773463ddmr1535796plx.30.1712794087610;
+        Wed, 10 Apr 2024 17:08:07 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id f7-20020a170902684700b001e3d8a70780sm130351pln.171.2024.04.10.17.08.07
+        by smtp.gmail.com with ESMTPSA id f7-20020a170902684700b001e3d8a70780sm130351pln.171.2024.04.10.17.08.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Apr 2024 17:08:08 -0700 (PDT)
+        Wed, 10 Apr 2024 17:08:06 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Anup Patel <anup@brainfault.org>,
 	Ajay Kaher <ajay.kaher@broadcom.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Alexey Makhalov <alexey.amakhalov@broadcom.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
 	Atish Patra <atishp@atishpatra.org>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Juergen Gross <jgross@suse.com>,
 	kvm-riscv@lists.infradead.org,
 	kvm@vger.kernel.org,
@@ -89,16 +87,14 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	virtualization@lists.linux.dev,
 	Will Deacon <will@kernel.org>,
 	x86@kernel.org
-Subject: [PATCH v6 01/24] RISC-V: Fix the typo in Scountovf CSR name
-Date: Wed, 10 Apr 2024 17:07:29 -0700
-Message-Id: <20240411000752.955910-2-atishp@rivosinc.com>
+Subject: [PATCH v6 00/24] RISC-V SBI v2.0 PMU improvements and Perf sampling in KVM guest
+Date: Wed, 10 Apr 2024 17:07:28 -0700
+Message-Id: <20240411000752.955910-1-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240411000752.955910-1-atishp@rivosinc.com>
-References: <20240411000752.955910-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_170812_361933_38AAC2F7 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20240410_170809_156507_82C4F3DD 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,36 +106,196 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIGNvdW50ZXIgb3ZlcmZsb3cgQ1NSIG5hbWUgaXMgInNjb3VudG92ZiIgbm90ICJzc2NvdW50
-b3ZmIi4KCkZpeCB0aGUgY3NyIG5hbWUuCgpGaXhlczogNDkwNWVjMmZiN2U2ICgiUklTQy1WOiBB
-ZGQgc3Njb2ZwbWYgZXh0ZW5zaW9uIHN1cHBvcnQiKQpSZXZpZXdlZC1ieTogQ2zDqW1lbnQgTMOp
-Z2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgpSZXZpZXdlZC1ieTogQ29ub3IgRG9vbGV5IDxjb25v
-ci5kb29sZXlAbWljcm9jaGlwLmNvbT4KUmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJh
-aW5mYXVsdC5vcmc+ClNpZ25lZC1vZmYtYnk6IEF0aXNoIFBhdHJhIDxhdGlzaHBAcml2b3NpbmMu
-Y29tPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmggfCAyICstCiBkcml2ZXJzL3Bl
-cmYvcmlzY3ZfcG11X3NiaS5jIHwgMiArLQogMiBmaWxlcyBjaGFuZ2VkLCAyIGluc2VydGlvbnMo
-KyksIDIgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9j
-c3IuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKaW5kZXggMjQ2OGM1NTkzM2NkLi45
-ZDFiMDc5MzI3OTQgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKKysr
-IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaApAQCAtMjgxLDcgKzI4MSw3IEBACiAjZGVm
-aW5lIENTUl9IUE1DT1VOVEVSMzBICTB4YzllCiAjZGVmaW5lIENTUl9IUE1DT1VOVEVSMzFICTB4
-YzlmCiAKLSNkZWZpbmUgQ1NSX1NTQ09VTlRPVkYJCTB4ZGEwCisjZGVmaW5lIENTUl9TQ09VTlRP
-VkYJCTB4ZGEwCiAKICNkZWZpbmUgQ1NSX1NTVEFUVVMJCTB4MTAwCiAjZGVmaW5lIENTUl9TSUUJ
-CQkweDEwNApkaWZmIC0tZ2l0IGEvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYyBiL2RyaXZl
-cnMvcGVyZi9yaXNjdl9wbXVfc2JpLmMKaW5kZXggOGNiZTZlNWY5YzM5Li4zZTQ0ZDJmYjhiZjgg
-MTAwNjQ0Ci0tLSBhL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXVfc2JpLmMKKysrIGIvZHJpdmVycy9w
-ZXJmL3Jpc2N2X3BtdV9zYmkuYwpAQCAtMjcsNyArMjcsNyBAQAogCiAjZGVmaW5lIEFMVF9TQklf
-UE1VX09WRVJGTE9XKF9fb3ZsKQkJCQkJXAogYXNtIHZvbGF0aWxlKEFMVEVSTkFUSVZFXzIoCQkJ
-CQkJXAotCSJjc3JyICUwLCAiIF9fc3RyaW5naWZ5KENTUl9TU0NPVU5UT1ZGKSwJCQlcCisJImNz
-cnIgJTAsICIgX19zdHJpbmdpZnkoQ1NSX1NDT1VOVE9WRiksCQkJCVwKIAkiY3NyciAlMCwgIiBf
-X3N0cmluZ2lmeShUSEVBRF9DOVhYX0NTUl9TQ09VTlRFUk9GKSwJCVwKIAkJVEhFQURfVkVORE9S
-X0lELCBFUlJBVEFfVEhFQURfUE1VLAkJCVwKIAkJQ09ORklHX0VSUkFUQV9USEVBRF9QTVUsCQkJ
-CVwKLS0gCjIuMzQuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+This series implements SBI PMU improvements done in SBI v2.0[1] i.e. PMU snapshot
+and fw_read_hi() functions. 
+
+SBI v2.0 introduced PMU snapshot feature which allows the SBI implementation
+to provide counter information (i.e. values/overflow status) via a shared
+memory between the SBI implementation and supervisor OS. This allows to minimize
+the number of traps in when perf being used inside a kvm guest as it relies on
+SBI PMU + trap/emulation of the counters. 
+
+The current set of ratified RISC-V specification also doesn't allow scountovf
+to be trap/emulated by the hypervisor. The SBI PMU snapshot bridges the gap
+in ISA as well and enables perf sampling in the guest. However, LCOFI in the
+guest only works via IRQ filtering in AIA specification. That's why, AIA
+has to be enabled in the hardware (at least the Ssaia extension) in order to
+use the sampling support in the perf. 
+
+Here are the patch wise implementation details.
+
+PATCH 1,4,7,8,9,10,11,15 : Generic cleanups/improvements.
+PATCH 2,3,14 : FW_READ_HI function implementation
+PATCH 5-6: Add PMU snapshot feature in sbi pmu driver
+PATCH 12-13: KVM implementation for snapshot and sampling in kvm guests
+PATCH 16-17: Generic improvements for kvm selftests 
+PATCH 18-22: KVM selftests for SBI PMU extension
+
+The series is based on v6.9-rc1 and is available at:
+
+https://github.com/atishp04/linux/tree/kvm_pmu_snapshot_v6
+
+The kvmtool patch is also available at:
+https://github.com/atishp04/kvmtool/tree/sscofpmf
+
+It also requires Ssaia ISA extension to be present in the hardware in order to
+get perf sampling support in the guest. In Qemu virt machine, it can be done
+by the following config.
+
+```
+-cpu rv64,sscofpmf=true,x-ssaia=true
+```
+
+There is no other dependencies on AIA apart from that. Thus, Ssaia must be disabled
+for the guest if AIA patches are not available. Here is the example command.
+
+```
+./lkvm-static run -m 256 -c2 --console serial -p "console=ttyS0 earlycon" --disable-ssaia -k ./Image --debug 
+```
+
+The series has been tested only in Qemu.
+Here is the snippet of the perf running inside a kvm guest.
+
+===================================================
+$ perf record -e cycles -e instructions perf bench sched messaging -g 5
+...
+$ Running 'sched/messaging' benchmark:
+...
+[   45.928723] perf_duration_warn: 2 callbacks suppressed
+[   45.929000] perf: interrupt took too long (484426 > 483186), lowering kernel.perf_event_max_sample_rate to 250
+$ 20 sender and receiver processes per group
+$ 5 groups == 200 processes run
+
+     Total time: 14.220 [sec]
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.117 MB perf.data (1942 samples) ]
+$ perf report --stdio
+$ To display the perf.data header info, please use --header/--header-only optio>
+$
+$
+$ Total Lost Samples: 0
+$
+$ Samples: 943  of event 'cycles'
+$ Event count (approx.): 5128976844
+$
+$ Overhead  Command          Shared Object                Symbol               >
+$ ........  ...............  ...........................  .....................>
+$
+     7.59%  sched-messaging  [kernel.kallsyms]            [k] memcpy
+     5.48%  sched-messaging  [kernel.kallsyms]            [k] percpu_counter_ad>
+     5.24%  sched-messaging  [kernel.kallsyms]            [k] __sbi_rfence_v02_>
+     4.00%  sched-messaging  [kernel.kallsyms]            [k] _raw_spin_unlock_>
+     3.79%  sched-messaging  [kernel.kallsyms]            [k] set_pte_range
+     3.72%  sched-messaging  [kernel.kallsyms]            [k] next_uptodate_fol>
+     3.46%  sched-messaging  [kernel.kallsyms]            [k] filemap_map_pages
+     3.31%  sched-messaging  [kernel.kallsyms]            [k] handle_mm_fault
+     3.20%  sched-messaging  [kernel.kallsyms]            [k] finish_task_switc>
+     3.16%  sched-messaging  [kernel.kallsyms]            [k] clear_page
+     3.03%  sched-messaging  [kernel.kallsyms]            [k] mtree_range_walk
+     2.42%  sched-messaging  [kernel.kallsyms]            [k] flush_icache_pte
+
+===================================================
+
+[1] https://github.com/riscv-non-isa/riscv-sbi-doc
+
+Changes from v5->v6:
+1. Added a patch for command line option for the sbi pmu tests.
+2. Removed redundant prints and restructure the code little bit.
+3. Added a patch for computing the sbi minor version correctly.
+4. Addressed all other comments on v5.  
+
+Changes from v4->v5:
+1. Moved sbi related definitions to its own header file from processor.h
+2. Added few helper functions for selftests.
+3. Improved firmware counter read and RV32 start/stop functions.
+4. Converted all the shifting operations to use BIT macro
+5. Addressed all other comments on v4.  
+
+Changes from v3->v4:
+1. Added selftests.
+2. Fixed an issue to clear the interrupt pending bits.
+3. Fixed the counter index in snapshot memory start function.
+
+Changes from v2->v3:
+1. Fixed a patchwork warning on patch6.
+2. Fixed a comment formatting & nit fix in PATCH 3 & 5.
+3. Moved the hvien update and sscofpmf enabling to PATCH 9 from PATCH 8.
+
+Changes from v1->v2:
+1. Fixed warning/errors from patchwork CI.
+2. Rebased on top of kvm-next.
+3. Added Acked-by tags.
+
+Changes from RFC->v1:
+1. Addressed all the comments on RFC series.
+2. Removed PATCH2 and merged into later patches.
+3. Added 2 more patches for minor fixes.
+4. Fixed KVM boot issue without Ssaia and made sscofpmf in guest dependent on
+   Ssaia in the host.
+
+Atish Patra (24):
+RISC-V: Fix the typo in Scountovf CSR name
+RISC-V: Add FIRMWARE_READ_HI definition
+drivers/perf: riscv: Read upper bits of a firmware counter
+drivers/perf: riscv: Use BIT macro for shifting operations
+RISC-V: Add SBI PMU snapshot definitions
+RISC-V: KVM: Rename the SBI_STA_SHMEM_DISABLE to a generic name
+RISC-V: Use the minor version mask while computing sbi version
+drivers/perf: riscv: Implement SBI PMU snapshot function
+drivers/perf: riscv: Fix counter mask iteration for RV32
+RISC-V: KVM: Fix the initial sample period value
+RISC-V: KVM: No need to update the counter value during reset
+RISC-V: KVM: No need to exit to the user space if perf event failed
+RISC-V: KVM: Implement SBI PMU Snapshot feature
+RISC-V: KVM: Add perf sampling support for guests
+RISC-V: KVM: Support 64 bit firmware counters on RV32
+RISC-V: KVM: Improve firmware counter read function
+KVM: riscv: selftests: Move sbi definitions to its own header file
+KVM: riscv: selftests: Add helper functions for extension checks
+KVM: riscv: selftests: Add Sscofpmf to get-reg-list test
+KVM: riscv: selftests: Add SBI PMU extension definitions
+KVM: riscv: selftests: Add SBI PMU selftest
+KVM: riscv: selftests: Add a test for PMU snapshot functionality
+KVM: riscv: selftests: Add a test for counter overflow
+KVM: riscv: selftests: Add commandline option for SBI PMU test
+
+arch/riscv/include/asm/csr.h                  |   5 +-
+arch/riscv/include/asm/kvm_vcpu_pmu.h         |  16 +-
+arch/riscv/include/asm/sbi.h                  |  38 +-
+arch/riscv/include/uapi/asm/kvm.h             |   1 +
+arch/riscv/kernel/paravirt.c                  |   6 +-
+arch/riscv/kvm/aia.c                          |   5 +
+arch/riscv/kvm/vcpu.c                         |  15 +-
+arch/riscv/kvm/vcpu_onereg.c                  |   6 +
+arch/riscv/kvm/vcpu_pmu.c                     | 260 ++++++-
+arch/riscv/kvm/vcpu_sbi_pmu.c                 |  17 +-
+arch/riscv/kvm/vcpu_sbi_sta.c                 |   4 +-
+drivers/perf/riscv_pmu.c                      |   1 +
+drivers/perf/riscv_pmu_sbi.c                  | 272 ++++++-
+include/linux/perf/riscv_pmu.h                |   6 +
+tools/testing/selftests/kvm/Makefile          |   1 +
+.../selftests/kvm/include/riscv/processor.h   |  49 +-
+.../testing/selftests/kvm/include/riscv/sbi.h | 141 ++++
+.../selftests/kvm/include/riscv/ucall.h       |   1 +
+.../selftests/kvm/lib/riscv/processor.c       |  12 +
+.../testing/selftests/kvm/riscv/arch_timer.c  |   2 +-
+.../selftests/kvm/riscv/get-reg-list.c        |   4 +
+.../selftests/kvm/riscv/sbi_pmu_test.c        | 685 ++++++++++++++++++
+tools/testing/selftests/kvm/steal_time.c      |   4 +-
+23 files changed, 1437 insertions(+), 114 deletions(-)
+create mode 100644 tools/testing/selftests/kvm/include/riscv/sbi.h
+create mode 100644 tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+
+--
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
