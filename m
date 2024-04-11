@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E3CC001CC
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 16:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7042AC4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 16:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LGiXDbAPzJtzGxe3dVfLLigQbI/Wa7nyReFfMGO0LNU=; b=3zJ0Jbntc2UVcm
-	LwjVnRIId2LqjtSKgsmHaHcdxZoamMB3VRjGlcnfete2DkYFoOaHddXdek1it5qdwsnuAWrCMvsTD
-	+XeFeUT//ljqjzP0cl66OjjSg4dk780KPJs0eKFd2lQs0Nn+b43ZHrOz+SVRcxqx5bLauGmC8MS5d
-	+t6vqRRJj/6JtJOiyqcuckyQyUbuwUjUCfI0qh7iBMQ9ai3c6dRERM5T3VSFjZ6E6+El+YpmLruIK
-	FQVoNgDGL0f4rjXokgVguCZTKAVT5ZJQRQLBqMvHzhrgOYgvfETZsW0rjHECM9zgN++PVGQ/npuKk
-	FrnFudbS4GkWl5skXl+g==;
+	List-Owner; bh=ILujUAOaIVM7F+PKG4MKmsLNbf3E+Pgx64VvyHW940k=; b=Gvkp8BKCyiz+JW
+	P4OeezBoboCwq0LeeyoBQ+FsAGglbXRpV2tP5FbO837JCnO+h5AAms3L1Ln4ALx2fyZNRJY7nW/r8
+	tCyZUTK0kTF6Q/Q7bc7qe7mtEzxj3IkDWytsOHAPND3tNfg6Am+9yLZderpn4C9Hcx3406+8EBW8c
+	1bGVCyHZt+t8tPaa1UxzPXx0ZahaNGmA/ZXQ3DuvTM0UAGxz7krURq3HwJEJnJj2VQsCKRNhxdygV
+	sbulvW72DnxoIuO2AqiD/lredn4d82sCXKDntG0k3TvuGz3Sq1v3eDVarE78F8gqnTtVAZwq1KWCA
+	VAr4Umomie43mD9pyezw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruwuk-0000000CvGo-2SQ7;
-	Thu, 11 Apr 2024 16:04:38 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1ruwv7-0000000CvON-1uL3;
+	Thu, 11 Apr 2024 16:05:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruwtg-0000000CueF-1JiM;
-	Thu, 11 Apr 2024 16:03:37 +0000
+	id 1ruwtU-0000000CuUN-1whK;
+	Thu, 11 Apr 2024 16:03:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 89315CE17A6;
-	Thu, 11 Apr 2024 16:03:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1005C113CD;
+	by dfw.source.kernel.org (Postfix) with ESMTP id B857D620ED;
 	Thu, 11 Apr 2024 16:03:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94880C2BD11;
+	Thu, 11 Apr 2024 16:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712851409;
-	bh=cENIBA3iYOmaUBlvaH6AHVDS8Oi8YHeSCX1M4uQK1+g=;
+	s=k20201202; t=1712851399;
+	bh=MDN1WZXA3xhpqzlVolNbN2nPNGabqu/EHQ96vnrSojU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=j/I3kYyASz3jRj3IBv0xPGti1R9fc4sE0HhRO8zaPGh5Vk+vkDBHxC+pzR2FUwfuR
-	 KnpDikB8wMbbeAqJAtMLwAeVL1eJvfDjozH0NtgeS49EL95J770yIrp9g0nlg6iomh
-	 AlqQRMWFh3zN4BL/VZI5Jp9oHmPxYrGaPu9PUdFJCOqFHRs+W+gpJZRz140wbgg5EZ
-	 xbIPlN1AXz1UpUSuTKdbXAesib8tJHXu3g3JSzCdFAUT/mQV9vKni9IhxeHqfEG958
-	 Ff9bC4fhYXGks5Ttq2rANZs8q+xgorE8R7v/aOeje6wOIf4JJRY4ood7R8dYzsbCUV
-	 suRcoWyHa9FMg==
+	b=LhJUoNdhtV0oZXoRrDXU6eMRqs3zZ5XHBNvrq+6ByzAMbDAa6uq7MBqyMKgbGqZFW
+	 HrzUCiC8TYoTAiZJ4eUrIKHEBCy1h9cvybi1lknpDvZxBUbpLxDlWVac4fFQo8y3tl
+	 6XYZrA/ZIeDOZnAcush9O5J+oz/E9mCdnu9FG5iSvvfxcbchbVMnbZJ0Ot60g9khR8
+	 6hlVhoKuSdfItxauM9IOtBNhB/qhuG+DV//AyfCzDUlFwdosD585kNGC5cwqVdOxlh
+	 8Zby1LP7fTPzIayJ9Zh0PVhOV8QUnueDvX81krMeKPRGIRxcKLNazZfZgzVpP34N6W
+	 ovAGcgA2RpWQg==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
@@ -85,16 +85,16 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v4 10/15] powerpc: extend execmem_params for kprobes allocations
-Date: Thu, 11 Apr 2024 19:00:46 +0300
-Message-ID: <20240411160051.2093261-11-rppt@kernel.org>
+Subject: [PATCH v4 09/15] riscv: extend execmem_params for generated code allocations
+Date: Thu, 11 Apr 2024 19:00:45 +0300
+Message-ID: <20240411160051.2093261-10-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240411160051.2093261-1-rppt@kernel.org>
 References: <20240411160051.2093261-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240411_090332_974728_45AE7C21 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20240411_090320_689514_7A14119C 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,81 +113,113 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
-powerpc overrides kprobes::alloc_insn_page() to remove writable
-permissions when STRICT_MODULE_RWX is on.
+The memory allocations for kprobes and BPF on RISC-V are not placed in
+the modules area and these custom allocations are implemented with
+overrides of alloc_insn_page() and  bpf_jit_alloc_exec().
 
-Add definition of EXECMEM_KRPOBES to execmem_params to allow using the
-generic kprobes::alloc_insn_page() with the desired permissions.
-
-As powerpc uses breakpoint instructions to inject kprobes, it does not
-need to constrain kprobe allocations to the modules area and can use the
-entire vmalloc address space.
+Slightly reorder execmem_params initialization to support both 32 and 64
+bit variants, define EXECMEM_KPROBES and EXECMEM_BPF ranges in
+riscv::execmem_params and drop overrides of alloc_insn_page() and
+bpf_jit_alloc_exec().
 
 Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/powerpc/kernel/kprobes.c | 20 --------------------
- arch/powerpc/kernel/module.c  | 11 +++++++++++
- 2 files changed, 11 insertions(+), 20 deletions(-)
+ arch/riscv/kernel/module.c         | 21 ++++++++++++++++++++-
+ arch/riscv/kernel/probes/kprobes.c | 10 ----------
+ arch/riscv/net/bpf_jit_core.c      | 13 -------------
+ 3 files changed, 20 insertions(+), 24 deletions(-)
 
-diff --git a/arch/powerpc/kernel/kprobes.c b/arch/powerpc/kernel/kprobes.c
-index 9fcd01bb2ce6..14c5ddec3056 100644
---- a/arch/powerpc/kernel/kprobes.c
-+++ b/arch/powerpc/kernel/kprobes.c
-@@ -126,26 +126,6 @@ kprobe_opcode_t *arch_adjust_kprobe_addr(unsigned long addr, unsigned long offse
- 	return (kprobe_opcode_t *)(addr + offset);
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index ad32e2a8621a..aad158bb2022 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -906,20 +906,39 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+ 	return 0;
  }
  
--void *alloc_insn_page(void)
--{
--	void *page;
--
--	page = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
--	if (!page)
--		return NULL;
--
--	if (strict_module_rwx_enabled()) {
--		int err = set_memory_rox((unsigned long)page, 1);
--
--		if (err)
--			goto error;
--	}
--	return page;
--error:
--	execmem_free(page);
--	return NULL;
--}
--
- int arch_prepare_kprobe(struct kprobe *p)
- {
- 	int ret = 0;
-diff --git a/arch/powerpc/kernel/module.c b/arch/powerpc/kernel/module.c
-index 5a1d0490c831..a1eaa74f2d41 100644
---- a/arch/powerpc/kernel/module.c
-+++ b/arch/powerpc/kernel/module.c
-@@ -95,6 +95,9 @@ static struct execmem_info execmem_info __ro_after_init = {
+-#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
++#ifdef CONFIG_MMU
+ static struct execmem_info execmem_info __ro_after_init = {
+ 	.ranges = {
  		[EXECMEM_DEFAULT] = {
+ 			.pgprot = PAGE_KERNEL,
  			.alignment = 1,
  		},
 +		[EXECMEM_KPROBES] = {
++			.pgprot = PAGE_KERNEL_READ_EXEC,
 +			.alignment = 1,
 +		},
- 		[EXECMEM_MODULE_DATA] = {
- 			.alignment = 1,
- 		},
-@@ -137,5 +140,13 @@ struct execmem_info __init *execmem_arch_setup(void)
++		[EXECMEM_BPF] = {
++			.pgprot = PAGE_KERNEL,
++			.alignment = PAGE_SIZE,
++		},
+ 	},
+ };
  
- 	text->pgprot = prot;
- 
+ struct execmem_info __init *execmem_arch_setup(void)
+ {
++#ifdef CONFIG_64BIT
+ 	execmem_info.ranges[EXECMEM_DEFAULT].start = MODULES_VADDR;
+ 	execmem_info.ranges[EXECMEM_DEFAULT].end = MODULES_END;
++#else
++	execmem_info.ranges[EXECMEM_DEFAULT].start = VMALLOC_START;
++	execmem_info.ranges[EXECMEM_DEFAULT].end = VMALLOC_END;
++#endif
++
 +	execmem_info.ranges[EXECMEM_KPROBES].start = VMALLOC_START;
-+	execmem_info.ranges[EXECMEM_KPROBES].start = VMALLOC_END;
++	execmem_info.ranges[EXECMEM_KPROBES].end = VMALLOC_END;
 +
-+	if (strict_module_rwx_enabled())
-+		execmem_info.ranges[EXECMEM_KPROBES].pgprot = PAGE_KERNEL_ROX;
-+	else
-+		execmem_info.ranges[EXECMEM_KPROBES].pgprot = PAGE_KERNEL_EXEC;
-+
++	execmem_info.ranges[EXECMEM_BPF].start = BPF_JIT_REGION_START;
++	execmem_info.ranges[EXECMEM_BPF].end = BPF_JIT_REGION_END;
+ 
  	return &execmem_info;
  }
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index 2f08c14a933d..e64f2f3064eb 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -104,16 +104,6 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+ 	return 0;
+ }
+ 
+-#ifdef CONFIG_MMU
+-void *alloc_insn_page(void)
+-{
+-	return  __vmalloc_node_range(PAGE_SIZE, 1, VMALLOC_START, VMALLOC_END,
+-				     GFP_KERNEL, PAGE_KERNEL_READ_EXEC,
+-				     VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
+-				     __builtin_return_address(0));
+-}
+-#endif
+-
+ /* install breakpoint in text */
+ void __kprobes arch_arm_kprobe(struct kprobe *p)
+ {
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index 6b3acac30c06..e238fdbd5dbc 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -219,19 +219,6 @@ u64 bpf_jit_alloc_exec_limit(void)
+ 	return BPF_JIT_REGION_SIZE;
+ }
+ 
+-void *bpf_jit_alloc_exec(unsigned long size)
+-{
+-	return __vmalloc_node_range(size, PAGE_SIZE, BPF_JIT_REGION_START,
+-				    BPF_JIT_REGION_END, GFP_KERNEL,
+-				    PAGE_KERNEL, 0, NUMA_NO_NODE,
+-				    __builtin_return_address(0));
+-}
+-
+-void bpf_jit_free_exec(void *addr)
+-{
+-	return vfree(addr);
+-}
+-
+ void *bpf_arch_text_copy(void *dst, void *src, size_t len)
+ {
+ 	int ret;
 -- 
 2.43.0
 
