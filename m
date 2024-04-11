@@ -4,87 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB37CD11C2
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 01:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61FE5CD11C2
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 01:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xl8NnO8hTQq2TbwBhM+fKnwpZiqNx6SwQMqtQlqANlg=; b=KjwNhfofFaA0SR
-	omMeMWqtztiSmaPuVHi6COROgZLJqAoBxHPM9S83OIXr5Sp5rcodOA/EQ6YluZJ3rq2jkAcmid7rf
-	l9bqdAnQ4P3Hnoqgd9IFgnb8TDcj8dxR/oqGq0uchVPR2FCMfXfAqzAdGpkzXOk0k5IR5jDVYJxDr
-	PBdyv7vVeZC3cmoH5zPL2bPAXh27C07I4o201daVdeLQ8gALoLM163Ot3dhKWpjwrKdkq1yKKJbED
-	6OisR5JyYhWQbG6wgqEZiKq/6QLF4GB/qbxzspCfb9tI2O9AULvjd9Q/kRvYeZRg54ojkydfWOpy2
-	WJKWVvMVVdXKXjlXZG9w==;
+	List-Owner; bh=dOZMy/m8O99+ve2jgiwpPpU+PTZem3ypRs94XM2tpIQ=; b=dAbZvXmV/cNCUx
+	Ea/9LGxyeb4abmfElOAzP/gkQZjnPHQI6jmtUNrduCDvZM217rzt4j0CRYPFQkyRcWYQAAoJSuMxT
+	zmBn/UxLp2rP1a+RiQN4eo6lzPKAnbfakVz6JWnmjiYKtrPvVThJ5xtwi3S9JPBxZ6LVYWpEW7JL2
+	LvnvKKsqARgAoK3z+qdolGm1QjVYkKROuLtd1lQ4SDiObBATv5DquJlQ2JFPiCLlkUog+ao+90qcp
+	3gNR2ajz2NmNouy9AG92bx6XT09F9uULeYCZk2AHPo26u1mOg569YhQLkyV6iiA0tPFO7b5CHBtMw
+	EnaArvhvnOPJPFOgznMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruiy8-00000009mra-3Acr;
-	Thu, 11 Apr 2024 01:11:12 +0000
-Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
+	id 1ruj4O-00000009o2G-1XUz;
+	Thu, 11 Apr 2024 01:17:40 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ruiy6-00000009mqX-0Woj
+	id 1ruhzP-00000009ZeC-3CWH
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Apr 2024 01:11:11 +0000
-Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-5a9c875ceecso4060511eaf.2
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Apr 2024 18:11:08 -0700 (PDT)
+	Thu, 11 Apr 2024 00:08:36 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-1e51398cc4eso7940795ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Apr 2024 17:08:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1712797866; x=1713402666; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=K7z1/Srv4eZ2vooDSDvwwBej5oDKDz5itKY0SDj8VoQ=;
-        b=dulEynRC5znoxF5D0nIzYbbmUHPTKkKUPV0zJkkVhez+0O6RvMTeDvGEbgNMpXti3N
-         iVXIQWtE1qPSCh0HkV8lDcYWQ6EZH9pbzk9AI4T9KgF67JBpJlrnbfOWdg58lAauXA5s
-         qnNY29Z/tpfiP/jzcjHcKFRLS9hV9Ei2nelwirs0w6p1B6hkhz6fkh+uF+NE9jpVcsmp
-         jgsZ0Zu33lCqVwUEtjutGraSln8CexqcBET5xlgIpjyEHi/NdRz9IjppTle3/7W7UbE9
-         U7d4tu71NNUllcFscHrytYK3dpSkK1eBRsXMMv5FaVbZe7Xkd2hUxYS2Jgo++8h6/El4
-         uGVA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712794106; x=1713398906; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9Ogf9r7p61Rc1oGw0oa8bhNwO/iV9jqlxUmzvsZGcz8=;
+        b=ldQuivrGqdeGZ7tLYd2fE13TCOaKWgSs0E/zjIQt90vWf2BTqk+I1YR2vUemZA3DAr
+         ySn4K09i5JllmGII3u2ZgNrnl86xicZMJmr+1A4ipu+1sxO9R5PhQ6bgvsL5RasOKDUm
+         cMhA1ALNvjEAXT+BU0Cd+y5mb+Zt8vyojC5TbPwfgFtO827JW/ERYsaeMZbw3fmEJ9II
+         Q7zMw6e/oVUpAXzks1SpO8+KbsWfRxrlypwEoCCi/lwxjr0b0SGFIBJ9zLepl5e3cMtH
+         wq+GfdNXJdtWREIIlORAzLJEY5aI+xfwRzjWMKKJbp6Gn9O0CrgJ3h22VWe0Yb62KtAW
+         KD3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712797866; x=1713402666;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=K7z1/Srv4eZ2vooDSDvwwBej5oDKDz5itKY0SDj8VoQ=;
-        b=ETW9I7RNeUaPBaBpdCdnCKPtt2IoJWU/cBYZzoC2+Omxo4wp7d/85dSdaS0AnsiYTR
-         YHqjlycqKNst4oQIz7gJtiZav0Vj4faj2viuoobEoSK25KC193bsGDzQbqlWHXadyjTA
-         cYv1HJDjd3xf9fL5U9RdnW8I3bzjibkW0Ab4CfoaYav9oK/+a0+f7Hcu/Ro8An6S2KJB
-         EGTU9sSNQ2BIcAhw5lsMpr+imETn/xFxhRAHyNVj5+DGdv/c5L29pnSozU5IcJP1zTxw
-         BRHw2bZ4BrQstE4+wVxuMyzVsvVsSJlMXv99smdRAQ4Os4xEz/oWMGMr9ZbwQ+3UONYA
-         dRaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUB+2lwYLQcj+mQdolhQVBsD1YeWMd/K5syMRikr3hfXYYo2sFJs61llw0xbywn4qs5AvJ244bFBuR476DsBsCt8AN0G8kvDGHOmNkW9WiU
-X-Gm-Message-State: AOJu0YxZvOKv2DcgkTUDgmZFHPR9Kx/ybnUn0Ico/2dqqlY/3pBfV/0X
-	Dwp7iVei0jVpMs/yodnM2mDbXaig2eALYZmE6zzabQe9FvkHr9FJRo4T49xysGM=
-X-Google-Smtp-Source: AGHT+IFvdAWGolMk2tEZ8bM2BAlC1TsYZtb/fNUYXyTQY+hWEfuiEC430lr0paNhGs3so4u/3MehIA==
-X-Received: by 2002:a4a:e9f3:0:b0:5aa:6a28:27ea with SMTP id w19-20020a4ae9f3000000b005aa6a2827eamr3725829ooc.6.1712797866523;
-        Wed, 10 Apr 2024 18:11:06 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.8.167])
-        by smtp.gmail.com with ESMTPSA id db1-20020a056820270100b005a4bc907f0asm113158oob.15.2024.04.10.18.11.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 10 Apr 2024 18:11:06 -0700 (PDT)
-Message-ID: <4c8e63d6-ba33-47fe-8150-59eba8babf2d@sifive.com>
-Date: Wed, 10 Apr 2024 20:11:04 -0500
+        d=1e100.net; s=20230601; t=1712794106; x=1713398906;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9Ogf9r7p61Rc1oGw0oa8bhNwO/iV9jqlxUmzvsZGcz8=;
+        b=q8olofKkiBqGjrBtOpQEydkXuEYRInLrPTDpp8AmdeaGZSu434pJWO3BSGyPZ0rALI
+         rA5eyq8UZ/uWdCApEcHhtCbE76mgnZS17kVL7feRuMJTXm+39JiUjRElrOAnBrsVsSIz
+         6YAYo2BEGSSuGuzjyWRQ2MmduxMFUyjTX65LRndmf3UIGVggbFGVXVzYg2oqEZn9Huos
+         Rg5FgNgbnNY0d5ZWiEGc8sGdQ+qMXm9ZV2bIlz93wHwECqHnOmzNwgkB7l+EZK4r/Eb/
+         iN9Nm0ZiSBcv3yjQE8dtOwKEyK1vGc9zyoUq5AgGvGHk92FskXMm9YaiSa3P7vVYoBd/
+         fjVg==
+X-Forwarded-Encrypted: i=1; AJvYcCWZK3Aku18Rl260mhJEOmPPMZJkAwG0tHBiO7LUW2BA5B1WlhItGQ1DCV6/h3DUSiJEZkZdRapyVwBQum1m6ZhXhg4x3AtHHSP9btKri1Mv
+X-Gm-Message-State: AOJu0YymFPI8OEv4COvrAe/A0sNQyC6ZAFe6I1yQgnpWtwvq/v3gL1bt
+	jBW5cMTVTx0lZtOeaYvkLADC8DJE8xCn2Q4EntLStPuqUE0ZyrYf7OExOkooe14=
+X-Google-Smtp-Source: AGHT+IG/gd//TA1TkjWqM9vD82L3r8r0JszUDH21ZhI6QqZDs4OR9Y/ESBK0GgL0mQ8WNU4EjNB6Kg==
+X-Received: by 2002:a17:902:c944:b0:1e4:911b:7a6b with SMTP id i4-20020a170902c94400b001e4911b7a6bmr5362603pla.61.1712794105838;
+        Wed, 10 Apr 2024 17:08:25 -0700 (PDT)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id f7-20020a170902684700b001e3d8a70780sm130351pln.171.2024.04.10.17.08.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Apr 2024 17:08:25 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Atish Patra <atishp@rivosinc.com>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Alexey Makhalov <alexey.amakhalov@broadcom.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Juergen Gross <jgross@suse.com>,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Shuah Khan <shuah@kernel.org>,
+	virtualization@lists.linux.dev,
+	Will Deacon <will@kernel.org>,
+	x86@kernel.org
+Subject: [PATCH v6 07/24] RISC-V: Use the minor version mask while computing sbi version
+Date: Wed, 10 Apr 2024 17:07:35 -0700
+Message-Id: <20240411000752.955910-8-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240411000752.955910-1-atishp@rivosinc.com>
+References: <20240411000752.955910-1-atishp@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 13/15] drm/amd/display: Use ARCH_HAS_KERNEL_FPU_SUPPORT
-To: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- Christoph Hellwig <hch@lst.de>, loongarch@lists.linux.dev,
- amd-gfx@lists.freedesktop.org, Alex Deucher <alexander.deucher@amd.com>
-References: <20240329072441.591471-1-samuel.holland@sifive.com>
- <20240329072441.591471-14-samuel.holland@sifive.com>
- <87wmp4oo3y.fsf@linaro.org> <75a37a4b-f516-40a3-b6b5-4aa1636f9b60@sifive.com>
- <87wmp4ogoe.fsf@linaro.org>
-Content-Language: en-US
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <87wmp4ogoe.fsf@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240410_181110_179811_1CCCDD75 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20240410_170828_638489_F2025234 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +114,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Thiago,
+As per the SBI specification, minor version is encoded in the
+lower 24 bits only. Make sure that the SBI version is computed
+with the appropriate mask.
 
-On 2024-04-10 8:02 PM, Thiago Jung Bauermann wrote:
-> Samuel Holland <samuel.holland@sifive.com> writes:
->> On 2024-04-10 5:21 PM, Thiago Jung Bauermann wrote:
->>>
->>> Unfortunately this patch causes build failures on arm with allyesconfig
->>> and allmodconfig. Tested with next-20240410.
-> 
-> <snip>
-> 
->> In both cases, the issue is that the toolchain requires runtime support to
->> convert between `unsigned long long` and `double`, even when hardware FP is
->> enabled. There was some past discussion about GCC inlining some of these
->> conversions[1], but that did not get implemented.
-> 
-> Thank you for the explanation and the bugzilla reference. I added a
-> comment there mentioning that the problem came up again with this patch
-> series.
-> 
->> The short-term fix would be to drop the `select ARCH_HAS_KERNEL_FPU_SUPPORT` for
->> 32-bit arm until we can provide these runtime library functions.
-> 
-> Does this mean that patch 2 in this series:
-> 
-> [PATCH v4 02/15] ARM: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
-> 
-> will be dropped?
+Currently, there is no minor version in use. Thus, it doesn't
+change anything functionality but it is good to be compliant with
+the specification.
 
-No, because later patches in the series (3, 6) depend on the definition of
-CC_FLAGS_FPU from that patch. I will need to send a fixup patch unless I can
-find a GPL-2 compatible implementation of the runtime library functions.
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/include/asm/sbi.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Regards,
-Samuel
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index f31650b10899..935b082d6a6c 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -367,8 +367,8 @@ static inline unsigned long sbi_minor_version(void)
+ static inline unsigned long sbi_mk_version(unsigned long major,
+ 					    unsigned long minor)
+ {
+-	return ((major & SBI_SPEC_VERSION_MAJOR_MASK) <<
+-		SBI_SPEC_VERSION_MAJOR_SHIFT) | minor;
++	return ((major & SBI_SPEC_VERSION_MAJOR_MASK) << SBI_SPEC_VERSION_MAJOR_SHIFT
++		| (minor & SBI_SPEC_VERSION_MINOR_MASK));
+ }
+ 
+ int sbi_err_map_linux_errno(int err);
+-- 
+2.34.1
 
 
 _______________________________________________
