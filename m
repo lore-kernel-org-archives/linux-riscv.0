@@ -4,86 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A4ECD128A
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 11:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E00CD1284
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2024 12:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ETaub4Z3gQqgEINeKtfseNJPlNV2gYxM3qCLLtnPMC0=; b=sQz7gCrTMAn2qb1eO28tUcrfBI
-	eN3RodNtv59KkEr9Nn+6LZY+RPItqkDodUKzwe3KSkvHl/V7lgeFrWd8be/UUfPK4DuD3hgedGlDN
-	ltZ6g5J+k5IDMGqJSIuMOukjdIeu64Oecr0IrxEMC0A+3WY83dtI+kP0UhR7Kw3GHohsgPqD2bcDz
-	XdQr/LoRX/FTqhemrBZrACBTWb2Qr7sH6Wul8I0ljnVG+dCpnAOIgXlS8BD6uP92o+atvnNECT6rT
-	y9W+hG7BIe2mMN7N/mQrDCO2SFrXVZFw65F5x/OCqDG44QhjhxY33xzJQFqw/gNOnjKPJQ0PmDFUU
-	bk5NutMg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MR08b5w8a4zi36PWYcQm2gHMq4xeq2iBYLklQEkLT90=; b=iISFU5gaD//dl3
+	5OGqNr1RkTrgrAdf1U8Cv4GmA2ExBvEQ/u3fajlMycK5FPkJ2UKTnSiWbrS1rYTBAuyxzINmYfXQa
+	/UymtTXyIPB2dJYa51OU0+sfwp9ppithUrYb+LBDJROvMeO89cGfY77nrKdXfBGhcryikuieU4boq
+	h+HdK7p5wY5vcIn2d328CfiISDTzZmjN0dGs2o/DXi+IYJadN3rROCHlBfMOrLid1IFrGhpjXZPFT
+	i/ffFQDJkrYCut2upLAZ3RL04wbQec9qhVOLqgdhUbs5dU5rs9gBgE7ZANelApz4oJOzUMFS5nEEV
+	3uCVBgQrN52QBvKOIFyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rut1Y-0000000BpOO-1IpE;
-	Thu, 11 Apr 2024 11:55:24 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1rutIt-0000000BtPA-3s0b;
+	Thu, 11 Apr 2024 12:13:19 +0000
+Received: from mail-mw2nam12olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2805::801] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rut1U-0000000BpMZ-3PCV;
-	Thu, 11 Apr 2024 11:55:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1712836520; x=1744372520;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qUHLbICK+OzVzpgAugTLlBx/+ikYrtOfR4K8Nx4oYfw=;
-  b=xg7uzJn30soIjVVlPdbLFQfTUd6qkNp869vZFMLMSk28JTgAzwtI62wd
-   uSdb5rADyMpwXgFmvvdV97+Uyx7j4/TzgZGNbI3lNB8sH4vFZV5+Zt3Ci
-   hD9pLSXJbrOkkkdSEOvWjIKBSBgTmKfrIme6hdTXdyXOYaXa7r9qTenis
-   JCx9O6RWnGkezF6mRHaXSjiY8R1CTcMeyI9MK82AbHN3nLcCMaATzk7bC
-   zKf8emN7w2h6Sl6Wx5IpdWEU9E5b8urXJyC8p1BM3WjoBALZvxiQ48pbX
-   qbthm909Lzw1jIybln8HN02t6tm7hwUFkJoMFIsrL2xEXQTQrvcr9ri3j
-   g==;
-X-CSE-ConnectionGUID: z5vJuW0ISXO47ggJt+rbgA==
-X-CSE-MsgGUID: mQWA4GzKR12LP6aGbYLBwA==
-X-IronPort-AV: E=Sophos;i="6.07,193,1708412400"; 
-   d="asc'?scan'208";a="251356126"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Apr 2024 04:55:16 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 11 Apr 2024 04:54:36 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Thu, 11 Apr 2024 04:54:33 -0700
-Date: Thu, 11 Apr 2024 12:53:43 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-CC: Deepak Gupta <debug@rivosinc.com>, Conor Dooley <conor@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Anup Patel <anup@brainfault.org>, Shuah
- Khan <shuah@kernel.org>, Atish Patra <atishp@atishpatra.org>,
-	<linux-doc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
-	<linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH 07/10] riscv: add ISA extension parsing for Zcmop
-Message-ID: <20240411-backwater-opal-00c9aed2231e@wendy>
-References: <20240410091106.749233-1-cleger@rivosinc.com>
- <20240410091106.749233-8-cleger@rivosinc.com>
- <ZhcFeVYUQJmBAKuv@debug.ba.rivosinc.com>
- <20240410-jawless-cavalry-a3eaf9c562a4@spud>
- <20240410-judgingly-appease-5df493852b70@spud>
- <ZhcTiakvfbjb2hon@debug.ba.rivosinc.com>
- <1287e6e9-cb8e-4a78-9195-ce29f1c4bace@rivosinc.com>
- <20240411-superglue-errant-b32e5118695f@wendy>
- <c86f9fa8-e273-4509-83fa-f21d3265d5c9@rivosinc.com>
+	id 1rutIr-0000000BtNw-0qZb
+	for linux-riscv@lists.infradead.org;
+	Thu, 11 Apr 2024 12:13:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ey3M7S56M2EBbzHBLV1WctuoffkH0m0n8tDad32TwnZNVKHmcR4uXn/5ItMxAr3NBmqSohXU71TRtx6Th0SqBCQ1BpblS7lzLEoByXiKVLu835ORy0MsD+HEnBQGIe1attazKFQK2rJ20FyKP4jEY4ZdQuhZnM83wTv5mLV8tU63dBPwAqRY44pR+nvKCnOcuqgSIvCoVi6VgjDhVTi5RIxhaeO8rHXQXyMOPkwG1VXOhJpiagTtYJnp2IwoVEky32wopIVPtIEKzkDMB9Ry8E8WF5/rxb6SLHXI/UhUY/bJUNzIGwbmRFkFoLdpoJsW8zi6OgGsTpQMKjFvdjI/Zw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mPx/N8rxKhVUhvWYM2HYh5edCTCX6ZRLCyHUbIkw/ps=;
+ b=lfo4Y49rfY5VTYpS4jYHK463SCda2vt3AbfV13rH9pS1sqsn913aJ65uEkfN+WwykANZ/ymmAs9rjbwtRP+w28yVeWB9bUvN40SrqzuUFu+lTqf1lW7iaD9X8Lv+cO8k37hqkryPIlPsKTXcFuvhNNf5ym9REx26p9J5PUsqvhJUKzsD/ANDVHdQUX8D2nK5iFXeI6xZRpo0sMDcY1HlSmgYfPhFt81aimaYJ4If68RiraQjJDDeqDpSsulZUoDZy4I8Jk2A2iuTfCKOSpcX2T++s638ECLO9erXpA8U4dYQyFzqHQTSfpT5az/1m7+tQnx65jg5vL8f13hBKB+Fhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mPx/N8rxKhVUhvWYM2HYh5edCTCX6ZRLCyHUbIkw/ps=;
+ b=Mw8Og5v7yc3NPy0sZfaXmo6dd1JHSvfI+wE+kzgqzmeKcbT+XJKrcou4LJPBaW+o8ggzEqaSy26gvRLQIGdeKKfvYvkURNYsMb4DHqISZmTAxGPRtB60gSOVl6eYdb9tQxH3IaECMzUjeL1UMK/GzJcvEXGWfjNfAa50Si579gSAqTaohe4PkIO4htDHMdZUSUgXDMEJSCKJOff/FP4MozuM4ef7ITA0kKXqCqADY6xvpPZDHb5ov02cc7JTSt81GDzQaJLxjBdAgQNdoD9Bg0lZeKkZatIIrnI+2X++RmuPg+YgtCGfSHHtHVoi0I8v7QE8lybGlC3JsXq8DL1oVA==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by MN0PR20MB7552.namprd20.prod.outlook.com (2603:10b6:208:4c2::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Thu, 11 Apr
+ 2024 12:13:08 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7409.042; Thu, 11 Apr 2024
+ 12:13:08 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	Sven Joachim <svenjoac@gmx.de>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Drew Fustini <dfustini@baylibre.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: [PATCH] riscv: defconfig: Enable CONFIG_CLK_SOPHGO_CV1800
+Date: Thu, 11 Apr 2024 20:12:40 +0800
+Message-ID: <IA1PR20MB49537E8B2D1FAAA7D5B8BDA2BB052@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.44.0
+X-TMN: [Y4DSgkAXPTHFRrqTMgUqInKXDcsgxFiz8jUEv1ffrF0=]
+X-ClientProxiedBy: TY2PR0101CA0025.apcprd01.prod.exchangelabs.com
+ (2603:1096:404:8000::11) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240411121241.766521-1-inochiama@outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <c86f9fa8-e273-4509-83fa-f21d3265d5c9@rivosinc.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MN0PR20MB7552:EE_
+X-MS-Office365-Filtering-Correlation-Id: fcf47366-8700-4f74-11f0-08dc5a20bfe9
+X-MS-Exchange-SLBlob-MailProps: 7J/vb0KDx3hNW/QzN4bhXInBglfd1vi3ZicbJMk2jJ+lDt3Kp6+ICYsfDmt0dFPKKYQm+flPC2EVFDKQV1fvboymWKyvq7pSkaR+Rb3jDp/cRGtDZFnernmtWPD8jicr/8RAV1x0BEUxFQo8d5IoWabnNMvQhvh9lSQ0SAyqHeLAYOlOf/HXFSaZ1jqGKE000t3gbXZVT28+Zq36twHWRLv5FRo5QbbjiejoWrCSSkftqSDMy7cg3Mi/UwNs8FHhHu0C1Wx0AmYTUdRXd9sI4b8mkygnnS21RzMwxtiKXSoNG9uI8tQULCKieM85uxhv0HOqbKEGlCNMlARXXT43XSJ4HLXEdZB6pBavDXk3YmDmLJVRLqGM6zpMb3Iw4myB6Cnzh1DfjaTUjtryxQv12keUi7mjH4pNlM9fDcNsfXG4E+rGkbJEVowDvl7vHU+jA8UMQDhyYDbRSfi6lqaJLgFB4iv3XmG1EUnu2q/W/YEF4Uqi3OYFJtHNsTgGXId3brdu8qGyunV2TF0gQoYyxtKwFzmFTj5W+fCyUqISO4EkfOinjlgYHL12NmeNDO8u8eYS+w7TNdr4uKNAl5EmvvTIuK0Y5oURpnbQaNcPbHyPYRFXSg0D5Y/hBYJxdrD/FLefdxlZxOs3MsbpFtqbWLaKWiCeDy8GUPrIh6dOsgbcj68sIycmopqrcDGeA0uiS00PJob7e5tNUpZreSpJZW69GMlFRWo4qSPhZ4TZU7RASCU1yy1fbltsr9qfNqk56wwMHF0lStUodpTkd2OiKq3oaiPZ5KKa45oETftu4Xk=
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 4YAE5qHL5AVldFyDlLMSgPNzCDGhXYrU9T5kv7ByZ8ywtbXTuaIQl9A+b8gfPuTloHkC2hsZa7U6FBe76LCj+kJlXSkIueTe50GtsgIEdwsrGwwpcOX87ZoPa3HpZU3nxBY8QU7XB0yVCdG5Mm5sn6Lc51O+uDRS6pYF5r+/LydWboEv8YXHylr4z9rli9AAPQbDkjTk/BH5G2b/Ob/UdKAFCILliQnxZlpN73xsq6e0co+hmipsIQ82CLyBf6pcuYdfYt0XsNONtZYs9gYUFNyUorIkBDhC1gtvUOsFAedqNVWXs+I0EOTBoqcFLqzgQQQHyLXUbEdhPfuLjcDohFs9c3q1gk0KwshRM/kz3RMW/vrWqP1vhK+W7UKNltwTdD3S9WTwcTA9SCLzYwK+dWZLTrMz9gFD2I6Z6qpKumSwx00HpABnIY7TJttFtEUZMRkOnVXiyHmD5ExN08j4G/fzl7pty7h0ATscYmPm8noIicu9irVAp7itLbyGxUZQouocFcBmtpfJLs7qRFNVI6H7lmZGoPNGV1btRhhqp8HssOHX0eMN98rc+zLZp2Mn5kSbIwt2m9TW2baK6EXkRDmJnrxqQPe9U322MMnMUhyz+K7rVb7xidIR0LIfbkgK
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YEnY8fkNlBEzp1wtlH8bS/TOHKRKeoL5XKcREOURK7ebX1qiLqq8SpHkxmw9?=
+ =?us-ascii?Q?ONkFgD/mxV/aw4Ze3dN1pkZj2quj0Rr0hJs6WArgfb8Igb3W7QorSW1Icsij?=
+ =?us-ascii?Q?yxdpSrs5rsyhg96U9pJivdYmH522xK0IGXlai4uoXKYCbebawiHIRaFmOrKA?=
+ =?us-ascii?Q?jTGBNOBHngHvwu8Z3R6mlpFj1ZjLpjyRCGbAOmwiygnrYkK8jEdyhEMWBHhY?=
+ =?us-ascii?Q?ldkIU+QGQHpu0iNxnMalHjbZpccdQYei+QuI6shTv+bkngX18XsiF1HX707i?=
+ =?us-ascii?Q?1yT2TbyOOKl0/EKLi/am07dMygH6+fxxdsqgcZbznWmv6ITadn6QTyMWVV8Q?=
+ =?us-ascii?Q?Wx1fndb5+uEHEjLm8aLvUhugzcLG1cKpn1IiZPElm7wgii8o1p1vBmCjSGoV?=
+ =?us-ascii?Q?gzS/BTXgPNPCBl6BcnLz8Nk9H7YFAUIQqdpn3rCCLs6ErfYtd7oK2L432erH?=
+ =?us-ascii?Q?hCQPZD6Zii564N8zLtYgWL7v7Bp60MAMiU1ByD2ElwrU5BVXWRz69/EbqOrO?=
+ =?us-ascii?Q?F1gr7PHMcxKWdgF2TULLyqDkCp0cmHcFscthExGIl5ipzEnD4PnF/QsgvTft?=
+ =?us-ascii?Q?2kAr/430k9b/Eqx05HF/0hYEmp+nCHkH3Ij6l+OpGwP/wLhqxueZC7jIqBmq?=
+ =?us-ascii?Q?yjq5/+tb5I3GOTxX9juQZZ1L0XtENeZvwk3ORDFuYfVc44CVOAwlFR3C5hCI?=
+ =?us-ascii?Q?fFm4Qz2JZO5V2TvL8agfJblpMrx7evuwkAOt7X41LTQVlOYEqP4n9J8Dt5J6?=
+ =?us-ascii?Q?sFXxw9gBNwXOlN6yzm2TwPOa7enTMuRMqdRJooNA6/rCdSYicw1oA+yAmyox?=
+ =?us-ascii?Q?ziqYk63p3KLaJKqAhgkxjgcZ6gMH+8i7PzXyXPAkRbpm9/jNz33YU9Ca/dtP?=
+ =?us-ascii?Q?2SPlzchNRNl0v844b9vdN8AJFb8tqiuOmL4d/31HwP2b8cNxQN4u3oLV1mPy?=
+ =?us-ascii?Q?7MiqlHx+ucUHFXRoLMVfzU3/p8upcxnwH8yMEOVobEQZ5XH3exp5If2IB3hm?=
+ =?us-ascii?Q?0EWjxPwIfvxyNiW1Ddui3Utl57AiBP8PeR3PMZ2Bs8ejbrSYG/TY9aVTgLYx?=
+ =?us-ascii?Q?4rnYv9KscS/jbVcGfZXgNK7rOkfQX5XYRiBD2/lfEqiJm9LnDUzt95drFcEm?=
+ =?us-ascii?Q?TnxJUhy9urZFGOYIJ5VMrhQwcwdt1oohrZ0fSiBgmJgcCaMepfx0/EFA6g7Z?=
+ =?us-ascii?Q?CDzs2zzszpAiNGByFAOI1xlJuQMKV5G6MUHuqTZKRDfpmL+if/4t1f+v9wNc?=
+ =?us-ascii?Q?v4Uakx6x1k9MUdWh31Xw?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fcf47366-8700-4f74-11f0-08dc5a20bfe9
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2024 12:13:08.7843
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR20MB7552
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240411_045521_285508_64729030 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20240411_051317_271399_D5AC3100 
+X-CRM114-Status: UNSURE (   5.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,102 +131,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3285056907003591676=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3285056907003591676==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jM0CNQ7ZIr2lhGV/"
-Content-Disposition: inline
+CONFIG_CLK_SOPHGO_CV1800 is required when booting the minimum
+system for CV1800 series board.
 
---jM0CNQ7ZIr2lhGV/
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+---
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-On Thu, Apr 11, 2024 at 11:08:21AM +0200, Cl=E9ment L=E9ger wrote:
-> >> If we consider to have potentially broken isa string (ie extensions
-> >> dependencies not correctly handled), then we'll need some way to
-> >> validate this within the kernel.
-> >=20
-> > No, the DT passed to the kernel should be correct and we by and large we
-> > should not have to do validation of it. What I meant above was writing
-> > the binding so that something invalid will not pass dtbs_check.
->=20
-> Acked, I was mainly answering Deepak question about dependencies wrt to
-> using __RISCV_ISA_EXT_SUPERSET() which does not seems to be relevant
-> since we expect a correct isa string to be passed.
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index fc0ec2ee13bc..8c8a77f8eac2 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -233,6 +233,7 @@ CONFIG_VIRTIO_BALLOON=y
+ CONFIG_VIRTIO_INPUT=y
+ CONFIG_VIRTIO_MMIO=y
+ CONFIG_RENESAS_OSTM=y
++CONFIG_CLK_SOPHGO_CV1800=y
+ CONFIG_SUN8I_DE2_CCU=m
+ CONFIG_SUN50I_IOMMU=y
+ CONFIG_RPMSG_CHAR=y
+--
+2.44.0
 
-Ahh, okay.
-
-> But as you stated, DT
-> validation clearly make sense. I think a lot of extensions strings would
-> benefit such support (All the Zv* depends on V, etc).
-
-I think it is actually as simple something like this, which makes it
-invalid to have "d" without "f":
-
-| diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
-cumentation/devicetree/bindings/riscv/extensions.yaml
-| index 468c646247aa..594828700cbe 100644
-| --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-| +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-| @@ -484,5 +484,20 @@ properties:
-|              Registers in the AX45MP datasheet.
-|              https://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-=
-5.0.0-Datasheet.pdf
-| =20
-| +allOf:
-| +  - if:
-| +      properties:
-| +        riscv,isa-extensions:
-| +          contains:
-| +            const: "d"
-| +          not:
-| +            contains:
-| +              const: "f"
-| +    then:
-| +      properties:
-| +        riscv,isa-extensions:
-| +          false
-| +
-| +
-|  additionalProperties: true
-|  ...
-
-If you do have d without f, the checker will say:
-cpu@2: riscv,isa-extensions: False schema does not allow ['i', 'm', 'a', 'd=
-', 'c']
-
-At least that's readable, even though not clear about what to do. I wish
-the former could be said about the wall of text you get for /each/
-undocumented entry in the string.
-
---jM0CNQ7ZIr2lhGV/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhfPRwAKCRB4tDGHoIJi
-0stXAP9uCAN5bZHcv91EPinTAeqedRCedCrkE5YEE9f8JUyrxgD8CAHddpGznZHx
-TNOtc9GaDiQRS4tdrlJo9+Hn1Puv4w0=
-=k3aJ
------END PGP SIGNATURE-----
-
---jM0CNQ7ZIr2lhGV/--
-
-
---===============3285056907003591676==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3285056907003591676==--
-
