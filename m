@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B50ADC04FF6
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 08:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8176DC00A94
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 08:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=64xc+0Hp5ImDXtemb36HRPCuWr8bv+Tr6KHFxA4YSoc=; b=Q2R8YYfm7e10tS
-	nQcR/uYs3lhFp0Mf00pquai9GikJPEaaekhrG5sDjTiOK2seTHPQno4xzCdrqJ0S37wQXgeZSjZOX
-	PdgPYyFlKj5dt9mEJXcNB6/9BaqrgaO5OILexu2t/JrrR0CwBQ0NXrBB/bmaNwYJQweLfc0gN3AON
-	O+2hZ2+ZbK1G0jHpTfVPPpYGTrxD3hha3v7ReOibwbaFctE1PU1CCNvFHCqe06mEwWZyaxX4T/o8p
-	fNVA+tXFOI1AZy4Hn1OywEpCBfJuluoIqvQn0bKq2vQsLFhpl4YJ6MkjYjmd+iklR0+8PVRNd4vAj
-	DOxelx/BYyDTmbpPvtbg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3AtEK2LFXl4KuFDt+j1zQNTe/hY0iG4Qotqafn88+pA=; b=oYEdeC89LSzwhW
+	h7pLJloFzNTodgZmqVDFq/khbTz+3ELAy/iYIXY6qOjhhPy1brreUec2348TsZMy0tvShcG+RQb78
+	zQ7EaV6fWXJorc8s9y4axRm/vw7QAPdTwdXid+m84VM3Sqt1Nmfr64J3X6gNq+YlIaWKmSiAe6lOB
+	5w8+ZLynO6mFuOYQN6T5c34sMgv8+EbeB8+QmJp3gXUI7CEeRFAMFuPsIQ0JCf1srONrjviyPT2Wu
+	yQYDVThZlYN9zPCIxMyDQMux9kQwINKn41wSM2e8awkXEmC5JSBGFYeD2yqcrwTazP/MUubol9Loj
+	vM5AEYlh9oQ3Ap7mfRnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvCb0-0000000GC5a-33cL;
-	Fri, 12 Apr 2024 08:49:18 +0000
+	id 1rvCb3-0000000GC86-1aXW;
+	Fri, 12 Apr 2024 08:49:21 +0000
 Received: from mail-sh0chn02on20712.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::712] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvCXw-0000000G9jy-3WNM
+	id 1rvCY9-0000000G9jy-2X1S
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Apr 2024 08:46:21 +0000
+	Fri, 12 Apr 2024 08:46:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Ht3JbqbJUsT3kanxepb1XHSqeH+WoXR0OTik4lD+y9Yh4gWelYW17LZjR0KR8imUDbaiJ2UtbGzm4lcpj6oliJGCdwOB9cCEYg/h/EDX10s+bTQcuy1O6/zSome8cUlmzsJ/iRp7FomPVQDZAdRtwjRhk7iJG4CP3++8Zbf1yvY+gCJ1H3wlmP2T++rIj6cdxGsJMPe6pToDtQxVyRzurqznAntQLHNtb7TTyQPiye1Q4AOtxpCzvnOOFIOiEzy8lVslQuQfIB0bdxU9Vccl/dr2D6jz/l9wnbsgvOVKi96jH5KnFSBV6svT5dj4sTznZH00YmcVB2FBrSnUtQTdRw==
+ b=IgYvFRkaYN320/Bky3oSXdHL8IZktU5djLqx5AONOyqLBBANrU+7Oo1B7zwwx7jfNi8r75SG0XOgbwyBdI7xK5PrYpUcdhSyZ9KjvtI9LThbDjn9jOXkt0mXkImfKY/Q+BYPUcq/QdLJz4DIjqFJAE8E6d9NgDsLNJV4GUhsn/PkkH+WZhQdQbGRVsA4b8kO2PCKxmQ3CufWstL49bYV/tPXvI2PQqBXqin8PsqdpOoS+LADfZkmq09cXZUPE7Lum+Y1dN2kob2pZ0k20F8Y0GiuV2HSWdWwr/siQIPjuWEbkdvdhKfTUn/Cy/ahZaPupZuNFS0qwI85eSVQJnGfsg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HNzpdygQBfMKxTe42Cu/s1EdFW1op4TMRhlCfJh+XzA=;
- b=i3/UzeSnu3M5MpZs7249ydNDD7UiraQqAiP8Gi4SuYAPo9OTONLbHHMCiP6ne7kdjmYgKYxGNcuLNTIBmllfy1gu0G3UwNs4e2DqiqMP8odK97fHPdrbdGSz5ChaftdTOJGJFz077ShwJRy9AWOxj8qr0im1rzroKPlXoIaRJg5FXIOu0I4WUaodhy9J9tcdn0M9lig8auUhArvwV3ez/Q3icigFt8WYGvOLVRjhaCFi075Z8W2wKAIkMrJWQQU72nufC0HiurWq5fAy59XDCi3O0sv2UpAJCFcg60KCHT2LE9H5x7/Ij5iYEsS9/jUCPHh5zmd75N12WDpOb5NTsA==
+ bh=CpqvJdZvPmycFfRZZCCSg4FFhQ3bjyafbiyaP+KjlYQ=;
+ b=PN26FQvJeP9gfY8xh+tzTBNX+zkjExHzVjushfHOsu3y2kJIVe5hT50MWqdS9ITwKMxmE/tDmlcz0gvz2uXQrhGVSSO/ENXoCTK8M6jqaDqrgRhkgKf49QOz5gaTNIBDPM/NJCTasb0Ikwwwyj5yH5m91NTD8sD418o8mhTp4jmvmA6xthinHtky8DE4ehzjjG9UbBOIuoVB9LVzMTCIVcI34lijYNHccYvK+A4lnrHTNsPrCUd/RhxYO/pJInRJ2K5fEj2M3q2HjaYg7b+43jIzIgwUBNxlkiJjBZYPn8/8rwjbiGISOU8s2d/3vreF4nLLlzuFQmlp14K8dv7iNA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c510:b::14) by NTZPR01MB1129.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c510:a::5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Fri, 12 Apr
- 2024 08:45:51 +0000
+ 2024 08:45:52 +0000
 Received: from NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn
  ([fe80::8dad:760b:621:c490]) by NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn
  ([fe80::8dad:760b:621:c490%4]) with mapi id 15.20.7452.019; Fri, 12 Apr 2024
- 08:45:51 +0000
+ 08:45:52 +0000
 From: Ziv Xu <ziv.xu@starfivetech.com>
 To: Daniel Lezcano <daniel.lezcano@linaro.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
@@ -65,64 +65,66 @@ Cc: linux-riscv@lists.infradead.org,
 	Xingyu Wu <xingyu.wu@starfivetech.com>,
 	linux-kernel@vger.kernel.org,
 	Conor Dooley <conor@kernel.org>
-Subject: [PATCH v10 0/3] Add timer driver for StarFive JH7110 RISC-V SoC
-Date: Fri, 12 Apr 2024 16:45:40 +0800
-Message-Id: <20240412084543.7243-1-ziv.xu@starfivetech.com>
+Subject: [PATCH v10 1/3] dt-bindings: timer: Add timer for StarFive JH7110 SoC
+Date: Fri, 12 Apr 2024 16:45:41 +0800
+Message-Id: <20240412084543.7243-2-ziv.xu@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20240412084543.7243-1-ziv.xu@starfivetech.com>
+References: <20240412084543.7243-1-ziv.xu@starfivetech.com>
 X-ClientProxiedBy: ZQ0PR01CA0007.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:5::21) To NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c510:b::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: NTZPR01MB0986:EE_|NTZPR01MB1129:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6512790c-846f-45d0-dd43-08dc5accf506
+X-MS-Office365-Filtering-Correlation-Id: f5f49b89-df80-4e3c-caa3-08dc5accf5f8
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: kazuBHqqI5AFbXg2wb2vXAOqh5xJ59H+lt2QlyuSrqpCSG/3lpWxaI7RLwDU23fQByywuB5IZxj5Xj57PveUlXRHj03+22RumUwdxx/ZtGfn9qwl9EI0tXGy4gm8/BxM4STkwjpch/1/zNQfTBlumfttagI11C/xmmIwSkI3pUF6YkMRr4ulzeBOeh4xh8k45xSRggRxa2S/gE6IB2CifcrMzEY19Y/awofpo4yY4agV59w08CJYFhono/wCBsoD95p+gJVA3g7d/fj970ZAlH2f/6/FqfWi+Bpl5bK7h+FwgQGxJ88RTSuile0t7NXQXXfHaKS1KR+uACFbOeMMsqR7O54yh3lv1/ziTBrlNeldph6+DrFLHmTP2tHT4wfAKn6Mp+z0LdOvTRRNH1h0rP9grtu7jjVPaX8I5V2bW9o0KHgY923+Nf37nf3opFYMQ4DkEMONvVOA2/U4rENq6VkL3z9ZY9hQ97k8u+xk4eRkmcfGhI7VjXsNEywEFhYnt3kYOL60W3j3o0SmT/X5eyHPqSzAUtq6+LjnUOujrUGv7E3ziAtiTz1hZcsZj7MxsjElAR/iQWpT2gOWM3P5dh7/mHQwVjD0g2nFRw4eyyh+6JlDoqlXhBCIKOeEcqFZ
+X-Microsoft-Antispam-Message-Info: KMNpS7ooGXQCdJi/hphkTNRJugve8LIAVVfthk0OCDRI5V0aqQVcfx3rlnyWMtb24Q87Ia2SXIsaA6IQLWQ1e7EOz0oWt9PU6lqXPiknSVsnBx0MBbEICADR+NdgRNHdCOZo7wW46AYxVaVBYjy+vikg3gitym82YyUga3k3yRYT7JCui6Zz/O3YJBeCn9qKPT4LKqz3y20bZEOH54lA5+zxlwESMw9ml7puaa+gVmUOwp38/pu57wvztta5FKR/++43iLsRk7z3Ot6K2BaBZE7zjsQT6LywQc6tVyK+tVYguTRuNanhFrm46clXNAxH1EKRZkiNV8mB6DaYvdHk/zGmqgKfQal/DpNeuIi5xOYBh2Y3yyrKRHqdlICLdPyq2CXOdyoCKpEM7OjNsRWkn7EkGsPvegjzcwiwn/jxJxHj4GOOg6B5M4pNoR2QC+EFfshvsRbLXAFwkD4B7S0+z+4blsGjpnCrzb9L67TonV+dTjql6856F4Y2pVZzRFrtiph96cUZYeXToChwxLsNZp5RXMTITJuUwXJ4EoCfcxLQu0Q+fXhbphXR0BaQ80sBrWO358/b4JSYrWFgvL7EZF46bo1HCSZlRiMor2B/I1+TEsugGT9784dQ0jhBTJV5
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(41320700004)(366007)(7416005)(52116005)(38350700005);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K/rBKC2XGp3NFAwwu5u8RwOKYMY2w4uRoOZZ06BW3OfqdbC/II8g1wDCr2mg?=
- =?us-ascii?Q?XcflDXNqXrVMjlCrfQ9Em6eMiWyne+DKdY8A75GqwTM5logJMuwPviPIaiK6?=
- =?us-ascii?Q?mOno+yNsyFA4KY4ie0MLAQ2xxTL3yC6d8L8XuCc2pqnpoHJCWy5DmuHGfmXP?=
- =?us-ascii?Q?UZGSSFkbE5gWFLJOZx8FEjaGAhlL5WWzrV19LOpEsYUF0uwTiobhBf0PbHVj?=
- =?us-ascii?Q?xest/5/e46EEFG6DgqrKPG1U4XmSuzd8pu0BdfY8xjOKGwbTGIPRBEohmQkt?=
- =?us-ascii?Q?uq0TM6Vs+mr2LHyjoRgGeUtVpXkY9UD9wm3c/8CnbLj503trGrwhIKkwi2dC?=
- =?us-ascii?Q?tLZX8ZWitX58hCeKdUCDiayi0ZsU3w/TLB82uhv82IML7ebwlpNsqaxIJJ1p?=
- =?us-ascii?Q?Ia+9umjSQzoc7ndFlQeuis8AQ/HuBvN1WmYYqwEEzHL9u4Cnxuq2ufN0kIkh?=
- =?us-ascii?Q?SSzootjsVSubXzdhRz5WGV3tbZwtHaLoAS+eFRmWujDqcslsg1qR26uwBUrx?=
- =?us-ascii?Q?Uta8i0ZH1SgBsYoB5Us83wAmlR27isPHhYs4hOebcI1Ch0p9/rygrq4DzZsL?=
- =?us-ascii?Q?b8D96xm6vZiVKS704Cx/12nUCp1au6tklyPrBSiDxQYDzvO7+03rI4iXMWrm?=
- =?us-ascii?Q?YvXm1h47Pdf+zwtMAr0Ob2SZIVxrdPG+YeyA0bVZxf8y85cMPtNKLmuJ6DI8?=
- =?us-ascii?Q?0SU5Ty+DGeW8jgQvqNcw+CoE3Uh7fF2BbnddZB00vBQvjKQiKJBYkCVkB4Bo?=
- =?us-ascii?Q?P9d2OL88KeeeiIkD8ABDxd7EGxmXNgF9+gXGw898JrxCaBWx81XUtm9U9c7W?=
- =?us-ascii?Q?heIlFT2GMcPpXMI0vSwQ9oNv87pC29pBefUc1UiUDkBQbMk2Eez1clVdAPRz?=
- =?us-ascii?Q?I/ek6S4d8rTBqt1ATtXJP2zeJypZ/pGJ3aZxAjdymtTnG9/o4ZVo3f/EDsBb?=
- =?us-ascii?Q?DzQGGFLEiwir0z5Tq8z/l+wr/57uW42BlDPwz7ffXC3koLFAurPKn3Qte9A5?=
- =?us-ascii?Q?BhsG9wuCYDujBNVXhzGnBYulusYfBe99xW+p7+t4vkmehKHpGFfpys8DJLuj?=
- =?us-ascii?Q?OvmJyRHWPc7vtTAySXsTGKzaPIhmvsAuOeqlB/WAdTPSkUPqEOxePpUP1tDK?=
- =?us-ascii?Q?lKto+IE+4UGbSLcj2/uqd4OHs2X4BejaeexmrO82+JhnNd3dK5rE6rqum1VV?=
- =?us-ascii?Q?bfghKQt09JBgQnv70Dk1Ue2TS9K6y0MxueLPFE5tW8KP0Vt+pHhXC7VE0IaI?=
- =?us-ascii?Q?r7B/b46LlSOKgZY1S5ZV0/lmfFfXATtXwnwn1ivMGo22smlpk+vHwLk07k94?=
- =?us-ascii?Q?qdBdXLFNEsBR1SFxJ7ELaDH0CRJVRoRWNpX777f+ZzaGnilnRTppB/Vi3wvB?=
- =?us-ascii?Q?un3azFf/hDjLwiEbA8oejO5mPLkZT+Ob04OVgsTGkLsGTAl9FA5n6eIhJxGK?=
- =?us-ascii?Q?gHvTkLNP1csNZNJA6IL7HaTcSxx8AZT/0ltsU8kQJjgcmJjhVBbN6ieE1vXH?=
- =?us-ascii?Q?kZMAYnvcDVOajoANIBawjg7siVDCPXKSDIioEEe2e7hkqxUB78HisFZf0S0v?=
- =?us-ascii?Q?TOXd4nuDlfsNQAwdid3CeRR7vAay6qK8uQHfcwPpjbbePi1IGI+j+UK2GDqv?=
- =?us-ascii?Q?sA=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LW165sseLx9INDVgQEkLsoTAl/sjyPnz81vnGrhVfnOweR2oqEx+aPrCJCUn?=
+ =?us-ascii?Q?lsnX06/TaPsPjm+oARUfFvTHA1195ivuNjbjPFhIKQD/hV21/s47y+XbC2wl?=
+ =?us-ascii?Q?kn7cz6z3hGSbCVONnhPW7S3asegGnvq4YgVI8E2WcorISVF2uePIFCwtkhL2?=
+ =?us-ascii?Q?HMhzHQvDJm7o65SVFRLl8CbZl7N216dMGRaQg7MtIWwp6qHHN25IlF+g8y6M?=
+ =?us-ascii?Q?4qxFkzcOK64vmiCIzuhgUSmCAh8V2mRj2jyhWbmUTsxzv5YPXs91J9KL4QaN?=
+ =?us-ascii?Q?YUbg4Ph2cKYggfQ+mYEcxNclzFHEFDNx8gq6j51S7Bmvw54uquueD8tZ7Mfj?=
+ =?us-ascii?Q?q2dINhonm2YBdcVFCKMC9pvrUYwvnY+UAnPy+5oQM+iq2HGnKHDlBrP0SXQu?=
+ =?us-ascii?Q?r8GPP70DDCZqmh8PeorPPSS6UmUEibZZBoL4xYGbReSH7IXd8ODLwGhEWBik?=
+ =?us-ascii?Q?GbyAQPTgwJyjULlMLOZZJOYmQpb2C25qof9LeZireeaKWtM4FWecSWzdZ8Ri?=
+ =?us-ascii?Q?n/yvA0t8ecuX67NJZOWXZa0U3EoeSAuiKqCRCMMkCk0eAxb5KkL4WQ6Tz+i8?=
+ =?us-ascii?Q?47nnZ6dRuxtUZjfUM4XHOkBQR0XVOQw8UyonMmO2ITCwTRlmrP88Loq4NK6t?=
+ =?us-ascii?Q?x8oePZfv+nutgh6AE952xofZlqD60S03sncu1Rvzz2dx/rwyODRVsmzyR0qv?=
+ =?us-ascii?Q?o0XOc84n6ZL7SYX7Hr/76MV6HcXmTYaZaB6v6foNwFzEU1evt5IRV0LiKQyD?=
+ =?us-ascii?Q?BnMPQVb+4RKDxy5UCz8kT+xsq57zhlvHaCspFCVsTj9GCwj4aM8feIG/Jdq4?=
+ =?us-ascii?Q?+M1qQAOItiiRkuZagiSZ60kHnE51c9EBkqiNEAaE+A/w3X1D2A8Y/1qB0Rp3?=
+ =?us-ascii?Q?VckdMT2tv1SJmfmYDQa56QVojrWXXAI0KaHQ57mkG6rqWvUoveRpq8rmZSb5?=
+ =?us-ascii?Q?URmMXxfySOyEP47LaKg2W2B6ayRUj5BXexzsr4l/G3JbwRSJXNl4ijshaQE8?=
+ =?us-ascii?Q?6wqCwszgiYrXxzRek13+TE0yH3t3QKjzxGSWDpio5VyaKHXq48u/EdkIrqTm?=
+ =?us-ascii?Q?sHw+6QzG5QcI3HMeyJkIyB1+/Sm/AuMWYyLH2OxVJJF0QQI77FYRAdWtKmRe?=
+ =?us-ascii?Q?f0pa8MFxJNFZ3qQHWlR8Xb7OJ9Es2iu3+FedVwDfWrD9BAf+R3PO/uyMOIKQ?=
+ =?us-ascii?Q?25Lw1GKiNKPmJsAg/m+/Jzmg0GGizWbTeYNVhs2zKE1l8dsmepYcTYv8VgpG?=
+ =?us-ascii?Q?oc5CT8irRK2MJH7hdaG9sigr0+n0VZ/flwg9abh++g4lhXsnkbLF5POeyqIs?=
+ =?us-ascii?Q?AWyRACKfwH+UN9EWCnXm6XNuCuotm0lfRQQtninqs7I86Fw+w5nlpvbg3jHV?=
+ =?us-ascii?Q?H8L34nX4+Tu4DJM3OmT7XstAem8fnMUIHNdaqRdVXq7sxnVLzS0wELVQU2ZJ?=
+ =?us-ascii?Q?yMSK+rxFsid+8vpR2HJzg0EGrFnee7t+Ek/zpllK1n1ItGfceFR4Y8/XmU1u?=
+ =?us-ascii?Q?/QvX2P4XpL1Soelk98qwOj88O5uSZIXuQbM37jjyEgtCsBQLkz3ijS82vid2?=
+ =?us-ascii?Q?iNQ7jnluhtUKz8Vc2NCOWvqEe4/eF+a5JDn3HnR9f0L6XsPWuUrger/6B4Fv?=
+ =?us-ascii?Q?gQ=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6512790c-846f-45d0-dd43-08dc5accf506
+X-MS-Exchange-CrossTenant-Network-Message-Id: f5f49b89-df80-4e3c-caa3-08dc5accf5f8
 X-MS-Exchange-CrossTenant-AuthSource: NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2024 08:45:51.1499
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2024 08:45:52.7315
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2EGtevnFkvHIAH0lQY8UOGFgBaVXTrFfoETaEyFePhyby7KBwW+lI9bJdOF8+awh+tXgiqBOq3L5zbWaTwI0iA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: fYthbWD+PpCPdYVhNWhwv8Vc4em/qEJbS+xjKQuoQ9xl9zAm06uZGsh7pfoGSxu05nbOR1OM1n2QlMoR5ramDA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB1129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_014609_220553_63CC8E05 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20240412_014621_735799_7AED0F4B 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,122 +141,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch serises are to add timer driver for the StarFive JH7110
-RISC-V SoC. The first patch adds documentation to describe device
-tree bindings. The subsequent patch adds timer driver and support
-JH7110 SoC. The last patch adds device node about timer in JH7110
-dts.
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
 
-This timer has four free-running 32 bit counters and runs in 24MHz
-clock on StarFive JH7110 SoC. And each channel(counter) triggers
-an interrupt when timeout. They support one-shot mode and 
-continuous-run mode.
+Add bindings for the timer on the JH7110 RISC-V SoC
+by StarFive Technology Ltd.
 
-This timer is used as global timer and register clockevent for each
-CPU core after riscv-timer registration on the StarFive JH7110 SoC.
-
-Changes since v9:
-- Rebase on 6.9-rc2.
-- checked the return value in the jh7110_timer_start function.
-
-v9: https://lore.kernel.org/all/20240318030649.10413-1-ziv.xu@starfivetech.com/
-
-Changes since v8:
-- Rebased on 6.8
-- Improved the cpu hot swap startup process of the timer.
-- Modified irq request timing to prevent sleep.
-- Deleted clockevent suspend and resume function and these 
-  operations are included in cpu hot swap operations.
-- Formated data structures.
-
-v8: https://lore.kernel.org/all/20231219145402.7879-1-xingyu.wu@starfivetech.com/
-
-Changes since v7:
-- Rebased on 6.7-rc6.
-- Modified the Kconfig file and added selection in SOC_STARFIVE.
-- Used the timer as a global timer and registered as clockevent
-  for each CPU core.
-- Dropped the timeout function in the interrupt handler callback.
-- Changed the way in the functions of jh7110_timer_tick_resume() and
-  jh7110_timer_resume().
-- Dropped the registration of clocksource in the probe.
-
-v7: https://lore.kernel.org/all/20231019053501.46899-1-xingyu.wu@starfivetech.com/
-
-Changes since v6: 
-- Rebased on 6.6-rc6.
-- Used sizeof() instead of the numbers of characters about names.
-- Added devm_add_action_or_reset() to release the resets and 
-  clocksources in the case of remove or error in the probe.
-- Added flags to check each clocksource is suceessfully registered and 
-  used in the release function.
-- Dropped the variable of irq in the jh7110_clkevt struct.
-- Dropped the wrappers and used enum definitions and writel() calls
-  directly.
-
-v6: https://lore.kernel.org/all/20231012081015.33121-1-xingyu.wu@starfivetech.com/
-
-Changes since v5: 
-- Rebased on 6.6-rc5.
-- Changed the number about characters of name.
-- Made the clkevt->periodic to a local variable.
-- Dropped the variables of device and base.
-- Used clkevt->evt.irq directly and dropped the extra copy of irq.
-
-V5: https://lore.kernel.org/all/20230907053742.250444-1-xingyu.wu@starfivetech.com/
-
-Changes since v4: 
-- Rebased on 6.5.
-- Dropped the useless enum and used value directly when writing
-  registers.
-- Modified the description in Kconfig.
-- Add the reviewed tag in patch 3.
-
-v4: https://lore.kernel.org/all/20230814101603.166951-1-xingyu.wu@starfivetech.com/
-
-Changes since v3: 
-- Rebased on 6.5-rc6
-- Dropped the useless enum names like 'JH7110_TIMER_CH_0'.
-- Dropped the platform data about JH7110 and used the register offsets
-  directly.
-- Drroped the useless functions of clk_disable_unprepare().
-
-v3: https://lore.kernel.org/all/20230627055313.252519-1-xingyu.wu@starfivetech.com/
-
-Changes since v2: 
-- Rebased on 6.4-rc7.
-- Merged the header file into the c file.
-- Renamed the functions from 'starfive_' to 'jh7110_'
-- Used function 'clocksource_register_hz' instead of
-  'clocksource_mmio_init'.
-
-v2: https://lore.kernel.org/all/20230320135433.144832-1-xingyu.wu@starfivetech.com/
-
-Changes since v1:
-- Added description about timer and modified properties' description
-  in dt-bindings.
-- Dropped the 'interrupt-names' and 'clock-frequency' in dt-bindings.
-- Renamed the functions and added 'starfive_'
-- Modified that the driver probe by platform bus.
-
-v1: https://lore.kernel.org/all/20221223094801.181315-1-xingyu.wu@starfivetech.com/
-
-Xingyu Wu (3):
-  dt-bindings: timer: Add timer for StarFive JH7110 SoC
-  clocksource: Add JH7110 timer driver
-  riscv: dts: jh7110: starfive: Add timer node
-
- .../bindings/timer/starfive,jh7110-timer.yaml |  96 +++++
- MAINTAINERS                                   |   7 +
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  20 +
- drivers/clocksource/Kconfig                   |  11 +
- drivers/clocksource/Makefile                  |   1 +
- drivers/clocksource/timer-jh7110.c            | 345 ++++++++++++++++++
- include/linux/cpuhotplug.h                    |   1 +
- 7 files changed, 481 insertions(+)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+---
+ .../bindings/timer/starfive,jh7110-timer.yaml | 96 +++++++++++++++++++
+ 1 file changed, 96 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
- create mode 100644 drivers/clocksource/timer-jh7110.c
 
+diff --git a/Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml b/Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
+new file mode 100644
+index 000000000000..9a2dac11eb06
+--- /dev/null
++++ b/Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
+@@ -0,0 +1,96 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/timer/starfive,jh7110-timer.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 Timer
++
++maintainers:
++  - Xingyu Wu <xingyu.wu@starfivetech.com>
++  - Samin Guo <samin.guo@starfivetech.com>
++
++description:
++  This timer has four free-running 32 bit counters in StarFive JH7110 SoC.
++  And each channel(counter) triggers an interrupt when timeout. They support
++  one-shot mode and continuous-run mode.
++
++properties:
++  compatible:
++    const: starfive,jh7110-timer
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: channel 0
++      - description: channel 1
++      - description: channel 2
++      - description: channel 3
++
++  clocks:
++    items:
++      - description: timer APB
++      - description: channel 0
++      - description: channel 1
++      - description: channel 2
++      - description: channel 3
++
++  clock-names:
++    items:
++      - const: apb
++      - const: ch0
++      - const: ch1
++      - const: ch2
++      - const: ch3
++
++  resets:
++    items:
++      - description: timer APB
++      - description: channel 0
++      - description: channel 1
++      - description: channel 2
++      - description: channel 3
++
++  reset-names:
++    items:
++      - const: apb
++      - const: ch0
++      - const: ch1
++      - const: ch2
++      - const: ch3
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++
++additionalProperties: false
++
++examples:
++  - |
++    timer@13050000 {
++        compatible = "starfive,jh7110-timer";
++        reg = <0x13050000 0x10000>;
++        interrupts = <69>, <70>, <71> ,<72>;
++        clocks = <&clk 124>,
++                 <&clk 125>,
++                 <&clk 126>,
++                 <&clk 127>,
++                 <&clk 128>;
++        clock-names = "apb", "ch0", "ch1",
++                      "ch2", "ch3";
++        resets = <&rst 117>,
++                 <&rst 118>,
++                 <&rst 119>,
++                 <&rst 120>,
++                 <&rst 121>;
++        reset-names = "apb", "ch0", "ch1",
++                      "ch2", "ch3";
++    };
++
 -- 
 2.17.1
 
