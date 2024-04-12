@@ -4,62 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0D7C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 08:23:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0552FC4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 08:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fi8j7Xctk/7b4GnT/OEnxo159/J0Xotf4dWs/kXH6z0=; b=1ihDFYY9EtbeCn
-	TMJtFRe4OIF89Q6IoW8L0zjC2rrpIfqrHsbba8tvnEM6KFLxfwUjhemSnEd/EwTGhL6TE23rDpDPx
-	fby8ntQLtrDO62ok3O4VjHpmKCOC/YQyBoTFjZ1dP8GTSwAJkrHEjWiejfchJPwMEFmdgT8b0mZ3m
-	VjdpzSxINMDTiMZBc4K2AsqMndBdeFtP91o5psB150mkYURhA4m/2OMfAYQYNnwLXbZBvn2T/Cm1I
-	Os3ilMSeEbMNqC5z2s7fgarknxZ09hGTs3gIT4ptW9Z93R9qqeFFUBfPa6a93xk35ud5oRYqRp482
-	4fG8wbu3h2OS8zWnsDvQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YUkfhW1AN7RCefR6xJUlNcmVnnYwvtI5g33SzCJJQDM=; b=17f62aYPLmqaVj
+	50M6QXQLmPYjovWILPlFo4S7WVs6Kxn9mh0YSINyjnlcutZqD6DhZ5sHRS5v9JxPuWsF0efvHxAxC
+	P6PUuaIZMkI9b1EfvArjkQa1eBfoLYyVaePSPI16/JJyNPn9xMjN77DtjNA0fdMi4lQi6LkmRCwWs
+	ktDG+whlBlqD+I7Dis4urhMx8IoOSSXRqTMplTCVEptrtCQFGvqP4iAL9IW9v2vUg8HuzzECI4cLk
+	rvHAD4FVYIXXh6HlewEyRsTOnIs9pI5ZStGwmzhh7o2E2mzVlC1GautV9Vhwd4TCDmCU3xHc8K9mD
+	M4nM3dcXjZ6GF987l4HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvCBx-0000000G3qW-0F7R;
-	Fri, 12 Apr 2024 08:23:25 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1rvCLv-0000000G5aC-1Ank;
+	Fri, 12 Apr 2024 08:33:43 +0000
+Received: from mail-dm6nam10olkn20813.outbound.protection.outlook.com ([2a01:111:f400:7e88::813] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvCBu-0000000G3pI-2CQW
+	id 1rvCLs-0000000G5Xh-23E4
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Apr 2024 08:23:24 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 9AB23240002;
-	Fri, 12 Apr 2024 08:23:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1712910199;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WClP5G2kcne2eneGfMBtJOI0aNW9KDauYWuKR9jT1z4=;
-	b=dPKmMVyYATklsYzaKp5rf8tkpd+f8IfUhBwqPg7KpvV0hJVLgglFurhnD9lDD9pp5jb2BJ
-	EVpvAgSIhTCZuuB1OvUya3PUnL3Of0JjnBLw65HaPawxCiA9cFsr4TQgKpho7BDCght/0X
-	IgyV6JqdpIEKwTiwHRc0jwxsfMpPJAVf/Uq21A5FbA8F5X41Qcm1pCLfK0YQh9Cpvy4GY8
-	e9HY7QaJhLZloTZ8GX+53+ZiuS11njbK9QqEATLSLYyPH60o3RVKD20bvNiyoCJlNWVFqx
-	aLwOgDa0jeU9IHB/ezZs02Ex1epHDZbeGhMeAqpFfCcm6iPgLyTTWWa0ckt1zA==
-Date: Fri, 12 Apr 2024 10:23:15 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: wefu@redhat.com
-Cc: jszhang@kernel.org, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org, guoren@kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org
-Subject: Re: [PATCH 1/5] drivers/rtc/rtc-xgene: Add prescaler support in APM
- X-Gene RTC driver
-Message-ID: <20240412082315682039eb@mail.local>
-References: <20240412080238.134191-1-wefu@redhat.com>
- <20240412080238.134191-2-wefu@redhat.com>
+	Fri, 12 Apr 2024 08:33:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=CRMgSzrfwC/07wSOjPd00dzpmTn1ULqrb8qJ3kvgMhweTDG0RSiUJYIKrHHEkJYrzS0Gk8eAFpWpKST3MSgPE+hUpBgApxaF9M7zqirIjKEzGqPw03cM69Mu3dCRj1zdZ5f9CHyVWgVoGDwo52dl1+66r1/DWlQDlWwL41uOZi9Mv/OCzM82YH4vXdrf7qbStw6FICiTGXKfPKIaVVZbJdCAGvzaBo0wsy+Q6Z63TWaPRsH5z70K35UkeOGdAoGNHPZ4BKgh4OskB5WoS+OS99EhK6y7iQ6eJ0+PPjhQJ+ni28LrGAXR9y/n/5V7Dpj3GFh8QuYio57D163u0YwlPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xtHSEUGCH79iUT5Aaq5qKJXkljIrlqHD4rVX42/o3/k=;
+ b=d/wY9M8Y9C70aj08XCXKyJ25lwWHBE+PEH1YwNWZK26Jx9P/i5rEVa/DRKzDYmj41KoM4uykDzMJayvki55sWyrxmGhFCYE7SR5dxmiOmfdRYXPBrINR8v5Qd0deJv3CkwsZho3YQNforW/VK8p9fFaq02r83czCXR3v9c3fM6EsKH2n5h2nlvwmykC1B66OU7KPVHpkMOEHF/+w4+83v/SEo8jOxgazQYpw38UaqZFKTf1LHt9SLFDYzGD+WS84GsyeQtcZNlvqy0jRiu9k4cwsQGZ1X05iHnvT6ywVp2/yL3IHwU9mfF/ZKqduhlrntqCsx9P52rrAipGIwWVEQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xtHSEUGCH79iUT5Aaq5qKJXkljIrlqHD4rVX42/o3/k=;
+ b=fYCs6FVsjpqSHHBtLVQCob7ZYXYp0eD4f9Fn+273eo4nG8/+kDVR8xVnOC/4OYD0rvdbRjTbRuXp+q+lGOZJLd1uGhH16AdI603jdBMCqXENVppHyNAFGS+XJoBflS4P6wYWF3k4Gg9KKKbCuvfuQBtmvAnMkDUL1AjHG2b33XFu9WIp7ZXK7g8yiZipEGY7eRRVwJ0x1G0BFBXHk3ugUgrzqPyDCxnBf/8bSPoTR43pLx3Cq2GuTPt8K8/buc6OP1FSEdzNjq3sWtRYS00n8GNkTr4a+SGHI7UAWy9WXTjvrJGNSjcCa2MszUgjkwmvCLeFa8dflo3l5ymr0uCiCA==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by LV8PR20MB7513.namprd20.prod.outlook.com (2603:10b6:408:227::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Fri, 12 Apr
+ 2024 08:33:27 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7409.042; Fri, 12 Apr 2024
+ 08:33:27 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: dts: sophgo: cv18xx: add DMA controller
+Date: Fri, 12 Apr 2024 16:33:32 +0800
+Message-ID: <IA1PR20MB4953BD73E12B8A1CDBD9E1A3BB042@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.44.0
+X-TMN: [Ea2B8I6C1t0aLQq2y2Mzmx7qL+B02L1VY674SNTnB0U=]
+X-ClientProxiedBy: TYAPR01CA0209.jpnprd01.prod.outlook.com
+ (2603:1096:404:29::29) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240412083333.199699-1-inochiama@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240412080238.134191-2-wefu@redhat.com>
-X-GND-Sasl: alexandre.belloni@bootlin.com
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|LV8PR20MB7513:EE_
+X-MS-Office365-Filtering-Correlation-Id: 63dd3939-35dd-4f8e-7d51-08dc5acb3924
+X-MS-Exchange-SLBlob-MailProps: dx7TrgQSB6dwCndRGyVtehtsFBRNGEbPzSGrbhdRyftSqiHWwGQVPZ7pvLQJby2IFc5yYyuIKx8YPrtU4ICf2TpQh9QyvikNeAzjNwgu3Gh0deEpVMXCBTgYsQ8dcKEGEBghRESnZDSGZ6L6bdP2AkqqOQ55NoWCQ4mrFg95HSHqsTjwPxXRRhhLUVUt4d1T3LnekNk1uhmPJd3C0E0SN61KolIhWBovlGZ03BBQEexBlWeAgcQOijuL8uCsVKvyFn1kkNTB3rqgbPvhotelfLpCEHbzNka2LEdS0VxMoWAULVHwnoxo8lf8rOArRXbd8GsG1SgJQoqTt5/Yu41nnC8qNS+8SbchosFWXbD5duKMWk+kD1J4WqVURAF3RBWUOG4y6B2gMOruLHvwYWKTc1f1b6k9AmlpwlahKuspsHgopRa2K0PNyD088zkGNd7+8rgycEO/J1Ril5W8lEHnCDRgjYLSQlAUHe/Cz3n6AyozFV8Cki+9VnFioUsDZi1pGCnF5ulx0GbHKAvILIF+QoQorXyaHq/p9UJyAyeG6cOm536/J5WYlisIA8izUFpj4/3EHtrnsqI5d4HNowZKsvHHHuqnjqKCP5dc/n077oGD/7LtpE+IN6JNa1O5lhYgMzE0nn3TuWqUHls/fyXJ/S5dG96CwHkofKMW93w1sEUEuQwvRn3P0D16tnXv+rM9WbPm5+nEdqlUk6OXwPjlmhRFhTa+NVFXKKIv31CJaaTAeNE+Of14Xl7J+IBkxynAS1MVfUVe0Hc=
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: wYzYWSrooDebptw/Jb+R9fGOCyM/mlfaga+zZXNYLfJM6PmIWhug+e7kirekONyZmTaxjX6ITbwwA5ytL9vhEiWn7dtWFZfhiRD2TtJGD3WiAjvrv6kMjMCdjKl/N2JqKGcUXVLpLlwc9jW9kMD942abTLblbQOPEYrnyVOf7QSesiBILcqcBetxRSBtMFIeJPsfD9kdf7SpCtVCFBK4n385uNmWwpjTDVpZsXyvwk2MFTysJXOn/wws2JyZ90KtFmZmgVpRogKCzOfiBKrSzq/L+aNUXXkHc5yywvVbK3e9zV9RzgYLP7II2s0YRN+RLS4lIb1LboVfCpIDfuvkXuxVn5amA0PoNZnKmd9pQfpftII7slWQIvxfPVG6pNKltWGOfmGcUNLaTmRAAxEODUoglYn3/4i/qB660TwiQNWlfDd3trRwMSf8L3FEKIFMdG7Ye5sXilOAu/LvngSTtBk6mwDyT4Teum/lbNHIjQw0RJ8Ttv4LiKXh15UPOfmk6LVccG35Ap/kpSnzZGmXxwdpx/7DV0cXbXhO2XARlRmyQGW3bzTalILJQfiFy0FvqSR1Pm0es1ryFIA7IuxCqLPkIKCleNO6HzXR/+rwWw6/FcNId+e/ES9TGcJddapn
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dNS+TRrmjLoH1mdTowEbZPAbiFVetUWKwWcbY1UdwGfhcqJp3Yp2F67OeQCT?=
+ =?us-ascii?Q?TIlmZJhFG/mDTPL3hiH991oSDXIlbTIfavmkta3ltQT+gqeuZe6RnMbkufMR?=
+ =?us-ascii?Q?DHUOyFinTeek16DS9Xg7ngCFsvYomkiju9yl2cSE6qrh2iAcQV2guOPRtjTq?=
+ =?us-ascii?Q?lqIcKpCmRpxrtoyEz4Tzpaj1M5Va6YYryzMZJWK/6W/W5s7kjyn/YjFbxcdR?=
+ =?us-ascii?Q?J8afSVsw5elSRJ/1C4miMDd9/LsDnIiw5yQe9P0OnkUH+LbaH6xeQ2hVv6+V?=
+ =?us-ascii?Q?9bjhDWeQeUw3lHfUZ3uOAYZhtKUyyysJcXoZ0Br7rmQiQP64ALbGBq3gX4NG?=
+ =?us-ascii?Q?0IEh2zCnAa1SaZ/WzVi0kJXnq6JPXtchX+rs5A2YhGlGL++HG7Ozmpg93ujs?=
+ =?us-ascii?Q?fwcihAbAKudO+AlVBy0YKpl9UoFmwZo4Bx/MsJaOTjxGJAJP7ursNg8VHs2A?=
+ =?us-ascii?Q?BXQ5Hgsokp+o5aVfZe5iNe/vzIdp4ncaE8vTGYkvvRI9wk7G3TBhJtlgqeV5?=
+ =?us-ascii?Q?oJRxQ4f7Tv5FdyjJVlbrENjFOJ6hSUr70/QJPU2EsPw8NNAILsByATKWYE6J?=
+ =?us-ascii?Q?3y1Veb7yRCwllOm4O9Xdf4HDldBRucsY61dveUvUX5l//fhrrnVkbZlFNFlh?=
+ =?us-ascii?Q?agA+gKq0fIbyGqNWgiwHOkAedYZyI6KlIBw/sb5QhYpf3azbNfm30Dpf6UnY?=
+ =?us-ascii?Q?pWb5XVR7Vu3ubgn2hp2ChvXTx6N5UlqMOCkSHo1pGL0hm4EDHMTpwVJPcnlc?=
+ =?us-ascii?Q?dy3VHOXUQAvX1niJwksvqdo7BH02Mt5MW0jKI3pyUqPR2VacsdCwjrBJtaRI?=
+ =?us-ascii?Q?m5NoYeZ9CnG0EDP9LG4YPxjbP3CUayKafqzdVeFEGPcVOgVIadQWEZhWQIZj?=
+ =?us-ascii?Q?oEerAdxzdga/la22vXlpv2BTEN6TDo1iqg2QR0oAqIeF9iWRvwKtfvxrtF8s?=
+ =?us-ascii?Q?6S4xSbedzY1DGR69bBh5b9AgvK2BESIk6kY3l0ObI6balxAbl/0Aq+EScPAx?=
+ =?us-ascii?Q?TqeRN1N0vrroQ295w7HL/qnnGJ/WK4mBiUTQawkC81XgRXfcx0q70Ozwyktb?=
+ =?us-ascii?Q?rItOxUvbR4DqkB+/BQDsEVNM6/9syz4UNfWTIssxcMyhDdnbU3dh0sLp8KU8?=
+ =?us-ascii?Q?1vAd8gkbc7nHNalMBMwJFc/2kNuO6I+GJBulZtzJ4iHRt8kwAHm/aAF3tZO5?=
+ =?us-ascii?Q?F4TGJ+5o0/HMOf7mLpPiqTwk7LC/3c8p5VH6pWMdO3Cy9SUXsmFAU3SH5B5B?=
+ =?us-ascii?Q?R0k7Rzh9GVfRbf70IFZQ?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 63dd3939-35dd-4f8e-7d51-08dc5acb3924
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2024 08:33:26.8808
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR20MB7513
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_012322_718301_9029D0CB 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20240412_013340_928868_9D69A547 
+X-CRM114-Status: UNSURE (   5.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,46 +133,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/04/2024 16:01:43+0800, wefu@redhat.com wrote:
-> From: Wei Fu <wefu@redhat.com>
-> 
-> This patch add Counter Prescaler support in APM X-Gene RTC driver by
-> getting prescaler (Optional) property value from dtb.
-> 
-> Signed-off-by: Wei Fu <wefu@redhat.com>
-> ---
->  drivers/rtc/Kconfig     | 10 ++++++++++
->  drivers/rtc/rtc-xgene.c | 31 +++++++++++++++++++++++++++++++
->  2 files changed, 41 insertions(+)
-> 
-> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-> index c63e32d012f2..3a89f1e6095d 100644
-> --- a/drivers/rtc/Kconfig
-> +++ b/drivers/rtc/Kconfig
-> @@ -1888,6 +1888,16 @@ config RTC_DRV_XGENE
->  	  This driver can also be built as a module, if so, the module
->  	  will be called "rtc-xgene".
->  
-> +config RTC_DRV_XGENE_PRESCALER
-> +	bool "Pre-scaler Counter support for APM X-Gene RTC driver"
-> +	depends on RTC_DRV_XGENE
-> +	depends on ARCH_THEAD
-> +	default y
-> +	help
-> +	  Say Y here if your Soc has Pre-scaler Counter support on rtc-xgene.
-> +
-> +	  This hardware support can only be found in DW_apb_rtc after v2.06a.
-> +
+Add DMA controller dt node for CV18XX/SG200x.
 
-I don't feel like this needs a config option, rather you should have a
-proper compatible string that will tell the driver whether the feature
-is available.
+Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+---
+ arch/riscv/boot/dts/sophgo/cv18xx.dtsi | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
+diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+index b726871e6af8..7d96c4ddc1e6 100644
+--- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+@@ -195,6 +195,22 @@ uart4: serial@41c0000 {
+ 			status = "disabled";
+ 		};
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
++		dmac: dma-controller@4330000 {
++			compatible = "snps,axi-dma-1.01a";
++			reg = <0x04330000 0x1000>;
++			interrupts = <29 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk CLK_SDMA_AXI>, <&clk CLK_SDMA_AXI>;
++			clock-names = "core-clk", "cfgr-clk";
++			#dma-cells = <1>;
++			dma-channels = <8>;
++			snps,block-size = <1024 1024 1024 1024
++					   1024 1024 1024 1024>;
++			snps,priority = <0 1 2 3 4 5 6 7>;
++			snps,dma-masters = <2>;
++			snps,data-width = <4>;
++			status = "disabled";
++		};
++
+ 		plic: interrupt-controller@70000000 {
+ 			reg = <0x70000000 0x4000000>;
+ 			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+--
+2.44.0
+
 
 _______________________________________________
 linux-riscv mailing list
