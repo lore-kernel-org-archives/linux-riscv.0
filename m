@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62B1C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 10:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0600C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 10:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KYRFdhlJo5kKYFh4SKfL5TVNoRiAcO2nPtQqJF+cZWw=; b=XwIK/bE9BGIFWA36D2YGn1DHSK
-	APMq6J4VjFSgGHp0yS8EhaPy8YrAAV6SyClrDsqQIM8kUfuAUbj3XXNys+LgL+37Do6w218q4Ga6M
-	dj4/JZdKfyT7yEaaXyoem1/hJX4RqN2hWz53nRSzAFdWo5lYtXRgeWBIYamWz+fPRlqU+4cl8RrQI
-	Ph2+DsFZEcYMcj0aFGVJD3q/5yCLELrvdx4tT/9CtvjayizAvYMxp2mX9bGyDcQVhODiAQCVpvgiK
-	VUH1+KsCqC7F5XHU8c5maZuIi0hjloUhQCNPuj3lx7H+CSln5KIIc9aSl2GhBetyEfqgTq2Y/6kgB
-	bhW98QHg==;
+	bh=jIs705zFRpzGvNpGcRjRyoedzT5mg+vQA80uuV5oZL4=; b=FixIXXzGBu7iwM+/NSrUmLEL+n
+	qgPXejcJehSCk6c7o13tsHoO6TE3ef/YglSdqaOkhFVG+JipXJgDq4HWmC8aAUNGYmXvDgNJEnxhD
+	rUWC+UlQyVWGu1zNQ8WlWNQp3J860w/qCkdMNMuiETOfYAB7fjLjh12j6y4M6PlqFhxDAr0Elpxna
+	GkFK1CAIfOYfkDTBxfGlTkOeTnVncpuWwC8o6TTQTx4934x/aVBO7ekZCD565mwz1oNrS0XE3kr97
+	aTm0bcPYez4PMNR0+KXjrrxrqjNOa81+Nl/cqu0dklRCJlHsfHDmUFWqYnt/bqvPB1hrpoKOGldFQ
+	QKRd7MIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvE7R-0000000GeoO-3T5c;
-	Fri, 12 Apr 2024 10:26:53 +0000
+	id 1rvE8x-0000000GfBZ-2Y2w;
+	Fri, 12 Apr 2024 10:28:27 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvE7O-0000000GenH-2C7c;
-	Fri, 12 Apr 2024 10:26:52 +0000
+	id 1rvE8t-0000000GfA9-24e9;
+	Fri, 12 Apr 2024 10:28:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1712917610; x=1744453610;
+  t=1712917703; x=1744453703;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=40Wqfd4r8w7pmze5vM3OJGtDYx+IFl6psH0Cqec/ypk=;
-  b=lRQnW+lmw/ugcL+EeAwVlQ9h+O2E4vuk98PZxGapJqzeBWlPOyA5/BId
-   YTzEh2G0HyCggmnxQpZ/K2BtKdEnnS//61XNZjLklIM+vShe/SyOQS116
-   F7t9dMkYRRQVx6hbVWMrYr/RTOeZ8gHCUpXiREzSNig1z+2O1NESuaAg3
-   csFV7HE9ZSqr2iEUibEnzEDJtvHrg9TaCArBJ1MHFV4vTdR/oAlBLwWIG
-   yohc25n4oWEl0A3phVdxRSgiTEsUlBZcuSOWAO6omZ/BPiPkgjgdPa34n
-   g4X8tZTosne0NBJ1eLjlF/9lQqG13dDSAiC3dJIIBpyE/DvkLNJOPxHJw
-   A==;
-X-CSE-ConnectionGUID: ZU7OXHjzTCmT3jYqw1Xv5g==
-X-CSE-MsgGUID: x9xw3+4GQs2S7ff9t2+dXw==
+  bh=kTLKhtwsa3h1qGVsoBTw6KqmQbL6Q+SdjxubJOC058A=;
+  b=tM/Hv55ujaC1/xrzF+d6S8jappRm99BcYH6YQJwFhjjCTqAFR9GyHpSh
+   8LBR9yTD6IErQhBE306TDeMc25Ov4gQywgqnDy7GcVW9xy7uoQUqVGSjz
+   oC2eaE6fHoMAGj3LuTj7h59TMTwWX8V111DLjOmHIFFlzw84L8PG3RVQn
+   7WwzdJ5Ltlkf8mFlSkiAcwCZz+I7GkLaYK7klREp8oGI/0S43tvOFoLUa
+   SVd8gEm6XykWYPF9bMxrsZiwrsZIWQAjC6cxQ2dSsD7mo27ykBQfZHj70
+   45/5vw+wMFrzmxkkcs74R//ZJ0XW8I4NJRiWg6/bJWIo2lDC4toOCTEIQ
+   g==;
+X-CSE-ConnectionGUID: pekK4ghjTo2w0Gm+KgOwIA==
+X-CSE-MsgGUID: 7y8rWc9PRki4RcpHGC2VyA==
 X-IronPort-AV: E=Sophos;i="6.07,195,1708412400"; 
-   d="asc'?scan'208";a="188003463"
+   d="asc'?scan'208";a="20673244"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Apr 2024 03:26:48 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Apr 2024 03:28:21 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 12 Apr 2024 03:26:42 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
+ 15.1.2507.35; Fri, 12 Apr 2024 03:28:18 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Fri, 12 Apr 2024 03:26:38 -0700
-Date: Fri, 12 Apr 2024 11:25:47 +0100
+ Transport; Fri, 12 Apr 2024 03:28:14 -0700
+Date: Fri, 12 Apr 2024 11:27:23 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Charlie Jenkins <charlie@rivosinc.com>
 CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
@@ -71,15 +71,16 @@ CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
 	<palmer@rivosinc.com>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-sunxi@lists.linux.dev>, <linux-doc@vger.kernel.org>,
 	<linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH 02/19] riscv: cpufeature: Fix thead vector hwcap removal
-Message-ID: <20240412-tuesday-resident-d9d07e75463c@wendy>
+Subject: Re: [PATCH 03/19] dt-bindings: riscv: Add xtheadvector ISA extension
+ description
+Message-ID: <20240412-ream-dwarf-8cdc3d0f279c@wendy>
 References: <20240411-dev-charlie-support_thead_vector_6_9-v1-0-4af9815ec746@rivosinc.com>
- <20240411-dev-charlie-support_thead_vector_6_9-v1-2-4af9815ec746@rivosinc.com>
+ <20240411-dev-charlie-support_thead_vector_6_9-v1-3-4af9815ec746@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240411-dev-charlie-support_thead_vector_6_9-v1-2-4af9815ec746@rivosinc.com>
+In-Reply-To: <20240411-dev-charlie-support_thead_vector_6_9-v1-3-4af9815ec746@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_032650_680631_2F789990 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20240412_032823_590224_AA1A585B 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,84 +92,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8462790042481929443=="
+Content-Type: multipart/mixed; boundary="===============3081376620446736681=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8462790042481929443==
+--===============3081376620446736681==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9J4y1ZtcO1sNylrs"
+	protocol="application/pgp-signature"; boundary="qHjL7kIT1sLLfOfO"
 Content-Disposition: inline
 
---9J4y1ZtcO1sNylrs
+--qHjL7kIT1sLLfOfO
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Apr 11, 2024 at 09:11:08PM -0700, Charlie Jenkins wrote:
-> The riscv_cpuinfo struct that contains mvendorid and marchid is not
-> populated until all harts are booted which happens after the DT parsing.
-> Use the vendorid/archid values from the DT if available or assume all
-> harts have the same values as the boot hart as a fallback.
+On Thu, Apr 11, 2024 at 09:11:09PM -0700, Charlie Jenkins wrote:
+> The xtheadvector ISA extension is described on the T-Head extension spec
+> Github page [1].
 >=20
-> Fixes: d82f32202e0d ("RISC-V: Ignore V from the riscv,isa DT property on =
-older T-Head CPUs")
+> [1] https://github.com/T-head-Semi/thead-extension-spec/blob/master/xthea=
+dvector.adoc
 
-If this is our only use case for getting the mvendorid/marchid stuff
-=66rom dt, then I don't think we should add it. None of the devicetrees
-that the commit you're fixing here addresses will have these properties
-and if they did have them, they'd then also be new enough to hopefully
-not have "v" either - the issue is they're using whatever crap the
-vendor shipped.
-If we're gonna get the information from DT, we already have something
-that we can look at to perform the disable as the cpu compatibles give
-us enough information to make the decision.
+Link: <foo> [1]
 
-I also think that we could just cache the boot CPU's marchid/mvendorid,
-since we already have to look at it in riscv_fill_cpu_mfr_info(), avoid
-repeating these ecalls on all systems.
-
-Perhaps for now we could just look at the boot CPU alone? To my
-knowledge the systems that this targets all have homogeneous
-marchid/mvendorid values of 0x0.
-
+>=20
 > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  Documentation/devicetree/bindings/riscv/extensions.yaml | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index 468c646247aa..3fd9dcf70662 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -477,6 +477,10 @@ properties:
+>              latency, as ratified in commit 56ed795 ("Update
+>              riscv-crypto-spec-vector.adoc") of riscv-crypto.
+> =20
+> +        # vendor extensions, each extension sorted alphanumerically unde=
+r the
+> +        # vendor they belong to. Vendors are sorted alphanumerically as =
+well.
+> +
+> +        # Andes
+>          - const: xandespmu
+>            description:
+>              The Andes Technology performance monitor extension for count=
+er overflow
+> @@ -484,5 +488,10 @@ properties:
+>              Registers in the AX45MP datasheet.
+>              https://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-=
+5.0.0-Datasheet.pdf
+> =20
+> +        # T-HEAD
+> +        - const: xtheadvector
+> +          description:
+> +            The T-HEAD specific 0.7.1 vector implementation.
 
-> @@ -514,12 +521,23 @@ static void __init riscv_fill_hwcap_from_isa_string=
-(unsigned long *isa2hwcap)
->  				pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
->  				continue;
->  			}
-> +			if (of_property_read_u64(node, "riscv,vendorid", &this_vendorid) < 0)=
- {
-> +				pr_warn("Unable to find \"riscv,vendorid\" devicetree entry, using b=
-oot hart mvendorid instead\n");
+This needs the link and a SHA or some other reference to the version
+of the document.
 
-This should 100% not be a warning, it's not a required property in the
-binding.
-
-Cheers,
+Thanks,
 Conor.
 
-> +				this_vendorid =3D boot_vendorid;
-> +			}
+> +
+>  additionalProperties: true
+>  ...
+>=20
+> --=20
+> 2.44.0
+>=20
 
-
---9J4y1ZtcO1sNylrs
+--qHjL7kIT1sLLfOfO
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhkMKwAKCRB4tDGHoIJi
-0v68AQD669QXYYGZU4Sw+Wu1jBsENutdxevRVfy9dIk6oB75uwEAp3mGiS9zEGbC
-gOmDF/36Lm2Mc4K4SgfZISRAD+65oAI=
-=tAZ7
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhkMiwAKCRB4tDGHoIJi
+0jwIAQDE34qo4fc159LqDVXLnUh1xD3mFK2kVSZZanvcn5G3rAEA7T4mAnRBt/8y
+DaAR+UAhIFMAcbXd35hewh6U4mwHMwk=
+=Co3F
 -----END PGP SIGNATURE-----
 
---9J4y1ZtcO1sNylrs--
+--qHjL7kIT1sLLfOfO--
 
 
---===============8462790042481929443==
+--===============3081376620446736681==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -179,5 +189,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8462790042481929443==--
+--===============3081376620446736681==--
 
