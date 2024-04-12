@@ -4,98 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71F4DC04FF6
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 08:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49BD5C04FFE
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 08:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tb8dfX6dOSU+7f/t5HeUlyYm1qvu38FemZr8Q8tB8SI=; b=yirbCHdwxIbubc
-	Q3HEq264s24YjjXciihcZ16oancutygnbgPH1w1mJDPrzyr4y3cNj4iTpr8KMnou1swBx5MKSdd2E
-	1fRa7MfvNSyKI4FLB8HZVr8Uaz/0MRFJ9fg2QP78sjteIdrnUaMEeQtz9jMJaIBmNGqSn/Eg/w6Nm
-	ruDr4tdc84paDuH6z1xVk2fUxleT3ZnooFF8AlCdV3N8gUoLw48+m29fu2WmgBSNU7o9RLRhaZl7+
-	dCNiVauMFW5y0Q3YSni5AMH7YQEayXuyIHWrHfEGAKk9+t+E9+uvWXvR6b/AIdcO7r8JE9Yi4v/AN
-	efy4sjTHx/NFs6VLqdMg==;
+	List-Owner; bh=M27zrXSjVdG2Ecn9QERBg/EnQxGvY/eqH1MUXD2s8hY=; b=vCKMUEPekmMLj8
+	BlM+XQFNZiqIY3bsSVc+qioXJjhiyRsf8Dfn5aoTMe3LiwuXaNZqlfaqU2rdSbZByxJ6l1XrYmn+J
+	EgIGik5pLkjWDGslbGsONwHEW833W3wa3fN7mvNKWQ2yU3TK15PqFNdXk4cJwEwapY7dC2rM44J7p
+	7uBSH9SGXeOYmbd1XW63Wpko/l6+fMAWIMnS+rukjGUDLhjbDuegPht1OZK16ryQZxJ6VkMHZy6kU
+	UWJNcsppdAqiDljUnBCOpRoorqRponxVj8qY9jqIILG9xUYJCakp7qg/YoZ1e3YwYCFRLqPohXZUi
+	ErwWsE4m+C0+3cah5ubA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvBsW-0000000Fy67-0lDf;
-	Fri, 12 Apr 2024 08:03:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rvBst-0000000FyMu-0dqC;
+	Fri, 12 Apr 2024 08:03:43 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvBsN-0000000Fxyv-3io6
+	id 1rvAj9-0000000FdXn-1yLP
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Apr 2024 08:03:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1712908990;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PNPGi/LJLZ1f/UWkNAkdI7gt1aIfJVZxqk0hEY+zuuE=;
-	b=GOY+tHJ0cCNbo84p0W8gYe1eCEVr6KXXXIG0ITrv3NgsfmrxGkczM29r1zOamYTUikDpY+
-	IUl+o1feTHhnx3sXhn4wFOit8kSv0jmc2NtKzKXK2fel7GuZWoakp6/6+Lij+29L2Hy9bH
-	OW5owUMbBd2NEhifiAz8vLSTt19gYv4=
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
- [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-300-cA0wPUf2PPKMPQL1oePi2A-1; Fri, 12 Apr 2024 04:03:08 -0400
-X-MC-Unique: cA0wPUf2PPKMPQL1oePi2A-1
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-2a6f2c7c1b8so375939a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Apr 2024 01:03:08 -0700 (PDT)
+	Fri, 12 Apr 2024 06:49:37 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1e4f341330fso6018625ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Apr 2024 23:49:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1712904572; x=1713509372; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=R0+TwQ5GqFH8aHlUKPdqP3mrZz0YybL9qzmJdYvs5ws=;
+        b=cUUDqURwbgdlrrSIZa8blhsvwTWyZgrserAZe/xYF8kwBYo6k14Tt5k7LLShBRG2wd
+         rKt2C1wngucHXRHJeCYBZxBCHi/l3KbMxxA+YQy1C5XmjTsJL3VYx35C2DAXu+NiOMMh
+         l9L3n4Ko3j/m1skV5Tmc3xBaxdKePWa5JvfO1WwY4sR0NPweWo8rhKOeUINCuUTPJ8+S
+         Go/rbBaVsm5zjXX3V2rA2HJyST4hryF/grVQ3l0m7SoFn8pXtKyZD4O7HrrwT6HPaaFz
+         VdirPfA0D6XErsWK2D9sUGJ0ONngUaWNsxHDdPp4KOODSYLHmG3/iPKrcsqVwVQL8D55
+         rhaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712908987; x=1713513787;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1712904572; x=1713509372;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=PNPGi/LJLZ1f/UWkNAkdI7gt1aIfJVZxqk0hEY+zuuE=;
-        b=eF0Z3Et/bS8TyiKAqjFpgJuOloKsBttEkngdM8S/QSCG7l0vy5ILp0xTi4oCX7hO78
-         CEFKSAphlKa+jqkcp0JTuwUO+upLTkosuwranFrSSO0Pk5lIHUn7qMbKNza5/P7H1snc
-         R3ub0mpJfBggmgER+U1F1Hv8xb9ptN7UCjsbE/0QVLvzgt1MDG+PU8w8KnZ3VnTdzAXF
-         qZDodYvUE/w8NEWGR6HmLoIMDlAOu5RAdSEH4dLVCQ8SseM0A+bvmJppkDyyYVr1rwer
-         7XNVnxplmKesXWUd1EC81nsR5pTfDve4B7Tyy8FDsxY+5MGyQrHPa4ktRc299Yc6oBeT
-         0cSA==
-X-Gm-Message-State: AOJu0Yz9rwvjKdfkmtTf4fF/gLNwDuwciZtfVLpUpUWKdZTb0NjVd8AF
-	Cd1Nii8GuLxbAz98xJBy5jYgxmcyBI4nCUCoE1iPfsoGCxtPEmZUF4TQN7rhczr5IojAEYZf6Bj
-	oYZStFI++4aRfAlZC2pP2fz0oW8JlwWm11BIrjXv4Jp1XYEB8ePQwmZiOT1sgvGZa7g==
-X-Received: by 2002:a17:90b:3597:b0:2a5:5334:e223 with SMTP id mm23-20020a17090b359700b002a55334e223mr1616967pjb.24.1712908987688;
-        Fri, 12 Apr 2024 01:03:07 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHEXR+HX46H9j17BcJJXoxM6E1KRCiVCkfSB10IGeNquAnS6am5GYCSSbFBeb4H+vygzWBIgQ==
-X-Received: by 2002:a17:90b:3597:b0:2a5:5334:e223 with SMTP id mm23-20020a17090b359700b002a55334e223mr1616944pjb.24.1712908987375;
-        Fri, 12 Apr 2024 01:03:07 -0700 (PDT)
-Received: from Samantha.redhat.com ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id c9-20020a17090abf0900b002a610ef880bsm2601514pjs.6.2024.04.12.01.03.03
+        bh=R0+TwQ5GqFH8aHlUKPdqP3mrZz0YybL9qzmJdYvs5ws=;
+        b=oMtPpODyLT5KJ2GEXPsKeNmreEkHbNgrYi8Tz1VdEL2a8BT7rxiolFs2tYay0Dh1Am
+         TmtCDJ4GP7dcFo7vETOYTnR9l8nyT5LZ1HmDVNi3nSu8UMSSLqO6gacK9Mx+L/OJ39wD
+         q+uTYiQ8WpPiFmYY7WuuKKjgrfwk/1RzvP6zjDgSJJUe+RdqJSdlLfY1bT7xWF1TMzWc
+         /kZkCsRRWGY8/WjJiR0QDoxiUJlu9qbEwempnv6p4e+6MeWkFRcznExsD+ZDUPQ+tuv8
+         pGnOw85ULjfV4brywHhx0zVtVcok68qmGfoTdCtt+QnKnPcJLWIuoQl9chT4elNe31N9
+         3Adw==
+X-Gm-Message-State: AOJu0YyNh09D3SwW/TxmAGF8rvWvYgqbbVpSdTRpUFwvLcgpAaYQVEnv
+	BCUrozMOrcSDrlGWfB2JXTqfnsLn8IvQS8JzBTAt8OqxWOHnMntBkKfaafgYFvQ=
+X-Google-Smtp-Source: AGHT+IEyMJ5oVk6CfLCQcJcfX/ZIjOVHG1NEnrkJlbePak6mm9DdqGhN0zRdg6Q82lhK4umpLFADiw==
+X-Received: by 2002:a17:902:ce92:b0:1e2:4c85:82ea with SMTP id f18-20020a170902ce9200b001e24c8582eamr2036574plg.24.1712904571996;
+        Thu, 11 Apr 2024 23:49:31 -0700 (PDT)
+Received: from [127.0.1.1] (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id q8-20020a170902b10800b001e107222eb5sm2258818plr.191.2024.04.11.23.49.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Apr 2024 01:03:07 -0700 (PDT)
-From: wefu@redhat.com
-To: jszhang@kernel.org,
-	alexandre.belloni@bootlin.com,
-	robh@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org,
-	guoren@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-rtc@vger.kernel.org,
-	Wei Fu <wefu@redhat.com>
-Subject: [PATCH 5/5] riscv: dts: thead: Add XuanTie TH1520 RTC device node
-Date: Fri, 12 Apr 2024 16:01:47 +0800
-Message-ID: <20240412080238.134191-6-wefu@redhat.com>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <20240412080238.134191-1-wefu@redhat.com>
-References: <20240412080238.134191-1-wefu@redhat.com>
+        Thu, 11 Apr 2024 23:49:31 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Fri, 12 Apr 2024 14:49:04 +0800
+Subject: [PATCH v4 8/9] hwprobe: fix integer promotion in RISCV_HWPROBE_EXT
+ macro
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+Message-Id: <20240412-zve-detection-v4-8-e0c45bb6b253@sifive.com>
+References: <20240412-zve-detection-v4-0-e0c45bb6b253@sifive.com>
+In-Reply-To: <20240412-zve-detection-v4-0-e0c45bb6b253@sifive.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor.dooley@microchip.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Andy Chiu <andy.chiu@sifive.com>, Guo Ren <guoren@kernel.org>, 
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Evan Green <evan@rivosinc.com>, 
+ =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Palmer Dabbelt <palmer@rivosinc.com>, 
+ Vincent Chen <vincent.chen@sifive.com>, 
+ Greentime Hu <greentime.hu@sifive.com>, devicetree@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-Mailer: b4 0.13-dev-a684c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_010312_070575_E895DFA4 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240411_234935_707026_1DE5F561 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,39 +104,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wei Fu <wefu@redhat.com>
+(1 << 31) is a signed negative integer, and it was sign-extended when
+being or'ed into the "missing" variable. This casues hwprobe not
+reflecing extensions named after RISCV_HWPROBE_EXT_ZVFHMIN. Fix it by
+defining it as a unsigend long long.
 
-Add nodes for the XuanTie TH1520 RTC device node on the XuanTie TH1520 Soc.
-
-Signed-off-by: Wei Fu <wefu@redhat.com>
+Fixes: 5dadda5e6a59 ("riscv: hwprobe: export Zvfh[min] ISA extensions")
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 ---
- arch/riscv/boot/dts/thead/th1520.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Changelog v4:
+ - new patch since v4
+---
+ arch/riscv/include/uapi/asm/hwprobe.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index cd6bc89a240c..62e588dbc942 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -463,6 +463,17 @@ timer7: timer@ffffc3303c {
- 			status = "disabled";
- 		};
- 
-+		rtc: rtc@fffff40000 {
-+			compatible = "snps,dw-apb-rtc";
-+			reg = <0xff 0xfff40000 0x0 0x1000>;
-+			interrupts = <74 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&osc_32k>;
-+			clock-names = "osc_32k";
-+			wakeup-source;
-+			prescaler = <0x8000>;
-+			status = "okay";
-+		};
-+
- 		gpio@fffff41000 {
- 			compatible = "snps,dw-apb-gpio";
- 			reg = <0xff 0xfff41000 0x0 0x1000>;
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index b9a0876e969f..dfa7bdbcce92 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -54,7 +54,7 @@ struct riscv_hwprobe {
+ #define		RISCV_HWPROBE_EXT_ZFHMIN	(1 << 28)
+ #define		RISCV_HWPROBE_EXT_ZIHINTNTL	(1 << 29)
+ #define		RISCV_HWPROBE_EXT_ZVFH		(1 << 30)
+-#define		RISCV_HWPROBE_EXT_ZVFHMIN	(1 << 31)
++#define		RISCV_HWPROBE_EXT_ZVFHMIN	(1ULL << 31)
+ #define		RISCV_HWPROBE_EXT_ZFA		(1ULL << 32)
+ #define		RISCV_HWPROBE_EXT_ZTSO		(1ULL << 33)
+ #define		RISCV_HWPROBE_EXT_ZACAS		(1ULL << 34)
+
 -- 
-2.44.0
+2.44.0.rc2
 
 
 _______________________________________________
