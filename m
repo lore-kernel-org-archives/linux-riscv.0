@@ -4,82 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51373C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 06:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E4DC4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 06:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=txj2FiYgTj9n4pmaxhvotRxmAOFLwZ65r0eQSur90ug=; b=BJ/toFg0mkfWQt
-	Du2o9Ou/oeQRYuabUyiNAMisEo4e4aRlu0NNV3bk1i5ceqf1LYnBfi9XHT3P9Z2+2mS3PfuFDcayt
-	q4HoBH7VfS9cvuZ6sVGVJaHyqX+Om5I0igrfl9iW4UyuWcE7IOsMUWXsD+PCgCosWCv3AQfiRpQOO
-	2pHKfvvAlVVTya7BbpaeLQ6scp95pNoop+jfpCk0+oFKjqNHvUTC/ukIZpN3Q5jxEDGJWaadlFFER
-	XNCBB7ICXQfvz0nfwj9yLCfX9t4KwkwksLsDgnLTobtm24TQv35KrYnHVZWUhTbd2u6TO8oiqxKDE
-	a+HpIDUrBFn16taoaDdQ==;
+	List-Owner; bh=GQpZjwPjTclv38TQ5qSNaZ36nnZ8iDuQqKdBl6pjLNg=; b=AxPCEOPmCm/kwk
+	9onr4YKEbkpssV2sXpuD4eJKHkPdjva8t/UczI3MELLCTsPTBssMH+07KcCARv0ff3NoYTmV0X9hv
+	fc9cHawFMac8AzM9pRHzwgJ750pgsNewyZJK1+9aOykv55V5M8wLyptyVX/2KGaPgFdtc1YfJlGXU
+	EmsXVfy3BXfhQVTI5fwlKPIntAWvrZleGmLqIbHXDAiilit6OfhGj2qEOoMSAIA9tgAz8Ns8TLwii
+	tmkZs12RsWaThRDz0UO1Bg0fmCJ3UMZXHqzYbINNR3En3y/5nmdtIhBw0yuxiZvFgJdVt9A//LMpw
+	M40hgvZMIbQQ+mSXeA6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvA73-0000000FW5R-0mUz;
-	Fri, 12 Apr 2024 06:10:13 +0000
-Received: from out162-62-57-252.mail.qq.com ([162.62.57.252])
+	id 1rvAUH-0000000FaXR-1jqT;
+	Fri, 12 Apr 2024 06:34:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvA6y-0000000FW3S-3uV9;
-	Fri, 12 Apr 2024 06:10:11 +0000
+	id 1rvAUF-0000000FaX7-3F5N;
+	Fri, 12 Apr 2024 06:34:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=D8d08kdXjrFd28ginRdzdAdRNU2wwkO/zqvD1S6aOGE=; b=eUlYXMErVS1FIKpcBOi0BrGXuz
+	Gp0rRCuKF95ooGGpES1jr2vYX3SUWh2QJSdCO/d8aOCg/TUih8gXfw+/rR7noWSLne3+OQGwOa0gc
+	+HbwAu8AEpjtz5zEBRFoOV3vRJHaB94xY4uEhoA4+qW31IcIh3uCDJExBfNUC0C1sc4jRYnE7Fl5X
+	7pM4/mJiN4mKITdwjPqn/OCa8HSxRPFMdUH6BTOosRHUMPD6Laa6ocFMfZ9Mj4U+bWv0CKAO55QKN
+	26Ly17lEwWRfx2U8fmvD2KQrueqxPNDmHNGB5UzmC2Mn9GRBa0BREnzZR84fPewSMjowGM801305w
+	VUWqod3Q==;
+Received: from out162-62-58-216.mail.qq.com ([162.62.58.216])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rvAU9-0000000909m-0bkW;
+	Fri, 12 Apr 2024 06:34:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1712902187; bh=RCpuUG8Y6qQzCbQ/bfUjCb8eAFDKLZHys2TWAmXqEP8=;
+	t=1712903629; bh=D8d08kdXjrFd28ginRdzdAdRNU2wwkO/zqvD1S6aOGE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=roV5U5VOLfFFuSA66RHFtd7DlpW3fjYMRUPDqFI4aOTdWqGNrZmfcg+iP+kqcYPgK
-	 cqvz9pn0atBRzLHYoRMhzQDWoHZzVYmYZZPKbtb7OjkXAlhZdP65CGaIJE8Z0CFZQX
-	 ExGcMlD8wmaHdaiDpWKLKNy91li4bIYIreA0kzVc=
+	b=ICkmt3jGIdBSQq8hsGDEJh8Gj6RGMJmADhgNHL++oO7bRdntCXS5GtmcBIqH4SrHA
+	 7TYURgp+r3VGEHaNARz24Ypc5AYkmACkMe3gdWNtnjI7cQ2vmUfv9IPfLARF2tiyMA
+	 zedCbsw2gm1iXpMAcrtijEt9+a/Wea1TCXr3FW50=
 Received: from Yangyus-MBP-2.lan ([219.141.235.82])
-	by newxmesmtplogicsvrszb9-1.qq.com (NewEsmtp) with SMTP
-	id 26A92058; Fri, 12 Apr 2024 14:09:42 +0800
-X-QQ-mid: xmsmtpt1712902182tfspx6bgu
-Message-ID: <tencent_29B81A312921AB8D9D7C3C8292DAAB8EF608@qq.com>
-X-QQ-XMAILINFO: M1rD3f8svNzn35bFmb+L32haCejewhnm0tL5u10kQJA0x4jKl0RKQqRqKkkeFJ
-	 Fg4gmNCDe9dtErpMNgMglLVMZeDwgKhv10ZTSliNR+2NMa8JAbCF0xv12hwnluevmQ4Ge7phRXsZ
-	 /2rYdrKJI/DEc0yHHFHhQ4moVMMw/wmXOX1ZrHs5hhs8SdJUzEWIz+PNwA4RhF2zwVnfjAKS7KnO
-	 Z0n6//9rIarmviIB3JOPsBb7dSVuQlk6FtbMV6XIJC8vypa/q3gleY5sb+DH1pRgA2KWpaVN8j77
-	 aBkOdU4T5xXQj5Etw0BQqVrDOxGSKN3fYR78BBIU84T1gRqgMugeE72Go1rOberoZ37eQ7uIdmKz
-	 N9SQs7tJfFtF7k/f+nKcpSnDFaCEWEf97tMvT+jjd5TJeSuoT6gl6CDLUGGhi1ccdTttrtvXW+Qt
-	 CfoTK9dBQnVuxRDicMrlZ/S9aOuc9f1IrJLUpBGyPz+bTPK/pb2x0x91ucYqyesit/RY33Ng3yFn
-	 /c2bMA6gXgPAluy0foT7SdgFNAySkZB5Nl5bsSPPh14TpWNC1UgcasoG9QX9d9IDMawfWupZPOfl
-	 zr9dUwduoqBmqBDGccZGBEwUExeo6roCmbf5QGL48QabybjdZZmCaeJmmBGoZLBafqWcrqdBff26
-	 XIlamWmtbC3OxqHc6ZLHiKnAuI/HMvHhUTXXY2DeEzDPq+T4z8LWYb1S0kFUximiTerLFZHk1scS
-	 3cSwnU8EGT0lD6fbVSk4m8ps24y7TMDp7jlunjfICDXdxYBXZ3gL9s/nR7cx/FtnrVsvgV2V83qq
-	 zEgGEfC8uoYZi12qJ3TD2FNOFtAzu4YRevGxh5eJkbBS6ImpuWw3kgZvRwB3hU2ZkeOqrnX8PG9u
-	 FfYmxxe4PKvsoAC8DnnDXmFi73XXOuwc3JlOqSWxrJgHKYlGyk+jsNwguo5ClA6+RV9X/FR0eGdg
-	 L5SDlkNDyREWq6BKtawErREgOUpddUKcm5wxCKYO0Bq99DzZHYZTs1Fwv7hfXnRWUIQZ6JOFbUdq
-	 WxhJqAcpgZVYYEiBVl
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+	by newxmesmtplogicsvrszc6-0.qq.com (NewEsmtp) with SMTP
+	id 6DDA90ED; Fri, 12 Apr 2024 14:27:29 +0800
+X-QQ-mid: xmsmtpt1712903249tchi8hoao
+Message-ID: <tencent_49E156C63C84E435E6F16509D6699339520A@qq.com>
+X-QQ-XMAILINFO: M6lqjKFHeg8FipVhaxR+kEqYAYB7tJUinzNVL1AmDc5DgmTMqHVxOFMH9MdVvV
+	 RjPhvTEMHFHFNzmcs9Aso2kRDaElcQapDDlJwGkBBhWa59KhptInSCzFi03vMg4LzERqRTZQ1sJH
+	 CNwnCmgUbBUIIERkAWWI5ZK2gZuvi4zwiiGC+wR497dv+g43C3eN2JS5O7Je9Y6JSbC3b+djrjzT
+	 is/rS4G4tjTzsKLPax7qS7oAx7SJLE/XmKBeXrzrz3Qmc4F5hfqJ/3hZN3FsWWH3VcgFyuw8qf+j
+	 eiV9+dyW/PuokfeGq0Ko589nTnyFWgZECvR4yt5fKkP9bIgQDqLM6G2g5mly91OlFrL9On6PMTif
+	 FJdE9a192NEFtCl+UWCfyxh8ZZ2wbYvMmvE9UOb3GS6xU/Tr7TbPjPINZZ9ecjgnobJ7ocdNqNHi
+	 1s7o3Zq+t8JEi9C+16Uwe6O8ssdxqdtAgsbhco7k6BKEiBYkZUu0E2UYmS0rwFsMuIn6f/lAu646
+	 wLzCtFhObPbbeMQkiyf1dpvjVC8A/nXkupyawyK4+ldMuF8chHbnuffrn/WczlsV08UGuU/V/If4
+	 z2gvOQt8/PBLvTLv9w+dLovbn+7popyN1zfKg1MdqMOwjmGzK1Dj+cMMQjxZpQBC8+D9XbpFTRa3
+	 c9Px4pQB2KSD4hUsvPtpQfuNN42fQE5utHLK5kJYr2XOhgGy0Y6j79KVhI26e7m59RHkbRoxyWcc
+	 pGVurjjQF0Vgt0CP2K/RhKXKmXGR6Ez24GgnCCEp9v/RCWowSHECv6IIECzBfDlH+98UUR58dsiG
+	 DftcNxVBMSIoVMU24t23HUMnay7tCqipq67fxLzF0UsIlkLT/nUqJ/DjJVRXTB54DSsbMM/6SeKD
+	 qwUrpMixt0xaelMdd/Ucma3hsRRjqDxmo9LwXdiEYBcOUrjTeY+LpFcaolblLmrzLNU1tEYeaghx
+	 VEqmBD/GaU1ukUuKp4//LrQaxRNyClcp71h31IuKwmHJU5f/IiWqKhwnP8NevXBzJFk/yZem4=
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
 From: Yangyu Chen <cyy@cyyself.name>
-To: dqfext@gmail.com
+To: conor@kernel.org
 Cc: ajones@ventanamicro.com,
 	anup@brainfault.org,
 	aou@eecs.berkeley.edu,
 	atishp@atishpatra.org,
 	conor.dooley@microchip.com,
+	dqfext@gmail.com,
+	guoren@kernel.org,
 	heiko@sntech.de,
+	inochiama@outlook.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	mark.rutland@arm.com,
 	palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
-	will@kernel.org,
-	guoren@kernel.org,
-	Yangyu Chen <cyy@cyyself.name>
+	will@kernel.org
 Subject: Re: [PATCH] perf: RISC-V: fix IRQ detection on T-Head C908
-Date: Fri, 12 Apr 2024 14:09:32 +0800
-X-OQ-MSGID: <20240412060932.54327-1-cyy@cyyself.name>
+Date: Fri, 12 Apr 2024 14:27:28 +0800
+X-OQ-MSGID: <20240412062728.71533-1-cyy@cyyself.name>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20240311063018.1886757-1-dqfext@gmail.com>
-References: <20240311063018.1886757-1-dqfext@gmail.com>
+In-Reply-To: <20240314-pep-announcer-2d7f10ff8b65@spud>
+References: <20240314-pep-announcer-2d7f10ff8b65@spud>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240411_231009_654112_727BE821 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20240412_073406_780772_7B130094 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,74 +110,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024/3/11 14:30, Qingfang Deng wrote:
-> T-Head C908 has the same IRQ num and CSR as previous C9xx cores, but
-> reports non-zero marchid and mimpid. Remove the ID checks.
+>> IMHO, it may be better to use a new DT property like "riscv,cpu-errata" or
+>> "<vendor>,cpu-errata". It can achieve almost everything like using pseudo
+>> isa. And the only cost I think is a small amount code to parse this.
 > 
-> Fixes: 65e9fb081877 ("drivers/perf: riscv_pmu_sbi: add support for PMU variant on T-Head C9xx cores")
-> Signed-off-by: Qingfang Deng<dqfext@gmail.com>
-> ---
->   arch/riscv/errata/thead/errata.c | 4 ----
->   drivers/perf/riscv_pmu_sbi.c     | 4 +---
->   2 files changed, 1 insertion(+), 7 deletions(-)
-> 
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-> index b1c410bbc1ae..49ccad5b21bb 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -125,10 +125,6 @@ static bool errata_probe_pmu(unsigned int stage,
->   	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_PMU))
->   		return false;
->   
-> -	/* target-c9xx cores report arch_id and impid as 0 */
-> -	if (arch_id != 0 || impid != 0)
-> -		return false;
-> -
->   	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
->   		return false;
->   
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 452aab49db1e..87b83184383a 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -811,9 +811,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
->   		riscv_pmu_irq_num = RV_IRQ_PMU;
->   		riscv_pmu_use_irq = true;
->   	} else if (IS_ENABLED(CONFIG_ERRATA_THEAD_PMU) &&
-> -		   riscv_cached_mvendorid(0) == THEAD_VENDOR_ID &&
-> -		   riscv_cached_marchid(0) == 0 &&
-> -		   riscv_cached_mimpid(0) == 0) {
-> +		   riscv_cached_mvendorid(0) == THEAD_VENDOR_ID) {
->   		riscv_pmu_irq_num = THEAD_C9XX_RV_IRQ_PMU;
->   		riscv_pmu_use_irq = true;
->   	}
-> -- 2.34.1
+> I suppose we could do that, but accounting for vendor specifics was one
+> of the goals for the property I only just added and that I am suggesting
+> to use here.
 
-Tested-by: Yangyu Chen <cyy@cyyself.name>
+I think there is a simpler way to do that. We use T-Head PMU by default
+for All T-Head CPUs (from mvendor id). Then, to test there is sscofpmf in
+the ISA string being probed by the kernel. If yes, then use scofpmf.
+Otherwise, use T-Head PMU.
 
-With this patch and T-Head C908 PMU being probed by OpenSBI, I can now use
-the perf record to profile RVV 1.0 software on Canaan Kendryte K230. This
-will speed up many RVV 1.0 software developments now and even for better
-performance.
-
-However, as Inochi said, the newer version, C908 may support Sccofpmf. We
-should ask Guo Ren to clarify this so we can have the cleanest way to
-probe what to use between THEAD_PMU and Sscofpmu.
-
-I added CC to Guo Ren. Please clarify about this.
-
-Some off-topic things:
-
-I need this feature recently since I am implementing a pure RVV chacha20
-algorithm. I have already sent PR to openssl to speed up the crypto
-performance on RVV without Zvkb support and maybe ported to kernel crypto
-sometimes. To speed up TLS or other applications for many chips that may
-come this year with RVV 1.0 but without Zvkb.
-
-Link: https://github.com/openssl/openssl/pull/24069
-
-However, the performance evaluation on K230 is not well compared to pure C
-implementation. I will need this PMU driver to do some profiling.
+I will check if this can also be switched in any vendor CSR like Svpbmt and
+T-Head MAE we discussed before.
 
 Thanks,
 Yangyu Chen
