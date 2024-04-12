@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44678C04FF6
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 08:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2459C00A94
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 08:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lrGP1pueBmfgBlCf7FrU7FuhqgaOgMWv7zbMTqWkmLI=; b=1TiUmbP3DM7QjC
-	mp89KZbYWgLlI3ZPqGjtro/jRnfI1D64ONxC0WbSss7EYSSiEx/AfBfun5hCHDI+4R1lj15EFsdq2
-	vgFdp+2Zx0ZyShofJpe+uZ9acvX7pVJ02SCultFWJvgCCFz7wNGV066TXXZvhchHPJkxP64U5rUag
-	z0jz99BLNrnHQpTFMBoYupf6E4LFFrIrM5ykVboSMmuxpak72d1pBcmatN8Ip3NwyidhWUbtSb/n1
-	lsNNeiE6GisFA3cOsy0to+N0alXa39W0mTki6I4SxEjJJzchv2nhiBlyV4nivL4UJ1i6EQjjy42ko
-	onc+ruAZYG7p0DkVwZNg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MAnaQ3/9M1ulcxx0jCYOg0vV/A22TpVBQxMvnbsR+yo=; b=ML1BG6CyPkvywj
+	yZm05+zShy4+ax96KNMn/ZLEKtxt+8qkb7tb1FcH+8XR1I9wZa/DDhlAvQzjOfGlrUvyovfkc01RH
+	WxWdX8DV6t+oo5iEtoJOv3bPhjcIJx8tVkJhWMR5Tvl8ofDKdHZ1Lwvo5rRFV5IOVu/pIdkslGfsA
+	6NzF0MwSUjN9zps5dLLwH7l9HTNttEUeyXekjskAwJYRxlaUFZ3m7cF+UN9KtFeQvN3BlGbSYD2NU
+	BPG9/xjU2OO5JXzVJYY9WDggBCQN5brTkbitKm3QL/ZMwzD4v36qnsyAC58GnVrE69VxX9VnK7QHs
+	ZxFUaJS2fQkMxc7tGxSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvBs8-0000000FxpZ-28Sx;
-	Fri, 12 Apr 2024 08:02:56 +0000
+	id 1rvBsG-0000000FxuP-2r4F;
+	Fri, 12 Apr 2024 08:03:04 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvBs2-0000000Fxmo-3E7E
+	id 1rvBs9-0000000Fxq5-3eOI
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Apr 2024 08:02:55 +0000
+	Fri, 12 Apr 2024 08:03:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1712908968;
+	s=mimecast20190719; t=1712908976;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=k7/OapXEM9hlZWA7yCBRs/93mN3l17NGNZqV6UA5j9E=;
-	b=itS/2W9SUgYmbPNcIFUhwk6FmFILOpHeCj+zEB6qqLfK/Cywi7MjO9y58PkobTmoAAdHm3
-	glOze+QAoi0sOT05NanydXOR3pmdJTi8jLAdysmwPWP7c8Zll6lLBjzz1eE+LMLRdgrJqs
-	x/3wQEPKod1LTxkTO4cU1/JL8U4zfUc=
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
- [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1yKfHvWoABRl5sMyudqLBw3GDuqqgdkusDwKI6CPTPQ=;
+	b=ArvH3ExoftBy5OR5VUssPacDl1OaL68xY+WpawPvLndH+NBcDCzI+VLXoSqVeFQxgc3QRL
+	WBXC2biOYMqqzUMFY/tITeRbqqPu4XQGp9lFieS3U040zMQJC7U5b4QVl8sQH8jzXCykK/
+	f4rjiRL4TUI4fgGAsLJVOiow/boMTCo=
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
+ [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-435-_jB9mNbnOa-bTa71OLk3ZA-1; Fri, 12 Apr 2024 04:02:47 -0400
-X-MC-Unique: _jB9mNbnOa-bTa71OLk3ZA-1
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-2a6f2c7c1b8so375619a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Apr 2024 01:02:46 -0700 (PDT)
+ us-mta-691-B52Oo8oRMu6A59j560d3gQ-1; Fri, 12 Apr 2024 04:02:55 -0400
+X-MC-Unique: B52Oo8oRMu6A59j560d3gQ-1
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-5ce12b4c1c9so514178a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Apr 2024 01:02:55 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712908966; x=1713513766;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k7/OapXEM9hlZWA7yCBRs/93mN3l17NGNZqV6UA5j9E=;
-        b=iCe3SJSZBCo11xZOyxuoNdtA1WmpvmEdYcU+dwOQsoSgJCPNQNqOFPozxmP4syqbBW
-         dA+JSjYcCSM0MnDWRJDc6+rNZDl5RXH6uny1E3w2s52EKsAVEoMKCC+vQDyhvXVYwN4L
-         b2AROjR+ZGtmiW0UxNFiiqWR+36ZVf3edTb7VbvGZLPtOzry8qm0HJFyXItP9sKCbsyX
-         wfb+mD51cmyjdMvVve7xsa+tBD4oDfI3rb0jqdwzHEX65eywOpjuEVZa24tIw7z5RZfl
-         elzryk4wNAYiHm92ho+tjqzQmT8nJkKHOeTOgxZB4oKpSxPOXa0dQMTPOdY8sUynM63n
-         X+cg==
-X-Gm-Message-State: AOJu0YxuusQJFzaAI3nz6Fk0T6TyeAUNA8bNNmzU5cSuwd2NWShJ3ksH
-	ZUOX7xDBN1sCW3KqN5PFCM7Je/mImptbv8nqvQUbnkxebekTO0/yR6d1j0JsZXqOwDqeg33BMyH
-	Y8E2kkxZ89LqueamzHUz1cg0Q9Ta1myCEef+xOseL31mfAyIdFt6qbSfpCB4jNb7f4Q==
-X-Received: by 2002:a17:90a:e501:b0:2a2:616b:f3b0 with SMTP id t1-20020a17090ae50100b002a2616bf3b0mr1913809pjy.35.1712908966064;
-        Fri, 12 Apr 2024 01:02:46 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFSc4T0+QC9jHg1hidzbPxP03+A7jHsSw9GJe34xPb1pjDLvNStx2JhXJsXAeuWkfAFN1B3Zw==
-X-Received: by 2002:a17:90a:e501:b0:2a2:616b:f3b0 with SMTP id t1-20020a17090ae50100b002a2616bf3b0mr1913709pjy.35.1712908965676;
-        Fri, 12 Apr 2024 01:02:45 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1712908975; x=1713513775;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1yKfHvWoABRl5sMyudqLBw3GDuqqgdkusDwKI6CPTPQ=;
+        b=AnM1g5Q4AQaX7hkjc4Zd5WUP7g6x2UT7+2awGOehSPbz2X74nLzEIAATDhNRKJsdFl
+         JnXXWOsbg5g7rx4XCUy2bvlkppNE3yYrhBHPw9pMd3uU+vPiC30ys3iRGNPKgjjh0aax
+         e/g44hkhqiDCLwRvXpgzdkwF9Swq3UD94IjKQNIziHtP9i/P0coK9yJivaxhamGinyDP
+         i0F6XQBbnRgfyLTB6qO0XldmudMg3RX8ruXdbocMWe79Hoki/eH6Jx8Dsg85EtCv3ZHB
+         cBUttK+O/eTAaSHDOl5Bc1jW7PMMQC7Zo3+mbTj5uSwBL9Ok19j5Kmi1Z/tg8QcsDbai
+         PzHw==
+X-Gm-Message-State: AOJu0YxQvSra1sE5lUDG6n4VISrtPHsPmLIFMfnGxTZf536miesNrT9s
+	v8GwXr4cBPzJaUH9F0Jj4V99Ja9rm7ZemRCdnf5MLFbgElJ+IX8k0VgUEzIut6PnVt22mHIJ/3c
+	c/z4KBPE7tmWLQQalKI9AzHSB1sDAh2/5We8RqRjSDyx7hhT6XctQnLy3jPokxi2FNg==
+X-Received: by 2002:a05:6a20:b2a0:b0:1a8:f807:a683 with SMTP id ei32-20020a056a20b2a000b001a8f807a683mr1742244pzb.60.1712908974685;
+        Fri, 12 Apr 2024 01:02:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHIyJtX0wgUO4lmH74Sd9uNUsfNyAttTAHPN/Xd+GfCO9uPzni84bxgj709jf0ECV6wA4qcFQ==
+X-Received: by 2002:a05:6a20:b2a0:b0:1a8:f807:a683 with SMTP id ei32-20020a056a20b2a000b001a8f807a683mr1742233pzb.60.1712908974342;
+        Fri, 12 Apr 2024 01:02:54 -0700 (PDT)
 Received: from Samantha.redhat.com ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id c9-20020a17090abf0900b002a610ef880bsm2601514pjs.6.2024.04.12.01.02.41
+        by smtp.gmail.com with ESMTPSA id c9-20020a17090abf0900b002a610ef880bsm2601514pjs.6.2024.04.12.01.02.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Apr 2024 01:02:45 -0700 (PDT)
+        Fri, 12 Apr 2024 01:02:54 -0700 (PDT)
 From: wefu@redhat.com
 To: jszhang@kernel.org,
 	alexandre.belloni@bootlin.com,
@@ -82,16 +83,19 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-rtc@vger.kernel.org,
 	Wei Fu <wefu@redhat.com>
-Subject: [PATCH 0/5] RTC: update APM X-Gene RTC driver by adding the pre-scaler support
-Date: Fri, 12 Apr 2024 16:01:42 +0800
-Message-ID: <20240412080238.134191-1-wefu@redhat.com>
+Subject: [PATCH 2/5] dt-bindings: rtc: Add optional property "prescaler" in APM X-Gene RTC Document
+Date: Fri, 12 Apr 2024 16:01:44 +0800
+Message-ID: <20240412080238.134191-3-wefu@redhat.com>
 X-Mailer: git-send-email 2.44.0
+In-Reply-To: <20240412080238.134191-1-wefu@redhat.com>
+References: <20240412080238.134191-1-wefu@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_010250_914783_C69C4C72 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20240412_010258_017676_E2D91595 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,36 +114,47 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Wei Fu <wefu@redhat.com>
 
-This patch add Counter Prescaler support in APM X-Gene RTC driver by
-getting prescaler (Optional) property value from dtb. 
-
-This hardware support can only be found in DW_apb_rtc after v2.06a.
-
-And adds the optional property "prescaler" in bindings for APM X-Gene RTC.
-Because the clock source on some platform to RTC is NOT 1HZ,
+Add optional property "prescaler" for APM X-Gene RTC.
+The clock source on some platform to RTC is NOT 1HZ,
 so we need to prescale the clock to make the input clock become 1HZ,
 like (32K/prescaler) = 1HZ on the XuanTie TH1520 AP sub-system RTC.
 
-This patch also add "snps,dw-apb-rtc" into the "compatible".
+Signed-off-by: Wei Fu <wefu@redhat.com>
+---
+ .../devicetree/bindings/rtc/xgene-rtc.txt        | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-Since XuanTie TH1520 is using the same RTC, so this patch enables 
-APM X-Gene RTC driver for XuanTie TH1520, and add a device node in 
-the XuanTie TH1520 Soc dts: th1520.dtsi.
-
-Wei Fu (5):
-  drivers/rtc/rtc-xgene: Add prescaler support in APM X-Gene RTC driver
-  dt-bindings: rtc: Add optional property "prescaler" in APM X-Gene RTC
-    Document
-  drivers/rtc/rtc-xgene: Add "snps,dw-apb-rtc" into the "compatible"
-  Kconfig: Enable APM X-Gene RTC for XuanTie TH1520
-  riscv: dts: thead: Add XuanTie TH1520 RTC device node
-
- .../devicetree/bindings/rtc/xgene-rtc.txt     | 16 ++++++++++
- arch/riscv/boot/dts/thead/th1520.dtsi         | 11 +++++++
- drivers/rtc/Kconfig                           | 12 ++++++-
- drivers/rtc/rtc-xgene.c                       | 32 +++++++++++++++++++
- 4 files changed, 70 insertions(+), 1 deletion(-)
-
+diff --git a/Documentation/devicetree/bindings/rtc/xgene-rtc.txt b/Documentation/devicetree/bindings/rtc/xgene-rtc.txt
+index fd195c358446..25ba8cf0cc31 100644
+--- a/Documentation/devicetree/bindings/rtc/xgene-rtc.txt
++++ b/Documentation/devicetree/bindings/rtc/xgene-rtc.txt
+@@ -10,6 +10,9 @@ Required properties:
+ - #clock-cells: Should be 1.
+ - clocks: Reference to the clock entry.
+ 
++Optional properties:
++- prescaler: Reference to the Value of Counter Prescaler.
++
+ Example:
+ 
+ rtcclk: rtcclk {
+@@ -26,3 +29,16 @@ rtc: rtc@10510000 {
+ 	#clock-cells = <1>;
+ 	clocks = <&rtcclk 0>;
+ };
++
++Example XuanTie TH1520 RTC node with Counter Prescaler(prescaler):
++
++rtc: rtc@fffff40000 {
++	compatible = "snps,dw-apb-rtc";
++	reg = <0xff 0xfff40000 0x0 0x1000>;
++	interrupts = <74 IRQ_TYPE_LEVEL_HIGH>;
++	clocks = <&osc_32k>;
++	clock-names = "osc_32k";
++	wakeup-source;
++	prescaler = <0x8000>;
++	status = "okay";
++};
 -- 
 2.44.0
 
