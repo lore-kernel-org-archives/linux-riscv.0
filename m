@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2024C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 09:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00632C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 09:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YnAT6/jnmiwrKyT9ASWbc/Ae5DFTgC7fXM0ptoOPLdc=; b=i2465kCA72J9MAPNqyqEsXUIld
-	eYvwmyXuK3DXZ7UjyFKlwUT+xti1F67OvLxVRm2BK1sBfPYPBCfYy7/wm1OL9JlCt9m/pvx8sjiWn
-	17wSiFJ9dLaKNeATcwcjiKd8Hdw5MaMphvC4iE/tIbaGKunr9mr+LPavjVDw4xorEgjdma7Hh02hr
-	rkGwMoM4fX3GGLqDMyxd+Ekjsv3ODxsQrIVFotJ9t9dpjh3nV6DsKqNXx2hqKwb/UeiQ8T8lGi0pD
-	410g7iqKVOvNDFEeBce4viAsk3F7L4CiwIdq0e9WRvAz5HJDbtyHmejgCcXak2Y6MgWc2Kds6dUFK
-	hJ/TaZTQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hDJJKeN9BslCxwxeC6z/5u+Apzeg+6YPh2i4hihCwC4=; b=oLmIkNwVVJnJuV
+	dDCX52o+Xs1wxT4uHKKurnURmVpjQCPiOu7zkWhS7SH9Bx9O8aiEWJR6E/PjLRDBjmUt/zITR2hc2
+	9TND9Fqwmk1isT+EvKkgwuGYXd+Yopzt+tDIH1rOEgRn/F94SG90mIWpK8EQloHEi8b4mWnrwQB4x
+	PZKmDWTNNm+UeaVrvlXfDQwxJd/gEOF8BBQTkvBQCI4wCr0Lk46ZsGRWd2y+qPeW/QeAcYhrQTBeF
+	Vf+NVWzeny51Qc9PR+SZxiUuWK4/o1xApr3f6Wg8ru+eQJTSVfQ3aJu1wW97Bo7ji8/viyPfJf7tG
+	p8do/q2ECPdkJbbLXPCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvDOW-0000000GUAz-0wBc;
-	Fri, 12 Apr 2024 09:40:28 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1rvDQi-0000000GUbQ-0SA6;
+	Fri, 12 Apr 2024 09:42:44 +0000
+Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvDOS-0000000GUAB-1epQ
+	id 1rvDQf-0000000GUa4-0xGd
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Apr 2024 09:40:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1712914824; x=1744450824;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AyddXRv/DnT91t6B+nxCTZtHVLA1ljNAIxVGwn0e3Vk=;
-  b=2BiIcyegq+r9EdDKwcaQRGYz3Z26VfX74vP4LKJ0bgeNGe5+6SGxLAJZ
-   JvWtwkOLLuajT7L8Wf4iELnUrkpr4JCF6ZIb6yYhzcaAhkrAj128RaPIb
-   coSagEVSEVd36izZKtM3A/0JW8gV1jbSFxip41nx1vmIMW39k4YQ3+t2p
-   onroT+BN1AYR5ndMkpjyD+ut+FqqD3qhVABndY+PVbRW9ZQOmB6/sXkyT
-   mLW0zrhJFYIL2DsK12W5NYDQlAq4henRfUu4ZyR5qEOHnzooDkdo+azL+
-   qAH7YJ5l9LhGGlbU+btDjLVXbTsB1Hy17Mxqzk+fxdw4tZPU4TH+CpXxW
-   g==;
-X-CSE-ConnectionGUID: yozmjWR8Rd+BhRpS7jT2WA==
-X-CSE-MsgGUID: 7iK6SCRqSQyqm/KKGnCunw==
-X-IronPort-AV: E=Sophos;i="6.07,195,1708412400"; 
-   d="asc'?scan'208";a="187998476"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Apr 2024 02:40:19 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 12 Apr 2024 02:40:10 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Fri, 12 Apr 2024 02:40:08 -0700
-Date: Fri, 12 Apr 2024 10:39:17 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-CC: <wefu@redhat.com>, <jszhang@kernel.org>, <alexandre.belloni@bootlin.com>,
-	<robh@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
-	<conor+dt@kernel.org>, <guoren@kernel.org>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-rtc@vger.kernel.org>
-Subject: Re: [PATCH 3/5] drivers/rtc/rtc-xgene: Add "snps,dw-apb-rtc" into
- the "compatible"
-Message-ID: <20240412-rummage-superbowl-a342f179e482@wendy>
-References: <20240412080238.134191-1-wefu@redhat.com>
- <20240412080238.134191-4-wefu@redhat.com>
- <86bf8248-2443-4ced-a67c-7845fef98fd3@linaro.org>
+	Fri, 12 Apr 2024 09:42:42 +0000
+Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-22e6b61d652so303636fac.0
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Apr 2024 02:42:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1712914955; x=1713519755; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ze1DWENhxjeSOlCRPZPYtxubM7dRkcTEXeXj/CC5r3A=;
+        b=R59GutcM80I+p6dPaZoNxWafGlKbMhf67Ip8K40YONVJUI/s7X1Y6zMHb0Hd8Au5Cl
+         1vH4Tl9hHdWJecqXFBXGv1QrH3rxHNdd6/NvDL2UrMIeGHCOBi/PlnNss2CFoVAGazJv
+         yoswnT+X0LD4jqeX9LcdV6bOr0g66s8zz9k1/IHGwfPmAWohksgDomePa9ZZZhoLxUKE
+         V5aubTRPIInVZUCIMLc1qNjhXJzSJ2Fz6gdJzyMiOcGNOAKCmtnkDeAsoGdtY6iKR1Tv
+         n57PUK7O3wJhIFxWekFHYVg1x5qcrhWkV79h+x0vdHbBEc32mLwoGiHeFWKuYRhPUeQX
+         IAEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712914955; x=1713519755;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ze1DWENhxjeSOlCRPZPYtxubM7dRkcTEXeXj/CC5r3A=;
+        b=iv/hLv3RchgDl7L2XJsB9K8/C29/++VzxTj/YRGvUuVmd9NrAQWGlS2wpTp6K4n4vA
+         1LWq1EJK2SPecMuvd6s1fBXIEknbeJdZ9k51ojA36MivOvw/4n7O4cyZ2b56neBjyh3I
+         CJfKRpx9n236pfvK4MHGLBXOR1F+jqDS5LlXCSeiEuBfp75jqLDyyldGtbKrAQdVM4+C
+         CNzaBOXnNyGk1ZpmQh9XZmhsct6GOVNoMAj0GpUVT+3weUzsykUtymTHE7Xhz4wWoHZH
+         ljpQSg5O6LUG97GN9ehEUZ4h1P4WK/d2L1VnbWCiRFGZVReDwIHpsJVYg9mvRu1KCQjD
+         Nvxw==
+X-Forwarded-Encrypted: i=1; AJvYcCX+d6ot8oOnyGlMbQ/Xcig9PwoCNUR1X3krXMFVQKRrppx7ReRmf6CJX2bvPqrj5SopdepvhHJDzTr4uhS0I7rrVhDvsCApMlsWCcaYdgng
+X-Gm-Message-State: AOJu0Yx425Js7m0T6kDnsO7Tk5U6GT57c9CjF1G4issZv8neL4ySE4To
+	LKlzwdQjZVGLU1lnY+xLJX1RtJJqwurqpI928+ehXhaIraUa2kZP8G7PS5INE+5RTy5d222GHIW
+	jcD7dE+goPHqABqCtssdMTJl0hPVat+muZHvJ6Q==
+X-Google-Smtp-Source: AGHT+IH/sAzC/4m+8OjoiblQKBrR8gWNhfHFXTBCOEtjXxsaKNwMpXmrJzZaRa5j0HjVtDAPxdFhGnqZozPIYpPkLcA=
+X-Received: by 2002:a05:6871:5a05:b0:21e:b4d0:9961 with SMTP id
+ on5-20020a0568715a0500b0021eb4d09961mr1977670oac.55.1712914954014; Fri, 12
+ Apr 2024 02:42:34 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <86bf8248-2443-4ced-a67c-7845fef98fd3@linaro.org>
+References: <20240407123829.36474-1-cuiyunhui@bytedance.com>
+ <ZhetojJewygmTf6N@bogus> <CAEEQ3wkfHvH4jXNO5NRDf0Fc3xUkY64hp7BDBmgNVdcsmYy-kA@mail.gmail.com>
+ <Zhj-4C7xlklG1m5B@bogus>
+In-Reply-To: <Zhj-4C7xlklG1m5B@bogus>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Fri, 12 Apr 2024 17:42:22 +0800
+Message-ID: <CAEEQ3wkO4WPaY+bPidg-fDqV5MrQwh8ESbSv-+q8Odhat9XDrQ@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH 1/2] ACPI: PPTT: Populate cacheinfo
+ entirely with PPTT
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: rafael@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_024024_636414_D212B1A0 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20240412_024241_294244_8F8B9389 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,73 +89,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8119616338858860487=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8119616338858860487==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Ge0GmYIBWwIaJ/Yq"
-Content-Disposition: inline
-
---Ge0GmYIBWwIaJ/Yq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Apr 12, 2024 at 11:17:38AM +0200, Krzysztof Kozlowski wrote:
-> On 12/04/2024 10:01, wefu@redhat.com wrote:
-> > From: Wei Fu <wefu@redhat.com>
-> >=20
-> > This patch add "snps,dw-apb-rtc" into the "compatible".
->=20
->=20
-> Please do not use "This commit/patch/change", but imperative mood. See
-> longer explanation here:
-> https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/sub=
-mitting-patches.rst#L95
->=20
-> This we see from the patch. Say what hardware are you adding?
-
-The compatible, unless I misread the patchset, isn't actually documented
-either, only the new property is.
-
->=20
-> Please run scripts/checkpatch.pl and fix reported warnings. Then please
-> run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
-> Some warnings can be ignored, especially from --strict run, but the code
-> here looks like it needs a fix. Feel free to get in touch if the warning
-> is not clear.
->=20
->=20
-> Best regards,
-> Krzysztof
->=20
-
---Ge0GmYIBWwIaJ/Yq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhkBOQAKCRB4tDGHoIJi
-0nF3AQCpqrVUssnT4yWndlvpuzz0fOX4zka9/Ej3nX5vfZgsawEAzVtgKBzcU07+
-FaxCvDk/mWbBtLR+GALH91nw0Q+wEg8=
-=Cg5S
------END PGP SIGNATURE-----
-
---Ge0GmYIBWwIaJ/Yq--
-
-
---===============8119616338858860487==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8119616338858860487==--
-
+SGkgU3VkZWVwLAoKT24gRnJpLCBBcHIgMTIsIDIwMjQgYXQgNToyOeKAr1BNIFN1ZGVlcCBIb2xs
+YSA8c3VkZWVwLmhvbGxhQGFybS5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBBcHIgMTIsIDIwMjQg
+YXQgMTA6MTA6MDVBTSArMDgwMCwgeXVuaHVpIGN1aSB3cm90ZToKPiA+IEhpIFN1ZGVlcCwKPiA+
+Cj4gPiBPbiBUaHUsIEFwciAxMSwgMjAyNCBhdCA1OjMw4oCvUE0gU3VkZWVwIEhvbGxhIDxzdWRl
+ZXAuaG9sbGFAYXJtLmNvbT4gd3JvdGU6Cj4gPiA+Cj4gPiA+IE9uIFN1biwgQXByIDA3LCAyMDI0
+IGF0IDA4OjM4OjI4UE0gKzA4MDAsIFl1bmh1aSBDdWkgd3JvdGU6Cj4gPiA+ID4gV2hlbiB0aGUg
+dHlwZSBhbmQgbGV2ZWwgaW5mb3JtYXRpb24gb2YgdGhpc19sZWFmIGNhbm5vdCBiZSBvYnRhaW5l
+ZAo+ID4gPiA+IGZyb20gYXJjaCwgY2FjaGVpbmZvIGlzIGNvbXBsZXRlbHkgZmlsbGVkIGluIHdp
+dGggdGhlIGNvbnRlbnQgb2YgUFBUVC4KPiA+ID4gPgo+ID4gPgo+ID4gPiBXaGljaCBwbGF0Zm9y
+bSBpcyB0aGlzID8gSXMgdGhpcyBhcm02NCBiYXNlZCBvciBzb21ldGhpbmcgZWxzZSBsaWtlIFJJ
+U0MtVgo+ID4gPiBiYXNlZCA/IFRoYXQgd291bGQgaGVscCB0byB1bmRlcnN0YW5kIHNvbWUgY29u
+dGV4dCBoZXJlLgo+ID4gPgo+ID4KPiA+IFRoYW5rcyBmb3IgeW91ciByZXNwb25zZSwgUklTQy1W
+IGN1cnJlbnRseSBoYXMgdGhpcyByZXF1aXJlbWVudC4KPiA+IFBsZWFzZSBzZWU6IGh0dHBzOi8v
+cGF0Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51eC1yaXNjdi9wYXRjaC8yMDI0MDQwNzEy
+MzgyOS4zNjQ3NC0yLWN1aXl1bmh1aUBieXRlZGFuY2UuY29tLwo+ID4KPgo+IEl0IHdvdWxkIGJl
+IGhlbHBmdWwgZm9yIHRoZSByZXZpZXcgaWYgeW91IGhhdmUgc3VjaCBpbmZvcm1hdGlvbiBpbiB0
+aGUKPiBjb21taXQgbWVzc2FnZS4KCk9rYXksIEkgd2lsbCB1cGRhdGUgaXQgaW4gdGhlIGNvbW1p
+dCBtZXNzYWdlIGluIHYyLiBEbyB5b3UgaGF2ZSBzb21lCmNvbW1lbnRzIG9uIHRoZSBjb250ZW50
+IG9mIHRoZSBwYXRjaD8KClRoYW5rcywKWXVuaHVpCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
