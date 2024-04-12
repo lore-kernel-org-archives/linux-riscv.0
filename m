@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F612C00A94
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 11:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5991C00A94
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 12:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P6XU8G7Si6Rg4JPLnj3626TP0+8/0gNIGe+vTzhqxBg=; b=h/zKjE5vaAeW3vr/0CzdIjUiSo
-	iT2mi2R0yWNd//aUnGaizt92ThSrKVnJ8oid0XtKgl91uuanFJxQqLtA288PHPoQuF/kjxiPk3NGA
-	x3r0Y/mW0z3jq9BJxo8LWT5VbbVRCsnd0blAy+lXM12Y6aJbHbugWJwSNCrvEgXSzIA0IcvpazEwl
-	RN8HKstYcauV00pkVNeR5zI6jXdMUMxPzXu8QWrnvSuriTuCp8iO4kLtu5EwwtG61pHfQUKZB3yy5
-	PMErCVngZw4zkEAhJ7EQe2489AR5dle8yP5/cNB68FPIa1NZ+MepbFPKXaKw2kUAL/2hwPTffBU0A
-	dh4VoGdQ==;
+	bh=hXTvTqTypL7ARsDjb/ZN547nQ+SaIkPqgTAP7FJV1Bw=; b=3MPBqSkxhlmLmb+Wb6nqUO/JEP
+	yQmoOCGQguzz/1CFS+x0bzjcZUE1wa4qbKmZQ9nadRQ5bF3Ukr0sVYCCC7+EjDIQqChdZpBYTLvIn
+	ns/TsRecihp11J46i/e0/TwS7r/5VSK+Nvy7fGJCOR8rruaTJd3oy+bRM5EVDZnWLDPruSDNus5T6
+	z5LHRXgHWvcG6PzSwIn2Q3SIqG995uQqlj/4edgRvJWIIXKr7Xu2FOP49sx6Ipo/kzNEnmPXCd2+X
+	hilpugRNocBYrFUBSc89pn6R8FYzjLFE5STjK4rQ00IAwgTbrm9488dBSxIImd5PgJDC16vG6XhPJ
+	YTuT0oEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvFQt-0000000H13Z-0ESv;
-	Fri, 12 Apr 2024 11:51:03 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1rvG3n-0000000H7q2-0mTy;
+	Fri, 12 Apr 2024 12:31:15 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvFQn-0000000H11r-1Dch;
-	Fri, 12 Apr 2024 11:50:59 +0000
+	id 1rvG3j-0000000H7p0-22zv;
+	Fri, 12 Apr 2024 12:31:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1712922657; x=1744458657;
+  t=1712925071; x=1744461071;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=/MsWLEJD+g2lmJVxWXE9ihQ+XOiKAY5YDqrlImseWCM=;
-  b=ceZLQ1C4Zx2xp8ul0pxyDVnNHXuLPYZXqxO0nQ7I6XuPbC6nIRuA69kI
-   eRdD6eR8USM7wblnUfazwkwHa9e4JNspHaofp3h+0Ss3OL2sSky0ZfO0O
-   DCXtC+07GOaBn3mLOuibI4nEHAdCWjDxMZDD2l1/kM5yuLW336YEc8nte
-   qBLfarCIN9lgWPZWGI/4Wx0kALQeIkh6bo4Td73sVdN2/6j/iGHac/fyH
-   FsZTJqBqXQWE2ulUcYqbtnLTThq6Vb8wzbEDGvlfodEUd10K1CzD9/QUI
-   8uCnW0LyXswsfat1pUAKXZSRw4uEzoBIbuce0zXMuTDyRFnzCbCmVjmNp
-   g==;
-X-CSE-ConnectionGUID: DbXRGJMARISTcHYzzFqcJQ==
-X-CSE-MsgGUID: r4WPBt/kRzewCEGLyzl6yw==
+  bh=o8YSWsoCfZ7tptBqUVVtBw1fFnKL06BvA0qNMfnioDw=;
+  b=e2v1ZM31opswpuYC8lebOtIFAwqxmTpBNXft/2bO43i1MGFjVMHjZCM0
+   fr2v6I76ZRksdbMXIMKuoROrNsCm8LVzMQ1Ok4TJBnBxtmyUbjjVpdUPc
+   ipMrN2mOCqpe6X75FvPgPnG2bx+BFdMZdMrh40RMVXITyc+abq1nVJaVc
+   lN9Gp9Gsc2i6ynhFbqjXknV7tjOej7k1To1LfGKqJQUTQFuRcen11lAxN
+   7fy1/psOFnK2XLa8p+2MMulXyiFZyXZO7Yt+S6OaofwgEJg1cgtRGqn6s
+   5L5DHWjGh0wU4580MC/RgFbf9yLHFb9rT7I1+swKxclyV7fQ6knEhkEXD
+   w==;
+X-CSE-ConnectionGUID: 8n3UuTh2QzaDn5A8rQGjFg==
+X-CSE-MsgGUID: nqO9YiBGTYCscAdrhaD7/w==
 X-IronPort-AV: E=Sophos;i="6.07,196,1708412400"; 
-   d="asc'?scan'208";a="20735309"
+   d="asc'?scan'208";a="188017039"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Apr 2024 04:50:56 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Apr 2024 05:31:07 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 12 Apr 2024 04:50:52 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ 15.1.2507.35; Fri, 12 Apr 2024 05:31:03 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Fri, 12 Apr 2024 04:50:48 -0700
-Date: Fri, 12 Apr 2024 12:49:57 +0100
+ Transport; Fri, 12 Apr 2024 05:30:59 -0700
+Date: Fri, 12 Apr 2024 13:30:08 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Charlie Jenkins <charlie@rivosinc.com>
 CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
@@ -71,16 +71,16 @@ CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
 	<palmer@rivosinc.com>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-sunxi@lists.linux.dev>, <linux-doc@vger.kernel.org>,
 	<linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH 08/19] riscv: Introduce vendor variants of extension
- helpers
-Message-ID: <20240412-dwarf-shower-5a7300fcd283@wendy>
+Subject: Re: [PATCH 06/19] riscv: Extend cpufeature.c to detect vendor
+ extensions
+Message-ID: <20240412-sprawl-product-1e1d02e25bca@wendy>
 References: <20240411-dev-charlie-support_thead_vector_6_9-v1-0-4af9815ec746@rivosinc.com>
- <20240411-dev-charlie-support_thead_vector_6_9-v1-8-4af9815ec746@rivosinc.com>
+ <20240411-dev-charlie-support_thead_vector_6_9-v1-6-4af9815ec746@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240411-dev-charlie-support_thead_vector_6_9-v1-8-4af9815ec746@rivosinc.com>
+In-Reply-To: <20240411-dev-charlie-support_thead_vector_6_9-v1-6-4af9815ec746@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_045058_371480_BA71A19B 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20240412_053111_792524_ED7FEE65 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,152 +92,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0917916987356732860=="
+Content-Type: multipart/mixed; boundary="===============2652650866650316849=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0917916987356732860==
+--===============2652650866650316849==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="OxSigVsCwYUnQIoR"
+	protocol="application/pgp-signature"; boundary="/rKIhypokaxpjzdO"
 Content-Disposition: inline
 
---OxSigVsCwYUnQIoR
+--/rKIhypokaxpjzdO
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Apr 11, 2024 at 09:11:14PM -0700, Charlie Jenkins wrote:
-> Create vendor variants of the existing extension helpers. If the
-> existing functions were instead modified to support vendor extensions, a
-> branch based on the ext value being greater than
-> RISCV_ISA_VENDOR_EXT_BASE would have to be introduced. This additional
-> branch would have an unnecessary performance impact.
->=20
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+On Thu, Apr 11, 2024 at 09:11:12PM -0700, Charlie Jenkins wrote:
+>  static void __init riscv_parse_isa_string(unsigned long *this_hwcap, str=
+uct riscv_isainfo *isainfo,
 
-I've not looked at the "main" patch in the series that adds all of the
-probing and structures for representing this info yet beyond a cursory
-glance, but it feels like we're duplicating a bunch of infrastructure
-here before it is necessary. The IDs are all internal to Linux, so I'd
-rather we kept everything in the same structure until we have more than
-a handful of vendor extensions. With this patch (and the theadpmu stuff)
-we will have three vendor extensions which feels like a drop in the
-bucket compared to the standard ones.
-
-
-> ---
->  arch/riscv/include/asm/cpufeature.h | 54 +++++++++++++++++++++++++++++++=
-++++++
->  arch/riscv/kernel/cpufeature.c      | 34 ++++++++++++++++++++---
->  2 files changed, 84 insertions(+), 4 deletions(-)
->=20
-> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
-/cpufeature.h
-> index db2ab037843a..8f19e3681b4f 100644
-> --- a/arch/riscv/include/asm/cpufeature.h
-> +++ b/arch/riscv/include/asm/cpufeature.h
-> @@ -89,6 +89,10 @@ bool __riscv_isa_extension_available(const unsigned lo=
-ng *isa_bitmap, unsigned i
->  #define riscv_isa_extension_available(isa_bitmap, ext)	\
->  	__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_##ext)
-> =20
-> +bool __riscv_isa_vendor_extension_available(const unsigned long *vendor_=
-isa_bitmap, unsigned int bit);
-> +#define riscv_isa_vendor_extension_available(isa_bitmap, ext)	\
-> +	__riscv_isa_vendor_extension_available(isa_bitmap, RISCV_ISA_VENDOR_EXT=
-_##ext)
-> +
->  static __always_inline bool
->  __riscv_has_extension_likely_alternatives(const unsigned long ext)
+> -					  unsigned long *isa2hwcap, const char *isa)
+> +					struct riscv_isainfo *isavendorinfo, unsigned long vendorid,
+> +					unsigned long *isa2hwcap, const char *isa)
 >  {
-> @@ -117,6 +121,8 @@ __riscv_has_extension_unlikely_alternatives(const uns=
-igned long ext)
->  	return true;
->  }
+>  	/*
+>  	 * For all possible cpus, we have already validated in
+> @@ -349,8 +384,30 @@ static void __init riscv_parse_isa_string(unsigned l=
+ong *this_hwcap, struct risc
+>  		const char *ext =3D isa++;
+>  		const char *ext_end =3D isa;
+>  		bool ext_long =3D false, ext_err =3D false;
+> +		struct riscv_isainfo *selected_isainfo =3D isainfo;
+> +		const struct riscv_isa_ext_data *selected_riscv_isa_ext =3D riscv_isa_=
+ext;
+> +		size_t selected_riscv_isa_ext_count =3D riscv_isa_ext_count;
+> +		unsigned int id_offset =3D 0;
 > =20
-> +/* Standard extension helpers */
-> +
->  static __always_inline bool
->  riscv_has_extension_likely(const unsigned long ext)
->  {
-> @@ -163,4 +169,52 @@ static __always_inline bool riscv_cpu_has_extension_=
-unlikely(int cpu, const unsi
->  		return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
->  }
-> =20
-> +/* Vendor extension helpers */
-> +
-> +static __always_inline bool
-> +riscv_has_vendor_extension_likely(const unsigned long ext)
-> +{
-> +	compiletime_assert(ext < RISCV_ISA_VENDOR_EXT_MAX,
-> +			   "ext must be < RISCV_ISA_VENDOR_EXT_MAX");
-> +
-> +	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
-> +		return __riscv_has_extension_likely_alternatives(ext);
-> +	else
-> +		return __riscv_isa_vendor_extension_available(NULL, ext);
-> +}
-> +
-> +static __always_inline bool
-> +riscv_has_vendor_extension_unlikely(const unsigned long ext)
-> +{
-> +	compiletime_assert(ext < RISCV_ISA_VENDOR_EXT_MAX,
-> +			   "ext must be < RISCV_ISA_VENDOR_EXT_MAX");
-> +
-> +	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
-> +		return __riscv_has_extension_unlikely_alternatives(ext);
-> +	else
-> +		return __riscv_isa_vendor_extension_available(NULL, ext);
-> +}
-> +
-> +static __always_inline bool riscv_cpu_has_vendor_extension_likely(int cp=
-u, const unsigned long ext)
-> +{
-> +	compiletime_assert(ext < RISCV_ISA_VENDOR_EXT_MAX,
-> +			   "ext must be < RISCV_ISA_VENDOR_EXT_MAX");
-> +
-> +	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
-> +		return __riscv_has_extension_likely_alternatives(ext);
-> +	else
-> +		return __riscv_isa_vendor_extension_available(hart_isa_vendor[cpu].isa=
-, ext);
-> +}
-> +
-> +static __always_inline bool riscv_cpu_has_vendor_extension_unlikely(int =
-cpu, const unsigned long ext)
-> +{
-> +	compiletime_assert(ext < RISCV_ISA_VENDOR_EXT_MAX,
-> +			   "ext must be < RISCV_ISA_VENDOR_EXT_MAX");
-> +
-> +	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
-> +		return __riscv_has_extension_unlikely_alternatives(ext);
-> +	else
-> +		return __riscv_isa_vendor_extension_available(hart_isa_vendor[cpu].isa=
-, ext);
-> +}
+>  		switch (*ext) {
+> +		case 'x':
+> +		case 'X':
 
-Same stuff about constant folding applies to these, I think these should
-just mirror the existing functions (if needed at all).
+One quick remark is that we should not go and support this stuff via
+riscv,isa in my opinion, only allowing it for the riscv,isa-extensions
+parsing. We don't have a way to define meanings for vendor extensions in
+this way. ACPI also uses this codepath and at the moment the kernel's
+docs say we're gonna follow isa string parsing rules in a specific version
+of the ISA manual. While that manual provides a format for the string and
+meanings for standard extensions, there's nothing in there that allows us
+to get consistent meanings for specific vendor extensions, so I think we
+should avoid intentionally supporting this here.
 
-Cheers,
+I'd probably go as far as to actively skip vendor extensions in
+riscv_parse_isa_string() to avoid any potential issues.
+
+> +			bool found;
+> +
+> +			found =3D get_isa_vendor_ext(vendorid,
+> +						   &selected_riscv_isa_ext,
+> +						   &selected_riscv_isa_ext_count);
+> +			selected_isainfo =3D isavendorinfo;
+> +			id_offset =3D RISCV_ISA_VENDOR_EXT_BASE;
+> +			if (!found) {
+> +				pr_warn("No associated vendor extensions with vendor id: %lx\n",
+> +					vendorid);
+
+This should not be a warning, anything we don't understand should be
+silently ignored to avoid spamming just because the kernel has not grown
+support for it yet.
+
+Thanks,
 Conor.
 
---OxSigVsCwYUnQIoR
+> +				for (; *isa && *isa !=3D '_'; ++isa)
+> +					;
+> +				ext_err =3D true;
+> +				break;
+> +			}
+> +			fallthrough;
+>  		case 's':
+>  			/*
+>  			 * Workaround for invalid single-letter 's' & 'u' (QEMU).
+> @@ -366,8 +423,6 @@ static void __init riscv_parse_isa_string(unsigned lo=
+ng *this_hwcap, struct risc
+>  			}
+>  			fallthrough;
+>  		case 'S':
+> -		case 'x':
+> -		case 'X':
+>  		case 'z':
+>  		case 'Z':
+>  			/*
+> @@ -476,8 +531,10 @@ static void __init riscv_parse_isa_string(unsigned l=
+ong *this_hwcap, struct risc
+>  				set_bit(nr, isainfo->isa);
+>  			}
+>  		} else {
+> -			for (int i =3D 0; i < riscv_isa_ext_count; i++)
+> -				match_isa_ext(&riscv_isa_ext[i], ext, ext_end, isainfo);
+> +			for (int i =3D 0; i < selected_riscv_isa_ext_count; i++)
+> +				match_isa_ext(&selected_riscv_isa_ext[i], ext,
+> +					      ext_end, selected_isainfo,
+> +					      id_offset);
+>  		}
+>  	}
+>  }
+
+--/rKIhypokaxpjzdO
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhkf5QAKCRB4tDGHoIJi
-0t21AQDpXCNkKreoJcGsD1c3KhhnWrrt3e8Dua+btfF4IRjd5AD+OTlLyxva26D5
-OHyd+dKNVKNYXjtuHGTu8h6vqaR8mw0=
-=H6/V
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhkpUAAKCRB4tDGHoIJi
+0suMAP9hVav0oRL2jmBJm2ACwJ1+CNYfBT488OIk7AWbRjBIigEAtUP/mmReLFMY
+g7/EcQ6a/96RixRPX9yYcg23rYMJOQE=
+=w9t9
 -----END PGP SIGNATURE-----
 
---OxSigVsCwYUnQIoR--
+--/rKIhypokaxpjzdO--
 
 
---===============0917916987356732860==
+--===============2652650866650316849==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -248,5 +221,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0917916987356732860==--
+--===============2652650866650316849==--
 
