@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4CFAC04FF0
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 01:54:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A34C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 02:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kpfuuZ59oOZExKKYY/KZPp2uMSMVZBmCs8aY6jtYbwg=; b=182vQzHI5DR+PO
-	npUG3B4jPl88GKDRV3BEJJQFrQw96qUbcm34Kj7N2fAzEXJ2tM4Kd8u+4sr+Qji2swbYQ5p3a10l6
-	nUa3SJ4TiATyEwEaMImgLFQnXSol8jF6F3AiKXKM/YWGljpWhUzupLGaCO5BWNbLrlUe+Yad8z1sl
-	UHZ26XGiyE2Yv2aZAVgyobiU9k6hF8c+U0151yeZg2RNl8PDkOFdkZ+kcqhjceCuB6yAkIe+V+lu+
-	jKxs4YCzLkxwLwM+ktpKvvo8MH8m+YpcdPNVTT+TUlZchES13kNFV92YaoU/1P7XIAVSJ8Fa8WJ5n
-	SZ294aXW2pbXbjyBiB2A==;
+	List-Owner; bh=CZmgopsoZEvuTd3ysRXrGbZxn4uo8zlvMO+g4dgKErM=; b=YaIq4l7uDU6rlR
+	wwy2h4/cWOglEoU5SjKJZUf3Pt2VaYGSCXHKmQxoBQOUOTtcVJmfGrie5PbE7/JWl9wn1CVVrpL5t
+	f0AZY3J7sRd85zaUHAIrel77RvB4LPCHLDG2fLOFTwMaoUdu0qk+SMPghJ/t6LrO60Yv+XHIFW35h
+	Y7CxiS9iSR8t9w6bfMXDLWPS3yrm0op2+FEiWyd71xUIig/UcpHZcxuu6svSFC9i9SJ1oY0CNIUIw
+	Bf7meUn6hI1GFANo+F/egbAR8sSptgnjAKZ3IA3g9QYF1erXkcTe0xCmP2E9mjUjGhs8OyJZofH9Q
+	6igUKarsHAdLqaj1sCEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rv67o-0000000Ep6y-0Kmj;
-	Fri, 12 Apr 2024 01:54:44 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1rv6KD-0000000ErXp-3Nfd;
+	Fri, 12 Apr 2024 02:07:34 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rv67j-0000000Ep5q-2ov6;
-	Fri, 12 Apr 2024 01:54:41 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-346b94fa7ecso371111f8f.3;
-        Thu, 11 Apr 2024 18:54:38 -0700 (PDT)
+	id 1rv6KA-0000000ErTk-2ONZ
+	for linux-riscv@lists.infradead.org;
+	Fri, 12 Apr 2024 02:07:32 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-6154a1812ffso4503807b3.1
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Apr 2024 19:07:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1712886876; x=1713491676; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=y4vlt8TB9yDjErxa7aoPppj34TQs7XIg9OjF7nGdMbk=;
-        b=abrPmGmvwiFXdCT7LZrjo/eORtEM+wJT15IpOVCrZvJw2cTKr9roMRufr0HLxbfBMd
-         xs37RtvbmbtEeVEhauqIA3slcD+TFHE+GMcL462YnOBFeCWjxBEcC1jdKDTu4Y6Id5yQ
-         2dX5ois2/bWZvShhmq/UwW14eTSzk0fgXAkd5XzBIqBJdLOpJ9UcA2chbicYDLUICwjb
-         Bi49vwbhXGwDdPTDBJAfwV6qCunNtOXJJ3vi32bHOxmDvqNlFk/EwJUg3WTZlnIfcFue
-         bfWpDePao4JTn/7eWnsMkN0PYekSGhowE7xRRoLWPMwjhp4CPkACXlbgc+R331Plm/uP
-         ChOw==
+        d=sifive.com; s=google; t=1712887644; x=1713492444; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YQm9N6HlYQFv2uqQbKzOf53M4hr41FQjJSq0UsW2Bjw=;
+        b=d2THkt4jmVYGxcpRxsAz7POLDrwIp5dxFP/k6FPTXZtj8Mq7UBH8XV8ix+dmIwNR+c
+         HgYfOohf+N5yFfXn6Fip9bH37H7eJS96TLrEOJLaMCHttWO3Go29DD0MRIXxde/RgqyD
+         p1XxaX9Ek7FsRUs/lS5mD94CTii2fxvvRSCiD3nrTh4+XvNY6T1wwONiDO29wGBr7kBn
+         xbz+FV1QZyyeo5ji0p1wl7FY0d0N0PDEqdY2hbCVhL7Svkl1JK+4qjq3Q2ZlCZyt7bNQ
+         LM5C53BuBKueyve8RQKsju0gCZ3MqCVVIYbqtoSJAcKGV7f/PpZUNsO+Vn/0qjTsr692
+         iGZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712886876; x=1713491676;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=y4vlt8TB9yDjErxa7aoPppj34TQs7XIg9OjF7nGdMbk=;
-        b=SbSVZ46j1NexLy6S2UximCudzyvMqWGxpqZA0d2ni3uz6M1Ee25/NY974DN8bEwmmk
-         mWRaQ5U7pZ3+Y0q4eM8al1D0yu4sAHUVEdbiqhSpg9TNARd067T7OiTCMWl0WNk7vQTY
-         oFIB7qsHyZIB/9UxwSnnXNOBvUOENp7qa70l+WFjDwpKT0JyF6p5BHDmhpECWxNoPsqw
-         ROCqFUDrfVc2NLMPH4b7Ei0mTzFrkB+CjC36td9X9eXdSugA5x4ttoEAlQpjJGszFB1R
-         Y4Lwonl6Bqr0UI/cAWuUzm+3wHN7Wuf0hfV9YmmS7VaQEY23JCVDvbmdaeIf5bHfL20/
-         GA9A==
-X-Forwarded-Encrypted: i=1; AJvYcCVwFn4s1IXE/K6psDNuCjFghq8EeGVgJfZIUFbqzF8lo6oBTF1CZg2ZPVyEUPwqKNs5qryFtklEKGxZzKweRi+Z2qcODw+Nejy9q8zEZwj8p1G183k3c1ucYZP3F60iwp1xjq+pcEhD75yYkt5BYoCqrU60ozk=
-X-Gm-Message-State: AOJu0Yz2glqX8mPtrcfvTZotIC1/xpWYzQ/fr7SFPjlK2qscmy+fB+Pn
-	MTAgv+i7xbaZwzX1vL6DN4V0CVXalgPzUOW6Zsg1tPBecAokIkw5OcegIFrn8a3NigC/bRBhkic
-	unRUjypAcoWWeAAlr4e5eemMiQtU=
-X-Google-Smtp-Source: AGHT+IH+PR4h3oVtQ8Ez0cRs6zyDvlUxECTYXxWqfVRSac34W79R5yeA3Zq4bIaDyQbovOeeCgfyqRUJHwPOnRqGQX0=
-X-Received: by 2002:a5d:474f:0:b0:33e:ca28:bb59 with SMTP id
- o15-20020a5d474f000000b0033eca28bb59mr856430wrs.57.1712886876424; Thu, 11 Apr
- 2024 18:54:36 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1712887644; x=1713492444;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YQm9N6HlYQFv2uqQbKzOf53M4hr41FQjJSq0UsW2Bjw=;
+        b=kPhWEWchCu04BH1KZcqVqZIPoNQkV8dJdUfY6nPs5MLjDd2aJcsCNDmB2pfOeSQuwt
+         juEIFbcexMIDIi8ovOQM8QxU1jMSCB0ReBYPOsxmsonYyLrmGcd8mnLZiESLrVH7NUQg
+         Ng+SkdSkNGdA66DqClHtKIjODTP4C/LlkadeqlwFnhvTzAAvBqtidsLbiOZJ7UYHnyJV
+         qjSdxbjKRRRmMrwbABq7oZEFcKuWEtlS+j4wvxEDn64eNgj2oV81IPuoQg14AkuIHGmc
+         cbiVfTJCzYP8S9+sD/l1/vQkdXvyqqNpu7i/b1Nw0ca13lloFDhQwqExu1p7blXqtnaA
+         4xZA==
+X-Gm-Message-State: AOJu0YwbyRmTq5Qj4lfJU/+nq0y/DUBG6LJVArbSwZ1rvq0dkxWgoYA4
+	WxVuqZsjtsSQqxfGW4iFHg8F3jizT8CSTTOdPMCG44nucaeR8Pc20GxSteNCfTIlXgHgys58Mu7
+	VcRxthCciU3Z77Zj4OcBxt6vdGmVIMiqTctE8XPIlJkzRxIdwiZBuzw==
+X-Google-Smtp-Source: AGHT+IEyah2wqUDUWwo2dw/PFJAZ80ndyEe9wSUytDMdW7m4oK2cK2GqDd50cMMO1kXUDCo8ycdzX/F5kxc1yT2BDdc=
+X-Received: by 2002:a0d:d614:0:b0:615:16a1:4a04 with SMTP id
+ y20-20020a0dd614000000b0061516a14a04mr1202091ywd.31.1712887643882; Thu, 11
+ Apr 2024 19:07:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20240329072441.591471-1-samuel.holland@sifive.com>
- <20240329072441.591471-14-samuel.holland@sifive.com> <87wmp4oo3y.fsf@linaro.org>
- <75a37a4b-f516-40a3-b6b5-4aa1636f9b60@sifive.com> <87wmp4ogoe.fsf@linaro.org>
- <4c8e63d6-ba33-47fe-8150-59eba8babf2d@sifive.com> <CAMj1kXGW5XQxXrYaPhT6sCjH7s0EwqzNjWies3b8UWnUBW5Ngw@mail.gmail.com>
- <c0e170f7-5498-40ed-ba35-2ac392c2dd2a@app.fastmail.com>
-In-Reply-To: <c0e170f7-5498-40ed-ba35-2ac392c2dd2a@app.fastmail.com>
-From: Dave Airlie <airlied@gmail.com>
-Date: Fri, 12 Apr 2024 11:54:25 +1000
-Message-ID: <CAPM=9ty_9yKEk+cS6oJ8gD_UiB_K4X3P4mLv2RmKixLaq-1RfQ@mail.gmail.com>
-Subject: Re: [PATCH v4 13/15] drm/amd/display: Use ARCH_HAS_KERNEL_FPU_SUPPORT
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, 
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
-	linux-kernel@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	Christoph Hellwig <hch@lst.de>, loongarch@lists.linux.dev, amd-gfx@lists.freedesktop.org, 
-	Alex Deucher <alexander.deucher@amd.com>
+References: <20240222081231.213406-1-nylon.chen@sifive.com>
+ <20240222081231.213406-3-nylon.chen@sifive.com> <f5ukvah2ujko2iht3pd5jxq5kaukbs5z3pn5s7qwcnx4aqr3yv@mwtbwkcfa44a>
+ <CAHh=Yk8MXy73d8M1J5bVu4spDMbjQDneVTqA=Ts=SGPDO7PXMQ@mail.gmail.com>
+In-Reply-To: <CAHh=Yk8MXy73d8M1J5bVu4spDMbjQDneVTqA=Ts=SGPDO7PXMQ@mail.gmail.com>
+From: Nylon Chen <nylon.chen@sifive.com>
+Date: Fri, 12 Apr 2024 10:07:12 +0800
+Message-ID: <CAHh=Yk-WmzJe0vb+noX8Gb13BL2SOB=MwSB=F9nH_G-j9zi1Lw@mail.gmail.com>
+Subject: Re: [PATCH v9 2/3] pwm: sifive: change the PWM algorithm
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, conor@kernel.org, 
+	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, aou@eecs.berkeley.edu, thierry.reding@gmail.com, 
+	vincent.chen@sifive.com, zong.li@sifive.com, nylon7717@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240411_185439_735969_F62D4E3D 
-X-CRM114-Status: GOOD (  32.61  )
+X-CRM114-CacheID: sfid-20240411_190730_795273_4AB24578 
+X-CRM114-Status: GOOD (  29.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,69 +89,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 11 Apr 2024 at 17:32, Arnd Bergmann <arnd@arndb.de> wrote:
->
-> On Thu, Apr 11, 2024, at 09:15, Ard Biesheuvel wrote:
-> > On Thu, 11 Apr 2024 at 03:11, Samuel Holland <samuel.holland@sifive.com> wrote:
-> >> On 2024-04-10 8:02 PM, Thiago Jung Bauermann wrote:
-> >> > Samuel Holland <samuel.holland@sifive.com> writes:
-> >>
-> >> >> The short-term fix would be to drop the `select ARCH_HAS_KERNEL_FPU_SUPPORT` for
-> >> >> 32-bit arm until we can provide these runtime library functions.
-> >> >
-> >> > Does this mean that patch 2 in this series:
-> >> >
-> >> > [PATCH v4 02/15] ARM: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
-> >> >
-> >> > will be dropped?
-> >>
-> >> No, because later patches in the series (3, 6) depend on the definition of
-> >> CC_FLAGS_FPU from that patch. I will need to send a fixup patch unless I can
-> >> find a GPL-2 compatible implementation of the runtime library functions.
-> >>
-> >
-> > Is there really a point to doing that? Do 32-bit ARM systems even have
-> > enough address space to the map the BARs of the AMD GPUs that need
-> > this support?
-> >
-> > Given that this was not enabled before, I don't think the upshot of
-> > this series should be that we enable support for something on 32-bit
-> > ARM that may cause headaches down the road without any benefit.
-> >
-> > So I'd prefer a fixup patch that opts ARM out of this over adding
-> > support code for 64-bit conversions.
->
-> I have not found any dts file for a 32-bit platform with support
-> for a 64-bit prefetchable BAR, and there are very few that even
-> have a pcie slot (as opposed on on-board devices) you could
-> plug a card into.
->
-> That said, I also don't think we should encourage the use of
-> floating-point code in random device drivers. There is really
-> no excuse for the amdgpu driver to use floating point math
-> here, and we should get AMD to fix their driver instead.
-
-That would be nice, but it won't happen, there are many reasons for
-that code to exist like it does, unless someone can write an automated
-converter to fixed point and validate it produces the same results for
-a long series of input values, it isn't really something that will get
-"fixed".
-
-AMD's hardware team produces the calculations, and will only look into
-hardware problems in that area if the driver is using the calculations
-they produce and validate.
-
-If you've looked at the calculation complexity you'd understand this
-isn't a trivial use of float-point for no reason.
-
-Dave.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Tnlsb24gQ2hlbiA8bnlsb24uY2hlbkBzaWZpdmUuY29tPiDmlrwgMjAyNOW5tDTmnIgy5pelIOmA
+seS6jCDkuIrljYgxMDowOOWvq+mBk++8mgo+Cj4gVXdlIEtsZWluZS1Lw7ZuaWcgPHUua2xlaW5l
+LWtvZW5pZ0BwZW5ndXRyb25peC5kZT4g5pa8IDIwMjTlubQz5pyIMTnml6Ug6YCx5LqMIOS4iuWN
+iDI6MTblr6vpgZPvvJoKPiA+Cj4gPiBPbiBUaHUsIEZlYiAyMiwgMjAyNCBhdCAwNDoxMjozMFBN
+ICswODAwLCBOeWxvbiBDaGVuIHdyb3RlOgo+ID4gPiBUaGUgYGZyYWNgIHZhcmlhYmxlIHJlcHJl
+c2VudHMgdGhlIHB1bHNlIGluYWN0aXZlIHRpbWUsIGFuZCB0aGUgcmVzdWx0Cj4gPiA+IG9mIHRo
+aXMgYWxnb3JpdGhtIGlzIHRoZSBwdWxzZSBhY3RpdmUgdGltZS4KPiA+ID4gVGhlcmVmb3JlLCB3
+ZSBtdXN0IHJldmVyc2UgdGhlIHJlc3VsdC4KPiA+ID4KPiA+ID4gVGhlIHJlZmVyZW5jZSBpcyBT
+aUZpdmUgRlU3NDAtQzAwMCBNYW51YWxbMF0KPiA+ID4KPiA+ID4gTGluazogaHR0cHM6Ly9zaWZp
+dmUuY2RuLnByaXNtaWMuaW8vc2lmaXZlLzFhODJlNjAwLTFmOTMtNGY0MS1iMmQ4LTg2ZWQ4YjE2
+YWNiYV9mdTc0MC1jMDAwLW1hbnVhbC12MXA2LnBkZiBbMF0KPiA+ID4KPiA+ID4gQ28tZGV2ZWxv
+cGVkLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6
+IFpvbmcgTGkgPHpvbmcubGlAc2lmaXZlLmNvbT4KPiA+ID4gQ28tZGV2ZWxvcGVkLWJ5OiBWaW5j
+ZW50IENoZW4gPHZpbmNlbnQuY2hlbkBzaWZpdmUuY29tPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBW
+aW5jZW50IENoZW4gPHZpbmNlbnQuY2hlbkBzaWZpdmUuY29tPgo+ID4gPiBTaWduZWQtb2ZmLWJ5
+OiBOeWxvbiBDaGVuIDxueWxvbi5jaGVuQHNpZml2ZS5jb20+Cj4gPiA+IC0tLQo+ID4gPiAgZHJp
+dmVycy9wd20vcHdtLXNpZml2ZS5jIHwgMTAgKysrKysrLS0tLQo+ID4gPiAgMSBmaWxlIGNoYW5n
+ZWQsIDYgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKPiA+ID4KPiA+ID4gZGlmZiAtLWdp
+dCBhL2RyaXZlcnMvcHdtL3B3bS1zaWZpdmUuYyBiL2RyaXZlcnMvcHdtL3B3bS1zaWZpdmUuYwo+
+ID4gPiBpbmRleCBlYWJkZGI3Yzc4MjAuLmE1ODZjZmU0MTkxYiAxMDA2NDQKPiA+ID4gLS0tIGEv
+ZHJpdmVycy9wd20vcHdtLXNpZml2ZS5jCj4gPiA+ICsrKyBiL2RyaXZlcnMvcHdtL3B3bS1zaWZp
+dmUuYwo+ID4gPiBAQCAtMTEwLDkgKzExMCwxMCBAQCBzdGF0aWMgaW50IHB3bV9zaWZpdmVfZ2V0
+X3N0YXRlKHN0cnVjdCBwd21fY2hpcCAqY2hpcCwgc3RydWN0IHB3bV9kZXZpY2UgKnB3bSwKPiA+
+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IHB3bV9zdGF0ZSAqc3RhdGUp
+Cj4gPiA+ICB7Cj4gPiA+ICAgICAgIHN0cnVjdCBwd21fc2lmaXZlX2RkYXRhICpkZGF0YSA9IHB3
+bV9zaWZpdmVfY2hpcF90b19kZGF0YShjaGlwKTsKPiA+ID4gLSAgICAgdTMyIGR1dHksIHZhbDsK
+PiA+ID4gKyAgICAgdTMyIGR1dHksIHZhbCwgaW5hY3RpdmU7Cj4gPiA+Cj4gPiA+IC0gICAgIGR1
+dHkgPSByZWFkbChkZGF0YS0+cmVncyArIFBXTV9TSUZJVkVfUFdNQ01QKHB3bS0+aHdwd20pKTsK
+PiA+ID4gKyAgICAgaW5hY3RpdmUgPSByZWFkbChkZGF0YS0+cmVncyArIFBXTV9TSUZJVkVfUFdN
+Q01QKHB3bS0+aHdwd20pKTsKPiA+ID4gKyAgICAgZHV0eSA9ICgxVSA8PCBQV01fU0lGSVZFX0NN
+UFdJRFRIKSAtIDEgLSBpbmFjdGl2ZTsKPiA+ID4KPiA+ID4gICAgICAgc3RhdGUtPmVuYWJsZWQg
+PSBkdXR5ID4gMDsKPiA+ID4KPiA+ID4gQEAgLTEyMyw3ICsxMjQsNyBAQCBzdGF0aWMgaW50IHB3
+bV9zaWZpdmVfZ2V0X3N0YXRlKHN0cnVjdCBwd21fY2hpcCAqY2hpcCwgc3RydWN0IHB3bV9kZXZp
+Y2UgKnB3bSwKPiA+ID4gICAgICAgc3RhdGUtPnBlcmlvZCA9IGRkYXRhLT5yZWFsX3BlcmlvZDsK
+PiA+ID4gICAgICAgc3RhdGUtPmR1dHlfY3ljbGUgPQo+ID4gPiAgICAgICAgICAgICAgICh1NjQp
+ZHV0eSAqIGRkYXRhLT5yZWFsX3BlcmlvZCA+PiBQV01fU0lGSVZFX0NNUFdJRFRIOwo+ID4gPiAt
+ICAgICBzdGF0ZS0+cG9sYXJpdHkgPSBQV01fUE9MQVJJVFlfSU5WRVJTRUQ7Cj4gPiA+ICsgICAg
+IHN0YXRlLT5wb2xhcml0eSA9IFBXTV9QT0xBUklUWV9OT1JNQUw7Cj4gPiA+Cj4gPiA+ICAgICAg
+IHJldHVybiAwOwo+ID4gPiAgfQo+ID4gPiBAQCAtMTM5LDcgKzE0MCw3IEBAIHN0YXRpYyBpbnQg
+cHdtX3NpZml2ZV9hcHBseShzdHJ1Y3QgcHdtX2NoaXAgKmNoaXAsIHN0cnVjdCBwd21fZGV2aWNl
+ICpwd20sCj4gPiA+ICAgICAgIGludCByZXQgPSAwOwo+ID4gPiAgICAgICB1MzIgZnJhYzsKPiA+
+ID4KPiA+ID4gLSAgICAgaWYgKHN0YXRlLT5wb2xhcml0eSAhPSBQV01fUE9MQVJJVFlfSU5WRVJT
+RUQpCj4gPiA+ICsgICAgIGlmIChzdGF0ZS0+cG9sYXJpdHkgIT0gUFdNX1BPTEFSSVRZX05PUk1B
+TCkKPiA+ID4gICAgICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsKPiA+ID4KPiA+ID4gICAgICAg
+Y3VyX3N0YXRlID0gcHdtLT5zdGF0ZTsKPiA+ID4gQEAgLTE1OSw2ICsxNjAsNyBAQCBzdGF0aWMg
+aW50IHB3bV9zaWZpdmVfYXBwbHkoc3RydWN0IHB3bV9jaGlwICpjaGlwLCBzdHJ1Y3QgcHdtX2Rl
+dmljZSAqcHdtLAo+ID4gPiAgICAgICBmcmFjID0gRElWNjRfVTY0X1JPVU5EX0NMT1NFU1QobnVt
+LCBzdGF0ZS0+cGVyaW9kKTsKSGkgVXdlLAo+ID4gPiAgICAgICAvKiBUaGUgaGFyZHdhcmUgY2Fu
+bm90IGdlbmVyYXRlIGEgMTAwJSBkdXR5IGN5Y2xlICovCkRvIHlvdSBtZWFuIHRoYXQgaWYgdGhl
+IGluZmVyZW5jZSBpcyBjb3JyZWN0LCB0aGlzIGNvbW1lbnQgc2hvdWxkIGJlIG1vZGlmaWVkPwo+
+ID4KPiA+IElzIHRoaXMgc3RpbGwgdHJ1ZSBub3cgdGhhdCB3ZSBrbm93IHRoYXQgUFdNX1NJRklW
+RV9QV01DTVAgaXMgdGhlCj4gPiBpbmFjdGl2ZSB0aW1lIGluIGEgcGVyaW9kPyBJZiB5b3UgZml4
+IHRoYXQsIHRoZSBzYW1lIGNsYWltIGluIHRoZSBoZWFkZXIKPiA+IG9mIHRoZSBkcml2ZXIgbmVl
+ZHMgYWRhcHRpb24sIHRvby4KPiBJIGJlbGlldmUgdGhlIHN0YXRlbWVudCBpcyB0cnVlLCBidXQg
+SSBkb24ndCBrbm93IHdoaWNoIHBhcnQgdGhlCj4gZHJpdmVyIGhlYWRlciBmaWxlIHJlZmVycyB0
+by4KPiA+Cj4gPiA+ICAgICAgIGZyYWMgPSBtaW4oZnJhYywgKDFVIDw8IFBXTV9TSUZJVkVfQ01Q
+V0lEVEgpIC0gMSk7Cj4gPiA+ICsgICAgIGZyYWMgPSAoMVUgPDwgUFdNX1NJRklWRV9DTVBXSURU
+SCkgLSAxIC0gZnJhYzsKPiA+Cj4gPiBJIGxpa2UgdGhlIGFkZGl0aW9uYWwgdmFyaWFibGUgaW4g
+cHdtX3NpZml2ZV9nZXRfc3RhdGUoKS4gQ2FuIHlvdSBwbGVhc2UKPiA+IGFkZCBvbmUgaGVyZSwg
+dG9vPwo+IGdvdCBpdAo+ID4KPiA+ID4gICAgICAgbXV0ZXhfbG9jaygmZGRhdGEtPmxvY2spOwo+
+ID4gPiAgICAgICBpZiAoc3RhdGUtPnBlcmlvZCAhPSBkZGF0YS0+YXBwcm94X3BlcmlvZCkgewo+
+ID4KPiBUaGFuayB5b3UgZm9yIHRha2luZyB0aGUgdGltZSB0byBoZWxwIG1lIHJldmlldyBteSBp
+bXBsZW1lbnRhdGlvbi4KPgo+IE55bG9uCj4gPiBCZXN0IHJlZ2FyZHMKPiA+IFV3ZQo+ID4KPiA+
+IC0tCj4gPiBQZW5ndXRyb25peCBlLksuICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBVd2Ug
+S2xlaW5lLUvDtm5pZyAgICAgICAgICAgIHwKPiA+IEluZHVzdHJpYWwgTGludXggU29sdXRpb25z
+ICAgICAgICAgICAgICAgICB8IGh0dHBzOi8vd3d3LnBlbmd1dHJvbml4LmRlLyB8CgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
