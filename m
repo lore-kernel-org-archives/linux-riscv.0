@@ -4,68 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A04C00A94
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 21:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0238C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 21:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hb4IVDS4KG/8K/tGAokc8JLiRxKHWMCJ7mzUq6xV1NQ=; b=EP0bvmjLSJyC1B
-	+4ecOCRcwhYaK1QlovCWOAr93Ga7UJXVBo/kV/ZsFs92W0ta+w5rXfMjEkXaSiTx3H0/wKj44xRfH
-	mBX0GF3IVqJrH1cbhRLPImUevn7Y82MTszTCiHVS7w9jXlaMlz1idz5C5qFxbphVTbxMP5w9il/Vo
-	c4iEiyTUQmYOoh/HcOaekJmS+ivwADgnjStrgEiWL7QS2hKB1rKoG+DTOatFWAm732e1BEfDPWnad
-	gjXU9HPTJCnAoAsvY2BSMdloFk1MLho41HZ6Y9xFzjQaGbDftjOhdvX1sXj9wB8rHM5Gt4Ng5XDmQ
-	2MelnDadDDlmfNJfd2hQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PR4t07Cdzon+Kyu6M3HZEhpljzeKvPgofjIRygA+qvI=; b=hemODG3mtjGJs8Kkwlhv4ECNpZ
+	UAU5AWJlZZNgQxHSfKX01luObuRluP6hYF0ScuBfcjjUWFxhZ5xp3kkvpSuSYNsznrkI5ZIqr+3LW
+	typ0uJpeExBasAo5LqKUPuY3VL+xQE8dPPMTcQ4KxMpxvTs5knQcJvHaaM2PJSJdBCjkkkZuF/mol
+	ba1UeeAQ10E2ojbBcKvMmPyhSPqP/kqXJ0GR5KYbne50dhYpRNI0zC6/kUItpZ0F8jU0OTUWxZcfs
+	kz4pE9Lr0801euOHYdRuXaH+T3xJNVscIgy+TgxxoJbkQJCofQOze+UCqu/BXRofqZzmSJATcce9h
+	qasjmF1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvOUw-00000001ObC-1aU3;
-	Fri, 12 Apr 2024 21:31:50 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1rvOXO-00000001PLT-1U56;
+	Fri, 12 Apr 2024 21:34:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvOUs-00000001OYL-1VRQ
-	for linux-riscv@lists.infradead.org;
-	Fri, 12 Apr 2024 21:31:48 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-6eced6fd98aso1260513b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Apr 2024 14:31:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712957505; x=1713562305; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=voVXHLevuqJNzT+bs7/EqrNPPg6u1fkprZIxe/QalLU=;
-        b=WM9oG7NF8CwNDThqTuvJWxR2eJACH9Hb5U5WEtntycbRpT5uQw/k5RQW3EhnYf7837
-         YSiqYYGpvhWBM7SqYlIkZ9JlxmW/S2QeI+wpZgwpgJtA88mgtj14nmQNHqboocwHukek
-         qB265OG9gpqBa0HbsDiK23fRBtJtGoVZhqcmDvlSw3z+al8AWp5ZDrTU0gL2sFu5RbP0
-         WBMcGO8p+2GPASQ8uHt+14IBpKLREctFTI22zhNtOVloJnaOIwc2yRKFNCFEDUG29rwW
-         qvS9FSsoPqxJD50AJgoC+K2R8PuG28GfsgmP1B1lEb/syUpLXQXx5CsZW3KHfPv2ywto
-         A0nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712957505; x=1713562305;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=voVXHLevuqJNzT+bs7/EqrNPPg6u1fkprZIxe/QalLU=;
-        b=FCvB3qeKt4dxiorBIq0wlFYpMI9gkps0sLShXxTicdgU4QvcETTN/Vjk6gzrkb88LH
-         j0TC+XqeBn51KE4D+dLqpq+AL6dXwHXlxM7W9U8CxDG8+/ZCjUddqZgz0p+q+rLJ14fy
-         bkkFzKgWZ0SKsTgM2R/TqNQcoc2aCC7TQFY9AkS3DFwiLfrMa/dXXkxkwuv9vT5ed9Wm
-         cE3iUQeCmhBxvLeJY0KbaRdB5IZqX8xMVjIzBFz7iHTa5uTp8+xiSF+OxBx2x24TyEbZ
-         tGW5vrZTKO0izeUakyZ+jopFeYunFlaTVIoP1iiS5sBIX0uZfJhgeVDsvFOhEHVD0xt9
-         ikrw==
-X-Forwarded-Encrypted: i=1; AJvYcCWgNvnLabcpv8Wl/VJldRxa0mHz7IGA4nMKP4a3iL2BkOM2cL3CyBgRDy4Q2QCL21QWKH5yGT/+Sjt9Ul4oUMzRjCnFIDNba78lXWp1tQvk
-X-Gm-Message-State: AOJu0YwoeMh8RPaW7UpgwqnNmohWrXDTrHRic0VwQ8ZwLWOtHnsR+cvn
-	ML9z1S6Fmaq0N/1yNRJTMpPyX/dD3vvCRSpdp7/4rxfHG7wRoaRglb4BWWGTHTUUWC8L0AWb5FJ
-	B
-X-Google-Smtp-Source: AGHT+IERI9B+BrmtTh0aeho0vx1NlGjhWinYXb/3YQQZhSK7SAPG1+V9dZjVR23iA+HJ2H/wGMNAgA==
-X-Received: by 2002:a05:6a20:5d92:b0:1a7:3d5f:dd3b with SMTP id km18-20020a056a205d9200b001a73d5fdd3bmr3547889pzb.16.1712957505558;
-        Fri, 12 Apr 2024 14:31:45 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id h15-20020a63384f000000b005dc5289c4edsm3063267pgn.64.2024.04.12.14.31.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Apr 2024 14:31:45 -0700 (PDT)
-Date: Fri, 12 Apr 2024 14:31:42 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
+	id 1rvOXJ-00000001PJd-3eFO;
+	Fri, 12 Apr 2024 21:34:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 12A0B61D41;
+	Fri, 12 Apr 2024 21:34:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36A7AC113CC;
+	Fri, 12 Apr 2024 21:34:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1712957656;
+	bh=RPMZISUCpRH7rGFvp7EbdpEtkFygpiRP/bPV6ApwRUM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QQSf3PB42KVUAVL/1+OQDtLauoAha7gpWFLEfP7EkJZ7N4u8sjm1TXZET0lcr99if
+	 p323/cwpgZUxDFoAN0LtJD/WtUmkAowRMfrHXs2ADEs+POp65FYXDmivZLLbSGNrbU
+	 cK7psxBkc2pNWhws+T+BLn4rvwbGtErI3pKePtDRrrXtxg4SlAkty9qCRKwyAvaK4o
+	 4J1TYby7DtMN0iDHmvtIaHgU/2W7PPaw1EGmkk8oxy7YqdZ0CGvX2zAsbQmuPAc1vv
+	 Sybl6gdQ0nD7yXd8jpir5Kgy9dj6jXo2NV/g5uxXJoISW/2Z2e9/7qwwU4KNgSB4f8
+	 bogQT43yfNq2A==
+Date: Fri, 12 Apr 2024 22:34:10 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
 Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -82,21 +60,20 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
 	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
 	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 02/19] riscv: cpufeature: Fix thead vector hwcap removal
-Message-ID: <ZhmoPuoR00aS6qZp@ghost>
+Subject: Re: [PATCH 08/19] riscv: Introduce vendor variants of extension
+ helpers
+Message-ID: <20240412-geranium-monotone-b47f414715d1@spud>
 References: <20240411-dev-charlie-support_thead_vector_6_9-v1-0-4af9815ec746@rivosinc.com>
- <20240411-dev-charlie-support_thead_vector_6_9-v1-2-4af9815ec746@rivosinc.com>
- <20240412-tuesday-resident-d9d07e75463c@wendy>
- <ZhlrdGXfSushUNTp@ghost>
- <20240412-eastcoast-disparity-9c9e7d178df5@spud>
- <ZhmeLoPS+tsfqv1T@ghost>
- <20240412-chemist-haunt-0a30a8f280ca@spud>
+ <20240411-dev-charlie-support_thead_vector_6_9-v1-8-4af9815ec746@rivosinc.com>
+ <20240412-dwarf-shower-5a7300fcd283@wendy>
+ <ZhlypvTdsFPZBr08@ghost>
+ <20240412-drab-french-55d8ff2c8cfa@spud>
+ <ZhmhtLS5NuRrPOfu@ghost>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240412-chemist-haunt-0a30a8f280ca@spud>
+In-Reply-To: <ZhmhtLS5NuRrPOfu@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_143146_532795_3CC25FE9 
-X-CRM114-Status: GOOD (  55.52  )
+X-CRM114-CacheID: sfid-20240412_143418_072788_682A3611 
+X-CRM114-Status: GOOD (  37.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,141 +85,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8373466966399355667=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 12, 2024 at 10:27:47PM +0100, Conor Dooley wrote:
-> On Fri, Apr 12, 2024 at 01:48:46PM -0700, Charlie Jenkins wrote:
-> > On Fri, Apr 12, 2024 at 07:47:48PM +0100, Conor Dooley wrote:
-> > > On Fri, Apr 12, 2024 at 10:12:20AM -0700, Charlie Jenkins wrote:
-> > > > On Fri, Apr 12, 2024 at 11:25:47AM +0100, Conor Dooley wrote:
-> > > > > On Thu, Apr 11, 2024 at 09:11:08PM -0700, Charlie Jenkins wrote:
-> > > > > > The riscv_cpuinfo struct that contains mvendorid and marchid is not
-> > > > > > populated until all harts are booted which happens after the DT parsing.
-> > > > > > Use the vendorid/archid values from the DT if available or assume all
-> > > > > > harts have the same values as the boot hart as a fallback.
-> > > > > > 
-> > > > > > Fixes: d82f32202e0d ("RISC-V: Ignore V from the riscv,isa DT property on older T-Head CPUs")
-> > > > > 
-> > > > > If this is our only use case for getting the mvendorid/marchid stuff
-> > > > > from dt, then I don't think we should add it. None of the devicetrees
-> > > > > that the commit you're fixing here addresses will have these properties
-> > > > > and if they did have them, they'd then also be new enough to hopefully
-> > > > > not have "v" either - the issue is they're using whatever crap the
-> > > > > vendor shipped.
-> > > > 
-> > > > Yes, the DT those shipped with will not have the property in the DT so
-> > > > will fall back on the boot hart. The addition of the DT properties allow
-> > > > future heterogenous systems to be able to function.
-> > > 
-> > > I think you've kinda missed the point about what the original code was
-> > > actually doing here. Really the kernel should not be doing validation of
-> > > the devicetree at all, but I was trying to avoid people shooting
-> > > themselves in the foot by doing something simple that would work for
-> > > their (incorrect) vendor dtbs.
-> > > Future heterogenous systems should be using riscv,isa-extensions, which
-> > > is totally unaffected by this codepath (and setting actual values for
-> > > mimpid/marchid too ideally!).
-> > > 
-> > 
-> > I am on the same page with you about that. 
-> > 
-> > > > > If we're gonna get the information from DT, we already have something
-> > > > > that we can look at to perform the disable as the cpu compatibles give
-> > > > > us enough information to make the decision.
-> > > > > 
-> > > > > I also think that we could just cache the boot CPU's marchid/mvendorid,
-> > > > > since we already have to look at it in riscv_fill_cpu_mfr_info(), avoid
-> > > > > repeating these ecalls on all systems.
-> > > > 
-> > > > Yeah that is a minor optimization that can I can apply.
-> > > > 
-> > > > > 
-> > > > > Perhaps for now we could just look at the boot CPU alone? To my
-> > > > > knowledge the systems that this targets all have homogeneous
-> > > > > marchid/mvendorid values of 0x0.
-> > > > 
-> > > > They have an mvendorid of 0x5b7.
-> > > 
-> > > That was a braino, clearly I should have typed "mimpid".
-> > > 
-> > > > This is already falling back on the boot CPU, but that is not a solution
-> > > > that scales. Even though all systems currently have homogenous
-> > > > marchid/mvendorid I am hesitant to assert that all systems are
-> > > > homogenous without providing an option to override this.
-> > > 
-> > > There are already is an option. Use the non-deprecated property in your
-> > > new system for describing what extesions you support. We don't need to
-> > > add any more properties (for now at least).
-> > 
-> > The issue is that it is not possible to know which vendor extensions are
-> > associated with a vendor. That requires a global namespace where each
-> > extension can be looked up in a table. I have opted to have a
-> > vendor-specific namespace so that vendors don't have to worry about
-> > stepping on other vendor's toes (or the other way around). In order to
-> > support that, the vendorid of the hart needs to be known prior.
-> 
-> Nah, I think you're mixing up something like hwprobe and having
-> namespaces there with needing namespacing on the devicetree probing side
-> too. You don't need any vendor namespacing, it's perfectly fine (IMO)
-> for a vendor to implement someone else's extension and I think we should
-> allow probing any vendors extension on any CPU.
 
-I am not mixing it up. Sure a vendor can implement somebody else's
-extension, they just need to add it to their namespace too.
-
-- Charlie
-
-> 
-> > I know a rebuttal here is that this is taking away from the point of
-> > the original patch. I can split this patch up if so. The goal here is to
-> > allow vendor extensions to play nicely with the rest of the system.
-> > There are two uses of the mvendorid DT value, this fix, and the patch
-> > that adds vendor extension support. I felt that it was applicable to
-> > wrap the mvendorid DT value into this patch, but if you would prefer
-> > that to live separate of this fix then that is fine too.
-> > 
-> > - Charlie
-> > 
-> > > 
-> > > > The overhead is
-> > > > looking for a field in the DT which does not seem to be impactful enough
-> > > > to prevent the addition of this option.
-> > > > 
-> > > > > 
-> > > > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > > > > 
-> > > > > > @@ -514,12 +521,23 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
-> > > > > >  				pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
-> > > > > >  				continue;
-> > > > > >  			}
-> > > > > > +			if (of_property_read_u64(node, "riscv,vendorid", &this_vendorid) < 0) {
-> > > > > > +				pr_warn("Unable to find \"riscv,vendorid\" devicetree entry, using boot hart mvendorid instead\n");
-> > > > > 
-> > > > > This should 100% not be a warning, it's not a required property in the
-> > > > > binding.
-> > > > 
-> > > > Yes definitely, thank you.
-> > > > 
-> > > > - Charlie
-> > > > 
-> > > > > 
-> > > > > Cheers,
-> > > > > Conor.
-> > > > > 
-> > > > > > +				this_vendorid = boot_vendorid;
-> > > > > > +			}
-> > > > > 
-> > > > 
-> > > > 
-> > 
-> > 
+--===============8373466966399355667==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="SiZFDomrOPZV4p3t"
+Content-Disposition: inline
 
 
+--SiZFDomrOPZV4p3t
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Apr 12, 2024 at 02:03:48PM -0700, Charlie Jenkins wrote:
+> On Fri, Apr 12, 2024 at 09:40:03PM +0100, Conor Dooley wrote:
+> > On Fri, Apr 12, 2024 at 10:43:02AM -0700, Charlie Jenkins wrote:
+> > > On Fri, Apr 12, 2024 at 12:49:57PM +0100, Conor Dooley wrote:
+> > > > On Thu, Apr 11, 2024 at 09:11:14PM -0700, Charlie Jenkins wrote:
+> > > > > Create vendor variants of the existing extension helpers. If the
+> > > > > existing functions were instead modified to support vendor extens=
+ions, a
+> > > > > branch based on the ext value being greater than
+> > > > > RISCV_ISA_VENDOR_EXT_BASE would have to be introduced. This addit=
+ional
+> > > > > branch would have an unnecessary performance impact.
+> > > > >=20
+> > > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > > >=20
+> > > > I've not looked at the "main" patch in the series that adds all of =
+the
+> > > > probing and structures for representing this info yet beyond a curs=
+ory
+> > > > glance, but it feels like we're duplicating a bunch of infrastructu=
+re
+> > > > here before it is necessary. The IDs are all internal to Linux, so =
+I'd
+> > > > rather we kept everything in the same structure until we have more =
+than
+> > > > a handful of vendor extensions. With this patch (and the theadpmu s=
+tuff)
+> > > > we will have three vendor extensions which feels like a drop in the
+> > > > bucket compared to the standard ones.
+> > >=20
+> > > It is not duplicating infrastructure. If we merge this into the exist=
+ing
+> > > infrastructure, we would be littering if (ext > RISCV_ISA_VENDOR_EXT_=
+BASE)
+> > > in __riscv_isa_extension_available. This is particularily important
+> > > exactly because we have so few vendor extensions currently so this ch=
+eck
+> > > would be irrelevant in the vast majority of cases.
+> >=20
+> > That's only because of your implementation. The existing vendor extensi=
+on
+> > works fine without this littering. That's another thing actually, you
+> > forgot to convert over the user we already have :)
+>=20
+> Oh right, I will convert them over. The fundemental goal of this patch
+> is to allow a way for vendors to support their own extensions without
+> needing to populate riscv_isa_ext. This is to create separation between
+> vendors so they do not impact each other.
+
+The one that needs converting is xandespmu. As I said on the other patch
+a minute I don't think isolating vendors for the internal representation
+is needed and can be left in hwprobe. I also don't think we can rely on
+a behaviour of "SiFive CPUs will always have SiFive's mvendorid" or that
+kinda thing, I've heard talk of the SoC vendor getting their mvendorid
+for custom CPU cores instead of the CPU vendor and it's possible for
+the SBI implementation to "adjust" the values also.
+
+> xlinuxenvcfg does not fit into this scheme however. This scheme assumes
+> that a hart cannot have multiple vendors which that extension breaks.
+> xlinuxenvcfg is really filling a hole in the standard isa that is
+> applicible to all vendors and does not appear in the device tree so it
+> is okay for that to live outside this scheme.
+
+Ye, xlinuxenvcfg is an internal psuedo-extension that should be treated
+more like a standard one than something vendor.
+
+> > > It is also unecessary to push off the refactoring until we have some
+> > > "sufficient" amount of vendor extensions to deem changing the
+> > > infrastructure when I already have the patch available here. This does
+> > > not introduce any extra overhead to existing functions and will be ab=
+le
+> > > to support vendors into the future.
+> >=20
+> > Yeah, maybe that's true but this was my gut reaction before reading the
+> > other patch in detail (which I've still yet to do).
+>=20
+> - Charlie
+>=20
+
+--SiZFDomrOPZV4p3t
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhmo0QAKCRB4tDGHoIJi
+0sB2AP9FeUoact1liM4pnP8xEk+uEek2FyqTjYcZiaib0RlcGwD/RBzXv10rgGru
+eAFY4Rmq36PhVYfHdF4UI+zCC4yTAgw=
+=xSsQ
+-----END PGP SIGNATURE-----
+
+--SiZFDomrOPZV4p3t--
+
+
+--===============8373466966399355667==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8373466966399355667==--
+
