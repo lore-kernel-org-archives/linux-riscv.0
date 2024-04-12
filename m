@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65913C00A94
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 18:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE4AC4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 19:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3cnajP1xAXpFI4hSlqyzZMdg6ryNouCkIap9ycC/OhU=; b=4yM6l/lGuFJPvtzt3+pzoRyR6U
-	NNxs8UeWdgu/jPnuOPTRsPd91ln0NMvLUUJ2caa7u9/8U/ABaO6RSCX/gYq14H9NW5IwwbM/A5KVt
-	DHpIro6pfXWseld9WeIY+ClAv9goJyFshUPRQJGvfOKNZA4BNtPFt/Mcu3tfssnRkGH1XChQAvj32
-	cSLhsBulW3FJjWTEoM7854RR82P4zeYSUBwU8X+FSFe+670/AsCciO/3voeK0hVS8027+bj8VCs22
-	EfwD4WM9K9muAm9CHvNilY7oGC191xyQAmS3fyDSBJJh6iZzBi4e0PlxPQwNoonhTPK4VxbzYhv4O
-	6FdDgswA==;
+	bh=/q+mFLkX84RWQSb/563a8uxHQ6XrnFYUduFcrKcyjTo=; b=yMAMJ5eCVk40Q/SQu/JCt058BD
+	Ua5lJzxEVKSvM7P9X5xPZp9ul8htodUiPWko6QslSwoFkHToOO5Vt0uGXnq9Bshz+QmymYMCj3PAs
+	ZL+Z4LZQk2b7/M2V6GnPt4lgdFWJCmasUrTHj5NPAS7p+b4/0WLES7l4kOiZpQYSbyrO6ph8jlk2d
+	h5gNQt1LsEeCYwaJEGItTyPoSzcV0Px1Jr5oevtIibMC4yJXT2AsP3MSCKghoQgezUyoiSc43bLma
+	qUhMStLgbsZpG6L3lMAuAasTJrMI++QIYtctkGaldFEQ10NX+Tdd2Mv55RtZrG37ZCNct4tXk/bnu
+	Zbo/44og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvM7s-00000000xzR-3IT5;
-	Fri, 12 Apr 2024 18:59:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rvM8z-00000000yT7-1s5X;
+	Fri, 12 Apr 2024 19:01:05 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvM7p-00000000xxt-2Eud;
-	Fri, 12 Apr 2024 18:59:50 +0000
+	id 1rvM8u-00000000yPf-20Ye;
+	Fri, 12 Apr 2024 19:00:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E9CF2614F6;
-	Fri, 12 Apr 2024 18:59:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C9DBC2BBFC;
-	Fri, 12 Apr 2024 18:59:42 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id E7E63CE3A96;
+	Fri, 12 Apr 2024 19:00:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E802C113CC;
+	Fri, 12 Apr 2024 19:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712948387;
-	bh=LuLEqLX3JLgh1GzFv1vsjyQM7SgJUCT9K8xbIt5Uo5Y=;
+	s=k20201202; t=1712948453;
+	bh=zjERDaZxnJcQkN5CsXJlf2FvNFLdjHZ+EAHGDAdZ/ng=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mw30pxNB+RuhG0Eg6RLHx0nvRwAHBHW+UMA78SHhSenayouFGw636u5+aZEMbs48u
-	 Z4OdOpjIHXdliZT0DbX3uwJ021wUPeRQ5VYMQiGoX+GmVJlQo//SARrCfV0uajBvt+
-	 pesRNDzSUTKDdgRfgX1eDrFzi72ikiW4TW7bvtbMf8Q3ZYz2WUZmXSBJlRALj7D+wf
-	 JPiii9gXxroeixv8+8Mp+JI+bRqaFLipDLSi9+4rUFgGPfqzc5WHMXfTInHUKEYKtF
-	 ztbHkT9vIdkVVsWnTFcPYgyvkVy9sjrF1NafQ6QIQONuZChPON/S1loIowHoead7r1
-	 3hHVQMi2LTdtQ==
-Date: Fri, 12 Apr 2024 19:59:40 +0100
+	b=fv70IH6HmhET0vREPnCPAMw7Zte6KDR18caLJzQeXRwxqTL3cawpT4GwCrOrEc4Iz
+	 aDIwNQLY4iuGz2uT6ddt6Drg20rKv8pLAQY+S9iJ5MJfTkj1Slz72G5IjBok911JBa
+	 OGW9Ly/6Sgpxi7thDG2JTywWye/BPbTzIr75uHA/UvcFvbE5mZNDHTZOYVjNG/hYKa
+	 F2VPZREepVD5IIuM2tBNpHszwqYu1VY50G5VS/JY8jKs0687DtugQAf1/SsVJ6WGqK
+	 Ti16VSTjb8XNu5k4X46LeIYUzY8u/OIUDWq0hSDH5lav6BZtioOlRauXV7ViOfCO+e
+	 k26f2bOKdS9Zw==
+Date: Fri, 12 Apr 2024 20:00:46 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Charlie Jenkins <charlie@rivosinc.com>
 Cc: Conor Dooley <conor.dooley@microchip.com>,
@@ -60,18 +60,17 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
 	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
 	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 06/19] riscv: Extend cpufeature.c to detect vendor
- extensions
-Message-ID: <20240412-factsheet-attain-1a2d1c5306a2@spud>
+Subject: Re: [PATCH 12/19] riscv: Create xtheadvector file
+Message-ID: <20240412-displease-sensually-33d91fc3fe63@spud>
 References: <20240411-dev-charlie-support_thead_vector_6_9-v1-0-4af9815ec746@rivosinc.com>
- <20240411-dev-charlie-support_thead_vector_6_9-v1-6-4af9815ec746@rivosinc.com>
- <20240412-sprawl-product-1e1d02e25bca@wendy>
- <ZhloHGxa5jRRR9xg@ghost>
+ <20240411-dev-charlie-support_thead_vector_6_9-v1-12-4af9815ec746@rivosinc.com>
+ <20240412-thirty-sacrament-db052c7fe6fe@wendy>
+ <Zhl8Y+GzTB/ip7rT@ghost>
 MIME-Version: 1.0
-In-Reply-To: <ZhloHGxa5jRRR9xg@ghost>
+In-Reply-To: <Zhl8Y+GzTB/ip7rT@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_115949_722474_4D8357A3 
-X-CRM114-Status: GOOD (  31.81  )
+X-CRM114-CacheID: sfid-20240412_120056_889245_8C29C4FC 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,152 +82,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5177682386754347320=="
+Content-Type: multipart/mixed; boundary="===============7790551590481824419=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5177682386754347320==
+--===============7790551590481824419==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CsanCPP69sx4whwN"
+	protocol="application/pgp-signature"; boundary="yiuYflu9z+To5kfn"
 Content-Disposition: inline
 
 
---CsanCPP69sx4whwN
+--yiuYflu9z+To5kfn
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Apr 12, 2024 at 09:58:04AM -0700, Charlie Jenkins wrote:
-> On Fri, Apr 12, 2024 at 01:30:08PM +0100, Conor Dooley wrote:
-> > On Thu, Apr 11, 2024 at 09:11:12PM -0700, Charlie Jenkins wrote:
-> > >  static void __init riscv_parse_isa_string(unsigned long *this_hwcap,=
- struct riscv_isainfo *isainfo,
-> >=20
-> > > -					  unsigned long *isa2hwcap, const char *isa)
-> > > +					struct riscv_isainfo *isavendorinfo, unsigned long vendorid,
-> > > +					unsigned long *isa2hwcap, const char *isa)
-> > >  {
-> > >  	/*
-> > >  	 * For all possible cpus, we have already validated in
-> > > @@ -349,8 +384,30 @@ static void __init riscv_parse_isa_string(unsign=
-ed long *this_hwcap, struct risc
-> > >  		const char *ext =3D isa++;
-> > >  		const char *ext_end =3D isa;
-> > >  		bool ext_long =3D false, ext_err =3D false;
-> > > +		struct riscv_isainfo *selected_isainfo =3D isainfo;
-> > > +		const struct riscv_isa_ext_data *selected_riscv_isa_ext =3D riscv_=
-isa_ext;
-> > > +		size_t selected_riscv_isa_ext_count =3D riscv_isa_ext_count;
-> > > +		unsigned int id_offset =3D 0;
-> > > =20
-> > >  		switch (*ext) {
-> > > +		case 'x':
-> > > +		case 'X':
-> >=20
-> > One quick remark is that we should not go and support this stuff via
-> > riscv,isa in my opinion, only allowing it for the riscv,isa-extensions
-> > parsing. We don't have a way to define meanings for vendor extensions in
-> > this way. ACPI also uses this codepath and at the moment the kernel's
-> > docs say we're gonna follow isa string parsing rules in a specific vers=
-ion
-> > of the ISA manual. While that manual provides a format for the string a=
-nd
-> > meanings for standard extensions, there's nothing in there that allows =
-us
-> > to get consistent meanings for specific vendor extensions, so I think we
-> > should avoid intentionally supporting this here.
->=20
-> Getting a "consistent meaning" is managed by a vendor.
-
-IOW, there's absolutely no guarantee of a consistent meaning.
-
-> If a vendor
-> supports a vendor extension and puts it in their DT/ACPI table it's up
-> to them to ensure that it works. How does riscv,isa-extensions allow for
-> a consistent meaning?
-
-The definitions for each string contain links to exact versions of
-specifications that they correspond to.
-
-> >=20
-> > I'd probably go as far as to actively skip vendor extensions in
-> > riscv_parse_isa_string() to avoid any potential issues.
-> >=20
-> > > +			bool found;
+On Fri, Apr 12, 2024 at 11:24:35AM -0700, Charlie Jenkins wrote:
+> On Fri, Apr 12, 2024 at 12:30:32PM +0100, Conor Dooley wrote:
+> > On Thu, Apr 11, 2024 at 09:11:18PM -0700, Charlie Jenkins wrote:
+> > > These definitions didn't fit anywhere nicely, so create a new file to
+> > > house various xtheadvector instruction encodings.
+> > >=20
+> > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > > ---
+> > >  arch/riscv/include/asm/xtheadvector.h | 25 +++++++++++++++++++++++++
+> > >  1 file changed, 25 insertions(+)
+> > >=20
+> > > diff --git a/arch/riscv/include/asm/xtheadvector.h b/arch/riscv/inclu=
+de/asm/xtheadvector.h
+> > > new file mode 100644
+> > > index 000000000000..348263ea164c
+> > > --- /dev/null
+> > > +++ b/arch/riscv/include/asm/xtheadvector.h
+> > > @@ -0,0 +1,25 @@
+> > > +/* SPDX-License-Identifier: GPL-2.0-only */
 > > > +
-> > > +			found =3D get_isa_vendor_ext(vendorid,
-> > > +						   &selected_riscv_isa_ext,
-> > > +						   &selected_riscv_isa_ext_count);
-> > > +			selected_isainfo =3D isavendorinfo;
-> > > +			id_offset =3D RISCV_ISA_VENDOR_EXT_BASE;
-> > > +			if (!found) {
-> > > +				pr_warn("No associated vendor extensions with vendor id: %lx\n",
-> > > +					vendorid);
+> > > +/*
+> > > + * Vector 0.7.1 as used for example on T-Head Xuantie cores, uses an=
+ older
+> > > + * encoding for vsetvli (ta, ma vs. d1), so provide an instruction f=
+or
+> > > + * vsetvli	t4, x0, e8, m8, d1
+> > > + */
+> > > +#define THEAD_VSETVLI_T4X0E8M8D1	".long	0x00307ed7\n\t"
+> > > +#define THEAD_VSETVLI_X0X0E8M8D1	".long	0x00307057\n\t"
+> > > +
+> > > +/*
+> > > + * While in theory, the vector-0.7.1 vsb.v and vlb.v result in the s=
+ame
+> > > + * encoding as the standard vse8.v and vle8.v, compilers seem to opt=
+imize
+> > > + * the call resulting in a different encoding and then using a value=
+ for
+> > > + * the "mop" field that is not part of vector-0.7.1
+> > > + * So encode specific variants for vstate_save and _restore.
 > >=20
-> > This should not be a warning, anything we don't understand should be
-> > silently ignored to avoid spamming just because the kernel has not grown
-> > support for it yet.
+> > This wording seems oddly familiar to me, did Heiko not write this?
 >=20
-> Sounds good.
->=20
-> - Charlie
->=20
-> >=20
-> > Thanks,
-> > Conor.
-> >=20
-> > > +				for (; *isa && *isa !=3D '_'; ++isa)
-> > > +					;
-> > > +				ext_err =3D true;
-> > > +				break;
-> > > +			}
-> > > +			fallthrough;
-> > >  		case 's':
-> > >  			/*
-> > >  			 * Workaround for invalid single-letter 's' & 'u' (QEMU).
-> > > @@ -366,8 +423,6 @@ static void __init riscv_parse_isa_string(unsigne=
-d long *this_hwcap, struct risc
-> > >  			}
-> > >  			fallthrough;
-> > >  		case 'S':
-> > > -		case 'x':
-> > > -		case 'X':
-> > >  		case 'z':
-> > >  		case 'Z':
-> > >  			/*
-> > > @@ -476,8 +531,10 @@ static void __init riscv_parse_isa_string(unsign=
-ed long *this_hwcap, struct risc
-> > >  				set_bit(nr, isainfo->isa);
-> > >  			}
-> > >  		} else {
-> > > -			for (int i =3D 0; i < riscv_isa_ext_count; i++)
-> > > -				match_isa_ext(&riscv_isa_ext[i], ext, ext_end, isainfo);
-> > > +			for (int i =3D 0; i < selected_riscv_isa_ext_count; i++)
-> > > +				match_isa_ext(&selected_riscv_isa_ext[i], ext,
-> > > +					      ext_end, selected_isainfo,
-> > > +					      id_offset);
-> > >  		}
-> > >  	}
-> > >  }
->=20
->=20
+> Yeah, I wasn't sure how to attribute him. He wrote almost all of the
+> lines in this file, but I put it together into this file. What is the
+> standard way of doing that?
 
---CsanCPP69sx4whwN
+The original patches have his sob and authorship, so I would at least
+expect co-developed-by.
+
+--yiuYflu9z+To5kfn
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhmEnAAKCRB4tDGHoIJi
-0pNvAP0cufmJeVfjqNNvS2amdK3cPxp6+XoZZuLVZYI1W7JTkAD9Etz7Xt95pEBt
-HBVc3vyRX/GytuvTJoIkVsfPSrRlpA0=
-=aGbN
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhmE3gAKCRB4tDGHoIJi
+0pxvAP9yVWDaNANZULFGFjAROk1PKk4c4Q7mCmsZPOAQYvlN8wEA59scy5YtWI5N
+LccwmxaDOXa8yoM0s7fRijgi3x//xwI=
+=OBaT
 -----END PGP SIGNATURE-----
 
---CsanCPP69sx4whwN--
+--yiuYflu9z+To5kfn--
 
 
---===============5177682386754347320==
+--===============7790551590481824419==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -239,5 +172,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5177682386754347320==--
+--===============7790551590481824419==--
 
