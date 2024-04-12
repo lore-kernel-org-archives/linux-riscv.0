@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA1BCC00A94
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 09:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065C2C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 09:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fQm8M6mnV8QXKBx+jtjhM/J49yJl1TRuZTtM2/uDpfk=; b=K2iInDS6fASpw7
-	nobEVP8Gk1vKhJrPD7m4sOx0q1N/K1nyDRMqXGW2cjSTSlNUHxI4g3mKdygzG6S+1dvMbmF8Md6jS
-	qih2a6zHf7fq/dm5mL2OOiuhUEI2Bb5zcjHeFwEl1jeUrKuRXsg15JUWk6JFeNO3mPTQo02xACyKE
-	U68fZb1eeE6MTDKtDKVM77/CZDKnJ9s1nUL7vVABwhzh9YCIo0lZLCHJnl93oPktcJOxfDig5dOBx
-	FWUILp/T5RksMSTGrxiAyUZwdSlIuBeL9DLgdkbdLZdYcw9yckVpc+GTZ16TIB1YTtEb7BwdG4bhN
-	W3iDhxWknMJkJKuIhj+Q==;
+	List-Owner; bh=LLTQ6g53yomLLbwHa3gPgHhxU/KXvscTK84MihyNo9A=; b=tBuDqadOuFG9Ol
+	9qduFXILC7runJWItTVm51TTtGXqHQGhNfosWeQlKQDk2dY7A6lOrMrV8dtZEOBjgmP3/igkwjwtV
+	P3UISRi7Bo3ZAmv9vqBq6zF2bLJ0hAxmn6L2eeX7ZqLt8iyw17XyUQDv64t6LNdlq+uLrOu9vbTcU
+	oYVKqut1hH1wpb3fNiek9WxY1R+jW3VJbijpREsmQ44LIXNZ243LG26aLe7H7Mr0nwoc6fHTLuVow
+	T4WtZEDbj5HxO78clPokLSbBgGyuOhUx+9YUWMMJkOFt0YsyfPIcvbF7hOeStcHU6O3qxKHw/Vxzf
+	RSMa2ILsLtoWMZDrYqvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvD2X-0000000GNpg-2ZQQ;
-	Fri, 12 Apr 2024 09:17:45 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1rvD4d-0000000GPCO-3Q7x;
+	Fri, 12 Apr 2024 09:19:55 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvD2V-0000000GNod-09LB
+	id 1rvD4R-0000000GP2E-0O4B
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Apr 2024 09:17:44 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-56e48d0a632so1076037a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Apr 2024 02:17:41 -0700 (PDT)
+	Fri, 12 Apr 2024 09:19:52 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-56fe8093c9eso608287a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Apr 2024 02:19:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1712913460; x=1713518260; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1712913580; x=1713518380; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=NpTqhd0B9/xzNoER4WA8UDMsth7BUMydRvViv6uQMmo=;
-        b=CceKgGbdEjktBNDs4hAH1aLB0yojf58PUUT7RLAmZOVtEle2vVx0DV71jOwJRJlLsN
-         PPeN/ml6KajgGn17UkSxAnL8yyzk27xHaFDuOc9EpbnRO8mI3CSjwXrjPQrQ5o0q5mj8
-         s3OLLtxKLy+nYliC/ThD8B9UfbSfylFWd7MxGLezcupNTz/slWp1RKdVLAbCb2a+kcW4
-         MlQuh4j/B17xxL2BEIzng8oD8XfrqoqP4F2UqkFpHbSzdzopb/+fWhfBlqBQ+BlyxsFP
-         pE0GlujQLOLY6U/ilcmrt9xtzxSzDuUtwm4LrexUWgOCK2CneWTwbkU/8zUes36Xa53b
-         26TQ==
+        bh=Bgd8iTM8jYzI4GBbVZWg6A5Y54CVMr5y4lgBoQ1W9Wk=;
+        b=a0AYfe2ILNIRThqlOgXgdvM82QCiaK5wpUau5o25g2YpLtNPK+d6rP0K5gxd6kRfrc
+         4Kuy+IYMSAMDL2Km36N2Z7Pv5mqgbOz0vRWn7MTHZRjntt2plf6zNYGec1bEfEOMEZ+7
+         Ds302FK818+cuiTAgHQKFZdGu4aJ1uLTEmORVnaYb0ZwNQsR94y2HdW9o9KIqXA6q372
+         8d6zlcxZg/ar9D36tu4th2TkBdgjn2/WLzwGMcgsPK7y/q3muF+2iTB5osqSn4ZXIMi3
+         3EXSW1olZS70fSGs/j1vLGVZiXf4bCHb7Pf2A5rvuBKXJX9k25yaBMCbVcgqeytfcr+H
+         8hew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712913460; x=1713518260;
+        d=1e100.net; s=20230601; t=1712913580; x=1713518380;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NpTqhd0B9/xzNoER4WA8UDMsth7BUMydRvViv6uQMmo=;
-        b=dbaW0nK9/P7ucjJHequFjskEpyEuFLCjrkbOmNV/Fa/TExYUJKM0zQ/5U0ZhN1nJPF
-         rgtK2U34VAKxphwSHLWeVcYc2VX2S/tpjSDMtaWvcyfZ1iP3ZWFNL3SUgx1LlS0AuZMW
-         Vlbd/if5uN9O/ERVVfWeg0r2AdAZn6QkHmHW99GapVogOTQLsr79TJvQX6A1XrcqJXDG
-         iC4Vxj9it0cDxa/BKEJbGKmJrabWF9a4UTBzLrJ0zingKURu9QUTJb+PSQ3UCfaA4Q6z
-         YYu4assikqkwXxBWeg03PgduA3FwQzCxfVpHpSOfz8AE3jhjIs+kPzwWOviylE1Lu1m0
-         5fKQ==
-X-Gm-Message-State: AOJu0YyRBACvxcqXVha1aIcS5pw+cwmw05A1jLQH7dQ+89fT9CNhyVfl
-	ux5DXJJfDASeNQZf/A5Jm5Mwj1lXRBFaGdRu/ZUgtDl8LRlEdoXwvuQrfufeSpc=
-X-Google-Smtp-Source: AGHT+IHq4nDOY9BE7wVDb1XOnSrleY4Dv23ThXeV1lFWTOEAGTh75Q6EpVDt8PPWewS00Yu7y3phRA==
-X-Received: by 2002:a50:d542:0:b0:56f:e489:471a with SMTP id f2-20020a50d542000000b0056fe489471amr1659588edj.5.1712913460463;
-        Fri, 12 Apr 2024 02:17:40 -0700 (PDT)
+        bh=Bgd8iTM8jYzI4GBbVZWg6A5Y54CVMr5y4lgBoQ1W9Wk=;
+        b=jN3adAzK7yJqiQDHR3jxEz3sUFf+VeCuVofMCGyzVxnrfBJ4+h/0O1+5I0g17xSxUI
+         c/+AzjBvOCkr8KLcgXFgRoaJCliNNm42fXYU7nH8RKIPykZj5ZQKunmhBTXmQ3V+coor
+         zJTrsFTvN5rxxx0VRXiqqQQpjqQnyPuaGfITywzJvskJkrixBx6IZA60L+tkuvDnVNE9
+         zCulG+t0QeQYKdgRLyQpClF/ejxM++zYxkisTLoJZvaWCyrDPKuadcb4PhWI5AdAq3Az
+         ThyfBpz7KQ7geCdP1t/teQ7Fw3NDNlm1uzI2bd1Vumv8x0XVGjyRoP/hbBDk2i0O5byH
+         1D7Q==
+X-Gm-Message-State: AOJu0YysUg4D3nrv+qxD3yMAuc863Uy4mhdH/vVAmynr3SYtGpGfrOL4
+	hg6kdnl9Rzj8qRqRO5jNLf9qQy9d1EIjQk03RkN1jkTtdyDSab1mJMNuCXJdk9o=
+X-Google-Smtp-Source: AGHT+IHl0klW+ni5NaX1mEP0HWgseFackRu4sAodSgA5uGOTmK055be71fNeT+lP2FBtIE3EhUCv3Q==
+X-Received: by 2002:a17:907:1b1d:b0:a52:2b39:879b with SMTP id mp29-20020a1709071b1d00b00a522b39879bmr1309977ejc.46.1712913579910;
+        Fri, 12 Apr 2024 02:19:39 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.223.16])
-        by smtp.gmail.com with ESMTPSA id k20-20020aa7c054000000b0056ff82e54a0sm675063edo.31.2024.04.12.02.17.39
+        by smtp.gmail.com with ESMTPSA id bi6-20020a170907368600b00a51d3785c7bsm1588980ejc.196.2024.04.12.02.19.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Apr 2024 02:17:40 -0700 (PDT)
-Message-ID: <86bf8248-2443-4ced-a67c-7845fef98fd3@linaro.org>
-Date: Fri, 12 Apr 2024 11:17:38 +0200
+        Fri, 12 Apr 2024 02:19:39 -0700 (PDT)
+Message-ID: <ccdef80e-4d8e-403a-8b7f-e52ef9e3fc66@linaro.org>
+Date: Fri, 12 Apr 2024 11:19:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] drivers/rtc/rtc-xgene: Add "snps,dw-apb-rtc" into the
- "compatible"
+Subject: Re: [PATCH 5/5] riscv: dts: thead: Add XuanTie TH1520 RTC device node
 To: wefu@redhat.com, jszhang@kernel.org, alexandre.belloni@bootlin.com,
  robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
  guoren@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
@@ -76,7 +75,7 @@ To: wefu@redhat.com, jszhang@kernel.org, alexandre.belloni@bootlin.com,
 Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org
 References: <20240412080238.134191-1-wefu@redhat.com>
- <20240412080238.134191-4-wefu@redhat.com>
+ <20240412080238.134191-6-wefu@redhat.com>
 Content-Language: en-US
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -123,11 +122,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20240412080238.134191-4-wefu@redhat.com>
+In-Reply-To: <20240412080238.134191-6-wefu@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_021743_302126_BBE52427 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240412_021943_544646_BF2A7B58 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,14 +145,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 12/04/2024 10:01, wefu@redhat.com wrote:
 > From: Wei Fu <wefu@redhat.com>
 > 
-> This patch add "snps,dw-apb-rtc" into the "compatible".
-
-
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
-
-This we see from the patch. Say what hardware are you adding?
+> Add nodes for the XuanTie TH1520 RTC device node on the XuanTie TH1520 Soc.
+> 
+> Signed-off-by: Wei Fu <wefu@redhat.com>
+> ---
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> index cd6bc89a240c..62e588dbc942 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -463,6 +463,17 @@ timer7: timer@ffffc3303c {
+>  			status = "disabled";
+>  		};
+>  
+> +		rtc: rtc@fffff40000 {
+> +			compatible = "snps,dw-apb-rtc";
 
 Please run scripts/checkpatch.pl and fix reported warnings. Then please
 run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
@@ -162,6 +169,25 @@ Some warnings can be ignored, especially from --strict run, but the code
 here looks like it needs a fix. Feel free to get in touch if the warning
 is not clear.
 
+> +			reg = <0xff 0xfff40000 0x0 0x1000>;
+> +			interrupts = <74 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&osc_32k>;
+> +			clock-names = "osc_32k";
+> +			wakeup-source;
+> +			prescaler = <0x8000>;
+
+What is 0x8000? Why is it in hex if this divides the clock? Clock is in
+Hz and we all operate on decimal units.
+
+> +			status = "okay";
+
+Drop, please don't upstream directly downstream code.
+
+> +		};
+> +
+>  		gpio@fffff41000 {
+>  			compatible = "snps,dw-apb-gpio";
+>  			reg = <0xff 0xfff41000 0x0 0x1000>;
 
 Best regards,
 Krzysztof
