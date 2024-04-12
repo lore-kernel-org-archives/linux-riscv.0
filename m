@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D21AC4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 07:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068B7C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 07:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pyB5YAykPnKaQHn0EuHbDvaDipGmF4s2s1DCtFEAFwg=; b=fMUU+TqIJbFow+Cr2Kmlssg7NP
-	QhKzOHMpeksYwOG59xoxQe7dJ1I7OLSC2Lh03AfV68J0dbT4XhLhpCy/AfCzDW+syXGNXwfsDM7zi
-	frk9Vt65VknN7vRyNRlDgzrQvcv+94QSJmp9HyzfPXOpyKs96XRYZ3qGqemx17WEyb4Mf9Iq+q5dI
-	Z3Is7kRGY7fv00XzXHWy1FlAK4XL+mdGC9tOE9EoZlnkuSWv+AwgYkyCYDCsS8YoVBZ5Omszcqvyz
-	nj8YGiO1xiizYIyBcBFwkXQmk1glXyW1Y/o6yjzCuzP2bCfvovaW9FiemnycYlUhDr8PMQqBWnWxD
-	MUKCJ3Kw==;
+	bh=QiZDvHpbwiflxgw1Gua6zQtpN+x6A47qeAs4J6aiJm4=; b=bMUFqgvfvmGLo0pSklSRKFfitx
+	U13PxqmBbRAJ3OBc/LGO+1jyjhCEict1xwhkSdfQc2eT0ENOnrYxHywiR9q0lUk9Lxm6I6Gb1fQNx
+	TUTXahqQok730o73RfQin8Q4ZOvmA3ZStaN18oPaP+yuq4G8Phh5WLYmTYO0i++SEo5fME3MO8TR5
+	Lu4Cq5ucdaVHxkHbDh8Nimo4nFIg+zJ/V/PSEUe28ftI6mRh5RJ8U8h5+PIOW2DO4sxzb4e+UEUj1
+	z02hgmC3cMueObgN+O3SuRBF8ETQ3Ztkyi+mVEvweQNIUkicT4A2UYKCcCiRu1zUeqYW9+R4FxjfV
+	xxSP01yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvAuw-0000000FiPF-3jJu;
-	Fri, 12 Apr 2024 07:01:47 +0000
+	id 1rvAyh-0000000Fk6Z-1Ofy;
+	Fri, 12 Apr 2024 07:05:39 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvAuo-0000000FiHa-1Asm
+	id 1rvAyg-0000000Fk5F-0FvN
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 12 Apr 2024 07:01:38 +0000
+	Fri, 12 Apr 2024 07:05:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=a889H0Vl6ytfi953383tniC1cg7jwH0JMs+GF3iavPk=; b=nz7YVqIUZoKrVpPipgRoutLRTj
-	9saZX2Dy9ATjowcv/OTZ2F2ZwEdc1lri0Cyl6YzLwG+CPaEDH6jmdMsAiisnQ89xAgEAvY+n7D47p
-	+de2godO3I4B7IjX2iAIH7f4qGtcTNXN3Du9irkvOkcAH6SAH8Kq3zn4d+OT6EYImYa6AG51fCZQc
-	OqS0zxxdgW8Lm8/cPLTuPl3ID6d0jfa7ZbK/NbHgRlhYw/TyIdQtIFHvR7ppVpqYlSHbYeAxQH1Z2
-	fV3gOiq3qN54Uc6Ioq4F8+6Cokjkqz4cwbeDtQFVG2uc7GxwTrUqGZWxloxBJ4Tee480PmYueU+ZZ
-	gSTD5Z5Q==;
+	bh=YYORLWAvhwHAr8B5pflXKd2EwP6cGhtlOKRJmXB64mw=; b=H2g8CNBG7GLR9UgxW0WiftDOvK
+	0kQWif5mt+wIibwm7Tt1by/+BAAP22tyolkIyKJH1Ls1peJ6ukm/Hx8aGppaVs7dNNnfvx9N8abX2
+	0bLCE6GGoM468aijEckboiBA98tp8Qt2RHavinQZ23EuVsSeqVWA00OqI25BpglvYhBpvRrOp28Fw
+	d0TRs2ePN8Tib5gf01zBSM4bFJC3q0Rbr/O0oAutj3zQno4bYT6tFAe4PflG63ls4N7GiZ2csLvy7
+	espJLJG8Q/HrP6TLOKp5v1/frDWyhPW/tmiYV57PBe/oMBne5VZ97dz2bCQC3n7+fuGSFHJiMIziu
+	P/FK4XsA==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvAuh-000000090jq-0mdn
+	id 1rvAyb-000000090ta-2QDZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Apr 2024 07:01:36 +0000
+	Fri, 12 Apr 2024 07:05:36 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <ukl@pengutronix.de>)
-	id 1rvAub-0000oP-1T; Fri, 12 Apr 2024 09:01:25 +0200
+	id 1rvAyb-0002TQ-3q; Fri, 12 Apr 2024 09:05:33 +0200
 Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <ukl@pengutronix.de>)
-	id 1rvAuZ-00BpOm-Qd; Fri, 12 Apr 2024 09:01:23 +0200
+	id 1rvAya-00Bpko-Dt; Fri, 12 Apr 2024 09:05:32 +0200
 Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
 	(envelope-from <ukl@pengutronix.de>)
-	id 1rvAuZ-0011RJ-2H;
-	Fri, 12 Apr 2024 09:01:23 +0200
-Date: Fri, 12 Apr 2024 09:01:23 +0200
+	id 1rvAya-0011ip-14;
+	Fri, 12 Apr 2024 09:05:32 +0200
+Date: Fri, 12 Apr 2024 09:05:32 +0200
 From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
 To: Nylon Chen <nylon.chen@sifive.com>
 Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
@@ -64,22 +64,22 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
 	aou@eecs.berkeley.edu, thierry.reding@gmail.com, vincent.chen@sifive.com, 
 	zong.li@sifive.com, nylon7717@gmail.com
-Subject: Re: [PATCH v9 2/3] pwm: sifive: change the PWM algorithm
-Message-ID: <l5ymy3rlqdlkwonyxq7xqgxgk5zsgbadui7p4ehl7qeh3m2pef@ic2zyktdqcia>
+Subject: Re: [PATCH v9 3/3] pwm: sifive: Fix the error in the idempotent test
+ within the pwm_apply_state_debug function
+Message-ID: <xf6ympnaljfjztptb5w5qdpuluckptozdz5a7gtuycsev32ngr@x2ovibqv6evr>
 References: <20240222081231.213406-1-nylon.chen@sifive.com>
- <20240222081231.213406-3-nylon.chen@sifive.com>
- <f5ukvah2ujko2iht3pd5jxq5kaukbs5z3pn5s7qwcnx4aqr3yv@mwtbwkcfa44a>
- <CAHh=Yk8MXy73d8M1J5bVu4spDMbjQDneVTqA=Ts=SGPDO7PXMQ@mail.gmail.com>
- <CAHh=Yk-WmzJe0vb+noX8Gb13BL2SOB=MwSB=F9nH_G-j9zi1Lw@mail.gmail.com>
+ <20240222081231.213406-4-nylon.chen@sifive.com>
+ <jvwgsszvs4jtcytcphsdjulzgqfqzdp4sisu236ddwsqgmvriw@ngi4ljgh5b74>
+ <CAHh=Yk92=hp+kaTJWL13_jwJ5gzAAi8gbRF=Ns9=yq2trRUQEg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CAHh=Yk-WmzJe0vb+noX8Gb13BL2SOB=MwSB=F9nH_G-j9zi1Lw@mail.gmail.com>
+In-Reply-To: <CAHh=Yk92=hp+kaTJWL13_jwJ5gzAAi8gbRF=Ns9=yq2trRUQEg@mail.gmail.com>
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
 X-SA-Exim-Mail-From: ukl@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_080131_831861_41AB2F6E 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20240412_080534_231645_314DE149 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,38 +91,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5481932867706110414=="
+Content-Type: multipart/mixed; boundary="===============5913983837395554800=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5481932867706110414==
+--===============5913983837395554800==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="26vwn4hmygkd27i7"
+	protocol="application/pgp-signature"; boundary="q2q3dixgumi352xf"
 Content-Disposition: inline
 
 
---26vwn4hmygkd27i7
+--q2q3dixgumi352xf
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hello,
+On Tue, Apr 02, 2024 at 10:01:39AM +0800, Nylon Chen wrote:
+> Uwe Kleine-K=C3=B6nig <u.kleine-koenig@pengutronix.de> =E6=96=BC 2024=E5=
+=B9=B43=E6=9C=8819=E6=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8A=E5=8D=882:17=E5=AF=
+=AB=E9=81=93=EF=BC=9A
+> >
+> > Hello,
+> >
+> > On Thu, Feb 22, 2024 at 04:12:31PM +0800, Nylon Chen wrote:
+> > > Round the result to the nearest whole number. This ensures that
+> > > real_period is always a reasonable integer that is not lower than the
+> > > actual value.
+> > >
+> > > e.g.
+> > > $ echo 110 > /sys/devices/platform/led-controller-1/leds/d12/brightne=
+ss
+> > > $ .apply is not idempotent (ena=3D1 pol=3D0 1739692/4032985) -> (ena=
+=3D1 pol=3D0 1739630/4032985)
+> > >
+> > > Co-developed-by: Zong Li <zong.li@sifive.com>
+> > > Signed-off-by: Zong Li <zong.li@sifive.com>
+> > > Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+> > > ---
+> > >  drivers/pwm/pwm-sifive.c | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+> > > index a586cfe4191b..bebcbebacccd 100644
+> > > --- a/drivers/pwm/pwm-sifive.c
+> > > +++ b/drivers/pwm/pwm-sifive.c
+> > > @@ -101,7 +101,7 @@ static void pwm_sifive_update_clock(struct pwm_si=
+five_ddata *ddata,
+> > >
+> > >       /* As scale <=3D 15 the shift operation cannot overflow. */
+> > >       num =3D (unsigned long long)NSEC_PER_SEC << (PWM_SIFIVE_CMPWIDT=
+H + scale);
+> > > -     ddata->real_period =3D div64_ul(num, rate);
+> > > +     ddata->real_period =3D DIV_ROUND_UP_ULL(num, rate);
+> > >       dev_dbg(ddata->chip.dev,
+> > >               "New real_period =3D %u ns\n", ddata->real_period);
+> > >  }
+> Hi Uwe
+> >
+> > pwm_sifive_apply has a DIV64_U64_ROUND_CLOSEST(). I wonder if that needs
+> > adaption, too?!
+> According to my experiments, no adjustment is necessary.
 
-On Fri, Apr 12, 2024 at 10:07:12AM +0800, Nylon Chen wrote:
-> Nylon Chen <nylon.chen@sifive.com> =E6=96=BC 2024=E5=B9=B44=E6=9C=882=E6=
-=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8A=E5=8D=8810:08=E5=AF=AB=E9=81=93=EF=BC=9A
-> > Uwe Kleine-K=C3=B6nig <u.kleine-koenig@pengutronix.de> =E6=96=BC 2024=
-=E5=B9=B43=E6=9C=8819=E6=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8A=E5=8D=882:16=E5=
-=AF=AB=E9=81=93=EF=BC=9A
-> > > On Thu, Feb 22, 2024 at 04:12:30PM +0800, Nylon Chen wrote:
-> > > >       /* The hardware cannot generate a 100% duty cycle */
-> Do you mean that if the inference is correct, this comment should be modi=
-fied?
+Did you enable PWM_DEBUG and tested with something like:
 
-If the polarity was wrong before and the hardware was believed to not be
-able to generate a 100% relative duty cycle, then maybe it's really a 0%
-relative duty cycle that's impossible?
+	seq 5000 100000 | while read p; do echo p > /sys/class/pwm/pwmchipX/pwmY/p=
+eriod; done
+
+and then verified that this test didn't result in kernel messages about
+wrong settings?
 
 Best regards
 Uwe
@@ -132,25 +169,25 @@ Pengutronix e.K.                           | Uwe Kleine-K=C3=B6nig         =
    |
 Industrial Linux Solutions                 | https://www.pengutronix.de/ |
 
---26vwn4hmygkd27i7
+--q2q3dixgumi352xf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmYY3EIACgkQj4D7WH0S
-/k5rHwgAhpRRZGowKVE0iokFu7iytXC6fdzFLCzGGn8LC2r59oYV4X8E4ruZzGxi
-KMljwKutSBOpirgQ7/8usYyYqlOfAO+x6BXkkg3SHBprmGPfq2+iVEGv5Tj95B7j
-9t+GueFeOTR6xJRF++3pv88sp4zYLYHIhtRVSU5YZy1Wb8MbRjJfR5kI+dDy5xtF
-UqW5uhIzpV54qyNHnwf8dV0pCooMilhcHS/eGiVa+nSTdoon6rlNJWs+YZgUr1Ud
-lDiRWzbwQdju5xFUnoR2hGn/FO/6Jgmws9FKkM0ttnkWdgcYvzsBe7gk6qRPQGgr
-kw8IV64UfIbDlmpcuiLqeNi7Iq08uA==
-=KwIm
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmYY3TsACgkQj4D7WH0S
+/k5FmwgAhyTeX2Ko0mzYcNZo9k+LH+bFP8d3VU9un+janzbRfN4UG64QH80Ls1jD
+1lWgqzrf5b9lxnjZqX58GN92ZEbi7F78BS5FyTZT+cQieFtdunkHI1SPXBa2ujhX
+NaLiKPSuxY6HTwDvNhkFLo0hJ9SEVXhWKfZBRdKI2pKDYbkMuqSQYOkL5UQcia9V
+3LJCyqVdJemdb1AfTHMCM0wJxx7MJlDE/WIZVISQFI05FQ8ttx/61zQ5ehIaVvAZ
+0+YhpDDxiGpiy6RVDTfaF48m0y49BUQ6vU4C+H2awBayeFgjeM6SIxq0aQLgyLC9
+vtD3qVxYIgKze58pKVRfmGyQ4BINxg==
+=jwk9
 -----END PGP SIGNATURE-----
 
---26vwn4hmygkd27i7--
+--q2q3dixgumi352xf--
 
 
---===============5481932867706110414==
+--===============5913983837395554800==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -161,5 +198,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5481932867706110414==--
+--===============5913983837395554800==--
 
