@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC73C4345F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED90BC04FF8
 	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 05:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,61 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f8JyQsAccKq3PjCZc1s2u2Q91JEF0btDdr+D22j6HHc=; b=s2lbXviuRV3m2C
-	dWjqGlVh3KgI4bpbrdHa66H7648bAbC3FhUqDtgI/BFUifzzBE5EvMDp6uAauVBVdbjF4GSVfK0B8
-	/vq/0oyNKcZ26/SKW16hzA1lFpug4H8wVHm/j7/6OMhWVwVeRZKjtTkl43fe4qIDxnoHjFZOuGVwl
-	lOUoFWCi29pCcPUuabxQvM95jGblZ6CUANGYbPhij0jFRetyPAzOHBoATJ2XB5OL71kbbqX6a5IPw
-	LfJwun+O2sBibkhHos1wKfcxd9ekhAjOvoJHHdestxV49yL54UaBJAp1QN/MkEvI8kLwcPnyXw57m
-	pW32LvTX61amME7UAAOw==;
+	List-Owner; bh=f5w4gT4i0lE20FpPMSh22dBE+D/VOhYqkKkJa43eDsY=; b=etrH9QGkIYpfCH
+	qkMDfHczazuqwQm8mm1BDHh0xzYdrKtm5Oc21OJUXLjMYntbtYN5RHasrNoEh0TajCJ0aHqA/Edtg
+	hKZoXvMfXQhkSPvu99u5Ngvkog2Hc5tRiwgTk2GQOHzdmUP11tWzt17ag7O+T7kn6tFqyePcoEoaU
+	MZVEIQ24/bosf4a2BwFA/70zwsg8bL6SMRvaY8cOR/7UIlXglrfdKTdA6Z2fdCRXECaw247NEpe/o
+	Ofxz46AWtRRM9DQgryBARxbcP2+5Fj2zi6ubv9CFXA3Wh7p474bDBIRjw7IMjYWMS/xYFM3hHQsZ5
+	8PCKzQGzHnZgeL7PiV2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rv9JF-0000000FNFG-0v16;
-	Fri, 12 Apr 2024 05:18:45 +0000
-Received: from mail-ot1-f53.google.com ([209.85.210.53])
+	id 1rv9JD-0000000FNDv-1ura;
+	Fri, 12 Apr 2024 05:18:43 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rv8Gh-0000000FAWP-2aMl
+	id 1rv8Gb-0000000FAOa-1dtN
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Apr 2024 04:12:09 +0000
-Received: by mail-ot1-f53.google.com with SMTP id 46e09a7af769-6ea2ef1c6b6so324865a34.1
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Apr 2024 21:12:02 -0700 (PDT)
+	Fri, 12 Apr 2024 04:12:05 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-6ea260f51b8so372129a34.3
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Apr 2024 21:11:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712895121; x=1713499921; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712895115; x=1713499915; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=wKwobcWgI8wbYxTmFBJi5ZSioPCQHdxuKYdZlkTVr/4=;
-        b=qzEXmaeEN286ikQ+/x4fS5UQr26B7hQeO9y6268xizdXZ9X53Ca26yxXOTPOv1J4bI
-         UBbztkKGjfGYvZOez1bpAvOFLjv0wxslA5pZcrHkLH60kEa/KUJPe3LXD3m2POSjUKXJ
-         u55hvk+3HE4kx7pvFokbA9Eg9cyOtzx3dpGr4lT2Z+NYaFb33sFAiQVkg8Rz2vpEiRRF
-         xr3Po5fyjBYVp6BuRZZaI/m+tdOGKCS4hMzTpu6vWHihjrUTXX1HomPGfOnDl38xepBS
-         C2WPaaQQHKRuMDpeCPa9zTmemses4H0tWNeMmn5B4APVj02Ifgo+Qikbjnuv6xJfGtwE
-         JglA==
+        bh=wwc/PeNyJDl6GgnW4cuopcphm/oVDetOGOo/hxv7XcM=;
+        b=1noD3OSVhwvpcB+q0mTjv2FEyIG5ozxY3jRg2S06dUatvY7iJs3YNyZoIPKOWMWKQM
+         DOilr8vA2L405z/MKCrtuJ5/7wOGC+3nwuy1HeIyUWoLXOEk/qfe+Ohj4Ww5drA3KI3v
+         k08nIXQ/3gcLQuIFeMz+7CFzCDd9bv4g9b7ceY1ik/4k+Oe9zcd5mk9CHkgARnYyAvSu
+         zLZA9i/wMWifQhEbjxVgt5K5jvJLlLjVv1BMHpWhbe1oOLJULo9LRDKJ0UsvdQ8+2xcR
+         eTBRSzS66PR8r2G3xa6+e+flNMItrw3qnLRCfPGrhjHXBhmdqJ1OGs/Q9BcPOSXNT5MA
+         Tzdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712895121; x=1713499921;
+        d=1e100.net; s=20230601; t=1712895115; x=1713499915;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wKwobcWgI8wbYxTmFBJi5ZSioPCQHdxuKYdZlkTVr/4=;
-        b=p5ibJNRQey1jHtMyKWF7umUuNCgLhxXBmEBQ22TO5/xRCBPe6LPe2Oc2xc1wWDjx0w
-         IVEU0szAOERUo85dEZ/u2OtyF3ma/ljBCRSf6h5YWJorER0q392CSXRN7vVBArXldnSR
-         HGmhQ6WV8CeCX7v6qrtwurKm7BkNdIuRThQtuuya+4ARb7Ljgg+YndnSCQuMSmg5aCfG
-         mgZgEyvSPNuFe4f0TUpz/K7wvoSOBrOSEEb0RsM469L2MrAimz+4F5gK7JyX6B9RpqkM
-         2d8olAns2nnvbuwnrTdxbGfSa0uUHBDcrmF8cikx6lyE0Su2iZ1yJIxGzloobWaG44Ey
-         +7Fw==
-X-Gm-Message-State: AOJu0YwnwgxabSijaBLXdUsVTHLJsIhNwZjPIXN/ohoA9Mk1DJ0ANnW/
-	+K8Hi8rt+ZUsAc+oMjjmkHOqkx1Qtg0/Nmgd5vsHk8QjvOG1IJ+s4c23sSUqNyc=
-X-Google-Smtp-Source: AGHT+IH/B2/q4/6s1iCXztXFmKC8ZMz57okvrKhf61ydgsJdbMqDfSUZTC+42ieBTBDQk8F0BlEoIg==
-X-Received: by 2002:a05:6871:b216:b0:233:1027:af37 with SMTP id bb22-20020a056871b21600b002331027af37mr1371136oac.45.1712895121654;
-        Thu, 11 Apr 2024 21:12:01 -0700 (PDT)
+        bh=wwc/PeNyJDl6GgnW4cuopcphm/oVDetOGOo/hxv7XcM=;
+        b=fGMD+HVBGDsWeXpLAz0gM83+P5aNrgy/L7MqVmVYBsdFyYmqzYpbEHlNF+XfgfE4l0
+         LDD7ffiWNAqiPFebxaDFp53jR9iwUiwvfTA5Eex5/9Q80cwmCDgbynwvTjUHEUobbUc6
+         GWYnvHcY0gM8H1Dp1mxFkpJDPJmujdKV/l3U6nuYWjT3b+V1LbbezfYnWMUkZxjXs1lF
+         WW4xWs9v9Ur156LQ7YiZpPUkes9ZntQFU1l77k9+h0cw+K06W3jMGIHGGPYikJJiva0D
+         OHKJKmp3LH2EFr+p6Sx2hDv/5Exn2zuw4BXGVQvGyl+jED49n2GFBBOZ+wVZTQdGAqqk
+         PTqA==
+X-Gm-Message-State: AOJu0YzVnox3vh1Sr3FYKTfWr3zy3/IeFWsgw9EOYYGGtu4foPHdIj10
+	G9OP/n1WjjzfxUmfbgtNEAWmpzN7yz+03qksnAfPgtTHbWK8Am++kRtVNzOviuc=
+X-Google-Smtp-Source: AGHT+IFOYsbLF0F+gkJeOyJgzaCsQeEF3L5USkF2a5gefrMyQNupps7ab0ysCKPYkK28Wn8+LqBa1w==
+X-Received: by 2002:a05:6808:1b12:b0:3c5:f8b7:caca with SMTP id bx18-20020a0568081b1200b003c5f8b7cacamr1951974oib.0.1712895114722;
+        Thu, 11 Apr 2024 21:11:54 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id ka13-20020a056a00938d00b006e57247f4e5sm1949712pfb.8.2024.04.11.21.12.00
+        by smtp.gmail.com with ESMTPSA id ka13-20020a056a00938d00b006e57247f4e5sm1949712pfb.8.2024.04.11.21.11.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Apr 2024 21:12:00 -0700 (PDT)
+        Thu, 11 Apr 2024 21:11:53 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 11 Apr 2024 21:11:22 -0700
-Subject: [PATCH 16/19] riscv: hwprobe: Add vendor extension probing
+Date: Thu, 11 Apr 2024 21:11:18 -0700
+Subject: [PATCH 12/19] riscv: Create xtheadvector file
 MIME-Version: 1.0
-Message-Id: <20240411-dev-charlie-support_thead_vector_6_9-v1-16-4af9815ec746@rivosinc.com>
+Message-Id: <20240411-dev-charlie-support_thead_vector_6_9-v1-12-4af9815ec746@rivosinc.com>
 References: <20240411-dev-charlie-support_thead_vector_6_9-v1-0-4af9815ec746@rivosinc.com>
 In-Reply-To: <20240411-dev-charlie-support_thead_vector_6_9-v1-0-4af9815ec746@rivosinc.com>
 To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -85,16 +85,16 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1712895091; l=5003;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1712895091; l=1663;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=22c5/aVaNWuzr+hY+XBBKO5QM19i5NRomlGB0sHVgMA=;
- b=pSFVAl7ovaKyV4/QquVHHir19tkGWmouC1DS4HubxRE92K7fLdvS806y8SJCtr97rk2lVaa9+
- t6sWoWrVE9wDPWmXRGpxtPXEu9YureRbs6cYbraan8GObD8mTcJj6Qp
+ bh=b+24lxxAnvlUN0+328A+gcU/U3wnp/aT5n2aF7/kAXA=;
+ b=tBUd1KU9cHUGPbHmulFHg/OgKEnR6bzENCIMFD8J4yhd09ZA941LBjBGdCqnbgqxhCqWkN+bL
+ 8o8eZ4Dh6iFALQU1B4pRcjyHGJQ2j6rg94+Lgm/1CBT+77zQ+CdfjUP
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240411_211203_916287_BD3707C9 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20240411_211158_092019_DC7D6032 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,156 +111,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a new hwprobe key "RISCV_HWPROBE_KEY_VENDOR_EXT_0" which allows
-userspace to probe for the new RISCV_ISA_VENDOR_EXT_XTHEADVECTOR vendor
-extension.
+These definitions didn't fit anywhere nicely, so create a new file to
+house various xtheadvector instruction encodings.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/riscv/include/asm/hwprobe.h      |  4 +--
- arch/riscv/include/uapi/asm/hwprobe.h | 10 +++++-
- arch/riscv/kernel/sys_hwprobe.c       | 59 +++++++++++++++++++++++++++++++++--
- 3 files changed, 68 insertions(+), 5 deletions(-)
+ arch/riscv/include/asm/xtheadvector.h | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 630507dff5ea..e68496b4f8de 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -1,6 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
- /*
-- * Copyright 2023 Rivos, Inc
-+ * Copyright 2023-2024 Rivos, Inc
-  */
- 
- #ifndef _ASM_HWPROBE_H
-@@ -8,7 +8,7 @@
- 
- #include <uapi/asm/hwprobe.h>
- 
--#define RISCV_HWPROBE_MAX_KEY 6
-+#define RISCV_HWPROBE_MAX_KEY 7
- 
- static inline bool riscv_hwprobe_key_is_valid(__s64 key)
- {
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 9f2a8e3ff204..6614d3adfc75 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -1,6 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
- /*
-- * Copyright 2023 Rivos, Inc
-+ * Copyright 2023-2024 Rivos, Inc
-  */
- 
- #ifndef _UAPI_ASM_HWPROBE_H
-@@ -67,6 +67,14 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	(4 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
- #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
+diff --git a/arch/riscv/include/asm/xtheadvector.h b/arch/riscv/include/asm/xtheadvector.h
+new file mode 100644
+index 000000000000..348263ea164c
+--- /dev/null
++++ b/arch/riscv/include/asm/xtheadvector.h
+@@ -0,0 +1,25 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
 +/*
-+ * It is not possible for one CPU to have multiple vendor ids, so each vendor
-+ * has its own vendor extension "namespace". The keys for each vendor starts
-+ * at zero.
++ * Vector 0.7.1 as used for example on T-Head Xuantie cores, uses an older
++ * encoding for vsetvli (ta, ma vs. d1), so provide an instruction for
++ * vsetvli	t4, x0, e8, m8, d1
 + */
-+#define RISCV_HWPROBE_KEY_VENDOR_EXT_0	7
-+ /* T-Head */
-+#define		RISCV_HWPROBE_VENDOR_EXT_XTHEADVECTOR	(1 << 0)
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
- 
- /* Flags */
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index e0a42c851511..365ce7380443 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -69,7 +69,8 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 	if (riscv_isa_extension_available(NULL, c))
- 		pair->value |= RISCV_HWPROBE_IMA_C;
- 
--	if (has_vector() && !riscv_has_vendor_extension_unlikely(RISCV_ISA_VENDOR_EXT_XTHEADVECTOR))
-+	if (has_vector() &&
-+	    !__riscv_isa_vendor_extension_available(NULL, RISCV_ISA_VENDOR_EXT_XTHEADVECTOR))
- 		pair->value |= RISCV_HWPROBE_IMA_V;
- 
- 	/*
-@@ -112,7 +113,8 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 		EXT_KEY(ZACAS);
- 		EXT_KEY(ZICOND);
- 
--		if (has_vector() && !riscv_has_vendor_extension_unlikely(RISCV_ISA_VENDOR_EXT_XTHEADVECTOR)) {
-+		if (has_vector() &&
-+		    !riscv_has_vendor_extension_unlikely(RISCV_ISA_VENDOR_EXT_XTHEADVECTOR)) {
- 			EXT_KEY(ZVBB);
- 			EXT_KEY(ZVBC);
- 			EXT_KEY(ZVKB);
-@@ -139,6 +141,55 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 	pair->value &= ~missing;
- }
- 
-+static void hwprobe_isa_vendor_ext0(struct riscv_hwprobe *pair,
-+				    const struct cpumask *cpus)
-+{
-+	int cpu;
-+	u64 missing = 0;
++#define THEAD_VSETVLI_T4X0E8M8D1	".long	0x00307ed7\n\t"
++#define THEAD_VSETVLI_X0X0E8M8D1	".long	0x00307057\n\t"
 +
-+	pair->value = 0;
-+
-+	struct riscv_hwprobe mvendorid = {
-+		.key = RISCV_HWPROBE_KEY_MVENDORID,
-+		.value = 0
-+	};
-+
-+	hwprobe_arch_id(&mvendorid, cpus);
-+
-+	/* Set value to zero if CPUs in the set do not have the same vendor. */
-+	if (mvendorid.value == -1ULL)
-+		return;
-+
-+	/*
-+	 * Loop through and record vendor extensions that 1) anyone has, and
-+	 * 2) anyone doesn't have.
-+	 */
-+	for_each_cpu(cpu, cpus) {
-+		struct riscv_isainfo *isavendorinfo = &hart_isa_vendor[cpu];
-+
-+#define VENDOR_EXT_KEY(ext)								\
-+	do {										\
-+		if (__riscv_isa_vendor_extension_available(isavendorinfo->isa,		\
-+							 RISCV_ISA_VENDOR_EXT_##ext))	\
-+			pair->value |= RISCV_HWPROBE_VENDOR_EXT_##ext;			\
-+		else									\
-+			missing |= RISCV_HWPROBE_VENDOR_EXT_##ext;			\
-+	} while (false)
-+
-+	/*
-+	 * Only use VENDOR_EXT_KEY() for extensions which can be exposed to userspace,
-+	 * regardless of the kernel's configuration, as no other checks, besides
-+	 * presence in the hart_vendor_isa bitmap, are made.
-+	 */
-+	VENDOR_EXT_KEY(XTHEADVECTOR);
-+
-+#undef VENDOR_EXT_KEY
-+	}
-+
-+	/* Now turn off reporting features if any CPU is missing it. */
-+	pair->value &= ~missing;
-+}
-+
- static bool hwprobe_ext0_has(const struct cpumask *cpus, unsigned long ext)
- {
- 	struct riscv_hwprobe pair;
-@@ -216,6 +267,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 			pair->value = riscv_cboz_block_size;
- 		break;
- 
-+	case RISCV_HWPROBE_KEY_VENDOR_EXT_0:
-+		hwprobe_isa_vendor_ext0(pair, cpus);
-+		break;
-+
- 	/*
- 	 * For forward compatibility, unknown keys don't fail the whole
- 	 * call, but get their element key set to -1 and value set to 0
++/*
++ * While in theory, the vector-0.7.1 vsb.v and vlb.v result in the same
++ * encoding as the standard vse8.v and vle8.v, compilers seem to optimize
++ * the call resulting in a different encoding and then using a value for
++ * the "mop" field that is not part of vector-0.7.1
++ * So encode specific variants for vstate_save and _restore.
++ */
++#define THEAD_VSB_V_V0T0		".long	0x02028027\n\t"
++#define THEAD_VSB_V_V8T0		".long	0x02028427\n\t"
++#define THEAD_VSB_V_V16T0		".long	0x02028827\n\t"
++#define THEAD_VSB_V_V24T0		".long	0x02028c27\n\t"
++#define THEAD_VLB_V_V0T0		".long	0x012028007\n\t"
++#define THEAD_VLB_V_V8T0		".long	0x012028407\n\t"
++#define THEAD_VLB_V_V16T0		".long	0x012028807\n\t"
++#define THEAD_VLB_V_V24T0		".long	0x012028c07\n\t"
 
 -- 
 2.44.0
