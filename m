@@ -4,82 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068B7C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 07:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60418C00A94
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 07:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QiZDvHpbwiflxgw1Gua6zQtpN+x6A47qeAs4J6aiJm4=; b=bMUFqgvfvmGLo0pSklSRKFfitx
-	U13PxqmBbRAJ3OBc/LGO+1jyjhCEict1xwhkSdfQc2eT0ENOnrYxHywiR9q0lUk9Lxm6I6Gb1fQNx
-	TUTXahqQok730o73RfQin8Q4ZOvmA3ZStaN18oPaP+yuq4G8Phh5WLYmTYO0i++SEo5fME3MO8TR5
-	Lu4Cq5ucdaVHxkHbDh8Nimo4nFIg+zJ/V/PSEUe28ftI6mRh5RJ8U8h5+PIOW2DO4sxzb4e+UEUj1
-	z02hgmC3cMueObgN+O3SuRBF8ETQ3Ztkyi+mVEvweQNIUkicT4A2UYKCcCiRu1zUeqYW9+R4FxjfV
-	xxSP01yw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Em32nshIMhbpK4XReBvCZetQjq6pYnJz5QyI4qvW6TA=; b=xpIAGdIMAweh82
+	HCi8VM3sOURN+dtIEQr2QiB69eZ6TBlQRW5tv6gMAylIWyzkdko3iXvcANm7g0IHyJZKa+JJrLl5r
+	vTEH4aIFHsbM74I4ogAPjI5X5uhho0isfVyrYy5Oj4pMU6D/7TOm13YWsAV/Zz92e2fThWyXtrZw1
+	KfvBsl/oMYIWre3iqjjQjjYCS4IY5f9qWWczR3n33zb07kV/Wlf63j4DAxIWpxIrj3T/FjKmWBuYC
+	IFGXXeuO5pkiuCaBf+Y5FWxQFvoFzxzD6b5DgCSiuMUlSd4cB7ubf9MDnINf2Kejwa+cE9ouEFvYk
+	x1Cgdfzkdm1XhKBRhj7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvAyh-0000000Fk6Z-1Ofy;
-	Fri, 12 Apr 2024 07:05:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rvAzS-0000000FkRi-2Td4;
+	Fri, 12 Apr 2024 07:06:26 +0000
+Received: from mail-dm6nam11olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c15::800] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvAyg-0000000Fk5F-0FvN
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 12 Apr 2024 07:05:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=YYORLWAvhwHAr8B5pflXKd2EwP6cGhtlOKRJmXB64mw=; b=H2g8CNBG7GLR9UgxW0WiftDOvK
-	0kQWif5mt+wIibwm7Tt1by/+BAAP22tyolkIyKJH1Ls1peJ6ukm/Hx8aGppaVs7dNNnfvx9N8abX2
-	0bLCE6GGoM468aijEckboiBA98tp8Qt2RHavinQZ23EuVsSeqVWA00OqI25BpglvYhBpvRrOp28Fw
-	d0TRs2ePN8Tib5gf01zBSM4bFJC3q0Rbr/O0oAutj3zQno4bYT6tFAe4PflG63ls4N7GiZ2csLvy7
-	espJLJG8Q/HrP6TLOKp5v1/frDWyhPW/tmiYV57PBe/oMBne5VZ97dz2bCQC3n7+fuGSFHJiMIziu
-	P/FK4XsA==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvAyb-000000090ta-2QDZ
+	id 1rvAzO-0000000FkPg-2pV1
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Apr 2024 07:05:36 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rvAyb-0002TQ-3q; Fri, 12 Apr 2024 09:05:33 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rvAya-00Bpko-Dt; Fri, 12 Apr 2024 09:05:32 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rvAya-0011ip-14;
-	Fri, 12 Apr 2024 09:05:32 +0200
-Date: Fri, 12 Apr 2024 09:05:32 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Nylon Chen <nylon.chen@sifive.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, conor@kernel.org, robh+dt@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	aou@eecs.berkeley.edu, thierry.reding@gmail.com, vincent.chen@sifive.com, 
-	zong.li@sifive.com, nylon7717@gmail.com
-Subject: Re: [PATCH v9 3/3] pwm: sifive: Fix the error in the idempotent test
- within the pwm_apply_state_debug function
-Message-ID: <xf6ympnaljfjztptb5w5qdpuluckptozdz5a7gtuycsev32ngr@x2ovibqv6evr>
-References: <20240222081231.213406-1-nylon.chen@sifive.com>
- <20240222081231.213406-4-nylon.chen@sifive.com>
- <jvwgsszvs4jtcytcphsdjulzgqfqzdp4sisu236ddwsqgmvriw@ngi4ljgh5b74>
- <CAHh=Yk92=hp+kaTJWL13_jwJ5gzAAi8gbRF=Ns9=yq2trRUQEg@mail.gmail.com>
+	Fri, 12 Apr 2024 07:06:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Jy7QPJxTTHTliNKDmoo2BzM41+Mmg60yCD9gZ8wUDo/YqhcI2hWHOnjT3uyi4n4r07XvCbArNE4XOolTD/8Z5n0hAEp2y2GxPyeBvjFHqSEGtX1u+13UwLWUnXDL5vUgQg2q+1l9zlO7zX7Mt8Ijtaw3OB7bt1VjasUu/MzMmtFZaBEhCE4Fx7qXBwEN0QayOoiqxz+f8Bg8yIfiQ+2l15hdgROCvT7QUT/suFm2IAoNbdGxrkfibAmPL+QVPXGfL8jz5q2jhutJdcwLTQOlBw4pIRSEHJ2TDEUr/V0D1cPogsrsn6Qp2bzK0ArMVS8ToY4E1we8HJXueMLeoHbY6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PSdhpdIFY/BUNL2KPiiab+YLI170g9vlizGWY0C00TU=;
+ b=mfDjBJ+n9cjpk3EDIv6/29kPQjQTzWanZkc5qLJwNcRmRAR/cAlf4Zwl2WEK6B2oCXRCoPEaDPFQQTSxrfuUoqqnt2nDdV5TjBHUwAoawiiX47SMrSiW/qgqEXlWkDVBo6JefNabdzw1japjeC0Bs8sM9vttmP8EXkrha7vdpXNmxnu2Or3SqGLNRUzCDlqCQR21ypLwvB0utoLgWQOPs9n3b+fiPyZB3tXOzdqDrJCNQM0r6iPv5tPXcc2hLl4FIg5o1PQ2jrH5EOh4MeCnrGxmuoxniLDim1INJdtiV8OPCe1c7eaCKQb1L3s7bhr80k9sr2nw5xmIKtDu9enGPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PSdhpdIFY/BUNL2KPiiab+YLI170g9vlizGWY0C00TU=;
+ b=gelWtiffPjO5yMHeRclpjFfU8KuQsTEO4P2U3p+iEEfKlKAqzuqYHMR/zO2DEfMUhaoB5/bomuC895LXMcZNilIkSNCpyI52B4bjJU5sb3wxpXfNd3BCSfb4DMkv6eRTWqpfjbitKDBW6XFtG0SaFw8epjxNFbRihKdKsCUpigass7DNEy0HARUONPPoaJCAWzNh6gF8X8jmtPB+2faF8dSkQcIpmeD8JI4iQK/2ZhBgMF3McNkgf7SVFoRxxRzq/fS9bx49Y+dy/Mas18IK9Fsa191UtJU+uqmXj4m3zStWAHLH/aShHO9XfsPFmEEhVHEF1Gq0pTK1s5O+ih4awg==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SA1PR20MB7440.namprd20.prod.outlook.com (2603:10b6:806:3e1::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.56; Fri, 12 Apr
+ 2024 07:06:17 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7409.042; Fri, 12 Apr 2024
+ 07:06:17 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	dlan@gentoo.org,
+	dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v8 0/3] riscv: sophgo: add dmamux support for Sophgo CV1800/SG2000 SoCs
+Date: Fri, 12 Apr 2024 15:06:26 +0800
+Message-ID: <IA1PR20MB495359880A3A8C4947702BB5BB042@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.44.0
+X-TMN: [MtOayi7d3Pd2QjF5KvyqRN5W3CdgWaYyz81OJLYLavs=]
+X-ClientProxiedBy: TYCP286CA0330.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:3b7::19) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240412070632.59800-1-inochiama@outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <CAHh=Yk92=hp+kaTJWL13_jwJ5gzAAi8gbRF=Ns9=yq2trRUQEg@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA1PR20MB7440:EE_
+X-MS-Office365-Filtering-Correlation-Id: e1361809-e541-4834-1c0d-08dc5abf0c86
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: KUdqQT7qdudnd+Wp8zVlmJOdsrJ2Ey8ts0ej8Iul7gOKq8xdZ2xUclnEeoCGgPg3m43qiTwNKXw86GXeDbPKz6Wyar3WyWxr8C6+dPnFDHypLSHdjj8eEA1UpE8TorlSArQq/BbYD/2zf+VPQfFJ8MytyvX2nnshMeS7ng5HYNA/bgcj/Rz0O0Pb47w9eUME/2Nxuuu9nPoPSrSd/NmQafwVmomKFmJCrGEOVVFqR0tQFrixJ1/NNemwfzRJNDQ4cCDccQ7OBlt1vjn/C/AbZJTBJlsPhnppKcDHZNmaHuvu8nZcAbnpHOXhfz4Ye6eFn23magDIO1ZU+tSITYzc6iO06NjGF0PtzDoLHFdD8B5FgURBYBDGEfHo9tTjAkmZ8Vl/al71iKaH7jTS2GCCQZ4T5GWsxkS+qFFgXll3Vn/PzGK68QKlHJlP827iBUZEvHILJd4g5fhQf3075HYoyCzU4uewbYBuFNxN+n/rdRPwPAe9AclEpIlmyxrwgF6e2gC1ySlzecMgb3wXUS+SbTfn1c5wS0Z32ys5SuIg+ecTk3MQVY1dHW2Cj6Xj+wnDReT9A4v9ZOvRPV3j/SE1nj9NqQSdRSF51nEHZpwTkxs=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?d4NQCEryWG5rajixR7hpkeG6yx/cnLpTZ8kVVoNx1+0jvbmXw6dGFRkf754g?=
+ =?us-ascii?Q?q46UuhBNWrAMHJOaxBK5BWJI1/UnWyAIuv5AlVfsJyhvOF0vEd6mvLJg+HVd?=
+ =?us-ascii?Q?3AHAXdEuabmt42wNk33CyuFY7ZI6RP0eKQq/kdrejPV0BLcy46p/zx5KHVJZ?=
+ =?us-ascii?Q?iRou4ZJYd37MwYpqhUGr9HJk4AFK1e3qg/lyerknWVF/QLzGbIVmd81F5SgC?=
+ =?us-ascii?Q?6T7N2rEjuCGoq8gwehBgeaBDF190zvaBubu9RdesZNU61iiTLeD13HjmtTz7?=
+ =?us-ascii?Q?zRV88vNR40O2ZdD/M2PatHINrkhsAOSTfZEHhSpysfSuj8bUYI5rwe5lHV4B?=
+ =?us-ascii?Q?B2iuwCtp/8D55EZBKrkHwTNbE+LEo2EF4YJhPv9WIZ2VDkhYQdTmoJtxMcsp?=
+ =?us-ascii?Q?IWd0tLwf4cFamH4NxwkepvIrXC01XSE27ReZpr/d3CC3hbwMKS3Rm1Z68NiT?=
+ =?us-ascii?Q?2Iv58KdpPGRSDhBfssOOqP+NZ9SE9E+NY//qcQLTyKvQDRvgwO8rnlJd4VGh?=
+ =?us-ascii?Q?BHaFprdHtUjWqxHqOLU+Py0Gsh5WbyCQmmCjdfy/xLgs/UhOSoc4hUeBOCOe?=
+ =?us-ascii?Q?SynUBblgKNUgEfS9D7n+sWkwvek0/sr1jPKTmW8Xy6XI0n3GaC1svt/9wC2t?=
+ =?us-ascii?Q?lSdX/V+Nh8viWh4UaJKhLLdvfOhlwi/xcTvyc6pvwiO7nNIC0/2MjmEewxBS?=
+ =?us-ascii?Q?k07vbUktet/KT+ujv/6LqTziTd/qAEjVjpDIq/bMLQrlGseqZwyB8yIv9Cpx?=
+ =?us-ascii?Q?Fn/EbbiNgFm88A9HnFtHxsVzwGOTvi25rs958XlIqMmZsaD7cA3Ys4+2Doro?=
+ =?us-ascii?Q?zKbbQe4+O7YbN2tZ+AbL/W0ZBaCd0pOxDcxLWZNKTvw6A3ZVpWDW5/+KaXf/?=
+ =?us-ascii?Q?oHT6VeRtZUb9PUEZ5W+FMxPrgWXv11FeVGqxwz1JUZFmmmXpYvqFUjTxKaVT?=
+ =?us-ascii?Q?hjeozyrCj6UGixUQydsUTs+HTaD1rQHeQxnmr3dgF8/7fmHKFcP+5TrHGVOY?=
+ =?us-ascii?Q?UyH8B9Z+6wCg5cxK0XomzAT9GmV1zKKJ6A6oKtdloJJfdLInI2BSCfV/jq77?=
+ =?us-ascii?Q?K2jSQCe92MZozEza548Rle0mlGEgk2RJu1Dtk7g5xiVSDd8xWN9JheGYIwr8?=
+ =?us-ascii?Q?Pk6KlaRhhYfoIVYV3yYyQLWuhg8sViOGhKi/AKkuFHfrYQA7nXV/zNdAh8hi?=
+ =?us-ascii?Q?uxdHdW+xys6lbO0sd21UanCe47p3q2QhWUycRV7pwcY8GFkws2CWHVnzy3bJ?=
+ =?us-ascii?Q?T0vkec9P/u3zxUPnXeiD?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e1361809-e541-4834-1c0d-08dc5abf0c86
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2024 07:06:17.6984
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB7440
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_080534_231645_314DE149 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20240412_000622_969833_C2B8FC0A 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,112 +132,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5913983837395554800=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add dma multiplexer support for the Sophgo CV1800/SG2000 SoCs.
 
---===============5913983837395554800==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="q2q3dixgumi352xf"
-Content-Disposition: inline
+As the syscon device of CV1800 have a usb phy subdevices. The
+binding of the syscon can not be complete without the usb phy
+is finished. As a result, the binding of syscon is removed
+and will be evolved in its original series after the usb phy
+binding is fully explored.
 
+Changed from v7:
+1. remove unused variable
 
---q2q3dixgumi352xf
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Changed from v6:
+1. fix copyright time.
+2. driver only output mapping info in when debugging.
+3. remove dma-master check in the driver init since the binding
+always require it.
 
-On Tue, Apr 02, 2024 at 10:01:39AM +0800, Nylon Chen wrote:
-> Uwe Kleine-K=C3=B6nig <u.kleine-koenig@pengutronix.de> =E6=96=BC 2024=E5=
-=B9=B43=E6=9C=8819=E6=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8A=E5=8D=882:17=E5=AF=
-=AB=E9=81=93=EF=BC=9A
-> >
-> > Hello,
-> >
-> > On Thu, Feb 22, 2024 at 04:12:31PM +0800, Nylon Chen wrote:
-> > > Round the result to the nearest whole number. This ensures that
-> > > real_period is always a reasonable integer that is not lower than the
-> > > actual value.
-> > >
-> > > e.g.
-> > > $ echo 110 > /sys/devices/platform/led-controller-1/leds/d12/brightne=
-ss
-> > > $ .apply is not idempotent (ena=3D1 pol=3D0 1739692/4032985) -> (ena=
-=3D1 pol=3D0 1739630/4032985)
-> > >
-> > > Co-developed-by: Zong Li <zong.li@sifive.com>
-> > > Signed-off-by: Zong Li <zong.li@sifive.com>
-> > > Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
-> > > ---
-> > >  drivers/pwm/pwm-sifive.c | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-> > > index a586cfe4191b..bebcbebacccd 100644
-> > > --- a/drivers/pwm/pwm-sifive.c
-> > > +++ b/drivers/pwm/pwm-sifive.c
-> > > @@ -101,7 +101,7 @@ static void pwm_sifive_update_clock(struct pwm_si=
-five_ddata *ddata,
-> > >
-> > >       /* As scale <=3D 15 the shift operation cannot overflow. */
-> > >       num =3D (unsigned long long)NSEC_PER_SEC << (PWM_SIFIVE_CMPWIDT=
-H + scale);
-> > > -     ddata->real_period =3D div64_ul(num, rate);
-> > > +     ddata->real_period =3D DIV_ROUND_UP_ULL(num, rate);
-> > >       dev_dbg(ddata->chip.dev,
-> > >               "New real_period =3D %u ns\n", ddata->real_period);
-> > >  }
-> Hi Uwe
-> >
-> > pwm_sifive_apply has a DIV64_U64_ROUND_CLOSEST(). I wonder if that needs
-> > adaption, too?!
-> According to my experiments, no adjustment is necessary.
+Changed from v5:
+1. remove dead binding header.
+2. make "reg" required so the syscon binding can have the same
+example node of the dmamux binding.
 
-Did you enable PWM_DEBUG and tested with something like:
+Changed from v4:
+1. remove the syscon binding since it can not be complete (still
+lack some subdevices)
+2. add reg description for the binding,
+3. remove the fixed channel assign for dmamux binding
+3. driver adopt to the binding change. Now the driver allocates all the
+channel when initing and maps the request chan to the channel dynamicly.
 
-	seq 5000 100000 | while read p; do echo p > /sys/class/pwm/pwmchipX/pwmY/p=
-eriod; done
+Changed from v3:
+1. fix dt-binding address issue.
 
-and then verified that this test didn't result in kernel messages about
-wrong settings?
+Changed from v2:
+1. add reg property of dmamux node in the binding of patch 2
 
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=C3=B6nig         =
-   |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---q2q3dixgumi352xf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmYY3TsACgkQj4D7WH0S
-/k5FmwgAhyTeX2Ko0mzYcNZo9k+LH+bFP8d3VU9un+janzbRfN4UG64QH80Ls1jD
-1lWgqzrf5b9lxnjZqX58GN92ZEbi7F78BS5FyTZT+cQieFtdunkHI1SPXBa2ujhX
-NaLiKPSuxY6HTwDvNhkFLo0hJ9SEVXhWKfZBRdKI2pKDYbkMuqSQYOkL5UQcia9V
-3LJCyqVdJemdb1AfTHMCM0wJxx7MJlDE/WIZVISQFI05FQ8ttx/61zQ5ehIaVvAZ
-0+YhpDDxiGpiy6RVDTfaF48m0y49BUQ6vU4C+H2awBayeFgjeM6SIxq0aQLgyLC9
-vtD3qVxYIgKze58pKVRfmGyQ4BINxg==
-=jwk9
------END PGP SIGNATURE-----
-
---q2q3dixgumi352xf--
+Changed from v1:
+1. fix wrong title of patch 2.
 
 
---===============5913983837395554800==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Inochi Amaoto (3):
+  dt-bindings: dmaengine: Add dma multiplexer for CV18XX/SG200X series
+    SoC
+  soc/sophgo: add top sysctrl layout file for CV18XX/SG200X
+  dmaengine: add driver for Sophgo CV18XX/SG200X dmamux
+
+ .../bindings/dma/sophgo,cv1800-dmamux.yaml    |  51 ++++
+ drivers/dma/Kconfig                           |   9 +
+ drivers/dma/Makefile                          |   1 +
+ drivers/dma/cv1800-dmamux.c                   | 259 ++++++++++++++++++
+ include/soc/sophgo/cv1800-sysctl.h            |  30 ++
+ 5 files changed, 350 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+ create mode 100644 drivers/dma/cv1800-dmamux.c
+ create mode 100644 include/soc/sophgo/cv1800-sysctl.h
+
+--
+2.44.0
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5913983837395554800==--
-
