@@ -4,125 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7EEEC04FFE
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 07:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B956C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2024 07:42:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rnI8O6Rf/CxmgT4fQXIrIykbFuH7NK8Tbp/NFXCBcpE=; b=DWxed+wyPxP83o
-	i/cT+T7JQxzHyXLg/f0ZIkPQfkxZ5gbs94JgIHyjZQEU7AWTmFLTcVp+FDYDjS3nXqEULlwFRuQlz
-	bYEJ4/inAdSeHAwgVkte5k9Pe0F8DEoBZcBRBtZNqoB+AiCybBCY74TZz4igSUnjAiM1T2K8fZz72
-	g+k4yjvfVt0hLZOJf3NWrKISPGAeSaKEejPwZKTAHmp/aMqbtLhOoowUGgoyKvLG4EHnjXo5aAy4m
-	GwyeTuJlNe54mXFM+YVJjyKQAvtUuLnbZcdSeHZpbOBsbdikJL2HfiMEsOo0gjz1hqycKfQ2dtt83
-	ehPcthljkcKR8BAXNrLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iUaRbsoJWdLkCI6FkaaczzGFuZU7CKx2s2T5RK3QqJ0=; b=3xquRJSdlViV59ktzUKfztsgpb
+	jw5uqF9s6eGdariTe+ycACSra0ZV1KGl+PS1XSjnpcrxg9aBuwZAElYKVniFYmS3HLYGqFFpWPnKQ
+	dZja2ZBHU1/cL36O6H0TrBlwm6Vegv8yuQ1XP5TM0K0gAxeWpZ8WMBOtfZklW/D6x+vSNrXN88+w2
+	gPxESzoVdGsp32PuWwf2X3ERlBJRxIsGw7wzpUab4CWpKcbtZY+0PXj44o/UzuBuYD2YQvIyRUXtW
+	CdXzZ16j7plCeKBQovxCFDtWaJW0tMoEqlHn4WdQIt3qhabALJUrhgTrBxoGmqDroi8ae7pLocVpM
+	p+lrXwnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvBF3-0000000FonD-2Mbr;
-	Fri, 12 Apr 2024 07:22:33 +0000
-Received: from mail-mw2nam10olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c12::801] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1rvBXr-0000000FtYz-1CdA;
+	Fri, 12 Apr 2024 07:42:00 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvBEy-0000000FohE-2Y9L;
-	Fri, 12 Apr 2024 07:22:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=DFXAG3Rg4bwutkEUg//0Mt9gUbnMQ5BhnICHwpII0Zcbe/8WtXibrP+Vg1Bv+aQWFg5KW6fsGlKax+XZ2ukcIxqoEAk8di2BljQF11FPxg0qLnIcSt37XK0SZMOyvRZ6OotFQUZOHDJ5XCgnqKo7+m5LBEmS8B7YoqkC9vjh0BmIL7sjpGa5ChXefRhXfStnlPK3T7qzF2KVL+5aX1oLobJCxgsdNknEGT/VlU9Adf4O8XiknJM6Lge9dpB6Z9CB1p2So7nvLozfRhCB7isECTWpDSFv/guKLEZ0QYxfqcUOzydeH0l0VbSsiolHt21n0OV0a/YBnYkHDxFywAgAVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ju23PTcTtkB511M9VHKydJnZnYIB2wUwPBdnUS1njZ8=;
- b=BFVmThucm9jTouY9l+KXP3Rv4kFyoNgqQEe9K2ClDHUNUnI4hT/DtOkFPCHOVSjf3AnjMLzsm9lCarr1Hm+Cl2vYQl3d2rn7O4QzJR9fZF5jeYxzxKXQxY8rfDaNCEa2j1OfGLdNvnY7zsCJLDJ0+Tl7VQNPOQ/UojmrwVEhbJUqUjMnv9ungSg77Andf8vuR1EMk21dyOQtQhs9jadABFD7VOyVkyEFmAegw6nFHfJvJOjd2VSsfH4MIcUdHL/hsMO3Tav3wZiRcAyhEzCoYY2Z7UXSWRRje5Igz57cu9oID6Bs5jZCS19pZF60HnICY3BdC+EgcTH768fPf2TxiA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ju23PTcTtkB511M9VHKydJnZnYIB2wUwPBdnUS1njZ8=;
- b=TyTbYu4CcE48exfETzVBksS9jjJr9H9IBeUy5dAoQvFbAcxJl2iD1lCUpOGjFjtYT+hqFM7Z0u61WgQqkNQq0KchNzAgVL1QT8rLF4LwtdaR5NxVcYPrdc/u3kvyn5tLT9qZ9A4BJ5FrkEncehXkG3sezw/sDDGhGW7Q36kTxwuwDaZWDL7mkkdmT3dl57YJjjKqEFvptjxUF6fy576r67YzqGoplhlFwR5pVXyo1s8069ppCMcECr3EyA7goH/DdVqkF2eojddBKNx2x9uMTqMSusA2Z7LQlBdhskevyygM0NrHPJffBBa7p5ssnUj5UEFGCCOvTxLg8onyZs3tHQ==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SN7PR20MB5795.namprd20.prod.outlook.com (2603:10b6:806:32b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.33; Fri, 12 Apr
- 2024 07:22:16 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7409.042; Fri, 12 Apr 2024
- 07:22:16 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	Liu Gui <kenneth.liu@sophgo.com>,
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
-	dlan@gentoo.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 2/2] phy: sophgo: Add USB 2.0 PHY driver for Sophgo CV18XX/SG200X
-Date: Fri, 12 Apr 2024 15:22:25 +0800
-Message-ID: <IA1PR20MB4953EB2E2BF9D5F1EE30E2D4BB042@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <IA1PR20MB4953780F4617823F7173B6D6BB042@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953780F4617823F7173B6D6BB042@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [yq4qnxpe3SiTsrS9fnOd/a0G7RcGkYS9CTREQRbJ/S8=]
-X-ClientProxiedBy: TY2PR06CA0033.apcprd06.prod.outlook.com
- (2603:1096:404:2e::21) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20240412072226.121769-2-inochiama@outlook.com>
+	id 1rvBXl-0000000FtWA-1CQj;
+	Fri, 12 Apr 2024 07:41:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1712907712; x=1744443712;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vRauUdjmEXaNb3aJ9t3FYkcm7oavR/ToqvPX7bbz4uw=;
+  b=VZmxKJc6KU9L2/4yPJjJCBAP5JJZuXN8E+DOPvmWjuUFUwr/bH58bDev
+   NwM42irkn87h4in7I+qrjwiciPB+6PHvbd5aYt7HmmwgZ1+lw9ossHH4m
+   m2Kbl2JV/E232LFuFlU6GtQKCzlWxpm78nw97mJ62PpjmOZecbWdUvLJC
+   W+3GTntAmhA4QEBOQjyjd3egDcme2/DpK/nWxikMWutMTcvgz9atQvNSu
+   TXgZhSAnKMA8lZJqoSmAGEQxwTNYgZeV5e2x1ppXNnvaQszZ9gcASuzVd
+   Vs//kJWbsR1Zu6tMMutAw3Ibb0VN2JYdtOKU4K0f34+gYnhlBpmNVAUMG
+   Q==;
+X-CSE-ConnectionGUID: E4sSRy7HTmSlkU9T5OWDeg==
+X-CSE-MsgGUID: KFqPtSAzSbOvrsO8JAXZEw==
+X-IronPort-AV: E=Sophos;i="6.07,195,1708412400"; 
+   d="asc'?scan'208";a="20655805"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Apr 2024 00:41:49 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 12 Apr 2024 00:41:40 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Fri, 12 Apr 2024 00:41:37 -0700
+Date: Fri, 12 Apr 2024 08:40:46 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Yangyu Chen <cyy@cyyself.name>
+CC: <conor@kernel.org>, <ajones@ventanamicro.com>, <anup@brainfault.org>,
+	<aou@eecs.berkeley.edu>, <atishp@atishpatra.org>, <dqfext@gmail.com>,
+	<guoren@kernel.org>, <heiko@sntech.de>, <inochiama@outlook.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <mark.rutland@arm.com>,
+	<palmer@dabbelt.com>, <paul.walmsley@sifive.com>, <will@kernel.org>
+Subject: Re: [PATCH] perf: RISC-V: fix IRQ detection on T-Head C908
+Message-ID: <20240412-ivy-excitable-b740ff80c0d1@wendy>
+References: <20240314-pep-announcer-2d7f10ff8b65@spud>
+ <tencent_49E156C63C84E435E6F16509D6699339520A@qq.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SN7PR20MB5795:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10ba5707-859e-474d-c16a-08dc5ac1482b
-X-MS-Exchange-SLBlob-MailProps: 7J/vb0KDx3iy6B2zcPcTG6CIJGEFnGZSp+nktjiXkQBlvyKwCg2A0Pt6JrVKgmiqSiJUR9Pvcv/s5IVhihynVxxOvh2h7zh5mpjk+nKHrN7zqrXBVN+hSGli5Ed4vOCWOPOGgAozMGLIsKXwZUeG3JUgGE/lW54Q8zrlH0t0SoMUCThlh1jNGVrGBO0glAZpwGWT+2eZT4GtMdKgRn7z5lUbMUvAEW7VQIGARGgqiuQtGPfeUlbUtwE1JBNa0OhgPPQhZHpG6+jeDFnIKF9/BGj8iZq+o3D2C3jjfpe67I2gsoSpUFQy8Jca2LZawc9aDc+P5x48cs7qukMJH5CILnBp0fv4aDomEPvlmoAidBfTGq6hViWYYS3vjwHcNJ/8edTnwzk2IvwkSWRZ5N53T3YCqW1wFxu3nEP9PyOut1mB6tS1EWXpn3SlkMuj8Gs77b5ZC2AWYtM/VFPlf1EYy7D8Zq4eEjhZI3PcijpdoYhu8knLM6GjR5p09P7RMKalO3YSSQaumJlzkm9iS+geMr0L+/3SRFB4HCeIOTysyxV6TzgFPGvFkTh78HFbg97PJlKGINLtH/axio8uwIuU/nqRIU0Dn0RNrV2gaXrzEsJgX6oT+MqTB7R87F9Lt0GDwijJFMNJkwdXo9SCAEXuGHFBUn4BhlzmpgJDilu3NowWdpZ/kF3+ws8N7cIPrvvJys5dXbKxDz9XUnSa30ZOjM1supzTg0kfXFN+Q+1N726bRaGt43Y7L2Cy4IsneWZLrwlJr0uk/v3GA53BCmr4VCw4dPBcEJZT13WlDFsKYmU=
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: /MWEg06hOtRf+IV8qdKJyzOC9b9pt1YMP7n5HATThQoB84ms3RiTJVuUZarMKtbuFX07QHCd46DiM2rgJpVHNoaAXb3MgzjgppL0U3+WdadhxM4aM3dBjFEEo4/NHcXwGuvoGh0g74D9QrOMTo0DXpLhaXMFHCe+FIK4VM7SOAXRzwappw//a5oPySaygAYdlrX2Xvw92D8ZLpqdjApHhtWU8haGamW7wLB0XSGTg3yMNTFbLxa/0KiNiKUkp2Ru7B2VB7+6lfeJJJbfVodh8vjDM4jIrdGtAm5URC6oGHYRvQ1I7v08Ut4C3y2VeWzgtqThlWB08MUdFzoqpI5WKJGd6QQPZr+aFhLPd8gOwl51Q1mwUf5PLO85dblki21CQjbx8Pfg8gq4xoDe8xc1lrzkkgCZi4m7PuSj6DwwWtLmIaMRim9Aps3MncbBEr+D7JZsBVGR2fTpBtuu3MTlWlh1xHBK8ELBQJCzyQPb0vGhH9VSrrcP82xRkkxEgBj0FKYwMAagozT6q0dP+QHxq47xANuzW/WjsbmPWQDBDXj10J2MKoOu+DEE+/de/tmNCRDJJPAiFZ7BRNTszmO6jVfn//Y6NsxZT4ZzXfNYg/8=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9dsP1LkP1UUkiKDA5a9MOf69a9/tL2DFrNrCHBbN5IEDCHcSWYO/OtD0v6o2?=
- =?us-ascii?Q?BjoXbPXAd2fe0aeH93ObRPorEaJ1o7Z1lYhA9u9R1umCnK2vxUxJRLn4W6cY?=
- =?us-ascii?Q?cm/TJRo5F2EIrJt4Jmfy3R7A7HvQXU3MZpqa3OBgaIGwPYoqWSMeBDmxqfn7?=
- =?us-ascii?Q?pWKOqs3sBqFOQRI6MEIz2ph+dj6LmJFRSPDdv6+hXwITpe+AxtImZyTbdmvx?=
- =?us-ascii?Q?j2FFl0+woiGCaWh+BQUiY23TgmNYVnFYu65Nu9/QPGMtleOFMXAxzz3R/dka?=
- =?us-ascii?Q?yX5vJItzWTu8ijsyITVJBJswEGPiA/skk9CdE0t8RuVgpbk60F9Z7t/2YYxr?=
- =?us-ascii?Q?Wd1B/oDXYwZOcg4nT6uTJDl0UkrsSx23mcy2hDqzPKU7OcwvBIUKkW+CLyMj?=
- =?us-ascii?Q?jlcvMyYvSK2NnTGFBxLH2eTH1FfhoztWXkprd3QIBK1L5gCAJ5uOsJAvA+1b?=
- =?us-ascii?Q?oZEY9cMA9jR8mRLw1e1BvU1JW0zFKKLef25vwtUVZTr+qYQ7mhBxCYWn/cGc?=
- =?us-ascii?Q?Bc7e0lzLEAgflkCNsqFMKASYAW2Hw34JLTnmPH6C3sHxU3mUwCQTiGye5IYQ?=
- =?us-ascii?Q?e/6Dg1tZwx6d04J/ZlMS+K59BkRJsjDoJjUfEg+7Ms9kyqtbEWjf+FY5biGO?=
- =?us-ascii?Q?ER8RWHpZrQMQm3QZ5uvJ8Bvd0U1SKpK1PsLxSwALHLdqbqD/USxLZyiWazPq?=
- =?us-ascii?Q?e6MH2GIHAoxpIPAjZTsFRtkLqtzs3DVEFowXXMquC6UXvx4/WNfDkw2xHajm?=
- =?us-ascii?Q?0+4kKx6wD/Xd2osJPT9644L6dQBDUZoAnYjkSkFmLfwyrf/Dr4VMFUrPF+F3?=
- =?us-ascii?Q?vjWiwbS0gWJ0dzEJbmzukjSv5fcEp++zOJ9ZQMrcplyPFJXrZQX207yUz0NL?=
- =?us-ascii?Q?YQqPBa2hWYs+xPjhSPKDDbNw5pe1esLvsXsZaEBKh3krhb/URcUrzLGkPfTc?=
- =?us-ascii?Q?7UVSoBMbc/VbY3aUTy/iXZJ+9DnAvilBjkNCkz12LUBwR4fG5YmN9VkWJ5FH?=
- =?us-ascii?Q?Z5C6cgvOHvqiPdfTTa77Uh5lQFrp/p+g+Ys+Tltf86xXAjgoZGnVxyRcZYVK?=
- =?us-ascii?Q?UenEqeU8n3T1KZwHW02mmYVxjRCsnmZRyCcd370uzA+IiEs/AD+Ot7gCrGSn?=
- =?us-ascii?Q?XluwS2iJZprfCj7AvqTGxZFJ3j63Am6Jay1Sgys+qQJaDFRVCNb++EGBCwWQ?=
- =?us-ascii?Q?2yDanDCO+RPzP2H5m+1HiX9lY+lbOM4JlKvsyf1wBimgp0n2VcLrStHsLH5H?=
- =?us-ascii?Q?qtNatoXTYy0bYSS7xFXx?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10ba5707-859e-474d-c16a-08dc5ac1482b
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2024 07:22:16.8818
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR20MB5795
+In-Reply-To: <tencent_49E156C63C84E435E6F16509D6699339520A@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_002228_781500_429814E8 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20240412_004153_748071_D0D8AEF6 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,474 +84,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6219831476048100700=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add USB 2.0 PHY driver for Sophgo CV18XX/SG200X.
+--===============6219831476048100700==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="YcE8yn2YH89m/k/Y"
+Content-Disposition: inline
 
-Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
----
- drivers/phy/Kconfig                 |   1 +
- drivers/phy/Makefile                |   1 +
- drivers/phy/sophgo/Kconfig          |  19 ++
- drivers/phy/sophgo/Makefile         |   2 +
- drivers/phy/sophgo/phy-cv1800-usb.c | 381 ++++++++++++++++++++++++++++
- 5 files changed, 404 insertions(+)
- create mode 100644 drivers/phy/sophgo/Kconfig
- create mode 100644 drivers/phy/sophgo/Makefile
- create mode 100644 drivers/phy/sophgo/phy-cv1800-usb.c
+--YcE8yn2YH89m/k/Y
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 787354b849c7..596b37ab3191 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -92,6 +92,7 @@ source "drivers/phy/renesas/Kconfig"
- source "drivers/phy/rockchip/Kconfig"
- source "drivers/phy/samsung/Kconfig"
- source "drivers/phy/socionext/Kconfig"
-+source "drivers/phy/sophgo/Kconfig"
- source "drivers/phy/st/Kconfig"
- source "drivers/phy/starfive/Kconfig"
- source "drivers/phy/sunplus/Kconfig"
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index 868a220ed0f6..7ff32f0ae08a 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -31,6 +31,7 @@ obj-y					+= allwinner/	\
- 					   rockchip/	\
- 					   samsung/	\
- 					   socionext/	\
-+					   sophgo/	\
- 					   st/		\
- 					   starfive/	\
- 					   sunplus/	\
-diff --git a/drivers/phy/sophgo/Kconfig b/drivers/phy/sophgo/Kconfig
-new file mode 100644
-index 000000000000..b1c558de6616
---- /dev/null
-+++ b/drivers/phy/sophgo/Kconfig
-@@ -0,0 +1,19 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Phy drivers for Sophgo platforms
-+#
-+
-+if ARCH_SOPHGO || COMPILE_TEST
-+
-+config PHY_SOPHGO_CV1800_USB
-+	tristate "Sophgo CV18XX/SG200X USB 2.0 PHY support"
-+	depends on MFD_SYSCON
-+	depends on USB_SUPPORT
-+	select GENERIC_PHY
-+	help
-+	  Enable this to support the USB 2.0 PHY used with
-+	  the DWC2 USB controller in Sophgo CV18XX/SG200X
-+	  series SoC.
-+	  If unsure, say N.
-+
-+endif # ARCH_SOPHGO || COMPILE_TEST
-diff --git a/drivers/phy/sophgo/Makefile b/drivers/phy/sophgo/Makefile
-new file mode 100644
-index 000000000000..659537054cd4
---- /dev/null
-+++ b/drivers/phy/sophgo/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_PHY_SOPHGO_CV1800_USB)	+= phy-cv1800-usb.o
-diff --git a/drivers/phy/sophgo/phy-cv1800-usb.c b/drivers/phy/sophgo/phy-cv1800-usb.c
-new file mode 100644
-index 000000000000..a9c7f41406b4
---- /dev/null
-+++ b/drivers/phy/sophgo/phy-cv1800-usb.c
-@@ -0,0 +1,381 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/debugfs.h>
-+#include <linux/gpio/consumer.h>
-+#include <linux/kernel.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_gpio.h>
-+#include <linux/platform_device.h>
-+#include <linux/phy/phy.h>
-+#include <linux/regmap.h>
-+#include <linux/spinlock.h>
-+#include <soc/sophgo/cv1800-sysctl.h>
-+
-+#define PHY_IDPAD_C_OW			BIT(6)
-+#define PHY_IDPAD_C_SW			BIT(7)
-+
-+#define PHY_BASE_CLK_RATE		300000000
-+#define PHY_APP_CLK_RATE		125000000
-+#define PHY_LPM_CLK_RATE		12000000
-+#define PHY_STB_CLK_RATE		333334
-+
-+#define PHY_VBUS_DET_DEBOUNCE_TIME	usecs_to_jiffies(100)
-+
-+struct cv1800_usb_phy {
-+	struct phy *phy;
-+	struct regmap *syscon;
-+	spinlock_t lock;
-+	struct clk *usb_phy_clk;
-+	struct clk *usb_app_clk;
-+	struct clk *usb_lpm_clk;
-+	struct clk *usb_stb_clk;
-+	struct gpio_descs *switch_gpios;
-+	struct gpio_desc *vbus_det_gpio;
-+	int vbus_det_irq;
-+	struct delayed_work vbus_work;
-+	bool enable_otg;
-+};
-+
-+static int cv1800_usb_phy_set_idpad(struct cv1800_usb_phy *phy,
-+				    bool is_host)
-+{
-+	unsigned long flags;
-+	unsigned int regval = 0;
-+	int ret;
-+
-+	if (is_host)
-+		regval = PHY_IDPAD_C_OW;
-+	else
-+		regval = PHY_IDPAD_C_OW | PHY_IDPAD_C_SW;
-+
-+	spin_lock_irqsave(&phy->lock, flags);
-+	ret = regmap_update_bits(phy->syscon, CV1800_USB_PHY_CTRL_REG,
-+				 PHY_IDPAD_C_OW | PHY_IDPAD_C_SW,
-+				 regval);
-+	spin_unlock_irqrestore(&phy->lock, flags);
-+
-+	return ret;
-+}
-+
-+static void cv1800_usb_phy_set_gpio(struct cv1800_usb_phy *phy,
-+				    bool is_host)
-+{
-+	unsigned int i, ndescs;
-+	struct gpio_desc **gpios;
-+
-+	if (!phy->switch_gpios)
-+		return;
-+
-+	ndescs = phy->switch_gpios->ndescs;
-+	gpios = phy->switch_gpios->desc;
-+
-+	if (is_host) {
-+		for (i = 0; i < ndescs; i++)
-+			gpiod_set_value_cansleep(gpios[i], 0);
-+	} else {
-+		for (i = 0; i < ndescs; i++)
-+			gpiod_set_value_cansleep(gpios[ndescs - 1 - i], 1);
-+	}
-+}
-+
-+static int cv1800_usb_phy_set_mode_internal(struct cv1800_usb_phy *phy,
-+					    bool is_host)
-+{
-+	int ret = cv1800_usb_phy_set_idpad(phy, is_host);
-+
-+	if (ret < 0)
-+		return ret;
-+
-+	cv1800_usb_phy_set_gpio(phy, is_host);
-+
-+	return 0;
-+}
-+
-+static ssize_t dr_mode_write(struct file *file, const char __user *_buf,
-+			     size_t count, loff_t *ppos)
-+{
-+	struct seq_file *seq = file->private_data;
-+	struct cv1800_usb_phy *phy = seq->private;
-+	bool is_host;
-+	char buf[16];
-+
-+	if (copy_from_user(&buf, _buf, min_t(size_t, sizeof(buf) - 1, count)))
-+		return -EFAULT;
-+
-+	if (sysfs_streq(buf, "host")) {
-+		phy->enable_otg = false;
-+		is_host = true;
-+	} else if (sysfs_streq(buf, "peripheral")) {
-+		phy->enable_otg = false;
-+		is_host = false;
-+	} else if (sysfs_streq(buf, "otg") && phy->vbus_det_irq > 0) {
-+		phy->enable_otg = true;
-+	} else
-+		return -EINVAL;
-+
-+	if (phy->enable_otg)
-+		queue_delayed_work(system_wq, &phy->vbus_work,
-+				   PHY_VBUS_DET_DEBOUNCE_TIME);
-+	else
-+		cv1800_usb_phy_set_mode_internal(phy, is_host);
-+
-+	return count;
-+}
-+
-+static int dr_mode_show(struct seq_file *seq, void *v)
-+{
-+	struct cv1800_usb_phy *phy = seq->private;
-+	unsigned long flags;
-+	unsigned int regval;
-+	bool is_host = true;
-+	int ret;
-+
-+	spin_lock_irqsave(&phy->lock, flags);
-+	ret = regmap_read(phy->syscon, CV1800_USB_PHY_CTRL_REG, &regval);
-+	spin_unlock_irqrestore(&phy->lock, flags);
-+
-+	if (ret)
-+		return ret;
-+
-+	if (regval & PHY_IDPAD_C_SW)
-+		is_host = false;
-+
-+	if (phy->enable_otg)
-+		seq_puts(seq, "otg: ");
-+	seq_puts(seq, is_host ? "host\n" : "peripheral\n");
-+
-+	return 0;
-+}
-+
-+DEFINE_SHOW_STORE_ATTRIBUTE(dr_mode);
-+
-+static int cv1800_usb_phy_set_clock(struct cv1800_usb_phy *phy)
-+{
-+	int ret;
-+
-+	ret = clk_set_rate(phy->usb_phy_clk, PHY_BASE_CLK_RATE);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_set_rate(phy->usb_app_clk, PHY_APP_CLK_RATE);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_set_rate(phy->usb_lpm_clk, PHY_LPM_CLK_RATE);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_set_rate(phy->usb_stb_clk, PHY_STB_CLK_RATE);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static int cv1800_usb_phy_set_mode(struct phy *_phy,
-+				   enum phy_mode mode, int submode)
-+{
-+	struct cv1800_usb_phy *phy = phy_get_drvdata(_phy);
-+	bool is_host;
-+
-+	switch (mode) {
-+	case PHY_MODE_USB_DEVICE:
-+		is_host = false;
-+		phy->enable_otg = false;
-+		break;
-+	case PHY_MODE_USB_HOST:
-+		is_host = true;
-+		phy->enable_otg = false;
-+		break;
-+	case PHY_MODE_USB_OTG:
-+		/* phy only supports soft OTG when VBUS_DET pin is connected. */
-+		if (phy->vbus_det_irq > 0) {
-+			phy->enable_otg = true;
-+			queue_delayed_work(system_wq, &phy->vbus_work,
-+					   PHY_VBUS_DET_DEBOUNCE_TIME);
-+		}
-+		return 0;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return cv1800_usb_phy_set_mode_internal(phy, is_host);
-+}
-+
-+static const struct phy_ops cv1800_usb_phy_ops = {
-+	.set_mode	= cv1800_usb_phy_set_mode,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static void cv1800_usb_phy_vbus_switch(struct work_struct *work)
-+{
-+	struct cv1800_usb_phy *phy =
-+		container_of(work, struct cv1800_usb_phy, vbus_work.work);
-+	int state = gpiod_get_value_cansleep(phy->vbus_det_gpio);
-+
-+	cv1800_usb_phy_set_mode_internal(phy, state == 0);
-+}
-+
-+static irqreturn_t cv1800_usb_phy_vbus_det_irq(int irq, void *dev_id)
-+{
-+	struct cv1800_usb_phy *phy = dev_id;
-+
-+	if (phy->enable_otg)
-+		queue_delayed_work(system_wq, &phy->vbus_work,
-+				   PHY_VBUS_DET_DEBOUNCE_TIME);
-+	return IRQ_HANDLED;
-+}
-+
-+static void cv1800_usb_phy_init_mode(struct device *dev,
-+				     struct cv1800_usb_phy *phy)
-+{
-+	const char *mode;
-+	bool is_host;
-+
-+	phy->enable_otg = false;
-+
-+	device_property_read_string(dev, "dr_mode", &mode);
-+	if (!mode)
-+		mode = "host";
-+
-+	if (!strcmp(mode, "host"))
-+		is_host = true;
-+	else if (!strcmp(mode, "peripheral"))
-+		is_host = false;
-+	else if (phy->vbus_det_irq > 0)
-+		phy->enable_otg = true;
-+
-+	if (phy->enable_otg)
-+		queue_delayed_work(system_wq, &phy->vbus_work, 0);
-+	else
-+		cv1800_usb_phy_set_mode_internal(phy, is_host);
-+}
-+
-+static int cv1800_usb_phy_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device *parent = dev->parent;
-+	struct cv1800_usb_phy *phy;
-+	struct phy_provider *phy_provider;
-+	int ret;
-+
-+	if (!parent)
-+		return -ENODEV;
-+
-+	phy = devm_kmalloc(dev, sizeof(*phy), GFP_KERNEL);
-+	if (!phy)
-+		return -ENOMEM;
-+
-+	phy->syscon = syscon_node_to_regmap(parent->of_node);
-+	if (IS_ERR_OR_NULL(phy->syscon))
-+		return -ENODEV;
-+
-+	spin_lock_init(&phy->lock);
-+
-+	phy->usb_phy_clk = devm_clk_get_enabled(dev, "phy");
-+	if (IS_ERR(phy->usb_phy_clk))
-+		return dev_err_probe(dev, PTR_ERR(phy->usb_phy_clk),
-+			"Failed to get phy clock\n");
-+
-+	phy->usb_app_clk = devm_clk_get_enabled(dev, "app");
-+	if (IS_ERR(phy->usb_app_clk))
-+		return dev_err_probe(dev, PTR_ERR(phy->usb_app_clk),
-+			"Failed to get app clock\n");
-+
-+	phy->usb_lpm_clk = devm_clk_get_enabled(dev, "lpm");
-+	if (IS_ERR(phy->usb_lpm_clk))
-+		return dev_err_probe(dev, PTR_ERR(phy->usb_lpm_clk),
-+			"Failed to get lpm clock\n");
-+
-+	phy->usb_stb_clk = devm_clk_get_enabled(dev, "stb");
-+	if (IS_ERR(phy->usb_stb_clk))
-+		return dev_err_probe(dev, PTR_ERR(phy->usb_stb_clk),
-+			"Failed to get stb clock\n");
-+
-+	phy->phy = devm_phy_create(dev, NULL, &cv1800_usb_phy_ops);
-+	if (IS_ERR(phy->phy))
-+		return dev_err_probe(dev, PTR_ERR(phy->phy),
-+			"Failed to create phy\n");
-+
-+	ret = cv1800_usb_phy_set_clock(phy);
-+	if (ret)
-+		return ret;
-+
-+	phy->switch_gpios = devm_gpiod_get_array_optional(dev, "sophgo,switch",
-+							  GPIOD_OUT_LOW);
-+	if (IS_ERR(phy->switch_gpios))
-+		return dev_err_probe(dev, PTR_ERR(phy->switch_gpios),
-+			"Failed to get switch pin\n");
-+
-+	phy->vbus_det_gpio = devm_gpiod_get_optional(dev, "vbus_det", GPIOD_IN);
-+	if (IS_ERR(phy->vbus_det_gpio))
-+		return dev_err_probe(dev, PTR_ERR(phy->vbus_det_gpio),
-+			"Failed to process vbus pin\n");
-+
-+	phy->vbus_det_irq = gpiod_to_irq(phy->vbus_det_gpio);
-+	if (phy->vbus_det_irq > 0) {
-+		ret = devm_request_irq(dev, phy->vbus_det_irq,
-+				       cv1800_usb_phy_vbus_det_irq,
-+				       IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING,
-+				       "usb-vbus-det", phy);
-+		if (ret)
-+			return dev_err_probe(dev, ret,
-+				"Failed to request vbus irq\n");
-+	}
-+
-+	INIT_DELAYED_WORK(&phy->vbus_work, cv1800_usb_phy_vbus_switch);
-+
-+	debugfs_create_file("dr_mode", 0644, phy->phy->debugfs,
-+			    phy, &dr_mode_fops);
-+
-+	phy_set_drvdata(phy->phy, phy);
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+
-+	/*
-+	 * phy needs to change mode twice after initialization,
-+	 * otherwise the controller can not found devices attached
-+	 * to the phy.
-+	 */
-+	cv1800_usb_phy_set_idpad(phy, false);
-+	cv1800_usb_phy_set_idpad(phy, true);
-+	cv1800_usb_phy_init_mode(dev, phy);
-+
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static void cv1800_usb_phy_remove(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct cv1800_usb_phy *phy = platform_get_drvdata(pdev);
-+
-+	if (phy->vbus_det_irq > 0)
-+		devm_free_irq(dev, phy->vbus_det_irq, phy);
-+
-+	cancel_delayed_work_sync(&phy->vbus_work);
-+}
-+
-+static const struct of_device_id cv1800_usb_phy_ids[] = {
-+	{ .compatible = "sophgo,cv1800-usb-phy" },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, cv1800_usb_phy_ids);
-+
-+static struct platform_driver cv1800_usb_phy_driver = {
-+	.probe = cv1800_usb_phy_probe,
-+	.remove_new = cv1800_usb_phy_remove,
-+	.driver = {
-+		.name = "cv1800-usb-phy",
-+		.of_match_table = cv1800_usb_phy_ids,
-+	 },
-+};
-+module_platform_driver(cv1800_usb_phy_driver);
-+MODULE_DESCRIPTION("CV1800/SG2000 SoC USB 2.0 PHY driver");
-+MODULE_LICENSE("GPL");
---
-2.44.0
+On Fri, Apr 12, 2024 at 02:27:28PM +0800, Yangyu Chen wrote:
+> >> IMHO, it may be better to use a new DT property like "riscv,cpu-errata=
+" or
+> >> "<vendor>,cpu-errata". It can achieve almost everything like using pse=
+udo
+> >> isa. And the only cost I think is a small amount code to parse this.
+> >=20
+> > I suppose we could do that, but accounting for vendor specifics was one
+> > of the goals for the property I only just added and that I am suggesting
+> > to use here.
+>=20
+> I think there is a simpler way to do that. We use T-Head PMU by default
+> for All T-Head CPUs (from mvendor id). Then, to test there is sscofpmf in
+> the ISA string being probed by the kernel. If yes, then use scofpmf.
+> Otherwise, use T-Head PMU.
 
+I am strongly opposed to doing something like this. Firstly, making it
+unconditional is a time-bomb as if T-Head ever ship something without
+support then we'll be broken on that platform and have to return to
+conditional behaviour. Secondly, we are taking agency away from
+hypervisors etc that may not want a guest to use the PMU.
+
+Cheers,
+Conor.
+
+--YcE8yn2YH89m/k/Y
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZhjlaAAKCRB4tDGHoIJi
+0vdsAP9wMESP3pjIW4X/gjaZdmF9qSoS1iPGX2xdeWah9RffBAD+J5sImHAkYWje
+UrhSTPIfH7O2esfADX2481ITlcF4LwY=
+=eWjq
+-----END PGP SIGNATURE-----
+
+--YcE8yn2YH89m/k/Y--
+
+
+--===============6219831476048100700==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6219831476048100700==--
+
