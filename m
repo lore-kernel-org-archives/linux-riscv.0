@@ -4,75 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EAE9C4345F
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2024 06:52:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D29C4345F
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2024 09:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GNektOVxyjzSQO/HZBfqqkB2flDoHYNOxTd1+GjVm1w=; b=qUx8gzpnFctXAv
-	d/gHgByX6qZnJpJKQtHh83a8/KDHQRWIiP+ztknkXqYRASyBxir1T4OsJDzitWVLFRugORVyyEmkH
-	3ecpaN2qhGuv4PRr1K0CBcC7veNFSZoxOts1hXR0dOZvcTacSteQeQHsu0KDUgg45YbuOxeg/9eBU
-	aYW+toukHEwKXyGDGf2U3rooF76zdrvCRYhV0sqzt9Oxzqj26SaBP3id+5uKR2uw/01ma0/Jc3jJd
-	2I6GBzTpUg2SBOqsn+66z8TesxoARJUoTGN4+WT06sUJlvLyGWhgrnloZ99tHUaKzWrBytpKNZBfG
-	O4+6S3bUHFjgKVG0odtg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9oM6SRq5sci8fMR6YJ9ZA4n7UeOjB4lk5zx2p5E4UV8=; b=DoZoIVdFkG6yy8p++ziOpLOtC+
+	8oHbtgq2bYWtHfh62jjbisyTmWT2YFZzmj50UsH2ZM3Q0EqKzLuJ95zDn4b2cmlRd+l+5cXrn7dB8
+	nfyrB/RPjXgzb6aYYKfNYeQ56PRpChE8GIScYF8CMlZpIy4nAIDR6Eswg+iA+2fv1R6PRuzYK3YV1
+	MGgYrpwPZB1MhMp5muJ8ucWbI37yzsMfE+DVs58XLgxyini19bLloxP4AeY3I2XntVCcZsZuZ6iAq
+	g6z6kPMCOW+jVX107L8YXznzayPShA8v5QCVZDIgHnD65bYNhuSSyYBkmvH7Oj/mkR8urCxvMX9Sn
+	lEfBLdhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvXFR-00000002aA6-17YX;
-	Sat, 13 Apr 2024 06:52:25 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1rvZJ9-00000002o5b-260t;
+	Sat, 13 Apr 2024 09:04:23 +0000
+Received: from mail-maxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281b::800] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvXFO-00000002a9K-3dGC
+	id 1rvZJ5-00000002o1f-3NDc
 	for linux-riscv@lists.infradead.org;
-	Sat, 13 Apr 2024 06:52:24 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-6ecf406551aso1251204b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Apr 2024 23:52:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1712991141; x=1713595941; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yBFHuV2LVuWEjmAN/8ohS4VG5ENeR9bBP+jEkNcVGnY=;
-        b=URf6vdFPgeud61bEHEixgb288Qb9tQUe9vOxRLzW3OgTGMJxHivD+g1h48PWnV3bJm
-         wpD9rPdPSgbNsszHy+PsJWAJ9Q653ctPOlnAaE+IoqicXHrgYhNOOxkUlwjuFooxRw47
-         cmr/Syiv+xwROVXjEl8Gni0I+DrDZK0Vx9oGPVqAAQpreIGl/xiVHl1E+pFwLDQc//ys
-         uf50mFQMvYoWjswLvrFxakxf1TGUMKBROVsuM3bNbMgjY0bUcmd54FpQCQbuaczNp8/o
-         BBZwwMqUCOu7gJ8FEW8RBQHG6mYVV7Xw3XaQ0SYTk5AQJkBF19hIZerECq/MWhF4Ntqv
-         rymA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712991141; x=1713595941;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yBFHuV2LVuWEjmAN/8ohS4VG5ENeR9bBP+jEkNcVGnY=;
-        b=Ub/bq4BzT1FZaq4HqVStSfUajGkq8yyKTid4zFYJPsBwBeYUZrjqitJN8iYbVMaW/V
-         OXRSXSEx0Ij6ac+rbfvtm2kw3XxlZvVkJOU8dHxUnX78ULzhbSA+xRJU07Q5G9uyX+M7
-         HjlTIiBdSd2+GnQVkscp4yWgyYUA4GCd8ab2NVvUjDxJszetdtrImE1lu0+AwekQIrXH
-         MncGDFMJwkh+Mvgb8UGrtrsvJ9gkw4cAOQ3qPpLUwwJm/DVNMWTOaEnr9PObkZvSb6bJ
-         T5UtI7JCIHse3J72fzC2U1TBuRo2XJ4hsh03HXmr8vNbErIuQQ2ewjdZZvKNv4rU9L/Q
-         P1ug==
-X-Forwarded-Encrypted: i=1; AJvYcCVCwhpFpKJQY0KkbaZD0m29gO3vhEJqO2fieR0Tlmut1xVCFH76SLr+v61dFIs6Qm6dXFwgJyFkFMPS3uqYpuj5H2QeNHyhbesrJs7JDAr5
-X-Gm-Message-State: AOJu0YyDuZ+LpzrNGmOuUzOSvZ68wim9KixtaGSzSoatwVidx+WbBJGG
-	m71+Mylu4dPt5IdQnsmbu4FjXvaaTRtgkfi1W0avZvdg5aDKsnUkXk+uY4xdBvc=
-X-Google-Smtp-Source: AGHT+IFxF4jJ0GHS1OMnmsjR3+db1ACxvmt66Yi/yXJeY5lDM1hSf5pmrlBnuOLCRIE4LCxRJNPrKQ==
-X-Received: by 2002:a05:6a00:2183:b0:6ed:cece:8160 with SMTP id h3-20020a056a00218300b006edcece8160mr5221682pfi.31.1712991141027;
-        Fri, 12 Apr 2024 23:52:21 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id v12-20020aa799cc000000b006edcdb08d25sm3895634pfi.91.2024.04.12.23.52.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Apr 2024 23:52:20 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH] irqchip/riscv-imsic: Fix boot time update effective affinity warning
-Date: Sat, 13 Apr 2024 12:22:10 +0530
-Message-Id: <20240413065210.315896-1-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 13 Apr 2024 09:04:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=QEAcI18Z0urGtJyISsTibkulasVQTiY1CQoE8imtogpa+7ftNNZ21fba9aYZCLm2sVBLIDvWxTZJRwXCRFO2oHAqudiqjQS6xiF7u+keY9fLDBmRuKGNuOy2fbYNSQpAzZN8rPocWbPgvR5MtaNNb/enFGAUXbaCAoNnUugvA6D6dmLx5bIMYbbtT0AhB2OubpOVD1Jd/7zNuAB17lrkNRZsJ+z150H68OcV7om33Ck5IjrZFG99Wc1rtVCzSxwEhikCX/ZCe2raQFM0NpgjaC/d37XH7R6TVM/L1u719mqhZvhdjBe3lviSzjfKjyZW2sgcdNnQyd9gzZWxHI5ioA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pm7kQ79ge/VjXMkwSDu8956GkQIzzsvc5fioeHGcbAc=;
+ b=XKIdyyssK0KW+rFvyacSmeXTbEuK+6eI7dXiKY+uQkq49SrQUjpVc8s84JfNrkH0v1tUHJ9p4QoNfK36StvhwQ9U4PIdGVtSSOllzMcGuPBiGGrZP/UkHAvNw+v9M8aFXAARNSgZ0z6wlWF41N+82f120c5tw25WHu3fmz89m2qbyOEvxojnY/zH9Ck7eYqk1q6orsiJ6OcyykQ0lxEteqfkT1iP59S2zFEKmIede9j8MmZpkWBAde4rHuieY4KwrrKYfyp0AOdwVwL0E8HeuTDZnSS0DYSuOQHwspFqWr3qkZH74jqrXgzya8jNq/pug14ax5Bl0Ubo018XFIyyOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pm7kQ79ge/VjXMkwSDu8956GkQIzzsvc5fioeHGcbAc=;
+ b=CwEapwmcQWJa5EsAkZ7RHw+mVBxLYJUJiNjqRHBQO3kmsXfDy7BZDB1c1NSGYeEVy1kAL7iKQ4aLp8wy4CtYesvg8EWuUxRSkNHYvE3YanppnWcQ7zrIPAvDiJbR/qe6budPVmacQs9DwEpLkQ7Qpr4VyKGPLkApp9ydMWnQbaez6M1szrGDwzA4ScYRlYz1EbphFgHbUktQr8G2Ma6RBynOS7p+pDPlLETuRLwwEHjfbrwS7rQ3OXfWpqEdMnq8wm6KFhOhpLTRZpVawpw97PV2vBDvzro2Rt6h95p7u9Zn+HAqBvpABD/kQyJ2mqX9ncjsAvPmiNL2x0x/6k9rZg==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by PN3P287MB2108.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1d2::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.55; Sat, 13 Apr
+ 2024 09:03:56 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::664:2ecc:c36:1f2c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::664:2ecc:c36:1f2c%3]) with mapi id 15.20.7409.046; Sat, 13 Apr 2024
+ 09:03:56 +0000
+Message-ID: <MA0P287MB2822087FAA743D612EC7C110FE0B2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Sat, 13 Apr 2024 17:03:53 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: dts: sophgo: use real clock for sdhci
+To: Inochi Amaoto <inochiama@outlook.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang <jszhang@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <IA1PR20MB4953CA5D46EA8913B130D502BB052@IA1PR20MB4953.namprd20.prod.outlook.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <IA1PR20MB4953CA5D46EA8913B130D502BB052@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [uKrAbWDDSnVVigfZSyhQk47nnAYoO5+t]
+X-ClientProxiedBy: SI2P153CA0001.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::7)
+ To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <5a657ec3-02a4-4bf0-86be-5870c14b5b84@outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN3P287MB2108:EE_
+X-MS-Office365-Filtering-Correlation-Id: b624d2d3-4bb4-4c42-9129-08dc5b98a631
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: CgLCLe3EcbyurMNhP44jzxFq3uIhXnusgzCF+dTmurI9yQIrCI63cFHXEB80Imflc+a7goBoFjet/B6GvydWfHCXhavtjPZvLLL4AS8+5Zx2IYCj4GtiR0F+1upMxAvUp/PxvFlb+DjbLNNxL6bRPWtxhTbOcpO1HiUBOJ2gNes6uW5KcVmIi0VmgmKhpllJ4ytnCzTTa2XinNfA0gQu4YD4/WYcMdNV+A0nA+uAxaAG8JJJzTo4mp1P1IkNTYGl0+KxeZcRWI/Ku3iPjtT73SgCc1aNxmYvPGc42jWrE7Xbbzk2SC3eM2tjl0F2tpqCFKGYyD6f+FT22LoY9ljJewLbqPcyD14AXpbz9FZd/Ml1CpdHXXvyz2Of5Oeuf2qDJ8+JDlE8xLPMI4vJ6oazGPBC3l9QNKqnm7EyhEEpdikWN9EuXhYJ9GfcJo9IUBFXYATBDbS2DPSWiMz53Yozo7gSO5blepzmu3iNOpH2m6pjAMfAhEYJVp9Tk5uHxb5IoCjrZkSWgZ7XiYwMbmtf476b1QFvNxdyXQt65wV2cESFgq5W3cwCPvXia7rZYl+X
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZTViZDFDMkp5VUJ5MVArSzcvRmdsanNKbTBZWFp5SnJuVFRlM3VQVUFBSklE?=
+ =?utf-8?B?WGdxTHM0YVhBbnFlbFAxbWx5a2ZWMFF4WWgzK3MxYSs5cGdzVWpIL1JkbFNm?=
+ =?utf-8?B?ZzczMDFraXVUU2VhYUVHQi9JeklWMStiNS9WWk5PZExUSWpLRmJObVpCRVRv?=
+ =?utf-8?B?c205RWFHTVRLNmY0MWg0UnpRdWVHMWIwWDE1U1RmSEVub2U2R294M0lqbzI4?=
+ =?utf-8?B?Smc5MEZkY1JPWDRWbTFWQW1OdGk2MUpCNStMN2NoL1JPb2lJU05EUVlER0NK?=
+ =?utf-8?B?NFZWVDV1eklSOXRBV211SFhxcG1wMXRCUkw0aWRFNXhoOUxORnBKcHphMmE5?=
+ =?utf-8?B?dFNNeVdUSWkvWGg2SzdlZUdyQkR5T3dvaWdFOFlCT3ptWGhVQnlBdFpkejJo?=
+ =?utf-8?B?NVB6bWw0ZitlelFUZ1RzNTZZRHFGQ3VkbVRjdThVMGZIamw0bk1JTUJxeFEr?=
+ =?utf-8?B?MlJQL1Fmdk5ZWlBzZWswclNiN0YxWlU3WkgyZWhXbzZQNzlGeGVXYi81MjNP?=
+ =?utf-8?B?SFhidkEyM2tBT0twR0lnSG1MZHMrT2tUSlBPUzNpNFZHaUp0VXd2UWFidmFJ?=
+ =?utf-8?B?SDBIQkREaW0zTHdpUjA4Tm90UXkzTmp0aWpMWGpyS3J1Q0RxVDArVTNEVVhW?=
+ =?utf-8?B?bktjYWkwNDY3Uy9EMzRTOGdPT2JOUmp2ZER4Mmh1ek1lMEVtVmtTZGlFaVp5?=
+ =?utf-8?B?TGk0SWZKRW92cDBkclUzYWdDcHJvb0wzdlBlSndTL1VnNys5SWVia3NTekh3?=
+ =?utf-8?B?QTg0OTAwVVJsTlJUZFdVV1A2TGVIcFRlbmNWMFZITk51OEVlY2FNdTdiRFFz?=
+ =?utf-8?B?bDU1TWQ4R1VBNnEvYmhxN2ErU0t0UUVZMjU4cU5sdXMyZmtXcEh2SDFaTTg2?=
+ =?utf-8?B?cnJDTmxKa0hnY0J2RjMxVDVZdFpJd0U4SzZVeTRpZTV4TEh4d3JmSkxJTS9J?=
+ =?utf-8?B?S2prYzBPQ3pVSDhNdUIxeXZ2a3FrZzNxVmhlTytlUTdGaDZxWTluKzYzRGg2?=
+ =?utf-8?B?cnlpWmlXZHFHT2IwWFVac3dPM0F6SUdReFNaUVNNck9hTHlQeFd0Y0oyZ1lp?=
+ =?utf-8?B?cUlSNnR2WHNudlNuV1UwS09xRHVyZ3FaMytHTStjM3V6RWQ1Y1hRendSL3Ix?=
+ =?utf-8?B?dzl0WEovQmliM0dxTFdVbllYNmVaWlpka2ZMc3VocXlvcFdDT3o5SzIyTkg4?=
+ =?utf-8?B?cmFDazR4MjFaWUJBR1pmSFBMb1dmblpvSFJKQitSQ3FTUStYdEdXWnBzOFla?=
+ =?utf-8?B?K3pFeXY4OSsvd2hvUUlWaXgySXJwVzVjYm5JaU95OFVZMzRDWDJqckl3bHJW?=
+ =?utf-8?B?T0pkdWZUSVRIZk1EWnVHOUJIWXNqakxPVFdndHczTVNzaWZaUHdJdDhCK3kv?=
+ =?utf-8?B?RkJEZmFXaS9WOTlFUndRWmdsUE9pS0VsNjVaV2JWSXpEYStITlVGWEh5RkV1?=
+ =?utf-8?B?YnJVdnNPL0NMdDdRNU5lYkdpVzJFa29qcXh2aFBTajNkaFFzeGczY29ySW9B?=
+ =?utf-8?B?WkFDU2dadzBsdnNXY3p2MnUxNi9RQmR0L1lyVmhKaVRUWFoxbkxNQ1FXb3Fi?=
+ =?utf-8?B?QUYyYUlNUWxyK3RRRHNQVS8rMnAvUll0ZlhKQWVXTGVEanM3VGY5V1lGZjdL?=
+ =?utf-8?B?QjBaQmtESXlYT2hNZ2tXTHZOeTJFRm44ekZpVmlTNFBjNlZTanRmdDNyU1Zx?=
+ =?utf-8?Q?KwRSqJSGTrkglBfb0Y7M?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b624d2d3-4bb4-4c42-9129-08dc5b98a631
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Apr 2024 09:03:56.2964
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3P287MB2108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_235222_937506_79938855 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240413_020419_871807_79C6313A 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +129,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the following warning is observed on the QEMU virt machine:
-genirq: irq_chip APLIC-MSI-d000000.aplic did not update eff. affinity mask of irq 12
 
-The above warning is because the IMSIC driver does not set the initial
-value of effective affinity in the irq descriptor. To address this,
-initialize the effective affinity in imsic_irq_domain_alloc().
+On 2024/4/11 20:21, Inochi Amaoto wrote:
+> As the clk patch is merged, Use real clocks for sdhci0.
+>
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> ---
+>   arch/riscv/boot/dts/sophgo/cv18xx.dtsi | 12 +++---------
+>   1 file changed, 3 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> index 75d0c57f4ffb..891932ae470f 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> @@ -47,13 +47,6 @@ osc: oscillator {
+>   		#clock-cells = <0>;
+>   	};
+>
+> -	sdhci_clk: sdhci-clock {
+> -		compatible = "fixed-clock";
+> -		clock-frequency = <375000000>;
+> -		clock-output-names = "sdhci_clk";
+> -		#clock-cells = <0>;
+> -	};
+> -
+>   	soc {
+>   		compatible = "simple-bus";
+>   		interrupt-parent = <&plic>;
+> @@ -298,8 +291,9 @@ sdhci0: mmc@4310000 {
+>   			compatible = "sophgo,cv1800b-dwcmshc";
+>   			reg = <0x4310000 0x1000>;
+>   			interrupts = <36 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks = <&sdhci_clk>;
+> -			clock-names = "core";
+> +			clocks = <&clk CLK_AXI4_SD0>,
+> +				 <&clk CLK_SD0>;
+> +			clock-names = "core", "bus";
+>   			status = "disabled";
+>   		};
 
-Fixes: 027e125acdba ("irqchip/riscv-imsic: Add device MSI domain support for platform devices")
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- drivers/irqchip/irq-riscv-imsic-platform.c | 1 +
- 1 file changed, 1 insertion(+)
+Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
-index 1e6dddfd3046..11723a763c10 100644
---- a/drivers/irqchip/irq-riscv-imsic-platform.c
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -157,6 +157,7 @@ static int imsic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 			    handle_simple_irq, NULL, NULL);
- 	irq_set_noprobe(virq);
- 	irq_set_affinity(virq, cpu_online_mask);
-+	irq_data_update_effective_affinity(irq_get_irq_data(virq), cpumask_of(vec->cpu));
- 
- 	return 0;
- }
--- 
-2.34.1
+Thanks.
 
+>
+> --
+> 2.44.0
+>
 
 _______________________________________________
 linux-riscv mailing list
