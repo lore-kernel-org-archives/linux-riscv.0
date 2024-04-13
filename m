@@ -4,120 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D29C4345F
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2024 09:04:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35BE8C4345F
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2024 09:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9oM6SRq5sci8fMR6YJ9ZA4n7UeOjB4lk5zx2p5E4UV8=; b=DoZoIVdFkG6yy8p++ziOpLOtC+
-	8oHbtgq2bYWtHfh62jjbisyTmWT2YFZzmj50UsH2ZM3Q0EqKzLuJ95zDn4b2cmlRd+l+5cXrn7dB8
-	nfyrB/RPjXgzb6aYYKfNYeQ56PRpChE8GIScYF8CMlZpIy4nAIDR6Eswg+iA+2fv1R6PRuzYK3YV1
-	MGgYrpwPZB1MhMp5muJ8ucWbI37yzsMfE+DVs58XLgxyini19bLloxP4AeY3I2XntVCcZsZuZ6iAq
-	g6z6kPMCOW+jVX107L8YXznzayPShA8v5QCVZDIgHnD65bYNhuSSyYBkmvH7Oj/mkR8urCxvMX9Sn
-	lEfBLdhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HfZQG4aG9KOz1fRX/szStV5+v+XOqlXAqOV4WyWcAKo=; b=Qk1wQ3IImV2x2B
+	Bhy2t+fYXzKEn8hSzYVZRFZ3/VksWLqZU7lYhEPh6B+qxnIfXUzQTtN1JNz/UK8/0bwGBQqkC8NeE
+	g3+JlI2ooGW80GvnDmfznTYYaP8fN1Xeip/UXfkh9vkF09sc2KIQMFvn1zDBrZ4rVqWhFQSTxGBcS
+	g1uUvfNLOSrbIOPLhkimQ8aEyg7zHHdlwwUeiQAozVrwwAOcTE1a0pFZ2g+aLKbonXSAxpHKgQaeZ
+	ugd9zIUm3qU2XwxilDDrzEFcWTXRDJnGI35cEQl24EyRRI88xUxarS92Yqt7+YaBJYLwZOUsjc4sw
+	4YVhM86ai98kbhMTfsQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvZJ9-00000002o5b-260t;
-	Sat, 13 Apr 2024 09:04:23 +0000
-Received: from mail-maxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281b::800] helo=IND01-MAX-obe.outbound.protection.outlook.com)
+	id 1rvZYG-00000002psF-0FpQ;
+	Sat, 13 Apr 2024 09:20:00 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvZJ5-00000002o1f-3NDc
+	id 1rvZYD-00000002pr8-0FHA
 	for linux-riscv@lists.infradead.org;
-	Sat, 13 Apr 2024 09:04:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=QEAcI18Z0urGtJyISsTibkulasVQTiY1CQoE8imtogpa+7ftNNZ21fba9aYZCLm2sVBLIDvWxTZJRwXCRFO2oHAqudiqjQS6xiF7u+keY9fLDBmRuKGNuOy2fbYNSQpAzZN8rPocWbPgvR5MtaNNb/enFGAUXbaCAoNnUugvA6D6dmLx5bIMYbbtT0AhB2OubpOVD1Jd/7zNuAB17lrkNRZsJ+z150H68OcV7om33Ck5IjrZFG99Wc1rtVCzSxwEhikCX/ZCe2raQFM0NpgjaC/d37XH7R6TVM/L1u719mqhZvhdjBe3lviSzjfKjyZW2sgcdNnQyd9gzZWxHI5ioA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pm7kQ79ge/VjXMkwSDu8956GkQIzzsvc5fioeHGcbAc=;
- b=XKIdyyssK0KW+rFvyacSmeXTbEuK+6eI7dXiKY+uQkq49SrQUjpVc8s84JfNrkH0v1tUHJ9p4QoNfK36StvhwQ9U4PIdGVtSSOllzMcGuPBiGGrZP/UkHAvNw+v9M8aFXAARNSgZ0z6wlWF41N+82f120c5tw25WHu3fmz89m2qbyOEvxojnY/zH9Ck7eYqk1q6orsiJ6OcyykQ0lxEteqfkT1iP59S2zFEKmIede9j8MmZpkWBAde4rHuieY4KwrrKYfyp0AOdwVwL0E8HeuTDZnSS0DYSuOQHwspFqWr3qkZH74jqrXgzya8jNq/pug14ax5Bl0Ubo018XFIyyOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pm7kQ79ge/VjXMkwSDu8956GkQIzzsvc5fioeHGcbAc=;
- b=CwEapwmcQWJa5EsAkZ7RHw+mVBxLYJUJiNjqRHBQO3kmsXfDy7BZDB1c1NSGYeEVy1kAL7iKQ4aLp8wy4CtYesvg8EWuUxRSkNHYvE3YanppnWcQ7zrIPAvDiJbR/qe6budPVmacQs9DwEpLkQ7Qpr4VyKGPLkApp9ydMWnQbaez6M1szrGDwzA4ScYRlYz1EbphFgHbUktQr8G2Ma6RBynOS7p+pDPlLETuRLwwEHjfbrwS7rQ3OXfWpqEdMnq8wm6KFhOhpLTRZpVawpw97PV2vBDvzro2Rt6h95p7u9Zn+HAqBvpABD/kQyJ2mqX9ncjsAvPmiNL2x0x/6k9rZg==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by PN3P287MB2108.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1d2::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.55; Sat, 13 Apr
- 2024 09:03:56 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::664:2ecc:c36:1f2c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::664:2ecc:c36:1f2c%3]) with mapi id 15.20.7409.046; Sat, 13 Apr 2024
- 09:03:56 +0000
-Message-ID: <MA0P287MB2822087FAA743D612EC7C110FE0B2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Sat, 13 Apr 2024 17:03:53 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: dts: sophgo: use real clock for sdhci
-To: Inochi Amaoto <inochiama@outlook.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang <jszhang@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <IA1PR20MB4953CA5D46EA8913B130D502BB052@IA1PR20MB4953.namprd20.prod.outlook.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <IA1PR20MB4953CA5D46EA8913B130D502BB052@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [uKrAbWDDSnVVigfZSyhQk47nnAYoO5+t]
-X-ClientProxiedBy: SI2P153CA0001.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::7)
- To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <5a657ec3-02a4-4bf0-86be-5870c14b5b84@outlook.com>
+	Sat, 13 Apr 2024 09:19:58 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1e3c3aa8938so10692115ad.1
+        for <linux-riscv@lists.infradead.org>; Sat, 13 Apr 2024 02:19:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1712999995; x=1713604795; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=69pCu+lIE1wVXKqySWp1XZJt2aC2QI11IyQxjcSF8a4=;
+        b=QJwc2YJWJUa2/D+kyaIS8pXoSsUXnV5CLsCC2urv+C+tZdZC5eOhBtUxrDgnAv2Qpb
+         5mpekBcEsgJ2aTMbGEy5erQuELifYmtx0cWy2+5GUd30samSPNAkfqO4iRh+7zEPrfH0
+         WT0x6Pgas9C5QaZkVVDjMAi1oBh8UA4uETx/tX3X1bIXD22buBYYSz6stePHcgUvDVUH
+         9QavzpCdPLdF+1178toaP9F5I2+i+ViZmnT0pZU07r7yh7ovcqne8dYJLAHmtxgsBojM
+         y0ki2d1DLnR/8I+MEYaP73+luzcRcOIyC6PZ1y7ILba3KG7zUYiZd0eXjgJtYiScJE0M
+         +4eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712999995; x=1713604795;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=69pCu+lIE1wVXKqySWp1XZJt2aC2QI11IyQxjcSF8a4=;
+        b=tVkZzVIP4DWEgkjeqENAZHY2EiDCXMrfseDXsPSqq6kg/CrHm7YeXlrZFxiZE3nx9X
+         hAoVHG9kAf58gBP1+12daQIKGzLcJGNClihLyaQ1tc+BXswhVfdRmqzpzgPdQY0vqUhm
+         DSuZCyID434etGsqPQgdvfvFXots7fKyDxIvWxRKo6VIBmGQFn+xd+mR+YaIhQzHsCrQ
+         rEM5GCdZydrx0Eb0psg4Vv0r0Oc+i4MuQVR6nuqFDg4snVDpur+K/xtywZLX/mLsA393
+         MIacMEqZd4lXftDRqoyiI0oeQlMXxT1kKbLuWkeuDh1ob+jXelETgXLZMeKRUucrS+MQ
+         OV0A==
+X-Forwarded-Encrypted: i=1; AJvYcCVRc/csBe8wzu6jT+eK0wy5slhyxYm+b8yMREIP5szUinMC6wQv5ItlH4OTb2BxPNJEOdeRDNx03+5wqhJQpEAvtPVVfcuvwQz+wMXKWXgs
+X-Gm-Message-State: AOJu0Yyz7Z/Al1MNX/HP/F/vd/erP1N0EV6sv2Gk7U5UgPjKqOJKUCSq
+	9pB5JGsDbztOBYz3zNmPhPJhxJdXqCL9vFBQo108NPdZFQa9chR+5dfsFwdH1cg=
+X-Google-Smtp-Source: AGHT+IHtYnolIIRYPs/EmR5EEzZ1sL8+zY8lf7mTvGypESElWwhDypuX4pBANdN1oJ2iOm4IuKjKVA==
+X-Received: by 2002:a17:902:968c:b0:1e2:6d57:c1bb with SMTP id n12-20020a170902968c00b001e26d57c1bbmr3726399plp.21.1712999994631;
+        Sat, 13 Apr 2024 02:19:54 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id n9-20020a170903110900b001e5c0ac3279sm2157153plh.74.2024.04.13.02.19.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 13 Apr 2024 02:19:54 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>
+Subject: [PATCH v2] of: property: Add fw_devlink support for interrupt-map property
+Date: Sat, 13 Apr 2024 14:49:42 +0530
+Message-Id: <20240413091942.316054-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN3P287MB2108:EE_
-X-MS-Office365-Filtering-Correlation-Id: b624d2d3-4bb4-4c42-9129-08dc5b98a631
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: CgLCLe3EcbyurMNhP44jzxFq3uIhXnusgzCF+dTmurI9yQIrCI63cFHXEB80Imflc+a7goBoFjet/B6GvydWfHCXhavtjPZvLLL4AS8+5Zx2IYCj4GtiR0F+1upMxAvUp/PxvFlb+DjbLNNxL6bRPWtxhTbOcpO1HiUBOJ2gNes6uW5KcVmIi0VmgmKhpllJ4ytnCzTTa2XinNfA0gQu4YD4/WYcMdNV+A0nA+uAxaAG8JJJzTo4mp1P1IkNTYGl0+KxeZcRWI/Ku3iPjtT73SgCc1aNxmYvPGc42jWrE7Xbbzk2SC3eM2tjl0F2tpqCFKGYyD6f+FT22LoY9ljJewLbqPcyD14AXpbz9FZd/Ml1CpdHXXvyz2Of5Oeuf2qDJ8+JDlE8xLPMI4vJ6oazGPBC3l9QNKqnm7EyhEEpdikWN9EuXhYJ9GfcJo9IUBFXYATBDbS2DPSWiMz53Yozo7gSO5blepzmu3iNOpH2m6pjAMfAhEYJVp9Tk5uHxb5IoCjrZkSWgZ7XiYwMbmtf476b1QFvNxdyXQt65wV2cESFgq5W3cwCPvXia7rZYl+X
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZTViZDFDMkp5VUJ5MVArSzcvRmdsanNKbTBZWFp5SnJuVFRlM3VQVUFBSklE?=
- =?utf-8?B?WGdxTHM0YVhBbnFlbFAxbWx5a2ZWMFF4WWgzK3MxYSs5cGdzVWpIL1JkbFNm?=
- =?utf-8?B?ZzczMDFraXVUU2VhYUVHQi9JeklWMStiNS9WWk5PZExUSWpLRmJObVpCRVRv?=
- =?utf-8?B?c205RWFHTVRLNmY0MWg0UnpRdWVHMWIwWDE1U1RmSEVub2U2R294M0lqbzI4?=
- =?utf-8?B?Smc5MEZkY1JPWDRWbTFWQW1OdGk2MUpCNStMN2NoL1JPb2lJU05EUVlER0NK?=
- =?utf-8?B?NFZWVDV1eklSOXRBV211SFhxcG1wMXRCUkw0aWRFNXhoOUxORnBKcHphMmE5?=
- =?utf-8?B?dFNNeVdUSWkvWGg2SzdlZUdyQkR5T3dvaWdFOFlCT3ptWGhVQnlBdFpkejJo?=
- =?utf-8?B?NVB6bWw0ZitlelFUZ1RzNTZZRHFGQ3VkbVRjdThVMGZIamw0bk1JTUJxeFEr?=
- =?utf-8?B?MlJQL1Fmdk5ZWlBzZWswclNiN0YxWlU3WkgyZWhXbzZQNzlGeGVXYi81MjNP?=
- =?utf-8?B?SFhidkEyM2tBT0twR0lnSG1MZHMrT2tUSlBPUzNpNFZHaUp0VXd2UWFidmFJ?=
- =?utf-8?B?SDBIQkREaW0zTHdpUjA4Tm90UXkzTmp0aWpMWGpyS3J1Q0RxVDArVTNEVVhW?=
- =?utf-8?B?bktjYWkwNDY3Uy9EMzRTOGdPT2JOUmp2ZER4Mmh1ek1lMEVtVmtTZGlFaVp5?=
- =?utf-8?B?TGk0SWZKRW92cDBkclUzYWdDcHJvb0wzdlBlSndTL1VnNys5SWVia3NTekh3?=
- =?utf-8?B?QTg0OTAwVVJsTlJUZFdVV1A2TGVIcFRlbmNWMFZITk51OEVlY2FNdTdiRFFz?=
- =?utf-8?B?bDU1TWQ4R1VBNnEvYmhxN2ErU0t0UUVZMjU4cU5sdXMyZmtXcEh2SDFaTTg2?=
- =?utf-8?B?cnJDTmxKa0hnY0J2RjMxVDVZdFpJd0U4SzZVeTRpZTV4TEh4d3JmSkxJTS9J?=
- =?utf-8?B?S2prYzBPQ3pVSDhNdUIxeXZ2a3FrZzNxVmhlTytlUTdGaDZxWTluKzYzRGg2?=
- =?utf-8?B?cnlpWmlXZHFHT2IwWFVac3dPM0F6SUdReFNaUVNNck9hTHlQeFd0Y0oyZ1lp?=
- =?utf-8?B?cUlSNnR2WHNudlNuV1UwS09xRHVyZ3FaMytHTStjM3V6RWQ1Y1hRendSL3Ix?=
- =?utf-8?B?dzl0WEovQmliM0dxTFdVbllYNmVaWlpka2ZMc3VocXlvcFdDT3o5SzIyTkg4?=
- =?utf-8?B?cmFDazR4MjFaWUJBR1pmSFBMb1dmblpvSFJKQitSQ3FTUStYdEdXWnBzOFla?=
- =?utf-8?B?K3pFeXY4OSsvd2hvUUlWaXgySXJwVzVjYm5JaU95OFVZMzRDWDJqckl3bHJW?=
- =?utf-8?B?T0pkdWZUSVRIZk1EWnVHOUJIWXNqakxPVFdndHczTVNzaWZaUHdJdDhCK3kv?=
- =?utf-8?B?RkJEZmFXaS9WOTlFUndRWmdsUE9pS0VsNjVaV2JWSXpEYStITlVGWEh5RkV1?=
- =?utf-8?B?YnJVdnNPL0NMdDdRNU5lYkdpVzJFa29qcXh2aFBTajNkaFFzeGczY29ySW9B?=
- =?utf-8?B?WkFDU2dadzBsdnNXY3p2MnUxNi9RQmR0L1lyVmhKaVRUWFoxbkxNQ1FXb3Fi?=
- =?utf-8?B?QUYyYUlNUWxyK3RRRHNQVS8rMnAvUll0ZlhKQWVXTGVEanM3VGY5V1lGZjdL?=
- =?utf-8?B?QjBaQmtESXlYT2hNZ2tXTHZOeTJFRm44ekZpVmlTNFBjNlZTanRmdDNyU1Zx?=
- =?utf-8?Q?KwRSqJSGTrkglBfb0Y7M?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b624d2d3-4bb4-4c42-9129-08dc5b98a631
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Apr 2024 09:03:56.2964
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3P287MB2108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240413_020419_871807_79C6313A 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20240413_021957_125397_40353DED 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,58 +84,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Some of the PCI controllers (such as generic PCI host controller)
+use "interrupt-map" DT property to describe the mapping between
+PCI endpoints and PCI interrupt pins. This the only case where
+the interrupts are not described in DT.
 
-On 2024/4/11 20:21, Inochi Amaoto wrote:
-> As the clk patch is merged, Use real clocks for sdhci0.
->
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> ---
->   arch/riscv/boot/dts/sophgo/cv18xx.dtsi | 12 +++---------
->   1 file changed, 3 insertions(+), 9 deletions(-)
->
-> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> index 75d0c57f4ffb..891932ae470f 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> @@ -47,13 +47,6 @@ osc: oscillator {
->   		#clock-cells = <0>;
->   	};
->
-> -	sdhci_clk: sdhci-clock {
-> -		compatible = "fixed-clock";
-> -		clock-frequency = <375000000>;
-> -		clock-output-names = "sdhci_clk";
-> -		#clock-cells = <0>;
-> -	};
-> -
->   	soc {
->   		compatible = "simple-bus";
->   		interrupt-parent = <&plic>;
-> @@ -298,8 +291,9 @@ sdhci0: mmc@4310000 {
->   			compatible = "sophgo,cv1800b-dwcmshc";
->   			reg = <0x4310000 0x1000>;
->   			interrupts = <36 IRQ_TYPE_LEVEL_HIGH>;
-> -			clocks = <&sdhci_clk>;
-> -			clock-names = "core";
-> +			clocks = <&clk CLK_AXI4_SD0>,
-> +				 <&clk CLK_SD0>;
-> +			clock-names = "core", "bus";
->   			status = "disabled";
->   		};
+Currently, there is no fw_devlink created based on "interrupt-map"
+DT property so interrupt controller is not guaranteed to be probed
+before PCI host controller. This affects every platform where both
+PCI host controller and interrupt controllers are probed as regular
+platform devices.
 
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+This creates fw_devlink between consumers (PCI host controller) and
+supplier (interrupt controller) based on "interrupt-map" DT property.
 
-Thanks.
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+Changes since v1:
+- Updated commit description based on Rob's suggestion
+- Use of_irq_parse_raw() for parsing interrupt-map DT property
+---
+ drivers/of/property.c | 58 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
->
-> --
-> 2.44.0
->
+diff --git a/drivers/of/property.c b/drivers/of/property.c
+index a6358ee99b74..67be66384dac 100644
+--- a/drivers/of/property.c
++++ b/drivers/of/property.c
+@@ -1311,6 +1311,63 @@ static struct device_node *parse_interrupts(struct device_node *np,
+ 	return of_irq_parse_one(np, index, &sup_args) ? NULL : sup_args.np;
+ }
+ 
++static struct device_node *parse_interrupt_map(struct device_node *np,
++					       const char *prop_name, int index)
++{
++	const __be32 *imap, *imap_end, *addr;
++	struct of_phandle_args sup_args;
++	struct device_node *tn, *ipar;
++	u32 addrcells, intcells;
++	int i, j, imaplen;
++
++	if (!IS_ENABLED(CONFIG_OF_IRQ))
++		return NULL;
++
++	if (strcmp(prop_name, "interrupt-map"))
++		return NULL;
++
++	ipar = of_node_get(np);
++	do {
++		if (!of_property_read_u32(ipar, "#interrupt-cells", &intcells))
++			break;
++		tn = ipar;
++		ipar = of_irq_find_parent(ipar);
++		of_node_put(tn);
++	} while (ipar);
++	if (!ipar)
++		return NULL;
++	addrcells = of_bus_n_addr_cells(ipar);
++	of_node_put(ipar);
++
++	imap = of_get_property(np, "interrupt-map", &imaplen);
++	if (!imap || imaplen <= (addrcells + intcells))
++		return NULL;
++	imap_end = imap + imaplen;
++
++	sup_args.np = NULL;
++	for (i = 0; i <= index && imap < imap_end; i++) {
++		if (sup_args.np) {
++			of_node_put(sup_args.np);
++			sup_args.np = NULL;
++		}
++
++		addr = imap;
++		imap += addrcells;
++
++		sup_args.np = np;
++		sup_args.args_count = intcells;
++		for (j = 0; j < intcells; j++)
++			sup_args.args[j] = be32_to_cpu(imap[j]);
++		imap += intcells;
++
++		if (of_irq_parse_raw(addr, &sup_args))
++			return NULL;
++		imap += sup_args.args_count + 1;
++	}
++
++	return sup_args.np;
++}
++
+ static struct device_node *parse_remote_endpoint(struct device_node *np,
+ 						 const char *prop_name,
+ 						 int index)
+@@ -1359,6 +1416,7 @@ static const struct supplier_bindings of_supplier_bindings[] = {
+ 	{ .parse_prop = parse_msi_parent, },
+ 	{ .parse_prop = parse_gpio_compat, },
+ 	{ .parse_prop = parse_interrupts, },
++	{ .parse_prop = parse_interrupt_map, },
+ 	{ .parse_prop = parse_regulators, },
+ 	{ .parse_prop = parse_gpio, },
+ 	{ .parse_prop = parse_gpios, },
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
