@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C13C4345F
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2024 04:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EAE9C4345F
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2024 06:52:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qipOc7/wTtM9JPsKH26bZTkldEnsfm0TdjZl6WWylxU=; b=ixTefRFIb5Bk/K
-	NiXAmUepTx4mIORtHa5JHUlQRdblgAb2b8U2W9lOVnkEXLL9KkgSd4oCqX7kxZ+ZskW2DzZoiC5MD
-	8P3aEWR8/i3CfiRyilQaGBvYVrUYvlVL0Nez4usHzKeL2yH7/kGXZtMOQEERb6O/0trb+W9OsOKQO
-	evd6mlYHOg/LV3YhI7kFTipY/35m2i52MMzA7wuh8qcel2ecQJ8qcaBBhMfUeZ+K/sMmRdMygVvih
-	sTNLvo/NakX8vLWW/p59KZwyjOyQ/o+y6J/p0IdkZNKXsrVHSm038ziB+RVY00nT+h4j5LGZPhztD
-	Jq6lrvLBF5dtDVkEfGlQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GNektOVxyjzSQO/HZBfqqkB2flDoHYNOxTd1+GjVm1w=; b=qUx8gzpnFctXAv
+	d/gHgByX6qZnJpJKQtHh83a8/KDHQRWIiP+ztknkXqYRASyBxir1T4OsJDzitWVLFRugORVyyEmkH
+	3ecpaN2qhGuv4PRr1K0CBcC7veNFSZoxOts1hXR0dOZvcTacSteQeQHsu0KDUgg45YbuOxeg/9eBU
+	aYW+toukHEwKXyGDGf2U3rooF76zdrvCRYhV0sqzt9Oxzqj26SaBP3id+5uKR2uw/01ma0/Jc3jJd
+	2I6GBzTpUg2SBOqsn+66z8TesxoARJUoTGN4+WT06sUJlvLyGWhgrnloZ99tHUaKzWrBytpKNZBfG
+	O4+6S3bUHFjgKVG0odtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvV7X-00000002MQ7-1mpx;
-	Sat, 13 Apr 2024 04:36:07 +0000
-Received: from outgoing-auth-1.mit.edu ([18.9.28.11] helo=outgoing.mit.edu)
+	id 1rvXFR-00000002aA6-17YX;
+	Sat, 13 Apr 2024 06:52:25 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvV7R-00000002MPK-4399
+	id 1rvXFO-00000002a9K-3dGC
 	for linux-riscv@lists.infradead.org;
-	Sat, 13 Apr 2024 04:36:05 +0000
-Received: from cwcc.thunk.org (pool-173-48-113-2.bstnma.fios.verizon.net [173.48.113.2])
-	(authenticated bits=0)
-        (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 43D4ZgBU018660
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 13 Apr 2024 00:35:44 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1712982946; bh=/B4pXAPsMRR82DA1Wh7RuqgKoBHilarf9qCJOIPKqF4=;
-	h=Date:From:Subject:Message-ID:MIME-Version:Content-Type;
-	b=TbnQtMH6TFa+kLU/M/0hqC87t19sYAJN33+wvj898a7IJ849R+CNp8YkoxJc/Eeqm
-	 I2PCmWvJ0bGYq9M9QpnVJo0D7W+DMRoH2GHhUJAP5O8E8XWOtKLsZlCprWefjOuJpC
-	 zsYq77DgwqdyyjzyOGaLj+eVsx7pFRn771AUsyRhDjbuR5qA+8fLh273p/m7yumP98
-	 djtYmjbKvdy3xFtzs0yaGDs2tVDUtytiErDSfYlSXQUDHzYXGGstKUVL6NVEF2ie/f
-	 Qe78Fkdk33nf6FYe0NcVWu+C/fZdkYwQQ1tQRiic7WUtjR7NLiVjj3mdNn2fty2KSS
-	 LXpNi5K/SoXmw==
-Received: by cwcc.thunk.org (Postfix, from userid 15806)
-	id 2A66215C0CB5; Sat, 13 Apr 2024 00:35:42 -0400 (EDT)
-Date: Sat, 13 Apr 2024 00:35:42 -0400
-From: "Theodore Ts'o" <tytso@mit.edu>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: linux-fsdevel@vger.kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>,
-        Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        Andreas Dilger <adilger.kernel@dilger.ca>, linux-ext4@vger.kernel.org,
-        Conor Dooley <conor@kernel.org>,
-        Anders Roxell <anders.roxell@linaro.org>
-Subject: Re: riscv32 EXT4 splat, 6.8 regression?
-Message-ID: <20240413043542.GE187181@mit.edu>
-References: <878r1ibpdn.fsf@all.your.base.are.belong.to.us>
- <20240412154342.GA1310856@mit.edu>
- <87a5lyecuw.fsf@all.your.base.are.belong.to.us>
+	Sat, 13 Apr 2024 06:52:24 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-6ecf406551aso1251204b3a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Apr 2024 23:52:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1712991141; x=1713595941; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yBFHuV2LVuWEjmAN/8ohS4VG5ENeR9bBP+jEkNcVGnY=;
+        b=URf6vdFPgeud61bEHEixgb288Qb9tQUe9vOxRLzW3OgTGMJxHivD+g1h48PWnV3bJm
+         wpD9rPdPSgbNsszHy+PsJWAJ9Q653ctPOlnAaE+IoqicXHrgYhNOOxkUlwjuFooxRw47
+         cmr/Syiv+xwROVXjEl8Gni0I+DrDZK0Vx9oGPVqAAQpreIGl/xiVHl1E+pFwLDQc//ys
+         uf50mFQMvYoWjswLvrFxakxf1TGUMKBROVsuM3bNbMgjY0bUcmd54FpQCQbuaczNp8/o
+         BBZwwMqUCOu7gJ8FEW8RBQHG6mYVV7Xw3XaQ0SYTk5AQJkBF19hIZerECq/MWhF4Ntqv
+         rymA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712991141; x=1713595941;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yBFHuV2LVuWEjmAN/8ohS4VG5ENeR9bBP+jEkNcVGnY=;
+        b=Ub/bq4BzT1FZaq4HqVStSfUajGkq8yyKTid4zFYJPsBwBeYUZrjqitJN8iYbVMaW/V
+         OXRSXSEx0Ij6ac+rbfvtm2kw3XxlZvVkJOU8dHxUnX78ULzhbSA+xRJU07Q5G9uyX+M7
+         HjlTIiBdSd2+GnQVkscp4yWgyYUA4GCd8ab2NVvUjDxJszetdtrImE1lu0+AwekQIrXH
+         MncGDFMJwkh+Mvgb8UGrtrsvJ9gkw4cAOQ3qPpLUwwJm/DVNMWTOaEnr9PObkZvSb6bJ
+         T5UtI7JCIHse3J72fzC2U1TBuRo2XJ4hsh03HXmr8vNbErIuQQ2ewjdZZvKNv4rU9L/Q
+         P1ug==
+X-Forwarded-Encrypted: i=1; AJvYcCVCwhpFpKJQY0KkbaZD0m29gO3vhEJqO2fieR0Tlmut1xVCFH76SLr+v61dFIs6Qm6dXFwgJyFkFMPS3uqYpuj5H2QeNHyhbesrJs7JDAr5
+X-Gm-Message-State: AOJu0YyDuZ+LpzrNGmOuUzOSvZ68wim9KixtaGSzSoatwVidx+WbBJGG
+	m71+Mylu4dPt5IdQnsmbu4FjXvaaTRtgkfi1W0avZvdg5aDKsnUkXk+uY4xdBvc=
+X-Google-Smtp-Source: AGHT+IFxF4jJ0GHS1OMnmsjR3+db1ACxvmt66Yi/yXJeY5lDM1hSf5pmrlBnuOLCRIE4LCxRJNPrKQ==
+X-Received: by 2002:a05:6a00:2183:b0:6ed:cece:8160 with SMTP id h3-20020a056a00218300b006edcece8160mr5221682pfi.31.1712991141027;
+        Fri, 12 Apr 2024 23:52:21 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id v12-20020aa799cc000000b006edcdb08d25sm3895634pfi.91.2024.04.12.23.52.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Apr 2024 23:52:20 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH] irqchip/riscv-imsic: Fix boot time update effective affinity warning
+Date: Sat, 13 Apr 2024 12:22:10 +0530
+Message-Id: <20240413065210.315896-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87a5lyecuw.fsf@all.your.base.are.belong.to.us>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240412_213602_407885_C95A3F48 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20240412_235222_937506_79938855 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,85 +84,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: Anup Patel <apatel@ventanamicro.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 12, 2024 at 06:59:19PM +0200, Bj=F6rn T=F6pel wrote:
-> =
+Currently, the following warning is observed on the QEMU virt machine:
+genirq: irq_chip APLIC-MSI-d000000.aplic did not update eff. affinity mask of irq 12
 
->   $ pipx install tuxrun
-> =
+The above warning is because the IMSIC driver does not set the initial
+value of effective affinity in the irq descriptor. To address this,
+initialize the effective affinity in imsic_irq_domain_alloc().
 
-> if you're on Debian.
-> =
+Fixes: 027e125acdba ("irqchip/riscv-imsic: Add device MSI domain support for platform devices")
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ drivers/irqchip/irq-riscv-imsic-platform.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-> Then you can get the splat by running:
-> =
+diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
+index 1e6dddfd3046..11723a763c10 100644
+--- a/drivers/irqchip/irq-riscv-imsic-platform.c
++++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+@@ -157,6 +157,7 @@ static int imsic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ 			    handle_simple_irq, NULL, NULL);
+ 	irq_set_noprobe(virq);
+ 	irq_set_affinity(virq, cpu_online_mask);
++	irq_data_update_effective_affinity(irq_get_irq_data(virq), cpumask_of(vec->cpu));
+ 
+ 	return 0;
+ }
+-- 
+2.34.1
 
->   $ tuxrun  --runtime docker --device qemu-riscv32 --kernel https://stora=
-ge.tuxsuite.com/public/linaro/lkft/builds/2esMBaAMQJpcmczj0aL94fp4QnP/Image=
-.gz --parameters SKIPFILE=3Dskipfile-lkft.yaml --parameters SHARD_NUMBER=3D=
-10 --parameters SHARD_INDEX=3D1 --image docker.io/linaro/tuxrun-dispatcher:=
-v0.66.1 --tests ltp-controllers
-
-Yeah, what I was hoping for was a shell script or a .c file hich was
-the reproducer, because that way I can run the test in my test infrastructu=
-re [1]
-
-[1] https://github.com/tytso/xfstests-bld/blob/master/Documentation/kvm-xfs=
-tests.md
-
-I'm sure there are plenty of nice things about tuxrun, but with
-kvm-xfstests I can easily get a shell so I can run the test sccript by
-hand, perhaps with strace so I can see what is going on.  Or I attach
-gdb to the kernel via "gdb /path/to/vmlinux" and "target remote
-localhost:7499".
-
-I'm guessing that "ltp-controllers" means that the test might be from
-the Linux Test Project?  If so, that's great because I've added ltp
-support to my test infrastructure (which also supports blktests,
-phoronix test suite, and can be run on gce and on android devices in
-addition to qemu, and on the arm64, i386, and x86_64 architectures).
-
-> Build with "make ARCH=3Driscv CROSS_COMPILE=3Driscv64-linux-gnu-", and ma=
-ke
-> sure to have the riscv64 cross-compilation support (yes, same toolchain
-> for rv32!).
-> =
-
-> It's when the rootfs is mounted, and the kernel is looking an init.
-
-Hmm, so this happening as soon as the VM starts, before actually
-starting to run any tests?  Is it possible for you to send me the
-rootfs as a downloading image, as opposed to my trying to paw through
-the docker image?
-
-> I'll keep debugging -- it was more if anyone had seen it before. I'll
-> try to reproduce on some other 32b platform as well.
-
-Well, it's not happening on my rootfs on i386 using my test infrastructure:
-
-% cd /usr/projects/linux/ext4
-% git checkout v6.8
-% install-kconfig --arch i386
-% kbuild --arch i386
-% kvm-xfstests shell
-    ...
-root@kvm-xfstests:~# cd ltp
-root@kvm-xfstests:~# ./runltp
-
-(I don't have ltp support fully automated the way I can run blktests
-using "kvm-xfstests --blktests" or run xfstests via "gce-xfstests -c
-ext4/all -g auto".  The main missing is teaching ltp to create an
-junit xml results file so that the test results can be summarized and
-so the test results can be more easily summarized and compared against
-past runs on different kernel versions.)
-
-Anyway, if you can send me your rootfs, I can try to take a look at it.
-
-       	       	       	    	      - Ted
 
 _______________________________________________
 linux-riscv mailing list
