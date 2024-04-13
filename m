@@ -4,66 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85390C4345F
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2024 14:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A38EC04FF6
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2024 20:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E85ooimqzDK/U8Rm4FGgCwYqSMcLzwUFbZv0z3TSs+g=; b=082aPeD9TzOqDA
-	zPCSoEWROBV6lX2uEBdkzbacWck+2dhZAO4HKAR1nxh1OVMMYFyqiedegC/Ki44KRkqSOOruIDUc3
-	XS4todPbYsABFd+MACv3EbbpXH8HwKDb7ZZ9s5e08Rbqrj3rJPSFtn8UK8T1JrtvOIMFq9CXEGpZf
-	RjUGAXi8m5MQFSCYiovd0rDxgxmZ6sxzGUwuMiHmgM5o6uLRps3xv36bkKvtBQt7nciKmc7R9Nl71
-	F1UtY9WjwioZWVLmhAmf7462r5p3/VSZ3dB1eWp9yjnEgFqwjJBFW6b2Su+bdpSiabvlXUXdyljSA
-	BvSm6Rfvz/DaiAqwYL0A==;
+	List-Owner; bh=x+MQ4iuRhKWiSGRVvI7XJLdelAbbE9ed0r9ySrM4ui4=; b=k5zsuq0lfSPkRw
+	spccK/8GE3xeMBmlf+7ovE+y222/SKx5P67BT698/8FDPtJnDEyg1FLDgSAnEBZduE/q0Cl6BN2tR
+	EITd5QVJEmjdHnIuGEAexS5sZZSQU2oQHbwAqwHCJXi+OA16pURDMg6IZcqYHwFlxnitIVKo0jFUo
+	DGMX5S5W+PAKpoTL+uyQhgY7hcG2P6q2FlBfH/jB8TbDtdQYHIYwE9qFuHYiMwKlXZAOBY17D/H+p
+	r43Y6mmbFug0/EmTE6QP2Fxl57j1SU4TSuH3kEA/EsZEAj7ATigXKBsFHvsYJzQB/dPxnMrCTiIc8
+	G5mjSfLTAha0uheYhUmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvebU-00000003MRG-1aUJ;
-	Sat, 13 Apr 2024 14:43:40 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1rvjfe-00000003qw9-2zOp;
+	Sat, 13 Apr 2024 20:08:18 +0000
+Received: from mail-bn8nam12on20601.outbound.protection.outlook.com ([2a01:111:f403:2418::601] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvebO-00000003MOU-3UxL
-	for linux-riscv@lists.infradead.org;
-	Sat, 13 Apr 2024 14:43:39 +0000
-Date: Sat, 13 Apr 2024 16:43:18 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1713019401;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=94QYgK1moV3EtlUcP69QNbkfRF65WDHcbcu3aXuhzMA=;
-	b=0b1WjH7dMokMw4gA5sphaavop2jbUouwWon4BETiEJ3Auh4mkbDA6CaWbyUNg2HXh5x6sV
-	ONFBFVjW0E764jN462mFwDfHi2QRFkYfyeIHxJcy3VbT1aBnTVP5C58iksUwVE6rUrLEKJ
-	5MlqE2iqe6pljzIGKfUbctAoWA2M34tOOrMm3oVsdNYvuv4Pxq5J39z0MKV5uCYzKKqh3U
-	80jVJeaID7Ii+A4CUhy9Q4fzgdYP/hww5l96idQt9myulM92AIR61c34rdO2vrrS2KQlcV
-	/KP8sifRsZXoC18ILZxYH35jCImumZRAwqv918IPuYpQQPJGbQyHNSiefxQk3w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1713019401;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=94QYgK1moV3EtlUcP69QNbkfRF65WDHcbcu3aXuhzMA=;
-	b=TGTnmWCAiCLkdCMHYZVFT8OBvD3zVHceh/mgLEaqFERDP2BwWHD5eEVTI9rdWYMR4gvfxq
-	35B6dGXcXkTn8uDA==
-From: Nam Cao <namcao@linutronix.de>
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: linux-fsdevel@vger.kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, "Theodore
- Ts'o" <tytso@mit.edu>, Andreas Dilger <adilger.kernel@dilger.ca>,
- linux-ext4@vger.kernel.org, Conor Dooley <conor@kernel.org>
-Subject: Re: riscv32 EXT4 splat, 6.8 regression?
-Message-ID: <20240413164318.7260c5ef@namcao>
-In-Reply-To: <878r1ibpdn.fsf@all.your.base.are.belong.to.us>
-References: <878r1ibpdn.fsf@all.your.base.are.belong.to.us>
+	id 1rvjfb-00000003qtn-1QlE;
+	Sat, 13 Apr 2024 20:08:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=j8WuDCbX66hoJbEa46MaN65oRrqhNUby6oAamMBXdNECD+Q59zYhCCgzP7H/xdqWH8vFzx3p8o3a2epxFU9W8NCns7TSgBX5D6qiXtTd9/r1oDSlC/2m7t3IKdjS8t19JODXcrXx1wkKom43uDadTgv25CQfMUETOQz1dcAcf4c9aBrV7N4EhGhOJxbYP1w8bw4iJ+ilfLuo1MX9aILv0xYaZ0vYLqchY2O9Rij8+PQXGCccoudHsVKiUEU9GmvEeMv4j5vOFY5doXT85TfJaAgxHT808ReTWjmZC1jK3yvRJVLKNEQ+7tiRu1CxU2kplSHgwVe9P/LlsffYf3sK4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7Ldy4aGEadHWsLGVGxixwC5Xmy2B/Sn2gi1wsIlA9SU=;
+ b=Da6YMRIVZO465D4FtfVtCRK95c/jRORMYs0cGjimzDW9Jp1f2xdr8crlah0f2FzjtMnp3we4/zJwrnhKrsIWXVznKnhHar3SSxdAJuTIGgd9FrtGgAa2z/DrHtWPqnsui7B9pBwj1fMLhhj4JurwtgWfyrdeL9P0v/K3m7McHuqz0nVCf8bgzQCjGbw/19obdEaFdofE7f7Zcu9Lp5uoyskCfbtIldaHzhNE82h+zblNNGF8dQ/SsA+cBME4GjOfHuWoIzWIYrnyp9rIFhrf+LIJr0H5jfe5djvO5il8F1+J8ATvLYVbDNxK8N2VdO8WalKi8qOIpYDULf1ZuoH4Yg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7Ldy4aGEadHWsLGVGxixwC5Xmy2B/Sn2gi1wsIlA9SU=;
+ b=YtkWpABMS/AR9OW1eZo36RHZPgUsbLCreM+F1KcnV8GQ2QFG7cNXMlb5Pec01dEuhKHKejfelddquUVOLRuqYV5Yy0kME3I+C/BMZQD8H2BtNKpY2U3gHntE6qPE8I0QksztK6QgFIdpQK5kUAgBxEO2E5YBJD0ERHTEyEDMKR1QghBcjRlhRjydIhzCmip4818DjiC3JyaznjIZgsonFToRThxKhmyRE/FXNC5/sSujeiANmYKyYPyk5aBh4Xhh2p8vNzf+vBTfzrg3Zv86MM056pbpJIkLY+OEYDwpn/cRKgyP69gVUruGnxKDAq5mCAGGA4iNShI47zZeddNzaw==
+Received: from SA0PR11CA0034.namprd11.prod.outlook.com (2603:10b6:806:d0::9)
+ by CY5PR12MB6647.namprd12.prod.outlook.com (2603:10b6:930:40::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.54; Sat, 13 Apr
+ 2024 20:07:59 +0000
+Received: from SN1PEPF0002636C.namprd02.prod.outlook.com
+ (2603:10b6:806:d0:cafe::60) by SA0PR11CA0034.outlook.office365.com
+ (2603:10b6:806:d0::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.31 via Frontend
+ Transport; Sat, 13 Apr 2024 20:07:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SN1PEPF0002636C.mail.protection.outlook.com (10.167.241.137) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7452.22 via Frontend Transport; Sat, 13 Apr 2024 20:07:59 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.986.41; Sat, 13 Apr
+ 2024 13:07:53 -0700
+Received: from [10.110.48.28] (10.126.230.35) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Sat, 13 Apr
+ 2024 13:07:52 -0700
+Message-ID: <24b88e53-a1fe-4fba-a7b5-ffcbeba88a73@nvidia.com>
+Date: Sat, 13 Apr 2024 13:07:52 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/3] mm/gup: consistently name GUP-fast functions
+To: David Hildenbrand <david@redhat.com>, <linux-kernel@vger.kernel.org>
+CC: <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>, "Mike
+ Rapoport" <rppt@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>, Peter Xu
+	<peterx@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
+	<loongarch@lists.linux.dev>, <linux-mips@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-s390@vger.kernel.org>,
+	<linux-sh@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-fsdevel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<x86@kernel.org>
+References: <20240402125516.223131-1-david@redhat.com>
+ <20240402125516.223131-2-david@redhat.com>
+Content-Language: en-US
+From: John Hubbard <jhubbard@nvidia.com>
+In-Reply-To: <20240402125516.223131-2-david@redhat.com>
+X-Originating-IP: [10.126.230.35]
+X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002636C:EE_|CY5PR12MB6647:EE_
+X-MS-Office365-Filtering-Correlation-Id: 40dcf203-1e71-41f9-509f-08dc5bf56ae6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: /Yh8kiGrxSEYZAQRKZ4+LFpmEH/MXvcK7Bd6ZaKz5mXR7hSl3pBC9OcSHtRPRLv68jtBcL9wDJRMrFW3BwZegnfwQ8Da65eoEJppmnIDnCcY/xfsHHyNWwtEoA/p6HNwQZtQ13xxNzzKQuMFn/ESRAS4fp6g/6oIsgOknsu+EISPCQA21IiTdonAk9nJbN2ndwv/l7DlutS3tZ4MZjoVssLon/GRUlB5D8Wwl5/q+4CocXjkIQa1QLF4eYj9RuIe0lycJrwFKsUEEnVz5u/8VEoaaOYoqxAp4ytevAFWDvKqt4PneEbKWQWBTzyJrlqv9bquDur6v4/jbEH1ujo71HwxFXRIshg8A7jL2mWRitO1fM9v5pZVAdaRN6XwtLwaqxOBVuxCbxC5eer25cFzLWYbB7TNGTHZC+AdBUgwyD6ltsH4a0hy3d2pyWsL3nybbuNzwslnhaMNRlkSqKDeb3Sorm6mmBS3fc7Hnm0gUdI85AiqR9fFvHkmxZKcXZoq1jAtZM3Jp+7dq5sUFwB3xzIweBzh0hb0QiQVjhE+34A5rLvlExI3Oiil5qCoVDIyPtsnfpUgQY3/hyHFGagnlS5FEuvRulIh0PW6Nl31NgPJLTjQDiPTLoW0aBBDldsm3am/hrsyS1p9aXn4WO1vH/EnPrbFTvfADdXyakOf49ffZWIOy8i49rBsuSBMQduj21y0LEmmCdyNXwOuB2Brs+E7O5p5EGgNGV3Nclobg/Z/3GPHxZXIW6eyRlWTzKvj
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230031)(1800799015)(7416005)(376005)(82310400014)(36860700004);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Apr 2024 20:07:59.6800
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 40dcf203-1e71-41f9-509f-08dc5bf56ae6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002636C.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6647
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240413_074335_190260_DB32622D 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20240413_130815_446851_B5C90322 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,79 +125,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNC0wNC0xMiBCasO2cm4gVMO2cGVsIHdyb3RlOgo+IEhpIQo+IAo+IEkndmUgYmVlbiBs
-b29raW5nIGF0IGFuIEVYVDQgc3BsYXQgb24gcmlzY3YzMiwgdGhhdCBMS0ZUIGZvdW5kIFsxXToK
-PiAKPiAgIHwgRVhUNC1mcyAodmRhKTogbW91bnRlZCBmaWxlc3lzdGVtIDEzNjk3YTQyLWQxMGUt
-NGE5ZS04ZTU2LWNiOTA4M2JlOTJmOSBybyB3aXRoIG9yZGVyZWQgZGF0YSBtb2RlLiBRdW90YSBt
-b2RlOiBkaXNhYmxlZC4KPiAgIHwgVkZTOiBNb3VudGVkIHJvb3QgKGV4dDQgZmlsZXN5c3RlbSkg
-cmVhZG9ubHkgb24gZGV2aWNlIDI1NDowLgo+ICAgfCBVbmFibGUgdG8gaGFuZGxlIGtlcm5lbCBO
-VUxMIHBvaW50ZXIgZGVyZWZlcmVuY2UgYXQgdmlydHVhbCBhZGRyZXNzIDAwMDAwMDA2Cj4gICB8
-IE9vcHMgWyMxXQo+ICAgfCBNb2R1bGVzIGxpbmtlZCBpbjoKPiAgIHwgQ1BVOiAxIFBJRDogMSBD
-b21tOiBzd2FwcGVyLzAgTm90IHRhaW50ZWQgNi44LjAgIzQxCj4gICB8IEhhcmR3YXJlIG5hbWU6
-IHJpc2N2LXZpcnRpbyxxZW11IChEVCkKPiAgIHwgZXBjIDogZXh0NF9zZWFyY2hfZGlyKzB4NTIv
-MHhlNAo+ICAgfCAgcmEgOiBfX2V4dDRfZmluZF9lbnRyeSsweDFkNi8weDU3OAo+ICAgfCBlcGMg
-OiBjMDM1YjYwZSByYSA6IGMwMzViODc2IHNwIDogYzI1M2ZjMTAKPiAgIHwgIGdwIDogYzIxYTcz
-ODAgdHAgOiBjMjVjODAwMCB0MCA6IDQ0YzA2NTdmCj4gICB8ICB0MSA6IDAwMDAwMDBjIHQyIDog
-MWRlNWIwODkgczAgOiBjMjUzZmM1MAo+ICAgfCAgczEgOiAwMDAwMDAwMCBhMCA6IGZmZmZmZmZj
-IGExIDogZmZmZmYwMDAKPiAgIHwgIGEyIDogMDAwMDAwMDAgYTMgOiBjMjljMDRmOCBhNCA6IGMy
-NTNmZDAwCj4gICB8ICBhNSA6IDAwMDAwMDAwIGE2IDogYzI1M2ZjZmMgYTcgOiBmZmZmZmZmMwo+
-ICAgfCAgczIgOiAwMDAwMTAwMCBzMyA6IDAwMDAwMDAwIHM0IDogMDAwMDEwMDAKPiAgIHwgIHM1
-IDogYzI5YzA0ZjggczYgOiBjMjkyZGI0MCBzNyA6IGMyNTNmY2ZjCj4gICB8ICBzOCA6IGZmZmZm
-ZmY3IHM5IDogYzI1M2ZkMDAgczEwOiBmZmZmZjAwMAo+ICAgfCAgczExOiBjMjkyZGI0MCB0MyA6
-IDAwMDAwMDA3IHQ0IDogNWU4YjQ1MjUKPiAgIHwgIHQ1IDogMDAwMDAwMDAgdDYgOiAwMDAwMDAw
-MAo+ICAgfCBzdGF0dXM6IDAwMDAwMTIwIGJhZGFkZHI6IDAwMDAwMDA2IGNhdXNlOiAwMDAwMDAw
-ZAo+ICAgfCBbPGMwMzViNjBlPl0gZXh0NF9zZWFyY2hfZGlyKzB4NTIvMHhlNAo+ICAgfCBbPGMw
-MzViODc2Pl0gX19leHQ0X2ZpbmRfZW50cnkrMHgxZDYvMHg1NzgKPiAgIHwgWzxjMDM1YmNhYT5d
-IGV4dDRfbG9va3VwKzB4OTIvMHgyMDAKPiAgIHwgWzxjMDI5NWMxND5dIF9fbG9va3VwX3Nsb3cr
-MHg4ZS8weDE0Mgo+ICAgfCBbPGMwMjk5NDNhPl0gd2Fsa19jb21wb25lbnQrMHgxMDQvMHgxNzQK
-PiAgIHwgWzxjMDI5OWYxOD5dIHBhdGhfbG9va3VwYXQrMHg3OC8weDE4Mgo+ICAgfCBbPGMwMjli
-MjRjPl0gZmlsZW5hbWVfbG9va3VwKzB4OTYvMHgxNTgKPiAgIHwgWzxjMDI5YjM0Nj5dIGtlcm5f
-cGF0aCsweDM4LzB4NTYKPiAgIHwgWzxjMGMxYmVlND5dIGluaXRfbW91bnQrMHg0Ni8weDk2Cj4g
-ICB8IFs8YzBjMmFlMWM+XSBkZXZ0bXBmc19tb3VudCsweDQ0LzB4N2EKPiAgIHwgWzxjMGMwMWMy
-Nj5dIHByZXBhcmVfbmFtZXNwYWNlKzB4MjI2LzB4MjdjCj4gICB8IFs8YzBjMDExMzA+XSBrZXJu
-ZWxfaW5pdF9mcmVlYWJsZSsweDI3ZS8weDJhMAo+ICAgfCBbPGMwYjc4NDAyPl0ga2VybmVsX2lu
-aXQrMHgyYS8weDE1OAo+ICAgfCBbPGMwYjgyYmYyPl0gcmV0X2Zyb21fZm9yaysweGUvMHgyMAo+
-ICAgfCBDb2RlOiA4NGFlIGE4MDkgZDMwMyAwMDQ0IDk0OWEgMGY2MyAwNjAzIDk5MWEgZmQ2MyAw
-NTg0IChjNjAzKSAwMDY0IAo+ICAgfCAtLS1bIGVuZCB0cmFjZSAwMDAwMDAwMDAwMDAwMDAwIF0t
-LS0KPiAgIHwgS2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6IEF0dGVtcHRlZCB0byBraWxsIGlu
-aXQhIGV4aXRjb2RlPTB4MDAwMDAwMGIKPiAKPiBUaGlzIHdhcyBub3QgcHJlc2VudCBpbiA2Ljcu
-IEJpc2VjdGlvbiB3YXNuJ3QgcmVhbGx5IGhlbHBmdWwgKHRvIG1lIGF0Cj4gbGVhc3QpOyBJIGdv
-dCBpdCBkb3duIHRvIGNvbW1pdCBjNjA0MTEwZTY2MmEgKCJNZXJnZSB0YWcgJ3Zmcy02LjgubWlz
-YycKPiBvZiBnaXQ6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvdmZz
-L3ZmcyIpLCBhbmQgd2hlbiBJCj4gcmV2ZXJ0IHRoZSBjb21taXRzIGluIHRoZSB2ZnMgbWVyZ2Ug
-dGhlIHNwbGF0IHdlbnQgYXdheSwgYnV0IEkgKnJlYWxseSoKPiBzdHJ1Z2dsZSB0byBzZWUgaG93
-IHRob3NlIGFyZSByZWxhdGVkLi4uCj4gCj4gV2hhdCBJIHNlZSBpbiBleHQ0X3NlYXJjaF9kaXIo
-KSBpcyB0aGF0IHNlYXJjaF9idWYgaXMgMHhmZmZmZjAwMCwgYW5kIGF0Cj4gc29tZSBwb2ludCB0
-aGUgYWRkcmVzcyB3cmFwcyB0byB6ZXJvLCBhbmQgYm9vbS4gSSBkb3VidCB0aGF0IDB4ZmZmZmYw
-MDAKPiBpcyBhIHNhbmUgYWRkcmVzcy4KCkkgaGF2ZSB6ZXJvIGtub3dsZWRnZSBhYm91dCBmaWxl
-IHN5c3RlbSwgYnV0IEkgdGhpbmsgaXQncyBhbiBpbnRlZ2VyCm92ZXJmbG93IHByb2JsZW0uIFRo
-ZSBjYWxjdWxhdGlvbiBvZiAiZGxpbWl0IiBvdmVyZmxvdyBhbmQgZGxpbWl0IHdyYXBzCmFyb3Vu
-ZCwgdGhpcyBsZWFkcyB0byB3cm9uZyBjb21wYXJpc29uIGxhdGVyIG9uLgoKSSBndWVzcyB0aGF0
-IGV4cGxhaW5zIHdoeSB5b3VyIGJpc2VjdCBhbmQgQ29ub3IncyBiaXNlY3QgcmVzdWx0cyBhcmUK
-c3RyYW5nZTogdGhlIGJ1ZyBoYXMgYmVlbiBoZXJlIGZvciBxdWl0ZSBzb21lIHRpbWUsIGJ1dCBp
-dCBvbmx5IGFwcGVhcnMKd2hlbiAiZGxpbWl0IiBoYXBwZW5zIHRvIG92ZXJmbG93LgoKSXQgY2Fu
-IGJlIGZpeGVkIGJ5IHJlLWFycmFuZ2UgdGhlIGNvbXBhcmlzb25zIGEgYml0LiBDYW4geW91IGdp
-dmUgdGhlCmJlbG93IHBhdGNoIGEgdHJ5PwoKQmVzdCByZWdhcmRzLApOYW0KCmRpZmYgLS1naXQg
-YS9mcy9leHQ0L25hbWVpLmMgYi9mcy9leHQ0L25hbWVpLmMKaW5kZXggMDViNjQ3ZTZiYzE5Li43
-MWI4OGIzM2I2NzYgMTAwNjQ0Ci0tLSBhL2ZzL2V4dDQvbmFtZWkuYworKysgYi9mcy9leHQ0L25h
-bWVpLmMKQEAgLTE1MzIsMTUgKzE1MzIsMTMgQEAgaW50IGV4dDRfc2VhcmNoX2RpcihzdHJ1Y3Qg
-YnVmZmVyX2hlYWQgKmJoLCBjaGFyICpzZWFyY2hfYnVmLCBpbnQgYnVmX3NpemUsCiAJCSAgICB1
-bnNpZ25lZCBpbnQgb2Zmc2V0LCBzdHJ1Y3QgZXh0NF9kaXJfZW50cnlfMiAqKnJlc19kaXIpCiB7
-CiAJc3RydWN0IGV4dDRfZGlyX2VudHJ5XzIgKiBkZTsKLQljaGFyICogZGxpbWl0OwogCWludCBk
-ZV9sZW47CiAKIAlkZSA9IChzdHJ1Y3QgZXh0NF9kaXJfZW50cnlfMiAqKXNlYXJjaF9idWY7Ci0J
-ZGxpbWl0ID0gc2VhcmNoX2J1ZiArIGJ1Zl9zaXplOwotCXdoaWxlICgoY2hhciAqKSBkZSA8IGRs
-aW1pdCAtIEVYVDRfQkFTRV9ESVJfTEVOKSB7CisJd2hpbGUgKChjaGFyICopIGRlIC0gc2VhcmNo
-X2J1ZiA8IGJ1Zl9zaXplIC0gRVhUNF9CQVNFX0RJUl9MRU4pIHsKIAkJLyogdGhpcyBjb2RlIGlz
-IGV4ZWN1dGVkIHF1YWRyYXRpY2FsbHkgb2Z0ZW4gKi8KIAkJLyogZG8gbWluaW1hbCBjaGVja2lu
-ZyBgYnkgaGFuZCcgKi8KLQkJaWYgKGRlLT5uYW1lICsgZGUtPm5hbWVfbGVuIDw9IGRsaW1pdCAm
-JgorCQlpZiAoZGUtPm5hbWUgKyBkZS0+bmFtZV9sZW4gLSBzZWFyY2hfYnVmIDw9IGJ1Zl9zaXpl
-ICYmCiAJCSAgICBleHQ0X21hdGNoKGRpciwgZm5hbWUsIGRlKSkgewogCQkJLyogZm91bmQgYSBt
-YXRjaCAtIGp1c3QgdG8gYmUgc3VyZSwgZG8KIAkJCSAqIGEgZnVsbCBjaGVjayAqLwoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 4/2/24 5:55 AM, David Hildenbrand wrote:
+> Let's consistently call the "fast-only" part of GUP "GUP-fast" and rename
+> all relevant internal functions to start with "gup_fast", to make it
+> clearer that this is not ordinary GUP. The current mixture of
+> "lockless", "gup" and "gup_fast" is confusing.
+> 
+> Further, avoid the term "huge" when talking about a "leaf" -- for
+> example, we nowadays check pmd_leaf() because pmd_huge() is gone. For the
+> "hugepd"/"hugepte" stuff, it's part of the name ("is_hugepd"), so that
+> stays.
+> 
+> What remains is the "external" interface:
+> * get_user_pages_fast_only()
+> * get_user_pages_fast()
+> * pin_user_pages_fast()
+> 
+> The high-level internal functions for GUP-fast (+slow fallback) are now:
+> * internal_get_user_pages_fast() -> gup_fast_fallback()
+> * lockless_pages_from_mm() -> gup_fast()
+> 
+> The basic GUP-fast walker functions:
+> * gup_pgd_range() -> gup_fast_pgd_range()
+> * gup_p4d_range() -> gup_fast_p4d_range()
+> * gup_pud_range() -> gup_fast_pud_range()
+> * gup_pmd_range() -> gup_fast_pmd_range()
+> * gup_pte_range() -> gup_fast_pte_range()
+> * gup_huge_pgd()  -> gup_fast_pgd_leaf()
+> * gup_huge_pud()  -> gup_fast_pud_leaf()
+> * gup_huge_pmd()  -> gup_fast_pmd_leaf()
+
+This is my favorite cleanup of 2024 so far. The above mix was confusing
+even if one worked on this file all day long--you constantly have to
+translate from function name, to "is this fast or slow?". whew.
+
+
+> 
+> The weird hugepd stuff:
+> * gup_huge_pd() -> gup_fast_hugepd()
+> * gup_hugepte() -> gup_fast_hugepte()
+> 
+> The weird devmap stuff:
+> * __gup_device_huge_pud() -> gup_fast_devmap_pud_leaf()
+> * __gup_device_huge_pmd   -> gup_fast_devmap_pmd_leaf()
+> * __gup_device_huge()     -> gup_fast_devmap_leaf()
+> * undo_dev_pagemap()      -> gup_fast_undo_dev_pagemap()
+> 
+> Helper functions:
+> * unpin_user_pages_lockless() -> gup_fast_unpin_user_pages()
+> * gup_fast_folio_allowed() is already properly named
+> * gup_fast_permitted() is already properly named
+> 
+> With "gup_fast()", we now even have a function that is referred to in
+> comment in mm/mmu_gather.c.
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Mike Rapoport (IBM) <rppt@kernel.org>
+> Signed-off-by: David Hildenbrand <david@redhat.com>
+> ---
+>   mm/gup.c | 205 ++++++++++++++++++++++++++++---------------------------
+>   1 file changed, 103 insertions(+), 102 deletions(-)
+> 
+
+Reviewed-by: John Hubbard <jhubbard@nvidia.com>
+
+
+thanks,
+-- 
+John Hubbard
+NVIDIA
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
