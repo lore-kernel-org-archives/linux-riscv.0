@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A52C4345F
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Apr 2024 06:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B153DC04FFE
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Apr 2024 06:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wasnYBW9/hO8aAjlxl/7u1JNa56ncSs1RwWnf+8hnjg=; b=d7N4dOSFDBcsbm
-	c1BVh7FtHh0pJx1YEzmtShBQC3R9eN8fWvSO1MQ1uREkP8mMKBwMj74Or0TsdIGcQQrOBx8shuyXx
-	hcfAVAiV8dF5WS1rO5w3EWS7BYUqlgB4jrnikWQTXuEj6luil2+MXtZNW8+/Dhf3p7Xn/+KwmS/a/
-	foV+45m+KDH+GUTPx9Qo9lJ61iaF4WTCTMHV5j9AIYlC3BwZXIBFdlDqpkSukIbsnryC5JZu7Iquf
-	YMsMYh4hnFplP0TljPRyop54e9rPEJBl+h10vVnCk5ptf6cBxjqOOVaVv6DjqUnMv+9ptC0UIgmWY
-	rrozMFzv9hby/qMm679A==;
+	List-Owner; bh=QNBmro428LRfq9QsvWmSUiG5pA4CSTfEduosQpOERSo=; b=Q7NqOs94byeoc2
+	rhSgyqmXQ2iKg//ARrkRfQEAO/G9NDQMHSXlQNd/Ppp3tbw12m4S8O1qkp0e8va3nJXV/Spr4B6l9
+	fidRmBISaqZ0CJ1QNw9n/abmHu6CFhEh0K+0t1a+PyM5xgCK2MUOu5e5OyCqgIuGQg9nfSXCLZNJz
+	d5Al9uDkYP5bQnRSZbgZEfqT7IIPPpdC/S/Ig9C6EhTIlsDLXrJrPUx6z/Ek6V+HAv1d66A2BEdXa
+	qFPMSeRyZj9oWPPWpJ3AJQt8aseG6u2pLlBCwAei7LA0ONPkfqEi2UE3SDh+EDq4FXhGlFOSCtBP+
+	3fki+scLfV2VWYMDT+gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvtln-00000004oXj-0lfq;
-	Sun, 14 Apr 2024 06:55:19 +0000
+	id 1rvtmQ-00000004opa-41AC;
+	Sun, 14 Apr 2024 06:55:58 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rvtlj-00000004oW0-0HMg;
-	Sun, 14 Apr 2024 06:55:16 +0000
+	id 1rvtmM-00000004omq-2Ytj;
+	Sun, 14 Apr 2024 06:55:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8F54E602C3;
-	Sun, 14 Apr 2024 06:55:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6995FC072AA;
-	Sun, 14 Apr 2024 06:55:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EB01A60A6F;
+	Sun, 14 Apr 2024 06:55:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C936C072AA;
+	Sun, 14 Apr 2024 06:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713077713;
-	bh=yXFVMzCDhJLeup5ZM/cl95e9uW89yN9aiaOn424Za9g=;
+	s=k20201202; t=1713077753;
+	bh=acTa/DAZ5cFzspaDXQtCutxnRskqILcm4BoyY64GAsE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ExCk/4I4W5Phef5aKaCHl7yCjGPCdhEDo2t4j5gOOcRyNoNKAWaoFjcjUPNV/ZDjL
-	 NgPGAZFKEHXGgq8aJVi8Z2vvDSoVvCAV16D5jLcPzItS86EojO+p5yw5DDCakIbCdC
-	 uDA7f0oS8i29LKJV724dmx85sHqKA14tjFqITDp8vRb8dfZu8WBgwU1FYXq0TYmRGR
-	 7tSa/jZjNfXa/T7/J/CXr2wjq9OOfmF2PhtvRmpH6VXO/pNGCEo0ysFPCgbJcswH3+
-	 8pSQxW9Jh3lYLdHalhcMBeJUrFP7jE5aNtiOQBUuA7scvpAOHZqdofUGHWY2VvqQnF
-	 hEcRjO6WYTf+Q==
-Date: Sun, 14 Apr 2024 09:53:59 +0300
+	b=d/LYacHAwOkc/kCjHyTCcoystztWJ2hWE4WwS3iKJOBVWKuPGpKsoWrst4uwdO1uE
+	 lrNGgEGIp37lYevOO6ZmgbCTo4Pcxdre0tQG5WRz1+Y2JUSVBKkzieGuQgR+feRjgF
+	 NKCbxLpnvzIWDlXArs9dsDM7tl8cS1D4PWEeuIKCMEB72UnHmvnpkx8KzyEbulPvOG
+	 yvUAKKWnOyEVJqc7Xz1pObSnlTPYaMqA07hIzHHnAfEdOSzr4lhL5Wuu7orwQ0gYDx
+	 oyzwYp1Srm9Luqd+anJCkHdxPVjCqKLVBJXRIPwBDjCdEus2NTS/xxlaUyK8iknUq1
+	 IefQf1wfCNhJQ==
+Date: Sun, 14 Apr 2024 09:54:38 +0300
 From: Mike Rapoport <rppt@kernel.org>
-To: Luis Chamberlain <mcgrof@kernel.org>
+To: Ingo Molnar <mingo@kernel.org>
 Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
@@ -56,6 +56,7 @@ Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
 	Huacai Chen <chenhuacai@kernel.org>,
 	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Michael Ellerman <mpe@ellerman.id.au>,
 	Nadav Amit <nadav.amit@gmail.com>,
@@ -74,16 +75,16 @@ Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
 	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
 	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
 Subject: Re: [PATCH v4 05/15] mm: introduce execmem_alloc() and execmem_free()
-Message-ID: <Zht9hw_DhDsaTuEP@kernel.org>
+Message-ID: <Zht9rqGfK2wZj4vg@kernel.org>
 References: <20240411160051.2093261-1-rppt@kernel.org>
  <20240411160051.2093261-6-rppt@kernel.org>
- <Zhg9DXzagPbpNGH1@bombadil.infradead.org>
+ <Zhj72l6uN9OFilxA@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Zhg9DXzagPbpNGH1@bombadil.infradead.org>
+In-Reply-To: <Zhj72l6uN9OFilxA@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240413_235515_219962_F99811A2 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20240413_235554_872307_5B01D8C5 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,54 +101,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 11, 2024 at 12:42:05PM -0700, Luis Chamberlain wrote:
-> On Thu, Apr 11, 2024 at 07:00:41PM +0300, Mike Rapoport wrote:
-> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> > 
-> > module_alloc() is used everywhere as a mean to allocate memory for code.
-> > 
-> > Beside being semantically wrong, this unnecessarily ties all subsystems
-> > that need to allocate code, such as ftrace, kprobes and BPF to modules and
-> > puts the burden of code allocation to the modules code.
-> > 
-> > Several architectures override module_alloc() because of various
-> > constraints where the executable memory can be located and this causes
-> > additional obstacles for improvements of code allocation.
-> > 
-> > Start splitting code allocation from modules by introducing execmem_alloc()
-> > and execmem_free() APIs.
-> > 
-> > Initially, execmem_alloc() is a wrapper for module_alloc() and
-> > execmem_free() is a replacement of module_memfree() to allow updating all
-> > call sites to use the new APIs.
-> > 
-> > Since architectures define different restrictions on placement,
-> > permissions, alignment and other parameters for memory that can be used by
-> > different subsystems that allocate executable memory, execmem_alloc() takes
-> > a type argument, that will be used to identify the calling subsystem and to
-> > allow architectures define parameters for ranges suitable for that
-> > subsystem.
+On Fri, Apr 12, 2024 at 11:16:10AM +0200, Ingo Molnar wrote:
 > 
-> It would be good to describe this is a non-fuctional change.
-
-Ok.
+> * Mike Rapoport <rppt@kernel.org> wrote:
+> 
+> > +/**
+> > + * enum execmem_type - types of executable memory ranges
+> > + *
+> > + * There are several subsystems that allocate executable memory.
+> > + * Architectures define different restrictions on placement,
+> > + * permissions, alignment and other parameters for memory that can be used
+> > + * by these subsystems.
+> > + * Types in this enum identify subsystems that allocate executable memory
+> > + * and let architectures define parameters for ranges suitable for
+> > + * allocations by each subsystem.
+> > + *
+> > + * @EXECMEM_DEFAULT: default parameters that would be used for types that
+> > + * are not explcitly defined.
+> > + * @EXECMEM_MODULE_TEXT: parameters for module text sections
+> > + * @EXECMEM_KPROBES: parameters for kprobes
+> > + * @EXECMEM_FTRACE: parameters for ftrace
+> > + * @EXECMEM_BPF: parameters for BPF
+> > + * @EXECMEM_TYPE_MAX:
+> > + */
+> > +enum execmem_type {
+> > +	EXECMEM_DEFAULT,
+> > +	EXECMEM_MODULE_TEXT = EXECMEM_DEFAULT,
+> > +	EXECMEM_KPROBES,
+> > +	EXECMEM_FTRACE,
+> > +	EXECMEM_BPF,
+> > +	EXECMEM_TYPE_MAX,
+> > +};
+> 
+> s/explcitly
+>  /explicitly
  
-> > Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
-> > ---
-> 
-> > diff --git a/mm/execmem.c b/mm/execmem.c
-> > new file mode 100644
-> > index 000000000000..ed2ea41a2543
-> > --- /dev/null
-> > +++ b/mm/execmem.c
-> > @@ -0,0 +1,26 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> 
-> And this just needs to copy over the copyright notices from the main.c file.
+Sure, thanks
 
-Will do.
- 
->   Luis
+> Thanks,
+> 
+> 	Ingo
 
 -- 
 Sincerely yours,
