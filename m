@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA46C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 17:03:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F39C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 17:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=INCAuSZmdz01BdowwBvJJj/K19yVp/nBcORK8pj6svU=; b=Leu9FQjAnMTudt
-	K27M1Vj/FUVG7RSlwJtSnuSjak6lswtHkZGrCmlQXnE+nhjG1OUoK339lrs8xLxv7mp6d1ZeWyGHI
-	jCKj1ytbFoAK6j2+n1siUCluS+2qd6dgUvcKquscpjeFJQQVT1zzvOtYQGbKhDX12Pgv+bT6YhRti
-	P1w5tGeHFxySL0KEngVOggSWp5xDYikSAjkPyDmYqrSlI5Y9fMONdtp5AQ3aJ/Mx3HG/P0RpFLKnS
-	mCDDtBIBxlXARVnoGF9/TwOAweOuA+XEXWqktmFmUQdrsNLK7q9BzqhhiGkGvZePB6Xcn0aVAopa8
-	MMmUq067gi4Nq/T74R5w==;
+	List-Owner; bh=q7Phr3+Yous8fGrUAUgA9ng6dgu/Uhu1ShcFhnwGDTc=; b=vCvn8SUw1qtKy5
+	tkdJ/JumVJcT5CnAWtWBfNDFIn6vljU9S2zg9CIGVKSV0jQ+niOB3vMUaucghmsbRTd9ysA7RLoHB
+	IMkmxtxWIG0/SOTdl8MpuCSXNS0+l3wEIPcOZhaOHoOhNCez2jfJ+GOo95/kr2ud7izpWvOl7SxDi
+	u0Y7f/WZae0M5k2CSAWRgfNoiJbTqjkPcasmOTETjLfuRcVDwLA+9jut6rpQUSqLvGyKUs8ETMlWf
+	b6Oooj7K9YwG/6D0AYU0Z8nq0fiQHBVO7dMd6ZAYvVg89KfZealIiKSVdyhMJe5cVvJLEoQb0spaR
+	vpKviVSfQg8srYMHPuZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwPjl-00000009CUt-2iCb;
-	Mon, 15 Apr 2024 17:03:21 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1rwPjw-00000009Cd1-2ujJ;
+	Mon, 15 Apr 2024 17:03:32 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwPiY-00000009Bfm-1Mpk
+	id 1rwPik-00000009BmT-3LgI
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 17:02:18 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6ed11782727so2926957b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 10:02:04 -0700 (PDT)
+	Mon, 15 Apr 2024 17:02:32 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6ecf3943040so2743239b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 10:02:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1713200523; x=1713805323; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1713200537; x=1713805337; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=teU93TtwDbXbcibIb7AXZv+o/BW+BbmtaOdYSVoKyTI=;
-        b=m8N6nuJl4IJO/5kvRUFw/h08UjATT7PJd6pkzq+vV8QPwhXlyfJgQDfVmK7TJH7f/8
-         fBjsdBbu0v1Y+bTPWv8riIYo/JQmkttXXVTHDs5EsDE/rXfXKfqnqSg8beH/km6IO6i7
-         nTHWqZQrev6lXtHZHonWM+w3Y/SkWXVhxOYXW3uNkBQrVxEW1X3TEoxG2Ii6Cs65kyta
-         hFwF1BZc5Dz3fm3QnXudssPDm2cazdQoAOlEYGs21YFcLuxDa1zcFSd+MVEOk5niX1BG
-         QrNbwbtXTr8XiJZaWmr560L0zkPH5B3RiDjorfQ4rQ6jazBqMCQybDpro23vRDO6yhuj
-         buAw==
+        bh=wQjMcgzCCX1zvyyhnfJhjMc7UuQWOWfTm7mVOWGolO4=;
+        b=iblOVtaB6DvGr+T0YQLc8/R21Naebi/mb7QCntIJm8rbj7niD4uVcxhmHSEMZIYd6n
+         yTCPPZZ7uutZ8iA4hu1cVoa2QLjaiYu3O8RNn1Y+BCQpv44ztAevgE58ROh5c9fDI8mg
+         gWjHoHoX+jWc6ubz63Co900IV8yiHjlUXq5mZzET7bn1fXexI70u7buGT+IJWhUU5p6H
+         eE4RkpoW3Evg+3vyEKSto78X030qSKmBIaBlSgf7FhyDEdKEJYWOgA6qTThj17G8MLL/
+         DeL35AiGEV8PrHLg2cUnaVARAPqC2eoHLf7tRjtMFX6vEjw1tLy42juZhjVt9yUln+iv
+         E0tQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713200524; x=1713805324;
+        d=1e100.net; s=20230601; t=1713200537; x=1713805337;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=teU93TtwDbXbcibIb7AXZv+o/BW+BbmtaOdYSVoKyTI=;
-        b=agrvldBnw3GORxtHiDh34xgnljPk57KgWBMnJ6IZAQqiC/FO13sAndFTZ6EMvWd3I+
-         A15pEkS2ZHW0P7vhUqfyBGQxvw9jsDAcFjXxbmtIkaOPI3N2mgukFEwmtuyK/OxmKIeO
-         5RNKvTZClmpdWb117e53CITjAUeR59hFA50+CBPY0QlxMbtcUh8O0PDbVrXN6FgnpqEo
-         lg5Gev2lZicV+tckofskqak1ufMvdj19tRRLPT1cIbZuqKE7cgt3QfmcgvRUejTVr3fk
-         OyQxWo6YaSwyDVOGI2uQZty16gIpWc/IoY68+VqTRUQ9Mm1FQMeF5mGJAfkeE/qZVaRk
-         +f/A==
-X-Forwarded-Encrypted: i=1; AJvYcCUbaqEu4nZqmcRXau/mXqHBgKO/crLv2HXrvj7fftPZevnMq01n7m8Rgy1JMOES4s/jlxWkpqtjG1VgjJsj7ZEj2B5hDmNlxx5ga4jQ1leC
-X-Gm-Message-State: AOJu0YzVE7NkJxZqmZS+0qcQUA4HekyXKEo//v/zyt5tzfwoS4RHxhny
-	I+UdvBqjdwG6sKGzfns/ZB8qiiQnMsxtvP/SSCbVLfsNjUk7SmaxQDlsPkW/N6E=
-X-Google-Smtp-Source: AGHT+IHIdjpEtA26gjeeDnuLKQpBt+rlByzg0zdHDQS2GYQedk9D3DuzAQNVqthcjh2+Xm9tW86rPQ==
-X-Received: by 2002:a05:6a00:3985:b0:6ea:e31e:dc75 with SMTP id fi5-20020a056a00398500b006eae31edc75mr12713019pfb.5.1713200523442;
-        Mon, 15 Apr 2024 10:02:03 -0700 (PDT)
+        bh=wQjMcgzCCX1zvyyhnfJhjMc7UuQWOWfTm7mVOWGolO4=;
+        b=OAUd9Y/MKmZBr0uOdoEpgnAMaT1o8ue0ZxozrPmzR9wbZfc9Z/dpC3H3kqIC3sbr6p
+         o9S2crW6TZsgQIhsTIvL08Pt7Hs+5kHELqnftSplzHKyMOdFMf05pJMt4BYoqppZkR47
+         6ZkGyKldPEa0Ol4jw7Inp98wdfmgI09Xw4OqSPgnB21XJ+0YX0Yn9oRBtHs5/TglPpBv
+         ldGLkAyqTLewc6NhVQaRmWdtZaO5WtztlgV5TV5IwDdT6CD1UNZ7NVqNjT5cX2xfwRIH
+         f53sHuIL3LzvAHrzzFFgYmPz0XqciZX+5dzIKqzxd0CHTOTA6D7BwIhFCnieWVBbrfOe
+         YThA==
+X-Forwarded-Encrypted: i=1; AJvYcCVMv+UtdzK7ICKjDgxHoRgoChLbet7D8BcSpU62q9lpxqjnLWT94D+CfSWzQlkXljF/Rm6lXLR7TDKW/2olYOZvF4SXuKiDxR+N4X6XPpHC
+X-Gm-Message-State: AOJu0Yzsis4hzC4r5XFwYPWm7XBrinK96hQNDKieCQR5HdsKHsza2n9V
+	sG6lJx6oHU/qlbG+rj+kUMmLC2F3t7xgRksgAOUQr5qhl3uS3N0YJaygz137NUI=
+X-Google-Smtp-Source: AGHT+IEOKdv2GIoPVzAfszA+Mczkslu8VP2JvMat3iDp2rWUvNRo9ufo+FIpILZ6uWBafbyo9KluZw==
+X-Received: by 2002:a05:6a00:2314:b0:6ec:cec1:8fe3 with SMTP id h20-20020a056a00231400b006eccec18fe3mr10562037pfh.11.1713200536823;
+        Mon, 15 Apr 2024 10:02:16 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.187.230])
-        by smtp.gmail.com with ESMTPSA id 1-20020a056a00072100b006ed045e3a70sm7433158pfm.25.2024.04.15.10.01.57
+        by smtp.gmail.com with ESMTPSA id 1-20020a056a00072100b006ed045e3a70sm7433158pfm.25.2024.04.15.10.02.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Apr 2024 10:02:03 -0700 (PDT)
+        Mon, 15 Apr 2024 10:02:16 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -70,16 +70,16 @@ To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	acpica-devel@lists.linux.dev
-Subject: [RFC PATCH v4 06/20] ACPI: bus: Add acpi_riscv_init function
-Date: Mon, 15 Apr 2024 22:30:59 +0530
-Message-Id: <20240415170113.662318-7-sunilvl@ventanamicro.com>
+Subject: [RFC PATCH v4 08/20] ACPI: scan: Refactor dependency creation
+Date: Mon, 15 Apr 2024 22:31:01 +0530
+Message-Id: <20240415170113.662318-9-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20240415170113.662318-1-sunilvl@ventanamicro.com>
 References: <20240415170113.662318-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_100206_645864_C7A7D688 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20240415_100219_090705_B08FCCE5 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,76 +97,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a new function for RISC-V to do any architecture specific
-initialization. This function will be used to create platform devices
-like APLIC, PLIC, RISC-V IOMMU etc. This is similar to acpi_arm_init().
+Some architectures like RISC-V will use implicit dependencies like GSI
+map to create dependencies between interrupt controller and devices. To
+support doing that, the function which creates the dependency, is
+refactored bit and made public so that dependency can be added from
+outside of scan.c as well.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/bus.c          |  1 +
- drivers/acpi/riscv/Makefile |  2 +-
- drivers/acpi/riscv/init.c   | 12 ++++++++++++
- include/linux/acpi.h        |  6 ++++++
- 4 files changed, 20 insertions(+), 1 deletion(-)
- create mode 100644 drivers/acpi/riscv/init.c
+ drivers/acpi/scan.c     | 48 ++++++++++++++++++++++++-----------------
+ include/acpi/acpi_bus.h |  1 +
+ 2 files changed, 29 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/acpi/bus.c b/drivers/acpi/bus.c
-index 844c46447914..17ee483c3bf4 100644
---- a/drivers/acpi/bus.c
-+++ b/drivers/acpi/bus.c
-@@ -1446,6 +1446,7 @@ static int __init acpi_init(void)
- 	acpi_hest_init();
- 	acpi_ghes_init();
- 	acpi_arm_init();
-+	acpi_riscv_init();
- 	acpi_scan_init();
- 	acpi_ec_init();
- 	acpi_debugfs_init();
-diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
-index dceec808cfab..42d351859aeb 100644
---- a/drivers/acpi/riscv/Makefile
-+++ b/drivers/acpi/riscv/Makefile
-@@ -1,4 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
--obj-y					+= rhct.o irq.o
-+obj-y					+= rhct.o irq.o init.o
- obj-$(CONFIG_ACPI_PROCESSOR_IDLE)	+= cpuidle.o
- obj-$(CONFIG_ACPI_CPPC_LIB)		+= cppc.o
-diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
-new file mode 100644
-index 000000000000..b5807bbdb171
---- /dev/null
-+++ b/drivers/acpi/riscv/init.c
-@@ -0,0 +1,12 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2023, Ventana Micro Systems Inc
-+ *	Author: Sunil V L <sunilvl@ventanamicro.com>
-+ *
-+ */
-+
-+#include <linux/acpi.h>
-+
-+void __init acpi_riscv_init(void)
-+{
-+}
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index 914ecd22ba64..f8f92aaf97ad 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -1525,6 +1525,12 @@ void acpi_arm_init(void);
- static inline void acpi_arm_init(void) { }
- #endif
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index de30a0af7a2f..c8f40d81b6cb 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -2028,33 +2028,18 @@ static void acpi_scan_init_hotplug(struct acpi_device *adev)
+ 	}
+ }
  
-+#ifdef CONFIG_RISCV
-+void acpi_riscv_init(void);
-+#else
-+static inline void acpi_riscv_init(void) { }
-+#endif
+-static u32 acpi_scan_check_dep(acpi_handle handle)
++int acpi_scan_add_dep(acpi_handle handle, struct acpi_handle_list *dep_devices)
+ {
+-	struct acpi_handle_list dep_devices;
+ 	u32 count;
+ 	int i;
+ 
+-	/*
+-	 * Check for _HID here to avoid deferring the enumeration of:
+-	 * 1. PCI devices.
+-	 * 2. ACPI nodes describing USB ports.
+-	 * Still, checking for _HID catches more then just these cases ...
+-	 */
+-	if (!acpi_has_method(handle, "_DEP") || !acpi_has_method(handle, "_HID"))
+-		return 0;
+-
+-	if (!acpi_evaluate_reference(handle, "_DEP", NULL, &dep_devices)) {
+-		acpi_handle_debug(handle, "Failed to evaluate _DEP.\n");
+-		return 0;
+-	}
+-
+-	for (count = 0, i = 0; i < dep_devices.count; i++) {
++	for (count = 0, i = 0; i < dep_devices->count; i++) {
+ 		struct acpi_device_info *info;
+ 		struct acpi_dep_data *dep;
+ 		bool skip, honor_dep;
+ 		acpi_status status;
+ 
+-		status = acpi_get_object_info(dep_devices.handles[i], &info);
++		status = acpi_get_object_info(dep_devices->handles[i], &info);
+ 		if (ACPI_FAILURE(status)) {
+ 			acpi_handle_debug(handle, "Error reading _DEP device info\n");
+ 			continue;
+@@ -2073,7 +2058,7 @@ static u32 acpi_scan_check_dep(acpi_handle handle)
+ 
+ 		count++;
+ 
+-		dep->supplier = dep_devices.handles[i];
++		dep->supplier = dep_devices->handles[i];
+ 		dep->consumer = handle;
+ 		dep->honor_dep = honor_dep;
+ 
+@@ -2082,7 +2067,30 @@ static u32 acpi_scan_check_dep(acpi_handle handle)
+ 		mutex_unlock(&acpi_dep_list_lock);
+ 	}
+ 
+-	acpi_handle_list_free(&dep_devices);
++	acpi_handle_list_free(dep_devices);
++	return count;
++}
 +
- #ifdef CONFIG_ACPI_PCC
- void acpi_init_pcc(void);
- #else
++static u32 acpi_scan_check_dep(acpi_handle handle)
++{
++	struct acpi_handle_list dep_devices;
++	u32 count = 0;
++
++	/*
++	 * Check for _HID here to avoid deferring the enumeration of:
++	 * 1. PCI devices.
++	 * 2. ACPI nodes describing USB ports.
++	 * Still, checking for _HID catches more then just these cases ...
++	 */
++	if (!acpi_has_method(handle, "_DEP") || !acpi_has_method(handle, "_HID"))
++		return count;
++
++	if (!acpi_evaluate_reference(handle, "_DEP", NULL, &dep_devices)) {
++		acpi_handle_debug(handle, "Failed to evaluate _DEP.\n");
++		return count;
++	}
++
++	count += acpi_scan_add_dep(handle, &dep_devices);
+ 	return count;
+ }
+ 
+diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
+index 1a4dfd7a1c4a..28a9b87c23fa 100644
+--- a/include/acpi/acpi_bus.h
++++ b/include/acpi/acpi_bus.h
+@@ -993,6 +993,7 @@ static inline void acpi_put_acpi_dev(struct acpi_device *adev)
+ 
+ int acpi_wait_for_acpi_ipmi(void);
+ 
++int acpi_scan_add_dep(acpi_handle handle, struct acpi_handle_list *dep_devices);
+ #else	/* CONFIG_ACPI */
+ 
+ static inline int register_acpi_bus_type(void *bus) { return 0; }
 -- 
 2.40.1
 
