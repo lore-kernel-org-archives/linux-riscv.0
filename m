@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B205BC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 08:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03505C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 08:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/M9GZCp9Kp7wQOdf8k/9VksuyvjDRET8fz8ea09I4Wo=; b=phwDlnpUhrSEVk
-	XHJyXw8px7m6KgIo1LKoB9FOvoPfZudanxF0hu0kW5PAnM9jMPACvjnM10lAIOu5+VhjDWot0U2gS
-	MUc1oe8aaaFWExSR57oqr1PLoxmQbgcMvNHgQPG8uJ8yHdAviEAKID9ww9meJTBpC56n4ltA6zhQC
-	VP4Hb/KC/7ZIOIkcrhGJlECFwfZ5Iv39uD6itvRiMAEbOT7vB36Ap4wwzC9/hUWye5s68LG5gfJzY
-	s3uYoijRcdPsmUyxGVRVNcdCZct8K1iAhHi1xlgc9jNjerIJFTRqqiaqY0BCOK0ITrP322fsT3yFj
-	cKjKUzcGvl4F/C5CvBKA==;
+	List-Owner; bh=jL460mVatQrd/LS+d/37G9e7b4WtvfMlj/FJ9NTmu9c=; b=yH66sCoOO86M7C
+	WwA5vzOA1LpfeHqVb+pUu5yLq2toDdqyeHsLnYRjazsQaDxz4DuRascMiCum/H5lewrzed+X3QZwb
+	DAFEYnaOGlcx0VGjUfJCH+tyBmw/2AdDtu/c+/IlZpqDT1uGnhphvDXkv5bgOuzrmYrjqtCW+bnwO
+	eYDuc6p9cfDyuN99hOPwdfeb1mvkvlB7pwe8mq+eia/V1DCxoAdyBE7eFQTJh8xREbiAbRQC3z7OR
+	hEf7BVMGu4VpCwzqvuj20cRRzr1IryYxghEbM+9wGD6d+g586kU8k2jTub9TiophEo5Cz7KgtDHBK
+	p9wN/PAuytiQaJIdiaeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwHxR-00000007arg-0Mk2;
-	Mon, 15 Apr 2024 08:44:57 +0000
+	id 1rwHzd-00000007bNv-3oZ9;
+	Mon, 15 Apr 2024 08:47:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwHxN-00000007ar3-3Qrp
+	id 1rwHza-00000007bMl-2P8S
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 08:44:55 +0000
+	Mon, 15 Apr 2024 08:47:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 100642F;
-	Mon, 15 Apr 2024 01:45:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 528D7DA7;
+	Mon, 15 Apr 2024 01:47:38 -0700 (PDT)
 Received: from bogus (e103737-lin.cambridge.arm.com [10.1.197.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A4C523F64C;
-	Mon, 15 Apr 2024 01:44:48 -0700 (PDT)
-Date: Mon, 15 Apr 2024 09:44:46 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CDE163F64C;
+	Mon, 15 Apr 2024 01:47:07 -0700 (PDT)
+Date: Mon, 15 Apr 2024 09:47:05 +0100
 From: Sudeep Holla <sudeep.holla@arm.com>
 To: Yunhui Cui <cuiyunhui@bytedance.com>
 Cc: rafael@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	Sudeep Holla <sudeep.holla@arm.com>, linux-kernel@vger.kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org, bhelgaas@google.com,
 	james.morse@arm.com, jhugo@codeaurora.org, jeremy.linton@arm.com,
 	john.garry@huawei.com, Jonathan.Cameron@huawei.com,
 	pierre.gondois@arm.com, tiantao6@huawei.com
-Subject: Re: [PATCH v2 2/3] riscv: cacheinfo: initialize cacheinfo's level
- and type from ACPI PPTT
-Message-ID: <Zhzo_gWFiURs_geD@bogus>
+Subject: Re: [PATCH v2 1/3] riscv: cacheinfo: remove the useless parameter
+ (node) of ci_leaf_init()
+Message-ID: <ZhzpiWFCSvWWTqxx@bogus>
 References: <20240414025826.64025-1-cuiyunhui@bytedance.com>
- <20240414025826.64025-2-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240414025826.64025-2-cuiyunhui@bytedance.com>
+In-Reply-To: <20240414025826.64025-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_014454_047615_3DB15995 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20240415_014710_696907_29D725EC 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,69 +70,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 14, 2024 at 10:58:25AM +0800, Yunhui Cui wrote:
-> Before cacheinfo can be built correctly, we need to initialize level
-> and type. Since RSIC-V currently does not have a register group that
-> describes cache-related attributes like ARM64, we cannot obtain them
-> directly, so now we obtain cache leaves from the ACPI PPTT table
-> (acpi_get_cache_info()) and set the cache type through split_levels.
+On Sun, Apr 14, 2024 at 10:58:24AM +0800, Yunhui Cui wrote:
+> The implementation of the ci_leaf_init() function body and the caller
+> do not use the input parameter (struct device_node *node), so remove it.
 > 
-> Suggested-by: Jeremy Linton <jeremy.linton@arm.com>
-> Suggested-by: Sudeep Holla <sudeep.holla@arm.com>
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> ---
->  arch/riscv/kernel/cacheinfo.c | 23 +++++++++++++++++++++++
->  1 file changed, 23 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-> index 30a6878287ad..ece92aa404e3 100644
-> --- a/arch/riscv/kernel/cacheinfo.c
-> +++ b/arch/riscv/kernel/cacheinfo.c
-> @@ -6,6 +6,7 @@
->  #include <linux/cpu.h>
->  #include <linux/of.h>
->  #include <asm/cacheinfo.h>
-> +#include <linux/acpi.h>
->  
->  static struct riscv_cacheinfo_ops *rv_cache_ops;
->  
-> @@ -78,6 +79,28 @@ int populate_cache_leaves(unsigned int cpu)
->  	struct device_node *prev = NULL;
->  	int levels = 1, level = 1;
->  
-> +	if (!acpi_disabled) {
-> +		int ret, idx, fw_levels, split_levels;
-> +
-> +		ret = acpi_get_cache_info(cpu, &fw_levels, &split_levels);
-> +		if (ret)
-> +			return ret;
-> +
-> +		/* must be set, so we can drop num_leaves assignment below */
+> Fixes: 6a24915145c9 ("Revert "riscv: Set more data to cacheinfo"")
 
-I intentionally added this above comment to check and drop the below statement
-if it is already set. Please check if the value is already set when we call
-into this function(which I think is the case).
+Not sure if this can be tagged as fix, but I leave that to RISC-V maintainers.
 
-> +		this_cpu_ci->num_leaves = fw_levels + split_levels;
-> +
-> +		for (idx = 0; level <= this_cpu_ci->num_levels &&
-> +		     idx < this_cpu_ci->num_leaves; idx++, level++) {
-> +			if (level <= split_levels) {
-> +				ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-> +				ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> +			} else {
-> +				ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-> +			}
-> +		}
-> +		return 0;
-> +	}
-> +
->  	if (of_property_read_bool(np, "cache-size"))
->  		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
->  	if (of_property_read_bool(np, "i-cache-size"))
-> -- 
-> 2.20.1
-> 
+With the comment in PATCH 2/3 fixed based on your experiment, feel free
+to add to the whole series,
+
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 
 -- 
 Regards,
