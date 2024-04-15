@@ -4,55 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45D6C00A94
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 09:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17526C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 10:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PeaiRqYi/lDTVH2GKysJXs2SRw0Dj3gQNnLxCscLSy4=; b=4UH+99PCogQxJ+
-	BiR7kSbShbEcYFb3dEWyOSxurAcfn822ySRk7h2ShRlmfSbFzbUgXyU3vE84rAh/v1irYzsMK+Yob
-	FG4iPXrsyg3m1h3DB+H+7PVTjHP/gbwgkmygORC9oMP5P/vpZ9YaDrPStibBZ7tH2Az68bVNTsGGH
-	AceTbE2FR10SguEFa3grM5WpfBunviVmw/0rt0qhF8Ds9qqKkUfoCXZx3mkgLb2xFKp4HrtY7AZB1
-	aQAkjjcqOOKq/6pUwLRZCI2OXWYlFd8Q6vjtd8r8pPMOovcXHQmG/GDut3CMvAp6R2I15hcA/J5ga
-	ExXy517A3F4k07vkaAEw==;
+	List-Owner; bh=Gj33gdA1E0Tmq4txM/uYWSnVH7MBST0inQ/6NCXj/DU=; b=U9wimv+keTqTQO
+	71iJV6SgZw4kQHhSznZ89ck0q+7D/D00RZ49VOHsayLcgPx2/UJ3DgtHIicRXLCxXRn65UWFPyqlY
+	7flJos4rl+x/cEgZUezKL5RDf9LzvfnrXT+9yb0wXnYrdmshWhg0wx/ZaZDKR7xKAE+EpHLG0KJa3
+	wubJR/tc2uLtGlSr8WmHhDltxS8bqTrx4uMz2B9eZOlDt1YwPQArOzVynUrLiY4/9kDAgtgZGVne9
+	xSaqBBSyNL9GASF61MijZNbjB8nH2p/eHQRnE/H8v56aL+QBReEuvBiY0wB3++RPFn/9b4kpgn8lv
+	pEmtqe48dNPnGU4F9btw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwJ50-00000007mqb-2s29;
-	Mon, 15 Apr 2024 09:56:50 +0000
-Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
+	id 1rwJDI-00000007o8e-1Xgy;
+	Mon, 15 Apr 2024 10:05:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwJ4x-00000007mmU-0VgM
+	id 1rwJD7-00000007o3t-491y
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 09:56:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1713175002; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=uKQrEiJDFuVgYKaCjACTRxFVEamjUwkGI79EoCthHgw=;
-	b=JgQlN8jSUDD6LfMQZhtMcK02R+etceiMtjZmumDXqizqudkAjHSKh3gI25FzI9AVfXtc3GYiLsoBkxvslrCgiPsrKvzwNCNo3yPBwdJGTvTu3MB1kkyhzPqOPNFcfpUr/bwdprgUGHv+1AFQpNKTvYX9qgW9N8pQ+vvQF6DBxxY=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045176;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0W4a9De2_1713174995;
-Received: from localhost.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0W4a9De2_1713174995)
-          by smtp.aliyun-inc.com;
-          Mon, 15 Apr 2024 17:56:40 +0800
-From: cp0613@linux.alibaba.com
-To: palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu
-Cc: linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Mon, 15 Apr 2024 10:05:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1825360BFC;
+	Mon, 15 Apr 2024 10:05:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D24E2C113CC;
+	Mon, 15 Apr 2024 10:05:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713175509;
+	bh=5/4J8bSfy9tDWqVzype++7MbmF+TF6hs5nHe+Tj2oyU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AzzT6X7JuOOjZWwyVN9nwUez1Me8fOBJk+uHWrPMajJk4nXYMdmGnQc0hI7YinHS+
+	 D2+CwaAZg7S2yEPpvKdC+P8AKG+FXeJbnQVOhLrWiVcTUKhq1dda7s7S9FK59ZezJN
+	 Ur+6ZK10EX7vBjIF5jAePs5ClKBWu1ysDHgoN75DdrywsG/HQnjwk+7e201IKMIEFK
+	 Y6xGkOoE9ygIyAw+mzX2PsQlScp+YSIc1f7QRMfCQTcdgkC1ph69zD9cUWFKA2zpnc
+	 CzqwpWQaypzMtW9dLYLB6J7uHYOrO+wpvzDyIDIz4p6Pb3XZYv6sQ47AT2WtdbQoh4
+	 JbeG7pwx2dOug==
+From: Conor Dooley <conor@kernel.org>
+To: linux-clk@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Michael Turquette <mturquette@baylibre.com>,
 	linux-riscv@lists.infradead.org,
-	Chen Pei <cp0613@linux.alibaba.com>
-Subject: [PATCH] tools/perf: Fix compiling with libelf on rv32
-Date: Mon, 15 Apr 2024 17:55:32 +0800
-Message-Id: <20240415095532.4930-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.25.1
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] clock, reset: microchip: move all mpfs reset code to the reset subsystem
+Date: Mon, 15 Apr 2024 11:04:57 +0100
+Message-ID: <20240415-democracy-risk-419b0250a432@spud>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9847; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=GgZAlsj+oOjVUnBVrL3clUFFqWTKy0CtFb6VEIra3Pk=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGkyv89mcsyZv9DZ5bm+5qtjBo7WV69E8+9g+LziyiV3o cKFSTLqHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZjIlPmMDIc3ufQvfXhQTvPC gff6U3JXzHN/6L2E6du7d8lr3QJ2NB5gZGhYtT+ocVFb/LbiST93unIkO18xOzPfU43Dwkq24IN DMTcA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_025647_575742_C76A1B7F 
-X-CRM114-Status: UNSURE (   5.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240415_030514_149997_410A49EB 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,40 +78,346 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Pei <cp0613@linux.alibaba.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-When cross-compiling perf with libelf, the following error occurred:
+Stephen and Philipp, while reviewing patches, said that all of the aux
+device creation and the register read/write code could be moved to the
+reset subsystem, leaving the clock driver with no implementations of
+reset_* functions at all. Move them.
 
-	In file included from tests/genelf.c:14:
-	tests/../util/genelf.h:50:2: error: #error "unsupported architecture"
-	50 | #error "unsupported architecture"
-		|  ^~~~~
-	tests/../util/genelf.h:59:5: warning: "GEN_ELF_CLASS" is not defined, evaluates to 0 [-Wundef]
-	59 | #if GEN_ELF_CLASS == ELFCLASS64
-
-Fix this by adding GEN-ELF-ARCH and GEN-ELF-CLASS definitions for rv32.
-
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+Suggested-by: Philipp Zabel <p.zabel@pengutronix.de>
+Suggested-by: Stephen Boyd <sboyd@kernel.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- tools/perf/util/genelf.h | 3 +++
- 1 file changed, 3 insertions(+)
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Michael Turquette <mturquette@baylibre.com>
+CC: Stephen Boyd <sboyd@kernel.org>
+CC: Philipp Zabel <p.zabel@pengutronix.de>
+CC: linux-riscv@lists.infradead.org
+CC: linux-clk@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+---
+ drivers/clk/microchip/clk-mpfs.c | 92 +-----------------------------
+ drivers/reset/reset-mpfs.c       | 97 ++++++++++++++++++++++++++++----
+ include/soc/microchip/mpfs.h     | 10 ++--
+ 3 files changed, 94 insertions(+), 105 deletions(-)
 
-diff --git a/tools/perf/util/genelf.h b/tools/perf/util/genelf.h
-index 5f18d20ea903..4e2e4f40e134 100644
---- a/tools/perf/util/genelf.h
-+++ b/tools/perf/util/genelf.h
-@@ -43,6 +43,9 @@ int jit_add_debug_info(Elf *e, uint64_t code_addr, void *debug, int nr_debug_ent
- #elif defined(__riscv) && __riscv_xlen == 64
- #define GEN_ELF_ARCH	EM_RISCV
- #define GEN_ELF_CLASS	ELFCLASS64
-+#elif defined(__riscv) && __riscv_xlen == 32
-+#define GEN_ELF_ARCH	EM_RISCV
-+#define GEN_ELF_CLASS	ELFCLASS32
- #elif defined(__loongarch__)
- #define GEN_ELF_ARCH	EM_LOONGARCH
- #define GEN_ELF_CLASS	ELFCLASS64
+diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
+index 22eab91a6712..28ec0da88cb3 100644
+--- a/drivers/clk/microchip/clk-mpfs.c
++++ b/drivers/clk/microchip/clk-mpfs.c
+@@ -4,12 +4,10 @@
+  *
+  * Copyright (C) 2020-2022 Microchip Technology Inc. All rights reserved.
+  */
+-#include <linux/auxiliary_bus.h>
+ #include <linux/clk-provider.h>
+ #include <linux/io.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+-#include <linux/slab.h>
+ #include <dt-bindings/clock/microchip,mpfs-clock.h>
+ #include <soc/microchip/mpfs.h>
+ 
+@@ -361,93 +359,6 @@ static int mpfs_clk_register_periphs(struct device *dev, struct mpfs_periph_hw_c
+ 	return 0;
+ }
+ 
+-/*
+- * Peripheral clock resets
+- */
+-
+-#if IS_ENABLED(CONFIG_RESET_CONTROLLER)
+-
+-u32 mpfs_reset_read(struct device *dev)
+-{
+-	struct mpfs_clock_data *clock_data = dev_get_drvdata(dev->parent);
+-
+-	return readl_relaxed(clock_data->base + REG_SUBBLK_RESET_CR);
+-}
+-EXPORT_SYMBOL_NS_GPL(mpfs_reset_read, MCHP_CLK_MPFS);
+-
+-void mpfs_reset_write(struct device *dev, u32 val)
+-{
+-	struct mpfs_clock_data *clock_data = dev_get_drvdata(dev->parent);
+-
+-	writel_relaxed(val, clock_data->base + REG_SUBBLK_RESET_CR);
+-}
+-EXPORT_SYMBOL_NS_GPL(mpfs_reset_write, MCHP_CLK_MPFS);
+-
+-static void mpfs_reset_unregister_adev(void *_adev)
+-{
+-	struct auxiliary_device *adev = _adev;
+-
+-	auxiliary_device_delete(adev);
+-	auxiliary_device_uninit(adev);
+-}
+-
+-static void mpfs_reset_adev_release(struct device *dev)
+-{
+-	struct auxiliary_device *adev = to_auxiliary_dev(dev);
+-
+-	kfree(adev);
+-}
+-
+-static struct auxiliary_device *mpfs_reset_adev_alloc(struct mpfs_clock_data *clk_data)
+-{
+-	struct auxiliary_device *adev;
+-	int ret;
+-
+-	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
+-	if (!adev)
+-		return ERR_PTR(-ENOMEM);
+-
+-	adev->name = "reset-mpfs";
+-	adev->dev.parent = clk_data->dev;
+-	adev->dev.release = mpfs_reset_adev_release;
+-	adev->id = 666u;
+-
+-	ret = auxiliary_device_init(adev);
+-	if (ret) {
+-		kfree(adev);
+-		return ERR_PTR(ret);
+-	}
+-
+-	return adev;
+-}
+-
+-static int mpfs_reset_controller_register(struct mpfs_clock_data *clk_data)
+-{
+-	struct auxiliary_device *adev;
+-	int ret;
+-
+-	adev = mpfs_reset_adev_alloc(clk_data);
+-	if (IS_ERR(adev))
+-		return PTR_ERR(adev);
+-
+-	ret = auxiliary_device_add(adev);
+-	if (ret) {
+-		auxiliary_device_uninit(adev);
+-		return ret;
+-	}
+-
+-	return devm_add_action_or_reset(clk_data->dev, mpfs_reset_unregister_adev, adev);
+-}
+-
+-#else /* !CONFIG_RESET_CONTROLLER */
+-
+-static int mpfs_reset_controller_register(struct mpfs_clock_data *clk_data)
+-{
+-	return 0;
+-}
+-
+-#endif /* !CONFIG_RESET_CONTROLLER */
+-
+ static int mpfs_clk_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -499,7 +410,7 @@ static int mpfs_clk_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	return mpfs_reset_controller_register(clk_data);
++	return mpfs_reset_controller_register(dev, clk_data->base + REG_SUBBLK_RESET_CR);
+ }
+ 
+ static const struct of_device_id mpfs_clk_of_match_table[] = {
+@@ -532,3 +443,4 @@ MODULE_DESCRIPTION("Microchip PolarFire SoC Clock Driver");
+ MODULE_AUTHOR("Padmarao Begari <padmarao.begari@microchip.com>");
+ MODULE_AUTHOR("Daire McNamara <daire.mcnamara@microchip.com>");
+ MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
++MODULE_IMPORT_NS(MCHP_CLK_MPFS);
+diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
+index 7f3fb2d472f4..74f0dff6de1a 100644
+--- a/drivers/reset/reset-mpfs.c
++++ b/drivers/reset/reset-mpfs.c
+@@ -8,9 +8,11 @@
+  */
+ #include <linux/auxiliary_bus.h>
+ #include <linux/delay.h>
++#include <linux/io.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
++#include <linux/slab.h>
+ #include <linux/reset-controller.h>
+ #include <dt-bindings/clock/microchip,mpfs-clock.h>
+ #include <soc/microchip/mpfs.h>
+@@ -28,20 +30,30 @@
+ /* block concurrent access to the soft reset register */
+ static DEFINE_SPINLOCK(mpfs_reset_lock);
+ 
++struct mpfs_reset {
++	void __iomem *base;
++	struct reset_controller_dev rcdev;
++};
++
++static inline struct mpfs_reset * to_mpfs_reset(struct reset_controller_dev *rcdev)
++{
++	return container_of(rcdev, struct mpfs_reset, rcdev);
++}
++
+ /*
+  * Peripheral clock resets
+  */
+-
+ static int mpfs_assert(struct reset_controller_dev *rcdev, unsigned long id)
+ {
++	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
+ 	unsigned long flags;
+ 	u32 reg;
+ 
+ 	spin_lock_irqsave(&mpfs_reset_lock, flags);
+ 
+-	reg = mpfs_reset_read(rcdev->dev);
++	reg = readl(rst->base);
+ 	reg |= BIT(id);
+-	mpfs_reset_write(rcdev->dev, reg);
++	writel(reg, rst->base);
+ 
+ 	spin_unlock_irqrestore(&mpfs_reset_lock, flags);
+ 
+@@ -50,14 +62,15 @@ static int mpfs_assert(struct reset_controller_dev *rcdev, unsigned long id)
+ 
+ static int mpfs_deassert(struct reset_controller_dev *rcdev, unsigned long id)
+ {
++	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
+ 	unsigned long flags;
+ 	u32 reg;
+ 
+ 	spin_lock_irqsave(&mpfs_reset_lock, flags);
+ 
+-	reg = mpfs_reset_read(rcdev->dev);
++	reg = readl(rst->base);
+ 	reg &= ~BIT(id);
+-	mpfs_reset_write(rcdev->dev, reg);
++	writel(reg, rst->base);
+ 
+ 	spin_unlock_irqrestore(&mpfs_reset_lock, flags);
+ 
+@@ -66,7 +79,8 @@ static int mpfs_deassert(struct reset_controller_dev *rcdev, unsigned long id)
+ 
+ static int mpfs_status(struct reset_controller_dev *rcdev, unsigned long id)
+ {
+-	u32 reg = mpfs_reset_read(rcdev->dev);
++	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
++	u32 reg = readl(rst->base);
+ 
+ 	/*
+ 	 * It is safe to return here as MPFS_NUM_RESETS makes sure the sign bit
+@@ -121,11 +135,15 @@ static int mpfs_reset_probe(struct auxiliary_device *adev,
+ {
+ 	struct device *dev = &adev->dev;
+ 	struct reset_controller_dev *rcdev;
++	struct mpfs_reset *rst;
+ 
+-	rcdev = devm_kzalloc(dev, sizeof(*rcdev), GFP_KERNEL);
+-	if (!rcdev)
+-		return -ENOMEM;
++	rst = devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
++	if (!rst)
++		return -ENOMEM;;
+ 
++	rst->base = (void __iomem *)adev->dev.platform_data;
++
++	rcdev = &rst->rcdev;
+ 	rcdev->dev = dev;
+ 	rcdev->dev->parent = dev->parent;
+ 	rcdev->ops = &mpfs_reset_ops;
+@@ -137,9 +155,68 @@ static int mpfs_reset_probe(struct auxiliary_device *adev,
+ 	return devm_reset_controller_register(dev, rcdev);
+ }
+ 
++static void mpfs_reset_unregister_adev(void *_adev)
++{
++	struct auxiliary_device *adev = _adev;
++
++	auxiliary_device_delete(adev);
++	auxiliary_device_uninit(adev);
++}
++
++static void mpfs_reset_adev_release(struct device *dev)
++{
++	struct auxiliary_device *adev = to_auxiliary_dev(dev);
++
++	kfree(adev);
++}
++
++static struct auxiliary_device *mpfs_reset_adev_alloc(struct device *clk_dev)
++{
++	struct auxiliary_device *adev;
++	int ret;
++
++	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
++	if (!adev)
++		return ERR_PTR(-ENOMEM);
++
++	adev->name = "reset-mpfs";
++	adev->dev.parent = clk_dev;
++	adev->dev.release = mpfs_reset_adev_release;
++	adev->id = 666u;
++
++	ret = auxiliary_device_init(adev);
++	if (ret) {
++		kfree(adev);
++		return ERR_PTR(ret);
++	}
++
++	return adev;
++}
++
++int mpfs_reset_controller_register(struct device *clk_dev, void __iomem *base)
++{
++	struct auxiliary_device *adev;
++	int ret;
++
++	adev = mpfs_reset_adev_alloc(clk_dev);
++	if (IS_ERR(adev))
++		return PTR_ERR(adev);
++
++	ret = auxiliary_device_add(adev);
++	if (ret) {
++		auxiliary_device_uninit(adev);
++		return ret;
++	}
++
++	adev->dev.platform_data = (__force void *)base;
++
++	return devm_add_action_or_reset(clk_dev, mpfs_reset_unregister_adev, adev);
++}
++EXPORT_SYMBOL_NS_GPL(mpfs_reset_controller_register, MCHP_CLK_MPFS);
++
+ static const struct auxiliary_device_id mpfs_reset_ids[] = {
+ 	{
+-		.name = "clk_mpfs.reset-mpfs",
++		.name = "reset_mpfs.reset-mpfs",
+ 	},
+ 	{ }
+ };
+diff --git a/include/soc/microchip/mpfs.h b/include/soc/microchip/mpfs.h
+index 09722f83b0ca..e82d70c3a2cf 100644
+--- a/include/soc/microchip/mpfs.h
++++ b/include/soc/microchip/mpfs.h
+@@ -43,11 +43,11 @@ struct mtd_info *mpfs_sys_controller_get_flash(struct mpfs_sys_controller *mpfs_
+ #endif /* if IS_ENABLED(CONFIG_POLARFIRE_SOC_SYS_CTRL) */
+ 
+ #if IS_ENABLED(CONFIG_MCHP_CLK_MPFS)
+-
+-u32 mpfs_reset_read(struct device *dev);
+-
+-void mpfs_reset_write(struct device *dev, u32 val);
+-
++#if IS_ENABLED(CONFIG_RESET_CONTROLLER)
++int mpfs_reset_controller_register(struct device *clk_dev, void __iomem *base);
++#else
++int static inline mpfs_reset_controller_register(struct device *clk_dev, void* __iomem base) { return 0;}
++#endif /* if IS_ENABLED(CONFIG_RESET_CONTROLLER) */
+ #endif /* if IS_ENABLED(CONFIG_MCHP_CLK_MPFS) */
+ 
+ #endif /* __SOC_MPFS_H__ */
 -- 
-2.25.1
+2.43.0
 
 
 _______________________________________________
