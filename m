@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F39C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 17:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E098C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 17:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q7Phr3+Yous8fGrUAUgA9ng6dgu/Uhu1ShcFhnwGDTc=; b=vCvn8SUw1qtKy5
-	tkdJ/JumVJcT5CnAWtWBfNDFIn6vljU9S2zg9CIGVKSV0jQ+niOB3vMUaucghmsbRTd9ysA7RLoHB
-	IMkmxtxWIG0/SOTdl8MpuCSXNS0+l3wEIPcOZhaOHoOhNCez2jfJ+GOo95/kr2ud7izpWvOl7SxDi
-	u0Y7f/WZae0M5k2CSAWRgfNoiJbTqjkPcasmOTETjLfuRcVDwLA+9jut6rpQUSqLvGyKUs8ETMlWf
-	b6Oooj7K9YwG/6D0AYU0Z8nq0fiQHBVO7dMd6ZAYvVg89KfZealIiKSVdyhMJe5cVvJLEoQb0spaR
-	vpKviVSfQg8srYMHPuZw==;
+	List-Owner; bh=iPfkGiRzoHaVbOWeOiwcZbnx4nus9vwIZRKu2Q/K4qA=; b=Cyq7nXeW/ZQGv4
+	LjCP+NVyXsIZUe5FN/wlToP3WH5WnGNWckslY3aHu9ixwSvFOCGPcTgmO8B1ARSpfUHOjtV3xpO7V
+	C0ThNtw+mlikgAr7vmSYTnJRQb/hXx3wHz4b/I73kXRCjinkYfuFfTc1dBVOroIGbq08s2n6D5K3O
+	8tAGAUOfY08cjsvVVzRk92xqYzgumZ1YaR//UX9dLJvgrLVwb5H+qorx5thT/GPgQu6uNnCzU5vU+
+	nBxAcDfgb0D7dONGwp0e7qBliPDWITogj0skZA0fLAtTA2U/CKIXP7WLtPr9yc3IHSNhZjyng/g9K
+	+4TE+b5ZLcQC+MOQm7xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwPjw-00000009Cd1-2ujJ;
-	Mon, 15 Apr 2024 17:03:32 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1rwPkE-00000009Cq9-3k7X;
+	Mon, 15 Apr 2024 17:03:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwPik-00000009BmT-3LgI
-	for linux-riscv@lists.infradead.org;
+	id 1rwPio-00000009Bpx-3rnn
+	for linux-riscv@bombadil.infradead.org;
 	Mon, 15 Apr 2024 17:02:32 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6ecf3943040so2743239b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 10:02:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=wivOzLRmXtJHidm0Hubd14abZ9qXDzBQHr2qytLzYnU=; b=rLi0ZFoFp4WYP36jCawa8JD0Ms
+	9PeaQlMCo63xB3mY66nmnxeAGenOIpfr7bcevxA9GxA3E8tKGudz69vrH57/87IF6SqN4E0zSE8g2
+	4krKu+rW8I4np8gfa15DCqjoDb+qHpIgDQBgYnZSYO3Yp8aIdsZdI32bpjEgmwxt2Wyk2VBM3bfXW
+	98S6C6sb+1Ps/lwJddFXEpy4rzHbhxLPjLgxgs2oRUxpQ5m9UmTn5PfxomG7khI9o17BW1RJz3r+d
+	10rq3sWKIFhVIyhe3gQnkp5Iu9uhwAM4iKSGSJoUwPO9d+9oFE0gCW7W/djKgIphSmKgNsLILk31u
+	/5XwiRhg==;
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rwPig-0000000AfSK-3eet
+	for linux-riscv@lists.infradead.org;
+	Mon, 15 Apr 2024 17:02:20 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-6ecf05fd12fso3342964b3a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 10:02:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1713200537; x=1713805337; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1713200530; x=1713805330; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wQjMcgzCCX1zvyyhnfJhjMc7UuQWOWfTm7mVOWGolO4=;
-        b=iblOVtaB6DvGr+T0YQLc8/R21Naebi/mb7QCntIJm8rbj7niD4uVcxhmHSEMZIYd6n
-         yTCPPZZ7uutZ8iA4hu1cVoa2QLjaiYu3O8RNn1Y+BCQpv44ztAevgE58ROh5c9fDI8mg
-         gWjHoHoX+jWc6ubz63Co900IV8yiHjlUXq5mZzET7bn1fXexI70u7buGT+IJWhUU5p6H
-         eE4RkpoW3Evg+3vyEKSto78X030qSKmBIaBlSgf7FhyDEdKEJYWOgA6qTThj17G8MLL/
-         DeL35AiGEV8PrHLg2cUnaVARAPqC2eoHLf7tRjtMFX6vEjw1tLy42juZhjVt9yUln+iv
-         E0tQ==
+        bh=wivOzLRmXtJHidm0Hubd14abZ9qXDzBQHr2qytLzYnU=;
+        b=SU5DSj0IIdowiK2MQCHn3tz8S428NnAr6l0y6YOh18g6ZT38bcE0gr2gxZxKPgstnm
+         18MUfJO76dS6zBuzlvgihKVsQdlQOOatoUoh4XTJBmWz1bcE1Ggr0dIDbuHdcZGnQoT/
+         YamL5STFXVeEPauF178qMnWkJdfP60BflwWa6oIqNj2VD8ED5TUmIb3TiYdYrX2shOEI
+         V2TQOxAwpS76I7HFmdn7L8IoCn+I3pEWGaNIGFawLWEQiea5uwgWOu4ZtdBbWAPI7N6c
+         aRw+fPgOuKDNf4T0g7xyOuuWGDvi62uk2vaPm5Zl7iFUuGVGhNaJwgMXZCGCCmCUI0t6
+         OLuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713200537; x=1713805337;
+        d=1e100.net; s=20230601; t=1713200530; x=1713805330;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wQjMcgzCCX1zvyyhnfJhjMc7UuQWOWfTm7mVOWGolO4=;
-        b=OAUd9Y/MKmZBr0uOdoEpgnAMaT1o8ue0ZxozrPmzR9wbZfc9Z/dpC3H3kqIC3sbr6p
-         o9S2crW6TZsgQIhsTIvL08Pt7Hs+5kHELqnftSplzHKyMOdFMf05pJMt4BYoqppZkR47
-         6ZkGyKldPEa0Ol4jw7Inp98wdfmgI09Xw4OqSPgnB21XJ+0YX0Yn9oRBtHs5/TglPpBv
-         ldGLkAyqTLewc6NhVQaRmWdtZaO5WtztlgV5TV5IwDdT6CD1UNZ7NVqNjT5cX2xfwRIH
-         f53sHuIL3LzvAHrzzFFgYmPz0XqciZX+5dzIKqzxd0CHTOTA6D7BwIhFCnieWVBbrfOe
-         YThA==
-X-Forwarded-Encrypted: i=1; AJvYcCVMv+UtdzK7ICKjDgxHoRgoChLbet7D8BcSpU62q9lpxqjnLWT94D+CfSWzQlkXljF/Rm6lXLR7TDKW/2olYOZvF4SXuKiDxR+N4X6XPpHC
-X-Gm-Message-State: AOJu0Yzsis4hzC4r5XFwYPWm7XBrinK96hQNDKieCQR5HdsKHsza2n9V
-	sG6lJx6oHU/qlbG+rj+kUMmLC2F3t7xgRksgAOUQr5qhl3uS3N0YJaygz137NUI=
-X-Google-Smtp-Source: AGHT+IEOKdv2GIoPVzAfszA+Mczkslu8VP2JvMat3iDp2rWUvNRo9ufo+FIpILZ6uWBafbyo9KluZw==
-X-Received: by 2002:a05:6a00:2314:b0:6ec:cec1:8fe3 with SMTP id h20-20020a056a00231400b006eccec18fe3mr10562037pfh.11.1713200536823;
-        Mon, 15 Apr 2024 10:02:16 -0700 (PDT)
+        bh=wivOzLRmXtJHidm0Hubd14abZ9qXDzBQHr2qytLzYnU=;
+        b=hFqRDF+vx+W9tYjeBf3X91IBEnTTXy2ThpiXQEsleWpD2AvBLxJ0jMYsEK9279CqC0
+         wt1BgaWcyzM44OSVn09BzMrTbyPc90Gy7gJWpXDsglkuAdXmmX1oRJvvjpK0Du6XnZam
+         nsGPL1HBPPbSIAAs/bI6l6qTo2S5RULeNgK0GfFu3M/FdNhKMeilsRyXNu2CE1x/OzAk
+         RgkaROsnAD/j/PTdZTHEHpiXDLRTG/M7iKgmIcOiixcpo6XZs4S2fpoWd7VCAC/VH28J
+         y9q0FlxW93dQa29MzVR3+Nv4ZVWIJShg+A2/IZpeHWXv1JzSBY3aRR/GlUQSoyRjpc9u
+         mDJA==
+X-Forwarded-Encrypted: i=1; AJvYcCVn+WOADcf2EMiSfQHSuGlxTKfmN+nBZastRjP7jLqrwUe7m3YXIXtS2qaUM+ACct86A8Q6Ob77wY9AD3nCN8rsl+HWdNmA41h0E1QG2dAe
+X-Gm-Message-State: AOJu0Yw/azNsEpann33P7QRblQrQr4uD4Xy1m6S6kcn9I3jQKmnaYG1f
+	3vDINCeWXgYCB2vJjBwVFM76gwh9CCE9X0nxNgRwV9FwzVLSEd8ZdLY4CFCebJA=
+X-Google-Smtp-Source: AGHT+IFQgj91jSGw2lUkZcvmJ8fK2VsBYSBL2HSqDtP8zaw7fuUgNF2lymwMr71eYZkL80x3yGmBkw==
+X-Received: by 2002:a05:6a00:4f94:b0:6e6:8df5:f77a with SMTP id ld20-20020a056a004f9400b006e68df5f77amr12893462pfb.31.1713200530140;
+        Mon, 15 Apr 2024 10:02:10 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.187.230])
-        by smtp.gmail.com with ESMTPSA id 1-20020a056a00072100b006ed045e3a70sm7433158pfm.25.2024.04.15.10.02.10
+        by smtp.gmail.com with ESMTPSA id 1-20020a056a00072100b006ed045e3a70sm7433158pfm.25.2024.04.15.10.02.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Apr 2024 10:02:16 -0700 (PDT)
+        Mon, 15 Apr 2024 10:02:09 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -70,16 +85,17 @@ To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	acpica-devel@lists.linux.dev
-Subject: [RFC PATCH v4 08/20] ACPI: scan: Refactor dependency creation
-Date: Mon, 15 Apr 2024 22:31:01 +0530
-Message-Id: <20240415170113.662318-9-sunilvl@ventanamicro.com>
+Subject: [RFC PATCH v4 07/20] RISC-V: Kconfig: Select deferred GSI probe for ACPI systems
+Date: Mon, 15 Apr 2024 22:31:00 +0530
+Message-Id: <20240415170113.662318-8-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20240415170113.662318-1-sunilvl@ventanamicro.com>
 References: <20240415170113.662318-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_100219_090705_B08FCCE5 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20240415_180215_168956_D87D5443 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,112 +113,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some architectures like RISC-V will use implicit dependencies like GSI
-map to create dependencies between interrupt controller and devices. To
-support doing that, the function which creates the dependency, is
-refactored bit and made public so that dependency can be added from
-outside of scan.c as well.
+On RISC-V platforms, apart from root interrupt controllers (which
+provide local interrupts and IPI), other interrupt controllers in the
+hierarchy are probed late. Enable this CONFIG option for RISC-V ACPI
+based platforms.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/scan.c     | 48 ++++++++++++++++++++++++-----------------
- include/acpi/acpi_bus.h |  1 +
- 2 files changed, 29 insertions(+), 20 deletions(-)
+ arch/riscv/Kconfig   | 1 +
+ drivers/acpi/Kconfig | 3 +++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index de30a0af7a2f..c8f40d81b6cb 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -2028,33 +2028,18 @@ static void acpi_scan_init_hotplug(struct acpi_device *adev)
- 	}
- }
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 69cc0509a19a..d8cdb3535e44 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -15,6 +15,7 @@ config RISCV
+ 	select ACPI_GENERIC_GSI if ACPI
+ 	select ACPI_MCFG if (ACPI && PCI)
+ 	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
++	select ARCH_ACPI_DEFERRED_GSI if ACPI
+ 	select ARCH_DMA_DEFAULT_COHERENT
+ 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+index e3a7c2aedd5f..ebec1707f662 100644
+--- a/drivers/acpi/Kconfig
++++ b/drivers/acpi/Kconfig
+@@ -587,6 +587,9 @@ config ACPI_PRMT
+ 	  substantially increase computational overhead related to the
+ 	  initialization of some server systems.
  
--static u32 acpi_scan_check_dep(acpi_handle handle)
-+int acpi_scan_add_dep(acpi_handle handle, struct acpi_handle_list *dep_devices)
- {
--	struct acpi_handle_list dep_devices;
- 	u32 count;
- 	int i;
- 
--	/*
--	 * Check for _HID here to avoid deferring the enumeration of:
--	 * 1. PCI devices.
--	 * 2. ACPI nodes describing USB ports.
--	 * Still, checking for _HID catches more then just these cases ...
--	 */
--	if (!acpi_has_method(handle, "_DEP") || !acpi_has_method(handle, "_HID"))
--		return 0;
--
--	if (!acpi_evaluate_reference(handle, "_DEP", NULL, &dep_devices)) {
--		acpi_handle_debug(handle, "Failed to evaluate _DEP.\n");
--		return 0;
--	}
--
--	for (count = 0, i = 0; i < dep_devices.count; i++) {
-+	for (count = 0, i = 0; i < dep_devices->count; i++) {
- 		struct acpi_device_info *info;
- 		struct acpi_dep_data *dep;
- 		bool skip, honor_dep;
- 		acpi_status status;
- 
--		status = acpi_get_object_info(dep_devices.handles[i], &info);
-+		status = acpi_get_object_info(dep_devices->handles[i], &info);
- 		if (ACPI_FAILURE(status)) {
- 			acpi_handle_debug(handle, "Error reading _DEP device info\n");
- 			continue;
-@@ -2073,7 +2058,7 @@ static u32 acpi_scan_check_dep(acpi_handle handle)
- 
- 		count++;
- 
--		dep->supplier = dep_devices.handles[i];
-+		dep->supplier = dep_devices->handles[i];
- 		dep->consumer = handle;
- 		dep->honor_dep = honor_dep;
- 
-@@ -2082,7 +2067,30 @@ static u32 acpi_scan_check_dep(acpi_handle handle)
- 		mutex_unlock(&acpi_dep_list_lock);
- 	}
- 
--	acpi_handle_list_free(&dep_devices);
-+	acpi_handle_list_free(dep_devices);
-+	return count;
-+}
++config ARCH_ACPI_DEFERRED_GSI
++	bool
 +
-+static u32 acpi_scan_check_dep(acpi_handle handle)
-+{
-+	struct acpi_handle_list dep_devices;
-+	u32 count = 0;
-+
-+	/*
-+	 * Check for _HID here to avoid deferring the enumeration of:
-+	 * 1. PCI devices.
-+	 * 2. ACPI nodes describing USB ports.
-+	 * Still, checking for _HID catches more then just these cases ...
-+	 */
-+	if (!acpi_has_method(handle, "_DEP") || !acpi_has_method(handle, "_HID"))
-+		return count;
-+
-+	if (!acpi_evaluate_reference(handle, "_DEP", NULL, &dep_devices)) {
-+		acpi_handle_debug(handle, "Failed to evaluate _DEP.\n");
-+		return count;
-+	}
-+
-+	count += acpi_scan_add_dep(handle, &dep_devices);
- 	return count;
- }
+ endif	# ACPI
  
-diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
-index 1a4dfd7a1c4a..28a9b87c23fa 100644
---- a/include/acpi/acpi_bus.h
-+++ b/include/acpi/acpi_bus.h
-@@ -993,6 +993,7 @@ static inline void acpi_put_acpi_dev(struct acpi_device *adev)
- 
- int acpi_wait_for_acpi_ipmi(void);
- 
-+int acpi_scan_add_dep(acpi_handle handle, struct acpi_handle_list *dep_devices);
- #else	/* CONFIG_ACPI */
- 
- static inline int register_acpi_bus_type(void *bus) { return 0; }
+ config X86_PM_TIMER
 -- 
 2.40.1
 
