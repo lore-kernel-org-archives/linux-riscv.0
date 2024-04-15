@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E61C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 17:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 744A0C00A94
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 17:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=21TDMqV/sekptJo1BBdgWQxV5cqHzfiTuBRug/QjEys=; b=ljeerre4StdbNa
-	a3biy3+F5wAz5/GDShstqDZcX2GW0Knc+HLt4JUWLt7yfSCKgcb6Pc8njdF5LyYRVrBwyGYCUkw5d
-	hJF2ub76WV8kcL8+tdinFJBAYuck68I0bZEQZzw53f54D1amNwpFK6gws0BcOvarZHquHfV+yUOBy
-	6kG/9VCrkNr9ytgcry7Zq6LQfKpY+11zFAsca8TBlIXSSB4rlfMUcQWY6X30YinAZ/Sas2zbzfhvh
-	fkf7+6LN0bc/xx7v1o7rCfMz0U1kzscG1MAPntyBEfqReLERz6uBv/M0fjdXHoKzJa+bUhaK0d0OB
-	j3NcrhM3SqLgVlN1wKSw==;
+	List-Owner; bh=wE71YIAoVJSejF2Yd3cQ+I1y3KBfrubaw//oYfz2b78=; b=u9gxnuAVWhrKy6
+	vUq0ut2IJhZ5zQ/CHPupp1/ZGyM1thZqIRs/2P8MY0LvoMtDhpa2FIPacWF9auxpuyJ4gEW4JjpvQ
+	+22b2j73O3WwtyXA1j/ER/FvzMjuKEp7gzlfleTUe07bO+GMudfmmQ3wRBC+/B6lstsAXSFtpbMeb
+	q8S7OPy/j9tlXuKeuMHJsBQpxMGKWwQhDEVaHbWKlQpz6t0KRKPHz7m32YenK3IX3cQwl2UtXezYq
+	ZgXnDvtU/IhXG49Bhc177GnyrGOBB+vskdTXOtivi1AhXz4bSBcE/4VMMlnOqeZaQBCjT+GPirff2
+	Del85V+vLtsjebK8idVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwPmW-00000009EeS-134w;
-	Mon, 15 Apr 2024 17:06:12 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwPjB-00000009C0j-1o6r
-	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 17:02:50 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-6eff9dc1821so1050134b3a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 10:02:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1713200564; x=1713805364; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YAAOkQmqhfZx+8yFnraUuWf5SW+MXW6uPQvUnDzGd+Y=;
-        b=LTJ3uXKi8pkofTRMKpcn1xNJqX5Lh9diuM9Ar1kH5aIRkWzEkNd4Zlvv7eKvWFYxif
-         k9WGBI9PoZJ9rWEfo076c0dAicyDePg9zv6yu97UZIen/7yaVJJwCE1Gg16rVHRK36u2
-         Tww29VdBGX3GDzuaHo5yEm2ZCyyPb78gJfzwAf5Tb3zzTCYiUbhdsWr+N21FaX3tDOpI
-         KcaqIlY5G2ST3pDh36418A/vnqIfqwkPEKP/oq1dae8KfF1XK8D0gE1IW0plxV0sHFvp
-         NcP2qcf3pn1kEr8x8gF961emn2odUEqjenXeZa6vDKIBmDKKDzmOUkcbwB1qwTN34t9n
-         TH3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713200564; x=1713805364;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YAAOkQmqhfZx+8yFnraUuWf5SW+MXW6uPQvUnDzGd+Y=;
-        b=p+rqiEBQ5rQ8NpXRsp8U/fOdV3Jlgz+E75F5ZxlkcVy72egHMG7D4soeDmMn8ERJKx
-         r1lqvr8DFrJJUu5tXbOJbVyfFDq54kE1LApTgqiDjG1AvJncyepVbyOM2j462kp7JKk9
-         uv63bNo9irnr5Tpcqh9hQqQkEL23zr135UyV5zR/yMUcexTNX9ZQyvxfnPm5AXzixUZj
-         ltf3YuJuj/AXHY/PO4QQ284/97duGtU9J+udu60WLMREMuCStQgN5zKth7yE/NREBZSc
-         Cc2VPdKn+VPQTBlFPbtPMkQg3NjabbSp8yREGP2+JF/POr1/3I0k+e7IYLfbvvcvDT65
-         U5dg==
-X-Forwarded-Encrypted: i=1; AJvYcCUHOKX2yjdJtAxCX2p9XMzJgxuiLeCA8qfjzsiddYZzFU40iTH0u6FQJ3A95WKWJmwSvVmK1JhE+Zg2yWo91gQEw/629bGWlr0Leh4opaqR
-X-Gm-Message-State: AOJu0Yz8JyLwNS6ppB2uL9wW2cK0O85A+8hT4n5g+AovG/fuTX+G3fc8
-	AK1rfKk+Owv5IX/PSgI/IkPrqyTUkWBG5euIznevjB4sadszNNQAzmfZolj81oM=
-X-Google-Smtp-Source: AGHT+IG8/n77ZcwDo0dpINsAseTYN5DCCn1UfCXRDczymjXSK0MA9f3AzxnPM1y3GqoYLRAp+ADrkw==
-X-Received: by 2002:a05:6a00:4686:b0:6ee:1b6e:662a with SMTP id de6-20020a056a00468600b006ee1b6e662amr7890055pfb.32.1713200564540;
-        Mon, 15 Apr 2024 10:02:44 -0700 (PDT)
-Received: from sunil-pc.Dlink ([106.51.187.230])
-        by smtp.gmail.com with ESMTPSA id 1-20020a056a00072100b006ed045e3a70sm7433158pfm.25.2024.04.15.10.02.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Apr 2024 10:02:44 -0700 (PDT)
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	acpica-devel@lists.linux.dev
-Subject: [RFC PATCH v4 12/20] RISC-V: ACPI: Implement function to add implicit dependencies
-Date: Mon, 15 Apr 2024 22:31:05 +0530
-Message-Id: <20240415170113.662318-13-sunilvl@ventanamicro.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20240415170113.662318-1-sunilvl@ventanamicro.com>
-References: <20240415170113.662318-1-sunilvl@ventanamicro.com>
+	id 1rwQGM-00000009LgZ-2rli;
+	Mon, 15 Apr 2024 17:37:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rwQGF-00000009Lcd-3tpw;
+	Mon, 15 Apr 2024 17:36:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30ED11515;
+	Mon, 15 Apr 2024 10:37:23 -0700 (PDT)
+Received: from FVFF77S0Q05N.cambridge.arm.com (FVFF77S0Q05N.cambridge.arm.com [10.1.38.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6579A3F64C;
+	Mon, 15 Apr 2024 10:36:49 -0700 (PDT)
+Date: Mon, 15 Apr 2024 18:36:39 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Bj\"orn T\"opel" <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v4 05/15] mm: introduce execmem_alloc() and execmem_free()
+Message-ID: <Zh1lnIdgFeM1o8S5@FVFF77S0Q05N.cambridge.arm.com>
+References: <20240411160051.2093261-1-rppt@kernel.org>
+ <20240411160051.2093261-6-rppt@kernel.org>
+ <20240415075241.GF40213@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240415075241.GF40213@noisy.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_100245_849220_0566BF0D 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20240415_103656_508283_FE78D163 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,189 +87,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Marc Zyngier <maz@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Haibo1 Xu <haibo1.xu@intel.com>, "Rafael J . Wysocki" <rafael@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Anup Patel <anup@brainfault.org>, Atish Kumar Patra <atishp@rivosinc.com>, Robert Moore <robert.moore@intel.com>, Samuel Holland <samuel.holland@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Andrei Warkentin <andrei.warkentin@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <bhelgaas@google.com>, =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V interrupt controllers for wired interrupts are platform devices
-and hence their driver will be probed late. Also, APLIC which is one
-such interrupt controller can not be probed early since it needs MSI
-services. This needs a probing order between the interrupt controller
-driver and the device drivers.
+On Mon, Apr 15, 2024 at 09:52:41AM +0200, Peter Zijlstra wrote:
+> On Thu, Apr 11, 2024 at 07:00:41PM +0300, Mike Rapoport wrote:
+> > +/**
+> > + * enum execmem_type - types of executable memory ranges
+> > + *
+> > + * There are several subsystems that allocate executable memory.
+> > + * Architectures define different restrictions on placement,
+> > + * permissions, alignment and other parameters for memory that can be used
+> > + * by these subsystems.
+> > + * Types in this enum identify subsystems that allocate executable memory
+> > + * and let architectures define parameters for ranges suitable for
+> > + * allocations by each subsystem.
+> > + *
+> > + * @EXECMEM_DEFAULT: default parameters that would be used for types that
+> > + * are not explcitly defined.
+> > + * @EXECMEM_MODULE_TEXT: parameters for module text sections
+> > + * @EXECMEM_KPROBES: parameters for kprobes
+> > + * @EXECMEM_FTRACE: parameters for ftrace
+> > + * @EXECMEM_BPF: parameters for BPF
+> > + * @EXECMEM_TYPE_MAX:
+> > + */
+> > +enum execmem_type {
+> > +	EXECMEM_DEFAULT,
+> > +	EXECMEM_MODULE_TEXT = EXECMEM_DEFAULT,
+> > +	EXECMEM_KPROBES,
+> > +	EXECMEM_FTRACE,
+> > +	EXECMEM_BPF,
+> > +	EXECMEM_TYPE_MAX,
+> > +};
+> 
+> Can we please get a break-down of how all these types are actually
+> different from one another?
+> 
+> I'm thinking some platforms have a tiny immediate space (arm64 comes to
+> mind) and has less strict placement constraints for some of them?
 
-_DEP is typically used to indicate such dependencies. However, the
-dependency may be already available like GSI mapping. Hence, instead of
-an explicit _DEP, architecture can find the implicit dependencies and
-add to the dependency list.
+Yeah, and really I'd *much* rather deal with that in arch code, as I have said
+several times.
 
-For RISC-V, add the dependencies for below use cases.
+For arm64 we have two bsaic restrictions: 
 
-1) For devices which has IRQ resource, find out the interrupt controller
-using GSI number map and add the dependency.
+1) Direct branches can go +/-128M
+   We can expand this range by having direct branches go to PLTs, at a
+   performance cost.
 
-2) For PCI host bridges:
-	a) If _PRT indicate PCI link devices, add dependency on the link
-	   device.
-	b) If _PRT indicates GSI, find out the interrupt controller
-	   using GSI number map and add the dependency.
+2) PREL32 relocations can go +/-2G
+   We cannot expand this further.
 
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
----
- drivers/acpi/riscv/irq.c | 132 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 132 insertions(+)
+* We don't need to allocate memory for ftrace. We do not use trampolines.
 
-diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
-index de0f1ba92068..f98645461bbe 100644
---- a/drivers/acpi/riscv/irq.c
-+++ b/drivers/acpi/riscv/irq.c
-@@ -21,6 +21,12 @@ struct riscv_ext_intc_list {
- 	struct list_head list;
- };
- 
-+struct acpi_irq_dep_ctx {
-+	int rc;
-+	unsigned int index;
-+	acpi_handle handle;
-+};
-+
- LIST_HEAD(ext_intc_list);
- 
- static int irqchip_cmp_func(const void *in0, const void *in1)
-@@ -189,3 +195,129 @@ int __init riscv_acpi_init_gsi_mapping(void)
- 	acpi_get_devices("RSCV0001", riscv_acpi_create_gsi_map, NULL, NULL);
- 	return 0;
- }
-+
-+static acpi_status riscv_acpi_irq_get_parent(struct acpi_resource *ares, void *context)
-+{
-+	struct acpi_irq_dep_ctx *ctx = context;
-+	struct acpi_resource_irq *irq;
-+	struct acpi_resource_extended_irq *eirq;
-+
-+	switch (ares->type) {
-+	case ACPI_RESOURCE_TYPE_IRQ:
-+		irq = &ares->data.irq;
-+		if (ctx->index >= irq->interrupt_count) {
-+			ctx->index -= irq->interrupt_count;
-+			return AE_OK;
-+		}
-+		ctx->handle = riscv_acpi_get_gsi_handle(irq->interrupts[ctx->index]);
-+		return AE_CTRL_TERMINATE;
-+	case ACPI_RESOURCE_TYPE_EXTENDED_IRQ:
-+		eirq = &ares->data.extended_irq;
-+		if (eirq->producer_consumer == ACPI_PRODUCER)
-+			return AE_OK;
-+
-+		if (ctx->index >= eirq->interrupt_count) {
-+			ctx->index -= eirq->interrupt_count;
-+			return AE_OK;
-+		}
-+
-+		/* Not supported */
-+		if (eirq->resource_source.string_length)
-+			return AE_OK;
-+
-+		ctx->handle = riscv_acpi_get_gsi_handle(eirq->interrupts[ctx->index]);
-+		return AE_CTRL_TERMINATE;
-+	}
-+
-+	return AE_OK;
-+}
-+
-+static int riscv_acpi_irq_get_dep(acpi_handle handle, unsigned int index, acpi_handle *gsi_handle)
-+{
-+	struct acpi_irq_dep_ctx ctx;
-+
-+	ctx.rc = -EINVAL;
-+	ctx.index = index;
-+	acpi_walk_resources(handle, METHOD_NAME__CRS, riscv_acpi_irq_get_parent, &ctx);
-+	*gsi_handle = ctx.handle;
-+	if (*gsi_handle)
-+		return 1;
-+
-+	return 0;
-+}
-+
-+static u32 riscv_acpi_add_prt_dep(acpi_handle handle)
-+{
-+	struct acpi_buffer buffer = { ACPI_ALLOCATE_BUFFER, NULL };
-+	struct acpi_pci_routing_table *entry;
-+	struct acpi_handle_list dep_devices;
-+	acpi_handle gsi_handle;
-+	acpi_handle link_handle;
-+	acpi_status status;
-+	u32 count = 0;
-+
-+	status = acpi_get_irq_routing_table(handle, &buffer);
-+	if (ACPI_FAILURE(status)) {
-+		kfree(buffer.pointer);
-+		return 0;
-+	}
-+
-+	entry = buffer.pointer;
-+	while (entry && (entry->length > 0)) {
-+		if (entry->source[0]) {
-+			acpi_get_handle(handle, entry->source, &link_handle);
-+			dep_devices.count = 1;
-+			dep_devices.handles = kcalloc(1, sizeof(*dep_devices.handles), GFP_KERNEL);
-+			if (!dep_devices.handles)
-+				continue;
-+
-+			dep_devices.handles[0] = link_handle;
-+			count += acpi_scan_add_dep(handle, &dep_devices);
-+		} else {
-+			gsi_handle = riscv_acpi_get_gsi_handle(entry->source_index);
-+			dep_devices.count = 1;
-+			dep_devices.handles = kcalloc(1, sizeof(*dep_devices.handles), GFP_KERNEL);
-+			if (!dep_devices.handles)
-+				continue;
-+
-+			dep_devices.handles[0] = gsi_handle;
-+			count += acpi_scan_add_dep(handle, &dep_devices);
-+		}
-+
-+		entry = (struct acpi_pci_routing_table *)
-+			((unsigned long)entry + entry->length);
-+	}
-+
-+	kfree(buffer.pointer);
-+	return count;
-+}
-+
-+static u32 riscv_acpi_add_irq_dep(acpi_handle handle)
-+{
-+	struct acpi_handle_list dep_devices;
-+	acpi_handle gsi_handle;
-+	u32 count = 0;
-+	int i;
-+
-+	for (i = 0;
-+	     riscv_acpi_irq_get_dep(handle, i, &gsi_handle);
-+	     i++) {
-+		dep_devices.count = 1;
-+		dep_devices.handles = kcalloc(1, sizeof(*dep_devices.handles), GFP_KERNEL);
-+		if (!dep_devices.handles)
-+			continue;
-+
-+		dep_devices.handles[0] = gsi_handle;
-+		count += acpi_scan_add_dep(handle, &dep_devices);
-+	}
-+
-+	return count;
-+}
-+
-+u32 arch_acpi_add_auto_dep(acpi_handle handle)
-+{
-+	if (acpi_has_method(handle, "_PRT"))
-+		return riscv_acpi_add_prt_dep(handle);
-+
-+	return riscv_acpi_add_irq_dep(handle);
-+}
--- 
-2.40.1
+* Kprobes XOL areas don't care about either of those; we don't place any
+  PC-relative instructions in those. Maybe we want to in future.
 
+* Modules care about both; we'd *prefer* to place them within +/-128M of all
+  other kernel/module code, but if there's no space we can use PLTs and expand
+  that to +/-2G. Since modules can refreence other modules, that ends up
+  actually being halved, and modules have to fit within some 2G window that
+  also covers the kernel.
+
+* I'm not sure about BPF's requirements; it seems happy doing the same as
+  modules.
+
+So if we *must* use a common execmem allocator, what we'd reall want is our own
+types, e.g.
+
+	EXECMEM_ANYWHERE
+	EXECMEM_NOPLT
+	EXECMEM_PREL32
+
+... and then we use those in arch code to implement module_alloc() and friends.
+
+Mark.
 
 _______________________________________________
 linux-riscv mailing list
