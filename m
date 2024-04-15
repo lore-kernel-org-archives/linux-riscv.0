@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5D1C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 03:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF50C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 06:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4U+FSZb0Lcg20ooDfvFBglAFk2xnV6cita/QDXOTCB4=; b=UnrLATvVg6w3a+
-	s+V4naPTmhwdCex57nu4jI5FkajDqBdVLQSlLfUMx3OOygTGmRsYVkW5Q0iPe2lzALia0vNW8kORD
-	0OO4ZBXRpLMLCNsbYJOaNcA7aIp56Vs2rItfLavcQVJuSWnXblFAG7TaWhwpfyBgd5i2u9ajSmV/P
-	BOFgyTXobJj9C4w+OgerlG4mue1V3f1Idd6HTsCsoHUZZhkJBi/4JH884svKWOWHlXk5FtKPhI6mW
-	RmNEY43vilsWtWxB4ibPJ8HDi+Tc3aWnRVjn1lr98tEM0q5Qwn0PBcCTvv5BBXePGKT5gDGs/8h+l
-	NeIsNckSGDfPvw4xtucw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Mime-Version:Message-Id
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fZel06VHI/OuR3r9/XSp40gaVpjLjnuXJu6HlSgVDfM=; b=u1IuiDHmQRC25c
+	iw2w/D1q8IMTtKsPBYPO+C45112FipNPRiX8zpcp8QHOiOGJffrGG0ZRkV4Sp19f2eJb9cAJHJwQ3
+	YkSX3o02AcLv4Oml5b+Osol+IfFt5fZe+sTbVnKlFHe1zsN43bLoiAI3MqoEZKvh5Qi225PdiUsu1
+	UcEA/PtrpNldFYiYemKJ7XbsA0Gr+MyD6VkPXdOaU9A5uZxD+B+LrAJz7U8ukXEsJ8pjg35jzdkvd
+	amvc1g/83OaCe1ZegW+aEFwv5ZAfI5bgKCPQiTy9qdSEr9QPYDNZdBRY0UX1C9AuNhdfJJAp8qeFu
+	nokn99mdPFmakNigYosw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwCpI-00000006qpM-1CDF;
-	Mon, 15 Apr 2024 03:16:12 +0000
-Received: from zg8tmja5ljk3lje4ms43mwaa.icoremail.net ([209.97.181.73])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwCpB-00000006qmG-1Sp2;
-	Mon, 15 Apr 2024 03:16:07 +0000
-Received: from localhost.localdomain (unknown [10.12.130.31])
-	by app1 (Coremail) with SMTP id TAJkCgCnSOV3mxxmR4gGAA--.51722S6;
-	Mon, 15 Apr 2024 11:14:04 +0800 (CST)
-From: Shenlin Liang <liangshenlin@eswincomputing.com>
-To: anup@brainfault.org,
-	atishp@atishpatra.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	linux-perf-users@vger.kernel.org
-Cc: Shenlin Liang <liangshenlin@eswincomputing.com>
-Subject: [PATCH v2 2/2] perf kvm/riscv: Port perf kvm stat to RISC-V
-Date: Mon, 15 Apr 2024 03:11:31 +0000
-Message-Id: <20240415031131.23443-3-liangshenlin@eswincomputing.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20240415031131.23443-1-liangshenlin@eswincomputing.com>
-References: <20240415031131.23443-1-liangshenlin@eswincomputing.com>
-X-CM-TRANSID: TAJkCgCnSOV3mxxmR4gGAA--.51722S6
-X-Coremail-Antispam: 1UD129KBjvJXoWxKFyxAr1rKF13Xr4DJF4DXFb_yoW7CFykpa
-	n7CF90kw4rt39I934fCFs2gF43Gws3WFy5K340grWqvF40y3y8J3WIgF90kF9rXr4kJrW8
-	A3W5WrWvk34rJw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2Iq
-	xVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r
-	4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY
-	6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
-	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZE
-	Xa7VU1489tUUUUU==
-X-CM-SenderInfo: xold0whvkh0z1lq6v25zlqu0xpsx3x1qjou0bp/
+	id 1rwFxC-00000007Avv-3vrA;
+	Mon, 15 Apr 2024 06:36:34 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rwFxA-00000007Av7-1fMH
+	for linux-riscv@lists.infradead.org;
+	Mon, 15 Apr 2024 06:36:33 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-617bd0cf61fso54691087b3.3
+        for <linux-riscv@lists.infradead.org>; Sun, 14 Apr 2024 23:36:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1713162990; x=1713767790; darn=lists.infradead.org;
+        h=to:from:subject:mime-version:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=wB0mFKuGZHW/z83jZ9UZ1kMmy9iw6kq5zXLeGG3r0jQ=;
+        b=VDk55tI9y+Cdb8Kb6KSWXrq4nzepPBjk7ujeggGWNbyKC6R0Nj37OoqqT88s48g2mf
+         5Hn3PlTXhnMof5tSKfDlmUmqF+WGuGjcbGaYIhIWH7kbpqmVB4q+9odn7L4Lr89u5002
+         iST4yYM5Eye4WVp+vEhHX34V8Za7bTen5cwVun8MN/s1if29MJ+fn9rDCwOsdhf3/K9t
+         FH7Py0qsKhHWCOnwSFhvpeQG2Z5+ZSwfikhwNaU7pn3cYMLnXPjAuqJriDEkt+ErWy+8
+         p1Z9a6Q3+bx1FW0ZHeyvY/5vmgnoMEc08SpSdj06IbhXO+raxAR3I+KF3iJS4wgbyGlB
+         aguQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713162990; x=1713767790;
+        h=to:from:subject:mime-version:message-id:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wB0mFKuGZHW/z83jZ9UZ1kMmy9iw6kq5zXLeGG3r0jQ=;
+        b=KXFCSdaByMFEzWmFvdc8wmHXw5r/rkejTzckBulVUFIV527MRjq7//IA2enk2FddPy
+         bhGUBoX599ANgsRTCeG0UnNToHzzesCaiPMkuiVrkVz9p6iYl5jKkeV+sJrmiWuCe4vY
+         0dUhVvvxx0+MKZoLB6VsFKqwRYF509BLsKBThZ7duPlHRKVNhoa6D6FV0ePavJp8wd7N
+         u4cLrGlPIQhS1XVnKiQFAYBE/8Gdoj487V6rQJ5+amH6NL9RPWxg345d0N+tQDbmTjZA
+         fY11ZnFnlAT6TkWvrE7qG2CmEW4L42ouiYrDC45t0mQmDfb52XQfPVKXz6xFfvsK52uL
+         npIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVBCa32Bf8hvq9UMCmYt8ePClMH6zlOGQzBiMekwjma9IS7f6fu+YkrFO9U5CZkhlUKbtpN8lh/sJVzh3PbssEZnoArUuqKwPLN4AIT2Q0l
+X-Gm-Message-State: AOJu0YyBz6MuVPXlArhm2fQTLlyIgKTpA0ztqL0mZE17Ajza8SlXBEPr
+	tgqgFEMjjez+6qKo42+oOPipjioDQC/cD+oswD8uo6h3ePaxdAt/xxl2Kqqy1rqXS5O8PhQ6oYX
+	dQakI8A==
+X-Google-Smtp-Source: AGHT+IFla4MrX294yqIP+FWtWzJmxqGcQ32XqueDUfsH1OcnJlS4SzKTAazV/kcLnzG+SAXlo39sSpcyIttX
+X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:f304:d776:d707:4b57])
+ (user=irogers job=sendgmr) by 2002:a05:690c:a:b0:618:9588:e9db with SMTP id
+ bc10-20020a05690c000a00b006189588e9dbmr1908547ywb.2.1713162989579; Sun, 14
+ Apr 2024 23:36:29 -0700 (PDT)
+Date: Sun, 14 Apr 2024 23:36:17 -0700
+Message-Id: <20240415063626.453987-1-irogers@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.44.0.683.g7961c838ac-goog
+Subject: [PATCH v1 0/9] Consistently prefer sysfs/json events
+From: Ian Rogers <irogers@google.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, James Clark <james.clark@arm.com>, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org, 
+	Beeman Strong <beeman@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240414_201605_897669_6612D9F7 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20240414_233632_461504_D803759E 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,187 +90,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-'perf kvm stat report/record' generates a statistical analysis of KVM
-events and can be used to analyze guest exit reasons.
+As discussed in:
+https://lore.kernel.org/lkml/20240217005738.3744121-1-atishp@rivosinc.com/
+preferring sysfs/json events consistently (with or without a given
+PMU) will enable RISC-V's hope to customize legacy events in the perf
+tool.
 
-"report" reports statistical analysis of guest exit events.
+Some minor clean-up is performed on the way.
 
-To record kvm events on the host:
- # perf kvm stat record -a
+Ian Rogers (9):
+  perf parse-events: Factor out '<event_or_pmu>/.../' parsing
+  perf parse-events: Directly pass PMU to parse_events_add_pmu
+  perf parse-events: Avoid copying an empty list
+  perf pmu: Refactor perf_pmu__match
+  perf tests parse-events: Use branches rather than cache-references
+  perf parse-events: Legacy cache names on all PMUs and lower priority
+  perf parse-events: Handle PE_TERM_HW in name_or_raw
+  perf parse-events: Constify parse_events_add_numeric
+  perf parse-events: Prefer sysfs/json hardware events over legacy
 
-To report kvm VM EXIT events:
- # perf kvm stat report --event=vmexit
+ tools/perf/tests/parse-events.c |   6 +-
+ tools/perf/util/parse-events.c  | 201 ++++++++++++++++++++++----------
+ tools/perf/util/parse-events.h  |  16 +--
+ tools/perf/util/parse-events.l  |  76 ++++++------
+ tools/perf/util/parse-events.y  | 166 +++++++++-----------------
+ tools/perf/util/pmu.c           |  27 +++--
+ tools/perf/util/pmu.h           |   2 +-
+ 7 files changed, 262 insertions(+), 232 deletions(-)
 
-Signed-off-by: Shenlin Liang <liangshenlin@eswincomputing.com>
----
- tools/perf/arch/riscv/Makefile                |  1 +
- tools/perf/arch/riscv/util/Build              |  1 +
- tools/perf/arch/riscv/util/kvm-stat.c         | 78 +++++++++++++++++++
- .../arch/riscv/util/riscv_exception_types.h   | 41 ++++++++++
- 4 files changed, 121 insertions(+)
- create mode 100644 tools/perf/arch/riscv/util/kvm-stat.c
- create mode 100644 tools/perf/arch/riscv/util/riscv_exception_types.h
-
-diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-index a8d25d005207..e1e445615536 100644
---- a/tools/perf/arch/riscv/Makefile
-+++ b/tools/perf/arch/riscv/Makefile
-@@ -3,3 +3,4 @@ PERF_HAVE_DWARF_REGS := 1
- endif
- PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
- PERF_HAVE_JITDUMP := 1
-+HAVE_KVM_STAT_SUPPORT := 1
-\ No newline at end of file
-diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-index 603dbb5ae4dc..d72b04f8d32b 100644
---- a/tools/perf/arch/riscv/util/Build
-+++ b/tools/perf/arch/riscv/util/Build
-@@ -1,5 +1,6 @@
- perf-y += perf_regs.o
- perf-y += header.o
- 
-+perf-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
- perf-$(CONFIG_DWARF) += dwarf-regs.o
- perf-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/riscv/util/kvm-stat.c b/tools/perf/arch/riscv/util/kvm-stat.c
-new file mode 100644
-index 000000000000..db7183e0f09f
---- /dev/null
-+++ b/tools/perf/arch/riscv/util/kvm-stat.c
-@@ -0,0 +1,78 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Arch specific functions for perf kvm stat.
-+ *
-+ * Copyright 2024 Beijing ESWIN Computing Technology Co., Ltd.
-+ *
-+ */
-+#include <errno.h>
-+#include <memory.h>
-+#include "../../../util/evsel.h"
-+#include "../../../util/kvm-stat.h"
-+#include "riscv_exception_types.h"
-+#include "debug.h"
-+
-+define_exit_reasons_table(riscv_exit_reasons, kvm_riscv_exception_class);
-+
-+const char *kvm_exit_reason = "scause";
-+const char *kvm_entry_trace = "kvm:kvm_entry";
-+const char *kvm_exit_trace = "kvm:kvm_exit";
-+
-+const char *kvm_events_tp[] = {
-+	"kvm:kvm_entry",
-+	"kvm:kvm_exit",
-+	NULL,
-+};
-+
-+static void event_get_key(struct evsel *evsel,
-+			  struct perf_sample *sample,
-+			  struct event_key *key)
-+{
-+	key->info = 0;
-+	key->key = evsel__intval(evsel, sample, kvm_exit_reason);
-+	key->key = (int)key->key;
-+	key->exit_reasons = riscv_exit_reasons;
-+}
-+
-+static bool event_begin(struct evsel *evsel,
-+			struct perf_sample *sample __maybe_unused,
-+			struct event_key *key __maybe_unused)
-+{
-+	return evsel__name_is(evsel, kvm_entry_trace);
-+}
-+
-+static bool event_end(struct evsel *evsel,
-+		      struct perf_sample *sample,
-+		      struct event_key *key)
-+{
-+	if (evsel__name_is(evsel, kvm_exit_trace)) {
-+		event_get_key(evsel, sample, key);
-+		return true;
-+	}
-+	return false;
-+}
-+
-+static struct kvm_events_ops exit_events = {
-+	.is_begin_event = event_begin,
-+	.is_end_event	= event_end,
-+	.decode_key	= exit_event_decode_key,
-+	.name		= "VM-EXIT"
-+};
-+
-+struct kvm_reg_events_ops kvm_reg_events_ops[] = {
-+	{
-+		.name	= "vmexit",
-+		.ops	= &exit_events,
-+	},
-+	{ NULL, NULL },
-+};
-+
-+const char * const kvm_skip_events[] = {
-+	NULL,
-+};
-+
-+int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid __maybe_unused)
-+{
-+	kvm->exit_reasons_isa = "riscv64";
-+	return 0;
-+}
-diff --git a/tools/perf/arch/riscv/util/riscv_exception_types.h b/tools/perf/arch/riscv/util/riscv_exception_types.h
-new file mode 100644
-index 000000000000..2e42150f72b2
---- /dev/null
-+++ b/tools/perf/arch/riscv/util/riscv_exception_types.h
-@@ -0,0 +1,41 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * RISCV exception types
-+ *
-+ * Copyright 2024 Beijing ESWIN Computing Technology Co., Ltd.
-+ *
-+ */
-+#ifndef ARCH_PERF_RISCV_EXCEPTION_TYPES_H
-+#define ARCH_PERF_RISCV_EXCEPTION_TYPES_H
-+
-+#define EXC_INST_MISALIGNED 0
-+#define EXC_INST_ACCESS 1
-+#define EXC_INST_ILLEGAL 2
-+#define EXC_BREAKPOINT 3
-+#define EXC_LOAD_MISALIGNED 4
-+#define EXC_LOAD_ACCESS 5
-+#define EXC_STORE_MISALIGNED 6
-+#define EXC_STORE_ACCESS 7
-+#define EXC_SYSCALL 8
-+#define EXC_HYPERVISOR_SYSCALL 9
-+#define EXC_SUPERVISOR_SYSCALL 10
-+#define EXC_INST_PAGE_FAULT 12
-+#define EXC_LOAD_PAGE_FAULT 13
-+#define EXC_STORE_PAGE_FAULT 15
-+#define EXC_INST_GUEST_PAGE_FAULT 20
-+#define EXC_LOAD_GUEST_PAGE_FAULT 21
-+#define EXC_VIRTUAL_INST_FAULT 22
-+#define EXC_STORE_GUEST_PAGE_FAULT 23
-+
-+#define EXC(x) {EXC_##x, #x }
-+
-+#define kvm_riscv_exception_class                                           \
-+	(EXC(INST_MISALIGNED), EXC(INST_ACCESS), EXC(INST_ILLEGAL),         \
-+	 EXC(BREAKPOINT), EXC(LOAD_MISALIGNED), EXC(LOAD_ACCESS),           \
-+	 EXC(STORE_MISALIGNED), EXC(STORE_ACCESS), EXC(SYSCALL),            \
-+	 EXC(HYPERVISOR_SYSCALL), EXC(SUPERVISOR_SYSCALL),                  \
-+	 EXC(INST_PAGE_FAULT), EXC(LOAD_PAGE_FAULT), EXC(STORE_PAGE_FAULT), \
-+	 EXC(INST_GUEST_PAGE_FAULT), EXC(LOAD_GUEST_PAGE_FAULT),            \
-+	 EXC(VIRTUAL_INST_FAULT), EXC(STORE_GUEST_PAGE_FAULT))
-+
-+#endif /* ARCH_PERF_RISCV_EXCEPTION_TYPES_H */
 -- 
-2.37.2
+2.44.0.683.g7961c838ac-goog
 
 
 _______________________________________________
