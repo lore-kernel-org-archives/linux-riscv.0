@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17526C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 10:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44F5C00A94
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 10:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Gj33gdA1E0Tmq4txM/uYWSnVH7MBST0inQ/6NCXj/DU=; b=U9wimv+keTqTQO
-	71iJV6SgZw4kQHhSznZ89ck0q+7D/D00RZ49VOHsayLcgPx2/UJ3DgtHIicRXLCxXRn65UWFPyqlY
-	7flJos4rl+x/cEgZUezKL5RDf9LzvfnrXT+9yb0wXnYrdmshWhg0wx/ZaZDKR7xKAE+EpHLG0KJa3
-	wubJR/tc2uLtGlSr8WmHhDltxS8bqTrx4uMz2B9eZOlDt1YwPQArOzVynUrLiY4/9kDAgtgZGVne9
-	xSaqBBSyNL9GASF61MijZNbjB8nH2p/eHQRnE/H8v56aL+QBReEuvBiY0wB3++RPFn/9b4kpgn8lv
-	pEmtqe48dNPnGU4F9btw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=z9c+YD+8V4ZrprbpHA18avyiAvHsbxG9dmKKglNBJh4=; b=bsDha4YgbO3hCs
+	cJHzVkfVwInxT1jcLu+4HBVciBWY5Lut4Htlf2bG3ZQp8OwrVRh1F3WKCBj5/+Wy2Altd7yrutCx5
+	FIInMHpyd1NXGk4KZgHySZE+07sMlMhf2eYHa+cMbb12wOUOscsHIyYX8DUCWL8X351nY8AjfsVo2
+	bzO+Zvhkf3NPjH4vTiufbGSYJ0fO5n+wLjF7cR2Ks1S4OKj63dsUNRBcEee2pKA22L+qwvE1nhEIW
+	SyFFe1GmPb1XaFdciRMXEfxxJZ2Bt/kDZq5wdqxi8FB0CLPqNyToZ/Av03/iEDGBKVN6kzPKu/3fV
+	d0A1HDaP6gVIc8bMEOyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwJDI-00000007o8e-1Xgy;
-	Mon, 15 Apr 2024 10:05:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rwJoE-00000007u82-27vY;
+	Mon, 15 Apr 2024 10:43:34 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwJD7-00000007o3t-491y
-	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 10:05:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1825360BFC;
-	Mon, 15 Apr 2024 10:05:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D24E2C113CC;
-	Mon, 15 Apr 2024 10:05:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713175509;
-	bh=5/4J8bSfy9tDWqVzype++7MbmF+TF6hs5nHe+Tj2oyU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=AzzT6X7JuOOjZWwyVN9nwUez1Me8fOBJk+uHWrPMajJk4nXYMdmGnQc0hI7YinHS+
-	 D2+CwaAZg7S2yEPpvKdC+P8AKG+FXeJbnQVOhLrWiVcTUKhq1dda7s7S9FK59ZezJN
-	 Ur+6ZK10EX7vBjIF5jAePs5ClKBWu1ysDHgoN75DdrywsG/HQnjwk+7e201IKMIEFK
-	 Y6xGkOoE9ygIyAw+mzX2PsQlScp+YSIc1f7QRMfCQTcdgkC1ph69zD9cUWFKA2zpnc
-	 CzqwpWQaypzMtW9dLYLB6J7uHYOrO+wpvzDyIDIz4p6Pb3XZYv6sQ47AT2WtdbQoh4
-	 JbeG7pwx2dOug==
-From: Conor Dooley <conor@kernel.org>
-To: linux-clk@vger.kernel.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] clock, reset: microchip: move all mpfs reset code to the reset subsystem
-Date: Mon, 15 Apr 2024 11:04:57 +0100
-Message-ID: <20240415-democracy-risk-419b0250a432@spud>
-X-Mailer: git-send-email 2.43.0
+	id 1rwJoC-00000007u6t-20Xy;
+	Mon, 15 Apr 2024 10:43:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=sHN9K6TMgi0EQGirMl9LJrLTL74puiAUj6pDWO1mbbg=; b=GwGuQ4aHjE28h3DMQEljrl12S9
+	k7qbRgAehAWmB1KZsKYRkIe5T4YmQ/IK7K1/tscLIiWM+Frzf3BTbHghy00qu8vsdYndUrZk657/5
+	7U6MObgQX8Hy2DTMmRYPlPtuplIcSQak3GNH/5HdZ6q2oAguSRJjpD+LaJ9a87To/HWlTYLJ9YvvV
+	DlPdjGnZeeuN/uKeKILlCHLcOLy+D7L1I3Tkf+oPOF+MhpDr74c6GfylqnVH3luQcSx0xGQC7Rr+F
+	/Pi5v1/cfv4gkg/y9fqk5azH4jFf+jsMj8+XJZsS62wcfAHMmEcUQTu5cq8eADVZRA0kd303q26id
+	Ns2I29PA==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rwJnx-0000000FWHZ-0CDf;
+	Mon, 15 Apr 2024 10:43:22 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id ACBA530040C; Mon, 15 Apr 2024 12:43:16 +0200 (CEST)
+Date: Mon, 15 Apr 2024 12:43:16 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christoph Hellwig <hch@infradead.org>, Helge Deller <deller@gmx.de>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, x86@kernel.org
+Subject: Re: [RFC PATCH 5/7] x86/module: perpare module loading for ROX
+ allocations of text
+Message-ID: <20240415104316.GI40213@noisy.programming.kicks-ass.net>
+References: <20240411160526.2093408-1-rppt@kernel.org>
+ <20240411160526.2093408-6-rppt@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9847; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=GgZAlsj+oOjVUnBVrL3clUFFqWTKy0CtFb6VEIra3Pk=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGkyv89mcsyZv9DZ5bm+5qtjBo7WV69E8+9g+LziyiV3o cKFSTLqHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZjIlPmMDIc3ufQvfXhQTvPC gff6U3JXzHN/6L2E6du7d8lr3QJ2NB5gZGhYtT+ocVFb/LbiST93unIkO18xOzPfU43Dwkq24IN DMTcA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_030514_149997_410A49EB 
-X-CRM114-Status: GOOD (  21.18  )
+Content-Disposition: inline
+In-Reply-To: <20240411160526.2093408-6-rppt@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,347 +89,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Thu, Apr 11, 2024 at 07:05:24PM +0300, Mike Rapoport wrote:
+> diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
+> index 45a280f2161c..b4d6868df573 100644
+> --- a/arch/x86/kernel/alternative.c
+> +++ b/arch/x86/kernel/alternative.c
 
-Stephen and Philipp, while reviewing patches, said that all of the aux
-device creation and the register read/write code could be moved to the
-reset subsystem, leaving the clock driver with no implementations of
-reset_* functions at all. Move them.
+> @@ -504,17 +513,17 @@ void __init_or_module noinline apply_alternatives(struct alt_instr *start,
+>  		 *   patch if feature is *NOT* present.
+>  		 */
+>  		if (!boot_cpu_has(a->cpuid) == !(a->flags & ALT_FLAG_NOT)) {
+> -			optimize_nops_inplace(instr, a->instrlen);
+> +			optimize_nops_inplace(wr_instr, a->instrlen);
+>  			continue;
+>  		}
+>  
+> -		DPRINTK(ALT, "feat: %d*32+%d, old: (%pS (%px) len: %d), repl: (%px, len: %d) flags: 0x%x",
+> +		DPRINTK(ALT, "feat: %d*32+%d, old: (%px (%px) len: %d), repl: (%px (%px), len: %d) flags: 0x%x",
+>  			a->cpuid >> 5,
+>  			a->cpuid & 0x1f,
+> -			instr, instr, a->instrlen,
+> -			replacement, a->replacementlen, a->flags);
+> +			instr, wr_instr, a->instrlen,
+> +			replacement, wr_replacement, a->replacementlen, a->flags);
 
-Suggested-by: Philipp Zabel <p.zabel@pengutronix.de>
-Suggested-by: Stephen Boyd <sboyd@kernel.org>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-CC: Conor Dooley <conor.dooley@microchip.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: Michael Turquette <mturquette@baylibre.com>
-CC: Stephen Boyd <sboyd@kernel.org>
-CC: Philipp Zabel <p.zabel@pengutronix.de>
-CC: linux-riscv@lists.infradead.org
-CC: linux-clk@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
----
- drivers/clk/microchip/clk-mpfs.c | 92 +-----------------------------
- drivers/reset/reset-mpfs.c       | 97 ++++++++++++++++++++++++++++----
- include/soc/microchip/mpfs.h     | 10 ++--
- 3 files changed, 94 insertions(+), 105 deletions(-)
+I think this, and
 
-diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
-index 22eab91a6712..28ec0da88cb3 100644
---- a/drivers/clk/microchip/clk-mpfs.c
-+++ b/drivers/clk/microchip/clk-mpfs.c
-@@ -4,12 +4,10 @@
-  *
-  * Copyright (C) 2020-2022 Microchip Technology Inc. All rights reserved.
-  */
--#include <linux/auxiliary_bus.h>
- #include <linux/clk-provider.h>
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/slab.h>
- #include <dt-bindings/clock/microchip,mpfs-clock.h>
- #include <soc/microchip/mpfs.h>
- 
-@@ -361,93 +359,6 @@ static int mpfs_clk_register_periphs(struct device *dev, struct mpfs_periph_hw_c
- 	return 0;
- }
- 
--/*
-- * Peripheral clock resets
-- */
--
--#if IS_ENABLED(CONFIG_RESET_CONTROLLER)
--
--u32 mpfs_reset_read(struct device *dev)
--{
--	struct mpfs_clock_data *clock_data = dev_get_drvdata(dev->parent);
--
--	return readl_relaxed(clock_data->base + REG_SUBBLK_RESET_CR);
--}
--EXPORT_SYMBOL_NS_GPL(mpfs_reset_read, MCHP_CLK_MPFS);
--
--void mpfs_reset_write(struct device *dev, u32 val)
--{
--	struct mpfs_clock_data *clock_data = dev_get_drvdata(dev->parent);
--
--	writel_relaxed(val, clock_data->base + REG_SUBBLK_RESET_CR);
--}
--EXPORT_SYMBOL_NS_GPL(mpfs_reset_write, MCHP_CLK_MPFS);
--
--static void mpfs_reset_unregister_adev(void *_adev)
--{
--	struct auxiliary_device *adev = _adev;
--
--	auxiliary_device_delete(adev);
--	auxiliary_device_uninit(adev);
--}
--
--static void mpfs_reset_adev_release(struct device *dev)
--{
--	struct auxiliary_device *adev = to_auxiliary_dev(dev);
--
--	kfree(adev);
--}
--
--static struct auxiliary_device *mpfs_reset_adev_alloc(struct mpfs_clock_data *clk_data)
--{
--	struct auxiliary_device *adev;
--	int ret;
--
--	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
--	if (!adev)
--		return ERR_PTR(-ENOMEM);
--
--	adev->name = "reset-mpfs";
--	adev->dev.parent = clk_data->dev;
--	adev->dev.release = mpfs_reset_adev_release;
--	adev->id = 666u;
--
--	ret = auxiliary_device_init(adev);
--	if (ret) {
--		kfree(adev);
--		return ERR_PTR(ret);
--	}
--
--	return adev;
--}
--
--static int mpfs_reset_controller_register(struct mpfs_clock_data *clk_data)
--{
--	struct auxiliary_device *adev;
--	int ret;
--
--	adev = mpfs_reset_adev_alloc(clk_data);
--	if (IS_ERR(adev))
--		return PTR_ERR(adev);
--
--	ret = auxiliary_device_add(adev);
--	if (ret) {
--		auxiliary_device_uninit(adev);
--		return ret;
--	}
--
--	return devm_add_action_or_reset(clk_data->dev, mpfs_reset_unregister_adev, adev);
--}
--
--#else /* !CONFIG_RESET_CONTROLLER */
--
--static int mpfs_reset_controller_register(struct mpfs_clock_data *clk_data)
--{
--	return 0;
--}
--
--#endif /* !CONFIG_RESET_CONTROLLER */
--
- static int mpfs_clk_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -499,7 +410,7 @@ static int mpfs_clk_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	return mpfs_reset_controller_register(clk_data);
-+	return mpfs_reset_controller_register(dev, clk_data->base + REG_SUBBLK_RESET_CR);
- }
- 
- static const struct of_device_id mpfs_clk_of_match_table[] = {
-@@ -532,3 +443,4 @@ MODULE_DESCRIPTION("Microchip PolarFire SoC Clock Driver");
- MODULE_AUTHOR("Padmarao Begari <padmarao.begari@microchip.com>");
- MODULE_AUTHOR("Daire McNamara <daire.mcnamara@microchip.com>");
- MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-+MODULE_IMPORT_NS(MCHP_CLK_MPFS);
-diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
-index 7f3fb2d472f4..74f0dff6de1a 100644
---- a/drivers/reset/reset-mpfs.c
-+++ b/drivers/reset/reset-mpfs.c
-@@ -8,9 +8,11 @@
-  */
- #include <linux/auxiliary_bus.h>
- #include <linux/delay.h>
-+#include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/slab.h>
- #include <linux/reset-controller.h>
- #include <dt-bindings/clock/microchip,mpfs-clock.h>
- #include <soc/microchip/mpfs.h>
-@@ -28,20 +30,30 @@
- /* block concurrent access to the soft reset register */
- static DEFINE_SPINLOCK(mpfs_reset_lock);
- 
-+struct mpfs_reset {
-+	void __iomem *base;
-+	struct reset_controller_dev rcdev;
-+};
-+
-+static inline struct mpfs_reset * to_mpfs_reset(struct reset_controller_dev *rcdev)
-+{
-+	return container_of(rcdev, struct mpfs_reset, rcdev);
-+}
-+
- /*
-  * Peripheral clock resets
-  */
--
- static int mpfs_assert(struct reset_controller_dev *rcdev, unsigned long id)
- {
-+	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
- 	unsigned long flags;
- 	u32 reg;
- 
- 	spin_lock_irqsave(&mpfs_reset_lock, flags);
- 
--	reg = mpfs_reset_read(rcdev->dev);
-+	reg = readl(rst->base);
- 	reg |= BIT(id);
--	mpfs_reset_write(rcdev->dev, reg);
-+	writel(reg, rst->base);
- 
- 	spin_unlock_irqrestore(&mpfs_reset_lock, flags);
- 
-@@ -50,14 +62,15 @@ static int mpfs_assert(struct reset_controller_dev *rcdev, unsigned long id)
- 
- static int mpfs_deassert(struct reset_controller_dev *rcdev, unsigned long id)
- {
-+	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
- 	unsigned long flags;
- 	u32 reg;
- 
- 	spin_lock_irqsave(&mpfs_reset_lock, flags);
- 
--	reg = mpfs_reset_read(rcdev->dev);
-+	reg = readl(rst->base);
- 	reg &= ~BIT(id);
--	mpfs_reset_write(rcdev->dev, reg);
-+	writel(reg, rst->base);
- 
- 	spin_unlock_irqrestore(&mpfs_reset_lock, flags);
- 
-@@ -66,7 +79,8 @@ static int mpfs_deassert(struct reset_controller_dev *rcdev, unsigned long id)
- 
- static int mpfs_status(struct reset_controller_dev *rcdev, unsigned long id)
- {
--	u32 reg = mpfs_reset_read(rcdev->dev);
-+	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
-+	u32 reg = readl(rst->base);
- 
- 	/*
- 	 * It is safe to return here as MPFS_NUM_RESETS makes sure the sign bit
-@@ -121,11 +135,15 @@ static int mpfs_reset_probe(struct auxiliary_device *adev,
- {
- 	struct device *dev = &adev->dev;
- 	struct reset_controller_dev *rcdev;
-+	struct mpfs_reset *rst;
- 
--	rcdev = devm_kzalloc(dev, sizeof(*rcdev), GFP_KERNEL);
--	if (!rcdev)
--		return -ENOMEM;
-+	rst = devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
-+	if (!rst)
-+		return -ENOMEM;;
- 
-+	rst->base = (void __iomem *)adev->dev.platform_data;
-+
-+	rcdev = &rst->rcdev;
- 	rcdev->dev = dev;
- 	rcdev->dev->parent = dev->parent;
- 	rcdev->ops = &mpfs_reset_ops;
-@@ -137,9 +155,68 @@ static int mpfs_reset_probe(struct auxiliary_device *adev,
- 	return devm_reset_controller_register(dev, rcdev);
- }
- 
-+static void mpfs_reset_unregister_adev(void *_adev)
-+{
-+	struct auxiliary_device *adev = _adev;
-+
-+	auxiliary_device_delete(adev);
-+	auxiliary_device_uninit(adev);
-+}
-+
-+static void mpfs_reset_adev_release(struct device *dev)
-+{
-+	struct auxiliary_device *adev = to_auxiliary_dev(dev);
-+
-+	kfree(adev);
-+}
-+
-+static struct auxiliary_device *mpfs_reset_adev_alloc(struct device *clk_dev)
-+{
-+	struct auxiliary_device *adev;
-+	int ret;
-+
-+	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
-+	if (!adev)
-+		return ERR_PTR(-ENOMEM);
-+
-+	adev->name = "reset-mpfs";
-+	adev->dev.parent = clk_dev;
-+	adev->dev.release = mpfs_reset_adev_release;
-+	adev->id = 666u;
-+
-+	ret = auxiliary_device_init(adev);
-+	if (ret) {
-+		kfree(adev);
-+		return ERR_PTR(ret);
-+	}
-+
-+	return adev;
-+}
-+
-+int mpfs_reset_controller_register(struct device *clk_dev, void __iomem *base)
-+{
-+	struct auxiliary_device *adev;
-+	int ret;
-+
-+	adev = mpfs_reset_adev_alloc(clk_dev);
-+	if (IS_ERR(adev))
-+		return PTR_ERR(adev);
-+
-+	ret = auxiliary_device_add(adev);
-+	if (ret) {
-+		auxiliary_device_uninit(adev);
-+		return ret;
-+	}
-+
-+	adev->dev.platform_data = (__force void *)base;
-+
-+	return devm_add_action_or_reset(clk_dev, mpfs_reset_unregister_adev, adev);
-+}
-+EXPORT_SYMBOL_NS_GPL(mpfs_reset_controller_register, MCHP_CLK_MPFS);
-+
- static const struct auxiliary_device_id mpfs_reset_ids[] = {
- 	{
--		.name = "clk_mpfs.reset-mpfs",
-+		.name = "reset_mpfs.reset-mpfs",
- 	},
- 	{ }
- };
-diff --git a/include/soc/microchip/mpfs.h b/include/soc/microchip/mpfs.h
-index 09722f83b0ca..e82d70c3a2cf 100644
---- a/include/soc/microchip/mpfs.h
-+++ b/include/soc/microchip/mpfs.h
-@@ -43,11 +43,11 @@ struct mtd_info *mpfs_sys_controller_get_flash(struct mpfs_sys_controller *mpfs_
- #endif /* if IS_ENABLED(CONFIG_POLARFIRE_SOC_SYS_CTRL) */
- 
- #if IS_ENABLED(CONFIG_MCHP_CLK_MPFS)
--
--u32 mpfs_reset_read(struct device *dev);
--
--void mpfs_reset_write(struct device *dev, u32 val);
--
-+#if IS_ENABLED(CONFIG_RESET_CONTROLLER)
-+int mpfs_reset_controller_register(struct device *clk_dev, void __iomem *base);
-+#else
-+int static inline mpfs_reset_controller_register(struct device *clk_dev, void* __iomem base) { return 0;}
-+#endif /* if IS_ENABLED(CONFIG_RESET_CONTROLLER) */
- #endif /* if IS_ENABLED(CONFIG_MCHP_CLK_MPFS) */
- 
- #endif /* __SOC_MPFS_H__ */
--- 
-2.43.0
+>  
+> -		memcpy(insn_buff, replacement, a->replacementlen);
+> +		memcpy(insn_buff, wr_replacement, a->replacementlen);
+>  		insn_buff_sz = a->replacementlen;
+>  
+>  		if (a->flags & ALT_FLAG_DIRECT_CALL) {
+> @@ -528,11 +537,11 @@ void __init_or_module noinline apply_alternatives(struct alt_instr *start,
+>  
+>  		apply_relocation(insn_buff, a->instrlen, instr, replacement, a->replacementlen);
+>  
+> -		DUMP_BYTES(ALT, instr, a->instrlen, "%px:   old_insn: ", instr);
+> +		DUMP_BYTES(ALT, wr_instr, a->instrlen, "%px:   old_insn: ", instr);
 
+this, want to remain as is. 
+
+>  		DUMP_BYTES(ALT, replacement, a->replacementlen, "%px:   rpl_insn: ", replacement);
+>  		DUMP_BYTES(ALT, insn_buff, insn_buff_sz, "%px: final_insn: ", instr);
+>  
+> -		text_poke_early(instr, insn_buff, insn_buff_sz);
+> +		text_poke_early(wr_instr, insn_buff, insn_buff_sz);
+>  	}
+>  
+>  	kasan_enable_current();
+
+The rationale being that we then print an address that can be correlated
+to the kernel image (provided one either kills kaslr or adjusts for it).
 
 _______________________________________________
 linux-riscv mailing list
