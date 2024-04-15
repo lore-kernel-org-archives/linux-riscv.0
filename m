@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42283C04FF9
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 17:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF812C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 17:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OUEaS01YSO4Ss2b5TjPbS8aP5SQQpgaf+eEzC7K1D5s=; b=TVHOtKOy4caIl3
-	gKuyMyvTuowmofuTPEcMGtOki2XUlQcRDcwf0AqqchpYsBbbij4ravwI2Z7zNWwAP0/nmSJ3AugWP
-	5ea/t1Nq9DlB/7BAY0ouq/97aPr/LsVKlOA54siAt4uZG6D2IDD3f3JdJwnnHDyYUctpqkKY8EJ6n
-	50UIgb5J/9HUimT4JsRVoXAMrFKh492wK5NcUW7Fqo21yquzDvn04GCp8J8rIoNh9jUNFn6+yd73F
-	wy1vEJdF7Q0FPZKWtr3+dpHzDeMNXRuqGVRHP6etVBaOnb13eVAbchLHTJLiB3RaaCEeOl1gdamKM
-	2ENFBf9UcBICceWsZwnA==;
+	List-Owner; bh=pdNDWxrFzkJu8KWPcxswXg1aabAMEPy5ZafrzYQ4V6o=; b=koQt9/ow9qmrw6
+	6vgrSTvOytKs8kEYMGksy9ukkrcfqnylYfwVtEVPjywyyXfJLfZ/E3X/QyWtZiwgt9hScV9t62lLQ
+	QEZmhwGTNDYqu6LranHl++AN+nkUJk6BL3n1iDcu/okuEmnVXmPUWsNJKWpBS0FQwdS1R2j/iv8o4
+	W52eufXnSrBmq4/QQpsApnqCRPTu5NM2Jf1ukfa7wgJFbTIx3pIYG7Z+T+gelDHD8UuXKjCmj97Nk
+	ghHiAVEI4Lm5VqnPm5QirvvnBcaHeItRh5eLb0E1A5LyGNllQG3ho/N/dqbMhpfRPa76hyGB0Zv83
+	SH+6IhuqOxzTridzeVNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwPkU-00000009D2d-2NeC;
-	Mon, 15 Apr 2024 17:04:06 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1rwPl8-00000009DbN-22t9;
+	Mon, 15 Apr 2024 17:04:46 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwPj4-00000009BvE-3o4Q
+	id 1rwPjH-00000009C6O-3zI1
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 17:02:43 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-6ed627829e6so3793131b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 10:02:38 -0700 (PDT)
+	Mon, 15 Apr 2024 17:03:00 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6ecf8ebff50so2273311b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 10:02:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1713200558; x=1713805358; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1713200571; x=1713805371; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=c1X7evQ35uoewh1RNAGJwcs/iaU3rzDK4qB90vlKVhs=;
-        b=TVAvIrfMtQduvk8zQ40e/OYjUGhMHJKGQ2zUVoNQVPGbvqTUBCTa+WQAv3nXzOMqtj
-         Af7MQ0ElKh/vJfTdwMo6ppGoVSJ5bFFU+s6bOA7ym+MYLgDJEjk4vGMHQxvroSWeQQAj
-         aufJUtspWr/lYWGgYuzEY1go+yUG/UNG6S6dgn76rNFEME49K7kbSxUC2aXLFF+hYhkw
-         uQtBy/yBRPMk8/nNjF81v+HbkPa1Y3GFKs5+ijF7meQtD8duDHL+S5dXEWVwmB7QUlSx
-         b0kcXnxZ4jK/PDajEyE8FKzJu18Hrb2Tif9sMrioNOdPjUQCsTi06uPz0r8Q2bd0BuCb
-         dWCg==
+        bh=nLDuZBMdOA5LsIhe/7seDXRfkc825n/BCOMnccmbKZw=;
+        b=oVTZluoQhpSCtITp5M7ZyOsomESZOM+jbma6hl+Md4TYixgbHTXQFe2N4Dj2jO54Wx
+         OTlxYEiTQktkx3Ba5uqQqgzcgwSa6uFdekYAUA44DUdYINyus8kmXbPUqyFVmh8QQokG
+         l49hBeJgKQcOpGJ/UyTFswiHqoD+FJgwZZTe+BcMVwzrM3/iZpGOMy3RlThp1CudxnSg
+         06gwCk+QdfrgKvV+wwHoKZm6ZTbIH7e8snRCrfCUU6pu6fU/JlMbxlVtFcg6zBGbDuod
+         5o3Jesj1itNvuf1VG+n/AzQFAkBngMQD9MwcEvlhulIUGxuN4pIl1uTloCexYfTgNT9A
+         WnDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713200558; x=1713805358;
+        d=1e100.net; s=20230601; t=1713200571; x=1713805371;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=c1X7evQ35uoewh1RNAGJwcs/iaU3rzDK4qB90vlKVhs=;
-        b=PRgN3YwQOWXCOfhVvv2hVB1EWCeXXXb4U7UW4h9PBppYgteJ3Nw6uNEP4v4W6fwWEq
-         qwnrgPFzkSoPejiSG4cRbo/eMuwo3isbOhpV7WYyWzbHpGoQoJb9o6Z50sHUd4kpZt8N
-         aDNZtbFQAHmwTc3GMCSDY0kY8Oxlv687d9KwNJniKTIVSk1kpLABaEddA+2vaXeamhKy
-         5vTFWT3jvmtDOvKlNdujxLmqnHKMOX/uAZL3/aausK33jeEJaSTLc7z3oGPlnvb8Gv8J
-         dpfChzfTFCfN2vv/EzLMv+1luFawowx6MWUz1+g98U4pYu0/MAOeReHafFow8dW/MNRa
-         69jw==
-X-Forwarded-Encrypted: i=1; AJvYcCUxZaaX5HA8iY1ZDj8LQS9Q4V5Ewh/LpGedmOA201scFeSBZVdKky/dTmVe6WZaFncmq6ErhqTQIA6L52tBFbXSQSWBx5b7jgYYgDy/9BTi
-X-Gm-Message-State: AOJu0YzsUQAZxB3CoOxdDe7UQd3rRSNsk7pQq9oikQ2hgFYqGPp695/b
-	2MNFisKy74zBohzpWlub4MapmCzdVJqpMwVyCuWYzOwme4EzBqBtKmhGpiQj1Uw=
-X-Google-Smtp-Source: AGHT+IHP5Rv0C3YxWinnwyj54lMdddb7BaD0yQpP0Yg8Qswii7cMjohW9Wcp53K9v1it+Ov4jHo51g==
-X-Received: by 2002:a05:6a00:181d:b0:6ec:fe26:4ec1 with SMTP id y29-20020a056a00181d00b006ecfe264ec1mr12412388pfa.22.1713200558011;
-        Mon, 15 Apr 2024 10:02:38 -0700 (PDT)
+        bh=nLDuZBMdOA5LsIhe/7seDXRfkc825n/BCOMnccmbKZw=;
+        b=cASU+WeLeC3ohdjQifsVtEEbmT9EvJKTLEtK1stXce+wo3NPP86mS/63SZLz/4PKWi
+         fMB6aXMvgibQYgpqW2luBfYYp0I8vV351wyq4FUy2dJJXJOxO5TjjUHNfUObexbz4gVx
+         77YCc6kwHm7Yrk6fuIHPUGklfgYWYu8jzP8+Uk0ydIYmObeGHcaZmYsZ80fOmUDnm/4v
+         h7S/mtBP6A7S3FLKk9y3z99FRLOdaNGpQserNNuEOmltVyJXfIUVu0zDiYOEMYAI+x7S
+         aRLPVH/psJSDfOO+0Z4sml1LXxppndo900XTb8deRzBbvB2+0e0lFclM9aEjvISFx5Zw
+         OOog==
+X-Forwarded-Encrypted: i=1; AJvYcCVFeiVFzaspVkQJfA8HYnN4LO7NYc0ujavefUnSqLcs4sVESyQW5RHpAVFRHmx6i7I8uwjFCN+H+mbIzKRy6jMFa3dVjjZJvfnxTiaAiQ3M
+X-Gm-Message-State: AOJu0YwAZ2m5cSj+/c39sKppJSwZzSa1GbHN75b55kgHVXt/bAeeGoM+
+	wekmfcbzbW1pdAYaf/siXYuYNPks1J77JpRMkztddbd3zDInksFtaZXm9eKN94c=
+X-Google-Smtp-Source: AGHT+IE0Br/sfLtBzDZxNra+WQQQj8UhdqDe5qbQkKbjYH9VavooVHUHBefLx4JOZPgJS4SQ5vD0ww==
+X-Received: by 2002:a05:6a00:190e:b0:6ec:fa34:34ab with SMTP id y14-20020a056a00190e00b006ecfa3434abmr279743pfi.9.1713200571057;
+        Mon, 15 Apr 2024 10:02:51 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.187.230])
-        by smtp.gmail.com with ESMTPSA id 1-20020a056a00072100b006ed045e3a70sm7433158pfm.25.2024.04.15.10.02.30
+        by smtp.gmail.com with ESMTPSA id 1-20020a056a00072100b006ed045e3a70sm7433158pfm.25.2024.04.15.10.02.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Apr 2024 10:02:36 -0700 (PDT)
+        Mon, 15 Apr 2024 10:02:50 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -70,16 +70,16 @@ To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	acpica-devel@lists.linux.dev
-Subject: [RFC PATCH v4 11/20] ACPI: scan.c: Define weak function to populate dependencies
-Date: Mon, 15 Apr 2024 22:31:04 +0530
-Message-Id: <20240415170113.662318-12-sunilvl@ventanamicro.com>
+Subject: [RFC PATCH v4 13/20] ACPI/PNP: Initialize PNP devices skipped due to _DEP
+Date: Mon, 15 Apr 2024 22:31:06 +0530
+Message-Id: <20240415170113.662318-14-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20240415170113.662318-1-sunilvl@ventanamicro.com>
 References: <20240415170113.662318-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_100239_219065_B0E9BEDD 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20240415_100252_392533_50729C96 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,54 +97,284 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some architectures like RISC-V need to add dependencies without explicit
-_DEP. Define a weak function which can be implemented by the architecture.
+When PNP devices have _DEP, they will not be enumerated in
+pnpacpi_init() unless the dependency is met. Hence, when such PNP
+device's supplier device is probed, the PNP device need to be added to
+the PNP data structures. So, introduce pnpacpi_init_2() for doing this
+which gets called as part of clearing the dependency.
+
+This is currently required for RISC-V. Hence, restricted the code with a
+CONFIG option enabled for RISC-V.
+
+Since pnpacpi_add_device() can be called now even after boot,
+__init attribute is removed from pnpacpi_add_device() and its dependent
+functions.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/scan.c     | 11 +++++++++++
- include/acpi/acpi_bus.h |  1 +
- 2 files changed, 12 insertions(+)
+ drivers/acpi/scan.c            |  4 +++
+ drivers/pnp/pnpacpi/core.c     | 24 ++++++++++---
+ drivers/pnp/pnpacpi/rsparser.c | 63 +++++++++++++++++-----------------
+ include/linux/pnp.h            |  7 ++++
+ 4 files changed, 62 insertions(+), 36 deletions(-)
 
 diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 07e91616b7d4..8e23b9508716 100644
+index 8e23b9508716..086ae040a5ad 100644
 --- a/drivers/acpi/scan.c
 +++ b/drivers/acpi/scan.c
-@@ -2073,11 +2073,22 @@ int acpi_scan_add_dep(acpi_handle handle, struct acpi_handle_list *dep_devices)
- 	return count;
+@@ -19,6 +19,7 @@
+ #include <linux/dma-map-ops.h>
+ #include <linux/platform_data/x86/apple.h>
+ #include <linux/pgtable.h>
++#include <linux/pnp.h>
+ #include <linux/crc32.h>
+ #include <linux/dma-direct.h>
+ 
+@@ -2370,6 +2371,9 @@ static void acpi_scan_clear_dep_fn(struct work_struct *work)
+ 	acpi_bus_attach(cdw->adev, (void *)true);
+ 	acpi_scan_lock_release();
+ 
++	if (IS_ENABLED(CONFIG_ARCH_ACPI_DEFERRED_GSI) && IS_ENABLED(CONFIG_PNPACPI))
++		pnpacpi_init_2(cdw->adev);
++
+ 	acpi_dev_put(cdw->adev);
+ 	kfree(cdw);
+ }
+diff --git a/drivers/pnp/pnpacpi/core.c b/drivers/pnp/pnpacpi/core.c
+index a0927081a003..c81893fc1fb2 100644
+--- a/drivers/pnp/pnpacpi/core.c
++++ b/drivers/pnp/pnpacpi/core.c
+@@ -26,7 +26,7 @@ static int num;
+ #define TEST_ALPHA(c) \
+ 	if (!('A' <= (c) && (c) <= 'Z')) \
+ 		return 0
+-static int __init ispnpidacpi(const char *id)
++static int ispnpidacpi(const char *id)
+ {
+ 	TEST_ALPHA(id[0]);
+ 	TEST_ALPHA(id[1]);
+@@ -194,7 +194,7 @@ struct pnp_protocol pnpacpi_protocol = {
+ };
+ EXPORT_SYMBOL(pnpacpi_protocol);
+ 
+-static const char *__init pnpacpi_get_id(struct acpi_device *device)
++static const char *pnpacpi_get_id(struct acpi_device *device)
+ {
+ 	struct acpi_hardware_id *id;
+ 
+@@ -206,7 +206,7 @@ static const char *__init pnpacpi_get_id(struct acpi_device *device)
+ 	return NULL;
  }
  
-+u32 __weak arch_acpi_add_auto_dep(acpi_handle handle) { return 0; }
-+
- static u32 acpi_scan_check_dep(acpi_handle handle)
+-static int __init pnpacpi_add_device(struct acpi_device *device)
++static int pnpacpi_add_device(struct acpi_device *device)
  {
- 	struct acpi_handle_list dep_devices;
- 	u32 count = 0;
+ 	struct pnp_dev *dev;
+ 	const char *pnpid;
+@@ -283,6 +283,23 @@ static int __init pnpacpi_add_device(struct acpi_device *device)
+ 	return 0;
+ }
  
-+	/*
-+	 * Some architectures like RISC-V need to add dependencies for
-+	 * all devices which use GSI to the interrupt controller so that
-+	 * interrupt controller is probed before any of those devices.
-+	 * Instead of mandating _DEP on all the devices, detect the
-+	 * dependency and add automatically.
-+	 */
-+	count += arch_acpi_add_auto_dep(handle);
++int pnpacpi_disabled;
 +
- 	/*
- 	 * Check for _HID here to avoid deferring the enumeration of:
- 	 * 1. PCI devices.
-diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
-index 28a9b87c23fa..5fba4075d764 100644
---- a/include/acpi/acpi_bus.h
-+++ b/include/acpi/acpi_bus.h
-@@ -994,6 +994,7 @@ static inline void acpi_put_acpi_dev(struct acpi_device *adev)
- int acpi_wait_for_acpi_ipmi(void);
++#ifdef CONFIG_ARCH_ACPI_DEFERRED_GSI
++void pnpacpi_init_2(struct acpi_device *adev)
++{
++	if (acpi_disabled || pnpacpi_disabled)
++		return;
++
++	if (!adev)
++		return;
++
++	if (acpi_is_pnp_device(adev) && acpi_dev_ready_for_enumeration(adev))
++		pnpacpi_add_device(adev);
++}
++
++#endif
++
+ static acpi_status __init pnpacpi_add_device_handler(acpi_handle handle,
+ 						     u32 lvl, void *context,
+ 						     void **rv)
+@@ -296,7 +313,6 @@ static acpi_status __init pnpacpi_add_device_handler(acpi_handle handle,
+ 	return AE_OK;
+ }
  
- int acpi_scan_add_dep(acpi_handle handle, struct acpi_handle_list *dep_devices);
-+u32 arch_acpi_add_auto_dep(acpi_handle handle);
- #else	/* CONFIG_ACPI */
+-int pnpacpi_disabled __initdata;
+ static int __init pnpacpi_init(void)
+ {
+ 	if (acpi_disabled || pnpacpi_disabled) {
+diff --git a/drivers/pnp/pnpacpi/rsparser.c b/drivers/pnp/pnpacpi/rsparser.c
+index c02ce0834c2c..1008599901a2 100644
+--- a/drivers/pnp/pnpacpi/rsparser.c
++++ b/drivers/pnp/pnpacpi/rsparser.c
+@@ -289,9 +289,9 @@ int pnpacpi_parse_allocated_resource(struct pnp_dev *dev)
+ 	return 0;
+ }
  
- static inline int register_acpi_bus_type(void *bus) { return 0; }
+-static __init void pnpacpi_parse_dma_option(struct pnp_dev *dev,
+-					    unsigned int option_flags,
+-					    struct acpi_resource_dma *p)
++static void pnpacpi_parse_dma_option(struct pnp_dev *dev,
++				     unsigned int option_flags,
++				     struct acpi_resource_dma *p)
+ {
+ 	int i;
+ 	unsigned char map = 0, flags;
+@@ -303,9 +303,9 @@ static __init void pnpacpi_parse_dma_option(struct pnp_dev *dev,
+ 	pnp_register_dma_resource(dev, option_flags, map, flags);
+ }
+ 
+-static __init void pnpacpi_parse_irq_option(struct pnp_dev *dev,
+-					    unsigned int option_flags,
+-					    struct acpi_resource_irq *p)
++static void pnpacpi_parse_irq_option(struct pnp_dev *dev,
++				     unsigned int option_flags,
++				     struct acpi_resource_irq *p)
+ {
+ 	int i;
+ 	pnp_irq_mask_t map;
+@@ -320,9 +320,9 @@ static __init void pnpacpi_parse_irq_option(struct pnp_dev *dev,
+ 	pnp_register_irq_resource(dev, option_flags, &map, flags);
+ }
+ 
+-static __init void pnpacpi_parse_ext_irq_option(struct pnp_dev *dev,
+-					unsigned int option_flags,
+-					struct acpi_resource_extended_irq *p)
++static void pnpacpi_parse_ext_irq_option(struct pnp_dev *dev,
++					 unsigned int option_flags,
++					 struct acpi_resource_extended_irq *p)
+ {
+ 	int i;
+ 	pnp_irq_mask_t map;
+@@ -344,9 +344,9 @@ static __init void pnpacpi_parse_ext_irq_option(struct pnp_dev *dev,
+ 	pnp_register_irq_resource(dev, option_flags, &map, flags);
+ }
+ 
+-static __init void pnpacpi_parse_port_option(struct pnp_dev *dev,
+-					     unsigned int option_flags,
+-					     struct acpi_resource_io *io)
++static void pnpacpi_parse_port_option(struct pnp_dev *dev,
++				      unsigned int option_flags,
++				      struct acpi_resource_io *io)
+ {
+ 	unsigned char flags = 0;
+ 
+@@ -357,16 +357,16 @@ static __init void pnpacpi_parse_port_option(struct pnp_dev *dev,
+ }
+ 
+ static __init void pnpacpi_parse_fixed_port_option(struct pnp_dev *dev,
+-					unsigned int option_flags,
+-					struct acpi_resource_fixed_io *io)
++						   unsigned int option_flags,
++						   struct acpi_resource_fixed_io *io)
+ {
+ 	pnp_register_port_resource(dev, option_flags, io->address, io->address,
+ 				   0, io->address_length, IORESOURCE_IO_FIXED);
+ }
+ 
+-static __init void pnpacpi_parse_mem24_option(struct pnp_dev *dev,
+-					      unsigned int option_flags,
+-					      struct acpi_resource_memory24 *p)
++static void pnpacpi_parse_mem24_option(struct pnp_dev *dev,
++				       unsigned int option_flags,
++				       struct acpi_resource_memory24 *p)
+ {
+ 	unsigned char flags = 0;
+ 
+@@ -376,9 +376,9 @@ static __init void pnpacpi_parse_mem24_option(struct pnp_dev *dev,
+ 				  p->alignment, p->address_length, flags);
+ }
+ 
+-static __init void pnpacpi_parse_mem32_option(struct pnp_dev *dev,
+-					      unsigned int option_flags,
+-					      struct acpi_resource_memory32 *p)
++static void pnpacpi_parse_mem32_option(struct pnp_dev *dev,
++				       unsigned int option_flags,
++				       struct acpi_resource_memory32 *p)
+ {
+ 	unsigned char flags = 0;
+ 
+@@ -388,9 +388,9 @@ static __init void pnpacpi_parse_mem32_option(struct pnp_dev *dev,
+ 				  p->alignment, p->address_length, flags);
+ }
+ 
+-static __init void pnpacpi_parse_fixed_mem32_option(struct pnp_dev *dev,
+-					unsigned int option_flags,
+-					struct acpi_resource_fixed_memory32 *p)
++static void pnpacpi_parse_fixed_mem32_option(struct pnp_dev *dev,
++					     unsigned int option_flags,
++					     struct acpi_resource_fixed_memory32 *p)
+ {
+ 	unsigned char flags = 0;
+ 
+@@ -400,9 +400,9 @@ static __init void pnpacpi_parse_fixed_mem32_option(struct pnp_dev *dev,
+ 				  0, p->address_length, flags);
+ }
+ 
+-static __init void pnpacpi_parse_address_option(struct pnp_dev *dev,
+-						unsigned int option_flags,
+-						struct acpi_resource *r)
++static void pnpacpi_parse_address_option(struct pnp_dev *dev,
++					 unsigned int option_flags,
++					 struct acpi_resource *r)
+ {
+ 	struct acpi_resource_address64 addr, *p = &addr;
+ 	acpi_status status;
+@@ -427,9 +427,9 @@ static __init void pnpacpi_parse_address_option(struct pnp_dev *dev,
+ 					   IORESOURCE_IO_FIXED);
+ }
+ 
+-static __init void pnpacpi_parse_ext_address_option(struct pnp_dev *dev,
+-						    unsigned int option_flags,
+-						    struct acpi_resource *r)
++static void pnpacpi_parse_ext_address_option(struct pnp_dev *dev,
++					     unsigned int option_flags,
++					     struct acpi_resource *r)
+ {
+ 	struct acpi_resource_extended_address64 *p = &r->data.ext_address64;
+ 	unsigned char flags = 0;
+@@ -451,8 +451,7 @@ struct acpipnp_parse_option_s {
+ 	unsigned int option_flags;
+ };
+ 
+-static __init acpi_status pnpacpi_option_resource(struct acpi_resource *res,
+-						  void *data)
++static acpi_status pnpacpi_option_resource(struct acpi_resource *res, void *data)
+ {
+ 	int priority;
+ 	struct acpipnp_parse_option_s *parse_data = data;
+@@ -547,7 +546,7 @@ static __init acpi_status pnpacpi_option_resource(struct acpi_resource *res,
+ 	return AE_OK;
+ }
+ 
+-int __init pnpacpi_parse_resource_option_data(struct pnp_dev *dev)
++int pnpacpi_parse_resource_option_data(struct pnp_dev *dev)
+ {
+ 	struct acpi_device *acpi_dev = dev->data;
+ 	acpi_handle handle = acpi_dev->handle;
+diff --git a/include/linux/pnp.h b/include/linux/pnp.h
+index ddbe7c3ca4ce..440f8c268a29 100644
+--- a/include/linux/pnp.h
++++ b/include/linux/pnp.h
+@@ -347,6 +347,7 @@ static inline struct acpi_device *pnp_acpi_device(struct pnp_dev *dev)
+ 		return dev->data;
+ 	return NULL;
+ }
++
+ #else
+ #define pnp_acpi_device(dev) 0
+ #endif
+@@ -514,4 +515,10 @@ static inline void pnp_unregister_driver(struct pnp_driver *drv) { }
+ 	module_driver(__pnp_driver, pnp_register_driver, \
+ 				    pnp_unregister_driver)
+ 
++#ifdef CONFIG_ARCH_ACPI_DEFERRED_GSI
++void pnpacpi_init_2(struct acpi_device *adev);
++#else
++static inline void pnpacpi_init_2(struct acpi_device *adev) { }
++#endif
++
+ #endif /* _LINUX_PNP_H */
 -- 
 2.40.1
 
