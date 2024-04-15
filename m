@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A48C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 07:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C715C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 07:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T1MaqNWE9DUj14Mu3SNiWmXP3IXwaSesKlK2vzNgW20=; b=k3bSZv44xC5NHE
-	VHYwQm1+YlqQBji9yO170Rwca7XIE33v69/GGaZriRs082p0OuVF5pfmkKIGSlxU4TlZzv/vjqh+k
-	KbkEsQoMH5TMvvaJCcr+yhIsyYgW2SCRUIQojxiSi9zgpRtJudnIZYZapck0kaYfU3IegqUL16fAX
-	4dqI1BFry36cgHCvYuzEfCJcxO8Jec4w/y678xS/XszRKJNYlbqiIbDaAzBfiZgMdiYQz3ok1X/BR
-	/V8Ka7tmvooM969VeZmDMFki7uS5bboYbhg8Yo0wnlPveXGxC78ClMKLDEnAJ1g1SupH+aIav7aez
-	DmfnDSmEN5uWCWA3if5g==;
+	List-Owner; bh=+b6zj0DV5312hJm2f46u4WEPXNErVwsSd5HqKOwJdSg=; b=eF3xP2xcFE9VJj
+	wBa06WjEeBQYfXxwcZxA4GVAV1yOadbFsIBMTqo0RJKoVnWauXh6UkI32bMHylECihGV2Pmnp2h9j
+	D+pBKUUmoBO5O7gY+LpQFto1Y3NuyRwy6YyL5A9f7bJkSG9Uhp7Kroy3+MpkyfICF7SZpv+aK5G8T
+	o+BiZQLA9vO42zMVk5u+e3brDMusKglj+Rkf5JL5W29tkrUZQazbdCySZkFU4XUAQDHZ7A/uPerxQ
+	LpR6jq4KGQUjSpJbA4M0Ma2tknXG+fwBQfTza84yUgfD20XtBU1tRBPFw5kSPaqALdePi5vuFUxJE
+	+djlLRMHACbHatRidLvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwH1B-00000007Nl6-0tiz;
-	Mon, 15 Apr 2024 07:44:45 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1rwH9A-00000007OqY-0zqO;
+	Mon, 15 Apr 2024 07:53:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwH17-00000007NkN-1Km3
-	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 07:44:43 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1EFB9C000A;
-	Mon, 15 Apr 2024 07:44:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1713167075;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QiMNpOSoKUjR1Wtr6GuPAYb1hdJwJ3VRxcscaIKAfYI=;
-	b=Nvk/rXZKJbOHwRNhheJEh6OEqevzX5EWhGMEBpjQwRuAGofgY90i5t6ve7M8rCOgybM9AI
-	LvhqNrQbmL32AwGzGiPjynna5C4jrUUslDb1QI2DPsTtgPNzmfXol/ytndeH8zSxhMKeG3
-	tf027rlA9YlmDZWO0ORc/Y/ewPz3C5F0uMYGrMHAC6jG58tezdRBgGA8fVMRPQdZ9zkWGz
-	WQFC3gdATNbxSJuFIRETajuWjeQq5Hj6JOEYzmvhhuxtPqRUIMUZx4LNENGZ0WIKiS0Cq1
-	G2BCU+OjutjghLev5pLgozyyDu420qMyizc7fMUeom7UBnM1hvvqRpUwQUGqSw==
-Message-ID: <16df0d66-991a-4d9c-9321-b139555a5e64@bootlin.com>
-Date: Mon, 15 Apr 2024 09:44:32 +0200
+	id 1rwH97-00000007Opa-45Oi;
+	Mon, 15 Apr 2024 07:52:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=8YIeaNZhu2VwYrI498gRkCoUAUbEjZA2ART1G/gViK0=; b=q4YHS8FjBEAnMbuDl+TMKsEKGP
+	DM6iyFt6uA7Bo5adMws5/s0t1+j9HugdPjdNQD0yCOEfV7ZoW+QC17+eG/HZdmmEoyHPU8JoOx9XL
+	7Fx3fT7PsknHnmu65yuhapSgCRz6CXa3c6A/kM7Sga97giJ17RK2CcTur3HI5Bz9lkxAWJiegTEQD
+	TRBs7jlUSsh22rwhDKkQsCKrJadSsFPPtwcG8DzvOoayr4YqBfDfQ7mNeiHohXm2HpjY17hnCJFMz
+	Wnf5Q5krVNT8G7J3KzkDXMsJA5bvEb5NAjurd+XnOU9adVQGbZMEFeMoQqJ3YmHp5tNlP8wxE1yRv
+	RKdldQfQ==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rwH8s-0000000AT0A-1En1;
+	Mon, 15 Apr 2024 07:52:44 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id E025B30040C; Mon, 15 Apr 2024 09:52:41 +0200 (CEST)
+Date: Mon, 15 Apr 2024 09:52:41 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v4 05/15] mm: introduce execmem_alloc() and execmem_free()
+Message-ID: <20240415075241.GF40213@noisy.programming.kicks-ass.net>
+References: <20240411160051.2093261-1-rppt@kernel.org>
+ <20240411160051.2093261-6-rppt@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@bootlin.com, Jisheng Zhang <jszhang@kernel.org>,
- Liu Gui <kenneth.liu@sophgo.com>, Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
- dlan@gentoo.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: (subset) [PATCH v9 0/6] riscv: sophgo: add clock support for
- Sophgo CV1800/SG2000 SoCs
-To: Inochi Amaoto <inochiama@outlook.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
- Chen Wang <unicorn_wang@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-References: <IA1PR20MB4953512A4DCAF293D7B1CBC2BB262@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953E5E78F930EE25A86EE1CBB052@IA1PR20MB4953.namprd20.prod.outlook.com>
- <2696c0e0-0f15-44d1-ba40-dcab4be802d2@bootlin.com>
- <IA1PR20MB49536A93C7A684EAE844E316BB0A2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953A5ACD22C8CB791C76BABBB0A2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <a86c6e6d-812b-4777-981b-c747ca601372@bootlin.com>
- <IA1PR20MB495304E9A53F0893C821DD78BB0A2@IA1PR20MB4953.namprd20.prod.outlook.com>
-Content-Language: en-US
-From: Michael Opdenacker <michael.opdenacker@bootlin.com>
-Organization: Bootlin
-In-Reply-To: <IA1PR20MB495304E9A53F0893C821DD78BB0A2@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-GND-Sasl: michael.opdenacker@bootlin.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_004441_721393_79580264 
-X-CRM114-Status: GOOD (  14.84  )
+Content-Disposition: inline
+In-Reply-To: <20240411160051.2093261-6-rppt@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,111 +93,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi
+On Thu, Apr 11, 2024 at 07:00:41PM +0300, Mike Rapoport wrote:
+> +/**
+> + * enum execmem_type - types of executable memory ranges
+> + *
+> + * There are several subsystems that allocate executable memory.
+> + * Architectures define different restrictions on placement,
+> + * permissions, alignment and other parameters for memory that can be used
+> + * by these subsystems.
+> + * Types in this enum identify subsystems that allocate executable memory
+> + * and let architectures define parameters for ranges suitable for
+> + * allocations by each subsystem.
+> + *
+> + * @EXECMEM_DEFAULT: default parameters that would be used for types that
+> + * are not explcitly defined.
+> + * @EXECMEM_MODULE_TEXT: parameters for module text sections
+> + * @EXECMEM_KPROBES: parameters for kprobes
+> + * @EXECMEM_FTRACE: parameters for ftrace
+> + * @EXECMEM_BPF: parameters for BPF
+> + * @EXECMEM_TYPE_MAX:
+> + */
+> +enum execmem_type {
+> +	EXECMEM_DEFAULT,
+> +	EXECMEM_MODULE_TEXT = EXECMEM_DEFAULT,
+> +	EXECMEM_KPROBES,
+> +	EXECMEM_FTRACE,
+> +	EXECMEM_BPF,
+> +	EXECMEM_TYPE_MAX,
+> +};
 
-On 4/14/24 at 11:41, Inochi Amaoto wrote:
->> Gotcha for the CONFIG_CLK_SOPHGO_CV1800 setting. However, I'm confused. Why
->> is this setting available in linux-next, but neither in
->> git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git ("master" and
->> "for-next") nor in github.com/sophgo/linux.git ("master" and "for-next") ?
-> At now, we only maintain the dts related change, but not the driver
-> code. The driver code is usually applied by the subsystem maintainer.
-> This is why you only see the clk changes in the linux-next.
->
->> What's the tree used to push to linux-next?
->>
-> As you see, the driver code applied to the clk/for-next. That is the
-> tree used to push.
+Can we please get a break-down of how all these types are actually
+different from one another?
 
-It makes perfect sense, thanks!
-
-So, I tried to boot my Milk-V Duo S board with the latest linux-next 
-kernel (with CONFIG_CLK_SOPHGO_CV1800=y). Here's what I'm getting:
-
-[    1.933301] mmc0: SDHCI controller on 4310000.mmc [4310000.mmc] using ADMA 64-bit
-[    1.947274] Legacy PMU implementation is available
-[    1.954001] clk: Disabling unused clocks
-[    1.959283] PM: genpd: Disabling unused power domains
-[    1.964840] ALSA device list:
-[    1.968165]   No soundcards found.
-[    1.975652] dw-apb-uart 4140000.serial: forbid DMA for kernel console
-[    2.133075] mmc0: Internal clock never stabilised.
-[    2.138256] mmc0: sdhci: ============ SDHCI REGISTER DUMP ===========
-[    2.145082] mmc0: sdhci: Sys addr:  0x00000000 | Version:  0x00000000
-[    2.151906] mmc0: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
-[    2.158725] mmc0: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
-[    2.165543] mmc0: sdhci: Present:   0x00000000 | Host ctl: 0x00000000
-[    2.172362] mmc0: sdhci: Power:     0x00000000 | Blk gap:  0x00000000
-[    2.179220] mmc0: sdhci: Wake-up:   0x00000000 | Clock:    0x00000000
-[    2.186056] mmc0: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
-[    2.192878] mmc0: sdhci: Int enab:  0x00000000 | Sig enab: 0x00000000
-[    2.199699] mmc0: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
-[    2.206520] mmc0: sdhci: Caps:      0x00000000 | Caps_1:   0x00000000
-[    2.213342] mmc0: sdhci: Cmd:       0x00000000 | Max curr: 0x00000000
-[    2.220162] mmc0: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
-[    2.226983] mmc0: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
-[    2.233798] mmc0: sdhci: Host ctl2: 0x00000000
-[    2.238558] mmc0: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
-[    2.246189] mmc0: sdhci: ============================================
-[    2.256290] /dev/root: Can't open blockdev
-[    2.261025] VFS: Cannot open root device "/dev/mmcblk0p2" or unknown-block(0,0): error -6
-
-Here's my device tree (compiled with the sophgo for-next) branch:
-
-/dts-v1/;
-
-#include "cv1812h.dtsi"
-
-/ {
-         model = "Milk-V Duo S";
-         compatible = "milkv,duos", "sophgo,cv1812h";
-
-         aliases {
-                 serial0 = &uart0;
-         };
-
-         chosen {
-                 stdout-path = "serial0:115200n8";
-         };
-
-         memory@80000000 {
-                 device_type = "memory";
-                 reg = <0x80000000 0x20000000>;
-         };
-};
-
-&osc {
-         clock-frequency = <25000000>;
-};
-
-&sdhci0 {
-         status = "okay";
-         bus-width = <4>;
-         no-mmc;
-         no-sdio;
-         disable-wp;
-};
-
-&uart0 {
-         status = "okay";
-};
-
-
-What's frustrating is that I got the mmc working a few days back :-)
-Hoping this helps...
-Cheers
-Michael.
-
--- 
-Michael Opdenacker, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+I'm thinking some platforms have a tiny immediate space (arm64 comes to
+mind) and has less strict placement constraints for some of them?
 
 _______________________________________________
 linux-riscv mailing list
