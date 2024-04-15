@@ -4,100 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CC5C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 16:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC37C00A94
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 16:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NWJBu0/yV41euSxmQ8Hx2jGihovNmrW1muGONtEE51w=; b=bbyjTza9bg+Asm
-	klEy9b5uZxPMsHvu0UjABvc4OtykoPtK+rChIaQo7V9RWxhcgv/WuyZy5je1kP4j1l9JAdsIDlmY6
-	wtE5BOzqc6DHqOFOVT9mnKIlTXahSbgM0KuJj8ESFa4zoAx9Vss32n34vQr2c1EvUqSNviXA0fnwN
-	K/ihulni2YedOgjD27bMXSMFIm/gABNSyYgwGTw+ZSGuR3pPsdhsNyNwGO9Gojj9qZOJV1QQS2V0Y
-	lSWI2XpbJO/UtGZRoOlo+CaQMiHQw5Uxj6RZjUcaAba6xhiIjX2ZCM43Zlp9E80NJvX6JPlyPxkjH
-	5bL+NKf4D8E3faVZx4lQ==;
+	List-Owner; bh=i/jI4z1exJxnphy1AEpKXTYbyn2jt36Qc3iS/bq2IPg=; b=MI+ILnBj+CJnhz
+	7NJzA120zfQCS0DOHYTucVioPU1sPg58HFxJpIQXnOFzaw0hTJOmcP6B5qXQKIfIZ5snQ5ReKzpE3
+	1BzO/RF1K57QyK4x50GbD80MQTkvMPoulXjcrS/L3Ph9ddZSwMMjwxd/laQUjjjMWA40eXx4VmwIa
+	Xc+44yHzH1+6/ji0I0yd/2Waa95BX2cJIDCEqrJnxHJwuLE00+5Pr1fz0eZvAnm7A4J/dQ70QX1rz
+	dpyRFSxoGIYlvHY0DLGaWiGAO9NFSm5LLOw+xu8sdQy1n2Pq9h/aK8kR+/vM9UFntlIobP6oS4PId
+	YaHEQB/nqS2U4wa12m9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwOr2-00000008zoM-43Ea;
-	Mon, 15 Apr 2024 16:06:48 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1rwPa0-000000099qM-11Ph;
+	Mon, 15 Apr 2024 16:53:16 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwOqv-00000008zjy-3lnE
-	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 16:06:47 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-5ce9555d42eso2059632a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 09:06:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1713197200; x=1713802000; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=W9YkT2PBxlsTiQpc9k80Xb2w2qGzzlQLFXvx15ENFSo=;
-        b=Y0orKxxosNBMSkxwxxI5RPcBnuxSyQcBP3Vje4e+Iq1460/TQPYPjTBkHOMWWGRjAO
-         mcY8qEoHHt3j+4IAkH81OsNnJgX4gbIeefrD7RIuwpxpOly8djUkxIK8tgeuMS6mOZph
-         de1kK5H3enJaQXOjkdyOZsQpXvxtPo82gA+38=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713197200; x=1713802000;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=W9YkT2PBxlsTiQpc9k80Xb2w2qGzzlQLFXvx15ENFSo=;
-        b=fwCgiBpNYM527cYRvXDNTrzkbI6TTDFyzczhBUqp5RVWtQx1zgRED13Ronx7Y3XihF
-         2r4qgadmplFM/uHkCf/NEacc83xC/CDLER1U3KxOJdbppyXHSsWQtJXLC08chW6du1yH
-         ePryW0qkFP8ggwW/dVY0kRKRC24C/uLoWFWvlKBryGtCB/me4X5Hhx0L4frlgFl5XN15
-         7SHuVXaaQdVp2eJqGRUQH6d65kHqUqR584cZHMfw/EvPs2oryMqZdTgDNGKWbfWHyl2d
-         pJ3bAp/wBkx5F57rWQRO3SFfU2YnW+W+AxuNan/8ditS5Er1HbIGQMooOab5dMgST5O6
-         rBCA==
-X-Forwarded-Encrypted: i=1; AJvYcCW8YAD+ITV3U/ilM0y/tJ6kmPKuRWI48TANuL1/RJ1aIKqV2LCn000PXBKbnOAfoLoYuX7uxU3toOAWpTnb5SdR8zrQVCya1DJyCo8Ya1m3
-X-Gm-Message-State: AOJu0YwIfSfzRf83Nne9pKKI3IdfhfWiaT0g16XSeZMCZy1RH2jbE3HB
-	48Etdf5mJP0IuVEvwTg0efIOBWSX2rIiCLYz3Ka13Ya68USraZS1omcWJy0eFA==
-X-Google-Smtp-Source: AGHT+IEOd/x1N/CPtx25Nf+PUqf1rfZqa2mTy1XxaxcS7HXEzP+ucQDv/NhrafY/fDlqqKtbbV3LWA==
-X-Received: by 2002:a17:90b:3d3:b0:2a5:ba9d:a06b with SMTP id go19-20020a17090b03d300b002a5ba9da06bmr10113697pjb.5.1713197200332;
-        Mon, 15 Apr 2024 09:06:40 -0700 (PDT)
-Received: from www.outflux.net ([198.0.35.241])
-        by smtp.gmail.com with ESMTPSA id l6-20020a17090a49c600b002a46b925e99sm8796108pjm.18.2024.04.15.09.06.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Apr 2024 09:06:39 -0700 (PDT)
-Date: Mon, 15 Apr 2024 09:06:39 -0700
-From: Kees Cook <keescook@chromium.org>
-To: j.granados@samsung.com
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Miaohe Lin <linmiaohe@huawei.com>,
-	Naoya Horiguchi <naoya.horiguchi@nec.com>,
-	John Johansen <john.johansen@canonical.com>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	David Howells <dhowells@redhat.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
+	id 1rwPZw-000000099o3-3IgN;
+	Mon, 15 Apr 2024 16:53:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 9732BCE0E42;
+	Mon, 15 Apr 2024 16:53:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57527C113CC;
+	Mon, 15 Apr 2024 16:52:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713199989;
+	bh=xJZBsBz/ovkewwHaqkWgEKUCLl3sCJ9igaEyaiYi248=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n9583Q6y/kVDUsC/Sk35DHsUlzQxomP4brOeJWEqMK5tTGdFfL5yXDBwNh/dc1R8t
+	 OnTvm1XERGxz1JxTUG2JWpufMQFhEpCf0upLztHBi97mz83HQzMB81Cj+bMHmQeLrO
+	 vdSyDt4foue7u5p0z1MAb6dHJ1a7FzO8x/EelybB33sZUvBK4gAoiim0DQVOThRBq2
+	 3ERPw7wOWw5Nw3DB6b+PtiKpkHgDPedzRaGZsUTWRIfT1yQsmJ+qNm4oAZ/M1rF747
+	 dHBdlhRGfIq7wIyTjPR6B4GdpTUD5V0JGj4lcLZS8oQu4cdKYlcTv5ldjuZ1AicK/r
+	 qCFC3y/AMEfuA==
+Date: Mon, 15 Apr 2024 19:51:52 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
 	"David S. Miller" <davem@davemloft.net>,
-	Jens Axboe <axboe@kernel.dk>,
-	Pavel Begunkov <asml.silence@gmail.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Luis Chamberlain <mcgrof@kernel.org>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org,
-	keyrings@vger.kernel.org, linux-crypto@vger.kernel.org,
-	io-uring@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/7] security: Remove the now superfluous sentinel
- element from ctl_table array
-Message-ID: <202404150906.C37D8D9DA1@keescook>
-References: <20240328-jag-sysctl_remset_misc-v1-0-47c1463b3af2@samsung.com>
- <20240328-jag-sysctl_remset_misc-v1-2-47c1463b3af2@samsung.com>
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v4 05/15] mm: introduce execmem_alloc() and execmem_free()
+Message-ID: <Zh1bKAaD7nLyJ9ya@kernel.org>
+References: <20240411160051.2093261-1-rppt@kernel.org>
+ <20240411160051.2093261-6-rppt@kernel.org>
+ <20240415075241.GF40213@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240328-jag-sysctl_remset_misc-v1-2-47c1463b3af2@samsung.com>
+In-Reply-To: <20240415075241.GF40213@noisy.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_090641_990269_CF2B93BE 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20240415_095313_211592_2574A741 
+X-CRM114-Status: GOOD (  24.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,24 +101,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 28, 2024 at 04:57:49PM +0100, Joel Granados via B4 Relay wrote:
-> From: Joel Granados <j.granados@samsung.com>
+On Mon, Apr 15, 2024 at 09:52:41AM +0200, Peter Zijlstra wrote:
+> On Thu, Apr 11, 2024 at 07:00:41PM +0300, Mike Rapoport wrote:
+> > +/**
+> > + * enum execmem_type - types of executable memory ranges
+> > + *
+> > + * There are several subsystems that allocate executable memory.
+> > + * Architectures define different restrictions on placement,
+> > + * permissions, alignment and other parameters for memory that can be used
+> > + * by these subsystems.
+> > + * Types in this enum identify subsystems that allocate executable memory
+> > + * and let architectures define parameters for ranges suitable for
+> > + * allocations by each subsystem.
+> > + *
+> > + * @EXECMEM_DEFAULT: default parameters that would be used for types that
+> > + * are not explcitly defined.
+> > + * @EXECMEM_MODULE_TEXT: parameters for module text sections
+> > + * @EXECMEM_KPROBES: parameters for kprobes
+> > + * @EXECMEM_FTRACE: parameters for ftrace
+> > + * @EXECMEM_BPF: parameters for BPF
+> > + * @EXECMEM_TYPE_MAX:
+> > + */
+> > +enum execmem_type {
+> > +	EXECMEM_DEFAULT,
+> > +	EXECMEM_MODULE_TEXT = EXECMEM_DEFAULT,
+> > +	EXECMEM_KPROBES,
+> > +	EXECMEM_FTRACE,
+> > +	EXECMEM_BPF,
+> > +	EXECMEM_TYPE_MAX,
+> > +};
 > 
-> This commit comes at the tail end of a greater effort to remove the
-> empty elements at the end of the ctl_table arrays (sentinels) which will
-> reduce the overall build time size of the kernel and run time memory
-> bloat by ~64 bytes per sentinel (further information Link :
-> https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
+> Can we please get a break-down of how all these types are actually
+> different from one another?
 > 
-> Remove the sentinel from all files under security/ that register a
-> sysctl table.
-> 
-> Signed-off-by: Joel Granados <j.granados@samsung.com>
+> I'm thinking some platforms have a tiny immediate space (arm64 comes to
+> mind) and has less strict placement constraints for some of them?
 
-Acked-by: Kees Cook <keescook@chromium.org> # loadpin & yama
+loongarch, mips, nios2 and sparc define modules address space different
+from vmalloc and use that for modules, kprobes and bpf (where supported).
+
+parisc uses vmalloc range for everything, but it sets permissions to
+PAGE_KERNEL_RWX because it's PAGE_KERNEL_EXEC is read only and it lacks
+set_memory_* APIs.
+
+arm has an address space for modules, but it fall back to the entire
+vmalloc with CONFIG_ARM_MODULE_PLTS=y.
+
+arm64 uses different ranges for modules and bpf/kprobes. For kprobes it
+does vmalloc(PAGE_KERNEL_ROX) and for bpf just plain vmalloc().
+For modules arm64 first tries to allocated from 128M below kernel_end and
+if that fails it uses 2G below kernel_end as a fallback.
+
+powerpc uses vmalloc space for everything for some configurations. For
+book3s-32 and 8xx it defines two ranges that are used for module text,
+kprobes and bpf and the module data can be allocated anywhere in vmalloc.
+
+riscv has an address space for modules, a different address space for bpf
+and uses vmalloc space for kprobes.
+
+s390 and x86 have modules address space and use that space for all
+executable allocations.
+
+The EXECMEM_FTRACE type is only used on s390 and x86 and for now it's there
+more for completeness rather to denote special constraints or properties.
 
 -- 
-Kees Cook
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
