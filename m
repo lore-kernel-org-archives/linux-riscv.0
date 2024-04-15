@@ -4,97 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C67C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 07:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A48C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 07:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=31fmFNm/FVQc5Fxnn06VHTiIyJUdeP88JjfbkBtxX1c=; b=2MJN0fl3G7nm3d
-	P04L00rzwwMByUPWbVgAnRQ2iI47Xbv9mXGySmMLZODu2X2cexb7au8mWV3w/GtJBXcZsQaWEJbsq
-	wxsfD7PU+KKPlA6YjJwUKR6EINNx9c3j780DAuiJlmVoV64IqoxW89ZAWk2cdiLxcYF7wkI1nSPGj
-	2Ls8NDdvJhhq3LtQJCwA515xPvwBNIC87rC3k9/101W78E1YmDuLoe5qIscYKCyDcvz4SyF9n5WjY
-	ECYUW0V/YiWfzRqrvuKERFTQkcfZA4ZQ8Z36DaVtTv/S/d96EL0R7Syy1FEjka2lxm3UWZEXLE0LJ
-	NnsGrOHnCDu1kKYKetUg==;
+	List-Owner; bh=T1MaqNWE9DUj14Mu3SNiWmXP3IXwaSesKlK2vzNgW20=; b=k3bSZv44xC5NHE
+	VHYwQm1+YlqQBji9yO170Rwca7XIE33v69/GGaZriRs082p0OuVF5pfmkKIGSlxU4TlZzv/vjqh+k
+	KbkEsQoMH5TMvvaJCcr+yhIsyYgW2SCRUIQojxiSi9zgpRtJudnIZYZapck0kaYfU3IegqUL16fAX
+	4dqI1BFry36cgHCvYuzEfCJcxO8Jec4w/y678xS/XszRKJNYlbqiIbDaAzBfiZgMdiYQz3ok1X/BR
+	/V8Ka7tmvooM969VeZmDMFki7uS5bboYbhg8Yo0wnlPveXGxC78ClMKLDEnAJ1g1SupH+aIav7aez
+	DmfnDSmEN5uWCWA3if5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwGh8-00000007KdR-1XSq;
-	Mon, 15 Apr 2024 07:24:02 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1rwH1B-00000007Nl6-0tiz;
+	Mon, 15 Apr 2024 07:44:45 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwGh5-00000007Kbp-3vj9
+	id 1rwH17-00000007NkN-1Km3
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 07:24:01 +0000
-Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-6e0f43074edso2045040a34.1
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 00:23:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1713165838; x=1713770638; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YPRTTnRNGB6MC8MgLxeQqBqXiKf58UGvbzByUZNl4Io=;
-        b=l8dwUpUIpXimpiyxyzH1sH570mH9ZWoMWvghid97IXl/+hlzQKvwSqTVctBC3IkJJw
-         vvdWcZ7HGPfzG59l55eux0ySWguZhfGZEjFNA2V1lwsn46sGZPjIrVj6GuD/e4RmGUlF
-         Z/IIlweY4+uhhGjm+le18kFdgJfOjIlUfHejJXui8dUQ3lfxsKA3b0w8byulV90GsJBy
-         d6sTFukXKs9rDmGJhLm4K9+qau4S9rch5jsgWfjT4Ti9AsKOZg3biETngw41XBPMR6Vd
-         HfNKc61ATJ0u2qY0me9B7/mEp6AbPDFE7j5hiEf9AAmEYCeMmnkoKbdC09pQoK7UerML
-         q6AA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713165838; x=1713770638;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YPRTTnRNGB6MC8MgLxeQqBqXiKf58UGvbzByUZNl4Io=;
-        b=DV6e4/FukJScG4TU7PLQyuywFo0FSyoFYz4feO0iu5agphdTxXXcNikp+Hh3K60ZR7
-         Er2fLZ9UudboDVIoaksOc9oRLrs5kF4KCmkMX21m4CJeEfTfFeNuOptUCF8ZDDT7AFkx
-         M9OmqZzNvQyKQ69Z9yc7Z8UUqnz4rVc3MAADiqsXZjnXXPBbkaEjgAkqqLbvEv4yuuax
-         lQUqAVGLz3U10WHXLLHBYPAScua7Dlrd6GY2ECLwFVNRzxmK61FW1FDEFxiGxuMBSjuB
-         RCwPSTSJyqYFhzCvf09/lk+b6LIbSpdyKx/7jTx05Orfc4mGTOO/l6utSm4b3Gjdb/Q6
-         os1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVFMzKxHXCTNBeZNVkNTAGPw56ZQp0xqLI2Up1WRa14Vfzxo1o/OyhuHJZH72+q3Wa1YXfmFzdCs+6GyFJyexUErFv7ZibUKFCJaS1XHLnb
-X-Gm-Message-State: AOJu0YxoK5tjBzs29d3FlieGFTd8csMSfTdDUsp+m3c7LYBX9pe5SEVf
-	IKKRh1bBaqXZMxv/IIzKLPrvp4tqCeseKAx9IJK4ijukVAYlc3mo
-X-Google-Smtp-Source: AGHT+IGpiBBC2cEu8GRBC8tpHfBybNg/WOBaHwzCJMcCDFu3ggw2rTC6WE2uAyi3jpLUgBGTX0hePw==
-X-Received: by 2002:a05:6808:2a7c:b0:3c7:a9b:74c2 with SMTP id fu28-20020a0568082a7c00b003c70a9b74c2mr2995368oib.5.1713165837810;
-        Mon, 15 Apr 2024 00:23:57 -0700 (PDT)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id ku4-20020a056808708400b003c718601b81sm105519oib.8.2024.04.15.00.23.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Apr 2024 00:23:55 -0700 (PDT)
-From: Chen Wang <unicornxw@gmail.com>
-To: aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com,
-	conor@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	mturquette@baylibre.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	richardcochran@gmail.com,
-	robh+dt@kernel.org,
-	sboyd@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	guoren@kernel.org,
-	jszhang@kernel.org,
-	inochiama@outlook.com,
-	samuel.holland@sifive.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v14 5/5] riscv: dts: add clock generator for Sophgo SG2042 SoC
-Date: Mon, 15 Apr 2024 15:23:49 +0800
-Message-Id: <ffb589094e3a111dfbf1c8961e9d3f328d2b9fde.1713164546.git.unicorn_wang@outlook.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1713164546.git.unicorn_wang@outlook.com>
-References: <cover.1713164546.git.unicorn_wang@outlook.com>
+	Mon, 15 Apr 2024 07:44:43 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1EFB9C000A;
+	Mon, 15 Apr 2024 07:44:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1713167075;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QiMNpOSoKUjR1Wtr6GuPAYb1hdJwJ3VRxcscaIKAfYI=;
+	b=Nvk/rXZKJbOHwRNhheJEh6OEqevzX5EWhGMEBpjQwRuAGofgY90i5t6ve7M8rCOgybM9AI
+	LvhqNrQbmL32AwGzGiPjynna5C4jrUUslDb1QI2DPsTtgPNzmfXol/ytndeH8zSxhMKeG3
+	tf027rlA9YlmDZWO0ORc/Y/ewPz3C5F0uMYGrMHAC6jG58tezdRBgGA8fVMRPQdZ9zkWGz
+	WQFC3gdATNbxSJuFIRETajuWjeQq5Hj6JOEYzmvhhuxtPqRUIMUZx4LNENGZ0WIKiS0Cq1
+	G2BCU+OjutjghLev5pLgozyyDu420qMyizc7fMUeom7UBnM1hvvqRpUwQUGqSw==
+Message-ID: <16df0d66-991a-4d9c-9321-b139555a5e64@bootlin.com>
+Date: Mon, 15 Apr 2024 09:44:32 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@bootlin.com, Jisheng Zhang <jszhang@kernel.org>,
+ Liu Gui <kenneth.liu@sophgo.com>, Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+ dlan@gentoo.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: (subset) [PATCH v9 0/6] riscv: sophgo: add clock support for
+ Sophgo CV1800/SG2000 SoCs
+To: Inochi Amaoto <inochiama@outlook.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
+ Chen Wang <unicorn_wang@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <IA1PR20MB4953512A4DCAF293D7B1CBC2BB262@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953E5E78F930EE25A86EE1CBB052@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <2696c0e0-0f15-44d1-ba40-dcab4be802d2@bootlin.com>
+ <IA1PR20MB49536A93C7A684EAE844E316BB0A2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953A5ACD22C8CB791C76BABBB0A2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <a86c6e6d-812b-4777-981b-c747ca601372@bootlin.com>
+ <IA1PR20MB495304E9A53F0893C821DD78BB0A2@IA1PR20MB4953.namprd20.prod.outlook.com>
+Content-Language: en-US
+From: Michael Opdenacker <michael.opdenacker@bootlin.com>
+Organization: Bootlin
+In-Reply-To: <IA1PR20MB495304E9A53F0893C821DD78BB0A2@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-GND-Sasl: michael.opdenacker@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_002400_022701_DACABF05 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20240415_004441_721393_79580264 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,129 +85,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Wang <unicorn_wang@outlook.com>
+Hi Inochi
 
-Add clock generator node to device tree for SG2042, and enable clock for
-uart.
+On 4/14/24 at 11:41, Inochi Amaoto wrote:
+>> Gotcha for the CONFIG_CLK_SOPHGO_CV1800 setting. However, I'm confused. Why
+>> is this setting available in linux-next, but neither in
+>> git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git ("master" and
+>> "for-next") nor in github.com/sophgo/linux.git ("master" and "for-next") ?
+> At now, we only maintain the dts related change, but not the driver
+> code. The driver code is usually applied by the subsystem maintainer.
+> This is why you only see the clk changes in the linux-next.
+>
+>> What's the tree used to push to linux-next?
+>>
+> As you see, the driver code applied to the clk/for-next. That is the
+> tree used to push.
 
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
----
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  | 12 +++++
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        | 49 ++++++++++++++++++-
- 2 files changed, 60 insertions(+), 1 deletion(-)
+It makes perfect sense, thanks!
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-index 49b4b9c2c101..80cb017974d8 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-@@ -14,6 +14,18 @@ chosen {
- 	};
- };
- 
-+&cgi_main {
-+	clock-frequency = <25000000>;
-+};
-+
-+&cgi_dpll0 {
-+	clock-frequency = <25000000>;
-+};
-+
-+&cgi_dpll1 {
-+	clock-frequency = <25000000>;
-+};
-+
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-index 81fda312f988..8aab027cf730 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-@@ -4,8 +4,10 @@
-  */
- 
- /dts-v1/;
-+#include <dt-bindings/clock/sophgo,sg2042-clkgen.h>
-+#include <dt-bindings/clock/sophgo,sg2042-pll.h>
-+#include <dt-bindings/clock/sophgo,sg2042-rpgate.h>
- #include <dt-bindings/interrupt-controller/irq.h>
--
- #include <dt-bindings/reset/sophgo,sg2042-reset.h>
- 
- #include "sg2042-cpus.dtsi"
-@@ -20,12 +22,54 @@ aliases {
- 		serial0 = &uart0;
- 	};
- 
-+	cgi_main: oscillator0 {
-+		compatible = "fixed-clock";
-+		clock-output-names = "cgi_main";
-+		#clock-cells = <0>;
-+	};
-+
-+	cgi_dpll0: oscillator1 {
-+		compatible = "fixed-clock";
-+		clock-output-names = "cgi_dpll0";
-+		#clock-cells = <0>;
-+	};
-+
-+	cgi_dpll1: oscillator2 {
-+		compatible = "fixed-clock";
-+		clock-output-names = "cgi_dpll1";
-+		#clock-cells = <0>;
-+	};
-+
- 	soc: soc {
- 		compatible = "simple-bus";
- 		#address-cells = <2>;
- 		#size-cells = <2>;
- 		ranges;
- 
-+		pllclk: clock-controller@70300100c0 {
-+			compatible = "sophgo,sg2042-pll";
-+			reg = <0x70 0x300100c0 0x0 0x40>;
-+			clocks = <&cgi_main>, <&cgi_dpll0>, <&cgi_dpll1>;
-+			#clock-cells = <1>;
-+		};
-+
-+		rpgate: clock-controller@7030010368 {
-+			compatible = "sophgo,sg2042-rpgate";
-+			reg = <0x70 0x30010368 0x0 0x98>;
-+			clocks = <&clkgen GATE_CLK_RP_CPU_NORMAL>;
-+			#clock-cells = <1>;
-+		};
-+
-+		clkgen: clock-controller@7030012000 {
-+			compatible = "sophgo,sg2042-clkgen";
-+			reg = <0x70 0x30012000 0x0 0x1000>;
-+			clocks = <&pllclk MPLL_CLK>,
-+				 <&pllclk FPLL_CLK>,
-+				 <&pllclk DPLL0_CLK>,
-+				 <&pllclk DPLL1_CLK>;
-+			#clock-cells = <1>;
-+		};
-+
- 		clint_mswi: interrupt-controller@7094000000 {
- 			compatible = "sophgo,sg2042-aclint-mswi", "thead,c900-aclint-mswi";
- 			reg = <0x00000070 0x94000000 0x00000000 0x00004000>;
-@@ -341,6 +385,9 @@ uart0: serial@7040000000 {
- 			interrupt-parent = <&intc>;
- 			interrupts = <112 IRQ_TYPE_LEVEL_HIGH>;
- 			clock-frequency = <500000000>;
-+			clocks = <&clkgen GATE_CLK_UART_500M>,
-+				 <&clkgen GATE_CLK_APB_UART>;
-+			clock-names = "baudclk", "apb_pclk";
- 			reg-shift = <2>;
- 			reg-io-width = <4>;
- 			resets = <&rstgen RST_UART0>;
+So, I tried to boot my Milk-V Duo S board with the latest linux-next 
+kernel (with CONFIG_CLK_SOPHGO_CV1800=y). Here's what I'm getting:
+
+[    1.933301] mmc0: SDHCI controller on 4310000.mmc [4310000.mmc] using ADMA 64-bit
+[    1.947274] Legacy PMU implementation is available
+[    1.954001] clk: Disabling unused clocks
+[    1.959283] PM: genpd: Disabling unused power domains
+[    1.964840] ALSA device list:
+[    1.968165]   No soundcards found.
+[    1.975652] dw-apb-uart 4140000.serial: forbid DMA for kernel console
+[    2.133075] mmc0: Internal clock never stabilised.
+[    2.138256] mmc0: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    2.145082] mmc0: sdhci: Sys addr:  0x00000000 | Version:  0x00000000
+[    2.151906] mmc0: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    2.158725] mmc0: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    2.165543] mmc0: sdhci: Present:   0x00000000 | Host ctl: 0x00000000
+[    2.172362] mmc0: sdhci: Power:     0x00000000 | Blk gap:  0x00000000
+[    2.179220] mmc0: sdhci: Wake-up:   0x00000000 | Clock:    0x00000000
+[    2.186056] mmc0: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    2.192878] mmc0: sdhci: Int enab:  0x00000000 | Sig enab: 0x00000000
+[    2.199699] mmc0: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    2.206520] mmc0: sdhci: Caps:      0x00000000 | Caps_1:   0x00000000
+[    2.213342] mmc0: sdhci: Cmd:       0x00000000 | Max curr: 0x00000000
+[    2.220162] mmc0: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    2.226983] mmc0: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    2.233798] mmc0: sdhci: Host ctl2: 0x00000000
+[    2.238558] mmc0: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    2.246189] mmc0: sdhci: ============================================
+[    2.256290] /dev/root: Can't open blockdev
+[    2.261025] VFS: Cannot open root device "/dev/mmcblk0p2" or unknown-block(0,0): error -6
+
+Here's my device tree (compiled with the sophgo for-next) branch:
+
+/dts-v1/;
+
+#include "cv1812h.dtsi"
+
+/ {
+         model = "Milk-V Duo S";
+         compatible = "milkv,duos", "sophgo,cv1812h";
+
+         aliases {
+                 serial0 = &uart0;
+         };
+
+         chosen {
+                 stdout-path = "serial0:115200n8";
+         };
+
+         memory@80000000 {
+                 device_type = "memory";
+                 reg = <0x80000000 0x20000000>;
+         };
+};
+
+&osc {
+         clock-frequency = <25000000>;
+};
+
+&sdhci0 {
+         status = "okay";
+         bus-width = <4>;
+         no-mmc;
+         no-sdio;
+         disable-wp;
+};
+
+&uart0 {
+         status = "okay";
+};
+
+
+What's frustrating is that I got the mmc working a few days back :-)
+Hoping this helps...
+Cheers
+Michael.
+
 -- 
-2.25.1
+Michael Opdenacker, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
 _______________________________________________
