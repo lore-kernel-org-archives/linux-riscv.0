@@ -4,88 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B53C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 07:00:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 967A7C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 07:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=1sbVvLHO6rL7Tf+vJYyJcQ8bvpHklnuf47GPuupswwI=; b=n10fQquD+XFnhKEc/GTh5Ni9EX
-	waAkRMpS7gx9VeXRyDQKjOKfjwZlagZQsApMSoF73cjUDSFKWqDOH6adcEWTK50WaosJ/tveHniaT
-	3JRkucvL/M/quMJ982IPYioaQq0x3ABoXl5OtXdOwytLdvDcTO9vrkp0BbPwLl1g3DFA0E8g50HU6
-	WCQWTOrkf4HwSb6x1rautaT5ErXz6A4KaNSgmgM1ZKNrXj6rbjD5GFvISwPbl04EOm2y1h1ZPTg4l
-	OpUC6Ph5NARtp6k+nitYkpw7azrfnY7HqmAL1LNwdi4iekejSY2m9WaznQgl2RjqHXocLp1UFAtKw
-	tefXyK5A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+geDcdvh+/ql/p4v4nnEz3Wz9IC+FQRlxrMWWKlLhW4=; b=RlyoiodBk2WRDq
+	mc66hgVdJLJi05zCPmQmHb6LiJvXXJ05+8MH6vi2y7Dk/JjWGVGTje83Orp6R6XokjjCb/mhIwzDh
+	lrrLT1g487gbjwmXKAhYxia80PRysalRhjk0iUC7ZN4bempcMHXlEj3ptOXVi8kT6T6Hun8+xmIAA
+	UTBTll15AtinJfYDuZJTftA8O62eT3Nx0xCL41FctboFZbnfVlA/Ox0bIUFIYebLFhPaeFVkzrBIH
+	trCKI887k5a+3Bzl97YI4uN/aoKIuCqEgs6yr330IfZDGLpdo1+3Su2FIb5Cq1EyCzoeXuKCUTQo3
+	ZaQ2JJ3JhE9X54tfJMHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwGJm-00000007GG9-1g1B;
-	Mon, 15 Apr 2024 06:59:54 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1rwGfM-00000007Jt2-207H;
+	Mon, 15 Apr 2024 07:22:12 +0000
+Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwGJh-00000007GDR-1QiR
+	id 1rwGfI-00000007Jmb-1g8W
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 06:59:51 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id F305A411DF
-	for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 06:59:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1713164377;
-	bh=lKHaDBe06MqDE1Bp/z+A9rd/eujvLw5qYHlN415hVeo=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=ShuwUXl4uZF81sQMPq5rO8vf87HGUkxMFhn1ED9KcpvJMZjdDoBiBiOEp6tVp7THf
-	 yw2Co/wYFWkO1rzlbn6QYIr3Q1NaPS/ZHxwujUg1L1CV5332rukZiFXEjJitkGskTZ
-	 7FULOtq93zelyEOO8iZ+YYxx1f3hlI/TeR9jnQbq+8wRVGVsb9dXNh5Ij4GNhHi4tR
-	 oGvjDtztJrKxnSO9EQK9ge2lNXRiHG9giGByA6jpRBWUX4Pb545Dhh4QcNZtrmHYsk
-	 cNy/sjHILptYYzVjUQVSQalew21qRAg48v+vzC36NMdtmHTcj7NkNgJ60PMsYnuf22
-	 4ugT9+asg8RbA==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4369017f176so47811201cf.1
-        for <linux-riscv@lists.infradead.org>; Sun, 14 Apr 2024 23:59:36 -0700 (PDT)
+	Mon, 15 Apr 2024 07:22:10 +0000
+Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-22a96054726so2529023fac.0
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 00:21:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1713165713; x=1713770513; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=YtAqaBR5s+OAli9OJSXa66ymNYqzO2AN9NU6Kk2lvFc=;
+        b=bc7vyd87JhsJ0KA0fTOeEehr09d+0TDkV6fgGieE/ZEaEzkbZJ81iPXh1lhHTCuqPu
+         +2r4E64bADWkzbYXDl+uTXfx6eUfhnuEDSkzqsci3S6krXSd1466DGyP8TjAqtQjfJpv
+         f8M0deoJl0a9pFwRbvyPuMNSPXXKuG1Hd7OGxs+bqmahYnCGB0JUtG5M2OQyl4jJG+wz
+         2SDCh0YmIyVbnAPA4l6kBuUGdRTrOyirvuXxN9gOks/p/mXr87r6PzuX6HB+FVTqB9iJ
+         gl+CBIQEBMOr+pwoKAZPxaS5mnvBm7jpsbRAIpS+EL8GmsEe57YsPCAWpoMRNfxwXOHN
+         81ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713164376; x=1713769176;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lKHaDBe06MqDE1Bp/z+A9rd/eujvLw5qYHlN415hVeo=;
-        b=K+iYFw0Tc8VS8gS+I89SCKcWwdU0ghIjjBbkFMvMglqzBlS3SVyAmhBUhmJRax9rz/
-         P1WGrvymuEpyPUttvlimnw6gFkjiNF59Lhkeh/tOH8aiHNuPKBC9i8CSBTxCxM+mehuM
-         XJMvuuN/RRzPPl6UXj0lAyf+UoQBF46S9jPWJ6RurLx1EsmN/ztIu5/2LrFlVJdIjoLS
-         i0qUiDFVHj8HTKA+9EHTqFWfI7rSc1Hnmv6QEcSIDwJ2B8rAXi4nL+rjRiYp548Hp3Ii
-         tHcUdmtkqfTdhL18AP0qNWDCbY/sdTKd93UZU3UqSitD3xwKVr5FD4cs6zrvdaLeIJWb
-         qMOA==
-X-Forwarded-Encrypted: i=1; AJvYcCVh4D12sq0CZkh8lkVF+KnpijixxAQs50uNgRbPW3/4FcV3IZXqTaDpWjjDc/vStNPRQ/pfIjon7wWdiJxBBKTSbBX66MtOhf9wvTmLVdYd
-X-Gm-Message-State: AOJu0YzEr12/+k4lnu9vbdSyai+xratNkL6+uLce/2cDEdBqwIbCTRgo
-	DWhCwYLj0372WTU+GwV4Sl6phify36N79NUTGtTWG2dBTv17d1iZjK5d5yYGzwzTawhq4VkqNgb
-	OCCdIDDhUf9Wez4abLvAfbJPf396KIxTVrhvChIJ7fKqwBv/zIDjeL4z3X1GWUert3lPZClt1Kn
-	IvI7NH70zBdz3SF3PmcozakC7A84K5MkNg78g4sPKgbsC7q0U65eBMP27S
-X-Received: by 2002:a05:622a:130b:b0:435:882c:e9be with SMTP id v11-20020a05622a130b00b00435882ce9bemr15844224qtk.14.1713164376051;
-        Sun, 14 Apr 2024 23:59:36 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHxW3rB/DranE5JdZ+lECe8KDvPGVPq2P08kjcc3eTf6ysUCyRRXXrL6oRK96huBjLRAVu1p7Vjx7lBTN3MIXQ=
-X-Received: by 2002:a05:622a:130b:b0:435:882c:e9be with SMTP id
- v11-20020a05622a130b00b00435882ce9bemr15844209qtk.14.1713164375747; Sun, 14
- Apr 2024 23:59:35 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Sun, 14 Apr 2024 23:59:35 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240414174139.3001175-1-masahiroy@kernel.org>
-References: <20240414174139.3001175-1-masahiroy@kernel.org>
-Mime-Version: 1.0
-Date: Sun, 14 Apr 2024 23:59:35 -0700
-Message-ID: <CAJM55Z9x9AYVSqdKZTDXQ4EkJ=dDaA0vnDR4mBQ3+m-MwzdtXQ@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: buildtar: add comments about inconsistent package generation
-To: Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nicolas@fjasle.eu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
+        d=1e100.net; s=20230601; t=1713165713; x=1713770513;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YtAqaBR5s+OAli9OJSXa66ymNYqzO2AN9NU6Kk2lvFc=;
+        b=XsQJ80E3arQfhlbGaryGjaG9gRfjGZVwDGE0Ou60vsL4AikeGjB0h77EhNr7kb/vHq
+         tq3fcE+33BWxKAAjyB2zGfInTxH5W/SmHZdlYglJe+td/MmdSUrQlKr++lZa+jzQvgyR
+         LXi/Xe+z3V//GjY6T8dgyU7vWxVcUVMAOdvNj8yzIDAdcvbY3GYTezgPyHufdxcj6Nbd
+         1fW9iD6b1Rn+ePPp/YCKb5SIgXkkAjAf7VCgM1hjS9K1r0fdRo2GQtfpM1i5DqK/pDsO
+         8VrLV8iGguXh846PQY9G3xplmAPOFLPdeFdMgXa3c5/O0SLm1QNA8/3L1kugZPBm6iyr
+         gZ6g==
+X-Forwarded-Encrypted: i=1; AJvYcCVPu6FHi4LvWZH1h/pQsTZjj0mRC3oWkUZiJNwjIe1YGn/pa5XZAmC70fbJ5KB+XN78bbxk/+2LUQu7XPoL5QragTfWEvgUVV1dKTQFmzjX
+X-Gm-Message-State: AOJu0YwPyzCwE2garYwZcO83RVwbvqAUqmfOJmNslvbRX1pJHrDGpe00
+	ova4BAV6qmHwUEQzqIr6QsTByxOx8GqFFEAcBURxINb32L6dGV7V
+X-Google-Smtp-Source: AGHT+IFteLOZEFU+1qO1NsrBE/PdWJenuyhmqP93UfuT7SKJZ0n16xUcFNBJ2adDdN9oFi1cxx87Gg==
+X-Received: by 2002:a05:6870:200b:b0:229:f31d:8c3 with SMTP id o11-20020a056870200b00b00229f31d08c3mr11812880oab.50.1713165712674;
+        Mon, 15 Apr 2024 00:21:52 -0700 (PDT)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id ny23-20020a056871751700b0022eeab387b8sm2157451oac.52.2024.04.15.00.21.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Apr 2024 00:21:49 -0700 (PDT)
+From: Chen Wang <unicornxw@gmail.com>
+To: aou@eecs.berkeley.edu,
+	chao.wei@sophgo.com,
+	conor@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	mturquette@baylibre.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	richardcochran@gmail.com,
+	robh+dt@kernel.org,
+	sboyd@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	haijiao.liu@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	guoren@kernel.org,
+	jszhang@kernel.org,
+	inochiama@outlook.com,
+	samuel.holland@sifive.com
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Subject: [PATCH v14 0/5] riscv: sophgo: add clock support for sg2042
+Date: Mon, 15 Apr 2024 15:21:35 +0800
+Message-Id: <cover.1713164546.git.unicorn_wang@outlook.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240414_235949_754621_F5B740B3 
-X-CRM114-Status: GOOD (  27.19  )
+X-CRM114-CacheID: sfid-20240415_002208_464006_9AB20881 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,119 +108,203 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Masahiro Yamada wrote:
-> scripts/package/buildtar checks some kernel packages, and copies the
-> first image found. This may potentially produce an inconsistent (and
-> possibly wrong) package.
->
-> For instance, the for-loop for arm64 checks Image.{bz2,gz,lz4,lzma,lzo},
-> and vmlinuz.efi, then copies the first image found, which might be a
-> stale image.
->
-> When CONFIG_EFI_ZBOOT is enabled in the pristine source tree,
-> 'make ARCH=arm64 tar-pkg' will build and copy vmlinuz.efi. This is the
-> expected behavior.
->
-> If you build the kernel with CONFIG_EFI_ZBOOT, Image.gz will be created,
-> which will remain in the build directory unless you clean it. Even if
-> CONFIG_EFI_ZBOOT is turned on later, 'make ARCH=arm64 tar-pkg' will copy
-> stale Image.gz instead of the latest vmlinuz.efi, as Image.gz takes
-> precedence over vmlinuz.efi.
->
-> In summary, the code "[ -f ... ] && cp" does not consistently produce
-> the desired outcome.
->
-> The other package scripts are deterministic; scripts/package/mkdebian,
-> for example, chooses a copied kernel image based on CONFIG options.
->
-> I removed [ -f ... ] checks from x86, alpha, parisc, and the default
-> because they have a single kernel image to copy. If it is missing, it
-> should be an error.
->
-> I did not modify the code for mips, arm64, riscv. Instead, I left some
-> comments. Eventually, someone may fix the code, or at the very least,
-> it may discourage the copy-pasting of incorrect code.
->
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+From: Chen Wang <unicorn_wang@outlook.com>
 
-Hi Masahiro,
+This series adds clock controller support for sophgo sg2042.
 
-Thanks for the patch. I wonder why arm64 and riscv is not just using
-KBUILD_IMAGE as the source path of the image to copy like some other
-architectures do. In any case:
+Thanks,
+Chen
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+---
 
-> ---
->
->  scripts/package/buildtar | 16 ++++++++++++----
->  1 file changed, 12 insertions(+), 4 deletions(-)
->
-> diff --git a/scripts/package/buildtar b/scripts/package/buildtar
-> index 72c91a1b832f..ed8d9b496305 100755
-> --- a/scripts/package/buildtar
-> +++ b/scripts/package/buildtar
-> @@ -53,18 +53,24 @@ cp -v -- "${objtree}/vmlinux" "${tmpdir}/boot/vmlinux-${KERNELRELEASE}"
->  #
->  # Install arch-specific kernel image(s)
->  #
-> +# Note:
-> +#   mips, arm64, and riscv copy the first image found. This may not produce
-> +#   the desired outcome because it may pick up a stale file remaining in the
-> +#   build tree.
-> +#
->  case "${ARCH}" in
->  	x86|i386|x86_64)
-> -		[ -f "${objtree}/arch/x86/boot/bzImage" ] && cp -v -- "${objtree}/arch/x86/boot/bzImage" "${tmpdir}/boot/vmlinuz-${KERNELRELEASE}"
-> +		cp -v -- "${objtree}/arch/x86/boot/bzImage" "${tmpdir}/boot/vmlinuz-${KERNELRELEASE}"
->  		;;
->  	alpha)
-> -		[ -f "${objtree}/arch/alpha/boot/vmlinux.gz" ] && cp -v -- "${objtree}/arch/alpha/boot/vmlinux.gz" "${tmpdir}/boot/vmlinuz-${KERNELRELEASE}"
-> +		cp -v -- "${objtree}/arch/alpha/boot/vmlinux.gz" "${tmpdir}/boot/vmlinuz-${KERNELRELEASE}"
->  		;;
->  	parisc*)
-> -		[ -f "${KBUILD_IMAGE}" ] && cp -v -- "${KBUILD_IMAGE}" "${tmpdir}/boot/vmlinux-${KERNELRELEASE}"
-> +		cp -v -- "${KBUILD_IMAGE}" "${tmpdir}/boot/vmlinux-${KERNELRELEASE}"
->  		[ -f "${objtree}/lifimage" ] && cp -v -- "${objtree}/lifimage" "${tmpdir}/boot/lifimage-${KERNELRELEASE}"
->  		;;
->  	mips)
-> +		# Please note the following code may copy a stale file.
->  		if [ -f "${objtree}/arch/mips/boot/compressed/vmlinux.bin" ]; then
->  			cp -v -- "${objtree}/arch/mips/boot/compressed/vmlinux.bin" "${tmpdir}/boot/vmlinuz-${KERNELRELEASE}"
->  		elif [ -f "${objtree}/arch/mips/boot/compressed/vmlinux.ecoff" ]; then
-> @@ -86,6 +92,7 @@ case "${ARCH}" in
->  		fi
->  		;;
->  	arm64)
-> +		# Please note the following code may copy a stale file.
->  		for i in Image.bz2 Image.gz Image.lz4 Image.lzma Image.lzo vmlinuz.efi ; do
->  			if [ -f "${objtree}/arch/arm64/boot/${i}" ] ; then
->  				cp -v -- "${objtree}/arch/arm64/boot/${i}" "${tmpdir}/boot/vmlinuz-${KERNELRELEASE}"
-> @@ -94,6 +101,7 @@ case "${ARCH}" in
->  		done
->  		;;
->  	riscv)
-> +		# Please note the following code may copy a stale file.
->  		for i in Image.bz2 Image.gz Image; do
->  			if [ -f "${objtree}/arch/riscv/boot/${i}" ] ; then
->  				cp -v -- "${objtree}/arch/riscv/boot/${i}" "${tmpdir}/boot/vmlinux-${KERNELRELEASE}"
-> @@ -102,7 +110,7 @@ case "${ARCH}" in
->  		done
->  		;;
->  	*)
-> -		[ -f "${KBUILD_IMAGE}" ] && cp -v -- "${KBUILD_IMAGE}" "${tmpdir}/boot/vmlinux-kbuild-${KERNELRELEASE}"
-> +		cp -v -- "${KBUILD_IMAGE}" "${tmpdir}/boot/vmlinux-kbuild-${KERNELRELEASE}"
->  		echo "" >&2
->  		echo '** ** **  WARNING  ** ** **' >&2
->  		echo "" >&2
-> --
-> 2.40.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Changes in v14:
+
+  The patch series is based on v6.9-rc1. 
+
+  Improved the dirvier code as per 2nd review comments from Stephen Boyd.
+  - Inline the header file into source file.
+  - Use devm_xxx functions for pll/div/gate registeration.
+  - Use clk_parent_data for mux clocks initialization.
+  - Use u32 for registers readl/writel.
+  - Use devm_platform_ioremap_resource instead of devm_of_iomap.
+  - Cleanup some dead code and add definitions for some magic numbers.
+  - Add include files missed.
+  - Use kernel-doc to improve comments for some structure and functions.
+  - Other misc code cleanup work as per input from reviewers.
+
+Changes in v13:
+
+  The patch series is based on v6.9-rc1. You can simply review or test the
+  patches at the link [14].
+
+  Just added a minor fix for clk driver which was missed in v12.
+
+Changes in v12:
+
+  The patch series is based on v6.9-rc1. You can simply review or test the
+  patches at the link [13].
+
+  Improved the dirvier code as per review comments from Stephen Boyd.
+  - Remove default y for CLK_SOPHGO_SG2042.
+  - Optimize sg2042_pll_get_postdiv_1_2, move postdiv1_2 to the function.
+    scope and add more explaniation.
+  - Optimize sg2042_get_pll_ctl_setting.
+  - Switch to platform driver.
+  - Use clk_hw for initialization of struct clks.
+  - Don't use ignore_unused when using critical.
+  - Other code cleanup as per input form the reviewers.
+
+Changes in v11:
+
+  The patch series is based on v6.8-rc5. You can simply review or test the
+  patches at the link [12].
+
+  Quick fixed some dt_binding_check errors reported by Rob.
+
+Changes in v10:
+
+  The patch series is based on v6.8-rc4. You can simply review or test the
+  patches at the link [11].
+
+  Add input clocks for rpgate & clkgen.
+
+Changes in v9:
+  The patch series is based on v6.8-rc2. You can simply review or test the
+  patches at the link [10].
+
+  From this version, drop the system-controller node due to there is no actual
+  device corresponding to it in IC design. SYS_CTRL is just a registers segment
+  defined on TRM for misc functions. Now three clock-controllers are defined for
+  SG2042, the control registers of the three clock-controllers are scattered in
+  different memory address spaces:
+  - the first one is for pll clocks;
+  - the second one is for gate clocks for RP subsystem;
+  - the third one is for div/mux, and gate clocks working for other subsystem
+    than RP subsystem.
+
+Changes in v8:
+  The patch series is based on v6.7. You can simply review or test the
+  patches at the link [9].
+  
+  In this version, the main change is to split one clock provider into two.
+  Strictly follow the hardware instructions, in the memoymap, the control
+  registers of some clocks are defined in the SYS_CTRL segment, and the
+  control registers of other clocks are defined in the CLOCK segment.
+  Therefore, the new design defines two clock controllers, one as a child
+  node of the system control and the other as an independent clock controller
+  node.
+
+  This modification involves a major modification to the binding files, so
+  the reviewed-by tags has been deleted.
+
+Changes in v7:
+  The patch series is based on v6.7. You can simply review or test the
+  patches at the link [8].
+  - fixed initval issue.
+  - fixed pll clk crash issue.
+  - fixed warning reported by <lkp@intel.com>
+  - code optimization as per review comments.
+  - code cleanup and style improvements as per review comments and checkpatch
+    with "--strict"
+
+Changes in v6:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [7].
+  - fixed some warnings/errors reported by kernel test robot <lkp@intel.com>.
+
+Changes in v5:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [6].
+  - dt-bindings: improved yaml, such as:
+    - add vendor prefix for system-ctrl property for clock generator.
+    - Add explanation for system-ctrl property.
+  - move sophgo,sg2042-clkgen.yaml to directly under clock folder.
+  - fixed bugs for driver Makefile/Kconfig
+  - continue cleaning-up debug print for driver code.
+
+Changes in v4:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [5].
+  - dt-bindings: fixed a dt_binding_check error.
+
+Changes in v3:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [3].
+  - DTS: don't use syscon but define sg2042 specific system control node. More
+    background info can read [4].
+  - Updating minor issues in dt-bindings as per input from reviews.
+
+Changes in v2:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [2].
+  - Squashed the patch adding clock definitions with the patch adding the
+    binding for the clock controller.
+  - Updating dt-binding for syscon, remove oneOf for property compatible;
+    define clock controller as child of syscon.
+  - DTS changes: merge sg2042-clock.dtsi into sg2042.dtsi; move clock-frequency
+    property of osc to board devicethree due to the oscillator is outside the
+    SoC.
+  - Fixed some bugs in driver code during testing, including removing warnings
+    for rv32_defconfig.
+  - Updated MAINTAINERS info.
+
+Changes in v1:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [1].
+
+Link: https://lore.kernel.org/linux-riscv/cover.1699879741.git.unicorn_wang@outlook.com/ [1]
+Link: https://lore.kernel.org/linux-riscv/cover.1701044106.git.unicorn_wang@outlook.com/ [2]
+Link: https://lore.kernel.org/linux-riscv/cover.1701691923.git.unicorn_wang@outlook.com/ [3]
+Link: https://lore.kernel.org/linux-riscv/MA0P287MB03329AE180378E1A2E034374FE82A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM/ [4]
+Link: https://lore.kernel.org/linux-riscv/cover.1701734442.git.unicorn_wang@outlook.com/ [5]
+Link: https://lore.kernel.org/linux-riscv/cover.1701938395.git.unicorn_wang@outlook.com/ [6]
+Link: https://lore.kernel.org/linux-riscv/cover.1701997033.git.unicorn_wang@outlook.com/ [7]
+Link: https://lore.kernel.org/linux-riscv/cover.1704694903.git.unicorn_wang@outlook.com/ [8]
+Link: https://lore.kernel.org/linux-riscv/cover.1705388518.git.unicorn_wang@outlook.com/ [9]
+Link: https://lore.kernel.org/linux-riscv/cover.1706854074.git.unicorn_wang@outlook.com/ [10]
+Link: https://lore.kernel.org/linux-riscv/cover.1708223519.git.unicorn_wang@outlook.com/ [11]
+Link: https://lore.kernel.org/linux-riscv/cover.1708397315.git.unicorn_wang@outlook.com/ [12]
+Link: https://lore.kernel.org/linux-riscv/cover.1711527932.git.unicorn_wang@outlook.com/ [13]
+Link: https://lore.kernel.org/linux-riscv/cover.1711692169.git.unicorn_wang@outlook.com/ [14]
+
+---
+
+Chen Wang (5):
+  dt-bindings: clock: sophgo: add pll clocks for SG2042
+  dt-bindings: clock: sophgo: add RP gate clocks for SG2042
+  dt-bindings: clock: sophgo: add clkgen for SG2042
+  clk: sophgo: Add SG2042 clock driver
+  riscv: dts: add clock generator for Sophgo SG2042 SoC
+
+ .../bindings/clock/sophgo,sg2042-clkgen.yaml  |   49 +
+ .../bindings/clock/sophgo,sg2042-pll.yaml     |   45 +
+ .../bindings/clock/sophgo,sg2042-rpgate.yaml  |   43 +
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |   12 +
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |   49 +-
+ drivers/clk/Kconfig                           |    1 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/sophgo/Kconfig                    |    8 +
+ drivers/clk/sophgo/Makefile                   |    2 +
+ drivers/clk/sophgo/clk-sophgo-sg2042.c        | 1645 +++++++++++++++++
+ .../dt-bindings/clock/sophgo,sg2042-clkgen.h  |  111 ++
+ include/dt-bindings/clock/sophgo,sg2042-pll.h |   14 +
+ .../dt-bindings/clock/sophgo,sg2042-rpgate.h  |   58 +
+ 13 files changed, 2037 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/sophgo,sg2042-clkgen.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/sophgo,sg2042-pll.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/sophgo,sg2042-rpgate.yaml
+ create mode 100644 drivers/clk/sophgo/Kconfig
+ create mode 100644 drivers/clk/sophgo/Makefile
+ create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.c
+ create mode 100644 include/dt-bindings/clock/sophgo,sg2042-clkgen.h
+ create mode 100644 include/dt-bindings/clock/sophgo,sg2042-pll.h
+ create mode 100644 include/dt-bindings/clock/sophgo,sg2042-rpgate.h
+
+
+base-commit: 4cece764965020c22cff7665b18a012006359095
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
