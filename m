@@ -4,58 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6931C04FF8
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 13:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D945C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 13:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P51hIez6nKZPppVqfVHhTNZLS2+siRfmlI7qpTI2ztk=; b=fpNVolzdcLQeF1
-	W2NiC6ttSk1ERlVEypgUux5DTaySrrplRRwIGNCer1CoBHJZtmaKhuRvytTgFxj06awhJu5E/F+yZ
-	In7XSPNYSOne4DJ7qkuPBum5R5MaX3I91rL6xfCS3pcPkNJHkkA13hJ2fSNgpu7iMYeK5BrgxT3U7
-	Ssql2og5hK6ZfQFyyjyUt0NwNY/g1Z6SjqlZ+RP54SvnM6zFbWrUE2d78YEjmHk/DSvZkNm9uQJY7
-	PfGIGS/p9BoihhzZVq5Y32vxGwJR1U1i47rtVlK4cQ7sdtAvc7rFb4IqUfxp1lQxbcJhWgUdoO7Qm
-	n7WApSbAbO/5SwJ1k8rg==;
+	List-Owner; bh=sLS2uue6ZKmsap/gL3DpZ+q87gzkOHoLKvBcekDxrw4=; b=YqFvejOWK43Ae5
+	hVel89aQiyKcx2nJAT3Fl+L6fLELGBS9Nk9ZL2Snp9Rlw9ociqLCKH45YV54l425/etp84iYp5t+3
+	JyLsbRcgzBCDxUw1Dp4T3+hntp0WdSZarZGAW4ejWFLbhyYQ9icPL6lI9LTdrfAsFIMQy+z6Fpzxs
+	506Askx0k0Ck1wHwMGuGwfd+Gs2TBq0SN5BDR8uV/603khTZkzLnGOyT3voCPm2uGdk4TW3ySl0Zu
+	5YLlLKlw+SPMmg17rIBDXtQZsqBUws0tAG8yrABrg7TE1sycIdxyZtcm4k7BFiGvnPewnL3DdYTnk
+	MfkNnAH1YTp/mbJlEHkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwMHe-00000008Rau-1MCB;
-	Mon, 15 Apr 2024 13:22:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwMHa-00000008RYU-3gHf
+	id 1rwMJE-00000008SGi-3fYd;
+	Mon, 15 Apr 2024 13:23:44 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rwMJA-00000008SDh-22dT
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 13:22:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E47FCDA7;
-	Mon, 15 Apr 2024 06:22:27 -0700 (PDT)
-Received: from bogus (e103737-lin.cambridge.arm.com [10.1.197.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D2AF3F7CE;
-	Mon, 15 Apr 2024 06:21:57 -0700 (PDT)
-Date: Mon, 15 Apr 2024 14:21:54 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: rafael@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@arm.com>, linux-kernel@vger.kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org, bhelgaas@google.com,
-	james.morse@arm.com, jhugo@codeaurora.org, jeremy.linton@arm.com,
-	john.garry@huawei.com, Jonathan.Cameron@huawei.com,
-	pierre.gondois@arm.com, tiantao6@huawei.com
-Subject: Re: [External] Re: [PATCH v2 2/3] riscv: cacheinfo: initialize
- cacheinfo's level and type from ACPI PPTT
-Message-ID: <Zh0p8iJe05d71yZK@bogus>
-References: <20240414025826.64025-1-cuiyunhui@bytedance.com>
- <20240414025826.64025-2-cuiyunhui@bytedance.com>
- <Zhzo_gWFiURs_geD@bogus>
- <CAEEQ3wkzvOpahzPuoD7=aMG3srjdyCA21tnh-j9PvY3Qerk_hg@mail.gmail.com>
+	Mon, 15 Apr 2024 13:23:43 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-56e69888a36so4447133a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 06:23:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1713187418; x=1713792218; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SsPjsW5vGyGQYslNcZfnPrf8zdlh6X3WXkIuouRF3Dg=;
+        b=YmKvL+GXT/UCBr4boc4b6RdXKqXaeTKFjg6fP6nj3xh314dorupEZkdD14vTsAMart
+         oqktoSJdolzFUWYfniURbSuopHe2HGAT/3scxgI7rSSl8UQZ/GSiyuyiBSIoaPIsK/6y
+         H0Jhij6yIJ00OnusA8tcBzNL9uVB/YkC2XVKSdjRafT14/NBeMD7Wcrzk1zk8Nb7g94z
+         ec7euuFoWRM3vbD549itNO4mfU8j6j61jXhe4gmpM1Q+3ibGj2j1i+6adaMysIqaqb2O
+         jNPuxhNi4hWpm/oIbjbUKIk5+SzRmIL5nhrHIPDeA9bTcBVyEuhnf0lQj0VJxi3u3HiK
+         ZN4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713187418; x=1713792218;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SsPjsW5vGyGQYslNcZfnPrf8zdlh6X3WXkIuouRF3Dg=;
+        b=UnUXmDlPK9hYe3KxReZVTfXojHEQKbI6jaJhIuvpwcJT/562yDubYiSfEjgQtKaV5e
+         h5WRntkbxfiBCwKOUBESkHs4JketZVUQ/qaU8kfLphQ7WEGIZueZTElaMG/BnVSewYR7
+         CHRH/ydagkHG3OySj7Rhs9D75N1xwBUrUJLbjuZXP0QwnVfKrlP7aQv1kEvsiaAy/W+a
+         DFNx2NnFmdAsj7nDN4t/xFcWhscyZbOqNZEhS2xgEMowk8a4qX7rh1K2uhRVgrNQLfgh
+         mSvNnkPU0qZ0uZGcyL3bIxDCiyzlOqop/sK+TZ4KoXzjMMTtJWPr2fwdtKnoSunmK4FJ
+         VTTw==
+X-Forwarded-Encrypted: i=1; AJvYcCUxxMWdbtHFvzw9gc8m1u5wX7TYFBaNFvKBetUr3cKpfrgEuuZXd4GjQ7sjXRyUPLQSqclWHGmhdTKPpvt9HxYPwsC6Zzr76dIsAZ8T8+no
+X-Gm-Message-State: AOJu0YzX2DrCSHWsPTB+J/G1+ajTrbm1EI+M4DvvFA2X/7Lv2wxumn7d
+	+u5Pi7SlWEV/kSz0KMoc9CrNkJcDrEiITigNkFozu9GjOYLlJ5hiCRbrLU1cy8A=
+X-Google-Smtp-Source: AGHT+IHklOBQ3iGKHu088UkpOHw/VxcGUKSaeMTX9Gz3utwCjBi1O3+vYBQcukgR3YGBfTGMHvrvUA==
+X-Received: by 2002:a17:906:f1c7:b0:a52:fb9:27ad with SMTP id gx7-20020a170906f1c700b00a520fb927admr6011866ejb.48.1713187416663;
+        Mon, 15 Apr 2024 06:23:36 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id ji16-20020a170907981000b00a5244a80cfcsm3480965ejc.91.2024.04.15.06.23.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Apr 2024 06:23:36 -0700 (PDT)
+Date: Mon, 15 Apr 2024 15:23:35 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>, 
+	Ajay Kaher <ajay.kaher@broadcom.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alexghiti@rivosinc.com>, Alexey Makhalov <alexey.amakhalov@broadcom.com>, 
+	Atish Patra <atishp@atishpatra.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Juergen Gross <jgross@suse.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, Will Deacon <will@kernel.org>, 
+	x86@kernel.org
+Subject: Re: [PATCH v6 14/24] RISC-V: KVM: Add perf sampling support for
+ guests
+Message-ID: <20240415-cdc6d5bc6c5145f9d6f54afc@orel>
+References: <20240411000752.955910-1-atishp@rivosinc.com>
+ <20240411000752.955910-15-atishp@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAEEQ3wkzvOpahzPuoD7=aMG3srjdyCA21tnh-j9PvY3Qerk_hg@mail.gmail.com>
+In-Reply-To: <20240411000752.955910-15-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_062203_039873_01D8DF00 
-X-CRM114-Status: GOOD (  28.49  )
+X-CRM114-CacheID: sfid-20240415_062340_640573_137DDE86 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,61 +98,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBBcHIgMTUsIDIwMjQgYXQgMDg6MDM6MzhQTSArMDgwMCwgeXVuaHVpIGN1aSB3cm90
-ZToKPiBIaSBTdWRlZXAsCj4gCj4gT24gTW9uLCBBcHIgMTUsIDIwMjQgYXQgNDo0NeKAr1BNIFN1
-ZGVlcCBIb2xsYSA8c3VkZWVwLmhvbGxhQGFybS5jb20+IHdyb3RlOgo+ID4KPiA+IE9uIFN1biwg
-QXByIDE0LCAyMDI0IGF0IDEwOjU4OjI1QU0gKzA4MDAsIFl1bmh1aSBDdWkgd3JvdGU6Cj4gPiA+
-IEJlZm9yZSBjYWNoZWluZm8gY2FuIGJlIGJ1aWx0IGNvcnJlY3RseSwgd2UgbmVlZCB0byBpbml0
-aWFsaXplIGxldmVsCj4gPiA+IGFuZCB0eXBlLiBTaW5jZSBSU0lDLVYgY3VycmVudGx5IGRvZXMg
-bm90IGhhdmUgYSByZWdpc3RlciBncm91cCB0aGF0Cj4gPiA+IGRlc2NyaWJlcyBjYWNoZS1yZWxh
-dGVkIGF0dHJpYnV0ZXMgbGlrZSBBUk02NCwgd2UgY2Fubm90IG9idGFpbiB0aGVtCj4gPiA+IGRp
-cmVjdGx5LCBzbyBub3cgd2Ugb2J0YWluIGNhY2hlIGxlYXZlcyBmcm9tIHRoZSBBQ1BJIFBQVFQg
-dGFibGUKPiA+ID4gKGFjcGlfZ2V0X2NhY2hlX2luZm8oKSkgYW5kIHNldCB0aGUgY2FjaGUgdHlw
-ZSB0aHJvdWdoIHNwbGl0X2xldmVscy4KPiA+ID4KPiA+ID4gU3VnZ2VzdGVkLWJ5OiBKZXJlbXkg
-TGludG9uIDxqZXJlbXkubGludG9uQGFybS5jb20+Cj4gPiA+IFN1Z2dlc3RlZC1ieTogU3VkZWVw
-IEhvbGxhIDxzdWRlZXAuaG9sbGFAYXJtLmNvbT4KPiA+ID4gU2lnbmVkLW9mZi1ieTogWXVuaHVp
-IEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+Cj4gPiA+IC0tLQo+ID4gPiAgYXJjaC9yaXNj
-di9rZXJuZWwvY2FjaGVpbmZvLmMgfCAyMyArKysrKysrKysrKysrKysrKysrKysrKwo+ID4gPiAg
-MSBmaWxlIGNoYW5nZWQsIDIzIGluc2VydGlvbnMoKykKPiA+ID4KPiA+ID4gZGlmZiAtLWdpdCBh
-L2FyY2gvcmlzY3Yva2VybmVsL2NhY2hlaW5mby5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVp
-bmZvLmMKPiA+ID4gaW5kZXggMzBhNjg3ODI4N2FkLi5lY2U5MmFhNDA0ZTMgMTAwNjQ0Cj4gPiA+
-IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2NhY2hlaW5mby5jCj4gPiA+ICsrKyBiL2FyY2gvcmlz
-Y3Yva2VybmVsL2NhY2hlaW5mby5jCj4gPiA+IEBAIC02LDYgKzYsNyBAQAo+ID4gPiAgI2luY2x1
-ZGUgPGxpbnV4L2NwdS5oPgo+ID4gPiAgI2luY2x1ZGUgPGxpbnV4L29mLmg+Cj4gPiA+ICAjaW5j
-bHVkZSA8YXNtL2NhY2hlaW5mby5oPgo+ID4gPiArI2luY2x1ZGUgPGxpbnV4L2FjcGkuaD4KPiA+
-ID4KPiA+ID4gIHN0YXRpYyBzdHJ1Y3QgcmlzY3ZfY2FjaGVpbmZvX29wcyAqcnZfY2FjaGVfb3Bz
-Owo+ID4gPgo+ID4gPiBAQCAtNzgsNiArNzksMjggQEAgaW50IHBvcHVsYXRlX2NhY2hlX2xlYXZl
-cyh1bnNpZ25lZCBpbnQgY3B1KQo+ID4gPiAgICAgICBzdHJ1Y3QgZGV2aWNlX25vZGUgKnByZXYg
-PSBOVUxMOwo+ID4gPiAgICAgICBpbnQgbGV2ZWxzID0gMSwgbGV2ZWwgPSAxOwo+ID4gPgo+ID4g
-PiArICAgICBpZiAoIWFjcGlfZGlzYWJsZWQpIHsKPiA+ID4gKyAgICAgICAgICAgICBpbnQgcmV0
-LCBpZHgsIGZ3X2xldmVscywgc3BsaXRfbGV2ZWxzOwo+ID4gPiArCj4gPiA+ICsgICAgICAgICAg
-ICAgcmV0ID0gYWNwaV9nZXRfY2FjaGVfaW5mbyhjcHUsICZmd19sZXZlbHMsICZzcGxpdF9sZXZl
-bHMpOwo+ID4gPiArICAgICAgICAgICAgIGlmIChyZXQpCj4gPiA+ICsgICAgICAgICAgICAgICAg
-ICAgICByZXR1cm4gcmV0Owo+ID4gPiArCj4gPiA+ICsgICAgICAgICAgICAgLyogbXVzdCBiZSBz
-ZXQsIHNvIHdlIGNhbiBkcm9wIG51bV9sZWF2ZXMgYXNzaWdubWVudCBiZWxvdyAqLwo+ID4KPiA+
-IEkgaW50ZW50aW9uYWxseSBhZGRlZCB0aGlzIGFib3ZlIGNvbW1lbnQgdG8gY2hlY2sgYW5kIGRy
-b3AgdGhlIGJlbG93IHN0YXRlbWVudAo+ID4gaWYgaXQgaXMgYWxyZWFkeSBzZXQuIFBsZWFzZSBj
-aGVjayBpZiB0aGUgdmFsdWUgaXMgYWxyZWFkeSBzZXQgd2hlbiB3ZSBjYWxsCj4gPiBpbnRvIHRo
-aXMgZnVuY3Rpb24od2hpY2ggSSB0aGluayBpcyB0aGUgY2FzZSkuCj4gPgo+ID4gPiArICAgICAg
-ICAgICAgIHRoaXNfY3B1X2NpLT5udW1fbGVhdmVzID0gZndfbGV2ZWxzICsgc3BsaXRfbGV2ZWxz
-Owo+IAo+IFVoLGdvdCBpdC4gSSB1bmRlcnN0YW5kIHRoYXQgdGhlcmUgaXMgbm8gbmVlZCB0byBh
-ZGQgdGhpcyBsaW5lOgo+ICJ0aGlzX2NwdV9jaS0+bnVtX2xlYXZlcyA9IGZ3X2xldmVscyArIHNw
-bGl0X2xldmVsczsgIiAsIGJlY2F1c2UgaW4KPiB0aGUgTWFzdGVyIGNvcmUgZmlyc3QgaXQgd2ls
-bDoKPiBzbXBfcHJlcGFyZV9jcHVzCj4gICAgICAtPmluaXRfY3B1X3RvcG9sb2d5Cj4gICAgICAg
-ICAgIC0+Zm9yX2VhY2hfcG9zc2libGVfY3B1KGNwdSkgewo+ICAgICAgICAgICAgICAgICAgZmV0
-Y2hfY2FjaGVfaW5mbyhjcHUpOyAvL251bV9sZWF2ZXMgYW5kIG51bV9sZXZlbHMgd2lsbCBiZSBz
-ZXQKPiBUaGVuIHN0b3JlX2NwdV90b3BvbG9neS0+dXBkYXRlX3NpYmxpbmdzX21hc2tzLT5kZXRl
-Y3RfY2FjaGVfYXR0cmlidXRlcy0+cG9wdWxhdGVfY2FjaGVfbGVhdmVzKCkuCj4gCj4gU2xhdmUg
-Y29yZSB3aWxsIGZvbGxvdyB0aGUgbG9naWMgb2Ygc21wX2NhbGxpbi0+c3RvcmVfY3B1X3RvcG9s
-b2d5KCkuCj4gSXQncyB0aGUgc2FtZSBhZnRlciBJIHRlc3RlZCBpdCwgc28gSSBwbGFuIHRvIHJl
-bW92ZSB0aGF0IGxpbmUgYW5kCj4gdXBkYXRlIFYzLCB3aGF0IGRvIHlvdSB0aGluaz8KPgoKQ29y
-cmVjdCwganVzdCBkcm9wIHRoZSBzdGF0ZW1lbnQgdXBkYXRpbmcgInRoaXNfY3B1X2NpLT5udW1f
-bGVhdmVzIi4KCi0tIApSZWdhcmRzLApTdWRlZXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Apr 10, 2024 at 05:07:42PM -0700, Atish Patra wrote:
+> KVM enables perf for guest via counter virtualization. However, the
+> sampling can not be supported as there is no mechanism to enabled
+> trap/emulate scountovf in ISA yet. Rely on the SBI PMU snapshot
+> to provide the counter overflow data via the shared memory.
+> 
+> In case of sampling event, the host first sets the guest's LCOFI
+> interrupt and injects to the guest via irq filtering mechanism defined
+> in AIA specification. Thus, ssaia must be enabled in the host in order
+> to use perf sampling in the guest. No other AIA dependency w.r.t kernel
+> is required.
+> 
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/csr.h          |  3 +-
+>  arch/riscv/include/asm/kvm_vcpu_pmu.h |  3 ++
+>  arch/riscv/include/uapi/asm/kvm.h     |  1 +
+>  arch/riscv/kvm/aia.c                  |  5 ++
+>  arch/riscv/kvm/vcpu.c                 | 15 ++++--
+>  arch/riscv/kvm/vcpu_onereg.c          |  6 +++
+>  arch/riscv/kvm/vcpu_pmu.c             | 68 +++++++++++++++++++++++++--
+>  7 files changed, 93 insertions(+), 8 deletions(-)
+>
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
