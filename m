@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D945C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 13:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5F0C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 13:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sLS2uue6ZKmsap/gL3DpZ+q87gzkOHoLKvBcekDxrw4=; b=YqFvejOWK43Ae5
-	hVel89aQiyKcx2nJAT3Fl+L6fLELGBS9Nk9ZL2Snp9Rlw9ociqLCKH45YV54l425/etp84iYp5t+3
-	JyLsbRcgzBCDxUw1Dp4T3+hntp0WdSZarZGAW4ejWFLbhyYQ9icPL6lI9LTdrfAsFIMQy+z6Fpzxs
-	506Askx0k0Ck1wHwMGuGwfd+Gs2TBq0SN5BDR8uV/603khTZkzLnGOyT3voCPm2uGdk4TW3ySl0Zu
-	5YLlLKlw+SPMmg17rIBDXtQZsqBUws0tAG8yrABrg7TE1sycIdxyZtcm4k7BFiGvnPewnL3DdYTnk
-	MfkNnAH1YTp/mbJlEHkA==;
+	List-Owner; bh=0cudqIq7zBZAaSACBdmKaNl1jfIXDWxMKehhM3IIn6I=; b=fVrgm3w2aBQypg
+	pTQvYfpCHF3ZxQ96vVxJGCwgCZ/VYrYyGXMFrGH+e1NG7nz7om9m1Km/1sxH4B4vJxaeqoWewMtFg
+	pY8DPS3d/yluNtW4FYsMknBJE9lROPiVcyWaiav1MFLMQTRGgq39xtDbOocjN6Dvw6rdCx7FjfRAm
+	KoO1tYmzk5k4FYWp5d6bu8gIb99ALeFbJ5se4G1lnn2ZybMQtiZTGERlaTk/1xOn1hiXL+pROfIvn
+	tvgs3/MmSCivm6aXrogIo+iFohUCr+35MJ7LWlvcBvx8vcoR5LUNlLAuR6ESMm47LL8YCZnLvTjcW
+	4h0qY/EoowMPdKcb/Usg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwMJE-00000008SGi-3fYd;
-	Mon, 15 Apr 2024 13:23:44 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1rwMQv-00000008ULL-0Rfr;
+	Mon, 15 Apr 2024 13:31:41 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwMJA-00000008SDh-22dT
+	id 1rwMQp-00000008UI8-0yiC
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Apr 2024 13:23:43 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-56e69888a36so4447133a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 06:23:39 -0700 (PDT)
+	Mon, 15 Apr 2024 13:31:40 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4187d5f08c2so1960675e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 06:31:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1713187418; x=1713792218; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1713187893; x=1713792693; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SsPjsW5vGyGQYslNcZfnPrf8zdlh6X3WXkIuouRF3Dg=;
-        b=YmKvL+GXT/UCBr4boc4b6RdXKqXaeTKFjg6fP6nj3xh314dorupEZkdD14vTsAMart
-         oqktoSJdolzFUWYfniURbSuopHe2HGAT/3scxgI7rSSl8UQZ/GSiyuyiBSIoaPIsK/6y
-         H0Jhij6yIJ00OnusA8tcBzNL9uVB/YkC2XVKSdjRafT14/NBeMD7Wcrzk1zk8Nb7g94z
-         ec7euuFoWRM3vbD549itNO4mfU8j6j61jXhe4gmpM1Q+3ibGj2j1i+6adaMysIqaqb2O
-         jNPuxhNi4hWpm/oIbjbUKIk5+SzRmIL5nhrHIPDeA9bTcBVyEuhnf0lQj0VJxi3u3HiK
-         ZN4g==
+        bh=KE+Cpvnrr9PFeeWoK6ioKoV8XULExBLcSObfZiwRf6E=;
+        b=AzLcR8YrFzjK6Os5wrhrLX6ehrDZv9MoMhu9e8xl7UZaF1PogfCwxh0L/EtEnjqZi/
+         bA3WbY4cZ0IGhYHWjxBkcBT5cMVTxCz4v3kWQfMHYqnQI3kSbzNVvQeAkHa699VnSyV+
+         2Y8MJaOHVBnsSXoQb8cx+C8CBjA6sYC1ivtBs5etIkYgT/gyh/BRhP6jg97Q9sOoMVUC
+         eeHKeCFVhSR6ja4MLuqLS2DleYxpG0aC8tddirhuhapqSxlU3Z2vBoM1AFovvNvzP4Ir
+         DRoIVNIxbT4jm5aSTMFu04OMoGWCEq1K/iplsxgVM/rxKkSR+grgdETREr6LuAvR1KPu
+         /Ofw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713187418; x=1713792218;
+        d=1e100.net; s=20230601; t=1713187893; x=1713792693;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SsPjsW5vGyGQYslNcZfnPrf8zdlh6X3WXkIuouRF3Dg=;
-        b=UnUXmDlPK9hYe3KxReZVTfXojHEQKbI6jaJhIuvpwcJT/562yDubYiSfEjgQtKaV5e
-         h5WRntkbxfiBCwKOUBESkHs4JketZVUQ/qaU8kfLphQ7WEGIZueZTElaMG/BnVSewYR7
-         CHRH/ydagkHG3OySj7Rhs9D75N1xwBUrUJLbjuZXP0QwnVfKrlP7aQv1kEvsiaAy/W+a
-         DFNx2NnFmdAsj7nDN4t/xFcWhscyZbOqNZEhS2xgEMowk8a4qX7rh1K2uhRVgrNQLfgh
-         mSvNnkPU0qZ0uZGcyL3bIxDCiyzlOqop/sK+TZ4KoXzjMMTtJWPr2fwdtKnoSunmK4FJ
-         VTTw==
-X-Forwarded-Encrypted: i=1; AJvYcCUxxMWdbtHFvzw9gc8m1u5wX7TYFBaNFvKBetUr3cKpfrgEuuZXd4GjQ7sjXRyUPLQSqclWHGmhdTKPpvt9HxYPwsC6Zzr76dIsAZ8T8+no
-X-Gm-Message-State: AOJu0YzX2DrCSHWsPTB+J/G1+ajTrbm1EI+M4DvvFA2X/7Lv2wxumn7d
-	+u5Pi7SlWEV/kSz0KMoc9CrNkJcDrEiITigNkFozu9GjOYLlJ5hiCRbrLU1cy8A=
-X-Google-Smtp-Source: AGHT+IHklOBQ3iGKHu088UkpOHw/VxcGUKSaeMTX9Gz3utwCjBi1O3+vYBQcukgR3YGBfTGMHvrvUA==
-X-Received: by 2002:a17:906:f1c7:b0:a52:fb9:27ad with SMTP id gx7-20020a170906f1c700b00a520fb927admr6011866ejb.48.1713187416663;
-        Mon, 15 Apr 2024 06:23:36 -0700 (PDT)
+        bh=KE+Cpvnrr9PFeeWoK6ioKoV8XULExBLcSObfZiwRf6E=;
+        b=pvg1pRvoBgoh4AUbR1TJAq5Ijznrd5+Wr6+irG338iStE/ONhzYkOPMoAfLjgY8/TZ
+         OXagPRcedTzNWz0nQpmxPIMo3RtjJYLZGJE/AeAyEX6C6sIzagKwq/GSF+Z4U0AfmESF
+         vVl8d+gfQLc13UFXs2V8yBX+Mwjc+iA70R9uLny0CnvegoJ33ECF3Mk/PBxcVm3tilH7
+         G6nqr9dImv8Xas7GftMyV61k3q9ld3KrjVsHExiCknVfv6El/Vub/jKXSOp998HJXtk7
+         iYtsDBo5cMz2i3re4rLko+2T7b1McSC9b8rausKqxjdzPye3W0NB1expIFcIWTp2FOFu
+         ShVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVMSqRWiv6WZCzw7vT4bUrbhaHtTf/OquCzFaWvp5I45cJAsWfSz9qxqEt4qktzZioaLzQ8cuK04EP/rrBIZvqezT9TCcG8lBvdUnlbqGTe
+X-Gm-Message-State: AOJu0Yx2E4EQ7ytezt8nWe0JCQMGgcWiZlk+xKPxd6SMSU3EljAGhomB
+	zqDHJcYIYQN020UonRWHqr9CGSVUTM2GHR/GSVESATb0/qOM1IWhrv8dY2tPO80=
+X-Google-Smtp-Source: AGHT+IEyD5MBvbEAjbw0tg7O5uE23K2svhSCaSMgsgY2nQ2IFrtDTCQqzK+yEHIFjtQaAGU4qZut+A==
+X-Received: by 2002:a05:600c:3b98:b0:417:e00c:fdb8 with SMTP id n24-20020a05600c3b9800b00417e00cfdb8mr8462561wms.1.1713187893433;
+        Mon, 15 Apr 2024 06:31:33 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id ji16-20020a170907981000b00a5244a80cfcsm3480965ejc.91.2024.04.15.06.23.36
+        by smtp.gmail.com with ESMTPSA id o4-20020a05600c4fc400b004170e0aff7asm19061196wmq.35.2024.04.15.06.31.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Apr 2024 06:23:36 -0700 (PDT)
-Date: Mon, 15 Apr 2024 15:23:35 +0200
+        Mon, 15 Apr 2024 06:31:33 -0700 (PDT)
+Date: Mon, 15 Apr 2024 15:31:32 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Atish Patra <atishp@rivosinc.com>
 Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>, 
@@ -76,17 +76,17 @@ Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
 	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, Will Deacon <will@kernel.org>, 
 	x86@kernel.org
-Subject: Re: [PATCH v6 14/24] RISC-V: KVM: Add perf sampling support for
- guests
-Message-ID: <20240415-cdc6d5bc6c5145f9d6f54afc@orel>
+Subject: Re: [PATCH v6 21/24] KVM: riscv: selftests: Add SBI PMU selftest
+Message-ID: <20240415-05af8386b8ebe9aecf37c1c8@orel>
 References: <20240411000752.955910-1-atishp@rivosinc.com>
- <20240411000752.955910-15-atishp@rivosinc.com>
+ <20240411000752.955910-22-atishp@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240411000752.955910-15-atishp@rivosinc.com>
+In-Reply-To: <20240411000752.955910-22-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_062340_640573_137DDE86 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20240415_063135_420325_DE0B7790 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,29 +103,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 10, 2024 at 05:07:42PM -0700, Atish Patra wrote:
-> KVM enables perf for guest via counter virtualization. However, the
-> sampling can not be supported as there is no mechanism to enabled
-> trap/emulate scountovf in ISA yet. Rely on the SBI PMU snapshot
-> to provide the counter overflow data via the shared memory.
-> 
-> In case of sampling event, the host first sets the guest's LCOFI
-> interrupt and injects to the guest via irq filtering mechanism defined
-> in AIA specification. Thus, ssaia must be enabled in the host in order
-> to use perf sampling in the guest. No other AIA dependency w.r.t kernel
-> is required.
+On Wed, Apr 10, 2024 at 05:07:49PM -0700, Atish Patra wrote:
+> This test implements basic sanity test and cycle/instret event
+> counting tests.
 > 
 > Reviewed-by: Anup Patel <anup@brainfault.org>
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 > ---
->  arch/riscv/include/asm/csr.h          |  3 +-
->  arch/riscv/include/asm/kvm_vcpu_pmu.h |  3 ++
->  arch/riscv/include/uapi/asm/kvm.h     |  1 +
->  arch/riscv/kvm/aia.c                  |  5 ++
->  arch/riscv/kvm/vcpu.c                 | 15 ++++--
->  arch/riscv/kvm/vcpu_onereg.c          |  6 +++
->  arch/riscv/kvm/vcpu_pmu.c             | 68 +++++++++++++++++++++++++--
->  7 files changed, 93 insertions(+), 8 deletions(-)
+>  tools/testing/selftests/kvm/Makefile          |   1 +
+>  .../selftests/kvm/riscv/sbi_pmu_test.c        | 369 ++++++++++++++++++
+>  2 files changed, 370 insertions(+)
+>  create mode 100644 tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
 >
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
