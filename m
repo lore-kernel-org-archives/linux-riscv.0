@@ -4,85 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E18C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 08:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E29A4C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2024 08:12:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q3IxMInHKTHQDJwO+RB0PUw7NtxSsvusqJRy+SE3vAM=; b=AvtqaFoP1OsIwI
-	D9QAovBUMn/eIzpYHE/Tr33q33n/x1xRV7zmyshElvcyZ3fSPvJQ6c/AFc7WZml4BtpPmqPnJzllJ
-	zkTWFlCjiL7g4qqQpqN4v61pQn57Tij+PfqjZnK/D4AMl+c1+SfvG+zQIOJ+V+M30SMasqqrlvtUg
-	c13LwZ1zJtbgamA3IjbX6hYoU8f10D3HElWJ5IyShl4tlktH1RGV6oJv8RrxRhzinDcMYxDIZ82Fu
-	c6hvxz2XkvQTVe906dKt3vNC50UkWWQ/bFonzVmDMAkJ5b4gQ6pG43bDLwi93F7BTkluCUZtL9DRw
-	1JLZCq8f1/0esjW1hq5g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=z/zPbP+ZN3r08t/h1RM6U3AZ1VUtr4BGofg2NS1Pxic=; b=q7wgzQSvaKMk1p
+	F3Bz2gHPjDtP62sYRpN93724jRMIVXfKRD9Ha1Kpy+K+dvQ/4rDhVXW1ifuli/Q6VNXB6cpYTdjb9
+	XgC3xaa20WkMFNsLgdEjoMnSUO6ZNG9q56D8TVe4/0drOEK5Lyg18bDT0RZJwWaZvEFmzXB2a4ADk
+	m94IA5tCUIBCKyaNHGaHfyaCRC/V2MB7dO0UEjxH8pwlodos6SQug54w0ROPVeYl+d98scIc5VUpv
+	i8YUn+9/L2J+wZp4GQJUsgCQ0OoJTHx5dUGHLJVVqQYeH1uAiiJ/epyCaa4cBPbw9jp/FGoLk8Z5j
+	ZqJ1sbbeF7oz17pOowkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwHJV-00000007SMe-1po6;
-	Mon, 15 Apr 2024 08:03:41 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1rwHSD-00000007UBr-0pFx;
+	Mon, 15 Apr 2024 08:12:41 +0000
+Received: from mail.explorepulse.pl ([51.91.254.67])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwHJT-00000007SKd-1foo;
-	Mon, 15 Apr 2024 08:03:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=SnC5QhRh3mlXbiY7BQLXM/Gh385CPpYbuU5jeG1ji44=; b=hKFfLh3ZzFSzJGPDsRiopYa0ZT
-	efNxCJqPzVqpITxLJsqCQRDO/uvf69qkc9BXqmWr7IXteAQce+itGNJYH8NcZtrv9mowEIaYK6OnE
-	zu1E4zjHKlTRzhIC1ZV1QOADiXZdrVLff1qYNP1JR24KuBKOy5EmbA81XuxsDuKJyy+iJ89PdOUI/
-	efJhNT73J6k+ohWLAe+NOaJ0tLI7iHDK5KHmXtq9go12IpYLvh58Vu6qfltj09NU88Ez/5/ao6M2e
-	ksvVbHfa9e2PLeJq7LlMBgltQx/i+r0JGyYLxMjQF0iD8WvUaOibeLqFhJKeJcs34Gs9iz6tlyZPZ
-	lKITRWCQ==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwHJC-0000000FFhi-3aDy;
-	Mon, 15 Apr 2024 08:03:22 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 12C5730040C; Mon, 15 Apr 2024 10:03:22 +0200 (CEST)
-Date: Mon, 15 Apr 2024 10:03:21 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-modules@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v4 06/15] mm/execmem, arch: convert simple overrides of
- module_alloc to execmem
-Message-ID: <20240415080321.GG40213@noisy.programming.kicks-ass.net>
-References: <20240411160051.2093261-1-rppt@kernel.org>
- <20240411160051.2093261-7-rppt@kernel.org>
+	id 1rwHS9-00000007U89-0ohq
+	for linux-riscv@lists.infradead.org;
+	Mon, 15 Apr 2024 08:12:39 +0000
+Received: by mail.explorepulse.pl (Postfix, from userid 1002)
+	id 2EB8B24D1A; Mon, 15 Apr 2024 10:11:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=explorepulse.pl;
+	s=mail; t=1713168751;
+	bh=dqx6etWJTU7o7oR1uR2aRBCwaPXPl4dirwwzUCFBDcc=;
+	h=Date:From:To:Subject:From;
+	b=QRf7Fj3xleMyn79HXG27pHFYZtg1DHbdaOz5gMxQjVXTjzpPL/c/IHh4CRn3zy760
+	 0nnZ4vXztsdBucV9VTSoDu8qfGXliOk6sN88n8Z98ng3jcPhDSRjtlnquiA/DOCcSn
+	 03/PoO+3OPGyuJFddaP3ZZ1fGYnSBVby+6GHQi9qtA/Xsx0kn7CyaYVx0f9x/eogSj
+	 sTAmDjb86fRuxAyrEpnPMMMwGmKc+ij7tkiEiFbPM+Fsq0CktC5JfU64A/fQ7w69IA
+	 +o43xdiZeeRKKovDEV5g4WCBeNCAvF/v40w38FvIbvmels5iiLcDLU3rb/B7ZvbVUY
+	 paiFf9Gy2Fz2A==
+Received: by mail.explorepulse.pl for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 08:11:12 GMT
+Message-ID: <20240415084500-0.1.am.jm69.0.5qd54afkc4@explorepulse.pl>
+Date: Mon, 15 Apr 2024 08:11:12 GMT
+From: "Marcin Gard" <marcin.grad@explorepulse.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
+X-Mailer: mail.explorepulse.pl
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240411160051.2093261-7-rppt@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20240415_011237_951083_60374DE0 
+X-CRM114-Status: UNSURE (   0.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,124 +62,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 11, 2024 at 07:00:42PM +0300, Mike Rapoport wrote:
-> +static struct execmem_info execmem_info __ro_after_init = {
-> +	.ranges = {
-> +		[EXECMEM_DEFAULT] = {
-> +			.start = MODULES_VADDR,
-> +			.end = MODULES_END,
-> +			.alignment = 1,
-> +		},
-> +	},
-> +};
-> +
-> +struct execmem_info __init *execmem_arch_setup(void)
->  {
-> +	execmem_info.ranges[EXECMEM_DEFAULT].pgprot = PAGE_KERNEL;
-> +
-> +	return &execmem_info;
->  }
-
-> +static struct execmem_info execmem_info __ro_after_init = {
-> +	.ranges = {
-> +		[EXECMEM_DEFAULT] = {
-> +			.start = MODULES_VADDR,
-> +			.end = MODULES_END,
-> +			.pgprot = PAGE_KERNEL_EXEC,
-> +			.alignment = 1,
-> +		},
-> +	},
-> +};
-> +
-> +struct execmem_info __init *execmem_arch_setup(void)
->  {
-> +	return &execmem_info;
->  }
-
-> +static struct execmem_info execmem_info __ro_after_init = {
-> +	.ranges = {
-> +		[EXECMEM_DEFAULT] = {
-> +			.pgprot = PAGE_KERNEL_RWX,
-> +			.alignment = 1,
-> +		},
-> +	},
-> +};
-> +
-> +struct execmem_info __init *execmem_arch_setup(void)
->  {
-> +	execmem_info.ranges[EXECMEM_DEFAULT].start = VMALLOC_START;
-> +	execmem_info.ranges[EXECMEM_DEFAULT].end = VMALLOC_END;
-> +
-> +	return &execmem_info;
->  }
-
-> +static struct execmem_info execmem_info __ro_after_init = {
-> +	.ranges = {
-> +		[EXECMEM_DEFAULT] = {
-> +			.pgprot = PAGE_KERNEL,
-> +			.alignment = 1,
-> +		},
-> +	},
-> +};
-> +
-> +struct execmem_info __init *execmem_arch_setup(void)
->  {
-> +	execmem_info.ranges[EXECMEM_DEFAULT].start = MODULES_VADDR;
-> +	execmem_info.ranges[EXECMEM_DEFAULT].end = MODULES_END;
-> +
-> +	return &execmem_info;
->  }
-
-> +static struct execmem_info execmem_info __ro_after_init = {
-> +	.ranges = {
-> +		[EXECMEM_DEFAULT] = {
->  #ifdef CONFIG_SPARC64
-> +			.start = MODULES_VADDR,
-> +			.end = MODULES_END,
->  #else
-> +			.start = VMALLOC_START,
-> +			.end = VMALLOC_END,
-> +#endif
-> +			.alignment = 1,
-> +		},
-> +	},
-> +};
-> +
-> +struct execmem_info __init *execmem_arch_setup(void)
->  {
-> +	execmem_info.ranges[EXECMEM_DEFAULT].pgprot = PAGE_KERNEL;
->  
-> +	return &execmem_info;
->  }
-
-I'm amazed by the weird and inconsistent breakup of initializations.
-
-What exactly is wrong with something like:
-
-static struct execmem_info execmem_info __ro_after_init;
-
-struct execmem_info __init *execmem_arch_setup(void)
-{
-	execmem_info = (struct execmem_info){
-		.ranges = {
-			[EXECMEM_DEFAULT] = {
-				.start	= MODULES_VADDR,
-				.end	= MODULES_END,
-				.pgprot	= PAGE_KERNEL,
-				.alignment = 1,
-			},
-		},
-	};
-	return &execmem_info;
-}
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKQ3p5IGplc3QgbW/FvGxpd2/Fm8SHIG5hd2nEhXphbmlhIHdzcMOzxYJw
+cmFjeSB6IFBhxYRzdHdlbT8KClogY2jEmWNpxIUgcG9yb3ptYXdpYW0geiBvc29ixIUgemFqbXVq
+xIVjxIUgc2nEmSBkemlhxYJhbmlhbWkgendpxIV6YW55bWkgemUgc3ByemVkYcW8xIUuCgpQb21h
+Z2FteSBza3V0ZWN6bmllIHBvenlza2l3YcSHIG5vd3ljaCBrbGllbnTDs3cuCgpaYXByYXN6YW0g
+ZG8ga29udGFrdHUuCgoKUG96ZHJhd2lhbSBzZXJkZWN6bmllCk1hcmNpbiBHYXJkCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
