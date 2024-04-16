@@ -4,91 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871A2C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 08:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2320C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 09:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g/8I0pzoXb+ur6e/QsLoK2aF+8s713Dl00GoElaTpAI=; b=chI9X7vNaVnlvw
-	2xEco+MIznTaL3dPiQTHYtHRGfHuhR4ls+E+2DXXu16lKzM6HwLVWUWtOS6pxBZxfS/iRWcceGRJS
-	iRZ0C2/iIvP0SFR6vFWcXLb6T8BwAqDBEi+fAQMgVQ6yPFs1I+fGfxJTGDkntqFw0qjmOKBf9DNZD
-	1bf493cWKYGb+qctJdsaykBPb36m7K3p8LKIec7hlCo4Mj6P13QzlO0gXQkbDgj6dSHW8Amo2/doA
-	nf0kKNg+1xRYQAfJvjMrVqp7kDKBlU6YpkPZCk723aGpnKyc9SYw5IJ509nPD1DeMXL/MrJFXjxCg
-	1ZZTLyGfYL9PLgAGmY9Q==;
+	List-Owner; bh=Kpn3ZoIErWduBbdzoqrueTTPwuXoCoVYl1IdL1omQaI=; b=pIlWhIr0avgvVJ
+	WrOtZE17dZiFL8MBUYV6MrdqNPKssPv7C5NyIVsoaFgWrAN4jUFmfCCdbXQYfCXw89ZxlkuuJxBWt
+	RQ7GkSslN2JUSRrRZmTLliMrr9sCbEHnqB4lQ53EBazTU9/h66mzSKMZh6IrGTAHYmdDRuQoMMoJ+
+	+pJCDh+urZz50cTtRyBjw5wtgagzGMqv8IMuI1Ap8zXSzAFZZI/ah+dSOk4vBAOBt2gI43CpUHy7j
+	4w/PTXt/r+eVsqwQUvmfraK56j45sFe3devaSMS74c3yrmKub9mOfuh59clQSXtP7tf6DORi0dMcg
+	dqS/jqUhXoGz2iuA4IUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rweVL-0000000BV7A-0uxs;
-	Tue, 16 Apr 2024 08:49:27 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1rwfEF-0000000Bcab-1caX;
+	Tue, 16 Apr 2024 09:35:51 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rweVI-0000000BV63-2VSO
-	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 08:49:26 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4189a6a71dcso1445025e9.2
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Apr 2024 01:49:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1713257362; x=1713862162; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mvwae8C2beujv4aHEun0iITe/+EHhljfurmTw9uDoMY=;
-        b=fFjl8NjPi6FivySi2IuOspMHlS+bijRQNZx04Y8MMVxPSibnn4swds2IJrFtmFl/9D
-         xVToYKtINY02bLe+ccjLFz461O/HwmnHDYpwUR4CIrSMehMj/D/0tTdOAw/5Zf6/pIXf
-         3SGL15YTKPHzKned7sT3NB1ArjxpGEsDQ8TugT1iaxwFlrCnCDwQ+pTxSCBTSevjXqkX
-         2s2Nng0yJmL7GKreRNIJiGMOzLOMtd6enOjcXHFvCjw1arRQ0LFRc930FbqUaBRhmRW/
-         ofdZKdTKEum8YfbtdqmzGgpuIshC38kcyNZQMNzE7Nauw084FTjVUEbhM5YVzgOM28SZ
-         Mq7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713257362; x=1713862162;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mvwae8C2beujv4aHEun0iITe/+EHhljfurmTw9uDoMY=;
-        b=RKzH9BosyBn0RiZxhRHHOMNXeHtLQk3HCQowyEgy46LqI0w1GgR7jjK1lNjhZWh1qi
-         /Un6OGs4lsZyE9CkI4c36daniyrLysu4i9ayvhoNo5JfwX8ZEJcehoOBzo91bSKZtWG8
-         StnulnwGYLhkD6XWR7kwbyWVzIExZgrSw1/qnzmc6wnauvDIHXsIQaNKaLQNVBtcqJzs
-         1eKtemA/dD7upPHxxbrS9z2gVfjfPpQCA6jjCy7cM57gsNwn5sxTyqIPm/6CQVP5rPjK
-         6zPTBKH92DgfLQl2JRm1+oEtNhP+MkZgyV2nwTxZ+j9I7Sf7jUL2NG58h351WhWNeGW4
-         P/jA==
-X-Forwarded-Encrypted: i=1; AJvYcCXSkRKCX2PU6obb9K/I3iYP4JVkn7OiWC7xa+AZ+oFGfUb9/gCKr3FL7QXi1dprv3DsVr/GngaC6HmfSzrB2ym2ezNuHz37Zip+Q50BYmky
-X-Gm-Message-State: AOJu0Yy6xtLcdprjf61pfzEs+VWclxXOBzDl2IoQu0/1Ae97V99rbs3y
-	CVIgfkc0Jtv7IqrRFyZFvwU3RIi/uIdPGIjYd6/ks7hWt5aGtCuGKjGBV0sdW/Y=
-X-Google-Smtp-Source: AGHT+IERQO7yDpvVx0Ze29NzNiatXbTnAhDW6vGus8ihCC8tUM3/GY995t+6Bsj2kugS44iI1F1GAA==
-X-Received: by 2002:a05:600c:45d0:b0:416:3317:5951 with SMTP id s16-20020a05600c45d000b0041633175951mr8879758wmo.6.1713257362109;
-        Tue, 16 Apr 2024 01:49:22 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id l16-20020a05600c4f1000b00418729383a4sm5208029wmq.46.2024.04.16.01.49.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Apr 2024 01:49:21 -0700 (PDT)
-Date: Tue, 16 Apr 2024 10:49:20 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Ajay Kaher <ajay.kaher@broadcom.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Alexey Makhalov <alexey.amakhalov@broadcom.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	Juergen Gross <jgross@suse.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, Will Deacon <will@kernel.org>, 
-	x86@kernel.org
-Subject: Re: [PATCH v6 07/24] RISC-V: Use the minor version mask while
- computing sbi version
-Message-ID: <20240416-1a9f7ea9700c4c6c3e52a1b1@orel>
-References: <20240411000752.955910-1-atishp@rivosinc.com>
- <20240411000752.955910-8-atishp@rivosinc.com>
- <20240415-e229bb33ad53ce43e3534f5a@orel>
- <2a63d7da-91b6-496d-9966-e6c0a0aa6c6c@rivosinc.com>
+	id 1rwfEB-0000000BcXP-2qKb;
+	Tue, 16 Apr 2024 09:35:49 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4VJf320VSzztRy8;
+	Tue, 16 Apr 2024 17:32:46 +0800 (CST)
+Received: from kwepemd100009.china.huawei.com (unknown [7.221.188.135])
+	by mail.maildlp.com (Postfix) with ESMTPS id 33A07180080;
+	Tue, 16 Apr 2024 17:35:37 +0800 (CST)
+Received: from [10.67.109.184] (10.67.109.184) by
+ kwepemd100009.china.huawei.com (7.221.188.135) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Tue, 16 Apr 2024 17:35:36 +0800
+Message-ID: <39b55f13-69a1-401e-b87e-1040e33c9368@huawei.com>
+Date: Tue, 16 Apr 2024 17:35:35 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <2a63d7da-91b6-496d-9966-e6c0a0aa6c6c@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next 2/2] riscv, bpf: Fix incorrect runtime stats
+To: Xu Kuohai <xukuohai@huaweicloud.com>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>
+CC: Ivan Babrou <ivan@cloudflare.com>, Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+References: <20240416064208.2919073-1-xukuohai@huaweicloud.com>
+ <20240416064208.2919073-3-xukuohai@huaweicloud.com>
+Content-Language: en-US
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20240416064208.2919073-3-xukuohai@huaweicloud.com>
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd100009.china.huawei.com (7.221.188.135)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_014924_666159_74FCECFD 
-X-CRM114-Status: GOOD (  30.52  )
+X-CRM114-CacheID: sfid-20240416_023547_926862_C451631F 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,83 +68,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 16, 2024 at 01:31:27AM -0700, Atish Patra wrote:
-> On 4/15/24 06:06, Andrew Jones wrote:
-> > On Wed, Apr 10, 2024 at 05:07:35PM -0700, Atish Patra wrote:
-> > > As per the SBI specification, minor version is encoded in the
-> > > lower 24 bits only. Make sure that the SBI version is computed
-> > > with the appropriate mask.
-> > > 
-> > > Currently, there is no minor version in use. Thus, it doesn't
-> > > change anything functionality but it is good to be compliant with
-> > > the specification.
-> > > 
-> > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > > ---
-> > >   arch/riscv/include/asm/sbi.h | 4 ++--
-> > >   1 file changed, 2 insertions(+), 2 deletions(-)
-> > > 
-> > > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> > > index f31650b10899..935b082d6a6c 100644
-> > > --- a/arch/riscv/include/asm/sbi.h
-> > > +++ b/arch/riscv/include/asm/sbi.h
-> > > @@ -367,8 +367,8 @@ static inline unsigned long sbi_minor_version(void)
-> > >   static inline unsigned long sbi_mk_version(unsigned long major,
-> > >   					    unsigned long minor)
-> > >   {
-> > > -	return ((major & SBI_SPEC_VERSION_MAJOR_MASK) <<
-> > > -		SBI_SPEC_VERSION_MAJOR_SHIFT) | minor;
-> > > +	return ((major & SBI_SPEC_VERSION_MAJOR_MASK) << SBI_SPEC_VERSION_MAJOR_SHIFT
-> > > +		| (minor & SBI_SPEC_VERSION_MINOR_MASK));
-> > 
-> > The previous version had ((major & major_mask) << major_shift) | minor
-> > (parentheses around all the major bits before the OR). Now we have
-> > parentheses around everything, which aren't necessary, and no longer
-> 
-> We have to use parentheses around | to avoid compiler warnings
-> (-Wparentheses)
-> 
-> Are you only concerned about the outer parentheses ? I have removed it.
-> 
-> > have them around all the major bits before the OR. We don't need the
-> > parentheses around the major bits, since shift has higher precedence
-> > than OR, but I'd probably keep them.
-> > 
-> 
-> Is this what you prefer?
-> 
-> return ((major & SBI_SPEC_VERSION_MAJOR_MASK) <<
-> SBI_SPEC_VERSION_MAJOR_SHIFT) | (minor & SBI_SPEC_VERSION_MINOR_MASK);
 
-Yup
+On 2024/4/16 14:42, Xu Kuohai wrote:
+> From: Xu Kuohai <xukuohai@huawei.com>
+> 
+> When __bpf_prog_enter() returns zero, the s1 register is not set to zero,
+> resulting in incorrect runtime stats. Fix it by setting s1 immediately upon
+> the return of __bpf_prog_enter().
+> 
+> Fixes: 49b5e77ae3e2 ("riscv, bpf: Add bpf trampoline support for RV64")
+> Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
+> ---
+>   arch/riscv/net/bpf_jit_comp64.c | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index 15e482f2c657..e713704be837 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> @@ -730,6 +730,9 @@ static int invoke_bpf_prog(struct bpf_tramp_link *l, int args_off, int retval_of
+>   	if (ret)
+>   		return ret;
+>   
+> +	/* store prog start time */
+> +	emit_mv(RV_REG_S1, RV_REG_A0, ctx);
+> +
+>   	/* if (__bpf_prog_enter(prog) == 0)
+>   	 *	goto skip_exec_of_prog;
+>   	 */
+> @@ -737,9 +740,6 @@ static int invoke_bpf_prog(struct bpf_tramp_link *l, int args_off, int retval_of
+>   	/* nop reserved for conditional jump */
+>   	emit(rv_nop(), ctx);
+>   
+> -	/* store prog start time */
+> -	emit_mv(RV_REG_S1, RV_REG_A0, ctx);
+> -
+>   	/* arg1: &args_off */
+>   	emit_addi(RV_REG_A0, RV_REG_FP, -args_off, ctx);
+>   	if (!p->jited)
 
-Thanks,
-drew
+Thanks.
 
-> 
-> 
-> 
-> 
-> > Otherwise,
-> > 
-> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > 
-> > >   }
-> > >   int sbi_err_map_linux_errno(int err);
-> > > -- 
-> > > 2.34.1
-> > > 
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+Reviewed-by: Pu Lehui <pulehui@huawei.com>
+
 
 _______________________________________________
 linux-riscv mailing list
