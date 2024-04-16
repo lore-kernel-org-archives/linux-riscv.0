@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFB6C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 16:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E42BC4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 17:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gWGPIZSWcqv0tb2F3iifjaNfchAyMDuPttHAeNbuMZw=; b=EZKVXUW4xIsPE4QL4ncbxNI88o
-	TRvqEbgX22zMfAmn48mLRAVNfhljKIs+O2fBap5poHkEhaQblUpg2f+r17TgUjzEUuamWP1aFkV+f
-	ElTJZrytglnKgoqZKCIPyFuh9cPe1ISsDth8M+NGuBaq5VhO9CJz9xRF/Ty8s2WR965DE+qEwup/1
-	sNL2Vmb14PK/RjrqWOJmDowWnMKgmkFOKgg0GTZ1GB9YVrZ0wRT1NtPzGxmGj7BB82CBUHSkwlcEv
-	VUlmTFDuAFsNMsW3vuDCCp5nIvnzeLLrneLNj9TyRAAUp//52UP5HRTqWTFe3LBlxt6XNmBFuu/ET
-	vDSHIP7w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VM/zXei4y5Oxsrwd21pq/ILZmqVT2Ml9x4XyNXaG6F0=; b=nA55v7aXhprnj+
+	EXIGRrGd2/lqfHJUTwoHjycQcFNg98LdHFdeaE9qMoZ7tbzpvcVrfBbMKZhhJyDH3YtfS9BGTV/6B
+	cCs3xXhh9yyR68g7oBDB1nDLey3Qd7euN0Ferlfom2xofWvESVwSEtLvjJ9gWocrcYFmszx6bt1pS
+	UQ2qVEHHHch73TA/mmOKWZozP+tPMNRe9s4rWj18ZEyFu9U1XVNJOsRX40pQl8wfGdoHKtvkYRo4j
+	4nEg7HG/qUpLYz8LtBvBR3JnndCfe7FlR60fG7ijzsQt7eO3Zslg/3ZP3WoiloR1R0ar+VOTxICNU
+	QKA4Hww0fvAJaLOpoIqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwlvY-0000000D3zo-2d2h;
-	Tue, 16 Apr 2024 16:45:00 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rwmAb-0000000D5uO-21ds;
+	Tue, 16 Apr 2024 17:00:33 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwlvW-0000000D3yM-0x8k
-	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 16:44:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 686A2CE10F0;
-	Tue, 16 Apr 2024 16:44:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1573FC113CE;
-	Tue, 16 Apr 2024 16:44:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713285895;
-	bh=WFbKwxX8WMuQfW+cB0Y60i7L1vzoyLXTtdrcolu9Gbw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WeHRO+SCyFOm2lrN9+zZTmXWsbUPJELegE9c39+uTW+nLXLSzamhs5IfwqkA+a6B6
-	 Imhs4el6W1gohJ8crDSFfRT+CbcC287m/o8+qtxv8NSOJ83MvJ8CNQ5yVxn1XCD7ju
-	 HH8VYsaEnVDRMHLSOqje9X8tDJ7A0WU40EgDZYQsuMl8hsG5Ds48ERNiijWgpQJPhr
-	 0BgekzClovYy4FWHFNn5G9BXvJ/lbopZnmR/QMdngL3MBt88qYThcx0FNS+2aOwAX1
-	 sGGuVhZ8PaH/t3ISr5UgWSXqw1CeyO+2NrV5V8YVbMsJsie54xtDQ3+l7KevVqdimA
-	 nrjcKEKNv1mRg==
-Date: Tue, 16 Apr 2024 17:44:48 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: adrian.hunter@intel.com, aou@eecs.berkeley.edu, conor+dt@kernel.org,
-	guoren@kernel.org, inochiama@outlook.com, jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com, haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com, tingzhu.wang@sophgo.com,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH 1/3] dt-bindings: mmc: sdhci-of-dwcmhsc: Add Sophgo
- SG2042 support
-Message-ID: <20240416-pretext-cognitive-295526072596@spud>
-References: <cover.1713258948.git.unicorn_wang@outlook.com>
- <032c06642b01f06c86ba8bcd2108d18c005b57eb.1713258948.git.unicorn_wang@outlook.com>
+	id 1rwmAa-0000000D5uE-0c7F
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 16 Apr 2024 17:00:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=KRNBS/nNdDiPqgsHkyKzXY05QuyaoZshBLw+Rc9FXMA=; b=nt9mrA1vsAaOvdbNnhltvUwu9v
+	eWZR64hdT0sHaVKkAKmAe02tetl0haDxBjBnAHLphqFzp/yy5osgH3yZyN6EMx70yH1d9DLHOvVrz
+	dlRSWUeki4/Q/6FdINSaH5XHgpn18Dmc7bkQlSk/Sg9c13cunns8wBOiCeumO9xQ5x0BAtn5G/uU/
+	xnQs8dh9gnYgu2MH0woQlj+GOoe6kRJfmSNBff0Hup94JBNpjrNs0La/eiMr7DSYEkpv1GiMYVo3T
+	yqk61h9eHqECcuvHQGIgfFsTqPQCz0ZDqgjczHx4LBks0gwP9I1Os4OQf9wpGT5Ee1lDF7iiYEL7s
+	zChMYYyQ==;
+Received: from willy by casper.infradead.org with local (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rwmAX-00000000yWu-3TaB;
+	Tue, 16 Apr 2024 17:00:29 +0000
+Date: Tue, 16 Apr 2024 18:00:29 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Nam Cao <namcao@linutronix.de>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
+	Andreas Dilger <adilger@dilger.ca>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	linux-fsdevel <linux-fsdevel@vger.kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, Theodore Ts'o <tytso@mit.edu>,
+	Ext4 Developers List <linux-ext4@vger.kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	Anders Roxell <anders.roxell@linaro.org>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Subject: Re: riscv32 EXT4 splat, 6.8 regression?
+Message-ID: <Zh6urRin2-wVxNeq@casper.infradead.org>
+References: <20240416-deppen-gasleitung-8098fcfd6bbd@brauner>
+ <8734rlo9j7.fsf@all.your.base.are.belong.to.us>
+ <Zh6KNglOu8mpTPHE@kernel.org>
+ <20240416171713.7d76fe7d@namcao>
+ <20240416173030.257f0807@namcao>
+ <87v84h2tee.fsf@all.your.base.are.belong.to.us>
+ <20240416181944.23af44ee@namcao>
+ <Zh6n-nvnQbL-0xss@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <032c06642b01f06c86ba8bcd2108d18c005b57eb.1713258948.git.unicorn_wang@outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_094458_655841_6DD46C9E 
-X-CRM114-Status: GOOD (  17.93  )
+Content-Disposition: inline
+In-Reply-To: <Zh6n-nvnQbL-0xss@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,173 +80,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1707764015326128218=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 16, 2024 at 07:31:54PM +0300, Mike Rapoport wrote:
+> > @@ -238,17 +237,9 @@ static void __init setup_bootmem(void)
+> >  	/*
+> >  	 * memblock allocator is not aware of the fact that last 4K bytes of
+> >  	 * the addressable memory can not be mapped because of IS_ERR_VALUE
+> > -	 * macro. Make sure that last 4k bytes are not usable by memblock
+> > -	 * if end of dram is equal to maximum addressable memory.  For 64-bit
+> > -	 * kernel, this problem can't happen here as the end of the virtual
+> > -	 * address space is occupied by the kernel mapping then this check must
+> > -	 * be done as soon as the kernel mapping base address is determined.
+> > +	 * macro. Make sure that last 4k bytes are not usable by memblock.
+> >  	 */
+> 
+> It's not only memblock, but buddy as well, so maybe
+> 
+> 	/*
+> 	 * The last 4K bytes of the addressable memory can not be used
+> 	 * because of IS_ERR_VALUE macro. Make sure that last 4K bytes are
+> 	 * not usable by kernel memory allocators.
+> 	 */
+> 
+> > -	if (!IS_ENABLED(CONFIG_64BIT)) {
+> > -		max_mapped_addr = __pa(~(ulong)0);
+> > -		if (max_mapped_addr == (phys_ram_end - 1))
+> > -			memblock_set_current_limit(max_mapped_addr - 4096);
+> > -	}
+> > +	memblock_reserve(__pa(-PAGE_SIZE), PAGE_SIZE);
+> 
+> Ack.
 
---===============1707764015326128218==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Oj7/7BmivF9LBeQt"
-Content-Disposition: inline
-
-
---Oj7/7BmivF9LBeQt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Apr 16, 2024 at 05:50:37PM +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
->=20
-> SG2042 use Synopsys dwcnshc IP for SD/eMMC controllers.
->=20
-> SG2042 defines 3 clocks for SD/eMMC controllers.
-> - AXI_EMMC/AXI_SD for aclk/hclk(Bus interface clocks in DWC_mshc)
->   and blck(Core Base Clock in DWC_mshc), these 3 clocks share one
->   source, so reuse existing "core".
-> - 100K_EMMC/100K_SD for cqetmclk(Timer clocks in DWC_mshc), so reuse
->   existing "timer" which was added for rockchip specified.
-> - EMMC_100M/SD_100M for cclk(Card clocks in DWC_mshc), add new "card".
->=20
-> Adding some examples.
->=20
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> ---
->  .../bindings/mmc/snps,dwcmshc-sdhci.yaml      | 67 ++++++++++++++-----
->  1 file changed, 51 insertions(+), 16 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yam=
-l b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> index 4d3031d9965f..a04ccae216cf 100644
-> --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> @@ -21,6 +21,7 @@ properties:
->        - snps,dwcmshc-sdhci
->        - sophgo,cv1800b-dwcmshc
->        - sophgo,sg2002-dwcmshc
-> +      - sophgo,sg2042-dwcmshc
->        - thead,th1520-dwcmshc
-> =20
->    reg:
-> @@ -30,23 +31,36 @@ properties:
->      maxItems: 1
-> =20
->    clocks:
-> -    minItems: 1
-> -    items:
-> -      - description: core clock
-> -      - description: bus clock for optional
-> -      - description: axi clock for rockchip specified
-> -      - description: block clock for rockchip specified
-> -      - description: timer clock for rockchip specified
-> -
-> +    anyOf:
-> +      - minItems: 1
-> +        items:
-> +          - description: core clock
-> +          - description: bus clock for optional
-> +          - description: axi clock for rockchip specified
-> +          - description: block clock for rockchip specified
-> +          - description: timer clock for rockchip specified
-> +
-> +      - minItems: 1
-
-I don't think this minItems is needed, this is for one device which has
-all 3, no?
-
-I also think this combination should only be permitted for the sg2042,
-since it is not valid for the existing devices.
-
-Cheers,
-Conor.
-
-> +        items:
-> +          - description: core clock
-> +          - description: timer clock
-> +          - description: card clock
-> =20
->    clock-names:
-> -    minItems: 1
-> -    items:
-> -      - const: core
-> -      - const: bus
-> -      - const: axi
-> -      - const: block
-> -      - const: timer
-> +    anyOf:
-> +      - minItems: 1
-> +        items:
-> +          - const: core
-> +          - const: bus
-> +          - const: axi
-> +          - const: block
-> +          - const: timer
-> +
-> +      - minItems: 1
-> +        items:
-> +          - const: core
-> +          - const: timer
-> +          - const: card
-> =20
->    resets:
->      maxItems: 5
-> @@ -96,5 +110,26 @@ examples:
->        #address-cells =3D <1>;
->        #size-cells =3D <0>;
->      };
-> -
-> +  - |
-> +    mmc@bb0000 {
-> +      compatible =3D "snps,dwcmshc-sdhci";
-> +      reg =3D <0xbb000 0x1000>;
-> +      interrupts =3D <0 25 0x4>;
-> +      clocks =3D <&cru 17>;
-> +      clock-names =3D "core";
-> +      bus-width =3D <8>;
-> +      #address-cells =3D <1>;
-> +      #size-cells =3D <0>;
-> +    };
-> +  - |
-> +    mmc@cc0000 {
-> +      compatible =3D "snps,dwcmshc-sdhci";
-> +      reg =3D <0xcc000 0x1000>;
-> +      interrupts =3D <0 25 0x4>;
-> +      clocks =3D <&cru 17>, <&cru 18>, <&cru 19>;
-> +      clock-names =3D "core", "timer", "card";
-> +      bus-width =3D <8>;
-> +      #address-cells =3D <1>;
-> +      #size-cells =3D <0>;
-> +    };
->  ...
-> --=20
-> 2.25.1
->=20
-
---Oj7/7BmivF9LBeQt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZh6rAAAKCRB4tDGHoIJi
-0qoyAQCTaZUNTGi76+cefoQMna0yBcbNZZK6zaaeA6hNVqADngD+LinzXBk8I+hU
-Bdhb0V7rfjXZ7RK2SnqiZSWXNVclQAY=
-=+oDk
------END PGP SIGNATURE-----
-
---Oj7/7BmivF9LBeQt--
-
-
---===============1707764015326128218==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Can this go to generic code instead of letting architecture maintainers
+fall over it?
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1707764015326128218==--
-
