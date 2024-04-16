@@ -4,76 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A36ECC04FF6
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 20:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D32DC04FF6
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 20:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=v1wWsr6o3Ow9l6OxqGb9ENW26f9u2a5gaSiYXjEA/7s=; b=MFL03RScdAIsKm
-	DhSs4I8H6oTTcVAvBRS+LNOtWOlXgpS+HrvYAkPY5SE8oOlxYIr8tEuhCAQ9PqheFJUikVCrhP7bQ
-	ilXd1D0pvBVZvCcrU2NMBiqVvE3/U5m13xYIgyigb24zf9D0rMylQ5op/lYTXuVzvWowS6w013D91
-	dHe2gagTkw8AX/v1ZjniVuAT+jLe2cM1z4V3PSgUl+UA+ORC8JlkKqy2wNr2E03jOKbNmlZlI9mWu
-	97Aj4hROpVTlL52tv01TQWke9O2IAVszky1zri88pUFIYo6N16hYyacIA2ktLTJ8YBeUOJeL0opwF
-	XRQOdXaGdjdrjSM6CCew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=UB9xqHk3ja7HKEurbv4TyaafnGDqiXDAq15WE8VypO4=; b=BkpOuNtiFapwEtbG1dG+E7PUX5
+	ofsrfvIkA2iPBwaTWdZrtuiFcpTwStLW67EwLhUV6WM7fpS8LDQYpMdBRYewAprcD7AohES+C6WNv
+	YHvxUWB7sWU6EbSHKWxl3y4LMGGheQFNqSHX9rmrM+A93oPCZETmFPg+sysMK31gGKK/44e3l6HGe
+	BErSommqvcu+e+27fx7Bv2JZDRPW6XrEu0bSLy7hcqk//e9SbIDQFNlu9B4wHMbUrMLH9fIYe0HB4
+	OuL6JwaZVUboYmsOs8KJlEz7N9utejwOig2qvRsJyW/SeCm0JYDqx9SCT1PXojbsyxGxJAQBri5Jk
+	N/vsEF8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwphr-0000000DlkY-3wh2;
-	Tue, 16 Apr 2024 20:47:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rwppB-0000000DmfD-08Ay;
+	Tue, 16 Apr 2024 20:54:41 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwphk-0000000DliO-1Ti6;
-	Tue, 16 Apr 2024 20:47:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 37B49612BB;
-	Tue, 16 Apr 2024 20:46:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE13DC113CE;
-	Tue, 16 Apr 2024 20:46:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713300416;
-	bh=PzXDXli+NQ8Ipg2Q4mQ6/IuDWq/2DB2/UEhvKB1bDGY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=fSFZDRtQHi98DyjaM7ap3zCMfLlmmte/nFr/5XWlWTnTM1LpqvArQ+D8bckThywai
-	 jFMa7mUCIFjhJ1oWR5p8SMN3y+R7l15DYEeFuqYu+hsTyNPM/RteaxG1JUO1BhDKgs
-	 CrPUvOqTDDMl72OsXWjnO+jy5TEy4Wl5iPb/XgpMaiEktYx2XSYFM+F0IGvNhd5T8M
-	 s32geYw0IVrgqrG54iJT61/6UeLeWhZ+vFl+wVtT5nrNT7V1W6bJ/7UDTXHjnV9J5g
-	 k4S265Dw8ltfIt6gbU1DfKSUOJlTSed0ol1qhvoiaUS9wMATn9An1Tw38qqQwxejlW
-	 PDM8tZvF67x5A==
-Date: Tue, 16 Apr 2024 15:46:53 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, acpica-devel@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Robert Moore <robert.moore@intel.com>,
-	Haibo1 Xu <haibo1.xu@intel.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Andrei Warkentin <andrei.warkentin@intel.com>,
-	Marc Zyngier <maz@kernel.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Subject: Re: [RFC PATCH v4 03/20] PCI: Make pci_create_root_bus() declare its
- reliance on MSI domains
-Message-ID: <20240416204653.GA164172@bhelgaas>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Zh41pOmtAJ0EcbiN@sunil-laptop>
+	id 1rwpp3-0000000DmcX-3w9H
+	for linux-riscv@lists.infradead.org;
+	Tue, 16 Apr 2024 20:54:39 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6ed267f2936so3881254b3a.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Apr 2024 13:54:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1713300869; x=1713905669; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pSH0oKR3vMqxy1mrb/RHsaXrIsB5nauYz3qJ8CX17MI=;
+        b=KOnB04SkRcyZNMZzskGtRQk7oq5JLOhmKbjR4SpIgUYvz+yIyQkfGrYggyhwu6JpEz
+         9KOOtV6doRcjRvN4uwqjS4ixldX6BmaFhG2/JNj8hJEgulVHdpTmsy8HBb70w1XfWKdO
+         UCZrgG8mcTSJlmow2DodmsiMByrM5qrm8iKdKE0oRx8Lo2mk608pBco+bHzxXr+nkIq7
+         Loa6cLUz6x6qygRoveU9zBPjd41E/g3sZaPjFYb+FLZ+Dbl5FJ1uwbhfQywuWhyyuSlI
+         dahdnzIwB+QBn+PptdAPAs0T2r9n1h3swSHW1m5qo7kvtCbjp96+cW2x5roiXcWfZYld
+         i0Vg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713300869; x=1713905669;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pSH0oKR3vMqxy1mrb/RHsaXrIsB5nauYz3qJ8CX17MI=;
+        b=JbGcnt167opPymthAvWmNqZRdF0iHQR46KYYM++XTq/Yb30bXZ67l2vn5aFq07XOEp
+         XcT51fxXvuvK10FiYh3FDl9Dufn9TibU1fk0LaOh+ZmJv6oTugQf/qRBglVuHHiZsfVa
+         jqaEToIJ+uKw9now8vmRhGOOAVWAIazKe5C8F6aBCWeZ5Z9FBj9mrJ43md3q3II6r3bi
+         hBavQex9pUJWtbqvdrOuVJr4o85PsQ1WFFvzo4AGpDSQaFTHQBBKVN4PTTaZUSYwxVTJ
+         HmZY033ZwJ3WzhtTjpW34Ui8E5AVKV8bsRBycWnenlG1UyYcZwnrOzDtLdlFtM6ttjjn
+         43Hw==
+X-Forwarded-Encrypted: i=1; AJvYcCU/sZ+YBjO8+Y3UdnVfBeIEtLdbbF6dv4AmzJRDg9APyobfUtCFF/sV3O7Dyq5+CaSZHq//iF2Zqfkv+is3jWJkLzfN9ARq+Lp6vBtcL4+p
+X-Gm-Message-State: AOJu0YyzUFkQAEqMrnj9vcWrEAhZBy1LxqTmzUAVkq+wgzf3+xWpik50
+	v+iyO5PD0KDFJ28hcxkwu/2P67Uk9KCGQrXPuGc9g0paXXesJk4r3Te2Z4p6Ppk=
+X-Google-Smtp-Source: AGHT+IEaoFFX6WKh90/e6oL2zfKnlJjY8MbSC7LBgPoSZpaJ91GSoA8Wk3SBjtokrGWQGTcakUOoSA==
+X-Received: by 2002:a05:6a21:3286:b0:1a9:7ad8:79f with SMTP id yt6-20020a056a21328600b001a97ad8079fmr14768410pzb.13.1713300869049;
+        Tue, 16 Apr 2024 13:54:29 -0700 (PDT)
+Received: from localhost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id r4-20020a056a00216400b006edd05e3751sm9680856pff.176.2024.04.16.13.54.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Apr 2024 13:54:28 -0700 (PDT)
+Date: Tue, 16 Apr 2024 13:54:28 -0700 (PDT)
+X-Google-Original-Date: Tue, 16 Apr 2024 13:54:21 PDT (-0700)
+Subject: Re: [PATCH v7 00/24] RISC-V SBI v2.0 PMU improvements and Perf sampling in KVM guest
+In-Reply-To: <20240416184421.3693802-1-atishp@rivosinc.com>
+CC: linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>,
+  ajay.kaher@broadcom.com, aou@eecs.berkeley.edu, alexghiti@rivosinc.com, ajones@ventanamicro.com,
+  anup@brainfault.org, Conor Dooley <conor.dooley@microchip.com>, jgross@suse.com,
+  kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+  linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, pbonzini@redhat.com,
+  Paul Walmsley <paul.walmsley@sifive.com>, shuah@kernel.org, virtualization@lists.linux.dev,
+  Will Deacon <will@kernel.org>, x86@kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Atish Patra <atishp@rivosinc.com>
+Message-ID: <mhng-5383b817-4803-47fa-9076-e8a1c8044bc3@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_134700_815897_EC844E80 
-X-CRM114-Status: GOOD (  33.38  )
+X-CRM114-CacheID: sfid-20240416_135434_144359_A2F24D6D 
+X-CRM114-Status: GOOD (  37.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,85 +92,204 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 16, 2024 at 01:54:04PM +0530, Sunil V L wrote:
-> Hi Bjorn,
-> 
-> On Mon, Apr 15, 2024 at 06:15:23PM -0500, Bjorn Helgaas wrote:
-> > On Mon, Apr 15, 2024 at 10:30:56PM +0530, Sunil V L wrote:
-> > > Similar to commit 9ec37efb8783 ("PCI/MSI: Make
-> > > pci_host_common_probe() declare its reliance on MSI domains"), declare
-> > > this dependency for PCI probe in ACPI based flow.
-> > > 
-> > > This is required especially for RISC-V platforms where MSI controller
-> > > can be absent. However, setting this for all architectures seem to cause
-> > > issues on non RISC-V architectures [1]. Hence, enabled this only for
-> > > RISC-V.
-> > > 
-> > > [1] - https://lore.kernel.org/oe-lkp/202403041047.791cb18e-oliver.sang@intel.com
-> > > 
-> > > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > > ---
-> > >  drivers/pci/probe.c | 3 +++
-> > >  1 file changed, 3 insertions(+)
-> > > 
-> > > diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> > > index 1325fbae2f28..e09915bee2ee 100644
-> > > --- a/drivers/pci/probe.c
-> > > +++ b/drivers/pci/probe.c
-> > > @@ -3048,6 +3048,9 @@ struct pci_bus *pci_create_root_bus(struct device *parent, int bus,
-> > >  	bridge->sysdata = sysdata;
-> > >  	bridge->busnr = bus;
-> > >  	bridge->ops = ops;
-> > > +#ifdef CONFIG_RISCV
-> > > +	bridge->msi_domain = true;
-> > > +#endif
-> > 
-> > Ugh.  I looked at [1], but that's not a very good justification for
-> > this #ifdef.  The fault mentioned in [1] would need to be fixed, but
-> > not this way.
-> 
-> Thank you again for the feedback!
-> 
-> I agree. This is due to my limitation with knowledge and resources to
-> debug the issue happening on non-UEFI x86 system with some particular
-> PCIe RC. Also, I was worried that we get into a rat hole of
-> assumptions/quirks with various architecture/PCIe RC combinations.
+On Tue, 16 Apr 2024 11:43:57 PDT (-0700), Atish Patra wrote:
+> This series implements SBI PMU improvements done in SBI v2.0[1] i.e. PMU snapshot
+> and fw_read_hi() functions.
+>
+> SBI v2.0 introduced PMU snapshot feature which allows the SBI implementation
+> to provide counter information (i.e. values/overflow status) via a shared
+> memory between the SBI implementation and supervisor OS. This allows to minimize
+> the number of traps in when perf being used inside a kvm guest as it relies on
+> SBI PMU + trap/emulation of the counters.
+>
+> The current set of ratified RISC-V specification also doesn't allow scountovf
+> to be trap/emulated by the hypervisor. The SBI PMU snapshot bridges the gap
+> in ISA as well and enables perf sampling in the guest. However, LCOFI in the
+> guest only works via IRQ filtering in AIA specification. That's why, AIA
+> has to be enabled in the hardware (at least the Ssaia extension) in order to
+> use the sampling support in the perf.
+>
+> Here are the patch wise implementation details.
+>
+> PATCH 1,4,7,8,9,10,11,15 : Generic cleanups/improvements.
+> PATCH 2,3,14 : FW_READ_HI function implementation
+> PATCH 5-6: Add PMU snapshot feature in sbi pmu driver
+> PATCH 12-13: KVM implementation for snapshot and sampling in kvm guests
+> PATCH 16-17: Generic improvements for kvm selftests
+> PATCH 18-22: KVM selftests for SBI PMU extension
+>
+> The series is based on v6.9-rc4 and is available at:
+>
+> https://github.com/atishp04/linux/tree/kvm_pmu_snapshot_v7
+>
+> The kvmtool patch is also available at:
+> https://github.com/atishp04/kvmtool/tree/sscofpmf
+>
+> It also requires Ssaia ISA extension to be present in the hardware in order to
+> get perf sampling support in the guest. In Qemu virt machine, it can be done
+> by the following config.
+>
+> ```
+> -cpu rv64,sscofpmf=true,x-ssaia=true
+> ```
+>
+> There is no other dependencies on AIA apart from that. Thus, Ssaia must be disabled
+> for the guest if AIA patches are not available. Here is the example command.
+>
+> ```
+> ./lkvm-static run -m 256 -c2 --console serial -p "console=ttyS0 earlycon" --disable-ssaia -k ./Image --debug
+> ```
+>
+> The series has been tested only in Qemu.
+> Here is the snippet of the perf running inside a kvm guest.
+>
+> ===================================================
+> $ perf record -e cycles -e instructions perf bench sched messaging -g 5
+> ...
+> $ Running 'sched/messaging' benchmark:
+> ...
+> [   45.928723] perf_duration_warn: 2 callbacks suppressed
+> [   45.929000] perf: interrupt took too long (484426 > 483186), lowering kernel.perf_event_max_sample_rate to 250
+> $ 20 sender and receiver processes per group
+> $ 5 groups == 200 processes run
+>
+>      Total time: 14.220 [sec]
+> [ perf record: Woken up 1 times to write data ]
+> [ perf record: Captured and wrote 0.117 MB perf.data (1942 samples) ]
+> $ perf report --stdio
+> $ To display the perf.data header info, please use --header/--header-only optio>
+> $
+> $
+> $ Total Lost Samples: 0
+> $
+> $ Samples: 943  of event 'cycles'
+> $ Event count (approx.): 5128976844
+> $
+> $ Overhead  Command          Shared Object                Symbol               >
+> $ ........  ...............  ...........................  .....................>
+> $
+>      7.59%  sched-messaging  [kernel.kallsyms]            [k] memcpy
+>      5.48%  sched-messaging  [kernel.kallsyms]            [k] percpu_counter_ad>
+>      5.24%  sched-messaging  [kernel.kallsyms]            [k] __sbi_rfence_v02_>
+>      4.00%  sched-messaging  [kernel.kallsyms]            [k] _raw_spin_unlock_>
+>      3.79%  sched-messaging  [kernel.kallsyms]            [k] set_pte_range
+>      3.72%  sched-messaging  [kernel.kallsyms]            [k] next_uptodate_fol>
+>      3.46%  sched-messaging  [kernel.kallsyms]            [k] filemap_map_pages
+>      3.31%  sched-messaging  [kernel.kallsyms]            [k] handle_mm_fault
+>      3.20%  sched-messaging  [kernel.kallsyms]            [k] finish_task_switc>
+>      3.16%  sched-messaging  [kernel.kallsyms]            [k] clear_page
+>      3.03%  sched-messaging  [kernel.kallsyms]            [k] mtree_range_walk
+>      2.42%  sched-messaging  [kernel.kallsyms]            [k] flush_icache_pte
+>
+> ===================================================
+>
+> [1] https://github.com/riscv-non-isa/riscv-sbi-doc
+>
+> Changes from v6->v7:
+> 1. Used SBI_SHMEM_DISABLE in the driver.
+> 2. Added RB Tags.
+> 3. Improved the sbi_pmu_test commandline to allow disabling multiple
+>    tests.
+>
+> Changes from v5->v6:
+> 1. Added a patch for command line option for the sbi pmu tests.
+> 2. Removed redundant prints and restructure the code little bit.
+> 3. Added a patch for computing the sbi minor version correctly.
+> 4. Addressed all other comments on v5.
+>
+> Changes from v4->v5:
+> 1. Moved sbi related definitions to its own header file from processor.h
+> 2. Added few helper functions for selftests.
+> 3. Improved firmware counter read and RV32 start/stop functions.
+> 4. Converted all the shifting operations to use BIT macro
+> 5. Addressed all other comments on v4.
+>
+> Changes from v3->v4:
+> 1. Added selftests.
+> 2. Fixed an issue to clear the interrupt pending bits.
+> 3. Fixed the counter index in snapshot memory start function.
+>
+> Changes from v2->v3:
+> 1. Fixed a patchwork warning on patch6.
+> 2. Fixed a comment formatting & nit fix in PATCH 3 & 5.
+> 3. Moved the hvien update and sscofpmf enabling to PATCH 9 from PATCH 8.
+>
+> Changes from v1->v2:
+> 1. Fixed warning/errors from patchwork CI.
+> 2. Rebased on top of kvm-next.
+> 3. Added Acked-by tags.
+>
+> Changes from RFC->v1:
+> 1. Addressed all the comments on RFC series.
+> 2. Removed PATCH2 and merged into later patches.
+> 3. Added 2 more patches for minor fixes.
+> 4. Fixed KVM boot issue without Ssaia and made sscofpmf in guest dependent on
+>    Ssaia in the host.
+>
+> Atish Patra (24):
+> RISC-V: Fix the typo in Scountovf CSR name
+> RISC-V: Add FIRMWARE_READ_HI definition
+> drivers/perf: riscv: Read upper bits of a firmware counter
+> drivers/perf: riscv: Use BIT macro for shifting operations
+> RISC-V: Add SBI PMU snapshot definitions
+> RISC-V: KVM: Rename the SBI_STA_SHMEM_DISABLE to a generic name
+> RISC-V: Use the minor version mask while computing sbi version
+> drivers/perf: riscv: Implement SBI PMU snapshot function
+> drivers/perf: riscv: Fix counter mask iteration for RV32
+> RISC-V: KVM: Fix the initial sample period value
+> RISC-V: KVM: No need to update the counter value during reset
+> RISC-V: KVM: No need to exit to the user space if perf event failed
+> RISC-V: KVM: Implement SBI PMU Snapshot feature
+> RISC-V: KVM: Add perf sampling support for guests
+> RISC-V: KVM: Support 64 bit firmware counters on RV32
+> RISC-V: KVM: Improve firmware counter read function
+> KVM: riscv: selftests: Move sbi definitions to its own header file
+> KVM: riscv: selftests: Add helper functions for extension checks
+> KVM: riscv: selftests: Add Sscofpmf to get-reg-list test
+> KVM: riscv: selftests: Add SBI PMU extension definitions
+> KVM: riscv: selftests: Add SBI PMU selftest
+> KVM: riscv: selftests: Add a test for PMU snapshot functionality
+> KVM: riscv: selftests: Add a test for counter overflow
+> KVM: riscv: selftests: Add commandline option for SBI PMU test
+>
+> arch/riscv/include/asm/csr.h                  |   5 +-
+> arch/riscv/include/asm/kvm_vcpu_pmu.h         |  16 +-
+> arch/riscv/include/asm/sbi.h                  |  38 +-
+> arch/riscv/include/uapi/asm/kvm.h             |   1 +
+> arch/riscv/kernel/paravirt.c                  |   6 +-
+> arch/riscv/kvm/aia.c                          |   5 +
+> arch/riscv/kvm/vcpu.c                         |  15 +-
+> arch/riscv/kvm/vcpu_onereg.c                  |   6 +
+> arch/riscv/kvm/vcpu_pmu.c                     | 260 ++++++-
+> arch/riscv/kvm/vcpu_sbi_pmu.c                 |  17 +-
+> arch/riscv/kvm/vcpu_sbi_sta.c                 |   4 +-
+> drivers/perf/riscv_pmu.c                      |   1 +
+> drivers/perf/riscv_pmu_sbi.c                  | 272 ++++++-
+> include/linux/perf/riscv_pmu.h                |   6 +
+> tools/testing/selftests/kvm/Makefile          |   1 +
+> .../selftests/kvm/include/riscv/processor.h   |  49 +-
+> .../testing/selftests/kvm/include/riscv/sbi.h | 141 ++++
+> .../selftests/kvm/include/riscv/ucall.h       |   1 +
+> .../selftests/kvm/lib/riscv/processor.c       |  12 +
+> .../testing/selftests/kvm/riscv/arch_timer.c  |   2 +-
+> .../selftests/kvm/riscv/get-reg-list.c        |   4 +
+> .../selftests/kvm/riscv/sbi_pmu_test.c        | 681 ++++++++++++++++++
+> tools/testing/selftests/kvm/steal_time.c      |   4 +-
+> 23 files changed, 1433 insertions(+), 114 deletions(-)
+> create mode 100644 tools/testing/selftests/kvm/include/riscv/sbi.h
+> create mode 100644 tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
 
-The problem is that adding #ifdefs like this leads to a rat hole
-itself.  We need to understand and fix the underlying issue instead.
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-> For ex: I think the issue is, somehow MSI domain is not set at the time
-> of PCI host bridge registration in pci_register_host_bridge() causing
-> PCI_BUS_FLAGS_NO_MSI to be set. This causes pci_alloc_irq_vectors() to
-> fail. In portdrv.c, pcie_init_service_irqs() doesn't switch to INTx
-> handling if MSI can not be used. It switches only if pcie_pme_no_msi()
-> returns true. I couldn't find who actually sets up MSI domain bit late
-> on this platform so that it somehow worked when we didn't set this flag.
-> 
-> Unfortunately, I don't have system to root cause and fix this issue with
-> confidence. Also, I don't know if any other architectures have similar
-> issues which are not caught yet. Hence, I thought it may be better
-> just restrict the change to RISC-V.
-
-It sounds like the above is a good start on analyzing the problem.
-
-I don't quite understand your statement that pcie_init_service_irqs()
-doesn't fall back to INTx when MSI/MSI-X is not available.
-
-I'm looking at this:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/pcie/portdrv.c?id=v6.8#n177
-pcie_port_enable_irq_vec() attempts
-pci_alloc_irq_vectors(PCI_IRQ_MSIX | PCI_IRQ_MSI) and returns 0 if
-successful.  If it returns failure, it looks like
-pcie_init_service_irqs() *does* fall through to trying INTx
-(PCI_IRQ_LEGACY).
-
-Bjorn
+I assume you guys want to take this through the riscv-kvm tree?  That's 
+fine with me, just LMK if you want to do a shared tag or something as we 
+might end up with merge conflicts since it touches so many little 
+things.
 
 _______________________________________________
 linux-riscv mailing list
