@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A42C04FF6
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 08:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871A2C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 08:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cXiBZCL3iCf1WBzAFk2kj6PskW32FXUIVUHDmISSfko=; b=ct7tWZIAE9/iTE
-	GCmsxFLaRWD1WH5cL19nBxYzSNBSiCk6aay6bSwqSYiIwDTE11NfIjREHmdc5/u8FUeXiMt2DXp0j
-	FArfoYXJJNwCQdKOk0/18kXjEERVdKLPmqImlzPvTPKABRzwuUVFxlPZ0BTAsOaUKCnUodeCwKZFV
-	yIRbuIP9VyU3XAdB5g0LV79C0uoYx0IzPVGdHOWq1Ga4LIirCB8tdzJ/PWg7llxSsByvyQCG84MZc
-	SdzcjqjSHzQghCWbA6RNYPNdIwe6hCgEzBRQjJHumK52alYSkUY/0u5hbq1+0eoSB+tpyGmyzB4Uw
-	VlZmXtZr7hFq3RcjWfng==;
+	List-Owner; bh=g/8I0pzoXb+ur6e/QsLoK2aF+8s713Dl00GoElaTpAI=; b=chI9X7vNaVnlvw
+	2xEco+MIznTaL3dPiQTHYtHRGfHuhR4ls+E+2DXXu16lKzM6HwLVWUWtOS6pxBZxfS/iRWcceGRJS
+	iRZ0C2/iIvP0SFR6vFWcXLb6T8BwAqDBEi+fAQMgVQ6yPFs1I+fGfxJTGDkntqFw0qjmOKBf9DNZD
+	1bf493cWKYGb+qctJdsaykBPb36m7K3p8LKIec7hlCo4Mj6P13QzlO0gXQkbDgj6dSHW8Amo2/doA
+	nf0kKNg+1xRYQAfJvjMrVqp7kDKBlU6YpkPZCk723aGpnKyc9SYw5IJ509nPD1DeMXL/MrJFXjxCg
+	1ZZTLyGfYL9PLgAGmY9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rweV5-0000000BV49-2cXr;
-	Tue, 16 Apr 2024 08:49:11 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1rweVL-0000000BV7A-0uxs;
+	Tue, 16 Apr 2024 08:49:27 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rweV2-0000000BV2r-3WTT
+	id 1rweVI-0000000BV63-2VSO
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 08:49:10 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2a54fb929c8so2664056a91.3
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Apr 2024 01:49:07 -0700 (PDT)
+	Tue, 16 Apr 2024 08:49:26 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4189a6a71dcso1445025e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Apr 2024 01:49:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713257347; x=1713862147; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=YB4OKZ5azyoBQVdDaeHRwpejD252N/Wm8xYNs68na58=;
-        b=k0x7vrFAo1TDycFrgBHjV3WqxxO1Py5d4ovtUrgo5b5w+KDwxMqDA8v+CLP3LE1XYk
-         61Mm8eM6Ex77tboOPNdXACM0jsin6/wG2yz5G/77Nh/0/GphaIMBmoKHEM29u/9uB1NW
-         cF/7iWjVR7jSWe6t6dKdzPlVXcGja417RRkax9B45cZdYqD9dijNIA5AqMgximjsoSRf
-         Q0wxAho/2j3Ks+nK5n6my0B3kfKqLiwQktwantdn1rsuF7lSC/uUuGr3Hcp8fLCbgMqK
-         Yjqhx5MwNznMhxplthZ2rCV4ZAfrm6pqHw0oUiAppsFdfxWQVMCCn+0O7buD/xfGxdS+
-         8V5A==
+        d=ventanamicro.com; s=google; t=1713257362; x=1713862162; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mvwae8C2beujv4aHEun0iITe/+EHhljfurmTw9uDoMY=;
+        b=fFjl8NjPi6FivySi2IuOspMHlS+bijRQNZx04Y8MMVxPSibnn4swds2IJrFtmFl/9D
+         xVToYKtINY02bLe+ccjLFz461O/HwmnHDYpwUR4CIrSMehMj/D/0tTdOAw/5Zf6/pIXf
+         3SGL15YTKPHzKned7sT3NB1ArjxpGEsDQ8TugT1iaxwFlrCnCDwQ+pTxSCBTSevjXqkX
+         2s2Nng0yJmL7GKreRNIJiGMOzLOMtd6enOjcXHFvCjw1arRQ0LFRc930FbqUaBRhmRW/
+         ofdZKdTKEum8YfbtdqmzGgpuIshC38kcyNZQMNzE7Nauw084FTjVUEbhM5YVzgOM28SZ
+         Mq7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713257347; x=1713862147;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YB4OKZ5azyoBQVdDaeHRwpejD252N/Wm8xYNs68na58=;
-        b=XpTeoWDYZVMGPSoUfmDnUjZbUsx5Tu7+6EsfUaeFTq427l8oNLAO2vduooO54zatDH
-         8kl+n+6+Hm9MzIwcUwPEKTI8NOGWG2RiTEROKO+nfw3UnfnAJTGqHGDALmKLN2kQgpqz
-         iDMgKc3SfRNLZ2uXIVH7bSyy3xwGpYUWt0xkCZZvlD2olISY6U5vS/8/GaiVW3sYwAOx
-         JjvJDY8oj9hu6Rgl3WfpjebF6QO0wZ35tln7GlczQ4iOGG+93/m7cOkzUmpPB/N+rJrl
-         4yHBBnPh1Fp5ZuOaiC19k92NDcFJvM9jwPPaOJgUpFekS7PB5BWRPB/tdFWuXmHqvOb9
-         XWfA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtg//QuqOchDuv13J1BFeaazhu+4+9ihPtTQ46e1MQuKeHRYDYyrgQJlj54//AfgynL5hXZMyruM0qvONEOsZBGMYL8JIT0548imhq9Cqs
-X-Gm-Message-State: AOJu0YxEuugEvR3p36f/xi2GD/YVrOKlUdFA5nnJWd4HkM5GiCSPGZeQ
-	uKr92tJNz8cIHlqvpluDUqz0ONphZf2ZwXY+KKwPWIYdavhGqUzEBp4uPz69Ld8=
-X-Google-Smtp-Source: AGHT+IE5kvYAIrAzLyhCQG7YuKZN0xkJ8aTxnfQzZtfDgG4X+MG0/9j9aFOlv84kCs3vDDCZ3jMEMA==
-X-Received: by 2002:a17:90a:ae12:b0:2a0:5f10:990c with SMTP id t18-20020a17090aae1200b002a05f10990cmr11367042pjq.10.1713257347059;
-        Tue, 16 Apr 2024 01:49:07 -0700 (PDT)
-Received: from [172.16.0.33] (c-67-188-2-18.hsd1.ca.comcast.net. [67.188.2.18])
-        by smtp.gmail.com with ESMTPSA id c9-20020a17090abf0900b002a610ef880bsm8721392pjs.6.2024.04.16.01.49.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Apr 2024 01:49:06 -0700 (PDT)
-Message-ID: <be9a80a3-64f1-4848-94a4-031a3ea797ad@rivosinc.com>
-Date: Tue, 16 Apr 2024 01:49:04 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 24/24] KVM: riscv: selftests: Add commandline option
- for SBI PMU test
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-kernel@vger.kernel.org, Ajay Kaher <ajay.kaher@broadcom.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
- Conor Dooley <conor.dooley@microchip.com>, Juergen Gross <jgross@suse.com>,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
- Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Shuah Khan <shuah@kernel.org>,
- virtualization@lists.linux.dev, Will Deacon <will@kernel.org>, x86@kernel.org
+        d=1e100.net; s=20230601; t=1713257362; x=1713862162;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mvwae8C2beujv4aHEun0iITe/+EHhljfurmTw9uDoMY=;
+        b=RKzH9BosyBn0RiZxhRHHOMNXeHtLQk3HCQowyEgy46LqI0w1GgR7jjK1lNjhZWh1qi
+         /Un6OGs4lsZyE9CkI4c36daniyrLysu4i9ayvhoNo5JfwX8ZEJcehoOBzo91bSKZtWG8
+         StnulnwGYLhkD6XWR7kwbyWVzIExZgrSw1/qnzmc6wnauvDIHXsIQaNKaLQNVBtcqJzs
+         1eKtemA/dD7upPHxxbrS9z2gVfjfPpQCA6jjCy7cM57gsNwn5sxTyqIPm/6CQVP5rPjK
+         6zPTBKH92DgfLQl2JRm1+oEtNhP+MkZgyV2nwTxZ+j9I7Sf7jUL2NG58h351WhWNeGW4
+         P/jA==
+X-Forwarded-Encrypted: i=1; AJvYcCXSkRKCX2PU6obb9K/I3iYP4JVkn7OiWC7xa+AZ+oFGfUb9/gCKr3FL7QXi1dprv3DsVr/GngaC6HmfSzrB2ym2ezNuHz37Zip+Q50BYmky
+X-Gm-Message-State: AOJu0Yy6xtLcdprjf61pfzEs+VWclxXOBzDl2IoQu0/1Ae97V99rbs3y
+	CVIgfkc0Jtv7IqrRFyZFvwU3RIi/uIdPGIjYd6/ks7hWt5aGtCuGKjGBV0sdW/Y=
+X-Google-Smtp-Source: AGHT+IERQO7yDpvVx0Ze29NzNiatXbTnAhDW6vGus8ihCC8tUM3/GY995t+6Bsj2kugS44iI1F1GAA==
+X-Received: by 2002:a05:600c:45d0:b0:416:3317:5951 with SMTP id s16-20020a05600c45d000b0041633175951mr8879758wmo.6.1713257362109;
+        Tue, 16 Apr 2024 01:49:22 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id l16-20020a05600c4f1000b00418729383a4sm5208029wmq.46.2024.04.16.01.49.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Apr 2024 01:49:21 -0700 (PDT)
+Date: Tue, 16 Apr 2024 10:49:20 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Ajay Kaher <ajay.kaher@broadcom.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Alexey Makhalov <alexey.amakhalov@broadcom.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Juergen Gross <jgross@suse.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, Will Deacon <will@kernel.org>, 
+	x86@kernel.org
+Subject: Re: [PATCH v6 07/24] RISC-V: Use the minor version mask while
+ computing sbi version
+Message-ID: <20240416-1a9f7ea9700c4c6c3e52a1b1@orel>
 References: <20240411000752.955910-1-atishp@rivosinc.com>
- <20240411000752.955910-25-atishp@rivosinc.com>
- <20240415-8b9ad5a7e968b1808e99e3da@orel>
-From: Atish Patra <atishp@rivosinc.com>
-In-Reply-To: <20240415-8b9ad5a7e968b1808e99e3da@orel>
+ <20240411000752.955910-8-atishp@rivosinc.com>
+ <20240415-e229bb33ad53ce43e3534f5a@orel>
+ <2a63d7da-91b6-496d-9966-e6c0a0aa6c6c@rivosinc.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <2a63d7da-91b6-496d-9966-e6c0a0aa6c6c@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_014908_892099_75DD27D0 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20240416_014924_666159_74FCECFD 
+X-CRM114-Status: GOOD (  30.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,155 +100,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/15/24 06:43, Andrew Jones wrote:
-> On Wed, Apr 10, 2024 at 05:07:52PM -0700, Atish Patra wrote:
->> SBI PMU test comprises of multiple tests and user may want to run
->> only a subset depending on the platform. The most common case would
->> be to run all to validate all the tests. However, some platform may
->> not support all events or all ISA extensions.
->>
->> The commandline option allows user to disable particular test if they
->> want to.
->>
->> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
->> Signed-off-by: Atish Patra <atishp@rivosinc.com>
->> ---
->>   .../selftests/kvm/riscv/sbi_pmu_test.c        | 77 ++++++++++++++++---
->>   1 file changed, 68 insertions(+), 9 deletions(-)
->>
->> diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
->> index 0fd9b76ae838..57025b07a403 100644
->> --- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
->> +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
->> @@ -33,6 +33,16 @@ static unsigned long counter_mask_available;
->>   
->>   static bool illegal_handler_invoked;
->>   
->> +enum sbi_pmu_test_id {
->> +	SBI_PMU_TEST_BASIC = 0,
->> +	SBI_PMU_TEST_EVENTS,
->> +	SBI_PMU_TEST_SNAPSHOT,
->> +	SBI_PMU_TEST_OVERFLOW,
->> +	SBI_PMU_TEST_MAX,
->> +};
->> +
->> +static int disabled_test_id = SBI_PMU_TEST_MAX;
+On Tue, Apr 16, 2024 at 01:31:27AM -0700, Atish Patra wrote:
+> On 4/15/24 06:06, Andrew Jones wrote:
+> > On Wed, Apr 10, 2024 at 05:07:35PM -0700, Atish Patra wrote:
+> > > As per the SBI specification, minor version is encoded in the
+> > > lower 24 bits only. Make sure that the SBI version is computed
+> > > with the appropriate mask.
+> > > 
+> > > Currently, there is no minor version in use. Thus, it doesn't
+> > > change anything functionality but it is good to be compliant with
+> > > the specification.
+> > > 
+> > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > > ---
+> > >   arch/riscv/include/asm/sbi.h | 4 ++--
+> > >   1 file changed, 2 insertions(+), 2 deletions(-)
+> > > 
+> > > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> > > index f31650b10899..935b082d6a6c 100644
+> > > --- a/arch/riscv/include/asm/sbi.h
+> > > +++ b/arch/riscv/include/asm/sbi.h
+> > > @@ -367,8 +367,8 @@ static inline unsigned long sbi_minor_version(void)
+> > >   static inline unsigned long sbi_mk_version(unsigned long major,
+> > >   					    unsigned long minor)
+> > >   {
+> > > -	return ((major & SBI_SPEC_VERSION_MAJOR_MASK) <<
+> > > -		SBI_SPEC_VERSION_MAJOR_SHIFT) | minor;
+> > > +	return ((major & SBI_SPEC_VERSION_MAJOR_MASK) << SBI_SPEC_VERSION_MAJOR_SHIFT
+> > > +		| (minor & SBI_SPEC_VERSION_MINOR_MASK));
+> > 
+> > The previous version had ((major & major_mask) << major_shift) | minor
+> > (parentheses around all the major bits before the OR). Now we have
+> > parentheses around everything, which aren't necessary, and no longer
 > 
-> I think we should allow specifying '-d' multiple times in case a user
-> wants to disable more than one type of test. So we should set a bit
-> in this variable instead of assigning it. We could also flip it
-> around. If the user uses '-e' to enable test type then only type
-> will be run, but then we'd probably want to allow multiple '-e'
-> too so it doesn't gain anything.
+> We have to use parentheses around | to avoid compiler warnings
+> (-Wparentheses)
 > 
+> Are you only concerned about the outer parentheses ? I have removed it.
+> 
+> > have them around all the major bits before the OR. We don't need the
+> > parentheses around the major bits, since shift has higher precedence
+> > than OR, but I'd probably keep them.
+> > 
+> 
+> Is this what you prefer?
+> 
+> return ((major & SBI_SPEC_VERSION_MAJOR_MASK) <<
+> SBI_SPEC_VERSION_MAJOR_SHIFT) | (minor & SBI_SPEC_VERSION_MINOR_MASK);
 
-Sure. Added multiple disable option.
+Yup
 
->> +
->>   unsigned long pmu_csr_read_num(int csr_num)
->>   {
->>   #define switchcase_csr_read(__csr_num, __val)		{\
->> @@ -608,19 +618,68 @@ static void test_vm_events_overflow(void *guest_code)
->>   	test_vm_destroy(vm);
->>   }
->>   
->> -int main(void)
->> +static void test_print_help(char *name)
->>   {
->> -	test_vm_basic_test(test_pmu_basic_sanity);
->> -	pr_info("SBI PMU basic test : PASS\n");
->> +	pr_info("Usage: %s [-h] [-d <test name>]\n", name);
->> +	pr_info("\t-d: Test to disable. Available tests are 'basic', 'events', 'snapshot', 'overflow'\n");
->> +	pr_info("\t-h: print this help screen\n");
->> +}
->>   
->> -	test_vm_events_test(test_pmu_events);
->> -	pr_info("SBI PMU event verification test : PASS\n");
->> +static bool parse_args(int argc, char *argv[])
->> +{
->> +	int opt;
->> +
->> +	while ((opt = getopt(argc, argv, "hd:")) != -1) {
->> +		switch (opt) {
->> +		case 'd':
->> +			if (!strncmp("basic", optarg, 5))
->> +				disabled_test_id = SBI_PMU_TEST_BASIC;
->> +			else if (!strncmp("events", optarg, 6))
->> +				disabled_test_id = SBI_PMU_TEST_EVENTS;
->> +			else if (!strncmp("snapshot", optarg, 8))
->> +				disabled_test_id = SBI_PMU_TEST_SNAPSHOT;
->> +			else if (!strncmp("overflow", optarg, 8))
->> +				disabled_test_id = SBI_PMU_TEST_OVERFLOW;
->> +			else
->> +				goto done;
->> +			break;
->> +		break;
-> 
-> Extra 'break'
-> 
+Thanks,
+drew
 
-Fixed. Thanks for catching this.
-
->> +		case 'h':
->> +		default:
->> +			goto done;
->> +		}
->> +	}
->>   
->> -	test_vm_events_snapshot_test(test_pmu_events_snaphost);
->> -	pr_info("SBI PMU event verification with snapshot test : PASS\n");
->> +	return true;
->> +done:
->> +	test_print_help(argv[0]);
->> +	return false;
->> +}
->>   
->> -	test_vm_events_overflow(test_pmu_events_overflow);
->> -	pr_info("SBI PMU event verification with overflow test : PASS\n");
->> +int main(int argc, char *argv[])
->> +{
->> +	if (!parse_args(argc, argv))
->> +		exit(KSFT_SKIP);
->> +
->> +	if (disabled_test_id != SBI_PMU_TEST_BASIC) {
->> +		test_vm_basic_test(test_pmu_basic_sanity);
->> +		pr_info("SBI PMU basic test : PASS\n");
->> +	}
->> +
->> +	if (disabled_test_id != SBI_PMU_TEST_EVENTS) {
->> +		test_vm_events_test(test_pmu_events);
->> +		pr_info("SBI PMU event verification test : PASS\n");
->> +	}
->> +
->> +	if (disabled_test_id != SBI_PMU_TEST_SNAPSHOT) {
->> +		test_vm_events_snapshot_test(test_pmu_events_snaphost);
->> +		pr_info("SBI PMU event verification with snapshot test : PASS\n");
->> +	}
->> +
->> +	if (disabled_test_id != SBI_PMU_TEST_OVERFLOW) {
->> +		test_vm_events_overflow(test_pmu_events_overflow);
->> +		pr_info("SBI PMU event verification with overflow test : PASS\n");
->> +	}
->>   
->>   	return 0;
->>   }
->> -- 
->> 2.34.1
->>
 > 
-> Thanks,
-> drew
 > 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
+> 
+> 
+> > Otherwise,
+> > 
+> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> > 
+> > >   }
+> > >   int sbi_err_map_linux_errno(int err);
+> > > -- 
+> > > 2.34.1
+> > > 
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
 _______________________________________________
 linux-riscv mailing list
