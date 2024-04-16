@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC08C04FFE
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 03:15:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B2CC4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 03:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xtnkKCUQgDaPQGpDuWNslDhGzeqlmbZF6IKYD4JAsJk=; b=AkZbRuH41tAok7
-	w0622yfW3FlrzaUToPgSuswU0Exvadva//MvAZbBNjGoHc4wa6D1hhjANL6Na9SwF4LaFQ3fkSC4c
-	wzuEHEnGmGGJGRv32V64Lonyk/XyVgW5Nx3mrVhIWdzA1+6sZssbCrh+8RD8V9Hbey4xTAL19+uwc
-	84DK+8LW7cIxoQ8dMx+9h0MYsacP5Q1Wx5riR1NPHH0UL7XNoUUpHRasMQVa94+jZ3MXSde0U/OLs
-	GekPBEmN4+lvNsCDdnNoohVTYjV35qe6ThLfizXWsAnEWWBeOqGqY6wkt1dcbxYrQtqSYcDsKXdMe
-	IcmRiM61/JmnXeGseP/g==;
+	List-Owner; bh=QDTyzKUMYgq0HyvymhD07Mi0MvLp2Y3ck4Aw+YQsltg=; b=xdk4JQ/kKUrU+2
+	puvc/rRALmpu8m6UK0CRMQbT2J1XO34W6EYcKjWKLmnOnwjBLYNlyG63/3ysnGc10UJkL2/Nc6swu
+	+BO1xxDMwBIIHr+YR1BGBw07Edsmvarn9VHoI9aAo7JaXYrNJoRuSKKgFiTeZZXVyn0GJb0gkVBpE
+	MxrnLrox2IC1U/Jk/isPkLVJS3Zyv8/yU0v+BIfYOBCOKzXNh8ZzHU0CTLs+zGeMSnE8zPwzl7Xz3
+	Q5QZw/H4swe19XLstS8O0T5F7sMXzdp+MEYJZXFkGpFUK/6ni73/G9fN3lZWsUk0oiln8O2ghgrDr
+	kdBOQoxyyJYp1gXDh/vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwZHh-0000000Acpu-15vI;
-	Tue, 16 Apr 2024 03:15:01 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1rwZHl-0000000Acsw-3Zl9;
+	Tue, 16 Apr 2024 03:15:05 +0000
+Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwZHc-0000000Aco9-3ogY
+	id 1rwZHj-0000000AcpZ-0krJ
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 03:14:59 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-6eb7b6f92d4so1141453a34.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 20:14:55 -0700 (PDT)
+	Tue, 16 Apr 2024 03:15:04 +0000
+Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-23335730db1so2295808fac.2
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 20:15:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1713237294; x=1713842094; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1713237300; x=1713842100; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9yve68TeIN/f8pyzLtfbyGcp16m/kz9ccR5yLCEIe7Y=;
-        b=SYAKREV8qyWhc3rjXd9vob6rv42UwnJj/ANRSdWxoVS0j33k0Vel6cxKkI7YuIop8d
-         DqNTqn+G+Hvlt7Zd67ShwLPwqI5Y0E9Z8H+unNMBi4LO3CUBxLGvo5dHIWtVPCZz50C3
-         ExGdDYmRZv4mSYGt+w+IzYh1t5Rp6XIKRNOINR7ocfvZrBlN5f2xlCdq9ztK5nY/k2qd
-         t0ARKPKU0zp/YZ3BU5UXV3ublVtsT8eUl3eFwmfGWjS6kgUfrKHo2dkH6QoOy1S2tC2e
-         mS3ToMi9uCC7JVnHo+JDIyEsS6Rlwynqtaj09EIyoyOV8/27+hM/qwVhvpfLqS52Bc3/
-         hdUg==
+        bh=hheiXqV+1wPbN2r8XTJ5OPePJHFHtIdLdr/kVMTR0TE=;
+        b=IAmrM/nJNeLEx8LSc93xV8LnLckhzURtO1tleZXVP85s1E7rpFfJy8nkFpBQHFEk5p
+         9eUMTCSf5XJsI9ln+AnrMwG7EJb2lr9x0JzwMuJgkiawfZ1Ie/o2bzusRGEwceHSiw61
+         oT50alLIhIvYYJquCyApGX1qASPZlq0896hpCpSl6PYGk37a3bP7SJzgGGmzPFWhfpTk
+         8qmnftlTm2KoWDNJWtW7dmkuVA6nZuiipRWc3aIkLYQmpfnC62/DDDeSj7Cj9QxtsETf
+         8znBACNbZYNFIWX4vDbn3Ce2eX/zqbSgPAuMQshwMS9JdlQmPBvaZD1L4+2XuJegL1yd
+         7+ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713237294; x=1713842094;
+        d=1e100.net; s=20230601; t=1713237300; x=1713842100;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=9yve68TeIN/f8pyzLtfbyGcp16m/kz9ccR5yLCEIe7Y=;
-        b=nHMuit//8Hd3z40h6MGyjQGNyHxf4u8dBr7FKF222aSMt49XsD7Ddcpdkbf7iwB1jn
-         SyZX3ug5x7pZOCFVUV8nJ/u5P/BKEav7HRPvIu0Gn7VnQ0DB3IESrHhB0MVE/BB5PLaL
-         00jF6j/KUCNkRY0YZK2APEjaE9iPTr1awxbDyI3UULEPWK+YAgSeBiAbV5ZxHgOXw61Y
-         mz2JrckFKQmJ/jhU4EyDycqj5sSbpZPU3QXn2jlQ/WPT+wLWO4TZlahtbAKg5oK3jOLR
-         vkUJ+Cwg1FIWHa7UDKF2NFFSknGvRV70VmJkUV/SfoRFX7+3PrhdeTgP8+u+Rz3WagvU
-         qBTw==
-X-Forwarded-Encrypted: i=1; AJvYcCVIz3ypu3UgJev5Kz1hgPC4cjhAV/1VsoBr5L8nRfWzQflFpPytSWcfdpATsC17R2ocsoP8jHutr/Bd2mjq4xqB/RE5lfs/F0i8OwoLrRTM
-X-Gm-Message-State: AOJu0YyxBZkkXdrPv30JDO6Ouia29edpzlVBYrOuV6Yo6v3pED/EB6Mc
-	28pfro1dD2mhvzgpO43vEOmdif5AOlNQlS8ZtedmtjF8u8R6pyt9SlXfweQ50JA=
-X-Google-Smtp-Source: AGHT+IEeADcSOG5m5cSI0ix14SxkbexoEWR7Z85N/k76lNUya9yj2CgCsg1obRQTztWOVlClkCQkEQ==
-X-Received: by 2002:a05:6808:6044:b0:3c5:fb09:aeea with SMTP id dd4-20020a056808604400b003c5fb09aeeamr11353481oib.35.1713237294624;
-        Mon, 15 Apr 2024 20:14:54 -0700 (PDT)
+        bh=hheiXqV+1wPbN2r8XTJ5OPePJHFHtIdLdr/kVMTR0TE=;
+        b=aSliTQZq/z8BVhM2x9yQL7OTVWzu+6YrZHWfI6y5xb9/HaiObjipA6xoRj5rWbba60
+         TQIbgRc4kbzIsgbi1TC1fV7iW+8jRI93vHq+TQIlWgaQJ8uclaIETPRAB9Qr2QjkwD0y
+         pI1XcjBqMfCePoYrLBzM6gGuF0QtK9Y21X2OpN7IRPIxgTUIx07UOn8RtY+rvr5HiZQT
+         BWwFgydG9lx999qlQCGnTIKJhDTzqsXJFByHTQ0fMcOWARfafwobLe1eiEwlDrPGQ039
+         BtdKnZOI+ACsWoh9Dpq7HVM9wG5No+T+HFrV0MpOdlSe2y2epn/8+MZNsq18+BsK4Jom
+         bfwQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVaMnCpkzaQPbm2fEjoewlujnRfqL3FmIqR+28rNM7bPBzdSfkQZyoyDhJQf/GeCxodWM4RlSg7/aImYiEz/ZSAcHcH2ZnDhwoYiQn8MvBc
+X-Gm-Message-State: AOJu0YwBAJP1G1+WIh1/QcttNneqgY5Rp6qBhBcFQ+12dj2pW3jkxr0L
+	efnxvxG/DXvflHD3qrZuQYQWbQ7ClBgXHEndN3RaqUWSRbygxK7O8xfP8nR3qes=
+X-Google-Smtp-Source: AGHT+IGHqrx1cBNmqnGC6ynZDle54CpzgsuaxouCGoQwD7AV+L407iMBlKY6fL1a8Ib2gQlJQspleg==
+X-Received: by 2002:a05:6871:553:b0:22e:a970:a2ba with SMTP id t19-20020a056871055300b0022ea970a2bamr13356803oal.8.1713237300386;
+        Mon, 15 Apr 2024 20:15:00 -0700 (PDT)
 Received: from L6YN4KR4K9.bytedance.net ([61.213.176.12])
-        by smtp.gmail.com with ESMTPSA id d20-20020aa78694000000b006e6adfb8897sm7907983pfo.156.2024.04.15.20.14.49
+        by smtp.gmail.com with ESMTPSA id d20-20020aa78694000000b006e6adfb8897sm7907983pfo.156.2024.04.15.20.14.55
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 15 Apr 2024 20:14:54 -0700 (PDT)
+        Mon, 15 Apr 2024 20:15:00 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: rafael@kernel.org,
 	lenb@kernel.org,
@@ -82,16 +82,17 @@ To: rafael@kernel.org,
 	sudeep.holla@arm.com,
 	tiantao6@huawei.com
 Cc: Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: [PATCH v3 2/3] riscv: cacheinfo: initialize cacheinfo's level and type from ACPI PPTT
-Date: Tue, 16 Apr 2024 11:14:37 +0800
-Message-Id: <20240416031438.7637-2-cuiyunhui@bytedance.com>
+Subject: [PATCH v3 3/3] RISC-V: Select ACPI PPTT drivers
+Date: Tue, 16 Apr 2024 11:14:38 +0800
+Message-Id: <20240416031438.7637-3-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <20240416031438.7637-1-cuiyunhui@bytedance.com>
 References: <20240416031438.7637-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_201456_977946_A357ACD8 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20240415_201503_440707_F2CBCE4D 
+X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,57 +109,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Before cacheinfo can be built correctly, we need to initialize level
-and type. Since RSIC-V currently does not have a register group that
-describes cache-related attributes like ARM64, we cannot obtain them
-directly, so now we obtain cache leaves from the ACPI PPTT table
-(acpi_get_cache_info()) and set the cache type through split_levels.
+After adding ACPI support to populate_cache_leaves(), RISC-V can build
+cacheinfo through the ACPI PPTT table, thus enabling the ACPI_PPTT
+configuration.
 
-Suggested-by: Jeremy Linton <jeremy.linton@arm.com>
-Suggested-by: Sudeep Holla <sudeep.holla@arm.com>
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- arch/riscv/kernel/cacheinfo.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-index 30a6878287ad..dc5fb70362f1 100644
---- a/arch/riscv/kernel/cacheinfo.c
-+++ b/arch/riscv/kernel/cacheinfo.c
-@@ -6,6 +6,7 @@
- #include <linux/cpu.h>
- #include <linux/of.h>
- #include <asm/cacheinfo.h>
-+#include <linux/acpi.h>
- 
- static struct riscv_cacheinfo_ops *rv_cache_ops;
- 
-@@ -78,6 +79,25 @@ int populate_cache_leaves(unsigned int cpu)
- 	struct device_node *prev = NULL;
- 	int levels = 1, level = 1;
- 
-+	if (!acpi_disabled) {
-+		int ret, idx, fw_levels, split_levels;
-+
-+		ret = acpi_get_cache_info(cpu, &fw_levels, &split_levels);
-+		if (ret)
-+			return ret;
-+
-+		for (idx = 0; level <= this_cpu_ci->num_levels &&
-+		     idx < this_cpu_ci->num_leaves; idx++, level++) {
-+			if (level <= split_levels) {
-+				ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-+				ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-+			} else {
-+				ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-+			}
-+		}
-+		return 0;
-+	}
-+
- 	if (of_property_read_bool(np, "cache-size"))
- 		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
- 	if (of_property_read_bool(np, "i-cache-size"))
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 6d64888134ba..5d73fcaf9136 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -14,6 +14,7 @@ config RISCV
+ 	def_bool y
+ 	select ACPI_GENERIC_GSI if ACPI
+ 	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
++	select ACPI_PPTT if ACPI
+ 	select ARCH_DMA_DEFAULT_COHERENT
+ 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
 -- 
 2.20.1
 
