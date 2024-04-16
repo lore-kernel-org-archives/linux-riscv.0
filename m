@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F73C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 20:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16ACCC04FF6
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 20:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MFNYpawpmnDZePbdlmS9MnWT50olF6OONOqHom38ATQ=; b=tv/8Ulj+Sufdws
-	lqTCH05Z5Jkq+wclS/SgeTwhWcHIOCc+onJVJFPLyeuFV04nJsPgzEwqpkc4XOqt7set0VlHx9vo+
-	8/KS0OYHQzT71BsV2g/f5sJYJiONPTPtCKd85nZKWDnsrbaPisDOisUyqjzVPiTOnIqpVgaOw37Y+
-	nnLWlML/po6CN5MWwgW9eBf66o8LV5AwCFqEJXkaKdQ6LzDkPkN4o44Ke5aUGEubXwF0miYXWEDiz
-	pcoFj4zT/tYDWSj8AjaDL9ZQXcV6ncF79QWmL7kP+Tpkg0Mj9i0YBlkyTF9ajQwycz23WlDw2YoLq
-	S3R9vk2ExWxIjK8LD88w==;
+	List-Owner; bh=x0dLaEn//pybfdb7+WRu+lRoyiFTeeVRrHNHvsEcaAs=; b=EGm7TwEtrNphbD
+	5VbsA44kbVfWkJ5HmJbpvnS/xr6jFs/6z05OudIb4xFuTXGpch+07gd/rT6V7MZgf5ucQSC6qc37q
+	xA+jXvizSojZDZ15WYL1hejWcR0nCSnSV9RF4S0uLc2eWy/++kQMFnR5KhWswcgf792Wbu7QCd1ax
+	n+YR+dTaTq5VHLNF79qKCcMYh4l19ClYIgUookhsA4JeB6KP/hyghxntuQEqDZtwuyIH9gOVoHoHX
+	14x75ICZYkljoPRYNB+9qnBIg8pTQP/PtXTB7fGOet8q9boVYBfPUPcLmX3LiP++/fdXYrfbzIo6Y
+	UEIumssegv8WihzqmyKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwoz9-0000000DcjH-3jCK;
+	id 1rwoz9-0000000Dcis-0rvF;
 	Tue, 16 Apr 2024 20:00:55 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwnnu-0000000DMaV-3lMz
+	id 1rwnnz-0000000DMfn-2eKX
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 16 Apr 2024 18:45:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=tJAThzhHQGnWs81W5HgHaocJpD0YqpVCwOX9M1CBRIE=; b=kzcghhLup8Tcj4Mkk3U6uSzSkJ
+	6lRhmbfqOl07ZTfzs4z+44dx6uvyau+PCbXM3PjYuHmJGMFeP7jgfdoldneuvPVqkOcaPkuYL8zK6
+	vFox+7phPZTxhSAhchPSvgVeFUP5cgAumv7GQIxmzYaCKb4j48y3QUle47fKcwa1XucAGTsRc+Cq3
+	zYix+Qbs55opa+0yH0hN1Ady9MeYIjVBagNuNTeVZ5nH7DSo6mbLfBg18/qcCpBX/dkTuU0OVuXKF
+	utX+IsvMST9U67wTlugr170TYx1KU9hEy5IYnTER53VU1wKh2YBsHmWhVkIhq6DA4KJIaK9H4v5DY
+	NDcc/DJA==;
+Received: from mail-pg1-f182.google.com ([209.85.215.182])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rwnnu-0000000BCOL-1Zoz
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 18:45:22 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2a4bdef3d8eso3573881a91.1
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Apr 2024 11:45:14 -0700 (PDT)
+	Tue, 16 Apr 2024 18:45:18 +0000
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-5e4613f2b56so3104732a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Apr 2024 11:45:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713293114; x=1713897914; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713293111; x=1713897911; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pdAbjdLX31vZDITT2BD/zRGEaHkPavc56BKt6Swumik=;
-        b=yrcMvnN4AgpDIOY+2C7JaNZXx54RQwQ2ffdA2gCRFN7WxPIsSXf8hHH+MDzn8AkLYz
-         SJ/Bnl9C+gr7jNtl55AK04UrUjpe7uH9kcmXvZ/vteqkO+rmGERS0UNZhTOF/jOAf98v
-         UmLI97iY+LZwSdhyXRuCht+3xTqQzcMcCIE7XM4Qqc7us4yEuEdbr+qiXgqtDS8P8t9U
-         uCPGzutJ7VE731uietJDpmvaMnUR4GT76J30Mu0i9nnCyAAfxoSvXdLr9MLvKphYiXoO
-         RLE2MurLIulzJsueeSiitlE+EPmp+c55Aw5Jj21DnbWyDlQJzaXzkF/Tk7eLUIcJ1hRr
-         l0rw==
+        bh=tJAThzhHQGnWs81W5HgHaocJpD0YqpVCwOX9M1CBRIE=;
+        b=Rk7Cu9pny1oK5Od4Yo+V/tFNtV+PuSuJNT+wsRhWvOKFg+mhrgUtyyB33t5oXDbQxq
+         mmO9JZ0wd0RP3CclnE3PnXUmHYkq1ou9ucdcH3Dcu8NKd5teTdtUovrLlzbpkfyPG0gL
+         eJKfiBJQyJeftKxB1TVg8P2EIi+vLVkqhy+DbAaWS0s33HKbCTzowDV7gyUs5TU3WLh+
+         z7oUlUTO4v8KnAGKDuG6XcDBRxjvIwm3A5XiR6Cp6SwpNQNNqZ3bJ1/L5egG+SL7F7RW
+         mvJR2og8DYfJ8CEbdAVOkwwoWhM1t85pVClzu3KYMr7PZT0U0xMePX6ZNDPYCeLOqHHB
+         gLcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713293114; x=1713897914;
+        d=1e100.net; s=20230601; t=1713293111; x=1713897911;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pdAbjdLX31vZDITT2BD/zRGEaHkPavc56BKt6Swumik=;
-        b=jWtbpykbwI4egfrlQBESp0Vuzn9mORIBfTTvMCEKDSlQ3YkL+kmUV2tNRyF5dhGH4g
-         SEWUN//IOz2R/f3fF1K3GI0Hak/Hk1qwRj5y0d/dog0I9P4wBKtNMxlnSYmtfcP5Jk8l
-         JCy0NwZQ6hY6s49m/sFtJcwFDnD/vyrY0ZFFR5fT5yOLDxg1GStz+Kr5vlJGm0lxQFmV
-         LGWlvATWmOsHciE4RQ8Va3IxxDNC5R3MhuVclHSJjEKycdfFQsU0rtwLvzKtmotL66vj
-         2o8WV3xfLAwHdU8S+dlG31pDff77BupS2/Ri3102ph5ulPOWlGFU2ottYAFCR1PQPnEc
-         iC5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXZ6Kn1nna4eDbsb4djcQQdPQzpLJDQ8VZiZFt3XLJ43px3Z/2lelVmW6/QKyDZ25f2yQ5575GL7uLH+NWACME2C408pMiEj3KMJEyJ5DjD
-X-Gm-Message-State: AOJu0Yy4iQlU2dp15NCAzo1t4lq0FUmAGB8ullo8fKIxsopf+qySsFeC
-	Gyxb4w7ySUHkRho+GiqKPTXSn17S/BQahbU3wgkXY4eBmkttMaj3jy572lwAwgg=
-X-Google-Smtp-Source: AGHT+IFDXNl2GlygE+KNUSGRBrtMVBiroiGsmGtTfesRXWf6Iha4NuVNKtPuqBWagZ1SKRgILxUJXw==
-X-Received: by 2002:a17:90a:db97:b0:2a5:fb3a:32e8 with SMTP id h23-20020a17090adb9700b002a5fb3a32e8mr11035882pjv.38.1713293114015;
-        Tue, 16 Apr 2024 11:45:14 -0700 (PDT)
+        bh=tJAThzhHQGnWs81W5HgHaocJpD0YqpVCwOX9M1CBRIE=;
+        b=jFmTU7VfXWruMySodUoXNZ1NFBEhdpovGVFK5lSiWat511CjOFUR1lmuS4BrToUfBp
+         GS0Xr7r3ryk8/cydBkvjt4wQB2/Vhuu9ILjqo1SxcHuyuFYloNZe/Ed+RV6CDQCkPn3g
+         WvnidiXAbx2JPi2/lOUwddwpekA40PLx345ekM5VWeWfJAZ3xZAnEYJQRwfr8sopjdOo
+         md+75/uFI6Q950YTc2oZPO0DMuYcOaQ8vVi7+7JMeSaPcMPtt0iV38hUlUprjdGOXJLS
+         N7lf8seGpuAAf5zFNOptTJanspiP45mT8/pJTn9MxsyJRPVuY6kjaWOkhlhcLJOwLooy
+         j9DA==
+X-Forwarded-Encrypted: i=1; AJvYcCXIcFUJZB4jJmbTDaxtAxCO0JjoLCXPQus2wClmkv/K8WRc3hHRacR3oQOcWClq0AJTr7OkuGDCTcEG8hx/dYiYwLlIl9Yex2HcW5XiTfkd
+X-Gm-Message-State: AOJu0YyXUroJXXejAlFEkN6se2v6h2EtR4wlu/kKJUkKHkkMuRnv2BW3
+	FjkfreAieaJaPKEXeQPHm0BjKgRvuGK0sxGCFKlxIFF4D8p2ztauq9/MvGyM7T0=
+X-Google-Smtp-Source: AGHT+IEpYA3MBqPo4T/V3elCaTLuJwccl4FHxVclOvEBheHidvf3GAI2pVJKIKSZdqo2B/RMKcXe3g==
+X-Received: by 2002:a17:90a:c205:b0:2a5:2177:9b41 with SMTP id e5-20020a17090ac20500b002a521779b41mr11033889pjt.22.1713293111177;
+        Tue, 16 Apr 2024 11:45:11 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id o19-20020a17090aac1300b002a269828bb8sm8883645pjq.40.2024.04.16.11.45.12
+        by smtp.gmail.com with ESMTPSA id o19-20020a17090aac1300b002a269828bb8sm8883645pjq.40.2024.04.16.11.45.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Apr 2024 11:45:13 -0700 (PDT)
+        Tue, 16 Apr 2024 11:45:10 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -85,16 +100,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	virtualization@lists.linux.dev,
 	Will Deacon <will@kernel.org>,
 	x86@kernel.org
-Subject: [PATCH v7 23/24] KVM: riscv: selftests: Add a test for counter overflow
-Date: Tue, 16 Apr 2024 11:44:20 -0700
-Message-Id: <20240416184421.3693802-24-atishp@rivosinc.com>
+Subject: [PATCH v7 21/24] KVM: riscv: selftests: Add SBI PMU selftest
+Date: Tue, 16 Apr 2024 11:44:18 -0700
+Message-Id: <20240416184421.3693802-22-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240416184421.3693802-1-atishp@rivosinc.com>
 References: <20240416184421.3693802-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_114515_305898_8DA06CD9 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20240416_194514_614589_D3A4B9BE 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,185 +126,405 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a test for verifying overflow interrupt. Currently, it relies on
-overflow support on cycle/instret events. This test works for cycle/
-instret events which support sampling via hpmcounters on the platform.
-There are no ISA extensions to detect if a platform supports that. Thus,
-this test will fail on platform with virtualization but doesn't
-support overflow on these two events.
+This test implements basic sanity test and cycle/instret event
+counting tests.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- .../selftests/kvm/riscv/sbi_pmu_test.c        | 113 ++++++++++++++++++
- 1 file changed, 113 insertions(+)
+ tools/testing/selftests/kvm/Makefile          |   1 +
+ .../selftests/kvm/riscv/sbi_pmu_test.c        | 369 ++++++++++++++++++
+ 2 files changed, 370 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
 
+diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+index 741c7dc16afc..1cfcd2797ee4 100644
+--- a/tools/testing/selftests/kvm/Makefile
++++ b/tools/testing/selftests/kvm/Makefile
+@@ -189,6 +189,7 @@ TEST_GEN_PROGS_s390x += rseq_test
+ TEST_GEN_PROGS_s390x += set_memory_region_test
+ TEST_GEN_PROGS_s390x += kvm_binary_stats_test
+ 
++TEST_GEN_PROGS_riscv += riscv/sbi_pmu_test
+ TEST_GEN_PROGS_riscv += arch_timer
+ TEST_GEN_PROGS_riscv += demand_paging_test
+ TEST_GEN_PROGS_riscv += dirty_log_test
 diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-index 9002ff451abf..0fd9b76ae838 100644
---- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+new file mode 100644
+index 000000000000..7c81691e39c5
+--- /dev/null
 +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-@@ -14,6 +14,7 @@
- #include "test_util.h"
- #include "processor.h"
- #include "sbi.h"
-+#include "arch_timer.h"
- 
- /* Maximum counters(firmware + hardware) */
- #define RISCV_MAX_PMU_COUNTERS 64
-@@ -24,6 +25,9 @@ union sbi_pmu_ctr_info ctrinfo_arr[RISCV_MAX_PMU_COUNTERS];
- static void *snapshot_gva;
- static vm_paddr_t snapshot_gpa;
- 
-+static int vcpu_shared_irq_count;
-+static int counter_in_use;
+@@ -0,0 +1,369 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * sbi_pmu_test.c - Tests the riscv64 SBI PMU functionality.
++ *
++ * Copyright (c) 2024, Rivos Inc.
++ */
 +
- /* Cache the available counters in a bitmask */
- static unsigned long counter_mask_available;
- 
-@@ -120,6 +124,31 @@ static void guest_illegal_exception_handler(struct ex_regs *regs)
- 	regs->epc += 4;
- }
- 
-+static void guest_irq_handler(struct ex_regs *regs)
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
++#include <sys/types.h>
++#include "kvm_util.h"
++#include "test_util.h"
++#include "processor.h"
++#include "sbi.h"
++
++/* Maximum counters(firmware + hardware) */
++#define RISCV_MAX_PMU_COUNTERS 64
++union sbi_pmu_ctr_info ctrinfo_arr[RISCV_MAX_PMU_COUNTERS];
++
++/* Cache the available counters in a bitmask */
++static unsigned long counter_mask_available;
++
++static bool illegal_handler_invoked;
++
++unsigned long pmu_csr_read_num(int csr_num)
 +{
-+	unsigned int irq_num = regs->cause & ~CAUSE_IRQ_FLAG;
-+	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
-+	unsigned long overflown_mask;
-+	unsigned long counter_val = 0;
++#define switchcase_csr_read(__csr_num, __val)		{\
++	case __csr_num:					\
++		__val = csr_read(__csr_num);		\
++		break; }
++#define switchcase_csr_read_2(__csr_num, __val)		{\
++	switchcase_csr_read(__csr_num + 0, __val)	 \
++	switchcase_csr_read(__csr_num + 1, __val)}
++#define switchcase_csr_read_4(__csr_num, __val)		{\
++	switchcase_csr_read_2(__csr_num + 0, __val)	 \
++	switchcase_csr_read_2(__csr_num + 2, __val)}
++#define switchcase_csr_read_8(__csr_num, __val)		{\
++	switchcase_csr_read_4(__csr_num + 0, __val)	 \
++	switchcase_csr_read_4(__csr_num + 4, __val)}
++#define switchcase_csr_read_16(__csr_num, __val)	{\
++	switchcase_csr_read_8(__csr_num + 0, __val)	 \
++	switchcase_csr_read_8(__csr_num + 8, __val)}
++#define switchcase_csr_read_32(__csr_num, __val)	{\
++	switchcase_csr_read_16(__csr_num + 0, __val)	 \
++	switchcase_csr_read_16(__csr_num + 16, __val)}
 +
-+	/* Validate that we are in the correct irq handler */
-+	GUEST_ASSERT_EQ(irq_num, IRQ_PMU_OVF);
++	unsigned long ret = 0;
 +
-+	/* Stop all counters first to avoid further interrupts */
-+	stop_counter(counter_in_use, SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT);
++	switch (csr_num) {
++	switchcase_csr_read_32(CSR_CYCLE, ret)
++	switchcase_csr_read_32(CSR_CYCLEH, ret)
++	default :
++		break;
++	}
 +
-+	csr_clear(CSR_SIP, BIT(IRQ_PMU_OVF));
-+
-+	overflown_mask = READ_ONCE(snapshot_data->ctr_overflow_mask);
-+	GUEST_ASSERT(overflown_mask & 0x01);
-+
-+	WRITE_ONCE(vcpu_shared_irq_count, vcpu_shared_irq_count+1);
-+
-+	counter_val = READ_ONCE(snapshot_data->ctr_values[0]);
-+	/* Now start the counter to mimick the real driver behavior */
-+	start_counter(counter_in_use, SBI_PMU_START_FLAG_SET_INIT_VALUE, counter_val);
++	return ret;
++#undef switchcase_csr_read_32
++#undef switchcase_csr_read_16
++#undef switchcase_csr_read_8
++#undef switchcase_csr_read_4
++#undef switchcase_csr_read_2
++#undef switchcase_csr_read
 +}
 +
- static unsigned long get_counter_index(unsigned long cbase, unsigned long cmask,
- 				       unsigned long cflags,
- 				       unsigned long event)
-@@ -318,6 +347,33 @@ static void test_pmu_event_snapshot(unsigned long event)
- 	stop_reset_counter(counter, 0);
- }
- 
-+static void test_pmu_event_overflow(unsigned long event)
++static inline void dummy_func_loop(uint64_t iter)
++{
++	int i = 0;
++
++	while (i < iter) {
++		asm volatile("nop");
++		i++;
++	}
++}
++
++static void start_counter(unsigned long counter, unsigned long start_flags,
++			  unsigned long ival)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, counter, 1, start_flags,
++			ival, 0, 0);
++	__GUEST_ASSERT(ret.error == 0, "Unable to start counter %ld\n", counter);
++}
++
++/* This should be invoked only for reset counter use case */
++static void stop_reset_counter(unsigned long counter, unsigned long stop_flags)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, counter, 1,
++					stop_flags | SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
++	__GUEST_ASSERT(ret.error == SBI_ERR_ALREADY_STOPPED,
++			       "Unable to stop counter %ld\n", counter);
++}
++
++static void stop_counter(unsigned long counter, unsigned long stop_flags)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, counter, 1, stop_flags,
++			0, 0, 0);
++	__GUEST_ASSERT(ret.error == 0, "Unable to stop counter %ld error %ld\n",
++			       counter, ret.error);
++}
++
++static void guest_illegal_exception_handler(struct ex_regs *regs)
++{
++	__GUEST_ASSERT(regs->cause == EXC_INST_ILLEGAL,
++		       "Unexpected exception handler %lx\n", regs->cause);
++
++	illegal_handler_invoked = true;
++	/* skip the trapping instruction */
++	regs->epc += 4;
++}
++
++static unsigned long get_counter_index(unsigned long cbase, unsigned long cmask,
++				       unsigned long cflags,
++				       unsigned long event)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase, cmask,
++			cflags, event, 0, 0);
++	__GUEST_ASSERT(ret.error == 0, "config matching failed %ld\n", ret.error);
++	GUEST_ASSERT(ret.value < RISCV_MAX_PMU_COUNTERS);
++	GUEST_ASSERT(BIT(ret.value) & counter_mask_available);
++
++	return ret.value;
++}
++
++static unsigned long get_num_counters(void)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_NUM_COUNTERS, 0, 0, 0, 0, 0, 0);
++
++	__GUEST_ASSERT(ret.error == 0, "Unable to retrieve number of counters from SBI PMU");
++	__GUEST_ASSERT(ret.value < RISCV_MAX_PMU_COUNTERS,
++		       "Invalid number of counters %ld\n", ret.value);
++
++	return ret.value;
++}
++
++static void update_counter_info(int num_counters)
++{
++	int i = 0;
++	struct sbiret ret;
++
++	for (i = 0; i < num_counters; i++) {
++		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i, 0, 0, 0, 0, 0);
++
++		/* There can be gaps in logical counter indicies*/
++		if (ret.error)
++			continue;
++		GUEST_ASSERT_NE(ret.value, 0);
++
++		ctrinfo_arr[i].value = ret.value;
++		counter_mask_available |= BIT(i);
++	}
++
++	GUEST_ASSERT(counter_mask_available > 0);
++}
++
++static unsigned long read_fw_counter(int idx, union sbi_pmu_ctr_info ctrinfo)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ, idx, 0, 0, 0, 0, 0);
++	GUEST_ASSERT(ret.error == 0);
++	return ret.value;
++}
++
++static unsigned long read_counter(int idx, union sbi_pmu_ctr_info ctrinfo)
++{
++	unsigned long counter_val = 0;
++
++	__GUEST_ASSERT(ctrinfo.type < 2, "Invalid counter type %d", ctrinfo.type);
++
++	if (ctrinfo.type == SBI_PMU_CTR_TYPE_HW)
++		counter_val = pmu_csr_read_num(ctrinfo.csr);
++	else if (ctrinfo.type == SBI_PMU_CTR_TYPE_FW)
++		counter_val = read_fw_counter(idx, ctrinfo);
++
++	return counter_val;
++}
++
++static void test_pmu_event(unsigned long event)
 +{
 +	unsigned long counter;
-+	unsigned long counter_value_post;
-+	unsigned long counter_init_value = ULONG_MAX - 10000;
-+	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
++	unsigned long counter_value_pre, counter_value_post;
++	unsigned long counter_init_value = 100;
 +
 +	counter = get_counter_index(0, counter_mask_available, 0, event);
-+	counter_in_use = counter;
++	counter_value_pre = read_counter(counter, ctrinfo_arr[counter]);
 +
-+	/* The counter value is updated w.r.t relative index of cbase passed to start/stop */
-+	WRITE_ONCE(snapshot_data->ctr_values[0], counter_init_value);
-+	start_counter(counter, SBI_PMU_START_FLAG_INIT_SNAPSHOT, 0);
++	/* Do not set the initial value */
++	start_counter(counter, 0, 0);
 +	dummy_func_loop(10000);
-+	udelay(msecs_to_usecs(2000));
-+	/* irq handler should have stopped the counter */
-+	stop_counter(counter, SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT);
++	stop_counter(counter, 0);
 +
-+	counter_value_post = READ_ONCE(snapshot_data->ctr_values[0]);
-+	/* The counter value after stopping should be less the init value due to overflow */
-+	__GUEST_ASSERT(counter_value_post < counter_init_value,
-+		       "counter_value_post %lx counter_init_value %lx for counter\n",
++	counter_value_post = read_counter(counter, ctrinfo_arr[counter]);
++	__GUEST_ASSERT(counter_value_post > counter_value_pre,
++		       "Event update verification failed: post [%lx] pre [%lx]\n",
++		       counter_value_post, counter_value_pre);
++
++	/*
++	 * We can't just update the counter without starting it.
++	 * Do start/stop twice to simulate that by first initializing to a very
++	 * high value and a low value after that.
++	 */
++	start_counter(counter, SBI_PMU_START_FLAG_SET_INIT_VALUE, ULONG_MAX/2);
++	stop_counter(counter, 0);
++	counter_value_pre = read_counter(counter, ctrinfo_arr[counter]);
++
++	start_counter(counter, SBI_PMU_START_FLAG_SET_INIT_VALUE, counter_init_value);
++	stop_counter(counter, 0);
++	counter_value_post = read_counter(counter, ctrinfo_arr[counter]);
++	__GUEST_ASSERT(counter_value_pre > counter_value_post,
++		       "Counter reinitialization verification failed : post [%lx] pre [%lx]\n",
++		       counter_value_post, counter_value_pre);
++
++	/* Now set the initial value and compare */
++	start_counter(counter, SBI_PMU_START_FLAG_SET_INIT_VALUE, counter_init_value);
++	dummy_func_loop(10000);
++	stop_counter(counter, 0);
++
++	counter_value_post = read_counter(counter, ctrinfo_arr[counter]);
++	__GUEST_ASSERT(counter_value_post > counter_init_value,
++		       "Event update verification failed: post [%lx] pre [%lx]\n",
 +		       counter_value_post, counter_init_value);
 +
 +	stop_reset_counter(counter, 0);
 +}
 +
- static void test_invalid_event(void)
- {
- 	struct sbiret ret;
-@@ -413,6 +469,34 @@ static void test_pmu_events_snaphost(void)
- 	GUEST_DONE();
- }
- 
-+static void test_pmu_events_overflow(void)
++static void test_invalid_event(void)
++{
++	struct sbiret ret;
++	unsigned long event = 0x1234; /* A random event */
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, 0,
++			counter_mask_available, 0, event, 0, 0);
++	GUEST_ASSERT_EQ(ret.error, SBI_ERR_NOT_SUPPORTED);
++}
++
++static void test_pmu_events(void)
 +{
 +	int num_counters = 0;
-+
-+	/* Verify presence of SBI PMU and minimum requrired SBI version */
-+	verify_sbi_requirement_assert();
-+
-+	snapshot_set_shmem(snapshot_gpa, 0);
-+	csr_set(CSR_IE, BIT(IRQ_PMU_OVF));
-+	local_irq_enable();
 +
 +	/* Get the counter details */
 +	num_counters = get_num_counters();
 +	update_counter_info(num_counters);
 +
-+	/*
-+	 * Qemu supports overflow for cycle/instruction.
-+	 * This test may fail on any platform that do not support overflow for these two events.
-+	 */
-+	test_pmu_event_overflow(SBI_PMU_HW_CPU_CYCLES);
-+	GUEST_ASSERT_EQ(vcpu_shared_irq_count, 1);
++	/* Sanity testing for any random invalid event */
++	test_invalid_event();
 +
-+	test_pmu_event_overflow(SBI_PMU_HW_INSTRUCTIONS);
-+	GUEST_ASSERT_EQ(vcpu_shared_irq_count, 2);
++	/* Only these two events are guaranteed to be present */
++	test_pmu_event(SBI_PMU_HW_CPU_CYCLES);
++	test_pmu_event(SBI_PMU_HW_INSTRUCTIONS);
 +
 +	GUEST_DONE();
 +}
 +
- static void run_vcpu(struct kvm_vcpu *vcpu)
- {
- 	struct ucall uc;
-@@ -498,6 +582,32 @@ static void test_vm_events_snapshot_test(void *guest_code)
- 	test_vm_destroy(vm);
- }
- 
-+static void test_vm_events_overflow(void *guest_code)
++static void test_pmu_basic_sanity(void)
 +{
-+	struct kvm_vm *vm = NULL;
++	long out_val = 0;
++	bool probe;
++	struct sbiret ret;
++	int num_counters = 0, i;
++	union sbi_pmu_ctr_info ctrinfo;
++
++	probe = guest_sbi_probe_extension(SBI_EXT_PMU, &out_val);
++	GUEST_ASSERT(probe && out_val == 1);
++
++	num_counters = get_num_counters();
++
++	for (i = 0; i < num_counters; i++) {
++		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i,
++				0, 0, 0, 0, 0);
++
++		/* There can be gaps in logical counter indicies*/
++		if (ret.error)
++			continue;
++		GUEST_ASSERT_NE(ret.value, 0);
++
++		ctrinfo.value = ret.value;
++
++		/**
++		 * Accessibility check of hardware and read capability of firmware counters.
++		 * The spec doesn't mandate any initial value. No need to check any value.
++		 */
++		if (ctrinfo.type == SBI_PMU_CTR_TYPE_HW) {
++			pmu_csr_read_num(ctrinfo.csr);
++			GUEST_ASSERT(illegal_handler_invoked);
++		} else if (ctrinfo.type == SBI_PMU_CTR_TYPE_FW) {
++			read_fw_counter(i, ctrinfo);
++		}
++	}
++
++	GUEST_DONE();
++}
++
++static void run_vcpu(struct kvm_vcpu *vcpu)
++{
++	struct ucall uc;
++
++	vcpu_run(vcpu);
++	switch (get_ucall(vcpu, &uc)) {
++	case UCALL_ABORT:
++		REPORT_GUEST_ASSERT(uc);
++		break;
++	case UCALL_DONE:
++	case UCALL_SYNC:
++		break;
++	default:
++		TEST_FAIL("Unknown ucall %lu", uc.cmd);
++		break;
++	}
++}
++
++void test_vm_destroy(struct kvm_vm *vm)
++{
++	memset(ctrinfo_arr, 0, sizeof(union sbi_pmu_ctr_info) * RISCV_MAX_PMU_COUNTERS);
++	counter_mask_available = 0;
++	kvm_vm_free(vm);
++}
++
++static void test_vm_basic_test(void *guest_code)
++{
++	struct kvm_vm *vm;
 +	struct kvm_vcpu *vcpu;
 +
 +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
 +	__TEST_REQUIRE(__vcpu_has_sbi_ext(vcpu, KVM_RISCV_SBI_EXT_PMU),
 +				   "SBI PMU not available, skipping test");
-+
-+	__TEST_REQUIRE(__vcpu_has_isa_ext(vcpu, KVM_RISCV_ISA_EXT_SSCOFPMF),
-+				   "Sscofpmf is not available, skipping overflow test");
-+
-+	test_vm_setup_snapshot_mem(vm, vcpu);
 +	vm_init_vector_tables(vm);
-+	vm_install_interrupt_handler(vm, guest_irq_handler);
++	/* Illegal instruction handler is required to verify read access without configuration */
++	vm_install_exception_handler(vm, EXC_INST_ILLEGAL, guest_illegal_exception_handler);
 +
 +	vcpu_init_vector_tables(vcpu);
-+	/* Initialize guest timer frequency. */
-+	vcpu_get_reg(vcpu, RISCV_TIMER_REG(frequency), &timer_freq);
-+	sync_global_to_guest(vm, timer_freq);
-+
 +	run_vcpu(vcpu);
 +
 +	test_vm_destroy(vm);
 +}
 +
- int main(void)
- {
- 	test_vm_basic_test(test_pmu_basic_sanity);
-@@ -509,5 +619,8 @@ int main(void)
- 	test_vm_events_snapshot_test(test_pmu_events_snaphost);
- 	pr_info("SBI PMU event verification with snapshot test : PASS\n");
- 
-+	test_vm_events_overflow(test_pmu_events_overflow);
-+	pr_info("SBI PMU event verification with overflow test : PASS\n");
++static void test_vm_events_test(void *guest_code)
++{
++	struct kvm_vm *vm = NULL;
++	struct kvm_vcpu *vcpu = NULL;
 +
- 	return 0;
- }
++	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
++	__TEST_REQUIRE(__vcpu_has_sbi_ext(vcpu, KVM_RISCV_SBI_EXT_PMU),
++				   "SBI PMU not available, skipping test");
++	run_vcpu(vcpu);
++
++	test_vm_destroy(vm);
++}
++
++int main(void)
++{
++	test_vm_basic_test(test_pmu_basic_sanity);
++	pr_info("SBI PMU basic test : PASS\n");
++
++	test_vm_events_test(test_pmu_events);
++	pr_info("SBI PMU event verification test : PASS\n");
++
++	return 0;
++}
 -- 
 2.34.1
 
