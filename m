@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF51C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 15:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B469C04FF9
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 15:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iyjtCrR9v0SOCiJ/yJinTs+QyCtdptTtsq3YfW8agDQ=; b=K+HBokfmYr7EH4
-	tyzu2JO3Xc4b/OzMiUyBhNUq/8O/pHmL53NYMKqvsZXMftv7HVaUV+QCxG7phtSRE0+KNjhi3nIGn
-	VWStEpOZjDneWUXh96E9ZKnhRIJSsRgZww58ZKlcm+UoFVvknUek5buC7b+sSbZ02nk3onFUcvIHt
-	GY/oIZbZMe/AlLNnhAmqT5HRhjpiWdlr8s0auaCBjLXa01jRLYUfljJ/ZQxsrjJDIDPGdiGxOvT5o
-	lkZQCIawarm8pPBNEMLROSgPz1AXTk56CSOtBGoQTZ+UPNI9tZEpyh0V9D6OQMgVtXSymvwb8w6mC
-	aBkxXgjW4tzmcGJwTm7w==;
+	List-Owner; bh=hyBxbq/lMr7Pj4F78b/nV29Vns0OKiV8cDzNqLL7+2g=; b=eYCOfRMmKy35Nw
+	KdQ3JUXlonrffXNJM7uX3GRkdINrUqlZ4KtR22eiFKY82oGyv0zOJHtzCiP1Hbg9WlGa4blVy5k78
+	b5OLh/QAixU5EU7ZKLKWCosZFKo2n+RmM8hAtI171gbObvFoUUuQ/S9giNJR6OUfK8MBv0YC5VS1n
+	EPJWb08BT7Wps3WPxyuG9axTctk5np1QBLTcB4E12ZB+8fAFhsPhX3jPYeWu4rgu9jIHIHrh4mc/+
+	W+PEkqQRjuq8YehHZ4A61vnEmkahPxt4NZxin9N591aP6qW4N+0fDlfZS5sdHtf+XtXmDPOyFHTHM
+	GbYFS2Wf0iYWFoyZaV3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwl5H-0000000CpvY-1cf5;
-	Tue, 16 Apr 2024 15:50:59 +0000
+	id 1rwlAl-0000000CsiW-2IDY;
+	Tue, 16 Apr 2024 15:56:39 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwl5F-0000000CpuZ-0ep7
+	id 1rwlAe-0000000Csb2-2jDT
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 15:50:58 +0000
+	Tue, 16 Apr 2024 15:56:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 2BE8BCE0F83;
-	Tue, 16 Apr 2024 15:50:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57ED3C113CE;
-	Tue, 16 Apr 2024 15:50:48 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 79513CE0F83;
+	Tue, 16 Apr 2024 15:56:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 792D7C113CE;
+	Tue, 16 Apr 2024 15:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713282652;
-	bh=wE/1nQW03EOW2WjxRav5KhI1biPyJvYQafxlZ0n0QgY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bwzGbiMo8w/Nh/4Nrlp02t8ZIxpU1s16/LVWkVMivNOFKZt6GWHPxrTcVYMmu0Vh0
-	 pR0OYwF7Pedi8E5biwG6+xiq6b9MRmdEPItHRtphbobBcpO3L6Lp3e9J6XQ3IgIiBI
-	 LnSurHWuqKEsPtQpbLS4g917/g4T4/EMZ5QIyp/bybMTLQFqfmR+Gfo1dbin1Ls8B2
-	 w42jZEHEhO/a5IE0s3O4i5h4bPAxLjRC8B6FYwHiqXndS4PrnHxAOklM3Pnokz0GMN
-	 7dVKNBJWV3nPJgFVhejsZPF/QBt6se0aCkmstJ9+cGGOCKYC96CXwCEdcF42WHMMFO
-	 PgUI+iwjPTOiw==
-Date: Tue, 16 Apr 2024 23:37:23 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: adrian.hunter@intel.com, aou@eecs.berkeley.edu, conor+dt@kernel.org,
-	guoren@kernel.org, inochiama@outlook.com,
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com, haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com, tingzhu.wang@sophgo.com,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH 2/3] mmc: sdhci-of-dwcmshc: Add support for Sophgo SG2042
-Message-ID: <Zh6bM2EQnAFYFhiV@xhacker>
-References: <cover.1713258948.git.unicorn_wang@outlook.com>
- <e5aa1338d74504e141ba833b484d588cafb7ab38.1713258948.git.unicorn_wang@outlook.com>
+	s=k20201202; t=1713282989;
+	bh=xj5oIWlYq20UZfWwDIb9TzDyZ90WyaHjoi8dkpzi3hY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=PzG0c6gXNNiSNW/OjmEVa1jcml2jIk4toUumXHj1PFWRlW2puT5qUARDvSSBmZTld
+	 GCIGfOAW1VrnjTIUNavavaDJSr1Gd6sgvwCnf1q1E4zJyQ0c/2xGB5qkqPuFUmSIP1
+	 WV83tvTswwBRItV5wgDOF4QtZpNeolSypSzp89MKMt8qQE86rh4Q29J08tgh8oa8vy
+	 8gNUYmIGxZIwan4Vu3AM5C0yy0H+O3SMqtkvl1DpLDRJDWwL9UuARjO2nZ4x38Sxtx
+	 RyRhgZY0gKSJaLestj4GkhWJgONsgLu4ePJn4xXcsB8Mbs8Dgr/UxuVimLexjZD4DM
+	 NWD56iIML/gfQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Nam Cao <namcao@linutronix.de>, Mike Rapoport <rppt@kernel.org>
+Cc: Christian Brauner <brauner@kernel.org>, Andreas Dilger
+ <adilger@dilger.ca>, Al Viro <viro@zeniv.linux.org.uk>, linux-fsdevel
+ <linux-fsdevel@vger.kernel.org>, Jan Kara <jack@suse.cz>, Linux Kernel
+ Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv@lists.infradead.org, Theodore
+ Ts'o <tytso@mit.edu>, Ext4 Developers List <linux-ext4@vger.kernel.org>,
+ Conor Dooley <conor@kernel.org>, "Matthew Wilcox (Oracle)"
+ <willy@infradead.org>, Anders Roxell <anders.roxell@linaro.org>, Alexandre
+ Ghiti <alex@ghiti.fr>
+Subject: Re: riscv32 EXT4 splat, 6.8 regression?
+In-Reply-To: <20240416173030.257f0807@namcao>
+References: <20240416-deppen-gasleitung-8098fcfd6bbd@brauner>
+ <8734rlo9j7.fsf@all.your.base.are.belong.to.us>
+ <Zh6KNglOu8mpTPHE@kernel.org> <20240416171713.7d76fe7d@namcao>
+ <20240416173030.257f0807@namcao>
+Date: Tue, 16 Apr 2024 17:56:25 +0200
+Message-ID: <87v84h2tee.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <e5aa1338d74504e141ba833b484d588cafb7ab38.1713258948.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_085057_654426_7E40576A 
-X-CRM114-Status: GOOD (  30.03  )
+X-CRM114-CacheID: sfid-20240416_085633_205702_63B40D86 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,292 +77,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 16, 2024 at 05:50:57PM +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> Add support for the mmc controller of Sophgo SG2042.
-> 
-> SG2042 uses Synopsys PHY the same as TH1520 so we reuse the tuning
-> logic from TH1520. Besides this, this patch implement some SG2042
-> specific work, such as clocks and reset ops.
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> ---
->  drivers/mmc/host/sdhci-of-dwcmshc.c | 173 ++++++++++++++++++++++++++--
->  1 file changed, 166 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> index 1a0b7ded7f9f..432ce0398163 100644
-> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> @@ -106,12 +106,13 @@
->  #define DWC_MSHC_PTR_PHY_R	0x300
->  
->  /* PHY general configuration */
-> -#define PHY_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x00)
-> -#define PHY_CNFG_RSTN_DEASSERT	0x1  /* Deassert PHY reset */
-> -#define PHY_CNFG_PAD_SP_MASK	GENMASK(19, 16) /* bits [19:16] */
-> -#define PHY_CNFG_PAD_SP		0x0c /* PMOS TX drive strength */
-> -#define PHY_CNFG_PAD_SN_MASK	GENMASK(23, 20) /* bits [23:20] */
-> -#define PHY_CNFG_PAD_SN		0x0c /* NMOS TX drive strength */
-> +#define PHY_CNFG_R			(DWC_MSHC_PTR_PHY_R + 0x00)
-> +#define PHY_CNFG_RSTN_DEASSERT		0x1  /* Deassert PHY reset */
-> +#define PHY_CNFG_PHY_PWRGOOD_MASK	BIT_MASK(1) /* bit [1] */
-> +#define PHY_CNFG_PAD_SP_MASK		GENMASK(19, 16) /* bits [19:16] */
-> +#define PHY_CNFG_PAD_SP			0x0c /* PMOS TX drive strength */
-> +#define PHY_CNFG_PAD_SN_MASK		GENMASK(23, 20) /* bits [23:20] */
-> +#define PHY_CNFG_PAD_SN			0x0c /* NMOS TX drive strength */
->  
->  /* PHY command/response pad settings */
->  #define PHY_CMDPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x04)
-> @@ -143,7 +144,8 @@
->  
->  /* PHY CLK delay line settings */
->  #define PHY_SDCLKDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x1d)
-> -#define PHY_SDCLKDL_CNFG_UPDATE	BIT(4) /* set before writing to SDCLKDL_DC */
-> +#define PHY_SDCLKDL_CNFG_EXTDLY_EN	BIT(0)
-> +#define PHY_SDCLKDL_CNFG_UPDATE		BIT(4) /* set before writing to SDCLKDL_DC */
->  
->  /* PHY CLK delay line delay code */
->  #define PHY_SDCLKDL_DC_R		(DWC_MSHC_PTR_PHY_R + 0x1e)
-> @@ -151,6 +153,9 @@
->  #define PHY_SDCLKDL_DC_DEFAULT		0x32 /* default delay code */
->  #define PHY_SDCLKDL_DC_HS400		0x18 /* delay code for HS400 mode */
->  
-> +#define PHY_SMPLDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x20)
-> +#define PHY_SMPLDL_CNFG_BYPASS_EN	BIT(1)
-> +
->  /* PHY drift_cclk_rx delay line configuration setting */
->  #define PHY_ATDL_CNFG_R			(DWC_MSHC_PTR_PHY_R + 0x21)
->  #define PHY_ATDL_CNFG_INPSEL_MASK	GENMASK(3, 2) /* bits [3:2] */
-> @@ -194,6 +199,11 @@ struct rk35xx_priv {
->  	u8 txclk_tapnum;
->  };
->  
-> +#define SG2042_MAX_CLKS 2
-
-I don't think "bulk" is suitable here for max 2 clks, no?
-
-> +struct sg2042_priv {
-> +	struct clk_bulk_data clks[SG2042_MAX_CLKS];
-
-useless either
-
-> +};
-> +
->  struct dwcmshc_priv {
->  	struct clk	*bus_clk;
->  	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA reg */
-> @@ -690,6 +700,76 @@ static void cv18xx_sdhci_reset(struct sdhci_host *host, u8 mask)
->  	sdhci_writel(host, val, priv->vendor_specific_area1 + CV18XX_SDHCI_PHY_TX_RX_DLY);
->  }
->  
-> +static inline void sg2042_sdhci_phy_init(struct sdhci_host *host)
-> +{
-> +	u32 val;
-> +
-> +	/* Asset phy reset & set tx drive strength */
-> +	val = sdhci_readl(host, PHY_CNFG_R);
-> +	val &= ~PHY_CNFG_RSTN_DEASSERT;
-> +	val |= FIELD_PREP(PHY_CNFG_PHY_PWRGOOD_MASK, 1);
-> +	val |= FIELD_PREP(PHY_CNFG_PAD_SP_MASK, 9);
-> +	val |= FIELD_PREP(PHY_CNFG_PAD_SN_MASK, 8);
-> +	sdhci_writel(host, val, PHY_CNFG_R);
-> +
-> +	/* Configure phy pads */
-> +	val = PHY_PAD_RXSEL_3V3;
-> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLUP);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, 3);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, 2);
-> +	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
-> +	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
-> +	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
-> +
-> +	val = PHY_PAD_RXSEL_3V3;
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, 3);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, 2);
-> +	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
-> +
-> +	val = PHY_PAD_RXSEL_3V3;
-> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLDOWN);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, 3);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, 2);
-> +	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
-> +
-> +	/* Configure delay line */
-> +	/* Enable fixed delay */
-> +	sdhci_writeb(host, PHY_SDCLKDL_CNFG_EXTDLY_EN, PHY_SDCLKDL_CNFG_R);
-> +	/*
-> +	 * Set delay line.
-> +	 * Its recommended that bit UPDATE_DC[4] is 1 when SDCLKDL_DC is being written.
-> +	 * Ensure UPDATE_DC[4] is '0' when not updating code.
-> +	 */
-> +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-> +	val |= PHY_SDCLKDL_CNFG_UPDATE;
-> +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-> +	/* Add 10 * 70ps = 0.7ns for output delay */
-> +	sdhci_writeb(host, 10, PHY_SDCLKDL_DC_R);
-> +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-> +	val &= ~(PHY_SDCLKDL_CNFG_UPDATE);
-> +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-> +
-> +	/* Set SMPLDL_CNFG, Bypass */
-> +	sdhci_writeb(host, PHY_SMPLDL_CNFG_BYPASS_EN, PHY_SMPLDL_CNFG_R);
-> +
-> +	/* Set ATDL_CNFG, tuning clk not use for init */
-> +	val = FIELD_PREP(PHY_ATDL_CNFG_INPSEL_MASK, 2);
-
-magic "2" needs a meaningful macro definition.
-
-> +	sdhci_writeb(host, val, PHY_ATDL_CNFG_R);
-> +
-> +	/* Deasset phy reset */
-> +	val = sdhci_readl(host, PHY_CNFG_R);
-> +	val |= PHY_CNFG_RSTN_DEASSERT;
-> +	sdhci_writel(host, val, PHY_CNFG_R);
-> +}
-> +
-> +static void sg2042_sdhci_reset(struct sdhci_host *host, u8 mask)
-> +{
-> +	sdhci_reset(host, mask);
-> +
-> +	if (mask & SDHCI_RESET_ALL)
-> +		sg2042_sdhci_phy_init(host);
-> +}
-> +
->  static const struct sdhci_ops sdhci_dwcmshc_ops = {
->  	.set_clock		= sdhci_set_clock,
->  	.set_bus_width		= sdhci_set_bus_width,
-> @@ -728,6 +808,16 @@ static const struct sdhci_ops sdhci_dwcmshc_cv18xx_ops = {
->  	.adma_write_desc	= dwcmshc_adma_write_desc,
->  };
->  
-> +static const struct sdhci_ops sdhci_dwcmshc_sg2042_ops = {
-> +	.set_clock              = sdhci_set_clock,
-> +	.set_bus_width          = sdhci_set_bus_width,
-> +	.set_uhs_signaling      = dwcmshc_set_uhs_signaling,
-> +	.get_max_clock		= dwcmshc_get_max_clock,
-> +	.platform_execute_tuning = th1520_execute_tuning,
-> +	.reset                  = sg2042_sdhci_reset,
-> +	.adma_write_desc        = dwcmshc_adma_write_desc,
-> +};
-> +
->  static const struct sdhci_pltfm_data sdhci_dwcmshc_pdata = {
->  	.ops = &sdhci_dwcmshc_ops,
->  	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN,
-> @@ -763,6 +853,13 @@ static const struct sdhci_pltfm_data sdhci_dwcmshc_cv18xx_pdata = {
->  	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
->  };
->  
-> +static const struct sdhci_pltfm_data sdhci_dwcmshc_sg2042_pdata = {
-> +	.ops = &sdhci_dwcmshc_sg2042_ops,
-> +	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-> +		  SDHCI_QUIRK_INVERTED_WRITE_PROTECT,
-
-is "wp-inverted" property better?
-
-> +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> +};
-> +
->  static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
->  {
->  	/*
-> @@ -882,6 +979,58 @@ static int dwcmshc_th1520_init(struct device *dev,
->  	return 0;
->  }
->  
-> +static int dwcmshc_sg2042_clks_enable(struct dwcmshc_priv *dwc_priv)
-> +{
-> +	int ret = 0;
-> +	struct sg2042_priv *soc = dwc_priv->priv;
-> +
-> +	if (soc)
-> +		ret = clk_bulk_prepare_enable(SG2042_MAX_CLKS, soc->clks);
-> +	return ret;
-> +}
-> +
-> +static void dwcmshc_sg2042_clks_disable(struct dwcmshc_priv *dwc_priv)
-> +{
-> +	struct sg2042_priv *soc = dwc_priv->priv;
-> +
-> +	if (soc)
-> +		clk_bulk_disable_unprepare(SG2042_MAX_CLKS,
-> +					   soc->clks);
-> +}
-> +
-> +static int dwcmshc_sg2042_init(struct device *dev,
-> +			       struct sdhci_host *host,
-> +			       struct dwcmshc_priv *dwc_priv)
-> +{
-> +	int err;
-> +	struct sg2042_priv *soc = NULL;
-> +
-> +	soc = devm_kzalloc(dev, sizeof(struct sg2042_priv), GFP_KERNEL);
-> +	if (!soc)
-> +		return -ENOMEM;
-> +
-> +	soc->clks[0].id = "card";
-> +	soc->clks[1].id = "timer";
-
-Interesting, only "card" and "timer", so which clk is for clk input of the ip?
-
-> +	err = devm_clk_bulk_get_optional(mmc_dev(host->mmc), SG2042_MAX_CLKS,
-> +					 soc->clks);
-> +	if (err) {
-> +		dev_err(mmc_dev(host->mmc), "failed to get clocks %d\n", err);
-> +		return err;
-> +	}
-> +
-> +	err = clk_bulk_prepare_enable(SG2042_MAX_CLKS, soc->clks);
-> +	if (err) {
-> +		dev_err(mmc_dev(host->mmc), "failed to enable clocks %d\n", err);
-> +		return err;
-> +	}
-> +
-> +	dwc_priv->priv = soc;
-> +	dwc_priv->soc_clks_enable = dwcmshc_sg2042_clks_enable;
-> +	dwc_priv->soc_clks_disable = dwcmshc_sg2042_clks_disable;
-> +
-> +	return 0;
-> +}
-> +
->  static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
->  	{
->  		.compatible = "rockchip,rk3588-dwcmshc",
-> @@ -907,6 +1056,10 @@ static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
->  		.compatible = "thead,th1520-dwcmshc",
->  		.data = &sdhci_dwcmshc_th1520_pdata,
->  	},
-> +	{
-> +		.compatible = "sophgo,sg2042-dwcmshc",
-> +		.data = &sdhci_dwcmshc_sg2042_pdata,
-> +	},
->  	{},
->  };
->  MODULE_DEVICE_TABLE(of, sdhci_dwcmshc_dt_ids);
-> @@ -994,6 +1147,12 @@ static int dwcmshc_probe(struct platform_device *pdev)
->  			goto err_clk;
->  	}
->  
-> +	if (pltfm_data == &sdhci_dwcmshc_sg2042_pdata) {
-> +		err = dwcmshc_sg2042_init(dev, host, priv);
-> +		if (err)
-> +			goto err_clk;
-> +	}
-> +
->  #ifdef CONFIG_ACPI
->  	if (pltfm_data == &sdhci_dwcmshc_bf3_pdata)
->  		sdhci_enable_v4_mode(host);
-> -- 
-> 2.25.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TmFtIENhbyA8bmFtY2FvQGxpbnV0cm9uaXguZGU+IHdyaXRlczoKCj4gRml4ZWQgdmVyc2lvbjoK
+Pgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5p
+dC5jCj4gaW5kZXggZmEzNGNmNTUwMzdiLi5hZjQxOTJiYzUxZDAgMTAwNjQ0Cj4gLS0tIGEvYXJj
+aC9yaXNjdi9tbS9pbml0LmMKPiArKysgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+IEBAIC0yNDUs
+NiArMjQ1LDcgQEAgc3RhdGljIHZvaWQgX19pbml0IHNldHVwX2Jvb3RtZW0odm9pZCkKPiAgCSAq
+IGJlIGRvbmUgYXMgc29vbiBhcyB0aGUga2VybmVsIG1hcHBpbmcgYmFzZSBhZGRyZXNzIGlzIGRl
+dGVybWluZWQuCj4gIAkgKi8KPiAgCWlmICghSVNfRU5BQkxFRChDT05GSUdfNjRCSVQpKSB7Cj4g
+KwkJbWVtYmxvY2tfcmVzZXJ2ZShfX3BhKC1QQUdFX1NJWkUpLCBQQUdFX1NJWkUpOwo+ICAJCW1h
+eF9tYXBwZWRfYWRkciA9IF9fcGEofih1bG9uZykwKTsKPiAgCQlpZiAobWF4X21hcHBlZF9hZGRy
+ID09IChwaHlzX3JhbV9lbmQgLSAxKSkKPiAgCQkJbWVtYmxvY2tfc2V0X2N1cnJlbnRfbGltaXQo
+bWF4X21hcHBlZF9hZGRyIC0gNDA5Nik7CgpOaWNlIQoKQ2FuJ3Qgd2UgZ2V0IHJpZCBvZiB0aGUg
+aWYtc3RhdGVtZW50LCBhbmQgbWF4X21hcHBlZF9hZGRyZXNzIGFzIHdlbGw/CgoKQmrDtnJuCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
