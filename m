@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F91C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 18:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E2DC4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 18:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ti5EfaE6Bsq1M/JCb/Bao3aXesDTI4ij2drvQQ1E0pg=; b=NcUlD2edR+uF6z
-	lEBrn5kvwT0G9EtJiIqQDcYKO/EEePjgqA+d8dNZZXAULi+czDA0E79/FxHlNDaaoxULX0NUOQr2O
-	7gVqo2DisQZOK6t3Jvae6fEQGypv9wkPu22VsKn5Zi1PrmHJjsxbPGogiHBdFtIffWqrghWxb4gA2
-	8t5HzRntelnTfoaOnktnACXc0XTJJYb9nkocBk7/lODnXi0rEH5pSD0+LOglz6+EYPuQ1P+p9b3+E
-	XwkhQD9bEUiqfqGM4Lw7WIlQQkJu58AUMQjIHi4PH6pBOpT0sbLoN6dKWJricZ+wDQ47nSNeYuJB0
-	sNN/94bAOx48zA8GK91w==;
+	List-Owner; bh=MyiOU/sL83UujhnzUYkzeekXbxGsJ4qr2+Vf2Xfeqwc=; b=Ohsmb+lSRZ8xRg
+	Ayr06Z88U+X0EpbdrQaSfZsZEmzKYjE9KqSWGaqRBf12mSL52g/h9pk19md1bqadfNMuRyXZOyJ0G
+	kvL0t7eghbUFHJC4PAKSmnqHEPZUvie9qkF788f8qtTCVjKi313YeYG3ynlmx54le/wBrPXPTBrkY
+	iXZLneYTGp4ISz0yKVlkVaU5ZXziexnhEGskqRx6Aih2O+f/QlkKRTlgjxtx0Q/aPqZYze0I4WO/T
+	ak6omfuASMOnE5r6kGHOcBg2ZNl3rtZVGsJL1XeLXd0EtgMeGpxr3TwDf6r7KZnSNvoSgzNbUmMM/
+	Tw4KHUSD71odTYv5hPqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwnOp-0000000DITC-24R1;
-	Tue, 16 Apr 2024 18:19:19 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rwnf5-0000000DLBY-0PC4;
+	Tue, 16 Apr 2024 18:36:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwnOl-0000000DIQv-40ry
+	id 1rwnf0-0000000DLAa-2Pbt
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 18:19:17 +0000
+	Tue, 16 Apr 2024 18:36:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 24C01CE103F;
-	Tue, 16 Apr 2024 18:19:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E1C2C113CE;
-	Tue, 16 Apr 2024 18:19:07 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A555A6124B;
+	Tue, 16 Apr 2024 18:36:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 165C3C113CE;
+	Tue, 16 Apr 2024 18:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713291552;
-	bh=OSFyHt08QH9EQT0OH6l2mjM6TDXgg4K1qPiqN9EnzTQ=;
+	s=k20201202; t=1713292561;
+	bh=RUydQSI9IalFqEGbK9QMhcm64ilwdfZmZE3G8mYwjzg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TJFISS3fPUcd6DEOOP0W+iLg/MehqWAKn84NatA9HD2x9ox4VLLzoRForSafJLD5Z
-	 7bknIRzjCT4DAd3BU/lMIEJKmiIGlav6YBMZMbz/DN4vug1w5ufeLyipa8GyG6ee/E
-	 2VBwwcud1ujgQzDiV0AkCdaD7egYm3HrIcJ+CWH2QlbK/4r+shqzCLAI8Y66FlC6Qm
-	 Df/4O359q3sLIf8HsChGbNGebitD1yY8qQTqMgKU2HRSnIW4bSh5OtY1xFENmbcjcw
-	 CvvFesh2ElTtCjgpJuW7rKi4ipanh0qwGxR5nqaPQG5AFADuX/VcD+oLP/Ps2rpJT6
-	 4j5kRjU+IlUHw==
-Date: Tue, 16 Apr 2024 21:18:02 +0300
+	b=B0XOvrLOmIGvtvZ81QXFXzN4kYMmV6ckD/uMbpDkJL8LOZfAKxnJZFm4KYJoTWIoO
+	 M8TyNsvhgGRMql9wlIWgnTAj1yJcmch0lIXb0su80K1hgIpyMoUga4NhSei6/A4QCk
+	 lc7bJGNPIsemhUlHKhSgp7YZTyvWyEl+9p/aR5FZCziUNaaxjKV5J6CY9Vg7g0tRuw
+	 6BE159Fcux3KiPOeKvDdx07Lvy8+3/UBMYMRoW7yUZu5yxKDaYJFE6O04Tjv6grN+z
+	 fR1mt4uB/FYFf4+9WdGti/KqrBBHoPa3Dvg2s5jspWiwhLLJ4TP0WNg46JR094OSOl
+	 K+Kx+6gKRxQUQ==
+Date: Tue, 16 Apr 2024 21:34:51 +0300
 From: Mike Rapoport <rppt@kernel.org>
 To: Matthew Wilcox <willy@infradead.org>
 Cc: Nam Cao <namcao@linutronix.de>,
@@ -59,19 +59,22 @@ Cc: Nam Cao <namcao@linutronix.de>,
 	Anders Roxell <anders.roxell@linaro.org>,
 	Alexandre Ghiti <alex@ghiti.fr>
 Subject: Re: riscv32 EXT4 splat, 6.8 regression?
-Message-ID: <Zh7A2o59dOIwaRjA@kernel.org>
+Message-ID: <Zh7Ey507KXIak8NW@kernel.org>
 References: <20240416-deppen-gasleitung-8098fcfd6bbd@brauner>
  <8734rlo9j7.fsf@all.your.base.are.belong.to.us>
  <Zh6KNglOu8mpTPHE@kernel.org>
  <20240416171713.7d76fe7d@namcao>
- <Zh6lD8d7cUZdkZJb@kernel.org>
- <Zh6n952Y7qKRMnMj@casper.infradead.org>
+ <20240416173030.257f0807@namcao>
+ <87v84h2tee.fsf@all.your.base.are.belong.to.us>
+ <20240416181944.23af44ee@namcao>
+ <Zh6n-nvnQbL-0xss@kernel.org>
+ <Zh6urRin2-wVxNeq@casper.infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Zh6n952Y7qKRMnMj@casper.infradead.org>
+In-Reply-To: <Zh6urRin2-wVxNeq@casper.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_111916_200745_A12B5D8E 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20240416_113602_713823_9C82D332 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,31 +91,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 16, 2024 at 05:31:51PM +0100, Matthew Wilcox wrote:
-> On Tue, Apr 16, 2024 at 07:19:27PM +0300, Mike Rapoport wrote:
-> > > "last page of the first gigabyte" - why first gigabyte? Do you mean
-> > > last page of *last* gigabyte?
-> >  
-> > With 3G-1G split linear map can map only 1G from 0xc0000000 to 0xffffffff
-> > (or 0x00000000 with 32-bit overflow):
+On Tue, Apr 16, 2024 at 06:00:29PM +0100, Matthew Wilcox wrote:
+> On Tue, Apr 16, 2024 at 07:31:54PM +0300, Mike Rapoport wrote:
+> > > @@ -238,17 +237,9 @@ static void __init setup_bootmem(void)
+> > >  	/*
+> > >  	 * memblock allocator is not aware of the fact that last 4K bytes of
+> > >  	 * the addressable memory can not be mapped because of IS_ERR_VALUE
+> > > -	 * macro. Make sure that last 4k bytes are not usable by memblock
+> > > -	 * if end of dram is equal to maximum addressable memory.  For 64-bit
+> > > -	 * kernel, this problem can't happen here as the end of the virtual
+> > > -	 * address space is occupied by the kernel mapping then this check must
+> > > -	 * be done as soon as the kernel mapping base address is determined.
+> > > +	 * macro. Make sure that last 4k bytes are not usable by memblock.
+> > >  	 */
 > > 
-> > [    0.000000]       lowmem : 0xc0000000 - 0x00000000   (1024 MB)
+> > It's not only memblock, but buddy as well, so maybe
+> > 
+> > 	/*
+> > 	 * The last 4K bytes of the addressable memory can not be used
+> > 	 * because of IS_ERR_VALUE macro. Make sure that last 4K bytes are
+> > 	 * not usable by kernel memory allocators.
+> > 	 */
+> > 
+> > > -	if (!IS_ENABLED(CONFIG_64BIT)) {
+> > > -		max_mapped_addr = __pa(~(ulong)0);
+> > > -		if (max_mapped_addr == (phys_ram_end - 1))
+> > > -			memblock_set_current_limit(max_mapped_addr - 4096);
+> > > -	}
+> > > +	memblock_reserve(__pa(-PAGE_SIZE), PAGE_SIZE);
+> > 
+> > Ack.
 > 
-> ... but you can't map that much.  You need to reserve space for (may not
-> be exhaustive):
-> 
->  - PCI BARs (or other MMIO)
->  - vmap
->  - kmap
->  - percpu
->  - ioremap
->  - modules
->  - fixmap
->  - Maybe EFI runtime services?
-> 
-> You'll be lucky to get 800MB of ZONE_NORMAL.
+> Can this go to generic code instead of letting architecture maintainers
+> fall over it?
 
-But that does not mean that the last page won't get to the buddy
+Yes, it's just have to happen before setup_arch() where most architectures
+enable memblock allocations.
 
 -- 
 Sincerely yours,
