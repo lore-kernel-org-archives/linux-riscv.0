@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC64EC4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 15:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987CFC4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 15:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ufDBQhjk4c3tAQ/8BpmeFs8VwabujFrz7VnnYz3C3eQ=; b=MvQ1CBSpJhNNXk3rr93hjh6kkh
-	5SB6HqFkhSVfpx7ErBkX9DXhbRPc4PCo4KwgWZr0mtPihpIztnY86NdCoW12CqNIpAJv5Y3KOkIvC
-	57XnOtEnqRhZhmuRfQHalITfWdLeEOMgSTWYGXCiBG45Lp4lrx45M5FDTKXIM5UhaL7kF4J9e/fC5
-	wRxnv1G1Vimxz0QSADINQcg+Am3wPrJt6rYpXW+2t7yXcbtLtI8eG7zScFXDxq5kEuSbYLUKd7oh6
-	htpIE7x+YTt0GO4wczwZuxTytpLmeAKlkg7/u4WwmdX7BrFzYa8L7MnF/D9hksUTiAEPs8VgMWKGC
-	4bIP9bJg==;
+	bh=YrlD74iO3Fa3cxikq/2Ee1Ga7OymHLBL18nuqADk+k0=; b=q24necrjbK4xJz7Cp/MS+sWup0
+	/O3i7qBQnpfDQzvxEBEFt7eC2Uu0I/j44AKO/e51aKQV/hMrFqTZxnERxpIKuRPGbllH8gxVDMNn5
+	N0dCsUlwKll334sBkB2iLsg2fO/WeS7jEHa0O5oiSPbzgE9c+Sn0iNHnN6VfjlXow3+p3ujHLZY8L
+	tUjj7bSx0Ew7y+X8JZGgQfpY4ZZvTmCltzHR6ZCZdb7mMD9GsBWUJOVbsR7bNKvGW5uHGhm7UgdhL
+	+WpfQ7dNTvAxAa0sDjcCxBg29npeuAsCmvW36PWcDqSiRZidwJLwUr+VsGsalMvBYQCI8SmWMx1C0
+	/Ue6+97w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwkNT-0000000Cfla-3JOp;
-	Tue, 16 Apr 2024 15:05:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rwkY6-0000000CheP-0kxX;
+	Tue, 16 Apr 2024 15:16:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwkNK-0000000Cfi6-1Gxi;
-	Tue, 16 Apr 2024 15:05:40 +0000
+	id 1rwkY1-0000000Chcx-3Nml;
+	Tue, 16 Apr 2024 15:16:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8CB0F61226;
-	Tue, 16 Apr 2024 15:05:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4437C32786;
-	Tue, 16 Apr 2024 15:05:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 31DFD61226;
+	Tue, 16 Apr 2024 15:16:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D578C113CE;
+	Tue, 16 Apr 2024 15:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713279933;
-	bh=O9p4OJelM8j5ChKW6+ZnGM3uSLJaoJ69DKouPYKRqlw=;
+	s=k20201202; t=1713280596;
+	bh=InnM2wKHZDVJcxsb32eryq9FZ+eyYPiDT6PDeAxmkcU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qeXYVayMoFa9mEbIWXY9ZBGlRgib//9BkGwkvOXQc5ScFPvJWcyFuzBpZcXy6lmVV
-	 R1UhVDdenW8hJS1bVLytbNm8Me0gheegQtCoE6g2LrJF615lVPFdplSs+V25UXlFe3
-	 +fV6CmblloXgOY2hh0sHrjI9RFLZUuXKCknAa02JsFiIUXG4dypxmNKLEDcFzTAbBI
-	 djrdXqCeqtQx3OmyUnf/pPiOCqJ3CCd/YhDD7HHzj3wXRMEr6N/ulunG+fAiCF79tR
-	 Xu967LvfUwGz4YmxeEbhuKiu3sT4utLWKjldeb1lxX25lwpdlp4zswvSmg7aybUJ9P
-	 UOBikzQmbzqRw==
-Date: Tue, 16 Apr 2024 16:05:26 +0100
+	b=bmi+PdFUk+pqNCmA5Tv0nMe1Rms4QVLfeQiS3gEo2aznB+h0Md9qBqkDmhELSwa1R
+	 t9+iuyni43iZdovlFAk11+AliTSkSgGoT7H+mgYODHPu8nasGgUL/zmkpkE7+oMI7c
+	 tbBKUook+UHjhFPKv5g/OCrVnSoawHnjFg49vkvTn2jz+m8UcHyt5Nw26siTYzx7eJ
+	 eZ2Cwrvr5w4QWb7V5ibYtiglDiMzL7ydyDO+/rEuFwcxbkYvGyNFgKvAQrlLSigLVW
+	 pnhgn1uhMYYILoGbd6MAWFg4yBXocjTlf6qJEdzTRMQ4G9kzfE82E9lw08ZzbXwk2v
+	 GYvtZW1LJtf1g==
+Date: Tue, 16 Apr 2024 16:16:30 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Charlie Jenkins <charlie@rivosinc.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -60,15 +60,16 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
 	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 03/17] dt-bindings: riscv: Add vendorid
-Message-ID: <20240416-cavity-afar-d25eaac5fb03@spud>
+Subject: Re: [PATCH v2 02/17] dt-bindings: riscv: Add xtheadvector ISA
+ extension description
+Message-ID: <20240416-underwire-bright-b2ab0fa991ec@spud>
 References: <20240415-dev-charlie-support_thead_vector_6_9-v2-0-c7d68c603268@rivosinc.com>
- <20240415-dev-charlie-support_thead_vector_6_9-v2-3-c7d68c603268@rivosinc.com>
+ <20240415-dev-charlie-support_thead_vector_6_9-v2-2-c7d68c603268@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240415-dev-charlie-support_thead_vector_6_9-v2-3-c7d68c603268@rivosinc.com>
+In-Reply-To: <20240415-dev-charlie-support_thead_vector_6_9-v2-2-c7d68c603268@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_080534_508062_D83BB7B2 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20240416_081637_950325_726539C9 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,77 +81,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9023639738753485529=="
+Content-Type: multipart/mixed; boundary="===============1698864448328744532=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============9023639738753485529==
+--===============1698864448328744532==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="wMBbbKu9mXXkxQXp"
+	protocol="application/pgp-signature"; boundary="FdN+IanOF5jba0gw"
 Content-Disposition: inline
 
 
---wMBbbKu9mXXkxQXp
+--FdN+IanOF5jba0gw
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Apr 15, 2024 at 09:12:00PM -0700, Charlie Jenkins wrote:
-> vendorid are required during DT parsing to determine known hardware
-> capabilities. This parsing happens before the whole system has booted,
-> so only the boot hart is online and able to report the value of its
-> vendorid.
+On Mon, Apr 15, 2024 at 09:11:59PM -0700, Charlie Jenkins wrote:
+> The xtheadvector ISA extension is described on the T-Head extension spec
+> Github page [1] at commit 95358cb2cca9.
 >=20
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> Link: https://github.com/T-head-Semi/thead-extension-spec/blob/95358cb2cc=
+a9489361c61d3
+> 35e03d3134b14133f/xtheadvector.adoc [1]
 
-If we are gonna add these, I think we may as well add all 3. I'd also
-tie them together, so that either you have none or all 3.
+This should not be wrapped btw.
+Otherwise,
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Cheers,
+Thanks,
 Conor.
 
-> ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Document=
-ation/devicetree/bindings/riscv/cpus.yaml
-> index d87dd50f1a4b..030c7697d3b7 100644
-> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> @@ -94,6 +94,11 @@ properties:
->      description:
->        The blocksize in bytes for the Zicboz cache operations.
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  Documentation/devicetree/bindings/riscv/extensions.yaml | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index 468c646247aa..99d2a9e8c52d 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -477,6 +477,10 @@ properties:
+>              latency, as ratified in commit 56ed795 ("Update
+>              riscv-crypto-spec-vector.adoc") of riscv-crypto.
 > =20
-> +  riscv,vendorid:
-> +    $ref: /schemas/types.yaml#/definitions/uint64
-> +    description:
-> +      Same value as the mvendorid CSR.
+> +        # vendor extensions, each extension sorted alphanumerically unde=
+r the
+> +        # vendor they belong to. Vendors are sorted alphanumerically as =
+well.
 > +
->    # RISC-V has multiple properties for cache op block sizes as the sizes
->    # differ between individual CBO extensions
->    cache-op-block-size: false
+> +        # Andes
+>          - const: xandespmu
+>            description:
+>              The Andes Technology performance monitor extension for count=
+er overflow
+> @@ -484,5 +488,11 @@ properties:
+>              Registers in the AX45MP datasheet.
+>              https://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-=
+5.0.0-Datasheet.pdf
+> =20
+> +        # T-HEAD
+> +        - const: xtheadvector
+> +          description:
+> +            The T-HEAD specific 0.7.1 vector implementation as written in
+> +            https://github.com/T-head-Semi/thead-extension-spec/blob/953=
+58cb2cca9489361c61d335e03d3134b14133f/xtheadvector.adoc.
+> +
+>  additionalProperties: true
+>  ...
 >=20
 > --=20
 > 2.44.0
 >=20
 
---wMBbbKu9mXXkxQXp
+--FdN+IanOF5jba0gw
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZh6TtgAKCRB4tDGHoIJi
-0sLCAP9GK5EvwG7exqhsRC6YBSqncpF7d0Ozytay1vZqdS4XsQD/RpbWEV4Jsg1B
-lsL0MHoKzJIL7pb7I+XCv8Ff59aiCwA=
-=6uQe
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZh6WTgAKCRB4tDGHoIJi
+0sMWAP4+aeJt178cyWMEA9Mn4d+S37RsUbed8NjDYrowtrQETAEAti61pmdoJgct
+1P4NAn7MiJAgxQW6b5m82/RPqoVkTwo=
+=Ucx5
 -----END PGP SIGNATURE-----
 
---wMBbbKu9mXXkxQXp--
+--FdN+IanOF5jba0gw--
 
 
---===============9023639738753485529==
+--===============1698864448328744532==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -161,5 +181,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============9023639738753485529==--
+--===============1698864448328744532==--
 
