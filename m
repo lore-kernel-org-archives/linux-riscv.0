@@ -4,77 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E2DC4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 18:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77841C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 18:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MyiOU/sL83UujhnzUYkzeekXbxGsJ4qr2+Vf2Xfeqwc=; b=Ohsmb+lSRZ8xRg
-	Ayr06Z88U+X0EpbdrQaSfZsZEmzKYjE9KqSWGaqRBf12mSL52g/h9pk19md1bqadfNMuRyXZOyJ0G
-	kvL0t7eghbUFHJC4PAKSmnqHEPZUvie9qkF788f8qtTCVjKi313YeYG3ynlmx54le/wBrPXPTBrkY
-	iXZLneYTGp4ISz0yKVlkVaU5ZXziexnhEGskqRx6Aih2O+f/QlkKRTlgjxtx0Q/aPqZYze0I4WO/T
-	ak6omfuASMOnE5r6kGHOcBg2ZNl3rtZVGsJL1XeLXd0EtgMeGpxr3TwDf6r7KZnSNvoSgzNbUmMM/
-	Tw4KHUSD71odTYv5hPqw==;
+	List-Owner; bh=Igg1/Pz7JxXB91N497A7jEBzgo+fMuk3Dv0eKGyfAEY=; b=UlzXSrekEg3/co
+	B6f0BIZ74zKNTGmEf/k/SK6crY29+PpfT0cG2px+agVhbtK9v9Fyg/ruGSsWsPx/n1mddYGcyK4dP
+	72lJ18KMj9NyBXJj33mA8NBzI77/ONSWS3lgu5iawzx5PQWXEmoA9y9AqAVRY2Y9ULbpIxs5MjLGk
+	QCSouTnIQ56xKz8QXmKAzfVEB/2X67xJeMo4MF1QbNUUty1DUSyoEIrL9hxyXe5arWCMdylqnI5yi
+	MkKci5Tj8A0oaPjN91K3BCAHaY/m77M1CgcV9D0OM5x7zfrcOyByFTG37snK+FTw0Uw6utbxhAmC+
+	H7tWPS82MuD4dUPp16Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwnf5-0000000DLBY-0PC4;
-	Tue, 16 Apr 2024 18:36:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rwnnd-0000000DMKl-1mGP;
+	Tue, 16 Apr 2024 18:44:57 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwnf0-0000000DLAa-2Pbt
+	id 1rwnnR-0000000DMCf-1Oee
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 18:36:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A555A6124B;
-	Tue, 16 Apr 2024 18:36:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 165C3C113CE;
-	Tue, 16 Apr 2024 18:35:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713292561;
-	bh=RUydQSI9IalFqEGbK9QMhcm64ilwdfZmZE3G8mYwjzg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B0XOvrLOmIGvtvZ81QXFXzN4kYMmV6ckD/uMbpDkJL8LOZfAKxnJZFm4KYJoTWIoO
-	 M8TyNsvhgGRMql9wlIWgnTAj1yJcmch0lIXb0su80K1hgIpyMoUga4NhSei6/A4QCk
-	 lc7bJGNPIsemhUlHKhSgp7YZTyvWyEl+9p/aR5FZCziUNaaxjKV5J6CY9Vg7g0tRuw
-	 6BE159Fcux3KiPOeKvDdx07Lvy8+3/UBMYMRoW7yUZu5yxKDaYJFE6O04Tjv6grN+z
-	 fR1mt4uB/FYFf4+9WdGti/KqrBBHoPa3Dvg2s5jspWiwhLLJ4TP0WNg46JR094OSOl
-	 K+Kx+6gKRxQUQ==
-Date: Tue, 16 Apr 2024 21:34:51 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Nam Cao <namcao@linutronix.de>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Andreas Dilger <adilger@dilger.ca>,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	linux-fsdevel <linux-fsdevel@vger.kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Theodore Ts'o <tytso@mit.edu>,
-	Ext4 Developers List <linux-ext4@vger.kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: riscv32 EXT4 splat, 6.8 regression?
-Message-ID: <Zh7Ey507KXIak8NW@kernel.org>
-References: <20240416-deppen-gasleitung-8098fcfd6bbd@brauner>
- <8734rlo9j7.fsf@all.your.base.are.belong.to.us>
- <Zh6KNglOu8mpTPHE@kernel.org>
- <20240416171713.7d76fe7d@namcao>
- <20240416173030.257f0807@namcao>
- <87v84h2tee.fsf@all.your.base.are.belong.to.us>
- <20240416181944.23af44ee@namcao>
- <Zh6n-nvnQbL-0xss@kernel.org>
- <Zh6urRin2-wVxNeq@casper.infradead.org>
+	Tue, 16 Apr 2024 18:44:51 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2a6fa7773d3so3314796a91.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Apr 2024 11:44:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713293084; x=1713897884; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2nwzSC0mjOXawHhzlfTnID2LKW7HdSbdpZLlPlBet3o=;
+        b=y7IUy79yX72El6c72XIPjdrryrarmqcoSP9AQGRq3Tw4f1f/Uv1DVxEslUcL0aUQHr
+         TFcJVZNT0Ap7NTm9Yvj33cdFNhshLtSxaKnk512VYmjdte4xZbR9/3Tf4n0SHDj/+jMj
+         or6aWWlzt8k4vHo8uVyyTUbqVkK6cvSIj4X1WREVoK0ynomYKFrsT7RXFSfB9yZCNWM9
+         QUWH8XbCO5TjBKuCzv9B1UeM0Pc3ZaXrROVQTPTO8SvpwBgA33CvX7GbfB0exvJsODG+
+         kGOQaD20kfCrSh0cbsxJaBAW6OTm5zdRBpKmImWcbXyOblFC2nKrCHR30HmTP72k49pI
+         72oQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713293084; x=1713897884;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2nwzSC0mjOXawHhzlfTnID2LKW7HdSbdpZLlPlBet3o=;
+        b=YOuLlknYl0WvRU556AtOFkpum3aMrKlQhuzKIOlG6GyzgCax4Ta/Un8dLTqVoCyW3F
+         IM3Pvi/jZ4+aF6H+znHLu/WVUDlMHgAGORm1O5oZ79a7UthRnoK4CRGRY5K1iIU8qega
+         hTBrRq5ALM0tz6g2jNy27s9xT342ggOnQtNwTSlQXu7v/aRhneQhmcmsyDoVhDiDkb1Z
+         KMJpopJMeywup3AB7eYQqQimXNW5t3wO+5FUwCrtduF62+dWdk5VPBsPKw7loorRlAMj
+         vfBxNJVa5boKanhzdM/lPmHaTHFZ1Jxvl9tUHgQZ4B2VIUda7VTCYRrh+kXhkbuoik30
+         aYyA==
+X-Forwarded-Encrypted: i=1; AJvYcCVUJ///ADPXTLrH1o+ORFMevRKU8+KyGdXesGXo7fBuZnaB8w3dJW+aS4i0MHl++m1f0xVygPjUfG7vVM+jmCOla+X/jPFOFo39jTqu7cmh
+X-Gm-Message-State: AOJu0YxhCPMSpj4Ax43CeZd+Th5y14Rph/BK7OT2j1Ei+BUq4RG8+rUD
+	wWORq6FKBugTfnFBD77DwpNarxHMgMOa2QInoVq7MYhJb1ZZugtSf99ZYfA6hro=
+X-Google-Smtp-Source: AGHT+IEoEjUu4cy1AorDUlJRRsn2LFZCsazPsjOtul090pjdnU5WLR3vSTyvWTwboMGTmVgvzKEuGA==
+X-Received: by 2002:a17:90a:b00d:b0:2a7:8794:bd9d with SMTP id x13-20020a17090ab00d00b002a78794bd9dmr7689700pjq.39.1713293084173;
+        Tue, 16 Apr 2024 11:44:44 -0700 (PDT)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id o19-20020a17090aac1300b002a269828bb8sm8883645pjq.40.2024.04.16.11.44.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Apr 2024 11:44:43 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Atish Patra <atishp@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Anup Patel <anup@brainfault.org>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Juergen Gross <jgross@suse.com>,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Shuah Khan <shuah@kernel.org>,
+	virtualization@lists.linux.dev,
+	Will Deacon <will@kernel.org>,
+	x86@kernel.org
+Subject: [PATCH v7 02/24] RISC-V: Add FIRMWARE_READ_HI definition
+Date: Tue, 16 Apr 2024 11:43:59 -0700
+Message-Id: <20240416184421.3693802-3-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240416184421.3693802-1-atishp@rivosinc.com>
+References: <20240416184421.3693802-1-atishp@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Zh6urRin2-wVxNeq@casper.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_113602_713823_9C82D332 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20240416_114445_440874_92F61339 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,53 +108,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 16, 2024 at 06:00:29PM +0100, Matthew Wilcox wrote:
-> On Tue, Apr 16, 2024 at 07:31:54PM +0300, Mike Rapoport wrote:
-> > > @@ -238,17 +237,9 @@ static void __init setup_bootmem(void)
-> > >  	/*
-> > >  	 * memblock allocator is not aware of the fact that last 4K bytes of
-> > >  	 * the addressable memory can not be mapped because of IS_ERR_VALUE
-> > > -	 * macro. Make sure that last 4k bytes are not usable by memblock
-> > > -	 * if end of dram is equal to maximum addressable memory.  For 64-bit
-> > > -	 * kernel, this problem can't happen here as the end of the virtual
-> > > -	 * address space is occupied by the kernel mapping then this check must
-> > > -	 * be done as soon as the kernel mapping base address is determined.
-> > > +	 * macro. Make sure that last 4k bytes are not usable by memblock.
-> > >  	 */
-> > 
-> > It's not only memblock, but buddy as well, so maybe
-> > 
-> > 	/*
-> > 	 * The last 4K bytes of the addressable memory can not be used
-> > 	 * because of IS_ERR_VALUE macro. Make sure that last 4K bytes are
-> > 	 * not usable by kernel memory allocators.
-> > 	 */
-> > 
-> > > -	if (!IS_ENABLED(CONFIG_64BIT)) {
-> > > -		max_mapped_addr = __pa(~(ulong)0);
-> > > -		if (max_mapped_addr == (phys_ram_end - 1))
-> > > -			memblock_set_current_limit(max_mapped_addr - 4096);
-> > > -	}
-> > > +	memblock_reserve(__pa(-PAGE_SIZE), PAGE_SIZE);
-> > 
-> > Ack.
-> 
-> Can this go to generic code instead of letting architecture maintainers
-> fall over it?
-
-Yes, it's just have to happen before setup_arch() where most architectures
-enable memblock allocations.
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U0JJIHYyLjAgYWRkZWQgYW5vdGhlciBmdW5jdGlvbiB0byBTQkkgUE1VIGV4dGVuc2lvbiB0byBy
+ZWFkCnRoZSB1cHBlciBiaXRzIG9mIGEgY291bnRlciB3aXRoIHdpZHRoIGxhcmdlciB0aGFuIFhM
+RU4uCgpBZGQgdGhlIGRlZmluaXRpb24gZm9yIHRoYXQgZnVuY3Rpb24uCgpSZXZpZXdlZC1ieTog
+QW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNvbT4KUmV2aWV3ZWQtYnk6IENsw6lt
+ZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4KQWNrZWQtYnk6IENvbm9yIERvb2xleSA8
+Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+ClJldmlld2VkLWJ5OiBBbnVwIFBhdGVsIDxhbnVw
+QGJyYWluZmF1bHQub3JnPgpTaWduZWQtb2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9z
+aW5jLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oIHwgMSArCiAxIGZpbGUg
+Y2hhbmdlZCwgMSBpbnNlcnRpb24oKykKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL3NiaS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaAppbmRleCA2ZTY4ZjhkZmY3
+NmIuLmVmODMxMWRhZmI5MSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmku
+aAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oCkBAIC0xMzEsNiArMTMxLDcgQEAg
+ZW51bSBzYmlfZXh0X3BtdV9maWQgewogCVNCSV9FWFRfUE1VX0NPVU5URVJfU1RBUlQsCiAJU0JJ
+X0VYVF9QTVVfQ09VTlRFUl9TVE9QLAogCVNCSV9FWFRfUE1VX0NPVU5URVJfRldfUkVBRCwKKwlT
+QklfRVhUX1BNVV9DT1VOVEVSX0ZXX1JFQURfSEksCiB9OwogCiB1bmlvbiBzYmlfcG11X2N0cl9p
+bmZvIHsKLS0gCjIuMzQuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
