@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7965BC4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 14:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6A7C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 14:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n3GVAhTTaoH8gNYl+ryq/Jthc3RYEBmFwEbVVwvKVrU=; b=E2ZaVwEErcIWNL
-	PwLJcXF6emlZ3khCfrGSeh++BDjtlDLDh2K3VJqWlvJ3RjwsDybmMaXtxUQigPVc3eV+m1VMKS2mN
-	SD5vn+hXXAKm1IEop55Rs4ZuK04PxRItF46N25/3gBky+ClzKJYN3oOcs+jo7/sVbUPp75rP00ITj
-	YuLv/pVeG+ZHASmEGDuMl4huaKN5AY5v49EOpfJ+lX1bU5a1PfRsKsOf/ncOyPVfFm4M38+suuR/F
-	bSvhQzmFIMLTSh9bgpdTDHxSS9yoQUgmftY1cZwos+rfoUNQ4upodz182mhwIxhC1pOkMdairCSKf
-	DvneE6FVDsVRBH1E1xHg==;
+	List-Owner; bh=zWBZJ2Ilo4DX53zZfVKOlFiNQWDUnuH7YBQurZhFOho=; b=PhxNITlzuEXrC2
+	wq0cEcrDHVULqUUVF+sN4Z7iXcXgmo6VenS7PvNFtDb3as+5Hj86A4VOTYTdsYBlwhUe2lQRLEJLE
+	0kFFH3lBXhRdON26nuQXmammzRMUl9Xw4qfSDVZmtmIrMbzcGD86T1dLMsF6K1CKQNK2lwobjWONb
+	aWMemRnME11zrliLJMubHmi2DOQLqMx6QxRFOmFEVn2Ni8l9aFqjk2VqliCaoR8h4O8AteGF9CPBQ
+	ZT3qYjdw/XVPq8O+IIXJCHsQqwTFYgQCMyh0YdLXlCwMgBLqu+gPsQftLLvPcU/V/AqxBSkkqY3wG
+	RXTEGIrsDfKgMzGv12JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwjUp-0000000CRtH-0303;
-	Tue, 16 Apr 2024 14:09:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rwjWm-0000000CSwo-3q0z;
+	Tue, 16 Apr 2024 14:11:16 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwjUh-0000000CRsJ-34iY;
-	Tue, 16 Apr 2024 14:09:13 +0000
+	id 1rwjWg-0000000CSuk-2t8y
+	for linux-riscv@lists.infradead.org;
+	Tue, 16 Apr 2024 14:11:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E52A06122D;
-	Tue, 16 Apr 2024 14:09:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DEE9C4AF0A;
-	Tue, 16 Apr 2024 14:09:05 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 91025CE10AE;
+	Tue, 16 Apr 2024 14:11:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA9EAC4AF0B;
+	Tue, 16 Apr 2024 14:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713276546;
-	bh=VpiBOyduHlcT5sitsX5cm2upCEOifFlYiu20YiiyzeY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=HuleBCGZSPRpaxRNM76UXKsEIhVSJ3o9QyrSsYfKS2opt2asaKR9YXIRiRSIUMYf0
-	 FBiZNMENQ+4r88trn4DDDh3cM1F/mbJ2EUVa84+mZXHyZsUsRgDa3AJ1pgP+6AIavc
-	 DJOzoBQwRd6wbl0K+SRHwgkfvU0ja4l34HeqylsrGAizNp4M7XL7GqwdJQ7VSljFUt
-	 JMDL8+kirIq/v7TjPRcHzkt2VZILBaS4EzgbfX77WkTNYPbtNWiBIgLMF8uLy60LYA
-	 GplMDtCvGf9lo3oy3Jrz4nwcyLLvqK5+j6wHyj3rm5OEn0lV1j1j5bhP/5gRnFanBM
-	 akB9zPD7t1nCg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Pu Lehui <pulehui@huawei.com>, Xu Kuohai <xukuohai@huaweicloud.com>,
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org
-Cc: Ivan Babrou <ivan@cloudflare.com>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>
-Subject: Re: [PATCH bpf-next 2/2] riscv, bpf: Fix incorrect runtime stats
-In-Reply-To: <39b55f13-69a1-401e-b87e-1040e33c9368@huawei.com>
-References: <20240416064208.2919073-1-xukuohai@huaweicloud.com>
- <20240416064208.2919073-3-xukuohai@huaweicloud.com>
- <39b55f13-69a1-401e-b87e-1040e33c9368@huawei.com>
-Date: Tue, 16 Apr 2024 16:09:03 +0200
-Message-ID: <871q754cxs.fsf@all.your.base.are.belong.to.us>
+	s=k20201202; t=1713276652;
+	bh=KrWX/mg6sB3IEZrckEkLG2wQSu4eyNuu4r2kX+Ke2dM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=imdJkKDYt4IFdH2ZckctnvXhpZbwxdxcgmUWwCvsrSIY1BBC3Zve/1ZAOnUB2VU7r
+	 o4QWE3QJ+6HF2FSN6XVw50nGwR+64xUP/kb4KIAsCz1CUF/S04ZGbwS6f0cNjWe/6v
+	 Rhj+mq5FCttUy+RNqV+pPUOjSwdGaS4b88AK/rycT+U6phHhDzlgDZf0O84XN0yt+1
+	 e32QCFkUFHSakyxij42InYbVbscHOW6jZ387u0s5pPfaJqOT1VIUeRuM5INvBzmzCY
+	 AXM8KInzJKNcTTY+bsVy+F9LdvQ2sltQNRfvKI1Wg3WsbTvJHSVVGU9ob7lxzLUD1E
+	 RLYXnH8XFlEuA==
+Date: Tue, 16 Apr 2024 09:10:49 -0500
+From: Rob Herring <robh@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH v2] of: property: Add fw_devlink support for
+ interrupt-map property
+Message-ID: <20240416141049.GA2148267-robh@kernel.org>
+References: <20240413091942.316054-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240413091942.316054-1-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_070907_843536_250BB4B1 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20240416_071111_141744_D544AF0E 
+X-CRM114-Status: GOOD (  25.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,38 +66,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4gd3JpdGVzOgoKPiBPbiAyMDI0LzQvMTYgMTQ6
-NDIsIFh1IEt1b2hhaSB3cm90ZToKPj4gRnJvbTogWHUgS3VvaGFpIDx4dWt1b2hhaUBodWF3ZWku
-Y29tPgo+PiAKPj4gV2hlbiBfX2JwZl9wcm9nX2VudGVyKCkgcmV0dXJucyB6ZXJvLCB0aGUgczEg
-cmVnaXN0ZXIgaXMgbm90IHNldCB0byB6ZXJvLAo+PiByZXN1bHRpbmcgaW4gaW5jb3JyZWN0IHJ1
-bnRpbWUgc3RhdHMuIEZpeCBpdCBieSBzZXR0aW5nIHMxIGltbWVkaWF0ZWx5IHVwb24KPj4gdGhl
-IHJldHVybiBvZiBfX2JwZl9wcm9nX2VudGVyKCkuCj4+IAo+PiBGaXhlczogNDliNWU3N2FlM2Uy
-ICgicmlzY3YsIGJwZjogQWRkIGJwZiB0cmFtcG9saW5lIHN1cHBvcnQgZm9yIFJWNjQiKQo+PiBT
-aWduZWQtb2ZmLWJ5OiBYdSBLdW9oYWkgPHh1a3VvaGFpQGh1YXdlaS5jb20+Cj4+IC0tLQo+PiAg
-IGFyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgfCA2ICsrKy0tLQo+PiAgIDEgZmlsZSBj
-aGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4+IAo+PiBkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9q
-aXRfY29tcDY0LmMKPj4gaW5kZXggMTVlNDgyZjJjNjU3Li5lNzEzNzA0YmU4MzcgMTAwNjQ0Cj4+
-IC0tLSBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKPj4gKysrIGIvYXJjaC9yaXNj
-di9uZXQvYnBmX2ppdF9jb21wNjQuYwo+PiBAQCAtNzMwLDYgKzczMCw5IEBAIHN0YXRpYyBpbnQg
-aW52b2tlX2JwZl9wcm9nKHN0cnVjdCBicGZfdHJhbXBfbGluayAqbCwgaW50IGFyZ3Nfb2ZmLCBp
-bnQgcmV0dmFsX29mCj4+ICAgCWlmIChyZXQpCj4+ICAgCQlyZXR1cm4gcmV0Owo+PiAgIAo+PiAr
-CS8qIHN0b3JlIHByb2cgc3RhcnQgdGltZSAqLwo+PiArCWVtaXRfbXYoUlZfUkVHX1MxLCBSVl9S
-RUdfQTAsIGN0eCk7Cj4+ICsKPj4gICAJLyogaWYgKF9fYnBmX3Byb2dfZW50ZXIocHJvZykgPT0g
-MCkKPj4gICAJICoJZ290byBza2lwX2V4ZWNfb2ZfcHJvZzsKPj4gICAJICovCj4+IEBAIC03Mzcs
-OSArNzQwLDYgQEAgc3RhdGljIGludCBpbnZva2VfYnBmX3Byb2coc3RydWN0IGJwZl90cmFtcF9s
-aW5rICpsLCBpbnQgYXJnc19vZmYsIGludCByZXR2YWxfb2YKPj4gICAJLyogbm9wIHJlc2VydmVk
-IGZvciBjb25kaXRpb25hbCBqdW1wICovCj4+ICAgCWVtaXQocnZfbm9wKCksIGN0eCk7Cj4+ICAg
-Cj4+IC0JLyogc3RvcmUgcHJvZyBzdGFydCB0aW1lICovCj4+IC0JZW1pdF9tdihSVl9SRUdfUzEs
-IFJWX1JFR19BMCwgY3R4KTsKPj4gLQo+PiAgIAkvKiBhcmcxOiAmYXJnc19vZmYgKi8KPj4gICAJ
-ZW1pdF9hZGRpKFJWX1JFR19BMCwgUlZfUkVHX0ZQLCAtYXJnc19vZmYsIGN0eCk7Cj4+ICAgCWlm
-ICghcC0+aml0ZWQpCj4KPiBUaGFua3MuCj4KPiBSZXZpZXdlZC1ieTogUHUgTGVodWkgPHB1bGVo
-dWlAaHVhd2VpLmNvbT4KCkFja2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJuZWwub3Jn
-PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Sat, Apr 13, 2024 at 02:49:42PM +0530, Anup Patel wrote:
+> Some of the PCI controllers (such as generic PCI host controller)
+> use "interrupt-map" DT property to describe the mapping between
+> PCI endpoints and PCI interrupt pins. This the only case where
+> the interrupts are not described in DT.
+> 
+> Currently, there is no fw_devlink created based on "interrupt-map"
+> DT property so interrupt controller is not guaranteed to be probed
+> before PCI host controller. This affects every platform where both
+> PCI host controller and interrupt controllers are probed as regular
+> platform devices.
+> 
+> This creates fw_devlink between consumers (PCI host controller) and
+> supplier (interrupt controller) based on "interrupt-map" DT property.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+> Changes since v1:
+> - Updated commit description based on Rob's suggestion
+> - Use of_irq_parse_raw() for parsing interrupt-map DT property
+> ---
+>  drivers/of/property.c | 58 +++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 58 insertions(+)
+> 
+> diff --git a/drivers/of/property.c b/drivers/of/property.c
+> index a6358ee99b74..67be66384dac 100644
+> --- a/drivers/of/property.c
+> +++ b/drivers/of/property.c
+> @@ -1311,6 +1311,63 @@ static struct device_node *parse_interrupts(struct device_node *np,
+>  	return of_irq_parse_one(np, index, &sup_args) ? NULL : sup_args.np;
+>  }
+>  
+> +static struct device_node *parse_interrupt_map(struct device_node *np,
+> +					       const char *prop_name, int index)
+> +{
+> +	const __be32 *imap, *imap_end, *addr;
+> +	struct of_phandle_args sup_args;
+> +	struct device_node *tn, *ipar;
+> +	u32 addrcells, intcells;
+> +	int i, j, imaplen;
+> +
+> +	if (!IS_ENABLED(CONFIG_OF_IRQ))
+> +		return NULL;
+> +
+> +	if (strcmp(prop_name, "interrupt-map"))
+> +		return NULL;
+> +
+> +	ipar = of_node_get(np);
+> +	do {
+> +		if (!of_property_read_u32(ipar, "#interrupt-cells", &intcells))
+> +			break;
+> +		tn = ipar;
+> +		ipar = of_irq_find_parent(ipar);
+> +		of_node_put(tn);
+> +	} while (ipar);
+
+No need for this loop. We've only gotten here if 'interrupt-map' is 
+present in the node and '#interrupt-cells' is required if 
+'interrupt-map' is present.
+
+> +	if (!ipar)
+> +		return NULL;
+> +	addrcells = of_bus_n_addr_cells(ipar);
+> +	of_node_put(ipar);
+> +
+> +	imap = of_get_property(np, "interrupt-map", &imaplen);
+> +	if (!imap || imaplen <= (addrcells + intcells))
+> +		return NULL;
+> +	imap_end = imap + imaplen;
+> +
+> +	sup_args.np = NULL;
+> +	for (i = 0; i <= index && imap < imap_end; i++) {
+> +		if (sup_args.np) {
+> +			of_node_put(sup_args.np);
+> +			sup_args.np = NULL;
+> +		}
+> +
+> +		addr = imap;
+> +		imap += addrcells;
+> +
+> +		sup_args.np = np;
+> +		sup_args.args_count = intcells;
+> +		for (j = 0; j < intcells; j++)
+> +			sup_args.args[j] = be32_to_cpu(imap[j]);
+> +		imap += intcells;
+> +
+> +		if (of_irq_parse_raw(addr, &sup_args))
+> +			return NULL;
+> +		imap += sup_args.args_count + 1;
+> +	}
+
+Doesn't this leak a ref on the last time the function is invoked? For 
+example, if we have 2 entries and index is 2. We'll get index=1, but 
+then exit because imap==imap_end. We need a put on index==1 node.
+
+Look at my next branch where I've converted things to use __free() 
+cleanups. I don't see it helping here as-is, but maybe when it is 
+correct.
+
+Rob
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
