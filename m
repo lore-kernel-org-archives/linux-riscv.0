@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A2BC10F00
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 06:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD0B5C19F4F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 06:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0pscb9XOnqMCQuh8tO/PrseReg2w40p0Q6kp38+x9Sk=; b=gZzJaJFfWlTrtC
-	kEzFIFKAPTlvNpIeSk03Y9l/DoUdRTACQ+YO4gqZZMTYpLsy8qBxG02JuM3Vy+DFMw4gpgPF3tUX5
-	qSbmhnXzizeLTXeNWsyMVKPShpHpf+XQa4WM/+KkRWQbLPufmK42VVcPOhBU6RzfRPkvApyrqB8PQ
-	A2FI5IOw30AIHYfs4X9nUmCWigYlO8Zw5Nigkv2SEBUBt0hDnr4LO2peK3fwlfBZFcvoQiNPRBaJU
-	HGp/vC30QP0lNJMa4royqX91UBZhjnA8dFRxqtYVtlcm57/bbjOKhLL1vpG4xniaxihcwRaiYqXlC
-	zGS3vo9dBSfpO/2dbhNg==;
+	List-Owner; bh=k6F7ES5Cnf5AiZefV8wUqFzgdxhrF3FCz3V5DcVhvWU=; b=PjFSgWI7wHWIvc
+	fNTZh6x890XWbMFkQcPvfVO9RhY3yqqoO2BtUmkUeAhLxW1xdOmZkXbcQ/b08omg7FTEFbGsIS99T
+	0h3MNOC5haxq/+SFFQ2+4mKF0IEEBBLEdBLCUB9EqPxeX6q9xeTHeOz5lBwlTXAh6lOzaLWg6+Hmi
+	ucZ/0Xg7BgRcZerSFg5SfqQawRJwrQYPQq12yMh+P/izxtX9TdPTb/XCJlYZLMiQal0OCk7Swf/0+
+	SwZ5mE3ItSr9upecY6UodFiRZlBHLxMsgzCHK/92f6UIaFqL0+MfZTVKc1WV15NFB3AbFGkOcZj1w
+	/5dxmN9SJcEfTWZQ81dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwc79-0000000B2Rk-3cc7;
-	Tue, 16 Apr 2024 06:16:19 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1rwc7c-0000000B2qM-2RSm;
+	Tue, 16 Apr 2024 06:16:48 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwc6w-0000000B2Ey-3RDu
+	id 1rwc7D-0000000B2U7-3urg
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 06:16:09 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6187588d2a7so77334157b3.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 23:16:06 -0700 (PDT)
+	Tue, 16 Apr 2024 06:16:34 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-dcdc3db67f0so6419986276.1
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 23:16:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1713248165; x=1713852965; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1713248182; x=1713852982; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=C36r2tqelRWs6L7r88/GKNbOUewmK6XvJFIwgoq4Nzg=;
-        b=Z5P6jGhOI3Y9z99JNDGAF8m5ZT1jgnwzdlx4cxVw6dt/GNw+kJYUtgvPVPiq7WDqtZ
-         w3ssgkAyjYRyz3/DYdaIFgWcjboukVSGjPZCZAQseRfpillFBx7RgdsMmIgdEKZ8Yqe1
-         IyxQD3wFeJJJo9CMu0tv6+oG6tw9bPm/f/iEU4VLPOZAmSUzD9uNfiBmnWi7c3fGWE3V
-         qWbsA/bMpTuPJ32R4SoaJLrSECiGwPIpGbO0QibWCwqjTL5Ywlik4uJd54mahkRbB54L
-         qoQ1tNWdeT8H2CpffPjMdMyViXYDVT8UUh7gF5uRR1T9Hi/aqGgNrO8w3jmVkUajjups
-         mmFg==
+        bh=yAZaI9XNl5kKuFXYgLfdboqZLBXY1vO78aqvi2rTEGA=;
+        b=bqKlBsBzVbw6vQig65e3rBTwtK59eFgrq0bph/5MZAFwFo7iYBbhmMiMwvNtkuGMl4
+         7DvyGVgJnLhY/Sa81cghniXPKecYAlTyz+qq5F1SQ/8v7VUcx4INZDSNZUN8/qZrzYQQ
+         ItqpL6TI4mxcgvyr7qQHM/UehmHr5G7pzOhPcNZfeLMckSlmiUPUTD6ZYs+wEzc/hHr/
+         6sTpO9r0Zn3rO+mLmueRItzCAKmKPWpmsGdP36Xhz1a8jeY3v5oBKgaz6219XZg8v4Jk
+         TS6Hnt4EZMA1RhKqnjem1pTD+bRJPh+3zjXflDxvnmNnBmSXLi3WKAyy4fglyV0JNXyL
+         pSSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713248165; x=1713852965;
+        d=1e100.net; s=20230601; t=1713248182; x=1713852982;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=C36r2tqelRWs6L7r88/GKNbOUewmK6XvJFIwgoq4Nzg=;
-        b=aj99uICdz3oUq4QXg7JGi4rq+AKGd7/1GtC3MR5TNfYQpAA4qamxmmBbZZqFzFgPu+
-         YpCnpxjKpMgmyhhDsMPKIc2/U0tr+npe9gMFn2yUh2232IDXAhHYrdctAgz9PuuHg739
-         Ck0CP2vsxJKI7kHLFqDedNnBcFfOXydkRU/SzTTlAh+/YgzqxF7DLprkMAEneLqwGb8E
-         pPzEQBZeHdEvt8r1KbDyH8/7Ym3MJw1xnji0KEg55IjgkRCIMJmY0B1Dc1TBuGe0IUjX
-         yM77ct3VlNLbrAC2CwoTXQylJVcV2A42Q0n2fECFLAx8fsIKRwZOcy55aP9dGTqwVjEf
-         Vupw==
-X-Forwarded-Encrypted: i=1; AJvYcCWbG7znCg0vwcAVqOr/wo2006J6noR7oiIiNnxT8S50m0oZqCXwQpiCkM3ueP/AR8xL8rHz5tkvWw9bId0/OxgGoo6tKcmegUNF5CfhoGoV
-X-Gm-Message-State: AOJu0Ywv66caUI2a1DpI4f7wIbyMfb1DKVbcHUZbcte8+bJhhpMq5vIm
-	mU51F4saqHEqRy7ALKRNTzCcsYB7ZziUDR5lveYwpq688ncQXi7WOsQqLZ+yooOJsbwtfkIGr7H
-	rVupZGQ==
-X-Google-Smtp-Source: AGHT+IGfI9hI86qBWCQ9iFMpUcMIcQ8Bvb3tiAz+gLM+yN6JgYTHeFn6UJJFxzvv6MAOCca+nbvzL+9wRP00
+        bh=yAZaI9XNl5kKuFXYgLfdboqZLBXY1vO78aqvi2rTEGA=;
+        b=weJpXlDxWrk3fC03i2b0YNUQssBQh+jsMYq9qnGNlMLWdE3CPioHOezo4THiYvJfpr
+         cb8PUm7ffTV0PoPyYGc6ES3BTWupTsNxu4/04gz1XRtt/ZKGozmsj1bhAX6bh3jHLsG/
+         WGf2csbV30yg+MeokzUC0f1NKtC73L4xGmBLg7bqZhHVKnfmldR4+JKYIBzwg8VRqBwu
+         lTT1zyJIIyxeDOamA7rss8khXAuLZ/mLaS13QajMUgt748yrg9GVVtqmqIH72oWHMaUj
+         mrXbMGM3R5D06bmZ2l2yb7vBbd1oRv8m5Z3rW6CABxTaQCfcjvrO/seO3TFrby5+Q3nS
+         O/kA==
+X-Forwarded-Encrypted: i=1; AJvYcCX6a40pVP0uwfkwuC+4ZPDsKe92ji2u8Ovj/rDIRtjg9gDc2hsJPMW6naHAq7bQDvL3ejDYKEn02n4p+Qgv8e6MT03oKZYvkXBJMAifWa70
+X-Gm-Message-State: AOJu0Yw+f6bf7YAnwrgEOFFBEPahjCD1nSVTSLLO/lUbm3O8YjkUQZ+s
+	MPRLaqxb3jqM9mMOKkaOqTw7U8g3Kybyja9YK0d8PxMlN2sV8fQ7LE4yxQL8/09pmwb3EvQg4VT
+	WCTj2nw==
+X-Google-Smtp-Source: AGHT+IHU62mxVZT/57o8lZIqos+5GU3yfPQj1+CocC7s8g9X2ZXqugU/fUPUNRs0dJBS3aK51ZiyqFZ/eNM7
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:30c8:f541:acad:b4f7])
- (user=irogers job=sendgmr) by 2002:a81:a056:0:b0:61a:d418:59bd with SMTP id
- x83-20020a81a056000000b0061ad41859bdmr1097020ywg.10.1713248165432; Mon, 15
- Apr 2024 23:16:05 -0700 (PDT)
-Date: Mon, 15 Apr 2024 23:15:25 -0700
+ (user=irogers job=sendgmr) by 2002:a05:6902:154f:b0:dbe:d0a9:2be3 with SMTP
+ id r15-20020a056902154f00b00dbed0a92be3mr573082ybu.3.1713248181960; Mon, 15
+ Apr 2024 23:16:21 -0700 (PDT)
+Date: Mon, 15 Apr 2024 23:15:32 -0700
 In-Reply-To: <20240416061533.921723-1-irogers@google.com>
-Message-Id: <20240416061533.921723-10-irogers@google.com>
+Message-Id: <20240416061533.921723-17-irogers@google.com>
 Mime-Version: 1.0
 References: <20240416061533.921723-1-irogers@google.com>
 X-Mailer: git-send-email 2.44.0.683.g7961c838ac-goog
-Subject: [PATCH v2 09/16] perf parse-events: Prefer sysfs/json hardware events
- over legacy
+Subject: [PATCH v2 16/16] perf parse-events: Tidy the setting of the default
+ event name
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -79,8 +79,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	bpf@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org, 
 	Beeman Strong <beeman@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_231607_006374_EA7096BE 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20240415_231624_472702_F4BE81AE 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,392 +97,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It was requested that RISC-V be able to add events to the perf tool so
-the PMU driver didn't need to map legacy events to config encodings:
-https://lore.kernel.org/lkml/20240217005738.3744121-1-atishp@rivosinc.com/
-
-This change makes the priority of events specified without a PMU the
-same as those specified with a PMU, namely sysfs and json events are
-checked first before using the legacy encoding.
-
-The hw_term is made more generic as a hardware_event that encodes a
-pair of string and int value, allowing parse_events_multi_pmu_add to
-fall back on a known encoding when the sysfs/json adding fails for
-core events. As this covers PE_VALUE_SYM_HW, that token is removed and
-related code simplified.
+Add comments. Pass ownership of the event name to save on a strdup.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/parse-events.c | 31 ++++++++++----
+ tools/perf/util/parse-events.c |  9 ++++++---
  tools/perf/util/parse-events.h |  2 +-
- tools/perf/util/parse-events.l | 76 +++++++++++++++++-----------------
- tools/perf/util/parse-events.y | 62 +++++++++++++++++----------
- 4 files changed, 103 insertions(+), 68 deletions(-)
+ tools/perf/util/parse-events.l |  5 +++++
+ tools/perf/util/parse-events.y | 10 +++++++---
+ 4 files changed, 19 insertions(+), 7 deletions(-)
 
 diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 1b408e3dccc7..805872c90a3e 100644
+index 1c1b1bcb78e8..0f308b4db2b9 100644
 --- a/tools/perf/util/parse-events.c
 +++ b/tools/perf/util/parse-events.c
-@@ -1543,7 +1543,7 @@ static int parse_events_add_pmu(struct parse_events_state *parse_state,
+@@ -1836,18 +1836,21 @@ int parse_events__modifier_event(struct parse_events_state *parse_state, void *l
+ 	return parse_events__modifier_list(parse_state, loc, list, mod, /*group=*/false);
  }
  
- int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
--			       const char *event_name,
-+			       const char *event_name, u64 hw_config,
- 			       const struct parse_events_terms *const_parsed_terms,
- 			       struct list_head **listp, void *loc_)
+-int parse_events_name(struct list_head *list, const char *name)
++int parse_events__set_default_name(struct list_head *list, char *name)
  {
-@@ -1551,8 +1551,8 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
- 	struct list_head *list = NULL;
- 	struct perf_pmu *pmu = NULL;
- 	YYLTYPE *loc = loc_;
--	int ok = 0;
--	const char *config;
-+	int ok = 0, core_ok = 0;
-+	const char *tmp;
- 	struct parse_events_terms parsed_terms;
+ 	struct evsel *evsel;
++	bool used_name = false;
  
- 	*listp = NULL;
-@@ -1565,15 +1565,15 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
- 			return ret;
- 	}
- 
--	config = strdup(event_name);
--	if (!config)
-+	tmp = strdup(event_name);
-+	if (!tmp)
- 		goto out_err;
- 
- 	if (parse_events_term__num(&term,
- 				   PARSE_EVENTS__TERM_TYPE_USER,
--				   config, /*num=*/1, /*novalue=*/true,
-+				   tmp, /*num=*/1, /*novalue=*/true,
- 				   loc, /*loc_val=*/NULL) < 0) {
--		zfree(&config);
-+		zfree(&tmp);
- 		goto out_err;
- 	}
- 	list_add_tail(&term->list, &parsed_terms.terms);
-@@ -1604,6 +1604,8 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
- 			pr_debug("%s -> %s/%s/\n", event_name, pmu->name, sb.buf);
- 			strbuf_release(&sb);
- 			ok++;
-+			if (pmu->is_core)
-+				core_ok++;
+ 	__evlist__for_each_entry(list, evsel) {
+ 		if (!evsel->name) {
+-			evsel->name = strdup(name);
++			evsel->name = used_name ? strdup(name) : name;
++			used_name = true;
+ 			if (!evsel->name)
+ 				return -ENOMEM;
  		}
  	}
+-
++	if (!used_name)
++		free(name);
+ 	return 0;
+ }
  
-@@ -1620,6 +1622,18 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
- 		}
- 	}
- 
-+	if (hw_config != PERF_COUNT_HW_MAX && !core_ok) {
-+		/*
-+		 * The event wasn't found on core PMUs but it has a hardware
-+		 * config version to try.
-+		 */
-+		if (!parse_events_add_numeric(parse_state, list,
-+						PERF_TYPE_HARDWARE, hw_config,
-+						const_parsed_terms,
-+						/*wildcard=*/true))
-+			ok++;
-+	}
-+
- out_err:
- 	parse_events_terms__exit(&parsed_terms);
- 	if (ok)
-@@ -1673,7 +1687,8 @@ int parse_events_multi_pmu_add_or_add_pmu(struct parse_events_state *parse_state
- 
- 	/* Failure to add, assume event_or_pmu is an event name. */
- 	zfree(listp);
--	if (!parse_events_multi_pmu_add(parse_state, event_or_pmu, const_parsed_terms, listp, loc))
-+	if (!parse_events_multi_pmu_add(parse_state, event_or_pmu, PERF_COUNT_HW_MAX,
-+					const_parsed_terms, listp, loc))
- 		return 0;
- 
- 	if (asprintf(&help, "Unable to find PMU or event on a PMU of '%s'", event_or_pmu) < 0)
 diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
-index 5005782766e9..7e5afad3feb8 100644
+index 0bb5f0c80a5e..5695308efab9 100644
 --- a/tools/perf/util/parse-events.h
 +++ b/tools/perf/util/parse-events.h
-@@ -215,7 +215,7 @@ struct evsel *parse_events__add_event(int idx, struct perf_event_attr *attr,
- 				      struct perf_pmu *pmu);
- 
- int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
--			       const char *event_name,
-+			       const char *event_name, u64 hw_config,
- 			       const struct parse_events_terms *const_parsed_terms,
- 			       struct list_head **listp, void *loc);
- 
+@@ -207,7 +207,7 @@ int parse_events__modifier_event(struct parse_events_state *parse_state, void *l
+ 				 struct list_head *list, struct parse_events_modifier mod);
+ int parse_events__modifier_group(struct parse_events_state *parse_state, void *loc,
+ 				 struct list_head *list, struct parse_events_modifier mod);
+-int parse_events_name(struct list_head *list, const char *name);
++int parse_events__set_default_name(struct list_head *list, char *name);
+ int parse_events_add_tracepoint(struct list_head *list, int *idx,
+ 				const char *sys, const char *event,
+ 				struct parse_events_error *error,
 diff --git a/tools/perf/util/parse-events.l b/tools/perf/util/parse-events.l
-index e86c45675e1d..6fe37003ab7b 100644
+index 4aaf0c53d9b6..08ea2d845dc3 100644
 --- a/tools/perf/util/parse-events.l
 +++ b/tools/perf/util/parse-events.l
-@@ -100,12 +100,12 @@ do {								\
- 	yyless(0);						\
- } while (0)
- 
--static int sym(yyscan_t scanner, int type, int config)
-+static int sym(yyscan_t scanner, int config)
- {
- 	YYSTYPE *yylval = parse_events_get_lval(scanner);
- 
--	yylval->num = (type << 16) + config;
--	return type == PERF_TYPE_HARDWARE ? PE_VALUE_SYM_HW : PE_VALUE_SYM_SW;
-+	yylval->num = config;
-+	return PE_VALUE_SYM_SW;
+@@ -96,6 +96,11 @@ static int drv_str(yyscan_t scanner, int token)
+ 	return token;
  }
  
- static int tool(yyscan_t scanner, enum perf_tool_event event)
-@@ -124,13 +124,13 @@ static int term(yyscan_t scanner, enum parse_events__term_type type)
- 	return PE_TERM;
- }
- 
--static int hw_term(yyscan_t scanner, int config)
-+static int hw(yyscan_t scanner, int config)
- {
- 	YYSTYPE *yylval = parse_events_get_lval(scanner);
- 	char *text = parse_events_get_text(scanner);
- 
--	yylval->hardware_term.str = strdup(text);
--	yylval->hardware_term.num = PERF_TYPE_HARDWARE + config;
-+	yylval->hardware_event.str = strdup(text);
-+	yylval->hardware_event.num = config;
- 	return PE_TERM_HW;
- }
- 
-@@ -246,16 +246,16 @@ percore			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_PERCORE); }
- aux-output		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT); }
- aux-sample-size		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE); }
- metric-id		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_METRIC_ID); }
--cpu-cycles|cycles				{ return hw_term(yyscanner, PERF_COUNT_HW_CPU_CYCLES); }
--stalled-cycles-frontend|idle-cycles-frontend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_FRONTEND); }
--stalled-cycles-backend|idle-cycles-backend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_BACKEND); }
--instructions					{ return hw_term(yyscanner, PERF_COUNT_HW_INSTRUCTIONS); }
--cache-references				{ return hw_term(yyscanner, PERF_COUNT_HW_CACHE_REFERENCES); }
--cache-misses					{ return hw_term(yyscanner, PERF_COUNT_HW_CACHE_MISSES); }
--branch-instructions|branches			{ return hw_term(yyscanner, PERF_COUNT_HW_BRANCH_INSTRUCTIONS); }
--branch-misses					{ return hw_term(yyscanner, PERF_COUNT_HW_BRANCH_MISSES); }
--bus-cycles					{ return hw_term(yyscanner, PERF_COUNT_HW_BUS_CYCLES); }
--ref-cycles					{ return hw_term(yyscanner, PERF_COUNT_HW_REF_CPU_CYCLES); }
-+cpu-cycles|cycles				{ return hw(yyscanner, PERF_COUNT_HW_CPU_CYCLES); }
-+stalled-cycles-frontend|idle-cycles-frontend	{ return hw(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_FRONTEND); }
-+stalled-cycles-backend|idle-cycles-backend	{ return hw(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_BACKEND); }
-+instructions					{ return hw(yyscanner, PERF_COUNT_HW_INSTRUCTIONS); }
-+cache-references				{ return hw(yyscanner, PERF_COUNT_HW_CACHE_REFERENCES); }
-+cache-misses					{ return hw(yyscanner, PERF_COUNT_HW_CACHE_MISSES); }
-+branch-instructions|branches			{ return hw(yyscanner, PERF_COUNT_HW_BRANCH_INSTRUCTIONS); }
-+branch-misses					{ return hw(yyscanner, PERF_COUNT_HW_BRANCH_MISSES); }
-+bus-cycles					{ return hw(yyscanner, PERF_COUNT_HW_BUS_CYCLES); }
-+ref-cycles					{ return hw(yyscanner, PERF_COUNT_HW_REF_CPU_CYCLES); }
- r{num_raw_hex}		{ return str(yyscanner, PE_RAW); }
- r0x{num_raw_hex}	{ return str(yyscanner, PE_RAW); }
- ,			{ return ','; }
-@@ -299,31 +299,31 @@ r0x{num_raw_hex}	{ return str(yyscanner, PE_RAW); }
- <<EOF>>			{ BEGIN(INITIAL); }
- }
- 
--cpu-cycles|cycles				{ return sym(yyscanner, PERF_TYPE_HARDWARE, PERF_COUNT_HW_CPU_CYCLES); }
--stalled-cycles-frontend|idle-cycles-frontend	{ return sym(yyscanner, PERF_TYPE_HARDWARE, PERF_COUNT_HW_STALLED_CYCLES_FRONTEND); }
--stalled-cycles-backend|idle-cycles-backend	{ return sym(yyscanner, PERF_TYPE_HARDWARE, PERF_COUNT_HW_STALLED_CYCLES_BACKEND); }
--instructions					{ return sym(yyscanner, PERF_TYPE_HARDWARE, PERF_COUNT_HW_INSTRUCTIONS); }
--cache-references				{ return sym(yyscanner, PERF_TYPE_HARDWARE, PERF_COUNT_HW_CACHE_REFERENCES); }
--cache-misses					{ return sym(yyscanner, PERF_TYPE_HARDWARE, PERF_COUNT_HW_CACHE_MISSES); }
--branch-instructions|branches			{ return sym(yyscanner, PERF_TYPE_HARDWARE, PERF_COUNT_HW_BRANCH_INSTRUCTIONS); }
--branch-misses					{ return sym(yyscanner, PERF_TYPE_HARDWARE, PERF_COUNT_HW_BRANCH_MISSES); }
--bus-cycles					{ return sym(yyscanner, PERF_TYPE_HARDWARE, PERF_COUNT_HW_BUS_CYCLES); }
--ref-cycles					{ return sym(yyscanner, PERF_TYPE_HARDWARE, PERF_COUNT_HW_REF_CPU_CYCLES); }
--cpu-clock					{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_CPU_CLOCK); }
--task-clock					{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_TASK_CLOCK); }
--page-faults|faults				{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_PAGE_FAULTS); }
--minor-faults					{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_PAGE_FAULTS_MIN); }
--major-faults					{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_PAGE_FAULTS_MAJ); }
--context-switches|cs				{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_CONTEXT_SWITCHES); }
--cpu-migrations|migrations			{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_CPU_MIGRATIONS); }
--alignment-faults				{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_ALIGNMENT_FAULTS); }
--emulation-faults				{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_EMULATION_FAULTS); }
--dummy						{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_DUMMY); }
-+cpu-cycles|cycles				{ return hw(yyscanner, PERF_COUNT_HW_CPU_CYCLES); }
-+stalled-cycles-frontend|idle-cycles-frontend	{ return hw(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_FRONTEND); }
-+stalled-cycles-backend|idle-cycles-backend	{ return hw(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_BACKEND); }
-+instructions					{ return hw(yyscanner, PERF_COUNT_HW_INSTRUCTIONS); }
-+cache-references				{ return hw(yyscanner, PERF_COUNT_HW_CACHE_REFERENCES); }
-+cache-misses					{ return hw(yyscanner, PERF_COUNT_HW_CACHE_MISSES); }
-+branch-instructions|branches			{ return hw(yyscanner, PERF_COUNT_HW_BRANCH_INSTRUCTIONS); }
-+branch-misses					{ return hw(yyscanner, PERF_COUNT_HW_BRANCH_MISSES); }
-+bus-cycles					{ return hw(yyscanner, PERF_COUNT_HW_BUS_CYCLES); }
-+ref-cycles					{ return hw(yyscanner, PERF_COUNT_HW_REF_CPU_CYCLES); }
-+cpu-clock					{ return sym(yyscanner, PERF_COUNT_SW_CPU_CLOCK); }
-+task-clock					{ return sym(yyscanner, PERF_COUNT_SW_TASK_CLOCK); }
-+page-faults|faults				{ return sym(yyscanner, PERF_COUNT_SW_PAGE_FAULTS); }
-+minor-faults					{ return sym(yyscanner, PERF_COUNT_SW_PAGE_FAULTS_MIN); }
-+major-faults					{ return sym(yyscanner, PERF_COUNT_SW_PAGE_FAULTS_MAJ); }
-+context-switches|cs				{ return sym(yyscanner, PERF_COUNT_SW_CONTEXT_SWITCHES); }
-+cpu-migrations|migrations			{ return sym(yyscanner, PERF_COUNT_SW_CPU_MIGRATIONS); }
-+alignment-faults				{ return sym(yyscanner, PERF_COUNT_SW_ALIGNMENT_FAULTS); }
-+emulation-faults				{ return sym(yyscanner, PERF_COUNT_SW_EMULATION_FAULTS); }
-+dummy						{ return sym(yyscanner, PERF_COUNT_SW_DUMMY); }
- duration_time					{ return tool(yyscanner, PERF_TOOL_DURATION_TIME); }
- user_time						{ return tool(yyscanner, PERF_TOOL_USER_TIME); }
- system_time						{ return tool(yyscanner, PERF_TOOL_SYSTEM_TIME); }
--bpf-output					{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_BPF_OUTPUT); }
--cgroup-switches					{ return sym(yyscanner, PERF_TYPE_SOFTWARE, PERF_COUNT_SW_CGROUP_SWITCHES); }
-+bpf-output					{ return sym(yyscanner, PERF_COUNT_SW_BPF_OUTPUT); }
-+cgroup-switches					{ return sym(yyscanner, PERF_COUNT_SW_CGROUP_SWITCHES); }
- 
- {lc_type}			{ return str(yyscanner, PE_LEGACY_CACHE); }
- {lc_type}-{lc_op_result}	{ return str(yyscanner, PE_LEGACY_CACHE); }
++/*
++ * Use yyless to return all the characaters to the input. Update the column for
++ * location debugging. If __alloc is non-zero set yylval to the text for the
++ * returned token's value.
++ */
+ #define REWIND(__alloc)				\
+ do {								\
+ 	YYSTYPE *__yylval = parse_events_get_lval(yyscanner);	\
 diff --git a/tools/perf/util/parse-events.y b/tools/perf/util/parse-events.y
-index 254f8aeca461..31fe8cf428ff 100644
+index 6f1042272dda..68b3b06c7ff0 100644
 --- a/tools/perf/util/parse-events.y
 +++ b/tools/perf/util/parse-events.y
-@@ -55,7 +55,7 @@ static void free_list_evsel(struct list_head* list_evsel)
- %}
- 
- %token PE_START_EVENTS PE_START_TERMS
--%token PE_VALUE PE_VALUE_SYM_HW PE_VALUE_SYM_SW PE_TERM
-+%token PE_VALUE PE_VALUE_SYM_SW PE_TERM
- %token PE_VALUE_SYM_TOOL
- %token PE_EVENT_NAME
- %token PE_RAW PE_NAME
-@@ -66,11 +66,9 @@ static void free_list_evsel(struct list_head* list_evsel)
- %token PE_DRV_CFG_TERM
- %token PE_TERM_HW
- %type <num> PE_VALUE
--%type <num> PE_VALUE_SYM_HW
- %type <num> PE_VALUE_SYM_SW
- %type <num> PE_VALUE_SYM_TOOL
- %type <term_type> PE_TERM
--%type <num> value_sym
- %type <str> PE_RAW
- %type <str> PE_NAME
- %type <str> PE_LEGACY_CACHE
-@@ -87,6 +85,7 @@ static void free_list_evsel(struct list_head* list_evsel)
- %type <list_terms> opt_pmu_config
- %destructor { parse_events_terms__delete ($$); } <list_terms>
- %type <list_evsel> event_pmu
-+%type <list_evsel> event_legacy_hardware
- %type <list_evsel> event_legacy_symbol
- %type <list_evsel> event_legacy_cache
- %type <list_evsel> event_legacy_mem
-@@ -104,8 +103,8 @@ static void free_list_evsel(struct list_head* list_evsel)
- %destructor { free_list_evsel ($$); } <list_evsel>
- %type <tracepoint_name> tracepoint_name
- %destructor { free ($$.sys); free ($$.event); } <tracepoint_name>
--%type <hardware_term> PE_TERM_HW
--%destructor { free ($$.str); } <hardware_term>
-+%type <hardware_event> PE_TERM_HW
-+%destructor { free ($$.str); } <hardware_event>
- 
- %union
+@@ -247,10 +247,14 @@ event_name
+ event_name:
+ PE_EVENT_NAME event_def
  {
-@@ -119,10 +118,10 @@ static void free_list_evsel(struct list_head* list_evsel)
- 		char *sys;
- 		char *event;
- 	} tracepoint_name;
--	struct hardware_term {
-+	struct hardware_event {
- 		char *str;
- 		u64 num;
--	} hardware_term;
-+	} hardware_event;
- }
- %%
+-	int err;
++	/*
++	 * When an event is parsed the text is rewound and the entire text of
++	 * the event is set to the str of PE_EVENT_NAME token matched here. If
++	 * no name was on an event via a term, set the name to the entire text
++	 * taking ownership of the allocation.
++	 */
++	int err = parse_events__set_default_name($2, $1);
  
-@@ -263,6 +262,7 @@ PE_EVENT_NAME event_def
- event_def
- 
- event_def: event_pmu |
-+	   event_legacy_hardware |
- 	   event_legacy_symbol |
- 	   event_legacy_cache sep_dc |
- 	   event_legacy_mem sep_dc |
-@@ -289,7 +289,7 @@ PE_NAME sep_dc
- 	struct list_head *list;
- 	int err;
- 
--	err = parse_events_multi_pmu_add(_parse_state, $1, NULL, &list, &@1);
-+	err = parse_events_multi_pmu_add(_parse_state, $1, PERF_COUNT_HW_MAX, NULL, &list, &@1);
- 	if (err < 0) {
- 		struct parse_events_state *parse_state = _parse_state;
- 		struct parse_events_error *error = parse_state->error;
-@@ -305,24 +305,45 @@ PE_NAME sep_dc
- 	$$ = list;
- }
- 
--value_sym:
--PE_VALUE_SYM_HW
-+event_legacy_hardware:
-+PE_TERM_HW opt_pmu_config
-+{
-+	/* List of created evsels. */
-+	struct list_head *list = NULL;
-+	int err = parse_events_multi_pmu_add(_parse_state, $1.str, $1.num, $2, &list, &@1);
-+
-+	free($1.str);
-+	parse_events_terms__delete($2);
-+	if (err)
-+		PE_ABORT(err);
-+
-+	$$ = list;
-+}
- |
--PE_VALUE_SYM_SW
-+PE_TERM_HW sep_dc
-+{
-+	struct list_head *list;
-+	int err;
-+
-+	err = parse_events_multi_pmu_add(_parse_state, $1.str, $1.num, NULL, &list, &@1);
-+	free($1.str);
-+	if (err)
-+		PE_ABORT(err);
-+	$$ = list;
-+}
- 
- event_legacy_symbol:
--value_sym '/' event_config '/'
-+PE_VALUE_SYM_SW '/' event_config '/'
- {
- 	struct list_head *list;
--	int type = $1 >> 16;
--	int config = $1 & 255;
- 	int err;
--	bool wildcard = (type == PERF_TYPE_HARDWARE || type == PERF_TYPE_HW_CACHE);
- 
- 	list = alloc_list();
- 	if (!list)
- 		YYNOMEM;
--	err = parse_events_add_numeric(_parse_state, list, type, config, $3, wildcard);
-+	err = parse_events_add_numeric(_parse_state, list,
-+				/*type=*/PERF_TYPE_SOFTWARE, /*config=*/$1,
-+				$3, /*wildcard=*/false);
- 	parse_events_terms__delete($3);
+-	err = parse_events_name($2, $1);
+-	free($1);
  	if (err) {
- 		free_list_evsel(list);
-@@ -331,18 +352,17 @@ value_sym '/' event_config '/'
- 	$$ = list;
- }
- |
--value_sym sep_slash_slash_dc
-+PE_VALUE_SYM_SW sep_slash_slash_dc
- {
- 	struct list_head *list;
--	int type = $1 >> 16;
--	int config = $1 & 255;
--	bool wildcard = (type == PERF_TYPE_HARDWARE || type == PERF_TYPE_HW_CACHE);
- 	int err;
- 
- 	list = alloc_list();
- 	if (!list)
+ 		free_list_evsel($2);
  		YYNOMEM;
--	err = parse_events_add_numeric(_parse_state, list, type, config, /*head_config=*/NULL, wildcard);
-+	err = parse_events_add_numeric(_parse_state, list,
-+				/*type=*/PERF_TYPE_SOFTWARE, /*config=*/$1,
-+				/*head_config=*/NULL, /*wildcard=*/false);
- 	if (err)
- 		PE_ABORT(err);
- 	$$ = list;
 -- 
 2.44.0.683.g7961c838ac-goog
 
