@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0950AC4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 05:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B71D9C04FF9
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 05:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Uce0BcXNRHEUa1K/3DLH/K/P3elf9FxykYjmtlwUMA=; b=tQo4/coOvkQKk3
-	wz/6inOZcvTdzv1AP6xaO6RFLtmstXqOCGhlYec5gQ4j2KAhAUkykXBVDmIBMJMxo5dZa5iA5sTDS
-	p/Bl/OLE+FLAqzU+J7VWL3x7RAYV9rmFihTG6wf6AWNNaVZNxUu9JuQuXZXhfvAW8Q3OyFqyZoZQO
-	zthILlT659Arxm4FYCHYRr8WeEm0xG5ZHsMVmc8y686yBhE9MCrDvhnkEf2i/rLDTnMK4OWQs1xPm
-	K+ie7FckMtUC5JWV8Tw3gExXSlTmZP9rCwn2EcTB9WSogPb1YsCgHESpKCMljh4z9zuvZpgwfitWZ
-	i7d2TfeLqJ6cI3fqdUCQ==;
+	List-Owner; bh=eF5B8bsMLGd6qsKn7pGA8zrEZJOAcPBTeoyPVc4wtZ0=; b=Oxqrs9LslvYKbf
+	L2MtN0WKaS4Q+GRUfIFJTgMt4glUFmTdNTYrU862wvPcsZrNX01WxB35OE527PQWBkA0EXAjW6vTB
+	n5bkk1Vt6Nx08W/Iwy9l1nBXQ223LGOaYo1SgGDY2dgfOiVyyLeNwRdybU49JIxqL0Vs89gogBvtU
+	n+r6JsXrpu2rILMtqJjf4JvclyfaEV8Ze5KxRGOhQJQX2oc8hwwSWx6Wa+bsT2Kz6/6qs7fFDStkF
+	I7D6a4Alr+IPWeRQdWVXN8xfxEmP2M+YC7LlkwJiuy6yXKkd3G3Wr4c0jpIfMWHH9QQYh9YvYm9iA
+	SQ2TPnGzPOpZq478u2EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwbAW-0000000AusO-1EXH;
-	Tue, 16 Apr 2024 05:15:44 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1rwbAe-0000000Auuw-2ejp;
+	Tue, 16 Apr 2024 05:15:52 +0000
+Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwaB0-0000000AkNj-2OvP
+	id 1rwaBI-0000000Akcz-1epn
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 04:12:11 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-22efc6b8dc5so2760744fac.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 21:12:10 -0700 (PDT)
+	Tue, 16 Apr 2024 04:12:34 +0000
+Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-3c6f6c5bc37so1761343b6e.1
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 21:12:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713240729; x=1713845529; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713240746; x=1713845546; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=uVSzHGFLNnrGti654VC11tvpK1bZGKmyJ0hbbIeQ45Q=;
-        b=125lqb3M+kvkVkC+8w3ZKkLif7XX/zfbuyGKmJCrRHH92Fx0rnUHiG4OoIBlUugQaJ
-         Edpt5wnKRAcGVszSBntGl9zA3JxznSUgr1WD98SWUy7Y9tYwq8U9iRrB68rIrbNPOT0k
-         Pe6416ELYsYFWR6YGPqOsuIqiHcTIq81Gr0+JnBN2WxP5G3XykKgQPFn9aZjZBuBslUI
-         wnGqzQYoCpuXa7TNA2fNkrvnrNsoDhvEG1qBzlSKi/aWcWc1DkZZx0FFFmauwaSnF+5D
-         kN42KX742+h7X9c641GT3w5c8H+M5C0EUgxPlXFO3aiTe7NOavztCM/Jz+wwYcBw7xfW
-         PRGQ==
+        bh=sCqKMMvpjdMx8mqL5GwN/rt+g7kii5wG+xB+75rraRY=;
+        b=2J9pim4wyf9vt1FwUdKMRL+xL+5vH6gKhT3jq2hU8K2e6Gyvfy3KW2ZbBStpF4Ts5z
+         6zNh1jdJQPPsrYh/95lXvqyf7n4ldoLlH4EAX+D/xmnk8JfljddtPxXsX6S1oqRUrL6D
+         XMe2DvysezFQuv68LlY2pxHA2BE9WCxZ/MEfE9h2V4MTfYcC2qZMim0p1cf6LVWHkyNZ
+         0nsPNfUrFcA1brEYjXCY4MPQxN+etgBodU3LBXt9ChKDFJQYx4iXDwfyT9y8NYbPBd2w
+         qbIbhrhzYwv6fkuE0rX+V33rUcNat8Rl0/M6QgrCtTzyehYSgg+TLj9F/xurplgCAXFT
+         Fy2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713240729; x=1713845529;
+        d=1e100.net; s=20230601; t=1713240746; x=1713845546;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uVSzHGFLNnrGti654VC11tvpK1bZGKmyJ0hbbIeQ45Q=;
-        b=AgkMkhlXi4OIxm6QHNJOsT0111A/l8IcJ+clfWVJP6dturTbBGO+MNdiNqlShFU2xl
-         rJk1ilKKJHWs3lW9pRQBZ01EFVEQdEAcjH2MMdyw+0Rn0FJ0mlpZbza5V9BADM+0hxKz
-         +QIVJ0+GNX7AeKlLzQgWHIrkdi89Dq262wyPqp2VSX6hHP15WEeYjNxMu+auU0hIVCqb
-         KRn13CNAdwu1y2lq2og7zrjQQwO0rcrmkdtmeZj/ihS2cjCmDdU55HTRj0q3OxHve5ck
-         shJgzIzHOV63cxtze8jLlcbPC+UnvAlI5mCm4Se609mo0NIIyJG/+Hho3JPRoU7ycZYQ
-         ObTg==
-X-Gm-Message-State: AOJu0YwCwCr7zBK33EjfT+YJWET96rZ771jUQuR/g7+BBILtRnXqARIK
-	ENz5e3Ey4w8G5clF63nwxYR1UYygrDDWoph+yOVmyRdOqqvFNuNwVmTD8njWXgO3s5RuZTFHRwF
-	K
-X-Google-Smtp-Source: AGHT+IFZkd9NDeZNRCG3hOkxXiBzQioQ5hVlHYi/wzn2zrou30bpeRqjwOjjzziMFEa1WsZ5xhufcQ==
-X-Received: by 2002:a05:6870:315:b0:22e:8539:60a0 with SMTP id m21-20020a056870031500b0022e853960a0mr12983308oaf.46.1713240729449;
-        Mon, 15 Apr 2024 21:12:09 -0700 (PDT)
+        bh=sCqKMMvpjdMx8mqL5GwN/rt+g7kii5wG+xB+75rraRY=;
+        b=kpNTu+9ynq81oL6I80dEFHsSEH7Ol7J0VED0O/noljHtfdLjwNYY1bfZhRTdRerE3g
+         Y1nyKEZOQo1UdF4mJVUvbla1G6bTB4RkYCFKHVSVmQ0xwQPPzOGbIVaFtNSv+YHeQxbd
+         msnpv9OFFMFU8bBVg9a4QNSMHrSYC8q1DM8pJmst1TiRGzY4JElGNk947dr7TinGhNWp
+         uMaqpfEmdyRaxHOuBb1obp+R28dRDPwJdWaCvF2pscbnjLPFamr1LdiypvOoCdM9DJvS
+         XnxWBXI5nXZr0t+j7KVlbd44Bh3pvwM3vDewf7liwNSoESStvuMaBahNzycd5/SqsNn7
+         CYEQ==
+X-Gm-Message-State: AOJu0Yxn867WjR0X6Xh1no+OEv4er8fMNaSm95a84oHVLqb1w2GQAisQ
+	yg9P1YI919yNPDZDlxulib9qsz0yU+XROFKJ0mtxuSPFo85ax5aEj1l5Wzt0L/FjVOMh52ZC75V
+	5
+X-Google-Smtp-Source: AGHT+IEpGL0icYKX5PllIZgbV1Mq6iO6Y/RuUgEtp3MC4j1Ev8qC7MXxnxmDdDqSPdZgQAG312G2Gw==
+X-Received: by 2002:a54:4390:0:b0:3c7:3cc:4401 with SMTP id u16-20020a544390000000b003c703cc4401mr8064441oiv.7.1713240745725;
+        Mon, 15 Apr 2024 21:12:25 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id z184-20020a6265c1000000b006ed4c430acesm8383149pfb.40.2024.04.15.21.12.08
+        by smtp.gmail.com with ESMTPSA id z184-20020a6265c1000000b006ed4c430acesm8383149pfb.40.2024.04.15.21.12.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Apr 2024 21:12:08 -0700 (PDT)
+        Mon, 15 Apr 2024 21:12:25 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Mon, 15 Apr 2024 21:12:02 -0700
-Subject: [PATCH v2 05/17] riscv: Fix extension subset checking
+Date: Mon, 15 Apr 2024 21:12:12 -0700
+Subject: [PATCH v2 15/17] riscv: hwprobe: Document vendor extensions and
+ xtheadvector extension
 MIME-Version: 1.0
-Message-Id: <20240415-dev-charlie-support_thead_vector_6_9-v2-5-c7d68c603268@rivosinc.com>
+Message-Id: <20240415-dev-charlie-support_thead_vector_6_9-v2-15-c7d68c603268@rivosinc.com>
 References: <20240415-dev-charlie-support_thead_vector_6_9-v2-0-c7d68c603268@rivosinc.com>
 In-Reply-To: <20240415-dev-charlie-support_thead_vector_6_9-v2-0-c7d68c603268@rivosinc.com>
 To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -86,16 +87,17 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1713240719; l=1065;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1713240719; l=1314;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=m0plhmdNbdmA80gesn/7KnCdXtvm5F7fdW9kC5KptxM=;
- b=7DRonXaAgLJzhWvXE1qbRYS0I+BfU0oGsBOBG0My2i8BWoHww2ZulgK6Ne5SIPj9jjmGT1fAh
- WB/f+iRxM2uC9jcfHku9va0/Bg5wWaTVh/Ak3KRIWgDEL+7zSph3JfU
+ bh=t4tv2YhM1MolJnYPmx3+B/R7xn5gYh3VtunEyUIwVAA=;
+ b=isB07n2asLeicajFbrHS5GnX4um2GcfRqCBHqey15g9iSFo/KLBAvZbTXNNNocDL8sTcHkD1Q
+ aTAEer5hj04ApIn92eDCW6p8HyqISrXjQ4yzyupIXZOWTr+byO/qdow
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_211210_648669_9917E2D7 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20240415_211232_038863_B229F148 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,30 +114,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This loop is supposed to check if ext->subset_ext_ids[j] is valid, rather
-than if ext->subset_ext_ids[i] is valid, before setting the extension
-id ext->subset_ext_ids[j] in isainfo->isa.
+Document support for vendor extensions using the key
+RISCV_HWPROBE_KEY_VENDOR_EXT_0 and xtheadvector extension using the key
+RISCV_ISA_VENDOR_EXT_XTHEADVECTOR.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Fixes: 0d8295ed975b ("riscv: add ISA extension parsing for scalar crypto")
 ---
- arch/riscv/kernel/cpufeature.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/arch/riscv/hwprobe.rst | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index c6e27b45e192..6dff7bb1db3f 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -607,7 +607,7 @@ static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwcap)
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index b2bcc9eed9aa..38e1b0c7c38c 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -210,3 +210,15 @@ The following keys are defined:
  
- 			if (ext->subset_ext_size) {
- 				for (int j = 0; j < ext->subset_ext_size; j++) {
--					if (riscv_isa_extension_check(ext->subset_ext_ids[i]))
-+					if (riscv_isa_extension_check(ext->subset_ext_ids[j]))
- 						set_bit(ext->subset_ext_ids[j], isainfo->isa);
- 				}
- 			}
+ * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
+   represents the size of the Zicboz block in bytes.
++
++* :c:macro:`RISCV_HWPROBE_KEY_VENDOR_EXT_0`: A bitmask containing the vendor
++  extensions that are compatible with the
++  :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`: base system behavior. A set of
++  CPUs is only compatible with a vendor extension if all CPUs in the set have
++  the same mvendorid and support the extension.
++
++  * T-HEAD
++
++    * :c:macro:`RISCV_ISA_VENDOR_EXT_XTHEADVECTOR`: The xtheadvector vendor
++        extension is supported in the T-Head ISA extensions spec starting from
++	commit a18c801634 ("Add T-Head VECTOR vendor extension. ").
 
 -- 
 2.44.0
