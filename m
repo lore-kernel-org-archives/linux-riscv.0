@@ -4,76 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76F6C04FF8
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 06:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7E8C04FF6
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 07:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pDkwjh2TYIQOiBbvJ+TaGWmOfPW3YYGYCzxdL4w6lAE=; b=Y8LHiwQfyaR43P
-	6wvUoWOiYQWsf8XbLDLTkg+Hk+A33wB8zgnF7nRNHua9T8dTUklUyP1kLa5Oei0Ah2rOuNUetvs91
-	5v9cV2NH86du41ioCesisNAKN5hBdLACLN4e8l84h+gMtJQB882m4Ex6/EU9CM+dEq3bljRlofnnb
-	mXTOEje7EQ8LezCMNr0CZM56suFFG6t64OZgzjkiSDPOvvZ1y3Tz0FE0TlmO5yWdnb8GJu94NWZC+
-	tZk6SLRqX0btuUzvgyykck0gRkdVIEUsBKZQWBkcdWs5uXYiyRy32VgpUNDgpgI2KghmilCHJMLDi
-	pAO6dtIxGiff653QL+Jw==;
+	List-Owner; bh=bow4zfDpp2iP+cKTaFMqZruWRMADXkH0bu4gzD0AkMc=; b=gyzK9u5Ci53OE8
+	yJoE0Hz9tdH97j22cLDigjsL8xdbESp0otgqgR06sy81mf/b5dB/gL3Om4CTv8lqCj3qFGfFYnRIV
+	wVZY08tQVGsDv5sqaaY/2Qg0AdsIxxg/mN7IUZ56L3CXF3ZVQrj4pd+s4ei4LRNeM0tEzYwLHunCP
+	j44et4YC2Xmss7OBjuOaZe4zxQT2q6WA0dn80UjOaNtguceU7uCCS8JXnqEvK8dOqjrafonXd/7iT
+	pT3vK7kdPGOHkM1TXdFwEivwm33MMJZ1FOtdT/FcPFxKI62XgjdK7OVVGJk+P/1T9L28ZFgDCKsvp
+	vJrjSp2RhKLCq+VzWlww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwcYa-0000000B82b-0rLS;
-	Tue, 16 Apr 2024 06:44:41 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1rwdAC-0000000BFsw-0e9k;
+	Tue, 16 Apr 2024 07:23:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwcYL-0000000B7xQ-40DY
-	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 06:44:35 +0000
-Date: Tue, 16 Apr 2024 08:44:17 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1713249860;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MXvhT03wv4aD4mG7No4QBS1v7N0JoskGOicMYBhMYkU=;
-	b=I4EpvtrBMDw8wtNcnN+FtV7XaKNKQxwSOUjI+gsa86yDttz6jik4c/ITUTbXRVSMCW5FgE
-	j1ybcCdXv3uk9RbqRiJmEvwk5X19kmTOqqW7XWK5vpS+z5gXt+zzrtLg+99Om0014tdyES
-	JOGcCCdqpzz9eib45hed8UOKMuFptKmg26d1n753cdw/gQeNFq8/Ci+ZBGGIEA7tYOKPTP
-	7+dPSEYQv42OGaQobWn8yXdYHZ/+NegmuisSyNJ4LpjxPnq/lfLTs6vY3NMEzyPVu1SGa3
-	g8U9b4BDtMDqJ8s+HwmPK7jcY5THj01jQ37v9JTWYtAJWMZcER3OE84d6Bzi1A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1713249860;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MXvhT03wv4aD4mG7No4QBS1v7N0JoskGOicMYBhMYkU=;
-	b=bJzRYCLQmILvJC51K4zxw1Cp6h4ntNM+6v4foRDudJvLy+lpJM+x1SDNyCTogQ89bV3viq
-	bSPWcQsruKAKuDCA==
-From: Nam Cao <namcao@linutronix.de>
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Christian Brauner <brauner@kernel.org>, Andreas Dilger
- <adilger@dilger.ca>, Al Viro <viro@zeniv.linux.org.uk>, linux-fsdevel
- <linux-fsdevel@vger.kernel.org>, Jan Kara <jack@suse.cz>, Linux Kernel
- Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv@lists.infradead.org, Theodore Ts'o <tytso@mit.edu>, Ext4
- Developers List <linux-ext4@vger.kernel.org>, Conor Dooley
- <conor@kernel.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Anders
- Roxell <anders.roxell@linaro.org>
-Subject: Re: riscv32 EXT4 splat, 6.8 regression?
-Message-ID: <20240416084417.569356d3@namcao>
-In-Reply-To: <87le5e393x.fsf@all.your.base.are.belong.to.us>
-References: <878r1ibpdn.fsf@all.your.base.are.belong.to.us>
-	<20240413164318.7260c5ef@namcao>
-	<22E65CA5-A2C0-44A3-AB01-7514916A18FC@dilger.ca>
-	<20240414021555.GQ2118490@ZenIV>
-	<887E261B-3C76-4CD9-867B-5D087051D004@dilger.ca>
-	<87v84kujec.fsf@all.your.base.are.belong.to.us>
-	<20240415-festland-unattraktiv-2b5953a6dbc9@brauner>
-	<87le5e393x.fsf@all.your.base.are.belong.to.us>
+	id 1rwdA6-0000000BFpV-2jBD;
+	Tue, 16 Apr 2024 07:23:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C866360BA0;
+	Tue, 16 Apr 2024 07:23:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BBECC113CE;
+	Tue, 16 Apr 2024 07:23:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713252205;
+	bh=ULqJjlTCraVJ0ruf913jYz2dlG1gS6UCOgmOiRdXRlo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ekk8HCBFjthC7O7PxrFN7j/GM7z/nWOuO8k9QOUSLiGyz09GAO2cg64dmGZlUlds7
+	 00Ewxyx3C6wcPZBoIkKGD6lbL3qbO2ksVpnRUlonLdQr9BhpV1yf7+bx9loZNn41At
+	 rywVk+bWOXuipnXUZImOPnzXQlyIpQamAXCi97V5XEUtgpABiSiT97flmkQAEFDr7A
+	 YcuRY0rwjZPTJIRXEph9PF+jUZc4mOVTGomsCx8EugJ6WC8EEbdEckfhASAJlczMAM
+	 pEgjXqHCw7T7cVdoBUzlejwen9ZBJYRh+vjYrzCI4CZ6xsCi82SwkYS2yHPnvfOsma
+	 Wo31Nl9r7Gz/Q==
+Date: Tue, 16 Apr 2024 10:22:14 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Bj\"orn T\"opel" <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v4 05/15] mm: introduce execmem_alloc() and execmem_free()
+Message-ID: <Zh4nJp8rv1qRBs8m@kernel.org>
+References: <20240411160051.2093261-1-rppt@kernel.org>
+ <20240411160051.2093261-6-rppt@kernel.org>
+ <20240415075241.GF40213@noisy.programming.kicks-ass.net>
+ <Zh1lnIdgFeM1o8S5@FVFF77S0Q05N.cambridge.arm.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <Zh1lnIdgFeM1o8S5@FVFF77S0Q05N.cambridge.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240415_234426_166257_2E602D29 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20240416_002326_906356_CE221111 
+X-CRM114-Status: GOOD (  36.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,51 +97,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNC0wNC0xNSBCasO2cm4gVMO2cGVsIHdyb3RlOgo+IFRoYW5rcyBmb3IgZ2V0dGluZyBi
-YWNrISBTcGVudCBzb21lIG1vcmUgdGltZSBvbmUgaXQgdG9kYXkuCj4gCj4gSXQgc2VlbXMgdGhh
-dCB0aGUgYnVkZHkgYWxsb2NhdG9yICpjYW4qIHJldHVybiBhIHBhZ2Ugd2l0aCBhIFZBIHRoYXQg
-Y2FuCj4gd3JhcCAoMHhmZmZmZjAwMCAtLSBwb2ludGVkIG91dCBieSBOYW0gYW5kIG15c2VsZiku
-Cj4gCj4gRnVydGhlciwgaXQgc2VlbXMgbGlrZSByaXNjdjMyIGluZGVlZCBpbnNlcnRzIGEgcGFn
-ZSBsaWtlIHRoYXQgdG8gdGhlCj4gYnVkZHkgYWxsb2NhdG9yLCB3aGVuIHRoZSBtZW1ibG9jayBp
-cyBmcmVlJ2Q6Cj4gCj4gICB8IFs8YzAyNDk2MWM+XSBfX2ZyZWVfb25lX3BhZ2UrMHgyYTQvMHgz
-ZWEKPiAgIHwgWzxjMDI0YTQ0OD5dIF9fZnJlZV9wYWdlc19vaysweDE1OC8weDNjYwo+ICAgfCBb
-PGMwMjRiMWE0Pl0gX19mcmVlX3BhZ2VzX2NvcmUrMHhlOC8weDEyYwo+ICAgfCBbPGMwYzE0MzVh
-Pl0gbWVtYmxvY2tfZnJlZV9wYWdlcysweDFhLzB4MjIKPiAgIHwgWzxjMGMxNzY3Nj5dIG1lbWJs
-b2NrX2ZyZWVfYWxsKzB4MWVlLzB4Mjc4Cj4gICB8IFs8YzBjMDUwYjA+XSBtZW1faW5pdCsweDEw
-LzB4YTQKPiAgIHwgWzxjMGMxNDQ3Yz5dIG1tX2NvcmVfaW5pdCsweDExYS8weDJkYQo+ICAgfCBb
-PGMwYzAwYmI2Pl0gc3RhcnRfa2VybmVsKzB4M2M0LzB4NmRlCj4gCj4gSGVyZSwgYSBwYWdlIHdp
-dGggVkEgMHhmZmZmZjAwMCBpcyBhIGFkZGVkIHRvIHRoZSBmcmVlbGlzdC4gV2Ugd2VyZSBqdXN0
-Cj4gbHVja3kgKHVubHVja3k/KSB0aGF0IHBhZ2Ugd2FzIHVzZWQgZm9yIHRoZSBwYWdlIGNhY2hl
-LgoKSSBqdXN0IGVkdWNhdGVkIG15c2VsZiBhYm91dCBtZW1vcnkgbWFwcGluZyBsYXN0IG5pZ2h0
-LCBzbyB0aGUgYmVsb3cKbWF5IGJlIGNvbXBsZXRlIG5vbnNlbnNlLiBUYWtlIGl0IHdpdGggYSBn
-cmFpbiBvZiBzYWx0LgoKSW4gcmlzY3YncyBzZXR1cF9ib290bWVtKCksIHdlIGhhdmUgdGhpcyBs
-aW5lOgoJbWF4X2xvd19wZm4gPSBtYXhfcGZuID0gUEZOX0RPV04ocGh5c19yYW1fZW5kKTsKCkkg
-dGhpbmsgdGhpcyBpcyB0aGUgcm9vdCBjYXVzZTogbWF4X2xvd19wZm4gaW5kaWNhdGVzIHRoZSBs
-YXN0IHBhZ2UKdG8gYmUgbWFwcGVkLiBQcm9ibGVtIGlzOiBub3RoaW5nIHByZXZlbnRzIFBGTl9E
-T1dOKHBoeXNfcmFtX2VuZCkgZnJvbQpnZXR0aW5nIG1hcHBlZCB0byB0aGUgbGFzdCBwYWdlICgw
-eGZmZmZmMDAwKS4gSWYgbWF4X2xvd19wZm4gaXMgbWFwcGVkCnRvIHRoZSBsYXN0IHBhZ2UsIHdl
-IGdldCB0aGUgcmVwb3J0ZWQgcHJvYmxlbS4KClRoZXJlIHNlZW1zIHRvIGJlIHNvbWUgY29kZSB0
-byBtYWtlIHN1cmUgdGhlIGxhc3QgcGFnZSBpcyBub3QgdXNlZAoodGhlIGNhbGwgdG8gbWVtYmxv
-Y2tfc2V0X2N1cnJlbnRfbGltaXQoKSByaWdodCBhYm92ZSB0aGlzIGxpbmUpLiBJdCBpcwp1bmNs
-ZWFyIHRvIG1lIHdoeSB0aGlzIHN0aWxsIGxldHMgdGhlIHByb2JsZW0gc2xpcCB0aHJvdWdoLgoK
-VGhlIGZpeCBpcyBzaW1wbGU6IG5ldmVyIGxldCBtYXhfbG93X3BmbiBnZXRzIG1hcHBlZCB0byB0
-aGUgbGFzdCBwYWdlLgpUaGUgYmVsb3cgcGF0Y2ggZml4ZXMgdGhlIHByb2JsZW0gZm9yIG1lLiBC
-dXQgSSBhbSBub3QgZW50aXJlbHkgc3VyZSBpZgp0aGlzIGlzIHRoZSBjb3JyZWN0IGZpeCwgZnVy
-dGhlciBpbnZlc3RpZ2F0aW9uIG5lZWRlZC4KCkJlc3QgcmVnYXJkcywKTmFtCgpkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9tbS9pbml0LmMgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwppbmRleCBmYTM0
-Y2Y1NTAzN2IuLjE3Y2FiMGE1MjcyNiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9tbS9pbml0LmMK
-KysrIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKQEAgLTI1MSw3ICsyNTEsOCBAQCBzdGF0aWMgdm9p
-ZCBfX2luaXQgc2V0dXBfYm9vdG1lbSh2b2lkKQogCX0KIAogCW1pbl9sb3dfcGZuID0gUEZOX1VQ
-KHBoeXNfcmFtX2Jhc2UpOwotCW1heF9sb3dfcGZuID0gbWF4X3BmbiA9IFBGTl9ET1dOKHBoeXNf
-cmFtX2VuZCk7CisJbWF4X2xvd19wZm4gPSBQRk5fRE9XTihtZW1ibG9ja19nZXRfY3VycmVudF9s
-aW1pdCgpKTsKKwltYXhfcGZuID0gUEZOX0RPV04ocGh5c19yYW1fZW5kKTsKIAloaWdoX21lbW9y
-eSA9ICh2b2lkICopKF9fdmEoUEZOX1BIWVMobWF4X2xvd19wZm4pKSk7CiAKIAlkbWEzMl9waHlz
-X2xpbWl0ID0gbWluKDRVTCAqIFNaXzFHLCAodW5zaWduZWQgbG9uZylQRk5fUEhZUyhtYXhfbG93
-X3BmbikpOwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, Apr 15, 2024 at 06:36:39PM +0100, Mark Rutland wrote:
+> On Mon, Apr 15, 2024 at 09:52:41AM +0200, Peter Zijlstra wrote:
+> > On Thu, Apr 11, 2024 at 07:00:41PM +0300, Mike Rapoport wrote:
+> > > +/**
+> > > + * enum execmem_type - types of executable memory ranges
+> > > + *
+> > > + * There are several subsystems that allocate executable memory.
+> > > + * Architectures define different restrictions on placement,
+> > > + * permissions, alignment and other parameters for memory that can be used
+> > > + * by these subsystems.
+> > > + * Types in this enum identify subsystems that allocate executable memory
+> > > + * and let architectures define parameters for ranges suitable for
+> > > + * allocations by each subsystem.
+> > > + *
+> > > + * @EXECMEM_DEFAULT: default parameters that would be used for types that
+> > > + * are not explcitly defined.
+> > > + * @EXECMEM_MODULE_TEXT: parameters for module text sections
+> > > + * @EXECMEM_KPROBES: parameters for kprobes
+> > > + * @EXECMEM_FTRACE: parameters for ftrace
+> > > + * @EXECMEM_BPF: parameters for BPF
+> > > + * @EXECMEM_TYPE_MAX:
+> > > + */
+> > > +enum execmem_type {
+> > > +	EXECMEM_DEFAULT,
+> > > +	EXECMEM_MODULE_TEXT = EXECMEM_DEFAULT,
+> > > +	EXECMEM_KPROBES,
+> > > +	EXECMEM_FTRACE,
+> > > +	EXECMEM_BPF,
+> > > +	EXECMEM_TYPE_MAX,
+> > > +};
+> > 
+> > Can we please get a break-down of how all these types are actually
+> > different from one another?
+> > 
+> > I'm thinking some platforms have a tiny immediate space (arm64 comes to
+> > mind) and has less strict placement constraints for some of them?
+> 
+> Yeah, and really I'd *much* rather deal with that in arch code, as I have said
+> several times.
+> 
+> For arm64 we have two bsaic restrictions: 
+> 
+> 1) Direct branches can go +/-128M
+>    We can expand this range by having direct branches go to PLTs, at a
+>    performance cost.
+> 
+> 2) PREL32 relocations can go +/-2G
+>    We cannot expand this further.
+> 
+> * We don't need to allocate memory for ftrace. We do not use trampolines.
+> 
+> * Kprobes XOL areas don't care about either of those; we don't place any
+>   PC-relative instructions in those. Maybe we want to in future.
+> 
+> * Modules care about both; we'd *prefer* to place them within +/-128M of all
+>   other kernel/module code, but if there's no space we can use PLTs and expand
+>   that to +/-2G. Since modules can refreence other modules, that ends up
+>   actually being halved, and modules have to fit within some 2G window that
+>   also covers the kernel.
+> 
+> * I'm not sure about BPF's requirements; it seems happy doing the same as
+>   modules.
+
+BPF are happy with vmalloc().
+ 
+> So if we *must* use a common execmem allocator, what we'd reall want is our own
+> types, e.g.
+> 
+> 	EXECMEM_ANYWHERE
+> 	EXECMEM_NOPLT
+> 	EXECMEM_PREL32
+> 
+> ... and then we use those in arch code to implement module_alloc() and friends.
+
+I'm looking at execmem_types more as definition of the consumers, maybe I
+should have named the enum execmem_consumer at the first place.
+
+And the arch constrains defined in struct execmem_range describe how memory
+should be allocated for each consumer.
+
+These constraints are defined early at boot and remain static, so
+initializing them once and letting a common allocator use them makes
+perfect sense to me.
+
+I agree that fallback_{start,end} are not ideal, but we have 3
+architectures that have preferred and secondary range for modules. And arm
+and powerpc use the same logic for kprobes as well, and I don't see why this
+code should be duplicated.
+
+And, for instance, if you decide to place PC-relative instructions if
+kprobes XOL areas, you'd only need to update execmem_range for kprobes to
+be more like the range for modules.
+
+With central allocator it's easier to deal with the things like
+VM_FLUSH_RESET_PERMS and caching of ROX memory and I think it will be more
+maintainable that module_alloc(), alloc_insn_page() and
+bpf_jit_alloc_exec() spread all over the place.
+ 
+> Mark.
+
+-- 
+Sincerely yours,
+Mike.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
