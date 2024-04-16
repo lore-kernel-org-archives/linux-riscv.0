@@ -4,109 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 427EAC4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 09:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 974B7C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 09:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ywYXyfX+VmrWdkhP7iKSAgbW4alAMGUQ/4AcowbN+UE=; b=xZVyFx7X4j7rds
-	eI/hAehUGuMlh1FaoUEfELDek9Dck1ksIj5vIkNzNGviVIUkak04tO3wZ1Ll9qifiFW1sAOp6Jywb
-	yTOTCKFtl2aRTgmnUZpQ92wH9OruaAf8jFSJJ9aUnHu92c9lMkCVcNTfV+8jXXv/whZoY9Gl9w5IB
-	EECEkImDhcg59QkMewJASbG9EWOCT/6E9GSFtiXPWaLXcNQ+9/nPLSo4O7AKs181QpVFvT+cf4TtB
-	1V/KrEbAqtYgQEiOA8FR/RjlMbgjo9Rn9JBAFIkeYjefgtXAXJ+atrCVvAcVPCZyB7XpTsRymCqxU
-	BpYhzX61NKr1Np6P5YHA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fYosbvBHcDVY/1LtHwNUjalpJ3i79l+U3rJYbrqEU4k=; b=twU66l6+jD2Tfw
+	2hwz6mu20G0YKI5dMJ4DKiqsk9883KRGj1zxlA1eQoMRW6rS5tfvRAQzsEjj7D7E/QZ7tgUsOTisl
+	g7OpZQ0JIR79jS7fs8gET1qPkmH60OxNxYkkF8SmPznOC6p/pIWWxlgsl2OIGyvBZdRi4Yy8uIcUg
+	SSgHzQtze5Xi7MRIUe8R7fLgsOiaw2cK3M3XnpVzx70LFYtAM3rMBMVpGG6XXJc/cyD5lay2Vgfnv
+	YrmAFFGCNDWi5VGHlCQR8Zp7wEH1rnv5lRHRnZBZcNwt7WMCq6xSL9w8kbjJ62BUILuDgudyB+UPq
+	KcW/dJ9nfo9ppuWayEZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwfEs-0000000Bcmz-1jKO;
-	Tue, 16 Apr 2024 09:36:30 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwfEo-0000000BckH-0Wvc;
-	Tue, 16 Apr 2024 09:36:27 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-518e2283bd3so3180203e87.1;
-        Tue, 16 Apr 2024 02:36:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1713260183; x=1713864983; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DOrASS+GeLuk5Z7lZoVL6cbT4rY+jK9WGpd682BgxR8=;
-        b=VUj/WP7fPSdBv+h0qWfPlyxtr1QHFIxQdX8XMQRpDgInoEfpfP3Jfk/URrsh8LY0R/
-         ZRjrKThsdMCj+5YRw3JzW+7jJwBm8lXvLDCta0MVL1lzuj7qT4n5Q62C04EXkLWL/B1H
-         yOqCAKf3Rlt3x+1/Hm2jJOPkCtyBOO/E/RhrN8bsPTbbAnYuLl7+8tC5m++Bxd/z1dFQ
-         pq9gLBTOvi/rY9f+4d6mCQiJZRzoEAvoZufTmLheYHmCVTvZ1x3MiUu+TO8SDPWawBFj
-         f/8LInptk4SYQc66+PZdXbxpnUqNA+dlO6dwjUzItYjz5//oVcFbUZBzqirvem7caYIj
-         gvlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713260183; x=1713864983;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DOrASS+GeLuk5Z7lZoVL6cbT4rY+jK9WGpd682BgxR8=;
-        b=RQEBF/eYsGWnowWooEZx5/4I1Shd32/eoJR+7AIkQcpJC4lpQXfWjDUoECuWM1m857
-         nCZi2q73apphibMJTbcIzig4DT1HnJ60T173fVY1GTvoB9bmWjM11Z1z6DyR9DMGbnAd
-         YlXntFiSyFms2XTpEgHQNy3tPjP5RpjlFjVWsyKfAjRh47J464VTCxs8ZCH72q2kq7ox
-         nChOwKzQ8EWFiwXIOLq8xys/OgwNYPgSNIlHuQVJo7L+hBVEguL6SnQJXa1txCT3qLxf
-         9W0K2WLnoL12/M0Ym4tJdQwRGHle65HNBmhZD77uTz5Jj8FuX8c4HsIIH1YHbc6xNCvy
-         xwkw==
-X-Forwarded-Encrypted: i=1; AJvYcCVgjX1RbbfVMrbEdvR0i0yMNoRT+5wA0G/HdY1anxAHQNO/8qGhkGEehvZ8Zubo80oEdlLb8xUhnHLbnhgzi4c04PaEAsk0FXtGSi/C/3mWwpAc19yM4NZ39Xfc/VdbqqqbkYStPiIxPP2eOYqH4VR/Y42v3ns=
-X-Gm-Message-State: AOJu0YzCkVj4AOwZvXfQpalIReNO5tjjjLXwaFITo/kQNeesCSEj4+K/
-	aDpjm7ivOZpaKuZb2YYkQQ94qgA0TU95aiZ5wQ0C5sk9uzsEtB9U
-X-Google-Smtp-Source: AGHT+IHJL+kGebuWf568L4j1/19JnbEd5orWvCbxsHgvPeVxrnDNkney9hr1xgtB5xtFbL8mR9qM0Q==
-X-Received: by 2002:ac2:5f87:0:b0:516:cdfa:1802 with SMTP id r7-20020ac25f87000000b00516cdfa1802mr9934425lfe.63.1713260182555;
-        Tue, 16 Apr 2024 02:36:22 -0700 (PDT)
-Received: from smtpclient.apple ([132.68.46.107])
-        by smtp.gmail.com with ESMTPSA id l1-20020a17090615c100b00a524e3f2f9esm4249223ejd.98.2024.04.16.02.36.19
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Apr 2024 02:36:22 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.500.171.1.1\))
-Subject: Re: [RFC PATCH 3/7] module: prepare to handle ROX allocations for
- text
-From: Nadav Amit <nadav.amit@gmail.com>
-In-Reply-To: <20240411160526.2093408-4-rppt@kernel.org>
-Date: Tue, 16 Apr 2024 12:36:08 +0300
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christoph Hellwig <hch@infradead.org>,
- Helge Deller <deller@gmx.de>,
- Lorenzo Stoakes <lstoakes@gmail.com>,
- Luis Chamberlain <mcgrof@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Russell King <linux@armlinux.org.uk>,
- Song Liu <song@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Uladzislau Rezki <urezki@gmail.com>,
- Will Deacon <will@kernel.org>,
- bpf@vger.kernel.org,
- linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- "open list:MEMORY MANAGEMENT" <linux-mm@kvack.org>,
- linux-modules@vger.kernel.org,
- linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- linux-trace-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org,
- the arch/x86 maintainers <x86@kernel.org>
-Message-Id: <0C4B9C1A-97DE-4798-8256-158369AF42A4@gmail.com>
-References: <20240411160526.2093408-1-rppt@kernel.org>
- <20240411160526.2093408-4-rppt@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-X-Mailer: Apple Mail (2.3774.500.171.1.1)
+	id 1rwfIM-0000000BdhD-1YyV;
+	Tue, 16 Apr 2024 09:40:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rwfIJ-0000000Bdgf-1XjZ
+	for linux-riscv@lists.infradead.org;
+	Tue, 16 Apr 2024 09:40:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E70441063;
+	Tue, 16 Apr 2024 02:40:30 -0700 (PDT)
+Received: from bogus (e103737-lin.cambridge.arm.com [10.1.197.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8941D3F792;
+	Tue, 16 Apr 2024 02:40:00 -0700 (PDT)
+Date: Tue, 16 Apr 2024 10:39:57 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: rafael@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
+	Sudeep Holla <sudeep.holla@arm.com>, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+	bhelgaas@google.com, james.morse@arm.com, jhugo@codeaurora.org,
+	jeremy.linton@arm.com, john.garry@huawei.com,
+	Jonathan.Cameron@huawei.com, pierre.gondois@arm.com,
+	tiantao6@huawei.com
+Subject: Re: [PATCH v3 2/3] riscv: cacheinfo: initialize cacheinfo's level
+ and type from ACPI PPTT
+Message-ID: <Zh5HbV_M6wOdf9QN@bogus>
+References: <20240416031438.7637-1-cuiyunhui@bytedance.com>
+ <20240416031438.7637-2-cuiyunhui@bytedance.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240416031438.7637-2-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_023626_194917_7BE45A36 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20240416_024003_743706_B886946F 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,29 +67,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IE9uIDExIEFwciAyMDI0LCBhdCAxOTowNSwgTWlrZSBSYXBvcG9ydCA8cnBwdEBrZXJuZWwu
-b3JnPiB3cm90ZToKPiAKPiBAQCAtMjQ0MCw3ICsyNDc5LDI0IEBAIHN0YXRpYyBpbnQgcG9zdF9y
-ZWxvY2F0aW9uKHN0cnVjdCBtb2R1bGUgKm1vZCwgY29uc3Qgc3RydWN0IGxvYWRfaW5mbyAqaW5m
-bykKPiAJYWRkX2thbGxzeW1zKG1vZCwgaW5mbyk7Cj4gCj4gCS8qIEFyY2gtc3BlY2lmaWMgbW9k
-dWxlIGZpbmFsaXppbmcuICovCj4gLQlyZXR1cm4gbW9kdWxlX2ZpbmFsaXplKGluZm8tPmhkciwg
-aW5mby0+c2VjaGRycywgbW9kKTsKPiArCXJldCA9IG1vZHVsZV9maW5hbGl6ZShpbmZvLT5oZHIs
-IGluZm8tPnNlY2hkcnMsIG1vZCk7Cj4gKwlpZiAocmV0KQo+ICsJCXJldHVybiByZXQ7Cj4gKwo+
-ICsJZm9yX2VhY2hfbW9kX21lbV90eXBlKHR5cGUpIHsKPiArCQlzdHJ1Y3QgbW9kdWxlX21lbW9y
-eSAqbWVtID0gJm1vZC0+bWVtW3R5cGVdOwo+ICsKPiArCQlpZiAobWVtLT5pc19yb3gpIHsKPiAr
-CQkJaWYgKCFleGVjbWVtX3VwZGF0ZV9jb3B5KG1lbS0+YmFzZSwgbWVtLT5yd19jb3B5LAo+ICsJ
-CQkJCQkgbWVtLT5zaXplKSkKPiArCQkJCXJldHVybiAtRU5PTUVNOwo+ICsKPiArCQkJdmZyZWUo
-bWVtLT5yd19jb3B5KTsKPiArCQkJbWVtLT5yd19jb3B5ID0gTlVMTDsKPiArCQl9Cj4gKwl9Cj4g
-Kwo+ICsJcmV0dXJuIDA7Cj4gfQoKSSBtaWdodCBiZSBtaXNzaW5nIHNvbWV0aGluZywgYnV0IGl0
-IHNlZW1zIGEgYml0IHJhY3kuCgpJSVVDLCBtb2R1bGVfZmluYWxpemUoKSBjYWxscyBhbHRlcm5h
-dGl2ZXNfc21wX21vZHVsZV9hZGQoKS4gQXQgdGhpcwpwb2ludCwgc2luY2UgeW91IGRvbuKAmXQg
-aG9sZCB0aGUgdGV4dF9tdXRleCwgc29tZSBtaWdodCBkbyB0ZXh0X3Bva2UoKSwKZS5nLiwgYnkg
-ZW5hYmxpbmcvZGlzYWJsaW5nIHN0YXRpYy1rZXksIGFuZCB0aGUgdXBkYXRlIHdvdWxkIGJlCm92
-ZXJ3cml0dGVuLiBObz8KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Tue, Apr 16, 2024 at 11:14:37AM +0800, Yunhui Cui wrote:
+> Before cacheinfo can be built correctly, we need to initialize level
+> and type. Since RSIC-V currently does not have a register group that
+> describes cache-related attributes like ARM64, we cannot obtain them
+> directly, so now we obtain cache leaves from the ACPI PPTT table
+> (acpi_get_cache_info()) and set the cache type through split_levels.
+>
+> Suggested-by: Jeremy Linton <jeremy.linton@arm.com>
+> Suggested-by: Sudeep Holla <sudeep.holla@arm.com>
+
+I had already given the reviewed-by for the series, anyways here we go again:
+
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+
+-- 
+Regards,
+Sudeep
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
