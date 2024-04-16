@@ -4,88 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7E8C04FF6
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 07:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D3EC4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 07:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
+	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bow4zfDpp2iP+cKTaFMqZruWRMADXkH0bu4gzD0AkMc=; b=gyzK9u5Ci53OE8
-	yJoE0Hz9tdH97j22cLDigjsL8xdbESp0otgqgR06sy81mf/b5dB/gL3Om4CTv8lqCj3qFGfFYnRIV
-	wVZY08tQVGsDv5sqaaY/2Qg0AdsIxxg/mN7IUZ56L3CXF3ZVQrj4pd+s4ei4LRNeM0tEzYwLHunCP
-	j44et4YC2Xmss7OBjuOaZe4zxQT2q6WA0dn80UjOaNtguceU7uCCS8JXnqEvK8dOqjrafonXd/7iT
-	pT3vK7kdPGOHkM1TXdFwEivwm33MMJZ1FOtdT/FcPFxKI62XgjdK7OVVGJk+P/1T9L28ZFgDCKsvp
-	vJrjSp2RhKLCq+VzWlww==;
+	List-Owner; bh=ekDcgzrSjOrVWH/vJKKuCct7htu8RAlmlymtQSsy4PM=; b=pvxm+rDNpdYYXX
+	8hnodeuNLqDXfsXEJUMIn1FND1vdP56BcJeHUAanBRr2vkaotk8raT7DWJXP8F9tFazyaS+df87HC
+	xn357QwpnS5UdqcEerf+AdD9WT8hp2hJ4TVpHtcVEPr4ugEcjleDa7FArDaf3rI8myHo/mbfe7oTr
+	9iTSOz9DjtqWmnctgtA6eOvxc2X3KB/3Q0o3gMGoG2eofLVpQslAFLiCPJbpP5YdUXVaOB3eLbMym
+	uxPlRIERTNA8ze3Wk5nOttaD0mWIroOCu7U7HDRmJ+e13QkvN6FPjcxeNJ/czqXdKX389h8FB226Q
+	93kTvGrfW104sl3LuQYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwdAC-0000000BFsw-0e9k;
-	Tue, 16 Apr 2024 07:23:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rwdH9-0000000BHID-35lT;
+	Tue, 16 Apr 2024 07:30:43 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwdA6-0000000BFpV-2jBD;
-	Tue, 16 Apr 2024 07:23:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C866360BA0;
-	Tue, 16 Apr 2024 07:23:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BBECC113CE;
-	Tue, 16 Apr 2024 07:23:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713252205;
-	bh=ULqJjlTCraVJ0ruf913jYz2dlG1gS6UCOgmOiRdXRlo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ekk8HCBFjthC7O7PxrFN7j/GM7z/nWOuO8k9QOUSLiGyz09GAO2cg64dmGZlUlds7
-	 00Ewxyx3C6wcPZBoIkKGD6lbL3qbO2ksVpnRUlonLdQr9BhpV1yf7+bx9loZNn41At
-	 rywVk+bWOXuipnXUZImOPnzXQlyIpQamAXCi97V5XEUtgpABiSiT97flmkQAEFDr7A
-	 YcuRY0rwjZPTJIRXEph9PF+jUZc4mOVTGomsCx8EugJ6WC8EEbdEckfhASAJlczMAM
-	 pEgjXqHCw7T7cVdoBUzlejwen9ZBJYRh+vjYrzCI4CZ6xsCi82SwkYS2yHPnvfOsma
-	 Wo31Nl9r7Gz/Q==
-Date: Tue, 16 Apr 2024 10:22:14 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Bj\"orn T\"opel" <bjorn@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-modules@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v4 05/15] mm: introduce execmem_alloc() and execmem_free()
-Message-ID: <Zh4nJp8rv1qRBs8m@kernel.org>
-References: <20240411160051.2093261-1-rppt@kernel.org>
- <20240411160051.2093261-6-rppt@kernel.org>
- <20240415075241.GF40213@noisy.programming.kicks-ass.net>
- <Zh1lnIdgFeM1o8S5@FVFF77S0Q05N.cambridge.arm.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Zh1lnIdgFeM1o8S5@FVFF77S0Q05N.cambridge.arm.com>
+	id 1rwc78-0000000B2PF-2Rpy
+	for linux-riscv@lists.infradead.org;
+	Tue, 16 Apr 2024 06:16:24 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-dd933a044baso5741140276.0
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2024 23:16:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1713248177; x=1713852977; darn=lists.infradead.org;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CS464tDCakpyTmrmcLFcR8YYU9aH6y31Ipzi53/1x7k=;
+        b=SbTlRHspHhNc2BUJejNL4/d8bgLl68Ki9CwbC5E97b8T4UVkUzxMjY4xINKXz1FS0l
+         yJ57E7NwaRr1zOW7JXMkXH4MgxS6+XCHiSdHRHs/B8jMABZOvhmC1aMyCN26t7bYX9sA
+         RBrlVUTVvg8R6NVYzPMJMDNlXxac0GDoQ9A/CTkkiYCTUGFBoaw57jsTHe47n9mtEoLZ
+         KG7I2aNwkbW0gZVfm01p5Sxz6qj+nr5jS8cDEmnEFHJ/afHnVZMy+bOgSYValKapra8B
+         u+X+95G3t3kb3tZW8p4BzsCP4YwrYCRw72VAbC4BGBjhHGBEgXXhdIgHW9mKVBJPhf5k
+         N47A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713248177; x=1713852977;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CS464tDCakpyTmrmcLFcR8YYU9aH6y31Ipzi53/1x7k=;
+        b=oO8b4DvsD1rwX1VZk715OX19qS+tN1WXzh4xqotPAkHGNaamd5DMh45XqLfok4hiRU
+         XiOyLGULHTVitt0H5OuMc5wESwBZqPv6yULj5wIq+FPIXyaMIKEjkIttLq/O+9Edc9XY
+         M9FD4KYk4pQmGQkfP36edUIerQxqqV5+Oxe4t33MBKJL1obpuCWMz61PH+6Wgqty4bqk
+         rEs+Nm9ZU7FwBnRWLdkdYNOUdq8F8m4lBIkGiBFaboYa1HMIIvl8Hk8v2ZXxtLokOCis
+         1fXOocKTW1MS9CvCOp+cVzyj5KNpv08JDmoXM9pzKqzcRK3x/bTTTBfc860h3dYdKGEO
+         QDjA==
+X-Forwarded-Encrypted: i=1; AJvYcCUoN1a8yzypXYaETtG4UniDGfr6uYsuu6h02R3YnqdfYDbMIKCtGs6UdEBBNY6BfXALI9aZCiWVeaxOi+DiO9PWcid1JZHaMd3LondirRtm
+X-Gm-Message-State: AOJu0YwYd3d4/qcXNhwHwlyNJMhh/UTRU8VPrMUJ9cS4/XpIX9M3Rdxr
+	tjiknt1J3DyV8ZUbAtfG/bzBRgyv5ASyrWbi+noTgN3d8lKHtyUzbCVrt7KJF0QvZjHnw+5e8Qm
+	CpQYrbg==
+X-Google-Smtp-Source: AGHT+IHO0Fo9+D3NBOjv38HGGbmFqRswvl8m/oJgT2uKaZFhVmwhvI9Qz+b/36nYjScIaD300oJtaekLWfEs
+X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:30c8:f541:acad:b4f7])
+ (user=irogers job=sendgmr) by 2002:a05:6902:100d:b0:dbd:ee44:8908 with SMTP
+ id w13-20020a056902100d00b00dbdee448908mr615874ybt.0.1713248177044; Mon, 15
+ Apr 2024 23:16:17 -0700 (PDT)
+Date: Mon, 15 Apr 2024 23:15:30 -0700
+In-Reply-To: <20240416061533.921723-1-irogers@google.com>
+Message-Id: <20240416061533.921723-15-irogers@google.com>
+Mime-Version: 1.0
+References: <20240416061533.921723-1-irogers@google.com>
+X-Mailer: git-send-email 2.44.0.683.g7961c838ac-goog
+Subject: [PATCH v2 14/16] perf parse-event: Constify event_symbol arrays
+From: Ian Rogers <irogers@google.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, James Clark <james.clark@arm.com>, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org, 
+	Beeman Strong <beeman@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_002326_906356_CE221111 
-X-CRM114-Status: GOOD (  36.33  )
+X-CRM114-CacheID: sfid-20240415_231619_138605_4366F770 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,109 +96,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 15, 2024 at 06:36:39PM +0100, Mark Rutland wrote:
-> On Mon, Apr 15, 2024 at 09:52:41AM +0200, Peter Zijlstra wrote:
-> > On Thu, Apr 11, 2024 at 07:00:41PM +0300, Mike Rapoport wrote:
-> > > +/**
-> > > + * enum execmem_type - types of executable memory ranges
-> > > + *
-> > > + * There are several subsystems that allocate executable memory.
-> > > + * Architectures define different restrictions on placement,
-> > > + * permissions, alignment and other parameters for memory that can be used
-> > > + * by these subsystems.
-> > > + * Types in this enum identify subsystems that allocate executable memory
-> > > + * and let architectures define parameters for ranges suitable for
-> > > + * allocations by each subsystem.
-> > > + *
-> > > + * @EXECMEM_DEFAULT: default parameters that would be used for types that
-> > > + * are not explcitly defined.
-> > > + * @EXECMEM_MODULE_TEXT: parameters for module text sections
-> > > + * @EXECMEM_KPROBES: parameters for kprobes
-> > > + * @EXECMEM_FTRACE: parameters for ftrace
-> > > + * @EXECMEM_BPF: parameters for BPF
-> > > + * @EXECMEM_TYPE_MAX:
-> > > + */
-> > > +enum execmem_type {
-> > > +	EXECMEM_DEFAULT,
-> > > +	EXECMEM_MODULE_TEXT = EXECMEM_DEFAULT,
-> > > +	EXECMEM_KPROBES,
-> > > +	EXECMEM_FTRACE,
-> > > +	EXECMEM_BPF,
-> > > +	EXECMEM_TYPE_MAX,
-> > > +};
-> > 
-> > Can we please get a break-down of how all these types are actually
-> > different from one another?
-> > 
-> > I'm thinking some platforms have a tiny immediate space (arm64 comes to
-> > mind) and has less strict placement constraints for some of them?
-> 
-> Yeah, and really I'd *much* rather deal with that in arch code, as I have said
-> several times.
-> 
-> For arm64 we have two bsaic restrictions: 
-> 
-> 1) Direct branches can go +/-128M
->    We can expand this range by having direct branches go to PLTs, at a
->    performance cost.
-> 
-> 2) PREL32 relocations can go +/-2G
->    We cannot expand this further.
-> 
-> * We don't need to allocate memory for ftrace. We do not use trampolines.
-> 
-> * Kprobes XOL areas don't care about either of those; we don't place any
->   PC-relative instructions in those. Maybe we want to in future.
-> 
-> * Modules care about both; we'd *prefer* to place them within +/-128M of all
->   other kernel/module code, but if there's no space we can use PLTs and expand
->   that to +/-2G. Since modules can refreence other modules, that ends up
->   actually being halved, and modules have to fit within some 2G window that
->   also covers the kernel.
-> 
-> * I'm not sure about BPF's requirements; it seems happy doing the same as
->   modules.
+Moves 352 bytes from .data to .data.rel.ro.
 
-BPF are happy with vmalloc().
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/util/parse-events.c | 4 ++--
+ tools/perf/util/parse-events.h | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+index 3ab533d0e653..8d3d692d219d 100644
+--- a/tools/perf/util/parse-events.c
++++ b/tools/perf/util/parse-events.c
+@@ -39,7 +39,7 @@ static int get_config_terms(const struct parse_events_terms *head_config,
+ static int parse_events_terms__copy(const struct parse_events_terms *src,
+ 				    struct parse_events_terms *dest);
  
-> So if we *must* use a common execmem allocator, what we'd reall want is our own
-> types, e.g.
-> 
-> 	EXECMEM_ANYWHERE
-> 	EXECMEM_NOPLT
-> 	EXECMEM_PREL32
-> 
-> ... and then we use those in arch code to implement module_alloc() and friends.
-
-I'm looking at execmem_types more as definition of the consumers, maybe I
-should have named the enum execmem_consumer at the first place.
-
-And the arch constrains defined in struct execmem_range describe how memory
-should be allocated for each consumer.
-
-These constraints are defined early at boot and remain static, so
-initializing them once and letting a common allocator use them makes
-perfect sense to me.
-
-I agree that fallback_{start,end} are not ideal, but we have 3
-architectures that have preferred and secondary range for modules. And arm
-and powerpc use the same logic for kprobes as well, and I don't see why this
-code should be duplicated.
-
-And, for instance, if you decide to place PC-relative instructions if
-kprobes XOL areas, you'd only need to update execmem_range for kprobes to
-be more like the range for modules.
-
-With central allocator it's easier to deal with the things like
-VM_FLUSH_RESET_PERMS and caching of ROX memory and I think it will be more
-maintainable that module_alloc(), alloc_insn_page() and
-bpf_jit_alloc_exec() spread all over the place.
+-struct event_symbol event_symbols_hw[PERF_COUNT_HW_MAX] = {
++const struct event_symbol event_symbols_hw[PERF_COUNT_HW_MAX] = {
+ 	[PERF_COUNT_HW_CPU_CYCLES] = {
+ 		.symbol = "cpu-cycles",
+ 		.alias  = "cycles",
+@@ -82,7 +82,7 @@ struct event_symbol event_symbols_hw[PERF_COUNT_HW_MAX] = {
+ 	},
+ };
  
-> Mark.
-
+-struct event_symbol event_symbols_sw[PERF_COUNT_SW_MAX] = {
++const struct event_symbol event_symbols_sw[PERF_COUNT_SW_MAX] = {
+ 	[PERF_COUNT_SW_CPU_CLOCK] = {
+ 		.symbol = "cpu-clock",
+ 		.alias  = "",
+diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
+index f104faef1a78..0bb5f0c80a5e 100644
+--- a/tools/perf/util/parse-events.h
++++ b/tools/perf/util/parse-events.h
+@@ -250,8 +250,8 @@ struct event_symbol {
+ 	const char	*symbol;
+ 	const char	*alias;
+ };
+-extern struct event_symbol event_symbols_hw[];
+-extern struct event_symbol event_symbols_sw[];
++extern const struct event_symbol event_symbols_hw[];
++extern const struct event_symbol event_symbols_sw[];
+ 
+ char *parse_events_formats_error_string(char *additional_terms);
+ 
 -- 
-Sincerely yours,
-Mike.
+2.44.0.683.g7961c838ac-goog
+
 
 _______________________________________________
 linux-riscv mailing list
