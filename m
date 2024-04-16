@@ -4,105 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCDAC4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 17:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F785C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 18:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Date:From:Cc:To:
-	References:In-Reply-To:Message-Id:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QpbbuF+AwO9cocjixl/kq4398rCopEn5ZrsXXDlrZZQ=; b=LFj97yV7Ol40E7
-	uAtM9CTbzAETV31U7qLAEHIegWoBgu+ZSwbNQATFXHoMCikQD0oCsyYpzj5AYoOfSu2VB4ZNWks81
-	YoC5aaTpFdNlUESG6V02Qipu2vK3P31nrNvoOIokux53sUU5rPqxgaO6fmij9I6JB7Nwe7j7loXCX
-	afNXaXSZb2Vs3dJIJbxBKmom3+nq4aSRoJl9YUNO5AKRFQ4ib+siG3saNpHv9HS85DEhKvvwNSZkD
-	Miz+qsutW5hbrJx8+dY3x6TyvdNRbK17qeiJnR9BDu+RjmlkjI4MPrxoG6ZWhKAchE3RxHqu9haNg
-	3q1CVadU1JwUWU+yvC3w==;
+	List-Owner; bh=5kgBr6fANHjOBGBYDvAYlQQsolWJsw5z2efIJVKgkHQ=; b=LrnckaQwt3J6Yx
+	BVzqysjDmdiHgF+5g0pn7RLDvUrmnJLCYSH9Qc9IS769H7apOeEhQ1KoPy17u5Qpw+9PHqZZP8fv0
+	9NOsKFe1pxvYAtM5OtJFskllKXBtqUsUNMp71y//NUomk55h+PBoKd0yu7HzJG1hwqAi5BYkuouBT
+	RxhW9lu2z8EyYvWe7cH9A725gxUi2iILesNgVYK85N0x1q79p61DQT1hBvtlGoVW6dA4nq8anYBRb
+	ucCf7WelmYC+I1WNQnPGtLed9vxVYR46zC83Li6mreQA5RUXGBsnazaBziRmx5TGVneT/z51oWT28
+	UoHsSsTxkKoNZloszpEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwmYv-0000000DAO3-0p3d;
-	Tue, 16 Apr 2024 17:25:41 +0000
-Received: from mx0b-00823401.pphosted.com ([148.163.152.46])
+	id 1rwnBl-0000000DFrh-1i4I;
+	Tue, 16 Apr 2024 18:05:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwmYq-0000000DAKU-1qd2;
-	Tue, 16 Apr 2024 17:25:39 +0000
-Received: from pps.filterd (m0355091.ppops.net [127.0.0.1])
-	by mx0b-00823401.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 43GFQBHE026682;
-	Tue, 16 Apr 2024 17:24:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=motorola.com; h=
-	message-id:in-reply-to:references:to:cc:from:date:subject; s=
-	DKIM202306; bh=Oc2SUwX6uzMkXCJf4ZSU5CLVXrP2N2CrXvm6EA3BRc0=; b=f
-	VFZT85i9fG9UZIMquW7lOcKAq20DOeCPjOdPiSoX40Uy/gdhpas7agKPawUQhT7x
-	jlu6AEhZt7ljLk2n20UpKTnolmUli9RA4S94pfqgo82LJmyfQGSWX+2ckqN3E3a6
-	jp+/jciyo6S9UM3hNfRiVNfOIKTGmn3Gd7Kqf7Fg+ODOygCLrVJKEFbUu3tVWAti
-	fadgXso/3HtOEdqpW7Sq+tQ8RIqcbtaSSGSjhS7q9YsinUy0LnphQn2+GK2iDP1m
-	aaqJyHM7uz4vWoEonBp43YZWPoTF4kyTlWY8hHQneojPAs3B2gfooI2z9rSq2qK+
-	8Td0+HxT5kbdpLFNyLd1A==
-Received: from va32lpfpp04.lenovo.com ([104.232.228.24])
-	by mx0b-00823401.pphosted.com (PPS) with ESMTPS id 3xhjbek979-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 16 Apr 2024 17:24:57 +0000 (GMT)
-Received: from va32lmmrp01.lenovo.com (va32lmmrp01.mot.com [10.62.177.113])
-	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by va32lpfpp04.lenovo.com (Postfix) with ESMTPS id 4VJrWs1Wv3zj9hH;
-	Tue, 16 Apr 2024 17:24:57 +0000 (UTC)
-Received: from ilclbld243.mot.com (ilclbld243.mot.com [100.64.22.29])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mbland)
-	by va32lmmrp01.lenovo.com (Postfix) with ESMTPSA id 4VJrWs17Mmz2VZS6;
-	Tue, 16 Apr 2024 17:24:57 +0000 (UTC)
-Message-Id: <20240416122254.868007168-6-mbland@motorola.com>
-In-Reply-To: <20240416122254.868007168-1-mbland@motorola.com>
-References: <20240416122254.868007168-1-mbland@motorola.com>
-To: linux-mm@kvack.org
-Cc: Maxwell Bland <mbland@motorola.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-        "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Andy Lutomirski <luto@kernel.org>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-        "H. Peter Anvin" <hpa@zytor.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Ard Biesheuvel <ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Maxwell Bland <mbland@motorola.com>,
-        Alexandre Ghiti <alexghiti@rivosinc.com>,
-        Yu Chien Peter Lin <peterlin@andestech.com>,
-        Song Shuai <suagrfillet@gmail.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org
-From: Maxwell Bland <mbland@motorola.com>
-Date: Mon, 15 Apr 2024 14:51:32 -0500
-Subject: [PATCH 5/5] ptdump: add state parameter for non-leaf callback
-X-Proofpoint-ORIG-GUID: Obuaco9Ts8gQobghqAGopelkIlnGG11N
-X-Proofpoint-GUID: Obuaco9Ts8gQobghqAGopelkIlnGG11N
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
- definitions=2024-04-16_14,2024-04-16_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- spamscore=0 impostorscore=0 suspectscore=0 bulkscore=0 clxscore=1015
- mlxscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0 adultscore=0
- mlxlogscore=960 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2404010003 definitions=main-2404160108
+	id 1rwnBi-0000000DFqc-2ETB
+	for linux-riscv@lists.infradead.org;
+	Tue, 16 Apr 2024 18:05:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4328C61257;
+	Tue, 16 Apr 2024 18:05:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5310C2BD11;
+	Tue, 16 Apr 2024 18:05:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713290742;
+	bh=ofwzRbETYmRwC0pS8n9dd+EPWVyzyXzVpzRfaZ5N3ro=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=tgo4Q4p1d1p9T0puSKluE1QgYZa7w62lj9a8aH0yC4TeNdxnVmji8JSX+Bf4sgn3F
+	 eYMgcoM9yOR5Io4NBynQVzUaTT5/syfShwg0UNBIeW9Id0U/kQIk1qqH9NmV+Cj27a
+	 47gIOUAsyoLBzsU9COXbsbFn1GO3RC2GZ+QMPJCkj+GRIZcHD5QiP1sZHlr5rcYZyu
+	 3sbr6n5gIMkjenovcrb8ogVhK+KO+0eOpTBDQupNx+h9Np8tLGSUoTo1SVGUKPB/2H
+	 6I5hzm3QznH1igAiCrfCZF0kdZB+r6veXZb0qnoa5YV/lMOwj0v4wWRJrbHVsd0O2i
+	 Xawofm9TvBNGQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Nam Cao <namcao@linutronix.de>
+Cc: Mike Rapoport <rppt@kernel.org>, Christian Brauner <brauner@kernel.org>,
+ Andreas Dilger <adilger@dilger.ca>, Al Viro <viro@zeniv.linux.org.uk>,
+ linux-fsdevel <linux-fsdevel@vger.kernel.org>, Jan Kara <jack@suse.cz>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv@lists.infradead.org, Theodore Ts'o <tytso@mit.edu>, Ext4
+ Developers List <linux-ext4@vger.kernel.org>, Conor Dooley
+ <conor@kernel.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Anders
+ Roxell <anders.roxell@linaro.org>, Alexandre Ghiti <alex@ghiti.fr>
+Subject: Re: riscv32 EXT4 splat, 6.8 regression?
+In-Reply-To: <20240416181944.23af44ee@namcao>
+References: <20240416-deppen-gasleitung-8098fcfd6bbd@brauner>
+ <8734rlo9j7.fsf@all.your.base.are.belong.to.us>
+ <Zh6KNglOu8mpTPHE@kernel.org> <20240416171713.7d76fe7d@namcao>
+ <20240416173030.257f0807@namcao>
+ <87v84h2tee.fsf@all.your.base.are.belong.to.us>
+ <20240416181944.23af44ee@namcao>
+Date: Tue, 16 Apr 2024 20:05:38 +0200
+Message-ID: <875xwhuqrx.fsf@all.your.base.are.belong.to.us>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_102536_729461_10B01ED5 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20240416_110546_641242_2A228F35 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,194 +78,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ptdump can now note non-leaf descriptor entries, a useful addition for
-debugging table descriptor permissions when working on related code
-
-Signed-off-by: Maxwell Bland <mbland@motorola.com>
----
- arch/arm64/mm/ptdump.c          |  6 ++++--
- arch/powerpc/mm/ptdump/ptdump.c |  2 ++
- arch/riscv/mm/ptdump.c          |  6 ++++--
- arch/s390/mm/dump_pagetables.c  |  6 ++++--
- arch/x86/mm/dump_pagetables.c   |  3 ++-
- include/linux/ptdump.h          |  1 +
- mm/ptdump.c                     | 13 +++++++++++++
- 7 files changed, 30 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-index 796231a4fd63..1a6f4a3513e5 100644
---- a/arch/arm64/mm/ptdump.c
-+++ b/arch/arm64/mm/ptdump.c
-@@ -299,7 +299,8 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
- 			.range = (struct ptdump_range[]){
- 				{info->base_addr, end},
- 				{0, 0}
--			}
-+			},
-+			.note_non_leaf = false
- 		}
- 	};
- 
-@@ -335,7 +336,8 @@ bool ptdump_check_wx(void)
- 			.range = (struct ptdump_range[]) {
- 				{_PAGE_OFFSET(vabits_actual), ~0UL},
- 				{0, 0}
--			}
-+			},
-+			.note_non_leaf = false
- 		}
- 	};
- 
-diff --git a/arch/powerpc/mm/ptdump/ptdump.c b/arch/powerpc/mm/ptdump/ptdump.c
-index 9dc239967b77..89e673f5fd3d 100644
---- a/arch/powerpc/mm/ptdump/ptdump.c
-+++ b/arch/powerpc/mm/ptdump/ptdump.c
-@@ -307,6 +307,7 @@ static int ptdump_show(struct seq_file *m, void *v)
- 		.ptdump = {
- 			.note_page = note_page,
- 			.range = ptdump_range,
-+			.note_non_leaf = false
- 		}
- 	};
- 
-@@ -340,6 +341,7 @@ bool ptdump_check_wx(void)
- 		.ptdump = {
- 			.note_page = note_page,
- 			.range = ptdump_range,
-+			.note_non_leaf = false
- 		}
- 	};
- 
-diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-index 1289cc6d3700..b355633afcaf 100644
---- a/arch/riscv/mm/ptdump.c
-+++ b/arch/riscv/mm/ptdump.c
-@@ -328,7 +328,8 @@ static void ptdump_walk(struct seq_file *s, struct ptd_mm_info *pinfo)
- 			.range = (struct ptdump_range[]) {
- 				{pinfo->base_addr, pinfo->end},
- 				{0, 0}
--			}
-+			},
-+			.note_non_leaf = false
- 		}
- 	};
- 
-@@ -350,7 +351,8 @@ bool ptdump_check_wx(void)
- 			.range = (struct ptdump_range[]) {
- 				{KERN_VIRT_START, ULONG_MAX},
- 				{0, 0}
--			}
-+			},
-+			.note_non_leaf = false
- 		}
- 	};
- 
-diff --git a/arch/s390/mm/dump_pagetables.c b/arch/s390/mm/dump_pagetables.c
-index ffd07ed7b4af..6468cfd53e2a 100644
---- a/arch/s390/mm/dump_pagetables.c
-+++ b/arch/s390/mm/dump_pagetables.c
-@@ -200,7 +200,8 @@ bool ptdump_check_wx(void)
- 			.range = (struct ptdump_range[]) {
- 				{.start = 0, .end = max_addr},
- 				{.start = 0, .end = 0},
--			}
-+			},
-+			.note_non_leaf = false
- 		},
- 		.seq = NULL,
- 		.level = -1,
-@@ -239,7 +240,8 @@ static int ptdump_show(struct seq_file *m, void *v)
- 			.range = (struct ptdump_range[]) {
- 				{.start = 0, .end = max_addr},
- 				{.start = 0, .end = 0},
--			}
-+			},
-+			.note_non_leaf = false
- 		},
- 		.seq = m,
- 		.level = -1,
-diff --git a/arch/x86/mm/dump_pagetables.c b/arch/x86/mm/dump_pagetables.c
-index 89079ea73e65..43f00dfb955f 100644
---- a/arch/x86/mm/dump_pagetables.c
-+++ b/arch/x86/mm/dump_pagetables.c
-@@ -380,7 +380,8 @@ bool ptdump_walk_pgd_level_core(struct seq_file *m,
- 		.ptdump = {
- 			.note_page	= note_page,
- 			.effective_prot = effective_prot,
--			.range		= ptdump_ranges
-+			.range		= ptdump_ranges,
-+			.note_non_leaf  = false
- 		},
- 		.level = -1,
- 		.to_dmesg	= dmesg,
-diff --git a/include/linux/ptdump.h b/include/linux/ptdump.h
-index 8dbd51ea8626..b3e793a5c77f 100644
---- a/include/linux/ptdump.h
-+++ b/include/linux/ptdump.h
-@@ -16,6 +16,7 @@ struct ptdump_state {
- 			  int level, u64 val);
- 	void (*effective_prot)(struct ptdump_state *st, int level, u64 val);
- 	const struct ptdump_range *range;
-+	bool note_non_leaf;
- };
- 
- bool ptdump_walk_pgd_level_core(struct seq_file *m,
-diff --git a/mm/ptdump.c b/mm/ptdump.c
-index 106e1d66e9f9..97da7a765b22 100644
---- a/mm/ptdump.c
-+++ b/mm/ptdump.c
-@@ -41,6 +41,9 @@ static int ptdump_pgd_entry(pgd_t *pgd, unsigned long addr,
- 	if (st->effective_prot)
- 		st->effective_prot(st, 0, pgd_val(val));
- 
-+	if (st->note_non_leaf && !pgd_leaf(val))
-+		st->note_page(st, addr, 0, pgd_val(val));
-+
- 	if (pgd_leaf(val)) {
- 		st->note_page(st, addr, 0, pgd_val(val));
- 		walk->action = ACTION_CONTINUE;
-@@ -64,6 +67,9 @@ static int ptdump_p4d_entry(p4d_t *p4d, unsigned long addr,
- 	if (st->effective_prot)
- 		st->effective_prot(st, 1, p4d_val(val));
- 
-+	if (st->note_non_leaf && !p4d_leaf(val))
-+		st->note_page(st, addr, 1, p4d_val(val));
-+
- 	if (p4d_leaf(val)) {
- 		st->note_page(st, addr, 1, p4d_val(val));
- 		walk->action = ACTION_CONTINUE;
-@@ -87,6 +93,9 @@ static int ptdump_pud_entry(pud_t *pud, unsigned long addr,
- 	if (st->effective_prot)
- 		st->effective_prot(st, 2, pud_val(val));
- 
-+	if (st->note_non_leaf && !pud_leaf(val))
-+		st->note_page(st, addr, 2, pud_val(val));
-+
- 	if (pud_leaf(val)) {
- 		st->note_page(st, addr, 2, pud_val(val));
- 		walk->action = ACTION_CONTINUE;
-@@ -108,6 +117,10 @@ static int ptdump_pmd_entry(pmd_t *pmd, unsigned long addr,
- 
- 	if (st->effective_prot)
- 		st->effective_prot(st, 3, pmd_val(val));
-+
-+	if (st->note_non_leaf && !pmd_leaf(val))
-+		st->note_page(st, addr, 3, pmd_val(val));
-+
- 	if (pmd_leaf(val)) {
- 		st->note_page(st, addr, 3, pmd_val(val));
- 		walk->action = ACTION_CONTINUE;
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TmFtIENhbyA8bmFtY2FvQGxpbnV0cm9uaXguZGU+IHdyaXRlczoKCj4gZGlmZiAtLWdpdCBhL2Fy
+Y2gvcmlzY3YvbW0vaW5pdC5jIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiBpbmRleCBmYTM0Y2Y1
+NTAzN2IuLmY2MDBjZmVlMGFlZiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L21tL2luaXQuYwo+
+ICsrKyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gQEAgLTE5Nyw3ICsxOTcsNiBAQCBlYXJseV9w
+YXJhbSgibWVtIiwgZWFybHlfbWVtKTsKPiAgc3RhdGljIHZvaWQgX19pbml0IHNldHVwX2Jvb3Rt
+ZW0odm9pZCkKPiAgewo+ICAJcGh5c19hZGRyX3Qgdm1saW51eF9lbmQgPSBfX3BhX3N5bWJvbCgm
+X2VuZCk7Cj4gLQlwaHlzX2FkZHJfdCBtYXhfbWFwcGVkX2FkZHI7Cj4gIAlwaHlzX2FkZHJfdCBw
+aHlzX3JhbV9lbmQsIHZtbGludXhfc3RhcnQ7Cj4gIAo+ICAJaWYgKElTX0VOQUJMRUQoQ09ORklH
+X1hJUF9LRVJORUwpKQo+IEBAIC0yMzgsMTcgKzIzNyw5IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBz
+ZXR1cF9ib290bWVtKHZvaWQpCj4gIAkvKgo+ICAJICogbWVtYmxvY2sgYWxsb2NhdG9yIGlzIG5v
+dCBhd2FyZSBvZiB0aGUgZmFjdCB0aGF0IGxhc3QgNEsgYnl0ZXMgb2YKPiAgCSAqIHRoZSBhZGRy
+ZXNzYWJsZSBtZW1vcnkgY2FuIG5vdCBiZSBtYXBwZWQgYmVjYXVzZSBvZiBJU19FUlJfVkFMVUUK
+PiAtCSAqIG1hY3JvLiBNYWtlIHN1cmUgdGhhdCBsYXN0IDRrIGJ5dGVzIGFyZSBub3QgdXNhYmxl
+IGJ5IG1lbWJsb2NrCj4gLQkgKiBpZiBlbmQgb2YgZHJhbSBpcyBlcXVhbCB0byBtYXhpbXVtIGFk
+ZHJlc3NhYmxlIG1lbW9yeS4gIEZvciA2NC1iaXQKPiAtCSAqIGtlcm5lbCwgdGhpcyBwcm9ibGVt
+IGNhbid0IGhhcHBlbiBoZXJlIGFzIHRoZSBlbmQgb2YgdGhlIHZpcnR1YWwKPiAtCSAqIGFkZHJl
+c3Mgc3BhY2UgaXMgb2NjdXBpZWQgYnkgdGhlIGtlcm5lbCBtYXBwaW5nIHRoZW4gdGhpcyBjaGVj
+ayBtdXN0Cj4gLQkgKiBiZSBkb25lIGFzIHNvb24gYXMgdGhlIGtlcm5lbCBtYXBwaW5nIGJhc2Ug
+YWRkcmVzcyBpcyBkZXRlcm1pbmVkLgo+ICsJICogbWFjcm8uIE1ha2Ugc3VyZSB0aGF0IGxhc3Qg
+NGsgYnl0ZXMgYXJlIG5vdCB1c2FibGUgYnkgbWVtYmxvY2suCj4gIAkgKi8KPiAtCWlmICghSVNf
+RU5BQkxFRChDT05GSUdfNjRCSVQpKSB7Cj4gLQkJbWF4X21hcHBlZF9hZGRyID0gX19wYSh+KHVs
+b25nKTApOwo+IC0JCWlmIChtYXhfbWFwcGVkX2FkZHIgPT0gKHBoeXNfcmFtX2VuZCAtIDEpKQo+
+IC0JCQltZW1ibG9ja19zZXRfY3VycmVudF9saW1pdChtYXhfbWFwcGVkX2FkZHIgLSA0MDk2KTsK
+PiAtCX0KPiArCW1lbWJsb2NrX3Jlc2VydmUoX19wYSgtUEFHRV9TSVpFKSwgUEFHRV9TSVpFKTsK
+PiAgCj4gIAltaW5fbG93X3BmbiA9IFBGTl9VUChwaHlzX3JhbV9iYXNlKTsKPiAgCW1heF9sb3df
+cGZuID0gbWF4X3BmbiA9IFBGTl9ET1dOKHBoeXNfcmFtX2VuZCk7CgpOaWNlISBXb3VsZCB5b3Ug
+bWluZCBzdWJtaXR0aW5nIHRoaXMgYXMgYSBwcm9wZXIgZml4ICh1bmxlc3MgdGhlcmUncyBhCndh
+eSB0byBkbyBpdCBub24tYXJjaCBzcGVjaWZpYyBsaWtlIE1hdHRoZXcgcG9pbnRlZCBvdXQpLgoK
+CkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
