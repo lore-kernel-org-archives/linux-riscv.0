@@ -4,83 +4,228 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D32DC04FF6
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 20:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4EF2C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2024 21:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=UB9xqHk3ja7HKEurbv4TyaafnGDqiXDAq15WE8VypO4=; b=BkpOuNtiFapwEtbG1dG+E7PUX5
-	ofsrfvIkA2iPBwaTWdZrtuiFcpTwStLW67EwLhUV6WM7fpS8LDQYpMdBRYewAprcD7AohES+C6WNv
-	YHvxUWB7sWU6EbSHKWxl3y4LMGGheQFNqSHX9rmrM+A93oPCZETmFPg+sysMK31gGKK/44e3l6HGe
-	BErSommqvcu+e+27fx7Bv2JZDRPW6XrEu0bSLy7hcqk//e9SbIDQFNlu9B4wHMbUrMLH9fIYe0HB4
-	OuL6JwaZVUboYmsOs8KJlEz7N9utejwOig2qvRsJyW/SeCm0JYDqx9SCT1PXojbsyxGxJAQBri5Jk
-	N/vsEF8Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Rx6zilTojNSjQ0Q0BH6Uh6evO9sFAoLf8n2x7FEBckA=; b=T9xmXzZ0aAPFZj
+	fWAe7PtlG5CPbpnt2qtW8a+rILUwRBOTAhpYMDnRvzxXHmg22efVB328MQ85IGy32sL2iX+cIIaJj
+	RaDEuRwMqVYxBgcTKprUuVicLb9Sb59HRTWHg31HZ7suNuV38cYSUWGBopTdIK6TSGcbmg/Kr7Oy1
+	jrmLEDkozThZagSUYaZs7xKhgyHvivre/l8PA8cmkN/yEEvqqv1pJsG1Jhvwir9fJ6cRD10wojSEn
+	+mE84C413vsz29SlebUkhp7yEY//owoQIqwrZqsWoBSr1CGD3kidGcDgCZRIyUoNc79J9bWZGj/ii
+	5bB7WGhhXFWmgKvmt8FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwppB-0000000DmfD-08Ay;
-	Tue, 16 Apr 2024 20:54:41 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1rwpx4-0000000Dnd1-46If;
+	Tue, 16 Apr 2024 21:02:50 +0000
+Received: from mx0a-00823401.pphosted.com ([148.163.148.104])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwpp3-0000000DmcX-3w9H
-	for linux-riscv@lists.infradead.org;
-	Tue, 16 Apr 2024 20:54:39 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6ed267f2936so3881254b3a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Apr 2024 13:54:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1713300869; x=1713905669; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pSH0oKR3vMqxy1mrb/RHsaXrIsB5nauYz3qJ8CX17MI=;
-        b=KOnB04SkRcyZNMZzskGtRQk7oq5JLOhmKbjR4SpIgUYvz+yIyQkfGrYggyhwu6JpEz
-         9KOOtV6doRcjRvN4uwqjS4ixldX6BmaFhG2/JNj8hJEgulVHdpTmsy8HBb70w1XfWKdO
-         UCZrgG8mcTSJlmow2DodmsiMByrM5qrm8iKdKE0oRx8Lo2mk608pBco+bHzxXr+nkIq7
-         Loa6cLUz6x6qygRoveU9zBPjd41E/g3sZaPjFYb+FLZ+Dbl5FJ1uwbhfQywuWhyyuSlI
-         dahdnzIwB+QBn+PptdAPAs0T2r9n1h3swSHW1m5qo7kvtCbjp96+cW2x5roiXcWfZYld
-         i0Vg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713300869; x=1713905669;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pSH0oKR3vMqxy1mrb/RHsaXrIsB5nauYz3qJ8CX17MI=;
-        b=JbGcnt167opPymthAvWmNqZRdF0iHQR46KYYM++XTq/Yb30bXZ67l2vn5aFq07XOEp
-         XcT51fxXvuvK10FiYh3FDl9Dufn9TibU1fk0LaOh+ZmJv6oTugQf/qRBglVuHHiZsfVa
-         jqaEToIJ+uKw9now8vmRhGOOAVWAIazKe5C8F6aBCWeZ5Z9FBj9mrJ43md3q3II6r3bi
-         hBavQex9pUJWtbqvdrOuVJr4o85PsQ1WFFvzo4AGpDSQaFTHQBBKVN4PTTaZUSYwxVTJ
-         HmZY033ZwJ3WzhtTjpW34Ui8E5AVKV8bsRBycWnenlG1UyYcZwnrOzDtLdlFtM6ttjjn
-         43Hw==
-X-Forwarded-Encrypted: i=1; AJvYcCU/sZ+YBjO8+Y3UdnVfBeIEtLdbbF6dv4AmzJRDg9APyobfUtCFF/sV3O7Dyq5+CaSZHq//iF2Zqfkv+is3jWJkLzfN9ARq+Lp6vBtcL4+p
-X-Gm-Message-State: AOJu0YyzUFkQAEqMrnj9vcWrEAhZBy1LxqTmzUAVkq+wgzf3+xWpik50
-	v+iyO5PD0KDFJ28hcxkwu/2P67Uk9KCGQrXPuGc9g0paXXesJk4r3Te2Z4p6Ppk=
-X-Google-Smtp-Source: AGHT+IEaoFFX6WKh90/e6oL2zfKnlJjY8MbSC7LBgPoSZpaJ91GSoA8Wk3SBjtokrGWQGTcakUOoSA==
-X-Received: by 2002:a05:6a21:3286:b0:1a9:7ad8:79f with SMTP id yt6-20020a056a21328600b001a97ad8079fmr14768410pzb.13.1713300869049;
-        Tue, 16 Apr 2024 13:54:29 -0700 (PDT)
-Received: from localhost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id r4-20020a056a00216400b006edd05e3751sm9680856pff.176.2024.04.16.13.54.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Apr 2024 13:54:28 -0700 (PDT)
-Date: Tue, 16 Apr 2024 13:54:28 -0700 (PDT)
-X-Google-Original-Date: Tue, 16 Apr 2024 13:54:21 PDT (-0700)
-Subject: Re: [PATCH v7 00/24] RISC-V SBI v2.0 PMU improvements and Perf sampling in KVM guest
-In-Reply-To: <20240416184421.3693802-1-atishp@rivosinc.com>
-CC: linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>,
-  ajay.kaher@broadcom.com, aou@eecs.berkeley.edu, alexghiti@rivosinc.com, ajones@ventanamicro.com,
-  anup@brainfault.org, Conor Dooley <conor.dooley@microchip.com>, jgross@suse.com,
-  kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
-  linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, pbonzini@redhat.com,
-  Paul Walmsley <paul.walmsley@sifive.com>, shuah@kernel.org, virtualization@lists.linux.dev,
-  Will Deacon <will@kernel.org>, x86@kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Atish Patra <atishp@rivosinc.com>
-Message-ID: <mhng-5383b817-4803-47fa-9076-e8a1c8044bc3@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1rwpwz-0000000DnbX-1u73;
+	Tue, 16 Apr 2024 21:02:48 +0000
+Received: from pps.filterd (m0355086.ppops.net [127.0.0.1])
+	by mx0a-00823401.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 43GHWafL029459;
+	Tue, 16 Apr 2024 21:01:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=motorola.com; h=
+	from:to:cc:subject:date:message-id:references:in-reply-to
+	:content-type:content-transfer-encoding:mime-version; s=
+	DKIM202306; bh=XYN93Oow0gH6u0zsgPe8G9RMHXSvBCiW87nFw/47dUY=; b=d
+	fSF3+v9n4QhTWMaBDDjdiWT5KbK0pnh2BXGkgf6i7nHmBsgWCUsWai9koTNPfDVh
+	sKD6vA0684EdUK1dOuInA0sNuJzwQJro/pXbW1+slY9ftNB8XJic9eGu3mL/krB/
+	eHCT1jqR9OyAnLEP0bbbNG3d4pTOmDB9jLuzNzCJfL7CKrrvB/xIC6Hps9xMIIA2
+	Sm+oVpPOtYFJ4vxtEIDLbwCWHouemz7EUiH+OA0rXT2/i9+u6d9Jknf6tlcx/o3s
+	EkgbO2JuMW9hNkIlae0wUaFHbdYEaCjv2QOIUr2IXtR15tuKXQYvU9EmYShM1hiD
+	ZIiM8XxuR9Vv1m199LQyw==
+Received: from apc01-tyz-obe.outbound.protection.outlook.com (mail-tyzapc01lp2040.outbound.protection.outlook.com [104.47.110.40])
+	by mx0a-00823401.pphosted.com (PPS) with ESMTPS id 3xhwtrr9cy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 16 Apr 2024 21:01:55 +0000 (GMT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=IhOoJY3YFOnfLkunkJ1SNQwVm1rJBzg0Z0qOnxV0Q3si/AHPbp1CT25rR/ihwFu/Hfy8eovY2fNmPkbTyHBMXYZw3/I7dLDz6twAZ6aZhFY3xHZ7FVOArKac9WrP9fQdA/ETP+xbNbuErHGuFHkZcD1y3ioEg1E48gLzOEF87lGBl6zgzyehvzpL7CVIMMjuZemIqf+4iNrvWSl8MvkyamgRh/2GtGpIVKGm1M08TeWA8zTB23pexYg6iM/uoPrWEcmlev2NU1xtr+bFJkY89pNE344Cr77xfGmZQo/zNKOc9pWdRYmD4toP9HqPI78EDb+t/K0xZz2+jXhscbn8yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XYN93Oow0gH6u0zsgPe8G9RMHXSvBCiW87nFw/47dUY=;
+ b=M8MqUJIduXOjV8Z7ELbRmyGuFFdGUwtULuz6eMNy3FWMdi1I+0ii369dCpVO8F2fKqujCKr/MewDyCDCk/ZTOOcgFLK6vBx2I1WcUB6qdCUKflLUHt/w9JTk6iS4UkwpX2A8Jaq0VL6oXBIcflJWhfqm2c9mygXRH9I9fJk0St6cr5vuy4x0UdftXvvVPAOjlFsqNSFLTYQl+ORCjLy+eOmvfSWZNH37M/LTCm6+nmgd8SO/w+vS18qP85IeeAxfU6+K+/1rMW53pQzkVZq/eJNNjfikxjyQQA7RRdebzG+obaMk+Mx+u5TTeEZ+IAka6UiCZx6gRR7xD7X14jP8rQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=motorola.com; dmarc=pass action=none header.from=motorola.com;
+ dkim=pass header.d=motorola.com; arc=none
+Received: from SEZPR03MB6786.apcprd03.prod.outlook.com (2603:1096:101:66::5)
+ by SEYPR03MB8377.apcprd03.prod.outlook.com (2603:1096:101:20b::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7452.50; Tue, 16 Apr
+ 2024 21:01:51 +0000
+Received: from SEZPR03MB6786.apcprd03.prod.outlook.com
+ ([fe80::2071:df9c:5f50:a9a6]) by SEZPR03MB6786.apcprd03.prod.outlook.com
+ ([fe80::2071:df9c:5f50:a9a6%4]) with mapi id 15.20.7452.049; Tue, 16 Apr 2024
+ 21:01:51 +0000
+From: Maxwell Bland <mbland@motorola.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+CC: "linux-mm@kvack.org" <linux-mm@kvack.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Michael Ellerman
+	<mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy
+	<christophe.leroy@csgroup.eu>,
+        Aneesh Kumar K.V <aneesh.kumar@kernel.org>,
+        "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+        Paul Walmsley
+	<paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+	<aou@eecs.berkeley.edu>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Gerald
+ Schaefer <gerald.schaefer@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger
+	<borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Dave Hansen
+	<dave.hansen@linux.intel.com>,
+        Andy Lutomirski <luto@kernel.org>,
+        Peter
+ Zijlstra <peterz@infradead.org>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>, "x86@kernel.org"
+	<x86@kernel.org>,
+        "H. Peter Anvin" <hpa@zytor.com>, Ard Biesheuvel
+	<ardb@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Alexandre Ghiti
+	<alexghiti@rivosinc.com>,
+        Yu Chien Peter Lin <peterlin@andestech.com>,
+        Song
+ Shuai <suagrfillet@gmail.com>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>,
+        "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>,
+        "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>
+Subject: Re: [PATCH 5/5] ptdump: add state parameter for non-leaf callback
+Thread-Topic: [PATCH 5/5] ptdump: add state parameter for non-leaf callback
+Thread-Index: AQHakEFN2x+RUiCDSkSLW5+qEs+AEg==
+Date: Tue, 16 Apr 2024 21:01:51 +0000
+Message-ID: <SEZPR03MB678616F040A28418A3C84587B4082@SEZPR03MB6786.apcprd03.prod.outlook.com>
+References: <20240416122254.868007168-1-mbland@motorola.com>
+	<20240416122254.868007168-6-mbland@motorola.com>
+ <20240416131120.a801ff03a6d0bbec0e9151c8@linux-foundation.org>
+In-Reply-To: <20240416131120.a801ff03a6d0bbec0e9151c8@linux-foundation.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEZPR03MB6786:EE_|SEYPR03MB8377:EE_
+x-ms-office365-filtering-correlation-id: 7e162c6e-cb19-48af-dfd9-08dc5e58705c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: =?utf-8?B?Kzh0dVZjKzZUQVUyWFA2dEwwcm84WlMrOEVXWTlzejBqSXdpVi90Uy9vSUhX?=
+ =?utf-8?B?SHNKNC9FcUZHMXhkeHNqRGZGSTAyMTVjVElIa3krNTZ5WVZsSFk1NlRaNlcy?=
+ =?utf-8?B?YnVVZDIrZkQ1bERwL0hhbG5wciszZDNLbGVRcjFvblV0MXdsUVE2YnkwNnlC?=
+ =?utf-8?B?VDZ6QW1rT3pXeEdqQUgzSHllcU1MQmswcjVYVGVuN0ZmdmhBZTFQZXZGMmtz?=
+ =?utf-8?B?NFpZYmkyZllFR1lXUGdNR0h0dmtPTWliWjY2TDhKUHQ2Wi9VT2lEZFFEcmNS?=
+ =?utf-8?B?aWgzcWRINlhUNkhCV21xRWhMaG12ZlRrMURkVnNzQ3N1WFN3cnJIamJaS2xm?=
+ =?utf-8?B?WnVmMmdseGFyd3FRY3lsYVExckhpbkQyM0dmaFVUNG5YS0lXdU5kOXNEUGw2?=
+ =?utf-8?B?VEdOdlBHQUtEemEyU1FUTjlsRFV5bHJ6cC8wcmxjVm1GWE1aUk9DSFhxVU9i?=
+ =?utf-8?B?TUg4TUpvM2Z6K25HRXRBbitQRHNnb0QrSHJTU0JKdHRBcTE4aFdUanNHV09k?=
+ =?utf-8?B?TllJdVdJUmdWZmJ5YklHeHNMVzdNMGIvSWdXQThQeU51b3ZYaFJmTmFJYUw3?=
+ =?utf-8?B?QTJIYytBUmlFcW81aUJ1UmdFYWZCd0RINzE1bmdVS3JCL0FBR2NhcExKWGV3?=
+ =?utf-8?B?Sm13NVZUQlZIQitaU2FyT2w4OCtCYWUwMXJMR0tCZ3E3ODI2d25qSHhtU0JV?=
+ =?utf-8?B?VTFYbEhuWkkrU0N0ZFZNVTRwVCsxS0toV2Z2N2hzSWxuYmZ2R1h2bFF5TW1x?=
+ =?utf-8?B?a3RiNkt2SHo3L1ZBdVBjQi92ejN0SEtSSC9XSVpvWFROa28wMDV2aW1BbTZQ?=
+ =?utf-8?B?R2Q1ejMzdXNXSk9HK05MOEErMnMrY2dsMVNxQ0czVmQyZmtUcForVlhqZjFF?=
+ =?utf-8?B?NXZwMTNJQzdMMnFOWlFORUR6ZWcrVW5CTWc5NU5yVDF0Zy82bENGcWEwZXRE?=
+ =?utf-8?B?d0pwZmhVM0FHdU0zNWNPa1FsR3pTMFhiNmxVc1F6blBEVTZRYWEvdlkxQ0Q3?=
+ =?utf-8?B?L3pGMHo0SjI1bEdNZ0VZOGpEQnhKTDVlQWJ0dkhFMnZ1QnlhVTh5djhGVWRl?=
+ =?utf-8?B?djRDR2diekRVV1kyTWt5K0FlUFZMRWxCTTZjcThHQjl5TUtaUVRkWUJzSmxW?=
+ =?utf-8?B?SWRocXVHSmhJbXkxTlN5VlJZcER5RmN3bCswbzhxNzRIb3FJVFJiZEZKTm0r?=
+ =?utf-8?B?andaUjR4RU51NmhsVUJPNFEvejVrY0FHazBIalhqajhQM0dFbXVOQTdRU1Bx?=
+ =?utf-8?B?K0FseUxnZzRQdkljZGkzTXFVcGdLSkxwWnZPaXF5d25tR3VKZTBJemtFLy9X?=
+ =?utf-8?B?bXZLU1h5OUJOSmVnR1hsTk90SHpMYTlhYktGU29Wam1WejZoQjlUTnpwRURy?=
+ =?utf-8?B?N2ZwTXlqQ2FCei9TTHMxQlA2cTZNMWJSM3UyNWtXOXJ5UjEycHllaHYzZ1Vo?=
+ =?utf-8?B?bXBXZEdSTytpcVc5RnFjaFZEWGI2ZFlXN0MzSUEybFJtM3h2ejFUL0NDTHls?=
+ =?utf-8?B?VjFLVmJHSk5CTlZSV2J5TkxVYjhzcGNiQk4vWkF0eDBnZGppRFJSSjJnUUk1?=
+ =?utf-8?B?SCt2V0UvMkovRHV5OHB3dW5PVmVxK29MVWVORmFoZE14K3ZHWGttcEtPc3or?=
+ =?utf-8?B?dElFV2J2anNFU2xBN3M3TTlCSisrR290aG1iTWg4eXF2RUJyMzJVZ2pYQThD?=
+ =?utf-8?B?UWlFVU50TUFxQkdHcUFLVllSSHFCemEzeUZtcGc5UmQrV3FoSkNDaUttM0M4?=
+ =?utf-8?B?cDRER3MxV0IyZ3E4VjBObU1yWVBuN3FldDdPTjNpdkM0MjhnOFJwTHRnNjI4?=
+ =?utf-8?B?US9QMXJGekgvRjFjRWdyZz09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR03MB6786.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(366007)(376005)(7416005)(38070700009);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Q0lIVmp3eVdTSzV6RmlFOU5rWkRsMmlRTkdZVWNqckpMMWFtZnIyNkU0RkFm?=
+ =?utf-8?B?VkFJL0lla09QKy9BWHpaaVIwc2M4MXRJZTR1L2VJQ0hUUXBOSSsvekRuKzcx?=
+ =?utf-8?B?UVh5Mjg4YlFvd1NvSVRLRjhUTFhXUFFmN3k3SmRuN05QYWdadlluVXovQUdv?=
+ =?utf-8?B?Um9qeUhhclpXc0syQWlPSWdZQmJTUVpZZVB6czBWUVJTQnBleElZN0RiaHF3?=
+ =?utf-8?B?cWRBNkNiSlZFMDZsSjhLQVlwV3h2cFY4UnVWRUh1Q3JjeldJK2VDakNUbmZm?=
+ =?utf-8?B?VnlRVWcxNlhNM2FSei8wckZGY3l6bklaNWN2YVRuQmxvdDRzMlI1QXphODda?=
+ =?utf-8?B?eU5EbzI2UWtxaFZ5MGxWcHNGODNmTk83VnlFT2RWRGZLQ3BTdUNvSkdJUi95?=
+ =?utf-8?B?aTgrOEFvbVVoNlNoOElTOHBiQ0IvZkUxSTc2bkFUM3VXSDhKYThySVZaWjlp?=
+ =?utf-8?B?NWllejVVeVZLRWtHcW11dTh3NjBuV28zOTdKa3hrZFUzbC9RbXhYOU0yYTZo?=
+ =?utf-8?B?K2RGV3YwaERyamxrSXg0ZXQzWEMrdnVXVVY4QjltLytZMlpPb3k0UmhuOEdX?=
+ =?utf-8?B?WHE2VktINElZOGhGaU9JZnhldUVxRzA4Qk1Vc3NUa2RqVEFNUjFLRkkvaktZ?=
+ =?utf-8?B?WGQrZ0I1NDlaOXJWOG1iZ0JILzM3M1hXWFNBZnc0dEdlSktKNDl1d24xSUVx?=
+ =?utf-8?B?R0xjNUFmYU90MzFWWW1YdnFxNm5BaFdPNVVhZW52dUttbmNIYlp0SUhJVEx0?=
+ =?utf-8?B?WW1zRDNnTkE4RTBFTWxlTW9leWxvMkFENWRVK3RnSjV4WGFBeG9aalk5aDFv?=
+ =?utf-8?B?Zm1vamk4RVc0S0hYZWlYSU1DY0lRamEzMkpHUkI3MHE1ZlcveW5Ga2ZVRnVi?=
+ =?utf-8?B?dTVuWjR6U1JKR0s5THVBSjRYQjNOT2RKbkdwMkRhT1VueWdVSkR4c3h0WlZT?=
+ =?utf-8?B?ZGVhS01jdXVNNU01VmpZWmpkNVhLRnVIZzRQWmhNMXd5MCtiMWVYdjVmTkEw?=
+ =?utf-8?B?QTdaaE9jQzh3OVFTOUw4bEZ5Q2RzVnFJczhIOGZiN0NGWnZpZW9vUGwrNi9m?=
+ =?utf-8?B?bDIra1hFc013TmlRMUxFWjNad3BLams3TUt2aFVYeTNYZVRmbGFFOWtNTFkr?=
+ =?utf-8?B?c2ZWNnNmMGpIclVWQ3FtUHJZZ1k4K3pPcnNzSU1iMlBDajZJY0FKaVRZZVVm?=
+ =?utf-8?B?MVZpS0w0RUdFcE1aa1UyOHh1RGdEcFBFaEhoaUkySndSWnJtS0x3ZHlBamhl?=
+ =?utf-8?B?NTFYRTIwcW1aQVBmYllRc1c0RHdjKzJ5bTdQa1hHRGhkYm4vOWp6VGI4S04y?=
+ =?utf-8?B?bVIzN3cvUlJWdmI1cTA5ZktORWx3VzNaREd1UXkwc21DNVZ1RnRBQVZQdTk5?=
+ =?utf-8?B?WDg3TUoxbDRFNkRnemJ4OGlDL29xL3U0MTRmL3JvcEQzcnpQMU9XVFNrWUZL?=
+ =?utf-8?B?RXp5MXU0TUdFVHpHS0hzOVYvS2Y5MEZ6Y0I5SjVyUTU1N0h1ZmFrSWdtek9I?=
+ =?utf-8?B?dGJEMUhLamRkWVBVTE9ZSU9vRWliR3Z4WWJlZkMxMGsvMEp3VWV5anFHeURO?=
+ =?utf-8?B?dis5dCtyZlZHUkNZYVhGMHBZUXJ6QWNoajZzTEg3YWM2OEtuazg0Rkdxc2g5?=
+ =?utf-8?B?UXRsZXFoZGFQSXN2ZktUNEhucVhBd2h5Z0g2aFdpeVJLSkRYYzdJbWQ5a2cv?=
+ =?utf-8?B?S2lGb0R1cmJ0MW9PaXAzd2xOZVRlcGNtRFU0VmZWK0xyMGl4Ump0NjhtTEZC?=
+ =?utf-8?B?REpRU0hiaWFHWDN4RFBoYSs0UW90ODJPTmVSSmtoQmdZTVdTbXhYMmo4c2lV?=
+ =?utf-8?B?RE1KdG9BSHd2cUQyNDhXVW1TcG9vNjBURmpFTGp6azFiOWxSdEFqR1RiZW1p?=
+ =?utf-8?B?SnFJWlliM1BVdExHRWtMNThYQlg1OG43dktUK21aUWFuREZRd1dsSGhvSWlC?=
+ =?utf-8?B?am9sd25HMlZVRFhxOHA5WFBNRURZeVQ3WkR4N0NvcjRQa2UzQ3JDK3ZQVmJk?=
+ =?utf-8?B?OCt5ODhNZUVvWWhJbnFmUmR3Ky80cDZMb3dMdnA4a0xSejYvcGpiS3czdDh0?=
+ =?utf-8?B?YVpISE5kY2NmWEMwdFh4U2ZjZXRWME9nK0JTYjY1Tnh0VDJaS2QvRjk2Vzdp?=
+ =?utf-8?Q?nfeo=3D?=
+MIME-Version: 1.0
+X-OriginatorOrg: motorola.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR03MB6786.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7e162c6e-cb19-48af-dfd9-08dc5e58705c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2024 21:01:51.4413
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 5c7d0b28-bdf8-410c-aa93-4df372b16203
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: xh6ZiXz9DtPWuOJmHAsFNC7xUAeB9BOsrtgGDIwjAM53EwhTesOrf0XVhf+QTCwlfYN9Zuca7Y4kyaZR0+z1VQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB8377
+X-Proofpoint-ORIG-GUID: gDXHRaJ_lOFbY2hFLGi_X043in2_BJFd
+X-Proofpoint-GUID: gDXHRaJ_lOFbY2hFLGi_X043in2_BJFd
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-04-16_18,2024-04-16_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ bulkscore=0 suspectscore=0 clxscore=1015 impostorscore=0 malwarescore=0
+ spamscore=0 lowpriorityscore=0 mlxlogscore=999 phishscore=0 mlxscore=0
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2404010003 definitions=main-2404160135
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_135434_144359_A2F24D6D 
-X-CRM114-Status: GOOD (  37.06  )
+X-CRM114-CacheID: sfid-20240416_140245_656972_FD71D6C9 
+X-CRM114-Status: GOOD (  23.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,205 +237,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Apr 2024 11:43:57 PDT (-0700), Atish Patra wrote:
-> This series implements SBI PMU improvements done in SBI v2.0[1] i.e. PMU snapshot
-> and fw_read_hi() functions.
+> On Tuesday, April 16, 2024 3:11 PM, Andrew Morton wrote:
+> On Mon, 15 Apr 2024 14:51:32 -0500 Maxwell Bland <mbland@motorola.com>
+> wrote:
 >
-> SBI v2.0 introduced PMU snapshot feature which allows the SBI implementation
-> to provide counter information (i.e. values/overflow status) via a shared
-> memory between the SBI implementation and supervisor OS. This allows to minimize
-> the number of traps in when perf being used inside a kvm guest as it relies on
-> SBI PMU + trap/emulation of the counters.
+> >  arch/arm64/mm/ptdump.c          |  6 ++++--
+> >  arch/powerpc/mm/ptdump/ptdump.c |  2 ++
+> >  arch/riscv/mm/ptdump.c          |  6 ++++--
+> >  arch/s390/mm/dump_pagetables.c  |  6 ++++--
+> >  arch/x86/mm/dump_pagetables.c   |  3 ++-
+> >  include/linux/ptdump.h          |  1 +
+> >  mm/ptdump.c                     | 13 +++++++++++++
+> >  7 files changed, 30 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+> > index 796231a4fd63..1a6f4a3513e5 100644
+> > --- a/arch/arm64/mm/ptdump.c
+> > +++ b/arch/arm64/mm/ptdump.c
+> > @@ -299,7 +299,8 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info
+> *info)
+> >                     .range = (struct ptdump_range[]){
+> >                             {info->base_addr, end},
+> >                             {0, 0}
+> > -                   }
+> > +                   },
+> > +                   .note_non_leaf = false
+> >             }
 >
-> The current set of ratified RISC-V specification also doesn't allow scountovf
-> to be trap/emulated by the hypervisor. The SBI PMU snapshot bridges the gap
-> in ISA as well and enables perf sampling in the guest. However, LCOFI in the
-> guest only works via IRQ filtering in AIA specification. That's why, AIA
-> has to be enabled in the hardware (at least the Ssaia extension) in order to
-> use the sampling support in the perf.
->
-> Here are the patch wise implementation details.
->
-> PATCH 1,4,7,8,9,10,11,15 : Generic cleanups/improvements.
-> PATCH 2,3,14 : FW_READ_HI function implementation
-> PATCH 5-6: Add PMU snapshot feature in sbi pmu driver
-> PATCH 12-13: KVM implementation for snapshot and sampling in kvm guests
-> PATCH 16-17: Generic improvements for kvm selftests
-> PATCH 18-22: KVM selftests for SBI PMU extension
->
-> The series is based on v6.9-rc4 and is available at:
->
-> https://github.com/atishp04/linux/tree/kvm_pmu_snapshot_v7
->
-> The kvmtool patch is also available at:
-> https://github.com/atishp04/kvmtool/tree/sscofpmf
->
-> It also requires Ssaia ISA extension to be present in the hardware in order to
-> get perf sampling support in the guest. In Qemu virt machine, it can be done
-> by the following config.
->
-> ```
-> -cpu rv64,sscofpmf=true,x-ssaia=true
-> ```
->
-> There is no other dependencies on AIA apart from that. Thus, Ssaia must be disabled
-> for the guest if AIA patches are not available. Here is the example command.
->
-> ```
-> ./lkvm-static run -m 256 -c2 --console serial -p "console=ttyS0 earlycon" --disable-ssaia -k ./Image --debug
-> ```
->
-> The series has been tested only in Qemu.
-> Here is the snippet of the perf running inside a kvm guest.
->
-> ===================================================
-> $ perf record -e cycles -e instructions perf bench sched messaging -g 5
-> ...
-> $ Running 'sched/messaging' benchmark:
-> ...
-> [   45.928723] perf_duration_warn: 2 callbacks suppressed
-> [   45.929000] perf: interrupt took too long (484426 > 483186), lowering kernel.perf_event_max_sample_rate to 250
-> $ 20 sender and receiver processes per group
-> $ 5 groups == 200 processes run
->
->      Total time: 14.220 [sec]
-> [ perf record: Woken up 1 times to write data ]
-> [ perf record: Captured and wrote 0.117 MB perf.data (1942 samples) ]
-> $ perf report --stdio
-> $ To display the perf.data header info, please use --header/--header-only optio>
-> $
-> $
-> $ Total Lost Samples: 0
-> $
-> $ Samples: 943  of event 'cycles'
-> $ Event count (approx.): 5128976844
-> $
-> $ Overhead  Command          Shared Object                Symbol               >
-> $ ........  ...............  ...........................  .....................>
-> $
->      7.59%  sched-messaging  [kernel.kallsyms]            [k] memcpy
->      5.48%  sched-messaging  [kernel.kallsyms]            [k] percpu_counter_ad>
->      5.24%  sched-messaging  [kernel.kallsyms]            [k] __sbi_rfence_v02_>
->      4.00%  sched-messaging  [kernel.kallsyms]            [k] _raw_spin_unlock_>
->      3.79%  sched-messaging  [kernel.kallsyms]            [k] set_pte_range
->      3.72%  sched-messaging  [kernel.kallsyms]            [k] next_uptodate_fol>
->      3.46%  sched-messaging  [kernel.kallsyms]            [k] filemap_map_pages
->      3.31%  sched-messaging  [kernel.kallsyms]            [k] handle_mm_fault
->      3.20%  sched-messaging  [kernel.kallsyms]            [k] finish_task_switc>
->      3.16%  sched-messaging  [kernel.kallsyms]            [k] clear_page
->      3.03%  sched-messaging  [kernel.kallsyms]            [k] mtree_range_walk
->      2.42%  sched-messaging  [kernel.kallsyms]            [k] flush_icache_pte
->
-> ===================================================
->
-> [1] https://github.com/riscv-non-isa/riscv-sbi-doc
->
-> Changes from v6->v7:
-> 1. Used SBI_SHMEM_DISABLE in the driver.
-> 2. Added RB Tags.
-> 3. Improved the sbi_pmu_test commandline to allow disabling multiple
->    tests.
->
-> Changes from v5->v6:
-> 1. Added a patch for command line option for the sbi pmu tests.
-> 2. Removed redundant prints and restructure the code little bit.
-> 3. Added a patch for computing the sbi minor version correctly.
-> 4. Addressed all other comments on v5.
->
-> Changes from v4->v5:
-> 1. Moved sbi related definitions to its own header file from processor.h
-> 2. Added few helper functions for selftests.
-> 3. Improved firmware counter read and RV32 start/stop functions.
-> 4. Converted all the shifting operations to use BIT macro
-> 5. Addressed all other comments on v4.
->
-> Changes from v3->v4:
-> 1. Added selftests.
-> 2. Fixed an issue to clear the interrupt pending bits.
-> 3. Fixed the counter index in snapshot memory start function.
->
-> Changes from v2->v3:
-> 1. Fixed a patchwork warning on patch6.
-> 2. Fixed a comment formatting & nit fix in PATCH 3 & 5.
-> 3. Moved the hvien update and sscofpmf enabling to PATCH 9 from PATCH 8.
->
-> Changes from v1->v2:
-> 1. Fixed warning/errors from patchwork CI.
-> 2. Rebased on top of kvm-next.
-> 3. Added Acked-by tags.
->
-> Changes from RFC->v1:
-> 1. Addressed all the comments on RFC series.
-> 2. Removed PATCH2 and merged into later patches.
-> 3. Added 2 more patches for minor fixes.
-> 4. Fixed KVM boot issue without Ssaia and made sscofpmf in guest dependent on
->    Ssaia in the host.
->
-> Atish Patra (24):
-> RISC-V: Fix the typo in Scountovf CSR name
-> RISC-V: Add FIRMWARE_READ_HI definition
-> drivers/perf: riscv: Read upper bits of a firmware counter
-> drivers/perf: riscv: Use BIT macro for shifting operations
-> RISC-V: Add SBI PMU snapshot definitions
-> RISC-V: KVM: Rename the SBI_STA_SHMEM_DISABLE to a generic name
-> RISC-V: Use the minor version mask while computing sbi version
-> drivers/perf: riscv: Implement SBI PMU snapshot function
-> drivers/perf: riscv: Fix counter mask iteration for RV32
-> RISC-V: KVM: Fix the initial sample period value
-> RISC-V: KVM: No need to update the counter value during reset
-> RISC-V: KVM: No need to exit to the user space if perf event failed
-> RISC-V: KVM: Implement SBI PMU Snapshot feature
-> RISC-V: KVM: Add perf sampling support for guests
-> RISC-V: KVM: Support 64 bit firmware counters on RV32
-> RISC-V: KVM: Improve firmware counter read function
-> KVM: riscv: selftests: Move sbi definitions to its own header file
-> KVM: riscv: selftests: Add helper functions for extension checks
-> KVM: riscv: selftests: Add Sscofpmf to get-reg-list test
-> KVM: riscv: selftests: Add SBI PMU extension definitions
-> KVM: riscv: selftests: Add SBI PMU selftest
-> KVM: riscv: selftests: Add a test for PMU snapshot functionality
-> KVM: riscv: selftests: Add a test for counter overflow
-> KVM: riscv: selftests: Add commandline option for SBI PMU test
->
-> arch/riscv/include/asm/csr.h                  |   5 +-
-> arch/riscv/include/asm/kvm_vcpu_pmu.h         |  16 +-
-> arch/riscv/include/asm/sbi.h                  |  38 +-
-> arch/riscv/include/uapi/asm/kvm.h             |   1 +
-> arch/riscv/kernel/paravirt.c                  |   6 +-
-> arch/riscv/kvm/aia.c                          |   5 +
-> arch/riscv/kvm/vcpu.c                         |  15 +-
-> arch/riscv/kvm/vcpu_onereg.c                  |   6 +
-> arch/riscv/kvm/vcpu_pmu.c                     | 260 ++++++-
-> arch/riscv/kvm/vcpu_sbi_pmu.c                 |  17 +-
-> arch/riscv/kvm/vcpu_sbi_sta.c                 |   4 +-
-> drivers/perf/riscv_pmu.c                      |   1 +
-> drivers/perf/riscv_pmu_sbi.c                  | 272 ++++++-
-> include/linux/perf/riscv_pmu.h                |   6 +
-> tools/testing/selftests/kvm/Makefile          |   1 +
-> .../selftests/kvm/include/riscv/processor.h   |  49 +-
-> .../testing/selftests/kvm/include/riscv/sbi.h | 141 ++++
-> .../selftests/kvm/include/riscv/ucall.h       |   1 +
-> .../selftests/kvm/lib/riscv/processor.c       |  12 +
-> .../testing/selftests/kvm/riscv/arch_timer.c  |   2 +-
-> .../selftests/kvm/riscv/get-reg-list.c        |   4 +
-> .../selftests/kvm/riscv/sbi_pmu_test.c        | 681 ++++++++++++++++++
-> tools/testing/selftests/kvm/steal_time.c      |   4 +-
-> 23 files changed, 1433 insertions(+), 114 deletions(-)
-> create mode 100644 tools/testing/selftests/kvm/include/riscv/sbi.h
-> create mode 100644 tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> It would be acceptable to omit all of these and rely upon the runtime
+> zeroing which the compiler will emit.
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Ah, thank you for the pointer to C99 6.7.8.21. I had always figured since
+structs are stack allocated they are potentially non-initialized!
 
-I assume you guys want to take this through the riscv-kvm tree?  That's 
-fine with me, just LMK if you want to do a shared tag or something as we 
-might end up with merge conflicts since it touches so many little 
-things.
+> Documentation/arch/arm64/ptdump.rst might need updating.
+>
+> Please include sample output in the changelog so we can better
+> understand the user's view of this change.
 
+Thanks, I will do both in the next few days everything permitting! Right now
+this patch results in no change until note_non_leaf = true is adopted for each
+arch.
+
+My plan: I will polish then include output of my personal fixes for arm64.
+Specifically, printing expanded PMD flags and tab indenting the layout
+according to each level.
+
+Hopefully just adding arm64 support for now is OK, unless maybe we want to
+default this to true on all arches? IMO default true would be sweet, but I
+wasn't sure everyone would agree.
+
+BRs,
+Maxwell Bland
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
