@@ -4,117 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 050A7C4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 09:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0524C001CC
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 13:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aXBH5WN2+RuM4q/iQzJ1cMpV/LrFmlpWBLJ7qxxIV9E=; b=zuQMQ80eAUiwF8
-	ZwWQtgzx+fffIsKjHwfHN1RGOa3jYZX6rdiSbm69960pnn4gz5HAuFt2bS8+XhLOxoIqi4PxAdGAf
-	Ghy7sPacb5wtNYZK8eDf6Voc6bXt8QQOQWa5GWUUmriY2W1bvMTQnExQa4/aXY3c9rht+cPGGaq8g
-	eq567rpbl1l25HRW3L8Z8OwDi0iCxZnbnQHtxmm6TYgtof4m4xJ6wnx+juAS8zlho2kJwPadSorSG
-	EANmOAYSzgGHKQgzlDUK49RdP/8+0CNbdITaq7l32wUlSS3sRgMrjDyw9SXTGQB9396njrzgcfJHh
-	Tu3k5VbWOIH/vhCHt7kA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OTntEMbWYzRw+MQhZcGQpnthPcVnLB+hExmWbxWRHHY=; b=aCaJ9rZZwK2WVemKIfY5bdKgLQ
+	L9ujc6L8fk2oajCTJ8Sijddqw/X8C7u7w0rcvB/Pvb1SnOE+5KSmvtXI/RCUXCimG6mBmck90bLel
+	AsYNk4Ccks19oVJTJ43K2rYua6UWgyMEKVeqkObloHkzWI8ffKaXQDnuPsFi3T0LPR1Wylj0DH49h
+	IN3FqKj9U+oNKdKVP56mJpB1k9g2Lyr/Awe+/ZwVGxrzOXE6iGKZo3b5bjUBrQ5/a8j5onh+14SCc
+	rOc2wEh7uOU//vQqGNmXsKijQ7XOB0h/N+AGmnTkAvs7gUZ48AMkIA+Bgtyl1ms4DF1/+lFDLWFVC
+	3MkIz9cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rx1gY-0000000FQeh-11Jq;
-	Wed, 17 Apr 2024 09:34:34 +0000
-Received: from mail-dm3nam02olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c05::801] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1rx55A-0000000G3WK-0UD1;
+	Wed, 17 Apr 2024 13:12:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rx1gU-0000000FQci-1D4k
-	for linux-riscv@lists.infradead.org;
-	Wed, 17 Apr 2024 09:34:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Gd4Cxzur0cuIolMX7k3wFmiaeN0SJciJ/fhgBd425o4wsjXnUYv56uKVvX8g+vHF8STSutgiy5hjTvGgLliMRpVP9K0omXdBuVtz2ui0alk3N7q1mywP9ScB4vveM3aZAHaBUrkwQWT16G8wsZfIRgdfWfq3VpaQ7Z+rDfH2vBz7jRl8/kuOFsn4G6E0nZJws4TQY2i4xIk1n/CL6nqZVcbzAfn9FDxYtWmPwur8O1hvj1UXvAEDJ7e3id3HP0Rtblq2MEI2vC3kufuuZ7zb+RCIitHccxpTl65dfv6nK3+N2lk0Skb9cSpUMDeAc15CQUNj4ltMyDbH5cdKL6Pt8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7fXYwaEsCQ3msAnuaLOE1TJLfSaRpWnHwm5saxVDOeg=;
- b=Sj+T8H1M2oBgks1RiSv7FaoaTNp7xeGPTVsa1golbiIDGbG3GNNiL58ieMjDE6fSLOilXBtBemdJQ3+4l9jreiH+rPuVz3ZElO8GNUZpfP7gMWB0OiqkGU3GL+saQmofvDBUJCwu3ppeiXuiBdvB5n8ceGMeCN1MxzPOhluKYoQhVRjDNW0vb/hme9uFVCEBvSuJVtt+lEda0jlPiocI6EZPXInJTbVjfPYmACeUVRPbyDjMXL7OQgftwDFsJaRJhkXH/C1GfduMyq5swe2zyg0DWJ8DndYfNGa33nN9duGcqRUyXbYIvisoyP3I30qJDWSFQ4WK50hU9ScBBczxSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7fXYwaEsCQ3msAnuaLOE1TJLfSaRpWnHwm5saxVDOeg=;
- b=PGSVMQjCteYokFZbnBHyfj3gDtZCVsszL49KBmaEV/YMjnm+fxfVh0DzBXX2euYKqgt142ez28fDgu/Gwf5+44/O15Wv1iLN7Q2eREHdFgyg/IcUiEOqvXoizX2HKFWxojNBADvTDP5Y3PHFK5So0PnfdxliWiZzeY/yDl90Arjd0i9BKEuaeAMPDzHc+RXCtE5KGJueFRGy7RE/Zbeq9BD4yTQ1kmbgv/75gjwKN1nFmZyZHWcr/kI1qRdJIIxc+PZnyI3qlQUx0ZEunJvM/iRFIsPdrUNqiQ4NmYQO9MZrHhnDKJ3Tp5OaZWs6DSKrAKpLteYir6aqMh4kk4vWBQ==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by LV8PR20MB7291.namprd20.prod.outlook.com (2603:10b6:408:232::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Wed, 17 Apr
- 2024 09:34:21 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7452.049; Wed, 17 Apr 2024
- 09:34:21 +0000
-Date: Wed, 17 Apr 2024 17:34:44 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: michael.opdenacker@bootlin.com, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] riscv: dts: sophgo: add initial Milk-V Duo S
- board support
-Message-ID: <IA1PR20MB49539A380E44459ACE19DEB6BB0F2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <20240417065311.3881023-1-michael.opdenacker@bootlin.com>
- <20240417065311.3881023-3-michael.opdenacker@bootlin.com>
-Content-Disposition: inline
-In-Reply-To: <20240417065311.3881023-3-michael.opdenacker@bootlin.com>
-X-TMN: [/wgaOumHrX6KZ+/QFrHj7ayN1sHa/AsQn52ebuz3cEU=]
-X-ClientProxiedBy: SL2P216CA0101.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:3::16) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <5otq7fngmhrhdoniz2clckwarpb7z5itilqt3tsq2pxeqd6emk@trsmhl6srxp6>
+	id 1rx553-0000000G3V1-159f;
+	Wed, 17 Apr 2024 13:12:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 17242614B1;
+	Wed, 17 Apr 2024 13:12:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2987CC072AA;
+	Wed, 17 Apr 2024 13:11:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713359523;
+	bh=GyaPboPEL2rOAOK0TAO7wW1CTxmk8Gw7xhEdNBWguKg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fYCRva+TEbeI8lHSL5KgZTLK304JVk22e0gyDw72neADh2DRRscI5GqNNsL0r9sc/
+	 PQybGvggeulo+MscxzZtzNb00VcaYdYAWR7V1+FpwAHuGrWidwHe5mLMRkMUiKY5EM
+	 dD1qEKrr8gPWg50sSXSQ7NHJU0p9Q8h4jqMOLQh7z5WMgHqZmcRU24Aph39VkiIuky
+	 AcxN6m8Jk9TCbZxp1pG7Ftp1Fa8duJyBWB1zPGDvPMzJkT8QawezIfiNlzrlSeyD+r
+	 LqyY5FmjEp2cH1muibEPw5FgNlj9FTKmlIiwBJ8sgY8spYFfkXUWfaYebL2wYN92kQ
+	 tuMGVHv4toyEQ==
+Date: Wed, 17 Apr 2024 14:11:58 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Deepak Gupta <debug@rivosinc.com>, Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
+	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 07/10] riscv: add ISA extension parsing for Zcmop
+Message-ID: <20240417-smelting-rascal-d19dec72e0a5@spud>
+References: <20240410-jawless-cavalry-a3eaf9c562a4@spud>
+ <20240410-judgingly-appease-5df493852b70@spud>
+ <ZhcTiakvfbjb2hon@debug.ba.rivosinc.com>
+ <1287e6e9-cb8e-4a78-9195-ce29f1c4bace@rivosinc.com>
+ <20240411-superglue-errant-b32e5118695f@wendy>
+ <c86f9fa8-e273-4509-83fa-f21d3265d5c9@rivosinc.com>
+ <20240411-backwater-opal-00c9aed2231e@wendy>
+ <5eda3278-24bc-4c17-a741-523ad5ff79f7@rivosinc.com>
+ <20240416-gave-apron-3234098ce416@spud>
+ <1eab3b4f-0d46-4df5-b574-6a5f796d3bcf@rivosinc.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|LV8PR20MB7291:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb2929bd-97f1-4f3a-87e8-08dc5ec18fc2
-X-MS-Exchange-SLBlob-MailProps: O8uo9vZ0QHVDqkOSoPIz5M4S+SNCRCoczudaXIXvZARoSselLtDteamBMRpJpUrcWwOznszVsQ8PXKplet5AmHrTWR4PoIJ6pzUQfd9ZrSjiHcU+cibdITSP/YzmEzqBftJ8wtlAy4JpJpxNluj1r0L0pS2UiBrL3e7aa3kKNOgqYlEFzn0IzXdzqNTqIDB5AFNL3JxgK/IYi8S9YVzWKrY5LkC8jy1FHoXKJ87WQQqS92JIgjSgp6Da0JfWxoBvV6QbwV/+v3O//cza8X/O3h8aN1W6BF4HZUuNsBqeSih62AE8orw9bEgwmEhmJwHOMASlIELXurDiGZgYP+5NtpLXIG5AoYqDpMOGWHUoMRVGTMBPE9SD7s6u0WjPb2d9CFf2xffpeO9KBpcE63AVRQBA4kgzfLRPsvMYDgiuKU2f8cKl7U4tlHMOGRN5klH6vZAzeivdhefFtCcmkJ/mXb3UKOvZDewcI9kgglHpeljMUUW+hlkUmAp/PT1wMPtd9KBnvmvJEMOh4DTfkPeYHAtJ2+AuLjqBfdeK5Ck/HXWZTmswOPVTHC7O8mtMXbSgMevdOTfMZDLjEkWiFtz/zc4qq0bsdC/PLq+7OflF6NaeiX1K/GpO/kqjRLTqpLLqp4hP1qQS+Pe3BidL28XWbIBnwZZjSbgkAirnzojx04MdMKn4xlKzRboN/bMk7wFcAUSQHmixnAGM3SSmmOzmwhxEuK74kMJeD1dTs5QVURk4tS7TLEy/SWAW9MLn2+2jEUBjkJU8IiftTphpmZwZ2u9UG9zEAqhaWhV/fpd/tc9Opro6GdxvkiboHr/i/GQdcIP3ahnCqe8oEYqZ/qURlKP/1/NKl7jb3JnQ718CTGDa75sUUipe1XOEqUaBOMGJTj3Ebve5L2F4kkSuz+HDpQ==
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: kX+ubGFjd7lMpWr4AlAfq98nNpKi7WBj7Gu3pvVR9CvUbl8wHIEu5DGs7utLwyzeUq2kIOMl2GkCuvmbyBixj2fMdLsFpk6YZr516c0KYojv2uWqO88N0FbA7xZbhpMQfYcVMZsTeoP117QufnE76e3SYD1MO7qz7AhTavpbsa/WU0XCH/PuzsCwKJLwnY6XfNJDG6hMSOWhG5XHpkjB5l3Y5w5hhC8vzkiIcvgyZlyTwhr6oj8ltqwdDYSG1CCV8hwgZ4Lap+FjvYrNgFJjiTw0UECH64PdeeKGGX9HdahM3ZnoYQS3Ho6NvHlERvJlrr2KjMSujiSNRd0Kt9WcLd/2o1X7l5sDWAc8arwe10C2RTl9JAQes7Bk5ENnxO7+lV4+h9P1R8tMsnaoQOzpf+w2XfLiaLXNCXPVuG+qglsuKjYMEomx8jZCt2wCsbgMkKVPR1JH24kJrcQSbDXk5NF2w1lCTwppdag4xYrqHoPsGjPNQ2ejs+KcYnCLdhllcMAh4h8QfH2aqwUMDMe21oE3iQHCUKiQcoHpdW22JaqhiQcZ1e2dxdqzffeyYstMZEEG3LHrZsYHuEm7pPRHc6yzx3Yt9c7wHT/nsxPgiWYmGFGkXNXqmuymrYhsIyALlr7FZ3W+ftf/Fg9+rKtD2MqYPEtHFNqZA/HSzlHw+64kult+kaPUqatuu4bIClo8TVXlDQoR9XTyX/5ytWSnvg==
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kc1jkS5I1YXgIWQPTuAfjNn/9xCh5y2ZjrwBrxCO7kDy5rZRCCFmhoxhgJiF?=
- =?us-ascii?Q?5nME4tUKURCZHSacfyk9h5i5Nq4qUDZOaXxU+koCvN8tWDSzAZFtW09qzY83?=
- =?us-ascii?Q?0QkpX7DuqvkEZocXI7KGtCkloVteEpMbzL5EjqkckxLc0k8tns8NmcQInGFE?=
- =?us-ascii?Q?7QGUoIM77cOshUYXhuw31NyXHVqu7Xkk4jP68tnsUiuwwrmJDgJqakkP5FEU?=
- =?us-ascii?Q?rfuFw7VCZ5OWOZBdSkzVJlKjohY9iuDcjmZ3E3jZmnVqvsHLgXRAr/cJcL/L?=
- =?us-ascii?Q?rJk2p+s4JdiG+5N1lmuVgD3d5+Kjakqqj0Z0KODJCc7s8KKj9p9JjuuR671+?=
- =?us-ascii?Q?19Ds6XF3ZiCFU4i4FMC88njfOpZRAapj6VTghlZZz5DXxmsj2sLdUpMmLagp?=
- =?us-ascii?Q?u19+VlJWref8gE6B/D2zED7Sj2xwxxFZmPxL0n8nbCZH6pnxKC6/hSq5hHdL?=
- =?us-ascii?Q?7IKbKlWTObvNls3mtvOXVtAJaU/UofSrpMrOgY6l9WIUrhXZr0QWeboktFxJ?=
- =?us-ascii?Q?5ObQMBTO7PUaADBUhJF7Rl+QJUrlXYl4iNba5RWxgvDJjsKR6aGfLZYafdd3?=
- =?us-ascii?Q?q0CZ0vhC4Nt0ZN+vBXaSFSZcre5GOrHnCYH4nM5pbP2wxgfo+HjrVvOVwmu4?=
- =?us-ascii?Q?/xeuTStLYu8MY5mfo8zF/zvXRRuYzLfdNj6XxiG/H5ijKAYzGl2wohV6lAtS?=
- =?us-ascii?Q?gJrLc9qPyLgA1eeZBXi2hF3Qn+hHU9X7OsGOHXxiCvK8jClInfKEThhT5kYp?=
- =?us-ascii?Q?8ea1gB/lM7mVvdQiAlwjAA6sPQlFJxYbO7/G0zdgCAGH+QUCTM+Qr5wdKsNX?=
- =?us-ascii?Q?69eRUzmA36mvCaZNOfPY8Id6L5n+vyvCJojvSgP2DjGFDJgfFcCMAFECIy1e?=
- =?us-ascii?Q?SXrAayuEru1873vFy5JiLcpYzeOS9nKUY36jnDl8lYD4S/n6MNfwi8qpvmro?=
- =?us-ascii?Q?C4Pu5oESva/le+4wokdk218Y5OF4ptIBg1IXyyZMlI1Lra00Jzb+nIVY8HbF?=
- =?us-ascii?Q?19A5nhR75GLA6w8zGyOwNdtwnR0QOLQCpOiG5SF3JW2iMx5g9eTbftxuLiUZ?=
- =?us-ascii?Q?UYhzhvQI3SWbcl80l8ZbCHCjk0JDyWQ0kQs5Coojc1mEdSsXxbb3On2yhRzU?=
- =?us-ascii?Q?DIGxnjkeGgt3kcYlexZeB6FY/6W5XarYRhIQksOelipthxmaFrm9BqNnmDkk?=
- =?us-ascii?Q?AhshGVzmrzh3UadL8CAnt7RAy8mzMS3r2xtLTpze8Q5Lj0U0LswPixeFsDau?=
- =?us-ascii?Q?HNpPtQhRcHPTSeScOEfG?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb2929bd-97f1-4f3a-87e8-08dc5ec18fc2
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2024 09:34:21.4868
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR20MB7291
+In-Reply-To: <1eab3b4f-0d46-4df5-b574-6a5f796d3bcf@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240417_023430_365482_17B146D2 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20240417_061205_413199_D40C47D6 
+X-CRM114-Status: GOOD (  39.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,90 +83,274 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0108158457273594349=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 17, 2024 at 08:53:11AM GMT, michael.opdenacker@bootlin.com wrote:
-> From: Michael Opdenacker <michael.opdenacker@bootlin.com>
-> 
-> This adds initial support for the Milk-V Duo S board
-> (https://milkv.io/duo-s), enabling the serial port,
-> making it possible to boot Linux to the command line.
-> 
-> Link: https://lore.kernel.org/linux-riscv/171266958507.1032617.9460749136730849811.robh@kernel.org/T/#t
-> 
-> Signed-off-by: Michael Opdenacker <michael.opdenacker@bootlin.com>
-> ---
->  arch/riscv/boot/dts/sophgo/Makefile           |  1 +
->  .../boot/dts/sophgo/sg2000-milkv-duos.dts     | 34 +++++++++++++++++++
->  2 files changed, 35 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
-> 
-> diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
-> index 57ad82a61ea6..e008acb5240f 100644
-> --- a/arch/riscv/boot/dts/sophgo/Makefile
-> +++ b/arch/riscv/boot/dts/sophgo/Makefile
-> @@ -1,4 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0
->  dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
->  dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
-> +dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duos.dtb
->  dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
-> new file mode 100644
-> index 000000000000..c1ecf97d5e93
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
-> @@ -0,0 +1,34 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2024 Michael Opdenacker <michael.opdenacker@bootlin.com>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "cv1812h.dtsi"
-> +
-> +/ {
-> +	model = "Milk-V Duo S";
-> +	compatible = "milkv,duos", "sophgo,cv1812h";
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x80000000 0x20000000>;
-> +	};
 
-Add a cpu specific file, and move this to it.
+--===============0108158457273594349==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="HIRb2NogcVEwLV+i"
+Content-Disposition: inline
 
-> +};
-> +
-> +&osc {
-> +	clock-frequency = <25000000>;
-> +};
-> +
-> +&uart0 {
-> +	status = "okay";
-> +};
-> -- 
-> 2.34.1
-> 
 
-Add necessary DT node in the cpu specific file. (clint, 
-plic and clk). You also need to rebase your patch based
-on sophgo/for-next.
+--HIRb2NogcVEwLV+i
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Tue, Apr 16, 2024 at 05:23:51PM +0200, Cl=E9ment L=E9ger wrote:
+>=20
+>=20
+> On 16/04/2024 16:54, Conor Dooley wrote:
+> > On Mon, Apr 15, 2024 at 11:10:24AM +0200, Cl=E9ment L=E9ger wrote:
+> >>
+> >>
+> >> On 11/04/2024 13:53, Conor Dooley wrote:
+> >>> On Thu, Apr 11, 2024 at 11:08:21AM +0200, Cl=E9ment L=E9ger wrote:
+> >>>>>> If we consider to have potentially broken isa string (ie extensions
+> >>>>>> dependencies not correctly handled), then we'll need some way to
+> >>>>>> validate this within the kernel.
+> >>>>>
+> >>>>> No, the DT passed to the kernel should be correct and we by and lar=
+ge we
+> >>>>> should not have to do validation of it. What I meant above was writ=
+ing
+> >>>>> the binding so that something invalid will not pass dtbs_check.
+> >>>>
+> >>>> Acked, I was mainly answering Deepak question about dependencies wrt=
+ to
+> >>>> using __RISCV_ISA_EXT_SUPERSET() which does not seems to be relevant
+> >>>> since we expect a correct isa string to be passed.
+> >>>
+> >>> Ahh, okay.
+> >>>
+> >>>> But as you stated, DT
+> >>>> validation clearly make sense. I think a lot of extensions strings w=
+ould
+> >>>> benefit such support (All the Zv* depends on V, etc).
+> >>>
+> >>> I think it is actually as simple something like this, which makes it
+> >>> invalid to have "d" without "f":
+> >>>
+> >>> | diff --git a/Documentation/devicetree/bindings/riscv/extensions.yam=
+l b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> >>> | index 468c646247aa..594828700cbe 100644
+> >>> | --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> >>> | +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> >>> | @@ -484,5 +484,20 @@ properties:
+> >>> |              Registers in the AX45MP datasheet.
+> >>> |              https://www.andestech.com/wp-content/uploads/AX45MP-1C=
+-Rev.-5.0.0-Datasheet.pdf
+> >>> | =20
+> >>> | +allOf:
+> >>> | +  - if:
+> >>> | +      properties:
+> >>> | +        riscv,isa-extensions:
+> >>> | +          contains:
+> >>> | +            const: "d"
+> >>> | +          not:
+> >>> | +            contains:
+> >>> | +              const: "f"
+> >>> | +    then:
+> >>> | +      properties:
+> >>> | +        riscv,isa-extensions:
+> >>> | +          false
+> >>> | +
+> >>> | +
+> >>> |  additionalProperties: true
+> >>> |  ...
+> >>>
+> >>> If you do have d without f, the checker will say:
+> >>> cpu@2: riscv,isa-extensions: False schema does not allow ['i', 'm', '=
+a', 'd', 'c']
+> >>>
+> >>> At least that's readable, even though not clear about what to do. I w=
+ish
+> >>
+> >> That looks really readable indeed but the messages that result from
+> >> errors are not so informative.
+> >>
+> >> It tried playing with various constructs and found this one to yield a
+> >> comprehensive message:
+> >>
+> >> +allOf:
+> >> +  - if:
+> >> +      properties:
+> >> +        riscv,isa-extensions:
+> >> +          contains:
+> >> +            const: zcf
+> >> +          not:
+> >> +            contains:
+> >> +              const: zca
+> >> +    then:
+> >> +      properties:
+> >> +        riscv,isa-extensions:
+> >> +          items:
+> >> +            anyOf:
+> >> +              - const: zca
+> >>
+> >> arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dtb: cpu@0:
+> >> riscv,isa-extensions:10: 'anyOf' conditional failed, one must be fixed:
+> >>         'zca' was expected
+> >>         from schema $id: http://devicetree.org/schemas/riscv/extension=
+s.yaml
+> >>
+> >> Even though dt-bindings-check passed, not sure if this is totally a
+> >> valid construct though...
+> >=20
+> > I asked Rob about this yesterday, he suggested adding:
+> > riscv,isa-extensions:
+> >   if:
+> >     contains:
+> >       const: zcf
+> >   then:
+> >     contains:
+> >       const: zca
+>=20
+> That is way more readable and concise !
+>=20
+> > to the existing property, not in an allOf. I think that is by far the
+> > most readable version in terms of what goes into the binding. The output
+> > would look like:
+> > cpu@0: riscv,isa-extensions: ['i', 'm', 'a', 'd', 'c'] does not contain=
+ items matching the given schema
+> > (for d requiring f cos I am lazy)
+>=20
+> Than fine by me. The error is at least a bit more understandable than
+> the one with the false schema ;)
+>=20
+> >=20
+> > Also, his comment about your one that gives the nice message was that it
+> > would wrong as the anyOf was pointless and it says all items must be
+> > "zca".
+>=20
+> That's what I understood also.
+>=20
+> > I didn't try it, but I have a feeling your nice output will be
+> > rather less nice if several different deps are unmet - but hey, probably
+> > will still be better than having an undocumented extension!
+> >=20
+>=20
+> If you are ok with that, let's go with Rob suggestion. I'll resubmit a
+> V2 with validation for these extensions and probably a followup for the
+> other ones lacking dependency checking.
+
+Also, Rob made some modifications to dt-schema yesterday, so now the
+report about an undocumented extension looks like:
+cpu@1: riscv,isa-extensions:3: '0' is not one of ['i', 'm', 'a', 'f', 'd', =
+'q', 'c', 'v', 'h', 'smaia', 'smstateen', 'ssaia', 'sscofpmf', 'sstc', 'svi=
+nval', 'svnapot', 'svpbmt', 'zacas', 'zba', 'zbb', 'zbc', 'zbkb', 'zbkc', '=
+zbkx', 'zbs', 'zfa', 'zfh', 'zfhmin', 'zk', 'zkn', 'zknd', 'zkne', 'zknh', =
+'zkr', 'zks', 'zksed', 'zksh', 'zkt', 'zicbom', 'zicbop', 'zicboz', 'zicntr=
+', 'zicond', 'zicsr', 'zifencei', 'zihintpause', 'zihintntl', 'zihpm', 'zts=
+o', 'zvbb', 'zvbc', 'zvfh', 'zvfhmin', 'zvkb', 'zvkg', 'zvkn', 'zvknc', 'zv=
+kned', 'zvkng', 'zvknha', 'zvknhb', 'zvks', 'zvksc', 'zvksed', 'zvksh', 'zv=
+ksg', 'zvkt', 'xandespmu']
+instead of
+cpu@0: riscv,isa-extensions:4: 'anyOf' conditional failed, one must be fixe=
+d:
+	'i' was expected
+	'm' was expected
+	'a' was expected
+	'f' was expected
+	'd' was expected
+	'q' was expected
+	'c' was expected
+	'v' was expected
+	'h' was expected
+	'smaia' was expected
+	'smstateen' was expected
+	'ssaia' was expected
+	'sscofpmf' was expected
+	'sstc' was expected
+	'svinval' was expected
+	'svnapot' was expected
+	'svpbmt' was expected
+	'zacas' was expected
+	'zba' was expected
+	'zbb' was expected
+	'zbc' was expected
+	'zbkb' was expected
+	'zbkc' was expected
+	'zbkx' was expected
+	'zbs' was expected
+	'zfa' was expected
+	'zfh' was expected
+	'zfhmin' was expected
+	'zk' was expected
+	'zkn' was expected
+	'zknd' was expected
+	'zkne' was expected
+	'zknh' was expected
+	'zkr' was expected
+	'zks' was expected
+	'zksed' was expected
+	'zksh' was expected
+	'zkt' was expected
+	'zicbom' was expected
+	'zicbop' was expected
+	'zicboz' was expected
+	'zicntr' was expected
+	'zicond' was expected
+	'zicsr' was expected
+	'zifencei' was expected
+	'zihintpause' was expected
+	'zihintntl' was expected
+	'zihpm' was expected
+	'ztso' was expected
+	'zvbb' was expected
+	'zvbc' was expected
+	'zvfh' was expected
+	'zvfhmin' was expected
+	'zvkb' was expected
+	'zvkg' was expected
+	'zvkn' was expected
+	'zvknc' was expected
+	'zvkned' was expected
+	'zvkng' was expected
+	'zvknha' was expected
+	'zvknhb' was expected
+	'zvks' was expected
+	'zvksc' was expected
+	'zvksed' was expected
+	'zvksh' was expected
+	'zvksg' was expected
+	'zvkt' was expected
+	'xandespmu' was expected
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
+
+Which is really great from a readability pov. Not only is it compressed
+to a single line, it actually points out which extension is the
+offender.
+
+Thanks,
+Conor.
+
+--HIRb2NogcVEwLV+i
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZh/KnQAKCRB4tDGHoIJi
+0rS2AP4tYLrh/eXDFYhHN6RFYGaDkHa5QoOTDGCuiOux9TzJugEA6lkqPZDvjYPG
+J84YQJbfPA3XcZTUTJSFs3XuDrr2Vgg=
+=knP8
+-----END PGP SIGNATURE-----
+
+--HIRb2NogcVEwLV+i--
+
+
+--===============0108158457273594349==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0108158457273594349==--
+
