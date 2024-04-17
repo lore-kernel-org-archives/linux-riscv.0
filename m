@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B9CC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 05:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A3AC04FFE
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 06:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iZndvhJ8mDaX6fma71dMoIGSwQTvtw6b+fqGiPiPb2E=; b=FEYwrHoaBmmEmn
-	mCTDtcMPPvaYQZg97Zz6uR8ZRCHZWBn6fsercXCawQMKSEAXFS1MdEF7O4ZzSNFko1MoEgTrhDoNO
-	szYD8s9fwohnps1msrm1M0UVMdWCATXD9RsOxu7k/RP7cKqquwHoDTn9Y8lPp7j+CMGEDYv8BSuRa
-	egdSunrPMAvv8HuxunYiPcn4iNIcCm7nvxINKdGn5GUeR7l7hFMYW7Dm+gXly9yBLk6K/x7wsxoac
-	aIMXHPOIGOs1GKOyyzRnlds09braSrSz7EaSKQyRYX48ccBwLvoUe5Jpd5+AQ1I48FXUUOf3XaiVZ
-	JNNquugq/DbuIoX+0TdQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DxU/+iHQa8MVCe+0cNIzew9beVSAtGeD4lRXBm5mU10=; b=D5Hy6pg6a6plps
+	7SPnCd7XJT3qx4TOBCZGu+Y4+iug7Rfa0y3jqeE9DutryQRfCH6wSYhcX5/Gx+6gcdYTEGIvemudY
+	kafw/qZpH3YyhRzec3+EYJPNrYL/imVR5SeZRbnqQrc2AMbPRyA2zl9KbzoqJQ4Q/Jw9qqF9p7rJF
+	8pEp3hozQNjTcVA1fkwjDGpzbfbRxG/Wtc+wsMox9tcy4p8iyRLLnCYVLt6E1/cjUnv3bymtvIGwJ
+	5McKGFCu5+FmSp7289M9RZ5TGqECY/J+y3Lzs8TpL5F1f/oxqd5x8OsQIU09WISMt7MLm5SdhQrAO
+	zug3J3T4HG4nZ4YCkI+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwxWC-0000000EjhI-0gka;
-	Wed, 17 Apr 2024 05:07:36 +0000
-Received: from mail.valinux.co.jp ([210.128.90.3])
+	id 1rwyP7-0000000Eop8-3rg5;
+	Wed, 17 Apr 2024 06:04:21 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwxW8-0000000EjeW-29pa
+	id 1rwyP4-0000000EooT-0Mf6
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Apr 2024 05:07:35 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by mail.valinux.co.jp (Postfix) with ESMTP id F2C4CA98A0;
-	Wed, 17 Apr 2024 14:07:18 +0900 (JST)
-X-Virus-Scanned: Debian amavisd-new at valinux.co.jp
-Received: from mail.valinux.co.jp ([127.0.0.1])
-	by localhost (mail.valinux.co.jp [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id GzZjxqzI91Bn; Wed, 17 Apr 2024 14:07:18 +0900 (JST)
-Received: from localhost.localdomain (vagw.valinux.co.jp [210.128.90.14])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.valinux.co.jp (Postfix) with ESMTPSA id C95859F6AC;
-	Wed, 17 Apr 2024 14:07:18 +0900 (JST)
-From: takakura@valinux.co.jp
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	apatel@ventanamicro.com,
-	bmeng.cn@gmail.com,
-	atishp@rivosinc.com,
-	daniel.thompson@linaro.org,
-	arnd@arndb.de,
-	sfr@canb.auug.org.au,
-	akpm@linux-foundation.org,
-	conor.dooley@microchip.com,
-	samuel.holland@sifive.com
-Cc: taka@valinux.co.jp,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ryo Takakura <takakura@valinux.co.jp>
-Subject: [PATCH] RISC-V: Enable IPI CPU Backtrace
-Date: Wed, 17 Apr 2024 14:07:11 +0900
-Message-Id: <20240417050711.41930-1-takakura@valinux.co.jp>
-X-Mailer: git-send-email 2.34.1
+	Wed, 17 Apr 2024 06:04:20 +0000
+Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-36a0bca01e2so24761875ab.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Apr 2024 23:04:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1713333855; x=1713938655; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=emlaPvn8yP0ZKbzvbtaqbLqnMofLE1ThVdu9UJ+caJI=;
+        b=cH6g7vhtMqBR8OMfU/whCNUrbFdnwIb2R6kCCPRdZNa3onrjo24p4qx1/P+U37nQwE
+         RuPU8B2kyvDflBcC31lsA097XLyO+hDZsTVGI21I/Or+izsHCO4V5fbu0kOgC49RPxeQ
+         0r7fRSEK78lB+EIFAahrenzyJA/Eif+9Dzd5jM2JEHa5ScrqgsLcGdlbUeR9aczU5EOt
+         n/py+cByTRyho0AZIG+b/1EcUGYEjkTwmVVQLgx3WyQGPC+Z1okLuQNNGfJnHqUlSx9y
+         ul1GuoxoRRZ+VVupfXkAp2ucXKiLJA2EFgOmxfXii3Gx58l+8sdswdFam8FmdontNIAb
+         apxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713333855; x=1713938655;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=emlaPvn8yP0ZKbzvbtaqbLqnMofLE1ThVdu9UJ+caJI=;
+        b=bezg55s2nT4zp/kWNoJYL2ZMcaStoGf3EKizFR7ZvvGGBaFzwbL/ma+2WjSRjPFuOj
+         r59ddxGeEI4KuBVV0KrxTyyVVdzdVxOvskjeCTuuU3T+luh1f9wfaUcES/ZDPgalivIG
+         SGv3zPRLenaK4Ln5Ukc24+5Vwq9SrkNQmYeoQNCZGhxOaockPdyWRSZcnL7MU412FAN4
+         +YdDT5G1PIidMuodVaVD7WuhBtybRFenbQirdwHCroHWAIrUXuXhJtW6whQucya112Hy
+         iRMrjkHqgiUMcUa8GeVvgP7MSZIes9SRL9mrfM9GlC9jh84/I9Sp6mOIFL+NkTgNUMF+
+         IL9A==
+X-Forwarded-Encrypted: i=1; AJvYcCWKbwqz2Gmu7fsublGtHDp9/kV8+daPi7o8ThzogirL2v3jFh4yW4HAjGmGLnixyFo2KhtoNwz5RmnHd+aj6dEzfTM0BCuum65L0nh1ZcXK
+X-Gm-Message-State: AOJu0YwOQU43S+uuJj0xdLke5to/PSR0nE99RaY/JHPGRFBXMRYe/OOh
+	nKSJfz9uaUL2FFPdRCZLlP9e/ynZZEVXS/NSh405BH2TxMRDn2ylpTuy+TJH2Ez13VLaE/d6tDl
+	70vhWkO1+61D+o6mjFY+84B8KEE1yPqCN4Bxc8g==
+X-Google-Smtp-Source: AGHT+IFlY+Fttl28efbIUi6jVfI4wTI04bDmnQk+zKphR7HN3pZ9C0TAL7sTYl5WjTiT2L3Bv4yly414b6+rK4o0b8A=
+X-Received: by 2002:a92:c542:0:b0:36b:a3:bc93 with SMTP id a2-20020a92c542000000b0036b00a3bc93mr17521625ilj.5.1713333855283;
+ Tue, 16 Apr 2024 23:04:15 -0700 (PDT)
 MIME-Version: 1.0
+References: <CAK9=C2Vsq0iN5FW=zC7+2GHe115TPJOEEPcDCLs_40yBGpbVdw@mail.gmail.com>
+ <mhng-3a5fcdd0-0bf4-45d3-aa7d-fffddd852288@palmer-ri-x1c9a>
+In-Reply-To: <mhng-3a5fcdd0-0bf4-45d3-aa7d-fffddd852288@palmer-ri-x1c9a>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 17 Apr 2024 11:34:02 +0530
+Message-ID: <CAAhSdy0YJ7STirgtZpdBGGBT6HB19CdN_Fe0ywhd8SSF2iXJqg@mail.gmail.com>
+Subject: Re: [PATCH] clocksource/drivers/timer-riscv: Drop extra CSR write
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: apatel@ventanamicro.com, samuel.holland@sifive.com, 
+	daniel.lezcano@linaro.org, tglx@linutronix.de, aou@eecs.berkeley.edu, 
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_220732_776546_1DFA7215 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20240416_230418_379898_A6A2276B 
+X-CRM114-Status: GOOD (  25.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,136 +87,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ryo Takakura <takakura@valinux.co.jp>
-
-Add CPU backtrace feature using IPI on riscv.
-Currently, riscv doesn't yet support the feature while other
-architectures do. As IPI multiplexing allows to handle 
-multiple IPIs, I think this feature can also be enabled 
-on riscv by adding IPI.
-
-This patch defines arch_trigger_all_cpu_backtrace() which triggers
-the IPI for CPU backtrace.
-It will be triggered in the events of oops/panic when options
-(oops_all_cpu_backtrace/panic_print) are set accordingly.
-
-Below is the case of oops with the oops_all_cpu_backtrace 
-enabled.
-
-$ sysctl kernel.oops_all_cpu_backtrace=1
-
-triggering oops shows:
-[  435.716754] NMI backtrace for cpu 3
-[  435.716893] CPU: 3 PID: 621 Comm: in:imklog Tainted: G           OE      6.9.0-rc4 #1
-[  435.717086] Hardware name: riscv-virtio,qemu (DT)
-[  435.717182] epc : fallback_scalar_usercopy+0x8/0xdc
-[  435.717300]  ra : _copy_to_user+0x32/0x58
-[  435.717391] epc : ffffffff80c33d88 ra : ffffffff80598e3c sp : ff20000000e83b50
-[  435.717544]  gp : ffffffff82066bf0 tp : ff60000091fd7000 t0 : 3363303866660000
-[  435.717711]  t1 : 000000000000005b t2 : 3363303866666666 s0 : ff20000000e83b60
-[  435.717874]  s1 : 00000000000001af a0 : 00007ff74d3df74f a1 : ff60000082cdc800
-[  435.718040]  a2 : 000000000000003c a3 : 0000000000000000 a4 : 0000000000000000
-[  435.718196]  a5 : 00ffffffffffffc4 a6 : 0000000000000000 a7 : 0000000000000010
-[  435.718333]  s2 : ff60000082cdc800 s3 : ffffffff82066910 s4 : 0000000000001df1
-[  435.718475]  s5 : ffffffff8206a5b8 s6 : 00007ff74d3df74f s7 : ffffffff8206a5b0
-[  435.718616]  s8 : ff60000082cdc800 s9 : ffffffff81e26208 s10: 000000000000003c
-[  435.718760]  s11: ffffffff8206a5ad t3 : ff60000082cdc812 t4 : ff60000082cdc812
-[  435.718909]  t5 : ff60000082cdc818 t6 : 0000000000040000
-[  435.719019] status: 0000000000040120 badaddr: 0000000000000000 cause: 8000000000000001
-[  435.719191] [<ffffffff80c33d88>] fallback_scalar_usercopy+0x8/0xdc
-[  435.719330] [<ffffffff80094eee>] syslog_print+0x1f4/0x2b2
-[  435.719446] [<ffffffff80095e10>] do_syslog.part.0+0xb0/0x326
-[  435.719594] [<ffffffff8009692e>] do_syslog+0x66/0x88
-[  435.719816] [<ffffffff803a1a80>] kmsg_read+0x44/0x5c
-[  435.720017] [<ffffffff8038ea92>] proc_reg_read+0x7a/0xa8
-[  435.720251] [<ffffffff802fae20>] vfs_read+0x94/0x264
-[  435.720478] [<ffffffff802fb906>] ksys_read+0x64/0xe4
-[  435.720709] [<ffffffff802fb9a6>] __riscv_sys_read+0x20/0x2c
-[  435.720880] [<ffffffff80c43ea2>] do_trap_ecall_u+0x60/0x1d4
-[  435.721236] [<ffffffff80c4f74c>] ret_from_exception+0x0/0x64
-
-Signed-off-by: Ryo Takakura <takakura@valinux.co.jp>
----
- arch/riscv/include/asm/irq.h |  3 +++
- arch/riscv/kernel/smp.c      | 16 ++++++++++++++++
- 2 files changed, 19 insertions(+)
-
-diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
-index 8e10a94430a2..ed8f76879270 100644
---- a/arch/riscv/include/asm/irq.h
-+++ b/arch/riscv/include/asm/irq.h
-@@ -12,6 +12,9 @@
- 
- #include <asm-generic/irq.h>
- 
-+void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu);
-+#define arch_trigger_cpumask_backtrace arch_trigger_cpumask_backtrace
-+
- void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void));
- 
- struct fwnode_handle *riscv_get_intc_hwnode(void);
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 45dd4035416e..6e297b9eb641 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -21,6 +21,7 @@
- #include <linux/delay.h>
- #include <linux/irq.h>
- #include <linux/irq_work.h>
-+#include <linux/nmi.h>
- 
- #include <asm/tlbflush.h>
- #include <asm/cacheflush.h>
-@@ -33,6 +34,7 @@ enum ipi_message_type {
- 	IPI_CPU_CRASH_STOP,
- 	IPI_IRQ_WORK,
- 	IPI_TIMER,
-+	IPI_CPU_BACKTRACE,
- 	IPI_MAX
- };
- 
-@@ -136,6 +138,9 @@ static irqreturn_t handle_IPI(int irq, void *data)
- 		tick_receive_broadcast();
- 		break;
- #endif
-+	case IPI_CPU_BACKTRACE:
-+		nmi_cpu_backtrace(get_irq_regs());
-+		break;
- 	default:
- 		pr_warn("CPU%d: unhandled IPI%d\n", smp_processor_id(), ipi);
- 		break;
-@@ -212,6 +217,7 @@ static const char * const ipi_names[] = {
- 	[IPI_CPU_CRASH_STOP]	= "CPU stop (for crash dump) interrupts",
- 	[IPI_IRQ_WORK]		= "IRQ work interrupts",
- 	[IPI_TIMER]		= "Timer broadcast interrupts",
-+	[IPI_CPU_BACKTRACE]     = "CPU backtrace interrupts",
- };
- 
- void show_ipi_stats(struct seq_file *p, int prec)
-@@ -332,3 +338,13 @@ void arch_smp_send_reschedule(int cpu)
- 	send_ipi_single(cpu, IPI_RESCHEDULE);
- }
- EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
-+
-+static void riscv_backtrace_ipi(cpumask_t *mask)
-+{
-+	send_ipi_mask(mask, IPI_CPU_BACKTRACE);
-+}
-+
-+void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
-+{
-+	nmi_trigger_cpumask_backtrace(mask, exclude_cpu, riscv_backtrace_ipi);
-+}
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBBcHIgMTcsIDIwMjQgYXQgNzoyMOKAr0FNIFBhbG1lciBEYWJiZWx0IDxwYWxtZXJA
+ZGFiYmVsdC5jb20+IHdyb3RlOgo+Cj4gT24gV2VkLCAxMyBNYXIgMjAyNCAwOTo1NjozNCBQRFQg
+KC0wNzAwKSwgYXBhdGVsQHZlbnRhbmFtaWNyby5jb20gd3JvdGU6Cj4gPiBPbiBXZWQsIE1hciAx
+MywgMjAyNCBhdCAxOjAz4oCvQU0gU2FtdWVsIEhvbGxhbmQKPiA+IDxzYW11ZWwuaG9sbGFuZEBz
+aWZpdmUuY29tPiB3cm90ZToKPiA+Pgo+ID4+IE9uIHJpc2N2MzIsIHRoZSB0aW1lIGNvbXBhcmF0
+b3IgdmFsdWUgaXMgc3BsaXQgYWNyb3NzIHR3byBDU1JzLiBXZSB3cml0ZQo+ID4+IGJvdGggd2hl
+biBzdG9wcGluZyB0aGUgdGltZXIsIGJ1dCByZWFsaXN0aWNhbGx5IHRoZSB0aW1lIGlzIGp1c3Qg
+YXMKPiA+PiB1bmxpa2VseSB0byByZWFjaCAweGZmZmZmZmZmMDAwMDAwMDAgYXMgMHhmZmZmZmZm
+ZmZmZmZmZmZmLCBzbyB0aGVyZSBpcwo+ID4+IG5vIG5lZWQgdG8gd3JpdGUgdGhlIGxvdyBDU1Iu
+Cj4gPgo+ID4gRXZlbiB0aG91Z2ggdW5saWtlbHksIHRoZXJlIGlzIHN0aWxsIGEgdGhlb3JldGlj
+YWwgcG9zc2liaWxpdHkgb2YKPiA+IGNvdW50ZXIgcmVhY2hpbmcgdmFsdWUgMHhmZmZmZmZmZjAw
+MDAwMDAwLgo+Cj4gSSBndWVzcyB0aGF0IGRlcGVuZHMgb24gdGhlIHRpbWViYXNlIGZyZXF1ZW5j
+eSwgYnV0IGlmIG15IG1hdGggaXMgcmlnaHQKPiB0aGVuIHdlJ3ZlIGdvdCBzb21lIHRpbWVycyB0
+aGF0IHdpbGwgb3ZlcmZsb3cgYSAzMi1iaXQgY291bnRlciBpbiAxMAo+IG1pbnV0ZXMgLS0gdGFr
+ZSB0aGF0IHdpdGggYSBncmFpbiBvZiBzYWx0IGFzIHRoZXkncmUgYWxsIDY0LWJpdCBzeXN0ZW1z
+Cj4gKHdlIGRvbid0IGhhdmUgYW55IDMyLWJpdCBEVHMgdXBzdHJlYW0/KSwgYnV0IGl0IHN0aWxs
+IHNlZW1zIHBsYXVzaWJsZQo+IGZvciAzMi1iaXQgb3ZlcmZsb3dzIHRvIGhhcHBlbiBoZXJlIG9u
+IHJlYWwgc3lzdGVtcy4KPgo+ID4gVGhlIGdvb2QgdGhpbmcgYWJvdXQgdmFsdWUgMHhmZmZmZmZm
+ZmZmZmZmZmZmIGlzIHRoYXQgdGhlIGNvdW50ZXIgd2lsbAo+ID4gaW1tZWRpYXRlbHkgd3JhcCBh
+cm91bmQgYWZ0ZXIgcmVhY2hpbmcgaXQuCj4KPiBJJ20gbm90IHN1cmUgaG93IHRoYXQncyBnb29k
+PyAgTHVja2lseSB3ZSd2ZSBnb3QgfjEwMCwwMDAgeWVhcnMgdG8KPiBmaWd1cmUgb3V0LCBldmVu
+IG9uIHRoZXNlIHN5c3RlbXMgd2l0aCBwcmV0dHkgZmFzdCB0aW1lcnMgOykKClRoZSBSSVNDLVYg
+c2VydmVyIHNvYyBzcGVjIG1hbmRhdGVzIHRpbWVyIGZyZXF1ZW5jeSB0byBiZSBhdCBsZWFzdAox
+MDAgTUh6IHNvIHdlIGNhbiBjZXJ0YWlubHkgaGF2ZSAxMDBNSHogYXMgdGhlIHRpbWVyIGZyZXF1
+ZW5jeQphbmQgYmFzZWQgb24gdGhpcyB0aW1lIENTUiB3aWxsIG92ZXJmbG93IGluIHJvdWdobHkg
+NTg0MCB5ZWFycy4gQWxzbywKbm90aGluZyBzdG9wcyBhIFNvQyB2ZW5kb3IgZnJvbSBoYXZpbmcg
+YSBHSHogdGltZXIgZnJlcXVlbmN5LgoKSW4gYWRkaXRpb24gdG8gdGltZXIgZnJlcXVlbmN5LCBj
+aGFuZ2luZyB0aGUgaW5pdGlhbCB2YWx1ZSBvZiB0aW1lIENTUgpjYW4gYWxzbyBpbXBhY3Qgd2hl
+biB0aGUgdGltZSBDU1Igb3ZlcmZsb3dzLiBUaGlzIHBhcnRpY3VsYXJseSBhcHBsaWVzCnRvIHZp
+cnR1YWxpemF0aW9uIGJlY2F1c2UgS1ZNIFJJU0MtViBhbGxvd3MgdGhlIEtWTSB1c2VyIHNwYWNl
+IHRvb2wKdG8gc2V0IHRoZSBkZXNpcmVkIGluaXRpYWwgdmFsdWUgb2YgdGltZSBDU1IgdmlzaWJs
+ZSB0byB0aGUgR3Vlc3QvVk0uCgpGb3IgZXhhbXBsZSwgaWYgdGhlIHRpbWVyIGZyZXF1ZW5jeSBp
+cyAxME1IeiBhbmQgS1ZNIHVzZXIgc3BhY2UKdG9vbCBzZXRzIGluaXRpYWwgdGltZSBDU1IgdmFs
+dWUgdG8gMHhmZmZmZmZmZl8wMDAwMDAwMCB0aGVuIEd1ZXN0L1ZNCnRpbWUgQ1NSIHdpbGwgb3Zl
+cmZsb3cgaW4gcm91Z2hseSA3IG1pbnMuCgpSZWdhcmRzLApBbnVwCgo+Cj4gPiBSZWdhcmRzLAo+
+ID4gQW51cAo+ID4KPiA+Cj4gPj4KPiA+PiBTaWduZWQtb2ZmLWJ5OiBTYW11ZWwgSG9sbGFuZCA8
+c2FtdWVsLmhvbGxhbmRAc2lmaXZlLmNvbT4KPiA+PiAtLS0KPiA+Pgo+ID4+ICBkcml2ZXJzL2Ns
+b2Nrc291cmNlL3RpbWVyLXJpc2N2LmMgfCAzICsrLQo+ID4+ICAxIGZpbGUgY2hhbmdlZCwgMiBp
+bnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4gPj4KPiA+PiBkaWZmIC0tZ2l0IGEvZHJpdmVy
+cy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jIGIvZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1y
+aXNjdi5jCj4gPj4gaW5kZXggZTY2ZGNiZDY2NTY2Li5lYWFmMDFmM2MzNGIgMTAwNjQ0Cj4gPj4g
+LS0tIGEvZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jCj4gPj4gKysrIGIvZHJpdmVy
+cy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jCj4gPj4gQEAgLTM1LDkgKzM1LDEwIEBAIHN0YXRp
+YyBib29sIHJpc2N2X3RpbWVyX2Nhbm5vdF93YWtlX2NwdTsKPiA+PiAgc3RhdGljIHZvaWQgcmlz
+Y3ZfY2xvY2tfZXZlbnRfc3RvcCh2b2lkKQo+ID4+ICB7Cj4gPj4gICAgICAgICBpZiAoc3RhdGlj
+X2JyYW5jaF9saWtlbHkoJnJpc2N2X3NzdGNfYXZhaWxhYmxlKSkgewo+ID4+IC0gICAgICAgICAg
+ICAgICBjc3Jfd3JpdGUoQ1NSX1NUSU1FQ01QLCBVTE9OR19NQVgpOwo+ID4+ICAgICAgICAgICAg
+ICAgICBpZiAoSVNfRU5BQkxFRChDT05GSUdfMzJCSVQpKQo+ID4+ICAgICAgICAgICAgICAgICAg
+ICAgICAgIGNzcl93cml0ZShDU1JfU1RJTUVDTVBILCBVTE9OR19NQVgpOwo+ID4+ICsgICAgICAg
+ICAgICAgICBlbHNlCj4gPj4gKyAgICAgICAgICAgICAgICAgICAgICAgY3NyX3dyaXRlKENTUl9T
+VElNRUNNUCwgVUxPTkdfTUFYKTsKPiA+PiAgICAgICAgIH0gZWxzZSB7Cj4gPj4gICAgICAgICAg
+ICAgICAgIHNiaV9zZXRfdGltZXIoVTY0X01BWCk7Cj4gPj4gICAgICAgICB9Cj4gPj4gLS0KPiA+
+PiAyLjQzLjEKPiA+Pgo+ID4+Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
