@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7285EC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 14:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3983C04FFF
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 14:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VVYQ4Dy93X7Jd5zXRWBek4fD4POu86ZCI2ua0gKfKms=; b=PtmTflbZsLEjjy
-	lH22cw0HCigM87ZwFuDH3frb7pPvC++d0jOsOfac+wY2r0lI8whEWlJy8Krc3nYsZe9fV8kvPak2b
-	+DgzJgF/7GXsdsEIaUaNScyaB7h7dgOjL6P7wKW6SafafA9PCq7k23dnNPn5WUPMdht1blQ32XQM+
-	6xUDlGtx4rRKQKcbq2ZaYIMNK5GC9qYIdzu07+N4nqvmW4raFrcNTdjOSXqA7o9aKsnaljQw3oucT
-	RPVlrNFm1mtDINLyI1Jk/WhVRlLnUJxUu81+qDfsc+nprZqelO635VgyQnHek+94/TgbQIml5xit2
-	BXOYebg+N5F96nQypX9g==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xo27WbPselHEWDsCQWjy/SD8FbQkMInoycpPwBe93Yg=; b=li+CqiNnCyj6TYDKAOXSXFXuvK
+	AR4/F14sByZCubK6WSj8w7waJNtl8xOHuM24qsvBbWo540alqPjDlRylZAR6fzZIeCJKO0JCpT9iy
+	ookheO0OoSFGQO8/xC+kJdpmuPr7Ox/BbMe3kAs4X+jJBfiMLmy1DhYSOMB8L1GIIQCDZ56IIP1mD
+	nLd53dL2QwkYuEsr16vUB7Q8pwLo4V25IhsJUOkrt8YM/xQEm9RbnqU2NKBsWuROn817+TdDUVNVy
+	BH9sgEzDxMYRxYAe31G9Q4xlnIcx2YFTFffSzPSelR2NUprlMJECvrGbmlIYXSmDY6R1ijhks8N9i
+	RWwuVl2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rx5q6-0000000GG9R-2MRK;
-	Wed, 17 Apr 2024 14:00:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rx5pt-0000000GG4D-3YK9
-	for linux-riscv@lists.infradead.org;
-	Wed, 17 Apr 2024 14:00:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6F9F339;
-	Wed, 17 Apr 2024 07:00:56 -0700 (PDT)
-Received: from [192.168.20.58] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 598433F738;
-	Wed, 17 Apr 2024 07:00:25 -0700 (PDT)
-Message-ID: <260d9932-bf51-43ac-8490-99c39f5e9258@arm.com>
-Date: Wed, 17 Apr 2024 09:00:23 -0500
+	id 1rx6cS-0000000GRDR-04p2;
+	Wed, 17 Apr 2024 14:50:40 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rx6cN-0000000GRAj-3NvL;
+	Wed, 17 Apr 2024 14:50:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 5BC44CE139D;
+	Wed, 17 Apr 2024 14:50:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE0ADC072AA;
+	Wed, 17 Apr 2024 14:50:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713365431;
+	bh=FykH/T46P+7wCQWaQbgZ5I3yQADVR9jYDVfl8lpXZM8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S0TE9tNy0I6n0GmJCfpRHv5LLvD0sH8KvnXmmKZyKXPN+5gEXa1Q4AzpPYORPb1xh
+	 6FZSy9x854VCtsJj3uGAdR0tZAl4NgVGuKIpFvzOv7wQ/K1slgqe+H/pZwCHuXNc+I
+	 OdqHsqKaB1sZzrNKlgxgQSHT6SVN4ew8Xt1FvR89JkG94e9Y5WUwwr6m3CcTva7TVU
+	 axGqATm2OFiDzneSdmBmoG6CAyUFtgtaE6OtFXe+jyNkvltWV5OGGXBYFS1/HqHN+1
+	 VATui1UTMFtHkyEBpfjqFA3OoMm0FuBmS5Qtw6Vov597ADDOjsY7mHjcUEne6ZAG6x
+	 lLhgT/5aLIfzg==
+Date: Wed, 17 Apr 2024 15:50:24 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Evan Green <evan@rivosinc.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 13/17] riscv: vector: Support xtheadvector save/restore
+Message-ID: <20240417-semisweet-willed-1ce1098d8c41@spud>
+References: <20240415-dev-charlie-support_thead_vector_6_9-v2-0-c7d68c603268@rivosinc.com>
+ <20240415-dev-charlie-support_thead_vector_6_9-v2-13-c7d68c603268@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [External] Re: [PATCH v3 2/3] riscv: cacheinfo: initialize
- cacheinfo's level and type from ACPI PPTT
-Content-Language: en-US
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: rafael@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-kernel@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, bhelgaas@google.com,
- james.morse@arm.com, jhugo@codeaurora.org, john.garry@huawei.com,
- Jonathan.Cameron@huawei.com, pierre.gondois@arm.com, sudeep.holla@arm.com,
- tiantao6@huawei.com
-References: <20240416031438.7637-1-cuiyunhui@bytedance.com>
- <20240416031438.7637-2-cuiyunhui@bytedance.com>
- <9f36bedd-1a68-43a9-826d-ce56caf01c52@arm.com>
- <CAEEQ3w=W+xLGP3WsyAQmRNaHm1xVRtqcGJ+t0TnZvJdCTR4v6w@mail.gmail.com>
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <CAEEQ3w=W+xLGP3WsyAQmRNaHm1xVRtqcGJ+t0TnZvJdCTR4v6w@mail.gmail.com>
+In-Reply-To: <20240415-dev-charlie-support_thead_vector_6_9-v2-13-c7d68c603268@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240417_070030_056111_9A7DFF54 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20240417_075036_230155_4855BB9D 
+X-CRM114-Status: GOOD (  23.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,66 +80,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============6117563121103748742=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiA0LzE2LzI0IDIyOjE1LCB5dW5odWkgY3VpIHdyb3RlOgo+IEhpIEplcmVteSwKPiAK
-PiBPbiBXZWQsIEFwciAxNywgMjAyNCBhdCA0OjA04oCvQU0gSmVyZW15IExpbnRvbiA8amVyZW15
-LmxpbnRvbkBhcm0uY29tPiB3cm90ZToKPj4KPj4gSGksCj4+Cj4+Cj4+IE9uIDQvMTUvMjQgMjI6
-MTQsIFl1bmh1aSBDdWkgd3JvdGU6Cj4+PiBCZWZvcmUgY2FjaGVpbmZvIGNhbiBiZSBidWlsdCBj
-b3JyZWN0bHksIHdlIG5lZWQgdG8gaW5pdGlhbGl6ZSBsZXZlbAo+Pj4gYW5kIHR5cGUuIFNpbmNl
-IFJTSUMtViBjdXJyZW50bHkgZG9lcyBub3QgaGF2ZSBhIHJlZ2lzdGVyIGdyb3VwIHRoYXQKPj4+
-IGRlc2NyaWJlcyBjYWNoZS1yZWxhdGVkIGF0dHJpYnV0ZXMgbGlrZSBBUk02NCwgd2UgY2Fubm90
-IG9idGFpbiB0aGVtCj4+PiBkaXJlY3RseSwgc28gbm93IHdlIG9idGFpbiBjYWNoZSBsZWF2ZXMg
-ZnJvbSB0aGUgQUNQSSBQUFRUIHRhYmxlCj4+PiAoYWNwaV9nZXRfY2FjaGVfaW5mbygpKSBhbmQg
-c2V0IHRoZSBjYWNoZSB0eXBlIHRocm91Z2ggc3BsaXRfbGV2ZWxzLgo+Pj4KPj4+IFN1Z2dlc3Rl
-ZC1ieTogSmVyZW15IExpbnRvbiA8amVyZW15LmxpbnRvbkBhcm0uY29tPgo+Pj4gU3VnZ2VzdGVk
-LWJ5OiBTdWRlZXAgSG9sbGEgPHN1ZGVlcC5ob2xsYUBhcm0uY29tPgo+Pj4gU2lnbmVkLW9mZi1i
-eTogWXVuaHVpIEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+Cj4+PiAtLS0KPj4+ICAgIGFy
-Y2gvcmlzY3Yva2VybmVsL2NhY2hlaW5mby5jIHwgMjAgKysrKysrKysrKysrKysrKysrKysKPj4+
-ICAgIDEgZmlsZSBjaGFuZ2VkLCAyMCBpbnNlcnRpb25zKCspCj4+Pgo+Pj4gZGlmZiAtLWdpdCBh
-L2FyY2gvcmlzY3Yva2VybmVsL2NhY2hlaW5mby5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVp
-bmZvLmMKPj4+IGluZGV4IDMwYTY4NzgyODdhZC4uZGM1ZmI3MDM2MmYxIDEwMDY0NAo+Pj4gLS0t
-IGEvYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVpbmZvLmMKPj4+ICsrKyBiL2FyY2gvcmlzY3Yva2Vy
-bmVsL2NhY2hlaW5mby5jCj4+PiBAQCAtNiw2ICs2LDcgQEAKPj4+ICAgICNpbmNsdWRlIDxsaW51
-eC9jcHUuaD4KPj4+ICAgICNpbmNsdWRlIDxsaW51eC9vZi5oPgo+Pj4gICAgI2luY2x1ZGUgPGFz
-bS9jYWNoZWluZm8uaD4KPj4+ICsjaW5jbHVkZSA8bGludXgvYWNwaS5oPgo+Pj4KPj4+ICAgIHN0
-YXRpYyBzdHJ1Y3QgcmlzY3ZfY2FjaGVpbmZvX29wcyAqcnZfY2FjaGVfb3BzOwo+Pj4KPj4+IEBA
-IC03OCw2ICs3OSwyNSBAQCBpbnQgcG9wdWxhdGVfY2FjaGVfbGVhdmVzKHVuc2lnbmVkIGludCBj
-cHUpCj4+PiAgICAgICAgc3RydWN0IGRldmljZV9ub2RlICpwcmV2ID0gTlVMTDsKPj4+ICAgICAg
-ICBpbnQgbGV2ZWxzID0gMSwgbGV2ZWwgPSAxOwo+Pj4KPj4+ICsgICAgIGlmICghYWNwaV9kaXNh
-YmxlZCkgewo+Pj4gKyAgICAgICAgICAgICBpbnQgcmV0LCBpZHgsIGZ3X2xldmVscywgc3BsaXRf
-bGV2ZWxzOwo+Pj4gKwo+Pj4gKyAgICAgICAgICAgICByZXQgPSBhY3BpX2dldF9jYWNoZV9pbmZv
-KGNwdSwgJmZ3X2xldmVscywgJnNwbGl0X2xldmVscyk7Cj4+PiArICAgICAgICAgICAgIGlmIChy
-ZXQpCj4+PiArICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHJldDsKPj4+ICsKPj4+ICsgICAg
-ICAgICAgICAgZm9yIChpZHggPSAwOyBsZXZlbCA8PSB0aGlzX2NwdV9jaS0+bnVtX2xldmVscyAm
-Jgo+Pj4gKyAgICAgICAgICAgICAgICAgIGlkeCA8IHRoaXNfY3B1X2NpLT5udW1fbGVhdmVzOyBp
-ZHgrKywgbGV2ZWwrKykgewo+Pgo+PiBBRkFJSyB0aGUgcHVycG9zZSBvZiBpZHggaGVyZSBpdCB0
-byBhc3N1cmUgdGhhdCB0aGUgbnVtYmVyIG9mIGNhY2hlCj4+IGxlYXZlcyBpcyBub3Qgb3ZlcmZs
-b3dpbmcuIEJ1dCByaWdodCBiZWxvdyB3ZSBhcmUgdXRpbGl6aW5nIHR3byBvZiB0aGVtCj4+IGF0
-IG9uY2UsIHNvIHRoaXMgY2hlY2sgaXNuJ3QgY29ycmVjdC4gT1RPSCwgc2luY2UgaXRzIGFsbG9j
-YXRlZCBhcwo+PiBsZXZlbHMgKyBzcGxpdF9sZXZlbHMgSSBkb24ndCB0aGluayBpdHMgYWN0dWFs
-bHkgcG9zc2libGUgZm9yIHRoaXMgdG8KPj4gY2F1c2UgYSBwcm9ibGVtLiBNaWdodCBiZSB3b3J0
-aHdoaWxlIHRvIGp1c3QgaG9pc3QgaXQgYmVmb3JlIHRoZSBsb29wCj4+IGFuZCByZXZhbGlkYXRl
-IHRoZSB0b3RhbCBsZWF2ZXMgYWJvdXQgdG8gYmUgdXRpbGl6ZWQuCj4+CgpJIHRoaW5rIEkgd2Fz
-IHN1Z2dlc3Rpbmcgc29tZXRoaW5nIGFsb25nIHRoZSBsaW5lcyBvZjoKCkJVR19PTigoc3BsaXRf
-bGV2ZWxzID4gZndfbGV2ZWxzKSB8fCAoc3BsaXRfbGV2ZWxzICsgZndfbGV2ZWxzID4gCnRoaXNf
-Y3B1X2NpLT5udW1fbGVhdmVzKSk7CgpUaGVuIHJlbW92aW5nIGlkeCBlbnRpcmVseS4gZXg6Cgpm
-b3IgKDsgbGV2ZWwgPD0gdGhpc19jcHVfY2ktPm51bV9sZXZlbHM7IGxldmVsKyspCi4uLgo+IAo+
-IERvIHlvdSBtZWFuIHRvIG1vZGlmeSB0aGUgbG9naWMgYXMgZm9sbG93cyB0byBtYWtlIGl0IG1v
-cmUgY29tcGxldGU/ClN1cmUgdGhhdCBpcyBvbmUgd2F5IHRvIGRvIGl0LCBidXQgdGhlbiB5b3Ug
-bmVlZCB0byBwcm9iYWJseSByZXBlYXQgdGhlIAppZHggY2hlY2s6Cj4gZm9yIChpZHggPSAwOyBs
-ZXZlbCA8PSB0aGlzX2NwdV9jaS0+bnVtX2xldmVscyAmJgo+ICAgICAgICBpZHggPCB0aGlzX2Nw
-dV9jaS0+bnVtX2xlYXZlczsgbGV2ZWwrKykgewo+ICAgICAgICAgIGlmIChsZXZlbCA8PSBzcGxp
-dF9sZXZlbHMpIHsKPiAgICAgICAgICAgICAgICAgY2lfbGVhZl9pbml0KHRoaXNfbGVhZisrLCBD
-QUNIRV9UWVBFX0RBVEEsIGxldmVsKTsKPiAgICAgICAgICAgICAgICAgaWR4Kys7CmlmIChpZHgg
-Pj0gdGhpc19jcHVfY2ktPm51bV9sZWF2ZXMpIGJyZWFrOwo+ICAgICAgICAgICAgICAgICBjaV9s
-ZWFmX2luaXQodGhpc19sZWFmKyssIENBQ0hFX1RZUEVfSU5TVCwgbGV2ZWwpOwo+ICAgICAgICAg
-ICAgICAgICBpZHgrKzsKPiAgICAgICAgIH0gZWxzZSB7Cj4gICAgICAgICAgICAgICAgIGNpX2xl
-YWZfaW5pdCh0aGlzX2xlYWYrKywgQ0FDSEVfVFlQRV9VTklGSUVELCBsZXZlbCk7Cj4gICAgICAg
-ICAgICAgICAgIGlkeCsrOwo+ICAgICAgICB9Cj4gfQoKCgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============6117563121103748742==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="TWtuz8+j2Sj8ixHN"
+Content-Disposition: inline
+
+
+--TWtuz8+j2Sj8ixHN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Apr 15, 2024 at 09:12:10PM -0700, Charlie Jenkins wrote:
+
+> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+> index 6727d1d3b8f2..f42eaa8178e9 100644
+> --- a/arch/riscv/kernel/vector.c
+> +++ b/arch/riscv/kernel/vector.c
+> @@ -33,10 +33,24 @@ int riscv_v_setup_vsize(void)
+>  {
+>  	unsigned long this_vsize;
+> =20
+> -	/* There are 32 vector registers with vlenb length. */
+> -	riscv_v_enable();
+> -	this_vsize =3D csr_read(CSR_VLENB) * 32;
+> -	riscv_v_disable();
+> +	/*
+> +	 * This is called before alternatives have been patched so can't use
+> +	 * riscv_has_vendor_extension_unlikely
+
+() after that function name please.
+
+> +	 */
+> +	if (has_xtheadvector_no_alternatives()) {
+> +		/*
+> +		 * Although xtheadvector states that th.vlenb exists and
+> +		 * overlaps with the vector 1.0 vlenb, an illegal instruction is
+> +		 * raised if read. These systems all currently have a fixed
+> +		 * vector length of 128, so hardcode that value.
+
+I had this written before the meeting, so pasting it anyway:
+-- >8 --
+=46rom 5ed25d0f841e755b8dd4f1f6a3ea824601758d8e Mon Sep 17 00:00:00 2001
+=46rom: Conor Dooley <conor.dooley@microchip.com>
+Date: Wed, 17 Apr 2024 14:39:36 +0100
+Subject: [PATCH] dt-bindings: riscv: cpus: add a vlen register length prope=
+rty
+
+Add a property analogous to the vlenb CSR so that software can detect
+the vector length of each CPU prior to it being brought online.
+Currently software has to assume that the vector length read from the
+boot CPU applies to all possible CPUs. On T-Head CPUs implementing
+pre-ratification vector, reading the th.vlenb CSR may produce an illegal
+instruction trap, so this property is required on such systems.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+We could actually enforce the latter since we know the compatibles of
+the relevant CPUs and can tell if xtheadvector is present.
+---
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentat=
+ion/devicetree/bindings/riscv/cpus.yaml
+index d067f2a468ee..2a6449a0f1d7 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -95,6 +95,12 @@ properties:
+     description:
+       The blocksize in bytes for the Zicboz cache operations.
+=20
++  riscv,vlenb:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      VLEN/8, the vector register length in bytes. This property is requir=
+ed in
++      systems where the vector register length is not identical on all har=
+ts.
++
+   # RISC-V has multiple properties for cache op block sizes as the sizes
+   # differ between individual CBO extensions
+   cache-op-block-size: false
+--=20
+2.43.0
+
+
+
+> +		 */
+> +		this_vsize =3D 128;
+> +	} else {
+> +		/* There are 32 vector registers with vlenb length. */
+> +		riscv_v_enable();
+> +		this_vsize =3D csr_read(CSR_VLENB) * 32;
+> +		riscv_v_disable();
+> +	}
+
+--TWtuz8+j2Sj8ixHN
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZh/hsAAKCRB4tDGHoIJi
+0uymAQC52tKEjWhnlrK5EZxs57FTgtZequO5iT1oxcXhr1buWwD/eH4/QhI+A7+a
+rSSXaCKwy6W28YxEUDpHe9r7Re8SMgs=
+=l2tD
+-----END PGP SIGNATURE-----
+
+--TWtuz8+j2Sj8ixHN--
+
+
+--===============6117563121103748742==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6117563121103748742==--
+
