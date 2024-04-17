@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F1CDC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 06:46:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD696C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 06:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gJC5PJrJtZCRtRLKYBIjhLnGoszkVqegTix53l9+7tk=; b=KTUWXgUTtLhuHd
-	PJqd5gWybtCY4hr0BmAAQTeKIr8lmqqEsdZhdNm18RPo3v3ww+kTpSOy79rUjEAajuV44w7p/pRph
-	FT1eiqLF3i2JyFOcrodA+kpm32kYezkc89QXwg3lMabuQKFeF7eelyovQXZic6+f18Z7xQjJxao+r
-	BXPm/oMjMN4pvCi0D7qxiDsLKjDlKPTD9KeH0doYY/O8ILCEvQEZU9RU4A41rGkU7HszitEngLLBZ
-	xm1u/mLtYVGO6AM1TKDx8r4Lv+iIhYxowYHaw63uChOcAjBRPyjRnrLtOqMQ+EW79i1Exop9YPs7W
-	cWtNgJCZPgE2Yg+0FQcg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Nd2zu48BfQcieJTBRS6mc8S6aASE7FDA0qEMAZ8RYgg=; b=YfXCnJbq4cJNze
+	cCTf6+qoa7Rw1c7wOYEeVIO26A/PlAsAtu2japW5RFcpW3+RCA4z+G2UaF9DYCHJ9HgABPiu1uO7w
+	UnLMd6SHvmeILQo9k3axtcY3KzPvk3P3DVr13V9P+6il6udweqxvcNZkE9t8i90omp1yiYcsqNzSf
+	4VoUT6i9vcB/Xg1ovlNrm6MuVTggOrD4+k9AIq0sxJLKO4YHsFYq20PqTJjzVou4koPVCqK+l6LzR
+	QWCA7yg7vu1dgEFLQU2mG4jQ0AkTwt8wuFMtvv97RBJvOjRuH6i1F0iz2SNb9bzaSpmeaS+zhm5XD
+	jXelUW7SmriCeH1It8Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwz49-0000000EteI-2I2B;
-	Wed, 17 Apr 2024 06:46:45 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1rwz4D-0000000EtfI-3aCd;
+	Wed, 17 Apr 2024 06:46:49 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwz46-0000000Etcz-2EdD
+	id 1rwz4A-0000000Ete7-16r8
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Apr 2024 06:46:44 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 21721C0006;
-	Wed, 17 Apr 2024 06:46:36 +0000 (UTC)
+	Wed, 17 Apr 2024 06:46:48 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B226A1C0002;
+	Wed, 17 Apr 2024 06:46:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1713336398;
+	t=1713336403;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=bDyiZdrwSjRaCu96u0BrTQPpOjIEQf/Tsad+LBEh6YA=;
-	b=mY11MLX1w0EcZ13rqsTGDoqnyEkpSrSl8cjVOBpCjEdwEAHIz1axUp6bbMxfFLNNZwIgeL
-	7mkQPh1SqLk/c/j8k8HLfKQz4yJks6HoMhPeLzfcDfI8KzCgaVo7jJ2sJ+GfQHkoWahagE
-	BjPVGv5A/VNEh2kllkGwnov/uZC3TMaxx+OdPuJu5vQepCogvjxQ42w5L5lVnlggwmXE4X
-	IXsD40DFAYwv7Gqol1Ti4Dmj+r70Z/L0FgZ6f9J/bp2OJ9LtcOFb2OvaVWiWUuM3dpHbTQ
-	f6j24yORNbfti4VC5pmQRDKjTCxhKFTZ/X8FgM7st3aG8TZku+W/z3B/dioGnA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EqkgWIyDKkih5KvWmO3x4/Hkqstn+AwghBylqA8sGnQ=;
+	b=ngZuXvb3cBj769QbU85Vtuk8TrMbj390Ed0WAYxItWdtUB1MUy037aBQRO6qrAz8LVqe6f
+	Ecngh4xGeCRrT2dkbEkDilibPrU544nSQUWipJGw0XxAltaqNqDOtNXgEBNQzcFvvQQHuz
+	XAvXRaQc1U4sfElmcYIXHjlGtE0ZJ+zs+SP2zQ91zP2QebTBJU1U2oLoHCOiqpJC0uq6F+
+	WecBx6RTFAfCX1Ilv1+oxf+fOnnkHuu7XKQlFaUDdmybH7Wcse+/dZO3hUUYaRxjIq9J/J
+	DrI0dscHXV+YC/9vqJ9qzlAv9zkyYrNBoWPzVdUJHA2YjKg9xnPN+wN0TvT0Fg==
 From: michael.opdenacker@bootlin.com
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Chen Wang <unicorn_wang@outlook.com>,
 	Inochi Amaoto <inochiama@outlook.com>
 Cc: Michael Opdenacker <michael.opdenacker@bootlin.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 0/2] add initial Milk-V Duo S board support
-Date: Wed, 17 Apr 2024 08:46:24 +0200
-Message-Id: <20240417064626.3880187-1-michael.opdenacker@bootlin.com>
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 2/2] riscv: dts: sophgo: add initial Milk-V Duo S board support
+Date: Wed, 17 Apr 2024 08:46:26 +0200
+Message-Id: <20240417064626.3880187-3-michael.opdenacker@bootlin.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240417064626.3880187-1-michael.opdenacker@bootlin.com>
+References: <20240417064626.3880187-1-michael.opdenacker@bootlin.com>
 MIME-Version: 1.0
 X-GND-Sasl: michael.opdenacker@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240416_234642_744498_DA7C8036 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240416_234646_504925_D46BE11D 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,35 +83,69 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Michael Opdenacker <michael.opdenacker@bootlin.com>
 
-This adds an initial device tree for the Milk-V Duo S board.
-Last tested on linux-next on April 17, 2024.
+This adds initial support for the Milk-V Duo S board
+(https://milkv.io/duo-s), enabling the serial port and
+SD card support, allowing to boot Linux to the command line.
 
-- Changes in V4
-  - Remove mmc device (&sdhci0) as not working yet with linux-next
-  - Use "sophgo,cv1812h" compatible as on the Huashan Pi board.
-    Should I call the DTS cv1812h-milkv-duos.dts instead
-    of sg2000-milkv-duos.dts?
+Link: https://lore.kernel.org/linux-riscv/171266958507.1032617.9460749136730849811.robh@kernel.org/T/#t
 
-- Changes in V3
-  - Fix enum in devicetree/bindings/riscv/sophgo.yaml
-
-- Changes in V2:
-  - Add a first patch to register the new compatible string
-    for this board.
-  - Use a correct SoC compatible string
-  - Add "disable-wp" (disable write protect) property
-    to enable write access to the external SD card.
-
-Michael Opdenacker (2):
-  dt-bindings: riscv: add Milk-V Duo S board compatibles
-  riscv: dts: sophgo: add initial Milk-V Duo S board support
-
- .../devicetree/bindings/riscv/sophgo.yaml     |  1 +
+Signed-off-by: Michael Opdenacker <michael.opdenacker@bootlin.com>
+---
  arch/riscv/boot/dts/sophgo/Makefile           |  1 +
  .../boot/dts/sophgo/sg2000-milkv-duos.dts     | 34 +++++++++++++++++++
- 3 files changed, 36 insertions(+)
+ 2 files changed, 35 insertions(+)
  create mode 100644 arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
 
+diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
+index 57ad82a61ea6..e008acb5240f 100644
+--- a/arch/riscv/boot/dts/sophgo/Makefile
++++ b/arch/riscv/boot/dts/sophgo/Makefile
+@@ -1,4 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+ dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
++dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duos.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
+diff --git a/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+new file mode 100644
+index 000000000000..c1ecf97d5e93
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+@@ -0,0 +1,34 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2024 Michael Opdenacker <michael.opdenacker@bootlin.com>
++ */
++
++/dts-v1/;
++
++#include "cv1812h.dtsi"
++
++/ {
++	model = "Milk-V Duo S";
++	compatible = "milkv,duos", "sophgo,cv1812h";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x20000000>;
++	};
++};
++
++&osc {
++	clock-frequency = <25000000>;
++};
++
++&uart0 {
++	status = "okay";
++};
 -- 
 2.34.1
 
