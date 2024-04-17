@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01135C4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 15:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407FEC4345F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 15:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pWAbjBU38A4EkqafnAF9wCvIydqUYzSGV2JWnTr6nFk=; b=jZVBPzz3kNzWxqczLComZTJmpp
-	RTzE/s64tZF2XSJqdVvpiljiI9KEqV4csCuTw/cx6AtiMaxngm1K70ch+dP7G91NODf8ijqCYPqH2
-	sPOO7dOXNt+aant0TRzTHmhqb7k12MH/Xg6HAsSkHyFUIyVuqJ447zaz9PJHgB2Zp0WGYa76KlY7t
-	BwXqszDczKZ6BBz+YJfdJQQsL8spaoo2sUZMghWc0I5nCSVtmt6DaB6gRItjw8qOLtKMyp/kbm9QB
-	WCXRV1pb1ISa1FWZWq1WuD5sRnsUymQF8O6+tIqplrpGITgy2GDniFIM30KL+kD2MuGoDMX0uTWpD
-	FbEDcA8A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wZd+xvCb2Qxu8JfhjO2MDmc2Q//e1sqvJZM01sFQYEc=; b=4Oem/cBQtg6kwY
+	mv8NLHva3IEAi0dh8BJZyWx2XkEJm6SfCXvOtNddgGrR0eqHs3P44z2rTrzFttVYZVH+43vcN18Ak
+	Y7a49uH2XRaLv+sONE46FWOQV1y/aKzXro/N6OEvlIqrLA+0pbQqBbqOSv3ml/AtHN6DbmPCLsztY
+	Vztk1v3qvgaeXH6HIttAzx5XTWTDs76Rj3f3BtketPWFLMjaAmHPRLg+FOQsXWSYCxxOK3BXYAMnt
+	Rv9jvn4h1zpY52wnS3ln510/b/SdZfsnKvOAK7l8M5oa19xfnkXMXCBD1aYBPOAvLtFtJzeqBmMd8
+	0uQF73mdfT3I+Z2hvVpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rx6s1-0000000GUsF-35rw;
-	Wed, 17 Apr 2024 15:06:45 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rx7GT-0000000GbOA-28FI;
+	Wed, 17 Apr 2024 15:32:01 +0000
+Received: from outgoing-auth-1.mit.edu ([18.9.28.11] helo=outgoing.mit.edu)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rx6ru-0000000GUpC-3fu1
+	id 1rx7GP-0000000GbMw-3iJW
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Apr 2024 15:06:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id E3D29CE12F4;
-	Wed, 17 Apr 2024 15:06:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67620C072AA;
-	Wed, 17 Apr 2024 15:06:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713366393;
-	bh=csO/QBIY5zA9U55g4bmdwzHQOXGd09d6ZZbozBhSl4k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WWbx16CozNaA6xrWLXzFjR3qfMbBP2psA8necDIweTlfJOzHkeCWSIs0UfQstgqxm
-	 D6B572ou01naWEDwbo/TJYW8VJxw53oDsAyBv9/DptJ42ri4yEhUBEwvStUXt7B+Tu
-	 01QoTScXr7YvGckqHEYzfm5QjLeY3eVV/KA6Ozp1spGnZvUWWoscoNYb8L1BRbWVVJ
-	 cHgsrGg7ei51FkYVIoToGWyBGkyTEyy/aeMEgffHXaaEnpYkjBlF6sUd+D+8IJVd4L
-	 +sx92YX9tvwz4ucnxrqCRjUm86f0rEmA7+WYBNH/YS+yAW07xfeHxJqgpO6h6GUO6i
-	 YTgnKq+fwcOcA==
-Date: Wed, 17 Apr 2024 16:06:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: michael.opdenacker@bootlin.com, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] riscv: dts: sophgo: add initial Milk-V Duo S
- board support
-Message-ID: <20240417-guts-overture-b04cd1b8565a@spud>
-References: <20240417065311.3881023-1-michael.opdenacker@bootlin.com>
- <20240417065311.3881023-3-michael.opdenacker@bootlin.com>
- <IA1PR20MB49539A380E44459ACE19DEB6BB0F2@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Wed, 17 Apr 2024 15:31:59 +0000
+Received: from cwcc.thunk.org (pool-173-48-113-2.bstnma.fios.verizon.net [173.48.113.2])
+	(authenticated bits=0)
+        (User authenticated as tytso@ATHENA.MIT.EDU)
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 43HFVM8p016211
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 17 Apr 2024 11:31:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
+	t=1713367886; bh=OUs4KkgaD/FpvJ+2NJzXqe7hy3aMJMIJWA9eaTknY8E=;
+	h=Date:From:Subject:Message-ID:MIME-Version:Content-Type;
+	b=nMtnDykE1F1kxHm5GQfr4ZqPYU3K4i+JZ44Je1xsc+SeP+WWSIb60AnjNISDIjdih
+	 Ih4ucOoOEjpm2vxAnjhJ6FsWtcVeJx/4+61j2OCSOnhDxtJuhT/msapmB/CpV6dEEP
+	 4VQkk+Z1IczSdfxuRpDsu8XRMsZa6amXUgmYalqB6t87sglA+Br/ICuZj5cNWgkjsp
+	 KGaxCjs7zVfxQl0u0k3rz3bW/2Ke7eGq5wze71vflPSO16lggQ3nIY0rm7UN7lQqm8
+	 9HHg4MjglepgvNC8tSaEZlRyUQIeT6Lbochp4uvZ5bpYbfZlbduMxUTKurUDQCHaYa
+	 09ARNt790bi+A==
+Received: by cwcc.thunk.org (Postfix, from userid 15806)
+	id 91D7115C0CBA; Wed, 17 Apr 2024 11:31:22 -0400 (EDT)
+Date: Wed, 17 Apr 2024 11:31:22 -0400
+From: "Theodore Ts'o" <tytso@mit.edu>
+To: Nam Cao <namcao@linutronix.de>
+Cc: Mike Rapoport <rppt@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+        =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+        Christian Brauner <brauner@kernel.org>,
+        Andreas Dilger <adilger@dilger.ca>, Al Viro <viro@zeniv.linux.org.uk>,
+        linux-fsdevel <linux-fsdevel@vger.kernel.org>, Jan Kara <jack@suse.cz>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        linux-riscv@lists.infradead.org,
+        Ext4 Developers List <linux-ext4@vger.kernel.org>,
+        Conor Dooley <conor@kernel.org>,
+        Anders Roxell <anders.roxell@linaro.org>,
+        Alexandre Ghiti <alex@ghiti.fr>
+Subject: Re: riscv32 EXT4 splat, 6.8 regression?
+Message-ID: <20240417153122.GE2277619@mit.edu>
+References: <8734rlo9j7.fsf@all.your.base.are.belong.to.us>
+ <Zh6KNglOu8mpTPHE@kernel.org>
+ <20240416171713.7d76fe7d@namcao>
+ <20240416173030.257f0807@namcao>
+ <87v84h2tee.fsf@all.your.base.are.belong.to.us>
+ <20240416181944.23af44ee@namcao>
+ <Zh6n-nvnQbL-0xss@kernel.org>
+ <Zh6urRin2-wVxNeq@casper.infradead.org>
+ <Zh7Ey507KXIak8NW@kernel.org>
+ <20240417003639.13bfd801@namcao>
 MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB49539A380E44459ACE19DEB6BB0F2@IA1PR20MB4953.namprd20.prod.outlook.com>
+Content-Disposition: inline
+In-Reply-To: <20240417003639.13bfd801@namcao>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240417_080639_301748_D20E25B7 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20240417_083158_088900_1991094B 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,114 +88,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1775879472550353430=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 17, 2024 at 12:36:39AM +0200, Nam Cao wrote:
+> 
+> However, I am confused about one thing: doesn't this make one page of
+> physical memory inaccessible?
 
---===============1775879472550353430==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="lXrJLg2sMSILQKj3"
-Content-Disposition: inline
+So are these riscv32 systems really having multiple terabytes of
+memory?  Why is this page in the physical memory map in the first
+place?
 
+Inquiring minds what to know,
 
---lXrJLg2sMSILQKj3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Apr 17, 2024 at 05:34:44PM +0800, Inochi Amaoto wrote:
-> On Wed, Apr 17, 2024 at 08:53:11AM GMT, michael.opdenacker@bootlin.com wr=
-ote:
-> > From: Michael Opdenacker <michael.opdenacker@bootlin.com>
-> >=20
-> > This adds initial support for the Milk-V Duo S board
-> > (https://milkv.io/duo-s), enabling the serial port,
-> > making it possible to boot Linux to the command line.
-> >=20
-> > Link: https://lore.kernel.org/linux-riscv/171266958507.1032617.94607491=
-36730849811.robh@kernel.org/T/#t
-> >=20
-> > Signed-off-by: Michael Opdenacker <michael.opdenacker@bootlin.com>
-> > ---
-> >  arch/riscv/boot/dts/sophgo/Makefile           |  1 +
-> >  .../boot/dts/sophgo/sg2000-milkv-duos.dts     | 34 +++++++++++++++++++
-> >  2 files changed, 35 insertions(+)
-> >  create mode 100644 arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
-> >=20
-> > diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/=
-sophgo/Makefile
-> > index 57ad82a61ea6..e008acb5240f 100644
-> > --- a/arch/riscv/boot/dts/sophgo/Makefile
-> > +++ b/arch/riscv/boot/dts/sophgo/Makefile
-> > @@ -1,4 +1,5 @@
-> >  # SPDX-License-Identifier: GPL-2.0
-> >  dtb-$(CONFIG_ARCH_SOPHGO) +=3D cv1800b-milkv-duo.dtb
-> >  dtb-$(CONFIG_ARCH_SOPHGO) +=3D cv1812h-huashan-pi.dtb
-> > +dtb-$(CONFIG_ARCH_SOPHGO) +=3D sg2000-milkv-duos.dtb
-> >  dtb-$(CONFIG_ARCH_SOPHGO) +=3D sg2042-milkv-pioneer.dtb
-> > diff --git a/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts b/arch/ri=
-scv/boot/dts/sophgo/sg2000-milkv-duos.dts
-> > new file mode 100644
-> > index 000000000000..c1ecf97d5e93
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
-> > @@ -0,0 +1,34 @@
-> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> > +/*
-> > + * Copyright (C) 2024 Michael Opdenacker <michael.opdenacker@bootlin.c=
-om>
-> > + */
-> > +
-> > +/dts-v1/;
-> > +
-> > +#include "cv1812h.dtsi"
-> > +
-> > +/ {
-> > +	model =3D "Milk-V Duo S";
-> > +	compatible =3D "milkv,duos", "sophgo,cv1812h";
-> > +
-> > +	aliases {
-> > +		serial0 =3D &uart0;
-> > +	};
-> > +
-> > +	chosen {
-> > +		stdout-path =3D "serial0:115200n8";
-> > +	};
-> > +
-> > +	memory@80000000 {
-> > +		device_type =3D "memory";
-> > +		reg =3D <0x80000000 0x20000000>;
-> > +	};
->=20
-> Add a cpu specific file, and move this to it.
-
-I take it that the memory is integrated into the package then?
-
---lXrJLg2sMSILQKj3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZh/ldQAKCRB4tDGHoIJi
-0iovAQCARQaWa7RNYeDT5gcMiHGFrrlUp4jfG1PWfDEvDUPcHQEA0kweLkHMyqlV
-Z8fNVOz8ExbRPorZsQGP0jhPfhdVRwg=
-=xsp0
------END PGP SIGNATURE-----
-
---lXrJLg2sMSILQKj3--
-
-
---===============1775879472550353430==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+						- Ted
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1775879472550353430==--
-
