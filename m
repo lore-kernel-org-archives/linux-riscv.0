@@ -4,61 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55343C4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 07:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8294FC4345F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 07:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7HS0tkJf/7+dN4HBzBAw+QATsQMBnLCRggUi2po0eA8=; b=g7CChl/86YH7dl
-	kg/xK+RlRJlX+Tv8qxlw2+IChuZ6OvmVoPJoj28Yw7WYZAL+XWIvxtKn8VoiTe8tw0A22XqrCjvJY
-	QCOTbt9Fxov4yJbqZhzytebmm2kKqgulIRkKG9y0YmnXnn9rMBkVtbugI7ZIkQs3XALt8BbUT6k33
-	DUqUG8gsp8vw50cIaeNq7SAjmTeovFmQiJOV6Gb5msTOCCZhEA7lBOQTRGd2abi/cZU5MRix44CcO
-	RK0NmqAfndcZF2s6c6LEAl19JISTwGCEnoEHXe/KiRIVGcX/K/8ZyhLmc+KKW/fd48WMWANIMk07Y
-	8chAifPc+3t8qMgAUTIw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FAus1e1mp7jqN2IYgeoJFqy2KkIks4SRp4VYy6EYstg=; b=ne3u4H5fT0LDUY
+	bO3vAAgpAtNE0RLJjpyTgkCxa1jgDHgcgD/SMCFAio2hHU1Fa+evZQHuEjhIytRjuJ3C5wD5f9psG
+	At91MJup39/57ZIbHtXxHcuuT9t8J6ax14KlY3IM8BZjwQEFvewuHxaYJfAD/96GiQYG80nSbCfHM
+	xbMVeWkln5lGVcbEiVjLNHMjdfH4GWr/HAH/i0t2lLZxg97w3WqNsQ70o0RjMj/AcPc+eT99UkXfo
+	ldDpNHFZjf1Ymj857UtJVcNQcZEcwOUow5Wt8Zh2OBLltCYdJHjtd/+aVFEH/sr+C8ie6Yewdx7d+
+	BN5S/lIbJS4Bm4M+efJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwzgT-0000000F203-32UI;
-	Wed, 17 Apr 2024 07:26:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rwzz8-0000000F5EE-1JBU;
+	Wed, 17 Apr 2024 07:45:38 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rwzgQ-0000000F1zf-14Tn
+	id 1rwzz5-0000000F5DG-2Bn4
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Apr 2024 07:26:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2FB8661280;
-	Wed, 17 Apr 2024 07:26:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EC43C072AA;
-	Wed, 17 Apr 2024 07:26:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713338776;
-	bh=NRb6yN6BiffLT8J6ikAQwA7PmQ1nwOOaImZKibq+JPc=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=oyjiaxXxi5PF3OhNR21u6QRUxmfn5vjVAVgkcfxbd+VINZDJc8tqAuABrtKNHrJEQ
-	 7LnOMAkoy+IHfKiXWOh0zonVbEZ1XBJKw3bf4Z/dKU1sk2gXjgVLlL8sJ3p/MZ/drC
-	 uEWjISNBLhdxY9We6mOvruIRJoRGyopeGStmcKQBZXY+rZ5WJSl2FZPp2vJSvv4Lvj
-	 3tqE9XGsw94wJBZvvt57iu5AJsw1Paz64So+RHVjBMTAJIASWZxzeQ87jLgyAV02MZ
-	 U3g3pz1h9+IDpgASKP32CagUHqQesmbsXtdxbHerJuVJw27ctS4leqv6+KaenBDEtg
-	 BC4g5MCxI9SsA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: takakura@valinux.co.jp, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, apatel@ventanamicro.com, bmeng.cn@gmail.com,
- atishp@rivosinc.com, daniel.thompson@linaro.org, arnd@arndb.de,
- sfr@canb.auug.org.au, akpm@linux-foundation.org,
- conor.dooley@microchip.com, samuel.holland@sifive.com
-Cc: taka@valinux.co.jp, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Ryo Takakura <takakura@valinux.co.jp>
-Subject: Re: [PATCH] RISC-V: Enable IPI CPU Backtrace
-In-Reply-To: <20240417050711.41930-1-takakura@valinux.co.jp>
-References: <20240417050711.41930-1-takakura@valinux.co.jp>
-Date: Wed, 17 Apr 2024 09:26:13 +0200
-Message-ID: <87bk68fo16.fsf@all.your.base.are.belong.to.us>
-MIME-Version: 1.0
+	Wed, 17 Apr 2024 07:45:36 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1e83a2a4f2cso637605ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Apr 2024 00:45:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1713339933; x=1713944733; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZPoAWzbhZDDol+wYAq5fuI0cDfPFo9qJjJEMHZ2Oirw=;
+        b=KAUrZMH02WVbEzVCrzWDtgjtwZCP8mI88A0ejxSCrwyGbZAv+1iOQ7WRwmuRV0PyC5
+         +ynzAvLjrEb6CxkAO80S3RyJr8oQoZRMRxIBzq+ydcCvaHpuohSujLT0lGA067jJmfWG
+         1i91HZUVpJsHbzA0V835/Xa31fbWgQGtXHWS+u/oqmD1kFX5hw3hsXALIFqmvd7oEz3b
+         qnb1CJTcpKLPGf3Ek+BtubsriqIrSen7sEOALUtmaY+SXeVLP08eMNwuwMRyqvZf/k/M
+         mYA4xZGlMdyr/Pqm9Pb5eV8yIy/lie4+iQCTTvaHdEhb3No4Op2hj9RzPMiodQowgPCA
+         sm3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713339933; x=1713944733;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZPoAWzbhZDDol+wYAq5fuI0cDfPFo9qJjJEMHZ2Oirw=;
+        b=XYu//B9clofsYdqGJUWB3Xqf8T2FsVqwAgLAALUVEu2utfW8POqOxea4xE76n1DS18
+         VjY/uTQtA16dIJTwWiG2h8UbghlximSpcpf4lUZJkkF0ZoyurTJ3DLR4e+Q+89pGYy8n
+         k75E0HPOrus8vwW6MHmTTlYhzWZY2KfgQM2EhiM883MCRvsHlQvSh+J9/2zAkZ8iDYvs
+         W7TCHqsTZM46/dyMGr3SRHXyDh/FPucZViWIfjvFn60tK+4lY/AZVhzBANNjI8Sg7D3a
+         NKfWLG1jzdMQf2DwADujLqQad5jnreLgSvDqvoYpeQnEQ2Ai8Zk5a+s3NmRSADGddwH3
+         aotQ==
+X-Gm-Message-State: AOJu0YwqzdrhYnTGfSvrG84oQAf5gVn1qWcuJwvDkEQzWiRjKz8ZlP0T
+	p2pQYMm8S/HbLdS1EsSSkHuFYURXOTt+oH6HVJEau7BtDqgknu8cFLGCaRBU7lNGLR2vGp4Q4WL
+	SenkPHusH9KhW0OOSfmBuAOwe8BqF/GodFJnx6S8lgfNL6Jxa9jXBzXKrF8sb9aGP69BkZfMtuH
+	J69MJHsGvSmUamsDQSvFjiGqH87ozI6YV8ldXvtHq/Xvi1V4v1Lc06wByofg==
+X-Google-Smtp-Source: AGHT+IFR1b6z12QUhENSnxpg4sEOSZJTfDBt75s7Dwfzk8g2spVAGKxFZ0v8/ABEyJRPTbu4tmXlkA==
+X-Received: by 2002:a17:902:7285:b0:1e5:4743:deba with SMTP id d5-20020a170902728500b001e54743debamr14119071pll.58.1713339933346;
+        Wed, 17 Apr 2024 00:45:33 -0700 (PDT)
+Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id g21-20020a170902c39500b001e7b7a79340sm3166065plg.267.2024.04.17.00.45.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Apr 2024 00:45:33 -0700 (PDT)
+From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org
+Cc: greentime.hu@sifive.com,
+	vincent.chen@sifive.com,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH v2 0/2] RISCV: KVM: Avoid lock inversion in SBI_EXT_HSM_HART_START
+Date: Wed, 17 Apr 2024 15:45:24 +0800
+Message-Id: <20240417074528.16506-1-yongxuan.wang@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240417_002618_414557_F57962D6 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20240417_004535_571581_B8DBAB15 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,60 +90,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-dGFrYWt1cmFAdmFsaW51eC5jby5qcCB3cml0ZXM6Cgo+IEZyb206IFJ5byBUYWtha3VyYSA8dGFr
-YWt1cmFAdmFsaW51eC5jby5qcD4KPgo+IEFkZCBDUFUgYmFja3RyYWNlIGZlYXR1cmUgdXNpbmcg
-SVBJIG9uIHJpc2N2Lgo+IEN1cnJlbnRseSwgcmlzY3YgZG9lc24ndCB5ZXQgc3VwcG9ydCB0aGUg
-ZmVhdHVyZSB3aGlsZSBvdGhlcgo+IGFyY2hpdGVjdHVyZXMgZG8uIEFzIElQSSBtdWx0aXBsZXhp
-bmcgYWxsb3dzIHRvIGhhbmRsZSAKPiBtdWx0aXBsZSBJUElzLCBJIHRoaW5rIHRoaXMgZmVhdHVy
-ZSBjYW4gYWxzbyBiZSBlbmFibGVkIAo+IG9uIHJpc2N2IGJ5IGFkZGluZyBJUEkuCj4KPiBUaGlz
-IHBhdGNoIGRlZmluZXMgYXJjaF90cmlnZ2VyX2FsbF9jcHVfYmFja3RyYWNlKCkgd2hpY2ggdHJp
-Z2dlcnMKPiB0aGUgSVBJIGZvciBDUFUgYmFja3RyYWNlLgo+IEl0IHdpbGwgYmUgdHJpZ2dlcmVk
-IGluIHRoZSBldmVudHMgb2Ygb29wcy9wYW5pYyB3aGVuIG9wdGlvbnMKPiAob29wc19hbGxfY3B1
-X2JhY2t0cmFjZS9wYW5pY19wcmludCkgYXJlIHNldCBhY2NvcmRpbmdseS4KPgo+IEJlbG93IGlz
-IHRoZSBjYXNlIG9mIG9vcHMgd2l0aCB0aGUgb29wc19hbGxfY3B1X2JhY2t0cmFjZSAKPiBlbmFi
-bGVkLgo+Cj4gJCBzeXNjdGwga2VybmVsLm9vcHNfYWxsX2NwdV9iYWNrdHJhY2U9MQo+Cj4gdHJp
-Z2dlcmluZyBvb3BzIHNob3dzOgo+IFsgIDQzNS43MTY3NTRdIE5NSSBiYWNrdHJhY2UgZm9yIGNw
-dSAzCj4gWyAgNDM1LjcxNjg5M10gQ1BVOiAzIFBJRDogNjIxIENvbW06IGluOmlta2xvZyBUYWlu
-dGVkOiBHICAgICAgICAgICBPRSAgICAgIDYuOS4wLXJjNCAjMQo+IFsgIDQzNS43MTcwODZdIEhh
-cmR3YXJlIG5hbWU6IHJpc2N2LXZpcnRpbyxxZW11IChEVCkKPiBbICA0MzUuNzE3MTgyXSBlcGMg
-OiBmYWxsYmFja19zY2FsYXJfdXNlcmNvcHkrMHg4LzB4ZGMKPiBbICA0MzUuNzE3MzAwXSAgcmEg
-OiBfY29weV90b191c2VyKzB4MzIvMHg1OAo+IFsgIDQzNS43MTczOTFdIGVwYyA6IGZmZmZmZmZm
-ODBjMzNkODggcmEgOiBmZmZmZmZmZjgwNTk4ZTNjIHNwIDogZmYyMDAwMDAwMGU4M2I1MAo+IFsg
-IDQzNS43MTc1NDRdICBncCA6IGZmZmZmZmZmODIwNjZiZjAgdHAgOiBmZjYwMDAwMDkxZmQ3MDAw
-IHQwIDogMzM2MzMwMzg2NjY2MDAwMAo+IFsgIDQzNS43MTc3MTFdICB0MSA6IDAwMDAwMDAwMDAw
-MDAwNWIgdDIgOiAzMzYzMzAzODY2NjY2NjY2IHMwIDogZmYyMDAwMDAwMGU4M2I2MAo+IFsgIDQz
-NS43MTc4NzRdICBzMSA6IDAwMDAwMDAwMDAwMDAxYWYgYTAgOiAwMDAwN2ZmNzRkM2RmNzRmIGEx
-IDogZmY2MDAwMDA4MmNkYzgwMAo+IFsgIDQzNS43MTgwNDBdICBhMiA6IDAwMDAwMDAwMDAwMDAw
-M2MgYTMgOiAwMDAwMDAwMDAwMDAwMDAwIGE0IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgIDQzNS43
-MTgxOTZdICBhNSA6IDAwZmZmZmZmZmZmZmZmYzQgYTYgOiAwMDAwMDAwMDAwMDAwMDAwIGE3IDog
-MDAwMDAwMDAwMDAwMDAxMAo+IFsgIDQzNS43MTgzMzNdICBzMiA6IGZmNjAwMDAwODJjZGM4MDAg
-czMgOiBmZmZmZmZmZjgyMDY2OTEwIHM0IDogMDAwMDAwMDAwMDAwMWRmMQo+IFsgIDQzNS43MTg0
-NzVdICBzNSA6IGZmZmZmZmZmODIwNmE1YjggczYgOiAwMDAwN2ZmNzRkM2RmNzRmIHM3IDogZmZm
-ZmZmZmY4MjA2YTViMAo+IFsgIDQzNS43MTg2MTZdICBzOCA6IGZmNjAwMDAwODJjZGM4MDAgczkg
-OiBmZmZmZmZmZjgxZTI2MjA4IHMxMDogMDAwMDAwMDAwMDAwMDAzYwo+IFsgIDQzNS43MTg3NjBd
-ICBzMTE6IGZmZmZmZmZmODIwNmE1YWQgdDMgOiBmZjYwMDAwMDgyY2RjODEyIHQ0IDogZmY2MDAw
-MDA4MmNkYzgxMgo+IFsgIDQzNS43MTg5MDldICB0NSA6IGZmNjAwMDAwODJjZGM4MTggdDYgOiAw
-MDAwMDAwMDAwMDQwMDAwCj4gWyAgNDM1LjcxOTAxOV0gc3RhdHVzOiAwMDAwMDAwMDAwMDQwMTIw
-IGJhZGFkZHI6IDAwMDAwMDAwMDAwMDAwMDAgY2F1c2U6IDgwMDAwMDAwMDAwMDAwMDEKPiBbICA0
-MzUuNzE5MTkxXSBbPGZmZmZmZmZmODBjMzNkODg+XSBmYWxsYmFja19zY2FsYXJfdXNlcmNvcHkr
-MHg4LzB4ZGMKPiBbICA0MzUuNzE5MzMwXSBbPGZmZmZmZmZmODAwOTRlZWU+XSBzeXNsb2dfcHJp
-bnQrMHgxZjQvMHgyYjIKPiBbICA0MzUuNzE5NDQ2XSBbPGZmZmZmZmZmODAwOTVlMTA+XSBkb19z
-eXNsb2cucGFydC4wKzB4YjAvMHgzMjYKPiBbICA0MzUuNzE5NTk0XSBbPGZmZmZmZmZmODAwOTY5
-MmU+XSBkb19zeXNsb2crMHg2Ni8weDg4Cj4gWyAgNDM1LjcxOTgxNl0gWzxmZmZmZmZmZjgwM2Ex
-YTgwPl0ga21zZ19yZWFkKzB4NDQvMHg1Ywo+IFsgIDQzNS43MjAwMTddIFs8ZmZmZmZmZmY4MDM4
-ZWE5Mj5dIHByb2NfcmVnX3JlYWQrMHg3YS8weGE4Cj4gWyAgNDM1LjcyMDI1MV0gWzxmZmZmZmZm
-ZjgwMmZhZTIwPl0gdmZzX3JlYWQrMHg5NC8weDI2NAo+IFsgIDQzNS43MjA0NzhdIFs8ZmZmZmZm
-ZmY4MDJmYjkwNj5dIGtzeXNfcmVhZCsweDY0LzB4ZTQKPiBbICA0MzUuNzIwNzA5XSBbPGZmZmZm
-ZmZmODAyZmI5YTY+XSBfX3Jpc2N2X3N5c19yZWFkKzB4MjAvMHgyYwo+IFsgIDQzNS43MjA4ODBd
-IFs8ZmZmZmZmZmY4MGM0M2VhMj5dIGRvX3RyYXBfZWNhbGxfdSsweDYwLzB4MWQ0Cj4gWyAgNDM1
-LjcyMTIzNl0gWzxmZmZmZmZmZjgwYzRmNzRjPl0gcmV0X2Zyb21fZXhjZXB0aW9uKzB4MC8weDY0
-Cj4KPiBTaWduZWQtb2ZmLWJ5OiBSeW8gVGFrYWt1cmEgPHRha2FrdXJhQHZhbGludXguY28uanA+
-CgpSZXZpZXdlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Documentation/virt/kvm/locking.rst advises that kvm->lock should be
+acquired outside vcpu->mutex and kvm->srcu. However, when KVM/RISC-V
+handling SBI_EXT_HSM_HART_START, the lock ordering is vcpu->mutex,
+kvm->srcu then kvm->lock.
+
+The use of kvm->lock over there ensures that only one VCPU can update
+the reset context and call SBI_EXT_HSM_HART_START for the target VCPU
+simultaneously. This patchset divides it into 2 separate spinlock, and
+replace vcpu->power_off with vcpu->mp_state.
+
+---
+v2:
+- rename the hsm_start_lock to mp_state_lock
+- replace vcpu->power_off with vcpu->mp_state in PATCH1
+- add vcpu->reset_cntx_lock in PATCH2
+
+Yong-Xuan Wang (2):
+  RISCV: KVM: Introduce mp_state_lock to avoid lock inversion in
+    SBI_EXT_HSM_HART_START
+  RISCV: KVM: Introduce vcpu->reset_cntx_lock
+
+ arch/riscv/include/asm/kvm_host.h |  8 +++-
+ arch/riscv/kvm/vcpu.c             | 62 ++++++++++++++++++++++++-------
+ arch/riscv/kvm/vcpu_sbi.c         |  7 +++-
+ arch/riscv/kvm/vcpu_sbi_hsm.c     | 26 +++++++++----
+ 4 files changed, 78 insertions(+), 25 deletions(-)
+
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
