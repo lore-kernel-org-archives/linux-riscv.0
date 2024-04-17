@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DCFC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 19:35:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFCC6C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 19:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7S7ptXCgWfWZyYTeMTJXH3p30M5biUUusof1KHcHIVA=; b=o5TxFl7YlcVXHi
-	B7GfacT/NPuVAh3OfM34skL6xYxaNrWVyvgPX9Eqcfa2Pht3qC1jLcfnnEbPvm4dm9MtI4dzwlHaH
-	Z613x4ZGSLu4D5vhhO/fPjtMAVGT7OPpptlpC5PxCXThgqXnJxpS/N0RJubcmSt3dOQfxEWFbuTVA
-	xTppIEXcZqgM8+xyivJx6z6S2lSGeBVP7UbsPqRAh08LmWmDAi5311NPBq9x7DSYqgloU/c7aJpWx
-	OaiKsBFKwPNadO3PyKqi4+vq0pEkbmgxE/LGmBT/Fqgbp+9Ys+aupiv0i8mO+l0815vvDJSLrV1P4
-	W6f4Tn8X2gBae2bjTIIQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3praiwrDC5NtrDPqNGx8ZWps+wyL+fCCHI9r/EcNfL0=; b=FW6n08vxRpNACXgBJV3XneyKCZ
+	PqtiYOQCv2LObUh4c/N2gHPlXwNa/8VDVH3ZeAMNgBOuMoExqTh//WgU0jF2/+VEgvL3z+uc6OUif
+	fQu44RvNGcHHcgGQLemzhzktc3Mm8YOoDVxDXNR0wESVufbzTSxoBB3YWRbwKgSvJSJp4nQegC+Bo
+	MSMYM+yB7gnVSU8BR2KCb1aV7x6vN/Wktm89q7lt6TC5arANxa6lw1wGGhIERTu8/uvRW8yURVxik
+	4Kw0qfJe3lcJP+xH7bmET28YdT9j/eIj+sUQQ9zZi5mJ1gz/PX8tqSlJOMMCzDwNaqCOrnSng0TP4
+	wXVnuNSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxB4L-0000000HNZp-3Jae;
-	Wed, 17 Apr 2024 19:35:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rxB6B-0000000HNzF-1YcE;
+	Wed, 17 Apr 2024 19:37:39 +0000
+Received: from smtp.domeneshop.no ([2a01:5b40:0:3006::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxB4I-0000000HNYT-0Kvb
+	id 1rxB64-0000000HNxF-2HpS
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Apr 2024 19:35:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F2ECF6167C;
-	Wed, 17 Apr 2024 19:35:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3909CC072AA;
-	Wed, 17 Apr 2024 19:35:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713382540;
-	bh=D7V7cK/8mNacv3vFISbQfmWRwzEyZTIcIMLY5u7r1pA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hb+8+TXVdmYjhheg9GEtOlw+rpmMP0ryAmTR3HCIbTH3jWoQmDTy6dI0KIzG5O6z4
-	 RoXopQ9dEv7BCk9+6snZO118PbwU8tPqVRWRXdE2+J4iCXcvysOcBu1jdgJBONZ0HZ
-	 grOlXjP6FnouSABVzLIq83/U/jFXay0lcKNNKLd9CxHvA4GNvNfFVBsMDeIa8QK9yq
-	 SdJX1AIklVERA6yFqxMhRf91wZJoxR0/V+Ybmkc3M1Q96cansBf9aQ+vWqpb4w0WCe
-	 uftHf9VatHr1/2PjLjo7eYVe9nYjSsgzYZd7crt0+dFDxVUm2gntDjtBwBCfof006e
-	 a/7poxFCaJYnA==
-Date: Wed, 17 Apr 2024 22:34:28 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Nam Cao <namcao@linutronix.de>
-Cc: Matthew Wilcox <willy@infradead.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Andreas Dilger <adilger@dilger.ca>,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	linux-fsdevel <linux-fsdevel@vger.kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Theodore Ts'o <tytso@mit.edu>,
-	Ext4 Developers List <linux-ext4@vger.kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: riscv32 EXT4 splat, 6.8 regression?
-Message-ID: <ZiAkRMUfiPDUGPdL@kernel.org>
-References: <8734rlo9j7.fsf@all.your.base.are.belong.to.us>
- <Zh6KNglOu8mpTPHE@kernel.org>
- <20240416171713.7d76fe7d@namcao>
- <20240416173030.257f0807@namcao>
- <87v84h2tee.fsf@all.your.base.are.belong.to.us>
- <20240416181944.23af44ee@namcao>
- <Zh6n-nvnQbL-0xss@kernel.org>
- <Zh6urRin2-wVxNeq@casper.infradead.org>
- <Zh7Ey507KXIak8NW@kernel.org>
- <20240417003639.13bfd801@namcao>
+	Wed, 17 Apr 2024 19:37:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=fjasle.eu;
+	s=ds202307; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=C7UOGz4cfMuUlgzQCx0ka8A1vycTIcJZk/BYF5U5pwA=; b=HC2IFy++2Z/KFfCvOBBSgz0+YU
+	Qh6O1lghVKnLxii3U72e6jpyeMAPzt1C4cih21Ms9FAz+oAZrzva931eMyUdIifIe48V5UhCczHGi
+	LDNuDcOOk5DvF9Doj7KCkE3gGcreOYjuS2xoUo4hVLh1Csy4PxvS2fCJJSZ05SLFdlVac331ZLVH8
+	EvQejIVV5iNYw6SVppD9wz/vtMerqeIJFbDZR6X9TZUP/N0Pec6v8E1ykfPk+W/dakPk+h7h6Jm0n
+	d5M6+/7/dVthAWw6eS0EvfXAw/kOR8XOZvK3k3Np2F2PHyKNStU1kvBmpBkFzWmsYkGtfL6s/sfBE
+	KDch3bAQ==;
+Received: from [2001:9e8:9e8:6e01:6f0:21ff:fe91:394] (port=58278 helo=bergen.fjasle.eu)
+	by smtp.domeneshop.no with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <nicolas@fjasle.eu>)
+	id 1rxB5o-001R6W-V3;
+	Wed, 17 Apr 2024 21:37:17 +0200
+Date: Wed, 17 Apr 2024 21:37:08 +0200
+From: Nicolas Schier <nicolas@fjasle.eu>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-kbuild@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] kbuild: buildtar: add comments about inconsistent
+ package generation
+Message-ID: <ZiAk5Ikh-UFZ2554@bergen.fjasle.eu>
+References: <20240414174139.3001175-1-masahiroy@kernel.org>
+ <CAK7LNATqLwewFaMNEy6yDguv5mNoGZJus9p4kbyMOGV9T+yopQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240417003639.13bfd801@namcao>
+In-Reply-To: <CAK7LNATqLwewFaMNEy6yDguv5mNoGZJus9p4kbyMOGV9T+yopQ@mail.gmail.com>
+X-Operating-System: Debian GNU/Linux trixie/sid
+Jabber-ID: nicolas@jabber.no
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240417_123542_248188_559D961C 
-X-CRM114-Status: GOOD (  33.95  )
+X-CRM114-CacheID: sfid-20240417_123735_409996_417377DA 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,100 +76,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0233745604866082842=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 17, 2024 at 12:36:39AM +0200, Nam Cao wrote:
-> On 2024-04-16 Mike Rapoport wrote:
-> > On Tue, Apr 16, 2024 at 06:00:29PM +0100, Matthew Wilcox wrote:
-> > > On Tue, Apr 16, 2024 at 07:31:54PM +0300, Mike Rapoport wrote:
-> > > > > -	if (!IS_ENABLED(CONFIG_64BIT)) {
-> > > > > -		max_mapped_addr = __pa(~(ulong)0);
-> > > > > -		if (max_mapped_addr == (phys_ram_end - 1))
-> > > > > -			memblock_set_current_limit(max_mapped_addr - 4096);
-> > > > > -	}
-> > > > > +	memblock_reserve(__pa(-PAGE_SIZE), PAGE_SIZE);
-> > > > 
-> > > > Ack.
-> > > 
-> > > Can this go to generic code instead of letting architecture maintainers
-> > > fall over it?
-> > 
-> > Yes, it's just have to happen before setup_arch() where most architectures
-> > enable memblock allocations.
-> 
-> This also works, the reported problem disappears.
-> 
-> However, I am confused about one thing: doesn't this make one page of
-> physical memory inaccessible?
-> 
-> Is it better to solve this by setting max_low_pfn instead? Then at
-> least the page is still accessible as high memory.
 
-It could be if riscv had support for HIGHMEM.
- 
-> Best regards,
-> Nam
-> 
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index fa34cf55037b..6e3130cae675 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -197,7 +197,6 @@ early_param("mem", early_mem);
->  static void __init setup_bootmem(void)
->  {
->  	phys_addr_t vmlinux_end = __pa_symbol(&_end);
-> -	phys_addr_t max_mapped_addr;
->  	phys_addr_t phys_ram_end, vmlinux_start;
->  
->  	if (IS_ENABLED(CONFIG_XIP_KERNEL))
-> @@ -235,23 +234,9 @@ static void __init setup_bootmem(void)
->  	if (IS_ENABLED(CONFIG_64BIT))
->  		kernel_map.va_pa_offset = PAGE_OFFSET - phys_ram_base;
->  
-> -	/*
-> -	 * memblock allocator is not aware of the fact that last 4K bytes of
-> -	 * the addressable memory can not be mapped because of IS_ERR_VALUE
-> -	 * macro. Make sure that last 4k bytes are not usable by memblock
-> -	 * if end of dram is equal to maximum addressable memory.  For 64-bit
-> -	 * kernel, this problem can't happen here as the end of the virtual
-> -	 * address space is occupied by the kernel mapping then this check must
-> -	 * be done as soon as the kernel mapping base address is determined.
-> -	 */
-> -	if (!IS_ENABLED(CONFIG_64BIT)) {
-> -		max_mapped_addr = __pa(~(ulong)0);
-> -		if (max_mapped_addr == (phys_ram_end - 1))
-> -			memblock_set_current_limit(max_mapped_addr - 4096);
+--===============0233745604866082842==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="9IC+ahEzzWfG8TN+"
+Content-Disposition: inline
 
-To be precisely strict about the conflict between mapping a page at
-0xfffff000 and IS_ERR_VALUE, memblock should not allocate the that page, so
-memblock_set_current_limit() should remain. It does not need all the
-surrounding if, though just setting the limit for -PAGE_SIZE should do.
 
-Although I suspect that this call to memblock_set_current_limit() is what
-caused the splat in ext4. Without that limit enforcement, the last page
-would be the first one memblock allocates and it most likely would have
-ended in the kernel page tables and would never be checked for IS_ERR. With
-the limit set that page made it to the buddy and got allocated by the code
-that actually does IS_ERR checks.
+--9IC+ahEzzWfG8TN+
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> -	}
-> -
->  	min_low_pfn = PFN_UP(phys_ram_base);
-> -	max_low_pfn = max_pfn = PFN_DOWN(phys_ram_end);
-> +	max_pfn = PFN_DOWN(phys_ram_end);
-> +	max_low_pfn = min(max_pfn, PFN_DOWN(__pa(-PAGE_SIZE)));
->  	high_memory = (void *)(__va(PFN_PHYS(max_low_pfn)));
->  
->  	dma32_phys_limit = min(4UL * SZ_1G, (unsigned long)PFN_PHYS(max_low_pfn));
+On Tue 16 Apr 2024 11:07:48 GMT, Masahiro Yamada wrote:
+> On Mon, Apr 15, 2024 at 2:42=E2=80=AFAM Masahiro Yamada=20
+> <masahiroy@kernel.org> wrote:
+> >
+> > scripts/package/buildtar checks some kernel packages, and copies the
+> > first image found. This may potentially produce an inconsistent (and
+> > possibly wrong) package.
+> >
+> > For instance, the for-loop for arm64 checks Image.{bz2,gz,lz4,lzma,lzo},
+> > and vmlinuz.efi, then copies the first image found, which might be a
+> > stale image.
+> >
+> > When CONFIG_EFI_ZBOOT is enabled in the pristine source tree,
+> > 'make ARCH=3Darm64 tar-pkg' will build and copy vmlinuz.efi. This is the
+> > expected behavior.
+> >
+> > If you build the kernel with CONFIG_EFI_ZBOOT, Image.gz will be created,
+>=20
+>=20
+> The correct sentence is
+>=20
+> If you build the kernel with CONFIG_EFI_ZBOOT disabled, ...
 
--- 
-Sincerely yours,
-Mike.
+Thanks, I appreciate the detailed descriptions and comments.=20
+
+Reviewed-by: Nicolas Schier <nicolas@fjasle.eu>
+
+Kind regards,
+Nicolas
+
+
+--9IC+ahEzzWfG8TN+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEh0E3p4c3JKeBvsLGB1IKcBYmEmkFAmYgJN4ACgkQB1IKcBYm
+Emm0+Q/5AaKrBHVyleIlKiQPc4+aVIWSJxINp1Rz8+XO54115MSL2/9lnUvVKzO9
+/cDZfsC/lFwPRtICfXww9fqPgNWKeDpKRlIKH/KcfUpS8igt5gFSx+PbOO8lfKib
+67FFL/WTN3reNzMt/aRTWIoSmtz8euPWFBV2534sHwtigniZGULmfwCzAMgFIMZe
+glW8iGGOddQCo4veXdLLiOspuEis1NAeNLD0ziAcREud4LF7z3XBOfMRzng7vQwk
+RavQoqTJWCdVo3ROuCYkeS+T56RyzibuVZB2CNhCLZ9pjfgr2ghf7hgE3grGfakv
+BnPsrKaY5HDjOKgee1kR3CNSFZF0/7hgaOkqGzLjndwEWcxcKYhXVxrs3gpIkojX
+2uvEJ5o23chY3odVNNKGJ+sM0MbuRHN50ewj9rZY0zFFpEnEyXMW63/GbV0zyH13
+QWjwG0taC2ur6q7CqVIFUGszTlhfoEBw6i0dBhL1URvzkvpBHezOzMWQPpU8zMgd
+nKp5V1EhvYUNcFSumykYwaFUZfW37WQrQoAV4YDmXiEOBZSDrWftnOHFzZ1nPUbB
+Jf7QfvTFX/Y06w+nk7JMK/3zPZ4W0Hema5YzJI31rwAnDZ3tsoPLN8DdrT782QwM
+UVwML0pd5QAuHCcj8Y/98nHKWxMxS8b2dLR8gZmi7Cn3bI3Jkrs=
+=bEWj
+-----END PGP SIGNATURE-----
+
+--9IC+ahEzzWfG8TN+--
+
+
+--===============0233745604866082842==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0233745604866082842==--
+
