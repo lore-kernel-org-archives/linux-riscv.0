@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3983C04FFF
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 14:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01135C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2024 15:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xo27WbPselHEWDsCQWjy/SD8FbQkMInoycpPwBe93Yg=; b=li+CqiNnCyj6TYDKAOXSXFXuvK
-	AR4/F14sByZCubK6WSj8w7waJNtl8xOHuM24qsvBbWo540alqPjDlRylZAR6fzZIeCJKO0JCpT9iy
-	ookheO0OoSFGQO8/xC+kJdpmuPr7Ox/BbMe3kAs4X+jJBfiMLmy1DhYSOMB8L1GIIQCDZ56IIP1mD
-	nLd53dL2QwkYuEsr16vUB7Q8pwLo4V25IhsJUOkrt8YM/xQEm9RbnqU2NKBsWuROn817+TdDUVNVy
-	BH9sgEzDxMYRxYAe31G9Q4xlnIcx2YFTFffSzPSelR2NUprlMJECvrGbmlIYXSmDY6R1ijhks8N9i
-	RWwuVl2w==;
+	bh=pWAbjBU38A4EkqafnAF9wCvIydqUYzSGV2JWnTr6nFk=; b=jZVBPzz3kNzWxqczLComZTJmpp
+	RTzE/s64tZF2XSJqdVvpiljiI9KEqV4csCuTw/cx6AtiMaxngm1K70ch+dP7G91NODf8ijqCYPqH2
+	sPOO7dOXNt+aant0TRzTHmhqb7k12MH/Xg6HAsSkHyFUIyVuqJ447zaz9PJHgB2Zp0WGYa76KlY7t
+	BwXqszDczKZ6BBz+YJfdJQQsL8spaoo2sUZMghWc0I5nCSVtmt6DaB6gRItjw8qOLtKMyp/kbm9QB
+	WCXRV1pb1ISa1FWZWq1WuD5sRnsUymQF8O6+tIqplrpGITgy2GDniFIM30KL+kD2MuGoDMX0uTWpD
+	FbEDcA8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rx6cS-0000000GRDR-04p2;
-	Wed, 17 Apr 2024 14:50:40 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rx6s1-0000000GUsF-35rw;
+	Wed, 17 Apr 2024 15:06:45 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rx6cN-0000000GRAj-3NvL;
-	Wed, 17 Apr 2024 14:50:37 +0000
+	id 1rx6ru-0000000GUpC-3fu1
+	for linux-riscv@lists.infradead.org;
+	Wed, 17 Apr 2024 15:06:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5BC44CE139D;
-	Wed, 17 Apr 2024 14:50:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE0ADC072AA;
-	Wed, 17 Apr 2024 14:50:26 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id E3D29CE12F4;
+	Wed, 17 Apr 2024 15:06:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67620C072AA;
+	Wed, 17 Apr 2024 15:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713365431;
-	bh=FykH/T46P+7wCQWaQbgZ5I3yQADVR9jYDVfl8lpXZM8=;
+	s=k20201202; t=1713366393;
+	bh=csO/QBIY5zA9U55g4bmdwzHQOXGd09d6ZZbozBhSl4k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S0TE9tNy0I6n0GmJCfpRHv5LLvD0sH8KvnXmmKZyKXPN+5gEXa1Q4AzpPYORPb1xh
-	 6FZSy9x854VCtsJj3uGAdR0tZAl4NgVGuKIpFvzOv7wQ/K1slgqe+H/pZwCHuXNc+I
-	 OdqHsqKaB1sZzrNKlgxgQSHT6SVN4ew8Xt1FvR89JkG94e9Y5WUwwr6m3CcTva7TVU
-	 axGqATm2OFiDzneSdmBmoG6CAyUFtgtaE6OtFXe+jyNkvltWV5OGGXBYFS1/HqHN+1
-	 VATui1UTMFtHkyEBpfjqFA3OoMm0FuBmS5Qtw6Vov597ADDOjsY7mHjcUEne6ZAG6x
-	 lLhgT/5aLIfzg==
-Date: Wed, 17 Apr 2024 15:50:24 +0100
+	b=WWbx16CozNaA6xrWLXzFjR3qfMbBP2psA8necDIweTlfJOzHkeCWSIs0UfQstgqxm
+	 D6B572ou01naWEDwbo/TJYW8VJxw53oDsAyBv9/DptJ42ri4yEhUBEwvStUXt7B+Tu
+	 01QoTScXr7YvGckqHEYzfm5QjLeY3eVV/KA6Ozp1spGnZvUWWoscoNYb8L1BRbWVVJ
+	 cHgsrGg7ei51FkYVIoToGWyBGkyTEyy/aeMEgffHXaaEnpYkjBlF6sUd+D+8IJVd4L
+	 +sx92YX9tvwz4ucnxrqCRjUm86f0rEmA7+WYBNH/YS+yAW07xfeHxJqgpO6h6GUO6i
+	 YTgnKq+fwcOcA==
+Date: Wed, 17 Apr 2024 16:06:29 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Rob Herring <robh@kernel.org>,
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: michael.opdenacker@bootlin.com, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Evan Green <evan@rivosinc.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 13/17] riscv: vector: Support xtheadvector save/restore
-Message-ID: <20240417-semisweet-willed-1ce1098d8c41@spud>
-References: <20240415-dev-charlie-support_thead_vector_6_9-v2-0-c7d68c603268@rivosinc.com>
- <20240415-dev-charlie-support_thead_vector_6_9-v2-13-c7d68c603268@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] riscv: dts: sophgo: add initial Milk-V Duo S
+ board support
+Message-ID: <20240417-guts-overture-b04cd1b8565a@spud>
+References: <20240417065311.3881023-1-michael.opdenacker@bootlin.com>
+ <20240417065311.3881023-3-michael.opdenacker@bootlin.com>
+ <IA1PR20MB49539A380E44459ACE19DEB6BB0F2@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <20240415-dev-charlie-support_thead_vector_6_9-v2-13-c7d68c603268@rivosinc.com>
+In-Reply-To: <IA1PR20MB49539A380E44459ACE19DEB6BB0F2@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240417_075036_230155_4855BB9D 
-X-CRM114-Status: GOOD (  23.91  )
+X-CRM114-CacheID: sfid-20240417_080639_301748_D20E25B7 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,122 +75,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6117563121103748742=="
+Content-Type: multipart/mixed; boundary="===============1775879472550353430=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6117563121103748742==
+--===============1775879472550353430==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TWtuz8+j2Sj8ixHN"
+	protocol="application/pgp-signature"; boundary="lXrJLg2sMSILQKj3"
 Content-Disposition: inline
 
 
---TWtuz8+j2Sj8ixHN
+--lXrJLg2sMSILQKj3
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Apr 15, 2024 at 09:12:10PM -0700, Charlie Jenkins wrote:
+On Wed, Apr 17, 2024 at 05:34:44PM +0800, Inochi Amaoto wrote:
+> On Wed, Apr 17, 2024 at 08:53:11AM GMT, michael.opdenacker@bootlin.com wr=
+ote:
+> > From: Michael Opdenacker <michael.opdenacker@bootlin.com>
+> >=20
+> > This adds initial support for the Milk-V Duo S board
+> > (https://milkv.io/duo-s), enabling the serial port,
+> > making it possible to boot Linux to the command line.
+> >=20
+> > Link: https://lore.kernel.org/linux-riscv/171266958507.1032617.94607491=
+36730849811.robh@kernel.org/T/#t
+> >=20
+> > Signed-off-by: Michael Opdenacker <michael.opdenacker@bootlin.com>
+> > ---
+> >  arch/riscv/boot/dts/sophgo/Makefile           |  1 +
+> >  .../boot/dts/sophgo/sg2000-milkv-duos.dts     | 34 +++++++++++++++++++
+> >  2 files changed, 35 insertions(+)
+> >  create mode 100644 arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+> >=20
+> > diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/=
+sophgo/Makefile
+> > index 57ad82a61ea6..e008acb5240f 100644
+> > --- a/arch/riscv/boot/dts/sophgo/Makefile
+> > +++ b/arch/riscv/boot/dts/sophgo/Makefile
+> > @@ -1,4 +1,5 @@
+> >  # SPDX-License-Identifier: GPL-2.0
+> >  dtb-$(CONFIG_ARCH_SOPHGO) +=3D cv1800b-milkv-duo.dtb
+> >  dtb-$(CONFIG_ARCH_SOPHGO) +=3D cv1812h-huashan-pi.dtb
+> > +dtb-$(CONFIG_ARCH_SOPHGO) +=3D sg2000-milkv-duos.dtb
+> >  dtb-$(CONFIG_ARCH_SOPHGO) +=3D sg2042-milkv-pioneer.dtb
+> > diff --git a/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts b/arch/ri=
+scv/boot/dts/sophgo/sg2000-milkv-duos.dts
+> > new file mode 100644
+> > index 000000000000..c1ecf97d5e93
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+> > @@ -0,0 +1,34 @@
+> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > +/*
+> > + * Copyright (C) 2024 Michael Opdenacker <michael.opdenacker@bootlin.c=
+om>
+> > + */
+> > +
+> > +/dts-v1/;
+> > +
+> > +#include "cv1812h.dtsi"
+> > +
+> > +/ {
+> > +	model =3D "Milk-V Duo S";
+> > +	compatible =3D "milkv,duos", "sophgo,cv1812h";
+> > +
+> > +	aliases {
+> > +		serial0 =3D &uart0;
+> > +	};
+> > +
+> > +	chosen {
+> > +		stdout-path =3D "serial0:115200n8";
+> > +	};
+> > +
+> > +	memory@80000000 {
+> > +		device_type =3D "memory";
+> > +		reg =3D <0x80000000 0x20000000>;
+> > +	};
+>=20
+> Add a cpu specific file, and move this to it.
 
-> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-> index 6727d1d3b8f2..f42eaa8178e9 100644
-> --- a/arch/riscv/kernel/vector.c
-> +++ b/arch/riscv/kernel/vector.c
-> @@ -33,10 +33,24 @@ int riscv_v_setup_vsize(void)
->  {
->  	unsigned long this_vsize;
-> =20
-> -	/* There are 32 vector registers with vlenb length. */
-> -	riscv_v_enable();
-> -	this_vsize =3D csr_read(CSR_VLENB) * 32;
-> -	riscv_v_disable();
-> +	/*
-> +	 * This is called before alternatives have been patched so can't use
-> +	 * riscv_has_vendor_extension_unlikely
+I take it that the memory is integrated into the package then?
 
-() after that function name please.
-
-> +	 */
-> +	if (has_xtheadvector_no_alternatives()) {
-> +		/*
-> +		 * Although xtheadvector states that th.vlenb exists and
-> +		 * overlaps with the vector 1.0 vlenb, an illegal instruction is
-> +		 * raised if read. These systems all currently have a fixed
-> +		 * vector length of 128, so hardcode that value.
-
-I had this written before the meeting, so pasting it anyway:
--- >8 --
-=46rom 5ed25d0f841e755b8dd4f1f6a3ea824601758d8e Mon Sep 17 00:00:00 2001
-=46rom: Conor Dooley <conor.dooley@microchip.com>
-Date: Wed, 17 Apr 2024 14:39:36 +0100
-Subject: [PATCH] dt-bindings: riscv: cpus: add a vlen register length prope=
-rty
-
-Add a property analogous to the vlenb CSR so that software can detect
-the vector length of each CPU prior to it being brought online.
-Currently software has to assume that the vector length read from the
-boot CPU applies to all possible CPUs. On T-Head CPUs implementing
-pre-ratification vector, reading the th.vlenb CSR may produce an illegal
-instruction trap, so this property is required on such systems.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-We could actually enforce the latter since we know the compatibles of
-the relevant CPUs and can tell if xtheadvector is present.
----
- Documentation/devicetree/bindings/riscv/cpus.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentat=
-ion/devicetree/bindings/riscv/cpus.yaml
-index d067f2a468ee..2a6449a0f1d7 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -95,6 +95,12 @@ properties:
-     description:
-       The blocksize in bytes for the Zicboz cache operations.
-=20
-+  riscv,vlenb:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      VLEN/8, the vector register length in bytes. This property is requir=
-ed in
-+      systems where the vector register length is not identical on all har=
-ts.
-+
-   # RISC-V has multiple properties for cache op block sizes as the sizes
-   # differ between individual CBO extensions
-   cache-op-block-size: false
---=20
-2.43.0
-
-
-
-> +		 */
-> +		this_vsize =3D 128;
-> +	} else {
-> +		/* There are 32 vector registers with vlenb length. */
-> +		riscv_v_enable();
-> +		this_vsize =3D csr_read(CSR_VLENB) * 32;
-> +		riscv_v_disable();
-> +	}
-
---TWtuz8+j2Sj8ixHN
+--lXrJLg2sMSILQKj3
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZh/hsAAKCRB4tDGHoIJi
-0uymAQC52tKEjWhnlrK5EZxs57FTgtZequO5iT1oxcXhr1buWwD/eH4/QhI+A7+a
-rSSXaCKwy6W28YxEUDpHe9r7Re8SMgs=
-=l2tD
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZh/ldQAKCRB4tDGHoIJi
+0iovAQCARQaWa7RNYeDT5gcMiHGFrrlUp4jfG1PWfDEvDUPcHQEA0kweLkHMyqlV
+Z8fNVOz8ExbRPorZsQGP0jhPfhdVRwg=
+=xsp0
 -----END PGP SIGNATURE-----
 
---TWtuz8+j2Sj8ixHN--
+--lXrJLg2sMSILQKj3--
 
 
---===============6117563121103748742==
+--===============1775879472550353430==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -206,5 +184,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6117563121103748742==--
+--===============1775879472550353430==--
 
