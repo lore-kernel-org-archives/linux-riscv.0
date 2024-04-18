@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BD56C4345F
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 10:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C912C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 10:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flF+7Qn7ZbBSRJyPqAncHtNXhp2M80HJ4enu7IgNbj4=; b=qweLCt0n+ABj/6hmM/IRzanl7U
-	46YxqFUJLnP3w4Vq3O5pljf1837aD97KCDwwoB/P+uupaL/xFgHyaXOTQGCnQAeVi4xec0lszRx/b
-	HXLlzmZbZ0sDFldQ5AJpS96DnN2pD3U5VgwWVS81SFQOoy3kLta0KG8WOVHZc24nUCn1YUQKLrpqH
-	337/7Wjk2uPjc8N1Gh27rISjnVukzpGzxElJh2KATNZDOzyp0w2sW4KuO9bXOBylp93FTGz9aDYnJ
-	kvFD59towZHmEWX37E79i4PN1iTscsZOCtN/qZfo5WKy/hKdwyy0ebUAmOl5xFy4kai9uWA2ckLgL
-	CTv51/SQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=u3Y5e4nU5UXHJxP2vw2Ibp2/jpVa/NW8HM5b02lIHlA=; b=aGM+MYv37EhAmd
+	Z0pk7TTF29/f9eq85VD7uSpma4dorES/PB/c3Az5Px8QU51Y8EzBHy99On3za9UOAtWpEWbewiaeh
+	Bb/yuUW0C6zXVURHHSzCxOJPwNaTFmrQN75DXH9AOpIcOs20TodwQkcGRu2e2Y6716DsqvRnEMEO8
+	1VbEOt2w5rsvM/lLbQd1mE55q3Z2nhLrXjhgtAZ4Blc1JlaYNouxZGVJ4N4LffNEdDY4Jhj2hK+6C
+	WzVzLaJ5rHuP4KeqRueToRpaP0Gg6WpT6KbyYqSEjuz404O6N9VxQJFL4waxnkZbHwV/zg4Jhw85E
+	ZsjZgNffzTQJRGYReYCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxOsi-00000001luO-0UZZ;
-	Thu, 18 Apr 2024 10:20:40 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1rxOtg-00000001mDg-0yCl;
+	Thu, 18 Apr 2024 10:21:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxOsf-00000001lsw-31Sa
-	for linux-riscv@lists.infradead.org;
-	Thu, 18 Apr 2024 10:20:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1713435638; x=1744971638;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WeZBsDuQNwuqcLLzHGYml04J8M2UBghlloEStXX5BnI=;
-  b=lBfJr998QU6G49TtDoYms07MqTLjXbStrvi+L8TZZT/S+S/HYrJ0QiY+
-   Xi7UIxD7CeLWzTztRAoAnktT20RcTlERkBj92oTZATI8EhYr5QP5mDTS4
-   6SsdbgXFlKIdZCFbL+/55Qf5gQZWEtx4HQ5ByFbhq0X2IbZI/Hq9yyo0M
-   AZvAQaBrAiqkIc0WRfBPwNY1EPaNRRYdojtd1SslvsA8vq8EjmyiOigRS
-   bUb/tNWBn2fAqdqb1OhAD1+WUHN4sbWaix2jP180/mt6tPy4Z/tKkcQ2k
-   zdLmtObft514/T4fuV6lq+j0xEnK48cGrqjJPAQf8r/XUsZb55BGEJOsn
-   g==;
-X-CSE-ConnectionGUID: Uj/C6BjUSJ27K3aZQSHGBQ==
-X-CSE-MsgGUID: XKQFOuaVQ5mdX7qWs3qYiA==
-X-IronPort-AV: E=Sophos;i="6.07,211,1708412400"; 
-   d="asc'?scan'208";a="21586426"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Apr 2024 03:20:36 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 18 Apr 2024 03:20:13 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Thu, 18 Apr 2024 03:20:10 -0700
-Date: Thu, 18 Apr 2024 11:19:55 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andy Chiu <andy.chiu@sifive.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner
-	<heiko@sntech.de>, Guo Ren <guoren@kernel.org>, Conor Dooley
-	<conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Jonathan Corbet <corbet@lwn.net>, Evan
- Green <evan@rivosinc.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?=
-	<cleger@rivosinc.com>, Shuah Khan <shuah@kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Palmer
- Dabbelt <palmer@rivosinc.com>, Vincent Chen <vincent.chen@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>, <devicetree@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH v4 4/9] riscv: cpufeature: add zve32[xf] and zve64[xfd]
- isa detection
-Message-ID: <20240418-legged-catfish-8358cbe836de@wendy>
-References: <20240412-zve-detection-v4-0-e0c45bb6b253@sifive.com>
- <20240412-zve-detection-v4-4-e0c45bb6b253@sifive.com>
+	id 1rxOtb-00000001mB5-2fwJ;
+	Thu, 18 Apr 2024 10:21:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7E10D617AF;
+	Thu, 18 Apr 2024 10:21:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDE78C113CC;
+	Thu, 18 Apr 2024 10:21:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713435694;
+	bh=GIF39x+DoxCddvDNRomXCworfiQAca8ygUjDy3+kOkw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SELAoNeXc3Beu0HbaRnXjo5QYZwKVoBtQiv3DGWKIGD1ByoQxYtKIRMmvzmqWXRIs
+	 l28WXlrgf45drPhQ9fcY+C862qqlcZ84I3lISaD2oLaKCzcGbAykPBulJ9k6bwvlRz
+	 LV8NaKjnWubu4ei2CwJbivkB4YEQEKSRsSyVzaW8Mxs5W6YReOjEi+EuEAD86bBnwS
+	 qFPhIxsVlHHsOebyI08OR68Lghu75Srbh8a5UrbpGFwRlRYkMIVyzmMjHu+Dqlrqq9
+	 fLqc6ctyg9Ep6vn3VgTN09QBUzcZ5AVisQI/jdvTkZRhUWxPwNNaW0QWW5GqKdhOFZ
+	 JlWziN6p3qThQ==
+Date: Thu, 18 Apr 2024 13:20:17 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Nadav Amit <nadav.amit@gmail.com>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christoph Hellwig <hch@infradead.org>, Helge Deller <deller@gmx.de>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"open list:MEMORY MANAGEMENT" <linux-mm@kvack.org>,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	the arch/x86 maintainers <x86@kernel.org>
+Subject: Re: [RFC PATCH 3/7] module: prepare to handle ROX allocations for
+ text
+Message-ID: <ZiDz4YbIHEOAnpwF@kernel.org>
+References: <20240411160526.2093408-1-rppt@kernel.org>
+ <20240411160526.2093408-4-rppt@kernel.org>
+ <0C4B9C1A-97DE-4798-8256-158369AF42A4@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20240412-zve-detection-v4-4-e0c45bb6b253@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <0C4B9C1A-97DE-4798-8256-158369AF42A4@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240418_032037_893355_42A0C0AC 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20240418_032135_774272_8EC35C40 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,99 +91,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7928755907895441046=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7928755907895441046==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="/qVfv2QvWwihzlW8"
-Content-Disposition: inline
-
---/qVfv2QvWwihzlW8
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Apr 12, 2024 at 02:49:00PM +0800, Andy Chiu wrote:
-> Multiple Vector subextensions are added. Also, the patch takes care of
-> the dependencies of Vector subextensions by macro expansions. So, if
-> some "embedded" platform only reports "zve64f" on the ISA string, the
-> parser is able to expand it to zve32x zve32f zve64x and zve64f.
->=20
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> ---
-> Changelog v3:
->  - renumber RISCV_ISA_EXT_ZVE* to rebase on top of 6.9
->  - alphabetically sort added extensions (Cl=E9ment)
-> Changelog v2:
->  - remove the extension itself from its isa_exts[] list (Cl=E9ment)
->  - use riscv_zve64d_exts for v's extension list (Samuel)
-> ---
->  arch/riscv/include/asm/hwcap.h |  5 +++++
->  arch/riscv/kernel/cpufeature.c | 36 +++++++++++++++++++++++++++++++++++-
->  2 files changed, 40 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index e17d0078a651..f64d4e98e67c 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -81,6 +81,11 @@
->  #define RISCV_ISA_EXT_ZTSO		72
->  #define RISCV_ISA_EXT_ZACAS		73
->  #define RISCV_ISA_EXT_XANDESPMU		74
-> +#define RISCV_ISA_EXT_ZVE32X		75
-> +#define RISCV_ISA_EXT_ZVE32F		76
-> +#define RISCV_ISA_EXT_ZVE64X		77
-> +#define RISCV_ISA_EXT_ZVE64F		78
-> +#define RISCV_ISA_EXT_ZVE64D		79
-> =20
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
-> =20
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index f6f3ece60d69..38d09de518b1 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -188,6 +188,35 @@ static const unsigned int riscv_zvbb_exts[] =3D {
->  	RISCV_ISA_EXT_ZVKB
->  };
-> =20
-> +#define RISCV_ISA_EXT_ZVE32F_IMPLY_LIST	\
-> +	RISCV_ISA_EXT_ZVE32X,
-
-Not really a reason to have a list here, there's only one thing implied.
-Otherwise,
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
---/qVfv2QvWwihzlW8
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiDzywAKCRB4tDGHoIJi
-0snJAP9A1H3tdsAfC7x0n4uxmjKhN/QLFEqxtSbHh0TO3ExpQAD/eEqf5L56+de7
-S/eSP6FR8y3aqB7ZO3o55fQW/xkj4A8=
-=38Nm
------END PGP SIGNATURE-----
-
---/qVfv2QvWwihzlW8--
-
-
---===============7928755907895441046==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7928755907895441046==--
-
+T24gVHVlLCBBcHIgMTYsIDIwMjQgYXQgMTI6MzY6MDhQTSArMDMwMCwgTmFkYXYgQW1pdCB3cm90
+ZToKPiAKPiAKPiA+IE9uIDExIEFwciAyMDI0LCBhdCAxOTowNSwgTWlrZSBSYXBvcG9ydCA8cnBw
+dEBrZXJuZWwub3JnPiB3cm90ZToKPiA+IAo+ID4gQEAgLTI0NDAsNyArMjQ3OSwyNCBAQCBzdGF0
+aWMgaW50IHBvc3RfcmVsb2NhdGlvbihzdHJ1Y3QgbW9kdWxlICptb2QsIGNvbnN0IHN0cnVjdCBs
+b2FkX2luZm8gKmluZm8pCj4gPiAJYWRkX2thbGxzeW1zKG1vZCwgaW5mbyk7Cj4gPiAKPiA+IAkv
+KiBBcmNoLXNwZWNpZmljIG1vZHVsZSBmaW5hbGl6aW5nLiAqLwo+ID4gLQlyZXR1cm4gbW9kdWxl
+X2ZpbmFsaXplKGluZm8tPmhkciwgaW5mby0+c2VjaGRycywgbW9kKTsKPiA+ICsJcmV0ID0gbW9k
+dWxlX2ZpbmFsaXplKGluZm8tPmhkciwgaW5mby0+c2VjaGRycywgbW9kKTsKPiA+ICsJaWYgKHJl
+dCkKPiA+ICsJCXJldHVybiByZXQ7Cj4gPiArCj4gPiArCWZvcl9lYWNoX21vZF9tZW1fdHlwZSh0
+eXBlKSB7Cj4gPiArCQlzdHJ1Y3QgbW9kdWxlX21lbW9yeSAqbWVtID0gJm1vZC0+bWVtW3R5cGVd
+Owo+ID4gKwo+ID4gKwkJaWYgKG1lbS0+aXNfcm94KSB7Cj4gPiArCQkJaWYgKCFleGVjbWVtX3Vw
+ZGF0ZV9jb3B5KG1lbS0+YmFzZSwgbWVtLT5yd19jb3B5LAo+ID4gKwkJCQkJCSBtZW0tPnNpemUp
+KQo+ID4gKwkJCQlyZXR1cm4gLUVOT01FTTsKPiA+ICsKPiA+ICsJCQl2ZnJlZShtZW0tPnJ3X2Nv
+cHkpOwo+ID4gKwkJCW1lbS0+cndfY29weSA9IE5VTEw7Cj4gPiArCQl9Cj4gPiArCX0KPiA+ICsK
+PiA+ICsJcmV0dXJuIDA7Cj4gPiB9Cj4gCj4gSSBtaWdodCBiZSBtaXNzaW5nIHNvbWV0aGluZywg
+YnV0IGl0IHNlZW1zIGEgYml0IHJhY3kuCj4gCj4gSUlVQywgbW9kdWxlX2ZpbmFsaXplKCkgY2Fs
+bHMgYWx0ZXJuYXRpdmVzX3NtcF9tb2R1bGVfYWRkKCkuIEF0IHRoaXMKPiBwb2ludCwgc2luY2Ug
+eW91IGRvbuKAmXQgaG9sZCB0aGUgdGV4dF9tdXRleCwgc29tZSBtaWdodCBkbyB0ZXh0X3Bva2Uo
+KSwKPiBlLmcuLCBieSBlbmFibGluZy9kaXNhYmxpbmcgc3RhdGljLWtleSwgYW5kIHRoZSB1cGRh
+dGUgd291bGQgYmUKPiBvdmVyd3JpdHRlbi4gTm8/CgpSaWdodCA6KApFdmVuIHdvcnNlLCBmb3Ig
+VVAgY2FzZSBhbHRlcm5hdGl2ZXNfc21wX3VubG9jaygpIHdpbGwgInBhdGNoIiBzdGlsbCBlbXB0
+eQphcmVhLgoKU28gSSdtIHRoaW5raW5nIGFib3V0IGNhbGxpbmcgYWx0ZXJuYXRpdmVzX3NtcF9t
+b2R1bGVfYWRkKCkgZnJvbSBhbgphZGRpdGlvbmFsIGNhbGxiYWNrIGFmdGVyIHRoZSBleGVjbWVt
+X3VwZGF0ZV9jb3B5KCkuCgpEb2VzIGl0IG1ha2Ugc2Vuc2UgdG8geW91PwoKLS0gClNpbmNlcmVs
+eSB5b3VycywKTWlrZS4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
