@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BCAC05052
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 11:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 707D7C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 12:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1x4X3uxEU82DrCbtP10iBjswK7874Eq1BvZ8k2sEsJU=; b=IAiA1kGteLzO1I
-	kEXejXhD/gewXhsn22cJjIPw/Uj6eMtJzUeGSrpFCQxAHxNGKQC8qWGpW6dCIokSGpdsqJj8akKZZ
-	o4Md/VMC8Rgj/eoBshwCbqXVBwFk5dsMhvweAcVJyxkFBIm8aAVOON6EZnJxzEZuJI77rs1tMqC2I
-	GXTVtzCu43skH0kmODkRNKRxku/n+wQtTO11aZbY7nb9Q1cfvXyfTp2LV6fJp4k9bA+Pb+DsNs49Z
-	FWLY3mwrC0x6LP7Yx0/MGDZZRzRo7OGUI/0xaxMv8nEu/5lhbxmnxr1ZbB8XIQsXjJ0E0BHrm7RI8
-	5FVqpgfMLVb0kbHmNwIQ==;
+	List-Owner; bh=xZWGfJg9HsLHZcTsyJ+fvYWR0V6RPtmjZA6myvUjCF8=; b=1CTciaojuOeWTO
+	iBa0tQrv0MzLuocEVgeFyKPnf9QDZMiEARhudJ04k2jfn8vgohbYmQXT3M0tkmGSG3S++IhnaZ9dD
+	j3oBjgiIlNjo64Mddr7/XbJu4QJ26yf/VJT5UvN8cY40Y0W50Nn0YeorLf497i6xuN2W4YEbHW3dO
+	R3rge/WTUENXCwX9871pdNt6JnwuVWCB2AVIkfv9biqmkSHtnBvQuWcDGJMhVBHx1i9ZivNivFkSD
+	nC5kUgDsC/p2LBO61GzzofQCA5xfx55UJRUwjBiLMOssm2adlVG8Lhvicpc7nruAxVP8jbmiPbWyz
+	MO4tcmxhYkZN3wpPYPJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxQHL-000000023i4-0uGI;
-	Thu, 18 Apr 2024 11:50:11 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1rxQqT-000000029UQ-48r2;
+	Thu, 18 Apr 2024 12:26:29 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxQHE-000000023e1-3gb8
+	id 1rxQqP-000000029S1-3qBU
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Apr 2024 11:50:06 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-5f415fd71f8so552538a12.3
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Apr 2024 04:50:03 -0700 (PDT)
+	Thu, 18 Apr 2024 12:26:28 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2abf9305afcso261973a91.1
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Apr 2024 05:26:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1713441002; x=1714045802; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=vrull.eu; s=google; t=1713443184; x=1714047984; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zm558O2QVDPk1eRrVljSEfZNVakmWiw+kO/s+2oVqPM=;
-        b=Dz40QhprgOWI0GMC5EEPOHciie6OTZ8n+ZufyTBltKh/0uQO+BylarLJqJOryCUNMY
-         ZnFYKBlUeqWhxupLUkSEn2jUVaFihbWI6QSfolUQHX7sQw70zBQj1OLjXl3ErFCENHmq
-         j0F6rhrwuIdmduFVoqrRuCEfLwBQjLITiiu+j/2R5KaP/+k1C+j/kVMqwJvIPdzoBcKo
-         F87Cjths5JUwic1A6wIQJXHfJx25GAb9WXYooxEgJSE/StmIYwWW4taY10nMhdVqOp43
-         OQoACKWq0Hf9RVAljzbMLIKGwghzUuw9OVNOw8jNn41Cx89S2erx0j5mdBSAOj53gcrt
-         STAw==
+        bh=I/UmS13xtcMZDnEIpdmRzkPPXx3eO/KfzcsngCuc2tk=;
+        b=THsg2lz1phTfCW1awvmowsQsrKTbo/H7kShH2MVZlN8ZURt+g52/FORejzgVtMTGJS
+         4NLqNK4WoRwZUPlUiU+j1WjYdM6exfkl2ZMQsV92RGpPfZMs1kvilszCzEvrl8yD217n
+         g8Ln49FpkwjFEB8cJyhPBjNUWHT780n2HLPjyZjXNqVJPbiDnAO/hKuUlN0NBfM4KKB8
+         PVHRf3OyAau2PB546ypGwX9xjcPbvH5JY/a+t1F3oE4NSA2hZTYvHI28QO3Kvitn/RC8
+         RZT6dLw9XeOfqVmSjYv8/aZILYMUL6lpQVHNbZitdx7Hq2UKxOU47fmX1HT7ilJaFTlM
+         uT3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713441002; x=1714045802;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1713443184; x=1714047984;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zm558O2QVDPk1eRrVljSEfZNVakmWiw+kO/s+2oVqPM=;
-        b=KL5Pj70bCKn1sFIXwhmAr82C+YCOsJNe+d+re6BklF/uL3hy+693yM5w+YF4NwEbIt
-         dAdrRgCt/dgrDaa9hscdWozcSNxjfjD6RBDNk3vifvvPlwb5JvtLd0qSDAP+0zi8DNb6
-         3NdWhyGR+/MHyR20RINWoN9Salm4beuPNn+fW6SP3WoKVpaF/bqy9b/CmsnrWuE/mbsa
-         i3/aHi8ThBSV0FJZE/+b6mheZw5BnKvslIV/Nc4CmB5d1yNyAqhjGiHn3fwpeBFfjXha
-         zgtZlKnZEnV45FmTRt+XeDSTR/iLBDyvISFPaWSJfdTtIcE9E0jPUaaKWXYO3Edyv/3q
-         JNVQ==
-X-Gm-Message-State: AOJu0YyTFRqQSh4NIr8UBbHcHW4Otibvr5kgm+h5d6vcD7Ca//yQN3ee
-	0eebm8REAFq3fSiL1pT/FnvMRjOi2VF0iPYOi7gBfTNgP4zR0JfTtooxXK6dYIM=
-X-Google-Smtp-Source: AGHT+IG08hqpF8uwiPrN1zWB27zGM+lpl666QMpL8Ui14+w3YozU4FioSKQ64+ALHNkfMcQdGOYAQA==
-X-Received: by 2002:a17:90a:fd82:b0:2ab:9c0d:da69 with SMTP id cx2-20020a17090afd8200b002ab9c0dda69mr1994655pjb.49.1713441002289;
-        Thu, 18 Apr 2024 04:50:02 -0700 (PDT)
-Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
-        by smtp.gmail.com with ESMTPSA id y7-20020a17090aa40700b002abdb19f499sm1032293pjp.26.2024.04.18.04.49.58
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 18 Apr 2024 04:50:02 -0700 (PDT)
-From: Xu Lu <luxu.kernel@bytedance.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	andy.chiu@sifive.com,
-	guoren@kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lihangjing@bytedance.com,
-	dengliang.1214@bytedance.com,
-	xieyongji@bytedance.com,
-	chaiwen.cc@bytedance.com,
-	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [RFC 2/2] riscv: Use Zawrs to accelerate IPI to idle cpu
-Date: Thu, 18 Apr 2024 19:49:42 +0800
-Message-Id: <20240418114942.52770-3-luxu.kernel@bytedance.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20240418114942.52770-1-luxu.kernel@bytedance.com>
-References: <20240418114942.52770-1-luxu.kernel@bytedance.com>
+        bh=I/UmS13xtcMZDnEIpdmRzkPPXx3eO/KfzcsngCuc2tk=;
+        b=lDSeGmigG9eFZdltDGlDEdRygdS7qPyDlO4j6WV8lUIZTZzlX7c9JZw54ALPsG+AtM
+         Tp5ds48lS+81sx1d1wzrMtDTzakWjWXaWN4UZuojFtaZvpwJLbLBI7IZEthEvD8m7A+L
+         8BAeIKaAg3Id/j/v0AaXSUI6fVHLPAoUmRg+mg0o+Sq7bSTQt2of7GLl/Q8qrqrq7fmC
+         pvxmad4HXMd92wSYnPCEwtS/B0iWjmYWFv9ixqtMpeGwdKSipVLnOdg80oJVDimg3/xV
+         BDKNy7Vc2jyM3v8776rqt9YFsd47NIcSOBWniidpH/FQjkvl49ZlkNWCv9YKQHNG5vOW
+         BTPg==
+X-Forwarded-Encrypted: i=1; AJvYcCVq2DWbTKgBatSbSVWO1kX2Td4nEdSmZQAe/DEsYL3BZM2eHESl/mV9AhbGn3my6W3DpOjeCIpUEmMYAE81Zie3QDu8XffnIas2cihcFGG2
+X-Gm-Message-State: AOJu0YxgjL53/Mqbn7og/bREun+/mInYXkFKIQp43FNhwLpLv76V3iQT
+	1as0BzWbjg/c0wfnXA708f7MLL5MXv1mLqQF6ahcywuBoH7QXHyETThZIlnKbYkI45BGYuOUMaE
+	5/5m2Gw7tPi4ig870vRFPlnvYWaR0XWGMblNRsA==
+X-Google-Smtp-Source: AGHT+IFDobrs6jP7bQ06gkwfNDSAO5xZlBX+SZvdes90CxOyBYYPmWfXh2FZ/zWFafvNqrUkV1L5UE+4JWMG++qVWl8=
+X-Received: by 2002:a17:90a:a106:b0:2a5:2be6:3ff5 with SMTP id
+ s6-20020a17090aa10600b002a52be63ff5mr2495695pjp.21.1713443183703; Thu, 18 Apr
+ 2024 05:26:23 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240418114942.52770-1-luxu.kernel@bytedance.com>
+In-Reply-To: <20240418114942.52770-1-luxu.kernel@bytedance.com>
+From: =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>
+Date: Thu, 18 Apr 2024 14:26:12 +0200
+Message-ID: <CAEg0e7gDk6SFRh4oF0KsA7xZoMr7RuZXFWL8qD7rmM2cBDLwcg@mail.gmail.com>
+Subject: Re: [RFC 0/2] riscv: Idle thread using Zawrs extension
+To: Xu Lu <luxu.kernel@bytedance.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	andy.chiu@sifive.com, guoren@kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, lihangjing@bytedance.com, 
+	dengliang.1214@bytedance.com, xieyongji@bytedance.com, 
+	chaiwen.cc@bytedance.com, Andrew Jones <ajones@ventanamicro.com>, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240418_045004_947756_5D5EDB9D 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20240418_052626_014882_0617CF31 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,276 +89,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When sending IPI to a cpu which has entered idle state using Zawrs
-extension, there is no need to send a physical software interrupt.
-Instead, we can write the IPI information to the address reserved by
-target cpu, which will wake it from WRS.NTO. Then the target cpu can
-handle the IPI directly without falling into traditional interrupt
-handling routine.
-
-Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
----
- arch/riscv/include/asm/processor.h | 14 +++++++
- arch/riscv/include/asm/smp.h       | 14 +++++++
- arch/riscv/kernel/process.c        | 65 +++++++++++++++++++++++++++++-
- arch/riscv/kernel/smp.c            | 39 ++++++++++++------
- 4 files changed, 118 insertions(+), 14 deletions(-)
-
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 1143367de8c6..76091cf2e8be 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -172,6 +172,20 @@ static inline void wrs_nto(unsigned long *addr)
- 			: : "memory");
- }
- 
-+static inline void wrs_nto_if(int *addr, int val)
-+{
-+	int prev;
-+
-+	__asm__ __volatile__(
-+			"lr.w %[p], %[a] \n\t"
-+			"bne %[p], %[v], 1f \n\t"
-+			".long 0x00d00073 \n\t"
-+			"1: \n\t"
-+			: [p] "=&r" (prev), [a] "+A" (*addr)
-+			: [v] "r" (val)
-+			: "memory");
-+}
-+
- extern phys_addr_t dma32_phys_limit;
- 
- struct device_node;
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index 0d555847cde6..2f27fd743092 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -19,6 +19,20 @@ extern unsigned long boot_cpu_hartid;
- 
- #include <linux/jump_label.h>
- 
-+enum ipi_message_type {
-+	IPI_RESCHEDULE,
-+	IPI_CALL_FUNC,
-+	IPI_CPU_STOP,
-+	IPI_CPU_CRASH_STOP,
-+	IPI_IRQ_WORK,
-+	IPI_TIMER,
-+	IPI_MAX
-+};
-+
-+int ipi_virq_base_get(void);
-+
-+irqreturn_t handle_IPI(int irq, void *data);
-+
- /*
-  * Mapping between linux logical cpu index and hartid.
-  */
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 9f0f7b888bc1..7d6bf780d334 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -16,6 +16,7 @@
- #include <linux/ptrace.h>
- #include <linux/uaccess.h>
- #include <linux/static_call.h>
-+#include <linux/hardirq.h>
- 
- #include <asm/unistd.h>
- #include <asm/processor.h>
-@@ -27,6 +28,7 @@
- #include <asm/cpuidle.h>
- #include <asm/vector.h>
- #include <asm/cpufeature.h>
-+#include <asm/smp.h>
- 
- register unsigned long gp_in_global __asm__("gp");
- 
-@@ -38,6 +40,8 @@ EXPORT_SYMBOL(__stack_chk_guard);
- 
- extern asmlinkage void ret_from_fork(void);
- 
-+DEFINE_PER_CPU(atomic_t, idle_ipi_mask);
-+
- static __cpuidle void default_idle(void)
- {
- 	/*
-@@ -49,6 +53,16 @@ static __cpuidle void default_idle(void)
- 	wait_for_interrupt();
- }
- 
-+static __cpuidle void default_idle_enter(void)
-+{
-+	/* Do nothing */
-+}
-+
-+static __cpuidle void default_idle_exit(void)
-+{
-+	/* Do nothing */
-+}
-+
- static __cpuidle void wrs_idle(void)
- {
- 	/*
-@@ -57,10 +71,42 @@ static __cpuidle void wrs_idle(void)
- 	 * to entering WRS.NTO.
- 	 */
- 	mb();
-+#ifdef CONFIG_SMP
-+	wrs_nto_if(&this_cpu_ptr(&idle_ipi_mask)->counter, BIT(IPI_MAX));
-+#else
- 	wrs_nto(&current_thread_info()->flags);
-+#endif
-+}
-+
-+static __cpuidle void wrs_idle_enter(void)
-+{
-+#ifdef CONFIG_SMP
-+	atomic_set(this_cpu_ptr(&idle_ipi_mask), BIT(IPI_MAX));
-+#endif
-+}
-+
-+static __cpuidle void wrs_idle_exit(void)
-+{
-+#ifdef CONFIG_SMP
-+	int pending;
-+	unsigned long flags;
-+	enum ipi_message_type ipi;
-+
-+	local_irq_save(flags);
-+	pending = atomic_xchg_relaxed(this_cpu_ptr(&idle_ipi_mask), 0);
-+	for (ipi = IPI_RESCHEDULE; ipi < IPI_MAX; ipi++)
-+		if (pending & BIT(ipi)) {
-+			irq_enter();
-+			handle_IPI(ipi_virq_base_get() + ipi, NULL);
-+			irq_exit();
-+		}
-+	local_irq_restore(flags);
-+#endif
- }
- 
- DEFINE_STATIC_CALL_NULL(riscv_idle, default_idle);
-+DEFINE_STATIC_CALL_NULL(riscv_idle_enter, default_idle_enter);
-+DEFINE_STATIC_CALL_NULL(riscv_idle_exit, default_idle_exit);
- 
- void __cpuidle cpu_do_idle(void)
- {
-@@ -72,13 +118,28 @@ void __cpuidle arch_cpu_idle(void)
- 	cpu_do_idle();
- }
- 
-+void __cpuidle arch_cpu_idle_enter(void)
-+{
-+	static_call(riscv_idle_enter)();
-+}
-+
-+void __cpuidle arch_cpu_idle_exit(void)
-+{
-+	static_call(riscv_idle_exit)();
-+}
-+
- void __init select_idle_routine(void)
- {
- 	if (IS_ENABLED(CONFIG_RISCV_ZAWRS_IDLE) &&
--			riscv_has_extension_likely(RISCV_ISA_EXT_ZAWRS))
-+			riscv_has_extension_likely(RISCV_ISA_EXT_ZAWRS)) {
- 		static_call_update(riscv_idle, wrs_idle);
--	else
-+		static_call_update(riscv_idle_enter, wrs_idle_enter);
-+		static_call_update(riscv_idle_exit, wrs_idle_exit);
-+	} else {
- 		static_call_update(riscv_idle, default_idle);
-+		static_call_update(riscv_idle_enter, default_idle_enter);
-+		static_call_update(riscv_idle_exit, default_idle_exit);
-+	}
- }
- 
- int set_unalign_ctl(struct task_struct *tsk, unsigned int val)
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 45dd4035416e..b5416ee41967 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -26,16 +26,6 @@
- #include <asm/cacheflush.h>
- #include <asm/cpu_ops.h>
- 
--enum ipi_message_type {
--	IPI_RESCHEDULE,
--	IPI_CALL_FUNC,
--	IPI_CPU_STOP,
--	IPI_CPU_CRASH_STOP,
--	IPI_IRQ_WORK,
--	IPI_TIMER,
--	IPI_MAX
--};
--
- unsigned long __cpuid_to_hartid_map[NR_CPUS] __ro_after_init = {
- 	[0 ... NR_CPUS-1] = INVALID_HARTID
- };
-@@ -94,14 +84,34 @@ static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
- }
- #endif
- 
-+#if defined(CONFIG_RISCV_ZAWRS_IDLE) && defined(CONFIG_SMP)
-+DECLARE_PER_CPU(atomic_t, idle_ipi_mask);
-+#endif
-+
- static void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op)
- {
-+#if defined(CONFIG_RISCV_ZAWRS_IDLE) && defined(CONFIG_SMP)
-+	int cpu, val;
-+
-+	for_each_cpu(cpu, mask) {
-+		val = atomic_fetch_or_relaxed(BIT(op), per_cpu_ptr(&idle_ipi_mask, cpu));
-+		if (likely(!(val & BIT(IPI_MAX))))
-+			__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
-+	}
-+#else
- 	__ipi_send_mask(ipi_desc[op], mask);
-+#endif
- }
- 
- static void send_ipi_single(int cpu, enum ipi_message_type op)
- {
--	__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
-+#if defined(CONFIG_RISCV_ZAWRS_IDLE) && defined(CONFIG_SMP)
-+	int val;
-+
-+	val = atomic_fetch_or_relaxed(BIT(op), per_cpu_ptr(&idle_ipi_mask, cpu));
-+	if (likely(!(val & BIT(IPI_MAX))))
-+#endif
-+		__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
- }
- 
- #ifdef CONFIG_IRQ_WORK
-@@ -111,7 +121,7 @@ void arch_irq_work_raise(void)
- }
- #endif
- 
--static irqreturn_t handle_IPI(int irq, void *data)
-+irqreturn_t handle_IPI(int irq, void *data)
- {
- 	int ipi = irq - ipi_virq_base;
- 
-@@ -332,3 +342,8 @@ void arch_smp_send_reschedule(int cpu)
- 	send_ipi_single(cpu, IPI_RESCHEDULE);
- }
- EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
-+
-+int ipi_virq_base_get(void)
-+{
-+	return ipi_virq_base;
-+}
--- 
-2.20.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBcHIgMTgsIDIwMjQgYXQgMTo1MOKAr1BNIFh1IEx1IDxsdXh1Lmtlcm5lbEBieXRl
+ZGFuY2UuY29tPiB3cm90ZToKPgo+IFRoaXMgcGF0Y2ggc2VyaWVzIGludHJvZHVjZXMgYSBuZXcg
+aW1wbGVtZW50YXRpb24gb2YgaWRsZSB0aHJlYWQgdXNpbmcKPiBaYXdycyBleHRlbnNpb24uCgpU
+aGlzIG92ZXJsYXBzIHdpdGggdGhlIGZvbGxvd2luZyBzZXJpZXM6CiAgaHR0cHM6Ly9sb3JlLmtl
+cm5lbC5vcmcvYWxsLzIwMjQwMzE1MTM0MDA5LjU4MDE2Ny03LWFqb25lc0B2ZW50YW5hbWljcm8u
+Y29tLwoKQlIKQ2hyaXN0b3BoCgo+Cj4gVGhlIFphd3JzWzBdIGV4dGVuc2lvbiBpbnRyb2R1Y2Vz
+IHR3byBuZXcgaW5zdHJ1Y3Rpb25zIG5hbWVkIFdSUy5TVE8gYW5kCj4gV1JTLk5UTyBpbiBSSVND
+LVYuIFdoZW4gc29mdHdhcmUgcmVnaXN0ZXJzIGEgcmVzZXJ2YXRpb24gc2V0IHVzaW5nIExSCj4g
+aW5zdHJ1Y3Rpb24sIGEgc3Vic2VxdWVudCBXUlMuU1RPIG9yIFdSUy5OVE8gaW5zdHJ1Y3Rpb24g
+d2lsbCBjYXVzZSB0aGUKPiBoYXJ0IHRvIHN0YWxsIGluIGEgbG93LXBvd2VyIHN0YXRlIHVudGls
+IGEgc3RvcmUgaGFwcGVucyB0byB0aGUKPiByZXNlcnZhdGlvbiBzZXQgb3IgYW4gaW50ZXJydXB0
+IGJlY29tZXMgcGVuZGluZy4gVGhlIGRpZmZlcmVuY2UgYmV0d2Vlbgo+IHRoZXNlIHR3byBpbnN0
+cnVjdGlvbnMgaXMgdGhhdCBXUlMuU1RPIHdpbGwgdGVybWluYXRlIHN0YWxsIGFmdGVyIGFuCj4g
+aW1wbGVtZW50YXRpb24tZGVmaW5lZCB0aW1lb3V0IHdoaWxlIFdSUy5OVE8gd29uJ3QuCj4KPiBU
+aGlzIHBhdGNoIHNlcmllcyBpbXBsZW1lbnRzIGlkbGUgdGhyZWFkIHVzaW5nIFdSUy5OVE8gaW5z
+dHJ1Y3Rpb24uCj4gQmVzaWRlcywgd2UgZm91bmQgdGhlcmUgaXMgbm8gbmVlZCB0byBzZW5kIGEg
+cmVhbCBJUEkgdG8gd2FrZSB1cCBhbiBpZGxlCj4gQ1BVLiBJbnN0ZWFkLCB3ZSB3cml0ZSBJUEkg
+aW5mb3JtYXRpb24gdG8gdGhlIHJlc2VydmF0aW9uIHNldCBvZiBhbiBpZGxlCj4gQ1BVIHRvIHdh
+a2UgaXQgdXAgYW5kIGxldCBpdCBoYW5kbGUgSVBJIHF1aWNrbHksIHdpdGhvdXQgZ29pbmcgdGhy
+b3VnaAo+IHRyYW5kaXRpb25hbCBpbnRlcnJ1cHQgaGFuZGxpbmcgcm91dGluZS4KPgo+IFswXSBo
+dHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtemF3cnMvYmxvYi9tYWluL3phd3JzLmFkb2MK
+Pgo+IFh1IEx1ICgyKToKPiAgIHJpc2N2OiBwcm9jZXNzOiBJbnRyb2R1Y2UgaWRsZSB0aHJlYWQg
+dXNpbmcgWmF3cnMgZXh0ZW5zaW9uCj4gICByaXNjdjogVXNlIFphd3JzIHRvIGFjY2VsZXJhdGUg
+SVBJIHRvIGlkbGUgY3B1Cj4KPiAgYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICB8
+ICAyNCArKysrKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3B1aWRsZS5oICAgfCAgMTEg
+Ky0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmggICAgIHwgICAxICsKPiAgYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaCB8ICAzMSArKysrKysrKysKPiAgYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9zbXAuaCAgICAgICB8ICAxNCArKysrCj4gIGFyY2gvcmlzY3Yva2Vy
+bmVsL2NwdS5jICAgICAgICAgICAgfCAgIDUgKysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVh
+dHVyZS5jICAgICB8ICAgMSArCj4gIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Nlc3MuYyAgICAgICAg
+fCAxMDIgKysrKysrKysrKysrKysrKysrKysrKysrKysrKy0KPiAgYXJjaC9yaXNjdi9rZXJuZWwv
+c21wLmMgICAgICAgICAgICB8ICAzOSArKysrKysrLS0tLQo+ICA5IGZpbGVzIGNoYW5nZWQsIDIw
+NSBpbnNlcnRpb25zKCspLCAyMyBkZWxldGlvbnMoLSkKPgo+IC0tCj4gMi4yMC4xCj4KPgo+IF9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
