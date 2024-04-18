@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D3FC4345F
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 10:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF30C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 10:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XGoDkPS9KmABgogCgFkOEkWMaHiI/se5y6ildtvU/2Q=; b=IbFsjIz95XL3WrN2fWxKqKKGnc
-	aN5NAxEUp32IDZEt9WvoD2jEn0CM/66/0er+/g4wnF+T9oO3b6k28hiKfLcyafVRbEMBAxyqdJzyz
-	bCfmDe0ifEsTTGcSKVVOgvaIZm0nV5CgJy3IYTpzJqcB35R0leCXdwFtMIPLPHMaEEe/4fmG61S5c
-	UEzbHXEhwuteu2UZ1T3uJWIgsWRNgIYguUVLbJADMs761kd76J4qGnRMPQH6FOdAoKIH/CauPBreH
-	K7GGFF1n8InV1CvmCN8ZbgmWGWReK6A8kupnD/EKWRC91IWIrBw2WyHb1qq8csFVRIFOzFq9Z5RKM
-	zAtpVUBQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OO4OXfZ7ckG/kLyXLmJF4o8Ufms1tuckUJgZtDp7ozI=; b=ojcM2Pb00Gavj/
+	+ExClrPhYy9Nxr++oqM3jKs8WDia8s50yjVLyzimptrIAGtIREssRwxSEG5UB6lh46Kb78S/PqEVo
+	6AVbxMC3VBW347dLmgeK7hL2iL22neaPpsNE337QjMihetsLZajzLpYZ5QFBajc+2tKeBtXbI8Io3
+	VYim/b3d5BMFzAyQeJb41gfddo5wtK8O3pKIw2afxR+05++G748We1V/Og2GxQjmetlkLrDZ1RSyn
+	l4DLQf6++d9F4t5H7TTf+pNf0MW72hkhZpzL2/vG7QTXpIShjglb8SjT7RkXIh4iH+kJrUo04wYS4
+	hrrUxY5iVkd1h8lVlrIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxP2Z-00000001oOO-0llL;
-	Thu, 18 Apr 2024 10:30:51 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1rxP71-00000001p7p-433M;
+	Thu, 18 Apr 2024 10:35:28 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxP2V-00000001oNf-1h77
+	id 1rxP6x-00000001p6e-0BYN
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Apr 2024 10:30:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1713436247; x=1744972247;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Kx/O3NbYmmye71xw/73E2GXjtvhWZUZ9V2RPXla/lMw=;
-  b=UTww3gEu5BZ+dsRCVlSJ2KiRGiLTTKSSRz/szRReccg4gjHdD1WHkE0s
-   MgomBYvsclYtc9yvd2wLA4PI0sgQWP6jHksORsz4tqodKX8Vwo3Ew9G2I
-   yxPkrjx8CdsZfSBJa6vKGxLHIVHsboZA+UM4C7R5Lcm52fWbGaciEEiPE
-   T2LQfocFp+sVsrmsqGy3k+jArMfFiz6PS8hRQeTTyj9+Xf1QqDcPy7Its
-   DCLmqy+NL4wwHrDySrnzd3SYLzG2HXcIn3V71ngi3zU5IR9XWmG2YaGwG
-   PTcKadEssCRmNqNFPbkZew+DMF78jYkTZIhx2sa2Ta/LEWHDkhgnA+PdH
-   w==;
-X-CSE-ConnectionGUID: IwiwC4InSEmNg7Dv2twxMA==
-X-CSE-MsgGUID: noxMaoaySkiucyrpesccLQ==
-X-IronPort-AV: E=Sophos;i="6.07,211,1708412400"; 
-   d="asc'?scan'208";a="21540872"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Apr 2024 03:30:44 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 18 Apr 2024 03:30:18 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Thu, 18 Apr 2024 03:30:14 -0700
-Date: Thu, 18 Apr 2024 11:29:59 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andy Chiu <andy.chiu@sifive.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner
-	<heiko@sntech.de>, Guo Ren <guoren@kernel.org>, Conor Dooley
-	<conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Jonathan Corbet <corbet@lwn.net>, Evan
- Green <evan@rivosinc.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?=
-	<cleger@rivosinc.com>, Shuah Khan <shuah@kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Palmer
- Dabbelt <palmer@rivosinc.com>, Vincent Chen <vincent.chen@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>, <devicetree@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH v4 3/9] riscv: cpufeature: call match_isa_ext() for
- single-letter extensions
-Message-ID: <20240418-twirl-aground-a581d6e45854@wendy>
-References: <20240412-zve-detection-v4-0-e0c45bb6b253@sifive.com>
- <20240412-zve-detection-v4-3-e0c45bb6b253@sifive.com>
+	Thu, 18 Apr 2024 10:35:26 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1713436521;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=9obvaWEEEdGVSr28CMv6Cu4kAaroOIyrSClUKb5FyOY=;
+	b=rFoTg+5OscplOaVXCHK/7cHWKm5qOdAWblkqZCJ4vMeOn8y66abd6BreT1dDnFVPIaJNVv
+	p/hp4pRcVCOw04EJpMLmY1szbPdhyMQ2HFjpRkmDBJOhtx4HHbYjvFcbpkPietVTHmQrrn
+	zxRRoVm4xJ5hzULwg9DSeqh0PYBILFnoFxNaWkgCjR0NXrpWoNDkAmoo2pj9tK/H1s6NAF
+	/sQxEmmMmTQyftLxWpmCSNAaJTp5D+XI8olwQ/8vYgbBa8WVWW/7tPDRO0RkCTx35M+wwd
+	N41gq0rbAGXQyGPUu+uOvXtM/Wqp9Cbq3A1/UijMAY80/oNXauN5duvfOZdTBw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1713436521;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=9obvaWEEEdGVSr28CMv6Cu4kAaroOIyrSClUKb5FyOY=;
+	b=OkgiFbzKFvUFsoqftpSJySJo2U0wWkhDCM7WswDQsLc3kI9ofNu49Xa0uBH+A6iGWmTwFN
+	xHdX+y73q6HTaOAQ==
+To: Mike Rapoport <rppt@kernel.org>,
+	Andreas Dilger <adilger@dilger.ca>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"ndesaulniers @ google . com" <ndesaulniers@google.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Tejun Heo <tj@kernel.org>,
+	Krister Johansen <kjlx@templeofstupid.com>,
+	Changbin Du <changbin.du@huawei.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-kernel@vger.kernel.org
+Cc: Nam Cao <namcao@linutronix.de>,
+	stable@vger.kernel.org
+Subject: [PATCH] init: fix allocated page overlapping with PTR_ERR
+Date: Thu, 18 Apr 2024 12:29:43 +0200
+Message-Id: <20240418102943.180510-1-namcao@linutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <20240412-zve-detection-v4-3-e0c45bb6b253@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240418_033047_539083_53AB5B4B 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240418_033523_329887_C9F1D629 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,59 +83,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3160204117200467767=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3160204117200467767==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="+kb/Lbwm7h/0iKfQ"
-Content-Disposition: inline
+There is nothing preventing kernel memory allocators from allocating a
+page that overlaps with PTR_ERR(), except for architecture-specific
+code that setup memblock.
 
---+kb/Lbwm7h/0iKfQ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+It was discovered that RISCV architecture doesn't setup memblock
+corectly, leading to a page overlapping with PTR_ERR() being allocated,
+and subsequently crashing the kernel (link in Close: )
 
-On Fri, Apr 12, 2024 at 02:48:59PM +0800, Andy Chiu wrote:
-> Single-letter extensions may also imply multiple subextensions. For
-> example, Vector extension implies zve64d, and zve64d implies zve64f.
->=20
-> Extension parsing for "riscv,isa-extensions" has the ability to resolve
-> the dependency by calling match_isa_ext(). This patch makes deprecated
-> parser call the same function for single letter extensions.
+The reported crash has nothing to do with PTR_ERR(): the last page
+(at address 0xfffff000) being allocated leads to an unexpected
+arithmetic overflow in ext4; but still, this page shouldn't be
+allocated in the first place.
 
-Sure, why not..
+Because PTR_ERR() is an architecture-independent thing, we shouldn't
+ask every single architecture to set this up. There may be other
+architectures beside RISCV that have the same problem.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Fix this one and for all by reserving the physical memory page that
+may be mapped to the last virtual memory page as part of low memory.
 
-Thanks,
-Conor.
+Unfortunately, this means if there is actual memory at this reserved
+location, that memory will become inaccessible. However, if this page
+is not reserved, it can only be accessed as high memory, so this
+doesn't matter if high memory is not supported. Even if high memory is
+supported, it is still only one page.
 
---+kb/Lbwm7h/0iKfQ
-Content-Type: application/pgp-signature; name="signature.asc"
+Closes: https://lore.kernel.org/linux-riscv/878r1ibpdn.fsf@all.your.base.are.belong.to.us
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+Cc: <stable@vger.kernel.org> # all versions
+---
+ init/main.c | 1 +
+ 1 file changed, 1 insertion(+)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/init/main.c b/init/main.c
+index 881f6230ee59..f8d2793c4641 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -900,6 +900,7 @@ void start_kernel(void)
+ 	page_address_init();
+ 	pr_notice("%s", linux_banner);
+ 	early_security_init();
++	memblock_reserve(__pa(-PAGE_SIZE), PAGE_SIZE); /* reserve last page for ERR_PTR */
+ 	setup_arch(&command_line);
+ 	setup_boot_config();
+ 	setup_command_line(command_line);
+-- 
+2.39.2
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiD2JwAKCRB4tDGHoIJi
-0lSLAP9etZ2WCMHmao3TIOEA8ZgOo2OTJ3ipe9slmFEM10nxuwD/Zi2J1xel+G8Q
-uSuqYeiY5lSCD4TaQEPHlc1Aa2nRgwQ=
-=7adE
------END PGP SIGNATURE-----
-
---+kb/Lbwm7h/0iKfQ--
-
-
---===============3160204117200467767==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3160204117200467767==--
-
