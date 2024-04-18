@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0162C04FF8
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 18:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB0ABC4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 19:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PgvJp5hJE3NBq7emRDt3G8LNTRuTl5+SXkpxKD8ndA8=; b=hJhvzx3EzFRVPE
-	EkuyXG51Nwl7QLN9at7gJYpE8ZKnSbONWWkFGjcADPE24JJjLcpkFmD6aU56/6G6HhirxAyQuIpXs
-	rPejeIAoKJwvn9L3jrQLDLkFJDe93MuGUPCbTK584rTdICQs8kf+27uT0iGpbQQZMykfR0wngAaxk
-	7om4hIuP3OfNo+grRcGTcz/ah9kG6W74A5qHnbzLHL3JuqWn+8pfVO+HgCNK4qEKM2pkfMthdsQOm
-	rBUcqND8o/4hwRA3/1kOEVjpKsCArmV1amgkv7+ESNNlvyrwCbI7AmzBVPUhdE6/YfvmqnMiR0u8f
-	BsfcUlHeym+1JvFO/XPA==;
+	List-Owner; bh=yAPzurDGRDuYSzmxEnLzp9ifOovmfwUjI3fFIbuiIvI=; b=w1xEbVpmnDnQZg
+	Cnp1XNRobj2ClXXVv7yfDm6OZcrmz6WxqNbRsDlKqLnX3MWeUa57W424ujz5TRxqklIieDn14KETd
+	J7yU7qI+ExxKBesqNFdPmUeHBpOC1peZQ4fPaG1vcpIbzYShKpDE27JwI/LuGRC5qA0R3Tuj8uZC7
+	yjB3TObVJDCR8y5cGvJszrZIlDxt2Fyd17kPzybCdaac7O5X4dDl90KlRFfOgKicgJgoZekoF8ZcJ
+	r3db/pzdxSIkTLAgB5tIxuCNr8oph5v5QdMy0L0fknnKOsf/g47JEGT2c1H5TP1uE2LcJ3raSYqmo
+	3S7L8NYxIXOYhKFlY+RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxWhW-00000003MaY-1igV;
-	Thu, 18 Apr 2024 18:41:38 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rxXA3-00000003QDx-0YzC;
+	Thu, 18 Apr 2024 19:11:07 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxWhS-00000003MZc-3q15
+	id 1rxX9y-00000003QBD-400h
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Apr 2024 18:41:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id C9307CE18EC;
-	Thu, 18 Apr 2024 18:41:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 579B2C113CC;
-	Thu, 18 Apr 2024 18:41:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713465692;
-	bh=kEWHQmsJ7jcAxlIEcpREBxKEUkYR0ejcefjSl8M/NeQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SCB5+i6hXvtGQUKyYNSOAgZj/U/0hMKrNf8a0QI97T9JtHWodoLi7koIZZ0J+zIDb
-	 8EjU6qAzoiLHW7PmnoNTwLI088osMLiL4r0di9DyFYBqOqMxpr6e+L4xu2cJyNoRMW
-	 1gLKDXwwVKmyRDstr+b7gDbTIcdVAlKVHGJYkhNCYkYRwrg2NjskAdXd3RrKELU28K
-	 jFP/47pp9xP1vNNSoqBKOPzkNBY/TMMBEkX0f74rYVsMB8l9iJwkT8sycFX8FIVHoh
-	 +RMBkCqXo58gzhYcxpfIg+8zfP6OCAuEvyZGetaoSS0Y9YXzRcJw4a3RueaRsdNkq9
-	 zHrlrWnvNfvKA==
-Date: Thu, 18 Apr 2024 11:41:29 -0700
-From: Eric Biggers <ebiggers@kernel.org>
+	Thu, 18 Apr 2024 19:11:04 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-418e4cd2196so8223975e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Apr 2024 12:10:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1713467456; x=1714072256; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yXdSYYCw4tbBK12sFpumhiTHBryJ6X9NPqaTloVYbGU=;
+        b=GO9qtMhTmG3sGYvhuY7B+7iEn3BPaNp8wfGueWZr34pqJRKRDbmDU5rASQyl2zD2kl
+         oaXZybfr32L5gWpBROhJxQhYhe9CA2nH+b1frNtMw6/lGl4XHI3rM75o6ZnfgnLH+pXM
+         ipLA2wfz/0aUxKF1PGvWEwpWo+RWUvmh1AE44QGhzHLmXOEcYvSD524gWbuUgkCuRDAb
+         oNRc/Qq6UbuAbx/lcmzgGkl/QiasFuScJJwjfKdgeQTQc3YB4YOiLIbpDhtyOdZxeBlK
+         71LO89uHLEEg9fa0gdSsj7Enb4uedne7vTeiqFi5pKugUry+9EARtOREnKqHOkw7oLn1
+         WcAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713467456; x=1714072256;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yXdSYYCw4tbBK12sFpumhiTHBryJ6X9NPqaTloVYbGU=;
+        b=FVPhcfK5mn4KD6sCy68wpY/a62TV9ON0O+EQBhpSTmZgQbtSgSP5ObRpEYb42HN158
+         OjTiyglgiAmQuvaJ+7sahUnomk7DgpbQubwuKP33os8SHfpGCiLUgDdsxzwsRD/YN89H
+         daRZ0PKWm+hquwODYjTvtsfajjNJYrIB3ZqNVFR9GOpDFlu64Dmk79V+XzQLDPOzdCoe
+         XtRnxclZqYrhpDgxTapusBGlA0g8Jb9GCU/RhGv/T/kbNuPcl1D4StkVOK6vC5cRmUdt
+         IymjLQ6f4LB3Pklj1cwqVP+SZXATHkR2hYIFiHxMrGUlXMncGfaujiJPPqjSZIRv7I6h
+         7sMA==
+X-Forwarded-Encrypted: i=1; AJvYcCU/hkmlk2p3BdS3LuO8Ne+WgQO3ZuHnvCsOgspy4p8erPvWPsGGSqTQ9GYgK1TyJiABO5DlWZ02yJdFB189Whn0DccYWWPv+Gcudj+6d5lQ
+X-Gm-Message-State: AOJu0YyJSnN1gs66ZI7DzZFZzMkPhXeiuIwzLS6S72FMAQjwwXxz4JZP
+	2AmDWTNwLmbu4jpRimpwa6Nfi43O8ZGT1GRwodQc4frk0mr2t7MbFoUg7/SgE08=
+X-Google-Smtp-Source: AGHT+IEW9e+5B+54U3zhcer9b4WmdKoqb4N3E3Rq+DsJVrLICB1hplQdrHWsY00Soarca1d97Rc1YA==
+X-Received: by 2002:a05:600c:4511:b0:417:fbc2:caf8 with SMTP id t17-20020a05600c451100b00417fbc2caf8mr2760993wmo.23.1713467456173;
+        Thu, 18 Apr 2024 12:10:56 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id o12-20020a05600c4fcc00b00418a6d62ad0sm7472101wmq.34.2024.04.18.12.10.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Apr 2024 12:10:55 -0700 (PDT)
+Date: Thu, 18 Apr 2024 21:10:54 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
 To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
-	Guo Ren <guoren@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>, Evan Green <evan@rivosinc.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Shuah Khan <shuah@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>, devicetree@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Joel Granados <j.granados@samsung.com>,
-	Jerry Shih <jerry.shih@sifive.com>
-Subject: Re: [PATCH v4 7/9] riscv: vector: adjust minimum Vector requirement
- to ZVE32X
-Message-ID: <20240418184129.GA1071@sol.localdomain>
-References: <20240412-zve-detection-v4-0-e0c45bb6b253@sifive.com>
- <20240412-zve-detection-v4-7-e0c45bb6b253@sifive.com>
- <20240418-brook-chili-4d3e61d1a55c@wendy>
- <20240418155256.GA2410@sol.localdomain>
- <20240418-ultimatum-yam-11de4b063b83@spud>
- <20240418173203.GA1081@sol.localdomain>
- <20240418173946.GB1081@sol.localdomain>
- <20240418-sterling-sanding-d59c3b0a2aaa@spud>
+Cc: Xu Lu <luxu.kernel@bytedance.com>, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, andy.chiu@sifive.com, guoren@kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, lihangjing@bytedance.com, 
+	dengliang.1214@bytedance.com, xieyongji@bytedance.com, chaiwen.cc@bytedance.com
+Subject: Re: [RFC 1/2] riscv: process: Introduce idle thread using Zawrs
+ extension
+Message-ID: <20240418-d9f305770dc71c2687a6e84b@orel>
+References: <20240418114942.52770-1-luxu.kernel@bytedance.com>
+ <20240418114942.52770-2-luxu.kernel@bytedance.com>
+ <20240418-dove-deferral-2b01100e13ca@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240418-sterling-sanding-d59c3b0a2aaa@spud>
+In-Reply-To: <20240418-dove-deferral-2b01100e13ca@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240418_114135_339363_98511D09 
-X-CRM114-Status: GOOD (  35.26  )
+X-CRM114-CacheID: sfid-20240418_121103_028177_7A0245AC 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,72 +97,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 18, 2024 at 07:26:00PM +0100, Conor Dooley wrote:
-> That's great if it does require that the version of the vector extension
-> must be standard. Higher quality spec than most if it does. But
-> "supported" in the context of riscv_isa_extension_available() means that
-> the hardware supports it (or set of harts), not that the currently
-> running kernel does. The Kconfig deps that must be met for the code to be
-> built at least mean the kernel is built with vector support, leaving only
-> "the kernel was built with vector support and the hardware supports vector
-> but for $reason the kernel refused to enable it".
+On Thu, Apr 18, 2024 at 04:05:55PM +0100, Conor Dooley wrote:
+> + Drew,
 > 
-> I'm not sure if that final condition is actually possible with the system
-> ending up in a broken state, however - I'm not sure that we ever do turn
-> off access to the VPU at present (after we mark it usable), and if we do
-> it doesn't get reflected in has_vector() so the kernel and userspace would
-> both break, with what a crypto driver does probably being the least of
-> your worries.
->
-> > I am just concerned about how you're suggesting that non-standard extensions
-> > might be pretending to be standard ones and individual users of kernel-mode
-> > vector would need to work around that.
+> On Thu, Apr 18, 2024 at 07:49:41PM +0800, Xu Lu wrote:
+> > The Zawrs extension introduces a new instruction WRS.NTO, which will
+> > register a reservation set and causes the hart to temporarily stall
+> > execution in a low-power state until a store occurs to the reservation
+> > set or an interrupt is observed.
+> > 
+> > This commit implements new version of idle thread for RISC-V via Zawrs
+> > extension.
+> > 
+> > Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+> > Reviewed-by: Hangjing Li <lihangjing@bytedance.com>
+> > Reviewed-by: Liang Deng <dengliang.1214@bytedance.com>
+> > Reviewed-by: Wen Chai <chaiwen.cc@bytedance.com>
+> > ---
+> >  arch/riscv/Kconfig                 | 24 +++++++++++++++++
+> >  arch/riscv/include/asm/cpuidle.h   | 11 +-------
+> >  arch/riscv/include/asm/hwcap.h     |  1 +
+> >  arch/riscv/include/asm/processor.h | 17 +++++++++++++
+> >  arch/riscv/kernel/cpu.c            |  5 ++++
+> >  arch/riscv/kernel/cpufeature.c     |  1 +
+> >  arch/riscv/kernel/process.c        | 41 +++++++++++++++++++++++++++++-
+> >  7 files changed, 89 insertions(+), 11 deletions(-)
+> > 
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index be09c8836d56..a0d344e9803f 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -19,6 +19,7 @@ config RISCV
+> >  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+> >  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+> >  	select ARCH_HAS_BINFMT_FLAT
+> > +	select ARCH_HAS_CPU_FINALIZE_INIT
+> >  	select ARCH_HAS_CURRENT_STACK_POINTER
+> >  	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+> >  	select ARCH_HAS_DEBUG_VM_PGTABLE
+> > @@ -525,6 +526,20 @@ config RISCV_ISA_SVPBMT
+> >  
+> >  	   If you don't know what to do here, say Y.
+> >  
+> > +config RISCV_ISA_ZAWRS
+> > +	bool "Zawrs extension support for wait-on-reservation-set instructions"
+> > +	depends on RISCV_ALTERNATIVE
+> > +	default y
+> > +	help
+> > +	   Adds support to dynamically detect the presence of the Zawrs
+> > +	   extension and enable its usage.
 > 
-> I am absolutely not suggesting that non-standard extensions should
-> masquerade as standard ones, I don't know where you got that from. What
-> I said was that a non-standard vector extension could reuse riscv_v_vlen
-> (and should IMO for simplicity reasons), not that any of the APIs we have
-> for checking extension availability would lie and say it was standard.
-> riscv_v_vlen having a value greater than 128 is not one of those APIs ;)
+> Drew, could you, in your update, use the wording:
+> 	   Add support for enabling optimisations in the kernel when the
+> 	   Zawrs extension is detected at boot.
 
-It sounded like you were suggesting that a CPU could plausibly have a
-pre-standard version of the vector extension but also have standard Zvkb.  I
-don't think this makes sense, due to the dependency.
+How about
 
-> > I think that neither has_vector() nor
-> > 'if (riscv_isa_extension_available(NULL, ZVKB))' should return true if the CPU's
-> > vector extension is non-standard.
-> 
-> riscv_isa_extension_available(NULL, ZVKB) only checks whether the extension
-> was present in DT or ACPI for all harts. It doesn't check whether or not
-> the required config option for vector has been set or anything related
-> to dependencies. has_vector() at least checks that the vector core has
-> been enabled (and uses the alternative-patched version of the check
-> given it is used in some hotter paths). That's kinda moot for code
-> that's only built if the vector core stuff is enabled as I said above
-> though.
-> 
-> We could of course make riscv_isa_extension_available() check
-> extension dependencies, but I'd rather leave dt validation to the dt
-> tooling (apparently ACPI tables are never wrong...). Either would allow
-> you to rely on the crypto extensions present only when the standard vector
-> extensions unless someone's DT/ACPI stuff is shite, but then they keep the
-> pieces IMO :)
-> 
-> Hope that makes sense?
+  The Zawrs extension defines a pair of instructions to be used in
+  polling loops which allow a hart to enter a low-power state or to
+  trap to the hypervisor while waiting on a store to a memory location.
+  Enable the use of these instructions when the Zawrs extension is
+  detected at boot.
 
-If the RISC-V kernel ever disables V, then it should also disable everything
-that depends on V.
-
-This would be similar to how on x86, if the kernel decides to disable AVX to
-mitigate the Gather Data Sampling vulnerability, it also disables AVX2, AVX512,
-VAES, VPCLMULQDQ, etc.  See cpuid_deps[] in arch/x86/kernel/cpu/cpuid-deps.c.
-
-Sometimes CPU features depend on other ones.  That's just the way things work.
-Whenever possible that should be handled centrally, not pushed down to every
-user both in-kernel and userspace.
-
-- Eric
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
