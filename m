@@ -4,87 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF583C04FF8
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 15:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B17C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 15:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ai3jJR8i6o/8K4zl80Vewa+zMRbyA8g9tpz7r5AIR3E=; b=h9hP26HLEbQYWB
-	GKXaP7CvLP+ovLdd5A8dAeX7iZtS6Of2kspPGe8y6w4Xi6o4XUXLmW/L0qbQLqR0h4dhgQA1pHEps
-	xuBCI4EHx34c2r+85PpiN0Xkt8SrZ1CHu1j4szuUB5iQyGOxbq8XUCtFvrIVs8oYmOq2vRvDAzGTh
-	j+MaEevz1Ev8hso6C3G16q1pQGqvX8c4LLvj7DtLtz9b0Q0dRQ5KlTWUR7gkB/VWtoOaMcddT0Kp2
-	Ugeec0NHaZtLAqDtDQKwaC11CWNMbIbI56JREhAqv0gYm7jZ3IVxj3ncL7J01sVCZh3OTY7I9wZDT
-	Uih3heAfPjEMDyXXSv3Q==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=vRXPVbuOfO5XNUewivj/XnrKc+o1aEFkRjBp2ONB7cE=; b=2KS4knHTkPc0NmiH1jjD398PHk
+	uuJEMVUXu33zn8koNnbnmc7Vm1HgRyBaQRYoPbQY6MPyebWp6EvMqaHS/1nCNAGMm6UUUEOI5tKwW
+	iPXJNl7WOnfDq1WgRoiB/WLVuk5yPaFUK2xrrkWihgXsb0/NMVFIft6WRJhOWj8ZGRET8Fa1FDS/T
+	WW3aNfJ2XZmd83xbFl/fw5EYXdcG2UXSpckZlvfkj5Ek5CDqm3VFPTFixBmcaIPQAhrfyP8seIxzz
+	AcvmAjbVpXz8a0nRONscJYeTJnOv+npC/FVK7i3tfdHxPKRh9wuIuD1rmSEMeXcn6rCVDa7IPZkCt
+	832eh2EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxTr4-00000002q9J-1mla;
-	Thu, 18 Apr 2024 15:39:18 +0000
+	id 1rxTuy-00000002qve-1vWI;
+	Thu, 18 Apr 2024 15:43:20 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxTr0-00000002q6q-3UvZ;
-	Thu, 18 Apr 2024 15:39:16 +0000
+	id 1rxTuv-00000002qv0-2Ok7
+	for linux-riscv@lists.infradead.org;
+	Thu, 18 Apr 2024 15:43:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id CD174CE188E;
-	Thu, 18 Apr 2024 15:39:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDB10C113CC;
-	Thu, 18 Apr 2024 15:38:58 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id A915CCE14E4;
+	Thu, 18 Apr 2024 15:43:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 720CFC113CC;
+	Thu, 18 Apr 2024 15:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713454751;
-	bh=poikjUesrlZvYhdkYUVTGKAXtyh6o27VwcY88bzAEGE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dhagt/DsCV508bBCSM8PQFh0KZ4ChVYVPTqwgApoowoaluDog1pdK/qIVJU1bAfJ1
-	 yTHdqpTqCwsTRyfpVzaQYmToVgTGF005G8P5bcBRn51+TfjO6upp0QzeXZdpRVmP9T
-	 DyDQSEZc+G77sXhvEvzJVgEwHd81+hiEegtvxJRrNRYHrUsgJx5AWmHmLJX+3OoPI9
-	 DgUEekwf3Gv6AvfsAJ1j1lmBPCAVlRdxF5BEqB76VwjdS5tGiPR4UhLWWIRbIEiDfd
-	 AIVB7M07XTdJ0VLvAnDkmSjg91AV2IlHsKb94RwxZ2UFTajWhnfg+q+QMNKv4wdsDX
-	 0LvSLkPCKaqng==
-Date: Thu, 18 Apr 2024 18:37:52 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Masami Hiramatsu <masami.hiramatsu@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-modules@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v4 14/15] kprobes: remove dependency on CONFIG_MODULES
-Message-ID: <ZiE-UE27NalI-IeW@kernel.org>
-References: <20240411160051.2093261-1-rppt@kernel.org>
- <20240411160051.2093261-15-rppt@kernel.org>
- <20240418061615.5fad23b954bf317c029acc4d@gmail.com>
+	s=k20201202; t=1713454993;
+	bh=NoN/F3sedrv19YhzjIJK0nyHZ+Qar5F5RygtFtMvJSE=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=fQwLo2pjte4iLX8O73Q3NmDq2hks/xJBPNWyXBS7LqDoeDz03m4Kg5XVbOR5mLJu7
+	 nVJXqFzu9q9E09THybeUCVgsLk3QxR9D5QUYKYSAMW3lVeK0fjfmBKuQIpTNCM682R
+	 tm8qjLcUsvUrod0bXCakuHdF8wd0VTyk2VAUbNoq1xFKECknco3na/M12N1C2sDoWO
+	 JBqhwhSmBTtEo7FRJkYfz0q2kPZFotLPFmqHN8zVf1HQOyIbUBWoxd4xanuWChk0Fq
+	 3oziQ4/1wJdGDjQMPsnuaMbk8g3arvEnY7y5Fe/pmMVCHFFnWz+3yMNzjk/jA/qWUy
+	 wIs7GJWI8LuLA==
+Date: Thu, 18 Apr 2024 10:43:12 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240418061615.5fad23b954bf317c029acc4d@gmail.com>
+From: Rob Herring <robh@kernel.org>
+To: michael.opdenacker@bootlin.com
+Cc: Albert Ou <aou@eecs.berkeley.edu>, 
+ Inochi Amaoto <inochiama@outlook.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+ Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20240417065311.3881023-1-michael.opdenacker@bootlin.com>
+References: <20240417065311.3881023-1-michael.opdenacker@bootlin.com>
+Message-Id: <171345477410.1962860.5172182463035592800.robh@kernel.org>
+Subject: Re: [PATCH v5 0/2] add initial Milk-V Duo S board support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240418_083915_253591_8155FCDD 
-X-CRM114-Status: GOOD (  22.20  )
+X-CRM114-CacheID: sfid-20240418_084318_048880_3C858D21 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,50 +75,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Masami,
 
-On Thu, Apr 18, 2024 at 06:16:15AM +0900, Masami Hiramatsu wrote:
-> Hi Mike,
+On Wed, 17 Apr 2024 08:53:09 +0200, michael.opdenacker@bootlin.com wrote:
+> From: Michael Opdenacker <michael.opdenacker@bootlin.com>
 > 
-> On Thu, 11 Apr 2024 19:00:50 +0300
-> Mike Rapoport <rppt@kernel.org> wrote:
+> This adds an initial device tree for the Milk-V Duo S board.
+> Last tested on linux-next on April 17, 2024.
 > 
-> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> > 
-> > kprobes depended on CONFIG_MODULES because it has to allocate memory for
-> > code.
-> > 
-> > Since code allocations are now implemented with execmem, kprobes can be
-> > enabled in non-modular kernels.
-> > 
-> > Add #ifdef CONFIG_MODULE guards for the code dealing with kprobes inside
-> > modules, make CONFIG_KPROBES select CONFIG_EXECMEM and drop the
-> > dependency of CONFIG_KPROBES on CONFIG_MODULES.
+> - Changes in V5
+>   - Fix the commit message describing the board DTS.
+>     MMC is not supported yet.
 > 
-> Thanks for this work, but this conflicts with the latest fix in v6.9-rc4.
-> Also, can you use IS_ENABLED(CONFIG_MODULES) instead of #ifdefs in
-> function body? We have enough dummy functions for that, so it should
-> not make a problem.
+> - Changes in V4
+>   - Remove mmc device (&sdhci0) as not working yet with linux-next
+>   - Use "sophgo,cv1812h" compatible as on the Huashan Pi board.
+>     Should I call the DTS cv1812h-milkv-duos.dts instead
+>     of sg2000-milkv-duos.dts?
+> 
+> - Changes in V3
+>   - Fix enum in devicetree/bindings/riscv/sophgo.yaml
+> 
+> - Changes in V2:
+>   - Add a first patch to register the new compatible string
+>     for this board.
+>   - Use a correct SoC compatible string
+>   - Add "disable-wp" (disable write protect) property
+>     to enable write access to the external SD card.
+> 
+> Michael Opdenacker (2):
+>   dt-bindings: riscv: add Milk-V Duo S board compatibles
+>   riscv: dts: sophgo: add initial Milk-V Duo S board support
+> 
+>  .../devicetree/bindings/riscv/sophgo.yaml     |  1 +
+>  arch/riscv/boot/dts/sophgo/Makefile           |  1 +
+>  .../boot/dts/sophgo/sg2000-milkv-duos.dts     | 34 +++++++++++++++++++
+>  3 files changed, 36 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+> 
+> --
+> 2.34.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> 
 
-I'll rebase and will try to reduce ifdefery where possible.
 
-> Thank you,
-> 
-> > 
-> > Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
-> > ---
-> >  arch/Kconfig                |  2 +-
-> >  kernel/kprobes.c            | 43 +++++++++++++++++++++----------------
-> >  kernel/trace/trace_kprobe.c | 11 ++++++++++
-> >  3 files changed, 37 insertions(+), 19 deletions(-)
-> > 
-> 
-> -- 
-> Masami Hiramatsu
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
--- 
-Sincerely yours,
-Mike.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y sophgo/sg2000-milkv-duos.dtb' for 20240417065311.3881023-1-michael.opdenacker@bootlin.com:
+
+arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dtb: /: compatible: 'oneOf' conditional failed, one must be fixed:
+	'milkv,duos' is not one of ['sophgo,huashan-pi']
+	'milkv,duos' is not one of ['milkv,pioneer']
+	'sophgo,cv1800b' was expected
+	'sophgo,sg2042' was expected
+	from schema $id: http://devicetree.org/schemas/riscv/sophgo.yaml#
+
+
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
