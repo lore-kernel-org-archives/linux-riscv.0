@@ -4,85 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76900C04FF8
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 20:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 116BAC4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2024 21:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kpPfQxwwfn7ITbTjIPojyj4fh8rPwTnyZHk8b/xOt3I=; b=XKvxnawk70u682
-	FsIs3ZYwAq1Sc95y+pxxMtdrSxgA3PMTO/WitM7hfjITdy1HuSogs0sgtFAj2/c16U45lT8vcRzs2
-	qd8SM1bF8sW3iv1Rc9PrhmKGy4SCLmBeKmRUOWsa0DCuE88MEq8R9qqmVhMN8qrxUrpdDTI8P1RYk
-	lifQuiDzeyyC5D9+JRO41OqRzAKxu3m6nZo6pIHmNtNZxiG24MqidSm6Qkl6a9O2K0w0OYYhyDazl
-	6Ke3Ax6V6dY3Cstj1bYoYp+eYJ1C7FRBrwnDlasJU2m/17Umh1xUrCXgdzU8XujcyuNwU1VqXNZ1n
-	W8r72qn8hLhx1l8APcDA==;
+	List-Owner; bh=+dyalLYc458M3ZlZLbmaMV9cfzL7iLu3m9QPRA+0K1U=; b=UowNzGse3VMVJ+
+	6U+XIn2lWZLLTF/V3SG6s26aH8EUy1uiUfkNkDch947pVCzSg63C/UaTbwqPQY2iAS4dfP+irn+z6
+	+NqVcUyZn7kgOt/jUZOJTpxYBDpyfaN2upTo4iSuecrMwZ1f62izKW1fRApcEIF9P4ryXmCpJ1PKi
+	9gwTSLtuS6O8pVxqXhM6Q6b+BSN3ZEWHw15llmYjAXZNTtWOlk9J57x3c+8acA+eUXEE/2/wLKHwD
+	ZPjCd6Z/Ygvzfris59+jJlZJfHPjjTOS97z+PH+RZNeEMgdgel75ewHwxtHwCvKxdn1TtiHK1tj46
+	7pbvgpjRJp4N5FGuZqKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxYQh-00000003dc3-2Dug;
-	Thu, 18 Apr 2024 20:32:23 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1rxYtN-00000003hip-2jJD;
+	Thu, 18 Apr 2024 21:02:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxYQd-00000003daW-2Cjl
-	for linux-riscv@lists.infradead.org;
-	Thu, 18 Apr 2024 20:32:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1713472340; x=1745008340;
-  h=message-id:date:mime-version:subject:to:references:from:
-   in-reply-to:content-transfer-encoding;
-  bh=eTofrBW04ChmFYUj1jF175/NjHjz6OAzhp9fdW7bFVg=;
-  b=RJDW6aXUC86RlUw8CulBBPk/9bwaybPtXn+diXROk0x1SELAt2FezRzd
-   /4BaLsq/M06MnyjVcIuy4BgzpfI0JpPOoD9zlH4zfNE6BaSYABjkhT7Cz
-   VHNYu6BNFuHtQzvMzL5YhDzaOnrgGLOLiiECSPRsqOelDN6tHMr7zcWIl
-   wCTSFhSK3EsdJNQ6OvEfn8xIzeGaSUpkwcdzujQ7HTjkPx44yYeUYoDaD
-   GX4iO050ewwwn6w2GVIQumAcPhpvJztPoULEZOSfwdPeQWadXaYQ7pcsV
-   ux06c2iSBXkAlSPzJ/er2X924XtSzrz5lmCU6JgqKc7bFifwgXy8Brx7q
-   w==;
-X-CSE-ConnectionGUID: FYXwrxjaRiqCuG7qN67/GA==
-X-CSE-MsgGUID: /YmtSdkDSZW8cuNKwqg2Aw==
-X-IronPort-AV: E=McAfee;i="6600,9927,11047"; a="9221385"
-X-IronPort-AV: E=Sophos;i="6.07,213,1708416000"; 
-   d="scan'208";a="9221385"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2024 13:32:15 -0700
-X-CSE-ConnectionGUID: ZfGHhgzCSyO50yWFFQQtXw==
-X-CSE-MsgGUID: cAKm/VLgR66gY2j5jJDnqw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.07,213,1708416000"; 
-   d="scan'208";a="27732040"
-Received: from linux.intel.com ([10.54.29.200])
-  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2024 13:32:14 -0700
-Received: from [10.212.69.180] (kliang2-mobl1.ccr.corp.intel.com [10.212.69.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by linux.intel.com (Postfix) with ESMTPS id 87454206DFDC;
-	Thu, 18 Apr 2024 13:32:12 -0700 (PDT)
-Message-ID: <e8147f53-1930-44d8-abb8-fee460ec355f@linux.intel.com>
-Date: Thu, 18 Apr 2024 16:32:11 -0400
+	id 1rxYtJ-00000003hhF-1Woe;
+	Thu, 18 Apr 2024 21:01:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CEBA4618F6;
+	Thu, 18 Apr 2024 21:01:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79069C113CC;
+	Thu, 18 Apr 2024 21:01:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713474116;
+	bh=Q9xFEu3Y5LoeO0EqCkhUGHL0dsvPtZI4/AmKYvf5MnY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=LKsu6wgwztewDd1Kf4NCYPGtYXsdZ+ofFTa2d1MI2zHPuKQq+mmWhhJ/cfOoO74/D
+	 CmcZP1gphR1rk0/C2WrZMmDohWk9TLfoE/BVlmPcx4Ya9rM6Nh6AU0ABzg9gD2wvws
+	 H60UGmuK3KY+NjPIGsNka51Re3XwprsD1pbbtq74ctVkAghiYQUsQoRN8cLIcXPPsL
+	 rXx3eFrMppxOnjZtTYcB0+vT04YNLcaQFvbo1fn264bSOiuX8e1yptQTDfZHVYZ58/
+	 0oeaQEoE1JgibuYG0nL+yludx9odg4AlyJea9d8FGku7Y1tGZRmj1BnxpJESiJFknk
+	 jlSY0S/C8n1Cg==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5194a2cf7c2so1382944e87.0;
+        Thu, 18 Apr 2024 14:01:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVZZja/hdY+2dAMCL4Zzigqj0jMFySOpwerg599UjSB8zA4prvx6zJZAKW9Juxvl+8uuDB5yGi0eY9BwSyJ7DXDN1n7Fz0PIJpiM2tI+ZNFqaWPxefzk8J2f6J9TTYHmqJVYvY0YSKmSVSnyoBexArZcpkIhj4=
+X-Gm-Message-State: AOJu0YzNPpjpBLPm2WnHs0IK3SD72g94F6yKjSfIrriOjyaa5LxAtPRc
+	NAQxPr1/KhZFNVNnL7EAKwt0bq0uRQhi8hTMY4LqNqaURO4vNNDsxAXe7jx4KFPE8F0tc2BzZC6
+	25I9sTvLhPHuTr73/h0Mr6u5VfBM=
+X-Google-Smtp-Source: AGHT+IHNxy9sJsnZs3KQVfU0+czeg8tBpsYhbjwNsSaDNt4tlgSyRo9Mz2ssjEN7kjA5vVRJEg5DihQkgyMA2Jl/jC4=
+X-Received: by 2002:a05:6512:1251:b0:516:cec0:1fc0 with SMTP id
+ fb17-20020a056512125100b00516cec01fc0mr104453lfb.63.1713474094462; Thu, 18
+ Apr 2024 14:01:34 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/16] perf parse-events: Improvements to modifier
- parsing
-To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- James Clark <james.clark@arm.com>, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
- Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org,
- Beeman Strong <beeman@rivosinc.com>
-References: <20240416061533.921723-1-irogers@google.com>
- <20240416061533.921723-14-irogers@google.com>
-Content-Language: en-US
-From: "Liang, Kan" <kan.liang@linux.intel.com>
-In-Reply-To: <20240416061533.921723-14-irogers@google.com>
+References: <20240411160051.2093261-1-rppt@kernel.org> <20240411160051.2093261-6-rppt@kernel.org>
+ <20240415075241.GF40213@noisy.programming.kicks-ass.net> <Zh1lnIdgFeM1o8S5@FVFF77S0Q05N.cambridge.arm.com>
+ <Zh4nJp8rv1qRBs8m@kernel.org> <CAPhsuW6Pbg2k_Gu4dsBx+H8H5XCHvNdtEZJBPiG_eT0qqr9D1w@mail.gmail.com>
+ <ZiE91CJcNw7gBj9g@kernel.org> <CAPhsuW4au6v8k8Ab7Ff6Yj64rGvZ7wkz=Xrgh8ZZtLyscpChqQ@mail.gmail.com>
+ <ZiFd567L4Zzm2okO@kernel.org>
+In-Reply-To: <ZiFd567L4Zzm2okO@kernel.org>
+From: Song Liu <song@kernel.org>
+Date: Thu, 18 Apr 2024 14:01:22 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW5SL4_=ZXdHZV8o0KS+5Vf25UMvEKhRgFQLioFtf2pgoQ@mail.gmail.com>
+Message-ID: <CAPhsuW5SL4_=ZXdHZV8o0KS+5Vf25UMvEKhRgFQLioFtf2pgoQ@mail.gmail.com>
+Subject: Re: [PATCH v4 05/15] mm: introduce execmem_alloc() and execmem_free()
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+	linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Bjorn Topel <bjorn@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	"David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Donald Dutile <ddutile@redhat.com>, Eric Chanudet <echanude@redhat.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	Kent Overstreet <kent.overstreet@linux.dev>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nadav Amit <nadav.amit@gmail.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Puranjay Mohan <puranjay12@gmail.com>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Russell King <linux@armlinux.org.uk>, 
+	Steven Rostedt <rostedt@goodmis.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>, bpf@vger.kernel.org, 
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linux-mm@kvack.org, linux-modules@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240418_133219_733234_64E4C68B 
-X-CRM114-Status: GOOD (  30.87  )
+X-CRM114-CacheID: sfid-20240418_140157_505537_FE68DBD9 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,566 +97,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2024-04-16 2:15 a.m., Ian Rogers wrote:
-> Use a struct/bitmap rather than a copied string from lexer.
-> 
-> In lexer give improved error message when too many precise flags are
-> given or repeated modifiers.
-> 
-> Before:
-> ```
-> $ perf stat -e 'cycles:kuk' true
-> event syntax error: 'cycles:kuk'
->                             \___ Bad modifier
-> ...
-> $ perf stat -e 'cycles:pppp' true
-> event syntax error: 'cycles:pppp'
->                             \___ Bad modifier
-> ...
-> $ perf stat -e '{instructions:p,cycles:pp}:pp' -a true
-> event syntax error: '..cycles:pp}:pp'
->                                   \___ Bad modifier
-> ...
-> ```
-> After:
-> ```
-> $ perf stat -e 'cycles:kuk' true
-> event syntax error: 'cycles:kuk'
->                               \___ Duplicate modifier 'k' (kernel)
-> ...
-> $ perf stat -e 'cycles:pppp' true
-> event syntax error: 'cycles:pppp'
->                                \___ Maximum precise value is 3
-> ...
-> $ perf stat -e '{instructions:p,cycles:pp}:pp' true
-> event syntax error: '..cycles:pp}:pp'
->                                   \___ Maximum combined precise value is 3, adding precision to "cycles:pp"
-> ...
-> ```
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/util/parse-events.c | 250 ++++++++++++---------------------
->  tools/perf/util/parse-events.h |  23 ++-
->  tools/perf/util/parse-events.l |  75 +++++++++-
->  tools/perf/util/parse-events.y |  28 +---
->  4 files changed, 194 insertions(+), 182 deletions(-)
-> 
-> diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-> index ebada37ef98a..3ab533d0e653 100644
-> --- a/tools/perf/util/parse-events.c
-> +++ b/tools/perf/util/parse-events.c
-> @@ -1700,12 +1700,6 @@ int parse_events_multi_pmu_add_or_add_pmu(struct parse_events_state *parse_state
->  	return -EINVAL;
->  }
->  
-> -int parse_events__modifier_group(struct list_head *list,
-> -				 char *event_mod)
-> -{
-> -	return parse_events__modifier_event(list, event_mod, true);
-> -}
-> -
->  void parse_events__set_leader(char *name, struct list_head *list)
->  {
->  	struct evsel *leader;
-> @@ -1720,183 +1714,125 @@ void parse_events__set_leader(char *name, struct list_head *list)
->  	leader->group_name = name;
->  }
->  
-> -struct event_modifier {
-> -	int eu;
-> -	int ek;
-> -	int eh;
-> -	int eH;
-> -	int eG;
-> -	int eI;
-> -	int precise;
-> -	int precise_max;
-> -	int exclude_GH;
-> -	int sample_read;
-> -	int pinned;
-> -	int weak;
-> -	int exclusive;
-> -	int bpf_counter;
-> -};
-> +static int parse_events__modifier_list(struct parse_events_state *parse_state,
-> +				       YYLTYPE *loc,
-> +				       struct list_head *list,
-> +				       struct parse_events_modifier mod,
-> +				       bool group)
-> +{
-> +	struct evsel *evsel;
->  
-> -static int get_event_modifier(struct event_modifier *mod, char *str,
-> -			       struct evsel *evsel)
-> -{
-> -	int eu = evsel ? evsel->core.attr.exclude_user : 0;
-> -	int ek = evsel ? evsel->core.attr.exclude_kernel : 0;
-> -	int eh = evsel ? evsel->core.attr.exclude_hv : 0;
-> -	int eH = evsel ? evsel->core.attr.exclude_host : 0;
-> -	int eG = evsel ? evsel->core.attr.exclude_guest : 0;
-> -	int eI = evsel ? evsel->core.attr.exclude_idle : 0;
-> -	int precise = evsel ? evsel->core.attr.precise_ip : 0;
-> -	int precise_max = 0;
-> -	int sample_read = 0;
-> -	int pinned = evsel ? evsel->core.attr.pinned : 0;
-> -	int exclusive = evsel ? evsel->core.attr.exclusive : 0;
-> -
-> -	int exclude = eu | ek | eh;
-> -	int exclude_GH = evsel ? evsel->exclude_GH : 0;
-> -	int weak = 0;
-> -	int bpf_counter = 0;
-> -
-> -	memset(mod, 0, sizeof(*mod));
-> -
-> -	while (*str) {
-> -		if (*str == 'u') {
-> +	if (!group && mod.weak) {
-> +		parse_events_error__handle(parse_state->error, loc->first_column,
-> +					   strdup("Weak modifier is for use with groups"), NULL);
-> +		return -EINVAL;
-> +	}
-> +
-> +	__evlist__for_each_entry(list, evsel) {
-> +		/* Translate modifiers into the equivalent evsel excludes. */
-> +		int eu = group ? evsel->core.attr.exclude_user : 0;
-> +		int ek = group ? evsel->core.attr.exclude_kernel : 0;
-> +		int eh = group ? evsel->core.attr.exclude_hv : 0;
-> +		int eH = group ? evsel->core.attr.exclude_host : 0;
-> +		int eG = group ? evsel->core.attr.exclude_guest : 0;
-> +		int exclude = eu | ek | eh;
-> +		int exclude_GH = group ? evsel->exclude_GH : 0;
-> +
-> +		if (mod.precise) {
-> +			/* use of precise requires exclude_guest */
-> +			eG = 1;
-> +		}
-> +		if (mod.user) {
->  			if (!exclude)
->  				exclude = eu = ek = eh = 1;
->  			if (!exclude_GH && !perf_guest)
->  				eG = 1;
->  			eu = 0;
-> -		} else if (*str == 'k') {
-> +		}
-> +		if (mod.kernel) {
->  			if (!exclude)
->  				exclude = eu = ek = eh = 1;
->  			ek = 0;
-> -		} else if (*str == 'h') {
-> +		}
-> +		if (mod.hypervisor) {
->  			if (!exclude)
->  				exclude = eu = ek = eh = 1;
->  			eh = 0;
-> -		} else if (*str == 'G') {
-> +		}
-> +		if (mod.guest) {
->  			if (!exclude_GH)
->  				exclude_GH = eG = eH = 1;
->  			eG = 0;
-> -		} else if (*str == 'H') {
-> +		}
-> +		if (mod.host) {
->  			if (!exclude_GH)
->  				exclude_GH = eG = eH = 1;
->  			eH = 0;
-> -		} else if (*str == 'I') {
-> -			eI = 1;
-> -		} else if (*str == 'p') {
-> -			precise++;
-> -			/* use of precise requires exclude_guest */
-> -			if (!exclude_GH)
-> -				eG = 1;
-> -		} else if (*str == 'P') {
-> -			precise_max = 1;
-> -		} else if (*str == 'S') {
-> -			sample_read = 1;
-> -		} else if (*str == 'D') {
-> -			pinned = 1;
-> -		} else if (*str == 'e') {
-> -			exclusive = 1;
-> -		} else if (*str == 'W') {
-> -			weak = 1;
-> -		} else if (*str == 'b') {
-> -			bpf_counter = 1;
-> -		} else
-> -			break;
-> -
-> -		++str;
-> +		}
-> +		evsel->core.attr.exclude_user   = eu;
-> +		evsel->core.attr.exclude_kernel = ek;
-> +		evsel->core.attr.exclude_hv     = eh;
-> +		evsel->core.attr.exclude_host   = eH;
-> +		evsel->core.attr.exclude_guest  = eG;
-> +		evsel->exclude_GH               = exclude_GH;
-> +
-> +		/* Simple modifiers copied to the evsel. */
-> +		if (mod.precise) {
-> +			u8 precise = evsel->core.attr.precise_ip + mod.precise;
-> +			/*
-> +			 * precise ip:
-> +			 *
-> +			 *  0 - SAMPLE_IP can have arbitrary skid
-> +			 *  1 - SAMPLE_IP must have constant skid
-> +			 *  2 - SAMPLE_IP requested to have 0 skid
-> +			 *  3 - SAMPLE_IP must have 0 skid
-> +			 *
-> +			 *  See also PERF_RECORD_MISC_EXACT_IP
-> +			 */
-> +			if (precise > 3) {
-
-The pmu_max_precise() should return the max precise the current kernel
-supports. It checks the /sys/devices/cpu/caps/max_precise.
-
-I think we should use that value rather than hard code it to 3.
-
-Thanks,
-Kan
-
-> +				char *help;
-> +
-> +				if (asprintf(&help,
-> +					     "Maximum combined precise value is 3, adding precision to \"%s\"",
-> +					     evsel__name(evsel)) > 0) {
-> +					parse_events_error__handle(parse_state->error,
-> +								   loc->first_column,
-> +								   help, NULL);
-> +				}
-> +				return -EINVAL;
-> +			}
-> +			evsel->core.attr.precise_ip = precise;
-> +		}
-> +		if (mod.precise_max)
-> +			evsel->precise_max = 1;
-> +		if (mod.non_idle)
-> +			evsel->core.attr.exclude_idle = 1;
-> +		if (mod.sample_read)
-> +			evsel->sample_read = 1;
-> +		if (mod.pinned && evsel__is_group_leader(evsel))
-> +			evsel->core.attr.pinned = 1;
-> +		if (mod.exclusive && evsel__is_group_leader(evsel))
-> +			evsel->core.attr.exclusive = 1;
-> +		if (mod.weak)
-> +			evsel->weak_group = true;
-> +		if (mod.bpf)
-> +			evsel->bpf_counter = true;
->  	}
-> -
-> -	/*
-> -	 * precise ip:
-> -	 *
-> -	 *  0 - SAMPLE_IP can have arbitrary skid
-> -	 *  1 - SAMPLE_IP must have constant skid
-> -	 *  2 - SAMPLE_IP requested to have 0 skid
-> -	 *  3 - SAMPLE_IP must have 0 skid
-> -	 *
-> -	 *  See also PERF_RECORD_MISC_EXACT_IP
-> -	 */
-> -	if (precise > 3)
-> -		return -EINVAL;
-> -
-> -	mod->eu = eu;
-> -	mod->ek = ek;
-> -	mod->eh = eh;
-> -	mod->eH = eH;
-> -	mod->eG = eG;
-> -	mod->eI = eI;
-> -	mod->precise = precise;
-> -	mod->precise_max = precise_max;
-> -	mod->exclude_GH = exclude_GH;
-> -	mod->sample_read = sample_read;
-> -	mod->pinned = pinned;
-> -	mod->weak = weak;
-> -	mod->bpf_counter = bpf_counter;
-> -	mod->exclusive = exclusive;
-> -
->  	return 0;
->  }
->  
-> -/*
-> - * Basic modifier sanity check to validate it contains only one
-> - * instance of any modifier (apart from 'p') present.
-> - */
-> -static int check_modifier(char *str)
-> +int parse_events__modifier_group(struct parse_events_state *parse_state, void *loc,
-> +				 struct list_head *list,
-> +				 struct parse_events_modifier mod)
->  {
-> -	char *p = str;
-> -
-> -	/* The sizeof includes 0 byte as well. */
-> -	if (strlen(str) > (sizeof("ukhGHpppPSDIWeb") - 1))
-> -		return -1;
-> -
-> -	while (*p) {
-> -		if (*p != 'p' && strchr(p + 1, *p))
-> -			return -1;
-> -		p++;
-> -	}
-> -
-> -	return 0;
-> +	return parse_events__modifier_list(parse_state, loc, list, mod, /*group=*/true);
->  }
->  
-> -int parse_events__modifier_event(struct list_head *list, char *str, bool add)
-> +int parse_events__modifier_event(struct parse_events_state *parse_state, void *loc,
-> +				 struct list_head *list,
-> +				 struct parse_events_modifier mod)
->  {
-> -	struct evsel *evsel;
-> -	struct event_modifier mod;
-> -
-> -	if (str == NULL)
-> -		return 0;
-> -
-> -	if (check_modifier(str))
-> -		return -EINVAL;
-> -
-> -	if (!add && get_event_modifier(&mod, str, NULL))
-> -		return -EINVAL;
-> -
-> -	__evlist__for_each_entry(list, evsel) {
-> -		if (add && get_event_modifier(&mod, str, evsel))
-> -			return -EINVAL;
-> -
-> -		evsel->core.attr.exclude_user   = mod.eu;
-> -		evsel->core.attr.exclude_kernel = mod.ek;
-> -		evsel->core.attr.exclude_hv     = mod.eh;
-> -		evsel->core.attr.precise_ip     = mod.precise;
-> -		evsel->core.attr.exclude_host   = mod.eH;
-> -		evsel->core.attr.exclude_guest  = mod.eG;
-> -		evsel->core.attr.exclude_idle   = mod.eI;
-> -		evsel->exclude_GH          = mod.exclude_GH;
-> -		evsel->sample_read         = mod.sample_read;
-> -		evsel->precise_max         = mod.precise_max;
-> -		evsel->weak_group	   = mod.weak;
-> -		evsel->bpf_counter	   = mod.bpf_counter;
-> -
-> -		if (evsel__is_group_leader(evsel)) {
-> -			evsel->core.attr.pinned = mod.pinned;
-> -			evsel->core.attr.exclusive = mod.exclusive;
-> -		}
-> -	}
-> -
-> -	return 0;
-> +	return parse_events__modifier_list(parse_state, loc, list, mod, /*group=*/false);
->  }
->  
->  int parse_events_name(struct list_head *list, const char *name)
-> diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
-> index 290ae6c72ec5..f104faef1a78 100644
-> --- a/tools/perf/util/parse-events.h
-> +++ b/tools/perf/util/parse-events.h
-> @@ -186,8 +186,27 @@ void parse_events_terms__init(struct parse_events_terms *terms);
->  void parse_events_terms__exit(struct parse_events_terms *terms);
->  int parse_events_terms(struct parse_events_terms *terms, const char *str, FILE *input);
->  int parse_events_terms__to_strbuf(const struct parse_events_terms *terms, struct strbuf *sb);
-> -int parse_events__modifier_event(struct list_head *list, char *str, bool add);
-> -int parse_events__modifier_group(struct list_head *list, char *event_mod);
-> +
-> +struct parse_events_modifier {
-> +	u8 precise;	/* Number of repeated 'p' for precision. */
-> +	bool precise_max : 1;	/* 'P' */
-> +	bool non_idle : 1;	/* 'I' */
-> +	bool sample_read : 1;	/* 'S' */
-> +	bool pinned : 1;	/* 'D' */
-> +	bool exclusive : 1;	/* 'e' */
-> +	bool weak : 1;		/* 'W' */
-> +	bool bpf : 1;		/* 'b' */
-> +	bool user : 1;		/* 'u' */
-> +	bool kernel : 1;	/* 'k' */
-> +	bool hypervisor : 1;	/* 'h' */
-> +	bool guest : 1;		/* 'G' */
-> +	bool host : 1;		/* 'H' */
-> +};
-> +
-> +int parse_events__modifier_event(struct parse_events_state *parse_state, void *loc,
-> +				 struct list_head *list, struct parse_events_modifier mod);
-> +int parse_events__modifier_group(struct parse_events_state *parse_state, void *loc,
-> +				 struct list_head *list, struct parse_events_modifier mod);
->  int parse_events_name(struct list_head *list, const char *name);
->  int parse_events_add_tracepoint(struct list_head *list, int *idx,
->  				const char *sys, const char *event,
-> diff --git a/tools/perf/util/parse-events.l b/tools/perf/util/parse-events.l
-> index 0cd68c9f0d4f..4aaf0c53d9b6 100644
-> --- a/tools/perf/util/parse-events.l
-> +++ b/tools/perf/util/parse-events.l
-> @@ -142,6 +142,77 @@ static int hw(yyscan_t scanner, int config)
->  	return PE_TERM_HW;
->  }
->  
-> +static void modifiers_error(struct parse_events_state *parse_state, yyscan_t scanner,
-> +			    int pos, char mod_char, const char *mod_name)
-> +{
-> +	struct parse_events_error *error = parse_state->error;
-> +	char *help = NULL;
-> +
-> +	if (asprintf(&help, "Duplicate modifier '%c' (%s)", mod_char, mod_name) > 0)
-> +		parse_events_error__handle(error, get_column(scanner) + pos, help , NULL);
-> +}
-> +
-> +static int modifiers(struct parse_events_state *parse_state, yyscan_t scanner)
-> +{
-> +	YYSTYPE *yylval = parse_events_get_lval(scanner);
-> +	char *text = parse_events_get_text(scanner);
-> +	struct parse_events_modifier mod = { .precise = 0, };
-> +
-> +	for (size_t i = 0, n = strlen(text); i < n; i++) {
-> +#define CASE(c, field)							\
-> +		case c:							\
-> +			if (mod.field) {				\
-> +				modifiers_error(parse_state, scanner, i, c, #field); \
-> +				return PE_ERROR;			\
-> +			}						\
-> +			mod.field = true;				\
-> +			break
-> +
-> +		switch (text[i]) {
-> +		CASE('u', user);
-> +		CASE('k', kernel);
-> +		CASE('h', hypervisor);
-> +		CASE('I', non_idle);
-> +		CASE('G', guest);
-> +		CASE('H', host);
-> +		case 'p':
-> +			mod.precise++;
-> +			/*
-> +			 * precise ip:
-> +			 *
-> +			 *  0 - SAMPLE_IP can have arbitrary skid
-> +			 *  1 - SAMPLE_IP must have constant skid
-> +			 *  2 - SAMPLE_IP requested to have 0 skid
-> +			 *  3 - SAMPLE_IP must have 0 skid
-> +			 *
-> +			 *  See also PERF_RECORD_MISC_EXACT_IP
-> +			 */
-> +			if (mod.precise > 3) {
-> +				struct parse_events_error *error = parse_state->error;
-> +				char *help = strdup("Maximum precise value is 3");
-> +
-> +				if (help) {
-> +					parse_events_error__handle(error, get_column(scanner) + i,
-> +								   help , NULL);
-> +				}
-> +				return PE_ERROR;
-> +			}
-> +			break;
-> +		CASE('P', precise_max);
-> +		CASE('S', sample_read);
-> +		CASE('D', pinned);
-> +		CASE('W', weak);
-> +		CASE('e', exclusive);
-> +		CASE('b', bpf);
-> +		default:
-> +			return PE_ERROR;
-> +		}
-> +#undef CASE
-> +	}
-> +	yylval->mod = mod;
-> +	return PE_MODIFIER_EVENT;
-> +}
-> +
->  #define YY_USER_ACTION					\
->  do {							\
->  	yylloc->last_column  = yylloc->first_column;	\
-> @@ -174,7 +245,7 @@ drv_cfg_term	[a-zA-Z0-9_\.]+(=[a-zA-Z0-9_*?\.:]+)?
->   * If you add a modifier you need to update check_modifier().
->   * Also, the letters in modifier_event must not be in modifier_bp.
->   */
-> -modifier_event	[ukhpPGHSDIWeb]+
-> +modifier_event	[ukhpPGHSDIWeb]{1,15}
->  modifier_bp	[rwx]{1,3}
->  lc_type 	(L1-dcache|l1-d|l1d|L1-data|L1-icache|l1-i|l1i|L1-instruction|LLC|L2|dTLB|d-tlb|Data-TLB|iTLB|i-tlb|Instruction-TLB|branch|branches|bpu|btb|bpc|node)
->  lc_op_result	(load|loads|read|store|stores|write|prefetch|prefetches|speculative-read|speculative-load|refs|Reference|ops|access|misses|miss)
-> @@ -341,7 +412,7 @@ r{num_raw_hex}		{ return str(yyscanner, PE_RAW); }
->  {num_dec}		{ return value(_parse_state, yyscanner, 10); }
->  {num_hex}		{ return value(_parse_state, yyscanner, 16); }
->  
-> -{modifier_event}	{ return str(yyscanner, PE_MODIFIER_EVENT); }
-> +{modifier_event}	{ return modifiers(_parse_state, yyscanner); }
->  {name}			{ return str(yyscanner, PE_NAME); }
->  {name_tag}		{ return str(yyscanner, PE_NAME); }
->  "/"			{ BEGIN(config); return '/'; }
-> diff --git a/tools/perf/util/parse-events.y b/tools/perf/util/parse-events.y
-> index 2c4817e126c1..79f254189be6 100644
-> --- a/tools/perf/util/parse-events.y
-> +++ b/tools/perf/util/parse-events.y
-> @@ -68,11 +68,11 @@ static void free_list_evsel(struct list_head* list_evsel)
->  %type <num> PE_VALUE
->  %type <num> PE_VALUE_SYM_SW
->  %type <num> PE_VALUE_SYM_TOOL
-> +%type <mod> PE_MODIFIER_EVENT
->  %type <term_type> PE_TERM
->  %type <str> PE_RAW
->  %type <str> PE_NAME
->  %type <str> PE_LEGACY_CACHE
-> -%type <str> PE_MODIFIER_EVENT
->  %type <str> PE_MODIFIER_BP
->  %type <str> PE_EVENT_NAME
->  %type <str> PE_DRV_CFG_TERM
-> @@ -110,6 +110,7 @@ static void free_list_evsel(struct list_head* list_evsel)
->  {
->  	char *str;
->  	u64 num;
-> +	struct parse_events_modifier mod;
->  	enum parse_events__term_type term_type;
->  	struct list_head *list_evsel;
->  	struct parse_events_terms *list_terms;
-> @@ -175,20 +176,13 @@ event
->  group:
->  group_def ':' PE_MODIFIER_EVENT
->  {
-> +	/* Apply the modifier to the events in the group_def. */
->  	struct list_head *list = $1;
->  	int err;
->  
-> -	err = parse_events__modifier_group(list, $3);
-> -	free($3);
-> -	if (err) {
-> -		struct parse_events_state *parse_state = _parse_state;
-> -		struct parse_events_error *error = parse_state->error;
-> -
-> -		parse_events_error__handle(error, @3.first_column,
-> -					   strdup("Bad modifier"), NULL);
-> -		free_list_evsel(list);
-> +	err = parse_events__modifier_group(_parse_state, &@3, list, $3);
-> +	if (err)
->  		YYABORT;
-> -	}
->  	$$ = list;
->  }
->  |
-> @@ -238,17 +232,9 @@ event_name PE_MODIFIER_EVENT
->  	 * (there could be more events added for multiple tracepoint
->  	 * definitions via '*?'.
->  	 */
-> -	err = parse_events__modifier_event(list, $2, false);
-> -	free($2);
-> -	if (err) {
-> -		struct parse_events_state *parse_state = _parse_state;
-> -		struct parse_events_error *error = parse_state->error;
-> -
-> -		parse_events_error__handle(error, @2.first_column,
-> -					   strdup("Bad modifier"), NULL);
-> -		free_list_evsel(list);
-> +	err = parse_events__modifier_event(_parse_state, &@2, list, $2);
-> +	if (err)
->  		YYABORT;
-> -	}
->  	$$ = list;
->  }
->  |
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBcHIgMTgsIDIwMjQgYXQgMTA6NTTigK9BTSBNaWtlIFJhcG9wb3J0IDxycHB0QGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVGh1LCBBcHIgMTgsIDIwMjQgYXQgMDk6MTM6MjdBTSAt
+MDcwMCwgU29uZyBMaXUgd3JvdGU6Cj4gPiBPbiBUaHUsIEFwciAxOCwgMjAyNCBhdCA4OjM34oCv
+QU0gTWlrZSBSYXBvcG9ydCA8cnBwdEBrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4gPiA+Cj4gPiA+
+ID4gPiBJJ20gbG9va2luZyBhdCBleGVjbWVtX3R5cGVzIG1vcmUgYXMgZGVmaW5pdGlvbiBvZiB0
+aGUgY29uc3VtZXJzLCBtYXliZSBJCj4gPiA+ID4gPiBzaG91bGQgaGF2ZSBuYW1lZCB0aGUgZW51
+bSBleGVjbWVtX2NvbnN1bWVyIGF0IHRoZSBmaXJzdCBwbGFjZS4KPiA+ID4gPgo+ID4gPiA+IEkg
+dGhpbmsgbG9va2luZyBhdCBleGVjbWVtX3R5cGUgZnJvbSBjb25zdW1lcnMnIHBvaW50IG9mIHZp
+ZXcgYWRkcwo+ID4gPiA+IHVubmVjZXNzYXJ5IGNvbXBsZXhpdHkuIElJVUMsIGZvciBtb3N0IChp
+ZiBub3QgYWxsKSBhcmNocywgZnRyYWNlLCBrcHJvYmUsCj4gPiA+ID4gYW5kIGJwZiAoYW5kIG1h
+eWJlIGFsc28gbW9kdWxlIHRleHQpIGFsbCBoYXZlIHRoZSBzYW1lIHJlcXVpcmVtZW50cy4KPiA+
+ID4gPiBEaWQgSSBtaXNzIHNvbWV0aGluZz8KPiA+ID4KPiA+ID4gSXQncyBlbm91Z2ggdG8gaGF2
+ZSBvbmUgYXJjaGl0ZWN0dXJlIHdpdGggZGlmZmVyZW50IGNvbnN0cmFpbnMgZm9yIGtwcm9iZXMK
+PiA+ID4gYW5kIGJwZiB0byB3YXJyYW50IGEgdHlwZSBmb3IgZWFjaC4KPiA+Cj4gPiBBRkFJQ1Qs
+IHNvbWUgb2YgdGhlc2UgY29uc3RyYWludHMgY2FuIGJlIGNoYW5nZWQgd2l0aG91dCB0b28gbXVj
+aCB3b3JrLgo+Cj4gQnV0IHdoeT8KPiBJIGhvbmVzdGx5IGRvbid0IHVuZGVyc3RhbmQgd2hhdCBh
+cmUgeW91IHRyeWluZyB0byBvcHRpbWl6ZSBoZXJlLiBBIGZldwo+IGxpbmVzIG9mIGluaXRpYWxp
+emF0aW9uIGluIGV4ZWNtZW1faW5mbz8KCklJVUMsIGhhdmluZyBzZXBhcmF0ZSBFWEVDTUVNX0JQ
+RiBhbmQgRVhFQ01FTV9LUFJPQkUgbWFrZXMgaXQKaGFyZGVyIGZvciBicGYgYW5kIGtwcm9iZSB0
+byBzaGFyZSB0aGUgc2FtZSBST1ggcGFnZS4gSW4gbWFueSB1c2UgY2FzZXMsCmEgMk1pQiBwYWdl
+IChhc3N1bWluZyB4ODZfNjQpIGlzIGVub3VnaCBmb3IgYWxsIEJQRiwga3Byb2JlLCBmdHJhY2Us
+IGFuZAptb2R1bGUgdGV4dC4gSXQgaXMgbm90IGVmZmljaWVudCBpZiB3ZSBoYXZlIHRvIGFsbG9j
+YXRlIHNlcGFyYXRlIHBhZ2VzIGZvciBlYWNoCm9mIHRoZXNlIHVzZSBjYXNlcy4gSWYgdGhpcyBp
+cyBub3QgYSBwcm9ibGVtLCB0aGUgY3VycmVudCBhcHByb2FjaCB3b3Jrcy4KClRoYW5rcywKU29u
+ZwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
