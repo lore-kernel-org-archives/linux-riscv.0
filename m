@@ -4,82 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B68C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 14:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F19C04FF6
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 14:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RwMkPaUVjKd+Rp7yXAMj7iWifwU90oqfERyT1q6pXWo=; b=PZbbXF680xuWzx
-	PSzh6xlAk9WKozF2euCxxGHemlKn/kZmJCHS/rWXP/wF+VgOjQd8hXYD5bBu7uf1CE2MmIOHw6hSN
-	V2bSAZFLuhhnXmRYfV5FH9b2YnNPlZWdaDYRlvVFVV+aSkWl5IwcnVjBQJsMJu38gSAxgUD+1o3Mj
-	nR2e0QSlj/o3V7Cm6J7GmTGNHmko9jRDpvMdl6rXGomFcU0/kmH6m73vYye6Y7ZXc5WmPOpzq1ErO
-	TQb4JL13S1tRXuEhhpmnKntbFyvXHjrlv0jGF5SLaQPint88uo42uP69Gec55+hR2tP+NrVW8bzTm
-	ANNpKSclUED5qzTfTiXQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e/4Gs3olEEyis8GEUVv6d30BL3DK7HAHaROsY2ze8aE=; b=lFF37vr5pmPi4Qb9xpIP1EFHuR
+	zCO+79f5AGtIEBJ6OtdqOdM4cXwuNxxjCPpNzhI+YHPcZY1FYUeKwuE7T5xuCXpsprxTT8KmcnC5g
+	Vzg+GByT+7ygo7dCA4s6WGZo7igNzBCvkSnEBqPD869ctLPJHxC99gb62Ksw6wMP3jCgZny+FuqRm
+	UmLOYhTUebZZtWOg0Vt5j0vqraNlet5t0rUJhmxCRUZgOIiC1Yzm5YZ5VL7EOjPwBNW76cB/nt8zE
+	bk34VuTifx+8Cc40s6uf4vlBwW7yeEWwsp0M+qEhWlNaKcRudLqgKZJoT8KaU28H660Ss3Kf+T046
+	HLCxFzrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxos8-00000005ss7-2r9g;
-	Fri, 19 Apr 2024 14:05:48 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1rxpCq-00000005y4I-2n71;
+	Fri, 19 Apr 2024 14:27:12 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxorx-00000005soa-3dk0
-	for linux-riscv@lists.infradead.org;
-	Fri, 19 Apr 2024 14:05:47 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-516d6e23253so2494714e87.1
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Apr 2024 07:05:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1713535536; x=1714140336; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jcZX0iTbIwoiKUb5BggVBNG79MAfC9FpmndZpC+sJGE=;
-        b=FnlerPS8jR0UYpboDgQiWrLAWL4rVFTcLMnzSdpH27dC7PPUJ/29I43vQjda0oJZGE
-         AgkCRimzOwzO5HXhL84rXLvziJtLKiHtL7GEOqfrleR2tPlB0PEptlnpc8J7UeriR6+b
-         O6Fmhuscuf7LypCqyfoOVQMR3/TpkDdVTYQNsN+qO57VuQXKuN8tBc+EoDD4TvSe6ORQ
-         NZ3K7Qq69y52UmOJi3xFLqHxMGdNtZpP/QfPS1IzInIrOAQCRpoenq77VTcCrd/VgOxy
-         F7QMFI02RXlkGnQjCTHBTv+tIjpInxo9VkKsmI7DGL83BqM+gAmA3weKtl3M3kaerBII
-         0Ddg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713535536; x=1714140336;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jcZX0iTbIwoiKUb5BggVBNG79MAfC9FpmndZpC+sJGE=;
-        b=EJQGo1U4691ZDIhGZrQu9w6+ADneO1mFpgobsnhO9Y/SVZ510LvmY8lH/Q0aW8/tfn
-         71/Fl4W4pwH1rw+LZXOVa4jTOkSvV5oTn4Bwx+GdaOmdPGnlS47aw5CEsJUPGv7+rHC3
-         N/5vsv+mzbewonYwFxM6tf/r0HQb9cwhgdaKcw9rVhCtMgiJwKMQwVLfrTxsV/oyFM9k
-         1LOcpjvXN/kmTY7HMxMSnaWdp7RXvnM1zfDTytVhMrL9Xyw0sCPjlfhRbn/G7laTUkmC
-         ZaMRYSHgAIP9ep1MnmigsmuVyNx6yap3reTbMZU8WYJJo25Wa5YHaL1KH3caeSPtyyz4
-         G+Vw==
-X-Gm-Message-State: AOJu0YxoSer1uREf59qbkyW3fVPj6ImKHGyHiPskHGkCAADEePjHB4G/
-	JtQLOXPBjvLiWGccvThCKRAVX0vvyycvVg1dyYnpFUkNjf4amYnaMrpfX19rZuY=
-X-Google-Smtp-Source: AGHT+IHs3qlXn7Awn9fZxIK3le0e9UTgAGysw6UwaUwZMzdcqQR0qEL9rQ2VUMMj5fKP5f+/lKDjmA==
-X-Received: by 2002:a19:5f07:0:b0:516:b07a:5b62 with SMTP id t7-20020a195f07000000b00516b07a5b62mr1875404lfb.54.1713535535583;
-        Fri, 19 Apr 2024 07:05:35 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id nb33-20020a1709071ca100b00a55778c1af7sm1854476ejc.11.2024.04.19.07.05.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Apr 2024 07:05:35 -0700 (PDT)
-Date: Fri, 19 Apr 2024 16:05:34 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, 
-	Conor Dooley <conor.dooley@microchip.com>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Samuel Holland <samuel.holland@sifive.com>, Pu Lehui <pulehui@huaweicloud.com>, 
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] RISC-V: clarify what some RISCV_ISA* config options do
-Message-ID: <20240419-b5dbe7b133a749afdc0af416@orel>
-References: <20240418-stable-railway-7cce07e1e440@spud>
- <20240419-ea2b867f6bde90e711464c95@orel>
- <20240419-excretory-dwarf-ba817cc725ea@spud>
+	id 1rxpCm-00000005y1q-2l4X;
+	Fri, 19 Apr 2024 14:27:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id DF2EDCE1AE1;
+	Fri, 19 Apr 2024 14:27:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE37C072AA;
+	Fri, 19 Apr 2024 14:27:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713536826;
+	bh=LIZ2ooYsvWJUe0Wpz+3YNSl3PEnltQyTG5qEOSFGmXk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qk/D/+muf+di1gTdiGkl9RX59eTAIPKi/X4wFxyAAJLB4Ru+ZGaGdCvE4WSjhERbn
+	 lDsBW4dOO8a2ClDwRQtf2zOTybfG+aE4+Xenb6tHxeEDjB5mHYr8Alb6BHwiuhEoRg
+	 7R49/mWs0c6KvHLBbUjbKCwc5kpLILbiyHZGvNkaR/hsQezmnFTNtL06vAU5RsjbFM
+	 X9SNuQMOiGnBErf20eaAM/jIWzBBlBb34BC97qizzwhHVC+sfKumxbeDS5kUUvIzJ0
+	 owxzUMW6Jts137vJuNOH2RgyOSvQcftHP1eD4OYjtnjoZ3b0AaG9ztC5skFqP7Z+WL
+	 cJTywwqn3hdDg==
+Date: Fri, 19 Apr 2024 15:26:53 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: phy: Add Sophgo CV1800 USB phy
+Message-ID: <20240419-harmful-neutron-d0db367cf659@spud>
+References: <IA1PR20MB4953780F4617823F7173B6D6BB042@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953040232A4D41E41F2D2A9BB042@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240419-excretory-dwarf-ba817cc725ea@spud>
+In-Reply-To: <IA1PR20MB4953040232A4D41E41F2D2A9BB042@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240419_070537_933793_8F342264 
-X-CRM114-Status: GOOD (  30.41  )
+X-CRM114-CacheID: sfid-20240419_072709_113667_25CDA406 
+X-CRM114-Status: GOOD (  25.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,72 +78,187 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3437502378973901443=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 19, 2024 at 12:06:59PM +0100, Conor Dooley wrote:
-> On Fri, Apr 19, 2024 at 01:01:52PM +0200, Andrew Jones wrote:
-> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > index 6d64888134ba..c3a7793b0a7c 100644
-> > > --- a/arch/riscv/Kconfig
-> > > +++ b/arch/riscv/Kconfig
-> > > @@ -503,8 +503,8 @@ config RISCV_ISA_SVNAPOT
-> > >  	depends on RISCV_ALTERNATIVE
-> > >  	default y
-> > >  	help
-> > > -	  Allow kernel to detect the Svnapot ISA-extension dynamically at boot
-> > > -	  time and enable its usage.
-> > > +	  Add support for the Svnapot ISA-extension when it is detected by
-> > > +	  the kernel at boot.
-> > 
-> > I'm not sure we need the 'by the kernel', since I guess that's implied by
-> > being in a Kconfig help text, but either way is fine by me.
-> 
-> I think we do, given some of the options are required for userspace to
-> use it and others are not. Distinguishing between them doesn't cos us
-> more than a few characters so I think it is worthwhile.
 
-I agree we should ensure 'support in the kernel' type of text is present,
-but here we're saying 'detected by the kernel' which I was thinking was
-implied since this is kernel code. Maybe we should just add the 'the
-kernel' text to where the support is rather than where the detection is?
-I assumed it was left off of the 'Add support' because Svnapot is for
-S-mode.
+--===============3437502378973901443==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="wzFy3jBeV9w7Nqxx"
+Content-Disposition: inline
 
-> 
-> 
-> > > @@ -686,7 +687,8 @@ config FPU
-> > >  	default y
-> > >  	help
-> > >  	  Say N here if you want to disable all floating-point related procedure
-> > > -	  in the kernel.
-> > > +	  in the kernel. Without this option enabled, neither the kernel nor
-> > > +	  userspace may use floating-point procedures.
-> > >  
-> > >  	  If you don't know what to do here, say Y.
-> > >
-> > 
-> > Zicboz could also use some clarification, right? Or is the fact that
-> > RISCV_ISA_ZICBOZ enables the use in both the kernel and userspace the
-> > reason "Enable the use of the Zicboz extension (cbo.zero instruction)
-> > when available." looks sufficient? Maybe Zicboz should follow the
-> > "Say N here if..." pattern of V and FPU?
-> 
-> Yeah, I think I just overlooked Zicboz. If the kernel option is needed
-> for userspace to use it then yeah, it should follow the same wording as
-> V/FPU.
 
-Actually, never mind. I was thinking we only set the envcfg when this
-config was selected, but that's not true. We'll set it whenever the
-extension is present with or without this config. So I guess it can
-follow Zicbom's pattern.
+--wzFy3jBeV9w7Nqxx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-drew
+On Fri, Apr 12, 2024 at 03:22:24PM +0800, Inochi Amaoto wrote:
+> The USB phy of Sophgo CV18XX series SoC needs to sense a pin called
+> "VBUS_DET" to get the right operation mode. If this pin is not
+> connected, it only supports setting the mode manually.
+>=20
+> Add USB phy bindings for Sophgo CV18XX/SG200X series SoC.
+>=20
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> ---
+>  .../bindings/phy/sophgo,cv1800-usb-phy.yaml   | 90 +++++++++++++++++++
+>  1 file changed, 90 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/sophgo,cv1800-u=
+sb-phy.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.=
+yaml b/Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml
+> new file mode 100644
+> index 000000000000..cb394ac5d8c4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml
+> @@ -0,0 +1,90 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/sophgo,cv1800-usb-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo CV18XX/SG200X USB 2.0 PHY
+> +
+> +maintainers:
+> +  - Inochi Amaoto <inochiama@outlook.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: sophgo,cv1800-usb-phy
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#phy-cells":
+> +    const: 0
+> +
+> +  clocks:
+> +    items:
+> +      - description: PHY clock
+> +      - description: PHY app clock
+> +      - description: PHY stb clock
+> +      - description: PHY lpm clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: phy
+> +      - const: app
+> +      - const: stb
+> +      - const: lpm
+> +
+> +  dr_mode:
+> +    description: PHY device mode when initing.
+
+"initing" isn't a word, "initialising" is the correct word. Or
+"initializing" if you speak American. But if it is just the value during
+initialisation, why do we need to know - we can just overwrite it in
+software, right?
+
+Are you sure that this is limited to initialisation? I would have
+thought that it describes the configuration that the board is in, and is
+a fixed property of the system?
+
+> +    enum: [host, peripheral, otg]
+
+Rob, I know this is a phy rather than a controller, so referencing
+usb-drd.yaml doesn't really make sense, but there are several PHYs using
+dr_mode so it feels like there should be something to reference here
+rather than defining the property anew.
+
+> +
+> +  vbus_det-gpios:
+> +    description: GPIO to the USB OTG VBUS detect pin. This should not be
+> +      defined if vbus_det gpio and switch gpio are connected.
+
+I don't understand the second sentence here.
+
+> +    maxItems: 1
+> +
+> +  sophgo,switch-gpios:
+> +    description: GPIO for the phy to control connected switch.
+> +    maxItems: 2
+
+You've got two items here, they should be described. /But/ the property
+above says "switch gpio", which is singular. Which is it?
+
+Cheers,
+Conor.
+
+> +
+> +required:
+> +  - compatible
+> +  - "#phy-cells"
+> +  - clocks
+> +  - clock-names
+> +  - dr_mode
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        dr_mode:
+> +          const: otg
+> +    then:
+> +      required:
+> +        - vbus_det-gpios
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    phy@48 {
+> +      compatible =3D "sophgo,cv1800-usb-phy";
+> +      reg =3D <0x48 0x4>;
+> +      #phy-cells =3D <0>;
+> +      clocks =3D <&clk 92>, <&clk 93>,
+> +               <&clk 94>, <&clk 95>;
+> +      clock-names =3D "phy", "app", "stb", "lpm";
+> +      dr_mode =3D "host";
+> +    };
+> +  - |
+> +    #include <dt-bindings/gpio/gpio.h>
+> +
+> +    phy@54 {
+> +      compatible =3D "sophgo,cv1800-usb-phy";
+> +      reg =3D <0x54 0x4>;
+> +      #phy-cells =3D <0>;
+> +      clocks =3D <&clk 92>, <&clk 93>,
+> +               <&clk 94>, <&clk 95>;
+> +      clock-names =3D "phy", "app", "stb", "lpm";
+> +      dr_mode =3D "otg";
+> +      vbus_det-gpios =3D <&portb 6 GPIO_ACTIVE_HIGH>;
+> +    };
+> --
+> 2.44.0
+>=20
+
+--wzFy3jBeV9w7Nqxx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiJ/LQAKCRB4tDGHoIJi
+0vrCAP9R3ajhruwWEa6524OScv46PoGRGBZEDXLB11mYIt7yrQD+M6fgMybbX45+
+WHmD18Svh+jDgv07w0Lt0Pf9l3RCUAE=
+=Cu/R
+-----END PGP SIGNATURE-----
+
+--wzFy3jBeV9w7Nqxx--
+
+
+--===============3437502378973901443==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3437502378973901443==--
+
