@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A338DC04FFE
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 13:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B10BC4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 13:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ku/dM+UMG3P45HdY6D/eFaPjNBj9S569EV/OEt/Kgk4=; b=WciMFFcl5zRLs+
-	HcyOj4FVHK5sNFGylk1Yskqw0N+vm8pTKMH+s03lm8kISlWpTfAoC8btH2V1+kcTh9CrfgUFwKznX
-	04tdoeGJEhgsaJNSej1QC8ZcpjvM0V7aK1Y6q5JEzNRPPXMrarGASE4mLJaGjCyFaX8Hl6csH0d9r
-	/Aw6Ug2CMss7BYA+1Gkord0VndmqObd7fo1gMNZ4EK2QQ8gKUGr4oEgL/LGWHFERWl3bBc2R6dXBp
-	71LguNRzLZxw5PbIAZu3VV28O1HNuPD5fiemA6eiurZIb/PpZKnnn094/sZ7Kx/lzxPBGJMycALGK
-	pBzF+Es6RX16DBBIJfoQ==;
+	List-Owner; bh=6ZkcRJT0M/hgEokVuRrvc0cvw+oIgw/ujOmRqkvlb7E=; b=cfs6M3Dwi7YJB9
+	8FvlEzC3xTfmd0aTmeGJjyiZnh4xjykHzla/PImWFc2zKxsZzfxwzJ4bvL287M5Ih7GF1dVmWndYs
+	hOuV58AZt4sIHYyA/rYAghpAHZ26Qn4QFSXPyMoMs/RdnGgcQc4DYxLlSYuPDCEI4meUfysn4KHFa
+	n8y9v5zmZWgfbDJVlMaXnYgyVKKITaAbraGBnv8eYCINJP4zeNxExfzwa095ZIpBAE4aqBCo+0zCH
+	Dcz0hOHXc3akx+b7I+v696mRov3/7JnUkxqTTU3nWii0cbg11HouAMez/yVFPrTL+tCvGUtYNPL23
+	Dvwks3whXzTz0puEc0yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxogN-00000005pKS-3IZl;
-	Fri, 19 Apr 2024 13:53:39 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1rxogR-00000005pO8-4AE1;
+	Fri, 19 Apr 2024 13:53:44 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxogE-00000005pDB-2sJZ
+	id 1rxogI-00000005pEk-31hO
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Apr 2024 13:53:33 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-56e1bbdb362so2384203a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Apr 2024 06:53:30 -0700 (PDT)
+	Fri, 19 Apr 2024 13:53:36 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-a52223e004dso196700066b.2
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Apr 2024 06:53:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1713534809; x=1714139609; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1713534812; x=1714139612; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=H50p08qn7uGf4Z9JFkdHi+jkfC6EZzcHo7CUifdDw3E=;
-        b=jkTMq+lUez29P5iI8KDnDCnDdGRGoHPH1QyHweI1X/S9ICrkp/JxRPABkT3J4D5HxJ
-         t78uy29HtxmzVvoHGbs2XrhjIyRJYSdeu55/CTsitbKpH4ICPYg69UqRpuAxQNZOhxpv
-         cu3blu0srXcryG1twVepuPpPh76O6RutSUn/1xrv1k4/ZcYg+8ZKyqzn666VsPuiSP8n
-         p45URqd22mYUVEKfQAyeR8EMHaSBNrZXFwjGFVFDgwk9NrB7aWl4z17yS1UkuC/D1PCJ
-         DIia4vsAz52moEQx84WHqXmHnKotFiLbT04E9EhgH0q+oell2mAaoGl+Lf/wvpGim+DI
-         dyHg==
+        bh=L/o9GJYOsp32C4ZK5XVSIqlhvuJ+jgCOlcUd/wXUyPQ=;
+        b=lXILVhBodE2N+sdutNRZP9t8S0KJ+rESe6Z/Jshe3kRWRXXFM8bHJ92hI4wn+kEHJW
+         41S1ED0P3/vjDhR7QUivDkHYNE7iGl+fLy9r+5qhKDFlIUXu8jAvJPPe9GZmaA7l9gYN
+         WpWMv32fIJNyijyJPZ8EdwEbh7OEWNJLLdx58WkP9eXwXvzz4AixQNkChRBoPnZMHF56
+         PrWWuvXkKqGjqIatnt3Ag5gXeMTPFkqtnbbpYpJTH57oGR2Z1VRRpl0v9mt5LGjLmu6k
+         yWApRjHXE6+LIw+yS/n0ErriEK8diZevg7gVoU8fV5G8wLSLawhq7zHFuKtJUQ4pnJo3
+         FsbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713534809; x=1714139609;
+        d=1e100.net; s=20230601; t=1713534812; x=1714139612;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=H50p08qn7uGf4Z9JFkdHi+jkfC6EZzcHo7CUifdDw3E=;
-        b=qALFo/Bg1Yek7Wi0QuO5KNW1p33IdA5PduaxgImZ0XHO/5WZ4afK+sJI9eou3BJ/G8
-         2Tzu4NrCDGBfKbNiB3nFke4S0jTLXgXSk4vQgxfBZ6lI49JavO+7RtbXZ9jre5h8cdNB
-         s7x5n8oRerzHchoNgtyAsdqHBLxZdQIgMdipgjrjkQ4bJYgSjuBjyu2Rr/ZdThr1muIO
-         ehSpv/yWaFtGRW456bkNLcG2mTP6XD0tXzqd5/YuJQ/zNKZHiQbjN88FODJn6+gSbXSQ
-         7ej0em8Zx6zqChDaEWIcAWqvO3K/ISbV5LtgjA9AcQkx2vXpskifKQ9MIxt3DtkNha6r
-         QIrg==
-X-Gm-Message-State: AOJu0YyH6N5q3K422ZpnWxRJvPW8hGd6xgkUyBcpUEHXqHMrIzla/1Ns
-	7dWAR8qtzkEA6egC8DcbC8+YARk/JrIGMvR/5j6km8sXhJibMNi2N5QksDf0DR4ddB+0rp8j8C2
-	+4yw=
-X-Google-Smtp-Source: AGHT+IGwM9ZfHrsnh6F6OY6TFGNn1gRJmjysMnGuYPZucZ7dMPAwOGkgddkO6TWYVH8+aMZLSHBk/A==
-X-Received: by 2002:a17:906:3645:b0:a55:75f7:435c with SMTP id r5-20020a170906364500b00a5575f7435cmr2058940ejb.16.1713534809405;
-        Fri, 19 Apr 2024 06:53:29 -0700 (PDT)
+        bh=L/o9GJYOsp32C4ZK5XVSIqlhvuJ+jgCOlcUd/wXUyPQ=;
+        b=qPA5CwfIl7qTnoPs5OtavCU/aaVnGhQ+VY/QgP6rsN9olwe6ZfGJcaaBYBIPd5Hw74
+         3/HofIZOpRHRDETUoIVyKlZMeSVq8A8t3+jcwuOoWi+II2RPet/ykAkyntJDhBhgwEEQ
+         1dce1lmxg3rO5leRGul5gtF3mhVscEybGZZ+rCXVNQfrefPen8kvpmPI03ZKp2hxVxRl
+         Xei1sMiHE6bGs3iIkImOSdwkWPAfRN5rsstGGNp6z8LbPSU/aekgTFScfBSHN5fl/PbL
+         n3PPcoH5N7NGr01pVL05yfCGO3KM5NUnPPLaPX9iO4V2+9zyThJNE2idd4spKlXtu42r
+         LAQw==
+X-Gm-Message-State: AOJu0Yz+DPOrwtcdshlhWq6qm6tfnSlMHDd08HaWChfbMnxqjmIyCTZ/
+	rVzs03PGTSyn7U6HuiJktd/5jTeM41c0sgBLhSVtbEYy85cIhR+v+cjd1KmJLS9vooF+rWRnzEk
+	q6Jg=
+X-Google-Smtp-Source: AGHT+IGBQ9t0lRGzscQAhpOHuvu3T6H/3CaUBbGTMF7yl3wKq7mI9JkjJ8Ug9d+DetW6DEe2LgbkcA==
+X-Received: by 2002:a17:906:6d54:b0:a55:7837:b546 with SMTP id a20-20020a1709066d5400b00a557837b546mr1941644ejt.57.1713534812041;
+        Fri, 19 Apr 2024 06:53:32 -0700 (PDT)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id q21-20020a170906771500b00a51d408d446sm2245772ejm.26.2024.04.19.06.53.28
+        by smtp.gmail.com with ESMTPSA id lk19-20020a170906cb1300b00a526418d0ebsm2233256ejb.74.2024.04.19.06.53.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Apr 2024 06:53:28 -0700 (PDT)
+        Fri, 19 Apr 2024 06:53:31 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org,
@@ -82,16 +82,16 @@ Cc: paul.walmsley@sifive.com,
 	David.Laight@ACULAB.COM,
 	parri.andrea@gmail.com,
 	luxu.kernel@bytedance.com
-Subject: [PATCH v2 4/6] riscv: hwprobe: export Zawrs ISA extension
-Date: Fri, 19 Apr 2024 15:53:26 +0200
-Message-ID: <20240419135321.70781-12-ajones@ventanamicro.com>
+Subject: [PATCH v2 6/6] KVM: riscv: selftests: Add Zawrs extension to get-reg-list test
+Date: Fri, 19 Apr 2024 15:53:28 +0200
+Message-ID: <20240419135321.70781-14-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240419135321.70781-8-ajones@ventanamicro.com>
 References: <20240419135321.70781-8-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240419_065330_802880_1E2297C8 
-X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-CacheID: sfid-20240419_065334_852651_D714E32B 
+X-CRM114-Status: UNSURE (   8.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,54 +109,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Export Zawrs ISA extension through hwprobe.
+KVM RISC-V allows the Zawrs extension for the Guest/VM, so add it
+to the get-reg-list test.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- Documentation/arch/riscv/hwprobe.rst  | 4 ++++
- arch/riscv/include/uapi/asm/hwprobe.h | 1 +
- arch/riscv/kernel/sys_hwprobe.c       | 1 +
- 3 files changed, 6 insertions(+)
+ tools/testing/selftests/kvm/riscv/get-reg-list.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index b2bcc9eed9aa..e072ce8285d8 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -188,6 +188,10 @@ The following keys are defined:
-        manual starting from commit 95cf1f9 ("Add changes requested by Ved
-        during signoff")
- 
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZAWRS`: The Zawrs extension is supported as
-+       ratified in commit 98918c844281 ("Merge pull request #1217 from
-+       riscv/zawrs") of riscv-isa-manual.
-+
- * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
-   information about the selected set of processors.
- 
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 9f2a8e3ff204..a5fca3878a32 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -59,6 +59,7 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_EXT_ZTSO		(1ULL << 33)
- #define		RISCV_HWPROBE_EXT_ZACAS		(1ULL << 34)
- #define		RISCV_HWPROBE_EXT_ZICOND	(1ULL << 35)
-+#define		RISCV_HWPROBE_EXT_ZAWRS		(1ULL << 36)
- #define RISCV_HWPROBE_KEY_CPUPERF_0	5
- #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index 8cae41a502dd..b86e3531a45a 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -111,6 +111,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 		EXT_KEY(ZTSO);
- 		EXT_KEY(ZACAS);
- 		EXT_KEY(ZICOND);
-+		EXT_KEY(ZAWRS);
- 
- 		if (has_vector()) {
- 			EXT_KEY(ZVBB);
+diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
+index b882b7b9b785..8c4c27bd4b88 100644
+--- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
++++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
+@@ -48,6 +48,7 @@ bool filter_reg(__u64 reg)
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVNAPOT:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVPBMT:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZACAS:
++	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZAWRS:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBA:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBB:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBC:
+@@ -413,6 +414,7 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
+ 		KVM_ISA_EXT_ARR(SVNAPOT),
+ 		KVM_ISA_EXT_ARR(SVPBMT),
+ 		KVM_ISA_EXT_ARR(ZACAS),
++		KVM_ISA_EXT_ARR(ZAWRS),
+ 		KVM_ISA_EXT_ARR(ZBA),
+ 		KVM_ISA_EXT_ARR(ZBB),
+ 		KVM_ISA_EXT_ARR(ZBC),
+@@ -936,6 +938,7 @@ KVM_ISA_EXT_SIMPLE_CONFIG(svinval, SVINVAL);
+ KVM_ISA_EXT_SIMPLE_CONFIG(svnapot, SVNAPOT);
+ KVM_ISA_EXT_SIMPLE_CONFIG(svpbmt, SVPBMT);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zacas, ZACAS);
++KVM_ISA_EXT_SIMPLE_CONFIG(zawrs, ZAWRS);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zba, ZBA);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zbb, ZBB);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zbc, ZBC);
+@@ -991,6 +994,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
+ 	&config_svnapot,
+ 	&config_svpbmt,
+ 	&config_zacas,
++	&config_zawrs,
+ 	&config_zba,
+ 	&config_zbb,
+ 	&config_zbc,
 -- 
 2.44.0
 
