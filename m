@@ -4,65 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABADC071FD
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 15:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF32EC04FF6
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 15:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wSlGs+XGQSu8Mox5mDzaUFW+eEF23N4F/ExFLg/Lv1A=; b=aEG67Z7M9PcQ4ortI7tRvqjMWM
-	9NnJ0j0dqTExKnH2+cGC9/QVyHusP5qcAPaAmL49/jfA69pp9HmVRgMe5LHetmsAhqJvOFllsycC7
-	zB350zTFgO5XHDcx8HSzlkW77Snhl2PYR66LZ1uIClupv3luS/E8vKPi8nfx0KinW0t21moAh/579
-	Cr5CEjlS2h41t+gYaq//aO8o/1NEtJkLx+eQ8NxEdzHoaqqTswzvPPF2HpPFwsv8QgeJBf+bJNoma
-	1imAUuU2V6J7QYrtl2xZBgtw6+A+KPOy9g8yjIDcxcfbqn8IpZ2nIOZYSS4jFhj9zOSRNHVUNs5Dr
-	s6kd1Row==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LaDx9PxC/zOxd/vYY2GkGrdT5jmp4yNP5qtXqo9noIw=; b=uRvVhdeTv/gg+L
+	uzcjt9f1MQdm8RgO5sSUs27hHLBc5nV90hiATNxHDmlthL7954Fejm5hrW2BdWxVzrysIIHZ63XIM
+	FJVZotBGyomB5JDoPr0RXFQkJfmIFx7vSAfJmFjZ7Wr5+h1Pwl5ZokGWfgzwa8t+b6QE55kdBUWUv
+	Wrl1M8MEh3ObSAq6ka+kaigG9sPy6NQJbREOTrbXwWQTflVCYAOP1aclLdJFg4N+Slbk0M3qyPMtn
+	cixmwH+BG6D3wOkO9AlFTFCZTfRSf2+liOh0x5Ni6gmQzM22tDAaQB1zBKPDMN5cYCg0Y2aVsWaDd
+	VcCimmP6PamOULEHJ3oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxqWM-00000006Fbk-30Iy;
-	Fri, 19 Apr 2024 15:51:26 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rxqaA-00000006GRL-0ihj;
+	Fri, 19 Apr 2024 15:55:22 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxqWJ-00000006FYa-1IfN;
-	Fri, 19 Apr 2024 15:51:25 +0000
+	id 1rxqa5-00000006GPB-0FZx;
+	Fri, 19 Apr 2024 15:55:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id A5444CE1AFE;
-	Fri, 19 Apr 2024 15:51:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CCAFC2BD10;
-	Fri, 19 Apr 2024 15:51:17 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 1730CCE1AF8;
+	Fri, 19 Apr 2024 15:55:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A421C32782;
+	Fri, 19 Apr 2024 15:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713541880;
-	bh=zWv/xUUueVGUPY7NUN+yMB++Labd0w15D1CcT2ZEb+I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jflr+Mery9Icxy3YAAa4Gdj1oYC1mkU/VBqOa5PU8S9zq1KHtzXsbjjighF29TwsJ
-	 IEGyN7LbfLHMhudzxyLDGuBrxur2rD2/bITcoXu9aCd2TgbCbvg3HfWH4PKAV5xtgR
-	 PVBM6v7TnN/bL4vZHAFIXwb7W3Eirxvr/YYmU+cXDmBCnSc52XsswVcM3GvavAVprm
-	 j0hZ8UIKiDE8jB5I4EbIobbHFn+kCkpBe1s+WdO+MGy68eJJsLGnyYbjJPrLjc2UGZ
-	 kKcV+moXe7AQVMTxZt43CKoqxWVDscrmU1W0b2RJa1R6w8JJaFX0Pp7uuDBjbJd9fs
-	 tCoVpy/FjJG/Q==
-Date: Fri, 19 Apr 2024 16:51:10 +0100
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
-	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 04/12] riscv: add ISA parsing for Zca, Zcf, Zcd and Zcb
-Message-ID: <20240419-clinic-amusing-d23b1b6d2af2@spud>
-References: <20240418124300.1387978-1-cleger@rivosinc.com>
- <20240418124300.1387978-5-cleger@rivosinc.com>
+	s=k20201202; t=1713542114;
+	bh=PNzXHy/tRctT7iPO4Hxb0l/pQDROtMOUfttALn8mdWw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=pqf8XrEo/ZXtoYY6s3PyoZrVaUFPmoHxFRVaIVD+cv3s9s0b57yKCkZBfgw3J/DFY
+	 ItFu/AL8+h/o6KzZv3W/jgdaahJ+fBSkuBMaq6Fa9gIV+jIx0BRXS0xUN7/X5dBPCS
+	 CtUI7XjfYrMseAEBlWGp1/BlZfgiFr+70fAxlZPMxdU8CUsp8cqjeiGh7fSLDtYeJ4
+	 ci293wBMZSj5XVodFvDDRPQI2WnRMIxx356QO12oxl9Vr7bTlPCN/kbkpDTGdnUTk0
+	 OJtvbGt6roHNq6+muZAwUQgB2hXjVyHoavfSajpvVRjHUvmn/YdlEKZxa/rSjatbO9
+	 x3piRqi1B5HPQ==
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-a5224dfa9adso386573966b.0;
+        Fri, 19 Apr 2024 08:55:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUbSEaOLTvYn1+6epyB4GTZd83L9TITCRIWq9ot0baEDDmJsBnKZ9Zos794cqIJPVZshVAw55QC/eGcEy4mA02gR7px4EP9/Fw1U9Aof0ldjdmzrPAvVyvWkFUhPvV7mHOupbR08mfwUJQNee4jF1GgjWpTS9I=
+X-Gm-Message-State: AOJu0Yx8ExfrD7t4udsoJTo3gMikdNHpwvdKvZVqU2Xv6PFA5IzBF1NQ
+	2xCiFgUOqnXHoyRb9UiQJEJVfZrcpqDm+RaUdzKp2EYo7HCAQCbeF7Q6t9fQttkMkpSxIwPZrwe
+	nLQT6eyDKBxYdfCUf0C+wBhrjXmo=
+X-Google-Smtp-Source: AGHT+IGasMltj1XTiWxWNEYkPSMxwP63y2jyTt8tLpdHn26unpYTPPkYdRp/dT6gEwD6NrNiKXUtIlL7PF9cDNubUq4=
+X-Received: by 2002:ac2:5f9b:0:b0:519:ab33:7459 with SMTP id
+ r27-20020ac25f9b000000b00519ab337459mr752898lfe.30.1713542091952; Fri, 19 Apr
+ 2024 08:54:51 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20240418124300.1387978-5-cleger@rivosinc.com>
+References: <20240411160051.2093261-1-rppt@kernel.org> <20240411160051.2093261-6-rppt@kernel.org>
+ <20240415075241.GF40213@noisy.programming.kicks-ass.net> <Zh1lnIdgFeM1o8S5@FVFF77S0Q05N.cambridge.arm.com>
+ <Zh4nJp8rv1qRBs8m@kernel.org> <CAPhsuW6Pbg2k_Gu4dsBx+H8H5XCHvNdtEZJBPiG_eT0qqr9D1w@mail.gmail.com>
+ <ZiE91CJcNw7gBj9g@kernel.org> <CAPhsuW4au6v8k8Ab7Ff6Yj64rGvZ7wkz=Xrgh8ZZtLyscpChqQ@mail.gmail.com>
+ <ZiFd567L4Zzm2okO@kernel.org> <CAPhsuW5SL4_=ZXdHZV8o0KS+5Vf25UMvEKhRgFQLioFtf2pgoQ@mail.gmail.com>
+ <ZiIVVBgaDN4RsroT@kernel.org>
+In-Reply-To: <ZiIVVBgaDN4RsroT@kernel.org>
+From: Song Liu <song@kernel.org>
+Date: Fri, 19 Apr 2024 08:54:40 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW7WoU+a46FhqqH8f-3=ehxeD4wSgKDWegMin1pT49OSWw@mail.gmail.com>
+Message-ID: <CAPhsuW7WoU+a46FhqqH8f-3=ehxeD4wSgKDWegMin1pT49OSWw@mail.gmail.com>
+Subject: Re: [PATCH v4 05/15] mm: introduce execmem_alloc() and execmem_free()
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+	linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Bjorn Topel <bjorn@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	"David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Donald Dutile <ddutile@redhat.com>, Eric Chanudet <echanude@redhat.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	Kent Overstreet <kent.overstreet@linux.dev>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nadav Amit <nadav.amit@gmail.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Puranjay Mohan <puranjay12@gmail.com>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Russell King <linux@armlinux.org.uk>, 
+	Steven Rostedt <rostedt@goodmis.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>, bpf@vger.kernel.org, 
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linux-mm@kvack.org, linux-modules@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240419_085123_756261_D09046F3 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20240419_085517_471956_DF5D2C9F 
+X-CRM114-Status: GOOD (  23.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,93 +98,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8124375024397021988=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8124375024397021988==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="QS4RfLs7pvJlTuus"
-Content-Disposition: inline
-
-
---QS4RfLs7pvJlTuus
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Apr 18, 2024 at 02:42:27PM +0200, Cl=E9ment L=E9ger wrote:
-> The Zc* standard extension for code reduction introduces new extensions.
-> This patch adds support for Zca, Zcf, Zcd and Zcb. Zce, Zcmt and Zcmp
-> are left out of this patch since they are targeting microcontrollers/
-> embedded CPUs instead of application processors.
->=20
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> ---
->  arch/riscv/include/asm/hwcap.h | 4 ++++
->  arch/riscv/kernel/cpufeature.c | 4 ++++
->  2 files changed, 8 insertions(+)
->=20
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index 543e3ea2da0e..b7551bad341b 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -82,6 +82,10 @@
->  #define RISCV_ISA_EXT_ZACAS		73
->  #define RISCV_ISA_EXT_XANDESPMU		74
->  #define RISCV_ISA_EXT_ZIMOP		75
-> +#define RISCV_ISA_EXT_ZCA		76
-> +#define RISCV_ISA_EXT_ZCB		77
-> +#define RISCV_ISA_EXT_ZCD		78
-> +#define RISCV_ISA_EXT_ZCF		79
-> =20
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
-> =20
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index 115ba001f1bc..09dee071274d 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -261,6 +261,10 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
->  	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
->  	__RISCV_ISA_EXT_DATA(zfh, RISCV_ISA_EXT_ZFH),
->  	__RISCV_ISA_EXT_DATA(zfhmin, RISCV_ISA_EXT_ZFHMIN),
-> +	__RISCV_ISA_EXT_DATA(zca, RISCV_ISA_EXT_ZCA),
-> +	__RISCV_ISA_EXT_DATA(zcb, RISCV_ISA_EXT_ZCB),
-> +	__RISCV_ISA_EXT_DATA(zcd, RISCV_ISA_EXT_ZCD),
-> +	__RISCV_ISA_EXT_DATA(zcf, RISCV_ISA_EXT_ZCF),
->  	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
->  	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
->  	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
-
-Ye, this looks exactly like what I "feared".
-
---QS4RfLs7pvJlTuus
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiKS7gAKCRB4tDGHoIJi
-0j53AP91a0/pzMnYOB5Q1NSAdfxkcqTq0TgGDLsop/SUUlrxKAD+Oqehg3RXMuA6
-lxMl1823mjF1OflpyCXnIjSA8qwLFAA=
-=4Weq
------END PGP SIGNATURE-----
-
---QS4RfLs7pvJlTuus--
-
-
---===============8124375024397021988==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8124375024397021988==--
-
+T24gVGh1LCBBcHIgMTgsIDIwMjQgYXQgMTE6NTbigK9QTSBNaWtlIFJhcG9wb3J0IDxycHB0QGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVGh1LCBBcHIgMTgsIDIwMjQgYXQgMDI6MDE6MjJQTSAt
+MDcwMCwgU29uZyBMaXUgd3JvdGU6Cj4gPiBPbiBUaHUsIEFwciAxOCwgMjAyNCBhdCAxMDo1NOKA
+r0FNIE1pa2UgUmFwb3BvcnQgPHJwcHRAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+Cj4gPiA+IE9u
+IFRodSwgQXByIDE4LCAyMDI0IGF0IDA5OjEzOjI3QU0gLTA3MDAsIFNvbmcgTGl1IHdyb3RlOgo+
+ID4gPiA+IE9uIFRodSwgQXByIDE4LCAyMDI0IGF0IDg6MzfigK9BTSBNaWtlIFJhcG9wb3J0IDxy
+cHB0QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gSSdtIGxv
+b2tpbmcgYXQgZXhlY21lbV90eXBlcyBtb3JlIGFzIGRlZmluaXRpb24gb2YgdGhlIGNvbnN1bWVy
+cywgbWF5YmUgSQo+ID4gPiA+ID4gPiA+IHNob3VsZCBoYXZlIG5hbWVkIHRoZSBlbnVtIGV4ZWNt
+ZW1fY29uc3VtZXIgYXQgdGhlIGZpcnN0IHBsYWNlLgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBJ
+IHRoaW5rIGxvb2tpbmcgYXQgZXhlY21lbV90eXBlIGZyb20gY29uc3VtZXJzJyBwb2ludCBvZiB2
+aWV3IGFkZHMKPiA+ID4gPiA+ID4gdW5uZWNlc3NhcnkgY29tcGxleGl0eS4gSUlVQywgZm9yIG1v
+c3QgKGlmIG5vdCBhbGwpIGFyY2hzLCBmdHJhY2UsIGtwcm9iZSwKPiA+ID4gPiA+ID4gYW5kIGJw
+ZiAoYW5kIG1heWJlIGFsc28gbW9kdWxlIHRleHQpIGFsbCBoYXZlIHRoZSBzYW1lIHJlcXVpcmVt
+ZW50cy4KPiA+ID4gPiA+ID4gRGlkIEkgbWlzcyBzb21ldGhpbmc/Cj4gPiA+ID4gPgo+ID4gPiA+
+ID4gSXQncyBlbm91Z2ggdG8gaGF2ZSBvbmUgYXJjaGl0ZWN0dXJlIHdpdGggZGlmZmVyZW50IGNv
+bnN0cmFpbnMgZm9yIGtwcm9iZXMKPiA+ID4gPiA+IGFuZCBicGYgdG8gd2FycmFudCBhIHR5cGUg
+Zm9yIGVhY2guCj4gPiA+ID4KPiA+ID4gPiBBRkFJQ1QsIHNvbWUgb2YgdGhlc2UgY29uc3RyYWlu
+dHMgY2FuIGJlIGNoYW5nZWQgd2l0aG91dCB0b28gbXVjaCB3b3JrLgo+ID4gPgo+ID4gPiBCdXQg
+d2h5Pwo+ID4gPiBJIGhvbmVzdGx5IGRvbid0IHVuZGVyc3RhbmQgd2hhdCBhcmUgeW91IHRyeWlu
+ZyB0byBvcHRpbWl6ZSBoZXJlLiBBIGZldwo+ID4gPiBsaW5lcyBvZiBpbml0aWFsaXphdGlvbiBp
+biBleGVjbWVtX2luZm8/Cj4gPgo+ID4gSUlVQywgaGF2aW5nIHNlcGFyYXRlIEVYRUNNRU1fQlBG
+IGFuZCBFWEVDTUVNX0tQUk9CRSBtYWtlcyBpdAo+ID4gaGFyZGVyIGZvciBicGYgYW5kIGtwcm9i
+ZSB0byBzaGFyZSB0aGUgc2FtZSBST1ggcGFnZS4gSW4gbWFueSB1c2UgY2FzZXMsCj4gPiBhIDJN
+aUIgcGFnZSAoYXNzdW1pbmcgeDg2XzY0KSBpcyBlbm91Z2ggZm9yIGFsbCBCUEYsIGtwcm9iZSwg
+ZnRyYWNlLCBhbmQKPiA+IG1vZHVsZSB0ZXh0LiBJdCBpcyBub3QgZWZmaWNpZW50IGlmIHdlIGhh
+dmUgdG8gYWxsb2NhdGUgc2VwYXJhdGUgcGFnZXMgZm9yIGVhY2gKPiA+IG9mIHRoZXNlIHVzZSBj
+YXNlcy4gSWYgdGhpcyBpcyBub3QgYSBwcm9ibGVtLCB0aGUgY3VycmVudCBhcHByb2FjaCB3b3Jr
+cy4KPgo+IFRoZSBjYWNoaW5nIG9mIGxhcmdlIFJPWCBwYWdlcyBkb2VzIG5vdCBuZWVkIHRvIGJl
+IHBlciB0eXBlLgo+Cj4gSW4gdGhlIFBPQyBJJ3ZlIHBvc3RlZCBmb3IgY2FjaGluZyBvZiBsYXJn
+ZSBST1ggcGFnZXMgb24geDg2IFsxXSwgdGhlIGNhY2hlIGlzCj4gZ2xvYmFsIGFuZCB0byBtYWtl
+IGtwcm9iZXMgYW5kIGJwZiB1c2UgaXQgaXQncyBlbm91Z2ggdG8gc2V0IGEgZmxhZyBpbgo+IGV4
+ZWNtZW1faW5mby4KPgo+IFsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNDA0MTEx
+NjA1MjYuMjA5MzQwOC0xLXJwcHRAa2VybmVsLm9yZwoKRm9yIHRoZSBST1ggdG8gd29yaywgd2Ug
+bmVlZCBkaWZmZXJlbnQgdXNlcnMgKG1vZHVsZSB0ZXh0LCBrcHJvYmUsIGV0Yy4pIHRvIGhhdmUK
+dGhlIHNhbWUgZXhlY21lbV9yYW5nZS4gRnJvbSBbMV06CgpzdGF0aWMgdm9pZCAqZXhlY21lbV9j
+YWNoZV9hbGxvYyhzdHJ1Y3QgZXhlY21lbV9yYW5nZSAqcmFuZ2UsIHNpemVfdCBzaXplKQp7Ci4u
+LgogICAgICAgcCA9IF9fZXhlY21lbV9jYWNoZV9hbGxvYyhzaXplKTsKICAgICAgIGlmIChwKQog
+ICAgICAgICAgICAgICByZXR1cm4gcDsKICAgICAgZXJyID0gZXhlY21lbV9jYWNoZV9wb3B1bGF0
+ZShyYW5nZSwgc2l6ZSk7Ci4uLgp9CgpXZSBhcmUgY2FsbGluZyBfX2V4ZWNtZW1fY2FjaGVfYWxs
+b2MoKSB3aXRob3V0IHJhbmdlLiBGb3IgdGhpcyB0byB3b3JrLAp3ZSBjYW4gb25seSBjYWxsIGV4
+ZWNtZW1fY2FjaGVfYWxsb2MoKSB3aXRoIG9uZSBleGVjbWVtX3JhbmdlLgoKRGlkIEkgbWlzcyBz
+b21ldGhpbmc/CgpUaGFua3MsClNvbmcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
