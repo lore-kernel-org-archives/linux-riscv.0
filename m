@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FD1C07C79
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 23:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D048C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 23:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VgD1+1LiXubw7imDQ68l9AdGyf1OVUES5kvmFKXjc3c=; b=1rxbwEYiiJfZom
-	l8LY5Vop9uQuoa8KSBsvHS0YzinH1V6oPpUs76Fl0xoYuGhtfnA3vtOXTaPgSz28/S1t1mvL0ok7G
-	PlV9f/p6S8ZUd9WGM5PXbJz8p1Q62ZLJ0tBkhhfvn4S0OBSsxkWisLF+bMgB2LuNdy1ujR5hnAIco
-	ZkLv6xVhfBEhbRNAtNJ59upmUDrrJBstJ7/dGxuNcgjwzd4EOdKsUwdQ3EkYbhTnPJmUOYE4xHXZq
-	tGwEckjh1Ff8sEnS4Ln8MbKd0Aab8YsOAYyhHg1mdeEOAVi/sE75lk/KvVSTTnrqFCv3RZ7ujZEfb
-	PR+NQPMBWLRHEXrVWQLg==;
+	List-Owner; bh=qeIh27JZGNzAEdL49duZ0LdbHS+Th+7LVg+92kk1D84=; b=YvJcSUD2sqmiv0
+	3e7eN/uO8YRvp1k3+74YVZiLLQjZmiQBPAxC586vMy+GRFIJNPvD6oW9HgaveLXCZFbBRPUboJ+lg
+	wX5C9DvZyUM0QCo/ccTehEpIUmJaCTA2awBO6fhsog5XbqlHWZcfqATwud+kZEGnhtKT/PFuqDkwM
+	xSs85nVuFIKuSPQotjhscAxFlOdA9+WeSz/tOylPHRGxEI6HuGS0YpHeXNYi5g7Jmc06L+7/gmlKk
+	4fvL7otLgbpBhH0oP628tNEkoP/MX4+sfAJdc5JY3EjYjL+8Jy40s9h7wl5ZZ23j2haRwz3AclXVv
+	OUHoLeyYOBTArPMy3rng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxxzi-00000007KZN-32QU;
-	Fri, 19 Apr 2024 23:50:14 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1rxxzo-00000007Kdy-3HX1;
+	Fri, 19 Apr 2024 23:50:20 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxxy0-00000007J6J-3jIB
+	id 1rxxzj-00000007KZl-3Dd2
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 19 Apr 2024 23:50:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=QIyaUvQe1Xat3Gv2wtXts1DoFv5C5UbopqhCGzslRuw=; b=DZgWnzl97sXjO9dVMAcnFDQdp2
+	in3S2Q6bU6JI7x9Y1043vHjBofzOSkOrUwCyyUv5o7Fc+pVJQjjUTuZWIkAbIV2avZER+UvTUHHRR
+	EhzB3hY/LdOBNzts0bn2ildFxrhI3nl+ycERdbNF11EJj5nsDZ+vYiVH69+flrQMoRhrwOkvVBPK0
+	cYR/ouGaWjPM8DYBwgc4TSpvO8bIeDSjaxXwG+dGUsMx9tstF7J4nBYoZBlOOTUIVRNBaUvxF8Ns9
+	BmduUf/6vQe86J/dqKM5+B/RZzicXfphM2uz1zIsrSde0wiLKnRkCG0ri0h8ltNm/L6uLgITc+syS
+	PaKbf6Lw==;
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rxxzg-00000008nWy-3Fms
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Apr 2024 23:48:33 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1e2c725e234so28949575ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Apr 2024 16:48:28 -0700 (PDT)
+	Fri, 19 Apr 2024 23:50:14 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1e4c4fb6af3so18678605ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Apr 2024 16:50:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713570508; x=1714175308; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713570487; x=1714175287; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=k8dppvgVnh54sEjPJluz+VPGn0XVIgbI5aDFYcuHKMk=;
-        b=e3/P7yRXpg8WfeI6KiycwM6MZVUhzRCAQ36NtSu4MldD16eIpgvIGlj08yWerLvfQn
-         3mf6O0HUNj+LxJPZtNuGIVEFSiFkYmGKhuTSJOcICNhoOgqDpmOOdpKxCEtrZIUTsm0c
-         oYUEm0RDeHhdl7aAitS6x8eYFMjLgv2oLkW1nKXQOax5rlmzPtg7fWZnNJYjzDaG94IN
-         +UltRVXsbSPvLNVydopsi59xv++AytfSY8TUefzAo78pBOPjurAVL+USA5s0CN4oJUL9
-         xTJ24Epd5mREtGS6WiJjfAOWQjWtJ6yIGEVVStZuyfbdqSF6FhMKtia6v/dq0JERCrLY
-         Srlw==
+        bh=QIyaUvQe1Xat3Gv2wtXts1DoFv5C5UbopqhCGzslRuw=;
+        b=RY/XOubieuDd3KPmiRdw+1ub3pxTvPeaMwcTSs2vXDkCtNpadURAXCdAo28ljGOBfj
+         TjjP/5c0BfWXJT1b8SHwsm8Dv4enO6IBPXBbg2EEqYsuSGDrnPlGPLJ68udZJN1T08+1
+         2Wpynl5Rv9getyHYP7gt+VNjHVfYNYuR0BI/yihrDfzQsUK0bdF5qx3Qr5klULTfNNFU
+         5X6YViXp4TIjHHGBAypnzJ/xbol8sIaIhjMzYyVyR72aI3rWtRItU4gptZI98c/Cd4HF
+         rzhJBjTkbNOS1e8oL7hFQCrSjjB1eaXT5Mbvbm+oWjWmQV8mj6e/lzC5f91cjR1KvoEq
+         OkLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713570508; x=1714175308;
+        d=1e100.net; s=20230601; t=1713570487; x=1714175287;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=k8dppvgVnh54sEjPJluz+VPGn0XVIgbI5aDFYcuHKMk=;
-        b=fkpjtC94zKqWI5tP+lDk3JO343vV5in0Uj/IEmKpAuqXhGxRNywOqcbpEAjxcHgH/v
-         0cfCU1MBdITdFQogLzTErFdsGSBsB1jSZcI/dPKE+31pJ6D2Bp0enuOUEfJmiG6tcwQt
-         GU2oCJM14jgDH65yYc+X4gbN3Sp0hRHCBKtDm48rVsEQ3Rup0SJPNULQ+PRIfH97m76I
-         /CGuyAMGSOWvNUqOvXssn0DLQSyjv0Ivg/+pFEGoQh3oiQW6T1woTXMbNqEB+Du5kVSD
-         8IH1Qj8SQves6ddcHfvu/3Y77IaVVgUi6lffCBxWBihwz6f5Y7sPULdqc81q1f0F4R5i
-         I4lg==
-X-Forwarded-Encrypted: i=1; AJvYcCWRuYiL8fXKwmwZ37JwXz8yarKuXMUiAHFAHDPcAlDoKAOjDq3KvgjdR6UxlWrjQ7xVPw+U+FqudNezWOv/EWhY6iHeOtI6kuTV+nny2V1D
-X-Gm-Message-State: AOJu0YxhmhIFARwGsCLTQOFK4VFvpNxTkNc4G1VnfcKHsokS24YWdY2c
-	C4vD79OoTk/VMsKh03PGOotLtTjHVo8iHBOfiLdo+QarIUOFB2Bfj2rOzVFCQsY=
-X-Google-Smtp-Source: AGHT+IHbjuIAogidEThPU7h7cHQTwDfEmDJ2h82WDXmnVpxSpsttceYeTWH4EZKWjzfHpnNFMkjLQg==
-X-Received: by 2002:a17:903:41ca:b0:1e0:9964:76f4 with SMTP id u10-20020a17090341ca00b001e0996476f4mr5588251ple.14.1713570508238;
-        Fri, 19 Apr 2024 16:48:28 -0700 (PDT)
+        bh=QIyaUvQe1Xat3Gv2wtXts1DoFv5C5UbopqhCGzslRuw=;
+        b=v9rD9+Z3vDcTHIRStHMAwRsqS0fyFIUePcV4VHw7yMNDOQd/ZBhUNubqf5CTCspBaa
+         itAgIPMU22IxPX7a+vvgYCqWpoE0uNliBdLlPT9P6zlczWbNKVfgV3ZNMfMTRKO/mZHA
+         PBIez2FIjytGKujztMKe/kVrUQeE+d6MWsywMgkr3b6i/wSS21n0JCI8L2sw5FJlJzpJ
+         1ddqF3OxHpYMH3bcNr9K7EeCkz3qzSZgUgziO+L5jgJeCI0V6JIasmmjTGPnDMBHhlFO
+         IAdG8Ddaa4RSKJX1MOzF+z+xlXib8O8DJcgfHq7UMRexpAKEuCUVc+dq2iPgomZCMZL5
+         1OKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUDbRa4kUN+xaIMSuZkT9xpfApBflWfmkFlyqdIrtZfvhG3BixRrNEjflp4XNVOKilUCnQe6NiFCieRtY0VjskVpjXbobgXprEdrJYOlNL8
+X-Gm-Message-State: AOJu0Yywu49xAk6HOcZKJlZcOn0BLre39XIEP+vXgilVDNItViKUxs/A
+	eu5d601IencqePECqJj4bAmWcVek0fltFnO7+DNyiDNDD3KjaG7A7u2uhHBLCn8=
+X-Google-Smtp-Source: AGHT+IHqmOgwdzykdLgMc2WJ6EaM228nMawdh3bGDIhVF9FxVvuRHHcpcsw9cNr0lYOB2vXlkqEb3Q==
+X-Received: by 2002:a17:902:d481:b0:1e7:d3e3:a927 with SMTP id c1-20020a170902d48100b001e7d3e3a927mr5602995plg.31.1713570486735;
+        Fri, 19 Apr 2024 16:48:06 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id w17-20020a170902d11100b001e42f215f33sm3924017plw.85.2024.04.19.16.48.26
+        by smtp.gmail.com with ESMTPSA id w17-20020a170902d11100b001e42f215f33sm3924017plw.85.2024.04.19.16.48.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Apr 2024 16:48:27 -0700 (PDT)
+        Fri, 19 Apr 2024 16:48:06 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
 	Ajay Kaher <ajay.kaher@broadcom.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
 	samuel.holland@sifive.com,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Juergen Gross <jgross@suse.com>,
@@ -86,16 +101,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	virtualization@lists.linux.dev,
 	Will Deacon <will@kernel.org>,
 	x86@kernel.org
-Subject: [PATCH v8 24/24] KVM: riscv: selftests: Add commandline option for SBI PMU test
-Date: Sat, 20 Apr 2024 08:17:40 -0700
-Message-Id: <20240420151741.962500-25-atishp@rivosinc.com>
+Subject: [PATCH v8 12/24] RISC-V: KVM: No need to exit to the user space if perf event failed
+Date: Sat, 20 Apr 2024 08:17:28 -0700
+Message-Id: <20240420151741.962500-13-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240420151741.962500-1-atishp@rivosinc.com>
 References: <20240420151741.962500-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240419_164829_273998_B7CAC0A4 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20240420_005012_842569_33CCEB5E 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,115 +127,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SBI PMU test comprises of multiple tests and user may want to run
-only a subset depending on the platform. The most common case would
-be to run all to validate all the tests. However, some platform may
-not support all events or all ISA extensions.
+Currently, we return a linux error code if creating a perf event failed
+in kvm. That shouldn't be necessary as guest can continue to operate
+without perf profiling or profiling with firmware counters.
 
-The commandline option allows user to disable any set of tests if
-they want to.
+Return appropriate SBI error code to indicate that PMU configuration
+failed. An error message in kvm already describes the reason for failure.
 
-Suggested-by: Andrew Jones <ajones@ventanamicro.com>
+Fixes: 0cb74b65d2e5 ("RISC-V: KVM: Implement perf support without sampling")
+Reviewed-by: Anup Patel <anup@brainfault.org>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- .../selftests/kvm/riscv/sbi_pmu_test.c        | 73 ++++++++++++++++---
- 1 file changed, 64 insertions(+), 9 deletions(-)
+ arch/riscv/kvm/vcpu_pmu.c     | 14 +++++++++-----
+ arch/riscv/kvm/vcpu_sbi_pmu.c |  6 +++---
+ 2 files changed, 12 insertions(+), 8 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-index 0fd9b76ae838..69bb94e6b227 100644
---- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-+++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-@@ -33,6 +33,13 @@ static unsigned long counter_mask_available;
- 
- static bool illegal_handler_invoked;
- 
-+#define SBI_PMU_TEST_BASIC	BIT(0)
-+#define SBI_PMU_TEST_EVENTS	BIT(1)
-+#define SBI_PMU_TEST_SNAPSHOT	BIT(2)
-+#define SBI_PMU_TEST_OVERFLOW	BIT(3)
-+
-+static int disabled_tests;
-+
- unsigned long pmu_csr_read_num(int csr_num)
- {
- #define switchcase_csr_read(__csr_num, __val)		{\
-@@ -608,19 +615,67 @@ static void test_vm_events_overflow(void *guest_code)
- 	test_vm_destroy(vm);
- }
- 
--int main(void)
-+static void test_print_help(char *name)
-+{
-+	pr_info("Usage: %s [-h] [-d <test name>]\n", name);
-+	pr_info("\t-d: Test to disable. Available tests are 'basic', 'events', 'snapshot', 'overflow'\n");
-+	pr_info("\t-h: print this help screen\n");
-+}
-+
-+static bool parse_args(int argc, char *argv[])
-+{
-+	int opt;
-+
-+	while ((opt = getopt(argc, argv, "hd:")) != -1) {
-+		switch (opt) {
-+		case 'd':
-+			if (!strncmp("basic", optarg, 5))
-+				disabled_tests |= SBI_PMU_TEST_BASIC;
-+			else if (!strncmp("events", optarg, 6))
-+				disabled_tests |= SBI_PMU_TEST_EVENTS;
-+			else if (!strncmp("snapshot", optarg, 8))
-+				disabled_tests |= SBI_PMU_TEST_SNAPSHOT;
-+			else if (!strncmp("overflow", optarg, 8))
-+				disabled_tests |= SBI_PMU_TEST_OVERFLOW;
-+			else
-+				goto done;
-+			break;
-+		case 'h':
-+		default:
-+			goto done;
-+		}
-+	}
-+
-+	return true;
-+done:
-+	test_print_help(argv[0]);
-+	return false;
-+}
-+
-+int main(int argc, char *argv[])
- {
--	test_vm_basic_test(test_pmu_basic_sanity);
--	pr_info("SBI PMU basic test : PASS\n");
-+	if (!parse_args(argc, argv))
-+		exit(KSFT_SKIP);
-+
-+	if (!(disabled_tests & SBI_PMU_TEST_BASIC)) {
-+		test_vm_basic_test(test_pmu_basic_sanity);
-+		pr_info("SBI PMU basic test : PASS\n");
-+	}
- 
--	test_vm_events_test(test_pmu_events);
--	pr_info("SBI PMU event verification test : PASS\n");
-+	if (!(disabled_tests & SBI_PMU_TEST_EVENTS)) {
-+		test_vm_events_test(test_pmu_events);
-+		pr_info("SBI PMU event verification test : PASS\n");
-+	}
- 
--	test_vm_events_snapshot_test(test_pmu_events_snaphost);
--	pr_info("SBI PMU event verification with snapshot test : PASS\n");
-+	if (!(disabled_tests & SBI_PMU_TEST_SNAPSHOT)) {
-+		test_vm_events_snapshot_test(test_pmu_events_snaphost);
-+		pr_info("SBI PMU event verification with snapshot test : PASS\n");
-+	}
- 
--	test_vm_events_overflow(test_pmu_events_overflow);
--	pr_info("SBI PMU event verification with overflow test : PASS\n");
-+	if (!(disabled_tests & SBI_PMU_TEST_OVERFLOW)) {
-+		test_vm_events_overflow(test_pmu_events_overflow);
-+		pr_info("SBI PMU event verification with overflow test : PASS\n");
-+	}
- 
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index b5159ce4592d..2d9929bbc2c8 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -229,8 +229,9 @@ static int kvm_pmu_validate_counter_mask(struct kvm_pmu *kvpmu, unsigned long ct
  	return 0;
  }
+ 
+-static int kvm_pmu_create_perf_event(struct kvm_pmc *pmc, struct perf_event_attr *attr,
+-				     unsigned long flags, unsigned long eidx, unsigned long evtdata)
++static long kvm_pmu_create_perf_event(struct kvm_pmc *pmc, struct perf_event_attr *attr,
++				      unsigned long flags, unsigned long eidx,
++				      unsigned long evtdata)
+ {
+ 	struct perf_event *event;
+ 
+@@ -454,7 +455,8 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
+ 				     unsigned long eidx, u64 evtdata,
+ 				     struct kvm_vcpu_sbi_return *retdata)
+ {
+-	int ctr_idx, ret, sbiret = 0;
++	int ctr_idx, sbiret = 0;
++	long ret;
+ 	bool is_fevent;
+ 	unsigned long event_code;
+ 	u32 etype = kvm_pmu_get_perf_event_type(eidx);
+@@ -513,8 +515,10 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
+ 			kvpmu->fw_event[event_code].started = true;
+ 	} else {
+ 		ret = kvm_pmu_create_perf_event(pmc, &attr, flags, eidx, evtdata);
+-		if (ret)
+-			return ret;
++		if (ret) {
++			sbiret = SBI_ERR_NOT_SUPPORTED;
++			goto out;
++		}
+ 	}
+ 
+ 	set_bit(ctr_idx, kvpmu->pmc_in_use);
+diff --git a/arch/riscv/kvm/vcpu_sbi_pmu.c b/arch/riscv/kvm/vcpu_sbi_pmu.c
+index 7eca72df2cbd..e1633606c98b 100644
+--- a/arch/riscv/kvm/vcpu_sbi_pmu.c
++++ b/arch/riscv/kvm/vcpu_sbi_pmu.c
+@@ -42,9 +42,9 @@ static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ #endif
+ 		/*
+ 		 * This can fail if perf core framework fails to create an event.
+-		 * Forward the error to userspace because it's an error which
+-		 * happened within the host kernel. The other option would be
+-		 * to convert to an SBI error and forward to the guest.
++		 * No need to forward the error to userspace and exit the guest.
++		 * The operation can continue without profiling. Forward the
++		 * appropriate SBI error to the guest.
+ 		 */
+ 		ret = kvm_riscv_vcpu_pmu_ctr_cfg_match(vcpu, cp->a0, cp->a1,
+ 						       cp->a2, cp->a3, temp, retdata);
 -- 
 2.34.1
 
