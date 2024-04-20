@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15536C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 23:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB017C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 23:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cin1ldJdDPmIJJteR1liF2UZpvff1ImIdVXd9/ftSro=; b=biiSg+gByX4KCX
-	31DAqTHpaw+CzV1QxFVOcAxKRwoIcIdZXCkZPUWN6u++CpnFTml8MOvd5prSZjj/wVjeczwsQkts7
-	PW8nyWCuNEh/kMzUxBw49viukEOaZVJ89afss0KmGSIrIZvd8PKxyjqd2vUtQVxyjmODw0acuJZyq
-	WMXWMkx5NJYtoIDpJ9wxdt4OrqSEGtDOhk52OgMxJt8KKc5KMciq2RPCfegr5n7PF3U0uZzWwoP3g
-	dmUxpqlZT9/JxNYCFEhzPM+JQGN1MW94qH5RWsRr3mm/HV2elPD6j093ix3dd4k+ZnOp9gwU+zWlU
-	l6LnvSnDPW/qtxx6OsBw==;
+	List-Owner; bh=ez7ZsXCF9Jy3BLG7l0IBs+C7+ZGaSp6GyRn17aWB2cs=; b=t3KyG4YgAhlFyY
+	8hVlX6cqg4iLcJXnMMehE5hvFm2I/2MOCn7LO2b43wyCJWt5GT0OgGjQpcX/a1j1JL0yhHP0F5oG5
+	6Im3j7Ptg8iuUzmsW5xrL+JlGS0xGZGJyVy5y7mOtuj7KJNoe617LVluWHVlwL1bJ2IFnTL3ajPEu
+	AG/im2C+QBa0kqS80sZZTI8wQ7Ex3M8uKd33FMDZS0yq1zGIXXF8q8ssljhsVKRhF2EhuhpaxV9uV
+	YCQ+KobIRU4mcuuMeK0fn3vZvWN2fQOIL6yXtlFwWskJPAoyw2kotw0sacoKwEp60TbsF6MNCIX4W
+	1MakH7VELOCQx9JXaxZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxxy0-00000007J68-2kjg;
-	Fri, 19 Apr 2024 23:48:28 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1rxxy5-00000007JA5-0bUD;
+	Fri, 19 Apr 2024 23:48:33 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxxxZ-00000007Iae-43qn
+	id 1rxxxb-00000007IjW-3HDv
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Apr 2024 23:48:05 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1e4266673bbso24363205ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Apr 2024 16:47:54 -0700 (PDT)
+	Fri, 19 Apr 2024 23:48:07 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1e40042c13eso21256625ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Apr 2024 16:48:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713570474; x=1714175274; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713570483; x=1714175283; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Y0lXa0RA4+kQWkomLRJk1QW7kf666EFgaJ2j58l79bA=;
-        b=BMUe9neBlgW8/pgf5Hr6QvHsOKI77nS1IiFl8mB8WG8A09inOffuIGxsCvUcRrEgVo
-         2SCkNfYtHIuvIE/zImoWQzSagYkzFLRwBFt43+MCmr07PUtmZQa2bR0XieqcvHeZbjS0
-         aZe5gGfhtK4yXDjZIrJWTKTLeBHjbkMeXS4ULPuqmyCgtXdWWN5BAPK9UbygqV5WPaQf
-         ZM07AFWm2BwOLa4bJKkSxTVqS1v7C7ffVQzuWs6tWyD/1FxOzvwS/eU7k3JLEzBGMDe4
-         UHpXoeskAEVD8vCuwgSYFIL6A3Bqn08wny7elVzU6NPuD2cDjuR+gaLAM74e5Xw9Rv9X
-         KuWg==
+        bh=N3Hu7DESDZEmcgrq2jc0sr2sorL47aa7h3H8SzaxXXM=;
+        b=GNYWwoa72yAGZAy/nUmru4ZMq9a0VCLldTlag4YjVzuFYHJX5UiySzkHegsnpxIFpy
+         MvU9RyOcUAIFWpZ6l1NIglTJT/evG4GOwXnORsx+8hfU4svQoeAxv3sBm8wpiBb9TQS2
+         5m0ztgc+LjANHeX6PO81Lpn1c/t9z1UGTwrlfLiAx5ATbTZJLANu5869pvRdX8TQggw1
+         WcAsoqr2tcBuxct510GBdajfI+bTgbxYZK2fC+T0kjGZkuRIK6PsCqHR6LTju0jvh6V1
+         kdtgbic8BksZiOCsuxbhhNoWDM8JSDCHQWDjgZgrILEsrVqVm+9CdE0qgZ2bFLh7oeA8
+         vr0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713570474; x=1714175274;
+        d=1e100.net; s=20230601; t=1713570483; x=1714175283;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Y0lXa0RA4+kQWkomLRJk1QW7kf666EFgaJ2j58l79bA=;
-        b=mcMKu7Zr12i7LP+gLy19SXJesxC0SmSRbu5IAfTIXvoGf51lYz9d4mJdC1VO30+zfu
-         PSaa7/dkOXD1zKyho9USrWQiK2cwxng4xiFZzwkh1+3Xoz5NDppERbZ/lLBJ9uftas/D
-         TgjybbjWKhAXqMRRfkc/DuBgl8XH6bryZzPga9OSNt3UvHfNpGsp/XZLEsQz8qbZkUoL
-         NUXLX9YKGMyoodrJpCzMhOeH3kkWCIob7j0gXdEePPMczMClS1A4d1oNieKeMVdNpV7s
-         MV0be47vodl6PfcKAoU84XO26UYO3tvMhY0nG5/biewYwbtvF07lBoURuk4kjZ9wxInU
-         SKZw==
-X-Forwarded-Encrypted: i=1; AJvYcCWB5vod9gTYcViFRMpBBcQ26+CUjMvGTcNWBAkVixELrUBhhkVgBdr5BAgQ+Ff8LVptYyaSwqWbEECSlAS3gMRMKzv5PDt3fti/XbFc1bgZ
-X-Gm-Message-State: AOJu0YxgdAYJaKVUcoG7c/vnpvTpiwt7w3Q7/i6USKe3LcrDj1qcwF26
-	XIf493SXER/na0p/1RJWxSywmRu2+1WoA/ZxePzHTY89fnU95V3oU+0BiKBPFnk=
-X-Google-Smtp-Source: AGHT+IFXaW6wZywudrszg7M9K7pzeD0F1Y92Mkq1wCwVh8jMOhVOOMocPyY8L0Q71C8UhuUv6rBj9Q==
-X-Received: by 2002:a17:903:120a:b0:1e4:70d0:9337 with SMTP id l10-20020a170903120a00b001e470d09337mr4759283plh.45.1713570473875;
-        Fri, 19 Apr 2024 16:47:53 -0700 (PDT)
+        bh=N3Hu7DESDZEmcgrq2jc0sr2sorL47aa7h3H8SzaxXXM=;
+        b=F1ubt2w2UMMzvrnv+V6MsH9iDY9wfTt7Z/kDlSppDupA/QUb8Zul8xlco4S5GeiqFp
+         lInb9SDlTg6lhSqMFSWq0hyOO8vgKoXqLaVjNKpa1vwJ+GxPq5+QDdN4U6YBwGzpV10d
+         kveqlebYoXDyHATODuLXWdyDUAFZcvFHzJp50MZemfA/Bqd3l6yZXy2PEl7cu6VXwVbR
+         qkkLnj3M2YDOHRbEMQoxqIDiDJ8nIOrFX1zntN+cutMtHTJ3stOULxhcHmdBhfONfwtW
+         uXWYgraNN1f+b6CgXf0zc+ujaOam850dRuH3AlNm/L0w1dh3rWIhjDfmeXcxb51+UYki
+         W1Tw==
+X-Forwarded-Encrypted: i=1; AJvYcCXg4h76lnxO8a8r1Bh3R4wwYMZAaPwB0lWumdEdqvYL3hDudmUam3SN/PePCCkpitfCod+qMnTWG/2vE5qqogUUJAqE300Cx451mcrrpV/2
+X-Gm-Message-State: AOJu0YwHXFLfRWkPVtg5ZUcCfCfuxe/Ne+4JcSmANC3ZcbgkeoFJTcYu
+	0X0pib0PhzS51wCOpYc36OwDyvjFPkXTIJfMKUa7qiMk6HmoKp3WDf7anj5GyzA=
+X-Google-Smtp-Source: AGHT+IFuxivVAucFqLYqwANgIIbEmyPV0tNMGWLxqaH8776sBq/Go9KZec7LTwKbbmPafjRvAwUZ5w==
+X-Received: by 2002:a17:903:22ca:b0:1e5:2ba9:a667 with SMTP id y10-20020a17090322ca00b001e52ba9a667mr4212130plg.3.1713570483020;
+        Fri, 19 Apr 2024 16:48:03 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id w17-20020a170902d11100b001e42f215f33sm3924017plw.85.2024.04.19.16.47.52
+        by smtp.gmail.com with ESMTPSA id w17-20020a170902d11100b001e42f215f33sm3924017plw.85.2024.04.19.16.48.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Apr 2024 16:47:53 -0700 (PDT)
+        Fri, 19 Apr 2024 16:48:02 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
 	Ajay Kaher <ajay.kaher@broadcom.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Anup Patel <anup@brainfault.org>,
 	samuel.holland@sifive.com,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Juergen Gross <jgross@suse.com>,
@@ -87,16 +86,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	virtualization@lists.linux.dev,
 	Will Deacon <will@kernel.org>,
 	x86@kernel.org
-Subject: [PATCH v8 05/24] RISC-V: Add SBI PMU snapshot definitions
-Date: Sat, 20 Apr 2024 08:17:21 -0700
-Message-Id: <20240420151741.962500-6-atishp@rivosinc.com>
+Subject: [PATCH v8 10/24] RISC-V: KVM: Fix the initial sample period value
+Date: Sat, 20 Apr 2024 08:17:26 -0700
+Message-Id: <20240420151741.962500-11-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240420151741.962500-1-atishp@rivosinc.com>
 References: <20240420151741.962500-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240419_164802_194630_C822B1A1 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20240419_164804_142997_1102AA01 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,65 +112,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SBI PMU Snapshot function optimizes the number of traps to
-higher privilege mode by leveraging a shared memory between the S/VS-mode
-and the M/HS mode. Add the definitions for that extension and new error
-codes.
+The initial sample period value when counter value is not assigned
+should be set to maximum value supported by the counter width.
+Otherwise, it may result in spurious interrupts.
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/sbi.h | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/riscv/kvm/vcpu_pmu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 4afa2cd01bae..9aada4b9f7b5 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -132,6 +132,7 @@ enum sbi_ext_pmu_fid {
- 	SBI_EXT_PMU_COUNTER_STOP,
- 	SBI_EXT_PMU_COUNTER_FW_READ,
- 	SBI_EXT_PMU_COUNTER_FW_READ_HI,
-+	SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
- };
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index 86391a5061dd..cee1b9ca4ec4 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -39,7 +39,7 @@ static u64 kvm_pmu_get_sample_period(struct kvm_pmc *pmc)
+ 	u64 sample_period;
  
- union sbi_pmu_ctr_info {
-@@ -148,6 +149,13 @@ union sbi_pmu_ctr_info {
- 	};
- };
+ 	if (!pmc->counter_val)
+-		sample_period = counter_val_mask + 1;
++		sample_period = counter_val_mask;
+ 	else
+ 		sample_period = (-pmc->counter_val) & counter_val_mask;
  
-+/* Data structure to contain the pmu snapshot data */
-+struct riscv_pmu_snapshot_data {
-+	u64 ctr_overflow_mask;
-+	u64 ctr_values[64];
-+	u64 reserved[447];
-+};
-+
- #define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(47, 0)
- #define RISCV_PMU_RAW_EVENT_IDX 0x20000
- 
-@@ -244,9 +252,11 @@ enum sbi_pmu_ctr_type {
- 
- /* Flags defined for counter start function */
- #define SBI_PMU_START_FLAG_SET_INIT_VALUE BIT(0)
-+#define SBI_PMU_START_FLAG_INIT_SNAPSHOT BIT(1)
- 
- /* Flags defined for counter stop function */
- #define SBI_PMU_STOP_FLAG_RESET BIT(0)
-+#define SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT BIT(1)
- 
- enum sbi_ext_dbcn_fid {
- 	SBI_EXT_DBCN_CONSOLE_WRITE = 0,
-@@ -285,6 +295,7 @@ struct sbi_sta_struct {
- #define SBI_ERR_ALREADY_AVAILABLE -6
- #define SBI_ERR_ALREADY_STARTED -7
- #define SBI_ERR_ALREADY_STOPPED -8
-+#define SBI_ERR_NO_SHMEM	-9
- 
- extern unsigned long sbi_spec_version;
- struct sbiret {
 -- 
 2.34.1
 
