@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A99C04FFE
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Apr 2024 04:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 416A6C001CC
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Apr 2024 07:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YiZttxwnMKS5V5YQ8Ob7Igp+dSbtRtAPvSeUzKpyTkU=; b=ptcuWBOWsESABZ
-	2xWe6DNjyVoum33Z+6tNGZi44orjXSVI4EnR5Rh8wVJHB4JPI2vhKsYQH99PHZd36/uNAhIpMH5CE
-	yVQsijva9FkbsHLQ2KhZSerulekPx3Pjk92yzO2fjWfg9Seot6HOOSGEsry3+xQvFBLAxM15Au5v8
-	CI3ZD5B6IcMin92vtMAw8x6kaF++aWqu7yIiACNTE//9NwIhwnU1tS+YUgWTVTfNZsVyPjLrUS2aX
-	hzxZ2FEGxSjPDDnkYs7bD7/hFYwqqQb3ZTyMPoqn28LcyL7cu41WYYDjQThbVLHAiZpOzCMJ/kwIN
-	b9Z4p4VvUnI+poa0B+Xg==;
+	List-Owner; bh=qFSrjWfKB1a8vXsVibvRtbM2HouFElj11BAXkVw3Egg=; b=euJjgL8Am1WRPp
+	ye6/D3fKo4xndd0Ieb8ZpRllT6zWlb7+ZtOROdeZROZM8FBU/pHEAnMuqOySVkyrTufKpQTVrLFtj
+	AjS3mpl/4ujdOa51DIlJw3bcYk77vjrbVJymubZfZA+8W979mI+QXSvCsm1+/S1XHFHqcYURmhcH5
+	acEhjUjBeWqdnwJlOworhqgfPUpioDumsK+YdTJhh4LbZomBSd5QJ990/gRDy0f9O3Jx2YOsgGdR5
+	J07dV6ZlTynk45Uu16cK7fYQHNDE/dF98YqI6MFAkeLQMVQLacV8W+AO5750FNNyi0pruOk2+bpK0
+	1jhGbGvmwzMT3JKDza5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ry2Gx-00000007lvt-0GhH;
-	Sat, 20 Apr 2024 04:24:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ry5Fe-0000000813o-1QC9;
+	Sat, 20 Apr 2024 07:35:10 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ry2Gs-00000007lu6-40XH;
-	Sat, 20 Apr 2024 04:24:16 +0000
+	id 1ry5Fa-0000000811X-1uGs;
+	Sat, 20 Apr 2024 07:35:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1D0AA60C70;
-	Sat, 20 Apr 2024 04:24:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83904C072AA;
-	Sat, 20 Apr 2024 04:24:00 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id F15A6CE10BD;
+	Sat, 20 Apr 2024 07:35:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB26C113CE;
+	Sat, 20 Apr 2024 07:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713587052;
-	bh=XIe/vC5nJoDDEu9/Q7ZoXeJlkdIzu3x0dG0pVHSQyaU=;
+	s=k20201202; t=1713598501;
+	bh=YQ9KfPtm5Gq9HYepBoPJrHlxAcwZYbjakD5piFpGBCI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YhvasTWvPZXPkThPYjnuTXJtKsDsFI6ZK4Bt9IvngW4VcopIHwZq0rN2TN47VCWUq
-	 FBJkDpR2DtP+unWDJY8C7sJEQiAOVs8L9KzXsojOjPLi6kQ9YDHioYtZ6nUFM1e0iU
-	 J5CLWhI8Oh/UQKju6kDG7HnVFfwfwBxuIE1OR267WnG9gRFiBTNZwpWVx17pWQtTrY
-	 fdbuHV6o8S3vVJ6wqWsJuIqtAsaxpsI2nzHYz53bqy1qeEbZ3ljz7qw9wo3USiXNjB
-	 OSy86A07SSbIPPzvVI3U5+/bWUkfoO6zoETP+0NHBuzBlMRXY9HoUBu5v7wjVTOH+s
-	 DowdwAPfYuE4g==
-Date: Sat, 20 Apr 2024 07:22:50 +0300
+	b=HstIwZ4kXYt594F3dTAKefbjqk59LgLelJ4wfeugjHKdccg9U6QSsThvKUdOj6kpr
+	 cxBq3QX4LKiL1ekSZ4hlwHrg2Qo19wEMdjfcoqJC1hKB987QXK8Wq3oegsKl2zZTfI
+	 0ahwnVH2zTwg0WMFDB5bQY2DWepkh6sfONxxfG+SnniZiiLcfZnS8gmDD4/taXFr4a
+	 gNoyuT99b/yZU19nTHh4Wm4L6MjmbQoSYrPwuVYcHB2CCTGISZcttYnTQA36iEYp8c
+	 S1AEVNMPdbCPnyweb2c/fhVBUzL5EOQDTyFmN+U+fX6hUzHCENDjnN15hBAkD3dzc1
+	 3OfMh4fyGR7Ag==
+Date: Sat, 20 Apr 2024 10:33:38 +0300
 From: Mike Rapoport <rppt@kernel.org>
-To: Song Liu <song@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org,
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Masami Hiramatsu <masami.hiramatsu@gmail.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Topel <bjorn@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
 	"David S. Miller" <davem@davemloft.net>,
 	Dinh Nguyen <dinguyen@kernel.org>,
 	Donald Dutile <ddutile@redhat.com>,
@@ -59,40 +58,44 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
 	Huacai Chen <chenhuacai@kernel.org>,
 	Kent Overstreet <kent.overstreet@linux.dev>,
 	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
 	Michael Ellerman <mpe@ellerman.id.au>,
 	Nadav Amit <nadav.amit@gmail.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Puranjay Mohan <puranjay12@gmail.com>,
 	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
 	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-modules@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v4 05/15] mm: introduce execmem_alloc() and execmem_free()
-Message-ID: <ZiNDGjkcqEPqruza@kernel.org>
-References: <ZiE91CJcNw7gBj9g@kernel.org>
- <CAPhsuW4au6v8k8Ab7Ff6Yj64rGvZ7wkz=Xrgh8ZZtLyscpChqQ@mail.gmail.com>
- <ZiFd567L4Zzm2okO@kernel.org>
- <CAPhsuW5SL4_=ZXdHZV8o0KS+5Vf25UMvEKhRgFQLioFtf2pgoQ@mail.gmail.com>
- <ZiIVVBgaDN4RsroT@kernel.org>
- <CAPhsuW7WoU+a46FhqqH8f-3=ehxeD4wSgKDWegMin1pT49OSWw@mail.gmail.com>
- <ZiKjmaDgz_56ovbv@kernel.org>
- <CAPhsuW7Nj1Sa_9xQtTgHz9AmX39zdh2x2COqA-qmkfpfX9hNWw@mail.gmail.com>
- <ZiLNGgVSQ7_cg58y@kernel.org>
- <CAPhsuW4KRM4O4RFbYQrt=Coqyh9w29WiF2YF=8soDfauLFsKBA@mail.gmail.com>
+	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"linux-modules@vger.kernel.org" <linux-modules@vger.kernel.org>,
+	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+	"x86@kernel.org" <x86@kernel.org>
+Subject: Re: [PATCH v4 14/15] kprobes: remove dependency on CONFIG_MODULES
+Message-ID: <ZiNv0jY7Ebw75iQl@kernel.org>
+References: <20240411160051.2093261-1-rppt@kernel.org>
+ <20240411160051.2093261-15-rppt@kernel.org>
+ <20240418061615.5fad23b954bf317c029acc4d@gmail.com>
+ <ZiKSffcTiP2c6fbs@kernel.org>
+ <321def3e-8bf1-4920-92dd-037b20f1272d@csgroup.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAPhsuW4KRM4O4RFbYQrt=Coqyh9w29WiF2YF=8soDfauLFsKBA@mail.gmail.com>
+In-Reply-To: <321def3e-8bf1-4920-92dd-037b20f1272d@csgroup.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240419_212415_114454_E2C54898 
-X-CRM114-Status: GOOD (  26.44  )
+X-CRM114-CacheID: sfid-20240420_003506_925334_13B62FC6 
+X-CRM114-Status: GOOD (  25.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,57 +107,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBBcHIgMTksIDIwMjQgYXQgMDI6NDI6MTZQTSAtMDcwMCwgU29uZyBMaXUgd3JvdGU6
-Cj4gT24gRnJpLCBBcHIgMTksIDIwMjQgYXQgMTowMOKAr1BNIE1pa2UgUmFwb3BvcnQgPHJwcHRA
-a2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gT24gRnJpLCBBcHIgMTksIDIwMjQgYXQgMTA6MzI6
-MzlBTSAtMDcwMCwgU29uZyBMaXUgd3JvdGU6Cj4gPiA+IE9uIEZyaSwgQXByIDE5LCAyMDI0IGF0
-IDEwOjAz4oCvQU0gTWlrZSBSYXBvcG9ydCA8cnBwdEBrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4g
-Wy4uLl0KPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L2FsbC8yMDI0MDQxMTE2MDUyNi4yMDkzNDA4LTEtcnBwdEBrZXJuZWwub3JnCj4gPiA+ID4gPgo+
-ID4gPiA+ID4gRm9yIHRoZSBST1ggdG8gd29yaywgd2UgbmVlZCBkaWZmZXJlbnQgdXNlcnMgKG1v
-ZHVsZSB0ZXh0LCBrcHJvYmUsIGV0Yy4pIHRvIGhhdmUKPiA+ID4gPiA+IHRoZSBzYW1lIGV4ZWNt
-ZW1fcmFuZ2UuIEZyb20gWzFdOgo+ID4gPiA+ID4KPiA+ID4gPiA+IHN0YXRpYyB2b2lkICpleGVj
-bWVtX2NhY2hlX2FsbG9jKHN0cnVjdCBleGVjbWVtX3JhbmdlICpyYW5nZSwgc2l6ZV90IHNpemUp
-Cj4gPiA+ID4gPiB7Cj4gPiA+ID4gPiAuLi4KPiA+ID4gPiA+ICAgICAgICBwID0gX19leGVjbWVt
-X2NhY2hlX2FsbG9jKHNpemUpOwo+ID4gPiA+ID4gICAgICAgIGlmIChwKQo+ID4gPiA+ID4gICAg
-ICAgICAgICAgICAgcmV0dXJuIHA7Cj4gPiA+ID4gPiAgICAgICBlcnIgPSBleGVjbWVtX2NhY2hl
-X3BvcHVsYXRlKHJhbmdlLCBzaXplKTsKPiA+ID4gPiA+IC4uLgo+ID4gPiA+ID4gfQo+ID4gPiA+
-ID4KPiA+ID4gPiA+IFdlIGFyZSBjYWxsaW5nIF9fZXhlY21lbV9jYWNoZV9hbGxvYygpIHdpdGhv
-dXQgcmFuZ2UuIEZvciB0aGlzIHRvIHdvcmssCj4gPiA+ID4gPiB3ZSBjYW4gb25seSBjYWxsIGV4
-ZWNtZW1fY2FjaGVfYWxsb2MoKSB3aXRoIG9uZSBleGVjbWVtX3JhbmdlLgo+ID4gPiA+Cj4gPiA+
-ID4gQWN0dWFsbHksIG9uIHg4NiB0aGlzIHdpbGwgImp1c3Qgd29yayIgYmVjYXVzZSBldmVyeXRo
-aW5nIHNoYXJlcyB0aGUgc2FtZQo+ID4gPiA+IGFkZHJlc3Mgc3BhY2UgOikKPiA+ID4gPgo+ID4g
-PiA+IFRoZSAyTSBwYWdlcyBpbiB0aGUgY2FjaGUgd2lsbCBiZSBpbiB0aGUgbW9kdWxlcyBzcGFj
-ZSwgc28KPiA+ID4gPiBfX2V4ZWNtZW1fY2FjaGVfYWxsb2MoKSB3aWxsIGFsd2F5cyByZXR1cm4g
-bWVtb3J5IGZyb20gdGhhdCBhZGRyZXNzIHNwYWNlLgo+ID4gPiA+Cj4gPiA+ID4gRm9yIG90aGVy
-IGFyY2hpdGVjdHVyZXMgdGhpcyBpbmRlZWQgbmVlZHMgdG8gYmUgZml4ZWQgd2l0aCBwYXNzaW5n
-IHRoZQo+ID4gPiA+IHJhbmdlIHRvIF9fZXhlY21lbV9jYWNoZV9hbGxvYygpIGFuZCBsaW1pdGlu
-ZyBzZWFyY2ggaW4gdGhlIGNhY2hlIGZvciB0aGF0Cj4gPiA+ID4gcmFuZ2UuCj4gPiA+Cj4gPiA+
-IEkgdGhpbmsgd2UgYXQgbGVhc3QgbmVlZCB0aGUgIm1hcCB0byIgY29uY2VwdCAoaW5pdGlhbGx5
-IHByb3Bvc2VkIGJ5IFRob21hcykKPiA+ID4gdG8gZ2V0IHRoaXMgd29yay4gRm9yIGV4YW1wbGUs
-IEVYRUNNRU1fQlBGIGFuZCBFWEVDTUVNX0tQUk9CRQo+ID4gPiBtYXBzIHRvIEVYRUNNRU1fTU9E
-VUxFX1RFWFQsIHNvIHRoYXQgYWxsIHRoZXNlIGFjdHVhbGx5IHNoYXJlCj4gPiA+IHRoZSBzYW1l
-IHJhbmdlLgo+ID4KPiA+IFdoeT8KPiAKPiBJSVVDLCB3ZSBuZWVkIHRvIHVwZGF0ZSBfX2V4ZWNt
-ZW1fY2FjaGVfYWxsb2MoKSB0byB0YWtlIGEgcmFuZ2UgcG9pbnRlciBhcwo+IGlucHV0LiBtb2R1
-bGUgdGV4dCB3aWxsIHVzZSAicmFuZ2UiIGZvciBFWEVDTUVNX01PRFVMRV9URVhULCB3aGlsZSBr
-cHJvYmUKPiB3aWxsIHVzZSAicmFuZ2UiIGZvciBFWEVDTUVNX0tQUk9CRS4gV2l0aG91dCAibWFw
-IHRvIiBjb25jZXB0IG9yIHNoYXJpbmcKPiB0aGUgInJhbmdlIiBvYmplY3QsIHdlIHdpbGwgaGF2
-ZSB0byBjb21wYXJlIGRpZmZlcmVudCByYW5nZSBwYXJhbWV0ZXJzIHRvIGNoZWNrCj4gd2UgY2Fu
-IHNoYXJlIGNhY2hlZCBwYWdlcyBiZXR3ZWVuIG1vZHVsZSB0ZXh0IGFuZCBrcHJvYmUsIHdoaWNo
-IGlzIG5vdAo+IGVmZmljaWVudC4gRGlkIEkgbWlzcyBzb21ldGhpbmc/CgpXZSBjYW4gYWx3YXlz
-IHNoYXJlIGxhcmdlIFJPWCBwYWdlcyBhcyBsb25nIGFzIHRoZXkgYXJlIHdpdGhpbiB0aGUgY29y
-cmVjdAphZGRyZXNzIHNwYWNlLiBUaGUgcGVybWlzc2lvbnMgZm9yIHRoZW0gYXJlIFJPWCBhbmQg
-dGhlIGFsaWdubWVudApkaWZmZXJlbmNlcyBhcmUgZHVlIHRvIEtBU0FOIGFuZCB0aGlzIGlzIGhh
-bmRsZWQgZHVyaW5nIGFsbG9jYXRpb24gb2YgdGhlCmxhcmdlIHBhZ2UgdG8gcmVmaWxsIHRoZSBj
-YWNoZS4gX19leGVjbWVtX2NhY2hlX2FsbG9jKCkgb25seSBuZWVkcyB0byBsaW1pdAp0aGUgc2Vh
-cmNoIGZvciB0aGUgYWRkcmVzcyBzcGFjZSBvZiB0aGUgcmFuZ2UuCgpBbmQgcmVnYXJkbGVzcywg
-dGhleSB3YXkgd2UgZGVhbCB3aXRoIHNoYXJpbmcgb2YgdGhlIGNhY2hlIGNhbiBiZSBzb3J0ZWQK
-b3V0IGxhdGVyLgoKPiBUaGFua3MsCj4gU29uZwoKLS0gClNpbmNlcmVseSB5b3VycywKTWlrZS4K
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Apr 19, 2024 at 03:59:40PM +0000, Christophe Leroy wrote:
+> =
+
+> =
+
+> Le 19/04/2024 =E0 17:49, Mike Rapoport a =E9crit=A0:
+> > Hi Masami,
+> > =
+
+> > On Thu, Apr 18, 2024 at 06:16:15AM +0900, Masami Hiramatsu wrote:
+> >> Hi Mike,
+> >>
+> >> On Thu, 11 Apr 2024 19:00:50 +0300
+> >> Mike Rapoport <rppt@kernel.org> wrote:
+> >>
+> >>> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> >>>
+> >>> kprobes depended on CONFIG_MODULES because it has to allocate memory =
+for
+> >>> code.
+> >>>
+> >>> Since code allocations are now implemented with execmem, kprobes can =
+be
+> >>> enabled in non-modular kernels.
+> >>>
+> >>> Add #ifdef CONFIG_MODULE guards for the code dealing with kprobes ins=
+ide
+> >>> modules, make CONFIG_KPROBES select CONFIG_EXECMEM and drop the
+> >>> dependency of CONFIG_KPROBES on CONFIG_MODULES.
+> >>
+> >> Thanks for this work, but this conflicts with the latest fix in v6.9-r=
+c4.
+> >> Also, can you use IS_ENABLED(CONFIG_MODULES) instead of #ifdefs in
+> >> function body? We have enough dummy functions for that, so it should
+> >> not make a problem.
+> > =
+
+> > The code in check_kprobe_address_safe() that gets the module and checks=
+ for
+> > __init functions does not compile with IS_ENABLED(CONFIG_MODULES).
+> > I can pull it out to a helper or leave #ifdef in the function body,
+> > whichever you prefer.
+> =
+
+> As far as I can see, the only problem is MODULE_STATE_COMING.
+> Can we move 'enum module_state' out of #ifdef CONFIG_MODULES in module.h =
+ ?
+
+There's dereference of 'struct module' there:
+ =
+
+		(*probed_mod)->state !=3D MODULE_STATE_COMING) {
+			...
+		}
+
+so moving out 'enum module_state' won't be enough.
+ =
+
+> >   =
+
+> >> -- =
+
+> >> Masami Hiramatsu
+> > =
+
+
+-- =
+
+Sincerely yours,
+Mike.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
