@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4189C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 23:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C5DC4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2024 23:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gyJ44Wk/Z3AZwJ7mezKGYSIx9wQ0v16ZOgR6kmEHeBw=; b=C2YBBiC9VGkQuN
-	LufBNODMMfBZQO6wwi5aZSjQ+lpLTGvTPk2PLTyQkV+k99RwcVRDDzInWm3dWGP1jbzyrNz3ikcw7
-	3Qw3zydTiupYLHk/nUA4+2IhaW5V6uGvxYkK7t4C+Kaj2YV97bwJtFND9TX4Z0PvApXs7+k79cfAW
-	ZVh1dt4i55jUI6KaHdufClTbygNv8nbgCDtqj1yJQcqpJE8Y40+u18s4zkC5fEfNryZ1IQ9iMxj/s
-	QQpFxJzMq8gKcwJcBwRXUkAQbesOQKJ7nDs8imSkXJgX2HPlgT2EL57BhVhyYm3WnYv7TVQ6nA+Yr
-	Lrb61kESLwlKgHBb44rA==;
+	List-Owner; bh=hnhQYmCpW1hFiO8/R6tkQfwt8sTXbOAUpMVf76kwHkQ=; b=rf5Z1kBPGluoMQ
+	+vSLenbdns9mHCuxwAdRNtsLdS5VnFHZK4eeXAqtlBnAKYjMA891pfqOmeENwOw26NwWX24dNMQYH
+	5OpvZQ3z+iLjZBTiDigH+cOHnvDdxsfVOoT7LI5rcV7AuU7V0+/ban9kams4dJglhfM0DNmxJoxLY
+	mvgH9mdEzMV0onu84RjdHxHSIZxXluVL60zdcRxKyT8fB0XEwgr8ViLqt+PcnJbdwf1oQNBP8hkcq
+	6yrPzsJYgzPgCAlnG0SsHmvWt9UgLpaSl+wcDij1nPoouR+rqZO6X6goo6xwC9QavOjhUXY5fXep2
+	WR9zD9aY3c8qvyxa7mHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxxyg-00000007JeX-1SV5;
-	Fri, 19 Apr 2024 23:49:10 +0000
-Received: from mail-pl1-f176.google.com ([209.85.214.176])
+	id 1rxxys-00000007Jq1-2Yth;
+	Fri, 19 Apr 2024 23:49:22 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rxxxn-00000007ItB-3Lz0
+	id 1rxxxq-00000007IxG-177q
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Apr 2024 23:48:21 +0000
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-1e3c3aa8938so18974045ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Apr 2024 16:48:14 -0700 (PDT)
+	Fri, 19 Apr 2024 23:48:22 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1e3ca4fe4cfso20508805ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Apr 2024 16:48:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713570494; x=1714175294; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713570497; x=1714175297; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qvJukw934GuSrXeFuup9ak7dnmqxN0Lb+FQnvb7sFPo=;
-        b=2dlmWdQkLrsNUMfsr5FCeT0K0v9vLbo2iVG3i6gJS+koGw1lgkFWjSc3nIxSrCoj9k
-         FfMCSgUz5yMPUKOQEYKUAV3h2nfn/6mn6ILVU6KFD2wNRsf7WUKv8Vj/a2Wy43fYj2zg
-         bA2LdnnKTSKBWsGY/Gb59aVIQSxAvahgxW8hVoWM/rFxozy4pCwXXhYj+DeAUKATr73f
-         CqVURd9wLO5cUDmDNEbGzdzqPQtDcsomDrL+lNyvJonGBAQCKwymjpLk7FXQRB5wrNBG
-         73v9RBLnLyrN6+SjmfwexuQ06gc/Hbr0EyL6tnnwR+bdRqVFk+DBLGP58LksQahYQo3v
-         LfTw==
+        bh=vBWeKaYtpXhvKjSg+whNN/rWnhjngNSIx7A/W77I8WQ=;
+        b=T1uKwEGPTMcVzEsn67zoq7UgvBFAWZxrifOc1LznmZyxYGVzW8UO1DZUgitkpSNDR4
+         OBhRjW+MGg/XQ9jrcpzTdvCm9PGNbcQCLfwJs9/xN9wmNamzT+q3BJb8kwO7W1hS8hAm
+         J7to7aJydYcY9Jd5qWZjVdMvdAKzkWYCe6vPHBoE3XbsHOL6rFtT7WIx3OZJMVvm0ckK
+         P+woBoc5AXTL682A4OnPg2+Ngpt0LoRfjISlw0b5WI2A2rKaYhU+N6INYWRbwG3nMLQJ
+         +oZ5A9hdPDVUlvg33RnWAKs3gotkw/8zIyg/ZSqguGJ1M52NdoAPoi7rjXVtV1AaeAEa
+         pgDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713570494; x=1714175294;
+        d=1e100.net; s=20230601; t=1713570497; x=1714175297;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=qvJukw934GuSrXeFuup9ak7dnmqxN0Lb+FQnvb7sFPo=;
-        b=lom6zImsz/xZj9GqI+c4ZHpj9ohyPWkOHKupmLJYgyddMuEd7nv+9zIT+PNJ3vstZI
-         uwCm21sd9Yrd+7O59vbO6/L6qTQ0BKtL7q1AIFQ9+dEgl/MouFgeGox/5SG3hdx+9n1z
-         jkPm0q9elnKS8HueoQcPTY2cr5W7i2t1AQwB4O4lt+SnPhGh0iR9q3o+0X/pbMxxE+Xw
-         ySTIuCLVAFkuJ8Ocsp0ImwA6BEiIfY84l+S77LUoCNmXZRm+4nmsUUCn0QnJhyH5gs19
-         c06jbarBNIKx4DPGPhbkvisuYIuxG05oGnBeg00RopQ4VWVZA6FIHzdX5LQR97PRoqb0
-         U5sw==
-X-Forwarded-Encrypted: i=1; AJvYcCUhOeDJMJ1L1AUb88dMU9F3wpDRTM2zER7Pmvr0MIdQNTDMgkNr2jt4pP2ieBfYsBUt6ezoYDkviYpCQ1+Rhxsd9cQJxDXV2hxnnJf/JdmE
-X-Gm-Message-State: AOJu0YxWjXHXg0Peq3R97R1jU0nJ8hRla/kGW9QJr1rH436QdrLTFBEj
-	i8jj1pCLPK8Tpe0veFHnmGXNcz/eHTgMRvayYw3De1HllBcY2v7SR3zjb1eDElw=
-X-Google-Smtp-Source: AGHT+IHNOAevdCsO+x56Lrjstt6VQiieab73uI15/qneokBom5eDca9biRdG55Oycpz2lFWb0UW/7w==
-X-Received: by 2002:a17:902:e889:b0:1e5:3684:617e with SMTP id w9-20020a170902e88900b001e53684617emr4770983plg.52.1713570494026;
-        Fri, 19 Apr 2024 16:48:14 -0700 (PDT)
+        bh=vBWeKaYtpXhvKjSg+whNN/rWnhjngNSIx7A/W77I8WQ=;
+        b=JKN7cSJsi29D4ePAP9BiJUM0I5AErtU44129+ozaoi4htAuCssvsqwAcSHxgKxRPfh
+         cE3AOd9d+6iBCdX2GlGcRW4HjJR01fi7/XlEZd7sfWV60Ab+bXUbGe7z/v9VNQmRWcAn
+         8X1U7WjHsNnEIXNAYitFC3N1rVwJe2L85swvyHHKpiFpWPvEBGOkkD+eqcrK40pUQq1j
+         JE8Q0BFNgTKalRKJWr3hTfgr7WlCXhCHRnHO4cHMGFeKU+waG6NonszXrhDgLJMxhnFy
+         nWUWqXn9idWDbHLOrc2v31zLheINsV8+pwDTyq+MZHaRtANks3addKrc/6otk2AYrXSO
+         vROg==
+X-Forwarded-Encrypted: i=1; AJvYcCXFL/N/JPicQFhzDtRAf/OJ7+3VlPRTfxG05OLRgnioO9H528oxXtnoH5QmPiwHqkk6USLEZVqW1j6HD5AaEurUtNK7W4h7+WfAf2MGx2xf
+X-Gm-Message-State: AOJu0YzB4f2V9xWnqrkiPb4i87dS+KOGXmN/WgbmmhED6XX5IiqPC5mV
+	qU2f0rfUANIMxaHXPa/JXp8pFfYBH3V1g2O62qvdTHMV/RdE8jfldL9RaxIRhu0=
+X-Google-Smtp-Source: AGHT+IE2mHqGqaemrrX/cDzhjt11McUd9BYci2ip5fvQwZrUnUGPNDdVb8jlSh60g/yN+PhfEpHNag==
+X-Received: by 2002:a17:902:da89:b0:1e4:2d13:cf68 with SMTP id j9-20020a170902da8900b001e42d13cf68mr5056407plx.17.1713570497604;
+        Fri, 19 Apr 2024 16:48:17 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id w17-20020a170902d11100b001e42f215f33sm3924017plw.85.2024.04.19.16.48.12
+        by smtp.gmail.com with ESMTPSA id w17-20020a170902d11100b001e42f215f33sm3924017plw.85.2024.04.19.16.48.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Apr 2024 16:48:13 -0700 (PDT)
+        Fri, 19 Apr 2024 16:48:17 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -86,16 +86,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	virtualization@lists.linux.dev,
 	Will Deacon <will@kernel.org>,
 	x86@kernel.org
-Subject: [PATCH v8 16/24] RISC-V: KVM: Improve firmware counter read function
-Date: Sat, 20 Apr 2024 08:17:32 -0700
-Message-Id: <20240420151741.962500-17-atishp@rivosinc.com>
+Subject: [PATCH v8 18/24] KVM: riscv: selftests: Add helper functions for extension checks
+Date: Sat, 20 Apr 2024 08:17:34 -0700
+Message-Id: <20240420151741.962500-19-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240420151741.962500-1-atishp@rivosinc.com>
 References: <20240420151741.962500-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240419_164816_358194_076BA76E 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20240419_164818_498659_798FC11A 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,69 +112,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Rename the function to indicate that it is meant for firmware
-counter read. While at it, add a range sanity check for it as
-well.
+__vcpu_has_ext can check both SBI and ISA extensions when the first
+argument is properly converted to SBI/ISA extension IDs. Introduce
+two helper functions to make life easier for developers so they
+don't have to worry about the conversions.
+
+Replace the current usages as well with new helpers.
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/kvm_vcpu_pmu.h | 2 +-
- arch/riscv/kvm/vcpu_pmu.c             | 7 ++++++-
- arch/riscv/kvm/vcpu_sbi_pmu.c         | 2 +-
- 3 files changed, 8 insertions(+), 3 deletions(-)
+ tools/testing/selftests/kvm/include/riscv/processor.h | 10 ++++++++++
+ tools/testing/selftests/kvm/riscv/arch_timer.c        |  2 +-
+ 2 files changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-index 55861b5d3382..fa0f535bbbf0 100644
---- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-@@ -89,7 +89,7 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
- 				     unsigned long ctr_mask, unsigned long flags,
- 				     unsigned long eidx, u64 evtdata,
- 				     struct kvm_vcpu_sbi_return *retdata);
--int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
-+int kvm_riscv_vcpu_pmu_fw_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
- 				struct kvm_vcpu_sbi_return *retdata);
- int kvm_riscv_vcpu_pmu_fw_ctr_read_hi(struct kvm_vcpu *vcpu, unsigned long cidx,
- 				      struct kvm_vcpu_sbi_return *retdata);
-diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-index e1409ec9afc0..04db1f993c47 100644
---- a/arch/riscv/kvm/vcpu_pmu.c
-+++ b/arch/riscv/kvm/vcpu_pmu.c
-@@ -235,6 +235,11 @@ static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
- 	u64 enabled, running;
- 	int fevent_code;
+diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
+index 3b9cb39327ff..5f389166338c 100644
+--- a/tools/testing/selftests/kvm/include/riscv/processor.h
++++ b/tools/testing/selftests/kvm/include/riscv/processor.h
+@@ -50,6 +50,16 @@ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t subtype,
  
-+	if (cidx >= kvm_pmu_num_counters(kvpmu) || cidx == 1) {
-+		pr_warn("Invalid counter id [%ld] during read\n", cidx);
-+		return -EINVAL;
-+	}
+ bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext);
+ 
++static inline bool __vcpu_has_isa_ext(struct kvm_vcpu *vcpu, uint64_t isa_ext)
++{
++	return __vcpu_has_ext(vcpu, RISCV_ISA_EXT_REG(isa_ext));
++}
 +
- 	pmc = &kvpmu->pmc[cidx];
++static inline bool __vcpu_has_sbi_ext(struct kvm_vcpu *vcpu, uint64_t sbi_ext)
++{
++	return __vcpu_has_ext(vcpu, RISCV_SBI_EXT_REG(sbi_ext));
++}
++
+ struct ex_regs {
+ 	unsigned long ra;
+ 	unsigned long sp;
+diff --git a/tools/testing/selftests/kvm/riscv/arch_timer.c b/tools/testing/selftests/kvm/riscv/arch_timer.c
+index 0f9cabd99fd4..735b78569021 100644
+--- a/tools/testing/selftests/kvm/riscv/arch_timer.c
++++ b/tools/testing/selftests/kvm/riscv/arch_timer.c
+@@ -85,7 +85,7 @@ struct kvm_vm *test_vm_create(void)
+ 	int nr_vcpus = test_args.nr_vcpus;
  
- 	if (pmc->cinfo.type == SBI_PMU_CTR_TYPE_FW) {
-@@ -747,7 +752,7 @@ int kvm_riscv_vcpu_pmu_fw_ctr_read_hi(struct kvm_vcpu *vcpu, unsigned long cidx,
- 	return 0;
- }
+ 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
+-	__TEST_REQUIRE(__vcpu_has_ext(vcpus[0], RISCV_ISA_EXT_REG(KVM_RISCV_ISA_EXT_SSTC)),
++	__TEST_REQUIRE(__vcpu_has_isa_ext(vcpus[0], KVM_RISCV_ISA_EXT_SSTC),
+ 				   "SSTC not available, skipping test\n");
  
--int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
-+int kvm_riscv_vcpu_pmu_fw_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
- 				struct kvm_vcpu_sbi_return *retdata)
- {
- 	int ret;
-diff --git a/arch/riscv/kvm/vcpu_sbi_pmu.c b/arch/riscv/kvm/vcpu_sbi_pmu.c
-index cf111de51bdb..e4be34e03e83 100644
---- a/arch/riscv/kvm/vcpu_sbi_pmu.c
-+++ b/arch/riscv/kvm/vcpu_sbi_pmu.c
-@@ -62,7 +62,7 @@ static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		ret = kvm_riscv_vcpu_pmu_ctr_stop(vcpu, cp->a0, cp->a1, cp->a2, retdata);
- 		break;
- 	case SBI_EXT_PMU_COUNTER_FW_READ:
--		ret = kvm_riscv_vcpu_pmu_ctr_read(vcpu, cp->a0, retdata);
-+		ret = kvm_riscv_vcpu_pmu_fw_ctr_read(vcpu, cp->a0, retdata);
- 		break;
- 	case SBI_EXT_PMU_COUNTER_FW_READ_HI:
- 		if (IS_ENABLED(CONFIG_32BIT))
+ 	vm_init_vector_tables(vm);
 -- 
 2.34.1
 
