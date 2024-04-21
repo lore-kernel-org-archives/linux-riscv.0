@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAED2C4345F
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Apr 2024 16:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2724AC4345F
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Apr 2024 18:55:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H7GFdfrVJFo9kikk8RyHWAia1d8RqzXZwrANvMZ9HzU=; b=uUmo8hBhiFvgqg
-	fHKkM9PXJc9tf4So2EGX/hBjAZPtMWrqBCFgFt3Qz4p34ExTI0HPIQ/Qhbc1l5TxGjMNnmR1VWS47
-	nu0fxBYF1RgDnjpz86RCmhPXP85aqTBuwznF1EXL/uBOcsTtkabEMI+CdrZ/+zEMzJWQeeqxzJsW9
-	51+ol1PI+qiUf/cW396gWOUZhqEhEd4TxHZLC0etn7N9nUuHQcMZR6J1ixjKcVn17Q7fa2XXsvA++
-	nFDQq4h2e524XhC/cxJ9z8yLAvkwmUtzz1duLKo/RM3EoogXjjy9krIT7mRodsyEuy3TZIa4VRzaj
-	RNlMCRSkWBary21TEt8w==;
+	List-Owner; bh=hfy1o5SI08qz8gz9IEAvZdOTWvXL3i+IPatbQAvs7Gw=; b=vXkYPUeEi8UijI
+	dTCqvoOqBI6dzNsG8YgTTFj5XHEif6uoVe9S99yfhQb+33/YIdK1ELKBGPxpeRX4WnRVF35cfivn0
+	sbsJggsE5Z7mOhW3TohxbHAKKV+mRZ+Yl/zvdHIlQMJwOaF0cEYmrKUxCNwWCMHoBHQEYlbMSkhuV
+	6gSMy9YvW3mTFiw6EIOMKJdgLKgTYtERTahxtaeaELWy0FoJcDf8YI2ae+4KNx+8OrLEFFCyPJsbh
+	6ShKtQ79i3XJPhGKmIWaYOmFb7mWr7WmYCGDjJGOlDjnUl1fJUVIH4oFu+yYNymgyEYV6AdpAXLTm
+	d8mL/GW/nOYbE+MM1vJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryZq2-0000000AoF1-0dva;
-	Sun, 21 Apr 2024 16:14:46 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1rycLS-0000000B6xb-1oI4;
+	Sun, 21 Apr 2024 18:55:22 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryZpx-0000000AoDo-0cSl
+	id 1rycLO-0000000B6wA-3KMO
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 Apr 2024 16:14:44 +0000
-Received: from xmz-huawei.. (unknown [101.68.80.254])
-	by APP-01 (Coremail) with SMTP id qwCowAC3v0dXOyVmdqEDBQ--.35170S2;
-	Mon, 22 Apr 2024 00:14:18 +0800 (CST)
-From: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-To: bhe@redhat.com
-Cc: ajones@ventanamicro.com,
-	akpm@linux-foundation.org,
-	alexghiti@rivosinc.com,
-	aou@eecs.berkeley.edu,
-	bjorn@rivosinc.com,
-	chenjiahao16@huawei.com,
-	conor.dooley@microchip.com,
-	jszhang@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	palmer@rivosinc.com,
-	patchwork-bot+linux-riscv@kernel.org,
-	paul.walmsley@sifive.com,
-	robh@kernel.org,
-	thunder.leizhen@huawei.com,
-	zephray@outlook.com,
-	stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-Subject: Re: [PATCH -next v2] riscv: kdump: fix crashkernel reserving problem on RISC-V
-Date: Mon, 22 Apr 2024 00:13:57 +0800
-Message-Id: <20240421161357.7602-1-xingmingzheng@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <ZSiQRDGLZk7lpakE@MiWiFi-R3L-srv>
-References: <ZSiQRDGLZk7lpakE@MiWiFi-R3L-srv>
+	Sun, 21 Apr 2024 18:55:20 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3273E1BF203;
+	Sun, 21 Apr 2024 18:55:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1713725709;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CUNbORL/3INaIWPSTEZc9brKWOzN/OqC04ZQVfTjKGg=;
+	b=NmdeSaFSkHrSuC+jBAghlH7/fb1qwiTuDrlhvcFsch5yTj489Tx9YmKXSYvsTmBqukdNrh
+	cnNX8nWcxEDEh1POvtwxRczpxMVsoodN4yojiKOcTbcryyyBM066escRQmZjNw+iFxrpug
+	nbBJ3obYzem/kXKVN9yyJjW2ZrdgjU9GDEJOOLHYkCROjqlmyVpYIxRQ51pxMRVL4BfLQ7
+	qKsI0CIEo1zRk3D4nN9onyUQckw0t9h3tUL0X8SNj6/bAIpHeETgatpk7w157fEOCKz0mx
+	XpbV4LkOiyndTfldpH0o/8N26+WkMT9nrnvJtt0eGESvt7BT3OwgCItHMirWgw==
+Message-ID: <b1f59075-f2b0-4f2c-aea3-bc596ac45f1c@bootlin.com>
+Date: Sun, 21 Apr 2024 20:55:07 +0200
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAC3v0dXOyVmdqEDBQ--.35170S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWw17XF47uF15AryxGw1UGFg_yoW5trWrpF
-	43JF1j9rW8Jry8Jr1kJr15AF1kJr1UCa45Jr13Jr17J3Wjgr1qvr1UGrWUWasxA34rCr17
-	Jrn8tw4qqr4UCaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkE14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F4
-	0E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_Wryl
-	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxV
-	AFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j
-	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUAxh
-	LUUUUU=
-X-Originating-IP: [101.68.80.254]
-X-CM-SenderInfo: 50lqwzhlqj6xxhqjqxpvfd2hldfou0/1tbiBwkOCmYlHKYv6QAAs1
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@bootlin.com, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/2] dt-bindings: riscv: add Milk-V Duo S board
+ compatibles
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Chao Wei <chao.wei@sophgo.com>
+References: <20240421055710.143617-1-michael.opdenacker@bootlin.com>
+ <20240421055710.143617-2-michael.opdenacker@bootlin.com>
+ <c30cc11a-209a-4919-a382-7588daff0d71@linaro.org>
+Content-Language: en-US
+From: Michael Opdenacker <michael.opdenacker@bootlin.com>
+Organization: Bootlin
+In-Reply-To: <c30cc11a-209a-4919-a382-7588daff0d71@linaro.org>
+X-GND-Sasl: michael.opdenacker@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240421_091441_694765_FCDEED79 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20240421_115519_024335_64ACAD7A 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,90 +79,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->Hi,
->
->On 10/12/23 at 08:40pm, patchwork-bot+linux-riscv@kernel.org wrote:
->> Hello:
->> 
->> This patch was applied to riscv/linux.git (fixes)
->> by Palmer Dabbelt <palmer@rivosinc.com>:
->
->This patches fixes a regression of one risc-v patch which Andrew picked
->into his akpm tree. Later, Andrew merged those two into one patch, now
->it shows up in next/master as:
->
->39365395046f riscv: kdump: use generic interface to simplify crashkernel reservation
->
->Maybe it can be droppped in risv-v git tree so as not to cause conflict
->when merging.
->
+Hi Krzysztof
 
-Hi,
+On 4/21/24 at 16:12, Krzysztof Kozlowski wrote:
+> On 21/04/2024 07:57, michael.opdenacker@bootlin.com wrote:
+>> From: Michael Opdenacker <michael.opdenacker@bootlin.com>
+>>
+>> Document the compatible strings for the Milk-V Duo S board[1] which uses
+>> the SOPHGO SG2000 SoC, compatible with the CV1812H SoC[2].
+>>
+>> Link: https://milkv.io/duo-s [1]
+>> Link: https://en.sophgo.com/product/introduce/cv181xH.html [2]
+>>
+>> Signed-off-by: Michael Opdenacker <michael.opdenacker@bootlin.com>
+>> ---
+> Where is the changelog? It's v6!
 
-If I understand right, after commit[1] is merged into Linus's tree,
-commit[2] doesn't need to be merged in, because [1] contains [2]. This may
-not have an effect on the master branch. But commit[2] goes into the 6.6.y
-branch alone and commit[1] doesn't, which creates a trouble in the 6.6
-stable branch.
+Oops, it was in my cover letter 
+(https://lore.kernel.org/linux-riscv/20240421055710.143617-1-michael.opdenacker@bootlin.com/T/#t), 
+which you didn't get because of get-maintainer.pl. As the recipients are 
+patch dependent, am I supposed to describe the changes in all patches 
+and not only in the cover letter?
 
-commit 39365395046f ("riscv: kdump: use generic interface to simplify crashkernel reservation") [1]
-commit 1d6cd2146c2b ("riscv: kdump: fix crashkernel reserving problem on RISC-V") [2]
+Cheers
+Michael.
 
-Thanks,
-Mingzheng
-
->Thanks
->Baoquan
->
->> 
->> On Mon, 25 Sep 2023 10:43:33 +0800 you wrote:
->> > When testing on risc-v QEMU environment with "crashkernel="
->> > parameter enabled, a problem occurred with the following
->> > message:
->> > 
->> > [    0.000000] crashkernel low memory reserved: 0xf8000000 - 0x100000000 (128 MB)
->> > [    0.000000] crashkernel reserved: 0x0000000177e00000 - 0x0000000277e00000 (4096 MB)
->> > [    0.000000] ------------[ cut here ]------------
->> > [    0.000000] WARNING: CPU: 0 PID: 0 at kernel/resource.c:779 __insert_resource+0x8e/0xd0
->> > [    0.000000] Modules linked in:
->> > [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.6.0-rc2-next-20230920 #1
->> > [    0.000000] Hardware name: riscv-virtio,qemu (DT)
->> > [    0.000000] epc : __insert_resource+0x8e/0xd0
->> > [    0.000000]  ra : insert_resource+0x28/0x4e
->> > [    0.000000] epc : ffffffff80017344 ra : ffffffff8001742e sp : ffffffff81203db0
->> > [    0.000000]  gp : ffffffff812ece98 tp : ffffffff8120dac0 t0 : ff600001f7ff2b00
->> > [    0.000000]  t1 : 0000000000000000 t2 : 3428203030303030 s0 : ffffffff81203dc0
->> > [    0.000000]  s1 : ffffffff81211e18 a0 : ffffffff81211e18 a1 : ffffffff81289380
->> > [    0.000000]  a2 : 0000000277dfffff a3 : 0000000177e00000 a4 : 0000000177e00000
->> > [    0.000000]  a5 : ffffffff81289380 a6 : 0000000277dfffff a7 : 0000000000000078
->> > [    0.000000]  s2 : ffffffff81289380 s3 : ffffffff80a0bac8 s4 : ff600001f7ff2880
->> > [    0.000000]  s5 : 0000000000000280 s6 : 8000000a00006800 s7 : 000000000000007f
->> > [    0.000000]  s8 : 0000000080017038 s9 : 0000000080038ea0 s10: 0000000000000000
->> > [    0.000000]  s11: 0000000000000000 t3 : ffffffff80a0bc00 t4 : ffffffff80a0bc00
->> > [    0.000000]  t5 : ffffffff80a0bbd0 t6 : ffffffff80a0bc00
->> > [    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
->> > [    0.000000] [<ffffffff80017344>] __insert_resource+0x8e/0xd0
->> > [    0.000000] ---[ end trace 0000000000000000 ]---
->> > [    0.000000] Failed to add a Crash kernel resource at 177e00000
->> > 
->> > [...]
->> 
->> Here is the summary with links:
->>   - [-next,v2] riscv: kdump: fix crashkernel reserving problem on RISC-V
->>     https://git.kernel.org/riscv/c/1d6cd2146c2b
->
->
->> 
->> You are awesome, thank you!
->> -- 
->> Deet-doot-dot, I am a bot.
->> https://korg.docs.kernel.org/patchwork/pwbot.html
->> 
+-- 
+Michael Opdenacker, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
 _______________________________________________
