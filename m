@@ -4,64 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D2BDC4345F
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Apr 2024 05:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762BCC04FF8
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Apr 2024 06:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iADDOI/bM9TH5feX/ptgjP+pqz7bKW9SmwkDHUgaLUo=; b=ZeWupwgxIbgeSp
-	GbQoos981r2OagfFMAggPy5Wrj7KyplZr5/AapY6VdodiXC5RIkvimTiz2wRI/Sv2cKnaE58y7opb
-	i/I2betxhSYTj8VuXE2axfBNCYb2amSKCzVOojN7XDrIDrUtkNJgISlw8Ce2dBHBLkBcAFNH5HXxQ
-	bKtbzpyWZba5xt6uw0CUzeH+xfO4VSVXH9bBYgOQpmIy4kaB6zJPiYgBcIN9Yn3x8dEiGybutHKY2
-	ptuMjFRO03bAlVg3jJq1C6HpTsONXYPOsKqFwo+hgYSYbqcMPOFMPSW7QUJ3gknk4GxX0evU+27cP
-	xXciYj0kEt2GzwR0bXmA==;
+	List-Owner; bh=TQj+TTkXDeZTdeAWBQTsqI7zM+IQQr2k+Dc/rj5HqUk=; b=WskdtOfJNBN6Jb
+	h9OafHmOSEIcnQ/3wegQWRjMEVbRCp+Qc3URdCOApNLp15Gjn9023idmjAVlz6sNFxYMDY4siXpFF
+	j58C/YYZE3NmxzAmvWU7DJbZwPA6MuDaVF7DaJC0TClpKJsXBhvNE83yRqXpDvQ7qHcfhwHB1qsOV
+	I1+lMksnjXOzWKFFBaCa6ubG6NCq5MFIihYmwe1kjoX7JzueuIrCfETVGRuko/fVm0FhlYoJKrCjx
+	RMx60SaO+zKl1z8OInotP7o55IQ+rFZfs9wgPV9xBsNJQaCZYQr5vrFLy99QE+qVOQw+ppotg9BA/
+	QSWdvE+lyWuATgB9NGvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryQE1-00000009vkk-20gc;
-	Sun, 21 Apr 2024 05:58:53 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1ryQi8-00000009y4t-2wG7;
+	Sun, 21 Apr 2024 06:30:00 +0000
+Received: from mail-bn8nam12olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c18::800] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryQDx-00000009vj1-35yW
+	id 1ryQi5-00000009y3H-2I3Q
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 Apr 2024 05:58:51 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A0B2420008;
-	Sun, 21 Apr 2024 05:58:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1713679126;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=syc4dxdR/zK1iQyimCV2XZQMtDD49EmFte6x8O6mx28=;
-	b=b7ANrAtClWfD2PYZGoN2iEGBKeI8Gc16PEYokJCaJQjcA15GyCyZPhnvMMp2CoOrJV4Sn1
-	vDefDTiq8DPYCYvYhOazG8KuKum0JMOPoYpX3vO7B/MOEUIFURuLT+aL71gd5BHbSN9D6X
-	reO0i/ljaQPN2xszauf4HpiiLpnTc17LVl/Wesx3RzkQBwKEPm2J2ogXO7fHw4znq4cxKg
-	zmUyMtHSGgEsXNxJhsa7YPdJ+P1ug1cg7hpj41zVV844ib+xo9nxa3yLiUIsV6K7mtdePi
-	4p4V3zHU8PjE3qxcxEJ0Ktutx3hsmX3DSR0xNsGE9ocEvMbvI05LLj5DwkNhIQ==
-Message-ID: <874699fb-6f11-4657-8dc7-1a0d9990b21f@bootlin.com>
-Date: Sun, 21 Apr 2024 07:58:44 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@bootlin.com, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 0/2] add initial Milk-V Duo S board support
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>
+	Sun, 21 Apr 2024 06:29:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=DOSNxzg4Ls22MlVqk/2J8A9ibQJ+WnwxfgQDKYH/2DlI9OeLXHovnD/2VDIhEynDhem1KnT1U6T3Q8eiBW3uNztP3srRMaxAwHAt5KCBALrGWSvFaGhRkCqwTGDy3EH+KeTiXWpnJLVxGZBqIIH1DtH4KA9t6aqjSdE+0gbo/A8tV1rsOYT1nn4H5nLizZD5wU4xTlInWit9QGxGmQuO7Z/Uv0n+Xsae5s+HvmXk9TGJVnWlcxrM98Gbqx5Npo+bt7cpC/JgLicPsArMn/jssPzp5UMH9ANaa1VKdZ5MkAg68Oh8c4Y93w6fo1rLcAPViQpswi8dUqt1sattOmYkKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JTsp9yVABJi8u2IeuhcXFC/VY1/0mjkWaZthdbeA6bk=;
+ b=hLFwnqziFASzcjBfaOFzPoGbAMPHaEd3l5qHR/65MMpDl6o2dwS41/YBSBGKBel9t/pXaUDb9YtLycB4srkgoUvW4kyDz43eOWWI7UM5UdHcSCdsIiSTSIETK7DuITsZEg3lp/AoO5fiFpxr+e6L1LDYe0aE0uhzENPxJf+DXPHkJLgYy+TzMDldwV2IHsRg9WKYJO1y+jdBNR36xYWuURHZy90Z4a2hKO7KJQ3Qv1Ova1FU1nDkZnCARqjgwMvJxYgOdzjj+cX700lT0Cc2vQeuWXxmTY7DyZxhQyIUxJHWcCmoGZuCEOOGHzgK9QAY1XMjJWVy2F0kM+nzW65UmQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JTsp9yVABJi8u2IeuhcXFC/VY1/0mjkWaZthdbeA6bk=;
+ b=Bhl5yF5hQa3EUS+El8dlO27DESv+VpxqjvQEky959aWuHecX47nHH8JHTQ4KnPjhzy3Ew5G13++k5Fa3+I0GQCIOl0wojf2Cwb1bGwKceg4ZuJqh3QvzlfXAHG9zuIrK9bfF2nicQnlAirJDkVyrr6v9IN2u/tJZnNGKqtJ4KsammfmX0sZnTsKT7BJGK91C1FKRftjR5YfKowd/mmP3jZcVXgKo+1j0nJm81HifgXfkUXXverHF5sgSOn2i3qTMUliBPmwjBxToCYjUjF3hkIrhfwIlU5f1+PG2/LgTEDIZi6SL7Zt//JXuOM5HkikeFajVfgzMBl8hTFmGKVl6/Q==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by CH3PR20MB7017.namprd20.prod.outlook.com (2603:10b6:610:1b9::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.44; Sun, 21 Apr
+ 2024 06:29:46 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7472.044; Sun, 21 Apr 2024
+ 06:29:46 +0000
+Date: Sun, 21 Apr 2024 14:30:11 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Michael Opdenacker <michael.opdenacker@bootlin.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] riscv: dts: sophgo: add initial Milk-V Duo S
+ board support
+Message-ID: <IA1PR20MB4953D0D45EB0EDB6E8046664BB132@IA1PR20MB4953.namprd20.prod.outlook.com>
 References: <20240417065311.3881023-1-michael.opdenacker@bootlin.com>
- <CAJM55Z8D7K5KA_POE8aUCPEHn9xXHL3Q=T7fs79eLAJyzsJ6Mw@mail.gmail.com>
-Content-Language: en-US
-From: Michael Opdenacker <michael.opdenacker@bootlin.com>
-Organization: Bootlin
-In-Reply-To: <CAJM55Z8D7K5KA_POE8aUCPEHn9xXHL3Q=T7fs79eLAJyzsJ6Mw@mail.gmail.com>
-X-GND-Sasl: michael.opdenacker@bootlin.com
+ <20240417065311.3881023-3-michael.opdenacker@bootlin.com>
+ <IA1PR20MB49539A380E44459ACE19DEB6BB0F2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <e457d5f6-3289-4049-b663-2ebcfe78dce4@bootlin.com>
+Content-Disposition: inline
+In-Reply-To: <e457d5f6-3289-4049-b663-2ebcfe78dce4@bootlin.com>
+X-TMN: [bC0ZNwAtbOlPxMg08qFnB9wGEQZ2lA/t+lz2RrBkWe8=]
+X-ClientProxiedBy: TYAPR01CA0021.jpnprd01.prod.outlook.com (2603:1096:404::33)
+ To IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <y3bhkwdmgbge6g6wj4rrhti74cj4gl4h55i7ubq3q3x2pfr73q@hhhpwf272h4y>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CH3PR20MB7017:EE_
+X-MS-Office365-Filtering-Correlation-Id: 206c43e8-f94b-496d-c500-08dc61cc6fda
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: sas/4tM9BqQckrg0Ear2DCyQlcH5VL+zKm+WT2WuRKk4TuSvV7FeHjgyPtiNPNa4XQUaQGo8osbIecUaTuaLDp3IDqPhAScEYkuKtKBNR9uL9J7+eI0Qk1rPw9DnpHh9h38tcjcBzm5LIVv9K/xks7Y/+8tJWzerwMM96VzdZNmibbwEVTc5UeJ9jDfHi67BZ1C9UASd/0lkpag67fSq/tv9KKLoi0V6rXZ9Z371oglBQBGhk/XMM1dBC1oKL4u6vWHtcNaKREnTKR66TK5ACMCQu6GjBSjG3se/JxqMjPsjk8SwsdLkSdLnLptouUYAJdVEJ10Na86LRsz4cwKM62FD0K2K+YyxntwFHc6iVCqOeYyqWgbasoSJMCW4qTOY2wBRvOsuWDUtFAauNt4lIJSB9I4O3IUbyLA2eWD3wErT2MCFjBZ5aieVYRnwpY6oVYMWRcZxnl6CeavPrS2XrJvGj0m/LZBGRMB/bc3cUtOtyFqxrdXwgyWTF1I+2RCyoAW5+BGXG12pn+u7n/FoI8A9vp/vIjHdGLNhByTFa5Fi8MqjwEMHYwbOU5Cd+77tSGhTvoyZQ8j3cbjMakoFfo7kjSO1yMg2NrZYkRu2LxKN9JtImbx+Swmcg5F7HcSovIPavrhcyqxYEPkSqEqM7AddD3f9boFkc/HuuKNzK79v5bimZy1ngb5+szrHg6H+EVV/2UV5RpPHtUuG8uqYDg==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ulByggYW9fk+KU8adarpk/Pne53mlFrcTb1qMCSROaB2cwPmdf+rko0iuSYj?=
+ =?us-ascii?Q?iGpdH/A5o3/k2sjGBflO6s8tkICF7qysPXKMV3tUM7T2orZlbIW7ZXIisGEU?=
+ =?us-ascii?Q?7qG/MHw1LqMGNQ7CXU96ExHngE1HfKBCYFtfpotSIbMXYetG4hro+8KPl6d+?=
+ =?us-ascii?Q?AW5Uo96F9yT7X/GUzBwDDwAU3rYe4EjINvepXhmh1yWHMuU6IwufeyupkjTk?=
+ =?us-ascii?Q?PqLM+0j/FFXfy/59vxmehvmhRz/pwjg23DpMwNG6GqJuU3OZiNqagTFrw3RG?=
+ =?us-ascii?Q?pThcptBhzQToSPmfKnY2JymTjjmgiPts7D50fyGJ3C5gEFZV7ZP5dJITDyLK?=
+ =?us-ascii?Q?yDsjGBBxfxyLJPwrFf+J6N1cBK8oirIwAPeM3RRCJPxrNdsQyC6qhBSa3GpN?=
+ =?us-ascii?Q?3dU9WEggFm5ZJecx/ARxNEHO7wUazO5B88XzUPgNTGA0IzCXJ9KTMOQS+Xaf?=
+ =?us-ascii?Q?GBaFOl8t5FYaqrJ0Xr20i2RtSgRB8X15qYZMWyeivSJtHxtlzId5WsawLKsY?=
+ =?us-ascii?Q?FRXzneRnCzO08Fpj+jVHJkJRMM1KdbMG0V0bAB5SrsQJA9iZ+J+zWOa8o8pZ?=
+ =?us-ascii?Q?h07inlV9KZj1RUDwBXZVXAgpIY7zwq/KFxGgfg9TlGmOc2zwLpLIOkHSbayq?=
+ =?us-ascii?Q?QSqtWb6fVYqhXAY/IZFMYOZXlELLgF4ILB3Bh9xnpUq+qdiIeCDP2+jc/EwS?=
+ =?us-ascii?Q?vsdvAFmAf1+IJCwylC7M9JDKUkqZmWn9zETE4sMfvf7tCpM1YsyFNz75K9QL?=
+ =?us-ascii?Q?jHAzXjGNNrW5OhBhZnNAA94sXurOquuRfbeBsaS479a+ANL4UsPs/cruUAZp?=
+ =?us-ascii?Q?K690qjS653FzuR/LuMwxntDtnW0mbBdNzQTGlWRfgdDEcCWCxsgQT7KGKkLD?=
+ =?us-ascii?Q?bnSMh7Q8lKlzThZVamxxUQ0bLOQGjqSH6CvDlmEwMM3Q0ONs3x63fkmdy1LV?=
+ =?us-ascii?Q?nqhRkk9/p8WjvSEq1gSEEmFDQuDaBedyjCpdh94cwFNB+4nuXRs6vcEOlPQF?=
+ =?us-ascii?Q?aQyRLCIWxnPf2+jTgO69QlKq678e5lqUiyO33fhstnpNI/07JOb4j9MQ2ptP?=
+ =?us-ascii?Q?ewwagPNFbTQOeyBiEkz1jydNMLPEATEjLY06zexY21FqqLZVg5YOoU4l6WQG?=
+ =?us-ascii?Q?WufIH01SKQbnpfkaEtr+bwTGg6VjEdECjaE35Xof4X0fzuSrQxKwPe1r87mp?=
+ =?us-ascii?Q?k+Vp2Dlwg8TqHjHipnXZvuLIi5O0IHokiYBbcD43+roXuxvXenNuAXGkntqL?=
+ =?us-ascii?Q?3NR3QkGBffvHSWnGobhw?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 206c43e8-f94b-496d-c500-08dc61cc6fda
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2024 06:29:46.0459
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR20MB7017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240420_225849_995054_D34DE45D 
-X-CRM114-Status: UNSURE (   8.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240420_232957_619349_841B5BD0 
+X-CRM114-Status: GOOD (  29.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,38 +126,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Emil
+On Sun, Apr 21, 2024 at 07:57:01AM GMT, Michael Opdenacker wrote:
+> Hi Inochi
+> 
+> Thanks for your advice!
+> 
+> On 4/17/24 at 11:34, Inochi Amaoto wrote:
+> > On Wed, Apr 17, 2024 at 08:53:11AM GMT, michael.opdenacker@bootlin.com wrote:
+> > > From: Michael Opdenacker <michael.opdenacker@bootlin.com>
+> > > 
+> > > This adds initial support for the Milk-V Duo S board
+> > > (https://milkv.io/duo-s), enabling the serial port,
+> > > making it possible to boot Linux to the command line.
+> > > 
+> > > Link: https://lore.kernel.org/linux-riscv/171266958507.1032617.9460749136730849811.robh@kernel.org/T/#t
+> > > 
+> > > Signed-off-by: Michael Opdenacker <michael.opdenacker@bootlin.com>
+> > > ---
+> > >   arch/riscv/boot/dts/sophgo/Makefile           |  1 +
+> > >   .../boot/dts/sophgo/sg2000-milkv-duos.dts     | 34 +++++++++++++++++++
+> > >   2 files changed, 35 insertions(+)
+> > >   create mode 100644 arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+> > > 
+> > > diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
+> > > index 57ad82a61ea6..e008acb5240f 100644
+> > > --- a/arch/riscv/boot/dts/sophgo/Makefile
+> > > +++ b/arch/riscv/boot/dts/sophgo/Makefile
+> > > @@ -1,4 +1,5 @@
+> > >   # SPDX-License-Identifier: GPL-2.0
+> > >   dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
+> > >   dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
+> > > +dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duos.dtb
+> > >   dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
+> > > diff --git a/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+> > > new file mode 100644
+> > > index 000000000000..c1ecf97d5e93
+> > > --- /dev/null
+> > > +++ b/arch/riscv/boot/dts/sophgo/sg2000-milkv-duos.dts
+> > > @@ -0,0 +1,34 @@
+> > > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > > +/*
+> > > + * Copyright (C) 2024 Michael Opdenacker <michael.opdenacker@bootlin.com>
+> > > + */
+> > > +
+> > > +/dts-v1/;
+> > > +
+> > > +#include "cv1812h.dtsi"
+> > > +
+> > > +/ {
+> > > +	model = "Milk-V Duo S";
+> > > +	compatible = "milkv,duos", "sophgo,cv1812h";
+> > > +
+> > > +	aliases {
+> > > +		serial0 = &uart0;
+> > > +	};
+> > > +
+> > > +	chosen {
+> > > +		stdout-path = "serial0:115200n8";
+> > > +	};
+> > > +
+> > > +	memory@80000000 {
+> > > +		device_type = "memory";
+> > > +		reg = <0x80000000 0x20000000>;
+> > > +	};
+> > Add a cpu specific file, and move this to it.
+> 
+> Now that I'm including "cv1812h.dtsi", which has the same structure, all I
+> need is to change the reg setting to have 512 MB of RAM instead of 256MB,
+> right? See the V6 I'm sending soon.
+> 
 
-On 4/17/24 at 11:19, Emil Renner Berthing wrote:
-> michael.opdenacker@ wrote:
->> From: Michael Opdenacker <michael.opdenacker@bootlin.com>
->>
->> This adds an initial device tree for the Milk-V Duo S board.
->> Last tested on linux-next on April 17, 2024.
-> Hi Michael.
->
-> Sorry for the late reply. It seems to me like spaces are usually repaced by
-> dashes (-'s) in device trees, so I would have expected milkv,duo-s and
-> sg2000-milkv-duo-s.dts so it's not confused with a Milk-V Duos board.
->
-> /Emil
+No, Duo S does not use cv1812h, in any means. I just told you to use
+cv1812h for local test. If you want to upstream Duo S, you must add 
+the right cpu compatibles and necessary nodes. These two are different
+things.
 
-
-Good to know, many thanks!
-I've just done that in my V6 series.
-Cheers
-Michael.
-
--- 
-Michael Opdenacker, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+> > 
+> > > +};
+> > > +
+> > > +&osc {
+> > > +	clock-frequency = <25000000>;
+> > > +};
+> > > +
+> > > +&uart0 {
+> > > +	status = "okay";
+> > > +};
+> > > -- 
+> > > 2.34.1
+> > > 
+> > Add necessary DT node in the cpu specific file. (clint,
+> > plic and clk). You also need to rebase your patch based
+> > on sophgo/for-next.
+> 
+> Same here, cv1812h.dtsi already configures &clint, &plic and &clk, so it
+> seems to me I don't need to make changes again here. At least the board
+> boots fine for me as it is.
+> Cheers
+> Michael.
+> 
+> 
+> -- 
+> 
+> Michael Opdenacker, Bootlin
+> Embedded Linux and Kernel engineering
+> https://bootlin.com
+> 
 
 _______________________________________________
 linux-riscv mailing list
