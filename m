@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C1FC4345F
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Apr 2024 01:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C04C4345F
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Apr 2024 01:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3wKwrLcFwyUZ+gRtqqvPnkMBCIGBPb4zRTfFMAiAy2I=; b=JA0Vgmj3kMsgxm
-	PN0coLlpqm9MrVWf7dPTupdUw9JWSRpFz00nelO/gRmHrBxzE4doVTBv+0PIJBddISK/I8QZQEJkz
-	FJ30L3vPOpHiT+pIIdS3cZgy70tBbm6ZUV3t+mkB50mdL9oeWzWKgdrUxkIn1BY8ooHgB42boKszR
-	Z3Mnz8zKxg8GuUgm/Fqpu+7kWw8kHkJXRJWReMglyCXMpTvnIbImfcgmMXqi6tECMLvlVaaSATuwe
-	VkNOiuUsqI0LnuVEP9Jsyv0USuHblyojz8Z26SwQ6v58ilbQ93XEgAytmo4CgCWfSrLHdTSPzY25n
-	Z3Z71bLU8CViS+OCCiMQ==;
+	List-Owner; bh=U/PDSjlY7MYJbeqtK7MaGzMzltbHjOT9sRks08Wr32Y=; b=fm4aD+z4WNHRI5
+	awoZuSznZf473LWGam15I8CHuWFlPgwJO8pp6QvtZMVIw0+78vWuboFdEa1PwsdVaFRTj80KRzQ1d
+	ZGJjxoOZCkPJFeaQMOXvBrnu0zYEc4f9cbj5HEYWZ/q/9AXjyeowyyx7xC157A7pgXWyC5XjqGqkP
+	taBa0xTEnduYmcOLXlglHZ1lDyazz0ECOOqPOkAynhTH1083x7f0z427Ti1F4vKCIw0+EYgqRXJq6
+	BPH/2joUMAdH3i0bgz8s1LwsCq5ct7EHEAcjp7sawz2eGfbgNLyQQa2nhArfhyaFNi7b0c4J2MqLr
+	+SKH7c5hDRbXtvyGMZ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryLgs-00000009YXH-2TXD;
-	Sun, 21 Apr 2024 01:08:22 +0000
-Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
+	id 1ryLgy-00000009Yce-3DBz;
+	Sun, 21 Apr 2024 01:08:28 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryLdk-00000009Vwv-05Ua
+	id 1ryLdt-00000009W6r-2acI
 	for linux-riscv@lists.infradead.org;
-	Sun, 21 Apr 2024 01:05:14 +0000
-Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-22edec341c2so1781399fac.0
-        for <linux-riscv@lists.infradead.org>; Sat, 20 Apr 2024 18:05:07 -0700 (PDT)
+	Sun, 21 Apr 2024 01:05:24 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-6eb797e10ceso2052687a34.1
+        for <linux-riscv@lists.infradead.org>; Sat, 20 Apr 2024 18:05:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713661505; x=1714266305; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713661516; x=1714266316; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=bC8+jsiLZWKY+UGyCwiSu3stdoXyccUkl5+IF/7wAA4=;
-        b=1HMBOuMK9pFBV1p7a0IrcTYGZzbYKs6/6znEEZHQORy8dQYEypFJbXJ35dHcxX7q/j
-         NYdnA3L3IS028EpnqjEoSVpfx4rBzAb4ePBoHRWd9fdT6qh8cZupLP2tQjbB4QqOmYen
-         oSKZQN4828cdLuHP3RbB68lP92TpBK3HJ52ev/eUahALF0MUin9XcAGk4sYs4e+PDrsR
-         6ggsk4MdBRHqqArKkW+1Iw+mZgYk07fxMwCdkR0ML/b08dN+jmAjGYNpXutJz48vq5Th
-         69YDFsBLT31S+r6+2yU7W899Z393YoLqUKJR6vjGKX4Xr5AHmZD3BkzY0rae7U6luluP
-         F3sw==
+        bh=C51oJZVlVAvKgqHOYlTKvkb9Lst4yR5a6EpKYVrVIWQ=;
+        b=dIMwYTo0GS3PRA9RPhrm9j/bhmOcUNrdBjbUXielBkpqH6csxfYLegK3MySMzMiuAK
+         wULGguLUqVWdWuxwVtCp5T5PifFDyO/Q0J1HYTiFcNmZXj4DOnnnDjsbtjn+DiiJX9tD
+         r/7aOhr6QNgahq2Ts82ShoOXr5s/ECdeiugCwLwe1A4ALR9JfKMn+6RoYknVxbQM2eyY
+         VatSiIHBXDYT/xkulOIlvCdyRIbHBBG0YHsG+G65DpsvruDdVAIqDroRd/OVIs+mCrTV
+         jx+mZUNwm8enePFvH5CSrPiUDGXIPt17bX2ehH7XLYklmTbI82hwUTtSPIFTbaV1yaxj
+         J/fw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713661505; x=1714266305;
+        d=1e100.net; s=20230601; t=1713661516; x=1714266316;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bC8+jsiLZWKY+UGyCwiSu3stdoXyccUkl5+IF/7wAA4=;
-        b=ZDhuQ4m9B7wW/5eXn3L8+0B78pjdKIbUNhrcDASQdINtXy2nLr761+cmOn+sN4PzCE
-         q2sBk7tAdEpZ2piJQa/kiLSXId8Kb3r/Y1HqOfaO78d44xAsgmR+QwAMa7qYaWPO8hxe
-         nrzZEBjjOmCDco5yxm8vhEuKShabpb0X4Yq7bfvB+emINU3dUZtk8Rnu7pNe2GyfwpDH
-         iSrPZi5X0ByI6Dc/n1K3MpcGnri4bbvXrKUV30T9XEa2r25bWtkqIgfS3klGm38qUN8a
-         ZVhVfeyQEfJZ+LNHgclYN28f6VAJuhSS88Xb3gm/hG9ylF/U3OihBpaEInykcgechBkr
-         tMOQ==
-X-Gm-Message-State: AOJu0YyHYFxA8QOyi8La2C1P+EkU+v5cRegtJZy3xrq2ZQYimmDSmxC7
-	8LwVBlMgsK2gaUEkhI9aG2o2VIOWrJL1spVt3QWFM6gELaXJ8hQjJAviLch/szk=
-X-Google-Smtp-Source: AGHT+IGbQ/vxSg+SM01gknEBQRR/q49/3qC6z4/xjDMc4YZpeoH8/vtpKwa4//R2pCwzOVNHIa6iZA==
-X-Received: by 2002:a05:6870:9a0f:b0:239:8e67:6f10 with SMTP id fo15-20020a0568709a0f00b002398e676f10mr5008737oab.30.1713661505412;
-        Sat, 20 Apr 2024 18:05:05 -0700 (PDT)
+        bh=C51oJZVlVAvKgqHOYlTKvkb9Lst4yR5a6EpKYVrVIWQ=;
+        b=dCWFoZ3wG71PE4jNi9kdOLUjt6mbqWvLuNXcAN8grc66qM9BvaKjBuFR5NgGlfBWGM
+         /5JsYJF76quIRpsBv0TAdFN1GZ5CrcIByq1651gmnLROjWb00sGSky/YR5kqUqXDqw8m
+         e382F04rJMgv5E9Mke+n5O+njxUjgLtEcF/uU8YXvXfzaPHtERAGvJLc/t2oKBKya4yj
+         neMC8EeyE3kKOtUjTJrgmeXk8mUJGeUWLfDBBzSutDTEw1ABv8Mj6AmBeSdnkxjEjHnK
+         FwVW5+5A5PXVGdQm/pPre9IdwSZcq92qckkfLdl81eMBu27zGVx13jeU+r4oE6kLUQEE
+         V+1A==
+X-Gm-Message-State: AOJu0YwZxz/P42obRNNTw/wNi8McKfmbSksLBKb+yZaro81Cyjqb2vJy
+	Bb+eklsP2ekJ3NBNyCeDf/bRcCNeiK3QrYqpqxXth1e5G8pZbtGvj65RB5RU8sc=
+X-Google-Smtp-Source: AGHT+IENYknI+Zklhvw1/6eWC1GH0JmKeh/I0kIxdoG8bvXxlMe6ywbK9ABjZzu5BfvNmYbkvyzc5Q==
+X-Received: by 2002:a9d:6454:0:b0:6eb:8435:6d with SMTP id m20-20020a9d6454000000b006eb8435006dmr6447023otl.16.1713661516086;
+        Sat, 20 Apr 2024 18:05:16 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d6-20020a63d646000000b005dc8702f0a9sm5249627pgj.1.2024.04.20.18.05.03
+        by smtp.gmail.com with ESMTPSA id d6-20020a63d646000000b005dc8702f0a9sm5249627pgj.1.2024.04.20.18.05.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Apr 2024 18:05:04 -0700 (PDT)
+        Sat, 20 Apr 2024 18:05:15 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Sat, 20 Apr 2024 18:04:42 -0700
-Subject: [PATCH v3 10/17] RISC-V: define the elements of the VCSR vector
- CSR
+Date: Sat, 20 Apr 2024 18:04:47 -0700
+Subject: [PATCH v3 15/17] riscv: hwprobe: Document thead vendor extensions
+ and xtheadvector extension
 MIME-Version: 1.0
-Message-Id: <20240420-dev-charlie-support_thead_vector_6_9-v3-10-67cff4271d1d@rivosinc.com>
+Message-Id: <20240420-dev-charlie-support_thead_vector_6_9-v3-15-67cff4271d1d@rivosinc.com>
 References: <20240420-dev-charlie-support_thead_vector_6_9-v3-0-67cff4271d1d@rivosinc.com>
 In-Reply-To: <20240420-dev-charlie-support_thead_vector_6_9-v3-0-67cff4271d1d@rivosinc.com>
 To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -84,19 +84,18 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Charlie Jenkins <charlie@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, 
- Heiko Stuebner <heiko@sntech.de>
+ Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1713661481; l=954;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1713661481; l=1205;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=C7F1c584ODJM4qF9TPT5kMoM8fDlOPYyEMw6010Mea8=;
- b=7jmS1W1m0Q0AzX4wBIry9EylCG+Y3NoCPBcfRTlo9XfCGTiKUGeLKVQZD0sKpe6MXP57BC0/G
- 7k6iLclC9/sAQ0QerwrjVwujrLIbftuilh6gclJQQmbPMW8YDHcSlr5
+ bh=SMnAf1KoXdr3XQZFYlKGicPpJwlvTYKEN0qx5DZFIIk=;
+ b=Sr+Ck23MK6b5fBCWQnfAjC3XDtevTk9/L5rpG6sRcM1JIsKOpPpV6wfWEpjZQrv34owaXjk+c
+ T8zyReFWWSJDaCUDm2n9ubLbo5SiTO69cKWy2i/xPXXXBX1kkoWi79W
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240420_180508_459954_F6B8D88B 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20240420_180517_960507_DB2D4D12 
+X-CRM114-Status: UNSURE (   8.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,36 +113,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko@sntech.de>
+Document support for thead vendor extensions using the key
+RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 and xtheadvector extension using the key
+RISCV_HWPROBE_VENDOR_EXT_XTHEADVECTOR.
 
-The VCSR CSR contains two elements VXRM[2:1] and VXSAT[0].
-
-Define constants for those to access the elements in a readable way.
-
-Acked-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/riscv/include/asm/csr.h | 5 +++++
- 1 file changed, 5 insertions(+)
+ Documentation/arch/riscv/hwprobe.rst | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 2468c55933cd..13bc99c995d1 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -215,6 +215,11 @@
- #define SMSTATEEN0_SSTATEEN0_SHIFT	63
- #define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index b2bcc9eed9aa..b2bb305140aa 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -210,3 +210,13 @@ The following keys are defined:
  
-+/* VCSR flags */
-+#define VCSR_VXRM_MASK			3
-+#define VCSR_VXRM_SHIFT			1
-+#define VCSR_VXSAT_MASK			1
+ * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
+   represents the size of the Zicboz block in bytes.
 +
- /* symbolic CSR names: */
- #define CSR_CYCLE		0xc00
- #define CSR_TIME		0xc01
++* :c:macro:`RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0`: A bitmask containing the
++  thead vendor extensions that are compatible with the
++  :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`: base system behavior.
++
++  * T-HEAD
++
++    * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XTHEADVECTOR`: The xtheadvector vendor
++        extension is supported in the T-Head ISA extensions spec starting from
++	commit a18c801634 ("Add T-Head VECTOR vendor extension. ").
 
 -- 
 2.44.0
