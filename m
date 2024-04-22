@@ -4,83 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FCAC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 08:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E2DC07E8F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 08:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8d3tOnQFYmjEv5ljH0apidM39TBBJSR7gk6R0fXXqfw=; b=N5gpZ9aIrb0HsS
-	gOprE5R7b+hut0bPE3wdVxJ5YNZbESb/iO26TzfLm4dTpMDQ05DM03h1/mncRA+VPLEvBx39oK/Vb
-	T7EyjhdvBEaQuontECsdKAgM9A0k3hNhHX+TuZvppdb0C8w2gt5tsAegEMKx4+2BJHLhjFo6htQYz
-	bNELTeEyjryqzel5BRfKuC7ctq2/4etYIOse3f6iVQpeNpKYi99nKh0XG1RKANu+5iJhri+IbZLdS
-	gwG79wJCRZ7us/CcWIlCMz2PsrXFUzuZqVVzjw/wAEIN0Ncjg23AF4UOyIFvYIymnCZDycDrC0msp
-	pQdNgGKaWYePSg0Hb9iA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uWa569Spl6eGxd51iOYucP6jjJkdg1FUAKEALKGmaic=; b=KtTaqplGKC+FT1
+	wQNjOsTeJOJQ2qSLcoJ5gMgLwIbjJedF/NvRmgyWLW9fkttvAV2phiLbRZzttVXyrhwjiz/X4xivk
+	AYOsHNU0omLct6jpWJ5XDZ2uyuEgw908Cs6slkJ6svExeeznP09iN8qofz12RUeZ3ZNfvu2qidTzk
+	0fpNXpaSP5JBzJmA4D2W63/hm8PIEfrpqMqcSebTYMNR+AlRQr6W8TO7KlSvJCJl/DVA5I3ihLJ5T
+	LNY50aaQCHp9zyjC5fLZmWdUYc8T+z44nuel8rf4b/Wwp4gg3k5Zb48llPApgI2ubeRMK4u0bK1dc
+	858HQ3WHmqgOFHqwQG3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryp9n-0000000CgHg-1x7S;
-	Mon, 22 Apr 2024 08:36:11 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1rypKy-0000000CiXU-3BRa;
+	Mon, 22 Apr 2024 08:47:44 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryp9h-0000000CgEk-3CYp
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Apr 2024 08:36:09 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-41a1d2a7b81so5375285e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Apr 2024 01:36:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1713774964; x=1714379764; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VBzKYSZ8M382Gw3Mpbo+Hjy3YjNSp2OmuE1UXjfeuZA=;
-        b=jhb6ScbDHE8FdoAuRQm2gP8gLN35bBKwYEdv2BTqC+EPKAvJ2ObOuwVhpFZFGG+qk1
-         u9caStTqmJwzcFQZK+Hs02sI2AsjS8h2Lx0QkVleAsI9LAbd9al2kSguDXE+WXZ0EyGr
-         HS0BlLirF5OUjwBXlY63r16T/ZThLBpg49avFTqoyvQFPT0D7jTvqd+aAazJzf0mWaIo
-         VTkwmuKkHewYWuNEdShyXkBcFJk2XMd6vaMogqUuz7yN7loUcH4JNvJ+1kuj6Oyz27Bl
-         4oY7C9Tv1BVMGKgl9zyK90K7S8fLhDmw1UvLus+Gcd1B5hhhJYR+vtkDrz6zBI1hWdbS
-         cTZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713774964; x=1714379764;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VBzKYSZ8M382Gw3Mpbo+Hjy3YjNSp2OmuE1UXjfeuZA=;
-        b=Pi0ZvYNtFSBaKuSzLiH2MZ3B2JWF6bUGAAlaiC4uLABXzTMx7g5tOr65bPYB3Guudv
-         MtXjl9/FdUCvFWAtSmGu4BFsvuf2p3bvnZZAdz9EcA09yvibLrLVAI5OI1SISB68brQu
-         HS8WWDNaqLyl+dmdOEXfzI3jriX69/6hi3fON7Zeo7jM+dumU+ckD7xCHMXvQ6XhBdjG
-         Yt6wye4pIDxkLfM6dWX5ViTLfNRlNwxZl8iPrwrmL1cgCizPsuCaRd4YqL+yFv/BRTGE
-         2DwOSRG3Oc0d0pXKicaIB+UM8zh+ILUd8KfQYOdF4TXPWi2b8HonGA9xW4AujtQvzn0s
-         7qng==
-X-Gm-Message-State: AOJu0YzP9isl8SPerGDj9e3icg0pbAA/udp8Wa3war0w31G+Kd2JYPOo
-	umXbBWzvegiQZlHglHiY6NAMeQmoY7fAFsV809E2/TRK5ibjMEF1x18k8QaMPxA=
-X-Google-Smtp-Source: AGHT+IFhy5bPbMLwyziz6VsrU6byy5TIqllo/g3dOSSggWm8NTvoG2OcCFhhK56F2HASPigLSiOq6w==
-X-Received: by 2002:a05:6000:b8c:b0:346:f830:db09 with SMTP id dl12-20020a0560000b8c00b00346f830db09mr6393629wrb.31.1713774963808;
-        Mon, 22 Apr 2024 01:36:03 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id x5-20020a5d6b45000000b003472489d26fsm11448472wrw.19.2024.04.22.01.36.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Apr 2024 01:36:03 -0700 (PDT)
-Date: Mon, 22 Apr 2024 10:36:02 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Andrea Parri <parri.andrea@gmail.com>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, conor.dooley@microchip.com, anup@brainfault.org, 
-	atishp@atishpatra.org, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	conor+dt@kernel.org, christoph.muellner@vrull.eu, heiko@sntech.de, 
-	charlie@rivosinc.com, David.Laight@aculab.com, luxu.kernel@bytedance.com
-Subject: Re: [PATCH v2 3/6] riscv: Add Zawrs support for spinlocks
-Message-ID: <20240422-97341bd5e6f69d54eeaba632@orel>
-References: <20240419135321.70781-8-ajones@ventanamicro.com>
- <20240419135321.70781-11-ajones@ventanamicro.com>
- <ZiWCP6f6zZ3dKXfN@andrea>
+	id 1rypKu-0000000CiTu-2JDk;
+	Mon, 22 Apr 2024 08:47:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 6944CCE0987;
+	Mon, 22 Apr 2024 08:47:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACF34C113CC;
+	Mon, 22 Apr 2024 08:47:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713775657;
+	bh=M6QQiy27Yx7cZTOC0617KB9Ln6pKKwikPWIcgenY/bM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BhbYt1HWBZxGe8p0rpcUIVFFy0qN3mUbgGQa+T/hdJ9oQJ5iN9QXtGO+1X2Qp+kcW
+	 q3FAb85uoScj1tMh7VK/q77eXzWKZQh5pt/OPtaDAEK6NzBtA4zbpekQbS/S73OKy+
+	 S6K4J7+Gbcac0zubIdjxBgAfvUcmZPnk8iHEsua7yLLYoNI1nHquFFKokymhz1QsZ6
+	 N2kiYbBilEozrmvprYGyC8M1TxF7Os+zPOSs7cNsuEML9MeP464uktwGfCcjzApu8s
+	 tW9zR6AyO4iX4WSS4f0h6ivopKwu9ye/MDbkwrxzhFXFzoptPuD2oe+4U9VpgigchB
+	 D5isfO4sruTJQ==
+From: Mike Rapoport <rppt@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Rapoport <rppt@kernel.org>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH v5 01/15] arm64: module: remove unneeded call to kasan_alloc_module_shadow()
+Date: Mon, 22 Apr 2024 11:47:09 +0300
+Message-ID: <20240422084717.3602332-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZiWCP6f6zZ3dKXfN@andrea>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240422_013605_825965_4F7145D2 
-X-CRM114-Status: GOOD (  29.16  )
+X-CRM114-CacheID: sfid-20240422_014740_801651_64981796 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,115 +111,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 21, 2024 at 11:16:47PM +0200, Andrea Parri wrote:
-> On Fri, Apr 19, 2024 at 03:53:25PM +0200, Andrew Jones wrote:
-> > From: Christoph M??llner <christoph.muellner@vrull.eu>
-> > 
-> > RISC-V code uses the generic ticket lock implementation, which calls
-> > the macros smp_cond_load_relaxed() and smp_cond_load_acquire().
-> > Introduce a RISC-V specific implementation of smp_cond_load_relaxed()
-> > which applies WRS.NTO of the Zawrs extension in order to reduce power
-> > consumption while waiting and allows hypervisors to enable guests to
-> > trap while waiting. smp_cond_load_acquire() doesn't need a RISC-V
-> > specific implementation as the generic implementation is based on
-> > smp_cond_load_relaxed() and smp_acquire__after_ctrl_dep() sufficiently
-> > provides the acquire semantics.
-> > 
-> > This implementation is heavily based on Arm's approach which is the
-> > approach Andrea Parri also suggested.
-> > 
-> > The Zawrs specification can be found here:
-> > https://github.com/riscv/riscv-zawrs/blob/main/zawrs.adoc
-> > 
-> > Signed-off-by: Christoph M??llner <christoph.muellner@vrull.eu>
-> > Co-developed-by: Andrew Jones <ajones@ventanamicro.com>
-> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > ---
-> >  arch/riscv/Kconfig                | 13 ++++++++
-> >  arch/riscv/include/asm/barrier.h  | 45 ++++++++++++++++++---------
-> >  arch/riscv/include/asm/cmpxchg.h  | 51 +++++++++++++++++++++++++++++++
-> >  arch/riscv/include/asm/hwcap.h    |  1 +
-> >  arch/riscv/include/asm/insn-def.h |  2 ++
-> >  arch/riscv/kernel/cpufeature.c    |  1 +
-> >  6 files changed, 98 insertions(+), 15 deletions(-)
-> 
-> Doesn't apply to riscv/for-next (due to, AFAIU,
-> 
->   https://lore.kernel.org/all/171275883330.18495.10110341843571163280.git-patchwork-notify@kernel.org/ ).
+From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
-I based it on -rc1. We recently discussed what we should base on, but
-I couldn't recall the final decision, so I fell back to the old approach.
-I can rebase on for-next or the latest rc if that's the new, improved
-approach.
+Since commit f6f37d9320a1 ("arm64: select KASAN_VMALLOC for SW/HW_TAGS
+modes") KASAN_VMALLOC is always enabled when KASAN is on. This means
+that allocations in module_alloc() will be tracked by KASAN protection
+for vmalloc() and that kasan_alloc_module_shadow() will be always an
+empty inline and there is no point in calling it.
 
-> 
-> But other than that, this LGTM.  One nit below.
-> 
-> 
-> > -#define __smp_store_release(p, v)					\
-> > -do {									\
-> > -	compiletime_assert_atomic_type(*p);				\
-> > -	RISCV_FENCE(rw, w);						\
-> > -	WRITE_ONCE(*p, v);						\
-> > -} while (0)
-> > -
-> > -#define __smp_load_acquire(p)						\
-> > -({									\
-> > -	typeof(*p) ___p1 = READ_ONCE(*p);				\
-> > -	compiletime_assert_atomic_type(*p);				\
-> > -	RISCV_FENCE(r, rw);						\
-> > -	___p1;								\
-> > -})
-> > -
-> >  /*
-> >   * This is a very specific barrier: it's currently only used in two places in
-> >   * the kernel, both in the scheduler.  See include/linux/spinlock.h for the two
-> > @@ -70,6 +56,35 @@ do {									\
-> >   */
-> >  #define smp_mb__after_spinlock()	RISCV_FENCE(iorw, iorw)
-> >  
-> > +#define __smp_store_release(p, v)					\
-> > +do {									\
-> > +	compiletime_assert_atomic_type(*p);				\
-> > +	RISCV_FENCE(rw, w);						\
-> > +	WRITE_ONCE(*p, v);						\
-> > +} while (0)
-> > +
-> > +#define __smp_load_acquire(p)						\
-> > +({									\
-> > +	typeof(*p) ___p1 = READ_ONCE(*p);				\
-> > +	compiletime_assert_atomic_type(*p);				\
-> > +	RISCV_FENCE(r, rw);						\
-> > +	___p1;								\
-> > +})
-> 
-> Unrelated/unmotivated changes.
+Drop meaningless call to kasan_alloc_module_shadow() from
+module_alloc().
 
-The relation/motivation was to get the load/store macros in one part of
-the file with the barrier macros in another. With this change we have
+Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
+---
+ arch/arm64/kernel/module.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
- __mb
- __rmb
- __wmb
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index 47e0be610bb6..e92da4da1b2a 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -141,11 +141,6 @@ void *module_alloc(unsigned long size)
+ 				    __func__);
+ 	}
+ 
+-	if (p && (kasan_alloc_module_shadow(p, size, GFP_KERNEL) < 0)) {
+-		vfree(p);
+-		return NULL;
+-	}
+-
+ 	/* Memory is intended to be executable, reset the pointer tag. */
+ 	return kasan_reset_tag(p);
+ }
+-- 
+2.43.0
 
- __smp_mb
- __smp_rmb
- __smp_wmb
-
- smp_mb__after_spinlock
-
- __smp_store_release
- __smp_load_acquire
- smp_cond_load_relaxed
-
-Without the change, smp_mb__after_spinlock is either after all the
-load/stores or in between them.
-
-I didn't think the reorganization was worth its own patch, but I could
-split it out (or just drop it).
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
