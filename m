@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E3FC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 06:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC400C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 07:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v5AE+PHB/jQ/8UtsvwwzsZx8D5aJyhrF67k/NiNfwig=; b=UrmBf2HfYWYS5r
-	2Q0jwiidAQbYmjT7t9qER3F6D2PT/iOPuhOK5pLRlhFnNhWTk+rH6Ze5QsyCC61frKB8sd9SrARJK
-	JbiUjbyLSj01eoWPIqfS1wL1PJM+6zQv3/Un3tDCqcWcN+TJos1T+YmYCDfSn5qRdWpP4xzL996v+
-	dtkZGUUCbz88N+qYbRY1/V1HHliW0MLsGpNKrYqHf+j2mpDR2Jtpl3W1oPA0U7rYqxasrXFqGAlmi
-	LUBtGa2ZCah8m3puk1heEr6Zae6AXKXmb22VyaZsNUK3qEF/MCiS8Nn5nk/gw9oTXHZIySCTAg8Uu
-	vyuput5iBeecegCdL3Iw==;
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vaYIZuerf6Wa8cXOwGk5f9soI2vMYXI2nc6jLlIrtTc=; b=NnS6N0VzXYFvAtBqLOkMRebnqn
+	sACVVM278XLWSTmFnUN3oAXGcbHGEVJpMGpGhYanWv3QkxS/5dzYdv7EoO2WjxFg62OQ4GQ425beB
+	kYkv3hgUn9NGo4N5iomMH1/6OrZnMd8ciS0b2NsDoX8IsxPXleb7CaQXwCVF5zkZn6qvL06XgMQPo
+	VM06bN+ojJzncBJX6dJZc/kSM5uGzYTJ3vsi+zC9YSPkZJfnQt3MetsjdY4Rnt3I5Ez21irgSRf68
+	2sKDHzrnX0fv9b9uxZ09Rv6bGw4kxuAxwMQzE1gGP0K8JD8bNEz/nzkfqc6jRowV7ZU/34B6nQGKx
+	QQSsncbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryn5D-0000000CEit-3zRl;
-	Mon, 22 Apr 2024 06:23:19 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1ryoIU-0000000CTZR-1sCg;
+	Mon, 22 Apr 2024 07:41:06 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryn59-0000000CEhw-3mdK
+	id 1ryoIR-0000000CTWX-1RRV
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Apr 2024 06:23:18 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 13E8240008;
-	Mon, 22 Apr 2024 06:23:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1713766990;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qTFhysNt/3zWhuk9APN+XkSCHeCT2braUpoM8bTINGY=;
-	b=kYEG9A3N5oVABsryFafN7bFTT6Dtj6GkdtikX8DKyrAXSNEdsxaHLrFdOz2EmKkIHZCfmA
-	Q0CFA0/o4uaJSlA9qBfop3gCCHF1bhPjIA60S0J5F+QbiZWtyU8+xxWjR3M6EKWELtzyON
-	bW0pz8Q8lZfpIw6g5omvxiA56R8JoSKj162nZMwLLvolDA1UI3N02sYDHjH7//uPu+FLJU
-	LaCo0lzVZnj1/3HvDbGy82nhJvaPTnY3vYH6dD9cMoh7V1Zc+u1wOmA55gGVV20HbFh+Hi
-	E3DHdNuTHRZCYIcJL4nICNYV+MoK78TEz+B9ztz6O3bgIwxXvTWPl7gPIT+j9g==
-Message-ID: <505a8cea-5b0e-4ecf-b566-e68b37b2d4ed@bootlin.com>
-Date: Mon, 22 Apr 2024 08:23:04 +0200
+	Mon, 22 Apr 2024 07:41:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1713771664; x=1745307664;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=USR3bFEd40WckrOHmGi8VAlZeJ/vjjPTOFMN/FwP1iw=;
+  b=FRBHfDvFGYBC6P1+ekzs2CfnTwD/g9xNj97SXLAq/nnShbg0l17u4Wvb
+   LadAJ2HjCPTJqdHx+fST5npB9pyJtUUGtc6dXJEKWfBhJo4YS7Q2IcYoa
+   72/F3lqHymiNeXSNbbuMnGUhVZr2Pb5yMyAegY6hc6kWjDL8UbpuC8i99
+   vVM519W0lwMeX8jM3iSf3WCyye0mWZ+Yi83P3adL4Anhbbf5kCA9KGnxl
+   AQS9yPaQahYZhhYQYsSCILLcEAF9NjlhwcttMMGT6aEJIVhcQUdP7D/e+
+   bL2+KhDHNn56akgG25+uWhRbkyvwBt2xgwmoGpSVSlr2naSKX3O0bZvua
+   A==;
+X-CSE-ConnectionGUID: WRxu2kzxR2W7QAChWEViHQ==
+X-CSE-MsgGUID: huDg7grlTfOdTjELxz6E8Q==
+X-IronPort-AV: E=McAfee;i="6600,9927,11051"; a="20436791"
+X-IronPort-AV: E=Sophos;i="6.07,220,1708416000"; 
+   d="scan'208";a="20436791"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Apr 2024 00:40:59 -0700
+X-CSE-ConnectionGUID: Bhjbqn5PRx+ExxI/+DpaQg==
+X-CSE-MsgGUID: I0j9NBpPT8OLzM2aqsevpQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,220,1708416000"; 
+   d="scan'208";a="24012803"
+Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.225.176]) ([10.124.225.176])
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Apr 2024 00:40:54 -0700
+Message-ID: <23ef7fbd-7498-4fb0-895b-81c618acedc1@linux.intel.com>
+Date: Mon, 22 Apr 2024 15:40:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@bootlin.com, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 1/2] dt-bindings: riscv: add Milk-V Duo S board
- compatibles
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Chao Wei <chao.wei@sophgo.com>
-References: <20240421055710.143617-1-michael.opdenacker@bootlin.com>
- <20240421055710.143617-2-michael.opdenacker@bootlin.com>
- <c30cc11a-209a-4919-a382-7588daff0d71@linaro.org>
- <b1f59075-f2b0-4f2c-aea3-bc596ac45f1c@bootlin.com>
- <71f2e031-41b0-4a47-9bdd-e8fb6334da5d@linaro.org>
+Subject: Re: [PATCH v2 7/7] iommu/riscv: Paging domain support
+To: Jason Gunthorpe <jgg@ziepe.ca>, Tomasz Jeznach <tjeznach@rivosinc.com>
+References: <cover.1713456597.git.tjeznach@rivosinc.com>
+ <301244bc3ff5da484b46d3fecc931cdad7d2806f.1713456598.git.tjeznach@rivosinc.com>
+ <20240419125627.GD223006@ziepe.ca>
 Content-Language: en-US
-From: Michael Opdenacker <michael.opdenacker@bootlin.com>
-Organization: Bootlin
-In-Reply-To: <71f2e031-41b0-4a47-9bdd-e8fb6334da5d@linaro.org>
-X-GND-Sasl: michael.opdenacker@bootlin.com
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <20240419125627.GD223006@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240421_232316_406876_CFF8302C 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20240422_004103_463774_114B474C 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,54 +80,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org, baolu.lu@linux.intel.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 2024/4/19 20:56, Jason Gunthorpe wrote:
+>> +		riscv_iommu_cmd_inval_vma(&cmd);
+>> +		riscv_iommu_cmd_inval_set_pscid(&cmd, domain->pscid);
+>> +		if (len > 0 && len < RISCV_IOMMU_IOTLB_INVAL_LIMIT) {
+>> +			for (iova = start; iova < end; iova += PAGE_SIZE) {
+>> +				riscv_iommu_cmd_inval_set_addr(&cmd, iova);
+>> +				riscv_iommu_cmd_send(iommu, &cmd, 0);
+>> +			}
+>> +		} else {
+>> +			riscv_iommu_cmd_send(iommu, &cmd, 0);
+>> +		}
+>> +	}
+> This seems suboptimal, you probably want to copy the new design that
+> Intel is doing where you allocate "bonds" that are already
+> de-duplicated. Ie if I have 10 devices on the same iommu sharing the
+> domain the above will invalidate the PSCID 10 times. It should only be
+> done once.
+> 
+> ie add a "bond" for the (iommu,pscid) and refcount that based on how
+> many devices are used. Then another "bond" for the ATS stuff eventually.
 
-On 4/22/24 at 06:24, Krzysztof Kozlowski wrote:
-> On 21/04/2024 20:55, Michael Opdenacker wrote:
->> Hi Krzysztof
->>
->> On 4/21/24 at 16:12, Krzysztof Kozlowski wrote:
->>> On 21/04/2024 07:57, michael.opdenacker@bootlin.com wrote:
->>>> From: Michael Opdenacker <michael.opdenacker@bootlin.com>
->>>>
->>>> Document the compatible strings for the Milk-V Duo S board[1] which uses
->>>> the SOPHGO SG2000 SoC, compatible with the CV1812H SoC[2].
->>>>
->>>> Link: https://milkv.io/duo-s [1]
->>>> Link: https://en.sophgo.com/product/introduce/cv181xH.html [2]
->>>>
->>>> Signed-off-by: Michael Opdenacker <michael.opdenacker@bootlin.com>
->>>> ---
->>> Where is the changelog? It's v6!
->> Oops, it was in my cover letter
->> (https://lore.kernel.org/linux-riscv/20240421055710.143617-1-michael.opdenacker@bootlin.com/T/#t),
->> which you didn't get because of get-maintainer.pl. As the recipients are
->> patch dependent, am I supposed to describe the changes in all patches
->> and not only in the cover letter?
-> If you do not send the changelog to everyone, then yes, please describe
-> respective changes in each patch.
+The latest version is under discussion here.
 
-Ok, will do, thanks!
+https://lore.kernel.org/linux-iommu/20240416080656.60968-1-baolu.lu@linux.intel.com/
 
->
-> It's your choice, but if you decide not to send cover letter to some
-> folks, then *it does not exist* for such folks.
+Supposedly, you can make such optimization after the base code is landed
+in the mainline tree if the change is big.
 
-Well, actually, I shouldn't have let get-maintainer.pl decide for me. Is 
-there a way to send the cover-letter to the union of people who will 
-receive the individual patches?
-Cheers
-Michael.
-
--- 
-Michael Opdenacker, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+Best regards,
+baolu
 
 _______________________________________________
 linux-riscv mailing list
