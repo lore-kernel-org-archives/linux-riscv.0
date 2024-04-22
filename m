@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E2DC07E8F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 08:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7AEBC07E8F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 08:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uWa569Spl6eGxd51iOYucP6jjJkdg1FUAKEALKGmaic=; b=KtTaqplGKC+FT1
-	wQNjOsTeJOJQ2qSLcoJ5gMgLwIbjJedF/NvRmgyWLW9fkttvAV2phiLbRZzttVXyrhwjiz/X4xivk
-	AYOsHNU0omLct6jpWJ5XDZ2uyuEgw908Cs6slkJ6svExeeznP09iN8qofz12RUeZ3ZNfvu2qidTzk
-	0fpNXpaSP5JBzJmA4D2W63/hm8PIEfrpqMqcSebTYMNR+AlRQr6W8TO7KlSvJCJl/DVA5I3ihLJ5T
-	LNY50aaQCHp9zyjC5fLZmWdUYc8T+z44nuel8rf4b/Wwp4gg3k5Zb48llPApgI2ubeRMK4u0bK1dc
-	858HQ3WHmqgOFHqwQG3g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1CSFGpkzJii2QJF5z9PH9H86cnzugclJjXdmoGZZujk=; b=ALOqp/l4hXk7PS
+	D/NVXwenFFHRzSdIbQnl14iP2p2PwfES5unbd66keYLxeTvqafOh4eA5fXG8vemPO5xs03Vi9HueZ
+	BvwiGlAGoEP0z4wfKK7Cvge/tfhZTZICDS0KnAm3dEuwnrtXqMvM4030uQXiUS32BO3BejtT0tR6p
+	g6I0/SBNxVb2CS3KDQgnZuSpVQizP3cl+t0q/4alw2/WNyyp4NUPBGO9sdRCjap+lgDVL+Ho0QLT5
+	+Uq5Nn6QhVBQ+RF0T0cvVd3ePiCdDkhXDzTI0e8BeZwdSCCpY3d9h7fLqqVUlXxPPcw9Mdl7JpVhv
+	o1PQPNFzqZO8+ZnA8KKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rypKy-0000000CiXU-3BRa;
-	Mon, 22 Apr 2024 08:47:44 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rypLC-0000000CiiI-0hpQ;
+	Mon, 22 Apr 2024 08:47:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rypKu-0000000CiTu-2JDk;
-	Mon, 22 Apr 2024 08:47:42 +0000
+	id 1rypL3-0000000CiZD-3JF4;
+	Mon, 22 Apr 2024 08:47:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 6944CCE0987;
-	Mon, 22 Apr 2024 08:47:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACF34C113CC;
-	Mon, 22 Apr 2024 08:47:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 296EB60D32;
+	Mon, 22 Apr 2024 08:47:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24DACC3277B;
+	Mon, 22 Apr 2024 08:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713775657;
-	bh=M6QQiy27Yx7cZTOC0617KB9Ln6pKKwikPWIcgenY/bM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=BhbYt1HWBZxGe8p0rpcUIVFFy0qN3mUbgGQa+T/hdJ9oQJ5iN9QXtGO+1X2Qp+kcW
-	 q3FAb85uoScj1tMh7VK/q77eXzWKZQh5pt/OPtaDAEK6NzBtA4zbpekQbS/S73OKy+
-	 S6K4J7+Gbcac0zubIdjxBgAfvUcmZPnk8iHEsua7yLLYoNI1nHquFFKokymhz1QsZ6
-	 N2kiYbBilEozrmvprYGyC8M1TxF7Os+zPOSs7cNsuEML9MeP464uktwGfCcjzApu8s
-	 tW9zR6AyO4iX4WSS4f0h6ivopKwu9ye/MDbkwrxzhFXFzoptPuD2oe+4U9VpgigchB
-	 D5isfO4sruTJQ==
+	s=k20201202; t=1713775669;
+	bh=DCxnhfiOCuZ1vbHkz6N1kzg5vD2Mqvj8bCN8VHj/6O4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Mps6aHrb6AV3oyZl5FmE+MfwgISX2oKniz00n73cWPu8M38bphHsNqTfQijby4bMh
+	 I8s7vmc5ajRK4JIpr5iBWaNBz04iwyWpipy7y5HC6V4I/DOInX+0dmc1xHzMV8vP6d
+	 SAIkRF3xAit5Hjhbf/wdCcT3+Bxk4ZHwq4AXY22A270Ocxxd7L/iPoPlXuCCUS9B1v
+	 HRuTA3LRRGxR2hMjbwnJ8palU3umjclGLu8ZSedMuy2V8vamJEYEa/l9xd8JJEcD0C
+	 CW+EUs/cOAJg4BVftrSx3urpNYaYPI5lz+fF9RdQQCwpiy73NrybWs6ZQcHjku8Hc+
+	 IWeFpdB8IJ2Sw==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
@@ -87,14 +87,16 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v5 01/15] arm64: module: remove unneeded call to kasan_alloc_module_shadow()
-Date: Mon, 22 Apr 2024 11:47:09 +0300
-Message-ID: <20240422084717.3602332-1-rppt@kernel.org>
+Subject: [PATCH v5 02/15] mips: module: rename MODULE_START to MODULES_VADDR
+Date: Mon, 22 Apr 2024 11:47:10 +0300
+Message-ID: <20240422084717.3602332-2-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240422084717.3602332-1-rppt@kernel.org>
+References: <20240422084717.3602332-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240422_014740_801651_64981796 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20240422_014750_015624_6D592508 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,36 +115,63 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
-Since commit f6f37d9320a1 ("arm64: select KASAN_VMALLOC for SW/HW_TAGS
-modes") KASAN_VMALLOC is always enabled when KASAN is on. This means
-that allocations in module_alloc() will be tracked by KASAN protection
-for vmalloc() and that kasan_alloc_module_shadow() will be always an
-empty inline and there is no point in calling it.
-
-Drop meaningless call to kasan_alloc_module_shadow() from
-module_alloc().
+and MODULE_END to MODULES_END to match other architectures that define
+custom address space for modules.
 
 Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
 ---
- arch/arm64/kernel/module.c | 5 -----
- 1 file changed, 5 deletions(-)
+ arch/mips/include/asm/pgtable-64.h | 4 ++--
+ arch/mips/kernel/module.c          | 4 ++--
+ arch/mips/mm/fault.c               | 4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
-index 47e0be610bb6..e92da4da1b2a 100644
---- a/arch/arm64/kernel/module.c
-+++ b/arch/arm64/kernel/module.c
-@@ -141,11 +141,6 @@ void *module_alloc(unsigned long size)
- 				    __func__);
- 	}
+diff --git a/arch/mips/include/asm/pgtable-64.h b/arch/mips/include/asm/pgtable-64.h
+index 20ca48c1b606..c0109aff223b 100644
+--- a/arch/mips/include/asm/pgtable-64.h
++++ b/arch/mips/include/asm/pgtable-64.h
+@@ -147,8 +147,8 @@
+ #if defined(CONFIG_MODULES) && defined(KBUILD_64BIT_SYM32) && \
+ 	VMALLOC_START != CKSSEG
+ /* Load modules into 32bit-compatible segment. */
+-#define MODULE_START	CKSSEG
+-#define MODULE_END	(FIXADDR_START-2*PAGE_SIZE)
++#define MODULES_VADDR	CKSSEG
++#define MODULES_END	(FIXADDR_START-2*PAGE_SIZE)
+ #endif
  
--	if (p && (kasan_alloc_module_shadow(p, size, GFP_KERNEL) < 0)) {
--		vfree(p);
--		return NULL;
--	}
--
- 	/* Memory is intended to be executable, reset the pointer tag. */
- 	return kasan_reset_tag(p);
+ #define pte_ERROR(e) \
+diff --git a/arch/mips/kernel/module.c b/arch/mips/kernel/module.c
+index 7b2fbaa9cac5..9a6c96014904 100644
+--- a/arch/mips/kernel/module.c
++++ b/arch/mips/kernel/module.c
+@@ -31,10 +31,10 @@ struct mips_hi16 {
+ static LIST_HEAD(dbe_list);
+ static DEFINE_SPINLOCK(dbe_lock);
+ 
+-#ifdef MODULE_START
++#ifdef MODULES_VADDR
+ void *module_alloc(unsigned long size)
+ {
+-	return __vmalloc_node_range(size, 1, MODULE_START, MODULE_END,
++	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+ 				GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+ 				__builtin_return_address(0));
  }
+diff --git a/arch/mips/mm/fault.c b/arch/mips/mm/fault.c
+index aaa9a242ebba..37fedeaca2e9 100644
+--- a/arch/mips/mm/fault.c
++++ b/arch/mips/mm/fault.c
+@@ -83,8 +83,8 @@ static void __do_page_fault(struct pt_regs *regs, unsigned long write,
+ 
+ 	if (unlikely(address >= VMALLOC_START && address <= VMALLOC_END))
+ 		goto VMALLOC_FAULT_TARGET;
+-#ifdef MODULE_START
+-	if (unlikely(address >= MODULE_START && address < MODULE_END))
++#ifdef MODULES_VADDR
++	if (unlikely(address >= MODULES_VADDR && address < MODULES_END))
+ 		goto VMALLOC_FAULT_TARGET;
+ #endif
+ 
 -- 
 2.43.0
 
