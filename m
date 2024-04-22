@@ -4,133 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B696C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 04:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB96C07E8D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 05:13:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V9iQI0HSf/7nTBgu4D3SHqkbhEJOuUwtYV0hN6NLVJ0=; b=01ODp88ojVvJaO
-	oRLkP8k7T4z3SgTqG2zqbm+4V3Yak7z0Kc3JMx8PbimUncLNZ3sBYK/4mWmQ3gW/JgbGny+2UHMC5
-	qZWr5ROcmSeuevxiSymn8SqzKkctlJBr1sr5DxPWBruUx5uPZQZBIfg8zEQe2bPxa9SvGIMJpT3P+
-	jPu6jO7ZkNISQgqrmEq8mMKHPMvt6EIALGNrc3mlpzo678svDZtgst4XYOqUjC2shnMX9JwtnuMVI
-	0id3ayb0uiwEpRpVDvJ0+NxHygZ04OprrNsENnyi4IOiURNM30KfXXRiB4i+ZiHrEd6h7ff3UKAyp
-	F16pt7Z+dorW8ZiNQvnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=236su76+hRfHsgUbVmpLZ+D8EMidCBDPn+Bih6YNcLE=; b=qv/N5t9oE0w8LLw0cdeZPH3BRT
+	2gGZEe0M0J6a8+1fv/aPq5Sy/7zyK6dLG3FdJeyEYaa09OxRbKdFqi4X6dG1qoiUtDZC6C/3WeYXg
+	RT/fvcxldhFr3n9bysTrT9M7L0LMa3+pMiNWtGvGjLGxgUsWugQ99qmMPQ3E7lDFi9ptZh9CjXp5O
+	W9ZxYoy0uxJ4jlGx5/3D9wof1NBWQ1gnK5GJ4IUpPQhKOCou+nisvFu4wGgKclBt3MbJsvYYZF+qN
+	heQU9S/yuxHF4J2jb5zsSoYytGdnZuH8AjVspzV5EydXScdyI48+cVhk5VRc+t6ThBn1oZHsQBVbI
+	sxoRCS+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rylMd-0000000BzK2-2sgm;
-	Mon, 22 Apr 2024 04:33:11 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1rylzZ-0000000C4Gg-2Uma;
+	Mon, 22 Apr 2024 05:13:25 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rylMa-0000000BzJX-03Ga
+	id 1rylzW-0000000C4FO-1320
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Apr 2024 04:33:09 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a55bdf477e5so16747266b.3
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Apr 2024 21:33:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1713760386; x=1714365186; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=27ulXIgHQAZ0pnwMwZ6wn52owpgh4CzgNBTtHcFxOE0=;
-        b=Uoh/kuUs4Wsw8xb8cCjtfx0WiO/tb6ugxVFTl58+bqWvq2+3c5Rk6QARYnLLdKI3kK
-         lGQrd51nA27oSmAXSIjSXn3Re9X2FaDMAIhpvsiBw6zN8yE6Uzj1eboSSgXKkUvQZouv
-         hra6MCqSzHpKunSc+jgHvoBHjr4XfK3ZfD/JjwEj4S4qDBlah9NI39iY2dJbpW+zwUba
-         Ek5aFYOVboaeH0vWbMHGTBjh4dN4H6ITlLlY81rBX7kWIAJtvZaFvjHbLZN1+dTXu7WB
-         xskaH95WRWL8zYJQhkono7QjRqTf6o3fCUUKWlu/X4CKTODDGNieDPtlW8srXLdguyXY
-         di/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713760386; x=1714365186;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=27ulXIgHQAZ0pnwMwZ6wn52owpgh4CzgNBTtHcFxOE0=;
-        b=Rqqus3Di3SJJQAk8lvkTshphPx2k/O+zuNbqNaVAnIemFelptlenqECdQ/We69Gmxq
-         rZdy9j0G/C9Jbp3zfGkpf4zeNSeu5t0sNgQKKtx3pC8FwfLV6LhvWbclDAMOsZolQzA1
-         RlqRIo/gLqzKOtV1xPVGtgGiMHoDN4z9cmDAjKm/utNTNtkBSE9QCljQG3ftYJiZrbLU
-         dlp/VXCKVr+0RurbM8Bb782l9G39pWM+neJ5ntQrIC3jSXdxql3NlpDlixfUIiTFoURh
-         4rD3HCN88OtWK3nET6Crdry1PC2dgXHheUVvOikg6dLMv4xXeICtT9aBbhA8u2apiKUe
-         0bSA==
-X-Forwarded-Encrypted: i=1; AJvYcCUkREoccVMic8xqIs9JA4ck687QQMArr5mnCmBXxhoEvTnw4/UonUpiow5s3FBl4u1CK6oROc1KBg0/G5q5i6/Z/6BmjJK1VENu41s6pXOS
-X-Gm-Message-State: AOJu0YwiTdKAqZPmrgxFFxUzXVNcciaSNXOkja5UTKG3EDqpdYPsygWC
-	v8oBiiwxnJN4mOYgX46JqQkFe63JIezAjJzegAwDYvnFCHZpkiVLvltw3fLGNQPCK704hSOXv7D
-	T
-X-Google-Smtp-Source: AGHT+IHy6EB1RfBLzTW7YYnHTiEyNty+OT61ObV9h/+Efpclz82Os1ytRbJHi05MC7aUS+TBaUIf1Q==
-X-Received: by 2002:a17:907:724f:b0:a52:5493:a0b9 with SMTP id ds15-20020a170907724f00b00a525493a0b9mr10951781ejc.39.1713760385652;
-        Sun, 21 Apr 2024 21:33:05 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.223.16])
-        by smtp.gmail.com with ESMTPSA id h5-20020a170906590500b00a4a396ba54asm5275387ejq.93.2024.04.21.21.33.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 21 Apr 2024 21:33:04 -0700 (PDT)
-Message-ID: <7c446e3d-43ed-410e-8440-db246474a944@linaro.org>
-Date: Mon, 22 Apr 2024 06:33:03 +0200
+	Mon, 22 Apr 2024 05:13:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1713762802; x=1745298802;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=DKjA0dK037dChvDf0JvnAQW0/y9B6MEd698fmMfs8IE=;
+  b=LXkkrATOV/JhrK3yJnImF6qDz4Mb6GHkznLj4VKInuqjtne1u/CuLFKW
+   w6cdbU8TEwoFw1X/8gcXZSAfH3XqNL+ky1GDF0o+pypFtQOVDBAzWC11R
+   v7iZDsR8ciuixfM+YwNFqFvtzjYCGsNyqC1/xdArJH0mVhjoYC2wqQR4H
+   3h0gatrCIxVtvlxc0nrYbXXKd9uHGqF7zfgS/WJEOJjYvGXmdHCYbjh+p
+   wxIk05YilMcyJ1F0K8g4fMOya756lyE2DXZGCACM73bI2Kf2jqFLydDjv
+   Fa7K0wFcw61skQi8BAt8SYpYTkm8pfA3DScWpfAx/PF1tdzaknDH6Z32m
+   A==;
+X-CSE-ConnectionGUID: Zv9Bvb0lSESG8VMEW9uAsg==
+X-CSE-MsgGUID: nbfbHW0NQBemdLK77BaF+w==
+X-IronPort-AV: E=McAfee;i="6600,9927,11051"; a="9148168"
+X-IronPort-AV: E=Sophos;i="6.07,219,1708416000"; 
+   d="scan'208";a="9148168"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2024 22:13:19 -0700
+X-CSE-ConnectionGUID: gCCWIIMWTq+J3iew0YRR0A==
+X-CSE-MsgGUID: CVejsV1ORxqcz60ioG20Kg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,219,1708416000"; 
+   d="scan'208";a="61338676"
+Received: from unknown (HELO [10.239.159.127]) ([10.239.159.127])
+  by orviesa001.jf.intel.com with ESMTP; 21 Apr 2024 22:13:13 -0700
+Message-ID: <964db2aa-6535-4243-9b3f-e72bff9b6297@linux.intel.com>
+Date: Mon, 22 Apr 2024 13:11:52 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: dwc2: Add bindings for new Canaan
- Kendryte K230 SoC
-To: Yangyu Chen <cyy@cyyself.name>, linux-riscv@lists.infradead.org
-Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <tencent_E9B853316D217B8D1E7CDF8288DA5E8ED908@qq.com>
- <tencent_31510A9A680F39CAE25AC60485043772F00A@qq.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 5/7] iommu/riscv: Device directory management.
+To: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+References: <cover.1713456597.git.tjeznach@rivosinc.com>
+ <232b2824d5dfd9b8dcb3553bfd506444273c3305.1713456598.git.tjeznach@rivosinc.com>
 Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <tencent_31510A9A680F39CAE25AC60485043772F00A@qq.com>
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <232b2824d5dfd9b8dcb3553bfd506444273c3305.1713456598.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240421_213308_178237_B9F03705 
-X-CRM114-Status: UNSURE (   6.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240421_221322_431283_B056ECEE 
+X-CRM114-Status: GOOD (  37.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,23 +81,281 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, baolu.lu@linux.intel.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/04/2024 14:53, Yangyu Chen wrote:
-> Add the dwc2 bindings for the Canaan Kendryte K230 SoC from Canaan.
+On 4/19/24 12:32 AM, Tomasz Jeznach wrote:
+> Introduce device context allocation and device directory tree
+> management including capabilities discovery sequence, as described
+> in Chapter 2.1 of the RISC-V IOMMU Architecture Specification.
 > 
-> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> Device directory mode will be auto detected using DDTP WARL property,
+> using highest mode supported by the driver and hardware. If none
+> supported can be configured, driver will fall back to global pass-through.
+> 
+> First level DDTP page can be located in I/O (detected using DDTP WARL)
+> and system memory.
+> 
+> Only identity protection domain is supported by this implementation.
+> 
+> Co-developed-by: Nick Kossifidis <mick@ics.forth.gr>
+> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+> Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
 > ---
->  Documentation/devicetree/bindings/usb/dwc2.yaml | 3 +++
+>   drivers/iommu/riscv/iommu.c | 369 +++++++++++++++++++++++++++++++++++-
+>   drivers/iommu/riscv/iommu.h |   5 +
+>   2 files changed, 365 insertions(+), 9 deletions(-)
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+[ ... ]
+
+> +
+> +/*
+> + * Discover supported DDT modes starting from requested value,
+> + * configure DDTP register with accepted mode and root DDT address.
+> + * Accepted iommu->ddt_mode is updated on success.
+> + */
+> +static int riscv_iommu_set_ddtp_mode(struct riscv_iommu_device *iommu,
+> +				     unsigned int ddtp_mode)
+> +{
+> +	struct device *dev = iommu->dev;
+> +	u64 ddtp, rq_ddtp;
+> +	unsigned int mode, rq_mode = ddtp_mode;
+> +	int rc;
+> +
+> +	rc = readq_relaxed_poll_timeout(iommu->reg + RISCV_IOMMU_REG_DDTP,
+> +					ddtp, !(ddtp & RISCV_IOMMU_DDTP_BUSY),
+> +					10, RISCV_IOMMU_DDTP_TIMEOUT);
+> +	if (rc < 0)
+> +		return -EBUSY;
+> +
+> +	/* Disallow state transition from xLVL to xLVL. */
+> +	switch (FIELD_GET(RISCV_IOMMU_DDTP_MODE, ddtp)) {
+> +	case RISCV_IOMMU_DDTP_MODE_BARE:
+> +	case RISCV_IOMMU_DDTP_MODE_OFF:
+> +		break;
+> +	default:
+> +		if (rq_mode != RISCV_IOMMU_DDTP_MODE_BARE &&
+> +		    rq_mode != RISCV_IOMMU_DDTP_MODE_OFF)
+> +			return -EINVAL;
+
+Is this check duplicate? It appears that it's always true in the default
+branch.
+
+> +		break;
+> +	}
+> +
+> +	do {
+> +		rq_ddtp = FIELD_PREP(RISCV_IOMMU_DDTP_MODE, rq_mode);
+> +		if (rq_mode > RISCV_IOMMU_DDTP_MODE_BARE)
+> +			rq_ddtp |= phys_to_ppn(iommu->ddt_phys);
+> +
+> +		riscv_iommu_writeq(iommu, RISCV_IOMMU_REG_DDTP, rq_ddtp);
+> +
+> +		rc = readq_relaxed_poll_timeout(iommu->reg + RISCV_IOMMU_REG_DDTP,
+> +						ddtp, !(ddtp & RISCV_IOMMU_DDTP_BUSY),
+> +						10, RISCV_IOMMU_DDTP_TIMEOUT);
+> +		if (rc < 0) {
+> +			dev_warn(dev, "timeout when setting ddtp (ddt mode: %u, read: %llx)\n",
+> +				 rq_mode, ddtp);
+> +			return -EBUSY;
+> +		}
+> +
+> +		/* Verify IOMMU hardware accepts new DDTP config. */
+> +		mode = FIELD_GET(RISCV_IOMMU_DDTP_MODE, ddtp);
+> +
+> +		if (rq_mode == mode)
+> +			break;
+> +
+> +		/* Hardware mandatory DDTP mode has not been accepted. */
+> +		if (rq_mode < RISCV_IOMMU_DDTP_MODE_1LVL && rq_ddtp != ddtp) {
+> +			dev_warn(dev, "DDTP update failed hw: %llx vs %llx\n", ddtp, rq_ddtp);
+> +			return -EINVAL;
+> +		}
+> +
+> +		/*
+> +		 * Mode field is WARL, an IOMMU may support a subset of
+> +		 * directory table levels in which case if we tried to set
+> +		 * an unsupported number of levels we'll readback either
+> +		 * a valid xLVL or off/bare. If we got off/bare, try again
+> +		 * with a smaller xLVL.
+> +		 */
+> +		if (mode < RISCV_IOMMU_DDTP_MODE_1LVL &&
+> +		    rq_mode > RISCV_IOMMU_DDTP_MODE_1LVL) {
+> +			dev_dbg(dev, "DDTP hw mode %u vs %u\n", mode, rq_mode);
+> +			rq_mode--;
+> +			continue;
+> +		}
+> +
+> +		/*
+> +		 * We tried all supported modes and IOMMU hardware failed to
+> +		 * accept new settings, something went very wrong since off/bare
+> +		 * and at least one xLVL must be supported.
+> +		 */
+> +		dev_warn(dev, "DDTP hw mode %u, failed to set %u\n", mode, ddtp_mode);
+> +		return -EINVAL;
+> +	} while (1);
+> +
+> +	iommu->ddt_mode = mode;
+> +	if (mode != ddtp_mode)
+> +		dev_warn(dev, "DDTP failover to %u mode, requested %u\n",
+> +			 mode, ddtp_mode);
+> +
+> +	return 0;
+> +}
+> +
+
+[ ... ]
+
+> +
+> +static int riscv_iommu_attach_domain(struct riscv_iommu_device *iommu,
+> +				     struct device *dev,
+> +				     struct iommu_domain *iommu_domain)
+> +{
+> +	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
+> +	struct riscv_iommu_dc *dc;
+> +	u64 fsc, ta, tc;
+> +	int i;
+> +
+> +	if (!iommu_domain) {
+> +		ta = 0;
+> +		tc = 0;
+> +		fsc = 0;
+> +	} else if (iommu_domain->type == IOMMU_DOMAIN_IDENTITY) {
+> +		ta = 0;
+> +		tc = RISCV_IOMMU_DC_TC_V;
+> +		fsc = FIELD_PREP(RISCV_IOMMU_DC_FSC_MODE, RISCV_IOMMU_DC_FSC_MODE_BARE);
+> +	} else {
+> +		/* This should never happen. */
+> +		return -ENODEV;
+> +	}
+
+Move the domain->type check code to the domain-specific ops.
+
+> +
+> +	/* Update existing or allocate new entries in device directory */
+> +	for (i = 0; i < fwspec->num_ids; i++) {
+> +		dc = riscv_iommu_get_dc(iommu, fwspec->ids[i], !iommu_domain);
+> +		if (!dc && !iommu_domain)
+> +			continue;
+> +		if (!dc)
+> +			return -ENODEV;
+> +
+> +		/* Swap device context, update TC valid bit as the last operation */
+> +		xchg64(&dc->fsc, fsc);
+> +		xchg64(&dc->ta, ta);
+> +		xchg64(&dc->tc, tc);
+> +
+> +		/* Device context invalidation will be required. Ignoring for now. */
+> +	}
+> +
+>   	return 0;
+>   }
+>   
+> +static int riscv_iommu_attach_identity_domain(struct iommu_domain *iommu_domain,
+> +					      struct device *dev)
+> +{
+> +	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+> +
+> +	/* Global pass-through already enabled, do nothing. */
+> +	if (iommu->ddt_mode == RISCV_IOMMU_DDTP_MODE_BARE)
+> +		return 0;
+> +
+> +	return riscv_iommu_attach_domain(iommu, dev, iommu_domain);
+> +}
+> +
+>   static struct iommu_domain riscv_iommu_identity_domain = {
+>   	.type = IOMMU_DOMAIN_IDENTITY,
+>   	.ops = &(const struct iommu_domain_ops) {
+> @@ -82,6 +420,13 @@ static void riscv_iommu_probe_finalize(struct device *dev)
+>   	iommu_setup_dma_ops(dev, 0, U64_MAX);
+>   }
+>   
+> +static void riscv_iommu_release_device(struct device *dev)
+> +{
+> +	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+> +
+> +	riscv_iommu_attach_domain(iommu, dev, NULL);
+
+Attaching a NULL domain to a device has already been removed. You can
+use the iommu_ops->release_domain here.
+
+> +}
+> +
+>   static const struct iommu_ops riscv_iommu_ops = {
+>   	.owner = THIS_MODULE,
+>   	.of_xlate = riscv_iommu_of_xlate,
+> @@ -90,6 +435,7 @@ static const struct iommu_ops riscv_iommu_ops = {
+>   	.device_group = riscv_iommu_device_group,
+>   	.probe_device = riscv_iommu_probe_device,
+>   	.probe_finalize = riscv_iommu_probe_finalize,
+
+The probe_finalize op will be removed soon.
+
+https://lore.kernel.org/linux-iommu/bebea331c1d688b34d9862eefd5ede47503961b8.1713523152.git.robin.murphy@arm.com/
+
+> +	.release_device = riscv_iommu_release_device,
+>   };
+>   
+>   static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
+> @@ -124,6 +470,7 @@ void riscv_iommu_remove(struct riscv_iommu_device *iommu)
+>   {
+>   	iommu_device_unregister(&iommu->iommu);
+>   	iommu_device_sysfs_remove(&iommu->iommu);
+> +	riscv_iommu_set_ddtp_mode(iommu, RISCV_IOMMU_DDTP_MODE_OFF);
+>   }
+>   
+>   int riscv_iommu_init(struct riscv_iommu_device *iommu)
+> @@ -133,12 +480,14 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+>   	rc = riscv_iommu_init_check(iommu);
+>   	if (rc)
+>   		return dev_err_probe(iommu->dev, rc, "unexpected device state\n");
+> -	/*
+> -	 * Placeholder for a complete IOMMU device initialization.
+> -	 * For now, only bare minimum: enable global identity mapping mode and register sysfs.
+> -	 */
+> -	riscv_iommu_writeq(iommu, RISCV_IOMMU_REG_DDTP,
+> -			   FIELD_PREP(RISCV_IOMMU_DDTP_MODE, RISCV_IOMMU_DDTP_MODE_BARE));
+> +
+> +	rc = riscv_iommu_ddt_alloc(iommu);
+> +	if (WARN(rc, "cannot allocate device directory\n"))
+> +		goto err_init;
+> +
+> +	rc = riscv_iommu_set_ddtp_mode(iommu, RISCV_IOMMU_DDTP_MODE_MAX);
+> +	if (WARN(rc, "cannot enable iommu device\n"))
+> +		goto err_init;
+>   
+>   	rc = iommu_device_sysfs_add(&iommu->iommu, NULL, NULL, "riscv-iommu@%s",
+>   				    dev_name(iommu->dev));
+> @@ -154,5 +503,7 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+>   err_iommu:
+>   	iommu_device_sysfs_remove(&iommu->iommu);
+>   err_sysfs:
+> +	riscv_iommu_set_ddtp_mode(iommu, RISCV_IOMMU_DDTP_MODE_OFF);
+> +err_init:
+>   	return rc;
+>   }
+> diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
+> index 700e33dc2446..f1696926582c 100644
+> --- a/drivers/iommu/riscv/iommu.h
+> +++ b/drivers/iommu/riscv/iommu.h
+> @@ -34,6 +34,11 @@ struct riscv_iommu_device {
+>   	/* available interrupt numbers, MSI or WSI */
+>   	unsigned int irqs[RISCV_IOMMU_INTR_COUNT];
+>   	unsigned int irqs_count;
+> +
+> +	/* device directory */
+> +	unsigned int ddt_mode;
+> +	dma_addr_t ddt_phys;
+> +	u64 *ddt_root;
+>   };
+>   
+>   int riscv_iommu_init(struct riscv_iommu_device *iommu);
 
 Best regards,
-Krzysztof
-
+baolu
 
 _______________________________________________
 linux-riscv mailing list
