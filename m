@@ -4,92 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD405C10F16
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 22:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA57C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 23:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D6E5YqTCldMl5OOnJ3kDdFHW08YZliPET+/wU5m48v0=; b=U/ewjE+y1e7vd5
-	XjHvUxvNTMY9pXmdeyujsqKMP/y6xWOvI/cAJXE0/78PtWe4YvSySY7HlZHN1KS3Vo4y8klcJFx52
-	fhpc+kwsysd164xzSYqgblMfL51jXqeSIzVJ6jYbo5ABBnxv2/XBBhINDLMx0NuwNv/dLYYzz0iJG
-	JtBht3guQrFvyXPC6M3hMSNBROqKWX5DpMrhYJOB7DwyKFncTZ/y6Ts305XKlWwqHPvOhH2jU3eii
-	XEKgREoHx1leSFafkVEb6SeszVElClOhxBzfbsVRwUp/88s9st9zxMf5yEl8UPw6Xo37f6Symv7S9
-	zIJC9Ac2nfP/vKbp1ZrA==;
+	List-Owner; bh=b3oZ5ArQmnGCKgP5DwF4QDnSdNOtGsgXjhTtGyeq/YM=; b=bhaagUCHMJdBZN
+	yN9HXr2K+WFnJJ8/jY7uWZfFnW00Sr1ruWeVaxFcx1Z4aypJowYeutDlNhnP5sOxtwr0F3zCE6Jeg
+	AFfyqwPMemJFYNvLBtwY2Yvlesotp9AbgKdrsp5Uqex369TSkgccfwc6MutiTX1uyKvXnDP0Oak9+
+	KXAQ5dPMvkneNPKWTV/DGnhSUTXqan7juPHH5Tram9inr6dbQ86+dU5HwKU6xALuXHwXkQky2O5AZ
+	gRcXN8KFDhJlBD91M87g/0/afHrg0xtTikEf+B2y6jYWim5lAwLEpn8SIbxoLoKqWtGMFEjti2pCv
+	7MrRNUcBq7c3kP2qiqJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rz2HV-0000000FDsZ-3GML;
-	Mon, 22 Apr 2024 22:37:01 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1rz399-0000000FP5U-14Ig;
+	Mon, 22 Apr 2024 23:32:27 +0000
+Received: from mail-bn8nam12olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c18::801] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rz2HR-0000000FDqP-001H
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Apr 2024 22:36:58 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-618944792c3so54683107b3.1
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Apr 2024 15:36:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713825407; x=1714430207; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0Vrhmpa3ShfhKy426e9PesLiq9Wc9QUOO6IUnrj6mzg=;
-        b=JS5cbEUocGS3zo1CyJXuVH/yfdVllpKjnitCFmnp84g8FM/lMuNZv49qKuuNm1IvJm
-         apajShAGt/4TDPvLMi9czNPbfpyvhQtb8R21+dPh6hUSFTvC7BP6lSQN+8TFIrQQQ+Cq
-         Fa6ChKPgqexD4Lgf1lHOzD/n7Ha1Iuy242y+WLhPUJwGsHathCWC+WDNprETww7uWJBs
-         VY6ulPaM4ZnV6NVII1H57w/NKR7nz0/eAJklV3gF65Vy0bqht1gJvyPUxo9OJ8wk5hsC
-         Hh6cTZ78SOTEFPOM8Og/alfA3Z69P0eszun/gdlhw3lhIbdNhP1h/tyYOzOQ+ffrIPBO
-         +1ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713825407; x=1714430207;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0Vrhmpa3ShfhKy426e9PesLiq9Wc9QUOO6IUnrj6mzg=;
-        b=qZ+MJfRCObXRpv+gaQJlfPyfjZ8aKrrkq3CsfRnvQZmK9SZ/YsHac25oreS2DIFjTM
-         tUiFW4RZPtiAtIncuxk8IysvFAY3F/AnipAUja4p15TFhWsgKOcQHDPzdy3pHzgRodOf
-         uecfYgDniFlUVuYjm1TCDWJJqJQAr+gEbSQhDEUk+7ebLvhLselmDhKkwiEt+Cdc7iyW
-         MBrFlFl1xqFm3QkRRF3Ek3gyCd0m3YryQnw3qTE/X1zd+gr3KJ7hkakGjYTWozDvttat
-         aAtQ39KA4oJ1LsM2gFyaJI9Ei2C+r9NprvSug8FSxbp+TZzbsYhJMGjj+9/jpy+tltxL
-         WHsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXtJ6WiniDL39e79H7rH+mNney/5RrktIe75gamyDX8xvJ3rwyE+W5kDpZ05ZolVZ9eDGMg3hvWq8cenjU7+sR9TrGW7a1k8PlvU4jIcb8M
-X-Gm-Message-State: AOJu0YzLpOI6EMWj6qlk79SEX5pL7UsqQrQow5K5Gt1A7TQnvV8GgVgK
-	brTYi0SmehB6NelvQKjOq5hpxQfG8JWAgKY1kmxUPleC4Mc1hyRefSMxsK3Clt8=
-X-Google-Smtp-Source: AGHT+IEljTe/eBlC9QwS8pBDCtNLjp86UAkLxUI6GRLcDWeT5wxU7x94hj9rac1gQjdir+fuZ+ou3Q==
-X-Received: by 2002:a05:690c:c1e:b0:61a:e4ae:82b5 with SMTP id cl30-20020a05690c0c1e00b0061ae4ae82b5mr12842588ywb.6.1713825407579;
-        Mon, 22 Apr 2024 15:36:47 -0700 (PDT)
-Received: from ghost ([50.146.0.2])
-        by smtp.gmail.com with ESMTPSA id w2-20020a814902000000b0061ac30230bfsm2187629ywa.49.2024.04.22.15.36.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Apr 2024 15:36:46 -0700 (PDT)
-Date: Mon, 22 Apr 2024 18:36:45 -0400
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	conor.dooley@microchip.com, anup@brainfault.org,
-	atishp@atishpatra.org, robh@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-	christoph.muellner@vrull.eu, heiko@sntech.de,
-	David.Laight@aculab.com, parri.andrea@gmail.com,
-	luxu.kernel@bytedance.com
-Subject: Re: [PATCH v2 2/6] dt-bindings: riscv: Add Zawrs ISA extension
- description
-Message-ID: <ZibmfbLnGCb9gmow@ghost>
-References: <20240419135321.70781-8-ajones@ventanamicro.com>
- <20240419135321.70781-10-ajones@ventanamicro.com>
- <20240419-chafe-leotard-e5daee19b1c8@spud>
- <20240419-8c6af6a169a7aa0b9aa5cac5@orel>
- <20240419-disdain-litmus-82874cc4872e@spud>
- <ZiKeYRnXxtLUtkkW@ghost>
- <20240421-f63f90c2146deb0695b84441@orel>
-MIME-Version: 1.0
+	id 1rz394-0000000FP3a-1ndW;
+	Mon, 22 Apr 2024 23:32:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=kzXGSWFYCAdhjXkyTTwbgyVK0NFMUH6pgajEw1lBhV2pn+UiYv7CgOapRXq9AKboeGJru9zVOXSkV6Wp8eH+gFy8wnacZ2VwaCb1ula/WZUbRFeLbOcWJzmtAlMF1jNE2vJ07Fbj8mTG7uDdBEVUdhhxt1KDP2Vk0A4049m8pqn3fMVbp/qnfNqxTmgfsXrvRk/F13L6++pSQtf2GeH8hnddrl6tIdPQa2JA42tt90jHARUeSusGOtdrRtJGq6nlxmytSThAN07PfLoBNo3Fm9eMhFKb6iU+hydkFfX9JqvWg1PLmZ8qWpfbL3ftNd9+UCDPz9WRTg565qqjaAlM2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=82UXYRBJDADzScQeIMMkR0iF2rWnNkbkNOLSq5sKjaE=;
+ b=KvSbhGHBIGHu6x9B+nPpu1vcIErwzu+EIA13oFB4DQLyhG9hr5ViCqw/R77hCHdevtYnb6L4qqUGqbiPisddCTR0nJ8IOS6ascV+SGPjyXi7F/1KLpwq8kkk3wDyoPtLjXtp9BMNkuwojF9aq+77FTjystmiJ9tTXWcGSRB8VTnb7rdIyXDcau2o5pMSlFFgSukUepEthCiTkW3JI7SwOWYkpY136pPLD/g035CEuDLTbmSjczG/RMfSs1c3mdmAI4tRjw8PgfA+Wyz1WheSMfLwoC4LJbVpGhkL1kdbnD0nBgREHlxWEB3qnZTOYI9K34/zXOh/F+t4SXrTB2xQ8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=82UXYRBJDADzScQeIMMkR0iF2rWnNkbkNOLSq5sKjaE=;
+ b=QfqEHIHDlPmZ/uLd6wuyaCce6a0mNzmNdiUOTP+OuEMGlBWfiDrvGBlWEvUYKetMcxkmiNsD+rHUZWjYKA8OcwoAktD+GQxe0jeG1euYO8yflOyqFPUW4bAk9HLDa+pOS8TKB2ll46d5Wr4FlYnNjp5UQMf4J8ptG5XKcJcyYcH+r8USNrvXqtpQhtTlFAdoIJ19k31xL6OAyzF9NVlBNisn0xA/iIWl2ycuokNLxlPHOX5KXuyGOcwx+XfSNH+FkSE1uwhY/MSWPvpLqe9fv1GqwtRumKCrZNI88/PQButXQQF9W/eK0DXu41DtfVEoRMlNICaRsZTa0HfuYBzIXQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by DS7PR20MB4855.namprd20.prod.outlook.com (2603:10b6:8:95::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7472.44; Mon, 22 Apr 2024 23:32:08 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7472.044; Mon, 22 Apr 2024
+ 23:32:08 +0000
+Date: Tue, 23 Apr 2024 07:32:32 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@outlook.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>, 
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: phy: Add Sophgo CV1800 USB phy
+Message-ID: <IA1PR20MB49531FB44161BC81C3DDACF6BB122@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB4953780F4617823F7173B6D6BB042@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953040232A4D41E41F2D2A9BB042@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20240419-harmful-neutron-d0db367cf659@spud>
+ <IA1PR20MB49536E7548B65B41F4F33FDEBB0C2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20240422-folic-obtuse-570b1747e7b9@spud>
 Content-Disposition: inline
-In-Reply-To: <20240421-f63f90c2146deb0695b84441@orel>
+In-Reply-To: <20240422-folic-obtuse-570b1747e7b9@spud>
+X-TMN: [USkaPTQM2OGeHLPe01f1aTF4obzqORpZXlEulVPe05c=]
+X-ClientProxiedBy: PU1PR01CA0017.apcprd01.prod.exchangelabs.com
+ (2603:1096:803:15::29) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <mr3mve2s4psiifoeze6qdhaoefi3ipjwjf37nybmue2qhbvndh@kldl6pcczl7v>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|DS7PR20MB4855:EE_
+X-MS-Office365-Filtering-Correlation-Id: 86fa9f86-2939-4242-232f-08dc63246ce2
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 1M21yHF5YVoVgm354X8USyx5OKgqS1FIviy0xIhZkSxuCeI0qfyb6s5G6XqWfeuqb5B4+JxZImjIg4t50L6sG1p8I0A8Uh+ZI1ZSHmgEnS2zU5/TB0n5Boi2DYdChI9S+wqR76Qnw7l/gYIudCstNUqMaqFOJuetSrz/WN+TT3lc8TAecRSKzWb2bW25fzbQQweR9BVbjHHlREj+JnQZzFTniB16moRBtsmNjBpmbAldSQluT3unOf1L+y+FZ0H1vYrsSnjvnuHw5/BEFp4uZaTHeysCBtTXx0dCgmEnQdDLgiiMBBFEKv1xKnTVRKtO+euOdZo9n6eUsdRWM335y+o3ji5nhm/rbrzOdPXaHI8cm3624jQzyKOUvcjV8HxARn8+RQ3iMeHHgA4FvvHO+sfNx44Yqqqpe/aOtATETvkIy/KHltvUd0sU96jgIDLp3yiWfW29m5QzmWaLOEFa3vBHihf5/C1KvaTBhvTtduC9Z058//B0kGv7mclWItZmzk1g0FBpl/e6jK+kRxLCd34qLphhvWI3mRPOG8IBNl90bjtZ0QZprWWZa8xyp1254b2OYNYVdbsbG78llqeKeJ6/br4kH0BbTCd0b4NX/LFknfGNt84fAlAGFqQ5K7CDinhJkvbMr838nt+yfK+hPQuHSwuEXUOPFMyiYRdByoujnSPDTFdgoi/NTwaUyzlmo4RyKZxctvx2EgAlAgPbZg==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RSsUv9I6Li2WEFmZAzYVm3aH1ZC5hkkMMwrm6x+df8UWaS3wSA/JU/O5u+Lk?=
+ =?us-ascii?Q?N+Lhj+jGzPEnllSBj41dTgcnzIHJ2bX7MtTgt+azONM2u5RuO3pdlPSOJu5d?=
+ =?us-ascii?Q?a1xMbHZGB4HCXO1omME44WlJNIWTs63yfASCpBI6Hxu/kRNMfLovjWXmviFW?=
+ =?us-ascii?Q?7lx7yu/BL90py0TufbICfQH4pOH0GbbjaX2PDcIGUgdf00UvZmfVvcCNZPcp?=
+ =?us-ascii?Q?x8stLKS/cXKlccG19DlK2FS+r9a9bH8L7slVJMi7tovtPr9zKYS1d3q+XC+f?=
+ =?us-ascii?Q?VyU3/Y+smwCFDVZBX/J/VYKwbUjhHWaJqLASc0yRCUgERrYtWOs3knFucbn9?=
+ =?us-ascii?Q?2gJVmt0jOwuFPdtSfMllKRqXyFL3PDydlVllFQhys0E358If/d+FxosmMGkN?=
+ =?us-ascii?Q?tOUdGNRYPFxVeA2m3TzE6WYGRi0MK8gCcYc0ujZlh+huF3uqGmSFvXu2j/vm?=
+ =?us-ascii?Q?bfqdjaKETO5N73CHfKV/OtSSh5kgnFwOTEawntMvIs+LcqTxY/3SkT4idRwV?=
+ =?us-ascii?Q?zgWdpnI5jtWicQinrkRKT6mj3izcL+pAuWpt4/KyiUMdzGKtOCqHZyGtUxmS?=
+ =?us-ascii?Q?v7YAruQvEoli3UZzqax91Ak7NEpIbR9CIJVn8/K3BaSEbqFbQjoO6qE94Iw7?=
+ =?us-ascii?Q?2R7q+M/HCMWV01sTN7znCpNHhGyQnmHhFU2mkoYV/SxprffyhLUd+TYREHAc?=
+ =?us-ascii?Q?F5jU9N0Ud7+dZr75Qd2m569kN/DIuGtrTYvrwqbTITdtVFQIWzuU6PrcktCj?=
+ =?us-ascii?Q?9q7O2hB4EwvuTB9g4eRweCOwWehSg+tvuWqN1LoUgZxegBE9EtHpmwcNDWxn?=
+ =?us-ascii?Q?iYdiTh7fFMmCkg1HZlRs9TBrMNPVHhZ7B70iO0Rj504fGC7RzHCQZCFqFoTu?=
+ =?us-ascii?Q?PPlB8cFyEmm0jdM8kLkVSbs1Jd4Y2R3dIPqnyLfnw0RVte3NTCXxz+KaFVIg?=
+ =?us-ascii?Q?z4oZah1SL4KSzdN9i++glXJa+6Ms60clWUYHzeXzrbo+1c8aCA5qpPw4V6iQ?=
+ =?us-ascii?Q?vH+wpp/5+kXPQE9SQt05B5O0medY42nB3uE5syh9MEHwMfwpSzBuPakvDSgT?=
+ =?us-ascii?Q?LF89jG5DwB2eY637izBdp1RO9KXA1SeII8WkGlPmvaLBYUDjv+0+CSww+vnN?=
+ =?us-ascii?Q?2dfpUM5vntKapv20lgLwaQdO8c5eQjfKcmpZD/8SSxYIaSWnKYsL8NhZuJoW?=
+ =?us-ascii?Q?JqNobOo2TOWakRzMg2HvVNvJusbGbdHUHNNBZrUs1Or0WvWkEEQKhT8SMXpQ?=
+ =?us-ascii?Q?sZ+N7fcGWAuiJBAxYe2b?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 86fa9f86-2939-4242-232f-08dc63246ce2
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2024 23:32:08.0462
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR20MB4855
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240422_153657_088411_43CD0F5F 
-X-CRM114-Status: GOOD (  60.25  )
+X-CRM114-CacheID: sfid-20240422_163222_514266_4651D0BF 
+X-CRM114-Status: GOOD (  51.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,158 +132,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 21, 2024 at 12:20:03PM +0200, Andrew Jones wrote:
-> On Fri, Apr 19, 2024 at 12:40:01PM -0400, Charlie Jenkins wrote:
-> > On Fri, Apr 19, 2024 at 04:19:52PM +0100, Conor Dooley wrote:
-> > > On Fri, Apr 19, 2024 at 05:16:05PM +0200, Andrew Jones wrote:
-> > > > On Fri, Apr 19, 2024 at 03:45:46PM +0100, Conor Dooley wrote:
-> > > > > On Fri, Apr 19, 2024 at 03:53:24PM +0200, Andrew Jones wrote:
-> > > > > > Add description for the Zawrs (Wait-on-Reservation-Set) ISA extension
-> > > > > > which was ratified in commit 98918c844281 of riscv-isa-manual.
-> > > > > > 
-> > > > > > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > > > > > ---
-> > > > > >  .../devicetree/bindings/riscv/extensions.yaml        | 12 ++++++++++++
-> > > > > >  1 file changed, 12 insertions(+)
-> > > > > > 
-> > > > > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > > > > index 468c646247aa..584da2f539e5 100644
-> > > > > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > > > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > > > > @@ -177,6 +177,18 @@ properties:
-> > > > > >              is supported as ratified at commit 5059e0ca641c ("update to
-> > > > > >              ratified") of the riscv-zacas.
-> > > > > >  
-> > > > > > +        - const: zawrs
-> > > > > > +          description: |
-> > > > > > +            The Zawrs extension for entering a low-power state or for trapping
-> > > > > > +            to a hypervisor while waiting on a store to a memory location, as
-> > > > > > +            ratified in commit 98918c844281 ("Merge pull request #1217 from
-> > > > > > +            riscv/zawrs") of riscv-isa-manual.
-> > > > > 
-> > > > > This part is fine...
-> > > > > 
-> > > > > 
-> > > > > > Linux assumes that WRS.NTO will
-> > > > > > +            either always eventually terminate the stall due to the reservation
-> > > > > > +            set becoming invalid, implementation-specific other reasons, or
-> > > > > > +            because a higher privilege level has configured it to cause an
-> > > > > > +            illegal instruction exception after an implementation-specific
-> > > > > > +            bounded time limit.
-> > > > > 
-> > > > > ...but I don't like this bit. The binding should just describe what the
-> > > > > property means for the hardware, not discuss specifics about a
-> > > > > particular OS.
-> > > > > 
-> > > > > And with my dt-bindings hat off and my kernel hat on, I think that if we
-> > > > > want to have more specific requirements than the extension provides we
-> > > > > either need to a) document that zawrs means that it will always
-> > > > > terminate or b) additionally document a "zawrs-always-terminates" that
-> > > > > has that meaning and look for it to enable the behaviour.
+On Mon, Apr 22, 2024 at 05:21:26PM GMT, Conor Dooley wrote:
+> On Sat, Apr 20, 2024 at 09:39:18AM +0800, Inochi Amaoto wrote:
+> > On Fri, Apr 19, 2024 at 03:26:53PM GMT, Conor Dooley wrote:
+> > > On Fri, Apr 12, 2024 at 03:22:24PM +0800, Inochi Amaoto wrote:
+> > > > The USB phy of Sophgo CV18XX series SoC needs to sense a pin called
+> > > > "VBUS_DET" to get the right operation mode. If this pin is not
+> > > > connected, it only supports setting the mode manually.
 > > > > 
-> > > > IIUC, the text above mostly just needs to remove 'Linux assumes' in order
-> > > > to provide what we want for (a)? I'm not sure about (b). If Zawrs is
-> > > > unusable as is, then we should probably just go back to the specs and get
-> > > > a new standard extension name for a new version which includes the changes
-> > > > we need.
+> > > > Add USB phy bindings for Sophgo CV18XX/SG200X series SoC.
+> > > > 
+> > > > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> > > > ---
+> > > >  .../bindings/phy/sophgo,cv1800-usb-phy.yaml   | 90 +++++++++++++++++++
+> > > >  1 file changed, 90 insertions(+)
+> > > >  create mode 100644 Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml
+> > > > 
+> > > > diff --git a/Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml b/Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml
+> > > > new file mode 100644
+> > > > index 000000000000..cb394ac5d8c4
+> > > > --- /dev/null
+> > > > +++ b/Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml
+> > > > @@ -0,0 +1,90 @@
+> > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > > +%YAML 1.2
+> > > > +---
+> > > > +$id: http://devicetree.org/schemas/phy/sophgo,cv1800-usb-phy.yaml#
+> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > +
+> > > > +title: Sophgo CV18XX/SG200X USB 2.0 PHY
+> > > > +
+> > > > +maintainers:
+> > > > +  - Inochi Amaoto <inochiama@outlook.com>
+> > > > +
+> > > > +properties:
+> > > > +  compatible:
+> > > > +    const: sophgo,cv1800-usb-phy
+> > > > +
+> > > > +  reg:
+> > > > +    maxItems: 1
+> > > > +
+> > > > +  "#phy-cells":
+> > > > +    const: 0
+> > > > +
+> > > > +  clocks:
+> > > > +    items:
+> > > > +      - description: PHY clock
+> > > > +      - description: PHY app clock
+> > > > +      - description: PHY stb clock
+> > > > +      - description: PHY lpm clock
+> > > > +
+> > > > +  clock-names:
+> > > > +    items:
+> > > > +      - const: phy
+> > > > +      - const: app
+> > > > +      - const: stb
+> > > > +      - const: lpm
+> > > > +
+> > > > +  dr_mode:
+> > > > +    description: PHY device mode when initing.
 > > > 
-> > > An (official) new name for the behaviour that you actually want, especially
-> > > if the patchset sent the other day does not have the more stringent
-> > > requirement (I won't even pretend to understand Zawrs well enough to know
-> > > whether it does or not), sounds like the ideal outcome. That way you're
-> > > also sorted on the ACPI side.
+> > > "initing" isn't a word, "initialising" is the correct word. Or
+> > > "initializing" if you speak American. But if it is just the value during
+> > > initialisation, why do we need to know - we can just overwrite it in
+> > > software, right?
+> > > 
+> > > Are you sure that this is limited to initialisation? I would have
+> > > thought that it describes the configuration that the board is in, and is
+> > > a fixed property of the system?
+> > > 
+> > > > +    enum: [host, peripheral, otg]
+> > > 
+> > > Rob, I know this is a phy rather than a controller, so referencing
+> > > usb-drd.yaml doesn't really make sense, but there are several PHYs using
+> > > dr_mode so it feels like there should be something to reference here
+> > > rather than defining the property anew.
+> > > 
 > > 
-> > What would be the purpose of a vendor implementing WRS.NTO (and putting
-> > it in the DT) that never terminates? The spec says "Then a subsequent
-> > WRS.NTO instruction would cause the hart to temporarily stall execution
-> > in a low- power state until a store occurs to the reservation set or an
-> > interrupt is observed." Why is this wording for WRS.NTO not sufficient
-> > to assume that an implementation of this instruction would eventually
-> > terminate?
-> >
+> > Yes, you are right. Using dr_mode in initialisation is not necessary.
+> > We can just let it go and using the default mode. In fact, for most
+> > boards with this SoC, host mode is just enough. And it is just easy 
+> > to overwrite the mode value in the driver if we want another mode. 
+> > For the OTG, it can just check the `vbus_det-gpios`. I will remove 
+> > this property, thanks.
 > 
-> We can invoke smp_cond_load_relaxed(addr, VAL || anything_we_want()). This
-> means we may not expect VAL ever to be written, which rules out "until a
-> store occurs". As for "an interrupt is observed", we don't know which one
-> to expect to arrive within a "reasonable" amount of time. We need to know
-> which one(s), since, while wrs.nto will terminate even when interrupts are
-> globally disabled, we still need to have the interrupt(s) we expect to be
-> locally enabled. And, the interrupts should arrive in a "reasonable"
-> amount of time since we want to poll anything_we_want() at a "reasonable"
-> frequency.
+> Just to be clear, it's valid to have a dr_mode property in cases that
+> you cannot detect what the mode is dynamically. What I was questioning
+> was the wording about only valid for init.
 > 
-> So, we need firmware to promise to enable exceptions if there aren't any
-> such interrupts. Or, we could require hardware descriptions to identify
-> which interrupt(s) would be good to have enabled before calling wrs.nto.
-> Maybe there's already some way to describe something like that?
+
+OK, for the USB phy of CV1800, it always needs to start at host mode.
+Because it needs to switch to both mode when initializing. As a result,
+the "dr_mode" property is just added to decide which mode is set after
+initializing (mostly for functionality). This is why I say it is for 
+initializing.
+
+Now, it is clean that setting dr_mode is just a function hint, and user 
+can just overwrite the mode. So I decided to remove this.
+
+> > > > +  vbus_det-gpios:
+> > > > +    description: GPIO to the USB OTG VBUS detect pin. This should not be
+> > > > +      defined if vbus_det gpio and switch gpio are connected.
+> > > 
+> > > I don't understand the second sentence here.
 > 
+> Ah, with your explanation below I now understand what you mean here. I
+> think this needs to be re-written - I think it would be easier to
+> understand with s/gpio/pin/ in the second line.
+> 
+> > > > +    maxItems: 1
+> > > > +
+> > > > +  sophgo,switch-gpios:
+> > > > +    description: GPIO for the phy to control connected switch.
+> > > > +    maxItems: 2
+> > > 
+> > > You've got two items here, they should be described. /But/ the property
+> > > above says "switch gpio", which is singular. Which is it?
+> > > 
+> > 
+> > `switch-gpios` is gpios to controll USB switch connected to the
+> > phy. Sophgo recommends that phy use a switch to separate device
+> > port and host port if it supports both. I know this is weird,
+> > but many board follows this design, such as Huashan PI and 
+> > Milkv Duo S. As for item number, it is just an array of gpios
+> > to process one by one, I mark it as two just because Milkv 
+> > Duo S use two gpios to controll the USB switch.
+> 
+> Right, but what I'm looking for is a description for what each GPIO
+> does, so that someone can know how the dts should be written.
+> 
+> > For vbus_det gpio description, There is because the design of 
+> > Milk-v Duo S, which connect the switch gpio and VBUS detect 
+> > gpio. In this case the OTG function is broken and we can just 
+> > change the mode by toggling switch gpios. So I suggest not 
+> > defining this property.
+> 
+> Okay. See my comment on it above.
+> 
+
+Thanks, I will add some necessary comments for these two properties.
+
 > Thanks,
-> drew
+> Conor.
 
-Ahh okay I am caught up now. So the wording we are looking at in the
-spec is:
-
-"When executing in VS or VU mode, if the VTW bit is set in hstatus, the
-TW bit in mstatus is clear, and the WRS.NTO does not complete within an
-implementation-specific bounded time limit, the WRS.NTO instruction will
-cause a virtual instruction exception."
-
-With the concern being that it is possible for "implementation-specific
-bounded time limit" to be infinite/never times out, and the kernel
-enters a WRS where the reservation set is not required to be invalidated
-for the condition we are waiting on to become true.
-
-An option here would be to enforce in the spec that this time limit is
-finite. If the original intention of the spec was to have it be finite,
-then this would not be an issue. If the intention was to allow no time
-limit, then this would probably have to be a new extension.
-
-We are also able to change the kernel to not allow these conditions that
-would break this interpretation of WRS. I found three instances in the
-kernel that contain a condition that is not dependent on the wrs
-reservation.
-
-1.
-# queued_spin_lock_slowpath() in kernel/locking/qspinlock.c
-val = atomic_cond_read_relaxed(&lock->val,
-			       (VAL != _Q_PENDING_VAL) || !cnt--);
-
-The first condition will only become true if lock->val changes which
-should invalidate the reservation. !cnt-- on the otherhand is a counter
-of the number of loops that happen under-the-hood in
-atomic_cond_read_relaxed. This seems like an abuse of the function and
-could be factored out into a new bounded-iteration cond_read macro.
-
-2.
-# osq_lock() in kernel/locking/osq_lock.c
-if (smp_cond_load_relaxed(&node->locked, VAL || need_resched() ||
-			  vcpu_is_preempted(node_cpu(node->prev))))
-
-VAL is the first condition and won't be a problem here since changes to
-it will cause the reservation to become invalid. arm64 has hard-coded
-vcpu_is_preempted to be false for the same exact reason that riscv would
-want to (the wait wouldn't be woken up). There is a comment that
-points this out in arch/arm64/include/asm/spinlock.h. riscv currently
-uses the default implementation which returns false.
-
-need_resched() should not be a problem since this condition only changes
-when the hart recieves an IPI, so as long as the hart is able to receive
-an IPI while in WRS it will be fine.
-
-3.
-# __arm_smmu_cmdq_poll_until_msi() in drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-smp_cond_load_relaxed(cmd, !VAL || (ret = queue_poll(&qp)));
-
-arm driver, not relevant.
-
-
-
-The only case that would cause a problem in the current implementation
-of the kernel would be queued_spin_lock_slowpath() with the cnt check.
-We are able to either change this definition, change the spec, or leave
-it up to the vendor who would be hit by this issue to change it.
-
-- Charlie
 
 
 _______________________________________________
