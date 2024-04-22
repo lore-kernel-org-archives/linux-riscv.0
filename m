@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A39D2C4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 08:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A328C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 08:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dTx2mHcraea3OmA2OaGfbk/+iE0uAnFGudxIsE0Q3q0=; b=jJ4b2GuESgiGa0
-	cepuWBapejvqgiw4SeAn6VhIxu8TDBg6LWykrJkQI86OTGhoVvZFULhBsqKlWSlW8IUFSeb1rXagZ
-	xAT6D9FnXub4qnltACMLXL7S60LSuh2V4kido7gG9cO/rOej880XJOpOAnKQFEVpGK4fGG50TBeok
-	xQguNbzUad+xRpijBCfDxGl2YzktlIYjxKep4VgfDjEdvOanJoA47DciN8koSKw4dt7inoR9zrLNr
-	Y4HVGMWDlhz6RZco4OU6YcipxcTbZkVWI33YCrX7zVRfDLtzZhCsCr6OR0CJQ8BuCeGGNOOAMS19k
-	5ofz9pw0ooBUFjLa914g==;
+	List-Owner; bh=xWvqYxtAZMN6AP3/OfjfFheopE6mCcgmHdFU4Y51yBs=; b=VW6OyI6nBVKjQd
+	tiyMToqWCulXG+hk4s95tHnGhFGfwY3BXcHCSwOAs/yUCCpjaXIeoHAWuKizQLcI5MkxTbpTjLcN7
+	t9r/Hl76iy3BaSmVb1ESDHtGbbiOYYHuojJUx8LyvoVRDnQCTCNpOaUd1tWIv2F2UOFCFLdTAjqDN
+	NogHBjl2en3u4D4YxFsLSRRdEWhqkOLB8c7gdPzNZSToq8a/dSwzDqJ28psW837wI5MXgpw0naMJd
+	49pO0/caGg4dGIbaBSE0cCtoEfhG7OWPKBYugOqYU3pe/24tTNl8aHlrZFynnx2AE4cwdjJ/JYT3g
+	BMQAjuSIUIMPjAjc24mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryonV-0000000CaSa-25fz;
-	Mon, 22 Apr 2024 08:13:09 +0000
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
+	id 1ryonS-0000000CaRu-1gOp;
+	Mon, 22 Apr 2024 08:13:06 +0000
+Received: from zg8tmtu5ljy1ljeznc42.icoremail.net ([159.65.134.6])
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryonP-0000000CaQh-2ZGB;
-	Mon, 22 Apr 2024 08:13:05 +0000
+	id 1ryonO-0000000CaQF-2MPx;
+	Mon, 22 Apr 2024 08:13:04 +0000
 Received: from localhost.localdomain (unknown [10.12.130.31])
-	by app1 (Coremail) with SMTP id TAJkCgBH6OSeGyZmSBIIAA--.61881S5;
-	Mon, 22 Apr 2024 16:11:13 +0800 (CST)
+	by app1 (Coremail) with SMTP id TAJkCgBH6OSeGyZmSBIIAA--.61881S6;
+	Mon, 22 Apr 2024 16:11:14 +0800 (CST)
 From: Shenlin Liang <liangshenlin@eswincomputing.com>
 To: anup@brainfault.org,
 	atishp@atishpatra.org,
@@ -50,19 +50,19 @@ To: anup@brainfault.org,
 	adrian.hunter@intel.com,
 	linux-perf-users@vger.kernel.org
 Cc: Shenlin Liang <liangshenlin@eswincomputing.com>
-Subject: [PATCH v3 1/2] RISCV: KVM: add tracepoints for entry and exit events
-Date: Mon, 22 Apr 2024 08:08:32 +0000
-Message-Id: <20240422080833.8745-2-liangshenlin@eswincomputing.com>
+Subject: [PATCH v3 2/2] perf kvm/riscv: Port perf kvm stat to RISC-V
+Date: Mon, 22 Apr 2024 08:08:33 +0000
+Message-Id: <20240422080833.8745-3-liangshenlin@eswincomputing.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20240422080833.8745-1-liangshenlin@eswincomputing.com>
 References: <20240422080833.8745-1-liangshenlin@eswincomputing.com>
-X-CM-TRANSID: TAJkCgBH6OSeGyZmSBIIAA--.61881S5
-X-Coremail-Antispam: 1UD129KBjvJXoWxXFW3CFWUur13Ar17tFW7XFb_yoW5Cr4rpF
-	nruFn5W3y8JrW2k3yfZw1vgr45ZrZY9r42qr9rXrW5Ar4ktr1DJrsagrWUtr98Ary09a4S
-	qFyFyFyDCw15Zw7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPv14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+X-CM-TRANSID: TAJkCgBH6OSeGyZmSBIIAA--.61881S6
+X-Coremail-Antispam: 1UD129KBjvJXoW3AFW7tFWrZw48ur4kWrW3KFg_yoW7Cr1Dpa
+	n7CF90kw4rK39xu34fCFs2gF4fGws3WFy5K340grWjvF42y3y8J3WIgF90kF9rXr4kJrW8
+	A3W5WrWvk34rJaUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
 	Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
 	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
 	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
@@ -71,13 +71,13 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxXFW3CFWUur13Ar17tFW7XFb_yoW5Cr4rpF
 	xKxwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2Iq
 	xVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r
 	4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY
-	6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67
-	AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuY
-	vjfU8ZXoUUUUU
+	6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
+	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZE
+	Xa7VUbdOz7UUUUU==
 X-CM-SenderInfo: xold0whvkh0z1lq6v25zlqu0xpsx3x1qjou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240422_011303_785443_AFEA2F6C 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20240422_011303_025434_40F0C030 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,122 +95,174 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Like other architectures, RISCV KVM also needs to add these event
-tracepoints to count the number of times kvm guest entry/exit.
+'perf kvm stat report/record' generates a statistical analysis of KVM
+events and can be used to analyze guest exit reasons.
+
+"report" reports statistical analysis of guest exit events.
+
+To record kvm events on the host:
+ # perf kvm stat record -a
+
+To report kvm VM EXIT events:
+ # perf kvm stat report --event=vmexit
 
 Signed-off-by: Shenlin Liang <liangshenlin@eswincomputing.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/kvm/trace.h | 67 ++++++++++++++++++++++++++++++++++++++++++
- arch/riscv/kvm/vcpu.c  |  7 +++++
- 2 files changed, 74 insertions(+)
- create mode 100644 arch/riscv/kvm/trace.h
+ tools/perf/arch/riscv/Makefile                |  1 +
+ tools/perf/arch/riscv/util/Build              |  1 +
+ tools/perf/arch/riscv/util/kvm-stat.c         | 79 +++++++++++++++++++
+ .../arch/riscv/util/riscv_exception_types.h   | 35 ++++++++
+ 4 files changed, 116 insertions(+)
+ create mode 100644 tools/perf/arch/riscv/util/kvm-stat.c
+ create mode 100644 tools/perf/arch/riscv/util/riscv_exception_types.h
 
-diff --git a/arch/riscv/kvm/trace.h b/arch/riscv/kvm/trace.h
+diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
+index a8d25d005207..e1e445615536 100644
+--- a/tools/perf/arch/riscv/Makefile
++++ b/tools/perf/arch/riscv/Makefile
+@@ -3,3 +3,4 @@ PERF_HAVE_DWARF_REGS := 1
+ endif
+ PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
+ PERF_HAVE_JITDUMP := 1
++HAVE_KVM_STAT_SUPPORT := 1
+\ No newline at end of file
+diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
+index 603dbb5ae4dc..d72b04f8d32b 100644
+--- a/tools/perf/arch/riscv/util/Build
++++ b/tools/perf/arch/riscv/util/Build
+@@ -1,5 +1,6 @@
+ perf-y += perf_regs.o
+ perf-y += header.o
+ 
++perf-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
+ perf-$(CONFIG_DWARF) += dwarf-regs.o
+ perf-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+diff --git a/tools/perf/arch/riscv/util/kvm-stat.c b/tools/perf/arch/riscv/util/kvm-stat.c
 new file mode 100644
-index 000000000000..3d54175d805c
+index 000000000000..58813049fc45
 --- /dev/null
-+++ b/arch/riscv/kvm/trace.h
-@@ -0,0 +1,67 @@
++++ b/tools/perf/arch/riscv/util/kvm-stat.c
+@@ -0,0 +1,79 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Tracepoints for RISC-V KVM
++ * Arch specific functions for perf kvm stat.
 + *
 + * Copyright 2024 Beijing ESWIN Computing Technology Co., Ltd.
 + *
 + */
-+#if !defined(_TRACE_KVM_H) || defined(TRACE_HEADER_MULTI_READ)
-+#define _TRACE_KVM_H
++#include <errno.h>
++#include <memory.h>
++#include "../../../util/evsel.h"
++#include "../../../util/kvm-stat.h"
++#include "riscv_exception_types.h"
++#include "debug.h"
 +
-+#include <linux/tracepoint.h>
++define_exit_reasons_table(riscv_exit_reasons, kvm_riscv_exception_class);
 +
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM kvm
++const char *vcpu_id_str = "id";
++const char *kvm_exit_reason = "scause";
++const char *kvm_entry_trace = "kvm:kvm_entry";
++const char *kvm_exit_trace = "kvm:kvm_exit";
 +
-+TRACE_EVENT(kvm_entry,
-+	TP_PROTO(struct kvm_vcpu *vcpu),
-+	TP_ARGS(vcpu),
++const char *kvm_events_tp[] = {
++	"kvm:kvm_entry",
++	"kvm:kvm_exit",
++	NULL,
++};
 +
-+	TP_STRUCT__entry(
-+		__field(unsigned long, pc)
-+	),
++static void event_get_key(struct evsel *evsel,
++			  struct perf_sample *sample,
++			  struct event_key *key)
++{
++	key->info = 0;
++	key->key = evsel__intval(evsel, sample, kvm_exit_reason);
++	key->key = (int)key->key;
++	key->exit_reasons = riscv_exit_reasons;
++}
 +
-+	TP_fast_assign(
-+		__entry->pc	= vcpu->arch.guest_context.sepc;
-+	),
++static bool event_begin(struct evsel *evsel,
++			struct perf_sample *sample __maybe_unused,
++			struct event_key *key __maybe_unused)
++{
++	return evsel__name_is(evsel, kvm_entry_trace);
++}
 +
-+	TP_printk("PC: 0x016%lx", __entry->pc)
-+);
++static bool event_end(struct evsel *evsel,
++		      struct perf_sample *sample,
++		      struct event_key *key)
++{
++	if (evsel__name_is(evsel, kvm_exit_trace)) {
++		event_get_key(evsel, sample, key);
++		return true;
++	}
++	return false;
++}
 +
-+TRACE_EVENT(kvm_exit,
-+	TP_PROTO(struct kvm_cpu_trap *trap),
-+	TP_ARGS(trap),
++static struct kvm_events_ops exit_events = {
++	.is_begin_event = event_begin,
++	.is_end_event	= event_end,
++	.decode_key	= exit_event_decode_key,
++	.name		= "VM-EXIT"
++};
 +
-+	TP_STRUCT__entry(
-+		__field(unsigned long, sepc)
-+		__field(unsigned long, scause)
-+		__field(unsigned long, stval)
-+		__field(unsigned long, htval)
-+		__field(unsigned long, htinst)
-+	),
++struct kvm_reg_events_ops kvm_reg_events_ops[] = {
++	{
++		.name	= "vmexit",
++		.ops	= &exit_events,
++	},
++	{ NULL, NULL },
++};
 +
-+	TP_fast_assign(
-+		__entry->sepc		= trap->sepc;
-+		__entry->scause		= trap->scause;
-+		__entry->stval		= trap->stval;
-+		__entry->htval		= trap->htval;
-+		__entry->htinst		= trap->htinst;
-+	),
++const char * const kvm_skip_events[] = {
++	NULL,
++};
 +
-+	TP_printk("SEPC:0x%lx, SCAUSE:0x%lx, STVAL:0x%lx, HTVAL:0x%lx, HTINST:0x%lx",
-+		__entry->sepc,
-+		__entry->scause,
-+		__entry->stval,
-+		__entry->htval,
-+		__entry->htinst)
-+);
++int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid __maybe_unused)
++{
++	kvm->exit_reasons_isa = "riscv64";
++	return 0;
++}
+diff --git a/tools/perf/arch/riscv/util/riscv_exception_types.h b/tools/perf/arch/riscv/util/riscv_exception_types.h
+new file mode 100644
+index 000000000000..c49b8fa5e847
+--- /dev/null
++++ b/tools/perf/arch/riscv/util/riscv_exception_types.h
+@@ -0,0 +1,35 @@
++// SPDX-License-Identifier: GPL-2.0
++#ifndef ARCH_PERF_RISCV_EXCEPTION_TYPES_H
++#define ARCH_PERF_RISCV_EXCEPTION_TYPES_H
 +
-+#endif /* _TRACE_RSICV_KVM_H */
++#define EXC_INST_MISALIGNED 0
++#define EXC_INST_ACCESS 1
++#define EXC_INST_ILLEGAL 2
++#define EXC_BREAKPOINT 3
++#define EXC_LOAD_MISALIGNED 4
++#define EXC_LOAD_ACCESS 5
++#define EXC_STORE_MISALIGNED 6
++#define EXC_STORE_ACCESS 7
++#define EXC_SYSCALL 8
++#define EXC_HYPERVISOR_SYSCALL 9
++#define EXC_SUPERVISOR_SYSCALL 10
++#define EXC_INST_PAGE_FAULT 12
++#define EXC_LOAD_PAGE_FAULT 13
++#define EXC_STORE_PAGE_FAULT 15
++#define EXC_INST_GUEST_PAGE_FAULT 20
++#define EXC_LOAD_GUEST_PAGE_FAULT 21
++#define EXC_VIRTUAL_INST_FAULT 22
++#define EXC_STORE_GUEST_PAGE_FAULT 23
 +
-+#undef TRACE_INCLUDE_PATH
-+#define TRACE_INCLUDE_PATH .
-+#undef TRACE_INCLUDE_FILE
-+#define TRACE_INCLUDE_FILE trace
++#define EXC(x) {EXC_##x, #x }
 +
-+/* This part must be outside protection */
-+#include <trace/define_trace.h>
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index b5ca9f2e98ac..f4e27004ceb8 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -21,6 +21,9 @@
- #include <asm/cacheflush.h>
- #include <asm/kvm_vcpu_vector.h>
- 
-+#define CREATE_TRACE_POINTS
-+#include "trace.h"
++#define kvm_riscv_exception_class                                         \
++	EXC(INST_MISALIGNED), EXC(INST_ACCESS), EXC(INST_ILLEGAL),         \
++	EXC(BREAKPOINT), EXC(LOAD_MISALIGNED), EXC(LOAD_ACCESS),           \
++	EXC(STORE_MISALIGNED), EXC(STORE_ACCESS), EXC(SYSCALL),            \
++	EXC(HYPERVISOR_SYSCALL), EXC(SUPERVISOR_SYSCALL),                  \
++	EXC(INST_PAGE_FAULT), EXC(LOAD_PAGE_FAULT), EXC(STORE_PAGE_FAULT), \
++	EXC(INST_GUEST_PAGE_FAULT), EXC(LOAD_GUEST_PAGE_FAULT),            \
++	EXC(VIRTUAL_INST_FAULT), EXC(STORE_GUEST_PAGE_FAULT)
 +
- const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
- 	KVM_GENERIC_VCPU_STATS(),
- 	STATS_DESC_COUNTER(VCPU, ecall_exit_stat),
-@@ -782,6 +785,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		 */
- 		kvm_riscv_local_tlb_sanitize(vcpu);
- 
-+		trace_kvm_entry(vcpu);
-+
- 		guest_timing_enter_irqoff();
- 
- 		kvm_riscv_vcpu_enter_exit(vcpu);
-@@ -820,6 +825,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 
- 		local_irq_enable();
- 
-+		trace_kvm_exit(&trap);
-+
- 		preempt_enable();
- 
- 		kvm_vcpu_srcu_read_lock(vcpu);
++#endif /* ARCH_PERF_RISCV_EXCEPTION_TYPES_H */
 -- 
 2.37.2
 
