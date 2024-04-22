@@ -4,99 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BEDC10F19
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 11:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E3F8C07C79
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 11:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kFigXmuWH0zfaNUQKXLTDVt+KsMqafRnKhJ9M650yoA=; b=TUhe4e29/coD6k
-	iiOwkGIMoQiLVI9+ecAjlIApGIlRC0t2g9X+tejFloBzi2VQuqE8DDncfMvPMUTros7hid9RAt72D
-	TAFIWH/DfqeXlN+WP6rwfto62tE/5D1XWQv/GDLZ0/o1c2GGScAusRWoio4xV9t70DH6KkUVOvT7m
-	CgMFKgTT/Fq1C+mu/3zlTIpFZT9FYprrNg7dQCej4UTDDI/5o8PnkmnIUkQNVLUmwcjZIrozuEtLp
-	YNQ79BaI/yGf2mlnH82DIjSSht2UGL6pxU3/Bb7kIyTdJvXMtnfBlEzWBaS5h7Y252eb0e3yEtOY2
-	s0FtmKm/H5mX2cTtsuGA==;
+	List-Owner; bh=DcyUYKjAbDNm0YGnLRwenKRkxRubz4PAUVmg+m/kbUg=; b=KsODnwR7cKCDD8
+	8AInkshIst5pQTsURdbXqnNk85OLejSimObNmiMhdZgM2OfMgqOv9/SHWbzY9rhQybEJC59kwEqDe
+	KRgCx9gXxPSCrQZA5uMZn5H4Cq5kXi3DcaYuQChzq/eEH703m61gfKbqgxv66DJvqeZEyoOxg/1OP
+	eORFnVNgBY4vH38tG0m8Gaq6Xa1hYwwBbRTbTV23PTHWvDtSv6lRuRF5zjzPOEDgcMMEyX6VUXiIx
+	HYuRxe0Yw8R9it0rVSNdfbpZ49kAIwFmXZPLOekdUpdsmo1o9Gg8mkhDanbjAmlgXibZwKnFj+2uj
+	5TOaq4AYbxv25TIhtX9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryrPI-0000000DGpn-2h9X;
-	Mon, 22 Apr 2024 11:00:20 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1ryrd3-0000000DJlE-0kB4;
+	Mon, 22 Apr 2024 11:14:33 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryqFM-0000000Cyzy-25t0;
-	Mon, 22 Apr 2024 09:46:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 4C10BCE01F6;
-	Mon, 22 Apr 2024 09:45:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F818C113CC;
-	Mon, 22 Apr 2024 09:45:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713779155;
-	bh=et4MgsnYGm8cVKv9jXBAzJOVzMpXCbC7LVUAQwPu1L8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=S9gHw89Bc9FpvcyRqz2mylEtx/ySy/xrGeDZB0E1w/mlVeYp57p8f65E3+aGymYYJ
-	 XKt5jDenmlZj/yN00ft00xley2ttD+fyeV1ulT5GJwKMmJAnKPaZ43VUDgY10/lPgl
-	 xq7smX4zzV1VmOO7xtt/0tf4Xzz9cuQTdGAdf02PcdSYIbjI5d1BNNiRdHdJLAkTyv
-	 /rY0xkEOYSxAdAG0VEZjjTe53DFeIklhl2TLWFi29vxWAAuKMqC99Fb0TZKLwLStad
-	 u/q6dvUUoD7MUn8hF8tm5qV04iMVNgrNkP1fE0itwOpJPCQi6b3LjfAWzNJoEYHT0X
-	 lFMpN921OwEvA==
-From: Mike Rapoport <rppt@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Mike Rapoport <rppt@kernel.org>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Sam Ravnborg <sam@ravnborg.org>,
-	Song Liu <song@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-modules@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	netdev@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v5 05/15] module: make module_memory_{alloc,free} more self-contained
-Date: Mon, 22 Apr 2024 12:44:26 +0300
-Message-ID: <20240422094436.3625171-6-rppt@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240422094436.3625171-1-rppt@kernel.org>
-References: <20240422094436.3625171-1-rppt@kernel.org>
+	id 1ryrcz-0000000DJj2-3ttj
+	for linux-riscv@lists.infradead.org;
+	Mon, 22 Apr 2024 11:14:31 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-349a31b2babso631800f8f.2
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Apr 2024 04:14:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713784468; x=1714389268; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=txTWpp1pw11cuzo3l6Yv3qVL9j61JY83c5SyuufTWno=;
+        b=ZaR2wRQUvzky/gRFLAQ4df2AYHibV7nSzjDAy+c6gwisHM3KFrB1VATtCx6eaOEDYg
+         Sllk1Ab2+4joLbStlro8n7nzmWn0VXwLahXBLKaPjwv9iIbeUhwSljyNE34v/5KBKzOS
+         nloVhvX98ojDyVCtIX8wtNvoz5Tpd0PMkKnKXrdmabYBJfGTlX+xl9kFMht47fZkrSTI
+         qyD++HWydlHXsprV16JyWLDchalt+w9A5hci+ThfEHIxHUeeBUTKGK/tfmQRopDP/6nO
+         +TaLWyLexCFtRT9TiS9mKndwu8ZcU5MAkwgKBrjaBU9hpE7dHwxVptC7V/5r6Eo9SBGs
+         286Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713784468; x=1714389268;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=txTWpp1pw11cuzo3l6Yv3qVL9j61JY83c5SyuufTWno=;
+        b=JiMyMYl2g9A1E5X2jBZN4IfyDzGeTQP8LOLKy4fsxHlLdsmINcYpeuh1pqRKDnX/Ti
+         zhQC07KuoylEZ8f1eWGTDVBp0y1tkNVjdTvSQy5dA4fdvBPDAGH6T55tC2RWxQILnTbP
+         i992YaTCRrdCOxDgh9vc/8lDnojZoFqjhbDYN2bnlLBCvBriz4jM0n2QWVjrkFORXKWw
+         j1GCuX0XgdGjCD4oBCR1RqnCbIexQeYBDdouoK7fGhv+EoO9Gi+5Sh/SpSgGRT7cloPf
+         FfaL27NeuMR4Ojw5WJ073yhmTs9qOmTMS3koZPpknMrQloWLiwJp9NxRq3ludk6iF9Ce
+         YI8g==
+X-Forwarded-Encrypted: i=1; AJvYcCWYQak9iUsQjFQyIxXiE/XmPe1nVeMpL59fJJFDGyJEVwsL8V0Te2c9F/eyrY81J2KGfK7VC8eUuhemXcB2gdHfzC24w4FddVc9usM2ujqY
+X-Gm-Message-State: AOJu0YwUaTm23VvZxiPMeQqaplePmgnAnXxN83K5VFTag+/9B5a3rCHE
+	RcUQGdEa98LyhkYCVbVE9rZcYTbkRdGRk+T6VTQlQFIF66gFo+UJ8pyot85xlJw=
+X-Google-Smtp-Source: AGHT+IFg50yN4QrZNx2LlD1EJ2tT/EI9hFZ2bUjcoiDOKnV7sj3JlUWpq/52eyPbnKALbKb6A7dtxw==
+X-Received: by 2002:a5d:6511:0:b0:34a:f759:271d with SMTP id x17-20020a5d6511000000b0034af759271dmr2082090wru.6.1713784467909;
+        Mon, 22 Apr 2024 04:14:27 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:999:a3a0:9f43:3ca4:162c:d540? ([2a01:e0a:999:a3a0:9f43:3ca4:162c:d540])
+        by smtp.gmail.com with ESMTPSA id cg3-20020a5d5cc3000000b00349bd105089sm11706450wrb.47.2024.04.22.04.14.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 22 Apr 2024 04:14:27 -0700 (PDT)
+Message-ID: <032530b8-a26e-494f-bd9c-3e1661add5d4@rivosinc.com>
+Date: Mon, 22 Apr 2024 13:14:26 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/12] riscv: add ISA parsing for Zca, Zcf, Zcd and Zcb
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Conor Dooley <conor@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
+ Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+References: <20240418124300.1387978-1-cleger@rivosinc.com>
+ <20240418124300.1387978-5-cleger@rivosinc.com>
+ <20240419-clinic-amusing-d23b1b6d2af2@spud>
+ <6ab9e591-f2f2-4267-8bdd-169ef0243e14@rivosinc.com>
+ <20240422-daylight-sassy-ff3b0d867fef@wendy>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <20240422-daylight-sassy-ff3b0d867fef@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240422_024601_013519_14FD8E1E 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20240422_041430_099236_21480324 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,141 +101,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-
-Move the logic related to the memory allocation and freeing into
-module_memory_alloc() and module_memory_free().
-
-Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
----
- kernel/module/main.c | 64 +++++++++++++++++++++++++++-----------------
- 1 file changed, 39 insertions(+), 25 deletions(-)
-
-diff --git a/kernel/module/main.c b/kernel/module/main.c
-index e1e8a7a9d6c1..5b82b069e0d3 100644
---- a/kernel/module/main.c
-+++ b/kernel/module/main.c
-@@ -1203,15 +1203,44 @@ static bool mod_mem_use_vmalloc(enum mod_mem_type type)
- 		mod_mem_type_is_core_data(type);
- }
- 
--static void *module_memory_alloc(unsigned int size, enum mod_mem_type type)
-+static int module_memory_alloc(struct module *mod, enum mod_mem_type type)
- {
-+	unsigned int size = PAGE_ALIGN(mod->mem[type].size);
-+	void *ptr;
-+
-+	mod->mem[type].size = size;
-+
- 	if (mod_mem_use_vmalloc(type))
--		return vzalloc(size);
--	return module_alloc(size);
-+		ptr = vmalloc(size);
-+	else
-+		ptr = module_alloc(size);
-+
-+	if (!ptr)
-+		return -ENOMEM;
-+
-+	/*
-+	 * The pointer to these blocks of memory are stored on the module
-+	 * structure and we keep that around so long as the module is
-+	 * around. We only free that memory when we unload the module.
-+	 * Just mark them as not being a leak then. The .init* ELF
-+	 * sections *do* get freed after boot so we *could* treat them
-+	 * slightly differently with kmemleak_ignore() and only grey
-+	 * them out as they work as typical memory allocations which
-+	 * *do* eventually get freed, but let's just keep things simple
-+	 * and avoid *any* false positives.
-+	 */
-+	kmemleak_not_leak(ptr);
-+
-+	memset(ptr, 0, size);
-+	mod->mem[type].base = ptr;
-+
-+	return 0;
- }
- 
--static void module_memory_free(void *ptr, enum mod_mem_type type)
-+static void module_memory_free(struct module *mod, enum mod_mem_type type)
- {
-+	void *ptr = mod->mem[type].base;
-+
- 	if (mod_mem_use_vmalloc(type))
- 		vfree(ptr);
- 	else
-@@ -1229,12 +1258,12 @@ static void free_mod_mem(struct module *mod)
- 		/* Free lock-classes; relies on the preceding sync_rcu(). */
- 		lockdep_free_key_range(mod_mem->base, mod_mem->size);
- 		if (mod_mem->size)
--			module_memory_free(mod_mem->base, type);
-+			module_memory_free(mod, type);
- 	}
- 
- 	/* MOD_DATA hosts mod, so free it at last */
- 	lockdep_free_key_range(mod->mem[MOD_DATA].base, mod->mem[MOD_DATA].size);
--	module_memory_free(mod->mem[MOD_DATA].base, MOD_DATA);
-+	module_memory_free(mod, MOD_DATA);
- }
- 
- /* Free a module, remove from lists, etc. */
-@@ -2225,7 +2254,6 @@ static int find_module_sections(struct module *mod, struct load_info *info)
- static int move_module(struct module *mod, struct load_info *info)
- {
- 	int i;
--	void *ptr;
- 	enum mod_mem_type t = 0;
- 	int ret = -ENOMEM;
- 
-@@ -2234,26 +2262,12 @@ static int move_module(struct module *mod, struct load_info *info)
- 			mod->mem[type].base = NULL;
- 			continue;
- 		}
--		mod->mem[type].size = PAGE_ALIGN(mod->mem[type].size);
--		ptr = module_memory_alloc(mod->mem[type].size, type);
--		/*
--                 * The pointer to these blocks of memory are stored on the module
--                 * structure and we keep that around so long as the module is
--                 * around. We only free that memory when we unload the module.
--                 * Just mark them as not being a leak then. The .init* ELF
--                 * sections *do* get freed after boot so we *could* treat them
--                 * slightly differently with kmemleak_ignore() and only grey
--                 * them out as they work as typical memory allocations which
--                 * *do* eventually get freed, but let's just keep things simple
--                 * and avoid *any* false positives.
--		 */
--		kmemleak_not_leak(ptr);
--		if (!ptr) {
-+
-+		ret = module_memory_alloc(mod, type);
-+		if (ret) {
- 			t = type;
- 			goto out_enomem;
- 		}
--		memset(ptr, 0, mod->mem[type].size);
--		mod->mem[type].base = ptr;
- 	}
- 
- 	/* Transfer each section which specifies SHF_ALLOC */
-@@ -2296,7 +2310,7 @@ static int move_module(struct module *mod, struct load_info *info)
- 	return 0;
- out_enomem:
- 	for (t--; t >= 0; t--)
--		module_memory_free(mod->mem[t].base, t);
-+		module_memory_free(mod, t);
- 	return ret;
- }
- 
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMi8wNC8yMDI0IDExOjM1LCBDb25vciBEb29sZXkgd3JvdGU6Cj4gT24gTW9uLCBBcHIg
+MjIsIDIwMjQgYXQgMTA6NTM6MTBBTSArMDIwMCwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+PiBP
+biAxOS8wNC8yMDI0IDE3OjUxLCBDb25vciBEb29sZXkgd3JvdGU6Cj4+PiBPbiBUaHUsIEFwciAx
+OCwgMjAyNCBhdCAwMjo0MjoyN1BNICswMjAwLCBDbMOpbWVudCBMw6lnZXIgd3JvdGU6Cj4+Pj4g
+VGhlIFpjKiBzdGFuZGFyZCBleHRlbnNpb24gZm9yIGNvZGUgcmVkdWN0aW9uIGludHJvZHVjZXMg
+bmV3IGV4dGVuc2lvbnMuCj4+Pj4gVGhpcyBwYXRjaCBhZGRzIHN1cHBvcnQgZm9yIFpjYSwgWmNm
+LCBaY2QgYW5kIFpjYi4gWmNlLCBaY210IGFuZCBaY21wCj4+Pj4gYXJlIGxlZnQgb3V0IG9mIHRo
+aXMgcGF0Y2ggc2luY2UgdGhleSBhcmUgdGFyZ2V0aW5nIG1pY3JvY29udHJvbGxlcnMvCj4+Pj4g
+ZW1iZWRkZWQgQ1BVcyBpbnN0ZWFkIG9mIGFwcGxpY2F0aW9uIHByb2Nlc3NvcnMuCj4+Pj4KPj4+
+PiBTaWduZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5jb20+Cj4+
+Pj4gLS0tCj4+Pj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCB8IDQgKysrKwo+Pj4+
+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgfCA0ICsrKysKPj4+PiAgMiBmaWxlcyBj
+aGFuZ2VkLCA4IGluc2VydGlvbnMoKykKPj4+Pgo+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2h3Y2FwLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPj4+
+PiBpbmRleCA1NDNlM2VhMmRhMGUuLmI3NTUxYmFkMzQxYiAxMDA2NDQKPj4+PiAtLS0gYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2h3Y2FwLmgKPj4+PiBAQCAtODIsNiArODIsMTAgQEAKPj4+PiAgI2RlZmluZSBSSVNDVl9J
+U0FfRVhUX1pBQ0FTCQk3Mwo+Pj4+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWEFOREVTUE1VCQk3
+NAo+Pj4+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWklNT1AJCTc1Cj4+Pj4gKyNkZWZpbmUgUklT
+Q1ZfSVNBX0VYVF9aQ0EJCTc2Cj4+Pj4gKyNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aQ0IJCTc3Cj4+
+Pj4gKyNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aQ0QJCTc4Cj4+Pj4gKyNkZWZpbmUgUklTQ1ZfSVNB
+X0VYVF9aQ0YJCTc5Cj4+Pj4gIAo+Pj4+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWExJTlVYRU5W
+Q0ZHCTEyNwo+Pj4+ICAKPj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVh
+dHVyZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4+Pj4gaW5kZXggMTE1YmEw
+MDFmMWJjLi4wOWRlZTA3MTI3NGQgMTAwNjQ0Cj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwv
+Y3B1ZmVhdHVyZS5jCj4+Pj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4+
+Pj4gQEAgLTI2MSw2ICsyNjEsMTAgQEAgY29uc3Qgc3RydWN0IHJpc2N2X2lzYV9leHRfZGF0YSBy
+aXNjdl9pc2FfZXh0W10gPSB7Cj4+Pj4gIAlfX1JJU0NWX0lTQV9FWFRfREFUQSh6ZmEsIFJJU0NW
+X0lTQV9FWFRfWkZBKSwKPj4+PiAgCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpmaCwgUklTQ1ZfSVNB
+X0VYVF9aRkgpLAo+Pj4+ICAJX19SSVNDVl9JU0FfRVhUX0RBVEEoemZobWluLCBSSVNDVl9JU0Ff
+RVhUX1pGSE1JTiksCj4+Pj4gKwlfX1JJU0NWX0lTQV9FWFRfREFUQSh6Y2EsIFJJU0NWX0lTQV9F
+WFRfWkNBKSwKPj4+PiArCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpjYiwgUklTQ1ZfSVNBX0VYVF9a
+Q0IpLAo+Pj4+ICsJX19SSVNDVl9JU0FfRVhUX0RBVEEoemNkLCBSSVNDVl9JU0FfRVhUX1pDRCks
+Cj4+Pj4gKwlfX1JJU0NWX0lTQV9FWFRfREFUQSh6Y2YsIFJJU0NWX0lTQV9FWFRfWkNGKSwKPj4+
+PiAgCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpiYSwgUklTQ1ZfSVNBX0VYVF9aQkEpLAo+Pj4+ICAJ
+X19SSVNDVl9JU0FfRVhUX0RBVEEoemJiLCBSSVNDVl9JU0FfRVhUX1pCQiksCj4+Pj4gIAlfX1JJ
+U0NWX0lTQV9FWFRfREFUQSh6YmMsIFJJU0NWX0lTQV9FWFRfWkJDKSwKPj4+Cj4+PiBZZSwgdGhp
+cyBsb29rcyBleGFjdGx5IGxpa2Ugd2hhdCBJICJmZWFyZWQiLgo+Pgo+PiBPayBidXQgZm9yIGlu
+c3RhbmNlLCBRZW11IGFjdHVhbGx5IHNldCBaYyogYmFzZWQgb24gQy9GL0QuIFNvIHRoZSBJU0EK
+Pj4gc3RyaW5nIGNvbnRhaW5pbmcgdGhlc2VzIGRlcGVuZGVuY2llcyBzaG91bGQgYWN0dWFsbHkg
+YWxzbyBiZSBhbGxvd2VkLgo+PiBTbyBzaG91bGQgd2Ugc2ltcGx5IGlnbm9yZSB0aGVtIGluIHRo
+ZSBJU0Egc3RyaW5nIGFuZCBhbHdheXMgZG8gb3VyIG93bgo+PiAicG9zdC1wcm9jZXNzaW5nIiBi
+YXNlZCBvbiBDL0YvRD8KPiAKPiBJJ20gbm90IGZhbWlsaWFyIHdpdGggdGhlIGNvbnRlbnRzIG9m
+IGFsbCBvZiB0aGVzZSBleHRlbnNpb25zLCBidXQgSQo+IGFzc3VtZSB0aGUgcmVhc29uaW5nIGZv
+ciBzcGxpdHRpbmcgdGhlbSBvdXQgaXMgdGhhdCB5b3UgY2FuIGltcGxlbWVudAo+IHRoZW0gYnV0
+IG5vdCBtYXliZSBub3QgaW1wbGVtZW50IEMgKG9yIHNvbWV0aGluZyBzaW1pbGFyKT8gSWYgdGhh
+dCdzIHRoZQo+IGNhc2UsIHlvdSBjYW5ub3QgYWx3YXlzIGltcGx5LgoKWWVhaCwgdGhleSBjYW4g
+YmUgaW1wbGVtZW50ZWQgaW5kZXBlbmRlbnRseSBzbyB3ZSBuZWVkIHRvIGJlIGFibGUgdG8KcGFy
+c2UgdGhlbSBpbmRlcGVuZGVudGx5LiBIb3dldmVyLCB0aGUga2VybmVsIGN1cnJlbnRseSByZXF1
+aXJlcyBDIHNvIHdlCnNob3VsZCBhbHdheXMgaGF2ZSBaY2EvWmNmL1pjZC4gQnV0IGlmIHRoYXQg
+Y2hhbmdlcyBpbiB0aGUgZnV0dXJlLCB0aGVuLAp0aGF0IHdvbid0IGJlIHRydWUgYW55bW9yZS4g
+QmV0dGVyIGtlZXAgaXQgZ2VuZXJpYyBwcm9iYWJseQoKQ2zDqW1lbnQKCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
