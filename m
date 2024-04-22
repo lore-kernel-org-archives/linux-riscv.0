@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCAEFC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 08:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FCAC4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 08:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SLGgpueMlRZYZFsa3yVKCI6QUMcJbDd8MqhvPb76smQ=; b=47P7fZhW2FyqO8
-	0jZiLFrwQb4DNDu6SrH7jw/dMiaewHQb/XhSxMUrp22ETJDNdiHRPm+ElKPHb43tPHO1kxVyRVRtq
-	HOEcolUAyHKnK8EfODdngRKk8YTChLtPnAP2vn43Aj7Hi0ReTmrMHyNObV2RqO3WYgIdQxPr2xpkc
-	ebSF9dHVBQ5BmrB2LAVzfk6kCf+kenxtxd+32lqqypwa8dzrPwGyIUiajxB8B5QuKwlqZh1nOEKBg
-	X4dg0wUOgpsJxlUPeWapj0+bZRmpr1HFeW+TkfKrUgTm8yMfzpIBfvULNUmzs0Y4J37+kUUpPI3ZY
-	vAu1FQoyqAyeAVYsLcXQ==;
+	List-Owner; bh=8d3tOnQFYmjEv5ljH0apidM39TBBJSR7gk6R0fXXqfw=; b=N5gpZ9aIrb0HsS
+	gOprE5R7b+hut0bPE3wdVxJ5YNZbESb/iO26TzfLm4dTpMDQ05DM03h1/mncRA+VPLEvBx39oK/Vb
+	T7EyjhdvBEaQuontECsdKAgM9A0k3hNhHX+TuZvppdb0C8w2gt5tsAegEMKx4+2BJHLhjFo6htQYz
+	bNELTeEyjryqzel5BRfKuC7ctq2/4etYIOse3f6iVQpeNpKYi99nKh0XG1RKANu+5iJhri+IbZLdS
+	gwG79wJCRZ7us/CcWIlCMz2PsrXFUzuZqVVzjw/wAEIN0Ncjg23AF4UOyIFvYIymnCZDycDrC0msp
+	pQdNgGKaWYePSg0Hb9iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryp2o-0000000CeY4-2yGk;
-	Mon, 22 Apr 2024 08:28:58 +0000
-Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryp2l-0000000CeX3-1X1w;
-	Mon, 22 Apr 2024 08:28:57 +0000
-Received: from liangshenlin$eswincomputing.com ( [10.12.96.90] ) by
- ajax-webmail-app2 (Coremail) ; Mon, 22 Apr 2024 16:27:10 +0800 (GMT+08:00)
-X-Originating-IP: [10.12.96.90]
-Date: Mon, 22 Apr 2024 16:27:10 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: "Shenlin Liang" <liangshenlin@eswincomputing.com>
-To: atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, peterz@infradead.org, mingo@redhat.com, 
-	acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com, 
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
-	irogers@google.com, adrian.hunter@intel.com, 
-	linux-perf-users@vger.kernel.org, atishp@rivosinc.com
-Subject: Re: [PATCH v2 0/2] perf kvm: Add kvm stat support on riscv
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT6.0.3 build 20220420(169d3f8c)
- Copyright (c) 2002-2024 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <aceaaeba-61cb-44fa-8639-e30a86ef8cd8@rivosinc.com>
-References: <20240415031131.23443-1-liangshenlin@eswincomputing.com>
- <aceaaeba-61cb-44fa-8639-e30a86ef8cd8@rivosinc.com>
+	id 1ryp9n-0000000CgHg-1x7S;
+	Mon, 22 Apr 2024 08:36:11 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1ryp9h-0000000CgEk-3CYp
+	for linux-riscv@lists.infradead.org;
+	Mon, 22 Apr 2024 08:36:09 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-41a1d2a7b81so5375285e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Apr 2024 01:36:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1713774964; x=1714379764; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=VBzKYSZ8M382Gw3Mpbo+Hjy3YjNSp2OmuE1UXjfeuZA=;
+        b=jhb6ScbDHE8FdoAuRQm2gP8gLN35bBKwYEdv2BTqC+EPKAvJ2ObOuwVhpFZFGG+qk1
+         u9caStTqmJwzcFQZK+Hs02sI2AsjS8h2Lx0QkVleAsI9LAbd9al2kSguDXE+WXZ0EyGr
+         HS0BlLirF5OUjwBXlY63r16T/ZThLBpg49avFTqoyvQFPT0D7jTvqd+aAazJzf0mWaIo
+         VTkwmuKkHewYWuNEdShyXkBcFJk2XMd6vaMogqUuz7yN7loUcH4JNvJ+1kuj6Oyz27Bl
+         4oY7C9Tv1BVMGKgl9zyK90K7S8fLhDmw1UvLus+Gcd1B5hhhJYR+vtkDrz6zBI1hWdbS
+         cTZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713774964; x=1714379764;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VBzKYSZ8M382Gw3Mpbo+Hjy3YjNSp2OmuE1UXjfeuZA=;
+        b=Pi0ZvYNtFSBaKuSzLiH2MZ3B2JWF6bUGAAlaiC4uLABXzTMx7g5tOr65bPYB3Guudv
+         MtXjl9/FdUCvFWAtSmGu4BFsvuf2p3bvnZZAdz9EcA09yvibLrLVAI5OI1SISB68brQu
+         HS8WWDNaqLyl+dmdOEXfzI3jriX69/6hi3fON7Zeo7jM+dumU+ckD7xCHMXvQ6XhBdjG
+         Yt6wye4pIDxkLfM6dWX5ViTLfNRlNwxZl8iPrwrmL1cgCizPsuCaRd4YqL+yFv/BRTGE
+         2DwOSRG3Oc0d0pXKicaIB+UM8zh+ILUd8KfQYOdF4TXPWi2b8HonGA9xW4AujtQvzn0s
+         7qng==
+X-Gm-Message-State: AOJu0YzP9isl8SPerGDj9e3icg0pbAA/udp8Wa3war0w31G+Kd2JYPOo
+	umXbBWzvegiQZlHglHiY6NAMeQmoY7fAFsV809E2/TRK5ibjMEF1x18k8QaMPxA=
+X-Google-Smtp-Source: AGHT+IFhy5bPbMLwyziz6VsrU6byy5TIqllo/g3dOSSggWm8NTvoG2OcCFhhK56F2HASPigLSiOq6w==
+X-Received: by 2002:a05:6000:b8c:b0:346:f830:db09 with SMTP id dl12-20020a0560000b8c00b00346f830db09mr6393629wrb.31.1713774963808;
+        Mon, 22 Apr 2024 01:36:03 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id x5-20020a5d6b45000000b003472489d26fsm11448472wrw.19.2024.04.22.01.36.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Apr 2024 01:36:03 -0700 (PDT)
+Date: Mon, 22 Apr 2024 10:36:02 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Andrea Parri <parri.andrea@gmail.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, conor.dooley@microchip.com, anup@brainfault.org, 
+	atishp@atishpatra.org, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
+	conor+dt@kernel.org, christoph.muellner@vrull.eu, heiko@sntech.de, 
+	charlie@rivosinc.com, David.Laight@aculab.com, luxu.kernel@bytedance.com
+Subject: Re: [PATCH v2 3/6] riscv: Add Zawrs support for spinlocks
+Message-ID: <20240422-97341bd5e6f69d54eeaba632@orel>
+References: <20240419135321.70781-8-ajones@ventanamicro.com>
+ <20240419135321.70781-11-ajones@ventanamicro.com>
+ <ZiWCP6f6zZ3dKXfN@andrea>
 MIME-Version: 1.0
-Message-ID: <35896859.387e.18f04ea87b1.Coremail.liangshenlin@eswincomputing.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: TQJkCgAnOrxeHyZmbhAIAA--.5206W
-X-CM-SenderInfo: xold0whvkh0z1lq6v25zlqu0xpsx3x1qjou0bp/1tbiAQEPDGYk3U
-	gl0wACsg
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+Content-Disposition: inline
+In-Reply-To: <ZiWCP6f6zZ3dKXfN@andrea>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240422_012855_719957_54D5A19B 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20240422_013605_825965_4F7145D2 
+X-CRM114-Status: GOOD (  29.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,82 +97,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
+On Sun, Apr 21, 2024 at 11:16:47PM +0200, Andrea Parri wrote:
+> On Fri, Apr 19, 2024 at 03:53:25PM +0200, Andrew Jones wrote:
+> > From: Christoph M??llner <christoph.muellner@vrull.eu>
+> > 
+> > RISC-V code uses the generic ticket lock implementation, which calls
+> > the macros smp_cond_load_relaxed() and smp_cond_load_acquire().
+> > Introduce a RISC-V specific implementation of smp_cond_load_relaxed()
+> > which applies WRS.NTO of the Zawrs extension in order to reduce power
+> > consumption while waiting and allows hypervisors to enable guests to
+> > trap while waiting. smp_cond_load_acquire() doesn't need a RISC-V
+> > specific implementation as the generic implementation is based on
+> > smp_cond_load_relaxed() and smp_acquire__after_ctrl_dep() sufficiently
+> > provides the acquire semantics.
+> > 
+> > This implementation is heavily based on Arm's approach which is the
+> > approach Andrea Parri also suggested.
+> > 
+> > The Zawrs specification can be found here:
+> > https://github.com/riscv/riscv-zawrs/blob/main/zawrs.adoc
+> > 
+> > Signed-off-by: Christoph M??llner <christoph.muellner@vrull.eu>
+> > Co-developed-by: Andrew Jones <ajones@ventanamicro.com>
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> >  arch/riscv/Kconfig                | 13 ++++++++
+> >  arch/riscv/include/asm/barrier.h  | 45 ++++++++++++++++++---------
+> >  arch/riscv/include/asm/cmpxchg.h  | 51 +++++++++++++++++++++++++++++++
+> >  arch/riscv/include/asm/hwcap.h    |  1 +
+> >  arch/riscv/include/asm/insn-def.h |  2 ++
+> >  arch/riscv/kernel/cpufeature.c    |  1 +
+> >  6 files changed, 98 insertions(+), 15 deletions(-)
+> 
+> Doesn't apply to riscv/for-next (due to, AFAIU,
+> 
+>   https://lore.kernel.org/all/171275883330.18495.10110341843571163280.git-patchwork-notify@kernel.org/ ).
 
-I assume that you are cross building it on X86. You need to build a pkg-config-riscv64 first. Or get a deb file from [1] if you are buiding on Ubuntu.
-Instead of cross building, it is recommended to build it natively.
-
-BTW, please test with V3 which I sent today.
-
-[1] https://answers.launchpad.net/~ci-train-ppa-service/+archive/ubuntu/3719-deletedppa/+build/16823862/+files/pkg-config-riscv64-linux-gnu_7.4.0-1ubuntu1.3_amd64.deb
-
-Thanks.
-
-Shenlin
+I based it on -rc1. We recently discussed what we should base on, but
+I couldn't recall the final decision, so I fell back to the old approach.
+I can rebase on for-next or the latest rc if that's the new, improved
+approach.
 
 > 
-> On 4/14/24 20:11, Shenlin Liang wrote:
-> > Changes from v1->v2:
-> > - Rebased on Linux 6.9-rc3.
-> > 
-> > 'perf kvm stat report/record' generates a statistical analysis of KVM
-> > events and can be used to analyze guest exit reasons. This patch tries
-> > to add stat support on riscv.
-> > 
-> > Map the return value of trace_kvm_exit() to the specific cause of the
-> > exception, and export it to userspace.
-> > 
-> > It records on two available KVM tracepoints for riscv: "kvm:kvm_entry"
-> > and "kvm:kvm_exit", and reports statistical data which includes events
-> > handles time, samples, and so on.
-> > 
-> > Simple tests go below:
-> > 
-> > # ./perf kvm record -e "kvm:kvm_entry" -e "kvm:kvm_exit"
-> > Lowering default frequency rate from 4000 to 2500.
-> > Please consider tweaking /proc/sys/kernel/perf_event_max_sample_rate.
-> > [ perf record: Woken up 18 times to write data ]
-> > [ perf record: Captured and wrote 5.433 MB perf.data.guest (62519 samples)
-> > 
+> But other than that, this LGTM.  One nit below.
 > 
-> I want to test these patches but couldn't build a perf for RISC-V with 
-> libtraceevent enabled. It fails with pkg-config dependencies when I 
-> tried to build it (both via buildroot and directly from kernel source).
 > 
-> > # ./perf kvm report
-> > 31K kvm:kvm_entry
-> > 31K kvm:kvm_exit
-> > 
-> > # ./perf kvm stat record -a
-> > [ perf record: Woken up 3 times to write data ]
-> > [ perf record: Captured and wrote 8.502 MB perf.data.guest (99338 samples) ]
-> > 
-> > # ./perf kvm stat report --event=vmexit
-> > Event name                Samples   Sample%    Time (ns)     Time%   Max Time (ns)   Min Time (ns)  Mean Time (ns)
-> > STORE_GUEST_PAGE_FAULT     26968     54.00%    2003031800    40.00%     3361400         27600          74274
-> > LOAD_GUEST_PAGE_FAULT      17645     35.00%    1153338100    23.00%     2513400         30800          65363
-> > VIRTUAL_INST_FAULT         1247      2.00%     340820800     6.00%      1190800         43300          273312
-> > INST_GUEST_PAGE_FAULT      1128      2.00%     340645800     6.00%      2123200         30200          301990
-> > SUPERVISOR_SYSCALL         1019      2.00%     245989900     4.00%      1851500         29300          241403
-> > LOAD_ACCESS                986       1.00%     671556200     13.00%     4180200         100700         681091
-> > INST_ACCESS                655       1.00%     170054800     3.00%      1808300         54600          259625
-> > HYPERVISOR_SYSCALL         21        0.00%     4276400       0.00%      716500          116000         203638
-> > 
-> > Shenlin Liang (2):
-> >    RISCV: KVM: add tracepoints for entry and exit events
-> >    perf kvm/riscv: Port perf kvm stat to RISC-V
-> > 
-> >   arch/riscv/kvm/trace.h                        | 67 ++++++++++++++++
-> >   arch/riscv/kvm/vcpu.c                         |  7 ++
-> >   tools/perf/arch/riscv/Makefile                |  1 +
-> >   tools/perf/arch/riscv/util/Build              |  1 +
-> >   tools/perf/arch/riscv/util/kvm-stat.c         | 78 +++++++++++++++++++
-> >   .../arch/riscv/util/riscv_exception_types.h   | 41 ++++++++++
-> >   6 files changed, 195 insertions(+)
-> >   create mode 100644 arch/riscv/kvm/trace.h
-> >   create mode 100644 tools/perf/arch/riscv/util/kvm-stat.c
-> >   create mode 100644 tools/perf/arch/riscv/util/riscv_exception_types.h
-> > 
+> > -#define __smp_store_release(p, v)					\
+> > -do {									\
+> > -	compiletime_assert_atomic_type(*p);				\
+> > -	RISCV_FENCE(rw, w);						\
+> > -	WRITE_ONCE(*p, v);						\
+> > -} while (0)
+> > -
+> > -#define __smp_load_acquire(p)						\
+> > -({									\
+> > -	typeof(*p) ___p1 = READ_ONCE(*p);				\
+> > -	compiletime_assert_atomic_type(*p);				\
+> > -	RISCV_FENCE(r, rw);						\
+> > -	___p1;								\
+> > -})
+> > -
+> >  /*
+> >   * This is a very specific barrier: it's currently only used in two places in
+> >   * the kernel, both in the scheduler.  See include/linux/spinlock.h for the two
+> > @@ -70,6 +56,35 @@ do {									\
+> >   */
+> >  #define smp_mb__after_spinlock()	RISCV_FENCE(iorw, iorw)
+> >  
+> > +#define __smp_store_release(p, v)					\
+> > +do {									\
+> > +	compiletime_assert_atomic_type(*p);				\
+> > +	RISCV_FENCE(rw, w);						\
+> > +	WRITE_ONCE(*p, v);						\
+> > +} while (0)
+> > +
+> > +#define __smp_load_acquire(p)						\
+> > +({									\
+> > +	typeof(*p) ___p1 = READ_ONCE(*p);				\
+> > +	compiletime_assert_atomic_type(*p);				\
+> > +	RISCV_FENCE(r, rw);						\
+> > +	___p1;								\
+> > +})
+> 
+> Unrelated/unmotivated changes.
+
+The relation/motivation was to get the load/store macros in one part of
+the file with the barrier macros in another. With this change we have
+
+ __mb
+ __rmb
+ __wmb
+
+ __smp_mb
+ __smp_rmb
+ __smp_wmb
+
+ smp_mb__after_spinlock
+
+ __smp_store_release
+ __smp_load_acquire
+ smp_cond_load_relaxed
+
+Without the change, smp_mb__after_spinlock is either after all the
+load/stores or in between them.
+
+I didn't think the reorganization was worth its own patch, but I could
+split it out (or just drop it).
+
+Thanks,
+drew
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
