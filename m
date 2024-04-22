@@ -4,90 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943EBC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 18:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D57C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 19:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nlI7S1/Ai0ChC36vWZqdy23xJ5aXtNEzppKeDt3a8G0=; b=po7qKgo1I7WrX0
-	LkOhFqVqkxCJGbIIgR8yut+34tCADSe3a0RcKFPxQktKFHigFj2+R/scnM5pAz3RJp54uwM9d6Rwt
-	7NOrnTTlQtECKe9aC0PdnA/LCblo6nQkktZ+JBuHHYIrakx/cZyxGtjLk7XzoVuZUSnHgXGdC3TAM
-	RwLxSEuWtKYpwinmFfX7uf+ChavEWxOCn0mQxLoYgBSvu9b4wqJ7SGk+uPtai/5eo0/p0A1uXkw+U
-	8utdMT1LnRQuTexTWatN5uewGe8TyeadQEhNLdJ7FKgD7hNBp9S8P9WyMPbbwU5lg3m7dzGtsnUvD
-	adneIElnLyqqaPlIHGQg==;
+	List-Owner; bh=Bowul1PuBdfWq/Ra5++z7YEIUowTG5JOAb52hAvfZNM=; b=bCQyxpIzVYxjQr
+	1wNuWgp1l4C7aR3/A1AkgKfCVdd21tBPLhfHswYmRtNxMX5OjG5vFFMzZ3mNmU8ql214L+z04PqPM
+	a1SQqy7BTqQ9JnhDjfnKTBC+Q63NyOsURzfXlgyVWMf6JaxyCVw1JalEcV3EpLzLRWv9jb8L44Efj
+	zGXW6gVj1zQYaKArgKDGfungu54Fl/Q6Kj1oVqnoXCNX6Zoc0wlcic8tOoBNpWlV4eAK2aD5n3cBL
+	VlszXliDfQa+6DesGSg/O8K+O6TsWrelW20McQG/Mwq0Qb68MfGoUR8bWpRY9oXGhCsb6xpIiL13i
+	oWwrn6BRq2+iX14Y8I1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryyT5-0000000Ec1S-2vGa;
-	Mon, 22 Apr 2024 18:32:43 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1ryz79-0000000EleU-0cC5;
+	Mon, 22 Apr 2024 19:14:07 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryyT1-0000000Ebzk-3SkR;
-	Mon, 22 Apr 2024 18:32:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 87D9FCE068F;
-	Mon, 22 Apr 2024 18:32:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABD33C32781;
-	Mon, 22 Apr 2024 18:32:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713810756;
-	bh=41bQmayZLa9F2TS6BjEFSDm7V8S6LLEq/o95h7wxG6E=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=qA68HtY8VqgqRqZf2Z+BRxEGJ87lJdUCx6Osh8gSscfIYLuwih8LbbcRjgeSN72TL
-	 Xw4JdoR+vqq1sJrywF+UW6jt11XxxAfhRX5vf+4P5PZXOtwSy4cCuAVWYzrkNtfZFY
-	 RJi50MG1o3p5BPD9oDayagmrPVMy0EhVLAw/pglX6Uo5PAN1xX+pidD1GnidGKtKn6
-	 ykB1LL+ua/PB+25yLvCBTFxFBB/U4R1LEgj+l7TftBqPQ+Ztyd7hEVqFG/2O36A5Z1
-	 UjuZ6JKnGq1s27TbSA3JcyRLnCb+mXgDdhxyZJYk3N/4rAuQbLQhxxn1GV+slKtDRx
-	 DyT9rgFt2Zekg==
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-571c22d9de4so6379259a12.3;
-        Mon, 22 Apr 2024 11:32:36 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVsDMylRqNncLgmPiQTlvwHGhDyvg2oabA89V2vFariF4uHKzu9LuRjz66D7Hi5oUgsFzl3pbGS64H0b8zGylqsORjeR6OVTKT6Bsxv14GVVa4ID2sBTgzRldFt8+aWTRC48pcD14hB/7ByAVee77665zkuMYQ=
-X-Gm-Message-State: AOJu0Ywo9uVuyBxB4K7CwnKHAJH3h3zypXlicqRFWgB/x19poEWs5dEZ
-	Be0Q3raFXQsv7vlweHOzxuKbfVmLg8lLAphKshtjI875le8Zn+yMQi2GIkLMmGteHk5Ialw3qU7
-	lzOMfn0V8Q2AVmC5464OZtKyls1k=
-X-Google-Smtp-Source: AGHT+IEL0FWUHmCKYIOk93aax6U4BdFHP3q3Bogcq6+CoScwmomqpj0/rB2eiX3SYQzXlZuuQSNAuqDXXtIwEOxd65Y=
-X-Received: by 2002:a2e:9496:0:b0:2d8:1d29:23a8 with SMTP id
- c22-20020a2e9496000000b002d81d2923a8mr6582027ljh.29.1713810734431; Mon, 22
- Apr 2024 11:32:14 -0700 (PDT)
+	id 1ryz75-0000000Ele0-3843
+	for linux-riscv@lists.infradead.org;
+	Mon, 22 Apr 2024 19:14:05 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-618874234c9so52333307b3.0
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Apr 2024 12:14:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713813241; x=1714418041; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=T1scUmSJ5uGPUbNG6hIM1Mj3BSCgLvK4E9dbi4ZuMCc=;
+        b=dnw/tZNbNw+pVpAAyj8rsEmmyGjToQ66wpZOl6Mir5FXFU8aEX+hfGtG8SK23syWyt
+         RHC7pxc6A5z9oY6b4JnqQ6i/Np0stU4Sma0PO9aW4XVCS3k/bL6cV10tDGs0eyNaJGP6
+         U2Ikgrq11nfLJmstsryjengM8KFZaW+RS3qhiE0fgTch8HhZiBj8Neu9kIMVHmUswW1v
+         J7v6dpsDC7DCsaLXhDPYKGfiOiaDY1ZYVm53ytxatxTawaneXO6h+WfzyuAQ1jmtvNP+
+         Izl20jiPz8jSkL2/72E81OmUx1uhlyTjNwzujOyaHPRlkGXrrBXovkRuIENon2I9R1JE
+         WVkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713813241; x=1714418041;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T1scUmSJ5uGPUbNG6hIM1Mj3BSCgLvK4E9dbi4ZuMCc=;
+        b=dxoPP+TtPWCI7+rcI6hNcZyKn3FW2V+ULw6jjj7nJ959NAmuN6ATxEht3xS3+O0LVo
+         6VAQYgnC1DT+k32l5sSc1qYQ9fm7G+yVkjXCvdwkwsxucuaI5bA8EgLCcHIrDWJ79Crp
+         DmPcQTeuJUMAKCTGdkbbU9oqDdtSIMe1mViRJx2z24b+KJ2O1UIETc7LpsjCIz79eEq7
+         RJA8RMN4KM8VTamQemYp9qEjF5lM6uhoRsduM19FoNufxlNI0+P+o73zEcXcLDy1rSiJ
+         N5KN3RGFrpch7WDAFAcJCHsl8dXhericJq3X3Lw2MdSA4iCSUbIlV/Co2NFOTy9stYcC
+         Plzg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwIldFxpVUAeSl4nXrXDOPHVlL5JovRUkuOWeb104Hc9VKVxgCikSgBsKK8tIHzRklYKpj9oKUFKgfK5x8iNN88eedtnuzNC04SMNQkpN0
+X-Gm-Message-State: AOJu0YwuI9J6rncULbD1wLNK9PdOPZUJEAmC1c6oN7gOClvD3aSVZgsh
+	0LJ975vN2IoMX7tl35RXuPrSrKoDSpPa1rmBihPDpj4UibvaDoQPkm7gaUDfvZY=
+X-Google-Smtp-Source: AGHT+IEh+PQDiIdCy0QfaSEbiaLMuK5KgJ09F4nU0J2J8VhKDhoiFqsBkQ+g/bfcFms2IMO+uk2PgQ==
+X-Received: by 2002:a25:b317:0:b0:dca:59a7:896b with SMTP id l23-20020a25b317000000b00dca59a7896bmr11388887ybj.50.1713813241302;
+        Mon, 22 Apr 2024 12:14:01 -0700 (PDT)
+Received: from ghost ([50.146.0.2])
+        by smtp.gmail.com with ESMTPSA id t188-20020a25c3c5000000b00dc6c58ae000sm2185935ybf.16.2024.04.22.12.14.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Apr 2024 12:14:00 -0700 (PDT)
+Date: Mon, 22 Apr 2024 15:13:59 -0400
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Zong Li <zong.li@sifive.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	schwab@suse.de, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Revert "riscv: disable generation of unwind tables"
+Message-ID: <Zia29wYvScRVdXUP@ghost>
+References: <20240416013138.28760-1-zong.li@sifive.com>
 MIME-Version: 1.0
-References: <ZiE91CJcNw7gBj9g@kernel.org> <CAPhsuW4au6v8k8Ab7Ff6Yj64rGvZ7wkz=Xrgh8ZZtLyscpChqQ@mail.gmail.com>
- <ZiFd567L4Zzm2okO@kernel.org> <CAPhsuW5SL4_=ZXdHZV8o0KS+5Vf25UMvEKhRgFQLioFtf2pgoQ@mail.gmail.com>
- <ZiIVVBgaDN4RsroT@kernel.org> <CAPhsuW7WoU+a46FhqqH8f-3=ehxeD4wSgKDWegMin1pT49OSWw@mail.gmail.com>
- <ZiKjmaDgz_56ovbv@kernel.org> <CAPhsuW7Nj1Sa_9xQtTgHz9AmX39zdh2x2COqA-qmkfpfX9hNWw@mail.gmail.com>
- <ZiLNGgVSQ7_cg58y@kernel.org> <CAPhsuW4KRM4O4RFbYQrt=Coqyh9w29WiF2YF=8soDfauLFsKBA@mail.gmail.com>
- <ZiNDGjkcqEPqruza@kernel.org> <20240420181121.d6c7be11a6f98dc2462f8b41@kernel.org>
-In-Reply-To: <20240420181121.d6c7be11a6f98dc2462f8b41@kernel.org>
-From: Song Liu <song@kernel.org>
-Date: Mon, 22 Apr 2024 11:32:02 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW5RYfq8FOtMkO69cdQ3Bc1p2kQPWE2crts1UMhqJr+7sQ@mail.gmail.com>
-Message-ID: <CAPhsuW5RYfq8FOtMkO69cdQ3Bc1p2kQPWE2crts1UMhqJr+7sQ@mail.gmail.com>
-Subject: Re: [PATCH v4 05/15] mm: introduce execmem_alloc() and execmem_free()
-To: Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Bjorn Topel <bjorn@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, "David S. Miller" <davem@davemloft.net>, 
-	Dinh Nguyen <dinguyen@kernel.org>, Donald Dutile <ddutile@redhat.com>, 
-	Eric Chanudet <echanude@redhat.com>, Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, 
-	Huacai Chen <chenhuacai@kernel.org>, Kent Overstreet <kent.overstreet@linux.dev>, 
-	Luis Chamberlain <mcgrof@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nadav Amit <nadav.amit@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Puranjay Mohan <puranjay12@gmail.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, 
-	Russell King <linux@armlinux.org.uk>, Steven Rostedt <rostedt@goodmis.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, 
-	Will Deacon <will@kernel.org>, bpf@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-mm@kvack.org, linux-modules@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20240416013138.28760-1-zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240422_113240_467756_A988DD11 
-X-CRM114-Status: GOOD (  26.90  )
+X-CRM114-CacheID: sfid-20240422_121403_913094_6B0AF69A 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,52 +88,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTWFzYW1pIGFuZCBNaWtlLAoKT24gU2F0LCBBcHIgMjAsIDIwMjQgYXQgMjoxMeKAr0FNIE1h
-c2FtaSBIaXJhbWF0c3UgPG1oaXJhbWF0QGtlcm5lbC5vcmc+IHdyb3RlOgpbLi4uXQo+ID4gPgo+
-ID4gPiBJSVVDLCB3ZSBuZWVkIHRvIHVwZGF0ZSBfX2V4ZWNtZW1fY2FjaGVfYWxsb2MoKSB0byB0
-YWtlIGEgcmFuZ2UgcG9pbnRlciBhcwo+ID4gPiBpbnB1dC4gbW9kdWxlIHRleHQgd2lsbCB1c2Ug
-InJhbmdlIiBmb3IgRVhFQ01FTV9NT0RVTEVfVEVYVCwgd2hpbGUga3Byb2JlCj4gPiA+IHdpbGwg
-dXNlICJyYW5nZSIgZm9yIEVYRUNNRU1fS1BST0JFLiBXaXRob3V0ICJtYXAgdG8iIGNvbmNlcHQg
-b3Igc2hhcmluZwo+ID4gPiB0aGUgInJhbmdlIiBvYmplY3QsIHdlIHdpbGwgaGF2ZSB0byBjb21w
-YXJlIGRpZmZlcmVudCByYW5nZSBwYXJhbWV0ZXJzIHRvIGNoZWNrCj4gPiA+IHdlIGNhbiBzaGFy
-ZSBjYWNoZWQgcGFnZXMgYmV0d2VlbiBtb2R1bGUgdGV4dCBhbmQga3Byb2JlLCB3aGljaCBpcyBu
-b3QKPiA+ID4gZWZmaWNpZW50LiBEaWQgSSBtaXNzIHNvbWV0aGluZz8KPgo+IFNvbmcsIHRoYW5r
-cyBmb3IgdHJ5aW5nIHRvIGVwbGFpbi4gSSB0aGluayBJIG5lZWQgdG8gZXhwbGFpbiB3aHkgSSB1
-c2VkCj4gbW9kdWxlX2FsbG9jKCkgb3JpZ2luYWxseS4KPgo+IFRoaXMgZGVwZW5kcyBvbiBob3cg
-a3Byb2JlIGZlYXR1cmVzIGFyZSBpbXBsZW1lbnRlZCBvbiB0aGUgYXJjaGl0ZWN0dXJlLCBhbmQK
-PiBob3cgbXVjaCBmZWF0dXJlcyBhcmUgc3VwcG9ydGVkIG9uIGtwcm9iZXMuCj4KPiBCZWNhdXNl
-IGtwcm9iZSBqdW1wIG9wdGltaXphdGlvbiBhbmQga3Byb2JlIGp1bXAtYmFjayBvcHRpbWl6YXRp
-b24gbmVlZCB0bwo+IHVzZSBhIGp1bXAgaW5zdHJ1Y3Rpb24gdG8ganVtcCBpbnRvIHRoZSB0cmFt
-cG9saW5lIGFuZCBqdW1wIGJhY2sgZnJvbSB0aGUKPiB0cmFtcG9saW5lIGRpcmVjdGx5LCBpZiB0
-aGUgYXJjaGl0ZWN1dHVyZSBqbXAgaW5zdHJ1Y3Rpb24gc3VwcG9ydHMgKy0yR0IgcmFuZ2UKPiBs
-aWtlIHg4NiwgaXQgbmVlZHMgdG8gYWxsb2NhdGUgdGhlIHRyYW1wb2xpbmUgYnVmZmVyIGluc2lk
-ZSBzdWNoIGFkZHJlc3Mgc3BhY2UuCj4gVGhpcyByZXF1aXJlbWVudCBpcyBzaW1pbGFyIHRvIHRo
-ZSBtb2R1bGVzIChiZWNhdXNlIG1vZHVsZSBmdW5jdGlvbiBuZWVkcyB0bwo+IGNhbGwgb3RoZXIg
-ZnVuY3Rpb25zIGluIHRoZSBrZXJuZWwgZXRjLiksIGF0IGxlYXN0IGtwcm9iZXMgb24geDg2IHVz
-ZWQKPiBtb2R1bGVfYWxsb2MoKS4KPgo+IEhvd2V2ZXIsIGlmIGFuIGFyY2hpdGVjdHVyZSBvbmx5
-IHN1cHBvcnRzIGJyZWFrcG9pbnQvdHJhcCBiYXNlZCBrcHJvYmUsCj4gaXQgZG9lcyBub3QgbmVl
-ZCB0byBjb25zaWRlciB3aGV0aGVyIHRoZSBleGVjbWVtIGlzIGFsbG9jYXRlZC4KPgo+ID4KPiA+
-IFdlIGNhbiBhbHdheXMgc2hhcmUgbGFyZ2UgUk9YIHBhZ2VzIGFzIGxvbmcgYXMgdGhleSBhcmUg
-d2l0aGluIHRoZSBjb3JyZWN0Cj4gPiBhZGRyZXNzIHNwYWNlLiBUaGUgcGVybWlzc2lvbnMgZm9y
-IHRoZW0gYXJlIFJPWCBhbmQgdGhlIGFsaWdubWVudAo+ID4gZGlmZmVyZW5jZXMgYXJlIGR1ZSB0
-byBLQVNBTiBhbmQgdGhpcyBpcyBoYW5kbGVkIGR1cmluZyBhbGxvY2F0aW9uIG9mIHRoZQo+ID4g
-bGFyZ2UgcGFnZSB0byByZWZpbGwgdGhlIGNhY2hlLiBfX2V4ZWNtZW1fY2FjaGVfYWxsb2MoKSBv
-bmx5IG5lZWRzIHRvIGxpbWl0Cj4gPiB0aGUgc2VhcmNoIGZvciB0aGUgYWRkcmVzcyBzcGFjZSBv
-ZiB0aGUgcmFuZ2UuCj4KPiBTbyBJIGRvbid0IHRoaW5rIEVYRUNNRU1fS1BST0JFIGFsd2F5cyBz
-YW1lIGFzIEVYRUNNRU1fTU9EVUxFX1RFWFQsIGl0Cj4gc2hvdWxkIGJlIGNvbmZpZ3VyZWQgZm9y
-IGVhY2ggYXJjaC4gRXNwZWNpYWxseSwgaWYgaXQgaXMgb25seSB1c2VkIGZvcgo+IHNlYXJjaGlu
-ZyBwYXJhbWV0ZXIsIGl0IGxvb2tzIE9LIHRvIG1lLgoKVGhhbmtzIGZvciB0aGUgZXhwbGFuYXRp
-b24hCgpJIHdhcyB0aGlua2luZyAid2UgY2FuIGhhdmUgRVhFQ01FTV9LUFJPQkUgc2hhcmUgdGhl
-IHNhbWUgcGFyYW1ldGVycyBhcwpFWEVDTUVNX01PRFVMRV9URVhUIGZvciBhbGwgYXJjaGl0ZWN0
-dXJlcyIuIEJ1dCB0aGlzIHRob3VnaHQgaXMgYnVpbHQgb24gdG9wCm9mIGFzc3VtcHRpb25zIG9u
-IGZ1dHVyZSBjaGFuZ2VzL2ltcHJvdmVtZW50cyB3aXRoaW4gbXVsdGlwbGUgc3ViIHN5c3RlbXMu
-CkF0IHRoaXMgbW9tZW50LCBJIGhhdmUgbm8gb2JqZWN0aW9ucyBtb3ZpbmcgZm9yd2FyZCB3aXRo
-IGN1cnJlbnQgZXhlY21lbSBBUElzLgoKVGhhbmtzLApTb25nCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Apr 16, 2024 at 09:31:38AM +0800, Zong Li wrote:
+> This reverts commit 2f394c0e7d1129a35156e492bc8f445fb20f43ac.
+> 
+> RISC-V has supported the complete relocation types in module loader by
+> '8fd6c5142395 ("riscv: Add remaining module relocations")'.
+> Now RISC-V port can enable unwind tables in case eh_frame parsing is
+> needed.
+> 
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> ---
+>  arch/riscv/Makefile | 3 ---
+>  1 file changed, 3 deletions(-)
+> 
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 5b3115a19852..9216bf8a2691 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -94,9 +94,6 @@ ifeq ($(CONFIG_CMODEL_MEDANY),y)
+>  	KBUILD_CFLAGS += -mcmodel=medany
+>  endif
+>  
+> -# Avoid generating .eh_frame sections.
+> -KBUILD_CFLAGS += -fno-asynchronous-unwind-tables -fno-unwind-tables
+> -
+
+There are a lot of orphaned sections created by this, which throws a lot
+of warnings. These warnings will only be present on GCC-13+ since
+-fno-asynchronous-unwind-tables was a default before GCC-13.
+
+The .eh_frame orphaned sections can be resolved by including
+
+.eh_frame : {*(.eh_frame)}
+
+in arch/riscv/kernel/vmlinux.lds.S. arm64 places it in the init section,
+but outside init_data and init_text, so right after the .alternative
+definition seems like a good place.
+
+.init.eh_frame sections in drivers/firmware/efi/libstub also complain
+about being orphaned, and other architectures have disabled unwind
+tables for that compilation unit, so -fno-unwind-tables and
+-fno-asynchronous-unwind-tables should be added to
+drivers/firmware/efi/libstub/Makefile for riscv.
+
+This also causes the resulting image (with defconfig) to increase from
+22M to 24M. There are currently no users of unwind tables in riscv so
+this should be hidden behind a config. arm64 uses this config as:
+
+# Avoid generating .eh_frame* sections.
+ifneq ($(CONFIG_UNWIND_TABLES),y)
+KBUILD_CFLAGS   += -fno-asynchronous-unwind-tables -fno-unwind-tables
+KBUILD_AFLAGS   += -fno-asynchronous-unwind-tables -fno-unwind-tables
+else
+KBUILD_CFLAGS   += -fasynchronous-unwind-tables
+KBUILD_AFLAGS   += -fasynchronous-unwind-tables
+endif
+
+Using this same config name for riscv would allow riscv to use the
+standard .eh_frame code introduced in
+https://lore.kernel.org/linux-arm-kernel/20221027155908.1940624-2-ardb@kernel.org/.
+
+This config is only enabled if some other config selects it in arm64,
+but riscv does not contain any users so maybe this config can be left
+unselected until there is a user of unwind tables in riscv.
+
+- Charlie
+
+>  # The RISC-V attributes frequently cause compatibility issues and provide no
+>  # information, so just turn them off.
+>  KBUILD_CFLAGS += $(call cc-option,-mno-riscv-attribute)
+> -- 
+> 2.17.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
