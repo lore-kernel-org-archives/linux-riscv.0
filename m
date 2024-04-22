@@ -4,80 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82AEEC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 09:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B35DC07E8F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 09:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ktq7Q1Y66TxEsnHKhpDq65ldyBOmpsOpqoAeCWg9ugg=; b=n08pTSm0qZ8Arqr7dj0J3ddKtu
-	BzbmyYZfOElP7CeLH2b7qNS1b6JDGg35dQ94V83gaVypW3A5cYM0IBfaectFIYNhVr4XM7d+Ny+vh
-	ZABpWsOB4kdH5YsYE4HJqLLmo6VrhoWKwoWy4d2V2fXTJQvvsnYucnF25DhAqy+5f0XAHiPm2W6rz
-	lFjbc3pCxbN0xVflFBsy/gIWUBdg1BNoJSzwVhp4IFcctsYKXKuyzFGYPCissSeG8yUt64eLA8G6Y
-	nkozHWeNA0iFyInPx5Ca3JaN1A+4vcz2yrkO/rlR/d7LiocGKtnAbkQU2+01jyZfY96FpUs3PJLxg
-	ZZ04kK7A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=w7EU98LlLVxPL+dr9BVGekH1zPBNhm4W27LosnCoOF8=; b=w4kJAbbd9iLFZ5
+	EFEwsF9/8CgqY1JefHJMpb1h/Mkl0k7DwUxDF+qWl3EMyrz6fh9AvAsL5CVLQYgbmRzqI0reVqsKu
+	dD7wCCz0h0gK76tsxccaa/OaPQOcyqtaHiOMVHKvrW681Wj/ZYgpAkNAYZoo2MC8CQAvvj9I2Rb7y
+	EKs66HXA57jvlaOw7muUS1TtpRs3PQvuTsEvSHjh20zmJxnqvLxH4mHK+XDTuLVowCogvOzJfNHmR
+	fyX6QAvgBUOhDA/qijFpOYlql+hEsQP60W7loaQ9o3hT4yWEx5Wwooj3LYtbP5hcM7WzK7Vpld5Av
+	O4QJkvw+fZ/rpvHdABxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryq5b-0000000Cw1F-19es;
-	Mon, 22 Apr 2024 09:35:55 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1ryqEU-0000000CyKF-2WZs;
+	Mon, 22 Apr 2024 09:45:06 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryq5Y-0000000Cw0a-2oSp;
-	Mon, 22 Apr 2024 09:35:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1713778552; x=1745314552;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=677JTIwL5UswqAMre8oBa/Ouum0+FEfuPU/W+YYnR/8=;
-  b=rS/PaR6fwFAObfBQW1P5kIff1ACrDyPi+Zd+eVQCuduSOPji1dCO0tfx
-   gDktEKO0QsuPj1ZWmNmuYAnG2it71Mk5UfsA56Yp9/cgm4/P22RsDLG+Y
-   5tfFa0v9KkGBXl6Tq7zC7euAklfowe5sFkHWgScl62N8l3EoXaOmLYzpR
-   HZNQdNQ7BFkf6amqOcGwVp5VlBiM+3pNhZDECBccdA6Sps6+D+tENNMeu
-   IuUdZsCYzeUMhw7g+5nAKALXFRbm8KzdzIXT8GR7ukjn+gEMS7GdVSN4o
-   hEmmfuyVJ3tfhkTzBhmggpOX2fiZMC5oEjY4oW2Ty9a7ZWab7kjvrErlb
-   A==;
-X-CSE-ConnectionGUID: pUtzPF9AQeyO8Y9fcaMWRA==
-X-CSE-MsgGUID: RbrRuDOgRGGKP/iBnvhOVQ==
-X-IronPort-AV: E=Sophos;i="6.07,220,1708412400"; 
-   d="asc'?scan'208";a="22042204"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Apr 2024 02:35:47 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 22 Apr 2024 02:35:40 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Mon, 22 Apr 2024 02:35:37 -0700
-Date: Mon, 22 Apr 2024 10:35:21 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-CC: Conor Dooley <conor@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Anup Patel
-	<anup@brainfault.org>, Shuah Khan <shuah@kernel.org>, Atish Patra
-	<atishp@atishpatra.org>, <linux-doc@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <kvm@vger.kernel.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH v2 04/12] riscv: add ISA parsing for Zca, Zcf, Zcd and Zcb
-Message-ID: <20240422-daylight-sassy-ff3b0d867fef@wendy>
-References: <20240418124300.1387978-1-cleger@rivosinc.com>
- <20240418124300.1387978-5-cleger@rivosinc.com>
- <20240419-clinic-amusing-d23b1b6d2af2@spud>
- <6ab9e591-f2f2-4267-8bdd-169ef0243e14@rivosinc.com>
+	id 1ryqEP-0000000CyFw-0G30;
+	Mon, 22 Apr 2024 09:45:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 0802DCE0A64;
+	Mon, 22 Apr 2024 09:44:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D46DFC113CC;
+	Mon, 22 Apr 2024 09:44:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713779096;
+	bh=uCqbzvPZq288hG4XoIWQdXz6usWeZU9rInsRoxq3uRE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Wq9oZW8SV9WNeOAfK+Bh9tajEqJOu7XpQA9boPfE5CRhIfkMQ5hO3YWZqmNj+NRVy
+	 G/P1Hy7NQVOdzE1TMQkWDs+WOvNOCfW1dYE9EKGmQE0GnfBfUDoaUYBsOfSx+oSBMV
+	 lUKKjGabFq9nF+/RdR6r8ca/l8SpGRk/3NZl1XJxyaTzd/iIiY1XCeC+//4NRsLe6Q
+	 ALa8oxjXZUzOccZxS5fSVZKHaQGdavNvCnHSZJTEfZKu5hdYr3XxUB28TNrzWeoRJs
+	 xM4oY/OhGCkl5R+tw93mxLtZeazebNVE41NA1xXhf61OrXooP6l5uOFGUdFmWOc/Sj
+	 viOaUM46QxrWw==
+From: Mike Rapoport <rppt@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Rapoport <rppt@kernel.org>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH v5 00/15] mm: jit/text allocator
+Date: Mon, 22 Apr 2024 12:44:21 +0300
+Message-ID: <20240422094436.3625171-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <6ab9e591-f2f2-4267-8bdd-169ef0243e14@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240422_023552_924601_E8E26F9E 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20240422_024501_489684_90B63A81 
+X-CRM114-Status: GOOD (  25.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,105 +106,217 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5984138321105285722=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5984138321105285722==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qeeS7kj0r9HsIAfv"
-Content-Disposition: inline
+From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
---qeeS7kj0r9HsIAfv
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+(something went wrong with the prevois posting, sorry for the noise)
 
-On Mon, Apr 22, 2024 at 10:53:10AM +0200, Cl=E9ment L=E9ger wrote:
-> On 19/04/2024 17:51, Conor Dooley wrote:
-> > On Thu, Apr 18, 2024 at 02:42:27PM +0200, Cl=E9ment L=E9ger wrote:
-> >> The Zc* standard extension for code reduction introduces new extension=
-s.
-> >> This patch adds support for Zca, Zcf, Zcd and Zcb. Zce, Zcmt and Zcmp
-> >> are left out of this patch since they are targeting microcontrollers/
-> >> embedded CPUs instead of application processors.
-> >>
-> >> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> >> ---
-> >>  arch/riscv/include/asm/hwcap.h | 4 ++++
-> >>  arch/riscv/kernel/cpufeature.c | 4 ++++
-> >>  2 files changed, 8 insertions(+)
-> >>
-> >> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/h=
-wcap.h
-> >> index 543e3ea2da0e..b7551bad341b 100644
-> >> --- a/arch/riscv/include/asm/hwcap.h
-> >> +++ b/arch/riscv/include/asm/hwcap.h
-> >> @@ -82,6 +82,10 @@
-> >>  #define RISCV_ISA_EXT_ZACAS		73
-> >>  #define RISCV_ISA_EXT_XANDESPMU		74
-> >>  #define RISCV_ISA_EXT_ZIMOP		75
-> >> +#define RISCV_ISA_EXT_ZCA		76
-> >> +#define RISCV_ISA_EXT_ZCB		77
-> >> +#define RISCV_ISA_EXT_ZCD		78
-> >> +#define RISCV_ISA_EXT_ZCF		79
-> >> =20
-> >>  #define RISCV_ISA_EXT_XLINUXENVCFG	127
-> >> =20
-> >> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufea=
-ture.c
-> >> index 115ba001f1bc..09dee071274d 100644
-> >> --- a/arch/riscv/kernel/cpufeature.c
-> >> +++ b/arch/riscv/kernel/cpufeature.c
-> >> @@ -261,6 +261,10 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =
-=3D {
-> >>  	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
-> >>  	__RISCV_ISA_EXT_DATA(zfh, RISCV_ISA_EXT_ZFH),
-> >>  	__RISCV_ISA_EXT_DATA(zfhmin, RISCV_ISA_EXT_ZFHMIN),
-> >> +	__RISCV_ISA_EXT_DATA(zca, RISCV_ISA_EXT_ZCA),
-> >> +	__RISCV_ISA_EXT_DATA(zcb, RISCV_ISA_EXT_ZCB),
-> >> +	__RISCV_ISA_EXT_DATA(zcd, RISCV_ISA_EXT_ZCD),
-> >> +	__RISCV_ISA_EXT_DATA(zcf, RISCV_ISA_EXT_ZCF),
-> >>  	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-> >>  	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> >>  	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
-> >=20
-> > Ye, this looks exactly like what I "feared".
->=20
-> Ok but for instance, Qemu actually set Zc* based on C/F/D. So the ISA
-> string containing theses dependencies should actually also be allowed.
-> So should we simply ignore them in the ISA string and always do our own
-> "post-processing" based on C/F/D?
+Hi,
 
-I'm not familiar with the contents of all of these extensions, but I
-assume the reasoning for splitting them out is that you can implement
-them but not maybe not implement C (or something similar)? If that's the
-case, you cannot always imply.
+Since v3 I looked into making execmem more of an utility toolbox, as we
+discussed at LPC with Mark Rutland, but it was getting more hairier than
+having a struct describing architecture constraints and a type identifying
+the consumer of execmem.
 
---qeeS7kj0r9HsIAfv
-Content-Type: application/pgp-signature; name="signature.asc"
+And I do think that having the description of architecture constraints for
+allocations of executable memory in a single place is better than having it
+spread all over the place.
 
------BEGIN PGP SIGNATURE-----
+The patches available via git:
+https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git/log/?h=execmem/v5
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiYvWQAKCRB4tDGHoIJi
-0tQCAP9mC34KZI4RlzykLZZJcqOkhj2mcUcNSSr/RaK9eFBoxQEA2vpvtlw6ZDsy
-MIBjOz/mpW/guSx4/dUBlp9zwuIycAA=
-=vD9i
------END PGP SIGNATURE-----
+v5 changes:
+* rebase on v6.9-rc4 to avoid a conflict in kprobes
+* add copyrights to mm/execmem.c (Luis)
+* fix spelling (Ingo)
+* define MODULES_VADDDR for sparc (Sam)
+* consistently initialize struct execmem_info (Peter)
+* reduce #ifdefs in function bodies in kprobes (Masami) 
 
---qeeS7kj0r9HsIAfv--
+v4: https://lore.kernel.org/all/20240411160051.2093261-1-rppt@kernel.org
+* rebase on v6.9-rc2
+* rename execmem_params to execmem_info and execmem_arch_params() to
+  execmem_arch_setup()
+* use single execmem_alloc() API instead of execmem_{text,data}_alloc() (Song)
+* avoid extra copy of execmem parameters (Rick)
+* run execmem_init() as core_initcall() except for the architectures that
+  may allocated text really early (currently only x86) (Will)
+* add acks for some of arm64 and riscv changes, thanks Will and Alexandre
+* new commits:
+  - drop call to kasan_alloc_module_shadow() on arm64 because it's not
+    needed anymore
+  - rename MODULE_START to MODULES_VADDR on MIPS
+  - use CONFIG_EXECMEM instead of CONFIG_MODULES on powerpc as per Christophe:
+    https://lore.kernel.org/all/79062fa3-3402-47b3-8920-9231ad05e964@csgroup.eu/
+
+v3: https://lore.kernel.org/all/20230918072955.2507221-1-rppt@kernel.org
+* add type parameter to execmem allocation APIs
+* remove BPF dependency on modules
+
+v2: https://lore.kernel.org/all/20230616085038.4121892-1-rppt@kernel.org
+* Separate "module" and "others" allocations with execmem_text_alloc()
+and jit_text_alloc()
+* Drop ROX entailment on x86
+* Add ack for nios2 changes, thanks Dinh Nguyen
+
+v1: https://lore.kernel.org/all/20230601101257.530867-1-rppt@kernel.org
+
+= Cover letter from v1 (sligtly updated) =
+
+module_alloc() is used everywhere as a mean to allocate memory for code.
+
+Beside being semantically wrong, this unnecessarily ties all subsystmes
+that need to allocate code, such as ftrace, kprobes and BPF to modules and
+puts the burden of code allocation to the modules code.
+
+Several architectures override module_alloc() because of various
+constraints where the executable memory can be located and this causes
+additional obstacles for improvements of code allocation.
+
+A centralized infrastructure for code allocation allows allocations of
+executable memory as ROX, and future optimizations such as caching large
+pages for better iTLB performance and providing sub-page allocations for
+users that only need small jit code snippets.
+
+Rick Edgecombe proposed perm_alloc extension to vmalloc [1] and Song Liu
+proposed execmem_alloc [2], but both these approaches were targeting BPF
+allocations and lacked the ground work to abstract executable allocations
+and split them from the modules core.
+
+Thomas Gleixner suggested to express module allocation restrictions and
+requirements as struct mod_alloc_type_params [3] that would define ranges,
+protections and other parameters for different types of allocations used by
+modules and following that suggestion Song separated allocations of
+different types in modules (commit ac3b43283923 ("module: replace
+module_layout with module_memory")) and posted "Type aware module
+allocator" set [4].
+
+I liked the idea of parametrising code allocation requirements as a
+structure, but I believe the original proposal and Song's module allocator
+was too module centric, so I came up with these patches.
+
+This set splits code allocation from modules by introducing execmem_alloc()
+and and execmem_free(), APIs, replaces call sites of module_alloc() and
+module_memfree() with the new APIs and implements core text and related
+allocations in a central place.
+
+Instead of architecture specific overrides for module_alloc(), the
+architectures that require non-default behaviour for text allocation must
+fill execmem_info structure and implement execmem_arch_setup() that returns
+a pointer to that structure. If an architecture does not implement
+execmem_arch_setup(), the defaults compatible with the current
+modules::module_alloc() are used.
+
+Since architectures define different restrictions on placement,
+permissions, alignment and other parameters for memory that can be used by
+different subsystems that allocate executable memory, execmem APIs
+take a type argument, that will be used to identify the calling subsystem
+and to allow architectures to define parameters for ranges suitable for that
+subsystem.
+
+The new infrastructure allows decoupling of BPF, kprobes and ftrace from
+modules, and most importantly it paves the way for ROX allocations for
+executable memory.
+
+[1] https://lore.kernel.org/lkml/20201120202426.18009-1-rick.p.edgecombe@intel.com/
+[2] https://lore.kernel.org/all/20221107223921.3451913-1-song@kernel.org/
+[3] https://lore.kernel.org/all/87v8mndy3y.ffs@tglx/
+[4] https://lore.kernel.org/all/20230526051529.3387103-1-song@kernel.org
 
 
---===============5984138321105285722==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Mike Rapoport (IBM) (15):
+  arm64: module: remove unneeded call to kasan_alloc_module_shadow()
+  mips: module: rename MODULE_START to MODULES_VADDR
+  nios2: define virtual address space for modules
+  sparc: simplify module_alloc()
+  module: make module_memory_{alloc,free} more self-contained
+  mm: introduce execmem_alloc() and execmem_free()
+  mm/execmem, arch: convert simple overrides of module_alloc to execmem
+  mm/execmem, arch: convert remaining overrides of module_alloc to
+    execmem
+  riscv: extend execmem_params for generated code allocations
+  powerpc: extend execmem_params for kprobes allocations
+  arch: make execmem setup available regardless of CONFIG_MODULES
+  x86/ftrace: enable dynamic ftrace without CONFIG_MODULES
+  powerpc: use CONFIG_EXECMEM instead of CONFIG_MODULES where
+    appropriate
+  kprobes: remove dependency on CONFIG_MODULES
+  bpf: remove CONFIG_BPF_JIT dependency on CONFIG_MODULES of
+
+ arch/Kconfig                         |   8 +-
+ arch/arm/kernel/module.c             |  34 -------
+ arch/arm/mm/init.c                   |  45 +++++++++
+ arch/arm64/kernel/module.c           | 126 -----------------------
+ arch/arm64/kernel/probes/kprobes.c   |   7 --
+ arch/arm64/mm/init.c                 | 140 ++++++++++++++++++++++++++
+ arch/arm64/net/bpf_jit_comp.c        |  11 --
+ arch/loongarch/kernel/module.c       |   6 --
+ arch/loongarch/mm/init.c             |  21 ++++
+ arch/mips/include/asm/pgtable-64.h   |   4 +-
+ arch/mips/kernel/module.c            |  10 --
+ arch/mips/mm/fault.c                 |   4 +-
+ arch/mips/mm/init.c                  |  23 +++++
+ arch/nios2/include/asm/pgtable.h     |   5 +-
+ arch/nios2/kernel/module.c           |  20 ----
+ arch/nios2/mm/init.c                 |  21 ++++
+ arch/parisc/kernel/module.c          |  12 ---
+ arch/parisc/mm/init.c                |  23 ++++-
+ arch/powerpc/Kconfig                 |   2 +-
+ arch/powerpc/include/asm/kasan.h     |   2 +-
+ arch/powerpc/kernel/head_8xx.S       |   4 +-
+ arch/powerpc/kernel/head_book3s_32.S |   6 +-
+ arch/powerpc/kernel/kprobes.c        |  22 +---
+ arch/powerpc/kernel/module.c         |  38 -------
+ arch/powerpc/lib/code-patching.c     |   2 +-
+ arch/powerpc/mm/book3s32/mmu.c       |   2 +-
+ arch/powerpc/mm/mem.c                |  64 ++++++++++++
+ arch/riscv/kernel/module.c           |  12 ---
+ arch/riscv/kernel/probes/kprobes.c   |  10 --
+ arch/riscv/mm/init.c                 |  45 +++++++++
+ arch/riscv/net/bpf_jit_core.c        |  13 ---
+ arch/s390/kernel/ftrace.c            |   4 +-
+ arch/s390/kernel/kprobes.c           |   4 +-
+ arch/s390/kernel/module.c            |  42 +-------
+ arch/s390/mm/init.c                  |  30 ++++++
+ arch/sparc/include/asm/pgtable_32.h  |   2 +
+ arch/sparc/kernel/module.c           |  30 ------
+ arch/sparc/mm/Makefile               |   2 +
+ arch/sparc/mm/execmem.c              |  21 ++++
+ arch/sparc/net/bpf_jit_comp_32.c     |   8 +-
+ arch/x86/Kconfig                     |   2 +
+ arch/x86/kernel/ftrace.c             |  16 +--
+ arch/x86/kernel/kprobes/core.c       |   4 +-
+ arch/x86/kernel/module.c             |  51 ----------
+ arch/x86/mm/init.c                   |  29 ++++++
+ include/linux/execmem.h              | 132 ++++++++++++++++++++++++
+ include/linux/module.h               |   9 ++
+ include/linux/moduleloader.h         |  15 ---
+ kernel/bpf/Kconfig                   |   2 +-
+ kernel/bpf/core.c                    |   6 +-
+ kernel/kprobes.c                     |  63 +++++++-----
+ kernel/module/Kconfig                |   1 +
+ kernel/module/main.c                 | 105 +++++++++----------
+ kernel/trace/trace_kprobe.c          |  20 +++-
+ mm/Kconfig                           |   3 +
+ mm/Makefile                          |   1 +
+ mm/execmem.c                         | 145 +++++++++++++++++++++++++++
+ mm/mm_init.c                         |   2 +
+ 58 files changed, 910 insertions(+), 581 deletions(-)
+ create mode 100644 arch/sparc/mm/execmem.c
+ create mode 100644 include/linux/execmem.h
+ create mode 100644 mm/execmem.c
+
+
+base-commit: 0bbac3facb5d6cc0171c45c9873a2dc96bea9680
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5984138321105285722==--
-
