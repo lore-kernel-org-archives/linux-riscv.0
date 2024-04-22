@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6407CC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 11:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA686C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 11:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=16OgwE7M6dLJq/B93zFX4Tc/u4waxbQN2ulkD45jKbo=; b=VN0aAf6F1fRJF17OqmTnuT8Q/6
-	rpo2AM5YS38xUtJEu+YWYUK+tyjTnLaB4d/f31zB6qak0SBQie1Kk2+CzZVhTqcO7t2f7vMK1oLbo
-	bpzV6o6SlKEPlQfuCUBu4DK2j45y0yp7LYirJtx7m0AMBCd6/CoxQAtDBD8ZIUkd6dHLDFDv7hSlI
-	zac+nKXMH341ys+ZlqTDdZaTKOBa7YvzecmeOPYEawJeo/ufjm+w3hNbubmcGm9FaGhpf21gylqdT
-	bUZrQqJOH+l2luWq1muoJp+b05hCbB0zmajmEXifsXOC76z/RuCc9sOzSVWKUtEYqX2MVdXsW+tQ/
-	rwKVoZBA==;
+	bh=HFjmVCDY5L4wXliclDmmQsKcEO4w7BM1C9vYLCqyCFc=; b=eemIYNQDmUbMwFlYwh0xbz1Wt8
+	5FjDP7gOhkZgttgUvvlcf1/HBFIgiYwWV6PQ0CuINAwziV2OSvb0jDjotu27BLajJXQz8eKEh+zXg
+	U5cMOtnTB+ZZ8EMV9YbCRIsv9oRaCebSbKf66IXNeJg7gDjv2ZVkFTF8//hXEI8qgcoxoWNIlGSub
+	Ca7Ke1elMZoY13rVnIDKr0m4kQBOlBKLiFlTDpk8IYL1nRDXOe2TiUa/cOBGQurfn7brV2I9L8D5e
+	RgTGf8ZKIApSJWnrH6fXlY+9DyZCq1GPc6wBvRdjD1R07kottqO6W1z9HlCw8gk01jGPsnC2RWawi
+	sLKxH1Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryrii-0000000DKwn-16zt;
-	Mon, 22 Apr 2024 11:20:24 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1ryrzK-0000000DO5S-1vur;
+	Mon, 22 Apr 2024 11:37:34 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryrie-0000000DKuC-2gXs;
-	Mon, 22 Apr 2024 11:20:22 +0000
+	id 1ryrzG-0000000DO4f-3TQE;
+	Mon, 22 Apr 2024 11:37:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1713784820; x=1745320820;
+  t=1713785850; x=1745321850;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=XRSUgOnTV4XErsz5ecolHV/4A/hQBybGq5GAfiFEyPU=;
-  b=RG6zkBpI2gJrLi5Sh2XoRo4u9FL2Y52W69xHdwWonGAondY+oVKghkzR
-   E7UYf7cpjwWQYQ1cab+80fVDJvtRv6jGjgQo/RSvtsDB/GrscjlC+nq+2
-   Nn53g9iteEGeCsnD19g7WRji/UlxDSS6QpKqawjWhnJMaV1b7qbhaK3YC
-   4x8ODvvAMPWs/ks2l/71tf/YFWcULZKaUA0A3/c+FRfM/vxf0ZslnwYah
-   4+In20h8LGMLL09rimOl5y/D/+LSuowy1hYug8eX0SMcgkuAtjEAuPz/t
-   6J1dgnkjfeTjOim+/Ug3Igc9WCNHexVLU6Oy1RN63ekTtfHc6p3gN02+T
-   g==;
-X-CSE-ConnectionGUID: EwlQHltERQKVoL1uwoRBeA==
-X-CSE-MsgGUID: nEu1AlljSHG4Ko1fQpekdA==
+  bh=JirxwaUTPZ7gRRTADFPsE4LALCUoW+coAPWl1mh0lv4=;
+  b=RqinKOa3YBvrd2ksnI43a33yaJO0WTf/AwdFQ86Et6UmqVvKZdzFqWDf
+   5fOk5XnXRZb6KHWxqS9WBdbhLBwFauOKeYw87iaM0U2xxP26nXrQNWEFb
+   DI9APwTSQOIEJ+Yr+/kTXANn6s/A9lKi23U1DyWXyKEmYCQeL+DdSJSjV
+   a8GWkRmb3WIRgoggzZBSqeqf6axfGreoQQxgBdTFHSpUE3BMr+hTqbeCD
+   WA+D8vVE3+fvr23+N/0m3JWBvTf/uK4pcxFo+1O3E1CWVpyEW292DyPMe
+   42kluKHE5k2z0yhC9udXY9+MCojDSeUswXNu4GsxKIxDRzDEZrLekFZ59
+   Q==;
+X-CSE-ConnectionGUID: RWC0UfowTpGbeC6DP7jNJg==
+X-CSE-MsgGUID: E2DBmtQjS3e/5QeweITlcg==
 X-IronPort-AV: E=Sophos;i="6.07,220,1708412400"; 
-   d="asc'?scan'208";a="22052345"
+   d="asc'?scan'208";a="22099120"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Apr 2024 04:20:16 -0700
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Apr 2024 04:37:27 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 22 Apr 2024 04:19:55 -0700
+ 15.1.2507.35; Mon, 22 Apr 2024 04:37:01 -0700
 Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Mon, 22 Apr 2024 04:19:52 -0700
-Date: Mon, 22 Apr 2024 12:19:36 +0100
+ Transport; Mon, 22 Apr 2024 04:36:58 -0700
+Date: Mon, 22 Apr 2024 12:36:42 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
 To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
 CC: Conor Dooley <conor@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Paul
@@ -67,18 +67,19 @@ CC: Conor Dooley <conor@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Paul
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <kvm@vger.kernel.org>,
 	<kvm-riscv@lists.infradead.org>, <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH v2 03/12] dt-bindings: riscv: add Zc* extension rules
- implied by C extension
-Message-ID: <20240422-stumbling-aliens-b408eebe1f32@wendy>
+Subject: Re: [PATCH v2 04/12] riscv: add ISA parsing for Zca, Zcf, Zcd and Zcb
+Message-ID: <20240422-matchbook-unlikable-59987a8d8b1f@wendy>
 References: <20240418124300.1387978-1-cleger@rivosinc.com>
- <20240418124300.1387978-4-cleger@rivosinc.com>
- <20240419-blinked-timid-da722ec6ddc4@spud>
- <f89c79f7-a09e-4fcf-8e16-0875202ade4a@rivosinc.com>
+ <20240418124300.1387978-5-cleger@rivosinc.com>
+ <20240419-clinic-amusing-d23b1b6d2af2@spud>
+ <6ab9e591-f2f2-4267-8bdd-169ef0243e14@rivosinc.com>
+ <20240422-daylight-sassy-ff3b0d867fef@wendy>
+ <032530b8-a26e-494f-bd9c-3e1661add5d4@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <f89c79f7-a09e-4fcf-8e16-0875202ade4a@rivosinc.com>
+In-Reply-To: <032530b8-a26e-494f-bd9c-3e1661add5d4@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240422_042020_774625_FAD80175 
-X-CRM114-Status: GOOD (  39.34  )
+X-CRM114-CacheID: sfid-20240422_043731_393926_DC23D767 
+X-CRM114-Status: GOOD (  25.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,118 +91,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8757938869428453707=="
+Content-Type: multipart/mixed; boundary="===============9098525752596147030=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8757938869428453707==
+--===============9098525752596147030==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="poViDq5TvQtnA831"
+	protocol="application/pgp-signature"; boundary="BQeFG0OJOWz1hKp9"
 Content-Disposition: inline
 
---poViDq5TvQtnA831
+--BQeFG0OJOWz1hKp9
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Apr 22, 2024 at 10:53:04AM +0200, Cl=E9ment L=E9ger wrote:
-> On 19/04/2024 17:49, Conor Dooley wrote:
-> > On Thu, Apr 18, 2024 at 02:42:26PM +0200, Cl=E9ment L=E9ger wrote:
-> >> As stated by Zc* spec:
+On Mon, Apr 22, 2024 at 01:14:26PM +0200, Cl=E9ment L=E9ger wrote:
+> On 22/04/2024 11:35, Conor Dooley wrote:
+> > On Mon, Apr 22, 2024 at 10:53:10AM +0200, Cl=E9ment L=E9ger wrote:
+> >> On 19/04/2024 17:51, Conor Dooley wrote:
+> >>> On Thu, Apr 18, 2024 at 02:42:27PM +0200, Cl=E9ment L=E9ger wrote:
+> >>>> The Zc* standard extension for code reduction introduces new extensi=
+ons.
+> >>>> This patch adds support for Zca, Zcf, Zcd and Zcb. Zce, Zcmt and Zcmp
+> >>>> are left out of this patch since they are targeting microcontrollers/
+> >>>> embedded CPUs instead of application processors.
+> >>>>
+> >>>> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+> >>>> ---
+> >>>>  arch/riscv/include/asm/hwcap.h | 4 ++++
+> >>>>  arch/riscv/kernel/cpufeature.c | 4 ++++
+> >>>>  2 files changed, 8 insertions(+)
+> >>>>
+> >>>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm=
+/hwcap.h
+> >>>> index 543e3ea2da0e..b7551bad341b 100644
+> >>>> --- a/arch/riscv/include/asm/hwcap.h
+> >>>> +++ b/arch/riscv/include/asm/hwcap.h
+> >>>> @@ -82,6 +82,10 @@
+> >>>>  #define RISCV_ISA_EXT_ZACAS		73
+> >>>>  #define RISCV_ISA_EXT_XANDESPMU		74
+> >>>>  #define RISCV_ISA_EXT_ZIMOP		75
+> >>>> +#define RISCV_ISA_EXT_ZCA		76
+> >>>> +#define RISCV_ISA_EXT_ZCB		77
+> >>>> +#define RISCV_ISA_EXT_ZCD		78
+> >>>> +#define RISCV_ISA_EXT_ZCF		79
+> >>>> =20
+> >>>>  #define RISCV_ISA_EXT_XLINUXENVCFG	127
+> >>>> =20
+> >>>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpuf=
+eature.c
+> >>>> index 115ba001f1bc..09dee071274d 100644
+> >>>> --- a/arch/riscv/kernel/cpufeature.c
+> >>>> +++ b/arch/riscv/kernel/cpufeature.c
+> >>>> @@ -261,6 +261,10 @@ const struct riscv_isa_ext_data riscv_isa_ext[]=
+ =3D {
+> >>>>  	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
+> >>>>  	__RISCV_ISA_EXT_DATA(zfh, RISCV_ISA_EXT_ZFH),
+> >>>>  	__RISCV_ISA_EXT_DATA(zfhmin, RISCV_ISA_EXT_ZFHMIN),
+> >>>> +	__RISCV_ISA_EXT_DATA(zca, RISCV_ISA_EXT_ZCA),
+> >>>> +	__RISCV_ISA_EXT_DATA(zcb, RISCV_ISA_EXT_ZCB),
+> >>>> +	__RISCV_ISA_EXT_DATA(zcd, RISCV_ISA_EXT_ZCD),
+> >>>> +	__RISCV_ISA_EXT_DATA(zcf, RISCV_ISA_EXT_ZCF),
+> >>>>  	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
+> >>>>  	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
+> >>>>  	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
+> >>>
+> >>> Ye, this looks exactly like what I "feared".
 > >>
-> >> "As C defines the same instructions as Zca, Zcf and Zcd, the rule is t=
-hat:
-> >>  - C always implies Zca
-> >>  - C+F implies Zcf (RV32 only)
-> >>  - C+D implies Zcd"
-> >>
-> >> Add additionnal validation rules to enforce this in dts.
+> >> Ok but for instance, Qemu actually set Zc* based on C/F/D. So the ISA
+> >> string containing theses dependencies should actually also be allowed.
+> >> So should we simply ignore them in the ISA string and always do our own
+> >> "post-processing" based on C/F/D?
 > >=20
-> > I'll get it out of the way: NAK, and the dts patch is the perfect
-> > example of why. I don't want us to have to continually update
-> > devicetrees. If these are implied due to being subsets of other
-> > extensions, then software should be able to enable them when that
-> > other extension is present.
+> > I'm not familiar with the contents of all of these extensions, but I
+> > assume the reasoning for splitting them out is that you can implement
+> > them but not maybe not implement C (or something similar)? If that's the
+> > case, you cannot always imply.
 >=20
-> Acked.
->=20
-> >=20
-> > My fear is that, and a quick look at the "add probing" commit seemed to
-> > confirm it, new subsets would require updates to the dts, even though
-> > the existing extension is perfectly sufficient to determine presence.
-> >=20
-> > I definitely want to avoid continual updates to the devicetree for churn
-> > reasons whenever subsets are added, but not turning on the likes of Zca
-> > when C is present because "the bindings were updated to enforce this"
-> > is a complete blocker. I do concede that having two parents makes that
-> > more difficult and will likely require some changes to how we probe - do
-> > we need to have a "second round" type thing?
->=20
-> Yeah, I understand. At first, I actually did the modifications in the
-> ISA probing loop with some dependency probing (ie loop while we don't
-> have a stable extension state). But I thought that it was not actually
-> our problem but rather the ISA string provider. For instance, Qemu
-> provides them.
+> Yeah, they can be implemented independently so we need to be able to
+> parse them independently.
+
+> However, the kernel currently requires C
+
+No it doesn't!
+There's a Kconfig option that controls whether or not we build with
+compressed instructions.
+
+> so we
+> should always have Zca/Zcf/Zcd. But if that changes in the future, then,
+> that won't be true anymore. Better keep it generic probably
 
 
-A newer version of QEMU might, but not all do, so I'm not sure that using
-it is a good example. My expectations is that a devicetree will be written
-to the standards of the day and not be updated as subsets are released.
-
-If this were the first instance of a superset/bundle I'd be prepared to
-accept an argument that we should not infer anything - but it's not and
-we'd be introducing inconsistency with the crypto stuff. I know that both
-scenarios are different in terms of extension history given that this is
-splitting things into a subset and that was a superset/bundle created at
-the same time, but they're not really that different in terms of the
-DT/ACPI to user "interface".
-
-> > Taking Zcf as an example, maybe something like making both of C and F i=
-nto
-> > "standard" supersets and adding a case to riscv_isa_extension_check()
-> > that would mandate that Zca and F are enabled before enabling it, and we
-> > would ensure that C implies Zca before it implies Zcf?
->=20
-> I'm afraid that riscv_isa_extension_check() will become a rat nest so
-> rather than going that way, I would be in favor of adding a validation
-> callback for the extensions if needed.
-
-IOW, extension check split out per extension moving to be a callback?
-
-> > Given we'd be relying on ordering, we have to perform the same implicat=
-ion
-> > for both F and C and make sure that the "implies" struct has Zca before=
- Zcf.
-> > I don't really like that suggestion, hopefully there's a nicer way of d=
-oing
-> > that, but I don't like the dt stuff here.
->=20
-> I guess the "cleanest" way would be to have some "defered-like"
-> mechanism in ISA probing which would allow to handle ordering as well as
-> dependencies/implies for extensions. For Zca, Zcf, we actually do not
-> have ordering problems but I think it would be a bit broken not to
-> support that as well.
-
-We could, I suppose, enable all detected extensions on a CPU and run the
-aforemention callback, disabling them if conditions are not met?
-
-Is that something like what you're suggesting?
-
---poViDq5TvQtnA831
+--BQeFG0OJOWz1hKp9
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiZHyAAKCRB4tDGHoIJi
-0rO4AP0QdAfLNIEXKBuCIoQC9LRKn1TSnfbXrn8RTgLezI5EdwD/T7Y7u53/krkw
-V1xB2TSmkQhvtE4QZxoxvt3Mk5aKWwA=
-=Pef2
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiZLygAKCRB4tDGHoIJi
+0rZqAPsH+rOY+xwtmy02hvEj5S0LCo5WHbH42moKe/rg2JsecQD9Efgn3/dHRehg
+SrE0p8oOablre3zPC16fRvmLyILrMAw=
+=iMqf
 -----END PGP SIGNATURE-----
 
---poViDq5TvQtnA831--
+--BQeFG0OJOWz1hKp9--
 
 
---===============8757938869428453707==
+--===============9098525752596147030==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -212,5 +207,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8757938869428453707==--
+--===============9098525752596147030==--
 
