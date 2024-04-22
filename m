@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C4FFC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 04:24:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B696C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 04:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TyvEf9eQv/7XtmFbIUlGqMh9g7kL54R3fbGidKgzX/0=; b=gVtqfvI00Tjaap
-	FwnxqXtDyiLimJIw1Jp8xI/U3T30/zSxOgjtq5zID4xv4v3PLpX7FQ6VZ7f+/GKtW+GDTgFzlg/Kb
-	UY/A3apzUmQy4uVLk1WPpLckBR5e/tZzQNTZ9ARwS00PkMGp0hOs8PNSRBbTrG7e2stE5SeDkMrKG
-	bg+sO8+ewRgTH6rJZXIP3PR/iTpZAbaM8Qjdt4SngHcsDRx6DtivjSDyhLsjh6PbQ7BshqP6dPm5N
-	0x37k3uaISH3iuyRzRM8vBYo4KWVR//Ku9tp6MKd7G3w7mJa9CwiFltlFf+/eMvXFxdUdLxTQmNcq
-	JYnoJUWWDRcmEYEV8d9g==;
+	List-Owner; bh=V9iQI0HSf/7nTBgu4D3SHqkbhEJOuUwtYV0hN6NLVJ0=; b=01ODp88ojVvJaO
+	oRLkP8k7T4z3SgTqG2zqbm+4V3Yak7z0Kc3JMx8PbimUncLNZ3sBYK/4mWmQ3gW/JgbGny+2UHMC5
+	qZWr5ROcmSeuevxiSymn8SqzKkctlJBr1sr5DxPWBruUx5uPZQZBIfg8zEQe2bPxa9SvGIMJpT3P+
+	jPu6jO7ZkNISQgqrmEq8mMKHPMvt6EIALGNrc3mlpzo678svDZtgst4XYOqUjC2shnMX9JwtnuMVI
+	0id3ayb0uiwEpRpVDvJ0+NxHygZ04OprrNsENnyi4IOiURNM30KfXXRiB4i+ZiHrEd6h7ff3UKAyp
+	F16pt7Z+dorW8ZiNQvnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rylE7-0000000ByaJ-0AYk;
-	Mon, 22 Apr 2024 04:24:23 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1rylMd-0000000BzK2-2sgm;
+	Mon, 22 Apr 2024 04:33:11 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rylE3-0000000ByZm-2uJW
+	id 1rylMa-0000000BzJX-03Ga
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Apr 2024 04:24:22 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-343c7fae6e4so3574709f8f.1
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Apr 2024 21:24:19 -0700 (PDT)
+	Mon, 22 Apr 2024 04:33:09 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a55bdf477e5so16747266b.3
+        for <linux-riscv@lists.infradead.org>; Sun, 21 Apr 2024 21:33:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1713759858; x=1714364658; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1713760386; x=1714365186; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=fSaSGiGvfjC+mZWTNxqkMqV3neG4fZMVdkdPk+gn2dY=;
-        b=EdcPfOBahorUReEtChiEw222LqNXVxcsBRBe/WOMaLU8NsQLimk8QaaGo2dfY8+eOO
-         ulooQe+iMVhe3RCpTjVddtjfDMoCONDdQQtIqEcqmvc4L9egplSYF7/Vq244n2gyIfv8
-         O1gz5pkfG7Vh+mKERkBFETIPVNHnqRIUoH6jNuxIfWsH+olR1E+0lFaX4ZCeISgbEATm
-         cNWOWLakr4DNa1JybtqAcotHSgGdxuF4oC6zEj4iEQ7BB4+FbEj/HtJf8od23XfAGdDe
-         0c+vjODY5TiGLGYbUIBsAxMZVxfiDAO2B9iVw5pL1uEREYBxwtiisk3ap/JyQNukF0B9
-         4v0Q==
+        bh=27ulXIgHQAZ0pnwMwZ6wn52owpgh4CzgNBTtHcFxOE0=;
+        b=Uoh/kuUs4Wsw8xb8cCjtfx0WiO/tb6ugxVFTl58+bqWvq2+3c5Rk6QARYnLLdKI3kK
+         lGQrd51nA27oSmAXSIjSXn3Re9X2FaDMAIhpvsiBw6zN8yE6Uzj1eboSSgXKkUvQZouv
+         hra6MCqSzHpKunSc+jgHvoBHjr4XfK3ZfD/JjwEj4S4qDBlah9NI39iY2dJbpW+zwUba
+         Ek5aFYOVboaeH0vWbMHGTBjh4dN4H6ITlLlY81rBX7kWIAJtvZaFvjHbLZN1+dTXu7WB
+         xskaH95WRWL8zYJQhkono7QjRqTf6o3fCUUKWlu/X4CKTODDGNieDPtlW8srXLdguyXY
+         di/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713759858; x=1714364658;
+        d=1e100.net; s=20230601; t=1713760386; x=1714365186;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=fSaSGiGvfjC+mZWTNxqkMqV3neG4fZMVdkdPk+gn2dY=;
-        b=myahEq1FIKRgIDrcII2m3BLI4986Oi9EQA0tBnF654exNFWsiGZqK1zcPbx68JTb6i
-         kw/v6IzzHszxLcXNHcCVsG8aAsJes2AAQlEAtauF+9gkjlT5eFC1pHmg3J60IJUMsRKr
-         igawx/vrCFKdEba+Z1OM0gFFBs1pE6zid45F5mV+qRa/oU+m9+b3pEoJr6SO4Z4+aEEM
-         yrUCgmWcOFs9LohwxpREXIeGDseBP7k8F5SsoEg+H8aXcNhs3zzhrnwFkTkI5J3VKFYY
-         mOAtbfkQRDIyVlpxYUaIoFEhWqrHpghqnKEJ0pJIQ8/jze70yylNbOO8N+K0jKlO/UHQ
-         MbaA==
-X-Gm-Message-State: AOJu0YxBlAfcqn0pPv8NSPTYUrv+GVOAq3FcOsqYOnWaYZrhFjLdqREX
-	a7Lov925c1Kb2ieXt9WODnuBdyQGsjgYoUOnRLlieeTz9fvDXymzjCB299KcsQU=
-X-Google-Smtp-Source: AGHT+IGv2OFu0AoXFD5onc3TVvcVrO0/Q/OpR1hRZGiXrFpLKSawnw0+FOej9cwEjlmRuoKgztS02A==
-X-Received: by 2002:a05:6000:4008:b0:34b:88f:a62f with SMTP id cp8-20020a056000400800b0034b088fa62fmr1361928wrb.10.1713759857274;
-        Sun, 21 Apr 2024 21:24:17 -0700 (PDT)
+        bh=27ulXIgHQAZ0pnwMwZ6wn52owpgh4CzgNBTtHcFxOE0=;
+        b=Rqqus3Di3SJJQAk8lvkTshphPx2k/O+zuNbqNaVAnIemFelptlenqECdQ/We69Gmxq
+         rZdy9j0G/C9Jbp3zfGkpf4zeNSeu5t0sNgQKKtx3pC8FwfLV6LhvWbclDAMOsZolQzA1
+         RlqRIo/gLqzKOtV1xPVGtgGiMHoDN4z9cmDAjKm/utNTNtkBSE9QCljQG3ftYJiZrbLU
+         dlp/VXCKVr+0RurbM8Bb782l9G39pWM+neJ5ntQrIC3jSXdxql3NlpDlixfUIiTFoURh
+         4rD3HCN88OtWK3nET6Crdry1PC2dgXHheUVvOikg6dLMv4xXeICtT9aBbhA8u2apiKUe
+         0bSA==
+X-Forwarded-Encrypted: i=1; AJvYcCUkREoccVMic8xqIs9JA4ck687QQMArr5mnCmBXxhoEvTnw4/UonUpiow5s3FBl4u1CK6oROc1KBg0/G5q5i6/Z/6BmjJK1VENu41s6pXOS
+X-Gm-Message-State: AOJu0YwiTdKAqZPmrgxFFxUzXVNcciaSNXOkja5UTKG3EDqpdYPsygWC
+	v8oBiiwxnJN4mOYgX46JqQkFe63JIezAjJzegAwDYvnFCHZpkiVLvltw3fLGNQPCK704hSOXv7D
+	T
+X-Google-Smtp-Source: AGHT+IHy6EB1RfBLzTW7YYnHTiEyNty+OT61ObV9h/+Efpclz82Os1ytRbJHi05MC7aUS+TBaUIf1Q==
+X-Received: by 2002:a17:907:724f:b0:a52:5493:a0b9 with SMTP id ds15-20020a170907724f00b00a525493a0b9mr10951781ejc.39.1713760385652;
+        Sun, 21 Apr 2024 21:33:05 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.223.16])
-        by smtp.gmail.com with ESMTPSA id q6-20020a05600c46c600b0041892857924sm15225398wmo.36.2024.04.21.21.24.15
+        by smtp.gmail.com with ESMTPSA id h5-20020a170906590500b00a4a396ba54asm5275387ejq.93.2024.04.21.21.33.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 21 Apr 2024 21:24:16 -0700 (PDT)
-Message-ID: <71f2e031-41b0-4a47-9bdd-e8fb6334da5d@linaro.org>
-Date: Mon, 22 Apr 2024 06:24:14 +0200
+        Sun, 21 Apr 2024 21:33:04 -0700 (PDT)
+Message-ID: <7c446e3d-43ed-410e-8440-db246474a944@linaro.org>
+Date: Mon, 22 Apr 2024 06:33:03 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/2] dt-bindings: riscv: add Milk-V Duo S board
- compatibles
-To: Michael Opdenacker <michael.opdenacker@bootlin.com>,
- Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v1 1/2] dt-bindings: dwc2: Add bindings for new Canaan
+ Kendryte K230 SoC
+To: Yangyu Chen <cyy@cyyself.name>, linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Chao Wei <chao.wei@sophgo.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
-References: <20240421055710.143617-1-michael.opdenacker@bootlin.com>
- <20240421055710.143617-2-michael.opdenacker@bootlin.com>
- <c30cc11a-209a-4919-a382-7588daff0d71@linaro.org>
- <b1f59075-f2b0-4f2c-aea3-bc596ac45f1c@bootlin.com>
+References: <tencent_E9B853316D217B8D1E7CDF8288DA5E8ED908@qq.com>
+ <tencent_31510A9A680F39CAE25AC60485043772F00A@qq.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -128,10 +126,11 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <b1f59075-f2b0-4f2c-aea3-bc596ac45f1c@bootlin.com>
+In-Reply-To: <tencent_31510A9A680F39CAE25AC60485043772F00A@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240421_212419_900078_FB359E77 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20240421_213308_178237_B9F03705 
+X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,34 +147,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/04/2024 20:55, Michael Opdenacker wrote:
-> Hi Krzysztof
+On 21/04/2024 14:53, Yangyu Chen wrote:
+> Add the dwc2 bindings for the Canaan Kendryte K230 SoC from Canaan.
 > 
-> On 4/21/24 at 16:12, Krzysztof Kozlowski wrote:
->> On 21/04/2024 07:57, michael.opdenacker@bootlin.com wrote:
->>> From: Michael Opdenacker <michael.opdenacker@bootlin.com>
->>>
->>> Document the compatible strings for the Milk-V Duo S board[1] which uses
->>> the SOPHGO SG2000 SoC, compatible with the CV1812H SoC[2].
->>>
->>> Link: https://milkv.io/duo-s [1]
->>> Link: https://en.sophgo.com/product/introduce/cv181xH.html [2]
->>>
->>> Signed-off-by: Michael Opdenacker <michael.opdenacker@bootlin.com>
->>> ---
->> Where is the changelog? It's v6!
-> 
-> Oops, it was in my cover letter 
-> (https://lore.kernel.org/linux-riscv/20240421055710.143617-1-michael.opdenacker@bootlin.com/T/#t), 
-> which you didn't get because of get-maintainer.pl. As the recipients are 
-> patch dependent, am I supposed to describe the changes in all patches 
-> and not only in the cover letter?
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> ---
+>  Documentation/devicetree/bindings/usb/dwc2.yaml | 3 +++
 
-If you do not send the changelog to everyone, then yes, please describe
-respective changes in each patch.
-
-It's your choice, but if you decide not to send cover letter to some
-folks, then *it does not exist* for such folks.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
