@@ -4,92 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E3F8C07C79
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 11:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6407CC4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Apr 2024 11:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DcyUYKjAbDNm0YGnLRwenKRkxRubz4PAUVmg+m/kbUg=; b=KsODnwR7cKCDD8
-	8AInkshIst5pQTsURdbXqnNk85OLejSimObNmiMhdZgM2OfMgqOv9/SHWbzY9rhQybEJC59kwEqDe
-	KRgCx9gXxPSCrQZA5uMZn5H4Cq5kXi3DcaYuQChzq/eEH703m61gfKbqgxv66DJvqeZEyoOxg/1OP
-	eORFnVNgBY4vH38tG0m8Gaq6Xa1hYwwBbRTbTV23PTHWvDtSv6lRuRF5zjzPOEDgcMMEyX6VUXiIx
-	HYuRxe0Yw8R9it0rVSNdfbpZ49kAIwFmXZPLOekdUpdsmo1o9Gg8mkhDanbjAmlgXibZwKnFj+2uj
-	5TOaq4AYbxv25TIhtX9Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=16OgwE7M6dLJq/B93zFX4Tc/u4waxbQN2ulkD45jKbo=; b=VN0aAf6F1fRJF17OqmTnuT8Q/6
+	rpo2AM5YS38xUtJEu+YWYUK+tyjTnLaB4d/f31zB6qak0SBQie1Kk2+CzZVhTqcO7t2f7vMK1oLbo
+	bpzV6o6SlKEPlQfuCUBu4DK2j45y0yp7LYirJtx7m0AMBCd6/CoxQAtDBD8ZIUkd6dHLDFDv7hSlI
+	zac+nKXMH341ys+ZlqTDdZaTKOBa7YvzecmeOPYEawJeo/ufjm+w3hNbubmcGm9FaGhpf21gylqdT
+	bUZrQqJOH+l2luWq1muoJp+b05hCbB0zmajmEXifsXOC76z/RuCc9sOzSVWKUtEYqX2MVdXsW+tQ/
+	rwKVoZBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryrd3-0000000DJlE-0kB4;
-	Mon, 22 Apr 2024 11:14:33 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1ryrii-0000000DKwn-16zt;
+	Mon, 22 Apr 2024 11:20:24 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ryrcz-0000000DJj2-3ttj
-	for linux-riscv@lists.infradead.org;
-	Mon, 22 Apr 2024 11:14:31 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-349a31b2babso631800f8f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Apr 2024 04:14:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713784468; x=1714389268; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=txTWpp1pw11cuzo3l6Yv3qVL9j61JY83c5SyuufTWno=;
-        b=ZaR2wRQUvzky/gRFLAQ4df2AYHibV7nSzjDAy+c6gwisHM3KFrB1VATtCx6eaOEDYg
-         Sllk1Ab2+4joLbStlro8n7nzmWn0VXwLahXBLKaPjwv9iIbeUhwSljyNE34v/5KBKzOS
-         nloVhvX98ojDyVCtIX8wtNvoz5Tpd0PMkKnKXrdmabYBJfGTlX+xl9kFMht47fZkrSTI
-         qyD++HWydlHXsprV16JyWLDchalt+w9A5hci+ThfEHIxHUeeBUTKGK/tfmQRopDP/6nO
-         +TaLWyLexCFtRT9TiS9mKndwu8ZcU5MAkwgKBrjaBU9hpE7dHwxVptC7V/5r6Eo9SBGs
-         286Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713784468; x=1714389268;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=txTWpp1pw11cuzo3l6Yv3qVL9j61JY83c5SyuufTWno=;
-        b=JiMyMYl2g9A1E5X2jBZN4IfyDzGeTQP8LOLKy4fsxHlLdsmINcYpeuh1pqRKDnX/Ti
-         zhQC07KuoylEZ8f1eWGTDVBp0y1tkNVjdTvSQy5dA4fdvBPDAGH6T55tC2RWxQILnTbP
-         i992YaTCRrdCOxDgh9vc/8lDnojZoFqjhbDYN2bnlLBCvBriz4jM0n2QWVjrkFORXKWw
-         j1GCuX0XgdGjCD4oBCR1RqnCbIexQeYBDdouoK7fGhv+EoO9Gi+5Sh/SpSgGRT7cloPf
-         FfaL27NeuMR4Ojw5WJ073yhmTs9qOmTMS3koZPpknMrQloWLiwJp9NxRq3ludk6iF9Ce
-         YI8g==
-X-Forwarded-Encrypted: i=1; AJvYcCWYQak9iUsQjFQyIxXiE/XmPe1nVeMpL59fJJFDGyJEVwsL8V0Te2c9F/eyrY81J2KGfK7VC8eUuhemXcB2gdHfzC24w4FddVc9usM2ujqY
-X-Gm-Message-State: AOJu0YwUaTm23VvZxiPMeQqaplePmgnAnXxN83K5VFTag+/9B5a3rCHE
-	RcUQGdEa98LyhkYCVbVE9rZcYTbkRdGRk+T6VTQlQFIF66gFo+UJ8pyot85xlJw=
-X-Google-Smtp-Source: AGHT+IFg50yN4QrZNx2LlD1EJ2tT/EI9hFZ2bUjcoiDOKnV7sj3JlUWpq/52eyPbnKALbKb6A7dtxw==
-X-Received: by 2002:a5d:6511:0:b0:34a:f759:271d with SMTP id x17-20020a5d6511000000b0034af759271dmr2082090wru.6.1713784467909;
-        Mon, 22 Apr 2024 04:14:27 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:999:a3a0:9f43:3ca4:162c:d540? ([2a01:e0a:999:a3a0:9f43:3ca4:162c:d540])
-        by smtp.gmail.com with ESMTPSA id cg3-20020a5d5cc3000000b00349bd105089sm11706450wrb.47.2024.04.22.04.14.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 22 Apr 2024 04:14:27 -0700 (PDT)
-Message-ID: <032530b8-a26e-494f-bd9c-3e1661add5d4@rivosinc.com>
-Date: Mon, 22 Apr 2024 13:14:26 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/12] riscv: add ISA parsing for Zca, Zcf, Zcd and Zcb
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Conor Dooley <conor@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
- Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+	id 1ryrie-0000000DKuC-2gXs;
+	Mon, 22 Apr 2024 11:20:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1713784820; x=1745320820;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=XRSUgOnTV4XErsz5ecolHV/4A/hQBybGq5GAfiFEyPU=;
+  b=RG6zkBpI2gJrLi5Sh2XoRo4u9FL2Y52W69xHdwWonGAondY+oVKghkzR
+   E7UYf7cpjwWQYQ1cab+80fVDJvtRv6jGjgQo/RSvtsDB/GrscjlC+nq+2
+   Nn53g9iteEGeCsnD19g7WRji/UlxDSS6QpKqawjWhnJMaV1b7qbhaK3YC
+   4x8ODvvAMPWs/ks2l/71tf/YFWcULZKaUA0A3/c+FRfM/vxf0ZslnwYah
+   4+In20h8LGMLL09rimOl5y/D/+LSuowy1hYug8eX0SMcgkuAtjEAuPz/t
+   6J1dgnkjfeTjOim+/Ug3Igc9WCNHexVLU6Oy1RN63ekTtfHc6p3gN02+T
+   g==;
+X-CSE-ConnectionGUID: EwlQHltERQKVoL1uwoRBeA==
+X-CSE-MsgGUID: nEu1AlljSHG4Ko1fQpekdA==
+X-IronPort-AV: E=Sophos;i="6.07,220,1708412400"; 
+   d="asc'?scan'208";a="22052345"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Apr 2024 04:20:16 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 22 Apr 2024 04:19:55 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Mon, 22 Apr 2024 04:19:52 -0700
+Date: Mon, 22 Apr 2024 12:19:36 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+CC: Conor Dooley <conor@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Anup Patel
+	<anup@brainfault.org>, Shuah Khan <shuah@kernel.org>, Atish Patra
+	<atishp@atishpatra.org>, <linux-doc@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <kvm@vger.kernel.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH v2 03/12] dt-bindings: riscv: add Zc* extension rules
+ implied by C extension
+Message-ID: <20240422-stumbling-aliens-b408eebe1f32@wendy>
 References: <20240418124300.1387978-1-cleger@rivosinc.com>
- <20240418124300.1387978-5-cleger@rivosinc.com>
- <20240419-clinic-amusing-d23b1b6d2af2@spud>
- <6ab9e591-f2f2-4267-8bdd-169ef0243e14@rivosinc.com>
- <20240422-daylight-sassy-ff3b0d867fef@wendy>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20240422-daylight-sassy-ff3b0d867fef@wendy>
+ <20240418124300.1387978-4-cleger@rivosinc.com>
+ <20240419-blinked-timid-da722ec6ddc4@spud>
+ <f89c79f7-a09e-4fcf-8e16-0875202ade4a@rivosinc.com>
+MIME-Version: 1.0
+In-Reply-To: <f89c79f7-a09e-4fcf-8e16-0875202ade4a@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240422_041430_099236_21480324 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20240422_042020_774625_FAD80175 
+X-CRM114-Status: GOOD (  39.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,63 +90,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8757938869428453707=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMi8wNC8yMDI0IDExOjM1LCBDb25vciBEb29sZXkgd3JvdGU6Cj4gT24gTW9uLCBBcHIg
-MjIsIDIwMjQgYXQgMTA6NTM6MTBBTSArMDIwMCwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+PiBP
-biAxOS8wNC8yMDI0IDE3OjUxLCBDb25vciBEb29sZXkgd3JvdGU6Cj4+PiBPbiBUaHUsIEFwciAx
-OCwgMjAyNCBhdCAwMjo0MjoyN1BNICswMjAwLCBDbMOpbWVudCBMw6lnZXIgd3JvdGU6Cj4+Pj4g
-VGhlIFpjKiBzdGFuZGFyZCBleHRlbnNpb24gZm9yIGNvZGUgcmVkdWN0aW9uIGludHJvZHVjZXMg
-bmV3IGV4dGVuc2lvbnMuCj4+Pj4gVGhpcyBwYXRjaCBhZGRzIHN1cHBvcnQgZm9yIFpjYSwgWmNm
-LCBaY2QgYW5kIFpjYi4gWmNlLCBaY210IGFuZCBaY21wCj4+Pj4gYXJlIGxlZnQgb3V0IG9mIHRo
-aXMgcGF0Y2ggc2luY2UgdGhleSBhcmUgdGFyZ2V0aW5nIG1pY3JvY29udHJvbGxlcnMvCj4+Pj4g
-ZW1iZWRkZWQgQ1BVcyBpbnN0ZWFkIG9mIGFwcGxpY2F0aW9uIHByb2Nlc3NvcnMuCj4+Pj4KPj4+
-PiBTaWduZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5jb20+Cj4+
-Pj4gLS0tCj4+Pj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCB8IDQgKysrKwo+Pj4+
-ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgfCA0ICsrKysKPj4+PiAgMiBmaWxlcyBj
-aGFuZ2VkLCA4IGluc2VydGlvbnMoKykKPj4+Pgo+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL2h3Y2FwLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPj4+
-PiBpbmRleCA1NDNlM2VhMmRhMGUuLmI3NTUxYmFkMzQxYiAxMDA2NDQKPj4+PiAtLS0gYS9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL2h3Y2FwLmgKPj4+PiBAQCAtODIsNiArODIsMTAgQEAKPj4+PiAgI2RlZmluZSBSSVNDVl9J
-U0FfRVhUX1pBQ0FTCQk3Mwo+Pj4+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWEFOREVTUE1VCQk3
-NAo+Pj4+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWklNT1AJCTc1Cj4+Pj4gKyNkZWZpbmUgUklT
-Q1ZfSVNBX0VYVF9aQ0EJCTc2Cj4+Pj4gKyNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aQ0IJCTc3Cj4+
-Pj4gKyNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aQ0QJCTc4Cj4+Pj4gKyNkZWZpbmUgUklTQ1ZfSVNB
-X0VYVF9aQ0YJCTc5Cj4+Pj4gIAo+Pj4+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWExJTlVYRU5W
-Q0ZHCTEyNwo+Pj4+ICAKPj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVh
-dHVyZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4+Pj4gaW5kZXggMTE1YmEw
-MDFmMWJjLi4wOWRlZTA3MTI3NGQgMTAwNjQ0Cj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwv
-Y3B1ZmVhdHVyZS5jCj4+Pj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4+
-Pj4gQEAgLTI2MSw2ICsyNjEsMTAgQEAgY29uc3Qgc3RydWN0IHJpc2N2X2lzYV9leHRfZGF0YSBy
-aXNjdl9pc2FfZXh0W10gPSB7Cj4+Pj4gIAlfX1JJU0NWX0lTQV9FWFRfREFUQSh6ZmEsIFJJU0NW
-X0lTQV9FWFRfWkZBKSwKPj4+PiAgCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpmaCwgUklTQ1ZfSVNB
-X0VYVF9aRkgpLAo+Pj4+ICAJX19SSVNDVl9JU0FfRVhUX0RBVEEoemZobWluLCBSSVNDVl9JU0Ff
-RVhUX1pGSE1JTiksCj4+Pj4gKwlfX1JJU0NWX0lTQV9FWFRfREFUQSh6Y2EsIFJJU0NWX0lTQV9F
-WFRfWkNBKSwKPj4+PiArCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpjYiwgUklTQ1ZfSVNBX0VYVF9a
-Q0IpLAo+Pj4+ICsJX19SSVNDVl9JU0FfRVhUX0RBVEEoemNkLCBSSVNDVl9JU0FfRVhUX1pDRCks
-Cj4+Pj4gKwlfX1JJU0NWX0lTQV9FWFRfREFUQSh6Y2YsIFJJU0NWX0lTQV9FWFRfWkNGKSwKPj4+
-PiAgCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpiYSwgUklTQ1ZfSVNBX0VYVF9aQkEpLAo+Pj4+ICAJ
-X19SSVNDVl9JU0FfRVhUX0RBVEEoemJiLCBSSVNDVl9JU0FfRVhUX1pCQiksCj4+Pj4gIAlfX1JJ
-U0NWX0lTQV9FWFRfREFUQSh6YmMsIFJJU0NWX0lTQV9FWFRfWkJDKSwKPj4+Cj4+PiBZZSwgdGhp
-cyBsb29rcyBleGFjdGx5IGxpa2Ugd2hhdCBJICJmZWFyZWQiLgo+Pgo+PiBPayBidXQgZm9yIGlu
-c3RhbmNlLCBRZW11IGFjdHVhbGx5IHNldCBaYyogYmFzZWQgb24gQy9GL0QuIFNvIHRoZSBJU0EK
-Pj4gc3RyaW5nIGNvbnRhaW5pbmcgdGhlc2VzIGRlcGVuZGVuY2llcyBzaG91bGQgYWN0dWFsbHkg
-YWxzbyBiZSBhbGxvd2VkLgo+PiBTbyBzaG91bGQgd2Ugc2ltcGx5IGlnbm9yZSB0aGVtIGluIHRo
-ZSBJU0Egc3RyaW5nIGFuZCBhbHdheXMgZG8gb3VyIG93bgo+PiAicG9zdC1wcm9jZXNzaW5nIiBi
-YXNlZCBvbiBDL0YvRD8KPiAKPiBJJ20gbm90IGZhbWlsaWFyIHdpdGggdGhlIGNvbnRlbnRzIG9m
-IGFsbCBvZiB0aGVzZSBleHRlbnNpb25zLCBidXQgSQo+IGFzc3VtZSB0aGUgcmVhc29uaW5nIGZv
-ciBzcGxpdHRpbmcgdGhlbSBvdXQgaXMgdGhhdCB5b3UgY2FuIGltcGxlbWVudAo+IHRoZW0gYnV0
-IG5vdCBtYXliZSBub3QgaW1wbGVtZW50IEMgKG9yIHNvbWV0aGluZyBzaW1pbGFyKT8gSWYgdGhh
-dCdzIHRoZQo+IGNhc2UsIHlvdSBjYW5ub3QgYWx3YXlzIGltcGx5LgoKWWVhaCwgdGhleSBjYW4g
-YmUgaW1wbGVtZW50ZWQgaW5kZXBlbmRlbnRseSBzbyB3ZSBuZWVkIHRvIGJlIGFibGUgdG8KcGFy
-c2UgdGhlbSBpbmRlcGVuZGVudGx5LiBIb3dldmVyLCB0aGUga2VybmVsIGN1cnJlbnRseSByZXF1
-aXJlcyBDIHNvIHdlCnNob3VsZCBhbHdheXMgaGF2ZSBaY2EvWmNmL1pjZC4gQnV0IGlmIHRoYXQg
-Y2hhbmdlcyBpbiB0aGUgZnV0dXJlLCB0aGVuLAp0aGF0IHdvbid0IGJlIHRydWUgYW55bW9yZS4g
-QmV0dGVyIGtlZXAgaXQgZ2VuZXJpYyBwcm9iYWJseQoKQ2zDqW1lbnQKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+--===============8757938869428453707==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="poViDq5TvQtnA831"
+Content-Disposition: inline
+
+--poViDq5TvQtnA831
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Apr 22, 2024 at 10:53:04AM +0200, Cl=E9ment L=E9ger wrote:
+> On 19/04/2024 17:49, Conor Dooley wrote:
+> > On Thu, Apr 18, 2024 at 02:42:26PM +0200, Cl=E9ment L=E9ger wrote:
+> >> As stated by Zc* spec:
+> >>
+> >> "As C defines the same instructions as Zca, Zcf and Zcd, the rule is t=
+hat:
+> >>  - C always implies Zca
+> >>  - C+F implies Zcf (RV32 only)
+> >>  - C+D implies Zcd"
+> >>
+> >> Add additionnal validation rules to enforce this in dts.
+> >=20
+> > I'll get it out of the way: NAK, and the dts patch is the perfect
+> > example of why. I don't want us to have to continually update
+> > devicetrees. If these are implied due to being subsets of other
+> > extensions, then software should be able to enable them when that
+> > other extension is present.
+>=20
+> Acked.
+>=20
+> >=20
+> > My fear is that, and a quick look at the "add probing" commit seemed to
+> > confirm it, new subsets would require updates to the dts, even though
+> > the existing extension is perfectly sufficient to determine presence.
+> >=20
+> > I definitely want to avoid continual updates to the devicetree for churn
+> > reasons whenever subsets are added, but not turning on the likes of Zca
+> > when C is present because "the bindings were updated to enforce this"
+> > is a complete blocker. I do concede that having two parents makes that
+> > more difficult and will likely require some changes to how we probe - do
+> > we need to have a "second round" type thing?
+>=20
+> Yeah, I understand. At first, I actually did the modifications in the
+> ISA probing loop with some dependency probing (ie loop while we don't
+> have a stable extension state). But I thought that it was not actually
+> our problem but rather the ISA string provider. For instance, Qemu
+> provides them.
+
+
+A newer version of QEMU might, but not all do, so I'm not sure that using
+it is a good example. My expectations is that a devicetree will be written
+to the standards of the day and not be updated as subsets are released.
+
+If this were the first instance of a superset/bundle I'd be prepared to
+accept an argument that we should not infer anything - but it's not and
+we'd be introducing inconsistency with the crypto stuff. I know that both
+scenarios are different in terms of extension history given that this is
+splitting things into a subset and that was a superset/bundle created at
+the same time, but they're not really that different in terms of the
+DT/ACPI to user "interface".
+
+> > Taking Zcf as an example, maybe something like making both of C and F i=
+nto
+> > "standard" supersets and adding a case to riscv_isa_extension_check()
+> > that would mandate that Zca and F are enabled before enabling it, and we
+> > would ensure that C implies Zca before it implies Zcf?
+>=20
+> I'm afraid that riscv_isa_extension_check() will become a rat nest so
+> rather than going that way, I would be in favor of adding a validation
+> callback for the extensions if needed.
+
+IOW, extension check split out per extension moving to be a callback?
+
+> > Given we'd be relying on ordering, we have to perform the same implicat=
+ion
+> > for both F and C and make sure that the "implies" struct has Zca before=
+ Zcf.
+> > I don't really like that suggestion, hopefully there's a nicer way of d=
+oing
+> > that, but I don't like the dt stuff here.
+>=20
+> I guess the "cleanest" way would be to have some "defered-like"
+> mechanism in ISA probing which would allow to handle ordering as well as
+> dependencies/implies for extensions. For Zca, Zcf, we actually do not
+> have ordering problems but I think it would be a bit broken not to
+> support that as well.
+
+We could, I suppose, enable all detected extensions on a CPU and run the
+aforemention callback, disabling them if conditions are not met?
+
+Is that something like what you're suggesting?
+
+--poViDq5TvQtnA831
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiZHyAAKCRB4tDGHoIJi
+0rO4AP0QdAfLNIEXKBuCIoQC9LRKn1TSnfbXrn8RTgLezI5EdwD/T7Y7u53/krkw
+V1xB2TSmkQhvtE4QZxoxvt3Mk5aKWwA=
+=Pef2
+-----END PGP SIGNATURE-----
+
+--poViDq5TvQtnA831--
+
+
+--===============8757938869428453707==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8757938869428453707==--
+
