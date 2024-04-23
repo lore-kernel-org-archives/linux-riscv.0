@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3083AC04FF8
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Apr 2024 08:57:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB2E0C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Apr 2024 08:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
 	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=84qin7GbAWbyus1/xcyFhOJPfDT+OOzI59CuxEktd9A=; b=SZOl9hVWRr8gqs
-	GHC2i2xVeihVL/biWiGCt9a5rG8PXtlFbBwoxnTUXRLmpbXVGHUtvsNNoscast25wgGser8L1KlVM
-	Pk8ZKwjVwKgKALW8/IgSr5iosndmEdenCB6jFENItqvRDCbQ3/IKKV2sXtFpTuOnTFKuL38tRKORc
-	BWO9xkHBz978FK8SbEGvKHfWEPEtQfOlO/yXcsYlrlL2l4oiFZ2YLZ9NFZY6goSjcm8q4WbacWCOL
-	CNkmvKWrfFAxX+J0s6LbV6TthxLl0fEq8n0wiTRBKgW+jixQaF9G3e7ov29SVj7Q00D26v43tnHXI
-	P5NVpdA6seqhCKvgkzYw==;
+	List-Owner; bh=noSgYEdovrDa13pLHfO/hmZMaCT2PlsqENYBURSe0DE=; b=A0E4IafH4CJ8rw
+	bGVyyp4P126S4XVNiSjQ1XyraPr3KJe4o8+K37vZJwg7ZXdvVjnAiZAgvDJz1/7/3+2EES0/hEd6n
+	ZCf0EmyIyAhpi3Lg4TlqCWW9dG7x4Xd/9FXMeRlrcuG7N/FZ9mZkTLyv4//9+aGvDWedCz6y8JOdy
+	sk9AehE8Cdx/rkKN2ZWQX79wk9VZ4dkM9gbjZH/OYJeyvn7eY9yV5/SjOOn7cjp0fMhOo3cI9+oE/
+	7mz43NrHZrJiGv4gwgyiTA/T0SV3kpcYti0H58gPzSNWG2ufcrm6mF95ocvKBHPZcneJkqh5BAiVE
+	CcqBXzuH5H35E4b5lyBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzByA-0000000GYNu-1n87;
-	Tue, 23 Apr 2024 08:57:42 +0000
-Received: from madrid.collaboradmins.com ([2a00:1098:ed:100::25])
+	id 1rzByh-0000000GYgp-3W4z;
+	Tue, 23 Apr 2024 08:58:15 +0000
+Received: from madrid.collaboradmins.com ([46.235.227.194])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzBy6-0000000GYKU-0Nn2;
-	Tue, 23 Apr 2024 08:57:39 +0000
+	id 1rzByd-0000000GYdi-11re;
+	Tue, 23 Apr 2024 08:58:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1713862656;
-	bh=8DzYTWeR1MFLHFT73kWX3M2k0VGpj5e6788N1mCfWks=;
+	s=mail; t=1713862690;
+	bh=L/PIHK5+MUSnlGJTRqiF36FvWG0X7EQOemV2hQ9TZUM=;
 	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=0m7xbwAuFCRZIYDNvnWtD5eJOkrf68SA+gwQQt04r4jJauSM2UG2ME2BaMD3Gu+Qp
-	 PkAcVeGivyAlyl9eaiR0AhKoPy8W4sMjKqy8on3ig6xfTae8tzSZ6NKhEvNNigHfSK
-	 KR7inMbFiTGX+PuckTGLTXzSDDNuHzR6TRjPOAcBGuTr5l3FkpYyCUzDetm0FKqpKb
-	 a8Z9HRooZNI/7CxxXvjvjnpZPNcON8w2t3rxlWlnvcm2b2d0+Epy9jVmAnGGSMCw7U
-	 MotP90H7HqrsgrHem01kTEN7yLhX5QYiDm4p+Of5ED3bSzeEYOpR+XoCYl0XxnDk+f
-	 e7TmfzPNyxd8Q==
+	b=vXf+/DXaADWNVr+F5/n1bwojDoFgaDmpU/WJSb2zTdyEeWktQMCE3D7vvSnjZFabI
+	 p0fiBT+WyCSg6qrpW8BBorzpyBYvXWtXWpUg7X15fhEmR4x7dONbPl93y0Xrcq+UYI
+	 zTCYmZDav+zzqhqVDrVADzYpOo9H0OPzoIjY6VLoDnPXCCjKkxxrU40dxZ0xPxYBOZ
+	 j2/lymoEz6fxlDqa7D9lVAT3s3Z3UUw3BupJWzyl4XJS8xOnJnlPNIEAAKFhQpmhqj
+	 IWCV72eKoodxgflK0gwFSr8dLBHglenUQvmk6Zwqalalnpx7hO0EJ8rE0s42t5Lul+
+	 2qz2wTqJkaavg==
 Received: from [10.193.1.1] (broslavsky.collaboradmins.com [68.183.210.73])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: usama.anjum)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 39F6F3781183;
-	Tue, 23 Apr 2024 08:57:28 +0000 (UTC)
-Message-ID: <4f4ca27c-846e-4f8a-928d-fa680c51361c@collabora.com>
-Date: Tue, 23 Apr 2024 13:58:02 +0500
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 792B23780016;
+	Tue, 23 Apr 2024 08:58:02 +0000 (UTC)
+Message-ID: <ab2d90ee-6fc9-4149-bf00-dd0cf53d5496@collabora.com>
+Date: Tue, 23 Apr 2024 13:58:32 +0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Cc: Muhammad Usama Anjum <usama.anjum@collabora.com>,
- Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>,
+ Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
  Ajay Kaher <ajay.kaher@broadcom.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Alexandre Ghiti <alexghiti@rivosinc.com>, samuel.holland@sifive.com,
  Conor Dooley <conor.dooley@microchip.com>, Juergen Gross <jgross@suse.com>,
@@ -58,17 +58,17 @@ Cc: Muhammad Usama Anjum <usama.anjum@collabora.com>,
  Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley
  <paul.walmsley@sifive.com>, Shuah Khan <shuah@kernel.org>,
  virtualization@lists.linux.dev, Will Deacon <will@kernel.org>, x86@kernel.org
-Subject: Re: [PATCH v8 19/24] KVM: riscv: selftests: Add Sscofpmf to
- get-reg-list test
+Subject: Re: [PATCH v8 20/24] KVM: riscv: selftests: Add SBI PMU extension
+ definitions
 To: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org
 References: <20240420151741.962500-1-atishp@rivosinc.com>
- <20240420151741.962500-20-atishp@rivosinc.com>
+ <20240420151741.962500-21-atishp@rivosinc.com>
 Content-Language: en-US
 From: Muhammad Usama Anjum <usama.anjum@collabora.com>
-In-Reply-To: <20240420151741.962500-20-atishp@rivosinc.com>
+In-Reply-To: <20240420151741.962500-21-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240423_015738_303778_A00C8C33 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20240423_015811_517125_D61897FB 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,56 +86,108 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 4/20/24 8:17 PM, Atish Patra wrote:
-> The KVM RISC-V allows Sscofpmf extension for Guest/VM so let us
-> add this extension to get-reg-list test.
+> The SBI PMU extension definition is required for upcoming SBI PMU
+> selftests.
 > 
-> Reviewed-by: Anup Patel <anup@brainfault.org>
 > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 LGTM
 
 Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
 
 > ---
->  tools/testing/selftests/kvm/riscv/get-reg-list.c | 4 ++++
->  1 file changed, 4 insertions(+)
+>  .../testing/selftests/kvm/include/riscv/sbi.h | 66 +++++++++++++++++++
+>  1 file changed, 66 insertions(+)
 > 
-> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> index b882b7b9b785..222198dd6d04 100644
-> --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -43,6 +43,7 @@ bool filter_reg(__u64 reg)
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_V:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SMSTATEEN:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSAIA:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSCOFPMF:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSTC:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVINVAL:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVNAPOT:
-> @@ -408,6 +409,7 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
->  		KVM_ISA_EXT_ARR(V),
->  		KVM_ISA_EXT_ARR(SMSTATEEN),
->  		KVM_ISA_EXT_ARR(SSAIA),
-> +		KVM_ISA_EXT_ARR(SSCOFPMF),
->  		KVM_ISA_EXT_ARR(SSTC),
->  		KVM_ISA_EXT_ARR(SVINVAL),
->  		KVM_ISA_EXT_ARR(SVNAPOT),
-> @@ -931,6 +933,7 @@ KVM_ISA_EXT_SUBLIST_CONFIG(fp_f, FP_F);
->  KVM_ISA_EXT_SUBLIST_CONFIG(fp_d, FP_D);
->  KVM_ISA_EXT_SIMPLE_CONFIG(h, H);
->  KVM_ISA_EXT_SUBLIST_CONFIG(smstateen, SMSTATEEN);
-> +KVM_ISA_EXT_SIMPLE_CONFIG(sscofpmf, SSCOFPMF);
->  KVM_ISA_EXT_SIMPLE_CONFIG(sstc, SSTC);
->  KVM_ISA_EXT_SIMPLE_CONFIG(svinval, SVINVAL);
->  KVM_ISA_EXT_SIMPLE_CONFIG(svnapot, SVNAPOT);
-> @@ -986,6 +989,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
->  	&config_fp_d,
->  	&config_h,
->  	&config_smstateen,
-> +	&config_sscofpmf,
->  	&config_sstc,
->  	&config_svinval,
->  	&config_svnapot,
+> diff --git a/tools/testing/selftests/kvm/include/riscv/sbi.h b/tools/testing/selftests/kvm/include/riscv/sbi.h
+> index ba04f2dec7b5..6675ca673c77 100644
+> --- a/tools/testing/selftests/kvm/include/riscv/sbi.h
+> +++ b/tools/testing/selftests/kvm/include/riscv/sbi.h
+> @@ -29,17 +29,83 @@
+>  enum sbi_ext_id {
+>  	SBI_EXT_BASE = 0x10,
+>  	SBI_EXT_STA = 0x535441,
+> +	SBI_EXT_PMU = 0x504D55,
+>  };
+>  
+>  enum sbi_ext_base_fid {
+>  	SBI_EXT_BASE_PROBE_EXT = 3,
+>  };
+> +enum sbi_ext_pmu_fid {
+> +	SBI_EXT_PMU_NUM_COUNTERS = 0,
+> +	SBI_EXT_PMU_COUNTER_GET_INFO,
+> +	SBI_EXT_PMU_COUNTER_CFG_MATCH,
+> +	SBI_EXT_PMU_COUNTER_START,
+> +	SBI_EXT_PMU_COUNTER_STOP,
+> +	SBI_EXT_PMU_COUNTER_FW_READ,
+> +	SBI_EXT_PMU_COUNTER_FW_READ_HI,
+> +	SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
+> +};
+> +
+> +union sbi_pmu_ctr_info {
+> +	unsigned long value;
+> +	struct {
+> +		unsigned long csr:12;
+> +		unsigned long width:6;
+> +#if __riscv_xlen == 32
+> +		unsigned long reserved:13;
+> +#else
+> +		unsigned long reserved:45;
+> +#endif
+> +		unsigned long type:1;
+> +	};
+> +};
+>  
+>  struct sbiret {
+>  	long error;
+>  	long value;
+>  };
+>  
+> +/** General pmu event codes specified in SBI PMU extension */
+> +enum sbi_pmu_hw_generic_events_t {
+> +	SBI_PMU_HW_NO_EVENT			= 0,
+> +	SBI_PMU_HW_CPU_CYCLES			= 1,
+> +	SBI_PMU_HW_INSTRUCTIONS			= 2,
+> +	SBI_PMU_HW_CACHE_REFERENCES		= 3,
+> +	SBI_PMU_HW_CACHE_MISSES			= 4,
+> +	SBI_PMU_HW_BRANCH_INSTRUCTIONS		= 5,
+> +	SBI_PMU_HW_BRANCH_MISSES		= 6,
+> +	SBI_PMU_HW_BUS_CYCLES			= 7,
+> +	SBI_PMU_HW_STALLED_CYCLES_FRONTEND	= 8,
+> +	SBI_PMU_HW_STALLED_CYCLES_BACKEND	= 9,
+> +	SBI_PMU_HW_REF_CPU_CYCLES		= 10,
+> +
+> +	SBI_PMU_HW_GENERAL_MAX,
+> +};
+> +
+> +/* SBI PMU counter types */
+> +enum sbi_pmu_ctr_type {
+> +	SBI_PMU_CTR_TYPE_HW = 0x0,
+> +	SBI_PMU_CTR_TYPE_FW,
+> +};
+> +
+> +/* Flags defined for config matching function */
+> +#define SBI_PMU_CFG_FLAG_SKIP_MATCH	BIT(0)
+> +#define SBI_PMU_CFG_FLAG_CLEAR_VALUE	BIT(1)
+> +#define SBI_PMU_CFG_FLAG_AUTO_START	BIT(2)
+> +#define SBI_PMU_CFG_FLAG_SET_VUINH	BIT(3)
+> +#define SBI_PMU_CFG_FLAG_SET_VSINH	BIT(4)
+> +#define SBI_PMU_CFG_FLAG_SET_UINH	BIT(5)
+> +#define SBI_PMU_CFG_FLAG_SET_SINH	BIT(6)
+> +#define SBI_PMU_CFG_FLAG_SET_MINH	BIT(7)
+> +
+> +/* Flags defined for counter start function */
+> +#define SBI_PMU_START_FLAG_SET_INIT_VALUE BIT(0)
+> +#define SBI_PMU_START_FLAG_INIT_SNAPSHOT BIT(1)
+> +
+> +/* Flags defined for counter stop function */
+> +#define SBI_PMU_STOP_FLAG_RESET BIT(0)
+> +#define SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT BIT(1)
+> +
+>  struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+>  			unsigned long arg1, unsigned long arg2,
+>  			unsigned long arg3, unsigned long arg4,
 
 -- 
 BR,
