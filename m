@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F732C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Apr 2024 16:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFBE0C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Apr 2024 17:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mmmfIirD0oSYj8H/afDDr7RAoQpbyNihwNWSLhjz8Hw=; b=CqytPSRsnj1uWde8+9vESmGRt9
-	BMk3yOGdOC86CADm1ylZ2uPWUvGoPb3/UynOqTp9OZ0+luJ/yfT9YlOnOsf509n2Bkj3DU/6zp8X1
-	z5VnEs+XLKCBqHrExnnQw4Es+Gf3w7HqsQbwHCf8BT6SKDU6joAU96PWcgbh6YTfU+sO+I0XjQ5nE
-	DUZ2UDtO41phbRYZBnNUR2PnlM/yGfJZmUabXtcWaqjGr+2Fl+0akDD1jTxud3GWpr03PGEhS6UGh
-	HwsvNLIcgtix1PXV3+QkmbzpqgKwI3ZBtfn0bGlRkUBze6PJkzCYegl/iLA8kRnAwWTI4z7w7C9lf
-	fWq3j3+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SLf1p3oQnmYIgR3bBUvN3Hsv2XxDiUE2VM13b3hufx8=; b=X08YXe7460GVLa
+	H3qYI0pDWwpooPYa5KjfzG6Ioh5xESgWxXlhD05Oqvr+vLFK6wt6fFSMoTT0f5oFu6pwMmDu6yXwO
+	2iZjoLnskCXp1NYQ1p3eRD6fiUbSzpG4muDKRJF5JwFMCM+KQB+rNeoflN4lx83t7LJxyYc4SHk8k
+	82ejEw/5FwRzTbduF0OTgvRZBtNOCVZVdrKO+fDxD7UxSEJ73ji/h+xChloODXd76L+ETzOEgcPak
+	wa2rw/mUVhdXK3+X70i7WbD7ihOwnRhY26BpqoJCPfefbfIuTxENGDpbb2KaunBGzdqOmca7e0NO+
+	20L/PZZK0buJoP1O6bgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzJJs-00000000ocP-19Gb;
-	Tue, 23 Apr 2024 16:48:36 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rzJVe-00000000qfE-1Tym;
+	Tue, 23 Apr 2024 17:00:46 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzJJo-00000000oaz-1Ysa;
-	Tue, 23 Apr 2024 16:48:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 430D1CE1256;
-	Tue, 23 Apr 2024 16:48:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2099AC116B1;
-	Tue, 23 Apr 2024 16:48:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713890909;
-	bh=dDcEPFI4Ualc1uLvugD6+grOLhPWeZRyR8kTPMNYs3s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H0N9z2Dpb8WrHvqNLiT000UhV8Y+9krxRJtMDjYhIaBZP1030Bof/Sp/hOK16Vnyt
-	 pbVCxC1D1O5/vA65C3BsscHOwlAvYg1UpOpQ3EVxyzDTLUE1ZM+lZ8cmZu3/NkS3Tw
-	 xVOk1gKZBGsmyD84IVNwPtg+ESwZW+XFy+bMdvO5bjU1uLsENudLBOWWYEhZMMT8Fa
-	 vyNNR8+roNhWc/HCa+cWfetSA9UjIquzJOhYsoF6WnUMrvgZez9qPfpY5616SRkjrl
-	 L6wHTtaUP4o+WnWmTSYwHJWDswPA3+5pzcdxtnlLflvYjbQiJdjWqAwg5QkWxRyxD2
-	 yBGwCrlwvy10w==
-Date: Tue, 23 Apr 2024 17:48:24 +0100
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
-	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 2/5] riscv: add ISA extension parsing for Zimop
-Message-ID: <20240423-juiciness-unethical-90ec18e4fabe@spud>
-References: <20240404103254.1752834-1-cleger@rivosinc.com>
- <20240404103254.1752834-3-cleger@rivosinc.com>
+	id 1rzJVa-00000000qeK-3ONb
+	for linux-riscv@lists.infradead.org;
+	Tue, 23 Apr 2024 17:00:44 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-a58872905b5so56881466b.2
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Apr 2024 10:00:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1713891641; x=1714496441; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7kpoRkSgmIbeAMxE5jSosiKeK58hdGccskOzXdueAwo=;
+        b=RSX5A197f/tWAUmI/yxetHiUFA1CCBxMtWLVm0+cK7gwSugTUQ6e+hGofI4S79/AUp
+         Iz4OJm4MBzqkUahN4tdORBUrcOS8GBZ4Zm691ygs706H3ulCnsUYDsIWGb6JYlFZbhPD
+         UBLwj4e66HHwqKl7ln4Lszr63XZw2vZ3mfAMxP1VYHubcYBWhZZnlFZ680cAbe9sptDY
+         mkZHTPEKcyKAnGJMYaeCF6FMkyu5prb+2jvXxSOltD1Dfk8ladGrinPtZNkzFVJtQZHv
+         DZ+/as+li14GP29WGM9dcjvjm+0e16sB2XCyXsUgqNMf7dyxc8yK1Icm2IsxKRxOcx33
+         /5yQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713891641; x=1714496441;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7kpoRkSgmIbeAMxE5jSosiKeK58hdGccskOzXdueAwo=;
+        b=wuOfOi3S7MbQGliL6GBYR+0QiuNuGXsnUZb628xWxKxfnAy3RzQo9VentRN8DZZku4
+         OM8Pico6dvX3ZJcUJrWMfHlfnSweUEPr18vIU6cLc8mWs/JXhlD3DhiDNuHWBNgjLEqN
+         wB1D2utlzOK82G4jsgOB67b64FQ+waexjXgy0D9lcNsTiEdnhVuzU4sw7aEGtP4XOGp5
+         j6WvyJSFOVc50/+/nA1OcPvf9K1s5wollkbrGLgx8aszFAulwZtHqS96Ecs/tHS3MwNd
+         KaWAmdTUp9hvFnO6lOcGWhK1PPc/5uLCsmuZtU8eRrP6NabtfsTGH5uUsWTHxBCWk67j
+         +GFg==
+X-Forwarded-Encrypted: i=1; AJvYcCUa7kNO/iLqiD7r7M4Hlffy3SX4vgwWjp3MwJTtA57u2GHsnRHf2502ccbgreUm+npxEzL4025XDvH/vB2UQGAZ8wTEui/I0/fVzmXm2reO
+X-Gm-Message-State: AOJu0Yz0NvN6i5Lh9WKI5CS5+bY3ClkVMBJutwH6ZMDMcqibzqA2M3Wk
+	eIK+/8CFtXnd/t/ArorZZBzLU3bO+Q+QxAJlV74eLQtjZOZgkjlmjc5ulu0/mdk=
+X-Google-Smtp-Source: AGHT+IGcGANkzjcqPRS58akjvbDATplTwj1qOXK/GFOuWc3MEiIWZm4cD/e4azAjA7fogSoeRMZxBA==
+X-Received: by 2002:a17:906:5857:b0:a52:2772:b9cb with SMTP id h23-20020a170906585700b00a522772b9cbmr8740381ejs.24.1713891640539;
+        Tue, 23 Apr 2024 10:00:40 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id z18-20020a170906435200b00a4e657a5f1asm7220478ejm.112.2024.04.23.10.00.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Apr 2024 10:00:40 -0700 (PDT)
+Date: Tue, 23 Apr 2024 19:00:39 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Tomasz Jeznach <tjeznach@rivosinc.com>
+Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, linux-kernel@vger.kernel.org, 
+	Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 7/7] iommu/riscv: Paging domain support
+Message-ID: <20240423-64e0112d612ab1f011c4b26e@orel>
+References: <cover.1713456597.git.tjeznach@rivosinc.com>
+ <301244bc3ff5da484b46d3fecc931cdad7d2806f.1713456598.git.tjeznach@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240404103254.1752834-3-cleger@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <301244bc3ff5da484b46d3fecc931cdad7d2806f.1713456598.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240423_094832_943092_A25552B2 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20240423_100042_888802_FF1682B9 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,89 +93,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2441926314579025699=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 18, 2024 at 09:32:25AM -0700, Tomasz Jeznach wrote:
+...
+> +static size_t riscv_iommu_unmap_pages(struct iommu_domain *iommu_domain,
+> +				      unsigned long iova, size_t pgsize, size_t pgcount,
+> +				      struct iommu_iotlb_gather *gather)
+> +{
+> +	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+> +	size_t size = pgcount << __ffs(pgsize);
+> +	unsigned long *ptr, old;
+> +	size_t unmapped = 0;
+> +	size_t pte_size;
+> +
+> +	while (unmapped < size) {
+> +		ptr = riscv_iommu_pte_fetch(domain, iova, &pte_size);
+> +		if (!ptr)
+> +			return unmapped;
+> +
+> +		/* partial unmap is not allowed, fail. */
+> +		if (iova & ~(pte_size - 1))
+                           ^ Shouldn't this ~ be removed?
 
---===============2441926314579025699==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Zc1JrpErq69EY9Ys"
-Content-Disposition: inline
+> +			return unmapped;
+> +
+> +		old = READ_ONCE(*ptr);
+> +		if (cmpxchg_relaxed(ptr, old, 0) != old)
+> +			continue;
+> +
+> +		iommu_iotlb_gather_add_page(&domain->domain, gather, iova,
+> +					    pte_size);
+> +
+> +		iova += pte_size;
+> +		unmapped += pte_size;
+> +	}
+> +
+> +	return unmapped;
+> +}
+> +
 
-
---Zc1JrpErq69EY9Ys
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Apr 04, 2024 at 12:32:48PM +0200, Cl=E9ment L=E9ger wrote:
-> Add parsing for Zimop ISA extension which was ratified in commit
-> 58220614a5f of the riscv-isa-manual.
->=20
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-> ---
->  arch/riscv/include/asm/hwcap.h | 1 +
->  arch/riscv/kernel/cpufeature.c | 1 +
->  2 files changed, 2 insertions(+)
->=20
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index e17d0078a651..543e3ea2da0e 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -81,6 +81,7 @@
->  #define RISCV_ISA_EXT_ZTSO		72
->  #define RISCV_ISA_EXT_ZACAS		73
->  #define RISCV_ISA_EXT_XANDESPMU		74
-> +#define RISCV_ISA_EXT_ZIMOP		75
-> =20
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
-> =20
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index 3ed2359eae35..115ba001f1bc 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -256,6 +256,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
->  	__RISCV_ISA_EXT_DATA(zihintntl, RISCV_ISA_EXT_ZIHINTNTL),
->  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
->  	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
-> +	__RISCV_ISA_EXT_DATA(zimop, RISCV_ISA_EXT_ZIMOP),
->  	__RISCV_ISA_EXT_DATA(zacas, RISCV_ISA_EXT_ZACAS),
->  	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
->  	__RISCV_ISA_EXT_DATA(zfh, RISCV_ISA_EXT_ZFH),
-> --=20
-> 2.43.0
->=20
-
---Zc1JrpErq69EY9Ys
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZifmVwAKCRB4tDGHoIJi
-0rtUAQCfFhskrVJaQGT4zQgAGIaJX6eQRM8RECwtSJ2o0cGu0gD+IKq0dbK1gZnO
-+otlDf1x+J0DKBOQ9YLeg8J2xFWRTAk=
-=AiuW
------END PGP SIGNATURE-----
-
---Zc1JrpErq69EY9Ys--
-
-
---===============2441926314579025699==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2441926314579025699==--
-
