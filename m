@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAD8C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Apr 2024 15:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E0BEC4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Apr 2024 16:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xw3eyowbyTXH6CCeyNrz9BbPKIhbX6BZehP3ZxQl4Ko=; b=ZQiqMn5t40UTCtkyUBvaVidrtn
-	fzOUooxbjhCwXcw71X9zitoIuzCLntQAYyNmsTDttoqr4rwOqsx3wXQfYGJpogvWu9fp6n4+BuQo8
-	Ko7I5etKBXS2gge0JTEHHCaJcrvmNpA2lnrKCV6UJoiUR/sqIReXWWC9Vc7Z5GxjTz2XBT26QCheX
-	JhaodhDV3eJ3Q0HoXp1X9god5tFZKvDMQtjdWPM2lxQ9jjVI/OfXlnh+P8+XLE/2EgzM1GM/dKEHg
-	7iHMBhbY/khFxD1D2q/FH4PtIeRCnmQ2Sm++Sg35RlrOIwt7ybnirpP9hrU+JYHbWpdIW6OLo3Ee6
-	XKtePHyQ==;
+	bh=b6ERUXuNQla0/94wX2n6BUuJkoH9sRrtkDBjSpnTsMw=; b=HWLDwXgBh3vKUmbVwnsCEUzHrt
+	uxaVEEtUW/KCkJS4CJ+/swoBixFPO0Ru+HyuiCerXke28RpUaZsF63AtLgbaZvYpe1msiE5yahIUN
+	328P3GoHELI2MzxfjFr+UYqt+1gb2WhmczTCdAVnz0bODjZHSvk+ibeFhaMwc4y60r1588NZo53x8
+	FjCS2k0J37M7BzCstrBvUEWmiAo1tonNUi5ofin4mJrvSXMw0ujI858mjz5NSxi1wTQhTpgU28h2Y
+	sFcvQ1NCCUqx0fnEI/CBVRo/aIGu8wXe8eYz8uuL5SGIx9iqe/TTy+GX40+h/4jr0So7kHxiPWOZO
+	sL5AmrkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzITZ-00000000cMc-2z1R;
-	Tue, 23 Apr 2024 15:54:33 +0000
+	id 1rzIwG-00000000irM-0Pvv;
+	Tue, 23 Apr 2024 16:24:12 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzITW-00000000cLF-0iGu
-	for linux-riscv@lists.infradead.org;
-	Tue, 23 Apr 2024 15:54:32 +0000
+	id 1rzIwB-00000000ioj-3Dyz;
+	Tue, 23 Apr 2024 16:24:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 037FC614ED;
-	Tue, 23 Apr 2024 15:54:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E224C116B1;
-	Tue, 23 Apr 2024 15:54:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0FFC461578;
+	Tue, 23 Apr 2024 16:24:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E04ACC2BD11;
+	Tue, 23 Apr 2024 16:24:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713887668;
-	bh=ygI09t554nLoyr6BkmW7OLrmKfZMJOQw1a4wokqN6Zw=;
+	s=k20201202; t=1713889446;
+	bh=vwDBeno2e/iwFzcx2Jptp5EtMai4XbyUfnQr/YhkQrE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eHVcwrr3RiJYhKjscVZo+51SROohKtrZd5sgQRoiG0GWmNdjLzMpcXdJnEyl5KSRe
-	 4X63eAqmtA8PT7Fvo6pRkUCuAEcjNq7jTdJpPQnV3u0ZRUynku/5beXpTvP8o3D9H6
-	 pJadn+GdCeRNfMYolqVjG71p5INF+GexAyzPmMyUwFWWC5fcSlybNdYFmADibv4NtA
-	 IcnpjjGTRofh+HFe6AuR+OIMXca1nPH2N1xFVMd6grvHanqWu+qcU28GqnPrUfmrUd
-	 3QU0qmHFEfT4kvvp5a2N5cftLxr5StDZ08py9RG3EEBNcQCZw2eJE9YVglE7kgHF6i
-	 okMJUfFaEx50Q==
-Date: Tue, 23 Apr 2024 16:54:24 +0100
+	b=GVLh/+KL+A2ou4nm3BK8fIxsTnG3oFQSbd5XmcVW6hiwzh/1+NniqvRGIQM5yx3JW
+	 kBx33egZjJTAqa6A4L6pK99raX84GYy60a/TP5jm4BhCbC4lAi97mA0UpgRw571BoH
+	 DVvX8iFUUNCnJOkbLiuKtBsKzXvRLgl+IpfuW6fFktxuTiE4gZ2sFcl4+qvlpLdb72
+	 EekG76DBEJFWlrQxkzqNUaVgJctSF/4Fovb8e5LEIxdUv7iJ1pm3H0GkViOGPaHMmQ
+	 FgKmTJJgd4ZB5JuFhPcuDrtS8airnRfI9ySbu7v2FOTS5QhAElYWszg1qbhIsBp894
+	 4HjwlFWe0RvvQ==
+Date: Tue, 23 Apr 2024 17:24:01 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Joshua Yeong <joshua.yeong@starfivetech.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	leyfoon.tan@starfivetech.com, jeeheng.sia@starfivetech.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] cache: Add StarFive StarLink cache management for
- StarFive JH8100
-Message-ID: <20240423-clique-despair-ead97b78b186@spud>
-References: <20240423072639.143450-1-joshua.yeong@starfivetech.com>
- <20240423072639.143450-2-joshua.yeong@starfivetech.com>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, Ved Shanbhogue <ved@rivosinc.com>
+Subject: Re: [RFC PATCH 0/7] riscv: Add support for Ssdbltrp extension
+Message-ID: <20240423-fresh-constrict-c28f949665e8@spud>
+References: <20240418142701.1493091-1-cleger@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240423072639.143450-2-joshua.yeong@starfivetech.com>
+In-Reply-To: <20240418142701.1493091-1-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240423_085430_349920_0ACCAE70 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20240423_092407_872146_D3BFE2EF 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,98 +72,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6674135141155442231=="
+Content-Type: multipart/mixed; boundary="===============5553470316293861738=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6674135141155442231==
+--===============5553470316293861738==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="i/ONzq50GI9VXLjz"
+	protocol="application/pgp-signature"; boundary="ZyfNa3C9GxmtsB0D"
 Content-Disposition: inline
 
 
---i/ONzq50GI9VXLjz
-Content-Type: text/plain; charset=us-ascii
+--ZyfNa3C9GxmtsB0D
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Apr 23, 2024 at 03:26:38PM +0800, Joshua Yeong wrote:
-> +
-> +#include <asm/dma-noncoherent.h>
-> +
-> +#define STARLINK_CACHE_FLUSH_START_ADDR			0x0
-> +#define STARLINK_CACHE_FLUSH_END_ADDR			0x8
-> +#define STARLINK_CACHE_FLUSH_CTL			0x10
-> +#define STARLINK_CACHE_CACHE_ALIGN			0x40
-> +
-> +#define STARLINK_CACHE_ADDRESS_RANGE_MASK		GENMASK(39, 0)
-> +#define STARLINK_CACHE_FLUSH_CTL_MODE_MASK		GENMASK(2, 1)
-> +#define STARLINK_CACHE_FLUSH_CTL_ENABLE_MASK		BIT(0)
-> +
-> +#define STARLINK_CACHE_FLUSH_CTL_CLEAN_INVALIDATE	0
-> +#define STARLINK_CACHE_FLUSH_CTL_MAKE_INVALIDATE	1
-> +#define STARLINK_CACHE_FLUSH_CTL_CLEAN_SHARED		2
-> +#define STARLINK_CACHE_FLUSH_TIMEOUT_US			5000000
-> +
-> +struct starlink_cache_priv {
-> +	void __iomem *base_addr;
-> +};
-> +
-> +static struct starlink_cache_priv starlink_cache_priv;
-> +
-> +static void starlink_cache_flush_complete(void)
-> +{
-> +	volatile void __iomem *_ctl = starlink_cache_priv.base_addr +
+On Thu, Apr 18, 2024 at 04:26:39PM +0200, Cl=E9ment L=E9ger wrote:
 
-Why does this variable have an _ prefix?
+>  drivers/firmware/Kconfig                      |   7 +
+>  drivers/firmware/Makefile                     |   1 +
+>  drivers/firmware/riscv_dbltrp.c               |  95 ++++++++++
 
-> +                                      STARLINK_CACHE_FLUSH_CTL;
+=46rom what we discussed with Arnd back when we started routing the dts
+and soc driver stuff via the soc tree, riscv stuff in drivers/firmware
+supposedly also falls under my remit, and gets merged via the soc tree,
+although I would expect that this and the initial SSE support series
+would go via the riscv tree since they touch a lot more than just
+drivers/firmware.
 
-This link only has spaces, it should be tabs + < 8 spaces.
-
-> +	u64 v;
-> +
-> +	if (readq_poll_timeout_atomic((_ctl), v,
-> +	    !(v & STARLINK_CACHE_FLUSH_CTL_ENABLE_MASK), 1,
-> +	    STARLINK_CACHE_FLUSH_TIMEOUT_US))
-> +		WARN(1, "StarFive Starlink cache flush operation timeout\n");
-> +}
-
-I'd fine this easier to read as:
-
-static void starlink_cache_flush_complete(void)
-{
-	volatile void __iomem *_ctl = starlink_cache_priv.base_addr +
-				      STARLINK_CACHE_FLUSH_CTL;
-	u64 v;
-	int ret;
-
-	ret = readq_poll_timeout_atomic(_ctl, v, !(v & STARLINK_CACHE_FLUSH_CTL_ENABLE_MASK),
-					STARLINK_CACHE_FLUSH_POLL_DELAY_US,
-					STARLINK_CACHE_FLUSH_TIMEOUT_US);
-	if (ret)
-		WARN(1, "StarFive Starlink cache flush operation timeout\n");
-}
-
-Cheers,
-Conor.
+Could you create a drivers/firmware/riscv directory for this dbltrp file
+and whichever of this or the SSE patch that lands first add a maintainers
+entry for drivers/firmware/riscv that links to my git tree?
+It probably also makes sense to create per-driver entries for each of
+the dbltrp and sse drivers that ensures you get CCed on any patches
+for them.
 
 
---i/ONzq50GI9VXLjz
+--ZyfNa3C9GxmtsB0D
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZifZsAAKCRB4tDGHoIJi
-0kwUAP9bkTUM8ATatR50WkFrHITbtXJUqI6lq/ynn3qCblRkwAD/UXOExyXwpn1X
-kW+/o0c8/SZKNz5wUqVXAWo0PcC+CQg=
-=gZdu
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZifgoQAKCRB4tDGHoIJi
+0gtxAP97veR232X2TcwIa1suQQaYkJFQCQQVnjXfjQbNWVcPOgEA9snlyFRloP4v
+YPfhoD5GS61aDZ1CUlxZJeAcLoQN/QA=
+=j5Fq
 -----END PGP SIGNATURE-----
 
---i/ONzq50GI9VXLjz--
+--ZyfNa3C9GxmtsB0D--
 
 
---===============6674135141155442231==
+--===============5553470316293861738==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -173,5 +134,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6674135141155442231==--
+--===============5553470316293861738==--
 
