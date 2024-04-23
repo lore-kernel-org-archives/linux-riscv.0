@@ -4,53 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97721C04FFE
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Apr 2024 18:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C47CC4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Apr 2024 18:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FgzwnHIguhwChoo0UA87DaEF5W78U/lYjyflXqtd5cE=; b=YwM6CGJT3NUzrN
-	tam3SK4i8rLK/7UR/Q5RlcH+Dhtafo/P+Unl8azYeO+MAB6ZTEAgEyfXo0686JeMvFSVgz0LkLVr0
-	QG4f/WNu9KnLtomO3Kdyjoo31zrzsa1IYLAi862Jgh6nBc9y/Z99xbQy39SovJKg4tpfaTP99gUYX
-	w/QIAaufXsctro1Uj7Vky1qYsSum3b6Bixt4fZZzRjamDG8v1X4QDh+FKJUQUmoBowu0B8N3061KU
-	2++C7wxGtkE+/6DHSJLHI4vbrWTgK6WA5yAJAntln9M6U5R3mWhSBSiYFnXAsgNuNndov8U83LjsW
-	NHczb0sizSTvmDczEOcg==;
+	List-Owner; bh=JTs20AVJ7TaKG+LZ/hHHpqfAhnrDBTXJyrFIqVMDLj4=; b=XNgaH/ylGTKXqq
+	wgcx8ibUOyqT3GGc/cx7PUQMGpVqndagJjFgJPMLigsRHKVAW94vg/pULegofovPszKKL+3Lum8n0
+	dfv1hI+LNqY83BhGVmn45K5y+gzgy2g3ymPgnyW8vqy45MYrb5ANEBSaZu2ErOQyLwP0XkIjwiE6r
+	M4Bx2MWZ3ykWVBrH0TgNQAnoRqOX/xuNk825gvGHPYYj5umXuqbNEE3K4ee7gt4dgbtNinqOQwfcr
+	nmA/9KyfX6SeJFGK1+y3DpbDYqc8ngHvAkbn+gXAGI7RsvgD9AdKyjJ4NPBo78iO+tDoY/LnxEjQZ
+	eHmgsQAVwLEuWfJzIRWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzKvj-000000018Wk-0lAk;
-	Tue, 23 Apr 2024 18:31:47 +0000
+	id 1rzL7n-00000001AeB-1zQn;
+	Tue, 23 Apr 2024 18:44:15 +0000
 Received: from mcgrof by bombadil.infradead.org with local (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzKvd-000000018V6-22Td;
-	Tue, 23 Apr 2024 18:31:41 +0000
-Date: Tue, 23 Apr 2024 11:31:41 -0700
+	id 1rzL7i-00000001AcU-0fdH;
+	Tue, 23 Apr 2024 18:44:10 +0000
+Date: Tue, 23 Apr 2024 11:44:10 -0700
 From: Luis Chamberlain <mcgrof@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
-Cc: Joel Granados <j.granados@samsung.com>,
-	Kees Cook <keescook@chromium.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Dave Chinner <david@fromorbit.com>, linux-fsdevel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-xfs@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org, kexec@lists.infradead.org,
-	linux-hardening@vger.kernel.org, bridge@lists.linux.dev,
-	lvs-devel@vger.kernel.org, linux-rdma@vger.kernel.org,
-	rds-devel@oss.oracle.com, linux-sctp@vger.kernel.org,
-	linux-nfs@vger.kernel.org, apparmor@lists.ubuntu.com
-Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
- of sysctl handlers
-Message-ID: <Zif-jf8Takojtq7x@bombadil.infradead.org>
-References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sam Ravnborg <sam@ravnborg.org>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v5 00/15] mm: jit/text allocator
+Message-ID: <ZigBepQBSfqLsyL7@bombadil.infradead.org>
+References: <20240422094436.3625171-1-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
+In-Reply-To: <20240422094436.3625171-1-rppt@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,43 +76,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 23, 2024 at 09:54:35AM +0200, Thomas Wei=DFschuh wrote:
-> * Patch 1 is a bugfix for the stack_erasing sysctl handler
-> * Patches 2-10 change various helper functions throughout the kernel to
->   be able to handle 'const ctl_table'.
-> * Patch 11 changes the signatures of all proc handlers through the tree.
->   Some other signatures are also adapted, for details see the commit
->   message.
-> =
+On Mon, Apr 22, 2024 at 12:44:21PM +0300, Mike Rapoport wrote:
+> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> 
+> (something went wrong with the prevois posting, sorry for the noise)
+> 
+> Hi,
+> 
+> Since v3 I looked into making execmem more of an utility toolbox, as we
+> discussed at LPC with Mark Rutland, but it was getting more hairier than
+> having a struct describing architecture constraints and a type identifying
+> the consumer of execmem.
+> 
+> And I do think that having the description of architecture constraints for
+> allocations of executable memory in a single place is better than having it
+> spread all over the place.
+> 
+> The patches available via git:
+> https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git/log/?h=execmem/v5
 
-> Only patch 1 changes any code at all.
-> =
-
-> The series was compile-tested on top of next-20230423 for
-> i386, x86_64, arm, arm64, riscv, loongarch, s390 and m68k.
-> =
-
-> The series was split from my larger series sysctl-const series [0].
-> It only focusses on the proc_handlers but is an important step to be
-> able to move all static definitions of ctl_table into .rodata.
-> =
-
-> [0] https://lore.kernel.org/lkml/20231204-const-sysctl-v2-0-7a5060b11447@=
-weissschuh.net/
-> =
-
-> Signed-off-by: Thomas Wei=DFschuh <linux@weissschuh.net>
-
-Cover letters don't need SOBS we only use them for patches.
-
-But anyway:
-
-Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
+Thanks! I've merged and pushed this onto modules-next in its entirety now for
+wider testing.
 
   Luis
 
