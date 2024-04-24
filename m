@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62333C4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 10:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B2BC07E8E
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 10:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HneVNRiokcA7l3EDl4GGWu5cm8J2neJG51gEKX7Ivvs=; b=VaA3CVh7IbuPXz8C0IGmeQItWX
-	E1O0LL2o77vmTC9brTF6yrxJHmL0+Qk80lgb51CeWVoMPyHM9lpeEeclA41svr9soKuX9KMUBBJ4q
-	reeAOBSbNZi0DDEkegI161cLf3koO2AUQvD7JjtrQl0kYLAjuOWG7jZeIivj9AX6xTF6gqfgcn/Lu
-	m3gZxe+yI25Jc7hietZ8RR08CFO+7Dwk5wR6TafDIwcTBtRTMbb252evQxcIXmE/Oj3C67YqftQ9O
-	lZnrZESViLsRz8VU+VV91ZckXvfbwdRm7+uEJCVvjnkDfDoIUgWmlQK3Rruv4j3lhLTlF8tZG92bP
-	f9J1CLjQ==;
+	bh=dtoZyaqvgtC9XeE02EdOBdkTDkOi3w5YNcr1i0PlPE0=; b=KiloCHT+nWO23xAhbniNLPuTcC
+	zo8MOu9Bms1Pjl2GjWCiIaDz8PZbhfBVdgg/TB2LnRzWs+nB907OHIx7keniCFvVxfA+RTYwBpX7a
+	WdMwxAK+wAnqIMpeYFd6PGu4sfQkm4dtzYAd11cRlJDHl9wNFVDuoPgW3Ye7J5UbSUTJdpZmmdXuJ
+	lKfXw554JeRXlFc+vPgXVYl9H5nMq1Z1BJBLq4DVYFWfZtfm5dAiLjvyvpPmZfa+GCUiPJgNElzr8
+	M+TebRrXPjJAMeHX8tMd40b5ttn+7c1AENFDWee/b00V6VrhC9VAGraSrWONXdpZg3Xp75PaERiD0
+	WAW8bmJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzaAM-00000003l9I-43ay;
-	Wed, 24 Apr 2024 10:47:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rzaCH-00000003lRn-39V7;
+	Wed, 24 Apr 2024 10:49:53 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzaAJ-00000003l8R-0koV
+	id 1rzaCD-00000003lQX-0XVM
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Apr 2024 10:47:52 +0000
+	Wed, 24 Apr 2024 10:49:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 311EB619C6;
-	Wed, 24 Apr 2024 10:47:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62473C113CE;
-	Wed, 24 Apr 2024 10:47:47 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 43623CE136A;
+	Wed, 24 Apr 2024 10:49:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEA7CC113CE;
+	Wed, 24 Apr 2024 10:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713955668;
-	bh=Es+BLiCAY4cW/MeeZ/D/X2HEXZPjviuh/l6QAzLU2PY=;
+	s=k20201202; t=1713955786;
+	bh=13Hi6ZoedF7xEUK5sGqH0Sjd7YNhbMjL1SAgv6avwWY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qn5tlYpfbEmImm04g9ins0hFSOHkz+yFWGzZr+QtYeABdX8xBxfg4fqfZW2OKV1Bq
-	 kIjCDrVCY+wVlQ/QL6VkLb4MilbJDezOeUNprqzO+6N0nOb5qm48lNua0efGwjIgw6
-	 oWcy/zie6KHj0pDOTkdVONfuiu882YcaKWpTvYa0dF6Td4+FgKTOc58x6pSjI0Lp3m
-	 JpKj2XLjPJd+VSjtMKA744jyk/zuL7R7qsyErtlgavEq2RGYhjFqUvKe6GAa31noac
-	 87dUTQfNevj85bruXkfmlYpqpuC/jTAf4CfbwkcaE9V+95iZ6a8w/T4e5pQrrz1pe3
-	 ueIh9nTKdx1/w==
-Date: Wed, 24 Apr 2024 11:47:45 +0100
+	b=khQ5FhJT5PNr6HWVYFrPZXydqeSHrF0F3rLggVHJqLhR0jsFTHBtnFms6eixSLKNa
+	 vCWBfATJSsIT9q4Z3jTkkomxD/o8Y38zHWifEZhLepdOPXBqA4gkcoBbWFGqBoC85w
+	 3d3qPFsX87FWPQC3ivOza86kHUEr5uwfBZ1BQfpH8cBCYJd7OY4aaWZJA8Ia4jOcnu
+	 WKh14ZSN/Mm3dLaPCzyxYpH0UyUhM5MPPjFAqEuIgt3p/m0I8kl4OGIXdzQIrIxpq3
+	 ODoftLnsP21x2NUgPg/EftL3rgJ0BsGG7ny0xHU8hd7DxAFo5mFqOQzi2ImL7rSFxn
+	 2meeXkPLUTvBA==
+Date: Wed, 24 Apr 2024 11:49:42 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Samuel Holland <samuel.holland@sifive.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/7] riscv: Simplify text patching loops
-Message-ID: <20240424-gallows-resilient-c46a69705a0c@spud>
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Daniel Borkmann <daniel@iogearbox.net>, bpf@vger.kernel.org
+Subject: Re: [PATCH v2 5/7] riscv: Pass patch_text() the length in bytes
+Message-ID: <20240424-math-recapture-49618e9f9b11@spud>
 References: <20240327160520.791322-1-samuel.holland@sifive.com>
- <20240327160520.791322-5-samuel.holland@sifive.com>
- <20240424-cranial-punch-27b38726d3f7@spud>
+ <20240327160520.791322-6-samuel.holland@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <20240424-cranial-punch-27b38726d3f7@spud>
+In-Reply-To: <20240327160520.791322-6-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240424_034751_292356_1A596C82 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20240424_034949_364324_3EB4A847 
+X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,84 +70,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7978109196866409321=="
+Content-Type: multipart/mixed; boundary="===============0685835721443903355=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7978109196866409321==
+--===============0685835721443903355==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="URBwmoCtPsB1XCmP"
+	protocol="application/pgp-signature"; boundary="sqfgg+TcvaEXDvan"
 Content-Disposition: inline
 
 
---URBwmoCtPsB1XCmP
-Content-Type: text/plain; charset=us-ascii
+--sqfgg+TcvaEXDvan
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Apr 24, 2024 at 11:44:17AM +0100, Conor Dooley wrote:
-> On Wed, Mar 27, 2024 at 09:04:43AM -0700, Samuel Holland wrote:
-> > This reduces the number of variables and makes the code easier to parse.
-> >=20
-> > Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> > ---
-> >=20
-> > Changes in v2:
-> >  - Further simplify patch_insn_set()/patch_insn_write() loop conditions
-> >  - Use min() instead of min_t() since both sides are unsigned long
-> >=20
-> >  arch/riscv/kernel/patch.c | 37 +++++++++++++++++++++----------------
-> >  1 file changed, 21 insertions(+), 16 deletions(-)
-> >=20
-> > diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> > index 9a1bce1adf5a..0d1700d1934c 100644
-> > --- a/arch/riscv/kernel/patch.c
-> > +++ b/arch/riscv/kernel/patch.c
-> > @@ -155,22 +155,24 @@ NOKPROBE_SYMBOL(__patch_insn_write);
-> > =20
-> >  static int patch_insn_set(void *addr, u8 c, size_t len)
-> >  {
-> > -	size_t patched =3D 0;
-> >  	size_t size;
-> > -	int ret =3D 0;
-> > =20
-> >  	/*
-> >  	 * __patch_insn_set() can only work on 2 pages at a time so call it i=
-n a
-> >  	 * loop with len <=3D 2 * PAGE_SIZE.
-> >  	 */
-> > -	while (patched < len && !ret) {
-> > -		size =3D min_t(size_t, PAGE_SIZE * 2 - offset_in_page(addr + patched=
-), len - patched);
-> > -		ret =3D __patch_insn_set(addr + patched, c, size);
-> > -
-> > -		patched +=3D size;
-> >  	}
-> > =20
-> > -	return ret;
-> >  }
+On Wed, Mar 27, 2024 at 09:04:44AM -0700, Samuel Holland wrote:
+> patch_text_nosync() already handles an arbitrary length of code, so this
+> removes a superfluous loop and reduces the number of icache flushes.
 >=20
-> Weren't these actively wrong before, if a non-ultimate
-> __patch_insn_set() failed we'd just ignore the error?
+> Reviewed-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 
-nvm, failure to read on my part..
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
---URBwmoCtPsB1XCmP
+--sqfgg+TcvaEXDvan
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZijjUQAKCRB4tDGHoIJi
-0jnJAQCZwXvp86ggmW7AzqfFnAHTSRh+t/KIM9IcxGmWgbhAcAEAj4HjXN/D/hkC
-9nYTOHV+Z6/tFGPZAWLP52FWBbJNXgo=
-=qkLZ
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZijjxgAKCRB4tDGHoIJi
+0qvcAP4r2MrLGz9H1r7SbjaqoHG7Zb6RvXCN/VmJFpdJYnXfAwD/QEb6Rj6izInw
+SNqGMSWRNoFweZB4bLuaxlv7QL37bwo=
+=z3sD
 -----END PGP SIGNATURE-----
 
---URBwmoCtPsB1XCmP--
+--sqfgg+TcvaEXDvan--
 
 
---===============7978109196866409321==
+--===============0685835721443903355==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -157,5 +120,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7978109196866409321==--
+--===============0685835721443903355==--
 
