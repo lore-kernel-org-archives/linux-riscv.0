@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF5ABC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 10:00:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFCFC4345F
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 10:21:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=87u+gfJUCCMJoDEk/d/UV/qAeaLbSI8XJ8PFr6Xai18=; b=Atfoqy6qBq0rcMHPSArcIyfW0X
-	3YbBWYu0RG32qsky67M8rC5OCemGYGNpUDdw47YtX2Rt4iu/8smmwrn5d17OcauHPPszOffJ8FKDc
-	qtGHPvASb7C3kS60lPGW9Pw/0/3TOfYhgX92ESTOJ6L0utDBu0DbtWRx+PWnI92HNWqVBsJ9eypUd
-	IuB0VV3I1N9jnQJM/Q3PpHjETGvz5fMMA62Mzc2t/m0eMSEMUW2IR69awSTKZckDzyEZu75gdJ1BB
-	St5JeDQqy5ezoeTZij8nnJ92m2j712CqACvBzSGgCqAA6tUNvckM3kgeEDb0eKQDtUHWTvlwYzhkK
-	t/blKlcA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F2pkBJ3Ss++sT/TBUhTze3gUn0Sd6p6VQtVZYerEWBc=; b=YCyCEsrLzgQwIhTC3M0XOk1hZK
+	w+P11MfW4dMm3iMFnY1taMJ/KvOL0h+DVjl8I7NXME+3yPPYeg9/nbvnBa2UC3E6iIv2wiZLkD+K2
+	IEGmqN1xyJ0X1HbyBNF1oB/SurMKUjkbC6kZf6iVN+nyY/MsYMd1Je5Gca4RxzyOTtgLcYA1ai+AV
+	ak5N+WdmZhK8Q+e+aYyoJ1NXl5frHTG4GC5gDU8uOGES9IJZ7kEruBsP+TKYSSNgeCCzD5f+Ej9Ot
+	ruBPU7+Aw1CFKxtX6ZT5or9fhgAPsgVnJz3FTyhsdk6F04H3LUUb1yQkpg9j1v6XzSJmgOWIZhh8/
+	AB9edgCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzZQ7-00000003bJP-3pDw;
-	Wed, 24 Apr 2024 10:00:07 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1rzZl6-00000003fWd-002Q;
+	Wed, 24 Apr 2024 10:21:48 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzZQ3-00000003bIJ-4AZr
+	id 1rzZl3-00000003fVq-3nVe
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Apr 2024 10:00:06 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 34EE13FE10
-	for <linux-riscv@lists.infradead.org>; Wed, 24 Apr 2024 09:59:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1713952796;
-	bh=S2dZSeR9LCzi8J1OpoztZzAdz+9TX12tp6NKUBGWijE=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=WEadfsC76zjEwReLrXF4EdNY6e2KqKdUpvYwl497JQ+VkN/NdEmR6Fu+PI61JStRB
-	 znZuObYg7RuRexz2sRUM/dK/P/fcR3pe5s/f4QibPzQaLPEXTYYMsvOjIWE66wVZGH
-	 L/8qClmTE09I2t84OVf85/Osmk1B+7+cosjTrvrpX0IzeJ1sikt/UfC+XAQZsYxcl1
-	 PpsdEsY7GcFudoimv+YNCpp96UbdWeP0V9z11hu1Xsa2EuZxMCMZGi+w2ILiF2DHR9
-	 /pOSnHnKsbvHod9nNWoxKeFrGU9A8RN5RCFzCZcpGLQ3XOl4sqlVtvDOfBUf+qjHIG
-	 rhKECOjnZsCiA==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-43a2a23190cso2724351cf.2
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Apr 2024 02:59:56 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713952795; x=1714557595;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=S2dZSeR9LCzi8J1OpoztZzAdz+9TX12tp6NKUBGWijE=;
-        b=xI8aBcUeFAtsaRr+SGxHbYMCXW8FJDfu25mMcu1W0j22Y4wavl0NDwFOYhUwra7Qzo
-         /Vky4gL/JH4QOWkbqfte7fY97jxWItUpZaoTrHiwhtKgxbb/r7ITPPTzvEWQ1gu1hHNg
-         zlgEjHiGjkLbeuVXgLAQl31rXObMFi6LBdM8ClSudEQWQW3PBkuhOqE3XGLt/7iewJEN
-         txgATSjTSGH9M9+MFdhms+oNSEhTk2ktktjFRYyVv8vOGGruha0CEc9OE6keQuykV862
-         tXE/pNQzHGC3xQNi4gT9Ekl016JT/FyBcttQIhg+p/unr/sJx2QtymTfxKz8m/0RtHJA
-         jG8A==
-X-Forwarded-Encrypted: i=1; AJvYcCWK31LVnbRgNPF/ImzoMaDNuH1EwwVYtCVfhrzJt3FMe57C10GBbERdK/0PCprqCwdYEl64XTLwyZ9Eqk1wgSG0hfYS5BO+k5rHyEnUnzGW
-X-Gm-Message-State: AOJu0Yz6OuoEW6ibX2JFvoia55E93m6JmSPOJdeDm5A0f0w0m/R9fl4w
-	sXWmDYoJgm8PTVk9buwKGVnbZPU8vZJKoJn6ABx7ZvoKTlJAOA0sPJj6TTuMoLa4Bp4+zw5Inp4
-	T7p8yqqMZ32EahdXZrPLdQwMxExg+3aoVv1Zy43oRrIaA+gHup3wnwmEjU6n5CHOdjI1HX9cUlO
-	ZlEMz5u6ajaEgPZa4AM6mhqEvJtfKrnLekilMRPf7SYQL+Bk3asY1Pr2J4
-X-Received: by 2002:ac8:5fcd:0:b0:439:2dd2:8c29 with SMTP id k13-20020ac85fcd000000b004392dd28c29mr2632663qta.53.1713952795218;
-        Wed, 24 Apr 2024 02:59:55 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE6L8U6dPY+IwDuihju7OczEcUyPW0NUseAoFBQBuD16x08m9IflcpytSNV7vfl8H2u2zH90ZPc/+Vym43bEtQ=
-X-Received: by 2002:ac8:5fcd:0:b0:439:2dd2:8c29 with SMTP id
- k13-20020ac85fcd000000b004392dd28c29mr2632629qta.53.1713952794863; Wed, 24
- Apr 2024 02:59:54 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 24 Apr 2024 02:59:54 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240424075856.145850-1-joshua.yeong@starfivetech.com>
-References: <20240424075856.145850-1-joshua.yeong@starfivetech.com>
-Mime-Version: 1.0
-Date: Wed, 24 Apr 2024 02:59:54 -0700
-Message-ID: <CAJM55Z9hObw7T=Z92w_5pYVcuR3UDW-Mas5YpCoGv4Y5s5M9xg@mail.gmail.com>
-Subject: Re: [PATCH v3 0/2] Add StarFive's JH8100 StarLink Cache Controller
-To: Joshua Yeong <joshua.yeong@starfivetech.com>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, conor@kernel.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, leyfoon.tan@starfivetech.com, 
-	jeeheng.sia@starfivetech.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
+	Wed, 24 Apr 2024 10:21:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 33CBDCE13AA;
+	Wed, 24 Apr 2024 10:21:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80471C113CE;
+	Wed, 24 Apr 2024 10:21:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713954103;
+	bh=mHWzUjYz6696rmqvzHHtLW+jfpbBAvrrZwJo47hyK5M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oGUUZMA9azO4ibiF6QemdmxTWinYwIrIJrEKjAog5K5qMVwXhM6aV4SHv7jbDK5AW
+	 Xy5G1tSdXySiL0mngzzT7M0pGxxBGxwC21WutXxwkUpS1XsL6gfLFSJo0Gx7DmYfln
+	 8SO6clR9pNJvmdE5RUP1OwznudQfeWwKR0EYDfu5xDq0wIY/E3gLoHbWsCjsl/9eSV
+	 Z7WuLr7RzIz7Ec9x4zo/1kVr9pjejlIrUXgHyvB1rSLLD/9AicK6ZO5zJd0ULXLHa+
+	 F+8Y46swU6Dye3kMquQmdLl0YeXvA997hyEhxRHcC53v26fA5HkWgsva/boTnngfkn
+	 +ES8novzQFB+Q==
+Date: Wed, 24 Apr 2024 11:21:39 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Ben Dooks <ben.dooks@codethink.co.uk>,
+	David Laight <David.Laight@aculab.com>,
+	Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v2] riscv: misaligned: remove CONFIG_RISCV_M_MODE
+ specific code
+Message-ID: <20240424-sampling-autopilot-313efe9aa9aa@spud>
+References: <20240206154104.896809-1-cleger@rivosinc.com>
+MIME-Version: 1.0
+In-Reply-To: <20240206154104.896809-1-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240424_030004_470354_7E38CB55 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20240424_032146_165683_6CB2EC7E 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,59 +71,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6540700558594874590=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Joshua Yeong wrote:
-> StarFive's JH8100 StarLink Cache Controller flush/invalidates cache using non-
-> conventional RISC-V Zicbom extension instructions. This driver provides the
-> cache handling on StarFive RISC-V SoC.
 
-Hi Joshua,
+--===============6540700558594874590==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="oRqeOvL+VdCc0NJF"
+Content-Disposition: inline
 
-As far as I know you didn't tape out the JH8100 yet, and you seem to have
-replaced the SiFive cache controller with your own implementation. Can you
-exlain a bit more about why you didn't implement the perfectly good Zicbom
-standard instead of adding yet another non-standard work-around like this?
 
-/Emil
+--oRqeOvL+VdCc0NJF
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->
-> Changes in v3:
-> - Fix code syntax
-> - Link to v2: https://lore.kernel.org/all/20240423072639.143450-1-joshua.yeong@starfivetech.com/
->
-> Changes in v2:
-> - Change patch title from 'Add StarFive's StarLink-500 Cache Controller'
-> - Remove StarFive alternative from errata framework
-> - Fixes warning from https://lore.kernel.org/oe-kbuild-all/202403151625.boKDjHGr-lkp@intel.com/
-> - Flush completion through atomic timeout function
-> - Link to v1: https://lore.kernel.org/lkml/20240314061205.26143-1-joshua.yeong@starfivetech.com/
->
-> Joshua Yeong (2):
->   cache: Add StarFive StarLink cache management for StarFive JH8100
->   dt-bindings: cache: Add docs for StarFive Starlink cache controller
->
->  .../cache/starfive,jh8100-starlink-cache.yaml |  66 +++++++++
->  drivers/cache/Kconfig                         |   9 ++
->  drivers/cache/Makefile                        |   5 +-
->  drivers/cache/starfive_starlink_cache.c       | 135 ++++++++++++++++++
->  4 files changed, 213 insertions(+), 2 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/cache/starfive,jh8100-starlink-cache.yaml
->  create mode 100644 drivers/cache/starfive_starlink_cache.c
->
-> --
-> 2.25.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+On Tue, Feb 06, 2024 at 04:40:59PM +0100, Cl=E9ment L=E9ger wrote:
+> While reworking code to fix sparse errors, it appears that the
+> RISCV_M_MODE specific could actually be removed and use the one for
+> normal mode. Even though RISCV_M_MODE can do direct user memory access,
+> using the user uaccess helpers is also going to work. Since there is no
+> need anymore for specific accessors (load_u8()/store_u8()), we can
+> directly use memcpy()/copy_{to/from}_user() and get rid of the copy
+> loop entirely. __read_insn() is also fixed to use an unsigned long
+> instead of a pointer which was cast in __user address space. The
+> insn_addr parameter is now cast from unsigned lnog to the correct
+> address space directly.
+>=20
+> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+
+Removing some m-mode only code always feels like a win to me, given how
+little testing and attention it usually gets.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Cheers,
+Conor.
+
+--oRqeOvL+VdCc0NJF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZijdMwAKCRB4tDGHoIJi
+0obhAP9G8BENAnUK/4kZ8hmIz9sbPYs+/H9oy+evduj/1FIkbwEAwglg5QsZanZN
+2N+UjmpnEvexe+uJYsAmjiRBxr6f/wE=
+=esEe
+-----END PGP SIGNATURE-----
+
+--oRqeOvL+VdCc0NJF--
+
+
+--===============6540700558594874590==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6540700558594874590==--
+
