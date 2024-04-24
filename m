@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F04C4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 20:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 035E0C10F15
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 20:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=CscCbExUIVWxKi5ZNPS4mc9E4o/pzLCPJQIJGaYcmZM=; b=mFjkUmuSWBXp36akbtFksd6kRM
-	CG3n6Rk6BD6Zg7Tq2HDn+LwPf2tusa3yzRyP5Z4+hp2Muma4uWwgzTHF4BGNwkT7wBqlfDvDrX6Ry
-	qqXKsiqYb2ZRNXmimMU7XnmXvOGRwpMe4waNVa2cdtZqIgL8BDK2O2OqXETuBQscUF261Jy5ISsca
-	adInCSG7PZaM7LZ9ONtb1V3ywSAeGdjVGXeWtq+/64uMl+pMWZNJD8g/YD73MW9M1FN7VOJbNVcXJ
-	gf7HKaLvkF8imytV4On/roT0KscngM6sK23zmKREkRr1QzRtf2xJODXdEp2HOOJkZiGDg/iN27Zyb
-	DJRq2VKg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MkKVeYq6oMmUe5uyJOeSNLWziH3g1nozjdPQgQ5d7wA=; b=RL5Dn6F0FWoZMk4iCppZBtIiVM
+	NtVQoRj748l9nukEoUpz7XxyCkDWvqWcl/6RRm05L8zwb70DwCMtA7dY0vtGg/dPUduAuJJSmZHGN
+	fEmDrSxR2ksaGIbn0tF1qaXV+EYsTjBUzLTTxFn38vQKG4tpuho5pnDevyPScX/uW/1aZwwOQAinH
+	J2Dmjq2s+hPCgqKfGKRqaNTTzbHfnboYKOhjU4xaOsWUECvulShlrvTpJlpmRXlsqy7LqkeiCQydC
+	VmzBCdv3sZBEEu6oI8RDsx8FuO+XG08cYa9cc9y/6dszmnag1UhCtnBTr+0Wd50ld0HN3rMyy9K3a
+	60iIcheQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rziot-00000005nMf-0gpD;
-	Wed, 24 Apr 2024 20:02:19 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1rzj5H-00000005snE-40gD;
+	Wed, 24 Apr 2024 20:19:16 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzioq-00000005nL1-0KUV
+	id 1rzj5E-00000005slh-0dcd
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Apr 2024 20:02:18 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1e4c4fb6af3so2522235ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Apr 2024 13:02:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1713988933; x=1714593733; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1PMiKR4aPVvVW83OfyGhFvZRNug52G2rTKzNtFX0PpY=;
-        b=HcPNCQl/hzKAMWDsU2xGTSPwytCUgxH75c6MaM/GFxE2tSFN+J22Cf05Fk0NJKHwDw
-         vLy+vUxHxNBdY5S0at9cvyeq413f2YZfWPpp8gWlhcSKgRPxP62lYruD+z3DHGCJhL9B
-         qZt0DDFaUHlwPYNPCH3qLCsl6IKBHhr1HJSnxvChxyJSwQDMm3gyLF4DOysJz2MOH0h3
-         MfUpbkZPcO1/GNfyQ6ZJpIjeRhSqjMUS08Rmd0XcFKccQ/vM9fA8amkMuTtW6Gah8a54
-         Hrh4khJoqQl50mUi7BecCOQUEeoK5GuXqS8WE2fi9et2wfrYpCS19RkQhS8zn5QvpNtD
-         qpsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713988933; x=1714593733;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1PMiKR4aPVvVW83OfyGhFvZRNug52G2rTKzNtFX0PpY=;
-        b=tjyEzNNGoBGGDygjuWlgak6rODS4Ld/Pc1RumYM1hprakLMzK3iiIL2vNYkoj6kthJ
-         EDgLipGj8lS/+cYBdd3GXpqghZ+/Hq+YLxb7dUCL9Z+pT2fhhoEzrHCIcSqCCXiUpr4e
-         OGs76zJQgjOr6ImdlRjnMn4xTgmeF7oazYLZjI/2UCyOsV183Acwdb8KqWzvg176zxv0
-         Sdn2f9hYhPxpdqcYgiwmJQBCG5wQHzQIFvpPU6YUaMC5e73z5P2Hwacla9SGFBWSODDG
-         uBLdUlgbEwzQhsBbw8QW8WEAfMtbqRVwa62C8aXu0EcP4qA+SUstFiG96754mfGjTHno
-         0mlg==
-X-Forwarded-Encrypted: i=1; AJvYcCWnCydK6o8dIaW8upk8M7KaF2aWG8y5xtY/kFBZuHF//6N4Uk5+C3XaYQcnJe0R+5XoDctH8OIrKUbwFjEV0zPjHhH8KbF2rfOWWXCm95Fz
-X-Gm-Message-State: AOJu0YxFmv+TQI+WxhGinS7rhIy0raM9PqpGmNnTx9DcgGuWWa7oEigI
-	NrJ+KhZdeA+jPsj3hatJK5kws3aimyal8ERS1IAtYVOObqdX+fuU7HCX0TczYCk=
-X-Google-Smtp-Source: AGHT+IGNe7+hcCK2Yu7QzpuHAbzpCXHusHTOSP45V5t7RI6OE+y2MTETWng8kTxcKbvrNI+OJ4e74A==
-X-Received: by 2002:a17:903:124f:b0:1e5:c131:ca0e with SMTP id u15-20020a170903124f00b001e5c131ca0emr1130620plh.6.1713988933046;
-        Wed, 24 Apr 2024 13:02:13 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id w17-20020a1709027b9100b001e3e222072esm12301319pll.53.2024.04.24.13.02.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Apr 2024 13:02:12 -0700 (PDT)
-Date: Wed, 24 Apr 2024 13:02:12 -0700 (PDT)
-X-Google-Original-Date: Wed, 24 Apr 2024 13:02:10 PDT (-0700)
-Subject: Re: [PATCH v3 RESEND] riscv: select ARCH_HAS_FAST_MULTIPLIER
-In-Reply-To: <20240325105823.1483-1-jszhang@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, samuel.holland@sifive.com,
-  alexghiti@rivosinc.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jszhang@kernel.org
-Message-ID: <mhng-e1db5617-3379-4205-b502-22b05fb6d07c@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	Wed, 24 Apr 2024 20:19:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 34705CE17D7;
+	Wed, 24 Apr 2024 20:19:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3CDFC113CD;
+	Wed, 24 Apr 2024 20:19:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713989948;
+	bh=63hZPOmkSg+IK89rduMeX1CZgesVdUrWtwIPoEX0wx8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FdW7u1jzxAWuLqFr++Z5rwBUKGJKPRkGswnMGsR/iCqFctDOhNzWCIc/6iJw0CCBS
+	 n/+rOibvY434+ZwL5uW15xDCcyFNfsmIBog8CnRpPnVPILZVhgxNehzvN6bBFu0aur
+	 a3vJGoJhdyE42nR7hYu2kwKfMUIKdvMKprt5Cwm3mmIobl9kiDYzI1we4eY677dv4G
+	 pZ4aes1aAviH4dpvMkL03Zwryw8/xQy52vOvJASrQBH4akfZrG5DrJRZCDinG+efHp
+	 j7W5tt9JHJJEM7czNa0I3PK2cSQa48OBFPNnehePSbI6wDoOWc6pKVlp7oR+UzquKD
+	 CcV3JBDWDME4Q==
+Date: Wed, 24 Apr 2024 21:19:04 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] clock, reset: microchip: move all mpfs reset code to
+ the reset subsystem
+Message-ID: <20240424-glazing-handsaw-4c303fef4f7e@spud>
+References: <20240424-strangle-sharpener-34755c5e6e3e@spud>
+ <722f31da34e5e1cfef05fb966f6c8c96.sboyd@kernel.org>
+MIME-Version: 1.0
+In-Reply-To: <722f31da34e5e1cfef05fb966f6c8c96.sboyd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240424_130216_290087_A67CACA1 
-X-CRM114-Status: GOOD (  29.60  )
+X-CRM114-CacheID: sfid-20240424_131912_467264_424430F6 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,93 +72,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============0475444156481217372=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 Mar 2024 03:58:23 PDT (-0700), jszhang@kernel.org wrote:
-> Currently, riscv linux requires at least IMA, so all platforms have a
-> multiplier. And I assume the 'mul' efficiency is comparable or better
-> than a sequence of five or so register-dependent arithmetic
-> instructions. Select ARCH_HAS_FAST_MULTIPLIER to get slightly nicer
-> codegen. Refer to commit f9b4192923fa ("[PATCH] bitops: hweight()
-> speedup") for more details.
->
-> In a simple benchmark test calling hweight64() in a loop, it got:
-> about 14% performance improvement on JH7110, tested on Milkv Mars.
->
-> about 23% performance improvement on TH1520 and SG2042, tested on
-> Sipeed LPI4A and SG2042 platform.
->
-> a slight performance drop on CV1800B, tested on milkv duo. Among all
-> riscv platforms in my hands, this is the only one which sees a slight
-> performance drop. It means the 'mul' isn't quick enough. However, the
-> situation exists on x86 too, for example, P4 doesn't have fast
-> integer multiplies as said in the above commit, x86 also selects
-> ARCH_HAS_FAST_MULTIPLIER. So let's select ARCH_HAS_FAST_MULTIPLIER
-> which can benefit almost riscv platforms.
->
-> Samuel also provided some performance numbers:
-> On Unmatched: 20% speedup for __sw_hweight32 and 30% speedup for
-> __sw_hweight64.
-> On D1: 8% speedup for __sw_hweight32 and 8% slowdown for
-> __sw_hweight64.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-> Tested-by: Samuel Holland <samuel.holland@sifive.com>
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  arch/riscv/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
->
-> Hi Palmer,
->
-> Similar as the pgprot_nx patch, this patch missed two merge window too.
-> Feel free to ask me questions if there's something need to be done from
-> my side.
 
-Sorry I missed these.  I know they look small and simple, but they're 
-the sort of patches that have wide-reaching implications and thus just 
-take a long time to review for a tiny diff.  I think they just got lost 
-in the shuffle, luckily Alex and Andrea picked up some reviews which 
-helps a ton.
+--===============0475444156481217372==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="rh9OexgCGdhps0bi"
+Content-Disposition: inline
 
-Really the best thing to do if you stuff merged is to go review patches 
-that are in front of you in the patchwork queue, as that's what blocks 
-things from getting merged.  I know that's not the most fun of 
-answers...
 
-I picked these up for the tester, the code is pretty simple so hopefully 
-everything's OK and they'll show up on for-next proper within a day.
+--rh9OexgCGdhps0bi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->
-> Thanks
->
-> since v2:
->  - rebase on v6.8-rc1
->  - collect Reviewed-by and Tested-by tag
->
-> since v1:
->  - fix typo in commit msg
->  - add some performance numbers provided by Samuel
->  - collect Reviewed-by and Tested-by tag
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index be09c8836d56..aba42b2bf660 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -23,6 +23,7 @@ config RISCV
->  	select ARCH_HAS_DEBUG_VIRTUAL if MMU
->  	select ARCH_HAS_DEBUG_VM_PGTABLE
->  	select ARCH_HAS_DEBUG_WX
-> +	select ARCH_HAS_FAST_MULTIPLIER
->  	select ARCH_HAS_FORTIFY_SOURCE
->  	select ARCH_HAS_GCOV_PROFILE_ALL
->  	select ARCH_HAS_GIGANTIC_PAGE
+On Wed, Apr 24, 2024 at 11:33:32AM -0700, Stephen Boyd wrote:
+> Quoting Conor Dooley (2024-04-24 01:42:08)
+> > diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
+> > index 7f3fb2d472f4..710f9c1676f9 100644
+> > --- a/drivers/reset/reset-mpfs.c
+> > +++ b/drivers/reset/reset-mpfs.c
+> > @@ -121,11 +135,15 @@ static int mpfs_reset_probe(struct auxiliary_devi=
+ce *adev,
+> >  {
+> >         struct device *dev =3D &adev->dev;
+> >         struct reset_controller_dev *rcdev;
+> > +       struct mpfs_reset *rst;
+> > =20
+> > -       rcdev =3D devm_kzalloc(dev, sizeof(*rcdev), GFP_KERNEL);
+> > -       if (!rcdev)
+> > +       rst =3D devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
+> > +       if (!rst)
+> >                 return -ENOMEM;
+> > =20
+> > +       rst->base =3D (void __iomem *)adev->dev.platform_data;
+>=20
+> Can use dev_get_platdata() here?
+>=20
+> 	rst->base =3D (void __iomem *)dev_get_platdata(dev);
+>=20
+> That's sad that a cast is necessary. Does it need __force as well? An
+> alternative would be to make a container struct for auxiliary_device and
+> put the pointer there.
+
+
+Ye, I dunno if it was sparse that yelled at me, but either it or the
+compiler didn't approve. I don't really like the casting in and out, but
+the alternative I don't find elegant either, so I picked the one I deemed
+simpler. I'm happy to go with whichever you prefer.
+
+And re: __force, AFAIU that's only required while discarding the
+__iomem, so the cast into the platform_data has one:
+	adev->dev.platform_data =3D (__force void *)base;
+
+
+--rh9OexgCGdhps0bi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZilpOAAKCRB4tDGHoIJi
+0vP+AP9lEnMw5y7fvCuYaADjE2y57zzff3jp+ioyFjTJxoliCgEAyxCg4Pv3Ek/D
+Z4HW5TKPA2SEiWITrZbN9BnGFAfHOwg=
+=uuLw
+-----END PGP SIGNATURE-----
+
+--rh9OexgCGdhps0bi--
+
+
+--===============0475444156481217372==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0475444156481217372==--
+
