@@ -4,61 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D22CBC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 20:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F04C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 20:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZavZq/XDgCnQ1d0q0r4Brixzi+72PHPKNrg47+uX8CA=; b=DiMm49o77YcDhY
-	X4piQFUZ8IlpmVEUOip+EYQBVHEOfucoTV7WStWqww6xeVJRFnSURvIXncr9fLiIow+Rqg0IwkrKH
-	rehccRQd9E3LAWzSYSwY4qROps7fdHcFHkZiAa1+92L4xRH28Lt94p3Fim8e5deQE9cdD0WboW+u4
-	kO3vwm2NhUChpgaEfzR//BI4DAnmcVhbtEBsnbQO1ivreOVPmkU1KB6mDACLcaZeN9kaD7vA12Yc4
-	EwZ1kbx/0x44qD0m++fLjHif7gQrEQmoi+TZ/zDi1PzUOZ8OqvzSBQziVrWMC0q0+FwjNjbvdZqMR
-	SDQUIfj0sX7SWmtRZb4Q==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=CscCbExUIVWxKi5ZNPS4mc9E4o/pzLCPJQIJGaYcmZM=; b=mFjkUmuSWBXp36akbtFksd6kRM
+	CG3n6Rk6BD6Zg7Tq2HDn+LwPf2tusa3yzRyP5Z4+hp2Muma4uWwgzTHF4BGNwkT7wBqlfDvDrX6Ry
+	qqXKsiqYb2ZRNXmimMU7XnmXvOGRwpMe4waNVa2cdtZqIgL8BDK2O2OqXETuBQscUF261Jy5ISsca
+	adInCSG7PZaM7LZ9ONtb1V3ywSAeGdjVGXeWtq+/64uMl+pMWZNJD8g/YD73MW9M1FN7VOJbNVcXJ
+	gf7HKaLvkF8imytV4On/roT0KscngM6sK23zmKREkRr1QzRtf2xJODXdEp2HOOJkZiGDg/iN27Zyb
+	DJRq2VKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzio3-00000005mxT-1hKh;
-	Wed, 24 Apr 2024 20:01:27 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1rziot-00000005nMf-0gpD;
+	Wed, 24 Apr 2024 20:02:19 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzio0-00000005mtd-1hUM
+	id 1rzioq-00000005nL1-0KUV
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Apr 2024 20:01:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id CB2E1240004;
-	Wed, 24 Apr 2024 20:01:15 +0000 (UTC)
-Message-ID: <4acc62d0-d62b-4d42-805b-0bc7f663a81c@ghiti.fr>
-Date: Wed, 24 Apr 2024 22:01:15 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/9] riscv: smp: fail booting up smp if inconsistent
- vlen is detected
-Content-Language: en-US
-To: Andy Chiu <andy.chiu@sifive.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley
- <conor.dooley@microchip.com>, Heiko Stuebner <heiko@sntech.de>,
- Guo Ren <guoren@kernel.org>, Conor Dooley <conor@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Jonathan Corbet <corbet@lwn.net>, Evan Green <evan@rivosinc.com>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Shuah Khan <shuah@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@rivosinc.com>, Vincent Chen
- <vincent.chen@sifive.com>, Greentime Hu <greentime.hu@sifive.com>,
- devicetree@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20240412-zve-detection-v4-0-e0c45bb6b253@sifive.com>
- <20240412-zve-detection-v4-2-e0c45bb6b253@sifive.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240412-zve-detection-v4-2-e0c45bb6b253@sifive.com>
-X-GND-Sasl: alex@ghiti.fr
+	Wed, 24 Apr 2024 20:02:18 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1e4c4fb6af3so2522235ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Apr 2024 13:02:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1713988933; x=1714593733; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1PMiKR4aPVvVW83OfyGhFvZRNug52G2rTKzNtFX0PpY=;
+        b=HcPNCQl/hzKAMWDsU2xGTSPwytCUgxH75c6MaM/GFxE2tSFN+J22Cf05Fk0NJKHwDw
+         vLy+vUxHxNBdY5S0at9cvyeq413f2YZfWPpp8gWlhcSKgRPxP62lYruD+z3DHGCJhL9B
+         qZt0DDFaUHlwPYNPCH3qLCsl6IKBHhr1HJSnxvChxyJSwQDMm3gyLF4DOysJz2MOH0h3
+         MfUpbkZPcO1/GNfyQ6ZJpIjeRhSqjMUS08Rmd0XcFKccQ/vM9fA8amkMuTtW6Gah8a54
+         Hrh4khJoqQl50mUi7BecCOQUEeoK5GuXqS8WE2fi9et2wfrYpCS19RkQhS8zn5QvpNtD
+         qpsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713988933; x=1714593733;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1PMiKR4aPVvVW83OfyGhFvZRNug52G2rTKzNtFX0PpY=;
+        b=tjyEzNNGoBGGDygjuWlgak6rODS4Ld/Pc1RumYM1hprakLMzK3iiIL2vNYkoj6kthJ
+         EDgLipGj8lS/+cYBdd3GXpqghZ+/Hq+YLxb7dUCL9Z+pT2fhhoEzrHCIcSqCCXiUpr4e
+         OGs76zJQgjOr6ImdlRjnMn4xTgmeF7oazYLZjI/2UCyOsV183Acwdb8KqWzvg176zxv0
+         Sdn2f9hYhPxpdqcYgiwmJQBCG5wQHzQIFvpPU6YUaMC5e73z5P2Hwacla9SGFBWSODDG
+         uBLdUlgbEwzQhsBbw8QW8WEAfMtbqRVwa62C8aXu0EcP4qA+SUstFiG96754mfGjTHno
+         0mlg==
+X-Forwarded-Encrypted: i=1; AJvYcCWnCydK6o8dIaW8upk8M7KaF2aWG8y5xtY/kFBZuHF//6N4Uk5+C3XaYQcnJe0R+5XoDctH8OIrKUbwFjEV0zPjHhH8KbF2rfOWWXCm95Fz
+X-Gm-Message-State: AOJu0YxFmv+TQI+WxhGinS7rhIy0raM9PqpGmNnTx9DcgGuWWa7oEigI
+	NrJ+KhZdeA+jPsj3hatJK5kws3aimyal8ERS1IAtYVOObqdX+fuU7HCX0TczYCk=
+X-Google-Smtp-Source: AGHT+IGNe7+hcCK2Yu7QzpuHAbzpCXHusHTOSP45V5t7RI6OE+y2MTETWng8kTxcKbvrNI+OJ4e74A==
+X-Received: by 2002:a17:903:124f:b0:1e5:c131:ca0e with SMTP id u15-20020a170903124f00b001e5c131ca0emr1130620plh.6.1713988933046;
+        Wed, 24 Apr 2024 13:02:13 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id w17-20020a1709027b9100b001e3e222072esm12301319pll.53.2024.04.24.13.02.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Apr 2024 13:02:12 -0700 (PDT)
+Date: Wed, 24 Apr 2024 13:02:12 -0700 (PDT)
+X-Google-Original-Date: Wed, 24 Apr 2024 13:02:10 PDT (-0700)
+Subject: Re: [PATCH v3 RESEND] riscv: select ARCH_HAS_FAST_MULTIPLIER
+In-Reply-To: <20240325105823.1483-1-jszhang@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, samuel.holland@sifive.com,
+  alexghiti@rivosinc.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: jszhang@kernel.org
+Message-ID: <mhng-e1db5617-3379-4205-b502-22b05fb6d07c@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240424_130124_786922_670D19A3 
-X-CRM114-Status: GOOD (  24.00  )
+X-CRM114-CacheID: sfid-20240424_130216_290087_A67CACA1 
+X-CRM114-Status: GOOD (  29.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,117 +93,86 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
-
-On 12/04/2024 08:48, Andy Chiu wrote:
-> Currently we only support Vector for SMP platforms, that is, all SMP
-> cores have the same vlenb. If we happen to detect a mismatching vlen, it
-> is better to just fail bootting it up to prevent further race/scheduling
-> issues.
+On Mon, 25 Mar 2024 03:58:23 PDT (-0700), jszhang@kernel.org wrote:
+> Currently, riscv linux requires at least IMA, so all platforms have a
+> multiplier. And I assume the 'mul' efficiency is comparable or better
+> than a sequence of five or so register-dependent arithmetic
+> instructions. Select ARCH_HAS_FAST_MULTIPLIER to get slightly nicer
+> codegen. Refer to commit f9b4192923fa ("[PATCH] bitops: hweight()
+> speedup") for more details.
 >
-> Also, move .Lsecondary_park forward and chage `tail smp_callin` into a
-> regular call in the early assembly. So a core would be parked right
-> after a return from smp_callin. Note that a successful smp_callin
-> does not return.
+> In a simple benchmark test calling hweight64() in a loop, it got:
+> about 14% performance improvement on JH7110, tested on Milkv Mars.
 >
-> Fixes: 7017858eb2d7 ("riscv: Introduce riscv_v_vsize to record size of Vector context")
-> Reported-by: Conor Dooley <conor.dooley@microchip.com>
-> Closes: https://lore.kernel.org/linux-riscv/20240228-vicinity-cornstalk-4b8eb5fe5730@spud/
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> about 23% performance improvement on TH1520 and SG2042, tested on
+> Sipeed LPI4A and SG2042 platform.
+>
+> a slight performance drop on CV1800B, tested on milkv duo. Among all
+> riscv platforms in my hands, this is the only one which sees a slight
+> performance drop. It means the 'mul' isn't quick enough. However, the
+> situation exists on x86 too, for example, P4 doesn't have fast
+> integer multiplies as said in the above commit, x86 also selects
+> ARCH_HAS_FAST_MULTIPLIER. So let's select ARCH_HAS_FAST_MULTIPLIER
+> which can benefit almost riscv platforms.
+>
+> Samuel also provided some performance numbers:
+> On Unmatched: 20% speedup for __sw_hweight32 and 30% speedup for
+> __sw_hweight64.
+> On D1: 8% speedup for __sw_hweight32 and 8% slowdown for
+> __sw_hweight64.
+>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+> Tested-by: Samuel Holland <samuel.holland@sifive.com>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 > ---
-> Changelog v4:
->   - update comment also in the assembly code (Yunhui)
-> Changelog v2:
->   - update commit message to explain asm code change (Conor)
-> ---
->   arch/riscv/kernel/head.S    | 19 ++++++++++++-------
->   arch/riscv/kernel/smpboot.c | 14 +++++++++-----
->   2 files changed, 21 insertions(+), 12 deletions(-)
+>  arch/riscv/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index 4236a69c35cb..a00f7523cb91 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -165,9 +165,20 @@ secondary_start_sbi:
->   #endif
->   	call .Lsetup_trap_vector
->   	scs_load_current
-> -	tail smp_callin
-> +	call smp_callin
->   #endif /* CONFIG_SMP */
->   
-> +.align 2
-> +.Lsecondary_park:
-> +	/*
-> +	 * Park this hart if we:
-> +	 *  - have too many harts on CONFIG_RISCV_BOOT_SPINWAIT
-> +	 *  - receive an early trap, before setup_trap_vector finished
-> +	 *  - fail in smp_callin(), as a successful one wouldn't return
-> +	 */
-> +	wfi
-> +	j .Lsecondary_park
-> +
->   .align 2
->   .Lsetup_trap_vector:
->   	/* Set trap vector to exception handler */
-> @@ -181,12 +192,6 @@ secondary_start_sbi:
->   	csrw CSR_SCRATCH, zero
->   	ret
->   
-> -.align 2
-> -.Lsecondary_park:
-> -	/* We lack SMP support or have too many harts, so park this hart */
-> -	wfi
-> -	j .Lsecondary_park
-> -
->   SYM_CODE_END(_start)
->   
->   SYM_CODE_START(_start_kernel)
-> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> index d41090fc3203..673437ccc13d 100644
-> --- a/arch/riscv/kernel/smpboot.c
-> +++ b/arch/riscv/kernel/smpboot.c
-> @@ -214,6 +214,15 @@ asmlinkage __visible void smp_callin(void)
->   	struct mm_struct *mm = &init_mm;
->   	unsigned int curr_cpuid = smp_processor_id();
->   
-> +	if (has_vector()) {
-> +		/*
-> +		 * Return as early as possible so the hart with a mismatching
-> +		 * vlen won't boot.
-> +		 */
-> +		if (riscv_v_setup_vsize())
-> +			return;
-> +	}
-> +
->   	/* All kernel threads share the same mm context.  */
->   	mmgrab(mm);
->   	current->active_mm = mm;
-> @@ -226,11 +235,6 @@ asmlinkage __visible void smp_callin(void)
->   	numa_add_cpu(curr_cpuid);
->   	set_cpu_online(curr_cpuid, 1);
->   
-> -	if (has_vector()) {
-> -		if (riscv_v_setup_vsize())
-> -			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
-> -	}
-> -
->   	riscv_user_isa_enable();
->   
->   	/*
+> Hi Palmer,
 >
+> Similar as the pgprot_nx patch, this patch missed two merge window too.
+> Feel free to ask me questions if there's something need to be done from
+> my side.
 
-So this should go into -fixes, would you mind sending a single patch for 
-this fix?
+Sorry I missed these.  I know they look small and simple, but they're 
+the sort of patches that have wide-reaching implications and thus just 
+take a long time to review for a tiny diff.  I think they just got lost 
+in the shuffle, luckily Alex and Andrea picked up some reviews which 
+helps a ton.
 
-Your patch 8 is actually already fixed by Clement's patch 
-https://lore.kernel.org/linux-riscv/20240409143839.558784-1-cleger@rivosinc.com/ 
-and I already mentioned this one to Palmer.
+Really the best thing to do if you stuff merged is to go review patches 
+that are in front of you in the patchwork queue, as that's what blocks 
+things from getting merged.  I know that's not the most fun of 
+answers...
 
-Thanks,
+I picked these up for the tester, the code is pretty simple so hopefully 
+everything's OK and they'll show up on for-next proper within a day.
 
-Alex
-
+>
+> Thanks
+>
+> since v2:
+>  - rebase on v6.8-rc1
+>  - collect Reviewed-by and Tested-by tag
+>
+> since v1:
+>  - fix typo in commit msg
+>  - add some performance numbers provided by Samuel
+>  - collect Reviewed-by and Tested-by tag
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index be09c8836d56..aba42b2bf660 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -23,6 +23,7 @@ config RISCV
+>  	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+>  	select ARCH_HAS_DEBUG_VM_PGTABLE
+>  	select ARCH_HAS_DEBUG_WX
+> +	select ARCH_HAS_FAST_MULTIPLIER
+>  	select ARCH_HAS_FORTIFY_SOURCE
+>  	select ARCH_HAS_GCOV_PROFILE_ALL
+>  	select ARCH_HAS_GIGANTIC_PAGE
 
 _______________________________________________
 linux-riscv mailing list
