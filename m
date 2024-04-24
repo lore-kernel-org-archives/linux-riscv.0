@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 280EEC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 07:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCF8C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 07:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tTJV7PZqhcbKljZODx69EIjz4MW39J815qRRsATMoj4=; b=3z+B61v1rCodpm
-	Lp4fGYQ61dmpHLxcWV2LONIh7zb8pXRu7iclXDoSVvNdhUGNMDohfinhbIS9rXImB6z6yLaQQxDgO
-	tOWyQqI8T6JXK302t3Ps0Qb8mtZwBKTfNA55gZq797OjR8ZTF4xYRijYm0Cdx4gZaDjBOly0ZXkNB
-	hQ9uBSnwMWDrdbKthixEvB915PwoDflhd3zm57G/FD/axWyL7lTgKhmrvARsSY80y+wisxbxWF6cw
-	mTgGG75vC4YnHAUf6n1CDkD9wdbNrcZng2V5uqVBlOgtgULGHS7mVTZUrJd2foMDfOcDIcK5sIZOU
-	HI0sAtJkoFoPqCBw2mEg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CHIZfX0H7zT3amuF56DCuz3N7iB3J6fPw9mt9E+J+Fo=; b=TQB5VKOt9ZcJYQKvYNYdU955eK
+	eCe4ntAwoYn8zVBwMdxQcvaZK2xZrVQfjlADtaXOy9e8mDHWjdDjTvmrVU9QbXMRq5k4uitvBa5nu
+	99X06P7yG68HZsZ9BKJsMqlpKZL5aCve8q3UZ0v3NmqAQBhMa+XcrLrAH/StiNW0bo7K30ksWSzh2
+	qNAolwYnc5fmTOKq5P+R88uf9X/oGEHNmZrfKWWlYCVI8UxjNw0xV8tyQDs2T7Vu86ZFNEf56rTFl
+	7j+y0z+dgRqXf9aIiHRW7QXGmIdreNWhmADzfQr4XFeZXWKCBa07ekLRkezz+IHCAjwxdZgFp3s8W
+	Xj7qzUHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzX9e-000000037QA-37WZ;
-	Wed, 24 Apr 2024 07:34:58 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1rzXEq-0000000381o-3NZg;
+	Wed, 24 Apr 2024 07:40:20 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzX9a-000000037Ng-31Cp
-	for linux-riscv@lists.infradead.org;
-	Wed, 24 Apr 2024 07:34:56 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-a557044f2ddso725841366b.2
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Apr 2024 00:34:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1713944092; x=1714548892; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4LXEJgLHvhHFf/LPY+jkXymit/X1z2rV/5NPnlDmp7s=;
-        b=ECt+nMnGirJ2da3QCUKbZEjSffJ6dRZ0ATehsXjJkxeoKPx1tTn7X7WtUVvICbgrBr
-         Q7ioTsLQ0DGtWpuuhV/8rFKsln1yif9qOUlNy+Rhbk//EZRJlO9zbrbIdd9iRu06oDoa
-         hSD8fp0AUrcjzIlE3qEOnbSknnarZiWeiIs02irpfjd5/iYMEulFna3+rP8JG9ESrK/t
-         SwIIXkvqlVcvwqowDto6i5CaBQcZIqMh4DClEuoKLisODwPUur5WQ1z8KHVZogUuZdSL
-         v75bDhGXUt7zkyLmf3IFvlP5+JSv0ipM7ia640M2w4ZQr2J0yXt7dMzhbM8xgxLiqXfM
-         VMog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713944092; x=1714548892;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4LXEJgLHvhHFf/LPY+jkXymit/X1z2rV/5NPnlDmp7s=;
-        b=GGA9TS8CDBn4yjmBWjw2CbSKVVdxcaCg0lblTLWcibKvnnf9F7Nfgwkzeef4nZl0MR
-         NMi1c15p2PI0OUF96LXgtl9bVfedlBKKpPuUtefmFhHvuqpyXgrWYvIUM7k/nW0V88AZ
-         Mwv37grbacRo+6lSpUmhuKZ7I/LFNponbb54/26p623pNVfWCisWS6YlzMCDwZXR5aqC
-         mRg6Tkz9Vl3KbeEr+sXS0Wjie6F3h2zLjN0XjJaX4YJYTK7o1CgoPOfp0XpIHkcZbx82
-         wj9pfZMLTcVjFH7z+6YHfe92QwlV8A6uaieZdpT/7Rh3aFTRa1HOVPC84OAWdFKV5YPJ
-         yfXA==
-X-Forwarded-Encrypted: i=1; AJvYcCXswNs2sWssyFcOkv625APMaXAhb+k3GUeCV8NJc60fa/kkdjkYBm6+FujtRBsa9EGvOwmhzmoGt/k/LPMFGPT1xxEbtGA2kY2SPQR52N18
-X-Gm-Message-State: AOJu0YxEN6v9KBaR2bv+b113PZZIeH9oJ/2m8zlI49Qv96kU4ximaY1c
-	26+dhJ+FXcjSkIzGi/zFn/OEu2OYIqbFSxDGhkypFu8aWqd/RWCLyxRRDSEQ/u8=
-X-Google-Smtp-Source: AGHT+IGQqz4abAXug0TgscjnGx3pComSEUeb+rvZU+uo756JTnYJ8qq+lK6IMXc9NV5paOnTtvA4iw==
-X-Received: by 2002:a17:906:d206:b0:a4d:fcc9:905c with SMTP id w6-20020a170906d20600b00a4dfcc9905cmr889054ejz.20.1713944091520;
-        Wed, 24 Apr 2024 00:34:51 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id gc24-20020a170906c8d800b00a55ac217235sm4236045ejb.90.2024.04.24.00.34.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Apr 2024 00:34:51 -0700 (PDT)
-Date: Wed, 24 Apr 2024 09:34:50 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
-	kvm-riscv@lists.infradead.org, devicetree@vger.kernel.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, conor.dooley@microchip.com, 
-	anup@brainfault.org, atishp@atishpatra.org, robh@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, christoph.muellner@vrull.eu, 
-	heiko@sntech.de, David.Laight@aculab.com, parri.andrea@gmail.com, 
-	luxu.kernel@bytedance.com
-Subject: Re: [PATCH v2 2/6] dt-bindings: riscv: Add Zawrs ISA extension
+	id 1rzXEm-00000003804-2PkJ;
+	Wed, 24 Apr 2024 07:40:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 73079CE1371;
+	Wed, 24 Apr 2024 07:40:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC58FC113CE;
+	Wed, 24 Apr 2024 07:40:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1713944413;
+	bh=3HsOuSJtJ1IhE61NoIAbOBMWZ2YnkKaqYDMmNhQXJwc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C01cGJHaEbj4jAXPEmGr9XRdc9//r7NyYG9h0HHh0P2Gls9cq5hhbzvB6h9B8DvjO
+	 ZibdC8Jcg/THVBIjizJaXZc4UZiUqi9Lk3zil83977KEmEnW74mvGHqYdnssAacJC3
+	 4ByD9P+tI8VdtLHvmil0oTineLS9/01Tgj3lfCP6bgffEzLpLoRDk9GtqYJ44UXIzP
+	 /Yi/stzmzEJNPQIcoAT1yzE1U+POy1eSfYfxpMABGRKGg/lY8gMqk5RV5f+O22Y0/o
+	 hUq60Vg8VgsekAm5vJN+cnOm/ODkThHbfCm4zggIxZoUjzY7ahGGo6+NKoaBJPN3Qk
+	 ucpDjJ0lH0O/Q==
+Date: Wed, 24 Apr 2024 08:40:08 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, Ved Shanbhogue <ved@rivosinc.com>
+Subject: Re: [RFC PATCH 2/7] dt-bindings: riscv: add Ssdbltrp ISA extension
  description
-Message-ID: <20240424-0e571b29835610c24409762b@orel>
-References: <20240419135321.70781-10-ajones@ventanamicro.com>
- <20240419-chafe-leotard-e5daee19b1c8@spud>
- <20240419-8c6af6a169a7aa0b9aa5cac5@orel>
- <20240419-disdain-litmus-82874cc4872e@spud>
- <ZiKeYRnXxtLUtkkW@ghost>
- <20240421-f63f90c2146deb0695b84441@orel>
- <ZibmfbLnGCb9gmow@ghost>
- <20240423-ed9ddb701be1df4a25e29f31@orel>
- <Zif3VZALGtLtl3D3@ghost>
- <ZigPN/iJ/gLT4DOD@ghost>
+Message-ID: <20240424-rehydrate-sloppy-62132c72fe18@spud>
+References: <20240418142701.1493091-1-cleger@rivosinc.com>
+ <20240418142701.1493091-3-cleger@rivosinc.com>
+ <20240423-poser-splashed-56ab5340af48@spud>
+ <e39f2fea-868a-4a79-b7a5-bef8f15de688@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZigPN/iJ/gLT4DOD@ghost>
+In-Reply-To: <e39f2fea-868a-4a79-b7a5-bef8f15de688@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240424_003454_833324_6A2FEE73 
-X-CRM114-Status: GOOD (  42.83  )
+X-CRM114-CacheID: sfid-20240424_004017_003605_61AABD2D 
+X-CRM114-Status: GOOD (  25.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,111 +76,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1941604072513911863=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 23, 2024 at 03:42:47PM -0400, Charlie Jenkins wrote:
-> On Tue, Apr 23, 2024 at 02:00:53PM -0400, Charlie Jenkins wrote:
-> > On Tue, Apr 23, 2024 at 10:46:01AM +0200, Andrew Jones wrote:
-> > > On Mon, Apr 22, 2024 at 06:36:45PM -0400, Charlie Jenkins wrote:
-> > > > On Sun, Apr 21, 2024 at 12:20:03PM +0200, Andrew Jones wrote:
-> > > > > On Fri, Apr 19, 2024 at 12:40:01PM -0400, Charlie Jenkins wrote:
-> > > ...
-> > > > > > What would be the purpose of a vendor implementing WRS.NTO (and putting
-> > > > > > it in the DT) that never terminates? The spec says "Then a subsequent
-> > > > > > WRS.NTO instruction would cause the hart to temporarily stall execution
-> > > > > > in a low- power state until a store occurs to the reservation set or an
-> > > > > > interrupt is observed." Why is this wording for WRS.NTO not sufficient
-> > > > > > to assume that an implementation of this instruction would eventually
-> > > > > > terminate?
-> > > > > >
-> > > > > 
-> > > > > We can invoke smp_cond_load_relaxed(addr, VAL || anything_we_want()). This
-> > > > > means we may not expect VAL ever to be written, which rules out "until a
-> > > > > store occurs". As for "an interrupt is observed", we don't know which one
-> > > > > to expect to arrive within a "reasonable" amount of time. We need to know
-> > > > > which one(s), since, while wrs.nto will terminate even when interrupts are
-> > > > > globally disabled, we still need to have the interrupt(s) we expect to be
-> > > > > locally enabled. And, the interrupts should arrive in a "reasonable"
-> > > > > amount of time since we want to poll anything_we_want() at a "reasonable"
-> > > > > frequency.
-> > > > > 
-> > > > > So, we need firmware to promise to enable exceptions if there aren't any
-> > > > > such interrupts. Or, we could require hardware descriptions to identify
-> > > > > which interrupt(s) would be good to have enabled before calling wrs.nto.
-> > > > > Maybe there's already some way to describe something like that?
-> > > > > 
-> > > > > Thanks,
-> > > > > drew
-> > > > 
-> > > > Ahh okay I am caught up now. So the wording we are looking at in the
-> > > > spec is:
-> > > > 
-> > > > "When executing in VS or VU mode, if the VTW bit is set in hstatus, the
-> > > > TW bit in mstatus is clear, and the WRS.NTO does not complete within an
-> > > > implementation-specific bounded time limit, the WRS.NTO instruction will
-> > > > cause a virtual instruction exception."
-> > > 
-> > > That's what the hypervisor should promise to do when there's no other
-> > > guarantee of wrs.nto terminating (but the hypervisor likely wants to
-> > > anyway since it wants guests to trap on wrs.nto in order to potentially
-> > > schedule the lock holding VCPU). The firmware of the host should likewise
-> > > promise to set mstatus.TW when there's no guarantee of wrs.nto
-> > > terminating, but that's likely _not_ something it normally would want to
-> > > do, so hopefully there will always be implementation-specific "other
-> > > reasons" which guarantee termination.
-> > > 
-> > > > 
-> > > > With the concern being that it is possible for "implementation-specific
-> > > > bounded time limit" to be infinite/never times out,
-> > > 
-> > > The implementation-defined short timeout cannot be infinite, but it only
-> > > applies to wrs.sto. While using wrs.sto would relieve the concern, it
-> > > cannot be configured to raise exceptions, which means it's not useful in
-> > > guests. If we want to use wrs.sto in hosts and wrs.nto in guests then we
-> > > need a paravirt channel which allows an "enlightened" guest to determine
-> > > that it is a guest and that the hypervisor has configured wrs.nto to
-> > > trap, which then indicates it's a good idea to patch wrs.sto to wrs.nto.
-> > > But, adding paravirt stuff should be avoided whenever possible since it
-> > > adds complexity we'd rather not maintain.
-> > > 
-> > 
-> > That still wouldn't solve this issue, because the wrs.nto guest may still
-> > never wakeup in the implementation-specific way?
 
-The paravirt approach does solve it, because wrs.nto is specified to raise
-exceptions after an implementation-specific bounded time limit when the
-hypervisor sets hstatus.VTW.
+--===============1941604072513911863==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="SiSSfUusYQSVZJqq"
+Content-Disposition: inline
 
-> 
-> Thinking about this a bit more, this is a performance penalty and not a
-> correctness issue.
 
-It's incorrect to have a design that is likely to result in bad
-performance.
+--SiSSfUusYQSVZJqq
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> This line is an optimization that allows the lock
-> holder to jump the queue if the holder directly in front is a preempted
-> vcpu. Eventually the vcpu will be scheduled again and give up the lock.
-> So an implementation of WRS.NTO that does not have the
-> "implementation-specific bounded time limit" that the spec calls out for
-> WRS.NTO to raise a virtual instruction exception, would still function,
-> just slower.
+On Wed, Apr 24, 2024 at 09:20:35AM +0200, Cl=E9ment L=E9ger wrote:
+>=20
+>=20
+> On 23/04/2024 18:30, Conor Dooley wrote:
+> > On Thu, Apr 18, 2024 at 04:26:41PM +0200, Cl=E9ment L=E9ger wrote:
+> >> Add description for the Ssdbltrp ISA extension which is not yet
+> >> ratified.
+> >>
+> >> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+> >> ---
+> >>  Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+> >>  1 file changed, 6 insertions(+)
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b=
+/Documentation/devicetree/bindings/riscv/extensions.yaml
+> >> index 63d81dc895e5..ce7021dbb556 100644
+> >> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> >> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> >> @@ -147,6 +147,12 @@ properties:
+> >>              and mode-based filtering as ratified at commit 01d1df0 ("=
+Add ability
+> >>              to manually trigger workflow. (#2)") of riscv-count-overf=
+low.
+> >> =20
+> >> +        - const: ssdbltrp
+> >> +          description: |
+> >> +            The standard Ssdbltrp supervisor-level extension for doub=
+le trap
+> >> +            handling as currently defined by commit e85847b ("Merge p=
+ull request
+> >> +            #32 from ved-rivos/0415_1 ") of riscv-double-trap.
+> >=20
+> > I see the proposed ratification for this is Sept 2024, and is marked as
+> > "Freeze Approved". Do you know when it is going to be frozen? Until
+> > this, I can't ack this patch. I had a look in the RVI JIRA
+> > https://jira.riscv.org/browse/RVS-2291?src=3Dconfmacro
+> > and it looks imminent, but it's unclear to me whether it actually has
+> > been or not.
+>=20
+> Hi Conor,
+>=20
+> Yeah, this series is a RFC since the spec is not yet ratified nor frozen
+> and its purpose is actually to get to a frozen state. As to when this
+> will be ratified, I guess Ved can probably answer that.
 
-The problem isn't specific to virtualization. The problem is using wrs.nto
-when it has not been configured to raise exceptions and there are not any
-other guaranteed termination events (other than the reservation set
-becoming invalid). While the paravirt solution is virtualization specific,
-it works, because we would then only use wrs.nto when we know we can, and
-otherwise use wrs.sto. But, as I said, I'd rather not have a paravirt
-solution.
+Usually I'd just not ack the RFC patches, but I do at least check how
+far they might be from frozen before I move on, The jira for this one
+says "Actual ARC Freeze Approval:	18/Apr/24", which made me think
+a freeze was gonna happen soon.
 
-Thanks,
-drew
+--SiSSfUusYQSVZJqq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZii3WAAKCRB4tDGHoIJi
+0sIAAQDIxpw/HuOo9/JqvyU+02o1E9Ih6d0pVx2mM9tf0Irq2gD/W+zFzb+/rTjf
+GqZYpJl93UvUWXVzUj0PqNxDnSWcEQo=
+=7cO9
+-----END PGP SIGNATURE-----
+
+--SiSSfUusYQSVZJqq--
+
+
+--===============1941604072513911863==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1941604072513911863==--
+
