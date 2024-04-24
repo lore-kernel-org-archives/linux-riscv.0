@@ -4,60 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE1AC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 21:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2CDC4345F
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2024 21:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5XdCugrbxSGWw/8ZcZdfbiyStdcE/AiA4jtStahDJVk=; b=ZQNpL5lVU34SjUwrKGrv4RXlFe
-	HayXma9VoA8aDp+SkVWAoNngBIZcqJqDvo0KQ2CV25QHPQLpLTQimYMzk5RNh4fRHzq4SWq3gIIsX
-	FV4REg11Lqm+4vkLgYhsba6r1cObOKLsrXW0LmKQQm6bnJ/sb7jq4Ny0T9rZxZPcThGJQf+VgCumq
-	7wRFf4suUCcMQT5i9lhiRfUdltJ9ZeN9KIzSdZ2SfjdfzchEwDwv+pBMl8rTPlcwPwWV4+VLeMAa1
-	Bh0aJp6HpElYnH/WUO1oDSow+QLcnZ2eC5gQ77BBfJSdWNAnOybKN10pAJ0IsmnqdLduLnLBWDoMI
-	Slj+uttQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qGPhJUq8UQhctJ5ugeOxfNQPf0+xv4huNFb3VrsfDCE=; b=iwO5YcTTmEgmrPhas5bHW4w0A1
+	g6QLRP5NSfXf+5FvdWJ3eZ3ZGWAsLjHXP0vzu0jmiC40hyPF0DQ9Nhwx12T3WWOZvpoifXrC4scM1
+	pQcWtkDq3E6pRufUODxaseMDcj9ExHdJ0wNm9WAF9iEBMZMZd4k/Tai5qSZZldUGLFWVD+w60E+Gz
+	Bces5SyfuIwwISEh7UuxOKdo08treYQGbqJnqS8t78qKe4XIEgGS6fdBWYTixxTM3exJUwxVJJRqm
+	njRosLJT5xGGUmUJTlAkuWa0zOSl5IDyiEfCq+FLAVDNCatMjSuBVbUKHWQOgpydLSFRc3ohSZMcM
+	qnHzAsJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzk2D-000000065U4-0Vmz;
-	Wed, 24 Apr 2024 21:20:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rzkK1-000000067Tp-3COm;
+	Wed, 24 Apr 2024 21:38:33 +0000
+Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzk29-000000065TC-1c9m
+	id 1rzkJz-000000067SF-0vO9
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Apr 2024 21:20:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7194C61CC2;
-	Wed, 24 Apr 2024 21:20:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E85A1C113CD;
-	Wed, 24 Apr 2024 21:20:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1713993604;
-	bh=X6Q9ghuC9MoxCqz0X5W6CSwrUiieo8LutjHaTxzEVbg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fd8kvaDOeXZL5y64ttw8eQA9sONEoZWFri5CsY1hXnVWe+ukzQ8bOO55HLiBYCk2p
-	 C71r+T1woIoKpvMx2Psv1DCKbo2KtIY0qayeQ957IRTCGlAuX85mVXdOcNhNodAwa5
-	 nhDeAyHukDKqwe9RUMZNiarbpUnLym7XhK4c3AEYtMcS0ep+PwJzn0A+b4caZxJS4h
-	 UJ2ZEKhAPsvl0fVW/RvstOJd0RaJoCRpVjzPqYr+GIy3IB56EV/b7GHi0cUvqf6YvI
-	 8/0noULFpvVD7ejenEJIZQj4RmdDZyDP6q3/eLJn2aTUqIER3DB8NFpyWO9zCI3YL3
-	 7FOjRmQuH+0lA==
-Date: Wed, 24 Apr 2024 22:20:00 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	linux-riscv@lists.infradead.org,
+	Wed, 24 Apr 2024 21:38:33 +0000
+Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-6ed06982819so247392a34.0
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Apr 2024 14:38:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1713994706; x=1714599506; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mCSAAudt8oKZ7AoxbtS66uOuESn00+WtuUOSOogqNgQ=;
+        b=2TgBz4Ggch5zrVyAUxAv1onsHmhNQplWU9SybX5x4E5AF/x7NkLQhJLHbBFsyU9iIE
+         V1lniqi4hwbHLnjxjGyGikhJUTQGkzFt49k5Qq3y4F/kYlQxr5a0+7wHrYXr2dQaWpmJ
+         E4WKq+tCZhC6jOGxTnw6L300t5n0AmI2pJa262yRSOrYJ4Ed48skULSn0d87MyEqBmu/
+         5NsVRpQ8i5YT8IK9okIRrFhphQFnh6DJ5lJwpDwd34F+Rv7PunGxtGSumrbbDxiT6xHI
+         TPVF9uI/Fg+6ZyANYb4COfzAO+FLAsth6kiyx3IuLGo4lLwpT02qehtLf24NFJ0H7lIB
+         +nbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713994706; x=1714599506;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mCSAAudt8oKZ7AoxbtS66uOuESn00+WtuUOSOogqNgQ=;
+        b=oaf+9IyrZKDX4VEh5FvWYmiHiPNP5VE+ud0dbZWTVA0AtussHJnNdRAkcypkoG4UJL
+         V3wP3TxqqXCO+IFTmN1ZZr73u9FTk9G1Sm3WgbgpBRe916Q14P9JOZFFxpQmoSPSHQxD
+         mjv0o2a/7Jyfc8XwawvJDJm+wXcUIrogJx7Vxpi8L/Uf74I3Ohq1Ww6LZZsVgAO9N2zC
+         g2fdSEnyPuZS8+ObpALoJshv+Bww7eyhDGNeuiV46MZPldfHb60TCFXXCqBu2C9HoP0A
+         zUNPBYIfIyIlb6ovCN6f9TbfMlXT16e62hnoVQ1QgkRCYTGhGYuSh9xWJ82hD0rXFMoE
+         BFWg==
+X-Forwarded-Encrypted: i=1; AJvYcCWRzPL1f2bs6qlvxJQXl8c17ghlnpcV17MWhblX8jXCZ0y0t7rjpLxjurjmIgK1qYx2sB1h38qLkY6b1euV9TUIqV4UmqRVNvi/LvulZptJ
+X-Gm-Message-State: AOJu0Yx74BlGM4RAhaW3lhBCoagT7Phg4uTuZUM6516AkhHh83GvIjhY
+	SkIerk0Bn8TkId2JVCB9nPtt4n1jX1q+DjC2MbP1Gauo4k7gWkM0PbLrZSwvibw=
+X-Google-Smtp-Source: AGHT+IHZ/YT25pef4JHoXBaJ+6FQRYLNP+/n2pVh1usBYPwTHcqVXj7WcdcTLvAD0fmz1HD+0VXiqg==
+X-Received: by 2002:a05:6830:148a:b0:6eb:8d07:606f with SMTP id s10-20020a056830148a00b006eb8d07606fmr4812912otq.8.1713994706315;
+        Wed, 24 Apr 2024 14:38:26 -0700 (PDT)
+Received: from vedvyas-XPS-13-9310 ([72.177.88.222])
+        by smtp.gmail.com with ESMTPSA id g1-20020a9d6201000000b006ea20712e66sm2499204otj.17.2024.04.24.14.38.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Apr 2024 14:38:26 -0700 (PDT)
+Date: Wed, 24 Apr 2024 16:38:23 -0500
+From: Ved Shanbhogue <ved@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/4] cache: sifive_ccache: Auxiliary device support
-Message-ID: <20240424-recolor-deviation-29a5dd4e9499@spud>
-References: <20240410232211.438277-1-samuel.holland@sifive.com>
- <d738dfc0-66af-4dad-bd60-a68c900bf807@ghiti.fr>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org
+Subject: Re: [RFC PATCH 2/7] dt-bindings: riscv: add Ssdbltrp ISA extension
+ description
+Message-ID: <20240424213823.GA1889117@vedvyas-XPS-13-9310>
+References: <20240418142701.1493091-1-cleger@rivosinc.com>
+ <20240418142701.1493091-3-cleger@rivosinc.com>
+ <20240423-poser-splashed-56ab5340af48@spud>
+ <e39f2fea-868a-4a79-b7a5-bef8f15de688@rivosinc.com>
+ <20240424-rehydrate-sloppy-62132c72fe18@spud>
 MIME-Version: 1.0
-In-Reply-To: <d738dfc0-66af-4dad-bd60-a68c900bf807@ghiti.fr>
+Content-Disposition: inline
+In-Reply-To: <20240424-rehydrate-sloppy-62132c72fe18@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240424_142005_512298_7F926F98 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20240424_143831_293569_B9B609A9 
+X-CRM114-Status: UNSURE (   5.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,83 +101,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0791270373271048608=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Conor Dooley wrote:
+>Usually I'd just not ack the RFC patches, but I do at least check how
+>far they might be from frozen before I move on, The jira for this one
+>says "Actual ARC Freeze Approval:	18/Apr/24", which made me think
+>a freeze was gonna happen soon.
 
---===============0791270373271048608==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="xuJOMISUXHsgfGn1"
-Content-Disposition: inline
+Yes, should happen soon - expected by 5/4. 
 
-
---xuJOMISUXHsgfGn1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Apr 24, 2024 at 10:19:18PM +0200, Alexandre Ghiti wrote:
-> Hi Samuel,
->=20
-> On 11/04/2024 01:22, Samuel Holland wrote:
-> > As of commit c90847bcbfb6 ("cache: sifive_ccache: Partially convert to a
-> > platform driver"), the cache subsystem binds a platform driver to the
-> > Composable Cache's DT node. This prevents the perf subsystem from doing
-> > the same for the new PMU driver[1]. To allow using both drivers at the
-> > same time without conflicts or module linkage dependencies, attach the
-> > PMU driver to the auxiliary device bus. While at it, prepare to use the
-> > auxiliary device bus for the EDAC driver as well, which significantly
-> > simplifies that driver. The actual EDAC driver conversion has to wait
-> > another development cycle to avoid dependencies between git trees.
-> >=20
-> > [1]: https://lore.kernel.org/linux-riscv/20240216000837.1868917-3-samue=
-l.holland@sifive.com/
-> >=20
-> >=20
-> > Samuel Holland (4):
-> >    cache: sifive_ccache: Silence unused variable warning
-> >    cache: sifive_ccache: Use of_iomap() helper
-> >    cache: sifive_ccache: Export base address for child drivers
-> >    cache: sifive_ccache: Add EDAC and PMU as auxiliary devices
-> >=20
-> >   drivers/cache/Kconfig              |  1 +
-> >   drivers/cache/sifive_ccache.c      | 94 +++++++++++++++++++++---------
-> >   include/soc/sifive/sifive_ccache.h |  8 +++
-> >   3 files changed, 74 insertions(+), 29 deletions(-)
-> >=20
->=20
-> I took a quick look and I'm not sure if the whole patchset is a fix for 6=
-=2E9
-> or if only patch 1 is?
-
-Only the first patch is IMO, but it is a fix for a patch I applied so
-it'll go this week via the soc tree with those auto-update fixes.
-
---xuJOMISUXHsgfGn1
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZil3gAAKCRB4tDGHoIJi
-0tEpAQDcI7yoAdCPL60ujB1LzolN4SJJmStybk3ftfXpKvZmLwD/WvBnGvK5ezjN
-smI6d1HvJ3B7DEPaIjmTZJUFrQB1TA4=
-=7AyF
------END PGP SIGNATURE-----
-
---xuJOMISUXHsgfGn1--
-
-
---===============0791270373271048608==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+regards
+ved
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0791270373271048608==--
-
