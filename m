@@ -4,114 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19970C4345F
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 10:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D66C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 10:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=XMXgLc0OOsI2QCw8ERHwqoHeKxzGLZIL4p8vXZ2+3dU=; b=zV6Gz5IoNc9D6r
-	HHi8buND4+GkQsZWShTvSfGomvlU8zwD9MedUe4wsQJjQ1M7GLMTycqZqWuLOIdQeFuSmaA8AAKe2
-	mQr0aLuucEyTJzEJ049TgcwOjTTAz99Y/eI9hKHFvmNJUOgpmQ88xz4sU62xkxhozzK2ciVR07Xzr
-	uDa811MlIMOn4LU2a0Yztae0QAz+uJDahQmHuxAnONMlMMwTE6zsbeT0t9yS4DUESqx22s6vBF3Qz
-	nObYL7XfnuZfC8wF5OgpwZlPhGE5v+Ipwio9+zNOTO2ltv9XszNwTyz6WgAS8npbNUDos/fJGhEmq
-	IAThsm60eJ7H/ZHATsoQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XaEEjEomBxdLKKKg4+/3puK2au6C5+GLkPjWpXXJFBk=; b=sbJWUBMto0eb1N
+	6UOUKLKmVQAuKTh07fTb1AaiYbQGUwzF6gLL01wg1coGKq+6lPTAtMWkRWM80JTKzgadiTnFVq10h
+	1gKoIr1fFZc4XHpa9Ly0TrblFlyzd38f6LoAzpW5zJamfFt5AmH4zOsXioP4DLjhtxb0xQcsFVAzR
+	e8ywj0PZeGMpq+QAeZ+sLSdOEcpsYmydRZn8J0vrP57GpHWGPupjl1oRwAyrOn5EahT169lNuBA9w
+	ZJLHOUPgvaOQdenCZQP2cP54JhCIqo4smRb91hlHc7yh6uT28vdiDwxAyV8hli+4UPAhWP2pXVWNf
+	shz4jhuD6hdZj4PbLv9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzw3l-00000007m2M-1xk4;
-	Thu, 25 Apr 2024 10:10:33 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1rzwfJ-00000007tgn-2wUS;
+	Thu, 25 Apr 2024 10:49:21 +0000
+Received: from mail-bjschn02on20725.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::725] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzw3h-00000007m0i-0F05
+	id 1rzwfG-00000007tfF-0c6j
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Apr 2024 10:10:31 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20240425101017euoutp028d6c5f9c31844584b6bf9251c2f9fea4~JfiIMxcDL0959909599euoutp02J
-	for <linux-riscv@lists.infradead.org>; Thu, 25 Apr 2024 10:10:17 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20240425101017euoutp028d6c5f9c31844584b6bf9251c2f9fea4~JfiIMxcDL0959909599euoutp02J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1714039817;
-	bh=s64QxvFoZJ0DSQGtSmxzMMmywT2FDcW0C9/wAS5/lr8=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=UM88aM0MF9ED5S404YmCk4EUJfbuZn8HAMjRdxZFD1n6SNWKSm8+0ixULE6viL7kJ
-	 SiMi11G+Kv1Je/lY+qdviRaqkl7OsokJJLTAUJ3Lbqh1fd5qu2E4tThWGvOy4hMtDE
-	 CUuWP6PmozmkuiTxQQGZnVIDxjT9uWDSx2Oh2Iok=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20240425101017eucas1p2ee3076183311b993d74f14d95beb251b~JfiH4zRUi1362613626eucas1p28;
-	Thu, 25 Apr 2024 10:10:17 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id BE.AA.09620.90C2A266; Thu, 25
-	Apr 2024 11:10:17 +0100 (BST)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20240425101017eucas1p10f79f6e47e4c0a8e8083607a075767e0~JfiHe5MZN0744107441eucas1p17;
-	Thu, 25 Apr 2024 10:10:17 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20240425101017eusmtrp1dedbb2b5d1d168042ce9a86b8138c591~JfiHeXmb91472714727eusmtrp19;
-	Thu, 25 Apr 2024 10:10:17 +0000 (GMT)
-X-AuditID: cbfec7f5-d31ff70000002594-92-662a2c09de7e
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id D7.D5.08810.80C2A266; Thu, 25
-	Apr 2024 11:10:17 +0100 (BST)
-Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20240425101016eusmtip292425544993afe4754729d933e309a21~JfiHDC8FY0292602926eusmtip2h;
-	Thu, 25 Apr 2024 10:10:16 +0000 (GMT)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-To: linux-riscv@lists.infradead.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Emil Renner Berthing
-	<kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH] riscv: defconfig: enable drivers for Starfive VisionFive2
- board
-Date: Thu, 25 Apr 2024 12:10:03 +0200
-Message-Id: <20240425101003.1149068-1-m.szyprowski@samsung.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 25 Apr 2024 10:49:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=CloMHaO0qfiujrKCAssoepeUsLFV2hffdgXi6a8O868x2Z/CbsImRk7QOlhefGXh4wYrZf0aMDEgfExCGjJd90ZmIlQxEXU4+nh/lNtaicVvnHtnXi/P69yDNh5nkoTf4NrSu2U6qc03kwDoK0CQwzM+ZznRbqqZI4U5s6WGn3E9ed44SqcNhXXT/OzcpeX/UZ8VgW68LLBoW6YA5I/Pq5Zjn8Y6ZhMIcjwqSbe9zJAdshV/QyJY60AVjPRIABrYVm/hG753CeMtsel6UArzT/Q6agXfMfzZroOxCQpUulXyugnGj6TthUehJbibVLQ0whgRpU7N2XM1XEtOY4uoKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z26SQYXXM7aqkVaWv8SVjN1n2EP0zi4jOnPPszLLW90=;
+ b=DukNqB+5ENdXx0Z4G7yYaoZNoUpoPf3oY++d8hezXmlsInMt3vvrwukPfymvX9KmdrPP2iqGSO/J4b2vl0bSE0ugGvVuXfJGEuxX8aV8E8x+Wp7ENtY/QJ6MV8Of8jgXtJDIvsLnNHxbscHOzxVgHtzYkv0UgxQnCfw0lIxbYDEhOOJbPRROslZGer9jpWu0zLMETRsL2+Dl3rIHIBgUaXngh5jTrrULUyO52g4UvjTKyuP6UQ4PaPxPzfGJ6CKAaobFxkr/qq13ox/vcXaQaJkdqAc19JQxNq/a/P1p5Os7xaG2oAhRCcAsYJtojZAXMYRpOVUQ4a20OfpN/XPcbw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:20::14) by SH0PR01MB0491.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:7::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.44; Thu, 25 Apr
+ 2024 10:48:58 +0000
+Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e0a:f88a:cad1:dc1c]) by SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e0a:f88a:cad1:dc1c%7]) with mapi id 15.20.7472.044; Thu, 25 Apr 2024
+ 10:48:58 +0000
+From: Joshua Yeong <joshua.yeong@starfivetech.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	conor@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	joshua.yeong@starfivetech.com,
+	leyfoon.tan@starfivetech.com,
+	jeeheng.sia@starfivetech.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 0/2] Add StarFive's StarLink Cache Controller
+Date: Thu, 25 Apr 2024 18:48:39 +0800
+Message-Id: <20240425104841.72379-1-joshua.yeong@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: NT0PR01CA0023.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:c::19) To SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:20::14)
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprAKsWRmVeSWpSXmKPExsWy7djP87qcOlppBj+nyVhs/T2L3eLJmpmM
-	Fts+t7BZrD1yl93i5eUeZou2WfwObB5vXr5k8Tjc8YXdo6PvH4vH5iX1Hn1bVjF6XGq+zh7A
-	FsVlk5Kak1mWWqRvl8CVsXmeSMF7qYoLKzezNzA+FO9i5OSQEDCRWNm1namLkYtDSGAFo8Sr
-	g3MZIZwvjBKLNmxmhXA+M0qcmDKFEaZl34yrbBCJ5YwSz28sYYdr+bhgCwtIFZuAoUTX2y6g
-	Kg4OEQFlifn3XEFqmAXOMkq0bd3IDlIjLBAk8ezuXrCpLAKqElPWrAKL8wrYSzz5f4IZYpu8
-	xP6DZ5kh4oISJ2c+AZvPDBRv3jqbGWSohMBcDonOReuYQJZJCLhIzL+WBNErLPHq+BZ2CFtG
-	4vTkHhaI+nZGiQW/7zNBOBMYJRqe34L6zVrizrlfYFczC2hKrN+lDxF2lLj3YzrUfD6JG28F
-	IW7gk5i0bTozRJhXoqNNCKJaTWLW8XVwaw9euAT1iofE4guNTCC2kECsxJNzlxgnMCrMQvLZ
-	LCSfzUK4YQEj8ypG8dTS4tz01GLjvNRyveLE3OLSvHS95PzcTYzARHP63/GvOxhXvPqod4iR
-	iYPxEKMEB7OSCO/NjxppQrwpiZVVqUX58UWlOanFhxilOViUxHlVU+RThQTSE0tSs1NTC1KL
-	YLJMHJxSDUwrdFLK/p8z3csRGzi1RO5H4awU3wl+hgfP/+lJOTRzKXd2COcf9//XLjfI9htp
-	8Hv7B+y7e1GXnePxdJ5jQlrTzl5RqnjepDKv6fk0MfZpqqcffnv0RcJD8dlZnmPO93wuLVB6
-	kWJ8g+HHmZQ4Bofd6988aeT/UrSyp7W2apZws/YdwUUHGk4m9Pgvkt2eU8mSbvlf5lsSs3/f
-	iWc//x97bsU4171umZy90ZvK7YyK18QuTv7TtFNp5xkvx99s4hGyuYHSYfobL+T90PZokWm6
-	aXhdkL2scvuDDWu4/5xc+/eDRvjPzQFTZ7mvZFa7vTvHedMGhfal/ovu86XfcXeaN2Gm9bGd
-	bYxPtcp7v01XYinOSDTUYi4qTgQAQgohZqMDAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrGLMWRmVeSWpSXmKPExsVy+t/xe7qcOlppBi9+MVls/T2L3eLJmpmM
-	Fts+t7BZrD1yl93i5eUeZou2WfwObB5vXr5k8Tjc8YXdo6PvH4vH5iX1Hn1bVjF6XGq+zh7A
-	FqVnU5RfWpKqkJFfXGKrFG1oYaRnaGmhZ2RiqWdobB5rZWSqpG9nk5Kak1mWWqRvl6CXsXme
-	SMF7qYoLKzezNzA+FO9i5OSQEDCR2DfjKlsXIxeHkMBSRon5zS2MEAkZiZPTGlghbGGJP9e6
-	oIo+MUo8/XWGGSTBJmAo0fUWJMHBISKgLDH/nitIDbPARUaJXdtbmEBqhAUCJA7uvA82iEVA
-	VWLKmlXsIDavgL3Ek/8nmCEWyEvsP3iWGSIuKHFy5hMWEJsZKN68dTbzBEa+WUhSs5CkFjAy
-	rWIUSS0tzk3PLTbUK07MLS7NS9dLzs/dxAgM8G3Hfm7ewTjv1Ue9Q4xMHIyHGCU4mJVEeG9+
-	1EgT4k1JrKxKLcqPLyrNSS0+xGgKdN9EZinR5HxgjOWVxBuaGZgamphZGphamhkrifN6FnQk
-	CgmkJ5akZqemFqQWwfQxcXBKNTDN+z7ZKaTYyzjUxHm+9vWpG7yZ26qjgsU1P7PFl6UeOly0
-	Pn/XaYeSR4HsnIYT9m5ZfvWRqGZuJutp5s87Jn6y/xpU9vP2K+P7zV8sNf0L70z5JZnD/6xU
-	6crCpLyV6m4qs1Z/vS6070hIY8DrM4aJZ34/LihdfvPAGnWPgt5zl05aP1x6fmWZauQ+j32S
-	b3JWN01wCmj+9ngTa5vRaWXB6K+3RVr0U3IqtR82fA3zcnjo3WdQs8fWTpjbletm6H4Vs5c1
-	OmyZTwP5+79H3svLqPDcyLJj0uyi33yfP1pUlTL7v2/Y88Qk52GhJ+OeF8p1O+UtWo+eKBN3
-	UE2fxs3SwTApwe5uzO9dLi+3eymxFGckGmoxFxUnAgAo9Ilj+QIAAA==
-X-CMS-MailID: 20240425101017eucas1p10f79f6e47e4c0a8e8083607a075767e0
-X-Msg-Generator: CA
-X-RootMTR: 20240425101017eucas1p10f79f6e47e4c0a8e8083607a075767e0
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20240425101017eucas1p10f79f6e47e4c0a8e8083607a075767e0
-References: <CGME20240425101017eucas1p10f79f6e47e4c0a8e8083607a075767e0@eucas1p1.samsung.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SH0PR01MB0841:EE_|SH0PR01MB0491:EE_
+X-MS-Office365-Filtering-Correlation-Id: a51ad521-c5ba-4b84-4ab1-08dc65154f22
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: /N2e3Q34vsiCkTR0sashG/JOUQewiLv0YwoPyXLrpn/kCqISOM4pbC2UZTiSoRofcV/9XWcPIWpAsjWtrrkeZ/osPeqSa4SYRH+FvVKgVl0tLN+f1CsBIvB2hqCANFlxO3Nmoq+3/gEqODwW6IKHdeZ20sT0OkkZLzPPwo4CBv+yJXBh0LJeY6RCUER2EQyW32C/0k3fDG8KBDAhORy93I/hq9BFlj5jtENUbpWio5mSv5QNOmbMhXQyCqmd4U+LKSXEheTtY/TRPM4+CI9hzXwOk3kpBDOjPid7eq2S9CrlochkJQ3ev9k2LsXnLfoBTqjByDpaFolq5cBh9v7FjwsZznr4ryKsn73L7gY+13aeA3mK4baZXupB+R62SJ8GPLT3e3U4u5Kxhrl3zdHPrVcBu7s2YDUxm98UWyflzTLNB0QiJ96Pi5LUoYRBrhTyJUifeI03NlBcc6UPGNBRV4wLyga9maWbH0UIF1K77GsiGhPV7+Eq0t/xh6YoFDEwv6Bo0QmViGNXEH6wi7FF7lbYquKUaOx8c29KhP6YmeZL7dTNX88cI61tq8Dca4Hfur4U2CWphKRKEazYxMtDT3JFx+TM4RMyUTN/l3ui9ns5evX91m+7n5LvEk1xF8aknu6yWTA/fnDlisNdQbfXow==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(52116005)(366007)(41320700004)(1800799015)(7416005)(38350700005)(921011);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BASsA5gDkVA7knwjQnlik7rzOm5T+bxTTX6qZKipjbSN/b1h45DIdnP/B+XL?=
+ =?us-ascii?Q?GqigR/0rIUHyT7BERpKqcZUDFtxLr9jYCplFvzD9+MJkKWMGHw15pXmT5GR9?=
+ =?us-ascii?Q?ITITzgSUtJCHh19ykPb53gd7j6Rw1gya63WD2iXugWjF5HVq7G0NA0Ny6YnG?=
+ =?us-ascii?Q?i9JM0gdle6mW703RI44MvhSpDGEYPRzN/tEN3q+ozCras1f7822Bf35CLTfQ?=
+ =?us-ascii?Q?EG6uEalNXUXi1wlJQlHvJjPTDubJgHx2O44fo9gKK/5GtBeFdwmM2GrH4FK3?=
+ =?us-ascii?Q?BCIodB+kkuU8tyWnTe3pOF56kQZlBVDfd/mKXN9QdVSkcdaJ6OEHVB1Hx/vA?=
+ =?us-ascii?Q?228Odpe05jI+I1xyz9rxKNrha0q2r3uxWsX9MYkMSGwwbw1WamSKIhI4bzOE?=
+ =?us-ascii?Q?ictc+OfFMjRe1a+sfWrQqJGvLt95Yt2X11oT5JSUY+0YaDk7U/C/4fl09POK?=
+ =?us-ascii?Q?E6TZ4KecJDE2Vy7WrbVlStI9i2JvCxi1YTQWldWdLBuNLSF/5f8vvzbWSEJK?=
+ =?us-ascii?Q?8y8E6fphtnWfUvAeCBWfSCYLTSh4HiBlEifD/UHZqBLXz6o5pOPbX0r9WmQX?=
+ =?us-ascii?Q?FNSA6bOzl0D6Uq1nKnjlgBM4qdBryi/Esf88+nyx27msi3gfY9B8j4fbHDG0?=
+ =?us-ascii?Q?uc2UZ68zIOtxSYV9Ce08gjgtixQEZDAWNiLkdyW9AG/E2gh2KyPb8QxFkZPP?=
+ =?us-ascii?Q?NvnuRa+W/VExHXCLbvmFC0qq8uuTB5vuOKng5lkS0r+5IXx9PmorSArA9e6O?=
+ =?us-ascii?Q?NFJf2MnQoqHunADHvq5ovUm/f4VzZcTuGavfNzTj2jtXWQlfhhP3bMAcJMPr?=
+ =?us-ascii?Q?x4fA5ref7ImLwd+20dF4u15ynJNjb900qq+jOj5OtyPBiiYHfiNL5LM0ZEGq?=
+ =?us-ascii?Q?eMLdMePixbJJ7Fs5J8ecOtJe43Fjb/d3eDv/cuDH0EawasdhiVJ0Gg7DvU9F?=
+ =?us-ascii?Q?a1uTkwP51DxFqWQ9O+X3c/dJ5DecQ2tVpKb6GDzWN0DXBeV/yW1wL5U0TFU5?=
+ =?us-ascii?Q?Kr44bjf9DDMliU12Rwu2SqxUjBoRTQ1el88HuQXisKE84Jafkb3NLi0yTkqD?=
+ =?us-ascii?Q?Y62eOIzHQ3RDN8H/4X/UOuk9HOlBmOosgZh7r5RAsDWicEtfssbKaIy0e0YU?=
+ =?us-ascii?Q?nRdL86//e4dTTXpNHLmTBNF4n86yNTxWtFEcVNwojvhYxIdrA6l+fI/fp8zL?=
+ =?us-ascii?Q?iLev/MYkrzEm++MRexqpDtQo/gIzg4V/lGOaP+KQpaUThGBQTxq+o9V6BN8V?=
+ =?us-ascii?Q?wDNZe8DJNrmW1I47dYph/QyU1juJme5X7LOm4G+JP0Jcs03vc1Vvf6PNC31u?=
+ =?us-ascii?Q?PNkwOVNGhqqOKeN5Kba40KGr8FX6KxBtr4oKGqelUbKawbxzWSDZm59WmvDX?=
+ =?us-ascii?Q?OJGihlrHqvjRYlkhT8QdKF70A79X2Er92IXDDQ7Ncr0tTVA6TXvgu0WPafn/?=
+ =?us-ascii?Q?KeUFzDEJV5Y6l9m2qrwUuSEy3BxB5bL6+ZYWmIK3sCVz6QF0begO/157P9Rb?=
+ =?us-ascii?Q?ycTUySJ7BFxP+TEcWPmsbSdM+Q9q21GXCcbIeuHSOhYjC4OLeNQ7CDyaiq81?=
+ =?us-ascii?Q?dtyft2yXoEAvoXXlrypIwdk9rsAGQtXmWSSeIkHBNXB/IIokJfLS8Oclu/vn?=
+ =?us-ascii?Q?tA=3D=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a51ad521-c5ba-4b84-4ab1-08dc65154f22
+X-MS-Exchange-CrossTenant-AuthSource: SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2024 10:48:58.2247
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 30EOpDCKskbcrG59U0ZLGl8uX/X4vLHmQ/xk3NtvtjLHDQg+vX2L7UDO3qwhe7gKtcm02dXlMoAGWqpO4gQYr1C05y7rzPyxoDghUrxoAiQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SH0PR01MB0491
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240425_031029_772859_C0E8A387 
-X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-CacheID: sfid-20240425_034918_216252_24111C85 
+X-CRM114-Status: UNSURE (   8.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,133 +137,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable all drivers needed for Starfive VisionFive2 board to increase
-build and test coverage. Most drivers can be enabled as modules to avoid
-bloating the main kernel image.
+StarFive's StarLink Cache Controller flush/invalidates cache using non-
+conventional RISC-V Zicbom extension instructions. This driver provides the
+cache handling on StarFive RISC-V SoC.
 
-Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
----
- arch/riscv/configs/defconfig | 34 ++++++++++++++++++++++++++++++++++
- 1 file changed, 34 insertions(+)
+Changes in v4:
+- Move cache controller initialization to arch_initcall()
+- Link to v3: https://lore.kernel.org/all/20240424075856.145850-1-joshua.yeong@starfivetech.com/
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 3cae018f9315..effa22bc2884 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -146,6 +146,8 @@ CONFIG_MICROSEMI_PHY=y
- CONFIG_CAN_RCAR_CANFD=m
- CONFIG_INPUT_MOUSEDEV=y
- CONFIG_KEYBOARD_SUN4I_LRADC=m
-+CONFIG_INPUT_MISC=y
-+CONFIG_INPUT_AXP20X_PEK=m
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_8250_DW=y
-@@ -157,21 +159,31 @@ CONFIG_HW_RANDOM=y
- CONFIG_HW_RANDOM_VIRTIO=y
- CONFIG_I2C_CHARDEV=m
- CONFIG_I2C_MV64XXX=m
-+CONFIG_I2C=y
- CONFIG_I2C_RIIC=y
-+CONFIG_I2C_CHARDEV=y
-+CONFIG_I2C_DESIGNWARE_PLATFORM=y
- CONFIG_SPI=y
-+CONFIG_SPI_PL022=y
- CONFIG_SPI_RSPI=m
- CONFIG_SPI_SIFIVE=y
- CONFIG_SPI_SUN6I=y
-+CONFIG_SPI_SPIDEV=m
- # CONFIG_PTP_1588_CLOCK is not set
- CONFIG_GPIO_SIFIVE=y
-+CONFIG_CHARGER_AXP20X=m
-+CONFIG_BATTERY_AXP20X=m
-+CONFIG_AXP20X_POWER=m
- CONFIG_CPU_THERMAL=y
- CONFIG_DEVFREQ_THERMAL=y
- CONFIG_RZG2L_THERMAL=y
- CONFIG_WATCHDOG=y
- CONFIG_SUNXI_WATCHDOG=y
-+CONFIG_MFD_AXP20X_I2C=y
- CONFIG_RENESAS_RZG2LWDT=y
- CONFIG_REGULATOR=y
- CONFIG_REGULATOR_FIXED_VOLTAGE=y
-+CONFIG_REGULATOR_AXP20X=y
- CONFIG_REGULATOR_GPIO=y
- CONFIG_DRM=m
- CONFIG_DRM_RADEON=m
-@@ -185,7 +197,13 @@ CONFIG_SND=y
- CONFIG_SND_SOC=y
- CONFIG_SND_SOC_RZ=m
- CONFIG_SND_SOC_WM8978=m
-+CONFIG_SND_SOC_STARFIVE=m
-+CONFIG_SND_SOC_JH7110_PWMDAC=m
-+CONFIG_SND_SOC_JH7110_TDM=m
- CONFIG_SND_SIMPLE_CARD=m
-+CONFIG_SND_AUDIO_GRAPH_CARD=m
-+CONFIG_SND_AUDIO_GRAPH_CARD2=m
-+CONFIG_I2C_HID=m
- CONFIG_USB=y
- CONFIG_USB_OTG=y
- CONFIG_USB_XHCI_HCD=y
-@@ -199,10 +217,16 @@ CONFIG_USB_STORAGE=y
- CONFIG_USB_UAS=y
- CONFIG_USB_MUSB_HDRC=m
- CONFIG_USB_MUSB_SUNXI=m
-+CONFIG_USB_CDNS_SUPPORT=m
-+CONFIG_USB_CDNS3=m
-+CONFIG_USB_CDNS3_GADGET=y
-+CONFIG_USB_CDNS3_STARFIVE=m
- CONFIG_NOP_USB_XCEIV=m
- CONFIG_USB_GADGET=y
- CONFIG_USB_RENESAS_USBHS_UDC=m
- CONFIG_USB_CONFIGFS=m
-+CONFIG_USB_CDNS2_UDC=m
-+CONFIG_USB_ETH=m
- CONFIG_USB_CONFIGFS_SERIAL=y
- CONFIG_USB_CONFIGFS_ACM=y
- CONFIG_USB_CONFIGFS_OBEX=y
-@@ -223,18 +247,24 @@ CONFIG_MMC_DW=y
- CONFIG_MMC_DW_STARFIVE=y
- CONFIG_MMC_SDHI=y
- CONFIG_MMC_SUNXI=y
-+CONFIG_MMC_DW=y
-+CONFIG_MMC_DW_STARFIVE=y
- CONFIG_RTC_CLASS=y
- CONFIG_RTC_DRV_SUN6I=y
- CONFIG_DMADEVICES=y
- CONFIG_DMA_SUN6I=m
- CONFIG_DW_AXI_DMAC=y
- CONFIG_RZ_DMAC=y
-+CONFIG_DW_AXI_DMAC=y
- CONFIG_VIRTIO_PCI=y
- CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_RENESAS_OSTM=y
- CONFIG_SUN8I_DE2_CCU=m
-+CONFIG_CLK_STARFIVE_JH7100_AUDIO=y
-+CONFIG_CLK_STARFIVE_JH7110_AON=y
-+CONFIG_CLK_STARFIVE_JH7110_STG=y
- CONFIG_SUN50I_IOMMU=y
- CONFIG_RPMSG_CHAR=y
- CONFIG_RPMSG_CTRL=y
-@@ -242,9 +272,13 @@ CONFIG_RPMSG_VIRTIO=y
- CONFIG_ARCH_R9A07G043=y
- CONFIG_IIO=y
- CONFIG_RZG2L_ADC=m
-+CONFIG_AXP20X_ADC=m
- CONFIG_RESET_RZG2L_USBPHY_CTRL=y
- CONFIG_PHY_SUN4I_USB=m
- CONFIG_PHY_RCAR_GEN3_USB2=y
-+CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=m
-+CONFIG_PHY_STARFIVE_JH7110_PCIE=m
-+CONFIG_PHY_STARFIVE_JH7110_USB=m
- CONFIG_LIBNVDIMM=y
- CONFIG_NVMEM_SUNXI_SID=y
- CONFIG_EXT4_FS=y
--- 
-2.34.1
+Changes in v3:
+- Fix code syntax
+- Link to v2: https://lore.kernel.org/all/20240423072639.143450-1-joshua.yeong@starfivetech.com/
 
+Changes in v2:
+- Change patch title from 'Add StarFive's StarLink-500 Cache Controller'
+- Remove StarFive alternative from errata framework
+- Fixes warning from https://lore.kernel.org/oe-kbuild-all/202403151625.boKDjHGr-lkp@intel.com/
+- Flush completion through atomic timeout function
+- Link to v1: https://lore.kernel.org/lkml/20240314061205.26143-1-joshua.yeong@starfivetech.com/
+
+Joshua Yeong (2):
+  cache: Add StarFive StarLink cache management for StarFive JH8100
+  dt-bindings: cache: Add docs for StarFive Starlink cache controller
+
+Joshua Yeong (2):
+  cache: Add StarFive StarLink cache management
+  dt-bindings: cache: Add docs for StarFive Starlink cache controller
+
+ .../cache/starfive,jh8100-starlink-cache.yaml |  66 +++++++++
+ drivers/cache/Kconfig                         |   9 ++
+ drivers/cache/Makefile                        |   5 +-
+ drivers/cache/starfive_starlink_cache.c       | 130 ++++++++++++++++++
+ 4 files changed, 208 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/cache/starfive,jh8100-starlink-cache.yaml
+ create mode 100644 drivers/cache/starfive_starlink_cache.c
+
+--
+2.25.1
 
 _______________________________________________
 linux-riscv mailing list
