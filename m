@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF4FC4345F
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 17:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17D4C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 18:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4sjwK6X7eD9zE+HODCLrRnoo5LXEqRP5UMri6OrDPg0=; b=0LPmu/jVqL05X/NjnpXmtsuGuV
-	hOj4eho+dIspTO55VOfN/keYZCCmdtz4e3qywV2Xu8lJcwn0a/pwVGhnhobS3AVcKzJhk7RnFnNb0
-	80bOBXV1P2lndeHSRsHgywtV5HWwBiuMtoTguQ1e/UOZyQu3t4sh8rfu7yfRVIqVaI+2Tup0PFHk9
-	T8X10Z3s4Wkh07xybz0mNZ8pOrnliLGC2/y/j+q+c2Vbod+I/cV60VmGpu25xd/WjkoPxSIbmBTtQ
-	2/+9tDEarJ5uqvYD5ExBM5eNXpIJJOrT3In4/BpDJ7hqpugmQCB2OlCgqf+l3eWnzRBeLLqt2qvJA
-	SCoQVaCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CGyOCm/7HUBcim0JW2xssqRIafIHowCQZuE8i8jBnI0=; b=Ls4InCI3XLMUVm
+	GEi2P3LJn3OJws/X6Ss658BgY1m68Du8pYKMmxNd7PooVP+8LwaTqFJ39G6n4tXLrIF2GLd3Y4jrs
+	7s54WWW92l3FW6t1ic76Ax9yWGqAY5epJTCdVl83R3lMkEH7a71p6C/d6DoOzlxX+ygOQ0QY32abT
+	S2yFOBZWyGO5OEONeyXuq2LeljvRxvBbDgLKk3vWNjfugfR+km2TmCS/XTeCk9F8Nmc8uP/6MsM2H
+	+hUklAtyS/L5uKTRgetNde1x5wvwZbBY7LnbcmlD+Ff06rz2UnTMzlVjp8CsXtMAzfq6QCzyomeP+
+	+fnMrmNthEOhSkrxR7YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s02cs-00000009WjP-1R1Q;
-	Thu, 25 Apr 2024 17:11:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s03vC-00000009k2F-165H;
+	Thu, 25 Apr 2024 18:34:14 +0000
+Received: from forward102a.mail.yandex.net ([2a02:6b8:c0e:500:1:45:d181:d102])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s02cm-00000009WgD-3JFa
+	id 1s03v8-00000009k1I-1hGk
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Apr 2024 17:11:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 32CF661389;
-	Thu, 25 Apr 2024 17:11:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35163C113CC;
-	Thu, 25 Apr 2024 17:11:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714065067;
-	bh=rQqUpvh48d2fFx+wEaWpZgBfJ44kNNs6Q4v8vtEjFa0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pVwne1dhgdktoKKlKWhDtSlmrdFaxgvFuvEKeBom6NnmYUhYqoX9fWKES9qHMe86D
-	 /kwyydhCCxlPYJXX2yUIAZ9ZOANVfeJtdb9qnopUdMtJsI5VGlpHXxuH0I7nj9zZat
-	 SzExn0U/xevuGBC57zhIkb+c2rFgRhzQZ+exSgdgDdjZgi+8ltvqvozAjNt0mWxjaq
-	 sD2FIn68bRvp89XPlguf9IqAZOeMjIJsGgyqVc+4q6Eo4QZ2sG3uNFaVU6fw2W9YX5
-	 n8PrSPymLXpnyr429BBfQ+77V4+YvfK6COj7NuvwMBaWxvelxl4/a6T4xUtCUrL/1l
-	 dtizFhdsjJayw==
-Date: Thu, 25 Apr 2024 18:11:02 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Tomasz Jeznach <tjeznach@rivosinc.com>
-Subject: Re: [PATCH v2 1/7] dt-bindings: iommu: riscv: Add bindings for
- RISC-V IOMMU
-Message-ID: <20240425-nursing-ground-7a3f92120058@spud>
-References: <cover.1713456597.git.tjeznach@rivosinc.com>
- <c37cb93e7baa7042a3f82130bf30be6831b558dc.1713456598.git.tjeznach@rivosinc.com>
- <20240418-approach-liquefy-04551ddefbc4@spud>
- <CAH2o1u7_v=_GX5cnV5X14jggTycRTvGEJ1r_9tqtb-xgk=LEkA@mail.gmail.com>
+	Thu, 25 Apr 2024 18:34:13 +0000
+Received: from mail-nwsmtp-smtp-production-main-52.vla.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-52.vla.yp-c.yandex.net [IPv6:2a02:6b8:c1f:5408:0:640:72fa:0])
+	by forward102a.mail.yandex.net (Yandex) with ESMTPS id DBAFE60B59;
+	Thu, 25 Apr 2024 21:33:58 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-52.vla.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id sXRDEK0m5mI0-jm83D1zP;
+	Thu, 25 Apr 2024 21:33:57 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ya.ru; s=mail;
+	t=1714070037; bh=pt7zXw+VM0FjK7sS/SShMwgvNUfzk6AwbcgerfZYJd4=;
+	h=Message-ID:Date:Cc:Subject:To:From;
+	b=XqrmH6aVeQjwhId2DnW5q0w0p/2zFpqNodeK04ukC+gVUDhFkyhDrravQAWUxUx59
+	 Z0KOCXoJCts5VxQLgFU9dX3iw6m2a47/9aoz/+qWO0zscdc9awA3wnF/wBGXztYvpy
+	 H9lkvgL4Bf2FHZ8ey5u6Qk06+coHLfx80/k7esQQ=
+Authentication-Results: mail-nwsmtp-smtp-production-main-52.vla.yp-c.yandex.net; dkim=pass header.i=@ya.ru
+From: Konstantin Pugin <rilian.la.te@ya.ru>
+To: 
+Cc: krzk@kernel.org,
+	conor@kernel.org,
+	lkp@intel.com,
+	vz@mleia.com,
+	robh@kernel.org,
+	jcmvbkbc@gmail.com,
+	nicolas.ferre@microchip.com,
+	manikanta.guntupalli@amd.com,
+	corbet@lwn.net,
+	ychuang3@nuvoton.com,
+	u.kleine-koenig@pengutronix.de,
+	Maarten.Brock@sttls.nl,
+	Konstantin Pugin <rilian.la.te@ya.ru>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Lech Perczak <lech.perczak@camlingroup.com>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Konstantin Pugin <ria.freelander@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v9 0/3] add support for EXAR XR20M1172 UART
+Date: Thu, 25 Apr 2024 21:32:32 +0300
+Message-ID: <20240425183251.174412-1-rilian.la.te@ya.ru>
+X-Mailer: git-send-email 2.44.0
 MIME-Version: 1.0
-In-Reply-To: <CAH2o1u7_v=_GX5cnV5X14jggTycRTvGEJ1r_9tqtb-xgk=LEkA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240425_101108_921214_C6C32C47 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240425_113411_004240_0F4B92D8 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,64 +86,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============0480153354722145199=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+EXAR XR20M1172 UART is mostly SC16IS762-compatible, but
+it has additional register which can change UART multiplier
+to 4x and 8x, similar to UPF_MAGIC_MULTIPLIER does. So, I used this
+flag to guard access to its specific DLD register. It seems than
+other EXAR SPI UART modules also have this register, but I tested
+only XR20M1172.
+Yes, in datasheet this register is called "DLD - Divisor Fractional"
+or "DLD - Divisor Fractional Register", calling depends on datasheet
+version.
 
---===============0480153354722145199==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Swwc95+Q8CpAtvFV"
-Content-Disposition: inline
+I am sorry about too many submissions and top post reply. About second -
+I do not know how to reply properly to this ML from GMail phone app. About first - I just
+get very good feedback from Andy Shevchenko, and want to fix his review picks ASAP.
+
+Hugo, I am sorry, I fixes a bug, but forgot to amend a fix(
+
+Log from v9 compilation:
+```
+  CC [M]  drivers/tty/serial/omap-serial.o
+  CC [M]  drivers/tty/serial/owl-uart.o
+  CC [M]  drivers/tty/serial/pch_uart.o
+  CC [M]  drivers/tty/serial/qcom_geni_serial.o
+  CC [M]  drivers/tty/serial/ucc_uart.o
+  CC [M]  drivers/tty/serial/rp2.o
+  CC [M]  drivers/tty/serial/samsung_tty.o
+  CC [M]  drivers/tty/serial/sccnxp.o
+  CC [M]  drivers/tty/serial/sc16is7xx.o
+  CC [M]  drivers/tty/serial/sc16is7xx_spi.o
+  CC [M]  drivers/tty/serial/sc16is7xx_i2c.o
+  CC [M]  drivers/tty/serial/sh-sci.o
+  CC [M]  drivers/tty/serial/sifive.o
+  CC [M]  drivers/tty/serial/sprd_serial.o
+  CC [M]  drivers/tty/serial/st-asc.o
+  CC [M]  drivers/tty/serial/stm32-usart.o
+```
+
+Changes in v2:
+  - use full name in git authorship
+
+Changes in v3:
+  - change formatting of commit messages to unify width
+  - rework commit messages according to code review
+  - add XR20M117X namespace for EXAR-specific register
+  - do not use UPF_MAGIC_MULTIPLIER for checking EXAR chip,
+    use s->devtype directly
+  - replace while loop to fls function and expanded check
+  - sort compatibles
+  - reformat multiline comment.
+
+Changes in v4:
+  - rebase onto tty-next branch
+  - added Kconfig mention of the chip
+  - used rounddown_power_of_two instead of fls and manual shift
+  - used FIELD_PREP instead of custom macro
+  - removed has_dld bit from common struct, replaced by check function,
+    which checks directly by s->devtype
+  - fixed tab count
+  - properly apply Vladimir Zapolskiy's tag to patch 2 only
+
+Changes in v5:
+  - fixes for tty-next branch
+  - address a new code review picks
+  - send properly to all participants
+  - added Ack tag
+
+Changes in v6:
+  - KConfig fixes
+  - New code review fixes
+
+Changes in v7:
+  - Added missed tag
+  - Added missed v5 fixes
+
+Changes in v8:
+  - Fixed semicolon
+  - Added missed tags
+  - Fixed commit messages
+
+Changes in v9:
+  - Really fixed compilation (checked by git reset --hard && make allmodconfig && make)
+  - Implemented Hugo and Andy's messages
+
+Konstantin Pugin (3):
+  serial: sc16is7xx: announce support of SER_RS485_RTS_ON_SEND
+  dt-bindings: sc16is7xx: Add compatible line for XR20M1172 UART
+  serial: sc16is7xx: add support for EXAR XR20M1172 UART
+
+ .../bindings/serial/nxp,sc16is7xx.yaml        |  1 +
+ drivers/tty/serial/Kconfig                    |  3 +-
+ drivers/tty/serial/sc16is7xx.c                | 63 +++++++++++++++++--
+ drivers/tty/serial/sc16is7xx.h                |  1 +
+ drivers/tty/serial/sc16is7xx_i2c.c            |  1 +
+ drivers/tty/serial/sc16is7xx_spi.c            |  1 +
+ 6 files changed, 64 insertions(+), 6 deletions(-)
 
 
---Swwc95+Q8CpAtvFV
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+base-commit: 660a708098569a66a47d0abdad998e29e1259de6
+-- 
+2.44.0
 
-On Wed, Apr 24, 2024 at 03:37:14PM -0700, Tomasz Jeznach wrote:
-> Makes sense.  Will update to something like below:
->   compatible:
->     oneOf:
->       - items:
->           - enum:
->               - qemu,iommu
->           - const: riscv,iommu
->       - items:
->           - enum:
->               - pci1efd,edf1
->           - const: riscv,pci-iommu
-
-That seems reasonable to me, addresses both what Rob and I pointed out.
-
-Thanks,
-Conor.
-
---Swwc95+Q8CpAtvFV
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiqOpgAKCRB4tDGHoIJi
-0iOwAP9rRgNUMnh8lOU9vNTRQerc6pb2yB1UEPBpVUg2JN4ahwD/fUj0t4ghfeIS
-Nh5gnWL7xHYspUt3P4f/ljOrutHJywY=
-=6/MB
------END PGP SIGNATURE-----
-
---Swwc95+Q8CpAtvFV--
-
-
---===============0480153354722145199==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0480153354722145199==--
-
