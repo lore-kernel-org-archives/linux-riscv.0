@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1430DC10F1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71289C4345F
 	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 08:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NMrv4COWAGzpYMuAnZadnjO+MuM/CMXv6YBhi8T358s=; b=SYd66p8DNzYLhT
-	Fq7+CHN0hM2RMGuzKYhq8vgNdJZCkhUdak0kYPHqyTaOYY91ubkZkTzbk/UA/ZBLxkbyFJtwulQTr
-	2jUFThQ2Z96sIkOtRTWUVpHCTFzbNO14iWOEvZyYG7/2XZJ5PAtlu7kpKxll6G5KXcpM8FHxk/Xrm
-	OyRtq5pkMSFqpObdBuPx9s1wR2chfOtduTnYrkEQ+JPjhB8VidnDj697LWkKRWkdU0D2pvlSXrHOr
-	IpqtzibCnNhsbU9UWdUyLda3fJ3RW1axLwfJb7P5BHg7qSOEeV2ULMFSXIe6AlzNz4UmjPY4kQR05
-	ZtwJS/1CTbg8PUDcaHzg==;
+	List-Owner; bh=W12MqYPCYDLER0VZmbDpblGAbsbDB0KxgDffmGszCcA=; b=l46/u2/4AbZI2C
+	l5x79YbI6AjkjveOayS2TPx8Kn179T0IVnwARmNNOLiRRH2EOO655sA/+A+zwsbis2XsULuNgAn8s
+	/AJ+gQL3qT6mx3DTjr6VDm6nf6VbBCc1PamOi0nz/rCjCpsv4qa0G+p63WuKDzhZriB5pBryHxAWu
+	trhaYBjmfVrwSHGzu8qr2W1sj1cNqa2ccFSan8M7a9mbIGHx9aQpkdA3/rpTYWyCT6+C1ayf23bgi
+	Ii6XX6Yksi0X1klK2SgM6MIa0gsBXQAxTfyKptHF1IFTvraqYjZdbWsWgniea02iWlrT+PiBi6xyc
+	6l/0dQJE4ZYaEYU9pkBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzuNt-00000007Q6t-0Q7a;
+	id 1rzuNt-00000007Q7M-3gM8;
 	Thu, 25 Apr 2024 08:23:13 +0000
 Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzuNm-00000007Q3K-0byf
+	id 1rzuNn-00000007Q46-3MyC
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Apr 2024 08:23:07 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id CFF8920009;
-	Thu, 25 Apr 2024 08:23:03 +0000 (UTC)
+	Thu, 25 Apr 2024 08:23:09 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6AFDE20005;
+	Thu, 25 Apr 2024 08:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1714033384;
+	t=1714033386;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wNBhZc5P3FFJ7PgVYztZ5Wmu9O6JEWzPXLoqXVlXc70=;
-	b=fA57+TxGB/4H7ZGTgztIdQHhKXNEN8N2TG15Rwx1WZZFO5f2JAtLjW8NFRHpwsKcf28Yi/
-	wy4Dy1dSJaE0djsTyxDOgWlspACp5pqXHYwr0/mcEkXmHbW4DGG+QtVHGJmKRWvk2hNuQe
-	zFpMG4lGuwHhQOlJfGX8Wyi4VVhBBmAvZ5T8ysshf3SO/z1YxGXb5xb+IWvMuLWWOwdcln
-	fjffGGDGD+6ykKsnDiZYuAbOoY2AkLMqbW8ZuRnaiRb6XD48Rq+iUXmrvwYIlzvXyJb4ei
-	1chjeUhcLK9FtCNU2UkMUldRdiK0WeQu0ZvtmH5yzyhh4pasN2n4JJWx3qFvlw==
+	bh=VS9/5ruLFq4DMfVYGxtTV+BUOQfVMQF+Q0f1QDQmC0U=;
+	b=KkeEtjYODUakoc8nH31gG21azCvWKfVcJ51beFKQ0O3NFBReBe3g23Vjrdi19RX/Hpbf5k
+	bet4e3FBsfv/KR1BAmCT0jaZCh2J7dEfAMPFe5vMviskcL0vMkcWXgNO/ae0ExXvb/ooga
+	sx3VKu3RxBo730Ct2e0+CPZ/ht41wX5R+PbPr/rYPvbQKnBT2mQNH8gqEwQQ+mpdm1DlnO
+	4U511No+6h2E41dkxxaqEdCNLq+CY3zNajMHWS3D0+Qaxijd1Wax3Tyccjz4/qgD93r73H
+	CNHqUJfv2kCUf5vQU/WuTDhMQ+mhGgEQXMhDwBegc9DyoU+vHM4xtuVK24xAVw==
 From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 To: jszhang@kernel.org,
 	guoren@kernel.org,
@@ -58,17 +58,17 @@ Cc: miquel.raynal@bootlin.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Subject: [PATCH 3/4] riscv: dts: thead: Add TH1520 I2C nodes
-Date: Thu, 25 Apr 2024 10:21:34 +0200
-Message-ID: <20240425082138.374445-4-thomas.bonnefille@bootlin.com>
+Subject: [PATCH 4/4] riscv: dts: thead: Enable I2C on the BeagleV-Ahead
+Date: Thu, 25 Apr 2024 10:21:35 +0200
+Message-ID: <20240425082138.374445-5-thomas.bonnefille@bootlin.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240425082138.374445-1-thomas.bonnefille@bootlin.com>
 References: <20240425082138.374445-1-thomas.bonnefille@bootlin.com>
 MIME-Version: 1.0
 X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240425_012306_488280_1BC05886 
-X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-CacheID: sfid-20240425_012308_027170_13F5DA09 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,121 +86,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add nodes for the five I2C on the T-Head TH1520 RISCV SoC.
-All the I2C nodes are fed with the same clock named i2c_ic_clk.
-As there is currently no clock support, the i2c_ic_clk is exposed
-through a fixed-clock to mimic the existing nodes.
+This commit enables the I2C0 controller of the TH1520, together with
+the FT24C32A EEPROM that is connected to it.
+In addition, this commit also enables the I2C controllers I2C2, I2C4
+and I2C5 as they are all three exposed on headers (P9 19 and 20 for I2C2,
+P9 17 and 18 for I2C5 and MikroBus 7 and 5 for I2C4).
 
 Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 ---
- arch/riscv/boot/dts/thead/th1520.dtsi | 66 +++++++++++++++++++++++++++
- 1 file changed, 66 insertions(+)
+ .../boot/dts/thead/th1520-beaglev-ahead.dts   | 22 +++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index d2fa25839012..86ae507576dc 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -153,6 +153,12 @@ sdhci_clk: sdhci-clock {
- 		#clock-cells = <0>;
- 	};
- 
-+	i2c_ic_clk: i2c-clock {
-+		compatible = "fixed-clock";
-+		clock-frequency = <50000000>;
-+		#clock-cells = <0>;
+diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+index d9b4de9e4757..22a6935e7204 100644
+--- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
++++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+@@ -79,3 +79,25 @@ &sdio0 {
+ &uart0 {
+ 	status = "okay";
+ };
++
++&i2c0 {
++	status = "okay";
++	clock-frequency = <100000>;
++
++	eeprom: eeprom@50 {
++		compatible = "atmel,24c32";
++		reg = <0x50>;
 +	};
++};
 +
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -258,6 +264,36 @@ portc: gpio-controller@0 {
- 			};
- 		};
- 
-+		i2c0: i2c@ffe7f20000 {
-+			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-+			reg = <0xff 0xe7f20000 0x0 0x4000>;
-+			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&i2c_ic_clk>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++&i2c2 {
++	status = "okay";
++};
 +
-+		i2c1: i2c@ffe7f24000 {
-+			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-+			reg = <0xff 0xe7f24000 0x0 0x4000>;
-+			interrupts = <45 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&i2c_ic_clk>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++&i2c4 {
++	status = "okay";
++};
 +
-+		i2c4: i2c@ffe7f28000 {
-+			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-+			reg = <0xff 0xe7f28000 0x0 0x4000>;
-+			interrupts = <48 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&i2c_ic_clk>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		gpio3: gpio@ffe7f38000 {
- 			compatible = "snps,dw-apb-gpio";
- 			reg = <0xff 0xe7f38000 0x0 0x1000>;
-@@ -312,6 +348,16 @@ portb: gpio-controller@0 {
- 			};
- 		};
- 
-+		i2c2: i2c@ffec00c000 {
-+			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-+			reg = <0xff 0xec00c000 0x0 0x4000>;
-+			interrupts = <46 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&i2c_ic_clk>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		uart2: serial@ffec010000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0xff 0xec010000 0x0 0x4000>;
-@@ -322,6 +368,16 @@ uart2: serial@ffec010000 {
- 			status = "disabled";
- 		};
- 
-+		i2c3: i2c@ffec014000 {
-+			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-+			reg = <0xff 0xec014000 0x0 0x4000>;
-+			interrupts = <47 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&i2c_ic_clk>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		dmac0: dma-controller@ffefc00000 {
- 			compatible = "snps,axi-dma-1.01a";
- 			reg = <0xff 0xefc00000 0x0 0x1000>;
-@@ -394,6 +450,16 @@ uart5: serial@fff7f0c000 {
- 			status = "disabled";
- 		};
- 
-+		i2c5: i2c@fff7f2c000 {
-+			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-+			reg = <0xff 0xf7f2c000 0x0 0x4000>;
-+			interrupts = <49 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&i2c_ic_clk>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		timer4: timer@ffffc33000 {
- 			compatible = "snps,dw-apb-timer";
- 			reg = <0xff 0xffc33000 0x0 0x14>;
++&i2c5 {
++	status = "okay";
++};
 -- 
 2.44.0
 
