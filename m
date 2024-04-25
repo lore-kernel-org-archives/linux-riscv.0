@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40179C4345F
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 20:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7F3C10F1A
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 22:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bgfuyLkmbf3MFk2rPAx/XGmiX2GpXloB9P9qWP0AYNA=; b=uR++9d6qyKZiYm
-	IorIhIdRhCUkJKTW4dVqL5/1hFRhu6b02ojTeAamXIHhC13z6avAR58PL3pkOqoqvDof4xQo02HkX
-	LagVDbWMxKSjn3DlVKaTwrcse1YMnJ546COpOcaFhCEPImLwPKKYLyI3ByZx6I2J1IV/ot2R1t8S+
-	rl94wKOXNYJAlBfcRZre2u75EW2+Q5olZ8QK5fx772thH4WgUSz5/AkYrYnfP6qNGiMcmJsGkxAw0
-	vb4nKh/ogUEKs3TNe+4wvevPuptALPFLaA6qkXshYKQY+w0a+u4npz9JKFQWeVd04TvyPLMsOmz7d
-	1Pcq17EJQDLItAhFtAxA==;
+	List-Owner; bh=KtU9TnCJqJ0OQjIzNOBaBko8JgkVGryRoPSwLUbNl3Q=; b=XIlPrbElJDDaly
+	w/Ue5HudNtH9v+f6WdVe9cmJKLP0Ed6Kdep+A4S+5Uz66hXEMasBghbmdMopmde8kt5sq3tT7cV7+
+	EF+YnN051IXMNvDMe+wtjyfinucqHmmrFsE22jdwjVaonnvnPg4ImppDxpzeNMY6RFInDWoezDP+2
+	lqG1vO/HkGQ60u55EMoMsX1Wgz0NjKPG8/h9lnuRhCc/NDYRuq2uo21CMny0yeZXFKv98qG/5bIJO
+	7VgUgCDmsZcnXLSVZ7O1E9OlNkR2WOHN9LAWuj/Iq8ixkO64NIEnXjwLIMkOVXZWsGxIuxFM2eYrc
+	KcJw49s7hrqsSZvXj0ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s05o7-0000000A6PI-1bcg;
-	Thu, 25 Apr 2024 20:35:03 +0000
-Received: from todd.t-8ch.de ([159.69.126.157])
+	id 1s07mo-0000000AVKZ-1uXx;
+	Thu, 25 Apr 2024 22:41:50 +0000
+Received: from out-175.mta1.migadu.com ([2001:41d0:203:375::af])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s05o2-0000000A6MS-0eLy;
-	Thu, 25 Apr 2024 20:34:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1714077293;
-	bh=bZqtcMhFx7TDPaIgrLqyfpl0/OfmMPAKopBgZDQprIg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z+gqGa8PD+3BrRxF+Exe+s/+n1FrcsSYPFeQUrvoT2UUvEiGsEXMDYuXjYQJDYiRJ
-	 9/0fJxtI2lDBLEHhkegO15rObvRhgIuWQMhE+D085PPIsVKHmI/z9Zz6qr7xUxUgOg
-	 gdOVIytSYg1zquf83mxdxD8VyvGj7mHBMGjmlG8k=
-Date: Thu, 25 Apr 2024 22:34:52 +0200
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
-To: Joel Granados <j.granados@samsung.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Kees Cook <keescook@chromium.org>, Eric Dumazet <edumazet@google.com>, 
-	Dave Chinner <david@fromorbit.com>, linux-fsdevel@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
-	bpf@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-xfs@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	netfilter-devel@vger.kernel.org, coreteam@netfilter.org, kexec@lists.infradead.org, 
-	linux-hardening@vger.kernel.org, bridge@lists.linux.dev, lvs-devel@vger.kernel.org, 
-	linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com, linux-sctp@vger.kernel.org, 
-	linux-nfs@vger.kernel.org, apparmor@lists.ubuntu.com
-Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
- of sysctl handlers
-Message-ID: <d11f875e-4fb5-46dd-a412-84818208c575@t-8ch.de>
-References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
- <CGME20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db@eucas1p1.samsung.com>
- <20240424201234.3cc2b509@kernel.org>
- <20240425110412.2n5d27smecfncsfa@joelS2.panther.com>
+	id 1s07ml-0000000AVHt-1HWj
+	for linux-riscv@lists.infradead.org;
+	Thu, 25 Apr 2024 22:41:48 +0000
+Date: Thu, 25 Apr 2024 22:41:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1714084898;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GCaJfAPaJTJk4qPysJNwA1mMKwjvwJd7/RjWgxHGHyY=;
+	b=flIG79Ky9avijT6lxv6ruTzaWrjTez3ao65sse6mEFWL42L71Fy+HwoaFDVgbhqSQc8Plc
+	2zVls0Jn+yPxfrWHmLf2RsKd04+qj9yHIh5kAk1zeFvGngWMAknB7HIf4j1elRNjy/VQeD
+	3uDkbrZxw2MMlKn7IbsrZ3Do8tWuOuc=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Muhammad Usama Anjum <usama.anjum@collabora.com>
+Subject: Re: [PATCH] KVM: selftest: Define _GNU_SOURCE for all selftests code
+Message-ID: <ZircHEd4GZPApm21@linux.dev>
+References: <20240423190308.2883084-1-seanjc@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240425110412.2n5d27smecfncsfa@joelS2.panther.com>
+In-Reply-To: <20240423190308.2883084-1-seanjc@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240425_133458_371508_8511D0DD 
-X-CRM114-Status: GOOD (  27.68  )
+X-CRM114-CacheID: sfid-20240425_154147_501167_08D42DB0 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,64 +73,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSm9lbCwKCk9uIDIwMjQtMDQtMjUgMTM6MDQ6MTIrMDAwMCwgSm9lbCBHcmFuYWRvcyB3cm90
-ZToKPiBPbiBXZWQsIEFwciAyNCwgMjAyNCBhdCAwODoxMjozNFBNIC0wNzAwLCBKYWt1YiBLaWNp
-bnNraSB3cm90ZToKPiA+IE9uIFR1ZSwgMjMgQXByIDIwMjQgMDk6NTQ6MzUgKzAyMDAgVGhvbWFz
-IFdlacOfc2NodWggd3JvdGU6Cj4gPiA+IFRoZSBzZXJpZXMgd2FzIHNwbGl0IGZyb20gbXkgbGFy
-Z2VyIHNlcmllcyBzeXNjdGwtY29uc3Qgc2VyaWVzIFswXS4KPiA+ID4gSXQgb25seSBmb2N1c3Nl
-cyBvbiB0aGUgcHJvY19oYW5kbGVycyBidXQgaXMgYW4gaW1wb3J0YW50IHN0ZXAgdG8gYmUKPiA+
-ID4gYWJsZSB0byBtb3ZlIGFsbCBzdGF0aWMgZGVmaW5pdGlvbnMgb2YgY3RsX3RhYmxlIGludG8g
-LnJvZGF0YS4KPiA+IAo+ID4gU3BsaXQgdGhpcyBwZXIgc3Vic3lzdGVtLCBwbGVhc2UuCj4gSXQg
-aXMgdHJpY2t5IHRvIGRvIHRoYXQgYmVjYXVzZSBpdCBjaGFuZ2VzIHRoZSBmaXJzdCBhcmd1bWVu
-dCAoY3RsKikgdG8KPiBjb25zdCBpbiB0aGUgcHJvY19oYW5kbGVyIGZ1bmN0aW9uIHR5cGUgZGVm
-aW5lZCBpbiBzeXNjbHQuaDoKPiAiCj4gLXR5cGVkZWYgaW50IHByb2NfaGFuZGxlcihzdHJ1Y3Qg
-Y3RsX3RhYmxlICpjdGwsIGludCB3cml0ZSwgdm9pZCAqYnVmZmVyLAo+ICt0eXBlZGVmIGludCBw
-cm9jX2hhbmRsZXIoY29uc3Qgc3RydWN0IGN0bF90YWJsZSAqY3RsLCBpbnQgd3JpdGUsIHZvaWQg
-KmJ1ZmZlciwKPiAgICAgICAgICAgICAgICAgc2l6ZV90ICpsZW5wLCBsb2ZmX3QgKnBwb3MpOwo+
-ICIKPiBUaGlzIG1lYW5zIHRoYXQgYWxsIHRoZSBwcm9jX2hhbmRsZXJzIG5lZWQgdG8gY2hhbmdl
-IGF0IHRoZSBzYW1lIHRpbWUuCj4gCj4gSG93ZXZlciwgdGhlcmUgaXMgYW4gYWx0ZXJuYXRpdmUg
-d2F5IHRvIGRvIHRoaXMgdGhhdCBhbGxvd3MgY2h1bmtpbmcuIFdlCj4gZmlyc3QgZGVmaW5lIHRo
-ZSBwcm9jX2hhbmRsZXIgYXMgYSB2b2lkIHBvaW50ZXIgKGNhc3RpbmcgaXQgd2hlcmUgaXQgaXMK
-PiBiZWluZyB1c2VkKSBbMV0uIFRoZW4gd2UgY291bGQgZG8gdGhlIGNvbnN0aWZpY2F0aW9uIGJ5
-IHN1YnN5c3RlbSAobGlrZQo+IEpha3ViIHByb3Bvc2VzKS4gRmluYWxseSB3ZSBjYW4gInJldmVy
-dCB0aGUgdm9pZCBwb2ludGVyIGNoYW5nZSBzbyB3ZQo+IGRvbid0IGhhdmUgb25lIHNpemUgZml0
-IGFsbCBwb2ludGVyIGFzIG91ciBwcm9jX2hhbmRsZXIgWzJdLgo+IAo+IEhlcmUgYXJlIHNvbWUg
-Y29tbWVudHMgYWJvdXQgdGhlIGFsdGVybmF0aXZlOgo+IDEuIFdlIHdvdWxkIG5lZWQgdG8gbWFr
-ZSB0aGUgZmlyc3QgYXJndW1lbnQgY29uc3QgaW4gYWxsIHRoZSBkZXJpdmVkCj4gICAgcHJvY19o
-YW5kbGVycyBbM10gCj4gMi4gVGhlcmUgd291bGQgYmUgbm8gdW5kZWZpbmVkIGJlaGF2aW9yIGZv
-ciB0d28gcmVhc29uczoKPiAgICAyLjEuIFRoZXJlIGlzIG5vIGNhc2Ugd2hlcmUgd2UgY2hhbmdl
-IHRoZSBmaXJzdCBhcmd1bWVudC4gV2Uga25vdwo+ICAgICAgICAgdGhpcyBiZWNhdXNlIHRoZXJl
-IGFyZSBubyBjb21waWxlIGVycm9ycyBhZnRlciB3ZSBtYWtlIGl0IGNvbnN0Lgo+ICAgIDIuMi4g
-V2Ugd291bGQgYWx3YXlzIGdvIGZyb20gbm9uLWNvbnN0IHRvIGNvbnN0LiBUaGlzIGlzIHRoZSBj
-YXNlCj4gICAgICAgICBiZWNhdXNlIGFsbCB0aGUgc3R1ZmYgdGhhdCBpcyB1bmNoYW5nZWQgaW4g
-bm9uLWNvbnN0Lgo+IDMuIElmIHRoZSBpZGVhIHN0aWNrcywgaXQgc2hvdWxkIGdvIGludG8gbWFp
-bmxpbmUgYXMgb25lIHBhdGNoc2V0LiBJCj4gICAgd291bGQgbm90IGxpa2UgdG8gaGF2ZSBhIHZv
-aWQqIHByb2NfaGFuZGxlciBpbiBhIGtlcm5lbCByZWxlYXNlLgo+IDQuIEkgdGhpbmsgdGhpcyBp
-cyBhICJ3aW4vd2luIiBzb2x1dGlvbiB3ZXJlIHRoZSBjb25zdGlmaWNhdGlvbiBnb2VzCj4gICAg
-dGhyb3VnaCBhbmQgaXQgaXMgZGl2aWRlZCBpbiBzdWNoIGEgd2F5IHRoYXQgaXQgaXMgcmV2aWV3
-YWJsZS4KPiAKPiBJIHdvdWxkIHJlYWxseSBsaWtlIHRvIGhlYXIgd2hhdCBwcGwgdGhpbmsgYWJv
-dXQgdGhpcyAiaGVyZXRpYyIKPiBhbHRlcm5hdGl2ZS4gQFRob21hcywgQEx1aXMsIEBLZWVzIEBK
-YWt1Yj8KClRoYW5rcyBmb3IgdGhhdCBhbHRlcm5hdGl2ZSwgSSdtIG5vdCBhIGJpZyBmYW4gdGhv
-dWdoLgoKQmVzaWRlcyB0aGUgd29ua3kgc3ludGF4LCBDb250cm9sIEZsb3cgSW50ZWdyaXR5IHNo
-b3VsZCB0cmFwIG9uCnRoaXMgY29uc3RydWN0LiBGdW5jdGlvbnMgYXJlIGNhbGxlZCB0aHJvdWdo
-IGRpZmZlcmVudCBwb2ludGVycyB0aGFuCnRoZWlyIGFjdHVhbCB0eXBlcyB3aGljaCBpcyBleGFj
-dGx5IHdoYXQgQ0ZJIGlzIG1lYW50IHRvIHByZXZlbnQuCgpNYXliZSBwZW9wbGUgZmluZCBpdCBl
-YXNpZXIgdG8gcmV2aWV3IHdoZW4gdXNpbmcKIi0td29yZC1kaWZmIiBhbmQvb3IgIi1VMCIgd2l0
-aCBnaXQgZGlmZi9zaG93LgpUaGVyZSBpcyByZWFsbHkgbm90aGluZyBnb2luZyBhbiBiZXNpZGVz
-IGFkZGluZyBhIGZldyAiY29uc3Qicy4KCkJ1dCBpZiB0aGUgY29uc2Vuc3VzIHByZWZlcnMgdGhp
-cyBzb2x1dGlvbiwgSSdsbCBiZSBoYXBweSB0byBhZG9wdCBpdC4KCj4gWzFdIGh0dHBzOi8vZ2l0
-Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2pvZWwuZ3JhbmFkb3MvbGludXgu
-Z2l0L2NvbW1pdC8/aD1qYWcvY29uc3RmeV90cmVld2lkZV9hbHRlcm5hdGl2ZSZpZD00YTM4MzUw
-M2IxZWE2NTBkNGUxMmMxZjU4Mzg5NzRlODc5ZjVhYTZmCj4gWzJdIGh0dHBzOi8vZ2l0Lmtlcm5l
-bC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2pvZWwuZ3JhbmFkb3MvbGludXguZ2l0L2Nv
-bW1pdC8/aD1qYWcvY29uc3RmeV90cmVld2lkZV9hbHRlcm5hdGl2ZSZpZD1hM2JlNjU5NzNkMjdl
-YzI5MzNiOWU4MWUxYmVjNjBiZTNhOWI0NjBkCj4gWzNdIHByb2NfZG9zdHJpbmcsIHByb2NfZG9i
-b29sLCBwcm9jX2RvaW50dmVjLi4uLgoKClRob21hcwoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, Apr 23, 2024 at 12:03:08PM -0700, Sean Christopherson wrote:
+> Define _GNU_SOURCE is the base CFLAGS instead of relying on selftests to
+> manually #define _GNU_SOURCE, which is repetitive and error prone.  E.g.
+> kselftest_harness.h requires _GNU_SOURCE for asprintf(), but if a selftest
+> includes kvm_test_harness.h after stdio.h, the include guards result in
+> the effective version of stdio.h consumed by kvm_test_harness.h not
+> defining asprintf():
+> 
+>   In file included from x86_64/fix_hypercall_test.c:12:
+>   In file included from include/kvm_test_harness.h:11:
+>  ../kselftest_harness.h:1169:2: error: call to undeclared function
+>   'asprintf'; ISO C99 and later do not support implicit function declarations
+>   [-Wimplicit-function-declaration]
+>    1169 |         asprintf(&test_name, "%s%s%s.%s", f->name,
+>         |         ^
+> 
+> When including the rseq selftest's "library" code, #undef _GNU_SOURCE so
+> that rseq.c controls whether or not it wants to build with _GNU_SOURCE.
+> 
+> Reported-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+
+Acked-by: Oliver Upton <oliver.upton@linux.dev>
+
+-- 
+Thanks,
+Oliver
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
