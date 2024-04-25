@@ -4,141 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A2BC19F53
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 11:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0B4C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 11:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	References:In-Reply-To:MIME-Version:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PqqpWcWtMN3AuHvzQokCgjiwGDnwjPAA2kBdzoFvwVU=; b=RZTnoN1UEkhBoUl0Wl0mQI11T9
-	VmmnRVPbs5N/JmgB134N0z/ZlCq/zlVjR4crC6tnFlen0EslngMSeG6A/ts9aAMIHddgZvO8NLP/w
-	408xCY9PGQCNwQXYfd92KP1/L8wKOnPhXlX2Xt/4tcjMIp/Y++Gahh1ubFnAA5jeyTBIrQY1MpCyD
-	Ilco8xs7EbBpKRjrmvBpxJ9sc9Di4T7aSznlH71nOAffnFhG/CV0Nq78FH0z11B6YZJvj6Auvuq8b
-	h8vcaHT1ox8gCBjwgGdn8NZTxWG3cPYTxpduSQB+3nwzsXVSt22lQhEwiC6BfjxULST07KvNELIkY
-	hVhLPOeg==;
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/baM20Enj7QLcJZHGPGVvVMV9Bj1mD1YAtnt6EAzuAA=; b=1GlTSKzPYZaWzdTkrmParkaT8b
+	AklHB9/KFtINzCZIprC1I1fKkWIqW3dJ8fEpcd06cR1fiBd3uqevnDtbegnwWKn7kANNnGKYTZpQi
+	8tQks/0QNcEyIUL//0ITYQxOqf7bhEWeTCPxEwDICfhUuBbnSXrR/lpJr5nF309Yf/NzFpLN+4Dv8
+	IpTpkaq2EaOxFE4OvXrDOqMyY7B45dKVa8wRFHn9wyDhNiAab/44/xf83N27mArORTV1qT7Y4iZ66
+	hVW3tytwKUTSB8cfmzai+NXfiBukn7DNpfPZ6L0dWhmerx+u2PzqFTv9mJHRzt6qXOAwGdtxORcgP
+	FnpeHh+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzwty-00000007w0O-3WZB;
-	Thu, 25 Apr 2024 11:04:31 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzwts-00000007vxZ-1LUp;
-	Thu, 25 Apr 2024 11:04:27 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20240425110419euoutp025ea9a2841083d4c23a7df7e27a21bb82~JgRTDaocl0424104241euoutp029;
-	Thu, 25 Apr 2024 11:04:19 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20240425110419euoutp025ea9a2841083d4c23a7df7e27a21bb82~JgRTDaocl0424104241euoutp029
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1714043059;
-	bh=rJ3fxdBvszImOr8fc5O60xKwxenFrsdLX83dTzHbe8Q=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=K7Z+HkQvdxwe9WFNQxmAMJDclz/KZS4YxtJGasrhxAeQ70lSettVglHGn0yJGPz3K
-	 p1fq/JR2M/xPa5rbmMGJBMP63C58KwhDkVG5b5ocDC1SbJNeF2gSqVgeu65dAKtHzB
-	 OZfWdxyyfwSYhVTdlAp7p+La5gY9TN8PKRN42bME=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20240425110419eucas1p10f68e079a0837554528c5f55ffd1f236~JgRS0lHPt1477414774eucas1p1p;
-	Thu, 25 Apr 2024 11:04:19 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges1new.samsung.com (EUCPMTA) with SMTP id 60.70.09624.2B83A266; Thu, 25
-	Apr 2024 12:04:18 +0100 (BST)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20240425110418eucas1p1ef427715fe08d9cc9eedd6e2a8798a7c~JgRSPTcDR1975319753eucas1p1n;
-	Thu, 25 Apr 2024 11:04:18 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
-	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20240425110418eusmtrp2ee95972f1c88644dd0c5b54b1b42412d~JgRSM0DUY2814728147eusmtrp2m;
-	Thu, 25 Apr 2024 11:04:18 +0000 (GMT)
-X-AuditID: cbfec7f2-c11ff70000002598-66-662a38b20906
-Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id 23.5E.08810.2B83A266; Thu, 25
-	Apr 2024 12:04:18 +0100 (BST)
-Received: from CAMSVWEXC02.scsc.local (unknown [106.1.227.72]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20240425110418eusmtip11b7f7e68f5cef9ee392ee4064342b8af~JgRR8FNcJ0822208222eusmtip1J;
-	Thu, 25 Apr 2024 11:04:18 +0000 (GMT)
-Received: from localhost (106.210.248.68) by CAMSVWEXC02.scsc.local
-	(2002:6a01:e348::6a01:e348) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
-	Thu, 25 Apr 2024 12:04:17 +0100
-Date: Thu, 25 Apr 2024 13:04:12 +0200
-From: Joel Granados <j.granados@samsung.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>, Luis
-	Chamberlain <mcgrof@kernel.org>, Kees Cook <keescook@chromium.org>, Eric
-	Dumazet <edumazet@google.com>, Dave Chinner <david@fromorbit.com>,
-	<linux-fsdevel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-s390@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-mm@kvack.org>, <linux-security-module@vger.kernel.org>,
-	<bpf@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-xfs@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <netfilter-devel@vger.kernel.org>,
-	<coreteam@netfilter.org>, <kexec@lists.infradead.org>,
-	<linux-hardening@vger.kernel.org>, <bridge@lists.linux.dev>,
-	<lvs-devel@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
-	<rds-devel@oss.oracle.com>, <linux-sctp@vger.kernel.org>,
-	<linux-nfs@vger.kernel.org>, <apparmor@lists.ubuntu.com>
-Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
- of sysctl handlers
-Message-ID: <20240425110412.2n5d27smecfncsfa@joelS2.panther.com>
+	id 1rzxCC-00000007zKv-0bZl;
+	Thu, 25 Apr 2024 11:23:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rzxC8-00000007zKO-312q
+	for linux-riscv@lists.infradead.org;
+	Thu, 25 Apr 2024 11:23:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CA141007;
+	Thu, 25 Apr 2024 04:23:43 -0700 (PDT)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A8B03F7BD;
+	Thu, 25 Apr 2024 04:23:12 -0700 (PDT)
+Message-ID: <059ae516-aed4-4836-a2ca-aff150ff428d@arm.com>
+Date: Thu, 25 Apr 2024 12:23:10 +0100
 MIME-Version: 1.0
-In-Reply-To: <20240424201234.3cc2b509@kernel.org>
-X-Originating-IP: [106.210.248.68]
-X-ClientProxiedBy: CAMSVWEXC01.scsc.local (2002:6a01:e347::6a01:e347) To
-	CAMSVWEXC02.scsc.local (2002:6a01:e348::6a01:e348)
-X-Brightmail-Tracker: H4sIAAAAAAAAA2WSbUyTVxTHvc9bC0nNQ0G4gkiGwKabMJJ9uA4EZ1zy8GGMJWwu+gErPLxs
-	0JpWJtvChIAoLawdzEGrSBFExktrSqkIU0hHioBraUBXGWOOgZG3Dak4oYCjPLiZ7Nvv/M//
-	3HP+yeXjwgnKn58hPslKxaLMYMqTMFmWrHsNaE/qm0XKKJRv0ZLI2dNLIVOtAkOrN87iyGgZ
-	A2jSMs5DdxRZqHNgEUODpq9JZPjjHol+uNlHoEv6JYCGOi5SaKz5OYkGuwdINNymI9BDcymB
-	TM5CCqlqCnA0qZ0h0XzJOIV69D8RqGOlnYdczx5iyPX3GokKqhdw5FBNAmTR+iKVrp9A1lYn
-	eWAncyHPTjD9lyGjNWQzhsZiijEslPGY1rrTzKNWNWBslTWAuef4jWDmXLcxZrB+lmKchp2M
-	UmHhJQiOeEansJkZn7HSiJhjnukXHDPYiQ7/HFXbIyIPXPOVAw8+pN+C57sLgRx48oV0A4Bn
-	jXaCK54AOPXrA5wrnAA2WW3Ei5F85xDGNa4CePcbI/WvS72Sh7ldQtoI4LwduZmgQ2FDi5Jy
-	M0W/AW2zo7ibfegQWNiq3tiH03YefLJqJ90Nb/oYNF4pB24W0AfgnfYfCY69YJ96YoNxOgdW
-	LPWv+/nrHACvrvHdsgcdCTvaR0nu0mBYWlmFcZwL+40jmzzvCVsu7eD4EGyou8jj2BtO9xo3
-	eQd8fqN6IyWkywHsWpvncUUTgPX5i5svRcHC4YnNiXegTW/bOAjSW6Fjzou7cyssM1XgnCyA
-	54qEnDsMNo3NEiqwS/NSMs1LyTT/JePkcOg4/y31P/l1WF8zg3O8H+p0fxFawGsEfmy2LCuN
-	lUWK2VPhMlGWLFucFp4syTKA9c8/sNa70A6qph+HmwHGB2YQsj48fq1pEPgTYomYDfYR3H/8
-	WqpQkCL6/AtWKkmSZmeyMjMI4BPBfoLQlCBWSKeJTrKfsuwJVvqii/E9/POw6OXup7x8mzSw
-	sLOmWe4hTzhNLu73KFbsdoWxu4K6vOKPZoj1S9tnW7AtatWhnM645k/yj+cmz2VGx277ZVFz
-	vILeEpfceBdP3Jdb02WmYxqWyo72qLrjRyISg4bOte2+fep3v5jpTL/S93M+fDf2/ojxgbUp
-	paItSlPpFy9VDseO67dFWAtmq1vWPgh5zzsjkHrFd/vN69TTg8rwZ2m3imoRvyfBuLd+uHFK
-	Xnc9sTwy3lCkPrxSOpqUlP7n97Yzip6I6KpJ7eRHhsC4rDnJ8lfmWz9/7BKeefXt76pKYiSu
-	oGVDSJ/2ssi0Klb5VOmmavcd5B2RA2mqoqQ4NCzgS2UwIUsXRe7BpTLRPzckkEB3BAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA2WSf1DTdRjH++z7Y4Pa3beN6afFed6Cs2ROhgw/65Dzus6+7TrjzuyushtL
-	v4LGNtrAUzsNbiDEJGb6ByzSEWgTY9Y2aQzLWjaEKcwTCAOxo0Ye6AlsCLuN1cbq8q7/Xvd+
-	nvf7ee65h4PxqkghZ5+mnNFpVKUiMhX3xXrvbLCj9Xuzh4Z5qMprIVDwai+JutqMLLTcXYsh
-	p3cCoIB3ko2uG9Wox7fAQv6uTwhk/32EQJe/68PR6YthgG65W0g08dVfBPL/4CPQ0CUbjqY8
-	DTjqClaTyNRqwFDAMkOg2eOTJLp68QaO3FEXG0WWplgoshgjkOHMPIZGTQGAvJZVyGTrx9GA
-	I0hsXUN/VnkTp/u/gLTFXkHbOz4mafv8p2za0f4Rfc/RDOjBplZAj4zexekHkWss2n/uPkkH
-	7WvoRqOXXch9W5Kv01aUM2tLtPryLaJ3pChHIpUjSU6uXCLdtPndF3Nkoo0F+XuY0n0HGN3G
-	giJJyYJtgF3mEh6cDg2ASmBbVQ9SOJDKhVXBW6x6kMrhUWcBtD60sJOFdPhNaJhIMh9GR+rJ
-	BPOoOQDdM1lJgxPAwfMTK004lQmtnY0rTSQlhoP3x7EEp1EZsNrRjCcMGHWTDaM1npUJfKoI
-	Os+eBAnmUlvhdddPeDK1F8D6tpNEsvA07Gv+A08wRh2AodGeOHPi/Cz8MsZJyCmUFLpd4/9s
-	KoINTZ+zknwEBpengAnwzY8lmR9LMv+XlJTFsPvSOPk/OQuea53BkrwF2mwPcQtgd4A0pkKv
-	LlbrpRK9Sq2v0BRLdmvVdhD/vy5v2OECp6fnJB7A4gAPyIg7J7++4AdCXKPVMKI07u255/fy
-	uHtUhw4zOq1SV1HK6D1AFj/jCUwo2K2NP7OmXCnNy5ZJc/Pk2TJ53ibRau6rZXUqHlWsKmfe
-	Z5gyRvevj8VJEVayWqqf9A07ozWvHY99H/ArcAFbIrsb1owpDQv4dIbbn/ZewNlYE67acKPB
-	+mOH+QNNZMjzRHR2zPHhUlT9VlHglGRiyBXZWXfUeyd2RVbJEfTlGRU/7z/2yG9QjqtbjIfN
-	XF4qVvjnmOCaboLvlm+ff5l3sFb8ZnTttvP9hpewLOv8zsyhQFtqRzro2SxQiS4UrAs9xxIr
-	fqtd111YufqInTxlFR/dtcP8iwkpiF9PfLvIezDrLTb6d9UZOqvbD11Rhk3Zz2xz8DpvLw4+
-	ivIdxL3LO5a4bwhCTem+5WNt20PAkUllk/vVyvb8KqPiBXQmT/7UqC2n7ZXRMHxdhOtLVNL1
-	mE6v+hu4sk0VFAQAAA==
-X-CMS-MailID: 20240425110418eucas1p1ef427715fe08d9cc9eedd6e2a8798a7c
-X-Msg-Generator: CA
-X-RootMTR: 20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db
-References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
-	<CGME20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db@eucas1p1.samsung.com>
-	<20240424201234.3cc2b509@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/7] iommu/riscv: Add RISC-V IOMMU platform device
+ driver
+To: Tomasz Jeznach <tjeznach@rivosinc.com>
+References: <cover.1713456597.git.tjeznach@rivosinc.com>
+ <741996169fef074b5d9f4f218c2a98bf5dd38386.1713456598.git.tjeznach@rivosinc.com>
+ <7f9a82ea-c4c8-40a5-8f26-7cb135e91c5d@arm.com>
+ <CAH2o1u6FpDWNZsQCADQQKauPYzxDE73DRHHQKw6LjNb27ePeXw@mail.gmail.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CAH2o1u6FpDWNZsQCADQQKauPYzxDE73DRHHQKw6LjNb27ePeXw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240425_040425_013769_790E36FB 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20240425_042316_896482_F6433F99 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,104 +61,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8974903410947233017=="
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8974903410947233017==
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="q23ui2gu4xgkiues"
-Content-Disposition: inline
+On 24/04/2024 10:59 pm, Tomasz Jeznach wrote:
+[...]
+>>> diff --git a/MAINTAINERS b/MAINTAINERS
+>>> index 2657f9eae84c..051599c76585 100644
+>>> --- a/MAINTAINERS
+>>> +++ b/MAINTAINERS
+>>> @@ -18972,6 +18972,12 @@ L:   iommu@lists.linux.dev
+>>>    L:  linux-riscv@lists.infradead.org
+>>>    S:  Maintained
+>>>    F:  Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+>>> +F:   drivers/iommu/riscv/Kconfig
+>>> +F:   drivers/iommu/riscv/Makefile
+>>> +F:   drivers/iommu/riscv/iommu-bits.h
+>>> +F:   drivers/iommu/riscv/iommu-platform.c
+>>> +F:   drivers/iommu/riscv/iommu.c
+>>> +F:   drivers/iommu/riscv/iommu.h
+>>
+>> I'm pretty sure a single "F: drivers/iommu/riscv/" pattern will suffice.
+>>
+> 
+> Correct. But will required a workaround for pretty naive MAINTAINERS update
+> check in scripts/checkpatch.pl:3014 in next patch.
 
---q23ui2gu4xgkiues
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+As long as what you're doing is clearly reasonable to humans, the 
+correct workaround for any checkpatch complaint is to ignore checkpatch.
 
-On Wed, Apr 24, 2024 at 08:12:34PM -0700, Jakub Kicinski wrote:
-> On Tue, 23 Apr 2024 09:54:35 +0200 Thomas Wei=DFschuh wrote:
-> > The series was split from my larger series sysctl-const series [0].
-> > It only focusses on the proc_handlers but is an important step to be
-> > able to move all static definitions of ctl_table into .rodata.
->=20
-> Split this per subsystem, please.
-It is tricky to do that because it changes the first argument (ctl*) to
-const in the proc_handler function type defined in sysclt.h:
-"
--typedef int proc_handler(struct ctl_table *ctl, int write, void *buffer,
-+typedef int proc_handler(const struct ctl_table *ctl, int write, void *buf=
-fer,
-                size_t *lenp, loff_t *ppos);
-"
-This means that all the proc_handlers need to change at the same time.
+[...]
+>>> +static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
+>>> +{
+>>> +     u64 ddtp;
+>>> +
+>>> +     /* Hardware must be configured in OFF | BARE mode at system initialization. */
+>>> +     riscv_iommu_readq_timeout(iommu, RISCV_IOMMU_REG_DDTP,
+>>> +                               ddtp, !(ddtp & RISCV_IOMMU_DDTP_BUSY),
+>>> +                               10, RISCV_IOMMU_DDTP_TIMEOUT);
+>>> +     if (FIELD_GET(RISCV_IOMMU_DDTP_MODE, ddtp) > RISCV_IOMMU_DDTP_MODE_BARE)
+>>> +             return -EBUSY;
+>>
+>> It looks like RISC-V already supports kdump, so you probably want to be
+>> prepared to find the IOMMU with its pants down and deal with it from day
+>> one.
+>>
+> 
+> This is the simplest check/fail for the kexec and/or boot loaders
+> leaving IOMMU translations active.
+> I've been already looking into kexec path to quiesce all devices and
+> IOMMU in shutdown path.
+> I'm not convinced it's ready for the prime time on RISC-V, will
+> address this in follow up patches.
 
-However, there is an alternative way to do this that allows chunking. We
-first define the proc_handler as a void pointer (casting it where it is
-being used) [1]. Then we could do the constification by subsystem (like
-Jakub proposes). Finally we can "revert the void pointer change so we
-don't have one size fit all pointer as our proc_handler [2].
+Yeah, for regular kexec you definitely want an orderly shutdown of the 
+IOMMU, although there's still a bit of an open question about whether 
+it's better to actively block any remaining traffic from devices whose 
+drivers haven't cleanly stopped them. It's in the kdump crash kernel 
+case that you can't have any expectations and need to be able to recover 
+the IOMMU into a usable state, since it's likely to be in the way of 
+devices which the crash kernel wants to take over and use.
 
-Here are some comments about the alternative:
-1. We would need to make the first argument const in all the derived
-   proc_handlers [3]=20
-2. There would be no undefined behavior for two reasons:
-   2.1. There is no case where we change the first argument. We know
-        this because there are no compile errors after we make it const.
-   2.2. We would always go from non-const to const. This is the case
-        because all the stuff that is unchanged in non-const.
-3. If the idea sticks, it should go into mainline as one patchset. I
-   would not like to have a void* proc_handler in a kernel release.
-4. I think this is a "win/win" solution were the constification goes
-   through and it is divided in such a way that it is reviewable.
-
-I would really like to hear what ppl think about this "heretic"
-alternative. @Thomas, @Luis, @Kees @Jakub?
-
-Best
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/joel.granados/linux.git=
-/commit/?h=3Djag/constfy_treewide_alternative&id=3D4a383503b1ea650d4e12c1f5=
-838974e879f5aa6f
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/joel.granados/linux.git=
-/commit/?h=3Djag/constfy_treewide_alternative&id=3Da3be65973d27ec2933b9e81e=
-1bec60be3a9b460d
-[3] proc_dostring, proc_dobool, proc_dointvec....
-
---
-
-Joel Granados
-
---q23ui2gu4xgkiues
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmYqOKsACgkQupfNUreW
-QU/lvAv/UMzbQzEuf2B53UY+EsWY1fAFwgTvC3thgwkdPKHKmQPe29eut0B+tDCl
-ap0WjtDKSGfPOt/B1vZsxRAwLbtqQSX37nUsrtDtalsL3pFou2puYoIjP4gz2EHw
-gIOwPG9y1kNEVips8pa+3xCLw7PkyFGjLWe1JDKZK68IRfE71kbNPOBY5UW52VMm
-BEpao/WdI70J5QU0HgrmPJiT60I/kd64RWlbdnsT9LM/F1jGYQoyPelwD5LExTJJ
-jvIK1/D3CxVCymEpga7rOczo7KyCpllfAEPDI79B5rQpdC2Z4Rk4QG1I9C21mEEt
-cCQQEPqYdbCMjhg3/bnobMujv5m+HWZRan9lJJdu32JDVlNqLXMfdDc7IEdU0SrI
-zMHYaLGQ2CxS8WP6jOWib26TuJSWVJp+FbjeMnBisKScXti/6UuH5NH8GBNYHlP+
-YGS6/xkrsDyU7LJRmF26m8xqNX0KaYdKZYh5oxmZMPDraKi/W7xEgmu3h0/EMF7q
-1i0OThmt
-=dvhR
------END PGP SIGNATURE-----
-
---q23ui2gu4xgkiues--
-
-
---===============8974903410947233017==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Robin.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8974903410947233017==--
-
