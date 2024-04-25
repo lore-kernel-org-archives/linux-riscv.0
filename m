@@ -4,124 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CD7C19F4F
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 10:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A2BC19F53
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 11:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B1lcSyuGO3CVbxTym6Q+flya3mV6bymhP3USaNb5KkQ=; b=UkK/xuZxrP8z/F
-	7uVu7we3LA2zgI1KMIdM0qvaG3rj1fU//kXIzVWJMc0lJ2CQLo4cUE+o+6NTHdo/fr3HYu57BW0/W
-	GBS/YAqdThmpMsVTRCTVKni/UQksnnXXzxw4llAPrU0aIVprn7wwOUrp34k8mgzJxgfO1nv1XNl6u
-	Gan9dbstUpSw+IgBeFoS27HjBJrxWVbNtG1azV3kDP4B33cRg5okN9ucpxrSu9SAGgKNo3m6n2buB
-	NBND4E6aDcA1KYjMaWIIIY49O6ZSSF+q8AWKNEAqr5h8oB6JiqTo46/QJVcOfidyT+MlXUrYqMgm8
-	CSLHw1omd6W1nMhEwR8Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:MIME-Version:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PqqpWcWtMN3AuHvzQokCgjiwGDnwjPAA2kBdzoFvwVU=; b=RZTnoN1UEkhBoUl0Wl0mQI11T9
+	VmmnRVPbs5N/JmgB134N0z/ZlCq/zlVjR4crC6tnFlen0EslngMSeG6A/ts9aAMIHddgZvO8NLP/w
+	408xCY9PGQCNwQXYfd92KP1/L8wKOnPhXlX2Xt/4tcjMIp/Y++Gahh1ubFnAA5jeyTBIrQY1MpCyD
+	Ilco8xs7EbBpKRjrmvBpxJ9sc9Di4T7aSznlH71nOAffnFhG/CV0Nq78FH0z11B6YZJvj6Auvuq8b
+	h8vcaHT1ox8gCBjwgGdn8NZTxWG3cPYTxpduSQB+3nwzsXVSt22lQhEwiC6BfjxULST07KvNELIkY
+	hVhLPOeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzwfP-00000007tiu-2JNm;
-	Thu, 25 Apr 2024 10:49:27 +0000
-Received: from mail-bjschn02on20725.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::725] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1rzwty-00000007w0O-3WZB;
+	Thu, 25 Apr 2024 11:04:31 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzwfK-00000007tfF-2jhw
-	for linux-riscv@lists.infradead.org;
-	Thu, 25 Apr 2024 10:49:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=hKowYrrvd/MljGiXqHGO1CRUZsY5M/w93VhTZGfnc6H+YkFVrRB6CgteIbCTYlwSleuc2pioYl9CSePK0HOB1Ewi+KrIVzYx6ROPYKe5ZnNNehQAikGQg+hAn0TvVvyKfUPoqxGGT67JTaY87kknwPKKBZEgg5+VeDw6/L/oszFjHgQQk+vhj0rscAb9gjueCENvYKIYYGZyH3G6eukuv8cZqCZXRHMmiLDIbf7ytzbXulYWmQ3wIJGT0TFDrckDKMjheJHLYIeujn0vORuYbMM2NvI0G1CGTVhx8robNhR/aRoGBlLkiKvTp8wrGWR5wm81jOdv+3mVv9UubDluEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fxIDl4HLV9bJC7hy01jnyiv1VF4IpHjXIeN+QCog/Hg=;
- b=E9SvDi1unNgBTXlQwgpqxNkfAXMslLs++u6nuaYrQKST7k6n9kgvESdTICbEMStSm7E8ZkqFw/SW3l38W8tVLBglfFUKt1DStp02GwvR6hPeHiVKD6MhCDRTyqPOLFNFkQ++dn7bvBhTCi9QLlBnF5+Uq00rtEJmDouVoGSO4Y2YmYOYySDlAHxQ30OGpvrPnNvSjM2f8lHa8pa9i36rUAYY8pBBlJSDDjiI08yoNfnnLwk3XWXxTnTU6RWKLEs+kPbD4WkuAYePo7Z61eMI7H4P2z3mwR2trRJ4jxf68O/x7xveAj7G1+YSzg4S1xVjiNuW1NfDnM5+2o3PtwfQHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:20::14) by SH0PR01MB0491.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:7::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.44; Thu, 25 Apr
- 2024 10:49:12 +0000
-Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
- ([fe80::e0a:f88a:cad1:dc1c]) by SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
- ([fe80::e0a:f88a:cad1:dc1c%7]) with mapi id 15.20.7472.044; Thu, 25 Apr 2024
- 10:49:12 +0000
-From: Joshua Yeong <joshua.yeong@starfivetech.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	conor@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	joshua.yeong@starfivetech.com,
-	leyfoon.tan@starfivetech.com,
-	jeeheng.sia@starfivetech.com
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 2/2] dt-bindings: cache: Add docs for StarFive Starlink cache controller
-Date: Thu, 25 Apr 2024 18:48:41 +0800
-Message-Id: <20240425104841.72379-3-joshua.yeong@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20240425104841.72379-1-joshua.yeong@starfivetech.com>
-References: <20240425104841.72379-1-joshua.yeong@starfivetech.com>
-X-ClientProxiedBy: NT0PR01CA0023.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:c::19) To SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:20::14)
+	id 1rzwts-00000007vxZ-1LUp;
+	Thu, 25 Apr 2024 11:04:27 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20240425110419euoutp025ea9a2841083d4c23a7df7e27a21bb82~JgRTDaocl0424104241euoutp029;
+	Thu, 25 Apr 2024 11:04:19 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20240425110419euoutp025ea9a2841083d4c23a7df7e27a21bb82~JgRTDaocl0424104241euoutp029
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1714043059;
+	bh=rJ3fxdBvszImOr8fc5O60xKwxenFrsdLX83dTzHbe8Q=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=K7Z+HkQvdxwe9WFNQxmAMJDclz/KZS4YxtJGasrhxAeQ70lSettVglHGn0yJGPz3K
+	 p1fq/JR2M/xPa5rbmMGJBMP63C58KwhDkVG5b5ocDC1SbJNeF2gSqVgeu65dAKtHzB
+	 OZfWdxyyfwSYhVTdlAp7p+La5gY9TN8PKRN42bME=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20240425110419eucas1p10f68e079a0837554528c5f55ffd1f236~JgRS0lHPt1477414774eucas1p1p;
+	Thu, 25 Apr 2024 11:04:19 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges1new.samsung.com (EUCPMTA) with SMTP id 60.70.09624.2B83A266; Thu, 25
+	Apr 2024 12:04:18 +0100 (BST)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20240425110418eucas1p1ef427715fe08d9cc9eedd6e2a8798a7c~JgRSPTcDR1975319753eucas1p1n;
+	Thu, 25 Apr 2024 11:04:18 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20240425110418eusmtrp2ee95972f1c88644dd0c5b54b1b42412d~JgRSM0DUY2814728147eusmtrp2m;
+	Thu, 25 Apr 2024 11:04:18 +0000 (GMT)
+X-AuditID: cbfec7f2-c11ff70000002598-66-662a38b20906
+Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id 23.5E.08810.2B83A266; Thu, 25
+	Apr 2024 12:04:18 +0100 (BST)
+Received: from CAMSVWEXC02.scsc.local (unknown [106.1.227.72]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20240425110418eusmtip11b7f7e68f5cef9ee392ee4064342b8af~JgRR8FNcJ0822208222eusmtip1J;
+	Thu, 25 Apr 2024 11:04:18 +0000 (GMT)
+Received: from localhost (106.210.248.68) by CAMSVWEXC02.scsc.local
+	(2002:6a01:e348::6a01:e348) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
+	Thu, 25 Apr 2024 12:04:17 +0100
+Date: Thu, 25 Apr 2024 13:04:12 +0200
+From: Joel Granados <j.granados@samsung.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>, Luis
+	Chamberlain <mcgrof@kernel.org>, Kees Cook <keescook@chromium.org>, Eric
+	Dumazet <edumazet@google.com>, Dave Chinner <david@fromorbit.com>,
+	<linux-fsdevel@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-mm@kvack.org>, <linux-security-module@vger.kernel.org>,
+	<bpf@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-xfs@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <netfilter-devel@vger.kernel.org>,
+	<coreteam@netfilter.org>, <kexec@lists.infradead.org>,
+	<linux-hardening@vger.kernel.org>, <bridge@lists.linux.dev>,
+	<lvs-devel@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
+	<rds-devel@oss.oracle.com>, <linux-sctp@vger.kernel.org>,
+	<linux-nfs@vger.kernel.org>, <apparmor@lists.ubuntu.com>
+Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
+ of sysctl handlers
+Message-ID: <20240425110412.2n5d27smecfncsfa@joelS2.panther.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SH0PR01MB0841:EE_|SH0PR01MB0491:EE_
-X-MS-Office365-Filtering-Correlation-Id: 47a980ff-09e8-4f92-3d7b-08dc651557d4
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: RmPgWCmxFy6UozOA/0wyyk4uBIcH4LUmbesa+SoFoNav2cqm2oRb2Lll/mx60uNA8tnoo5jSmfe+OpcRoH+NBdRo8H0VHCwpoWRuXfnfJKqy0NT7uP0wlxaP4LkAkUHR/vZqp79/urEzpy65swxh0oNlk9MR+ctEhzI1tU6VieotS44rQNEyPhlvp9Q3m953n5pkdU3/oEW0geMT5vRv+Z80t3rfH0V4AaHDc6RUPFd0upt8EN36j2cGr8jomWtlnDfmNMYFWC6GUsDywqMwX8JjcZPCmkCWt8BR5sPak5Er9kltylWLo4RUYA8bv2WlmiN/1/Yd5OKbJqa9LjxMJ2LmmjFYK2LKWL/X96uNTbXWrOJf6SZ4oNHmpHG+tEpcyKmghrnRlNDED4FsBgv5UOckLIxVR2p9UYqY5eS0gAOLtla4n5WlGDNr4TuBtHTIL/tQNbNRNGR50CgQuckiezheoODBGVW4N1bSOtOP6wtLQdxC2Oq8UNMt6LblSY7GnC/cW60ojnjiDxO4tS3tYx9sUc72PDoEBDG8y6g2nUDD7vtuCkE/zDeTWjRjfg6SNBvysbny9Diuht6Sw6Qmnmwt4eB0hEDUndDDBFlRl3qT16dwYifNnFfOMaEpeWHM01AnuBtP0XQ03K3KCYHwjA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(52116005)(366007)(41320700004)(1800799015)(7416005)(38350700005)(921011);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IeLKnNaRUKuZs43fXbG3M42Uu67NMv2LpJ51AtlAtGiMscRlHf6Zac4uT6eg?=
- =?us-ascii?Q?2UggLZK3Qst6QxSWBLlkMO0vq9g+DXDlRS1vcQRkifTdx/pB+GPJDgL/egJ2?=
- =?us-ascii?Q?/5S4nuXkbzNkRORbh9jq04bX3ifUxRi6N7DVVN+0TgLUQH00fuwtjVZphQ/l?=
- =?us-ascii?Q?G8oD+FFxb8Scyx5hDVF8UGtliCe9dcWdgVuA2eRvnwYZugj5968qjCeQ1LYB?=
- =?us-ascii?Q?PAXP7K23UhhdRkDYCrv+cEeshtZzzxwyDNeAqXNyHyy8Z3WYwEjfToc3wPvm?=
- =?us-ascii?Q?zF/es1YwGsEkE+90MWRVbnVR8RETTYDsa2VCY7FEvVySRrcVEyBhj/7r/y+O?=
- =?us-ascii?Q?gSXUuW+S3rx6YR4tWGsZM3tqZ+2/rPUY8eJJ+cF22pero7wqLFmLalvSbG6y?=
- =?us-ascii?Q?+q7A2f5htxJys4kZnWXhKWHi+Zj+GXz1zlb09BwQCDEBIhhpVSo693iaGmFm?=
- =?us-ascii?Q?Z5J2L53KianTzio1DiJxfA25TUgP7QkwhvNDaxoI+MJxqhCnJSLghGvg9A4x?=
- =?us-ascii?Q?NJmyusmX/mH1vZz359XB8y3H5e3mA6yyflyLUPwfrrb3ISGsL424dlciPVJ9?=
- =?us-ascii?Q?N4kXCLANdNn710suFd13kSlMpN3WDSxxpJGSe5lJpkR5XGFXw0ko3V3zrMUB?=
- =?us-ascii?Q?3YUyp3Gpeu2GfoRA/gvWXEseKkVzf8RU6/9NTxizAVlgS8TkKQU0iC1+Qbkr?=
- =?us-ascii?Q?T42DkmwNcuPu5YhD0D8FCcw1iABvscU6N83wwSuh8INtVU1v87jei5/VGw4s?=
- =?us-ascii?Q?eeE6MnYpgWBETvruh07ReCB/I2MQlQy024mvfEmKh2wa1hZ1d4cMEpo5ReRN?=
- =?us-ascii?Q?dle7J4p23XjS83ZFn71voxSjvn2Z+b1Wv9H6VIfgpVwRS8jKI07/0spxzqNS?=
- =?us-ascii?Q?rn62GXJCFXjlVA8qERfj5uavLsSuiLsc6agtufroarF/FmRkLkcO2g4LOR0+?=
- =?us-ascii?Q?uO216LTVwi8+IcVvDLxQUBsmuseJjDpOjnxpDyPhn970NfRheGb9Jrga9za9?=
- =?us-ascii?Q?dbO6p9WwG3xEHQWUCWumndXhbsfveNKO54qRKmwgADgXgBtl7xeRYWGCkHQn?=
- =?us-ascii?Q?Fvhbal1Fq+aFK2igu0RqFiB80S2j8Cy1zaxTDXVQh7QM/BzmGhN+8a3FEEwP?=
- =?us-ascii?Q?p5YDI7sjHDZD2DVZEjYZsSlFnVMzNi1mZMf8U8FYPcSuNIbbZ7ZkZRrhmn/8?=
- =?us-ascii?Q?xJAN+nOFISms1IA4vpFaoAchzOiZqgMnXGNGDsM0PUbP29SQBWiip/gX1rnP?=
- =?us-ascii?Q?2CZ7lDw7D9QGcnSCE/xzMhHrmgnHn9hLs46KHFZxQbNEwUKsmXkzzfRTsFzt?=
- =?us-ascii?Q?27d3L08WDozx6MauIs+gQoQi4I91RkMS59FZujZqMJZ5v87cpMdGYziVbBst?=
- =?us-ascii?Q?11MmIvqkJpVdto5aWIeMgJtoaTQHmETWT7QWKXRcCJJaMeyj/08ex+0UhQEF?=
- =?us-ascii?Q?53WIIQd9Fr1R59pPMm85UY/pGBKbsr33MLT8I7SeeWHRvDmg0ZzPWPMZY8XJ?=
- =?us-ascii?Q?Wpsp4yP/NQhrhCuIEymf9OORfzMjxDOUENrUftgl0idfkkbScxyhLXAwDbs1?=
- =?us-ascii?Q?XcyMh4rjoS4eD1GRuHSkldpNLjmLVDPfIx2BiK2RxrEOav0G/jM1MyTKw9fO?=
- =?us-ascii?Q?Dy0/NK8rj3Q4Ris+C6VUtKg=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 47a980ff-09e8-4f92-3d7b-08dc651557d4
-X-MS-Exchange-CrossTenant-AuthSource: SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2024 10:49:12.4319
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: L/e+yJa3fXDhlR2pWp+jyDvjzTDkAyZnBMaXCkTq6JvEETtXDEbB9TwaZ31uewYQpYaUeqVVgKJPzW3gcdXodk+BL/RqLo6G9js/7S2QMt8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SH0PR01MB0491
+In-Reply-To: <20240424201234.3cc2b509@kernel.org>
+X-Originating-IP: [106.210.248.68]
+X-ClientProxiedBy: CAMSVWEXC01.scsc.local (2002:6a01:e347::6a01:e347) To
+	CAMSVWEXC02.scsc.local (2002:6a01:e348::6a01:e348)
+X-Brightmail-Tracker: H4sIAAAAAAAAA2WSbUyTVxTHvc9bC0nNQ0G4gkiGwKabMJJ9uA4EZ1zy8GGMJWwu+gErPLxs
+	0JpWJtvChIAoLawdzEGrSBFExktrSqkIU0hHioBraUBXGWOOgZG3Dak4oYCjPLiZ7Nvv/M//
+	3HP+yeXjwgnKn58hPslKxaLMYMqTMFmWrHsNaE/qm0XKKJRv0ZLI2dNLIVOtAkOrN87iyGgZ
+	A2jSMs5DdxRZqHNgEUODpq9JZPjjHol+uNlHoEv6JYCGOi5SaKz5OYkGuwdINNymI9BDcymB
+	TM5CCqlqCnA0qZ0h0XzJOIV69D8RqGOlnYdczx5iyPX3GokKqhdw5FBNAmTR+iKVrp9A1lYn
+	eWAncyHPTjD9lyGjNWQzhsZiijEslPGY1rrTzKNWNWBslTWAuef4jWDmXLcxZrB+lmKchp2M
+	UmHhJQiOeEansJkZn7HSiJhjnukXHDPYiQ7/HFXbIyIPXPOVAw8+pN+C57sLgRx48oV0A4Bn
+	jXaCK54AOPXrA5wrnAA2WW3Ei5F85xDGNa4CePcbI/WvS72Sh7ldQtoI4LwduZmgQ2FDi5Jy
+	M0W/AW2zo7ibfegQWNiq3tiH03YefLJqJ90Nb/oYNF4pB24W0AfgnfYfCY69YJ96YoNxOgdW
+	LPWv+/nrHACvrvHdsgcdCTvaR0nu0mBYWlmFcZwL+40jmzzvCVsu7eD4EGyou8jj2BtO9xo3
+	eQd8fqN6IyWkywHsWpvncUUTgPX5i5svRcHC4YnNiXegTW/bOAjSW6Fjzou7cyssM1XgnCyA
+	54qEnDsMNo3NEiqwS/NSMs1LyTT/JePkcOg4/y31P/l1WF8zg3O8H+p0fxFawGsEfmy2LCuN
+	lUWK2VPhMlGWLFucFp4syTKA9c8/sNa70A6qph+HmwHGB2YQsj48fq1pEPgTYomYDfYR3H/8
+	WqpQkCL6/AtWKkmSZmeyMjMI4BPBfoLQlCBWSKeJTrKfsuwJVvqii/E9/POw6OXup7x8mzSw
+	sLOmWe4hTzhNLu73KFbsdoWxu4K6vOKPZoj1S9tnW7AtatWhnM645k/yj+cmz2VGx277ZVFz
+	vILeEpfceBdP3Jdb02WmYxqWyo72qLrjRyISg4bOte2+fep3v5jpTL/S93M+fDf2/ojxgbUp
+	paItSlPpFy9VDseO67dFWAtmq1vWPgh5zzsjkHrFd/vN69TTg8rwZ2m3imoRvyfBuLd+uHFK
+	Xnc9sTwy3lCkPrxSOpqUlP7n97Yzip6I6KpJ7eRHhsC4rDnJ8lfmWz9/7BKeefXt76pKYiSu
+	oGVDSJ/2ssi0Klb5VOmmavcd5B2RA2mqoqQ4NCzgS2UwIUsXRe7BpTLRPzckkEB3BAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA2WSf1DTdRjH++z7Y4Pa3beN6afFed6Cs2ROhgw/65Dzus6+7TrjzuyushtL
+	v4LGNtrAUzsNbiDEJGb6ByzSEWgTY9Y2aQzLWjaEKcwTCAOxo0Ye6AlsCLuN1cbq8q7/Xvd+
+	nvf7ee65h4PxqkghZ5+mnNFpVKUiMhX3xXrvbLCj9Xuzh4Z5qMprIVDwai+JutqMLLTcXYsh
+	p3cCoIB3ko2uG9Wox7fAQv6uTwhk/32EQJe/68PR6YthgG65W0g08dVfBPL/4CPQ0CUbjqY8
+	DTjqClaTyNRqwFDAMkOg2eOTJLp68QaO3FEXG0WWplgoshgjkOHMPIZGTQGAvJZVyGTrx9GA
+	I0hsXUN/VnkTp/u/gLTFXkHbOz4mafv8p2za0f4Rfc/RDOjBplZAj4zexekHkWss2n/uPkkH
+	7WvoRqOXXch9W5Kv01aUM2tLtPryLaJ3pChHIpUjSU6uXCLdtPndF3Nkoo0F+XuY0n0HGN3G
+	giJJyYJtgF3mEh6cDg2ASmBbVQ9SOJDKhVXBW6x6kMrhUWcBtD60sJOFdPhNaJhIMh9GR+rJ
+	BPOoOQDdM1lJgxPAwfMTK004lQmtnY0rTSQlhoP3x7EEp1EZsNrRjCcMGHWTDaM1npUJfKoI
+	Os+eBAnmUlvhdddPeDK1F8D6tpNEsvA07Gv+A08wRh2AodGeOHPi/Cz8MsZJyCmUFLpd4/9s
+	KoINTZ+zknwEBpengAnwzY8lmR9LMv+XlJTFsPvSOPk/OQuea53BkrwF2mwPcQtgd4A0pkKv
+	LlbrpRK9Sq2v0BRLdmvVdhD/vy5v2OECp6fnJB7A4gAPyIg7J7++4AdCXKPVMKI07u255/fy
+	uHtUhw4zOq1SV1HK6D1AFj/jCUwo2K2NP7OmXCnNy5ZJc/Pk2TJ53ibRau6rZXUqHlWsKmfe
+	Z5gyRvevj8VJEVayWqqf9A07ozWvHY99H/ArcAFbIrsb1owpDQv4dIbbn/ZewNlYE67acKPB
+	+mOH+QNNZMjzRHR2zPHhUlT9VlHglGRiyBXZWXfUeyd2RVbJEfTlGRU/7z/2yG9QjqtbjIfN
+	XF4qVvjnmOCaboLvlm+ff5l3sFb8ZnTttvP9hpewLOv8zsyhQFtqRzro2SxQiS4UrAs9xxIr
+	fqtd111YufqInTxlFR/dtcP8iwkpiF9PfLvIezDrLTb6d9UZOqvbD11Rhk3Zz2xz8DpvLw4+
+	ivIdxL3LO5a4bwhCTem+5WNt20PAkUllk/vVyvb8KqPiBXQmT/7UqC2n7ZXRMHxdhOtLVNL1
+	mE6v+hu4sk0VFAQAAA==
+X-CMS-MailID: 20240425110418eucas1p1ef427715fe08d9cc9eedd6e2a8798a7c
+X-Msg-Generator: CA
+X-RootMTR: 20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db
+References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
+	<CGME20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db@eucas1p1.samsung.com>
+	<20240424201234.3cc2b509@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240425_034922_746645_308859F3 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20240425_040425_013769_790E36FB 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,98 +150,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8974903410947233017=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add DT binding documentation used by StarFive's
-Starlink cache controller.
+--===============8974903410947233017==
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="q23ui2gu4xgkiues"
+Content-Disposition: inline
 
-Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../cache/starfive,jh8100-starlink-cache.yaml | 66 +++++++++++++++++++
- 1 file changed, 66 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/cache/starfive,jh8100-starlink-cache.yaml
+--q23ui2gu4xgkiues
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/Documentation/devicetree/bindings/cache/starfive,jh8100-starlink-cache.yaml b/Documentation/devicetree/bindings/cache/starfive,jh8100-starlink-cache.yaml
-new file mode 100644
-index 000000000000..6d61098e388b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/cache/starfive,jh8100-starlink-cache.yaml
-@@ -0,0 +1,66 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/cache/starfive,jh8100-starlink-cache.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive StarLink Cache Controller
-+
-+maintainers:
-+  - Joshua Yeong <joshua.yeong@starfivetech.com>
-+
-+description:
-+  StarFive's StarLink Cache Controller manages the L3 cache shared between
-+  clusters of CPU cores. The cache driver enables RISC-V non-standard cache
-+  management as an alternative to instructions in the RISC-V Zicbom extension.
-+
-+allOf:
-+  - $ref: /schemas/cache-controller.yaml#
-+
-+# We need a select here so we don't match all nodes with 'cache'
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - starfive,jh8100-starlink-cache
-+
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: starfive,jh8100-starlink-cache
-+      - const: cache
-+
-+  reg:
-+    maxItems: 1
-+
-+unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - cache-block-size
-+  - cache-level
-+  - cache-sets
-+  - cache-size
-+  - cache-unified
-+
-+examples:
-+  - |
-+      soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        cache-controller@15000000 {
-+          compatible = "starfive,jh8100-starlink-cache", "cache";
-+          reg = <0x0 0x15000000 0x0 0x278>;
-+          cache-block-size = <64>;
-+          cache-level = <3>;
-+          cache-sets = <8192>;
-+          cache-size = <0x400000>;
-+          cache-unified;
-+        };
-+      };
--- 
-2.25.1
+On Wed, Apr 24, 2024 at 08:12:34PM -0700, Jakub Kicinski wrote:
+> On Tue, 23 Apr 2024 09:54:35 +0200 Thomas Wei=DFschuh wrote:
+> > The series was split from my larger series sysctl-const series [0].
+> > It only focusses on the proc_handlers but is an important step to be
+> > able to move all static definitions of ctl_table into .rodata.
+>=20
+> Split this per subsystem, please.
+It is tricky to do that because it changes the first argument (ctl*) to
+const in the proc_handler function type defined in sysclt.h:
+"
+-typedef int proc_handler(struct ctl_table *ctl, int write, void *buffer,
++typedef int proc_handler(const struct ctl_table *ctl, int write, void *buf=
+fer,
+                size_t *lenp, loff_t *ppos);
+"
+This means that all the proc_handlers need to change at the same time.
 
+However, there is an alternative way to do this that allows chunking. We
+first define the proc_handler as a void pointer (casting it where it is
+being used) [1]. Then we could do the constification by subsystem (like
+Jakub proposes). Finally we can "revert the void pointer change so we
+don't have one size fit all pointer as our proc_handler [2].
+
+Here are some comments about the alternative:
+1. We would need to make the first argument const in all the derived
+   proc_handlers [3]=20
+2. There would be no undefined behavior for two reasons:
+   2.1. There is no case where we change the first argument. We know
+        this because there are no compile errors after we make it const.
+   2.2. We would always go from non-const to const. This is the case
+        because all the stuff that is unchanged in non-const.
+3. If the idea sticks, it should go into mainline as one patchset. I
+   would not like to have a void* proc_handler in a kernel release.
+4. I think this is a "win/win" solution were the constification goes
+   through and it is divided in such a way that it is reviewable.
+
+I would really like to hear what ppl think about this "heretic"
+alternative. @Thomas, @Luis, @Kees @Jakub?
+
+Best
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/joel.granados/linux.git=
+/commit/?h=3Djag/constfy_treewide_alternative&id=3D4a383503b1ea650d4e12c1f5=
+838974e879f5aa6f
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/joel.granados/linux.git=
+/commit/?h=3Djag/constfy_treewide_alternative&id=3Da3be65973d27ec2933b9e81e=
+1bec60be3a9b460d
+[3] proc_dostring, proc_dobool, proc_dointvec....
+
+--
+
+Joel Granados
+
+--q23ui2gu4xgkiues
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmYqOKsACgkQupfNUreW
+QU/lvAv/UMzbQzEuf2B53UY+EsWY1fAFwgTvC3thgwkdPKHKmQPe29eut0B+tDCl
+ap0WjtDKSGfPOt/B1vZsxRAwLbtqQSX37nUsrtDtalsL3pFou2puYoIjP4gz2EHw
+gIOwPG9y1kNEVips8pa+3xCLw7PkyFGjLWe1JDKZK68IRfE71kbNPOBY5UW52VMm
+BEpao/WdI70J5QU0HgrmPJiT60I/kd64RWlbdnsT9LM/F1jGYQoyPelwD5LExTJJ
+jvIK1/D3CxVCymEpga7rOczo7KyCpllfAEPDI79B5rQpdC2Z4Rk4QG1I9C21mEEt
+cCQQEPqYdbCMjhg3/bnobMujv5m+HWZRan9lJJdu32JDVlNqLXMfdDc7IEdU0SrI
+zMHYaLGQ2CxS8WP6jOWib26TuJSWVJp+FbjeMnBisKScXti/6UuH5NH8GBNYHlP+
+YGS6/xkrsDyU7LJRmF26m8xqNX0KaYdKZYh5oxmZMPDraKi/W7xEgmu3h0/EMF7q
+1i0OThmt
+=dvhR
+-----END PGP SIGNATURE-----
+
+--q23ui2gu4xgkiues--
+
+
+--===============8974903410947233017==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8974903410947233017==--
+
