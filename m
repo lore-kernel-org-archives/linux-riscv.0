@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C112C10F1A
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 08:23:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC57C10F15
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 08:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8r1bbPoN2NCgmaFA4BOfnLDQvPWYgJMBkvODEEh2FEM=; b=tdGfWLELviJO2d
-	hkOUpFvHGyyNy1Vnxw4EJpAoqudbzC8L7V4zNgSPyAx7pv+vLAU+1AZMWmpJtTXLUxFN0pHkc5qxg
-	14dnPDPyo69AWVwki/ALf2XjAZ115gS/1RruTaUFTpCHLQ78f8K9A5YmKuIC7BIY7okDlR4fVVF+Z
-	RUHcupaApVcBlcHS/mrE+Wga7odLWPSpD7MIbSrqeZNXnSlnbuMkIwrIsEGDiNVyTcbdsbi86/o+v
-	oKnoPlg9Po6KMEZsP6D1saETIIF/Twi4wA6DMNzKqP6476aQty0RZr2kcvl3uHrKlNhwI0wmRHYlw
-	yPNyaMcg8IkJiu64PzcA==;
+	List-Owner; bh=q3qoMz/97vyxfz+JcnnfDLGsgyM/UNb7cwas08lsSLE=; b=0wV7pca2BJg/st
+	PIXLaEfQFICRQwr//7ocTEqzvPufZpfFIg2bI6a6PWKigiNbidXCPUr4HKVQ5pLXyo8rgSEP77X7J
+	8QRmCJk/fD6d5Oid2Jq/37CHEQOFkrBCR5qaGRi6mDY2295/cpeeSERIGx6vwi5w39TPqcdO9Xgz1
+	ylBnMZOdWYzSY7BA29K6hy9QrK430ssohW3XobW/SEgc2cauoodyZCr0q42QC9WGsZsm2bn0vK0ej
+	RkhgNipingBax7OVJPCaayr72q+HX1JU9klxvhoDpwol/dNQ6T1D98fNea0CIw/dSwsvMzE6hgVbW
+	iQk/htDGJEf4WF1Rmcvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzuNp-00000007Q5g-0jn8;
-	Thu, 25 Apr 2024 08:23:09 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1rzuNo-00000007Q5L-24Rg;
+	Thu, 25 Apr 2024 08:23:08 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzuNl-00000007Q2m-0XAy
+	id 1rzuNi-00000007Q2F-0dMC
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Apr 2024 08:23:06 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7DE9320012;
-	Thu, 25 Apr 2024 08:23:01 +0000 (UTC)
+	Thu, 25 Apr 2024 08:23:03 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A596720005;
+	Thu, 25 Apr 2024 08:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1714033382;
+	t=1714033380;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=icna0IUdSFum6K8F2ACUEdkZDLuL3oJCWinvPVNIlGM=;
-	b=Mm5bY+mYxEpPYaFUZxUQnzVgxAscPIGTsiL+tv6u5/LjrBpVXauu/Cqf9LxrFLUawurJRo
-	PSVBB26PfEMo4VzgnPdCFoJKCYTjAzEy8ryrENoNqd4nz4FKTukt1jUNvx/vBpG6r9UUlR
-	TWsu3oqEvpkdr/dIdRzr5uCzV3XP4u4ckNsML6Rhwl3l0DwUoTRWG3M8lEwYLv3N2r5xDw
-	vDFCzZdAGeoa6KV6FyhJJWeKtwouMMUgdxwz8y0DQgWCXgDDRrxOboqIaYjsVkWjguvPMk
-	BfUI1S0n7uc+F/GQchsxykIzfyX/aFFQuS7j+IDL8y5qxe9y9xL0cl6STchysA==
+	bh=liuHsChJKivxfUk61Ur2FQ2Uhj35E9zYaulgIuxEJHE=;
+	b=L59uDhSr1cMv34KF9Or4U/nZ6c3L12kSRHqevbGt5QVGCFlUJ46YbIWG1QlgYiYntX3lXd
+	ljXSiLFoC9hgtN1/mplyjMcDJVdG1LIZRn/g02ddXSywtCOXml7KVTFk6kpCmxoJjls/IG
+	Pby6COfUwQt7uqZZ+xnHWZNCvWR1HOutYZjQMcxiIUDEOahdcXv+ie4MI5QC1Yj48GmdKm
+	eSZOXOv8EVsfdxcTnRizXqT3QUc1aEKatvQPUkk/lnO+2cLrccQRf6lV41Tg5y1hCHXanP
+	FELLVOQFJebeXDVIZcMjvgTwa1zPMSGfZVVsXbDflh8rObXRM49yfp9n2YfiUg==
 From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 To: jszhang@kernel.org,
 	guoren@kernel.org,
@@ -58,17 +58,17 @@ Cc: miquel.raynal@bootlin.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Subject: [PATCH 2/4] riscv: boot: dts: thead: Fix node ordering in TH1520 device tree
-Date: Thu, 25 Apr 2024 10:21:33 +0200
-Message-ID: <20240425082138.374445-3-thomas.bonnefille@bootlin.com>
+Subject: [PATCH 1/4] dt-bindings: i2c: dw: Document compatible thead,th1520-i2c
+Date: Thu, 25 Apr 2024 10:21:32 +0200
+Message-ID: <20240425082138.374445-2-thomas.bonnefille@bootlin.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240425082138.374445-1-thomas.bonnefille@bootlin.com>
 References: <20240425082138.374445-1-thomas.bonnefille@bootlin.com>
 MIME-Version: 1.0
 X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240425_012305_457635_89AA8340 
-X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-CacheID: sfid-20240425_012302_522492_F68C6D13 
+X-CRM114-Status: UNSURE (   7.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,86 +86,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-According to the device tree coding style, nodes shall be ordered by
-unit address in ascending order.
+Add documentation for compatible string thead,th1520-i2c which can be
+used specifically for the TH1520 SoC.
 
 Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 ---
- arch/riscv/boot/dts/thead/th1520.dtsi | 54 +++++++++++++--------------
- 1 file changed, 27 insertions(+), 27 deletions(-)
+ .../devicetree/bindings/i2c/snps,designware-i2c.yaml | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index 8b915e206f3a..d2fa25839012 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -193,6 +193,33 @@ uart0: serial@ffe7014000 {
- 			status = "disabled";
- 		};
+diff --git a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+index d9293c57f573..a7fa191fefd6 100644
+--- a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
++++ b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+@@ -33,6 +33,10 @@ properties:
+           - const: snps,designware-i2c
+       - description: Baikal-T1 SoC System I2C controller
+         const: baikal,bt1-sys-i2c
++      - description: T-HEAD TH1520 SoCs I2C controller
++        items:
++          - const: thead,th1520-i2c
++          - const: snps,designware-i2c
  
-+		emmc: mmc@ffe7080000 {
-+			compatible = "thead,th1520-dwcmshc";
-+			reg = <0xff 0xe7080000 0x0 0x10000>;
-+			interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&sdhci_clk>;
-+			clock-names = "core";
-+			status = "disabled";
-+		};
-+
-+		sdio0: mmc@ffe7090000 {
-+			compatible = "thead,th1520-dwcmshc";
-+			reg = <0xff 0xe7090000 0x0 0x10000>;
-+			interrupts = <64 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&sdhci_clk>;
-+			clock-names = "core";
-+			status = "disabled";
-+		};
-+
-+		sdio1: mmc@ffe70a0000 {
-+			compatible = "thead,th1520-dwcmshc";
-+			reg = <0xff 0xe70a0000 0x0 0x10000>;
-+			interrupts = <71 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&sdhci_clk>;
-+			clock-names = "core";
-+			status = "disabled";
-+		};
-+
- 		uart1: serial@ffe7f00000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0xff 0xe7f00000 0x0 0x100>;
-@@ -311,33 +338,6 @@ dmac0: dma-controller@ffefc00000 {
- 			status = "disabled";
- 		};
- 
--		emmc: mmc@ffe7080000 {
--			compatible = "thead,th1520-dwcmshc";
--			reg = <0xff 0xe7080000 0x0 0x10000>;
--			interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&sdhci_clk>;
--			clock-names = "core";
--			status = "disabled";
--		};
--
--		sdio0: mmc@ffe7090000 {
--			compatible = "thead,th1520-dwcmshc";
--			reg = <0xff 0xe7090000 0x0 0x10000>;
--			interrupts = <64 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&sdhci_clk>;
--			clock-names = "core";
--			status = "disabled";
--		};
--
--		sdio1: mmc@ffe70a0000 {
--			compatible = "thead,th1520-dwcmshc";
--			reg = <0xff 0xe70a0000 0x0 0x10000>;
--			interrupts = <71 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&sdhci_clk>;
--			clock-names = "core";
--			status = "disabled";
--		};
--
- 		timer0: timer@ffefc32000 {
- 			compatible = "snps,dw-apb-timer";
- 			reg = <0xff 0xefc32000 0x0 0x14>;
+   reg:
+     minItems: 1
+@@ -142,4 +146,12 @@ examples:
+       interrupts = <8>;
+       clocks = <&ahb_clk>;
+     };
++  - |
++    i2c@e7f20000 {
++      compatible = "thead,th1520-i2c", "snps,designware-i2c";
++      reg = <0xe7f20000 0x4000>;
++      interrupts = <44>;
++      clocks = <&i2c_ic_clk>;
++      status = "disabled";
++    };
+ ...
 -- 
 2.44.0
 
