@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DCCC4345F
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 19:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1ECC10F15
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 20:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6Q89nqrIBJs5IT/bcyjCiRQ+yOrleNEr1j1iTsltUzI=; b=q3oP40M8mn87tI
-	N2BPiigmi2dzUCCU8yZ1Vg1LNOjE7vBWjOMLaeLBjHouPcz2cWQTVhd9jx5eqve9tXQtkCUQB5XYX
-	yYThj+BVu3KmwqeRjAZyMPwF75xVMHxZsew2XQfcIO2YGbxEveuZmbScrzPCtKBrdW+sBolXUc+Gv
-	qqbUdb2+F98l2kDq6lh12mHpi95lj2LrcX/t7FUqlBqbya9HnHhP6P6ipOmRG/GLKY1XJcQppsdYf
-	I053uD1LmVJWVq/EUSf40G10Ukym+PvY4Y5stwkA7njLgkZ3to6o4sHgZ6NCX+MKz79wqQ9KEbfce
-	1YYHQ4hnfFfB5YAjDIoQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PyqyiF3sqTROYUymS50pvzGnVJ8uJsK9lD+/TQhb7DM=; b=l0X5148gzSErkz
+	dmPz/sMU9i1UkdcjQvgQ6nausT1+4mZbhoPch5VGaaPGiPy49FlBJr7kHEfaJqC6MaEcXtdNHWzIU
+	OHuJJRhp83QCCHoAmorhILx7x1ujIfl+J3FfH3uJLkSlzzghjee82mg2wERfz/2v1eoRJ573nVJYb
+	x3OJJEVsfUx8gyBtxTR3bwYeSGzuKqQgR+WzAIsiD90AQYXxcXqlpxtXIP81tL3L/s8ryniOB23uT
+	8inq1uXNhnIrnhDE2C6f0xSRdnyHzpGSi6tPtjmUe5jgOBqr7YekNiBzk0/7Wb3Rzc3MtdfSrQRVE
+	M/xIzs57frR5nOCW1gVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s05F3-00000009xii-0fD1;
-	Thu, 25 Apr 2024 19:58:49 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1s05OY-00000009zTe-1sje;
+	Thu, 25 Apr 2024 20:08:38 +0000
+Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s05F0-00000009xhy-3vHK
+	id 1s05OV-00000009zSh-42WE
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Apr 2024 19:58:48 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1e3c3aa8938so9863725ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 25 Apr 2024 12:58:46 -0700 (PDT)
+	Thu, 25 Apr 2024 20:08:37 +0000
+Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-36b0ae2b7d7so6418495ab.3
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Apr 2024 13:08:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714075125; x=1714679925; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0NZH4f99IF0WKrj7O85gUWonm//e5lpeuhKVLijLk2E=;
-        b=LRew/YI7Zr/Z3ZKgcdb2CthYbDRvaC0u6RlxN1VlHyI957VIqJHAYyHBYS+reBbLu/
-         ggq4JhDm2Gsy8dAJqojahnqlzlChkOOYS11mD71zE4CobcBk3hUBrhetWMBlYMgoMpNj
-         pifvOPcIf1CUUCXBXnhBMFu7Xd+fQHQNieKPTd8CLK6L/E6IIWblX2x7X+2JN0T7ly/k
-         XP1+n2mR4xKLqRXRQk61RtWNE30X+uUM0SF2l2EePyqFJLrlZwuceMyH3eIjH8fQObjQ
-         lE0vv2uff1u/LzUG2oDNg0eou+07Bzzk6k3jnI9LkdIWnsmAMKENx4GBt4jkzeufsB/5
-         4Z6Q==
+        d=sifive.com; s=google; t=1714075714; x=1714680514; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bmZS627iyI6cXvDn9mYzVXZNUslQZgCxIUmm314nlkE=;
+        b=MbMMw7TtLeA/8H8S5Ld/crBPcCSul4N7wZdiuhA+x5JkTPLLXaPUXnjE7tixwissN0
+         YlDkHhjrCYinHEmkup7zXkgEo884t2b91+A63o9NHU36RFIF3JxXvulcfxUWd+IyiN0n
+         d5CVH/Vs6D48bpEWf0U/wDDjRxIz+ZQ/xnMoCBb35RkF9j8KWmi/drIJB0zXz/dpzy2p
+         4NTNZpNDLO7H+9rKJWfARTwVN1Ha2Fpsvia4FpRriGrZPBJlG4FPfiT7QGlmSftpf7BD
+         2deH9oRg88v2RyvrG2Fx9YejE71EoTHIt6HGYuZcK5KcFyHIG6UJB3ZwSTAn++OYhmBx
+         i24g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714075125; x=1714679925;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0NZH4f99IF0WKrj7O85gUWonm//e5lpeuhKVLijLk2E=;
-        b=IztLoEw1asi7XpVWW/TJ8V6b0Rn2SqgeVywdOLKsrQyzSqD/OVeJMgMQbFGLY4bHN0
-         qBL8sJzc+O+3rmRgC5wW0U0edOpyxR7iVwC3BXKGFckNyPy6TJxtwAJicty6CcOKIUeL
-         xuXbrM2UK0J8KA/7aQcKQ0f5mnWteGATliDDaeOPivggItouzgSvLlx0XEFvvyV80Kzu
-         mfakmkAwfT4nDBM0XIXwukkm2ivrszlK7CFGfmNml24ZtZNJOkFKb+a5PIj72e1gK/Fm
-         EN2Uto4w7l+A5RlOHTMqxwH0OGamRw4Flln9KSicPew3jp0Ecj1g4be/3Dda4zoSDBP+
-         dMaA==
-X-Forwarded-Encrypted: i=1; AJvYcCVhtf/1Oghn6AR4SWiw7jAqQKzd6Vbik1NQXSSnlf+59d0L5QrUP9JJD5P+3nV0Sq3i8P/ofFWVf2NZypT7nfzsYB49ZEXCe1sf+JGvnwwF
-X-Gm-Message-State: AOJu0YwyMBUC3X4hTBIPMG1U+Kr978c6/XvEX5aRsjXVHLAai+QoJZ3u
-	56i7RakMb4rGjKEWwVulUxixtuvrH9hCz2D3t7iETS4Rw2ONqqLoeUK9oec07zI=
-X-Google-Smtp-Source: AGHT+IECF4sLhnfZeY8g6vk2fi/Z9puc/V7awMpO2ZhBa2zz101/n/Rq4S5Hho5iCaLR2kaBPAoHRQ==
-X-Received: by 2002:a17:902:e54d:b0:1e4:6938:6fe3 with SMTP id n13-20020a170902e54d00b001e469386fe3mr719133plf.58.1714075125454;
-        Thu, 25 Apr 2024 12:58:45 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id p4-20020a170903248400b001dd88a5dc47sm14152176plw.290.2024.04.25.12.58.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Apr 2024 12:58:44 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 25 Apr 2024 12:58:03 -0700
-Subject: [PATCH] riscv: selftests: Add hwprobe binaries to .gitignore
+        d=1e100.net; s=20230601; t=1714075714; x=1714680514;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bmZS627iyI6cXvDn9mYzVXZNUslQZgCxIUmm314nlkE=;
+        b=YvmSNN8ShvB1OblJ7F1yA6DIbxF/JK3pelK04GNl/8bVm/vUuPBc5361IUGun/RiCp
+         C1LGTwI93BeYFbsTYDQMno2sxzqDt7+xSMJG3BHLKVRShrr+18rL6i/Io9kp0u6QT5Bs
+         +Kp+kmjCW8A8GeUEZMaq15yL6nY+fc0aO9pVVmowG5lD3jJiDAV4ednk4zSrnEcHoaVs
+         Ug06KMTq6OW+/ZMhjwhcuqUe4MhwLaHg+sS0rv+S0ZhVZsh6+KeAfQM7BLAi+rbIkmXd
+         7kKSqSF254vtbdXM1M/a+Rp9imMxszFArlDLlqDx2zSdViyUrYi/Y6zhRa7EBMnSK5q3
+         DH9A==
+X-Forwarded-Encrypted: i=1; AJvYcCVm7r+bFhy6Wq3KEgUXB3mTHuou2IJNDsbwzZ86zE1P6j8Yvb5E3B6ZqamDqoOtTXkwhaeRJGmoe+fcro7H6zG3f1H6+X9q2YvHqQwHkqLh
+X-Gm-Message-State: AOJu0YxzAJEmY2nTAEIfAHBvP7TwBD7gcrJMqUS3NAJDDIJnXHSx/reX
+	/s8P+1qA7aS5X0s5hhDEKDdrW3gi4CXucD5mFR8pkr0afIORSNdMOt8X56+mkNQ=
+X-Google-Smtp-Source: AGHT+IF7UibZ9Tq2CyV/lcHoINwh7wba3leqbYShtMwVRmIS9aOy6+dNx8r1b604+CtMfbV/ku5vLA==
+X-Received: by 2002:a05:6e02:144b:b0:36b:24c5:eee5 with SMTP id p11-20020a056e02144b00b0036b24c5eee5mr885883ilo.27.1714075714321;
+        Thu, 25 Apr 2024 13:08:34 -0700 (PDT)
+Received: from [100.64.0.1] ([170.85.6.197])
+        by smtp.gmail.com with ESMTPSA id p6-20020a92d286000000b003687fe513f2sm3634471ilp.2.2024.04.25.13.08.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 25 Apr 2024 13:08:33 -0700 (PDT)
+Message-ID: <d2742ee1-7e3c-4c0d-8172-d3543fe78e5e@sifive.com>
+Date: Thu, 25 Apr 2024 15:08:31 -0500
 MIME-Version: 1.0
-Message-Id: <20240425-gitignore_hwprobe_artifacts-v1-1-dfc5a20da469@rivosinc.com>
-X-B4-Tracking: v=1; b=H4sIAMq1KmYC/x3MQQqAIBAAwK/EnhPM8lBfiQizVfeisUoF0d+Tj
- nOZBzIyYYapeYDxpEwpVnRtAzaY6FHQXg1KqkEOSgtPhXxMjGu4Dk4broYLOWNLFm6TTtm913K
- 0UIeD0dH97/Pyvh9r8BpEbQAAAA==
-To: Shuah Khan <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1714075124; l=933;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=nA0EButQZ1tC8ouxJfYydhjZwNEli15W2Azor/y6KZY=;
- b=EMBx4wRw1BijgV83w/DHcSmBFo1pgAnUefy+7FE1WoOwc0GghpU0GN3buJtNdf5uyLReFKFc8
- Ek2BHtYsvTBBwL2lzcL85G7/HKa4/x2hUALseg3IMLy0cbQDJ9zs7ic
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [kvm-riscv/for-next 1/2] drivers/perf: riscv: Remove the warning
+ from stop function
+To: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atishp@atishpatra.org>,
+ Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
+ kvm-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Will Deacon <will@kernel.org>
+References: <20240425232933.4111680-1-atishp@rivosinc.com>
+ <20240425232933.4111680-2-atishp@rivosinc.com>
+Content-Language: en-US
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20240425232933.4111680-2-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240425_125847_016064_057BF4CF 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240425_130836_014462_BDF7D7CC 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +101,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The cbo and which-cpu hwprobe selftests leave their artifacts in the
-kernel tree and end up being tracked by git. Add the binaries to the
-hwprobe selftest .gitignore so this no longer happens.
+On 2024-04-25 6:29 PM, Atish Patra wrote:
+> The warning message was initially added just to indicate that counter
+> stop function is being called while the event is already stopped.
+> 
+> However, we update the state to stopped case now in an overflow handler
+> after stopping the counter. If there is another child overflow handler
+> is registered (e.g kvm) it may call stop again which will trigger the
+> warning.
+> 
+> Fixes : commit 22f5dac41004d ("drivers/perf: riscv: Implement SBI PMU snapshot function")
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Fixes: a29e2a48afe3 ("RISC-V: selftests: Add CBO tests")
-Fixes: ef7d6abb2cf5 ("RISC-V: selftests: Add which-cpus hwprobe test")
----
- tools/testing/selftests/riscv/hwprobe/.gitignore | 2 ++
- 1 file changed, 2 insertions(+)
+This may be intentional, since you wanted these to be squashed, but this isn't
+the right format for a Fixes: tag (no space before ":" and no "commit"). Otherwise,
 
-diff --git a/tools/testing/selftests/riscv/hwprobe/.gitignore b/tools/testing/selftests/riscv/hwprobe/.gitignore
-index 8113dc3bdd03..6e384e80ea1a 100644
---- a/tools/testing/selftests/riscv/hwprobe/.gitignore
-+++ b/tools/testing/selftests/riscv/hwprobe/.gitignore
-@@ -1 +1,3 @@
- hwprobe
-+cbo
-+which-cpus
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
 
----
-base-commit: ed30a4a51bb196781c8058073ea720133a65596f
-change-id: 20240425-gitignore_hwprobe_artifacts-fb0f2cd3509c
--- 
-- Charlie
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  drivers/perf/riscv_pmu.c | 2 --
+>  1 file changed, 2 deletions(-)
+> 
+> diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+> index 36d348753d05..78c490e0505a 100644
+> --- a/drivers/perf/riscv_pmu.c
+> +++ b/drivers/perf/riscv_pmu.c
+> @@ -191,8 +191,6 @@ void riscv_pmu_stop(struct perf_event *event, int flags)
+>  	struct hw_perf_event *hwc = &event->hw;
+>  	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+>  
+> -	WARN_ON_ONCE(hwc->state & PERF_HES_STOPPED);
+> -
+>  	if (!(hwc->state & PERF_HES_STOPPED)) {
+>  		if (rvpmu->ctr_stop) {
+>  			rvpmu->ctr_stop(event, 0);
 
 
 _______________________________________________
