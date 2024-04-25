@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA592C10F15
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 16:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8268C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 16:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=33scMBuSUbA6jkFu+zU75GvXIzo1Hwk4vjc+BCONVmI=; b=uAPzkbgLAOoYAB4/PiMWV3G8Au
-	dbLM6rriQXcKPR6c5WFjtNvPNJnEKgdvnwb2OoAF0+CFy/5zNT4uz7kiq1L8IvJ1GR9NLmj66+M0E
-	zYRaD23tpn7YtQ6lp1S/x1XNM646n/Nh5MGPpvbmEKKpDRTVcefLP8eYasIHWZ/JIExh4YAjV9tGH
-	F2e4agfYrjVN+24IZbltk+jjMVoNRI5uZaGc9T7hLIAIby049QwFV56Lw/zJJoFTeVuMHXSVLvIsY
-	OLMamToEmb0NXQDA5tFe/zMSugIGNIL52dufPZSsgrpKA474aMXzToajrIQtQVkpSYP5tJuhfCvK1
-	J2KC7Dzw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iXX6cjxsFrMPGIKLhSoPapKWyEuTcUOirEJA0m32/zg=; b=l15kEpzH0pLkGf
+	5oGIQfMKfcRLeCbcSbsdhTb6XhV0VYbQf3vKMiGq/6JLpo7iBKYXpL5zGkaTfot/IsPc+ilz2EpI6
+	ifDcdWL4hmUjuYHw+q7h/DYXwR/1QlhsBHeNaVw/4nYpso3PvJRMMdQduEVNoMKxn0tgPkSymKVQG
+	kXWPNtfwPasjiqXW4T1yIHJjQJiRhOJDEQLTJRGKI703kN6jVlR3rlhaopknH1lJdISCGO8RtgqXd
+	rdy+Soef0l+oTdH5LpZC+SNTHd8BTyT3yamWtmVKJEQDVWaxNO6GcdDFRqhm6A93mor21QOP4STH5
+	SqqSz2dkw9vvdSEYm7GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s024K-00000009P2U-2IZT;
-	Thu, 25 Apr 2024 16:35:32 +0000
+	id 1s026x-00000009PaJ-1LfT;
+	Thu, 25 Apr 2024 16:38:15 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s024G-00000009P0b-1C02
+	id 1s026u-00000009PZM-1vJH
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Apr 2024 16:35:30 +0000
+	Thu, 25 Apr 2024 16:38:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7CF4DCE12B4;
-	Thu, 25 Apr 2024 16:35:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9264BC113CC;
-	Thu, 25 Apr 2024 16:35:22 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 8A14BCE19B1;
+	Thu, 25 Apr 2024 16:38:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CB88C113CC;
+	Thu, 25 Apr 2024 16:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714062925;
-	bh=eKZlsQ9ssnVdmKeVleGh1NSZKulcJ3+HKLLsNghHnu4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Iv060KnjxmA7fLWlZ2OQqxD7BnIl9ihl3lADBe/dGP51maPHYJo7imXVbeqPDvpzJ
-	 2G3Ep0+sM2DU69wnd8nHJY3w2xPWuZgVisM/bOtj3Swu+twTrlc/JueteQeeb0P1hI
-	 U2nOi1q5rEN3K45PVwKP4GUw2YKlxWq89J77quWGlEs+ktazNFFWT7D4XcFC0d/tIj
-	 zJ7eHL4DL0CQL8gV+CvB+z43sKJPU+ck8PorLRM44rVHGI+EhmKZTIaEKkLV/A6iKr
-	 IZrsOcOphJ6SFxRarvCFpiuIc3Iht/UoAoIf8nerhHEbe7eNqtNvBa6p2r5AaSZlOX
-	 ln+faTFS950NQ==
-Date: Thu, 25 Apr 2024 17:35:20 +0100
+	s=k20201202; t=1714063089;
+	bh=Hr42VLVkDSczruHp17DxXitKoNznJEPjrm7oGuJmEA4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=OlKxe4EIHto/OHkpLtJHEIlErhfZL/nM6DCLpK/HCQdsvhJzEQRKyrcivpIL3EjeA
+	 oZstCNFKKheT830H7KGKTXNqWAppl/AMr9Uo2aT4MlQhJA7nFF8HnirqJ1ujKrZOoa
+	 UvSWrND5rG+r6S0LteWJn/KRd+ZTTmnrF5bt7wVBTABymal1tSoHv6sIOXVg1p/Io7
+	 bMh4kO1cY/rVEnfO+teZ4qau2dIXfx1vxygOS6YI3ZYIzDgI4Fjs9eI10z4iv1Yq8+
+	 VMarle5m3SnA6eN0tRlMz4t28OHNqpDAAU9TtiHZMVh35s6S/A1MK1VlniO5Bsq2Mg
+	 jaKz6iwm6x0JA==
 From: Conor Dooley <conor@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	andi.shyti@kernel.org, jszhang@kernel.org,
-	miquel.raynal@bootlin.com, linux-riscv@lists.infradead.org,
-	linux-i2c@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	guoren@kernel.org, wefu@redhat.com, conor+dt@kernel.org,
-	devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
-	krzk+dt@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: Re: [PATCH 0/4] Add I2C support on TH1520
-Message-ID: <20240425-script-fondness-0e80bfa31615@spud>
+To: jszhang@kernel.org,
+	guoren@kernel.org,
+	wefu@redhat.com,
+	andi.shyti@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	miquel.raynal@bootlin.com,
+	thomas.petazzoni@bootlin.com,
+	linux-riscv@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Subject: Re: (subset) [PATCH 0/4] Add I2C support on TH1520
+Date: Thu, 25 Apr 2024 17:37:36 +0100
+Message-ID: <20240425-amplify-fedora-7a632dfddf62@spud>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240425082138.374445-1-thomas.bonnefille@bootlin.com>
 References: <20240425082138.374445-1-thomas.bonnefille@bootlin.com>
- <171405653346.2527762.16827325392956038580.robh@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <171405653346.2527762.16827325392956038580.robh@kernel.org>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=801; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=bJxc87ZNEk362nkKg2nRaOFgtTkAl1SGbkD4frpyflQ=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGlabedYs18IXejeeysgQ2bLY72N9iyXeqdyt/zSM3JPY bD8ufFJRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZiMpuRoSn+UliF38sVDzZL 3ztTf/TZvclJqvszzzyN0jpkr370/xRGho8GOf5Gz2bJO6xgybG9KrBnvYB1Q39Q7Y7ZTTf+BH1 N4gcA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240425_093528_711003_B2F6A446 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20240425_093812_717904_00BF0FDF 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,100 +84,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1688644366573700559=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============1688644366573700559==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="LvUcHBMg/ZVHkvhr"
-Content-Disposition: inline
+On Thu, 25 Apr 2024 10:21:31 +0200, Thomas Bonnefille wrote:
+> This adds I2C support in the device tree of the T-Head TH1520 RISCV-SoC
+> and a default configuration for the BeagleV-Ahead. It appears that the
+> TH1520 I2C is already supported in the upstream kernel through the
+> Synopsis Designware I2C adapter driver.
+> As there is no clock driver for this board as of today, this patch
+> series uses a fixed-clock named i2c_ic_clk.
+> There is also no pinctrl driver yet so pinmux must be handled manually
+> for now.
+> It also fixes the order of the nodes in the device tree to comply with
+> device-tree coding-style.
+> 
+> [...]
 
+Applied to riscv-dt-for-next, thanks!
 
---LvUcHBMg/ZVHkvhr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[2/4] riscv: boot: dts: thead: Fix node ordering in TH1520 device tree
+      (no commit info)
 
-On Thu, Apr 25, 2024 at 09:51:26AM -0500, Rob Herring wrote:
->=20
-> On Thu, 25 Apr 2024 10:21:31 +0200, Thomas Bonnefille wrote:
-> > This adds I2C support in the device tree of the T-Head TH1520 RISCV-SoC
-> > and a default configuration for the BeagleV-Ahead. It appears that the
-> > TH1520 I2C is already supported in the upstream kernel through the
-> > Synopsis Designware I2C adapter driver.
-> > As there is no clock driver for this board as of today, this patch
-> > series uses a fixed-clock named i2c_ic_clk.
-> > There is also no pinctrl driver yet so pinmux must be handled manually
-> > for now.
-> > It also fixes the order of the nodes in the device tree to comply with
-> > device-tree coding-style.
-> >=20
-> > Thomas Bonnefille (4):
-> >   dt-bindings: i2c: dw: Document compatible thead,th1520-i2c
-> >   riscv: boot: dts: thead: Fix node ordering in TH1520 device tree
-> >   riscv: dts: thead: Add TH1520 I2C nodes
-> >   riscv: dts: thead: Enable I2C on the BeagleV-Ahead
-> >=20
-> >  .../bindings/i2c/snps,designware-i2c.yaml     |  12 ++
-> >  .../boot/dts/thead/th1520-beaglev-ahead.dts   |  22 ++++
-> >  arch/riscv/boot/dts/thead/th1520.dtsi         | 120 ++++++++++++++----
-> >  3 files changed, 127 insertions(+), 27 deletions(-)
-> >=20
-> > --
-> > 2.44.0
-> >=20
-> >=20
-> >=20
->=20
->=20
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->=20
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->=20
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->=20
->   pip3 install dtschema --upgrade
->=20
->=20
-> New warnings running 'make CHECK_DTBS=3Dy thead/th1520-beaglev-ahead.dtb'=
- for 20240425082138.374445-1-thomas.bonnefille@bootlin.com:
->=20
-> arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dtb: i2c-clock: clock-freq=
-uency:0:0: 50000000 is greater than the maximum of 5000000
+I removed the "boot:" so b4 is probably confused.
 
-The bot is not freaking out here, 50 MHz is indeed more than 5 MHz :)
-
---LvUcHBMg/ZVHkvhr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiqGSAAKCRB4tDGHoIJi
-0o+gAQD9y0YVzRTF8HegZu1SkndMW+2UKrW5hDZMBdhYKLCsJgEA2lS/uw7PcBKt
-sur9daO8spSl/mTvxgKzvuVTXvZQqAk=
-=kJRE
------END PGP SIGNATURE-----
-
---LvUcHBMg/ZVHkvhr--
-
-
---===============1688644366573700559==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1688644366573700559==--
-
