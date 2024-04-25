@@ -4,52 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0B4C4345F
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 11:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F51C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2024 11:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/baM20Enj7QLcJZHGPGVvVMV9Bj1mD1YAtnt6EAzuAA=; b=1GlTSKzPYZaWzdTkrmParkaT8b
-	AklHB9/KFtINzCZIprC1I1fKkWIqW3dJ8fEpcd06cR1fiBd3uqevnDtbegnwWKn7kANNnGKYTZpQi
-	8tQks/0QNcEyIUL//0ITYQxOqf7bhEWeTCPxEwDICfhUuBbnSXrR/lpJr5nF309Yf/NzFpLN+4Dv8
-	IpTpkaq2EaOxFE4OvXrDOqMyY7B45dKVa8wRFHn9wyDhNiAab/44/xf83N27mArORTV1qT7Y4iZ66
-	hVW3tytwKUTSB8cfmzai+NXfiBukn7DNpfPZ6L0dWhmerx+u2PzqFTv9mJHRzt6qXOAwGdtxORcgP
-	FnpeHh+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9jD4xbzPyv4FrRO5kAvDXmNiGJWezmxRY5mlRX9UwMM=; b=lpto0e/vx4PtJ0
+	tXa7Avg1/gF5NGGeIyPEm2INQeSYGgeIPF+ga4m7LHRRqXiSLIYHtFKR0aAIaOpN/TldyrY/8e6X6
+	SaSECJfNgyN4SMuMk5Sb7tHRb6Uk+cOOH1bKYKRbCbQTsHJTUtmjAM8yMw8sTjf9T4u3UPHGSSXMz
+	PvfXtYhbuasWO8S6Cr/1unSYuOAgltN47MY68SmXURORKnMWjc7E6rtlBnssUWdL5KE2A6q/cH6+V
+	xhUPvgJzlgmeI0gRpwyk1Dp6xv5cvK0s0tkInFAsRZyvy14gSOpv7la2AfXLxBs1GSWvNZ9bFnlu6
+	UHZfaBR3ua+RXUdAlhTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzxCC-00000007zKv-0bZl;
-	Thu, 25 Apr 2024 11:23:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rzxC8-00000007zKO-312q
+	id 1rzxeG-000000084o7-3c9j;
+	Thu, 25 Apr 2024 11:52:20 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rzxeC-000000084n4-10Au
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Apr 2024 11:23:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CA141007;
-	Thu, 25 Apr 2024 04:23:43 -0700 (PDT)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A8B03F7BD;
-	Thu, 25 Apr 2024 04:23:12 -0700 (PDT)
-Message-ID: <059ae516-aed4-4836-a2ca-aff150ff428d@arm.com>
-Date: Thu, 25 Apr 2024 12:23:10 +0100
+	Thu, 25 Apr 2024 11:52:19 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1714045930;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=fibyo5fIycycuHzgFLgvHTjArYf2fAIDmOJSGGnfeGs=;
+	b=Kadmz8lAwQLU3paaGZBH65Tjdo3KhzmylFuE02Dqc7LTfpnpfS3GfwxvL1yyQGORNj17EC
+	V+McuIKS7D0dxVPn3HBxgZd+D8kdby9OBv0FlQDAiCv4EiVxCvaAGQkbNtsbk9nCp1SHhN
+	ditgLrxqv7LYyRUkOCd9fvSf0B+2eRN7bbf2pSKWK/I0ZoTuORnXruLjq3mmIaCzmi3bpP
+	g5EYyjly4N7X9EIIFFWKmmXJYGEHXGFz3R8at4BrejfxGE4eLd6zROXFgm6g2xKQKi2Lg1
+	+s9dmyG0/YgbtpqP4Pe2Mva5mxCyJZXL9dmsMThEI8py4tcqac7YdGExA6nSHA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1714045930;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=fibyo5fIycycuHzgFLgvHTjArYf2fAIDmOJSGGnfeGs=;
+	b=ZnFBdGswK+ol1V8O6CB2quAGkSrJbxl+WNQir6NbIJkdiz+PDXH5C9go+QLzuDZ5g2kBW8
+	aLndt7NlV0MzdbBw==
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <bhe@redhat.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Chen Jiahao <chenjiahao16@huawei.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	rppt@kernel.org
+Cc: Nam Cao <namcao@linutronix.de>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH] riscv: fix overlap of allocated page and PTR_ERR
+Date: Thu, 25 Apr 2024 13:52:01 +0200
+Message-Id: <20240425115201.3044202-1-namcao@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/7] iommu/riscv: Add RISC-V IOMMU platform device
- driver
-To: Tomasz Jeznach <tjeznach@rivosinc.com>
-References: <cover.1713456597.git.tjeznach@rivosinc.com>
- <741996169fef074b5d9f4f218c2a98bf5dd38386.1713456598.git.tjeznach@rivosinc.com>
- <7f9a82ea-c4c8-40a5-8f26-7cb135e91c5d@arm.com>
- <CAH2o1u6FpDWNZsQCADQQKauPYzxDE73DRHHQKw6LjNb27ePeXw@mail.gmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <CAH2o1u6FpDWNZsQCADQQKauPYzxDE73DRHHQKw6LjNb27ePeXw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240425_042316_896482_F6433F99 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20240425_045216_441361_3D8A4301 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,74 +80,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 24/04/2024 10:59 pm, Tomasz Jeznach wrote:
-[...]
->>> diff --git a/MAINTAINERS b/MAINTAINERS
->>> index 2657f9eae84c..051599c76585 100644
->>> --- a/MAINTAINERS
->>> +++ b/MAINTAINERS
->>> @@ -18972,6 +18972,12 @@ L:   iommu@lists.linux.dev
->>>    L:  linux-riscv@lists.infradead.org
->>>    S:  Maintained
->>>    F:  Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
->>> +F:   drivers/iommu/riscv/Kconfig
->>> +F:   drivers/iommu/riscv/Makefile
->>> +F:   drivers/iommu/riscv/iommu-bits.h
->>> +F:   drivers/iommu/riscv/iommu-platform.c
->>> +F:   drivers/iommu/riscv/iommu.c
->>> +F:   drivers/iommu/riscv/iommu.h
->>
->> I'm pretty sure a single "F: drivers/iommu/riscv/" pattern will suffice.
->>
-> 
-> Correct. But will required a workaround for pretty naive MAINTAINERS update
-> check in scripts/checkpatch.pl:3014 in next patch.
-
-As long as what you're doing is clearly reasonable to humans, the 
-correct workaround for any checkpatch complaint is to ignore checkpatch.
-
-[...]
->>> +static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
->>> +{
->>> +     u64 ddtp;
->>> +
->>> +     /* Hardware must be configured in OFF | BARE mode at system initialization. */
->>> +     riscv_iommu_readq_timeout(iommu, RISCV_IOMMU_REG_DDTP,
->>> +                               ddtp, !(ddtp & RISCV_IOMMU_DDTP_BUSY),
->>> +                               10, RISCV_IOMMU_DDTP_TIMEOUT);
->>> +     if (FIELD_GET(RISCV_IOMMU_DDTP_MODE, ddtp) > RISCV_IOMMU_DDTP_MODE_BARE)
->>> +             return -EBUSY;
->>
->> It looks like RISC-V already supports kdump, so you probably want to be
->> prepared to find the IOMMU with its pants down and deal with it from day
->> one.
->>
-> 
-> This is the simplest check/fail for the kexec and/or boot loaders
-> leaving IOMMU translations active.
-> I've been already looking into kexec path to quiesce all devices and
-> IOMMU in shutdown path.
-> I'm not convinced it's ready for the prime time on RISC-V, will
-> address this in follow up patches.
-
-Yeah, for regular kexec you definitely want an orderly shutdown of the 
-IOMMU, although there's still a bit of an open question about whether 
-it's better to actively block any remaining traffic from devices whose 
-drivers haven't cleanly stopped them. It's in the kdump crash kernel 
-case that you can't have any expectations and need to be able to recover 
-the IOMMU into a usable state, since it's likely to be in the way of 
-devices which the crash kernel wants to take over and use.
-
-Thanks,
-Robin.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gcmlzY3YzMiwgaXQgaXMgcG9zc2libGUgZm9yIHRoZSBsYXN0IHBhZ2UgaW4gdmlydHVhbCBh
+ZGRyZXNzIHNwYWNlCigweGZmZmZmMDAwKSB0byBiZSBhbGxvY2F0ZWQuIFRoaXMgcGFnZSBvdmVy
+bGFwcyB3aXRoIFBUUl9FUlIsIHNvIHRoYXQKc2hvdWxkbid0IGhhcHBlbi4KClRoZXJlIGlzIGFs
+cmVhZHkgc29tZSBjb2RlIHRvIGVuc3VyZSBtZW1ibG9jayB3b24ndCBhbGxvY2F0ZSB0aGUgbGFz
+dCBwYWdlLgpIb3dldmVyLCBidWRkeSBhbGxvY2F0b3IgaXMgbGVmdCB1bmNoZWNrZWQuCgpGaXgg
+dGhpcyBieSByZXNlcnZpbmcgcGh5c2ljYWwgbWVtb3J5IHRoYXQgd291bGQgYmUgbWFwcGVkIGF0
+IHZpcnR1YWwKYWRkcmVzc2VzIGdyZWF0ZXIgdGhhbiAweGZmZmZmMDAwLgoKUmVwb3J0ZWQtYnk6
+IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+CkNsb3NlczogaHR0cHM6Ly9sb3JlLmtl
+cm5lbC5vcmcvbGludXgtcmlzY3YvODc4cjFpYnBkbi5mc2ZAYWxsLnlvdXIuYmFzZS5hcmUuYmVs
+b25nLnRvLnVzCkZpeGVzOiA3NmQyYTA0OTNhMTcgKCJSSVNDLVY6IEluaXQgYW5kIEhhbHQgQ29k
+ZSIpClNpZ25lZC1vZmYtYnk6IE5hbSBDYW8gPG5hbWNhb0BsaW51dHJvbml4LmRlPgpDYzogPHN0
+YWJsZUB2Z2VyLmtlcm5lbC5vcmc+Ci0tLQogYXJjaC9yaXNjdi9tbS9pbml0LmMgfCAyMSArKysr
+KysrKysrKy0tLS0tLS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCAxMSBpbnNlcnRpb25zKCspLCAxMCBk
+ZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2luaXQuYyBiL2FyY2gvcmlz
+Y3YvbW0vaW5pdC5jCmluZGV4IDk2ODc2MTg0MzIwMy4uN2M5ODU0MzViM2ZjIDEwMDY0NAotLS0g
+YS9hcmNoL3Jpc2N2L21tL2luaXQuYworKysgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwpAQCAtMjM1
+LDE4ICsyMzUsMTkgQEAgc3RhdGljIHZvaWQgX19pbml0IHNldHVwX2Jvb3RtZW0odm9pZCkKIAkJ
+a2VybmVsX21hcC52YV9wYV9vZmZzZXQgPSBQQUdFX09GRlNFVCAtIHBoeXNfcmFtX2Jhc2U7CiAK
+IAkvKgotCSAqIG1lbWJsb2NrIGFsbG9jYXRvciBpcyBub3QgYXdhcmUgb2YgdGhlIGZhY3QgdGhh
+dCBsYXN0IDRLIGJ5dGVzIG9mCi0JICogdGhlIGFkZHJlc3NhYmxlIG1lbW9yeSBjYW4gbm90IGJl
+IG1hcHBlZCBiZWNhdXNlIG9mIElTX0VSUl9WQUxVRQotCSAqIG1hY3JvLiBNYWtlIHN1cmUgdGhh
+dCBsYXN0IDRrIGJ5dGVzIGFyZSBub3QgdXNhYmxlIGJ5IG1lbWJsb2NrCi0JICogaWYgZW5kIG9m
+IGRyYW0gaXMgZXF1YWwgdG8gbWF4aW11bSBhZGRyZXNzYWJsZSBtZW1vcnkuICBGb3IgNjQtYml0
+Ci0JICoga2VybmVsLCB0aGlzIHByb2JsZW0gY2FuJ3QgaGFwcGVuIGhlcmUgYXMgdGhlIGVuZCBv
+ZiB0aGUgdmlydHVhbAotCSAqIGFkZHJlc3Mgc3BhY2UgaXMgb2NjdXBpZWQgYnkgdGhlIGtlcm5l
+bCBtYXBwaW5nIHRoZW4gdGhpcyBjaGVjayBtdXN0Ci0JICogYmUgZG9uZSBhcyBzb29uIGFzIHRo
+ZSBrZXJuZWwgbWFwcGluZyBiYXNlIGFkZHJlc3MgaXMgZGV0ZXJtaW5lZC4KKwkgKiBSZXNlcnZl
+IHBoeXNpY2FsIGFkZHJlc3Mgc3BhY2UgdGhhdCB3b3VsZCBiZSBtYXBwZWQgdG8gdmlydHVhbAor
+CSAqIGFkZHJlc3NlcyBncmVhdGVyIHRoYW4gKHZvaWQgKikoLVBBR0VfU0laRSkgYmVjYXVzZToK
+KwkgKiAgLSBUaGlzIG1lbW9yeSB3b3VsZCBvdmVybGFwIHdpdGggRVJSX1BUUgorCSAqICAtIFRo
+aXMgbWVtb3J5IGJlbG9uZ3MgdG8gaGlnaCBtZW1vcnksIHdoaWNoIGlzIG5vdCBzdXBwb3J0ZWQK
+KwkgKgorCSAqIFRoaXMgaXMgbm90IGFwcGxpY2FibGUgdG8gNjQtYml0IGtlcm5lbCwgYmVjYXVz
+ZSB2aXJ0dWFsIGFkZHJlc3NlcworCSAqIGFmdGVyICh2b2lkICopKC1QQUdFX1NJWkUpIGFyZSBu
+b3QgbGluZWFybHkgbWFwcGVkOiB0aGV5IGFyZQorCSAqIG9jY3VwaWVkIGJ5IGtlcm5lbCBtYXBw
+aW5nLiBBbHNvIGl0IGlzIHVucmVhbGlzdGljIGZvciBoaWdoIG1lbW9yeQorCSAqIHRvIGV4aXN0
+IG9uIDY0LWJpdCBwbGF0Zm9ybXMuCiAJICovCiAJaWYgKCFJU19FTkFCTEVEKENPTkZJR182NEJJ
+VCkpIHsKLQkJbWF4X21hcHBlZF9hZGRyID0gX19wYSh+KHVsb25nKTApOwotCQlpZiAobWF4X21h
+cHBlZF9hZGRyID09IChwaHlzX3JhbV9lbmQgLSAxKSkKLQkJCW1lbWJsb2NrX3NldF9jdXJyZW50
+X2xpbWl0KG1heF9tYXBwZWRfYWRkciAtIDQwOTYpOworCQltYXhfbWFwcGVkX2FkZHIgPSBfX3Zh
+X3RvX3BhX25vZGVidWcoLVBBR0VfU0laRSk7CisJCW1lbWJsb2NrX3Jlc2VydmUobWF4X21hcHBl
+ZF9hZGRyLCAocGh5c19hZGRyX3QpLW1heF9tYXBwZWRfYWRkcik7CiAJfQogCiAJbWluX2xvd19w
+Zm4gPSBQRk5fVVAocGh5c19yYW1fYmFzZSk7Ci0tIAoyLjM5LjIKCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
