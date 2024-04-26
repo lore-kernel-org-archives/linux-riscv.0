@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A6EC4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 08:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1973AC19F53
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 08:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zu66PIUZRENfWCAVV5Nl/Bsflmh0zEYPDP9g16t4xVU=; b=xR5/6uZLRZQscC
-	Y13+phII2egyfY1nBNv3RDF0tf/7k9j+bnji49PWR3/ZiKR6eruPwBhDGBDoylojo6MwkVO4M5oUN
-	VwchmlU5iTrcQocJNKTWG8KRbarYwRZVAjxAW1lZJ9M6Ulb6VCNcRr936c3YMwV7jflzlNGx4+Vaz
-	1+0b3xIrCxGfQ7HEpy9ppUQLaqQs0EOHz0sTvnZ/UBYU2v8Acawk2UAOjZ31wxWDn8IsNu+VTCh90
-	ra2DaLoBEVJamuMh4rg8To2nMf1tCyxrxBESJbZrkdWVTM7JaLD8UJAbMAVPeISgbM/+U/V42/oyS
-	6BtMHZcdUP5+QlvvW9NA==;
+	List-Owner; bh=J7NdJWabbYXxDwSQyEuiO2Vr2MOPkd87xsg68l97kfQ=; b=E6VhzVDienDlvr
+	88WO5EGaCc3FPGJd6QetHrlUScLT+HLT6pF9Gn0isiRyMLDkvOQA3YYS6Yx6xqse4au64ZXphQV50
+	jGhHudVHxfu4K2UT1pRUqvvBY+JWEqA9b4vk/+nDFxFsGHXugwGlWq7UIg5qYnDrVPnurLJXm8ApI
+	iY87BwOEbsJftsM06eB6yejBA73mI2TTqH1m1V+hXXu3p+f/qPJU4UKEsO3SgnyEnMa+liC+d/NxR
+	Bo7v/TH5qDmJbo+mV3s0WQFHz08tXF3MsIcAYJPwScvse1G1t6UsgaRUy1BHcsg//72cEZfcxn69d
+	q/8/oHCeXN1l/88Hb0sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0Gy6-0000000Bf3R-1KRh;
-	Fri, 26 Apr 2024 08:30:06 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1s0GyM-0000000BfGv-3fw2;
+	Fri, 26 Apr 2024 08:30:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0Gxq-0000000BeoR-34xI;
-	Fri, 26 Apr 2024 08:29:53 +0000
+	id 1s0Gy0-0000000BexI-0CXa;
+	Fri, 26 Apr 2024 08:30:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 9D0B8CE1BDF;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3D14762002;
+	Fri, 26 Apr 2024 08:29:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 542DDC4AF07;
 	Fri, 26 Apr 2024 08:29:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CD2DC32782;
-	Fri, 26 Apr 2024 08:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714120187;
-	bh=Q5aCDGAMhe9LWjmBOe0KfqvsLthVcLCeaQ3ItO7ykso=;
+	s=k20201202; t=1714120198;
+	bh=3M2ZG/VEWUi/tLsKuWV23dNNSZ6f7DkD53R0UR9I374=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NPrdkx38WFrLGifzoA5K0QA3eIW1eoED+MgwpJcnRO4aMuvJHTNJozBx1ouUGQqXB
-	 QKvWVzKbowOfw+ctzP8PL3hhetlcUkPSieNI36n1bfkk2lbmKbEV9MYfG8JIcDuPnn
-	 TWYAoPdM4iZrJPVhOdhDM+lXTJS3T0ugeMkrbKCNz7h+NtHwV7Kh+zUE2iNpjbhggg
-	 35NSzKOCyRnoVxeLV85ojoWTJUpr+ggXbNk7gyIkr2wcPQtTKAn9CirBNIwHHW+Bgf
-	 GhpUHCmP7WnGQfeuvGP091Q8GXQYHZ+nkAZ8Mvws8O83TgAv5lx2QCZBZWN12E7gGD
-	 853B08FIaHrXQ==
+	b=FxtLE7FDecUHDXtLc4lOQtpBLWDxwjYFEEqYIkPR0QwLBDoD0zZ8t9vMwtiNZytp+
+	 ABQ7RDoHM2Wc8RbUl8TpphzmEPE3zGDm9H3NJtnVJldRKMdfi/pFNBIoxoDEyAWloM
+	 qKk5ZdZFe/QBUMzCeM17G3JEc1Q4ge5Z39+eSmY1YmeSj+KnOWOdkwt7Vg0syHyV2v
+	 MWiu4EM+A60684+xjiReNXSAogLjTsxd0SEDmFZ/ASqSKiS3Ag5ts/MGVnz++OOj4B
+	 XyuNjsYN43GEx4Pus1MPQkKPSwr0XVDkAZGhn7sXt+cl6vvS3YrJ7KQi2FaOLbqO+3
+	 OD3ZnzghTMFZg==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
@@ -87,16 +87,16 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v6 03/16] nios2: define virtual address space for modules
-Date: Fri, 26 Apr 2024 11:28:41 +0300
-Message-ID: <20240426082854.7355-4-rppt@kernel.org>
+Subject: [PATCH v6 04/16] sparc: simplify module_alloc()
+Date: Fri, 26 Apr 2024 11:28:42 +0300
+Message-ID: <20240426082854.7355-5-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240426082854.7355-1-rppt@kernel.org>
 References: <20240426082854.7355-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240426_012951_992028_08FC65C6 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20240426_013000_253398_DC4E5618 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,69 +115,77 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
-nios2 uses kmalloc() to implement module_alloc() because CALL26/PCREL26
-cannot reach all of vmalloc address space.
+Define MODULES_VADDR and MODULES_END as VMALLOC_START and VMALLOC_END
+for 32-bit and reduce module_alloc() to
 
-Define module space as 32MiB below the kernel base and switch nios2 to
-use vmalloc for module allocations.
+	__vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END, ...)
 
-Suggested-by: Thomas Gleixner <tglx@linutronix.de>
-Acked-by: Dinh Nguyen <dinguyen@kernel.org>
-Acked-by: Song Liu <song@kernel.org>
+as with the new defines the allocations becomes identical for both 32
+and 64 bits.
+
+While on it, drop unused include of <linux/jump_label.h>
+
+Suggested-by: Sam Ravnborg <sam@ravnborg.org>
 Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
 ---
- arch/nios2/include/asm/pgtable.h |  5 ++++-
- arch/nios2/kernel/module.c       | 19 ++++---------------
- 2 files changed, 8 insertions(+), 16 deletions(-)
+ arch/sparc/include/asm/pgtable_32.h |  2 ++
+ arch/sparc/kernel/module.c          | 25 +------------------------
+ 2 files changed, 3 insertions(+), 24 deletions(-)
 
-diff --git a/arch/nios2/include/asm/pgtable.h b/arch/nios2/include/asm/pgtable.h
-index d052dfcbe8d3..eab87c6beacb 100644
---- a/arch/nios2/include/asm/pgtable.h
-+++ b/arch/nios2/include/asm/pgtable.h
-@@ -25,7 +25,10 @@
- #include <asm-generic/pgtable-nopmd.h>
+diff --git a/arch/sparc/include/asm/pgtable_32.h b/arch/sparc/include/asm/pgtable_32.h
+index 9e85d57ac3f2..62bcafe38b1f 100644
+--- a/arch/sparc/include/asm/pgtable_32.h
++++ b/arch/sparc/include/asm/pgtable_32.h
+@@ -432,6 +432,8 @@ static inline int io_remap_pfn_range(struct vm_area_struct *vma,
  
- #define VMALLOC_START		CONFIG_NIOS2_KERNEL_MMU_REGION_BASE
--#define VMALLOC_END		(CONFIG_NIOS2_KERNEL_REGION_BASE - 1)
-+#define VMALLOC_END		(CONFIG_NIOS2_KERNEL_REGION_BASE - SZ_32M - 1)
-+
-+#define MODULES_VADDR		(CONFIG_NIOS2_KERNEL_REGION_BASE - SZ_32M)
-+#define MODULES_END		(CONFIG_NIOS2_KERNEL_REGION_BASE - 1)
+ #define VMALLOC_START           _AC(0xfe600000,UL)
+ #define VMALLOC_END             _AC(0xffc00000,UL)
++#define MODULES_VADDR           VMALLOC_START
++#define MODULES_END             VMALLOC_END
  
- struct mm_struct;
+ /* We provide our own get_unmapped_area to cope with VA holes for userland */
+ #define HAVE_ARCH_UNMAPPED_AREA
+diff --git a/arch/sparc/kernel/module.c b/arch/sparc/kernel/module.c
+index 66c45a2764bc..d37adb2a0b54 100644
+--- a/arch/sparc/kernel/module.c
++++ b/arch/sparc/kernel/module.c
+@@ -21,35 +21,12 @@
  
-diff --git a/arch/nios2/kernel/module.c b/arch/nios2/kernel/module.c
-index 76e0a42d6e36..9c97b7513853 100644
---- a/arch/nios2/kernel/module.c
-+++ b/arch/nios2/kernel/module.c
-@@ -21,23 +21,12 @@
+ #include "entry.h"
  
- #include <asm/cacheflush.h>
- 
--/*
-- * Modules should NOT be allocated with kmalloc for (obvious) reasons.
-- * But we do it for now to avoid relocation issues. CALL26/PCREL26 cannot reach
-- * from 0x80000000 (vmalloc area) to 0xc00000000 (kernel) (kmalloc returns
-- * addresses in 0xc0000000)
-- */
- void *module_alloc(unsigned long size)
- {
--	if (size == 0)
--		return NULL;
--	return kmalloc(size, GFP_KERNEL);
--}
+-#ifdef CONFIG_SPARC64
 -
--/* Free memory returned from module_alloc */
--void module_memfree(void *module_region)
--{
--	kfree(module_region);
-+	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
-+				    GFP_KERNEL, PAGE_KERNEL_EXEC,
-+				    VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
-+				    __builtin_return_address(0));
+-#include <linux/jump_label.h>
+-
+-static void *module_map(unsigned long size)
++void *module_alloc(unsigned long size)
+ {
+-	if (PAGE_ALIGN(size) > MODULES_LEN)
+-		return NULL;
+ 	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+ 				GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+ 				__builtin_return_address(0));
  }
+-#else
+-static void *module_map(unsigned long size)
+-{
+-	return vmalloc(size);
+-}
+-#endif /* CONFIG_SPARC64 */
+-
+-void *module_alloc(unsigned long size)
+-{
+-	void *ret;
+-
+-	ret = module_map(size);
+-	if (ret)
+-		memset(ret, 0, size);
+-
+-	return ret;
+-}
  
- int apply_relocate_add(Elf32_Shdr *sechdrs, const char *strtab,
+ /* Make generic code ignore STT_REGISTER dummy undefined symbols.  */
+ int module_frob_arch_sections(Elf_Ehdr *hdr,
 -- 
 2.43.0
 
