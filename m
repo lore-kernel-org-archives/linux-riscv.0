@@ -4,74 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F34C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 20:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC59C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 21:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=laeKNVKl/QSM4+gjBx2sKCsts8gamiMUS4467ee0nZ8=; b=s4E5aYvRw9Al3SjWT8tCJ3RORA
-	2Q2a1/wgBEmjSQy+Yy4/YZCVkkNHYLqZglh21yTNLBy2Tb/pIxICfbSJKyZAfNWIqgc6AUIUouJgW
-	KDx5UzZAoSArEfodSt98ioHyoo4skiRc/mxno5BuKQyquc4YQR9QK58iBRndaGX1HREbAABBdhGDM
-	bGBuS1BUZLQRNDWhAZHIsmTqK1UrmEy0asDPSRdRKQv0TQ9dEteSm1+BDSOz5c1apwdUkew/qJBa1
-	OZP4uS8wGBeN/jvT2sDv5mOiOdO5ouF6aDoP5bPg3HnA5zVakeY126puKJhEptPdLjo0jSCY0X6pL
-	nbzhSmTg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H3Afb72j5+K2RotQicddKpVoObi8pePYHGSaVp0Yg/M=; b=hHTvPL037YOQsQ
+	XgbbY255/1hCCKCBzzY43jarQhPoEzWmC40XMDSFfGgwWU/5Pp5/057hrKEHUeE0NTKg4KlA4xasJ
+	Ztuc6sToA/UllNW7P7uOXLv3VBVIeNTN74+Hz4hJQFpNCVzH9XM5XFBiI0ylclp1KPaTTyflWlQd1
+	y5Km+fGZyX3/MLHnSXLCcns3gnhLLZpmK0U0+RhAnnavoZb4ezQ1BOpNeKilxCBtDvTIIbJbSZbip
+	k11rXqmh0jkRPq2zQbJkapkwUVcenq3BRDHdbmt6gXHMXEL1Kysc0LLLa/Z+MYhosh+LgOT/Aj6CK
+	BQbIcpyOfaIu1DQlBC1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0ST3-0000000DzRr-1kiD;
-	Fri, 26 Apr 2024 20:46:49 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1s0Szi-0000000E2aW-22cK;
+	Fri, 26 Apr 2024 21:20:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0SSz-0000000DzP5-0zky;
-	Fri, 26 Apr 2024 20:46:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 106DFCE1C6D;
-	Fri, 26 Apr 2024 20:46:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A42C9C113CD;
-	Fri, 26 Apr 2024 20:46:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714164401;
-	bh=FpnES2VzAJAeOqxKGH0lg2Bnjqd4mkcolNpkPfg+scg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AAQAPudpDakoNEU3GRdPIGAx3jXltg8+z70mavPQj+osxfFlcbSQCoNioaYDQzixc
-	 UDe2Z3W6FQcgSevbm0wq9plVxSDN0Ziw/AfmIBAlejymaPcRmUHZ4sbQ36E07THTjP
-	 9CcBpyoL0MS6Yu2YApMucm7KK2u1Mq449EIoACUlckAtCW/0c6LpA7rUor6NfNjN+h
-	 vkQZlmuW+2ONsIX/3CwbmTtcCtqQ6qG6d5GAzWPh//WH8JO7diTvQet5GXnAIhxJXX
-	 Keb8E/cK36zmHrIXTfnsmQl5729B6N9NNL6Qyt3yl6p3Z5behPJbj5VccYHKx+/1Ht
-	 O9uOf/+wJKbfw==
-Date: Fri, 26 Apr 2024 21:46:34 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Evan Green <evan@rivosinc.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v3 09/17] riscv: drivers: Convert xandespmu to use the
- vendor extension framework
-Message-ID: <20240426-wackiness-fringe-d296412b0c06@spud>
-References: <20240420-dev-charlie-support_thead_vector_6_9-v3-0-67cff4271d1d@rivosinc.com>
- <20240420-dev-charlie-support_thead_vector_6_9-v3-9-67cff4271d1d@rivosinc.com>
- <20240426-venue-maximum-f78ac451b146@spud>
- <ZiwPyyBK2br8yKei@ghost>
+	id 1s0Szf-0000000E2Yy-34wB
+	for linux-riscv@lists.infradead.org;
+	Fri, 26 Apr 2024 21:20:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1714166429;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YE+xroN3MSFRA2YVeljr0pVRi5jEiA/gyhgABPdlML0=;
+	b=K+Z1ADEJ9rSuIz5AQhh4VxCOrbjvoOZGBNavLWxE121+rFBS9Me4U/E7H0fRFKi+iek+5n
+	wszxQ7RP6oXLASSBN+SZo4mVCRRibUCcd8t5ni9g52WnQB/47QWwaAlNeRstTBLUAL6vPW
+	Gd5SQ2dDiK5pmV6dil5JMAu9USigrQs=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-75-uuu-dPsMPCKXSSg9Nj6OoQ-1; Fri, 26 Apr 2024 17:20:28 -0400
+X-MC-Unique: uuu-dPsMPCKXSSg9Nj6OoQ-1
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-69b147e856aso6540196d6.1
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Apr 2024 14:20:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714166427; x=1714771227;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YE+xroN3MSFRA2YVeljr0pVRi5jEiA/gyhgABPdlML0=;
+        b=XeDvNJ8iLKOCuHAyS19Cl3DXxoRwlbvhquZ4K4/QSL3pmgcMcJPCZ541NR7uzaeInt
+         YKCY0E3tNYHMGuxsMfKG2LwlRW+dh3H3NdiduSe3wpW0QZhvwWydy64Tvj9CZ3005ZJp
+         hO+A7ifWyWjeE3pESzeRAUaRkmbmw3syDJNePDNPDOvFon6pQ9CBbqMHjHUSsHvmN7XI
+         Ogb0ygRBRjyoGmC0CKy/DtEABL2tdT11yZUsba/FKfokXCm1olvLqd8IaICMXhovHgfu
+         T/hfdC4SufL1dkoyAqjnJUY8stnMXog9IBUfE+ImCYo6/fIDBDGzMI/BdCFqtwsRL5rh
+         aKdA==
+X-Forwarded-Encrypted: i=1; AJvYcCU6cCLxlg4+eLCy+pOer1iO225rOcDIdKXLa4zm08BRQgUwtN7m4VDxVqww+r9J1JkdD0g4nGVhWIfYfjYCEJ6QwQjMWNWpPxQeug1SyHNc
+X-Gm-Message-State: AOJu0YwXm0iU/alyH4PyzB/7jTQd+D41f9pzPL3hKfvDCqtp6sTgZyWG
+	49bGIR5TyaPNZO+GrceSDPINqfV2WJLhHw9M5dvIdVWjB/jkcrbgINKB29Hoc3qN2kwSK2yP6n7
+	oEAhaPrl3X300Ou4z1HaSx3TpNFNBxAEzwwFSMaY+LRTFRHX4keJ4I4dS9kkxH1Lx0A==
+X-Received: by 2002:a05:620a:4089:b0:790:8c20:e281 with SMTP id f9-20020a05620a408900b007908c20e281mr4399197qko.4.1714166427229;
+        Fri, 26 Apr 2024 14:20:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGfzashahVyLrvAJ9qdUfNGidrRIiANL3lMVu3kzLvmX9ZvfaFZoyGy8b+LUj3RVEq076HTsg==
+X-Received: by 2002:a05:620a:4089:b0:790:8c20:e281 with SMTP id f9-20020a05620a408900b007908c20e281mr4399166qko.4.1714166426469;
+        Fri, 26 Apr 2024 14:20:26 -0700 (PDT)
+Received: from x1n (pool-99-254-121-117.cpe.net.cable.rogers.com. [99.254.121.117])
+        by smtp.gmail.com with ESMTPSA id oo8-20020a05620a530800b0078d693c0b4bsm8243842qkn.135.2024.04.26.14.20.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Apr 2024 14:20:26 -0700 (PDT)
+Date: Fri, 26 Apr 2024 17:20:23 -0400
+From: Peter Xu <peterx@redhat.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mike Rapoport <rppt@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, x86@kernel.org
+Subject: Re: [PATCH v1 1/3] mm/gup: consistently name GUP-fast functions
+Message-ID: <Ziwal-SucIye3hPM@x1n>
+References: <20240402125516.223131-1-david@redhat.com>
+ <20240402125516.223131-2-david@redhat.com>
+ <e685c532-8330-4a57-bc08-c67845e0c352@redhat.com>
+ <Ziuv2jLY1wgBITiP@x1n>
+ <ZivScN8-Uoi9eye8@x1n>
+ <8b42a24d-caf0-46ef-9e15-0f88d47d2f21@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <ZiwPyyBK2br8yKei@ghost>
+In-Reply-To: <8b42a24d-caf0-46ef-9e15-0f88d47d2f21@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240426_134645_641689_C6022455 
-X-CRM114-Status: GOOD (  32.56  )
+X-CRM114-CacheID: sfid-20240426_142031_890649_56CC74C2 
+X-CRM114-Status: GOOD (  60.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,134 +107,223 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4520701806734579848=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Apr 26, 2024 at 07:28:31PM +0200, David Hildenbrand wrote:
+> On 26.04.24 18:12, Peter Xu wrote:
+> > On Fri, Apr 26, 2024 at 09:44:58AM -0400, Peter Xu wrote:
+> > > On Fri, Apr 26, 2024 at 09:17:47AM +0200, David Hildenbrand wrote:
+> > > > On 02.04.24 14:55, David Hildenbrand wrote:
+> > > > > Let's consistently call the "fast-only" part of GUP "GUP-fast" and rename
+> > > > > all relevant internal functions to start with "gup_fast", to make it
+> > > > > clearer that this is not ordinary GUP. The current mixture of
+> > > > > "lockless", "gup" and "gup_fast" is confusing.
+> > > > > 
+> > > > > Further, avoid the term "huge" when talking about a "leaf" -- for
+> > > > > example, we nowadays check pmd_leaf() because pmd_huge() is gone. For the
+> > > > > "hugepd"/"hugepte" stuff, it's part of the name ("is_hugepd"), so that
+> > > > > stays.
+> > > > > 
+> > > > > What remains is the "external" interface:
+> > > > > * get_user_pages_fast_only()
+> > > > > * get_user_pages_fast()
+> > > > > * pin_user_pages_fast()
+> > > > > 
+> > > > > The high-level internal functions for GUP-fast (+slow fallback) are now:
+> > > > > * internal_get_user_pages_fast() -> gup_fast_fallback()
+> > > > > * lockless_pages_from_mm() -> gup_fast()
+> > > > > 
+> > > > > The basic GUP-fast walker functions:
+> > > > > * gup_pgd_range() -> gup_fast_pgd_range()
+> > > > > * gup_p4d_range() -> gup_fast_p4d_range()
+> > > > > * gup_pud_range() -> gup_fast_pud_range()
+> > > > > * gup_pmd_range() -> gup_fast_pmd_range()
+> > > > > * gup_pte_range() -> gup_fast_pte_range()
+> > > > > * gup_huge_pgd()  -> gup_fast_pgd_leaf()
+> > > > > * gup_huge_pud()  -> gup_fast_pud_leaf()
+> > > > > * gup_huge_pmd()  -> gup_fast_pmd_leaf()
+> > > > > 
+> > > > > The weird hugepd stuff:
+> > > > > * gup_huge_pd() -> gup_fast_hugepd()
+> > > > > * gup_hugepte() -> gup_fast_hugepte()
+> > > > 
+> > > > I just realized that we end up calling these from follow_hugepd() as well.
+> > > > And something seems to be off, because gup_fast_hugepd() won't have the VMA
+> > > > even in the slow-GUP case to pass it to gup_must_unshare().
+> > > > 
+> > > > So these are GUP-fast functions and the terminology seem correct. But the
+> > > > usage from follow_hugepd() is questionable,
+> > > > 
+> > > > commit a12083d721d703f985f4403d6b333cc449f838f6
+> > > > Author: Peter Xu <peterx@redhat.com>
+> > > > Date:   Wed Mar 27 11:23:31 2024 -0400
+> > > > 
+> > > >      mm/gup: handle hugepd for follow_page()
+> > > > 
+> > > > 
+> > > > states "With previous refactors on fast-gup gup_huge_pd(), most of the code
+> > > > can be leveraged", which doesn't look quite true just staring the the
+> > > > gup_must_unshare() call where we don't pass the VMA. Also,
+> > > > "unlikely(pte_val(pte) != pte_val(ptep_get(ptep)" doesn't make any sense for
+> > > > slow GUP ...
+> > > 
+> > > Yes it's not needed, just doesn't look worthwhile to put another helper on
+> > > top just for this.  I mentioned this in the commit message here:
+> > > 
+> > >    There's something not needed for follow page, for example, gup_hugepte()
+> > >    tries to detect pgtable entry change which will never happen with slow
+> > >    gup (which has the pgtable lock held), but that's not a problem to check.
+> > > 
+> > > > 
+> > > > @Peter, any insights?
+> > > 
+> > > However I think we should pass vma in for sure, I guess I overlooked that,
+> > > and it didn't expose in my tests too as I probably missed ./cow.
+> > > 
+> > > I'll prepare a separate patch on top of this series and the gup-fast rename
+> > > patches (I saw this one just reached mm-stable), and I'll see whether I can
+> > > test it too if I can find a Power system fast enough.  I'll probably drop
+> > > the "fast" in the hugepd function names too.
+> > 
+> 
+> For the missing VMA parameter, the cow.c test might not trigger it. We never need the VMA to make
+> a pinning decision for anonymous memory. We'll trigger an unsharing fault, get an exclusive anonymous page
+> and can continue.
+> 
+> We need the VMA in gup_must_unshare(), when long-term pinning a file hugetlb page. I *think*
+> the gup_longterm.c selftest should trigger that, especially:
+> 
+> # [RUN] R/O longterm GUP-fast pin in MAP_SHARED file mapping ... with memfd hugetlb (2048 kB)
+> ...
+> # [RUN] R/O longterm GUP-fast pin in MAP_SHARED file mapping ... with memfd hugetlb (1048576 kB)
+> 
+> 
+> We need a MAP_SHARED page where the PTE is R/O that we want to long-term pin R/O.
+> I don't remember from the top of my head if the test here might have a R/W-mapped
+> folio. If so, we could extend it to cover that.
 
---===============4520701806734579848==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="obfZp8CibtUO+FNM"
-Content-Disposition: inline
+Let me try both then.
 
+> 
+> > Hmm, so when I enable 2M hugetlb I found ./cow is even failing on x86.
+> > 
+> >    # ./cow  | grep -B1 "not ok"
+> >    # [RUN] vmsplice() + unmap in child ... with hugetlb (2048 kB)
+> >    not ok 161 No leak from parent into child
+> >    --
+> >    # [RUN] vmsplice() + unmap in child with mprotect() optimization ... with hugetlb (2048 kB)
+> >    not ok 215 No leak from parent into child
+> >    --
+> >    # [RUN] vmsplice() before fork(), unmap in parent after fork() ... with hugetlb (2048 kB)
+> >    not ok 269 No leak from child into parent
+> >    --
+> >    # [RUN] vmsplice() + unmap in parent after fork() ... with hugetlb (2048 kB)
+> >    not ok 323 No leak from child into parent
+> > 
+> > And it looks like it was always failing.. perhaps since the start?  We
+> 
+> Yes!
+> 
+> commit 7dad331be7816103eba8c12caeb88fbd3599c0b9
+> Author: David Hildenbrand <david@redhat.com>
+> Date:   Tue Sep 27 13:01:17 2022 +0200
+> 
+>     selftests/vm: anon_cow: hugetlb tests
+>     Let's run all existing test cases with all hugetlb sizes we're able to
+>     detect.
+>     Note that some tests cases still fail. This will, for example, be fixed
+>     once vmsplice properly uses FOLL_PIN instead of FOLL_GET for pinning.
+>     With 2 MiB and 1 GiB hugetlb on x86_64, the expected failures are:
+>      # [RUN] vmsplice() + unmap in child ... with hugetlb (2048 kB)
+>      not ok 23 No leak from parent into child
+>      # [RUN] vmsplice() + unmap in child ... with hugetlb (1048576 kB)
+>      not ok 24 No leak from parent into child
+>      # [RUN] vmsplice() before fork(), unmap in parent after fork() ... with hugetlb (2048 kB)
+>      not ok 35 No leak from child into parent
+>      # [RUN] vmsplice() before fork(), unmap in parent after fork() ... with hugetlb (1048576 kB)
+>      not ok 36 No leak from child into parent
+>      # [RUN] vmsplice() + unmap in parent after fork() ... with hugetlb (2048 kB)
+>      not ok 47 No leak from child into parent
+>      # [RUN] vmsplice() + unmap in parent after fork() ... with hugetlb (1048576 kB)
+>      not ok 48 No leak from child into parent
+> 
+> As it keeps confusing people (until somebody cares enough to fix vmsplice), I already
+> thought about just disabling the test and adding a comment why it happens and
+> why nobody cares.
 
---obfZp8CibtUO+FNM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I think we should, and when doing so maybe add a rich comment in
+hugetlb_wp() too explaining everything?
 
-On Fri, Apr 26, 2024 at 01:34:19PM -0700, Charlie Jenkins wrote:
-> On Fri, Apr 26, 2024 at 05:25:20PM +0100, Conor Dooley wrote:
-> > On Sat, Apr 20, 2024 at 06:04:41PM -0700, Charlie Jenkins wrote:
-> > > Migrate xandespmu out of riscv_isa_ext and into a new Andes-specific
-> > > vendor namespace.
-> > > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sb=
-i.c
-> > > index 8cbe6e5f9c39..84760ce61e03 100644
-> > > --- a/drivers/perf/riscv_pmu_sbi.c
-> > > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > > @@ -24,6 +24,8 @@
-> > >  #include <asm/errata_list.h>
-> > >  #include <asm/sbi.h>
-> > >  #include <asm/cpufeature.h>
-> > > +#include <asm/vendorid_list.h>
-> > > +#include <asm/vendor_extensions/andes.h>
-> > > =20
-> > >  #define ALT_SBI_PMU_OVERFLOW(__ovl)					\
-> > >  asm volatile(ALTERNATIVE_2(						\
-> > > @@ -32,7 +34,7 @@ asm volatile(ALTERNATIVE_2(						\
-> > >  		THEAD_VENDOR_ID, ERRATA_THEAD_PMU,			\
-> > >  		CONFIG_ERRATA_THEAD_PMU,				\
-> > >  	"csrr %0, " __stringify(ANDES_CSR_SCOUNTEROF),			\
-> > > -		0, RISCV_ISA_EXT_XANDESPMU,				\
-> > > +		ANDES_VENDOR_ID, RISCV_ISA_VENDOR_EXT_XANDESPMU,	\
-> > >  		CONFIG_ANDES_CUSTOM_PMU)				\
-> > >  	: "=3Dr" (__ovl) :						\
-> > >  	: "memory")
-> > > @@ -41,7 +43,7 @@ asm volatile(ALTERNATIVE_2(						\
-> > >  asm volatile(ALTERNATIVE(						\
-> > >  	"csrc " __stringify(CSR_IP) ", %0\n\t",				\
-> > >  	"csrc " __stringify(ANDES_CSR_SLIP) ", %0\n\t",			\
-> > > -		0, RISCV_ISA_EXT_XANDESPMU,				\
-> > > +		ANDES_VENDOR_ID, RISCV_ISA_VENDOR_EXT_XANDESPMU,	\
-> > >  		CONFIG_ANDES_CUSTOM_PMU)				\
-> > >  	: : "r"(__irq_mask)						\
-> > >  	: "memory")
-> > > @@ -837,7 +839,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *p=
-mu, struct platform_device *pde
-> > >  		   riscv_cached_mimpid(0) =3D=3D 0) {
-> > >  		riscv_pmu_irq_num =3D THEAD_C9XX_RV_IRQ_PMU;
-> > >  		riscv_pmu_use_irq =3D true;
-> > > -	} else if (riscv_isa_extension_available(NULL, XANDESPMU) &&
-> > > +	} else if (riscv_isa_vendor_extension_available(-1, XANDESPMU) &&
-> >=20
-> > What's the rationale for this not using riscv_has_extension_unlikely()?
-> > Happens once in probe so don't bother? I forget if we discussed it when
-> > the code was added, but it would save us from the NULL/-1 syntax,
-> > neither of which I think is a good interface.
->=20
-> Doesn't look like something that was ever commented on in the series,
-> but I may have missed it. I can change this to use the alternatives.
+> 
+> > didn't do the same on hugetlb v.s. normal anon from that regard on the
+> > vmsplice() fix.
+> > 
+> > I drafted a patch to allow refcount>1 detection as the same, then all tests
+> > pass for me, as below.
+> > 
+> > David, I'd like to double check with you before I post anything: is that
+> > your intention to do so when working on the R/O pinning or not?
+> 
+> Here certainly the "if it's easy it would already have done" principle applies. :)
+> 
+> The issue is the following: hugetlb pages are scarce resources that cannot usually
+> be overcommitted. For ordinary memory, we don't care if we COW in some corner case
+> because there is an unexpected reference. You temporarily consume an additional page
+> that gets freed as soon as the unexpected reference is dropped.
+> 
+> For hugetlb, it is problematic. Assume you have reserved a single 1 GiB hugetlb page
+> and your process uses that in a MAP_PRIVATE mapping. Then it calls fork() and the
+> child quits immediately.
+> 
+> If you decide to COW, you would need a second hugetlb page, which we don't have, so
+> you have to crash the program.
+> 
+> And in hugetlb it's extremely easy to not get folio_ref_count() == 1:
+> 
+> hugetlb_fault() will do a folio_get(folio) before calling hugetlb_wp()!
+> 
+> ... so you essentially always copy.
 
-Yeha, not really a question for you but thinking aloud and wondering if
-someone would remind me. I really don't like
-riscv_isa_extension_available() because it doesn't respect config
-options etc, but ultimately I think the series that Clement is currently
-working on for Zc* is could be the saviour there, as the callbacks his
-most recent version has I think could make it much easier to hook in and
-turn off extensions. Should be helpful for the sort of confusing shit
-that Eric was complaining about last week on Andy's vector series.
+Hmm yes there's one extra refcount. I think this is all fine, we can simply
+take all of them into account when making a CoW decision.  However crashing
+an userspace can be a problem for sure.
 
->=20
-> This also wasn't supposed to be -1, it's supposed to be the id of the
-> vendor.
->=20
-> >=20
-> > Also, I'd prob drop the "drivers" from $subject.
-> >=20
-> > I'll come back and look at the rest of this Monday, it's a sunny Friday
-> > here and I've still got my devicetree patch queue to clear..
-> >=20
->=20
-> - Charlie
->=20
-> > Cheers,
-> > Conor.
-> >=20
-> > >  		   IS_ENABLED(CONFIG_ANDES_CUSTOM_PMU)) {
-> > >  		riscv_pmu_irq_num =3D ANDES_SLI_CAUSE_BASE + ANDES_RV_IRQ_PMOVI;
-> > >  		riscv_pmu_use_irq =3D true;
-> > >=20
-> > > --=20
-> > > 2.44.0
-> > >=20
->=20
->=20
+> 
+> 
+> At that point I walked away from that, letting vmsplice() be fixed at some point. Dave
+> Howells was close at some point IIRC ...
+> 
+> I had some ideas about retrying until the other reference is gone (which cannot be a
+> longterm GUP pin), but as vmsplice essentially does without FOLL_PIN|FOLL_LONGTERM,
+> it's quit hopeless to resolve that as long as vmsplice holds longterm references the wrong
+> way.
+> 
+> ---
+> 
+> One could argue that fork() with hugetlb and MAP_PRIVATE is stupid and fragile: assume
+> your child MM is torn down deferred, and will unmap the hugetlb page deferred. Or assume
+> you access the page concurrently with fork(). You'd have to COW and crash the program.
+> BUT, there is a horribly ugly hack in hugetlb COW code where you *steal* the page form
+> the child program and crash your child. I'm not making that up, it's horrible.
 
---obfZp8CibtUO+FNM
-Content-Type: application/pgp-signature; name="signature.asc"
+I didn't notice that code before; doesn't sound like a very responsible
+parent..
 
------BEGIN PGP SIGNATURE-----
+Looks like either there come a hugetlb guru who can make a decision to
+break hugetlb ABI at some point, knowing that nobody will really get
+affected by it, or that's the uncharted area whoever needs to introduce
+hugetlb v2.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiwSqgAKCRB4tDGHoIJi
-0gNhAQDrHkAfioAOiId8a0oZe9Tp2bWKu1pfHE//przLWplaKAEApP4lOWJpBqcf
-vxWNFoKpgkDlzQEmtSnjR0ttsqkgAwI=
-=M/W8
------END PGP SIGNATURE-----
+Thanks,
 
---obfZp8CibtUO+FNM--
+-- 
+Peter Xu
 
-
---===============4520701806734579848==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4520701806734579848==--
-
