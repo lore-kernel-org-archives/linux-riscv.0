@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCE3BC04FFE
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 08:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7002DC4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 08:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6oZnAaNsv8aPMKfBpr7gp7gLVi0OHzXZohWdz4/7zkk=; b=JzB4Udsm8MUqw3
-	sgGuS/dIO85sSRQfqo0D2/W6Xne4SaPpmRXuwFtyobbKO10AaopsuUShLP3N8I8hjIH34NewFiVJL
-	9oxGsUsTWZ6GQ3koq3nULWFoNfdJt81/jPRnZSE/dJCf4JhhofTwVQra1oJGZUBwTkIXYlICD1y4e
-	SaOOkkKxupZYFs/v8/bQSGGj8bRxmdaK0FReJK8a1z7ppbJQBplskkLU06Cv73tVkZ5uVbyNjtWLJ
-	qhixwgF1DDSKXAHQgI+eIKTmJrHU2VK83rN8VKKgy0tsDRsymmqPw2jnvnUuruYpMDtZSngo8aK4p
-	xdFkknu6TSorLR0IUjIw==;
+	List-Owner; bh=sXQqjS7Uitq4MVpVtrd0vBRsNZkc5n2x4tG+fAJbkYo=; b=pgE9JFRY3jA89F
+	7Psm9NPXnt6xPXd+SZdyr76MHSiTJhJ5/1Iu+X18BORYKk1IMJSJSdtp09BVCmEws+jx4ZEDh8IRI
+	IrstWyLomsMNjDiz2nvnBeVZyZbB37RS4A8lkl3+rXLUQ3geragSRi90slSQcig6i9RD1mxFr+VeT
+	daciduaS1Pn4Y9is8PBg9EbV0mfzoFdzUVyLqxJIlEu9rwTVADwsrrNtcmV/ZATDIJhKVskunmmtq
+	THis5JT1VUpQCpeDM+552hazCbIK2HFIyuU1apFPRGYowJhwm4V95/iZAhx8bG5v/36Va9S+O6N2e
+	46hilVGf8fTccXuuvbOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0H14-0000000BhBX-0qis;
-	Fri, 26 Apr 2024 08:33:10 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1s0H2f-0000000Bi5N-0VTK;
+	Fri, 26 Apr 2024 08:34:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0GzI-0000000Bfze-18R6;
-	Fri, 26 Apr 2024 08:31:22 +0000
+	id 1s0Gzc-0000000BgEx-13Wp;
+	Fri, 26 Apr 2024 08:31:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 2B96FCE1BD8;
-	Fri, 26 Apr 2024 08:31:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D06EC32782;
-	Fri, 26 Apr 2024 08:31:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5A6E762012;
+	Fri, 26 Apr 2024 08:31:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DA85C113CE;
+	Fri, 26 Apr 2024 08:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714120276;
-	bh=QWGTfmxM6u4L/G8sJRSYS9LtFcq3UHArwE9pGA7ZHH0=;
+	s=k20201202; t=1714120299;
+	bh=IjQRyjekukMjpd5h0+fXfebHcomYxPC0ei8vi/yCB1s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SmvyMUmeeEFrWhUbUHKYn4DMMnLUUa1g4+adu28RzctMKycdCQJleanPBw3qpvC6e
-	 AXnB3fL3Y+frY4KjxDxYGEctRsFjDHtgJpKUgakhljuTLQyByVrPoqm8yiw/ese+Sw
-	 3AINiEao90grvB42lX+M49xK2vOiscW+CXPmMzHjO1X9apGHPz/G5s/ugtCXfPjwN9
-	 214UPXOSJDw2q4YRsmzMcVl4U8SiTEGKs66FQ/JJXbBMCpYr8IcUINJH7HXTRFtQYE
-	 XiSs76Z4km7d/H9zgVIB5QWLIoEWTs/cZi94+ScfkrPABGeDB46pF5CGfvdU8JqSEh
-	 +esHXQ/w0RQ+A==
+	b=LA0moLCc1XyAaxAPTvc2WyIttGhEB1PUkRgD8LjafqmW1PC2dnh9KEdiQSzuSb0T4
+	 YpX/elYXFX8hxPbLkyV1qqjNauUZIgcZg3kzBpvpU6/SKuLo4yitJSpCtiFIFbCwVb
+	 ORmYodfdLWjNxtFIjvgEYglV8iMV/tWBwtMAZsyEEgjuUyNZeEVpzh+A6GJki4rfG/
+	 DhmPLsgQ0pxg/0E49LfmzQ/p9zYIhFidW2Xoh1epuanPXsEfkllchRca++MFsCY3GX
+	 XMZ71Es0P9TwVba3X9SadBYfOb5dasZkd5McPlM57jv3qH/9znon6bHqyIjzUQqGd4
+	 sYSWwWhOXkvXQ==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
@@ -87,16 +87,16 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v6 11/16] powerpc: extend execmem_params for kprobes allocations
-Date: Fri, 26 Apr 2024 11:28:49 +0300
-Message-ID: <20240426082854.7355-12-rppt@kernel.org>
+Subject: [PATCH v6 13/16] x86/ftrace: enable dynamic ftrace without CONFIG_MODULES
+Date: Fri, 26 Apr 2024 11:28:51 +0300
+Message-ID: <20240426082854.7355-14-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240426082854.7355-1-rppt@kernel.org>
 References: <20240426082854.7355-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240426_013120_756977_220F9240 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20240426_013140_622476_1EA3EE7F 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,78 +115,61 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
-powerpc overrides kprobes::alloc_insn_page() to remove writable
-permissions when STRICT_MODULE_RWX is on.
+Dynamic ftrace must allocate memory for code and this was impossible
+without CONFIG_MODULES.
 
-Add definition of EXECMEM_KRPOBES to execmem_params to allow using the
-generic kprobes::alloc_insn_page() with the desired permissions.
+With execmem separated from the modules code, execmem_text_alloc() is
+available regardless of CONFIG_MODULES.
 
-As powerpc uses breakpoint instructions to inject kprobes, it does not
-need to constrain kprobe allocations to the modules area and can use the
-entire vmalloc address space.
+Remove dependency of dynamic ftrace on CONFIG_MODULES and make
+CONFIG_DYNAMIC_FTRACE select CONFIG_EXECMEM in Kconfig.
 
 Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
 ---
- arch/powerpc/kernel/kprobes.c | 20 --------------------
- arch/powerpc/kernel/module.c  |  7 +++++++
- 2 files changed, 7 insertions(+), 20 deletions(-)
+ arch/x86/Kconfig         |  1 +
+ arch/x86/kernel/ftrace.c | 10 ----------
+ 2 files changed, 1 insertion(+), 10 deletions(-)
 
-diff --git a/arch/powerpc/kernel/kprobes.c b/arch/powerpc/kernel/kprobes.c
-index 9fcd01bb2ce6..14c5ddec3056 100644
---- a/arch/powerpc/kernel/kprobes.c
-+++ b/arch/powerpc/kernel/kprobes.c
-@@ -126,26 +126,6 @@ kprobe_opcode_t *arch_adjust_kprobe_addr(unsigned long addr, unsigned long offse
- 	return (kprobe_opcode_t *)(addr + offset);
- }
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 4474bf32d0a4..f2917ccf4fb4 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -34,6 +34,7 @@ config X86_64
+ 	select SWIOTLB
+ 	select ARCH_HAS_ELFCORE_COMPAT
+ 	select ZONE_DMA32
++	select EXECMEM if DYNAMIC_FTRACE
  
--void *alloc_insn_page(void)
+ config FORCE_DYNAMIC_FTRACE
+ 	def_bool y
+diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
+index c8ddb7abda7c..8da0e66ca22d 100644
+--- a/arch/x86/kernel/ftrace.c
++++ b/arch/x86/kernel/ftrace.c
+@@ -261,8 +261,6 @@ void arch_ftrace_update_code(int command)
+ /* Currently only x86_64 supports dynamic trampolines */
+ #ifdef CONFIG_X86_64
+ 
+-#ifdef CONFIG_MODULES
+-/* Module allocation simplifies allocating memory for code */
+ static inline void *alloc_tramp(unsigned long size)
+ {
+ 	return execmem_alloc(EXECMEM_FTRACE, size);
+@@ -271,14 +269,6 @@ static inline void tramp_free(void *tramp)
+ {
+ 	execmem_free(tramp);
+ }
+-#else
+-/* Trampolines can only be created if modules are supported */
+-static inline void *alloc_tramp(unsigned long size)
 -{
--	void *page;
--
--	page = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
--	if (!page)
--		return NULL;
--
--	if (strict_module_rwx_enabled()) {
--		int err = set_memory_rox((unsigned long)page, 1);
--
--		if (err)
--			goto error;
--	}
--	return page;
--error:
--	execmem_free(page);
 -	return NULL;
 -}
--
- int arch_prepare_kprobe(struct kprobe *p)
- {
- 	int ret = 0;
-diff --git a/arch/powerpc/kernel/module.c b/arch/powerpc/kernel/module.c
-index ac80559015a3..2a23cf7e141b 100644
---- a/arch/powerpc/kernel/module.c
-+++ b/arch/powerpc/kernel/module.c
-@@ -94,6 +94,7 @@ static struct execmem_info execmem_info __ro_after_init;
+-static inline void tramp_free(void *tramp) { }
+-#endif
  
- struct execmem_info __init *execmem_arch_setup(void)
- {
-+	pgprot_t kprobes_prot = strict_module_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
- 	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
- 	unsigned long fallback_start = 0, fallback_end = 0;
- 	unsigned long start, end;
-@@ -132,6 +133,12 @@ struct execmem_info __init *execmem_arch_setup(void)
- 				.fallback_start	= fallback_start,
- 				.fallback_end	= fallback_end,
- 			},
-+			[EXECMEM_KPROBES] = {
-+				.start	= VMALLOC_START,
-+				.end	= VMALLOC_END,
-+				.pgprot	= kprobes_prot,
-+				.alignment = 1,
-+			},
- 			[EXECMEM_MODULE_DATA] = {
- 				.start	= VMALLOC_START,
- 				.end	= VMALLOC_END,
+ /* Defined as markers to the end of the ftrace default trampolines */
+ extern void ftrace_regs_caller_end(void);
 -- 
 2.43.0
 
