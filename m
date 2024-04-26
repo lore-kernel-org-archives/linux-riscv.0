@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A068C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 14:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238E8C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 14:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/N6DBmqAYI6BwrDC28+TZSIo2aEftLaSLP4u1BPsBw=; b=j0WgukUJCzN11MEDynyPQffHXX
-	iyZ6RhFiUOka2VeL83OAKCi/8n958KLsyZbhYiCdm6SrkEjF3TpV0Yx0pz9y2GovXQW1ehucH8ns2
-	WvD5TjGOlt976UzjyVhlZgXv2nfwVkQYaxcKAC/gYtwSLlJRhI+xj1gkSOxJ1jubHzXq8R9Osxyv1
-	dtQiQl+xr4xpA+NsJQeRF6nU+gXTwEUYcZMQ2hjDk70lNbpyjZeKv974GhSpMUovb7Phg6lsoE1Td
-	XBjgE7Zgp43LrWigZ7n0Teq12wMibzJVPzLY2V8NAZFF/b21+hCy085t0i7jEVD2A/khYtB//zjnM
-	WPRsuV1w==;
+	bh=1CA1qmmZRxqeY1XWL2DqGoWyYouevJyRgfE1/5yDzOg=; b=3g62o/LEc+/uZjybd+Czes1W2E
+	FD7M+dvYHDGaxfJ0ne0MNGv2AB8eAuP4c5I2ZBhl47VDwXdq/WZpGEjtxdQuBV7wmLgk/g4culVDH
+	MC+ZKKpH4PPUf1nvsgHtPXNpStdNTCCrh6u3rhRZV3PrsXSVCChpvaZ54AVaZsA1G68ZRhaxR3qH8
+	utkGCDuwPjWsPzoQu+b343UI1Ox0UdOipt6sQ/QiceNTfAodaFpiIILpPWrtOJ8KR1vsmo0o+7Z53
+	fbSkJtwkUEtS5k0GmyOOR3EXrfswWeoIv0fwsWd3QQbivB8+e/cqQpVm/JubDZhab82+YayN/RUHg
+	0DXieJsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0MgF-0000000CrfJ-0qxS;
-	Fri, 26 Apr 2024 14:36:03 +0000
+	id 1s0MmQ-0000000CsnC-2Zpi;
+	Fri, 26 Apr 2024 14:42:26 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0MgC-0000000CrdZ-0Qw6;
-	Fri, 26 Apr 2024 14:36:01 +0000
+	id 1s0MmN-0000000Csmi-1XuA
+	for linux-riscv@lists.infradead.org;
+	Fri, 26 Apr 2024 14:42:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6823861FD7;
-	Fri, 26 Apr 2024 14:35:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C42C4C113CD;
-	Fri, 26 Apr 2024 14:35:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 79A8362091;
+	Fri, 26 Apr 2024 14:42:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E445CC113CD;
+	Fri, 26 Apr 2024 14:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714142159;
-	bh=fvWCKMof3QYNLsCaCCHiN9bivg7kkxwrQ3p10OT8TKs=;
+	s=k20201202; t=1714142542;
+	bh=2taC0FbVINV/Pfa20kvrVfsK3Rx9kry5R3sfqmV0PUs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mkVPE603ro8SVcnyj5gfGayGqBckvi1U15SCiOUS2p//vLtPWOVe4qbxdd/SxRdD3
-	 F0lOcZnmAURdDAddOnOSBLUrPTVdi3bXVcThWbLxddt4hIP5wlYIvn7YXZko3iet54
-	 QH/EeM++arDAydol9fkd3A6Btb173CrgPYfdI5qg6Ojz3h374XKfdj1Hr6hqfYld0i
-	 Hs7amcRkVntlK/wfR/CEUZDafyZUzWL+RO+ffQvOyK10410R/a9k9caOvLFUMBRjGG
-	 9J6ydOQMya87VMl8k3SBZvaGwvzu13gPIH+wkXrGioDhsH8RtKCC2F/ZHk3eFZ+Hu9
-	 rKOyl5d/HxeQQ==
-Date: Fri, 26 Apr 2024 15:35:53 +0100
+	b=mCbWI8A+jISuOv0mZ+DcLmk+vP3iNpg4+yWdV4NfEKb9/8K0swgIHUKW6NMaNGlym
+	 /Z9/cMghRk/r+yS58kPcjq7HfIYDE7jSIkCRKZGBKiMmttlf27eHOoVUUwTUCK0HBh
+	 OXpWajgdBA39Q2xiv7XnV1B5yxGTouLZG9mdwgyuIl+DtAas+pKe9n9pLJ0oJKIoJf
+	 0BajOXAcx4WEk2NhL0j5A3w7AkIIKFgIcqLyoqMOjbcQ7ydkljQsNYJ4O3BgGQLnUi
+	 DlSCrCTHd7lR4Jig1SrbtawkJB+VtSYSNnYMZs+nWFHsGBf3jMFK02OfOShnYBPa7A
+	 k0KgVahADwIvg==
+Date: Fri, 26 Apr 2024 15:42:16 +0100
 From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
-	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v3 03/11] riscv: add ISA parsing for Zca, Zcf, Zcd and Zcb
-Message-ID: <20240426-pusher-bartender-9a1eddd9a422@spud>
-References: <20240423124326.2532796-1-cleger@rivosinc.com>
- <20240423124326.2532796-4-cleger@rivosinc.com>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, andi.shyti@kernel.org,
+	jszhang@kernel.org, miquel.raynal@bootlin.com,
+	linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, guoren@kernel.org, wefu@redhat.com,
+	conor+dt@kernel.org, devicetree@vger.kernel.org,
+	aou@eecs.berkeley.edu, krzk+dt@kernel.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Subject: Re: [PATCH 0/4] Add I2C support on TH1520
+Message-ID: <20240426-patchy-grievance-e7103a344c82@spud>
+References: <20240425082138.374445-1-thomas.bonnefille@bootlin.com>
+ <171405653346.2527762.16827325392956038580.robh@kernel.org>
+ <20240425-script-fondness-0e80bfa31615@spud>
+ <3eb27570-4a53-47f6-8e36-e25fc1063124@bootlin.com>
 MIME-Version: 1.0
-In-Reply-To: <20240423124326.2532796-4-cleger@rivosinc.com>
+In-Reply-To: <3eb27570-4a53-47f6-8e36-e25fc1063124@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240426_073600_246962_7D890B07 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20240426_074223_666665_B7F8E1B8 
+X-CRM114-Status: GOOD (  36.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,172 +74,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5901134812864940212=="
+Content-Type: multipart/mixed; boundary="===============5460815092202811992=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5901134812864940212==
+--===============5460815092202811992==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ROz/llGSkBkozfg7"
+	protocol="application/pgp-signature"; boundary="Jc7O/HQugX9deMnA"
 Content-Disposition: inline
 
 
---ROz/llGSkBkozfg7
-Content-Type: text/plain; charset=iso-8859-1
+--Jc7O/HQugX9deMnA
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Apr 23, 2024 at 02:43:17PM +0200, Cl=E9ment L=E9ger wrote:
-> The Zc* standard extension for code reduction introduces new extensions.
-> This patch adds support for Zca, Zcf, Zcd and Zcb. Zce, Zcmt and Zcmp
-> are left out of this patch since they are targeting microcontrollers/
-> embedded CPUs instead of application processors.
+On Fri, Apr 26, 2024 at 04:12:00PM +0200, Thomas Bonnefille wrote:
 >=20
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+>=20
+> On 4/25/24 6:35 PM, Conor Dooley wrote:
+> > On Thu, Apr 25, 2024 at 09:51:26AM -0500, Rob Herring wrote:
+> > >=20
+> > > On Thu, 25 Apr 2024 10:21:31 +0200, Thomas Bonnefille wrote:
+> > > > This adds I2C support in the device tree of the T-Head TH1520 RISCV=
+-SoC
+> > > > and a default configuration for the BeagleV-Ahead. It appears that =
+the
+> > > > TH1520 I2C is already supported in the upstream kernel through the
+> > > > Synopsis Designware I2C adapter driver.
+> > > > As there is no clock driver for this board as of today, this patch
+> > > > series uses a fixed-clock named i2c_ic_clk.
+> > > > There is also no pinctrl driver yet so pinmux must be handled manua=
+lly
+> > > > for now.
+> > > > It also fixes the order of the nodes in the device tree to comply w=
+ith
+> > > > device-tree coding-style.
+> > > >=20
+> > > > Thomas Bonnefille (4):
+> > > >    dt-bindings: i2c: dw: Document compatible thead,th1520-i2c
+> > > >    riscv: boot: dts: thead: Fix node ordering in TH1520 device tree
+> > > >    riscv: dts: thead: Add TH1520 I2C nodes
+> > > >    riscv: dts: thead: Enable I2C on the BeagleV-Ahead
+> > > >=20
+> > > >   .../bindings/i2c/snps,designware-i2c.yaml     |  12 ++
+> > > >   .../boot/dts/thead/th1520-beaglev-ahead.dts   |  22 ++++
+> > > >   arch/riscv/boot/dts/thead/th1520.dtsi         | 120 +++++++++++++=
++----
+> > > >   3 files changed, 127 insertions(+), 27 deletions(-)
+> > > >=20
+> > > > --
+> > > > 2.44.0
+> > > >=20
+> > > >=20
+> > > >=20
+> > >=20
+> > >=20
+> > > My bot found new DTB warnings on the .dts files added or changed in t=
+his
+> > > series.
+> > >=20
+> > > Some warnings may be from an existing SoC .dtsi. Or perhaps the warni=
+ngs
+> > > are fixed by another series. Ultimately, it is up to the platform
+> > > maintainer whether these warnings are acceptable or not. No need to r=
+eply
+> > > unless the platform maintainer has comments.
+> > >=20
+> > > If you already ran DT checks and didn't see these error(s), then
+> > > make sure dt-schema is up to date:
+> > >=20
+> > >    pip3 install dtschema --upgrade
+> > >=20
+> > >=20
+> > > New warnings running 'make CHECK_DTBS=3Dy thead/th1520-beaglev-ahead.=
+dtb' for 20240425082138.374445-1-thomas.bonnefille@bootlin.com:
+> > >=20
+> > > arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dtb: i2c-clock: clock-=
+frequency:0:0: 50000000 is greater than the maximum of 5000000
+> >=20
+> > The bot is not freaking out here, 50 MHz is indeed more than 5 MHz :)
+>=20
+> 5MHz is the maximum clock-frequency, ie. the I2C bus frequency.
+> This is actually set to 100kHz for I2C0 in the DT:
+>=20
+> &i2c0 {
+>     status =3D "okay";
+>     clock-frequency =3D <100000>; <----
+> ...
+> };
+>=20
+> 50MHz is the "fixed-clock" frequency, that is the clock feeding the I2C
+> IP block:
+>=20
+> i2c_ic_clk: i2c-clock {
+>     compatible =3D "fixed-clock";
+>     clock-frequency =3D <50000000>; <-----
+>     #clock-cells =3D <0>;
+> };
+>=20
+> My guess is that the bot confused the clock-frequency parameter for the b=
+us
+> clock (SCL) with the i2c-ic-clock value for the controller itself during =
+the
+> checks.
+>=20
+> Do you agree with this or am I misunderstanding the error ?
+>=20
+> If I lower the fixed-clock frequency to eg. 100kHz, the error is gone. Bu=
+t I
+> guess the 5MHz limit should probably not apply to the input clock?
 
-The potential split aside, I think what's here makes sense.
+Heh, I know why that's happening - it's your node name.
+The pattern for i2c controllers is "^i2c(@.*)?":
+https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/i2c/=
+i2c-controller.yaml
 
-Thanks,
+Rob co-incidentally (or maybe not) put out a patch for fixed-frequency
+clock names, suggesting using clock as a prefix:
+https://lore.kernel.org/all/20240425183810.3079069-1-robh@kernel.org/
+If we switched to that format, I believe your problem goes away.
+
+Cheers,
 Conor.
 
-> ---
->  arch/riscv/include/asm/hwcap.h |  4 +++
->  arch/riscv/kernel/cpufeature.c | 47 +++++++++++++++++++++++++++++++++-
->  2 files changed, 50 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index 543e3ea2da0e..b7551bad341b 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -82,6 +82,10 @@
->  #define RISCV_ISA_EXT_ZACAS		73
->  #define RISCV_ISA_EXT_XANDESPMU		74
->  #define RISCV_ISA_EXT_ZIMOP		75
-> +#define RISCV_ISA_EXT_ZCA		76
-> +#define RISCV_ISA_EXT_ZCB		77
-> +#define RISCV_ISA_EXT_ZCD		78
-> +#define RISCV_ISA_EXT_ZCF		79
-> =20
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
-> =20
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index 6d238c8dbccf..24bf3fbc0578 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -107,6 +107,29 @@ static bool riscv_ext_zicboz_validate(const struct r=
-iscv_isa_ext_data *data,
->  	return true;
->  }
-> =20
-> +static bool riscv_ext_zca_depends(const struct riscv_isa_ext_data *data,
-> +				   const unsigned long *isa_bitmap)
-> +{
-> +	return __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZCA);
-> +}
-> +static bool riscv_ext_zcd_validate(const struct riscv_isa_ext_data *data,
-> +				   const unsigned long *isa_bitmap)
-> +{
-> +	return __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZCA) &&
-> +	       __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_d);
-> +}
-> +
-> +static bool riscv_ext_zcf_validate(const struct riscv_isa_ext_data *data,
-> +				   const unsigned long *isa_bitmap)
-> +{
-> +#ifdef CONFIG_64BIT
-> +	return false;
-> +#else
-> +	return __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZCA) &&
-> +	       __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_f);
-> +#endif
-> +}
-> +
->  #define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_size,=
- _validate) {	\
->  	.name =3D #_name,									\
->  	.property =3D #_name,								\
-> @@ -118,6 +141,9 @@ static bool riscv_ext_zicboz_validate(const struct ri=
-scv_isa_ext_data *data,
-> =20
->  #define __RISCV_ISA_EXT_DATA(_name, _id) _RISCV_ISA_EXT_DATA(_name, _id,=
- NULL, 0, NULL)
-> =20
-> +#define __RISCV_ISA_EXT_DATA_VALIDATE(_name, _id, _validate) \
-> +			_RISCV_ISA_EXT_DATA(_name, _id, NULL, 0, _validate)
-> +
->  /* Used to declare pure "lasso" extension (Zk for instance) */
->  #define __RISCV_ISA_EXT_BUNDLE(_name, _bundled_exts) \
->  	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, _bundled_exts, \
-> @@ -209,6 +235,21 @@ static const unsigned int riscv_xlinuxenvcfg_exts[] =
-=3D {
->  	RISCV_ISA_EXT_XLINUXENVCFG
->  };
-> =20
-> +/*
-> + * Zc* spec states that:
-> + * - C always implies Zca
-> + * - C+F implies Zcf (RV32 only)
-> + * - C+D implies Zcd
-> + *
-> + * These extensions will be enabled and then validated depending on the
-> + * availability of F/D RV32.
-> + */
-> +static const unsigned int riscv_c_exts[] =3D {
-> +	RISCV_ISA_EXT_ZCA,
-> +	RISCV_ISA_EXT_ZCF,
-> +	RISCV_ISA_EXT_ZCD,
-> +};
-> +
->  /*
->   * The canonical order of ISA extension names in the ISA string is defin=
-ed in
->   * chapter 27 of the unprivileged specification.
-> @@ -255,7 +296,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
->  	__RISCV_ISA_EXT_DATA(f, RISCV_ISA_EXT_f),
->  	__RISCV_ISA_EXT_DATA(d, RISCV_ISA_EXT_d),
->  	__RISCV_ISA_EXT_DATA(q, RISCV_ISA_EXT_q),
-> -	__RISCV_ISA_EXT_DATA(c, RISCV_ISA_EXT_c),
-> +	__RISCV_ISA_EXT_SUPERSET(c, RISCV_ISA_EXT_c, riscv_c_exts),
->  	__RISCV_ISA_EXT_DATA(v, RISCV_ISA_EXT_v),
->  	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
->  	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicbom, RISCV_ISA_EXT_ZICBOM, riscv_x=
-linuxenvcfg_exts,
-> @@ -274,6 +315,10 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
->  	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
->  	__RISCV_ISA_EXT_DATA(zfh, RISCV_ISA_EXT_ZFH),
->  	__RISCV_ISA_EXT_DATA(zfhmin, RISCV_ISA_EXT_ZFHMIN),
-> +	__RISCV_ISA_EXT_DATA(zca, RISCV_ISA_EXT_ZCA),
-> +	__RISCV_ISA_EXT_DATA_VALIDATE(zcb, RISCV_ISA_EXT_ZCB, riscv_ext_zca_dep=
-ends),
-> +	__RISCV_ISA_EXT_DATA_VALIDATE(zcd, RISCV_ISA_EXT_ZCD, riscv_ext_zcd_val=
-idate),
-> +	__RISCV_ISA_EXT_DATA_VALIDATE(zcf, RISCV_ISA_EXT_ZCF, riscv_ext_zcf_val=
-idate),
->  	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
->  	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
->  	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
-> --=20
-> 2.43.0
->=20
-
---ROz/llGSkBkozfg7
+--Jc7O/HQugX9deMnA
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiu7yQAKCRB4tDGHoIJi
-0gh5AP0cbGNts8eoVZeDItSxQA5RKNgG88ExrmtRhfQLSdNEUwD/b5VaqUNBUM6U
-7zMWwwWvojpz7oLhHEntm9Ys+IamPwE=
-=wMBZ
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiu9SAAKCRB4tDGHoIJi
+0nLnAQCECEfc78RXxXpCNNDudKkhw+shCzwB7WRgYXqgv327zgEA0OHduv5XJhqr
+P/HzRFwkJyBZfvmgYqKH2EPtxsIfmwA=
+=GWVt
 -----END PGP SIGNATURE-----
 
---ROz/llGSkBkozfg7--
+--Jc7O/HQugX9deMnA--
 
 
---===============5901134812864940212==
+--===============5460815092202811992==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -250,5 +224,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5901134812864940212==--
+--===============5460815092202811992==--
 
