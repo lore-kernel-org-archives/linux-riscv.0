@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC59C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 21:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F7BC4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 21:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H3Afb72j5+K2RotQicddKpVoObi8pePYHGSaVp0Yg/M=; b=hHTvPL037YOQsQ
-	XgbbY255/1hCCKCBzzY43jarQhPoEzWmC40XMDSFfGgwWU/5Pp5/057hrKEHUeE0NTKg4KlA4xasJ
-	Ztuc6sToA/UllNW7P7uOXLv3VBVIeNTN74+Hz4hJQFpNCVzH9XM5XFBiI0ylclp1KPaTTyflWlQd1
-	y5Km+fGZyX3/MLHnSXLCcns3gnhLLZpmK0U0+RhAnnavoZb4ezQ1BOpNeKilxCBtDvTIIbJbSZbip
-	k11rXqmh0jkRPq2zQbJkapkwUVcenq3BRDHdbmt6gXHMXEL1Kysc0LLLa/Z+MYhosh+LgOT/Aj6CK
-	BQbIcpyOfaIu1DQlBC1Q==;
+	List-Owner; bh=jxdIgPjBntlo4CYEoQffLOspI+/6WUGiepBeKPWdsfI=; b=Y2r4FBno72RIuV
+	GAFY0jrZZehFRvp0yiSRuB11gb9zVnZ8o+OYe5x2KPK5aBMNx1os7EsbsAy6ZVtmPvYT6hbssO8tj
+	Ip+oxcBdDv+Lq5CvPMkegcoTyn0DAoVEZNtRmlpu6PDCzlcVb0qSrD0g3FZbOC+BtGzqTuN2lYHjf
+	9SuWH7oD9KbPxbldetOH8XnTlcmvfRAHWhA+SSU/WeU9QqGvGmiHw0Fnjhybq5q7Rj91L5rZiAlR+
+	wWBwPTdYTRDt2TmjiGqdz+4gOLDvvzlSBDnbe2OEeX0lHQsU/HIShyiovC6ae4/JkV2FzPAlsKV5d
+	wAb5fl3kuYSVr9W80l1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0Szi-0000000E2aW-22cK;
-	Fri, 26 Apr 2024 21:20:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1s0T8d-0000000E3Xx-1ZbV;
+	Fri, 26 Apr 2024 21:29:47 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0Szf-0000000E2Yy-34wB
+	id 1s0T8X-0000000E3Nn-34Mn
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 Apr 2024 21:20:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1714166429;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YE+xroN3MSFRA2YVeljr0pVRi5jEiA/gyhgABPdlML0=;
-	b=K+Z1ADEJ9rSuIz5AQhh4VxCOrbjvoOZGBNavLWxE121+rFBS9Me4U/E7H0fRFKi+iek+5n
-	wszxQ7RP6oXLASSBN+SZo4mVCRRibUCcd8t5ni9g52WnQB/47QWwaAlNeRstTBLUAL6vPW
-	Gd5SQ2dDiK5pmV6dil5JMAu9USigrQs=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-75-uuu-dPsMPCKXSSg9Nj6OoQ-1; Fri, 26 Apr 2024 17:20:28 -0400
-X-MC-Unique: uuu-dPsMPCKXSSg9Nj6OoQ-1
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-69b147e856aso6540196d6.1
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Apr 2024 14:20:28 -0700 (PDT)
+	Fri, 26 Apr 2024 21:29:43 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-5f7fc45fe1bso2083212a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Apr 2024 14:29:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714166969; x=1714771769; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+VjeHR1eFFL9Gvz01+9XywijwOrTXSU/mr8HqBxiNzQ=;
+        b=cwNt6+dlSpGbWCdEkcWYto70RFJ1hUDx6GjT35xqrLdXDCJ4Sugzk30gxPpWY7QHwa
+         HQ4viDkwo7LHW2cAkzosPqlo/SIerXFsGYFcXsK29huSnG2bTjnNjDiLqIF48Qbqa9va
+         jvadQI45SOJG/jcTJMwEDNU99lJ2cr0TPaCKi7FS5IDc/w9h5S0fUCFX7JHAL8bkeedG
+         mgzvGsZeDBkorGAykRlaYpRU0U9D7eULVm1atDYlq1Amv+WK5vMFpVJo/jtlJakbmoMc
+         S3i5lkMKiBWPHQvLG3vopL2Xl8zJOJ3A5PJPiCxTBxWEFSR/U9K1/Wo6iu735lnKgbon
+         FLbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714166427; x=1714771227;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YE+xroN3MSFRA2YVeljr0pVRi5jEiA/gyhgABPdlML0=;
-        b=XeDvNJ8iLKOCuHAyS19Cl3DXxoRwlbvhquZ4K4/QSL3pmgcMcJPCZ541NR7uzaeInt
-         YKCY0E3tNYHMGuxsMfKG2LwlRW+dh3H3NdiduSe3wpW0QZhvwWydy64Tvj9CZ3005ZJp
-         hO+A7ifWyWjeE3pESzeRAUaRkmbmw3syDJNePDNPDOvFon6pQ9CBbqMHjHUSsHvmN7XI
-         Ogb0ygRBRjyoGmC0CKy/DtEABL2tdT11yZUsba/FKfokXCm1olvLqd8IaICMXhovHgfu
-         T/hfdC4SufL1dkoyAqjnJUY8stnMXog9IBUfE+ImCYo6/fIDBDGzMI/BdCFqtwsRL5rh
-         aKdA==
-X-Forwarded-Encrypted: i=1; AJvYcCU6cCLxlg4+eLCy+pOer1iO225rOcDIdKXLa4zm08BRQgUwtN7m4VDxVqww+r9J1JkdD0g4nGVhWIfYfjYCEJ6QwQjMWNWpPxQeug1SyHNc
-X-Gm-Message-State: AOJu0YwXm0iU/alyH4PyzB/7jTQd+D41f9pzPL3hKfvDCqtp6sTgZyWG
-	49bGIR5TyaPNZO+GrceSDPINqfV2WJLhHw9M5dvIdVWjB/jkcrbgINKB29Hoc3qN2kwSK2yP6n7
-	oEAhaPrl3X300Ou4z1HaSx3TpNFNBxAEzwwFSMaY+LRTFRHX4keJ4I4dS9kkxH1Lx0A==
-X-Received: by 2002:a05:620a:4089:b0:790:8c20:e281 with SMTP id f9-20020a05620a408900b007908c20e281mr4399197qko.4.1714166427229;
-        Fri, 26 Apr 2024 14:20:27 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGfzashahVyLrvAJ9qdUfNGidrRIiANL3lMVu3kzLvmX9ZvfaFZoyGy8b+LUj3RVEq076HTsg==
-X-Received: by 2002:a05:620a:4089:b0:790:8c20:e281 with SMTP id f9-20020a05620a408900b007908c20e281mr4399166qko.4.1714166426469;
-        Fri, 26 Apr 2024 14:20:26 -0700 (PDT)
-Received: from x1n (pool-99-254-121-117.cpe.net.cable.rogers.com. [99.254.121.117])
-        by smtp.gmail.com with ESMTPSA id oo8-20020a05620a530800b0078d693c0b4bsm8243842qkn.135.2024.04.26.14.20.25
+        d=1e100.net; s=20230601; t=1714166969; x=1714771769;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+VjeHR1eFFL9Gvz01+9XywijwOrTXSU/mr8HqBxiNzQ=;
+        b=Akw1lEndhIp8e4bDr9Xt4q/ExA1twZq9VhyKGXAZDYjUieRqz2Zx0mmzwkvkQqhoWw
+         Odu2qdllVgKwLiEnQK3/h2z5Haai6y9RuzqvmAj+RDV/JThlbTNRsqac0aYYIGix58eM
+         j5ztB8bZwxuBpZteeZsYvZ7M5BWan4w9kGx5FjjQbKDl0l1ZITVviz3z2GT1dTvKjqmi
+         xPvlwdopoz0CtTJgEeDStOAORTAicLHg09XryqiqpINYf2z8mqhipy5Rgp1NeQOyX7yS
+         0syjCQDNJXjpEiXokt9qOFLJQCLDATjaNOYB6T5LXeuySES+TXhRKcW3zVaQQihY5tSb
+         Q3AQ==
+X-Gm-Message-State: AOJu0YyzOWslO98k4CgfT7SzU+2iuKs4at8Nao2EcR1GDxvvYL2R8P6E
+	cLWHs6oN+uLHB7i0F5bjy+BuGNJZI2YJA91FaNhWiV182Nxs478SpNmh4+tSqBM=
+X-Google-Smtp-Source: AGHT+IG0NLK4iE+eUG4asNWLFKpGGh4C2Wjuei7tv/cQwmtoLplQWM7s+CxqV+3nZNHhGKsZKJXClQ==
+X-Received: by 2002:a17:902:f643:b0:1eb:788:b424 with SMTP id m3-20020a170902f64300b001eb0788b424mr3956494plg.43.1714166969118;
+        Fri, 26 Apr 2024 14:29:29 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id b3-20020a170902650300b001ea2838fa5dsm7226720plk.76.2024.04.26.14.29.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Apr 2024 14:20:26 -0700 (PDT)
-Date: Fri, 26 Apr 2024 17:20:23 -0400
-From: Peter Xu <peterx@redhat.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mike Rapoport <rppt@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org
-Subject: Re: [PATCH v1 1/3] mm/gup: consistently name GUP-fast functions
-Message-ID: <Ziwal-SucIye3hPM@x1n>
-References: <20240402125516.223131-1-david@redhat.com>
- <20240402125516.223131-2-david@redhat.com>
- <e685c532-8330-4a57-bc08-c67845e0c352@redhat.com>
- <Ziuv2jLY1wgBITiP@x1n>
- <ZivScN8-Uoi9eye8@x1n>
- <8b42a24d-caf0-46ef-9e15-0f88d47d2f21@redhat.com>
+        Fri, 26 Apr 2024 14:29:28 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Fri, 26 Apr 2024 14:29:16 -0700
+Subject: [PATCH v4 02/16] dt-bindings: riscv: cpus: add a vlen register
+ length property
 MIME-Version: 1.0
-In-Reply-To: <8b42a24d-caf0-46ef-9e15-0f88d47d2f21@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+Message-Id: <20240426-dev-charlie-support_thead_vector_6_9-v4-2-b692f3c516ec@rivosinc.com>
+References: <20240426-dev-charlie-support_thead_vector_6_9-v4-0-b692f3c516ec@rivosinc.com>
+In-Reply-To: <20240426-dev-charlie-support_thead_vector_6_9-v4-0-b692f3c516ec@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Guo Ren <guoren@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, 
+ =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1714166962; l=1443;
+ i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
+ bh=heJ5mXr7Tx2wdFjG631ibJba5Q6SNbmXVyEpdKm9JEg=;
+ b=Sv3NOp+Khbllr8+Jo15OweAuQfWJMGJSmsVQYWIPByneO4usORzy+u5Sxph4lQEGlzWYaUTCa
+ Prj7RDB934ICi2CTIsEbZ+WZBC4lg45Tneo8TuIKSKFlCvLf8TPmYRa
+X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
+ pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240426_142031_890649_56CC74C2 
-X-CRM114-Status: GOOD (  60.41  )
+X-CRM114-CacheID: sfid-20240426_142941_829989_90F346F2 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,215 +112,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 26, 2024 at 07:28:31PM +0200, David Hildenbrand wrote:
-> On 26.04.24 18:12, Peter Xu wrote:
-> > On Fri, Apr 26, 2024 at 09:44:58AM -0400, Peter Xu wrote:
-> > > On Fri, Apr 26, 2024 at 09:17:47AM +0200, David Hildenbrand wrote:
-> > > > On 02.04.24 14:55, David Hildenbrand wrote:
-> > > > > Let's consistently call the "fast-only" part of GUP "GUP-fast" and rename
-> > > > > all relevant internal functions to start with "gup_fast", to make it
-> > > > > clearer that this is not ordinary GUP. The current mixture of
-> > > > > "lockless", "gup" and "gup_fast" is confusing.
-> > > > > 
-> > > > > Further, avoid the term "huge" when talking about a "leaf" -- for
-> > > > > example, we nowadays check pmd_leaf() because pmd_huge() is gone. For the
-> > > > > "hugepd"/"hugepte" stuff, it's part of the name ("is_hugepd"), so that
-> > > > > stays.
-> > > > > 
-> > > > > What remains is the "external" interface:
-> > > > > * get_user_pages_fast_only()
-> > > > > * get_user_pages_fast()
-> > > > > * pin_user_pages_fast()
-> > > > > 
-> > > > > The high-level internal functions for GUP-fast (+slow fallback) are now:
-> > > > > * internal_get_user_pages_fast() -> gup_fast_fallback()
-> > > > > * lockless_pages_from_mm() -> gup_fast()
-> > > > > 
-> > > > > The basic GUP-fast walker functions:
-> > > > > * gup_pgd_range() -> gup_fast_pgd_range()
-> > > > > * gup_p4d_range() -> gup_fast_p4d_range()
-> > > > > * gup_pud_range() -> gup_fast_pud_range()
-> > > > > * gup_pmd_range() -> gup_fast_pmd_range()
-> > > > > * gup_pte_range() -> gup_fast_pte_range()
-> > > > > * gup_huge_pgd()  -> gup_fast_pgd_leaf()
-> > > > > * gup_huge_pud()  -> gup_fast_pud_leaf()
-> > > > > * gup_huge_pmd()  -> gup_fast_pmd_leaf()
-> > > > > 
-> > > > > The weird hugepd stuff:
-> > > > > * gup_huge_pd() -> gup_fast_hugepd()
-> > > > > * gup_hugepte() -> gup_fast_hugepte()
-> > > > 
-> > > > I just realized that we end up calling these from follow_hugepd() as well.
-> > > > And something seems to be off, because gup_fast_hugepd() won't have the VMA
-> > > > even in the slow-GUP case to pass it to gup_must_unshare().
-> > > > 
-> > > > So these are GUP-fast functions and the terminology seem correct. But the
-> > > > usage from follow_hugepd() is questionable,
-> > > > 
-> > > > commit a12083d721d703f985f4403d6b333cc449f838f6
-> > > > Author: Peter Xu <peterx@redhat.com>
-> > > > Date:   Wed Mar 27 11:23:31 2024 -0400
-> > > > 
-> > > >      mm/gup: handle hugepd for follow_page()
-> > > > 
-> > > > 
-> > > > states "With previous refactors on fast-gup gup_huge_pd(), most of the code
-> > > > can be leveraged", which doesn't look quite true just staring the the
-> > > > gup_must_unshare() call where we don't pass the VMA. Also,
-> > > > "unlikely(pte_val(pte) != pte_val(ptep_get(ptep)" doesn't make any sense for
-> > > > slow GUP ...
-> > > 
-> > > Yes it's not needed, just doesn't look worthwhile to put another helper on
-> > > top just for this.  I mentioned this in the commit message here:
-> > > 
-> > >    There's something not needed for follow page, for example, gup_hugepte()
-> > >    tries to detect pgtable entry change which will never happen with slow
-> > >    gup (which has the pgtable lock held), but that's not a problem to check.
-> > > 
-> > > > 
-> > > > @Peter, any insights?
-> > > 
-> > > However I think we should pass vma in for sure, I guess I overlooked that,
-> > > and it didn't expose in my tests too as I probably missed ./cow.
-> > > 
-> > > I'll prepare a separate patch on top of this series and the gup-fast rename
-> > > patches (I saw this one just reached mm-stable), and I'll see whether I can
-> > > test it too if I can find a Power system fast enough.  I'll probably drop
-> > > the "fast" in the hugepd function names too.
-> > 
-> 
-> For the missing VMA parameter, the cow.c test might not trigger it. We never need the VMA to make
-> a pinning decision for anonymous memory. We'll trigger an unsharing fault, get an exclusive anonymous page
-> and can continue.
-> 
-> We need the VMA in gup_must_unshare(), when long-term pinning a file hugetlb page. I *think*
-> the gup_longterm.c selftest should trigger that, especially:
-> 
-> # [RUN] R/O longterm GUP-fast pin in MAP_SHARED file mapping ... with memfd hugetlb (2048 kB)
-> ...
-> # [RUN] R/O longterm GUP-fast pin in MAP_SHARED file mapping ... with memfd hugetlb (1048576 kB)
-> 
-> 
-> We need a MAP_SHARED page where the PTE is R/O that we want to long-term pin R/O.
-> I don't remember from the top of my head if the test here might have a R/W-mapped
-> folio. If so, we could extend it to cover that.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Let me try both then.
+Add a property analogous to the vlenb CSR so that software can detect
+the vector length of each CPU prior to it being brought online.
+Currently software has to assume that the vector length read from the
+boot CPU applies to all possible CPUs. On T-Head CPUs implementing
+pre-ratification vector, reading the th.vlenb CSR may produce an illegal
+instruction trap, so this property is required on such systems.
 
-> 
-> > Hmm, so when I enable 2M hugetlb I found ./cow is even failing on x86.
-> > 
-> >    # ./cow  | grep -B1 "not ok"
-> >    # [RUN] vmsplice() + unmap in child ... with hugetlb (2048 kB)
-> >    not ok 161 No leak from parent into child
-> >    --
-> >    # [RUN] vmsplice() + unmap in child with mprotect() optimization ... with hugetlb (2048 kB)
-> >    not ok 215 No leak from parent into child
-> >    --
-> >    # [RUN] vmsplice() before fork(), unmap in parent after fork() ... with hugetlb (2048 kB)
-> >    not ok 269 No leak from child into parent
-> >    --
-> >    # [RUN] vmsplice() + unmap in parent after fork() ... with hugetlb (2048 kB)
-> >    not ok 323 No leak from child into parent
-> > 
-> > And it looks like it was always failing.. perhaps since the start?  We
-> 
-> Yes!
-> 
-> commit 7dad331be7816103eba8c12caeb88fbd3599c0b9
-> Author: David Hildenbrand <david@redhat.com>
-> Date:   Tue Sep 27 13:01:17 2022 +0200
-> 
->     selftests/vm: anon_cow: hugetlb tests
->     Let's run all existing test cases with all hugetlb sizes we're able to
->     detect.
->     Note that some tests cases still fail. This will, for example, be fixed
->     once vmsplice properly uses FOLL_PIN instead of FOLL_GET for pinning.
->     With 2 MiB and 1 GiB hugetlb on x86_64, the expected failures are:
->      # [RUN] vmsplice() + unmap in child ... with hugetlb (2048 kB)
->      not ok 23 No leak from parent into child
->      # [RUN] vmsplice() + unmap in child ... with hugetlb (1048576 kB)
->      not ok 24 No leak from parent into child
->      # [RUN] vmsplice() before fork(), unmap in parent after fork() ... with hugetlb (2048 kB)
->      not ok 35 No leak from child into parent
->      # [RUN] vmsplice() before fork(), unmap in parent after fork() ... with hugetlb (1048576 kB)
->      not ok 36 No leak from child into parent
->      # [RUN] vmsplice() + unmap in parent after fork() ... with hugetlb (2048 kB)
->      not ok 47 No leak from child into parent
->      # [RUN] vmsplice() + unmap in parent after fork() ... with hugetlb (1048576 kB)
->      not ok 48 No leak from child into parent
-> 
-> As it keeps confusing people (until somebody cares enough to fix vmsplice), I already
-> thought about just disabling the test and adding a comment why it happens and
-> why nobody cares.
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-I think we should, and when doing so maybe add a rich comment in
-hugetlb_wp() too explaining everything?
-
-> 
-> > didn't do the same on hugetlb v.s. normal anon from that regard on the
-> > vmsplice() fix.
-> > 
-> > I drafted a patch to allow refcount>1 detection as the same, then all tests
-> > pass for me, as below.
-> > 
-> > David, I'd like to double check with you before I post anything: is that
-> > your intention to do so when working on the R/O pinning or not?
-> 
-> Here certainly the "if it's easy it would already have done" principle applies. :)
-> 
-> The issue is the following: hugetlb pages are scarce resources that cannot usually
-> be overcommitted. For ordinary memory, we don't care if we COW in some corner case
-> because there is an unexpected reference. You temporarily consume an additional page
-> that gets freed as soon as the unexpected reference is dropped.
-> 
-> For hugetlb, it is problematic. Assume you have reserved a single 1 GiB hugetlb page
-> and your process uses that in a MAP_PRIVATE mapping. Then it calls fork() and the
-> child quits immediately.
-> 
-> If you decide to COW, you would need a second hugetlb page, which we don't have, so
-> you have to crash the program.
-> 
-> And in hugetlb it's extremely easy to not get folio_ref_count() == 1:
-> 
-> hugetlb_fault() will do a folio_get(folio) before calling hugetlb_wp()!
-> 
-> ... so you essentially always copy.
-
-Hmm yes there's one extra refcount. I think this is all fine, we can simply
-take all of them into account when making a CoW decision.  However crashing
-an userspace can be a problem for sure.
-
-> 
-> 
-> At that point I walked away from that, letting vmsplice() be fixed at some point. Dave
-> Howells was close at some point IIRC ...
-> 
-> I had some ideas about retrying until the other reference is gone (which cannot be a
-> longterm GUP pin), but as vmsplice essentially does without FOLL_PIN|FOLL_LONGTERM,
-> it's quit hopeless to resolve that as long as vmsplice holds longterm references the wrong
-> way.
-> 
-> ---
-> 
-> One could argue that fork() with hugetlb and MAP_PRIVATE is stupid and fragile: assume
-> your child MM is torn down deferred, and will unmap the hugetlb page deferred. Or assume
-> you access the page concurrently with fork(). You'd have to COW and crash the program.
-> BUT, there is a horribly ugly hack in hugetlb COW code where you *steal* the page form
-> the child program and crash your child. I'm not making that up, it's horrible.
-
-I didn't notice that code before; doesn't sound like a very responsible
-parent..
-
-Looks like either there come a hugetlb guru who can make a decision to
-break hugetlb ABI at some point, knowing that nobody will really get
-affected by it, or that's the uncharted area whoever needs to introduce
-hugetlb v2.
-
-Thanks,
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index d87dd50f1a4b..edcb6a7d9319 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -94,6 +94,12 @@ properties:
+     description:
+       The blocksize in bytes for the Zicboz cache operations.
+ 
++  riscv,vlenb:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      VLEN/8, the vector register length in bytes. This property is required in
++      systems where the vector register length is not identical on all harts.
++
+   # RISC-V has multiple properties for cache op block sizes as the sizes
+   # differ between individual CBO extensions
+   cache-op-block-size: false
 
 -- 
-Peter Xu
+2.44.0
 
 
 _______________________________________________
