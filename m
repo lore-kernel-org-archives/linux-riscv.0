@@ -4,78 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D1BC4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 08:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA955C41513
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 08:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dhQ/Kles8dvNAFHNNTR0/1CFPV4EMtM1GH9iyKVT27g=; b=xAohbQ1BA4P3vz
-	SztyMvjImMOAefntpOgI2BTygj2kxxMUjtQGP1PsOw3IhxoYopkQ0zNXHfUb2Gz5tnAbMx2N9ZgX5
-	8iHgfN9bEHj/omF9+mpRrK+YUaWAc9MbNCrS2SciqYTbcYU9jgxdPoXWMPYhLQJYtke+sATnNb2dg
-	BaMf4WWMKRJMMZGcbZSkZyos7ci44MBvfpa1bwgqmW0xozO6QhtOCX7L8Xhgyhha+OglxQB9VboK6
-	nicyQGvZsnup17EYQwvlCQB3CNArIwEcE9hLMFIUGBPojbh+l5900MkSE2Wyk1VIrEA97S9DDdg/J
-	Zd2KKhbGjOAG1lXdW4SQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qsuNCLc+6ar25m5d5z+IkJi4qLVcq0ifzLy4NFBAwjw=; b=0DBAZvewiU6+TC
+	6UKunBMX4LaPPsD5XelOnX8rQy4I2aVPbFr0v6Qb0JMrjqvGq0ivcRCsnx3koYIAj+j3eMzSWvV2s
+	auFyf7dg7hH5z0Htd6aeov6Oyj3+UAq2gK7MPujmyz7bzd8skj5h67YR2p9K1cYbNOQdwVYhrXaC+
+	8Dcbf5cSqWHmuYzNT6YcK99hbaWxX6v7swCNZ7E5W48ubYVgY8xZFrKHxf6yMB5zAcDJAa+9aIGcj
+	Qe4nOS4Zj65fCIc4CyxOhR9HYgULSKaFNcqjgVkEpHXX4bFLRVaUPpy/V7B8xvNaDBaqf81Nvob3h
+	3EYeQENYTn8rdj+jLj3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0GkD-0000000Bc9j-0sLg;
-	Fri, 26 Apr 2024 08:15:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s0GxN-0000000BeTF-2onm;
+	Fri, 26 Apr 2024 08:29:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0Gk9-0000000Bc83-1eRr;
-	Fri, 26 Apr 2024 08:15:42 +0000
+	id 1s0GxH-0000000BePn-3uAG;
+	Fri, 26 Apr 2024 08:29:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 78BC461FFE;
-	Fri, 26 Apr 2024 08:15:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3E2BC4AF07;
-	Fri, 26 Apr 2024 08:15:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D481962002;
+	Fri, 26 Apr 2024 08:29:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3C63C113CD;
+	Fri, 26 Apr 2024 08:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714119338;
-	bh=1yC+gB+RH39a11ZICGlu8ThPKI65Pnf3tzMu4N3kPwg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=a8BJ/5SucEzuTdrZqKCG21lvJi6LtydPBKHQyO2DEukgWJy5HlA/UJSlxqazfk/43
-	 U6am5yWh6X1UqC5Q6dcn4wxluaIrZyify2W50hZ2XOf7vEwsvqufhDZcSR2eC9KLXe
-	 959zTu6qscNiUWLet+jJaLJ9b9OFKhs5F9pmGt5OVz8OVPr3j+gfcEQF9uYlJLQeSs
-	 CG7a2XjGU5p8751sD7i0M5uxo993BU3sqOcaVePnrqvXXn7EPKXL+uRUmvUu9kJoE3
-	 M5MpXo+WR/+VyaBwYNvw3/+o7+qQSvjx9hrAAvq4l0/U8Yr+CMjvQtd5/NkC7SpPj8
-	 IbauGQRZVS/PQ==
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-a55b10bfd30so125162966b.0;
-        Fri, 26 Apr 2024 01:15:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWyrumHkBg0N3YrkG+2tJbovUQBvN0NNa4vhe9QTfimj5lD/ALSTsWDyi8eB/kZGQJbomOdNR2VgxAvUrHalBSfpIqZDUK/6xdqoWfjWQz9C+WtqU2NG9kU1v3OHwZp4XaKthWKaPzSv056fg2Qpm6FvPvIgk8=
-X-Gm-Message-State: AOJu0YxAYQGD7cByNg+lny0TwT8mQ7Q+eVcUiezUG2DMDIG4RMPsYS9G
-	2afiL41aK0CNzefnHw5iiQaEXoaFWWBxrE4v09kyJu2Zno9HGvo46NqCAcNTS/68MAq6fQxTKPD
-	hvkWeZiRu2JrGvMfrARR3tQp3aDs=
-X-Google-Smtp-Source: AGHT+IFdWL+1rtvTdjZLYM58Wr/hUAPW6s+thTjch0dqfysVmrhP+T23KFGnV1/pBKaELJeFZArRbXJifhaQCJxXF9c=
-X-Received: by 2002:a50:99c7:0:b0:572:3f41:25aa with SMTP id
- n7-20020a5099c7000000b005723f4125aamr1644329edb.11.1714119337224; Fri, 26 Apr
- 2024 01:15:37 -0700 (PDT)
+	s=k20201202; t=1714120154;
+	bh=bpZVCNetPyptINEqz5nCWQcjIsogDuW2407VcgZHC0c=;
+	h=From:To:Cc:Subject:Date:From;
+	b=E44X2qyG2/tPBg7Ns9Pp27d8abTSd1/BDDwbCkeKJulUGHMsAqYEyRfC00z/x1rO7
+	 ZszG8GLXnQglIBQi8IQPPErabm6P7tCA8JwBkwZ/vfEdJz4OfetUOK19ZVQQ0nRst4
+	 vsjqQYS7pTankosz1dx1cr4jw7+3m7NeWFkmE2+xg5Q1f7VrQkzc98C7yOqJPulfLj
+	 OhFc7a4ZN72ewP9WixTiswpoW6Y899OMog1ge1uCePlSgcdMjUvYaR/bKGpJHiya6f
+	 o2EyJZGZ2FmGFIOqdlQ+J7zo101axix3gfHH3nWnh8JWL7BYuRgIz2Ok/p8N6Bj4Rs
+	 YAReSasOmax1Q==
+From: Mike Rapoport <rppt@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Rapoport <rppt@kernel.org>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH v6 00/16] mm: jit/text allocator
+Date: Fri, 26 Apr 2024 11:28:38 +0300
+Message-ID: <20240426082854.7355-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20240420-dev-charlie-support_thead_vector_6_9-v3-0-67cff4271d1d@rivosinc.com>
- <20240420-dev-charlie-support_thead_vector_6_9-v3-1-67cff4271d1d@rivosinc.com>
-In-Reply-To: <20240420-dev-charlie-support_thead_vector_6_9-v3-1-67cff4271d1d@rivosinc.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 26 Apr 2024 16:15:25 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTeGBuL4S3cKV87w-TJTa+ZmOaPiT=+uor-PzL9jYTWAg@mail.gmail.com>
-Message-ID: <CAJF2gTTeGBuL4S3cKV87w-TJTa+ZmOaPiT=+uor-PzL9jYTWAg@mail.gmail.com>
-Subject: Re: [PATCH v3 01/17] riscv: cpufeature: Fix thead vector hwcap removal
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Evan Green <evan@rivosinc.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Palmer Dabbelt <palmer@rivosinc.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240426_011541_540749_EA9EF9B3 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20240426_012916_277662_888C2173 
+X-CRM114-Status: GOOD (  24.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,107 +106,214 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBBcHIgMjEsIDIwMjQgYXQgOTowNOKAr0FNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxp
-ZUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gVGhlIHJpc2N2X2NwdWluZm8gc3RydWN0IHRoYXQg
-Y29udGFpbnMgbXZlbmRvcmlkIGFuZCBtYXJjaGlkIGlzIG5vdAo+IHBvcHVsYXRlZCB1bnRpbCBh
-bGwgaGFydHMgYXJlIGJvb3RlZCB3aGljaCBoYXBwZW5zIGFmdGVyIHRoZSBEVCBwYXJzaW5nLgo+
-IFVzZSB0aGUgdmVuZG9yaWQvYXJjaGlkIHZhbHVlcyBmcm9tIHRoZSBEVCBpZiBhdmFpbGFibGUg
-b3IgYXNzdW1lIGFsbAo+IGhhcnRzIGhhdmUgdGhlIHNhbWUgdmFsdWVzIGFzIHRoZSBib290IGhh
-cnQgYXMgYSBmYWxsYmFjay4KPgo+IEZpeGVzOiBkODJmMzIyMDJlMGQgKCJSSVNDLVY6IElnbm9y
-ZSBWIGZyb20gdGhlIHJpc2N2LGlzYSBEVCBwcm9wZXJ0eSBvbiBvbGRlciBULUhlYWQgQ1BVcyIp
-Cj4gU2lnbmVkLW9mZi1ieTogQ2hhcmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4K
-PiBSZXZpZXdlZC1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4K
-PiAtLS0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaCAgIHwgIDIgKysKPiAgYXJjaC9y
-aXNjdi9rZXJuZWwvY3B1LmMgICAgICAgIHwgNDAgKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrLS0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgfCAxMiArKysr
-KysrKysrLS0KPiAgMyBmaWxlcyBjaGFuZ2VkLCA0OCBpbnNlcnRpb25zKCspLCA2IGRlbGV0aW9u
-cygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmggYi9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oCj4gaW5kZXggNmU2OGY4ZGZmNzZiLi4wZmFiNTA4YTY1
-YjMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaAo+ICsrKyBiL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgKPiBAQCAtMzcwLDYgKzM3MCw4IEBAIHN0YXRpYyBp
-bmxpbmUgaW50IHNiaV9yZW1vdGVfZmVuY2VfaShjb25zdCBzdHJ1Y3QgY3B1bWFzayAqY3B1X21h
-c2spIHsgcmV0dXJuIC0xCj4gIHN0YXRpYyBpbmxpbmUgdm9pZCBzYmlfaW5pdCh2b2lkKSB7fQo+
-ICAjZW5kaWYgLyogQ09ORklHX1JJU0NWX1NCSSAqLwo+Cj4gK3Vuc2lnbmVkIGxvbmcgcmlzY3Zf
-Z2V0X212ZW5kb3JpZCh2b2lkKTsKPiArdW5zaWduZWQgbG9uZyByaXNjdl9nZXRfbWFyY2hpZCh2
-b2lkKTsKPiAgdW5zaWduZWQgbG9uZyByaXNjdl9jYWNoZWRfbXZlbmRvcmlkKHVuc2lnbmVkIGlu
-dCBjcHVfaWQpOwo+ICB1bnNpZ25lZCBsb25nIHJpc2N2X2NhY2hlZF9tYXJjaGlkKHVuc2lnbmVk
-IGludCBjcHVfaWQpOwo+ICB1bnNpZ25lZCBsb25nIHJpc2N2X2NhY2hlZF9taW1waWQodW5zaWdu
-ZWQgaW50IGNwdV9pZCk7Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdS5jIGIv
-YXJjaC9yaXNjdi9rZXJuZWwvY3B1LmMKPiBpbmRleCBkMTFkNjMyMGZiMGQuLmMxZjM2NTUyMzhm
-ZCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHUuYwo+ICsrKyBiL2FyY2gvcmlz
-Y3Yva2VybmVsL2NwdS5jCj4gQEAgLTEzOSw2ICsxMzksMzQgQEAgaW50IHJpc2N2X29mX3BhcmVu
-dF9oYXJ0aWQoc3RydWN0IGRldmljZV9ub2RlICpub2RlLCB1bnNpZ25lZCBsb25nICpoYXJ0aWQp
-Cj4gICAgICAgICByZXR1cm4gLTE7Cj4gIH0KPgo+ICt1bnNpZ25lZCBsb25nIF9faW5pdCByaXNj
-dl9nZXRfbWFyY2hpZCh2b2lkKQo+ICt7Cj4gKyAgICAgICBzdHJ1Y3QgcmlzY3ZfY3B1aW5mbyAq
-Y2kgPSB0aGlzX2NwdV9wdHIoJnJpc2N2X2NwdWluZm8pOwo+ICsKPiArI2lmIElTX0VOQUJMRUQo
-Q09ORklHX1JJU0NWX1NCSSkKPiArICAgICAgIGNpLT5tYXJjaGlkID0gc2JpX3NwZWNfaXNfMF8x
-KCkgPyAwIDogc2JpX2dldF9tYXJjaGlkKCk7Cj4gKyNlbGlmIElTX0VOQUJMRUQoQ09ORklHX1JJ
-U0NWX01fTU9ERSkKPiArICAgICAgIGNpLT5tYXJjaGlkID0gY3NyX3JlYWQoQ1NSX01BUkNISUQp
-Owo+ICsjZWxzZQo+ICsgICAgICAgY2ktPm1hcmNoaWQgPSAwOwo+ICsjZW5kaWYKPiArICAgICAg
-IHJldHVybiBjaS0+bWFyY2hpZDsKPiArfQo+ICsKPiArdW5zaWduZWQgbG9uZyBfX2luaXQgcmlz
-Y3ZfZ2V0X212ZW5kb3JpZCh2b2lkKQo+ICt7Cj4gKyAgICAgICBzdHJ1Y3QgcmlzY3ZfY3B1aW5m
-byAqY2kgPSB0aGlzX2NwdV9wdHIoJnJpc2N2X2NwdWluZm8pOwo+ICsKPiArI2lmIElTX0VOQUJM
-RUQoQ09ORklHX1JJU0NWX1NCSSkKPiArICAgICAgIGNpLT5tdmVuZG9yaWQgPSBzYmlfc3BlY19p
-c18wXzEoKSA/IDAgOiBzYmlfZ2V0X212ZW5kb3JpZCgpOwo+ICsjZWxpZiBJU19FTkFCTEVEKENP
-TkZJR19SSVNDVl9NX01PREUpCj4gKyAgICAgICBjaS0+bXZlbmRvcmlkID0gY3NyX3JlYWQoQ1NS
-X01WRU5ET1JJRCk7Cj4gKyNlbHNlCj4gKyAgICAgICBjaS0+bXZlbmRvcmlkID0gMDsKPiArI2Vu
-ZGlmCj4gKyAgICAgICByZXR1cm4gY2ktPm12ZW5kb3JpZDsKPiArfQo+ICsKPiAgREVGSU5FX1BF
-Ul9DUFUoc3RydWN0IHJpc2N2X2NwdWluZm8sIHJpc2N2X2NwdWluZm8pOwo+Cj4gIHVuc2lnbmVk
-IGxvbmcgcmlzY3ZfY2FjaGVkX212ZW5kb3JpZCh1bnNpZ25lZCBpbnQgY3B1X2lkKQo+IEBAIC0x
-NzAsMTIgKzE5OCwxNiBAQCBzdGF0aWMgaW50IHJpc2N2X2NwdWluZm9fc3RhcnRpbmcodW5zaWdu
-ZWQgaW50IGNwdSkKPiAgICAgICAgIHN0cnVjdCByaXNjdl9jcHVpbmZvICpjaSA9IHRoaXNfY3B1
-X3B0cigmcmlzY3ZfY3B1aW5mbyk7Cj4KPiAgI2lmIElTX0VOQUJMRUQoQ09ORklHX1JJU0NWX1NC
-SSkKPiAtICAgICAgIGNpLT5tdmVuZG9yaWQgPSBzYmlfc3BlY19pc18wXzEoKSA/IDAgOiBzYmlf
-Z2V0X212ZW5kb3JpZCgpOwo+IC0gICAgICAgY2ktPm1hcmNoaWQgPSBzYmlfc3BlY19pc18wXzEo
-KSA/IDAgOiBzYmlfZ2V0X21hcmNoaWQoKTsKPiArICAgICAgIGlmICghY2ktPm12ZW5kb3JpZCkK
-PiArICAgICAgICAgICAgICAgY2ktPm12ZW5kb3JpZCA9IHNiaV9zcGVjX2lzXzBfMSgpID8gMCA6
-IHNiaV9nZXRfbXZlbmRvcmlkKCk7Cj4gKyAgICAgICBpZiAoIWNpLT5tYXJjaGlkKQo+ICsgICAg
-ICAgICAgICAgICBjaS0+bWFyY2hpZCA9IHNiaV9zcGVjX2lzXzBfMSgpID8gMCA6IHNiaV9nZXRf
-bWFyY2hpZCgpOwo+ICAgICAgICAgY2ktPm1pbXBpZCA9IHNiaV9zcGVjX2lzXzBfMSgpID8gMCA6
-IHNiaV9nZXRfbWltcGlkKCk7Cj4gICNlbGlmIElTX0VOQUJMRUQoQ09ORklHX1JJU0NWX01fTU9E
-RSkKPiAtICAgICAgIGNpLT5tdmVuZG9yaWQgPSBjc3JfcmVhZChDU1JfTVZFTkRPUklEKTsKPiAt
-ICAgICAgIGNpLT5tYXJjaGlkID0gY3NyX3JlYWQoQ1NSX01BUkNISUQpOwo+ICsgICAgICAgaWYg
-KCFjaS0+bXZlbmRvcmlkKQo+ICsgICAgICAgICAgICAgICBjaS0+bXZlbmRvcmlkID0gY3NyX3Jl
-YWQoQ1NSX01WRU5ET1JJRCk7Cj4gKyAgICAgICBpZiAoIWNpLT5tYXJjaGlkKQo+ICsgICAgICAg
-ICAgICAgICBjaS0+bWFyY2hpZCA9IGNzcl9yZWFkKENTUl9NQVJDSElEKTsKPiAgICAgICAgIGNp
-LT5taW1waWQgPSBjc3JfcmVhZChDU1JfTUlNUElEKTsKPiAgI2Vsc2UKPiAgICAgICAgIGNpLT5t
-dmVuZG9yaWQgPSAwOwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJl
-LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiBpbmRleCAzZWQyMzU5ZWFlMzUu
-LmM2ZTI3YjQ1ZTE5MiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJl
-LmMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiBAQCAtNDkwLDYgKzQ5
-MCw4IEBAIHN0YXRpYyB2b2lkIF9faW5pdCByaXNjdl9maWxsX2h3Y2FwX2Zyb21faXNhX3N0cmlu
-Zyh1bnNpZ25lZCBsb25nICppc2EyaHdjYXApCj4gICAgICAgICBzdHJ1Y3QgYWNwaV90YWJsZV9o
-ZWFkZXIgKnJoY3Q7Cj4gICAgICAgICBhY3BpX3N0YXR1cyBzdGF0dXM7Cj4gICAgICAgICB1bnNp
-Z25lZCBpbnQgY3B1Owo+ICsgICAgICAgdTY0IGJvb3RfdmVuZG9yaWQ7Cj4gKyAgICAgICB1NjQg
-Ym9vdF9hcmNoaWQ7Cj4KPiAgICAgICAgIGlmICghYWNwaV9kaXNhYmxlZCkgewo+ICAgICAgICAg
-ICAgICAgICBzdGF0dXMgPSBhY3BpX2dldF90YWJsZShBQ1BJX1NJR19SSENULCAwLCAmcmhjdCk7
-Cj4gQEAgLTQ5Nyw2ICs0OTksMTMgQEAgc3RhdGljIHZvaWQgX19pbml0IHJpc2N2X2ZpbGxfaHdj
-YXBfZnJvbV9pc2Ffc3RyaW5nKHVuc2lnbmVkIGxvbmcgKmlzYTJod2NhcCkKPiAgICAgICAgICAg
-ICAgICAgICAgICAgICByZXR1cm47Cj4gICAgICAgICB9Cj4KPiArICAgICAgIC8qCj4gKyAgICAg
-ICAgKiBOYWl2ZWx5IGFzc3VtZSB0aGF0IGFsbCBoYXJ0cyBoYXZlIHRoZSBzYW1lIG12ZW5kb3Jp
-ZC9tYXJjaGlkIGFzIHRoZQo+ICsgICAgICAgICogYm9vdCBoYXJ0Lgo+ICsgICAgICAgICovCj4g
-KyAgICAgICBib290X3ZlbmRvcmlkID0gcmlzY3ZfZ2V0X212ZW5kb3JpZCgpOwo+ICsgICAgICAg
-Ym9vdF9hcmNoaWQgPSByaXNjdl9nZXRfbWFyY2hpZCgpOwo+ICsKPiAgICAgICAgIGZvcl9lYWNo
-X3Bvc3NpYmxlX2NwdShjcHUpIHsKPiAgICAgICAgICAgICAgICAgc3RydWN0IHJpc2N2X2lzYWlu
-Zm8gKmlzYWluZm8gPSAmaGFydF9pc2FbY3B1XTsKPiAgICAgICAgICAgICAgICAgdW5zaWduZWQg
-bG9uZyB0aGlzX2h3Y2FwID0gMDsKPiBAQCAtNTQ0LDggKzU1Myw3IEBAIHN0YXRpYyB2b2lkIF9f
-aW5pdCByaXNjdl9maWxsX2h3Y2FwX2Zyb21faXNhX3N0cmluZyh1bnNpZ25lZCBsb25nICppc2Ey
-aHdjYXApCj4gICAgICAgICAgICAgICAgICAqIENQVSBjb3JlcyB3aXRoIHRoZSByYXRpZmllZCBz
-cGVjIHdpbGwgY29udGFpbiBub24temVybwo+ICAgICAgICAgICAgICAgICAgKiBtYXJjaGlkLgo+
-ICAgICAgICAgICAgICAgICAgKi8KPiAtICAgICAgICAgICAgICAgaWYgKGFjcGlfZGlzYWJsZWQg
-JiYgcmlzY3ZfY2FjaGVkX212ZW5kb3JpZChjcHUpID09IFRIRUFEX1ZFTkRPUl9JRCAmJgo+IC0g
-ICAgICAgICAgICAgICAgICAgcmlzY3ZfY2FjaGVkX21hcmNoaWQoY3B1KSA9PSAweDApIHsKPiAr
-ICAgICAgICAgICAgICAgaWYgKGFjcGlfZGlzYWJsZWQgJiYgYm9vdF92ZW5kb3JpZCA9PSBUSEVB
-RF9WRU5ET1JfSUQgJiYgYm9vdF9hcmNoaWQgPT0gMHgwKSB7CkxHVE0hClJldmlld2VkLWJ5OiBH
-dW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KCj4gICAgICAgICAgICAgICAgICAgICAgICAgdGhp
-c19od2NhcCAmPSB+aXNhMmh3Y2FwW1JJU0NWX0lTQV9FWFRfdl07Cj4gICAgICAgICAgICAgICAg
-ICAgICAgICAgY2xlYXJfYml0KFJJU0NWX0lTQV9FWFRfdiwgaXNhaW5mby0+aXNhKTsKPiAgICAg
-ICAgICAgICAgICAgfQo+Cj4gLS0KPiAyLjQ0LjAKPgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBS
-ZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+
+Hi,
+
+The patches are also available in git:
+https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git/log/?h=execmem/v6
+
+v6 changes:
+* restore patch "arm64: extend execmem_info for generated code
+  allocations" that disappeared in v5 rebase
+* update execmem initialization so that by default it will be
+  initialized early while late initialization will be an opt-in
+
+v5: https://lore.kernel.org/all/20240422094436.3625171-1-rppt@kernel.org
+* rebase on v6.9-rc4 to avoid a conflict in kprobes
+* add copyrights to mm/execmem.c (Luis)
+* fix spelling (Ingo)
+* define MODULES_VADDDR for sparc (Sam)
+* consistently initialize struct execmem_info (Peter)
+* reduce #ifdefs in function bodies in kprobes (Masami) 
+
+v4: https://lore.kernel.org/all/20240411160051.2093261-1-rppt@kernel.org
+* rebase on v6.9-rc2
+* rename execmem_params to execmem_info and execmem_arch_params() to
+  execmem_arch_setup()
+* use single execmem_alloc() API instead of execmem_{text,data}_alloc() (Song)
+* avoid extra copy of execmem parameters (Rick)
+* run execmem_init() as core_initcall() except for the architectures that
+  may allocated text really early (currently only x86) (Will)
+* add acks for some of arm64 and riscv changes, thanks Will and Alexandre
+* new commits:
+  - drop call to kasan_alloc_module_shadow() on arm64 because it's not
+    needed anymore
+  - rename MODULE_START to MODULES_VADDR on MIPS
+  - use CONFIG_EXECMEM instead of CONFIG_MODULES on powerpc as per Christophe:
+    https://lore.kernel.org/all/79062fa3-3402-47b3-8920-9231ad05e964@csgroup.eu/
+
+v3: https://lore.kernel.org/all/20230918072955.2507221-1-rppt@kernel.org
+* add type parameter to execmem allocation APIs
+* remove BPF dependency on modules
+
+v2: https://lore.kernel.org/all/20230616085038.4121892-1-rppt@kernel.org
+* Separate "module" and "others" allocations with execmem_text_alloc()
+and jit_text_alloc()
+* Drop ROX entailment on x86
+* Add ack for nios2 changes, thanks Dinh Nguyen
+
+v1: https://lore.kernel.org/all/20230601101257.530867-1-rppt@kernel.org
+
+= Cover letter from v1 (sligtly updated) =
+
+module_alloc() is used everywhere as a mean to allocate memory for code.
+
+Beside being semantically wrong, this unnecessarily ties all subsystmes
+that need to allocate code, such as ftrace, kprobes and BPF to modules and
+puts the burden of code allocation to the modules code.
+
+Several architectures override module_alloc() because of various
+constraints where the executable memory can be located and this causes
+additional obstacles for improvements of code allocation.
+
+A centralized infrastructure for code allocation allows allocations of
+executable memory as ROX, and future optimizations such as caching large
+pages for better iTLB performance and providing sub-page allocations for
+users that only need small jit code snippets.
+
+Rick Edgecombe proposed perm_alloc extension to vmalloc [1] and Song Liu
+proposed execmem_alloc [2], but both these approaches were targeting BPF
+allocations and lacked the ground work to abstract executable allocations
+and split them from the modules core.
+
+Thomas Gleixner suggested to express module allocation restrictions and
+requirements as struct mod_alloc_type_params [3] that would define ranges,
+protections and other parameters for different types of allocations used by
+modules and following that suggestion Song separated allocations of
+different types in modules (commit ac3b43283923 ("module: replace
+module_layout with module_memory")) and posted "Type aware module
+allocator" set [4].
+
+I liked the idea of parametrising code allocation requirements as a
+structure, but I believe the original proposal and Song's module allocator
+was too module centric, so I came up with these patches.
+
+This set splits code allocation from modules by introducing execmem_alloc()
+and and execmem_free(), APIs, replaces call sites of module_alloc() and
+module_memfree() with the new APIs and implements core text and related
+allocations in a central place.
+
+Instead of architecture specific overrides for module_alloc(), the
+architectures that require non-default behaviour for text allocation must
+fill execmem_info structure and implement execmem_arch_setup() that returns
+a pointer to that structure. If an architecture does not implement
+execmem_arch_setup(), the defaults compatible with the current
+modules::module_alloc() are used.
+
+Since architectures define different restrictions on placement,
+permissions, alignment and other parameters for memory that can be used by
+different subsystems that allocate executable memory, execmem APIs
+take a type argument, that will be used to identify the calling subsystem
+and to allow architectures to define parameters for ranges suitable for that
+subsystem.
+
+The new infrastructure allows decoupling of BPF, kprobes and ftrace from
+modules, and most importantly it paves the way for ROX allocations for
+executable memory.
+
+[1] https://lore.kernel.org/lkml/20201120202426.18009-1-rick.p.edgecombe@intel.com/
+[2] https://lore.kernel.org/all/20221107223921.3451913-1-song@kernel.org/
+[3] https://lore.kernel.org/all/87v8mndy3y.ffs@tglx/
+[4] https://lore.kernel.org/all/20230526051529.3387103-1-song@kernel.org
+
+
+Mike Rapoport (IBM) (16):
+  arm64: module: remove unneeded call to kasan_alloc_module_shadow()
+  mips: module: rename MODULE_START to MODULES_VADDR
+  nios2: define virtual address space for modules
+  sparc: simplify module_alloc()
+  module: make module_memory_{alloc,free} more self-contained
+  mm: introduce execmem_alloc() and execmem_free()
+  mm/execmem, arch: convert simple overrides of module_alloc to execmem
+  mm/execmem, arch: convert remaining overrides of module_alloc to
+    execmem
+  riscv: extend execmem_params for generated code allocations
+  arm64: extend execmem_info for generated code allocations
+  powerpc: extend execmem_params for kprobes allocations
+  arch: make execmem setup available regardless of CONFIG_MODULES
+  x86/ftrace: enable dynamic ftrace without CONFIG_MODULES
+  powerpc: use CONFIG_EXECMEM instead of CONFIG_MODULES where
+    appropriate
+  kprobes: remove dependency on CONFIG_MODULES
+  bpf: remove CONFIG_BPF_JIT dependency on CONFIG_MODULES of
+
+ arch/Kconfig                         |  10 +-
+ arch/arm/kernel/module.c             |  34 -------
+ arch/arm/mm/init.c                   |  45 +++++++++
+ arch/arm64/Kconfig                   |   1 +
+ arch/arm64/kernel/module.c           | 126 -----------------------
+ arch/arm64/kernel/probes/kprobes.c   |   7 --
+ arch/arm64/mm/init.c                 | 140 ++++++++++++++++++++++++++
+ arch/arm64/net/bpf_jit_comp.c        |  11 --
+ arch/loongarch/kernel/module.c       |   6 --
+ arch/loongarch/mm/init.c             |  21 ++++
+ arch/mips/include/asm/pgtable-64.h   |   4 +-
+ arch/mips/kernel/module.c            |  10 --
+ arch/mips/mm/fault.c                 |   4 +-
+ arch/mips/mm/init.c                  |  23 +++++
+ arch/nios2/include/asm/pgtable.h     |   5 +-
+ arch/nios2/kernel/module.c           |  20 ----
+ arch/nios2/mm/init.c                 |  21 ++++
+ arch/parisc/kernel/module.c          |  12 ---
+ arch/parisc/mm/init.c                |  23 ++++-
+ arch/powerpc/Kconfig                 |   2 +-
+ arch/powerpc/include/asm/kasan.h     |   2 +-
+ arch/powerpc/kernel/head_8xx.S       |   4 +-
+ arch/powerpc/kernel/head_book3s_32.S |   6 +-
+ arch/powerpc/kernel/kprobes.c        |  22 +---
+ arch/powerpc/kernel/module.c         |  38 -------
+ arch/powerpc/lib/code-patching.c     |   2 +-
+ arch/powerpc/mm/book3s32/mmu.c       |   2 +-
+ arch/powerpc/mm/mem.c                |  64 ++++++++++++
+ arch/riscv/kernel/module.c           |  12 ---
+ arch/riscv/kernel/probes/kprobes.c   |  10 --
+ arch/riscv/mm/init.c                 |  45 +++++++++
+ arch/riscv/net/bpf_jit_core.c        |  13 ---
+ arch/s390/kernel/ftrace.c            |   4 +-
+ arch/s390/kernel/kprobes.c           |   4 +-
+ arch/s390/kernel/module.c            |  42 +-------
+ arch/s390/mm/init.c                  |  30 ++++++
+ arch/sparc/include/asm/pgtable_32.h  |   2 +
+ arch/sparc/kernel/module.c           |  30 ------
+ arch/sparc/mm/Makefile               |   2 +
+ arch/sparc/mm/execmem.c              |  21 ++++
+ arch/sparc/net/bpf_jit_comp_32.c     |   8 +-
+ arch/x86/Kconfig                     |   1 +
+ arch/x86/kernel/ftrace.c             |  16 +--
+ arch/x86/kernel/kprobes/core.c       |   4 +-
+ arch/x86/kernel/module.c             |  51 ----------
+ arch/x86/mm/init.c                   |  29 ++++++
+ include/linux/execmem.h              | 132 ++++++++++++++++++++++++
+ include/linux/module.h               |   9 ++
+ include/linux/moduleloader.h         |  15 ---
+ kernel/bpf/Kconfig                   |   2 +-
+ kernel/bpf/core.c                    |   6 +-
+ kernel/kprobes.c                     |  63 +++++++-----
+ kernel/module/Kconfig                |   1 +
+ kernel/module/main.c                 | 105 +++++++++----------
+ kernel/trace/trace_kprobe.c          |  20 +++-
+ mm/Kconfig                           |   3 +
+ mm/Makefile                          |   1 +
+ mm/execmem.c                         | 144 +++++++++++++++++++++++++++
+ mm/mm_init.c                         |   2 +
+ 59 files changed, 911 insertions(+), 581 deletions(-)
+ create mode 100644 arch/sparc/mm/execmem.c
+ create mode 100644 include/linux/execmem.h
+ create mode 100644 mm/execmem.c
+
+
+base-commit: 0bbac3facb5d6cc0171c45c9873a2dc96bea9680
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
