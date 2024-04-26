@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238E8C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 14:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C02B8C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2024 15:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1CA1qmmZRxqeY1XWL2DqGoWyYouevJyRgfE1/5yDzOg=; b=3g62o/LEc+/uZjybd+Czes1W2E
-	FD7M+dvYHDGaxfJ0ne0MNGv2AB8eAuP4c5I2ZBhl47VDwXdq/WZpGEjtxdQuBV7wmLgk/g4culVDH
-	MC+ZKKpH4PPUf1nvsgHtPXNpStdNTCCrh6u3rhRZV3PrsXSVCChpvaZ54AVaZsA1G68ZRhaxR3qH8
-	utkGCDuwPjWsPzoQu+b343UI1Ox0UdOipt6sQ/QiceNTfAodaFpiIILpPWrtOJ8KR1vsmo0o+7Z53
-	fbSkJtwkUEtS5k0GmyOOR3EXrfswWeoIv0fwsWd3QQbivB8+e/cqQpVm/JubDZhab82+YayN/RUHg
-	0DXieJsw==;
+	bh=E8GxUXfOWbaX5Y9cqdWeIEEgRRF/CpqMBz+f9nFZYIA=; b=PO12fzshA22F+D39oePkD28G88
+	1pW5+AnFyvf87CMtNt4uWPGJIOsr8ojxpPauDWLf244jsha5Ec7+LlHS1DN/1dQG3mmOFnF5Puz5W
+	AiM+IrgHOx9O2lKsYtXjkK0DtGoWxnSj8QZfzfLD4BFUQgu9iBzEw0/NwAMzDDYag+NeIUMQKVJH3
+	TX0s60ooDAwAfarymFEoiJQSk39JTVNoZQrpQo6cugxvC6nKvsaDjvkD9Tyidy1rw6R5K1r48hYTK
+	MdjwgsDqimWPyXKX0uG3B+wbeREsML5yPKtoxyHzgcAdblBVcWWr29L7ZhtSXDf/qAlwlICLTfKU/
+	ciNQRP/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0MmQ-0000000CsnC-2Zpi;
-	Fri, 26 Apr 2024 14:42:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1s0NKu-0000000CzhS-1Jcl;
+	Fri, 26 Apr 2024 15:18:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0MmN-0000000Csmi-1XuA
-	for linux-riscv@lists.infradead.org;
-	Fri, 26 Apr 2024 14:42:25 +0000
+	id 1s0NKp-0000000Czg8-2wZk;
+	Fri, 26 Apr 2024 15:18:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 79A8362091;
-	Fri, 26 Apr 2024 14:42:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E445CC113CD;
-	Fri, 26 Apr 2024 14:42:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0800D6202A;
+	Fri, 26 Apr 2024 15:17:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41F55C113CD;
+	Fri, 26 Apr 2024 15:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714142542;
-	bh=2taC0FbVINV/Pfa20kvrVfsK3Rx9kry5R3sfqmV0PUs=;
+	s=k20201202; t=1714144678;
+	bh=+/fENaK5cFg3kscakPUFAoJIJiT0bv1e6mPEpyZqBr4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mCbWI8A+jISuOv0mZ+DcLmk+vP3iNpg4+yWdV4NfEKb9/8K0swgIHUKW6NMaNGlym
-	 /Z9/cMghRk/r+yS58kPcjq7HfIYDE7jSIkCRKZGBKiMmttlf27eHOoVUUwTUCK0HBh
-	 OXpWajgdBA39Q2xiv7XnV1B5yxGTouLZG9mdwgyuIl+DtAas+pKe9n9pLJ0oJKIoJf
-	 0BajOXAcx4WEk2NhL0j5A3w7AkIIKFgIcqLyoqMOjbcQ7ydkljQsNYJ4O3BgGQLnUi
-	 DlSCrCTHd7lR4Jig1SrbtawkJB+VtSYSNnYMZs+nWFHsGBf3jMFK02OfOShnYBPa7A
-	 k0KgVahADwIvg==
-Date: Fri, 26 Apr 2024 15:42:16 +0100
+	b=I8EO8pjGnbGSXuuL1OtXwdhfm6ZO1hYNJiCIWrOD5+TidBHDEMBP2H0XXK6sAx1Gh
+	 WRzI/hZ/FmVRPe+Wkqh/qUndVxQzUVqVpFJoqgLl8wcBGuIDpLpR3eby3yVgqBIFyM
+	 kW0vR+6LUOdFfT1y7Gkf4pCcLS7IU3WoiNzYs7YI12ZnvE7+EyNhL1szux/vBuPkuP
+	 JAU3Di1GeehfGa6RK3a/MEoOkxTSzZ26u5+DN9ywvyA8fPJ5gjQ/mFK0ItEa/toO6w
+	 EgMH3tl6aH9y931UT5HWsC9po8EpwU0UPR8QdZzH/XrnEq+5ufni1qcQzAfzDSXyFc
+	 8Ml/rFYdMuJ+Q==
+Date: Fri, 26 Apr 2024 16:17:52 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>, andi.shyti@kernel.org,
-	jszhang@kernel.org, miquel.raynal@bootlin.com,
-	linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org,
-	thomas.petazzoni@bootlin.com, guoren@kernel.org, wefu@redhat.com,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	aou@eecs.berkeley.edu, krzk+dt@kernel.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com
-Subject: Re: [PATCH 0/4] Add I2C support on TH1520
-Message-ID: <20240426-patchy-grievance-e7103a344c82@spud>
-References: <20240425082138.374445-1-thomas.bonnefille@bootlin.com>
- <171405653346.2527762.16827325392956038580.robh@kernel.org>
- <20240425-script-fondness-0e80bfa31615@spud>
- <3eb27570-4a53-47f6-8e36-e25fc1063124@bootlin.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Evan Green <evan@rivosinc.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v3 04/17] riscv: vector: Use vlenb from DT
+Message-ID: <20240426-unfocused-amount-e4e74e66962f@spud>
+References: <20240420-dev-charlie-support_thead_vector_6_9-v3-0-67cff4271d1d@rivosinc.com>
+ <20240420-dev-charlie-support_thead_vector_6_9-v3-4-67cff4271d1d@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <3eb27570-4a53-47f6-8e36-e25fc1063124@bootlin.com>
+In-Reply-To: <20240420-dev-charlie-support_thead_vector_6_9-v3-4-67cff4271d1d@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240426_074223_666665_B7F8E1B8 
-X-CRM114-Status: GOOD (  36.06  )
+X-CRM114-CacheID: sfid-20240426_081759_855159_502171AD 
+X-CRM114-Status: GOOD (  25.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,146 +80,165 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5460815092202811992=="
+Content-Type: multipart/mixed; boundary="===============3096799538175813532=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5460815092202811992==
+--===============3096799538175813532==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Jc7O/HQugX9deMnA"
+	protocol="application/pgp-signature"; boundary="/f82oMmmh2jh87go"
 Content-Disposition: inline
 
 
---Jc7O/HQugX9deMnA
+--/f82oMmmh2jh87go
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Apr 26, 2024 at 04:12:00PM +0200, Thomas Bonnefille wrote:
+On Sat, Apr 20, 2024 at 06:04:36PM -0700, Charlie Jenkins wrote:
+> If vlenb is provided in the device tree, prefer that over reading the
+> vlenb csr.
 >=20
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/cpufeature.h |  2 ++
+>  arch/riscv/kernel/cpufeature.c      | 26 ++++++++++++++++++++++++++
+>  arch/riscv/kernel/vector.c          | 13 +++++++++----
+>  3 files changed, 37 insertions(+), 4 deletions(-)
 >=20
-> On 4/25/24 6:35 PM, Conor Dooley wrote:
-> > On Thu, Apr 25, 2024 at 09:51:26AM -0500, Rob Herring wrote:
-> > >=20
-> > > On Thu, 25 Apr 2024 10:21:31 +0200, Thomas Bonnefille wrote:
-> > > > This adds I2C support in the device tree of the T-Head TH1520 RISCV=
--SoC
-> > > > and a default configuration for the BeagleV-Ahead. It appears that =
-the
-> > > > TH1520 I2C is already supported in the upstream kernel through the
-> > > > Synopsis Designware I2C adapter driver.
-> > > > As there is no clock driver for this board as of today, this patch
-> > > > series uses a fixed-clock named i2c_ic_clk.
-> > > > There is also no pinctrl driver yet so pinmux must be handled manua=
-lly
-> > > > for now.
-> > > > It also fixes the order of the nodes in the device tree to comply w=
-ith
-> > > > device-tree coding-style.
-> > > >=20
-> > > > Thomas Bonnefille (4):
-> > > >    dt-bindings: i2c: dw: Document compatible thead,th1520-i2c
-> > > >    riscv: boot: dts: thead: Fix node ordering in TH1520 device tree
-> > > >    riscv: dts: thead: Add TH1520 I2C nodes
-> > > >    riscv: dts: thead: Enable I2C on the BeagleV-Ahead
-> > > >=20
-> > > >   .../bindings/i2c/snps,designware-i2c.yaml     |  12 ++
-> > > >   .../boot/dts/thead/th1520-beaglev-ahead.dts   |  22 ++++
-> > > >   arch/riscv/boot/dts/thead/th1520.dtsi         | 120 +++++++++++++=
-+----
-> > > >   3 files changed, 127 insertions(+), 27 deletions(-)
-> > > >=20
-> > > > --
-> > > > 2.44.0
-> > > >=20
-> > > >=20
-> > > >=20
-> > >=20
-> > >=20
-> > > My bot found new DTB warnings on the .dts files added or changed in t=
-his
-> > > series.
-> > >=20
-> > > Some warnings may be from an existing SoC .dtsi. Or perhaps the warni=
-ngs
-> > > are fixed by another series. Ultimately, it is up to the platform
-> > > maintainer whether these warnings are acceptable or not. No need to r=
-eply
-> > > unless the platform maintainer has comments.
-> > >=20
-> > > If you already ran DT checks and didn't see these error(s), then
-> > > make sure dt-schema is up to date:
-> > >=20
-> > >    pip3 install dtschema --upgrade
-> > >=20
-> > >=20
-> > > New warnings running 'make CHECK_DTBS=3Dy thead/th1520-beaglev-ahead.=
-dtb' for 20240425082138.374445-1-thomas.bonnefille@bootlin.com:
-> > >=20
-> > > arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dtb: i2c-clock: clock-=
-frequency:0:0: 50000000 is greater than the maximum of 5000000
-> >=20
-> > The bot is not freaking out here, 50 MHz is indeed more than 5 MHz :)
->=20
-> 5MHz is the maximum clock-frequency, ie. the I2C bus frequency.
-> This is actually set to 100kHz for I2C0 in the DT:
->=20
-> &i2c0 {
->     status =3D "okay";
->     clock-frequency =3D <100000>; <----
-> ...
-> };
->=20
-> 50MHz is the "fixed-clock" frequency, that is the clock feeding the I2C
-> IP block:
->=20
-> i2c_ic_clk: i2c-clock {
->     compatible =3D "fixed-clock";
->     clock-frequency =3D <50000000>; <-----
->     #clock-cells =3D <0>;
-> };
->=20
-> My guess is that the bot confused the clock-frequency parameter for the b=
-us
-> clock (SCL) with the i2c-ic-clock value for the controller itself during =
-the
-> checks.
->=20
-> Do you agree with this or am I misunderstanding the error ?
->=20
-> If I lower the fixed-clock frequency to eg. 100kHz, the error is gone. Bu=
-t I
-> guess the 5MHz limit should probably not apply to the input clock?
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
+/cpufeature.h
+> index 347805446151..809f61ffb667 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -31,6 +31,8 @@ DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+>  /* Per-cpu ISA extensions. */
+>  extern struct riscv_isainfo hart_isa[NR_CPUS];
+> =20
+> +extern u32 riscv_vlenb_dt[NR_CPUS];
+> +
+>  void riscv_user_isa_enable(void);
+> =20
+>  #if defined(CONFIG_RISCV_MISALIGNED)
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index c6e27b45e192..48874aac4871 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -35,6 +35,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __r=
+ead_mostly;
+>  /* Per-cpu ISA extensions. */
+>  struct riscv_isainfo hart_isa[NR_CPUS];
+> =20
+> +u32 riscv_vlenb_dt[NR_CPUS];
+> +
+>  /**
+>   * riscv_isa_extension_base() - Get base extension word
+>   *
+> @@ -656,6 +658,28 @@ static int __init riscv_isa_fallback_setup(char *__u=
+nused)
+>  early_param("riscv_isa_fallback", riscv_isa_fallback_setup);
+>  #endif
+> =20
+> +static void riscv_set_vlenb_from_dt(void)
 
-Heh, I know why that's happening - it's your node name.
-The pattern for i2c controllers is "^i2c(@.*)?":
-https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/i2c/=
-i2c-controller.yaml
+I'd expect to see a name here that had "of" in it, not "dt".
 
-Rob co-incidentally (or maybe not) put out a patch for fixed-frequency
-clock names, suggesting using clock as a prefix:
-https://lore.kernel.org/all/20240425183810.3079069-1-robh@kernel.org/
-If we switched to that format, I believe your problem goes away.
+> +{
+> +	int cpu;
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		struct device_node *cpu_node;
+> +
+> +		cpu_node =3D of_cpu_device_node_get(cpu);
+> +		if (!cpu_node) {
+> +			pr_warn("Unable to find cpu node\n");
+> +			continue;
+> +		}
+> +
+> +		if (!of_property_read_u32(cpu_node, "riscv,vlenb", &riscv_vlenb_dt[cpu=
+])) {
+> +			of_node_put(cpu_node);
+> +			continue;
+> +		}
+> +
+> +		of_node_put(cpu_node);
+> +	}
+> +}
+> +
+>  void __init riscv_fill_hwcap(void)
+>  {
+>  	char print_str[NUM_ALPHA_EXTS + 1];
+> @@ -675,6 +699,8 @@ void __init riscv_fill_hwcap(void)
+>  	} else {
+>  		int ret =3D riscv_fill_hwcap_from_ext_list(isa2hwcap);
+> =20
+> +		riscv_set_vlenb_from_dt();
+
+Hmm, I think we can go a step further here. We know all of the CPUs
+widths by the time we get to the first call to riscv_v_setup_vsize(), can
+we examine the whole list and decide not to enable vector if they do
+not match, rather than continuing and failing to online CPUs that having
+the mismatched size?
+
+I guess that can go into the `if (elf_hwcap & COMPAT_HWCAP_ISA_V)`
+condition we already have, and would require clearing the bit from the
+mask we have at the moment.
 
 Cheers,
 Conor.
 
---Jc7O/HQugX9deMnA
+> +
+>  		if (ret && riscv_isa_fallback) {
+>  			pr_info("Falling back to deprecated \"riscv,isa\"\n");
+>  			riscv_fill_hwcap_from_isa_string(isa2hwcap);
+> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+> index 6727d1d3b8f2..fb7f3ca80d9e 100644
+> --- a/arch/riscv/kernel/vector.c
+> +++ b/arch/riscv/kernel/vector.c
+> @@ -32,11 +32,16 @@ EXPORT_SYMBOL_GPL(riscv_v_vsize);
+>  int riscv_v_setup_vsize(void)
+>  {
+>  	unsigned long this_vsize;
+> +	int cpu =3D smp_processor_id();
+> =20
+> -	/* There are 32 vector registers with vlenb length. */
+> -	riscv_v_enable();
+> -	this_vsize =3D csr_read(CSR_VLENB) * 32;
+> -	riscv_v_disable();
+> +	if (riscv_vlenb_dt[cpu]) {
+> +		this_vsize =3D riscv_vlenb_dt[cpu];
+
+> +	} else {
+> +		/* There are 32 vector registers with vlenb length. */
+> +		riscv_v_enable();
+> +		this_vsize =3D csr_read(CSR_VLENB) * 32;
+> +		riscv_v_disable();
+> +	}
+> =20
+>  	if (!riscv_v_vsize) {
+>  		riscv_v_vsize =3D this_vsize;
+>=20
+> --=20
+> 2.44.0
+>=20
+
+--/f82oMmmh2jh87go
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZiu9SAAKCRB4tDGHoIJi
-0nLnAQCECEfc78RXxXpCNNDudKkhw+shCzwB7WRgYXqgv327zgEA0OHduv5XJhqr
-P/HzRFwkJyBZfvmgYqKH2EPtxsIfmwA=
-=GWVt
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZivFoAAKCRB4tDGHoIJi
+0lF6AP0ehEsfxARMlCxOz5UMGtGRXyOJbr5gWiVUL5P1faiZAQD+NLZW+R2Tboo5
+nIrNrSxgWYbJVCV/sCH9Gny0THVwGg0=
+=jRyL
 -----END PGP SIGNATURE-----
 
---Jc7O/HQugX9deMnA--
+--/f82oMmmh2jh87go--
 
 
---===============5460815092202811992==
+--===============3096799538175813532==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -224,5 +249,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5460815092202811992==--
+--===============3096799538175813532==--
 
