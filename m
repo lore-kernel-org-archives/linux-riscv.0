@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E34C4345F
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Apr 2024 00:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D1A1C19F53
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Apr 2024 00:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3/4fjKaO0uYRy6b40l8v24NK8UVAV579fPtwpe2zpCQ=; b=qOgJhYQT/voNWW
-	+JU5i8Qnd11xo2eOLzG0/Fv9bmF0xpfSWRY0CEyTHQtkp+25XOv6ehk98u7sU7x42ldwnnwG33CpZ
-	yiRmYSrsV4QJEApzlO54em9bXrTcyMZueEd6uTBxzEX8rOr/pf8iZJrxFu9zWHnuODEVhjErRNWNA
-	kbFTnNK6nmfA2VF/HHiL2zUi4Tv3Py2Eek/auJwDfd7c+O+CET0+aesNUXpi+yvxYPbpBLD5yrlfA
-	3WDyqLjulZ5mYyG8le1ZMTxTwCIMdr+mnk/hH7B539tqmKVJGub4HvMKEmtiwsYf69TU9I85H2d70
-	1JZDfUjfqewu5GC3WfXQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bSgyVeIEbcDvsYYSFARhZi3MUj3l/8ASTqnMGuY8sRU=; b=hHGfsY/TXhcbAm
+	jncoJWXR7V9loogs2lFdYzJaOdm4vvInTgNS7veApGt7mYBBFImO+EauUK3DTv9cu7ZvdmZxe7hci
+	6Q0naY2xk5sIi84LSrxFQFhmtah7eyXEMzLb4w8MQQ2wM9vb0Y8PLlH6ooGrkuRHgD7/A8siWhTHS
+	mm8Djg+6+SdvlutwKmTNxKn4pJBE3ZnTQ3KEFyWpZMQ5Uc/c/RF3TYs8sMcF/64aUBz78NsDD8pAo
+	cVWGunglzF4QFZhphm5X7TdWWJm36qJJu5sCKoWsuMHJ98puS0eA4oHIdFg/aRyN4NSORROwZwY6a
+	K5U+JMsbnB0JVl+V0YGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0Veg-0000000ERXE-3cMV;
-	Sat, 27 Apr 2024 00:11:02 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1s0Veh-0000000ERXg-2FQz;
+	Sat, 27 Apr 2024 00:11:03 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s0Ved-0000000ERVd-1hxV
+	id 1s0Ved-0000000ERVc-1hbY
 	for linux-riscv@lists.infradead.org;
 	Sat, 27 Apr 2024 00:11:01 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-6f043f9e6d7so2854494b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Apr 2024 17:10:57 -0700 (PDT)
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6f30f69a958so2435724b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Apr 2024 17:10:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=tenstorrent.com; s=google; t=1714176656; x=1714781456; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hrlLXZWpuiMESLDTJ+xPjDizCDXOjxRIPese3PIiRKI=;
-        b=TZ8u1vvYAJBebezx07McaHmR08LlrmrOWvcGRRzt7e1EDnKnMfAAOenYLOt8dwhpwd
-         vwua8b/idFgBV3NAxmdp94KFEBP824CCBBT3GFeTxoN1WvRMnCNmGbI0KH0dDS2BHvhC
-         ZNpj/HxNqLxoO56pEWCDem2I5oCnive/9cKW6juTH76p/1viwFmLq9EoUw7P2JVIxzNp
-         oDhMv2PgCB2v5Yrh2ehLDWCHTvWLr+xM/FYP+uZ1RoXRBV3PWAdqgENeeB48BfhDZkJU
-         nGMTP2tgRfHto7YZclBIUY4phXrqkz6tE9+WcbRrUNnIyZpSjkGe7jXTp2A678iYtRRU
-         /gYQ==
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0X+wom0kXrBkkWPdMk9ez0NtFShVE5HcObxG7YQSUEM=;
+        b=O2fXrMqVilVl2VJY/DNjwF1cCbDdVChUKbp/CEQ58+Efoy01PAkc73gAlBVqB2aQvu
+         qf2HiLZXRlSXvZjam7i4/g8qTP/GnIWy0UL1AI+Nvvf7qHUjzFHkQBXLUWmaQXUIuOv4
+         onNNp38K4IgtYOymymum1DobgMvrPIjMFSGEKlbeOY60bXo4voEpt4wLnkmGciwdJrJ7
+         WJQ1BwyEyItnQpE6aClPN7EaFvDRPOSOapLSdDqTEDmyIlGLbhlcoKMlmvmiV2WNxgml
+         lnQ0tIoGpKvps1jEgrikGftpiBjTbzb0QuYLS8ZjTojAnKwY7YdooRdzzlM0H5fqx3kn
+         R/oA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1714176656; x=1714781456;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hrlLXZWpuiMESLDTJ+xPjDizCDXOjxRIPese3PIiRKI=;
-        b=m5yhoFxk8auQ9NpyRX0urLSGlJ+7C4fzxlWk0hfn7GVTegJSV8SmJWm9NWl8C9dliZ
-         kOY/Vlc6o0omov6yiz1fP1cHXeJD3T7a0GO2ltRmZCizcGVvtjrd/IzQdcnUGLrJI4eR
-         0V2GFnEd7FPZVhIqna4SquNjh2oFPavVEGJMJZKXZglDc1iJYdCm/5A7v2xTjkJWzjBL
-         WrDUSgLNtXbtCB+NIL5XK4POyylr6RtTYkv4HZUlD3sk1Th+39recNbnxg1Wm7ibe/Nj
-         iEcOjeL8t8DzehgeXcD1//lc41NksYgeiaq/JSe7hbImw06/TKVGGgM8YGz3HLoPWBtp
-         LL0g==
-X-Gm-Message-State: AOJu0Yym2JbWoCOxe6Fxl3CtkMDVKQeyAw+FGYSOwAtN1k9IUAQM4xy1
-	0BHsEvod0h4fhaJtah6nm0+ag1lVdauGNo02DDN1NhHi0X6wyQX1U2qZuMHoP0M=
-X-Google-Smtp-Source: AGHT+IG4wumPhODLqSYj/1OQ3+tavjARweTZgxxYtKaCTo8UfjzaeyAZVKJnT0PLnRQ0o9FND8xXBQ==
-X-Received: by 2002:a05:6a20:5505:b0:1a3:bfce:ec9e with SMTP id ko5-20020a056a20550500b001a3bfceec9emr4300497pzb.18.1714176656588;
-        Fri, 26 Apr 2024 17:10:56 -0700 (PDT)
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0X+wom0kXrBkkWPdMk9ez0NtFShVE5HcObxG7YQSUEM=;
+        b=j7a/kFy/5l6N1UzIzZ7ietP3R+c6R/yZ19GYwWm8ZuFCzB+CmdnAkYcyWFKew8tNSR
+         AVg3k3E1C9rMbi6biEhU/AaWG9RM2tdh2vla+LRCoizd5cI9F/44FplTKKuxy7KMxl8i
+         exzUb8ZKTJo27czxNY+fDg4yTXG7hnnNNl4yT4LI/5uDpMe1XeAn4c377ePBNVypJRnO
+         IBudOj29zJIFHRldPthQNnfRmqzykjhfl6dzuacorQSfI1sFvX6O8oqV5+KVvI/i3GMc
+         ODgCIGbduYOoFmpd2QUt4q30w+vSGUdj0sDKATPfgfJqx7kn45va0yRckhlbzyuc+ndc
+         ynIQ==
+X-Gm-Message-State: AOJu0YwHSZz/UDvmDirFYZYUOagzLyVx/HHShUpDnS9vobAUCWQ3pdRe
+	vqz1IHWAHnHZbfQw79k5IqIVMC0kMz8rjwKVZEWfaoG+14SzoTS3XM0J96r6iew=
+X-Google-Smtp-Source: AGHT+IEjEz8x5csAstQe+EBoqyrLMV5so95s3NngLWP1s+99Pa2FDBg9Mqljlc51ovwGOiHviBdhsg==
+X-Received: by 2002:a05:6a20:d80a:b0:1ad:22bd:d6d8 with SMTP id iv10-20020a056a20d80a00b001ad22bdd6d8mr6019864pzb.4.1714176655738;
+        Fri, 26 Apr 2024 17:10:55 -0700 (PDT)
 Received: from [127.0.1.1] ([2601:1c2:1802:170:3569:7ce4:94b8:1691])
-        by smtp.gmail.com with ESMTPSA id w1-20020a6556c1000000b005f3d54c0a57sm6061883pgs.49.2024.04.26.17.10.55
+        by smtp.gmail.com with ESMTPSA id w1-20020a6556c1000000b005f3d54c0a57sm6061883pgs.49.2024.04.26.17.10.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Apr 2024 17:10:56 -0700 (PDT)
+        Fri, 26 Apr 2024 17:10:55 -0700 (PDT)
 From: Drew Fustini <dfustini@tenstorrent.com>
-Date: Fri, 26 Apr 2024 17:10:34 -0700
-Subject: [PATCH RFC v2 1/4] dt-bindings: clock: Document T-Head TH1520
- AP_SUBSYS controller
+Subject: [PATCH RFC v2 0/4] clk: thead: Add support for TH1520 AP_SUBSYS
+ clock controller
+Date: Fri, 26 Apr 2024 17:10:33 -0700
+Message-Id: <20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com>
 MIME-Version: 1.0
-Message-Id: <20240426-th1520-clk-v2-v2-1-96b829e6fcee@tenstorrent.com>
-References: <20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com>
-In-Reply-To: <20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com>
+X-B4-Tracking: v=1; b=H4sIAHlCLGYC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDIxMDEyMz3ZIMQ1MjA93knGzdMiNdQ2OTpLRky6SUlCRDJaCegqLUtMwKsHn
+ RSkFuzkqxtbUA48+/pmQAAAA=
 To: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
  Fu Wei <wefu@redhat.com>, Yangtao Li <frank.li@vivo.com>, 
  Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
@@ -83,16 +83,16 @@ To: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
 Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1714176654; l=5695;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1714176654; l=3100;
  i=dfustini@tenstorrent.com; s=20230430; h=from:subject:message-id;
- bh=sMOxHU5KMFZs4iNqEZa826xHNb+O2YxTHVtzCtgnVzE=;
- b=yvQQ3If1wAxIon7Fk0UROAd49XxIxfJCQ1waX2ubKqW+XZg2OJGEHSUO0CK7CZVaWTYdk77zD
- KqBVDOt7pUhDdW/UHKYTS2TimfCRaDsO5xworU7nT8iGulWCpyWS+ze
+ bh=1J4s5WkWi0yLsfAU04plHcZTJmipLje1WXfb8fgGcxc=;
+ b=16J/aGmQTihk3ouk4xY9w2E0cZ7vJ10E2613HxJBuwgVbWNSdlKeA297VRG2X2bxYYqhOPTFB
+ RTLq0s2TI/CAKc6fCIJa2p7mV/aGGNK+RMCY6OK3Lv3pbwdj8KTczZC
 X-Developer-Key: i=dfustini@tenstorrent.com; a=ed25519;
  pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240426_171059_609736_43E7A599 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20240426_171059_629174_45704C1D 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,208 +109,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document bindings for the T-Head TH1520 AP sub-system clock controller.
+This series adds support for the AP sub-system clock controller in the
+T-Head TH1520 [1]. Yangtao Li originally submitted this series in May
+2023 [2]. Jisheng made additional improvements and then passed on the
+work in progress to me.
 
-Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-Co-developed-by: Yangtao Li <frank.li@vivo.com>
-Signed-off-by: Yangtao Li <frank.li@vivo.com>
-Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
+Changes I made from the original series:
+ - corrected the npu_clk enable bit
+ - deduplicated CLK_NPU and CLK_NPU_AXI number in header
+ - fixed c910_i0_clk reg typo
+ - fixed checkpatch and dt_binding_check warnings 
+ - rebased on v6.9-rc5
+ - revised commit descriptions
+
+Changes since my RFC v1 [4]:
+ - squash the header file patch into the DT schema patch
+ - describe the changes I made to original series in the cover letter
+   instead of the individual patches
+ - fix my typo in my email address
+
+TODO:
+I am again marking this as an RFC because there is feedback from v1 that
+I have not yet addressed. I am posting what I currently have as other
+patch series like the TH1520 I2C driver [4] could use the clk driver.
+
+Emil commented that the input predivider is not handled correctly in
+ccu_mdiv_recalc_rate(). The PLL multiplies the input frequency and
+outputs "Foutvco". This is followed by a post divider to produce
+"Foutpostdiv". However, some clocks derive directly from the "Foutvco"
+Emil suggested this should really be modeled as two different clocks.
+
+Emil aslo suggested that the rest of the clocks in this driver seem to
+be generic gate and mux implementations that should probably be replaced
+with devm_clk_hw_register_gate*() and devm_clk_hw_register_mux*().
+
+I'll look to address the above issues in the next revision.
+
+Thank you,
+Drew
+
+[1] https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
+[2] https://lore.kernel.org/linux-riscv/20230515054402.27633-1-frank.li@vivo.com/
+[3] https://lore.kernel.org/lkml/20240110-clk-th1520-v1-0-8b0682567984@tenstorrent.com/
+[4] https://lore.kernel.org/linux-riscv/20240425082138.374445-1-thomas.bonnefille@bootlin.com/
+
 ---
- .../bindings/clock/thead,th1520-clk-ap.yaml        | 65 +++++++++++++++
- MAINTAINERS                                        |  2 +
- include/dt-bindings/clock/thead,th1520-clk-ap.h    | 96 ++++++++++++++++++++++
- 3 files changed, 163 insertions(+)
+Drew Fustini (4):
+      dt-bindings: clock: Document T-Head TH1520 AP_SUBSYS controller
+      clk: thead: Add support for T-Head TH1520 AP_SUBSYS clocks
+      riscv: dts: thead: Add TH1520 AP_SUBSYS clock controller
+      riscv: dts: thead: Add clock to TH1520 mmc controllers
 
-diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-new file mode 100644
-index 000000000000..611edc90f7b3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-@@ -0,0 +1,65 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/thead,th1520-clk-ap.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: T-HEAD TH1520 AP sub-system clock controller
-+
-+description: |
-+  The T-HEAD TH1520 AP sub-system clock controller configures the
-+  CPU, DPU, GMAC and TEE PLLs.
-+
-+  SoC reference manual
-+  https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-+
-+maintainers:
-+  - Jisheng Zhang <jszhang@kernel.org>
-+  - Wei Fu <wefu@redhat.com>
-+  - Drew Fustini <dfustini@tenstorrent.com>
-+
-+properties:
-+  compatible:
-+    const: thead,th1520-clk-ap
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: main oscillator (24MHz)
-+
-+  clock-names:
-+    items:
-+      - const: osc
-+
-+  "#clock-cells":
-+    const: 1
-+    description:
-+      See <dt-bindings/clock/thead,th1520-clk-ap.h> for valid indices.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - "#clock-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-+    soc {
-+
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      clk: clock-controller@ffef010000 {
-+        compatible = "thead,th1520-clk-ap";
-+        reg = <0xff 0xef010000 0x0 0x1000>;
-+        clocks = <&osc>;
-+        clock-names = "osc";
-+        #clock-cells = <1>;
-+      };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ebf03f5f0619..51d550cb1329 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19023,7 +19023,9 @@ M:	Guo Ren <guoren@kernel.org>
- M:	Fu Wei <wefu@redhat.com>
- L:	linux-riscv@lists.infradead.org
- S:	Maintained
-+F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
- F:	arch/riscv/boot/dts/thead/
-+F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
- 
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
-diff --git a/include/dt-bindings/clock/thead,th1520-clk-ap.h b/include/dt-bindings/clock/thead,th1520-clk-ap.h
-new file mode 100644
-index 000000000000..d0d1ab1e672a
---- /dev/null
-+++ b/include/dt-bindings/clock/thead,th1520-clk-ap.h
-@@ -0,0 +1,96 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) 2023 Vivo Communication Technology Co. Ltd.
-+ * Authors: Yangtao Li <frank.li@vivo.com>
-+ */
-+
-+#ifndef _DT_BINDINGS_CLK_TH1520_H_
-+#define _DT_BINDINGS_CLK_TH1520_H_
-+
-+#define CLK_CPU_PLL0		0
-+#define CLK_CPU_PLL1		1
-+#define CLK_GMAC_PLL		2
-+#define CLK_VIDEO_PLL		3
-+#define CLK_DPU0_PLL		4
-+#define CLK_DPU1_PLL		5
-+#define CLK_TEE_PLL		6
-+#define CLK_C910_I0		7
-+#define CLK_C910		8
-+#define CLK_BROM		9
-+#define CLK_BMU			10
-+#define CLK_AHB2_CPUSYS_HCLK	11
-+#define CLK_APB3_CPUSYS_PCLK	12
-+#define CLK_AXI4_CPUSYS2_ACLK	13
-+#define CLK_AON2CPU_A2X		14
-+#define CLK_X2X_CPUSYS		15
-+#define CLK_AXI_ACLK		16
-+#define CLK_CPU2AON_X2H		17
-+#define CLK_PERI_AHB_HCLK	18
-+#define CLK_CPU2PERI_X2H	19
-+#define CLK_PERI_APB_PCLK	20
-+#define CLK_PERI2APB_PCLK	21
-+#define CLK_PERI_APB1_HCLK	22
-+#define CLK_PERI_APB2_HCLK	23
-+#define CLK_PERI_APB3_HCLK	24
-+#define CLK_PERI_APB4_HCLK	25
-+#define CLK_OSC12M		26
-+#define CLK_OUT1		27
-+#define CLK_OUT2		28
-+#define CLK_OUT3		29
-+#define CLK_OUT4		30
-+#define CLK_APB_PCLK		31
-+#define CLK_NPU			32
-+#define CLK_NPU_AXI		33
-+#define CLK_VI			34
-+#define CLK_VI_AHB		35
-+#define CLK_VO_AXI		36
-+#define CLK_VP_APB		37
-+#define CLK_VP_AXI		38
-+#define CLK_CPU2VP		39
-+#define CLK_VENC		40
-+#define CLK_DPU0		41
-+#define CLK_DPU1		42
-+#define CLK_EMMC_SDIO		43
-+#define CLK_GMAC1		44
-+#define CLK_PADCTRL1		45
-+#define CLK_DSMART		46
-+#define CLK_PADCTRL0		47
-+#define CLK_GMAC_AXI		48
-+#define CLK_GPIO3		49
-+#define CLK_GMAC0		50
-+#define CLK_PWM			51
-+#define CLK_QSPI0		52
-+#define CLK_QSPI1		53
-+#define CLK_SPI			54
-+#define CLK_UART0_PCLK		55
-+#define CLK_UART1_PCLK		56
-+#define CLK_UART2_PCLK		57
-+#define CLK_UART3_PCLK		58
-+#define CLK_UART4_PCLK		59
-+#define CLK_UART5_PCLK		60
-+#define CLK_GPIO0		61
-+#define CLK_GPIO1		62
-+#define CLK_GPIO2		63
-+#define CLK_I2C0		64
-+#define CLK_I2C1		65
-+#define CLK_I2C2		66
-+#define CLK_I2C3		67
-+#define CLK_I2C4		68
-+#define CLK_I2C5		69
-+#define CLK_SPINLOCK		70
-+#define CLK_DMA			71
-+#define CLK_MBOX0		72
-+#define CLK_MBOX1		73
-+#define CLK_MBOX2		74
-+#define CLK_MBOX3		75
-+#define CLK_WDT0		76
-+#define CLK_WDT1		77
-+#define CLK_TIMER0		78
-+#define CLK_TIMER1		79
-+#define CLK_SRAM0		80
-+#define CLK_SRAM1		81
-+#define CLK_SRAM2		82
-+#define CLK_SRAM3		83
-+#define CLK_PLL_GMAC_100M	84
-+#define CLK_UART_SCLK		85
-+#endif
+ .../bindings/clock/thead,th1520-clk-ap.yaml        |   65 ++
+ MAINTAINERS                                        |    3 +
+ arch/riscv/boot/dts/thead/th1520.dtsi              |   15 +-
+ drivers/clk/Kconfig                                |    1 +
+ drivers/clk/Makefile                               |    1 +
+ drivers/clk/thead/Kconfig                          |   12 +
+ drivers/clk/thead/Makefile                         |    2 +
+ drivers/clk/thead/clk-th1520-ap.c                  | 1018 ++++++++++++++++++++
+ include/dt-bindings/clock/thead,th1520-clk-ap.h    |   96 ++
+ 9 files changed, 1210 insertions(+), 3 deletions(-)
+---
+base-commit: 14396a29c3cfbd42b4ea5cd0a528264831524062
+change-id: 20240426-th1520-clk-v2-134bfc9bddb1
 
+Best regards,
 -- 
-2.34.1
+Drew Fustini <dfustini@tenstorrent.com>
 
 
 _______________________________________________
