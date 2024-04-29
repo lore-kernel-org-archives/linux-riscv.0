@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D493FC25B4F
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 10:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1D8C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 10:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=18IoqiqiybiQXXc1uyMerxG+GPN7hIhAZwi+N77Put0=; b=ZVChqK9PzIHfMy
-	ArcAp0mr9wpZxBgjRm+pyqCk6gAay2RDA+Sn6vXUI/bsMNOh+3G5Y47Yy9gB6Tvd4VD5RE8lin95T
-	0hA6PoZ8TxIFKTUGgu/uPPpaII2A0HYUkohKyOwAaq9RX3V4W1EIXvMkD/vngw0BOCSQIzf9w1AZL
-	3yKLADsq8nOyerw1Q3NoEm2UXffGiuFPCvE85EEl5Py5iZhMBqagus9qFIRKdCc8RV/rDOLXf1f5t
-	IxF9Hr3YX78fl0GcD1bID+7t6kqtpwqwkDcuZguoW/06zKO3NZke/R9/NMmHKXYDl0KyIJNagodst
-	RlLeNKCbXWzkOxe5Aobg==;
+	List-Owner; bh=PD03XTeFqw8+9rFLNzbCRBiZMQrutg6CjFbhYuNaiOE=; b=c9EIiVd0hpsw96
+	zdo05R+K8J2vMVb/5/zMVc0GM3wvOrlDy9Ww29B5XozaQ5xzzjWAfxdUGdh2JYD4cSDg5KMiHjA6K
+	rnDZA5SS1xQwpMXOmYxN5Ir8UR2txpFN3I5jx1o2jOt8MB95ZlsB7CJF4vlfmL8fB3V4fwKV/pCfK
+	mAKXkwBnE95CuTWpMXw8nkuSIie1ITgYmjnUFk3i9v1kdRtDIcTIOOvUtqdmcjSnAckQZARW0mPyc
+	EhaXRv1SXw3ai9d2t5SiswBaj3yWDD5dN+pDi53F/fNKoeYvlnTCJJ+9FILWhHl2MAoItr33ObZWF
+	nyGKZErm+ieHMgAmR+SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1ONB-00000002IiW-3V6V;
-	Mon, 29 Apr 2024 10:36:37 +0000
-Received: from out187-22.us.a.mail.aliyun.com ([47.90.187.22])
+	id 1s1OcH-00000002MQ7-3uYO;
+	Mon, 29 Apr 2024 10:52:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1OMl-00000002INf-1OaM
+	id 1s1OcE-00000002MO3-2Piy
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Apr 2024 10:36:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=antgroup.com; s=default;
-	t=1714386961; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=Zpq+IlpQptIiF+1qadAYLdyILX4yq5vgiQqk5YenteU=;
-	b=JYXejhfZPXRD0CEEjA5KkFdk2RT/wbex+Lc9SxxWOCkDurLvBqF7x4OwdI2GGQfN/54+6NYZJI8LGBk+F72vT7HUS/pm+RSWuGn8E7rVlJam3rDmYi7SFHoh1HezxBO4FUHII2thhCd34KAlHau2aFuvO+GyjxGxhbtrc9B7ULs=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018047205;MF=libang.li@antgroup.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---.XOFQRPj_1714386953;
-Received: from localhost(mailfrom:libang.li@antgroup.com fp:SMTPD_---.XOFQRPj_1714386953)
-          by smtp.aliyun-inc.com;
-          Mon, 29 Apr 2024 18:35:54 +0800
-From: "Bang Li" <libang.li@antgroup.com>
-To: akpm@linux-foundation.org,
-	chenhuacai@kernel.org,
-	tsbogend@alpha.franken.de,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	chris@zankel.net,
-	jcmvbkbc@gmail.com
-Cc: <david@redhat.com>,
-   <ryan.roberts@arm.com>,
-   <libang.linux@gmail.com>,
-   <ioworker0@gmail.com>,
-   <linux-kernel@vger.kernel.org>,
-   <linux-mm@kvack.org>,
-   <loongarch@lists.linux.dev>,
-   <linux-mips@vger.kernel.org>,
-   <linux-riscv@lists.infradead.org>,
-  "Bang Li" <libang.li@antgroup.com>
-Subject: [PATCH v1 2/5] mips: Add update_mmu_tlb_range()
-Date: Mon, 29 Apr 2024 18:33:43 +0800
-Message-Id: <20240429103346.59115-3-libang.li@antgroup.com>
-X-Mailer: git-send-email 2.19.1.6.gb485710b
-In-Reply-To: <20240429103346.59115-1-libang.li@antgroup.com>
-References: <20240429103346.59115-1-libang.li@antgroup.com>
+	Mon, 29 Apr 2024 10:52:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 747E860B98;
+	Mon, 29 Apr 2024 10:52:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B786FC113CD;
+	Mon, 29 Apr 2024 10:52:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1714387929;
+	bh=TplSGSvyRT6W63ok8ViJuEHmTniOYHRptY4QwWjj9OE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=0LMHKa8LlxQAVkaE0WvaBYVXdkWOfPuTdDSjbFTBVrTgXi6rKW0Atpsq+87AoMfpQ
+	 N+Wedbu77bd3H8P3KOG5WD0EroKyAJNVEhAo/zckCPSP5zW0L5vQAUhXX4M6qdZJEe
+	 wezow37NnGWwUdTeVk0b0GxHPLQLVRBvzO1psrww=
+Date: Mon, 29 Apr 2024 12:52:06 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
+Cc: stable@vger.kernel.org, Chen Jiahao <chenjiahao16@huawei.com>,
+	Baoquan He <bhe@redhat.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] Revert "riscv: kdump: fix crashkernel reserving problem
+ on RISC-V"
+Message-ID: <2024042944-wriggle-countable-627c@gregkh>
+References: <20240416085647.14376-1-xingmingzheng@iscas.ac.cn>
+ <2024041927-remedial-choking-c548@gregkh>
+ <3d6784be-f6ba-48eb-ae0e-b8a20fe90f58@iscas.ac.cn>
+ <2024041939-isotope-client-3d75@gregkh>
+ <a5493f44-2aac-4005-992b-f2ac90cd1835@iscas.ac.cn>
+ <2024042318-muppet-snippet-617c@gregkh>
+ <5d49f626-a66f-4969-a03f-fcf83e2d2bab@iscas.ac.cn>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <5d49f626-a66f-4969-a03f-fcf83e2d2bab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240429_033611_745168_AEF0246E 
-X-CRM114-Status: UNSURE (   5.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240429_035210_741085_855F712F 
+X-CRM114-Status: GOOD (  33.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +76,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Added update_mmu_tlb_range function, we can batch update tlb of an
-address range.
+On Wed, Apr 24, 2024 at 11:40:16AM +0800, Mingzheng Xing wrote:
+> On 4/23/24 21:12, Greg Kroah-Hartman wrote:
+> > On Fri, Apr 19, 2024 at 10:55:44PM +0800, Mingzheng Xing wrote:
+> >> On 4/19/24 21:58, Greg Kroah-Hartman wrote:
+> >>> On Fri, Apr 19, 2024 at 08:26:07PM +0800, Mingzheng Xing wrote:
+> >>>> On 4/19/24 18:44, Greg Kroah-Hartman wrote:
+> >>>>> On Tue, Apr 16, 2024 at 04:56:47PM +0800, Mingzheng Xing wrote:
+> >>>>>> This reverts commit 1d6cd2146c2b58bc91266db1d5d6a5f9632e14c0 which has been
+> >>>>>> merged into the mainline commit 39365395046f ("riscv: kdump: use generic
+> >>>>>> interface to simplify crashkernel reservation"), but the latter's series of
+> >>>>>> patches are not included in the 6.6 branch.
+> >>>>>>
+> >>>>>> This will result in the loss of Crash kernel data in /proc/iomem, and kdump
+> >>>>>> loading the kernel will also cause an error:
+> >>>>>>
+> >>>>>> ```
+> >>>>>> Memory for crashkernel is not reserved
+> >>>>>> Please reserve memory by passing"crashkernel=Y@X" parameter to kernel
+> >>>>>> Then try to loading kdump kernel
+> >>>>>> ```
+> >>>>>>
+> >>>>>> After revert this patch, verify that it works properly on QEMU riscv.
+> >>>>>>
+> >>>>>> Link: https://lore.kernel.org/linux-riscv/ZSiQRDGLZk7lpakE@MiWiFi-R3L-srv
+> >>>>>> Signed-off-by: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
+> >>>>>> ---
+> >>>>>
+> >>>>> I do not understand, what branch is this for?  Why have you not cc:ed
+> >>>>> any of the original developers here?  Why does Linus's tree not have the
+> >>>>> same problem?  And the first sentence above does not make much sense as
+> >>>>> a 6.6 change is merged into 6.7?
+> >>>>
+> >>>> Sorry, I'll try to explain it more clearly.
+> >>>>
+> >>>> This commit 1d6cd2146c2b ("riscv: kdump: fix crashkernel reserving problem
+> >>>> on RISC-V") should not have existed because this patch has been merged into
+> >>>> another larger patch [1]. Here is that complete series:
+> >>>
+> >>> What "larger patch"?  It is in Linus's tree, so it's not part of
+> >>> something different, right?  I'm confused.
+> >>>
+> >>
+> >> Hi, Greg
+> >>
+> >> The email Cc:ed to author Chen Jiahao was bounced by the system, so maybe
+> >> we can wait for Baoquan He to confirm.
+> >>
+> >> This is indeed a bit confusing. The Fixes: tag in 1d6cd2146c2b58 is a false
+> >> reference. If I understand correctly, this is similar to the following
+> >> scenario:
+> >>
+> >> A Fixes B, B doesn't go into linus mainline. C contains A, C goes into linus
+> >> mainline 6.7, and C has more reconstruction code. but A goes into 6.6, so
+> >> it doesn't make sense for A to be in the mainline, and there's no C in 6.6
+> >> but there's an A, thus resulting in an incomplete code that creates an error.
+> >>
+> >> The link I quoted [1] shows that Baoquan had expressed an opinion on this
+> >> at the time.
+> >>
+> >> Link: https://lore.kernel.org/linux-riscv/ZSiQRDGLZk7lpakE@MiWiFi-R3L-srv [1]
+> > 
+> > I'm sorry, but I still do not understand what I need to do here for a
+> > stable branch.  Do I need to apply something?  Revert something?
+> > Something else?
+> 
+> Hi, Greg
+> 
+> I saw Baoquan's reply in thread[1], thanks Baoquan for confirming.
+> 
+> So I think the right thing to do would be just to REVERT the commit
+> 1d6cd2146c2b ("riscv: kdump: fix crashkernel reserving problem on RISC-V")
+> in the 6.6.y branch, which is exactly the patch I submitted. If I need to
+> make changes to my commit message, feel free to let me know and I'll post
+> the second version.
+> 
+> Link: https://lore.kernel.org/stable/ZihbAYMOI4ylazpt@MiWiFi-R3L-srv [1]
 
-Signed-off-by: Bang Li <libang.li@antgroup.com>
----
- arch/mips/include/asm/pgtable.h | 2 ++
- 1 file changed, 2 insertions(+)
+Can someone just send me a patch series showing EXACTLY what needs to be
+done here, as I am _still_ confused.
 
-diff --git a/arch/mips/include/asm/pgtable.h b/arch/mips/include/asm/pgtable.h
-index e27a4c83c548..0891ad7d43b6 100644
---- a/arch/mips/include/asm/pgtable.h
-+++ b/arch/mips/include/asm/pgtable.h
-@@ -596,6 +596,8 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 
- #define	__HAVE_ARCH_UPDATE_MMU_TLB
- #define update_mmu_tlb	update_mmu_cache
-+#define update_mmu_tlb_range(vma, address, ptep, nr) \
-+	update_mmu_cache_range(NULL, vma, address, ptep, nr)
- 
- static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
- 	unsigned long address, pmd_t *pmdp)
--- 
-2.19.1.6.gb485710b
+thanks,
 
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
