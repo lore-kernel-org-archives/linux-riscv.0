@@ -4,133 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC1BC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 12:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57534C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 13:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	References:In-Reply-To:MIME-Version:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CFnhmv6V/iJ4RsgRVZjZmXmSo0taLTyn/mdUNXq3QrU=; b=GhpXvZEQm56/knQXysMjg82hPq
-	Htd0yKz8Oarxh1pbmcESRXzetBAsNku9nG8Xwdy6fBAQ0N7OZJ1eF5H78NSIqm9+2YcrFNv9gjz0Z
-	UZ4PlX/kJJ6BJ6bQSt9wihznKihoVokhROTbsibdeMn7/gg8yDTy74ZUPn5U7H+tR4mxuNfXGoQZD
-	FCY3TFPcV+HSbtfwNyWzD6psiyhSrHS1WnyY0ENjD3tYoUB7JD9urcXnapcrEMo5tnHh1ERUgpYgY
-	8Cei8ynIvaE5PhOpBpvkyRO5V3/ijwFVCyfXSqFB0KrRHtcBNO+AL5PqyrSPXMYFTuedMgLiWkPfk
-	S0MiJ9YQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=r1c643ZhpIqOOr6B3Z7crf1v9VmX/ez223eyS45HZN0=; b=3emKz+Ki0o69mP
+	1TLkONUoQ0iMWkc06MGNqRBOLC6INhCEGeieHn2kJFcm00ftsYoxnQ1I+8uJFoxh+ycmxAe2uBPK+
+	kRzN8Oyolo4W172GlDPbqokcPP9SmbfvzayL7Lc5J5cJ2IeFXYSXfmTQYFY8KDSkiqh5WuDRzSJ8r
+	/0Rul/nhY4mlCG6nCyCqiJlnkYMKMQD4ZEKry/+rFBAY3Yr0Hq290Mbv2M0gPSQLe6k9TJucIFRaH
+	yv7G4qPLoQR0yg+m6w82boFpdKwN5U8UZJX7R/yAOTBzkTOXxSesqC+2q67POov4dxcwGXrXinx7H
+	uGC/DGrvibIOyZVYW6lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1QV0-00000002nQV-0xyn;
-	Mon, 29 Apr 2024 12:52:50 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1s1Qjm-00000002r0Y-3Bru;
+	Mon, 29 Apr 2024 13:08:06 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1QUv-00000002nLK-31Vz
+	id 1s1Qjj-00000002qyl-0kcW
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Apr 2024 12:52:48 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20240429125237euoutp02be885112706353b82ce95083d2165baf~KwU-ko2zJ0762607626euoutp02i;
-	Mon, 29 Apr 2024 12:52:37 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20240429125237euoutp02be885112706353b82ce95083d2165baf~KwU-ko2zJ0762607626euoutp02i
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1714395157;
-	bh=ZpGozA/g5Y27vWcnYSjq0fcfRyzSKVOELfD+MtTbh50=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=JnYNtv7R+1AVMQdMCh/td2arTQQHZchK14+ZwVfZl/7jRhXyXpXmv+/brD0zwf2di
-	 lrk96ZWi2gks+YXPtIIECNGoyYVGuDe3P0L5VhTJpVnAbg2bi8brVFEt5MQwbBKED8
-	 /+1FHZaUyv0Xn09OGz2yAKfPgX+mltTpRFPDN4KI=
-Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20240429125236eucas1p2259a040fba43cbe4b15166274efe9234~KwU-Ti5Bs0938209382eucas1p2b;
-	Mon, 29 Apr 2024 12:52:36 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges2new.samsung.com (EUCPMTA) with SMTP id 4F.05.09875.4189F266; Mon, 29
-	Apr 2024 13:52:36 +0100 (BST)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20240429125236eucas1p24219f2d332e0267794a2f87dea9f39c4~KwU_4QlXO0725807258eucas1p2b;
-	Mon, 29 Apr 2024 12:52:36 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20240429125236eusmtrp23f0f6bea6cee94b5ea67a2c733ba577b~KwU_2j3nl2188021880eusmtrp2f;
-	Mon, 29 Apr 2024 12:52:36 +0000 (GMT)
-X-AuditID: cbfec7f4-11bff70000002693-14-662f981462ff
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id DF.70.09010.4189F266; Mon, 29
-	Apr 2024 13:52:36 +0100 (BST)
-Received: from CAMSVWEXC02.scsc.local (unknown [106.1.227.72]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20240429125235eusmtip2ee5e6dfc75c147ac32e12e62e05dccc6~KwU_knLdn3170331703eusmtip2B;
-	Mon, 29 Apr 2024 12:52:35 +0000 (GMT)
-Received: from localhost (106.110.32.44) by CAMSVWEXC02.scsc.local
-	(2002:6a01:e348::6a01:e348) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
-	Mon, 29 Apr 2024 13:52:34 +0100
-Date: Mon, 29 Apr 2024 14:52:30 +0200
-From: Joel Granados <j.granados@samsung.com>
-To: Nam Cao <namcao@linutronix.de>
-CC: Mike Rapoport <rppt@kernel.org>, Andreas Dilger <adilger@dilger.ca>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
-	<linux-riscv@lists.infradead.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Andrew Morton <akpm@linux-foundation.org>, "ndesaulniers @ google . com"
-	<ndesaulniers@google.com>, Luis Chamberlain <mcgrof@kernel.org>, Ingo Molnar
-	<mingo@kernel.org>, Christophe Leroy <christophe.leroy@csgroup.eu>, Tejun
-	Heo <tj@kernel.org>, Krister Johansen <kjlx@templeofstupid.com>, Changbin Du
-	<changbin.du@huawei.com>, Arnd Bergmann <arnd@arndb.de>, Geert Uytterhoeven
-	<geert+renesas@glider.be>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>
-Subject: Re: [PATCH] init: fix allocated page overlapping with PTR_ERR
-Message-ID: <20240429125230.s5pbeye24iw5aurz@joelS2.panther.com>
+	Mon, 29 Apr 2024 13:08:05 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1FB5A1C0011;
+	Mon, 29 Apr 2024 13:07:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1714396078;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4T8jHqkc/pwYAZPpY3tPykrSPNntOxfw2cx/+VnKdJ0=;
+	b=hf+P86egTGrP4TwSUuKw8GWmwN5RqIBzVTughWx1y6TAnshMaxooCmjTxsF16Vh4rtLfeF
+	u4+0BhEld4JBBTIwh2QN72iFAiUKif5lsDwI+Z4d5/Lsp8tg/5ygKM73Utgbr9t+Zg9pFM
+	XpRaDQ6oRHkwvHiNvcAEl4TlwhbDjDfHYBBS30iSDlbKdsNCNpcVlF6ot+gcBUpkWxJ7bp
+	ewll399OHCxTyQG1+O9Ni707qUnz+4wP9nWxF90W7RKF5V4ZrwbHiIUB2UDebtZHcrjRbw
+	6kKfL/u8q9LMNPW7tQ7a4elmuHxyfe0FAlVQ7FJwpQhzKiinW7/I5V7K3A3CSg==
+Message-ID: <1b7f9c68-32da-405f-add3-33e542406345@bootlin.com>
+Date: Mon, 29 Apr 2024 15:07:55 +0200
 MIME-Version: 1.0
-In-Reply-To: <20240418102943.180510-1-namcao@linutronix.de>
-X-Originating-IP: [106.110.32.44]
-X-ClientProxiedBy: CAMSVWEXC01.scsc.local (2002:6a01:e347::6a01:e347) To
-	CAMSVWEXC02.scsc.local (2002:6a01:e348::6a01:e348)
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrMJsWRmVeSWpSXmKPExsWy7djPc7oiM/TTDH51alosO/mIyWLO+jVs
-	Fn8nHWO32Pp+FYvF0TeyFncmPWe3mDt7EqPFxh0zmSwu75rDZrHtcwubxY0JTxktVv87xWix
-	d/8eZosPE/4zWRxZv53JYsHGR4wWmzdNZbb4tfwoo4OQx+9fkxg9vt48x+TRsrncY+JZXY8F
-	m0o9Wo68ZfXYtKqTzePduXPsHidm/Gbx2Lyk3mPVkzXMHp83yQXwRHHZpKTmZJalFunbJXBl
-	vFo+g6XgmF5F24te1gbGZRpdjJwcEgImEq8vP2HpYuTiEBJYwSgxsXEvI4TzhVHi06P3rBDO
-	Z0aJa8tamWBa9vxbC9WynFFi/4kH7HBVT7tWMkE4mxkl9k44zgjSwiKgKrGxaQMbiM0moCNx
-	/s0dZhBbREBJ4sDL32wgDcwCS1klGmceAmsQFnCTmLekHWgHBwevgINEw7sAkDCvgKDEyZkg
-	13IC1VdI3OjoZAMpYRaQllj+jwMkzClgLfFn/1pmiEsVJb4uvscCYddKnNpyC+w2CYG5XBL3
-	zn1hg0i4SNz7uwHqNWGJV8e3sEPYMhL/d86HapgM9Oa/D+wQzmpGiWWNX6E6rCVarjxhB7lC
-	QsBR4tnfKgiTT+LGW0GIO/kkJm2bzgwR5pXoaBOCaFSTWH3vDcsERuVZSD6bheSzWQifQYR1
-	JBbs/oQprC2xbOFrZgjbVmLduvcsCxjZVzGKp5YW56anFhvlpZbrFSfmFpfmpesl5+duYgSm
-	3dP/jn/Zwbj81Ue9Q4xMHIyHGFWAmh9tWH2BUYolLz8vVUmEN2OifpoQb0piZVVqUX58UWlO
-	avEhRmkOFiVxXtUU+VQhgfTEktTs1NSC1CKYLBMHp1QDk7c1o+qD7EXxp0RDt/qWbFnfuTTu
-	yl/ZdWanDpdbLU2te+sZeXKF2bWgfav3LN/zzOFKv2TO65NL2ctuep3byzi7zDRc18xe45GL
-	iYm3kTp3DKucvKWK3bz9C58bPpxdGPnc4yV/d+7qpZo2GrvFVts5Xpp2at79Bp1li+/nVf+f
-	ov+jb+qnPwvun/dMzFl56/4Sg5W/4lxlHkStX/ZP6/XKwAnZOXuK/xw2Wr09Z05p131mBm5e
-	nvDOZT9lfxZLKTH2qpzjucAtJZXjddrqpHdeWd3M5/PiIwRjL/DZnHxfNPmu0K51zJ1Mcqeu
-	q2QpXX32LTXRSvz8vJ+XYryqGueZ29uZvptrK5BbL/3cTImlOCPRUIu5qDgRAEnd2aI2BAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrPKsWRmVeSWpSXmKPExsVy+t/xe7oiM/TTDOYeY7NYdvIRk8Wc9WvY
-	LP5OOsZusfX9KhaLo29kLe5Mes5uMXf2JEaLjTtmMllc3jWHzWLb5xY2ixsTnjJarP53itFi
-	7/49zBYfJvxnsjiyfjuTxYKNjxgtNm+aymzxa/lRRgchj9+/JjF6fL15jsmjZXO5x8Szuh4L
-	NpV6tBx5y+qxaVUnm8e7c+fYPU7M+M3isXlJvceqJ2uYPT5vkgvgidKzKcovLUlVyMgvLrFV
-	ija0MNIztLTQMzKx1DM0No+1MjJV0rezSUnNySxLLdK3S9DLODR7PmPBEb2K/vYO1gbGJRpd
-	jJwcEgImEnv+rWXpYuTiEBJYyigxa+NGdoiEjMTGL1dZIWxhiT/Xutggij4ySsw89wPK2cwo
-	ceTGOhaQKhYBVYmNTRvYQGw2AR2J82/uMIPYIgJKEgde/gZrYBZYyirRsfsxI0hCWMBNYt6S
-	dqBmDg5eAQeJhncBIGEhASuJU4vngvXyCghKnJz5BGw+s0CZxNedK9hBypkFpCWW/+MACXMK
-	WEv82b+WGeJQRYmvi++xQNi1Ep//PmOcwCg8C8mkWUgmzUKYBBHWkrjx7yUThrC2xLKFr5kh
-	bFuJdevesyxgZF/FKJJaWpybnltspFecmFtcmpeul5yfu4kRmHq2Hfu5ZQfjylcf9Q4xMnEw
-	HmJUAep8tGH1BUYplrz8vFQlEd6MifppQrwpiZVVqUX58UWlOanFhxhNgYE4kVlKNDkfmBTz
-	SuINzQxMDU3MLA1MLc2MlcR5PQs6EoUE0hNLUrNTUwtSi2D6mDg4pRqYlPMqpTifzDMqNlqZ
-	8LNsZZjdVnfxjG99f9S6WgTUD0TYi0tHf4mZfnPVPdePPZdV12Ys5Ni/dEaefKZbpue9dz7z
-	vj45LqZz4u/X338Ocx20t1s2s92QJeFm5G2GhhNbnOfZb8o6fseV8XfljDXnPMzcK16KGVpI
-	HeU1iFm20i++7ETCg8vZp23Nt/zK1//fWf/j7umd69+75J2K7LXRODflu/arIwxf9ihyzQ9W
-	P5lssSGI+7IFsy37+V7FyJa5oWseOMhU20zdudHj+IcVyWySXjrsMo2mTXzz05f9Ujt578DT
-	QIdJ1vHzF58NPLRl5UNDXpd3kg6lgiL7PG+8j+tIu3w56QaH+PyUa757lViKMxINtZiLihMB
-	R+F7G9IDAAA=
-X-CMS-MailID: 20240429125236eucas1p24219f2d332e0267794a2f87dea9f39c4
-X-Msg-Generator: CA
-X-RootMTR: 20240429125236eucas1p24219f2d332e0267794a2f87dea9f39c4
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20240429125236eucas1p24219f2d332e0267794a2f87dea9f39c4
-References: <20240418102943.180510-1-namcao@linutronix.de>
-	<CGME20240429125236eucas1p24219f2d332e0267794a2f87dea9f39c4@eucas1p2.samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Add I2C support on TH1520
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, andi.shyti@kernel.org, jszhang@kernel.org,
+ miquel.raynal@bootlin.com, linux-riscv@lists.infradead.org,
+ linux-i2c@vger.kernel.org, thomas.petazzoni@bootlin.com, guoren@kernel.org,
+ wefu@redhat.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ aou@eecs.berkeley.edu, krzk+dt@kernel.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com
+References: <20240425082138.374445-1-thomas.bonnefille@bootlin.com>
+ <171405653346.2527762.16827325392956038580.robh@kernel.org>
+ <20240425-script-fondness-0e80bfa31615@spud>
+ <3eb27570-4a53-47f6-8e36-e25fc1063124@bootlin.com>
+ <20240426-patchy-grievance-e7103a344c82@spud>
+Content-Language: en-US
+From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+In-Reply-To: <20240426-patchy-grievance-e7103a344c82@spud>
+X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240429_055246_127001_3C975E77 
-X-CRM114-Status: GOOD (  30.49  )
+X-CRM114-CacheID: sfid-20240429_060803_546766_8D749790 
+X-CRM114-Status: GOOD (  25.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,163 +76,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1308000220279914248=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1308000220279914248==
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="s6e23wdofaldi5z4"
-Content-Disposition: inline
-
---s6e23wdofaldi5z4
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Apr 18, 2024 at 12:29:43PM +0200, Nam Cao wrote:
-> There is nothing preventing kernel memory allocators from allocating a
-> page that overlaps with PTR_ERR(), except for architecture-specific
-> code that setup memblock.
->=20
-> It was discovered that RISCV architecture doesn't setup memblock
-> corectly, leading to a page overlapping with PTR_ERR() being allocated,
-> and subsequently crashing the kernel (link in Close: )
->=20
-> The reported crash has nothing to do with PTR_ERR(): the last page
-> (at address 0xfffff000) being allocated leads to an unexpected
-> arithmetic overflow in ext4; but still, this page shouldn't be
-> allocated in the first place.
->=20
-> Because PTR_ERR() is an architecture-independent thing, we shouldn't
-> ask every single architecture to set this up. There may be other
-> architectures beside RISCV that have the same problem.
->=20
-> Fix this one and for all by reserving the physical memory page that
-> may be mapped to the last virtual memory page as part of low memory.
->=20
-> Unfortunately, this means if there is actual memory at this reserved
-> location, that memory will become inaccessible. However, if this page
-> is not reserved, it can only be accessed as high memory, so this
-> doesn't matter if high memory is not supported. Even if high memory is
-> supported, it is still only one page.
->=20
-> Closes: https://lore.kernel.org/linux-riscv/878r1ibpdn.fsf@all.your.base.=
-are.belong.to.us
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-> Cc: <stable@vger.kernel.org> # all versions
-> ---
->  init/main.c | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/init/main.c b/init/main.c
-> index 881f6230ee59..f8d2793c4641 100644
-> --- a/init/main.c
-> +++ b/init/main.c
-> @@ -900,6 +900,7 @@ void start_kernel(void)
->  	page_address_init();
->  	pr_notice("%s", linux_banner);
->  	early_security_init();
-> +	memblock_reserve(__pa(-PAGE_SIZE), PAGE_SIZE); /* reserve last page for=
- ERR_PTR */
->  	setup_arch(&command_line);
->  	setup_boot_config();
->  	setup_command_line(command_line);
-> --=20
-> 2.39.2
->=20
-
-I received a similar(ish) report recently
-https://lore.kernel.org/oe-kbuild-all/202404211031.J6l2AfJk-lkp@intel.com/
-regarding RISC-V in init/mail.c. Here is the meat of the report in case
-you want to avoid going to the actual link:
-"
-=2E..
-   riscv64-linux-ld: section .data LMA [000000000099b000,0000000001424de7] =
-overlaps section .text LMA [0000000000104040,000000000213c543]
-   riscv64-linux-ld: section .data..percpu LMA [00000000024e2000,0000000002=
-6b46e7] overlaps section .rodata LMA [000000000213c580,000000000292d0dd]
-   riscv64-linux-ld: section .rodata VMA [ffffffff8213c580,ffffffff8292d0dd=
-] overlaps section .data VMA [ffffffff82000000,ffffffff82a89de7]
-   init/main.o: in function `rdinit_setup':
->> init/main.c:613:(.init.text+0x358): relocation truncated to fit: R_RISCV=
-_GPREL_I against symbol `__setup_start' defined in .init.rodata section in =
-=2Etmp_vmlinux.kallsyms1
-   net/ipv4/ipconfig.o: in function `ic_dhcp_init_options':
-   net/ipv4/ipconfig.c:682:(.init.text+0x9b4): relocation truncated to fit:=
- R_RISCV_GPREL_I against `ic_bootp_cookie'
-   net/sunrpc/auth_gss/gss_krb5_mech.o: in function `gss_krb5_prepare_encty=
-pe_priority_list':
->> net/sunrpc/auth_gss/gss_krb5_mech.c:213:(.text.gss_krb5_prepare_enctype_=
-priority_list+0x9c): relocation truncated to fit: R_RISCV_GPREL_I against `=
-gss_krb5_enctypes.0'
-   lib/maple_tree.o: in function `mas_leaf_max_gap':
->> lib/maple_tree.c:1512:(.text.mas_leaf_max_gap+0x2b8): relocation truncat=
-ed to fit: R_RISCV_GPREL_I against `mt_pivots'
-   lib/maple_tree.o: in function `ma_dead_node':
->> lib/maple_tree.c:560:(.text.mas_data_end+0x110): relocation truncated to=
- fit: R_RISCV_GPREL_I against `mt_pivots'
-   lib/maple_tree.o: in function `mas_extend_spanning_null':
->> lib/maple_tree.c:3662:(.text.mas_extend_spanning_null+0x69c): relocation=
- truncated to fit: R_RISCV_GPREL_I against `mt_pivots'
-   lib/maple_tree.o: in function `mas_mab_cp':
->> lib/maple_tree.c:1943:(.text.mas_mab_cp+0x248): relocation truncated to =
-fit: R_RISCV_GPREL_I against `mt_pivots'
-   lib/maple_tree.o: in function `mab_mas_cp':
->> lib/maple_tree.c:2000:(.text.mab_mas_cp+0x15c): relocation truncated to =
-fit: R_RISCV_GPREL_I against `mt_pivots'
-   lib/maple_tree.o: in function `mas_reuse_node':
->> lib/maple_tree.c:3416:(.text.mas_reuse_node+0x17c): relocation truncated=
- to fit: R_RISCV_GPREL_I against `mt_slots'
-   lib/maple_tree.o: in function `mt_free_walk':
->> lib/maple_tree.c:5238:(.text.mt_free_walk+0x15c): relocation truncated t=
-o fit: R_RISCV_GPREL_I against `mt_slots'
-   lib/maple_tree.o: in function `mtree_lookup_walk':
-   lib/maple_tree.c:3700:(.text.mtree_lookup_walk+0x94): additional relocat=
-ion overflows omitted from the output
-=2E..
-
-"
-
-Could the fix that you have posted here be related to that report?
-Comments are greatly appreciated.
-
-Best
---
-
-Joel Granados
-
---s6e23wdofaldi5z4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmYvmA0ACgkQupfNUreW
-QU/TcAv/R+pAjTDoAeoU3WyOOx6zyEtWCvRsTNWxaadNCk5n4YLTRmFZRke/ETZo
-A4yKXDjtCXhcwL7pDR0BicIVEJQa0MujxGb2Re0S5ijajV93/KtJ4UXZri1Ij1la
-zBbc0UEhVO39bgFkmtyWFR+4Ln+ugL6hOOO0rN2FQ76i2W6X+stesxjBydf9cmil
-fYsHn/UHLBXgsP2wHt6nP6/qT+RvXDG/cfRhYmHUOOAphed5HuK+TKekNGDr2Dxw
-VDzxzPleawaT0O8bfKwfGH9qi+AbfK0LanHBJIsTdSAPUbot7K1P5f7IDLgnDUgk
-pw6GipBbpEKuSJL5fFrok10uI5Z+6lfiocfI91xRluVUoSJf9ZsvT9l4jTGVmcRU
-+gjX/LRFZP4iuVjeiAOZdER7+42QQtxyPWZvnPM/xZ3vOJQ5DmsPYzxDMQqxq2i0
-dhWobw9vNWAQMCdqt3kqE52WswbMKFMQNZdxN1/BFIOPCjeZQRkJ/sgz/G1+VsJM
-saTJu/RZ
-=UHv0
------END PGP SIGNATURE-----
-
---s6e23wdofaldi5z4--
 
 
---===============1308000220279914248==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+On 4/26/24 4:42 PM, Conor Dooley wrote:
+> On Fri, Apr 26, 2024 at 04:12:00PM +0200, Thomas Bonnefille wrote:
+>>
+>>
+>> On 4/25/24 6:35 PM, Conor Dooley wrote:
+>>> On Thu, Apr 25, 2024 at 09:51:26AM -0500, Rob Herring wrote:
+>>>>
+>>>> On Thu, 25 Apr 2024 10:21:31 +0200, Thomas Bonnefille wrote:
+>>>>> This adds I2C support in the device tree of the T-Head TH1520 RISCV-SoC
+>>>>> and a default configuration for the BeagleV-Ahead. It appears that the
+>>>>> TH1520 I2C is already supported in the upstream kernel through the
+>>>>> Synopsis Designware I2C adapter driver.
+>>>>> As there is no clock driver for this board as of today, this patch
+>>>>> series uses a fixed-clock named i2c_ic_clk.
+>>>>> There is also no pinctrl driver yet so pinmux must be handled manually
+>>>>> for now.
+>>>>> It also fixes the order of the nodes in the device tree to comply with
+>>>>> device-tree coding-style.
+>>>>>
+>>>>> Thomas Bonnefille (4):
+>>>>>     dt-bindings: i2c: dw: Document compatible thead,th1520-i2c
+>>>>>     riscv: boot: dts: thead: Fix node ordering in TH1520 device tree
+>>>>>     riscv: dts: thead: Add TH1520 I2C nodes
+>>>>>     riscv: dts: thead: Enable I2C on the BeagleV-Ahead
+>>>>>
+>>>>>    .../bindings/i2c/snps,designware-i2c.yaml     |  12 ++
+>>>>>    .../boot/dts/thead/th1520-beaglev-ahead.dts   |  22 ++++
+>>>>>    arch/riscv/boot/dts/thead/th1520.dtsi         | 120 ++++++++++++++----
+>>>>>    3 files changed, 127 insertions(+), 27 deletions(-)
+>>>>>
+>>>>> --
+>>>>> 2.44.0
+>>>>>
+>>>>>
+>>>>>
+>>>>
+>>>>
+>>>> My bot found new DTB warnings on the .dts files added or changed in this
+>>>> series.
+>>>>
+>>>> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+>>>> are fixed by another series. Ultimately, it is up to the platform
+>>>> maintainer whether these warnings are acceptable or not. No need to reply
+>>>> unless the platform maintainer has comments.
+>>>>
+>>>> If you already ran DT checks and didn't see these error(s), then
+>>>> make sure dt-schema is up to date:
+>>>>
+>>>>     pip3 install dtschema --upgrade
+>>>>
+>>>>
+>>>> New warnings running 'make CHECK_DTBS=y thead/th1520-beaglev-ahead.dtb' for 20240425082138.374445-1-thomas.bonnefille@bootlin.com:
+>>>>
+>>>> arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dtb: i2c-clock: clock-frequency:0:0: 50000000 is greater than the maximum of 5000000
+>>>
+>>> The bot is not freaking out here, 50 MHz is indeed more than 5 MHz :)
+>>
+>> 5MHz is the maximum clock-frequency, ie. the I2C bus frequency.
+>> This is actually set to 100kHz for I2C0 in the DT:
+>>
+>> &i2c0 {
+>>      status = "okay";
+>>      clock-frequency = <100000>; <----
+>> ...
+>> };
+>>
+>> 50MHz is the "fixed-clock" frequency, that is the clock feeding the I2C
+>> IP block:
+>>
+>> i2c_ic_clk: i2c-clock {
+>>      compatible = "fixed-clock";
+>>      clock-frequency = <50000000>; <-----
+>>      #clock-cells = <0>;
+>> };
+>>
+>> My guess is that the bot confused the clock-frequency parameter for the bus
+>> clock (SCL) with the i2c-ic-clock value for the controller itself during the
+>> checks.
+>>
+>> Do you agree with this or am I misunderstanding the error ?
+>>
+>> If I lower the fixed-clock frequency to eg. 100kHz, the error is gone. But I
+>> guess the 5MHz limit should probably not apply to the input clock?
+> 
+> Heh, I know why that's happening - it's your node name.
+> The pattern for i2c controllers is "^i2c(@.*)?":
+> https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/i2c/i2c-controller.yaml
+> 
+> Rob co-incidentally (or maybe not) put out a patch for fixed-frequency
+> clock names, suggesting using clock as a prefix:
+> https://lore.kernel.org/all/20240425183810.3079069-1-robh@kernel.org/
+> If we switched to that format, I believe your problem goes away.
+> 
+> Cheers,
+> Conor.
+> 
+
+Indeed it was the node name, when I switched the name of the fixed clock 
+to clock-i2c-ic, the error was gone, thank you. :)
+But i2c_ic_clk shouldn't match "^i2c(@.*)?", one of my teammates 
+suggested that the error may instead come from this line 
+https://elixir.bootlin.com/linux/latest/source/scripts/dtc/checks.c#L1023.
+
+But as Drew is working on new iterations of the TH1520's clock driver I 
+will just delete this fixed clock and publish a second version depending 
+on his patch.
+
+Thank you,
+Thomas
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1308000220279914248==--
-
