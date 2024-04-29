@@ -4,113 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A136CC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 05:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E0FC4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 06:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9oqApPCDushSioL6b2XPTK7d2XCcAQf9HThfaE7BHW0=; b=BvqhZZkfWSU2kZ
-	UwtDYuhAkvxD8iCDN+qQzMxjFYTccNxh2ATSEnLlaI4JA4+N5d6OIqk2BoHK1TDdTOE3k5I6TD+yA
-	T6JsIDUUqn47X16gOsr6tLJ3a96RzuLa02w6kzK3vY4Kq737523ecapqsIvsPw9XThmQljDG4S5c4
-	qADDtzqpowZ85ZGh+SXouyZranTNhwFfsgJBbS/XJvrVln1ENXha2/d51C3yWp2tcrbHQBDoZBdch
-	Ac3rLJQtqSzD8USB8qMsMRVnsEfo2pGUrkVU3RuNmMLwE3MuIJv43gfKX40MfkytU7nextdG/FF/g
-	OiYmLKDVU7t4RExpnRyA==;
+	List-Owner; bh=zc9ZOPWzWEIEzVISiRTBuD1crtoYlLV9jm5WIn5x/NU=; b=s/JKPQRZdjiLDz
+	V6ajw7gvbjwKbmGbyRsT7oUDKEZVhcd6W/ABvyjjczDKgMVCna+9+kNmfnBj0TW/PQ/3oWWPdxwd8
+	8Gfbq5lt9FS0boW2oXsyQCa2pLld6pu99Zw6cz7Z8RRTzHG1bmTVdc6BNDSampQX0he62IYiqKAG2
+	dRV4pb1+lijMgNlqmmKe6CSZEkgfe8oVzftDYUq3LvFO78UP+VAH12CxiWHpOljyN0AH3wbiHoIkN
+	qABaHh3o4KM10jaqi6PVdD6pNBYUgLqbhYv+2Jhb3JY9GH5GrsDpR3kE4LmxVLUkqundJr8Uw/JVz
+	HkchT22uOerS4dL4yzCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1JI8-00000001UZc-3oPX;
-	Mon, 29 Apr 2024 05:11:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1JI4-00000001UXm-09EH
-	for linux-riscv@lists.infradead.org;
-	Mon, 29 Apr 2024 05:11:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0949A60BEB;
-	Mon, 29 Apr 2024 05:10:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CDD3C113CD;
-	Mon, 29 Apr 2024 05:10:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714367458;
-	bh=pnrIbRSyb6jGRMXUkMiNUC0kmmHi+yco7kA11jFJBdI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T8khpBYX5WlEOp8FM3hrD3cALzjsweauCjy/wmz3UC2bjTBroE5lrPsqPbmjQuG+m
-	 VmXn9jyi0EfM/OVeME4R7jnXZyrbV/wQbTPUA1AyCe7utf8Jvjo0b/GQJXd2VVeRko
-	 QljtFgXjqyG8sDh8fAPekBuWfBn+betB3lML6G6WeWDKj+xVaHcBM0A/SUolo4RiTa
-	 LqucHdt4JBqRlgtyumMt2IlySh6vO06MKjmeXUewtmPVdNwu5whbsX/lBJpnB3tSsw
-	 0uJDIzp2V2jG7Znt/HXbMu2iZxb5cTYrO8wNjiHH/VmdIYjWGAsx1FqhkXrywcjnwi
-	 b80G2U9FeMuzg==
-Message-ID: <302e582e-d433-44df-ab7a-65de5bccd419@kernel.org>
-Date: Mon, 29 Apr 2024 07:10:50 +0200
+	id 1s1KIS-00000001cgQ-1rvF;
+	Mon, 29 Apr 2024 06:15:28 +0000
+Received: from zg8tmtu5ljy1ljeznc42.icoremail.net ([159.65.134.6])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s1KIO-00000001cf9-0WAl;
+	Mon, 29 Apr 2024 06:15:26 +0000
+Received: from liangshenlin$eswincomputing.com ( [10.12.96.90] ) by
+ ajax-webmail-app2 (Coremail) ; Mon, 29 Apr 2024 14:13:22 +0800 (GMT+08:00)
+X-Originating-IP: [10.12.96.90]
+Date: Mon, 29 Apr 2024 14:13:22 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: "Shenlin Liang" <liangshenlin@eswincomputing.com>
+To: anup@brainfault.org, atishp@atishpatra.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, peterz@infradead.org, mingo@redhat.com, 
+	acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com, 
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
+	irogers@google.com, adrian.hunter@intel.com, 
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] perf kvm: Add kvm stat support on riscv
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT6.0.3 build 20220420(169d3f8c)
+ Copyright (c) 2002-2024 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <20240422080833.8745-1-liangshenlin@eswincomputing.com>
+References: <20240422080833.8745-1-liangshenlin@eswincomputing.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 1/4] dt-bindings: clock: Document T-Head TH1520
- AP_SUBSYS controller
-To: Drew Fustini <dfustini@tenstorrent.com>,
- Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>, Yangtao Li <frank.li@vivo.com>,
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com>
- <20240426-th1520-clk-v2-v2-1-96b829e6fcee@tenstorrent.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20240426-th1520-clk-v2-v2-1-96b829e6fcee@tenstorrent.com>
+Message-ID: <5e830d33.45c7.18f287c8f73.Coremail.liangshenlin@eswincomputing.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: TQJkCgAnOryCOi9mlSgJAA--.6236W
+X-CM-SenderInfo: xold0whvkh0z1lq6v25zlqu0xpsx3x1qjou0bp/1tbiAgEBDGYsyB
+	ATxgABsI
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240428_221101_998110_10DC3777 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20240428_231524_705101_E4BE990B 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,54 +75,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27/04/2024 02:10, Drew Fustini wrote:
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-> +    soc {
-> +
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      clk: clock-controller@ffef010000 {
 
-This is a friendly reminder during the review process.
+Gentle ping...
 
-It seems my or other reviewer's previous comments were not fully
-addressed. Maybe the feedback got lost between the quotes, maybe you
-just forgot to apply it. Please go back to the previous discussion and
-either implement all requested changes or keep discussing them.
-
-Thank you.
-
-> +        compatible = "thead,th1520-clk-ap";
-> +        reg = <0xff 0xef010000 0x0 0x1000>;
-> +        clocks = <&osc>;
-> +        clock-names = "osc";
-> +        #clock-cells = <1>;
-> +      };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index ebf03f5f0619..51d550cb1329 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19023,7 +19023,9 @@ M:	Guo Ren <guoren@kernel.org>
->  M:	Fu Wei <wefu@redhat.com>
->  L:	linux-riscv@lists.infradead.org
->  S:	Maintained
-> +F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
->  F:	arch/riscv/boot/dts/thead/
-> +F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
->  
-
-
-Best regards,
-Krzysztof
-
-
+> 
+> 'perf kvm stat report/record' generates a statistical analysis of KVM
+> events and can be used to analyze guest exit reasons. This patch tries
+> to add stat support on riscv.
+> 
+> Map the return value of trace_kvm_exit() to the specific cause of the 
+> exception, and export it to userspace.
+> 
+> It records on two available KVM tracepoints for riscv: "kvm:kvm_entry"
+> and "kvm:kvm_exit", and reports statistical data which includes events
+> handles time, samples, and so on.
+> 
+> Cross compiling perf in X86 environment may encounter issues with missing
+> libraries and tools. Suggest compiling nativly in RISC-V environment
+> 
+> Simple tests go below:
+> 
+> # ./perf kvm record -e "kvm:kvm_entry" -e "kvm:kvm_exit"
+> Lowering default frequency rate from 4000 to 2500.
+> Please consider tweaking /proc/sys/kernel/perf_event_max_sample_rate.
+> [ perf record: Woken up 18 times to write data ]
+> [ perf record: Captured and wrote 5.433 MB perf.data.guest (62519 samples) 
+> 
+> # ./perf kvm report
+> 31K kvm:kvm_entry
+> 31K kvm:kvm_exit
+> 
+> # ./perf kvm stat record -a
+> [ perf record: Woken up 3 times to write data ]
+> [ perf record: Captured and wrote 8.502 MB perf.data.guest (99338 samples) ]
+> 
+> # ./perf kvm stat report --event=vmexit
+> Event name                Samples   Sample%    Time (ns)     Time%   Max Time (ns)   Min Time (ns)  Mean Time (ns)
+> STORE_GUEST_PAGE_FAULT     26968     54.00%    2003031800    40.00%     3361400         27600          74274
+> LOAD_GUEST_PAGE_FAULT      17645     35.00%    1153338100    23.00%     2513400         30800          65363
+> VIRTUAL_INST_FAULT         1247      2.00%     340820800     6.00%      1190800         43300          273312
+> INST_GUEST_PAGE_FAULT      1128      2.00%     340645800     6.00%      2123200         30200          301990
+> SUPERVISOR_SYSCALL         1019      2.00%     245989900     4.00%      1851500         29300          241403
+> LOAD_ACCESS                986       1.00%     671556200     13.00%     4180200         100700         681091
+> INST_ACCESS                655       1.00%     170054800     3.00%      1808300         54600          259625
+> HYPERVISOR_SYSCALL         21        0.00%     4276400       0.00%      716500          116000         203638 
+> 
+> Changes from v1->v2:
+> - Rebased on Linux 6.9-rc3.
+> 
+> Changes from v2->v3:
+> - Add the missing assignment for 'vcpu_id_str' in patch 2.
+> - Remove parentheses that cause compilation errors
+> 
+> Shenlin Liang (2):
+>   RISCV: KVM: add tracepoints for entry and exit events
+>   perf kvm/riscv: Port perf kvm stat to RISC-V
+> 
+>  arch/riscv/kvm/trace.h                        | 67 ++++++++++++++++
+>  arch/riscv/kvm/vcpu.c                         |  7 ++
+>  tools/perf/arch/riscv/Makefile                |  1 +
+>  tools/perf/arch/riscv/util/Build              |  1 +
+>  tools/perf/arch/riscv/util/kvm-stat.c         | 79 +++++++++++++++++++
+>  .../arch/riscv/util/riscv_exception_types.h   | 35 ++++++++
+>  6 files changed, 190 insertions(+)
+>  create mode 100644 arch/riscv/kvm/trace.h
+>  create mode 100644 tools/perf/arch/riscv/util/kvm-stat.c
+>  create mode 100644 tools/perf/arch/riscv/util/riscv_exception_types.h
+> 
+> -- 
+> 2.37.2
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
