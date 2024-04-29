@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F2EC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 13:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F23EC4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 13:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,81 +13,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=a+E4X/26wIfQNp1K6yayyNhbQ87r4oL585IL2GhnWYM=; b=1RX1Maa59rCVPrYGNqZblZFrJH
-	hUnaTrKHcYLvwk7oAZIP+8/Q83Nj2spI7zKVAFtXDFiaeZ/OjVqw8wzR+B7tVYRYJ/T02Zq0lHRqx
-	tLSa7PoK+arMwMgaamBrPE8xdbwQNV2Jhla8XhioOKzjbqcvfyx1xSYRk+YTcYtjpBbvBYjrIf5kv
-	/gPdAejH1ET2VXGRn1rcgz66D7xZQ17brC3rakF8dCbJcUNbeuMGFVyLWU7LklFELrsTlENXrK7Pz
-	VOjI84NoBFYtle09LxIRGRknkaWaO6hD2LgaXptpKLBwEF9cPg2wDo5KJNHDaGpqgc/K8aXn1ErJ9
-	yjilXotg==;
+	bh=tZPHJaktc9+cFMnZ7SkkIo0djHM5ZgnDN2SO3uvDj60=; b=GfEHdMHVr0NNf/Y/1VWQvXCNKq
+	afzwxsEidR52WTk3z94+2hvOcBz2jpVz0Xrtqdg1b0AEYFwmY8nWuwT7YcDUabWWQSuVzv7mzYOPC
+	qGDeaVV7sBnlOD9g2aTB5PeQdPyqn9Q4UtMwExKYB1+mS8Uk8Gfi+7KlJyE80flt5gWUvhiaizvd5
+	XTryZvzyOoTBkKyd2+UooZPjlA/e6/dQh21dH6zPQcKyvFOFFwOjM/912QoBYazz445U+PeZHoXR2
+	TNofmDIfW4gr0kWaYxJ/d2yJz6+5dezjJfT4YjmWQ+Y6rrrekqEbP68avoY4dMRJjuRYCeaVUT90K
+	ZBOM+ZLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1RDS-00000002yNN-2cjz;
-	Mon, 29 Apr 2024 13:38:46 +0000
+	id 1s1RKl-00000002zI2-1vbR;
+	Mon, 29 Apr 2024 13:46:19 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1RDP-00000002yMh-40gY
+	id 1s1RKh-00000002zHT-44dB
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Apr 2024 13:38:45 +0000
+	Mon, 29 Apr 2024 13:46:17 +0000
 Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 5BA243FE60
-	for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2024 13:38:42 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 9D3BC3FE58
+	for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2024 13:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1714397922;
-	bh=kzInz2Vec2Du6of2Q2xRfBv09lBEjQPll+bykpZr/3A=;
+	s=20210705; t=1714398373;
+	bh=h6mJvCJK1Jea7r50yUqQ7vE5+7yhc8VviIpbBrR7hhY=;
 	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=pCGJMsAdbesIO5ygg3UU/dSWG3Qg8HAkgdKKtP9gtIpmvWefBNOvAIoqFlkmcLNcX
-	 OxWpOAtmIhUjr8boeRNL/NYoE4o1+ag5r4RKC7odHo8OuLiMJSTPYx0BOZ8bQns10J
-	 A1uYMvBAGE+P3GvMPgHuVwBZdHkzZ5+BygDRR4Re/4mgikEVy6GPttqjJgmlrc6uYw
-	 bvp8PsKmcMmcY0z/02itUeeWNe/9CgCUOJ05C+uUL0BIzaM6cB8we6jR5DLa2c3hFM
-	 /SJE46Jang73dLYHS0ykJ8Pc6twXOcpdCgRgEEnQH39mmAQIlFr+M3U2pZfqAKLmJ1
-	 ABacP53ckffSQ==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-43aa091f95aso31068201cf.1
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2024 06:38:42 -0700 (PDT)
+	b=uS5jUxohJWzfK3EwyqhQCmG1dV0U5QqpU5C3Atiw/U1wO2BBZ8GMW7pss8h3MTCYX
+	 lU9nSWGsNpUuccehcDc5ljkyiZOwQElGVud9woNi/jVFXHdTx3TP2FT5xy1x7hRIlx
+	 yCEnL116w6UA/9iSjD7oJdv563V6QgfwPA7FSH3Cx19u0fjUOzagZp5mqybIAOPQ0M
+	 rYISwG5hrQ0Jh0mzpC6spAHiD2tQNg3j5lw1NDF49F9tOzJ3n9JUcswkrUI6mFpdOP
+	 KHogZy4qTlU+IMRcmQ+Qwz1tba09bXnBzqGPou7YRA9UR4oM1Af2kCzErEU6FkUcsY
+	 W7ZOBLnxgUf2g==
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4393e712cd5so59426461cf.3
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2024 06:46:13 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714397921; x=1715002721;
+        d=1e100.net; s=20230601; t=1714398372; x=1715003172;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kzInz2Vec2Du6of2Q2xRfBv09lBEjQPll+bykpZr/3A=;
-        b=T6OQlrZMm3MOapGzJIeByp6bdOjEseoSUuo9aUOUh7XlNsi/18PEi1IXHbYNCAj0OO
-         tVLvZ/y9BU7BTM5nT2pvGX6G0UE48oL4hedRdCiBmCfQJwlKULopeoy1728Jca1HvxMU
-         MmgYhgtko9TjY6/O7p6M02//vaerlvvuikMuioFubXVhqgaCOe+gjjdtLpW3qlNfbHdk
-         wVEjbpdqgtBenT7+NU6GGYk2H6k15nOJ+3AEdgk2fgD2wTnTPP2lAb6wqBb/+D0QIlLE
-         uMUzQ5MnV3v55smcACVYZbkeHgC+1XpzM5nDDGJGaOm/sM8EjP02OlofP5tU8RY0WqNX
-         OJYg==
-X-Forwarded-Encrypted: i=1; AJvYcCU7b/ZyEo+Q/L+jjlVxIJBoguscYr1SfNxzBEpIyQ0iWkiHruU8nKIW8QuWCa/WkcpZJmgFnEy5d5GKOGAYQKVm0Etaa6WLWG6Y+b3OxJlo
-X-Gm-Message-State: AOJu0YwhuImzLormObM6QUfR42IPbCtEoz8xWHTzWSqxIrQI+YmlpHnh
-	0tbSKaWYCi+QDlMKPZCT5v9UsRrVM7fDyjROVeyf6r9lnx8dfZvl0FyMF9Q500Of9i6zUBEifqJ
-	KnawT9civg0LKXj/IcG9IZfyY2hf36owJBcUbvxw6ILt3Q3viEhxjKvZELcrg8rzQG1gfI2jZJz
-	CYeKVk0e+64wL9R1L74fgYxZX08PAD35b1X/9TPeiIxOHozoFL4JUObkMlMij9eNt/pfw=
-X-Received: by 2002:a05:622a:d2:b0:43a:c1cd:2f54 with SMTP id p18-20020a05622a00d200b0043ac1cd2f54mr5559225qtw.56.1714397921138;
-        Mon, 29 Apr 2024 06:38:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGeybrboGuMYLfrb0LN1/Eksczu7rd1QL7MzncvDdBt5BJRSCjVGbxulLQUKQopeFU++pv+AdoWRrTYLVYMbT4=
-X-Received: by 2002:a05:622a:d2:b0:43a:c1cd:2f54 with SMTP id
- p18-20020a05622a00d200b0043ac1cd2f54mr5559199qtw.56.1714397920849; Mon, 29
- Apr 2024 06:38:40 -0700 (PDT)
+        bh=h6mJvCJK1Jea7r50yUqQ7vE5+7yhc8VviIpbBrR7hhY=;
+        b=g27WVmdn1qqsVNgZRaoMmj4v0ecmf+6O4EF8q7J31sv5akqZNjYnZtnmC0KvKBJYlG
+         oYQaJVMHX2gtU+PnoNzEfu0ccR/ow3PoVJrgYUo4TfUj4RTGxz1POxGXpythHNkXxfRY
+         EqWRMJK+NZNjWkkeP0VQ3GSIH+6kkLeUaJvkVODZS5Jcy+af2h1CfjFS7b7XrpoygZSC
+         6scBo9ZDlWrIYoqIOT501pT9Nxj1Qx+UCPyt4hfaorcqWfDrxijqulFQJoaUoE34/riM
+         5xhfpIKe468GADQ/fJrO1d5FVyLgQ8QQLTxTVWJKtLIJcAuNQLbceEEr3plzKnpQbgWv
+         h8zQ==
+X-Gm-Message-State: AOJu0YymCFNJgf/jOQzp6oTlrRcgNX8WG3wwoVCPKe6jGJh46ciFIgEz
+	phbpGcUY/ftaiC1EVwAhhgxVHXd297PWScoJSGVaVTAlow5U5sQYbZ0IzWuBXLxjvNajyGqbQOX
+	Cd2FHXEI7I4dGnOkRlH1lsOsrudYqV8bvEm2bl7H6MFg91evY0uaUbvC85tHQeEL2AMxcXcE+Py
+	f+nq7E4e1LXEqeh3lLdSoxG1RwZvIcBfAeFL+K5uhcPjSCZA/lslO4lfxj
+X-Received: by 2002:a05:622a:18a3:b0:43b:7:6b42 with SMTP id v35-20020a05622a18a300b0043b00076b42mr1868771qtc.46.1714398372609;
+        Mon, 29 Apr 2024 06:46:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGIlDbe7IDabCj+xHEpXMlCy+uSz6SBjFMnmfn0odAlBGQ9fDFSnW9gobHhiUN+TFENPPlf8J74IM1KUJt/YOY=
+X-Received: by 2002:a05:622a:18a3:b0:43b:7:6b42 with SMTP id
+ v35-20020a05622a18a300b0043b00076b42mr1868758qtc.46.1714398372378; Mon, 29
+ Apr 2024 06:46:12 -0700 (PDT)
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 29 Apr 2024 06:38:40 -0700
+ HTTPREST; Mon, 29 Apr 2024 08:46:12 -0500
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240425082138.374445-5-thomas.bonnefille@bootlin.com>
-References: <20240425082138.374445-1-thomas.bonnefille@bootlin.com> <20240425082138.374445-5-thomas.bonnefille@bootlin.com>
+In-Reply-To: <20240429001317.432-6-jszhang@kernel.org>
+References: <20240429001317.432-1-jszhang@kernel.org> <20240429001317.432-6-jszhang@kernel.org>
 Mime-Version: 1.0
-Date: Mon, 29 Apr 2024 06:38:40 -0700
-Message-ID: <CAJM55Z8Nj8WAohbANf99nznKxkrTMnSxyC8imYXNJZnuC0XH1g@mail.gmail.com>
-Subject: Re: [PATCH 4/4] riscv: dts: thead: Enable I2C on the BeagleV-Ahead
-To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>, jszhang@kernel.org, guoren@kernel.org, 
-	wefu@redhat.com, andi.shyti@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org
-Cc: miquel.raynal@bootlin.com, thomas.petazzoni@bootlin.com, 
-	linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org, 
-	devicetree@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu
+Date: Mon, 29 Apr 2024 08:46:12 -0500
+Message-ID: <CAJM55Z-aoe-whriE4_MuHxtTB2OfFSaatLW_6Beg50+vrNSg6w@mail.gmail.com>
+Subject: Re: [PATCH v4 5/8] riscv: dts: starfive: visionfive 2: add tf cd-gpios
+To: Jisheng Zhang <jszhang@kernel.org>, Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240429_063844_146921_BA623F7F 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20240429_064616_300522_D98E0E97 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,67 +102,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thomas Bonnefille wrote:
-> This commit enables the I2C0 controller of the TH1520, together with
-> the FT24C32A EEPROM that is connected to it.
-> In addition, this commit also enables the I2C controllers I2C2, I2C4
-> and I2C5 as they are all three exposed on headers (P9 19 and 20 for I2C2,
-> P9 17 and 18 for I2C5 and MikroBus 7 and 5 for I2C4).
+Jisheng Zhang wrote:
+> Per VisionFive 2 1.2B, and 1.3A boards' SCH, GPIO 41 is used as
+> card detect. So add "cd-gpios" property for this.
 >
-> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  .../boot/dts/thead/th1520-beaglev-ahead.dts   | 22 +++++++++++++++++++
->  1 file changed, 22 insertions(+)
+>  arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> index d9b4de9e4757..22a6935e7204 100644
-> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> @@ -79,3 +79,25 @@ &sdio0 {
->  &uart0 {
->  	status = "okay";
->  };
-> +
-> +&i2c0 {
-> +	status = "okay";
-> +	clock-frequency = <100000>;
-> +
-> +	eeprom: eeprom@50 {
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> index 910c07bd4af9..b6030d63459d 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -303,7 +303,7 @@ &mmc1 {
+>  	bus-width = <4>;
+>  	no-sdio;
+>  	no-mmc;
+> -	broken-cd;
+> +	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
 
-Nothing seems to reference this. Are you planning on adding adding some code
-that needs to read this? Otherwise the label is not really needed.
+nit if you need to respin this anyway: i know the properties are already not
+sorted, but i'd prefer to not add more properties out of order.
 
-> +		compatible = "atmel,24c32";
-> +		reg = <0x50>;
-> +	};
-> +};
-> +
-> +&i2c2 {
-> +	status = "okay";
-> +};
-> +
-> +&i2c4 {
-> +	status = "okay";
-> +};
-> +
-> +&i2c5 {
-> +	status = "okay";
-> +};
+In any case
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-Does u-boot or some other firmware set up pinctrl for these 3 I2Cs? Otherwise
-enabling them doesn't really make sense before we have the pinctrl settings for
-them.
 
-/Emil
-
+>  	cap-sd-highspeed;
+>  	post-power-on-delay-ms = <200>;
+>  	pinctrl-names = "default";
 > --
-> 2.44.0
+> 2.43.0
 >
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
