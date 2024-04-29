@@ -4,82 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5110FC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 09:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43123C4345F
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 09:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pfku6miZCKmBIWBvcTYRjtfG6GI6L7mj3y0fI9GUn0s=; b=x2vigAixJuosWi
-	iuJ1uHI60xTYtYNDD4cQ8HKrrl40msvtabmmR6xUzofwJ8PkydBkqPxDzrRwkoov4JixS+p9XJ01y
-	sKhKMeQsEm7qzIwoVypW7VbU/vOPVlEC+MA+l6G3Thk5SY1V3jP5iqzEAJ9o4pWndp5RmqVoyh3U7
-	9OGXfdvibraqh6GLROOk2DcE6ixU136d9dj+I9vxJPZXM82pWgIfGa4QmjBa0V73JYMqbAtk+Ksr7
-	vjGdjtXnFf3fWHcjyXEPRlvuqYTO+BeXA7LoXVB7i5GomdOaaVqD76+puay0ayrUeV87DPQztY5HP
-	OCVHvcFC5rRCVCyJ3NAA==;
+	List-Owner; bh=oOaiHzzFeydFivuZ+M1YrT2yYddxVDbxeYSRSks22YQ=; b=sfhUOBhEKwOToe
+	o33eMvjUFQ1OIHX3B0bP5fTS9khxDc4MGbGgpGqCVh0EeNbeUWSKoiWhsVzxvE+qf/XOPd9fBAvYH
+	DhtRqike1pm3yiXmO5em4l0ItLYLI1GwxMgun4PZwK7F/iUbC0XTCV8/p86y5Ber2Mqf2vsh4yQTl
+	Pj6keZiUBL45XsAYX+kRszfViEKMN7EQT7GOo8UqSA76KhCz0BYZlLlqpjz8pF+2rKkAL1klWCdme
+	Valsl11kImdr4BHaXddsMNIrbr5a5la3Jvn1z/YnLtOQ37SgrUZKujgzIfKbq/pBkp9vILYnww+Ta
+	pxoOf7kKnUHnkSSIbMHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1NOX-000000028Cr-2SyX;
-	Mon, 29 Apr 2024 09:33:57 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1s1NcU-00000002A9B-3XHO;
+	Mon, 29 Apr 2024 09:48:22 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1NOT-000000028C3-3eG1
-	for linux-riscv@lists.infradead.org;
-	Mon, 29 Apr 2024 09:33:55 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a58eb9a42d9so205825166b.0
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2024 02:33:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1714383232; x=1714988032; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=EU5DwD+o4qYG2LMifv0uxvcF3WJYCYks9+vxzfiwTyo=;
-        b=aPk2mQi4mAcHm3hwWQw+E1f3QW4/9eHOLHyrjYalU1vfIWFlGCkQ4i9Q1DRnFVrMEd
-         7fo7jvqffPiRNDWw1Yg4VR+y19Bgl/fKqz6CoMzEKqRnQeEGIZOj4P7P5ZNNj5aK/XqK
-         im3DPvF81mPh2wxHblxFBQKmHh9mNyX+rb+C/aO0WY83zN6GFOithTX9QPthj71gu/kG
-         U1MpFLAEDdmFgNfP/cX7F82EDa4wWD6w7JgH7JJbYywdKCdxKhvPffQKKygkIMJ1NrMI
-         6oFRMWTL/u+ZMa5WGKu03PkYZGMLwHY0FouxqluCSUQI22gTpUsUx2/OyyZaC1fcxUu+
-         RUYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714383232; x=1714988032;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EU5DwD+o4qYG2LMifv0uxvcF3WJYCYks9+vxzfiwTyo=;
-        b=Zr5pQLA5JmGSYCriUC6ZGhT6S8/fAhGukankFmSnKQgUFgJuVWt1Pn3MZGy3sVw986
-         YUB//aSizVgOX3d4JO4ye/ISsz4J3mFCYMt5U8VZtUaCcfksWDUiBG4ZjlF5A477VPE+
-         SCSl2t57urKXpWYpW2tXDbthTCNrajqDuJOecq/wR6RbWJlgMCojR/FHnOE8voiH+C91
-         IIk4kc8KVQ+PB/BkCzNROCyxdEQegbHCP9//4JYsSHvrUXQVHM9V3o3Ky8oyYHuOGBU5
-         3XOlIqj3MOz1Ybc3mSe9eqkZ1olwVKJiT77Y8iWiiBqbzi8a0ZYmBqLHxO4ceUtY0qWV
-         sr2g==
-X-Forwarded-Encrypted: i=1; AJvYcCVVhpOKelPaW7T6V/30ZJBWPyHdpb6D1BH3iyCfaCtO0vVv93ikKrAOU3ohfTCk1xQF126Y1qGEY8saS53GAkME9+pfsSRMNwZe4pA4mKcE
-X-Gm-Message-State: AOJu0YzFkXsInBFNfWyaB3ijkqUaEzI7YgCrliPmlFigl42KlUnl+wxs
-	dJV+bgI1k1CggiG/HDsXWwN+Sa7eauH552WWklR4p+AGjNlmEMDRyZzEtH2YtO8=
-X-Google-Smtp-Source: AGHT+IERuDfoXTZsVEZYtHEP0m8zcYtgaeZ/2E5V9D4Cg4n2UY/ovyyJ51522Jpbw2aKwxKXDxdzFg==
-X-Received: by 2002:a17:906:57c4:b0:a58:e969:1472 with SMTP id u4-20020a17090657c400b00a58e9691472mr3749136ejr.40.1714383231850;
-        Mon, 29 Apr 2024 02:33:51 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id bi10-20020a170906a24a00b00a54c12de34dsm13629698ejb.188.2024.04.29.02.33.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Apr 2024 02:33:51 -0700 (PDT)
-Date: Mon, 29 Apr 2024 11:33:50 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
-	Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, Evan Green <evan@rivosinc.com>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] riscv: cpufeature: Fix thead vector hwcap removal
-Message-ID: <20240429-f6438977f19e44966d0dd879@orel>
-References: <20240426-cpufeature_fixes-v2-0-7377442b1327@rivosinc.com>
- <20240426-cpufeature_fixes-v2-1-7377442b1327@rivosinc.com>
+	id 1s1NcQ-00000002A4R-1sCS;
+	Mon, 29 Apr 2024 09:48:19 +0000
+Received: from pps.filterd (m0353728.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 43T9WcRr023175;
+	Mon, 29 Apr 2024 09:47:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
+ subject : message-id : references : mime-version : content-type :
+ content-transfer-encoding : in-reply-to; s=pp1;
+ bh=Kn2/uMMJ4m7IZDO8WlgsPqO7vUsAlVouDdMvBgTuG6Q=;
+ b=Kg9UUvOfIY+q0ndE7ZECmZZUdA61ZCkJRFtD9wLCjYzo6fe8LGiqgmj/OaQd5I/iEeGT
+ h1W12UFRvhBs0Ojrxq2EVahg4SwzhBVbMh+nl7Xnt0KphpPc+1K4uJnLB1ltR+O9/J8Y
+ xH2aBPNbeoLf7rIVjTmAK85pN4JRaPC9PScCooRYa7ChiJY29YfixJaL//aFd9303wQR
+ GZQxdsEVeB2nF62y0IT3RUjuxSeOIjIAGLlEpPQHiihzSala+ltUzs1I4eJF+yCxcsu9
+ xwGFkZf6AwHS79UZe7yymFDc9jL+Zte2Za8lJWgzOlYfHYZrwUSEHHijG4bCs204Im4A kw== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3xt90jg0v6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 29 Apr 2024 09:47:55 +0000
+Received: from m0353728.ppops.net (m0353728.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 43T9ltmx016519;
+	Mon, 29 Apr 2024 09:47:55 GMT
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3xt90jg0v5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 29 Apr 2024 09:47:54 +0000
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 43T7DaXf001450;
+	Mon, 29 Apr 2024 09:47:53 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 3xsbptppem-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 29 Apr 2024 09:47:53 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 43T9loYx26542522
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 29 Apr 2024 09:47:52 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0556520040;
+	Mon, 29 Apr 2024 09:47:50 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B4E6220043;
+	Mon, 29 Apr 2024 09:47:48 +0000 (GMT)
+Received: from osiris (unknown [9.171.12.101])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 29 Apr 2024 09:47:48 +0000 (GMT)
+Date: Mon, 29 Apr 2024 11:47:47 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
+Cc: Luis Chamberlain <mcgrof@kernel.org>,
+        Joel Granados <j.granados@samsung.com>,
+        Kees Cook <keescook@chromium.org>, Eric Dumazet <edumazet@google.com>,
+        Dave Chinner <david@fromorbit.com>, linux-fsdevel@vger.kernel.org,
+        netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-mm@kvack.org,
+        linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-xfs@vger.kernel.org,
+        linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+        netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+        kexec@lists.infradead.org, linux-hardening@vger.kernel.org,
+        bridge@lists.linux.dev, lvs-devel@vger.kernel.org,
+        linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com,
+        linux-sctp@vger.kernel.org, linux-nfs@vger.kernel.org,
+        apparmor@lists.ubuntu.com
+Subject: Re: [PATCH v3 11/11] sysctl: treewide: constify the ctl_table
+ argument of handlers
+Message-ID: <20240429094747.29046-G-hca@linux.ibm.com>
+References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
+ <20240423-sysctl-const-handler-v3-11-e0beccb836e2@weissschuh.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240426-cpufeature_fixes-v2-1-7377442b1327@rivosinc.com>
+In-Reply-To: <20240423-sysctl-const-handler-v3-11-e0beccb836e2@weissschuh.net>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: dsJabyKjD5wmo-a4UVf9qexuuOQkOoCK
+X-Proofpoint-GUID: 7SlQVN0HjcUbQBl5eVSaH1VEy2oE_0-m
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1011,Hydra:6.0.650,FMLib:17.11.176.26
+ definitions=2024-04-29_07,2024-04-26_02,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ bulkscore=0 mlxlogscore=999 adultscore=0 malwarescore=0 priorityscore=1501
+ impostorscore=0 suspectscore=0 clxscore=1011 mlxscore=0 spamscore=0
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2404010000 definitions=main-2404290061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240429_023353_942780_EAD30530 
-X-CRM114-Status: GOOD (  29.24  )
+X-CRM114-CacheID: sfid-20240429_024818_503138_840D0667 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,157 +121,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 26, 2024 at 02:58:54PM GMT, Charlie Jenkins wrote:
-> The riscv_cpuinfo struct that contains mvendorid and marchid is not
-> populated until all harts are booted which happens after the DT parsing.
-> Use the vendorid/archid values from the DT if available or assume all
-> harts have the same values as the boot hart as a fallback.
-> 
-> Fixes: d82f32202e0d ("RISC-V: Ignore V from the riscv,isa DT property on older T-Head CPUs")
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Guo Ren <guoren@kernel.org>
-> ---
->  arch/riscv/include/asm/sbi.h   |  2 ++
->  arch/riscv/kernel/cpu.c        | 40 ++++++++++++++++++++++++++++++++++++----
->  arch/riscv/kernel/cpufeature.c | 11 +++++++++--
->  3 files changed, 47 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 6e68f8dff76b..0fab508a65b3 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -370,6 +370,8 @@ static inline int sbi_remote_fence_i(const struct cpumask *cpu_mask) { return -1
->  static inline void sbi_init(void) {}
->  #endif /* CONFIG_RISCV_SBI */
->  
-> +unsigned long riscv_get_mvendorid(void);
-> +unsigned long riscv_get_marchid(void);
->  unsigned long riscv_cached_mvendorid(unsigned int cpu_id);
->  unsigned long riscv_cached_marchid(unsigned int cpu_id);
->  unsigned long riscv_cached_mimpid(unsigned int cpu_id);
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index d11d6320fb0d..c1f3655238fd 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -139,6 +139,34 @@ int riscv_of_parent_hartid(struct device_node *node, unsigned long *hartid)
->  	return -1;
->  }
->  
-> +unsigned long __init riscv_get_marchid(void)
-> +{
-> +	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
-> +
-> +#if IS_ENABLED(CONFIG_RISCV_SBI)
-> +	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
-> +#elif IS_ENABLED(CONFIG_RISCV_M_MODE)
-> +	ci->marchid = csr_read(CSR_MARCHID);
-> +#else
-> +	ci->marchid = 0;
-> +#endif
-> +	return ci->marchid;
-> +}
-> +
-> +unsigned long __init riscv_get_mvendorid(void)
-> +{
-> +	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
-> +
-> +#if IS_ENABLED(CONFIG_RISCV_SBI)
-> +	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
-> +#elif IS_ENABLED(CONFIG_RISCV_M_MODE)
-> +	ci->mvendorid = csr_read(CSR_MVENDORID);
-> +#else
-> +	ci->mvendorid = 0;
-> +#endif
-> +	return ci->mvendorid;
-> +}
-> +
->  DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
->  
->  unsigned long riscv_cached_mvendorid(unsigned int cpu_id)
-> @@ -170,12 +198,16 @@ static int riscv_cpuinfo_starting(unsigned int cpu)
->  	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
->  
->  #if IS_ENABLED(CONFIG_RISCV_SBI)
-> -	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
-> -	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
-> +	if (!ci->mvendorid)
-> +		ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
-> +	if (!ci->marchid)
-> +		ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
->  	ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
->  #elif IS_ENABLED(CONFIG_RISCV_M_MODE)
-> -	ci->mvendorid = csr_read(CSR_MVENDORID);
-> -	ci->marchid = csr_read(CSR_MARCHID);
-> +	if (!ci->mvendorid)
-> +		ci->mvendorid = csr_read(CSR_MVENDORID);
-> +	if (!ci->marchid)
-> +		ci->marchid = csr_read(CSR_MARCHID);
->  	ci->mimpid = csr_read(CSR_MIMPID);
->  #else
->  	ci->mvendorid = 0;
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 3ed2359eae35..500a9bd70f51 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -490,6 +490,8 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
->  	struct acpi_table_header *rhct;
->  	acpi_status status;
->  	unsigned int cpu;
-> +	u64 boot_vendorid;
-> +	u64 boot_archid;
->  
->  	if (!acpi_disabled) {
->  		status = acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
-> @@ -497,6 +499,9 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
->  			return;
->  	}
->  
-> +	boot_vendorid = riscv_get_mvendorid();
-> +	boot_archid = riscv_get_marchid();
-> +
->  	for_each_possible_cpu(cpu) {
->  		struct riscv_isainfo *isainfo = &hart_isa[cpu];
->  		unsigned long this_hwcap = 0;
-> @@ -543,9 +548,11 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
->  		 * version of the vector specification put "v" into their DTs.
->  		 * CPU cores with the ratified spec will contain non-zero
->  		 * marchid.
-> +		 *
-> +		 * Assume that if the boot hart is T-Head, then all harts in the
-> +		 * SoC are also T-Head and have the same archid.
+On Tue, Apr 23, 2024 at 09:54:46AM +0200, Thomas Wei=DFschuh wrote:
+> Adapt the proc_hander function signature to make it clear that handlers
+> are not supposed to modify their ctl_table argument.
+> =
 
-The movement of the comment is only half of my suggestion. The other
-suggestion is to remove the 'Assume' because we don't have to assume
-anything. We can simply state that if the boot hart is T-HEAD, then we
-don't want to enable V on any hart. (We don't need to assume the other
-hart IDs are the same, because we don't care what they are. They're
-not going to get V, no matter what.)
+> This is a prerequisite to moving the static ctl_table structs into
+> rodata.
+> By migrating all handlers at once a lengthy transition can be avoided.
+> =
 
-Thanks,
-drew
+> The patch was mostly generated by coccinelle with the following script:
+> =
 
->  		 */
-> -		if (acpi_disabled && riscv_cached_mvendorid(cpu) == THEAD_VENDOR_ID &&
-> -		    riscv_cached_marchid(cpu) == 0x0) {
-> +		if (acpi_disabled && boot_vendorid == THEAD_VENDOR_ID && boot_archid == 0x0) {
->  			this_hwcap &= ~isa2hwcap[RISCV_ISA_EXT_v];
->  			clear_bit(RISCV_ISA_EXT_v, isainfo->isa);
->  		}
-> 
-> -- 
-> 2.44.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>     @@
+>     identifier func, ctl, write, buffer, lenp, ppos;
+>     @@
+> =
+
+>     int func(
+>     - struct ctl_table *ctl,
+>     + const struct ctl_table *ctl,
+>       int write, void *buffer, size_t *lenp, loff_t *ppos)
+>     { ... }
+> =
+
+> In addition to the scripted changes some other changes are done:
+> =
+
+> * the typedef proc_handler is adapted
+> =
+
+> * the prototypes of non-static handler are adapted
+> =
+
+> * kernel/seccomp.c:{read,write}_actions_logged() and
+>   kernel/watchdog.c:proc_watchdog_common() are adapted as they need to
+>   adapted together with the handlers for type-consistency reasons
+> =
+
+> Signed-off-by: Thomas Wei=DFschuh <linux@weissschuh.net>
+
+...
+
+>  arch/s390/appldata/appldata_base.c        | 10 ++---
+>  arch/s390/kernel/debug.c                  |  2 +-
+>  arch/s390/kernel/topology.c               |  2 +-
+>  arch/s390/mm/cmm.c                        |  6 +--
+
+Acked-by: Heiko Carstens <hca@linux.ibm.com> # s390
 
 _______________________________________________
 linux-riscv mailing list
