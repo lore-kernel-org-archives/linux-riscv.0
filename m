@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70494C04FFE
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 18:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79842C04FFE
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 21:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h8dybEwH2Zu8sLf0mq4jW2e30WesKw+fVDJa9D4DLVc=; b=Oaf04nzSG75Nj2
-	8vuNxaZCvixwyAb5FE9lSWrb89OYDUmaoo8HE8E/f4TFcngRiHzpUR8ZE/4VunYWIK5oHtNnvpJLb
-	TAsIO2gsR/haEY6MsZo0MF9Y8yafjGqweOs83r3vj0BK6Ble/GgyvpvMpRplI7UOmlXtiaX9DOMK3
-	hiQNr+/LlS4NPolr2DUtRzZLBn8+PvMJAae978RqeVRi/etzn9tBSz4FzeSzhcVtJoRz2dfba4SXY
-	axFW5A0Br6EpfCGkv6S87uk6XWbGu9DmC/u82TGJKRUD7knqKjGIqFOUKWhivS1+AwyY6p+d9OvQ2
-	qhaI60vYSwW4ssG1cA0A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=Z++72eioWtgCPKsf0SpC12OC6UisZQHS2aZ2eoxb8SY=; b=PJHYEd5rabs7nAXneuGMN5GGIj
+	s3eD1mJJT69DEawRjTMr3TvHLuqEl7FlFoN3AsWJA6K1YfCYx4SpX1MqE1d9XArVrBkXcngxX+KTf
+	TZaN18SVwD/ZSX+aI9KwZPw8zEKL4smPJA5p36LCuj8ScGX4xX4ainPCE8wR6YjiFlYMjARTRhl27
+	Lc/lxI6zJbVBis7C4C/TvnPBeE+Ju5BeT3U6P36cJdP6bMA2idIL93W0ozP+7dba3G/dwkQUZU5sR
+	c3OxLSS23ujvxiNvR1pmtxzoRHTTZ6uhb2AN/TmewVrKsQ+qYB183IkM17TU3sQ5WgIGCRcvIU8r5
+	VWBoFKew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1W5M-00000003vPy-04mm;
-	Mon, 29 Apr 2024 18:50:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s1Y6P-00000004DJe-2vNb;
+	Mon, 29 Apr 2024 20:59:57 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1W5I-00000003vNl-3XKK;
-	Mon, 29 Apr 2024 18:50:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 25B0760CE8;
-	Mon, 29 Apr 2024 18:50:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D637C113CD;
-	Mon, 29 Apr 2024 18:50:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714416637;
-	bh=UUe9Ym8luVvg7SpvhcbVnB1HXHf9DLh6B2dgv/+wHJE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I8MQPreSR7WM849pfNTwUgstd2lzMBqaFexD4EpmqXGh2Q62FSCMZz8DogZwRpP0C
-	 K1EAG8eB0WhQaqCJL6WhqB/c3CB9lw6Flxq+VXFuKGUyePhaKvpH6HvXK7h/Fie6Q4
-	 zsZPAmn7koM6r+592OZ8g6EZxz4Chz4weTo+glzAbjy5Rt+pWW7s1tnT3wY31LekCH
-	 UMwakkLVKAvGZjWmX2NxNnrsR1xd6kJELxw0UW6UU73p1b1fioNyc1YnSTXqQxpqCN
-	 nnVBIEpm5p8dkXY+ItyNgXmkQGhx7pHQcNWR6pnyqwr60McMhu5aOia9XYu4KZa31i
-	 CYMeaihsj2PIQ==
-Date: Mon, 29 Apr 2024 15:50:34 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Shenlin Liang <liangshenlin@eswincomputing.com>
-Cc: anup@brainfault.org, atishp@atishpatra.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, peterz@infradead.org,
-	mingo@redhat.com, namhyung@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH v3 0/2] perf kvm: Add kvm stat support on riscv
-Message-ID: <Zi_r-oe_u7NkV7sa@x1>
-References: <20240422080833.8745-1-liangshenlin@eswincomputing.com>
- <5e830d33.45c7.18f287c8f73.Coremail.liangshenlin@eswincomputing.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5e830d33.45c7.18f287c8f73.Coremail.liangshenlin@eswincomputing.com>
+	id 1s1Y6M-00000004DJ7-3DrR
+	for linux-riscv@lists.infradead.org;
+	Mon, 29 Apr 2024 20:59:56 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-6f0aeee172dso3460770b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2024 13:59:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1714424392; x=1715029192; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YPb10z2R6QzqCU/Ny7A6YIEMfMl5Kr9JPZ53mPCpdgY=;
+        b=XWemdap4XzhveOgBBL5H1VpXfe4s8bJVJJY5kIpfjhvKq11HofWCNlHR/Wh3Q8OTKf
+         oV9cbHfmfD4phzugC1c7WSjmh9hVUyaFlZAgD2XunN33CPSwS4vSF9nvvtFoPkPZsPhn
+         HNj3GdbNmB6nF07bqENXGKgCuobBVmeEGmVe0NRmWzh21oLQivIs0jsXs6CZRiLYvTBw
+         MY/tH+zfsais626ivMo5WB93GlFAnpuH/hsccSdMQvnbrfjJaolCHaWnHgqFbAR72BIe
+         U/YQHajnDrgTuSYa6khIKevHR1AIzheAyew2e/tEp+tDYo5D8oV+U+wTg3zOzy3aCKYI
+         AnSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714424392; x=1715029192;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YPb10z2R6QzqCU/Ny7A6YIEMfMl5Kr9JPZ53mPCpdgY=;
+        b=Fu3ZiIjCauIM3+OAqauugCnL2sjtMZDXW0RNOyNjWa2WQIPW+ghjWlAtogGLSajU5F
+         12/Rrwgd9SNOjGl4DVR6wAu65w/H9R8iARNz/MxWtbvBmBsweZO7McgR/YNhbvtPbQJ/
+         HmxijxDCVP5Oaa70K4c0YQF/t74iUjH5o/J0hR0y0GYwPKiEvL7x4ay1k+KsxNKW/Zch
+         PgbF0gpn30+m9zguorm9qnVVd9DfJ3zBKlJMmfPa3hTZ7J5MAAzjD9h4evHAyF2Tge0O
+         YkPH+yi05VTpWF+4917sYIuq7u8bxerJ04ojEYQk5P1NCBD3OCsdUhiig0YRIDkL+j1g
+         sh+g==
+X-Forwarded-Encrypted: i=1; AJvYcCXgBLZMZ3x+8/Yvxjx/24yhFlgCaS+RmNWjLc2YdvCI7qEWu6WAx2ZEBl+McY1JykeuZrGclo+iA0XYEyitPLnbfnI36PKnj1/SHFPPfn/L
+X-Gm-Message-State: AOJu0YwNMbnogtMi31ElHUdwywB/1MZnmd7VFAhHHFvIq8XxkDTCZfsi
+	8XArmZFnSXPyg1jo1fI5jfOX1RZUYbnUT3nxJ29RqerL/Vh8ssMYytIHA72LF3X0LYYmorG0+DH
+	6
+X-Google-Smtp-Source: AGHT+IHIKkaYV9ZXxRvvVi+o+bLxYVmWl7xyTt+htZ7i1zC3bt5vINHy15SJmXRoDfBppCvN4VrC3Q==
+X-Received: by 2002:a05:6a00:2e91:b0:6ec:ebe0:e4ba with SMTP id fd17-20020a056a002e9100b006ecebe0e4bamr1023158pfb.9.1714424391806;
+        Mon, 29 Apr 2024 13:59:51 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id fj40-20020a056a003a2800b006f3021367desm13045927pfb.197.2024.04.29.13.59.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Apr 2024 13:59:51 -0700 (PDT)
+Date: Mon, 29 Apr 2024 13:59:51 -0700 (PDT)
+X-Google-Original-Date: Mon, 29 Apr 2024 13:59:47 PDT (-0700)
+Subject: Re: [PATCH] cpuidle: riscv-sbi: Add cluster_pm_enter()/exit()
+In-Reply-To: <CAPDyKFph3WsZMmALnzBQKE4S_80Ji5h386Wi0vHda37QUsjMtg@mail.gmail.com>
+CC: nick.hu@sifive.com, anup@brainfault.org, rafael@kernel.org,
+  daniel.lezcano@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>, linux-pm@vger.kernel.org,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, zong.li@sifive.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: ulf.hansson@linaro.org
+Message-ID: <mhng-eea6b80c-4359-46d0-85d9-358bc89e9169@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240429_115040_997692_B204517C 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20240429_135954_972173_4E67F712 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,91 +89,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 29, 2024 at 02:13:22PM +0800, Shenlin Liang wrote:
-> Gentle ping...
+On Mon, 29 Apr 2024 07:32:12 PDT (-0700), ulf.hansson@linaro.org wrote:
+> On Mon, 26 Feb 2024 at 07:51, Nick Hu <nick.hu@sifive.com> wrote:
+>>
+>> When the cpus in the same cluster are all in the idle state, the kernel
+>> might put the cluster into a deeper low power state. Call the
+>> cluster_pm_enter() before entering the low power state and call the
+>> cluster_pm_exit() after the cluster woken up.
+>>
+>> Signed-off-by: Nick Hu <nick.hu@sifive.com>
+>
+> I was not cced this patch, but noticed that this patch got queued up
+> recently. Sorry for not noticing earlier.
+>
+> If not too late, can you please drop/revert it? We should really move
+> away from the CPU cluster notifiers. See more information below.
 
-It would be great to have people with such boards testing your patchkit
-and providing Tested-by tags.
+Sorry about that, I'll toss it.  I'm testing some other stuff right now 
+so it might miss today's linux-next.
 
-Also the patch set has both kernel and tooling support, thus needs to
-find a RiscV kernel maintainer to pick the kernel bits and then, when
-that was merged, I would look at reports of tests for the tooling side
-to then merge it.
-
-Hope this clarifies the process,
-
-- Arnaldo
-
-> > 'perf kvm stat report/record' generates a statistical analysis of KVM
-> > events and can be used to analyze guest exit reasons. This patch tries
-> > to add stat support on riscv.
-> > 
-> > Map the return value of trace_kvm_exit() to the specific cause of the 
-> > exception, and export it to userspace.
-> > 
-> > It records on two available KVM tracepoints for riscv: "kvm:kvm_entry"
-> > and "kvm:kvm_exit", and reports statistical data which includes events
-> > handles time, samples, and so on.
-> > 
-> > Cross compiling perf in X86 environment may encounter issues with missing
-> > libraries and tools. Suggest compiling nativly in RISC-V environment
-> > 
-> > Simple tests go below:
-> > 
-> > # ./perf kvm record -e "kvm:kvm_entry" -e "kvm:kvm_exit"
-> > Lowering default frequency rate from 4000 to 2500.
-> > Please consider tweaking /proc/sys/kernel/perf_event_max_sample_rate.
-> > [ perf record: Woken up 18 times to write data ]
-> > [ perf record: Captured and wrote 5.433 MB perf.data.guest (62519 samples) 
-> > 
-> > # ./perf kvm report
-> > 31K kvm:kvm_entry
-> > 31K kvm:kvm_exit
-> > 
-> > # ./perf kvm stat record -a
-> > [ perf record: Woken up 3 times to write data ]
-> > [ perf record: Captured and wrote 8.502 MB perf.data.guest (99338 samples) ]
-> > 
-> > # ./perf kvm stat report --event=vmexit
-> > Event name                Samples   Sample%    Time (ns)     Time%   Max Time (ns)   Min Time (ns)  Mean Time (ns)
-> > STORE_GUEST_PAGE_FAULT     26968     54.00%    2003031800    40.00%     3361400         27600          74274
-> > LOAD_GUEST_PAGE_FAULT      17645     35.00%    1153338100    23.00%     2513400         30800          65363
-> > VIRTUAL_INST_FAULT         1247      2.00%     340820800     6.00%      1190800         43300          273312
-> > INST_GUEST_PAGE_FAULT      1128      2.00%     340645800     6.00%      2123200         30200          301990
-> > SUPERVISOR_SYSCALL         1019      2.00%     245989900     4.00%      1851500         29300          241403
-> > LOAD_ACCESS                986       1.00%     671556200     13.00%     4180200         100700         681091
-> > INST_ACCESS                655       1.00%     170054800     3.00%      1808300         54600          259625
-> > HYPERVISOR_SYSCALL         21        0.00%     4276400       0.00%      716500          116000         203638 
-> > 
-> > Changes from v1->v2:
-> > - Rebased on Linux 6.9-rc3.
-> > 
-> > Changes from v2->v3:
-> > - Add the missing assignment for 'vcpu_id_str' in patch 2.
-> > - Remove parentheses that cause compilation errors
-> > 
-> > Shenlin Liang (2):
-> >   RISCV: KVM: add tracepoints for entry and exit events
-> >   perf kvm/riscv: Port perf kvm stat to RISC-V
-> > 
-> >  arch/riscv/kvm/trace.h                        | 67 ++++++++++++++++
-> >  arch/riscv/kvm/vcpu.c                         |  7 ++
-> >  tools/perf/arch/riscv/Makefile                |  1 +
-> >  tools/perf/arch/riscv/util/Build              |  1 +
-> >  tools/perf/arch/riscv/util/kvm-stat.c         | 79 +++++++++++++++++++
-> >  .../arch/riscv/util/riscv_exception_types.h   | 35 ++++++++
-> >  6 files changed, 190 insertions(+)
-> >  create mode 100644 arch/riscv/kvm/trace.h
-> >  create mode 100644 tools/perf/arch/riscv/util/kvm-stat.c
-> >  create mode 100644 tools/perf/arch/riscv/util/riscv_exception_types.h
-> > 
-> > -- 
-> > 2.37.2
+>> ---
+>>  drivers/cpuidle/cpuidle-riscv-sbi.c | 24 ++++++++++++++++++++++--
+>>  1 file changed, 22 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+>> index e8094fc92491..298dc76a00cf 100644
+>> --- a/drivers/cpuidle/cpuidle-riscv-sbi.c
+>> +++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+>> @@ -394,6 +394,7 @@ static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
+>>  {
+>>         struct genpd_power_state *state = &pd->states[pd->state_idx];
+>>         u32 *pd_state;
+>> +       int ret;
+>>
+>>         if (!state->data)
+>>                 return 0;
+>> @@ -401,6 +402,10 @@ static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
+>>         if (!sbi_cpuidle_pd_allow_domain_state)
+>>                 return -EBUSY;
+>>
+>> +       ret = cpu_cluster_pm_enter();
+>> +       if (ret)
+>> +               return ret;
+>
+> Rather than using the CPU cluster notifiers, consumers of the genpd
+> can register themselves to receive genpd on/off notifiers.
+>
+> In other words, none of this should be needed, right?
+>
+> [...]
+>
+> Kind regards
+> Uffe
 
 _______________________________________________
 linux-riscv mailing list
