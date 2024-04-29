@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E321CC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 09:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A330C04FFE
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 09:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ldeGimNSdX4nG2EtdtFdW03YXLeKAlgrCMyc/MQeAs8=; b=O2z45ZZKdX3LcJ
-	ZlAcF36DWP2cSPpKrocdhb+r2d21AG7zXDfpfyd+lgbdHRoQ1C3YffyysGKQTt9+KLRsqPg6RWdjI
-	WmKX0fFpHB8azThCkOKBWrxTYRS+6pUO7c05l109Fgg0hw0o/fvd/FZzRkeZso9Xf9riJoomWSBPE
-	Uy2ms7/VqoSKONGolUyRKkmXOdHmKg7SvtxmfTIRx3matQIxk3xwWyEGcaTkoOBnla3Ue0zEQ+Vlp
-	wbYizJkUM/f6tkEq/dmIxeipO6fCHvYmB1aP8aiPLZgNMlVm6K4CvgMBwuY/MDDRd0iP2dg7TGqyu
-	6xXY35EoKY2MSV2Sj4sw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=T9I/xzkgVugETWeV7lmZ9APcXn57mZaOl2dJbp+k5KM=; b=huaY64HjVDyHXa
+	ez2iqFzI2iCg+oLyDTk7E0p0nCb2/MmTmtfw2z+iy0ys2OskhCQxJhhhJrAO9he2GEG+/IFiYTMSa
+	Y0oJOfFbxWgPbXe1NMW7WqUPKSHQ0Q11F2PVbsbJjTl1rNHdmYAbeeunJuqOctE05vCVYDZ9Vom5A
+	r5lX8wo+mM+ceXbHDcTz+57/AYO11pfQXoMnSuXQRTy1sLWE0PeI3xdJOVt0sxTX5f7MQ+oJJny0z
+	b42sPopigYcS4HGpyWpNsRG6ezf9BeIAB9hhM0sdrdUI40J/ZA2ssK1DJj6SIpnnFHbWKPFMr58v9
+	c288h9AHj8Blj2edltKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1NCx-000000025xV-1ojU;
-	Mon, 29 Apr 2024 09:21:59 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1s1NGf-000000026mV-21n0;
+	Mon, 29 Apr 2024 09:25:49 +0000
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1NCt-000000025u5-01fL;
-	Mon, 29 Apr 2024 09:21:57 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6ecff9df447so4104309b3a.1;
-        Mon, 29 Apr 2024 02:21:51 -0700 (PDT)
+	id 1s1NGd-000000026lG-1FiZ
+	for linux-riscv@lists.infradead.org;
+	Mon, 29 Apr 2024 09:25:48 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-5ac61cf3fffso2553146eaf.3
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2024 02:25:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1714382511; x=1714987311; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=J9UFM0QgrM1FAh0+vb7l+Th4iJA3HL3efcqlB9gfYVY=;
-        b=Oq7hmeHmmxra/m4Xl2YwpGn8lzsseOo0UPQc2aiHe7I0gaqkXquKmaqpkqrM1vlGrL
-         GMB3/YPzDqlxsKCgppyi6iZEYHvsFSxzf/sQ32q/VXOv5pd62ew66eBuOA0oZQ+Rg4Mf
-         mbwgu2c6pAMd8d9pE/lVYdQ/LNwPb6eZqei87OghLEPNhKJQhHnzq3aEzka1tSuPEyCh
-         1B3xwAdVBngOhqFv0xuUW0EbbTvKocItsrD8J/1L3L/jc8Jkit+yBZ7wIHbc+YCsBGe9
-         2rCQOKuNVitSCjD7OogmAK38aBEiioH1srX7EGRpN8WdnhLy4Q2XJPNWjcn9/QoBIcvM
-         68Sg==
+        d=gmail.com; s=20230601; t=1714382744; x=1714987544; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gbWYzCSEoyxumsvR08bPig+519NlxGiw91GX3ABWAmI=;
+        b=Ci/rywI4P/XQjw6yd7qyvrsRHlO4YHyX3oWmOiUD3o579vqh2W95JXMYHneCtt3xmp
+         2rD3hfwF7IXPoXfErLqzEYu0THQ7K4AjmxYvlUKGowgyuVW3B7Jy/v2i6lMn2zMJe8Al
+         OHURqORwa0ad/nzoaCpxESw6vp7qskXJVujSe5xq3nezteZ4tM18QkvZNpjjBkDuI7Bj
+         6RSgckf2waJ3jwl2pHvmhBOlJgjIfGv4mJPGrwVvHUkY8xSpBVeeVoLSSDvYtlgCI/md
+         5lFPSnCKWLzTMdr6HpoSS2eUQagnHF6GtKsnATQQhgg63h3NV8LhqoM4TIh7XEmBpnBr
+         867w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714382511; x=1714987311;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=J9UFM0QgrM1FAh0+vb7l+Th4iJA3HL3efcqlB9gfYVY=;
-        b=wmCyl3TYMdkZ2/8PkgSY2c57ryVOFWAj5tLEnJKsb2re/ly/TrLBsBmuuALEf6wm1r
-         EYl5vRQ+daFdG8qJGKB/PLzzm39h5PBcPifV0uERuUAkDqoAHfhI+IBzrZcdySBBecwC
-         BlReA1gsia9H5mh7WFvlP3wvuVGy93fNLRkGZE3sGHvTXGHbaXL7uAqEZjIIVRAQocZ6
-         57mJiHVbQxLpiYpzp5GP84b0mzjNwQGAperXR3c9cfmqBW+flkFCeugKJcSWt++dv16W
-         nBeMCgTA6nSRHRN2hAzwQJK9reNG3nL+VJNt78QNOrZ9MajAKn9Dr/juJAJc8ifOgVr2
-         J2Xg==
-X-Forwarded-Encrypted: i=1; AJvYcCVrK1h3GozzefsBkrabziYm8vSXOjpffmPWuz9X8zrn0xG9R/NBeTuDT8JSKppGQUv8Zs5aTH6tx8QcAowpIHznbKzRWOF0r77psrW5eEBEWwf+hY49tLB5qeO4JM1uhfA9uKu8l4AOSWfnJGWZSQ==
-X-Gm-Message-State: AOJu0YybEKGzr1BimK/E7uQyeSHlbRRkppRPgOt/etnIPMHQfMVifXhk
-	O4/x1UdqpzcGtY7DoVGN+7WmtXaI3gjl+FbS/fqRmVxYn5uEmQYI
-X-Google-Smtp-Source: AGHT+IFUWMxCtXR0YEgu24XHMxJDW5kxEJj7RXx/NjNPsp2tU9ljNIxOlNFDAkPSTudVDNteHZSAFA==
-X-Received: by 2002:a05:6a00:3a09:b0:6ea:74d4:a01c with SMTP id fj9-20020a056a003a0900b006ea74d4a01cmr10302896pfb.14.1714382510598;
-        Mon, 29 Apr 2024 02:21:50 -0700 (PDT)
-Received: from localhost.localdomain (122-116-220-221.hinet-ip.hinet.net. [122.116.220.221])
-        by smtp.gmail.com with ESMTPSA id b16-20020a63d810000000b005e438fe702dsm18503787pgh.65.2024.04.29.02.21.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Apr 2024 02:21:50 -0700 (PDT)
-From: Yu-Wei Hsu <betterman5240@gmail.com>
-To: anup@brainfault.org
-Cc: atishp@atishpatra.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yu-Wei Hsu <betterman5240@gmail.com>
-Subject: [PATCH] RISC-V:KVM: Add AMO load/store access fault traps to redirect to guest
-Date: Mon, 29 Apr 2024 09:21:13 +0000
-Message-Id: <20240429092113.70695-1-betterman5240@gmail.com>
-X-Mailer: git-send-email 2.25.1
+        d=1e100.net; s=20230601; t=1714382744; x=1714987544;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gbWYzCSEoyxumsvR08bPig+519NlxGiw91GX3ABWAmI=;
+        b=LsgPHbjoM5AXst0ptCgW8+xdAvWIywH9+cx1e+gjCWX3+jYL7iDQ8Qv9ksZ6y6wjWU
+         0NLyhxoFqBF/7gXy2B2mtk90wVSn2W3DlJ1LJGDvz3CNNRFNg3PaSsq13jc0MLp18cE0
+         CzpVI4AVrYcssY7mnOiUvJI793Ic6mk3ManrnH1ZpbByMXxJugMdw5FEEUVOYcG/guaI
+         2a4ZBrZdMyTjLERav/+4JqZGeD9Rf/rtp7YvYI/TZxQ/xw+NTyzQlfgWbfn/eONnnqDn
+         c8VbDyMZ+/b/lG+tvpn0tl8PVUwV7wy2WYWJv5u6Iw9sLijf7xtN9uYihLvfrsTY9b9Z
+         2sqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU2URhN25tVzM/lcM5JGwgBm6OWGFg90k2TGeiMzrFCBiqWke+2IxU07XiswiFUfjl7XEe+lrwfGZzAekCvOZaZyE69YaTR2Z9bcj9fOSjl
+X-Gm-Message-State: AOJu0YxK0PjnhWbkM0vCO6/WmimaWYi+bAnCLhGtsp7+SUGxAYnyDslk
+	x+DpbCJlCBFGd1VND65EIJ7rIBC3FVPuSVWBklCOnNf1g5EEdakzTRv2yfOwQIy+gI0sveZbHAH
+	7PueTqWkg8gHOBAqbeOqxFD34vMQ=
+X-Google-Smtp-Source: AGHT+IFYt5gw9zhGrhOiSzSqMiit+DxbvdfCvNpQBl3bbGxw562cT0dhGTU+x1sG3KWCX8QEEWIDzPg+gk6CXCaiFjg=
+X-Received: by 2002:a4a:347:0:b0:5aa:3b8a:b491 with SMTP id
+ 68-20020a4a0347000000b005aa3b8ab491mr12049732ooi.4.1714382743967; Mon, 29 Apr
+ 2024 02:25:43 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240427075426.662671-1-qiujingbao.dlmu@gmail.com>
+ <20240427075426.662671-2-qiujingbao.dlmu@gmail.com> <40eee0ca-fb15-40c7-80be-a1198f37663d@linaro.org>
+ <CAJRtX8RztQfeoBhGjdAZZBW5h9PQT_pYhyKCRsbXwx83SbCExA@mail.gmail.com> <1bc01cc9-313d-4433-9995-49a5738adeca@linaro.org>
+In-Reply-To: <1bc01cc9-313d-4433-9995-49a5738adeca@linaro.org>
+From: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
+Date: Mon, 29 Apr 2024 17:25:33 +0800
+Message-ID: <CAJRtX8Q0RYFBrecSwWsDHQi8YaZ0hFAND8qj011j_p+uCjRHpg@mail.gmail.com>
+Subject: Re: [PATCH v1 1/2] dt-bindings: mtd: add sophgo spi-nor-controller
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: broonie@kernel.org, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
+	conor+dt@kernel.org, unicorn_wang@outlook.com, inochiama@outlook.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	dlan@gentoo.org, linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240429_022155_115805_01018229 
-X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-CacheID: sfid-20240429_022547_449670_01AB30D2 
+X-CRM114-Status: UNSURE (   9.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,43 +91,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When unhandled AMO load/store access fault traps are not delegated to
-VS mode (hedeleg), M mode redirects them back to S mode.
-However, upon returning from M mode,the KVM executed in HS mode terminates
-VS mode software.
-KVM should redirect traps back to VS mode and let the VS mode trap handler
-determine the next steps.
-This is one approach to handling access fault traps in KVM,
-not only redirecting them to VS mode or terminating it.
-
-Signed-off-by: Yu-Wei Hsu <betterman5240@gmail.com>
----
- arch/riscv/kvm/vcpu_exit.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-index 2415722c01b8..ef8c5e3ec8a0 100644
---- a/arch/riscv/kvm/vcpu_exit.c
-+++ b/arch/riscv/kvm/vcpu_exit.c
-@@ -185,6 +185,8 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	case EXC_INST_ILLEGAL:
- 	case EXC_LOAD_MISALIGNED:
- 	case EXC_STORE_MISALIGNED:
-+	case EXC_LOAD_ACCESS:
-+	case EXC_STORE_ACCESS:
- 		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV) {
- 			kvm_riscv_vcpu_trap_redirect(vcpu, trap);
- 			ret = 1;
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBcHIgMjksIDIwMjQgYXQgMjo0M+KAr1BNIEtyenlzenRvZiBLb3psb3dza2kKPGty
+enlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4gd3JvdGU6Cj4KPiBPbiAyOS8wNC8yMDI0IDA4
+OjQxLCBKaW5nYmFvIFFpdSB3cm90ZToKPiA+Cj4gPj4KPiA+Pj4gKwo+ID4+PiArICByZWc6Cj4g
+Pj4+ICsgICAgbWF4SXRlbXM6IDEKPiA+Pgo+ID4+IE5vIGNsb2Nrcz8gTm8gaW50ZXJydXB0cz8g
+VGhpcyBsb29rcyBpbmNvbXBsZXRlLgo+ID4KPiA+IElmIG5lY2Vzc2FyeSwgSSB3aWxsIGFkZCBj
+bG9ja3MgYW5kIGludGVycnVwdHMuCj4KPiBEb2VzIHlvdXIgaGFyZHdhcmUgaGFzIHRoZW0/IEJp
+bmRpbmcgc2hvdWxkIGJlIGNvbXBsZXRlLCBzbyBmdWxseQo+IGRlc2NyaWJlIHlvdXIgaGFyZHdh
+cmUuCj4KCkkgd2lsbCBwcm92aWRlIGEgY29tcGxldGUgZGVzY3JpcHRpb24gb2YgdGhlIGhhcmR3
+YXJlLgoKQmVzdCByZWdhcmRzLApKaW5nYmFvIFFJdQoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
