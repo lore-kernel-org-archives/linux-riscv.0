@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0C0C25B10
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D493FC25B4F
 	for <linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2024 10:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,30 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UoCTOLCZnWxjfITonxbMWyUd9rIiWNfbJEyEnlq9+tw=; b=35hMfXpCfizH21
-	uRzJqLTgINUDqg54rNJUyXy1rUDqLSGo1dkgoI+baLGmkiDBYSr2af29JmU5Ws+SswmClmGK1kkhA
-	bMaMH8Mwys41v//hxfChw7vdJ+PJ/d1Cvlwur3Fv2AL2uqAqurwW5TCj09OhxhjzRZOtlBUn6FmaF
-	gUexdIzEqNRXKqTfr7AN3kIANGushxouYjm1/+QOUNLOrBiOkQJNT3LpQWoEDFYc/QzyAKDL2Fywj
-	XKZSZOPsx9arVl30h6Z7JT9oAYdMj+MDg5JYFfhEdCM+sXgCw0mImFeeCs2kj5FFqUxlgQl1TsGZF
-	g2FirXAcOFF5TwuBDUzg==;
+	List-Owner; bh=18IoqiqiybiQXXc1uyMerxG+GPN7hIhAZwi+N77Put0=; b=ZVChqK9PzIHfMy
+	ArcAp0mr9wpZxBgjRm+pyqCk6gAay2RDA+Sn6vXUI/bsMNOh+3G5Y47Yy9gB6Tvd4VD5RE8lin95T
+	0hA6PoZ8TxIFKTUGgu/uPPpaII2A0HYUkohKyOwAaq9RX3V4W1EIXvMkD/vngw0BOCSQIzf9w1AZL
+	3yKLADsq8nOyerw1Q3NoEm2UXffGiuFPCvE85EEl5Py5iZhMBqagus9qFIRKdCc8RV/rDOLXf1f5t
+	IxF9Hr3YX78fl0GcD1bID+7t6kqtpwqwkDcuZguoW/06zKO3NZke/R9/NMmHKXYDl0KyIJNagodst
+	RlLeNKCbXWzkOxe5Aobg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1ONA-00000002IhA-2ORt;
-	Mon, 29 Apr 2024 10:36:36 +0000
-Received: from out0-200.mail.aliyun.com ([140.205.0.200])
+	id 1s1ONB-00000002IiW-3V6V;
+	Mon, 29 Apr 2024 10:36:37 +0000
+Received: from out187-22.us.a.mail.aliyun.com ([47.90.187.22])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1OMl-00000002IMd-1au6
+	id 1s1OMl-00000002INf-1OaM
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Apr 2024 10:36:15 +0000
+	Mon, 29 Apr 2024 10:36:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=antgroup.com; s=default;
 	t=1714386961; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=L9Nnq3jHrztC2V1l+aPsgS97TA5W6U5sPTcwdSCKib4=;
-	b=oPwIfU0gSfBrVohHAdkhWKn06WI1FfS6b7uuYUGFoD88bxPGYtPbEIU96r+wxLekbLAGx5cc+JBuPTky9Ikn+TmK+i6Dz/2Zlsaz86JX551+PpkPQ9o7i9IYIwZhU/kVVqBs6vcSRTRCVJ4B594Fow2YluF6wz6Cc9b90k+GtuA=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R831e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018047207;MF=libang.li@antgroup.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---.XOEanMa_1714386956;
-Received: from localhost(mailfrom:libang.li@antgroup.com fp:SMTPD_---.XOEanMa_1714386956)
+	bh=Zpq+IlpQptIiF+1qadAYLdyILX4yq5vgiQqk5YenteU=;
+	b=JYXejhfZPXRD0CEEjA5KkFdk2RT/wbex+Lc9SxxWOCkDurLvBqF7x4OwdI2GGQfN/54+6NYZJI8LGBk+F72vT7HUS/pm+RSWuGn8E7rVlJam3rDmYi7SFHoh1HezxBO4FUHII2thhCd34KAlHau2aFuvO+GyjxGxhbtrc9B7ULs=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018047205;MF=libang.li@antgroup.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---.XOFQRPj_1714386953;
+Received: from localhost(mailfrom:libang.li@antgroup.com fp:SMTPD_---.XOFQRPj_1714386953)
           by smtp.aliyun-inc.com;
-          Mon, 29 Apr 2024 18:35:57 +0800
+          Mon, 29 Apr 2024 18:35:54 +0800
 From: "Bang Li" <libang.li@antgroup.com>
 To: akpm@linux-foundation.org,
 	chenhuacai@kernel.org,
@@ -54,16 +54,16 @@ Cc: <david@redhat.com>,
    <linux-mips@vger.kernel.org>,
    <linux-riscv@lists.infradead.org>,
   "Bang Li" <libang.li@antgroup.com>
-Subject: [PATCH v1 4/5] xtensa: Add update_mmu_tlb_range()
-Date: Mon, 29 Apr 2024 18:33:45 +0800
-Message-Id: <20240429103346.59115-5-libang.li@antgroup.com>
+Subject: [PATCH v1 2/5] mips: Add update_mmu_tlb_range()
+Date: Mon, 29 Apr 2024 18:33:43 +0800
+Message-Id: <20240429103346.59115-3-libang.li@antgroup.com>
 X-Mailer: git-send-email 2.19.1.6.gb485710b
 In-Reply-To: <20240429103346.59115-1-libang.li@antgroup.com>
 References: <20240429103346.59115-1-libang.li@antgroup.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240429_033611_731997_5FB18A73 
-X-CRM114-Status: UNSURE (   5.88  )
+X-CRM114-CacheID: sfid-20240429_033611_745168_AEF0246E 
+X-CRM114-Status: UNSURE (   5.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,40 +86,22 @@ address range.
 
 Signed-off-by: Bang Li <libang.li@antgroup.com>
 ---
- arch/xtensa/include/asm/pgtable.h | 2 ++
- arch/xtensa/mm/tlb.c              | 6 ++++++
- 2 files changed, 8 insertions(+)
+ arch/mips/include/asm/pgtable.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/xtensa/include/asm/pgtable.h b/arch/xtensa/include/asm/pgtable.h
-index 9a7e5e57ee9a..50ccfc988256 100644
---- a/arch/xtensa/include/asm/pgtable.h
-+++ b/arch/xtensa/include/asm/pgtable.h
-@@ -412,6 +412,8 @@ typedef pte_t *pte_addr_t;
+diff --git a/arch/mips/include/asm/pgtable.h b/arch/mips/include/asm/pgtable.h
+index e27a4c83c548..0891ad7d43b6 100644
+--- a/arch/mips/include/asm/pgtable.h
++++ b/arch/mips/include/asm/pgtable.h
+@@ -596,6 +596,8 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
  
- void update_mmu_tlb(struct vm_area_struct *vma,
- 		    unsigned long address, pte_t *ptep);
-+void update_mmu_tlb_range(struct vm_area_struct *vma,
-+			unsigned long address, pte_t *ptep, unsigned int nr);
- #define __HAVE_ARCH_UPDATE_MMU_TLB
+ #define	__HAVE_ARCH_UPDATE_MMU_TLB
+ #define update_mmu_tlb	update_mmu_cache
++#define update_mmu_tlb_range(vma, address, ptep, nr) \
++	update_mmu_cache_range(NULL, vma, address, ptep, nr)
  
- #endif /* !defined (__ASSEMBLY__) */
-diff --git a/arch/xtensa/mm/tlb.c b/arch/xtensa/mm/tlb.c
-index d8b60d6e50a8..05efba86b870 100644
---- a/arch/xtensa/mm/tlb.c
-+++ b/arch/xtensa/mm/tlb.c
-@@ -169,6 +169,12 @@ void update_mmu_tlb(struct vm_area_struct *vma,
- 	local_flush_tlb_page(vma, address);
- }
- 
-+void update_mmu_tlb_range(struct vm_area_struct *vma,
-+			unsigned long address, pte_t *ptep, unsigned int nr)
-+{
-+	local_flush_tlb_range(vma, address, address + PAGE_SIZE * nr);
-+}
-+
- #ifdef CONFIG_DEBUG_TLB_SANITY
- 
- static unsigned get_pte_for_vaddr(unsigned vaddr)
+ static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
+ 	unsigned long address, pmd_t *pmdp)
 -- 
 2.19.1.6.gb485710b
 
