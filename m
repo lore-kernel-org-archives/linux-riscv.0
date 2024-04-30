@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990D7C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 10:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373C2C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 10:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RCzgK2kjxlMxW9YB7WhNuZX7xOYZ1qIbczo6+SSiqJQ=; b=fcRvqyvBowcoZw
-	kUop8TebaOvpF+uugJnaBVSbI247oPIqd+6gLta8sx7EHnPMi+Tu60208Rh6xgrazgeol/lFdknPS
-	/fO8Vnwc4QrezEHtoW9hdZJRGpvce1AF9QDZ6cDHLd1FebvIfc2U3AiY3dDB8fH5M03j2Ylp1bPt3
-	cniHZv8ENeaDWycpvofhP5LWwPAq9o90KsN5bOaJYaxhyzKHQeuCQg1iMh9TxS4mxyJnVRk4uPzbe
-	9xwHURcTKTSJCbnbH/NNY7AZbKxjv4o90/WhayEDW8lQBMKQyjdlROi6Z7y2bPw5ivNRQPxQcqtBu
-	kdphpU/HmXx2YeuL3DEw==;
+	List-Owner; bh=yR2TE6se3It8kExW6tceCEPpu4MrynKHQgr+JHFo/oU=; b=TN3/RK5ZVY61Vl
+	ykd9qYSb1fJOVB8zH4mUh6AzsGoLyoJ/WEtt8kcLPsmjR97c77431xqgB3w8WGaJK5RivibFiQVti
+	kAJ28LnB0L5mcyx4Xnlv5KHVN4xrmz7sO0CzQ+LKrmGF4dtEKpoKO/cwwCEa336mlyCr5tN+BrprL
+	15FCV1mTslY2OyKTnbmJVuD/q5IIatEQQDQAgk/0RXxfxQGYpV4yUyx0+ZFZeSZKB7f72oelH2bSn
+	oTKb7RKd0J/KO+jYl3cD5vi3i2GVin+7YPUKqxpFOkItOH0L7hkVKB7NxdrxuKZtWUg652j+Dj94m
+	D+o+GTwBZwwACAnF1N3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1kOd-00000005wkc-1REo;
-	Tue, 30 Apr 2024 10:07:35 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1s1kmw-000000061Xv-0GwJ;
+	Tue, 30 Apr 2024 10:32:42 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1kOZ-00000005wjy-26fi
+	id 1s1kmt-000000061Wj-0gpy
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Apr 2024 10:07:33 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-572a06e47a7so266667a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Apr 2024 03:07:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1714471648; x=1715076448; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=X2r6vFxOsrH1SI0fFJepI48sxB8CrSsgq16crhknR74=;
-        b=U7DsY5/bR0HMUjq/0+ammAjNnHDIQPfELyhsOBuaKaNF+NGDxnQSU/HMKTgBzZFs57
-         Sxk4SVXRbzeDUicO77MY7p46YJUjTexBb5Vcj/gmy7d2t9yixPztwDNg+orbxpIyhcJa
-         7IhPyGMEF1TcC0cnuKHp+kgm/GxtimlRhDGLDw4NELEF4jPjyPZF9BRlHRYm5wgFJtXT
-         3jZ1zxSUGPTBesN0GvCBX9fWaHLnpNqcuaj+ZZlKNT1AFrcEIqFg2noF76zS/sVy0gE8
-         ELDh5lXRyu5/luDp5WWzEbwmz7D9JT2yaQ22QmCbHfTVv+1Bmc8UixVtvA/Eb2uyjbxd
-         4toA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714471648; x=1715076448;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X2r6vFxOsrH1SI0fFJepI48sxB8CrSsgq16crhknR74=;
-        b=D3Mkqfp0dN8fneOA8Jym3vMcWMOYmUHhkDWPNwJlWEcGstDEHjWYv/9ta4hte5g7e8
-         HL/CXn0BzYzrm3kOU1hcGXglY2rDyH1zC0w9h8XJcsuvW/m3tuMeNxsBibhm2xsMQ7D2
-         fpBjBtBD8KNXClWkVqdY08bcs8mVGpOzmhOb+nWs/aJqlFrgblNQWMdX/a3GS3m3Iz69
-         DkBMB7RalalWjc7U0b1/XjbrEJAf6XLCf58BX4zMtRsFi5DWS3aHggD/JEWWXT5sXqaM
-         hpl0JUCYVmDqAFqXTxgPd5yLbNId6oKuuvEo6C7aC0X4hHpqJgws6Xow29SgzgcCBLkv
-         +2Rg==
-X-Forwarded-Encrypted: i=1; AJvYcCV5Ou5ogCF/JWOqc6K65Q1hALp2YAfLuFSvQrtaIp6HDnRlSaiGzC8O8lR1KIgIj47kvhbNOTaLN1mC4jU87tPtBOKsC5tA9oDuJvFWKVZW
-X-Gm-Message-State: AOJu0YxsyYkn+HXSjBBimw8rRN8UTMM9MEshvQvpFlWv7toT/DidFzPU
-	WaRovNqrwCJIbDCw5pJdQ3/IILGSVpj3ZG3LKi8+mytMg7dqY1jjHAYfXmJgBhU=
-X-Google-Smtp-Source: AGHT+IHR+yWfIkq8eqNqKOZTDszbKiLaNlUcUX8HdX0mL0Ur+qB1bBfC1nK9CY2nqr33YiCTWvl8sg==
-X-Received: by 2002:a17:906:81d5:b0:a58:871f:8eb0 with SMTP id e21-20020a17090681d500b00a58871f8eb0mr9371487ejx.7.1714471648237;
-        Tue, 30 Apr 2024 03:07:28 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id a14-20020a1709065f8e00b00a559bbe8a00sm12131014eju.100.2024.04.30.03.07.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Apr 2024 03:07:27 -0700 (PDT)
-Date: Tue, 30 Apr 2024 12:07:26 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
-	Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, Evan Green <evan@rivosinc.com>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] riscv: cpufeature: Fix thead vector hwcap removal
-Message-ID: <20240430-6781cbaa0a929246cb77dafd@orel>
-References: <20240429-cpufeature_fixes-v3-0-6aa11dde513b@rivosinc.com>
- <20240429-cpufeature_fixes-v3-1-6aa11dde513b@rivosinc.com>
+	Tue, 30 Apr 2024 10:32:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1714473159; x=1746009159;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=TOsha8tZbWHodSCSOeDar0KTCBzSwyaa+6PzT/MvwQE=;
+  b=KkrtKEQM7aw9WChLEVUlqEk8OM4xe67hy1kHVFmDuNcvDWMh4PqsCFUd
+   gPH/3oVgw5YE27ph0Y6iHQwIcHnJXE15zLU4q5AOxXskaWZpeFGu98FKs
+   IrGpZe2b2Ha2AKsUDlQvczn/V49f/ITOrRH2546j6IIu42KVmMnuJD9nM
+   bQQvnv0Xt0UVTN94cuEMJefBKw427oHWwP3wqf1bqF+3qQ1rc0erN9VgZ
+   IeWkdp2+O5h4Qz25fBxzYIoPaAXU+ZxBTU4Kbzulwo4rE32Db26dhElfi
+   b6Lt77PANMv5u+OwYdy+zUJ2m1DnKDvHxGbvinOfN9ruv8Hr8Bd2HKn1R
+   w==;
+X-CSE-ConnectionGUID: 8fB4HjlSRv2wqJ5QxML+fw==
+X-CSE-MsgGUID: uyTL3gtzQ1yIEQfrh7CauQ==
+X-IronPort-AV: E=McAfee;i="6600,9927,11059"; a="13954782"
+X-IronPort-AV: E=Sophos;i="6.07,241,1708416000"; 
+   d="scan'208";a="13954782"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2024 03:32:39 -0700
+X-CSE-ConnectionGUID: awcwGRgfS4qieBRaGoUYIQ==
+X-CSE-MsgGUID: /22euhvsR3qjzsVbZojErg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,241,1708416000"; 
+   d="scan'208";a="27031455"
+Received: from lkp-server01.sh.intel.com (HELO e434dd42e5a1) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 30 Apr 2024 03:32:34 -0700
+Received: from kbuild by e434dd42e5a1 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1s1kml-00082F-2h;
+	Tue, 30 Apr 2024 10:32:31 +0000
+Date: Tue, 30 Apr 2024 18:31:40 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jingbao Qiu <qiujingbao.dlmu@gmail.com>, broonie@kernel.org,
+	robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+	conor+dt@kernel.org, unicorn_wang@outlook.com,
+	inochiama@outlook.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: oe-kbuild-all@lists.linux.dev, dlan@gentoo.org,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>
+Subject: Re: [PATCH v1 2/2] spi: add support for sophgo spi-nor controller
+Message-ID: <202404301801.fGGuCYoT-lkp@intel.com>
+References: <20240427075426.662671-3-qiujingbao.dlmu@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240429-cpufeature_fixes-v3-1-6aa11dde513b@rivosinc.com>
+In-Reply-To: <20240427075426.662671-3-qiujingbao.dlmu@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240430_030731_575108_413CC41E 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20240430_033239_264447_7B5D2B03 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,35 +95,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 29, 2024 at 03:29:51PM GMT, Charlie Jenkins wrote:
-...
-> +		 *
-> +		 * Disable vector if the boot hart has a T-Head mvendorid and an marchid of 0.
+Hi Jingbao,
 
-I probably would have added the 'why' to this comment, i.e. T-Head doesn't
-have standard V so things will break if we try to use it, or whatever. The
-'what' alone is just putting the easy to read condition below into
-English, making it an unnecessary comment.
+kernel test robot noticed the following build warnings:
 
-Thanks,
-drew
+[auto build test WARNING on 4cece764965020c22cff7665b18a012006359095]
 
->  		 */
-> -		if (acpi_disabled && riscv_cached_mvendorid(cpu) == THEAD_VENDOR_ID &&
-> -		    riscv_cached_marchid(cpu) == 0x0) {
-> +		if (acpi_disabled && boot_vendorid == THEAD_VENDOR_ID && boot_archid == 0x0) {
->  			this_hwcap &= ~isa2hwcap[RISCV_ISA_EXT_v];
->  			clear_bit(RISCV_ISA_EXT_v, isainfo->isa);
->  		}
-> 
-> -- 
-> 2.44.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+url:    https://github.com/intel-lab-lkp/linux/commits/Jingbao-Qiu/dt-bindings-mtd-add-sophgo-spi-nor-controller/20240427-155533
+base:   4cece764965020c22cff7665b18a012006359095
+patch link:    https://lore.kernel.org/r/20240427075426.662671-3-qiujingbao.dlmu%40gmail.com
+patch subject: [PATCH v1 2/2] spi: add support for sophgo spi-nor controller
+config: powerpc-randconfig-r111-20240430 (https://download.01.org/0day-ci/archive/20240430/202404301801.fGGuCYoT-lkp@intel.com/config)
+compiler: clang version 15.0.7 (https://github.com/llvm/llvm-project.git 8dfdcc7b7bf66834a761bd8de445840ef68e4d1a)
+reproduce: (https://download.01.org/0day-ci/archive/20240430/202404301801.fGGuCYoT-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202404301801.fGGuCYoT-lkp@intel.com/
+
+sparse warnings: (new ones prefixed by >>)
+>> drivers/spi/spi-sophgo-cv1800.c:259:22: sparse: sparse: incorrect type in assignment (different base types) @@     expected unsigned int [usertype] addr @@     got restricted __be32 [usertype] @@
+   drivers/spi/spi-sophgo-cv1800.c:259:22: sparse:     expected unsigned int [usertype] addr
+   drivers/spi/spi-sophgo-cv1800.c:259:22: sparse:     got restricted __be32 [usertype]
+
+vim +259 drivers/spi/spi-sophgo-cv1800.c
+
+   244	
+   245	static int sophgo_nor_port_trans(struct sophgo_nor *spif,
+   246					 const struct spi_mem_op *op)
+   247	{
+   248		const uint8_t *dout = NULL;
+   249		uint8_t *din = NULL;
+   250		uint32_t addr;
+   251	
+   252		sophgo_nor_config_port(spif, 1);
+   253	
+   254		if (op->cmd.nbytes)
+   255			sophgo_nor_xfer(spif, (uint8_t *)&op->cmd.opcode, NULL,
+   256					op->cmd.nbytes, op->cmd.buswidth);
+   257	
+   258		if (op->addr.nbytes) {
+ > 259			addr = cpu_to_be32(op->addr.val);
+   260			sophgo_nor_xfer(spif, (uint8_t *)&addr, NULL, op->addr.nbytes,
+   261					op->addr.buswidth);
+   262		}
+   263	
+   264		if (op->data.dir == SPI_MEM_DATA_IN)
+   265			din = op->data.buf.in;
+   266		else if (op->data.dir == SPI_MEM_DATA_OUT)
+   267			dout = op->data.buf.out;
+   268	
+   269		sophgo_nor_xfer(spif, dout, din, op->data.nbytes, op->data.buswidth);
+   270	
+   271		sophgo_nor_config_port(spif, 0);
+   272	
+   273		return 0;
+   274	}
+   275	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
