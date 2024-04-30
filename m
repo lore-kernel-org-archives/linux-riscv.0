@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC875C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 19:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FEDC4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 19:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BghPmkg40nVEPIx13j7w6h4GfpkMOdrGU595GE0k+Ag=; b=ioMWi3O/XkD59p
-	mpkmdDhuEyDAr03KvCjv+0l5kWPCzZN9MYm9X6QdoPrSREJD+r+CxQ0c/7iBcMM3KPPoQ2Kn8bVRF
-	w7B3n4ljljD34VqX4sSX237kr3HmLEJW/w7l85vLv+1Is7iC2nubtpnidfYBwvPan8Lh1zstpDE/E
-	Vu95JqFYaGriWSphIfHvheEnCdVP+5Qe6Mf9ubnfH/8mq/Who6TX0y3LfhZvkywKfL9ICg+VYjUOy
-	ZlBVg5Km6lGqCdFFdF6SveagqDS4ilIla/FmUhcS/CtyVJlekrvRZMBSTJWGYV3OEHolX/9euP1bb
-	7cgGRbgp5dkpolGcuI+g==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=G1uPvDnXHJaBuqwjhDSS1rZu1PeVaVufd5Mr9p8o9uI=; b=vFUzXns6fOHu5E
+	BIjo+/uwLMujhZnnjDrTl87Ch8XjvQ/XsYIxLdjeFLHpPw3jtShffhf9CNNHN7xU/zA3KB3G6S2eu
+	IzPyOe7JMVZKQ5qK7FF0XcTnOSucwsNmxI0l82yrfXMN5xlnGFUumSgZArYdYslbF6wY6EmqDnWr8
+	sBhCYrmvDCNfMBZujs9rcwW+7uG0VSlvEeIDYftUIsr7qRwt1hL1sBp2g0aLMGKPofHqBUJyieimh
+	Sp/rLrZDqhrlDik2BAPB2HmWETFkVMP+eyVqhLXaAAOpL7AbMjqcnVaNGbpiQui2KFl88spBChTEW
+	7wpWw2B+0SXrQjDJrqLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1t0l-00000007hKo-3gwx;
-	Tue, 30 Apr 2024 19:19:31 +0000
-Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
+	id 1s1tDF-00000007iiz-1d5V;
+	Tue, 30 Apr 2024 19:32:25 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1t0c-00000007hJ7-3AeP
+	id 1s1tCx-00000007ib5-3Jfu
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Apr 2024 19:19:29 +0000
-Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-56e69888a36so6466277a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Apr 2024 12:19:20 -0700 (PDT)
+	Tue, 30 Apr 2024 19:32:10 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ac3403b27eso6941951a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Apr 2024 12:32:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1714504759; x=1715109559; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F8uFehdUx8z7xRSqATk4C9fttlOvgfKnCVngjCGKN8k=;
-        b=a8LHNJswRsXuYgJIeStgpYLOAtyjuy9sLr+v0ZHNhyJKbBUKt7myAm/AafzRg9WSYA
-         e/othLnLwTZ1tqnHtyMAbEsLB0rdEjW9DPufVTWCvvF/FUX6G3wiD700AEwoufvMnE2l
-         Coqn+B4QC8wLVDuXAqmcTu8oGVLLJ4HRWYDU5HjUoG4VUcNXSPhIUoFQduu5HwJV+TH7
-         upNCejd9rWkpn5eHrfmNJwyoML6ylPPu5II+pDkjB8qYFXyNzyv9kPpty/M+AwKA0lbt
-         La0kxuDRrYOkl1QGbzZmbyVniQr1dvDUCHRGlkr6osr97dk28+qstA675hjcwf/t1mrG
-         gWag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714504759; x=1715109559;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=google.com; s=20230601; t=1714505520; x=1715110320; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=F8uFehdUx8z7xRSqATk4C9fttlOvgfKnCVngjCGKN8k=;
-        b=n3F9BohlsWali6kdQkKWtqwr7LvtniLIHtAp2IxKBovBHh7wYwGb6q88uuxPFR3vYI
-         6MuG4uHda+GXCBRGosRqz0mg6MP40o67A1U9NPp0NRKKasC4+UHetJLlC6Cp4QOQIdG+
-         G2vQ4rc4Sb5ReqLR0rY2lDrBImvVwUxqBpbPKO7/jE+HZv/myXkEMCztJ/e8uOFM/fy7
-         niJ4Akc0E6426Pv+l7wRnZru4J0wAl1R/bOwp+gPw6rABmx3P2k7sSFTdFAz9Jc1b1Tb
-         xfYF2bun24ayw6+mAXXTGnzqacDZ3OeU84SVj/jj1eNly0f1m+DPj8kwQWYGuqSTCmq/
-         YFRA==
-X-Forwarded-Encrypted: i=1; AJvYcCUGx3bElY44nSgSOeBDudxr7dlPtnMBhjZb+OaviO1pLx8Ub38CcBm9KrBOhL7YbdDA7Uk7BClGsrSlwaHS7EouTUbmSMtXysJpl327N9H8
-X-Gm-Message-State: AOJu0YxuO1PvTxsPSPhP8MivyaYt64RNVG4qxIQcruB3Ed71PyMYmDwE
-	PAarKtXajH0EEESg/1gcmG41wndlaOoloqUsKgdW1F2/jVx49/sVJPcaEvBuxKt084jbh1hkZob
-	RYHccU1YlpRr7Pqq7bcZmQi18Bij8/sBE
-X-Google-Smtp-Source: AGHT+IEKrt23r1vzcFtSNgqLbuDM5BDbdQzAfothjE9a3Eoilzg+lQJblIhWkCeheA0myxL8nNfFZi4b+9i0EQuW3Rc=
-X-Received: by 2002:a50:f613:0:b0:572:47be:be36 with SMTP id
- c19-20020a50f613000000b0057247bebe36mr182665edn.0.1714504758705; Tue, 30 Apr
- 2024 12:19:18 -0700 (PDT)
-MIME-Version: 1.0
-References: <20240430175834.33152-1-puranjay@kernel.org> <20240430175834.33152-3-puranjay@kernel.org>
-In-Reply-To: <20240430175834.33152-3-puranjay@kernel.org>
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Tue, 30 Apr 2024 21:18:42 +0200
-Message-ID: <CAP01T74ASv5t8O1SPZgsWhgymK3303x9z3mFroHNgaHEZdjoxA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 2/2] riscv, bpf: inline bpf_get_smp_processor_id()
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, bpf@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Pu Lehui <pulehui@huawei.com>, puranjay12@gmail.com
+        bh=z8cKIw53BRkz+z0+cac0VztUPzZ2bkNPe6LEvW4OcBU=;
+        b=zOiSmv8GuhC/tbT+GG1ZeNmY1FR8gaBwb09DYAZ+m7HdqalJL8KYyMxl7nB3nV9jyz
+         PIA7iGF5yQyWpu8+F0oNfKaaT2U08A7KfF8voGUatGoYmTBjQHaR7GkTgsKwjQL5qbEr
+         D+pG3wkl0Lo9/Eg3/cvTzhXeDkiZoE52Tbyo70JXcjgQTgkb/r7Vkke7ftu/zNfwdRkZ
+         vX/iev8mHTkcGbZvqL4f5If710695WDAqw9xYRrY4GyvMH5Vf8SS8iAwj8OrzUGyGZM4
+         +qdt0lsPB4G7QUtRFpdJs0c7lxsD4gRbSrn/VnA7fAU2MI6BnZThTLDolSWI0K1qSqcP
+         jg1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714505520; x=1715110320;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=z8cKIw53BRkz+z0+cac0VztUPzZ2bkNPe6LEvW4OcBU=;
+        b=braE+9nwiBypoeL1psb71YFb71jS8Nf199dXkmkHsF85S7EGOaVGTtInwiA8+shS4/
+         L/kAzTL+4mZgsgpS0sVwLZdFa/GWc18RTSLXwqWjeo9te64hpe97O1fbqvyMXZNLq9UY
+         T735e1ghv6AcWr/VEaERlAHeqPOuoI4rR6IDuFwgjKYsM12A3XYyFrxDsCH16WH4sBVf
+         5Ur+yNwX+vshw4t9T1U8G5ZefrFCCM+qKXn9v/c9JhZ7xJWGNW7SJ7IU55/0Bs9gXezI
+         G2RbgFE7y6s5YdAlS2auEV7LXFhY2B3PEhXh+oZsmwrU+BhdKFOfu6EvfHJw42bqbFcm
+         P+Fw==
+X-Forwarded-Encrypted: i=1; AJvYcCWozaQLut1Vdpjup+6mBBx/+Kt4tyWtgel0FALCVLpLP1sJkbES39z2hGGhjfCbU9ZNSozq6WEPgpV0loQi7Gq9y/cCnwsqSfOX8P03sbF7
+X-Gm-Message-State: AOJu0YxHQOv9Aes2aDRyjQD0hjef5CroeMAaicVjNntlfLwXyJfs9Ont
+	emRKKLyBcW1NUuuO/ycXdUFlGCxKbc8mFu0+kj0u6Qlpa7M13/jU9WbJgJGq8Mu0jB9/2a68Fd4
+	bYA==
+X-Google-Smtp-Source: AGHT+IH3JUNqnUxIpxTDCx/ljNN0s2y6mLqDYiJH9gncvZUrZrTQ/cL7Kjz1TcqYgEZ6lTuIQ7azs+1F9y4=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:90a:e504:b0:2a2:ff01:dd7c with SMTP id
+ t4-20020a17090ae50400b002a2ff01dd7cmr1190pjy.8.1714505520000; Tue, 30 Apr
+ 2024 12:32:00 -0700 (PDT)
+Date: Tue, 30 Apr 2024 12:31:53 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.45.0.rc0.197.gbae5840b3b-goog
+Message-ID: <20240430193157.419425-1-seanjc@google.com>
+Subject: [PATCH 0/4] KVM: Fold kvm_arch_sched_in() into kvm_arch_vcpu_load()
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240430_121928_247524_B061B139 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20240430_123207_879117_038974B4 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,42 +92,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: Sean Christopherson <seanjc@google.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAzMCBBcHIgMjAyNCBhdCAyMDowMCwgUHVyYW5qYXkgTW9oYW4gPHB1cmFuamF5QGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gSW5saW5lIHRoZSBjYWxscyB0byBicGZfZ2V0X3NtcF9wcm9j
-ZXNzb3JfaWQoKSBpbiB0aGUgcmlzY3YgYnBmIGppdC4KPgo+IFJJU0NWIHNhdmVzIHRoZSBwb2lu
-dGVyIHRvIHRoZSBDUFUncyB0YXNrX3N0cnVjdCBpbiB0aGUgVFAgKHRocmVhZAo+IHBvaW50ZXIp
-IHJlZ2lzdGVyLiBUaGlzIG1ha2VzIGl0IHRyaXZpYWwgdG8gZ2V0IHRoZSBDUFUncyBwcm9jZXNz
-b3IgaWQuCj4gQXMgdGhyZWFkX2luZm8gaXMgdGhlIGZpcnN0IG1lbWJlciBvZiB0YXNrX3N0cnVj
-dCwgd2UgY2FuIHJlYWQgdGhlCj4gcHJvY2Vzc29yIGlkIGZyb20gVFAgKyBvZmZzZXRvZihzdHJ1
-Y3QgdGhyZWFkX2luZm8sIGNwdSkuCj4KPiAgICAgICAgICAgUklTQ1Y2NCBKSVQgb3V0cHV0IGZv
-ciBgY2FsbCBicGZfZ2V0X3NtcF9wcm9jZXNzb3JfaWRgCj4gICAgICAgICAgID09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQo+Cj4gICAgICAgICAg
-ICAgICAgIEJlZm9yZSAgICAgICAgICAgICAgICAgICAgICAgICAgIEFmdGVyCj4gICAgICAgICAg
-ICAgICAgLS0tLS0tLS0gICAgICAgICAgICAgICAgICAgICAgICAgLS0tLS0tLQo+Cj4gICAgICAg
-ICAgYXVpcGMgICB0MSwweDg0OGMgICAgICAgICAgICAgICAgICBsZCAgICBhNSwzMih0cCkKPiAg
-ICAgICAgICBqYWxyICAgIDYwNCh0MSkKPiAgICAgICAgICBtdiAgICAgIGE1LGEwCj4KPiBCZW5j
-aG1hcmsgdXNpbmcgWzFdIG9uIFFlbXUuCj4KPiAuL2JlbmNocy9ydW5fYmVuY2hfdHJpZ2dlci5z
-aCBnbG9iLWFyci1pbmMgYXJyLWluYyBoYXNoLWluYwo+Cj4gKy0tLS0tLS0tLS0tLS0tLSstLS0t
-LS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tKwo+IHwgICAg
-ICBOYW1lICAgICB8ICAgICBCZWZvcmUgICAgICAgfCAgICAgICBBZnRlciAgICAgIHwgICAlIGNo
-YW5nZSAgIHwKPiB8LS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0t
-LS0tLS0tLS0rLS0tLS0tLS0tLS0tLS18Cj4gfCBnbG9iLWFyci1pbmMgIHwgMS4wNzcgwrEgMC4w
-MDZNL3MgfCAxLjMzNiDCsSAwLjAxME0vcyB8ICAgKyAyNC4wNCUgICB8Cj4gfCBhcnItaW5jICAg
-ICAgIHwgMS4wNzggwrEgMC4wMDJNL3MgfCAxLjMzMiDCsSAwLjAxNU0vcyB8ICAgKyAyMy41NiUg
-ICB8Cj4gfCBoYXNoLWluYyAgICAgIHwgMC40OTQgwrEgMC4wMDRNL3MgfCAwLjY1MyDCsSAwLjAw
-MU0vcyB8ICAgKyAzMi4xOCUgICB8Cj4gKy0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0t
-LS0rLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tKwo+Cj4gTk9URTogVGhpcyBiZW5j
-aG1hcmsgaW5jbHVkZXMgY2hhbmdlcyBmcm9tIHRoaXMgcGF0Y2ggYW5kIHRoZSBwcmV2aW91cwo+
-ICAgICAgIHBhdGNoIHRoYXQgaW1wbGVtZW50ZWQgdGhlIHBlci1jcHUgaW5zbi4KPgo+IFsxXSBo
-dHRwczovL2dpdGh1Yi5jb20vYW5ha3J5aWtvL2xpbnV4L2NvbW1pdC84ZGVjOTAwOTc1ZWYKPgo+
-IFNpZ25lZC1vZmYtYnk6IFB1cmFuamF5IE1vaGFuIDxwdXJhbmpheUBrZXJuZWwub3JnPgo+IC0t
-LQoKRm9yIG5vbi1yaXNjdiBiaXRzICgmIGZ3aXcpOgoKQWNrZWQtYnk6IEt1bWFyIEthcnRpa2V5
-YSBEd2l2ZWRpIDxtZW14b3JAZ21haWwuY29tPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+Drop kvm_arch_sched_in() and instead pass a @sched_in boolean to
+kvm_arch_vcpu_load().
+
+While fiddling with an idea for optimizing state management on AMD CPUs,
+I wanted to skip re-saving certain host state when a vCPU is scheduled back
+in, as the state (theoretically) shouldn't change for the task while it's
+scheduled out.  Actually doing that was annoying and unnecessarily brittle
+due to having a separate API for the kvm_sched_in() case (the state save
+needed to be in kvm_arch_vcpu_load() for the common path).
+
+E.g. I could have set a "temporary"-ish flag somewhere in kvm_vcpu, but (a)
+that's gross and (b) it would rely on the arbitrary ordering between
+sched_in() and vcpu_load() staying the same.
+
+The only real downside I see is that arm64 and riscv end up having to pass
+"false" for their direct usage of kvm_arch_vcpu_load(), and passing boolean
+literals isn't ideal.  But that can be solved by adding an inner helper that
+omits the @sched_in param (I almost added a patch to do that, but I couldn't
+convince myself it was necessary).
+
+The other motivation for this is to avoid yet another arch hook, and more
+arbitrary ordering, if there's a future need to hook kvm_sched_out() (we've
+come close on the x86 side several times).
+
+Sean Christopherson (4):
+  KVM: Plumb in a @sched_in flag to kvm_arch_vcpu_load()
+  KVM: VMX: Move PLE grow/shrink helpers above vmx_vcpu_load()
+  KVM: x86: Fold kvm_arch_sched_in() into kvm_arch_vcpu_load()
+  KVM: Delete the now unused kvm_arch_sched_in()
+
+ arch/arm64/include/asm/kvm_host.h     |  1 -
+ arch/arm64/kvm/arm.c                  |  2 +-
+ arch/arm64/kvm/emulate-nested.c       |  4 +-
+ arch/arm64/kvm/reset.c                |  2 +-
+ arch/loongarch/include/asm/kvm_host.h |  1 -
+ arch/loongarch/kvm/vcpu.c             |  2 +-
+ arch/mips/include/asm/kvm_host.h      |  1 -
+ arch/mips/kvm/mmu.c                   |  2 +-
+ arch/powerpc/include/asm/kvm_host.h   |  1 -
+ arch/powerpc/kvm/powerpc.c            |  2 +-
+ arch/riscv/include/asm/kvm_host.h     |  1 -
+ arch/riscv/kvm/vcpu.c                 |  4 +-
+ arch/s390/include/asm/kvm_host.h      |  1 -
+ arch/s390/kvm/kvm-s390.c              |  2 +-
+ arch/x86/include/asm/kvm-x86-ops.h    |  1 -
+ arch/x86/include/asm/kvm_host.h       |  4 +-
+ arch/x86/kvm/pmu.c                    |  6 +--
+ arch/x86/kvm/svm/svm.c                | 13 ++---
+ arch/x86/kvm/vmx/main.c               |  2 -
+ arch/x86/kvm/vmx/vmx.c                | 75 +++++++++++++--------------
+ arch/x86/kvm/vmx/x86_ops.h            |  3 +-
+ arch/x86/kvm/x86.c                    | 26 +++++-----
+ include/linux/kvm_host.h              |  4 +-
+ virt/kvm/kvm_main.c                   |  5 +-
+ 24 files changed, 70 insertions(+), 95 deletions(-)
+
+
+base-commit: a96cb3bf390eebfead5fc7a2092f8452a7997d1b
+-- 
+2.45.0.rc0.197.gbae5840b3b-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
