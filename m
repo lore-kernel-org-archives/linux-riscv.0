@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9906DC4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 01:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38521C04FFE
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 03:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qCaUT1WsZWX8iQwjwHUqnLvhhtqeaWhKDhGBwpSNMz0=; b=Es+56uYCP4zFlQ
-	v0lodKiOEqv7Pp5ThGSad01TQTk+dnLkPzGt3F8/a4dn/f6K/c+1LwWPvj8F5r9khKkBL/sA5vcoA
-	3+Eg43IhJO4Cgkxhg1pVKGyNdsqS5//VCgsX4ETAqkAnuQ2AmJ2Ssf15I/X5IJ0xPj6M9m2EAdBYt
-	f4m/Ktjj6QjEUlRRlLBGrQUIR7/lOu6OmFsmGFnsuEl6zdzaF+INNk4ETE3I54LkDtIIqm3af0m1t
-	I5kgyGXlx/g0kjrmEAVh4OL5BzkdTH0Vu9BSYjmUmoDLhUoJ+N7P0hI1tk2CpDlKcQCCnqmCu1PXs
-	4f7vBz66tbF3Z+m8LgRA==;
+	List-Owner; bh=YeHBN6sJtNqUSMT4XqXrTYGSVlSf9WtTtHzcSi0gxgg=; b=va6pMcKhJ1eWgN
+	73fy9KDI79KrLiM4LyY+m2GXCPA6gRw8jBrwpdYXRPvD6Xu1iJIzwFwIIk3mtiYpu33rICE4pV8Yq
+	PPYAdq9KHm95o00k3326Em9/kXhEQaboRYddlo+8AOdpghqMxbLNu2AsUqJtu84XARV2gRDE5vQLI
+	DA6xlPVirFpXdrbHLw2D/9Fu3NLf6mk/hhvkbZtVJf1P5Qyt6lxRriKGLFngXqUdFh9XafF9S6/IF
+	w1mvCLh91J9d+zNmcHpHQzgsxNlWndMYYNaC0mMvSiuKSAgUPwwKLhHTeJZRaddY2A+XKpKXuXnsz
+	jiE/+RdWqmN5tkBAT+JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1cIv-00000004gLS-3siw;
-	Tue, 30 Apr 2024 01:29:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s1dyu-00000004sNn-3VxV;
+	Tue, 30 Apr 2024 03:16:36 +0000
+Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1cIs-00000004gKf-1JkE
+	id 1s1dyr-00000004sMV-3tK0
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Apr 2024 01:29:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 10C0B61152;
-	Tue, 30 Apr 2024 01:28:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16B6AC116B1;
-	Tue, 30 Apr 2024 01:28:53 +0000 (UTC)
-Date: Mon, 29 Apr 2024 21:29:33 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Stephen Brennan <stephen.s.brennan@oracle.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Guo Ren <guoren@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, "James E.J.
- Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
- <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
- <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, "Naveen N. Rao"
- <naveen.n.rao@linux.ibm.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v2] kprobe/ftrace: bail out if ftrace was killed
-Message-ID: <20240429212933.327aae6e@gandalf.local.home>
-In-Reply-To: <20240429174718.1347900-1-stephen.s.brennan@oracle.com>
-References: <20240426225834.993353-1-stephen.s.brennan@oracle.com>
-	<20240429174718.1347900-1-stephen.s.brennan@oracle.com>
-X-Mailer: Claws Mail 3.19.1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 30 Apr 2024 03:16:36 +0000
+Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-23cd15209fdso656646fac.3
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2024 20:16:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1714446987; x=1715051787; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ewLuAUPPP39X0HCkRHtN2NHvevZusHejI+aydV0tNX4=;
+        b=JF/4qhihIr3dOoWd61rT950qwBr1HO7quxIQjAykc6Vd4GFxv97hRcCXpcQAPaKM7Z
+         cizMAtp9K3Cu0FRbz8n+9DMRsyP/mrmJSdxDFmP34gBcjFgtA2vaGm3x4tIqegiwEt+d
+         mqw5eTtA9kbpeYUmpiVB9yHjhQT0b2TKYQfa6gfsn//YJnz7ICqk4EjERW+evgltJuLc
+         6XXl+NJShEo1dn9rUJwgka8LtL55ziNF7zV7pT/V498e1+Jvh/QeIzPEwsMpHP2jmwr5
+         1jAungChS+KYv7Z1ggAtBpXQUMCiAfXnKh5OnBdzRjyDg1+AMjteKaL9MuXvNxdEORuc
+         b1eg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714446987; x=1715051787;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ewLuAUPPP39X0HCkRHtN2NHvevZusHejI+aydV0tNX4=;
+        b=UTznq0DGEsiRcDAqyYHuxWT9bGBAzb835U6+pk0tkm0XPFC8UGZMK3tJL4JFotRz7q
+         mOkLM24emoCGvhee3mce5XhH2fpSeTaHnZEDgwpWt+OCO9714nk7Ln4YytnrAB8ob44n
+         rWb0I0tKuvNftLmOXAoWjZYzGCxPmhPWEydxGh7iuMHxxxPhMV1hUTR2sDWQjRWvQtFx
+         cncLSfZbPUYqtMZeFmG1b2emBzEdjAogEVc1B4cJscnwRhymQuwjXdWdZuZX8BXKE1a7
+         fJAW1pjBEghFuY56pmhsZ2OxzXnGin1VOrPaXFaoRVF7Na/qlSLGii5QA2MiSfe4lDP6
+         FOBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXXaSxC1k5iSCpeckAG9/o7MZ2PqLM3Uf1vhv7hREvpnZXeZZfPXXZrj1xe8o95BN1sTImY1slC1PcB3uh+sKc0WlXuTI5ssVIx9mv25Sgm
+X-Gm-Message-State: AOJu0YzXTu0dKKsvXKBg00gWuMAUn6/uaEBdgAFgsoZB2TJXbVURjgP4
+	6XkBxpFLk6Gao1k/0Hf5vsuT+88ZKZqCheeAPGITcPUK89waz8IszIiu5I+Romu/6oOB4GhYbol
+	Rl7VLsFrQPLxeHCX2u2eplem1sApterePrHUIVw==
+X-Google-Smtp-Source: AGHT+IHQZKM1ZIvOzc0BTAWTiBchrFVz/jaxMvcm4J0YS/D7nzOQrjehDvNXZEDRtLipEVRhqNLnJGXaHB+hLjHZ7EU=
+X-Received: by 2002:a05:6871:8912:b0:23c:2554:d8b7 with SMTP id
+ ti18-20020a056871891200b0023c2554d8b7mr8543686oab.20.1714446986897; Mon, 29
+ Apr 2024 20:16:26 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240418034330.84721-1-cuiyunhui@bytedance.com>
+ <20240418034330.84721-2-cuiyunhui@bytedance.com> <d143cd11-26ea-42e3-8f32-700a34b3705e@arm.com>
+ <CAEEQ3wkDMuu+jh56YB3G0vY_ENdUjDL6byMsJXd0C9aQu1FZKw@mail.gmail.com>
+In-Reply-To: <CAEEQ3wkDMuu+jh56YB3G0vY_ENdUjDL6byMsJXd0C9aQu1FZKw@mail.gmail.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Tue, 30 Apr 2024 11:16:15 +0800
+Message-ID: <CAEEQ3w=FJMzkL3_if1rQcHCUu0C9PVJzL3D3yytNLr-y3YS5nw@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v4 2/3] riscv: cacheinfo: initialize
+ cacheinfo's level and type from ACPI PPTT
+To: Jeremy Linton <jeremy.linton@arm.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: rafael@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
+	linux-riscv@lists.infradead.org, bhelgaas@google.com, james.morse@arm.com, 
+	john.garry@huawei.com, Jonathan.Cameron@huawei.com, pierre.gondois@arm.com, 
+	sudeep.holla@arm.com, tiantao6@huawei.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240429_182906_578127_3B81FC63 
-X-CRM114-Status: GOOD (  28.71  )
+X-CRM114-CacheID: sfid-20240429_201634_153369_368DEC95 
+X-CRM114-Status: GOOD (  22.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,225 +92,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Apr 2024 10:47:18 -0700
-Stephen Brennan <stephen.s.brennan@oracle.com> wrote:
-
-> If an error happens in ftrace, ftrace_kill() will prevent disarming
-> kprobes. Eventually, the ftrace_ops associated with the kprobes will be
-> freed, yet the kprobes will still be active, and when triggered, they
-> will use the freed memory, likely resulting in a page fault and panic.
-> 
-> This behavior can be reproduced quite easily, by creating a kprobe and
-> then triggering a ftrace_kill(). For simplicity, we can simulate an
-> ftrace error with a kernel module like [1]:
-> 
-> [1]: https://github.com/brenns10/kernel_stuff/tree/master/ftrace_killer
-> 
->   sudo perf probe --add commit_creds
->   sudo perf trace -e probe:commit_creds
->   # In another terminal
->   make
->   sudo insmod ftrace_killer.ko  # calls ftrace_kill(), simulating bug
->   # Back to perf terminal
->   # ctrl-c
->   sudo perf probe --del commit_creds
-> 
-> After a short period, a page fault and panic would occur as the kprobe
-> continues to execute and uses the freed ftrace_ops. While ftrace_kill()
-> is supposed to be used only in extreme circumstances, it is invoked in
-> FTRACE_WARN_ON() and so there are many places where an unexpected bug
-> could be triggered, yet the system may continue operating, possibly
-> without the administrator noticing. If ftrace_kill() does not panic the
-> system, then we should do everything we can to continue operating,
-> rather than leave a ticking time bomb.
-> 
-> Signed-off-by: Stephen Brennan <stephen.s.brennan@oracle.com>
-> ---
-> Difference from v1: removed both existing declarations of ftrace_is_dead()
-> from kernel/trace/trace.h.
-> 
->  arch/csky/kernel/probes/ftrace.c     | 3 +++
->  arch/loongarch/kernel/ftrace_dyn.c   | 3 +++
->  arch/parisc/kernel/ftrace.c          | 3 +++
->  arch/powerpc/kernel/kprobes-ftrace.c | 3 +++
->  arch/riscv/kernel/probes/ftrace.c    | 3 +++
->  arch/s390/kernel/ftrace.c            | 3 +++
->  arch/x86/kernel/kprobes/ftrace.c     | 3 +++
->  include/linux/ftrace.h               | 2 ++
->  kernel/trace/trace.h                 | 2 --
->  9 files changed, 23 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/csky/kernel/probes/ftrace.c b/arch/csky/kernel/probes/ftrace.c
-> index 834cffcfbce3..3931bf9f707b 100644
-> --- a/arch/csky/kernel/probes/ftrace.c
-> +++ b/arch/csky/kernel/probes/ftrace.c
-> @@ -12,6 +12,9 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
->  	struct kprobe_ctlblk *kcb;
->  	struct pt_regs *regs;
->  
-> +	if (unlikely(ftrace_is_dead()))
-> +		return;
-> +
->  	bit = ftrace_test_recursion_trylock(ip, parent_ip);
->  	if (bit < 0)
->  		return;
-> diff --git a/arch/loongarch/kernel/ftrace_dyn.c b/arch/loongarch/kernel/ftrace_dyn.c
-> index 73858c9029cc..82c952cb5be0 100644
-> --- a/arch/loongarch/kernel/ftrace_dyn.c
-> +++ b/arch/loongarch/kernel/ftrace_dyn.c
-> @@ -287,6 +287,9 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
->  	struct kprobe *p;
->  	struct kprobe_ctlblk *kcb;
->  
-> +	if (unlikely(ftrace_is_dead()))
-> +		return;
-> +
->  	bit = ftrace_test_recursion_trylock(ip, parent_ip);
->  	if (bit < 0)
->  		return;
-> diff --git a/arch/parisc/kernel/ftrace.c b/arch/parisc/kernel/ftrace.c
-> index 621a4b386ae4..3660834f54c3 100644
-> --- a/arch/parisc/kernel/ftrace.c
-> +++ b/arch/parisc/kernel/ftrace.c
-> @@ -206,6 +206,9 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
->  	struct kprobe *p;
->  	int bit;
->  
-> +	if (unlikely(ftrace_is_dead()))
-> +		return;
-> +
->  	bit = ftrace_test_recursion_trylock(ip, parent_ip);
->  	if (bit < 0)
->  		return;
-> diff --git a/arch/powerpc/kernel/kprobes-ftrace.c b/arch/powerpc/kernel/kprobes-ftrace.c
-> index 072ebe7f290b..85eb55aa1457 100644
-> --- a/arch/powerpc/kernel/kprobes-ftrace.c
-> +++ b/arch/powerpc/kernel/kprobes-ftrace.c
-> @@ -21,6 +21,9 @@ void kprobe_ftrace_handler(unsigned long nip, unsigned long parent_nip,
->  	struct pt_regs *regs;
->  	int bit;
->  
-> +	if (unlikely(ftrace_is_dead()))
-> +		return;
-> +
->  	bit = ftrace_test_recursion_trylock(nip, parent_nip);
->  	if (bit < 0)
->  		return;
-> diff --git a/arch/riscv/kernel/probes/ftrace.c b/arch/riscv/kernel/probes/ftrace.c
-> index 7142ec42e889..8814fbe4c888 100644
-> --- a/arch/riscv/kernel/probes/ftrace.c
-> +++ b/arch/riscv/kernel/probes/ftrace.c
-> @@ -11,6 +11,9 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
->  	struct kprobe_ctlblk *kcb;
->  	int bit;
->  
-> +	if (unlikely(ftrace_is_dead()))
-> +		return;
-> +
->  	bit = ftrace_test_recursion_trylock(ip, parent_ip);
->  	if (bit < 0)
->  		return;
-> diff --git a/arch/s390/kernel/ftrace.c b/arch/s390/kernel/ftrace.c
-> index c46381ea04ec..ccbe8ccf945b 100644
-> --- a/arch/s390/kernel/ftrace.c
-> +++ b/arch/s390/kernel/ftrace.c
-> @@ -296,6 +296,9 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
->  	struct kprobe *p;
->  	int bit;
->  
-> +	if (unlikely(ftrace_is_dead()))
-> +		return;
-> +
->  	bit = ftrace_test_recursion_trylock(ip, parent_ip);
->  	if (bit < 0)
->  		return;
-> diff --git a/arch/x86/kernel/kprobes/ftrace.c b/arch/x86/kernel/kprobes/ftrace.c
-> index dd2ec14adb77..c73f9ab7ff50 100644
-> --- a/arch/x86/kernel/kprobes/ftrace.c
-> +++ b/arch/x86/kernel/kprobes/ftrace.c
-> @@ -21,6 +21,9 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
->  	struct kprobe_ctlblk *kcb;
->  	int bit;
->  
-> +	if (unlikely(ftrace_is_dead()))
-> +		return;
-> +
->  	bit = ftrace_test_recursion_trylock(ip, parent_ip);
->  	if (bit < 0)
->  		return;
-> diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-> index 54d53f345d14..ba83e99c1fbe 100644
-> --- a/include/linux/ftrace.h
-> +++ b/include/linux/ftrace.h
-> @@ -399,6 +399,7 @@ int ftrace_lookup_symbols(const char **sorted_syms, size_t cnt, unsigned long *a
->  #define register_ftrace_function(ops) ({ 0; })
->  #define unregister_ftrace_function(ops) ({ 0; })
->  static inline void ftrace_kill(void) { }
-> +static inline int ftrace_is_dead(void) { return 0; }
->  static inline void ftrace_free_init_mem(void) { }
->  static inline void ftrace_free_mem(struct module *mod, void *start, void *end) { }
->  static inline int ftrace_lookup_symbols(const char **sorted_syms, size_t cnt, unsigned long *addrs)
-> @@ -914,6 +915,7 @@ static inline bool is_ftrace_trampoline(unsigned long addr)
->  
->  /* totally disable ftrace - can not re-enable after this */
->  void ftrace_kill(void);
-> +int ftrace_is_dead(void);
->  
->  static inline void tracer_disable(void)
->  {
-> diff --git a/kernel/trace/trace.h b/kernel/trace/trace.h
-> index 64450615ca0c..70a37ee41813 100644
-> --- a/kernel/trace/trace.h
-> +++ b/kernel/trace/trace.h
-> @@ -1026,7 +1026,6 @@ static inline int ftrace_trace_task(struct trace_array *tr)
->  	return this_cpu_read(tr->array_buffer.data->ftrace_ignore_pid) !=
->  		FTRACE_PID_IGNORE;
->  }
-> -extern int ftrace_is_dead(void);
-
-Honestly I rather not expose this function outside of the tracing
-infrastructure. Instead, we should have a kprobe_ftrace_kill() function,
-and have ftrace_kill() call that.
-
-Then kprobe_ftrace_kill() can set its own variable that is exposed to all
-these functions and they can test that instead of adding the extra overhead
-in the fast path of a function call to ftrace_is_dead()
-
-extern bool kprobes_ftrace_disabled __read_mostly;
-
-void kprobe_ftrace_kill(void)
-{
-	kprobes_ftrace_disabled = true;
-}
-
-And you can then replace all these with:
-
-	if (kprobes_ftrace_disabled)
-		return;
-
-Which is faster.
-
--- Steve
-
->  int ftrace_create_function_files(struct trace_array *tr,
->  				 struct dentry *parent);
->  void ftrace_destroy_function_files(struct trace_array *tr);
-> @@ -1046,7 +1045,6 @@ static inline int ftrace_trace_task(struct trace_array *tr)
->  {
->  	return 1;
->  }
-> -static inline int ftrace_is_dead(void) { return 0; }
->  static inline int
->  ftrace_create_function_files(struct trace_array *tr,
->  			     struct dentry *parent)
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUGFsbWVyLAoKR2VudGxlIHBpbmcuLi4KCk9uIFR1ZSwgQXByIDIzLCAyMDI0IGF0IDc6MDPi
+gK9QTSB5dW5odWkgY3VpIDxjdWl5dW5odWlAYnl0ZWRhbmNlLmNvbT4gd3JvdGU6Cj4KPiBIaSBQ
+YWxtZXIsCj4KPiBPbiBGcmksIEFwciAxOSwgMjAyNCBhdCAxMToyOeKAr1BNIEplcmVteSBMaW50
+b24gPGplcmVteS5saW50b25AYXJtLmNvbT4gd3JvdGU6Cj4gPgo+ID4gSGksCj4gPgo+ID4gT24g
+NC8xNy8yNCAyMjo0MywgWXVuaHVpIEN1aSB3cm90ZToKPiA+ID4gQmVmb3JlIGNhY2hlaW5mbyBj
+YW4gYmUgYnVpbHQgY29ycmVjdGx5LCB3ZSBuZWVkIHRvIGluaXRpYWxpemUgbGV2ZWwKPiA+ID4g
+YW5kIHR5cGUuIFNpbmNlIFJTSUMtViBjdXJyZW50bHkgZG9lcyBub3QgaGF2ZSBhIHJlZ2lzdGVy
+IGdyb3VwIHRoYXQKPiA+ID4gZGVzY3JpYmVzIGNhY2hlLXJlbGF0ZWQgYXR0cmlidXRlcyBsaWtl
+IEFSTTY0LCB3ZSBjYW5ub3Qgb2J0YWluIHRoZW0KPiA+ID4gZGlyZWN0bHksIHNvIG5vdyB3ZSBv
+YnRhaW4gY2FjaGUgbGVhdmVzIGZyb20gdGhlIEFDUEkgUFBUVCB0YWJsZQo+ID4gPiAoYWNwaV9n
+ZXRfY2FjaGVfaW5mbygpKSBhbmQgc2V0IHRoZSBjYWNoZSB0eXBlIHRocm91Z2ggc3BsaXRfbGV2
+ZWxzLgo+ID4gPgo+ID4gPiBTdWdnZXN0ZWQtYnk6IEplcmVteSBMaW50b24gPGplcmVteS5saW50
+b25AYXJtLmNvbT4KPiA+ID4gU3VnZ2VzdGVkLWJ5OiBTdWRlZXAgSG9sbGEgPHN1ZGVlcC5ob2xs
+YUBhcm0uY29tPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBZdW5odWkgQ3VpIDxjdWl5dW5odWlAYnl0
+ZWRhbmNlLmNvbT4KPiA+ID4gLS0tCj4gPiA+ICAgYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVpbmZv
+LmMgfCAyMiArKysrKysrKysrKysrKysrKysrKysrCj4gPiA+ICAgMSBmaWxlIGNoYW5nZWQsIDIy
+IGluc2VydGlvbnMoKykKPiA+ID4KPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
+L2NhY2hlaW5mby5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVpbmZvLmMKPiA+ID4gaW5kZXgg
+MzBhNjg3ODI4N2FkLi5lNDdhMWU2YmQzZmUgMTAwNjQ0Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3Yv
+a2VybmVsL2NhY2hlaW5mby5jCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NhY2hlaW5m
+by5jCj4gPiA+IEBAIC02LDYgKzYsNyBAQAo+ID4gPiAgICNpbmNsdWRlIDxsaW51eC9jcHUuaD4K
+PiA+ID4gICAjaW5jbHVkZSA8bGludXgvb2YuaD4KPiA+ID4gICAjaW5jbHVkZSA8YXNtL2NhY2hl
+aW5mby5oPgo+ID4gPiArI2luY2x1ZGUgPGxpbnV4L2FjcGkuaD4KPiA+ID4KPiA+ID4gICBzdGF0
+aWMgc3RydWN0IHJpc2N2X2NhY2hlaW5mb19vcHMgKnJ2X2NhY2hlX29wczsKPiA+ID4KPiA+ID4g
+QEAgLTc4LDYgKzc5LDI3IEBAIGludCBwb3B1bGF0ZV9jYWNoZV9sZWF2ZXModW5zaWduZWQgaW50
+IGNwdSkKPiA+ID4gICAgICAgc3RydWN0IGRldmljZV9ub2RlICpwcmV2ID0gTlVMTDsKPiA+ID4g
+ICAgICAgaW50IGxldmVscyA9IDEsIGxldmVsID0gMTsKPiA+ID4KPiA+ID4gKyAgICAgaWYgKCFh
+Y3BpX2Rpc2FibGVkKSB7Cj4gPiA+ICsgICAgICAgICAgICAgaW50IHJldCwgZndfbGV2ZWxzLCBz
+cGxpdF9sZXZlbHM7Cj4gPiA+ICsKPiA+ID4gKyAgICAgICAgICAgICByZXQgPSBhY3BpX2dldF9j
+YWNoZV9pbmZvKGNwdSwgJmZ3X2xldmVscywgJnNwbGl0X2xldmVscyk7Cj4gPiA+ICsgICAgICAg
+ICAgICAgaWYgKHJldCkKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgIHJldHVybiByZXQ7Cj4g
+PiA+ICsKPiA+ID4gKyAgICAgICAgICAgICBCVUdfT04oKHNwbGl0X2xldmVscyA+IGZ3X2xldmVs
+cykgfHwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgKHNwbGl0X2xldmVscyArIGZ3X2xldmVs
+cyA+IHRoaXNfY3B1X2NpLT5udW1fbGVhdmVzKSk7Cj4gPiA+ICsKPiA+ID4gKyAgICAgICAgICAg
+ICBmb3IgKDsgbGV2ZWwgPD0gdGhpc19jcHVfY2ktPm51bV9sZXZlbHM7IGxldmVsKyspIHsKPiA+
+ID4gKyAgICAgICAgICAgICAgICAgICAgIGlmIChsZXZlbCA8PSBzcGxpdF9sZXZlbHMpIHsKPiA+
+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2lfbGVhZl9pbml0KHRoaXNfbGVhZisr
+LCBDQUNIRV9UWVBFX0RBVEEsIGxldmVsKTsKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgY2lfbGVhZl9pbml0KHRoaXNfbGVhZisrLCBDQUNIRV9UWVBFX0lOU1QsIGxldmVsKTsK
+PiA+ID4gKyAgICAgICAgICAgICAgICAgICAgIH0gZWxzZSB7Cj4gPiA+ICsgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIGNpX2xlYWZfaW5pdCh0aGlzX2xlYWYrKywgQ0FDSEVfVFlQRV9VTklG
+SUVELCBsZXZlbCk7Cj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICB9Cj4gPiA+ICsgICAgICAg
+ICAgICAgfQo+ID4gPiArICAgICAgICAgICAgIHJldHVybiAwOwo+ID4gPiArICAgICB9Cj4gPiA+
+ICsKPiA+ID4gICAgICAgaWYgKG9mX3Byb3BlcnR5X3JlYWRfYm9vbChucCwgImNhY2hlLXNpemUi
+KSkKPiA+ID4gICAgICAgICAgICAgICBjaV9sZWFmX2luaXQodGhpc19sZWFmKyssIENBQ0hFX1RZ
+UEVfVU5JRklFRCwgbGV2ZWwpOwo+ID4gPiAgICAgICBpZiAob2ZfcHJvcGVydHlfcmVhZF9ib29s
+KG5wLCAiaS1jYWNoZS1zaXplIikpCj4gPgo+ID4gWWVzLCBsb29rcyBnb29kLgo+ID4KPiA+IFJl
+dmlld2VkLWJ5OiBKZXJlbXkgTGludG9uIDxqZXJlbXkubGludG9uQGFybS5jb20+Cj4gPgo+ID4K
+PiA+Cj4gPiBUaGFua3MsCj4KPiBDb3VsZCB5b3UgaGVscCByZXZpZXcgdGhpcyBwYXRjaHNldD8g
+VGhhbmtzLgo+Cj4gVGhhbmtzLAo+IFl1bmh1aQoKVGhhbmtzLApZdW5odWkKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
