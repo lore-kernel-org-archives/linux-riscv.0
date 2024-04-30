@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0B8C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 00:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8C88C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 01:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pZ99qQt3B0EUAEEEPIOqhoLWVKJEP7LkcsVTuXb1zuI=; b=NcCXoqLO6b27FL
-	9RU1owWMLrTrLkKVbj/yH93+loR9Rp+Pw7AxStDw4xvrE2MAmaNkmmHAEBSTyKLS2vHXD1+lcSagH
-	E9Ind5kMRZgDWX4BHmkz2XkhZFRAbi2WmW1Kq2rQvn0fodkScKcPENs3iNmkfOsWR105XHNYgn919
-	6T9vWSo6Bk/mYP0Tyl1B09g4uEz4jlf1L4RzGYi7yzJH8w+lKrnQ9W/Kj0BIJxVgccs8KSbLT+Zw4
-	rpULbYvvgnwGBks7VaV9Bg+OOzFGt6H/H3lfC65kilrXYmMMDMcUnhH/B/wLtqPnnf3vdia74/jbc
-	bi8GV10itZYa5vi2q2Vw==;
+	List-Owner; bh=0oPtQqRciuPvTKD3+RoQ7QMqlIcgtal/kgtaos+stIc=; b=Z0W3DMQzRqBf8L
+	wLBIvcbCNa83TaTCuOAhk+/zoJ2jmNf1aVYpsCj2Lo8gSxbFOtE6OrHQ2ybqtoNoUb0MSq0/4yVSH
+	2tV9eWYDOvZZtOC113AShDDVjVeY2xnM5QLnrou9kYJlynmK1/Z2tdXNmzmGCa2dV4hZLu92U5ytB
+	04XuhE49muAhPPyvIgGBu5/iH2O8Y8+lZgSdOEIEJWVYJ+DbWBG8tI1HcKVKE1f/obs5hNn7+V8yc
+	B0AyIXzK69yuhL3GoVqN0J4NW6aLPAfX3KKXm/MoEbzkAeR2IjSCARgzgz7PPLbmNJc/WtZ4cmfPR
+	x1D5MIYtg7oCX0EAEC2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1bkl-00000004bv0-2qQj;
-	Tue, 30 Apr 2024 00:53:51 +0000
-Received: from mail-bjschn02on20706.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::706] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1s1c1C-00000004dd0-0xto;
+	Tue, 30 Apr 2024 01:10:50 +0000
+Received: from mail-sh0chn02on2072e.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::72e] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1bki-00000004btL-2lrA
+	id 1s1c19-00000004dcQ-0o52
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Apr 2024 00:53:50 +0000
+	Tue, 30 Apr 2024 01:10:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=RM+klsKa7sg+iZ7U9ahW08xZmjGINUzbn/EmTTBIf1LP6Dbq+8SLFSr9gmZawHNY+GnyBWpxXAhmdJNeGaIZPHOtG3JjK0zFfHVSuoR5396Xe3Djuyme+GELoSUM68SSLq8UbFMnafOpI4j0tzY5sn5+c1oWJ7qKU9DxlIRyPKO+z80imnQ3bJptlg7jDc+7wT4d1w1oE4MPYiFvUJkvs/XiZMc2n0Gbo8Ny6csjkSxwP8qAmG20+lZRbIq7KRqud/4aU1kNVEQPIVaLtuFMou8PttK0jlPlZkPGDO+/HqrF2/wXFGOJDzv/xJUUWaNLFxiyZhBgdPr5NBlsczFZrA==
+ b=TFJPu9KXn2nPXyJT1AhlgP1P1LU9Syn0ry2yx+zc5O3q6ZuJE3Lj7yvOTwqxkiezCMx7bBJSVyvvDCaBi/myiP9i1GY0O0bnNjmt+pKLu73mIPcJxQ3w2OR/iHnL7BUQUBxmVLzz2jh9p3OjOflEMtPa1VmXpfXnz/s93Y3dsdJVB8y6FsNEtdg8PmRXC3VWSam9zqVqak1oJXIU6MZVUW17EQdJ92c6fkWQVHs0PRv9k20+ceg1ltW8rkKb5SQxKgEuw3w7pHe0EKXLaqrPMYMWXryJ0EJLpYMIpMj4if5WlpEc/UwdFnRaZVfGMP4jU4MML4MDg2KlZyIDgZge4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3w+CRUPvPl7hO9cUnDrUA37EWQl3YhnsgPyi8+o1HdU=;
- b=PDE8u4Al/HFlWHbd+g0B34AqF5+3ApHW0ucARwgq1A22+MZ9LNRkPMHIObVXj1HJGfTPL15GIgl706Xp9Ia64kyrhmVIbCLCyoyzVkWd3AjNDkn0P5sCJx0n4ni5Ubbv9twO2lQPMFO3Vaa8SNT1b2bN41zROfu5AZFcgn75HuhpZwG/pvCG1VA5IFyjwUUCBUQ28TlllNBhh3c9Jv4eWgCzVoja+pBMo5RN2JMHbgQTrNqh7awGuA1OZzE6V1bG5aQVTKJw+oLGu/JQ6awa/qzh//0Nqzf5P/g3lDiiNzYmCIYQCdtYk1WNavl7IcCw1lr07hvlH/J5MtuKPKRbDg==
+ bh=UNJdvvCVrz/WikenykXT18UHNn39k+4YiiKHS7QNvZM=;
+ b=k/GkJwAtoqwGzHHJWQhUbMXrBIF5xQ0ucYgYlYC3m2PwQ4+koD3/PnFrxM94xIWvZZdR8hdXPPo569FUbQAliJpgdh1qeFh+oFjTl1wQ/6SzoIH1e1c/HK+hzIAdt/89bXh47NWidSaJH3vtGPQ9MASYQm/0u7yUt+nneZdYLaAOM4TSJ/22zNM5NU3SGoCdXRDOh9FlNMP2IUlmQfYud4u0G06rGiAGM3mFqdFBHNcHuClvCGric13b2+MJtflV+9pnJbjJreElTlwHGTut/gK/Tab/Hs1irX9zJ2OAVIZhlbbsVYA11yQORywMyq3LuAkA4jDPSx5GeZ4qmsFcmA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
 Received: from BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:18::12) by BJXPR01MB0551.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:16::18) with Microsoft SMTP Server (version=TLS1_2,
+ (2406:e500:c211:18::12) by BJXPR01MB0501.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:16::22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.44; Tue, 30 Apr
- 2024 00:53:36 +0000
+ 2024 01:10:37 +0000
 Received: from BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
  ([fe80::3e54:57b5:e3e3:7f09]) by
  BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn ([fe80::3e54:57b5:e3e3:7f09%6])
- with mapi id 15.20.7472.044; Tue, 30 Apr 2024 00:53:36 +0000
+ with mapi id 15.20.7472.044; Tue, 30 Apr 2024 01:10:37 +0000
 From: Minda Chen <minda.chen@starfivetech.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Conor Dooley
-	<conor@kernel.org>, =?gb2312?B?S3J6eXN6dG9mIFdpbGN6eai9c2tp?= <kw@linux.com>,
-	Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Thomas
- Gleixner <tglx@linutronix.de>, Daire McNamara <daire.mcnamara@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Krzysztof
- Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+To: Minda Chen <minda.chen@starfivetech.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Conor Dooley <conor@kernel.org>,
+	=?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kw@linux.com>, Rob Herring
+	<robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner
+	<tglx@linutronix.de>, Daire McNamara <daire.mcnamara@microchip.com>, Emil
+ Renner Berthing <emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
 CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
 	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
@@ -61,15 +62,17 @@ CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
 	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: =?gb2312?B?u9i4tDogW1BBVENIIHYxNiAwMC8yMl0gUmVmYWN0b3JpbmcgTWljcm9jaGlw?=
- =?gb2312?Q?_PCIe_driver_and_add_StarFive_PCIe?=
-Thread-Topic: [PATCH v16 00/22] Refactoring Microchip PCIe driver and add
- StarFive PCIe
-Thread-Index: AQHagPDufmdBlaBn9kKVvS/pnjIg0rGALuWQ
-Date: Tue, 30 Apr 2024 00:53:36 +0000
-Message-ID: <BJXPR01MB08553956E2560A52CCC3FDBEE61AA@BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn>
+Subject: Re: [PATCH v16 15/22] PCI: microchip: Add event irqchip field to host
+ port and add PLDA irqchip
+Thread-Topic: [PATCH v16 15/22] PCI: microchip: Add event irqchip field to
+ host port and add PLDA irqchip
+Thread-Index: AQHagPD3nzNr5zgHs0qxspgsCqWuULGALtGggAAFt/A=
+Date: Tue, 30 Apr 2024 01:10:37 +0000
+Message-ID: <BJXPR01MB0855EFC06D44A450CB56E3E2E61AA@BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn>
 References: <20240328091835.14797-1-minda.chen@starfivetech.com>
-In-Reply-To: <20240328091835.14797-1-minda.chen@starfivetech.com>
+ <20240328091835.14797-16-minda.chen@starfivetech.com>
+ <BJXPR01MB0855B876D2B73F33E8A39460E61AA@BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn>
+In-Reply-To: <BJXPR01MB0855B876D2B73F33E8A39460E61AA@BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn>
 Accept-Language: en-US
 Content-Language: zh-CN
 X-MS-Has-Attach: 
@@ -77,64 +80,56 @@ X-MS-TNEF-Correlator:
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BJXPR01MB0855:EE_|BJXPR01MB0551:EE_
-x-ms-office365-filtering-correlation-id: cd9c91b9-b6a0-4489-a2ba-08dc68aff78f
+x-ms-traffictypediagnostic: BJXPR01MB0855:EE_|BJXPR01MB0501:EE_
+x-ms-office365-filtering-correlation-id: a4cc33a9-d7c9-4b10-f30c-08dc68b25814
 x-ms-exchange-senderadcheck: 1
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: kHe2O6qlkODrLOs7QDdxonWpD862Qsv+f6kdfjsiFlPFXqZgO0An8oUdETyLRapEjsIdwv+lkLJBTmuI/X3D61UGsIvcIMxzdW8SPY7OnoUx6Rkee1qhjYb6lyzIeiOvNYkREOUxl/LCA4pmvMaquoSWj+D+tm9VkRBNc4v4sLoN8CPVrO7vz2/ZCwF7TwvXpSskHHrje8sLWuRg0B7zjaDjpwmzbyVa0hlasJE4OaWZ7RxYuqkagSZea3hKUu5eFGCNLrWryjfDDVqwuUTmLZzXCaHZfaThS3USx3wMTkp+ykGd6N/U9ovfFea0q21JQj1MPBSNrh0S2AGFFigqWluMzK+C21CeqzvlYsZKOAKaIhG4ueEQQM2a9zW0c6EQVOA7Nacw6pM8n7MFnt7SEL2qX54Lqzo15p0Vt/mcWFFNP8eeC4ccv8ZVaMyiF8OndSYTXPS7lZ1waF10mALYRfqrGYCRsmsoSy/KNJH//zaVAdhUxyjUNfDHed4X/s1qIoWlEapywOEs5iqoMrvIuH/fgp9bjexRW4e1SRgvmp5943HbqSBuaCA50sqDijjjUNLcBGJpRTzyGFk31JggE28aYV/Ym0lMvqNKASxfP9ZrQ+5N2Q/veu67CSe6a8uE
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(41320700004)(1800799015)(7416005)(366007)(38070700009);DIR:OUT;SFP:1102;
+x-microsoft-antispam-message-info: T4MWod096/QYO3yPxIO2rvxEJLi6qsrepcF/6q3e/rMhOitPdGxixuF/epdQVAYsR00Tdad429Y2gdCsRNzMd5bvFdNdIwaAeuGpLwwvqgU/Qw3FjwZ9L0osQ1e5n4Zjx3xg1Du4oxfbTKLZR7ILZjgrvlna40kUFVzCSS3gPYF8qOFQotZw43sN7qxezOeAg15mXzAKAloJzgkttrrfXQ8j530+hkeXAYRJmSNLudxtW9PHv4sJ6jzqHnHQVljoNWldLwfCoPPk9y7zePIA32ir18xRUkb+QCBnu/DBenbvrXb+xur51WnPSKSwIXZfsmIp+b3ZBhrlbg2q8UWqpVzefalgUjyyFm2/INOdiF1/cP6rc7UCVHCf0df98Hs+VUHHulwTXZrOUxjK7VGIWg/xSm75gZRckOapP2tUZ9PL0iKNNA78mzlTVl6Eh2qRe4EsY7oVb8uFCrtAIl7lV4F7eDwLS5bXLRrueKsCbQ4GPWy2ppN3Z5BILpnN+4l9Q29lJwzqDKit04yhwFzXgh2ziOfbVO6Ex2wb0jenOj0nexQwK4Ic8BqpCFtWs6arC5H4Gat+7rPkYsIOWYafWAAUM69i7zGqjM1ZMYmBT9BI/KZ1yrTFOHnVb/4ih8SJbItGm6oB5QYweYYg1VeOWg==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(366007)(7416005)(1800799015)(38070700009)(921011);DIR:OUT;SFP:1102;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?bS9sOHZvd1Q3bldDaTE2VG1sYzFNdlg4YURTNUpQYjczRmMrdDhFZFJ2VVlM?=
- =?gb2312?B?RUpoOGM1d3pBbVRUc0VLUzUvelRITVUxQ2JxVUtkOVpXeEMrb1IzSjJ3a3dx?=
- =?gb2312?B?Z0g1S1o4R20zajl5VmZ6QWF4NktJOFd0WXRTMHZlMnFIQ1pOOHovN09LSmlB?=
- =?gb2312?B?TmhTOEswQ1g2YWE5dXl5OHNtNzkvajZuSmtKdnpRM2NHTVRGY3h6emYzazdN?=
- =?gb2312?B?L3RuaWFTTXhIRTVROWVLMzRPNThVK0FtYjFBRlZKbFk0R3ZGSWRLKy9ER3pO?=
- =?gb2312?B?RVVsMit4ekM1dXdMQ0l2VVE4OUFtNnRDeEN2YmQyeVEzVkoxLzlKRXBiOTlp?=
- =?gb2312?B?dVNpN0RXN2hwZTQ1V2M0Ky9GS2ZTU1NRNVltMlZQSitZd2ZzU1ppU2gvRC9J?=
- =?gb2312?B?eDk2WEdEaXJrTDFpdzEvb1prNHE3WjRXS1FkOVRlME9CS21Tck9hZHhxSVpB?=
- =?gb2312?B?RG1TQWw4OGlEM1FDOXo1Y3E5eG8vK2YvY1Z4TDhkVjhPSTdFcjVJOGdtR245?=
- =?gb2312?B?Q1U2OGdGKzExc3g2eHc4M0hMcEMzZ0hVQW96TjZCWW53SVgzVnI3MzlJSWRw?=
- =?gb2312?B?eWRUd09KZGhNd3BaOVNlTlJWQWtsN3ZJaGszU3llNUN2ZlNRM3Y1Rjlja0RP?=
- =?gb2312?B?TzFOVGg0aFdReGRCMGFJM1ZhS2djU053UXdEUTYxSnc0Um96L2NDVkxuZ2hJ?=
- =?gb2312?B?NTErVEMwY3pPeFFYRzJtTkUwVUtDYTlId001ZVRIbkxWbjk4ejR6M2xDMEFj?=
- =?gb2312?B?WFR3UmxhSHJBTVZudkVLUEpLU0cvcjJVNmxPeFkrSDVPMW9jNWRCSUw1Y29J?=
- =?gb2312?B?UlF4UHhUaENuaStSNUl4Q21Wa2h0VjQ0aEZxMW5JdDJmZThmdWJPa2FzdzZ1?=
- =?gb2312?B?V0FvOHdQdDBQR1Avem9MeHBMdXhTc0JOWERSRHZ4ZkQ5UHdhTklBUXFkWUs1?=
- =?gb2312?B?V2ZmVm0yZktZc1A2UXBpVW1qOVd2eFZwa1JtY1pGWWFrdVFadk4xQ1hlOHZF?=
- =?gb2312?B?cm4rZ2lJZ2puNVVoOFEvYVQ2eEQ3UjJsQW1GUjNaRHFBWk8vNWVIRVp0VWxk?=
- =?gb2312?B?WEdzWG5MeVh6L3pUTFhTSDc5ZGh1a1NBMnI0dWM0SnMyNnorSU1kNTBvUFNn?=
- =?gb2312?B?djhSM09nNWZpSU1YV3Y1YVdmOXI3MHMybUhvcXN4TmNnQWluVmYwb3NVRHZW?=
- =?gb2312?B?RkFOSjVmTVJyclhOVlkvOGd4QnpiTmNDWkk3Z2RuOHJFMlNUNC8zQjMvays4?=
- =?gb2312?B?NGQ2VmpmRUhxcXlwb3ZSZDRPcW56ZmhWbVhSQ2JoNHVYQ2RabGhrTVBLNWxx?=
- =?gb2312?B?WEdKYjN4T3ZYMzgyTW1qRzBVNWZwcklXSUpQZlhUTEJRaWcxajIrUzkwRitQ?=
- =?gb2312?B?cTZkdG00YVluWExDS2s1dVc0UENzY0g3Z0xPMTMwWmQ3cmpjbGJ5WGVGeEZD?=
- =?gb2312?B?d3NjMnpwamVWT05rOXc0dFZjVkx5YWcrS2xKNU9OTzN1cEhMOUlYV0hjSFI0?=
- =?gb2312?B?VEV4N05aRjB2RU42RmU3RmNLZFMyUFRxVyt4blpwUURqQmg4QVMzdmUyRGow?=
- =?gb2312?B?cjBPNnV6cXNZanBIMUtHNmVjM05MOHRTT1A4TElvR2RvU2JNM0doQ1JBSWxG?=
- =?gb2312?B?aXNJSnAzNllHMlBsRjhNa3BpSUlwK0g2L2MyVmNmTlR5UDFYM3JhMjV0b2d5?=
- =?gb2312?B?Yzc4TVBvYko5WHpETEp3a3NwYy8zaCtWcVY0TmZTSHZmU29aWnNsVEhMK0p4?=
- =?gb2312?B?UFBBNUVkeVRuM3lWTGxYblI3TGJVVHFSSVVBeFoyaldBWlplZ2ZueDE0NzlO?=
- =?gb2312?B?Nytrb25sRUtBKytTbnd4TkFzQ0JEN1ZWM0NoNWhDcGlFd3R5aDYxcUM3Q202?=
- =?gb2312?B?TWU4VUJNMjJqTmVXdkdwVXp1Qnl0UnJyZGg0U2s5UDJ6bFUwU3cvK3plcWFW?=
- =?gb2312?B?N2h1blhZOEw5emp1UXhoazMxNjFDbWoyQ0R6MWR6VUJ6VU5GRlVDUjhzM00x?=
- =?gb2312?B?KzAyWXo2Y1NmdWpoMkhkZTRhczQvYmYxUEUva1VMdzlOK1EzOEE5Nys2VzUr?=
- =?gb2312?B?RWRxRFdMYzhvcmtkMU9mWDlaWEhHVkwxYzMveFE1endkUUZETFpnMEZIUEFO?=
- =?gb2312?Q?bjBiSIZeEdvF/rDe1Ks578geu?=
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?C1Avjy5xylDwZXCqJCSuglhaPi5i2rhxE5Cl60kAvYOf2BQslZ4A7bY0FK?=
+ =?iso-8859-2?Q?2POVlPk71/t3w2llK7aiSO/Qub9UrcsHAW7BuT4k2+xUcJnb6Vb1ATzf4O?=
+ =?iso-8859-2?Q?/OtHxsaYaA4TXwrekNVpsl1TK1TpmkYRxrqzYira+k2Vh2tTCiuLsr+li2?=
+ =?iso-8859-2?Q?iXRUqnMNEyH+rPSGkkpbAc1xToAd3vDT5RdapHJ3+0azV6zOESWgbyy/Am?=
+ =?iso-8859-2?Q?yEkdctAKqQXGPe4xppoGvSAXoE+jsOZZRxjBaYVl7ZBPSG00pnS2MPBXPw?=
+ =?iso-8859-2?Q?blOeqN0/Gf4EXi7fKja/4SptJhJ0F1NyT+iIB2C0RFanNl8vDySzRZzQKe?=
+ =?iso-8859-2?Q?Z/0Dn9v81VwCYOw++qTLKH+ZkHQAk6JqgK773uNkT0BT86VeBbI06X6fPF?=
+ =?iso-8859-2?Q?S9pSjbJLOOj/9Q3xsz84+Fx/PnUQKnhMLlG1IJ7CmK3WH39noY2kL2xTBc?=
+ =?iso-8859-2?Q?6R5REkHk+rBoJWHdIFXmw6+2lasPFJByUDWfW1bj4W0PMIbUbgtRYgb0iF?=
+ =?iso-8859-2?Q?0uhiekyN7kSk+k8AlgNrp5SFMw/fh/mzQphhDWB3Z/Wcjjvr0mBaSxjKJ0?=
+ =?iso-8859-2?Q?D1HuNCQyHvLLGM1zvLBwnKTLNSzh+ejdwqm9ada9HWY2xY9WTs4dNKNP2c?=
+ =?iso-8859-2?Q?AnEzVhLqrsqz4e/57HZlelKsIqZVja5r8Zx7iRMkhl8Ydub2s/IMHjRJqG?=
+ =?iso-8859-2?Q?Zy2QCQ8laWmNhyvRMD9EZ8RHUqynf3OXDNL6/LpKzhnOxW4BXlyd3N5Y8Z?=
+ =?iso-8859-2?Q?QqtTaORXE0gYSukxBMKahyPrUi4i08/cODLHs087050W2+8Xk4ENh0kTzq?=
+ =?iso-8859-2?Q?bXXSE6RWwC4Zre5KG2YAfPT63PjRtDUPk7gyz/qbDR6dR4a8meuta6lLPb?=
+ =?iso-8859-2?Q?CPilpNnW7R9/GCDbhQmiR7hKpywzhkumuuoh1nWD2rryVTUa50eR92XYCi?=
+ =?iso-8859-2?Q?wKshUJc7w+RarVY+73Ts72FpEFqTr1LDhyem4e3K7dlWvEG6HBfk8e/E4q?=
+ =?iso-8859-2?Q?4zRTfu20H3Fl5Z8pMc3ANy2/69aaIfC0OIP/IK3xhsTY2zZRifd+EkVkCW?=
+ =?iso-8859-2?Q?EPhREdRqBtrKXOhoUyrFb+UWJHuF7xM0Gez0YhVKFZRrQBlTbHIKWJsl6P?=
+ =?iso-8859-2?Q?OXZ3igcTlIWuxCYfKIT+mllYnNSHMiISTZ0OyRcWbbOZaR7izC/BlcuzkF?=
+ =?iso-8859-2?Q?4gUkdkx8xf926CpzlWW7Un/4YujgUD0HPGZk8b51HcS0D7PnMQ1/3Ckbok?=
+ =?iso-8859-2?Q?UT3A7x9sWRAsgEsdB91AQUmpxx/eH2fEIkRHPOL30MLiXD91kiEPuSlEDz?=
+ =?iso-8859-2?Q?pPIiF1Fa9P8t6VMp2Wiy6030itdjMxgLhJUuw18MawmDiA3yCd4aRQxCrt?=
+ =?iso-8859-2?Q?mDv79iTsw/wEjmBSSirHTxY+6Z3mFTekU0n4+UWfm1S6HTAhM8dXBIWuFq?=
+ =?iso-8859-2?Q?YHLPfyulNUAJuTBZKHy3v8UrdhVt3xL0FumQnCKvfP89nsxnJ+tZRepmSu?=
+ =?iso-8859-2?Q?zjMLdWLiPI922PvkmMUV8H84zpBCR5+PJqWq9IyORw7GNpifpIMEY3V112?=
+ =?iso-8859-2?Q?EVn+q9bjS4hPwLDlihfBqRyTTB02/EYkCT0iTYslN5y/1HVp4r6UrsZh69?=
+ =?iso-8859-2?Q?aR/CybEz/B5UtQkznb638zm/V6QFpfRSBS?=
 MIME-Version: 1.0
 X-OriginatorOrg: starfivetech.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd9c91b9-b6a0-4489-a2ba-08dc68aff78f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Apr 2024 00:53:36.1146
+X-MS-Exchange-CrossTenant-Network-Message-Id: a4cc33a9-d7c9-4b10-f30c-08dc68b25814
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Apr 2024 01:10:37.0643
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: VG/4iNJAsZaXKAW48C71BGgS1wgYr7fHMiSPBf2W+pB5Fq1rzpKXC+DQWo4UFm24PUYL70iwGrecs9yEIRvCElV6T3j6MdW/tAy+6gN+iSA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0551
+X-MS-Exchange-CrossTenant-userprincipalname: bkF5KlMgYlUd/hCsxoP0+4BIwhFszB6HiS0Djf1PF3dU55mBEyVbzdDM7TIXH9/sd3H2pbHXhMbWSizovW5LtHqHbqEEinZHREmKtGU/vUs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0501
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240429_175348_733758_C7B4481A 
-X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-CacheID: sfid-20240429_181047_262208_2C6CC95F 
+X-CRM114-Status: UNSURE (   8.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -154,26 +149,43 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 > 
-> This patchset final purpose is add PCIe driver for StarFive JH7110 SoC.
-> JH7110 using PLDA XpressRICH PCIe IP. Microchip PolarFire Using the same IP
-> and have commit their codes, which are mixed with PLDA controller codes and
-> Microchip platform codes.
 > 
-> For re-use the PLDA controller codes, I request refactoring microchip codes,
-> move PLDA common codes to PLDA files.
-> Desigware and Cadence is good example for refactoring codes.
+> >
+> > As PLDA dts binding doc(Documentation/devicetree/bindings/pci/
+> > plda,xpressrich3-axi-common.yaml) showed, PLDA PCIe contains an
+> > interrupt controller.
+> >
+> > Microchip PolarFire PCIE event IRQs includes PLDA interrupts and
+> > Polarfire additional interrupts. The interrupt irqchip ops includes
+> > ack/mask/unmask interrupt ops, which will write correct registers.
+> > Microchip Polarfire PCIe additional interrupts require to write
+> > Polarfire SoC self-defined registers. So Microchip PCIe event irqchip ops can
+> not be re-used.
+> >
+> > Microchip Polarfire PCIe additional intrerrupts:
+> > (defined in drivers/pci/controller/plda/pcie-microchip-host.c)
+> > EVENT_PCIE_L2_EXIT
+> > EVENT_PCIE_HOTRST_EXIT
+> > EVENT_PCIE_DLUP_EXIT
+> > EVENT_SEC_TX_RAM_SEC_ERR
+> > EVENT_SEC_RX_RAM_SEC_ERR
+> > ....
+> >
+> > To support PLDA its own event IRQ process, implements PLDA irqchip ops
+> > and add event irqchip field to struct pcie_plda_rp.
+> >
+>Hi Thomas
+>   Could you review this patch? Thanks.
 > 
-> ----------------------------------------------------------
-> The refactoring patches total number is 16,(patch 1-16) which do NOT contain
-> changing logic of codes.
-> 
-> These patches just contain three type basic operations.
-> (rename, modify codes to support starfive platform, and moving to common file)
-> If these patched are all be reviewed. They can be accepted first.
-> 
-Hi Lorenzo Krzysztof ,Bjorn and other PCIe maintainer
-   Do you have any comment to patch 1-16? Hope patch 1-16(refactoring patches) ready
-to merged first.
+Hi Thomas
+  Previous Lorrenzo ask you to review this patch. The PLDA PCIe interrupt register
+can be seen in the patch.
+
+All:
+   Sorry to resend this.
+
+Minda
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
