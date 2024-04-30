@@ -4,161 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F71AC4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 17:29:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155DDC4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 17:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Cd+gPuJQfBzNUwj6vsVlNzjCqi+5FP/E5ZN855qhi5s=; b=ALwrF1SJTiOcFvrGxua60LLXs6
-	8Q/vIe1FuKMPIcRX8nAk01sGFJ3SL2miMnbN7AnFz9ckOHv9bP8WKEkEDKhCiudthOfD3uAV6WbXE
-	wcDKyz4dD0Xn2bezVHiBB7T7kCKTaFI4jCErPxsgd+esvdTJJjsmJBE48UbEWQY9GzlfLzBJ0KsWm
-	ZtF1sDeiZwPTQnJ6ivcn8Y60JyCmohTMgPJRdnq0DhwW2JNoXnol0FZD7+GUcom7WsE9djBFruYrJ
-	hnAHQwJPRuJu+QpD1Gi7/IK0ro+szbERw5acz68tgIz/YEHnFTe/xMqOgRDxt2+6PAFFDJ9UXIVgF
-	pu7YnaIw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DwwBgFnXzNdv8DA0jSZfYNd61MixEP9V2UipgH0wRvw=; b=ZzbTGxKEtHW/xT
+	4bdyxd9mXJCEKwCEzjtm6jq/Rx1Yv6QTlXOW8XIAyfPJdX2WEbY0UMaS12hGxIznJtTHeBP/4ZC89
+	n8J+XMP2dMjgi7EFPewwUxGPgbeBfqbJE7NAS/IbyqLwmtEBTJwq03Dnf3d/cb5DmikRj5ExRj18G
+	7Vp2FcN3Y6HtKipM6ORacMzE2HFyYVJ6dMkKUttMAemZ6pxdXqqLyF6IgwnM1nU49CFyMjtKNVS5g
+	4CAHscXvCaeHbzxOB8KpJ1ZENAnuijifDgvJF4ZBOVW1sqnjWaRvMTzrmNTEHfdYmKxcywQ3RCsRn
+	YCoffyDEFVM5/wcfJExw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1rIE-00000007QOw-15pF;
-	Tue, 30 Apr 2024 17:29:26 +0000
-Received: from mail-mw2nam10on20601.outbound.protection.outlook.com ([2a01:111:f403:2412::601] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1s1rkp-00000007Vni-2P2z;
+	Tue, 30 Apr 2024 17:58:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1rI7-00000007QLu-0fqP;
-	Tue, 30 Apr 2024 17:29:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=g1D+1nvuKplO+7I8/qyuRfELbGv07kAsPqlhBuv6AFAoqFLR7Y3Xkz98buM1Vaiwxnq7A5RdqleQSoW9SdN/YXQcdNspu7JeEE7B94q9PPQ9qXzIRstTkWzTddIQTiPfEvEReUuERSjNmMPRBaaefygtf+KpD4/XrzQfp3lO66F4ZIaTLJQ2Ds07YCoaa3LGqtINBvYnSHEg+7C4BahTyLXJfFqv16xY56ZRB7R8FT3aiCq9D9fXwxnJgYqTstUrzVvkqd867914JaT8ZMQfowPAPFyCPH4+m6aRX8oltVLzIshpVH5yMC60yJQFeDZegok+QikIVaR2bTxAlvnLIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NJ6wii3vJy1kTKIRi0sW8j/C9kcEAgYyokI3G+YyLpA=;
- b=TopBk7EmLl4col+pQ9YrRvLwzvrzWliuVKKyRSLAz6R6Tr8DUQ3LGthXfVQetqVjiA41x46hWF5wdN7Oj3+j8ciEYaQqWdvBCTCvd90xyqFWj0OD8CAYHlKpC7yT8klQZ0/rdEG0xgykfzWbPWLEXIWq5AMj2d87/7WChBUb55sFvlIVECEqpthnIIhRMSkaouEGAmJi+Q2uWPYx6coK82uW72DiQrabyNu45BtV2RculwyKHyya5svI+12AIpU/McqiBtk5kwgtaZ9tx/RSOmE3xj+GnkEX+u4RqnlLjLQqzMjfH6ZbH8rUdMv5wjUm542BlhTj3Ug9MjBxTxrPYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NJ6wii3vJy1kTKIRi0sW8j/C9kcEAgYyokI3G+YyLpA=;
- b=A09Kl0JqlS2ThS1Nu4ncGKb02lTffvokUVEVzIwzAaHsb9Q0RgxRks+oDosg2UKNP2mEgNMpkrUKwU/2JyQDOEgTJDFp+PYPi1534oV3L19OvjGR00f+HjsTTz/1qiU8NQt0T1pzM24/9jouK2KuOeq9Cz56pxVlerNjqhT5qps=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CO6PR12MB5427.namprd12.prod.outlook.com (2603:10b6:5:358::13)
- by CY5PR12MB6322.namprd12.prod.outlook.com (2603:10b6:930:21::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7519.34; Tue, 30 Apr
- 2024 17:29:10 +0000
-Received: from CO6PR12MB5427.namprd12.prod.outlook.com
- ([fe80::1c2f:5c82:2d9c:6062]) by CO6PR12MB5427.namprd12.prod.outlook.com
- ([fe80::1c2f:5c82:2d9c:6062%5]) with mapi id 15.20.7519.035; Tue, 30 Apr 2024
- 17:29:10 +0000
-Message-ID: <958149a4-f5f5-4963-9af8-12e2a672733d@amd.com>
-Date: Tue, 30 Apr 2024 13:29:06 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 13/15] drm/amd/display: Use ARCH_HAS_KERNEL_FPU_SUPPORT
-To: Samuel Holland <samuel.holland@sifive.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- Christoph Hellwig <hch@lst.de>, loongarch@lists.linux.dev,
- amd-gfx@lists.freedesktop.org, Alex Deucher <alexander.deucher@amd.com>
-References: <20240329072441.591471-1-samuel.holland@sifive.com>
- <20240329072441.591471-14-samuel.holland@sifive.com>
-Content-Language: en-US
-From: Harry Wentland <harry.wentland@amd.com>
-In-Reply-To: <20240329072441.591471-14-samuel.holland@sifive.com>
-X-ClientProxiedBy: YQZPR01CA0088.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:84::16) To CO6PR12MB5427.namprd12.prod.outlook.com
- (2603:10b6:5:358::13)
+	id 1s1rkm-00000007VmH-2B9D
+	for linux-riscv@lists.infradead.org;
+	Tue, 30 Apr 2024 17:58:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 56469614CD;
+	Tue, 30 Apr 2024 17:58:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0559C2BBFC;
+	Tue, 30 Apr 2024 17:58:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1714499935;
+	bh=9GscSuMrdqZRGQiz+g8LzDHMXZexOoafw/dgWylTjf4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qOcbs9VICSWN1L4GCro9oYzvMgsVeBcG/Q0+HKQ67mclDI2I0nYhhtFVjHIJIVbYc
+	 pPTuoaqDwVTCDdsoM2LFax7yBk0B6c3AWzHHTWv9EqoVuA8AtL4RAygBqfXzvWsSVG
+	 FJByHvlxUuD+3h0VNSoS8PBUgbRVn4VJ7CdJU0p6eMks+OmvhZHNI9bEDij6n7dGFS
+	 nYgPpRNggyNAoE+2GxUXyRZa+K0ZYktHrD2kxlKehoWx1FGgOtY9VAUvj4zAzNfRSM
+	 3PSS6rXRxaOFeRWaDiq3JH2/SmldFkaouq1C9WAN5p8JIMJ5EaG+jsxbkj3RqUaQlp
+	 hNYLM1LiXbS7g==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Pu Lehui <pulehui@huawei.com>
+Cc: puranjay12@gmail.com
+Subject: [PATCH bpf-next v2 0/2] riscv, bpf: Support per-CPU insn and inline bpf_get_smp_processor_id()
+Date: Tue, 30 Apr 2024 17:58:32 +0000
+Message-Id: <20240430175834.33152-1-puranjay@kernel.org>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR12MB5427:EE_|CY5PR12MB6322:EE_
-X-MS-Office365-Filtering-Correlation-Id: ba75e1a5-5398-4f19-4a93-08dc693b0bfe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230031|1800799015|7416005|376005|366007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?S2ZWcGxUbGhNWEtuaHk1K0pyWUo0OXdobDJLMitkMnVBV3VXdUVFOUQ3dURh?=
- =?utf-8?B?RHB4QTdwc1lZc2d3OFloMzNOVUdaS1pzdTZ4MlU5U1QydnlmZVNyVEgwYk5R?=
- =?utf-8?B?UDJOZWtUNVVNRHd0ekVSZUJzU3B3Vnc4RWswTjRxSGo1STUwankyQ2kxdmYy?=
- =?utf-8?B?K0Yxc3IyQWZERVlQcXl1dFA0M1VTLzU4UGFqNzc1V0hOdnAvV1ZUNXhNU2cz?=
- =?utf-8?B?cUdqQnVwWGs0TW5tell1LytRK09iekt1WjZkVERwWTlhcG44K1JBMis0V2pZ?=
- =?utf-8?B?aUtQYzlUcFhsR2oybnhpcTZVb21jYUVjVE41M3ZZMnBsMTJlWmVMQUFKbDVi?=
- =?utf-8?B?SzhrQ1JoMEdCMVNZbjZ5WXpFWE1RbjYya0Nqa0ZzeUdGUFNQU09RMjhBcGg0?=
- =?utf-8?B?blp6V2FFN2k4SS96cERxNkVyZkpERkZ2VVE4Z1A2V2c2WUQ0ZmpnOVFjWFpN?=
- =?utf-8?B?L1d2ckNCMFJHRFQyb0VDN1JSZkhaZHRZV3VhWTFtS00xc2NRWXZPQlBXQk1s?=
- =?utf-8?B?VHZZOEw4ZGdJa0w3UnNIaUQ5NTdGQVB1L3JaMExIM3RqNXg5MUZlMTRZdllV?=
- =?utf-8?B?eGFWNm91OFVXS0xSTXJqSHpQU0ZGYmhIMHNIVW45RTU4YUJ2L2xwZ1YzL3p1?=
- =?utf-8?B?RHJBTWduM1dpUUFSWGcxODB3STMzSFlMWDFScHNDNnBkdE1sbjZqZGdBd1BR?=
- =?utf-8?B?cWtZN3RVZGE5Lyt6SUdtN3RIT2EvcHE1VzJlcmNWOGd4U0V6ZEs0eUNBVSt2?=
- =?utf-8?B?eS83MXhhWTdnZVpiSTdXTU9ZNDJoOTByVGhQYmkxR2EyUWJtZFBBMnF5K2lE?=
- =?utf-8?B?cWNtQVl5d0FLUXY2STdkY3laOHlvQkhPbEJYMHlFeXRwTmoxTmRtSFU1aVVM?=
- =?utf-8?B?TzVqVUN4NVM1Mlc2dmNnYjVJZFBzYkQrOW1ZeEo5Q2hGUE8yOWVHK1ZtL2xw?=
- =?utf-8?B?NHB6a2M0emZKVnVXRFZsa1FRNjZOMWhBWEhvSjhDUFNSNDhrUHg2SzlLQ2U5?=
- =?utf-8?B?NzU4azkxKzVUb2tGMDRTTUNTSDB3L2h5UXA3a3IxUUF0aC80RmxWRVNqVi9j?=
- =?utf-8?B?eGo5R2dvcUdsdnhTMFBpSzVoaFFCMWlRbWJrQytUSFpBY2lhS2gycE55RXox?=
- =?utf-8?B?aTNtbUV1dzk0SnQvT1Y2R1dWRE42Y2U0ODJNM240QmcwK0gzMzJkcnBQUHJr?=
- =?utf-8?B?di8xWWlGRzNHM1VtSGQybWN3eVN3R2IvRFJkdlo3QWtCbnFmb0M5WTdrT0lG?=
- =?utf-8?B?U3dSbHNGMHhNRXhiaFZsMWNlZnE3N1JteTNMZnJvUkRwRUk2dHVpY2Q0REdS?=
- =?utf-8?B?a0JlMHg2YzI4SUwra3A0OWJDNEx0OFZZb052Yy92aXN6eEVFcGNObFdINGRj?=
- =?utf-8?B?M3cwU2t0L1l5ZkhRYTBVYThGY2NpOGF2ZlBEMXQvQ1RhampMRWJmTVZsTzhJ?=
- =?utf-8?B?T1l6TDE3WHlYOTUvWjVSdG55UDRqb3pGY0RZVWxOdWRUemxYbytwbmVndFph?=
- =?utf-8?B?eU5XN29zSHBZWWJFd2htVmVpdGcvTUFMb1RqVWU1UFUycnN1R3RDQ1pJdE1H?=
- =?utf-8?B?RU1DUjA2eDZFcTFZaHhVUEVjenM3YTFRYWRGVjFRdjhVNHJuZVpUclRWbXl0?=
- =?utf-8?B?bmZZLzkzZEpSNllLR1VwYmxXVFhZSnREQlQ3dHBMTmFvUUlRcVFXWVZ5WjN4?=
- =?utf-8?B?ZzVGWjhXTGlITXRnODNNVXgzRFUwK1VmUk5wRGdWcGQxc1JjZlhOM3RRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR12MB5427.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(7416005)(376005)(366007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MDRlMGdWMENCOW9UektET2xIVEdTeHpCaXBNbzJyNEFOc0ZrVXc2Qzk3ZFZQ?=
- =?utf-8?B?anQwVDRDbzlXZ0RHajQzV2JJVDJUYjVJeHZhYjZCcndaV0dIV1hmdlB0SE94?=
- =?utf-8?B?eVBHdUZhUDJGbGxlYVF1dWUzYnhQamw2K2l1ai9lL0ZhZlo5ZmhtamQ5eklV?=
- =?utf-8?B?cDl5M0xsZzFmMGhMbnZ3UU9Ubko1eW5mWFk3N0tHNnZMMW1LRnpic0kyL01r?=
- =?utf-8?B?RGZLbUNHOGo0TVdwNWl5dHF6TG9uOEJPYjdhTFAvbFVoSXlYS3hVVzdKY2JB?=
- =?utf-8?B?cFJoWHRkM0UyWEoyZGJwcG9CUTRtZlArV0ZWV0xQN29sbnV6Q3Z6UGVGQzFp?=
- =?utf-8?B?eVM3MVNmTkt6K0FvT2xscmtCRmlMSUVVcmNBN0Q0QXFGSFdtU0gyMXFtcFZ0?=
- =?utf-8?B?ejR4NWdQYzFEeGxqRFo5NlZ3MGhFc0RqZG1CMmswOTBZaEZBZXJzbXBYMTIz?=
- =?utf-8?B?VmRtKzA1aUdkQzdLaXJnSVJ4NUxzVW93U3ZpL25XeDlaeko4Y2w5eXBDZ2ZW?=
- =?utf-8?B?MjlmdE1LMnYvampQd0FRZGFwRTNibHVRaTBOWXovTUpXOXY3WjNWRWkrZ2RS?=
- =?utf-8?B?RVlUdFQ5UHgyYll0TmcvK2ZZN240L2NVVTJIaVRpTmJaeFBVbUEvOFUrdURN?=
- =?utf-8?B?d0VVd3R4OGdUZGVWTUlhN0tjaW1kTFY2alF6OHhZMmtBaHJvdG54anZpTzdB?=
- =?utf-8?B?ZXN1WlBTRWorSk55bnY5R3NVWkhIdDRZbmVGWmkvL09oUVJJV2FyQ1AyTnBk?=
- =?utf-8?B?aTNOSThiY01OT2VnOG4vc3V4ai9UZVdXcjloREZ1Z2FDOHQwOURZalNZd3pI?=
- =?utf-8?B?M0lBWGx3N3Z3cXlESmZDNS9UTWlaK0ZmNXdyU2kvZnlQKzBsR3Q4MTZNOEhT?=
- =?utf-8?B?c2xCdHZSY0pNZXJRd2wwWFNQaTVKSFRnWkNGa0owbUdPbVQvZHRRdThEVUVP?=
- =?utf-8?B?L1prZTl6QzBtV0V1L2N2TTQ2am50c1Q0TFZ3UGJ4V0NSRmhQT00vUG5rWDFy?=
- =?utf-8?B?K1ZMTkswOGVQNmZLTSs3Z3gyMHJYSkVjdjBVOGRDSk0zZUhMdk9yQ2ZMR3ZZ?=
- =?utf-8?B?Vlh5K3hSblJvQ1l6WStBYXlFYzFiMVFIYkFqN1NLNXZPcXhsSTFDK2pBYmdE?=
- =?utf-8?B?d3RrNm96Z2JBUUQyUHdzTjFoUE5pZk9lb0x3dlhDQTJBeHVpNjBJNk5IYVNh?=
- =?utf-8?B?SzdYSTRxNnFPdHcvS3B2V296ZU1Tcmg1MDREOGFFcC9IcEpidE93VDVlekRn?=
- =?utf-8?B?MEhSNWNsVXM0YUtsREtqU1pZSERjRFZ6TnJHeGVFQnl6dTcrQlVGL2Vic1By?=
- =?utf-8?B?VTJuUXhjU1lzdThrblYwT25uVDhLbXBoUDRqKzVoQkJUOFREQVdtc2lzY3l5?=
- =?utf-8?B?UklGbEtDSUZOeVdBaTN6c2d0VGV0ckJtcE1uTXl5R3F3eDNrYjhmQmZyYWQ0?=
- =?utf-8?B?RXBtWGV5enQ1TkFCaTVVUjFXS0NlSzdWTStpY010NjVpQmdjeVRudkFhYjFT?=
- =?utf-8?B?eTZTNmRVRkM4bVFhV0cwNjN4bFYvR0lncW4wUGhVbGI4Y09YUS82ZlBwTDJn?=
- =?utf-8?B?SVVVUVNQdTkrcEovRGt4WDhJNnRMRm5OSlZUeDJVUk5iT3VuZWpvN2NyUmJ4?=
- =?utf-8?B?MFU4ckVCVGgrcG5UQlhrRmZieUZSaFpLN1VuaUcyTmZpazFHQTZYamZKNHVX?=
- =?utf-8?B?V01nZzdYVmpTZTBMWGswQ0hYL2hHdCt5c3UzSm9RZXVDTEdtdG15aVo2RnZW?=
- =?utf-8?B?cDNNaTRJcEx0OFp4dmRrMFVEUmM0SXA4UmE4RjdrMXEraTJoSVZ4NnRHS01y?=
- =?utf-8?B?bHBsTEtGRGM3TUhFY3VkckNXaUpWVTVNZkxIdWpPbzB0MndONkVMb2xLK0to?=
- =?utf-8?B?QkhGMERic21HZnF4cUUveVpCUjY0YVlVRTQ1UUlKY256Q01ZNTJLOVVES3RR?=
- =?utf-8?B?MDBBVzR2WFFoTTIwOWdYTjdTckgvWUNIU0tMWUFHZitySUJYNmIybnFqaFBw?=
- =?utf-8?B?cTlEdG0vdER3eEFIOFdwb25ZVVcxdkMzRS9JNFJZV3JVNEFkSnB5RlVhdTdI?=
- =?utf-8?B?MjgvdVd5S1lJQjdqalY1SmJjbzRYUm8wcXBmVzRYSEJyaUZ1NXcwR2s0WlBB?=
- =?utf-8?Q?FEJHJ7Z2+vnFlBWuU3Ovi0DfD?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ba75e1a5-5398-4f19-4a93-08dc693b0bfe
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR12MB5427.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2024 17:29:10.6547
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: i8tsnWW0OQ/9NiZj4MF2NyY5ENkv7omndeXcVPwrtSZoaixhEowGfsGNUZ5JZ49aojTe8aQK8ymeVqwpN6JcUA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6322
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240430_102921_116494_9B83F9EF 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20240430_105856_629730_A21F2640 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,208 +83,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2024-03-29 03:18, Samuel Holland wrote:
-> Now that all previously-supported architectures select
-> ARCH_HAS_KERNEL_FPU_SUPPORT, this code can depend on that symbol instead
-> of the existing list of architectures. It can also take advantage of the
-> common kernel-mode FPU API and method of adjusting CFLAGS.
-> 
-> Acked-by: Alex Deucher <alexander.deucher@amd.com>
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
-
-Really nice set of changes.
-
-Acked-by: Harry Wentland <harry.wentland@amd.com>
-
-Harry
-
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
-> 
-> (no changes since v2)
-> 
-> Changes in v2:
->  - Split altivec removal to a separate patch
->  - Use linux/fpu.h instead of asm/fpu.h in consumers
-> 
->  drivers/gpu/drm/amd/display/Kconfig           |  2 +-
->  .../gpu/drm/amd/display/amdgpu_dm/dc_fpu.c    | 27 ++------------
->  drivers/gpu/drm/amd/display/dc/dml/Makefile   | 36 ++-----------------
->  drivers/gpu/drm/amd/display/dc/dml2/Makefile  | 36 ++-----------------
->  4 files changed, 7 insertions(+), 94 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/amd/display/Kconfig b/drivers/gpu/drm/amd/display/Kconfig
-> index 901d1961b739..5fcd4f778dc3 100644
-> --- a/drivers/gpu/drm/amd/display/Kconfig
-> +++ b/drivers/gpu/drm/amd/display/Kconfig
-> @@ -8,7 +8,7 @@ config DRM_AMD_DC
->  	depends on BROKEN || !CC_IS_CLANG || ARM64 || RISCV || SPARC64 || X86_64
->  	select SND_HDA_COMPONENT if SND_HDA_CORE
->  	# !CC_IS_CLANG: https://github.com/ClangBuiltLinux/linux/issues/1752
-> -	select DRM_AMD_DC_FP if (X86 || LOONGARCH || (PPC64 && ALTIVEC) || (ARM64 && KERNEL_MODE_NEON && !CC_IS_CLANG))
-> +	select DRM_AMD_DC_FP if ARCH_HAS_KERNEL_FPU_SUPPORT && (!ARM64 || !CC_IS_CLANG)
->  	help
->  	  Choose this option if you want to use the new display engine
->  	  support for AMDGPU. This adds required support for Vega and
-> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
-> index 0de16796466b..e46f8ce41d87 100644
-> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
-> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
-> @@ -26,16 +26,7 @@
->  
->  #include "dc_trace.h"
->  
-> -#if defined(CONFIG_X86)
-> -#include <asm/fpu/api.h>
-> -#elif defined(CONFIG_PPC64)
-> -#include <asm/switch_to.h>
-> -#include <asm/cputable.h>
-> -#elif defined(CONFIG_ARM64)
-> -#include <asm/neon.h>
-> -#elif defined(CONFIG_LOONGARCH)
-> -#include <asm/fpu.h>
-> -#endif
-> +#include <linux/fpu.h>
->  
->  /**
->   * DOC: DC FPU manipulation overview
-> @@ -87,16 +78,9 @@ void dc_fpu_begin(const char *function_name, const int line)
->  	WARN_ON_ONCE(!in_task());
->  	preempt_disable();
->  	depth = __this_cpu_inc_return(fpu_recursion_depth);
-> -
->  	if (depth == 1) {
-> -#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
-> +		BUG_ON(!kernel_fpu_available());
->  		kernel_fpu_begin();
-> -#elif defined(CONFIG_PPC64)
-> -		if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
-> -			enable_kernel_fp();
-> -#elif defined(CONFIG_ARM64)
-> -		kernel_neon_begin();
-> -#endif
->  	}
->  
->  	TRACE_DCN_FPU(true, function_name, line, depth);
-> @@ -118,14 +102,7 @@ void dc_fpu_end(const char *function_name, const int line)
->  
->  	depth = __this_cpu_dec_return(fpu_recursion_depth);
->  	if (depth == 0) {
-> -#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
->  		kernel_fpu_end();
-> -#elif defined(CONFIG_PPC64)
-> -		if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
-> -			disable_kernel_fp();
-> -#elif defined(CONFIG_ARM64)
-> -		kernel_neon_end();
-> -#endif
->  	} else {
->  		WARN_ON_ONCE(depth < 0);
->  	}
-> diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile b/drivers/gpu/drm/amd/display/dc/dml/Makefile
-> index 59d3972341d2..a94b6d546cd1 100644
-> --- a/drivers/gpu/drm/amd/display/dc/dml/Makefile
-> +++ b/drivers/gpu/drm/amd/display/dc/dml/Makefile
-> @@ -25,40 +25,8 @@
->  # It provides the general basic services required by other DAL
->  # subcomponents.
->  
-> -ifdef CONFIG_X86
-> -dml_ccflags-$(CONFIG_CC_IS_GCC) := -mhard-float
-> -dml_ccflags := $(dml_ccflags-y) -msse
-> -endif
-> -
-> -ifdef CONFIG_PPC64
-> -dml_ccflags := -mhard-float
-> -endif
-> -
-> -ifdef CONFIG_ARM64
-> -dml_rcflags := -mgeneral-regs-only
-> -endif
-> -
-> -ifdef CONFIG_LOONGARCH
-> -dml_ccflags := -mfpu=64
-> -dml_rcflags := -msoft-float
-> -endif
-> -
-> -ifdef CONFIG_CC_IS_GCC
-> -ifneq ($(call gcc-min-version, 70100),y)
-> -IS_OLD_GCC = 1
-> -endif
-> -endif
-> -
-> -ifdef CONFIG_X86
-> -ifdef IS_OLD_GCC
-> -# Stack alignment mismatch, proceed with caution.
-> -# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
-> -# (8B stack alignment).
-> -dml_ccflags += -mpreferred-stack-boundary=4
-> -else
-> -dml_ccflags += -msse2
-> -endif
-> -endif
-> +dml_ccflags := $(CC_FLAGS_FPU)
-> +dml_rcflags := $(CC_FLAGS_NO_FPU)
->  
->  ifneq ($(CONFIG_FRAME_WARN),0)
->  ifeq ($(filter y,$(CONFIG_KASAN)$(CONFIG_KCSAN)),y)
-> diff --git a/drivers/gpu/drm/amd/display/dc/dml2/Makefile b/drivers/gpu/drm/amd/display/dc/dml2/Makefile
-> index 7b51364084b5..4f6c804a26ad 100644
-> --- a/drivers/gpu/drm/amd/display/dc/dml2/Makefile
-> +++ b/drivers/gpu/drm/amd/display/dc/dml2/Makefile
-> @@ -24,40 +24,8 @@
->  #
->  # Makefile for dml2.
->  
-> -ifdef CONFIG_X86
-> -dml2_ccflags-$(CONFIG_CC_IS_GCC) := -mhard-float
-> -dml2_ccflags := $(dml2_ccflags-y) -msse
-> -endif
-> -
-> -ifdef CONFIG_PPC64
-> -dml2_ccflags := -mhard-float
-> -endif
-> -
-> -ifdef CONFIG_ARM64
-> -dml2_rcflags := -mgeneral-regs-only
-> -endif
-> -
-> -ifdef CONFIG_LOONGARCH
-> -dml2_ccflags := -mfpu=64
-> -dml2_rcflags := -msoft-float
-> -endif
-> -
-> -ifdef CONFIG_CC_IS_GCC
-> -ifeq ($(call cc-ifversion, -lt, 0701, y), y)
-> -IS_OLD_GCC = 1
-> -endif
-> -endif
-> -
-> -ifdef CONFIG_X86
-> -ifdef IS_OLD_GCC
-> -# Stack alignment mismatch, proceed with caution.
-> -# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
-> -# (8B stack alignment).
-> -dml2_ccflags += -mpreferred-stack-boundary=4
-> -else
-> -dml2_ccflags += -msse2
-> -endif
-> -endif
-> +dml2_ccflags := $(CC_FLAGS_FPU)
-> +dml2_rcflags := $(CC_FLAGS_NO_FPU)
->  
->  ifneq ($(CONFIG_FRAME_WARN),0)
->  ifeq ($(filter y,$(CONFIG_KASAN)$(CONFIG_KCSAN)),y)
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q2hhbmdlcyBpbiB2MS0+djI6CnYxOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNDA0
+MDUxMjQzNDguMjc2NDQtMS1wdXJhbmpheTEyQGdtYWlsLmNvbS8KLSBVc2UgZW1pdF9hZGRyKCkg
+aW4gcGxhY2Ugb2YgZW1pdF9pbW0oKSBpbiB0aGUgZmlyc3QgcGF0Y2guCi0gQWRkIHRoZSBzZWNv
+bmQgcGF0Y2ggdG8gaW5saW5lIGJwZl9nZXRfc21wX3Byb2Nlc3Nvcl9pZCgpCgpUaGUgZmlyc3Qg
+cGF0Y2ggYWRkIHRoZSBzdXBwb3J0IGZvciB0aGUgaW50ZXJuYWwtb25seSBNT1YgaW5zdHJ1Y3Rp
+b24gdG8KcmVzb2x2ZSBwZXItQ1BVIGFkZHJzIHRvIGFic29sdXRlIGFkZHJlc3Nlcy4KUklTQy1W
+IHVzZXMgZ2VuZXJpYyBwZXItY3B1IGltcGxlbWVudGF0aW9uIHdoZXJlIHRoZSBvZmZzZXRzIGZv
+ciBDUFVzIGFyZQprZXB0IGluIGFuIGFycmF5IGNhbGxlZCBfX3Blcl9jcHVfb2Zmc2V0W2NwdV9u
+dW1iZXJdLiBSSVNDViBzdG9yZXMgdGhlCmFkZHJlc3Mgb2YgdGhlIHRhc2tfc3RydWN0IGluIFRQ
+IHJlZ2lzdGVyLiBUaGUgZmlyc3QgZWxlbWVudCBpbiB0YXNrX3N0cnVjdAppcyBzdHJ1Y3QgdGhy
+ZWFkX2luZm8sIGFuZCB3ZSBjYW4gZ2V0IHRoZSBjcHUgbnVtYmVyIGJ5IHJlYWRpbmcgZnJvbSB0
+aGUgVFAKcmVnaXN0ZXIgKyBvZmZzZXRvZihzdHJ1Y3QgdGhyZWFkX2luZm8sIGNwdSkuCgpUaGUg
+c2Vjb25kIHBhdGNoIGlubGluZXMgdGhlIGNhbGxzIGJwZl9nZXRfc21wX3Byb2Nlc3Nvcl9pZCgp
+IGluIHRoZSBKSVQKYnkgZW1pdHRpbmcgYSBsb2FkIGZyb20gdGhlIFRQICsgb2Zmc2V0b2Yoc3Ry
+dWN0IHRocmVhZF9pbmZvLCBjcHUpLgoKQmVuY2htYXJrIHVzaW5nIFsxXSBvbiBRZW11LgoKICAu
+L2JlbmNocy9ydW5fYmVuY2hfdHJpZ2dlci5zaCBnbG9iLWFyci1pbmMgYXJyLWluYyBoYXNoLWlu
+YwoKICArLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0t
+LS0rLS0tLS0tLS0tLS0tLS0rCiAgfCAgICAgIE5hbWUgICAgIHwgICAgIEJlZm9yZSAgICAgICB8
+ICAgICAgIEFmdGVyICAgICAgfCAgICUgY2hhbmdlICAgfAogIHwtLS0tLS0tLS0tLS0tLS0rLS0t
+LS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLXwKICB8IGds
+b2ItYXJyLWluYyAgfCAxLjA3NyDCsSAwLjAwNk0vcyB8IDEuMzM2IMKxIDAuMDEwTS9zIHwgICAr
+IDI0LjA0JSAgIHwKICB8IGFyci1pbmMgICAgICAgfCAxLjA3OCDCsSAwLjAwMk0vcyB8IDEuMzMy
+IMKxIDAuMDE1TS9zIHwgICArIDIzLjU2JSAgIHwKICB8IGhhc2gtaW5jICAgICAgfCAwLjQ5NCDC
+sSAwLjAwNE0vcyB8IDAuNjUzIMKxIDAuMDAxTS9zIHwgICArIDMyLjE4JSAgIHwKICArLS0tLS0t
+LS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0t
+LS0tLS0rCgpbMV0gaHR0cHM6Ly9naXRodWIuY29tL2FuYWtyeWlrby9saW51eC9jb21taXQvOGRl
+YzkwMDk3NWVmCgpQdXJhbmpheSBNb2hhbiAoMik6CiAgcmlzY3YsIGJwZjogYWRkIGludGVybmFs
+LW9ubHkgTU9WIGluc3RydWN0aW9uIHRvIHJlc29sdmUgcGVyLUNQVSBhZGRycwogIHJpc2N2LCBi
+cGY6IGlubGluZSBicGZfZ2V0X3NtcF9wcm9jZXNzb3JfaWQoKQoKIGFyY2gvcmlzY3YvbmV0L2Jw
+Zl9qaXRfY29tcDY0LmMgfCA1MCArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKIGlu
+Y2x1ZGUvbGludXgvZmlsdGVyLmggICAgICAgICAgfCAgMSArCiBrZXJuZWwvYnBmL2NvcmUuYyAg
+ICAgICAgICAgICAgIHwgMTEgKysrKysrKysKIGtlcm5lbC9icGYvdmVyaWZpZXIuYyAgICAgICAg
+ICAgfCAgMiArKwogNCBmaWxlcyBjaGFuZ2VkLCA2NCBpbnNlcnRpb25zKCspCgotLSAKMi40MC4x
+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
