@@ -4,89 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CE6C4345F
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 15:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48A33C4345F
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2024 15:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/udYITMRXc3aikaIcA4nACXds0djCD7XkUZOr65JciY=; b=1GLjhSPj/spvOY
-	N5N7HkEhPV16Mb8urNDS+iD6jDEj+81n84qHS/wte60bMf1jLCG2LmH4kGTbdvAZxwpFBt0f5xG6Z
-	xIQmIhpD6NxBJEwjGJso2i42G6LH4XGmxCz8ARqjSuatNiq+4MDTbudTuqcr2FRtTPloeloRVkwRO
-	+h9yLSUPkJCovnfLvaHgC8R12Kgxmfo39STZczSpkmnDSJAF3WAFQG1mcV/m0MUX99vAWznJ69P6v
-	QALrdRiXuZyvGQLojM+QSPxlRH0IIp0H1Qljc29Ilfty+1yLiqg3BaOs+23bVnr5yPk/leqpx1+1O
-	O//Em7kDAJv306HES0PA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:MIME-Version:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MHHSeStOP0C92gkbmrceSNKMmfyglTQsRKr9eSWPjsw=; b=e2EjnmnLrnUmH1zIIqUQhEipVr
+	K0LcWgebudQmHwSmNxYIc/X8A9LoQd485Rn5Ow2s8o78/d9xpaQ8Z5o3Ar61JBso+zNzj0GBkxM1p
+	kYyoBedL3oPkb0PAuAFXo6UtPr84YTxTps3RvhdyiMnifnC7L3lLSNlGu3Nx1UXhQwUFIwyzouHiK
+	1vPQ+FZJKUwqmc2I4I7L/08D0D9MlyBTGOyIGS2TeLU6LBTgSXD/Fk9g6n6DbUBHa8qvcOS8NhgBS
+	AJ8hPt3IHYleUtNvKzPehmhfGqNt9xIwkK4oFBDqb4LhyU7G/spqt3LnUTxw7Fehty8mtOSaTtR75
+	D43OZe3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1pWK-000000074Q8-3442;
-	Tue, 30 Apr 2024 15:35:52 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1s1pdD-000000075vG-09vU;
+	Tue, 30 Apr 2024 15:42:59 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s1pWG-000000074LW-1eE9
+	id 1s1pd9-000000075tZ-1X65
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Apr 2024 15:35:50 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-34a42d6e216so1300122f8f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Apr 2024 08:35:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714491338; x=1715096138; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HKIJbDUVjXcCbxtnsr2n+MGPFjkYZK2XnzHwiA9YwSY=;
-        b=zHlX7oKSxVlRSe8rhmXQTsHRzOZMCia0zV2SlUJcF9uHA9FpMGkeeQOKvFrYLJvmlU
-         B50W3E6Pm/D8O2umiTaSVMiGwk0GUp4/eF4zhpnMzVPUvggyiupUS/cgM8BMVamhP2zT
-         +lTgtBP03+9lZkLSJOZhaG8zdK0XYi8UsC4kiI3UqOZmDr57FCRxDt5x0UuX1uamx5qB
-         hwqb0FaTa4/HSQXWpcbEM2krj084i6YjelA5dmYNPrnYNO0u1VxsCAowLxeKB3EniQZu
-         DrCY62wV6prKlrmXxNBHg6iARCulAoTSf8TE5k1x40x8HqBRPamvBDHsb44m/kO6+427
-         npSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714491338; x=1715096138;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HKIJbDUVjXcCbxtnsr2n+MGPFjkYZK2XnzHwiA9YwSY=;
-        b=t9GfCNV7jZ5+LOVY3xdiIuDksXm1ofyPKN8NjaYjy5+KuIYpC8BgitrkdZQ9VpsoOq
-         Rb8/u10bMPPEOeHrliamD40VGf+fPd3PhRo1Tq8ZNsmCAIbIAvKxYYyLyzmjQiK7xHh2
-         A5onsxrX7uIAvqjtTno4vIpnE+QfxHFPVwtQUD+qCRWr1d1ZGAKnpa5IJwc272jDjgYx
-         pldYl41nDt45bQklmkQ/vLlF58hR30JaUz+Ds2JSSTybMwDsLTjIRHARFVQl5iO+SOgz
-         1g+gPf/baLDAS2fUj3RG4n0LD0uH39xBPaMfoVpWvigW4gRLqGUi8OyQ/lTvtRfUOgwB
-         kTXw==
-X-Forwarded-Encrypted: i=1; AJvYcCXA1muUn/J3XqiSEgAx9ub7zK3PKEh1fRCylTZJg90H8wVbrl1vlqNaIO3ZSOeeIowUbgNA76vPiIayb3eNlBdC38HzLxaFyq+4HDum29jh
-X-Gm-Message-State: AOJu0YwFg6SXM/PoxzV3bNVGWROBMqBPS3gVyuPYjJQNtN/pmtY/kha4
-	Ax0sJ6HbKTHvCu8+FKFzdjTG8V8GJirk0Kk9dSKXtZeJZIYC1FWRucNnK5xuNEA=
-X-Google-Smtp-Source: AGHT+IG/6WtaAQPF462A9lDDrfPcBnLbUoVX6HNrNaquPuIq1fx7JA2M96lwMw2ZYh9NFqb4zyLJTg==
-X-Received: by 2002:adf:ed4b:0:b0:34d:a29d:a8d5 with SMTP id u11-20020adfed4b000000b0034da29da8d5mr19585wro.4.1714491337672;
-        Tue, 30 Apr 2024 08:35:37 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:999:a3a0:c21b:67fd:90ab:9053? ([2a01:e0a:999:a3a0:c21b:67fd:90ab:9053])
-        by smtp.gmail.com with ESMTPSA id r30-20020adfb1de000000b00343e392829dsm32637498wra.97.2024.04.30.08.35.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Apr 2024 08:35:37 -0700 (PDT)
-Message-ID: <b4228cda-b072-479d-bce0-3af42ce49811@rivosinc.com>
-Date: Tue, 30 Apr 2024 17:35:36 +0200
+	Tue, 30 Apr 2024 15:42:58 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20240430154243euoutp01b224bf6f245cfe6cb7eb9c2f71896a0d~LGSzpJmoo3186231862euoutp01g;
+	Tue, 30 Apr 2024 15:42:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20240430154243euoutp01b224bf6f245cfe6cb7eb9c2f71896a0d~LGSzpJmoo3186231862euoutp01g
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1714491763;
+	bh=Ce+4NcTo+VfskyNruHgkzR4Sm5eZ4Ehrn56BefYMbfc=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=rpqfKjR1r3NMoBGsgpYYgXN5E+3EJsxgaqP8Q6Jnx8NxW0mBfDKTY9eSF3oVjqN2J
+	 J/o1aze1MX3z6cgqMSYVbioXN5EoooukJudORbcYUSlX0xByONuZLOwOdjT80WEWrB
+	 0qISfimlF5TP4C2D3tQ2jwYSStcH79I6gOL8/nXA=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20240430154243eucas1p110c9423535d3b0447aa0c90a05995f5b~LGSzVT5nZ1387413874eucas1p1r;
+	Tue, 30 Apr 2024 15:42:43 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges1new.samsung.com (EUCPMTA) with SMTP id 44.A7.09624.37111366; Tue, 30
+	Apr 2024 16:42:43 +0100 (BST)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20240430154242eucas1p16b22eed3b61c1a2ddc68ffed438d1b30~LGSyvZ_FV1872118721eucas1p1e;
+	Tue, 30 Apr 2024 15:42:42 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20240430154242eusmtrp1b461834bce5006900938109177ff6e37~LGSytjMvA1054810548eusmtrp1k;
+	Tue, 30 Apr 2024 15:42:42 +0000 (GMT)
+X-AuditID: cbfec7f2-bfbff70000002598-62-663111736413
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id A8.48.08810.27111366; Tue, 30
+	Apr 2024 16:42:42 +0100 (BST)
+Received: from CAMSVWEXC02.scsc.local (unknown [106.1.227.72]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20240430154242eusmtip2089daec2a3fedcfebdf54f1a592b20e2~LGSydXgVC2375523755eusmtip2c;
+	Tue, 30 Apr 2024 15:42:42 +0000 (GMT)
+Received: from localhost (106.210.248.68) by CAMSVWEXC02.scsc.local
+	(2002:6a01:e348::6a01:e348) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
+	Tue, 30 Apr 2024 16:42:42 +0100
+Date: Tue, 30 Apr 2024 17:42:38 +0200
+From: Joel Granados <j.granados@samsung.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+CC: Nam Cao <namcao@linutronix.de>, Mike Rapoport <rppt@kernel.org>, Andreas
+	Dilger <adilger@dilger.ca>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+	<bjorn@kernel.org>, <linux-riscv@lists.infradead.org>, Thomas Gleixner
+	<tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>,
+	"ndesaulniers @ google . com" <ndesaulniers@google.com>, Luis Chamberlain
+	<mcgrof@kernel.org>, Ingo Molnar <mingo@kernel.org>, Christophe Leroy
+	<christophe.leroy@csgroup.eu>, Tejun Heo <tj@kernel.org>, Krister Johansen
+	<kjlx@templeofstupid.com>, Changbin Du <changbin.du@huawei.com>, Arnd
+	Bergmann <arnd@arndb.de>, Geert Uytterhoeven <geert+renesas@glider.be>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
+Subject: Re: [PATCH] init: fix allocated page overlapping with PTR_ERR
+Message-ID: <20240430154238.nu6pebmdlpkxnk7q@joelS2.panther.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 7/7] RISC-V: KVM: add support for double trap
- exception
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, Ved Shanbhogue <ved@rivosinc.com>
-References: <20240418142701.1493091-1-cleger@rivosinc.com>
- <20240418142701.1493091-8-cleger@rivosinc.com>
- <ZixV3lCe3jYQN3Qx@debug.ba.rivosinc.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <ZixV3lCe3jYQN3Qx@debug.ba.rivosinc.com>
+In-Reply-To: <0049995a-07d0-4aaa-abc7-5bfc0dc22ace@ghiti.fr>
+X-Originating-IP: [106.210.248.68]
+X-ClientProxiedBy: CAMSVWEXC01.scsc.local (2002:6a01:e347::6a01:e347) To
+	CAMSVWEXC02.scsc.local (2002:6a01:e348::6a01:e348)
+X-Brightmail-Tracker: H4sIAAAAAAAAA2WSfUxTVxjGd+69vb1tUr2UbhwRNCvIFsanIeOSMeMMcbcbi6hhyb4yGrkt
+	DijYK4JEMkeYww5JaYcgA1IWpIyKjLYr+DUQ21pKBLI6P4nLGAPGcFU+FoFZR71lM9l/v/d5
+	3+ec5z05BCo24aHEftVBRq2S50lxIWZzLo3EskGJioQuTQjVNjiOUI1dZ3BqcmyRRz3WOfnU
+	994OjHLMhlNjuik+1fS1DlDdvacQynO+Eads8xU4dUv7G6BMPjegLvVdRKkH2icIZe/qQShD
+	9zigLOZalFo2OsD2YHplWQfoxdvDCF1hKabvuU7y6JprsbTBXERX2O/zaHPHcZz+c3iYT7vq
+	VzDa0vop3TFxBqXnzZsyRO8LU7OZvP2HGHX8tixhjmfSgxZ2Rpb01J7jHQUnN2mAgIBkEvyx
+	exnXACEhJtsB7Kuy8rliAUCPthJwxTyAPdcu4msW/dJawwig+5fTyL9TDt9YoGMF0Djj4mkA
+	QWDkFljbnuB342QMHJkdQ/2yhIyA5+wR/nGUdPBg/9SVpzcEkzthc+sXmJ9F5HZ4pbof5TgI
+	Dp6aeKqjZAnsb9MD/zkouREafYRfFpCp0G1wBoJK4Yn6JoTjMui23gnwt0J4+8skjtNgy4lO
+	PsfBcOaqNcBhcEhfhfmzQVK/+i6+B3yuMAHY9tli4KTXYMX1Cb4/BCTfgJOPSzlcB2/dD+Ji
+	roM6Wx3KySJYeUzMGaOg6d4spgURDc8s1vDMYg3/LcbJMdBwYQ7/n/wKbGv5A+X4dXj2rBcz
+	AH4HCGGK2HwlwyaqmOI4Vp7PFqmUcfsK8s1g9Q8P+a7O9YKmmYdxAwAhwACIXDWPf2caBaGY
+	qkDFSCWir1riFWJRtvxwKaMu+FhdlMewA2AjgUlDRFuyNzNiUik/yOQyTCGjXusihCD0KLJj
+	Lj1Moe2xZ0n2Hjmv2EvffdPhWRiMskyTxY/2lSm9W8vJ0nxgTSlf+ealfsExr05f8twGnrjw
+	vbupEltz48vJyp+38nyjufIfPpJ4arDJ9HAEr+/D64Jrn0RHKW/y25M9Za3j6//KJKKzDBEX
+	UqarXDfQXMmOjEy01X25fIhZlj2/PqbOdpzOe6j923loM4t9MvLBO67RMNmNzA/jNhhNKXm2
+	wrec1btCserLlvTmxqje6zLp2+Eawe8ZSS/uvLNbYN/me0GbUnmz/d1diK3mpz3SgiXZIwv1
+	63SkPSyWVohEowd2r5QciO/UJEtzpnisbOrVSyMLad7DRxLSPpdibI48MRpVs/J/AAvuHsE+
+	BAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrBKsWRmVeSWpSXmKPExsVy+t/xe7pFgoZpBiuOaFosO/mIyWLO+jVs
+	Fs/ufGW1+DvpGLvF1verWCyOvpG1uDPpObvF3NmTGC027pjJZHF51xw2i22fW9gsbkx4ymix
+	+t8pRou9+/cwW3yY8J/J4sj67UwWCzY+YrTYvGkqs8Wv5UcZHYQ9fv+axOjx9eY5Jo+WzeUe
+	905MY/WYeFbXY8GmUo+WI29ZPTat6mTzeHfuHLvHiRm/WTw2L6n3WPVkDbPH501yAbxRejZF
+	+aUlqQoZ+cUltkrRhhZGeoaWFnpGJpZ6hsbmsVZGpkr6djYpqTmZZalF+nYJehmzTnxkK1it
+	UjHz7U72BsYpcl2MnBwSAiYSk392MHYxcnEICSxllNhw5gULREJGYuOXq6wQtrDEn2tdbCC2
+	kMBHRokL07whGrYwSvQdfgrUzcHBIqAqMXWFAUgNm4COxPk3d5hBwiICyhI7jyiDlDMLHGWV
+	WHD8HSNIjbCAm8S8Je1gu3gFHCQO9x1ghpi5kEli69z7UAlBiZMzn4DZzAJlEs/vTGECGcos
+	IC2x/B8HSJhTwEbi1IJjbBB3Kkn0zpjLBGHXSnz++4xxAqPwLCSTZiGZNAthEkRYS+LGv5eY
+	wtoSyxa+ZoawbSXWrXvPsoCRfRWjSGppcW56brGhXnFibnFpXrpecn7uJkZgMtp27OfmHYzz
+	Xn3UO8TIxMF4iFEFqPPRhtUXGKVY8vLzUpVEeKcs1E8T4k1JrKxKLcqPLyrNSS0+xGgKDMSJ
+	zFKiyfnANJlXEm9oZmBqaGJmaWBqaWasJM7rWdCRKCSQnliSmp2aWpBaBNPHxMEp1cDEu8Jn
+	+7aKLy6TbrV19JucOLNXMZnj2iaGzR5s8k7Cvm/m/HjZKF+iEr8/hTF7nUaY7fE+yTnlE25u
+	3t059ee/tdf+qrbHXeKMOFlT+vbQxHkSkx/qBz8MnHtvyx197/9eko4bjjhfFZyuvkv2Mptc
+	7ce5Los8Qt4F/9U3rD5xhW8y79yk5WdOnBS+sPIKw4Ee/2Wtq86fUWDjLVitWqyk06AtUM+T
+	/2NPU/fHhh8nPt1L33vVKdWwvGt735TuGq3L5QruvaoHlmlvutdcn7JKsiZ3w9w/bjemTWNq
+	KH64v+v1y1OmfxNU79eqF25hSVxuXsZ42Su1Mkmzt+jdhp/Z2y7N69wpIfh+zvJ7pQsElViK
+	MxINtZiLihMBQ0zW49sDAAA=
+X-CMS-MailID: 20240430154242eucas1p16b22eed3b61c1a2ddc68ffed438d1b30
+X-Msg-Generator: CA
+X-RootMTR: 20240429125236eucas1p24219f2d332e0267794a2f87dea9f39c4
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20240429125236eucas1p24219f2d332e0267794a2f87dea9f39c4
+References: <20240418102943.180510-1-namcao@linutronix.de>
+	<CGME20240429125236eucas1p24219f2d332e0267794a2f87dea9f39c4@eucas1p2.samsung.com>
+	<20240429125230.s5pbeye24iw5aurz@joelS2.panther.com>
+	<20240430073056.bEG4-yk8@linutronix.de>
+	<0049995a-07d0-4aaa-abc7-5bfc0dc22ace@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240430_083548_619365_DA1804DF 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20240430_084255_682960_C468E164 
+X-CRM114-Status: GOOD (  39.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,35 +146,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2661814468865564464=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyNy8wNC8yMDI0IDAzOjMzLCBEZWVwYWsgR3VwdGEgd3JvdGU6Cj4+IC8qKgo+PiDCoCog
-a3ZtX3Jpc2N2X3ZjcHVfdHJhcF9yZWRpcmVjdCAtLSBSZWRpcmVjdCB0cmFwIHRvIEd1ZXN0Cj4+
-IMKgKgo+PiDCoCogQHZjcHU6IFRoZSBWQ1BVIHBvaW50ZXIKPj4gwqAqIEB0cmFwOiBUcmFwIGRl
-dGFpbHMKPj4gwqAqLwo+PiAtdm9pZCBrdm1fcmlzY3ZfdmNwdV90cmFwX3JlZGlyZWN0KHN0cnVj
-dCBrdm1fdmNwdSAqdmNwdSwKPj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-c3RydWN0IGt2bV9jcHVfdHJhcCAqdHJhcCkKPj4gK2ludCBrdm1fcmlzY3ZfdmNwdV90cmFwX3Jl
-ZGlyZWN0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIHN0cnVjdCBrdm1fY3B1X3RyYXAgKnRyYXApCj4+IHsKPj4gwqDCoMKgwqB1bnNp
-Z25lZCBsb25nIHZzc3RhdHVzID0gY3NyX3JlYWQoQ1NSX1ZTU1RBVFVTKTsKPj4KPj4gK8KgwqDC
-oCBpZiAocmlzY3ZfaXNhX2V4dGVuc2lvbl9hdmFpbGFibGUodmNwdS0+YXJjaC5pc2EsIFNTREJM
-VFJQKSkgewo+PiArwqDCoMKgwqDCoMKgwqAgaWYgKHZzc3RhdHVzICYgU1JfU0RUKQo+PiArwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4ga3ZtX3Jpc2N2X2RvdWJsZV90cmFwKHZjcHUsIHRy
-YXApOwo+PiArCj4+ICvCoMKgwqDCoMKgwqDCoCAvKiBTZXQgRG91YmxlIFRyYXAgYml0IHRvIGVu
-YWJsZSBkb3VibGUgdHJhcCBkZXRlY3Rpb24gKi8KPj4gK8KgwqDCoMKgwqDCoMKgIHZzc3RhdHVz
-IHw9IFNSX1NEVDsKPiAKPiBJIGRpZG4ndCBnZXQgaXQuCj4gV2h5IGRvIHRoaXMgd2l0aG91dCBj
-aGVja2luZyBpZiBjdXJyZW50IGNvbmZpZyBhbGxvd3MgdXMgdG8gZG8gc28gPwo+IEkgYW0gaW1h
-Z2luaW5nIHdlIGRvIHRoaXMgb25seSB3aGVuIGhlbnZjZmcgZm9yIGN1cnJlbnQgdmNwdSBzYXlz
-IHRoYXQKPiBEVEU9MQo+IGZvciB0aGlzIHRoaXMgZ3Vlc3QsIHJpZ2h0PwoKV2UgYWN0dWFsbHkg
-ZG8gbm90IHJlYWxseSBjYXJlIHNpbmNlIGlmIG5vdCBlbmFibGVkLCB0aGlzIGJpdCB3aWxsIGJl
-Cm1hc2tlZCBieSB0aGUgaGFyZHdhcmUgd2hlbiB3cml0aW5nIGl0IHRvIHRoZSBDU1IuIEkgY291
-bGQgaW5kZWVkIGFkZCBhCmNoZWNrIGZvciB0aGF0IGJ1dCBpbiB0aGUgZW5kLCBpdCB3aWxsIHlp
-ZWxkIHRoZSBzYW1lIHJlc3VsdC4gSW4gdGhhdApjYXNlLCBqdXN0IE9SaW5nIGl0IHdpdGggdGhl
-IHZhbHVlIHNlZW1zIG1vcmUgZWZmaWNpZW50IHRoYW4gYWRkaW5nIGFuCiJpZiIgdG8gY2hlY2sg
-aWYgdGhlIGV4dGVuc2lvbiBhbmQgRFRFIGlzIGVuYWJsZWQuCgpDbMOpbWVudAoKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+--===============2661814468865564464==
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="xorqn2blaq43v63q"
+Content-Disposition: inline
+
+--xorqn2blaq43v63q
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Apr 30, 2024 at 10:37:59AM +0200, Alexandre Ghiti wrote:
+> Hi Joel, Nam,
+>=20
+> On 30/04/2024 09:31, Nam Cao wrote:
+> > On Mon, Apr 29, 2024 at 02:52:30PM +0200, Joel Granados wrote:
+> >> On Thu, Apr 18, 2024 at 12:29:43PM +0200, Nam Cao wrote:
+> >>> There is nothing preventing kernel memory allocators from allocating a
+> >>> page that overlaps with PTR_ERR(), except for architecture-specific
+> >>> code that setup memblock.
+> >>>
+> >>> It was discovered that RISCV architecture doesn't setup memblock
+> >>> corectly, leading to a page overlapping with PTR_ERR() being allocate=
+d,
+> >>> and subsequently crashing the kernel (link in Close: )
+> >>>
+> >>> The reported crash has nothing to do with PTR_ERR(): the last page
+> >>> (at address 0xfffff000) being allocated leads to an unexpected
+> >>> arithmetic overflow in ext4; but still, this page shouldn't be
+> >>> allocated in the first place.
+> >>>
+> >>> Because PTR_ERR() is an architecture-independent thing, we shouldn't
+> >>> ask every single architecture to set this up. There may be other
+> >>> architectures beside RISCV that have the same problem.
+> >>>
+> >>> Fix this one and for all by reserving the physical memory page that
+> >>> may be mapped to the last virtual memory page as part of low memory.
+> >>>
+> >>> Unfortunately, this means if there is actual memory at this reserved
+> >>> location, that memory will become inaccessible. However, if this page
+> >>> is not reserved, it can only be accessed as high memory, so this
+> >>> doesn't matter if high memory is not supported. Even if high memory is
+> >>> supported, it is still only one page.
+> >>>
+> >>> Closes: https://lore.kernel.org/linux-riscv/878r1ibpdn.fsf@all.your.b=
+ase.are.belong.to.us
+> >>> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> >>> Cc: <stable@vger.kernel.org> # all versions
+> >>> ---
+> >>>   init/main.c | 1 +
+> >>>   1 file changed, 1 insertion(+)
+> >>>
+> >>> diff --git a/init/main.c b/init/main.c
+> >>> index 881f6230ee59..f8d2793c4641 100644
+> >>> --- a/init/main.c
+> >>> +++ b/init/main.c
+> >>> @@ -900,6 +900,7 @@ void start_kernel(void)
+> >>>   	page_address_init();
+> >>>   	pr_notice("%s", linux_banner);
+> >>>   	early_security_init();
+> >>> +	memblock_reserve(__pa(-PAGE_SIZE), PAGE_SIZE); /* reserve last page=
+ for ERR_PTR */
+> >>>   	setup_arch(&command_line);
+> >>>   	setup_boot_config();
+> >>>   	setup_command_line(command_line);
+> >>> --=20
+> >>> 2.39.2
+> >>>
+> >> I received a similar(ish) report recently
+> >> https://lore.kernel.org/oe-kbuild-all/202404211031.J6l2AfJk-lkp@intel.=
+com/
+> >> regarding RISC-V in init/mail.c. Here is the meat of the report in case
+> >> you want to avoid going to the actual link:
+> > This issue doesn't look like it has anything to do with this patch: this
+> > patch is about overlapping of dynamically allocated memory, while I thi=
+nk
+> > the issue is about overlapping sections during linking (maybe something
+> > wrong with riscv linker script?)
+> >
+> > Also, FWIW, this patch is not going to be in mainline because of a
+> > regression.
+> >
+> > Nonetheless, I will have a look at this later.
+>=20
+>=20
+> The config shows that it is a XIP kernel that comes with its own=20
+> limitations (text is limited to 32MB for example), so I'm not surprised=
+=20
+> to see those overlaps.
+>=20
+> We already discussed the removal of randconfig builds on XIP configs,=20
+> but IIRC it is not possible.
+
+I just tested this going back until "2023-09-20 602bf1830798 (HEAD)
+Merge branch 'for-6.7' into for-next  [Petr Mladek]" and I still saw the
+overlapping errors.
+
+Is this just something that happens always?
+
+Best
+--=20
+
+Joel Granados
+
+--xorqn2blaq43v63q
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmYxEW0ACgkQupfNUreW
+QU942wv+PegN4ocDUt7R0rNacgIze/O0l1ZR4dEWWoEDBLwjAosk4+VHvBeyXNcm
+PGXMZICtzweMuwOH4u650xq1pvTBtrT6WCGS34KLj74oFuLU4lX783gm6ORd1vCi
+UQNdx4Vd65rD7FwEliU4dL5UlGkjuPYrwtv1bCrSDWebL9bYMunGGUVpBqkSKhmU
+Bp30/WRj0UpnwqgH/p7c3WiYeyKOOBZJE8EupU8i++tObmX6L2GtOYJ+6ioCH40V
+ipf+LVUUY+c2hldGLuM5nk8CImi+HAQUp3EmieAV6QKpLAgZvlubvbxXRkOeKjX3
+buMWof7DT9+pbnqYw5VVwQSmRm1umKkLlD+oU+2kgkf0QWdRGwuptSLVvuBHiRBF
+lIPNU1X7dwOGhuUOj0JQ6q7EIb4buXssSGXw3H/U8v05NE1COkDV27yDXoUzqTAK
+Pn0dkbrzj5zsIJG3ACS1F/1xJe9OdFn0EXaaBarndByvAfJgxQmMNpEYKQxN8nm/
+ItMMPaoX
+=f44l
+-----END PGP SIGNATURE-----
+
+--xorqn2blaq43v63q--
+
+
+--===============2661814468865564464==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2661814468865564464==--
+
