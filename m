@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EEF7C4345F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 10:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C7FC4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 11:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+g0Abqk5mjV5uxArphXWavLbv1n0hQ8Vtmlzak7cwA=; b=tqoWW73NGPEqplL3YFr19dpgGE
-	WM1AfMfdxa1qBa0ID0+uz7cdDYmwlA7UpDC1UGm2I4gX65HDJ2j/qygpWr4914gyDGUZpYVsvj+qK
-	Qi9pu6s/YZioBMXYvHVlJVIesY60yg7YMhP2qYMYnkKemqB3y/P0J5vJukAaem3WusoZ3xC6Erx3I
-	eKvLsL2Ic+SwaSeMNZtt6RhCOhOKbJiyhhXl33Y/Tyo+vJsYJPI/I+U0i4cAcLY52TUBiouvB5JjD
-	ASUJgCjf3CXX+WKiePplFb8vVUzUAxR06m6HZzO3HLPjBCLoLRzUAdTsjdBeRn3JsBCeWsjs4a0bC
-	rCD22/4w==;
+	bh=6k4X4cVtWhMJhNYE2+UzqdD2VZgfJcpSVfO5Jx9D6ns=; b=MmsCgtWJPZ3P6aygShsQz4htMM
+	2e5rpJOiZNXu2Eu3/v5L0jlqJIxdo4Z57u4ah0qd9q8oMdQsR6Ww5W+EY/dfUb3idc7OmPX57IAyo
+	nO+3LpoO0veqR4JXFChkvijmoDjhDCHADROXv3TCCXBGGW/8hP3njyBqpW8nzjcIv6kNVH9uuzVs3
+	h3OVHoOH91xWVuOKXG33S10uq3bwdrqdxKnytwcSRqvBsjIRWtYLExCQXr7O2mW2cUYy4W9Lcajm6
+	BiyTqh6zQNz9kCD6EVWNPgpjuqwC4teY80JlDEn2zI1RPFfDBHBjwWZixgIdTYoQZdt3+iToBkUua
+	yHHyMN/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s27Tj-000000097r1-3g37;
-	Wed, 01 May 2024 10:46:23 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1s2802-00000009BlK-3ZsH;
+	Wed, 01 May 2024 11:19:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s27Te-000000097oN-27UU;
-	Wed, 01 May 2024 10:46:21 +0000
+	id 1s27zz-00000009Bka-1AC1;
+	Wed, 01 May 2024 11:19:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 56E68CE1287;
-	Wed,  1 May 2024 10:46:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D304BC113CC;
-	Wed,  1 May 2024 10:46:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B6E8A61892;
+	Wed,  1 May 2024 11:19:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7021C113CC;
+	Wed,  1 May 2024 11:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714560374;
-	bh=bX0yFlagqPxL0dHVhtKj3sAKB8RRba8ErDXH4L/dIlM=;
+	s=k20201202; t=1714562381;
+	bh=NdA764WJcGvt8lXly8jeVIEutQMXNgk81JN1Ta7vWVY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TOQlLWewBQhULLcVzVr3hASRrCE4wgGiJ7futMijuDRrO24JY+JBhielx22xMrfiM
-	 CXxWH8VktaCHkkyQgueekYdahaGDIr0L80H30Vt+7pU7vIRz5inSaRuaiDeZsgE8Ik
-	 OfVh2Bsf/0eH4c2Fr5PFjPe4IW0+r3+YG0a97ectlPzyVsDTzMoMDq1nZVQXWL0Y3O
-	 BCvWFWfZGIjFVI1u9XGgt1QQKEEAN+KkH6V3zaG6Wf/khOzkt0V8HcwdVQ/CW+9lRn
-	 qXhbbK8qmKKaOG7Iw+pIqQXv3c0JBG5JvPpPhm2ZTVHRTsURmoQ4aSYFh9Jr0xfeOZ
-	 sjzdEnGxpkUrg==
-Date: Wed, 1 May 2024 11:46:07 +0100
+	b=r1GBh8g178zlWYlSPyVe2IH0YcLY8mAJwRU9UH6hXxlYt1gtua7k+rREM54kTau8v
+	 Y7H5zBcJuIl+SZda1BS1vSVtZAvg3vHs7pYF6qdrJGk5t2JULK+jPJSDUbfF/lFJnH
+	 mMet8WFbpQw6okf2wyuvVSnse3Sy2Je/ak+0cQNHc1F2ZLmFtcIkEnjQMc3awKM1RT
+	 oo9KexsvtcE8/ZSxRErW4WHCu/GL31Ut8GKqV/Ce4A1OlM4v/AttF/xsFREivm2Y6/
+	 d2oip2TN9cSMH8U+W9EJskrejkG8sx4vcgkggrLIEBTr5l8AiJx7BN4XblhE8sNr8g
+	 yR40X/LPEX0Ig==
+Date: Wed, 1 May 2024 12:19:34 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Charlie Jenkins <charlie@rivosinc.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -62,14 +62,14 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
 Subject: Re: [PATCH v4 05/16] riscv: Extend cpufeature.c to detect vendor
  extensions
-Message-ID: <20240501-chastise-gecko-342f2c35cfc1@spud>
+Message-ID: <20240501-pelican-throwaway-da84be7dac30@spud>
 References: <20240426-dev-charlie-support_thead_vector_6_9-v4-0-b692f3c516ec@rivosinc.com>
  <20240426-dev-charlie-support_thead_vector_6_9-v4-5-b692f3c516ec@rivosinc.com>
 MIME-Version: 1.0
 In-Reply-To: <20240426-dev-charlie-support_thead_vector_6_9-v4-5-b692f3c516ec@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_034620_339518_8A54815A 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20240501_041943_429959_0FA64324 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,113 +81,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1791193203893592121=="
+Content-Type: multipart/mixed; boundary="===============8797037328653037664=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1791193203893592121==
+--===============8797037328653037664==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="IU1h/zA/fxPmJmrU"
+	protocol="application/pgp-signature"; boundary="p3ofyY8PZFrt+4od"
 Content-Disposition: inline
 
 
---IU1h/zA/fxPmJmrU
+--p3ofyY8PZFrt+4od
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
 On Fri, Apr 26, 2024 at 02:29:19PM -0700, Charlie Jenkins wrote:
-> Separate vendor extensions out into one struct per vendor
-> instead of adding vendor extensions onto riscv_isa_ext.
->=20
-> Add a hidden config RISCV_ISA_VENDOR_EXT to conditionally include this
-> code.
->=20
-> The xtheadvector vendor extension is added using these changes.
-
-This mostly looks good to me, thanks for the updates. There's one thing
-that I think is wrong, but I need to test and will get back to you on...
-
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
->  arch/riscv/Kconfig                               |  2 +
->  arch/riscv/Kconfig.vendor                        | 19 ++++++
->  arch/riscv/include/asm/cpufeature.h              | 18 ++++++
->  arch/riscv/include/asm/vendor_extensions.h       | 26 ++++++++
->  arch/riscv/include/asm/vendor_extensions/thead.h | 19 ++++++
->  arch/riscv/kernel/Makefile                       |  2 +
->  arch/riscv/kernel/cpufeature.c                   | 77 ++++++++++++++++++=
-------
->  arch/riscv/kernel/vendor_extensions.c            | 18 ++++++
->  arch/riscv/kernel/vendor_extensions/Makefile     |  3 +
->  arch/riscv/kernel/vendor_extensions/thead.c      | 36 +++++++++++
->  10 files changed, 200 insertions(+), 20 deletions(-)
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index be09c8836d56..fec86fba3acd 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -759,6 +759,8 @@ config RISCV_EFFICIENT_UNALIGNED_ACCESS
+> @@ -353,6 +336,10 @@ static void __init riscv_parse_isa_string(unsigned l=
+ong *this_hwcap, struct risc
+>  		bool ext_long =3D false, ext_err =3D false;
 > =20
->  endchoice
-> =20
-> +source "arch/riscv/Kconfig.vendor"
-> +
->  endmenu # "Platform type"
-> =20
->  menu "Kernel features"
-> diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
-> new file mode 100644
-> index 000000000000..4fc86810af1d
-> --- /dev/null
-> +++ b/arch/riscv/Kconfig.vendor
-> @@ -0,0 +1,19 @@
-> +menu "Vendor extensions"
-> +
-> +config RISCV_ISA_VENDOR_EXT
-> +	bool
-> +
-> +menu "T-Head"
-> +config RISCV_ISA_VENDOR_EXT_THEAD
-> +	bool "T-Head vendor extension support"
-> +	select RISCV_ISA_VENDOR_EXT
-> +	default y
-> +	help
-> +	  Say N here if you want to disable all T-Head vendor extension
-> +	  support. This will cause any T-Head vendor extensions that are
-> +	  requested to be ignored.
+>  		switch (*ext) {
+> +		case 'x':
+> +		case 'X':
+> +			pr_warn_once("Vendor extensions are ignored in riscv,isa. Use riscv,i=
+sa-extensions instead.");
+> +			continue;
 
-What does "requested to be ignored" mean to a punter configuring a
-kernel? I'd expect this to be something like:
+Yeah, so this is not right - you need to find the end of the extension
+before containing - for example if I had a system with
+rv64imafdcxconorkwe, you get something like:
+[    0.000000] CPU with hartid=3D0 is not available
+[    0.000000] Falling back to deprecated "riscv,isa"
+[    0.000000] Vendor extensions are ignored in riscv,isa. Use riscv,isa-ex=
+tensions instead.
+[    0.000000] riscv: base ISA extensions acdefikmnorw
+[    0.000000] riscv: ELF capabilities acdfim
 
-"Say N here to disable detection of and support for all T-Head vendor
-extensions. Without this option enabled, T-Head vendor extensions will
-not be detected at boot and their presence not reported to userspace."
+kwe are all pretty safe letters, but suppose one was a v..
+I think you can just yoink the code from the s/z case:
 
-In general, I'd expect something that needs some support in the kernel
-(like vector) to function to have a dedicated option, but the likes of
-their Zba variant could be detected and reported via hwprobe et al
-once RISCV_ISA_VENDOR_EXT_THEAD is enabled.
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 20bc9ba6b7a2..4daedba7961f 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -338,8 +338,19 @@ static void __init riscv_parse_isa_string(unsigned lon=
+g *this_hwcap, struct risc
+ 		switch (*ext) {
+ 		case 'x':
+ 		case 'X':
+-			pr_warn_once("Vendor extensions are ignored in riscv,isa. Use riscv,isa=
+-extensions instead.");
+-			continue;
++			if (acpi_disabled)
++				pr_warn_once("Vendor extensions are ignored in riscv,isa. Use riscv,is=
+a-extensions instead.");
++			/*
++			 * To skip an extension, we find its end.
++			 * As multi-letter extensions must be split from other multi-letter
++			 * extensions with an "_", the end of a multi-letter extension will
++			 * either be the null character or the "_" at the start of the next
++			 * multi-letter extension.
++			 */
++			for (; *isa && *isa !=3D '_'; ++isa)
++				;
++			ext_err =3D true;
++			break;
+ 		case 's':
+ 			/*
+ 			 * Workaround for invalid single-letter 's' & 'u' (QEMU).
+
+You'll note that I made the dt property error dt only, this function
+gets called for ACPI too. I think the skip is pretty safe there though
+at the moment, we've not established any meanings yet for vendor stuff
+on ACPI.
+I think breaking is probably better than using continue - we get the _
+skip from outside the switch statement out of that. And ye, I am lazy
+so I kept it as a for loop.
 
 Cheers,
 Conor.
 
---IU1h/zA/fxPmJmrU
+--p3ofyY8PZFrt+4od
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjIdbwAKCRB4tDGHoIJi
-0h/4AQDbSwC+zSd2L4oMXZ62nZMJrbPWx5JE9S7nb98blCe6XwEAgXMzwjjp4Aq0
-0/Nm2H/CfihseOibQXFgeXh59NryOgo=
-=g7p2
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjIlRgAKCRB4tDGHoIJi
+0ugAAPoDPa6ArkzDoKOdltjV690jUcxJanZcOTddmqK/7OVlEQEAxQBqLmw0FIrU
+vufC89X3QQxXx0ONQsmNnf3NeXJ//QU=
+=Ec6E
 -----END PGP SIGNATURE-----
 
---IU1h/zA/fxPmJmrU--
+--p3ofyY8PZFrt+4od--
 
 
---===============1791193203893592121==
+--===============8797037328653037664==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -198,5 +188,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1791193203893592121==--
+--===============8797037328653037664==--
 
