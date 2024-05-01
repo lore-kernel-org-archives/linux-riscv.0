@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783A5C4345F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 15:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F48DC4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 16:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i+PoLey+TsEixZKBdNCHh6UGE/eDxVcczSGavi5MinA=; b=tZxmJmtWuuHflMCkr2L99f4hWS
-	Obho8578wPLtfBeYGJa2zqf6BecuTB1zfrbwtXlE/ub8BjrbfVzL1GjIgHyN2s/FaZPCwJ3uOjWBc
-	MiLzfhTn3GXMRrg81DrDKj8LIplxeQYihSToNqpnwiejodborK2/39ddHXBeQzX8icdTQKPRW+sSJ
-	xViQEDPiuMzHkPDoAmsosooGCOj+pLUdijD/iGrbvZufaoJrpjqS9CiZ4Yq4M1iM2/HTYSlNPq7zd
-	rfPjMx/NXuy8RrqJWx9M0mLoquNVOa6jC+S7YnfiUNHn83YBRRgqzgkvJmgcVjCocOsrUl7HBzFVG
-	vLoSt7ag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OmBrBKLyJAfV3pWKVaxodnwf1/+d5zgCEWx/uyMFDZc=; b=P6cxkoKtdq+ifn
+	+gntHDiy/qQzeVYGtHLir87SORSmyEyHObmIjTDQt93XVxLcpmj9QLbDdiqmBHLVkXmGy22Gk+UnL
+	Foa8Lk0EJuEEgxOcM51Uq1RnWsLsnCrVAZRCk2uHc9eieggD6o/dqnl85aoDv4t1Eb072s1G7fZ5r
+	3PI//zOGRWGjxJYjfr1eXhOCWj0afMtjCGUEJZLUsftKZVBEK1mW/E384kYC8ifmP4VrlyeUO0Tfr
+	m1deuKN0w5/mgJ0TTysHRI8wOh3G4y97xNwxDhHPwymUcjo3e+qsYYWtHDrsxbbZIwU7VVhOjMrF0
+	DY/rwRbhI1HY3XJCd23A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2C1t-0000000A13m-0kjh;
-	Wed, 01 May 2024 15:37:57 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1s2CUH-0000000A5AU-3OFS;
+	Wed, 01 May 2024 16:07:17 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2C1p-0000000A12F-2r77
+	id 1s2CUE-0000000A57r-2C81
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 15:37:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id ED83BCE131B;
-	Wed,  1 May 2024 15:37:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D043C072AA;
-	Wed,  1 May 2024 15:37:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714577871;
-	bh=tOaXeYboyg42eCPqOMwORm62P596gWjbt6g51zfe0Vc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nQRo45x6cv1XiZVauPVHrKv0tMy1MzUFsbyTNl1CZlAdqI42DWLtymOOv4AJvNvsa
-	 PnbUiil5j3X15lAmFo/7elGuJcr2ajnhDlrJNvH9fGPavZMnj7yz1uaNbyiJXgzia1
-	 B5SVlYxOXbBxyJFW2aoBftzdWN6dppGsVIZ6ffX2+Ymb2g/jrj0pjNHguV0KhvlvBy
-	 uZjLYorjD+GfHoa4qBSYq5ZZULSjLrvOhhY98/8tCU+4/y4266k3m5qK3URa3WD8qn
-	 2KMw5sn+yaQ3xFoHHMEdC7oNcAocEPYe7X7hyZKeIkjYKCQK4ZVyS7es7gYfjEILsL
-	 3a7Bqp4ohEmUA==
-Date: Wed, 1 May 2024 16:37:47 +0100
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: microchip: add pac1934 power-monitor to
- icicle
-Message-ID: <20240501-throwing-squeegee-7c3697167309@spud>
-References: <20240501-spearman-primary-17df3c21c770@spud>
+	Wed, 01 May 2024 16:07:15 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-790f699eb2cso304169985a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 09:07:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1714579629; x=1715184429; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=OBhqEyKuT9SGbY1gPylDuVYK6xBEaByxvLrKFZiA8D8=;
+        b=QhzzBkP0eMP+xAJU22kAOiPPzlcz7ersnNDCwpfSZ2GTQHjcxOnaDFqLYqJAhKFWW0
+         3Jf+ZmMdTHBA0BNAzyRDgQyML816baN017809Ft8ymEkWKIa/XZutjN2w4PGPrk6JKZf
+         NU1nCJQ2yVfFgYEhoDLIdBy8fDpG8wBHrbpeCCXB2x4KMsybk93tIvDPvFcKpel7Db7i
+         kDoMyyAYaQH3tGKTQtkeKLzP2CdTLImDid4QAz+RhK6/61V2tEJ652oOQzI0npfJeuuA
+         AT8mvQQyhoKAHuihUdMNKpbdtkhCxDjKQAw9U6m5mz+qoZCmITKNdzeeSytkumfJFu7T
+         rYZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714579629; x=1715184429;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OBhqEyKuT9SGbY1gPylDuVYK6xBEaByxvLrKFZiA8D8=;
+        b=KPJquGpvrCNmMu/tZqdiMnaj2T21peFepgCGkGVkmXIR3lwC/mEYUBgdpi2atArPYG
+         1mLhtBW+S0alDIGGQfUGouxMOa8UvlOlKKM8ERCsFBevZFS3T0c2qBtJg3GnmXyN/luk
+         sFxoc660a6JNr3qTMz00sXNJ00xB8N1x2R+UkVwVOhA0iGQhoaUX4CT89l8oB4EFCoVQ
+         e2OItbCxImhDmcBAA/iI8DZrGl/2QgqccKz1r2KWzSKXbejXXdUsJyzgaLh6W5O/lULO
+         nvFNNE3yr4RwKWL9VrACc2lkSQIEH5zogI1U2DaXT8mEO0sb3nTMCZ76OLzsM6cnqd2H
+         VoiA==
+X-Forwarded-Encrypted: i=1; AJvYcCUROvj+D1lSjWi1okUdpYtgNH2AVABs3tQsIE/WrOuIwc3dHXt6Q8LqiJpNq+cpIw17/QWQ3QGITp3ICyvRDNPkAedS8mi0GFjay3cJwHJm
+X-Gm-Message-State: AOJu0YxJwIEgKu4LS097T79CRIYSdFLmJyer0oY7gznnA1Xi7CLCLRpu
+	kbcglJm5gVuITgGWe/JaGwGqso52ie00AFGCt0LJ9fcfRA6TMWLNLoxBCWWT0fA=
+X-Google-Smtp-Source: AGHT+IEIToKXo0oiLD8614cnvRWTKlqp8YbwZyKQg7eanOTB8s3Hn6dt4BqjP2UpzNxDw9ZcGXsFhg==
+X-Received: by 2002:a05:620a:2059:b0:78e:e7dc:fd3b with SMTP id d25-20020a05620a205900b0078ee7dcfd3bmr2822573qka.73.1714579629470;
+        Wed, 01 May 2024 09:07:09 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-68-80-239.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.80.239])
+        by smtp.gmail.com with ESMTPSA id n6-20020a05620a294600b00790eb55fd58sm3512214qkp.129.2024.05.01.09.07.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 May 2024 09:07:08 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.95)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1s2CU8-00DuqC-5D;
+	Wed, 01 May 2024 13:07:08 -0300
+Date: Wed, 1 May 2024 13:07:08 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Tomasz Jeznach <tjeznach@rivosinc.com>
+Subject: Re: [PATCH v3 0/7] Linux RISC-V IOMMU Support
+Message-ID: <20240501160708.GF1723318@ziepe.ca>
+References: <cover.1714494653.git.tjeznach@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240501-spearman-primary-17df3c21c770@spud>
+Content-Disposition: inline
+In-Reply-To: <cover.1714494653.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_083754_106806_DCD29B39 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20240501_090714_684185_D1D1B071 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,120 +89,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6361946547228467771=="
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 30, 2024 at 01:01:50PM -0700, Tomasz Jeznach wrote:
+> This patch series introduces support for RISC-V IOMMU architected
+> hardware into the Linux kernel.
 
---===============6361946547228467771==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="+MZcxOM3iSq3hzNf"
-Content-Disposition: inline
+It seems in reasonable shape now, at least in terms of implementing
+the domain logic.
 
+It would be nice if you'd run it through clang-format and correct some
+of the minor misformatting it will point out. We still like to have a
+80 col line limit in most cases. There are many overages here that
+aren't well justified.
 
---+MZcxOM3iSq3hzNf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+And you could consider the nitpicky style advice to use 'reverse
+christmas tree' for the variable declarations like most of the
+subsystem is trending toward.
 
-On Wed, May 01, 2024 at 04:36:31PM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->=20
-> The binding for this landed in v6.9, add the description. In the
-> off-chance that there were people carrying local patches for this based
-> on the driver shipped on the Microchip website (or vendor kernel) both
-> the binding and sysfs filenames changed during upstreaming.
->=20
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> CC: Conor Dooley <conor.dooley@microchip.com>
-> CC: Daire McNamara <daire.mcnamara@microchip.com>
-> CC: Rob Herring <robh@kernel.org>
-> CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-> CC: linux-riscv@lists.infradead.org
-> CC: devicetree@vger.kernel.org
-> CC: linux-kernel@vger.kernel.org
-
-I thought I send this out last week, but I could not find the patch on
-either lore or patchwork when I went to apply it today, so I must not
-have...
-
-> ---
->  .../boot/dts/microchip/mpfs-icicle-kit.dts    | 32 +++++++++++++++++++
->  1 file changed, 32 insertions(+)
->=20
-> diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/ris=
-cv/boot/dts/microchip/mpfs-icicle-kit.dts
-> index 222a39d90f85..f80df225f72b 100644
-> --- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-> +++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-> @@ -100,6 +100,38 @@ &i2c0 {
-> =20
->  &i2c1 {
->  	status =3D "okay";
-> +
-> +	power-monitor@10 {
-> +		compatible =3D "microchip,pac1934";
-> +		reg =3D <0x10>;
-> +
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +
-> +		channel@1 {
-> +			reg =3D <0x1>;
-> +			shunt-resistor-micro-ohms =3D <10000>;
-> +			label =3D "VDDREG";
-> +		};
-> +
-> +		channel@2 {
-> +			reg =3D <0x2>;
-> +			shunt-resistor-micro-ohms =3D <10000>;
-> +			label =3D "VDDA25";
-> +		};
-> +
-> +		channel@3 {
-> +			reg =3D <0x3>;
-> +			shunt-resistor-micro-ohms =3D <10000>;
-> +			label =3D "VDD25";
-> +		};
-> +
-> +		channel@4 {
-> +			reg =3D <0x4>;
-> +			shunt-resistor-micro-ohms =3D <10000>;
-> +			label =3D "VDDA_REG";
-> +		};
-> +	};
->  };
-> =20
->  &i2c2 {
-> --=20
-> 2.43.0
->=20
-
---+MZcxOM3iSq3hzNf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjJhywAKCRB4tDGHoIJi
-0vfCAQDUQJl/9kA+o/1f2k4AfVeR23NVv5bpvBhPTJlsCaqglgD/UwU8NzXpVJ/v
-GvE592tD3NfALiCT5CbMseoQWp0xugY=
-=iZ82
------END PGP SIGNATURE-----
-
---+MZcxOM3iSq3hzNf--
-
-
---===============6361946547228467771==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Jason
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6361946547228467771==--
-
