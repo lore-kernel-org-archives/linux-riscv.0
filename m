@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F48DC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 16:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88394C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 16:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OmBrBKLyJAfV3pWKVaxodnwf1/+d5zgCEWx/uyMFDZc=; b=P6cxkoKtdq+ifn
-	+gntHDiy/qQzeVYGtHLir87SORSmyEyHObmIjTDQt93XVxLcpmj9QLbDdiqmBHLVkXmGy22Gk+UnL
-	Foa8Lk0EJuEEgxOcM51Uq1RnWsLsnCrVAZRCk2uHc9eieggD6o/dqnl85aoDv4t1Eb072s1G7fZ5r
-	3PI//zOGRWGjxJYjfr1eXhOCWj0afMtjCGUEJZLUsftKZVBEK1mW/E384kYC8ifmP4VrlyeUO0Tfr
-	m1deuKN0w5/mgJ0TTysHRI8wOh3G4y97xNwxDhHPwymUcjo3e+qsYYWtHDrsxbbZIwU7VVhOjMrF0
-	DY/rwRbhI1HY3XJCd23A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=+UemD9lHSydD4ftJclcbEtRrLokhU5kPZjDR44ppCnI=; b=TL/Zf3Ws+9dYchp/eojszYzvGH
+	rOCG+j+r2yEx6mLRPBbgOoqymBOYo8zgbNa2AWDI+XPrTXnWRnHUZwwxTaQIn06BmBoETwhD9FxQo
+	yugRcz/Z70e/wKuInm7RplRaGNdQvFprox8NKd6KMicw74n3JSygshyP273P22Ol+YxaXP/CqEA05
+	65uWV/lU+VYRkFEdmCq7JigHZynMubr6UMuDjSQCiwkBd52AoO8zYrj0IyvMMowdnecOmBfqUnZmV
+	SrT1C/2jLaa3AMP0QKs8OJboxjRH7vU2VcM/YfickvuiDli+IPF2T9K+AiGmXimFa8NdaETyYw8KP
+	zJ2QlPnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2CUH-0000000A5AU-3OFS;
-	Wed, 01 May 2024 16:07:17 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1s2CWN-0000000A5ew-49SO;
+	Wed, 01 May 2024 16:09:27 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2CUE-0000000A57r-2C81
+	id 1s2CWK-0000000A5dV-2ds7
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 16:07:15 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-790f699eb2cso304169985a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 09:07:10 -0700 (PDT)
+	Wed, 01 May 2024 16:09:27 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-6f0aeee172dso686712b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 09:09:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1714579629; x=1715184429; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OBhqEyKuT9SGbY1gPylDuVYK6xBEaByxvLrKFZiA8D8=;
-        b=QhzzBkP0eMP+xAJU22kAOiPPzlcz7ersnNDCwpfSZ2GTQHjcxOnaDFqLYqJAhKFWW0
-         3Jf+ZmMdTHBA0BNAzyRDgQyML816baN017809Ft8ymEkWKIa/XZutjN2w4PGPrk6JKZf
-         NU1nCJQ2yVfFgYEhoDLIdBy8fDpG8wBHrbpeCCXB2x4KMsybk93tIvDPvFcKpel7Db7i
-         kDoMyyAYaQH3tGKTQtkeKLzP2CdTLImDid4QAz+RhK6/61V2tEJ652oOQzI0npfJeuuA
-         AT8mvQQyhoKAHuihUdMNKpbdtkhCxDjKQAw9U6m5mz+qoZCmITKNdzeeSytkumfJFu7T
-         rYZg==
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1714579763; x=1715184563; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Hs8AEy6uwBw23GBhL/y4wzU+oAIIpJLenHoelU6juSY=;
+        b=iJEKHMY7w3GtbsNysCFfrnNcIoULNUfQsM07bAzIks4d+Ht3V+t3SSEV0wwCzclj89
+         qNqAWgxn44CcJvGLmxR8Qn1oMU3Wna9JZBiEULeO6EKm1Kz8H1SSkjwnFLif1GY+LQXO
+         kylmo47yKheQWSSBpl+dPUQIt0OT3zFozE4ZFK8Xxg3y3PWZJdo0MFhptRWdcRm52ZeS
+         RkMvj2WFn0frUeyQJrI25IgoO5/6M7SiSGgpCKXLDoQNnoTyUlqQT/xpGG6diqLQJi0b
+         tSCYm+A44YUbV0YEMvtYg1mOriz+Tmaxwu8m2tJIZQg/koVBg/Rb/ub01ZPWxKVkex8R
+         EZuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714579629; x=1715184429;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1714579763; x=1715184563;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OBhqEyKuT9SGbY1gPylDuVYK6xBEaByxvLrKFZiA8D8=;
-        b=KPJquGpvrCNmMu/tZqdiMnaj2T21peFepgCGkGVkmXIR3lwC/mEYUBgdpi2atArPYG
-         1mLhtBW+S0alDIGGQfUGouxMOa8UvlOlKKM8ERCsFBevZFS3T0c2qBtJg3GnmXyN/luk
-         sFxoc660a6JNr3qTMz00sXNJ00xB8N1x2R+UkVwVOhA0iGQhoaUX4CT89l8oB4EFCoVQ
-         e2OItbCxImhDmcBAA/iI8DZrGl/2QgqccKz1r2KWzSKXbejXXdUsJyzgaLh6W5O/lULO
-         nvFNNE3yr4RwKWL9VrACc2lkSQIEH5zogI1U2DaXT8mEO0sb3nTMCZ76OLzsM6cnqd2H
-         VoiA==
-X-Forwarded-Encrypted: i=1; AJvYcCUROvj+D1lSjWi1okUdpYtgNH2AVABs3tQsIE/WrOuIwc3dHXt6Q8LqiJpNq+cpIw17/QWQ3QGITp3ICyvRDNPkAedS8mi0GFjay3cJwHJm
-X-Gm-Message-State: AOJu0YxJwIEgKu4LS097T79CRIYSdFLmJyer0oY7gznnA1Xi7CLCLRpu
-	kbcglJm5gVuITgGWe/JaGwGqso52ie00AFGCt0LJ9fcfRA6TMWLNLoxBCWWT0fA=
-X-Google-Smtp-Source: AGHT+IEIToKXo0oiLD8614cnvRWTKlqp8YbwZyKQg7eanOTB8s3Hn6dt4BqjP2UpzNxDw9ZcGXsFhg==
-X-Received: by 2002:a05:620a:2059:b0:78e:e7dc:fd3b with SMTP id d25-20020a05620a205900b0078ee7dcfd3bmr2822573qka.73.1714579629470;
-        Wed, 01 May 2024 09:07:09 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-68-80-239.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.80.239])
-        by smtp.gmail.com with ESMTPSA id n6-20020a05620a294600b00790eb55fd58sm3512214qkp.129.2024.05.01.09.07.08
+        bh=Hs8AEy6uwBw23GBhL/y4wzU+oAIIpJLenHoelU6juSY=;
+        b=BX5Ohz8uPJX950URRCRtuFY/xnCjHE6Nkf3tE9YlBbE7jeES7PtBTOelmGTESvVfId
+         neTd25/n4hcrRZTNXsCwX9cAc0FOk2zQ0UFLL+sjXCSWeKWcf3C/um2d5ZwEnUQ9SGqb
+         V05+rvj3tdYiCmvZy35xHvW+uf95+ftG6w7q223LkyAzXEvE/Weh5ltbKenJPmmBYsOz
+         ysn5ayrP/333+0M1cu/7qOL1SeFxBWmmB4xDE1wpDcxo/jZYLjvGZOdJvrUWNo6CEa09
+         SsUh4DDFFIYEykZ++yzAf5q7aPoVKI4yEPZbgnM6M6URP9kzO9bLqIB+3JlJ5z37hPwG
+         hvxg==
+X-Forwarded-Encrypted: i=1; AJvYcCWBXBc6A6LcIfdfS+gtjA8taKrm3h9jPSsUluNj35EgZvcmqWeRt5+sGcZPt8qkISF5Qxi7XxScYL4dxzhwH78p9i/tPC+foY/apgp99J+f
+X-Gm-Message-State: AOJu0YxsG4AmPsMpa7MydJxMlGQx85VGiaIsG2GNrUGjX6vwW6ceK4pq
+	aKEYJfD8lcUJ+BCv7jLM+GFqqLajjzdsdNety2ZD9hz+dt8D4goo5W6MY7vdRxw=
+X-Google-Smtp-Source: AGHT+IHuAOyWlgVt2h3uyi8hnKTZI7/x7V3qqE6MOMe6LFlu4tUIxezgPSdRgqkWAJuomjPaTKM+Xg==
+X-Received: by 2002:a05:6a21:3392:b0:1a9:509c:eba6 with SMTP id yy18-20020a056a21339200b001a9509ceba6mr160923pzb.25.1714579760977;
+        Wed, 01 May 2024 09:09:20 -0700 (PDT)
+Received: from localhost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id h6-20020a056a00170600b006e6b180d87asm22803891pfc.35.2024.05.01.09.09.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 May 2024 09:07:08 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.95)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1s2CU8-00DuqC-5D;
-	Wed, 01 May 2024 13:07:08 -0300
-Date: Wed, 1 May 2024 13:07:08 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Tomasz Jeznach <tjeznach@rivosinc.com>
-Subject: Re: [PATCH v3 0/7] Linux RISC-V IOMMU Support
-Message-ID: <20240501160708.GF1723318@ziepe.ca>
-References: <cover.1714494653.git.tjeznach@rivosinc.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1714494653.git.tjeznach@rivosinc.com>
+        Wed, 01 May 2024 09:09:20 -0700 (PDT)
+Date: Wed, 01 May 2024 09:09:20 -0700 (PDT)
+X-Google-Original-Date: Wed, 01 May 2024 09:09:18 PDT (-0700)
+Subject: Re: [PATCH v1] riscv: defconfig: Enable StarFive JH7110 drivers
+In-Reply-To: <20240403060902.42834-1-hal.feng@starfivetech.com>
+CC: Conor Dooley <conor.dooley@microchip.com>,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, hal.feng@starfivetech.com,
+  emil.renner.berthing@canonical.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: hal.feng@starfivetech.com
+Message-ID: <mhng-3c2a418c-ce79-4287-a890-208a5d026e70@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_090714_684185_D1D1B071 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20240501_090924_799817_ED88B95F 
+X-CRM114-Status: GOOD (  21.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +88,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 30, 2024 at 01:01:50PM -0700, Tomasz Jeznach wrote:
-> This patch series introduces support for RISC-V IOMMU architected
-> hardware into the Linux kernel.
+On Tue, 02 Apr 2024 23:09:02 PDT (-0700), hal.feng@starfivetech.com wrote:
+> Add support for StarFive JH7110 SoC and VisionFive 2 board.
+> - Clock & reset
+> - Cache
+> - Temperature sensor
+> - PMIC (AXP15060)
+> - Restart GPIO
+> - RNG
+> - I2C
+> - SPI
+> - Quad SPI
+> - USB & USB 2.0 PHY & PCIe 2.0/USB 3.0 PHY
+> - Audio (I2S / TDM / PWM-DAC)
+> - Camera Subsystem & MIPI-CSI2 RX & D-PHY RX
+>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>
+> Hi,
+>
+> As more drivers of StarFive JH7110 VisionFive 2 board are upstream,
+> add support for them in riscv defconfig.
+>
+> Best regards,
+> Hal
+>
+> ---
+>  arch/riscv/configs/defconfig | 32 ++++++++++++++++++++++++++++++++
+>  1 file changed, 32 insertions(+)
+>
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index fc0ec2ee13bc..a4eb66b30d95 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -111,6 +111,7 @@ CONFIG_PCIE_XILINX=y
+>  CONFIG_PCIE_FU740=y
+>  CONFIG_DEVTMPFS=y
+>  CONFIG_DEVTMPFS_MOUNT=y
+> +CONFIG_SIFIVE_CCACHE=y
+>  CONFIG_MTD=y
+>  CONFIG_MTD_BLOCK=y
+>  CONFIG_MTD_CFI=y
+> @@ -154,24 +155,36 @@ CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
+>  CONFIG_VIRTIO_CONSOLE=y
+>  CONFIG_HW_RANDOM=y
+>  CONFIG_HW_RANDOM_VIRTIO=y
+> +CONFIG_HW_RANDOM_JH7110=m
+> +CONFIG_I2C=y
+>  CONFIG_I2C_CHARDEV=m
+> +CONFIG_I2C_DESIGNWARE_PLATFORM=y
+>  CONFIG_I2C_MV64XXX=m
+>  CONFIG_I2C_RIIC=y
+>  CONFIG_SPI=y
+> +CONFIG_SPI_CADENCE_QUADSPI=m
+> +CONFIG_SPI_PL022=m
+>  CONFIG_SPI_RSPI=m
+>  CONFIG_SPI_SIFIVE=y
+>  CONFIG_SPI_SUN6I=y
+>  # CONFIG_PTP_1588_CLOCK is not set
+>  CONFIG_GPIO_SIFIVE=y
+> +CONFIG_POWER_RESET_GPIO_RESTART=y
+> +CONFIG_SENSORS_SFCTEMP=y
+>  CONFIG_CPU_THERMAL=y
+>  CONFIG_DEVFREQ_THERMAL=y
+>  CONFIG_RZG2L_THERMAL=y
+>  CONFIG_WATCHDOG=y
+>  CONFIG_SUNXI_WATCHDOG=y
+>  CONFIG_RENESAS_RZG2LWDT=y
+> +CONFIG_MFD_AXP20X_I2C=y
+>  CONFIG_REGULATOR=y
+>  CONFIG_REGULATOR_FIXED_VOLTAGE=y
+> +CONFIG_REGULATOR_AXP20X=y
+>  CONFIG_REGULATOR_GPIO=y
+> +CONFIG_MEDIA_SUPPORT=m
+> +CONFIG_V4L_PLATFORM_DRIVERS=y
+> +CONFIG_VIDEO_CADENCE_CSI2RX=m
+>  CONFIG_DRM=m
+>  CONFIG_DRM_RADEON=m
+>  CONFIG_DRM_NOUVEAU=m
+> @@ -183,6 +196,10 @@ CONFIG_SOUND=y
+>  CONFIG_SND=y
+>  CONFIG_SND_SOC=y
+>  CONFIG_SND_SOC_RZ=m
+> +CONFIG_SND_DESIGNWARE_I2S=m
+> +CONFIG_SND_SOC_STARFIVE=m
+> +CONFIG_SND_SOC_JH7110_PWMDAC=m
+> +CONFIG_SND_SOC_JH7110_TDM=m
+>  CONFIG_SND_SOC_WM8978=m
+>  CONFIG_SND_SIMPLE_CARD=m
+>  CONFIG_USB=y
+> @@ -196,6 +213,11 @@ CONFIG_USB_OHCI_HCD_PLATFORM=y
+>  CONFIG_USB_RENESAS_USBHS=m
+>  CONFIG_USB_STORAGE=y
+>  CONFIG_USB_UAS=y
+> +CONFIG_USB_CDNS_SUPPORT=m
+> +CONFIG_USB_CDNS3=m
+> +CONFIG_USB_CDNS3_GADGET=y
+> +CONFIG_USB_CDNS3_HOST=y
+> +CONFIG_USB_CDNS3_STARFIVE=m
+>  CONFIG_USB_MUSB_HDRC=m
+>  CONFIG_USB_MUSB_SUNXI=m
+>  CONFIG_NOP_USB_XCEIV=m
+> @@ -233,6 +255,13 @@ CONFIG_VIRTIO_BALLOON=y
+>  CONFIG_VIRTIO_INPUT=y
+>  CONFIG_VIRTIO_MMIO=y
+>  CONFIG_RENESAS_OSTM=y
+> +CONFIG_STAGING=y
+> +CONFIG_STAGING_MEDIA=y
+g
+I don't think we want staging on in defconfig.
 
-It seems in reasonable shape now, at least in terms of implementing
-the domain logic.
+> +CONFIG_VIDEO_STARFIVE_CAMSS=m
 
-It would be nice if you'd run it through clang-format and correct some
-of the minor misformatting it will point out. We still like to have a
-80 col line limit in most cases. There are many overages here that
-aren't well justified.
+Is it just for this?  I think we can just exclude that from defconfig 
+until it gets out of staging, we should be able to boot without it.  
+According to the TODO userspace isn't there yet, so I think it should be 
+pretty safe.
 
-And you could consider the nitpicky style advice to use 'reverse
-christmas tree' for the variable declarations like most of the
-subsystem is trending toward.
-
-Jason
+> +CONFIG_CLK_STARFIVE_JH7110_AON=y
+> +CONFIG_CLK_STARFIVE_JH7110_STG=y
+> +CONFIG_CLK_STARFIVE_JH7110_ISP=y
+> +CONFIG_CLK_STARFIVE_JH7110_VOUT=y
+>  CONFIG_SUN8I_DE2_CCU=m
+>  CONFIG_SUN50I_IOMMU=y
+>  CONFIG_RPMSG_CHAR=y
+> @@ -244,6 +273,9 @@ CONFIG_RZG2L_ADC=m
+>  CONFIG_RESET_RZG2L_USBPHY_CTRL=y
+>  CONFIG_PHY_SUN4I_USB=m
+>  CONFIG_PHY_RCAR_GEN3_USB2=y
+> +CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=m
+> +CONFIG_PHY_STARFIVE_JH7110_PCIE=m
+> +CONFIG_PHY_STARFIVE_JH7110_USB=m
+>  CONFIG_LIBNVDIMM=y
+>  CONFIG_NVMEM_SUNXI_SID=y
+>  CONFIG_EXT4_FS=y
+>
+> base-commit: 39cd87c4eb2b893354f3b850f916353f2658ae6f
 
 _______________________________________________
 linux-riscv mailing list
