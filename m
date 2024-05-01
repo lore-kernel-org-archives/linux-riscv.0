@@ -4,46 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19329C25B4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 20:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E56D2C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 20:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eEVJ7lVnZ0x2GC1ADqQp9P1sj6FbxNRSizGrcm/eiw4=; b=JEahAJuOtWL7Ib8F1HgvuJJ74s
-	emYY27cfuoSlw7JxYFJwdvoqW1dcyeYSfhydTcwm0XxwSXXBWWoGt/R7IAwQLAWgaYYju3vd+FG3E
-	gT0X4sdu0Cck2j2cbcJEpxtfzEf5EEu4J0eqI+7s/WWCpdNcbDmYoOOxdvM6HFwgJuVXl5k5rPjQw
-	5/rx4mDyYGfFlmzwsBy8UCSlAtiERN7i8xSHyVOcvIBSJz4mbZuNSaxbh9PUg2PqeGCSPGqh5TYAZ
-	389RuOH79LMCUdYg73t6UvdMPUk8aA4yFDboYYml+mBnxh+zDYhW0URZfW1UOCLtVWrpbF8qCc7C8
-	Fc3Or1Qg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N2UACV5rwW7iwTRNs12F+DjyUShp+mIYyDuO+akE2j0=; b=jy9DnTpQwnVgCQ
+	T6Z8eOgE1fyFATpL8eK9us2kjv7vxSaZhitZPBMlR5RZhPoRR4RgERzczI+BAqIDs7XvejFPJlIFR
+	L3BuECG36yKfTdextuhE/0ulbpn1iktrHp0hUy+fXrOFsCxGMF52WSj4tEPmXsX7q5L7BYgrEZs+d
+	7rpqxWrrQk8m+lq+qMMj5Ae4vOhQgpIwFKGRUPMDX3ajsONP8waFi7febVwvLdqjG7GfEbDjqu3pM
+	4Dgd6uzyaYP0AboQWsnsPPBzvJdB+F8o2hHWO72bNfc62npz/ECuAVRseyMsYDFUuFTyWQHxmR1dd
+	jcC3IHIvPdStM+//AP3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2GMt-0000000AcLq-0F7A;
-	Wed, 01 May 2024 20:15:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1s2Gjf-0000000AevM-251T;
+	Wed, 01 May 2024 20:39:27 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2GMq-0000000AcKH-19W8;
-	Wed, 01 May 2024 20:15:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 073EA619C4;
-	Wed,  1 May 2024 20:15:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32582C4AF19;
-	Wed,  1 May 2024 20:15:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714594550;
-	bh=B1Uh4i07qA042YiuAtEnhpGxy0d/YEecRVrlZr0WYw0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nwu2J1/hBd8nUQDpUcCUvBJ/iE2Tt854m42ww+YyLzdRcPUswOq5X0ben9BhtzqeC
-	 KOKuGrC9hV5ugEltMpZ9LOWNXx7IyJ5ph2DcYQNxdfLLfODQruyozQYBAm8PdX5uCd
-	 yTaCg1bca1vKUTibNb9AFHiToLHamAtXOTlRaeXrgWVlm/yDrZONGe8lu5d69xM6Wp
-	 Z62GETam1wKiei04yhW3bFHttlICDuVo6oap1jc0+w9TIxqKGdDD52njjkMnNW8rA5
-	 8pUAQwLGgMJvnnOX1fzvEk4w6i/tgDG4PVqALPi6mG841Jf3Hoep8sSx9ZeeXav/4V
-	 3eUPthzU83tnA==
-Date: Wed, 1 May 2024 21:15:44 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
+	id 1s2Gjc-0000000Aeuh-0ZGm
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 May 2024 20:39:25 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-6effe9c852eso6420533b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 13:39:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714595963; x=1715200763; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AKSbKmCdqNYp/TkwU1C8PV1OsGdgS8t0tRM69B6F3C8=;
+        b=oMkkPVgW0ANOp4AgzuPUiEhOReV8kfKnu5AFEPvyIghqtQMmkMkGefBBxiFd6NJmQc
+         dpi5OZLoeB4pQjnIhmrhK+Yh/C4/L5yQO1jupk8Uir5jT4LkWiJKBsTQQdainz+SRfHN
+         PATkmmiudiLKXDCGaP10HihaO/AY3GYa2tSIR0VE5eHeGvZ73d2z6DqKnwOU3dFijqQx
+         kQNkNcqCfP+t7mnIPbUVCShq+XxH0OIMR8j/puXS1IA55jHzvJayyVxcH9nTNU2nDOCY
+         rHOoffFwGRrFVo4VvuuN1xmyUkKK0laJpnTkV7KbbjTza5HWQmbp29G/DXUouKMO0pou
+         Vr7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714595963; x=1715200763;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AKSbKmCdqNYp/TkwU1C8PV1OsGdgS8t0tRM69B6F3C8=;
+        b=ZhHuIduBZFog1Wb0qq9q5kW7+Ap7FTkJ1ccCkxJxUR29tuvnuN3QRmII2SbliRckqC
+         GRTgFhHNddCBCEYeJA9suQdDYs87d2uHET2zlgbQAzi9ub4DFsDWE+xYAfscLCeBPsNS
+         6myLGMVE0sn19itWmPDoUPrAATf1TPT+D6i9Wa4ObTnqd06phQgAp2JpgIW3lwmlCbtg
+         J4hXvttkO1iEtZq957LDG1tkZEJMf7KtBLfkNKohNWQ950ZBklMzjp/fC6BJHQUYWPDW
+         rpoJiGuLwo/tA/9r46qgJGgl0Rz0gCnGNZwcmWN0Wr0qwNc6vtqIfn1WNRyK56HGKM6r
+         fHQw==
+X-Forwarded-Encrypted: i=1; AJvYcCU/xtTJg/5JwqFWQmTKBuPKp5gYDqJMCpefKY8H+Ixx5ZrpFuZbA9DdwWzkc4jG4ZO7JgEchgSmuG3QFgK4jq8FgqniDhiuFYjq17BE69Lo
+X-Gm-Message-State: AOJu0YxI43L7u38fzacxX/zPO7diCPNXlOFr26/DhodP1JWQTDAhTEyE
+	+BMtFvN10u5jHT1BDwzQGV/QOFDeU0IEUFtZypAqr48KMQWXKMx6KtlDgi/bFUcnGWcTlGnnNLs
+	t
+X-Google-Smtp-Source: AGHT+IHt+rl59slOy1iEvfvZBlyLdzZV/krFCrpw2Eo+5Hs2TZHpo6k/cWFEA5ZGhA3qB1CbXECo4g==
+X-Received: by 2002:a05:6a20:5617:b0:1af:36df:5159 with SMTP id ir23-20020a056a20561700b001af36df5159mr18100pzc.59.1714595962795;
+        Wed, 01 May 2024 13:39:22 -0700 (PDT)
+Received: from ghost ([2601:647:5700:6860:1dcc:e03e:dc61:895d])
+        by smtp.gmail.com with ESMTPSA id v22-20020aa78516000000b006f03a06314esm23032553pfn.195.2024.05.01.13.39.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 May 2024 13:39:22 -0700 (PDT)
+Date: Wed, 1 May 2024 13:39:20 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
 Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -62,16 +84,18 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
 Subject: Re: [PATCH v4 07/16] riscv: cpufeature: Extract common elements from
  extension checking
-Message-ID: <20240501-hazy-reformist-8ff36ba53450@spud>
+Message-ID: <ZjKoeLcs4YDsDztT@ghost>
 References: <20240426-dev-charlie-support_thead_vector_6_9-v4-0-b692f3c516ec@rivosinc.com>
  <20240426-dev-charlie-support_thead_vector_6_9-v4-7-b692f3c516ec@rivosinc.com>
  <20240501-probable-unfunded-746ef6ae1853@spud>
  <ZjKcfZsWgR1AY3AZ@ghost>
+ <20240501-hazy-reformist-8ff36ba53450@spud>
 MIME-Version: 1.0
-In-Reply-To: <ZjKcfZsWgR1AY3AZ@ghost>
+Content-Disposition: inline
+In-Reply-To: <20240501-hazy-reformist-8ff36ba53450@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_131552_444918_AB988427 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20240501_133924_318897_7FFB3F6A 
+X-CRM114-Status: GOOD (  26.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,87 +107,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8742137440437717425=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 01, 2024 at 09:15:44PM +0100, Conor Dooley wrote:
+> On Wed, May 01, 2024 at 12:48:13PM -0700, Charlie Jenkins wrote:
+> > On Wed, May 01, 2024 at 12:37:14PM +0100, Conor Dooley wrote:
+> > > On Fri, Apr 26, 2024 at 02:29:21PM -0700, Charlie Jenkins wrote:
+> > > > The __riscv_has_extension_likely() and __riscv_has_extension_unlikely()
+> > > > functions from the vendor_extensions.h can be used to simplify the
+> > > > standard extension checking code as well. Migrate those functions to
+> > > > cpufeature.h and reorganize the code in the file to use the functions.
+> > > > 
+> > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > > > ---
+> > > >  arch/riscv/include/asm/cpufeature.h        | 78 +++++++++++++++++-------------
+> > > >  arch/riscv/include/asm/vendor_extensions.h | 28 -----------
+> > > >  2 files changed, 44 insertions(+), 62 deletions(-)
+> > > > 
+> > > > diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+> > > > index fedd479ccfd1..17896ec9ec11 100644
+> > > > --- a/arch/riscv/include/asm/cpufeature.h
+> > > > +++ b/arch/riscv/include/asm/cpufeature.h
+> > > > @@ -98,59 +98,66 @@ extern bool riscv_isa_fallback;
+> > > >  
+> > > >  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
+> > > >  
+> > > > +#define EXT_ALL_VENDORS		0
+> > > 
+> > > It's not really "all vendors", it's standard. Otherwise, this seems all
+> > 
+> > This hooks up into the alternatives:
+> > 
+> > ALTERNATIVE("nop", "j	%l[l_yes]", %[vendor], %[ext], 1)
+> 
+> Yeah, I know what you're using it for, I just find the naming odd.
+> > 
+> > Where the "vendor" argument is supposed to be 0 if the alternative is
+> > applicable to all vendors. Is there a better way to convey this?
+> 
+> s/EXT_ALL_VENDORS/STANDARD_EXT/?
 
---===============8742137440437717425==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="GXUDSiAct5jPEsjU"
-Content-Disposition: inline
+Sure :)
 
-
---GXUDSiAct5jPEsjU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, May 01, 2024 at 12:48:13PM -0700, Charlie Jenkins wrote:
-> On Wed, May 01, 2024 at 12:37:14PM +0100, Conor Dooley wrote:
-> > On Fri, Apr 26, 2024 at 02:29:21PM -0700, Charlie Jenkins wrote:
-> > > The __riscv_has_extension_likely() and __riscv_has_extension_unlikely=
-()
-> > > functions from the vendor_extensions.h can be used to simplify the
-> > > standard extension checking code as well. Migrate those functions to
-> > > cpufeature.h and reorganize the code in the file to use the functions.
-> > >=20
-> > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > > ---
-> > >  arch/riscv/include/asm/cpufeature.h        | 78 +++++++++++++++++---=
-----------
-> > >  arch/riscv/include/asm/vendor_extensions.h | 28 -----------
-> > >  2 files changed, 44 insertions(+), 62 deletions(-)
-> > >=20
-> > > diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include=
-/asm/cpufeature.h
-> > > index fedd479ccfd1..17896ec9ec11 100644
-> > > --- a/arch/riscv/include/asm/cpufeature.h
-> > > +++ b/arch/riscv/include/asm/cpufeature.h
-> > > @@ -98,59 +98,66 @@ extern bool riscv_isa_fallback;
-> > > =20
-> > >  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitm=
-ap);
-> > > =20
-> > > +#define EXT_ALL_VENDORS		0
-> >=20
-> > It's not really "all vendors", it's standard. Otherwise, this seems all
->=20
-> This hooks up into the alternatives:
->=20
-> ALTERNATIVE("nop", "j	%l[l_yes]", %[vendor], %[ext], 1)
-
-Yeah, I know what you're using it for, I just find the naming odd.
->=20
-> Where the "vendor" argument is supposed to be 0 if the alternative is
-> applicable to all vendors. Is there a better way to convey this?
-
-s/EXT_ALL_VENDORS/STANDARD_EXT/?
-
---GXUDSiAct5jPEsjU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjKi7wAKCRB4tDGHoIJi
-0pu+AP9hEmGvtiSYMRVj8J8qm6vSD21SfEYfsPIhrXHI3zAnRwEAtYpy2rqHQbrU
-hC4o62eJA24pmjxdVcu266GkK87+ywA=
-=wAFW
------END PGP SIGNATURE-----
-
---GXUDSiAct5jPEsjU--
+- Charlie
 
 
---===============8742137440437717425==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8742137440437717425==--
-
