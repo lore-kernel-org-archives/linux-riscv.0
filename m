@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460BAC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 10:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32290C10F1A
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 10:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nPhESWE2yEeDbX7f3a/7uDEhKOgO9wXATgKAXYr6Lhk=; b=eMoAeqccbA0VNJUH2bgw0H1D3v
-	1BloTZWLaoNjOwWlgksDHBV8bR4Bphi6Cxh17jDs/kas3p+Vyqmds/1bC3FJQlXTTyoILFn0l4/uq
-	mpUz/tjzLMLUMmhWbDYfQjpJM2Mv5oFJrUTGZbs42MNfBgf6Fmuc/FLvhab1ZKF2dNM/dRumH20YY
-	DxPe4PI2Lgu3wZyuWq89ABkIt5hN9LfaxMsRheRB1K6PQaB3/pCRhNicW/ghxUwW1mJGOaYbmPD17
-	mPN1jcKzhbeL8EUZMEfWd4lNnXoY0qHrGicwqY29ETGcQbjBqJq1LbpAlNousWs11nrBjdVQzABQN
-	rQnmYCBQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7itM8/u2iSqt7liv1YAAaWtE1CI9MOO/F8EqzUF/Y0Q=; b=VXWKnDGoZq0zzaTcQoTFl7n87O
+	4ttpn+XfwBsAKrzro4G5sSmv9Qg8YWqhBcuEbPmHN1bcakGodWvBXGWUHz7nDVjVwvx1Kl7Z95gLw
+	2QAEJ8iVJ+2KEHJ9dhy+ykAMjvCRHX3+MVX+7oEsK/L+1zb7dLs26kBJIq3kRFjo9Vbrq9PJgxYuS
+	rbI/PRkSXJCY0mgBcCo77eUBV6N4NIyZ2POawk8/VJsh2vUmBtcZ3L8IwK+mvl5FLWjz7AZ+V/Vf/
+	hRglhUupIGczUK0quMKCUGbWPA739qrrjolx+X+ICAyJaW09RINwfyJzsy1hB04P4GeCyra4OLgVO
+	a/acvX4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s27AW-000000095gd-3gqk;
-	Wed, 01 May 2024 10:26:32 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1s27Fl-000000096OH-1sGN;
+	Wed, 01 May 2024 10:31:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s27AT-000000095gB-3nCD
-	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 10:26:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1714559190; x=1746095190;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=hRqr/qAUxYcdjP0X9isvAXR0Vq1bW+ytdwQxX41DL7c=;
-  b=Q6dzy4gKIL06LUobXH/O1k+L3UAmVLscHbHH2s7HebnH4dAy+BUQMluF
-   JwW1HMSHIn4MyIiPBCtHVZM1Dr1tB87G3540GDdE+Qoc1w8FtXcPEGO3r
-   Q2FhA5ZVMJCfxGoVMj6LZEp6Zu2xN8+hNs1VJ/tjK0qBuzQvbk6HBwY6I
-   +ukV/AQJKkrnJwSg/huYtKyGUmWlH404tzQeIYSazdWpwQ2nR+a0nbG/H
-   iRvZH0LlgOZ1jjk1bCrBnelRu854rqrINPwnGLvV0KDi8f2Hbeu6yY5rq
-   +xskrnC+SXi4YEwd+i1jck9TR5qmElRAMNrrm3j0/vOkbC8chxj7L1wbg
-   A==;
-X-CSE-ConnectionGUID: ja39K77pQHSJm6A0aQ4LXA==
-X-CSE-MsgGUID: 3c2qgnseSSuCgRerGwNleQ==
-X-IronPort-AV: E=McAfee;i="6600,9927,11060"; a="35674155"
-X-IronPort-AV: E=Sophos;i="6.07,245,1708416000"; 
-   d="scan'208";a="35674155"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 03:26:28 -0700
-X-CSE-ConnectionGUID: mM4xqKTwTRanVLvaULU3dg==
-X-CSE-MsgGUID: 2a2bdGMyS6Sr14FLZPSgCQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.07,245,1708416000"; 
-   d="scan'208";a="64237676"
-Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.225.176]) ([10.124.225.176])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 03:26:23 -0700
-Message-ID: <6b4a4dc0-ac9e-43cd-bd84-447df2370dde@linux.intel.com>
-Date: Wed, 1 May 2024 18:26:20 +0800
+	id 1s27Fh-000000096NN-1bTt;
+	Wed, 01 May 2024 10:31:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B027C610A0;
+	Wed,  1 May 2024 10:31:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87259C113CC;
+	Wed,  1 May 2024 10:31:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1714559512;
+	bh=6DBbHrkfxS0tiwHrPZgT+bjTP/LQ6KTVWXOSl9oS0uw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U5ee8bwgBLBCu4DumpOEAERsjw3ZbAP1XblSkz9aVFKZGtMgCFTiA0pxj3GXTowo2
+	 7ckb1Z6BdjEoy5msRFbdI7BAYmKf3htSei2B1D+T+yu7FP0PpQaNy/3aUaePzp97sH
+	 cKmbeqTesHi0Ye71vJBxFoyAGSy1+14roh4mNDgO4HIUFKck3ZWyiaPStY1bnoEVLR
+	 X+s8MeH8GU3OZ/Bbz6IXbIwrDt+H/pAnwRuBeq5KVjdgFCzLaJJOUDaF7GmMYbxq0+
+	 c/FTazQwk1znasxvU2OYJorZPiHHCvI29cVf3yfADDUqbsf5qSiQcr3P/qB1DuRqmk
+	 iHHbtFC1LN2rw==
+Date: Wed, 1 May 2024 11:31:45 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Evan Green <evan@rivosinc.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 03/16] riscv: vector: Use vlenb from DT
+Message-ID: <20240501-showroom-rephrase-66c0929011b3@spud>
+References: <20240426-dev-charlie-support_thead_vector_6_9-v4-0-b692f3c516ec@rivosinc.com>
+ <20240426-dev-charlie-support_thead_vector_6_9-v4-3-b692f3c516ec@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/7] iommu/riscv: Add RISC-V IOMMU platform device
- driver
-To: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
-References: <cover.1714494653.git.tjeznach@rivosinc.com>
- <aa5592da66fe72acd4d4730f544882042e7b5293.1714494653.git.tjeznach@rivosinc.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <aa5592da66fe72acd4d4730f544882042e7b5293.1714494653.git.tjeznach@rivosinc.com>
+In-Reply-To: <20240426-dev-charlie-support_thead_vector_6_9-v4-3-b692f3c516ec@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_032630_122730_B2DBC641 
-X-CRM114-Status: GOOD (  18.16  )
+X-CRM114-CacheID: sfid-20240501_033153_539446_2A2C7D14 
+X-CRM114-Status: GOOD (  31.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,69 +80,197 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, baolu.lu@linux.intel.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============3056784408354054561=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024/5/1 4:01, Tomasz Jeznach wrote:
-> +static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
+
+--===============3056784408354054561==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="SnPvkgTlHmJo6buD"
+Content-Disposition: inline
+
+
+--SnPvkgTlHmJo6buD
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Apr 26, 2024 at 02:29:17PM -0700, Charlie Jenkins wrote:
+> If vlenb is provided in the device tree, prefer that over reading the
+> vlenb csr.
+>=20
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/cpufeature.h |  2 ++
+>  arch/riscv/kernel/cpufeature.c      | 43 +++++++++++++++++++++++++++++++=
+++++++
+>  arch/riscv/kernel/vector.c          | 12 ++++++++++-
+>  3 files changed, 56 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
+/cpufeature.h
+> index 347805446151..0c4f08577015 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -31,6 +31,8 @@ DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+>  /* Per-cpu ISA extensions. */
+>  extern struct riscv_isainfo hart_isa[NR_CPUS];
+> =20
+> +extern u32 riscv_vlenb_of;
+> +
+>  void riscv_user_isa_enable(void);
+> =20
+>  #if defined(CONFIG_RISCV_MISALIGNED)
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 3ed2359eae35..8158f34c3e36 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -35,6 +35,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __r=
+ead_mostly;
+>  /* Per-cpu ISA extensions. */
+>  struct riscv_isainfo hart_isa[NR_CPUS];
+> =20
+> +u32 riscv_vlenb_of;
+> +
+>  /**
+>   * riscv_isa_extension_base() - Get base extension word
+>   *
+> @@ -648,6 +650,42 @@ static int __init riscv_isa_fallback_setup(char *__u=
+nused)
+>  early_param("riscv_isa_fallback", riscv_isa_fallback_setup);
+>  #endif
+> =20
+> +static int riscv_homogeneous_vlenb(void)
+
+Without a verb, this function name is rather odd.
+
 > +{
-> +	u64 ddtp;
+> +	int cpu;
+> +	u32 prev_vlenb =3D 0;
+> +	u32 vlenb;
 > +
-> +	/*
-> +	 * Make sure the IOMMU is switched off or in pass-through mode during regular
-> +	 * boot flow and disable translation when we boot into a kexec kernel and the
-> +	 * previous kernel left them enabled.
-> +	 */
-> +	ddtp = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_DDTP);
-> +	if (ddtp & RISCV_IOMMU_DDTP_BUSY)
-> +		return -EBUSY;
+> +	for_each_possible_cpu(cpu) {
+> +		struct device_node *cpu_node;
 > +
-> +	if (FIELD_GET(RISCV_IOMMU_DDTP_MODE, ddtp) > RISCV_IOMMU_DDTP_MODE_BARE) {
-> +		if (!is_kdump_kernel())
+> +		cpu_node =3D of_cpu_device_node_get(cpu);
+> +		if (!cpu_node) {
+> +			pr_warn("Unable to find cpu node\n");
+> +			continue;
 
-Is kdump supported for RISC-V architectures?  If so, the documentation
-in Documentation/admin-guide/kdump/kdump.rst might need an update.
+Hmm, if we fail to find the cpu node, then shouldn't we be returning an
+error?
 
-There is a possibility of ongoing DMAs during the boot process of the
-kdump capture kernel because there's a small chance of legacy DMA setups
-targeting any memory location. Kdump typically allows these ongoing DMA
-transfers to complete, assuming they were intended for valid memory
-regions.
+> +		}
+> +
+> +		if (of_property_read_u32(cpu_node, "riscv,vlenb", &vlenb)) {
+> +			of_node_put(cpu_node);
+> +
+> +			if (prev_vlenb)
+> +				return -1;
 
-The IOMMU subsystem implements a default domain deferred attachment
-mechanism for this. In the kdump capture kernel, the whole device
-context tables are copied from the original kernel and will be
-overridden once the device driver calls the kernel DMA interface for the
-first time. This assumes that all old DMA transfers are completed after
-the driver's takeover.
+Can you return an errno here and below please?
 
-Will you consider this for RISC-V architecture as well?
-
-> +			return -EBUSY;
-> +		riscv_iommu_disable(iommu);
+> +			continue;
+> +		}
+> +
+> +		if (prev_vlenb && vlenb !=3D prev_vlenb) {
+> +			of_node_put(cpu_node);
+> +			return -1;
+> +		}
+> +
+> +		prev_vlenb =3D vlenb;
+> +		of_node_put(cpu_node);
 > +	}
 > +
-> +	/* Configure accesses to in-memory data structures for CPU-native byte order. */
-> +	if (IS_ENABLED(CONFIG_CPU_BIG_ENDIAN) != !!(iommu->fctl & RISCV_IOMMU_FCTL_BE)) {
-> +		if (!(iommu->caps & RISCV_IOMMU_CAP_END))
-> +			return -EINVAL;
-> +		riscv_iommu_writel(iommu, RISCV_IOMMU_REG_FCTL,
-> +				   iommu->fctl ^ RISCV_IOMMU_FCTL_BE);
-> +		iommu->fctl = riscv_iommu_readl(iommu, RISCV_IOMMU_REG_FCTL);
-> +		if (IS_ENABLED(CONFIG_CPU_BIG_ENDIAN) != !!(iommu->fctl & RISCV_IOMMU_FCTL_BE))
-> +			return -EINVAL;
-> +	}
-> +
+> +	riscv_vlenb_of =3D vlenb;
 > +	return 0;
 > +}
+> +
+>  void __init riscv_fill_hwcap(void)
+>  {
+>  	char print_str[NUM_ALPHA_EXTS + 1];
+> @@ -671,6 +709,11 @@ void __init riscv_fill_hwcap(void)
+>  			pr_info("Falling back to deprecated \"riscv,isa\"\n");
+>  			riscv_fill_hwcap_from_isa_string(isa2hwcap);
+>  		}
+> +
+> +		if (riscv_homogeneous_vlenb() < 0) {
+> +			pr_warn("RISCV_ISA_V only supports one vlenb on SMP systems. Please e=
+nsure that the riscv,vlenb devicetree property is the same across all CPUs.=
+ Either all CPUs must have the riscv,vlenb property, or none. If no CPUs in=
+ the devicetree use riscv,vlenb then vlenb will be probed from the vlenb CS=
+R. Disabling vector.\n");
 
-Best regards,
-baolu
+Oh dear, that's a bit unwieldy... I think you could get away with a far
+more basic message - and you should be able to break this over lines,
+adjacent string literals should get concatenated.
+I'd probably say something like "unsupported heterogeneous vlen detected,
+vector extension disabled", however we should actually check that the
+vector extension has been detected on all CPUs and that kernel support
+for vector is enabled before emitting a warning for this.
+
+Cheers,
+Conor.
+
+> +			elf_hwcap &=3D ~COMPAT_HWCAP_ISA_V;
+> +		}
+>  	}
+> =20
+>  	/*
+> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+> index 6727d1d3b8f2..e04586cdb7f0 100644
+> --- a/arch/riscv/kernel/vector.c
+> +++ b/arch/riscv/kernel/vector.c
+> @@ -33,7 +33,17 @@ int riscv_v_setup_vsize(void)
+>  {
+>  	unsigned long this_vsize;
+> =20
+> -	/* There are 32 vector registers with vlenb length. */
+> +	/*
+> +	 * There are 32 vector registers with vlenb length.
+> +	 *
+> +	 * If the riscv,vlenb property was provided by the firmware, use that
+> +	 * instead of probing the CSRs.
+> +	 */
+> +	if (riscv_vlenb_of) {
+> +		this_vsize =3D riscv_vlenb_of * 32;
+> +		return 0;
+> +	}
+> +
+>  	riscv_v_enable();
+>  	this_vsize =3D csr_read(CSR_VLENB) * 32;
+>  	riscv_v_disable();
+>=20
+> --=20
+> 2.44.0
+>=20
+
+--SnPvkgTlHmJo6buD
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjIaEQAKCRB4tDGHoIJi
+0hNBAP9YH38VakJjIeXqwOnQlJJWTLPRdPDQPf5eTY+Ir67I6QEA8WCxzjgKtaAO
+OCpGug+WIcHcZlm8J+isXxxHhyQ9TwQ=
+=T1wq
+-----END PGP SIGNATURE-----
+
+--SnPvkgTlHmJo6buD--
+
+
+--===============3056784408354054561==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3056784408354054561==--
+
