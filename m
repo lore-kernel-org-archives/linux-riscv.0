@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F3AC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 12:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE63C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 12:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cgAEWxdeGxDQIcXTqaEldgBDyV7mFC5RqN15VV5wiYA=; b=EgA3PwH+pEXMN9
-	1H/2TmSc4vW0EYQrAPcB8kKnZ4g4hNkUhPMfHJe6g9NqkKs2bbYrDp09NC6xgBPJcAIHqvnvyMHuO
-	HLgA6Gj2tRY3fsEA6VYB25p0OeBNUbaRtfA/HD0CC3jPSCprcbAOWzGSgSGbo4daM26Tt8EG7NAsg
-	EFap3lyFi+2gY7JhnpyoT0qR8c3l99D0ZYlcXOBSg2qcoiuGr+x9NNB17z53nY4D99S87CFOqJd71
-	BkKL1AO3DOE2RREffhzd2lOF9qqiDVaf8bvTgCvGgmi19ECgFk41JcG0zXO2PllKfYtROefst5n80
-	9hZKW29la1Av36PVunOQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nZnnPlQ3X/NWO3SMcCevOoV1Sl+kZOvMWUrCs1XurSo=; b=BqntDYuN8Gx72V
+	fMh2WDjDrtwGGpgIVaZTYLmV62luvJf9trO1OgF+uvUfupwtfuzLQ1YuqsqR01d15UJMFqg72qvxE
+	v6GPYOIe1YDuJWkwvCi0U/Ypf9dM+Ml0JOkQbo3gu2+zeTnWHj5/zJhYwxow5q2SGR03hTWLS0pc8
+	I+9YXHVJx/EsN6yDCmQjUqLmug3EpBbNUjBRcaBcm6Ak0Qen/alzGVhY3mrf1/DdPG4BDIxJAiHKI
+	UH96PXcRJpxyFBj9pK0oYzmabW99+ghSPlUkvZfJFi5Nx6j5zRyq7BcddzZ5vCJOhGcW4Jgek9iGg
+	BYwYail9HojRQjoVK7Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s29D8-00000009UWo-07Je;
-	Wed, 01 May 2024 12:37:22 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1s29DB-00000009UYD-0QOQ;
+	Wed, 01 May 2024 12:37:25 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s28uU-00000009MNa-1Q0z
+	id 1s28ua-00000009MQf-2XXG
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 12:18:07 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1ec4dc64c6cso12442695ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 05:18:05 -0700 (PDT)
+	Wed, 01 May 2024 12:18:14 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1e3ff14f249so5762655ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 05:18:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1714565884; x=1715170684; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9EhfEaMFfLrGfmVLdeaNNG6PlGGzfTCBnCOLnM+VG1c=;
-        b=BvCHKVac3bGA8KbUPOOWkrF+dJUgQ82ttT6qojKy88X02fChwKApxXjSltsnxamMey
-         SkiWPa2K8c8jOrvPQxsbqPDa0n5UlKmms/lpoecIefuE8i0U1FeQ7VToqpWvv18AKFPh
-         NHSxyZotBUGtMGQr6GgKBLSYJgnkBJ0dILVuGi1sMCidgXTGEoZUURbcn2w5hUzxvSnL
-         y3RPOjCIBQyzlgA3Pi3JbfElm6ntGWHD50KlL8sVKSksIWQLJtej2vLPWdfeTBnxqrKO
-         2INi6tpqZF5u0n5nxwl/ShE1EMaizSq/g23uufZHn8nPJ1QbpsriQqCnxTQy7PTL/7ce
-         +Btg==
+        d=ventanamicro.com; s=google; t=1714565892; x=1715170692; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TBFCNaiZG8SDhd9Avy2NjVgbIzDcy1byPrgimW8Jnrg=;
+        b=erbWq+wQ+AXIVff1ppO3Alwh9h72hoZr5jWNvX4LhHxUr48k+c6bJ8IGx/ZKc8+8RW
+         mP8WIRAmcZLHCiMdOZ8DH2DRMWT0XPwz2V1zFXTqYfeN3iJYskMChUIsBnW1tT2Od0WS
+         XsMqcZqs0c5NrjDCMnK3V9KIv2feX3/9jYqQHoXHAeKWdDBvC3xZKnowPsFVTSE+WzOH
+         1oPyj5Lkka0VKypmtYWwS5VHKFGuszOIZ2lKrVx2CAF+rMl2cPuYKrmPBjDnDKvahuka
+         ooT0Ih2Kc6g5v6DWI/2cC+MYTsbNKzHLakESq8Xv+p580/ro0tXdakvE7Gt9veF1CxzD
+         aYzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714565884; x=1715170684;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9EhfEaMFfLrGfmVLdeaNNG6PlGGzfTCBnCOLnM+VG1c=;
-        b=pDb8XC6SBu4AIXv5VC5+LFtS4a3acz0/tMfSWKdTMBtMZqUX1di5AsnRmXibBtoEzq
-         FZAOhrvp0Q4ni3SgDrW69nDJHTNzXAHldVlFH9kpgWF6d4yD7dEGhC4aYmp7D1nLN42z
-         bNK4c152JkI/iJfdwt/lEJBkm6R85mL1dvCMFPcOQ3I9ibuojfyKelk0VcRE4MM9oPOj
-         WGDmH4bmUjnKIPE+xzGJX8Z8TY1Qa6tSy5w4VdjvhCwatTnIKVvDFKjomDtFR6pFxJn0
-         WUg9rnjEHq8xBQzelvr3hRpGbwjIT/NhW6ovAgoXCCKksU3PppOy9WMp+k+9aUsH/7Ue
-         rAyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU+dt7UlQ1GI4tliqloxXab7wg+RQiM8FzH3L2GalYk7mK7AszFL5ORbWwY7pi50ws4Oz65yMgujl+akqvbFAiMHbc5JA1Z4htuAqdf9CUQ
-X-Gm-Message-State: AOJu0Ywvgv41gIqUvjcMTXzuwrx8WFEYiaFhE9lQeuquN45oLqwmi87b
-	aWM+X4m3hwOb63R3p6gBm2Thcym+13BU/PjEMVx4/BxdwEEqIpIdcbyM6Mhd+fE=
-X-Google-Smtp-Source: AGHT+IGKp6Ma/BFy2R+UnRNFa2ZVdvrW3j2wb0D3bLNHdRHpaQg8W2PvjVIveWAJa/pc36T5TUO8jg==
-X-Received: by 2002:a17:902:efcf:b0:1e5:c06b:3330 with SMTP id ja15-20020a170902efcf00b001e5c06b3330mr2036008plb.24.1714565884004;
-        Wed, 01 May 2024 05:18:04 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1714565892; x=1715170692;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TBFCNaiZG8SDhd9Avy2NjVgbIzDcy1byPrgimW8Jnrg=;
+        b=XjOMAy4LqOu1zoQIS+vZl1L/Y8NkuPvl1FQZh/NUpDAqdIO8KZUUhWf715hPFRkeHU
+         Hk2opE9Q8Vf1IJiAtupK6UpPoOOeUSUDXNJj1krSZJgD9yJmD98PwvyyHrTW9D8puwe/
+         Kc3sEqHiidxqRK3n4/2pn63QAxNv7QRTBQgiEimoH9WPTCslxX1XI95O5Sw6O1bqIFGg
+         TXegyoMgPwCeGs+PWZRE24DoGSJw0PHqDkZFx4IvU4IvAlu4Hy2A3zmxq8QaPA5GkpaR
+         dqHjcMWiaP29Xo4Tp13p2f6V2GNz8eHp/8anGqnKrdm1kSn9GHiFEUFhQy7/PjW476id
+         9DRA==
+X-Forwarded-Encrypted: i=1; AJvYcCXRMrrZIejf0GK9ngHLLXzm8gNPdtxdib/FtuNHFasJH6qVDU5ghJDWEfZJSKq52AV2NOIyoryXEdMHiG9OLJumil6nEddx8NHX90q5Z3P6
+X-Gm-Message-State: AOJu0YzOSLz/MFA4He+dvCeYI+ti7BJLkmsRrKs2JZMg9Q2MobPaIMwR
+	ebPfrwpdweElSfGUuBPzp3/04V8cz0h9u+9dDHJHtJsCWOpqXaAwb4dvYEM/m14=
+X-Google-Smtp-Source: AGHT+IFCz+8u/X89VsHYsAyI7LAYB37fwi80edU6U2OxBpGy7t88sQSAo0aUQcHa3ElV/kemBD1B7A==
+X-Received: by 2002:a17:902:c40e:b0:1eb:527e:a89e with SMTP id k14-20020a170902c40e00b001eb527ea89emr8243829plk.26.1714565891753;
+        Wed, 01 May 2024 05:18:11 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.188.106])
-        by smtp.gmail.com with ESMTPSA id im15-20020a170902bb0f00b001ec8888b22esm1336900plb.65.2024.05.01.05.17.56
+        by smtp.gmail.com with ESMTPSA id im15-20020a170902bb0f00b001ec8888b22esm1336900plb.65.2024.05.01.05.18.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 May 2024 05:18:03 -0700 (PDT)
+        Wed, 01 May 2024 05:18:11 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -70,14 +71,16 @@ To: linux-arm-kernel@lists.infradead.org,
 	linux-pci@vger.kernel.org,
 	linux-serial@vger.kernel.org,
 	acpica-devel@lists.linux.dev
-Subject: [PATCH v5 00/17] RISC-V: ACPI: Add external interrupt controller support
-Date: Wed,  1 May 2024 17:47:25 +0530
-Message-Id: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
+Subject: [PATCH v5 01/17] arm64: PCI: Migrate ACPI related functions to pci-acpi.c
+Date: Wed,  1 May 2024 17:47:26 +0530
+Message-Id: <20240501121742.1215792-2-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
+References: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_051806_414387_481BAB7E 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20240501_051812_683264_906A8C9F 
+X-CRM114-Status: GOOD (  21.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,120 +93,431 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Jiri Slaby <jirislaby@kernel.org>, Haibo1 Xu <haibo1.xu@intel.com>, Marc Zyngier <maz@kernel.org>, Robert Moore <robert.moore@intel.com>, Andrei Warkentin <andrei.warkentin@intel.com>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@linutronix.de>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Samuel Holland <samuel.holland@sifive.com>, =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>, Anup Patel <anup@brainfault.org>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBzZXJpZXMgYWRkcyBzdXBwb3J0IGZvciB0aGUgYmVsb3cgRUNSIGFwcHJvdmVkIGJ5IEFT
-V0cuCjEpIE1BRFQgLSBodHRwczovL2RyaXZlLmdvb2dsZS5jb20vZmlsZS9kLzFvTUdQeU9ENThK
-YVBnTWwxcEthc1QtVktzSUtpYTd6Ui92aWV3P3VzcD1zaGFyaW5nCgpUaGUgc2VyaWVzIHByaW1h
-cmlseSBlbmFibGVzIGlycWNoaXAgZHJpdmVycyBmb3IgUklTQy1WIEFDUEkgYmFzZWQKcGxhdGZv
-cm1zLgoKVGhlIHNlcmllcyBjYW4gYmUgYnJvYWRseSBjYXRlZ29yaXplZCBsaWtlIGJlbG93LiAK
-CjEpIFBDSSBBQ1BJIHJlbGF0ZWQgZnVuY3Rpb25zIGFyZSBtaWdyYXRlZCBmcm9tIGFybTY0IHRv
-IGNvbW1vbiBmaWxlIHNvCnRoYXQgd2UgZG9uJ3QgbmVlZCB0byBkdXBsaWNhdGUgdGhlbSBmb3Ig
-UklTQy1WLgoKMikgQWRkZWQgc3VwcG9ydCBmb3IgcmUtb3JkZXJpbmcgdGhlIHByb2JlIG9mIGlu
-dGVycnVwdCBjb250cm9sbGVycyB3aGVuCklSUUNISVBfQUNQSV9ERUNMQVJFIGlzIHVzZWQuCgoz
-KSBUbyBlbnN1cmUgcHJvYmUgb3JkZXIgYmV0d2VlbiBpbnRlcnJ1cHQgY29udHJvbGxlcnMgYW5k
-IGRldmljZXMsCmltcGxpY2l0IGRlcGVuZGVuY3kgaXMgY3JlYXRlZCBzaW1pbGFyIHRvIHdoZW4g
-X0RFUCBpcyBwcmVzZW50LgoKNCkgQWRkZWQgODI1MCBzZXJpYWwgZHJpdmVyIGZvciBhIGdlbmVy
-aWMgMTY1NTAgVUFSVCB3aGljaCBpcyBlbnVtZXJhdGVkCmFzIEFDUEkgcGxhdGZvcm0gZGV2aWNl
-LgoKNSkgQUNQSSBzdXBwb3J0IGFkZGVkIGluIFJJU0MtViBpbnRlcnJ1cHQgY29udHJvbGxlciBk
-cml2ZXJzLgoKQ2hhbmdlcyBzaW5jZSBSRkMgdjQ6CgkxKSBSZW1vdmVkIFJGQyB0YWcgYXMgdGhl
-IFJGQ3Y0IGRlc2lnbiBsb29rZWQgcmVhc29uYWJsZS4KCTIpIERyb3BwZWQgUENJIHBhdGNoIG5l
-ZWRlZCB0byBhdm9pZCB3YXJuaW5nIHdoZW4gdGhlcmUgaXMgbm8gTVNJCgkgICBjb250cm9sbGVy
-LiBUaGlzIHdpbGwgYmUgc2VudCBsYXRlciBzZXBhcmF0ZWx5IGFmdGVyIHRoZQoJICAgY3VycmVu
-dCBzZXJpZXMuCgkzKSBEcm9wcGVkIFBOUCBoYW5kbGluZyBvZiBfREVQIHNpbmNlIHRoZXJlIGlz
-IG5ldyBBQ1BJIElEIGZvcgoJICAgZ2VuZXJpYyAxNjU1MCBVQVJULiBBZGRlZCB0aGUgc2VyaWFs
-IGRyaXZlciBwYXRjaCBpbnN0ZWFkLgoJNCkgUmViYXNlZCB0byBsYXRlc3QgbGludXgtbmV4dC4K
-CTUpIFJlb3JkZXJlZC9zcXVhc2hlZCBwYXRjaGVzIGluIHRoZSBzZXJpZXMKCkNoYW5nZXMgc2lu
-Y2UgUkZDIHYzOgoJMSkgTW92ZWQgdG8gX0RFUCBtZXRob2QgaW5zdGVhZCBvZiBmd19kZXZsaW5r
-LgoJMikgUExJQy9BUExJQyBkcml2ZXIgcHJvYmUgdXNpbmcgbmFtZXNwYWNlIGRldmljZXMuCgkz
-KSBIYW5kbGluZyBQTlAgZGV2aWNlcyBhcyBwYXJ0IG9mIGNsZWFyaW5nIGRlcGVuZGVuY3kuCgk0
-KSBSZWJhc2VkIHRvIGxhdGVzdCBsaW51eC1uZXh0IHRvIGdldCBBSUEgRFQgZHJpdmVycy4KCkNo
-YW5nZXMgc2luY2UgUkZDIHYyOgoJMSkgSW50cm9kdWNlZCBmd19kZXZsaW5rIGZvciBBQ1BJIG5v
-ZGVzIGZvciBJUlEgZGVwZW5kZW5jeS4KCTIpIERyb3BwZWQgcGF0Y2hlcyBpbiBkcml2ZXJzIHdo
-aWNoIGFyZSBub3QgcmVxdWlyZWQgZHVlIHRvCgkgICBmd19kZXZsaW5rIHN1cHBvcnQuCgkzKSBE
-cm9wcGVkIHBjaV9zZXRfbXNpKCkgcGF0Y2ggYW5kIGFkZGVkIGEgcGF0Y2ggaW4KCSAgIHBjaV9j
-cmVhdGVfcm9vdF9idXMoKS4KCTQpIFVwZGF0ZWQgcG5wX2lycSgpIHBhdGNoIHNvIHRoYXQgbm9u
-ZSBvZiB0aGUgYWN0dWFsIFBOUAoJICAgZHJpdmVycyBuZWVkIHRvIGNoYW5nZS4KCkNoYW5nZXMg
-c2luY2UgUkZDIHYxOgoJMSkgQWJhbmRvbmVkIHN3bm9kZSBhcHByb2FjaCBhcyBwZXIgTWFyYydz
-IGZlZWRiYWNrLgoJMikgVG8gY29wZSB1cCB3aXRoIEFJQSBzZXJpZXMgY2hhbmdlcyB3aGljaCBj
-aGFuZ2VkIGlycWNoaXAgZHJpdmVyCgkgICBwcm9iZSBmcm9tIGNvcmVfaW5pdGNhbGwoKSB0byBw
-bGF0Zm9ybV9kcml2ZXIsIGFkZGVkIHBhdGNoZXMKCSAgIHRvIHN1cHBvcnQgZGVmZXJyZWQgcHJv
-YmluZy4KCTMpIFJlYmFzZWQgb24gdG9wIG9mIEFudXAncyBBSUEgdjExIGFuZCBhZGRlZCB0YWdz
-LgoKVG8gdGVzdCB0aGUgc2VyaWVzLAoKMSkgcWVtdSBzaG91bGQgYmUgYnVpbHQgdXNpbmcgdGhl
-IHJpc2N2X2FjcGlfbmFtZXNwYWNlX3YyIGJyYW5jaCBhdApodHRwczovL2dpdGh1Yi5jb20vdmxz
-dW5pbC9xZW11LmdpdAoKMikgRURLMiBzaG91bGQgYmUgYnVpbHQgdXNpbmcgdGhlIGluc3RydWN0
-aW9ucyBhdDoKaHR0cHM6Ly9naXRodWIuY29tL3RpYW5vY29yZS9lZGsyL2Jsb2IvbWFzdGVyL092
-bWZQa2cvUmlzY1ZWaXJ0L1JFQURNRS5tZAoKTk9URTogT25lIHNob3VsZCBiZSBhYmxlIHRvIHVz
-ZSB1LWJvb3QgYXMgd2VsbCBhcyBwZXIgaW5zdHJ1Y3Rpb25zIGZyb20gQmrDtnJuLgpodHRwczov
-L2xvcmUua2VybmVsLm9yZy9sa21sLzg3YTVscXNydmguZnNmQGFsbC55b3VyLmJhc2UuYXJlLmJl
-bG9uZy50by51cy8KCjMpIEJ1aWxkIExpbnV4IHVzaW5nIHRoaXMgc2VyaWVzLgoKUnVuIFFlbXU6
-CnFlbXUtc3lzdGVtLXJpc2N2NjQgXAogLU0gdmlydCxwZmxhc2gwPXBmbGFzaDAscGZsYXNoMT1w
-Zmxhc2gxLGFpYT1hcGxpYy1pbXNpYyBcCiAtbSAyRyAtc21wIDggXAogLXNlcmlhbCBtb246c3Rk
-aW8gXAogLWRldmljZSB2aXJ0aW8tZ3B1LXBjaSAtZnVsbC1zY3JlZW4gXAogLWRldmljZSBxZW11
-LXhoY2kgXAogLWRldmljZSB1c2Ita2JkIFwKIC1ibG9ja2RldiBub2RlLW5hbWU9cGZsYXNoMCxk
-cml2ZXI9ZmlsZSxyZWFkLW9ubHk9b24sZmlsZW5hbWU9UklTQ1ZfVklSVF9DT0RFLmZkIFwKIC1i
-bG9ja2RldiBub2RlLW5hbWU9cGZsYXNoMSxkcml2ZXI9ZmlsZSxmaWxlbmFtZT1SSVNDVl9WSVJU
-X1ZBUlMuZmQgXAogLW5ldGRldiB1c2VyLGlkPW5ldDAgLWRldmljZSB2aXJ0aW8tbmV0LXBjaSxu
-ZXRkZXY9bmV0MCBcCiAta2VybmVsIGFyY2gvcmlzY3YvYm9vdC9JbWFnZSBcCiAtaW5pdHJkIHJv
-b3Rmcy5jcGlvIFwKIC1hcHBlbmQgInJvb3Q9L2Rldi9yYW0gcm8gY29uc29sZT10dHlTMCByb290
-d2FpdCBlYXJseWNvbj11YXJ0ODI1MCxtbWlvLDB4MTAwMDAwMDAiCgpUbyBib290IHdpdGggQVBM
-SUMgb25seSwgdXNlIGFpYT1hcGxpYy4KVG8gYm9vdCB3aXRoIFBMSUMsIHJlbW92ZSBhaWE9IG9w
-dGlvbi4KClRoaXMgc2VyaWVzIGlzIGFsc28gYXZhaWxhYmxlIGluIGFjcGlfYjJfdjUgYnJhbmNo
-IGF0Cmh0dHBzOi8vZ2l0aHViLmNvbS92bHN1bmlsL2xpbnV4LmdpdAoKQmFzZWQtb246IGh0dHBz
-Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L25leHQvbGludXgtbmV4
-dC5naXQvdGFnLz9oPW5leHQtMjAyNDA1MDEKClN1bmlsIFYgTCAoMTcpOgogIGFybTY0OiBQQ0k6
-IE1pZ3JhdGUgQUNQSSByZWxhdGVkIGZ1bmN0aW9ucyB0byBwY2ktYWNwaS5jCiAgQUNQSTogc2Nh
-bjogQWRkIGEgd2VhayBmdW5jdGlvbiB0byByZW9yZGVyIHRoZSBJUlFDSElQIHByb2JlCiAgQUNQ
-STogYnVzOiBBZGQgYWNwaV9yaXNjdl9pbml0IGZ1bmN0aW9uCiAgQUNQSTogc2NhbjogUmVmYWN0
-b3IgZGVwZW5kZW5jeSBjcmVhdGlvbgogIEFDUEk6IHNjYW46IEFkZCBSSVNDLVYgaW50ZXJydXB0
-IGNvbnRyb2xsZXJzIHRvIGhvbm9yIGxpc3QKICBBQ1BJOiBzY2FuOiBEZWZpbmUgd2VhayBmdW5j
-dGlvbiB0byBwb3B1bGF0ZSBkZXBlbmRlbmNpZXMKICBBQ1BJOiBidXM6IEFkZCBSSU5UQyBJUlEg
-bW9kZWwgZm9yIFJJU0MtVgogIEFDUEk6IHBjaV9saW5rOiBDbGVhciB0aGUgZGVwZW5kZW5jaWVz
-IGFmdGVyIHByb2JlCiAgQUNQSTogUklTQy1WOiBJbXBsZW1lbnQgUENJIHJlbGF0ZWQgZnVuY3Rp
-b25hbGl0eQogIEFDUEk6IFJJU0MtVjogSW1wbGVtZW50IGZ1bmN0aW9uIHRvIHJlb3JkZXIgaXJx
-Y2hpcCBwcm9iZSBlbnRyaWVzCiAgQUNQSTogUklTQy1WOiBJbml0aWFsaXplIEdTSSBtYXBwaW5n
-IHN0cnVjdHVyZXMKICBBQ1BJOiBSSVNDLVY6IEltcGxlbWVudCBmdW5jdGlvbiB0byBhZGQgaW1w
-bGljaXQgZGVwZW5kZW5jaWVzCiAgaXJxY2hpcC9yaXNjdi1pbnRjOiBBZGQgQUNQSSBzdXBwb3J0
-IGZvciBBSUEKICBpcnFjaGlwL3Jpc2N2LWltc2ljOiBBZGQgQUNQSSBzdXBwb3J0CiAgaXJxY2hp
-cC9yaXNjdi1hcGxpYzogQWRkIEFDUEkgc3VwcG9ydAogIGlycWNoaXAvc2lmaXZlLXBsaWM6IEFk
-ZCBBQ1BJIHN1cHBvcnQKICBzZXJpYWw6IDgyNTA6IEFkZCA4MjUwX2FjcGkgZHJpdmVyCgogYXJj
-aC9hcm02NC9rZXJuZWwvcGNpLmMgICAgICAgICAgICAgICAgICAgIHwgMTkxIC0tLS0tLS0tLS0t
-LQogYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAzICsKIGFy
-Y2gvcmlzY3YvY29uZmlncy9kZWZjb25maWcgICAgICAgICAgICAgICB8ICAgMSArCiBhcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL2lycS5oICAgICAgICAgICAgICAgfCAgNTcgKysrKwogYXJjaC9yaXNj
-di9rZXJuZWwvYWNwaS5jICAgICAgICAgICAgICAgICAgIHwgIDMxICstCiBkcml2ZXJzL2FjcGkv
-S2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgfCAgIDMgKwogZHJpdmVycy9hY3BpL2J1cy5j
-ICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA0ICsKIGRyaXZlcnMvYWNwaS9wY2lfbGluay5j
-ICAgICAgICAgICAgICAgICAgICB8ICAgMyArCiBkcml2ZXJzL2FjcGkvcmlzY3YvTWFrZWZpbGUg
-ICAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvYWNwaS9yaXNjdi9pbml0LmMgICAgICAg
-ICAgICAgICAgICB8ICAxNCArCiBkcml2ZXJzL2FjcGkvcmlzY3YvaW5pdC5oICAgICAgICAgICAg
-ICAgICAgfCAgIDQgKwogZHJpdmVycy9hY3BpL3Jpc2N2L2lycS5jICAgICAgICAgICAgICAgICAg
-IHwgMzI5ICsrKysrKysrKysrKysrKysrKysrKwogZHJpdmVycy9hY3BpL3NjYW4uYyAgICAgICAg
-ICAgICAgICAgICAgICAgIHwgIDY1ICsrLS0KIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBs
-aWMtZGlyZWN0LmMgICB8ICAyMCArLQogZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1t
-YWluLmMgICAgIHwgIDcwICsrKy0tCiBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1h
-aW4uaCAgICAgfCAgIDEgKwogZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tc2kuYyAg
-ICAgIHwgICA5ICstCiBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLWVhcmx5LmMgICAg
-fCAgNTIgKysrLQogZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1wbGF0Zm9ybS5jIHwg
-IDMyICstCiBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLXN0YXRlLmMgICAgfCAxMTUg
-KysrKy0tLQogZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1zdGF0ZS5oICAgIHwgICAy
-ICstCiBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYyAgICAgICAgICAgfCAxMDIgKysr
-KysrLQogZHJpdmVycy9pcnFjaGlwL2lycS1zaWZpdmUtcGxpYy5jICAgICAgICAgIHwgIDg5ICsr
-KystLQogZHJpdmVycy9wY2kvcGNpLWFjcGkuYyAgICAgICAgICAgICAgICAgICAgIHwgMTgyICsr
-KysrKysrKysrKwogZHJpdmVycy90dHkvc2VyaWFsLzgyNTAvODI1MF9hY3BpLmMgICAgICAgIHwg
-IDk2ICsrKysrKwogZHJpdmVycy90dHkvc2VyaWFsLzgyNTAvS2NvbmZpZyAgICAgICAgICAgIHwg
-ICA4ICsKIGRyaXZlcnMvdHR5L3NlcmlhbC84MjUwL01ha2VmaWxlICAgICAgICAgICB8ICAgMSAr
-CiBpbmNsdWRlL2FjcGkvYWNwaV9idXMuaCAgICAgICAgICAgICAgICAgICAgfCAgIDIgKwogaW5j
-bHVkZS9saW51eC9hY3BpLmggICAgICAgICAgICAgICAgICAgICAgIHwgICA5ICsKIGluY2x1ZGUv
-bGludXgvaXJxY2hpcC9yaXNjdi1pbXNpYy5oICAgICAgICB8ICAxMCArCiAzMCBmaWxlcyBjaGFu
-Z2VkLCAxMTU1IGluc2VydGlvbnMoKyksIDM1MiBkZWxldGlvbnMoLSkKIGNyZWF0ZSBtb2RlIDEw
-MDY0NCBkcml2ZXJzL2FjcGkvcmlzY3YvaW5pdC5jCiBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVy
-cy9hY3BpL3Jpc2N2L2luaXQuaAogY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvYWNwaS9yaXNj
-di9pcnEuYwogY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvdHR5L3NlcmlhbC84MjUwLzgyNTBf
-YWNwaS5jCgotLSAKMi40MC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+The functions defined in arm64 for ACPI support are required
+for RISC-V also. To avoid duplication, move these functions
+to common location.
+
+Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+---
+ arch/arm64/kernel/pci.c | 191 ----------------------------------------
+ drivers/pci/pci-acpi.c  | 182 ++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 182 insertions(+), 191 deletions(-)
+
+diff --git a/arch/arm64/kernel/pci.c b/arch/arm64/kernel/pci.c
+index f872c57e9909..fd9a7bed83ce 100644
+--- a/arch/arm64/kernel/pci.c
++++ b/arch/arm64/kernel/pci.c
+@@ -6,28 +6,7 @@
+  * Copyright (C) 2014 ARM Ltd.
+  */
+ 
+-#include <linux/acpi.h>
+-#include <linux/init.h>
+-#include <linux/io.h>
+-#include <linux/kernel.h>
+-#include <linux/mm.h>
+ #include <linux/pci.h>
+-#include <linux/pci-acpi.h>
+-#include <linux/pci-ecam.h>
+-#include <linux/slab.h>
+-
+-#ifdef CONFIG_ACPI
+-/*
+- * Try to assign the IRQ number when probing a new device
+- */
+-int pcibios_alloc_irq(struct pci_dev *dev)
+-{
+-	if (!acpi_disabled)
+-		acpi_pci_irq_enable(dev);
+-
+-	return 0;
+-}
+-#endif
+ 
+ /*
+  * raw_pci_read/write - Platform-specific PCI config space access.
+@@ -61,173 +40,3 @@ int pcibus_to_node(struct pci_bus *bus)
+ EXPORT_SYMBOL(pcibus_to_node);
+ 
+ #endif
+-
+-#ifdef CONFIG_ACPI
+-
+-struct acpi_pci_generic_root_info {
+-	struct acpi_pci_root_info	common;
+-	struct pci_config_window	*cfg;	/* config space mapping */
+-};
+-
+-int acpi_pci_bus_find_domain_nr(struct pci_bus *bus)
+-{
+-	struct pci_config_window *cfg = bus->sysdata;
+-	struct acpi_device *adev = to_acpi_device(cfg->parent);
+-	struct acpi_pci_root *root = acpi_driver_data(adev);
+-
+-	return root->segment;
+-}
+-
+-int pcibios_root_bridge_prepare(struct pci_host_bridge *bridge)
+-{
+-	struct pci_config_window *cfg;
+-	struct acpi_device *adev;
+-	struct device *bus_dev;
+-
+-	if (acpi_disabled)
+-		return 0;
+-
+-	cfg = bridge->bus->sysdata;
+-
+-	/*
+-	 * On Hyper-V there is no corresponding ACPI device for a root bridge,
+-	 * therefore ->parent is set as NULL by the driver. And set 'adev' as
+-	 * NULL in this case because there is no proper ACPI device.
+-	 */
+-	if (!cfg->parent)
+-		adev = NULL;
+-	else
+-		adev = to_acpi_device(cfg->parent);
+-
+-	bus_dev = &bridge->bus->dev;
+-
+-	ACPI_COMPANION_SET(&bridge->dev, adev);
+-	set_dev_node(bus_dev, acpi_get_node(acpi_device_handle(adev)));
+-
+-	return 0;
+-}
+-
+-static int pci_acpi_root_prepare_resources(struct acpi_pci_root_info *ci)
+-{
+-	struct resource_entry *entry, *tmp;
+-	int status;
+-
+-	status = acpi_pci_probe_root_resources(ci);
+-	resource_list_for_each_entry_safe(entry, tmp, &ci->resources) {
+-		if (!(entry->res->flags & IORESOURCE_WINDOW))
+-			resource_list_destroy_entry(entry);
+-	}
+-	return status;
+-}
+-
+-/*
+- * Lookup the bus range for the domain in MCFG, and set up config space
+- * mapping.
+- */
+-static struct pci_config_window *
+-pci_acpi_setup_ecam_mapping(struct acpi_pci_root *root)
+-{
+-	struct device *dev = &root->device->dev;
+-	struct resource *bus_res = &root->secondary;
+-	u16 seg = root->segment;
+-	const struct pci_ecam_ops *ecam_ops;
+-	struct resource cfgres;
+-	struct acpi_device *adev;
+-	struct pci_config_window *cfg;
+-	int ret;
+-
+-	ret = pci_mcfg_lookup(root, &cfgres, &ecam_ops);
+-	if (ret) {
+-		dev_err(dev, "%04x:%pR ECAM region not found\n", seg, bus_res);
+-		return NULL;
+-	}
+-
+-	adev = acpi_resource_consumer(&cfgres);
+-	if (adev)
+-		dev_info(dev, "ECAM area %pR reserved by %s\n", &cfgres,
+-			 dev_name(&adev->dev));
+-	else
+-		dev_warn(dev, FW_BUG "ECAM area %pR not reserved in ACPI namespace\n",
+-			 &cfgres);
+-
+-	cfg = pci_ecam_create(dev, &cfgres, bus_res, ecam_ops);
+-	if (IS_ERR(cfg)) {
+-		dev_err(dev, "%04x:%pR error %ld mapping ECAM\n", seg, bus_res,
+-			PTR_ERR(cfg));
+-		return NULL;
+-	}
+-
+-	return cfg;
+-}
+-
+-/* release_info: free resources allocated by init_info */
+-static void pci_acpi_generic_release_info(struct acpi_pci_root_info *ci)
+-{
+-	struct acpi_pci_generic_root_info *ri;
+-
+-	ri = container_of(ci, struct acpi_pci_generic_root_info, common);
+-	pci_ecam_free(ri->cfg);
+-	kfree(ci->ops);
+-	kfree(ri);
+-}
+-
+-/* Interface called from ACPI code to setup PCI host controller */
+-struct pci_bus *pci_acpi_scan_root(struct acpi_pci_root *root)
+-{
+-	struct acpi_pci_generic_root_info *ri;
+-	struct pci_bus *bus, *child;
+-	struct acpi_pci_root_ops *root_ops;
+-	struct pci_host_bridge *host;
+-
+-	ri = kzalloc(sizeof(*ri), GFP_KERNEL);
+-	if (!ri)
+-		return NULL;
+-
+-	root_ops = kzalloc(sizeof(*root_ops), GFP_KERNEL);
+-	if (!root_ops) {
+-		kfree(ri);
+-		return NULL;
+-	}
+-
+-	ri->cfg = pci_acpi_setup_ecam_mapping(root);
+-	if (!ri->cfg) {
+-		kfree(ri);
+-		kfree(root_ops);
+-		return NULL;
+-	}
+-
+-	root_ops->release_info = pci_acpi_generic_release_info;
+-	root_ops->prepare_resources = pci_acpi_root_prepare_resources;
+-	root_ops->pci_ops = (struct pci_ops *)&ri->cfg->ops->pci_ops;
+-	bus = acpi_pci_root_create(root, root_ops, &ri->common, ri->cfg);
+-	if (!bus)
+-		return NULL;
+-
+-	/* If we must preserve the resource configuration, claim now */
+-	host = pci_find_host_bridge(bus);
+-	if (host->preserve_config)
+-		pci_bus_claim_resources(bus);
+-
+-	/*
+-	 * Assign whatever was left unassigned. If we didn't claim above,
+-	 * this will reassign everything.
+-	 */
+-	pci_assign_unassigned_root_bus_resources(bus);
+-
+-	list_for_each_entry(child, &bus->children, node)
+-		pcie_bus_configure_settings(child);
+-
+-	return bus;
+-}
+-
+-void pcibios_add_bus(struct pci_bus *bus)
+-{
+-	acpi_pci_add_bus(bus);
+-}
+-
+-void pcibios_remove_bus(struct pci_bus *bus)
+-{
+-	acpi_pci_remove_bus(bus);
+-}
+-
+-#endif
+diff --git a/drivers/pci/pci-acpi.c b/drivers/pci/pci-acpi.c
+index 004575091596..e8d84fa435da 100644
+--- a/drivers/pci/pci-acpi.c
++++ b/drivers/pci/pci-acpi.c
+@@ -15,6 +15,7 @@
+ #include <linux/pci_hotplug.h>
+ #include <linux/module.h>
+ #include <linux/pci-acpi.h>
++#include <linux/pci-ecam.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/pm_qos.h>
+ #include <linux/rwsem.h>
+@@ -1519,3 +1520,184 @@ static int __init acpi_pci_init(void)
+ 	return 0;
+ }
+ arch_initcall(acpi_pci_init);
++
++#if defined(CONFIG_ARM64)
++
++/*
++ * Try to assign the IRQ number when probing a new device
++ */
++int pcibios_alloc_irq(struct pci_dev *dev)
++{
++	if (!acpi_disabled)
++		acpi_pci_irq_enable(dev);
++
++	return 0;
++}
++
++struct acpi_pci_generic_root_info {
++	struct acpi_pci_root_info	common;
++	struct pci_config_window	*cfg;	/* config space mapping */
++};
++
++int acpi_pci_bus_find_domain_nr(struct pci_bus *bus)
++{
++	struct pci_config_window *cfg = bus->sysdata;
++	struct acpi_device *adev = to_acpi_device(cfg->parent);
++	struct acpi_pci_root *root = acpi_driver_data(adev);
++
++	return root->segment;
++}
++
++int pcibios_root_bridge_prepare(struct pci_host_bridge *bridge)
++{
++	struct pci_config_window *cfg;
++	struct acpi_device *adev;
++	struct device *bus_dev;
++
++	if (acpi_disabled)
++		return 0;
++
++	cfg = bridge->bus->sysdata;
++
++	/*
++	 * On Hyper-V there is no corresponding ACPI device for a root bridge,
++	 * therefore ->parent is set as NULL by the driver. And set 'adev' as
++	 * NULL in this case because there is no proper ACPI device.
++	 */
++	if (!cfg->parent)
++		adev = NULL;
++	else
++		adev = to_acpi_device(cfg->parent);
++
++	bus_dev = &bridge->bus->dev;
++
++	ACPI_COMPANION_SET(&bridge->dev, adev);
++	set_dev_node(bus_dev, acpi_get_node(acpi_device_handle(adev)));
++
++	return 0;
++}
++
++static int pci_acpi_root_prepare_resources(struct acpi_pci_root_info *ci)
++{
++	struct resource_entry *entry, *tmp;
++	int status;
++
++	status = acpi_pci_probe_root_resources(ci);
++	resource_list_for_each_entry_safe(entry, tmp, &ci->resources) {
++		if (!(entry->res->flags & IORESOURCE_WINDOW))
++			resource_list_destroy_entry(entry);
++	}
++	return status;
++}
++
++/*
++ * Lookup the bus range for the domain in MCFG, and set up config space
++ * mapping.
++ */
++static struct pci_config_window *
++pci_acpi_setup_ecam_mapping(struct acpi_pci_root *root)
++{
++	struct device *dev = &root->device->dev;
++	struct resource *bus_res = &root->secondary;
++	u16 seg = root->segment;
++	const struct pci_ecam_ops *ecam_ops;
++	struct resource cfgres;
++	struct acpi_device *adev;
++	struct pci_config_window *cfg;
++	int ret;
++
++	ret = pci_mcfg_lookup(root, &cfgres, &ecam_ops);
++	if (ret) {
++		dev_err(dev, "%04x:%pR ECAM region not found\n", seg, bus_res);
++		return NULL;
++	}
++
++	adev = acpi_resource_consumer(&cfgres);
++	if (adev)
++		dev_info(dev, "ECAM area %pR reserved by %s\n", &cfgres,
++			 dev_name(&adev->dev));
++	else
++		dev_warn(dev, FW_BUG "ECAM area %pR not reserved in ACPI namespace\n",
++			 &cfgres);
++
++	cfg = pci_ecam_create(dev, &cfgres, bus_res, ecam_ops);
++	if (IS_ERR(cfg)) {
++		dev_err(dev, "%04x:%pR error %ld mapping ECAM\n", seg, bus_res,
++			PTR_ERR(cfg));
++		return NULL;
++	}
++
++	return cfg;
++}
++
++/* release_info: free resources allocated by init_info */
++static void pci_acpi_generic_release_info(struct acpi_pci_root_info *ci)
++{
++	struct acpi_pci_generic_root_info *ri;
++
++	ri = container_of(ci, struct acpi_pci_generic_root_info, common);
++	pci_ecam_free(ri->cfg);
++	kfree(ci->ops);
++	kfree(ri);
++}
++
++/* Interface called from ACPI code to setup PCI host controller */
++struct pci_bus *pci_acpi_scan_root(struct acpi_pci_root *root)
++{
++	struct acpi_pci_generic_root_info *ri;
++	struct pci_bus *bus, *child;
++	struct acpi_pci_root_ops *root_ops;
++	struct pci_host_bridge *host;
++
++	ri = kzalloc(sizeof(*ri), GFP_KERNEL);
++	if (!ri)
++		return NULL;
++
++	root_ops = kzalloc(sizeof(*root_ops), GFP_KERNEL);
++	if (!root_ops) {
++		kfree(ri);
++		return NULL;
++	}
++
++	ri->cfg = pci_acpi_setup_ecam_mapping(root);
++	if (!ri->cfg) {
++		kfree(ri);
++		kfree(root_ops);
++		return NULL;
++	}
++
++	root_ops->release_info = pci_acpi_generic_release_info;
++	root_ops->prepare_resources = pci_acpi_root_prepare_resources;
++	root_ops->pci_ops = (struct pci_ops *)&ri->cfg->ops->pci_ops;
++	bus = acpi_pci_root_create(root, root_ops, &ri->common, ri->cfg);
++	if (!bus)
++		return NULL;
++
++	/* If we must preserve the resource configuration, claim now */
++	host = pci_find_host_bridge(bus);
++	if (host->preserve_config)
++		pci_bus_claim_resources(bus);
++
++	/*
++	 * Assign whatever was left unassigned. If we didn't claim above,
++	 * this will reassign everything.
++	 */
++	pci_assign_unassigned_root_bus_resources(bus);
++
++	list_for_each_entry(child, &bus->children, node)
++		pcie_bus_configure_settings(child);
++
++	return bus;
++}
++
++void pcibios_add_bus(struct pci_bus *bus)
++{
++	acpi_pci_add_bus(bus);
++}
++
++void pcibios_remove_bus(struct pci_bus *bus)
++{
++	acpi_pci_remove_bus(bus);
++}
++
++#endif
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
