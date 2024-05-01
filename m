@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790ABC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 14:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 329BEC10F1A
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 14:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A+4K2Z8Fk3sJxXmUKhTROjnBdMLjJmqlJh1EKisVgJw=; b=yxi4XRYC+XDDst
-	NDlk+j/oZUM6I9bKKZiZhsl9xTTURwKnO6tTBrZv1Gv1mPhe28xyzvGncJUIITAN7mb8UF6MpzXmB
-	qZ0XKWgHgNN9LUGsq9AGm1Yu5/7lY/F3uRvUd4sZ+/kGDqguE4PSbu0ZauzJmbwdcVBBCUveNPweQ
-	0XFjqgRVyHC0ALcKIXoVhyYtJKlP1w3wCxv9vGXkoKuyDAjwI2/5jJB7ynZHfsoDDtgSFXzG3uOna
-	P8fiyvuxrwHM3odxNF8R+3ruQr3QxBPsMjBVz+TCLeD3LQBU8o/0g+5UJ2+e898aJLGhLxH+C8xeR
-	2sL3gw971iT8xSIQ1HOA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=1Q7/oCCHAGd/RUNqWmOu/7+wrTQhIAmIvtxlnqbPBAI=; b=LuKILIK9YJDF1AmSSWv/vCkKE7
+	NyPkTxWmYpJImLE6F5oNlv0ED2IaZUTmLpFQPy3ayjSDjbvcUS8wZ8IgGQgzRrpRIpZmXnnAcincS
+	N5EN3d1As3wcIJ9uCcw/5ZrSZ705Q7IiCaXQSHVD56OnnDlYpCpVyRHnuluuxKrFYYnT4DcuSOpaw
+	vInUq6M5mdXmU3Vq3qUvMQq/7QEGablR7aYioQZckVOuwlA6QnNjmwoKOOmOlxs9CtRi3tr2HZLWT
+	PArh1plZzCF6a19j7CNqxgMMyPL9PCneSi0PjiBrsm3VYV1ZB/kTTGk+oA3hyfCqoweatWWET81Va
+	9/jOGo5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2ApA-00000009myS-1p7h;
-	Wed, 01 May 2024 14:20:44 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1s2Awp-00000009nwH-00nB;
+	Wed, 01 May 2024 14:28:39 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2Ap6-00000009mxi-415K
+	id 1s2Awl-00000009ntD-18Ye
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 14:20:42 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-790f4650f93so321662585a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 07:20:39 -0700 (PDT)
+	Wed, 01 May 2024 14:28:36 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-de60cd96bf3so1950705276.0
+        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 07:28:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1714573238; x=1715178038; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3OZdviol793TFl9mjb+jCdq8bdDZ0SVd44kIwXS0lLc=;
-        b=OrfuY3ZUT9Ai6wpw+PwmttKW50SKZ4JPuGk8c6EsVU3Wko2aQpjRf+MbKEPjgy85xA
-         DZHSSl4GvYXXKCsnRkjAmKxFL2fQE4dyjTinpxJ/UCc0TBK8l+VV5XnUtX792AHGn4Tu
-         oeQ6vFcAHes0gLwTtAyS/knc+wDS5sG21CigLpx2vbtU4ReLAN1fC+9EjTxZfaG3fhQA
-         rfreOTI93PP8m6OM9I94+gtmoAMYBDdTQ8j9TGMQtNak93ZoG9Z9jJ6+cJTmQAZKHOdm
-         5jIpCzYsf4rOvYAOVIbrmoUqsoG1aIL6KFLUJCSXeHeFy5pHbPvZb4PEBslqYX+9Aqz/
-         xr6g==
+        d=google.com; s=20230601; t=1714573703; x=1715178503; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=XN3PxGtZEQXNqntUnTfIz5xk/K9LwEoscNdYQ+/jCbc=;
+        b=ho124KpflC6ns/iEiCSj8Irfz/Uvab716H1therNhSUzDdQ3fnDbnQXarm18/IlQVe
+         po6CgSUKq+yhigf3BpRi76LpoI4SReeQ1dzLbWqjsyDES7DVaBVmpxPWcOzsj1dhMeHS
+         ChLSw+5czSgKPr9iuJvpc9Ofml3xJH+sSgsASCqMAfiD4MdW7NACOFRoifPEmxh7Ztre
+         nOOqLBQNutXNw7XaQxZz8PED/p5djJ1bRkxhI4GIcprILmT3F1UIABEr6iZTt2FPX/J9
+         6Qh84/KHP6M7xnrx+XGP7uLnUP9rgRxhC2H3368upjJbYsW3S5mJ1WcS890gR8AzpKgN
+         57zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714573238; x=1715178038;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3OZdviol793TFl9mjb+jCdq8bdDZ0SVd44kIwXS0lLc=;
-        b=gulvrYQPc+HNXLeaTEzvVK9ldQZo1M5kOUdiOyhqIQem8F7zhMcWxy9OAcTAMpMgEU
-         zyRa/yjD8RALqHJvze3OydxUVqjRevSfidRjCpHLwOuSo4lDD5Tk8Gsf354bSUajt5a0
-         jlWcrzjuxb9aVxIb/BuDwWe6wwKrQOYiZtrpYkLZuxGwz2UeFJ5qr7g5xtFZ3Q/1u8F0
-         W9AJX4+7vmUKAoKOl6nAQuHLncrwWFRIVZ3rJjDv2xfbTeBrS2v/gnUiQmo7TOjHsq00
-         5G694Fvh0G5wsOTWfi6lFq9+9B/t5DWNfTQ+egm7Dg/tEpSeX3MKD4nVunIO9pfTWbjm
-         zTug==
-X-Forwarded-Encrypted: i=1; AJvYcCWx4kFfco9ovTcMfNmA/jdZJLd5Z4QXr+olNUElDX5Bi5PpK1pMwnBBHtQVbljVwhENKTY5+j233et4iZ3PvC1KYpdL812IO9iipyLv2eSp
-X-Gm-Message-State: AOJu0YzwXzyybe3++3ps2wJHRg4OPgL2iMfDyv/JnJv++xj1UqzYJbIt
-	anb361qeYT83Vf1s4JwBzHJUvFGkOnqGWCgHk7CckBIfDjt40NV/KtuY8uGo6AQ=
-X-Google-Smtp-Source: AGHT+IFiJIn1eBd9gVbe/49MW98HCOu6t3+umtKOrKsFADYGs/1ovi0cAzILGroi/jB4gcqE/mL69A==
-X-Received: by 2002:a05:620a:2719:b0:78d:67de:50a0 with SMTP id b25-20020a05620a271900b0078d67de50a0mr3265589qkp.44.1714573238426;
-        Wed, 01 May 2024 07:20:38 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-68-80-239.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.80.239])
-        by smtp.gmail.com with ESMTPSA id q24-20020a05620a0c9800b0078d677e72f3sm12388656qki.118.2024.05.01.07.20.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 May 2024 07:20:37 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.95)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1s2Ap3-00DSge-F2;
-	Wed, 01 May 2024 11:20:37 -0300
-Date: Wed, 1 May 2024 11:20:37 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Baolu Lu <baolu.lu@linux.intel.com>
-Subject: Re: [PATCH v3 2/7] iommu/riscv: Add RISC-V IOMMU platform device
- driver
-Message-ID: <20240501142037.GC1723318@ziepe.ca>
-References: <cover.1714494653.git.tjeznach@rivosinc.com>
- <aa5592da66fe72acd4d4730f544882042e7b5293.1714494653.git.tjeznach@rivosinc.com>
- <6b4a4dc0-ac9e-43cd-bd84-447df2370dde@linux.intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <6b4a4dc0-ac9e-43cd-bd84-447df2370dde@linux.intel.com>
+        d=1e100.net; s=20230601; t=1714573703; x=1715178503;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XN3PxGtZEQXNqntUnTfIz5xk/K9LwEoscNdYQ+/jCbc=;
+        b=vOmO5NW/t+sFoLGw2yVwc5HU78nCcrkHan9kvN1IBaVwjJPUPJtAn2BG2xFB/9mH48
+         N4BMtomy4YqprYoU8AHUNZZv9Kf/t5m4utImGrCzQg1wBVg/aM1E4IAVe9Px0EaxGUfw
+         B1HVb+C6PZ+rFARTy4kPTdltFgKKVirYXmohR1SuR0zIGybg3eAzjcWj6U7b6Txn6vdG
+         4QEctqG68rBhvLLr/bQ2dOEVcf+BJL1wNmpq29+nS27eN+razpDLqJXiGuJM72s8V/mj
+         t8j26RSDGfZBMCjkuhANLsMybgxcrBzeMdiiPbiRqPQ5Hbvcv7fodESYhTJJ1DnZtsSi
+         hzyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXSbEOB9EbCzTv7t+RIBAKe7+7l+WAC4Ri/KO8zdfVht3d3BN+Kg4sI1x6jKtgLXMFISlIeL1NQOOKy0+SABLFcRK9uASPCxSB3F8c75hfU
+X-Gm-Message-State: AOJu0YzTDShrY0xXxKPYe8CFlT8eqLjeBpPejZMI6Qm+K9UxvS6k1Ak8
+	5oHngCs8+5GdU8Zfck3qX4Xg2wculFxrEP2Zuhpc5L7sSlhvwRS/GqScaGJ2ZDzSqZfCQYEipRE
+	3LA==
+X-Google-Smtp-Source: AGHT+IHUezc4IZyZaMpXPcKS4Nl6spB8OORkXUO8w6Eu/n8Z2MEF5bQ0emcAkaZbOCNg6hB5INRjxf830ZQ=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a25:a283:0:b0:de5:a44c:25af with SMTP id
+ c3-20020a25a283000000b00de5a44c25afmr1319848ybi.5.1714573703105; Wed, 01 May
+ 2024 07:28:23 -0700 (PDT)
+Date: Wed, 1 May 2024 07:28:21 -0700
+In-Reply-To: <ZjGMn5tlq8edKZYv@linux.dev>
+Mime-Version: 1.0
+References: <20240430193157.419425-1-seanjc@google.com> <ZjGMn5tlq8edKZYv@linux.dev>
+Message-ID: <ZjJRhQhX_12eBvY-@google.com>
+Subject: Re: [PATCH 0/4] KVM: Fold kvm_arch_sched_in() into kvm_arch_vcpu_load()
+From: Sean Christopherson <seanjc@google.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_072041_024644_7DEED528 
-X-CRM114-Status: GOOD (  24.78  )
+X-CRM114-CacheID: sfid-20240501_072835_425907_5C5FBE1F 
+X-CRM114-Status: GOOD (  27.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +94,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Tomasz Jeznach <tjeznach@rivosinc.com>, linux@rivosinc.com, Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 01, 2024 at 06:26:20PM +0800, Baolu Lu wrote:
-> On 2024/5/1 4:01, Tomasz Jeznach wrote:
-> > +static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
-> > +{
-> > +	u64 ddtp;
-> > +
-> > +	/*
-> > +	 * Make sure the IOMMU is switched off or in pass-through mode during regular
-> > +	 * boot flow and disable translation when we boot into a kexec kernel and the
-> > +	 * previous kernel left them enabled.
-> > +	 */
-> > +	ddtp = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_DDTP);
-> > +	if (ddtp & RISCV_IOMMU_DDTP_BUSY)
-> > +		return -EBUSY;
-> > +
-> > +	if (FIELD_GET(RISCV_IOMMU_DDTP_MODE, ddtp) > RISCV_IOMMU_DDTP_MODE_BARE) {
-> > +		if (!is_kdump_kernel())
+On Wed, May 01, 2024, Oliver Upton wrote:
+> On Tue, Apr 30, 2024 at 12:31:53PM -0700, Sean Christopherson wrote:
+> > Drop kvm_arch_sched_in() and instead pass a @sched_in boolean to
+> > kvm_arch_vcpu_load().
+> > 
+> > While fiddling with an idea for optimizing state management on AMD CPUs,
+> > I wanted to skip re-saving certain host state when a vCPU is scheduled back
+> > in, as the state (theoretically) shouldn't change for the task while it's
+> > scheduled out.  Actually doing that was annoying and unnecessarily brittle
+> > due to having a separate API for the kvm_sched_in() case (the state save
+> > needed to be in kvm_arch_vcpu_load() for the common path).
+> > 
+> > E.g. I could have set a "temporary"-ish flag somewhere in kvm_vcpu, but (a)
+> > that's gross and (b) it would rely on the arbitrary ordering between
+> > sched_in() and vcpu_load() staying the same.
 > 
-> Is kdump supported for RISC-V architectures?  If so, the documentation
-> in Documentation/admin-guide/kdump/kdump.rst might need an update.
+> Another option would be to change the rules around kvm_arch_sched_in()
+> where the callee is expected to load the vCPU context.
 > 
-> There is a possibility of ongoing DMAs during the boot process of the
-> kdump capture kernel because there's a small chance of legacy DMA setups
-> targeting any memory location. Kdump typically allows these ongoing DMA
-> transfers to complete, assuming they were intended for valid memory
-> regions.
+> The default implementation could just call kvm_arch_vcpu_load() directly
+> and the x86 implementation can order things the way it wants before
+> kvm_arch_vcpu_load().
 > 
-> The IOMMU subsystem implements a default domain deferred attachment
-> mechanism for this. In the kdump capture kernel, the whole device
-> context tables are copied from the original kernel and will be
-> overridden once the device driver calls the kernel DMA interface for the
-> first time. This assumes that all old DMA transfers are completed after
-> the driver's takeover.
+> I say this because ...
 > 
-> Will you consider this for RISC-V architecture as well?
+> > The only real downside I see is that arm64 and riscv end up having to pass
+> > "false" for their direct usage of kvm_arch_vcpu_load(), and passing boolean
+> > literals isn't ideal.  But that can be solved by adding an inner helper that
+> > omits the @sched_in param (I almost added a patch to do that, but I couldn't
+> > convince myself it was necessary).
+> 
+> Needing to pass @sched_in for other usage of kvm_arch_vcpu_load() hurts
+> readability, especially when no other architecture besides x86 cares
+> about it.
 
-It seems we decided not to do that mess in ARM..
+Yeah, that bothers me too.
 
-New architectures doing kdump should put the iommu in a full blocking
-state before handing over the next kernel, and this implies that
-devices drivers need to cleanly suspend their DMAs before going into
-the next kernel.
+I tried your suggestion of having x86's kvm_arch_sched_in() do kvm_arch_vcpu_load(),
+and even with an added kvm_arch_sched_out() to provide symmetry, the x86 code is
+kludgy, and even the common code is a bit confusing as it's not super obvious
+that kvm_sched_{in,out}() is really just kvm_arch_vcpu_{load,put}().
 
-Jason
+Staring a bit more at the vCPU flags we have, adding a "bool scheduled_out" isn't
+terribly gross if it's done in common code and persists across load() and put(),
+i.e. isn't so blatantly a temporary field.  And because it's easy, it could be
+set with WRITE_ONCE() so that if it can be read cross-task if there's ever a
+reason to do so.
+
+The x86 code ends up being less ugly, and adding future arch/vendor code for
+sched_in() *or* sched_out() requires minimal churn, e.g. arch code doesn't need
+to override kvm_arch_sched_in().
+
+The only weird part is that vcpu->preempted and vcpu->ready have slightly
+different behavior, as they are cleared before kvm_arch_vcpu_load().  But the
+weirdness is really with those flags no having symmetry, not with scheduled_out
+itself.
+
+Thoughts?
+
+static void kvm_sched_in(struct preempt_notifier *pn, int cpu)
+{
+	struct kvm_vcpu *vcpu = preempt_notifier_to_vcpu(pn);
+
+	WRITE_ONCE(vcpu->preempted, false);
+	WRITE_ONCE(vcpu->ready, false);
+
+	__this_cpu_write(kvm_running_vcpu, vcpu);
+	kvm_arch_vcpu_load(vcpu, cpu);
+
+	WRITE_ONCE(vcpu->scheduled_out, false);
+}
+
+static void kvm_sched_out(struct preempt_notifier *pn,
+			  struct task_struct *next)
+{
+	struct kvm_vcpu *vcpu = preempt_notifier_to_vcpu(pn);
+
+	WRITE_ONCE(vcpu->scheduled_out, true);
+
+	if (current->on_rq) {
+		WRITE_ONCE(vcpu->preempted, true);
+		WRITE_ONCE(vcpu->ready, true);
+	}
+	kvm_arch_vcpu_put(vcpu);
+	__this_cpu_write(kvm_running_vcpu, NULL);
+}
 
 _______________________________________________
 linux-riscv mailing list
