@@ -4,85 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 329BEC10F1A
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 14:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C85C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 14:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=1Q7/oCCHAGd/RUNqWmOu/7+wrTQhIAmIvtxlnqbPBAI=; b=LuKILIK9YJDF1AmSSWv/vCkKE7
-	NyPkTxWmYpJImLE6F5oNlv0ED2IaZUTmLpFQPy3ayjSDjbvcUS8wZ8IgGQgzRrpRIpZmXnnAcincS
-	N5EN3d1As3wcIJ9uCcw/5ZrSZ705Q7IiCaXQSHVD56OnnDlYpCpVyRHnuluuxKrFYYnT4DcuSOpaw
-	vInUq6M5mdXmU3Vq3qUvMQq/7QEGablR7aYioQZckVOuwlA6QnNjmwoKOOmOlxs9CtRi3tr2HZLWT
-	PArh1plZzCF6a19j7CNqxgMMyPL9PCneSi0PjiBrsm3VYV1ZB/kTTGk+oA3hyfCqoweatWWET81Va
-	9/jOGo5Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ujbq0uFTgIhI3PuYCdFUYRR9EYxvY24jsoizcBQBiIs=; b=1XVPyaZp2nW9Rj
+	6OXLXBkmw5O7gMvEHuKRsl0TsKBKaE6qxogyDTf/mpePixJBqbSppDR1vOe3K4mOHSkrnmxoEahbz
+	gAn4SMcbEDXTgj6eoFunPPdA/v6aitARQRp13vxr19Q47rKO1T3muQKUlx/IzHrzEBVgiHYlR4uij
+	nBrI+KBee4mtUU+y9kzmUppY6KcOUFOGKnm8MnGjBYlcX6XPm8QB8EKpcsgERQxHMoQLQ25upzREn
+	zDDlKonMToTMn5xZFFCGdRg0abVLJ5OHof4C4q1d3M2UjsJIgG35yAIjzCLXJmmKEWLR+d6CjrvRL
+	/cGx4GWlTrDh+BgcxJIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2Awp-00000009nwH-00nB;
-	Wed, 01 May 2024 14:28:39 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1s2BNk-00000009rg0-27XW;
+	Wed, 01 May 2024 14:56:28 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2Awl-00000009ntD-18Ye
+	id 1s2BNh-00000009reT-0dab
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 14:28:36 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-de60cd96bf3so1950705276.0
-        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 07:28:23 -0700 (PDT)
+	Wed, 01 May 2024 14:56:26 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-790c36dcee9so342383185a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 07:56:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1714573703; x=1715178503; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XN3PxGtZEQXNqntUnTfIz5xk/K9LwEoscNdYQ+/jCbc=;
-        b=ho124KpflC6ns/iEiCSj8Irfz/Uvab716H1therNhSUzDdQ3fnDbnQXarm18/IlQVe
-         po6CgSUKq+yhigf3BpRi76LpoI4SReeQ1dzLbWqjsyDES7DVaBVmpxPWcOzsj1dhMeHS
-         ChLSw+5czSgKPr9iuJvpc9Ofml3xJH+sSgsASCqMAfiD4MdW7NACOFRoifPEmxh7Ztre
-         nOOqLBQNutXNw7XaQxZz8PED/p5djJ1bRkxhI4GIcprILmT3F1UIABEr6iZTt2FPX/J9
-         6Qh84/KHP6M7xnrx+XGP7uLnUP9rgRxhC2H3368upjJbYsW3S5mJ1WcS890gR8AzpKgN
-         57zw==
+        d=ziepe.ca; s=google; t=1714575383; x=1715180183; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=eJGnH6JMeRVIDCgE3fOFl84u0C8yQJQw2QrSPFhIV3E=;
+        b=cr1ChBSaEbk5z4kKsi7NLdA3V4/0xevhxVPDHd8Ruaf/qDNtxUmMifGekuOLcNp3Ej
+         QaGPgXd7XN8fvbZlvty7PFQd80iKE9BV/Te1UAVdWt1GTjb3b7z8uq6pDDG3kRManDic
+         ud7CETYqs//prmHe4A+R/lvqlwBjI/zQ0C2YuwudIJ0dLDA2h+TMqxf7x1KY4xLpqBE+
+         Uy44LQmklvQLPU052Qy8h1/9pn94HGF4wBCpjS/wrOvhOFhcZKte39m1Epo7pAgIwIt3
+         7MYuMqbuKA1Ez8IpUOxTXsQHVgzewH/uJRlcPNDc2HVPqeTLPGXOinH+03PHp+37DMMj
+         UD+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714573703; x=1715178503;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XN3PxGtZEQXNqntUnTfIz5xk/K9LwEoscNdYQ+/jCbc=;
-        b=vOmO5NW/t+sFoLGw2yVwc5HU78nCcrkHan9kvN1IBaVwjJPUPJtAn2BG2xFB/9mH48
-         N4BMtomy4YqprYoU8AHUNZZv9Kf/t5m4utImGrCzQg1wBVg/aM1E4IAVe9Px0EaxGUfw
-         B1HVb+C6PZ+rFARTy4kPTdltFgKKVirYXmohR1SuR0zIGybg3eAzjcWj6U7b6Txn6vdG
-         4QEctqG68rBhvLLr/bQ2dOEVcf+BJL1wNmpq29+nS27eN+razpDLqJXiGuJM72s8V/mj
-         t8j26RSDGfZBMCjkuhANLsMybgxcrBzeMdiiPbiRqPQ5Hbvcv7fodESYhTJJ1DnZtsSi
-         hzyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXSbEOB9EbCzTv7t+RIBAKe7+7l+WAC4Ri/KO8zdfVht3d3BN+Kg4sI1x6jKtgLXMFISlIeL1NQOOKy0+SABLFcRK9uASPCxSB3F8c75hfU
-X-Gm-Message-State: AOJu0YzTDShrY0xXxKPYe8CFlT8eqLjeBpPejZMI6Qm+K9UxvS6k1Ak8
-	5oHngCs8+5GdU8Zfck3qX4Xg2wculFxrEP2Zuhpc5L7sSlhvwRS/GqScaGJ2ZDzSqZfCQYEipRE
-	3LA==
-X-Google-Smtp-Source: AGHT+IHUezc4IZyZaMpXPcKS4Nl6spB8OORkXUO8w6Eu/n8Z2MEF5bQ0emcAkaZbOCNg6hB5INRjxf830ZQ=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:a283:0:b0:de5:a44c:25af with SMTP id
- c3-20020a25a283000000b00de5a44c25afmr1319848ybi.5.1714573703105; Wed, 01 May
- 2024 07:28:23 -0700 (PDT)
-Date: Wed, 1 May 2024 07:28:21 -0700
-In-Reply-To: <ZjGMn5tlq8edKZYv@linux.dev>
-Mime-Version: 1.0
-References: <20240430193157.419425-1-seanjc@google.com> <ZjGMn5tlq8edKZYv@linux.dev>
-Message-ID: <ZjJRhQhX_12eBvY-@google.com>
-Subject: Re: [PATCH 0/4] KVM: Fold kvm_arch_sched_in() into kvm_arch_vcpu_load()
-From: Sean Christopherson <seanjc@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+        d=1e100.net; s=20230601; t=1714575383; x=1715180183;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eJGnH6JMeRVIDCgE3fOFl84u0C8yQJQw2QrSPFhIV3E=;
+        b=qD6hAX70d7owEFOuMgGf3EAihHwgab7q/6rMkjA7HJhNGGLP4KvSbOmaOujhJnpz7X
+         t8SenqCz51O+pocSfEeIYMn1uqBW5v085gxDBnaoduxDHzJYANN2sparqB47uZuUuk3T
+         s9uvDg0kGhBLGIps4dqkVe/ldsO4Cf6xS7/GYXUv64/UWd3gfIC3R07u+ff9iXGWzWj9
+         DSvSc+GSxQUA0Y8U1tU4TnyMwpdx4CvOFQiNcvYhN7X+VpafRbKiJd3EQYEhptVsbDqM
+         6OcKpQRi/lN0y+7GXMinAesQJihrK/XAdC5kTv78hypA+2j30sGrtWIwWmGWIp9TaEk/
+         fkpg==
+X-Forwarded-Encrypted: i=1; AJvYcCXUu24qJzGdM/wvXbqjM3BPvPjiP9b2IciChO9lU5S4BKbyxSvKqz910PogtM+se6+ThVOD48250TQRDA/h/tI5JPByQn7QLF29xq4GyD7q
+X-Gm-Message-State: AOJu0YxSvSvKHqx/5xKxRbJ6Jx9/SbixImPL0qnDuBubypUFsfkzApl+
+	5Ig/hOqBSdKXt19ZbR9faNjywQf3yWJaoyEqsLkj+gmiVGxezmnUKiQWTuEtYpU=
+X-Google-Smtp-Source: AGHT+IG0qIFy2caBLvcDGBIvg4IVVCR5d+JtATohiEj0n9TMLtXKBV4S0Llv/scMqMPm8vuwzEv6aw==
+X-Received: by 2002:a05:620a:1787:b0:78f:280:90f8 with SMTP id ay7-20020a05620a178700b0078f028090f8mr3155974qkb.78.1714575382931;
+        Wed, 01 May 2024 07:56:22 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-68-80-239.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.80.239])
+        by smtp.gmail.com with ESMTPSA id p2-20020a05620a22e200b00790ef37673fsm2901144qki.7.2024.05.01.07.56.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 May 2024 07:56:22 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.95)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1s2BNd-00Dc3Y-Hd;
+	Wed, 01 May 2024 11:56:21 -0300
+Date: Wed, 1 May 2024 11:56:21 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Tomasz Jeznach <tjeznach@rivosinc.com>
+Subject: Re: [PATCH v3 7/7] iommu/riscv: Paging domain support
+Message-ID: <20240501145621.GD1723318@ziepe.ca>
+References: <cover.1714494653.git.tjeznach@rivosinc.com>
+ <b83f81c04d1f3885d860b1eec03761fe63a33183.1714494653.git.tjeznach@rivosinc.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <b83f81c04d1f3885d860b1eec03761fe63a33183.1714494653.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_072835_425907_5C5FBE1F 
-X-CRM114-Status: GOOD (  27.27  )
+X-CRM114-CacheID: sfid-20240501_075625_220178_2E61D162 
+X-CRM114-Status: GOOD (  26.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,97 +90,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 01, 2024, Oliver Upton wrote:
-> On Tue, Apr 30, 2024 at 12:31:53PM -0700, Sean Christopherson wrote:
-> > Drop kvm_arch_sched_in() and instead pass a @sched_in boolean to
-> > kvm_arch_vcpu_load().
-> > 
-> > While fiddling with an idea for optimizing state management on AMD CPUs,
-> > I wanted to skip re-saving certain host state when a vCPU is scheduled back
-> > in, as the state (theoretically) shouldn't change for the task while it's
-> > scheduled out.  Actually doing that was annoying and unnecessarily brittle
-> > due to having a separate API for the kvm_sched_in() case (the state save
-> > needed to be in kvm_arch_vcpu_load() for the common path).
-> > 
-> > E.g. I could have set a "temporary"-ish flag somewhere in kvm_vcpu, but (a)
-> > that's gross and (b) it would rely on the arbitrary ordering between
-> > sched_in() and vcpu_load() staying the same.
-> 
-> Another option would be to change the rules around kvm_arch_sched_in()
-> where the callee is expected to load the vCPU context.
-> 
-> The default implementation could just call kvm_arch_vcpu_load() directly
-> and the x86 implementation can order things the way it wants before
-> kvm_arch_vcpu_load().
-> 
-> I say this because ...
-> 
-> > The only real downside I see is that arm64 and riscv end up having to pass
-> > "false" for their direct usage of kvm_arch_vcpu_load(), and passing boolean
-> > literals isn't ideal.  But that can be solved by adding an inner helper that
-> > omits the @sched_in param (I almost added a patch to do that, but I couldn't
-> > convince myself it was necessary).
-> 
-> Needing to pass @sched_in for other usage of kvm_arch_vcpu_load() hurts
-> readability, especially when no other architecture besides x86 cares
-> about it.
+On Tue, Apr 30, 2024 at 01:01:57PM -0700, Tomasz Jeznach wrote:
 
-Yeah, that bothers me too.
+> +#define iommu_domain_to_riscv(iommu_domain) \
+> +	container_of(iommu_domain, struct riscv_iommu_domain, domain)
+> +
+> +#define dev_to_domain(dev) \
+> +	iommu_domain_to_riscv(dev_iommu_priv_get(dev))
 
-I tried your suggestion of having x86's kvm_arch_sched_in() do kvm_arch_vcpu_load(),
-and even with an added kvm_arch_sched_out() to provide symmetry, the x86 code is
-kludgy, and even the common code is a bit confusing as it's not super obvious
-that kvm_sched_{in,out}() is really just kvm_arch_vcpu_{load,put}().
+Please use the priv properly and put a struct around it, you'll
+certainly need this eventually to do the rest of the advanced
+features.
 
-Staring a bit more at the vCPU flags we have, adding a "bool scheduled_out" isn't
-terribly gross if it's done in common code and persists across load() and put(),
-i.e. isn't so blatantly a temporary field.  And because it's easy, it could be
-set with WRITE_ONCE() so that if it can be read cross-task if there's ever a
-reason to do so.
+> +static void riscv_iommu_bond_unlink(struct riscv_iommu_domain *domain, struct device *dev)
+> +{
+> +	struct riscv_iommu_bond *bond, *found = NULL;
+> +	unsigned long flags;
+> +
+> +	if (!domain)
+> +		return;
+> +
+> +	spin_lock_irqsave(&domain->lock, flags);
 
-The x86 code ends up being less ugly, and adding future arch/vendor code for
-sched_in() *or* sched_out() requires minimal churn, e.g. arch code doesn't need
-to override kvm_arch_sched_in().
+This is never locked from an irq, you don't need to use the irqsave
+variations.
 
-The only weird part is that vcpu->preempted and vcpu->ready have slightly
-different behavior, as they are cleared before kvm_arch_vcpu_load().  But the
-weirdness is really with those flags no having symmetry, not with scheduled_out
-itself.
+> +	list_for_each_entry_rcu(bond, &domain->bonds, list) {
+> +		if (bond->dev == dev) {
+> +			list_del_rcu(&bond->list);
+> +			found = bond;
+> +		}
+> +	}
+> +	spin_unlock_irqrestore(&domain->lock, flags);
+> +
+> +	/* Release and wait for all read-rcu critical sections have completed. */
+> +	kfree_rcu(found, rcu);
+> +	synchronize_rcu();
 
-Thoughts?
+Please no, synchronize_rcu() on a path like this is not so
+reasonable.. Also you don't need kfree_rcu() if you write it like this.
 
-static void kvm_sched_in(struct preempt_notifier *pn, int cpu)
-{
-	struct kvm_vcpu *vcpu = preempt_notifier_to_vcpu(pn);
+This still looks better to do what I said before, put the iommu not
+the dev in the bond struct.
 
-	WRITE_ONCE(vcpu->preempted, false);
-	WRITE_ONCE(vcpu->ready, false);
 
-	__this_cpu_write(kvm_running_vcpu, vcpu);
-	kvm_arch_vcpu_load(vcpu, cpu);
+> +static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
+> +{
+> +	struct riscv_iommu_domain *domain;
+> +	struct riscv_iommu_device *iommu;
+> +
+> +	iommu = dev ? dev_to_iommu(dev) : NULL;
+> +	domain = kzalloc(sizeof(*domain), GFP_KERNEL);
+> +	if (!domain)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	INIT_LIST_HEAD_RCU(&domain->bonds);
+> +	spin_lock_init(&domain->lock);
+> +	domain->numa_node = NUMA_NO_NODE;
+> +
+> +	/*
+> +	 * Follow system address translation mode.
+> +	 * RISC-V IOMMU ATP mode values match RISC-V CPU SATP mode values.
+> +	 */
+> +	domain->pgd_mode = satp_mode >> SATP_MODE_SHIFT;
 
-	WRITE_ONCE(vcpu->scheduled_out, false);
-}
+This seems really strange, the iommu paging domains should be
+unrelated to what the CPU is doing. There is no connection between
+these two concepts.
 
-static void kvm_sched_out(struct preempt_notifier *pn,
-			  struct task_struct *next)
-{
-	struct kvm_vcpu *vcpu = preempt_notifier_to_vcpu(pn);
+Just pick a size that the iommu supports.
 
-	WRITE_ONCE(vcpu->scheduled_out, true);
+The number of radix levels is a tunable alot of iommus have that we
+haven't really exposed to anything else yet.
 
-	if (current->on_rq) {
-		WRITE_ONCE(vcpu->preempted, true);
-		WRITE_ONCE(vcpu->ready, true);
-	}
-	kvm_arch_vcpu_put(vcpu);
-	__this_cpu_write(kvm_running_vcpu, NULL);
-}
+> +	/*
+> +	 * Note: RISC-V Privilege spec mandates that virtual addresses
+> +	 * need to be sign-extended, so if (VA_BITS - 1) is set, all
+> +	 * bits >= VA_BITS need to also be set or else we'll get a
+> +	 * page fault. However the code that creates the mappings
+> +	 * above us (e.g. iommu_dma_alloc_iova()) won't do that for us
+> +	 * for now, so we'll end up with invalid virtual addresses
+> +	 * to map. As a workaround until we get this sorted out
+> +	 * limit the available virtual addresses to VA_BITS - 1.
+> +	 */
+> +	domain->domain.geometry.aperture_start = 0;
+> +	domain->domain.geometry.aperture_end = DMA_BIT_MASK(VA_BITS - 1);
+> +	domain->domain.geometry.force_aperture = true;
+
+Yikes.. This is probably the best solution long term anyhow, unless
+you need to use the last page in VFIO for some reason.
+  
+>  static int riscv_iommu_device_domain_type(struct device *dev)
+>  {
+> -	return IOMMU_DOMAIN_IDENTITY;
+> +	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+> +
+> +	if (iommu->ddt_mode == RISCV_IOMMU_DDTP_MODE_BARE)
+> +		return IOMMU_DOMAIN_IDENTITY;
+> +
+
+Is there even a point of binding an iommu driver if the HW can't
+support a DDT table? Just return -ENODEV from probe_device?
+
+Logically a iommu block that can't decode the RID has no association
+at all with a Linux struct device :)
+
+Jason
 
 _______________________________________________
 linux-riscv mailing list
