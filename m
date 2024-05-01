@@ -4,56 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B163BC19F53
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 05:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93355C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 09:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uki4AuPmJp+zMoWvKhetIosdTxr+R+RoyrDVm4mh/o8=; b=ezS4clJA/SKQz2
-	Pvdfd2mJyTUz0US7vCyyCIOEfm2gLZL0IQEkMM18skYrdu6N07+/CzQaJjYVB0dUpL5AO6HgkNPaL
-	7cX34C7uCwJXE3XBXsHScRfwS3Qe8n6dzSHB3YY1Q5eCZTTtZV1SD3pJ9lxzXv8oIjJVzTQPFx0Le
-	+l7R1m1HbyRPF+xsA/q+WSoQBmWqkqbAsy4iBHzLJ+EDQMKTzfRqIzvgqW+Wm/NQYaz3/mv1r6efm
-	/mGaKCiZllOZBY0Ab9u3VvZbeRj592idji2IXEmRo6r0tyv/HAPZEpOMnNJMEI9H3bBH7PVvDXN9M
-	gVSQ+mXcx9KY3k2nptDg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=78anHwPH7ATyXEpINeDi7UFH4HjZM3bbwTUN48NlPvE=; b=Kl+FuZhpShR8+8dGfaHp369Qwk
+	BUuvQco55aw0xUA4ebWj8SRWm856h9s6PtQ3eD/U3XGP6/ZvHSYX2eREDOIfItRK6yiSnVcm29yHn
+	tvo96fJ0fdZUaiM5HBorWuNUZ2nrzwmHDWp5Di3HXfZCkL6RTKv/MhlGRZGbZEbzp5po72G5eO3Ns
+	HakRYYwL/w6o0RW9EsCP79DrcQhGVhUxh4Acym6/jfLhzRcSp3NYCdBCLDsYdYmRitXx3yVSDGysO
+	mRBQj8AHZ7/i1+7n0F5AdXTyR7C7vpWz6BEaoEpWDduZW2ftj3qG/j1+pibNyPn260syGuyT250Ij
+	QfHJ4Xrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s22kf-00000008dhu-3PZk;
-	Wed, 01 May 2024 05:43:33 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1s26IQ-00000008z1i-3dTo;
+	Wed, 01 May 2024 09:30:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s22kW-00000008ddQ-2iA8
+	id 1s26IO-00000008z1I-3fsZ
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 01 May 2024 09:30:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=VKb2Qv4Q48BFrbkgCtOU+TMtJVAe3nV1glvc9i3axIk=; b=U853Z1AEVszfYy9k9XiCJKSTkY
+	/f4cDnm6/+hrAMvbCEnXuC+lC0ljjCfGVct7nT+HfdP1bNLpdu2ne9sMxmqU4EGTHGYbnVjQpt8VQ
+	Rs2T/WVxK4ZsMvvCJMXeLeH+fInU+ZmHahLQhxp6QNml++/Ya2wr1KuVzJ0BPdxDGVLnjHU266jZi
+	cc+8T156smqhCZtP6c+Cv/40Bvi+CKwBDuMdZbpkdyyfko24jNZDL0/90dHVJ89Vxn1gUWMWxM4VF
+	5aK8BdK10TiMylUa/PO9i/qj8zMFqDLhe2SvP6+frTxQwp4MHYiRqfe2oUPWBLVrrESi+yllV/GfD
+	AMP3ppOw==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s26IH-0000000HKBd-2G9x
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 05:43:32 +0000
-Date: Wed, 1 May 2024 15:42:44 +1000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
-	t=1714542190;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I0JjuJfRwN3PxzuU5OJDvRQPhrTURiBh6iup5xIVpTE=;
-	b=Y424BfbCPAvaTiEHva+EjwrF+C76RSvznwiqdRgCuCqTxRnj4CPCMnZcgRxIj6IJHGoWfH
-	QDA+QESm21J7Owl6Nwa43JtUtBul3458OjK+OWjihWPXsis2nkQ35huVIS2GaA+EYM92bo
-	pSi6wkVCU6jXLeu40QYL6P5vfcGM/B1CzZr6tFHol2LsuCNthYca4DosTY7W8q/uO1Y0oB
-	dsdOKMr7KJobIGPIBnci+tvmJ2r7NGGYg0swk/u4gxbde7uajDO3S8ZtWd1PLIOYmAUHX5
-	AVpikoE3IjpRbzcw/aqXp5G6Ink/LHb/tylAKunqkzV7dKkd1tifPeDv+/rSGQ==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: John Watts <contact@jookia.org>
-To: Aleksandr Shubin <privatesub2@gmail.com>
-Subject: Re: [PATCH v8 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
- support
-Message-ID: <ZjHWVEbzQ1udTcmQ@titan>
-References: <20240131125920.2879433-1-privatesub2@gmail.com>
- <20240131125920.2879433-3-privatesub2@gmail.com>
+	Wed, 01 May 2024 09:30:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 13435619B6;
+	Wed,  1 May 2024 09:30:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75548C113CC;
+	Wed,  1 May 2024 09:30:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1714555810;
+	bh=VKb2Qv4Q48BFrbkgCtOU+TMtJVAe3nV1glvc9i3axIk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uXiZGDT68FNRdgJJs8fQk/wLVPy+9rj+Vple1CDy4aaCAVWDW87ayl5ZHIqmrkSiZ
+	 6cd7vIpAbsfRShV61HV5CLeHJM7oqPnlIjz2MnLgMt5V4tWCFlwcqyh91EBc9BwuQV
+	 ctStwncTyY+1u0Ec+2T0VwMVn7XifXUyFm5Aj+WcwmhcF0c5sTOQyh9VXelBGfRdKI
+	 c+LipyiB5/TL0O+omtfQixm0FEIDLYCEDiQY2CPnowg0kP934YsllnkjPIs22MJMoi
+	 U69rn8xUzHUdbIrw7T0UFmAHVAzZO5kjJ4cwB1uv0rnzISIySVOKmyrK10gjs70On3
+	 yB4T49c5+rsww==
+Date: Wed, 1 May 2024 10:30:04 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Tomasz Jeznach <tjeznach@rivosinc.com>
+Subject: Re: [PATCH v3 1/7] dt-bindings: iommu: riscv: Add bindings for
+ RISC-V IOMMU
+Message-ID: <20240501-glare-occupier-2aee6a0aab06@spud>
+References: <cover.1714494653.git.tjeznach@rivosinc.com>
+ <ef946892252b18f541986a461fc4d37957cc805e.1714494653.git.tjeznach@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240131125920.2879433-3-privatesub2@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <ef946892252b18f541986a461fc4d37957cc805e.1714494653.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240430_224324_842828_E7EDE492 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20240501_103030_244145_2CA7CDB1 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,71 +82,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Maksim Kiselev <bigunclemax@gmail.com>, Samuel Holland <samuel@sholland.org>, Brandon Cheo Fusi <fusibrandon13@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>, Marc Kleine-Budde <mkl@pengutronix.de>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============4270955924898677518=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Wed, Jan 31, 2024 at 03:59:15PM +0300, Aleksandr Shubin wrote:
-> +	if (state->polarity != pwm->state.polarity ||
-> +	    state->duty_cycle != pwm->state.duty_cycle ||
-> +	    state->period != pwm->state.period) {
-> +		ctl = sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_CTL(pwm->hwpwm));
-> +		clk_cfg = sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_CLK_CFG(pwm->hwpwm));
-> +		hosc_rate = clk_get_rate(sun20i_chip->clk_hosc);
-> +		bus_rate = clk_get_rate(sun20i_chip->clk_apb0);
-> +		if (pwm_en & SUN20I_PWM_ENABLE_EN(pwm->hwpwm ^ 1)) {
-> +			/* if the neighbor channel is enable, check period only */
-> +			use_bus_clk = FIELD_GET(SUN20I_PWM_CLK_CFG_SRC, clk_cfg) != 0;
-> +			val = mul_u64_u64_div_u64(state->period,
-> +						  (use_bus_clk ? bus_rate : hosc_rate),
-> +						  NSEC_PER_SEC);
-> +
-> +			div_m = FIELD_GET(SUN20I_PWM_CLK_CFG_DIV_M, clk_cfg);
-> +		} else {
-> +			/* check period and select clock source */
-> +			use_bus_clk = false;
-> +			val = mul_u64_u64_div_u64(state->period, hosc_rate, NSEC_PER_SEC);
-> +			if (val <= 1) {
-> +				use_bus_clk = true;
-> +				val = mul_u64_u64_div_u64(state->period, bus_rate, NSEC_PER_SEC);
-> +				if (val <= 1) {
-> +					ret = -EINVAL;
-> +					goto unlock_mutex;
-> +				}
-> +			}
-> +			div_m = fls(DIV_ROUND_DOWN_ULL(val, SUN20I_PWM_MAGIC));
-> +			if (div_m > SUN20I_PWM_CLK_DIV_M_MAX) {
-> +				ret = -EINVAL;
-> +				goto unlock_mutex;
-> +			}
-> +
-> +			/* set up the CLK_DIV_M and clock CLK_SRC */
-> +			clk_cfg = FIELD_PREP(SUN20I_PWM_CLK_CFG_DIV_M, div_m);
-> +			clk_cfg |= FIELD_PREP(SUN20I_PWM_CLK_CFG_SRC, use_bus_clk);
-> +
-> +			sun20i_pwm_writel(sun20i_chip, clk_cfg, SUN20I_PWM_CLK_CFG(pwm->hwpwm));
-> +		}
+--===============4270955924898677518==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="/Z5SiWKVwvbIGEtZ"
+Content-Disposition: inline
 
-If I'm reading this correctly, for each PWM pair you set the clock once.
-Wouldn't this mean that the order of setting PWMs would affect the accuracy?
-It would be good to note this down perhaps?
 
-John.
+--/Z5SiWKVwvbIGEtZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> -- 
-> 2.25.1
-> 
-> 
-> _______________________________________________
-> linux-arm-kernel mailing list
-> linux-arm-kernel@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
+On Tue, Apr 30, 2024 at 01:01:51PM -0700, Tomasz Jeznach wrote:
+> Add bindings for the RISC-V IOMMU device drivers.
+>=20
+> Co-developed-by: Anup Patel <apatel@ventanamicro.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+--/Z5SiWKVwvbIGEtZ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjILnAAKCRB4tDGHoIJi
+0oaeAQDoRn7fJYpDDfUn0qu2MHETNws6s/wADmGEMh9cFwVRSwD/XtiAqhDnwD1g
+YDrbG5pZWpjKXqM3zLJ9OKiDXJqO7QE=
+=3DCc
+-----END PGP SIGNATURE-----
+
+--/Z5SiWKVwvbIGEtZ--
+
+
+--===============4270955924898677518==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4270955924898677518==--
+
