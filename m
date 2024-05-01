@@ -4,125 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68313C4345F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 13:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 416CEC25B10
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 13:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f+WAm8qVA121H0Y+ZRVsvk+WqWMidPgfQ+v0jywAsOM=; b=cmkaTdeEWfGD/A
-	pC2MNiMGv+bu+gmTsbe5X6X4Kw0Y+bWvRqvjxMTbAnPLPhg1PPTmP8UvvSwjYhB3L0eIHf6emI+IR
-	IoCPLa+Ymm84JIwF/XHYHmVTR21Oi8FvJI7fcSo8FNFD9l3032Y1gS1GE4xAezardz6mwUZfngRkS
-	dsE3I0USWnUP9vMjkv1ZWloD06YCJqq1QU/aazZbUj8/BJi800yvV/6d2spsC7A21mLH9eSDSCsi4
-	EHIxZVBmvgit9p3WCJZ0qWHXGI7ao7gzou91ZXpqR7Dv2OVPT0gHQSYQ937IrVdrfBIa3vuDt3QW7
-	IqHi99X99cda4aNz2ujw==;
+	List-Owner; bh=tZyIOEYkrXWPi2ctsuW47+6h7pDCZiWMvFbTfGjunfg=; b=DAhznYpH2A6Ox1
+	4mFyFTvCIisRr+j6obaQ1pBLlkPh8I63hLrl2jLZtYax0gzGAPJEMcevOs5lccmvwoIS1Xb3NdouM
+	05x2GjmSODklqugQSom2pZgsGoLJX0t2G6oNu20icuhJ9se9o0VkCwZM+WeCqTl4VJ9u1ZGOIl1FD
+	muWv0pxTltDmTmKZyr/ZWZ76zfyfgjc9EX9F5NOX0quN05ZUTUE5fU1dgQ6KIEhD0S10sb8daO2cN
+	+mn9xAFhx6a9QbUursTagcghmo7oD1Tf9BFMp6xD6OvA5W5P+sZd9E8KLgxZYVkbPNh3mwo6SEt0r
+	inkhBtgMH35pMcZUZcZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2A4v-00000009ggL-33ZF;
-	Wed, 01 May 2024 13:32:57 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1s2AHR-00000009iVH-2pLd;
+	Wed, 01 May 2024 13:45:53 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2A4r-00000009ge0-3L3I
+	id 1s28vD-00000009Mmn-1UxH
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 13:32:56 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-34d7b0dac54so459757f8f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 06:32:50 -0700 (PDT)
+	Wed, 01 May 2024 12:18:52 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1e4266673bbso60763195ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 05:18:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1714570370; x=1715175170; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ior2gPFVlEOyeV8FJQcXfdx4VXM0R/609sKh6Of53VM=;
-        b=QXQFgiX0B6dtjeORXjynNw8zGdnw+BcZoDFX4HOiEJx0LE64vx895r5x4x9l93u/lK
-         YoRV+ACJXi4kuIDSzwRvCeKjNTYl7Q7MrulVTqkH9jUyeJ/pAUH9VEJ+3QNjdhxGnsZW
-         DbNZwYhFHlFD0ywgpt1iYqqed9xHjmvoIfYhTOtZwVkbRUDdkFNUhrU4KIFzZEWDOUye
-         jEliuPyiQQLLHi8Z7O+7WDjrdawbrNniSzKeelX5Tm+wETUJb1wa4qfkNwbFD2GcTZk6
-         +07cFodpf5k536oofHZbVY6YwmyOLpKtumr9/f/VGWb+OPqScY9KyicVu2g/xc2vEPR0
-         /cSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714570370; x=1715175170;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=ventanamicro.com; s=google; t=1714565931; x=1715170731; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ior2gPFVlEOyeV8FJQcXfdx4VXM0R/609sKh6Of53VM=;
-        b=e4kIHiGFFDyViUZAO2mYUxRUdI8ZV8NwgZDnoc/O6ABXG3MCC5IrqWiMe3ugxSBhFr
-         RQmKoNE86XW87ty0fSnDsioYQ4SjhAEX00WyIk1KHXjZQYJPfh7IuC1FnQzkAVAWIk80
-         IrWvzsUeixLAjSKx2LZ1j6GH0mU1krtrVFd3DA/0UxLFEUJKZcf+4OP03oqZd8W5d7Fa
-         /eRIz2X75AauXCelKSM1IsZC8UFKATV6QUD0N68cBN4vWX1GPnrDn1nBG4uNspI41ZbM
-         sbAqHzkynUYeaPAFWmf+8vdbcp+QRFPa8lTFJWGKogI4g6dIfp3Aif7uT0G8cxXViDlm
-         rvJg==
-X-Forwarded-Encrypted: i=1; AJvYcCWBOf20/KetNxtCasbnQ3W22zLWougj6f77OOimZZOLTZZMkXDs87voDxxVLmdKG4zAJ6YxmGvAk9HfE6kX1LmRcbfyGOO028gANhp2Ypyz
-X-Gm-Message-State: AOJu0YyVh+iD+aklEO+DPt1np6l621HidxSqGZ2fwvvdWtqYZHjTFRx7
-	8B5VtffJhtaYC+s44rU4cLPDqoxAXDwZriXlHgdBI0N9QVXIv88ooqP9dPn2/aY=
-X-Google-Smtp-Source: AGHT+IHuNu3c35RsAkvpJAfWqKVWQhv6Z4Ac0yjTjDmpBKt12bv5Zna3drXEkGYfHrENBoZl/SwOjw==
-X-Received: by 2002:a05:6000:24f:b0:34c:bf22:73f9 with SMTP id m15-20020a056000024f00b0034cbf2273f9mr2265612wrz.28.1714570369370;
-        Wed, 01 May 2024 06:32:49 -0700 (PDT)
-Received: from localhost ([102.222.70.76])
-        by smtp.gmail.com with ESMTPSA id d4-20020adfe2c4000000b0034a3a0a753asm32876234wrj.100.2024.05.01.06.32.48
+        bh=NJK7HUkOtgooa4XBRIgNv++I9VXVR1Nc/x5AlB9DEr4=;
+        b=nf8fiv7sYaqw1rnr92A69dSp4C6CzpWnDfaHV6+3ZP5VGsdQhzSDy5UxWQJhw8MnEQ
+         35wfCZPxSyrUTybRvOGTSjv5sFMx2OPp1/3gEMFHEouYk+HxDs4mgVrtKXH9WN8Q7/XL
+         JaQ9jtRtx0aAtd8YWZDuUHRQHBf3jYM51UDMeSi8F49ax6RW1qJVY+6nSYPrBtkrql9u
+         T5LomZwhXLonyxxVtaKItue47MTSy5+WqVtR7/V63chvjaZ4wX/DRbyhjHkLDYIbXFne
+         s8yVQn92r8IYieHgie644zZ1qCgdQGUP4Bs3pbGr2Ffonpvyk5QYeTszvh5syFyblvHp
+         kMXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714565931; x=1715170731;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NJK7HUkOtgooa4XBRIgNv++I9VXVR1Nc/x5AlB9DEr4=;
+        b=Aw7PB1z9ioG1fusI21FxDXYerDwJFE4utqNNPApjeO9+LXnXfDRiLiHUaXer/1/b1b
+         fldzDgJ5QAylxPn8hr6sW1sRL76wNjESaUwYB82FHv46d1dk+yiAqNjOi5fcFMF9neB9
+         8bAtRcRBMcD0O0QhW1n6BOkN4H1NtNV1xbFFDYsZ6vief/ZbwCbbsaGWaagODK7iohMZ
+         SIHwIynu9GQBqib94osqvtBIt4sTvUs3KzYB+6GEH+NEqLOF4nE/73fBwkE4QSD/Oezy
+         5rPG6qmyxobPjjRmy9cRis60aoCInaaeU7S8lweFMy/McLI4QmLOmGjOS6sz0EhvXfLY
+         kKbg==
+X-Forwarded-Encrypted: i=1; AJvYcCUNrsT5ZgaC6ZAxQi00d4C8ZTNLEFAH1kqzlSo+cscxgY8u1wsC7NFOT45zUEW7k8Me4PuHunOhVHEb73CDD5Aq2Zib87WY0HVWF0hpenDY
+X-Gm-Message-State: AOJu0YzJlXM8mJQ5KA+oWw0N8NfcyMb140l5tPf1Cy0IG9HcQmYA2A5N
+	JtYtShBylDqevvhiovAGQUODAaZZw8+iTFvK62N+z1+j/c0QxdEH5U85Ok89SVE=
+X-Google-Smtp-Source: AGHT+IHqQHwdtyucv9ZMhP/dVbiOcapAJDdX24SUfAiXrmEd3YjBfB6sjT+VYhoitv18fuYmxMjC0Q==
+X-Received: by 2002:a17:902:eb4a:b0:1e9:470:87e6 with SMTP id i10-20020a170902eb4a00b001e9047087e6mr2178199pli.23.1714565930746;
+        Wed, 01 May 2024 05:18:50 -0700 (PDT)
+Received: from sunil-pc.Dlink ([106.51.188.106])
+        by smtp.gmail.com with ESMTPSA id im15-20020a170902bb0f00b001ec8888b22esm1336900plb.65.2024.05.01.05.18.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 May 2024 06:32:49 -0700 (PDT)
-Date: Wed, 1 May 2024 16:32:40 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Jianlong Huang <jianlong.huang@starfivetech.com>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Joel Stanley <joel@jms.id.au>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-samsung-soc@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, imx@lists.linux.dev,
-	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 01/21] pinctrl: ti: iodelay: Use scope based
- of_node_put() cleanups
-Message-ID: <ee5c8637-b8b2-491b-b011-e399942691dc@moroto.mountain>
-References: <20240501-pinctrl-cleanup-v1-0-797ceca46e5c@nxp.com>
- <20240501-pinctrl-cleanup-v1-1-797ceca46e5c@nxp.com>
+        Wed, 01 May 2024 05:18:50 -0700 (PDT)
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	acpica-devel@lists.linux.dev
+Subject: [PATCH v5 06/17] ACPI: scan: Define weak function to populate dependencies
+Date: Wed,  1 May 2024 17:47:31 +0530
+Message-Id: <20240501121742.1215792-7-sunilvl@ventanamicro.com>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
+References: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240501-pinctrl-cleanup-v1-1-797ceca46e5c@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_063253_892461_97E06AA1 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20240501_051851_434005_2C0A6070 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,79 +92,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Jiri Slaby <jirislaby@kernel.org>, Haibo1 Xu <haibo1.xu@intel.com>, Marc Zyngier <maz@kernel.org>, Robert Moore <robert.moore@intel.com>, Andrei Warkentin <andrei.warkentin@intel.com>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@linutronix.de>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Samuel Holland <samuel.holland@sifive.com>, =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>, Anup Patel <anup@brainfault.org>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 01, 2024 at 08:55:59PM +0800, Peng Fan (OSS) wrote:
-> @@ -879,16 +874,12 @@ static int ti_iodelay_probe(struct platform_device *pdev)
->  	ret = pinctrl_register_and_init(&iod->desc, dev, iod, &iod->pctl);
->  	if (ret) {
->  		dev_err(dev, "Failed to register pinctrl\n");
-> -		goto exit_out;
-> +		return ret;
->  	}
->  
->  	platform_set_drvdata(pdev, iod);
->  
->  	return pinctrl_enable(iod->pctl);
-> -
-> -exit_out:
-> -	of_node_put(np);
-> -	return ret;
->  }
+Some architectures like RISC-V need to add dependencies without explicit
+_DEP. Define a weak function which can be implemented by the architecture.
 
-This will call of_node_put() on the success path so it's a behavior
-change.  The original code is buggy, it's supposed to call of_node_put()
-on the success path here or in ti_iodelay_remove().
+Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+---
+ drivers/acpi/scan.c     | 11 +++++++++++
+ include/acpi/acpi_bus.h |  1 +
+ 2 files changed, 12 insertions(+)
 
-If it's supposed to call of_node_put() here, then fine, this is bugfix
-but if it's supposed to call it in ti_iodelay_remove() then we need to
-save the pointer somewhere using no_free_ptr().  Probably saving ->np
-is the safest choice?
-
-The original code is already a little bit buggy because it doesn't
-check for pinctrl_enable() errors and cleanup.
-
-
-diff --git a/drivers/pinctrl/ti/pinctrl-ti-iodelay.c b/drivers/pinctrl/ti/pinctrl-ti-iodelay.c
-index 040f2c46a868..f40a1476e4ff 100644
---- a/drivers/pinctrl/ti/pinctrl-ti-iodelay.c
-+++ b/drivers/pinctrl/ti/pinctrl-ti-iodelay.c
-@@ -156,6 +156,7 @@ struct ti_iodelay_device {
- 
- 	const struct ti_iodelay_reg_data *reg_data;
- 	struct ti_iodelay_reg_values reg_init_conf_values;
-+	struct device_node *np;
- };
- 
- /**
-@@ -884,7 +885,12 @@ static int ti_iodelay_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, iod);
- 
--	return pinctrl_enable(iod->pctl);
-+	ret = pinctrl_enable(iod->pctl);
-+	if (ret)
-+		goto exit_out;
-+
-+	iod->np = no_free_ptr(np);
-+	return 0;
- 
- exit_out:
- 	of_node_put(np);
-@@ -903,6 +909,7 @@ static void ti_iodelay_remove(struct platform_device *pdev)
- 		pinctrl_unregister(iod->pctl);
- 
- 	ti_iodelay_pinconf_deinit_dev(iod);
-+	of_node_put(iod->np);
- 
- 	/* Expect other allocations to be freed by devm */
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index beded069cb0a..3eeb4ce39fcc 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -2068,11 +2068,22 @@ int acpi_scan_add_dep(acpi_handle handle, struct acpi_handle_list *dep_devices)
+ 	return count;
  }
-
-
-
+ 
++u32 __weak arch_acpi_add_auto_dep(acpi_handle handle) { return 0; }
++
+ static u32 acpi_scan_check_dep(acpi_handle handle)
+ {
+ 	struct acpi_handle_list dep_devices;
+ 	u32 count = 0;
+ 
++	/*
++	 * Some architectures like RISC-V need to add dependencies for
++	 * all devices which use GSI to the interrupt controller so that
++	 * interrupt controller is probed before any of those devices.
++	 * Instead of mandating _DEP on all the devices, detect the
++	 * dependency and add automatically.
++	 */
++	count += arch_acpi_add_auto_dep(handle);
++
+ 	/*
+ 	 * Check for _HID here to avoid deferring the enumeration of:
+ 	 * 1. PCI devices.
+diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
+index 28a9b87c23fa..5fba4075d764 100644
+--- a/include/acpi/acpi_bus.h
++++ b/include/acpi/acpi_bus.h
+@@ -994,6 +994,7 @@ static inline void acpi_put_acpi_dev(struct acpi_device *adev)
+ int acpi_wait_for_acpi_ipmi(void);
+ 
+ int acpi_scan_add_dep(acpi_handle handle, struct acpi_handle_list *dep_devices);
++u32 arch_acpi_add_auto_dep(acpi_handle handle);
+ #else	/* CONFIG_ACPI */
+ 
+ static inline int register_acpi_bus_type(void *bus) { return 0; }
+-- 
+2.40.1
 
 
 _______________________________________________
