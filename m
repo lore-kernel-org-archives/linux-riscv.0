@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C841C10F1A
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 17:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45C5C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 17:24:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OJbnl7KLE/7Nvu3IrQhRLoTlFEsQzUuLlTtrsO0UDIA=; b=RTA4slG/qx3BprKeR0RRoxugwS
-	5SRqxAy0cjm6GOGG4pr/PLeLagJTHzUn+w541FOT51D6O5SydMr36+7nuzdsARarfMam2dHF+YmFj
-	715K9BdBjLx1WAVVGCMSJQFl9tQmaUFF5O2i4BwA9fVTGWKPA5R91KMgeHs5UL7ZbMuL0vfad/Uah
-	sw+qDCiqFx8EFAvTyWQ/b56y96QOUblJ8Pob1D8q3/c+EpwrobWk5zBuhiWnQjfYlaCex+iZo6Luy
-	9GWqAU76zjuuUeodct5dSWUyPs8U6Wn+C8FterY8lgIA/FJ3TfhEm2oXFITJE5SG3ocyHMCrjHmJ5
-	63P/6HPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ed3B5HShV7Rb4yx7B2uohpt5cR9C4cnKW4M1d5AD0oQ=; b=IRowl7tedBgPZa
+	VGZWIreOaXt/BBmggNurJPgRTwDV5t5k9m/nauiOb5piPf2/VH2gkuUot+A/ZbS+GPSKFo+4FqLdR
+	p+pngy7NKaQXvQknhCU5ytnGjjgtqTnjEjfGvPCbBwb9va0dUn2BrGuUie7fEwqLbET5QgLYX6yM5
+	7f4GMrUNb97xtP5e2QIIsd4JeU7s3DlPrWGMCcNggq1YzNcSi4vToGj9Sq9ArNTbH8ES7ADKPxTv6
+	0F+VPZKFb4ENGsv6mnCnXbxx6Mpw+LD3zGpqJn+6X+iEsx5PhKz7nT/DGQzGHyc+pMVDN1L2O+Nv2
+	lMjsSpdKxztL1Gp0mmKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2DcS-0000000AIRU-0Nrx;
-	Wed, 01 May 2024 17:19:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1s2Dgt-0000000AIyc-3VEQ;
+	Wed, 01 May 2024 17:24:23 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2DcO-0000000AIQ8-0gHy;
-	Wed, 01 May 2024 17:19:45 +0000
+	id 1s2Dgr-0000000AIxy-0ozI
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 May 2024 17:24:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C0D14617DF;
-	Wed,  1 May 2024 17:19:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07A04C072AA;
-	Wed,  1 May 2024 17:19:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714583981;
-	bh=mJpQKEtcJ3c2v8AHUID+6FduoqIlPGmY7MH+0xeYgrQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HMSpGVhI8L8uDLsSJJEyFBTgsakjDAs1is1XCNC2hQxzL/c3hmNjyHKnYw9L7pnNm
-	 3VrCgUo1asZ5RBoNv4kM5h9lNXbDcn//XWfzXfR8sj3XMhA6M1MgMq8QH4Gi+wWaJ5
-	 0l2lDkdkGXWlXMWPo4BAyk0qBvpH9mWWcG2UvJeygxKc85jiZz0wukD31Ex0OU/5s2
-	 gg6jbKOb2F7NJjqav6GG3wo7ox9dAtoBhAVqLdD5ZgpQImiveSIsKvm6tUjj1me2Xj
-	 npHYon9go63e2dhegSbafdb4RQwnnOedglZqjxDB5gNnJW+9JfXd8t44tI5kKN+1dT
-	 QOkkuGbs4LPzg==
-Date: Wed, 1 May 2024 18:19:34 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Charlie Jenkins <charlie@rivosinc.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v4 05/16] riscv: Extend cpufeature.c to detect vendor
- extensions
-Message-ID: <20240501-flagstone-zealous-2fc722bfad39@spud>
-References: <20240426-dev-charlie-support_thead_vector_6_9-v4-0-b692f3c516ec@rivosinc.com>
- <20240426-dev-charlie-support_thead_vector_6_9-v4-5-b692f3c516ec@rivosinc.com>
- <CALs-HstM64Hy_=XVz=0sWQt=8j1u+bq6RhthUuD3P0E4=HyvcA@mail.gmail.com>
+	by sin.source.kernel.org (Postfix) with ESMTP id CA705CE1151;
+	Wed,  1 May 2024 17:24:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 622E2C072AA;
+	Wed,  1 May 2024 17:24:14 +0000 (UTC)
+Date: Wed, 1 May 2024 13:24:58 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Stephen Brennan <stephen.s.brennan@oracle.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Guo Ren <guoren@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
+ <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
+ <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, "Naveen N. Rao"
+ <naveen.n.rao@linux.ibm.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v3] kprobe/ftrace: bail out if ftrace was killed
+Message-ID: <20240501132458.3ea28f6b@gandalf.local.home>
+In-Reply-To: <20240501162956.229427-1-stephen.s.brennan@oracle.com>
+References: <20240501162956.229427-1-stephen.s.brennan@oracle.com>
+X-Mailer: Claws Mail 3.19.1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <CALs-HstM64Hy_=XVz=0sWQt=8j1u+bq6RhthUuD3P0E4=HyvcA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_101944_285296_4EF42A70 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20240501_102421_442329_18FE2888 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +74,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0877436351085550002=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed,  1 May 2024 09:29:56 -0700
+Stephen Brennan <stephen.s.brennan@oracle.com> wrote:
 
---===============0877436351085550002==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="mVgGewDsv8YXPdzq"
-Content-Disposition: inline
+> If an error happens in ftrace, ftrace_kill() will prevent disarming
+> kprobes. Eventually, the ftrace_ops associated with the kprobes will be
+> freed, yet the kprobes will still be active, and when triggered, they
+> will use the freed memory, likely resulting in a page fault and panic.
+> 
+> This behavior can be reproduced quite easily, by creating a kprobe and
+> then triggering a ftrace_kill(). For simplicity, we can simulate an
+> ftrace error with a kernel module like [1]:
+> 
+> [1]: https://github.com/brenns10/kernel_stuff/tree/master/ftrace_killer
+> 
+>   sudo perf probe --add commit_creds
+>   sudo perf trace -e probe:commit_creds
+>   # In another terminal
+>   make
+>   sudo insmod ftrace_killer.ko  # calls ftrace_kill(), simulating bug
+>   # Back to perf terminal
+>   # ctrl-c
+>   sudo perf probe --del commit_creds
+> 
+> After a short period, a page fault and panic would occur as the kprobe
+> continues to execute and uses the freed ftrace_ops. While ftrace_kill()
+> is supposed to be used only in extreme circumstances, it is invoked in
+> FTRACE_WARN_ON() and so there are many places where an unexpected bug
+> could be triggered, yet the system may continue operating, possibly
+> without the administrator noticing. If ftrace_kill() does not panic the
+> system, then we should do everything we can to continue operating,
+> rather than leave a ticking time bomb.
+> 
+> Signed-off-by: Stephen Brennan <stephen.s.brennan@oracle.com>
+> ---
+> Changes in v3:
+>   Don't expose ftrace_is_dead(). Create a "kprobe_ftrace_disabled"
+>   variable and check it directly in the kprobe handlers.
 
+Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
 
---mVgGewDsv8YXPdzq
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks,
 
-On Wed, May 01, 2024 at 09:44:15AM -0700, Evan Green wrote:
-> On Fri, Apr 26, 2024 at 2:29=E2=80=AFPM Charlie Jenkins <charlie@rivosinc=
-=2Ecom> wrote:
-
-> > +struct riscv_isa_vendor_ext_data_list {
-> > +       const struct riscv_isa_ext_data *ext_data;
-> > +       struct riscv_isainfo *per_hart_vendor_bitmap;
-> > +       unsigned long *vendor_bitmap;
->=20
-> It took a lot of digging for me to understand this was the set of
-> vendor extensions supported on all harts. Can we add that to the name,
-> maybe something like isa_bitmap_all_harts? (I wonder if we could drop
-> the vendor part of the name since we already know we're in a
-> vendor_ext_data_list structure).
-
-Reading this made me wonder, why is the all-hart bitmap an unsigned long
-when the per hart one is a riscv_isainfo struct?
-
---mVgGewDsv8YXPdzq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjJ5pgAKCRB4tDGHoIJi
-0mvKAQDZ/PuqkdmAAHeDEhcfzV4GeMOwujPT7ib0jWzVFEvmMAEAhdzNdXJHw+cT
-qfdruwRE1FLdK0IBpLEhnxWwE/OVvgc=
-=uVOz
------END PGP SIGNATURE-----
-
---mVgGewDsv8YXPdzq--
-
-
---===============0877436351085550002==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- Steve
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0877436351085550002==--
-
