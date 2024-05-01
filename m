@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45C5C4345F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 17:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38390C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 17:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ed3B5HShV7Rb4yx7B2uohpt5cR9C4cnKW4M1d5AD0oQ=; b=IRowl7tedBgPZa
-	VGZWIreOaXt/BBmggNurJPgRTwDV5t5k9m/nauiOb5piPf2/VH2gkuUot+A/ZbS+GPSKFo+4FqLdR
-	p+pngy7NKaQXvQknhCU5ytnGjjgtqTnjEjfGvPCbBwb9va0dUn2BrGuUie7fEwqLbET5QgLYX6yM5
-	7f4GMrUNb97xtP5e2QIIsd4JeU7s3DlPrWGMCcNggq1YzNcSi4vToGj9Sq9ArNTbH8ES7ADKPxTv6
-	0F+VPZKFb4ENGsv6mnCnXbxx6Mpw+LD3zGpqJn+6X+iEsx5PhKz7nT/DGQzGHyc+pMVDN1L2O+Nv2
-	lMjsSpdKxztL1Gp0mmKQ==;
+	List-Owner; bh=DYGPXjG0pqaCJDtG7frx95QGVFFVW9dXF4lJYWhBrzE=; b=iUbw+4/qkG1skX
+	eI+hNmweK7DIxlXfRT5gQNbg6ebih9O85pQlJOQVKyEwvVfE9ozDz3VKJEZpxyWBqvmxm10KOD0vD
+	K4PBqCycwPvWlI27r2+RhbqFz3POe2e1Tq/KF/MJIbAhrXhnTDRDqC2y3lZYJGsRh2X9OEMGbNUx0
+	Ucr8Un39i2/XQbdZpp/vgxwqlHEboFqgF2uqO65NAEg39Iw16/sLonOTQFO5ax8kXV4eJDdMRojrY
+	VfMpj8Yc45G/N1dCjcSe0Hj/JB81sL0u2V7eeCAFQQfoUjX3pxrUy6pYU+xpj1kaNNAIS68hh8Y2i
+	JPXZmsi+Aj9ZB/xj2s0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2Dgt-0000000AIyc-3VEQ;
-	Wed, 01 May 2024 17:24:23 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1s2Ds7-0000000AKPk-4BFj;
+	Wed, 01 May 2024 17:36:00 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2Dgr-0000000AIxy-0ozI
+	id 1s2Ds4-0000000AKPH-11el
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 17:24:22 +0000
+	Wed, 01 May 2024 17:35:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id CA705CE1151;
-	Wed,  1 May 2024 17:24:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 622E2C072AA;
-	Wed,  1 May 2024 17:24:14 +0000 (UTC)
-Date: Wed, 1 May 2024 13:24:58 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Stephen Brennan <stephen.s.brennan@oracle.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Guo Ren <guoren@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, "James E.J.
- Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
- <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
- <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, "Naveen N. Rao"
- <naveen.n.rao@linux.ibm.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v3] kprobe/ftrace: bail out if ftrace was killed
-Message-ID: <20240501132458.3ea28f6b@gandalf.local.home>
-In-Reply-To: <20240501162956.229427-1-stephen.s.brennan@oracle.com>
-References: <20240501162956.229427-1-stephen.s.brennan@oracle.com>
-X-Mailer: Claws Mail 3.19.1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	by sin.source.kernel.org (Postfix) with ESMTP id DDFE7CE1362
+	for <linux-riscv@lists.infradead.org>; Wed,  1 May 2024 17:35:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 179C7C072AA
+	for <linux-riscv@lists.infradead.org>; Wed,  1 May 2024 17:35:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1714584950;
+	bh=i5Yel4re/gpYyg9W0x9D7AVuSGIzMUN9waF0CV8LGiA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=R9pkpSl5UAK48kK9MTTkkDCU1VEcnWBhtyXMgegsqZpCdA/pvDKmf0mW/FsE4zO51
+	 1GMlkk/ykmZN9P1sacXhMP0n0gO8oSQBqpDgWhptchJ4PsFWH/G8/uzX9Wl4uhdQpO
+	 wtCqvuP4s2l4q5UxKFNw4V2Wu0cg60hY3MwdX0DlFwVNDFUF7N9phLVRIYleHP3LD2
+	 2HW/XvAaGf2YripY3RI0Qxpe09y/0HINDZ30YRyIIylDeTWDYh9nrAtAXLaYuozsy1
+	 +9JNJekmZd0uAamxlCzpjsR2jhp9Nn1LBUtEnQEWx5ZPPe1mfpr7cvPAweuhmKsJU4
+	 MBx5E1doDZPWA==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-51ae2e37a87so8517649e87.2
+        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 10:35:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXokuhXmKxv0zzp1r33UgTuUQAwNaM6rzxSREB+ZrR0aNRZvYgODVHaNzu67+dG7Z8ztqs0lk7bjx1giOJzFd7WteDiSAlDkaksZ7I+q1Bj
+X-Gm-Message-State: AOJu0YwWszGe7+RW3YiiWqdAYhPLaECrBJlNfpb1mGaAFdSEsqub1UjP
+	+tk1DeX/Efom5x7BIOQiYPCziFDDm8iwjw4yJBJaFtWfYbghAKD6RRL/h5Lt+4Ybu4qRr7+j2g5
+	W18pi3tgAhOr0UUkGQ2rKgMMMEtc=
+X-Google-Smtp-Source: AGHT+IEhp06z8PCIlVF1hpW4hJBFp2boXUQOEcPvL4fU9iRfZCC258FtGJKDPaIGuDs/Gks4hDv4XD1KMR1DM4Yf91w=
+X-Received: by 2002:a05:6402:11c8:b0:572:315a:b2d3 with SMTP id
+ j8-20020a05640211c800b00572315ab2d3mr1958514edw.15.1714584927605; Wed, 01 May
+ 2024 10:35:27 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240501162956.229427-1-stephen.s.brennan@oracle.com>
+In-Reply-To: <20240501162956.229427-1-stephen.s.brennan@oracle.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 2 May 2024 01:35:16 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTT8a4PBU3ekZFNTi6EuETT9hhKfhXrPgGGpn92rQMNSvg@mail.gmail.com>
+Message-ID: <CAJF2gTT8a4PBU3ekZFNTi6EuETT9hhKfhXrPgGGpn92rQMNSvg@mail.gmail.com>
+Subject: Re: [PATCH v3] kprobe/ftrace: bail out if ftrace was killed
+To: Stephen Brennan <stephen.s.brennan@oracle.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, linux-kernel@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, linux-csky@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_102421_442329_18FE2888 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20240501_103556_703324_F4CD2F38 
+X-CRM114-Status: GOOD (  31.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,56 +92,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed,  1 May 2024 09:29:56 -0700
-Stephen Brennan <stephen.s.brennan@oracle.com> wrote:
-
-> If an error happens in ftrace, ftrace_kill() will prevent disarming
-> kprobes. Eventually, the ftrace_ops associated with the kprobes will be
-> freed, yet the kprobes will still be active, and when triggered, they
-> will use the freed memory, likely resulting in a page fault and panic.
-> 
-> This behavior can be reproduced quite easily, by creating a kprobe and
-> then triggering a ftrace_kill(). For simplicity, we can simulate an
-> ftrace error with a kernel module like [1]:
-> 
-> [1]: https://github.com/brenns10/kernel_stuff/tree/master/ftrace_killer
-> 
->   sudo perf probe --add commit_creds
->   sudo perf trace -e probe:commit_creds
->   # In another terminal
->   make
->   sudo insmod ftrace_killer.ko  # calls ftrace_kill(), simulating bug
->   # Back to perf terminal
->   # ctrl-c
->   sudo perf probe --del commit_creds
-> 
-> After a short period, a page fault and panic would occur as the kprobe
-> continues to execute and uses the freed ftrace_ops. While ftrace_kill()
-> is supposed to be used only in extreme circumstances, it is invoked in
-> FTRACE_WARN_ON() and so there are many places where an unexpected bug
-> could be triggered, yet the system may continue operating, possibly
-> without the administrator noticing. If ftrace_kill() does not panic the
-> system, then we should do everything we can to continue operating,
-> rather than leave a ticking time bomb.
-> 
-> Signed-off-by: Stephen Brennan <stephen.s.brennan@oracle.com>
-> ---
-> Changes in v3:
->   Don't expose ftrace_is_dead(). Create a "kprobe_ftrace_disabled"
->   variable and check it directly in the kprobe handlers.
-
-Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
-
-Thanks,
-
--- Steve
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXkgMiwgMjAyNCBhdCAxMjozMOKAr0FNIFN0ZXBoZW4gQnJlbm5hbgo8c3RlcGhl
+bi5zLmJyZW5uYW5Ab3JhY2xlLmNvbT4gd3JvdGU6Cj4KPiBJZiBhbiBlcnJvciBoYXBwZW5zIGlu
+IGZ0cmFjZSwgZnRyYWNlX2tpbGwoKSB3aWxsIHByZXZlbnQgZGlzYXJtaW5nCj4ga3Byb2Jlcy4g
+RXZlbnR1YWxseSwgdGhlIGZ0cmFjZV9vcHMgYXNzb2NpYXRlZCB3aXRoIHRoZSBrcHJvYmVzIHdp
+bGwgYmUKPiBmcmVlZCwgeWV0IHRoZSBrcHJvYmVzIHdpbGwgc3RpbGwgYmUgYWN0aXZlLCBhbmQg
+d2hlbiB0cmlnZ2VyZWQsIHRoZXkKPiB3aWxsIHVzZSB0aGUgZnJlZWQgbWVtb3J5LCBsaWtlbHkg
+cmVzdWx0aW5nIGluIGEgcGFnZSBmYXVsdCBhbmQgcGFuaWMuCj4KPiBUaGlzIGJlaGF2aW9yIGNh
+biBiZSByZXByb2R1Y2VkIHF1aXRlIGVhc2lseSwgYnkgY3JlYXRpbmcgYSBrcHJvYmUgYW5kCj4g
+dGhlbiB0cmlnZ2VyaW5nIGEgZnRyYWNlX2tpbGwoKS4gRm9yIHNpbXBsaWNpdHksIHdlIGNhbiBz
+aW11bGF0ZSBhbgo+IGZ0cmFjZSBlcnJvciB3aXRoIGEga2VybmVsIG1vZHVsZSBsaWtlIFsxXToK
+Pgo+IFsxXTogaHR0cHM6Ly9naXRodWIuY29tL2JyZW5uczEwL2tlcm5lbF9zdHVmZi90cmVlL21h
+c3Rlci9mdHJhY2Vfa2lsbGVyCj4KPiAgIHN1ZG8gcGVyZiBwcm9iZSAtLWFkZCBjb21taXRfY3Jl
+ZHMKPiAgIHN1ZG8gcGVyZiB0cmFjZSAtZSBwcm9iZTpjb21taXRfY3JlZHMKPiAgICMgSW4gYW5v
+dGhlciB0ZXJtaW5hbAo+ICAgbWFrZQo+ICAgc3VkbyBpbnNtb2QgZnRyYWNlX2tpbGxlci5rbyAg
+IyBjYWxscyBmdHJhY2Vfa2lsbCgpLCBzaW11bGF0aW5nIGJ1Zwo+ICAgIyBCYWNrIHRvIHBlcmYg
+dGVybWluYWwKPiAgICMgY3RybC1jCj4gICBzdWRvIHBlcmYgcHJvYmUgLS1kZWwgY29tbWl0X2Ny
+ZWRzCj4KPiBBZnRlciBhIHNob3J0IHBlcmlvZCwgYSBwYWdlIGZhdWx0IGFuZCBwYW5pYyB3b3Vs
+ZCBvY2N1ciBhcyB0aGUga3Byb2JlCj4gY29udGludWVzIHRvIGV4ZWN1dGUgYW5kIHVzZXMgdGhl
+IGZyZWVkIGZ0cmFjZV9vcHMuIFdoaWxlIGZ0cmFjZV9raWxsKCkKPiBpcyBzdXBwb3NlZCB0byBi
+ZSB1c2VkIG9ubHkgaW4gZXh0cmVtZSBjaXJjdW1zdGFuY2VzLCBpdCBpcyBpbnZva2VkIGluCj4g
+RlRSQUNFX1dBUk5fT04oKSBhbmQgc28gdGhlcmUgYXJlIG1hbnkgcGxhY2VzIHdoZXJlIGFuIHVu
+ZXhwZWN0ZWQgYnVnCj4gY291bGQgYmUgdHJpZ2dlcmVkLCB5ZXQgdGhlIHN5c3RlbSBtYXkgY29u
+dGludWUgb3BlcmF0aW5nLCBwb3NzaWJseQo+IHdpdGhvdXQgdGhlIGFkbWluaXN0cmF0b3Igbm90
+aWNpbmcuIElmIGZ0cmFjZV9raWxsKCkgZG9lcyBub3QgcGFuaWMgdGhlCj4gc3lzdGVtLCB0aGVu
+IHdlIHNob3VsZCBkbyBldmVyeXRoaW5nIHdlIGNhbiB0byBjb250aW51ZSBvcGVyYXRpbmcsCj4g
+cmF0aGVyIHRoYW4gbGVhdmUgYSB0aWNraW5nIHRpbWUgYm9tYi4KPgo+IFNpZ25lZC1vZmYtYnk6
+IFN0ZXBoZW4gQnJlbm5hbiA8c3RlcGhlbi5zLmJyZW5uYW5Ab3JhY2xlLmNvbT4KPiAtLS0KPiBD
+aGFuZ2VzIGluIHYzOgo+ICAgRG9uJ3QgZXhwb3NlIGZ0cmFjZV9pc19kZWFkKCkuIENyZWF0ZSBh
+ICJrcHJvYmVfZnRyYWNlX2Rpc2FibGVkIgo+ICAgdmFyaWFibGUgYW5kIGNoZWNrIGl0IGRpcmVj
+dGx5IGluIHRoZSBrcHJvYmUgaGFuZGxlcnMuCj4gTGluayB0byB2MS92MiBkaXNjdXNzaW9uOgo+
+ICAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjQwNDI2MjI1ODM0Ljk5MzM1My0xLXN0
+ZXBoZW4ucy5icmVubmFuQG9yYWNsZS5jb20vCj4KPiAgYXJjaC9jc2t5L2tlcm5lbC9wcm9iZXMv
+ZnRyYWNlLmMgICAgIHwgMyArKysKPiAgYXJjaC9sb29uZ2FyY2gva2VybmVsL2Z0cmFjZV9keW4u
+YyAgIHwgMyArKysKPiAgYXJjaC9wYXJpc2Mva2VybmVsL2Z0cmFjZS5jICAgICAgICAgIHwgMyAr
+KysKPiAgYXJjaC9wb3dlcnBjL2tlcm5lbC9rcHJvYmVzLWZ0cmFjZS5jIHwgMyArKysKPiAgYXJj
+aC9yaXNjdi9rZXJuZWwvcHJvYmVzL2Z0cmFjZS5jICAgIHwgMyArKysKPiAgYXJjaC9zMzkwL2tl
+cm5lbC9mdHJhY2UuYyAgICAgICAgICAgIHwgMyArKysKPiAgYXJjaC94ODYva2VybmVsL2twcm9i
+ZXMvZnRyYWNlLmMgICAgIHwgMyArKysKPiAgaW5jbHVkZS9saW51eC9rcHJvYmVzLmggICAgICAg
+ICAgICAgIHwgNyArKysrKysrCj4gIGtlcm5lbC9rcHJvYmVzLmMgICAgICAgICAgICAgICAgICAg
+ICB8IDYgKysrKysrCj4gIGtlcm5lbC90cmFjZS9mdHJhY2UuYyAgICAgICAgICAgICAgICB8IDEg
+Kwo+ICAxMCBmaWxlcyBjaGFuZ2VkLCAzNSBpbnNlcnRpb25zKCspCj4KPiBkaWZmIC0tZ2l0IGEv
+YXJjaC9jc2t5L2tlcm5lbC9wcm9iZXMvZnRyYWNlLmMgYi9hcmNoL2Nza3kva2VybmVsL3Byb2Jl
+cy9mdHJhY2UuYwo+IGluZGV4IDgzNGNmZmNmYmNlMy4uN2JhNGI5ODA3NmRlIDEwMDY0NAo+IC0t
+LSBhL2FyY2gvY3NreS9rZXJuZWwvcHJvYmVzL2Z0cmFjZS5jCj4gKysrIGIvYXJjaC9jc2t5L2tl
+cm5lbC9wcm9iZXMvZnRyYWNlLmMKPiBAQCAtMTIsNiArMTIsOSBAQCB2b2lkIGtwcm9iZV9mdHJh
+Y2VfaGFuZGxlcih1bnNpZ25lZCBsb25nIGlwLCB1bnNpZ25lZCBsb25nIHBhcmVudF9pcCwKPiAg
+ICAgICAgIHN0cnVjdCBrcHJvYmVfY3RsYmxrICprY2I7Cj4gICAgICAgICBzdHJ1Y3QgcHRfcmVn
+cyAqcmVnczsKPgo+ICsgICAgICAgaWYgKHVubGlrZWx5KGtwcm9iZV9mdHJhY2VfZGlzYWJsZWQp
+KQo+ICsgICAgICAgICAgICAgICByZXR1cm47Cj4gKwpGb3IgY3NreSBwYXJ0LgpBY2tlZC1ieTog
+R3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cgo+ICAgICAgICAgYml0ID0gZnRyYWNlX3Rlc3Rf
+cmVjdXJzaW9uX3RyeWxvY2soaXAsIHBhcmVudF9pcCk7Cj4gICAgICAgICBpZiAoYml0IDwgMCkK
+PiAgICAgICAgICAgICAgICAgcmV0dXJuOwo+IGRpZmYgLS1naXQgYS9hcmNoL2xvb25nYXJjaC9r
+ZXJuZWwvZnRyYWNlX2R5bi5jIGIvYXJjaC9sb29uZ2FyY2gva2VybmVsL2Z0cmFjZV9keW4uYwo+
+IGluZGV4IDczODU4YzkwMjljYy4uYmZmMDU4MzE3MDYyIDEwMDY0NAo+IC0tLSBhL2FyY2gvbG9v
+bmdhcmNoL2tlcm5lbC9mdHJhY2VfZHluLmMKPiArKysgYi9hcmNoL2xvb25nYXJjaC9rZXJuZWwv
+ZnRyYWNlX2R5bi5jCj4gQEAgLTI4Nyw2ICsyODcsOSBAQCB2b2lkIGtwcm9iZV9mdHJhY2VfaGFu
+ZGxlcih1bnNpZ25lZCBsb25nIGlwLCB1bnNpZ25lZCBsb25nIHBhcmVudF9pcCwKPiAgICAgICAg
+IHN0cnVjdCBrcHJvYmUgKnA7Cj4gICAgICAgICBzdHJ1Y3Qga3Byb2JlX2N0bGJsayAqa2NiOwo+
+Cj4gKyAgICAgICBpZiAodW5saWtlbHkoa3Byb2JlX2Z0cmFjZV9kaXNhYmxlZCkpCj4gKyAgICAg
+ICAgICAgICAgIHJldHVybjsKPiArCj4gICAgICAgICBiaXQgPSBmdHJhY2VfdGVzdF9yZWN1cnNp
+b25fdHJ5bG9jayhpcCwgcGFyZW50X2lwKTsKPiAgICAgICAgIGlmIChiaXQgPCAwKQo+ICAgICAg
+ICAgICAgICAgICByZXR1cm47Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcGFyaXNjL2tlcm5lbC9mdHJh
+Y2UuYyBiL2FyY2gvcGFyaXNjL2tlcm5lbC9mdHJhY2UuYwo+IGluZGV4IDYyMWE0YjM4NmFlNC4u
+YzkxZjljMmU2MWVkIDEwMDY0NAo+IC0tLSBhL2FyY2gvcGFyaXNjL2tlcm5lbC9mdHJhY2UuYwo+
+ICsrKyBiL2FyY2gvcGFyaXNjL2tlcm5lbC9mdHJhY2UuYwo+IEBAIC0yMDYsNiArMjA2LDkgQEAg
+dm9pZCBrcHJvYmVfZnRyYWNlX2hhbmRsZXIodW5zaWduZWQgbG9uZyBpcCwgdW5zaWduZWQgbG9u
+ZyBwYXJlbnRfaXAsCj4gICAgICAgICBzdHJ1Y3Qga3Byb2JlICpwOwo+ICAgICAgICAgaW50IGJp
+dDsKPgo+ICsgICAgICAgaWYgKHVubGlrZWx5KGtwcm9iZV9mdHJhY2VfZGlzYWJsZWQpKQo+ICsg
+ICAgICAgICAgICAgICByZXR1cm47Cj4gKwo+ICAgICAgICAgYml0ID0gZnRyYWNlX3Rlc3RfcmVj
+dXJzaW9uX3RyeWxvY2soaXAsIHBhcmVudF9pcCk7Cj4gICAgICAgICBpZiAoYml0IDwgMCkKPiAg
+ICAgICAgICAgICAgICAgcmV0dXJuOwo+IGRpZmYgLS1naXQgYS9hcmNoL3Bvd2VycGMva2VybmVs
+L2twcm9iZXMtZnRyYWNlLmMgYi9hcmNoL3Bvd2VycGMva2VybmVsL2twcm9iZXMtZnRyYWNlLmMK
+PiBpbmRleCAwNzJlYmU3ZjI5MGIuLmY4MjA4YzAyNzE0OCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Bv
+d2VycGMva2VybmVsL2twcm9iZXMtZnRyYWNlLmMKPiArKysgYi9hcmNoL3Bvd2VycGMva2VybmVs
+L2twcm9iZXMtZnRyYWNlLmMKPiBAQCAtMjEsNiArMjEsOSBAQCB2b2lkIGtwcm9iZV9mdHJhY2Vf
+aGFuZGxlcih1bnNpZ25lZCBsb25nIG5pcCwgdW5zaWduZWQgbG9uZyBwYXJlbnRfbmlwLAo+ICAg
+ICAgICAgc3RydWN0IHB0X3JlZ3MgKnJlZ3M7Cj4gICAgICAgICBpbnQgYml0Owo+Cj4gKyAgICAg
+ICBpZiAodW5saWtlbHkoa3Byb2JlX2Z0cmFjZV9kaXNhYmxlZCkpCj4gKyAgICAgICAgICAgICAg
+IHJldHVybjsKPiArCj4gICAgICAgICBiaXQgPSBmdHJhY2VfdGVzdF9yZWN1cnNpb25fdHJ5bG9j
+ayhuaXAsIHBhcmVudF9uaXApOwo+ICAgICAgICAgaWYgKGJpdCA8IDApCj4gICAgICAgICAgICAg
+ICAgIHJldHVybjsKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2Z0cmFj
+ZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2Z0cmFjZS5jCj4gaW5kZXggNzE0MmVjNDJl
+ODg5Li5hNjlkZmE2MTBhYTggMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVz
+L2Z0cmFjZS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2Z0cmFjZS5jCj4gQEAg
+LTExLDYgKzExLDkgQEAgdm9pZCBrcHJvYmVfZnRyYWNlX2hhbmRsZXIodW5zaWduZWQgbG9uZyBp
+cCwgdW5zaWduZWQgbG9uZyBwYXJlbnRfaXAsCj4gICAgICAgICBzdHJ1Y3Qga3Byb2JlX2N0bGJs
+ayAqa2NiOwo+ICAgICAgICAgaW50IGJpdDsKPgo+ICsgICAgICAgaWYgKHVubGlrZWx5KGtwcm9i
+ZV9mdHJhY2VfZGlzYWJsZWQpKQo+ICsgICAgICAgICAgICAgICByZXR1cm47Cj4gKwo+ICAgICAg
+ICAgYml0ID0gZnRyYWNlX3Rlc3RfcmVjdXJzaW9uX3RyeWxvY2soaXAsIHBhcmVudF9pcCk7Cj4g
+ICAgICAgICBpZiAoYml0IDwgMCkKPiAgICAgICAgICAgICAgICAgcmV0dXJuOwo+IGRpZmYgLS1n
+aXQgYS9hcmNoL3MzOTAva2VybmVsL2Z0cmFjZS5jIGIvYXJjaC9zMzkwL2tlcm5lbC9mdHJhY2Uu
+Ywo+IGluZGV4IGM0NjM4MWVhMDRlYy4uN2Y2ZjhjNDM4YzI2IDEwMDY0NAo+IC0tLSBhL2FyY2gv
+czM5MC9rZXJuZWwvZnRyYWNlLmMKPiArKysgYi9hcmNoL3MzOTAva2VybmVsL2Z0cmFjZS5jCj4g
+QEAgLTI5Niw2ICsyOTYsOSBAQCB2b2lkIGtwcm9iZV9mdHJhY2VfaGFuZGxlcih1bnNpZ25lZCBs
+b25nIGlwLCB1bnNpZ25lZCBsb25nIHBhcmVudF9pcCwKPiAgICAgICAgIHN0cnVjdCBrcHJvYmUg
+KnA7Cj4gICAgICAgICBpbnQgYml0Owo+Cj4gKyAgICAgICBpZiAodW5saWtlbHkoa3Byb2JlX2Z0
+cmFjZV9kaXNhYmxlZCkpCj4gKyAgICAgICAgICAgICAgIHJldHVybjsKPiArCj4gICAgICAgICBi
+aXQgPSBmdHJhY2VfdGVzdF9yZWN1cnNpb25fdHJ5bG9jayhpcCwgcGFyZW50X2lwKTsKPiAgICAg
+ICAgIGlmIChiaXQgPCAwKQo+ICAgICAgICAgICAgICAgICByZXR1cm47Cj4gZGlmZiAtLWdpdCBh
+L2FyY2gveDg2L2tlcm5lbC9rcHJvYmVzL2Z0cmFjZS5jIGIvYXJjaC94ODYva2VybmVsL2twcm9i
+ZXMvZnRyYWNlLmMKPiBpbmRleCBkZDJlYzE0YWRiNzcuLjE1YWY3ZTk4ZTE2MSAxMDA2NDQKPiAt
+LS0gYS9hcmNoL3g4Ni9rZXJuZWwva3Byb2Jlcy9mdHJhY2UuYwo+ICsrKyBiL2FyY2gveDg2L2tl
+cm5lbC9rcHJvYmVzL2Z0cmFjZS5jCj4gQEAgLTIxLDYgKzIxLDkgQEAgdm9pZCBrcHJvYmVfZnRy
+YWNlX2hhbmRsZXIodW5zaWduZWQgbG9uZyBpcCwgdW5zaWduZWQgbG9uZyBwYXJlbnRfaXAsCj4g
+ICAgICAgICBzdHJ1Y3Qga3Byb2JlX2N0bGJsayAqa2NiOwo+ICAgICAgICAgaW50IGJpdDsKPgo+
+ICsgICAgICAgaWYgKHVubGlrZWx5KGtwcm9iZV9mdHJhY2VfZGlzYWJsZWQpKQo+ICsgICAgICAg
+ICAgICAgICByZXR1cm47Cj4gKwo+ICAgICAgICAgYml0ID0gZnRyYWNlX3Rlc3RfcmVjdXJzaW9u
+X3RyeWxvY2soaXAsIHBhcmVudF9pcCk7Cj4gICAgICAgICBpZiAoYml0IDwgMCkKPiAgICAgICAg
+ICAgICAgICAgcmV0dXJuOwo+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L2twcm9iZXMuaCBi
+L2luY2x1ZGUvbGludXgva3Byb2Jlcy5oCj4gaW5kZXggMGZmNDRkNjYzM2UzLi41ZmNiYzI1NGQx
+ODYgMTAwNjQ0Cj4gLS0tIGEvaW5jbHVkZS9saW51eC9rcHJvYmVzLmgKPiArKysgYi9pbmNsdWRl
+L2xpbnV4L2twcm9iZXMuaAo+IEBAIC0zNzgsMTEgKzM3OCwxNSBAQCBzdGF0aWMgaW5saW5lIHZv
+aWQgd2FpdF9mb3Jfa3Byb2JlX29wdGltaXplcih2b2lkKSB7IH0KPiAgZXh0ZXJuIHZvaWQga3By
+b2JlX2Z0cmFjZV9oYW5kbGVyKHVuc2lnbmVkIGxvbmcgaXAsIHVuc2lnbmVkIGxvbmcgcGFyZW50
+X2lwLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgZnRyYWNlX29w
+cyAqb3BzLCBzdHJ1Y3QgZnRyYWNlX3JlZ3MgKmZyZWdzKTsKPiAgZXh0ZXJuIGludCBhcmNoX3By
+ZXBhcmVfa3Byb2JlX2Z0cmFjZShzdHJ1Y3Qga3Byb2JlICpwKTsKPiArLyogU2V0IHdoZW4gZnRy
+YWNlIGhhcyBiZWVuIGtpbGxlZDoga3Byb2JlcyBvbiBmdHJhY2UgbXVzdCBiZSBkaXNhYmxlZCBm
+b3Igc2FmZXR5ICovCj4gK2V4dGVybiBib29sIGtwcm9iZV9mdHJhY2VfZGlzYWJsZWQgX19yZWFk
+X21vc3RseTsKPiArZXh0ZXJuIHZvaWQga3Byb2JlX2Z0cmFjZV9raWxsKHZvaWQpOwo+ICAjZWxz
+ZQo+ICBzdGF0aWMgaW5saW5lIGludCBhcmNoX3ByZXBhcmVfa3Byb2JlX2Z0cmFjZShzdHJ1Y3Qg
+a3Byb2JlICpwKQo+ICB7Cj4gICAgICAgICByZXR1cm4gLUVJTlZBTDsKPiAgfQo+ICtzdGF0aWMg
+aW5saW5lIHZvaWQga3Byb2JlX2Z0cmFjZV9raWxsKHZvaWQpIHt9Cj4gICNlbmRpZiAvKiBDT05G
+SUdfS1BST0JFU19PTl9GVFJBQ0UgKi8KPgo+ICAvKiBHZXQgdGhlIGtwcm9iZSBhdCB0aGlzIGFk
+ZHIgKGlmIGFueSkgLSBjYWxsZWQgd2l0aCBwcmVlbXB0aW9uIGRpc2FibGVkICovCj4gQEAgLTQ5
+NSw2ICs0OTksOSBAQCBzdGF0aWMgaW5saW5lIHZvaWQga3Byb2JlX2ZsdXNoX3Rhc2soc3RydWN0
+IHRhc2tfc3RydWN0ICp0aykKPiAgc3RhdGljIGlubGluZSB2b2lkIGtwcm9iZV9mcmVlX2luaXRf
+bWVtKHZvaWQpCj4gIHsKPiAgfQo+ICtzdGF0aWMgaW5saW5lIHZvaWQga3Byb2JlX2Z0cmFjZV9r
+aWxsKHZvaWQpCj4gK3sKPiArfQo+ICBzdGF0aWMgaW5saW5lIGludCBkaXNhYmxlX2twcm9iZShz
+dHJ1Y3Qga3Byb2JlICprcCkKPiAgewo+ICAgICAgICAgcmV0dXJuIC1FT1BOT1RTVVBQOwo+IGRp
+ZmYgLS1naXQgYS9rZXJuZWwva3Byb2Jlcy5jIGIva2VybmVsL2twcm9iZXMuYwo+IGluZGV4IDY1
+YWRjODE1ZmM2ZS4uMTY2ZWJmODFkYzQ1IDEwMDY0NAo+IC0tLSBhL2tlcm5lbC9rcHJvYmVzLmMK
+PiArKysgYi9rZXJuZWwva3Byb2Jlcy5jCj4gQEAgLTEwNjgsNiArMTA2OCw3IEBAIHN0YXRpYyBz
+dHJ1Y3QgZnRyYWNlX29wcyBrcHJvYmVfaXBtb2RpZnlfb3BzIF9fcmVhZF9tb3N0bHkgPSB7Cj4K
+PiAgc3RhdGljIGludCBrcHJvYmVfaXBtb2RpZnlfZW5hYmxlZDsKPiAgc3RhdGljIGludCBrcHJv
+YmVfZnRyYWNlX2VuYWJsZWQ7Cj4gK2Jvb2wga3Byb2JlX2Z0cmFjZV9kaXNhYmxlZDsKPgo+ICBz
+dGF0aWMgaW50IF9fYXJtX2twcm9iZV9mdHJhY2Uoc3RydWN0IGtwcm9iZSAqcCwgc3RydWN0IGZ0
+cmFjZV9vcHMgKm9wcywKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ICpjbnQp
+Cj4gQEAgLTExMzYsNiArMTEzNywxMSBAQCBzdGF0aWMgaW50IGRpc2FybV9rcHJvYmVfZnRyYWNl
+KHN0cnVjdCBrcHJvYmUgKnApCj4gICAgICAgICAgICAgICAgIGlwbW9kaWZ5ID8gJmtwcm9iZV9p
+cG1vZGlmeV9vcHMgOiAma3Byb2JlX2Z0cmFjZV9vcHMsCj4gICAgICAgICAgICAgICAgIGlwbW9k
+aWZ5ID8gJmtwcm9iZV9pcG1vZGlmeV9lbmFibGVkIDogJmtwcm9iZV9mdHJhY2VfZW5hYmxlZCk7
+Cj4gIH0KPiArCj4gK3ZvaWQga3Byb2JlX2Z0cmFjZV9raWxsKCkKPiArewo+ICsgICAgICAga3By
+b2JlX2Z0cmFjZV9kaXNhYmxlZCA9IHRydWU7Cj4gK30KPiAgI2Vsc2UgIC8qICFDT05GSUdfS1BS
+T0JFU19PTl9GVFJBQ0UgKi8KPiAgc3RhdGljIGlubGluZSBpbnQgYXJtX2twcm9iZV9mdHJhY2Uo
+c3RydWN0IGtwcm9iZSAqcCkKPiAgewo+IGRpZmYgLS1naXQgYS9rZXJuZWwvdHJhY2UvZnRyYWNl
+LmMgYi9rZXJuZWwvdHJhY2UvZnRyYWNlLmMKPiBpbmRleCBkYTE3MTA0OTk2OTguLjk2ZGI5OWMz
+NDdiMyAxMDA2NDQKPiAtLS0gYS9rZXJuZWwvdHJhY2UvZnRyYWNlLmMKPiArKysgYi9rZXJuZWwv
+dHJhY2UvZnRyYWNlLmMKPiBAQCAtNzg5NSw2ICs3ODk1LDcgQEAgdm9pZCBmdHJhY2Vfa2lsbCh2
+b2lkKQo+ICAgICAgICAgZnRyYWNlX2Rpc2FibGVkID0gMTsKPiAgICAgICAgIGZ0cmFjZV9lbmFi
+bGVkID0gMDsKPiAgICAgICAgIGZ0cmFjZV90cmFjZV9mdW5jdGlvbiA9IGZ0cmFjZV9zdHViOwo+
+ICsgICAgICAga3Byb2JlX2Z0cmFjZV9raWxsKCk7Cj4gIH0KPgo+ICAvKioKPiAtLQo+IDIuMzku
+Mwo+CgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
