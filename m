@@ -4,58 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8537FC4345F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 13:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60BF7C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 13:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8XpY0E6Fv/0FVZm7xaG/rSLzFJjqsbIqMdZxk++V71M=; b=0QmkIid5FSMstY
-	tYXmeUtmLAXzE8wsIkRLwmmiqGhO9j5O9pHMckmX4axOSG5BLk0ZtyufCaEa0uZ98EgJbuspR+kiL
-	SOmJW4nYtCx6IQMRI27+2s2akXQnpMl/jUmICVogLun6Ky7RGPx6Ls7OpxykSjzBhMMTWAkF1eiR/
-	nbk5LkAbUZOGWN95uaHEBJM3xrItajl2Pw3+gmRCxS8Tni6YaaJwGXFAst18lOvJadGdo7rm6R8Tq
-	503MH6PhoTw9thCOc//S6eemMtv9QJ7tdy0XrTsXnVY/TsChw0du9DKieJ4Ug2Uk4tIpFOeE755g8
-	tcy7vSwaXO7JM+YUlKUg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=k/uRMBjrFOfxA5YH900CR4guyPfVeTvU4XiMSjGaG08=; b=xo/CozsCd0BQpeZg2jxo7QJLP2
+	4mU/1CfEbLrYQ3Y/HhsIX2nXYRJRGM9WxNW1lDXW80yf+a6/qS8RIKAcbDeYb0ojsF5DM8h2sOhwd
+	t1VX7HPjd8o5sCuHj2RDj846IeM0psuhFtCb69XezxJCujyxannQWHyR7RxOMhYEfzKupPw0m1gJF
+	Ee9YemdEVOasVm9yTWILtXa/r3d6YhSCwevnfHawvQnmlp9WBrM20Fwf86lxGmU7oprB3pTDVe3ZO
+	YSQQ6ovnfArZB0APBqGX7ReLRweAKO7rHWWO6Ylz20eegmVeZKRuKq/i42CamWy7QdVbVAm3hBg52
+	bPhPuRKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s29oc-00000009ewl-45N7;
-	Wed, 01 May 2024 13:16:06 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1s2A3e-00000009gUj-2Ou8;
+	Wed, 01 May 2024 13:31:38 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s29oY-00000009evw-2x8V
+	id 1s2A3b-00000009gR7-0K8l
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 13:16:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id E4A07CE1296;
-	Wed,  1 May 2024 13:15:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB29CC113CC;
-	Wed,  1 May 2024 13:15:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714569358;
-	bh=SMu5/M35r01oC6tcgA4Z1ZBtXBnVinplRgHwFdbOwr0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pm4Q5Ph39GLGiVEE/QaDTi0gKuPAeN1O01XoJX9DrPoh2dcDynVlEYEFGEEAky2IJ
-	 +8IyRM5ala3q6kWdwMTZMZIxtkRDAHMA8p7etduck+xjB94Gxpl/vd6SPNWWAzjy7y
-	 +IVTDaPtcTR6A6cQlo7qghD5ImdJQIRcMfHH5exIXa49WToCQ0DRaoWpjke7rgmckT
-	 8F+tL1/aXnzlKttsx7LTYw6N5lzfFHGSmof+YEpD0hkn3pCS7etdkF3VBMXb8lOOdM
-	 lkmXKNZ9nuwa4qvP3uLt0MRt19ovJ4ZA5MYS5ca8rWDSap3x3ie62ODZgoWLbVDJEx
-	 IAwqlVdKFC+1Q==
-Date: Wed, 1 May 2024 08:15:56 -0500
-From: Rob Herring <robh@kernel.org>
-To: Tomasz Jeznach <tjeznach@rivosinc.com>
-Subject: Re: [PATCH v3 1/7] dt-bindings: iommu: riscv: Add bindings for
- RISC-V IOMMU
-Message-ID: <20240501131556.GA2931109-robh@kernel.org>
-References: <cover.1714494653.git.tjeznach@rivosinc.com>
- <ef946892252b18f541986a461fc4d37957cc805e.1714494653.git.tjeznach@rivosinc.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ef946892252b18f541986a461fc4d37957cc805e.1714494653.git.tjeznach@rivosinc.com>
+	Wed, 01 May 2024 13:31:36 +0000
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com [209.85.218.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 39F913FE61
+	for <linux-riscv@lists.infradead.org>; Wed,  1 May 2024 13:31:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1714570286;
+	bh=c8oK9gFYZNPK8JjkQaEUib/TlJXrHwdRQFsXpehmfQo=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=kLpEhbsQKAmOM+/lYM/nwywFP/vMXIwxqs0SFQAbHFU7voZX/HFHGmjAjtCetat+y
+	 2fYQVui7XZZXnLqX6SwmPlD1PyChoxtAzGFwCMRS7Zto7wScUeU3jL97+ui1l+ALFS
+	 +vOp4qJwbW0uYF+PNgu5kuh6VPP6bKyaynCbu+Scg/t5QDTl1vF/IcOwg+Dn3zjjMf
+	 +pBCb6Tfstv5DwwKW9Eeegu8ZfVdQJ10Q3dBSDr0mSUPPoNqdCv0923lmaE/ZOfx+j
+	 kyQDRVS26AvYK8E4SR5/kKjzhWpH9RPwqmnZvDTpA2TtA8JGJvGFC6+j5x6WJMKd+Z
+	 q4juy9FhFo5wQ==
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-a5907df2d8dso68788366b.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 06:31:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714570279; x=1715175079;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=c8oK9gFYZNPK8JjkQaEUib/TlJXrHwdRQFsXpehmfQo=;
+        b=v29w2WKptRJfOHya0U1sjizml7YXvZ+L6qAeOKedoqcbZVZ7oW8T7Q0Hn75O5EhBgx
+         XzMPWmT7bIoYP8JptsJ7Q1mE9rcEeV9NHD7pX9KVwhxTVWQHR+P9OvWMpa2YfgaQMifT
+         J6NVjeUsUsufGJbH7Nj4piHBLVjmoisEnrj8qH+j8AM6nJUvd3haAoPs8L94DsfANl5T
+         DZt+N5BnDx0qIt039G56rVq8d+h1b5SJqMulkBK9FWAvROdpZx7ZBqeW6GwBm5R3wC34
+         oAh/b6FC8FJwWwW0YDGQ0WYff0iOnP6GDjmft+ZHmhql0GAbT4Ku95TvJYbjHCjpp1HF
+         g8OQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVGmcoYTC6umC4y6juZQT+Ym7LpDU9WFdchLaaFvTcQt07JE0OO8z7ECFLAkNmkEA79K7Cs2rvvk7HlOXqT3v4FTTrP6cVV0TMLPFH86ws8
+X-Gm-Message-State: AOJu0YztshCwakez6MEjoZoPti3NPb0PGcsujIhu7Q+9xTQOR4rzO40x
+	zGmEf7htb4wAZVZNZEKLaf7QizFCWi1sZhqM2lomWkTJo9ZZI5HdN3wVdeniVEPcZM0SeSSEPrq
+	D24waxcjn8bohgtUX+SBMz9/uXco7AJuQPA5Da+ZB7zRLU7Agu84ObVxg2wfyXuF+xruZczDweT
+	JDUgpypduBQ9B55euQETdAjPkd4HVXQMGqE88TV5kn0V7pL3xVpgooPWs9
+X-Received: by 2002:a2e:a7ce:0:b0:2df:8ce6:96cb with SMTP id x14-20020a2ea7ce000000b002df8ce696cbmr955458ljp.8.1714570258120;
+        Wed, 01 May 2024 06:30:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEYT+qTSOE1Kr9KmhXevsjrdrGfobx9Pel64hRtY96pMsR8tg00NtEJfiVi5E4mSMS1jyTIKo1grrZjSHhuefw=
+X-Received: by 2002:a2e:a7ce:0:b0:2df:8ce6:96cb with SMTP id
+ x14-20020a2ea7ce000000b002df8ce696cbmr955417ljp.8.1714570257684; Wed, 01 May
+ 2024 06:30:57 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 1 May 2024 08:30:56 -0500
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20240501-pinctrl-cleanup-v1-5-797ceca46e5c@nxp.com>
+References: <20240501-pinctrl-cleanup-v1-0-797ceca46e5c@nxp.com> <20240501-pinctrl-cleanup-v1-5-797ceca46e5c@nxp.com>
+Mime-Version: 1.0
+Date: Wed, 1 May 2024 08:30:56 -0500
+Message-ID: <CAJM55Z9RuobAMR4EaevhTPRsJe3vuruV7-_DTQYpH_w8_azkcA@mail.gmail.com>
+Subject: Re: [PATCH 05/21] pinctrl: starfive: Use scope based of_node_put() cleanups
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
+	Hal Feng <hal.feng@starfivetech.com>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Damien Le Moal <dlemoal@kernel.org>, Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Chester Lin <chester62515@gmail.com>, 
+	Matthias Brugger <mbrugger@suse.com>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+	Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Joel Stanley <joel@jms.id.au>, Dan Carpenter <dan.carpenter@linaro.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-samsung-soc@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	imx@lists.linux.dev, linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
+	Peng Fan <peng.fan@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_061603_140271_EC90EF57 
-X-CRM114-Status: GOOD (  26.63  )
+X-CRM114-CacheID: sfid-20240501_063135_422919_C6E78A26 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,215 +121,229 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 30, 2024 at 01:01:51PM -0700, Tomasz Jeznach wrote:
-> Add bindings for the RISC-V IOMMU device drivers.
-> 
-> Co-developed-by: Anup Patel <apatel@ventanamicro.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Use scope based of_node_put() cleanup to simplify code.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+
+Acked-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+
 > ---
->  .../bindings/iommu/riscv,iommu.yaml           | 150 ++++++++++++++++++
->  MAINTAINERS                                   |   7 +
->  2 files changed, 157 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-> new file mode 100644
-> index 000000000000..16817525e157
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-> @@ -0,0 +1,150 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/iommu/riscv,iommu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V IOMMU Architecture Implementation
-> +
-> +maintainers:
-> +  - Tomasz Jeznach <tjeznach@rivosinc.com>
-> +
-> +description: |
-> +  The RISC-V IOMMU provides memory address translation and isolation for
-> +  input and output devices, supporting per-device translation context,
-> +  shared process address spaces including the ATS and PRI components of
-> +  the PCIe specification, two stage address translation and MSI remapping.
-> +  It supports identical translation table format to the RISC-V address
-> +  translation tables with page level access and protection attributes.
-> +  Hardware uses in-memory command and fault reporting queues with wired
-> +  interrupt or MSI notifications.
-> +
-> +  Visit https://github.com/riscv-non-isa/riscv-iommu for more details.
-> +
-> +  For information on assigning RISC-V IOMMU to its peripheral devices,
-> +  see generic IOMMU bindings.
-> +
-> +properties:
-> +  # For PCIe IOMMU hardware compatible property should contain the vendor
-> +  # and device ID according to the PCI Bus Binding specification.
-> +  # Since PCI provides built-in identification methods, compatible is not
-> +  # actually required. For non-PCIe hardware implementations 'riscv,iommu'
-> +  # should be specified along with 'reg' property providing MMIO location.
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - qemu,iommu
-
-'qemu,iommu' is too broad. Could be other QEMU implementations of an 
-IOMMU. So 'qemu,riscv-iommu'.
-
-
-> +          - const: riscv,iommu
-> +      - items:
-> +          - enum:
-> +              - pci1efd,edf1
-> +          - const: riscv,pci-iommu
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description:
-> +      For non-PCI devices this represents base address and size of for the
-> +      IOMMU memory mapped registers interface.
-> +      For PCI IOMMU hardware implementation this should represent an address
-> +      of the IOMMU, as defined in the PCI Bus Binding reference. The reg
-> +      property is a five-cell address encoded as (phys.hi phys.mid phys.lo
-> +      size.hi size.lo), where phys.hi should contain the device's BDF as
-> +      0b00000000 bbbbbbbb dddddfff 00000000. The other cells should be zero.
-
-No need to describe what the PCI address looks like.
-
-> +
-> +  '#iommu-cells':
-> +    const: 1
-> +    description:
-> +      Has to be one. The single cell describes the requester id emitted
-
-Drop 'Has to be one'. You already said that with the schema.
-
-> +      by a master to the IOMMU.
-> +
-> +  interrupts:
-> +    minItems: 1
-> +    maxItems: 4
-> +    description:
-> +      Wired interrupt vectors available for RISC-V IOMMU to notify the
-> +      RISC-V HARTS. The cause to interrupt vector is software defined
-> +      using IVEC IOMMU register.
-> +
-> +  msi-parent: true
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - '#iommu-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |+
-> +    /* Example 1 (IOMMU device with wired interrupts) */
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    iommu1: iommu@1bccd000 {
-> +        compatible = "qemu,iommu", "riscv,iommu";
-> +        reg = <0x1bccd000 0x1000>;
-> +        interrupt-parent = <&aplic_smode>;
-> +        interrupts = <32 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <33 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <34 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <35 IRQ_TYPE_LEVEL_HIGH>;
-> +        #iommu-cells = <1>;
-> +    };
-> +
-> +    /* Device with two IOMMU device IDs, 0 and 7 */
-> +    master1 {
-> +        iommus = <&iommu1 0>, <&iommu1 7>;
-> +    };
-> +
-> +  - |+
-> +    /* Example 2 (IOMMU device with shared wired interrupt) */
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    iommu2: iommu@1bccd000 {
-> +        compatible = "qemu,iommu", "riscv,iommu";
-> +        reg = <0x1bccd000 0x1000>;
-> +        interrupt-parent = <&aplic_smode>;
-> +        interrupts = <32 IRQ_TYPE_LEVEL_HIGH>;
-> +        #iommu-cells = <1>;
-> +    };
-> +
-> +  - |+
-> +    /* Example 3 (IOMMU device with MSIs) */
-> +    iommu3: iommu@1bcdd000 {
-> +        compatible = "qemu,iommu", "riscv,iommu";
-> +        reg = <0x1bccd000 0x1000>;
-> +        msi-parent = <&imsics_smode>;
-> +        #iommu-cells = <1>;
-> +    };
-> +
-> +  - |+
-> +    /* Example 4 (IOMMU PCIe device with MSIs) */
-> +    bus {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        pcie@30000000 {
-> +            device_type = "pci";
-> +            #address-cells = <3>;
-> +            #size-cells = <2>;
-> +            reg = <0x0 0x30000000  0x0 0x1000000>;
-> +            ranges = <0x02000000 0x0 0x41000000  0x0 0x41000000  0x0 0x0f000000>;
-> +
-> +            /*
-> +             * The IOMMU manages all functions in this PCI domain except
-> +             * itself. Omit BDF 00:01.0.
-> +             */
-> +            iommu-map = <0x0 &iommu0 0x0 0x8
-> +                         0x9 &iommu0 0x9 0xfff7>;
-
-Bracket each entry.
-
-> +
-> +            /* The IOMMU programming interface uses slot 00:01.0 */
-> +            iommu0: iommu@1,0 {
-> +               compatible = "pci1efd,edf1", "riscv,pci-iommu";
-> +               reg = <0x800 0 0 0 0>;
-> +               #iommu-cells = <1>;
-> +            };
-> +        };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index f6dc90559341..7fcf7c27ef6b 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -18958,6 +18958,13 @@ F:	arch/riscv/
->  N:	riscv
->  K:	riscv
->  
-> +RISC-V IOMMU
-> +M:	Tomasz Jeznach <tjeznach@rivosinc.com>
-> +L:	iommu@lists.linux.dev
-> +L:	linux-riscv@lists.infradead.org
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-> +
->  RISC-V MICROCHIP FPGA SUPPORT
->  M:	Conor Dooley <conor.dooley@microchip.com>
->  M:	Daire McNamara <daire.mcnamara@microchip.com>
-> -- 
-> 2.34.1
-> 
+>  drivers/pinctrl/starfive/pinctrl-starfive-jh7100.c | 27 +++++++++-------------
+>  drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c | 18 +++++++--------
+>  2 files changed, 19 insertions(+), 26 deletions(-)
+>
+> diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh7100.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh7100.c
+> index 6df7a310c7ed..27f99183d994 100644
+> --- a/drivers/pinctrl/starfive/pinctrl-starfive-jh7100.c
+> +++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh7100.c
+> @@ -480,7 +480,6 @@ static int starfive_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  {
+>  	struct starfive_pinctrl *sfp = pinctrl_dev_get_drvdata(pctldev);
+>  	struct device *dev = sfp->gc.parent;
+> -	struct device_node *child;
+>  	struct pinctrl_map *map;
+>  	const char **pgnames;
+>  	const char *grpname;
+> @@ -492,20 +491,18 @@ static int starfive_dt_node_to_map(struct pinctrl_dev *pctldev,
+>
+>  	nmaps = 0;
+>  	ngroups = 0;
+> -	for_each_available_child_of_node(np, child) {
+> +	for_each_available_child_of_node_scoped(np, child) {
+>  		int npinmux = of_property_count_u32_elems(child, "pinmux");
+>  		int npins   = of_property_count_u32_elems(child, "pins");
+>
+>  		if (npinmux > 0 && npins > 0) {
+>  			dev_err(dev, "invalid pinctrl group %pOFn.%pOFn: both pinmux and pins set\n",
+>  				np, child);
+> -			of_node_put(child);
+>  			return -EINVAL;
+>  		}
+>  		if (npinmux == 0 && npins == 0) {
+>  			dev_err(dev, "invalid pinctrl group %pOFn.%pOFn: neither pinmux nor pins set\n",
+>  				np, child);
+> -			of_node_put(child);
+>  			return -EINVAL;
+>  		}
+>
+> @@ -527,14 +524,14 @@ static int starfive_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  	nmaps = 0;
+>  	ngroups = 0;
+>  	mutex_lock(&sfp->mutex);
+> -	for_each_available_child_of_node(np, child) {
+> +	for_each_available_child_of_node_scoped(np, child) {
+>  		int npins;
+>  		int i;
+>
+>  		grpname = devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn", np, child);
+>  		if (!grpname) {
+>  			ret = -ENOMEM;
+> -			goto put_child;
+> +			goto free_map;
+>  		}
+>
+>  		pgnames[ngroups++] = grpname;
+> @@ -543,18 +540,18 @@ static int starfive_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  			pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+>  			if (!pins) {
+>  				ret = -ENOMEM;
+> -				goto put_child;
+> +				goto free_map;
+>  			}
+>
+>  			pinmux = devm_kcalloc(dev, npins, sizeof(*pinmux), GFP_KERNEL);
+>  			if (!pinmux) {
+>  				ret = -ENOMEM;
+> -				goto put_child;
+> +				goto free_map;
+>  			}
+>
+>  			ret = of_property_read_u32_array(child, "pinmux", pinmux, npins);
+>  			if (ret)
+> -				goto put_child;
+> +				goto free_map;
+>
+>  			for (i = 0; i < npins; i++) {
+>  				unsigned int gpio = starfive_pinmux_to_gpio(pinmux[i]);
+> @@ -570,7 +567,7 @@ static int starfive_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  			pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+>  			if (!pins) {
+>  				ret = -ENOMEM;
+> -				goto put_child;
+> +				goto free_map;
+>  			}
+>
+>  			pinmux = NULL;
+> @@ -580,18 +577,18 @@ static int starfive_dt_node_to_map(struct pinctrl_dev *pctldev,
+>
+>  				ret = of_property_read_u32_index(child, "pins", i, &v);
+>  				if (ret)
+> -					goto put_child;
+> +					goto free_map;
+>  				pins[i] = v;
+>  			}
+>  		} else {
+>  			ret = -EINVAL;
+> -			goto put_child;
+> +			goto free_map;
+>  		}
+>
+>  		ret = pinctrl_generic_add_group(pctldev, grpname, pins, npins, pinmux);
+>  		if (ret < 0) {
+>  			dev_err(dev, "error adding group %s: %d\n", grpname, ret);
+> -			goto put_child;
+> +			goto free_map;
+>  		}
+>
+>  		ret = pinconf_generic_parse_dt_config(child, pctldev,
+> @@ -600,7 +597,7 @@ static int starfive_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  		if (ret) {
+>  			dev_err(dev, "error parsing pin config of group %s: %d\n",
+>  				grpname, ret);
+> -			goto put_child;
+> +			goto free_map;
+>  		}
+>
+>  		/* don't create a map if there are no pinconf settings */
+> @@ -623,8 +620,6 @@ static int starfive_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  	mutex_unlock(&sfp->mutex);
+>  	return 0;
+>
+> -put_child:
+> -	of_node_put(child);
+>  free_map:
+>  	pinctrl_utils_free_map(pctldev, map, nmaps);
+>  	mutex_unlock(&sfp->mutex);
+> diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
+> index 9609eb1ecc3d..4ce080caa233 100644
+> --- a/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
+> +++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
+> @@ -150,7 +150,7 @@ static int jh7110_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  	nmaps = 0;
+>  	ngroups = 0;
+>  	mutex_lock(&sfp->mutex);
+> -	for_each_available_child_of_node(np, child) {
+> +	for_each_available_child_of_node_scoped(np, child) {
+>  		int npins = of_property_count_u32_elems(child, "pinmux");
+>  		int *pins;
+>  		u32 *pinmux;
+> @@ -161,13 +161,13 @@ static int jh7110_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  				"invalid pinctrl group %pOFn.%pOFn: pinmux not set\n",
+>  				np, child);
+>  			ret = -EINVAL;
+> -			goto put_child;
+> +			goto free_map;
+>  		}
+>
+>  		grpname = devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn", np, child);
+>  		if (!grpname) {
+>  			ret = -ENOMEM;
+> -			goto put_child;
+> +			goto free_map;
+>  		}
+>
+>  		pgnames[ngroups++] = grpname;
+> @@ -175,18 +175,18 @@ static int jh7110_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  		pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+>  		if (!pins) {
+>  			ret = -ENOMEM;
+> -			goto put_child;
+> +			goto free_map;
+>  		}
+>
+>  		pinmux = devm_kcalloc(dev, npins, sizeof(*pinmux), GFP_KERNEL);
+>  		if (!pinmux) {
+>  			ret = -ENOMEM;
+> -			goto put_child;
+> +			goto free_map;
+>  		}
+>
+>  		ret = of_property_read_u32_array(child, "pinmux", pinmux, npins);
+>  		if (ret)
+> -			goto put_child;
+> +			goto free_map;
+>
+>  		for (i = 0; i < npins; i++)
+>  			pins[i] = jh7110_pinmux_pin(pinmux[i]);
+> @@ -200,7 +200,7 @@ static int jh7110_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  						pins, npins, pinmux);
+>  		if (ret < 0) {
+>  			dev_err(dev, "error adding group %s: %d\n", grpname, ret);
+> -			goto put_child;
+> +			goto free_map;
+>  		}
+>
+>  		ret = pinconf_generic_parse_dt_config(child, pctldev,
+> @@ -209,7 +209,7 @@ static int jh7110_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  		if (ret) {
+>  			dev_err(dev, "error parsing pin config of group %s: %d\n",
+>  				grpname, ret);
+> -			goto put_child;
+> +			goto free_map;
+>  		}
+>
+>  		/* don't create a map if there are no pinconf settings */
+> @@ -233,8 +233,6 @@ static int jh7110_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  	*num_maps = nmaps;
+>  	return 0;
+>
+> -put_child:
+> -	of_node_put(child);
+>  free_map:
+>  	pinctrl_utils_free_map(pctldev, map, nmaps);
+>  	mutex_unlock(&sfp->mutex);
+>
+> --
+> 2.37.1
+>
 
 _______________________________________________
 linux-riscv mailing list
