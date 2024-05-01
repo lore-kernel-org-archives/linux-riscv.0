@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBE1C10F1A
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 10:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460BAC4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 10:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
 	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IERJwOOSy9LC8M+2ikoYKrzBYv+0JvuTHgKnfYmC1mU=; b=uSdJYVKHgakro0iIB8XM5yPemR
-	9Zlwrn1DR9GPvnofvq1cMwZHtyXRReSGoFbH5YDekzwf0O6eZ4fTNT3VN6git0bI/jeb/fm7HL/09
-	+4hm/gAs7tKSFUQnMTBpGtRqI1FlXy7t58HKGgN23e3TKjbteWdsmELx+N/42imaV07FNeUhMZ4dn
-	xy4jZsHSGxWbyTMps33+nXipPE9BnvPLBGpwIHoTNwMKp8EogsikIoVloKSSHgDK0dSptVt642lAx
-	YVS431NsHTZq0NuCQk9dmpxNrjfNYBTPHJfOHI/q6oDm0QhI1h+03eHeBdlVjZlFU9t53jOOdDs3y
-	CUPRoKKA==;
+	bh=nPhESWE2yEeDbX7f3a/7uDEhKOgO9wXATgKAXYr6Lhk=; b=eMoAeqccbA0VNJUH2bgw0H1D3v
+	1BloTZWLaoNjOwWlgksDHBV8bR4Bphi6Cxh17jDs/kas3p+Vyqmds/1bC3FJQlXTTyoILFn0l4/uq
+	mpUz/tjzLMLUMmhWbDYfQjpJM2Mv5oFJrUTGZbs42MNfBgf6Fmuc/FLvhab1ZKF2dNM/dRumH20YY
+	DxPe4PI2Lgu3wZyuWq89ABkIt5hN9LfaxMsRheRB1K6PQaB3/pCRhNicW/ghxUwW1mJGOaYbmPD17
+	mPN1jcKzhbeL8EUZMEfWd4lNnXoY0qHrGicwqY29ETGcQbjBqJq1LbpAlNousWs11nrBjdVQzABQN
+	rQnmYCBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s26mM-000000092cT-04EW;
-	Wed, 01 May 2024 10:01:34 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1s27AW-000000095gd-3gqk;
+	Wed, 01 May 2024 10:26:32 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s26mI-000000092bu-3jT7
+	id 1s27AT-000000095gB-3nCD
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 May 2024 10:01:32 +0000
+	Wed, 01 May 2024 10:26:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1714557691; x=1746093691;
+  t=1714559190; x=1746095190;
   h=message-id:date:mime-version:cc:subject:to:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=Hd8WBmznF8s3GFca7bl23FfAapWO49hb4n7ZJcgVZX8=;
-  b=EqXHmuUQewBr1CIw+wMtgq5odApLab3Rtct3jNk48aboMVia2gXZGfjK
-   DTsOgI2f8IWNn9p3K5/UldswIBPcF2poCThsdSyXtnpyQBPt6/jNIsMGC
-   +8toWs/jIU0Uyqif9hlpr0a/ck/Nez9tRqbfULQdtfLemqhslUC8CnkgB
-   xMWTScktPzoRiFnvcpPhi56UU9zMGpRMdq4OlCS7Vy2WrYMUzhiKL3uEb
-   wsbImQb/OR4L7FJAD3sC7hCzLvczz18oUNzeVLClKDONXxgx1BHf2xGbt
-   bYCpWi+I3lvLRsoXDUzBMKX9VVtDOYb6Ts55WIKAbvBYASX717y4VnXSo
+  bh=hRqr/qAUxYcdjP0X9isvAXR0Vq1bW+ytdwQxX41DL7c=;
+  b=Q6dzy4gKIL06LUobXH/O1k+L3UAmVLscHbHH2s7HebnH4dAy+BUQMluF
+   JwW1HMSHIn4MyIiPBCtHVZM1Dr1tB87G3540GDdE+Qoc1w8FtXcPEGO3r
+   Q2FhA5ZVMJCfxGoVMj6LZEp6Zu2xN8+hNs1VJ/tjK0qBuzQvbk6HBwY6I
+   +ukV/AQJKkrnJwSg/huYtKyGUmWlH404tzQeIYSazdWpwQ2nR+a0nbG/H
+   iRvZH0LlgOZ1jjk1bCrBnelRu854rqrINPwnGLvV0KDi8f2Hbeu6yY5rq
+   +xskrnC+SXi4YEwd+i1jck9TR5qmElRAMNrrm3j0/vOkbC8chxj7L1wbg
    A==;
-X-CSE-ConnectionGUID: S9va6rYXR+62qBxErWH+ng==
-X-CSE-MsgGUID: 9D2e9rOXSgSErWiPkKEJug==
-X-IronPort-AV: E=McAfee;i="6600,9927,11060"; a="10155824"
+X-CSE-ConnectionGUID: ja39K77pQHSJm6A0aQ4LXA==
+X-CSE-MsgGUID: 3c2qgnseSSuCgRerGwNleQ==
+X-IronPort-AV: E=McAfee;i="6600,9927,11060"; a="35674155"
 X-IronPort-AV: E=Sophos;i="6.07,245,1708416000"; 
-   d="scan'208";a="10155824"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 03:01:29 -0700
-X-CSE-ConnectionGUID: udJhc1hNT0e0Cs8MdxtM1Q==
-X-CSE-MsgGUID: Hg8wu7WfTWWT6SwKQNXnkA==
+   d="scan'208";a="35674155"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 03:26:28 -0700
+X-CSE-ConnectionGUID: mM4xqKTwTRanVLvaULU3dg==
+X-CSE-MsgGUID: 2a2bdGMyS6Sr14FLZPSgCQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.07,245,1708416000"; 
-   d="scan'208";a="27230625"
+   d="scan'208";a="64237676"
 Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.225.176]) ([10.124.225.176])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 03:01:25 -0700
-Message-ID: <57678928-4557-4975-ae23-7e11904e5302@linux.intel.com>
-Date: Wed, 1 May 2024 18:01:22 +0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 03:26:23 -0700
+Message-ID: <6b4a4dc0-ac9e-43cd-bd84-447df2370dde@linux.intel.com>
+Date: Wed, 1 May 2024 18:26:20 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/7] iommu/riscv: Add RISC-V IOMMU PCIe device driver
+Subject: Re: [PATCH v3 2/7] iommu/riscv: Add RISC-V IOMMU platform device
+ driver
 To: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
  Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
  Paul Walmsley <paul.walmsley@sifive.com>
 References: <cover.1714494653.git.tjeznach@rivosinc.com>
- <3a04bd180fd510cb90e8d8dba5fb60f207e5e83f.1714494653.git.tjeznach@rivosinc.com>
+ <aa5592da66fe72acd4d4730f544882042e7b5293.1714494653.git.tjeznach@rivosinc.com>
 Content-Language: en-US
 From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <3a04bd180fd510cb90e8d8dba5fb60f207e5e83f.1714494653.git.tjeznach@rivosinc.com>
+In-Reply-To: <aa5592da66fe72acd4d4730f544882042e7b5293.1714494653.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_030131_139329_61E79466 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20240501_032630_122730_B2DBC641 
+X-CRM114-Status: GOOD (  18.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,30 +89,57 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2024/5/1 4:01, Tomasz Jeznach wrote:
-> Introduce device driver for PCIe implementation
-> of RISC-V IOMMU architected hardware.
-> 
-> IOMMU hardware and system support for MSI or MSI-X is
-> required by this implementation.
-> 
-> Vendor and device identifiers used in this patch
-> matches QEMU implementation of the RISC-V IOMMU PCIe
-> device, from Rivos VID (0x1efd) range allocated by the PCI-SIG.
-> 
-> MAINTAINERS | added iommu-pci.c already covered by matching pattern.
-> 
-> Link:https://lore.kernel.org/qemu-devel/20240307160319.675044-1-dbarboza@ventanamicro.com/
-> Co-developed-by: Nick Kossifidis<mick@ics.forth.gr>
-> Signed-off-by: Nick Kossifidis<mick@ics.forth.gr>
-> Signed-off-by: Tomasz Jeznach<tjeznach@rivosinc.com>
-> ---
->   drivers/iommu/riscv/Kconfig     |   5 ++
->   drivers/iommu/riscv/Makefile    |   1 +
->   drivers/iommu/riscv/iommu-pci.c | 119 ++++++++++++++++++++++++++++++++
->   3 files changed, 125 insertions(+)
->   create mode 100644 drivers/iommu/riscv/iommu-pci.c
+> +static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
+> +{
+> +	u64 ddtp;
+> +
+> +	/*
+> +	 * Make sure the IOMMU is switched off or in pass-through mode during regular
+> +	 * boot flow and disable translation when we boot into a kexec kernel and the
+> +	 * previous kernel left them enabled.
+> +	 */
+> +	ddtp = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_DDTP);
+> +	if (ddtp & RISCV_IOMMU_DDTP_BUSY)
+> +		return -EBUSY;
+> +
+> +	if (FIELD_GET(RISCV_IOMMU_DDTP_MODE, ddtp) > RISCV_IOMMU_DDTP_MODE_BARE) {
+> +		if (!is_kdump_kernel())
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+Is kdump supported for RISC-V architectures?  If so, the documentation
+in Documentation/admin-guide/kdump/kdump.rst might need an update.
+
+There is a possibility of ongoing DMAs during the boot process of the
+kdump capture kernel because there's a small chance of legacy DMA setups
+targeting any memory location. Kdump typically allows these ongoing DMA
+transfers to complete, assuming they were intended for valid memory
+regions.
+
+The IOMMU subsystem implements a default domain deferred attachment
+mechanism for this. In the kdump capture kernel, the whole device
+context tables are copied from the original kernel and will be
+overridden once the device driver calls the kernel DMA interface for the
+first time. This assumes that all old DMA transfers are completed after
+the driver's takeover.
+
+Will you consider this for RISC-V architecture as well?
+
+> +			return -EBUSY;
+> +		riscv_iommu_disable(iommu);
+> +	}
+> +
+> +	/* Configure accesses to in-memory data structures for CPU-native byte order. */
+> +	if (IS_ENABLED(CONFIG_CPU_BIG_ENDIAN) != !!(iommu->fctl & RISCV_IOMMU_FCTL_BE)) {
+> +		if (!(iommu->caps & RISCV_IOMMU_CAP_END))
+> +			return -EINVAL;
+> +		riscv_iommu_writel(iommu, RISCV_IOMMU_REG_FCTL,
+> +				   iommu->fctl ^ RISCV_IOMMU_FCTL_BE);
+> +		iommu->fctl = riscv_iommu_readl(iommu, RISCV_IOMMU_REG_FCTL);
+> +		if (IS_ENABLED(CONFIG_CPU_BIG_ENDIAN) != !!(iommu->fctl & RISCV_IOMMU_FCTL_BE))
+> +			return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
 
 Best regards,
 baolu
