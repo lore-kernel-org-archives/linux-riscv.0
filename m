@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CFE0C4345F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 16:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5295C4345F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 May 2024 17:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=bnIEQMyJyg7+rkhYLB9jkwOS8jhXMiF9XEcDOtXKVkk=; b=Xfo0kuWLpTS8Wg
-	PDQS4ZDSjVNUetwn5bx4mN5/N6gozvV62Dlfuk3mYv8naSGjuqyHqy0k/JCcGNGaP5oq2U5CTWNDs
-	BWVrgNUjDGlkzZtdcX0w2Eaii0H4gjsHgJDtRIEP3msL0FW1MKaHsPWiMsYQE0OGL5DXpFYqV3THo
-	Qq9UPOsy77R+38q42JQx5XGTLowBm2tls7CrEAvwC9kt2dXRajmw2PWcE7gJibxHNqRwYr37GBR5U
-	6amfnq9IXoLz89u5o/H0oQyZAYJTkMhm5onzd5lhS1sc13a8vveSpDCLNVOsdWXX+oz5q1DKco3v9
-	HOCfR+Oyg+CI+di4dMJA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yzdSef4aTQ2GIDJA/5zM1AqnbDHijE3bdLgNgdRyAy8=; b=ipTNHU+jp/IzhG
+	88F9p27HG11Pi1QVrw7fP3OvZeeUNDq4Qf0XRo8Fg/Jx9dS6/vbFw99KXLm3kngVnRPF+z97jkmAX
+	aKRxMREhObUPtM4+OIIMg9po+zHXwL497F5Ly/wsF3X+Oh8a8r/dFc1wsIj2sU3R8/qNuwO+Ks+bL
+	4cGFk77zAbz2gkl9bT+D8qG2t0aMeXbuQDgowrhdiXlvuMN4rrwH7bTfzkEmpMmmIxCwEnkmDri48
+	rO3WqzTpO+N4kvDCF4PvqJXx6rB6Cw5GydaRNzhHHnVwWGFrMVRVZpKjeOHy8uUOqH0fBQ/c97CMl
+	/fG+o7kPtkhZonnCNHVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2DFo-0000000AEcJ-13yz;
-	Wed, 01 May 2024 16:56:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s2DOH-0000000AFvl-1Yfd;
+	Wed, 01 May 2024 17:05:09 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2DFj-0000000AEZu-3VY1;
-	Wed, 01 May 2024 16:56:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 742DB619C8;
-	Wed,  1 May 2024 16:56:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC497C072AA;
-	Wed,  1 May 2024 16:56:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714582577;
-	bh=SfIUnFvTodi3ZAdSokEGwrQBZQMoBGP2gvIdsXxo1z8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=nwrFK+fQYl6W4IHr6gnMS8swEZfLcfdSm4TEcZt5aWvI5cpqh7w4by/NlSlrVYjZL
-	 nSyMc1JZUgqnVPi3l4AskQDTBIg9ssQDqVRKrNblj13co5FmyvpEeH/66UR7xpkZOB
-	 00NeWDZlTLiVmA0UQWYWoqUKgZkqpFbxOsnnVkdBIiEpBc979vFlZAfENsKIP5C4FP
-	 ZgIXwvnYDTXwcasDNez+ynbUOZgMUa5OPy4YdrNoLJ+KdsG164DtG/7BQjY2pA2zWK
-	 GEd3kS4ypFHM9mTJOQSG/RGht9W4bkGnY7CGz8RqZ+/Ebp1vm8DPjQkVyYEp898vFN
-	 W1ZUMK9aRV32A==
-Date: Wed, 1 May 2024 11:56:15 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
-	acpica-devel@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+	id 1s2DOD-0000000AFtm-3RMO
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 May 2024 17:05:07 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1e65a1370b7so65622165ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 01 May 2024 10:05:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714583102; x=1715187902; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ElGjJ6DhmRlqGsY+eiWz/anA6sw6bSbldqs1mMMSdXY=;
+        b=1rvf9KTX230WqztUm6lwRSWpwKcueKs4KqGAzm4TyUDAaGIOX9Pq5rTwb4ag2U+yXn
+         OL0ZnkUTydEDsKxSePEg3lrC3UnSPEMe+2dFE9hIhJuuc+d1XbtGoD7KGDOc9mQM+iyR
+         sh71lDwCJTKsFaEif0VUAT4P6tYoXNwLfVocikF3XN5biZaqq7Jy582F12DfGw8N/myK
+         1ctDwdUEFmFfxKt9GbK07wuqubiwUGE4Uxyfo7noDQ/MnxazduIlZVMQE3fus6Uf15jR
+         ima/NYAirFkoXteZgN6/MIUPS4H99MdJASSN6D4YALy5a5lYN0Bcg1QKx7KTNFAuzKSV
+         650Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714583102; x=1715187902;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ElGjJ6DhmRlqGsY+eiWz/anA6sw6bSbldqs1mMMSdXY=;
+        b=HH42dEgX4zEm+RY5+dFm++Oz/IIJki5KOkQ5BpqguiHLsCxcPGOmR8x1L2AMZD9/Zp
+         KzxcKnDPauDyXcY2xTTNJUJDzyLO15r7s6XP+4MQDLOzByel0c6dhPMmnUSYn71GZMVa
+         AttByp6R9KC7xHAyYBw8h+fDTrIqtkmabfCCnetVOd7/NT8j/5R+JvW9qiTFqXAGEqPJ
+         KG7toxltsgicWBrgzMiQbZ90Hd8RlQjPVE3GeYha9SAhlTdBi1533QVET+r75arzHZwz
+         MNpMubK7oLtQvzczCkv1YjmXL4bd+9Oc9rBwxzPq5TwF2fBTqp1CRDpAXFUB57nVnpRg
+         BnGg==
+X-Forwarded-Encrypted: i=1; AJvYcCX0a1g48uhd5vEhBUf/mmvWSTzS9zaF0aK7BRZRv7ZdMz9K13t/CURhBPQpxJ3El2W1ItvGy2i5ZE3tRI6kyvYi643vHTTg4si7oLp5tdoN
+X-Gm-Message-State: AOJu0YzvVl0RjEs0z0kAwsaRsQxjI2UYlxs5XyZzu+tIJX60/gNlE0pm
+	Hd6Ib+0Y2+fj7j2wTMSCDPAbU0PPBTlWY2kAXwqg6hEKfVwjr9TJcjKymHnmlu0=
+X-Google-Smtp-Source: AGHT+IFvczd8ByrKjRpEmw2Tm8e/A7jIBRbW9BHOckqa6SdF3HlIzepIjpMlwHXG9pT5WMnsKMpNHw==
+X-Received: by 2002:a17:902:e54f:b0:1eb:dae:bdab with SMTP id n15-20020a170902e54f00b001eb0daebdabmr3974726plf.46.1714583102382;
+        Wed, 01 May 2024 10:05:02 -0700 (PDT)
+Received: from ghost ([2601:647:5700:6860:1dcc:e03e:dc61:895d])
+        by smtp.gmail.com with ESMTPSA id s1-20020a170902ea0100b001e3d2314f3csm24412023plg.141.2024.05.01.10.05.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 May 2024 10:05:02 -0700 (PDT)
+Date: Wed, 1 May 2024 10:04:58 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Andrei Warkentin <andrei.warkentin@intel.com>,
-	Haibo1 Xu <haibo1.xu@intel.com>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Subject: Re: [PATCH v5 08/17] ACPI: pci_link: Clear the dependencies after
- probe
-Message-ID: <20240501165615.GA758227@bhelgaas>
+	Evan Green <evan@rivosinc.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 05/16] riscv: Extend cpufeature.c to detect vendor
+ extensions
+Message-ID: <ZjJ2Omhynz02mAGk@ghost>
+References: <20240426-dev-charlie-support_thead_vector_6_9-v4-0-b692f3c516ec@rivosinc.com>
+ <20240426-dev-charlie-support_thead_vector_6_9-v4-5-b692f3c516ec@rivosinc.com>
+ <20240501-chastise-gecko-342f2c35cfc1@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240501121742.1215792-9-sunilvl@ventanamicro.com>
+In-Reply-To: <20240501-chastise-gecko-342f2c35cfc1@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_095619_998189_1D410A8D 
-X-CRM114-Status: GOOD (  25.31  )
+X-CRM114-CacheID: sfid-20240501_100505_898702_B8387BF2 
+X-CRM114-Status: GOOD (  26.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,95 +109,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 01, 2024 at 05:47:33PM +0530, Sunil V L wrote:
-> RISC-V platforms need to use dependencies between PCI host bridge, Link
-> devices and the interrupt controllers to ensure probe order. The
-> dependency is like below.
+On Wed, May 01, 2024 at 11:46:07AM +0100, Conor Dooley wrote:
+> On Fri, Apr 26, 2024 at 02:29:19PM -0700, Charlie Jenkins wrote:
+> > Separate vendor extensions out into one struct per vendor
+> > instead of adding vendor extensions onto riscv_isa_ext.
+> > 
+> > Add a hidden config RISCV_ISA_VENDOR_EXT to conditionally include this
+> > code.
+> > 
+> > The xtheadvector vendor extension is added using these changes.
 > 
-> Interrupt controller <-- Link Device <-- PCI Host bridge.
+> This mostly looks good to me, thanks for the updates. There's one thing
+> that I think is wrong, but I need to test and will get back to you on...
 > 
-> If there is no dependency added between Link device and PCI Host Bridge,
-> then the PCI end points can get probed prior to link device, unable to
-> get mapping for INTx.
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > ---
+> >  arch/riscv/Kconfig                               |  2 +
+> >  arch/riscv/Kconfig.vendor                        | 19 ++++++
+> >  arch/riscv/include/asm/cpufeature.h              | 18 ++++++
+> >  arch/riscv/include/asm/vendor_extensions.h       | 26 ++++++++
+> >  arch/riscv/include/asm/vendor_extensions/thead.h | 19 ++++++
+> >  arch/riscv/kernel/Makefile                       |  2 +
+> >  arch/riscv/kernel/cpufeature.c                   | 77 ++++++++++++++++++------
+> >  arch/riscv/kernel/vendor_extensions.c            | 18 ++++++
+> >  arch/riscv/kernel/vendor_extensions/Makefile     |  3 +
+> >  arch/riscv/kernel/vendor_extensions/thead.c      | 36 +++++++++++
+> >  10 files changed, 200 insertions(+), 20 deletions(-)
+> > 
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index be09c8836d56..fec86fba3acd 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -759,6 +759,8 @@ config RISCV_EFFICIENT_UNALIGNED_ACCESS
+> >  
+> >  endchoice
+> >  
+> > +source "arch/riscv/Kconfig.vendor"
+> > +
+> >  endmenu # "Platform type"
+> >  
+> >  menu "Kernel features"
+> > diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
+> > new file mode 100644
+> > index 000000000000..4fc86810af1d
+> > --- /dev/null
+> > +++ b/arch/riscv/Kconfig.vendor
+> > @@ -0,0 +1,19 @@
+> > +menu "Vendor extensions"
+> > +
+> > +config RISCV_ISA_VENDOR_EXT
+> > +	bool
+> > +
+> > +menu "T-Head"
+> > +config RISCV_ISA_VENDOR_EXT_THEAD
+> > +	bool "T-Head vendor extension support"
+> > +	select RISCV_ISA_VENDOR_EXT
+> > +	default y
+> > +	help
+> > +	  Say N here if you want to disable all T-Head vendor extension
+> > +	  support. This will cause any T-Head vendor extensions that are
+> > +	  requested to be ignored.
 > 
-> So, add the link device's HID to dependency honor list and also clear it
-> after its probe.
+> What does "requested to be ignored" mean to a punter configuring a
+> kernel? I'd expect this to be something like:
 > 
-> Since this is required only for architectures like RISC-V, enable this
-> code under a new config option and set this only in RISC-V.
-> 
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> ---
->  arch/riscv/Kconfig      | 1 +
->  drivers/acpi/Kconfig    | 3 +++
->  drivers/acpi/pci_link.c | 3 +++
->  drivers/acpi/scan.c     | 1 +
->  4 files changed, 8 insertions(+)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index f961449ca077..f7a36d79ff1a 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -14,6 +14,7 @@ config RISCV
->  	def_bool y
->  	select ACPI_GENERIC_GSI if ACPI
->  	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
-> +	select ARCH_ACPI_DEFERRED_GSI if ACPI
->  	select ARCH_DMA_DEFAULT_COHERENT
->  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
->  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
-> diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
-> index e3a7c2aedd5f..ebec1707f662 100644
-> --- a/drivers/acpi/Kconfig
-> +++ b/drivers/acpi/Kconfig
-> @@ -587,6 +587,9 @@ config ACPI_PRMT
->  	  substantially increase computational overhead related to the
->  	  initialization of some server systems.
->  
-> +config ARCH_ACPI_DEFERRED_GSI
-> +	bool
-> +
->  endif	# ACPI
->  
->  config X86_PM_TIMER
-> diff --git a/drivers/acpi/pci_link.c b/drivers/acpi/pci_link.c
-> index aa1038b8aec4..48cdcedafad6 100644
-> --- a/drivers/acpi/pci_link.c
-> +++ b/drivers/acpi/pci_link.c
-> @@ -748,6 +748,9 @@ static int acpi_pci_link_add(struct acpi_device *device,
->  	if (result)
->  		kfree(link);
->  
-> +	if (IS_ENABLED(CONFIG_ARCH_ACPI_DEFERRED_GSI))
-> +		acpi_dev_clear_dependencies(device);
+> "Say N here to disable detection of and support for all T-Head vendor
+> extensions. Without this option enabled, T-Head vendor extensions will
+> not be detected at boot and their presence not reported to userspace."
 
-This is really a question for Rafael, but it doesn't seem right that
-this completely depends on a config option.
+Sounds great I will change to that.
 
-Is there a reason this wouldn't work for all architectures, i.e., what
-would happen if you just called acpi_dev_clear_dependencies()
-unconditionally?
+- Charlie
 
-> +
->  	return result < 0 ? result : 1;
->  }
->  
-> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-> index 3eeb4ce39fcc..67677a6ff8e3 100644
-> --- a/drivers/acpi/scan.c
-> +++ b/drivers/acpi/scan.c
-> @@ -834,6 +834,7 @@ static const char * const acpi_honor_dep_ids[] = {
->  	"INTC10CF", /* IVSC (MTL) driver must be loaded to allow i2c access to camera sensors */
->  	"RSCV0001", /* RISC-V PLIC */
->  	"RSCV0002", /* RISC-V APLIC */
-> +	"PNP0C0F",  /* PCI Link Device */
->  	NULL
->  };
->  
-> -- 
-> 2.40.1
 > 
+> In general, I'd expect something that needs some support in the kernel
+> (like vector) to function to have a dedicated option, but the likes of
+> their Zba variant could be detected and reported via hwprobe et al
+> once RISCV_ISA_VENDOR_EXT_THEAD is enabled.
 > 
+> Cheers,
+> Conor.
+
+
 
 _______________________________________________
 linux-riscv mailing list
