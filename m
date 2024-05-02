@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B515C04FFE
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 03:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C063BC4345F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 03:53:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
 	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/hEYaq7S11JIUzi8S0VyhJKDRWxWTrbWWFIh2ckJKwo=; b=rmd2UcQHnXD4HHPyb7N2SYkYg9
-	xrCbMiHy/EIZdCwg5HmFhs6OHy07uJA3g7T0f7aQ0bGKjUGZdmcvHlWhx6IRUrK+SU/0XZaV4zZyg
-	awzg2Kj66QXZCPDrLojg0n6DBuQRHa15z2H5E9Xd1p8G8CzZTAjJEHJLWyxD41NzM91RKbIArYl22
-	DQoVgIrrHtTihkFwJr6aEbIPlxIqOpnHcyR57ZbKPvM/+3jKad5rsaFRuoI6t4GA3o910ViE7g9aT
-	4sNgQi6ltD6JWQmRCVYVDG3Gzz5v++6AQ+ECpEzlx7d+/xVvo/gH8Q+jGm6r5lNgXF0pBJx53PruP
-	8VBwiFdg==;
+	bh=oGeFQcVxk4ZLmJ57tArEga08+z1aTt1VxVuKqWuPygc=; b=4bwL0u2lmSV+AW2biTs1KENu58
+	24bpidi6lckpnuRSp5DBmVDIS78vudj1sOlqz5OpaRKKrsveDoSvpBSBA/FdACPjkHLFrAu0htvkZ
+	P+5YKKDcz2i8SdkxzZdZfEea7Ow6ke01G1kdbBj/KzACtS4fUrNPXoS6cOJAQR09u8vcDdoOizpcX
+	ElQ0X1Vv94Jb9ParT3QQCApSgySkaN+LKnOigbYmOd/KvqR+mu0CKaWiWxn4htwsCWPKYBPnsGR4s
+	enb3ZULET4CK9mi+YinPBaXlbYrJL6iHqbgbz8hjPUgZnhD2Y2z9moweT0NEMqLdMDS7VAGpHq/lt
+	n7d6QKTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2NUV-0000000BKqr-1LzW;
-	Thu, 02 May 2024 03:52:15 +0000
+	id 1s2NVE-0000000BL1D-2NIU;
+	Thu, 02 May 2024 03:53:00 +0000
 Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2NUS-0000000BKqB-2IQS
+	id 1s2NVB-0000000BKzf-2dQB
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 May 2024 03:52:13 +0000
+	Thu, 02 May 2024 03:52:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1714621933; x=1746157933;
+  t=1714621978; x=1746157978;
   h=message-id:date:mime-version:cc:subject:to:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=qK6quWd0+fR1tNL6dF/6F94raTQfcmC3+2BRAFGNCVc=;
-  b=RlAJZPV8TGT77M1FCgk9l4Ti/nG8sWZ7XqaQ6+XrQVNve5cX7RCrE+FP
-   AP52lKitZQOb+rhJiM/lb2JbzG+Kb3MLEf/7zF8OwaDFl5xLX36UQK7xx
-   KSSTplifN2yHDyvY4ZoVV//tJRYG/lhglaiHbdqsR9l0VHeups0JIuLed
-   Ib8WOkeTyyd2fd2MFL1/w6SH6zbmoysZVcW5SM0YCpMsSn/jybCASk2yE
-   PmEMorzeTJIXSn0sr9nJ0wVTKeBCASDFmBpTX6JiYmX58BdmOL1rChIjA
-   xqoHlBwNW0vGQbUbqgm3eD1PAO53EhtHu1d7FoydKWy0YyXv1r40k50jM
-   g==;
-X-CSE-ConnectionGUID: 9/z1hUiVQQG5Uu9L3BJ7uA==
-X-CSE-MsgGUID: mmrR03KaRbShH7RF0LwjCw==
-X-IronPort-AV: E=McAfee;i="6600,9927,11061"; a="14196402"
+  bh=ufokDlLyeYAEJkn0qhb3kYYK+asNA6o0QGc5jorczJE=;
+  b=PxQ4M5vlmg032yFN/ZqCFNCZiSAer7DavAsizPaLbQOwU9DWYX808ASb
+   wL2wwWbcbtbPW90v/5XmQozx1Y2jMgPY6vSdkcEz1m08b6v3a3LyB7gX6
+   dT0JC6T7oDWGna43cur5zxTgWMcQdjTCJALkR1plMwnVS8G2i4qUyDERn
+   Z9SYnrq1sUSBEfxLbIq6QBE9aMMU36odlbyMs6EPZ4Lfumacuah7wiT4w
+   LtV8Rblb5QITBZls46d+IsOgVM/g5ab4gpakiUCfOOOOrpC8rGkjy9SE/
+   JNZPwpvDReSKX2fbewcchxi734Kof+T98akHDiJmeaHguJXGwsGT0p9CX
+   A==;
+X-CSE-ConnectionGUID: uRhAGicnRPWJlUZvhp0wxA==
+X-CSE-MsgGUID: ZQ4HCsYiQrK73u07wfP6qw==
+X-IronPort-AV: E=McAfee;i="6600,9927,11061"; a="14196422"
 X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
-   d="scan'208";a="14196402"
+   d="scan'208";a="14196422"
 Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 20:52:11 -0700
-X-CSE-ConnectionGUID: vGfpbaSWRyeFeHIYwU+aJA==
-X-CSE-MsgGUID: LEuKkd3RTSO3a82B1VFTUQ==
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 20:52:58 -0700
+X-CSE-ConnectionGUID: FFGWb+U4Q4Sbss+D92Yhvg==
+X-CSE-MsgGUID: kuy6D+XUTs6pBANWIhlM7g==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
-   d="scan'208";a="31661944"
+   d="scan'208";a="31662031"
 Received: from unknown (HELO [10.239.159.127]) ([10.239.159.127])
-  by orviesa003.jf.intel.com with ESMTP; 01 May 2024 20:52:06 -0700
-Message-ID: <7c3fc511-6a3b-44d8-94fa-e4fff54f93b9@linux.intel.com>
-Date: Thu, 2 May 2024 11:50:35 +0800
+  by orviesa003.jf.intel.com with ESMTP; 01 May 2024 20:52:52 -0700
+Message-ID: <1eeed328-fd6c-4740-b1f5-339aad559997@linux.intel.com>
+Date: Thu, 2 May 2024 11:51:22 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/7] iommu/riscv: Paging domain support
+Subject: Re: [PATCH v3 6/7] iommu/riscv: Command and fault queue support
 To: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
  Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
  Paul Walmsley <paul.walmsley@sifive.com>
 References: <cover.1714494653.git.tjeznach@rivosinc.com>
- <b83f81c04d1f3885d860b1eec03761fe63a33183.1714494653.git.tjeznach@rivosinc.com>
+ <fbf49cba213b03d42aae398c1b48da06e3f6e1b7.1714494653.git.tjeznach@rivosinc.com>
 Content-Language: en-US
 From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <b83f81c04d1f3885d860b1eec03761fe63a33183.1714494653.git.tjeznach@rivosinc.com>
+In-Reply-To: <fbf49cba213b03d42aae398c1b48da06e3f6e1b7.1714494653.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_205212_710769_2FB14ECC 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20240501_205257_755652_643DBA99 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,85 +89,28 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 5/1/24 4:01 AM, Tomasz Jeznach wrote:
-> +/*
-> + * Send IOTLB.INVAL for whole address space for ranges larger than 2MB.
-> + * This limit will be replaced with range invalidations, if supported by
-> + * the hardware, when RISC-V IOMMU architecture specification update for
-> + * range invalidations update will be available.
-> + */
-> +#define RISCV_IOMMU_IOTLB_INVAL_LIMIT	(2 << 20)
-> +
-> +static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
-> +				    unsigned long start, unsigned long end)
-> +{
-> +	struct riscv_iommu_bond *bond;
-> +	struct riscv_iommu_device *iommu, *prev;
-> +	struct riscv_iommu_command cmd;
-> +	unsigned long len = end - start + 1;
-> +	unsigned long iova;
-> +
-> +	rcu_read_lock();
-> +
-> +	prev = NULL;
-> +	list_for_each_entry_rcu(bond, &domain->bonds, list) {
-> +		iommu = dev_to_iommu(bond->dev);
-> +
-> +		riscv_iommu_cmd_inval_vma(&cmd);
-> +		riscv_iommu_cmd_inval_set_pscid(&cmd, domain->pscid);
-> +		if (len && len >= RISCV_IOMMU_IOTLB_INVAL_LIMIT) {
-> +			for (iova = start; iova < end; iova += PAGE_SIZE) {
-> +				riscv_iommu_cmd_inval_set_addr(&cmd, iova);
-> +				riscv_iommu_cmd_send(iommu, &cmd, 0);
-> +			}
-> +		} else {
-> +			riscv_iommu_cmd_send(iommu, &cmd, 0);
-> +		}
-> +
-> +		/*
-> +		 * IOTLB invalidation request can be safely omitted if already sent
-> +		 * to the IOMMU for the same PSCID, and with domain->bonds list
-> +		 * arranged based on the device's IOMMU, it's sufficient to check
-> +		 * last device the invalidation was sent to.
-> +		 */
-> +		if (iommu == prev)
-> +			continue;
-> +
-> +		prev = iommu;
-> +		riscv_iommu_cmd_send(iommu, &cmd, 0);
-> +	}
+> Introduce device command submission and fault reporting queues,
+> as described in Chapter 3.1 and 3.2 of the RISC-V IOMMU Architecture
+> Specification.
+> 
+> Command and fault queues are instantiated in contiguous system memory
+> local to IOMMU device domain, or mapped from fixed I/O space provided
+> by the hardware implementation. Detection of the location and maximum
+> allowed size of the queue utilize WARL properties of queue base control
+> register. Driver implementation will try to allocate up to 128KB of
+> system memory, while respecting hardware supported maximum queue size.
+> 
+> Interrupts allocation is based on interrupt vectors availability and
+> distributed to all queues in simple round-robin fashion. For hardware
+> Implementation with fixed event type to interrupt vector assignment
+> IVEC WARL property is used to discover such mappings.
+> 
+> Address translation, command and queue fault handling in this change
+> is limited to simple fault reporting without taking any action.
+> 
+> Signed-off-by: Tomasz Jeznach<tjeznach@rivosinc.com>
 
-I don't quite follow why not moving "if (iommu == prev)" check to the
-top and removing the last riscv_iommu_cmd_send(). My understanding is
-that we could make it simply like below:
-
-	prev = NULL;
-	list_for_each_entry_rcu(bond, &domain->bonds, list) {
-		iommu = dev_to_iommu(bond->dev);
-		if (iommu == prev)
-			continue;
-
-		/*
-		 * Send an invalidation request to the request queue
-		 * without wait.
-		 */
-		... ...
-
-		prev = iommu;
-	}
-
-> +
-> +	prev = NULL;
-> +	list_for_each_entry_rcu(bond, &domain->bonds, list) {
-> +		iommu = dev_to_iommu(bond->dev);
-> +		if (iommu == prev)
-> +			continue;
-> +
-> +		prev = iommu;
-> +		riscv_iommu_cmd_iofence(&cmd);
-> +		riscv_iommu_cmd_send(iommu, &cmd, RISCV_IOMMU_QUEUE_TIMEOUT);
-> +	}
-> +	rcu_read_unlock();
-> +}
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
 Best regards,
 baolu
