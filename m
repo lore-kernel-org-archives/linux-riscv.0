@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE52DC4345F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 10:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2B4C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 10:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xHuKqO9HEQMsL9nq2MXwvV3Ax4Wk4yBcMoh7l4Y5ix4=; b=qfrEG3gIPNMdqS
-	HeKH4KLUoGJiA64RmCft6YF8vfzImKnIH/QApUHdUiGWYP502NHeUeS6e4XXvrHI2g0OWXAhjas2X
-	5J94F6RJmuE+pdmfKqgWkMwKeAX2+wxMND79vJVZuElYbLyRvL25+kOTpvwO/jEZHT4b+sxyEPsow
-	yZnz4i8m7p8+kj3zBw0vbSFfYnjzmFUExLWygx0wSyd7jMuQQqtKZiEDXVgsyeQRR7rSTq9tc0eVS
-	F5a8FVPDDjv+q4ZJpCKwhAGz8Gq3qP2UALLnh/wEdPkSm6NwvGxkpV/500aiG9eG8f/owMaTZyP/S
-	1ImX7vWunPA4Y5aZs71w==;
+	List-Owner; bh=0U6O1AJtO3o8Xe5tFNnZSUeoICIWrvprZS3f1IY9MKk=; b=vl7PmTDo2bwGYD
+	bWM1jvM1aRyCH4PCy+rTHVYn2gZLL7DgeK5i62SAMgFTJa+J5plf7g8S0VdP7lajezXN0gQbNIyP2
+	PxLlu4G4ttcbGb4mMfdtBHAeLubwrRz4tOO5KRaZVuL7B3qMo6BrKTBtcRSvCicbhSmIxfq0ZmGMu
+	MaegkOW+Xs2Ej3wlZe72LdDpHn5KhooBfE7fCjttmeFvS6fSVZIL/qyeDJVb5lGe0ZVzZTmDULuWp
+	JeLLfrIh9kGL3A+/vbRUk16BdNjvfTLNezZAu5oOjZMnZHAIMTvsNh0K2zpKV1sdcZl/l70XcgIet
+	7pgpNihQkwkIIAQY2YsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2TH4-0000000CG5e-2NxI;
-	Thu, 02 May 2024 10:02:46 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1s2TOG-0000000CHJ1-2uRL;
+	Thu, 02 May 2024 10:10:12 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2TGz-0000000CG1b-3X9Z
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 May 2024 10:02:44 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-1e9ffd3f96eso63222245ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 03:02:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1714644160; x=1715248960; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+kMTT3PzTLyPVaeH+DM1bYJEhGQDgrI4wH+0p7ikXNM=;
-        b=UdA/x2KdoHStL3QsBrKJ6XzIE3bC52Tfh1S6NgIu0b2ybzck3OYQlYbqzobn9tKlOb
-         guK1niXzfg96dA3ejDAwwHU2nBqR+IihJKXOytFkBgqi+abYddcWf8BK0Q8LEzICnhkX
-         /w+iH97HdCQHEpx+az901xmZ3iiNFW2pGw8yo1PYEDiLJIeTZONjrKVug/ns0chVIkDR
-         2lkHzHe8oNj176gNVV9UNkriO0y9kNxOO4i3VGNb/KJD+xlQraSqyVCVG2b3QrBiXq4t
-         mxIDAfL6NMA1dYy9sAIoYb7EYjZGFy7U8oI6K/ORaQgcZb1svpth6ZjO1gC0x2/XPxIa
-         zSZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714644160; x=1715248960;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+kMTT3PzTLyPVaeH+DM1bYJEhGQDgrI4wH+0p7ikXNM=;
-        b=NNBEUnaVkBK8N5Zsx1KqJ08iBtA0v7ipffGKeUfuC8aUgSPPX/GFLaxku3zsf53IXl
-         4qkZECGvj9SrCrlz7RvX6Mbw6v0ign4Y3PejTv6OrNeiMZ9DF86eOK4weZ28ctVLiGeH
-         VGIFjE3FUw84s+y2/MocCyt9zT4O8vuMEhmPPpcYUcuAWywuX1vgVk8sDZYL9LN9y9UY
-         nHD9MXO6xDjob/uJYfu7FP1DMIcgtxhfHceHR45ODO2lleuUFtPZXZP1Aesd0F+ia82a
-         GNExJrz++QbZ2ef0cd01zq20htideNmUfE8Q14yyATXuWBnNt8JKYNRXJVvSq6VNF7Db
-         c1yw==
-X-Forwarded-Encrypted: i=1; AJvYcCUWyEbW6Re80Yo6D2AMiUrGovXVBwacy3ke3jpsqojJL83P0ksLC+oq+dIr/EcPCY6w97YJy4LyX5UrSwJGBQPDwrFCbe/738qpLiRq9DYA
-X-Gm-Message-State: AOJu0YxpK7PfleEXB0O8rMrgUNpzCCdDAsZaDpzk3Da/pZv/Ltdc0F1p
-	JD3vQ2yujZqvR50d8oz9Qv7ahmCiE6vS4+Qso7GJy9PxxEFFdUfje5vk454pnWY=
-X-Google-Smtp-Source: AGHT+IFMGhdu0SIDQn/0fGRllf2r0ZaqwxTF1S1fhXPFoF9kfSM7pOtZuP9eC/v0lBtCNsAcHvZnOg==
-X-Received: by 2002:a17:902:ce8e:b0:1eb:5323:c320 with SMTP id f14-20020a170902ce8e00b001eb5323c320mr7103763plg.56.1714644157999;
-        Thu, 02 May 2024 03:02:37 -0700 (PDT)
-Received: from sunil-laptop ([106.51.190.19])
-        by smtp.gmail.com with ESMTPSA id u9-20020a1709026e0900b001e604438791sm896026plk.156.2024.05.02.03.02.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 May 2024 03:02:37 -0700 (PDT)
-Date: Thu, 2 May 2024 15:32:25 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+	id 1s2TOC-0000000CHIA-3PjM;
+	Thu, 02 May 2024 10:10:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1714644608; x=1746180608;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=87FHMmdpw7b1gNaTVQbqStrtd0TI+1EIp0z248aiwBY=;
+  b=n/UkU6cgDKch9lFCzQnb9VSQGA6dMmldbWv0jpFsjE22AWNlk2wG7Q+j
+   eCb4nA9QUYkEk2XpnsJFDS4V9MHHu187f88oWYQG8zJBS+OpSDGvbaGiR
+   VqmhDvYrqgIubZUUcRmbBes4C2jTK5jLUexdDwrDj3i0uTaFWYL3VKXkc
+   IjeImfg0FlEGhGo72YbUn3PmvHwDkOQ6dXJ6CjmweyXP4ZbSPOPo5tmIl
+   EK09yX3JucOJvF/n8V+F3s4SD/2V2JOU92BrcXqiu50VCo4iUMjEf5TQY
+   eO2+ftiRuY8oQWYJOr/q1NMeqtNyDE0JTd6oJ3WluMYCrAPkcNkFtLRv3
+   A==;
+X-CSE-ConnectionGUID: i77+PysLTNq0SrSRBUY9ug==
+X-CSE-MsgGUID: yiI0L3OFRUWPKZwZUST8fg==
+X-IronPort-AV: E=McAfee;i="6600,9927,11061"; a="10561139"
+X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
+   d="scan'208";a="10561139"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2024 03:10:07 -0700
+X-CSE-ConnectionGUID: 0RR7KSU8Tby1qIbwmggvCQ==
+X-CSE-MsgGUID: Rj5lDDuMQi2fWogM38doFQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
+   d="scan'208";a="31743098"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2024 03:10:01 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.97)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1s2TO1-00000003HAt-11R5;
+	Thu, 02 May 2024 13:09:57 +0300
+Date: Thu, 2 May 2024 13:09:57 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Sunil V L <sunilvl@ventanamicro.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
@@ -87,18 +82,20 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Atish Kumar Patra <atishp@rivosinc.com>,
 	Andrei Warkentin <andrei.warkentin@intel.com>,
 	Haibo1 Xu <haibo1.xu@intel.com>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Subject: Re: [PATCH v5 03/17] ACPI: bus: Add acpi_riscv_init function
-Message-ID: <ZjNksbTQF1lMQ0k0@sunil-laptop>
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Subject: Re: [PATCH v5 17/17] serial: 8250: Add 8250_acpi driver
+Message-ID: <ZjNmdfR2J6hNnYle@smile.fi.intel.com>
 References: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
- <20240501121742.1215792-4-sunilvl@ventanamicro.com>
- <ZjNbvlUoCfa5UUHF@smile.fi.intel.com>
+ <20240501121742.1215792-18-sunilvl@ventanamicro.com>
+ <ZjNaR-YtVTm4pbP7@smile.fi.intel.com>
+ <ZjNh0Llcx+0VHevy@sunil-laptop>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZjNbvlUoCfa5UUHF@smile.fi.intel.com>
+In-Reply-To: <ZjNh0Llcx+0VHevy@sunil-laptop>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_030241_948703_ED6496D8 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20240502_031008_897282_07116724 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,22 +112,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 02, 2024 at 12:24:14PM +0300, Andy Shevchenko wrote:
-> On Wed, May 01, 2024 at 05:47:28PM +0530, Sunil V L wrote:
-> > Add a new function for RISC-V to do any architecture specific
-> > initialization. This function will be used to create platform devices
-> > like APLIC, PLIC, RISC-V IOMMU etc. This is similar to acpi_arm_init().
-> 
-> What is the special about this architecture that it requires a separate
-> initialization that is _not_ going to be in other cases?
-> Please, elaborate.
-> 
-This init function will be used to create GSI mapping structures and in
-future may be others like iommu. Like I mentioned, ARM already has
-similar function acpi_arm_init(). So, it is not new right?
+On Thu, May 02, 2024 at 03:20:08PM +0530, Sunil V L wrote:
+> On Thu, May 02, 2024 at 12:17:59PM +0300, Andy Shevchenko wrote:
+> > On Wed, May 01, 2024 at 05:47:42PM +0530, Sunil V L wrote:
 
-Thanks,
-Sunil
+...
+
+> > > + * This driver is for generic 16550 compatible UART enumerated via ACPI
+> > > + * platform bus instead of PNP bus like PNP0501. This is not a full
+> > 
+> > This has to be told in the commit message. Anyway, we don't need a duplication
+> > code, please use 8250_pnp.
+> 
+> Thank you for the review!. Major issue with PNP0501 is, it gets enumerated
+> in a different way which causes issue to get _DEP to work.
+> pnpacpi_init() creates PNP data structures which gets skipped if the
+> UART puts _DEP on the GSI provider (interrupt controller). In that case,
+> we need to somehow reinitialize such PNP devices after interrupt
+> controller gets probed.
+
+Then fix that code, we don't want a hack driver on top of the existing one for
+the same.
+
+What I might think out of head is that used IRQ core for your case should
+return a deferred probe error code when it's not ready, then 8250_pnp will
+get reprobed.
+
+> I tried a solution [1] but it required several
+> functions to be moved out of __init. 
+
+> This driver is not a duplicate of 8250_pnp. It just relies on UART
+> enumerated as platform device instead of using PNP interfaces.
+> Isn't it better and simple to have an option to enumerate as platform
+> device instead of PNP? 
+
+Ah, then extract platform driver first from 8250_core.c.
+
+> [1] - https://patchwork.kernel.org/project/linux-pci/patch/20240415170113.662318-14-sunilvl@ventanamicro.com/
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
