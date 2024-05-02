@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D63C4345F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 09:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE52DC4345F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 10:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qAXcmIYq75cSiSeH4+tZdJFvYMuXC/PAo59A0Lv8AH8=; b=zj0Hd+GlFa/JKm
-	1SX0Z7Lwwe2yfOjtOAguWbTnGkToPUQQ+tlPoUGlam9q/UasXhxRTpwOJXGbtCpACM1O67EtDxDdn
-	Ts+6vomFCQFmGUREibrW9UuiDi6EVvXV0FythLRhnkfHlkhjYK/Mkfde/8pNE2jTem6M55Jx0D3Yz
-	urSaz/2i5rZB0riU2WA7tHUpLoogZTaXZHmgDJIdKde5VzCXTVAJW1ONiyn3KKewslgE3h5jzL90T
-	HHjmyAoOuCT3mTX3eOI8StsCAq1u+UaeP187c1DVWl/kIOhBQ99h+plDtiwvmNQfHIDtEIHRf2WPZ
-	JjYyMDi++qlJf0HeHsjw==;
+	List-Owner; bh=xHuKqO9HEQMsL9nq2MXwvV3Ax4Wk4yBcMoh7l4Y5ix4=; b=qfrEG3gIPNMdqS
+	HeKH4KLUoGJiA64RmCft6YF8vfzImKnIH/QApUHdUiGWYP502NHeUeS6e4XXvrHI2g0OWXAhjas2X
+	5J94F6RJmuE+pdmfKqgWkMwKeAX2+wxMND79vJVZuElYbLyRvL25+kOTpvwO/jEZHT4b+sxyEPsow
+	yZnz4i8m7p8+kj3zBw0vbSFfYnjzmFUExLWygx0wSyd7jMuQQqtKZiEDXVgsyeQRR7rSTq9tc0eVS
+	F5a8FVPDDjv+q4ZJpCKwhAGz8Gq3qP2UALLnh/wEdPkSm6NwvGxkpV/500aiG9eG8f/owMaTZyP/S
+	1ImX7vWunPA4Y5aZs71w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2TBJ-0000000CEsy-3Rfm;
-	Thu, 02 May 2024 09:56:49 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1s2TH4-0000000CG5e-2NxI;
+	Thu, 02 May 2024 10:02:46 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2TBF-0000000CErL-0UwT
+	id 1s2TGz-0000000CG1b-3X9Z
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 May 2024 09:56:47 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6effe9c852eso6837812b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 02:56:40 -0700 (PDT)
+	Thu, 02 May 2024 10:02:44 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-1e9ffd3f96eso63222245ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 03:02:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1714643800; x=1715248600; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1714644160; x=1715248960; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=sucCdO5kXmwHz0FAAtAAGExlkRhEC3HqOy4Cv/qw8KI=;
-        b=kcVvUHvEOLcC5UQ+0V+2djM0b5pWkWeVYKYw+Zz1k9hjyiJiLEMdP77Nus6p0RCC65
-         ASGRaf3kK4o11gWidtUqU7UGkPOuB/EDs/htQZoOlyERDNUiuSJ1QAAQErczrvBVWdfk
-         SR1FobuN+q1D5MuIUXp0EL6/trCmlWHedFhSYBMs7Su89bOw8YGTqkvrr7ezI4p3+O1d
-         kxr/rmRII05WcJhcezjPbzqrj2p7EEX+nCADkoB8ts4FrGjiD1R0KASOrJV4/musMpPE
-         rLkT+KOqB2bhZEQOP8vHRLPH2VvytslN78T2DcwHW2LkejFY+FEDr7kk+0VWtPnqhoan
-         AUWw==
+        bh=+kMTT3PzTLyPVaeH+DM1bYJEhGQDgrI4wH+0p7ikXNM=;
+        b=UdA/x2KdoHStL3QsBrKJ6XzIE3bC52Tfh1S6NgIu0b2ybzck3OYQlYbqzobn9tKlOb
+         guK1niXzfg96dA3ejDAwwHU2nBqR+IihJKXOytFkBgqi+abYddcWf8BK0Q8LEzICnhkX
+         /w+iH97HdCQHEpx+az901xmZ3iiNFW2pGw8yo1PYEDiLJIeTZONjrKVug/ns0chVIkDR
+         2lkHzHe8oNj176gNVV9UNkriO0y9kNxOO4i3VGNb/KJD+xlQraSqyVCVG2b3QrBiXq4t
+         mxIDAfL6NMA1dYy9sAIoYb7EYjZGFy7U8oI6K/ORaQgcZb1svpth6ZjO1gC0x2/XPxIa
+         zSZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714643800; x=1715248600;
+        d=1e100.net; s=20230601; t=1714644160; x=1715248960;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=sucCdO5kXmwHz0FAAtAAGExlkRhEC3HqOy4Cv/qw8KI=;
-        b=rC1WVkwLF8+1UzDG7qCNEIyC/8fzXZIBhDDF+j9Kvdp0leUFRb1QrJtY9IY3ZFSKAM
-         mIh0nn9buvZiGixFWxNsS8sN4HUOwU2Oy/TdL6mtH+QP3zLCyPkjhsxD6ITr2pCaMuXO
-         Y9FIXc0CiVkNnOeQkJ0WNmPOPjfW3KQ3ot2EV3jFDQE0C8hzc82u0THbqFY33Cm5zWe8
-         Kh3IWieK+ScnhMcbvVuSDArK9+aBPqH8eciu2Sk0/ELNOwz6nTO9Ega9GG/u/PZs8XBR
-         8VcyItqSQ67kDK7Y//eus9WxvpYUS7mQl9D8PjjWS9FZGJbShRvqJAZ+Jt3GV4QVsYSk
-         xf4g==
-X-Forwarded-Encrypted: i=1; AJvYcCUueJ8TmhoTUv5crnHhAnH+L08T1Uo286/V1Dy3ikJWvi/xu37fW0ZmJ1qRFb9Z5c1kB+WzOUrZTrzGA2blky7cpACxc+lyWEJEWifE1cIt
-X-Gm-Message-State: AOJu0YwkG60u1DHLjEddu95m5KygjjjD3tkiPVBRtr/UeBQQMpiIQBxC
-	tgcephHE4QbEXurIEH7jjRpcuxQgGRumq75nbU/FE8GnF4G5jntUB80z707xmTgVGa3MAmOIjmj
-	pxbw=
-X-Google-Smtp-Source: AGHT+IEdqN4j0tZUjqkf7AiQCf6AILBV0FVoUPT7pSiU8sVSt1YtTCq7aHm3fUhXEYUOJZhfGVfIwA==
-X-Received: by 2002:a05:6a20:7f86:b0:1a7:5402:8a92 with SMTP id d6-20020a056a207f8600b001a754028a92mr1702915pzj.31.1714643799826;
-        Thu, 02 May 2024 02:56:39 -0700 (PDT)
+        bh=+kMTT3PzTLyPVaeH+DM1bYJEhGQDgrI4wH+0p7ikXNM=;
+        b=NNBEUnaVkBK8N5Zsx1KqJ08iBtA0v7ipffGKeUfuC8aUgSPPX/GFLaxku3zsf53IXl
+         4qkZECGvj9SrCrlz7RvX6Mbw6v0ign4Y3PejTv6OrNeiMZ9DF86eOK4weZ28ctVLiGeH
+         VGIFjE3FUw84s+y2/MocCyt9zT4O8vuMEhmPPpcYUcuAWywuX1vgVk8sDZYL9LN9y9UY
+         nHD9MXO6xDjob/uJYfu7FP1DMIcgtxhfHceHR45ODO2lleuUFtPZXZP1Aesd0F+ia82a
+         GNExJrz++QbZ2ef0cd01zq20htideNmUfE8Q14yyATXuWBnNt8JKYNRXJVvSq6VNF7Db
+         c1yw==
+X-Forwarded-Encrypted: i=1; AJvYcCUWyEbW6Re80Yo6D2AMiUrGovXVBwacy3ke3jpsqojJL83P0ksLC+oq+dIr/EcPCY6w97YJy4LyX5UrSwJGBQPDwrFCbe/738qpLiRq9DYA
+X-Gm-Message-State: AOJu0YxpK7PfleEXB0O8rMrgUNpzCCdDAsZaDpzk3Da/pZv/Ltdc0F1p
+	JD3vQ2yujZqvR50d8oz9Qv7ahmCiE6vS4+Qso7GJy9PxxEFFdUfje5vk454pnWY=
+X-Google-Smtp-Source: AGHT+IFMGhdu0SIDQn/0fGRllf2r0ZaqwxTF1S1fhXPFoF9kfSM7pOtZuP9eC/v0lBtCNsAcHvZnOg==
+X-Received: by 2002:a17:902:ce8e:b0:1eb:5323:c320 with SMTP id f14-20020a170902ce8e00b001eb5323c320mr7103763plg.56.1714644157999;
+        Thu, 02 May 2024 03:02:37 -0700 (PDT)
 Received: from sunil-laptop ([106.51.190.19])
-        by smtp.gmail.com with ESMTPSA id lf12-20020a170902fb4c00b001eb53dcf458sm864846plb.188.2024.05.02.02.56.30
+        by smtp.gmail.com with ESMTPSA id u9-20020a1709026e0900b001e604438791sm896026plk.156.2024.05.02.03.02.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 May 2024 02:56:39 -0700 (PDT)
-Date: Thu, 2 May 2024 15:26:26 +0530
+        Thu, 02 May 2024 03:02:37 -0700 (PDT)
+Date: Thu, 2 May 2024 15:32:25 +0530
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -89,18 +88,17 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Andrei Warkentin <andrei.warkentin@intel.com>,
 	Haibo1 Xu <haibo1.xu@intel.com>,
 	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Subject: Re: [PATCH v5 01/17] arm64: PCI: Migrate ACPI related functions to
- pci-acpi.c
-Message-ID: <ZjNjSpJus7EYT6zn@sunil-laptop>
+Subject: Re: [PATCH v5 03/17] ACPI: bus: Add acpi_riscv_init function
+Message-ID: <ZjNksbTQF1lMQ0k0@sunil-laptop>
 References: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
- <20240501121742.1215792-2-sunilvl@ventanamicro.com>
- <ZjNbVPYIjINdk4Fn@smile.fi.intel.com>
+ <20240501121742.1215792-4-sunilvl@ventanamicro.com>
+ <ZjNbvlUoCfa5UUHF@smile.fi.intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZjNbVPYIjINdk4Fn@smile.fi.intel.com>
+In-Reply-To: <ZjNbvlUoCfa5UUHF@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_025645_198701_42FDE307 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20240502_030241_948703_ED6496D8 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,22 +115,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 02, 2024 at 12:22:28PM +0300, Andy Shevchenko wrote:
-> On Wed, May 01, 2024 at 05:47:26PM +0530, Sunil V L wrote:
-> > The functions defined in arm64 for ACPI support are required
-> > for RISC-V also. To avoid duplication, move these functions
-> > to common location.
+On Thu, May 02, 2024 at 12:24:14PM +0300, Andy Shevchenko wrote:
+> On Wed, May 01, 2024 at 05:47:28PM +0530, Sunil V L wrote:
+> > Add a new function for RISC-V to do any architecture specific
+> > initialization. This function will be used to create platform devices
+> > like APLIC, PLIC, RISC-V IOMMU etc. This is similar to acpi_arm_init().
 > 
-> ...
+> What is the special about this architecture that it requires a separate
+> initialization that is _not_ going to be in other cases?
+> Please, elaborate.
 > 
-> There are -M -C parameters to git format-patch. Use them in the next version of
-> the series. (Note, you may add percentage numbers to each of those parameters
-> to get prettier result.)
-> 
-Yeah, I tried different combination of percentage after you told me last
-time. I just didn't see any difference in the patch generated. Let me
-try again while sending next version. Thanks!
+This init function will be used to create GSI mapping structures and in
+future may be others like iommu. Like I mentioned, ARM already has
+similar function acpi_arm_init(). So, it is not new right?
 
+Thanks,
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
