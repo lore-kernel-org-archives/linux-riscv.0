@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B88C04FFE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7571C25B4F
 	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 07:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=92jPB0vCZ5NtKNsKkLwcOYGcsi6If34hRmsGz6WvxGE=; b=si3raCpzwFdZQi
-	zaFcMo+LzNy/tAaNUxT+2l5vCGxg6ZSKJ1/jGKHtpx1RHs3WFdsevxl9ibhmcoGtj3Q4xE6OQ8bwj
-	bsVeBIhtIHR9ei2hMHwBIOW/ftaig3OV+bFpTXWy3xu/JqiFAaFQsL94FzATCldsqTzSw3qTyNDBT
-	zR8kb1t4QmxKAH5x7rUUKva5f88eN4gnU85s8UyXR4EdfwUl+B4hqjBr6sbq+q9arXBp1B3oKS2VY
-	C/8GSPkcyQ4Cy+bLN/tYtBHOu5hFp3RgucDiBIdj5QDjTqgofihbCgKw5B8WL1oOyZGiZFGMlH5d8
-	lijlkoJfGLXEV7qyx/tg==;
+	List-Owner; bh=nF3VSReF7saiTG4hgTbkgmpg8aMSjBfG6Nf0Jyu5uLs=; b=MhM4/09AnD37Nj
+	mWHFwIsZDGWsr39l85UP3pC48AfAyNrgOGIiA4sWHsnqzMLHrKuzTOjbM9VIVpKz6BwtX2Jjd68ix
+	tBWNbAkaR0s3X7dfPeJ1otqwMNW08teZ6SYJJ9XabHa3AuhLKJ6D4n/VAQDPViX1uRVfP11nuN5RO
+	HDkmypWIgJn2ht/czjqcmy7JLK9/iXfWEE2a9kagmLCT7RooDlIP7Y8HrxlJmpoLocigM1XaH3DJO
+	bSNh+2tSixS53uAyuxkLPQ39muxEk+nka8WiV8tj/+PZNYGIcy4RPg9McwJ1YlV77hXDNJCU7X4gj
+	oWmylaAfji2wd2J77kug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2RAT-0000000BrHj-1aSH;
-	Thu, 02 May 2024 07:47:49 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1s2RAW-0000000BrK5-2BON;
+	Thu, 02 May 2024 07:47:52 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2RAP-0000000BrF3-0vsE
+	id 1s2RAS-0000000BrGr-0wR9
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 May 2024 07:47:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id C012CFF802;
-	Thu,  2 May 2024 07:47:38 +0000 (UTC)
+	Thu, 02 May 2024 07:47:50 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 842B1FF808;
+	Thu,  2 May 2024 07:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1714636060;
+	t=1714636066;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Nl4f2gTcxSpdt9aNsQkLAMEx3yFNLiblqv3A5NbuTPQ=;
-	b=V/ZI+t0OamjlUxNgd7Hs9zCPwvWCm5aoomKRH11nPihuCcrPMHbe8LaZbuzs4GTx+ComAm
-	wRIJgZnO+2vY8iARc7N3BjCIa3Q9ciTeJtPtnIBx8pPTENzJHKE4qYO5SxowU5IBW7WeVJ
-	by7tfYEkcesU17vpJzPxSTgMPpwMIfdjA7nYm8Fhu1ErEIH3Pakp8BrA8q9XZEdhLH0Iqj
-	RGTL2M68bCza7EYNLpq/rt2sjaoTOT00iR/LcLcsTsMz5cMFF4iHdPWagzKARFwfFqWhPf
-	xHLgd5/YBlvxNEyJfOsN0xOBUCauJKDivRUiBNW60NRg88d0pJci6Wo8Oludfg==
-Message-ID: <588fb903-e5ca-43af-9258-c14aaab6c732@bootlin.com>
-Date: Thu, 2 May 2024 09:47:38 +0200
+	bh=x8SwW+ELJF0Fre9JQp39dmXVDBVpvYrr5lnpvWL62nM=;
+	b=aJW/qp8HM5GIcA9zma+Wm/wS7z8pqOauqHzMTapIbt69hXq7W9aTboL+TUAXfFLk6jS1yS
+	iRYmFvhicQFh6JLO7Q8himwCobUqRtb8f4XcX13AH9qKj89VT8kx96QLSe27cX/VHEGHdo
+	RCS6P2NdXJV088Ay2x0sbC2BYTwsofbZ5G4erAVAQTQ+2nQjfg27fn1WF+cj0MrdRB9ooS
+	KB43b7EFfrqGmUAZr1L055xgMJELD9QgTWEm8Ecw3TWZOfCCHrtS/JTQ1Wpng/EWFGdjZJ
+	+YQFO+mbqEo2CZ+N7KvTzD/QEQwQaMvW60PjA2pUgrVTCfp8lNjDj7/0R2Efcw==
+Message-ID: <9ad3ab76-812f-413e-826d-97545c403138@bootlin.com>
+Date: Thu, 2 May 2024 09:47:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 0/4] clk: thead: Add support for TH1520 AP_SUBSYS
- clock controller
+Subject: Re: [PATCH RFC v2 2/4] clk: thead: Add support for T-Head TH1520
+ AP_SUBSYS clocks
 To: Drew Fustini <dfustini@tenstorrent.com>,
  Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
  Fu Wei <wefu@redhat.com>, Yangtao Li <frank.li@vivo.com>,
@@ -61,13 +61,15 @@ Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
  Miquel Raynal <miquel.raynal@bootlin.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>
 References: <20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com>
+ <20240426-th1520-clk-v2-v2-2-96b829e6fcee@tenstorrent.com>
 Content-Language: en-US
 From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-In-Reply-To: <20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com>
+In-Reply-To: <20240426-th1520-clk-v2-v2-2-96b829e6fcee@tenstorrent.com>
 X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_004745_581815_60D56497 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20240502_004748_531211_B0919464 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,53 +89,42 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 4/27/24 2:10 AM, Drew Fustini wrote:
-> This series adds support for the AP sub-system clock controller in the
-> T-Head TH1520 [1]. Yangtao Li originally submitted this series in May
-> 2023 [2]. Jisheng made additional improvements and then passed on the
-> work in progress to me.
+> Add support for the AP sub-system clock controller in the T-Head TH1520.
+> This include CPU, DPU, GMAC and TEE PLLs.
 > 
-> Changes I made from the original series:
->   - corrected the npu_clk enable bit
->   - deduplicated CLK_NPU and CLK_NPU_AXI number in header
->   - fixed c910_i0_clk reg typo
->   - fixed checkpatch and dt_binding_check warnings
->   - rebased on v6.9-rc5
->   - revised commit descriptions
-> 
-> Changes since my RFC v1 [4]:
->   - squash the header file patch into the DT schema patch
->   - describe the changes I made to original series in the cover letter
->     instead of the individual patches
->   - fix my typo in my email address
-> 
-> TODO:
-> I am again marking this as an RFC because there is feedback from v1 that
-> I have not yet addressed. I am posting what I currently have as other
-> patch series like the TH1520 I2C driver [4] could use the clk driver.
-> 
-> Emil commented that the input predivider is not handled correctly in
-> ccu_mdiv_recalc_rate(). The PLL multiplies the input frequency and
-> outputs "Foutvco". This is followed by a post divider to produce
-> "Foutpostdiv". However, some clocks derive directly from the "Foutvco"
-> Emil suggested this should really be modeled as two different clocks.
-> 
-> Emil aslo suggested that the rest of the clocks in this driver seem to
-> be generic gate and mux implementations that should probably be replaced
-> with devm_clk_hw_register_gate*() and devm_clk_hw_register_mux*().
-> 
-> I'll look to address the above issues in the next revision.
-> 
-> Thank you,
-> Drew
-> 
-> [1] https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-> [2] https://lore.kernel.org/linux-riscv/20230515054402.27633-1-frank.li@vivo.com/
-> [3] https://lore.kernel.org/lkml/20240110-clk-th1520-v1-0-8b0682567984@tenstorrent.com/
-> [4] https://lore.kernel.org/linux-riscv/20240425082138.374445-1-thomas.bonnefille@bootlin.com/
+> Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
+> Co-developed-by: Yangtao Li <frank.li@vivo.com>
+> Signed-off-by: Yangtao Li <frank.li@vivo.com>
+> Co-developed-by: Jisheng Zhang <jszhang@kernel.org>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
 
-Thank you ! It works on the Beagle-V Ahead :)
+> ...
 
-Tested-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> +void ccu_disable_helper(struct ccu_common *common, u32 gate)
+> +{
+> +	if (!gate)
+> +		return;
+> +
+> +	regmap_update_bits(common->map, common->reg,
+> +			   gate, ~gate);
+> +}
+> +
+> +int ccu_enable_helper(struct ccu_common *common, u32 gate)
+> +{
+> +	if (!gate)
+> +		return 0;
+> +
+> +	return regmap_update_bits(common->map, common->reg,
+> +				  gate, gate);
+> +}
+> +
+
+Both of those functions are only used in this file, you should probably 
+make them static because otherwise, the compilation process will prompt 
+a "missing prototype" warning.
+
+Thomas
 
 _______________________________________________
 linux-riscv mailing list
