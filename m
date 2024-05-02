@@ -4,133 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85740C4345F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 07:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CBEC04FFE
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 07:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8H/97RguEqYt5VulR6LkqCDgiyd4hXQoTYqjre/3+rY=; b=D/ty2FZndiOhTj
-	ukTJ3931NxOXEsoO8UySVwnQu6dpWEeD4pbZ7GTUslssPmioc3D55P9a7OrZ1C8aFq9YAR0FT5q1j
-	VhjD+NkHEPcR+wi0ALn+k8cCFILVJR6MQOabRX4k2aU7njsYLezBBQZL1RvIzOz8gAyrh13hlPCqS
-	lz/VxnHdqmn3lR1SmXvrCBfqj83dG+IOhjM+ZgU0eQ+kIpzol4t5JRA1YiM94PMXIxHiCW8sug00a
-	CVdJ8cwgvH6m0FLPTzj7H/yWmHedE/xVbuTt94m8Qmfz65MxXLzNgzj8celIlxJ3oE1UtxO8doD+L
-	u+Cr4oHl2l+9FN6U8rwg==;
+	List-Owner; bh=+XKFYJVEAsLXoDyizLO8ZD2Mu15b9FmQ/4NNBXCNT+Q=; b=Spt2ryurld78A9
+	EQjhtzmsxAoHi4TSnHuy3Gozvut352RVuUC/MEl720R+oqtn+K86W1ikI3BySb5pzf55sKhG9mnVc
+	rEaXorhMx+dmLPsNH4xPbU4i5m6o5o5DtU9gKsN0563m9V6pVdayOebonrlkOuZW18PQ5g0JtS8ri
+	1ZnNQSCERTG78Ip7Q/xa5vbD5QqVcyDMAGHee+R9VuX9vw6JICxVT1V141EeAbWyU+5p/XAZRBc86
+	2R8TCQY+WrZyG6q1w7DyTB+92BhvRFws+Ck+ATalkzSkJRBRj5GIi5l+wIkWg5BSW0Z3vspTZQnS3
+	FrZJ1OdX/cLwh4OSZh6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2QVo-0000000BkBH-2KUl;
-	Thu, 02 May 2024 07:05:48 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1s2R1E-0000000BpYL-3TMY;
+	Thu, 02 May 2024 07:38:16 +0000
+Received: from mail-sh0chn02on2071f.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::71f] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2QVi-0000000Bk7J-28TK
+	id 1s2R1A-0000000BpWf-37ag
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 May 2024 07:05:44 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2df9af57b5eso73699641fa.2
-        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 00:05:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1714633540; x=1715238340; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=V3T3S0/ACanJIeY4czsTT+RTZ1YRol9ljsewIaXQads=;
-        b=aa1/2HN1CE869u3cR8fKoCRjM1tRDM78Bz++d7CoQS/CNo8gv+DBnRpKQCn2zB0oP+
-         VttObLKD2m87RuTD888ZhhvT87yhw3zOEBhurIhlmX0EyDILRZ6CHRbN64maJZXki/O0
-         wHUruGXqKDma5xgVOdj7yUZe6KV9fkgZubaCrvgJZvUfL9bMuVlIXx9O98kLqt8BBbBD
-         wMDV2/08JDUky878ovtrTt/yl/BrHHlhRLPZqrtKzVyAHYNJfIliTzhLsEYKiIGBsmYb
-         HLNxYwXC0Y4zo+U1XKsRVJNeYCWVr8lRcEwS5WGIBMwDIeXePj5BsRFjKQrZ6z/kMbrD
-         dpPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714633540; x=1715238340;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V3T3S0/ACanJIeY4czsTT+RTZ1YRol9ljsewIaXQads=;
-        b=WmrXMWmsvSRfjBNLOoCupPDm07uZ5krino3HGu0lKa3b8/zID1pmBJRiYngHN/mK3T
-         jlrmIVPPos9a/abDqtQTFv2ZWD/uY7C2pa0YeVEh19VemcvhsBTkPBsd1fS43hRnt77I
-         GkmVeH+yADA2cT08jbCPVOh4uHS4NgvjnpIIqrVtJ0BjAPItQ+gwiVDAEik+WJxLC4w7
-         6BNUHqOaIQzIqlTEhL+BVFgpyqlvCDpgWoCTL3CblAhStKPkQPUi1+QCi8HY7WxihC6p
-         jLKpnXo4iB1IeWYEkrWDaTJHA3esSVbn2DLPe6XcDrPgbcjS6kgJ0sHvrh4XYaAqN4bX
-         PSZg==
-X-Forwarded-Encrypted: i=1; AJvYcCWlojl6bMnQV/3zNhbIQGmlqxPlZXlpDC2ljB1a5dtKx3o8p0d+bQJ7GIoeo32FtjtI0/rONj09UJ3zcatq/K5QiGT3DsqP63ZvL57LLTUC
-X-Gm-Message-State: AOJu0Yxc5GNJAg2vPAGR2NU0iHDeiFS4JSsJSmUbE1qPeyY2ypQiMQ76
-	FHcD6oYhZxAsXyK5hZRGVSwbQ1MgfMzvpgMQoV3I7ZHkTVoPKjZJ3f9N9Xb+ABg=
-X-Google-Smtp-Source: AGHT+IGHVWuyebZDGCsij4vuuCGXUnlNacdJhnGzP0jhAixWhDpzQ1nmi4t3DPfRBlZrMwTir+WhcA==
-X-Received: by 2002:a2e:a58e:0:b0:2d9:fb60:9afa with SMTP id m14-20020a2ea58e000000b002d9fb609afamr1096872ljp.40.1714633540084;
-        Thu, 02 May 2024 00:05:40 -0700 (PDT)
-Received: from localhost ([102.222.70.76])
-        by smtp.gmail.com with ESMTPSA id q26-20020a2e969a000000b002d860a40f9dsm69420lji.136.2024.05.02.00.05.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 May 2024 00:05:39 -0700 (PDT)
-Date: Thu, 2 May 2024 10:05:35 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Jianlong Huang <jianlong.huang@starfivetech.com>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Shiraz Hashim <shiraz.linux.kernel@gmail.com>,
-	"soc@kernel.org" <soc@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Aisheng Dong <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	"Ghennadi Procopciuc (OSS)" <ghennadi.procopciuc@oss.nxp.com>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Joel Stanley <joel@jms.id.au>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-samsung-soc@vger.kernel.org" <linux-samsung-soc@vger.kernel.org>,
-	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>
-Subject: Re: [PATCH 01/21] pinctrl: ti: iodelay: Use scope based
- of_node_put() cleanups
-Message-ID: <26aab31b-8085-49e0-862d-24c26ff4d02c@moroto.mountain>
-References: <20240501-pinctrl-cleanup-v1-0-797ceca46e5c@nxp.com>
- <20240501-pinctrl-cleanup-v1-1-797ceca46e5c@nxp.com>
- <ee5c8637-b8b2-491b-b011-e399942691dc@moroto.mountain>
- <DU0PR04MB9417AD5892A1A45E6AE18D8688182@DU0PR04MB9417.eurprd04.prod.outlook.com>
+	Thu, 02 May 2024 07:38:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=mUL1eQuq/H7y0SguxyvNRxbWLFCsQf0uYDNc09fnyZnGgDJ93gZI3amFrBrt90iK7OD9IhE1p06WDKIA4zXtMSdX3PuFGyqI8jN32RefyHFDiTQ5awF0JYIOHha3v7A1BRPkR9rDc7cuCgv6t7ORZhg2Y0CtZh305FyPWQkl0yhRz+kPiXf4f1rw59lVvNROPO90vKalE+cYR4gFKjfI20QJZk7DExdzMT0L2trpCoHnm1bDiwzF/50pj+OZaHxu6amobQ0g62QHwi5VVuRFc7xc/6wHujLvo+sxiJS+0gKeSuTL5bJkTr/y2BGyQ5DRekvRPmEJtDZWLuQ9iuGPUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WTJWlMRmnsObQMaH5Hz84zRT2q5FDRkA9QHrkw+hAKk=;
+ b=QwocxQNIF6A0nYByBEgwc1KJiC/0RIQ+tfwt/chRfGeb7sQ14poN4FPifQdQ4q3dWQQLWrxGlKs/F8xCX6mSvNT9uwn1V1928hqvet6/uZ2igAjny94gzuyonzqwUbWCWYSSId8NvEi56LXlYfVq8iZ+36G3tXe4PfWHJzFgnbw6CeXvPSqUK6q0QnWT/Ht1meFbX4iLPWb5t9ZMdpR/YQwDfj/bugqJ3am/uCtW40Gwq7tRJGcxuIAB+xq9sPDr7l8B+8kAbNPv5V1UfiDmf8+4EqMba7yR4TLVs9RXqTHigfM6fwKeh6I97zNXzek/g5JWZcvjZ1htjYvnYRwXtg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from NT0PR01MB1278.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:12::10) by NT0PR01MB1087.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:3::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.33; Thu, 2 May
+ 2024 07:38:07 +0000
+Received: from NT0PR01MB1278.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e604:661e:e939:4c87]) by
+ NT0PR01MB1278.CHNPR01.prod.partner.outlook.cn ([fe80::e604:661e:e939:4c87%4])
+ with mapi id 15.20.7472.044; Thu, 2 May 2024 07:38:07 +0000
+From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 1/1] RISC-V: ACPI: Enable SPCR table for console output on RISC-V
+Date: Thu,  2 May 2024 00:37:51 -0700
+Message-Id: <20240502073751.102093-2-jeeheng.sia@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240502073751.102093-1-jeeheng.sia@starfivetech.com>
+References: <20240502073751.102093-1-jeeheng.sia@starfivetech.com>
+X-ClientProxiedBy: ZQ0PR01CA0006.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:5::16) To NT0PR01MB1278.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:12::10)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <DU0PR04MB9417AD5892A1A45E6AE18D8688182@DU0PR04MB9417.eurprd04.prod.outlook.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: NT0PR01MB1278:EE_|NT0PR01MB1087:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1ae3b41f-67ff-4da5-8b48-08dc6a7acec9
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: MDIerNr7jdMz5gyYAf/OyrBP5lNZ6xTJM6bP+chFPiHPyfbbjdrvJO+HuM3MhmdlXDm1TGWicnxiPKl9acps1OSaxrQKLQfi/CHHA4+ADlBOe+34jD1sza3eNAyshJG0y0/MdxvX6QhBwliAvdzB9W7Ki19/gN6XdWs+2WjdFqJxdAjPZPED8p4j187xcbsdTCE5YA6Jv3QqnZlrIeRMEPqCiSCncH3LbzFnTot05A48XXfHqUGJkiaCHu0HqgUQIK5s5jEarg3kkwN8CS3vwuIFQYp/8riSUH42901jdBiL48bflt5AdxG0rnwYM5hAiva5WxGdt03BES48dc7DiDVCYcF4zXBw/1FbOJhAMvxVLgHCHXGwo78EVpBHWYLwtgAG024Ucr+0FfeN1Zo8iFWGXsfdOiguuoHuWR8ewaDs7lyv8ltVR4EtchhOshjL2tRYLjfT0JgrcKYvGgtx7lMfLWwHqty2CktZmjZJwmbzbuJev/ab/PwoxgLVkB7OGXrCAQtqUsdSa8+PSDNZmX7vTiFVqb8nIc7Jvh4eNDz/DF+Lc5M6cr5fLLp8JJvTmAXah6O/+lXIR7S4qK3vblEymg1JIPkppl8GsOKZezUeX5FS10y96EAl5sylOD84
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NT0PR01MB1278.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(366007)(41320700004)(52116005)(1800799015)(38350700005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oj5Ht9mzBe4p/qJDzxVcf7aV9Ja/FNjlv0wucuAFNxaNkRzgksXkXpcz/s1i?=
+ =?us-ascii?Q?krluqGPl8uPrKUC/6/s3s01+ksd+r3sIENDBa5rC+qEy1lP7YksVUFcCdtum?=
+ =?us-ascii?Q?hFbzzbyKhnR0LMUL9d7jxLaXV320LDmsVyvWn7WOiUChKLpFCwoC+em172jh?=
+ =?us-ascii?Q?sL+uSRobHQg/A8qUt6EbeQDtLdCmHeiRliFUV1Mr97ds5g4hPhGXyjrOWB5d?=
+ =?us-ascii?Q?YIUBto2O9D13eLgyaZT1cJY1eIlazayj2jZuGh6LYDUq3XpNLa43j9A7QASl?=
+ =?us-ascii?Q?b9RAn7L4Y7NvtWN84hNg4puqjNvBDkYn0J5AN+1m5Zid7MadEhI8STNaMPd6?=
+ =?us-ascii?Q?OLxUBSN8hlEiwCvhHnuJUEVph8db7aRNBQqbQCW5F8SoLUbeMwHBJLP7jnj3?=
+ =?us-ascii?Q?3Su0W6q7nZimocl2uB6JMhH4isVLW/fK3no5NvI/+PB8XhGoZ99h/4Vy/qwd?=
+ =?us-ascii?Q?x/bR1qLdDd2CxwI7Ryr29djm+7Bg0E8OsWCiERInN/oCjbkDZwonW1xRktYK?=
+ =?us-ascii?Q?bCaxjMwWv1GvOTiFkM6vNjJAHVOlWqeQ64rK+mFfohGysbH+9evMq6F8WQCx?=
+ =?us-ascii?Q?SLjAA3yWr6NW08OmI3graY9TNK5kzWEznS+3OgytRUEIXKvy02YmWUWP7s7z?=
+ =?us-ascii?Q?AtP0BurJMMgpgdendzq1MVq+krvkoifdHkk/Is8lgrlwc5KYVggldfXOYNpu?=
+ =?us-ascii?Q?V4M8Ot3rg4NaVmKskcYRYgYN9b2trTvjB2x7MMVPP/u6VAe1MSk7SMB5oPiO?=
+ =?us-ascii?Q?bNdlsu7pVSKMGB0gl1aSqtkE5DVVsGRSi1Wg9gyglgkowflJieq1rDykiYaA?=
+ =?us-ascii?Q?e+JQByTxoqQ5PGr2fjBSZokthAAm7h6KttxxbQZ0zEPJlKqAOcZ3uGuGXOot?=
+ =?us-ascii?Q?YACCSRByKpdBpvbkiFIt8/p6zaPljiq3lL7/sdhgEfyqdGuRUSxWu0qNLA4G?=
+ =?us-ascii?Q?AYvCGD8McfRYb6+C6pftsnzcyG5HdZaY0MyZxfu+1drKgocmL8wPSCxwEXNL?=
+ =?us-ascii?Q?t91AK41fUD8vNATUyvI6Jk+5kWIa2FBF15AEbQK+pJdHBAJc6jzZlKP4Vn+2?=
+ =?us-ascii?Q?jBIgkFvuOQlrrqICi3QCMN1Y51QckFPBd0DSqALrQ1gEnT+xiSPGojWWaKy9?=
+ =?us-ascii?Q?8mG1/QYXLi9hzyEKVxZpA5EgHCFWuV1sggKWCPU5Lv1o4/W5PBRA/8O6E2Vg?=
+ =?us-ascii?Q?Q81Ic/TBzXSeePamgxr+vWa9oWKu0kQX04gIVuY4aTbxKUlV7+bA7wYGajyS?=
+ =?us-ascii?Q?nISPVrQYT+KZ/kVsMYeq0XbJEG2KLBqE2N+5HV6+fHOI3ueWsxxS8eiiI1MW?=
+ =?us-ascii?Q?6n+BRGrd004yHVQu3Mywg5s5842A18B6bQS2iRe6WHfxHoka94eqwaexfngu?=
+ =?us-ascii?Q?KOJPBQgZYjfda3xzM6yx6ftRNc0OI69O6PPkGnHCj95HfbH59OOK6wNsMqwT?=
+ =?us-ascii?Q?tFM3byvfnQmKN8t+VaXjtxHaz1tC0h+pL73YoP3LlYvfTcQwAdFCctqxtNJV?=
+ =?us-ascii?Q?YDEwo6Y1k5YXmy9xWjvIUOU0CCoYpVQjvOQYRpuQ/CpeEQgvCV41n03ShC+2?=
+ =?us-ascii?Q?B3QHhK0oZADSr/6ZhKm7godE4AOht8qVg6C0V/r9kcz6NycK2wOBjOaZJi0q?=
+ =?us-ascii?Q?AQ=3D=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1ae3b41f-67ff-4da5-8b48-08dc6a7acec9
+X-MS-Exchange-CrossTenant-AuthSource: NT0PR01MB1278.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 May 2024 07:38:06.9599
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ijq5IA4ncsG8pAH2+mFqy8WzVIHskk1CSbPUb4HS/OPvdQF455uDcWk62FpPGil2liaGk838nSuzNmmK2exa/2nzhu6rGi4qA1fi1CaUhNI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NT0PR01MB1087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_000542_685405_36504875 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20240502_003812_817446_A3DA13B6 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,59 +122,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: aou@eecs.berkeley.edu, jeeheng.sia@starfivetech.com, rafael.j.wysocki@intel.com, conor.dooley@microchip.com, palmer@dabbelt.com, paul.walmsley@sifive.com, ajones@ventanamicro.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 02, 2024 at 12:28:42AM +0000, Peng Fan wrote:
-> > Subject: Re: [PATCH 01/21] pinctrl: ti: iodelay: Use scope based of_node_put()
-> > cleanups
-> > 
-> > On Wed, May 01, 2024 at 08:55:59PM +0800, Peng Fan (OSS) wrote:
-> > > @@ -879,16 +874,12 @@ static int ti_iodelay_probe(struct
-> > platform_device *pdev)
-> > >  	ret = pinctrl_register_and_init(&iod->desc, dev, iod, &iod->pctl);
-> > >  	if (ret) {
-> > >  		dev_err(dev, "Failed to register pinctrl\n");
-> > > -		goto exit_out;
-> > > +		return ret;
-> > >  	}
-> > >
-> > >  	platform_set_drvdata(pdev, iod);
-> > >
-> > >  	return pinctrl_enable(iod->pctl);
-> > > -
-> > > -exit_out:
-> > > -	of_node_put(np);
-> > > -	return ret;
-> > >  }
-> > 
-> > This will call of_node_put() on the success path so it's a behavior change.  The
-> > original code is buggy, it's supposed to call of_node_put() on the success path
-> > here or in ti_iodelay_remove().
-> > 
-> > If it's supposed to call of_node_put() here, then fine, this is bugfix but if it's
-> > supposed to call it in ti_iodelay_remove() then we need to save the pointer
-> > somewhere using no_free_ptr().  Probably saving ->np is the safest choice?
-> > 
-> > The original code is already a little bit buggy because it doesn't check for
-> > pinctrl_enable() errors and cleanup.
-> 
-> It was introduced by 
-> commit 6118714275f0a313ecc296a87ed1af32d9691bed (tag: pinctrl-v4.11-4)
-> Author: Tony Lindgren <tony@atomide.com>
-> Date:   Thu Mar 30 09:16:39 2017 -0700
-> 
->     pinctrl: core: Fix pinctrl_register_and_init() with pinctrl_enable()
-> 
-> of_node_put is expected in probe, not in remove.
-> 
+The ACPI SPCR code has been used to enable console output for ARM64 and
+X86. The same code can be reused for RISC-V. Furthermore, SPCR table is
+mandated for headless system as outlined in the RISC-V BRS
+Specification, chapter 6.
 
-Ah, right.  You'll add that for the Fixes tag obviously...
+Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+---
+ arch/riscv/Kconfig       |  1 +
+ arch/riscv/kernel/acpi.c | 12 +++++++++++-
+ 2 files changed, 12 insertions(+), 1 deletion(-)
 
-regards,
-dan carpenter
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index be09c8836d56..ff2e270bbe01 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -14,6 +14,7 @@ config RISCV
+ 	def_bool y
+ 	select ACPI_GENERIC_GSI if ACPI
+ 	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
++	select ACPI_SPCR_TABLE if ACPI
+ 	select ARCH_DMA_DEFAULT_COHERENT
+ 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
+index e619edc8b0cc..43a12c00ae8b 100644
+--- a/arch/riscv/kernel/acpi.c
++++ b/arch/riscv/kernel/acpi.c
+@@ -17,7 +17,9 @@
+ #include <linux/efi.h>
+ #include <linux/io.h>
+ #include <linux/memblock.h>
++#include <linux/of_fdt.h>
+ #include <linux/pci.h>
++#include <linux/serial_core.h>
+ 
+ int acpi_noirq = 1;		/* skip ACPI IRQ initialization */
+ int acpi_disabled = 1;
+@@ -131,7 +133,7 @@ void __init acpi_boot_table_init(void)
+ 	if (param_acpi_off ||
+ 	    (!param_acpi_on && !param_acpi_force &&
+ 	     efi.acpi20 == EFI_INVALID_TABLE_ADDR))
+-		return;
++		goto done;
+ 
+ 	/*
+ 	 * ACPI is disabled at this point. Enable it in order to parse
+@@ -151,6 +153,14 @@ void __init acpi_boot_table_init(void)
+ 		if (!param_acpi_force)
+ 			disable_acpi();
+ 	}
++
++done:
++	if (acpi_disabled) {
++		if (earlycon_acpi_spcr_enable)
++			early_init_dt_scan_chosen_stdout();
++	} else {
++		acpi_parse_spcr(earlycon_acpi_spcr_enable, true);
++	}
+ }
+ 
+ static int acpi_parse_madt_rintc(union acpi_subtable_headers *header, const unsigned long end)
+-- 
+2.34.1
 
 
 _______________________________________________
