@@ -4,103 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57BD2C4345F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 09:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F9E3C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 09:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m6gGXAYAi4eVU/InvGoROjCFvXe5s1YFhIuhBTcNCdA=; b=H86Q4i8l3T56nE
-	DcguHrbpuwCJnVv3FrLP8fcmFFKo4/QnesxDC+3iHdt1y4fCGOHcglfrDTqXqK1+rfHSHc5sbE9ry
-	rJ2Q3tHibRMhP9Tpl9bZObr4dZYJc6SnXSmaf2QBYce/I7zOv9/nN0If6DTx8yLhBhkafSWgHQl0J
-	gKFZx2gn5/KMCOe8WQAkHyQhG34KdtaPxe+j61XhDhFZ1ib2PopeltYek/xfLXvJ4jbispRdWkh1s
-	BpSB4vohWln0wdyUe8maxcIpOQ7PrGpCXIXY2+4n+HUqpZVoYqFI5U3OhXW7SKyeRpCPm5vAiYZTZ
-	rXAATLdoNioQaN+NAwYQ==;
+	List-Owner; bh=1eixblb1OhqsTHB+tXtMfy0nSfQCjzyPXRB5AvYbTcM=; b=Py+tXyd3VDn1pc
+	5sF+4En5p7WXqXcM9Tfpeod1m5b0zutLOgp/J4dVIXoRSTu8DLKoJBvzWOsLp6UgvMGRdKA1jI61b
+	HkdNN+0+M37DTvG564HQ/oi1ZwoaxzeeN2ojfomjj3+krRDs3vPBxdV4zlo/yXmrk4eHEGrt1bYlz
+	uIptnKQRKpVOMoBje4BDIXAP/8dpgiSC/SIxUsN6FRrS93hF/MQX882qK/qOZPNDpiDYeSSlFyEMn
+	iOKGviZJD48u56OIb7fbOUv+lYrB8cVWEx3YCh2bSdsNZH6UuiuJ/yHYB+3X+b3E3vV5b0paqM2a4
+	3vBMJx2SytUbu3CIkm4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2So9-0000000CAtI-2eyv;
-	Thu, 02 May 2024 09:32:53 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1s2T0H-0000000CCpH-2EIC;
+	Thu, 02 May 2024 09:45:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2So5-0000000CAsI-2PA5
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 May 2024 09:32:51 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-6ea2436de79so4012080a34.1
-        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 02:32:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1714642367; x=1715247167; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FvW/lnO7fBno/xaBzZIt3Emz2T8DvtxIkgq7/bGwou8=;
-        b=jZ7qCxzqQ90UPjPVAPtGCTfQ0uN5B8TFBgKgtXjisBPq0qYlqlBTZNDrqfJHXxmkj3
-         oBHvW3T6hhgd7qDAp2vX0iGXCnBAw00xOHH8ike8Zw2rCiUo3JH5pG38GUi+3jApZ9kD
-         hKyWM1sFdDXMrTIAXaCNgtxLjdcKw8Ep7j971h3GDOGsOnOPxAkjwUTiZjgkJxybgR3C
-         v0DmUCjwI7S5oz8ueysZSdxOAXkJMvY1Z1HDlU3E7t7UjFvy+NUbIKTF5aMG9RojOMOA
-         EHlA7MmciAAnELN8R65Ibg256NBUvX3b2IhKsYbJu5uprkBOFN7vCWqtmLdFlt/1M3o3
-         6idA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714642367; x=1715247167;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FvW/lnO7fBno/xaBzZIt3Emz2T8DvtxIkgq7/bGwou8=;
-        b=w1rAl5ocCW4slf8num8uMGXcBu1m3dKXP94wsRRcEaMgGK5lhsRTkav5jONTiK1whU
-         2kpk15cvlv+dLc8QVv30b/NcxR7eJmIK/LSbUz9F35oBRFmfJ9x04Et3iIM8LhYjHBVY
-         lpGPZYgD3SbKadfjMeAIbUlI5DUWPj72FkRFDYoyPSfPgdVWtMPTo3cShYqsl5NaHJO3
-         mXOOSDq8mDkzfDJimUlnbJFNFDcNQJ/p9TYVQu9++Y1rcWGOJOwz1oCvbHXL4mKJ+U5r
-         YnqCxqhOWW7fDkXfnyJNP58cDAJSfEYkE+fnilu2q6LZYnd8zoPg2J4YnZ8hV7V/ryz2
-         J1xg==
-X-Forwarded-Encrypted: i=1; AJvYcCU72LtLNz0jQ9i/8F0BV67WQbN5Q8Z15uxoPwYSpNdukG+viO+mCVXUi8Q+e/s3+nDfqJU2cqxbcwjgtFqwzWZ90r5G73dBIY1rmNeTF8ha
-X-Gm-Message-State: AOJu0YwIw3NfoBoKajVEftjNUSZUwuYgEq9z9WuZgsoZpJeioLE6liqN
-	OGHt8hZypoQMNiGfRhgqjM/jY51qg43jHVjlQjNf+9VE233Z8JEQVkrK2mBtgqc=
-X-Google-Smtp-Source: AGHT+IF4b+lPGskb1gHK2IpUgfNkpEMYBXho2rUofukPTZVb0za3mVEu5Rsh7KTHfVzjAbIKdeiEtg==
-X-Received: by 2002:a05:6359:4c9e:b0:18f:673e:fce2 with SMTP id kk30-20020a0563594c9e00b0018f673efce2mr6283164rwc.6.1714642367069;
-        Thu, 02 May 2024 02:32:47 -0700 (PDT)
-Received: from sunil-laptop ([106.51.190.19])
-        by smtp.gmail.com with ESMTPSA id l25-20020a63ba59000000b0060795a08227sm692025pgu.37.2024.05.02.02.32.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 May 2024 02:32:46 -0700 (PDT)
-Date: Thu, 2 May 2024 15:02:33 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
-	acpica-devel@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Andrei Warkentin <andrei.warkentin@intel.com>,
-	Haibo1 Xu <haibo1.xu@intel.com>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Subject: Re: [PATCH v5 08/17] ACPI: pci_link: Clear the dependencies after
- probe
-Message-ID: <ZjNdsWP46su9drAK@sunil-laptop>
-References: <20240501121742.1215792-9-sunilvl@ventanamicro.com>
- <20240501165615.GA758227@bhelgaas>
- <ZjNcDyLRm9c7BAi3@smile.fi.intel.com>
+	id 1s2T0D-0000000CCoU-2Np7;
+	Thu, 02 May 2024 09:45:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 063AE61283;
+	Thu,  2 May 2024 09:45:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC6A9C113CC;
+	Thu,  2 May 2024 09:45:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1714643119;
+	bh=KMKmbjNxDjaQW/0y4bty5ahkkoXZGQdtL8KqJYUhwyE=;
+	h=Date:Subject:List-Id:To:Cc:References:From:In-Reply-To:From;
+	b=oAfQwcFEFQ4YSvMqY1Xbh/lsc5LPNSzumgD/oGqD14ngGgVPaEs7MibpgzzKx9oki
+	 Zagn8sEO8gj46WZhp4lLi4tBXFTB+pnYiA73nYZaFmp60rxFnqFwc6JU+DjWzL67dG
+	 /MZ0o36PB32nJVFZyZuANe63Rb2438n1oBk0vqlifHQrplthsktdyd/SJ9MqUjTqSh
+	 S4MhcJVVnSWRNuZQtI579Q7AgypadRVel2Bn/9DPwLpuM9kooXWaDgrnlLnFOcgFi9
+	 WcmGesxwuIsoxe8I2o27QKIei0xaWcNAItuJ4mp51iYpDI3BxfZTFiHOR9LfE7YUv9
+	 8qqWoV1TVGUXg==
+Message-ID: <dfde41a3-9d7d-4253-8297-c7684372f6f0@kernel.org>
+Date: Thu, 2 May 2024 18:45:09 +0900
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZjNcDyLRm9c7BAi3@smile.fi.intel.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/21] pinctrl: k210: Use scope based of_node_put()
+ cleanups
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Dvorkin Dmitry <dvorkin@tibbo.com>,
+ Wells Lu <wellslutw@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Jianlong Huang <jianlong.huang@starfivetech.com>,
+ Hal Feng <hal.feng@starfivetech.com>, Orson Zhai <orsonzhai@gmail.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Chunyan Zhang <zhang.lyra@gmail.com>, Viresh Kumar <vireshk@kernel.org>,
+ Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Patrice Chotard <patrice.chotard@foss.st.com>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Ludovic Desroches <ludovic.desroches@microchip.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+ Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>,
+ Dan Carpenter <dan.carpenter@linaro.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-samsung-soc@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ imx@lists.linux.dev, linux-aspeed@lists.ozlabs.org,
+ openbmc@lists.ozlabs.org, Peng Fan <peng.fan@nxp.com>
+References: <20240501-pinctrl-cleanup-v1-0-797ceca46e5c@nxp.com>
+ <20240501-pinctrl-cleanup-v1-12-797ceca46e5c@nxp.com>
+From: Damien Le Moal <dlemoal@kernel.org>
+Content-Language: en-US
+Organization: Western Digital Research
+In-Reply-To: <20240501-pinctrl-cleanup-v1-12-797ceca46e5c@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_023249_647164_61CF0465 
-X-CRM114-Status: GOOD (  26.66  )
+X-CRM114-CacheID: sfid-20240502_024521_735555_E6DB0A94 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,51 +111,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 02, 2024 at 12:25:35PM +0300, Andy Shevchenko wrote:
-> On Wed, May 01, 2024 at 11:56:15AM -0500, Bjorn Helgaas wrote:
-> > On Wed, May 01, 2024 at 05:47:33PM +0530, Sunil V L wrote:
-> > > RISC-V platforms need to use dependencies between PCI host bridge, Link
-> > > devices and the interrupt controllers to ensure probe order. The
-> > > dependency is like below.
-> > > 
-> > > Interrupt controller <-- Link Device <-- PCI Host bridge.
-> > > 
-> > > If there is no dependency added between Link device and PCI Host Bridge,
-> > > then the PCI end points can get probed prior to link device, unable to
-> > > get mapping for INTx.
-> > > 
-> > > So, add the link device's HID to dependency honor list and also clear it
-> > > after its probe.
-> > > 
-> > > Since this is required only for architectures like RISC-V, enable this
-> > > code under a new config option and set this only in RISC-V.
+On 5/1/24 21:56, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> ...
+> Use scope based of_node_put() cleanup to simplify code.
 > 
-> > > +	if (IS_ENABLED(CONFIG_ARCH_ACPI_DEFERRED_GSI))
-> > > +		acpi_dev_clear_dependencies(device);
-> > 
-> > This is really a question for Rafael, but it doesn't seem right that
-> > this completely depends on a config option.
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/pinctrl/pinctrl-k210.c | 7 ++-----
+>  1 file changed, 2 insertions(+), 5 deletions(-)
 > 
-> +1 here, fells like a hack and looks like a hack.
-> 
-I can remove the config option. I just thought this would probably never
-required to be called on other architectures.
+> diff --git a/drivers/pinctrl/pinctrl-k210.c b/drivers/pinctrl/pinctrl-k210.c
+> index b6d1ed9ec9a3..2753e14c3e38 100644
+> --- a/drivers/pinctrl/pinctrl-k210.c
+> +++ b/drivers/pinctrl/pinctrl-k210.c
+> @@ -849,7 +849,6 @@ static int k210_pinctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  				       unsigned int *num_maps)
+>  {
+>  	unsigned int reserved_maps;
+> -	struct device_node *np;
+>  	int ret;
+>  
+>  	reserved_maps = 0;
+> @@ -861,13 +860,11 @@ static int k210_pinctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
+>  	if (ret < 0)
+>  		goto err;
+>  
+> -	for_each_available_child_of_node(np_config, np) {
+> +	for_each_available_child_of_node_scoped(np_config, np) {
+>  		ret = k210_pinctrl_dt_subnode_to_map(pctldev, np, map,
+>  						     &reserved_maps, num_maps);
+> -		if (ret < 0) {
+> -			of_node_put(np);
 
-Unless there is an objection, I will remove it in next version.
+Personally, I am really not a fan of things that hide code like that scoped
+thing... If I want a language that hides code, I would be doing C++ :)
+That said, I am not opposed to this so I will let Linus (Walleij) decide.
 
-Thanks!
-Sunil
-> > Is there a reason this wouldn't work for all architectures, i.e., what
-> > would happen if you just called acpi_dev_clear_dependencies()
-> > unconditionally?
+Also, I think that "for_each_available_child_of_node" is a bad name... It really
+should be something like for_each_available_child_of_node_get() to make it clear
+that a of_node_put() is needed.
+
+> +		if (ret < 0)
+>  			goto err;
+> -		}
+>  	}
+>  	return 0;
+>  
 > 
-> -- 
-> With Best Regards,
-> Andy Shevchenko
-> 
-> 
+
+-- 
+Damien Le Moal
+Western Digital Research
+
 
 _______________________________________________
 linux-riscv mailing list
