@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7337FC04FFE
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 16:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EE0C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 16:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jOuLi7ktOiHJs38j9Cs5mUcB4jN+wmgAnC9Z4vQPV+4=; b=T+rcpaPOf9EgLz
-	jQ2s4CurO9zqG5tugk3B6upLyM66HKZiMvqlk2tzWZPMzGzZmnHIjPxy8bh9eYBsZN9C1AclgnTML
-	3I/qACalGLDlL+KDhomtYq+MMSpHJwfxMNvE2kELRnmcFDzAzsTNQvRHQwYvhOXHLyXyQMQdNgMJz
-	98dxx66WC1mELG/eSwdpLVvd0+iXPg1wQMoNKaYTN5v2bhO7IjsgucEyw7Yqzlm4vSnxihm8XDbyx
-	HUyaXWE705ha9ZmyqoL3YApfmauXO5kaCzWU4h+0Uu7bYylD65Cj/FyyJuySBXrI3uo2wVf7c6rSY
-	CaE50D7cEy4CKkWVyaGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sqn0q+bIArM1KL0Rl4Np4QcNPUUXVLot3nFk9u1U3Eo=; b=nfVyKECKq7ue6XKzHV3U9k788Z
+	JKUk12BZmKJrzdzwBvuT3RsFw2Ae0VlKILr39g65Wx3ZTJEuZOq/JktR4kLANni8jGPpfOp3G8vXk
+	AQNflCgeAY31A5gcVEB7oh5yKCnalxxXhaPvgYIelLBoVXFQJKXzArc3eDLO466ohMdIrHSgg1yWv
+	acA502Y7KRGCUTst+jtuW4AnN7ay7egcA30YSpsFztaoZYuFBPbBajQ4cr+ynr5M80jEc4WlUwCtb
+	SNnC493At32sH+hQpMCH853kVt558cGAAtfKnUtUdCfZNlywWV3isPaxq0uBKoC9m6hCYNbM2h9B+
+	rSxcLdtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2ZFC-0000000DHTY-1m7N;
-	Thu, 02 May 2024 16:25:14 +0000
+	id 1s2ZIK-0000000DIFm-1UZW;
+	Thu, 02 May 2024 16:28:28 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2ZF9-0000000DHRc-0FuO
+	id 1s2ZIH-0000000DIFC-1Lhp
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 May 2024 16:25:13 +0000
+	Thu, 02 May 2024 16:28:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6332461BAA;
-	Thu,  2 May 2024 16:25:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CCB5C113CC;
-	Thu,  2 May 2024 16:25:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C916461BBB;
+	Thu,  2 May 2024 16:28:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D79ADC113CC;
+	Thu,  2 May 2024 16:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714667110;
-	bh=eVUU9My3Jrjs/UHQZgJr3z5gPt43bz69SadF6dklRZQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WNXH3ChPi0Vwe6FxeKPmuAqK9AxeuX4anIvy5ODcU4kxdrgHftCjt8XEsxT5lQjkk
-	 T4+yj0txY0H3urWx5R5wJNFbVA/fq9Y1LWt8G/l4o0jGNqJzjWsM81qzZguxjfmAab
-	 1ZDFHiN1QsuS/4wN0zD2KjnW5GZB8Cz3uJa8Sh9xsY7p8bl3TAtXbb43gcqbwVOG6+
-	 7Sd65ReQrl9+vW668LRvM6GOfHVSvqFLtfRIQXge9SQwwW66V1x+LhZ8EEl+gJbMoh
-	 MTAeqe5W9yIOTTVzBSH/Q8TsVi1zIsYfxg92qTUc+05kGap3p2HDsQ1gKsikBYH2RC
-	 qCzJSXYnMKOJg==
+	s=k20201202; t=1714667304;
+	bh=igeGofHHX03XUM7K37J588YrkNVJAkcgHSuZsnjbMRY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tkwArCD524hvWVLbY/B04VyZtyU2tSmLXTC+TN/3fNo1FFjhjp+e3HDRt66njqDKB
+	 wTpSEwE6jVMeS3d3xMfLLOksc1ddn7gvw3UY4Sq+w7RKVV8HA977fRZj9yYHtKwZ87
+	 9cWjCOHgQJJsrNlLKy5RoiUVP4kx4WhVE7KzStDBI+tK2S8uoslj2M0TWCE2tEOFuw
+	 /MOMN1Z0IdPcYVCAyk4jpzy6Lt6DIcv3VGgEkEUw+bWDxRaYzp9f+9vagunjJ7jQuq
+	 2+w7eY/+3Bs++xIUIgDjNo83QuObVB4VuHPezAYebaNgU0L84haFAdu+WN8hM4n2BD
+	 WaPcMNA4q+gzA==
+Date: Thu, 2 May 2024 17:28:18 +0100
 From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: microchip: add pac1934 power-monitor to icicle
-Date: Thu,  2 May 2024 17:24:55 +0100
-Message-ID: <20240502-wafer-landowner-fd8f7dc290f4@spud>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240501-spearman-primary-17df3c21c770@spud>
-References: <20240501-spearman-primary-17df3c21c770@spud>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: rafael@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, bhelgaas@google.com,
+	james.morse@arm.com, jhugo@codeaurora.org, jeremy.linton@arm.com,
+	john.garry@huawei.com, Jonathan.Cameron@huawei.com,
+	pierre.gondois@arm.com, sudeep.holla@arm.com, tiantao6@huawei.com
+Subject: Re: [PATCH v4 1/3] riscv: cacheinfo: remove the useless input
+ parameter (node) of ci_leaf_init()
+Message-ID: <20240502-secrecy-unleveled-e173419c54ec@spud>
+References: <20240418034330.84721-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=524; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=d0Yhjtp2Siagwln1k5fEq4fncaZ2UG0U07TBV/HvY+0=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGnG+8KvB2zWNj4TtDW4QPOhgwBHqOAfuWltwQdnrb95o Gqv9YOejlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzknC/D/7jIh9VtmYz7v9jK FLSWLIjUPmf993Fj15eCpZMPfbumwcvw39e8KMdz+8WlcinrNs/Z0W3lEFUv+TZAdWZEwsZ5J30 UOAE=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <20240418034330.84721-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_092511_233965_CBAC5569 
-X-CRM114-Status: UNSURE (   8.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240502_092825_430820_088E0F1E 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,30 +72,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2643029118101881257=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-On Wed, 01 May 2024 16:36:31 +0100, Conor Dooley wrote:
-> The binding for this landed in v6.9, add the description. In the
-> off-chance that there were people carrying local patches for this based
-> on the driver shipped on the Microchip website (or vendor kernel) both
-> the binding and sysfs filenames changed during upstreaming.
-> 
-> 
+--===============2643029118101881257==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="jCp1f9hek9NXabnN"
+Content-Disposition: inline
 
-Applied to riscv-dt-for-next, thanks!
 
-[1/1] riscv: dts: microchip: add pac1934 power-monitor to icicle
-      https://git.kernel.org/conor/c/8fd63d81a760
+--jCp1f9hek9NXabnN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Apr 18, 2024 at 11:43:28AM +0800, Yunhui Cui wrote:
+> ci_leaf_init() is a declared static function. The implementation of the
+> function body and the caller do not use the parameter (struct device_node
+> *node) input parameter, so remove it.
+>=20
+> Fixes: 6a24915145c9 ("Revert "riscv: Set more data to cacheinfo"")
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+By the way, please use cover letters for multi patch patchsets. I don't
+enjoy marking previous versions "superceded" by hand in patchwork.
 
 Thanks,
 Conor.
+
+--jCp1f9hek9NXabnN
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjO/IgAKCRB4tDGHoIJi
+0hi4AQCMArFXXQ1jipb+xchGlJ3/aeXo1IgXwQ7MxE3mxAbG9QD/UwOrcrpHE3gN
+t4eD8gxKhTy6Wmuj7HiFcstVa4iezAg=
+=jJp+
+-----END PGP SIGNATURE-----
+
+--jCp1f9hek9NXabnN--
+
+
+--===============2643029118101881257==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2643029118101881257==--
+
