@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6733CC4345F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 01:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3262C4345F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 01:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
 	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQd/iHZ5O//HX4XvJSMsdOmroHaNRTMkfI6Ke3WJIHk=; b=Vuw7VGRXNj4d9XRwho0G4OmCUN
-	69JyJjQxi89/kSYq6AaoT97Bn2Xf1pMpueysZuBVG1SQd0S5/kUud2XJFA9ziVIzmD04GdswdzYnV
-	lTExRj7bhr9RaJwyj37krFIi3eQNpsi2x7j/q6WgPXfjXKILVzklsdLOMiz+Ge/EteyUYGeoj8VcD
-	dIO8Cfmci+H62zQIF+C73V/gVE5KemJmYXvCEIe6lPfiyU2oWlGxPUE6LFMC8oi6pUU7fW30gympO
-	z7EVSYv07Sn+seOPIONRQVe629pu9vH8WKADCrAnYCoKlinZA6NdY6pao60yNLe2ccszFepv5klPy
-	7AUPT/Tg==;
+	bh=LOUfzTm5qPLafceAi+ULeUSELNiJtMQ2Z/vrmcdHOI0=; b=t+crd+8c1NGeACyIX0rqmU8tAz
+	2FRB34mIcy3AiaS69cEYVkA3QR7cWK/mb1b+j8eDWCWXlpoR8jLz0I0V/NNlZj0xN5x8fgOsUZ424
+	MZV9PpOfU4ij0YYoDclinniN4KhqZU54TI/S9B95YXOoFlo1CGtnFAf/8spVGMhBS5M2e3LhfUdFU
+	MGd1Moozaa8DC8ynJy1sQL547BGISAbSGdf//IFdo/TCFU+rqnH4Ry6GwHRb40T3A5R91QkI+WRzO
+	hB+aSL/1eIRYSulfmD0ZLj/kai6WbPt0/TlRveaeQdolLmWSLk8r+ZDP+jYlXJ7/R95yDQyeSLk0j
+	QUgRgu4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2LR4-0000000B8q7-2N2O;
-	Thu, 02 May 2024 01:40:34 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1s2LjI-0000000BAZj-195b;
+	Thu, 02 May 2024 01:59:24 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2LR1-0000000B8pY-3Gjs
+	id 1s2LjF-0000000BAZC-36At
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 May 2024 01:40:33 +0000
+	Thu, 02 May 2024 01:59:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1714614031; x=1746150031;
+  t=1714615162; x=1746151162;
   h=message-id:date:mime-version:cc:subject:to:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=rB8QaHvvVc37SrREtm9E3Ka0ivGapfuZ+pPLjENqNqQ=;
-  b=VlwaIPOHh9+qwvI2fiMM4idNItlKaSGduE7nlvkYJVGanwZ1u1Xv5EbO
-   yhandjPq5ia3mmKbOBa7fTep6nrLQs9iWWLlIC5pqoRWESFbzEbhkUWSj
-   YSY/IWnbuZ0EGamKS37iteE855bnaufweSsBIGu9jXAaLFmOM/ZcKFkdd
-   P60O1BoDk2OqeYBcSSE3S8JdiqjG4zXsILWk9FMHMxS3tpdGVGbgYQXso
-   RRrNKgRgfsdsi9QzN9OybqI4YB0mcYqEJjiroE1/4gya3UDoF8ajZOShv
-   r+jhKfDc1XyAKkXygYcBr5AEpIVpANFGZ8evn/SIAE0QikKay59O9EV4Y
-   A==;
-X-CSE-ConnectionGUID: Yt/VH9AETnOxKW40qyWd8w==
-X-CSE-MsgGUID: dM2w7DRPRiKT+mTab/+Phg==
-X-IronPort-AV: E=McAfee;i="6600,9927,11061"; a="32883906"
+  bh=zKP4feh47Akq95l05ylgljUzunXEWN+72fMuFIKrAxs=;
+  b=NDS5iUQ4xCN7uVFJkkaI4s28cTNtIgq+qTq525+dMd3+/lP0qGpDTfTU
+   Ign7LlkBsVvZFt2JSTyMByM6oH9b0ePmyq4JCsIQXIvGUsd/0VzJEbVAk
+   vjZk2KTmMIu4TjfSrTL0qCbUvqfvGs8UlEFgsdznSQwiNnLL5RS7CI0XP
+   eRiRGtVk1HgOJStInqhpEt+myGGO1ahxMSKo/mNMrc5bwu420CTWdkI+z
+   ug5zh//HaMjfg6axytWmfAngNAQsuRbgwn8Yg7gHKZtxaUSBUq/Ka3ykC
+   LB8LGcUIIQhKSyV9H1kW7G2QUkyRZuXI+iT/6tS7EV2jNBsBHXSGY3NxD
+   g==;
+X-CSE-ConnectionGUID: 6cfTDCPfSvK6/T2hF/A/mw==
+X-CSE-MsgGUID: g9UBpRjtTBGsZyo5TmFADQ==
+X-IronPort-AV: E=McAfee;i="6600,9927,11061"; a="10536760"
 X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
-   d="scan'208";a="32883906"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 18:40:29 -0700
-X-CSE-ConnectionGUID: h5YM6Yf1Q9GE9Rwcx5b5JA==
-X-CSE-MsgGUID: QsBLxdJaTuCtZm8iROSJEw==
+   d="scan'208";a="10536760"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 18:59:20 -0700
+X-CSE-ConnectionGUID: 5TEYAUJHQm6qKX56L2o3ug==
+X-CSE-MsgGUID: BnZJQJRhTU2OMxt832m4uw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
-   d="scan'208";a="31581522"
+   d="scan'208";a="31782767"
 Received: from unknown (HELO [10.239.159.127]) ([10.239.159.127])
-  by fmviesa004.fm.intel.com with ESMTP; 01 May 2024 18:40:25 -0700
-Message-ID: <104358de-ea86-4e25-8942-ba285d6f317b@linux.intel.com>
-Date: Thu, 2 May 2024 09:38:54 +0800
+  by orviesa004.jf.intel.com with ESMTP; 01 May 2024 18:59:15 -0700
+Message-ID: <ed0e7138-c5db-40fb-ac12-36df007d0b4f@linux.intel.com>
+Date: Thu, 2 May 2024 09:57:44 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 5/7] iommu/riscv: Device directory management.
@@ -64,12 +64,13 @@ To: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
  Paul Walmsley <paul.walmsley@sifive.com>
 References: <cover.1714494653.git.tjeznach@rivosinc.com>
  <ce3b82a20db0b776685269674ce9b7a926d5680d.1714494653.git.tjeznach@rivosinc.com>
+ <104358de-ea86-4e25-8942-ba285d6f317b@linux.intel.com>
 Content-Language: en-US
 From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <ce3b82a20db0b776685269674ce9b7a926d5680d.1714494653.git.tjeznach@rivosinc.com>
+In-Reply-To: <104358de-ea86-4e25-8942-ba285d6f317b@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_184031_931905_D2DF62DB 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20240501_185921_881369_80A90BB1 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,56 +83,50 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, baolu.lu@linux.intel.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/1/24 4:01 AM, Tomasz Jeznach wrote:
-> @@ -128,6 +489,7 @@ void riscv_iommu_remove(struct riscv_iommu_device *iommu)
->   {
->   	iommu_device_unregister(&iommu->iommu);
->   	iommu_device_sysfs_remove(&iommu->iommu);
-> +	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_MODE_OFF);
->   }
->   
->   int riscv_iommu_init(struct riscv_iommu_device *iommu)
-> @@ -138,12 +500,13 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
->   	if (rc)
->   		return dev_err_probe(iommu->dev, rc, "unexpected device state\n");
->   
-> -	/*
-> -	 * Placeholder for a complete IOMMU device initialization.
-> -	 * For now, only bare minimum: enable global identity mapping mode and register sysfs.
-> -	 */
-> -	riscv_iommu_writeq(iommu, RISCV_IOMMU_REG_DDTP,
-> -			   FIELD_PREP(RISCV_IOMMU_DDTP_MODE, RISCV_IOMMU_DDTP_MODE_BARE));
-> +	rc = riscv_iommu_iodir_alloc(iommu);
-> +	if (rc)
-> +		goto err_init;
-> +
-> +	rc = riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_MODE_MAX);
-> +	if (rc)
-> +		goto err_init;
->   
->   	rc = iommu_device_sysfs_add(&iommu->iommu, NULL, NULL, "riscv-iommu@%s",
->   				    dev_name(iommu->dev));
-
-The device directory root page might be allocated in
-riscv_iommu_iodir_alloc(),
-
-+	if (!iommu->ddt_root) {
-+		iommu->ddt_root = riscv_iommu_get_pages(iommu, 0);
-+		iommu->ddt_phys = __pa(iommu->ddt_root);
-+	}
-
-But I didn't find any place to free it in the error paths. Did I
-overlook anything?
-
-Best regards,
-baolu
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gNS8yLzI0IDk6MzggQU0sIEJhb2x1IEx1IHdyb3RlOgo+IE9uIDUvMS8yNCA0OjAxIEFNLCBU
+b21hc3ogSmV6bmFjaCB3cm90ZToKPj4gQEAgLTEyOCw2ICs0ODksNyBAQCB2b2lkIHJpc2N2X2lv
+bW11X3JlbW92ZShzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlIAo+PiAqaW9tbXUpCj4+IMKgIHsK
+Pj4gwqDCoMKgwqDCoCBpb21tdV9kZXZpY2VfdW5yZWdpc3RlcigmaW9tbXUtPmlvbW11KTsKPj4g
+wqDCoMKgwqDCoCBpb21tdV9kZXZpY2Vfc3lzZnNfcmVtb3ZlKCZpb21tdS0+aW9tbXUpOwo+PiAr
+wqDCoMKgIHJpc2N2X2lvbW11X2lvZGlyX3NldF9tb2RlKGlvbW11LCBSSVNDVl9JT01NVV9ERFRQ
+X01PREVfT0ZGKTsKPj4gwqAgfQo+PiDCoCBpbnQgcmlzY3ZfaW9tbXVfaW5pdChzdHJ1Y3Qgcmlz
+Y3ZfaW9tbXVfZGV2aWNlICppb21tdSkKPj4gQEAgLTEzOCwxMiArNTAwLDEzIEBAIGludCByaXNj
+dl9pb21tdV9pbml0KHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgCj4+ICppb21tdSkKPj4gwqDC
+oMKgwqDCoCBpZiAocmMpCj4+IMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gZGV2X2Vycl9wcm9i
+ZShpb21tdS0+ZGV2LCByYywgInVuZXhwZWN0ZWQgZGV2aWNlIAo+PiBzdGF0ZVxuIik7Cj4+IC3C
+oMKgwqAgLyoKPj4gLcKgwqDCoMKgICogUGxhY2Vob2xkZXIgZm9yIGEgY29tcGxldGUgSU9NTVUg
+ZGV2aWNlIGluaXRpYWxpemF0aW9uLgo+PiAtwqDCoMKgwqAgKiBGb3Igbm93LCBvbmx5IGJhcmUg
+bWluaW11bTogZW5hYmxlIGdsb2JhbCBpZGVudGl0eSBtYXBwaW5nIAo+PiBtb2RlIGFuZCByZWdp
+c3RlciBzeXNmcy4KPj4gLcKgwqDCoMKgICovCj4+IC3CoMKgwqAgcmlzY3ZfaW9tbXVfd3JpdGVx
+KGlvbW11LCBSSVNDVl9JT01NVV9SRUdfRERUUCwKPj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgRklFTERfUFJFUChSSVNDVl9JT01NVV9ERFRQX01PREUsIAo+PiBSSVNDVl9JT01NVV9E
+RFRQX01PREVfQkFSRSkpOwo+PiArwqDCoMKgIHJjID0gcmlzY3ZfaW9tbXVfaW9kaXJfYWxsb2Mo
+aW9tbXUpOwo+PiArwqDCoMKgIGlmIChyYykKPj4gK8KgwqDCoMKgwqDCoMKgIGdvdG8gZXJyX2lu
+aXQ7Cj4+ICsKPj4gK8KgwqDCoCByYyA9IHJpc2N2X2lvbW11X2lvZGlyX3NldF9tb2RlKGlvbW11
+LCBSSVNDVl9JT01NVV9ERFRQX01PREVfTUFYKTsKPj4gK8KgwqDCoCBpZiAocmMpCj4+ICvCoMKg
+wqDCoMKgwqDCoCBnb3RvIGVycl9pbml0Owo+PiDCoMKgwqDCoMKgIHJjID0gaW9tbXVfZGV2aWNl
+X3N5c2ZzX2FkZCgmaW9tbXUtPmlvbW11LCBOVUxMLCBOVUxMLCAKPj4gInJpc2N2LWlvbW11QCVz
+IiwKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGRldl9uYW1l
+KGlvbW11LT5kZXYpKTsKPiAKPiBUaGUgZGV2aWNlIGRpcmVjdG9yeSByb290IHBhZ2UgbWlnaHQg
+YmUgYWxsb2NhdGVkIGluCj4gcmlzY3ZfaW9tbXVfaW9kaXJfYWxsb2MoKSwKPiAKPiArwqDCoMKg
+IGlmICghaW9tbXUtPmRkdF9yb290KSB7Cj4gK8KgwqDCoMKgwqDCoMKgIGlvbW11LT5kZHRfcm9v
+dCA9IHJpc2N2X2lvbW11X2dldF9wYWdlcyhpb21tdSwgMCk7Cj4gK8KgwqDCoMKgwqDCoMKgIGlv
+bW11LT5kZHRfcGh5cyA9IF9fcGEoaW9tbXUtPmRkdF9yb290KTsKPiArwqDCoMKgIH0KPiAKPiBC
+dXQgSSBkaWRuJ3QgZmluZCBhbnkgcGxhY2UgdG8gZnJlZSBpdCBpbiB0aGUgZXJyb3IgcGF0aHMu
+IERpZCBJCj4gb3Zlcmxvb2sgYW55dGhpbmc/CgpJIGZvdW5kIHRoZSBhbnN3ZXIgYnkgbXlzZWxm
+LiBkZXZyZXNfYWxsb2MoKSBpcyB1c2VkIHNvIHRoZSBwYWdlIG1lbW9yeQpyZXNvdXJjZXMgYXJl
+IG1hbmFnZWQgYnkgdGhlIGRyaXZlciBjb3JlIGF1dG9tYXRpY2FsbHkuIFBsZWFzZSBpZ25vcmUK
+dGhlIGFib3ZlIGNvbW1lbnQuCgpOb3Qgc3VyZSBhYm91dCB0aGUgcGFnZXMgZm9yIHBhZ2luZyBk
+b21haW4uIElmIGFsbCBwYWdlcyByZWxlYXNlIGlzCmRlZmVycmVkLCBpdCBtYXkgY2F1c2UgYmln
+IG1lbW9yeSBjb25zdW1wdGlvbi4gV2UgaGF2ZSBhIHRyYWRlLW9mZiBoZXJlLgpPbiBvbmUgaGFu
+ZCwgdGhpcyBtaWdodCBzcGVlZCB1cCB0aGUgZG9tYWluIG1hcHBpbmcgc2luY2UgYWxsIHBhZ2Vz
+Cm1pZ2h0IGJlIHByZWFsbG9jYXRlZDsgb24gdGhlIG90aGVyIGhhbmQsIGl0IHdpbGwgY29zdCBt
+b3JlIG1lbW9yeS4KCkJlc3QgcmVnYXJkcywKYmFvbHUKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
