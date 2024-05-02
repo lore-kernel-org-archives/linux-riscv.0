@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993E1C10F1A
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 00:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6733CC4345F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 01:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UOAcHT2eMecvVMEQjzuUXQV29+LR7WeDnQznQ98Nypo=; b=GyElxcfwBEKP0d
-	PVYW4+qhVa8zE7T7UkZPP24OKmb/5M/nk4Ev+1tlp8Amao/TkuK4pAp+R72pf8FZvXIVT6hL4dBsF
-	jXLDXbF8kblU7oda72SKQL+hISi3O9xcUb7fLdfRs0nJVsIhpxqJIsTrA30olm2LWCVMcsdhW2JD5
-	NdWq4i2MSM/Bbek7KvZbf0incPQdKkleE02ZApQApOfiu152/AROzs0pEVKQlmwTwRAaO9Eo8tZT4
-	AvKJKy2Mi8Xfu7SvgKnQ9CaE76+y21yTp3sWxLCzyaoddLvn5fi/MdVXUx3UpMtsU2o2vWUk1ePJZ
-	M65X+JRoa3+S6eH0aTlg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xQd/iHZ5O//HX4XvJSMsdOmroHaNRTMkfI6Ke3WJIHk=; b=Vuw7VGRXNj4d9XRwho0G4OmCUN
+	69JyJjQxi89/kSYq6AaoT97Bn2Xf1pMpueysZuBVG1SQd0S5/kUud2XJFA9ziVIzmD04GdswdzYnV
+	lTExRj7bhr9RaJwyj37krFIi3eQNpsi2x7j/q6WgPXfjXKILVzklsdLOMiz+Ge/EteyUYGeoj8VcD
+	dIO8Cfmci+H62zQIF+C73V/gVE5KemJmYXvCEIe6lPfiyU2oWlGxPUE6LFMC8oi6pUU7fW30gympO
+	z7EVSYv07Sn+seOPIONRQVe629pu9vH8WKADCrAnYCoKlinZA6NdY6pao60yNLe2ccszFepv5klPy
+	7AUPT/Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2KiV-0000000B4Ox-2TDj;
-	Thu, 02 May 2024 00:54:31 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1s2LR4-0000000B8q7-2N2O;
+	Thu, 02 May 2024 01:40:34 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2KiP-0000000B4Ma-1SS5;
-	Thu, 02 May 2024 00:54:28 +0000
-Received: from [192.168.148.88] (unknown [120.20.105.107])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 088B420009;
-	Thu,  2 May 2024 08:53:58 +0800 (AWST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1714611252;
-	bh=2UKQhOigrDLEgeDWGD84hTlrB50inUdwvmzSWDEPPvc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=mEGxVQndQ7eIpM8jn5g71jdxtIHcuCBHuXLX3t5HOduXT6G3KWhFZnai5E2QWPjpt
-	 xUbxUMw8Z0D7c5pD24vc3ZzhGQXYfLHWVGmOrlPgPRJmKshV4rf1+Spnba3BnjBf4l
-	 8kLrN/vlnSlI42W2LzZcE2L6SrWlkinmiVnj3Rl3LhPxwTZqfRHyGa9k6V52F+FI5F
-	 O5UUH9X8QHzbu1WEy+dCXTrm0/I1k7hs6S6p0FEuot7yADPKouHcSE4oy6JC/UkbhR
-	 coiTMdEGtIg1BQPHt0NyDzVrbhFKr3BlOwadA5+C73I61sUw6Ujqb07PJS0zHw2Vf1
-	 h9752xRr1Wnyg==
-Message-ID: <eda5b1da03d4adfa5761c49527a9232ec7facae3.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 20/21] pinctrl: aspeed: g5: Use scope based
- of_node_put() cleanups
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Linus Walleij
- <linus.walleij@linaro.org>, Thierry Reding <thierry.reding@gmail.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, Dvorkin Dmitry <dvorkin@tibbo.com>,
- Wells Lu <wellslutw@gmail.com>,  Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Emil Renner Berthing <kernel@esmil.dk>,
- Jianlong Huang <jianlong.huang@starfivetech.com>, Hal Feng
- <hal.feng@starfivetech.com>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
- <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
- Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim
- <shiraz.linux.kernel@gmail.com>, soc@kernel.org,  Krzysztof Kozlowski
- <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar
- <alim.akhtar@samsung.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
- Patrice Chotard <patrice.chotard@foss.st.com>, Heiko Stuebner
- <heiko@sntech.de>, Damien Le Moal <dlemoal@kernel.org>,  Ludovic Desroches
- <ludovic.desroches@microchip.com>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-  Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
- Shawn Guo <shawnguo@kernel.org>,  Jacky Bai <ping.bai@nxp.com>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Chester Lin <chester62515@gmail.com>,
- Matthias Brugger <mbrugger@suse.com>, Ghennadi Procopciuc
- <ghennadi.procopciuc@oss.nxp.com>, Sean Wang <sean.wang@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Sascha Hauer
- <s.hauer@pengutronix.de>,  Joel Stanley <joel@jms.id.au>, Dan Carpenter
- <dan.carpenter@linaro.org>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com,
- linux-samsung-soc@vger.kernel.org,  linux-renesas-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org,  linux-riscv@lists.infradead.org,
- linux-mediatek@lists.infradead.org,  imx@lists.linux.dev,
- linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,  Peng Fan
- <peng.fan@nxp.com>
-Date: Thu, 02 May 2024 10:23:58 +0930
-In-Reply-To: <20240501-pinctrl-cleanup-v1-20-797ceca46e5c@nxp.com>
-References: <20240501-pinctrl-cleanup-v1-0-797ceca46e5c@nxp.com>
-	 <20240501-pinctrl-cleanup-v1-20-797ceca46e5c@nxp.com>
-User-Agent: Evolution 3.46.4-2 
+	id 1s2LR1-0000000B8pY-3Gjs
+	for linux-riscv@lists.infradead.org;
+	Thu, 02 May 2024 01:40:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1714614031; x=1746150031;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=rB8QaHvvVc37SrREtm9E3Ka0ivGapfuZ+pPLjENqNqQ=;
+  b=VlwaIPOHh9+qwvI2fiMM4idNItlKaSGduE7nlvkYJVGanwZ1u1Xv5EbO
+   yhandjPq5ia3mmKbOBa7fTep6nrLQs9iWWLlIC5pqoRWESFbzEbhkUWSj
+   YSY/IWnbuZ0EGamKS37iteE855bnaufweSsBIGu9jXAaLFmOM/ZcKFkdd
+   P60O1BoDk2OqeYBcSSE3S8JdiqjG4zXsILWk9FMHMxS3tpdGVGbgYQXso
+   RRrNKgRgfsdsi9QzN9OybqI4YB0mcYqEJjiroE1/4gya3UDoF8ajZOShv
+   r+jhKfDc1XyAKkXygYcBr5AEpIVpANFGZ8evn/SIAE0QikKay59O9EV4Y
+   A==;
+X-CSE-ConnectionGUID: Yt/VH9AETnOxKW40qyWd8w==
+X-CSE-MsgGUID: dM2w7DRPRiKT+mTab/+Phg==
+X-IronPort-AV: E=McAfee;i="6600,9927,11061"; a="32883906"
+X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
+   d="scan'208";a="32883906"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2024 18:40:29 -0700
+X-CSE-ConnectionGUID: h5YM6Yf1Q9GE9Rwcx5b5JA==
+X-CSE-MsgGUID: QsBLxdJaTuCtZm8iROSJEw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
+   d="scan'208";a="31581522"
+Received: from unknown (HELO [10.239.159.127]) ([10.239.159.127])
+  by fmviesa004.fm.intel.com with ESMTP; 01 May 2024 18:40:25 -0700
+Message-ID: <104358de-ea86-4e25-8942-ba285d6f317b@linux.intel.com>
+Date: Thu, 2 May 2024 09:38:54 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/7] iommu/riscv: Device directory management.
+To: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+References: <cover.1714494653.git.tjeznach@rivosinc.com>
+ <ce3b82a20db0b776685269674ce9b7a926d5680d.1714494653.git.tjeznach@rivosinc.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <ce3b82a20db0b776685269674ce9b7a926d5680d.1714494653.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240501_175425_797208_B68EFCF2 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20240501_184031_931905_D2DF62DB 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,74 +81,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, baolu.lu@linux.intel.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2024-05-01 at 20:56 +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> Use scope based of_node_put() cleanup to simplify code.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c
-> index 5bb8fd0d1e41..61fbfddb5938 100644
-> --- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c
-> +++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c
-> @@ -2629,14 +2629,13 @@ static struct regmap *aspeed_g5_acquire_regmap(struct aspeed_pinmux_data *ctx,
->  		return ctx->maps[ip];
->  
->  	if (ip == ASPEED_IP_GFX) {
-> -		struct device_node *node;
-> +		struct device_node *node __free(device_node) = NULL;
->  		struct regmap *map;
->  
->  		node = of_parse_phandle(ctx->dev->of_node,
->  					"aspeed,external-nodes", 0);
->  		if (node) {
->  			map = syscon_node_to_regmap(node);
-> -			of_node_put(node);
->  			if (IS_ERR(map))
->  				return map;
->  		} else
-> @@ -2648,7 +2647,7 @@ static struct regmap *aspeed_g5_acquire_regmap(struct aspeed_pinmux_data *ctx,
->  	}
->  
->  	if (ip == ASPEED_IP_LPC) {
-> -		struct device_node *np;
-> +		struct device_node *np __free(device_node) = NULL;
->  		struct regmap *map;
->  
->  		np = of_parse_phandle(ctx->dev->of_node,
-> @@ -2660,7 +2659,6 @@ static struct regmap *aspeed_g5_acquire_regmap(struct aspeed_pinmux_data *ctx,
->  				return ERR_PTR(-ENODEV);
->  
->  			map = syscon_node_to_regmap(np->parent);
-> -			of_node_put(np);
->  			if (IS_ERR(map))
->  				return map;
+On 5/1/24 4:01 AM, Tomasz Jeznach wrote:
+> @@ -128,6 +489,7 @@ void riscv_iommu_remove(struct riscv_iommu_device *iommu)
+>   {
+>   	iommu_device_unregister(&iommu->iommu);
+>   	iommu_device_sysfs_remove(&iommu->iommu);
+> +	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_MODE_OFF);
+>   }
+>   
+>   int riscv_iommu_init(struct riscv_iommu_device *iommu)
+> @@ -138,12 +500,13 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+>   	if (rc)
+>   		return dev_err_probe(iommu->dev, rc, "unexpected device state\n");
+>   
+> -	/*
+> -	 * Placeholder for a complete IOMMU device initialization.
+> -	 * For now, only bare minimum: enable global identity mapping mode and register sysfs.
+> -	 */
+> -	riscv_iommu_writeq(iommu, RISCV_IOMMU_REG_DDTP,
+> -			   FIELD_PREP(RISCV_IOMMU_DDTP_MODE, RISCV_IOMMU_DDTP_MODE_BARE));
+> +	rc = riscv_iommu_iodir_alloc(iommu);
+> +	if (rc)
+> +		goto err_init;
+> +
+> +	rc = riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_MODE_MAX);
+> +	if (rc)
+> +		goto err_init;
+>   
+>   	rc = iommu_device_sysfs_add(&iommu->iommu, NULL, NULL, "riscv-iommu@%s",
+>   				    dev_name(iommu->dev));
 
-I think I agree with Krzysztof's feedback on the Samsung patch[1], and
-that I prefer the existing approach for the Aspeed driver. My reasoning
-suggests the existing implementation does the right thing. That said,
-the code could be adjusted to use early returns and consistent variable
-names, which might make it easier to reason about. I'll consider a
-follow-up patch to address that.
+The device directory root page might be allocated in
+riscv_iommu_iodir_alloc(),
 
-Regardless, thanks for taking the time to explore the cleanup.
++	if (!iommu->ddt_root) {
++		iommu->ddt_root = riscv_iommu_get_pages(iommu, 0);
++		iommu->ddt_phys = __pa(iommu->ddt_root);
++	}
 
-Andrew
+But I didn't find any place to free it in the error paths. Did I
+overlook anything?
 
-[1]: https://lore.kernel.org/lkml/34193501-5b7b-4ffd-8549-a04c6930d02d@kernel.org/
-
->  		} else
-> 
-
+Best regards,
+baolu
 
 _______________________________________________
 linux-riscv mailing list
