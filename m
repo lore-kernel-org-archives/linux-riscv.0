@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F87C4345F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 09:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28805C04FFE
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 09:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BEofZ9bb895EfFjkaWUf0uzuE04DV58LARFT0BTu9BE=; b=PUxb8n171tWsKh
-	IPniCmiXammpGkfb3QoQe6Fw0smPp1kj2y3o1aOtDP3kFiOqrfswc5sGw1akVsWHPvtbLIf+8omWP
-	yRbn3+wnX2FPOom6lc9KdEYqtw/lNT1HnwFFvxqm4sUt6gy5s4qZDKE1Jk6iDCOS5kbTLqoeIPfZd
-	2sIERvRwgWhzrordXsFfmxW9oWa0reHJ9+3X3dFs9rgqQ+WEcMoaTHJgvvcI2IwrizMI1cV/3Vf6h
-	MC7gtJ1yCpfcQ1Q8Sx3DAGKubbrwneaZyKxR4RO5FReA9YfU4AIUujF37nda1KDyXOc9H1ipunewT
-	4MTG/RZTPXjU8gimbe8g==;
+	List-Owner; bh=EwPK9MXzbfPBN46t/lCJihx/R1CRlTSBVYXdE93gIUs=; b=v2jkgWb+HaKMzJ
+	PkYtlzW08BtGW38QsOJjFuYUNjLH33KFmSg+KepumPcevpeStWM+myGrD7ompxCB/rLwVRG7i/mcg
+	mWYNap3VNSTG1XUn5YdAtj3X+zZdUqZQWGV095Z3796sNr3D/3r3mSJYNQEOseL/2M6H/4lSoxDRp
+	ntUngzIiGJ5FC1HG7CVCzlgQac5DffzPj4ca6MFl+6lJC7h9KdHodpzXFfM1/CFipFFD3IjiNvToU
+	1As9D21o44zKLlWLW/rG+QLL+oYefUhXeaLO4yJbYPsCiD1Kwtya72XWzxMwearqAiIRlfs9r0rPq
+	zM8OVETO3L4S9qjKZM5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2Sc0-0000000C83w-46pW;
-	Thu, 02 May 2024 09:20:20 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1s2SeV-0000000C8kJ-14nN;
+	Thu, 02 May 2024 09:22:55 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2Sbx-0000000C82e-0DAe;
-	Thu, 02 May 2024 09:20:18 +0000
+	id 1s2SeL-0000000C8fe-3SjE;
+	Thu, 02 May 2024 09:22:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1714641617; x=1746177617;
+  t=1714641765; x=1746177765;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=2ELzIZ73e2akUHQJpgdE0zMt86IGlmi1Bdva3N+17hw=;
-  b=B4zw7CzzHSC8ETZDjRajNp/4oiLBsbclgg+7fybgK/jNDA7HHSBmmyZ5
-   VvAnig4TwIhgLgIRWXs17aNBoVE7brbbO0mGF8QQVpfAClI9G9nITiU7F
-   o7JVHOkAW1Se+8kaCuh74iKdYBo9qoSVymKOwE5gmdIgfDVxg6SxedZEK
-   buJURjrmG20D+PxdMAgB0sZ8CrSrbHQQtZ1Myj4VR2Kfr2FXSILKQWYH1
-   Q9X3FKfaJs14+0H2HEMs2RcdXX+13KPDpBuIsSs8Bg9347peN94J76JRy
-   80m6UdO9/eIc1mT/4O8l2SxxaPK7ZoFBOKMcfNbJfZHuR6stfwuMN2njO
-   w==;
-X-CSE-ConnectionGUID: eW+c52VwTVuk+62uaQji9w==
-X-CSE-MsgGUID: PoTr1mx3QlO2dCYt7VVZnQ==
-X-IronPort-AV: E=McAfee;i="6600,9927,11061"; a="14205207"
+  bh=2oA8ldgZYHkMjR2V+LxaGdrDpb1xKBe+lL+dxCNsNr8=;
+  b=eQTwq8fgIuUu0AZaTLqjJdJ6m/OPqOFphEOcFS8+2fLlEZzgdVXnxw7U
+   r75d/yDs2WSuYFPCGcZetfIDddUzflUfcqWagJq7OIRdQKdwkrwx174IO
+   CupJeUTZn51IC/7wb30z8NbZOuUFs+H2u/jYQ618DXLQH6QpuMFpxJ2WG
+   BLdD8X7B3SQxeg4I4PdKsvTT3S9OKcIuJfoWVULQF1KrIpBeey43AhtFM
+   xJezqRexZtkeU2X9dJ7b2VJ26Ht60I1pDr4BUEoio71wCqtK+ggBda7u6
+   uUHNnC9E5rKC668qQbgqrE8PONFiSWsYXhI4UeIF3OxEkkf5P6hnY0v43
+   A==;
+X-CSE-ConnectionGUID: IuXH3EbwR4OQBj0baXTNaA==
+X-CSE-MsgGUID: cwWUN0KBTWiJZlYCh7/IVA==
+X-IronPort-AV: E=McAfee;i="6600,9927,11061"; a="10225129"
 X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
-   d="scan'208";a="14205207"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2024 02:20:16 -0700
-X-CSE-ConnectionGUID: P6lk84EsQEGlm9RlHsRk/g==
-X-CSE-MsgGUID: mTWM/FTNSfil7mVmwM/XnA==
+   d="scan'208";a="10225129"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2024 02:22:40 -0700
+X-CSE-ConnectionGUID: rOlQAAf0R+mpvFFX9nD5Sw==
+X-CSE-MsgGUID: hJxq4rkXSQqFppQsZhlRbg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
-   d="scan'208";a="64501407"
+   d="scan'208";a="31539169"
 Received: from smile.fi.intel.com ([10.237.72.54])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2024 02:20:10 -0700
+  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2024 02:22:32 -0700
 Received: from andy by smile.fi.intel.com with local (Exim 4.97)
 	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1s2Sbm-00000003GEk-2Bl0;
-	Thu, 02 May 2024 12:20:06 +0300
-Date: Thu, 2 May 2024 12:20:06 +0300
+	id 1s2Se4-00000003GHS-2Yz6;
+	Thu, 02 May 2024 12:22:28 +0300
+Date: Thu, 2 May 2024 12:22:28 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Sunil V L <sunilvl@ventanamicro.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -83,17 +83,18 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Andrei Warkentin <andrei.warkentin@intel.com>,
 	Haibo1 Xu <haibo1.xu@intel.com>,
 	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Subject: Re: [PATCH v5 04/17] ACPI: scan: Refactor dependency creation
-Message-ID: <ZjNaxvh2ZSfDcTa8@smile.fi.intel.com>
+Subject: Re: [PATCH v5 01/17] arm64: PCI: Migrate ACPI related functions to
+ pci-acpi.c
+Message-ID: <ZjNbVPYIjINdk4Fn@smile.fi.intel.com>
 References: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
- <20240501121742.1215792-5-sunilvl@ventanamicro.com>
+ <20240501121742.1215792-2-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240501121742.1215792-5-sunilvl@ventanamicro.com>
+In-Reply-To: <20240501121742.1215792-2-sunilvl@ventanamicro.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_022017_135547_3FF60185 
-X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-CacheID: sfid-20240502_022245_961838_534E2873 
+X-CRM114-Status: UNSURE (   8.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,15 +112,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 01, 2024 at 05:47:29PM +0530, Sunil V L wrote:
-> Some architectures like RISC-V will use implicit dependencies like GSI
-> map to create dependencies between interrupt controller and devices. To
-> support doing that, the function which creates the dependency, is
-> refactored bit and made public so that dependency can be added from
-> outside of scan.c as well.
+On Wed, May 01, 2024 at 05:47:26PM +0530, Sunil V L wrote:
+> The functions defined in arm64 for ACPI support are required
+> for RISC-V also. To avoid duplication, move these functions
+> to common location.
 
-Side note: If you haven't used --histogram diff algo when preparing
-the patches, do it from now on.
+...
+
+There are -M -C parameters to git format-patch. Use them in the next version of
+the series. (Note, you may add percentage numbers to each of those parameters
+to get prettier result.)
 
 -- 
 With Best Regards,
