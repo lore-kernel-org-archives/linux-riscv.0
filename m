@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D77BC4345F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B88C04FFE
 	for <linux-riscv@archiver.kernel.org>; Thu,  2 May 2024 07:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y7eGAd8AepPD91Jrj3bD3RctJ0qtffUH6J1oUrvsbyY=; b=KNzWY+GtYgaC94
-	vsB4cyn5Mivyutwwk+UmW9dbodDk1W9gN79aCXkXioEhT1utDAI2HrrCLHu9RPvrA2b49WnsSee58
-	nULo36cSBjZqMLws+XA4E+/eQxv2j/2+5XQEqrRRE4MqZ8p1pupc6L4Y1OdwdA8VV61pn6OORhAMO
-	yUAyd0pc1MRdXDqdkMFO/GGguPmRo1TzLhbLooZnbVXW63O5G68ZQhuNTYyRa9zh9wo/AAb6i4Luo
-	zdIq+177pLOG9VV4DWa+1xJcJ39ngKoFQtxV5r6g/s+u1cnXFN03Kef2S/ZjHMChTJhHEflHMOdpT
-	J9hsC2D/jkTxWqF7XCcQ==;
+	List-Owner; bh=92jPB0vCZ5NtKNsKkLwcOYGcsi6If34hRmsGz6WvxGE=; b=si3raCpzwFdZQi
+	zaFcMo+LzNy/tAaNUxT+2l5vCGxg6ZSKJ1/jGKHtpx1RHs3WFdsevxl9ibhmcoGtj3Q4xE6OQ8bwj
+	bsVeBIhtIHR9ei2hMHwBIOW/ftaig3OV+bFpTXWy3xu/JqiFAaFQsL94FzATCldsqTzSw3qTyNDBT
+	zR8kb1t4QmxKAH5x7rUUKva5f88eN4gnU85s8UyXR4EdfwUl+B4hqjBr6sbq+q9arXBp1B3oKS2VY
+	C/8GSPkcyQ4Cy+bLN/tYtBHOu5hFp3RgucDiBIdj5QDjTqgofihbCgKw5B8WL1oOyZGiZFGMlH5d8
+	lijlkoJfGLXEV7qyx/tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2RAU-0000000BrI8-0pg4;
-	Thu, 02 May 2024 07:47:50 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1s2RAT-0000000BrHj-1aSH;
+	Thu, 02 May 2024 07:47:49 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2RAP-0000000BrFi-1sbu
+	id 1s2RAP-0000000BrF3-0vsE
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 May 2024 07:47:48 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A4183FF80E;
-	Thu,  2 May 2024 07:47:42 +0000 (UTC)
+	Thu, 02 May 2024 07:47:47 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C012CFF802;
+	Thu,  2 May 2024 07:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1714636063;
+	t=1714636060;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=vhXtmRv3kbKgnYd6PjMU3UqcLb0WMxLPFCLc04cLDYY=;
-	b=dYnqEXt1YNKWgJZAg//9nAueSIXvkhnkrzXNziy64VRfhQRLC4LLmXKNJ4iTNKZgj+i1Ah
-	GxjzyWJOQgMIy+NoiuBXRUz/FinD3VEmbMP5Z/Q/M5uGVP3mca94UcphgiPCz3T0yjdL1a
-	/W78laTzvdpKnxmPkJwowz2Q70RJ/C8FsTQEXQz/9LDl7OdKXK2K2FSgs9caAGMDdWvhPE
-	b6fy+SDXjwjtje5h+OOURmG8bnRzGBXBawFIGd4Vn+/tSVbRaO10S+L5rKiaC6VGEi7RkQ
-	WRWQJnXnWYuMjK0NXPYUxzpaeGZVefX4Xfy2HRoKUEZ1NcqidPJ9TgxYgIaYnw==
-Message-ID: <1444dac5-c725-4bf7-8843-469a62c3abf1@bootlin.com>
-Date: Thu, 2 May 2024 09:47:43 +0200
+	bh=Nl4f2gTcxSpdt9aNsQkLAMEx3yFNLiblqv3A5NbuTPQ=;
+	b=V/ZI+t0OamjlUxNgd7Hs9zCPwvWCm5aoomKRH11nPihuCcrPMHbe8LaZbuzs4GTx+ComAm
+	wRIJgZnO+2vY8iARc7N3BjCIa3Q9ciTeJtPtnIBx8pPTENzJHKE4qYO5SxowU5IBW7WeVJ
+	by7tfYEkcesU17vpJzPxSTgMPpwMIfdjA7nYm8Fhu1ErEIH3Pakp8BrA8q9XZEdhLH0Iqj
+	RGTL2M68bCza7EYNLpq/rt2sjaoTOT00iR/LcLcsTsMz5cMFF4iHdPWagzKARFwfFqWhPf
+	xHLgd5/YBlvxNEyJfOsN0xOBUCauJKDivRUiBNW60NRg88d0pJci6Wo8Oludfg==
+Message-ID: <588fb903-e5ca-43af-9258-c14aaab6c732@bootlin.com>
+Date: Thu, 2 May 2024 09:47:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 4/4] riscv: dts: thead: Add clock to TH1520 mmc
- controllers
+Subject: Re: [PATCH RFC v2 0/4] clk: thead: Add support for TH1520 AP_SUBSYS
+ clock controller
 To: Drew Fustini <dfustini@tenstorrent.com>,
  Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
  Fu Wei <wefu@redhat.com>, Yangtao Li <frank.li@vivo.com>,
@@ -61,15 +61,13 @@ Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
  Miquel Raynal <miquel.raynal@bootlin.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>
 References: <20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com>
- <20240426-th1520-clk-v2-v2-4-96b829e6fcee@tenstorrent.com>
 Content-Language: en-US
 From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-In-Reply-To: <20240426-th1520-clk-v2-v2-4-96b829e6fcee@tenstorrent.com>
+In-Reply-To: <20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com>
 X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_004745_675056_2F1ED049 
-X-CRM114-Status: UNSURE (   6.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240502_004745_581815_60D56497 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,28 +87,53 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 4/27/24 2:10 AM, Drew Fustini wrote:
-> Change the clock property in the T-Head TH1520 mmc controller nodes to a
-> real clock provided by the AP_SUBSYS clock driver.
+> This series adds support for the AP sub-system clock controller in the
+> T-Head TH1520 [1]. Yangtao Li originally submitted this series in May
+> 2023 [2]. Jisheng made additional improvements and then passed on the
+> work in progress to me.
 > 
-> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
+> Changes I made from the original series:
+>   - corrected the npu_clk enable bit
+>   - deduplicated CLK_NPU and CLK_NPU_AXI number in header
+>   - fixed c910_i0_clk reg typo
+>   - fixed checkpatch and dt_binding_check warnings
+>   - rebased on v6.9-rc5
+>   - revised commit descriptions
+> 
+> Changes since my RFC v1 [4]:
+>   - squash the header file patch into the DT schema patch
+>   - describe the changes I made to original series in the cover letter
+>     instead of the individual patches
+>   - fix my typo in my email address
+> 
+> TODO:
+> I am again marking this as an RFC because there is feedback from v1 that
+> I have not yet addressed. I am posting what I currently have as other
+> patch series like the TH1520 I2C driver [4] could use the clk driver.
+> 
+> Emil commented that the input predivider is not handled correctly in
+> ccu_mdiv_recalc_rate(). The PLL multiplies the input frequency and
+> outputs "Foutvco". This is followed by a post divider to produce
+> "Foutpostdiv". However, some clocks derive directly from the "Foutvco"
+> Emil suggested this should really be modeled as two different clocks.
+> 
+> Emil aslo suggested that the rest of the clocks in this driver seem to
+> be generic gate and mux implementations that should probably be replaced
+> with devm_clk_hw_register_gate*() and devm_clk_hw_register_mux*().
+> 
+> I'll look to address the above issues in the next revision.
+> 
+> Thank you,
+> Drew
+> 
+> [1] https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
+> [2] https://lore.kernel.org/linux-riscv/20230515054402.27633-1-frank.li@vivo.com/
+> [3] https://lore.kernel.org/lkml/20240110-clk-th1520-v1-0-8b0682567984@tenstorrent.com/
+> [4] https://lore.kernel.org/linux-riscv/20240425082138.374445-1-thomas.bonnefille@bootlin.com/
 
-I experienced that, when the I2C clocks were correctly configured, the 
-UART stopped working, likely due to their dependence on FOUTPOSTDIV.
-Setting up the UART correctly, for instance:
+Thank you ! It works on the Beagle-V Ahead :)
 
-                 uartx: serial@xxxxxxxxxx {
-			...
-                         clocks = <&clk CLK_UART_SCLK>, <&clk 
-CLK_UARTX_PCLK>;
-                         clock-names = "baudclk", "apb_pclk";
-                         ...
-			status = "disabled";
-                 };
-resolved the issue.
-As this would be mandatory in the future, I suggest that you configure 
-all the nodes currently set to a fixed clock, not just the MMC controller.
-
-Thomas
+Tested-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 
 _______________________________________________
 linux-riscv mailing list
