@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EBBC25B4F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 10:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A611CC10F16
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 10:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KAds+EVL3XaByN8HENxNnqcTdfT7QKw7mFowU7aFD5Y=; b=Ya2X/acjZUpkVo
-	TG4f5HuP+Hej75FqPCZHoZS+n7f0L88fZ3w1MjndSR3+BtqXAawzgqE8bjlDcSVARj578N2oIrvYb
-	LgD5pvUEOvKRF0kxo1+QoJ7yraGVN2uJ1hwOQ33KTwnA3RCDazCPTopBwyxqzzPVy8gwotN8IC8pF
-	LC9sFKhSNF3OHSFFN4ZZOavIEuiA2c53ijlcMCTRPD7rO8DdvPmVbneEG40ftMXMFk3j840S27mvv
-	Lr21FRLcBC8BHp3NuH9Go0ewu+G+kOx6TL1HRCGqtppgnxDLfqUcgbj89ufoQgLlmaql0wOijrBaq
-	+7d127TdiIp2fwAMEmaA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tSodn9bfoFh67tE/I2enaD6buAP6G9DaUZY6M/hPuz8=; b=LkGYWdeTJcYstGZMJfwY0PMOk/
+	EmJunI7HwLaJN9gYvgO4DgL0zvkFdx3rt7jrZGfNODW87ucZ6Zbd6oYrU5ZhLOuM5Uj4XGGJnr76A
+	bWh3G35L1temco05fk6MmNObujfvaHOoDnPBxxq3mUr9eJTV3fiEQBEEx7h9DvvCCY8Wabi86evm/
+	U/0tDXgWg+y4dvyKBGk7vMGlzhBDjEHDw/aC1yedyOanOh10hjbocXVJp38DRLptddsaToczTHgOe
+	k6lQ+651HteOpkwolylbKjIGZeVEkZDGzeWaW4QPGHw2/1/lSrneds9xzNVcLtX5wCYl2TaUkjRDv
+	Nf5L+DgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2pjP-0000000FxyI-1svZ;
-	Fri, 03 May 2024 10:01:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s2qL5-0000000G5aZ-1DAR;
+	Fri, 03 May 2024 10:40:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2pjM-0000000FxxY-1fEo;
-	Fri, 03 May 2024 10:01:29 +0000
+	id 1s2qL2-0000000G5Zh-0QPx
+	for linux-riscv@lists.infradead.org;
+	Fri, 03 May 2024 10:40:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 821266143F;
-	Fri,  3 May 2024 10:01:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96E19C4AF14;
-	Fri,  3 May 2024 10:01:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3E9C761C5E;
+	Fri,  3 May 2024 10:40:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A50E8C116B1;
+	Fri,  3 May 2024 10:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714730487;
-	bh=Z81kJ5Jzse+D1tt/hKahWdZHLWz3jrL1TFiptgq6cIE=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=h7CECoV2zrBhycyFBBAhOXnFnpoEfarqglCNzR7GGa3PNe1gRF0kDuDQErO1Ajvy6
-	 8TFeGl2KayFG6TTYWdlT5GMS19wpQgS+hXmHk5DUeEH6nHjsiLA2N7gU+297+e6FJ1
-	 QrbvrMZVYv+4fi9KdUKHoB3W7WbiKdlAByb5lvgC935LJucFVRkUeqZpkYOMPiDO8D
-	 EEUd3kRKLaF0WcZ7qqy3GKhBT9k52HxcEdwW004rPZW4BA6zUkYstpWtk6E9ADWCnc
-	 BB30uzCGrgWrH6fne7nrKbvTnHd13e6TeDYEdUoPA7Y+MvWQ/bAN227MFV4RWHDV6z
-	 oi7Jj925Tr9Eg==
-From: Lee Jones <lee@kernel.org>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20240503072116.12430-1-krzysztof.kozlowski@linaro.org>
-References: <20240503072116.12430-1-krzysztof.kozlowski@linaro.org>
-Subject: Re: (subset) [PATCH] dt-bindings: mfd: Use full path to other
- schemas
-Message-Id: <171473048435.1337417.17257640057136086841.b4-ty@kernel.org>
-Date: Fri, 03 May 2024 11:01:24 +0100
+	s=k20201202; t=1714732822;
+	bh=HwTDULx37Hivyl033gJtCf+zwXB9XjlSfMV+ADfX2R0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cSimArr3h5HMGwFITZ05NcVzIiDIDgU0D4grxMiFIuv0D7p2lV1eQri4uCWaRU7zW
+	 ySK+e0AUgYM7fszEq32bfTG0L/CjV3Q+YdXSnAK3RnM5vyt9VoLh5uPSs5pg1JSRV8
+	 g4CaPgpXfbMr/p9OSviNzHxwgKGHOj8qDRsvMubzrLP56Sr9eRvA1NQXTeSzIPH8EW
+	 MeLFLEcRgasif/XJkavoyWC4lZF4ryyXBtn5+pMe0wiZ5L24IlvqNtXpXX8bCq5okY
+	 c3w0Sre3oAFRF41ihWTk0oDl9JF8TlmK5tM77kzv5w6nLelQ6UdxU+hZ7Jq7zdqJ4g
+	 d77VtLvMbQwLw==
+Date: Fri, 3 May 2024 11:40:18 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	valentina.fernandezalanis@microchip.com
+Subject: Re: [PATCH 2/3] spi: dt-bindings: Add num-cs property for mpfs-spi
+Message-ID: <20240503-gooey-distill-40e09638c082@spud>
+References: <20240502143410.12629-1-prajna.rajendrakumar@microchip.com>
+ <20240502143410.12629-3-prajna.rajendrakumar@microchip.com>
 MIME-Version: 1.0
-X-Mailer: b4 0.12.4
+In-Reply-To: <20240502143410.12629-3-prajna.rajendrakumar@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240503_030128_522287_52381243 
-X-CRM114-Status: UNSURE (   5.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240503_034024_550677_77FF48B0 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +72,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8021249635599651876=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAwMyBNYXkgMjAyNCAwOToyMToxNiArMDIwMCwgS3J6eXN6dG9mIEtvemxvd3NraSB3
-cm90ZToKPiBXaGVuIHJlZmVyZW5jaW5nIG90aGVyIHNjaGVtYSwgaXQgaXMgcHJlZmVycmVkIHRv
-IHVzZSBhbiBhYnNvbHV0ZSBwYXRoCj4gKC9zY2hlbWFzLy4uLi4pLCB3aGljaCBhbGxvd3MgYWxz
-byBhbiBzZWFtbGVzcyBtb3ZlIG9mIHBhcnRpY3VsYXIgc2NoZW1hCj4gb3V0IG9mIExpbnV4IGtl
-cm5lbCB0byBkdHNjaGVtYS4KPiAKPiAKCkFwcGxpZWQsIHRoYW5rcyEKClsxLzFdIGR0LWJpbmRp
-bmdzOiBtZmQ6IFVzZSBmdWxsIHBhdGggdG8gb3RoZXIgc2NoZW1hcwogICAgICBjb21taXQ6IDU2
-NDI3N2VmNjBiNWY1ZWMxNzUzNDg5YWQ2OWY0NTgzZGI1N2U2ZjAKCi0tCkxlZSBKb25lcyBb5p2O
-55C85pavXQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============8021249635599651876==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="RpCXvjDOjTtHu/S6"
+Content-Disposition: inline
+
+
+--RpCXvjDOjTtHu/S6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, May 02, 2024 at 03:34:09PM +0100, Prajna Rajendra Kumar wrote:
+> The PolarFire SoC SPI controller supports multiple chip selects,but in
+> the MSS, only one CS line is physically wired. To reflect this hardware
+> limitation in the device tree, the binding enforces that the 'num-cs'
+> property defaults to 1 and cannot exceed 1 unless additional
+> chip select lines are explicitly defined using GPIO descriptors.
+>=20
+> Fixes: 2da187304e55 ("spi: add bindings for microchip mpfs spi")
+> Signed-off-by: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
+> ---
+>  .../bindings/spi/microchip,mpfs-spi.yaml      | 19 ++++++++++++++++---
+>  1 file changed, 16 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yam=
+l b/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
+> index 74a817cc7d94..19951951fdd6 100644
+> --- a/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
+> +++ b/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
+> @@ -13,9 +13,6 @@ description:
+>  maintainers:
+>    - Conor Dooley <conor.dooley@microchip.com>
+> =20
+> -allOf:
+> -  - $ref: spi-controller.yaml#
+> -
+>  properties:
+>    compatible:
+>      oneOf:
+> @@ -43,6 +40,22 @@ required:
+>    - interrupts
+>    - clocks
+> =20
+> +allOf:
+> +  - $ref: spi-controller.yaml#
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: microchip,mpfs-spi
+> +      not:
+> +        required:
+> +          - cs-gpios
+> +    then:
+> +      properties:
+> +        num-cs:
+> +          default: 1
+> +          maximum: 1
+
+I think this isn't quite right actually. The default for num-cs should
+be 1, regardless of whether cs-gpios are used or not, only the maximum
+is affected by using GPIOs for chip select.
+
+> +
+>  unevaluatedProperties: false
+> =20
+>  examples:
+> --=20
+> 2.25.1
+>=20
+
+--RpCXvjDOjTtHu/S6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjS/EgAKCRB4tDGHoIJi
+0gUKAQCnSigafjhVUe3GHPm6zS2lCDzCAuS4IBfpgkSpfFBarwD/SbdHQKZYcw3w
+D2Nz5ZJzoYFiIZKxzyWEK7CqQHUspQw=
+=yaL9
+-----END PGP SIGNATURE-----
+
+--RpCXvjDOjTtHu/S6--
+
+
+--===============8021249635599651876==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8021249635599651876==--
+
