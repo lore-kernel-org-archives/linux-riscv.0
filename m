@@ -4,97 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4BA7C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 04:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05F6C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 04:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FTefKiFlOxAvRaqJBefoZBu9INy1ako1DQLUo0MqPKA=; b=cdbVKpyxKb1RVL
-	gAG0lBuMQ6lt4aTqoQKjmUNKEIGxL05tkcnqAvGJHYi5Ncs8nBhPerQC7HAAuZhYH90m7ntQDFIoO
-	soy0XTP3tqWejF50w1+w/Bz4SAlWeRwelA4NCFLqt6lqRimBau5ox643N82oDlAK1iu/inCUwpy4v
-	AfCuYZE5njlgFMGGM13D2CQeD796Gx0MHVXzsy+qLk1BoERfMExJ5cQxdYCh+868DFXSfyamadi0M
-	K/qxn8ws3IjW+JsYc8I812bhDSq3lSo/28SemdZ3a1QoFRLaaYarxmYeDov9zhtWSDCKSHdsDc8Pw
-	+200+b3CR/ketAUxk7OQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RkrR5WdHd8cXYrz8KcmzXpLM4km0xKPigwhumbrFgyo=; b=znbb09dKH5qU2D
+	JD51CsMAOS+pu42lQ1NPDH3kGUGjxohNIBYT3aNHBkBSrsJ3TfJIimIkVZmXw6jE8yYHyUNxOM8Ll
+	iQVdCEUZVV515X3sV1KrkVrokaQPm1LE+jwhxDaVIkXvrd4KIgH9kEIPmCgkUd+BvVTf3YlW5hBGF
+	JIdeVqD6A70UZ33/6D/l6RP59t8RVLklapFTB3Gg07cauXfoQ3GtRxs0G/vPRtiyd3z33DJtAnA05
+	WwHdlSvKYJ50Zy+BM/gqPq+M2yTdV+KHFwS/Qz/52ZoHEk6LtbRDbWf7dTQzz+PlMsCBH7yIkT0rp
+	YiPtIH2XEmFz8NaWmotA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2krJ-0000000F3XU-1Euu;
-	Fri, 03 May 2024 04:49:21 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1s2kst-0000000F4d4-0ImP;
+	Fri, 03 May 2024 04:50:59 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2kpH-0000000F1hN-4477
+	id 1s2ksp-0000000F4bO-3rQI
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 May 2024 04:47:32 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1ed012c1afbso10543305ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 21:47:12 -0700 (PDT)
+	Fri, 03 May 2024 04:50:57 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1e651a9f3ffso47152185ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 21:50:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714711632; x=1715316432; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kG0HZTgu+oqhfyx3+0s4uSyEpJzUa7LTRfXFgzxLj94=;
-        b=OE0RkfdeiUzvajfdFI1MaPggUklxlW/hm1PviealT1jV37REqX5aJS5CdnMx1dmPWD
-         hM/VJaw0jVRkkECHZ1xXnROIvmgAX0JVJypRunwaC+pdDHdiAct7Z9GaKGgvT3awpF3e
-         auwVM++VY+v18/Jg/dkdNKF6aBC9PgGtZxtnoOMDr+54U/h2H07txItavxBPJq9q+5Jt
-         XyFrHWb5BuOl+OQ9CX613pPwL19UeXSsGrJn1qKhJlpvapmNTDeafRJR/5K7AftlcFBt
-         /NYCbxhn3Eh+OoKxoVFhJkUZ1Z3gy0vdwFlzdusBkMMz71N9fByxoRPEWsY480vdXFVC
-         wujg==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714711854; x=1715316654; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=P1pri5vJc6a6erBHblT+G/90vMaXtH4w+W1SfMwHWew=;
+        b=jjVnBxLpSKRkPvuVqsK6bqAVQ36DhvDUbQrowYMHlBWWmPlqr1nW/sNT/sM2tRJNzq
+         CG4ewpEjbs3c9nNh+kLOyvHkqeJe5DGwUg//YWlVlsofSg/C/HV2kkAHk6XSiWi9ICSb
+         a9SDlrX4P/TKkIgUpEp0mbXejz6UzQxNpBhmozoOH1j7euO1L1dD3ZAdTXix7VkgKlsq
+         SFzk67pa+vUDLFiAQ8U72J/oVvBt2YZ7Vypis6arfd+P0Gb1Ca/8kWL++RBd1pQVr5gv
+         Js8EPrKrNW7dNRoYi5QkHGwbyB0SvRi+6eh6kTocKuFATR+mNiOfSMnpts1U8lQXqNlJ
+         zVWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714711632; x=1715316432;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kG0HZTgu+oqhfyx3+0s4uSyEpJzUa7LTRfXFgzxLj94=;
-        b=qLaVgFiszLwThTjmNtUQXQ0VlMtnqAoWlbCn6ev8J52ukD4lAi503MTy2GuAbmnhje
-         gNRQInEZCOelSUPh+fNfkjf9WM1bEj9/9fkMmCLLxt4yCuI7lu8nlNqsE6LB7jZU7Ekf
-         017Kc7A3dIWZoA/Di+Gvjn8KF1KP7R0OdyuH/8/GP7cq00P3NzflrmNWwkQhl/AS2II8
-         0Syr8qFPZayf2iRiJW9f5mrpiFaKKQ+0kdWfGap9Y7CvnZTLVwCzf4ylVk5f/FP30mc0
-         ywapzYsenPmJIdZyTGc+J+NtDwb5V8TIWGN4Eymud8B25H2BpoJoMSROw4lIDyZgeSiq
-         Qnkg==
-X-Gm-Message-State: AOJu0Yyt2fxIy2xnAQwANtEwJPp0hSVFEUB2Wkz1CAAVEjgSaLsHTs39
-	U8CR2dEMYeBj13KW/neK3tYdCVGc6DBOlL/JxgpapU73MOZ1pHmz3bmxD+3mrn8=
-X-Google-Smtp-Source: AGHT+IFHEYp3d7krU1OpCIxtOH7BUENAkL6ERE1nHeWjHBO5DS+E3gVHVlrehD81L46quoC+hismBA==
-X-Received: by 2002:a17:902:e750:b0:1dd:dcd3:662c with SMTP id p16-20020a170902e75000b001dddcd3662cmr7679553plf.4.1714711631691;
-        Thu, 02 May 2024 21:47:11 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1714711854; x=1715316654;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=P1pri5vJc6a6erBHblT+G/90vMaXtH4w+W1SfMwHWew=;
+        b=MvolEUOis3eldDNMHveuwWLX0Ai8Ey1WUCFYix2dMAoegi3Jfa+4Cdbzx7nKCZn15n
+         qFToJyNcSo+E17lMhl8IUjAMDWjgpp1ZZeY4MCtWgdsXyWYepOfef9wqH8IeHQq2ubHR
+         rQ2atXR6cB+6BmV2lpq8IuDWNsq2AWFpnTEukP4GzL/UqatY0he/tBcxCVxJsygl+9w+
+         83jutc7YHJIq8frBgJ99ALvTWaZMET2dWIfNLD8XZmh71DWU2IG5OBh89h0F0K9tXaWB
+         PCpfkDdWAN+qFJXczTuhsvsf12J1b7RZFhsr99a8P6qPjvUZDwx2Aw+ugvK+ZsciBZf5
+         OK8w==
+X-Forwarded-Encrypted: i=1; AJvYcCWfnN+wN6cEn9ApDUqzkWMfxT14JNMQxJV5gdwX4vkB36t/3dDFXchSvX/vH6hPfa7wemml+OZQEj3cuumfern2sr5Z6g9NLibD93+mieI7
+X-Gm-Message-State: AOJu0Yz10UJB6aZnSF+eFHhr+A4/FHEZP9VbF13Pp9cQhhgZ09Xy0PDR
+	Eq70t5NzP4T/msYH2LxmB/jQcohzAQZioHhS18MwqiHzbz717k5gr06lrY2B6oM=
+X-Google-Smtp-Source: AGHT+IEORFLsgu03dCb67137W9/Puz9LTNMIUDTKupfQs2TVKEvgT1NFtqJrCUNXu0iFi8qln7RGqA==
+X-Received: by 2002:a17:902:ecc5:b0:1ec:c6ba:de3e with SMTP id a5-20020a170902ecc500b001ecc6bade3emr1582135plh.57.1714711853907;
+        Thu, 02 May 2024 21:50:53 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id e8-20020a17090301c800b001e2bb03893dsm2240411plh.198.2024.05.02.21.47.09
+        by smtp.gmail.com with ESMTPSA id li11-20020a170903294b00b001e3c77db2aesm2276384plb.88.2024.05.02.21.50.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 May 2024 21:47:10 -0700 (PDT)
+        Thu, 02 May 2024 21:50:52 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 02 May 2024 21:46:48 -0700
-Subject: [PATCH v5 13/17] riscv: vector: Support xtheadvector save/restore
+Subject: [PATCH v4 0/2] riscv: Extension parsing fixes
+Date: Thu, 02 May 2024 21:50:49 -0700
+Message-Id: <20240502-cpufeature_fixes-v4-0-b3d1a088722d@rivosinc.com>
 MIME-Version: 1.0
-Message-Id: <20240502-dev-charlie-support_thead_vector_6_9-v5-13-d1b5c013a966@rivosinc.com>
-References: <20240502-dev-charlie-support_thead_vector_6_9-v5-0-d1b5c013a966@rivosinc.com>
-In-Reply-To: <20240502-dev-charlie-support_thead_vector_6_9-v5-0-d1b5c013a966@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
+X-B4-Tracking: v=1; b=H4sIACltNGYC/33OwQ6CMAwG4FcxOzvDusHEk+9hjIGtSA8yssGiI
+ by7gxMxxOPf5v/aiQX0hIFdDhPzGCmQ61JQxwMzbdU9kZNNmUEGKlOguOnHBqth9Pho6I2Bl6J
+ Go6wuJWqWar3HdZFat3vKLYXB+c96IYpl+geLgmc8P+eopQWAor56ii5QZ07GvdjiRdgaxY4By
+ dBSa6WgFhL0jiG3RrljyGQUVSWEtZgL+fvHPM9fBoKo8TsBAAA=
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Guo Ren <guoren@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, 
+ Guo Ren <guoren@kernel.org>, Conor Dooley <conor@kernel.org>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
  =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Charlie Jenkins <charlie@rivosinc.com>
+ Evan Green <evan@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>, 
+ Alexandre Ghiti <alexghiti@rivosinc.com>, 
+ Andrew Jones <ajones@ventanamicro.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1714711602; l=19932;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1714711851; l=2166;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=1/ijxDtuRnJujE0C4lSsn3XlFEj+00XFKA3M5VmR+3s=;
- b=EUwbRv8Xb1TZCkCKXtHuFd6zusTvhuFWgfIyR8nR0H4ELIhT8N5jkL5l+IQQVkaq/5YB5ZCcZ
- 3cqwEd4M5fzDfEdw5G+sg0PWqJZPpi99SpfaxMYlHtDuOo9wYTwJlep
+ bh=Dxpzzy/z93hXB1aHpi749r74tSlAAuPK148cUOanOFs=;
+ b=be228u4Ild/sEBi/+uvBsPWy7IukprxcPHtzBJD7A9ck+Fsnxq/xVWLZ8cCYLRex03loQOBw9
+ c4LOUEkw6KWAkoFoVflv5PTwjn2PCqF1oKiEx823WLkTQfRcXjRYWFa
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_214716_790106_D903F3E6 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20240502_215056_011592_84F76318 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,604 +108,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use alternatives to add support for xtheadvector vector save/restore
-routines.
+This series contains two minor fixes for the extension parsing in
+cpufeature.c.
+
+Some T-Head boards without vector 1.0 support report "v" in the isa
+string in their DT which will cause the kernel to run vector code. The
+code to blacklist "v" from these boards was doing so by using
+riscv_cached_mvendorid() which has not been populated at the time of
+extension parsing. This fix instead greedily reads the mvendorid CSR of
+the boot hart to determine if the cpu is from T-Head.
+
+The other fix is for an incorrect indexing bug. riscv extensions
+sometimes imply other extensions. When adding these "subset" extensions
+to the hardware capabilities array, they need to be checked if they are
+valid. The current code only checks if the extension that is including
+other extensions is valid and not the subset extensions.  
+
+These patches were previously included in:
+https://lore.kernel.org/lkml/20240420-dev-charlie-support_thead_vector_6_9-v3-0-67cff4271d1d@rivosinc.com/
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/riscv/Kconfig.vendor              |  13 ++
- arch/riscv/include/asm/csr.h           |   6 +
- arch/riscv/include/asm/switch_to.h     |   2 +-
- arch/riscv/include/asm/vector.h        | 247 ++++++++++++++++++++++++++-------
- arch/riscv/kernel/cpufeature.c         |   2 +-
- arch/riscv/kernel/kernel_mode_vector.c |   8 +-
- arch/riscv/kernel/process.c            |   4 +-
- arch/riscv/kernel/signal.c             |   6 +-
- arch/riscv/kernel/vector.c             |  13 +-
- 9 files changed, 233 insertions(+), 68 deletions(-)
+Changes in v4:
+- Delete comment
+- Link to v3: https://lore.kernel.org/r/20240429-cpufeature_fixes-v3-0-6aa11dde513b@rivosinc.com
 
-diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
-index aa5a191e659e..edf49f3065ac 100644
---- a/arch/riscv/Kconfig.vendor
-+++ b/arch/riscv/Kconfig.vendor
-@@ -13,6 +13,19 @@ config RISCV_ISA_VENDOR_EXT_THEAD
- 	  extensions. Without this option enabled, T-Head vendor extensions will
- 	  not be detected at boot and their presence not reported to userspace.
- 
-+	  If you don't know what to do here, say Y.
-+
-+config RISCV_ISA_XTHEADVECTOR
-+	bool "xtheadvector extension support"
-+	depends on RISCV_ISA_VENDOR_EXT_THEAD
-+	depends on RISCV_ISA_V
-+	depends on FPU
-+	default y
-+	help
-+	  Say N here if you want to disable all xtheadvector related procedure
-+	  in the kernel. This will disable vector for any T-Head board that
-+	  contains xtheadvector rather than the standard vector.
-+
- 	  If you don't know what to do here, say Y.
- endmenu
- 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index e5a35efd56e0..13657d096e7d 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -30,6 +30,12 @@
- #define SR_VS_CLEAN	_AC(0x00000400, UL)
- #define SR_VS_DIRTY	_AC(0x00000600, UL)
- 
-+#define SR_VS_THEAD		_AC(0x01800000, UL) /* xtheadvector Status */
-+#define SR_VS_OFF_THEAD		_AC(0x00000000, UL)
-+#define SR_VS_INITIAL_THEAD	_AC(0x00800000, UL)
-+#define SR_VS_CLEAN_THEAD	_AC(0x01000000, UL)
-+#define SR_VS_DIRTY_THEAD	_AC(0x01800000, UL)
-+
- #define SR_XS		_AC(0x00018000, UL) /* Extension Status */
- #define SR_XS_OFF	_AC(0x00000000, UL)
- #define SR_XS_INITIAL	_AC(0x00008000, UL)
-diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-index 7efdb0584d47..ada6b5cf2d94 100644
---- a/arch/riscv/include/asm/switch_to.h
-+++ b/arch/riscv/include/asm/switch_to.h
-@@ -78,7 +78,7 @@ do {							\
- 	struct task_struct *__next = (next);		\
- 	if (has_fpu())					\
- 		__switch_to_fpu(__prev, __next);	\
--	if (has_vector())					\
-+	if (has_vector() || has_xtheadvector())		\
- 		__switch_to_vector(__prev, __next);	\
- 	((last) = __switch_to(__prev, __next));		\
- } while (0)
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index 731dcd0ed4de..db851dc81870 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -18,6 +18,27 @@
- #include <asm/cpufeature.h>
- #include <asm/csr.h>
- #include <asm/asm.h>
-+#include <asm/vendorid_list.h>
-+#include <asm/vendor_extensions.h>
-+#include <asm/vendor_extensions/thead.h>
-+
-+#define __riscv_v_vstate_or(_val, TYPE) ({				\
-+	typeof(_val) _res = _val;					\
-+	if (has_xtheadvector()) \
-+		_res = (_res & ~SR_VS_THEAD) | SR_VS_##TYPE##_THEAD;	\
-+	else								\
-+		_res = (_res & ~SR_VS) | SR_VS_##TYPE;			\
-+	_res;								\
-+})
-+
-+#define __riscv_v_vstate_check(_val, TYPE) ({				\
-+	bool _res;							\
-+	if (has_xtheadvector()) \
-+		_res = ((_val) & SR_VS_THEAD) == SR_VS_##TYPE##_THEAD;	\
-+	else								\
-+		_res = ((_val) & SR_VS) == SR_VS_##TYPE;		\
-+	_res;								\
-+})
- 
- extern unsigned long riscv_v_vsize;
- int riscv_v_setup_vsize(void);
-@@ -40,39 +61,62 @@ static __always_inline bool has_vector(void)
- 	return riscv_has_extension_unlikely(RISCV_ISA_EXT_v);
- }
- 
-+static __always_inline bool has_xtheadvector_no_alternatives(void)
-+{
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_XTHEADVECTOR))
-+		return riscv_isa_vendor_extension_available(THEAD_VENDOR_ID, XTHEADVECTOR);
-+	else
-+		return false;
-+}
-+
-+static __always_inline bool has_xtheadvector(void)
-+{
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_XTHEADVECTOR))
-+		return riscv_has_vendor_extension_unlikely(THEAD_VENDOR_ID,
-+							   RISCV_ISA_VENDOR_EXT_XTHEADVECTOR);
-+	else
-+		return false;
-+}
-+
- static inline void __riscv_v_vstate_clean(struct pt_regs *regs)
- {
--	regs->status = (regs->status & ~SR_VS) | SR_VS_CLEAN;
-+	regs->status = __riscv_v_vstate_or(regs->status, CLEAN);
- }
- 
- static inline void __riscv_v_vstate_dirty(struct pt_regs *regs)
- {
--	regs->status = (regs->status & ~SR_VS) | SR_VS_DIRTY;
-+	regs->status = __riscv_v_vstate_or(regs->status, DIRTY);
- }
- 
- static inline void riscv_v_vstate_off(struct pt_regs *regs)
- {
--	regs->status = (regs->status & ~SR_VS) | SR_VS_OFF;
-+	regs->status = __riscv_v_vstate_or(regs->status, OFF);
- }
- 
- static inline void riscv_v_vstate_on(struct pt_regs *regs)
- {
--	regs->status = (regs->status & ~SR_VS) | SR_VS_INITIAL;
-+	regs->status = __riscv_v_vstate_or(regs->status, INITIAL);
- }
- 
- static inline bool riscv_v_vstate_query(struct pt_regs *regs)
- {
--	return (regs->status & SR_VS) != 0;
-+	return !__riscv_v_vstate_check(regs->status, OFF);
- }
- 
- static __always_inline void riscv_v_enable(void)
- {
--	csr_set(CSR_SSTATUS, SR_VS);
-+	if (has_xtheadvector())
-+		csr_set(CSR_SSTATUS, SR_VS_THEAD);
-+	else
-+		csr_set(CSR_SSTATUS, SR_VS);
- }
- 
- static __always_inline void riscv_v_disable(void)
- {
--	csr_clear(CSR_SSTATUS, SR_VS);
-+	if (has_xtheadvector())
-+		csr_clear(CSR_SSTATUS, SR_VS_THEAD);
-+	else
-+		csr_clear(CSR_SSTATUS, SR_VS);
- }
- 
- static __always_inline void __vstate_csr_save(struct __riscv_v_ext_state *dest)
-@@ -81,10 +125,47 @@ static __always_inline void __vstate_csr_save(struct __riscv_v_ext_state *dest)
- 		"csrr	%0, " __stringify(CSR_VSTART) "\n\t"
- 		"csrr	%1, " __stringify(CSR_VTYPE) "\n\t"
- 		"csrr	%2, " __stringify(CSR_VL) "\n\t"
--		"csrr	%3, " __stringify(CSR_VCSR) "\n\t"
--		"csrr	%4, " __stringify(CSR_VLENB) "\n\t"
- 		: "=r" (dest->vstart), "=r" (dest->vtype), "=r" (dest->vl),
--		  "=r" (dest->vcsr), "=r" (dest->vlenb) : :);
-+		"=r" (dest->vcsr) : :);
-+
-+	if (has_xtheadvector()) {
-+		u32 tmp_vcsr;
-+		bool restore_fpu = false;
-+		unsigned long status = csr_read(CSR_SSTATUS);
-+
-+		/*
-+		 * CSR_VCSR is defined as
-+		 * [2:1] - vxrm[1:0]
-+		 * [0] - vxsat
-+		 * The earlier vector spec implemented by T-Head uses separate
-+		 * registers for the same bit-elements, so just combine those
-+		 * into the existing output field.
-+		 *
-+		 * Additionally T-Head cores need FS to be enabled when accessing
-+		 * the VXRM and VXSAT CSRs, otherwise ending in illegal instructions.
-+		 * Though the cores do not implement the VXRM and VXSAT fields in the
-+		 * FCSR CSR that vector-0.7.1 specifies.
-+		 */
-+		if ((status & SR_FS) == SR_FS_OFF) {
-+			csr_set(CSR_SSTATUS, (status & ~SR_FS) | SR_FS_CLEAN);
-+			restore_fpu = true;
-+		}
-+
-+		asm volatile (
-+			"csrr	%[tmp_vcsr], " __stringify(VCSR_VXRM) "\n\t"
-+			"slliw	%[vcsr], %[tmp_vcsr], " __stringify(VCSR_VXRM_SHIFT) "\n\t"
-+			"csrr	%[tmp_vcsr], " __stringify(VCSR_VXSAT) "\n\t"
-+			"or	%[vcsr], %[vcsr], %[tmp_vcsr]\n\t"
-+			: [vcsr] "=r" (dest->vcsr), [tmp_vcsr] "=&r" (tmp_vcsr));
-+
-+		if (restore_fpu)
-+			csr_set(CSR_SSTATUS, status);
-+	} else {
-+		asm volatile (
-+			"csrr	%[vcsr], " __stringify(CSR_VCSR) "\n\t"
-+			"csrr	%[vlenb], " __stringify(CSR_VLENB) "\n\t"
-+			: [vcsr] "=r" (dest->vcsr), [vlenb] "=r" (dest->vlenb));
-+	}
- }
- 
- static __always_inline void __vstate_csr_restore(struct __riscv_v_ext_state *src)
-@@ -95,9 +176,37 @@ static __always_inline void __vstate_csr_restore(struct __riscv_v_ext_state *src
- 		"vsetvl	 x0, %2, %1\n\t"
- 		".option pop\n\t"
- 		"csrw	" __stringify(CSR_VSTART) ", %0\n\t"
--		"csrw	" __stringify(CSR_VCSR) ", %3\n\t"
--		: : "r" (src->vstart), "r" (src->vtype), "r" (src->vl),
--		    "r" (src->vcsr) :);
-+		: : "r" (src->vstart), "r" (src->vtype), "r" (src->vl));
-+
-+	if (has_xtheadvector()) {
-+		u32 tmp_vcsr;
-+		bool restore_fpu = false;
-+		unsigned long status = csr_read(CSR_SSTATUS);
-+
-+		/*
-+		 * Similar to __vstate_csr_save above, restore values for the
-+		 * separate VXRM and VXSAT CSRs from the vcsr variable.
-+		 */
-+		if ((status & SR_FS) == SR_FS_OFF) {
-+			csr_set(CSR_SSTATUS, (status & ~SR_FS) | SR_FS_CLEAN);
-+			restore_fpu = true;
-+		}
-+
-+		asm volatile (
-+			"srliw	%[tmp_vcsr], %[vcsr], " __stringify(VCSR_VXRM_SHIFT) "\n\t"
-+			"andi	%[tmp_vcsr], %[tmp_vcsr], " __stringify(VCSR_VXRM_MASK) "\n\t"
-+			"csrw	" __stringify(VCSR_VXRM) ", %[tmp_vcsr]\n\t"
-+			"andi	%[tmp_vcsr], %[vcsr], " __stringify(VCSR_VXSAT_MASK) "\n\t"
-+			"csrw	" __stringify(VCSR_VXSAT) ", %[tmp_vcsr]\n\t"
-+			: [tmp_vcsr] "=&r" (tmp_vcsr) : [vcsr] "r" (src->vcsr));
-+
-+		if (restore_fpu)
-+			csr_set(CSR_SSTATUS, status);
-+	} else {
-+		asm volatile (
-+			"csrw	" __stringify(CSR_VCSR) ", %[vcsr]\n\t"
-+			: : [vcsr] "r" (src->vcsr));
-+	}
- }
- 
- static inline void __riscv_v_vstate_save(struct __riscv_v_ext_state *save_to,
-@@ -107,19 +216,33 @@ static inline void __riscv_v_vstate_save(struct __riscv_v_ext_state *save_to,
- 
- 	riscv_v_enable();
- 	__vstate_csr_save(save_to);
--	asm volatile (
--		".option push\n\t"
--		".option arch, +v\n\t"
--		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
--		"vse8.v		v0, (%1)\n\t"
--		"add		%1, %1, %0\n\t"
--		"vse8.v		v8, (%1)\n\t"
--		"add		%1, %1, %0\n\t"
--		"vse8.v		v16, (%1)\n\t"
--		"add		%1, %1, %0\n\t"
--		"vse8.v		v24, (%1)\n\t"
--		".option pop\n\t"
--		: "=&r" (vl) : "r" (datap) : "memory");
-+	if (has_xtheadvector()) {
-+		asm volatile (
-+			"mv t0, %0\n\t"
-+			THEAD_VSETVLI_T4X0E8M8D1
-+			THEAD_VSB_V_V0T0
-+			"add		t0, t0, t4\n\t"
-+			THEAD_VSB_V_V0T0
-+			"add		t0, t0, t4\n\t"
-+			THEAD_VSB_V_V0T0
-+			"add		t0, t0, t4\n\t"
-+			THEAD_VSB_V_V0T0
-+			: : "r" (datap) : "memory", "t0", "t4");
-+	} else {
-+		asm volatile (
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
-+			"vse8.v		v0, (%1)\n\t"
-+			"add		%1, %1, %0\n\t"
-+			"vse8.v		v8, (%1)\n\t"
-+			"add		%1, %1, %0\n\t"
-+			"vse8.v		v16, (%1)\n\t"
-+			"add		%1, %1, %0\n\t"
-+			"vse8.v		v24, (%1)\n\t"
-+			".option pop\n\t"
-+			: "=&r" (vl) : "r" (datap) : "memory");
-+	}
- 	riscv_v_disable();
- }
- 
-@@ -129,55 +252,77 @@ static inline void __riscv_v_vstate_restore(struct __riscv_v_ext_state *restore_
- 	unsigned long vl;
- 
- 	riscv_v_enable();
--	asm volatile (
--		".option push\n\t"
--		".option arch, +v\n\t"
--		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
--		"vle8.v		v0, (%1)\n\t"
--		"add		%1, %1, %0\n\t"
--		"vle8.v		v8, (%1)\n\t"
--		"add		%1, %1, %0\n\t"
--		"vle8.v		v16, (%1)\n\t"
--		"add		%1, %1, %0\n\t"
--		"vle8.v		v24, (%1)\n\t"
--		".option pop\n\t"
--		: "=&r" (vl) : "r" (datap) : "memory");
-+	if (has_xtheadvector()) {
-+		asm volatile (
-+			"mv t0, %0\n\t"
-+			THEAD_VSETVLI_T4X0E8M8D1
-+			THEAD_VLB_V_V0T0
-+			"add		t0, t0, t4\n\t"
-+			THEAD_VLB_V_V0T0
-+			"add		t0, t0, t4\n\t"
-+			THEAD_VLB_V_V0T0
-+			"add		t0, t0, t4\n\t"
-+			THEAD_VLB_V_V0T0
-+			: : "r" (datap) : "memory", "t0", "t4");
-+	} else {
-+		asm volatile (
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
-+			"vle8.v		v0, (%1)\n\t"
-+			"add		%1, %1, %0\n\t"
-+			"vle8.v		v8, (%1)\n\t"
-+			"add		%1, %1, %0\n\t"
-+			"vle8.v		v16, (%1)\n\t"
-+			"add		%1, %1, %0\n\t"
-+			"vle8.v		v24, (%1)\n\t"
-+			".option pop\n\t"
-+			: "=&r" (vl) : "r" (datap) : "memory");
-+	}
- 	__vstate_csr_restore(restore_from);
- 	riscv_v_disable();
- }
- 
- static inline void __riscv_v_vstate_discard(void)
- {
--	unsigned long vl, vtype_inval = 1UL << (BITS_PER_LONG - 1);
-+	unsigned long vtype_inval = 1UL << (BITS_PER_LONG - 1);
- 
- 	riscv_v_enable();
-+	if (has_xtheadvector())
-+		asm volatile (THEAD_VSETVLI_X0X0E8M8D1);
-+	else
-+		asm volatile (
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vsetvli	x0, x0, e8, m8, ta, ma\n\t"
-+			".option pop\n\t");
-+
- 	asm volatile (
- 		".option push\n\t"
- 		".option arch, +v\n\t"
--		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
- 		"vmv.v.i	v0, -1\n\t"
- 		"vmv.v.i	v8, -1\n\t"
- 		"vmv.v.i	v16, -1\n\t"
- 		"vmv.v.i	v24, -1\n\t"
--		"vsetvl		%0, x0, %1\n\t"
-+		"vsetvl		x0, x0, %0\n\t"
- 		".option pop\n\t"
--		: "=&r" (vl) : "r" (vtype_inval) : "memory");
-+		: : "r" (vtype_inval));
-+
- 	riscv_v_disable();
- }
- 
- static inline void riscv_v_vstate_discard(struct pt_regs *regs)
- {
--	if ((regs->status & SR_VS) == SR_VS_OFF)
--		return;
--
--	__riscv_v_vstate_discard();
--	__riscv_v_vstate_dirty(regs);
-+	if (riscv_v_vstate_query(regs)) {
-+		__riscv_v_vstate_discard();
-+		__riscv_v_vstate_dirty(regs);
-+	}
- }
- 
- static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
- 				       struct pt_regs *regs)
- {
--	if ((regs->status & SR_VS) == SR_VS_DIRTY) {
-+	if (__riscv_v_vstate_check(regs->status, DIRTY)) {
- 		__riscv_v_vstate_save(vstate, vstate->datap);
- 		__riscv_v_vstate_clean(regs);
- 	}
-@@ -186,7 +331,7 @@ static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
- static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
- 					  struct pt_regs *regs)
- {
--	if ((regs->status & SR_VS) != SR_VS_OFF) {
-+	if (riscv_v_vstate_query(regs)) {
- 		__riscv_v_vstate_restore(vstate, vstate->datap);
- 		__riscv_v_vstate_clean(regs);
- 	}
-@@ -195,7 +340,7 @@ static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
- static inline void riscv_v_vstate_set_restore(struct task_struct *task,
- 					      struct pt_regs *regs)
- {
--	if ((regs->status & SR_VS) != SR_VS_OFF) {
-+	if (riscv_v_vstate_query(regs)) {
- 		set_tsk_thread_flag(task, TIF_RISCV_V_DEFER_RESTORE);
- 		riscv_v_vstate_on(regs);
- 	}
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 0c9ba81600ac..5366f1a4485e 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -777,7 +777,7 @@ void __init riscv_fill_hwcap(void)
- 		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
- 	}
- 
--	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
-+	if (elf_hwcap & COMPAT_HWCAP_ISA_V || has_xtheadvector_no_alternatives()) {
- 		riscv_v_setup_vsize();
- 		/*
- 		 * ISA string in device tree might have 'v' flag, but
-diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
-index 6afe80c7f03a..99972a48e86b 100644
---- a/arch/riscv/kernel/kernel_mode_vector.c
-+++ b/arch/riscv/kernel/kernel_mode_vector.c
-@@ -143,7 +143,7 @@ static int riscv_v_start_kernel_context(bool *is_nested)
- 
- 	/* Transfer the ownership of V from user to kernel, then save */
- 	riscv_v_start(RISCV_PREEMPT_V | RISCV_PREEMPT_V_DIRTY);
--	if ((task_pt_regs(current)->status & SR_VS) == SR_VS_DIRTY) {
-+	if (__riscv_v_vstate_check(task_pt_regs(current)->status, DIRTY)) {
- 		uvstate = &current->thread.vstate;
- 		__riscv_v_vstate_save(uvstate, uvstate->datap);
- 	}
-@@ -160,7 +160,7 @@ asmlinkage void riscv_v_context_nesting_start(struct pt_regs *regs)
- 		return;
- 
- 	depth = riscv_v_ctx_get_depth();
--	if (depth == 0 && (regs->status & SR_VS) == SR_VS_DIRTY)
-+	if (depth == 0 && __riscv_v_vstate_check(regs->status, DIRTY))
- 		riscv_preempt_v_set_dirty();
- 
- 	riscv_v_ctx_depth_inc();
-@@ -208,7 +208,7 @@ void kernel_vector_begin(void)
- {
- 	bool nested = false;
- 
--	if (WARN_ON(!has_vector()))
-+	if (WARN_ON(!(has_vector() || has_xtheadvector())))
- 		return;
- 
- 	BUG_ON(!may_use_simd());
-@@ -236,7 +236,7 @@ EXPORT_SYMBOL_GPL(kernel_vector_begin);
-  */
- void kernel_vector_end(void)
- {
--	if (WARN_ON(!has_vector()))
-+	if (WARN_ON(!(has_vector() || has_xtheadvector())))
- 		return;
- 
- 	riscv_v_disable();
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 92922dbd5b5c..eabca86fc3c0 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -178,7 +178,7 @@ void flush_thread(void)
- void arch_release_task_struct(struct task_struct *tsk)
- {
- 	/* Free the vector context of datap. */
--	if (has_vector())
-+	if (has_vector() || has_xtheadvector())
- 		riscv_v_thread_free(tsk);
- }
- 
-@@ -225,7 +225,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 		p->thread.s[0] = 0;
- 	}
- 	p->thread.riscv_v_flags = 0;
--	if (has_vector())
-+	if (has_vector() || has_xtheadvector())
- 		riscv_v_thread_alloc(p);
- 	p->thread.ra = (unsigned long)ret_from_fork;
- 	p->thread.sp = (unsigned long)childregs; /* kernel sp */
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 501e66debf69..5d3ba8e46807 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -188,7 +188,7 @@ static long restore_sigcontext(struct pt_regs *regs,
- 
- 			return 0;
- 		case RISCV_V_MAGIC:
--			if (!has_vector() || !riscv_v_vstate_query(regs) ||
-+			if (!(has_vector() || has_xtheadvector()) || !riscv_v_vstate_query(regs) ||
- 			    size != riscv_v_sc_size)
- 				return -EINVAL;
- 
-@@ -210,7 +210,7 @@ static size_t get_rt_frame_size(bool cal_all)
- 
- 	frame_size = sizeof(*frame);
- 
--	if (has_vector()) {
-+	if (has_vector() || has_xtheadvector()) {
- 		if (cal_all || riscv_v_vstate_query(task_pt_regs(current)))
- 			total_context_size += riscv_v_sc_size;
- 	}
-@@ -283,7 +283,7 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
- 	if (has_fpu())
- 		err |= save_fp_state(regs, &sc->sc_fpregs);
- 	/* Save the vector state. */
--	if (has_vector() && riscv_v_vstate_query(regs))
-+	if ((has_vector() || has_xtheadvector()) && riscv_v_vstate_query(regs))
- 		err |= save_v_state(regs, (void __user **)&sc_ext_ptr);
- 	/* Write zero to fp-reserved space and check it on restore_sigcontext */
- 	err |= __put_user(0, &sc->sc_extdesc.reserved);
-diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-index e04586cdb7f0..c12ea4547da6 100644
---- a/arch/riscv/kernel/vector.c
-+++ b/arch/riscv/kernel/vector.c
-@@ -63,7 +63,7 @@ int riscv_v_setup_vsize(void)
- 
- void __init riscv_v_setup_ctx_cache(void)
- {
--	if (!has_vector())
-+	if (!(has_vector() || has_xtheadvector()))
- 		return;
- 
- 	riscv_v_user_cachep = kmem_cache_create_usercopy("riscv_vector_ctx",
-@@ -184,7 +184,8 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
- 	u32 insn = (u32)regs->badaddr;
- 
- 	/* Do not handle if V is not supported, or disabled */
--	if (!(ELF_HWCAP & COMPAT_HWCAP_ISA_V))
-+	if (!(ELF_HWCAP & COMPAT_HWCAP_ISA_V) &&
-+	    !(has_xtheadvector() && riscv_v_vstate_ctrl_user_allowed()))
- 		return false;
- 
- 	/* If V has been enabled then it is not the first-use trap */
-@@ -223,7 +224,7 @@ void riscv_v_vstate_ctrl_init(struct task_struct *tsk)
- 	bool inherit;
- 	int cur, next;
- 
--	if (!has_vector())
-+	if (!(has_vector() || has_xtheadvector()))
- 		return;
- 
- 	next = riscv_v_ctrl_get_next(tsk);
-@@ -245,7 +246,7 @@ void riscv_v_vstate_ctrl_init(struct task_struct *tsk)
- 
- long riscv_v_vstate_ctrl_get_current(void)
- {
--	if (!has_vector())
-+	if (!(has_vector() || has_xtheadvector()))
- 		return -EINVAL;
- 
- 	return current->thread.vstate_ctrl & PR_RISCV_V_VSTATE_CTRL_MASK;
-@@ -256,7 +257,7 @@ long riscv_v_vstate_ctrl_set_current(unsigned long arg)
- 	bool inherit;
- 	int cur, next;
- 
--	if (!has_vector())
-+	if (!(has_vector() || has_xtheadvector()))
- 		return -EINVAL;
- 
- 	if (arg & ~PR_RISCV_V_VSTATE_CTRL_MASK)
-@@ -306,7 +307,7 @@ static struct ctl_table riscv_v_default_vstate_table[] = {
- 
- static int __init riscv_v_sysctl_init(void)
- {
--	if (has_vector())
-+	if (has_vector() || has_xtheadvector())
- 		if (!register_sysctl("abi", riscv_v_default_vstate_table))
- 			return -EINVAL;
- 	return 0;
+Changes in v3:
+- Change comment about assuming all harts have the same vendorid/archid,
+  to just state that only the boot hart is probed.
+- Link to v2: https://lore.kernel.org/r/20240426-cpufeature_fixes-v2-0-7377442b1327@rivosinc.com
 
+Changes in v2:
+- Move comment about assuming all harts to have the same vendorid/archid
+  to apply specifically to the code that expects that (Drew)
+- Link to v1: https://lore.kernel.org/r/20240424-cpufeature_fixes-v1-0-585e73d2226b@rivosinc.com
+
+---
+Charlie Jenkins (2):
+      riscv: cpufeature: Fix thead vector hwcap removal
+      riscv: cpufeature: Fix extension subset checking
+
+ arch/riscv/include/asm/sbi.h   |  2 ++
+ arch/riscv/kernel/cpu.c        | 40 ++++++++++++++++++++++++++++++++++++----
+ arch/riscv/kernel/cpufeature.c | 10 +++++++---
+ 3 files changed, 45 insertions(+), 7 deletions(-)
+---
+base-commit: ed30a4a51bb196781c8058073ea720133a65596f
+change-id: 20240424-cpufeature_fixes-91bec4d793e7
 -- 
-2.44.0
+- Charlie
 
 
 _______________________________________________
