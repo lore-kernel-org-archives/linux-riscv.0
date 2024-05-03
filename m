@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB8DCC4345F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 18:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E67A7C25B4F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 18:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=5Rtq3nZ43TUlnG9AaEzsUmauLRImTaiiZTDPd+V1KVw=; b=wl+
-	baX9xygl5N4yhBQhltfQmOe5Xjlap1LXzE1odMoWhhynSg6x/Swy8OuSKFLXPMCXWqT8toe6qhTAW
-	V/ia84ybbHXE+t8zwopMN4YYRw5fNDg1Pf7JaO2yfuWFOcMaLVzK2Lxnm8TYkGv99GtYbAOA3XapD
-	2z17KwkJjs4RbsUgcTESIwGQd+X/HKPQEOxhBysO2PqiyqPptvAscbIPSJFv5/i593WG1nYCRzZ44
-	+D9rsQzF6por2YWbwWZWQc2+ExQtldEr9GX7w7Z6L5XFdbqS3e5MWsVAxTEl9rj8W4zsAkguZb7wE
-	ZFj6gxBQ15HugeCNMIGhUmQ4qUgw2DA==;
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=tG2OC8Aqaz9hdpYuLHuoI5pXTYXNiznHQNI7DF4uXfY=; b=vh/EWCXYkwvW9fkwizG5akNkID
+	FPsml6BdzB2S6U9qj1tjZH/dWREOgQU/DALFfzIrvORMFXztdIM2WpFmKZqQFlE7FrYhfgVezNCg+
+	rCMeopG4I92WvYDyP/GG5NeGifdQykK9RSoNDGwK5AiAp8QPB0lgFRHJLSS6zQRT/Rn0bbKDdbeZC
+	hwujNUw3tMYrEOf7KcTJS5B8Or6ue99R7AU7mJQKa/G9mT8wpu0JTGyesTGGwffYxqBjGkqrAsap2
+	SWmssrvbttmU3rEHWAu0jMK9/mfEL8jXT2V/y2tDH+BAtVX+rLf67Z/KRsUo5Ioqn3fLAievSlhU6
+	0PeuI46g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2xTf-0000000HW9j-3wt6;
-	Fri, 03 May 2024 18:17:47 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1s2xTh-0000000HWAL-1hi1;
+	Fri, 03 May 2024 18:17:49 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2xTa-0000000HW3d-1vSX
+	id 1s2xTa-0000000HW3z-14Gz
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 May 2024 18:17:45 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-61be75e21fdso94004887b3.0
-        for <linux-riscv@lists.infradead.org>; Fri, 03 May 2024 11:17:40 -0700 (PDT)
+	Fri, 03 May 2024 18:17:44 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-61be23bb01aso110294107b3.2
+        for <linux-riscv@lists.infradead.org>; Fri, 03 May 2024 11:17:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1714760258; x=1715365058; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=u5lOataUl4CqNIE0BOfGoSKjtAnehJHFOaimjTGPj/Y=;
-        b=jX/9Gxq6Qc5KG5Vm83tinqrPoSpnOzVSrnY8ugUQm0Z7ZOhrB1j+PX5fW2EvJ+A8/D
-         PrPe6GcL61r3l+pSiWInfZWj4ZRKupa54pGOkqmXCkmwxM1+KbiHLKeOodN38uCH72MQ
-         BsKFBW5D79iGPkKex4FztynWP5i0z+HiOCGOn3n7MqQ7DgrD7SYX0tAj+J6k5I3X5FQR
-         XjegioLbI/Ygf5lA2yJaW8mxJNSZGOm15DAGzzrvoNV7nJNfpXkgnG5GPZQlNYT792pe
-         fQpO2QazFJvAN/pqNLTwmNkXp42oYNNxc0rCwOUx4AbU5P4yHdk4YKliasbtoDfJYG36
-         8ogQ==
+        d=google.com; s=20230601; t=1714760260; x=1715365060; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gxJS1crzpielwDie8rL3hx1PCStQKnU+yTalK3ZSiI0=;
+        b=NpehHdxbOkIV/dMCcoUrul1Ygq63zwwTKXO1+d4M/m4o9PI6eXKGFL/nUOwuMxh75p
+         WtpU0LMLIrog4fny4SOG2KMKKB1qGHvvGchS2T8U8iLHo1jAjIfKgfwN/CjuWY534WKC
+         zIiD5dFs4fSyBHuKwwOawSXFP74rbi99KNWb5E1RGIvjYXAkaYeuEr8FfkGld/A2AReB
+         AxjM9L3Zphj1BazwzbSn8hZtURnPjqXwV6eaCelC0OQGZ9Qiax1SQEOwSBbA7AE4Cy32
+         zYMDIlfg/83AGxkJgXDKeX4p/aiesyt59Vq/BEswN9iTgkGsDsPtl74ahrTsP9NDPkCF
+         xEEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714760259; x=1715365059;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=u5lOataUl4CqNIE0BOfGoSKjtAnehJHFOaimjTGPj/Y=;
-        b=qi8kAnT6EzZyVu57DX/gyS+xUM+A3K4BBrEK6EXvAd04GdK+iRWBEX/AQ6PqXTzggX
-         gFL+84iF6OghJOw4peIxTGXqS0o7RhtLZP9lVUiuRwdPAHy4cV2/JASHxUbH7yT9et1J
-         ZlDS5uI+/4G0GOPxAGkvPaMDOL2JoVHR5aRmwmhNneL/B5avwxRpZjI3m+Z1vSAsFz3A
-         MLMBsyByroZbK/L1gUOvWlfNgmZmo7L7HfZes6loTXdtcDCWVRe+96Y93gOjzmD2feOO
-         wOj6OzzCvM7RRG4AlxhaHpQ4v9YxaQVnyYFZeb+ITh9CBWJJp4ifhnAloqICRDTIOIUr
-         Ncog==
-X-Forwarded-Encrypted: i=1; AJvYcCXhCgFqefVKQjjgguKDSottWKgIV4w8xkDn0PMtvCkZbJ7uMEEgdqWPTUmNOnClqTNmyOSIXzxXUyjqJEo9amfm32CWveOpTXHgm4fL0zof
-X-Gm-Message-State: AOJu0YwABOdbQ6Pf9vJdAyNFQM2TbgYhFP9DAUN6T3RaXG+CaYDCTL00
-	pCHZmNVFpUm9z0UIbRJVWP2HA15eHTK0DJvkm5Et/pL5X/VwTUq58BHB7riO9uAO8B08lNC/N0F
-	PSPQPChJ3iw==
-X-Google-Smtp-Source: AGHT+IGi/6BGSqLUvb7wYnWHXOlhd9obpauunW/BcufWuEVmkE7H211A4Dm9y03t3pfp70UoCYU1Se1aO50snA==
+        d=1e100.net; s=20230601; t=1714760260; x=1715365060;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gxJS1crzpielwDie8rL3hx1PCStQKnU+yTalK3ZSiI0=;
+        b=BNnYTNqQbSgwVPIJvL/9d6Did1lFH6i3ArNgEnnEzAlzljStheo+0Cci3N8qKx1cdH
+         89JJ5UI8zc8b9Y4lABJTGfa4jK1xt1IEJFYqCO5irSnUZyUVjtuZ4zesomHgTfwjmTW9
+         GM9mMVBppOnw/0x8bmsHxt7XpeOEnzmvQrjEG0Zar/AKU72Q7kzu3s//i4vilzuwZjAd
+         6xDIQmPc47VMU5jhBo105VRFGZjsofn2guM8v06C7A4+t4rUX8mjd2ZTJTJoXMD78B4y
+         W7IfLpH9MBS4SdvhEnQ7uOaDtbkqqqYuWLi9B8BGKuUxhUB3XlCII+foGN8JmLgGGvos
+         xL3w==
+X-Forwarded-Encrypted: i=1; AJvYcCV4E8n98vj0a0tF6NYTJP7g9v0cRe+IRHLyCfPJ5CLxsor8WHhbZ70p1e1eIMFT2qSgJRKogE0OUPHZtsBvo4MR1Vr/6bOSmDaK0VUzyy7e
+X-Gm-Message-State: AOJu0YybSNX5D4dXNArJwdo1bMsKcLPHbHX0jCT34L7QZBzQ1wzOW2EE
+	Maqe3RAmD6Ui2zMNmCUdfQ+FGiVPDXe+AM3XWlb38Rvr0ONExFZKvfeo2nZb85Dm50tRkMx9Dug
+	5VWWYNOzxkQ==
+X-Google-Smtp-Source: AGHT+IFV8XW0q6Vc+/y+/ULmmUgE0pK+amRiYPmJG0lNXqT19q15J8nIrLHDkebqo9zBkflGqNFe7OG5YJeiaQ==
 X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a05:6902:729:b0:dcc:c57c:8873 with SMTP
- id l9-20020a056902072900b00dccc57c8873mr1104781ybt.9.1714760258668; Fri, 03
- May 2024 11:17:38 -0700 (PDT)
-Date: Fri,  3 May 2024 11:17:31 -0700
+ (user=dmatlack job=sendgmr) by 2002:a05:6902:1023:b0:dd9:1db5:8348 with SMTP
+ id x3-20020a056902102300b00dd91db58348mr1087385ybt.8.1714760260354; Fri, 03
+ May 2024 11:17:40 -0700 (PDT)
+Date: Fri,  3 May 2024 11:17:32 -0700
+In-Reply-To: <20240503181734.1467938-1-dmatlack@google.com>
 Mime-Version: 1.0
+References: <20240503181734.1467938-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.45.0.rc1.225.g2a3ae87e7f-goog
-Message-ID: <20240503181734.1467938-1-dmatlack@google.com>
-Subject: [PATCH v3 0/3] KVM: Set vcpu->preempted/ready iff scheduled out while running
+Message-ID: <20240503181734.1467938-2-dmatlack@google.com>
+Subject: [PATCH v3 1/3] KVM: Introduce vcpu->wants_to_run
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -82,8 +85,8 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
 	David Matlack <dmatlack@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240503_111742_521751_926D24FA 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20240503_111742_345860_3F8F6151 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,65 +103,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series changes KVM to mark a vCPU as preempted/ready if-and-only-if
-it's scheduled out while running. i.e. Do not mark a vCPU
-preempted/ready if it's scheduled out during a non-KVM_RUN ioctl() or
-when userspace is doing KVM_RUN with immediate_exit=true.
+Introduce vcpu->wants_to_run to indicate when a vCPU is in its core run
+loop, i.e. when the vCPU is running the KVM_RUN ioctl and immediate_exit
+was not set.
 
-This is a logical extension of commit 54aa83c90198 ("KVM: x86: do not
-set st->preempted when going back to user space"), which  stopped
-marking a vCPU as preempted when returning to userspace. But if userspace
-invokes a KVM vCPU ioctl() that gets preempted, the vCPU will be marked
-preempted/ready. This is arguably incorrect behavior since the vCPU was
-not actually preempted while the guest was running, it was preempted
-while doing something on behalf of userspace.
+Replace all references to vcpu->run->immediate_exit with
+!vcpu->wants_to_run to avoid TOCTOU races with userspace. For example, a
+malicious userspace could invoked KVM_RUN with immediate_exit=true and
+then after KVM reads it to set wants_to_run=false, flip it to false.
+This would result in the vCPU running in KVM_RUN with
+wants_to_run=false. This wouldn't cause any real bugs today but is a
+dangerous landmine.
 
-In practice, this avoids KVM dirtying guest memory via the steal time
-page after userspace has paused vCPUs, e.g. for Live Migration, which
-allows userspace to collect the final dirty bitmap before or in parallel
-with saving vCPU state without having to worry about saving vCPU state
-triggering writes to guest memory.
+Signed-off-by: David Matlack <dmatlack@google.com>
+---
+ arch/arm64/kvm/arm.c       | 2 +-
+ arch/loongarch/kvm/vcpu.c  | 2 +-
+ arch/mips/kvm/mips.c       | 2 +-
+ arch/powerpc/kvm/powerpc.c | 2 +-
+ arch/riscv/kvm/vcpu.c      | 2 +-
+ arch/s390/kvm/kvm-s390.c   | 2 +-
+ arch/x86/kvm/x86.c         | 4 ++--
+ include/linux/kvm_host.h   | 1 +
+ virt/kvm/kvm_main.c        | 3 +++
+ 9 files changed, 12 insertions(+), 8 deletions(-)
 
-Patch 1 introduces vcpu->wants_to_run to allow KVM to detect when a vCPU
-is in its core run loop.
-
-Patch 2 renames immediated_exit to immediated_exit__unsafe within KVM to
-ensure that any new references get extra scrutiny.
-
-Patch 3 perform leverages vcpu->wants_to_run to contrain when
-vcpu->preempted and vcpu->ready are set.
-
-v3:
- - Use READ_ONCE() to read immediate_exit [Sean]
- - Replace use of immediate_exit with !wants_to_run to avoid TOCTOU [Sean]
- - Hide/Rename immediate_exit in KVM to harden against TOCTOU bugs [Sean]
-
-v2: https://lore.kernel.org/kvm/20240307163541.92138-1-dmatlack@google.com/
- - Drop Google-specific "PRODKERNEL: " shortlog prefix [me]
-
-v1: https://lore.kernel.org/kvm/20231218185850.1659570-1-dmatlack@google.com/
-
-David Matlack (3):
-  KVM: Introduce vcpu->wants_to_run
-  KVM: Ensure new code that references immediate_exit gets extra
-    scrutiny
-  KVM: Mark a vCPU as preempted/ready iff it's scheduled out while
-    running
-
- arch/arm64/kvm/arm.c       |  2 +-
- arch/loongarch/kvm/vcpu.c  |  2 +-
- arch/mips/kvm/mips.c       |  2 +-
- arch/powerpc/kvm/powerpc.c |  2 +-
- arch/riscv/kvm/vcpu.c      |  2 +-
- arch/s390/kvm/kvm-s390.c   |  2 +-
- arch/x86/kvm/x86.c         |  4 ++--
- include/linux/kvm_host.h   |  1 +
- include/uapi/linux/kvm.h   | 15 ++++++++++++++-
- virt/kvm/kvm_main.c        |  5 ++++-
- 10 files changed, 27 insertions(+), 10 deletions(-)
-
-
-base-commit: 296655d9bf272cfdd9d2211d099bcb8a61b93037
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index c4a0a35e02c7..c587e5d9396e 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -986,7 +986,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 	vcpu_load(vcpu);
+ 
+-	if (run->immediate_exit) {
++	if (!vcpu->wants_to_run) {
+ 		ret = -EINTR;
+ 		goto out;
+ 	}
+diff --git a/arch/loongarch/kvm/vcpu.c b/arch/loongarch/kvm/vcpu.c
+index 3a8779065f73..847ef54f3a84 100644
+--- a/arch/loongarch/kvm/vcpu.c
++++ b/arch/loongarch/kvm/vcpu.c
+@@ -1163,7 +1163,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 			kvm_complete_iocsr_read(vcpu, run);
+ 	}
+ 
+-	if (run->immediate_exit)
++	if (!vcpu->wants_to_run)
+ 		return r;
+ 
+ 	/* Clear exit_reason */
+diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+index 231ac052b506..f1a99962027a 100644
+--- a/arch/mips/kvm/mips.c
++++ b/arch/mips/kvm/mips.c
+@@ -436,7 +436,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		vcpu->mmio_needed = 0;
+ 	}
+ 
+-	if (vcpu->run->immediate_exit)
++	if (!vcpu->wants_to_run)
+ 		goto out;
+ 
+ 	lose_fpu(1);
+diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
+index d32abe7fe6ab..961aadc71de2 100644
+--- a/arch/powerpc/kvm/powerpc.c
++++ b/arch/powerpc/kvm/powerpc.c
+@@ -1852,7 +1852,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 	kvm_sigset_activate(vcpu);
+ 
+-	if (run->immediate_exit)
++	if (!vcpu->wants_to_run)
+ 		r = -EINTR;
+ 	else
+ 		r = kvmppc_vcpu_run(vcpu);
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index b5ca9f2e98ac..3d8349470ee6 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -711,7 +711,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		return ret;
+ 	}
+ 
+-	if (run->immediate_exit) {
++	if (!vcpu->wants_to_run) {
+ 		kvm_vcpu_srcu_read_unlock(vcpu);
+ 		return -EINTR;
+ 	}
+diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
+index 5147b943a864..b1ea25aacbf9 100644
+--- a/arch/s390/kvm/kvm-s390.c
++++ b/arch/s390/kvm/kvm-s390.c
+@@ -5033,7 +5033,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 	if (vcpu->kvm->arch.pv.dumping)
+ 		return -EINVAL;
+ 
+-	if (kvm_run->immediate_exit)
++	if (!vcpu->wants_to_run)
+ 		return -EINTR;
+ 
+ 	if (kvm_run->kvm_valid_regs & ~KVM_SYNC_S390_VALID_FIELDS ||
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 2d2619d3eee4..f70ae1558684 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -11396,7 +11396,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 	kvm_vcpu_srcu_read_lock(vcpu);
+ 	if (unlikely(vcpu->arch.mp_state == KVM_MP_STATE_UNINITIALIZED)) {
+-		if (kvm_run->immediate_exit) {
++		if (!vcpu->wants_to_run) {
+ 			r = -EINTR;
+ 			goto out;
+ 		}
+@@ -11474,7 +11474,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		WARN_ON_ONCE(vcpu->mmio_needed);
+ 	}
+ 
+-	if (kvm_run->immediate_exit) {
++	if (!vcpu->wants_to_run) {
+ 		r = -EINTR;
+ 		goto out;
+ 	}
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index afbc99264ffa..f9b9ce0c3cd9 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -380,6 +380,7 @@ struct kvm_vcpu {
+ 		bool dy_eligible;
+ 	} spin_loop;
+ #endif
++	bool wants_to_run;
+ 	bool preempted;
+ 	bool ready;
+ 	struct kvm_vcpu_arch arch;
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 38b498669ef9..bdea5b978f80 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4425,7 +4425,10 @@ static long kvm_vcpu_ioctl(struct file *filp,
+ 				synchronize_rcu();
+ 			put_pid(oldpid);
+ 		}
++		vcpu->wants_to_run = !READ_ONCE(vcpu->run->immediate_exit);
+ 		r = kvm_arch_vcpu_ioctl_run(vcpu);
++		vcpu->wants_to_run = false;
++
+ 		trace_kvm_userspace_exit(vcpu->run->exit_reason, r);
+ 		break;
+ 	}
 -- 
 2.45.0.rc1.225.g2a3ae87e7f-goog
 
