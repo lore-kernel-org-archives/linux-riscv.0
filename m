@@ -4,121 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0558C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 02:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F73C10F16
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 04:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E1bSx6ESFOwJaK2Q+ZCE4YHlQbqwYoFQaOsYI4TpApQ=; b=ZSQwLC/Zw8TeSh
-	qV6Gqg691tjKxM6EB6aLS+WUeTbi18+jt75ExYBqjk7mZbvacrrQH72y33nMD2LWdk1FtMIjL3oWh
-	8pnB/LsV1547VArOQs84Ylnwa6dGNRTTLZtSnDRMakhRvp7U5pzUTV9VlAuh+2F1m3seTXu7hPsEp
-	U6iBW+77FjbQzbeX0T3jFnn/QQoGRQ0iQSXGBXWyLt8UAoCLiGNvCRuLuhM97vmqogflGgx1HFRP2
-	8aRv6TC/TtVD8ZUzHlBuhegZxxV5WA9NRn/3VZ+z5rl2yqQC+Ejtc/1t5AKBu/kcldtAoYrd4fEnc
-	xBLovkJ+ioOJNz8sS0kg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=F5g44B6y9J4OsbHI37V8tKdr2oZTj5iLH1cMXDntM68=; b=xZeXpD3kKKSVLX
+	BckqbclaAKjmRQ6ewduT9sO3SLNJ5pJeMANAfXdoMhaeRKtMw5f+gEiIYFuTybWdOIrjdnDBk+PHs
+	DcxULLE5lIb37ZHx52tchfQxT7rMfaLKYP0byiYu4Ho9pBOLOjeCFpGQOhKJpth0Sabv42tm4x84V
+	wAWQX/UIpcwa3086KJYgV7C8IEVucLLyjEJ2wnVgqxdgNE/sydK9Szpq4OvkPTm25sTRsPi2Q4Psy
+	w1yOfipMvpf8MHB1zwa1e/sG3KnLO3+yQcP42cD3ZnP0+iXVhKlVBa8w5c5eaROWIgx0eR0Ej/OQj
+	uxp5/iFWlMaCN6XKmcCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2iWa-0000000Eh9X-2T20;
-	Fri, 03 May 2024 02:19:49 +0000
-Received: from mail-bn7nam10olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2804::800] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1s2kou-0000000F1PF-1rey;
+	Fri, 03 May 2024 04:46:52 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2iWX-0000000Eh7Y-36dp
+	id 1s2koo-0000000F1Lq-2vLZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 May 2024 02:19:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=AOlU4vgehLarxgynBPn/MTf1WSpO9Qrp2rYKdgMUxlqDG0NKn6xey7Yb55PpsVRR74Z7m4J65Psy+DYzO8HMGgpCIrE05gQGkTg4YYECzXZaSnAggUbI3y88o5gC3y3D6NLsm191NnaNPp8zh9lVzvKxCfekmKTBfsC+7P/K8uTzvBzA+tgBUfMesAlb4j/KYwCcNsQTZeqQwPR0l6vJew2uSZkMj22FaIRKHNNso//hk2Bj/TCOtzYSqSL2BARZ7zUuctIBD/ePu9ywe2dlPUE+EJrdLqut7l3QL5VPxSQuL9VDCa5CkwgyVrtGLgkLWGQ3cdMx7sIQ4guny7ipJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AfKGx+3F24RUPtNhntDfK/IPkKknFtR+bbfD4w60T6U=;
- b=E3pBUOkQAEXmBEdQG7E9WmnhGtrBaJ1rjp5QDLB+/chFVPjufCYj3nmQOZI3WUAEz5PDm0HJOIG/8zVgLVefpqY6f2VgBHEN5fqmZLobYyYIEymWGsTh8Gbu2ico8BEnXDGyOLPHISK7toVEbhqwLzVSI6VBMiImOWGrJyMDc389QzplE0KQs46/Kp91b5sw1nr5BYu5NNgBJKAv73g7MFekcAHGlN/cnZAwrklPpECkds2aXq0gnMdlvSWejypwe2XvuSvsHEvqb3D0o0JmSNHeCfjdQFWBv562ZhDiRFp0h7kzqMeGjyHUefC8JeEvePCv/azluVYU7NZsEjljJA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AfKGx+3F24RUPtNhntDfK/IPkKknFtR+bbfD4w60T6U=;
- b=H9EmarmldRGDa4Yj53vTQDTLxIXXma/HN44fuExsZV3sigjksNhpJ8ONBTC8ThHMMQ6gvpvD+sG1BSfZgas0aWGIlEmYuhIOWYZvFcDHgdViT+DknBG5bMdduj71nn5YS2G90uuzAur5gVSsWOYx4UUIWo7u7CurwWHxgk9PNQFf5DCKXY2+RylkhGMM9UFKh0AS//tH7VcXRgGHBUmU9RJDWgUwGc16BfNigGmd8GbUadC3GTiCcuVWsiDhb56VUx++OTYRZR4CJWERyccp1EAdIwo12EZF2zCWqLt6LFnr2pU/kRm3kWk8w7dInCBxfboo8zJL8G4Q/Sx9hYbSdw==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by CH3PR20MB7419.namprd20.prod.outlook.com (2603:10b6:610:1dc::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7544.25; Fri, 3 May
- 2024 02:19:42 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7544.023; Fri, 3 May 2024
- 02:19:42 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 2/2] drivers: hwmon: sophgo: Add SG2042 external hardware monitor support
-Date: Fri,  3 May 2024 10:20:08 +0800
-Message-ID: <IA1PR20MB49532195DEDCEE3E2F75529ABB1F2@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.45.0
-In-Reply-To: <IA1PR20MB49534B54403ECFB15D952A8BBB1F2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB49534B54403ECFB15D952A8BBB1F2@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [h/FTG8uNFkQZST6fy36zcKYOkPkORbTofbMJuCbm+lo=]
-X-ClientProxiedBy: SG2PR01CA0125.apcprd01.prod.exchangelabs.com
- (2603:1096:4:40::29) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20240503022008.898271-2-inochiama@outlook.com>
+	Fri, 03 May 2024 04:46:49 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-61aef9901deso886537a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 21:46:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714711604; x=1715316404; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=01vMRQO1jBulr3qyOrq5vgfs/ZFmRfI2JOoBheEyUns=;
+        b=d4nnmxBWoWgtC0WLA5zS4ZJuDIwcw4AuFejWdeM/CK3rC+uly15Srk5vbYd+lCAY/g
+         QZNiv8FlbtuSlEPrf8AxHx3dT1Ehj588LO3UtFenFVOjh5Yo3rzInOBZALSIWmurDW4b
+         P48NQwWkovynvQQid2PZNhTSnYvqK/OZqnQhnb41bPaKtsHyUkd49+1gi4a4xMJZaXwY
+         lryrtnoPWXSVMIA6LUNiU9O33UO3fjlMhIBbmMq55OXySsumdt8c6PUvtOhFpbl8RzOs
+         PpeL9dPEyYFtJgsl/aA8aZuwui610DmERUm02IcHl63vtIeqIBSBP1y7TSgwMugY5yk/
+         uTpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714711604; x=1715316404;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=01vMRQO1jBulr3qyOrq5vgfs/ZFmRfI2JOoBheEyUns=;
+        b=SnP2rWuOg5M6jhshtlnYDEeFXdBVSuB4zTk4HAiTXEziXSk1YQ8pDRiHtd07zX9TKw
+         9a0QHODyneSM3cuqm+it5CwopSsTHyvC6ZwIjKwGaDXDp3ZACkf/IekEgRZKLaVXkrli
+         xmdjtHRWWL/aWvIrl1Uax309LVFJYNdLrcoT4/MvdD74HFmvoelK07Luk0/7W1f8mFap
+         QVFTxWarKM3sA/pVgRjkkINRR/pTYm7FVQKKCyZSqnomOc5xaEoaopFBKfur22aMC6ID
+         KSHiNfipqs2Kvcm2WR7GOspq8FXnrQIdV05PUR5+1bcJoBxHqu8zrfbu32IP2I96axrh
+         Dpug==
+X-Gm-Message-State: AOJu0Yzo1Kj24GGMjgFWhpiBs0q2Q18sivZbc/I1+8Wf8HqGQ6FEDR+A
+	qjbCB0u6iRNX8MERSpowKHk8tSi7IRWwnaGwcmZ8NbPCD61p7hot0FQr8dx/mfM=
+X-Google-Smtp-Source: AGHT+IFN+LqcR4x0ykHQWq4R3GLZgewi1nqhjZN+W1cY/KaKAzcbLnPyctpKzUrcrZrXZ9sH8bejKw==
+X-Received: by 2002:a05:6a20:9155:b0:1a1:878d:d3f6 with SMTP id x21-20020a056a20915500b001a1878dd3f6mr2120960pzc.26.1714711604181;
+        Thu, 02 May 2024 21:46:44 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id e8-20020a17090301c800b001e2bb03893dsm2240411plh.198.2024.05.02.21.46.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 May 2024 21:46:43 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Subject: [PATCH v5 00/17] riscv: Support vendor extensions and xtheadvector
+Date: Thu, 02 May 2024 21:46:35 -0700
+Message-Id: <20240502-dev-charlie-support_thead_vector_6_9-v5-0-d1b5c013a966@rivosinc.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CH3PR20MB7419:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e115acf-6c05-4146-371d-08dc6b177e08
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199019|440099019|3412199016|1710799017;
-X-Microsoft-Antispam-Message-Info: S639RViHBdNFMoOA5ItavljTvd7rAQGjgnlfU03/GWjMScw7CU40nXpjTwcUzZphspLJ8kqfElc4/3vy3OA9sqnWpB1QMu9cb3kswPJDjw7oTFEx4mpqs0FMKaAKF71ociZ4xe0RwmQQLQp+Xwga5V0hWDq9FcmndeXf/MS0MAPRQ7fI3+nRpz0kxmue4a7EDkEDrqWd1QXnc2H9pfzl5mNdiDTueLnlI+YuUChd0kb4YZ5mZCbXRD4AGfyoFl3FAQfJjZh4uEMzkXzPqVlowM/BynwAFruy/zuEqyLqSx1IJ6VhFVxR2dAx6N6T/nrYNNR2YcbhhtC5w7j4/mB1YGzTDgDHtrJpJmo2ORXEAvtF/jKT3mQSq4nzR6YkQdhYpszFkGSkM29MzbGJyHgW/fLZOF8kf2ixTUzyMQeuYauxU9kwCkxJIjyhkgvYsSVNPqqC72PQab6DQ0bcirVMMPO5TrWIzAirn3q5HI3BW8g4Nb2oPDz6r73ZqKgr9w045k0RMr+NEYi0M+1BgPzPBoaYMagRDoCmWVcEMXc8ZER5LrtMzfGuzSQzBN/EnHpn44FhhtrUvFwE7SOZ3AXheI459H7dRjLP9F1lP0tYMedDFTzR2OYmTDyULwfsqx3S
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kIDOaXYce7Ih4zsteUpSgUVigA20ufhzMRCxqXSZbBTQiJacyaQ+jTA6Ehx5?=
- =?us-ascii?Q?s/pY8BtDgHSw8SmuSppHhzx6Qm7JRsih9b4PcywbqObcMvgKJoGf29lfX85b?=
- =?us-ascii?Q?SDJm4x7K6U4Z+FMp0pPJS136CRCMpcu1vNutwWQ9GdEx1cJgvU0ryKADMrge?=
- =?us-ascii?Q?06Ty/2I09u7YqATTpgpAoC4+eYljb9bdgPo9zOR42fdTuIsFvMXJZXYYL1jK?=
- =?us-ascii?Q?f/gqRxF61pkG2MRUuKyC92ym2UZySkXOlviAnUoz4x/zNyhJZpqkhSQSbTWW?=
- =?us-ascii?Q?/X5xQuOf9wkHntKw8iMQIu56RuctHM2TdVU2bmOg7ucyx0ovrULl1B2SCFaX?=
- =?us-ascii?Q?yWXV/lWgWJbRZTy7O8JVEt8VZfBbcIYIWJ2OcZN4pFMK5LAqLWrKKFG/5RGp?=
- =?us-ascii?Q?5yRjFSy0LI+lSkM75Ea7ud2CSPeWgEZI1lWQip+u+j/kjSLSyeuCIn39h9bU?=
- =?us-ascii?Q?5sQz37Yc7571Sr+473p/j9/VgJ3aiiH8Jk1jHcN3ro/n5xFZ70Yd0JV5NU/s?=
- =?us-ascii?Q?NYOOEXpYkSMOibAP9BTf2m0cxS6/Oe5Xm685sr5o5fjLJJg3EyEs7jCpgs6n?=
- =?us-ascii?Q?aolR8mXQqY5F6ga1iEqbQ42Rn5ftVvkm165A320zqpCnytWboYZxW6Gmmdc1?=
- =?us-ascii?Q?xlK7FhJTsmuyIsDQJBbXZTS0J7OzBGGguIwZccBG51njniSm+2gQrAmUBfK2?=
- =?us-ascii?Q?WDlSdCdIiRxILCddqME/PeIak16xZhEhtymlCizsXVblSGMVAksj4dLcuIrw?=
- =?us-ascii?Q?reXwqzdyx+JpCtHrlqEDkHSci9lw81MBq7Tb1lmp2qkvJ2dDWy9jDpq0eMKk?=
- =?us-ascii?Q?PYRgErKuQxhMDXQQTZFVOv8lUrx/OCtCV37wtNsIDalP50jDAMkLmKd8TjoX?=
- =?us-ascii?Q?pT6dLzDuO8FhCsyalO9esZmJC72fDluKB4il9ZjCtGij+jmOtVw4v7BDTYTf?=
- =?us-ascii?Q?nRro+Qe2B2RtPDaUQqG7sHaF17TxudDX3vDB63x8UL05SS3bcJLJjGGuVo6l?=
- =?us-ascii?Q?hgGk1I9iRHDx+f1OY3xm7pXA19Jjyci1mq619is+daHhCEyjZWv+YdRKX0O9?=
- =?us-ascii?Q?8ji75gheD47u9iHV7Hs/1/U49RnX5nl7xoN3P1VL6ZB5EYktXgPMO/tWRKl1?=
- =?us-ascii?Q?3mt3bEYSljPwWf02R3JxidfQhyq7LuDUpoJSkeyPaKk+6GTBaL3tR7WPw2M/?=
- =?us-ascii?Q?sSxkxh/Kt5pIatLJO8XtoaE6VCggOq/Fm2f95ljZqlp7LMYqIH19cStvSR4e?=
- =?us-ascii?Q?H6dKTg9RC6r87bfFGFbF?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e115acf-6c05-4146-371d-08dc6b177e08
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 May 2024 02:19:42.8527
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR20MB7419
+X-B4-Tracking: v=1; b=H4sIACtsNGYC/5XNTWrDMBCG4asEraui0Z/trHKPUIwzGtWC1jKSK
+ 1qC714lKxOycJafNDzvlWVKgTI7Hq4sUQk5xKkO83ZgOA7TJ/Hg6mZSSC00AHdUeP1JX4F4/pn
+ nmJZ+GWlwfSFcYupt33EwHXiUg1bgWKXmRD783jPnj7rHkOvp371a4Pb6YqAAF1wPvmvBEDban
+ lIoMYcJ3zF+s1ujyK1rdrqyutg426IVStr2ias2rhQ7XVVd26D3WjbgwD1x9da1O11dXYPeqIu
+ 5oO7kg7uu6z/VCjJv4wEAAA==
+To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Guo Ren <guoren@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, 
+ =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Charlie Jenkins <charlie@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Heiko Stuebner <heiko@sntech.de>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1714711601; l=8482;
+ i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
+ bh=uEn9azPxu+2cSfOrb9DxE2DrRYwS4KDxoM1P55N7x4c=;
+ b=64UMR0ok26Dl6Hba4b1PfwRIQYqpsi4KghXHUEOELcOCoP1OpIoib/fZcZ/XDqsDnneIpcw8t
+ 0bd99pHodWzCLL3rPJq4HwS1PCxKUIdq0r7AAnxrHgKQwX/FEp9oLRL
+X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
+ pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_191945_837505_8FE6B3C3 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20240502_214646_898570_8CB469CF 
+X-CRM114-Status: GOOD (  29.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,592 +114,163 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SG2042 use an external MCU to provide basic hardware information
-and thermal sensors.
+This patch series ended up much larger than expected, please bear with
+me! The goal here is to support vendor extensions, starting at probing
+the device tree and ending with reporting to userspace.
 
-Add driver support for the onboard MCU of SG2042.
+The main design objective was to allow vendors to operate independently
+of each other. This has been achieved by delegating vendor extensions to
+a their own files and then accumulating the extensions in
+arch/riscv/kernel/vendor_extensions.c.
 
-Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+Each vendor will have their own list of extensions they support.
+
+There is a new hwprobe key RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 that is
+used to request which thead vendor extensions are supported on the
+current platform. This allows future vendors to allocate hwprobe keys
+for their vendor.
+
+On to the xtheadvector specific code. xtheadvector is a custom extension
+that is based upon riscv vector version 0.7.1 [1]. All of the vector
+routines have been modified to support this alternative vector version
+based upon whether xtheadvector was determined to be supported at boot.
+I have tested this with an Allwinner Nezha board. I ran into issues
+booting the board on 6.9-rc1 so I applied these patches to 6.8. There
+are a couple of minor merge conflicts that do arrise when doing that, so
+please let me know if you have been able to boot this board with a 6.9
+kernel. I used SkiffOS [2] to manage building the image, but upgraded
+the U-Boot version to Samuel Holland's more up-to-date version [3] and
+changed out the device tree used by U-Boot with the device trees that
+are present in upstream linux and this series. Thank you Samuel for all
+of the work you did to make this task possible.
+
+To test the integration, I used the riscv vector kselftests. I modified
+the test cases to be able to more easily extend them, and then added a
+xtheadvector target that works by calling hwprobe and swapping out the
+vector asm if needed.
+
+[1] https://github.com/T-head-Semi/thead-extension-spec/blob/95358cb2cca9489361c61d335e03d3134b14133f/xtheadvector.adoc
+[2] https://github.com/skiffos/SkiffOS/tree/master/configs/allwinner/nezha
+[3] https://github.com/smaeul/u-boot/commit/2e89b706f5c956a70c989cd31665f1429e9a0b48
+
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- drivers/hwmon/Kconfig            |  11 +
- drivers/hwmon/Makefile           |   1 +
- drivers/hwmon/sg2042-hwmon-mcu.c | 531 +++++++++++++++++++++++++++++++
- 3 files changed, 543 insertions(+)
- create mode 100644 drivers/hwmon/sg2042-hwmon-mcu.c
+Changes in v5:
+- Make all vendors have the same size bitmap
+- Extract vendor hwprobe code into helper macro
+- Fix bug related to the handling of vendor extensions in the parsing of
+  the isa string (Conor)
+- Fix bug with the vendor bitmap being incorrectly populated (Evan)
+- Add vendor extensions to /proc/cpuinfo
+- Link to v4: https://lore.kernel.org/r/20240426-dev-charlie-support_thead_vector_6_9-v4-0-5cf53b5bc492@rivosinc.com
 
-diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
-index 83945397b6eb..3efaae91cacb 100644
---- a/drivers/hwmon/Kconfig
-+++ b/drivers/hwmon/Kconfig
-@@ -2056,6 +2056,17 @@ config SENSORS_SFCTEMP
- 	  This driver can also be built as a module.  If so, the module
- 	  will be called sfctemp.
+Changes in v4:
+- Disable vector immediately if vlenb from the device tree is not
+  homogeneous
+- Hide vendor extension code behind a hidden config that vendor
+  extensions select to eliminate the code when kernel is compiled
+  without vendor extensions
+- Clear up naming conventions and introduce some defines to make the
+  vendor extension code clearer
+- Link to v3: https://lore.kernel.org/r/20240420-dev-charlie-support_thead_vector_6_9-v3-0-67cff4271d1d@rivosinc.com
 
-+config SENSORS_SG2042_HWMON_MCU
-+	tristate "SG2042 onboard MCU support"
-+	depends on I2C
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	help
-+	  Support for SG2042 onboard MCU. This mcu provides power
-+	  control and some basic information for SG2042 chip.
-+
-+	  This driver can be built as a module. If so, the module
-+	  will be called sg2042-hwmon-mcu.
-+
- config SENSORS_SURFACE_FAN
- 	tristate "Surface Fan Driver"
- 	depends on SURFACE_AGGREGATOR
-diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
-index 5c31808f6378..7497b653a2c2 100644
---- a/drivers/hwmon/Makefile
-+++ b/drivers/hwmon/Makefile
-@@ -194,6 +194,7 @@ obj-$(CONFIG_SENSORS_SCH56XX_COMMON)+= sch56xx-common.o
- obj-$(CONFIG_SENSORS_SCH5627)	+= sch5627.o
- obj-$(CONFIG_SENSORS_SCH5636)	+= sch5636.o
- obj-$(CONFIG_SENSORS_SFCTEMP)	+= sfctemp.o
-+obj-$(CONFIG_SENSORS_SG2042_HWMON_MCU) += sg2042-hwmon-mcu.o
- obj-$(CONFIG_SENSORS_SL28CPLD)	+= sl28cpld-hwmon.o
- obj-$(CONFIG_SENSORS_SHT15)	+= sht15.o
- obj-$(CONFIG_SENSORS_SHT21)	+= sht21.o
-diff --git a/drivers/hwmon/sg2042-hwmon-mcu.c b/drivers/hwmon/sg2042-hwmon-mcu.c
-new file mode 100644
-index 000000000000..91c4266333ed
---- /dev/null
-+++ b/drivers/hwmon/sg2042-hwmon-mcu.c
-@@ -0,0 +1,531 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2024 Inochi Amaoto <inochiama@outlook.com>
-+ *
-+ * Sophgo power control mcu for SG2042
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/i2c.h>
-+#include <linux/err.h>
-+#include <linux/hwmon.h>
-+#include <linux/time.h>
-+
-+/* fixed MCU registers */
-+#define REG_BOARD_TYPE				0x00
-+#define REG_MCU_FIRMWARE_VERSION		0x01
-+#define REG_PCB_VERSION				0x02
-+#define REG_PWR_CTRL				0x03
-+#define REG_SOC_TEMP				0x04
-+#define REG_BOARD_TEMP				0x05
-+#define REG_RST_COUNT				0x0a
-+#define REG_UPTIME				0x0b
-+#define REG_RESET_REASON			0x0d
-+#define REG_MCU_TYPE				0x18
-+#define REG_CRITICAL_ACTIONS			0x65
-+#define REG_CRITICAL_TEMP			0x66
-+#define REG_REPOWER_TEMP			0x67
-+
-+#define CRITICAL_ACTION_REBOOT			0x1
-+#define CRITICAL_ACTION_POWEROFF		0x2
-+
-+#define DEFAULT_REPOWER_TEMP			60
-+#define MAX_REPOWER_TEMP			100
-+
-+#define sg2042_mcu_read_byte(client, reg)			\
-+	i2c_smbus_read_byte_data(client, reg)
-+#define sg2042_mcu_write_byte(client, reg, value)		\
-+	i2c_smbus_write_byte_data(client, reg, value)
-+#define sg2042_mcu_read_block(client, reg, array)		\
-+	i2c_smbus_read_i2c_block_data(client, reg, sizeof(array), array)
-+
-+#define DEFINE_MCU_ATTR_READ_FUNC(_name, _type, _format)		\
-+	static ssize_t _name##_show(struct device *dev,			\
-+				    struct device_attribute *attr,	\
-+				    char *buf)				\
-+	{								\
-+		struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);	\
-+		_type ret;						\
-+		ret = sg2042_mcu_get_##_name(mcu->client);		\
-+		if (ret < 0)						\
-+			return ret;					\
-+		return sprintf(buf, _format "\n", ret);			\
-+	}
-+
-+struct sg2042_mcu_board_data {
-+	u8		id;
-+	const char	*name;
-+};
-+
-+struct sg2042_mcu_data {
-+	struct i2c_client			*client;
-+	const struct sg2042_mcu_board_data	*board_info;
-+};
-+
-+static const struct sg2042_mcu_board_data sg2042_boards_data[] = {
-+	{
-+		.id = 0x80,
-+		.name = "SG2042 evb x8",
-+	},
-+	{
-+		.id = 0x81,
-+		.name = "SG2042R evb",
-+	},
-+	{
-+		.id = 0x83,
-+		.name = "SG2042 evb x4",
-+	},
-+	{
-+		.id = 0x90,
-+		.name = "Milk-V Pioneer",
-+	},
-+};
-+
-+static const char *sg2042_mcu_reset_reason[8] = {
-+	"Power supply overheat",
-+	"Power supply failure",
-+	"12V power supply failure",
-+	"Reset commant",
-+	"Unknown",
-+	"Unknown",
-+	"Unknown",
-+	"SoC overheat",
-+};
-+
-+static int sg2042_mcu_get_board_type(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_BOARD_TYPE);
-+}
-+
-+static int sg2042_mcu_get_firmware_version(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_MCU_FIRMWARE_VERSION);
-+}
-+
-+static int sg2042_mcu_get_pcb_version(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_PCB_VERSION);
-+}
-+
-+static int sg2042_mcu_get_soc_temp(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_SOC_TEMP);
-+}
-+
-+static int sg2042_mcu_get_board_temp(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_BOARD_TEMP);
-+}
-+
-+static int sg2042_mcu_get_reset_count(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_RST_COUNT);
-+}
-+
-+static s32 sg2042_mcu_get_uptime(struct i2c_client *client)
-+{
-+	int ret;
-+	u8 time_val[2];
-+
-+	ret = sg2042_mcu_read_block(client, REG_UPTIME, time_val);
-+	if (ret < 0)
-+		return ret;
-+
-+	return (s32)(time_val[0]) + ((s32)(time_val[1]) << 8);
-+}
-+
-+static int sg2042_mcu_get_reset_reason(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_RESET_REASON);
-+}
-+
-+static int sg2042_mcu_get_mcu_type(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_MCU_TYPE);
-+}
-+
-+static int sg2042_mcu_get_critical_action(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_CRITICAL_ACTIONS);
-+}
-+
-+static int sg2042_mcu_get_critical_temp(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_CRITICAL_TEMP);
-+}
-+
-+static int sg2042_mcu_get_repower_temp(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_REPOWER_TEMP);
-+}
-+
-+static int sg2042_mcu_set_critical_action(struct i2c_client *client,
-+					  u8 value)
-+{
-+	return sg2042_mcu_write_byte(client, REG_CRITICAL_ACTIONS, value);
-+}
-+
-+static int sg2042_mcu_set_critical_temp(struct i2c_client *client,
-+					u8 value)
-+{
-+	return sg2042_mcu_write_byte(client, REG_CRITICAL_TEMP, value);
-+}
-+
-+static int sg2042_mcu_set_repower_temp(struct i2c_client *client,
-+				       u8 value)
-+{
-+	return sg2042_mcu_write_byte(client, REG_REPOWER_TEMP, value);
-+}
-+
-+static ssize_t board_type_show(struct device *dev,
-+			       struct device_attribute *attr,
-+			       char *buf)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+
-+	return sprintf(buf, "%s\n", mcu->board_info->name ?: "Unknown");
-+}
-+
-+DEFINE_MCU_ATTR_READ_FUNC(firmware_version, int, "0x%02x");
-+DEFINE_MCU_ATTR_READ_FUNC(pcb_version, int, "0x%02x");
-+DEFINE_MCU_ATTR_READ_FUNC(reset_count, int, "%d");
-+DEFINE_MCU_ATTR_READ_FUNC(uptime, s32, "%d");
-+
-+static ssize_t reset_reason_show(struct device *dev,
-+				 struct device_attribute *attr,
-+				 char *buf)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	int ret, val, i;
-+
-+	val = sg2042_mcu_get_reset_reason(mcu->client);
-+	if (val < 0)
-+		return val;
-+
-+	ret = sprintf(buf, "Reason: 0x%02x\n", val);
-+
-+	for (i = 0; i < ARRAY_SIZE(sg2042_mcu_reset_reason); i++) {
-+		if (val & BIT(i))
-+			ret += sprintf(buf + ret, "bit %d: %s\n", i,
-+						  sg2042_mcu_reset_reason[i]);
-+	}
-+
-+	return ret;
-+}
-+
-+static ssize_t mcu_type_show(struct device *dev,
-+			     struct device_attribute *attr,
-+			     char *buf)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = sg2042_mcu_get_mcu_type(mcu->client);
-+	if (ret < 0)
-+		return ret;
-+
-+	return sprintf(buf, ret ? "GD32\n" : "STM32\n");
-+}
-+
-+static ssize_t critical_action_show(struct device *dev,
-+				    struct device_attribute *attr,
-+				    char *buf)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	int ret;
-+	const char *action;
-+
-+	ret = sg2042_mcu_get_critical_action(mcu->client);
-+	if (ret < 0)
-+		return ret;
-+
-+	if (ret == CRITICAL_ACTION_REBOOT)
-+		action = "reboot";
-+	else if (ret == CRITICAL_ACTION_POWEROFF)
-+		action = "poweroff";
-+	else
-+		action = "unknown";
-+
-+	return sprintf(buf, "%s\n", action);
-+}
-+
-+static ssize_t critical_action_store(struct device *dev,
-+				     struct device_attribute *attr,
-+				     const char *buf, size_t count)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	int value;
-+
-+	if (sysfs_streq("reboot", buf))
-+		value = CRITICAL_ACTION_REBOOT;
-+	else if (sysfs_streq("poweroff", buf))
-+		value = CRITICAL_ACTION_POWEROFF;
-+	else
-+		return -EINVAL;
-+
-+	return sg2042_mcu_set_critical_action(mcu->client, value);
-+}
-+
-+DEFINE_MCU_ATTR_READ_FUNC(repower_temp, u32, "%u");
-+
-+static ssize_t repower_temp_store(struct device *dev,
-+				  struct device_attribute *attr,
-+				  const char *buf, size_t count)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	u8 val;
-+	int ret;
-+
-+	ret = kstrtou8(buf, 10, &val);
-+	if (ret < 0)
-+		return ret;
-+
-+	if (val == 0 || val > MAX_REPOWER_TEMP)
-+		return -EINVAL;
-+
-+	return sg2042_mcu_set_repower_temp(mcu->client, val);
-+}
-+
-+static DEVICE_ATTR_RO(board_type);
-+static DEVICE_ATTR_RO(firmware_version);
-+static DEVICE_ATTR_RO(pcb_version);
-+static DEVICE_ATTR_RO(reset_count);
-+static DEVICE_ATTR_RO(uptime);
-+static DEVICE_ATTR_RO(reset_reason);
-+static DEVICE_ATTR_RO(mcu_type);
-+static DEVICE_ATTR_RW(critical_action);
-+static DEVICE_ATTR_RW(repower_temp);
-+
-+static struct attribute *sg2042_mcu_attrs[] = {
-+	&dev_attr_board_type.attr,
-+	&dev_attr_firmware_version.attr,
-+	&dev_attr_pcb_version.attr,
-+	&dev_attr_reset_count.attr,
-+	&dev_attr_uptime.attr,
-+	&dev_attr_reset_reason.attr,
-+	&dev_attr_mcu_type.attr,
-+	&dev_attr_critical_action.attr,
-+	&dev_attr_repower_temp.attr,
-+	NULL
-+};
-+
-+static const struct attribute_group sg2042_mcu_attr_group = {
-+	.attrs	= sg2042_mcu_attrs,
-+};
-+
-+static const struct hwmon_channel_info * const sg2042_mcu_info[] = {
-+	HWMON_CHANNEL_INFO(chip, HWMON_C_REGISTER_TZ | HWMON_C_UPDATE_INTERVAL),
-+	HWMON_CHANNEL_INFO(temp, HWMON_T_INPUT | HWMON_T_CRIT,
-+				 HWMON_T_INPUT),
-+	NULL
-+};
-+
-+static int sg2042_mcu_read_temp(struct device *dev,
-+				u32 attr, int channel,
-+				long *val)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	long tmp;
-+
-+	switch (attr) {
-+	case hwmon_temp_input:
-+		switch (channel) {
-+		case 0:
-+			tmp = sg2042_mcu_get_soc_temp(mcu->client);
-+			if (tmp < 0)
-+				return tmp;
-+			*val = tmp * 1000;
-+			break;
-+		case 1:
-+			tmp = sg2042_mcu_get_board_temp(mcu->client);
-+			if (tmp < 0)
-+				return tmp;
-+			*val = tmp * 1000;
-+			break;
-+		default:
-+			return -EOPNOTSUPP;
-+		}
-+		break;
-+	case hwmon_temp_crit:
-+		if (channel)
-+			return -EOPNOTSUPP;
-+
-+		tmp = sg2042_mcu_get_critical_temp(mcu->client);
-+		if (tmp < 0)
-+			return tmp;
-+		*val = tmp * 1000;
-+		break;
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+	return 0;
-+}
-+
-+static int sg2042_mcu_read(struct device *dev,
-+			   enum hwmon_sensor_types type,
-+			   u32 attr, int channel, long *val)
-+{
-+	switch (type) {
-+	case hwmon_chip:
-+		if (attr != hwmon_chip_update_interval)
-+			return -EOPNOTSUPP;
-+		*val = 1000;
-+		break;
-+	case hwmon_temp:
-+		return sg2042_mcu_read_temp(dev, attr, channel, val);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+	return 0;
-+}
-+
-+static int sg2042_mcu_write(struct device *dev,
-+			    enum hwmon_sensor_types type,
-+			    u32 attr, int channel, long val)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	u8 down_temp, repower_temp;
-+	int ret;
-+
-+	if (type != hwmon_temp || attr != hwmon_temp_crit || !channel)
-+		return -EOPNOTSUPP;
-+
-+	ret = sg2042_mcu_get_repower_temp(mcu->client);
-+	if (ret < 0)
-+		repower_temp = DEFAULT_REPOWER_TEMP;
-+	else
-+		repower_temp = ret;
-+
-+	down_temp = val / 1000;
-+	if (down_temp < repower_temp)
-+		return -EINVAL;
-+
-+	return sg2042_mcu_set_critical_temp(mcu->client, (u8)(val / 1000));
-+}
-+
-+static umode_t sg2042_mcu_is_visible(const void *_data,
-+				     enum hwmon_sensor_types type,
-+				     u32 attr, int channel)
-+{
-+	switch (type) {
-+	case hwmon_chip:
-+		if (attr == hwmon_chip_update_interval)
-+			return 0444;
-+		break;
-+	case hwmon_temp:
-+		switch (attr) {
-+		case hwmon_temp_input:
-+			if (channel < 2)
-+				return 0444;
-+			break;
-+		case hwmon_temp_crit:
-+			if (channel == 0)
-+				return 0664;
-+			break;
-+		default:
-+			return 0;
-+		}
-+		break;
-+	default:
-+		return 0;
-+	}
-+	return 0;
-+}
-+
-+static const struct hwmon_ops sg2042_mcu_ops = {
-+	.is_visible = sg2042_mcu_is_visible,
-+	.read = sg2042_mcu_read,
-+	.write = sg2042_mcu_write,
-+};
-+
-+static const struct hwmon_chip_info sg2042_mcu_chip_info = {
-+	.ops = &sg2042_mcu_ops,
-+	.info = sg2042_mcu_info,
-+};
-+
-+static int sg2042_mcu_check_board(u8 id)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(sg2042_boards_data); i++) {
-+		if (sg2042_boards_data[i].id == id)
-+			return i;
-+	}
-+
-+	return -ENODEV;
-+}
-+
-+static int sg2042_mcu_i2c_probe(struct i2c_client *client)
-+{
-+	int ret;
-+	struct device *dev = &client->dev;
-+	struct sg2042_mcu_data *mcu;
-+	struct device *hwmon_dev;
-+
-+	if (!i2c_check_functionality(client->adapter, I2C_FUNC_SMBUS_BYTE_DATA |
-+						I2C_FUNC_SMBUS_BLOCK_DATA))
-+		return -EIO;
-+
-+	ret = sg2042_mcu_get_board_type(client);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = sg2042_mcu_check_board(ret);
-+	if (ret < 0)
-+		return ret;
-+
-+	mcu = devm_kmalloc(dev, sizeof(*mcu), GFP_KERNEL);
-+	if (!mcu)
-+		return -ENOMEM;
-+
-+	mcu->client = client;
-+	mcu->board_info = &sg2042_boards_data[ret];
-+
-+	ret = sysfs_create_group(&dev->kobj, &sg2042_mcu_attr_group);
-+	if (ret < 0)
-+		return ret;
-+
-+	i2c_set_clientdata(client, mcu);
-+
-+	hwmon_dev = devm_hwmon_device_register_with_info(dev, client->name,
-+							 mcu,
-+							 &sg2042_mcu_chip_info,
-+							 NULL);
-+
-+	return PTR_ERR_OR_ZERO(hwmon_dev);
-+}
-+
-+static void sg2042_mcu_i2c_remove(struct i2c_client *client)
-+{
-+	struct device *dev = &client->dev;
-+
-+	sysfs_remove_group(&dev->kobj, &sg2042_mcu_attr_group);
-+}
-+
-+static const struct i2c_device_id sg2042_mcu_id[] = {
-+	{ "sg2042-hwmon-mcu", 0 },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(i2c, sg2042_mcu_id);
-+
-+static const struct of_device_id sg2042_mcu_of_id[] = {
-+	{ .compatible = "sophgo,sg2042-hwmon-mcu" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, sg2042_mcu_of_id);
-+
-+static struct i2c_driver sg2042_mcu_driver = {
-+	.driver = {
-+		.name = "sg2042-mcu",
-+		.of_match_table = sg2042_mcu_of_id,
-+	},
-+	.probe = sg2042_mcu_i2c_probe,
-+	.remove = sg2042_mcu_i2c_remove,
-+	.id_table = sg2042_mcu_id,
-+};
-+
-+module_i2c_driver(sg2042_mcu_driver);
-+
-+MODULE_DESCRIPTION("MCU I2C driver for SG2042 soc platform");
-+MODULE_LICENSE("GPL");
---
-2.45.0
+Changes in v3:
+- Allow any hardware to support any vendor extension, rather than
+  restricting the vendor extensions to the same vendor as the hardware
+- Introduce config options to enable/disable a vendor's extensions
+- Link to v2: https://lore.kernel.org/r/20240415-dev-charlie-support_thead_vector_6_9-v2-0-c7d68c603268@rivosinc.com
+
+Changes in v2:
+- Added commit hash to xtheadvector
+- Simplified riscv,isa vector removal fix to not mess with the DT
+  riscv,vendorid
+- Moved riscv,vendorid parsing into a different patch and cache the
+  value to be used by alternative patching
+- Reduce riscv,vendorid missing severity to "info"
+- Separate vendor extension list to vendor files
+- xtheadvector no longer puts v in the elf_hwcap
+- Only patch vendor extension if all harts are associated with the same
+  vendor. This is the best chance the kernel has for working properly if
+  there are multiple vendors.
+- Split hwprobe vendor keys out into vendor file
+- Add attribution for Heiko's patches
+- Link to v1: https://lore.kernel.org/r/20240411-dev-charlie-support_thead_vector_6_9-v1-0-4af9815ec746@rivosinc.com
+
+---
+Charlie Jenkins (15):
+      dt-bindings: riscv: Add xtheadvector ISA extension description
+      riscv: vector: Use vlenb from DT
+      riscv: dts: allwinner: Add xtheadvector to the D1/D1s devicetree
+      riscv: Extend cpufeature.c to detect vendor extensions
+      riscv: Add vendor extensions to /proc/cpuinfo
+      riscv: Introduce vendor variants of extension helpers
+      riscv: cpufeature: Extract common elements from extension checking
+      riscv: Convert xandespmu to use the vendor extension framework
+      riscv: csr: Add CSR encodings for VCSR_VXRM/VCSR_VXSAT
+      riscv: Add xtheadvector instruction definitions
+      riscv: vector: Support xtheadvector save/restore
+      riscv: hwprobe: Add thead vendor extension probing
+      riscv: hwprobe: Document thead vendor extensions and xtheadvector extension
+      selftests: riscv: Fix vector tests
+      selftests: riscv: Support xtheadvector in vector tests
+
+Conor Dooley (1):
+      dt-bindings: riscv: cpus: add a vlen register length property
+
+Heiko Stuebner (1):
+      RISC-V: define the elements of the VCSR vector CSR
+
+ Documentation/arch/riscv/hwprobe.rst               |  10 +
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |   6 +
+ .../devicetree/bindings/riscv/extensions.yaml      |  10 +
+ arch/riscv/Kconfig                                 |   2 +
+ arch/riscv/Kconfig.vendor                          |  44 +++
+ arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi      |   3 +-
+ arch/riscv/errata/andes/errata.c                   |   2 +
+ arch/riscv/errata/sifive/errata.c                  |   3 +
+ arch/riscv/errata/thead/errata.c                   |   3 +
+ arch/riscv/include/asm/cpufeature.h                |  98 ++++---
+ arch/riscv/include/asm/csr.h                       |  13 +
+ arch/riscv/include/asm/hwcap.h                     |   1 -
+ arch/riscv/include/asm/hwprobe.h                   |   4 +-
+ arch/riscv/include/asm/switch_to.h                 |   2 +-
+ arch/riscv/include/asm/vector.h                    | 247 +++++++++++++----
+ arch/riscv/include/asm/vendor_extensions.h         | 103 +++++++
+ arch/riscv/include/asm/vendor_extensions/andes.h   |  19 ++
+ arch/riscv/include/asm/vendor_extensions/thead.h   |  42 +++
+ .../include/asm/vendor_extensions/thead_hwprobe.h  |  18 ++
+ .../include/asm/vendor_extensions/vendor_hwprobe.h |  34 +++
+ arch/riscv/include/uapi/asm/hwprobe.h              |   3 +-
+ arch/riscv/include/uapi/asm/vendor/thead.h         |   3 +
+ arch/riscv/kernel/Makefile                         |   2 +
+ arch/riscv/kernel/cpu.c                            |  35 ++-
+ arch/riscv/kernel/cpufeature.c                     | 171 +++++++++---
+ arch/riscv/kernel/kernel_mode_vector.c             |   8 +-
+ arch/riscv/kernel/process.c                        |   4 +-
+ arch/riscv/kernel/signal.c                         |   6 +-
+ arch/riscv/kernel/sys_hwprobe.c                    |   5 +
+ arch/riscv/kernel/vector.c                         |  25 +-
+ arch/riscv/kernel/vendor_extensions.c              |  66 +++++
+ arch/riscv/kernel/vendor_extensions/Makefile       |   5 +
+ arch/riscv/kernel/vendor_extensions/andes.c        |  18 ++
+ arch/riscv/kernel/vendor_extensions/thead.c        |  18 ++
+ .../riscv/kernel/vendor_extensions/thead_hwprobe.c |  19 ++
+ drivers/perf/riscv_pmu_sbi.c                       |   9 +-
+ tools/testing/selftests/riscv/vector/.gitignore    |   3 +-
+ tools/testing/selftests/riscv/vector/Makefile      |  17 +-
+ .../selftests/riscv/vector/v_exec_initval_nolibc.c |  93 +++++++
+ tools/testing/selftests/riscv/vector/v_helpers.c   |  67 +++++
+ tools/testing/selftests/riscv/vector/v_helpers.h   |   7 +
+ tools/testing/selftests/riscv/vector/v_initval.c   |  22 ++
+ .../selftests/riscv/vector/v_initval_nolibc.c      |  68 -----
+ .../selftests/riscv/vector/vstate_exec_nolibc.c    |  20 +-
+ .../testing/selftests/riscv/vector/vstate_prctl.c  | 295 ++++++++++++---------
+ 45 files changed, 1312 insertions(+), 341 deletions(-)
+---
+base-commit: 4cece764965020c22cff7665b18a012006359095
+change-id: 20240411-dev-charlie-support_thead_vector_6_9-1591fc2a431d
+-- 
+- Charlie
 
 
 _______________________________________________
