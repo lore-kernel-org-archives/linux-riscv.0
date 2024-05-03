@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9488C25B5C
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 16:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31BCC4345F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 16:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H8LazuKeHLxY1JAbIIZNDZNf8C4kKD8+x60XipBc3ew=; b=gdulKiRhWMYyLJ
-	mM5L+CuPgILuFr4JsAg6y4wSQ9g8RN2F/TsjsqlkWptZi02AL4CW/eiW7NPckq9VEmv8o1RprZU2W
-	6KsSFgCIeLbCBd4DYlBKhJxCrvIA7a6mEkYbFRFXbgfN2xs6IWKEZ/61zVSyt2kj2uYOZqWXN7euW
-	Ftg1G7GcLQWJm1f3OZK7U6ZMzi0erJrAM4eda+7sljp9+h8VZvaFemv8bNck18Yz5AUQT/Co2Ivkk
-	Zuen9u18LxNDAjTb36NmNp8UkqG4vb/OOMYzrrQJKkFaVGi3M4khcYUCaThgwK2HFjaOd6raPKePw
-	D4rwJYDcZBQS4tcOkcdw==;
+	List-Owner; bh=cMgS+OzxmU+snGA8jWTwS98Scd6rz8zDbJSlYNvXIb4=; b=wXTb1NRjH649QY
+	Vh6Fe9ueo2xFlgJNT0nguwtEODiMrcuwUnx0swqS0QhAFWijA85siQp3pGsil/8MX43F2r05wVI/k
+	s1c8iF3Y9zuSmxpM+Y54KCIcBgYx3TV9uFPVK9gemLf8jqCp1Z3tEp/292W9IKudSskdFypYO1tBX
+	JqWkst2Nsxgu8xCOLOAp+3Yk+Qr6fLtv4HlUoBXU44eyWELdBcRfzh510lqJ9j5YWXe/I7dYxFq0m
+	Zt/dJsGE3ovcOeX3kI7HueoBx+z7BzGrBAQDsIRxH6WTxgU4gacq4YrlaWNYbyhf8Do813ckJtelk
+	FkkKUeVgBs+PYfyUIypg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2vX3-0000000HAdd-32UC;
-	Fri, 03 May 2024 16:13:09 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1s2vX6-0000000HAg9-38ZK;
+	Fri, 03 May 2024 16:13:13 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2vWv-0000000HAXC-2jRs
+	id 1s2vWx-0000000HAYW-1y5v
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 May 2024 16:13:06 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1eab16c8d83so77014195ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 03 May 2024 09:13:01 -0700 (PDT)
+	Fri, 03 May 2024 16:13:08 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1e4266673bbso84622815ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 03 May 2024 09:13:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714752780; x=1715357580; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714752782; x=1715357582; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=68WH/mDXC+SKl8OGPN9Xpdruay3Jne7z83y1PH53Kx0=;
-        b=CdZH0LZblOK08sALUsprGbAGwmcQwZaWvFmMCODz979leykLKjJTvO5De5EvzMt2Xe
-         RekxeYQPtwc3HfcpGGaBlchtwDeTx+0mEIBeMKxG4s7v3YK/1tAUA29gyVqneNEXxxPH
-         0SsLdv7E/dCqhiwRfFA+lqdKRLAd2HIOjKXh81N71q/PZo+DbyY/LLd1HcBC67ASUJhu
-         OBstaWqX90VHVSEEBM1hakp+TQYW8K5EPUkjsQsb4UidmlqJTtFfttn7PUe7PxXHlxGp
-         khacF42Rgykp6njPHyPiaAqQIyJOWtZXNI24I3f3hg0m0edCNBz7hqHBodr5XupVke0w
-         zEMA==
+        bh=cuwuFTePzNtnUxWb1C24xUZui7WXIZw4/uw2u4kNeLk=;
+        b=l6YkpKaM9QKbMg2QI8bhZgAGgkbjX5b/k0aa8LX8UQj/0+vHqpXGl/zEF6Ml1hiOdg
+         uQTUfMEEo/P0F3HBFvUyMKkMUBegExD3i3Ak6Y4riH+J38Rxs2cQx7NSCJbKSNkhega4
+         8YFDhiJqQTx/wCu8xZmY4MW0l50K1v3Rul3gXcSHmzc3jE1Ws36C2eEQEBpSPh9P6tdW
+         +qcfCEOLMI/nXq057YxRHQuGRva65MGNrMOn6xwmAxtYqKFjBWRGrlGZP7V2iAoy67cS
+         enJeO3qzgOOsmq/4Bnn1eEkBcoJhc9zpxY586v4pUVk1BXQcjNflTp6S/RnqvOZevhrR
+         YTPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714752780; x=1715357580;
+        d=1e100.net; s=20230601; t=1714752782; x=1715357582;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=68WH/mDXC+SKl8OGPN9Xpdruay3Jne7z83y1PH53Kx0=;
-        b=uTEP8ahJU6nAL7ixWAO9T7gxU3djkP/TGLz6GcotsXJyGQ8UVuTTa0rsYrBngOtCaU
-         lY1cdBgdeRQ5WWhynuGakXrwzg0Cn1v1BwA3OuD4cSbwCacimLQYwG4KWwTRhDlYOkc6
-         8bbJFBNeeuErBSciEzK/RiXm1qnJFIcNtmspdCi/yF0cish2A4GBdesYgcHfT6PPu+Er
-         Ztd5UYhDIqrSsISykzrIYG450FaJPWKqTsy3net187GiEpBP/c/US8OakJobWZw1OSsB
-         iQHDicUrZylCHZLtzdSCioeyPjZWQiMN4YeRl4JBhgsCypPNrNKdVjjR7/qZMu7duXxo
-         D3aA==
-X-Forwarded-Encrypted: i=1; AJvYcCWS4Ur9BY+zZvCnA0OgJhlgozdPkROAnywWw6zRV8+QnCOEFfEXhUjLjrY3SXjlGpPIFGo8LcBuXwPQQsekH7xAo3ZDPUmEub1ND7GTYGug
-X-Gm-Message-State: AOJu0YyUkdfnV24Y4RrbQXYioLSIRGVowM2j5HtYEF/rBBIt4AVomJH6
-	DZkuDC7FhArmK7h31DWFfIHmDOiWUnuNlPtPT6J6hOXPd948p2zYSntXcVxeycM=
-X-Google-Smtp-Source: AGHT+IEGymTnwbSvbt9i/xVK7iCP9HrsYq8ifmSMG1QlxyNDu+73Kdx9hnEOmZ1fsWDD1Y8J3y72Bw==
-X-Received: by 2002:a17:903:1c9:b0:1e3:e081:e7f5 with SMTP id e9-20020a17090301c900b001e3e081e7f5mr2632736plh.66.1714752780234;
-        Fri, 03 May 2024 09:13:00 -0700 (PDT)
+        bh=cuwuFTePzNtnUxWb1C24xUZui7WXIZw4/uw2u4kNeLk=;
+        b=WY0eEr2QaUrtecS/XLSYCdUvQeAvWRmS0ZNJrbDTCLF7XvrM0cKAb9m0gJ6pFJm1Vh
+         MHdqr6UTCtqpIl3IgIegorMadVf0e1i5x24sUa27nW/YU7yGn5rUkPnjG76ocO+hgn2Z
+         gkPwM22dFX8wQzUd2CLVYYtJySiPvLbeA+C3GRMw8rqfvS/WFlNJSYEwLOOHFTkyhA0h
+         mrGvlP7ZkCJX6ERSSIwP0RlGrnSrqApVf5V/S2hIlGEt8jAyiZi4Fbu+6CrerUiWHBHZ
+         SOsTsjHUJg2PhztSAdkq89h0GOTQJbmHydER6re50qTgmGzhMWP24dhUf8+x0TGPLmi+
+         /Idg==
+X-Forwarded-Encrypted: i=1; AJvYcCXbryWkmAdvOCRHEMNEIn7nN4Blhtv3oNrbJnEw8I1NhdniKCnUUn8waGTgOVnuvZNvOcG8/hzXoRUofrCj0A+e6bK5NjciomiPhHww9TY/
+X-Gm-Message-State: AOJu0Yx77mfBkkOSABGS/jD4PvbrfCbh2IwqvJ3J3F9Ho8LdZY8t1pBf
+	kK0Sr8KIi8tR3MoooAppI/G3RM9jhERGx+0rvWOUDb0FzqWJFgp/2EimfaB8vrg=
+X-Google-Smtp-Source: AGHT+IGKgG2WAKyeGUBTx/PGiqlMAXPLwMvJNWiAuxtQdjfsRLUWMLaAhHf6VyVfQmCTdKtbceYGEg==
+X-Received: by 2002:a17:903:1c8:b0:1ec:711b:edc0 with SMTP id e8-20020a17090301c800b001ec711bedc0mr3618224plh.67.1714752782009;
+        Fri, 03 May 2024 09:13:02 -0700 (PDT)
 Received: from tjeznach.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id x3-20020a170902ec8300b001e2086fddecsm3424746plg.139.2024.05.03.09.12.58
+        by smtp.gmail.com with ESMTPSA id x3-20020a170902ec8300b001e2086fddecsm3424746plg.139.2024.05.03.09.13.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 May 2024 09:12:59 -0700 (PDT)
+        Fri, 03 May 2024 09:13:01 -0700 (PDT)
 From: Tomasz Jeznach <tjeznach@rivosinc.com>
 To: Joerg Roedel <joro@8bytes.org>,
 	Will Deacon <will@kernel.org>,
 	Robin Murphy <robin.murphy@arm.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH v4 6/7] iommu/riscv: Command and fault queue support
-Date: Fri,  3 May 2024 09:12:39 -0700
-Message-Id: <f63635cd72fd0d1b0026a6839dbfeaa2cd154eaa.1714752293.git.tjeznach@rivosinc.com>
+Subject: [PATCH v4 7/7] iommu/riscv: Paging domain support
+Date: Fri,  3 May 2024 09:12:40 -0700
+Message-Id: <1cda67ed73f0a1d5cb906b3692a90ab35416f2ba.1714752293.git.tjeznach@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1714752293.git.tjeznach@rivosinc.com>
 References: <cover.1714752293.git.tjeznach@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240503_091302_143957_6E6621D5 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20240503_091303_610069_850E6BF2 
+X-CRM114-Status: GOOD (  30.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,731 +89,374 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Tomasz Jeznach <tjeznach@rivosinc.com>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Lu Baolu <baolu.lu@linux.intel.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Tomasz Jeznach <tjeznach@rivosinc.com>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce device command submission and fault reporting queues,
-as described in Chapter 3.1 and 3.2 of the RISC-V IOMMU Architecture
-Specification.
-
-Command and fault queues are instantiated in contiguous system memory
-local to IOMMU device domain, or mapped from fixed I/O space provided
-by the hardware implementation. Detection of the location and maximum
-allowed size of the queue utilize WARL properties of queue base control
-register. Driver implementation will try to allocate up to 128KB of
-system memory, while respecting hardware supported maximum queue size.
-
-Interrupts allocation is based on interrupt vectors availability and
-distributed to all queues in simple round-robin fashion. For hardware
-Implementation with fixed event type to interrupt vector assignment
-IVEC WARL property is used to discover such mappings.
-
-Address translation, command and queue fault handling in this change
-is limited to simple fault reporting without taking any action.
-
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
----
- drivers/iommu/riscv/iommu-bits.h |  75 +++++
- drivers/iommu/riscv/iommu.c      | 496 ++++++++++++++++++++++++++++++-
- drivers/iommu/riscv/iommu.h      |  21 ++
- 3 files changed, 590 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
-index ba093c29de9f..40c379222821 100644
---- a/drivers/iommu/riscv/iommu-bits.h
-+++ b/drivers/iommu/riscv/iommu-bits.h
-@@ -704,4 +704,79 @@ struct riscv_iommu_msi_pte {
- #define RISCV_IOMMU_MSI_MRIF_NPPN	RISCV_IOMMU_PPN_FIELD
- #define RISCV_IOMMU_MSI_MRIF_NID_MSB	BIT_ULL(60)
- 
-+/* Helper functions: command structure builders. */
-+
-+static inline void riscv_iommu_cmd_inval_vma(struct riscv_iommu_command *cmd)
-+{
-+	cmd->dword0 = FIELD_PREP(RISCV_IOMMU_CMD_OPCODE, RISCV_IOMMU_CMD_IOTINVAL_OPCODE) |
-+		      FIELD_PREP(RISCV_IOMMU_CMD_FUNC, RISCV_IOMMU_CMD_IOTINVAL_FUNC_VMA);
-+	cmd->dword1 = 0;
-+}
-+
-+static inline void riscv_iommu_cmd_inval_set_addr(struct riscv_iommu_command *cmd,
-+						  u64 addr)
-+{
-+	cmd->dword1 = FIELD_PREP(RISCV_IOMMU_CMD_IOTINVAL_ADDR, phys_to_pfn(addr));
-+	cmd->dword0 |= RISCV_IOMMU_CMD_IOTINVAL_AV;
-+}
-+
-+static inline void riscv_iommu_cmd_inval_set_pscid(struct riscv_iommu_command *cmd,
-+						   int pscid)
-+{
-+	cmd->dword0 |= FIELD_PREP(RISCV_IOMMU_CMD_IOTINVAL_PSCID, pscid) |
-+		       RISCV_IOMMU_CMD_IOTINVAL_PSCV;
-+}
-+
-+static inline void riscv_iommu_cmd_inval_set_gscid(struct riscv_iommu_command *cmd,
-+						   int gscid)
-+{
-+	cmd->dword0 |= FIELD_PREP(RISCV_IOMMU_CMD_IOTINVAL_GSCID, gscid) |
-+		       RISCV_IOMMU_CMD_IOTINVAL_GV;
-+}
-+
-+static inline void riscv_iommu_cmd_iofence(struct riscv_iommu_command *cmd)
-+{
-+	cmd->dword0 = FIELD_PREP(RISCV_IOMMU_CMD_OPCODE, RISCV_IOMMU_CMD_IOFENCE_OPCODE) |
-+		      FIELD_PREP(RISCV_IOMMU_CMD_FUNC, RISCV_IOMMU_CMD_IOFENCE_FUNC_C) |
-+		      RISCV_IOMMU_CMD_IOFENCE_PR | RISCV_IOMMU_CMD_IOFENCE_PW;
-+	cmd->dword1 = 0;
-+}
-+
-+static inline void riscv_iommu_cmd_iofence_set_av(struct riscv_iommu_command *cmd,
-+						  u64 addr, u32 data)
-+{
-+	cmd->dword0 = FIELD_PREP(RISCV_IOMMU_CMD_OPCODE, RISCV_IOMMU_CMD_IOFENCE_OPCODE) |
-+		      FIELD_PREP(RISCV_IOMMU_CMD_FUNC, RISCV_IOMMU_CMD_IOFENCE_FUNC_C) |
-+		      FIELD_PREP(RISCV_IOMMU_CMD_IOFENCE_DATA, data) |
-+		      RISCV_IOMMU_CMD_IOFENCE_AV;
-+	cmd->dword1 = addr >> 2;
-+}
-+
-+static inline void riscv_iommu_cmd_iodir_inval_ddt(struct riscv_iommu_command *cmd)
-+{
-+	cmd->dword0 = FIELD_PREP(RISCV_IOMMU_CMD_OPCODE, RISCV_IOMMU_CMD_IODIR_OPCODE) |
-+		      FIELD_PREP(RISCV_IOMMU_CMD_FUNC, RISCV_IOMMU_CMD_IODIR_FUNC_INVAL_DDT);
-+	cmd->dword1 = 0;
-+}
-+
-+static inline void riscv_iommu_cmd_iodir_inval_pdt(struct riscv_iommu_command *cmd)
-+{
-+	cmd->dword0 = FIELD_PREP(RISCV_IOMMU_CMD_OPCODE, RISCV_IOMMU_CMD_IODIR_OPCODE) |
-+		      FIELD_PREP(RISCV_IOMMU_CMD_FUNC, RISCV_IOMMU_CMD_IODIR_FUNC_INVAL_PDT);
-+	cmd->dword1 = 0;
-+}
-+
-+static inline void riscv_iommu_cmd_iodir_set_did(struct riscv_iommu_command *cmd,
-+						 unsigned int devid)
-+{
-+	cmd->dword0 |= FIELD_PREP(RISCV_IOMMU_CMD_IODIR_DID, devid) |
-+		       RISCV_IOMMU_CMD_IODIR_DV;
-+}
-+
-+static inline void riscv_iommu_cmd_iodir_set_pid(struct riscv_iommu_command *cmd,
-+						 unsigned int pasid)
-+{
-+	cmd->dword0 |= FIELD_PREP(RISCV_IOMMU_CMD_IODIR_PID, pasid);
-+}
-+
- #endif /* _RISCV_IOMMU_BITS_H_ */
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 71b7903d83d4..4349ac8a3990 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -25,7 +25,14 @@
- #include "iommu.h"
- 
- /* Timeouts in [us] */
--#define RISCV_IOMMU_DDTP_TIMEOUT	50000
-+#define RISCV_IOMMU_QCSR_TIMEOUT	150000
-+#define RISCV_IOMMU_QUEUE_TIMEOUT	150000
-+#define RISCV_IOMMU_DDTP_TIMEOUT	10000000
-+#define RISCV_IOMMU_IOTINVAL_TIMEOUT	90000000
-+
-+/* Number of entries per CMD/FLT queue, should be <= INT_MAX */
-+#define RISCV_IOMMU_DEF_CQ_COUNT	8192
-+#define RISCV_IOMMU_DEF_FQ_COUNT	4096
- 
- /* RISC-V IOMMU PPN <> PHYS address conversions, PHYS <=> PPN[53:10] */
- #define phys_to_ppn(va)  (((va) >> 2) & (((1ULL << 44) - 1) << 10))
-@@ -89,6 +96,432 @@ static void riscv_iommu_free_pages(struct riscv_iommu_device *iommu, void *addr)
- 		       riscv_iommu_devres_pages_match, &devres);
- }
- 
-+/*
-+ * Hardware queue allocation and management.
-+ */
-+
-+/* Setup queue base, control registers and default queue length */
-+#define RISCV_IOMMU_QUEUE_INIT(q, name) do {				\
-+	struct riscv_iommu_queue *_q = q;				\
-+	_q->qid = RISCV_IOMMU_INTR_ ## name;				\
-+	_q->qbr = RISCV_IOMMU_REG_ ## name ## B;			\
-+	_q->qcr = RISCV_IOMMU_REG_ ## name ## CSR;			\
-+	_q->mask = _q->mask ?: (RISCV_IOMMU_DEF_ ## name ## _COUNT) - 1;\
-+} while (0)
-+
-+/* Note: offsets are the same for all queues */
-+#define Q_HEAD(q) ((q)->qbr + (RISCV_IOMMU_REG_CQH - RISCV_IOMMU_REG_CQB))
-+#define Q_TAIL(q) ((q)->qbr + (RISCV_IOMMU_REG_CQT - RISCV_IOMMU_REG_CQB))
-+#define Q_ITEM(q, index) ((q)->mask & (index))
-+#define Q_IPSR(q) BIT((q)->qid)
-+
-+/*
-+ * Discover queue ring buffer hardware configuration, allocate in-memory
-+ * ring buffer or use fixed I/O memory location, configure queue base register.
-+ * Must be called before hardware queue is enabled.
-+ *
-+ * @queue - data structure, configured with RISCV_IOMMU_QUEUE_INIT()
-+ * @entry_size - queue single element size in bytes.
-+ */
-+static int riscv_iommu_queue_alloc(struct riscv_iommu_device *iommu,
-+				   struct riscv_iommu_queue *queue,
-+				   size_t entry_size)
-+{
-+	unsigned int logsz;
-+	u64 qb, rb;
-+
-+	/*
-+	 * Use WARL base register property to discover maximum allowed
-+	 * number of entries and optional fixed IO address for queue location.
-+	 */
-+	riscv_iommu_writeq(iommu, queue->qbr, RISCV_IOMMU_QUEUE_LOGSZ_FIELD);
-+	qb = riscv_iommu_readq(iommu, queue->qbr);
-+
-+	/*
-+	 * Calculate and verify hardware supported queue length, as reported
-+	 * by the field LOGSZ, where max queue length is equal to 2^(LOGSZ + 1).
-+	 * Update queue size based on hardware supported value.
-+	 */
-+	logsz = ilog2(queue->mask);
-+	if (logsz > FIELD_GET(RISCV_IOMMU_QUEUE_LOGSZ_FIELD, qb))
-+		logsz = FIELD_GET(RISCV_IOMMU_QUEUE_LOGSZ_FIELD, qb);
-+
-+	/*
-+	 * Use WARL base register property to discover an optional fixed IO
-+	 * address for queue ring buffer location. Otherwise allocate contigus
-+	 * system memory.
-+	 */
-+	if (FIELD_GET(RISCV_IOMMU_PPN_FIELD, qb)) {
-+		const size_t queue_size = entry_size << (logsz + 1);
-+
-+		queue->phys = ppn_to_phys(FIELD_GET(RISCV_IOMMU_PPN_FIELD, qb));
-+		queue->base = devm_ioremap(iommu->dev, queue->phys, queue_size);
-+	} else {
-+		do {
-+			const size_t queue_size = entry_size << (logsz + 1);
-+			const int order = get_order(queue_size);
-+
-+			queue->base = riscv_iommu_get_pages(iommu, order);
-+			queue->phys = __pa(queue->base);
-+		} while (!queue->base && logsz-- > 0);
-+	}
-+
-+	if (!queue->base)
-+		return -ENOMEM;
-+
-+	qb = phys_to_ppn(queue->phys) |
-+	     FIELD_PREP(RISCV_IOMMU_QUEUE_LOGSZ_FIELD, logsz);
-+
-+	/* Update base register and read back to verify hw accepted our write */
-+	riscv_iommu_writeq(iommu, queue->qbr, qb);
-+	rb = riscv_iommu_readq(iommu, queue->qbr);
-+	if (rb != qb) {
-+		dev_err(iommu->dev, "queue #%u allocation failed\n", queue->qid);
-+		return -ENODEV;
-+	}
-+
-+	/* Update actual queue mask */
-+	queue->mask = (2U << logsz) - 1;
-+
-+	dev_dbg(iommu->dev, "queue #%u allocated 2^%u entries",
-+		queue->qid, logsz + 1);
-+
-+	return 0;
-+}
-+
-+/* Check interrupt queue status, IPSR */
-+static irqreturn_t riscv_iommu_queue_ipsr(int irq, void *data)
-+{
-+	struct riscv_iommu_queue *queue = (struct riscv_iommu_queue *)data;
-+
-+	if (riscv_iommu_readl(queue->iommu, RISCV_IOMMU_REG_IPSR) & Q_IPSR(queue))
-+		return IRQ_WAKE_THREAD;
-+
-+	return IRQ_NONE;
-+}
-+
-+static int riscv_iommu_queue_vec(struct riscv_iommu_device *iommu, int n)
-+{
-+	/* Reuse IVEC.CIV mask for all interrupt vectors mapping. */
-+	return (iommu->ivec >> (n * 4)) & RISCV_IOMMU_IVEC_CIV;
-+}
-+
-+/*
-+ * Enable queue processing in the hardware, register interrupt handler.
-+ *
-+ * @queue - data structure, already allocated with riscv_iommu_queue_alloc()
-+ * @irq_handler - threaded interrupt handler.
-+ */
-+static int riscv_iommu_queue_enable(struct riscv_iommu_device *iommu,
-+				    struct riscv_iommu_queue *queue,
-+				    irq_handler_t irq_handler)
-+{
-+	const unsigned int irq = iommu->irqs[riscv_iommu_queue_vec(iommu, queue->qid)];
-+	u32 csr;
-+	int rc;
-+
-+	if (queue->iommu)
-+		return -EBUSY;
-+
-+	/* Polling not implemented */
-+	if (!irq)
-+		return -ENODEV;
-+
-+	queue->iommu = iommu;
-+	rc = request_threaded_irq(irq, riscv_iommu_queue_ipsr, irq_handler,
-+				  IRQF_ONESHOT | IRQF_SHARED,
-+				  dev_name(iommu->dev), queue);
-+	if (rc) {
-+		queue->iommu = NULL;
-+		return rc;
-+	}
-+
-+	/*
-+	 * Enable queue with interrupts, clear any memory fault if any.
-+	 * Wait for the hardware to acknowledge request and activate queue
-+	 * processing.
-+	 * Note: All CSR bitfields are in the same offsets for all queues.
-+	 */
-+	riscv_iommu_writel(iommu, queue->qcr,
-+			   RISCV_IOMMU_QUEUE_ENABLE |
-+			   RISCV_IOMMU_QUEUE_INTR_ENABLE |
-+			   RISCV_IOMMU_QUEUE_MEM_FAULT);
-+
-+	riscv_iommu_readl_timeout(iommu, queue->qcr,
-+				  csr, !(csr & RISCV_IOMMU_QUEUE_BUSY),
-+				  10, RISCV_IOMMU_QCSR_TIMEOUT);
-+
-+	if (RISCV_IOMMU_QUEUE_ACTIVE != (csr & (RISCV_IOMMU_QUEUE_ACTIVE |
-+						RISCV_IOMMU_QUEUE_BUSY |
-+						RISCV_IOMMU_QUEUE_MEM_FAULT))) {
-+		/* Best effort to stop and disable failing hardware queue. */
-+		riscv_iommu_writel(iommu, queue->qcr, 0);
-+		free_irq(irq, queue);
-+		queue->iommu = NULL;
-+		dev_err(iommu->dev, "queue #%u failed to start\n", queue->qid);
-+		return -EBUSY;
-+	}
-+
-+	/* Clear any pending interrupt flag. */
-+	riscv_iommu_writel(iommu, RISCV_IOMMU_REG_IPSR, Q_IPSR(queue));
-+
-+	return 0;
-+}
-+
-+/*
-+ * Disable queue. Wait for the hardware to acknowledge request and
-+ * stop processing enqueued requests. Report errors but continue.
-+ */
-+static void riscv_iommu_queue_disable(struct riscv_iommu_queue *queue)
-+{
-+	struct riscv_iommu_device *iommu = queue->iommu;
-+	u32 csr;
-+
-+	if (!iommu)
-+		return;
-+
-+	free_irq(iommu->irqs[riscv_iommu_queue_vec(iommu, queue->qid)], queue);
-+	riscv_iommu_writel(iommu, queue->qcr, 0);
-+	riscv_iommu_readl_timeout(iommu, queue->qcr,
-+				  csr, !(csr & RISCV_IOMMU_QUEUE_BUSY),
-+				  10, RISCV_IOMMU_QCSR_TIMEOUT);
-+
-+	if (csr & (RISCV_IOMMU_QUEUE_ACTIVE | RISCV_IOMMU_QUEUE_BUSY))
-+		dev_err(iommu->dev, "fail to disable hardware queue #%u, csr 0x%x\n",
-+			queue->qid, csr);
-+
-+	queue->iommu = NULL;
-+}
-+
-+/*
-+ * Returns number of available valid queue entries and the first item index.
-+ * Update shadow producer index if necessary.
-+ */
-+static int riscv_iommu_queue_consume(struct riscv_iommu_queue *queue,
-+				     unsigned int *index)
-+{
-+	unsigned int head = atomic_read(&queue->head);
-+	unsigned int tail = atomic_read(&queue->tail);
-+	unsigned int last = Q_ITEM(queue, tail);
-+	int available = (int)(tail - head);
-+
-+	*index = head;
-+
-+	if (available > 0)
-+		return available;
-+
-+	/* read hardware producer index, check reserved register bits are not set. */
-+	if (riscv_iommu_readl_timeout(queue->iommu, Q_TAIL(queue),
-+				      tail, (tail & ~queue->mask) == 0,
-+				      0, RISCV_IOMMU_QUEUE_TIMEOUT)) {
-+		dev_err_once(queue->iommu->dev,
-+			     "Hardware error: queue access timeout\n");
-+		return 0;
-+	}
-+
-+	if (tail == last)
-+		return 0;
-+
-+	/* update shadow producer index */
-+	return (int)(atomic_add_return((tail - last) & queue->mask, &queue->tail) - head);
-+}
-+
-+/*
-+ * Release processed queue entries, should match riscv_iommu_queue_consume() calls.
-+ */
-+static void riscv_iommu_queue_release(struct riscv_iommu_queue *queue, int count)
-+{
-+	const unsigned int head = atomic_add_return(count, &queue->head);
-+
-+	riscv_iommu_writel(queue->iommu, Q_HEAD(queue), Q_ITEM(queue, head));
-+}
-+
-+/* Return actual consumer index based on hardware reported queue head index. */
-+static unsigned int riscv_iommu_queue_cons(struct riscv_iommu_queue *queue)
-+{
-+	const unsigned int cons = atomic_read(&queue->head);
-+	const unsigned int last = Q_ITEM(queue, cons);
-+	unsigned int head;
-+
-+	if (riscv_iommu_readl_timeout(queue->iommu, Q_HEAD(queue), head,
-+				      !(head & ~queue->mask),
-+				      0, RISCV_IOMMU_QUEUE_TIMEOUT))
-+		return cons;
-+
-+	return cons + ((head - last) & queue->mask);
-+}
-+
-+/* Wait for submitted item to be processed. */
-+static int riscv_iommu_queue_wait(struct riscv_iommu_queue *queue,
-+				  unsigned int index,
-+				  unsigned int timeout_us)
-+{
-+	unsigned int cons = atomic_read(&queue->head);
-+
-+	/* Already processed by the consumer */
-+	if ((int)(cons - index) > 0)
-+		return 0;
-+
-+	/* Monitor consumer index */
-+	return readx_poll_timeout(riscv_iommu_queue_cons, queue, cons,
-+				 (int)(cons - index) > 0, 0, timeout_us);
-+}
-+
-+/* Enqueue an entry and wait to be processed if timeout_us > 0
-+ *
-+ * Error handling for IOMMU hardware not responding in reasonable time
-+ * will be added as separate patch series along with other RAS features.
-+ * For now, only report hardware failure and continue.
-+ */
-+static void riscv_iommu_queue_send(struct riscv_iommu_queue *queue,
-+				   void *entry, size_t entry_size,
-+				   unsigned int timeout_us)
-+{
-+	unsigned int prod;
-+	unsigned int head;
-+	unsigned int tail;
-+	unsigned long flags;
-+
-+	/* Do not preempt submission flow. */
-+	local_irq_save(flags);
-+
-+	/* 1. Allocate some space in the queue */
-+	prod = atomic_inc_return(&queue->prod) - 1;
-+	head = atomic_read(&queue->head);
-+
-+	/* 2. Wait for space availability. */
-+	if ((prod - head) > queue->mask) {
-+		if (readx_poll_timeout(atomic_read, &queue->head,
-+				       head, (prod - head) < queue->mask,
-+				       0, RISCV_IOMMU_QUEUE_TIMEOUT))
-+			goto err_busy;
-+	} else if ((prod - head) == queue->mask) {
-+		const unsigned int last = Q_ITEM(queue, head);
-+
-+		if (riscv_iommu_readl_timeout(queue->iommu, Q_HEAD(queue), head,
-+					      !(head & ~queue->mask) && head != last,
-+					      0, RISCV_IOMMU_QUEUE_TIMEOUT))
-+			goto err_busy;
-+		atomic_add((head - last) & queue->mask, &queue->head);
-+	}
-+
-+	/* 3. Store entry in the ring buffer. */
-+	memcpy(queue->base + Q_ITEM(queue, prod) * entry_size, entry, entry_size);
-+
-+	/* 4. Wait for all previous entries to be ready */
-+	if (readx_poll_timeout(atomic_read, &queue->tail, tail, prod == tail,
-+			       0, RISCV_IOMMU_QUEUE_TIMEOUT))
-+		goto err_busy;
-+
-+	/* 5. Complete submission and restore local interrupts */
-+	dma_wmb();
-+	riscv_iommu_writel(queue->iommu, Q_TAIL(queue), Q_ITEM(queue, prod + 1));
-+	atomic_inc(&queue->tail);
-+	local_irq_restore(flags);
-+
-+	if (timeout_us && riscv_iommu_queue_wait(queue, prod, timeout_us))
-+		dev_err_once(queue->iommu->dev,
-+			     "Hardware error: command execution timeout\n");
-+
-+	return;
-+
-+err_busy:
-+	local_irq_restore(flags);
-+	dev_err_once(queue->iommu->dev, "Hardware error: command enqueue failed\n");
-+}
-+
-+/*
-+ * IOMMU Command queue chapter 3.1
-+ */
-+
-+/* Command queue interrupt handler thread function */
-+static irqreturn_t riscv_iommu_cmdq_process(int irq, void *data)
-+{
-+	const struct riscv_iommu_queue *queue = (struct riscv_iommu_queue *)data;
-+	unsigned int ctrl;
-+
-+	/* Clear MF/CQ errors, complete error recovery to be implemented. */
-+	ctrl = riscv_iommu_readl(queue->iommu, queue->qcr);
-+	if (ctrl & (RISCV_IOMMU_CQCSR_CQMF | RISCV_IOMMU_CQCSR_CMD_TO |
-+		    RISCV_IOMMU_CQCSR_CMD_ILL | RISCV_IOMMU_CQCSR_FENCE_W_IP)) {
-+		riscv_iommu_writel(queue->iommu, queue->qcr, ctrl);
-+		dev_warn(queue->iommu->dev,
-+			 "Queue #%u error; fault:%d timeout:%d illegal:%d fence_w_ip:%d\n",
-+			 queue->qid,
-+			 !!(ctrl & RISCV_IOMMU_CQCSR_CQMF),
-+			 !!(ctrl & RISCV_IOMMU_CQCSR_CMD_TO),
-+			 !!(ctrl & RISCV_IOMMU_CQCSR_CMD_ILL),
-+			 !!(ctrl & RISCV_IOMMU_CQCSR_FENCE_W_IP));
-+	}
-+
-+	/* Placeholder for command queue interrupt notifiers */
-+
-+	/* Clear command interrupt pending. */
-+	riscv_iommu_writel(queue->iommu, RISCV_IOMMU_REG_IPSR, Q_IPSR(queue));
-+
-+	return IRQ_HANDLED;
-+}
-+
-+/* Send command to the IOMMU command queue */
-+static void riscv_iommu_cmd_send(struct riscv_iommu_device *iommu,
-+				 struct riscv_iommu_command *cmd,
-+				 unsigned int timeout_us)
-+{
-+	riscv_iommu_queue_send(&iommu->cmdq, cmd, sizeof(*cmd), timeout_us);
-+}
-+
-+/*
-+ * IOMMU Fault/Event queue chapter 3.2
-+ */
-+
-+static void riscv_iommu_fault(struct riscv_iommu_device *iommu,
-+			      struct riscv_iommu_fq_record *event)
-+{
-+	unsigned int err = FIELD_GET(RISCV_IOMMU_FQ_HDR_CAUSE, event->hdr);
-+	unsigned int devid = FIELD_GET(RISCV_IOMMU_FQ_HDR_DID, event->hdr);
-+
-+	/* Placeholder for future fault handling implementation, report only. */
-+	if (err)
-+		dev_warn_ratelimited(iommu->dev,
-+				     "Fault %d devid: 0x%x iotval: %llx iotval2: %llx\n",
-+				     err, devid, event->iotval, event->iotval2);
-+}
-+
-+/* Fault queue interrupt handler thread function */
-+static irqreturn_t riscv_iommu_fltq_process(int irq, void *data)
-+{
-+	struct riscv_iommu_queue *queue = (struct riscv_iommu_queue *)data;
-+	struct riscv_iommu_device *iommu = queue->iommu;
-+	struct riscv_iommu_fq_record *events;
-+	unsigned int ctrl, idx;
-+	int cnt, len;
-+
-+	events = (struct riscv_iommu_fq_record *)queue->base;
-+
-+	/* Clear fault interrupt pending and process all received fault events. */
-+	riscv_iommu_writel(iommu, RISCV_IOMMU_REG_IPSR, Q_IPSR(queue));
-+
-+	do {
-+		cnt = riscv_iommu_queue_consume(queue, &idx);
-+		for (len = 0; len < cnt; idx++, len++)
-+			riscv_iommu_fault(iommu, &events[Q_ITEM(queue, idx)]);
-+		riscv_iommu_queue_release(queue, cnt);
-+	} while (cnt > 0);
-+
-+	/* Clear MF/OF errors, complete error recovery to be implemented. */
-+	ctrl = riscv_iommu_readl(iommu, queue->qcr);
-+	if (ctrl & (RISCV_IOMMU_FQCSR_FQMF | RISCV_IOMMU_FQCSR_FQOF)) {
-+		riscv_iommu_writel(iommu, queue->qcr, ctrl);
-+		dev_warn(iommu->dev,
-+			 "Queue #%u error; memory fault:%d overflow:%d\n",
-+			 queue->qid,
-+			 !!(ctrl & RISCV_IOMMU_FQCSR_FQMF),
-+			 !!(ctrl & RISCV_IOMMU_FQCSR_FQOF));
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
- /* Lookup and initialize device context info structure. */
- static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
- 						 unsigned int devid)
-@@ -250,6 +683,7 @@ static int riscv_iommu_iodir_set_mode(struct riscv_iommu_device *iommu,
- 	struct device *dev = iommu->dev;
- 	u64 ddtp, rq_ddtp;
- 	unsigned int mode, rq_mode = ddtp_mode;
-+	struct riscv_iommu_command cmd;
- 
- 	ddtp = riscv_iommu_read_ddtp(iommu);
- 	if (ddtp & RISCV_IOMMU_DDTP_BUSY)
-@@ -317,6 +751,18 @@ static int riscv_iommu_iodir_set_mode(struct riscv_iommu_device *iommu,
- 	if (mode != ddtp_mode)
- 		dev_dbg(dev, "DDTP hw mode %u, requested %u\n", mode, ddtp_mode);
- 
-+	/* Invalidate device context cache */
-+	riscv_iommu_cmd_iodir_inval_ddt(&cmd);
-+	riscv_iommu_cmd_send(iommu, &cmd, 0);
-+
-+	/* Invalidate address translation cache */
-+	riscv_iommu_cmd_inval_vma(&cmd);
-+	riscv_iommu_cmd_send(iommu, &cmd, 0);
-+
-+	/* IOFENCE.C */
-+	riscv_iommu_cmd_iofence(&cmd);
-+	riscv_iommu_cmd_send(iommu, &cmd, RISCV_IOMMU_IOTINVAL_TIMEOUT);
-+
- 	return 0;
- }
- 
-@@ -492,6 +938,26 @@ static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
- 			return -EINVAL;
- 	}
- 
-+	/*
-+	 * Distribute interrupt vectors, always use first vector for CIV.
-+	 * At least one interrupt is required. Read back and verify.
-+	 */
-+	if (!iommu->irqs_count)
-+		return -EINVAL;
-+
-+	iommu->ivec = 0;
-+	iommu->ivec |= FIELD_PREP(RISCV_IOMMU_IVEC_FIV, 1 % iommu->irqs_count);
-+	iommu->ivec |= FIELD_PREP(RISCV_IOMMU_IVEC_PIV, 2 % iommu->irqs_count);
-+	iommu->ivec |= FIELD_PREP(RISCV_IOMMU_IVEC_PMIV, 3 % iommu->irqs_count);
-+	riscv_iommu_writeq(iommu, RISCV_IOMMU_REG_IVEC, iommu->ivec);
-+
-+	iommu->ivec = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_IVEC);
-+	if (riscv_iommu_queue_vec(iommu, RISCV_IOMMU_IVEC_CIV) >= RISCV_IOMMU_INTR_COUNT ||
-+	    riscv_iommu_queue_vec(iommu, RISCV_IOMMU_IVEC_FIV) >= RISCV_IOMMU_INTR_COUNT ||
-+	    riscv_iommu_queue_vec(iommu, RISCV_IOMMU_IVEC_PIV) >= RISCV_IOMMU_INTR_COUNT ||
-+	    riscv_iommu_queue_vec(iommu, RISCV_IOMMU_IVEC_PMIV) >= RISCV_IOMMU_INTR_COUNT)
-+		return -EINVAL;
-+
- 	return 0;
- }
- 
-@@ -500,12 +966,17 @@ void riscv_iommu_remove(struct riscv_iommu_device *iommu)
- 	iommu_device_unregister(&iommu->iommu);
- 	iommu_device_sysfs_remove(&iommu->iommu);
- 	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_MODE_OFF);
-+	riscv_iommu_queue_disable(&iommu->cmdq);
-+	riscv_iommu_queue_disable(&iommu->fltq);
- }
- 
- int riscv_iommu_init(struct riscv_iommu_device *iommu)
- {
- 	int rc;
- 
-+	RISCV_IOMMU_QUEUE_INIT(&iommu->cmdq, CQ);
-+	RISCV_IOMMU_QUEUE_INIT(&iommu->fltq, FQ);
-+
- 	rc = riscv_iommu_init_check(iommu);
- 	if (rc)
- 		return dev_err_probe(iommu->dev, rc, "unexpected device state\n");
-@@ -514,10 +985,28 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
- 	if (rc)
- 		return rc;
- 
--	rc = riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_MODE_MAX);
-+	rc = riscv_iommu_queue_alloc(iommu, &iommu->cmdq,
-+				     sizeof(struct riscv_iommu_command));
-+	if (rc)
-+		return rc;
-+
-+	rc = riscv_iommu_queue_alloc(iommu, &iommu->fltq,
-+				     sizeof(struct riscv_iommu_fq_record));
-+	if (rc)
-+		return rc;
-+
-+	rc = riscv_iommu_queue_enable(iommu, &iommu->cmdq, riscv_iommu_cmdq_process);
- 	if (rc)
- 		return rc;
- 
-+	rc = riscv_iommu_queue_enable(iommu, &iommu->fltq, riscv_iommu_fltq_process);
-+	if (rc)
-+		goto err_queue_disable;
-+
-+	rc = riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_MODE_MAX);
-+	if (rc)
-+		goto err_queue_disable;
-+
- 	rc = iommu_device_sysfs_add(&iommu->iommu, NULL, NULL, "riscv-iommu@%s",
- 				    dev_name(iommu->dev));
- 	if (rc) {
-@@ -537,5 +1026,8 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
- 	iommu_device_sysfs_remove(&iommu->iommu);
- err_iodir_off:
- 	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_MODE_OFF);
-+err_queue_disable:
-+	riscv_iommu_queue_disable(&iommu->fltq);
-+	riscv_iommu_queue_disable(&iommu->cmdq);
- 	return rc;
- }
-diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
-index f1696926582c..03e0c45bc7e1 100644
---- a/drivers/iommu/riscv/iommu.h
-+++ b/drivers/iommu/riscv/iommu.h
-@@ -17,6 +17,22 @@
- 
- #include "iommu-bits.h"
- 
-+struct riscv_iommu_device;
-+
-+struct riscv_iommu_queue {
-+	atomic_t prod;				/* unbounded producer allocation index */
-+	atomic_t head;				/* unbounded shadow ring buffer consumer index */
-+	atomic_t tail;				/* unbounded shadow ring buffer producer index */
-+	unsigned int mask;			/* index mask, queue length - 1 */
-+	unsigned int irq;			/* allocated interrupt number */
-+	struct riscv_iommu_device *iommu;	/* iommu device handling the queue when active */
-+	void *base;				/* ring buffer kernel pointer */
-+	dma_addr_t phys;			/* ring buffer physical address */
-+	u16 qbr;				/* base register offset, head and tail reference */
-+	u16 qcr;				/* control and status register offset */
-+	u8 qid;					/* queue identifier, same as RISCV_IOMMU_INTR_XX */
-+};
-+
- struct riscv_iommu_device {
- 	/* iommu core interface */
- 	struct iommu_device iommu;
-@@ -34,6 +50,11 @@ struct riscv_iommu_device {
- 	/* available interrupt numbers, MSI or WSI */
- 	unsigned int irqs[RISCV_IOMMU_INTR_COUNT];
- 	unsigned int irqs_count;
-+	unsigned int ivec;
-+
-+	/* hardware queues */
-+	struct riscv_iommu_queue cmdq;
-+	struct riscv_iommu_queue fltq;
- 
- 	/* device directory */
- 	unsigned int ddt_mode;
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SW50cm9kdWNlIGZpcnN0LXN0YWdlIGFkZHJlc3MgdHJhbnNsYXRpb24gc3VwcG9ydC4KClBhZ2Ug
+dGFibGUgY29uZmlndXJlZCBieSB0aGUgSU9NTVUgZHJpdmVyIHdpbGwgdXNlIHRoZSBoaWdoZXN0
+IG1vZGUKaW1wbGVtZW50ZWQgYnkgdGhlIGhhcmR3YXJlLCB1bmxlc3Mgbm90IGtub3duIGF0IHRo
+ZSBkb21haW4gYWxsb2NhdGlvbgp0aW1lIGZhbGxpbmcgYmFjayB0byB0aGUgQ1BV4oCZcyBNTVUg
+cGFnZSBtb2RlLgoKVGhpcyBjaGFuZ2UgaW50cm9kdWNlcyBJT1RJTlZBTC5WTUEgY29tbWFuZCwg
+cmVxdWlyZWQgdG8gaW52YWxpZGF0ZQphbnkgY2FjaGVkIElPQVRDIGVudHJpZXMgYWZ0ZXIgbWFw
+cGluZyBpcyB1cGRhdGVkIGFuZC9vciByZW1vdmVkIGZyb20KdGhlIHBhZ2luZyBkb21haW4uICBJ
+bnZhbGlkYXRpb25zIGZvciB0aGUgbm9uLWxlYWYgcGFnZSBlbnRyaWVzIHVzZQpJT1RJTlZBTCBm
+b3IgYWxsIGFkZHJlc3NlcyBhc3NpZ25lZCB0byB0aGUgcHJvdGVjdGlvbiBkb21haW4gZm9yCmhh
+cmR3YXJlIG5vdCBzdXBwb3J0aW5nIG1vcmUgZ3JhbnVsYXIgbm9uLWxlYWYgcGFnZSB0YWJsZSBj
+YWNoZQppbnZhbGlkYXRpb25zLgoKU2lnbmVkLW9mZi1ieTogVG9tYXN6IEplem5hY2ggPHRqZXpu
+YWNoQHJpdm9zaW5jLmNvbT4KLS0tCiBkcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMgfCA1ODcg
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKystCiAxIGZpbGUgY2hhbmdlZCwgNTg1
+IGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9pb21t
+dS9yaXNjdi9pb21tdS5jIGIvZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS5jCmluZGV4IDQzNDlh
+YzhhMzk5MC4uZWM3MDFmZGU1MjBmIDEwMDY0NAotLS0gYS9kcml2ZXJzL2lvbW11L3Jpc2N2L2lv
+bW11LmMKKysrIGIvZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS5jCkBAIC00MSw2ICs0MSwxMCBA
+QAogI2RlZmluZSBkZXZfdG9faW9tbXUoZGV2KSBcCiAJaW9tbXVfZ2V0X2lvbW11X2RldihkZXYs
+IHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UsIGlvbW11KQogCisvKiBJT01NVSBQU0NJRCBhbGxv
+Y2F0aW9uIG5hbWVzcGFjZS4gKi8KK3N0YXRpYyBERUZJTkVfSURBKHJpc2N2X2lvbW11X3BzY2lk
+cyk7CisjZGVmaW5lIFJJU0NWX0lPTU1VX01BWF9QU0NJRAkJKEJJVCgyMCkgLSAxKQorCiAvKiBE
+ZXZpY2UgcmVzb3VyY2UtbWFuYWdlZCBhbGxvY2F0aW9ucyAqLwogc3RydWN0IHJpc2N2X2lvbW11
+X2RldnJlcyB7CiAJdm9pZCAqYWRkcjsKQEAgLTc2Niw2ICs3NzAsMTQzIEBAIHN0YXRpYyBpbnQg
+cmlzY3ZfaW9tbXVfaW9kaXJfc2V0X21vZGUoc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9t
+bXUsCiAJcmV0dXJuIDA7CiB9CiAKKy8qIFRoaXMgc3RydWN0IGNvbnRhaW5zIHByb3RlY3Rpb24g
+ZG9tYWluIHNwZWNpZmljIElPTU1VIGRyaXZlciBkYXRhLiAqLworc3RydWN0IHJpc2N2X2lvbW11
+X2RvbWFpbiB7CisJc3RydWN0IGlvbW11X2RvbWFpbiBkb21haW47CisJc3RydWN0IGxpc3RfaGVh
+ZCBib25kczsKKwlzcGlubG9ja190IGxvY2s7CQkvKiBwcm90ZWN0IGJvbmRzIGxpc3QgdXBkYXRl
+cy4gKi8KKwlpbnQgcHNjaWQ7CisJaW50IG51bWFfbm9kZTsKKwlpbnQgYW1vX2VuYWJsZWQ6MTsK
+Kwl1bnNpZ25lZCBpbnQgcGdkX21vZGU7CisJdW5zaWduZWQgbG9uZyAqcGdkX3Jvb3Q7Cit9Owor
+CisjZGVmaW5lIGlvbW11X2RvbWFpbl90b19yaXNjdihpb21tdV9kb21haW4pIFwKKwljb250YWlu
+ZXJfb2YoaW9tbXVfZG9tYWluLCBzdHJ1Y3QgcmlzY3ZfaW9tbXVfZG9tYWluLCBkb21haW4pCisK
+Ky8qIFByaXZhdGUgSU9NTVUgZGF0YSBmb3IgbWFuYWdlZCBkZXZpY2VzLCBkZXZfaW9tbXVfcHJp
+dl8qICovCitzdHJ1Y3QgcmlzY3ZfaW9tbXVfaW5mbyB7CisJc3RydWN0IHJpc2N2X2lvbW11X2Rv
+bWFpbiAqZG9tYWluOworfTsKKworLyogTGlua2FnZSBiZXR3ZWVuIGFuIGlvbW11X2RvbWFpbiBh
+bmQgYXR0YWNoZWQgZGV2aWNlcy4gKi8KK3N0cnVjdCByaXNjdl9pb21tdV9ib25kIHsKKwlzdHJ1
+Y3QgbGlzdF9oZWFkIGxpc3Q7CisJc3RydWN0IHJjdV9oZWFkIHJjdTsKKwlzdHJ1Y3QgZGV2aWNl
+ICpkZXY7Cit9OworCitzdGF0aWMgaW50IHJpc2N2X2lvbW11X2JvbmRfbGluayhzdHJ1Y3Qgcmlz
+Y3ZfaW9tbXVfZG9tYWluICpkb21haW4sCisJCQkJIHN0cnVjdCBkZXZpY2UgKmRldikKK3sKKwlz
+dHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21tdSA9IGRldl90b19pb21tdShkZXYpOworCXN0
+cnVjdCByaXNjdl9pb21tdV9ib25kICpib25kOworCXN0cnVjdCBsaXN0X2hlYWQgKmJvbmRzOwor
+CisJYm9uZCA9IGt6YWxsb2Moc2l6ZW9mKCpib25kKSwgR0ZQX0tFUk5FTCk7CisJaWYgKCFib25k
+KQorCQlyZXR1cm4gLUVOT01FTTsKKwlib25kLT5kZXYgPSBkZXY7CisKKwkvKgorCSAqIExpbmtl
+ZCBkZXZpY2UgcG9pbnRlciBhbmQgaW9tbXUgZGF0YSByZW1haW4gc3RhYmxlIGluIGJvbmQgc3Ry
+dWN0CisJICogYXMgbG9uZyB0aGUgZGV2aWNlIGlzIGF0dGFjaGVkIHRvIHRoZSBtYW5hZ2VkIElP
+TU1VIGF0IF9wcm9iZV9kZXZpY2UoKSwKKwkgKiB1cCB0byBjb21wbGV0aW9uIG9mIF9yZWxlYXNl
+X2RldmljZSgpIGNhbGwuIFJlbGVhc2Ugb2YgdGhlIGJvbmQgd2lsbCBiZQorCSAqIHN5bmNocm9u
+aXplZCBhdCB0aGUgZGV2aWNlIHJlbGVhc2UsIHRvIGd1YXJhbnRlZSBubyBzdGFsZSBwb2ludGVy
+IGlzCisJICogdXNlZCBpbnNpZGUgcmN1IHByb3RlY3RlZCBzZWN0aW9ucy4KKwkgKgorCSAqIExp
+c3Qgb2YgZGV2aWNlcyBhdHRhY2hlZCB0byB0aGUgZG9tYWluIGlzIGFycmFuZ2VkIGJhc2VkIG9u
+CisJICogbWFuYWdlZCBJT01NVSBkZXZpY2UuCisJICovCisKKwlzcGluX2xvY2soJmRvbWFpbi0+
+bG9jayk7CisJbGlzdF9mb3JfZWFjaF9yY3UoYm9uZHMsICZkb21haW4tPmJvbmRzKQorCQlpZiAo
+ZGV2X3RvX2lvbW11KGxpc3RfZW50cnkoYm9uZHMsIHN0cnVjdCByaXNjdl9pb21tdV9ib25kLCBs
+aXN0KS0+ZGV2KSA9PSBpb21tdSkKKwkJCWJyZWFrOworCWxpc3RfYWRkX3JjdSgmYm9uZC0+bGlz
+dCwgYm9uZHMpOworCXNwaW5fdW5sb2NrKCZkb21haW4tPmxvY2spOworCisJcmV0dXJuIDA7Cit9
+CisKK3N0YXRpYyB2b2lkIHJpc2N2X2lvbW11X2JvbmRfdW5saW5rKHN0cnVjdCByaXNjdl9pb21t
+dV9kb21haW4gKmRvbWFpbiwKKwkJCQkgICAgc3RydWN0IGRldmljZSAqZGV2KQoreworCXN0cnVj
+dCByaXNjdl9pb21tdV9ib25kICpib25kLCAqZm91bmQgPSBOVUxMOworCisJaWYgKCFkb21haW4p
+CisJCXJldHVybjsKKworCXNwaW5fbG9jaygmZG9tYWluLT5sb2NrKTsKKwlsaXN0X2Zvcl9lYWNo
+X2VudHJ5X3JjdShib25kLCAmZG9tYWluLT5ib25kcywgbGlzdCkgeworCQlpZiAoYm9uZC0+ZGV2
+ID09IGRldikgeworCQkJbGlzdF9kZWxfcmN1KCZib25kLT5saXN0KTsKKwkJCWZvdW5kID0gYm9u
+ZDsKKwkJfQorCX0KKwlzcGluX3VubG9jaygmZG9tYWluLT5sb2NrKTsKKwlrZnJlZV9yY3UoZm91
+bmQsIHJjdSk7Cit9CisKKy8qCisgKiBTZW5kIElPVExCLklOVkFMIGZvciB3aG9sZSBhZGRyZXNz
+IHNwYWNlIGZvciByYW5nZXMgbGFyZ2VyIHRoYW4gMk1CLgorICogVGhpcyBsaW1pdCB3aWxsIGJl
+IHJlcGxhY2VkIHdpdGggcmFuZ2UgaW52YWxpZGF0aW9ucywgaWYgc3VwcG9ydGVkIGJ5CisgKiB0
+aGUgaGFyZHdhcmUsIHdoZW4gUklTQy1WIElPTU1VIGFyY2hpdGVjdHVyZSBzcGVjaWZpY2F0aW9u
+IHVwZGF0ZSBmb3IKKyAqIHJhbmdlIGludmFsaWRhdGlvbnMgdXBkYXRlIHdpbGwgYmUgYXZhaWxh
+YmxlLgorICovCisjZGVmaW5lIFJJU0NWX0lPTU1VX0lPVExCX0lOVkFMX0xJTUlUCSgyIDw8IDIw
+KQorCitzdGF0aWMgdm9pZCByaXNjdl9pb21tdV9pb3RsYl9pbnZhbChzdHJ1Y3QgcmlzY3ZfaW9t
+bXVfZG9tYWluICpkb21haW4sCisJCQkJICAgIHVuc2lnbmVkIGxvbmcgc3RhcnQsIHVuc2lnbmVk
+IGxvbmcgZW5kKQoreworCXN0cnVjdCByaXNjdl9pb21tdV9ib25kICpib25kOworCXN0cnVjdCBy
+aXNjdl9pb21tdV9kZXZpY2UgKmlvbW11LCAqcHJldjsKKwlzdHJ1Y3QgcmlzY3ZfaW9tbXVfY29t
+bWFuZCBjbWQ7CisJdW5zaWduZWQgbG9uZyBsZW4gPSBlbmQgLSBzdGFydCArIDE7CisJdW5zaWdu
+ZWQgbG9uZyBpb3ZhOworCisJcmN1X3JlYWRfbG9jaygpOworCisJcHJldiA9IE5VTEw7CisJbGlz
+dF9mb3JfZWFjaF9lbnRyeV9yY3UoYm9uZCwgJmRvbWFpbi0+Ym9uZHMsIGxpc3QpIHsKKwkJaW9t
+bXUgPSBkZXZfdG9faW9tbXUoYm9uZC0+ZGV2KTsKKworCQkvKgorCQkgKiBJT1RMQiBpbnZhbGlk
+YXRpb24gcmVxdWVzdCBjYW4gYmUgc2FmZWx5IG9taXR0ZWQgaWYgYWxyZWFkeSBzZW50CisJCSAq
+IHRvIHRoZSBJT01NVSBmb3IgdGhlIHNhbWUgUFNDSUQsIGFuZCB3aXRoIGRvbWFpbi0+Ym9uZHMg
+bGlzdAorCQkgKiBhcnJhbmdlZCBiYXNlZCBvbiB0aGUgZGV2aWNlJ3MgSU9NTVUsIGl0J3Mgc3Vm
+ZmljaWVudCB0byBjaGVjaworCQkgKiBsYXN0IGRldmljZSB0aGUgaW52YWxpZGF0aW9uIHdhcyBz
+ZW50IHRvLgorCQkgKi8KKwkJaWYgKGlvbW11ID09IHByZXYpCisJCQljb250aW51ZTsKKworCQly
+aXNjdl9pb21tdV9jbWRfaW52YWxfdm1hKCZjbWQpOworCQlyaXNjdl9pb21tdV9jbWRfaW52YWxf
+c2V0X3BzY2lkKCZjbWQsIGRvbWFpbi0+cHNjaWQpOworCQlpZiAobGVuICYmIGxlbiA+PSBSSVND
+Vl9JT01NVV9JT1RMQl9JTlZBTF9MSU1JVCkgeworCQkJZm9yIChpb3ZhID0gc3RhcnQ7IGlvdmEg
+PCBlbmQ7IGlvdmEgKz0gUEFHRV9TSVpFKSB7CisJCQkJcmlzY3ZfaW9tbXVfY21kX2ludmFsX3Nl
+dF9hZGRyKCZjbWQsIGlvdmEpOworCQkJCXJpc2N2X2lvbW11X2NtZF9zZW5kKGlvbW11LCAmY21k
+LCAwKTsKKwkJCX0KKwkJfSBlbHNlIHsKKwkJCXJpc2N2X2lvbW11X2NtZF9zZW5kKGlvbW11LCAm
+Y21kLCAwKTsKKwkJfQorCQlwcmV2ID0gaW9tbXU7CisJfQorCisJcHJldiA9IE5VTEw7CisJbGlz
+dF9mb3JfZWFjaF9lbnRyeV9yY3UoYm9uZCwgJmRvbWFpbi0+Ym9uZHMsIGxpc3QpIHsKKwkJaW9t
+bXUgPSBkZXZfdG9faW9tbXUoYm9uZC0+ZGV2KTsKKwkJaWYgKGlvbW11ID09IHByZXYpCisJCQlj
+b250aW51ZTsKKworCQlyaXNjdl9pb21tdV9jbWRfaW9mZW5jZSgmY21kKTsKKwkJcmlzY3ZfaW9t
+bXVfY21kX3NlbmQoaW9tbXUsICZjbWQsIFJJU0NWX0lPTU1VX1FVRVVFX1RJTUVPVVQpOworCQlw
+cmV2ID0gaW9tbXU7CisJfQorCXJjdV9yZWFkX3VubG9jaygpOworfQorCiAjZGVmaW5lIFJJU0NW
+X0lPTU1VX0ZTQ19CQVJFIDAKIAogLyoKQEAgLTc4NSwxMCArOTI2LDI5IEBAIHN0YXRpYyB2b2lk
+IHJpc2N2X2lvbW11X2lvZGlyX3VwZGF0ZShzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21t
+dSwKIHsKIAlzdHJ1Y3QgaW9tbXVfZndzcGVjICpmd3NwZWMgPSBkZXZfaW9tbXVfZndzcGVjX2dl
+dChkZXYpOwogCXN0cnVjdCByaXNjdl9pb21tdV9kYyAqZGM7CisJc3RydWN0IHJpc2N2X2lvbW11
+X2NvbW1hbmQgY21kOworCWJvb2wgc3luY19yZXF1aXJlZCA9IGZhbHNlOwogCXU2NCB0YzsKIAlp
+bnQgaTsKIAotCS8qIERldmljZSBjb250ZXh0IGludmFsaWRhdGlvbiBpZ25vcmVkIGZvciBub3cu
+ICovCisJZm9yIChpID0gMDsgaSA8IGZ3c3BlYy0+bnVtX2lkczsgaSsrKSB7CisJCWRjID0gcmlz
+Y3ZfaW9tbXVfZ2V0X2RjKGlvbW11LCBmd3NwZWMtPmlkc1tpXSk7CisJCXRjID0gUkVBRF9PTkNF
+KGRjLT50Yyk7CisJCWlmICh0YyAmIFJJU0NWX0lPTU1VX0RDX1RDX1YpIHsKKwkJCVdSSVRFX09O
+Q0UoZGMtPnRjLCB0YyAmIH5SSVNDVl9JT01NVV9EQ19UQ19WKTsKKworCQkJLyogSW52YWxpZGF0
+ZSBkZXZpY2UgY29udGV4dCBjYWNoZWQgdmFsdWVzICovCisJCQlyaXNjdl9pb21tdV9jbWRfaW9k
+aXJfaW52YWxfZGR0KCZjbWQpOworCQkJcmlzY3ZfaW9tbXVfY21kX2lvZGlyX3NldF9kaWQoJmNt
+ZCwgZndzcGVjLT5pZHNbaV0pOworCQkJcmlzY3ZfaW9tbXVfY21kX3NlbmQoaW9tbXUsICZjbWQs
+IDApOworCQkJc3luY19yZXF1aXJlZCA9IHRydWU7CisJCX0KKwl9CisKKwlpZiAoc3luY19yZXF1
+aXJlZCkgeworCQlyaXNjdl9pb21tdV9jbWRfaW9mZW5jZSgmY21kKTsKKwkJcmlzY3ZfaW9tbXVf
+Y21kX3NlbmQoaW9tbXUsICZjbWQsIFJJU0NWX0lPTU1VX0lPVElOVkFMX1RJTUVPVVQpOworCX0K
+IAogCS8qCiAJICogRm9yIGRldmljZSBjb250ZXh0IHdpdGggRENfVENfUERUViA9IDAsIHRyYW5z
+bGF0aW9uIGF0dHJpYnV0ZXMgdmFsaWQgYml0CkBAIC04MDYsMTIgKzk2Niw0MTUgQEAgc3RhdGlj
+IHZvaWQgcmlzY3ZfaW9tbXVfaW9kaXJfdXBkYXRlKHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2Ug
+KmlvbW11LAogCX0KIH0KIAorLyoKKyAqIElPVkEgcGFnZSB0cmFuc2xhdGlvbiB0cmVlIG1hbmFn
+ZW1lbnQuCisgKi8KKworI2RlZmluZSBJT01NVV9QQUdFX1NJWkVfNEsgICAgIEJJVF9VTEwoMTIp
+CisjZGVmaW5lIElPTU1VX1BBR0VfU0laRV8yTSAgICAgQklUX1VMTCgyMSkKKyNkZWZpbmUgSU9N
+TVVfUEFHRV9TSVpFXzFHICAgICBCSVRfVUxMKDMwKQorI2RlZmluZSBJT01NVV9QQUdFX1NJWkVf
+NTEyRyAgIEJJVF9VTEwoMzkpCisKKyNkZWZpbmUgUFRfU0hJRlQgKFBBR0VfU0hJRlQgLSBpbG9n
+MihzaXplb2YocHRlX3QpKSkKKworc3RhdGljIHZvaWQgcmlzY3ZfaW9tbXVfaW90bGJfZmx1c2hf
+YWxsKHN0cnVjdCBpb21tdV9kb21haW4gKmlvbW11X2RvbWFpbikKK3sKKwlzdHJ1Y3QgcmlzY3Zf
+aW9tbXVfZG9tYWluICpkb21haW4gPSBpb21tdV9kb21haW5fdG9fcmlzY3YoaW9tbXVfZG9tYWlu
+KTsKKworCXJpc2N2X2lvbW11X2lvdGxiX2ludmFsKGRvbWFpbiwgMCwgVUxPTkdfTUFYKTsKK30K
+Kworc3RhdGljIHZvaWQgcmlzY3ZfaW9tbXVfaW90bGJfc3luYyhzdHJ1Y3QgaW9tbXVfZG9tYWlu
+ICppb21tdV9kb21haW4sCisJCQkJICAgc3RydWN0IGlvbW11X2lvdGxiX2dhdGhlciAqZ2F0aGVy
+KQoreworCXN0cnVjdCByaXNjdl9pb21tdV9kb21haW4gKmRvbWFpbiA9IGlvbW11X2RvbWFpbl90
+b19yaXNjdihpb21tdV9kb21haW4pOworCisJcmlzY3ZfaW9tbXVfaW90bGJfaW52YWwoZG9tYWlu
+LCBnYXRoZXItPnN0YXJ0LCBnYXRoZXItPmVuZCk7Cit9CisKK3N0YXRpYyBpbmxpbmUgc2l6ZV90
+IGdldF9wYWdlX3NpemUoc2l6ZV90IHNpemUpCit7CisJaWYgKHNpemUgPj0gSU9NTVVfUEFHRV9T
+SVpFXzUxMkcpCisJCXJldHVybiBJT01NVV9QQUdFX1NJWkVfNTEyRzsKKwlpZiAoc2l6ZSA+PSBJ
+T01NVV9QQUdFX1NJWkVfMUcpCisJCXJldHVybiBJT01NVV9QQUdFX1NJWkVfMUc7CisJaWYgKHNp
+emUgPj0gSU9NTVVfUEFHRV9TSVpFXzJNKQorCQlyZXR1cm4gSU9NTVVfUEFHRV9TSVpFXzJNOwor
+CXJldHVybiBJT01NVV9QQUdFX1NJWkVfNEs7Cit9CisKKyNkZWZpbmUgX2lvX3B0ZV9wcmVzZW50
+KHB0ZSkJKChwdGUpICYgKF9QQUdFX1BSRVNFTlQgfCBfUEFHRV9QUk9UX05PTkUpKQorI2RlZmlu
+ZSBfaW9fcHRlX2xlYWYocHRlKQkoKHB0ZSkgJiBfUEFHRV9MRUFGKQorI2RlZmluZSBfaW9fcHRl
+X25vbmUocHRlKQkoKHB0ZSkgPT0gMCkKKyNkZWZpbmUgX2lvX3B0ZV9lbnRyeShwbiwgcHJvdCkJ
+KChfUEFHRV9QRk5fTUFTSyAmICgocG4pIDw8IF9QQUdFX1BGTl9TSElGVCkpIHwgKHByb3QpKQor
+CitzdGF0aWMgdm9pZCByaXNjdl9pb21tdV9wdGVfZnJlZShzdHJ1Y3QgcmlzY3ZfaW9tbXVfZG9t
+YWluICpkb21haW4sCisJCQkJIHVuc2lnbmVkIGxvbmcgcHRlLCBzdHJ1Y3QgbGlzdF9oZWFkICpm
+cmVlbGlzdCkKK3sKKwl1bnNpZ25lZCBsb25nICpwdHI7CisJaW50IGk7CisKKwlpZiAoIV9pb19w
+dGVfcHJlc2VudChwdGUpIHx8IF9pb19wdGVfbGVhZihwdGUpKQorCQlyZXR1cm47CisKKwlwdHIg
+PSAodW5zaWduZWQgbG9uZyAqKXBmbl90b192aXJ0KF9fcGFnZV92YWxfdG9fcGZuKHB0ZSkpOwor
+CisJLyogUmVjdXJzaXZlbHkgZnJlZSBhbGwgc3ViIHBhZ2UgdGFibGUgcGFnZXMgKi8KKwlmb3Ig
+KGkgPSAwOyBpIDwgUFRSU19QRVJfUFRFOyBpKyspIHsKKwkJcHRlID0gUkVBRF9PTkNFKHB0cltp
+XSk7CisJCWlmICghX2lvX3B0ZV9ub25lKHB0ZSkgJiYgY21weGNoZ19yZWxheGVkKHB0ciArIGks
+IHB0ZSwgMCkgPT0gcHRlKQorCQkJcmlzY3ZfaW9tbXVfcHRlX2ZyZWUoZG9tYWluLCBwdGUsIGZy
+ZWVsaXN0KTsKKwl9CisKKwlpZiAoZnJlZWxpc3QpCisJCWxpc3RfYWRkX3RhaWwoJnZpcnRfdG9f
+cGFnZShwdHIpLT5scnUsIGZyZWVsaXN0KTsKKwllbHNlCisJCWlvbW11X2ZyZWVfcGFnZShwdHIp
+OworfQorCitzdGF0aWMgdW5zaWduZWQgbG9uZyAqcmlzY3ZfaW9tbXVfcHRlX2FsbG9jKHN0cnVj
+dCByaXNjdl9pb21tdV9kb21haW4gKmRvbWFpbiwKKwkJCQkJICAgIHVuc2lnbmVkIGxvbmcgaW92
+YSwgc2l6ZV90IHBnc2l6ZSwKKwkJCQkJICAgIGdmcF90IGdmcCkKK3sKKwl1bnNpZ25lZCBsb25n
+ICpwdHIgPSBkb21haW4tPnBnZF9yb290OworCXVuc2lnbmVkIGxvbmcgcHRlLCBvbGQ7CisJaW50
+IGxldmVsID0gZG9tYWluLT5wZ2RfbW9kZSAtIFJJU0NWX0lPTU1VX0RDX0ZTQ19JT1NBVFBfTU9E
+RV9TVjM5ICsgMjsKKwl2b2lkICphZGRyOworCisJZG8geworCQljb25zdCBpbnQgc2hpZnQgPSBQ
+QUdFX1NISUZUICsgUFRfU0hJRlQgKiBsZXZlbDsKKworCQlwdHIgKz0gKChpb3ZhID4+IHNoaWZ0
+KSAmIChQVFJTX1BFUl9QVEUgLSAxKSk7CisJCS8qCisJCSAqIE5vdGU6IHJldHVybmVkIGVudHJ5
+IG1pZ2h0IGJlIGEgbm9uLWxlYWYgaWYgdGhlcmUgd2FzCisJCSAqIGV4aXN0aW5nIG1hcHBpbmcg
+d2l0aCBzbWFsbGVyIGdyYW51bGFyaXR5LiBVcCB0byB0aGUgY2FsbGVyCisJCSAqIHRvIHJlcGxh
+Y2UgYW5kIGludmFsaWRhdGUuCisJCSAqLworCQlpZiAoKChzaXplX3QpMSA8PCBzaGlmdCkgPT0g
+cGdzaXplKQorCQkJcmV0dXJuIHB0cjsKK3B0ZV9yZXRyeToKKwkJcHRlID0gUkVBRF9PTkNFKCpw
+dHIpOworCQkvKgorCQkgKiBUaGlzIGlzIHZlcnkgbGlrZWx5IGluY29ycmVjdCBhcyB3ZSBzaG91
+bGQgbm90IGJlIGFkZGluZworCQkgKiBuZXcgbWFwcGluZyB3aXRoIHNtYWxsZXIgZ3JhbnVsYXJp
+dHkgb24gdG9wCisJCSAqIG9mIGV4aXN0aW5nIDJNLzFHIG1hcHBpbmcuIEZhaWwuCisJCSAqLwor
+CQlpZiAoX2lvX3B0ZV9wcmVzZW50KHB0ZSkgJiYgX2lvX3B0ZV9sZWFmKHB0ZSkpCisJCQlyZXR1
+cm4gTlVMTDsKKwkJLyoKKwkJICogTm9uLWxlYWYgZW50cnkgaXMgbWlzc2luZywgYWxsb2NhdGUg
+YW5kIHRyeSB0byBhZGQgdG8gdGhlCisJCSAqIHBhZ2UgdGFibGUuIFRoaXMgbWlnaHQgcmFjZSB3
+aXRoIG90aGVyIG1hcHBpbmdzLCByZXRyeS4KKwkJICovCisJCWlmIChfaW9fcHRlX25vbmUocHRl
+KSkgeworCQkJYWRkciA9IGlvbW11X2FsbG9jX3BhZ2Vfbm9kZShkb21haW4tPm51bWFfbm9kZSwg
+Z2ZwKTsKKwkJCWlmICghYWRkcikKKwkJCQlyZXR1cm4gTlVMTDsKKwkJCW9sZCA9IHB0ZTsKKwkJ
+CXB0ZSA9IF9pb19wdGVfZW50cnkodmlydF90b19wZm4oYWRkciksIF9QQUdFX1RBQkxFKTsKKwkJ
+CWlmIChjbXB4Y2hnX3JlbGF4ZWQocHRyLCBvbGQsIHB0ZSkgIT0gb2xkKSB7CisJCQkJaW9tbXVf
+ZnJlZV9wYWdlKGFkZHIpOworCQkJCWdvdG8gcHRlX3JldHJ5OworCQkJfQorCQl9CisJCXB0ciA9
+ICh1bnNpZ25lZCBsb25nICopcGZuX3RvX3ZpcnQoX19wYWdlX3ZhbF90b19wZm4ocHRlKSk7CisJ
+fSB3aGlsZSAobGV2ZWwtLSA+IDApOworCisJcmV0dXJuIE5VTEw7Cit9CisKK3N0YXRpYyB1bnNp
+Z25lZCBsb25nICpyaXNjdl9pb21tdV9wdGVfZmV0Y2goc3RydWN0IHJpc2N2X2lvbW11X2RvbWFp
+biAqZG9tYWluLAorCQkJCQkgICAgdW5zaWduZWQgbG9uZyBpb3ZhLCBzaXplX3QgKnB0ZV9wZ3Np
+emUpCit7CisJdW5zaWduZWQgbG9uZyAqcHRyID0gZG9tYWluLT5wZ2Rfcm9vdDsKKwl1bnNpZ25l
+ZCBsb25nIHB0ZTsKKwlpbnQgbGV2ZWwgPSBkb21haW4tPnBnZF9tb2RlIC0gUklTQ1ZfSU9NTVVf
+RENfRlNDX0lPU0FUUF9NT0RFX1NWMzkgKyAyOworCisJZG8geworCQljb25zdCBpbnQgc2hpZnQg
+PSBQQUdFX1NISUZUICsgUFRfU0hJRlQgKiBsZXZlbDsKKworCQlwdHIgKz0gKChpb3ZhID4+IHNo
+aWZ0KSAmIChQVFJTX1BFUl9QVEUgLSAxKSk7CisJCXB0ZSA9IFJFQURfT05DRSgqcHRyKTsKKwkJ
+aWYgKF9pb19wdGVfcHJlc2VudChwdGUpICYmIF9pb19wdGVfbGVhZihwdGUpKSB7CisJCQkqcHRl
+X3Bnc2l6ZSA9IChzaXplX3QpMSA8PCBzaGlmdDsKKwkJCXJldHVybiBwdHI7CisJCX0KKwkJaWYg
+KF9pb19wdGVfbm9uZShwdGUpKQorCQkJcmV0dXJuIE5VTEw7CisJCXB0ciA9ICh1bnNpZ25lZCBs
+b25nICopcGZuX3RvX3ZpcnQoX19wYWdlX3ZhbF90b19wZm4ocHRlKSk7CisJfSB3aGlsZSAobGV2
+ZWwtLSA+IDApOworCisJcmV0dXJuIE5VTEw7Cit9CisKK3N0YXRpYyBpbnQgcmlzY3ZfaW9tbXVf
+bWFwX3BhZ2VzKHN0cnVjdCBpb21tdV9kb21haW4gKmlvbW11X2RvbWFpbiwKKwkJCQkgdW5zaWdu
+ZWQgbG9uZyBpb3ZhLCBwaHlzX2FkZHJfdCBwaHlzLAorCQkJCSBzaXplX3QgcGdzaXplLCBzaXpl
+X3QgcGdjb3VudCwgaW50IHByb3QsCisJCQkJIGdmcF90IGdmcCwgc2l6ZV90ICptYXBwZWQpCit7
+CisJc3RydWN0IHJpc2N2X2lvbW11X2RvbWFpbiAqZG9tYWluID0gaW9tbXVfZG9tYWluX3RvX3Jp
+c2N2KGlvbW11X2RvbWFpbik7CisJc2l6ZV90IHNpemUgPSAwOworCXNpemVfdCBwYWdlX3NpemUg
+PSBnZXRfcGFnZV9zaXplKHBnc2l6ZSk7CisJdW5zaWduZWQgbG9uZyAqcHRyOworCXVuc2lnbmVk
+IGxvbmcgcHRlLCBvbGQsIHB0ZV9wcm90OworCWludCByYyA9IDA7CisJTElTVF9IRUFEKGZyZWVs
+aXN0KTsKKworCWlmICghKHByb3QgJiBJT01NVV9XUklURSkpCisJCXB0ZV9wcm90ID0gX1BBR0Vf
+QkFTRSB8IF9QQUdFX1JFQUQ7CisJZWxzZSBpZiAoZG9tYWluLT5hbW9fZW5hYmxlZCkKKwkJcHRl
+X3Byb3QgPSBfUEFHRV9CQVNFIHwgX1BBR0VfUkVBRCB8IF9QQUdFX1dSSVRFOworCWVsc2UKKwkJ
+cHRlX3Byb3QgPSBfUEFHRV9CQVNFIHwgX1BBR0VfUkVBRCB8IF9QQUdFX1dSSVRFIHwgX1BBR0Vf
+RElSVFk7CisKKwl3aGlsZSAocGdjb3VudCkgeworCQlwdHIgPSByaXNjdl9pb21tdV9wdGVfYWxs
+b2MoZG9tYWluLCBpb3ZhLCBwYWdlX3NpemUsIGdmcCk7CisJCWlmICghcHRyKSB7CisJCQlyYyA9
+IC1FTk9NRU07CisJCQlicmVhazsKKwkJfQorCisJCW9sZCA9IFJFQURfT05DRSgqcHRyKTsKKwkJ
+cHRlID0gX2lvX3B0ZV9lbnRyeShwaHlzX3RvX3BmbihwaHlzKSwgcHRlX3Byb3QpOworCQlpZiAo
+Y21weGNoZ19yZWxheGVkKHB0ciwgb2xkLCBwdGUpICE9IG9sZCkKKwkJCWNvbnRpbnVlOworCisJ
+CXJpc2N2X2lvbW11X3B0ZV9mcmVlKGRvbWFpbiwgb2xkLCAmZnJlZWxpc3QpOworCisJCXNpemUg
+Kz0gcGFnZV9zaXplOworCQlpb3ZhICs9IHBhZ2Vfc2l6ZTsKKwkJcGh5cyArPSBwYWdlX3NpemU7
+CisJCS0tcGdjb3VudDsKKwl9CisKKwkqbWFwcGVkID0gc2l6ZTsKKworCWlmICghbGlzdF9lbXB0
+eSgmZnJlZWxpc3QpKSB7CisJCS8qCisJCSAqIEluIDEuMCBzcGVjIHZlcnNpb24sIHRoZSBzbWFs
+bGVzdCBzY29wZSB3ZSBjYW4gdXNlIHRvCisJCSAqIGludmFsaWRhdGUgYWxsIGxldmVscyBvZiBw
+YWdlIHRhYmxlIChpLmUuIGxlYWYgYW5kIG5vbi1sZWFmKQorCQkgKiBpcyBhbiBpbnZhbGlkYXRl
+LWFsbC1QU0NJRCBJT1RJTlZBTC5WTUEgd2l0aCBBVj0wLgorCQkgKiBUaGlzIHdpbGwgYmUgdXBk
+YXRlZCB3aXRoIGhhcmR3YXJlIHN1cHBvcnQgZm9yCisJCSAqIGNhcGFiaWxpdHkuTkwgKG5vbi1s
+ZWFmKSBJT1RJTlZBTCBjb21tYW5kLgorCQkgKi8KKwkJcmlzY3ZfaW9tbXVfaW90bGJfaW52YWwo
+ZG9tYWluLCAwLCBVTE9OR19NQVgpOworCQlpb21tdV9wdXRfcGFnZXNfbGlzdCgmZnJlZWxpc3Qp
+OworCX0KKworCXJldHVybiByYzsKK30KKworc3RhdGljIHNpemVfdCByaXNjdl9pb21tdV91bm1h
+cF9wYWdlcyhzdHJ1Y3QgaW9tbXVfZG9tYWluICppb21tdV9kb21haW4sCisJCQkJICAgICAgdW5z
+aWduZWQgbG9uZyBpb3ZhLCBzaXplX3QgcGdzaXplLAorCQkJCSAgICAgIHNpemVfdCBwZ2NvdW50
+LAorCQkJCSAgICAgIHN0cnVjdCBpb21tdV9pb3RsYl9nYXRoZXIgKmdhdGhlcikKK3sKKwlzdHJ1
+Y3QgcmlzY3ZfaW9tbXVfZG9tYWluICpkb21haW4gPSBpb21tdV9kb21haW5fdG9fcmlzY3YoaW9t
+bXVfZG9tYWluKTsKKwlzaXplX3Qgc2l6ZSA9IHBnY291bnQgPDwgX19mZnMocGdzaXplKTsKKwl1
+bnNpZ25lZCBsb25nICpwdHIsIG9sZDsKKwlzaXplX3QgdW5tYXBwZWQgPSAwOworCXNpemVfdCBw
+dGVfc2l6ZTsKKworCXdoaWxlICh1bm1hcHBlZCA8IHNpemUpIHsKKwkJcHRyID0gcmlzY3ZfaW9t
+bXVfcHRlX2ZldGNoKGRvbWFpbiwgaW92YSwgJnB0ZV9zaXplKTsKKwkJaWYgKCFwdHIpCisJCQly
+ZXR1cm4gdW5tYXBwZWQ7CisKKwkJLyogcGFydGlhbCB1bm1hcCBpcyBub3QgYWxsb3dlZCwgZmFp
+bC4gKi8KKwkJaWYgKGlvdmEgJiAocHRlX3NpemUgLSAxKSkKKwkJCXJldHVybiB1bm1hcHBlZDsK
+KworCQlvbGQgPSBSRUFEX09OQ0UoKnB0cik7CisJCWlmIChjbXB4Y2hnX3JlbGF4ZWQocHRyLCBv
+bGQsIDApICE9IG9sZCkKKwkJCWNvbnRpbnVlOworCisJCWlvbW11X2lvdGxiX2dhdGhlcl9hZGRf
+cGFnZSgmZG9tYWluLT5kb21haW4sIGdhdGhlciwgaW92YSwKKwkJCQkJICAgIHB0ZV9zaXplKTsK
+KworCQlpb3ZhICs9IHB0ZV9zaXplOworCQl1bm1hcHBlZCArPSBwdGVfc2l6ZTsKKwl9CisKKwly
+ZXR1cm4gdW5tYXBwZWQ7Cit9CisKK3N0YXRpYyBwaHlzX2FkZHJfdCByaXNjdl9pb21tdV9pb3Zh
+X3RvX3BoeXMoc3RydWN0IGlvbW11X2RvbWFpbiAqaW9tbXVfZG9tYWluLAorCQkJCQkgICAgZG1h
+X2FkZHJfdCBpb3ZhKQoreworCXN0cnVjdCByaXNjdl9pb21tdV9kb21haW4gKmRvbWFpbiA9IGlv
+bW11X2RvbWFpbl90b19yaXNjdihpb21tdV9kb21haW4pOworCXVuc2lnbmVkIGxvbmcgcHRlX3Np
+emU7CisJdW5zaWduZWQgbG9uZyAqcHRyOworCisJcHRyID0gcmlzY3ZfaW9tbXVfcHRlX2ZldGNo
+KGRvbWFpbiwgaW92YSwgJnB0ZV9zaXplKTsKKwlpZiAoX2lvX3B0ZV9ub25lKCpwdHIpIHx8ICFf
+aW9fcHRlX3ByZXNlbnQoKnB0cikpCisJCXJldHVybiAwOworCisJcmV0dXJuIHBmbl90b19waHlz
+KF9fcGFnZV92YWxfdG9fcGZuKCpwdHIpKSB8IChpb3ZhICYgKHB0ZV9zaXplIC0gMSkpOworfQor
+CitzdGF0aWMgdm9pZCByaXNjdl9pb21tdV9mcmVlX3BhZ2luZ19kb21haW4oc3RydWN0IGlvbW11
+X2RvbWFpbiAqaW9tbXVfZG9tYWluKQoreworCXN0cnVjdCByaXNjdl9pb21tdV9kb21haW4gKmRv
+bWFpbiA9IGlvbW11X2RvbWFpbl90b19yaXNjdihpb21tdV9kb21haW4pOworCWNvbnN0IHVuc2ln
+bmVkIGxvbmcgcGZuID0gdmlydF90b19wZm4oZG9tYWluLT5wZ2Rfcm9vdCk7CisKKwlXQVJOX09O
+KCFsaXN0X2VtcHR5KCZkb21haW4tPmJvbmRzKSk7CisKKwlpZiAoKGludClkb21haW4tPnBzY2lk
+ID4gMCkKKwkJaWRhX2ZyZWUoJnJpc2N2X2lvbW11X3BzY2lkcywgZG9tYWluLT5wc2NpZCk7CisK
+KwlyaXNjdl9pb21tdV9wdGVfZnJlZShkb21haW4sIF9pb19wdGVfZW50cnkocGZuLCBfUEFHRV9U
+QUJMRSksIE5VTEwpOworCWtmcmVlKGRvbWFpbik7Cit9CisKK3N0YXRpYyBib29sIHJpc2N2X2lv
+bW11X3B0X3N1cHBvcnRlZChzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21tdSwgaW50IHBn
+ZF9tb2RlKQoreworCXN3aXRjaCAocGdkX21vZGUpIHsKKwljYXNlIFJJU0NWX0lPTU1VX0RDX0ZT
+Q19JT1NBVFBfTU9ERV9TVjM5OgorCQlyZXR1cm4gaW9tbXUtPmNhcHMgJiBSSVNDVl9JT01NVV9D
+QVBfU19TVjM5OworCisJY2FzZSBSSVNDVl9JT01NVV9EQ19GU0NfSU9TQVRQX01PREVfU1Y0ODoK
+KwkJcmV0dXJuIGlvbW11LT5jYXBzICYgUklTQ1ZfSU9NTVVfQ0FQX1NfU1Y0ODsKKworCWNhc2Ug
+UklTQ1ZfSU9NTVVfRENfRlNDX0lPU0FUUF9NT0RFX1NWNTc6CisJCXJldHVybiBpb21tdS0+Y2Fw
+cyAmIFJJU0NWX0lPTU1VX0NBUF9TX1NWNTc7CisJfQorCXJldHVybiBmYWxzZTsKK30KKworc3Rh
+dGljIGludCByaXNjdl9pb21tdV9hdHRhY2hfcGFnaW5nX2RvbWFpbihzdHJ1Y3QgaW9tbXVfZG9t
+YWluICppb21tdV9kb21haW4sCisJCQkJCSAgICBzdHJ1Y3QgZGV2aWNlICpkZXYpCit7CisJc3Ry
+dWN0IHJpc2N2X2lvbW11X2RvbWFpbiAqZG9tYWluID0gaW9tbXVfZG9tYWluX3RvX3Jpc2N2KGlv
+bW11X2RvbWFpbik7CisJc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXUgPSBkZXZfdG9f
+aW9tbXUoZGV2KTsKKwlzdHJ1Y3QgcmlzY3ZfaW9tbXVfaW5mbyAqaW5mbyA9IGRldl9pb21tdV9w
+cml2X2dldChkZXYpOworCXU2NCBmc2MsIHRhOworCisJaWYgKCFyaXNjdl9pb21tdV9wdF9zdXBw
+b3J0ZWQoaW9tbXUsIGRvbWFpbi0+cGdkX21vZGUpKQorCQlyZXR1cm4gLUVOT0RFVjsKKworCWlm
+IChkb21haW4tPm51bWFfbm9kZSA9PSBOVU1BX05PX05PREUpCisJCWRvbWFpbi0+bnVtYV9ub2Rl
+ID0gZGV2X3RvX25vZGUoaW9tbXUtPmRldik7CisKKwlpZiAocmlzY3ZfaW9tbXVfYm9uZF9saW5r
+KGRvbWFpbiwgZGV2KSkKKwkJcmV0dXJuIC1FTk9NRU07CisKKwkvKgorCSAqIEludmFsaWRhdGUg
+UFNDSUQuCisJICogVGhpcyBpbnZhbGlkYXRpb24gbWlnaHQgYmUgcmVkdW5kYW50IGlmIElPQVRD
+IGhhcyBiZWVuIGFscmVhZHkgY2xlYXJlZCwKKwkgKiBob3dldmVyIHdlIGFyZSBub3Qga2VlcGlu
+ZyB0cmFjayBmb3IgZG9tYWlucyBub3QgbGlua2VkIHRvIGEgZGV2aWNlLgorCSAqLworCXJpc2N2
+X2lvbW11X2lvdGxiX2ludmFsKGRvbWFpbiwgMCwgVUxPTkdfTUFYKTsKKworCWZzYyA9IEZJRUxE
+X1BSRVAoUklTQ1ZfSU9NTVVfUENfRlNDX01PREUsIGRvbWFpbi0+cGdkX21vZGUpIHwKKwkgICAg
+ICBGSUVMRF9QUkVQKFJJU0NWX0lPTU1VX1BDX0ZTQ19QUE4sIHZpcnRfdG9fcGZuKGRvbWFpbi0+
+cGdkX3Jvb3QpKTsKKwl0YSA9IEZJRUxEX1BSRVAoUklTQ1ZfSU9NTVVfUENfVEFfUFNDSUQsIGRv
+bWFpbi0+cHNjaWQpIHwKKwkgICAgIFJJU0NWX0lPTU1VX1BDX1RBX1Y7CisKKwlyaXNjdl9pb21t
+dV9pb2Rpcl91cGRhdGUoaW9tbXUsIGRldiwgZnNjLCB0YSk7CisJcmlzY3ZfaW9tbXVfYm9uZF91
+bmxpbmsoaW5mby0+ZG9tYWluLCBkZXYpOworCWluZm8tPmRvbWFpbiA9IGRvbWFpbjsKKworCXJl
+dHVybiAwOworfQorCitzdGF0aWMgY29uc3Qgc3RydWN0IGlvbW11X2RvbWFpbl9vcHMgcmlzY3Zf
+aW9tbXVfcGFnaW5nX2RvbWFpbl9vcHMgPSB7CisJLmF0dGFjaF9kZXYgPSByaXNjdl9pb21tdV9h
+dHRhY2hfcGFnaW5nX2RvbWFpbiwKKwkuZnJlZSA9IHJpc2N2X2lvbW11X2ZyZWVfcGFnaW5nX2Rv
+bWFpbiwKKwkubWFwX3BhZ2VzID0gcmlzY3ZfaW9tbXVfbWFwX3BhZ2VzLAorCS51bm1hcF9wYWdl
+cyA9IHJpc2N2X2lvbW11X3VubWFwX3BhZ2VzLAorCS5pb3ZhX3RvX3BoeXMgPSByaXNjdl9pb21t
+dV9pb3ZhX3RvX3BoeXMsCisJLmlvdGxiX3N5bmMgPSByaXNjdl9pb21tdV9pb3RsYl9zeW5jLAor
+CS5mbHVzaF9pb3RsYl9hbGwgPSByaXNjdl9pb21tdV9pb3RsYl9mbHVzaF9hbGwsCit9OworCitz
+dGF0aWMgc3RydWN0IGlvbW11X2RvbWFpbiAqcmlzY3ZfaW9tbXVfYWxsb2NfcGFnaW5nX2RvbWFp
+bihzdHJ1Y3QgZGV2aWNlICpkZXYpCit7CisJc3RydWN0IHJpc2N2X2lvbW11X2RvbWFpbiAqZG9t
+YWluOworCXN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgKmlvbW11OworCXVuc2lnbmVkIGludCBw
+Z2RfbW9kZTsKKwlpbnQgdmFfYml0czsKKworCWlvbW11ID0gZGV2ID8gZGV2X3RvX2lvbW11KGRl
+dikgOiBOVUxMOworCisJLyoKKwkgKiBJbiB1bmxpa2VseSBjYXNlIHdoZW4gZGV2IG9yIGlvbW11
+IGlzIG5vdCBrbm93biwgdXNlIHN5c3RlbQorCSAqIFNBVFAgbW9kZSB0byBjb25maWd1cmUgcGFn
+aW5nIGRvbWFpbiByYWRpeCB0cmVlIGRlcHRoLgorCSAqIFVzZSBoaWdoZXN0IGF2YWlsYWJsZSBp
+ZiBhY3R1YWwgSU9NTVUgaGFyZHdhcmUgY2FwYWJpbGl0aWVzCisJICogYXJlIGtub3duIGhlcmUu
+CisJICovCisJaWYgKCFpb21tdSkgeworCQlwZ2RfbW9kZSA9IHNhdHBfbW9kZSA+PiBTQVRQX01P
+REVfU0hJRlQ7CisJCXZhX2JpdHMgPSBWQV9CSVRTOworCX0gZWxzZSBpZiAoaW9tbXUtPmNhcHMg
+JiBSSVNDVl9JT01NVV9DQVBfU19TVjU3KSB7CisJCXBnZF9tb2RlID0gUklTQ1ZfSU9NTVVfRENf
+RlNDX0lPU0FUUF9NT0RFX1NWNTc7CisJCXZhX2JpdHMgPSA1NzsKKwl9IGVsc2UgaWYgKGlvbW11
+LT5jYXBzICYgUklTQ1ZfSU9NTVVfQ0FQX1NfU1Y0OCkgeworCQlwZ2RfbW9kZSA9IFJJU0NWX0lP
+TU1VX0RDX0ZTQ19JT1NBVFBfTU9ERV9TVjQ4OworCQl2YV9iaXRzID0gNDg7CisJfSBlbHNlIGlm
+IChpb21tdS0+Y2FwcyAmIFJJU0NWX0lPTU1VX0NBUF9TX1NWMzkpIHsKKwkJcGdkX21vZGUgPSAg
+UklTQ1ZfSU9NTVVfRENfRlNDX0lPU0FUUF9NT0RFX1NWMzk7CisJCXZhX2JpdHMgPSAzOTsKKwl9
+IGVsc2UgeworCQlkZXZfZXJyKGRldiwgImNhbm5vdCBmaW5kIHN1cHBvcnRlZCBwYWdlIHRhYmxl
+IG1vZGVcbiIpOworCQlyZXR1cm4gRVJSX1BUUigtRU5PREVWKTsKKwl9CisKKwlkb21haW4gPSBr
+emFsbG9jKHNpemVvZigqZG9tYWluKSwgR0ZQX0tFUk5FTCk7CisJaWYgKCFkb21haW4pCisJCXJl
+dHVybiBFUlJfUFRSKC1FTk9NRU0pOworCisJSU5JVF9MSVNUX0hFQURfUkNVKCZkb21haW4tPmJv
+bmRzKTsKKwlzcGluX2xvY2tfaW5pdCgmZG9tYWluLT5sb2NrKTsKKwlkb21haW4tPm51bWFfbm9k
+ZSA9IE5VTUFfTk9fTk9ERTsKKworCWlmIChpb21tdSkgeworCQlkb21haW4tPm51bWFfbm9kZSA9
+IGRldl90b19ub2RlKGlvbW11LT5kZXYpOworCQlkb21haW4tPmFtb19lbmFibGVkID0gISEoaW9t
+bXUtPmNhcHMgJiBSSVNDVl9JT01NVV9DQVBfQU1PX0hXQUQpOworCX0KKworCWRvbWFpbi0+cGdk
+X21vZGUgPSBwZ2RfbW9kZTsKKwlkb21haW4tPnBnZF9yb290ID0gaW9tbXVfYWxsb2NfcGFnZV9u
+b2RlKGRvbWFpbi0+bnVtYV9ub2RlLAorCQkJCQkJIEdGUF9LRVJORUxfQUNDT1VOVCk7CisJaWYg
+KCFkb21haW4tPnBnZF9yb290KSB7CisJCWtmcmVlKGRvbWFpbik7CisJCXJldHVybiBFUlJfUFRS
+KC1FTk9NRU0pOworCX0KKworCWRvbWFpbi0+cHNjaWQgPSBpZGFfYWxsb2NfcmFuZ2UoJnJpc2N2
+X2lvbW11X3BzY2lkcywgMSwKKwkJCQkJUklTQ1ZfSU9NTVVfTUFYX1BTQ0lELCBHRlBfS0VSTkVM
+KTsKKwlpZiAoZG9tYWluLT5wc2NpZCA8IDApIHsKKwkJaW9tbXVfZnJlZV9wYWdlKGRvbWFpbi0+
+cGdkX3Jvb3QpOworCQlrZnJlZShkb21haW4pOworCQlyZXR1cm4gRVJSX1BUUigtRU5PTUVNKTsK
+Kwl9CisKKwkvKgorCSAqIE5vdGU6IFJJU0MtViBQcml2aWxlZ2Ugc3BlYyBtYW5kYXRlcyB0aGF0
+IHZpcnR1YWwgYWRkcmVzc2VzCisJICogbmVlZCB0byBiZSBzaWduLWV4dGVuZGVkLCBzbyBpZiAo
+VkFfQklUUyAtIDEpIGlzIHNldCwgYWxsCisJICogYml0cyA+PSBWQV9CSVRTIG5lZWQgdG8gYWxz
+byBiZSBzZXQgb3IgZWxzZSB3ZSdsbCBnZXQgYQorCSAqIHBhZ2UgZmF1bHQuIEhvd2V2ZXIgdGhl
+IGNvZGUgdGhhdCBjcmVhdGVzIHRoZSBtYXBwaW5ncworCSAqIGFib3ZlIHVzIChlLmcuIGlvbW11
+X2RtYV9hbGxvY19pb3ZhKCkpIHdvbid0IGRvIHRoYXQgZm9yIHVzCisJICogZm9yIG5vdywgc28g
+d2UnbGwgZW5kIHVwIHdpdGggaW52YWxpZCB2aXJ0dWFsIGFkZHJlc3NlcworCSAqIHRvIG1hcC4g
+QXMgYSB3b3JrYXJvdW5kIHVudGlsIHdlIGdldCB0aGlzIHNvcnRlZCBvdXQKKwkgKiBsaW1pdCB0
+aGUgYXZhaWxhYmxlIHZpcnR1YWwgYWRkcmVzc2VzIHRvIFZBX0JJVFMgLSAxLgorCSAqLworCWRv
+bWFpbi0+ZG9tYWluLmdlb21ldHJ5LmFwZXJ0dXJlX3N0YXJ0ID0gMDsKKwlkb21haW4tPmRvbWFp
+bi5nZW9tZXRyeS5hcGVydHVyZV9lbmQgPSBETUFfQklUX01BU0sodmFfYml0cyAtIDEpOworCWRv
+bWFpbi0+ZG9tYWluLmdlb21ldHJ5LmZvcmNlX2FwZXJ0dXJlID0gdHJ1ZTsKKworCWRvbWFpbi0+
+ZG9tYWluLm9wcyA9ICZyaXNjdl9pb21tdV9wYWdpbmdfZG9tYWluX29wczsKKworCXJldHVybiAm
+ZG9tYWluLT5kb21haW47Cit9CisKIHN0YXRpYyBpbnQgcmlzY3ZfaW9tbXVfYXR0YWNoX2Jsb2Nr
+aW5nX2RvbWFpbihzdHJ1Y3QgaW9tbXVfZG9tYWluICppb21tdV9kb21haW4sCiAJCQkJCSAgICAg
+IHN0cnVjdCBkZXZpY2UgKmRldikKIHsKIAlzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21t
+dSA9IGRldl90b19pb21tdShkZXYpOworCXN0cnVjdCByaXNjdl9pb21tdV9pbmZvICppbmZvID0g
+ZGV2X2lvbW11X3ByaXZfZ2V0KGRldik7CiAKIAlyaXNjdl9pb21tdV9pb2Rpcl91cGRhdGUoaW9t
+bXUsIGRldiwgUklTQ1ZfSU9NTVVfRlNDX0JBUkUsIDApOworCXJpc2N2X2lvbW11X2JvbmRfdW5s
+aW5rKGluZm8tPmRvbWFpbiwgZGV2KTsKKwlpbmZvLT5kb21haW4gPSBOVUxMOwogCiAJcmV0dXJu
+IDA7CiB9CkBAIC04MjcsOCArMTM5MCwxMSBAQCBzdGF0aWMgaW50IHJpc2N2X2lvbW11X2F0dGFj
+aF9pZGVudGl0eV9kb21haW4oc3RydWN0IGlvbW11X2RvbWFpbiAqaW9tbXVfZG9tYWluLAogCQkJ
+CQkgICAgICBzdHJ1Y3QgZGV2aWNlICpkZXYpCiB7CiAJc3RydWN0IHJpc2N2X2lvbW11X2Rldmlj
+ZSAqaW9tbXUgPSBkZXZfdG9faW9tbXUoZGV2KTsKKwlzdHJ1Y3QgcmlzY3ZfaW9tbXVfaW5mbyAq
+aW5mbyA9IGRldl9pb21tdV9wcml2X2dldChkZXYpOwogCiAJcmlzY3ZfaW9tbXVfaW9kaXJfdXBk
+YXRlKGlvbW11LCBkZXYsIFJJU0NWX0lPTU1VX0ZTQ19CQVJFLCBSSVNDVl9JT01NVV9QQ19UQV9W
+KTsKKwlyaXNjdl9pb21tdV9ib25kX3VubGluayhpbmZvLT5kb21haW4sIGRldik7CisJaW5mby0+
+ZG9tYWluID0gTlVMTDsKIAogCXJldHVybiAwOwogfQpAQCAtODQyLDcgKzE0MDgsNyBAQCBzdGF0
+aWMgc3RydWN0IGlvbW11X2RvbWFpbiByaXNjdl9pb21tdV9pZGVudGl0eV9kb21haW4gPSB7CiAK
+IHN0YXRpYyBpbnQgcmlzY3ZfaW9tbXVfZGV2aWNlX2RvbWFpbl90eXBlKHN0cnVjdCBkZXZpY2Ug
+KmRldikKIHsKLQlyZXR1cm4gSU9NTVVfRE9NQUlOX0lERU5USVRZOworCXJldHVybiAwOwogfQog
+CiBzdGF0aWMgc3RydWN0IGlvbW11X2dyb3VwICpyaXNjdl9pb21tdV9kZXZpY2VfZ3JvdXAoc3Ry
+dWN0IGRldmljZSAqZGV2KQpAQCAtODYxLDYgKzE0MjcsNyBAQCBzdGF0aWMgc3RydWN0IGlvbW11
+X2RldmljZSAqcmlzY3ZfaW9tbXVfcHJvYmVfZGV2aWNlKHN0cnVjdCBkZXZpY2UgKmRldikKIHsK
+IAlzdHJ1Y3QgaW9tbXVfZndzcGVjICpmd3NwZWMgPSBkZXZfaW9tbXVfZndzcGVjX2dldChkZXYp
+OwogCXN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgKmlvbW11OworCXN0cnVjdCByaXNjdl9pb21t
+dV9pbmZvICppbmZvOwogCXN0cnVjdCByaXNjdl9pb21tdV9kYyAqZGM7CiAJdTY0IHRjOwogCWlu
+dCBpOwpAQCAtODk1LDE3ICsxNDYyLDMzIEBAIHN0YXRpYyBzdHJ1Y3QgaW9tbXVfZGV2aWNlICpy
+aXNjdl9pb21tdV9wcm9iZV9kZXZpY2Uoc3RydWN0IGRldmljZSAqZGV2KQogCQlXUklURV9PTkNF
+KGRjLT50YywgdGMpOwogCX0KIAorCWluZm8gPSBremFsbG9jKHNpemVvZigqaW5mbyksIEdGUF9L
+RVJORUwpOworCWlmICghaW5mbykKKwkJcmV0dXJuIEVSUl9QVFIoLUVOT01FTSk7CisJZGV2X2lv
+bW11X3ByaXZfc2V0KGRldiwgaW5mbyk7CisKIAlyZXR1cm4gJmlvbW11LT5pb21tdTsKIH0KIAor
+c3RhdGljIHZvaWQgcmlzY3ZfaW9tbXVfcmVsZWFzZV9kZXZpY2Uoc3RydWN0IGRldmljZSAqZGV2
+KQoreworCXN0cnVjdCByaXNjdl9pb21tdV9pbmZvICppbmZvID0gZGV2X2lvbW11X3ByaXZfZ2V0
+KGRldik7CisKKwlzeW5jaHJvbml6ZV9yY3UoKTsKKwlrZnJlZShpbmZvKTsKK30KKwogc3RhdGlj
+IGNvbnN0IHN0cnVjdCBpb21tdV9vcHMgcmlzY3ZfaW9tbXVfb3BzID0geworCS5wZ3NpemVfYml0
+bWFwID0gU1pfNEssCiAJLm9mX3hsYXRlID0gcmlzY3ZfaW9tbXVfb2ZfeGxhdGUsCiAJLmlkZW50
+aXR5X2RvbWFpbiA9ICZyaXNjdl9pb21tdV9pZGVudGl0eV9kb21haW4sCiAJLmJsb2NrZWRfZG9t
+YWluID0gJnJpc2N2X2lvbW11X2Jsb2NraW5nX2RvbWFpbiwKIAkucmVsZWFzZV9kb21haW4gPSAm
+cmlzY3ZfaW9tbXVfYmxvY2tpbmdfZG9tYWluLAorCS5kb21haW5fYWxsb2NfcGFnaW5nID0gcmlz
+Y3ZfaW9tbXVfYWxsb2NfcGFnaW5nX2RvbWFpbiwKIAkuZGVmX2RvbWFpbl90eXBlID0gcmlzY3Zf
+aW9tbXVfZGV2aWNlX2RvbWFpbl90eXBlLAogCS5kZXZpY2VfZ3JvdXAgPSByaXNjdl9pb21tdV9k
+ZXZpY2VfZ3JvdXAsCiAJLnByb2JlX2RldmljZSA9IHJpc2N2X2lvbW11X3Byb2JlX2RldmljZSwK
+KwkucmVsZWFzZV9kZXZpY2UJPSByaXNjdl9pb21tdV9yZWxlYXNlX2RldmljZSwKIH07CiAKIHN0
+YXRpYyBpbnQgcmlzY3ZfaW9tbXVfaW5pdF9jaGVjayhzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNl
+ICppb21tdSkKLS0gCjIuMzQuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
