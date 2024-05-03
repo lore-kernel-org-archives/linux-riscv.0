@@ -4,68 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225BDC10F16
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 08:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD33C10F16
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 08:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8RBz9yS+2WJA8IjsWQfJI3E3v64If4mqvK4vWluGJhA=; b=UjmObjreiusM92
-	vu4cxyJKFmZPSzb6H0BylNU1Pb5PZldo1HpkZPKqeOq/1rFuVRL9PszsIjxtLaWBrC1kF4gZkXMWY
-	Gy40NbzUMnSgUVK8t4J8F8FOH3+LIPJCutqFo7U2mx+uk/HvU9dEz4JSNF7fBWeaY43y65T1wVJUf
-	BTawLd6mqFqCCDA7uyV350G7M2Ww7o2+HDRSSLia1SfnfOcroDZNJbD5FkYApVP/KdyANAGCa28px
-	OA42s8xndqVbqDN6A/Urph4x9YNYB9KgIojrypPIN17eJJRSp5wMdUkdOYv76JJwOQ7Vi4ctKGemm
-	sPhvRpDdnTWdrFUQEgVA==;
+	List-Owner; bh=b12SAj18QkJEXLBCwr+yUJlqKqOYY3/QlYXdh3boePA=; b=qCnrAs+0BAhMns
+	BZ7gjHiH8z+8lX9hvxPsnYMxTSxNKo8oKSqmcbItxjpS0XyWRCayIEfTIPUHMvOhelTCqU0E/0ZAT
+	FIbAnDtwOik3Czyg4utbLlnCaVSQ8mJI103erNkMMmWP6VP63dP0/kYIIPoChOn14Nc9h3geSSv7g
+	SaXGiMn6EbGtpjNvUbneYecOXSeSSqw3I/yHkNI2I38Aahbs9KE9x20SdBmUMDBFgelpIsIcpOt4i
+	+sVxMNS/Ct/4LEX5GCFg4gNHfNUWSzb0wljerSQKPLqkK5SKabKUwAvZC0X3jYJSc3LkSPNZFFGU7
+	00K0TVjA/u+YLML+GFYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2oDx-0000000FdNG-0bb7;
-	Fri, 03 May 2024 08:24:57 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1s2oKv-0000000FfGT-23wu;
+	Fri, 03 May 2024 08:32:09 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2oDt-0000000FdLW-1kte;
-	Fri, 03 May 2024 08:24:55 +0000
+	id 1s2oKr-0000000FfFR-3P0E;
+	Fri, 03 May 2024 08:32:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 8CE3FCE188F;
-	Fri,  3 May 2024 08:24:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7177C116B1;
-	Fri,  3 May 2024 08:24:47 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 1ED24CE1877;
+	Fri,  3 May 2024 08:32:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFB9EC116B1;
+	Fri,  3 May 2024 08:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714724690;
-	bh=8krA6oPxNixCEtNeNzJAv63F5yfpATT0K9/1XWZCeGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rtg4hZx0dy65+Q3VXMkenm1Z4XbllBwBQU1G2FH2aWOQA/whveWb+LPEE8q9oMiqv
-	 GJsAbw8RC2yAbObkT+EzxykcFeEGtq+jOZZSIB62WX51Wwq4xlKgyvvzKWBpQOcCvT
-	 fRYkQ+tuOSBUCM6XKm5p96ollDIJE9kIgAJ1136y+91fqsp98csZpqctDViKcQcmX3
-	 89JJYyVykEuTmthi6lRYKmiU8i2rPH/LkR54VUZda43brEyTwvyc1ayuTOFE40cDyJ
-	 Ba9MVPkLepzSDiWrmAEZWovdIOOwSQdJfS1PjTlETIJpvLYqn/tMO247hOH3+ClBlH
-	 Tp+ZV4MWejNhw==
-Date: Fri, 3 May 2024 09:24:44 +0100
-From: Lee Jones <lee@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
+	s=k20201202; t=1714725123;
+	bh=6DOS5VQQAPRSm2t3Wyf6dx/0I1EkIRN09CkZc6wmfVw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YyORqsoLNjIRopGWrYSwT/D/qtOD1g5x36af3k8SQdIXg9PCx8p797wFMpX3BApQ3
+	 LHbSfOdaIcAutK5/CQQx42CyBJ6eD7CMp57CdVXLK05xWXFv527IwEaEsmRUDsuDqf
+	 G1F8r1WNExzgQSbovlfnUFwxim8pTQNzTwSVXP51t69vqfZ2zfG1598+us3xVqlyH5
+	 K1E2w9sp7TKzr+UoSzSiYJaAowY6w/7uXO5We+vwcN5eAs9vSw3x50/ilebYW3ijVn
+	 GlfPYtIuixUr2K0lv1bWaGWiSJSHV7MaJ0ux5eiTQVB90QUrzeA4nplObT9+zYuDXJ
+	 f5ELXvNJ1zDxw==
+Message-ID: <72f94454-867f-4a6c-90c8-134db2ce150e@kernel.org>
+Date: Fri, 3 May 2024 10:31:55 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] dt-bindings: mfd: Use full path to other schemas
-Message-ID: <20240503082444.GJ1227636@google.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
 References: <20240503072116.12430-1-krzysztof.kozlowski@linaro.org>
  <a2886f72-210e-41a1-aae0-c079a4d11396@linaro.org>
  <0af10387-ddfb-47b0-b59e-eeba1644be1c@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0af10387-ddfb-47b0-b59e-eeba1644be1c@kernel.org>
+ <20240503082444.GJ1227636@google.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20240503082444.GJ1227636@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240503_012453_659715_A50CCDDD 
-X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-CacheID: sfid-20240503_013206_244818_81869174 
+X-CRM114-Status: UNSURE (   8.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,23 +120,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAwMyBNYXkgMjAyNCwgS3J6eXN6dG9mIEtvemxvd3NraSB3cm90ZToKCj4gT24gMDMv
-MDUvMjAyNCAxMDowOCwgVHVkb3IgQW1iYXJ1cyB3cm90ZToKPiA+IAo+ID4gCj4gPiBPbiA1LzMv
-MjQgMDg6MjEsIEtyenlzenRvZiBLb3psb3dza2kgd3JvdGU6Cj4gPj4gIC4uLi9iaW5kaW5ncy9t
-ZmQvc2Ftc3VuZyxzMm1wYTAxLnlhbWwgICAgICAgICB8ICAyICstCj4gPj4gIC4uLi9iaW5kaW5n
-cy9tZmQvc2Ftc3VuZyxzMm1wczExLnlhbWwgICAgICAgICB8IDEyICsrLS0tCj4gPj4gIC4uLi9i
-aW5kaW5ncy9tZmQvc2Ftc3VuZyxzNW04NzY3LnlhbWwgICAgICAgICB8ICA0ICstCj4gPiAKPiA+
-IFJldmlld2VkLWJ5OiBUdWRvciBBbWJhcnVzIDx0dWRvci5hbWJhcnVzQGxpbmFyby5vcmc+Cj4g
-Cj4gU28gdGhpcyBzaG91bGQgYmUgQWNrLiBZb3UgY2Fubm90IHJldmlldyBwYXJ0IG9mIHRoZSBw
-YXRjaCAoIkkgaGF2ZQo+IGNhcnJpZWQgb3V0IGEgdGVjaG5pY2FsIHJldmlldyBvZiB0aGlzIHBh
-dGNoLi4uIikuCj4gaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGludXgvdjYuOC1yYzUvc291
-cmNlL0RvY3VtZW50YXRpb24vcHJvY2Vzcy9zdWJtaXR0aW5nLXBhdGNoZXMucnN0CgpSZXZpZXdl
-ZC1ieSBpcyB0b3RhbGx5IGFwcHJvcHJpYXRlIGhlcmUuCgotLSAKTGVlIEpvbmVzIFvmnY7nkLzm
-lq9dCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 03/05/2024 10:24, Lee Jones wrote:
+> On Fri, 03 May 2024, Krzysztof Kozlowski wrote:
+> 
+>> On 03/05/2024 10:08, Tudor Ambarus wrote:
+>>>
+>>>
+>>> On 5/3/24 08:21, Krzysztof Kozlowski wrote:
+>>>>  .../bindings/mfd/samsung,s2mpa01.yaml         |  2 +-
+>>>>  .../bindings/mfd/samsung,s2mps11.yaml         | 12 ++---
+>>>>  .../bindings/mfd/samsung,s5m8767.yaml         |  4 +-
+>>>
+>>> Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+>>
+>> So this should be Ack. You cannot review part of the patch ("I have
+>> carried out a technical review of this patch...").
+>> https://elixir.bootlin.com/linux/v6.8-rc5/source/Documentation/process/submitting-patches.rst
+> 
+> Reviewed-by is totally appropriate here.
+
+Submitting patches is clear on that:
+"A Reviewed-by tag is a statement of opinion that the patch is an"
+Not "the patch or part of patch"
+
+And ack:
+" It is a record that the acker has at least reviewed the patch ....
+Acked-by: does not necessarily indicate acknowledgement of the entire
+patch."
+
+So no, reviewing part of the patch means you Ack it. Especially that in
+git log the Rb tag will suggest entire patch was reviewed, while it was
+not true. Review of 80% of patch did not happen.
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
