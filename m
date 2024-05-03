@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF709C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 14:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A42CFC4345F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 14:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CDnAs+zBUKIs5BqA8i9BK5q4OEbXt/PDUITwaz/cHNs=; b=0+N/nDRSBc4MoF
-	tkiPD9WdbAv9HqPmC6aOWwHOAZRWmIt81tn1+FPhhIx6vk+YxRK3I0zaJ3IPYbb7K31/DAgXnJA2I
-	E6tfCxPVbxT8+tWWE0cid/aXZAJjP1xcV4jZ2nea6A8LTlcmePo6LfUFrhQQsQCYchpWu0Iu0yEAC
-	TjD8M0ZVe7xp43hZU+dwt5PMNIPe/nj7w8sJJg6t3TCHX0yb+t5SjETP1HuZnVMAKg5uVAYV3dMr5
-	NpgryJfylbBW9/lS9vrcGaCqzogi9W1lrwm/ZL68sjHbCFvtbzti77H3d1nllaHoqSfecEIDeYkDu
-	gYXV92qZvPQS/97/7iNw==;
+	List-Owner; bh=y8Qv27Zj3YMSWlFXaIa3Y3jxGKkscRwAu2DQLWa6j0o=; b=jHsC0978vkW+7P
+	Ce1yuwrYNYX/AiQqvQRKH/bWGW0KTgGgLyXCeK0p+xtp3BOcUDywxzax8eanOxmsgFvYB+8RErk71
+	gQC+kV38NiDJOPRnpj+Ty93U15Bzx1uWBBSm2e5Zc5ts242KczEtmgqxEvQkhg5tdX9ikHEBh1OpH
+	dDQMbRM/+BECb2X5SJOf51VOzN++v2HEHsJK6yeF0vmIVfcSniue4+RcC0nNIBJl15aHAS+xkPYQp
+	Hkb4FrHIdzZeR2kzyTDEwVH1vSZnkuqqFEmc8y43eIN5EIJ0NbqmktaISP6JI8trdOO1D1h8bw3KL
+	MEaqPuuNAlqFm7Bmyf2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2tbl-0000000GnaL-2uI2;
-	Fri, 03 May 2024 14:09:53 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	id 1s2ti9-0000000Gor7-1G8T;
+	Fri, 03 May 2024 14:16:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2tbe-0000000GnVC-2aap;
-	Fri, 03 May 2024 14:09:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1714745381;
-	bh=+fi7fUfomErHHAmvDww2p/WTBqGy/yFZDfIKZxnytjc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KM4XIarbWLiqP+rTdHhYP4ADp2FfBPZJESIvebE/x46r3wpaPNaKYYJ8DjRuiR4XK
-	 lgnUuJtE42KneR0ACxiqLQ5uJD/S7BK84VwhVwYe9egEdoAzvtQwKV4FeMNTpP6GjL
-	 22eK/o3npUywdzgLbvtpx7d4AZBFjdzVsbPnc49I=
-Date: Fri, 3 May 2024 16:09:40 +0200
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
-To: Joel Granados <j.granados@samsung.com>
-Cc: Luis Chamberlain <mcgrof@kernel.org>, 
-	Kees Cook <keescook@chromium.org>, Eric Dumazet <edumazet@google.com>, 
-	Dave Chinner <david@fromorbit.com>, linux-fsdevel@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
-	bpf@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-xfs@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	netfilter-devel@vger.kernel.org, coreteam@netfilter.org, kexec@lists.infradead.org, 
-	linux-hardening@vger.kernel.org, bridge@lists.linux.dev, lvs-devel@vger.kernel.org, 
-	linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com, linux-sctp@vger.kernel.org, 
-	linux-nfs@vger.kernel.org, apparmor@lists.ubuntu.com
-Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
- of sysctl handlers
-Message-ID: <4cda5d2d-dd92-44ef-9e7b-7b780ec795ab@t-8ch.de>
-References: <CGME20240423075608eucas1p265e7c90f3efd6995cb240b3d2688b803@eucas1p2.samsung.com>
- <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
- <20240503090332.irkiwn73dgznjflz@joelS2.panther.com>
+	id 1s2sZ5-0000000GXv8-0qGO
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 03 May 2024 13:03:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=vSw8QKu9HGf7qHmg18MXmUhtbJeVSX9Chf+hV0PW2t8=; b=FvCaKO6u4v99D04PS5PPs1f1Ai
+	HQtK/ExETpotiPA6o9GFDA5ufB5rb94ORzyGUaHfDFw1Bvalq3aIiFfR1cr/xfQ2aE7DwSTr1oWTF
+	rUxVFd9Iuw9+9SFZPKTHA+0tuR+uYaC1kp4gCScPr7qultUemeLvlUDddu6c602zk8SpBXu+KYpaJ
+	kfyw+S6eNNQSY5JCceMdr5KffNK+xQbEim35g+Ok2id7arsOauHpejLssX94N5kuBUNvVwh9X9YTe
+	WEhoLG4MmxNxcJai/viHhAaBiJ2AH+9Ns4RFQRz7dh7a6/6yohvDjnrlv59xJsrzqNc9+BslsZ+Df
+	Z9uzqrvg==;
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s2sZ0-00000000YHk-2Uk7
+	for linux-riscv@lists.infradead.org;
+	Fri, 03 May 2024 13:03:01 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A26A8E0008;
+	Fri,  3 May 2024 13:02:52 +0000 (UTC)
+Message-ID: <daa955d9-b554-4e0e-a08e-835c4cd5a366@ghiti.fr>
+Date: Fri, 3 May 2024 15:02:52 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240503090332.irkiwn73dgznjflz@joelS2.panther.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: uaccess: Allow the last potential unrolled copy
+Content-Language: en-US
+To: Ben Dooks <ben.dooks@codethink.co.uk>, Xiao Wang <xiao.w.wang@intel.com>,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
+Cc: jerry.shih@sifive.com, nick.knight@sifive.com, ajones@ventanamicro.com,
+ bjorn@rivosinc.com, andy.chiu@sifive.com, viro@zeniv.linux.org.uk,
+ cleger@rivosinc.com, alexghiti@rivosinc.com, haicheng.li@intel.com,
+ akira.tsukamoto@gmail.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20240313103334.4036554-1-xiao.w.wang@intel.com>
+ <7ebc5b28-7115-494f-a607-e46c71214cce@ghiti.fr>
+ <4bc238eb-410b-46b1-98e1-4aaa35e34404@codethink.co.uk>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <4bc238eb-410b-46b1-98e1-4aaa35e34404@codethink.co.uk>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240503_070946_901456_ACD1EDCA 
-X-CRM114-Status: GOOD (  29.45  )
+X-CRM114-CacheID: sfid-20240503_140258_751327_7352C7FB 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,184 +77,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Joel,
-
-On 2024-05-03 11:03:32+0000, Joel Granados wrote:
-> Here is my feedback for your outstanding constification patches [1] and [2].
-
-Thanks!
-
-> # You need to split the patch
-> The answer that you got from Jakub in the network subsystem is very clear and
-> baring a change of heart from the network folks, this will go in as but as a
-> split patchset. Please split it considering the following:
-> 1. Create a different patchset for drivers/,  fs/, kernel/, net, and a
->    miscellaneous that includes whatever does not fit into the others.
-> 2. Consider that this might take several releases.
-> 3. Consider the following sufix for the interim function name "_const". Like in
->    kfree_const. Please not "_new".
-
-Ack. "_new" was an intentionally unacceptable placeholder.
-
-> 4. Please publish the final result somewhere. This is important so someone can
->    take over in case you need to stop.
-
-Will do. Both for each single series and a combination of all of them.
-
-> 5. Consistently mention the motivation in your cover letters. I specify more
->    further down in "#Motivation".
-> 6. Also mention that this is part of a bigger effort (like you did in your
->    original cover letters). I would include [3,4,5,6]
-> 7. Include a way to show what made it into .rodata. I specify more further down
->    in "#Show the move".
-> 
-> # Motivation
-> As I read it, the motivation for these constification efforts are:
-> 1. It provides increased safety: Having things in .rodata section reduces the
->    attack surface. This is especially relevant for structures that have function
->    pointers (like ctl_table); having these in .rodata means that these pointers
->    always point to the "intended" function and cannot be changed.
-> 2. Compiler optimizations: This was just a comment in the patchsets that I have
->    mentioned ([3,4,5]). Do you know what optimizations specifically? Does it
->    have to do with enhancing locality for the data in .rodata? Do you have other
->    specific optimizations in mind?
-
-I don't know about anything that would make it faster.
-It's more about safety and transmission of intent to API users,
-especially callback implementers.
-
-> 3. Readability: because it is easier to know up-front that data is not supposed
->    to change or its obvious that a function is re-entrant. Actually a lot of the
->    readability reasons is about knowing things "up-front".
-> As we move forward with the constification in sysctl, please include a more
-> detailed motivation in all your cover letters. This helps maintainers (that
-> don't have the context) understand what you are trying to do. It does not need
-> to be my three points, but it should be more than just "put things into
-> .rodata". Please tell me if I have missed anything in the motivation.
-
-Will do.
-
-> # Show the move
-> I created [8] because there is no easy way to validate which objects made it
-> into .rodata. I ran [8] for your Dec 2nd patcheset [7] and there are less in
-> .rodata than I expected (the results are in [9]) Why is that? Is it something
-> that has not been posted to the lists yet? 
-
-Constifying the APIs only *allows* the actual table to be constified
-themselves.
-Then each table definition will have to be touched and "const" added.
-
-See patches 17 and 18 in [7] for two examples.
-
-Some tables in net/ are already "const" as the static definitions are
-never registered themselves but only their copies are.
-
-This seems to explain your findings.
-
-> Best
-
-Thanks!
-
-> [1] https://lore.kernel.org/all/20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net/
-> [2] https://lore.kernel.org/all/20240418-sysctl-const-table-arg-v2-1-4012abc31311@weissschuh.net
-> [3] [PATCH v2 00/14] ASoC: Constify local snd_sof_dsp_ops
->     https://lore.kernel.org/all/20240426-n-const-ops-var-v2-0-e553fe67ae82@kernel.org
-> [4] [PATCH v2 00/19] backlight: Constify lcd_ops
->     https://lore.kernel.org/all/20240424-video-backlight-lcd-ops-v2-0-1aaa82b07bc6@kernel.org
-> [5] [PATCH 1/4] iommu: constify pointer to bus_type
->     https://lore.kernel.org/all/20240216144027.185959-1-krzysztof.kozlowski@linaro.org
-> [6] [PATCH 00/29] const xattr tables
->     https://lore.kernel.org/all/20230930050033.41174-1-wedsonaf@gmail.com
-> [7] https://lore.kernel.org/all/20231204-const-sysctl-v2-0-7a5060b11447@weissschuh.net/
-> 
-> [8]
-
-[snip]
-
-> [9]
->     section: .rodata                obj_name : kern_table
->     section: .rodata                obj_name : sysctl_mount_point
->     section: .rodata                obj_name : addrconf_sysctl
->     section: .rodata                obj_name : ax25_param_table
->     section: .rodata                obj_name : mpls_table
->     section: .rodata                obj_name : mpls_dev_table
->     section: .data          obj_name : sld_sysctls
->     section: .data          obj_name : kern_panic_table
->     section: .data          obj_name : kern_exit_table
->     section: .data          obj_name : vm_table
->     section: .data          obj_name : signal_debug_table
->     section: .data          obj_name : usermodehelper_table
->     section: .data          obj_name : kern_reboot_table
->     section: .data          obj_name : user_table
->     section: .bss           obj_name : sched_core_sysctls
->     section: .data          obj_name : sched_fair_sysctls
->     section: .data          obj_name : sched_rt_sysctls
->     section: .data          obj_name : sched_dl_sysctls
->     section: .data          obj_name : printk_sysctls
->     section: .data          obj_name : pid_ns_ctl_table_vm
->     section: .data          obj_name : seccomp_sysctl_table
->     section: .data          obj_name : uts_kern_table
->     section: .data          obj_name : vm_oom_kill_table
->     section: .data          obj_name : vm_page_writeback_sysctls
->     section: .data          obj_name : page_alloc_sysctl_table
->     section: .data          obj_name : hugetlb_table
->     section: .data          obj_name : fs_stat_sysctls
->     section: .data          obj_name : fs_exec_sysctls
->     section: .data          obj_name : fs_pipe_sysctls
->     section: .data          obj_name : namei_sysctls
->     section: .data          obj_name : fs_dcache_sysctls
->     section: .data          obj_name : inodes_sysctls
->     section: .data          obj_name : fs_namespace_sysctls
->     section: .data          obj_name : dnotify_sysctls
->     section: .data          obj_name : inotify_table
->     section: .data          obj_name : epoll_table
->     section: .data          obj_name : aio_sysctls
->     section: .data          obj_name : locks_sysctls
->     section: .data          obj_name : coredump_sysctls
->     section: .data          obj_name : fs_shared_sysctls
->     section: .data          obj_name : fs_dqstats_table
->     section: .data          obj_name : root_table
->     section: .data          obj_name : pty_table
->     section: .data          obj_name : xfs_table
->     section: .data          obj_name : ipc_sysctls
->     section: .data          obj_name : key_sysctls
->     section: .data          obj_name : kernel_io_uring_disabled_table
->     section: .data          obj_name : tty_table
->     section: .data          obj_name : random_table
->     section: .data          obj_name : scsi_table
->     section: .data          obj_name : iwcm_ctl_table
->     section: .data          obj_name : net_core_table
->     section: .data          obj_name : netns_core_table
->     section: .bss           obj_name : nf_log_sysctl_table
->     section: .data          obj_name : nf_log_sysctl_ftable
->     section: .data          obj_name : vs_vars
->     section: .data          obj_name : vs_vars_table
->     section: .data          obj_name : ipv4_route_netns_table
->     section: .data          obj_name : ipv4_route_table
->     section: .data          obj_name : ip4_frags_ns_ctl_table
->     section: .data          obj_name : ip4_frags_ctl_table
->     section: .data          obj_name : ctl_forward_entry
->     section: .data          obj_name : ipv4_table
->     section: .data          obj_name : ipv4_net_table
->     section: .data          obj_name : unix_table
->     section: .data          obj_name : ipv6_route_table_template
->     section: .data          obj_name : ipv6_icmp_table_template
->     section: .data          obj_name : ip6_frags_ns_ctl_table
->     section: .data          obj_name : ip6_frags_ctl_table
->     section: .data          obj_name : ipv6_table_template
->     section: .data          obj_name : ipv6_rotable
->     section: .data          obj_name : sctp_net_table
->     section: .data          obj_name : sctp_table
->     section: .data          obj_name : smc_table
->     section: .data          obj_name : lowpan_frags_ns_ctl_table
->     section: .data          obj_name : lowpan_frags_ctl_table
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQmVuLAoKT24gMDMvMDUvMjAyNCAxNDoxOSwgQmVuIERvb2tzIHdyb3RlOgo+IE9uIDAzLzA1
+LzIwMjQgMTM6MTYsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPj4gSGkgWGlhbywKPj4KPj4gT24g
+MTMvMDMvMjAyNCAxMTozMywgWGlhbyBXYW5nIHdyb3RlOgo+Pj4gV2hlbiB0aGUgZHN0IGJ1ZmZl
+ciBwb2ludGVyIHBvaW50cyB0byB0aGUgbGFzdCBhY2Nlc3NpYmxlIGFsaWduZWQgCj4+PiBhZGRy
+LCB3ZQo+Pj4gY291bGQgc3RpbGwgcnVuIGFub3RoZXIgaXRlcmF0aW9uIG9mIHVucm9sbGVkIGNv
+cHkuCj4+Pgo+Pj4gU2lnbmVkLW9mZi1ieTogWGlhbyBXYW5nIDx4aWFvLncud2FuZ0BpbnRlbC5j
+b20+Cj4+PiAtLS0KPj4+IMKgIGFyY2gvcmlzY3YvbGliL3VhY2Nlc3MuUyB8IDIgKy0KPj4+IMKg
+IDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+Pj4KPj4+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2xpYi91YWNjZXNzLlMgYi9hcmNoL3Jpc2N2L2xpYi91YWNj
+ZXNzLlMKPj4+IGluZGV4IDJlNjY1ZjhmOGZjYy4uMTM5OWQ3OTdkODFiIDEwMDY0NAo+Pj4gLS0t
+IGEvYXJjaC9yaXNjdi9saWIvdWFjY2Vzcy5TCj4+PiArKysgYi9hcmNoL3Jpc2N2L2xpYi91YWNj
+ZXNzLlMKPj4+IEBAIC0xMDMsNyArMTAzLDcgQEAgU1lNX0ZVTkNfU1RBUlQoZmFsbGJhY2tfc2Nh
+bGFyX3VzZXJjb3B5KQo+Pj4gwqDCoMKgwqDCoCBmaXh1cCBSRUdfU8KgwqAgdDQswqAgNypTWlJF
+RyhhMCksIDEwZgo+Pj4gwqDCoMKgwqDCoCBhZGRpwqDCoMKgIGEwLCBhMCwgOCpTWlJFRwo+Pj4g
+wqDCoMKgwqDCoCBhZGRpwqDCoMKgIGExLCBhMSwgOCpTWlJFRwo+Pj4gLcKgwqDCoCBibHR1wqDC
+oMKgIGEwLCB0MCwgMmIKPj4+ICvCoMKgwqAgYmxldcKgwqDCoCBhMCwgdDAsIDJiCj4+PiDCoMKg
+wqDCoMKgIGFkZGnCoMKgwqAgdDAsIHQwLCA4KlNaUkVHIC8qIHJldmVydCB0byBvcmlnaW5hbCB2
+YWx1ZSAqLwo+Pj4gwqDCoMKgwqDCoCBqwqDCoMKgIC5MYnl0ZV9jb3B5X3RhaWwKPj4KPj4KPj4g
+SSBhZ3JlZSBpdCBpcyBzdGlsbCBzYWZlIHRvIGNvbnRpbnVlIGZvciBhbm90aGVyIHdvcmRfY29w
+eSBoZXJlLgo+Pgo+PiBSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2
+b3NpbmMuY29tPgo+Cj4gT3V0IG9mIGludGVyZXN0LCBoYXMgYW55b25lIGNoZWNrZWQgaWYgY2F1
+c2luZyBhIHNjaGVkdWxlIGV2ZW50IGR1cmluZwo+IHRoaXMgY29kZSBicmVha3MgbGlrZSB0aGUg
+bGFzdCB0aW1lIHdlIGhhZCBpc3N1ZXMgd2l0aCB0aGUgdXBzdHJlYW0KPiB0ZXN0aW5nPwoKCkkg
+dmFndWVseSByZW1lbWJlciBzb21ldGhpbmcsIGRvIHlvdSBoYXZlIGEgbGluayB0byB0aGF0IGRp
+c2N1c3Npb24gYnkgCmNoYW5jZT8KCgo+Cj4gSSBkaWQgcHJvcG9zZSBzYXZpbmcgdGhlIHN0YXRl
+IG9mIHRoZSB1c2VyLWFjY2VzcyBmbGFnIGluIHRoZSB0YXNrCj4gc3RydWN0CgoKTWFrZXMgc2Vu
+c2UsIEkganVzdCB0b29rIGEgcXVpY2sgbG9vayBhbmQgU1JfU1VNIGlzIGNsZWFyZWQgYXMgc29v
+biBhcyAKd2UgZW50ZXIgaGFuZGxlX2V4Y2VwdGlvbigpIGFuZCBpdCBkb2VzIG5vdCBzZWVtIHRv
+IGJlIHJlc3RvcmVkLiBXZWlyZCAKaXQgd29ya3MsIHVubGVzcyBJIG1pc3NlZCBzb21ldGhpbmch
+CgoKPiBidXQgd2UgbW9zdGx5IHNvbHZlZCBpdCBieSBtYWtpbmcgc2xlZXBpbmcgZnVuY3Rpb25z
+IHN0YXkKPiBhd2F5IGZyb20gdGhlIGFkZHJlc3MgY2FsY3VsYXRpb24uIFRoaXMgb2YgY291cnNl
+IG1heSBoYXZlIGJlZW4gZG9uZQo+IGFscmVhZHkgb3IgbmVlZCB0byBiZSBkb25lIGlmIHRocmVl
+J3MgbG9uZyBhcmVhcyB3aGVyZSB0aGUgdXNlci1hY2Nlc3MKPiBmbGFncyBjYW4gYmUgZGlzYWJs
+ZWQgKGdlbmVyYWxseSBvbmx5IGEgZmV3IGRyaXZlcnMgZGlkIHRoaXMsIHNvIHdlCj4gbWF5IG5v
+dCBoYXZlIGNvbWUgYWNyb3NzIHRoZSBwcm9ibGVtKQo+CkkgZG9uJ3QgdW5kZXJzdGFuZCB3aGF0
+IHlvdSBtZWFuIGhlcmUsIHdvdWxkIHlvdSBtaW5kIGV4cGFuZGluZyBhIGJpdD8KClRoYW5rcywK
+CkFsZXgKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
