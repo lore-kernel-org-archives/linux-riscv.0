@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BFCDC10F16
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 11:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B20C25B5C
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 11:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xx0nZFTTXiANPIrN8BfJ9k/L1DLk1k4udba8eXCBw94=; b=S13PSHUMkPCQML
-	fNuR17aV0cl7zKugATXIFgUM0nOfz50MSr2wn0QZen9P0I6IJTYJNk9hrFUl4OzcG5UoaIpNwuKiR
-	87qRndWnXo+KiNuTMh0gbW/qRxP0TMQXCK3U+UtDLq8SSahkSeu4gtpQ5MMzIElYpm/7kAfoaEUMO
-	3TwmGvdc5GtURkfbO0m0dzHRXRYj1EV3DZ+/Itj1ZdLZ/HkcV/nGqVYxeXzElZtHLJ+CTf0s4UqMi
-	rgK7H/X1aSakFE0WkoJN0THuSdr8pQ7gqBmy2ajjNj7A3jNG3uLA2jU/+BOohBLl9T4pAXY3BBuZu
-	KoRGftR62P+vLVfGYq+w==;
+	List-Owner; bh=fBrStSmAIJIuH+5OqJhrzDuazASAzgbF/YySPP66o/I=; b=ofWc25548lElUJ
+	/Vxp1NgABE5TcyrwMzKGhNbTYVTHOB6hm0orx82W1tkhaeWe9CDcFPof99rgkYLwR6InVEr+yuxrX
+	B4RB+xigx4P1fKHJs4wRg5Ds1Ssybtr1+bMqqE5mboipBYMR8IucL7iuWV0DUzpbH8tzCvbM0QVN7
+	jdV9xrHC1bM9L+3FOQtu1Js00z/NBL3Nk/l6Tx956dPzTAq1OHKbn2Nj/a7g1n3PRFmMVrRZij09/
+	6h+vtpXGjqNr5Lxax02Tr3WjlHOLmjAHWmKsqdsH6YvV3nf+HN+L69K8PGBThUdyGXK9XsEKGaGZM
+	+TiZPCH2HsG9fEKKR0IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2qse-0000000GD2d-0NuS;
-	Fri, 03 May 2024 11:15:08 +0000
-Received: from mail-sh0chn02on20708.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::708] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1s2qsk-0000000GD6b-3T8C;
+	Fri, 03 May 2024 11:15:14 +0000
+Received: from mail-bjschn02on20717.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::717] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2qsa-0000000GCxl-1DkI
+	id 1s2qsi-0000000GD1s-1Mlm
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 May 2024 11:15:06 +0000
+	Fri, 03 May 2024 11:15:13 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Yc6emfCmmDOaSNi28/XZ36qJiEN5xlMtx7/4sBurXVbKkGtA3bFXuU9lzuLB056zPlcEtIodUikXz+S3XcJk3tWN1capU0umaZQRMt3V5Z6jTRj5S57zS3lRw4rQIrc1dY82q9JxUp56tSr/uAxayB3HAuMCYjzhzZHpYfKZpt1Hcya7Pe2mLCLWgptMpmh7/7tQZNJ0vzO2AZI4XacuZeVkHgAtkNYd4uSrk+fJUIGaHjq7x9sX0ciWytYPMPlUtrT6cUZ+4T7GiK4tjtR+oVKpxtRRRuAs3RxX4bvU6LVGI61LVQ5XhhW/pTUQ9P9CGfORjfE85zzDoVtpBEot7w==
+ b=jlvKIViyg9sKWJP0+CRNaCxzGcvSOOhH8NtoTjv+vOl926zjllICY+B/RzKC+fkGMU+d26CgHXG6yyD88yaSOpPBMPzv7C8Jx5zqXBB8K6YXyb/cWB95txm2GdNOP/jbFCLuJr80eiBWVlv25/Co5jClE04hmmtg9hBgS+vWBPcBjbbAYe770DcEJgly77Rt2EEeS/02Q9DGlgHjICxZaOzS6NCbdJ16tl0A68vu+erAR7jHdH/hobmHv3yP/J+3UVFrWwATZppwUdgW9rg9XT84e4OEEvNjGZH2V22OOlCkscyfq12nINB39QHT5k+SaTO6vhBasjbdBSeWYKXnwA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A4jb7iFCnA3QDskpBV8VGbbtzV1NunIi753ciHo9LA8=;
- b=PBpisGU65Dt0urmk38HKq1cOhgFwgIAjGhsPAhQWQ17Dc/ApwHlXSuSeK7jPPOWkEq30ipyUR979Ib7pBfewcme1UxrjG8SLBwR42sZSNRQaWcHjQH5eiE6lv2cYXdpRzc9ThnoNNnW/mtt+qCNtp1ugHxt+A54ydfmKf4psqx9OyzTPi9dcf5G3X/7rDWYIqqqunZh30aq+g/So79OPejhWnVpdtWr8CeezvUftkq0oNn1naGqwfRRCF8CxHTCAe86e/gss9of1nxj0ngvIvu/sZbbiFo6FVPe3WIDyoRwwBZmsbneWgUalfguRYEwLf3A155k6CB+MfrnkOAJGfQ==
+ bh=dAqNpNO+pzoUOb1ovcRYsgkdv6JzCxdG9bEgFv6/p0Q=;
+ b=bkKIM/sjjQRILtyCzWH/GJsjqaDWCrSlwzP4lpcBGxN6pzaK0wlsTBki9OTKHXjsz0OQ92ba39eT/oJrbaIFbg9JPMkx30ALRMujsb0rZyaxMJPPefJ5Rq38Fc2z9FW2on26XkT/7nfASNrlmoOEfbS58fSWgnoGbd+belxqJZV7CONEiqBDyujWjb3St0KRgFCCha2fmftZwdchqtisBujKJ7PUMj6H3PntCuP2mTZM7YkD7yxOQhtmS5OtYXVMmhwd0GEZyYwTxQaxs99rS++m1/ri52dEUCN/C/FctIpLypGF+enI6oJ28VNmYGJebqLESUTF1MFfFyrm/EiJAA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
 Received: from ZQ0PR01MB1176.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:19::9) by ZQ0PR01MB1238.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:1b::12) with Microsoft SMTP Server (version=TLS1_2,
+ (2406:e500:c550:19::9) by ZQ0PR01MB1112.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:c::14) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.44; Fri, 3 May
- 2024 11:14:56 +0000
+ 2024 11:15:05 +0000
 Received: from ZQ0PR01MB1176.CHNPR01.prod.partner.outlook.cn
  ([fe80::feb4:a4b4:1132:58f4]) by
  ZQ0PR01MB1176.CHNPR01.prod.partner.outlook.cn ([fe80::feb4:a4b4:1132:58f4%5])
- with mapi id 15.20.7472.044; Fri, 3 May 2024 11:14:56 +0000
+ with mapi id 15.20.7472.044; Fri, 3 May 2024 11:15:05 +0000
 From: Alex Soo <yuklin.soo@starfivetech.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
@@ -67,9 +67,9 @@ Cc: linux-gpio@vger.kernel.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alex Soo <yuklin.soo@starfivetech.com>
-Subject: [RFC PATCH v3 3/7] pinctrl: starfive: jh8100: add sys_west domain sub-driver
-Date: Fri,  3 May 2024 19:14:32 +0800
-Message-Id: <20240503111436.113089-4-yuklin.soo@starfivetech.com>
+Subject: [RFC PATCH v3 6/7] gpiolib: enable GPIO interrupt to wake up a system from sleep
+Date: Fri,  3 May 2024 19:14:35 +0800
+Message-Id: <20240503111436.113089-7-yuklin.soo@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20240503111436.113089-1-yuklin.soo@starfivetech.com>
 References: <20240503111436.113089-1-yuklin.soo@starfivetech.com>
@@ -78,55 +78,55 @@ X-ClientProxiedBy: NT0PR01CA0011.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:19::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ0PR01MB1176:EE_|ZQ0PR01MB1238:EE_
-X-MS-Office365-Filtering-Correlation-Id: d12fe879-e9cc-4afe-dda7-08dc6b62434b
+X-MS-TrafficTypeDiagnostic: ZQ0PR01MB1176:EE_|ZQ0PR01MB1112:EE_
+X-MS-Office365-Filtering-Correlation-Id: ebce3d29-f0be-4031-fc78-08dc6b6248d4
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: U51KBppsyaMNg4IC/g5pQ90fRSAsK09+VMlb7wgqPrUbA0we6UjC66YazeXvxFGDHq3CZ2hTIWz7Jr3xG7qouQ1tcNdJhgTPuWberl5PiTdeKajc0yfWzJc55DdfIynBOql/Wi68Rq4iCjXgR1MCoK5Beu8U2ryb7X+lhIvNgbtnpbnjlNexC0oEFZMandGll61BAn/84D2z+gOTRz5a1KqkaV2YqiFiKwwo+d8lay39tzssnyHjnozz/qnT0HxugIuu4VhjYt/F9903X2GjKMYHloFlu5kh8GDljSpyFU/dqtnk9AxpWlUqVMS7fR5aSkYVsyfEdwzttFm//DzfKtDBVzhos8m3SZB0iFgLXGAD2PDq2rnX68w9pQsKcPB6461ET44Lh5h+p9hlTDEylvx91L2a4ush5brBsyGUxawdNmqgCmSy2v+adwjk+gOXEzeOfpPj6J+FSL7utUIJ8wohyXWANENC4z+myq4A/b//fyGNup9iq/KJt1BEcg1rPHSDgKGvZLH6wnwUDUHShaMyEqM7Qh42Eeu5gQn/GOVh39E231BYCPidBYcgj+n2nGjSPZaIx4CxPWDqlFOfZwhsd0aZ2DLx06RvSskkHz+4Z8lkNeJuoHRmGVF2bexw4b+5myLW4u+9tXvJPMiZ7g==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1176.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(52116005)(41320700004)(7416005)(366007)(1800799015)(38350700005)(921011);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam-Message-Info: NwHDAIU/Y9PYmIoVj46oSiFQgBksWJK4YZtdts3CQ10zkRJD3XTKUbVcLlC6G4cfouyTMFgiOrZ1Vjq2m40MPjFpjJNg4Xj1cOZsD8yMmvrPcEtpe/pbFq9RbREUf62RuiZgjV/7bcqTm8AylumF1H9Hxt+4PlLZxudMyRfte2UgHSLxUwAVEdpOBtGKS10UTLWJuvHP5v/80JQpfOdEsy5C2/nDImWD9Cqm9PPds9yIO4zFkkxmoxDw7nOze8vf5vi0KBjrIcKr4MgAve/eVsio6FNnsO64yrMnLzFO2LMv9YsSCPWfA4/Bil83J3Db6MLBH3jyortkiKQOg+6MUztqX9Xfnuc2uVwqzpYdhfcrgG+L49hszZP/7klJe4VeN31gPi/QpYZ6p8uIEAwYhJgOoAUrqxxAulIdtBHTDEbkovN7d7D6iJAvtS12+vsP1oqrqhqQGdHqx1+tDo/xpI7pWkTe4fJ3Vv/+h+aoE6m7jPBkYw5nNMSXJekQf7zWlvRzALHpYSZLeotF5oTutMUBMXWL2+ANhvCzFXFn3IR3PjbJf/S0apkjJhRxqwTU3xR1b8a227U9bnBTqHdhORVMHmPs+yxXtIwcg0aPsKFBlqRhWVG9IAufMu6oQ7rUnC9dwRz5uswwArTu7UjUKA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1176.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(41320700004)(7416005)(1800799015)(52116005)(366007)(38350700005)(921011);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xw0xFhWEZzb3s9qqQ9Qj8DWMV/5Nev6px5oGNZTna1FQcp3sGVNG8VQ0TgnY?=
- =?us-ascii?Q?x0+yKyi8/COoKKNMKJoXgmKq331eUpEBqXqCYToCFT0aWvvkj2hjxb37linx?=
- =?us-ascii?Q?fMjKZ0xGnIMDDP9MV7x4Sfu5Lq25s/GREACNucEg9DxulkW7haSrypkdAu8c?=
- =?us-ascii?Q?3omiXBVUPMRFKcMwiMtKxMZ2j7KytfkVsBvvEg/bNbllVY/v7pN2tnqMy/yL?=
- =?us-ascii?Q?o3Qi9xGbBQorOflXPSAg5s2DripEyOGl9pEU+MZMKU3CrIJq94BmnDQlP3Is?=
- =?us-ascii?Q?YpZEGQL0BfJjGjdJBTzXYQbwP83dsz+brI30ibI5qke8VdmYgVJ7AjOizM55?=
- =?us-ascii?Q?KY/zOFxfKaFznsJauK2PjvA00699CIMJf1HTy47BY0lTFnEnXQGvdCo5lYKJ?=
- =?us-ascii?Q?iK3bAiGuuQq/1R6dCfh0dPj5EltL+lMSTB0VyiJg5BhZI/ndRE2n5NZrMHvE?=
- =?us-ascii?Q?XKNlFJUU7riMTvU07GZzO73rgUm7UL/mx5pECBRabU88jZkcDolRuxm8RlKf?=
- =?us-ascii?Q?m1a8yV5X+hHWPjR1ezQev1e6cZeFfBNWZwAwgizAKuruwPkRl0INeH80FbGt?=
- =?us-ascii?Q?jOzUyfvxpm0B25VPzIcR1WIgPe1pFHzIuwxF1/4r2Ik+icWAX1vmkMM6Ycia?=
- =?us-ascii?Q?2Yv59evcqt+KixIASWpVZmVs/EiNxKIP5+Yea4PXr10ayt7feRuRkeUt5OWq?=
- =?us-ascii?Q?Zyt+mfw89NxsdqR7xbRzWcAvivr/nPKGRBEdKoPo9ifEMcYjWJOEw7Rx3k6S?=
- =?us-ascii?Q?iXj1kOOqTwNCXELxvW9m+rfZPecOydFlbgyHuz5WJ9dc89mgFQducMGDrT7/?=
- =?us-ascii?Q?2o3jjpEdSspuzFAl9vQpLPjU6JB302GRoJbQectorBvNcHNIkSljV7kVRblv?=
- =?us-ascii?Q?Z5BsFZ67q9yNmbJ8L4EIQhyUfzncZN70DZRjb3Q3PFMymf7218PBFQVD/rec?=
- =?us-ascii?Q?dka4M/HJRURXj1rO/rFRSB365J/ytJipaRNwWuDbCDrgymymYKYLTTufzKlA?=
- =?us-ascii?Q?6PJSRbu2apwR9e2VLMqGqFOOvs0a0jtSfcyn+XnRX0+DU1mqsBK9FbUQKUjv?=
- =?us-ascii?Q?sVu8xOA8HinFGxOjbDowEbb4Xm4CC53e3f2eI/vAcxqC8cGKMMQxx5p3VNPK?=
- =?us-ascii?Q?+TOHST97yLPHdx9V9BeagiX4QdfP5+Caf/66jFowOzb6qHkF2/p16osgftQ3?=
- =?us-ascii?Q?CzFXr5LsGUqAz817X2q4SdN+427m9tr91IjxDp+0a/1uCPMs1w6iSVfQS6VA?=
- =?us-ascii?Q?60wCLv5walnPpmxCkmNfuGQgQAJJV885fzUTA57fQRPJjB8deRVB6OapQM7j?=
- =?us-ascii?Q?BMkpDPv+QmIdXWRnnnaZpK9xuXRaUMDdIRowAssFcjxORmA4YuRTuT2YtwwZ?=
- =?us-ascii?Q?MnQ3obYEg6b1XTuFTxVsnYGeGPliDzF4y0J+IsgxbOjZowhv66XsWZg+6SZL?=
- =?us-ascii?Q?gypLNcDVW2yxpKAx4BsPqemDDlpAx0IBsMqsynwvlexspGGmIA6VSqs9CNLZ?=
- =?us-ascii?Q?V84/h8GATz9dfWtg8FDPGKlShgVYOeZvdaWuPwAqQOd15cgVOpmgFzrb/lWd?=
- =?us-ascii?Q?Nnc5/yK6OnvqQs/8HFH/McaJfrqjTgNauTcqOI6N3icCbD9ATb1bkcjsLNMV?=
- =?us-ascii?Q?Gw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wUFH8X3wJl+3Y78oXno3rgnp0IZbQUjiD5Es4WWqSM7fr6XYhKh8BTnubT0j?=
+ =?us-ascii?Q?Isq/NofV54V6B+ti1CTB+q1yzd7LdcGtHVBkk+vqXLPhwpqF/f65WEqmF6n2?=
+ =?us-ascii?Q?cM5deJXLuPjSPYk+CFNR8Cams0vjLsemmYP6C6Mcr4kc0ZyynPDnnOxCLPfv?=
+ =?us-ascii?Q?5CVhhzxuNOBNv35Y1fo1RYLJxzgKf0x5QtLDyFwotunYvWDeJHgDDloZEo08?=
+ =?us-ascii?Q?ZJeCd+JlTc+KCuHOUrhuQJG3r+wGqvkisWEV7yHW5lLfJUPcJFWz05NArIhl?=
+ =?us-ascii?Q?p/AbvDaYRNlrT6vvL4GakCWC3k1jKtxbHRaSbaYnQdVRFwj8gbZDbNu1fzVY?=
+ =?us-ascii?Q?RDOP7tAEjVlv5KRMmtCPIKPTxng9a91pRaClEndcez01tpenugAUJFFQAaTc?=
+ =?us-ascii?Q?mP+53xlaBXAfvPuAlsmDeHv08YArhB9Ms7qSLI8GNZrvv6pzClkmxge79fSz?=
+ =?us-ascii?Q?WGsBMHDhKHlO5HkrH6ZGD5hdENR4uzV7MNpvZmb5/VFmH1vCVx4LGN3hyfKv?=
+ =?us-ascii?Q?2BPobKterJcun8/1vmyhuLabfp92YNIGvJSAgVwbCdtEFUmQMLmSl2B860lu?=
+ =?us-ascii?Q?VF8FqlMaMTVSonXD9n/+nfC+xSJvDcY8Rqg5vE23RNsuGJ2Cf6BjqzfHGDJ/?=
+ =?us-ascii?Q?uXA7ptwzYgvfqIoHZnqbDP1iCl84CB8GEikN1OBWouUa8B2UjcUqYsMJkR8x?=
+ =?us-ascii?Q?gGBtCf4T49t+rgVALqI98SaqXVRsI7j04JTi6OxCc8Z7GgQAZ6S3L5h3SRnW?=
+ =?us-ascii?Q?Et7hiwU6TY/nxmdp7DZmEMwXj56AyKu5yhBm1TxDE1U3mmeDP+wiLSxvenFj?=
+ =?us-ascii?Q?fzOwzHkAbIlaDhqJKiVn8m74gH0lAkPc+EC/PNQJClUE8tIS1NjDr7Y+H3qu?=
+ =?us-ascii?Q?ea8p3g9Q+TDE0mc8T/VIjUFaqrH0G5zW3ILyKHeOHZsJc62O6gN2ZaGJ44YN?=
+ =?us-ascii?Q?2Zk+DI8ehYZCkzuLTrkvEulaVzBzINY8sOkCChOp2O7OCC98GD+rzrczj9/W?=
+ =?us-ascii?Q?P9agKYqFvOqCbdk8wHTLyAQsBzOvHI55xwkfdHr22b6Armh7bcgspo1YFVQp?=
+ =?us-ascii?Q?Nfiy7c9jQthkPLptrfBLn/z9RluiEO4UPgKkwwK3PjZQ3QF9zEi+mh2kglcl?=
+ =?us-ascii?Q?tf6GxT0qtczgmt5iayJGqj/TjeOK/whmmkTY88KmCPhIdB7obMJ+2rPKxp1W?=
+ =?us-ascii?Q?0C1jKB25bcbzHWQExbizRiUgtH5BuZ8U9o3SDjKNGMdE/w23P7U8HQpI9z5h?=
+ =?us-ascii?Q?TzhxA8XjRJatEm0nfh12mJtbcymJUwCIR7JQRd4Wx/U/VQMTrFywJHDFct+J?=
+ =?us-ascii?Q?KU1O+YWknnUJf0dmOjoMr5Du++pO2E7jBMBAlfPjU+7hXecv5YSIBqvxViUN?=
+ =?us-ascii?Q?ynii4bQltLzEsULIQpB4UNKKf8oSg4+bX1JE47H5PB2xh1FfryToNzW1lTQe?=
+ =?us-ascii?Q?pGKtGE4lXLj7ldIWFUGTwBXdBJwSLUCkJtkeytSQUN9SojG7dJb8/HLVoFeq?=
+ =?us-ascii?Q?OYWqAupfn6aIeHfnkTiYxccTrAEDFIqeFBNPGU79FmYVSCmt3beV5eBEsMbO?=
+ =?us-ascii?Q?fBLxcZ0Gf7rM5JOd/0C0t2TU+x7u8S1rbA1CQOM7Fti4k1zQh/7vnLZxBYmw?=
+ =?us-ascii?Q?Yw=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d12fe879-e9cc-4afe-dda7-08dc6b62434b
+X-MS-Exchange-CrossTenant-Network-Message-Id: ebce3d29-f0be-4031-fc78-08dc6b6248d4
 X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB1176.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 May 2024 11:14:56.0756
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 May 2024 11:15:05.3566
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uXFjiYlC6YSZd5Xk7hS+bK4jGc6fY/Zpdc27ERRDV9PKQxWEk4Js4js+IfaaoiVk6QjRZGhFd0anXwImHASt0vjOFkwOMo76teJMdxseruY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1238
+X-MS-Exchange-CrossTenant-UserPrincipalName: uwz7IU8b1Bb22q5T70iUIpLHoGS8688VTJYSP68RbPJHTsoLKTHScN3l/mZf5lEGTZyMsPk1Cbmlu4cQlvjdC1Tkrq9sEZtT5t72H+ZOB6U=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240503_041504_653808_D1344C49 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20240503_041512_416549_46FE218E 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,270 +143,138 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add sys_west domain sub-driver.
+Add function gpiochip_wakeup_irq_setup() to configure and enable a
+GPIO pin with interrupt wakeup capability according to user-defined
+wakeup-gpios property in the device tree. Interrupt generated by
+toggling the logic level (rising/falling edge) on the specified
+GPIO pin can wake up a system from sleep mode.
 
 Signed-off-by: Alex Soo <yuklin.soo@starfivetech.com>
 ---
- drivers/pinctrl/starfive/Kconfig              |  12 ++
- drivers/pinctrl/starfive/Makefile             |   1 +
- .../pinctrl-starfive-jh8100-sys-west.c        | 164 ++++++++++++++++++
- .../starfive/pinctrl-starfive-jh8100.c        |   6 +
- .../starfive/pinctrl-starfive-jh8100.h        |   5 +
- 5 files changed, 188 insertions(+)
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c
+ drivers/gpio/gpiolib.c | 87 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 87 insertions(+)
 
-diff --git a/drivers/pinctrl/starfive/Kconfig b/drivers/pinctrl/starfive/Kconfig
-index afcbf9d4dc8d..d78f161a636c 100644
---- a/drivers/pinctrl/starfive/Kconfig
-+++ b/drivers/pinctrl/starfive/Kconfig
-@@ -70,3 +70,15 @@ config PINCTRL_STARFIVE_JH8100_SYS_EAST
- 	  This also provides an interface to the GPIO pins not used by other
- 	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
- 	  and interrupts on input changes.
-+
-+config PINCTRL_STARFIVE_JH8100_SYS_WEST
-+	tristate "StarFive JH8100 SoC System IOMUX-West pinctrl and GPIO driver"
-+	depends on ARCH_STARFIVE  || COMPILE_TEST
-+	depends on OF
-+	select PINCTRL_STARFIVE_JH8100
-+	default ARCH_STARFIVE
-+	help
-+	  Say yes here to support system iomux-west pin control on the StarFive JH8100 SoC.
-+	  This also provides an interface to the GPIO pins not used by other
-+	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
-+	  and interrupts on input changes.
-diff --git a/drivers/pinctrl/starfive/Makefile b/drivers/pinctrl/starfive/Makefile
-index 45698c502b48..784465157ae2 100644
---- a/drivers/pinctrl/starfive/Makefile
-+++ b/drivers/pinctrl/starfive/Makefile
-@@ -8,3 +8,4 @@ obj-$(CONFIG_PINCTRL_STARFIVE_JH7110_AON)	+= pinctrl-starfive-jh7110-aon.o
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index 94903fc1c145..92cfbc34abb0 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -19,6 +19,7 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/pinctrl/consumer.h>
++#include <linux/pm_wakeirq.h>
+ #include <linux/seq_file.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
+@@ -96,6 +97,7 @@ static void gpiochip_irqchip_remove(struct gpio_chip *gc);
+ static int gpiochip_irqchip_init_hw(struct gpio_chip *gc);
+ static int gpiochip_irqchip_init_valid_mask(struct gpio_chip *gc);
+ static void gpiochip_irqchip_free_valid_mask(struct gpio_chip *gc);
++static int gpiochip_wakeup_irq_setup(struct gpio_chip *gc);
  
- obj-$(CONFIG_PINCTRL_STARFIVE_JH8100)		+= pinctrl-starfive-jh8100.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JH8100_SYS_EAST)	+= pinctrl-starfive-jh8100-sys-east.o
-+obj-$(CONFIG_PINCTRL_STARFIVE_JH8100_SYS_WEST)	+= pinctrl-starfive-jh8100-sys-west.o
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c
-new file mode 100644
-index 000000000000..b97d89777aa3
---- /dev/null
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c
-@@ -0,0 +1,164 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Pinctrl / GPIO driver for StarFive JH8100 SoC sys west controller
-+ *
-+ * Copyright (C) 2023-2024 StarFive Technology Co., Ltd.
-+ * Author: Alex Soo <yuklin.soo@starfivetech.com>
-+ *
-+ */
-+
-+#include <linux/gpio/driver.h>
-+#include <linux/module.h>
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+
-+#include <dt-bindings/pinctrl/starfive,jh8100-pinctrl.h>
-+
-+#include "pinctrl-starfive-jh8100.h"
-+
-+#define JH8100_SYS_W_GC_BASE			0
-+
-+/* registers */
-+#define JH8100_SYS_W_DOEN			0x000
-+#define JH8100_SYS_W_DOUT			0x010
-+#define JH8100_SYS_W_GPI			0x020
-+#define JH8100_SYS_W_GPIOIN			0x068
-+
-+#define JH8100_SYS_W_GPIOEN			0x048
-+#define JH8100_SYS_W_GPIOIS0			0x04c
-+#define JH8100_SYS_W_GPIOIC0			0x050
-+#define JH8100_SYS_W_GPIOIBE0			0x054
-+#define JH8100_SYS_W_GPIOIEV0			0x058
-+#define JH8100_SYS_W_GPIOIE0			0x05c
-+#define JH8100_SYS_W_GPIORIS0			0x060
-+#define JH8100_SYS_W_GPIOMIS0			0x064
-+
-+static const struct pinctrl_pin_desc jh8100_sys_w_pins[] = {
-+	PINCTRL_PIN(0,	"SYS_W_GPIO0"),
-+	PINCTRL_PIN(1,	"SYS_W_GPIO1"),
-+	PINCTRL_PIN(2,	"SYS_W_GPIO2"),
-+	PINCTRL_PIN(3,	"SYS_W_GPIO3"),
-+	PINCTRL_PIN(4,	"SYS_W_GPIO4"),
-+	PINCTRL_PIN(5,	"SYS_W_GPIO5"),
-+	PINCTRL_PIN(6,	"SYS_W_GPIO6"),
-+	PINCTRL_PIN(7,	"SYS_W_GPIO7"),
-+	PINCTRL_PIN(8,	"SYS_W_GPIO8"),
-+	PINCTRL_PIN(9,	"SYS_W_GPIO9"),
-+	PINCTRL_PIN(10,	"SYS_W_GPIO10"),
-+	PINCTRL_PIN(11,	"SYS_W_GPIO11"),
-+	PINCTRL_PIN(12,	"SYS_W_GPIO12"),
-+	PINCTRL_PIN(13,	"SYS_W_GPIO13"),
-+	PINCTRL_PIN(14,	"SYS_W_GPIO14"),
-+	PINCTRL_PIN(15,	"SYS_W_GPIO15"),
-+};
-+
-+static const struct jh8100_gpio_func_sel
-+	jh8100_sys_w_func_sel[ARRAY_SIZE(jh8100_sys_w_pins)] = {
-+	[0]    = { 0xb4,  0, 2 },
-+	[1]    = { 0xb4, 12, 2 },
-+	[2]    = { 0xb4, 14, 2 },
-+	[3]    = { 0xb4, 16, 2 },
-+	[4]    = { 0xb4, 18, 2 },
-+	[5]    = { 0xb4, 20, 2 },
-+	[6]    = { 0xb4, 22, 2 },
-+	[7]    = { 0xb4, 24, 2 },
-+	[8]    = { 0xb4, 26, 2 },
-+	[9]    = { 0xb4, 28, 2 },
-+	[10]   = { 0xb4,  2, 2 },
-+	[11]   = { 0xb4,  4, 2 },
-+	[12]   = { 0xb4,  6, 2 },
-+	[13]   = { 0xb4,  8, 2 },
-+	[14]   = { 0xb4, 10, 2 },
-+};
-+
-+#ifdef CONFIG_PM_SLEEP
-+static int jh8100_sys_w_pinctrl_suspend(struct device *dev)
-+{
-+	struct jh8100_pinctrl *sfp;
-+	int i;
-+
-+	sfp = dev_get_drvdata(dev);
-+	if (!sfp)
-+		return -EINVAL;
-+
-+	for (i = 0; i < sfp->info->nregs; i++)
-+		sfp->jh8100_sys_west_regs[i] = readl_relaxed(sfp->base + (i * 4));
-+
-+	return pinctrl_force_sleep(sfp->pctl);
-+}
-+
-+static int jh8100_sys_w_pinctrl_resume(struct device *dev)
-+{
-+	struct jh8100_pinctrl *sfp;
-+	int i;
-+
-+	sfp = dev_get_drvdata(dev);
-+	if (!sfp)
-+		return -EINVAL;
-+
-+	for (i = 0; i < sfp->info->nregs; i++)
-+		writel_relaxed(sfp->jh8100_sys_west_regs[i], sfp->base + (i * 4));
-+
-+	return pinctrl_force_default(sfp->pctl);
-+}
-+#endif
-+
-+static SIMPLE_DEV_PM_OPS(jh8100_sys_w_pinctrl_dev_pm_ops,
-+			 jh8100_sys_w_pinctrl_suspend,
-+			 jh8100_sys_w_pinctrl_resume);
-+
-+static const struct jh8100_gpio_irq_reg jh8100_sys_w_irq_reg = {
-+	.is_reg_base	= JH8100_SYS_W_GPIOIS0,
-+	.ic_reg_base	= JH8100_SYS_W_GPIOIC0,
-+	.ibe_reg_base	= JH8100_SYS_W_GPIOIBE0,
-+	.iev_reg_base	= JH8100_SYS_W_GPIOIEV0,
-+	.ie_reg_base	= JH8100_SYS_W_GPIOIE0,
-+	.ris_reg_base	= JH8100_SYS_W_GPIORIS0,
-+	.mis_reg_base	= JH8100_SYS_W_GPIOMIS0,
-+	.ien_reg_base	= JH8100_SYS_W_GPIOEN,
-+};
-+
-+static const struct jh8100_pinctrl_domain_info jh8100_sys_w_pinctrl_info = {
-+	.pins				= jh8100_sys_w_pins,
-+	.npins				= ARRAY_SIZE(jh8100_sys_w_pins),
-+	.ngpios				= JH8100_SYS_W_NGPIO,
-+	.gc_base			= JH8100_SYS_W_GC_BASE,
-+	.name				= JH8100_SYS_W_DOMAIN_NAME,
-+	.nregs				= JH8100_SYS_W_REG_NUM,
-+	.dout_reg_base			= JH8100_SYS_W_DOUT,
-+	.dout_mask			= GENMASK(5, 0),
-+	.doen_reg_base			= JH8100_SYS_W_DOEN,
-+	.doen_mask			= GENMASK(4, 0),
-+	.gpi_reg_base			= JH8100_SYS_W_GPI,
-+	.gpi_mask			= GENMASK(4, 0),
-+	.gpioin_reg_base		= JH8100_SYS_W_GPIOIN,
-+	.func_sel			= jh8100_sys_w_func_sel,
-+	.irq_reg			= &jh8100_sys_w_irq_reg,
-+	.mis_pin_num			= JH8100_SYS_W_NGPIO,
-+};
-+
-+static const struct of_device_id jh8100_sys_w_pinctrl_of_match[] = {
-+	{
-+		.compatible = "starfive,jh8100-sys-pinctrl-west",
-+		.data = &jh8100_sys_w_pinctrl_info,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, jh8100_sys_w_pinctrl_of_match);
-+
-+static struct platform_driver jh8100_sys_w_pinctrl_driver = {
-+	.probe = jh8100_pinctrl_probe,
-+	.driver = {
-+		.name = "starfive-jh8100-sys-pinctrl-west",
-+#ifdef CONFIG_PM_SLEEP
-+		.pm = &jh8100_sys_w_pinctrl_dev_pm_ops,
-+#endif
-+		.of_match_table = jh8100_sys_w_pinctrl_of_match,
-+	},
-+};
-+module_platform_driver(jh8100_sys_w_pinctrl_driver);
-+
-+MODULE_DESCRIPTION("Pinctrl driver for StarFive JH8100 SoC sys west controller");
-+MODULE_AUTHOR("Alex Soo <yuklin.soo@starfivetech.com>");
-+MODULE_LICENSE("GPL v2");
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.c
-index 4b68463ff5a5..8c3e4a90d68d 100644
---- a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.c
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.c
-@@ -333,6 +333,9 @@ static int jh8100_set_one_pin_mux(struct jh8100_pinctrl *sfp,
- 	if (!strcmp(sfp->info->name, JH8100_SYS_E_DOMAIN_NAME) &&
- 	    pin < sfp->gc.ngpio && func == 1)
- 		jh8100_set_function(sfp, pin, func);
-+	else if (!strcmp(sfp->info->name, JH8100_SYS_W_DOMAIN_NAME) &&
-+		 pin < sfp->gc.ngpio - 1 && func == 2)
-+		jh8100_set_function(sfp, pin, func);
+ static bool gpiolib_initialized;
  
+@@ -1045,8 +1047,15 @@ int gpiochip_add_data_with_key(struct gpio_chip *gc, void *data,
+ 		if (ret)
+ 			goto err_remove_irqchip;
+ 	}
++
++	ret = gpiochip_wakeup_irq_setup(gc);
++	if (ret)
++		goto err_remove_device;
++
+ 	return 0;
+ 
++err_remove_device:
++	gcdev_unregister(gdev);
+ err_remove_irqchip:
+ 	gpiochip_irqchip_remove(gc);
+ err_remove_irqchip_mask:
+@@ -1874,6 +1883,84 @@ static int gpiochip_irqchip_add_allocated_domain(struct gpio_chip *gc,
  	return 0;
  }
-@@ -410,6 +413,9 @@ static int jh8100_get_padcfg_base(struct jh8100_pinctrl *sfp,
- 	if (!strcmp(sfp->info->name, JH8100_SYS_E_DOMAIN_NAME)) {
- 		if (pin < JH8100_SYS_E_NGPIO)
- 			return JH8100_SYS_E_GPO_PDA_00_47_CFG;
-+	} else if (!strcmp(sfp->info->name, JH8100_SYS_W_DOMAIN_NAME)) {
-+		if (pin < JH8100_SYS_W_NGPIO)
-+			return JH8100_SYS_W_GPO_PDA_00_15_CFG;
- 	}
  
- 	return -ENXIO;
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
-index 6eb4f1896a90..7c7a05c1c828 100644
---- a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
-@@ -12,12 +12,16 @@
- 
- #include "../core.h"
- 
-+#define JH8100_SYS_W_DOMAIN_NAME	"jh8100-sys-west"
- #define JH8100_SYS_E_DOMAIN_NAME	"jh8100-sys-east"
- 
-+#define JH8100_SYS_W_NGPIO		16
- #define JH8100_SYS_E_NGPIO		48
- 
-+#define JH8100_SYS_W_REG_NUM		44
- #define JH8100_SYS_E_REG_NUM		116
- 
-+#define JH8100_SYS_W_GPO_PDA_00_15_CFG	0x074
- #define JH8100_SYS_E_GPO_PDA_00_47_CFG	0x114
- 
- struct jh8100_pinctrl {
-@@ -30,6 +34,7 @@ struct jh8100_pinctrl {
- 	/* register read/write mutex */
- 	struct mutex mutex;
- 	const struct jh8100_pinctrl_domain_info *info;
-+	unsigned int jh8100_sys_west_regs[JH8100_SYS_W_REG_NUM];
- 	unsigned int jh8100_sys_east_regs[JH8100_SYS_E_REG_NUM];
- 	/* wakeup */
- 	struct irq_domain *irq_domain;
++static irqreturn_t gpio_wake_irq_handler(int irq, void *data)
++{
++	struct irq_data *irq_data = data;
++
++	if (!irq_data || irq != irq_data->irq)
++		return IRQ_NONE;
++
++	return IRQ_HANDLED;
++}
++
++static int gpiochip_wakeup_irq_setup(struct gpio_chip *gc)
++{
++	struct device *dev = gc->parent;
++	struct gpio_irq_chip *girq = &gc->irq;
++	struct gpio_desc *wakeup_gpiod;
++	struct irq_desc *wakeup_irqd;
++	struct irq_domain *irq_domain;
++	struct irq_data *irq_data;
++	unsigned int offset;
++	int wakeup_irq;
++	int ret;
++
++	if (!(device_property_read_bool(dev, "wakeup-source")))
++		return 0;
++
++	irq_domain = girq->domain;
++
++	if (!irq_domain) {
++		dev_err(dev, "Couldn't allocate IRQ domain\n");
++		return -ENXIO;
++	}
++
++	wakeup_gpiod = devm_gpiod_get_optional(dev, "wakeup", GPIOD_IN);
++
++	if (IS_ERR(wakeup_gpiod)) {
++		dev_err(dev, "invalid wakeup gpio: %lu\n", PTR_ERR(wakeup_gpiod));
++		return PTR_ERR(wakeup_gpiod);
++	}
++	if (!wakeup_gpiod) {
++		dev_dbg(dev, "property wakeup-gpios is not defined\n");
++		return 0;
++	}
++
++	offset = gpio_chip_hwgpio(wakeup_gpiod);
++	wakeup_irq = gpiod_to_irq(wakeup_gpiod);
++	if (wakeup_irq < 0) {
++		dev_err(dev, "failed to convert wakeup GPIO to IRQ\n");
++		return wakeup_irq;
++	}
++	irq_domain->ops->map(irq_domain, wakeup_irq, offset);
++	wakeup_irqd = irq_to_desc(wakeup_irq);
++	irq_data = irq_get_irq_data(wakeup_irq);
++	girq->handler = handle_edge_irq;
++
++	if (!(wakeup_irqd->status_use_accessors & IRQ_NOREQUEST)) {
++		device_init_wakeup(dev, 1);
++		ret = devm_request_threaded_irq(dev, wakeup_irq, NULL,
++						gpio_wake_irq_handler,
++						IRQF_TRIGGER_FALLING |
++						IRQF_TRIGGER_RISING |
++						IRQF_ONESHOT |
++						IRQF_SHARED,
++						"pm-wakeup-gpio", irq_data);
++		if (ret) {
++			dev_err(dev, "unable to request wakeup IRQ: %d\n", ret);
++			return ret;
++		}
++	}
++
++	ret = dev_pm_set_wake_irq(dev, wakeup_irq);
++	if (ret) {
++		dev_err(dev, "failed to enable gpio irq wake\n");
++		return ret;
++	}
++
++	return 0;
++}
++
+ /**
+  * gpiochip_add_irqchip() - adds an IRQ chip to a GPIO chip
+  * @gc: the GPIO chip to add the IRQ chip to
 -- 
 2.25.1
 
