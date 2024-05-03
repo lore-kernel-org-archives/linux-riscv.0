@@ -4,80 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD4CC4345F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 00:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB35C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 02:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gD5oO9GW1QZo4UWnEErz3ks4/EhAYuc2FMT6xrhvaPE=; b=lcGWgza2Yi1CDS
-	TGz43YDKweSyDKnMNx6h/mvNH7VACdxptHwH06YG//LlIzbddl07+hERnJg3Uhj8UIl3lkpGYi6w4
-	3AJzsvgonV1H+edhjS9eZmrlYMPPVET4KflJFg94bcVgnpOuXodt7LLM2iTHePKCXltyCuCzWs4Sf
-	EDLUVFP+BPJc/HMJVXGSYkSRw6e0h9H7inaRcAWlpd9/3DGyIALFLgz9wpWJjuPRz4GC+eXGRjmgy
-	iPE2FrDWZFWtT5/0t7gJs6FBoZTyi4VR7krCXGl7Zw+ui7HtkaXmDS9lMc3vRZPNxSf4R4QJWhD4m
-	0+eFgvd3NxsY6O3fjung==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TQPTMR1LRbKYzWQl9v6Li8tI2PVuNHrXrl9Qn3HBoTY=; b=hrObMluVpXcdLI
+	GvyUeDZ8Wgwgz4IKZSv3Y0WCqOKlWrTwyYosgDMsuCmhBrdUF2t7+zCG1puNxzZCgviw3hUwVaUIk
+	hqbOBaMQE/2Udy75DSufEyoiIyywf/phwzYFqnWA9/IhUJvrCRjd2uw5seikUJTXfJK0BKrpDAltN
+	l+swlZMgYcPKypuyiUWCenYlzK+ASFAMuckmfmHnQHjpAbecu/jz/JEKkOmfs/nMunZTg8ZgrdTMp
+	YovYSTMHHGd9+kmZZqjBgkptIeQiq6/DNY3zRDOlNqMfPhQDntA6UJt7p0Z2IBrOhSvqSpFYm8Is4
+	LkG6DyjWohRfvFhLlKOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2giD-0000000EPqo-2kMN;
-	Fri, 03 May 2024 00:23:41 +0000
-Received: from dliviu.plus.com ([80.229.23.120] helo=smtp.dudau.co.uk)
+	id 1s2iVz-0000000Egz3-36M6;
+	Fri, 03 May 2024 02:19:11 +0000
+Received: from mail-bn7nam10olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2804::800] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2gi8-0000000EPoE-13U7;
-	Fri, 03 May 2024 00:23:38 +0000
-Received: from mail.dudau.co.uk (bart.dudau.co.uk [192.168.14.2])
-	by smtp.dudau.co.uk (Postfix) with SMTP id 2D79141D12F0;
-	Fri, 03 May 2024 01:23:31 +0100 (BST)
-Received: by mail.dudau.co.uk (sSMTP sendmail emulation); Fri, 03 May 2024 01:23:31 +0100
-Date: Fri, 3 May 2024 01:23:30 +0100
-From: Liviu Dudau <liviu@dudau.co.uk>
-To: Luis Chamberlain <mcgrof@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
+	id 1s2iVw-0000000EgyS-2R5A
+	for linux-riscv@lists.infradead.org;
+	Fri, 03 May 2024 02:19:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=XTgwUyZVnMqr8DcybbRwzLyq2LYNf8WP+F5/YlUT94cgJM0obPBvAUNXrJ9KMzpBBImdJNiFPtf97i3fXkxfuPHX/3Xs+Pdki/h1o9Mg2p/7MD+ehVHm27vTx0Rq2dC09rSTjfY4F8/RdxB6wD0GhQ98H9fenIVGlQDoxa6in0P4X6kL4H5T9IvAw9ZwZ3lxIO2xQ1LfdnFzZj7bySwI6hoOJBEGxnpeWbKbZ1ch13/Ws9f7hwVZOtCWcZeAkhzrVOjmGbJTdft+d43e2BXATYWBRJ6c7m+UPdOnR9wBdehXuVQKCnWziIUse18v50dq2Q3YR6r78uM3axoUD5q3dQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2ud2EVsxx+GO5U1A4/zRqMFMJRVM1Ju+SCGZsxk+mtc=;
+ b=Hj/YOTdvIo+TC9DIRgvhsnaedVJdcTNSEXDuCn19wuZY9YquV92MAVGTYQ2628jhxAqKMXS9DFsNuxeQLaMzhlFsPrUvsKON3pbyg6ZBrq0QRmIkf/ZrQ4xF+1IeMokCWvJJLmSUVOXx4FV/vH0OhifdtokQX4GyaU37y+EzSurZ86aYddPB6MdrSayOtViQFFYZ9dAJvHkMfZmC1IvK8FHyYkXGruamAPYXu6i8pofdwpMRtOPWf4SQmomdBlc12SJQ6TcdpoP/JQ7Fimm49uUVI9T787Gvc4mUDSsV5oPypE4zzElqoRvlZJijmmwn890eB2FIp5Gt5UK3a3zdAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2ud2EVsxx+GO5U1A4/zRqMFMJRVM1Ju+SCGZsxk+mtc=;
+ b=OXJnfOCvtPp+nLughzmaYJD0J8rsvveV6qPi9Prdali6sg8FB2A6d2SGwGw1lpZD5TuvOBvIIguSOT8AOYX0oRWU7A1kpg4fpNw2V11IHXUkB9avQsh4spg4vn1koIzZy1MTE68P/hwwqLnCGvQpm8C0d+Gjehf1FysgZUGgUfkWZe9Wsd6zlB6ErhJiLV+rogAUcgK3ukoLj3Mo9aXPNZhHTfUjsxeb5Mf90Mh2SKIQrJFlWZWqqvYNZfYZwKMW0JLqib9PGXtfmMv9ATZ8PpgI7ZJ3x+qVqtnbgrFn4+KZXkJusam0qslroh4nVtATNG8WXVy06GJsweTeU/aPVw==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by LV3PR20MB7003.namprd20.prod.outlook.com (2603:10b6:408:1a8::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7519.35; Fri, 3 May
+ 2024 02:18:57 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7544.023; Fri, 3 May 2024
+ 02:18:57 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Philippe =?utf-8?Q?Mathieu-Daud=C3=A9?= <philmd@linaro.org>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Sam Ravnborg <sam@ravnborg.org>, Song Liu <song@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-modules@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v7 00/16] mm: jit/text allocator
-Message-ID: <ZjQuggSFcO8FXSd2@bart.dudau.co.uk>
-References: <20240429121620.1186447-1-rppt@kernel.org>
- <Zi_K4K-j-VB_WI4i@bombadil.infradead.org>
- <ZjQYvOYgURx9/+d0@bart.dudau.co.uk>
- <ZjQcmcA0sNH7jfD7@bombadil.infradead.org>
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 0/2] riscv: sophgo: Add SG2042 external hardware monitor support
+Date: Fri,  3 May 2024 10:19:30 +0800
+Message-ID: <IA1PR20MB49534B54403ECFB15D952A8BBB1F2@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.45.0
+X-TMN: [W/rgHMGl8jyAQ2KJ8/ujSIdgfDX18j7NRhR0QZ9xGfU=]
+X-ClientProxiedBy: TYAPR01CA0216.jpnprd01.prod.outlook.com
+ (2603:1096:404:29::36) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240503021932.897404-1-inochiama@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZjQcmcA0sNH7jfD7@bombadil.infradead.org>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|LV3PR20MB7003:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2e8dccce-e96a-4550-c81e-08dc6b1762ef
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199019|1602099003|3412199016|440099019|1710799017;
+X-Microsoft-Antispam-Message-Info: 8nTxwLRhk1iptlkIOSzO+H7AksfczkdPUEVhi9Jw/dzbm9lccGeSI1V+zTbQSaBi9hvYZePcfAk7RIhs9wSst8yquzHYPsch5eQsutWbF1QFNTRLVtpVhttJZJV/A/UQKN99e9ujGVMru79JLxX3GPzThpx+02CM6gUw58o1LlJG8zYlU18v0EFl88hXJ6LGTPgCpDAy9aYxfYYgU+GOsbIMQle5gjxN/ivIgbRZaG6DSEB0UWAJ5bFnwmcq+ugkJwhQaJ5TL42yh8kdgvq/noU9/3CY/9z9K/fWS38SxLS2xr6niggMqoQf3e9SIS6vp0Yz9dUTQShBj20QpYh6okmiAxVEj/ErQpVvFVn8TcXafIH1jprZ+c43v1DZHGx7ak4mtPgVPhYrK+JpV4gPsskxTNvvcyKOTQi1TtW/Xw6qj8pCKSF4B1EBsplXgcTEMZkLmQ+a7XGW3X1b0MbdJt1yHetU4Zo4UpYoNazcvoNddPvkJiKWQb46AIG1bjIkd+ij+mxLtB1LlKCKo1P26f7ASSfQgR51ajo2zPDEjSwa6x1xUHs5UQFRY8crM/CzYblkCpn1ndepsogkYhCZrWHpMyqB2ZRqLRZ3+bWMHPFOKrSRFQHUzlUK9YNcRjoXBCzSD/YwEoAMxfiLq+aVoGmBm2YLHv/nvdqQNnJh/oCcZp6QB4wm1Vcz2t48LGuU
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F/Vx+UoXM7BhPjLLjQzXaPdJ8xyjEdY/1AETeGW1naBuOEPiyvL94PSZg1Dr?=
+ =?us-ascii?Q?vhAg/WQU8NhpaPvVNzyzy4wgKw2QEw6urHuRmSMYegWTEN5NLxJLycEi70ZE?=
+ =?us-ascii?Q?cs0YXZPmeboVDFs5UAv3Vvxy4hPpg6sB91shh57uyjCo7cEF+WCC6nClSTNk?=
+ =?us-ascii?Q?dGetarGqxwhbKkzyRpKdQj5ZiiJqjJLb6v9AGxHmOwl/DFzMucMA2+q2ZlJc?=
+ =?us-ascii?Q?3vkIQYMW76YHo8Ymul5EbdaSPbRB4knjrhTlWT7oRbe1QmgnJYs/tl020UfK?=
+ =?us-ascii?Q?+hiN3YIc7lyKnxbPqBlTjiQG2fXCwcsk89a7/P7KQDPH13WQ3eNLLvhNWMRz?=
+ =?us-ascii?Q?JAYIp7owlNJRKMVoAgXvHCcIQ1852D/TEfp9OYE6da4T59SMov6mVCw3SORx?=
+ =?us-ascii?Q?LCH4kFIbdJ8qrlpy+65xMOd2CJ7SBkOmdGE4lF3Z7vKYwskO4PvXotJ1tFzA?=
+ =?us-ascii?Q?H9HinT/yIG4KSetqFm8rihojPxrOFc6LWOd6qyMK6uBAS/VWu7hE6U39fmu4?=
+ =?us-ascii?Q?P0VBwHeOlfFPqTVHFMQ7BzMZZiR6ft7SbMzHnAmvcHOWWLymogXna5ffMQQN?=
+ =?us-ascii?Q?jlWZXdNy3rAvNneYhf7ZdjR69h5fXVyC20FlNnEZh2c7veRASqGbDpw0c9Xr?=
+ =?us-ascii?Q?nApZRdIMaN7ua3ckXmrEXmDstCswlUcF0fFMHDzDzGnGQkIoguVr6bDlwEyX?=
+ =?us-ascii?Q?7hzkT7+V1uCoZ8On662Yrv4YZXmIVBmBMFakfj6wxng0eQ6ca373I6MZF4Gv?=
+ =?us-ascii?Q?ihuGCycKauubAyEYQ6GZQ9AZg+skT2lxSBrnAmBDrr8MUeU05TPSKbRxslwm?=
+ =?us-ascii?Q?O6tCUojyF2Lr0cDY9XC+ZATclmDM2QnYCVxlYL9iWPa68VN32nF3f2R3A3nB?=
+ =?us-ascii?Q?NZxU1sX5sBm/LuwGXfv0vux0FdQwOLM899KM14rDG6pR24Bw9+kRQOuFt4xj?=
+ =?us-ascii?Q?JuciAApyDGPukSQACFM1NBjc6D/OdyPJaDGSs4ELsyjbxH4wQdsLdwDoDff2?=
+ =?us-ascii?Q?4MsJwlLAmqmRZHu/7l8a7ht4Y3+8qTZ/Lywj8a687I9qpUeKcLFqbJWDiOJ8?=
+ =?us-ascii?Q?Pmb2SK7X4583UZ8rgOWbyYhZMvSD9S7k2SBnJqQP+cg9j6tNfZQIUtMwJ+yw?=
+ =?us-ascii?Q?WAz5KX2nr57QwzjZhr5PM1K2/n5SePYG5iqmFfH2iNl7K1qkldik9vMOPJFK?=
+ =?us-ascii?Q?/BZw/wlU5ka0t7HC+LSfOTnG139PcUOJAaFuCglaiWRuGthOl4Nv8Z9Lytxy?=
+ =?us-ascii?Q?C6ddV/JnV0XWWs/tL3ge?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2e8dccce-e96a-4550-c81e-08dc6b1762ef
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 May 2024 02:18:57.0011
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR20MB7003
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_172336_599480_31AA4F5E 
-X-CRM114-Status: GOOD (  29.66  )
+X-CRM114-CacheID: sfid-20240502_191908_628023_7C693A5F 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,91 +134,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 02, 2024 at 04:07:05PM -0700, Luis Chamberlain wrote:
-> On Thu, May 02, 2024 at 11:50:36PM +0100, Liviu Dudau wrote:
-> > On Mon, Apr 29, 2024 at 09:29:20AM -0700, Luis Chamberlain wrote:
-> > > On Mon, Apr 29, 2024 at 03:16:04PM +0300, Mike Rapoport wrote:
-> > > > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> > > > 
-> > > > Hi,
-> > > > 
-> > > > The patches are also available in git:
-> > > > https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git/log/?h=execmem/v7
-> > > > 
-> > > > v7 changes:
-> > > > * define MODULE_{VADDR,END} for riscv32 to fix the build and avoid
-> > > >   #ifdefs in a function body
-> > > > * add Acks, thanks everybody
-> > > 
-> > > Thanks, I've pushed this to modules-next for further exposure / testing.
-> > > Given the status of testing so far with prior revisions, in that only a
-> > > few issues were found and that those were fixed, and the status of
-> > > reviews, this just might be ripe for v6.10.
-> > 
-> > Looks like there is still some work needed. I've picked up next-20240501
-> > and on arch/mips with CONFIG_MODULE_COMPRESS_XZ=y and CONFIG_MODULE_DECOMPRESS=y
-> > I fail to load any module:
-> > 
-> > # modprobe rfkill
-> > [11746.539090] Invalid ELF header magic: != ELF
-> > [11746.587149] execmem: unable to allocate memory
-> > modprobe: can't load module rfkill (kernel/net/rfkill/rfkill.ko.xz): Out of memory
-> > 
-> > The (hopefully) relevant parts of my .config:
-> 
-> Thanks for the report! Any chance we can get you to try a bisection? I
-> think it should take 2-3 test boots. To help reduce scope you try modules-next:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/mcgrof/linux.git/log/?h=modules-next
-> 
-> Then can you check by resetting your tree to commmit 3fbe6c2f820a76 (mm:
-> introduce execmem_alloc() and execmem_free()"). I suspect that should
-> boot, so your bad commit would be the tip 3c2c250cb3a5fbb ("bpf: remove
-> CONFIG_BPF_JIT dependency on CONFIG_MODULES of").
-> 
-> That gives us only a few commits to bisect:
-> 
-> git log --oneline 3fbe6c2f820a76bc36d5546bda85832f57c8fce2..
-> 3c2c250cb3a5 (HEAD -> modules-next, korg/modules-next) bpf: remove CONFIG_BPF_JIT dependency on CONFIG_MODULES of
-> 11e8e65cce5c kprobes: remove dependency on CONFIG_MODULES
-> e10cbc38697b powerpc: use CONFIG_EXECMEM instead of CONFIG_MODULES where appropriate
-> 4da3d38f24c5 x86/ftrace: enable dynamic ftrace without CONFIG_MODULES
-> 13ae3d74ee70 arch: make execmem setup available regardless of CONFIG_MODULES
-> 460bbbc70a47 powerpc: extend execmem_params for kprobes allocations
-> e1a14069b5b4 arm64: extend execmem_info for generated code allocations
-> 971e181c6585 riscv: extend execmem_params for generated code allocations
-> 0fa276f26721 mm/execmem, arch: convert remaining overrides of module_alloc to execmem
-> 022cef244287 mm/execmem, arch: convert simple overrides of module_alloc to execmem
-> 
-> With 2-3 boots we should be to tell which is the bad commit.
+Add support for the onboard hardware monitor for SG2042.
 
-Looks like 0fa276f26721 is the first bad commit.
+Related SBI patch:
+https://lists.infradead.org/pipermail/opensbi/2024-April/006849.html
 
-$ git bisect log
-# bad: [3c2c250cb3a5fbbccc4a4ff4c9354c54af91f02c] bpf: remove CONFIG_BPF_JIT dependency on CONFIG_MODULES of
-# good: [3fbe6c2f820a76bc36d5546bda85832f57c8fce2] mm: introduce execmem_alloc() and execmem_free()
-git bisect start '3c2c250cb3a5' '3fbe6c2f820a76'
-# bad: [460bbbc70a47e929b1936ca68979f3b79f168fc6] powerpc: extend execmem_params for kprobes allocations
-git bisect bad 460bbbc70a47e929b1936ca68979f3b79f168fc6
-# bad: [0fa276f26721e0ffc2ae9c7cf67dcc005b43c67e] mm/execmem, arch: convert remaining overrides of module_alloc to execmem
-git bisect bad 0fa276f26721e0ffc2ae9c7cf67dcc005b43c67e
-# good: [022cef2442870db738a366d3b7a636040c081859] mm/execmem, arch: convert simple overrides of module_alloc to execmem
-git bisect good 022cef2442870db738a366d3b7a636040c081859
-# first bad commit: [0fa276f26721e0ffc2ae9c7cf67dcc005b43c67e] mm/execmem, arch: convert remaining overrides of module_alloc to execmem
+Changed from v3:
+1. add thermal-sensor check.
+2. change node type from syscon to hwmon
 
-Maybe MIPS also needs a ARCH_WANTS_EXECMEM_LATE?
+Changed from v2:
+1. fix bindings id path.
 
-Best regards,
-Liviu
+Changed from v1:
+1. Move patch from soc to hwmon.
+2. Fix typo.
 
-> 
->   Luis
-> 
+Inochi Amaoto (2):
+  dt-bindings: hwmon: Add Sophgo SG2042 external hardware monitor
+    support
+  drivers: hwmon: sophgo: Add SG2042 external hardware monitor support
 
--- 
-Everyone who uses computers frequently has had, from time to time,
-a mad desire to attack the precocious abacus with an axe.
-       	   	      	     	  -- John D. Clark, Ignition!
+ .../hwmon/sophgo,sg2042-hwmon-mcu.yaml        |  43 ++
+ drivers/hwmon/Kconfig                         |  11 +
+ drivers/hwmon/Makefile                        |   1 +
+ drivers/hwmon/sg2042-hwmon-mcu.c              | 531 ++++++++++++++++++
+ 4 files changed, 586 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
+ create mode 100644 drivers/hwmon/sg2042-hwmon-mcu.c
+
+--
+2.45.0
+
 
 _______________________________________________
 linux-riscv mailing list
