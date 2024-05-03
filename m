@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05F6C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 04:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401D8C25B10
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 04:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RkrR5WdHd8cXYrz8KcmzXpLM4km0xKPigwhumbrFgyo=; b=znbb09dKH5qU2D
-	JD51CsMAOS+pu42lQ1NPDH3kGUGjxohNIBYT3aNHBkBSrsJ3TfJIimIkVZmXw6jE8yYHyUNxOM8Ll
-	iQVdCEUZVV515X3sV1KrkVrokaQPm1LE+jwhxDaVIkXvrd4KIgH9kEIPmCgkUd+BvVTf3YlW5hBGF
-	JIdeVqD6A70UZ33/6D/l6RP59t8RVLklapFTB3Gg07cauXfoQ3GtRxs0G/vPRtiyd3z33DJtAnA05
-	WwHdlSvKYJ50Zy+BM/gqPq+M2yTdV+KHFwS/Qz/52ZoHEk6LtbRDbWf7dTQzz+PlMsCBH7yIkT0rp
-	YiPtIH2XEmFz8NaWmotA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KOvqvhnEcpHmI8+jmawUY6XkEYEQ0RQDb+fMkULeBpU=; b=iS4lJKePwq0+Sj
+	hhAVbtBuU1qZweXzNNSlVF9L2CWaA4TC0OnsWfQAaUXMNW+oCo6Ep+guYFVu78Qlwqdd/FYPD887f
+	kzfUDjQtNLEC2GmNGpjhVoV+Ctt7BERYaszQG9iiNgkIt5xy9idCbqaslRIBS/FtSKJsep05R1Ry+
+	zPApsNyFJbv97KqFI7aZzMJRvCClt1gDyI1D9RuRtGNssu1rgXgpEJZhfxkGIRkH68n9dsUH3CSxt
+	YmIX9FujcOYNMbQbWgj0S3Ssd8azNt7CzYV6YzqQKyV/lNN3H3fUsAyW0I9k1tBQ88GXBORYYXq01
+	vBBWN+GslrkppUsysLyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2kst-0000000F4d4-0ImP;
-	Fri, 03 May 2024 04:50:59 +0000
+	id 1s2ksv-0000000F4dw-1SBV;
+	Fri, 03 May 2024 04:51:01 +0000
 Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2ksp-0000000F4bO-3rQI
+	id 1s2kss-0000000F4cb-0NXE
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 May 2024 04:50:57 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1e651a9f3ffso47152185ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 21:50:54 -0700 (PDT)
+	Fri, 03 May 2024 04:50:59 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1ecddf96313so15178275ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 21:50:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714711854; x=1715316654; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=P1pri5vJc6a6erBHblT+G/90vMaXtH4w+W1SfMwHWew=;
-        b=jjVnBxLpSKRkPvuVqsK6bqAVQ36DhvDUbQrowYMHlBWWmPlqr1nW/sNT/sM2tRJNzq
-         CG4ewpEjbs3c9nNh+kLOyvHkqeJe5DGwUg//YWlVlsofSg/C/HV2kkAHk6XSiWi9ICSb
-         a9SDlrX4P/TKkIgUpEp0mbXejz6UzQxNpBhmozoOH1j7euO1L1dD3ZAdTXix7VkgKlsq
-         SFzk67pa+vUDLFiAQ8U72J/oVvBt2YZ7Vypis6arfd+P0Gb1Ca/8kWL++RBd1pQVr5gv
-         Js8EPrKrNW7dNRoYi5QkHGwbyB0SvRi+6eh6kTocKuFATR+mNiOfSMnpts1U8lQXqNlJ
-         zVWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714711854; x=1715316654;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714711857; x=1715316657; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=P1pri5vJc6a6erBHblT+G/90vMaXtH4w+W1SfMwHWew=;
-        b=MvolEUOis3eldDNMHveuwWLX0Ai8Ey1WUCFYix2dMAoegi3Jfa+4Cdbzx7nKCZn15n
-         qFToJyNcSo+E17lMhl8IUjAMDWjgpp1ZZeY4MCtWgdsXyWYepOfef9wqH8IeHQq2ubHR
-         rQ2atXR6cB+6BmV2lpq8IuDWNsq2AWFpnTEukP4GzL/UqatY0he/tBcxCVxJsygl+9w+
-         83jutc7YHJIq8frBgJ99ALvTWaZMET2dWIfNLD8XZmh71DWU2IG5OBh89h0F0K9tXaWB
-         PCpfkDdWAN+qFJXczTuhsvsf12J1b7RZFhsr99a8P6qPjvUZDwx2Aw+ugvK+ZsciBZf5
-         OK8w==
-X-Forwarded-Encrypted: i=1; AJvYcCWfnN+wN6cEn9ApDUqzkWMfxT14JNMQxJV5gdwX4vkB36t/3dDFXchSvX/vH6hPfa7wemml+OZQEj3cuumfern2sr5Z6g9NLibD93+mieI7
-X-Gm-Message-State: AOJu0Yz10UJB6aZnSF+eFHhr+A4/FHEZP9VbF13Pp9cQhhgZ09Xy0PDR
-	Eq70t5NzP4T/msYH2LxmB/jQcohzAQZioHhS18MwqiHzbz717k5gr06lrY2B6oM=
-X-Google-Smtp-Source: AGHT+IEORFLsgu03dCb67137W9/Puz9LTNMIUDTKupfQs2TVKEvgT1NFtqJrCUNXu0iFi8qln7RGqA==
-X-Received: by 2002:a17:902:ecc5:b0:1ec:c6ba:de3e with SMTP id a5-20020a170902ecc500b001ecc6bade3emr1582135plh.57.1714711853907;
-        Thu, 02 May 2024 21:50:53 -0700 (PDT)
+        bh=7J8+4BPg11tVammG7iU8LBCVcp0HAz7W5E4tQ6iskcc=;
+        b=kQiGQsy19E23rf+tQlCQE14KN7rkfHt8f6mLYyBn6eXzhtnT/HIHpnD4DuNSIdX6xF
+         HtJoSazZ8duBC2iPE60ZjYXRcxYqv2mKTzbq+S717qYcXnxAsvPqIq+lgMnmiCCdFb0N
+         DbxgPYkguq7BnU4iYROIJSsrxa9mpWZrOBVNxaVD0M/rFN9c3GqYNZDK7pRrKzzivFGe
+         tt/jO7+XfjYM7XNwjwdhIkNE0U9sa1aIGIrwqvg0JXqvbV1TcrKR/Z5AHDqGire7M8iP
+         m8Xq9eO9ROgHTWmQSXGYrFYNPrNwH14T2KZBEq5QFvz8YsCHL6E50gQwxT9lxNkMcdu5
+         /pVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714711857; x=1715316657;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7J8+4BPg11tVammG7iU8LBCVcp0HAz7W5E4tQ6iskcc=;
+        b=eqqfIWZ/uAbGXPP3CA2YE7HmhsOQwH58+EEEhxkOALLPJTdLMAsE4pFjtNBsJMmJ//
+         xFICJ96pzEbRt1miBaG+cxPzSEifEHv/00AaaNI+2j0cb1TWALVPu5V5u6uDSUEY6lak
+         7B88R4RSmVBF8aUhVjmUhnsRUvBRdp+v+L/SenkqDJxsHryAWPZ8718ybRCit2K2Ylan
+         NsyY8Oq+6cPnLwJgZZw+9W2s9PTRtRGXMhM97kenEgOup/LnYfwQ2AkF1ViRB+ZEm0SF
+         sYQWtPPvyDEOL2BHWZbRfiLJaEIrTWJ6W9Ha1fqVq0fI8mvUgCJaFn+BXWKZdewuuM/q
+         zqXw==
+X-Forwarded-Encrypted: i=1; AJvYcCWIhCjPE4Zg6kW7dAoE4cZCW7qro75Waycu1+d8q3iYWQtJDv3iBBGdBvzcHB6NwlxWuD2fcMXsCv9IiGK9hucIZI6c57Ow0fduHR8Z7vn0
+X-Gm-Message-State: AOJu0Yy5UtzQUHe+8Vhng9lyyJo6FhTSO2JEZmnyXF46x2Lfr0EmEmuN
+	o/fLmee8V9gUsNHiKipjXewMf+f1vGnYIev4ocH99WZ+4oJXjMn43WEbgjSS2Mw=
+X-Google-Smtp-Source: AGHT+IE2GM/FT0Bn/phAha5Olfrwy5UPqVYHFI/KC1ovLGni/veB92iOt5IkZk5eHeVdspJeej9buw==
+X-Received: by 2002:a17:903:246:b0:1e5:d021:cf58 with SMTP id j6-20020a170903024600b001e5d021cf58mr1945544plh.36.1714711857409;
+        Thu, 02 May 2024 21:50:57 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id li11-20020a170903294b00b001e3c77db2aesm2276384plb.88.2024.05.02.21.50.51
+        by smtp.gmail.com with ESMTPSA id li11-20020a170903294b00b001e3c77db2aesm2276384plb.88.2024.05.02.21.50.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 May 2024 21:50:52 -0700 (PDT)
+        Thu, 02 May 2024 21:50:54 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Subject: [PATCH v4 0/2] riscv: Extension parsing fixes
-Date: Thu, 02 May 2024 21:50:49 -0700
-Message-Id: <20240502-cpufeature_fixes-v4-0-b3d1a088722d@rivosinc.com>
+Date: Thu, 02 May 2024 21:50:50 -0700
+Subject: [PATCH v4 1/2] riscv: cpufeature: Fix thead vector hwcap removal
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIACltNGYC/33OwQ6CMAwG4FcxOzvDusHEk+9hjIGtSA8yssGiI
- by7gxMxxOPf5v/aiQX0hIFdDhPzGCmQ61JQxwMzbdU9kZNNmUEGKlOguOnHBqth9Pho6I2Bl6J
- Go6wuJWqWar3HdZFat3vKLYXB+c96IYpl+geLgmc8P+eopQWAor56ii5QZ07GvdjiRdgaxY4By
- dBSa6WgFhL0jiG3RrljyGQUVSWEtZgL+fvHPM9fBoKo8TsBAAA=
+Message-Id: <20240502-cpufeature_fixes-v4-1-b3d1a088722d@rivosinc.com>
+References: <20240502-cpufeature_fixes-v4-0-b3d1a088722d@rivosinc.com>
+In-Reply-To: <20240502-cpufeature_fixes-v4-0-b3d1a088722d@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
  Guo Ren <guoren@kernel.org>, Conor Dooley <conor@kernel.org>, 
@@ -78,20 +77,18 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
  =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
  Evan Green <evan@rivosinc.com>
 Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>, 
- Alexandre Ghiti <alexghiti@rivosinc.com>, 
- Andrew Jones <ajones@ventanamicro.com>
+ linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1714711851; l=2166;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1714711851; l=4634;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=Dxpzzy/z93hXB1aHpi749r74tSlAAuPK148cUOanOFs=;
- b=be228u4Ild/sEBi/+uvBsPWy7IukprxcPHtzBJD7A9ck+Fsnxq/xVWLZ8cCYLRex03loQOBw9
- c4LOUEkw6KWAkoFoVflv5PTwjn2PCqF1oKiEx823WLkTQfRcXjRYWFa
+ bh=TuTVSbXhC2+Pf7yEowJN8gfvY+TdoOJRAjnj2qooZU8=;
+ b=QqmJvtQyLn100wNUhTZKNDHlffN3SHuM3dGD+WP+ZSJN+94mkJDGWHu4cu0YHNBzMywFInnmG
+ uKF6sHe4L9OCxlWy+zEPhROi9Hq8yPPqN0T1U2x+j1PsHO3R1wmlm/X
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_215056_011592_84F76318 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20240502_215058_175608_BF5AEE39 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,55 +105,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series contains two minor fixes for the extension parsing in
-cpufeature.c.
+The riscv_cpuinfo struct that contains mvendorid and marchid is not
+populated until all harts are booted which happens after the DT parsing.
+Use the mvendorid/marchid from the boot hart to determine if the DT
+contains an invalid V.
 
-Some T-Head boards without vector 1.0 support report "v" in the isa
-string in their DT which will cause the kernel to run vector code. The
-code to blacklist "v" from these boards was doing so by using
-riscv_cached_mvendorid() which has not been populated at the time of
-extension parsing. This fix instead greedily reads the mvendorid CSR of
-the boot hart to determine if the cpu is from T-Head.
-
-The other fix is for an incorrect indexing bug. riscv extensions
-sometimes imply other extensions. When adding these "subset" extensions
-to the hardware capabilities array, they need to be checked if they are
-valid. The current code only checks if the extension that is including
-other extensions is valid and not the subset extensions.  
-
-These patches were previously included in:
-https://lore.kernel.org/lkml/20240420-dev-charlie-support_thead_vector_6_9-v3-0-67cff4271d1d@rivosinc.com/
-
+Fixes: d82f32202e0d ("RISC-V: Ignore V from the riscv,isa DT property on older T-Head CPUs")
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
 ---
-Changes in v4:
-- Delete comment
-- Link to v3: https://lore.kernel.org/r/20240429-cpufeature_fixes-v3-0-6aa11dde513b@rivosinc.com
-
-Changes in v3:
-- Change comment about assuming all harts have the same vendorid/archid,
-  to just state that only the boot hart is probed.
-- Link to v2: https://lore.kernel.org/r/20240426-cpufeature_fixes-v2-0-7377442b1327@rivosinc.com
-
-Changes in v2:
-- Move comment about assuming all harts to have the same vendorid/archid
-  to apply specifically to the code that expects that (Drew)
-- Link to v1: https://lore.kernel.org/r/20240424-cpufeature_fixes-v1-0-585e73d2226b@rivosinc.com
-
----
-Charlie Jenkins (2):
-      riscv: cpufeature: Fix thead vector hwcap removal
-      riscv: cpufeature: Fix extension subset checking
-
  arch/riscv/include/asm/sbi.h   |  2 ++
  arch/riscv/kernel/cpu.c        | 40 ++++++++++++++++++++++++++++++++++++----
- arch/riscv/kernel/cpufeature.c | 10 +++++++---
- 3 files changed, 45 insertions(+), 7 deletions(-)
----
-base-commit: ed30a4a51bb196781c8058073ea720133a65596f
-change-id: 20240424-cpufeature_fixes-91bec4d793e7
+ arch/riscv/kernel/cpufeature.c |  8 ++++++--
+ 3 files changed, 44 insertions(+), 6 deletions(-)
+
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 6e68f8dff76b..0fab508a65b3 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -370,6 +370,8 @@ static inline int sbi_remote_fence_i(const struct cpumask *cpu_mask) { return -1
+ static inline void sbi_init(void) {}
+ #endif /* CONFIG_RISCV_SBI */
+ 
++unsigned long riscv_get_mvendorid(void);
++unsigned long riscv_get_marchid(void);
+ unsigned long riscv_cached_mvendorid(unsigned int cpu_id);
+ unsigned long riscv_cached_marchid(unsigned int cpu_id);
+ unsigned long riscv_cached_mimpid(unsigned int cpu_id);
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index d11d6320fb0d..c1f3655238fd 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -139,6 +139,34 @@ int riscv_of_parent_hartid(struct device_node *node, unsigned long *hartid)
+ 	return -1;
+ }
+ 
++unsigned long __init riscv_get_marchid(void)
++{
++	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
++
++#if IS_ENABLED(CONFIG_RISCV_SBI)
++	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
++#elif IS_ENABLED(CONFIG_RISCV_M_MODE)
++	ci->marchid = csr_read(CSR_MARCHID);
++#else
++	ci->marchid = 0;
++#endif
++	return ci->marchid;
++}
++
++unsigned long __init riscv_get_mvendorid(void)
++{
++	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
++
++#if IS_ENABLED(CONFIG_RISCV_SBI)
++	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
++#elif IS_ENABLED(CONFIG_RISCV_M_MODE)
++	ci->mvendorid = csr_read(CSR_MVENDORID);
++#else
++	ci->mvendorid = 0;
++#endif
++	return ci->mvendorid;
++}
++
+ DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+ 
+ unsigned long riscv_cached_mvendorid(unsigned int cpu_id)
+@@ -170,12 +198,16 @@ static int riscv_cpuinfo_starting(unsigned int cpu)
+ 	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
+ 
+ #if IS_ENABLED(CONFIG_RISCV_SBI)
+-	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
+-	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
++	if (!ci->mvendorid)
++		ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
++	if (!ci->marchid)
++		ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
+ 	ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
+ #elif IS_ENABLED(CONFIG_RISCV_M_MODE)
+-	ci->mvendorid = csr_read(CSR_MVENDORID);
+-	ci->marchid = csr_read(CSR_MARCHID);
++	if (!ci->mvendorid)
++		ci->mvendorid = csr_read(CSR_MVENDORID);
++	if (!ci->marchid)
++		ci->marchid = csr_read(CSR_MARCHID);
+ 	ci->mimpid = csr_read(CSR_MIMPID);
+ #else
+ 	ci->mvendorid = 0;
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 3ed2359eae35..13d4fc0d1817 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -490,6 +490,8 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
+ 	struct acpi_table_header *rhct;
+ 	acpi_status status;
+ 	unsigned int cpu;
++	u64 boot_vendorid;
++	u64 boot_archid;
+ 
+ 	if (!acpi_disabled) {
+ 		status = acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
+@@ -497,6 +499,9 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
+ 			return;
+ 	}
+ 
++	boot_vendorid = riscv_get_mvendorid();
++	boot_archid = riscv_get_marchid();
++
+ 	for_each_possible_cpu(cpu) {
+ 		struct riscv_isainfo *isainfo = &hart_isa[cpu];
+ 		unsigned long this_hwcap = 0;
+@@ -544,8 +549,7 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
+ 		 * CPU cores with the ratified spec will contain non-zero
+ 		 * marchid.
+ 		 */
+-		if (acpi_disabled && riscv_cached_mvendorid(cpu) == THEAD_VENDOR_ID &&
+-		    riscv_cached_marchid(cpu) == 0x0) {
++		if (acpi_disabled && boot_vendorid == THEAD_VENDOR_ID && boot_archid == 0x0) {
+ 			this_hwcap &= ~isa2hwcap[RISCV_ISA_EXT_v];
+ 			clear_bit(RISCV_ISA_EXT_v, isainfo->isa);
+ 		}
+
 -- 
-- Charlie
+2.44.0
 
 
 _______________________________________________
