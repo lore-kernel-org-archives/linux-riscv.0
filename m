@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E037C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 04:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD34EC4345F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 05:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oC66BESg4GM8udEhAi85IgzpWSboI1d0M9uYyOvS4TA=; b=Sm9AyLacSxILJY
-	XRO2q+QaymVfsf2k+H/Z9PGQRB1hDVBmYrS4jIvCx5tS7q7ICLz2YK3ue08GpTuOYgVWonPhH8Y84
-	6EoOLch954mSSkHyOK4LoCKh/GKWLzAj1LrEYAp9IxBtTXif+cBBlXa+80YH9Mnc3UPoWnjAAok3w
-	1Fog2zkPtPmzg3nxv2pxRGzCNpqzfgpS5ffQyQeGoGWphHHiRzZkVQSVSZJZR1U3A2rT+p1RHqsZr
-	sfbCldlmdCt3a910sGt4WrW77mC+LUGVnFss/wTPJ8zj91tUyop6Y0oZzFkQvt/w3ZhMyto0QY/n3
-	oGwaFCaXYt+zo5aygSgw==;
+	List-Owner; bh=L8CNjTV+XmHhYBFxhLU/I3/K0O7CcAcmaQiVUn+Jjdo=; b=nFrMHMh1nH27c7
+	e+enum65jD88B+fC4fohT7XKWNJfZd+F+86SKtI/YIE9OyercOCiEC32ACR6auXHjtMxscT7s9MSA
+	EJyu5f0BmLWS7vdEQ87ai4w+ogoiFS0UQ+yHl0+HfVnXMt5Q5xkl1oBlIky7W3Ub5Uj835dNF/GkW
+	4sOYIyP/4da2ipHjW6tY/wj8nmB5OmhEnQzILyuYlEd9CpiO+KfmXfy6Mz4v3sz9pESkBjsQwqT9b
+	Sk+IpTyTjwRWAs2A9U+b7QApBEk3wAyqvH55qEEhBNA8vTD1j7bSzj8k9bdR8ZtTQjsmI5RCzCcSW
+	q8CsvJegKsXdOobRLHQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2kt1-0000000F4iB-2fqO;
-	Fri, 03 May 2024 04:51:07 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1s2lT8-0000000F9Ic-1U70;
+	Fri, 03 May 2024 05:28:26 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2ksx-0000000F4ex-3mCM
+	id 1s2lT5-0000000F9Hi-1dxD
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 May 2024 04:51:06 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-6f30f69a958so7568802b3a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 02 May 2024 21:51:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714711862; x=1715316662; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vtwC5CithaOsyDnX18EUQqmgLnixhsZn53ghod6HD4Y=;
-        b=3bmBUw+KsCSrQgpifnXe67wFf/VTuvM41XCg4oZWOZWmqlnEOGg9QKiAi5Dzm1oifS
-         BSgPKgtsSx6T7xJJLB9rXRFO40ibv097GoJ1XW6jUsKYRWrpfgje9bkA6ydWJovbIWOC
-         A8SHS0xS+NLNuH4zQqqicLpyvOA8f9oBXAOtqYlGnuCFxv+ebvLxC00kz25nLF02OG6Y
-         EjkJFkK0xV/6OBbtYx35qQYwaBDnZq0Xld973yndND1OGePOUjM5CsnfCjdBiWZKcbbL
-         fo+KuCciQaOET6ot6YhOJQ7d5YZAG0pBDIo8fmnS9tXS4DGPbbFLok1T9WvzBn6xvz6B
-         19zA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714711862; x=1715316662;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vtwC5CithaOsyDnX18EUQqmgLnixhsZn53ghod6HD4Y=;
-        b=ustwTa6vCEI2TFPWdSZK2RKbCWEpHpjJcD9zf6kfhF8/OrxJ7sQPF9k5m1DrJI7UcW
-         JSWxtnhGGWdfQFAUa73S52PM+vdb15adshn4kRa30OddxMxS4eGmCFAWCJxjiEHYiCyo
-         qHDx/tMtQDZKA1ZhEMHtHMf+x8bMqzw4aYNQ72rQfyEDs6sIEIzWwMIboNuuI9ixsqW2
-         MNClsihQloUZuYsKd8QwEg7w1vd26JULnsVuTi3EI0f2t3drIPhHY56NKCLiUMvo+wTf
-         x6gKGhkLQQlB5Rhlw3OwhzqyL5tVDObvsTzFBf+XA90569bF5eXqQKPvLc4aQTExtpGW
-         j0YQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXLGz2DAhFhJBzvHxBb/sslJ/g2bA+2s2MVO2SgYPtl9TgtX5VHGylhsHxN+mlQRKFh8/EvdONc3EThiemDVVzRFy8Wjpt7AGwl3jJ4Gxuo
-X-Gm-Message-State: AOJu0YyVkczpoLYjs0MGGiygi/PmBylWt/7f99d2e8K6gWIHyxrLN2qp
-	f829i37PF/NZ/XWABz/TMCI7SdxdjehyP7Cwo6KIKlWYerm9ELuNJuC11/LpYrk=
-X-Google-Smtp-Source: AGHT+IHfmJLnWNlQ+jLqowVWeSehnNZwiNPlCiwptv1oonBtcaPkYBu1VzKgOUEcLWxXtlfYGmWvRw==
-X-Received: by 2002:a05:6a20:258c:b0:1a9:ffa0:d007 with SMTP id k12-20020a056a20258c00b001a9ffa0d007mr1997150pzd.58.1714711861757;
-        Thu, 02 May 2024 21:51:01 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id li11-20020a170903294b00b001e3c77db2aesm2276384plb.88.2024.05.02.21.50.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 May 2024 21:50:58 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 02 May 2024 21:50:51 -0700
-Subject: [PATCH v4 2/2] riscv: cpufeature: Fix extension subset checking
+	Fri, 03 May 2024 05:28:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1714714103; x=1746250103;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=qbvw7iLaf2fZEd6UPwtqlQskjo9r3Fjn07UVy58tZgA=;
+  b=aqPRwnjRw37/0uOE5jJux7f5mTeUBZ478xKqr1VTWkfnuUTW0gNr0C7o
+   7tWeLmfTLujYmJsioKQE/SvX1QvoXYAKIUsz4HIZNVRqe/RI1xzr98dcu
+   sxJISEyV4mNm2uLvIGeZwsFR9+j/9bvPTbZM3IXkqhuyFMKbLS/vrmVPf
+   i0JwuXOEuJLi5BqwibXIEj0H7awn9xJEYxoewo5XgtjeHwB3/6DCsc7c8
+   FX9uCVshdhTSplviDa5Y7mFxnakKXw0v+j1oWuhKGeqJ45igkKfUhVUus
+   0SJ23dD9MVyFbbsTs9/DabzmAm2JRip/EikCJtwUHA0jOJ+7p6lVvTyGT
+   w==;
+X-CSE-ConnectionGUID: pTBA52uhSnuKbbtkPSckRQ==
+X-CSE-MsgGUID: zF7YGTVaQD6De/RgSuG1Gw==
+X-IronPort-AV: E=McAfee;i="6600,9927,11062"; a="10442871"
+X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
+   d="scan'208";a="10442871"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2024 22:28:18 -0700
+X-CSE-ConnectionGUID: LHay6kF8TfWXCwKCUIJX2Q==
+X-CSE-MsgGUID: hdpS1xCtR+q0Evxs84mdzw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,247,1708416000"; 
+   d="scan'208";a="27399371"
+Received: from lkp-server01.sh.intel.com (HELO e434dd42e5a1) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 02 May 2024 22:28:15 -0700
+Received: from kbuild by e434dd42e5a1 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1s2lSu-000BLA-3A;
+	Fri, 03 May 2024 05:28:13 +0000
+Date: Fri, 3 May 2024 13:27:33 +0800
+From: kernel test robot <lkp@intel.com>
+To: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	valentina.fernandezalanis@microchip.com,
+	Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
+Subject: Re: [PATCH 1/3] spi: spi-microchip-core: Add support for GPIO based
+ CS
+Message-ID: <202405031328.ljBB1tMb-lkp@intel.com>
+References: <20240502143410.12629-2-prajna.rajendrakumar@microchip.com>
 MIME-Version: 1.0
-Message-Id: <20240502-cpufeature_fixes-v4-2-b3d1a088722d@rivosinc.com>
-References: <20240502-cpufeature_fixes-v4-0-b3d1a088722d@rivosinc.com>
-In-Reply-To: <20240502-cpufeature_fixes-v4-0-b3d1a088722d@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Guo Ren <guoren@kernel.org>, Conor Dooley <conor@kernel.org>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
- Evan Green <evan@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>, 
- Alexandre Ghiti <alexghiti@rivosinc.com>, 
- Andrew Jones <ajones@ventanamicro.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1714711851; l=1173;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=aClvRhkni8+VngBib+tXbyLWgA3xiyhnWY6l4lDY2FI=;
- b=gwRqVJm01uxvkdlrQKBBOn3dquKs2d0HbChFUuQQkjkWjU4Pgd55dBFMK5u5tp3XbrAvXtJiV
- gG2bGvn4tcMBAHUDeEUo4MTq+EhGf2AyyVTIO2ihJ6xqFiTuHUUJ79s
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
+Content-Disposition: inline
+In-Reply-To: <20240502143410.12629-2-prajna.rajendrakumar@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240502_215104_323957_016AE477 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20240502_222823_635100_CC22F532 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,36 +97,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This loop is supposed to check if ext->subset_ext_ids[j] is valid, rather
-than if ext->subset_ext_ids[i] is valid, before setting the extension
-id ext->subset_ext_ids[j] in isainfo->isa.
+Hi Prajna,
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Fixes: 0d8295ed975b ("riscv: add ISA extension parsing for scalar crypto")
----
- arch/riscv/kernel/cpufeature.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 13d4fc0d1817..5ef48cb20ee1 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -603,7 +603,7 @@ static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwcap)
- 
- 			if (ext->subset_ext_size) {
- 				for (int j = 0; j < ext->subset_ext_size; j++) {
--					if (riscv_isa_extension_check(ext->subset_ext_ids[i]))
-+					if (riscv_isa_extension_check(ext->subset_ext_ids[j]))
- 						set_bit(ext->subset_ext_ids[j], isainfo->isa);
- 				}
- 			}
+[auto build test WARNING on broonie-spi/for-next]
+[also build test WARNING on robh/for-next krzk-dt/for-next linus/master v6.9-rc6 next-20240502]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Prajna-Rajendra-Kumar/spi-spi-microchip-core-Add-support-for-GPIO-based-CS/20240502-223714
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+patch link:    https://lore.kernel.org/r/20240502143410.12629-2-prajna.rajendrakumar%40microchip.com
+patch subject: [PATCH 1/3] spi: spi-microchip-core: Add support for GPIO based CS
+config: arm-randconfig-002-20240503 (https://download.01.org/0day-ci/archive/20240503/202405031328.ljBB1tMb-lkp@intel.com/config)
+compiler: clang version 19.0.0git (https://github.com/llvm/llvm-project 37ae4ad0eef338776c7e2cffb3896153d43dcd90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240503/202405031328.ljBB1tMb-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202405031328.ljBB1tMb-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from drivers/spi/spi-microchip-core.c:21:
+   In file included from include/linux/spi/spi.h:17:
+   In file included from include/linux/scatterlist.h:8:
+   In file included from include/linux/mm.h:2208:
+   include/linux/vmstat.h:522:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     522 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+>> drivers/spi/spi-microchip-core.c:261:11: warning: address of array 'spi->cs_gpiod' will always evaluate to 'true' [-Wpointer-bool-conversion]
+     261 |         if (spi->cs_gpiod)
+         |         ~~  ~~~~~^~~~~~~~
+   2 warnings generated.
+
+
+vim +261 drivers/spi/spi-microchip-core.c
+
+   255	
+   256	static int mchp_corespi_setup(struct spi_device *spi)
+   257	{
+   258		struct mchp_corespi *corespi = spi_controller_get_devdata(spi->controller);
+   259		u32 reg;
+   260	
+ > 261		if (spi->cs_gpiod)
+   262			return 0;
+   263	
+   264		/*
+   265		 * Active high targets need to be specifically set to their inactive
+   266		 * states during probe by adding them to the "control group" & thus
+   267		 * driving their select line low.
+   268		 */
+   269		if (spi->mode & SPI_CS_HIGH) {
+   270			reg = mchp_corespi_read(corespi, REG_SLAVE_SELECT);
+   271			reg |= BIT(spi_get_chipselect(spi, 0));
+   272			mchp_corespi_write(corespi, REG_SLAVE_SELECT, reg);
+   273		}
+   274		return 0;
+   275	}
+   276	
 
 -- 
-2.44.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
