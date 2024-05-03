@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45048C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 16:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF651C25B10
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 16:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vCQerAa0Y07TOnTTJS466MyMQSsH4f4dYklgq8PhS1s=; b=c4sO+ueyVOSc6e
-	/pJqRPpb/lWSDUDC7bU0b/KqHwfhQErM0u8DYtJ+pyGNgWjBKInok6k7p7IAnhKF5iHa1Pa7kuoNu
-	FrH5G4r9biGxhqnhr3titw5faCgSIZRfNOKf+/ZsSFor/0pR7Z6+ZlAkiQrIBmKPF5/YWKZKCH8fQ
-	rS24q24EAnwXLOxYyLitbZ2rXkr3P6bAmdzFdyUUYt9ecN5fASW+8NaSkHVLV7KJVO5UJAV+lqexy
-	C53s5kVL9uHtO/A1OZ9/chCBxUwTzKK+1bCab1Wu4iMZkGD0s1VYD6xrKWYSdNWlOvwmLaf8DS2gX
-	M7G1Et1h6oUEYa+QH1mg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fi3hYfkBUkRUR7W2VNoxnYqEL/tDQtL9uQP8+vlzI7M=; b=LE57n/ZR8N/BJM
+	WU80xYCSYjwdVDHVQl6mwp0pMpzrh1BNcTTNtsFKiK+XfOZjBWFW/ZBwtWsLUiWJDkHAsyPugSxB0
+	4NMaiNZC/056ghMzjMp6GIk3dXaYLm2IJSfDmzZvuM7AyUx/aBGDBdzNolqDL/OraTFHqmFe4n+h1
+	Gs81cQP/e2obiZI7hyrSyMLyuWxsjJb0HfZX4ZtDxg3vCrxMGfe+CS8yudPZIHhnfeze/MT6UhtnV
+	SnvaGi0i5+bb0quvQ6kJyHKYXDn+d1zPPUei+9AoLaxFguq/tN/kNzHvBv0S0q5Tta+fBj96KwNqW
+	eHDE91BuUswvnr8T1yMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2vWr-0000000HAV4-1c0C;
-	Fri, 03 May 2024 16:12:57 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1s2vWt-0000000HAWJ-0uSh;
+	Fri, 03 May 2024 16:12:59 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2vWl-0000000HATI-25Eq
+	id 1s2vWp-0000000HATQ-3VFi
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 May 2024 16:12:55 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1e3c3aa8938so62642255ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 03 May 2024 09:12:49 -0700 (PDT)
+	Fri, 03 May 2024 16:12:58 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1ed012c1afbso15230085ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 03 May 2024 09:12:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714752769; x=1715357569; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+SsYPCHFIzDKMqt+c2VcTik9i4CFhHISqpzih2Y5YwM=;
-        b=ULQdSjS6Kz5YX4eXypO0D294uPQiEjmVcEVn0Ib31IsduZ6Pl1PFz9NIOaAoL2F56b
-         BVAG0+mgamxQSCadKyB8J2WHiJfPejP2B8jvyg3LkzL1AKSdGC3NKHYXXQvSCOgrwHGB
-         5logIy+6fLPu3joyZzpwvxZ0KDkLzZ7USGYlOCPDCFcTmez9f9JwCndhu1YcpF+s32aO
-         IIHFrX1qBS1Fzo8JMnwqWG+YyKfDAX2d+qbstV1hmRy2HnMyaQBsf2VIV3OT1tUMI/XE
-         aJJNptjCnCsattl59Af8lKKam588F4LRUO+tFuolGEr7eEwtjMLRbayMEwtDSFD78YXm
-         cmKA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1714752771; x=1715357571; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2mgnoeguH7nHlN3yB90cDuTlgE+n/4swoPekxA8B/YA=;
+        b=XTtPfQ/NyDrC80GERBoZNpEuvtaXZ4BvWpxseXsIzr2AotiYd3KHSlCq0vjSswYvza
+         gD3sceJZt6S6+KIxndUJOuYuufhNeYaZYgF1jumbXFggymyBZAjXi1TDz8asXJIeak9H
+         v1Q1XXK6JSe1B6QDiXQABUNlqhldB80Q2h63W+sdqEsRiuPXThtimMbZY9DwpNk+Faar
+         f6f0CLhYCTetTEnJyWw1PWWZ8y4vyhhLtXyum9ChJSBUgg42vnM4XRLRYUf+feJj0bXK
+         QVtcaNTJg2LbbaCRTPEczoBLbYynySGRVUTFgo8gEu3KTEcIdfQE7z+Xn7riEnm8JRjD
+         hOBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714752769; x=1715357569;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+SsYPCHFIzDKMqt+c2VcTik9i4CFhHISqpzih2Y5YwM=;
-        b=CerWYSjH5G/LfWYFHHMfDHPRQRt7IK7cSy9NbKRoAMuRutYLYWBSoFvEvPPpMs/gxm
-         pkqcCqSNeh8M9lq4RqBOHw6sv9hH5aUlLDFmP620NUdRQdtxBcl7Q3JQ3eUQAhketD9d
-         Ok+vZ8jQqIJYyaBORc6EDO/mOkghwBkMBYlHZmKbjuxNMOCdA19E5hRmliZumZu1rFtB
-         2/ULzqnAmXFbvE1DdX0PhO8xOpy1pPqib1volnLhI5CnYtDExFwobxYu3U2p38goVOG7
-         T3K9ofMs8MOiRcaHe3O2cMYaYEmS07rC++Imot4JAYm3mwEfYCPXxYr/RUKQA6l5m9Dw
-         6iyA==
-X-Forwarded-Encrypted: i=1; AJvYcCWi31EV6+ZscUxA2c1pe5JRoUILyEVJmKvm5RAThF9ROfavJg/scONbhAqgbN2uVO9V8+bl/Edqjn3Fyv08s6DoumugGyYjpNGLpggh28X1
-X-Gm-Message-State: AOJu0Yx6obzxrRMETYEfYTDq8nmjFVQcLu+KkmLLr1R/5UxV/dPHTY3W
-	fxliBaiiTk12GeP02A2X8Az1C9Vf9qBBsNNGlucWJHkp72zec0HMNX7OYYE0syI=
-X-Google-Smtp-Source: AGHT+IHI9LbCKHBkbWwHrBelW4UzMSUbdbIWW4nvucUsVTKhhMXlCsPu0hGFWBuw389Bh7kh55CCEw==
-X-Received: by 2002:a17:902:e80c:b0:1e8:813f:4009 with SMTP id u12-20020a170902e80c00b001e8813f4009mr3673385plg.14.1714752768891;
-        Fri, 03 May 2024 09:12:48 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1714752771; x=1715357571;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2mgnoeguH7nHlN3yB90cDuTlgE+n/4swoPekxA8B/YA=;
+        b=xKcaetFF9cjJy/scYMCLiLtRIl2CfzMEt6uizi9SVow68FlAUtIWmtDJWbH2qVE36q
+         HdTG0uQwlFD5oiEftCfjaP69lYnbNWJtVUDfiTGQi+l9sHU4GuMEZPCOm3D6E/95+9+Z
+         mFHvfldw3ma+4UMMucZZI7u57A3jUWLpMOoBpi11lUBAfK7Q0jzkV4EahTNTSHOhnDpd
+         NOIn5nHruK/Wrkl2FR4FnKqX/5G5WOy/1IlMMCuTftwVDX6qE0OPhtS+rS5s/k7JNns5
+         047HS3QSsFAGiz2abFZVeGTKIlEzU4BGsaGpXFBoMm0F81N/wHuKZ20Dhn4x2lECJvN/
+         b83A==
+X-Forwarded-Encrypted: i=1; AJvYcCURpEgcJuUgnaT6xK/+uVhoO2a1/pBzm0FlXOJk76fP+8Nz0AgX3Jslu+22ocBfm8cJLQVuCxG5SPxvIYL2tsqnGN1g0TH5PtHWNQaVMfdG
+X-Gm-Message-State: AOJu0YwaZ5mGo3wgWgNq93GE1KFYlGNnHgoSJtPw0DOB2FtInS0A8Amk
+	krotDscf+i+pR7BvWpG5lXkNfc5q9vD0IcpEkSeVxdN91fQ+iJbUnFoG1Na0q1k=
+X-Google-Smtp-Source: AGHT+IGQSRoaq1vm8tZYdHttlyjADQA7Y3TFcjoftgthln/iVYCA7bVzdnKtTnj/I8eXYOAWSX702Q==
+X-Received: by 2002:a17:902:f34a:b0:1e4:320b:4311 with SMTP id q10-20020a170902f34a00b001e4320b4311mr5693013ple.34.1714752770877;
+        Fri, 03 May 2024 09:12:50 -0700 (PDT)
 Received: from tjeznach.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id x3-20020a170902ec8300b001e2086fddecsm3424746plg.139.2024.05.03.09.12.46
+        by smtp.gmail.com with ESMTPSA id x3-20020a170902ec8300b001e2086fddecsm3424746plg.139.2024.05.03.09.12.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 May 2024 09:12:47 -0700 (PDT)
+        Fri, 03 May 2024 09:12:50 -0700 (PDT)
 From: Tomasz Jeznach <tjeznach@rivosinc.com>
 To: Joerg Roedel <joro@8bytes.org>,
 	Will Deacon <will@kernel.org>,
 	Robin Murphy <robin.murphy@arm.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH v4 0/7] Linux RISC-V IOMMU Support
-Date: Fri,  3 May 2024 09:12:33 -0700
-Message-Id: <cover.1714752293.git.tjeznach@rivosinc.com>
+Subject: [PATCH v4 1/7] dt-bindings: iommu: riscv: Add bindings for RISC-V IOMMU
+Date: Fri,  3 May 2024 09:12:34 -0700
+Message-Id: <845127470ad85f9b4f690077968fe8c5d615c538.1714752293.git.tjeznach@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1714752293.git.tjeznach@rivosinc.com>
+References: <cover.1714752293.git.tjeznach@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240503_091251_921170_CF3AA0F4 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20240503_091255_954715_A9659A5B 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,122 +89,195 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Tomasz Jeznach <tjeznach@rivosinc.com>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Tomasz Jeznach <tjeznach@rivosinc.com>, linux@rivosinc.com, Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces support for RISC-V IOMMU architected
-hardware into the Linux kernel.
+Add bindings for the RISC-V IOMMU device drivers.
 
-The RISC-V IOMMU specification, which this series is based on, is
-ratified and available at GitHub/riscv-non-isa [1].
-
-At a high level, the RISC-V IOMMU specification defines:
-
-1) Data structures:
-  - Device-context: Associates devices with address spaces and holds
-    per-device parameters for address translations.
-  - Process-contexts: Associates different virtual address spaces based
-    on device-provided process identification numbers.
-  - MSI page table configuration used to direct an MSI to a guest
-    interrupt file in an IMSIC.
-2) In-memory queue interface:
-  - Command-queue for issuing commands to the IOMMU.
-  - Fault/event queue for reporting faults and events.
-  - Page-request queue for reporting "Page Request" messages received
-    from PCIe devices.
-  - Message-signaled and wire-signaled interrupt mechanisms.
-3) Memory-mapped programming interface:
-  - Mandatory and optional register layout and description.
-  - Software guidelines for device initialization and capabilities discovery.
-
-
-This series introduces RISC-V IOMMU hardware initialization and complete
-single-stage translation with paging domain support.
-
-The patches are organized as follows:
-
-Patch 1: Introduces minimal required device tree bindings for the driver.
-Patch 2: Defines RISC-V IOMMU data structures, hardware programming interface
-         registers layout, and minimal initialization code for enabling global
-         pass-through for all connected masters.
-Patch 3: Implements the device driver for PCIe implementation of RISC-V IOMMU
-         architected hardware.
-Patch 4: Introduces IOMMU interfaces to the kernel subsystem.
-Patch 5: Implements device directory management with discovery sequences for
-         I/O mapped or in-memory device directory table location, hardware
-         capabilities discovery, and device to domain attach implementation.
-Patch 6: Implements command and fault queue, and introduces directory cache
-         invalidation sequences.
-Patch 7: Implements paging domain, using highest page-table mode advertised
-         by the hardware. This series enables only 4K mappings; complete support
-         for large page mappings will be introduced in follow-up patch series.
-
-Follow-up patch series, providing large page support and updated walk cache
-management based on the revised specification, and complete ATS/PRI/SVA support,
-will be posted to GitHub [2].
-
-Changes from v3:
-- dt-bindings: s/qemu,iommu/qemu,riscv-iommu/, fix iommu-map sample
-- device probe will fail if IOMMU if running in restricted BARE mode
-- synchronize_rcu moved to release_device, fixes for bonds locking, iotlb_inval fix
-- page table radix tree selection based on IOMMU capabilities, failover to use SATP
-- private iommu per device data structure added
-- Editorial changes: rename goto labels, blocking_domain/blocking_domain, reformat
-  to fit mostly under 80 characters per line
-
-Patch series depends on (applied to iommu-next):
-  IOMMU memory observability, v6 [3]
-  iommu, dma-mapping: Simplify arch_setup_dma_ops(), v4 [4]
-
-Best regards,
- Tomasz Jeznach
-
-[1] link: https://github.com/riscv-non-isa/riscv-iommu
-[2] link: https://github.com/tjeznach/linux
-[3] link: https://lore.kernel.org/linux-iommu/20240413002522.1101315-1-pasha.tatashin@soleen.com/
-[4] link: https://lore.kernel.org/linux-iommu/cover.1713523152.git.robin.murphy@arm.com/
-v3 link:  https://lore.kernel.org/linux-iommu/cover.1714494653.git.tjeznach@rivosinc.com/ 
-v2 link:  https://lore.kernel.org/linux-iommu/cover.1713456597.git.tjeznach@rivosinc.com/
-v1 link:  https://lore.kernel.org/linux-iommu/cover.1689792825.git.tjeznach@rivosinc.com/
-
-
-Tomasz Jeznach (7):
-  dt-bindings: iommu: riscv: Add bindings for RISC-V IOMMU
-  iommu/riscv: Add RISC-V IOMMU platform device driver
-  iommu/riscv: Add RISC-V IOMMU PCIe device driver
-  iommu/riscv: Enable IOMMU registration and device probe.
-  iommu/riscv: Device directory management.
-  iommu/riscv: Command and fault queue support
-  iommu/riscv: Paging domain support
-
- .../bindings/iommu/riscv,iommu.yaml           |  147 ++
- MAINTAINERS                                   |    8 +
- drivers/iommu/Kconfig                         |    1 +
- drivers/iommu/Makefile                        |    2 +-
- drivers/iommu/riscv/Kconfig                   |   20 +
- drivers/iommu/riscv/Makefile                  |    3 +
- drivers/iommu/riscv/iommu-bits.h              |  782 ++++++++
- drivers/iommu/riscv/iommu-pci.c               |  119 ++
- drivers/iommu/riscv/iommu-platform.c          |   92 +
- drivers/iommu/riscv/iommu.c                   | 1616 +++++++++++++++++
- drivers/iommu/riscv/iommu.h                   |   88 +
- 11 files changed, 2877 insertions(+), 1 deletion(-)
+Co-developed-by: Anup Patel <apatel@ventanamicro.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+---
+ .../bindings/iommu/riscv,iommu.yaml           | 147 ++++++++++++++++++
+ MAINTAINERS                                   |   7 +
+ 2 files changed, 154 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
- create mode 100644 drivers/iommu/riscv/Kconfig
- create mode 100644 drivers/iommu/riscv/Makefile
- create mode 100644 drivers/iommu/riscv/iommu-bits.h
- create mode 100644 drivers/iommu/riscv/iommu-pci.c
- create mode 100644 drivers/iommu/riscv/iommu-platform.c
- create mode 100644 drivers/iommu/riscv/iommu.c
- create mode 100644 drivers/iommu/riscv/iommu.h
 
-
-base-commit: e67572cd2204894179d89bd7b984072f19313b03
-message-id: 20240413002522.1101315-1-pasha.tatashin@soleen.com
-message-id: cover.1713523152.git.robin.murphy@arm.com
+diff --git a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+new file mode 100644
+index 000000000000..5d015eeb06d0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+@@ -0,0 +1,147 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iommu/riscv,iommu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V IOMMU Architecture Implementation
++
++maintainers:
++  - Tomasz Jeznach <tjeznach@rivosinc.com>
++
++description: |
++  The RISC-V IOMMU provides memory address translation and isolation for
++  input and output devices, supporting per-device translation context,
++  shared process address spaces including the ATS and PRI components of
++  the PCIe specification, two stage address translation and MSI remapping.
++  It supports identical translation table format to the RISC-V address
++  translation tables with page level access and protection attributes.
++  Hardware uses in-memory command and fault reporting queues with wired
++  interrupt or MSI notifications.
++
++  Visit https://github.com/riscv-non-isa/riscv-iommu for more details.
++
++  For information on assigning RISC-V IOMMU to its peripheral devices,
++  see generic IOMMU bindings.
++
++properties:
++  # For PCIe IOMMU hardware compatible property should contain the vendor
++  # and device ID according to the PCI Bus Binding specification.
++  # Since PCI provides built-in identification methods, compatible is not
++  # actually required. For non-PCIe hardware implementations 'riscv,iommu'
++  # should be specified along with 'reg' property providing MMIO location.
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - qemu,riscv-iommu
++          - const: riscv,iommu
++      - items:
++          - enum:
++              - pci1efd,edf1
++          - const: riscv,pci-iommu
++
++  reg:
++    maxItems: 1
++    description:
++      For non-PCI devices this represents base address and size of for the
++      IOMMU memory mapped registers interface.
++      For PCI IOMMU hardware implementation this should represent an address
++      of the IOMMU, as defined in the PCI Bus Binding reference.
++
++  '#iommu-cells':
++    const: 1
++    description:
++      The single cell describes the requester id emitted by a master to the
++      IOMMU.
++
++  interrupts:
++    minItems: 1
++    maxItems: 4
++    description:
++      Wired interrupt vectors available for RISC-V IOMMU to notify the
++      RISC-V HARTS. The cause to interrupt vector is software defined
++      using IVEC IOMMU register.
++
++  msi-parent: true
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - '#iommu-cells'
++
++additionalProperties: false
++
++examples:
++  - |+
++    /* Example 1 (IOMMU device with wired interrupts) */
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    iommu1: iommu@1bccd000 {
++        compatible = "qemu,riscv-iommu", "riscv,iommu";
++        reg = <0x1bccd000 0x1000>;
++        interrupt-parent = <&aplic_smode>;
++        interrupts = <32 IRQ_TYPE_LEVEL_HIGH>,
++                     <33 IRQ_TYPE_LEVEL_HIGH>,
++                     <34 IRQ_TYPE_LEVEL_HIGH>,
++                     <35 IRQ_TYPE_LEVEL_HIGH>;
++        #iommu-cells = <1>;
++    };
++
++    /* Device with two IOMMU device IDs, 0 and 7 */
++    master1 {
++        iommus = <&iommu1 0>, <&iommu1 7>;
++    };
++
++  - |+
++    /* Example 2 (IOMMU device with shared wired interrupt) */
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    iommu2: iommu@1bccd000 {
++        compatible = "qemu,riscv-iommu", "riscv,iommu";
++        reg = <0x1bccd000 0x1000>;
++        interrupt-parent = <&aplic_smode>;
++        interrupts = <32 IRQ_TYPE_LEVEL_HIGH>;
++        #iommu-cells = <1>;
++    };
++
++  - |+
++    /* Example 3 (IOMMU device with MSIs) */
++    iommu3: iommu@1bcdd000 {
++        compatible = "qemu,riscv-iommu", "riscv,iommu";
++        reg = <0x1bccd000 0x1000>;
++        msi-parent = <&imsics_smode>;
++        #iommu-cells = <1>;
++    };
++
++  - |+
++    /* Example 4 (IOMMU PCIe device with MSIs) */
++    bus {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pcie@30000000 {
++            device_type = "pci";
++            #address-cells = <3>;
++            #size-cells = <2>;
++            reg = <0x0 0x30000000  0x0 0x1000000>;
++            ranges = <0x02000000 0x0 0x41000000  0x0 0x41000000  0x0 0x0f000000>;
++
++            /*
++             * The IOMMU manages all functions in this PCI domain except
++             * itself. Omit BDF 00:01.0.
++             */
++            iommu-map = <0x0 &iommu0 0x0 0x8>,
++                        <0x9 &iommu0 0x9 0xfff7>;
++
++            /* The IOMMU programming interface uses slot 00:01.0 */
++            iommu0: iommu@1,0 {
++               compatible = "pci1efd,edf1", "riscv,pci-iommu";
++               reg = <0x800 0 0 0 0>;
++               #iommu-cells = <1>;
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f6dc90559341..7fcf7c27ef6b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -18958,6 +18958,13 @@ F:	arch/riscv/
+ N:	riscv
+ K:	riscv
+ 
++RISC-V IOMMU
++M:	Tomasz Jeznach <tjeznach@rivosinc.com>
++L:	iommu@lists.linux.dev
++L:	linux-riscv@lists.infradead.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
++
+ RISC-V MICROCHIP FPGA SUPPORT
+ M:	Conor Dooley <conor.dooley@microchip.com>
+ M:	Daire McNamara <daire.mcnamara@microchip.com>
 -- 
 2.34.1
 
