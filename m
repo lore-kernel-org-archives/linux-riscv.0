@@ -4,105 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CE0C4345F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 14:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF709C4345F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 May 2024 14:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9rRcmGffGjYCVi2/ZPXEE3zTG30bJualwgSPvd5Rw3Y=; b=49AOQbhbIFR5Kw
-	Z/03gYa6HPiZ/phiLUFVSR4Iu4zSRnlNDmzxO85YrNxsWcK/W9GEszklH1a8KcNxHYaziCaTbMg/h
-	QhNCqJNXFvcAWUC4YrED/Jmw1pzg7A3X88SaF922Jf7pFmtqzlxeHZEZHdBdrKmbceSbOwTWyfnYM
-	uFe5S4bcgr9RYA0YnrCFYFmyoivwXollREpbcE15zU9MT7zoHEmr54EffTqN4WxKEZsxANq3gvH9b
-	zzCG3b/kd7kY05DeGePumvooBdcxnJiLfrnp/lZBrrRDcpj1+3tDG28QOZICwVPzB+pllz/NdG9do
-	tdYQGuDp/pgbH1o0ofjw==;
+	List-Owner; bh=CDnAs+zBUKIs5BqA8i9BK5q4OEbXt/PDUITwaz/cHNs=; b=0+N/nDRSBc4MoF
+	tkiPD9WdbAv9HqPmC6aOWwHOAZRWmIt81tn1+FPhhIx6vk+YxRK3I0zaJ3IPYbb7K31/DAgXnJA2I
+	E6tfCxPVbxT8+tWWE0cid/aXZAJjP1xcV4jZ2nea6A8LTlcmePo6LfUFrhQQsQCYchpWu0Iu0yEAC
+	TjD8M0ZVe7xp43hZU+dwt5PMNIPe/nj7w8sJJg6t3TCHX0yb+t5SjETP1HuZnVMAKg5uVAYV3dMr5
+	NpgryJfylbBW9/lS9vrcGaCqzogi9W1lrwm/ZL68sjHbCFvtbzti77H3d1nllaHoqSfecEIDeYkDu
+	gYXV92qZvPQS/97/7iNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2tS7-0000000GlWh-1vwG;
-	Fri, 03 May 2024 13:59:55 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1s2tbl-0000000GnaL-2uI2;
+	Fri, 03 May 2024 14:09:53 +0000
+Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s2tS4-0000000GlVA-3DhE
-	for linux-riscv@lists.infradead.org;
-	Fri, 03 May 2024 13:59:54 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-de596c078c2so9193312276.0
-        for <linux-riscv@lists.infradead.org>; Fri, 03 May 2024 06:59:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1714744789; x=1715349589; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ChPcRq4NfZHnrwL48HNhQ7iFI35ROHq79DvxMeghd44=;
-        b=BB/2eFrjJM8tD+NLyBF1QwjYM4mbaTYWxB9VF07R1Uq3YTpN+YcybJWn4TSnvTQWGu
-         ubVPMR/ASy6TV9HhixGGE1QPsoXRSasHxnR2A5E4sYzqm0fH6B+sXaud6vdBYnzNlg8j
-         Y0dFX1KRVBb56jON/LdpIZ8FIl/r0PW79c353pfXWcgBdoNIiVx+WGvNavtNcNCbxzfA
-         IbSPztoU/G02QSCAKEYUzaXMMoURNv5f7nh3zRo8xZi/83wy8dmAW2V0G/H17+S5/kB8
-         BjAoSoVFJuATgasDyZHDnIaV9S9T7M+xEJSDDAIDbJfHhhQ6TRE079gpnFkQNY7iTYdP
-         iN2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714744789; x=1715349589;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ChPcRq4NfZHnrwL48HNhQ7iFI35ROHq79DvxMeghd44=;
-        b=i87SzVyPAmiWDMyqi7YgSE2x4KzSFQ+7LHFC05R2YST7mhtE1LVp/2eDLSYOb2d1vS
-         D+ubD2x46tnC3WLpvXA9zwyjN7SZ6b4mKr9VCHfxv4bfa6IMJrQGL9KI69nbpAUPTDVg
-         vMghzTaHhBtl1m6QPHrtlXenL5YNHK6Slsecuuqsz4seok5uQHmLGx849fAxs+rQkDzX
-         er2SSwFnPK84ClVKy6F/sQ26lIvqmSCVWVjI8vfUjPhDCBKvtcCJ3sFMAu5BmhBW7qOu
-         6G/qch7xF+OVyqWAMGUtBE9FJqQ9lSECM3LtYxqzACD7fLxuLBiuBDFOGwsTwPU/RxGe
-         MCfg==
-X-Forwarded-Encrypted: i=1; AJvYcCWDHHJB2T5eEYgAl/Cce/rgGBqau05+N2BIjLRwzmXSQq0ALw13KXMGzM9ED9Y0xjLl8QsrJkETUZIJY3Xe428a+h0YLwo7DMA3ib1vef/D
-X-Gm-Message-State: AOJu0YymnX1pL9tK9pSw4fQCV/xRXSi58VhGrbADOD9iEJSf/Hjkt4gR
-	7Trh1+7pOvbfCB579ogCDiS/Xu2/r71ytE9HJAuG2QxKEbt02PvANa+ACNKdJ9g=
-X-Google-Smtp-Source: AGHT+IFctvodowwbTmaaEDSmGBZj/O9adwDNYje40Gk9jTBEJueLXsMCVV/UKXpClCHAizcOHif2cQ==
-X-Received: by 2002:a05:6902:246:b0:de5:e046:6ac with SMTP id k6-20020a056902024600b00de5e04606acmr2994231ybs.5.1714744789552;
-        Fri, 03 May 2024 06:59:49 -0700 (PDT)
-Received: from sunil-laptop ([106.51.191.139])
-        by smtp.gmail.com with ESMTPSA id l14-20020a25bf8e000000b00de51b87bfefsm627782ybk.18.2024.05.03.06.59.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 May 2024 06:59:48 -0700 (PDT)
-Date: Fri, 3 May 2024 19:29:35 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
-	acpica-devel@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Andrei Warkentin <andrei.warkentin@intel.com>,
-	Haibo1 Xu <haibo1.xu@intel.com>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Subject: Re: [PATCH v5 17/17] serial: 8250: Add 8250_acpi driver
-Message-ID: <ZjTtx88zk4GvCImk@sunil-laptop>
-References: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
- <20240501121742.1215792-18-sunilvl@ventanamicro.com>
- <ZjNaR-YtVTm4pbP7@smile.fi.intel.com>
- <ZjNh0Llcx+0VHevy@sunil-laptop>
- <ZjNmdfR2J6hNnYle@smile.fi.intel.com>
- <ZjN3GQI3gegYOIgS@sunil-laptop>
- <ZjOy2G0qN5G076i0@smile.fi.intel.com>
+	id 1s2tbe-0000000GnVC-2aap;
+	Fri, 03 May 2024 14:09:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1714745381;
+	bh=+fi7fUfomErHHAmvDww2p/WTBqGy/yFZDfIKZxnytjc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KM4XIarbWLiqP+rTdHhYP4ADp2FfBPZJESIvebE/x46r3wpaPNaKYYJ8DjRuiR4XK
+	 lgnUuJtE42KneR0ACxiqLQ5uJD/S7BK84VwhVwYe9egEdoAzvtQwKV4FeMNTpP6GjL
+	 22eK/o3npUywdzgLbvtpx7d4AZBFjdzVsbPnc49I=
+Date: Fri, 3 May 2024 16:09:40 +0200
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
+To: Joel Granados <j.granados@samsung.com>
+Cc: Luis Chamberlain <mcgrof@kernel.org>, 
+	Kees Cook <keescook@chromium.org>, Eric Dumazet <edumazet@google.com>, 
+	Dave Chinner <david@fromorbit.com>, linux-fsdevel@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
+	bpf@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-xfs@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	netfilter-devel@vger.kernel.org, coreteam@netfilter.org, kexec@lists.infradead.org, 
+	linux-hardening@vger.kernel.org, bridge@lists.linux.dev, lvs-devel@vger.kernel.org, 
+	linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com, linux-sctp@vger.kernel.org, 
+	linux-nfs@vger.kernel.org, apparmor@lists.ubuntu.com
+Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
+ of sysctl handlers
+Message-ID: <4cda5d2d-dd92-44ef-9e7b-7b780ec795ab@t-8ch.de>
+References: <CGME20240423075608eucas1p265e7c90f3efd6995cb240b3d2688b803@eucas1p2.samsung.com>
+ <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
+ <20240503090332.irkiwn73dgznjflz@joelS2.panther.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZjOy2G0qN5G076i0@smile.fi.intel.com>
+In-Reply-To: <20240503090332.irkiwn73dgznjflz@joelS2.panther.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240503_065952_836462_0284A5D2 
-X-CRM114-Status: GOOD (  24.59  )
+X-CRM114-CacheID: sfid-20240503_070946_901456_ACD1EDCA 
+X-CRM114-Status: GOOD (  29.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,44 +75,177 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 02, 2024 at 06:35:52PM +0300, Andy Shevchenko wrote:
-> On Thu, May 02, 2024 at 04:50:57PM +0530, Sunil V L wrote:
-> > On Thu, May 02, 2024 at 01:09:57PM +0300, Andy Shevchenko wrote:
-> > > On Thu, May 02, 2024 at 03:20:08PM +0530, Sunil V L wrote:
-> > > > On Thu, May 02, 2024 at 12:17:59PM +0300, Andy Shevchenko wrote:
-> 
-> ...
-> 
-> > > > This driver is not a duplicate of 8250_pnp. It just relies on UART
-> > > > enumerated as platform device instead of using PNP interfaces.
-> > > > Isn't it better and simple to have an option to enumerate as platform
-> > > > device instead of PNP? 
-> > > 
-> > > Ah, then extract platform driver first from 8250_core.c.
-> > > 
-> > Let me know if I understand your suggestion correctly. Do you mean call
-> > something like serial8250_acpi_init() from serial8250_init() and
-> > register the driver directly in serial8250_acpi_init()?
-> 
-> Extract the code to be 8250_platform.c and update that file.
-> I have locally the extraction of RSA code, I will see if I can help you
-> with the rest.
-> 
-Thanks!. That will be helpful. TBH, I don't understand what to do for
-extracting the platform driver code. There are already several vendor
-specific UART drivers (ex: 8250_fsl.c) which are enumerated as platform
-devices. 8250_core.c looks cleanly supporting such drivers which can
-register themselves with the core. For generic UART, DT has 8250_of.c
-and ACPI has 8250_pnp.c. But 8250_pnp.c comes with baggage of PNP
-contract. So, the driver in this patch is similar to vendor specific
-drivers to support generic uart devices which are enumerated as platform
-device. I can rename 8250_acpi.c to 8250_platform.c if that is better.
+Hey Joel,
 
-Could you please help with a patch even if not compiled so that I can
-understand your suggestion better? 
+On 2024-05-03 11:03:32+0000, Joel Granados wrote:
+> Here is my feedback for your outstanding constification patches [1] and [2].
 
-Thanks for your help!
-Sunil
+Thanks!
+
+> # You need to split the patch
+> The answer that you got from Jakub in the network subsystem is very clear and
+> baring a change of heart from the network folks, this will go in as but as a
+> split patchset. Please split it considering the following:
+> 1. Create a different patchset for drivers/,  fs/, kernel/, net, and a
+>    miscellaneous that includes whatever does not fit into the others.
+> 2. Consider that this might take several releases.
+> 3. Consider the following sufix for the interim function name "_const". Like in
+>    kfree_const. Please not "_new".
+
+Ack. "_new" was an intentionally unacceptable placeholder.
+
+> 4. Please publish the final result somewhere. This is important so someone can
+>    take over in case you need to stop.
+
+Will do. Both for each single series and a combination of all of them.
+
+> 5. Consistently mention the motivation in your cover letters. I specify more
+>    further down in "#Motivation".
+> 6. Also mention that this is part of a bigger effort (like you did in your
+>    original cover letters). I would include [3,4,5,6]
+> 7. Include a way to show what made it into .rodata. I specify more further down
+>    in "#Show the move".
+> 
+> # Motivation
+> As I read it, the motivation for these constification efforts are:
+> 1. It provides increased safety: Having things in .rodata section reduces the
+>    attack surface. This is especially relevant for structures that have function
+>    pointers (like ctl_table); having these in .rodata means that these pointers
+>    always point to the "intended" function and cannot be changed.
+> 2. Compiler optimizations: This was just a comment in the patchsets that I have
+>    mentioned ([3,4,5]). Do you know what optimizations specifically? Does it
+>    have to do with enhancing locality for the data in .rodata? Do you have other
+>    specific optimizations in mind?
+
+I don't know about anything that would make it faster.
+It's more about safety and transmission of intent to API users,
+especially callback implementers.
+
+> 3. Readability: because it is easier to know up-front that data is not supposed
+>    to change or its obvious that a function is re-entrant. Actually a lot of the
+>    readability reasons is about knowing things "up-front".
+> As we move forward with the constification in sysctl, please include a more
+> detailed motivation in all your cover letters. This helps maintainers (that
+> don't have the context) understand what you are trying to do. It does not need
+> to be my three points, but it should be more than just "put things into
+> .rodata". Please tell me if I have missed anything in the motivation.
+
+Will do.
+
+> # Show the move
+> I created [8] because there is no easy way to validate which objects made it
+> into .rodata. I ran [8] for your Dec 2nd patcheset [7] and there are less in
+> .rodata than I expected (the results are in [9]) Why is that? Is it something
+> that has not been posted to the lists yet? 
+
+Constifying the APIs only *allows* the actual table to be constified
+themselves.
+Then each table definition will have to be touched and "const" added.
+
+See patches 17 and 18 in [7] for two examples.
+
+Some tables in net/ are already "const" as the static definitions are
+never registered themselves but only their copies are.
+
+This seems to explain your findings.
+
+> Best
+
+Thanks!
+
+> [1] https://lore.kernel.org/all/20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net/
+> [2] https://lore.kernel.org/all/20240418-sysctl-const-table-arg-v2-1-4012abc31311@weissschuh.net
+> [3] [PATCH v2 00/14] ASoC: Constify local snd_sof_dsp_ops
+>     https://lore.kernel.org/all/20240426-n-const-ops-var-v2-0-e553fe67ae82@kernel.org
+> [4] [PATCH v2 00/19] backlight: Constify lcd_ops
+>     https://lore.kernel.org/all/20240424-video-backlight-lcd-ops-v2-0-1aaa82b07bc6@kernel.org
+> [5] [PATCH 1/4] iommu: constify pointer to bus_type
+>     https://lore.kernel.org/all/20240216144027.185959-1-krzysztof.kozlowski@linaro.org
+> [6] [PATCH 00/29] const xattr tables
+>     https://lore.kernel.org/all/20230930050033.41174-1-wedsonaf@gmail.com
+> [7] https://lore.kernel.org/all/20231204-const-sysctl-v2-0-7a5060b11447@weissschuh.net/
+> 
+> [8]
+
+[snip]
+
+> [9]
+>     section: .rodata                obj_name : kern_table
+>     section: .rodata                obj_name : sysctl_mount_point
+>     section: .rodata                obj_name : addrconf_sysctl
+>     section: .rodata                obj_name : ax25_param_table
+>     section: .rodata                obj_name : mpls_table
+>     section: .rodata                obj_name : mpls_dev_table
+>     section: .data          obj_name : sld_sysctls
+>     section: .data          obj_name : kern_panic_table
+>     section: .data          obj_name : kern_exit_table
+>     section: .data          obj_name : vm_table
+>     section: .data          obj_name : signal_debug_table
+>     section: .data          obj_name : usermodehelper_table
+>     section: .data          obj_name : kern_reboot_table
+>     section: .data          obj_name : user_table
+>     section: .bss           obj_name : sched_core_sysctls
+>     section: .data          obj_name : sched_fair_sysctls
+>     section: .data          obj_name : sched_rt_sysctls
+>     section: .data          obj_name : sched_dl_sysctls
+>     section: .data          obj_name : printk_sysctls
+>     section: .data          obj_name : pid_ns_ctl_table_vm
+>     section: .data          obj_name : seccomp_sysctl_table
+>     section: .data          obj_name : uts_kern_table
+>     section: .data          obj_name : vm_oom_kill_table
+>     section: .data          obj_name : vm_page_writeback_sysctls
+>     section: .data          obj_name : page_alloc_sysctl_table
+>     section: .data          obj_name : hugetlb_table
+>     section: .data          obj_name : fs_stat_sysctls
+>     section: .data          obj_name : fs_exec_sysctls
+>     section: .data          obj_name : fs_pipe_sysctls
+>     section: .data          obj_name : namei_sysctls
+>     section: .data          obj_name : fs_dcache_sysctls
+>     section: .data          obj_name : inodes_sysctls
+>     section: .data          obj_name : fs_namespace_sysctls
+>     section: .data          obj_name : dnotify_sysctls
+>     section: .data          obj_name : inotify_table
+>     section: .data          obj_name : epoll_table
+>     section: .data          obj_name : aio_sysctls
+>     section: .data          obj_name : locks_sysctls
+>     section: .data          obj_name : coredump_sysctls
+>     section: .data          obj_name : fs_shared_sysctls
+>     section: .data          obj_name : fs_dqstats_table
+>     section: .data          obj_name : root_table
+>     section: .data          obj_name : pty_table
+>     section: .data          obj_name : xfs_table
+>     section: .data          obj_name : ipc_sysctls
+>     section: .data          obj_name : key_sysctls
+>     section: .data          obj_name : kernel_io_uring_disabled_table
+>     section: .data          obj_name : tty_table
+>     section: .data          obj_name : random_table
+>     section: .data          obj_name : scsi_table
+>     section: .data          obj_name : iwcm_ctl_table
+>     section: .data          obj_name : net_core_table
+>     section: .data          obj_name : netns_core_table
+>     section: .bss           obj_name : nf_log_sysctl_table
+>     section: .data          obj_name : nf_log_sysctl_ftable
+>     section: .data          obj_name : vs_vars
+>     section: .data          obj_name : vs_vars_table
+>     section: .data          obj_name : ipv4_route_netns_table
+>     section: .data          obj_name : ipv4_route_table
+>     section: .data          obj_name : ip4_frags_ns_ctl_table
+>     section: .data          obj_name : ip4_frags_ctl_table
+>     section: .data          obj_name : ctl_forward_entry
+>     section: .data          obj_name : ipv4_table
+>     section: .data          obj_name : ipv4_net_table
+>     section: .data          obj_name : unix_table
+>     section: .data          obj_name : ipv6_route_table_template
+>     section: .data          obj_name : ipv6_icmp_table_template
+>     section: .data          obj_name : ip6_frags_ns_ctl_table
+>     section: .data          obj_name : ip6_frags_ctl_table
+>     section: .data          obj_name : ipv6_table_template
+>     section: .data          obj_name : ipv6_rotable
+>     section: .data          obj_name : sctp_net_table
+>     section: .data          obj_name : sctp_table
+>     section: .data          obj_name : smc_table
+>     section: .data          obj_name : lowpan_frags_ns_ctl_table
+>     section: .data          obj_name : lowpan_frags_ctl_table
 
 _______________________________________________
 linux-riscv mailing list
