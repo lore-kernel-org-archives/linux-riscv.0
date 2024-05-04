@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57BD4C4345F
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 May 2024 14:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69129C10F1A
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 May 2024 15:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W+nOhqw9ai9gTyBp3aEazh4YJ6Em6LkD4iMJH2uPOSo=; b=0ODsbWzBsyWK+M
-	yRQ7rp2IHHXEOc7uN5+e2n3Lvn1Bb8jrohJqB66F1p3EJuzF8PzBvFSi126IZuIO9PXIQvhC8VTom
-	O0NSPvfDgMHcS5D8G8SvSvGfRVuFzIfRKhxMIXRrmP4TzzPsYx7Eiz5SKfcc7sXQ8qiAeicNq+o9c
-	v8h04yx2UCEh7/WFCKDss1Oy/ToZyXrOjKGc1acMicxKTajhc4BD/4029BtkiUKRvEVRw/TsJTDya
-	0bDM9VXya6yezFLdWVTyQnGCKy+1FPdjaH6A9lcEN3Xtzr0JAWQw6Zm9o8FiZTXzlsQPhjwUmBVUB
-	e115o4Q1TuX4FOm1+t4w==;
+	List-Owner; bh=WtT+sv270ZRP5u68Kf14ApVdF3gbcCnMa42vCnadNYI=; b=JichkOIqHUF1zm
+	R9jE8tLyTx9w787Wz/32NFh0qdSzSTF6Zud6jAasGnamyRjan6M9BcSLEpHV1jX8rhoeLJENpMIHU
+	bDtBLA6H4Gyaz62+VvKPqjv0MmToyjzwH2p+KHaptkweUTx0nxSbhlWQsCTAzVSdkUy3tNZl8qJr1
+	1fSnzcwrJ0Ymy+oqNTnvbtU2n9+tphIM1SuUt1vRs0TC+7KyW/JAKUh337XiA5rDJdhfvqs4EdL+H
+	e4rFvxQ7GA1uCEKsF33tbTqhNw2MLqP/AdS9wBVqJTiK7+0MX5pG/bg9Q24YxZOO2vBDuUSE2wTVz
+	PdeMps+GNz56SdHbdA7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3GrY-00000002IVS-1lkt;
-	Sat, 04 May 2024 14:59:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1s3Hhv-00000002OH1-3IIG;
+	Sat, 04 May 2024 15:53:51 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3GrV-00000002ITV-2P0G
-	for linux-riscv@lists.infradead.org;
-	Sat, 04 May 2024 14:59:43 +0000
+	id 1s3Hhq-00000002OEn-2Jyg;
+	Sat, 04 May 2024 15:53:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 80E7160B9F
-	for <linux-riscv@lists.infradead.org>; Sat,  4 May 2024 14:59:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52C56C4AF14
-	for <linux-riscv@lists.infradead.org>; Sat,  4 May 2024 14:59:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714834777;
-	bh=59o7tXquRIqoxapI21PlnhHN12jY6tte9WJwrzVGL94=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IgusHqbdv0cxu41AzmUq2zJmz251NdLvB8oTzJyksXvA3IOb2NN2DfMz+/hHUK4Nx
-	 PVkhF1uzINKChzMoJbQUTi1ltJAzAIlajsxPOTdZ114mxNZBYFTpt8nGsWoH1kxXAf
-	 SzOZuAhIIBYnLsvpks/2gSh6OBig5G/nE97x2LYs8ub3D7dyURoUf/aVNkRIX8I2Qc
-	 Mcb1eB2t58OhTEEFZ2W4xTCRNE+u6Xn6+G2G8WUUcFoZnQ5hf7YIpRxFMJLf1zO66j
-	 hsuWWigAyc5GgxXMlNF0P9OcWtbPATNOgt+vl0fg3I8maNNDAxgmAvUcKp5BkHDd9S
-	 6aGzVpqFvEBqw==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-2dac77cdf43so7761011fa.2
-        for <linux-riscv@lists.infradead.org>; Sat, 04 May 2024 07:59:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVXDz3gUwsPK8GVNLB1xhEJU/ljS46qAkKmtx6ql/tlia0W1IfarVeP/iRJKfUBvuuyWFfKJ4fRjVsdCeabEJQfZ0lqcR981aNTr4PxqQ+6
-X-Gm-Message-State: AOJu0Yz9Db1+jp5ZrNwVWXSg4ZR4K/h/oz5/gOScwjGKDcdcPIGqckQ3
-	us79FEtd+N3e3vRvX3rlkXe6ffNMWdc2f2PrQ3sBcCcGvh2Mc81w5E45FROwKtbD3EbmZVMuHx5
-	soTWZDiebM2vLJmr/ymUdUqEjAB8=
-X-Google-Smtp-Source: AGHT+IFptx2/XrRKQS9VVn18TUeYl4iE0DDrVmRwBY6jDxJdM/VwzAfnq2l+RFLlTkrU/eauv/8Uf0erH5jfb+QzN1M=
-X-Received: by 2002:a2e:9ed4:0:b0:2d8:63a2:50d2 with SMTP id
- h20-20020a2e9ed4000000b002d863a250d2mr3903586ljk.6.1714834775950; Sat, 04 May
- 2024 07:59:35 -0700 (PDT)
+	by sin.source.kernel.org (Postfix) with ESMTP id D9987CE01BC;
+	Sat,  4 May 2024 15:53:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ED39C072AA;
+	Sat,  4 May 2024 15:53:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1714838021;
+	bh=8I8m+ARERilkFj7kIbhJ3jfl4OiynemXtq1r//9ZZG0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nBFZQmgdyX6pMsEUa7czdAYYb8afZ3p6iRVUD/H9YzuOfGgH1cZKo2dib2Jh93VK+
+	 8LPWbA2+H9SGLgmogKYkxW5/Q+Vq/loJY9A+poOwUtd5I2agVivdOgQXtTwcqUx+b6
+	 m+Duex3ZyppN9X/0T/ZfT4gefnqjqWMjeM41aIDI=
+Date: Sat, 4 May 2024 17:53:38 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
+	acpica-devel@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Anup Patel <anup@brainfault.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Robert Moore <robert.moore@intel.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Andrei Warkentin <andrei.warkentin@intel.com>,
+	Haibo1 Xu <haibo1.xu@intel.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Subject: Re: [PATCH v5 17/17] serial: 8250: Add 8250_acpi driver
+Message-ID: <2024050421-coil-payphone-f3a1@gregkh>
+References: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
+ <20240501121742.1215792-18-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-References: <20240502111613.1380453-1-emil.renner.berthing@canonical.com>
- <20240502111613.1380453-2-emil.renner.berthing@canonical.com>
- <87ttjgcqjv.fsf@all.your.base.are.belong.to.us> <CAK7LNASqwN1gd8TovcR3RDkxkE_M=BSDD5GoOoLOkDQnuNDAcA@mail.gmail.com>
- <CAJM55Z-dorP1MgiCu=+VV_D+b6XXKWacUjT04QAsKvdmQtNv3g@mail.gmail.com>
-In-Reply-To: <CAJM55Z-dorP1MgiCu=+VV_D+b6XXKWacUjT04QAsKvdmQtNv3g@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Sat, 4 May 2024 23:58:59 +0900
-X-Gmail-Original-Message-ID: <CAK7LNASwKy=wjJT1YNCACLfnn6VY0-7scN=wi4hRoCssh=6cGQ@mail.gmail.com>
-Message-ID: <CAK7LNASwKy=wjJT1YNCACLfnn6VY0-7scN=wi4hRoCssh=6cGQ@mail.gmail.com>
-Subject: Re: [PATCH v1 1/3] riscv: make image compression configurable
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nicolas@fjasle.eu>, Nick Terrell <terrelln@fb.com>
+Content-Disposition: inline
+In-Reply-To: <20240501121742.1215792-18-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240504_075941_815439_F4004236 
-X-CRM114-Status: GOOD (  29.85  )
+X-CRM114-CacheID: sfid-20240504_085346_972440_88C69DE7 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,131 +85,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBNYXkgNCwgMjAyNCBhdCAxMDo1NOKAr1BNIEVtaWwgUmVubmVyIEJlcnRoaW5nCjxl
-bWlsLnJlbm5lci5iZXJ0aGluZ0BjYW5vbmljYWwuY29tPiB3cm90ZToKPgo+IE1hc2FoaXJvIFlh
-bWFkYSB3cm90ZToKPiA+IE9uIFRodSwgTWF5IDIsIDIwMjQgYXQgMTA6MDXigK9QTSBCasO2cm4g
-VMO2cGVsIDxiam9ybkBrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4KPiA+ID4gRW1pbCBSZW5uZXIg
-QmVydGhpbmcgPGVtaWwucmVubmVyLmJlcnRoaW5nQGNhbm9uaWNhbC5jb20+IHdyaXRlczoKPiA+
-ID4KPiA+ID4gPiBQcmV2aW91c2x5IHRoZSBidWlsZCBwcm9jZXNzIHdvdWxkIGFsd2F5cyBzZXQg
-S0JVSUxEX0lNQUdFIHRvIHRoZQo+ID4gPiA+IHVuY29tcHJlc3NlZCBJbWFnZSBmaWxlICh1bmxl
-c3MgWElQX0tFUk5FTCBvciBFRklfWkJPT1Qgd2FzIGVuYWJsZWQpIGFuZAo+ID4gPiA+IHVuY29u
-ZGl0aW9uYWxseSBjb21wcmVzcyBpdCBpbnRvIEltYWdlLmd6LiBIb3dldmVyIHRoZXJlIGFyZSBh
-bHJlYWR5Cj4gPiA+ID4gYnVpbGQgdGFyZ2V0cyBmb3IgSW1hZ2UuYnoyLCBJbWFnZS5sejQsIElt
-YWdlLmx6bWEsIEltYWdlLmx6byBhbmQKPiA+ID4gPiBJbWFnZS56c3RkLCBzbyBsZXQncyBtYWtl
-IHVzZSBvZiB0aG9zZSwgbWFrZSB0aGUgY29tcHJlc3Npb24gbWV0aG9kCj4gPiA+ID4gY29uZmln
-dXJhYmxlIGFuZCBzZXQgS0JVSUxEX0lNQUdFIGFjY29yZGluZ2x5IHNvIHRoYXQgdGFyZ2V0cyBs
-aWtlCj4gPiA+ID4gJ21ha2UgaW5zdGFsbCcgYW5kICdtYWtlIGJpbmRlYi1wa2cnIHdpbGwgdXNl
-IHRoZSBjaG9zZW4gaW1hZ2UuCj4gPiA+ID4KPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBFbWlsIFJl
-bm5lciBCZXJ0aGluZyA8ZW1pbC5yZW5uZXIuYmVydGhpbmdAY2Fub25pY2FsLmNvbT4KPiA+ID4g
-PiAtLS0KPiA+ID4gPiAgYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgfCAgNyArKysrKysrCj4g
-PiA+ID4gIGFyY2gvcmlzY3YvTWFrZWZpbGUgICAgICAgIHwgNDMgKysrKysrKysrKysrKysrKysr
-KystLS0tLS0tLS0tLS0tLS0tLS0KPiA+ID4gPiAgYXJjaC9yaXNjdi9ib290L2luc3RhbGwuc2gg
-fCAgOSArKysrKy0tLQo+ID4gPiA+ICAzIGZpbGVzIGNoYW5nZWQsIDM2IGluc2VydGlvbnMoKyks
-IDIzIGRlbGV0aW9ucygtKQo+ID4gPiA+Cj4gPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-S2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiA+IGluZGV4IGJlMDljODgzNmQ1Ni4u
-NmMwOTJkMWVhN2RiIDEwMDY0NAo+ID4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4g
-PiA+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiA+IEBAIC0xMzgsNiArMTM4LDEzIEBA
-IGNvbmZpZyBSSVNDVgo+ID4gPiA+ICAgICAgIHNlbGVjdCBIQVZFX0dDQ19QTFVHSU5TCj4gPiA+
-ID4gICAgICAgc2VsZWN0IEhBVkVfR0VORVJJQ19WRFNPIGlmIE1NVSAmJiA2NEJJVAo+ID4gPiA+
-ICAgICAgIHNlbGVjdCBIQVZFX0lSUV9USU1FX0FDQ09VTlRJTkcKPiA+ID4gPiArICAgICBzZWxl
-Y3QgSEFWRV9LRVJORUxfQlpJUDIgaWYgIVhJUF9LRVJORUwgJiYgIUVGSV9aQk9PVAo+ID4gPiA+
-ICsgICAgIHNlbGVjdCBIQVZFX0tFUk5FTF9HWklQIGlmICFYSVBfS0VSTkVMICYmICFFRklfWkJP
-T1QKPiA+ID4gPiArICAgICBzZWxlY3QgSEFWRV9LRVJORUxfTFo0IGlmICFYSVBfS0VSTkVMICYm
-ICFFRklfWkJPT1QKPiA+ID4gPiArICAgICBzZWxlY3QgSEFWRV9LRVJORUxfTFpNQSBpZiAhWElQ
-X0tFUk5FTCAmJiAhRUZJX1pCT09UCj4gPiA+ID4gKyAgICAgc2VsZWN0IEhBVkVfS0VSTkVMX0xa
-TyBpZiAhWElQX0tFUk5FTCAmJiAhRUZJX1pCT09UCj4gPiA+ID4gKyAgICAgc2VsZWN0IEhBVkVf
-S0VSTkVMX1VOQ09NUFJFU1NFRCBpZiAhWElQX0tFUk5FTCAmJiAhRUZJX1pCT09UCj4gPiA+ID4g
-KyAgICAgc2VsZWN0IEhBVkVfS0VSTkVMX1pTVEQgaWYgIVhJUF9LRVJORUwgJiYgIUVGSV9aQk9P
-VAo+ID4gPiA+ICAgICAgIHNlbGVjdCBIQVZFX0tQUk9CRVMgaWYgIVhJUF9LRVJORUwKPiA+ID4g
-PiAgICAgICBzZWxlY3QgSEFWRV9LUFJPQkVTX09OX0ZUUkFDRSBpZiAhWElQX0tFUk5FTAo+ID4g
-PiA+ICAgICAgIHNlbGVjdCBIQVZFX0tSRVRQUk9CRVMgaWYgIVhJUF9LRVJORUwKPiA+ID4gPiBk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9NYWtlZmlsZSBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKPiA+
-ID4gPiBpbmRleCA1YjMxMTVhMTk4NTIuLjI5YmU2NzY0MTVkNiAxMDA2NDQKPiA+ID4gPiAtLS0g
-YS9hcmNoL3Jpc2N2L01ha2VmaWxlCj4gPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9NYWtlZmlsZQo+
-ID4gPiA+IEBAIC0xMjksMTEgKzEyOSwyNyBAQCBlbmRpZgo+ID4gPiA+ICBDSEVDS0ZMQUdTICs9
-IC1EX19yaXNjdiAtRF9fcmlzY3ZfeGxlbj0kKEJJVFMpCj4gPiA+ID4KPiA+ID4gPiAgIyBEZWZh
-dWx0IHRhcmdldCB3aGVuIGV4ZWN1dGluZyBwbGFpbiBtYWtlCj4gPiA+ID4gLWJvb3QgICAgICAg
-ICA6PSBhcmNoL3Jpc2N2L2Jvb3QKPiA+ID4gPiArYm9vdCA6PSBhcmNoL3Jpc2N2L2Jvb3QKPiA+
-ID4gPiAgaWZlcSAoJChDT05GSUdfWElQX0tFUk5FTCkseSkKPiA+ID4gPiAgS0JVSUxEX0lNQUdF
-IDo9ICQoYm9vdCkveGlwSW1hZ2UKPiA+ID4gPiArZWxzZSBpZmVxICgkKENPTkZJR19SSVNDVl9N
-X01PREUpJChDT05GSUdfQVJDSF9DQU5BQU4pLHl5KQo+ID4gPiA+ICtLQlVJTERfSU1BR0UgOj0g
-JChib290KS9sb2FkZXIuYmluCj4gPiA+ID4gK2Vsc2UgaWZlcSAoJChDT05GSUdfRUZJX1pCT09U
-KSx5KQo+ID4gPiA+ICtLQlVJTERfSU1BR0UgOj0gJChib290KS92bWxpbnV6LmVmaQo+ID4gPiA+
-ICtlbHNlIGlmZXEgKCQoQ09ORklHX0tFUk5FTF9HWklQKSx5KQo+ID4gPiA+ICtLQlVJTERfSU1B
-R0UgOj0gJChib290KS9JbWFnZS5nego+ID4gPiA+ICtlbHNlIGlmZXEgKCQoQ09ORklHX0tFUk5F
-TF9CWklQMikseSkKPiA+ID4gPiArS0JVSUxEX0lNQUdFIDo9ICQoYm9vdCkvSW1hZ2UuYnoyCj4g
-PiA+ID4gK2Vsc2UgaWZlcSAoJChDT05GSUdfS0VSTkVMX0xaNCkseSkKPiA+ID4gPiArS0JVSUxE
-X0lNQUdFIDo9ICQoYm9vdCkvSW1hZ2UubHo0Cj4gPiA+ID4gK2Vsc2UgaWZlcSAoJChDT05GSUdf
-S0VSTkVMX0xaTUEpLHkpCj4gPiA+ID4gK0tCVUlMRF9JTUFHRSA6PSAkKGJvb3QpL0ltYWdlLmx6
-bWEKPiA+ID4gPiArZWxzZSBpZmVxICgkKENPTkZJR19LRVJORUxfTFpPKSx5KQo+ID4gPiA+ICtL
-QlVJTERfSU1BR0UgOj0gJChib290KS9JbWFnZS5sem8KPiA+ID4gPiArZWxzZSBpZmVxICgkKENP
-TkZJR19LRVJORUxfWlNURCkseSkKPiA+ID4gPiArS0JVSUxEX0lNQUdFIDo9ICQoYm9vdCkvSW1h
-Z2UuenN0Cj4gPiA+ID4gIGVsc2UKPiA+ID4gPiAtS0JVSUxEX0lNQUdFIDo9ICQoYm9vdCkvSW1h
-Z2UuZ3oKPiA+ID4gPiArS0JVSUxEX0lNQUdFIDo9ICQoYm9vdCkvSW1hZ2UKPiA+ID4gPiAgZW5k
-aWYKPiA+ID4KPiA+ID4gUmVhbGx5IGEgbml0L2NoYW5nZSBpZiB5b3Ugd2FudCwgYnV0IG1heWJl
-IGRvaW5nIHNvbWV0aGluZyBsaWtlCj4gPiA+IGFyY2gvczM5MC9ib290L01ha2VmaWxlIGRvZXMg
-aXMgZWFzaWVyIHRvIHJlYWQ6Cj4gPiA+Cj4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L01h
-a2VmaWxlIGIvYXJjaC9yaXNjdi9NYWtlZmlsZQo+ID4gPiBpbmRleCAwMjQ0ODJjNjg4MzUuLjcw
-ZjA4ZTk5OTliNCAxMDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9NYWtlZmlsZQo+ID4gPiAr
-KysgYi9hcmNoL3Jpc2N2L01ha2VmaWxlCj4gPiA+IEBAIC0xMjgsNiArMTI4LDE0IEBAIGVuZGlm
-Cj4gPiA+ICAjIGFyY2ggc3BlY2lmaWMgcHJlZGVmaW5lcyBmb3Igc3BhcnNlCj4gPiA+ICBDSEVD
-S0ZMQUdTICs9IC1EX19yaXNjdiAtRF9fcmlzY3ZfeGxlbj0kKEJJVFMpCj4gPiA+Cj4gPiA+ICtz
-dWZmaXgtJChDT05GSUdfS0VSTkVMX0daSVApICA6PSAuZ3oKPiA+ID4gK3N1ZmZpeC0kKENPTkZJ
-R19LRVJORUxfQlpJUDIpIDo9IC5iejIKPiA+ID4gK3N1ZmZpeC0kKENPTkZJR19LRVJORUxfTFo0
-KSAgOj0gLmx6NAo+ID4gPiArc3VmZml4LSQoQ09ORklHX0tFUk5FTF9MWk1BKSAgOj0gLmx6bWEK
-PiA+ID4gK3N1ZmZpeC0kKENPTkZJR19LRVJORUxfTFpPKSAgOj0gLmx6bwo+ID4gPiArc3VmZml4
-LSQoQ09ORklHX0tFUk5FTF9YWikgIDo9IC54ego+ID4gPiArc3VmZml4LSQoQ09ORklHX0tFUk5F
-TF9aU1REKSAgOj0gLnpzdAo+ID4gPiArCj4gPiA+ICAjIERlZmF1bHQgdGFyZ2V0IHdoZW4gZXhl
-Y3V0aW5nIHBsYWluIG1ha2UKPiA+ID4gIGJvb3QgOj0gYXJjaC9yaXNjdi9ib290Cj4gPiA+ICBp
-ZmVxICgkKENPTkZJR19YSVBfS0VSTkVMKSx5KQo+ID4gPiBAQCAtMTM2LDIwICsxNDQsOCBAQCBl
-bHNlIGlmZXEgKCQoQ09ORklHX1JJU0NWX01fTU9ERSkkKENPTkZJR19BUkNIX0NBTkFBTikseXkp
-Cj4gPiA+ICBLQlVJTERfSU1BR0UgOj0gJChib290KS9sb2FkZXIuYmluCj4gPiA+ICBlbHNlIGlm
-ZXEgKCQoQ09ORklHX0VGSV9aQk9PVCkseSkKPiA+ID4gIEtCVUlMRF9JTUFHRSA6PSAkKGJvb3Qp
-L3ZtbGludXouZWZpCj4gPiA+IC1lbHNlIGlmZXEgKCQoQ09ORklHX0tFUk5FTF9HWklQKSx5KQo+
-ID4gPiAtS0JVSUxEX0lNQUdFIDo9ICQoYm9vdCkvSW1hZ2UuZ3oKPiA+ID4gLWVsc2UgaWZlcSAo
-JChDT05GSUdfS0VSTkVMX0JaSVAyKSx5KQo+ID4gPiAtS0JVSUxEX0lNQUdFIDo9ICQoYm9vdCkv
-SW1hZ2UuYnoyCj4gPiA+IC1lbHNlIGlmZXEgKCQoQ09ORklHX0tFUk5FTF9MWjQpLHkpCj4gPiA+
-IC1LQlVJTERfSU1BR0UgOj0gJChib290KS9JbWFnZS5sejQKPiA+ID4gLWVsc2UgaWZlcSAoJChD
-T05GSUdfS0VSTkVMX0xaTUEpLHkpCj4gPiA+IC1LQlVJTERfSU1BR0UgOj0gJChib290KS9JbWFn
-ZS5sem1hCj4gPiA+IC1lbHNlIGlmZXEgKCQoQ09ORklHX0tFUk5FTF9MWk8pLHkpCj4gPiA+IC1L
-QlVJTERfSU1BR0UgOj0gJChib290KS9JbWFnZS5sem8KPiA+ID4gLWVsc2UgaWZlcSAoJChDT05G
-SUdfS0VSTkVMX1pTVEQpLHkpCj4gPiA+IC1LQlVJTERfSU1BR0UgOj0gJChib290KS9JbWFnZS56
-c3QKPiA+ID4gIGVsc2UKPiA+ID4gLUtCVUlMRF9JTUFHRSA6PSAkKGJvb3QpL0ltYWdlCj4gPiA+
-ICtLQlVJTERfSU1BR0UgOj0gJChib290KS9JbWFnZSQoc3VmZml4LXkpCj4gPiA+ICBlbmRpZgo+
-ID4KPiA+Cj4gPgo+ID4KPiA+IEdvb2QgaWRlYS4KPiA+Cj4gPgo+ID4gSWYgeW91IGF2b2lkIHRo
-ZSAnZWxzZSBpZmVxJyBjaGFpbiBjb21wbGV0ZWx5LAo+ID4geW91IGFsc28gY291bGQgZG8gbGlr
-ZSB0aGlzOgo+ID4KPiA+Cj4gPgo+ID4gYm9vdC1pbWFnZS0kKENPTkZJR19LRVJORUxfR1pJUCkg
-ICAgICAgICA6PSBJbWFnZS5nego+ID4gICAgLi4uCj4gPiBib290LWltYWdlLSQoQ09ORklHX0tF
-Uk5FTF9aU1REKSAgICAgICAgIDo9IEltYWdlLnpzdAo+ID4gYm9vdC1pbWFnZS0kKENPTkZJR19L
-RVJORUxfVU5DT01QUkVTU0VEKSA6PSBJbWFnZQo+ID4gYm9vdC1pbWFnZS0kKENPTkZJR19SSVND
-Vl9NX01PREUpICAgICAgICA6PSBsb2FkZXIuYmluCj4gPiBib290LWltYWdlLSQoQ09ORklHX0FS
-Q0hfQ0FOQUFOKSAgICAgICAgIDo9IGxvYWRlci5iaW4KPiA+IGJvb3QtaW1hZ2UtJChDT05GSUdf
-RUZJX1pCT09UKSAgICAgICAgICAgOj0gdm1saW51ei5lZmkKPiA+IGJvb3QtaW1hZ2UtJChDT05G
-SUdfWElQX0tFUk5FTCkgICAgICAgICAgOj0geGlwSW1hZ2UKPiA+Cj4gPiBLQlVJTERfSU1BR0Ug
-Oj0gJChib290KS8kKGJvb3QtaW1hZ2UteSkKPgo+IEhpIE1hc2FoaXJvIGFuZCBCasO2cm4uCj4K
-PiBJIGxpa2UgdGhpcyBhcHByb2FjaC4gQnV0IEkgdGhpbmsgaXQgZG9lc24ndCBxdWl0ZSBkbyB0
-aGUgc2FtZSB3aGVuIGZ4Lgo+IENPTkZJR19SSVNDVl9NX01PREU9biBidXQgQ09ORklHX0FSQ0hf
-Q0FOQUFOPXkgd2hpY2ggSSB0aGluayBpcyBhIHZhbGlkCj4gY29uZmlndXJhdGlvbiBmb3IgdGhl
-IG5ldyBLZW5kcnl0ZSBLMjMwIHN1cHBvcnQuIEluIHRoaXMgY2FzZSBib290LWltYWdlLXkKPiB3
-b3VsZCBiZSBvdmVyd3JpdHRlbiB3aXRoIHRoZSBsb2FkZXIuYmluIHZhbHVlIGV2ZW4gZm9yIFMt
-bW9kZSBrZXJuZWxzLgo+Cj4gVG8ga2VlcCB0aGUgcHJldmlvdXMgYmVoYXZpb3VyIHdlJ2QgbmVl
-ZCBzb21ldGhpbmcgbGlrZQo+Cj4gICBib290LWltYWdlLSQoQ09ORklHX1JJU0NWX01fTU9ERSAq
-YW5kKiBDT05GSUdfQVJDSF9DQU5BQU4pIDo9IGxvYWRlci5iaW4KPgo+IE1heWJlIGp1c3QKPgo+
-ICAgaWZlcSAoJChDT05GSUdfUklTQ1ZfTV9NT0RFKSx5KQo+ICAgYm9vdC1pbWFnZS0kKENPTkZJ
-R19BUkNIX0NBTkFBTikgOj0gbG9hZGVyLmJpbgo+ICAgZW5kaWYKPgo+IERvIHlvdSBndXlzIGhh
-dmUgYSBiZXR0ZXIgc29sdXRpb24/CgoKSGkgRW1pbCwgc29ycnkgSSBtaXN1bmRlcnN0b29kIEFO
-RCBhbmQgT1IuCgoKaWZkZWYgQ09ORklHX1JJU0NWX01fTU9ERQpib290LWltYWdlLSQoQ09ORklH
-X0FSQ0hfQ0FOQUFOKSA6PSBsb2FkZXIuYmluCmVuZGlmCgppcyBzbGlnaHRseSBzaG9ydGVyLgoK
-Cgpib290LWltYWdlLSQoYW5kICQoQ09ORklHX1JJU0NWX01fTU9ERSksJChDT05GSUdfQVJDSF9D
-QU5BQU4pKSA6PSBsb2FkZXIuYmluCgppcyBhbHNvIHBvc3NpYmxlLCBidXQgdGhlIGxpbmUgaXMg
-YSBiaXQgbG9uZy4KCgpPdGhlcndpc2UsIEkgZG8gbm90IGhhdmUgYSBiZXR0ZXIgaWRlYS4KCgoK
-CkkgYW0gZmluZSB3aXRoIGFueSBmb3JtLgpJIGxlYXZlIGl0IHRvIHlvdSBhbmQgUGFsbWVyLgoK
-CgoKCi0tIApCZXN0IFJlZ2FyZHMKTWFzYWhpcm8gWWFtYWRhCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, May 01, 2024 at 05:47:42PM +0530, Sunil V L wrote:
+> RISC-V has non-PNP generic 16550A compatible UART which needs to be
+> enumerated as ACPI platform device. Add driver support for such devices
+> similar to 8250_of.
+> 
+> The driver is enabled when the CONFIG_SERIAL_ACPI_PLATFORM option is
+> enabled. Enable this option for RISC-V.
+> 
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> ---
+>  arch/riscv/configs/defconfig        |  1 +
+>  drivers/tty/serial/8250/8250_acpi.c | 96 +++++++++++++++++++++++++++++
+>  drivers/tty/serial/8250/Kconfig     |  8 +++
+>  drivers/tty/serial/8250/Makefile    |  1 +
+>  4 files changed, 106 insertions(+)
+>  create mode 100644 drivers/tty/serial/8250/8250_acpi.c
+> 
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index 3cae018f9315..bea8241f52eb 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -150,6 +150,7 @@ CONFIG_SERIAL_8250=y
+>  CONFIG_SERIAL_8250_CONSOLE=y
+>  CONFIG_SERIAL_8250_DW=y
+>  CONFIG_SERIAL_OF_PLATFORM=y
+> +CONFIG_SERIAL_ACPI_PLATFORM=y
+>  CONFIG_SERIAL_SH_SCI=y
+>  CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
+>  CONFIG_VIRTIO_CONSOLE=y
+> diff --git a/drivers/tty/serial/8250/8250_acpi.c b/drivers/tty/serial/8250/8250_acpi.c
+> new file mode 100644
+> index 000000000000..3682443bb69c
+> --- /dev/null
+> +++ b/drivers/tty/serial/8250/8250_acpi.c
+> @@ -0,0 +1,96 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Serial Port driver for ACPI platform devices
+> + *
+> + * This driver is for generic 16550 compatible UART enumerated via ACPI
+> + * platform bus instead of PNP bus like PNP0501. This is not a full
+> + * driver but mostly provides the ACPI wrapper and uses generic
+> + * 8250 framework for rest of the functionality.
+
+No copyright line?  Odd, but ok, I'll take it, glad to see your company
+finally realizes the lack of needing them :)
+
+
+And as Andy said, please use the existing driver and extend what you
+need, don't write a new one, we really don't need a new one.
+
+> +static int acpi_platform_serial_probe(struct platform_device *pdev)
+> +{
+> +	struct acpi_serial_info *data;
+> +	struct uart_8250_port port8250;
+> +	struct device *dev = &pdev->dev;
+> +	struct resource *regs;
+> +
+> +	int ret, irq;
+> +
+> +	regs = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +	if (!regs) {
+> +		dev_err(dev, "no registers defined\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	irq = platform_get_irq(pdev, 0);
+> +	if (irq < 0)
+> +		return irq;
+> +
+> +	memset(&port8250, 0, sizeof(port8250));
+> +
+> +	spin_lock_init(&port8250.port.lock);
+
+Are you sure this works?
+
+thanks,
+
+greg k-h
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
