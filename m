@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF8AFC4345F
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 16:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D12C4345F
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 17:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wy4R2X7v/RVBvFqmCAXoeACQIxbkrLbLEAPutIP/ack=; b=FurEB7FxnNNYek
-	GAfqcL6TPyMPyD0CSPZoI/yzmmvgGq+Si9IOuu3v5mmmjiLI/h6Ak+Uq3V/PSvrQHLqval9GVjmZY
-	3PM8UXCzKnXwYMi6dSfuVj577yABB6AvgAcFSsoUbIhrJFldPQ7hrYJHb3kM/pGsSmm5VGMr7CX9x
-	C2TdcmZ4lzFKkJGkODwmLrPOsLJgh+5rNxgVEH5+q5KDE0q8sMQq+7o76Ekwy8eCZOc2W6o4ruLTn
-	mutFSh+4BYlT/7orAXVVxm6r4V+c1K53MpWYQ2CpyMx2e/1SCkVAc1a9jklEaIH2rqQyUntfWpz9Q
-	HYiytunHWN38cBtlU2cA==;
+	List-Owner; bh=6oZnAaNsv8aPMKfBpr7gp7gLVi0OHzXZohWdz4/7zkk=; b=bUtYlbG0uJSCiV
+	5T5BdeOuX8tXVev6qB1oaHIVh1uTxBYmNDxfNMqMQDbX4hoak79FniTNigW+b2NLjf5nRscNFiR2G
+	HmlnxFUOEoRNKAffaEGs3q3DvRv9KblOOZ5UFW6uyRNVKLt9RMc/C5JXaJhhZTLT0HSgsW8n0auKF
+	pJQzOi4QEjz32cC1WWyurSd9h+oCaR8qs1UWUbnJe0a5QCnGQmQMxRkzXy8ghJl87lUrlc2SyMGmE
+	+RDsu6HFokiiHtqIECGkHgZ5N78fmnxyz8O4ZC+8jfE2NGTmrL+BtHTGNLBiO6B4MuhQqRRjUFYX5
+	zUcL3hQ+NzCPhBnoGt3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3eeN-00000004n0F-2NWP;
-	Sun, 05 May 2024 16:23:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s3fSN-00000004thm-3sEc;
+	Sun, 05 May 2024 17:15:23 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3eeK-00000004mxv-0OWs;
-	Sun, 05 May 2024 16:23:41 +0000
+	id 1s3eQ9-00000004iSk-1D7i;
+	Sun, 05 May 2024 16:09:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8109060CBB;
-	Sun,  5 May 2024 16:23:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3597FC113CC;
-	Sun,  5 May 2024 16:23:24 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 2CECBCE0ABA;
+	Sun,  5 May 2024 16:08:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BD9DC4AF67;
+	Sun,  5 May 2024 16:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714926218;
-	bh=H1cURQ6SkyorBZNd5IEt8Gwv4rbQiQ4DjWPDOPmhYKQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HEfwFIuy3AvRHt2jYMH+3uMLv8ZAvk9/br9CzlfPEC/VG2S93bHOQ+C9SEzcJWO1m
-	 fhrIB7tsIhSE1rCN0XHzC9/yHhXFN3wgZx/0vxjeZIqP7fYTMp5BFuweFUXGQzgTdZ
-	 9jWL5UwA5LnwpXmHgtQbNCYdCiXQrRznB88lN0iLlwSaBr5DDnGwSdNeMA9u8emK4z
-	 Rl+ZV5dKwfmwUNwLhjVlg37PJNqvYNs+1yn+WMvO5b4KJiHFMT6v1sbDFKFqUnEBC8
-	 KvOWgmEluP3P/28GNlKyII2qyePcDagWA09HH6ax4b8tQkrNe/uMfkKL5RLUug2qiY
-	 jMdML4uSrwkpw==
-Date: Sun, 5 May 2024 19:21:55 +0300
+	s=k20201202; t=1714925338;
+	bh=QWGTfmxM6u4L/G8sJRSYS9LtFcq3UHArwE9pGA7ZHH0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=V9ugyDvVuvSs/IjM/QctAFO62DH9XQommkAxsxi4rdAIIff0oz6X9Qud+GkrDWACM
+	 RYQi+mih740PBAh9yI8vFEoeet38MCrU8nEZEy07fSxynn/GgVcd072Ihsx2EaHbY4
+	 Z27gTNeymS2cYPNHB2tcTnBIsC4q2mJ6iW7K1ExKD7uVI3lUYcdOAwJFh/DfD+OqrW
+	 7/wkJExymiv498tChhAzeu53jc+ORXNU0laY/Aj4OLEg+tUJsKk0iVBj9EfjrO1Ij0
+	 XBfIVdsalrZBo/iYhsLX7slbIb8fHOpQyFnOlaCclEnik8YVloSy1kYXig+pYSJtTX
+	 9TAT/kTQtt5fw==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Christophe Leroy <christophe.leroy@csgroup.eu>,
 	"David S. Miller" <davem@davemloft.net>,
 	Dinh Nguyen <dinguyen@kernel.org>,
 	Donald Dutile <ddutile@redhat.com>,
 	Eric Chanudet <echanude@redhat.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>,
 	Huacai Chen <chenhuacai@kernel.org>,
 	Kent Overstreet <kent.overstreet@linux.dev>,
 	Liviu Dudau <liviu@dudau.co.uk>,
@@ -61,32 +61,44 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Masami Hiramatsu <mhiramat@kernel.org>,
 	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Rapoport <rppt@kernel.org>,
 	Nadav Amit <nadav.amit@gmail.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Peter Zijlstra <peterz@infradead.org>,
-	Philippe =?iso-8859-1?Q?Mathieu-Daud=E9?= <philmd@linaro.org>,
+	=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?= <philmd@linaro.org>,
 	Rick Edgecombe <rick.p.edgecombe@intel.com>,
 	Russell King <linux@armlinux.org.uk>,
-	Sam Ravnborg <sam@ravnborg.org>, Song Liu <song@kernel.org>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Song Liu <song@kernel.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-modules@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v8 00/17] mm: jit/text allocator
-Message-ID: <ZjeyI8xbNTrAWn9m@kernel.org>
-References: <20240505142600.2322517-1-rppt@kernel.org>
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH RESEND v8 11/16] powerpc: extend execmem_params for kprobes allocations
+Date: Sun,  5 May 2024 19:06:23 +0300
+Message-ID: <20240505160628.2323363-12-rppt@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240505160628.2323363-1-rppt@kernel.org>
+References: <20240505160628.2323363-1-rppt@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240505142600.2322517-1-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240505_092340_272638_7BAF303F 
-X-CRM114-Status: GOOD (  37.61  )
+X-CRM114-CacheID: sfid-20240505_090901_997032_23935CFC 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,226 +115,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is embarrassing, but these patches were from a wrong branch :(
-Please ignore.
+From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
-On Sun, May 05, 2024 at 05:25:43PM +0300, Mike Rapoport wrote:
-> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> 
-> Hi,
-> 
-> The patches are also available in git:
-> https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git/log/?h=execmem/v8
-> 
-> v8:
-> * fix intialization of default_execmem_info
-> 
-> v7: https://lore.kernel.org/all/20240429121620.1186447-1-rppt@kernel.org
-> * define MODULE_{VADDR,END} for riscv32 to fix the build and avoid
->   #ifdefs in a function body
-> * add Acks, thanks everybody
-> 
-> v6: https://lore.kernel.org/all/20240426082854.7355-1-rppt@kernel.org
-> * restore patch "arm64: extend execmem_info for generated code
->   allocations" that disappeared in v5 rebase
-> * update execmem initialization so that by default it will be
->   initialized early while late initialization will be an opt-in
-> 
-> v5: https://lore.kernel.org/all/20240422094436.3625171-1-rppt@kernel.org
-> * rebase on v6.9-rc4 to avoid a conflict in kprobes
-> * add copyrights to mm/execmem.c (Luis)
-> * fix spelling (Ingo)
-> * define MODULES_VADDDR for sparc (Sam)
-> * consistently initialize struct execmem_info (Peter)
-> * reduce #ifdefs in function bodies in kprobes (Masami) 
-> 
-> v4: https://lore.kernel.org/all/20240411160051.2093261-1-rppt@kernel.org
-> * rebase on v6.9-rc2
-> * rename execmem_params to execmem_info and execmem_arch_params() to
->   execmem_arch_setup()
-> * use single execmem_alloc() API instead of execmem_{text,data}_alloc() (Song)
-> * avoid extra copy of execmem parameters (Rick)
-> * run execmem_init() as core_initcall() except for the architectures that
->   may allocated text really early (currently only x86) (Will)
-> * add acks for some of arm64 and riscv changes, thanks Will and Alexandre
-> * new commits:
->   - drop call to kasan_alloc_module_shadow() on arm64 because it's not
->     needed anymore
->   - rename MODULE_START to MODULES_VADDR on MIPS
->   - use CONFIG_EXECMEM instead of CONFIG_MODULES on powerpc as per Christophe:
->     https://lore.kernel.org/all/79062fa3-3402-47b3-8920-9231ad05e964@csgroup.eu/
-> 
-> v3: https://lore.kernel.org/all/20230918072955.2507221-1-rppt@kernel.org
-> * add type parameter to execmem allocation APIs
-> * remove BPF dependency on modules
-> 
-> v2: https://lore.kernel.org/all/20230616085038.4121892-1-rppt@kernel.org
-> * Separate "module" and "others" allocations with execmem_text_alloc()
-> and jit_text_alloc()
-> * Drop ROX entailment on x86
-> * Add ack for nios2 changes, thanks Dinh Nguyen
-> 
-> v1: https://lore.kernel.org/all/20230601101257.530867-1-rppt@kernel.org
-> 
-> = Cover letter from v1 (sligtly updated) =
-> 
-> module_alloc() is used everywhere as a mean to allocate memory for code.
-> 
-> Beside being semantically wrong, this unnecessarily ties all subsystmes
-> that need to allocate code, such as ftrace, kprobes and BPF to modules and
-> puts the burden of code allocation to the modules code.
-> 
-> Several architectures override module_alloc() because of various
-> constraints where the executable memory can be located and this causes
-> additional obstacles for improvements of code allocation.
-> 
-> A centralized infrastructure for code allocation allows allocations of
-> executable memory as ROX, and future optimizations such as caching large
-> pages for better iTLB performance and providing sub-page allocations for
-> users that only need small jit code snippets.
-> 
-> Rick Edgecombe proposed perm_alloc extension to vmalloc [1] and Song Liu
-> proposed execmem_alloc [2], but both these approaches were targeting BPF
-> allocations and lacked the ground work to abstract executable allocations
-> and split them from the modules core.
-> 
-> Thomas Gleixner suggested to express module allocation restrictions and
-> requirements as struct mod_alloc_type_params [3] that would define ranges,
-> protections and other parameters for different types of allocations used by
-> modules and following that suggestion Song separated allocations of
-> different types in modules (commit ac3b43283923 ("module: replace
-> module_layout with module_memory")) and posted "Type aware module
-> allocator" set [4].
-> 
-> I liked the idea of parametrising code allocation requirements as a
-> structure, but I believe the original proposal and Song's module allocator
-> was too module centric, so I came up with these patches.
-> 
-> This set splits code allocation from modules by introducing execmem_alloc()
-> and and execmem_free(), APIs, replaces call sites of module_alloc() and
-> module_memfree() with the new APIs and implements core text and related
-> allocations in a central place.
-> 
-> Instead of architecture specific overrides for module_alloc(), the
-> architectures that require non-default behaviour for text allocation must
-> fill execmem_info structure and implement execmem_arch_setup() that returns
-> a pointer to that structure. If an architecture does not implement
-> execmem_arch_setup(), the defaults compatible with the current
-> modules::module_alloc() are used.
-> 
-> Since architectures define different restrictions on placement,
-> permissions, alignment and other parameters for memory that can be used by
-> different subsystems that allocate executable memory, execmem APIs
-> take a type argument, that will be used to identify the calling subsystem
-> and to allow architectures to define parameters for ranges suitable for that
-> subsystem.
-> 
-> The new infrastructure allows decoupling of BPF, kprobes and ftrace from
-> modules, and most importantly it paves the way for ROX allocations for
-> executable memory.
-> 
-> [1] https://lore.kernel.org/lkml/20201120202426.18009-1-rick.p.edgecombe@intel.com/
-> [2] https://lore.kernel.org/all/20221107223921.3451913-1-song@kernel.org/
-> [3] https://lore.kernel.org/all/87v8mndy3y.ffs@tglx/
-> [4] https://lore.kernel.org/all/20230526051529.3387103-1-song@kernel.org
-> 
-> 
-> Mike Rapoport (IBM) (17):
->   arm64: module: remove unneeded call to kasan_alloc_module_shadow()
->   mips: module: rename MODULE_START to MODULES_VADDR
->   nios2: define virtual address space for modules
->   sparc: simplify module_alloc()
->   module: make module_memory_{alloc,free} more self-contained
->   mm: introduce execmem_alloc() and execmem_free()
->   mm/execmem, arch: convert simple overrides of module_alloc to execmem
->   mm/execmem, arch: convert remaining overrides of module_alloc to
->     execmem
->   riscv: extend execmem_params for generated code allocations
->   arm64: extend execmem_info for generated code allocations
->   powerpc: extend execmem_params for kprobes allocations
->   arch: make execmem setup available regardless of CONFIG_MODULES
->   x86/ftrace: enable dynamic ftrace without CONFIG_MODULES
->   powerpc: use CONFIG_EXECMEM instead of CONFIG_MODULES where
->     appropriate
->   kprobes: remove dependency on CONFIG_MODULES
->   bpf: remove CONFIG_BPF_JIT dependency on CONFIG_MODULES of
->   fixup: convert remaining archs: defaults handling
-> 
->  arch/Kconfig                         |  10 +-
->  arch/arm/kernel/module.c             |  34 -------
->  arch/arm/mm/init.c                   |  45 +++++++++
->  arch/arm64/Kconfig                   |   1 +
->  arch/arm64/kernel/module.c           | 126 -----------------------
->  arch/arm64/kernel/probes/kprobes.c   |   7 --
->  arch/arm64/mm/init.c                 | 140 ++++++++++++++++++++++++++
->  arch/arm64/net/bpf_jit_comp.c        |  11 ---
->  arch/loongarch/kernel/module.c       |   6 --
->  arch/loongarch/mm/init.c             |  21 ++++
->  arch/mips/include/asm/pgtable-64.h   |   4 +-
->  arch/mips/kernel/module.c            |  10 --
->  arch/mips/mm/fault.c                 |   4 +-
->  arch/mips/mm/init.c                  |  23 +++++
->  arch/nios2/include/asm/pgtable.h     |   5 +-
->  arch/nios2/kernel/module.c           |  20 ----
->  arch/nios2/mm/init.c                 |  21 ++++
->  arch/parisc/kernel/module.c          |  12 ---
->  arch/parisc/mm/init.c                |  23 ++++-
->  arch/powerpc/Kconfig                 |   2 +-
->  arch/powerpc/include/asm/kasan.h     |   2 +-
->  arch/powerpc/kernel/head_8xx.S       |   4 +-
->  arch/powerpc/kernel/head_book3s_32.S |   6 +-
->  arch/powerpc/kernel/kprobes.c        |  22 +----
->  arch/powerpc/kernel/module.c         |  38 -------
->  arch/powerpc/lib/code-patching.c     |   2 +-
->  arch/powerpc/mm/book3s32/mmu.c       |   2 +-
->  arch/powerpc/mm/mem.c                |  64 ++++++++++++
->  arch/riscv/include/asm/pgtable.h     |   3 +
->  arch/riscv/kernel/module.c           |  12 ---
->  arch/riscv/kernel/probes/kprobes.c   |  10 --
->  arch/riscv/mm/init.c                 |  35 +++++++
->  arch/riscv/net/bpf_jit_core.c        |  13 ---
->  arch/s390/kernel/ftrace.c            |   4 +-
->  arch/s390/kernel/kprobes.c           |   4 +-
->  arch/s390/kernel/module.c            |  42 +-------
->  arch/s390/mm/init.c                  |  30 ++++++
->  arch/sparc/include/asm/pgtable_32.h  |   2 +
->  arch/sparc/kernel/module.c           |  30 ------
->  arch/sparc/mm/Makefile               |   2 +
->  arch/sparc/mm/execmem.c              |  21 ++++
->  arch/sparc/net/bpf_jit_comp_32.c     |   8 +-
->  arch/x86/Kconfig                     |   1 +
->  arch/x86/kernel/ftrace.c             |  16 +--
->  arch/x86/kernel/kprobes/core.c       |   4 +-
->  arch/x86/kernel/module.c             |  51 ----------
->  arch/x86/mm/init.c                   |  29 ++++++
->  include/linux/execmem.h              | 132 +++++++++++++++++++++++++
->  include/linux/module.h               |   9 ++
->  include/linux/moduleloader.h         |  15 ---
->  kernel/bpf/Kconfig                   |   2 +-
->  kernel/bpf/core.c                    |   6 +-
->  kernel/kprobes.c                     |  63 +++++++-----
->  kernel/module/Kconfig                |   1 +
->  kernel/module/main.c                 | 105 +++++++++-----------
->  kernel/trace/trace_kprobe.c          |  20 +++-
->  mm/Kconfig                           |   3 +
->  mm/Makefile                          |   1 +
->  mm/execmem.c                         | 143 +++++++++++++++++++++++++++
->  mm/mm_init.c                         |   2 +
->  60 files changed, 903 insertions(+), 581 deletions(-)
->  create mode 100644 arch/sparc/mm/execmem.c
->  create mode 100644 include/linux/execmem.h
->  create mode 100644 mm/execmem.c
-> 
-> 
-> base-commit: 0bbac3facb5d6cc0171c45c9873a2dc96bea9680
-> -- 
-> 2.43.0
-> 
-> 
+powerpc overrides kprobes::alloc_insn_page() to remove writable
+permissions when STRICT_MODULE_RWX is on.
 
+Add definition of EXECMEM_KRPOBES to execmem_params to allow using the
+generic kprobes::alloc_insn_page() with the desired permissions.
+
+As powerpc uses breakpoint instructions to inject kprobes, it does not
+need to constrain kprobe allocations to the modules area and can use the
+entire vmalloc address space.
+
+Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
+---
+ arch/powerpc/kernel/kprobes.c | 20 --------------------
+ arch/powerpc/kernel/module.c  |  7 +++++++
+ 2 files changed, 7 insertions(+), 20 deletions(-)
+
+diff --git a/arch/powerpc/kernel/kprobes.c b/arch/powerpc/kernel/kprobes.c
+index 9fcd01bb2ce6..14c5ddec3056 100644
+--- a/arch/powerpc/kernel/kprobes.c
++++ b/arch/powerpc/kernel/kprobes.c
+@@ -126,26 +126,6 @@ kprobe_opcode_t *arch_adjust_kprobe_addr(unsigned long addr, unsigned long offse
+ 	return (kprobe_opcode_t *)(addr + offset);
+ }
+ 
+-void *alloc_insn_page(void)
+-{
+-	void *page;
+-
+-	page = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
+-	if (!page)
+-		return NULL;
+-
+-	if (strict_module_rwx_enabled()) {
+-		int err = set_memory_rox((unsigned long)page, 1);
+-
+-		if (err)
+-			goto error;
+-	}
+-	return page;
+-error:
+-	execmem_free(page);
+-	return NULL;
+-}
+-
+ int arch_prepare_kprobe(struct kprobe *p)
+ {
+ 	int ret = 0;
+diff --git a/arch/powerpc/kernel/module.c b/arch/powerpc/kernel/module.c
+index ac80559015a3..2a23cf7e141b 100644
+--- a/arch/powerpc/kernel/module.c
++++ b/arch/powerpc/kernel/module.c
+@@ -94,6 +94,7 @@ static struct execmem_info execmem_info __ro_after_init;
+ 
+ struct execmem_info __init *execmem_arch_setup(void)
+ {
++	pgprot_t kprobes_prot = strict_module_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+ 	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
+ 	unsigned long fallback_start = 0, fallback_end = 0;
+ 	unsigned long start, end;
+@@ -132,6 +133,12 @@ struct execmem_info __init *execmem_arch_setup(void)
+ 				.fallback_start	= fallback_start,
+ 				.fallback_end	= fallback_end,
+ 			},
++			[EXECMEM_KPROBES] = {
++				.start	= VMALLOC_START,
++				.end	= VMALLOC_END,
++				.pgprot	= kprobes_prot,
++				.alignment = 1,
++			},
+ 			[EXECMEM_MODULE_DATA] = {
+ 				.start	= VMALLOC_START,
+ 				.end	= VMALLOC_END,
 -- 
-Sincerely yours,
-Mike.
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
