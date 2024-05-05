@@ -4,57 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44BDC25B74
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 15:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C91B8C04FFE
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 15:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/HEcoMXx3DZc4tSRIe6X4PGXs8SAkpidBGTonGZQ+oM=; b=oIfA5ULtI1U6Vd
-	hvM8xA8yuAhiVG0WCiHA5kphhTkgK8VWS/koC5XRjvq9ngHnbTyrU0nrY8rLMJcRA9evDt9cGK1cF
-	GH1GcUo7a0mAp+M3XzbWfgnUm7w/Et4LCUYjoUhp5jvYLzbqp7VwG5fubGmybYZM3PxKDODHLApWq
-	nheHcDfRAlrw197QyCR/CnoWWYyLkg+Rr5SXw/ioIrU3F3akIhb7on26yStVtRxFbez47w3ifDccc
-	JmUHBq8ucZtaG9tSHnrCkEj14pG30awEOjbOInIedNYGXAPbOCXgiUPBOXnDD6ewYzhxSaqxDYLS9
-	2RspQPBrd7gaSp/QO96w==;
+	List-Owner; bh=YKIRPVUvCPzX2pnc9sfXzJvBKrUdKW4da62BEPd009A=; b=XQOap8lWqEhcAT
+	dlfMqZBd6ClfJM34rmA6wBWXZvg2RuIK82AqqvaU8JVhU6It1CYxHSmPEkdPsMZ7/Hou5PUxjhhn/
+	2GZVMa/JNB0CBD3RgGQQ2eUwbGk1ykYDRQCspA1UPpZ0gXkVmT/9DP2DTFXNJl6brfhtDqphtPtFa
+	MhH8v6AseYs9ZfNxcZSorL1mBuO7aaJgt14yqvkboFYgBSczSdkhc17VGxI0a7d0hJUPcPsPsmEx4
+	stH/ta2GAvjiY+SuDbfGPGvrB9TyyiNVydoBuTN13d6MKv1X23LmSU1ds9rn2Ezgu9KFubD5rWFWB
+	f/jLheWnh7Y8Og7htCug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3dol-00000004cU7-1Eqo;
-	Sun, 05 May 2024 15:30:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1s3doj-00000004cTX-0xyK;
+	Sun, 05 May 2024 15:30:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3crs-00000004UD8-283j;
-	Sun, 05 May 2024 14:29:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=G1rQtiWFoR5W1h5nPiRt+y1DO9ebTEsc0kroLYKNNR8=; b=ALWwXYtUgkV4DYQrTae/Fw+AIV
-	DoGlYCMDRKA3hyev+k3zDDEj3CL4nWdyz8Vfc6Mcl3Rqr3dMNd/V6lJneukPfqJblqa6K56vQW6Fl
-	gALYRN+9XmOifdLzOvnOyZP0ezQIsv2EBJIeRy4kMvRpGDci80Le6hAMkZOI3CuxE5Y8PbVyI0pis
-	QyL+CuXNMbp+939++v3JgRHcVybaM2s2YTFgHxlYDFldB3d5App8PCgJVcFsAhcplkYlBAhvCch/v
-	/g3mBzXVJW3A1Gu7z/V8KAqSQ/yzDFObvaXZRbQ2X8AUAKjavi1mS74o9ekDJVFj9u6SBqhkVuAsp
-	02CmH7FQ==;
-Received: from sin.source.kernel.org ([145.40.73.55])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3crm-00000001M7i-33GU;
-	Sun, 05 May 2024 14:29:30 +0000
+	id 1s3cqA-00000004SnE-49Cf;
+	Sun, 05 May 2024 14:28:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id E5C77CE0A4A;
-	Sun,  5 May 2024 14:29:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B79F1C4AF18;
-	Sun,  5 May 2024 14:29:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3C5A360C85;
+	Sun,  5 May 2024 14:27:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7864BC4DDE7;
+	Sun,  5 May 2024 14:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714919362;
-	bh=n6mgI0H/39mvE4gYkoCj3q2CT30/D9BQcnyPUkYmzdE=;
+	s=k20201202; t=1714919265;
+	bh=H1Yrs9oS3D7w/IH5Du6/u6WvPsm3z4WLJALiS8Y8DQ8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oCOoCzeDDucZMyfkGTax/lnqm1e5Abz1XosvZiBVXA4GkwIKS1hteSGn08V8/wLuC
-	 wpPNDdzZnnFSmPxqXMvyiOGhJfaqrnAtcI5ejcAGpj5kHU2/jzTmtI2ATOSpOR2zm6
-	 i/qggJ/L4s4qTpgSgd1dd5AGNpCqZauhtz4ELcdUfxrSXTb0cEH1CMow5l/cKtu5Y/
-	 k+67kSbUtZB7U8D+kbKCx/teDnQG+H6EYp1rEhWZCiJFHfR6SREuMcHUsHkYtS0hgK
-	 QQdejucvdgWv98oEveEQ6aQHeslE2DAF0AMg6jCpNM1EKStAf7pmRZzPSfJTdetmKd
-	 MpUJkQKDqLz+A==
+	b=LSSt4EwfvDD3GPhr0nYusowjz27cE76sHhlRvra+h/g7hpmqrKivZMXjoL74wsU/R
+	 nk+9f0tdIRNIpNOS5Ii5ciiuiMh0oFRfRz59hnE5UlytkIjxynFQTwLcn8R5m1bEL4
+	 KTLUGzs2rlkl1ZF3D2QN+kaDRkqHwsIMmh869vQt/DR8ujFh/oJsWWYbZilK7zfhb1
+	 +n9APhCbcO1Vrd6bAMzUPSWKFzPPw9xWML5zkzAlJlqc3kQekHHtRAYpGIsXd5Jgb/
+	 5dYmL7OIbIP3ZU91csKV+DMnL6cFaZkH0m49Lx9HIncQzRdgqbHzdKZXZnxmMPPldO
+	 tu9BNmcS0OeBQ==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
@@ -103,16 +89,16 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v8 15/17] kprobes: remove dependency on CONFIG_MODULES
-Date: Sun,  5 May 2024 17:25:58 +0300
-Message-ID: <20240505142600.2322517-16-rppt@kernel.org>
+Subject: [PATCH v8 07/17] mm/execmem, arch: convert simple overrides of module_alloc to execmem
+Date: Sun,  5 May 2024 17:25:50 +0300
+Message-ID: <20240505142600.2322517-8-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240505142600.2322517-1-rppt@kernel.org>
 References: <20240505142600.2322517-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240505_152928_215307_7838BF5E 
-X-CRM114-Status: GOOD (  21.60  )
+X-CRM114-CacheID: sfid-20240505_072747_418365_0299400D 
+X-CRM114-Status: GOOD (  21.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,232 +117,442 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
-kprobes depended on CONFIG_MODULES because it has to allocate memory for
-code.
+Several architectures override module_alloc() only to define address
+range for code allocations different than VMALLOC address space.
 
-Since code allocations are now implemented with execmem, kprobes can be
-enabled in non-modular kernels.
+Provide a generic implementation in execmem that uses the parameters for
+address space ranges, required alignment and page protections provided
+by architectures.
 
-Add #ifdef CONFIG_MODULE guards for the code dealing with kprobes inside
-modules, make CONFIG_KPROBES select CONFIG_EXECMEM and drop the
-dependency of CONFIG_KPROBES on CONFIG_MODULES.
+The architectures must fill execmem_info structure and implement
+execmem_arch_setup() that returns a pointer to that structure. This way the
+execmem initialization won't be called from every architecture, but rather
+from a central place, namely a core_initcall() in execmem.
+
+The execmem provides execmem_alloc() API that wraps __vmalloc_node_range()
+with the parameters defined by the architectures.  If an architecture does
+not implement execmem_arch_setup(), execmem_alloc() will fall back to
+module_alloc().
 
 Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
-Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Acked-by: Song Liu <song@kernel.org>
 ---
- arch/Kconfig                |  2 +-
- include/linux/module.h      |  9 ++++++
- kernel/kprobes.c            | 55 +++++++++++++++++++++++--------------
- kernel/trace/trace_kprobe.c | 20 +++++++++++++-
- 4 files changed, 63 insertions(+), 23 deletions(-)
+ arch/loongarch/kernel/module.c | 19 ++++++++--
+ arch/mips/kernel/module.c      | 20 ++++++++--
+ arch/nios2/kernel/module.c     | 21 ++++++++---
+ arch/parisc/kernel/module.c    | 24 ++++++++----
+ arch/riscv/kernel/module.c     | 24 ++++++++----
+ arch/sparc/kernel/module.c     | 20 ++++++++--
+ include/linux/execmem.h        | 47 ++++++++++++++++++++++++
+ mm/execmem.c                   | 67 ++++++++++++++++++++++++++++++++--
+ mm/mm_init.c                   |  2 +
+ 9 files changed, 210 insertions(+), 34 deletions(-)
 
-diff --git a/arch/Kconfig b/arch/Kconfig
-index 4fd0daa54e6c..caa459964f09 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -52,9 +52,9 @@ config GENERIC_ENTRY
- 
- config KPROBES
- 	bool "Kprobes"
--	depends on MODULES
- 	depends on HAVE_KPROBES
- 	select KALLSYMS
-+	select EXECMEM
- 	select TASKS_RCU if PREEMPTION
- 	help
- 	  Kprobes allows you to trap at almost any kernel address and
-diff --git a/include/linux/module.h b/include/linux/module.h
-index 1153b0d99a80..ffa1c603163c 100644
---- a/include/linux/module.h
-+++ b/include/linux/module.h
-@@ -605,6 +605,11 @@ static inline bool module_is_live(struct module *mod)
- 	return mod->state != MODULE_STATE_GOING;
- }
- 
-+static inline bool module_is_coming(struct module *mod)
-+{
-+        return mod->state == MODULE_STATE_COMING;
-+}
-+
- struct module *__module_text_address(unsigned long addr);
- struct module *__module_address(unsigned long addr);
- bool is_module_address(unsigned long addr);
-@@ -857,6 +862,10 @@ void *dereference_module_function_descriptor(struct module *mod, void *ptr)
- 	return ptr;
- }
- 
-+static inline bool module_is_coming(struct module *mod)
-+{
-+	return false;
-+}
- #endif /* CONFIG_MODULES */
- 
- #ifdef CONFIG_SYSFS
-diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-index ddd7cdc16edf..ca2c6cbd42d2 100644
---- a/kernel/kprobes.c
-+++ b/kernel/kprobes.c
-@@ -1588,7 +1588,7 @@ static int check_kprobe_address_safe(struct kprobe *p,
- 	}
- 
- 	/* Get module refcount and reject __init functions for loaded modules. */
--	if (*probed_mod) {
-+	if (IS_ENABLED(CONFIG_MODULES) && *probed_mod) {
- 		/*
- 		 * We must hold a refcount of the probed module while updating
- 		 * its code to prohibit unexpected unloading.
-@@ -1603,12 +1603,13 @@ static int check_kprobe_address_safe(struct kprobe *p,
- 		 * kprobes in there.
- 		 */
- 		if (within_module_init((unsigned long)p->addr, *probed_mod) &&
--		    (*probed_mod)->state != MODULE_STATE_COMING) {
-+		    !module_is_coming(*probed_mod)) {
- 			module_put(*probed_mod);
- 			*probed_mod = NULL;
- 			ret = -ENOENT;
- 		}
- 	}
-+
- out:
- 	preempt_enable();
- 	jump_label_unlock();
-@@ -2488,24 +2489,6 @@ int kprobe_add_area_blacklist(unsigned long start, unsigned long end)
+diff --git a/arch/loongarch/kernel/module.c b/arch/loongarch/kernel/module.c
+index c7d0338d12c1..ca6dd7ea1610 100644
+--- a/arch/loongarch/kernel/module.c
++++ b/arch/loongarch/kernel/module.c
+@@ -18,6 +18,7 @@
+ #include <linux/ftrace.h>
+ #include <linux/string.h>
+ #include <linux/kernel.h>
++#include <linux/execmem.h>
+ #include <asm/alternative.h>
+ #include <asm/inst.h>
+ #include <asm/unwind.h>
+@@ -490,10 +491,22 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
  	return 0;
  }
  
--/* Remove all symbols in given area from kprobe blacklist */
--static void kprobe_remove_area_blacklist(unsigned long start, unsigned long end)
--{
--	struct kprobe_blacklist_entry *ent, *n;
--
--	list_for_each_entry_safe(ent, n, &kprobe_blacklist, list) {
--		if (ent->start_addr < start || ent->start_addr >= end)
--			continue;
--		list_del(&ent->list);
--		kfree(ent);
--	}
--}
--
--static void kprobe_remove_ksym_blacklist(unsigned long entry)
--{
--	kprobe_remove_area_blacklist(entry, entry + 1);
--}
--
- int __weak arch_kprobe_get_kallsym(unsigned int *symnum, unsigned long *value,
- 				   char *type, char *sym)
+-void *module_alloc(unsigned long size)
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
  {
-@@ -2570,6 +2553,25 @@ static int __init populate_kprobe_blacklist(unsigned long *start,
- 	return ret ? : arch_populate_kprobe_blacklist();
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+-			GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE, __builtin_return_address(0));
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= MODULES_VADDR,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
  }
  
-+#ifdef CONFIG_MODULES
-+/* Remove all symbols in given area from kprobe blacklist */
-+static void kprobe_remove_area_blacklist(unsigned long start, unsigned long end)
-+{
-+	struct kprobe_blacklist_entry *ent, *n;
+ static void module_init_ftrace_plt(const Elf_Ehdr *hdr,
+diff --git a/arch/mips/kernel/module.c b/arch/mips/kernel/module.c
+index 9a6c96014904..59225a3cf918 100644
+--- a/arch/mips/kernel/module.c
++++ b/arch/mips/kernel/module.c
+@@ -20,6 +20,7 @@
+ #include <linux/kernel.h>
+ #include <linux/spinlock.h>
+ #include <linux/jump_label.h>
++#include <linux/execmem.h>
+ #include <asm/jump_label.h>
+ 
+ struct mips_hi16 {
+@@ -32,11 +33,22 @@ static LIST_HEAD(dbe_list);
+ static DEFINE_SPINLOCK(dbe_lock);
+ 
+ #ifdef MODULES_VADDR
+-void *module_alloc(unsigned long size)
++static struct execmem_info execmem_info __ro_after_init;
 +
-+	list_for_each_entry_safe(ent, n, &kprobe_blacklist, list) {
-+		if (ent->start_addr < start || ent->start_addr >= end)
-+			continue;
-+		list_del(&ent->list);
-+		kfree(ent);
++struct execmem_info __init *execmem_arch_setup(void)
+ {
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+-				GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+-				__builtin_return_address(0));
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= MODULES_VADDR,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ #endif
+ 
+diff --git a/arch/nios2/kernel/module.c b/arch/nios2/kernel/module.c
+index 9c97b7513853..0d1ee86631fc 100644
+--- a/arch/nios2/kernel/module.c
++++ b/arch/nios2/kernel/module.c
+@@ -18,15 +18,26 @@
+ #include <linux/fs.h>
+ #include <linux/string.h>
+ #include <linux/kernel.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/cacheflush.h>
+ 
+-void *module_alloc(unsigned long size)
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
+ {
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+-				    GFP_KERNEL, PAGE_KERNEL_EXEC,
+-				    VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
+-				    __builtin_return_address(0));
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= MODULES_VADDR,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL_EXEC,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ 
+ int apply_relocate_add(Elf32_Shdr *sechdrs, const char *strtab,
+diff --git a/arch/parisc/kernel/module.c b/arch/parisc/kernel/module.c
+index d214bbe3c2af..bdfa85e10c1b 100644
+--- a/arch/parisc/kernel/module.c
++++ b/arch/parisc/kernel/module.c
+@@ -49,6 +49,7 @@
+ #include <linux/bug.h>
+ #include <linux/mm.h>
+ #include <linux/slab.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/unwind.h>
+ #include <asm/sections.h>
+@@ -173,15 +174,22 @@ static inline int reassemble_22(int as22)
+ 		((as22 & 0x0003ff) << 3));
+ }
+ 
+-void *module_alloc(unsigned long size)
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
+ {
+-	/* using RWX means less protection for modules, but it's
+-	 * easier than trying to map the text, data, init_text and
+-	 * init_data correctly */
+-	return __vmalloc_node_range(size, 1, VMALLOC_START, VMALLOC_END,
+-				    GFP_KERNEL,
+-				    PAGE_KERNEL_RWX, 0, NUMA_NO_NODE,
+-				    __builtin_return_address(0));
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= VMALLOC_START,
++				.end	= VMALLOC_END,
++				.pgprot	= PAGE_KERNEL_RWX,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ 
+ #ifndef CONFIG_64BIT
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 5e5a82644451..182904127ba0 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -14,6 +14,7 @@
+ #include <linux/vmalloc.h>
+ #include <linux/sizes.h>
+ #include <linux/pgtable.h>
++#include <linux/execmem.h>
+ #include <asm/alternative.h>
+ #include <asm/sections.h>
+ 
+@@ -906,13 +907,22 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+ }
+ 
+ #if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
+-void *module_alloc(unsigned long size)
+-{
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR,
+-				    MODULES_END, GFP_KERNEL,
+-				    PAGE_KERNEL, VM_FLUSH_RESET_PERMS,
+-				    NUMA_NO_NODE,
+-				    __builtin_return_address(0));
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
++{
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= MODULES_VADDR,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ #endif
+ 
+diff --git a/arch/sparc/kernel/module.c b/arch/sparc/kernel/module.c
+index d37adb2a0b54..8b7ee45defc3 100644
+--- a/arch/sparc/kernel/module.c
++++ b/arch/sparc/kernel/module.c
+@@ -14,6 +14,7 @@
+ #include <linux/string.h>
+ #include <linux/ctype.h>
+ #include <linux/mm.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/processor.h>
+ #include <asm/spitfire.h>
+@@ -21,11 +22,22 @@
+ 
+ #include "entry.h"
+ 
+-void *module_alloc(unsigned long size)
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
+ {
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+-				GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+-				__builtin_return_address(0));
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= MODULES_VADDR,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ 
+ /* Make generic code ignore STT_REGISTER dummy undefined symbols.  */
+diff --git a/include/linux/execmem.h b/include/linux/execmem.h
+index 8eebc8ef66e7..96fc59258467 100644
+--- a/include/linux/execmem.h
++++ b/include/linux/execmem.h
+@@ -33,6 +33,47 @@ enum execmem_type {
+ 	EXECMEM_TYPE_MAX,
+ };
+ 
++/**
++ * struct execmem_range - definition of an address space suitable for code and
++ *			  related data allocations
++ * @start:	address space start
++ * @end:	address space end (inclusive)
++ * @pgprot:	permissions for memory in this address space
++ * @alignment:	alignment required for text allocations
++ */
++struct execmem_range {
++	unsigned long   start;
++	unsigned long   end;
++	pgprot_t        pgprot;
++	unsigned int	alignment;
++};
++
++/**
++ * struct execmem_info - architecture parameters for code allocations
++ * @ranges: array of parameter sets defining architecture specific
++ * parameters for executable memory allocations. The ranges that are not
++ * explicitly initialized by an architecture use parameters defined for
++ * @EXECMEM_DEFAULT.
++ */
++struct execmem_info {
++	struct execmem_range	ranges[EXECMEM_TYPE_MAX];
++};
++
++/**
++ * execmem_arch_setup - define parameters for allocations of executable memory
++ *
++ * A hook for architectures to define parameters for allocations of
++ * executable memory. These parameters should be filled into the
++ * @execmem_info structure.
++ *
++ * For architectures that do not implement this method a default set of
++ * parameters will be used
++ *
++ * Return: a structure defining architecture parameters and restrictions
++ * for allocations of executable memory
++ */
++struct execmem_info *execmem_arch_setup(void);
++
+ /**
+  * execmem_alloc - allocate executable memory
+  * @type: type of the allocation
+@@ -54,4 +95,10 @@ void *execmem_alloc(enum execmem_type type, size_t size);
+  */
+ void execmem_free(void *ptr);
+ 
++#ifdef CONFIG_EXECMEM
++void execmem_init(void);
++#else
++static inline void execmem_init(void) {}
++#endif
++
+ #endif /* _LINUX_EXECMEM_ALLOC_H */
+diff --git a/mm/execmem.c b/mm/execmem.c
+index 480adc69b20d..80e61c1e7319 100644
+--- a/mm/execmem.c
++++ b/mm/execmem.c
+@@ -11,14 +11,30 @@
+ #include <linux/execmem.h>
+ #include <linux/moduleloader.h>
+ 
+-static void *__execmem_alloc(size_t size)
++static struct execmem_info *execmem_info __ro_after_init;
++
++static void *__execmem_alloc(struct execmem_range *range, size_t size)
+ {
+-	return module_alloc(size);
++	unsigned long start = range->start;
++	unsigned long end = range->end;
++	unsigned int align = range->alignment;
++	pgprot_t pgprot = range->pgprot;
++
++	return __vmalloc_node_range(size, align, start, end,
++				    GFP_KERNEL, pgprot, VM_FLUSH_RESET_PERMS,
++				    NUMA_NO_NODE, __builtin_return_address(0));
+ }
+ 
+ void *execmem_alloc(enum execmem_type type, size_t size)
+ {
+-	return __execmem_alloc(size);
++	struct execmem_range *range;
++
++	if (!execmem_info)
++		return module_alloc(size);
++
++	range = &execmem_info->ranges[type];
++
++	return __execmem_alloc(range, size);
+ }
+ 
+ void execmem_free(void *ptr)
+@@ -30,3 +46,48 @@ void execmem_free(void *ptr)
+ 	WARN_ON(in_interrupt());
+ 	vfree(ptr);
+ }
++
++static bool execmem_validate(struct execmem_info *info)
++{
++	struct execmem_range *r = &info->ranges[EXECMEM_DEFAULT];
++
++	if (!r->alignment || !r->start || !r->end || !pgprot_val(r->pgprot)) {
++		pr_crit("Invalid parameters for execmem allocator, module loading will fail");
++		return false;
++	}
++
++	return true;
++}
++
++static void execmem_init_missing(struct execmem_info *info)
++{
++	struct execmem_range *default_range = &info->ranges[EXECMEM_DEFAULT];
++
++	for (int i = EXECMEM_DEFAULT + 1; i < EXECMEM_TYPE_MAX; i++) {
++		struct execmem_range *r = &info->ranges[i];
++
++		if (!r->start) {
++			r->pgprot = default_range->pgprot;
++			r->alignment = default_range->alignment;
++			r->start = default_range->start;
++			r->end = default_range->end;
++		}
 +	}
 +}
 +
-+static void kprobe_remove_ksym_blacklist(unsigned long entry)
++struct execmem_info * __weak execmem_arch_setup(void)
 +{
-+	kprobe_remove_area_blacklist(entry, entry + 1);
++	return NULL;
 +}
 +
- static void add_module_kprobe_blacklist(struct module *mod)
- {
- 	unsigned long start, end;
-@@ -2672,6 +2674,17 @@ static struct notifier_block kprobe_module_nb = {
- 	.priority = 0
- };
- 
-+static int kprobe_register_module_notifier(void)
++void __init execmem_init(void)
 +{
-+	return register_module_notifier(&kprobe_module_nb);
-+}
-+#else
-+static int kprobe_register_module_notifier(void)
-+{
-+	return 0;
-+}
-+#endif /* CONFIG_MODULES */
++	struct execmem_info *info = execmem_arch_setup();
 +
- void kprobe_free_init_mem(void)
- {
- 	void *start = (void *)(&__init_begin);
-@@ -2731,7 +2744,7 @@ static int __init init_kprobes(void)
- 	if (!err)
- 		err = register_die_notifier(&kprobe_exceptions_nb);
- 	if (!err)
--		err = register_module_notifier(&kprobe_module_nb);
-+		err = kprobe_register_module_notifier();
- 
- 	kprobes_initialized = (err == 0);
- 	kprobe_sysctls_init();
-diff --git a/kernel/trace/trace_kprobe.c b/kernel/trace/trace_kprobe.c
-index 14099cc17fc9..2cb2a3951b4f 100644
---- a/kernel/trace/trace_kprobe.c
-+++ b/kernel/trace/trace_kprobe.c
-@@ -111,6 +111,7 @@ static nokprobe_inline bool trace_kprobe_within_module(struct trace_kprobe *tk,
- 	return strncmp(module_name(mod), name, len) == 0 && name[len] == ':';
- }
- 
-+#ifdef CONFIG_MODULES
- static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
- {
- 	char *p;
-@@ -129,6 +130,12 @@ static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
- 
- 	return ret;
- }
-+#else
-+static inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
-+{
-+	return false;
++	if (!info || !execmem_validate(info))
++		return;
++
++	execmem_init_missing(info);
++
++	execmem_info = info;
 +}
-+#endif
- 
- static bool trace_kprobe_is_busy(struct dyn_event *ev)
- {
-@@ -670,6 +677,7 @@ static int register_trace_kprobe(struct trace_kprobe *tk)
- 	return ret;
+diff --git a/mm/mm_init.c b/mm/mm_init.c
+index 549e76af8f82..b6a1fcf6e13a 100644
+--- a/mm/mm_init.c
++++ b/mm/mm_init.c
+@@ -27,6 +27,7 @@
+ #include <linux/swap.h>
+ #include <linux/cma.h>
+ #include <linux/crash_dump.h>
++#include <linux/execmem.h>
+ #include "internal.h"
+ #include "slab.h"
+ #include "shuffle.h"
+@@ -2793,4 +2794,5 @@ void __init mm_core_init(void)
+ 	pti_init();
+ 	kmsan_init_runtime();
+ 	mm_cache_init();
++	execmem_init();
  }
- 
-+#ifdef CONFIG_MODULES
- /* Module notifier call back, checking event on the module */
- static int trace_kprobe_module_callback(struct notifier_block *nb,
- 				       unsigned long val, void *data)
-@@ -704,6 +712,16 @@ static struct notifier_block trace_kprobe_module_nb = {
- 	.notifier_call = trace_kprobe_module_callback,
- 	.priority = 1	/* Invoked after kprobe module callback */
- };
-+static int trace_kprobe_register_module_notifier(void)
-+{
-+	return register_module_notifier(&trace_kprobe_module_nb);
-+}
-+#else
-+static int trace_kprobe_register_module_notifier(void)
-+{
-+	return 0;
-+}
-+#endif /* CONFIG_MODULES */
- 
- static int count_symbols(void *data, unsigned long unused)
- {
-@@ -1933,7 +1951,7 @@ static __init int init_kprobe_trace_early(void)
- 	if (ret)
- 		return ret;
- 
--	if (register_module_notifier(&trace_kprobe_module_nb))
-+	if (trace_kprobe_register_module_notifier())
- 		return -EINVAL;
- 
- 	return 0;
 -- 
 2.43.0
 
