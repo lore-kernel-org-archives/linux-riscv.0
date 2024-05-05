@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F8CC04FFE
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 14:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8271FC4345F
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 14:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MXM8cqldLSPhG+xS8opGbjpDP1jJqlMgbzjb/wvTqMU=; b=rvRWL2qbdi1vZf
-	6ACrUveaJIyX3TKumldT2qAii1visrF35oCwoe2ZtuYi3EMKt96xib4g/sEtGiTpQeZgmXmKdlPdM
-	QqgnlpcOFty/jRrLrkduUqJzfwG/QBFWyJiQWNWqmYI7saEDJ5HhyvyBHXP5c75tChpwSBEdrKDLs
-	p/dxwjMy9/nEfjvP6rdIO2hEaHWYz1UF1xEYViOZ2LKulon5tiVmgMhFtgvoHpulchIxUsN2YMGNK
-	5R1opoHFkBCuPb011Nc5nZTiOrG4vWPXLO0VTL/6CW9tCWAX/dDhczjSE2BiSgQ+ZQWnqKN0E3QrR
-	sckbORiWq4WalxN45lcg==;
+	List-Owner; bh=xpM8uZnExD8p+a+3d225HenPDl1XGH9hpyxEfWGLmSc=; b=d1JQNCbMQy5zNc
+	ELh8au5sk5wu0zbceT4v6WngxMgy5Y/BcKZVzoAUOGwo4wQeqYfBojZxDX6PXGrQREhfQkNwKNUs5
+	SW3ReB2+xkit2WehgVvFhywkgkAEjd4zDItAEBoWWW8arOkMovYwY3xcTfzg+SMLVe4C/sjGpU6V8
+	YLUQnCUPRhj4FEJEhxN9mAnUiFS7BlqHnPLyXAAM4U388qd3feYFdt6cKHdZjPuILRsklBBSr2lTW
+	Gcx8BaRy1wrs+AZemJdJs0IZUuUMeSvQekyfV5oW7uKh5LjqDbD69BknVskBKTPd6JHztOO6h52n2
+	SKOXbnRJxfdY0vE7kNTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3cpx-00000004SaN-0b1Q;
-	Sun, 05 May 2024 14:27:33 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s3cqK-00000004Suo-3EGD;
+	Sun, 05 May 2024 14:27:56 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3cpn-00000004SQD-0OIt;
-	Sun, 05 May 2024 14:27:26 +0000
+	id 1s3cq1-00000004Scv-0ivk;
+	Sun, 05 May 2024 14:27:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4683A60C8B;
+	by sin.source.kernel.org (Postfix) with ESMTP id BFC60CE0A19;
+	Sun,  5 May 2024 14:27:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75D78C4AF18;
 	Sun,  5 May 2024 14:27:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D95EC4AF67;
-	Sun,  5 May 2024 14:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714919241;
-	bh=vbQmVIViLlnHnV/HmsoDNHPWB+6N7x9rENWps4lsXos=;
+	s=k20201202; t=1714919253;
+	bh=O80Ih29W+vz+LMoOHSIificIIW/tpeoH6wwn4K1HsxQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xl5iD4lueG8tIPXrO/gEXU39XDfM3YC/JMMh3852CFxF2oYh+paX9vBtiDNHobolr
-	 fT4G8IF9fkbLUdGv2ikdeuc6+J2xDFH0KR/VTbUG+Hv/QdKrBr+pSDv9DFzfUPP2I3
-	 bP2It0ZiWqKrpaFsBerSAvvYt92y2em8jZ93u0QN8uW5A3MxYvy1JsUox9JZRQ11j8
-	 hWmui1dlwkA0uUH0DLGz65sT+kLHQX0p9W2t3k9zMl14nQC7TMegAfhWBFTdDhkJMw
-	 rp4g/OdSjIa699sH+T7Z+caC4c3erFuVC8VvAkXFGQHM++7hzBOqRdtcFRKejSaFcx
-	 8h5mYj3Qiu98Q==
+	b=BilCkbtOLxKBPWJaAGrji96oFgWEqeIluXUtysOn4QHKtZ7B+5JzxWirvapkPBhn5
+	 8q5ozXQa8/f6BgkfO7Z5j/Rlm2QnRJ/pSRQ0vhHqoWs6DhTy29FLQ1j/aq+4dUh/F+
+	 AW03HvVGaefapZhOPACjNFGhNe0Ula8pc7JkVkSVH04AMVAAZO8Gfh6jkzvuOI0aRZ
+	 vWYh4eKs2g6ScyNHJJ5NRWGw0ctOcEf0HJwmlN4RT+hTsX9htADU8CooWWRPvzLgiw
+	 jsu7vr9XhoiXY3h3NOwAf4PBU7Bgg+Xcm9sqXRAd8WXItWiSf8Aw0lXSvtF4iBjlyE
+	 ggI6GFuSe9YEQ==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
@@ -89,16 +89,16 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v8 05/17] module: make module_memory_{alloc,free} more self-contained
-Date: Sun,  5 May 2024 17:25:48 +0300
-Message-ID: <20240505142600.2322517-6-rppt@kernel.org>
+Subject: [PATCH v8 06/17] mm: introduce execmem_alloc() and execmem_free()
+Date: Sun,  5 May 2024 17:25:49 +0300
+Message-ID: <20240505142600.2322517-7-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240505142600.2322517-1-rppt@kernel.org>
 References: <20240505142600.2322517-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240505_072723_860811_17AB4616 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20240505_072737_945900_A6582857 
+X-CRM114-Status: GOOD (  30.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,87 +110,586 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogIk1pa2UgUmFwb3BvcnQgKElCTSkiIDxycHB0QGtlcm5lbC5vcmc+CgpNb3ZlIHRoZSBs
-b2dpYyByZWxhdGVkIHRvIHRoZSBtZW1vcnkgYWxsb2NhdGlvbiBhbmQgZnJlZWluZyBpbnRvCm1v
-ZHVsZV9tZW1vcnlfYWxsb2MoKSBhbmQgbW9kdWxlX21lbW9yeV9mcmVlKCkuCgpTaWduZWQtb2Zm
-LWJ5OiBNaWtlIFJhcG9wb3J0IChJQk0pIDxycHB0QGtlcm5lbC5vcmc+ClJldmlld2VkLWJ5OiBQ
-aGlsaXBwZSBNYXRoaWV1LURhdWTDqSA8cGhpbG1kQGxpbmFyby5vcmc+Ci0tLQoga2VybmVsL21v
-ZHVsZS9tYWluLmMgfCA2NCArKysrKysrKysrKysrKysrKysrKysrKysrKystLS0tLS0tLS0tLS0t
-LS0tLQogMSBmaWxlIGNoYW5nZWQsIDM5IGluc2VydGlvbnMoKyksIDI1IGRlbGV0aW9ucygtKQoK
-ZGlmZiAtLWdpdCBhL2tlcm5lbC9tb2R1bGUvbWFpbi5jIGIva2VybmVsL21vZHVsZS9tYWluLmMK
-aW5kZXggZTFlOGE3YTlkNmMxLi41YjgyYjA2OWUwZDMgMTAwNjQ0Ci0tLSBhL2tlcm5lbC9tb2R1
-bGUvbWFpbi5jCisrKyBiL2tlcm5lbC9tb2R1bGUvbWFpbi5jCkBAIC0xMjAzLDE1ICsxMjAzLDQ0
-IEBAIHN0YXRpYyBib29sIG1vZF9tZW1fdXNlX3ZtYWxsb2MoZW51bSBtb2RfbWVtX3R5cGUgdHlw
-ZSkKIAkJbW9kX21lbV90eXBlX2lzX2NvcmVfZGF0YSh0eXBlKTsKIH0KIAotc3RhdGljIHZvaWQg
-Km1vZHVsZV9tZW1vcnlfYWxsb2ModW5zaWduZWQgaW50IHNpemUsIGVudW0gbW9kX21lbV90eXBl
-IHR5cGUpCitzdGF0aWMgaW50IG1vZHVsZV9tZW1vcnlfYWxsb2Moc3RydWN0IG1vZHVsZSAqbW9k
-LCBlbnVtIG1vZF9tZW1fdHlwZSB0eXBlKQogeworCXVuc2lnbmVkIGludCBzaXplID0gUEFHRV9B
-TElHTihtb2QtPm1lbVt0eXBlXS5zaXplKTsKKwl2b2lkICpwdHI7CisKKwltb2QtPm1lbVt0eXBl
-XS5zaXplID0gc2l6ZTsKKwogCWlmIChtb2RfbWVtX3VzZV92bWFsbG9jKHR5cGUpKQotCQlyZXR1
-cm4gdnphbGxvYyhzaXplKTsKLQlyZXR1cm4gbW9kdWxlX2FsbG9jKHNpemUpOworCQlwdHIgPSB2
-bWFsbG9jKHNpemUpOworCWVsc2UKKwkJcHRyID0gbW9kdWxlX2FsbG9jKHNpemUpOworCisJaWYg
-KCFwdHIpCisJCXJldHVybiAtRU5PTUVNOworCisJLyoKKwkgKiBUaGUgcG9pbnRlciB0byB0aGVz
-ZSBibG9ja3Mgb2YgbWVtb3J5IGFyZSBzdG9yZWQgb24gdGhlIG1vZHVsZQorCSAqIHN0cnVjdHVy
-ZSBhbmQgd2Uga2VlcCB0aGF0IGFyb3VuZCBzbyBsb25nIGFzIHRoZSBtb2R1bGUgaXMKKwkgKiBh
-cm91bmQuIFdlIG9ubHkgZnJlZSB0aGF0IG1lbW9yeSB3aGVuIHdlIHVubG9hZCB0aGUgbW9kdWxl
-LgorCSAqIEp1c3QgbWFyayB0aGVtIGFzIG5vdCBiZWluZyBhIGxlYWsgdGhlbi4gVGhlIC5pbml0
-KiBFTEYKKwkgKiBzZWN0aW9ucyAqZG8qIGdldCBmcmVlZCBhZnRlciBib290IHNvIHdlICpjb3Vs
-ZCogdHJlYXQgdGhlbQorCSAqIHNsaWdodGx5IGRpZmZlcmVudGx5IHdpdGgga21lbWxlYWtfaWdu
-b3JlKCkgYW5kIG9ubHkgZ3JleQorCSAqIHRoZW0gb3V0IGFzIHRoZXkgd29yayBhcyB0eXBpY2Fs
-IG1lbW9yeSBhbGxvY2F0aW9ucyB3aGljaAorCSAqICpkbyogZXZlbnR1YWxseSBnZXQgZnJlZWQs
-IGJ1dCBsZXQncyBqdXN0IGtlZXAgdGhpbmdzIHNpbXBsZQorCSAqIGFuZCBhdm9pZCAqYW55KiBm
-YWxzZSBwb3NpdGl2ZXMuCisJICovCisJa21lbWxlYWtfbm90X2xlYWsocHRyKTsKKworCW1lbXNl
-dChwdHIsIDAsIHNpemUpOworCW1vZC0+bWVtW3R5cGVdLmJhc2UgPSBwdHI7CisKKwlyZXR1cm4g
-MDsKIH0KIAotc3RhdGljIHZvaWQgbW9kdWxlX21lbW9yeV9mcmVlKHZvaWQgKnB0ciwgZW51bSBt
-b2RfbWVtX3R5cGUgdHlwZSkKK3N0YXRpYyB2b2lkIG1vZHVsZV9tZW1vcnlfZnJlZShzdHJ1Y3Qg
-bW9kdWxlICptb2QsIGVudW0gbW9kX21lbV90eXBlIHR5cGUpCiB7CisJdm9pZCAqcHRyID0gbW9k
-LT5tZW1bdHlwZV0uYmFzZTsKKwogCWlmIChtb2RfbWVtX3VzZV92bWFsbG9jKHR5cGUpKQogCQl2
-ZnJlZShwdHIpOwogCWVsc2UKQEAgLTEyMjksMTIgKzEyNTgsMTIgQEAgc3RhdGljIHZvaWQgZnJl
-ZV9tb2RfbWVtKHN0cnVjdCBtb2R1bGUgKm1vZCkKIAkJLyogRnJlZSBsb2NrLWNsYXNzZXM7IHJl
-bGllcyBvbiB0aGUgcHJlY2VkaW5nIHN5bmNfcmN1KCkuICovCiAJCWxvY2tkZXBfZnJlZV9rZXlf
-cmFuZ2UobW9kX21lbS0+YmFzZSwgbW9kX21lbS0+c2l6ZSk7CiAJCWlmIChtb2RfbWVtLT5zaXpl
-KQotCQkJbW9kdWxlX21lbW9yeV9mcmVlKG1vZF9tZW0tPmJhc2UsIHR5cGUpOworCQkJbW9kdWxl
-X21lbW9yeV9mcmVlKG1vZCwgdHlwZSk7CiAJfQogCiAJLyogTU9EX0RBVEEgaG9zdHMgbW9kLCBz
-byBmcmVlIGl0IGF0IGxhc3QgKi8KIAlsb2NrZGVwX2ZyZWVfa2V5X3JhbmdlKG1vZC0+bWVtW01P
-RF9EQVRBXS5iYXNlLCBtb2QtPm1lbVtNT0RfREFUQV0uc2l6ZSk7Ci0JbW9kdWxlX21lbW9yeV9m
-cmVlKG1vZC0+bWVtW01PRF9EQVRBXS5iYXNlLCBNT0RfREFUQSk7CisJbW9kdWxlX21lbW9yeV9m
-cmVlKG1vZCwgTU9EX0RBVEEpOwogfQogCiAvKiBGcmVlIGEgbW9kdWxlLCByZW1vdmUgZnJvbSBs
-aXN0cywgZXRjLiAqLwpAQCAtMjIyNSw3ICsyMjU0LDYgQEAgc3RhdGljIGludCBmaW5kX21vZHVs
-ZV9zZWN0aW9ucyhzdHJ1Y3QgbW9kdWxlICptb2QsIHN0cnVjdCBsb2FkX2luZm8gKmluZm8pCiBz
-dGF0aWMgaW50IG1vdmVfbW9kdWxlKHN0cnVjdCBtb2R1bGUgKm1vZCwgc3RydWN0IGxvYWRfaW5m
-byAqaW5mbykKIHsKIAlpbnQgaTsKLQl2b2lkICpwdHI7CiAJZW51bSBtb2RfbWVtX3R5cGUgdCA9
-IDA7CiAJaW50IHJldCA9IC1FTk9NRU07CiAKQEAgLTIyMzQsMjYgKzIyNjIsMTIgQEAgc3RhdGlj
-IGludCBtb3ZlX21vZHVsZShzdHJ1Y3QgbW9kdWxlICptb2QsIHN0cnVjdCBsb2FkX2luZm8gKmlu
-Zm8pCiAJCQltb2QtPm1lbVt0eXBlXS5iYXNlID0gTlVMTDsKIAkJCWNvbnRpbnVlOwogCQl9Ci0J
-CW1vZC0+bWVtW3R5cGVdLnNpemUgPSBQQUdFX0FMSUdOKG1vZC0+bWVtW3R5cGVdLnNpemUpOwot
-CQlwdHIgPSBtb2R1bGVfbWVtb3J5X2FsbG9jKG1vZC0+bWVtW3R5cGVdLnNpemUsIHR5cGUpOwot
-CQkvKgotICAgICAgICAgICAgICAgICAqIFRoZSBwb2ludGVyIHRvIHRoZXNlIGJsb2NrcyBvZiBt
-ZW1vcnkgYXJlIHN0b3JlZCBvbiB0aGUgbW9kdWxlCi0gICAgICAgICAgICAgICAgICogc3RydWN0
-dXJlIGFuZCB3ZSBrZWVwIHRoYXQgYXJvdW5kIHNvIGxvbmcgYXMgdGhlIG1vZHVsZSBpcwotICAg
-ICAgICAgICAgICAgICAqIGFyb3VuZC4gV2Ugb25seSBmcmVlIHRoYXQgbWVtb3J5IHdoZW4gd2Ug
-dW5sb2FkIHRoZSBtb2R1bGUuCi0gICAgICAgICAgICAgICAgICogSnVzdCBtYXJrIHRoZW0gYXMg
-bm90IGJlaW5nIGEgbGVhayB0aGVuLiBUaGUgLmluaXQqIEVMRgotICAgICAgICAgICAgICAgICAq
-IHNlY3Rpb25zICpkbyogZ2V0IGZyZWVkIGFmdGVyIGJvb3Qgc28gd2UgKmNvdWxkKiB0cmVhdCB0
-aGVtCi0gICAgICAgICAgICAgICAgICogc2xpZ2h0bHkgZGlmZmVyZW50bHkgd2l0aCBrbWVtbGVh
-a19pZ25vcmUoKSBhbmQgb25seSBncmV5Ci0gICAgICAgICAgICAgICAgICogdGhlbSBvdXQgYXMg
-dGhleSB3b3JrIGFzIHR5cGljYWwgbWVtb3J5IGFsbG9jYXRpb25zIHdoaWNoCi0gICAgICAgICAg
-ICAgICAgICogKmRvKiBldmVudHVhbGx5IGdldCBmcmVlZCwgYnV0IGxldCdzIGp1c3Qga2VlcCB0
-aGluZ3Mgc2ltcGxlCi0gICAgICAgICAgICAgICAgICogYW5kIGF2b2lkICphbnkqIGZhbHNlIHBv
-c2l0aXZlcy4KLQkJICovCi0JCWttZW1sZWFrX25vdF9sZWFrKHB0cik7Ci0JCWlmICghcHRyKSB7
-CisKKwkJcmV0ID0gbW9kdWxlX21lbW9yeV9hbGxvYyhtb2QsIHR5cGUpOworCQlpZiAocmV0KSB7
-CiAJCQl0ID0gdHlwZTsKIAkJCWdvdG8gb3V0X2Vub21lbTsKIAkJfQotCQltZW1zZXQocHRyLCAw
-LCBtb2QtPm1lbVt0eXBlXS5zaXplKTsKLQkJbW9kLT5tZW1bdHlwZV0uYmFzZSA9IHB0cjsKIAl9
-CiAKIAkvKiBUcmFuc2ZlciBlYWNoIHNlY3Rpb24gd2hpY2ggc3BlY2lmaWVzIFNIRl9BTExPQyAq
-LwpAQCAtMjI5Niw3ICsyMzEwLDcgQEAgc3RhdGljIGludCBtb3ZlX21vZHVsZShzdHJ1Y3QgbW9k
-dWxlICptb2QsIHN0cnVjdCBsb2FkX2luZm8gKmluZm8pCiAJcmV0dXJuIDA7CiBvdXRfZW5vbWVt
-OgogCWZvciAodC0tOyB0ID49IDA7IHQtLSkKLQkJbW9kdWxlX21lbW9yeV9mcmVlKG1vZC0+bWVt
-W3RdLmJhc2UsIHQpOworCQltb2R1bGVfbWVtb3J5X2ZyZWUobW9kLCB0KTsKIAlyZXR1cm4gcmV0
-OwogfQogCi0tIAoyLjQzLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+
+module_alloc() is used everywhere as a mean to allocate memory for code.
+
+Beside being semantically wrong, this unnecessarily ties all subsystems
+that need to allocate code, such as ftrace, kprobes and BPF to modules and
+puts the burden of code allocation to the modules code.
+
+Several architectures override module_alloc() because of various
+constraints where the executable memory can be located and this causes
+additional obstacles for improvements of code allocation.
+
+Start splitting code allocation from modules by introducing execmem_alloc()
+and execmem_free() APIs.
+
+Initially, execmem_alloc() is a wrapper for module_alloc() and
+execmem_free() is a replacement of module_memfree() to allow updating all
+call sites to use the new APIs.
+
+Since architectures define different restrictions on placement,
+permissions, alignment and other parameters for memory that can be used by
+different subsystems that allocate executable memory, execmem_alloc() takes
+a type argument, that will be used to identify the calling subsystem and to
+allow architectures define parameters for ranges suitable for that
+subsystem.
+
+No functional changes.
+
+Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
+Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Acked-by: Song Liu <song@kernel.org>
+---
+ arch/powerpc/kernel/kprobes.c    |  6 ++--
+ arch/s390/kernel/ftrace.c        |  4 +--
+ arch/s390/kernel/kprobes.c       |  4 +--
+ arch/s390/kernel/module.c        |  5 +--
+ arch/sparc/net/bpf_jit_comp_32.c |  8 ++---
+ arch/x86/kernel/ftrace.c         |  6 ++--
+ arch/x86/kernel/kprobes/core.c   |  4 +--
+ include/linux/execmem.h          | 57 ++++++++++++++++++++++++++++++++
+ include/linux/moduleloader.h     |  3 --
+ kernel/bpf/core.c                |  6 ++--
+ kernel/kprobes.c                 |  8 ++---
+ kernel/module/Kconfig            |  1 +
+ kernel/module/main.c             | 25 +++++---------
+ mm/Kconfig                       |  3 ++
+ mm/Makefile                      |  1 +
+ mm/execmem.c                     | 32 ++++++++++++++++++
+ 16 files changed, 128 insertions(+), 45 deletions(-)
+ create mode 100644 include/linux/execmem.h
+ create mode 100644 mm/execmem.c
+
+diff --git a/arch/powerpc/kernel/kprobes.c b/arch/powerpc/kernel/kprobes.c
+index bbca90a5e2ec..9fcd01bb2ce6 100644
+--- a/arch/powerpc/kernel/kprobes.c
++++ b/arch/powerpc/kernel/kprobes.c
+@@ -19,8 +19,8 @@
+ #include <linux/extable.h>
+ #include <linux/kdebug.h>
+ #include <linux/slab.h>
+-#include <linux/moduleloader.h>
+ #include <linux/set_memory.h>
++#include <linux/execmem.h>
+ #include <asm/code-patching.h>
+ #include <asm/cacheflush.h>
+ #include <asm/sstep.h>
+@@ -130,7 +130,7 @@ void *alloc_insn_page(void)
+ {
+ 	void *page;
+ 
+-	page = module_alloc(PAGE_SIZE);
++	page = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
+ 	if (!page)
+ 		return NULL;
+ 
+@@ -142,7 +142,7 @@ void *alloc_insn_page(void)
+ 	}
+ 	return page;
+ error:
+-	module_memfree(page);
++	execmem_free(page);
+ 	return NULL;
+ }
+ 
+diff --git a/arch/s390/kernel/ftrace.c b/arch/s390/kernel/ftrace.c
+index c46381ea04ec..798249ef5646 100644
+--- a/arch/s390/kernel/ftrace.c
++++ b/arch/s390/kernel/ftrace.c
+@@ -7,13 +7,13 @@
+  *   Author(s): Martin Schwidefsky <schwidefsky@de.ibm.com>
+  */
+ 
+-#include <linux/moduleloader.h>
+ #include <linux/hardirq.h>
+ #include <linux/uaccess.h>
+ #include <linux/ftrace.h>
+ #include <linux/kernel.h>
+ #include <linux/types.h>
+ #include <linux/kprobes.h>
++#include <linux/execmem.h>
+ #include <trace/syscall.h>
+ #include <asm/asm-offsets.h>
+ #include <asm/text-patching.h>
+@@ -220,7 +220,7 @@ static int __init ftrace_plt_init(void)
+ {
+ 	const char *start, *end;
+ 
+-	ftrace_plt = module_alloc(PAGE_SIZE);
++	ftrace_plt = execmem_alloc(EXECMEM_FTRACE, PAGE_SIZE);
+ 	if (!ftrace_plt)
+ 		panic("cannot allocate ftrace plt\n");
+ 
+diff --git a/arch/s390/kernel/kprobes.c b/arch/s390/kernel/kprobes.c
+index f0cf20d4b3c5..3c1b1be744de 100644
+--- a/arch/s390/kernel/kprobes.c
++++ b/arch/s390/kernel/kprobes.c
+@@ -9,7 +9,6 @@
+ 
+ #define pr_fmt(fmt) "kprobes: " fmt
+ 
+-#include <linux/moduleloader.h>
+ #include <linux/kprobes.h>
+ #include <linux/ptrace.h>
+ #include <linux/preempt.h>
+@@ -21,6 +20,7 @@
+ #include <linux/slab.h>
+ #include <linux/hardirq.h>
+ #include <linux/ftrace.h>
++#include <linux/execmem.h>
+ #include <asm/set_memory.h>
+ #include <asm/sections.h>
+ #include <asm/dis.h>
+@@ -38,7 +38,7 @@ void *alloc_insn_page(void)
+ {
+ 	void *page;
+ 
+-	page = module_alloc(PAGE_SIZE);
++	page = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
+ 	if (!page)
+ 		return NULL;
+ 	set_memory_rox((unsigned long)page, 1);
+diff --git a/arch/s390/kernel/module.c b/arch/s390/kernel/module.c
+index 42215f9404af..ac97a905e8cd 100644
+--- a/arch/s390/kernel/module.c
++++ b/arch/s390/kernel/module.c
+@@ -21,6 +21,7 @@
+ #include <linux/moduleloader.h>
+ #include <linux/bug.h>
+ #include <linux/memory.h>
++#include <linux/execmem.h>
+ #include <asm/alternative.h>
+ #include <asm/nospec-branch.h>
+ #include <asm/facility.h>
+@@ -76,7 +77,7 @@ void *module_alloc(unsigned long size)
+ #ifdef CONFIG_FUNCTION_TRACER
+ void module_arch_cleanup(struct module *mod)
+ {
+-	module_memfree(mod->arch.trampolines_start);
++	execmem_free(mod->arch.trampolines_start);
+ }
+ #endif
+ 
+@@ -510,7 +511,7 @@ static int module_alloc_ftrace_hotpatch_trampolines(struct module *me,
+ 
+ 	size = FTRACE_HOTPATCH_TRAMPOLINES_SIZE(s->sh_size);
+ 	numpages = DIV_ROUND_UP(size, PAGE_SIZE);
+-	start = module_alloc(numpages * PAGE_SIZE);
++	start = execmem_alloc(EXECMEM_FTRACE, numpages * PAGE_SIZE);
+ 	if (!start)
+ 		return -ENOMEM;
+ 	set_memory_rox((unsigned long)start, numpages);
+diff --git a/arch/sparc/net/bpf_jit_comp_32.c b/arch/sparc/net/bpf_jit_comp_32.c
+index da2df1e84ed4..bda2dbd3f4c5 100644
+--- a/arch/sparc/net/bpf_jit_comp_32.c
++++ b/arch/sparc/net/bpf_jit_comp_32.c
+@@ -1,10 +1,10 @@
+ // SPDX-License-Identifier: GPL-2.0
+-#include <linux/moduleloader.h>
+ #include <linux/workqueue.h>
+ #include <linux/netdevice.h>
+ #include <linux/filter.h>
+ #include <linux/cache.h>
+ #include <linux/if_vlan.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/cacheflush.h>
+ #include <asm/ptrace.h>
+@@ -713,7 +713,7 @@ cond_branch:			f_offset = addrs[i + filter[i].jf];
+ 				if (unlikely(proglen + ilen > oldproglen)) {
+ 					pr_err("bpb_jit_compile fatal error\n");
+ 					kfree(addrs);
+-					module_memfree(image);
++					execmem_free(image);
+ 					return;
+ 				}
+ 				memcpy(image + proglen, temp, ilen);
+@@ -736,7 +736,7 @@ cond_branch:			f_offset = addrs[i + filter[i].jf];
+ 			break;
+ 		}
+ 		if (proglen == oldproglen) {
+-			image = module_alloc(proglen);
++			image = execmem_alloc(EXECMEM_BPF, proglen);
+ 			if (!image)
+ 				goto out;
+ 		}
+@@ -758,7 +758,7 @@ cond_branch:			f_offset = addrs[i + filter[i].jf];
+ void bpf_jit_free(struct bpf_prog *fp)
+ {
+ 	if (fp->jited)
+-		module_memfree(fp->bpf_func);
++		execmem_free(fp->bpf_func);
+ 
+ 	bpf_prog_unlock_free(fp);
+ }
+diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
+index 70139d9d2e01..c8ddb7abda7c 100644
+--- a/arch/x86/kernel/ftrace.c
++++ b/arch/x86/kernel/ftrace.c
+@@ -25,6 +25,7 @@
+ #include <linux/memory.h>
+ #include <linux/vmalloc.h>
+ #include <linux/set_memory.h>
++#include <linux/execmem.h>
+ 
+ #include <trace/syscall.h>
+ 
+@@ -261,15 +262,14 @@ void arch_ftrace_update_code(int command)
+ #ifdef CONFIG_X86_64
+ 
+ #ifdef CONFIG_MODULES
+-#include <linux/moduleloader.h>
+ /* Module allocation simplifies allocating memory for code */
+ static inline void *alloc_tramp(unsigned long size)
+ {
+-	return module_alloc(size);
++	return execmem_alloc(EXECMEM_FTRACE, size);
+ }
+ static inline void tramp_free(void *tramp)
+ {
+-	module_memfree(tramp);
++	execmem_free(tramp);
+ }
+ #else
+ /* Trampolines can only be created if modules are supported */
+diff --git a/arch/x86/kernel/kprobes/core.c b/arch/x86/kernel/kprobes/core.c
+index d0e49bd7c6f3..72e6a45e7ec2 100644
+--- a/arch/x86/kernel/kprobes/core.c
++++ b/arch/x86/kernel/kprobes/core.c
+@@ -40,12 +40,12 @@
+ #include <linux/kgdb.h>
+ #include <linux/ftrace.h>
+ #include <linux/kasan.h>
+-#include <linux/moduleloader.h>
+ #include <linux/objtool.h>
+ #include <linux/vmalloc.h>
+ #include <linux/pgtable.h>
+ #include <linux/set_memory.h>
+ #include <linux/cfi.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/text-patching.h>
+ #include <asm/cacheflush.h>
+@@ -495,7 +495,7 @@ void *alloc_insn_page(void)
+ {
+ 	void *page;
+ 
+-	page = module_alloc(PAGE_SIZE);
++	page = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
+ 	if (!page)
+ 		return NULL;
+ 
+diff --git a/include/linux/execmem.h b/include/linux/execmem.h
+new file mode 100644
+index 000000000000..8eebc8ef66e7
+--- /dev/null
++++ b/include/linux/execmem.h
+@@ -0,0 +1,57 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _LINUX_EXECMEM_ALLOC_H
++#define _LINUX_EXECMEM_ALLOC_H
++
++#include <linux/types.h>
++#include <linux/moduleloader.h>
++
++/**
++ * enum execmem_type - types of executable memory ranges
++ *
++ * There are several subsystems that allocate executable memory.
++ * Architectures define different restrictions on placement,
++ * permissions, alignment and other parameters for memory that can be used
++ * by these subsystems.
++ * Types in this enum identify subsystems that allocate executable memory
++ * and let architectures define parameters for ranges suitable for
++ * allocations by each subsystem.
++ *
++ * @EXECMEM_DEFAULT: default parameters that would be used for types that
++ * are not explicitly defined.
++ * @EXECMEM_MODULE_TEXT: parameters for module text sections
++ * @EXECMEM_KPROBES: parameters for kprobes
++ * @EXECMEM_FTRACE: parameters for ftrace
++ * @EXECMEM_BPF: parameters for BPF
++ * @EXECMEM_TYPE_MAX:
++ */
++enum execmem_type {
++	EXECMEM_DEFAULT,
++	EXECMEM_MODULE_TEXT = EXECMEM_DEFAULT,
++	EXECMEM_KPROBES,
++	EXECMEM_FTRACE,
++	EXECMEM_BPF,
++	EXECMEM_TYPE_MAX,
++};
++
++/**
++ * execmem_alloc - allocate executable memory
++ * @type: type of the allocation
++ * @size: how many bytes of memory are required
++ *
++ * Allocates memory that will contain executable code, either generated or
++ * loaded from kernel modules.
++ *
++ * The memory will have protections defined by architecture for executable
++ * region of the @type.
++ *
++ * Return: a pointer to the allocated memory or %NULL
++ */
++void *execmem_alloc(enum execmem_type type, size_t size);
++
++/**
++ * execmem_free - free executable memory
++ * @ptr: pointer to the memory that should be freed
++ */
++void execmem_free(void *ptr);
++
++#endif /* _LINUX_EXECMEM_ALLOC_H */
+diff --git a/include/linux/moduleloader.h b/include/linux/moduleloader.h
+index 89b1e0ed9811..a3b8caee9405 100644
+--- a/include/linux/moduleloader.h
++++ b/include/linux/moduleloader.h
+@@ -29,9 +29,6 @@ unsigned int arch_mod_section_prepend(struct module *mod, unsigned int section);
+    sections.  Returns NULL on failure. */
+ void *module_alloc(unsigned long size);
+ 
+-/* Free memory returned from module_alloc. */
+-void module_memfree(void *module_region);
+-
+ /* Determines if the section name is an init section (that is only used during
+  * module loading).
+  */
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index 696bc55de8e8..75a54024e2f4 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -22,7 +22,6 @@
+ #include <linux/skbuff.h>
+ #include <linux/vmalloc.h>
+ #include <linux/random.h>
+-#include <linux/moduleloader.h>
+ #include <linux/bpf.h>
+ #include <linux/btf.h>
+ #include <linux/objtool.h>
+@@ -37,6 +36,7 @@
+ #include <linux/nospec.h>
+ #include <linux/bpf_mem_alloc.h>
+ #include <linux/memcontrol.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/barrier.h>
+ #include <asm/unaligned.h>
+@@ -1050,12 +1050,12 @@ void bpf_jit_uncharge_modmem(u32 size)
+ 
+ void *__weak bpf_jit_alloc_exec(unsigned long size)
+ {
+-	return module_alloc(size);
++	return execmem_alloc(EXECMEM_BPF, size);
+ }
+ 
+ void __weak bpf_jit_free_exec(void *addr)
+ {
+-	module_memfree(addr);
++	execmem_free(addr);
+ }
+ 
+ struct bpf_binary_header *
+diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+index 65adc815fc6e..ddd7cdc16edf 100644
+--- a/kernel/kprobes.c
++++ b/kernel/kprobes.c
+@@ -26,7 +26,6 @@
+ #include <linux/slab.h>
+ #include <linux/stddef.h>
+ #include <linux/export.h>
+-#include <linux/moduleloader.h>
+ #include <linux/kallsyms.h>
+ #include <linux/freezer.h>
+ #include <linux/seq_file.h>
+@@ -39,6 +38,7 @@
+ #include <linux/jump_label.h>
+ #include <linux/static_call.h>
+ #include <linux/perf_event.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/sections.h>
+ #include <asm/cacheflush.h>
+@@ -113,17 +113,17 @@ enum kprobe_slot_state {
+ void __weak *alloc_insn_page(void)
+ {
+ 	/*
+-	 * Use module_alloc() so this page is within +/- 2GB of where the
++	 * Use execmem_alloc() so this page is within +/- 2GB of where the
+ 	 * kernel image and loaded module images reside. This is required
+ 	 * for most of the architectures.
+ 	 * (e.g. x86-64 needs this to handle the %rip-relative fixups.)
+ 	 */
+-	return module_alloc(PAGE_SIZE);
++	return execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
+ }
+ 
+ static void free_insn_page(void *page)
+ {
+-	module_memfree(page);
++	execmem_free(page);
+ }
+ 
+ struct kprobe_insn_cache kprobe_insn_slots = {
+diff --git a/kernel/module/Kconfig b/kernel/module/Kconfig
+index f3e0329337f6..744383c1eed1 100644
+--- a/kernel/module/Kconfig
++++ b/kernel/module/Kconfig
+@@ -2,6 +2,7 @@
+ menuconfig MODULES
+ 	bool "Enable loadable module support"
+ 	modules
++	select EXECMEM
+ 	help
+ 	  Kernel modules are small pieces of compiled code which can
+ 	  be inserted in the running kernel, rather than being
+diff --git a/kernel/module/main.c b/kernel/module/main.c
+index 5b82b069e0d3..d56b7df0cbb6 100644
+--- a/kernel/module/main.c
++++ b/kernel/module/main.c
+@@ -57,6 +57,7 @@
+ #include <linux/audit.h>
+ #include <linux/cfi.h>
+ #include <linux/debugfs.h>
++#include <linux/execmem.h>
+ #include <uapi/linux/module.h>
+ #include "internal.h"
+ 
+@@ -1179,16 +1180,6 @@ resolve_symbol_wait(struct module *mod,
+ 	return ksym;
+ }
+ 
+-void __weak module_memfree(void *module_region)
+-{
+-	/*
+-	 * This memory may be RO, and freeing RO memory in an interrupt is not
+-	 * supported by vmalloc.
+-	 */
+-	WARN_ON(in_interrupt());
+-	vfree(module_region);
+-}
+-
+ void __weak module_arch_cleanup(struct module *mod)
+ {
+ }
+@@ -1213,7 +1204,7 @@ static int module_memory_alloc(struct module *mod, enum mod_mem_type type)
+ 	if (mod_mem_use_vmalloc(type))
+ 		ptr = vmalloc(size);
+ 	else
+-		ptr = module_alloc(size);
++		ptr = execmem_alloc(EXECMEM_MODULE_TEXT, size);
+ 
+ 	if (!ptr)
+ 		return -ENOMEM;
+@@ -1244,7 +1235,7 @@ static void module_memory_free(struct module *mod, enum mod_mem_type type)
+ 	if (mod_mem_use_vmalloc(type))
+ 		vfree(ptr);
+ 	else
+-		module_memfree(ptr);
++		execmem_free(ptr);
+ }
+ 
+ static void free_mod_mem(struct module *mod)
+@@ -2496,9 +2487,9 @@ static void do_free_init(struct work_struct *w)
+ 
+ 	llist_for_each_safe(pos, n, list) {
+ 		initfree = container_of(pos, struct mod_initfree, node);
+-		module_memfree(initfree->init_text);
+-		module_memfree(initfree->init_data);
+-		module_memfree(initfree->init_rodata);
++		execmem_free(initfree->init_text);
++		execmem_free(initfree->init_data);
++		execmem_free(initfree->init_rodata);
+ 		kfree(initfree);
+ 	}
+ }
+@@ -2608,10 +2599,10 @@ static noinline int do_init_module(struct module *mod)
+ 	 * We want to free module_init, but be aware that kallsyms may be
+ 	 * walking this with preempt disabled.  In all the failure paths, we
+ 	 * call synchronize_rcu(), but we don't want to slow down the success
+-	 * path. module_memfree() cannot be called in an interrupt, so do the
++	 * path. execmem_free() cannot be called in an interrupt, so do the
+ 	 * work and call synchronize_rcu() in a work queue.
+ 	 *
+-	 * Note that module_alloc() on most architectures creates W+X page
++	 * Note that execmem_alloc() on most architectures creates W+X page
+ 	 * mappings which won't be cleaned up until do_free_init() runs.  Any
+ 	 * code such as mark_rodata_ro() which depends on those mappings to
+ 	 * be cleaned up needs to sync with the queued work by invoking
+diff --git a/mm/Kconfig b/mm/Kconfig
+index b1448aa81e15..f08a216d4793 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -1241,6 +1241,9 @@ config LOCK_MM_AND_FIND_VMA
+ config IOMMU_MM_DATA
+ 	bool
+ 
++config EXECMEM
++	bool
++
+ source "mm/damon/Kconfig"
+ 
+ endmenu
+diff --git a/mm/Makefile b/mm/Makefile
+index 4abb40b911ec..001336c91864 100644
+--- a/mm/Makefile
++++ b/mm/Makefile
+@@ -133,3 +133,4 @@ obj-$(CONFIG_IO_MAPPING) += io-mapping.o
+ obj-$(CONFIG_HAVE_BOOTMEM_INFO_NODE) += bootmem_info.o
+ obj-$(CONFIG_GENERIC_IOREMAP) += ioremap.o
+ obj-$(CONFIG_SHRINKER_DEBUG) += shrinker_debug.o
++obj-$(CONFIG_EXECMEM) += execmem.o
+diff --git a/mm/execmem.c b/mm/execmem.c
+new file mode 100644
+index 000000000000..480adc69b20d
+--- /dev/null
++++ b/mm/execmem.c
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2002 Richard Henderson
++ * Copyright (C) 2001 Rusty Russell, 2002, 2010 Rusty Russell IBM.
++ * Copyright (C) 2023 Luis Chamberlain <mcgrof@kernel.org>
++ * Copyright (C) 2024 Mike Rapoport IBM.
++ */
++
++#include <linux/mm.h>
++#include <linux/vmalloc.h>
++#include <linux/execmem.h>
++#include <linux/moduleloader.h>
++
++static void *__execmem_alloc(size_t size)
++{
++	return module_alloc(size);
++}
++
++void *execmem_alloc(enum execmem_type type, size_t size)
++{
++	return __execmem_alloc(size);
++}
++
++void execmem_free(void *ptr)
++{
++	/*
++	 * This memory may be RO, and freeing RO memory in an interrupt is not
++	 * supported by vmalloc.
++	 */
++	WARN_ON(in_interrupt());
++	vfree(ptr);
++}
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
