@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D495C4345F
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 20:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF0AC4345F
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 22:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PXWYZqK+e/hcjcPkNnNnGFiYGFMKM1XqimwI2qUydXA=; b=Jzt9KCPn0hBhDR
-	RmDJvwNn3ekoSS6xiMAhKNJYE8XN1CE3DSOBGXBkNKihcEFoo++MWQd9evaBgvXD75igyTjBusN0v
-	eRTzd5latWgLvPVbVZefnbdskEdHbnG8frKJW0tr7HlFMRR1QEZEaMcdPeF4IaPvSyPYGZhP4CBbO
-	Wuv/txAG3yYnBIUk23KdhNE1C3Oot2j8ynfkTyq8PPwG/V7kUEBFr0KnwcSc3RlGc7xHxHT+rl692
-	SO5/Rkp0jZ19+yey+zsWhuJCju6u3ofbmGTqb8i/wXUuP+IsAycAOrCe1zdRnT0zturOIf76Anm9w
-	S6aNVt0235H0FcanLJwQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2BrUYX2i05PMO1RCo/Qmjiwm8H+sRaBnfePUVdzhnhk=; b=QK6gNzijIeoSMZ
+	C7dbdWxNNhG1TAcibdyRIao/Rruaz4C56ss2MkcrzJ31gZhAlGd3/NUM1//CgU/+6otol4Rfbjqbv
+	gA4U+hKkueiqTS5FcX7WOMDn1AosZ0nTQohIRGnRCxRaSZVvqHyIlS3z6RDgfc9UpZUYf9FMNnGNB
+	KryFlEDL6GVzD1fVu3VP0pgFnXR6vVcSDlFGin+4tjlowahAI9v/IpGEARq17crZhG1XyLh7Qm2D8
+	FpSRCJfATpCWy7Ou1nnN6Ns5vmGLviZB3ORPUjCT6YJiW1E+jLZUOzjXk1IqgvQRPhgb/z4NskURo
+	bdXDdLCflFFusFlUAGJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3iIK-00000005DQX-2mHp;
-	Sun, 05 May 2024 20:17:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s3kcY-00000005SzY-3fpW;
+	Sun, 05 May 2024 22:46:14 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3iIH-00000005DPz-2hdT
+	id 1s3kcV-00000005Sy9-0wrU
 	for linux-riscv@lists.infradead.org;
-	Sun, 05 May 2024 20:17:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C9DB460A6C;
-	Sun,  5 May 2024 20:17:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22BF2C113CC;
-	Sun,  5 May 2024 20:17:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714940228;
-	bh=FF5vh+hxfO8q+2BL9JwG8I+0INO/yNYfJ9dDF0SsodA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=oiTd0R+imy9Xa34yEzUhW4cL7B29WDmWMzoHDU8BCJS0jaeFCz0AFg6ccmJ77QXXz
-	 FmbtNttCPMBUCoZs45w3YEvQXDHGeVO08zsFldViono5dHmeMqSiTeXshXafp23ReI
-	 AzYCyqW2zBLeGn2Fk86Exoyc1Ph29gkSh525CrBRmFgkp5hx3hrtm8/JUly3uug7Xu
-	 vUp0oa5uf8a/TxPCkMQLoFKRQSZDKvRyIPy3Bwh//ZnyrOIoP4WfaQUN0YdBUqP9gg
-	 eNj4Cby3MN5LOglLVzxQ/PEXDk4F/LHXBeNVnadoxhm141tg3n/ASGZTBgsaKTOaoP
-	 Z1D0wiNalEqEg==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
+	Sun, 05 May 2024 22:46:12 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a59cc765c29so89830366b.3
+        for <linux-riscv@lists.infradead.org>; Sun, 05 May 2024 15:46:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1714949164; x=1715553964; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=er8OR4CkvYPSBm1vxvC1YRmn3HecSea62NIpaFm00EE=;
+        b=f32pljVbVHmxZBJyJY0IqssTpv1facDQ31qQ5f+lUnTz6TYEjzZCi3o7j6vLNF9Ydd
+         lOs13bJ0MuLeL7MXqP5rjRFzXYaVdqnYbccMePKsZDuWDjQJW8T3DdIjw/I02BE8gHKQ
+         p6RvfUbtbB7sCNSZzre3IDvRwX8+m0xgCRiYX7kiczIqNrpFhgfQfUcRQOtMI2gB9Bmu
+         b/zq6bHiw6NLECBDNEVonxYNrSiTs6kXW3FNYjf75nEWo6UjLc9CXlehL2zCwtkdxRKY
+         kTrrxjMISe4mvyx3Qq3E7hBVEgLvWZ3uxl3796VZptq//6rIXXoTBRtM8R8X6kagxhDq
+         ezmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714949164; x=1715553964;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=er8OR4CkvYPSBm1vxvC1YRmn3HecSea62NIpaFm00EE=;
+        b=jogKIoY9CcpaT2H6tdkXUaZoFpUwWQlZhlSa2PhTxoA95Gt8hT+aGvqjmIWg+CZsR+
+         P6P4/+2VJxNPHskUhntIU28t1AFB+XB3U1s658gae8LZxQm/L/Ky2r5/QyEiLvy4ZNQ/
+         I4Fag5j+SrAXxEM3EH6iJohGzZOx+vU/aWYSi9M3YCfNc9euBMKrjfaqzkGWSzzFZJOZ
+         qg2AgXgSHSeCDjlneVwBVdg2cAqMZD6rLSLCgNe3/WnSNKdy6qBSoCR1a+Nw1/qiZZgd
+         nFUHNXTjsxXdniRmBNZ7VWxqGKNXbfv+ifiLgfQYQ1MI+Bp1OHvLq6IiTjR155Z1Fake
+         tiTg==
+X-Forwarded-Encrypted: i=1; AJvYcCU4g2ZJovUQ0CRgVnLJVCTMD42na0EadkGvHZr01Lovx4vc7ZZvRdjVfJDOiHR5MG947APgPiQDlF/Y5j84ES+OFE69/U2M40Aec1hArNqZ
+X-Gm-Message-State: AOJu0Yw4By8n3WK2IX5B8pnUJbex+sgjW9Gq6gufVSrVuQ3xLp7qedjx
+	a37b9Yd6AEWEHt9ODkmqY2eErfclR3NUfrBvnktt7oWn3alxTb1v
+X-Google-Smtp-Source: AGHT+IE1/6e5myoOflXf6PssbMgp2B8PrKhMe36vaBg4y3AUfAz4FRqToTD83Ld+f7kcxPFP/Aalpg==
+X-Received: by 2002:a17:906:b806:b0:a59:ba18:2fb2 with SMTP id dv6-20020a170906b80600b00a59ba182fb2mr2137235ejb.35.1714949163495;
+        Sun, 05 May 2024 15:46:03 -0700 (PDT)
+Received: from andrea ([31.189.114.81])
+        by smtp.gmail.com with ESMTPSA id a25-20020a1709064a5900b00a59a9949ec9sm2188379ejv.118.2024.05.05.15.46.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 05 May 2024 15:46:02 -0700 (PDT)
+Date: Mon, 6 May 2024 00:45:58 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: puranjay12@gmail.com
-Subject: [PATCH bpf] riscv, bpf: make some atomic operations fully ordered
-Date: Sun,  5 May 2024 20:16:33 +0000
-Message-Id: <20240505201633.123115-1-puranjay@kernel.org>
-X-Mailer: git-send-email 2.40.1
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, puranjay12@gmail.com
+Subject: Re: [PATCH] riscv/atomic.h: optimize ops with acquire/release
+ ordering
+Message-ID: <ZjgLAKlWC2HQzWfU@andrea>
+References: <20240505123340.38495-1-puranjay@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240505123340.38495-1-puranjay@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240505_131709_793924_051DB065 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240505_154611_289090_C040DE51 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,90 +98,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The BPF atomic operations with the BPF_FETCH modifier along with
-BPF_XCHG and BPF_CMPXCHG are fully ordered but the RISC-V JIT implements
-all atomic operations except BPF_CMPXCHG with relaxed ordering.
+Hi Puranjay,
 
-Section 8.1 of the "The RISC-V Instruction Set Manual Volume I:
-Unprivileged ISA" [1], titled, "Specifying Ordering of Atomic
-Instructions" says:
+On Sun, May 05, 2024 at 12:33:40PM +0000, Puranjay Mohan wrote:
+> Currently, atomic ops with acquire or release ordering are implemented
+> as atomic ops with relaxed ordering followed by or preceded by an
+> acquire fence or a release fence.
+> 
+> Section 8.1 of the "The RISC-V Instruction Set Manual Volume I:
+> Unprivileged ISA", titled, "Specifying Ordering of Atomic Instructions"
+> says:
+> 
+> | To provide more efficient support for release consistency [5], each
+> | atomic instruction has two bits, aq and rl, used to specify additional
+> | memory ordering constraints as viewed by other RISC-V harts.
+> 
+> and
+> 
+> | If only the aq bit is set, the atomic memory operation is treated as
+> | an acquire access.
+> | If only the rl bit is set, the atomic memory operation is treated as a
+> | release access.
+> 
+> So, rather than using two instructions (relaxed atomic op + fence), use
+> a single atomic op instruction with acquire/release ordering.
+> 
+> Example program:
+> 
+>   atomic_t cnt = ATOMIC_INIT(0);
+>   atomic_fetch_add_acquire(1, &cnt);
+>   atomic_fetch_add_release(1, &cnt);
+> 
+> Before:
+> 
+>   amoadd.w        a4,a5,(a4)  // Atomic add with relaxed ordering
+>   fence   r,rw                // Fence to force Acquire ordering
+> 
+>   fence   rw,w                // Fence to force Release ordering
+>   amoadd.w        a4,a5,(a4)  // Atomic add with relaxed ordering
+> 
+> After:
+> 
+>   amoadd.w.aq     a4,a5,(a4)  // Atomic add with Acquire ordering
+> 
+>   amoadd.w.rl     a4,a5,(a4)  // Atomic add with Release ordering
+> 
+> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 
-| To provide more efficient support for release consistency [5], each
-| atomic instruction has two bits, aq and rl, used to specify additional
-| memory ordering constraints as viewed by other RISC-V harts.
+Your changes are effectively partially reverting:
 
-and
+  5ce6c1f3535fa ("riscv/atomic: Strengthen implementations with fences")
 
-| If only the aq bit is set, the atomic memory operation is treated as
-| an acquire access.
-| If only the rl bit is set, the atomic memory operation is treated as a
-| release access.
-|
-| If both the aq and rl bits are set, the atomic memory operation is
-| sequentially consistent.
+Can you please provide (and possibly include in the changelog of v2) a more
+thoughtful explanation for the correctness of such revert?
 
-Fix this by setting both aq and rl bits as 1 for operations with
-BPF_FETCH and BPF_XCHG.
+(Anticipating a somewhat non-trivial analysis...)
 
-[1] https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf
+Have you tried your changes on some actual hardware?  How did they perform?
+Anything worth mentioning (besides the mere instruction count)?
 
-Fixes: dd642ccb45ec ("riscv, bpf: Implement more atomic operations for RV64")
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
----
- arch/riscv/net/bpf_jit_comp64.c | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
-
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index ec9d692838fc..fb5d1950042b 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -498,33 +498,33 @@ static void emit_atomic(u8 rd, u8 rs, s16 off, s32 imm, bool is64,
- 		break;
- 	/* src_reg = atomic_fetch_<op>(dst_reg + off16, src_reg) */
- 	case BPF_ADD | BPF_FETCH:
--		emit(is64 ? rv_amoadd_d(rs, rs, rd, 0, 0) :
--		     rv_amoadd_w(rs, rs, rd, 0, 0), ctx);
-+		emit(is64 ? rv_amoadd_d(rs, rs, rd, 1, 1) :
-+		     rv_amoadd_w(rs, rs, rd, 1, 1), ctx);
- 		if (!is64)
- 			emit_zextw(rs, rs, ctx);
- 		break;
- 	case BPF_AND | BPF_FETCH:
--		emit(is64 ? rv_amoand_d(rs, rs, rd, 0, 0) :
--		     rv_amoand_w(rs, rs, rd, 0, 0), ctx);
-+		emit(is64 ? rv_amoand_d(rs, rs, rd, 1, 1) :
-+		     rv_amoand_w(rs, rs, rd, 1, 1), ctx);
- 		if (!is64)
- 			emit_zextw(rs, rs, ctx);
- 		break;
- 	case BPF_OR | BPF_FETCH:
--		emit(is64 ? rv_amoor_d(rs, rs, rd, 0, 0) :
--		     rv_amoor_w(rs, rs, rd, 0, 0), ctx);
-+		emit(is64 ? rv_amoor_d(rs, rs, rd, 1, 1) :
-+		     rv_amoor_w(rs, rs, rd, 1, 1), ctx);
- 		if (!is64)
- 			emit_zextw(rs, rs, ctx);
- 		break;
- 	case BPF_XOR | BPF_FETCH:
--		emit(is64 ? rv_amoxor_d(rs, rs, rd, 0, 0) :
--		     rv_amoxor_w(rs, rs, rd, 0, 0), ctx);
-+		emit(is64 ? rv_amoxor_d(rs, rs, rd, 1, 1) :
-+		     rv_amoxor_w(rs, rs, rd, 1, 1), ctx);
- 		if (!is64)
- 			emit_zextw(rs, rs, ctx);
- 		break;
- 	/* src_reg = atomic_xchg(dst_reg + off16, src_reg); */
- 	case BPF_XCHG:
--		emit(is64 ? rv_amoswap_d(rs, rs, rd, 0, 0) :
--		     rv_amoswap_w(rs, rs, rd, 0, 0), ctx);
-+		emit(is64 ? rv_amoswap_d(rs, rs, rd, 1, 1) :
-+		     rv_amoswap_w(rs, rs, rd, 1, 1), ctx);
- 		if (!is64)
- 			emit_zextw(rs, rs, ctx);
- 		break;
--- 
-2.40.1
-
+  Andrea
 
 _______________________________________________
 linux-riscv mailing list
