@@ -4,64 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02460C4345F
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 12:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7071C4345F
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 14:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tsXWVBOcrwM7bR2b9B2IC0M9S9/X/3zaFOg0PQs69O8=; b=grf7TSvnHYLO7/
-	RJjX1ou6U9h7PnzU422NV9lFJxk9/c5kB2gRYMTcLWzKzBFKH4PPb7z5tgKcRozc1tmNB+UHdZKlS
-	XsaE93JKdJ6T8gLT8tjy6V9NyvOMtYOtsu59hVdckP801noSyCE7g7JnC6MF1fQbj87pT33cYsGEp
-	cC48MfI/tt60sp+SXDtijPckW/XdC0g7zfMw79f93kHdFwQH2TCB7KbLSO1a9vMzEMk9hyNQ4J/5n
-	6Ar2c/jLi6ySgLAH5yOGYfAVyH/Osc/8ifulGM3Lff3U5r2QzA7RaCK9hyVu92i9hvgBfLDY7yWnx
-	6HWpcpjbKUBEPzTTHeLA==;
+	List-Owner; bh=JvxbSqTZow8fnJgPqqCx+m9tcbL90veR/3QRcyqI0pU=; b=I3zelnte9yItkC
+	BGHpmPMsKjJXbY9d5C3AazNQJhbg3gSqm9J3E9XC0XLAeCXsaH5YQ6zzDrd0oBQNpSDUz2R+qfkaW
+	Kzxbt7v8EMMHiYdfPd8fooGQhEnuOzkb2wP+hpnZRffmGRKt+RjY6YzUEXZ6oq3YGhFKAgiN50msO
+	voX2uBxx/ACJwCu4HcsksifoQfeRey9KQGDtbjF5AidYoZ5rkulbKm6c8PzB4bBVZYuzEuPVP1XQC
+	IQQSfhyA7DSIl4els6u2Kr832CqoSEY8DicoJ0l1pIxWmzaY5M8En9bISU+BHYHbEWK3aNHTJc/Dp
+	8UUp6eXsXwE25mTmdqBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3b4Q-00000004FqV-1YwQ;
-	Sun, 05 May 2024 12:34:22 +0000
+	id 1s3cox-00000004Riu-49Ly;
+	Sun, 05 May 2024 14:26:31 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3b4M-00000004FpQ-4ACo
-	for linux-riscv@lists.infradead.org;
-	Sun, 05 May 2024 12:34:20 +0000
+	id 1s3cot-00000004Rge-2DwQ;
+	Sun, 05 May 2024 14:26:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 168E0CE09E6;
-	Sun,  5 May 2024 12:34:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D1ABC113CC;
-	Sun,  5 May 2024 12:34:13 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id A6687CE0A17;
+	Sun,  5 May 2024 14:26:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9B50C113CC;
+	Sun,  5 May 2024 14:26:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714912453;
-	bh=wz+6IsEcn6LI+h0NmGwwasc9Ns0cbM/wBeFTv4gFEqU=;
+	s=k20201202; t=1714919181;
+	bh=MQnKekJ084bTj7l8trCmao/ujR5P1mgm6gbitQisURE=;
 	h=From:To:Cc:Subject:Date:From;
-	b=cl/2yQvF5CdVSqf3VIXcreHrM3u0luplWToFnRESPNukpIo0tZEH4F/YwnOyxYKDR
-	 Gd/ljuiwSa1AeA8F0Ake2FPTph4coQz7GUbyvgp67NwmDJ5glGt1gxHGoD1cXCykhl
-	 2QiEG29gcIHfsOLZ/ka7Zl0YBPSeoH+1Z1CBNJLBQI1KrJEoA4MYv4ZvMxoJCWAwpO
-	 9AmceNDq7a3tyOg/nIZwpjx3rE8kmGMDxkQot2nbgR6ZI1cZGUN/Xs0h3mvwVPTp06
-	 tmvXqocbUg7ZGA2hj77GWz6zjL7COqrkeb/pXNeDMu+45MmVy/f5Mnpi6n8k9pOA3H
-	 /GhWbdC6dAPyw==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
+	b=augmHJS/ifNFHA25DYvZwo68N/H7XyznhGDPkn3tjP/ze4cjelg3dx5D35x8FPDZM
+	 LrHtbh+sHhB6/rGTcMOHU99px4R0wtG9c9+NgKJ98M5/SGZIx9bIGWWp5u7SWR7hXO
+	 BG3knm+kqWJTjiIAOTaty0ZglIPovlEVfUb3KlGODg2mL/5f0gbTuNl0GKZ6pSWcnF
+	 30HGg/TU3cRplV2tSLw1nUmrJ0jc/9CdfDVBa8tOzdFtBjoWCiRCheFKSMKrGoP/00
+	 nfa0xMnGj2+RTBaqRuxgntOnhi2p6qUqc4dz51+vt8YYKchwE2L6v3366tSt1mscba
+	 IVxwaGNxnDO1Q==
+From: Mike Rapoport <rppt@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Liviu Dudau <liviu@dudau.co.uk>,
+	Luis Chamberlain <mcgrof@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Rapoport <rppt@kernel.org>,
+	Nadav Amit <nadav.amit@gmail.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: puranjay12@gmail.com
-Subject: [PATCH] riscv/atomic.h: optimize ops with acquire/release ordering
-Date: Sun,  5 May 2024 12:33:40 +0000
-Message-Id: <20240505123340.38495-1-puranjay@kernel.org>
-X-Mailer: git-send-email 2.40.1
+	Peter Zijlstra <peterz@infradead.org>,
+	=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?= <philmd@linaro.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH v8 00/17] mm: jit/text allocator 
+Date: Sun,  5 May 2024 17:25:43 +0300
+Message-ID: <20240505142600.2322517-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240505_053419_416682_6A185064 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240505_072628_006291_992E0F7D 
+X-CRM114-Status: GOOD (  24.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,178 +113,216 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, atomic ops with acquire or release ordering are implemented
-as atomic ops with relaxed ordering followed by or preceded by an
-acquire fence or a release fence.
+From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
-Section 8.1 of the "The RISC-V Instruction Set Manual Volume I:
-Unprivileged ISA", titled, "Specifying Ordering of Atomic Instructions"
-says:
+Hi,
 
-| To provide more efficient support for release consistency [5], each
-| atomic instruction has two bits, aq and rl, used to specify additional
-| memory ordering constraints as viewed by other RISC-V harts.
+The patches are also available in git:
+https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git/log/?h=execmem/v8
 
-and
+v8:
+* fix intialization of default_execmem_info
 
-| If only the aq bit is set, the atomic memory operation is treated as
-| an acquire access.
-| If only the rl bit is set, the atomic memory operation is treated as a
-| release access.
+v7: https://lore.kernel.org/all/20240429121620.1186447-1-rppt@kernel.org
+* define MODULE_{VADDR,END} for riscv32 to fix the build and avoid
+  #ifdefs in a function body
+* add Acks, thanks everybody
 
-So, rather than using two instructions (relaxed atomic op + fence), use
-a single atomic op instruction with acquire/release ordering.
+v6: https://lore.kernel.org/all/20240426082854.7355-1-rppt@kernel.org
+* restore patch "arm64: extend execmem_info for generated code
+  allocations" that disappeared in v5 rebase
+* update execmem initialization so that by default it will be
+  initialized early while late initialization will be an opt-in
 
-Example program:
+v5: https://lore.kernel.org/all/20240422094436.3625171-1-rppt@kernel.org
+* rebase on v6.9-rc4 to avoid a conflict in kprobes
+* add copyrights to mm/execmem.c (Luis)
+* fix spelling (Ingo)
+* define MODULES_VADDDR for sparc (Sam)
+* consistently initialize struct execmem_info (Peter)
+* reduce #ifdefs in function bodies in kprobes (Masami) 
 
-  atomic_t cnt = ATOMIC_INIT(0);
-  atomic_fetch_add_acquire(1, &cnt);
-  atomic_fetch_add_release(1, &cnt);
+v4: https://lore.kernel.org/all/20240411160051.2093261-1-rppt@kernel.org
+* rebase on v6.9-rc2
+* rename execmem_params to execmem_info and execmem_arch_params() to
+  execmem_arch_setup()
+* use single execmem_alloc() API instead of execmem_{text,data}_alloc() (Song)
+* avoid extra copy of execmem parameters (Rick)
+* run execmem_init() as core_initcall() except for the architectures that
+  may allocated text really early (currently only x86) (Will)
+* add acks for some of arm64 and riscv changes, thanks Will and Alexandre
+* new commits:
+  - drop call to kasan_alloc_module_shadow() on arm64 because it's not
+    needed anymore
+  - rename MODULE_START to MODULES_VADDR on MIPS
+  - use CONFIG_EXECMEM instead of CONFIG_MODULES on powerpc as per Christophe:
+    https://lore.kernel.org/all/79062fa3-3402-47b3-8920-9231ad05e964@csgroup.eu/
 
-Before:
+v3: https://lore.kernel.org/all/20230918072955.2507221-1-rppt@kernel.org
+* add type parameter to execmem allocation APIs
+* remove BPF dependency on modules
 
-  amoadd.w        a4,a5,(a4)  // Atomic add with relaxed ordering
-  fence   r,rw                // Fence to force Acquire ordering
+v2: https://lore.kernel.org/all/20230616085038.4121892-1-rppt@kernel.org
+* Separate "module" and "others" allocations with execmem_text_alloc()
+and jit_text_alloc()
+* Drop ROX entailment on x86
+* Add ack for nios2 changes, thanks Dinh Nguyen
 
-  fence   rw,w                // Fence to force Release ordering
-  amoadd.w        a4,a5,(a4)  // Atomic add with relaxed ordering
+v1: https://lore.kernel.org/all/20230601101257.530867-1-rppt@kernel.org
 
-After:
+= Cover letter from v1 (sligtly updated) =
 
-  amoadd.w.aq     a4,a5,(a4)  // Atomic add with Acquire ordering
+module_alloc() is used everywhere as a mean to allocate memory for code.
 
-  amoadd.w.rl     a4,a5,(a4)  // Atomic add with Release ordering
+Beside being semantically wrong, this unnecessarily ties all subsystmes
+that need to allocate code, such as ftrace, kprobes and BPF to modules and
+puts the burden of code allocation to the modules code.
 
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
----
- arch/riscv/include/asm/atomic.h | 64 +++++++++++++++++++++++++++++++++
- 1 file changed, 64 insertions(+)
+Several architectures override module_alloc() because of various
+constraints where the executable memory can be located and this causes
+additional obstacles for improvements of code allocation.
 
-diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-index 5b96c2f61adb..024e83936910 100644
---- a/arch/riscv/include/asm/atomic.h
-+++ b/arch/riscv/include/asm/atomic.h
-@@ -98,6 +98,30 @@ c_type arch_atomic##prefix##_fetch_##op##_relaxed(c_type i,		\
- 	return ret;							\
- }									\
- static __always_inline							\
-+c_type arch_atomic##prefix##_fetch_##op##_acquire(c_type i,		\
-+					     atomic##prefix##_t *v)	\
-+{									\
-+	register c_type ret;						\
-+	__asm__ __volatile__ (						\
-+		"	amo" #asm_op "." #asm_type ".aq %1, %2, %0"	\
-+		: "+A" (v->counter), "=r" (ret)				\
-+		: "r" (I)						\
-+		: "memory");						\
-+	return ret;							\
-+}									\
-+static __always_inline							\
-+c_type arch_atomic##prefix##_fetch_##op##_release(c_type i,		\
-+					     atomic##prefix##_t *v)	\
-+{									\
-+	register c_type ret;						\
-+	__asm__ __volatile__ (						\
-+		"	amo" #asm_op "." #asm_type ".rl %1, %2, %0"	\
-+		: "+A" (v->counter), "=r" (ret)				\
-+		: "r" (I)						\
-+		: "memory");						\
-+	return ret;							\
-+}									\
-+static __always_inline							\
- c_type arch_atomic##prefix##_fetch_##op(c_type i, atomic##prefix##_t *v)	\
- {									\
- 	register c_type ret;						\
-@@ -117,6 +141,18 @@ c_type arch_atomic##prefix##_##op##_return_relaxed(c_type i,		\
-         return arch_atomic##prefix##_fetch_##op##_relaxed(i, v) c_op I;	\
- }									\
- static __always_inline							\
-+c_type arch_atomic##prefix##_##op##_return_acquire(c_type i,		\
-+					      atomic##prefix##_t *v)	\
-+{									\
-+	return arch_atomic##prefix##_fetch_##op##_acquire(i, v) c_op I;	\
-+}									\
-+static __always_inline							\
-+c_type arch_atomic##prefix##_##op##_return_release(c_type i,		\
-+					      atomic##prefix##_t *v)	\
-+{									\
-+	return arch_atomic##prefix##_fetch_##op##_release(i, v) c_op I;	\
-+}									\
-+static __always_inline							\
- c_type arch_atomic##prefix##_##op##_return(c_type i, atomic##prefix##_t *v)	\
- {									\
-         return arch_atomic##prefix##_fetch_##op(i, v) c_op I;		\
-@@ -138,23 +174,39 @@ ATOMIC_OPS(add, add, +,  i)
- ATOMIC_OPS(sub, add, +, -i)
- 
- #define arch_atomic_add_return_relaxed	arch_atomic_add_return_relaxed
-+#define arch_atomic_add_return_acquire	arch_atomic_add_return_acquire
-+#define arch_atomic_add_return_release	arch_atomic_add_return_release
- #define arch_atomic_sub_return_relaxed	arch_atomic_sub_return_relaxed
-+#define arch_atomic_sub_return_acquire	arch_atomic_sub_return_acquire
-+#define arch_atomic_sub_return_release	arch_atomic_sub_return_release
- #define arch_atomic_add_return		arch_atomic_add_return
- #define arch_atomic_sub_return		arch_atomic_sub_return
- 
- #define arch_atomic_fetch_add_relaxed	arch_atomic_fetch_add_relaxed
-+#define arch_atomic_fetch_add_acquire	arch_atomic_fetch_add_acquire
-+#define arch_atomic_fetch_add_release	arch_atomic_fetch_add_release
- #define arch_atomic_fetch_sub_relaxed	arch_atomic_fetch_sub_relaxed
-+#define arch_atomic_fetch_sub_acquire	arch_atomic_fetch_sub_acquire
-+#define arch_atomic_fetch_sub_release	arch_atomic_fetch_sub_release
- #define arch_atomic_fetch_add		arch_atomic_fetch_add
- #define arch_atomic_fetch_sub		arch_atomic_fetch_sub
- 
- #ifndef CONFIG_GENERIC_ATOMIC64
- #define arch_atomic64_add_return_relaxed	arch_atomic64_add_return_relaxed
-+#define arch_atomic64_add_return_acquire	arch_atomic64_add_return_acquire
-+#define arch_atomic64_add_return_release	arch_atomic64_add_return_release
- #define arch_atomic64_sub_return_relaxed	arch_atomic64_sub_return_relaxed
-+#define arch_atomic64_sub_return_acquire	arch_atomic64_sub_return_acquire
-+#define arch_atomic64_sub_return_release	arch_atomic64_sub_return_release
- #define arch_atomic64_add_return		arch_atomic64_add_return
- #define arch_atomic64_sub_return		arch_atomic64_sub_return
- 
- #define arch_atomic64_fetch_add_relaxed	arch_atomic64_fetch_add_relaxed
-+#define arch_atomic64_fetch_add_acquire	arch_atomic64_fetch_add_acquire
-+#define arch_atomic64_fetch_add_release	arch_atomic64_fetch_add_release
- #define arch_atomic64_fetch_sub_relaxed	arch_atomic64_fetch_sub_relaxed
-+#define arch_atomic64_fetch_sub_acquire	arch_atomic64_fetch_sub_acquire
-+#define arch_atomic64_fetch_sub_release	arch_atomic64_fetch_sub_release
- #define arch_atomic64_fetch_add		arch_atomic64_fetch_add
- #define arch_atomic64_fetch_sub		arch_atomic64_fetch_sub
- #endif
-@@ -175,16 +227,28 @@ ATOMIC_OPS( or,  or, i)
- ATOMIC_OPS(xor, xor, i)
- 
- #define arch_atomic_fetch_and_relaxed	arch_atomic_fetch_and_relaxed
-+#define arch_atomic_fetch_and_acquire	arch_atomic_fetch_and_acquire
-+#define arch_atomic_fetch_and_release	arch_atomic_fetch_and_release
- #define arch_atomic_fetch_or_relaxed	arch_atomic_fetch_or_relaxed
-+#define arch_atomic_fetch_or_acquire	arch_atomic_fetch_or_acquire
-+#define arch_atomic_fetch_or_release	arch_atomic_fetch_or_release
- #define arch_atomic_fetch_xor_relaxed	arch_atomic_fetch_xor_relaxed
-+#define arch_atomic_fetch_xor_acquire	arch_atomic_fetch_xor_acquire
-+#define arch_atomic_fetch_xor_release	arch_atomic_fetch_xor_release
- #define arch_atomic_fetch_and		arch_atomic_fetch_and
- #define arch_atomic_fetch_or		arch_atomic_fetch_or
- #define arch_atomic_fetch_xor		arch_atomic_fetch_xor
- 
- #ifndef CONFIG_GENERIC_ATOMIC64
- #define arch_atomic64_fetch_and_relaxed	arch_atomic64_fetch_and_relaxed
-+#define arch_atomic64_fetch_and_acquire	arch_atomic64_fetch_and_acquire
-+#define arch_atomic64_fetch_and_release	arch_atomic64_fetch_and_release
- #define arch_atomic64_fetch_or_relaxed	arch_atomic64_fetch_or_relaxed
-+#define arch_atomic64_fetch_or_acquire	arch_atomic64_fetch_or_acquire
-+#define arch_atomic64_fetch_or_release	arch_atomic64_fetch_or_release
- #define arch_atomic64_fetch_xor_relaxed	arch_atomic64_fetch_xor_relaxed
-+#define arch_atomic64_fetch_xor_acquire	arch_atomic64_fetch_xor_acquire
-+#define arch_atomic64_fetch_xor_release	arch_atomic64_fetch_xor_release
- #define arch_atomic64_fetch_and		arch_atomic64_fetch_and
- #define arch_atomic64_fetch_or		arch_atomic64_fetch_or
- #define arch_atomic64_fetch_xor		arch_atomic64_fetch_xor
+A centralized infrastructure for code allocation allows allocations of
+executable memory as ROX, and future optimizations such as caching large
+pages for better iTLB performance and providing sub-page allocations for
+users that only need small jit code snippets.
+
+Rick Edgecombe proposed perm_alloc extension to vmalloc [1] and Song Liu
+proposed execmem_alloc [2], but both these approaches were targeting BPF
+allocations and lacked the ground work to abstract executable allocations
+and split them from the modules core.
+
+Thomas Gleixner suggested to express module allocation restrictions and
+requirements as struct mod_alloc_type_params [3] that would define ranges,
+protections and other parameters for different types of allocations used by
+modules and following that suggestion Song separated allocations of
+different types in modules (commit ac3b43283923 ("module: replace
+module_layout with module_memory")) and posted "Type aware module
+allocator" set [4].
+
+I liked the idea of parametrising code allocation requirements as a
+structure, but I believe the original proposal and Song's module allocator
+was too module centric, so I came up with these patches.
+
+This set splits code allocation from modules by introducing execmem_alloc()
+and and execmem_free(), APIs, replaces call sites of module_alloc() and
+module_memfree() with the new APIs and implements core text and related
+allocations in a central place.
+
+Instead of architecture specific overrides for module_alloc(), the
+architectures that require non-default behaviour for text allocation must
+fill execmem_info structure and implement execmem_arch_setup() that returns
+a pointer to that structure. If an architecture does not implement
+execmem_arch_setup(), the defaults compatible with the current
+modules::module_alloc() are used.
+
+Since architectures define different restrictions on placement,
+permissions, alignment and other parameters for memory that can be used by
+different subsystems that allocate executable memory, execmem APIs
+take a type argument, that will be used to identify the calling subsystem
+and to allow architectures to define parameters for ranges suitable for that
+subsystem.
+
+The new infrastructure allows decoupling of BPF, kprobes and ftrace from
+modules, and most importantly it paves the way for ROX allocations for
+executable memory.
+
+[1] https://lore.kernel.org/lkml/20201120202426.18009-1-rick.p.edgecombe@intel.com/
+[2] https://lore.kernel.org/all/20221107223921.3451913-1-song@kernel.org/
+[3] https://lore.kernel.org/all/87v8mndy3y.ffs@tglx/
+[4] https://lore.kernel.org/all/20230526051529.3387103-1-song@kernel.org
+
+
+Mike Rapoport (IBM) (17):
+  arm64: module: remove unneeded call to kasan_alloc_module_shadow()
+  mips: module: rename MODULE_START to MODULES_VADDR
+  nios2: define virtual address space for modules
+  sparc: simplify module_alloc()
+  module: make module_memory_{alloc,free} more self-contained
+  mm: introduce execmem_alloc() and execmem_free()
+  mm/execmem, arch: convert simple overrides of module_alloc to execmem
+  mm/execmem, arch: convert remaining overrides of module_alloc to
+    execmem
+  riscv: extend execmem_params for generated code allocations
+  arm64: extend execmem_info for generated code allocations
+  powerpc: extend execmem_params for kprobes allocations
+  arch: make execmem setup available regardless of CONFIG_MODULES
+  x86/ftrace: enable dynamic ftrace without CONFIG_MODULES
+  powerpc: use CONFIG_EXECMEM instead of CONFIG_MODULES where
+    appropriate
+  kprobes: remove dependency on CONFIG_MODULES
+  bpf: remove CONFIG_BPF_JIT dependency on CONFIG_MODULES of
+  fixup: convert remaining archs: defaults handling
+
+ arch/Kconfig                         |  10 +-
+ arch/arm/kernel/module.c             |  34 -------
+ arch/arm/mm/init.c                   |  45 +++++++++
+ arch/arm64/Kconfig                   |   1 +
+ arch/arm64/kernel/module.c           | 126 -----------------------
+ arch/arm64/kernel/probes/kprobes.c   |   7 --
+ arch/arm64/mm/init.c                 | 140 ++++++++++++++++++++++++++
+ arch/arm64/net/bpf_jit_comp.c        |  11 ---
+ arch/loongarch/kernel/module.c       |   6 --
+ arch/loongarch/mm/init.c             |  21 ++++
+ arch/mips/include/asm/pgtable-64.h   |   4 +-
+ arch/mips/kernel/module.c            |  10 --
+ arch/mips/mm/fault.c                 |   4 +-
+ arch/mips/mm/init.c                  |  23 +++++
+ arch/nios2/include/asm/pgtable.h     |   5 +-
+ arch/nios2/kernel/module.c           |  20 ----
+ arch/nios2/mm/init.c                 |  21 ++++
+ arch/parisc/kernel/module.c          |  12 ---
+ arch/parisc/mm/init.c                |  23 ++++-
+ arch/powerpc/Kconfig                 |   2 +-
+ arch/powerpc/include/asm/kasan.h     |   2 +-
+ arch/powerpc/kernel/head_8xx.S       |   4 +-
+ arch/powerpc/kernel/head_book3s_32.S |   6 +-
+ arch/powerpc/kernel/kprobes.c        |  22 +----
+ arch/powerpc/kernel/module.c         |  38 -------
+ arch/powerpc/lib/code-patching.c     |   2 +-
+ arch/powerpc/mm/book3s32/mmu.c       |   2 +-
+ arch/powerpc/mm/mem.c                |  64 ++++++++++++
+ arch/riscv/include/asm/pgtable.h     |   3 +
+ arch/riscv/kernel/module.c           |  12 ---
+ arch/riscv/kernel/probes/kprobes.c   |  10 --
+ arch/riscv/mm/init.c                 |  35 +++++++
+ arch/riscv/net/bpf_jit_core.c        |  13 ---
+ arch/s390/kernel/ftrace.c            |   4 +-
+ arch/s390/kernel/kprobes.c           |   4 +-
+ arch/s390/kernel/module.c            |  42 +-------
+ arch/s390/mm/init.c                  |  30 ++++++
+ arch/sparc/include/asm/pgtable_32.h  |   2 +
+ arch/sparc/kernel/module.c           |  30 ------
+ arch/sparc/mm/Makefile               |   2 +
+ arch/sparc/mm/execmem.c              |  21 ++++
+ arch/sparc/net/bpf_jit_comp_32.c     |   8 +-
+ arch/x86/Kconfig                     |   1 +
+ arch/x86/kernel/ftrace.c             |  16 +--
+ arch/x86/kernel/kprobes/core.c       |   4 +-
+ arch/x86/kernel/module.c             |  51 ----------
+ arch/x86/mm/init.c                   |  29 ++++++
+ include/linux/execmem.h              | 132 +++++++++++++++++++++++++
+ include/linux/module.h               |   9 ++
+ include/linux/moduleloader.h         |  15 ---
+ kernel/bpf/Kconfig                   |   2 +-
+ kernel/bpf/core.c                    |   6 +-
+ kernel/kprobes.c                     |  63 +++++++-----
+ kernel/module/Kconfig                |   1 +
+ kernel/module/main.c                 | 105 +++++++++-----------
+ kernel/trace/trace_kprobe.c          |  20 +++-
+ mm/Kconfig                           |   3 +
+ mm/Makefile                          |   1 +
+ mm/execmem.c                         | 143 +++++++++++++++++++++++++++
+ mm/mm_init.c                         |   2 +
+ 60 files changed, 903 insertions(+), 581 deletions(-)
+ create mode 100644 arch/sparc/mm/execmem.c
+ create mode 100644 include/linux/execmem.h
+ create mode 100644 mm/execmem.c
+
+
+base-commit: 0bbac3facb5d6cc0171c45c9873a2dc96bea9680
 -- 
-2.40.1
+2.43.0
 
 
 _______________________________________________
