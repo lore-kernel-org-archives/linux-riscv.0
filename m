@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72298C04FFE
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 16:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E874C4345F
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 16:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/HEcoMXx3DZc4tSRIe6X4PGXs8SAkpidBGTonGZQ+oM=; b=fXaxaf//JUiqtB
-	vnqMLrupoIKOmkLdpiBsOvYzasO5V+GBsB7f/CMys4XtpPnbKhPOTODCQaa6uAzmNKgZyZ5hsdhBU
-	6X/PJhqrTHIDsOxddcPLkKU2Rl6IY0uAqZ/53Mf7f8znX+uSgrYeyn0BMQSBhM/sgFXouDvoXGZtC
-	qzPX4grwBXjdrRkLrqT7iDEeocT21lBSGjPe66yTgPejDHScXYVRh5wrlC4PG9i6SAOhosbgcxmTf
-	8AGvNGN96sbvHyR1gK0gPahCoi8oilEOT28axnHDbpi9ey7m/pQ86ELho3EgRt5g2Avodk3hpwTMg
-	QU2Qvy9WyVKOU6S0Y48w==;
+	List-Owner; bh=yqfQRtDO257WiaegE34oS1vYzlEDQlZrVFYqQ7r/6o8=; b=1QOxf+MqI86vBo
+	d7QehkePZLahomCaHOCQiUy2+EV4CJE/9kmCWn9nJBiVVbduvdRUahud+/pCU5R9XZT07D3RMyFG1
+	txfwgYJYgmD5rAW1UZCSvPmN6oKbalksFZXx3Xjij735yZ7YkCWCE84QaF096pClMrz2gwYEn0CSx
+	gekFfpFxsYbZ7uNvngvvnwflHHZXy1qgQCvoBv5WDfG6LhnVcf2iSDP+e3zc6B0lNPEHWj3kUAT+V
+	UZtoE1Pxgup7OOLqUZqYh5Yrf0lUyS1Xsv45quUNlVKj59XR+F8GRPqkeMoOtZ406EtALr48AUdVd
+	rYrxHYad+/w1UENc5Slg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3eRH-00000004jQz-0gcP;
-	Sun, 05 May 2024 16:10:11 +0000
+	id 1s3eRY-00000004jdU-4A8W;
+	Sun, 05 May 2024 16:10:29 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3eQu-00000004j7A-2ssc;
-	Sun, 05 May 2024 16:10:03 +0000
+	id 1s3eR7-00000004jIL-21cF;
+	Sun, 05 May 2024 16:10:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5E337CE0AB6;
-	Sun,  5 May 2024 16:09:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EA5FC113CC;
-	Sun,  5 May 2024 16:09:34 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 2A432CE0AB4;
+	Sun,  5 May 2024 16:09:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DF8BC4AF68;
+	Sun,  5 May 2024 16:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714925385;
-	bh=n6mgI0H/39mvE4gYkoCj3q2CT30/D9BQcnyPUkYmzdE=;
+	s=k20201202; t=1714925397;
+	bh=+AOj3OMDSB3feHYUPdQfVhUVtDWDdcImqVlO1v4xpng=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QCCxshquMQZIYmLR9BC2goOIG2WvDcQZSg4DMYmv4seH5u50FAyr5sSSu2cZTrq1k
-	 1aq+DM7MtvC7uYy0L8lK7PUeKUGNcYzI26AhgX3k+r02BvoRIp85vYxuQwIqVSaqj2
-	 hLeSFjrZkntdHxjj1YiwU+8/c+M2CdO9FTQ83Tem8TFxYi+7kYUCfmvU8yl0uDpd2x
-	 m78cxpLmGVeNZ571v7raPKrnKA0wMo/A7REebj23qa4T/Fhgzr+SGtEZsj8TQEZkpT
-	 W1OzDnAhQ8QtznLGNpOdi4R9Un20Sv+DQV1jy2eugEuIIQ+7oEtAwZhBh0k+TDvo2C
-	 r8YK/n2WwOQHw==
+	b=nCjy//GNLhmqA5rs+dZZl1QCmyYSxaQlXDUwvYrm33awCSrxBgoNQtgTEd+Og5reU
+	 1zfpiAJVvYvH9wItGrJ4dlyOo1VBxfVQT+0TPSwS6pBwlj4x0T0vXWLHRxsW+NBcov
+	 1GBUBgTju3SAFfkJpbUB5d/D4ixYKRZbSC2UwjlZqcgVu4MQggxhkG6KAr21NEWq3L
+	 0KkdIVsYS7NgzJvC2au3jbEGcFX64kCrdx6ChAeAXd70cAqr/40KbW438zRh/iz+Bp
+	 AYkRBsIesQ4rIkXq2RH197dPeLajwJNlegZb6k18Wf6vs/nf1+m+19Rl2bg2C/92qW
+	 uPmG0zhErxdXQ==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
@@ -89,16 +89,16 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH RESEND v8 15/16] kprobes: remove dependency on CONFIG_MODULES
-Date: Sun,  5 May 2024 19:06:27 +0300
-Message-ID: <20240505160628.2323363-16-rppt@kernel.org>
+Subject: [PATCH RESEND v8 16/16] bpf: remove CONFIG_BPF_JIT dependency on CONFIG_MODULES of
+Date: Sun,  5 May 2024 19:06:28 +0300
+Message-ID: <20240505160628.2323363-17-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240505160628.2323363-1-rppt@kernel.org>
 References: <20240505160628.2323363-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240505_090949_324595_9DC38C08 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20240505_091002_176775_0D384D61 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,244 +110,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-
-kprobes depended on CONFIG_MODULES because it has to allocate memory for
-code.
-
-Since code allocations are now implemented with execmem, kprobes can be
-enabled in non-modular kernels.
-
-Add #ifdef CONFIG_MODULE guards for the code dealing with kprobes inside
-modules, make CONFIG_KPROBES select CONFIG_EXECMEM and drop the
-dependency of CONFIG_KPROBES on CONFIG_MODULES.
-
-Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
-Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
----
- arch/Kconfig                |  2 +-
- include/linux/module.h      |  9 ++++++
- kernel/kprobes.c            | 55 +++++++++++++++++++++++--------------
- kernel/trace/trace_kprobe.c | 20 +++++++++++++-
- 4 files changed, 63 insertions(+), 23 deletions(-)
-
-diff --git a/arch/Kconfig b/arch/Kconfig
-index 4fd0daa54e6c..caa459964f09 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -52,9 +52,9 @@ config GENERIC_ENTRY
- 
- config KPROBES
- 	bool "Kprobes"
--	depends on MODULES
- 	depends on HAVE_KPROBES
- 	select KALLSYMS
-+	select EXECMEM
- 	select TASKS_RCU if PREEMPTION
- 	help
- 	  Kprobes allows you to trap at almost any kernel address and
-diff --git a/include/linux/module.h b/include/linux/module.h
-index 1153b0d99a80..ffa1c603163c 100644
---- a/include/linux/module.h
-+++ b/include/linux/module.h
-@@ -605,6 +605,11 @@ static inline bool module_is_live(struct module *mod)
- 	return mod->state != MODULE_STATE_GOING;
- }
- 
-+static inline bool module_is_coming(struct module *mod)
-+{
-+        return mod->state == MODULE_STATE_COMING;
-+}
-+
- struct module *__module_text_address(unsigned long addr);
- struct module *__module_address(unsigned long addr);
- bool is_module_address(unsigned long addr);
-@@ -857,6 +862,10 @@ void *dereference_module_function_descriptor(struct module *mod, void *ptr)
- 	return ptr;
- }
- 
-+static inline bool module_is_coming(struct module *mod)
-+{
-+	return false;
-+}
- #endif /* CONFIG_MODULES */
- 
- #ifdef CONFIG_SYSFS
-diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-index ddd7cdc16edf..ca2c6cbd42d2 100644
---- a/kernel/kprobes.c
-+++ b/kernel/kprobes.c
-@@ -1588,7 +1588,7 @@ static int check_kprobe_address_safe(struct kprobe *p,
- 	}
- 
- 	/* Get module refcount and reject __init functions for loaded modules. */
--	if (*probed_mod) {
-+	if (IS_ENABLED(CONFIG_MODULES) && *probed_mod) {
- 		/*
- 		 * We must hold a refcount of the probed module while updating
- 		 * its code to prohibit unexpected unloading.
-@@ -1603,12 +1603,13 @@ static int check_kprobe_address_safe(struct kprobe *p,
- 		 * kprobes in there.
- 		 */
- 		if (within_module_init((unsigned long)p->addr, *probed_mod) &&
--		    (*probed_mod)->state != MODULE_STATE_COMING) {
-+		    !module_is_coming(*probed_mod)) {
- 			module_put(*probed_mod);
- 			*probed_mod = NULL;
- 			ret = -ENOENT;
- 		}
- 	}
-+
- out:
- 	preempt_enable();
- 	jump_label_unlock();
-@@ -2488,24 +2489,6 @@ int kprobe_add_area_blacklist(unsigned long start, unsigned long end)
- 	return 0;
- }
- 
--/* Remove all symbols in given area from kprobe blacklist */
--static void kprobe_remove_area_blacklist(unsigned long start, unsigned long end)
--{
--	struct kprobe_blacklist_entry *ent, *n;
--
--	list_for_each_entry_safe(ent, n, &kprobe_blacklist, list) {
--		if (ent->start_addr < start || ent->start_addr >= end)
--			continue;
--		list_del(&ent->list);
--		kfree(ent);
--	}
--}
--
--static void kprobe_remove_ksym_blacklist(unsigned long entry)
--{
--	kprobe_remove_area_blacklist(entry, entry + 1);
--}
--
- int __weak arch_kprobe_get_kallsym(unsigned int *symnum, unsigned long *value,
- 				   char *type, char *sym)
- {
-@@ -2570,6 +2553,25 @@ static int __init populate_kprobe_blacklist(unsigned long *start,
- 	return ret ? : arch_populate_kprobe_blacklist();
- }
- 
-+#ifdef CONFIG_MODULES
-+/* Remove all symbols in given area from kprobe blacklist */
-+static void kprobe_remove_area_blacklist(unsigned long start, unsigned long end)
-+{
-+	struct kprobe_blacklist_entry *ent, *n;
-+
-+	list_for_each_entry_safe(ent, n, &kprobe_blacklist, list) {
-+		if (ent->start_addr < start || ent->start_addr >= end)
-+			continue;
-+		list_del(&ent->list);
-+		kfree(ent);
-+	}
-+}
-+
-+static void kprobe_remove_ksym_blacklist(unsigned long entry)
-+{
-+	kprobe_remove_area_blacklist(entry, entry + 1);
-+}
-+
- static void add_module_kprobe_blacklist(struct module *mod)
- {
- 	unsigned long start, end;
-@@ -2672,6 +2674,17 @@ static struct notifier_block kprobe_module_nb = {
- 	.priority = 0
- };
- 
-+static int kprobe_register_module_notifier(void)
-+{
-+	return register_module_notifier(&kprobe_module_nb);
-+}
-+#else
-+static int kprobe_register_module_notifier(void)
-+{
-+	return 0;
-+}
-+#endif /* CONFIG_MODULES */
-+
- void kprobe_free_init_mem(void)
- {
- 	void *start = (void *)(&__init_begin);
-@@ -2731,7 +2744,7 @@ static int __init init_kprobes(void)
- 	if (!err)
- 		err = register_die_notifier(&kprobe_exceptions_nb);
- 	if (!err)
--		err = register_module_notifier(&kprobe_module_nb);
-+		err = kprobe_register_module_notifier();
- 
- 	kprobes_initialized = (err == 0);
- 	kprobe_sysctls_init();
-diff --git a/kernel/trace/trace_kprobe.c b/kernel/trace/trace_kprobe.c
-index 14099cc17fc9..2cb2a3951b4f 100644
---- a/kernel/trace/trace_kprobe.c
-+++ b/kernel/trace/trace_kprobe.c
-@@ -111,6 +111,7 @@ static nokprobe_inline bool trace_kprobe_within_module(struct trace_kprobe *tk,
- 	return strncmp(module_name(mod), name, len) == 0 && name[len] == ':';
- }
- 
-+#ifdef CONFIG_MODULES
- static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
- {
- 	char *p;
-@@ -129,6 +130,12 @@ static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
- 
- 	return ret;
- }
-+#else
-+static inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
-+{
-+	return false;
-+}
-+#endif
- 
- static bool trace_kprobe_is_busy(struct dyn_event *ev)
- {
-@@ -670,6 +677,7 @@ static int register_trace_kprobe(struct trace_kprobe *tk)
- 	return ret;
- }
- 
-+#ifdef CONFIG_MODULES
- /* Module notifier call back, checking event on the module */
- static int trace_kprobe_module_callback(struct notifier_block *nb,
- 				       unsigned long val, void *data)
-@@ -704,6 +712,16 @@ static struct notifier_block trace_kprobe_module_nb = {
- 	.notifier_call = trace_kprobe_module_callback,
- 	.priority = 1	/* Invoked after kprobe module callback */
- };
-+static int trace_kprobe_register_module_notifier(void)
-+{
-+	return register_module_notifier(&trace_kprobe_module_nb);
-+}
-+#else
-+static int trace_kprobe_register_module_notifier(void)
-+{
-+	return 0;
-+}
-+#endif /* CONFIG_MODULES */
- 
- static int count_symbols(void *data, unsigned long unused)
- {
-@@ -1933,7 +1951,7 @@ static __init int init_kprobe_trace_early(void)
- 	if (ret)
- 		return ret;
- 
--	if (register_module_notifier(&trace_kprobe_module_nb))
-+	if (trace_kprobe_register_module_notifier())
- 		return -EINVAL;
- 
- 	return 0;
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogIk1pa2UgUmFwb3BvcnQgKElCTSkiIDxycHB0QGtlcm5lbC5vcmc+CgpCUEYganVzdC1p
+bi10aW1lIGNvbXBpbGVyIGRlcGVuZGVkIG9uIENPTkZJR19NT0RVTEVTIGJlY2F1c2UgaXQgdXNl
+ZAptb2R1bGVfYWxsb2MoKSB0byBhbGxvY2F0ZSBtZW1vcnkgZm9yIHRoZSBnZW5lcmF0ZWQgY29k
+ZS4KClNpbmNlIGNvZGUgYWxsb2NhdGlvbnMgYXJlIG5vdyBpbXBsZW1lbnRlZCB3aXRoIGV4ZWNt
+ZW0sIGRyb3AgZGVwZW5kZW5jeSBvZgpDT05GSUdfQlBGX0pJVCBvbiBDT05GSUdfTU9EVUxFUyBh
+bmQgbWFrZSBpdCBzZWxlY3QgQ09ORklHX0VYRUNNRU0uCgpTdWdnZXN0ZWQtYnk6IEJqw7ZybiBU
+w7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+ClNpZ25lZC1vZmYtYnk6IE1pa2UgUmFwb3BvcnQgKElC
+TSkgPHJwcHRAa2VybmVsLm9yZz4KLS0tCiBrZXJuZWwvYnBmL0tjb25maWcgfCAyICstCiAxIGZp
+bGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKCmRpZmYgLS1naXQgYS9r
+ZXJuZWwvYnBmL0tjb25maWcgYi9rZXJuZWwvYnBmL0tjb25maWcKaW5kZXggYmMyNWY1MDk4YTI1
+Li5mOTk5ZTRlMGIzNDQgMTAwNjQ0Ci0tLSBhL2tlcm5lbC9icGYvS2NvbmZpZworKysgYi9rZXJu
+ZWwvYnBmL0tjb25maWcKQEAgLTQzLDcgKzQzLDcgQEAgY29uZmlnIEJQRl9KSVQKIAlib29sICJF
+bmFibGUgQlBGIEp1c3QgSW4gVGltZSBjb21waWxlciIKIAlkZXBlbmRzIG9uIEJQRgogCWRlcGVu
+ZHMgb24gSEFWRV9DQlBGX0pJVCB8fCBIQVZFX0VCUEZfSklUCi0JZGVwZW5kcyBvbiBNT0RVTEVT
+CisJc2VsZWN0IEVYRUNNRU0KIAloZWxwCiAJICBCUEYgcHJvZ3JhbXMgYXJlIG5vcm1hbGx5IGhh
+bmRsZWQgYnkgYSBCUEYgaW50ZXJwcmV0ZXIuIFRoaXMgb3B0aW9uCiAJICBhbGxvd3MgdGhlIGtl
+cm5lbCB0byBnZW5lcmF0ZSBuYXRpdmUgY29kZSB3aGVuIGEgcHJvZ3JhbSBpcyBsb2FkZWQKLS0g
+CjIuNDMuMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
