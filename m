@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81895C4345F
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 16:08:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18295C04FFE
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 May 2024 16:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MXM8cqldLSPhG+xS8opGbjpDP1jJqlMgbzjb/wvTqMU=; b=aATcJjz61YpREi
-	NDGahTKSKueiDRDqV+Qwx09A85Id6TbE1ZMpH4rOsCbrP1vWyVKumCo7ptNT1NlBLpoRIpRamdQYv
-	2ihyMptRQUKLSHBXo6IpYQDiY6PGLlecty0rqc7qjm1zoTzRgzl8Yf3wyZ1cYsjKxOpBaVa9kLKL3
-	gUETLJhJUZlgw9ceU+DB4V2pidvQWiBxXj9fAZPzxog8izG6WuwrkUxCVUMjp+/DEJO4NCblff+vD
-	7tj7nxX7PSb74cgS+KtQFvkBNTCTNldCDbJv7+729Z6jv/Ch9hMwu+j6NmR/lLl54fIsdEP7c+ulN
-	6ICJ8mV5onNhloIjJ0OQ==;
+	List-Owner; bh=YKIRPVUvCPzX2pnc9sfXzJvBKrUdKW4da62BEPd009A=; b=C1FtPROS3pWGOv
+	qNLM/a1dt4GSN7dyZAn1M6Z79ag8jnXRit9mPP4TDsfLOUSBH8YdkhLJZBFr0h12Zn/g5zA8QNWaM
+	lzsCcndWl2ACkyp97nCk8rD+cPJTr0dsxHKFQemnToglMMZsK5ARDRtz3JyViPCP03fEuHOfHi3Yc
+	wGYVrgiZWt5AeIP8P0E/wQYtgOF4nkcU2epq8reocemXWIJPtUjvkB4xXNGUe5e7cnrO0XORlls4n
+	6XODG/nv7z2Ou7xCEqJKiiehFWyxRh74jGjPG5Sa8eX1vWQEYFilRQwtQ+l90UVr/3EioSz7lHQe1
+	TuNvC4HDjU3GReM5BuLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3ePE-00000004hex-1j1t;
-	Sun, 05 May 2024 16:08:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1s3ePX-00000004hwE-1A3g;
+	Sun, 05 May 2024 16:08:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3eOy-00000004hPu-2hhG;
-	Sun, 05 May 2024 16:07:56 +0000
+	id 1s3ePR-00000004hqD-2vbj;
+	Sun, 05 May 2024 16:08:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=P8adOcY5bgQffQMY+FSoXypp+yh7TEtbKuUsGAS8Fco=; b=NSPamcYd9MGhba5zRy1r6PiuAe
+	+dBQf8Avi8mZQ/NC2oo7EvHWFQiB1omnyLauk68mm8aQ6AKD6P0XzetUjXVNYzBE11daObPM1Im4p
+	1FeR8R9QDtbEzTRgoKsRFKLabGct35JFJbRHs5NM4Rd4x0Y7p6cXjf3LhNqV9DOKhwZSPz4CwddXO
+	NFzc5b6jM5Qm3tVFEQI9sRqFSHdgplVfegz6POIbC02hz8m/zrbT2+X9XwjD3tE1w0BHiO6J78X2H
+	vzTmopJFzTnztNd93Sw7PoqYYDAa/QvS/CcLPq5JBVL1qbXRdE3ChbXL6E0joOzyUSfnovnY8srYr
+	Fvk1JzwQ==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s3ePN-00000001O5N-0hCB;
+	Sun, 05 May 2024 16:08:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B1F8F60CBB;
-	Sun,  5 May 2024 16:07:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21FD0C4DDE7;
-	Sun,  5 May 2024 16:07:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 533C260C90;
+	Sun,  5 May 2024 16:08:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6E61C4DDE3;
+	Sun,  5 May 2024 16:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714925267;
-	bh=vbQmVIViLlnHnV/HmsoDNHPWB+6N7x9rENWps4lsXos=;
+	s=k20201202; t=1714925291;
+	bh=H1Yrs9oS3D7w/IH5Du6/u6WvPsm3z4WLJALiS8Y8DQ8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aAa5MSgJQJM45G3HokYLiiJiOZDEeE2ajV8iw/yf1DX/fQ3Kmw6A3USHH0Ot5m3Op
-	 TVZYg1AWKghmbLAQnkVMS+GBWsm8aShhkYMk2oUWFTCwZ221sTIuktvc3sHgn5Di67
-	 0I35GiFLFgXviW5AdRB+u7RdDHkgSpW6HhkZwMFM/gPwvOTBBTyPfyI73Civ8D9YvS
-	 rNWePZxZHMorQMyuKc+VCAWVVq3t2idHccNWlW0YiN3gXtGTvkETcE/v5FdYXJ2KJf
-	 LyxaKhxqABmwc9SmSM4tJ4eoIiC7UL7HsecM0w4e+PWxQYptDGBGAdqaW44NkUBYgt
-	 DP/ubOUkGv4RQ==
+	b=qy7fbZ3sR5SpWYo9BfaPnLREtW6tcVlwYjkUThI241bz+XFpPVmWviyMy6XqTm6aQ
+	 dORU/UekgwSj27ajsbinG1OwPjL9K+SIsvs4fsUK8b3eFCh2fUpSfqvbtanznko+qy
+	 73Ro0XMWqbMJ9rPGK0W5cArd1g69QQW/8ZPzU5+NVnxrXnjRYbEu6WUmAwrx5eqBvc
+	 LJWmIu7MXQJ2RAZ1BmHzdr7cHlO+FJ89P3S6tCmUfcCvgysRPuyItr44uH0fIMQcJK
+	 zfjzHgHS0WwDn5Hh0Muj2jWVN1o261zIWg73Iv07eey1MVZIFFfYZnZF8PJhFxxWCc
+	 vezWRt98tYJRw==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
@@ -89,16 +103,16 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH RESEND v8 05/16] module: make module_memory_{alloc,free} more self-contained
-Date: Sun,  5 May 2024 19:06:17 +0300
-Message-ID: <20240505160628.2323363-6-rppt@kernel.org>
+Subject: [PATCH RESEND v8 07/16] mm/execmem, arch: convert simple overrides of module_alloc to execmem
+Date: Sun,  5 May 2024 19:06:19 +0300
+Message-ID: <20240505160628.2323363-8-rppt@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240505160628.2323363-1-rppt@kernel.org>
 References: <20240505160628.2323363-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240505_090748_933368_03B4CA27 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20240505_170813_991446_0D4C9C55 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,87 +124,454 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogIk1pa2UgUmFwb3BvcnQgKElCTSkiIDxycHB0QGtlcm5lbC5vcmc+CgpNb3ZlIHRoZSBs
-b2dpYyByZWxhdGVkIHRvIHRoZSBtZW1vcnkgYWxsb2NhdGlvbiBhbmQgZnJlZWluZyBpbnRvCm1v
-ZHVsZV9tZW1vcnlfYWxsb2MoKSBhbmQgbW9kdWxlX21lbW9yeV9mcmVlKCkuCgpTaWduZWQtb2Zm
-LWJ5OiBNaWtlIFJhcG9wb3J0IChJQk0pIDxycHB0QGtlcm5lbC5vcmc+ClJldmlld2VkLWJ5OiBQ
-aGlsaXBwZSBNYXRoaWV1LURhdWTDqSA8cGhpbG1kQGxpbmFyby5vcmc+Ci0tLQoga2VybmVsL21v
-ZHVsZS9tYWluLmMgfCA2NCArKysrKysrKysrKysrKysrKysrKysrKysrKystLS0tLS0tLS0tLS0t
-LS0tLQogMSBmaWxlIGNoYW5nZWQsIDM5IGluc2VydGlvbnMoKyksIDI1IGRlbGV0aW9ucygtKQoK
-ZGlmZiAtLWdpdCBhL2tlcm5lbC9tb2R1bGUvbWFpbi5jIGIva2VybmVsL21vZHVsZS9tYWluLmMK
-aW5kZXggZTFlOGE3YTlkNmMxLi41YjgyYjA2OWUwZDMgMTAwNjQ0Ci0tLSBhL2tlcm5lbC9tb2R1
-bGUvbWFpbi5jCisrKyBiL2tlcm5lbC9tb2R1bGUvbWFpbi5jCkBAIC0xMjAzLDE1ICsxMjAzLDQ0
-IEBAIHN0YXRpYyBib29sIG1vZF9tZW1fdXNlX3ZtYWxsb2MoZW51bSBtb2RfbWVtX3R5cGUgdHlw
-ZSkKIAkJbW9kX21lbV90eXBlX2lzX2NvcmVfZGF0YSh0eXBlKTsKIH0KIAotc3RhdGljIHZvaWQg
-Km1vZHVsZV9tZW1vcnlfYWxsb2ModW5zaWduZWQgaW50IHNpemUsIGVudW0gbW9kX21lbV90eXBl
-IHR5cGUpCitzdGF0aWMgaW50IG1vZHVsZV9tZW1vcnlfYWxsb2Moc3RydWN0IG1vZHVsZSAqbW9k
-LCBlbnVtIG1vZF9tZW1fdHlwZSB0eXBlKQogeworCXVuc2lnbmVkIGludCBzaXplID0gUEFHRV9B
-TElHTihtb2QtPm1lbVt0eXBlXS5zaXplKTsKKwl2b2lkICpwdHI7CisKKwltb2QtPm1lbVt0eXBl
-XS5zaXplID0gc2l6ZTsKKwogCWlmIChtb2RfbWVtX3VzZV92bWFsbG9jKHR5cGUpKQotCQlyZXR1
-cm4gdnphbGxvYyhzaXplKTsKLQlyZXR1cm4gbW9kdWxlX2FsbG9jKHNpemUpOworCQlwdHIgPSB2
-bWFsbG9jKHNpemUpOworCWVsc2UKKwkJcHRyID0gbW9kdWxlX2FsbG9jKHNpemUpOworCisJaWYg
-KCFwdHIpCisJCXJldHVybiAtRU5PTUVNOworCisJLyoKKwkgKiBUaGUgcG9pbnRlciB0byB0aGVz
-ZSBibG9ja3Mgb2YgbWVtb3J5IGFyZSBzdG9yZWQgb24gdGhlIG1vZHVsZQorCSAqIHN0cnVjdHVy
-ZSBhbmQgd2Uga2VlcCB0aGF0IGFyb3VuZCBzbyBsb25nIGFzIHRoZSBtb2R1bGUgaXMKKwkgKiBh
-cm91bmQuIFdlIG9ubHkgZnJlZSB0aGF0IG1lbW9yeSB3aGVuIHdlIHVubG9hZCB0aGUgbW9kdWxl
-LgorCSAqIEp1c3QgbWFyayB0aGVtIGFzIG5vdCBiZWluZyBhIGxlYWsgdGhlbi4gVGhlIC5pbml0
-KiBFTEYKKwkgKiBzZWN0aW9ucyAqZG8qIGdldCBmcmVlZCBhZnRlciBib290IHNvIHdlICpjb3Vs
-ZCogdHJlYXQgdGhlbQorCSAqIHNsaWdodGx5IGRpZmZlcmVudGx5IHdpdGgga21lbWxlYWtfaWdu
-b3JlKCkgYW5kIG9ubHkgZ3JleQorCSAqIHRoZW0gb3V0IGFzIHRoZXkgd29yayBhcyB0eXBpY2Fs
-IG1lbW9yeSBhbGxvY2F0aW9ucyB3aGljaAorCSAqICpkbyogZXZlbnR1YWxseSBnZXQgZnJlZWQs
-IGJ1dCBsZXQncyBqdXN0IGtlZXAgdGhpbmdzIHNpbXBsZQorCSAqIGFuZCBhdm9pZCAqYW55KiBm
-YWxzZSBwb3NpdGl2ZXMuCisJICovCisJa21lbWxlYWtfbm90X2xlYWsocHRyKTsKKworCW1lbXNl
-dChwdHIsIDAsIHNpemUpOworCW1vZC0+bWVtW3R5cGVdLmJhc2UgPSBwdHI7CisKKwlyZXR1cm4g
-MDsKIH0KIAotc3RhdGljIHZvaWQgbW9kdWxlX21lbW9yeV9mcmVlKHZvaWQgKnB0ciwgZW51bSBt
-b2RfbWVtX3R5cGUgdHlwZSkKK3N0YXRpYyB2b2lkIG1vZHVsZV9tZW1vcnlfZnJlZShzdHJ1Y3Qg
-bW9kdWxlICptb2QsIGVudW0gbW9kX21lbV90eXBlIHR5cGUpCiB7CisJdm9pZCAqcHRyID0gbW9k
-LT5tZW1bdHlwZV0uYmFzZTsKKwogCWlmIChtb2RfbWVtX3VzZV92bWFsbG9jKHR5cGUpKQogCQl2
-ZnJlZShwdHIpOwogCWVsc2UKQEAgLTEyMjksMTIgKzEyNTgsMTIgQEAgc3RhdGljIHZvaWQgZnJl
-ZV9tb2RfbWVtKHN0cnVjdCBtb2R1bGUgKm1vZCkKIAkJLyogRnJlZSBsb2NrLWNsYXNzZXM7IHJl
-bGllcyBvbiB0aGUgcHJlY2VkaW5nIHN5bmNfcmN1KCkuICovCiAJCWxvY2tkZXBfZnJlZV9rZXlf
-cmFuZ2UobW9kX21lbS0+YmFzZSwgbW9kX21lbS0+c2l6ZSk7CiAJCWlmIChtb2RfbWVtLT5zaXpl
-KQotCQkJbW9kdWxlX21lbW9yeV9mcmVlKG1vZF9tZW0tPmJhc2UsIHR5cGUpOworCQkJbW9kdWxl
-X21lbW9yeV9mcmVlKG1vZCwgdHlwZSk7CiAJfQogCiAJLyogTU9EX0RBVEEgaG9zdHMgbW9kLCBz
-byBmcmVlIGl0IGF0IGxhc3QgKi8KIAlsb2NrZGVwX2ZyZWVfa2V5X3JhbmdlKG1vZC0+bWVtW01P
-RF9EQVRBXS5iYXNlLCBtb2QtPm1lbVtNT0RfREFUQV0uc2l6ZSk7Ci0JbW9kdWxlX21lbW9yeV9m
-cmVlKG1vZC0+bWVtW01PRF9EQVRBXS5iYXNlLCBNT0RfREFUQSk7CisJbW9kdWxlX21lbW9yeV9m
-cmVlKG1vZCwgTU9EX0RBVEEpOwogfQogCiAvKiBGcmVlIGEgbW9kdWxlLCByZW1vdmUgZnJvbSBs
-aXN0cywgZXRjLiAqLwpAQCAtMjIyNSw3ICsyMjU0LDYgQEAgc3RhdGljIGludCBmaW5kX21vZHVs
-ZV9zZWN0aW9ucyhzdHJ1Y3QgbW9kdWxlICptb2QsIHN0cnVjdCBsb2FkX2luZm8gKmluZm8pCiBz
-dGF0aWMgaW50IG1vdmVfbW9kdWxlKHN0cnVjdCBtb2R1bGUgKm1vZCwgc3RydWN0IGxvYWRfaW5m
-byAqaW5mbykKIHsKIAlpbnQgaTsKLQl2b2lkICpwdHI7CiAJZW51bSBtb2RfbWVtX3R5cGUgdCA9
-IDA7CiAJaW50IHJldCA9IC1FTk9NRU07CiAKQEAgLTIyMzQsMjYgKzIyNjIsMTIgQEAgc3RhdGlj
-IGludCBtb3ZlX21vZHVsZShzdHJ1Y3QgbW9kdWxlICptb2QsIHN0cnVjdCBsb2FkX2luZm8gKmlu
-Zm8pCiAJCQltb2QtPm1lbVt0eXBlXS5iYXNlID0gTlVMTDsKIAkJCWNvbnRpbnVlOwogCQl9Ci0J
-CW1vZC0+bWVtW3R5cGVdLnNpemUgPSBQQUdFX0FMSUdOKG1vZC0+bWVtW3R5cGVdLnNpemUpOwot
-CQlwdHIgPSBtb2R1bGVfbWVtb3J5X2FsbG9jKG1vZC0+bWVtW3R5cGVdLnNpemUsIHR5cGUpOwot
-CQkvKgotICAgICAgICAgICAgICAgICAqIFRoZSBwb2ludGVyIHRvIHRoZXNlIGJsb2NrcyBvZiBt
-ZW1vcnkgYXJlIHN0b3JlZCBvbiB0aGUgbW9kdWxlCi0gICAgICAgICAgICAgICAgICogc3RydWN0
-dXJlIGFuZCB3ZSBrZWVwIHRoYXQgYXJvdW5kIHNvIGxvbmcgYXMgdGhlIG1vZHVsZSBpcwotICAg
-ICAgICAgICAgICAgICAqIGFyb3VuZC4gV2Ugb25seSBmcmVlIHRoYXQgbWVtb3J5IHdoZW4gd2Ug
-dW5sb2FkIHRoZSBtb2R1bGUuCi0gICAgICAgICAgICAgICAgICogSnVzdCBtYXJrIHRoZW0gYXMg
-bm90IGJlaW5nIGEgbGVhayB0aGVuLiBUaGUgLmluaXQqIEVMRgotICAgICAgICAgICAgICAgICAq
-IHNlY3Rpb25zICpkbyogZ2V0IGZyZWVkIGFmdGVyIGJvb3Qgc28gd2UgKmNvdWxkKiB0cmVhdCB0
-aGVtCi0gICAgICAgICAgICAgICAgICogc2xpZ2h0bHkgZGlmZmVyZW50bHkgd2l0aCBrbWVtbGVh
-a19pZ25vcmUoKSBhbmQgb25seSBncmV5Ci0gICAgICAgICAgICAgICAgICogdGhlbSBvdXQgYXMg
-dGhleSB3b3JrIGFzIHR5cGljYWwgbWVtb3J5IGFsbG9jYXRpb25zIHdoaWNoCi0gICAgICAgICAg
-ICAgICAgICogKmRvKiBldmVudHVhbGx5IGdldCBmcmVlZCwgYnV0IGxldCdzIGp1c3Qga2VlcCB0
-aGluZ3Mgc2ltcGxlCi0gICAgICAgICAgICAgICAgICogYW5kIGF2b2lkICphbnkqIGZhbHNlIHBv
-c2l0aXZlcy4KLQkJICovCi0JCWttZW1sZWFrX25vdF9sZWFrKHB0cik7Ci0JCWlmICghcHRyKSB7
-CisKKwkJcmV0ID0gbW9kdWxlX21lbW9yeV9hbGxvYyhtb2QsIHR5cGUpOworCQlpZiAocmV0KSB7
-CiAJCQl0ID0gdHlwZTsKIAkJCWdvdG8gb3V0X2Vub21lbTsKIAkJfQotCQltZW1zZXQocHRyLCAw
-LCBtb2QtPm1lbVt0eXBlXS5zaXplKTsKLQkJbW9kLT5tZW1bdHlwZV0uYmFzZSA9IHB0cjsKIAl9
-CiAKIAkvKiBUcmFuc2ZlciBlYWNoIHNlY3Rpb24gd2hpY2ggc3BlY2lmaWVzIFNIRl9BTExPQyAq
-LwpAQCAtMjI5Niw3ICsyMzEwLDcgQEAgc3RhdGljIGludCBtb3ZlX21vZHVsZShzdHJ1Y3QgbW9k
-dWxlICptb2QsIHN0cnVjdCBsb2FkX2luZm8gKmluZm8pCiAJcmV0dXJuIDA7CiBvdXRfZW5vbWVt
-OgogCWZvciAodC0tOyB0ID49IDA7IHQtLSkKLQkJbW9kdWxlX21lbW9yeV9mcmVlKG1vZC0+bWVt
-W3RdLmJhc2UsIHQpOworCQltb2R1bGVfbWVtb3J5X2ZyZWUobW9kLCB0KTsKIAlyZXR1cm4gcmV0
-OwogfQogCi0tIAoyLjQzLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+
+Several architectures override module_alloc() only to define address
+range for code allocations different than VMALLOC address space.
+
+Provide a generic implementation in execmem that uses the parameters for
+address space ranges, required alignment and page protections provided
+by architectures.
+
+The architectures must fill execmem_info structure and implement
+execmem_arch_setup() that returns a pointer to that structure. This way the
+execmem initialization won't be called from every architecture, but rather
+from a central place, namely a core_initcall() in execmem.
+
+The execmem provides execmem_alloc() API that wraps __vmalloc_node_range()
+with the parameters defined by the architectures.  If an architecture does
+not implement execmem_arch_setup(), execmem_alloc() will fall back to
+module_alloc().
+
+Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
+Acked-by: Song Liu <song@kernel.org>
+---
+ arch/loongarch/kernel/module.c | 19 ++++++++--
+ arch/mips/kernel/module.c      | 20 ++++++++--
+ arch/nios2/kernel/module.c     | 21 ++++++++---
+ arch/parisc/kernel/module.c    | 24 ++++++++----
+ arch/riscv/kernel/module.c     | 24 ++++++++----
+ arch/sparc/kernel/module.c     | 20 ++++++++--
+ include/linux/execmem.h        | 47 ++++++++++++++++++++++++
+ mm/execmem.c                   | 67 ++++++++++++++++++++++++++++++++--
+ mm/mm_init.c                   |  2 +
+ 9 files changed, 210 insertions(+), 34 deletions(-)
+
+diff --git a/arch/loongarch/kernel/module.c b/arch/loongarch/kernel/module.c
+index c7d0338d12c1..ca6dd7ea1610 100644
+--- a/arch/loongarch/kernel/module.c
++++ b/arch/loongarch/kernel/module.c
+@@ -18,6 +18,7 @@
+ #include <linux/ftrace.h>
+ #include <linux/string.h>
+ #include <linux/kernel.h>
++#include <linux/execmem.h>
+ #include <asm/alternative.h>
+ #include <asm/inst.h>
+ #include <asm/unwind.h>
+@@ -490,10 +491,22 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+ 	return 0;
+ }
+ 
+-void *module_alloc(unsigned long size)
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
+ {
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+-			GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE, __builtin_return_address(0));
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= MODULES_VADDR,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ 
+ static void module_init_ftrace_plt(const Elf_Ehdr *hdr,
+diff --git a/arch/mips/kernel/module.c b/arch/mips/kernel/module.c
+index 9a6c96014904..59225a3cf918 100644
+--- a/arch/mips/kernel/module.c
++++ b/arch/mips/kernel/module.c
+@@ -20,6 +20,7 @@
+ #include <linux/kernel.h>
+ #include <linux/spinlock.h>
+ #include <linux/jump_label.h>
++#include <linux/execmem.h>
+ #include <asm/jump_label.h>
+ 
+ struct mips_hi16 {
+@@ -32,11 +33,22 @@ static LIST_HEAD(dbe_list);
+ static DEFINE_SPINLOCK(dbe_lock);
+ 
+ #ifdef MODULES_VADDR
+-void *module_alloc(unsigned long size)
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
+ {
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+-				GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+-				__builtin_return_address(0));
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= MODULES_VADDR,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ #endif
+ 
+diff --git a/arch/nios2/kernel/module.c b/arch/nios2/kernel/module.c
+index 9c97b7513853..0d1ee86631fc 100644
+--- a/arch/nios2/kernel/module.c
++++ b/arch/nios2/kernel/module.c
+@@ -18,15 +18,26 @@
+ #include <linux/fs.h>
+ #include <linux/string.h>
+ #include <linux/kernel.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/cacheflush.h>
+ 
+-void *module_alloc(unsigned long size)
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
+ {
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+-				    GFP_KERNEL, PAGE_KERNEL_EXEC,
+-				    VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
+-				    __builtin_return_address(0));
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= MODULES_VADDR,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL_EXEC,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ 
+ int apply_relocate_add(Elf32_Shdr *sechdrs, const char *strtab,
+diff --git a/arch/parisc/kernel/module.c b/arch/parisc/kernel/module.c
+index d214bbe3c2af..bdfa85e10c1b 100644
+--- a/arch/parisc/kernel/module.c
++++ b/arch/parisc/kernel/module.c
+@@ -49,6 +49,7 @@
+ #include <linux/bug.h>
+ #include <linux/mm.h>
+ #include <linux/slab.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/unwind.h>
+ #include <asm/sections.h>
+@@ -173,15 +174,22 @@ static inline int reassemble_22(int as22)
+ 		((as22 & 0x0003ff) << 3));
+ }
+ 
+-void *module_alloc(unsigned long size)
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
+ {
+-	/* using RWX means less protection for modules, but it's
+-	 * easier than trying to map the text, data, init_text and
+-	 * init_data correctly */
+-	return __vmalloc_node_range(size, 1, VMALLOC_START, VMALLOC_END,
+-				    GFP_KERNEL,
+-				    PAGE_KERNEL_RWX, 0, NUMA_NO_NODE,
+-				    __builtin_return_address(0));
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= VMALLOC_START,
++				.end	= VMALLOC_END,
++				.pgprot	= PAGE_KERNEL_RWX,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ 
+ #ifndef CONFIG_64BIT
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 5e5a82644451..182904127ba0 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -14,6 +14,7 @@
+ #include <linux/vmalloc.h>
+ #include <linux/sizes.h>
+ #include <linux/pgtable.h>
++#include <linux/execmem.h>
+ #include <asm/alternative.h>
+ #include <asm/sections.h>
+ 
+@@ -906,13 +907,22 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+ }
+ 
+ #if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
+-void *module_alloc(unsigned long size)
+-{
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR,
+-				    MODULES_END, GFP_KERNEL,
+-				    PAGE_KERNEL, VM_FLUSH_RESET_PERMS,
+-				    NUMA_NO_NODE,
+-				    __builtin_return_address(0));
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
++{
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= MODULES_VADDR,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ #endif
+ 
+diff --git a/arch/sparc/kernel/module.c b/arch/sparc/kernel/module.c
+index d37adb2a0b54..8b7ee45defc3 100644
+--- a/arch/sparc/kernel/module.c
++++ b/arch/sparc/kernel/module.c
+@@ -14,6 +14,7 @@
+ #include <linux/string.h>
+ #include <linux/ctype.h>
+ #include <linux/mm.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/processor.h>
+ #include <asm/spitfire.h>
+@@ -21,11 +22,22 @@
+ 
+ #include "entry.h"
+ 
+-void *module_alloc(unsigned long size)
++static struct execmem_info execmem_info __ro_after_init;
++
++struct execmem_info __init *execmem_arch_setup(void)
+ {
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+-				GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+-				__builtin_return_address(0));
++	execmem_info = (struct execmem_info){
++		.ranges = {
++			[EXECMEM_DEFAULT] = {
++				.start	= MODULES_VADDR,
++				.end	= MODULES_END,
++				.pgprot	= PAGE_KERNEL,
++				.alignment = 1,
++			},
++		},
++	};
++
++	return &execmem_info;
+ }
+ 
+ /* Make generic code ignore STT_REGISTER dummy undefined symbols.  */
+diff --git a/include/linux/execmem.h b/include/linux/execmem.h
+index 8eebc8ef66e7..96fc59258467 100644
+--- a/include/linux/execmem.h
++++ b/include/linux/execmem.h
+@@ -33,6 +33,47 @@ enum execmem_type {
+ 	EXECMEM_TYPE_MAX,
+ };
+ 
++/**
++ * struct execmem_range - definition of an address space suitable for code and
++ *			  related data allocations
++ * @start:	address space start
++ * @end:	address space end (inclusive)
++ * @pgprot:	permissions for memory in this address space
++ * @alignment:	alignment required for text allocations
++ */
++struct execmem_range {
++	unsigned long   start;
++	unsigned long   end;
++	pgprot_t        pgprot;
++	unsigned int	alignment;
++};
++
++/**
++ * struct execmem_info - architecture parameters for code allocations
++ * @ranges: array of parameter sets defining architecture specific
++ * parameters for executable memory allocations. The ranges that are not
++ * explicitly initialized by an architecture use parameters defined for
++ * @EXECMEM_DEFAULT.
++ */
++struct execmem_info {
++	struct execmem_range	ranges[EXECMEM_TYPE_MAX];
++};
++
++/**
++ * execmem_arch_setup - define parameters for allocations of executable memory
++ *
++ * A hook for architectures to define parameters for allocations of
++ * executable memory. These parameters should be filled into the
++ * @execmem_info structure.
++ *
++ * For architectures that do not implement this method a default set of
++ * parameters will be used
++ *
++ * Return: a structure defining architecture parameters and restrictions
++ * for allocations of executable memory
++ */
++struct execmem_info *execmem_arch_setup(void);
++
+ /**
+  * execmem_alloc - allocate executable memory
+  * @type: type of the allocation
+@@ -54,4 +95,10 @@ void *execmem_alloc(enum execmem_type type, size_t size);
+  */
+ void execmem_free(void *ptr);
+ 
++#ifdef CONFIG_EXECMEM
++void execmem_init(void);
++#else
++static inline void execmem_init(void) {}
++#endif
++
+ #endif /* _LINUX_EXECMEM_ALLOC_H */
+diff --git a/mm/execmem.c b/mm/execmem.c
+index 480adc69b20d..80e61c1e7319 100644
+--- a/mm/execmem.c
++++ b/mm/execmem.c
+@@ -11,14 +11,30 @@
+ #include <linux/execmem.h>
+ #include <linux/moduleloader.h>
+ 
+-static void *__execmem_alloc(size_t size)
++static struct execmem_info *execmem_info __ro_after_init;
++
++static void *__execmem_alloc(struct execmem_range *range, size_t size)
+ {
+-	return module_alloc(size);
++	unsigned long start = range->start;
++	unsigned long end = range->end;
++	unsigned int align = range->alignment;
++	pgprot_t pgprot = range->pgprot;
++
++	return __vmalloc_node_range(size, align, start, end,
++				    GFP_KERNEL, pgprot, VM_FLUSH_RESET_PERMS,
++				    NUMA_NO_NODE, __builtin_return_address(0));
+ }
+ 
+ void *execmem_alloc(enum execmem_type type, size_t size)
+ {
+-	return __execmem_alloc(size);
++	struct execmem_range *range;
++
++	if (!execmem_info)
++		return module_alloc(size);
++
++	range = &execmem_info->ranges[type];
++
++	return __execmem_alloc(range, size);
+ }
+ 
+ void execmem_free(void *ptr)
+@@ -30,3 +46,48 @@ void execmem_free(void *ptr)
+ 	WARN_ON(in_interrupt());
+ 	vfree(ptr);
+ }
++
++static bool execmem_validate(struct execmem_info *info)
++{
++	struct execmem_range *r = &info->ranges[EXECMEM_DEFAULT];
++
++	if (!r->alignment || !r->start || !r->end || !pgprot_val(r->pgprot)) {
++		pr_crit("Invalid parameters for execmem allocator, module loading will fail");
++		return false;
++	}
++
++	return true;
++}
++
++static void execmem_init_missing(struct execmem_info *info)
++{
++	struct execmem_range *default_range = &info->ranges[EXECMEM_DEFAULT];
++
++	for (int i = EXECMEM_DEFAULT + 1; i < EXECMEM_TYPE_MAX; i++) {
++		struct execmem_range *r = &info->ranges[i];
++
++		if (!r->start) {
++			r->pgprot = default_range->pgprot;
++			r->alignment = default_range->alignment;
++			r->start = default_range->start;
++			r->end = default_range->end;
++		}
++	}
++}
++
++struct execmem_info * __weak execmem_arch_setup(void)
++{
++	return NULL;
++}
++
++void __init execmem_init(void)
++{
++	struct execmem_info *info = execmem_arch_setup();
++
++	if (!info || !execmem_validate(info))
++		return;
++
++	execmem_init_missing(info);
++
++	execmem_info = info;
++}
+diff --git a/mm/mm_init.c b/mm/mm_init.c
+index 549e76af8f82..b6a1fcf6e13a 100644
+--- a/mm/mm_init.c
++++ b/mm/mm_init.c
+@@ -27,6 +27,7 @@
+ #include <linux/swap.h>
+ #include <linux/cma.h>
+ #include <linux/crash_dump.h>
++#include <linux/execmem.h>
+ #include "internal.h"
+ #include "slab.h"
+ #include "shuffle.h"
+@@ -2793,4 +2794,5 @@ void __init mm_core_init(void)
+ 	pti_init();
+ 	kmsan_init_runtime();
+ 	mm_cache_init();
++	execmem_init();
+ }
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
