@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66FEFC25B4F
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 May 2024 18:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E20ECC25B10
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 May 2024 20:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KKIPdXJ7S0sYYHJZpJmlxZTi8XqpgbeVBg6z2pnXv4E=; b=Kvj+FdYM9yXxpt
-	YIOVxccmrCpqC1nQlVLtSl+Oeafn5lnXDrsDORL9JaM48iWsw+iZJrNv2zLN9LY2xclSJ8zUTzFXL
-	2SNerZOfxhcPxTiDHxaNpSRj6BGQezxZSMItd859sVcWumZO1ncKEAk5NP8YRL8RRYXH3HX/Hj9ma
-	TwxRrA59rDoDTfKHdeMzkwqSd3+ECfWxEj5Zmhpix+r4gMInyZ/pfNR/msWgsRm/D5EosOjs8iuIZ
-	VjAbBEZeujBb1fedTlj9U0j72/G27WERtmj2rUv3eYklYh2VcxwZqzV2IcsMALNhvIuQXgHutfFJ2
-	+4iEX4FapzXu3CmvMYCA==;
+	List-Owner; bh=E+5hbWHDrUed/naew5WFni0zC5QAgfCvsINKmeiojZo=; b=CdiEohiJfxdiAj
+	ygdLd8lFNfcFLQ5TJfx7ow+FbiYB+Nb45NpSN1rlIN9+cprp8sux+ls0v+9vZtFp5Gm/YwIMktGfA
+	P+7DwDu/OYuWSaQsAEsSI0cF1RdzDOf2c1YYq0gerQCh/CCkk9byos9RGzE2CPzN+hRahVykCZhFH
+	RxyU4EsSVG7SBw9b2UJojz6WdJosWTUL1Mug8/a3od4jGChqEim48fcZE6r0tCFL9yKrUVOwmTGEv
+	RcP3z+p4/l7GEw+mNQ8VM9SAVVmG8Nfee37eeNQSM/UkmgtZUbqGC/8TaYJuZYRIlRTmlhwYhL0V5
+	6fjuCLqqJWhyKU5U3Axg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s42z8-00000008Nop-2ir1;
-	Mon, 06 May 2024 18:22:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1s44ko-00000008dit-0svy;
+	Mon, 06 May 2024 20:16:06 +0000
+Received: from fgw20-7.mail.saunalahti.fi ([62.142.5.81])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s42z3-00000008Nle-43k5;
-	Mon, 06 May 2024 18:22:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 239F46140D;
-	Mon,  6 May 2024 18:22:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B99BC116B1;
-	Mon,  6 May 2024 18:22:35 +0000 (UTC)
-Date: Mon, 6 May 2024 14:22:40 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Andrew Morton <akpm@linux-foundation.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Christophe
- Leroy <christophe.leroy@csgroup.eu>, "David S. Miller"
- <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, Donald Dutile
- <ddutile@redhat.com>, Eric Chanudet <echanude@redhat.com>, Heiko Carstens
- <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen
- <chenhuacai@kernel.org>, Kent Overstreet <kent.overstreet@linux.dev>, Liviu
- Dudau <liviu@dudau.co.uk>, Luis Chamberlain <mcgrof@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Nadav Amit <nadav.amit@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>,
- Philippe =?UTF-8?B?TWF0aGlldS1EYXVkw6k=?= <philmd@linaro.org>, Rick
- Edgecombe <rick.p.edgecombe@intel.com>, Russell King
- <linux@armlinux.org.uk>, Sam Ravnborg <sam@ravnborg.org>, Song Liu
- <song@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas
- Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- bpf@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-modules@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v8 13/17] x86/ftrace: enable dynamic ftrace without
- CONFIG_MODULES
-Message-ID: <20240506142240.36c38d7f@gandalf.local.home>
-In-Reply-To: <20240505142600.2322517-14-rppt@kernel.org>
-References: <20240505142600.2322517-1-rppt@kernel.org>
-	<20240505142600.2322517-14-rppt@kernel.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1s44kl-00000008dhU-0oCN
+	for linux-riscv@lists.infradead.org;
+	Mon, 06 May 2024 20:16:04 +0000
+Received: from localhost (88-113-25-208.elisa-laajakaista.fi [88.113.25.208])
+	by fgw22.mail.saunalahti.fi (Halon) with ESMTP
+	id 7317e310-0be5-11ef-a9de-005056bdf889;
+	Mon, 06 May 2024 23:15:59 +0300 (EEST)
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Mon, 6 May 2024 23:15:57 +0300
+To: Alex Soo <yuklin.soo@starfivetech.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Jianlong Huang <jianlong.huang@starfivetech.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Drew Fustini <drew@beagleboard.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [RFC PATCH v3 2/7] pinctrl: starfive: jh8100: add main driver
+ and sys_east domain sub-driver
+Message-ID: <Zjk6fVwE_uUt3_G9@surfacebook.localdomain>
+References: <20240503111436.113089-1-yuklin.soo@starfivetech.com>
+ <20240503111436.113089-3-yuklin.soo@starfivetech.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240503111436.113089-3-yuklin.soo@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240506_112242_139592_DA1CA77D 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20240506_131603_604935_0CFE1297 
+X-CRM114-Status: GOOD (  33.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +76,620 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun,  5 May 2024 17:25:56 +0300
-Mike Rapoport <rppt@kernel.org> wrote:
+Fri, May 03, 2024 at 07:14:31PM +0800, Alex Soo kirjoitti:
+> Add Starfive JH8100 SoC pinctrl main driver to provide the
+> common APIs that are used by the sub-drivers of pinctrl
+> domains:
+> - sys_east,
+> - sys_west,
+> - sys_gmac,
+> - aon (always-on)
+> 
+> to implement the following tasks:
+> 
+> - applies pin multiplexing, function selection, and pin
+>   configuration for devices during system initialization
+>   or change of pinctrl state due to power management.
+> - read or set pin configuration from user space.
+> 
+> Also, add the sys_east domain sub-driver since it requires
+> at least one domain sub-driver to run the probe function in
+> the main driver to enable the basic pinctrl functionalities
+> on the system.
 
-> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> 
-> Dynamic ftrace must allocate memory for code and this was impossible
-> without CONFIG_MODULES.
-> 
-> With execmem separated from the modules code, execmem_text_alloc() is
-> available regardless of CONFIG_MODULES.
-> 
-> Remove dependency of dynamic ftrace on CONFIG_MODULES and make
-> CONFIG_DYNAMIC_FTRACE select CONFIG_EXECMEM in Kconfig.
-> 
-> Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
-> ---
->  arch/x86/Kconfig         |  1 +
->  arch/x86/kernel/ftrace.c | 10 ----------
->  2 files changed, 1 insertion(+), 10 deletions(-)
+...
 
-Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+> +config PINCTRL_STARFIVE_JH8100
+> +	bool
+> +	select GENERIC_PINCONF
+> +	select GENERIC_PINCTRL_GROUPS
+> +	select GENERIC_PINMUX_FUNCTIONS
+> +	select GPIOLIB
+> +	select GPIOLIB_IRQCHIP
 
--- Steve
+> +	select OF_GPIO
+
+Why?
+
+...
+
+> +/*
+> + * Pinctrl / GPIO driver for StarFive JH8100 SoC sys east controller
+> + *
+> + * Copyright (C) 2023-2024 StarFive Technology Co., Ltd.
+> + * Author: Alex Soo <yuklin.soo@starfivetech.com>
+
+> + *
+
+Unneeded blank line.
+
+> + */
+
+...
+
+> +#include <linux/gpio/driver.h>
+> +#include <linux/module.h>
+> +#include <linux/pinctrl/pinctrl.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+
+This lacks some of inclusions.
+E.g., array_size.h, mod_devicetable.h, io.h.
+
+...
+
+> +#ifdef CONFIG_PM_SLEEP
+
+SHouldn't be in a new code. Use proper PM macros.
+
+> +static int jh8100_sys_e_pinctrl_suspend(struct device *dev)
+> +{
+> +	struct jh8100_pinctrl *sfp;
+> +	int i;
+> +
+> +	sfp = dev_get_drvdata(dev);
+
+> +	if (!sfp)
+> +		return -EINVAL;
+
+When this check can be true?
+
+> +	for (i = 0; i < sfp->info->nregs; i++)
+> +		sfp->jh8100_sys_east_regs[i] = readl_relaxed(sfp->base + (i * 4));
+> +
+> +	return pinctrl_force_sleep(sfp->pctl);
+> +}
+> +
+> +static int jh8100_sys_e_pinctrl_resume(struct device *dev)
+> +{
+> +	struct jh8100_pinctrl *sfp;
+> +	int i;
+
+> +	sfp = dev_get_drvdata(dev);
+> +	if (!sfp)
+> +		return -EINVAL;
+
+Ditto.
+
+> +	for (i = 0; i < sfp->info->nregs; i++)
+> +		writel_relaxed(sfp->jh8100_sys_east_regs[i], sfp->base + (i * 4));
+
+Too many parentheses.
+
+> +	return pinctrl_force_default(sfp->pctl);
+> +}
+> +#endif
+
+...
+
+> +static SIMPLE_DEV_PM_OPS(jh8100_sys_e_pinctrl_dev_pm_ops,
+> +			 jh8100_sys_e_pinctrl_suspend,
+> +			 jh8100_sys_e_pinctrl_resume);
+
+Don't use obsoleted macros, use new ones.
+
+...
+
+> +#ifdef CONFIG_PM_SLEEP
+> +		.pm = &jh8100_sys_e_pinctrl_dev_pm_ops,
+> +#endif
+
+Ditto, no ugly ifdeffery.
+
+> +		.of_match_table = jh8100_sys_e_pinctrl_of_match,
+> +	},
+> +};
+
+...
+
+> +/*
+> + * Pinctrl / GPIO driver for StarFive JH8100 SoC
+> + *
+> + * Copyright (C) 2023-2024 StarFive Technology Co., Ltd.
+> + * Author: Alex Soo <yuklin.soo@starfivetech.com>
+
+> + *
+
+Unneeded blank line.
+
+> + */
+
+...
+
++ array_size.h
+
+> +#include <linux/bits.h>
+> +#include <linux/clk.h>
+
++ container_of.h
+
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/gpio/driver.h>
+> +#include <linux/io.h>
+> +#include <linux/irq.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_wakeirq.h>
+> +#include <linux/reset.h>
+> +#include <linux/seq_file.h>
+> +#include <linux/spinlock.h>
+> +#include <linux/string.h>
+
++ types.h
+
+...
+
+> +static unsigned int jh8100_pinmux_din(u32 v)
+> +{
+> +	return (v & GENMASK(31, 24)) >> 24;
+> +}
+> +
+> +static u32 jh8100_pinmux_dout(u32 v)
+> +{
+> +	return (v & GENMASK(23, 16)) >> 16;
+> +}
+> +
+> +static u32 jh8100_pinmux_doen(u32 v)
+> +{
+> +	return (v & GENMASK(15, 10)) >> 10;
+> +}
+> +
+> +static u32 jh8100_pinmux_function(u32 v)
+> +{
+> +	return (v & GENMASK(9, 8)) >> 8;
+> +}
+> +
+> +static unsigned int jh8100_pinmux_pin(u32 v)
+> +{
+> +	return v & GENMASK(7, 0);
+> +}
+
+These all are reinventions of bitfield.h.
+
+...
+
+> +static void jh8100_pin_dbg_show(struct pinctrl_dev *pctldev,
+> +				struct seq_file *s, unsigned int pin)
+> +{
+> +	struct jh8100_pinctrl *sfp = pinctrl_dev_get_drvdata(pctldev);
+> +	const struct jh8100_pinctrl_domain_info *info = sfp->info;
+> +
+> +	seq_printf(s, "%s", dev_name(pctldev->dev));
+
+> +	if (pin < sfp->gc.ngpio) {
+
+When this is not true?
+
+If that case even possible, invert the conditional to reduce the indentation
+level.
+
+> +		unsigned int offset = 4 * (pin / 4);
+> +		unsigned int shift  = 8 * (pin % 4);
+> +		u32 dout = readl_relaxed(sfp->base + info->dout_reg_base + offset);
+> +		u32 doen = readl_relaxed(sfp->base + info->doen_reg_base + offset);
+> +		u32 gpi = readl_relaxed(sfp->base + info->gpi_reg_base + offset);
+> +
+> +		dout = (dout >> shift) & info->dout_mask;
+> +		doen = (doen >> shift) & info->doen_mask;
+> +		gpi = ((gpi >> shift) - 2) & info->gpi_mask;
+> +
+> +		seq_printf(s, " dout=%u doen=%u din=%u", dout, doen, gpi);
+> +	}
+> +}
+
+...
+
+> +	pgnames = devm_kcalloc(dev, ngroups, sizeof(*pgnames), GFP_KERNEL);
+> +	if (!pgnames)
+> +		return -ENOMEM;
+> +
+> +	map = kcalloc(nmaps, sizeof(*map), GFP_KERNEL);
+> +	if (!map)
+> +		return -ENOMEM;
+
+Why one is managed and another is not? Shouldn't be both either managed or not?
+
+...
+
+> +	mutex_lock(&sfp->mutex);
+
+Don't you want to use cleanup.h from day 1?
+
+...
+
+> +	for_each_child_of_node(np, child) {
+
+Why not using _scoped() variant?
+
+...
+
+> +		int npins = of_property_count_u32_elems(child, "pinmux");
+
+Why signed?
+Please, decouple definition and assignment.
+
+> +		int *pins;
+> +		u32 *pinmux;
+> +		int i;
+> +
+> +		if (npins < 1) {
+> +			dev_err(dev,
+> +				"invalid pinctrl group %pOFn.%pOFn: pinmux not set\n",
+> +				np, child);
+> +			ret = -EINVAL;
+
+Can npins be negative? In such case why shadowing an error code?
+
+> +			goto put_child;
+> +		}
+
+...
+
+> +		ret = pinctrl_generic_add_group(pctldev, grpname,
+> +						pins, npins, pinmux);
+
+One line?
+
+...
+
+> +	for (i = 0; i < group->grp.npins; i++) {
+> +		u32 v = pinmux[i];
+> +
+> +		jh8100_set_one_pin_mux(sfp,
+> +				       jh8100_pinmux_pin(v),
+> +				       jh8100_pinmux_din(v),
+> +				       jh8100_pinmux_dout(v),
+> +				       jh8100_pinmux_doen(v),
+> +				       jh8100_pinmux_function(v));
+> +		}
+
+Indentation?
+
+...
+
+> +static u32 jh8100_padcfg_ds_to_mA(u32 padcfg)
+> +{
+> +	return jh8100_drive_strength_mA[(padcfg >> 1) & 3U];
+
+GENMASK() ?
+
+> +}
+> +
+> +static u32 jh8100_padcfg_ds_to_uA(u32 padcfg)
+> +{
+> +	return jh8100_drive_strength_mA[(padcfg >> 1) & 3U] * 1000;
+
+Ditto.
+
+> +}
+
+...
+
+> +static u32 jh8100_padcfg_ds_from_mA(u32 v)
+> +{
+> +	int i;
+
+Why signed?
+
+> +	for (i = 0; i < ARRAY_SIZE(jh8100_drive_strength_mA); i++) {
+> +		if (v <= jh8100_drive_strength_mA[i])
+> +			break;
+> +	}
+> +	return i << 1;
+> +}
+
+...
+
+> +static int jh8100_gpio_get_direction(struct gpio_chip *gc,
+> +				     unsigned int gpio)
+
+One line?
+
+> +{
+> +	struct jh8100_pinctrl *sfp = container_of(gc,
+> +			struct jh8100_pinctrl, gc);
+> +	const struct jh8100_pinctrl_domain_info *info = sfp->info;
+> +	unsigned int offset = 4 * (gpio / 4);
+> +	unsigned int shift  = 8 * (gpio % 4);
+> +	u32 doen = readl_relaxed(sfp->base + info->doen_reg_base + offset);
+
+> +	doen = (doen >> shift) & info->doen_mask;
+> +
+> +	return doen == 0 ? GPIO_LINE_DIRECTION_OUT : GPIO_LINE_DIRECTION_IN;
+
+	if ((doen >> shift) & info->doen_mask)
+		return GPIO_LINE_DIRECTION_IN;
+
+	return GPIO_LINE_DIRECTION_OUT;
+
+> +}
+
+...
+
+> +static int jh8100_gpio_direction_input(struct gpio_chip *gc,
+> +				       unsigned int gpio)
+> +{
+> +	struct jh8100_pinctrl *sfp = container_of(gc,
+> +			struct jh8100_pinctrl, gc);
+
+Broken indentation, just put on one line.
+
+> +	/* enable input and schmitt trigger */
+> +	jh8100_padcfg_rmw(sfp, gpio,
+> +			  JH8100_PADCFG_IE | JH8100_PADCFG_SMT,
+> +			  JH8100_PADCFG_IE | JH8100_PADCFG_SMT);
+> +
+> +	jh8100_set_one_pin_mux(sfp, gpio, 255, 0, 1, 0);
+> +
+> +	return 0;
+> +}
+
+...
+
+> +static int jh8100_gpio_direction_output(struct gpio_chip *gc,
+> +					unsigned int gpio, int value)
+> +{
+> +	struct jh8100_pinctrl *sfp = container_of(gc,
+> +			struct jh8100_pinctrl, gc);
+
+> +	jh8100_set_one_pin_mux(sfp, gpio,
+> +			       255, value ? 1 : 0,
+> +			       0, 0);
+
+Use room on the previous lines.
+
+
+> +	/* disable input, schmitt trigger and bias */
+> +	jh8100_padcfg_rmw(sfp, gpio,
+> +			  JH8100_PADCFG_IE | JH8100_PADCFG_SMT,
+> +			  0);
+> +	return 0;
+> +}
+
+...
+
+> +{
+> +	struct jh8100_pinctrl *sfp = container_of(gc,
+> +			struct jh8100_pinctrl, gc);
+
+One line. You may create a helper to_jh8100_pinctrl() and use everywhere,
+
+> +	const struct jh8100_pinctrl_domain_info *info = sfp->info;
+> +	void __iomem *reg = sfp->base + info->gpioin_reg_base
+> +			+ 4 * (gpio / 32);
+
+Split definition and assignment. It will increase readability.
+
+> +	return !!(readl_relaxed(reg) & BIT(gpio % 32));
+> +}
+
+...
+
+> +static void jh8100_gpio_set(struct gpio_chip *gc,
+> +			    unsigned int gpio, int value)
+> +{
+> +	struct jh8100_pinctrl *sfp = container_of(gc,
+> +			struct jh8100_pinctrl, gc);
+> +	const struct jh8100_pinctrl_domain_info *info = sfp->info;
+> +	unsigned int offset = 4 * (gpio / 4);
+> +	unsigned int shift  = 8 * (gpio % 4);
+> +	void __iomem *reg_dout = sfp->base + info->dout_reg_base + offset;
+> +	u32 dout = (value ? 1 : 0) << shift;
+
+	u32 dout = value ? BIT(shift) : 0;
+
+> +	u32 mask = info->dout_mask << shift;
+> +	unsigned long flags;
+> +
+> +	raw_spin_lock_irqsave(&sfp->lock, flags);
+> +	dout |= readl_relaxed(reg_dout) & ~mask;
+> +	writel_relaxed(dout, reg_dout);
+> +	raw_spin_unlock_irqrestore(&sfp->lock, flags);
+> +}
+
+...
+
+> +static void jh8100_irq_mask(struct irq_data *d)
+> +{
+> +	struct jh8100_pinctrl *sfp = jh8100_from_irq_data(d);
+> +	const struct jh8100_gpio_irq_reg *irq_reg = sfp->info->irq_reg;
+> +	irq_hw_number_t gpio = irqd_to_hwirq(d);
+> +	void __iomem *ie = sfp->base + irq_reg->ie_reg_base
+> +		+ 4 * (gpio / 32);
+> +	u32 mask = BIT(gpio % 32);
+> +	unsigned long flags;
+> +	u32 value;
+> +
+> +	raw_spin_lock_irqsave(&sfp->lock, flags);
+> +	value = readl_relaxed(ie) & ~mask;
+> +	writel_relaxed(value, ie);
+> +	raw_spin_unlock_irqrestore(&sfp->lock, flags);
+> +
+> +	gpiochip_disable_irq(&sfp->gc, d->hwirq);
+
+You have gpio, why not use it here?
+
+> +}
+
+...
+
+> +static void jh8100_irq_unmask(struct irq_data *d)
+> +{
+> +	struct jh8100_pinctrl *sfp = jh8100_from_irq_data(d);
+> +	const struct jh8100_gpio_irq_reg *irq_reg = sfp->info->irq_reg;
+> +	irq_hw_number_t gpio = irqd_to_hwirq(d);
+> +	void __iomem *ie = sfp->base + irq_reg->ie_reg_base
+> +		+ 4 * (gpio / 32);
+> +	u32 mask = BIT(gpio % 32);
+> +	unsigned long flags;
+> +	u32 value;
+> +
+> +	gpiochip_enable_irq(&sfp->gc, d->hwirq);
+
+Ditto.
+
+> +	raw_spin_lock_irqsave(&sfp->lock, flags);
+> +	value = readl_relaxed(ie) | mask;
+> +	writel_relaxed(value, ie);
+> +	raw_spin_unlock_irqrestore(&sfp->lock, flags);
+> +}
+
+...
+
+> +static int jh8100_irq_set_wake(struct irq_data *d, unsigned int enable)
+> +{
+> +	struct jh8100_pinctrl *sfp = jh8100_from_irq_data(d);
+> +	int ret = 0;
+> +
+> +	if (enable)
+> +		ret = enable_irq_wake(sfp->wakeup_irq);
+> +	else
+> +		ret = disable_irq_wake(sfp->wakeup_irq);
+> +	if (ret)
+> +		dev_err(sfp->dev, "failed to %s wake-up interrupt\n",
+> +			enable ? "enable" : "disable");
+
+str_enable_disable() (will require string_choices.h).
+
+> +	return ret;
+> +}
+
+...
+
+> +static void jh8100_irq_print_chip(struct irq_data *d, struct seq_file *p)
+> +{
+> +	struct jh8100_pinctrl *sfp = jh8100_from_irq_data(d);
+> +
+> +	seq_printf(p, sfp->gc.label);
+
+This is bad. Use seq_puts() or proper formatting string.
+
+> +}
+
+...
+
+> +	writel_relaxed(~0U, sfp->base + sfp->info->irq_reg->ic_reg_base);
+
+GENMASK() ?
+
+...
+
+> +		writel_relaxed(~0U, sfp->base + sfp->info->irq_reg->ic1_reg_base);
+
+Ditto.
+
+...
+
+> +	info = of_device_get_match_data(&pdev->dev);
+> +	if (!info)
+> +		return -ENODEV;
+
+Use device_get_match_data() from property.h.
+
+...
+
+> +	clk = devm_clk_get_optional(dev, NULL);
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk), "could not get clock\n");
+
+Why not _enabled() variant?
+
+...
+
+> +	/*
+> +	 * we don't want to assert reset and risk undoing pin muxing for the
+
+We
+
+> +	 * early boot serial console, but let's make sure the reset line is
+> +	 * deasserted in case someone runs a really minimal bootloader.
+> +	 */
+
+...
+
+> +	ret = devm_pinctrl_register_and_init(dev,
+> +					     jh8100_pinctrl_desc,
+> +					     sfp, &sfp->pctl);
+
+Can occupy less lines.
+
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "could not register pinctrl driver\n");
+
+...
+
+> +	if (sfp->gc.ngpio > 0) {
+
+Is it really can be not true?
+
+> +		ret = devm_gpiochip_add_data(dev, &sfp->gc, sfp);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "could not register gpiochip\n");
+> +
+> +		dev_info(dev, "StarFive JH8100 GPIO chip registered %d GPIOs\n", sfp->gc.ngpio);
+> +	}
+
+...
+
+> +/*
+> + * Pinctrl / GPIO driver for StarFive JH8100 SoC
+> + *
+> + * Copyright (C) 2023-2024 StarFive Technology Co., Ltd.
+> + * Author: Alex Soo <yuklin.soo@starfivetech.com>
+
+> + *
+
+Unneeded blank line.
+
+> + */
+> +
+> +#ifndef __PINCTRL_STARFIVE_JH8100_H__
+> +#define __PINCTRL_STARFIVE_JH8100_H__
+
+A lot of inclusions are missed, like
+
+types.h
+
+> +#include "../core.h"
+
+
+Some of the forward declarations are missed, like
+
+struct device;
+
+> +#endif /* __PINCTRL_STARFIVE_JH8100_H__ */
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
