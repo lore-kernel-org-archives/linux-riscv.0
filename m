@@ -4,73 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45693C10F16
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 May 2024 12:09:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749D8C10F16
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 May 2024 12:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OP5HkWf2UK8hDKopjlsYaCfNteXNAMzR3nR8yVNTzdE=; b=Wg5YhDeZUy5SRXO0wVWh1MHZXB
-	ARiXmt26941BXPMG/q1y3GC75Q8l5v6m/YN5lzY50yYS8DbGhxHwG0A2fptJrjmtiTYoqYTWWTL+K
-	BqxZwnn7t4f9l6CqWI9Gj2sioWuDQ9dai+A+4Swyoy2T+G3FDxAOca+P/Frf/Nd9oLGnRbO62/K4z
-	tLF6o7J29bd1BwDznN/oUOvByKeDX68V7abJhQhP5KFS8Rln93FDqN1ohOLytCaX+VIv6ZvDCKvFl
-	MKKL5U4n6vgY1IuGA4a4ugisi6mT7+2gDQZ/RsMs7Taqmb4wgAnQpbzTI5R/ryfUm1hYjiJ+TiJwW
-	EhRUcj1Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PxtNcjYMyW8nWiys6lLVetP6VH7gbhaL0/OXqCv7ihs=; b=z2DbtG17WZoKA/
+	YQxtQsO2qo1k+fUpbfJ8Dxta97bkQaJRTn2NbEN19JucsMnvHy52G1SSLprs68w3e+PmF5+yyBG0F
+	MMAV7ZO3fwHh8JkAm2d+lImL59xOQSPZO194ZXt8nApAZrMpHTE0pXWrAVqUXAbmdlDjsZLXd2quM
+	Yqkma2kud+SJHcQXb2QsAcSiM89D5hXKixeCeSv4Qxwe3+fQfi3JvGNuZj/M06H7asYG/WgA11KUU
+	g2qQ7cFkOmqvpLn2ErId3cWdRugvaewmjN3aTLZhqh3V4B12V+AbodESbpsmeRXmywwTJzjCNtFhx
+	7tOrcGU4dQpOM7K0OxZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3x9c-00000007CsJ-2h5M;
-	Mon, 06 May 2024 12:09:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1s3xHJ-00000007Enj-1PQq;
+	Mon, 06 May 2024 12:17:09 +0000
+Received: from mail-dm6nam11olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c15::801] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3x9Z-00000007Crm-2rBA
-	for linux-riscv@lists.infradead.org;
-	Mon, 06 May 2024 12:09:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1A4246120A;
-	Mon,  6 May 2024 12:09:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A02EC116B1;
-	Mon,  6 May 2024 12:09:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1714997347;
-	bh=0Fnm+sI6wbj1mgKUxkxRr4HUT2qUNad/sLEyTt+hwpE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E9+6v+Kti8MbD+yblxVWhraoQ6x5kHRP8p86QwLv1lLt86iYx1stJvwygiZKJSBRZ
-	 XZdCbVfvReLKs9UbAyFPS4EXPB64sNmcrOZ7ZzRdvVSZu0LEcenVRHUARoIpjoLRjz
-	 JdimM5YCje+w6lADPp5ePTCHt55ueJZ7iuaI915I5aMPTBWsf4mGO7QUMAPR2GfWwL
-	 b7NP4Yo6GDXn3BAG1rIgnDWF8O0Dq0jaakVIaI3ub7NXj7BRZZMxFRcHl9s1OsGBQ3
-	 tQgQ0xjOxCTZ4SNszihFdCm1RU58mcGYRyuHMM0k809VbLO4HIN5M8jsrJwcYDYeCQ
-	 x1hOM/zckr6cg==
-Date: Mon, 6 May 2024 13:09:02 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Leyfoon Tan <leyfoon.tan@starfivetech.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Yuklin Soo <yuklin.soo@starfivetech.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Drew Fustini <drew@beagleboard.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [RFC PATCH v3 0/7] Add Pinctrl driver for Starfive JH8100 SoC
-Message-ID: <20240506-buddhism-outtakes-5a2bbcc73f1a@spud>
-References: <20240503111436.113089-1-yuklin.soo@starfivetech.com>
- <CACRpkdbxzbNedWTpA5i-45AqPc4fA+GeBGkrjrD_OgkxMZRwXw@mail.gmail.com>
- <ZQZPR01MB0979DEF368CB86BB16B538E78A1CA@ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn>
+	id 1s3xHG-00000007Emc-31E5;
+	Mon, 06 May 2024 12:17:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=c+wMyE6IzTfU/uy0nCisbCmIkKbF4V1zVspPcAvnzT87XI8dLag4GWTboSowhzodQjdrPjeQmwYmaW0FpDVsEviumk0K8MFgOMY2Vaq0ufHb4ww8JDGK1QVEdHu54bJ2+9upWCSbiNDmbZe30XS1u7W8jnAEpcIgX2LYkQcEIuJv2Zz2lxUQJP5v+9AuisOVMQd2twgWAr3yaeNS3VcV8O7DpsmxjAsh6ml3yFPB45XSfvuhTdirKqf2PaVTVqoQEaAnvF4QJExMctOaKXat0+h1IM4bjxG91phhFzbkas7ItIYBDQR/nMTkFVqB677BRl7GAtk83QI3Ffr3qzKwNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q5Vw7qDRO3DwIkhmABNHwWKRQWu1slVAGXoHqCpXiDQ=;
+ b=jvFz3z4ee62AKiS0JohEoNcAwHS+cZ752zn9+Xr/MBkO7mnuPzJU4ViXPVVV+1gJkl4+J88sNLN+i/DFvtVd0aM3HC0ZeyKCKELaNv4QQM5OxKiJ2PuFXo3cpERJnyccSmkxy9t5xCdiBdeN8F6lKVjZba3SJUM8XHAlhywEHw6R4Vpmzz68VlQoqisR04EbnjyWl0nhaZs+Vpu5kfhk0qeVg+epjuGV1HS76zd3ztWziKFrXmvvrCxKHZzqupzdPae+cgRcddL424khdnYG0ypF9TQv/+yfbJJ2DE2llADABIWy7qSy/LuSVlGWWHZjIiuzn0ilAO/4LN01AxegHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q5Vw7qDRO3DwIkhmABNHwWKRQWu1slVAGXoHqCpXiDQ=;
+ b=iJT/bv3h4WrDjzqbre8udTdF0cxFdx9W7f4FgJoo9pCOZpeuTc1yh7J1qyZlHuzHoP/Vak0YHfdZVCuRkSYzZsrDkdADI515cub9RqBo40/MQtZs3ZNM0TQ9ZBQK2Z0O6WRcq2i5Zck7yeRVIj1vZXBNVtoSPr+DF8gN3mjYwMSqiqXaHvWmoSPFifQP5kseHGsjIURhMQsYI91gswXeE+yUNQ316MCjcgz9AkMrta6T6SmeRjK0sPAHdGxfh/e7KFofWU72O5eWKM+yd+g/8V2eUAwqZ+MdHIzJ2t/5r5WmOvRcDhqw7HKBp6c+WnV9qCgmF0ArwSoufHXqDe0jzQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by CH3PR20MB7351.namprd20.prod.outlook.com (2603:10b6:610:1d9::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7544.41; Mon, 6 May
+ 2024 12:16:59 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7544.041; Mon, 6 May 2024
+ 12:16:59 +0000
+Date: Mon, 6 May 2024 20:17:30 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>, 
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: phy: Add Sophgo CV1800 USB phy
+Message-ID: <IA1PR20MB4953FC99B680A3040D4CB611BB1C2@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB4953C1876484E149AA390DD5BB1D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953612130BFC78A8E92F6C5BB1D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <595f76bf-5e89-4027-87e5-ff316c699669@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <595f76bf-5e89-4027-87e5-ff316c699669@kernel.org>
+X-TMN: [pjn4YZIL4c90QZdlmFTr+H4VGHmnxlMjVVmTw37iEkE=]
+X-ClientProxiedBy: TYCP286CA0083.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:2b3::11) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <4bge7lyhkdhp72udsgjw5gefkzwrlovukqgzl4qdjsxohadh4k@nrc53w2z2f7r>
 MIME-Version: 1.0
-In-Reply-To: <ZQZPR01MB0979DEF368CB86BB16B538E78A1CA@ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CH3PR20MB7351:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2c4c7545-3481-4a54-d9ac-08dc6dc66dd6
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199019|440099019|3412199016|1710799017;
+X-Microsoft-Antispam-Message-Info: 7JOnrRGG/0fQtRlRiGpQJhk1kn6Ln7tcsA4oVm6tNfexodxezdVmt370TVydLS7ScabVC0Tf/xLJM5dlJ2KivnrzwdF3fTZLRBGCWK075ZDOndg5ROXnMJ/WFeWUoeHEVSnii0cSLh61tBK3hCWGSzHbejzbnb1GFSXBrkHCjaDSLfVVC8ihhGpkcsP4oNOe93d3M9yhGBzSzGxZEq9HAc5bTrCqZJB6AKYNlbrdkzq+rcb4VRb99q6cXuBYLYYewbfaEeswcbARjYp1p+Kh/f1YWaRMlV/eq6CTMH3dA/udOzAb5NzfVi/Kr0125FBmYunw14Rki0N8ePaG6plgsfb1convxCGhg103vNaRll+Nm6B7MdIjcbW2UvLz1dSr/LXwyMZ2BiMdrRsuAYaXFzBvvUbWg7lMMqhfGmTJ2tklhskezZCZlSxzyNfIiuy6M2WkoiX1EGxwflGTKBfx/683vjX0YFJPkWR2iueGPgkFyDcQOppDNdBXIF2lb6qmBdC9/YI8mRtkfgKvvCh+dCHwyJx/dg2WAqoasV2RJXhGjvbsTJiOiffk/MQ1GYbp7uES0+l7UV9AsynFv7BmG6tCGqXF3f/qJ9IggZCE6jR2OECOyYFGIkyAByXGg0OM
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FP5ll0T7JaPH+K2tNK45wKDLtPkbcil4uHS1pQrXzGHluvEynvK7O5/zWfhA?=
+ =?us-ascii?Q?MnkjiV3NgUMvhLLhmAMSjbBHd3IjsZJ1x5HV6veVQb5cSbyXtEteFStMLzzG?=
+ =?us-ascii?Q?2dWfDsVJXALPIv8U3F4s8fOouGBjHxNy9NG2dWhq3wQJEhAZy90ehJssMoM/?=
+ =?us-ascii?Q?pC18Vu4vcgJTNIIiQ7ySt/9mcY8XTwHOmeYklRP3NOI7ULKeSmCN691SYgBE?=
+ =?us-ascii?Q?x3/g5D7mGdLPF5seBYaaj+UhoEWcYKZeIujjdxJzFKq3RxOWUFMdTZ5FGIYc?=
+ =?us-ascii?Q?j7HJDQXi0VacAiDvaP/91wn2KzxiBGylfLFHkyG1Aiw19xAXp/hiLgWvYiND?=
+ =?us-ascii?Q?YEEt7+rdbu1O0rgqxBICRloD6f+Va2FSj+iU2DvROTag64CU2q0CDaYoygzO?=
+ =?us-ascii?Q?a3+hpBaZzp/6mglLeQ9tw64zaK2IjYAk8MIifA3S3c3co09rJ5JgyWTTuZAx?=
+ =?us-ascii?Q?F2qCx9k47Q7FsitRJCEI65EC5WYz7aaIOtNp8jLirNYj2DWMMdwnkXr9FWDA?=
+ =?us-ascii?Q?Ez/z5/kZU4VlKv/4GQvUXx9bi23yv1KRDIwWI9gKHge6Ix5Vk62coKfVfc+P?=
+ =?us-ascii?Q?YPOYMF4U/MKgXksq3Ipa3HK2cKONNaQqEfkXbiUxpRsd3tBw40nHzcHZRHGd?=
+ =?us-ascii?Q?wbdVuEbxJJWmC4ig7M2sdZaIS+1R1LrKhm5x4+h3LEJZ4StO0RkBCpF2rAW8?=
+ =?us-ascii?Q?2W0EZBTxneTus6DeCd7jAFUW3hD48H1c3DeI7pwy1kq5eXU4Xqcs1DXkfrtV?=
+ =?us-ascii?Q?fdBVqLHI53EGgD/ND9N4id4Ct2uoli/sVIsPsyp0jwYe6q1ZN32ZjNPAw0vY?=
+ =?us-ascii?Q?YRpVcVb7ftnyypy8nEtmHBwj60R9zaLz66qMTDZXGIKUMaOcFZGyHXqBB7Py?=
+ =?us-ascii?Q?eO+7EXtkfg39Ks6mPJaxF4jmqwj9uupCtVfb6HJ6An3C2FBDb1wGxoR6ewPd?=
+ =?us-ascii?Q?M20OqWqFzT83s6eOjy6UUGiDHTEtVYsmMWYCo9purlW6VBhUU+L0TsisoEPO?=
+ =?us-ascii?Q?2OZmTq900wwCyPuwp4hHr25YlG8fOYrRpl8WIPHsbnxU3odAwhAPJvbtf5Ff?=
+ =?us-ascii?Q?bmDnkK8+jcPSRIa7utSj3gkxWoiI5M6WpGSHzjJbDBbtD9miwyYHL/zQvEqu?=
+ =?us-ascii?Q?354Lm4fXxuwS5xdZ+EXSoGTX82OsMAbhGB8Gv2Q3hf0m7Zg1O83Vd6lvW86X?=
+ =?us-ascii?Q?+DMeszLlWMlv2ONT5G5sNv3cXbdJP8fcSt0gZkT7UI7FBiYli48tn7l2i9f1?=
+ =?us-ascii?Q?9I0TBWm2s17M9Prb6XE7?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c4c7545-3481-4a54-d9ac-08dc6dc66dd6
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2024 12:16:59.6696
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR20MB7351
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240506_050909_835030_599D7074 
-X-CRM114-Status: GOOD (  23.26  )
+X-CRM114-CacheID: sfid-20240506_051706_789435_FE010B9B 
+X-CRM114-Status: GOOD (  24.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,109 +126,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3448195874866501900=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, May 06, 2024 at 08:51:59AM GMT, Krzysztof Kozlowski wrote:
+> On 05/05/2024 03:52, Inochi Amaoto wrote:
+> > The USB phy of Sophgo CV18XX series SoC needs to sense a pin called
+> > "VBUS_DET" to get the right operation mode. If this pin is not
+> > connected, it only supports setting the mode manually.
+> > 
+> > Add USB phy bindings for Sophgo CV18XX/SG200X series SoC.
+> 
+> ...
+> 
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: phy
+> > +      - const: app
+> > +      - const: stb
+> > +      - const: lpm
+> > +
+> > +  vbus_det-gpios:
+> 
+> No underscores.
+> 
 
---===============3448195874866501900==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="fhe1DvgnzcGojSpS"
-Content-Disposition: inline
+Thanks.
 
+> > +    description: GPIO to the USB OTG VBUS detect pin. This should not be
+> > +      defined if vbus_det pin and switch pin are connected, which may
+> > +      break the VBUS detection.
+> 
+> Why is this property of the PHY? VBUS pin goes to the connector, doesn't
+> it? It looks like you combined two or three (!!!) bindings into one.
+> 
 
---fhe1DvgnzcGojSpS
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yes, but I am not sure which is the best to write this bindings.
+The topology of USB likes this:
 
-On Mon, May 06, 2024 at 07:31:19AM +0000, Leyfoon Tan wrote:
->=20
->=20
-> > -----Original Message-----
-> > From: Linus Walleij <linus.walleij@linaro.org>
-> > Sent: Monday, May 6, 2024 2:35 PM
-> > To: Yuklin Soo <yuklin.soo@starfivetech.com>
-> > Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>; Hal Feng
-> > <hal.feng@starfivetech.com>; Leyfoon Tan <leyfoon.tan@starfivetech.com>;
-> > Jianlong Huang <jianlong.huang@starfivetech.com>; Emil Renner Berthing
-> > <kernel@esmil.dk>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> > <krzysztof.kozlowski+dt@linaro.org>; Conor Dooley <conor+dt@kernel.org>;
-> > Drew Fustini <drew@beagleboard.org>; linux-gpio@vger.kernel.org; linux-
-> > kernel@vger.kernel.org; devicetree@vger.kernel.org; linux-
-> > riscv@lists.infradead.org; Paul Walmsley <paul.walmsley@sifive.com>; Pa=
-lmer
-> > Dabbelt <palmer@dabbelt.com>; Albert Ou <aou@eecs.berkeley.edu>
-> > Subject: Re: [RFC PATCH v3 0/7] Add Pinctrl driver for Starfive JH8100 =
-SoC
-> >=20
-> > On Fri, May 3, 2024 at 1:14=E2=80=AFPM Alex Soo <yuklin.soo@starfivetec=
-h.com>
-> > wrote:
-> >=20
-> > > Starfive JH8100 SoC consists of 4 pinctrl domains - sys_east,
-> > > sys_west, sys_gmac, and aon. This patch series adds pinctrl drivers
-> > > for these 4 pinctrl domains and this patch series is depending on the
-> > > JH8100 base patch series in [1] and [2].
-> > > The relevant dt-binding documentation for each pinctrl domain has been
-> > > updated accordingly.
-> > >
-> > > [1]
-> > > https://lore.kernel.org/lkml/20231201121410.95298-1-jeeheng.sia@starfi
-> > > vetech.com/ [2]
-> > > https://lore.kernel.org/lkml/20231206115000.295825-1-
-> > jeeheng.sia@starf
-> > > ivetech.com/
-> >=20
-> > v3 is starting to look very nice, why is this patch set still in "RFC"?
-> >=20
-> > I would like some proper review from the StarFive maintainers at this p=
-oint so
-> > we can get it finished.
-> >=20
-> > Yours,
-> > Linus Walleij
->=20
-> Hi Linus
->=20
-> Thanks for reviewing the patches.
->=20
-> There is a discussion in another thread about the JH8100 SoC being valida=
-ted on FPGA/Emulation only now.  The suggestion is to send the patches as "=
-RFC" before the real silicon availability.
->=20
-> https://patchew.org/linux/20231201121410.95298-1-jeeheng.sia@starfivetech=
-=2Ecom/20231201121410.95298-3-jeeheng.sia@starfivetech.com/
+controller -- phy -- switch --> (host) port/hub
+                            --> (device) port
 
-I know I said "drivers" in that mail you link to, but I was mostly
-concerned about binding headers etc, of which I think there are actually
-none here, so see my reply to this thread a few days ago:
-https://lore.kernel.org/all/20240503-undress-mantra-e5e46b2f6360@spud/
+The vbus-detect connect to the device port, but it will change the mode for
+both phy and switch. And the switch is just a switching circuit.
+I am pretty confused on how to split this binding. I think it may like the 
+following:
 
---fhe1DvgnzcGojSpS
-Content-Type: application/pgp-signature; name="signature.asc"
+phy {
+	switch {
+		/* This is the switch in the follows */
+		connector1 {
+			/* host port */
+		};
+		connector2 {
+			/* device port*/
+			/* the vbus pin is here */
+		};
+	};
+};
 
------BEGIN PGP SIGNATURE-----
+Could you share some suggestion on this?
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjjIXgAKCRB4tDGHoIJi
-0siTAPwPnSCk10VkOwstQsjPqJmO7jS0QCzQE8MSxiuXnngLHwD/btPWiaBObZuw
-ous37JV45r0PEtTo5WYRu5cNHmTICAI=
-=uM22
------END PGP SIGNATURE-----
+> > +    maxItems: 1
+> > +
+> > +  sophgo,switch-gpios:
+> > +    description: GPIO array for the phy to control connected switch. For
+> 
+> Switch? This is a binding of the phy, not switch...
+> 
 
---fhe1DvgnzcGojSpS--
+You are right, I think this switch may be more like a pattern device.
 
+> > +      host mode, the driver will set these GPIOs to low one by one. For
+> 
+> Yeah, you mention driver which further confirms this is a property for
+> driver, not hardware.
+> 
+> Describe your hardware, not driver behavior.
 
---===============3448195874866501900==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+OK, I will remove this.
+
+> 
+> 
+> > +      device mode, the driver will set these GPIOs to high in reverse
+> > +      order. For a reference design, see item description.
+> > +    minItems: 1
+> > +    items:
+> > +      - description: USB switch operation mode
+> > +      - description: USB switch host power control
+> > +
+> > +required:
+> > +  - compatible
+> > +  - "#phy-cells"
+> > +  - clocks
+> > +  - clock-names
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    phy@48 {
+> > +      compatible = "sophgo,cv1800-usb-phy";
+> > +      reg = <0x48 0x4>;
+> > +      #phy-cells = <0>;
+> > +      clocks = <&clk 92>, <&clk 93>,
+> > +               <&clk 94>, <&clk 95>;
+> > +      clock-names = "phy", "app", "stb", "lpm";
+> 
+> Make the example complete.
+> 
+> 
+> 
+> Best regards,
+> Krzysztof
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3448195874866501900==--
-
