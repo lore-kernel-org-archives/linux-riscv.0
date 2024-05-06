@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8F5C10F16
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 May 2024 15:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A08BC41513
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 May 2024 15:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8J1pl0c4d5Cas0Dv3jNkm9gsbDuFr+b7+xXuD18XH58=; b=bFV+Cp0usVr38L
-	ghUl+eG4wgjgDFWsPW/Bt1h8BffSnIAAx65jnbG+xullYIkXhyOBCJEjV8w3z7dh+s4RJ3u1vUtIf
-	MSawW5hGYBCcC5IEQa4cnmNAK7ZmVH7b+EWXiQfDJqVlLrdBrcfCHroz+pLBsrC0mYF34P9hv3MQu
-	NlP/5eOC5Kj5/v4I2S8xZYY074+yvBtHSq7YqstaaZ7jHtoJEv/tHgnIyX6RpQPxxSQKazWUxUUCn
-	TsIXVIrJ8UITRUrP3OKj6At63k7QNNiukDCZSaTzOM1UisAjfObq1tbxOcfcl+LcKGwb776hRe8TD
-	oWZj6MeJ3wvVL4HIS5JQ==;
+	List-Owner; bh=2rd/QnH3UzZ1R4ga6tymW091eyFY98kTIuKNX3gZJ48=; b=DbagV9UxK+kwV7
+	D8l0YYh/VSG4RbYbiaumjgb/+9QGaHNWKZermJPzXKGfdP7lEYbj7tmW4JDXjVirkgLXNFHVku9xY
+	BQ2XbV6p2ZnLm9kdXzWj9rOq5MBjx1Z0h3yo5JRmN9XXX7M9dGv3tjgQDQnqHm8m4sm3UeS2ocH0D
+	MQDN/s8+yCehJlxvUHOkamHg2PLbFNscuAKRWr9sZnl98KH5HN+1xaVGNXYbroLBvge/gydo6g/lS
+	yfNDK70XAMjQMnU6OYpzzSZefgfOsVFZDRoCAA6+YDfIlkzPbUomJj80ciWFe7nI/GfSghS9l1Nrp
+	w9wlqYIrkOPJxSPv35og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s40Q2-00000007tHT-05np;
-	Mon, 06 May 2024 15:38:22 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1s40dS-00000007w7R-48P9;
+	Mon, 06 May 2024 15:52:14 +0000
+Received: from out0-203.mail.aliyun.com ([140.205.0.203])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s40Px-00000007tEn-1eA9
+	id 1s40dP-00000007w0M-0wrl
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 May 2024 15:38:20 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4VY5893TxrzNw6Y;
-	Mon,  6 May 2024 23:35:21 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3AE2218007D;
-	Mon,  6 May 2024 23:38:06 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Mon, 6 May 2024 23:38:05 +0800
-Message-ID: <5df237e2-5bfd-4f31-a168-abfbf7808822@huawei.com>
-Date: Mon, 6 May 2024 23:38:04 +0800
+	Mon, 06 May 2024 15:52:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=antgroup.com; s=default;
+	t=1715010725; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=TKTzSti+PtAcGWZfYR7jaBIBKKIAPqWETl5mtmtjZos=;
+	b=ZRea5w/IcGC9MV1SBNc5shJxg3XjcjfsV3j23iuZoBu92uc4o3luafLH/qPNmryQLElSLPmMXGrmre09/bPi7ye2IulZfheZ0cEBKldrc+NuKCBmJzG2dNqPF65/3RayOKdpjv8iNi0LL5Il4mstavOfGXiA5y4g4WD4DEuA9HU=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018047201;MF=libang.li@antgroup.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---.XTd3ClE_1715010722;
+Received: from localhost(mailfrom:libang.li@antgroup.com fp:SMTPD_---.XTd3ClE_1715010722)
+          by smtp.aliyun-inc.com;
+          Mon, 06 May 2024 23:52:02 +0800
+From: "Bang Li" <libang.li@antgroup.com>
+To: akpm@linux-foundation.org,
+	chenhuacai@kernel.org,
+	tsbogend@alpha.franken.de,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	chris@zankel.net,
+	jcmvbkbc@gmail.com
+Cc: <linux-kernel@vger.kernel.org>,
+   <linux-mm@kvack.org>,
+   <loongarch@lists.linux.dev>,
+   <linux-riscv@lists.infradead.org>,
+   <david@redhat.com>,
+   <ryan.roberts@arm.com>,
+   <ioworker0@gmail.com>,
+   <libang.linux@gmail.com>,
+  "Bang Li" <libang.li@antgroup.com>
+Subject: [PATCH v2 1/5] LoongArch: Add update_mmu_tlb_range()
+Date: Mon, 06 May 2024 23:51:16 +0800
+Message-Id: <20240506155120.83105-2-libang.li@antgroup.com>
+X-Mailer: git-send-email 2.19.1.6.gb485710b
+In-Reply-To: <20240506155120.83105-1-libang.li@antgroup.com>
+References: <20240506155120.83105-1-libang.li@antgroup.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf] riscv, bpf: make some atomic operations fully ordered
-To: Puranjay Mohan <puranjay@kernel.org>
-CC: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
-	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
-	<martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu
-	<song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John Fastabend
-	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev
-	<sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, "Paul E. McKenney"
-	<paulmck@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <puranjay12@gmail.com>
-References: <20240505201633.123115-1-puranjay@kernel.org>
-Content-Language: en-US
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20240505201633.123115-1-puranjay@kernel.org>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240506_083817_973567_95297B36 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20240506_085211_755511_CB042CAE 
+X-CRM114-Status: UNSURE (   5.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,97 +75,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Added update_mmu_tlb_range function, we can batch update tlb of an
+address range.
 
+Signed-off-by: Bang Li <libang.li@antgroup.com>
+---
+ arch/loongarch/include/asm/pgtable.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-On 2024/5/6 4:16, Puranjay Mohan wrote:
-> The BPF atomic operations with the BPF_FETCH modifier along with
-> BPF_XCHG and BPF_CMPXCHG are fully ordered but the RISC-V JIT implements
-> all atomic operations except BPF_CMPXCHG with relaxed ordering.
-> 
-> Section 8.1 of the "The RISC-V Instruction Set Manual Volume I:
-> Unprivileged ISA" [1], titled, "Specifying Ordering of Atomic
-> Instructions" says:
-> 
-> | To provide more efficient support for release consistency [5], each
-> | atomic instruction has two bits, aq and rl, used to specify additional
-> | memory ordering constraints as viewed by other RISC-V harts.
-> 
-> and
-> 
-> | If only the aq bit is set, the atomic memory operation is treated as
-> | an acquire access.
-> | If only the rl bit is set, the atomic memory operation is treated as a
-> | release access.
-> |
-> | If both the aq and rl bits are set, the atomic memory operation is
-> | sequentially consistent.
-> 
-> Fix this by setting both aq and rl bits as 1 for operations with
-> BPF_FETCH and BPF_XCHG.
-> 
-> [1] https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf
-> 
-> Fixes: dd642ccb45ec ("riscv, bpf: Implement more atomic operations for RV64")
-> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-> ---
->   arch/riscv/net/bpf_jit_comp64.c | 20 ++++++++++----------
->   1 file changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index ec9d692838fc..fb5d1950042b 100644
-> --- a/arch/riscv/net/bpf_jit_comp64.c
-> +++ b/arch/riscv/net/bpf_jit_comp64.c
-> @@ -498,33 +498,33 @@ static void emit_atomic(u8 rd, u8 rs, s16 off, s32 imm, bool is64,
->   		break;
->   	/* src_reg = atomic_fetch_<op>(dst_reg + off16, src_reg) */
->   	case BPF_ADD | BPF_FETCH:
-> -		emit(is64 ? rv_amoadd_d(rs, rs, rd, 0, 0) :
-> -		     rv_amoadd_w(rs, rs, rd, 0, 0), ctx);
-> +		emit(is64 ? rv_amoadd_d(rs, rs, rd, 1, 1) :
-> +		     rv_amoadd_w(rs, rs, rd, 1, 1), ctx);
->   		if (!is64)
->   			emit_zextw(rs, rs, ctx);
->   		break;
->   	case BPF_AND | BPF_FETCH:
-> -		emit(is64 ? rv_amoand_d(rs, rs, rd, 0, 0) :
-> -		     rv_amoand_w(rs, rs, rd, 0, 0), ctx);
-> +		emit(is64 ? rv_amoand_d(rs, rs, rd, 1, 1) :
-> +		     rv_amoand_w(rs, rs, rd, 1, 1), ctx);
->   		if (!is64)
->   			emit_zextw(rs, rs, ctx);
->   		break;
->   	case BPF_OR | BPF_FETCH:
-> -		emit(is64 ? rv_amoor_d(rs, rs, rd, 0, 0) :
-> -		     rv_amoor_w(rs, rs, rd, 0, 0), ctx);
-> +		emit(is64 ? rv_amoor_d(rs, rs, rd, 1, 1) :
-> +		     rv_amoor_w(rs, rs, rd, 1, 1), ctx);
->   		if (!is64)
->   			emit_zextw(rs, rs, ctx);
->   		break;
->   	case BPF_XOR | BPF_FETCH:
-> -		emit(is64 ? rv_amoxor_d(rs, rs, rd, 0, 0) :
-> -		     rv_amoxor_w(rs, rs, rd, 0, 0), ctx);
-> +		emit(is64 ? rv_amoxor_d(rs, rs, rd, 1, 1) :
-> +		     rv_amoxor_w(rs, rs, rd, 1, 1), ctx);
->   		if (!is64)
->   			emit_zextw(rs, rs, ctx);
->   		break;
->   	/* src_reg = atomic_xchg(dst_reg + off16, src_reg); */
->   	case BPF_XCHG:
-> -		emit(is64 ? rv_amoswap_d(rs, rs, rd, 0, 0) :
-> -		     rv_amoswap_w(rs, rs, rd, 0, 0), ctx);
-> +		emit(is64 ? rv_amoswap_d(rs, rs, rd, 1, 1) :
-> +		     rv_amoswap_w(rs, rs, rd, 1, 1), ctx);
->   		if (!is64)
->   			emit_zextw(rs, rs, ctx);
->   		break;
+diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
+index af3acdf3481a..924b6b031f06 100644
+--- a/arch/loongarch/include/asm/pgtable.h
++++ b/arch/loongarch/include/asm/pgtable.h
+@@ -470,6 +470,10 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ #define __HAVE_ARCH_UPDATE_MMU_TLB
+ #define update_mmu_tlb	update_mmu_cache
+ 
++#define __HAVE_ARCH_UPDATE_MMU_TLB_RANGE
++#define update_mmu_tlb_range(vma, addr, ptep, nr) \
++	update_mmu_cache_range(NULL, vma, addr, ptep, nr)
++
+ static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
+ 			unsigned long address, pmd_t *pmdp)
+ {
+-- 
+2.19.1.6.gb485710b
 
-Reviewed-by: Pu Lehui <pulehui@huawei.com>
 
 _______________________________________________
 linux-riscv mailing list
