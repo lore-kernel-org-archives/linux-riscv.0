@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E936EC4345F
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 May 2024 05:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 409DDC4345F
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 May 2024 06:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uPfjnNt9S9fUVmyfVW6NL/xV3cMfEM4PhRFfpglUvgg=; b=prekK4XG298iGj
-	X6PFJEgE1O3KgFz3X1knanuMHagFPsBoWHyKL/bfsTdkuO9jXNzzcr1L4PfzGRbkyE5kDujJtHJlN
-	NResotM7uL5toH8Ry/EtwQ8oSmyKj6T6Ck1+z2aGQRB0H/ppIdSsCFHOPM9a7rZjG4ADyVPCPfEDt
-	4KVq8YCqDuqMmdSeo8UmeG2L9aMLZckISZZX3TUYfpCvmw9KNT9A/oGWkCX2JLGDJgJBWFZgKviR+
-	GtNLPH0YTx/CdntiJ+dvzIqJjk3t0TQvcqc0SyEGrLd4MPXyjlSvumsfYk1ZKDRIZFfqlHD18OyK7
-	iJ3++AcF4WYpg4vQhVnA==;
+	List-Owner; bh=8+kQoN22jpN0cg4HOl0tzDoMPXjSt7Y3WniIqSKaKok=; b=jBYfyMEh8wU9WI
+	zaLTZN+BT6aDVE3jLygLKktOMaB4FrM9ZGGvh3SXx6R9uc4+wwNSgy2lYBAmmhQHVdGKCVxC/zk0X
+	Y8RHM9NUbNBsXkuPxDKutW4WkHfBEsB/a6sQcpdePU0Id/CyuEEsihY09yWfpl+PQl06fIXbd/W6e
+	P7sjLjFyR+0KhO4ggBv7q91bq22JGMPxXF/yvaH5PeXuBcsa1/CtxzcE56jImCUpnxAPHsEof6Ey1
+	4axFJ7zEK9BGjPMZk6sRDwuReMH9oUtA8+OYbizyHk96iUn6MVt66gqRVLtRqMEWZTFgfdNjMin0j
+	RhpfcK+R7S14H1wR80kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3qd2-0000000661G-43y2;
-	Mon, 06 May 2024 05:11:08 +0000
-Received: from mail.valinux.co.jp ([210.128.90.3])
+	id 1s3rwa-00000006K7i-2Ymc;
+	Mon, 06 May 2024 06:35:24 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s3qd0-0000000660L-0vob
+	id 1s3rwX-00000006K78-3UO6
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 May 2024 05:11:07 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by mail.valinux.co.jp (Postfix) with ESMTP id 61438A99CF;
-	Mon,  6 May 2024 14:11:00 +0900 (JST)
-X-Virus-Scanned: Debian amavisd-new at valinux.co.jp
-Received: from mail.valinux.co.jp ([127.0.0.1])
-	by localhost (mail.valinux.co.jp [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id Fd3innPWGCin; Mon,  6 May 2024 14:11:00 +0900 (JST)
-Received: from localhost.localdomain (p10626078-ipngn25201marunouchi.tokyo.ocn.ne.jp [153.201.134.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.valinux.co.jp (Postfix) with ESMTPSA id 25483A9977;
-	Mon,  6 May 2024 14:11:00 +0900 (JST)
-From: takakura@valinux.co.jp
-To: songshuaishuai@tinylab.org,
-	paul.walmsley@sifive.com
-Cc: palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	guoren@kernel.org,
-	xianting.tian@linux.alibaba.com,
-	takahiro.akashi@linaro.org,
-	takakura@valinux.co.jp,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [-fixes] riscv: kexec: Avoid deadlock in kexec crash path
-Date: Mon,  6 May 2024 14:10:58 +0900
-Message-Id: <20240506051058.20386-1-takakura@valinux.co.jp>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <0e34cd12-66d8-4432-780a-f08d03a2c95e@sifive.com>
-References: <0e34cd12-66d8-4432-780a-f08d03a2c95e@sifive.com>
+	Mon, 06 May 2024 06:35:23 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-db4364ecd6aso1356864276.2
+        for <linux-riscv@lists.infradead.org>; Sun, 05 May 2024 23:35:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1714977318; x=1715582118; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=F4bCGtNldfkHhz1v+X5T6XqO5NjhSnpFKTEaXpHr2Fk=;
+        b=nJyguMYC+95YR7oeWSw+vgpRBSd9pSOB/WR+bIy/sAb07D2jnmZMZvHssDveXpMJQb
+         DhbqQMc7H4WFq37VFGjByDZxHzUj+Xa2Z9CUZitADOEiAc/kuuQCtCVd2V2j/33H8JlS
+         VSpfI4kM3aPXGUGZ+SW8X2Wz/lYpLpmIWRIkZUceQD1JXTiXVbksq0X2xyo/6RdUtzEL
+         ObQct+/OZvZDHR6OXCpScdhN9+zIPxxThZWrCHEBZy8nv1loGB7Ouqmnmf3a4qZ6GMfO
+         WBUIt/BcLahmDYBkdBMUzxJB3KBUs9FmrGHFQngfnV+089gC9ixLYFtoi+VvTcTw70xE
+         kxtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1714977318; x=1715582118;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=F4bCGtNldfkHhz1v+X5T6XqO5NjhSnpFKTEaXpHr2Fk=;
+        b=wRToetE5VKtMOA+Nxro0ppar/D8VRXdCGGNdroiku4+F8gph49OPZsiLg0y+JuBJUh
+         Mty/YyyYsG1b+bVBRf0QKy6QwzBUzCfo3mtBk+w3ZMk4tTRJ1fRIeL1nqmq9FyN/ERKN
+         FL9V9J8Hc0vG3Uw+MMPYOMaKQwzL7qIlST4Ghw1V5HedLmmD8eeYzk20h0PxyGKVOyyc
+         W46s6GltstJE0gigS56afyWkrKFnnNQgoJQNEbrv6gnyqqeSmYKwXh8oDpGsKkGcN2du
+         W3LzSvhFHHJWZpUDaihhBwWPKKqK46FHqpmJXsSF/KqMuR4zansHgtdrVJVh9H7Sa6Yv
+         RsqA==
+X-Forwarded-Encrypted: i=1; AJvYcCXNe3CB0jmBuPDD7wikqnylXsX4KCGztK/tpPzsgN38la5bDrOGjy+T6/OlJ4F6I+52mMujbMC+qsF0/EKBWOoJqs/agJTDGSHocorakx2U
+X-Gm-Message-State: AOJu0YySJY80coHDBuyQghb891I2FILZYiro7XwGFiF10ZqCOxa7aP+/
+	sGdsjDl0gu6Z/fl8RvQeRDlL4ap7YJLZrIYNmyqrevf6n0i02O6Z+JgQsajdBIqm/GXAfn1qI3x
+	u1IFeoohJfUgwiPgh288hKDG3qAHzOgyHJCZ1o5OCiAgvTZrI
+X-Google-Smtp-Source: AGHT+IHwFBLDH7pB4BuNuBdkU/p+O0HvtvUwPbTtHfpWZ5KWh1FNTe4KBMhrRQUWSn6w8OSGytaKBjVYjoN6DHr3YUc=
+X-Received: by 2002:a5b:e92:0:b0:deb:7eb7:c9ce with SMTP id
+ z18-20020a5b0e92000000b00deb7eb7c9cemr1681261ybr.1.1714977318711; Sun, 05 May
+ 2024 23:35:18 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240503111436.113089-1-yuklin.soo@starfivetech.com>
+In-Reply-To: <20240503111436.113089-1-yuklin.soo@starfivetech.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 6 May 2024 08:35:07 +0200
+Message-ID: <CACRpkdbxzbNedWTpA5i-45AqPc4fA+GeBGkrjrD_OgkxMZRwXw@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 0/7] Add Pinctrl driver for Starfive JH8100 SoC
+To: Alex Soo <yuklin.soo@starfivetech.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Hal Feng <hal.feng@starfivetech.com>, 
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>, 
+	Jianlong Huang <jianlong.huang@starfivetech.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Drew Fustini <drew@beagleboard.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240505_221106_394220_B28550A5 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20240505_233521_943563_7FC9D947 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,64 +91,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Song and Paul!
-
->> To avoid the deadlock, this patch directly EOI the irq regardless of
->> the active status of irqchip.
->
->Taking a quick look at the other architectures, looks like no one else is 
->doing this.  Is this addressing a RISC-V-only problem?
->
->> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
->> index f6c7135b00d7..d7ddf4d2b243 100644
->> --- a/arch/riscv/kernel/machine_kexec.c
->> +++ b/arch/riscv/kernel/machine_kexec.c
->> @@ -149,20 +149,12 @@ static void machine_kexec_mask_interrupts(void)
->>  
->>  	for_each_irq_desc(i, desc) {
->>  		struct irq_chip *chip;
->> -		int ret;
->>  
->>  		chip = irq_desc_get_chip(desc);
->>  		if (!chip)
->>  			continue;
->>  
->> -		/*
->> -		 * First try to remove the active state. If this
->> -		 * fails, try to EOI the interrupt.
->> -		 */
->> -		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
->> -
->> -		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
->> -		    chip->irq_eoi)
->> +		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
->>  			chip->irq_eoi(&desc->irq_data);
-I think this deadlock is relevant to riscv and arm64 as they both
-acquire irqdesc spinlock by calling irq_set_irqchip_state() during their 
-machine_kexec_mask_interrupts().
-
-However, I think calling irq_set_irqchip_state() during 
-machine_kexec_mask_interrupts() is arm64 specific way of handling EOI 
-which is not necessary for riscv.
-For arm64, its interrupt controller(gic) seems to have two ways of EOIing 
-an interrupt depending on the mode which gic is configured. One of them 
-treats EOI as two step procedure, priority drop and deactivation. I think 
-irq_set_irqchip_state() is there to handle the deactivation part of 
-the procedure.
-For riscv, EOI only requires irq_eoi handler to complete EOI and I think 
-keeping irq_set_irqchip_state() will only leave this possible deadlock 
-without any use. 
-So I think it's best we simply remove irq_set_irqchip_state() as Song did.
-
-Sincerely,
-Ryo Takakura
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXkgMywgMjAyNCBhdCAxOjE04oCvUE0gQWxleCBTb28gPHl1a2xpbi5zb29Ac3Rh
+cmZpdmV0ZWNoLmNvbT4gd3JvdGU6Cgo+IFN0YXJmaXZlIEpIODEwMCBTb0MgY29uc2lzdHMgb2Yg
+NCBwaW5jdHJsIGRvbWFpbnMgLSBzeXNfZWFzdCwKPiBzeXNfd2VzdCwgc3lzX2dtYWMsIGFuZCBh
+b24uIFRoaXMgcGF0Y2ggc2VyaWVzIGFkZHMgcGluY3RybAo+IGRyaXZlcnMgZm9yIHRoZXNlIDQg
+cGluY3RybCBkb21haW5zIGFuZCB0aGlzIHBhdGNoIHNlcmllcyBpcwo+IGRlcGVuZGluZyBvbiB0
+aGUgSkg4MTAwIGJhc2UgcGF0Y2ggc2VyaWVzIGluIFsxXSBhbmQgWzJdLgo+IFRoZSByZWxldmFu
+dCBkdC1iaW5kaW5nIGRvY3VtZW50YXRpb24gZm9yIGVhY2ggcGluY3RybCBkb21haW4gaGFzCj4g
+YmVlbiB1cGRhdGVkIGFjY29yZGluZ2x5Lgo+Cj4gWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
+L2xrbWwvMjAyMzEyMDExMjE0MTAuOTUyOTgtMS1qZWVoZW5nLnNpYUBzdGFyZml2ZXRlY2guY29t
+Lwo+IFsyXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjMxMjA2MTE1MDAwLjI5NTgy
+NS0xLWplZWhlbmcuc2lhQHN0YXJmaXZldGVjaC5jb20vCgp2MyBpcyBzdGFydGluZyB0byBsb29r
+IHZlcnkgbmljZSwgd2h5IGlzIHRoaXMgcGF0Y2ggc2V0IHN0aWxsIGluICJSRkMiPwoKSSB3b3Vs
+ZCBsaWtlIHNvbWUgcHJvcGVyIHJldmlldyBmcm9tIHRoZSBTdGFyRml2ZSBtYWludGFpbmVycwph
+dCB0aGlzIHBvaW50IHNvIHdlIGNhbiBnZXQgaXQgZmluaXNoZWQuCgpZb3VycywKTGludXMgV2Fs
+bGVpagoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
