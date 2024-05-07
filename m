@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77580C25B75
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 10:13:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8936C10F1A
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 10:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=N/bRxAgNlZqC3Mu+VquvicZpe4KleukzKyLCabUGqaE=; b=NNCNq2Px4H1yg7Xlrgn+ETP2Wy
-	ag8eN5kuBfacFmUkMdN/XlV/ra7lgJ1k1PLgSB5qwDPYn6SP6b0QYFmEtNGPi8PsDT7EZRmeG2J42
-	LZDx19o5LAiy3UmjzVt/LBeE68N2n25GgvNoBKjakCOI9pTnL0irMwFNJ151l1DVdUuQywkbqZMxz
-	VMP35Gw/9hw4V2ReA6KHPAEAnjLy8YRoXf4FW5PyRUefa8pnEakuWwDxXMmm1HNLarnKEvRt9uGDi
-	UAFDR394VqFrUlCSBL9j5FXqVz818n4QsOdB/Y0eKTx0RJDwuwIphOt0leGdnIrTxy0Rk89ZSyLjZ
-	+SpXvWYA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qdli41vOkSVxC05KWb3xqgSObnHsJx/rQNEEAUbeK84=; b=FmkaKh79fWnpsQGTnqcEi8AB5P
+	c4jh11GDesp6npeQXinJ6CHzPErk0cktWUOeCBi9eAZIY5xcpV4fUl1GbFaDDBAH3XSfHKHBtN//b
+	p9eoLwWSbaGjuPOV1JAdWbCD8njlwwO0r2NrlQ0BysR8fuz9f03FvQ3MeNaV7MvWek8IA8mZpB8tB
+	pZPfCZuxfYUz41q5wQsTZY+ByQI0/3tm9lyVy//6X3rwLhI+mWE30Iqz9TIuxyak1LWYDGvV6taaG
+	CJLSoO4XuOI0lDBFlVUuyqA1KXVjzv7dOHaQFtkJ0/9eTsdtYTNeIzZe2pVr2awV2xCw7eS8URFsL
+	E+pve+ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4HpN-0000000AUUG-0K5Q;
-	Tue, 07 May 2024 10:13:41 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1s4Hxs-0000000AVoL-2YJR;
+	Tue, 07 May 2024 10:22:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4HpK-0000000AUT5-47kv
+	id 1s4Hxp-0000000AVnc-3HfH
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 May 2024 10:13:40 +0000
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id DE833400F5
-	for <linux-riscv@lists.infradead.org>; Tue,  7 May 2024 10:13:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1715076816;
-	bh=397X4zZ5qk6cmfxvJ66g5Oe/KXHQi7SbJr6mL/vXFTk=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=ronazVYDfRESfDFXThriTvfHZoKRxPX56aJndWDCsD1z5uV5mxyFZHJeDCrhmXkS0
-	 WkLuCqU2a1yFJXvV5NNiq5Me4ofaWwLtxladK+rwGJEOZJvmgfupqzyEJStrEJ0S/9
-	 VZIWjIwaqwDR4SRDflhUfrEidRSS/+OuhU8iLkYnaYGFzNXhR+LRiESis0a2BWw0g6
-	 bb3dfK87xEW3tkh5kV5DYLfCfYUOIsTZdyaKZVqIZjVPhwXuwLyqWPfz//ZmV0nMEq
-	 jiFloOdblr8AWRwSXB6yjBV3utsh5QpU10gaYsmaqqH+M6fSOTY5Amc7GQHaVNY246
-	 GCgiSUWEoKaQg==
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-43d245bfdb9so39132081cf.1
-        for <linux-riscv@lists.infradead.org>; Tue, 07 May 2024 03:13:36 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715076816; x=1715681616;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=397X4zZ5qk6cmfxvJ66g5Oe/KXHQi7SbJr6mL/vXFTk=;
-        b=SWq0mQjT9nizyDpDFQC4uds9oI1+mt9RlRpiDGmX4vHru5QwhcC0hFajy+NYWKafwv
-         NhCYjOFz+kKNFozqm1veeQvOtqoz5C9p9NXjBbSZsC7RXic8TQPMGyZ1caDtCuKCCJan
-         Ew7O+bYJuADiVniDW6Kba3+9PZuNn+YYUBuDP2cqR5LWYvbhh6RWq98acOLrmT1jS9Ka
-         DfVqPtBdihbCV7FoFHH+shX4kxRZvIEALB3yr2E8jnSFQd3UfWdRN8rlQ1ZWc18A0iyA
-         4gbBzli5TLR3aS59P1QFFQ7YmIzsPe8sRoB2zmrQzrvx8k0Bz/C6sCF9vyYpSoGFZmNW
-         2rYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWezcQfT66SAN4mI7+oSkoOSO8d7WXktnEl1RXRJYzaBWHpeFgx7sO35bTmdbZAbkzardgkERJHMO+quLl90lO0WxS1n0e4kh/PVrDALOyP
-X-Gm-Message-State: AOJu0Yx0jXTHLMInLjYTBKrfZcNpTJJrJqKzymP7h7NkiytbOCj1CUlY
-	DQCIO/DOCmIQvuoL79pXbHiSAvqSxWo5yDw2voELjNf+eUAObXo/KnEpb2ER5QH/0jwQ9+aBmYT
-	6sOdhEvlFIbbJMOvKCwx6jLPLHWSTbdYlTr22KHZSeuyhWW3ACSpoEbHA7bBn8K/w7MbK60GYKs
-	1S3ozRXu8Q/OyW27+5pIAUEC/ME6pknW21JHBy9ybG/YAnNGbXOW/YHSYV
-X-Received: by 2002:a05:622a:4e0b:b0:43a:712a:bb97 with SMTP id dh11-20020a05622a4e0b00b0043a712abb97mr15579368qtb.7.1715076816028;
-        Tue, 07 May 2024 03:13:36 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEjgVEjWFG0Er1wzm6XME0OZo9sKv/t6H0/VJqg3xbQh7tYq4BfD/1KVLjHaQMTeCkQMWpcnkGoRTUTZ7VYW1c=
-X-Received: by 2002:a05:622a:4e0b:b0:43a:712a:bb97 with SMTP id
- dh11-20020a05622a4e0b00b0043a712abb97mr15579347qtb.7.1715076815802; Tue, 07
- May 2024 03:13:35 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 7 May 2024 03:13:35 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240507065319.274976-3-xingyu.wu@starfivetech.com>
-References: <20240507065319.274976-1-xingyu.wu@starfivetech.com> <20240507065319.274976-3-xingyu.wu@starfivetech.com>
-Mime-Version: 1.0
-Date: Tue, 7 May 2024 03:13:35 -0700
-Message-ID: <CAJM55Z-p9OLYCWHzhQ9HJ3vEt+u-qx0kxcWmGnO8FoarxJQiQQ@mail.gmail.com>
-Subject: Re: [PATCH v5 2/2] riscv: dts: starfive: visionfive-2: Fix lower rate
- of CPUfreq by setting PLL0 rate to 1.5GHz
-To: Xingyu Wu <xingyu.wu@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Conor Dooley <conor@kernel.org>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+	Tue, 07 May 2024 10:22:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1715077345; x=1746613345;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/ylm28bgQwjCsaq+PkwbOcOTeoJ2+0gYNXlHCfijRyE=;
+  b=fEr0uvNgVCxGm2OdPh2TLLIOCmqJ/AadKbQ3WSPbyJ2iA8oCzbs5ShpW
+   +8NSFjTjqOMmfZnQS+a6zjI+VDOZg76qnNaA6UcCUwdxoh9ks6B9w159O
+   WdnfZBaCyjMkqZH+2ipsN0KOZXI9xdv+R5c9VzJvu0oJzd4ieXm1dz1Tq
+   uDjZrjqR2zebbTRtMagPoXWCalu3dqGnF1+rR7pSE09wwjteWuxOX3ofr
+   6qttq1NQqHvRIETkr8mB6Iuuc5KgfHrgLa7G3H4a8Obeyx13+mEysqYQs
+   a3Fx1u7vMOcr3N6GDpTHeqdIp4hYYkHIkPj9X5Ix7r/PoYbSnziXuSfI0
+   w==;
+X-CSE-ConnectionGUID: Vms0K4hKTRCVKW0S9ZejhQ==
+X-CSE-MsgGUID: e0l32h4fRqap+iJ+yGpwow==
+X-IronPort-AV: E=Sophos;i="6.07,261,1708412400"; 
+   d="asc'?scan'208";a="191279130"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 07 May 2024 03:22:22 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 7 May 2024 03:21:51 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Tue, 7 May 2024 03:21:50 -0700
+Date: Tue, 7 May 2024 11:21:41 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Arnd Bergmann <arnd@arndb.de>
+CC: Conor Dooley <conor@kernel.org>, <soc@kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [GIT PULL] RISC-V Devicetrees for v6.10
+Message-ID: <20240507-concrete-come-2899fab0888e@wendy>
+References: <20240503-swimmer-botany-7368a8a17b1a@spud>
+ <5222e581-a189-4477-ba6a-edf4ce369eb0@app.fastmail.com>
+ <20240507-hungrily-squash-2ac370e05fc0@wendy>
+ <b618c311-8925-4717-b6bf-f3699b106189@app.fastmail.com>
+MIME-Version: 1.0
+In-Reply-To: <b618c311-8925-4717-b6bf-f3699b106189@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240507_031339_172667_5B4A5F20 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20240507_032225_905563_4D67F973 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,60 +83,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3251736423099221498=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Xingyu Wu wrote:
-> CPUfreq supports 4 cpu frequency loads on 375/500/750/1500MHz.
-> But now PLL0 rate is 1GHz and the cpu frequency loads become
-> 333/500/500/1000MHz in fact.
->
-> The PLL0 rate should be default set to 1.5GHz and set the
-> cpu_core rate to 500MHz in safe.
->
-> Fixes: e2c510d6d630 ("riscv: dts: starfive: Add cpu scaling for JH7110 SoC")
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+--===============3251736423099221498==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="XB/fNXaRpUVZDCGL"
+Content-Disposition: inline
 
-This should really be based on Conor's riscv-dt-for-next branch, eg. the change
-should be to the new jh7110-common.dtsi instead since the Milk-V Mars board
-would most likely also benefit from this change.
+--XB/fNXaRpUVZDCGL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-In any case:
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+On Tue, May 07, 2024 at 12:08:13PM +0200, Arnd Bergmann wrote:
+> On Tue, May 7, 2024, at 11:58, Conor Dooley wrote:
+> > On Tue, May 07, 2024 at 11:27:36AM +0200, Arnd Bergmann wrote:
+> >> On Fri, May 3, 2024, at 17:24, Conor Dooley wrote:
 
-> ---
->  .../boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi     | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index 45b58b6f3df8..28981b267de4 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -390,6 +390,12 @@ spi_dev0: spi@0 {
->  	};
->  };
->
-> +&syscrg {
-> +	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>,
-> +			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
-> +	assigned-clock-rates = <500000000>, <1500000000>;
-> +};
-> +
->  &sysgpio {
->  	i2c0_pins: i2c0-0 {
->  		i2c-pins {
-> --
-> 2.25.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> >> If you are able to extract the DT bits that don't depend
+> >> on other branches (jh7xxx, microchip, bindings and
+> >> new files) and resend those, I could still add them to the
+> >> same dt-late branch.
+> >
+> > The jh7xxx stuff does actually depend on another branch, although that
+> > branch is fixes. Do you want that removed too? If you do, I'd say to
+> > just drop the whole PR.
+>=20
+> As I wrote below, it's fine to have a branch based on a
+> fixes branch, so please keep that part.
+
+Cool, just wasn't sure if you were intentionally contradicting yourself
+or if the "below" part had just been some general remarks. I'll try to
+get a "revised" PR sent tomorrow.
+
+Cheers,
+Conor.
+
+--XB/fNXaRpUVZDCGL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjoAtQAKCRB4tDGHoIJi
+0i7+AQDAE0G9BqtJOa773r+ubjod/SR22z4KPR/43eTZxk8+PQD9G166SffJh2y4
+hASKKKljSskRAWBSYLfrb4/V2wMq5g4=
+=pLeS
+-----END PGP SIGNATURE-----
+
+--XB/fNXaRpUVZDCGL--
+
+
+--===============3251736423099221498==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3251736423099221498==--
+
