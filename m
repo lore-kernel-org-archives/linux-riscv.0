@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4061FC25B5C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31A3C25B10
 	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 01:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=y24y2pffgg4HJpZ4bHkIM/Gg9cOjXtZQimRADs4J1EM=; b=frh6vmDjD0aI8b
-	h8b7tWXy+NFVdrW8MS6O8rnDEKsxcRZUuU3wdSOJrZEAXGJ0bf4EiyGXUTFcm+5MbobUIjwns7ONp
-	tML+f2fcAUdj/oJFOna6YIxvwz+6Yktxpbbp9ppQLXbaqfOaAch8XMD+H7IgmSKoNK5S4nxJA5SoV
-	Tnnuzqm/HnJYDy0AXZ2sfBoiI0LKxRzW1OLJsOUuc578Yu8f+X2SV7rKJrhvbrbsO968JDR6zVtLn
-	NNM0AjmrI3eEBQRcfJ2r7JmPoS4ekcAd5rgj/DuGr3qllxgreQLF52CzZ63AXE4OEu4aIjM3mkJZr
-	GXs58Ht+2YoEZBY1Xgkw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ccMOj+RzHwAB4UpwUothJJvZ2ioWRFyD69IMK0xczLM=; b=eoa4E5mwp0+3Ws
+	xjilUG+tZfvqaUnPLypTLHorDsO+EPFi6obCWJ2R4L7Y+vvLwIbOgLtCjkD4GuqlGLbnAvf84xRf7
+	HCY5R40W5/E9N0AdYuNqUTnl/lIkLRcjHSw/4PyLY/jkjeCLBj5uskD7o72Q8zKye+OCcN63nZC92
+	KZIvYadExrw8VLVQSejCbBSF/3XBDR+IeB0PN1bzNKkhkm9gkq3yB8sbXHv3dvH7wqUMdlmSz3xjD
+	/0Uj2on89Jri8OP40QuOvDc1MkmoJSJVit4B/RbtQk2FpKnEzBqAwF2HWDvFF0LPzWXXuJX/CFIum
+	lh0sKbynUiDkVl5xTqSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s49r5-00000009H55-00zK;
-	Tue, 07 May 2024 01:42:55 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1s49r2-00000009H44-3s4n;
+	Tue, 07 May 2024 01:42:52 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s49qz-00000009H0Z-3IBL
+	id 1s49qz-00000009H0s-3DTI
 	for linux-riscv@lists.infradead.org;
 	Tue, 07 May 2024 01:42:51 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-5e42b4bbfa4so1430406a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 06 May 2024 18:42:40 -0700 (PDT)
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2b38f2e95aeso3374566a91.0
+        for <linux-riscv@lists.infradead.org>; Mon, 06 May 2024 18:42:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715046160; x=1715650960; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kmnHN/SbAxxSeuYauq4GFP+atQwPE2aK0TJawlfr8WY=;
-        b=0KvitYdVaBHOjbb87fnEpkgoUJRH+cPC0TPSz+5okqzGfMmmtbKGQml2hxj5FFQIGz
-         qgvHV6hZWTNkoZt3nyRoO4SM1O9up4fxXeZIG80/zkmSf7VgkoplvdAYb1F9B7M+1HKA
-         He70ZI1006aiU2PfIUGQsmRBkG8X3BD7aALl0sQn1+rx65bEMho6HUtHxHp+75IeBJxe
-         O7UQR/7xDaNHz8lMLehMg7UVEaWpchPNurHHnyXaWrkVu8x+GhhJI1Ldhwh83kFbDDDX
-         1N4nypW4MJiWl2QnA1/jiRIXgFBpydFkq/nSJYdAWhVsS6GT4skS/m3m64hSuGNFMsoj
-         oH1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715046160; x=1715650960;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715046164; x=1715650964; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kmnHN/SbAxxSeuYauq4GFP+atQwPE2aK0TJawlfr8WY=;
-        b=elN/wjXOu1OwkAwpPTGQQULpAkgAMR50ykkJe+4OaZDD/Z9f6l2egvO8fhQM3SwZB1
-         5Dt7W0UJvfBOVxPcncS93Gqtq/y5i+agxUN6BajIaLt5zAdsFu1kse10c8S3wXN5r13L
-         ppp51l62gNj/1DGwt0G7SiYleUvrOZSv6S9v4zezy1azGXgUBmGlfiSClbibhwK727bJ
-         zvs42hjeQvZv5PVH1kQW8uP3Y0ujDJQ/6/jmLFxKiOqkDu0RdCbmMoKCo1ZnERLViZ/Y
-         gtyLHTmqTGVB6UAh6/Ls7LK676pBjUMkw0N15Nm4T8fzxU25NnDS3T38ZLNXAtAbpRyW
-         u+Vg==
-X-Gm-Message-State: AOJu0YzMZnjQvKmY63/Blb9aoy23UlGO1cOC3DYYzj04mudnWj5dAZB/
-	4cG2AIni+znNEhEaltNE+vi9gQKSsWtmHfVd6UC6DP5FHVYW42eILrfnhmQt8fk=
-X-Google-Smtp-Source: AGHT+IE0M9Ne2m5CBxBpp6YYkoWQr4AJkn2GuDCP4nYJ95FEwyKQnMMDfx/AtsUhX+F61kOl4bttmw==
-X-Received: by 2002:a17:90a:8b06:b0:2a0:86b6:2e9 with SMTP id y6-20020a17090a8b0600b002a086b602e9mr10020425pjn.12.1715046159681;
-        Mon, 06 May 2024 18:42:39 -0700 (PDT)
+        bh=WABN/DyVMubZMdulfTheMLTH5TZr96UUGzB/KSHHr2M=;
+        b=OWO207AwNpG9C0Lt/JtJVmxqa8yeLR5+we8MrZg+iVgpvDEyv6Mhem+25hm26vLhqK
+         IvAz0KrqqoDHYxRbl24rzNiAA50+nVr+E8FM/pE6oEEtAS1AgRHNr5QkwIJ0W4RAB65/
+         0at3r6c+8+tRNFtAjxybSo1bYDkV1wy8L6Nzo+ikiJGNXAy/2mYSNiEEQt0rhutnV+C2
+         Q7VY1islM8Wp52X82q7tN4Un8omsin4ep2HFpFrQikJ7xnWuCR5ncWfm3xeGRoSpoUEY
+         d0xuu2JfEDxvL2bLnt44FWltFeeikm+rLGTdaiKIF1gU6T2P8Of7dcavz9V4zONEEHjb
+         1JAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1715046164; x=1715650964;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WABN/DyVMubZMdulfTheMLTH5TZr96UUGzB/KSHHr2M=;
+        b=M9UNZVo4+V4winDn6WpJXTGsefGMLRr41uFg6w1sPqtBNcUuesQ+JsXvCGnH84EiSW
+         p6tJnKmy4o56ClcHcc+LPWPUGzDl1ZjmlZJt+v6cdCLPm7JdGvDEd5OdystSmiaPLVWd
+         YfmAfq1N7DWyl3sgJQrLRKsHjusmbusXLYbUXcWb2d5vSoutq2UTku/kyEV8XRZR5v5D
+         WvGrkbnpeUyLMjhxSmIWFYDDWYLfo0Suszlp350yffRAKebarpzKMRpVnpgMuHRF+w01
+         KsVonRcV6wvcVsG/M5ePIAn5pVkZDXq4nlBL/qEtJ0BVZ8rlGadQjTUaq918cYwUQ3P/
+         uE6A==
+X-Gm-Message-State: AOJu0YzP0Lp1zyJzkwKbE2eiXK1hHhrUXWih3sghde1Hdm/3zlbFDk9O
+	3GO632Z0JziDz45LkhB4YijfbbhlNeTi6g7fC1/UA7s6XMd2YLz7ichMtOtI1Ck=
+X-Google-Smtp-Source: AGHT+IFZ1scUzbuEqN66Ol90xyUVgNHeMyyZi+HIv5KQYsgIR1rnTKs0egQjffSyS6hOuZPi2utSfQ==
+X-Received: by 2002:a17:90b:94f:b0:2b0:9544:59e7 with SMTP id 98e67ed59e1d1-2b5bc2c9156mr1704507a91.23.1715046164132;
+        Mon, 06 May 2024 18:42:44 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id q8-20020a170902dac800b001eb3f705ddasm8915311plx.255.2024.05.06.18.42.38
+        by smtp.gmail.com with ESMTPSA id q8-20020a170902dac800b001eb3f705ddasm8915311plx.255.2024.05.06.18.42.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 May 2024 18:42:38 -0700 (PDT)
+        Mon, 06 May 2024 18:42:43 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Subject: [PATCH 0/8] riscv: Support compiling the kernel with extensions
-Date: Mon, 06 May 2024 18:40:41 -0700
-Message-Id: <20240506-compile_kernel_with_extensions-v1-0-5c25c134c097@rivosinc.com>
+Date: Mon, 06 May 2024 18:40:44 -0700
+Subject: [PATCH 3/8] riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT Kconfig
+ option
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAJqGOWYC/x2N0QpAQBBFf0XzbIvBA78ibbIXE5Z2hZJ/tzyeu
- ueemzycwFMV3eRwiJfVBkjjiLqxtQOUmMDECedJzqXq1mWTGXqCs5j1Kfuoce2wn+lVycaEZWY
- yLiicbA69XH+gbp7nBagfprBwAAAA
+Message-Id: <20240506-compile_kernel_with_extensions-v1-3-5c25c134c097@rivosinc.com>
+References: <20240506-compile_kernel_with_extensions-v1-0-5c25c134c097@rivosinc.com>
+In-Reply-To: <20240506-compile_kernel_with_extensions-v1-0-5c25c134c097@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
  Conor Dooley <conor.dooley@microchip.com>, Song Liu <song@kernel.org>, 
@@ -78,17 +79,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1715046158; l=2314;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1715046158; l=4952;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=/eyv0Uh2ao8q/bbCKgaJAmKK76ClX1vXa+kTgtkDk4c=;
- b=7D+qgX0wTyxP5R4CiXE4WQlV8S07UxtizOQpdZPXGhFlYIF6E1TQkJdxRfTACJNmPgOoZ+540
- Fzf+vg3R3/8D+wfd8q6L1LW0Zaga53p6QxlWTgyYdVzaxd39POjVVAZ
+ bh=qAYZSJKQfo6KGBAG143+WCG6TYn1nYEXzCXt3LEyG3U=;
+ b=AvAZPB6bKKxnhol7r99rPIU1Pp2DEmoyg2c6T9E0ATto3yAcQP2LL90sm7dlTt4exCfuHixAo
+ ntqpY+6BJPTD2LRKfeuz9WcTRYfwxclkgO17m1GznmGptTENuDnO/53
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240506_184250_255576_D4A4EF37 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240506_184250_271086_DF6246D5 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,55 +105,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The kernel currently has the restriction that it can only be compiled
-with the extensions that are hardcoded in arch/risc/Makefile.
-
-Any extension that is not listed in the Makefile can still be used by
-explicitly writing the assembly and using alternative patching.
-
-This series introduces Kconfig options that allow the kernel to be
-compiled with additional extensions.
+The previously supported config RISCV_ISA_SVNAPOT has been renamed to
+PLATFORM_MAY_SUPPORT_RISCV_ISA_SVNAPOT and the config
+PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT has been introduced to compile a
+kernel that will use svnapot by default. Both of these configs select a
+hidden CONFIG_RISCV_ISA_SVNAPOT that can be used to determin if SVNAPOT
+is allowed to be used.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
-Charlie Jenkins (8):
-      riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_C Kconfig option
-      riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_V Kconfig option
-      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT Kconfig option
-      riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_SVPBMT Kconfig option
-      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBB Kconfig option
-      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBA Kconfig option
-      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBC Kconfig option
-      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBS Kconfig option
+ arch/riscv/Kconfig               | 21 +------------------
+ arch/riscv/Kconfig.isa           | 44 ++++++++++++++++++++++++++++++++++++++++
+ arch/riscv/include/asm/pgtable.h |  3 ++-
+ 3 files changed, 47 insertions(+), 21 deletions(-)
 
- arch/riscv/Kconfig                    | 135 +-----------
- arch/riscv/Kconfig.isa                | 393 ++++++++++++++++++++++++++++++++++
- arch/riscv/Makefile                   |  15 +-
- arch/riscv/crypto/Kconfig             |  14 +-
- arch/riscv/include/asm/arch_hweight.h |  33 +--
- arch/riscv/include/asm/checksum.h     |  18 +-
- arch/riscv/include/asm/pgtable.h      |   3 +-
- arch/riscv/include/asm/simd.h         |   3 +
- arch/riscv/include/asm/vector.h       |   3 +-
- arch/riscv/kernel/cpufeature.c        |   3 +-
- arch/riscv/kernel/head.S              |   8 +-
- arch/riscv/kernel/probes/uprobes.c    |   2 +-
- arch/riscv/kernel/process.c           |  14 +-
- arch/riscv/kernel/ptrace.c            |   6 +
- arch/riscv/lib/csum.c                 |  48 ++---
- arch/riscv/lib/riscv_v_helpers.c      |   1 -
- arch/riscv/lib/strcmp.S               |   4 +-
- arch/riscv/lib/strlen.S               |   4 +-
- arch/riscv/lib/strncmp.S              |   4 +-
- arch/riscv/lib/uaccess_vector.S       |   2 +
- arch/riscv/lib/xor.S                  |   2 +
- arch/riscv/net/bpf_jit.h              |   8 +-
- 22 files changed, 511 insertions(+), 212 deletions(-)
----
-base-commit: 2f47357557b7aa98d9d9002688aae480864ca3f6
-change-id: 20240429-compile_kernel_with_extensions-92dd2403d325
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c2e9eded0a7d..9c3a4347953b 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -63,7 +63,7 @@ config RISCV
+ 	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH if SMP && MMU
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+ 	select ARCH_WANT_FRAME_POINTERS
+-	select ARCH_WANT_GENERAL_HUGETLB if !RISCV_ISA_SVNAPOT
++	select ARCH_WANT_GENERAL_HUGETLB if !PLATFORM_MAY_SUPPORT_RISCV_ISA_SVNAPOT
+ 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+ 	select ARCH_WANT_LD_ORPHAN_WARN if !XIP_KERNEL
+ 	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP
+@@ -484,25 +484,6 @@ config RISCV_ALTERNATIVE_EARLY
+ 	help
+ 	  Allows early patching of the kernel for special errata
+ 
+-config RISCV_ISA_SVNAPOT
+-	bool "Svnapot extension support for supervisor mode NAPOT pages"
+-	depends on 64BIT && MMU
+-	depends on RISCV_ALTERNATIVE
+-	default y
+-	help
+-	  Add support for the Svnapot ISA-extension in the kernel when it
+-	  is detected at boot.
+-
+-	  The Svnapot extension is used to mark contiguous PTEs as a range
+-	  of contiguous virtual-to-physical translations for a naturally
+-	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
+-	  size. When HUGETLBFS is also selected this option unconditionally
+-	  allocates some memory for each NAPOT page size supported by the kernel.
+-	  When optimizing for low memory consumption and for platforms without
+-	  the Svnapot extension, it may be better to say N here.
+-
+-	  If you don't know what to do here, say Y.
+-
+ config RISCV_ISA_SVPBMT
+ 	bool "Svpbmt extension support for supervisor mode page-based memory types"
+ 	depends on 64BIT && MMU
+diff --git a/arch/riscv/Kconfig.isa b/arch/riscv/Kconfig.isa
+index 0663c98b5b17..37585bcd763e 100644
+--- a/arch/riscv/Kconfig.isa
++++ b/arch/riscv/Kconfig.isa
+@@ -124,3 +124,47 @@ config RISCV_ISA_V_PREEMPTIVE
+ 	  This config allows kernel to run SIMD without explicitly disable
+ 	  preemption. Enabling this config will result in higher memory
+ 	  consumption due to the allocation of per-task's kernel Vector context.
++
++config RISCV_ISA_SVNAPOT
++	bool
++
++choice
++	prompt "Svnapot extension support for supervisor mode NAPOT pages"
++	default PLATFORM_MAY_SUPPORT_RISCV_ISA_SVNAPOT
++	help
++	  This selects the level of support for Svnapot in the Linux Kernel.
++
++	  The Svnapot extension is used to mark contiguous PTEs as a range
++	  of contiguous virtual-to-physical translations for a naturally
++	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
++	  size. When HUGETLBFS is also selected this option unconditionally
++	  allocates some memory for each NAPOT page size supported by the kernel.
++	  When optimizing for low memory consumption and for platforms without
++	  the Svnapot extension, it may be better to prohibit Svnapot.
++
++config PROHIBIT_RISCV_ISA_SVNAPOT
++	bool "Prohibit Svnapot extension"
++	help
++	  Regardless of if the platform supports Svnapot, prohibit the kernel
++	  from using Svnapot.
++
++config PLATFORM_MAY_SUPPORT_RISCV_ISA_SVNAPOT
++	bool "Allow Svnapot extension if supported"
++	depends on 64BIT && MMU
++	depends on RISCV_ALTERNATIVE
++	select RISCV_ISA_SVNAPOT
++	help
++	  Add support for the Svnapot ISA-extension in the kernel when it
++	  is detected at boot.
++
++config PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT
++	bool "Emit Svnapot mappings when building Linux"
++	depends on 64BIT && MMU
++	depends on NONPORTABLE
++	select RISCV_ISA_SVNAPOT
++	help
++	  Compile a kernel that assumes that the platform supports Svnapot.
++	  This option produces a kernel that will not run on systems that do
++	  not support Svnapot.
++
++endchoice
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 6afd6bb4882e..432be9691b78 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -289,7 +289,8 @@ static inline pte_t pud_pte(pud_t pud)
+ 
+ static __always_inline bool has_svnapot(void)
+ {
+-	return riscv_has_extension_likely(RISCV_ISA_EXT_SVNAPOT);
++	return IS_ENABLED(CONFIG_PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT) ||
++	       riscv_has_extension_likely(RISCV_ISA_EXT_SVNAPOT);
+ }
+ 
+ static inline unsigned long pte_napot(pte_t pte)
+
 -- 
-- Charlie
+2.44.0
 
 
 _______________________________________________
