@@ -4,127 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84BC2C10F1A
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 06:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82060C10F1A
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 07:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IV8Vl5hzB/Fyx/ky/l54BQwI0b/WqSvyQUqoLJpj4c4=; b=nAxcX73s1xT+8f
-	4x9SEcpPFsSWD6lSpsuQavXltilylpanUhfvnFtfP550uIzqYb9AeTS5R6ExtnTwPS3TD81JIaxGB
-	2MM+A9SUEJRvtVSH6rpXcf/7i8UmIKnZwO8TAbZBKfqcCM6zWLOvz/r2ATWdrWEWHwAP3uG9jWbYH
-	Z3IbX94Y0nkAmVVjziIy9+LvDIjJbRYJ+y/u7LdRQVQiU39Cfdim7BFfGUmQ2fg44/eF4vsmxWQXz
-	oT8nciVRwRmqMFhFGiApkOso7PEbig1Sr5qsa27Cu1zIutVYeEmTlfmnpVZaZ6ZKkgYxF38kPlsH3
-	zTOgjFTjJQXtOH37iTYQ==;
+	List-Owner; bh=cfojjtRFi06PKrnaR+HjgdH4FbMm3T3h8HtxMtu9ciM=; b=KK/WNgIkv8VuJK
+	X6llYhsOLjT2suG7UlJzz57gOAJNJCg1QSimC9gASKGkomjbj2+nEaEZxoM9e6PcZkfDrj+bfrQxt
+	9KlVp+zEx/ZXW4W0THVPUlDsVoZ62uZwZ2h3NJ9ZDmaI8Iw1zeSkglsZjIRhx0Kp8oczzABrligro
+	7/9oBmgN3sF2u0dBmZCFiTYrJJUzXJq+SSkKOeeju632pRaGNyxYKWohkaV5AzplZ5bCzZHrpKKcK
+	sQlTZbykYootHyHdCgb8n8q+xw84F/qe2sowZVai5dvwzvL+idQ7EB8OXvmIbg37byM6JRr9aBiJ9
+	NVtz1X1hTt+FLDKE36tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4Ehx-00000009ten-2FwZ;
-	Tue, 07 May 2024 06:53:49 +0000
-Received: from mail-sh0chn02on20722.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::722] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1s4FCP-00000009yCR-1Eg6;
+	Tue, 07 May 2024 07:25:17 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4Eht-00000009tdN-2w5q
+	id 1s4FCM-00000009yBf-1AKm
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 May 2024 06:53:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=JHc3JTFc+tcfNcVHDi77FRsmm0y8bktVYShbqpu/qPSxYJGJg/7R4najQaQnGBeTbbMrJw7QfmMXY6oXGn8fbb0kx4P62E+6wgC/9bCQi3PIyrD9o17PdoHv7b0dvksiqiitIjy5YhaRynuSqZ1cGWf/wHQMMKoOGl0fQFq2nEgcedGOGwGVHNs7ZvZ+L2+b6rf3LMGLySihOyn2ZKqGUqohPtNZD0btgPOfQchyb8xJhaDrvb/CNehFU4bbEtWOXFf8kYiYuEQgh51cGBPRp3SPMmkzFWvwq1PEoHdzTnHi1rbvcucbHD22o1UOxE409VNFdH6KlyhRtm+OZWGbuw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L03T6HL0Dwpy1svDh+d4rMoEWtYmJr7+2sII/xQd740=;
- b=LhnnXdu+c+aei5ySezisFZ5ijnAWlA8azXIlvecaJYVnGtFtxM+7t58dBPw0dn7XQMuhTcWYZEoVrx0lEEu9Kx8dKbdYDAOsqUJKlAw1X5S7CxiV86Twi67WdIt9pZy28rrtqibHxmrjsHEWUw5quyUz/BFmdsrc8kgCDkon9E3HqXF5LrKdnnR7L21HYgBJEc1qCypcEnoobikjmma/s6rUZ+bz1u4pWmED9naftcw5S5XQc0ySZqJHe9HYYEdLuK/z9DDMxSNR0ZTmtBRLVv6lWHZKZ7ZCCyWjtlfXkNA4StSYz2oewpTahj9Pq2SAr28xB5jA0A8z6WWO0ekCrQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:8::10) by NTZPR01MB1034.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:b::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.44; Tue, 7 May
- 2024 06:53:27 +0000
-Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
- ([fe80::e903:99a6:10b7:304d]) by
- NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn ([fe80::e903:99a6:10b7:304d%6])
- with mapi id 15.20.7472.044; Tue, 7 May 2024 06:53:27 +0000
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Xingyu Wu <xingyu.wu@starfivetech.com>,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v5 2/2] riscv: dts: starfive: visionfive-2: Fix lower rate of CPUfreq by setting PLL0 rate to 1.5GHz
-Date: Tue,  7 May 2024 14:53:19 +0800
-Message-Id: <20240507065319.274976-3-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20240507065319.274976-1-xingyu.wu@starfivetech.com>
-References: <20240507065319.274976-1-xingyu.wu@starfivetech.com>
-X-ClientProxiedBy: SH0PR01CA0020.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:5::32) To NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:8::10)
+	Tue, 07 May 2024 07:25:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 710B7CE113D;
+	Tue,  7 May 2024 07:25:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D28A5C2BBFC;
+	Tue,  7 May 2024 07:25:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1715066711;
+	bh=Gs3j7oXYZ/cnYw3Tvuveo6X7cpNx8lLk7xv/YA5SssY=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=FY5iYGishy4InMmdRopsf1fysYX4wjmy+Af5T4ogIpLQyIQhMSTNdQF1ns6VjyAwO
+	 5uF6LQMYTKXg1CipA+pKvbo7oCz0jKGsff1lialhFUkztmWTNNEFDv9agnmXEDOLWZ
+	 YelITmVmKQdp94GinpG7y1q92sxn2h93lJ4i+xSvEBQ2Nh3ZcqIqir2GS9Yg8DQEHj
+	 8KbzWOOlyYaZ7+tG4TKiRoIa6dy/1Z/2Kl5KlNsk1VDhyBqK47ZOCyMiCZaOkNNQxX
+	 K3qypsB4GiaM/G/vUagj3i5zjMkUyEApm4xkQL3YDZOZKwrWU0ajgbiS2YPmch9w1p
+	 WaLXxbT6PRu1w==
+Date: Tue, 07 May 2024 08:25:09 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor.dooley@microchip.com>, Song Liu <song@kernel.org>,
+ Xi Wang <xi.wang@gmail.com>,
+ =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+ =?ISO-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+CC: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/8] riscv: Support compiling the kernel with extensions
+User-Agent: K-9 Mail for Android
+In-Reply-To: <20240506-compile_kernel_with_extensions-v1-0-5c25c134c097@rivosinc.com>
+References: <20240506-compile_kernel_with_extensions-v1-0-5c25c134c097@rivosinc.com>
+Message-ID: <12808AB2-0308-4013-9624-E3DEFCC584EA@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: NTZPR01MB0956:EE_|NTZPR01MB1034:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3dd31bc6-e76a-4ca7-16b9-08dc6e626608
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: r/XOblMHQvrjHYj6m+3A38s34+LNYRVZix2I/ITO9LDR+0QM4yXPtKL306oCRMwWL9npteMFf4WhKmxlDv31o46jdGamdlRd6vFZlXZ6JO2arerMbR7BYlD1y5+PRIvNDlMaEXZIS7Nm7hSuVEGPhKPkoqpq6XCedN0eC2OOYWGFjPObdWDPVHYV9sB3KdpsLHqmsGtUdnL1oNOIst1QWkiJlxqXZt9HWfyHQpth35kszt1jo8LMjljbajj0U79c/jfzRxqE7YAgJYRV3bzuggV6hdnt5w+sd8x0bzsJb33CdcqOwjMKYPZMXVj3e7XHdFrnpwKhA8lRFE3zAENAjjGrQMxKhDuvj4uv5pnRQFaBfZajftiesCz+XjNsL0+TQiHSMb3LGepcAyk4aiUUujD5zJmPH+wCnovmdeKIt+VJW5jJ0h9qvZbLJwlpdmSnT77VvbzXaly55Y0C4Aco4ZxuPKaVBExUS9kCrICVLCARdx58ob9/zuF8vrsKVadMwXNnc/DtJqtpKC8n4XLeGBZWeTxUbp2CmusBoiGYagH4RDCCXAa+Ut7H8UEMrtbhCkoshW+jFlk+vkpqjEVunrPHYtMTiUrU3TsW6ORJetL6ge5P/BvbbVzTGpADE2Pv
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(7416005)(41320700004)(1800799015)(366007)(52116005)(38350700005);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qC3CzZeCsgSdQNLEcGc7ww0u8hZYTDTu60YofRufsiKTvkQUd+QEbuV+bnXb?=
- =?us-ascii?Q?43vZ+tfGm7eg4GNo49B9uBDWfnqiluOrohvhfDAqtpKq3jrtVz/P4rbICaVS?=
- =?us-ascii?Q?si/O3m5VpNTZhcIWqnUPdRWnF0lIt2KpUg+whQDiHDnTNN4vfbb1sytoiH7y?=
- =?us-ascii?Q?2ymp5gpWoWRzhpfjirgOxvMQeDI6N22SNk4TYHqTWKUOCWGYTEkiAgAeIgE2?=
- =?us-ascii?Q?tpLk05elzBVNajhSPvcS3zi58mXAP4O16TwU5btEwW88TxNELweAxNq0tP8k?=
- =?us-ascii?Q?melrLm557FSeoQWyhG2VUfOtUpNtl1y/Lu/rmIixup2KWdQwyXPwRdpvToVa?=
- =?us-ascii?Q?P2ldYh22XeLafi9XpEnff/YLcyUkcSH6tVn7/99He4CHE2g4lFWr4J/eCxg6?=
- =?us-ascii?Q?o2P2orrth0Vor4uKVPgLHxFYfT1Iiw9sEs2yb5cJnHZGd7tXN/DlP9ScizKV?=
- =?us-ascii?Q?IvAk+wf5inFdvHOJIAXqqYT6kUa9RvMLA/cz4K6uPUv0v4d1IvLNSIoFrlb5?=
- =?us-ascii?Q?XNjuCon5kTcqHi/9z+ehrZk6f3pJ021PecLExHfliPR0UC9+RAKfy8kJX6UD?=
- =?us-ascii?Q?f5f16NYPjSNpsHEZMEOR2/a74Fn9EpaVKn/xUlPi163RMqhYRYYhf/1ZOrMU?=
- =?us-ascii?Q?WXAvUkidAdP1BxjWpHDDvyruN9oJqbOh8noJ4ZxsdZXQrzdqn9IYmScnlGcs?=
- =?us-ascii?Q?s/599NnmT4Z6MQ7SPq0Ks5ycv7/v1kLLidRGyToE8DhfxwoOpf+oEi0PEoqN?=
- =?us-ascii?Q?NEIVwGcra4tiDsIM1KJ6upMPuWlHlctMA1F/KBdyCXHkssAX1tvJVHO5Td0i?=
- =?us-ascii?Q?8v6kXqThycmpTxRJgJbb4i6MOAwoHzJh4UXSCbUS8wqJdJFuJibf09Xr1HMS?=
- =?us-ascii?Q?amHhwrylw+gRIfMUuwdjni3pvqsOHZN7zDbr1dw7ykCTRNEdZ9SAbAdKBh11?=
- =?us-ascii?Q?bIxQbxxA+kvZLiHxgQW9ImGzjZIr26ED5CCyz1/DdTBwAH5hM3bvCJNjk/7T?=
- =?us-ascii?Q?spEX8kmdrdX7VWi7XfXrvyN0Wwz5OQFcUnyQvMad0pKIB+FnYbog5VZON+OB?=
- =?us-ascii?Q?DteveNHtzxUB3aQUSXJqjdX/X+CVEKQ/p+WclX3ZLR6joBCP8es2dO7C/ZT/?=
- =?us-ascii?Q?VKacVF75ennGrQsmwEpeiAsUiON7JQK6Trn2tXPavWVYUQKCrUEvf00LBxSz?=
- =?us-ascii?Q?RICRHUiGkOr0WkP1dqGq9Xy87bb8EbvpzumYw6kIsAqkVUJVQaS5ZLf0ZYXZ?=
- =?us-ascii?Q?9mcMCDLT3cW3a0B5gFUDrYMuo2oi7Ur5nP4E2SyvPsBpCo1ePyEhDACNNG1j?=
- =?us-ascii?Q?JTUD5g2u3je9n++OE/DEGCxBn+Oed6GmNyZOpeRZyVIEksPx//68YFM2BJ7T?=
- =?us-ascii?Q?zm2xIstGI8ElnU+ROSz2qvC6/HcZIiJUD7uIt0qpZG41M2b8mg7boeOozuX2?=
- =?us-ascii?Q?b0psSLBQ2HLcB93H4BjtSdBJxUJBSqmu+Fsg5giAoY30tI5b92hrV3JLlkcE?=
- =?us-ascii?Q?ZgTm9YCsIjowwoYNo1iV/JP/K8U76K8kaiBHwdeU7tWM6umocOASAO3Z9H18?=
- =?us-ascii?Q?wHGsb0HEC047+zLGT1hE5+OrxXIDpoaAXOeR4NM0b2Zpzxic1W5w6D1J4QhR?=
- =?us-ascii?Q?vw=3D=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3dd31bc6-e76a-4ca7-16b9-08dc6e626608
-X-MS-Exchange-CrossTenant-AuthSource: NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2024 06:53:27.8158
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: t+B65rcOYh0sMM7ll22P6ObTX3ryR+Xg1IkrX6FwNK68rO4/OPQ/KxkgugvewGwhjQwaFnCleb+ULDXy/XeEQQ+gmHM+MEkAixLbseUgdkk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB1034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240506_235345_774778_D0EFF7B5 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240507_002514_837769_9A7EE3D6 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,39 +77,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CPUfreq supports 4 cpu frequency loads on 375/500/750/1500MHz.
-But now PLL0 rate is 1GHz and the cpu frequency loads become
-333/500/500/1000MHz in fact.
+Hey Charlie,
 
-The PLL0 rate should be default set to 1.5GHz and set the
-cpu_core rate to 500MHz in safe.
+On 7 May 2024 02:40:41 IST, Charlie Jenkins <charlie@rivosinc.com> wrote:
+>The kernel currently has the restriction that it can only be compiled
+>with the extensions that are hardcoded in arch/risc/Makefile.
+>
+>Any extension that is not listed in the Makefile can still be used by
+>explicitly writing the assembly and using alternative patching.
+>
+>This series introduces Kconfig options that allow the kernel to be
+>compiled with additional extensions.
 
-Fixes: e2c510d6d630 ("riscv: dts: starfive: Add cpu scaling for JH7110 SoC")
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- .../boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi     | 6 ++++++
- 1 file changed, 6 insertions(+)
+One thing I don't see in the commit messages or the cover letter is what your actual motivation is
+for making these changes.
+Are you effectively looking to evaluate the alternatives at build time, or are you looking to
+let the compiler use the extension where it sees
+fit? Or perhaps both?
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index 45b58b6f3df8..28981b267de4 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -390,6 +390,12 @@ spi_dev0: spi@0 {
- 	};
- };
- 
-+&syscrg {
-+	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>,
-+			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
-+	assigned-clock-rates = <500000000>, <1500000000>;
-+};
-+
- &sysgpio {
- 	i2c0_pins: i2c0-0 {
- 		i2c-pins {
--- 
-2.25.1
+Thanks,
+Conor.
 
+>
+>Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+>---
+>Charlie Jenkins (8):
+>      riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_C Kconfig option
+>      riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_V Kconfig option
+>      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT Kconfig option
+>      riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_SVPBMT Kconfig option
+>      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBB Kconfig option
+>      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBA Kconfig option
+>      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBC Kconfig option
+>      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBS Kconfig option
+>
+> arch/riscv/Kconfig                    | 135 +-----------
+> arch/riscv/Kconfig.isa                | 393 ++++++++++++++++++++++++++++++++++
+> arch/riscv/Makefile                   |  15 +-
+> arch/riscv/crypto/Kconfig             |  14 +-
+> arch/riscv/include/asm/arch_hweight.h |  33 +--
+> arch/riscv/include/asm/checksum.h     |  18 +-
+> arch/riscv/include/asm/pgtable.h      |   3 +-
+> arch/riscv/include/asm/simd.h         |   3 +
+> arch/riscv/include/asm/vector.h       |   3 +-
+> arch/riscv/kernel/cpufeature.c        |   3 +-
+> arch/riscv/kernel/head.S              |   8 +-
+> arch/riscv/kernel/probes/uprobes.c    |   2 +-
+> arch/riscv/kernel/process.c           |  14 +-
+> arch/riscv/kernel/ptrace.c            |   6 +
+> arch/riscv/lib/csum.c                 |  48 ++---
+> arch/riscv/lib/riscv_v_helpers.c      |   1 -
+> arch/riscv/lib/strcmp.S               |   4 +-
+> arch/riscv/lib/strlen.S               |   4 +-
+> arch/riscv/lib/strncmp.S              |   4 +-
+> arch/riscv/lib/uaccess_vector.S       |   2 +
+> arch/riscv/lib/xor.S                  |   2 +
+> arch/riscv/net/bpf_jit.h              |   8 +-
+> 22 files changed, 511 insertions(+), 212 deletions(-)
+>---
+>base-commit: 2f47357557b7aa98d9d9002688aae480864ca3f6
+>change-id: 20240429-compile_kernel_with_extensions-92dd2403d325
 
 _______________________________________________
 linux-riscv mailing list
