@@ -4,94 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F2B1C10F1A
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 12:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E9ABC10F1A
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 12:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vzHAVAiPMqhfj9z+2Z3o3tXTGaiJQAY0RB+3vi62DHc=; b=pWSNEcXWus5Cem
-	vBnt0b+PMR7bq5ELehvqCtmctsh62iyq46xdKWkxSt/v0P4hQSfg43wCne80CnHgGnUVVXp993gqo
-	ymUsCFgZYAUmEmQqoDh2E8W/ZBU5vyZILoXcXpOqcBMOet2cWzxnY9qxhTSujL7IS0K2FOP1yDCme
-	2TnhFJyovr8qUWkCf15wsp9yWmYilLOuAnMAhTXlewdtjXvuKipWq7ESdrQ4jZwJf2xl+sOLtPORK
-	BJe0euGmElWDbbe7B7OMJReNk3uS+IPmdwk7LAv2RXuu9gjo3K4To0mITOrp3LWiITgepBVDIN7ah
-	6DfEv0RfObrrSbOdpfMA==;
+	List-Owner; bh=q6Ino9HuE2VIGEDmxalbqjpvPDVItoG3+/XGm3px7fA=; b=IETlXP/ztWBF1v
+	MXqILWfeytAVrvquszXh4OSySoLmKh4E7ty4tc2jDklPJ2tAHgG9x+Li6g5GXz1ECSqcsPKYLKaiN
+	VK9w9T1f6xz+0bIuijXIyIdKAESIj4saH199wKt34VSAbZwdASH/a/NWJu6BRDkCxgOCbN8Ay5cSM
+	QSJF9Vdk35n7O+6h3eFzS8Y2crbYbiy7j0p2P7I2PUAqwqjjc1TuqNZgfdJe+LEisnpsnPdfmh260
+	B/wtYB6HVLPMvNr6NRhoFYWmGEgvQKRLaUzlofqcnCreK8GeZzbbzeXfsX/tAfWsk3mVbYdgKqWyC
+	b7dFX795pbHj8DpRJ3ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4Jjv-0000000Ares-0Fpt;
-	Tue, 07 May 2024 12:16:11 +0000
-Received: from wfhigh6-smtp.messagingengine.com ([64.147.123.157])
+	id 1s4JxB-0000000AvcO-3HGt;
+	Tue, 07 May 2024 12:29:53 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4Jjr-0000000Araa-0k8l
+	id 1s4Jx6-0000000AvZ9-3Hlh
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 May 2024 12:16:09 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailfhigh.west.internal (Postfix) with ESMTP id 38B5A1800095;
-	Tue,  7 May 2024 08:16:00 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute5.internal (MEProxy); Tue, 07 May 2024 08:16:00 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1715084159; x=1715170559; bh=HWVcQkuyNh
-	J6YB2kHQMpV4nKRP/UJMbsrUtkQrq1C3c=; b=GWAV3DhODOVGMwKE5UJ4oyo+3N
-	ZMcKZdyapzuFo0Z/tbvDNP+wZ+PEWn9droU29pSPY3ML8NpNyExVF50WMBpYHz27
-	Wb35D/pLpYP/0A8fxMemn2GXg3RIbIGkVSbl7G1I3zWpmmujWT1YfY+r1yFmgSR1
-	CsShIGWoiycEzh1ZaT7kPhFDc//IjSWjQvLQOjjECYTvs+bySbxbDbK2yle5VqU8
-	raJan+gqwlmld5JXwXXWXU8Yy9Xnq9aVPEUKB9Ug1ILZEsKpsBdVk8WS8tvYIW6U
-	xnyDKXHtswl+4gd7qB1D/EDY6bNtEmgC5Ybz2aLI82IH6OBOv046Cozbxbbw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1715084159; x=1715170559; bh=HWVcQkuyNhJ6YB2kHQMpV4nKRP/U
-	JMbsrUtkQrq1C3c=; b=iQb+/Gf7oR43rWmHqkwU92WCU1lkVR6FEFm7Z8a3kbs7
-	5AvH0A9KQmnDdxOHddvStqWJE7eJq7RJWlaq3jkvRPPOmrdkdc3BtsSrlf/o2fcQ
-	2lD2GkfICJx0I9DR7nlxgyrnyG2fSQkId1wd8bjAmmx5+8yqKk/cfBxMSF8I7Dss
-	RdMSTpeqdKexMLNnuVyYZ5XrXl40K2Xte0Dcsop3yIALsleex0BjzgLuAUi4pQBf
-	W1M28PRY2BrWitYgYmGyjSMz1fOCnmG8ov/KlYD40K+NdQPNlO+je92MWI8gj3nn
-	dhSKKEBGt7a/2c74A7khX7chkFeFJnNN9OBM6w+tMQ==
-X-ME-Sender: <xms:fxs6ZjrCFzqb6iDlo1c5dIQNv6T0tspSUv3z76VvwSa7HrXz7mFgRQ>
-    <xme:fxs6ZtrqC7bNUxQHCao6MYyDC6iLa61aDm22rKFpkz1UYvR1C8LQLSEwD1n8MtlPd
-    Ew0cTE4Z5U9DeGNvs0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvledrvddvkedggeekucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:fxs6ZgMza7zRHMdpQgpcFkAyh8rg42ILHwU2mXTFSR-KWOqehRbyMw>
-    <xmx:fxs6Zm7WIG8kJXyF9W6ULiv_wn3YdNTkCetGtMYkiyFEHG8jcB1rbw>
-    <xmx:fxs6Zi7lTR9mjID03CsjkE-fQndatOII7dfA-alJhXVfl6oxi_CJbA>
-    <xmx:fxs6ZuiEYPsq2CdJ_G8Mv17ian73OZlckPhLt6vzg6K6koreqi4kUA>
-    <xmx:fxs6ZomfLY1F0hsgBC03WC9C7Pki2odx_1vRkVH4StG5aps7UXorkeY2>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 76350B6008D; Tue,  7 May 2024 08:15:59 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.11.0-alpha0-443-g0dc955c2a-fm-20240507.001-g0dc955c2
+	Tue, 07 May 2024 12:29:52 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4VYcvb2m0yzvRyB;
+	Tue,  7 May 2024 20:26:19 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1A31618007D;
+	Tue,  7 May 2024 20:29:38 +0800 (CST)
+Received: from [10.67.109.184] (10.67.109.184) by
+ kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Tue, 7 May 2024 20:29:37 +0800
+Message-ID: <b83c2369-eb9a-435c-8530-52a26dc39c09@huawei.com>
+Date: Tue, 7 May 2024 20:29:36 +0800
 MIME-Version: 1.0
-Message-Id: <9031c5c8-1e93-491d-b756-5794cb87d1cb@app.fastmail.com>
-In-Reply-To: <20240507-concrete-come-2899fab0888e@wendy>
-References: <20240503-swimmer-botany-7368a8a17b1a@spud>
- <5222e581-a189-4477-ba6a-edf4ce369eb0@app.fastmail.com>
- <20240507-hungrily-squash-2ac370e05fc0@wendy>
- <b618c311-8925-4717-b6bf-f3699b106189@app.fastmail.com>
- <20240507-concrete-come-2899fab0888e@wendy>
-Date: Tue, 07 May 2024 14:15:39 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Conor.Dooley" <conor.dooley@microchip.com>
-Cc: "Conor Dooley" <conor@kernel.org>, soc@kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [GIT PULL] RISC-V Devicetrees for v6.10
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv, bpf: Fix typo in comment
+Content-Language: en-US
+To: Xiao Wang <xiao.w.wang@intel.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <luke.r.nels@gmail.com>,
+	<xi.wang@gmail.com>, <bjorn@kernel.org>
+CC: <ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>,
+	<martin.lau@linux.dev>, <eddyz87@gmail.com>, <song@kernel.org>,
+	<yonghong.song@linux.dev>, <john.fastabend@gmail.com>, <kpsingh@kernel.org>,
+	<sdf@google.com>, <haoluo@google.com>, <jolsa@kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<bpf@vger.kernel.org>, <haicheng.li@intel.com>
+References: <20240507111618.437121-1-xiao.w.wang@intel.com>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20240507111618.437121-1-xiao.w.wang@intel.com>
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240507_051607_543444_6D9BF059 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20240507_052949_040121_749474BD 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,53 +73,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 7, 2024, at 12:21, Conor Dooley wrote:
-> On Tue, May 07, 2024 at 12:08:13PM +0200, Arnd Bergmann wrote:
->> On Tue, May 7, 2024, at 11:58, Conor Dooley wrote:
->> > On Tue, May 07, 2024 at 11:27:36AM +0200, Arnd Bergmann wrote:
->> >> On Fri, May 3, 2024, at 17:24, Conor Dooley wrote:
->
->> >> If you are able to extract the DT bits that don't depend
->> >> on other branches (jh7xxx, microchip, bindings and
->> >> new files) and resend those, I could still add them to the
->> >> same dt-late branch.
->> >
->> > The jh7xxx stuff does actually depend on another branch, although that
->> > branch is fixes. Do you want that removed too? If you do, I'd say to
->> > just drop the whole PR.
->> 
->> As I wrote below, it's fine to have a branch based on a
->> fixes branch, so please keep that part.
->
-> Cool, just wasn't sure if you were intentionally contradicting yourself
-> or if the "below" part had just been some general remarks. I'll try to
-> get a "revised" PR sent tomorrow.
 
-Ok. To clarify: basing on a bugfix pull request is always fine
-since those are already in Linus' tree by the time I send my
-pull requests to him for the merge window, so the branch contents
-as seen by 'git request-pull' are clean.
+On 2024/5/7 19:16, Xiao Wang wrote:
+> We can use either "instruction" or "insn" in the comment.
+> 
+> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
+> ---
+>   arch/riscv/net/bpf_jit.h | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+> index 18a7885ba95e..c1b6b44a2f49 100644
+> --- a/arch/riscv/net/bpf_jit.h
+> +++ b/arch/riscv/net/bpf_jit.h
+> @@ -611,7 +611,7 @@ static inline u32 rv_nop(void)
+>   	return rv_i_insn(0, 0, 0, 0, 0x13);
+>   }
+>   
+> -/* RVC instrutions. */
+> +/* RVC instructions. */
+>   
+>   static inline u16 rvc_addi4spn(u8 rd, u32 imm10)
+>   {
+> @@ -740,7 +740,7 @@ static inline u16 rvc_swsp(u32 imm8, u8 rs2)
+>   	return rv_css_insn(0x6, imm, rs2, 0x2);
+>   }
+>   
+> -/* RVZBB instrutions. */
+> +/* RVZBB instructions. */
+>   static inline u32 rvzbb_sextb(u8 rd, u8 rs1)
+>   {
+>   	return rv_i_insn(0x604, rs1, 1, rd, 0x13);
 
-For dependencies between the branches that are meant for the
-merge window, I don't mind taking them when there is a good
-reason and we have discussed it in advance. It means a little
-extra work for me as I have to be careful about the order of
-my own pull requests to ensure that the branch that contains
-the dependency gets merged first, and the commit log on Linus'
-side is what's actually meant to be in the branch.
-
-I also try hard (in general) to avoid dependencies between the
-soc/dt branch and any of the other branches, to be sure that
-there are no incompatible binding changes. This wasn't a
-problem here (I think), but if you send something late in the
-cycle, I pretty much don't want to have to think about that.
-
-      Arnd
+Reviewed-by: Pu Lehui <pulehui@huawei.com>
 
 _______________________________________________
 linux-riscv mailing list
