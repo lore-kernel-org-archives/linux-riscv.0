@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD32CC19F4F
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 21:45:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88080C10F1A
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 21:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=qsMXYUiBC2aQoBC4MMR19V6FruSAl6bE0Z01QHYsiwQ=; b=xiNJT0V3vv17kVLKKwmn55/iVC
-	r28LZI0uTj/01hEgvbIm0eekwzKdgX0KA3TXkbuiwyVmtf1UApy878bCtt6tLOj+YRH5vjPCUCJhx
-	29KarFALI1KCl+BVIuVxiLKJxe199YmaVIwQruUG+2nz9DDEsmkTbwXLnyRbUtlAT0NeUy+xxtjh+
-	N0Rsl3HmmbqhjL1pB1j/mMqZxPuQJ8nRrbaTHnuIAmjM654S4tx2MPUKt++YwWL+T7osI70PiGFt4
-	dejuToSNeuDHiqnjbXYG8Tq9EgwZLw0aQFa+ioReVhe4pI6ASrR5pzLXtc6EuoXGmPf8mAJlUk6BC
-	Rf8QS4+A==;
+	bh=+O0TdWYQvBvhd7yGgR8z8AISMv6NOL2z6FmdB5xqqzo=; b=FJxDo3yTsfiHVM0IxVnLWVtncM
+	D8N01JFLWNUXniJsELtceTfluGqVyxNLMTapObWTgMZgsgrQ9A2gILy014Zusax2qhS6RDv2e+k3t
+	9841+mEa+5hHYMVQckFlKHn0gKGb0KmGsZxXh4HMR3NsWFDTxIHrWi6g1iEzoYcwJsgJOUS3ZnkCE
+	n8rNXvXqJEUksOhlb/QD7p/31LNiASgEbhSqkMn5AtFAZaFUSqQyanwWiPgySGgMzgBMlf4AD3Wza
+	0ZUTISxO+kauPIt9JL4jZ0kuxaetg8vK1s2F8V92dCUHQIYn9bihByfdNl3gGj/qUbVmEA25ildTW
+	LN9CTkpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4ScT-0000000Cvux-2Hzu;
-	Tue, 07 May 2024 21:45:05 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1s4Sd6-0000000CwDg-449O;
+	Tue, 07 May 2024 21:45:44 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4ScO-0000000Cvpo-3GPO
+	id 1s4Sd1-0000000Cw9M-1wBZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 May 2024 21:45:03 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-61bea0ca5e2so66669447b3.2
-        for <linux-riscv@lists.infradead.org>; Tue, 07 May 2024 14:44:57 -0700 (PDT)
+	Tue, 07 May 2024 21:45:41 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-62035d9ecc4so75551767b3.1
+        for <linux-riscv@lists.infradead.org>; Tue, 07 May 2024 14:45:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1715118296; x=1715723096; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1715118336; x=1715723136; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FLG6gbZomB6DmPXjYL98l5fNcPQGk+fw1rCWyau0VTc=;
-        b=hOHzNJZ28QLtZfFqWVWYUa/nCysSVMxatB8MTRLCPfZzgJrBAT9klgq/SdZo5GNJcU
-         1XdjovAqh5CWsLSOVUWnlTT6loeloSVTUo6aV+pXj5x6nuoOZ/8DhGIoJrEgZXn8Dayb
-         CMbia2nSX0WY8rX01xGb9KKAD2kol7gtlRtv0tpYkht+XiNv3gS7K0/+ADZ8F/za/uTD
-         ZFAz5P3fQUMzAzO6IwyMASI1L1p1jZlhe0YiUzeQvBJZQG2uUnxHJqgHjhdIPvZlitvo
-         JFPJ71W2jm9MIWqIujk/pe9KWnTO+JsbbfnX/ipl+IL6xCNE4mb4KtBqsyznzs4PtuBM
-         bezg==
+        bh=PxqkolGdAHnL6PdsZ65UERLJRMYbiNDsN8K6maFf6SM=;
+        b=2cqNBjghZ8l3r+FbjqTEx5qQN27ULx+LVM13CRwnlhfdhyFeXk8+2aRuHI5/sFNsVB
+         1KgNarTfFaqEw9dhdjvf28JAMnPadl11TsLIi4p+z11UfKu22HrsipgKX28DxuB8QJ/V
+         lG9QKJaSMGqL9TgOz/tztNMTQXwg9VbefOkjeMJVE4p/cqZ1prPEbggHdR9x0WOHSNee
+         w/WP6zDL4hjqshhJ1MLimpyAVDGsvcnZ5Od1KELtff+tKB2ElkUgZMSEbkC9sPQhH2db
+         Az7lLwkwfGhhiUQpjLUy6MjZm4wOPKT895WKU/gYB+NVLMdytE9Rhhm7GXDHTykX0mTu
+         0bVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715118296; x=1715723096;
+        d=1e100.net; s=20230601; t=1715118336; x=1715723136;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FLG6gbZomB6DmPXjYL98l5fNcPQGk+fw1rCWyau0VTc=;
-        b=OhzHU5C34iStpH1WzY08FKwSus08URiDZyfHT/p1ND8Jibjskq8R7l+DnLGOS5TIZ7
-         AlZ2iIUeExrlYsb8TmgSa9KxlEW0VvTVwf3/QbP55IL6H8ufVChTzESmFjY2SvU/S/Ba
-         jyGZuixdWSqRdwD2Ho1QkHKcM6Vb5PmWendd0djnnrE2TCle0jUpoCgzMCOvGG5nn9X0
-         z/+aELXdrjx9UZB99cD5GbKNt6UDMFXz3/s7jo/2oqCCqJTg3x32GXZhNIR1GfE8c/JV
-         jePFqK2kAcwGB459ofqYHPcaD/4LQK+q6cHpOH9/nNLRykXcR09qZf1vyFPXYGKCsEv3
-         0bXg==
-X-Forwarded-Encrypted: i=1; AJvYcCV3mpK41oQjjdUnGqcvy1xigXesbaK3QoDXXP/sTBdfAaHz8fo85dEKcVQzuX9H0kLSr3Jw3z2eLcMOn9AtZwnDj/gdnTy+SwMed+MEojsb
-X-Gm-Message-State: AOJu0YzkatHsifeu320ttFjcgbKwhKiMbSPN9GmDDHmydt6o+4jHKg4i
-	djtOMMmfV7974L70sJqYrxCUXhPlDuSqjymdkvWcsXWy5caCkNHHKHKZblJI5FdLiyJHHx4k5d/
-	v/A==
-X-Google-Smtp-Source: AGHT+IFDRufPRd20hhB8IsmwhuIIZ1gDaiY3aRkAgAGU63hP6Y69UhIvyGPjEABNQz9R7M3kyPQJ53ZX+tk=
+        bh=PxqkolGdAHnL6PdsZ65UERLJRMYbiNDsN8K6maFf6SM=;
+        b=drLZ/G2tMpkNZGRboRcGZfZRSTHBCHQ4vj55rRBVZHFBb/glWFd0U5PTyQCYNrHulu
+         IyZPFRQNbbYj5g+bhHurOjwPXJ/pYKFh70Q2oSvp2LxP+CyLTLOMv0MZRWMw6jiPbLRQ
+         rUviM0hJIOeUQk0Aq5gUdvWNlh4r7U/U8hOV3gf6h+P0reRux9jl9AFpw3jSpBcOeirq
+         sDeVIOIgzwHbQqX2VGFJgPJiDfsNKI3psADnH0fC60u9CkLlrKNIzvetY+Bh0BWgEJF5
+         X3ntP5lr6LBlPmxQlKytfam9qRXIFtF17byhdu4RYOwL8oSQpiAy06cmYj8sMI61QzCK
+         KJew==
+X-Forwarded-Encrypted: i=1; AJvYcCXdVkd89ixYT3sP4ITCJgs3CH3ssVgoQWQaNG8HujrWKh/SbOoKhenCI1MVKTHyhqKAJSJkR915meXEfp8I3b0Zs72Cni3tk913Q4I//69I
+X-Gm-Message-State: AOJu0YzcD+aNA/mbIdYv2X0FvFdLfFCbsdRYjXOWHuCaPz6dlpmirvQN
+	Cok3TI8PHfZuKvca+qu+tA4CvrXk13dL6mKFPxoYMf7IsYdbuOnqmGolc0awzlgk/bbkGgNDV0w
+	bMg==
+X-Google-Smtp-Source: AGHT+IGJgoOMG1JaBSE0UtHVyyig8KidzCIEzcvbINCcSvOASMpuIMj9uEKB71a44HvjahOWnOHiagC8tKE=
 X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a81:a189:0:b0:61d:4701:5e65 with SMTP id
- 00721157ae682-62085c5c5fbmr2405797b3.2.1715118295730; Tue, 07 May 2024
- 14:44:55 -0700 (PDT)
-Date: Tue,  7 May 2024 21:38:26 +0000
+ (user=edliaw job=sendgmr) by 2002:a05:6902:1007:b0:deb:8bc5:eb5b with SMTP id
+ 3f1490d57ef6-debb9d87cd3mr271839276.5.1715118336096; Tue, 07 May 2024
+ 14:45:36 -0700 (PDT)
+Date: Tue,  7 May 2024 21:38:27 +0000
 In-Reply-To: <20240507214254.2787305-1-edliaw@google.com>
 Mime-Version: 1.0
 References: <20240507214254.2787305-1-edliaw@google.com>
 X-Mailer: git-send-email 2.45.0.rc1.225.g2a3ae87e7f-goog
-Message-ID: <20240507214254.2787305-2-edliaw@google.com>
-Subject: [PATCH v2 1/5] selftests: Compile kselftest headers with -D_GNU_SOURCE
+Message-ID: <20240507214254.2787305-3-edliaw@google.com>
+Subject: [PATCH v2 2/5] selftests/sgx: Include KHDR_INCLUDES in Makefile
 From: Edward Liaw <edliaw@google.com>
 To: shuah@kernel.org, Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
 	Takashi Iwai <tiwai@suse.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
@@ -112,8 +112,8 @@ Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
 	linux-rtc@vger.kernel.org, linux-sgx@vger.kernel.org, bpf@vger.kernel.org, 
 	kernel test robot <oliver.sang@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240507_144500_827950_8322DBAD 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20240507_144539_511636_E42820C4 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,68 +130,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the -D_GNU_SOURCE flag to KHDR_INCLUDES so that it is defined in a
-central location.
+Add KHDR_INCLUDES to the CFLAGS to pull in the kselftest harness
+dependencies (-D_GNU_SOURCE).
 
-809216233555 ("selftests/harness: remove use of LINE_MAX") introduced
-asprintf into kselftest_harness.h, which is a GNU extension and needs
-_GNU_SOURCE to either be defined prior to including headers or with the
--D_GNU_SOURCE flag passed to the compiler.
+Also, remove redefinitions of _GNU_SOURCE in the source code.
 
 Fixes: 809216233555 ("selftests/harness: remove use of LINE_MAX")
 Reported-by: kernel test robot <oliver.sang@intel.com>
 Closes: https://lore.kernel.org/oe-lkp/202404301040.3bea5782-oliver.sang@intel.com
 Signed-off-by: Edward Liaw <edliaw@google.com>
 ---
- tools/testing/selftests/Makefile            | 4 ++--
- tools/testing/selftests/kselftest_harness.h | 2 +-
- tools/testing/selftests/lib.mk              | 2 +-
- 3 files changed, 4 insertions(+), 4 deletions(-)
+ tools/testing/selftests/sgx/Makefile    | 2 +-
+ tools/testing/selftests/sgx/sigstruct.c | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
-index e1504833654d..ed012a7f0786 100644
---- a/tools/testing/selftests/Makefile
-+++ b/tools/testing/selftests/Makefile
-@@ -161,11 +161,11 @@ ifneq ($(KBUILD_OUTPUT),)
-   # $(realpath ...) resolves symlinks
-   abs_objtree := $(realpath $(abs_objtree))
-   BUILD := $(abs_objtree)/kselftest
--  KHDR_INCLUDES := -isystem ${abs_objtree}/usr/include
-+  KHDR_INCLUDES := -D_GNU_SOURCE -isystem ${abs_objtree}/usr/include
- else
-   BUILD := $(CURDIR)
-   abs_srctree := $(shell cd $(top_srcdir) && pwd)
--  KHDR_INCLUDES := -isystem ${abs_srctree}/usr/include
-+  KHDR_INCLUDES := -D_GNU_SOURCE -isystem ${abs_srctree}/usr/include
-   DEFAULT_INSTALL_HDR_PATH := 1
+diff --git a/tools/testing/selftests/sgx/Makefile b/tools/testing/selftests/sgx/Makefile
+index 867f88ce2570..26ea30fae23c 100644
+--- a/tools/testing/selftests/sgx/Makefile
++++ b/tools/testing/selftests/sgx/Makefile
+@@ -12,7 +12,7 @@ OBJCOPY := $(CROSS_COMPILE)objcopy
  endif
  
-diff --git a/tools/testing/selftests/kselftest_harness.h b/tools/testing/selftests/kselftest_harness.h
-index d98702b6955d..b2a1b6343896 100644
---- a/tools/testing/selftests/kselftest_harness.h
-+++ b/tools/testing/selftests/kselftest_harness.h
-@@ -51,7 +51,7 @@
- #define __KSELFTEST_HARNESS_H
+ INCLUDES := -I$(top_srcdir)/tools/include
+-HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC
++HOST_CFLAGS := -Wall -Werror $(KHDR_INCLUDES) -g $(INCLUDES) -fPIC
+ HOST_LDFLAGS := -z noexecstack -lcrypto
+ ENCL_CFLAGS += -Wall -Werror -static-pie -nostdlib -ffreestanding -fPIE \
+ 	       -fno-stack-protector -mrdrnd $(INCLUDES)
+diff --git a/tools/testing/selftests/sgx/sigstruct.c b/tools/testing/selftests/sgx/sigstruct.c
+index d73b29becf5b..200034a0fee5 100644
+--- a/tools/testing/selftests/sgx/sigstruct.c
++++ b/tools/testing/selftests/sgx/sigstruct.c
+@@ -1,7 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /*  Copyright(c) 2016-20 Intel Corporation. */
  
- #ifndef _GNU_SOURCE
 -#define _GNU_SOURCE
-+static_assert(0, "kselftest harness requires _GNU_SOURCE to be defined");
- #endif
- #include <asm/types.h>
- #include <ctype.h>
-diff --git a/tools/testing/selftests/lib.mk b/tools/testing/selftests/lib.mk
-index da2cade3bab0..2503dc732b4d 100644
---- a/tools/testing/selftests/lib.mk
-+++ b/tools/testing/selftests/lib.mk
-@@ -45,7 +45,7 @@ selfdir = $(realpath $(dir $(filter %/lib.mk,$(MAKEFILE_LIST))))
- top_srcdir = $(selfdir)/../../..
- 
- ifeq ($(KHDR_INCLUDES),)
--KHDR_INCLUDES := -isystem $(top_srcdir)/usr/include
-+KHDR_INCLUDES := -D_GNU_SOURCE -isystem $(top_srcdir)/usr/include
- endif
- 
- # The following are built by lib.mk common compile rules.
+ #include <assert.h>
+ #include <getopt.h>
+ #include <stdbool.h>
 -- 
 2.45.0.rc1.225.g2a3ae87e7f-goog
 
