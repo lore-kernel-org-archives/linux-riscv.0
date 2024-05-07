@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98EEC25B4F
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 12:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 293FAC10F1A
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 14:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=749b3EP4h32XIUxjO1h60YAYE8zPnH6AfaqH+s5Gfho=; b=Jk45EMJaas68Gu
-	9p3hOl51jsPANKzYdc2geT+uLVCdspkY+kiUm77GQ+LUi4BzaWGYT0zMRStG2s5JJ5Gg1dashHs4N
-	TDNab7amDmnluetDlbkQ9G+ficBzk1qBDJpEfWXV9X33ibSqz1BLJFt1T5UOAgPr+YrleJrYGs21i
-	7WdDa0p7K9lspG+aolhSCn5RJroGX0q/2px5UO+YJ/8UhHxU24dDWP6gFpyvn6u0rO3bJhXR556+5
-	j15z0RLs1nI0VNMRm3j9nQtGZLyM6cVn1OpQVs1Ny2p0vSBjFClRmdmYteEZVNBu+hz93WwOuDPLZ
-	mp2LfIB7JXNRmKkqZuhQ==;
+	List-Owner; bh=AdsggHIjU/Ayt7XpSRcpJSpD369XM3vnS4ppqZDBcyE=; b=wnNdCNhyhSVzRr
+	B53vkB2d1uIA9Z3CHKvRQW4LrZ/ijFshdbjlDF2vNyR05bR+TJvhE7F4y0YaXkLzP0YkcLZ/hEx6E
+	iPGLpjrXLJMsKfKD5oO9oAJb5J7jzoSqrjq7+llZTI+WYpMiT+bUsN20VOHYvaKvSnu9h6xdJuYM0
+	Y+Cendwcl2qVXzX8ZWOVvAVrpLO2SQiwZ2nzkJ6YM9w0BTCcQMwpZHHrLrKFYAFxyyIG3SeaY+a92
+	z/AbCN+yfrYAYj09vp/BxjVR+I9E8G63Ng+AiZV775t+TrF8r7KNiOMeM+KZf+kpCc62OixGKCjMY
+	0stAcW9yW0Wx2EWus0BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4KEF-0000000B0WI-2A0H;
-	Tue, 07 May 2024 12:47:31 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1s4LN5-0000000BMTP-1hfU;
+	Tue, 07 May 2024 14:00:43 +0000
+Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4KEB-0000000B0U3-2Umr
+	id 1s4LN1-0000000BMS3-3q3V
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 May 2024 12:47:30 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4VYdHM1fVJzYmKg;
-	Tue,  7 May 2024 20:43:27 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 89DE2180065;
-	Tue,  7 May 2024 20:47:16 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Tue, 7 May 2024 20:47:15 +0800
-Message-ID: <6836eb5c-f135-4e58-987b-987ab446b27c@huawei.com>
-Date: Tue, 7 May 2024 20:47:15 +0800
+	Tue, 07 May 2024 14:00:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=bE7QxHBl23SqmkvQImsRLD5Ew8sdZ2Sh0oNk8KX8UXI=; b=lF29aSwlz7rdbvZlOKsenoLRqj
+	WPB0gv4x5crFU+bqbBAuOVDDVwlxMWUqxkLYMqTigGdwilcGQOdG31W7ChRV00vDImXw9ktfgN2OX
+	r/02MyS0yrCoGE1Cz5ctBUr8GdVEkoHYzFUvAy6CXQhvghOyLmRR3WO0vNeCbr48AV33D/mRKEXOd
+	Nt5oSU7qQvtojXW4qyTc10bq8fvakg3LaRuuFtOfvSD4Me0QcFHERYeahgWuxk6ea89VOlQ9BH5b4
+	NylfnD0+nDTd6MryDtsvcy5lZQJcxNa3lYx8taKNzSWBXk/2zlWKhTlTC/irXHHLQcO13Z0Kl0jXg
+	PlInHUHg==;
+Received: from [217.161.79.54] (helo=[172.16.0.144])
+	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1s4LMT-008sEA-Fx; Tue, 07 May 2024 15:00:05 +0100
+Message-ID: <b7421822-4c07-40e2-b2a4-3599ba6b39da@codethink.co.uk>
+Date: Tue, 7 May 2024 15:00:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] riscv, bpf: Optimize zextw insn with Zba extension
-Content-Language: en-US
-To: Xiao Wang <xiao.w.wang@intel.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <luke.r.nels@gmail.com>,
-	<xi.wang@gmail.com>, <bjorn@kernel.org>
-CC: <ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>,
-	<martin.lau@linux.dev>, <eddyz87@gmail.com>, <song@kernel.org>,
-	<yonghong.song@linux.dev>, <john.fastabend@gmail.com>, <kpsingh@kernel.org>,
-	<sdf@google.com>, <haoluo@google.com>, <jolsa@kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<bpf@vger.kernel.org>, <haicheng.li@intel.com>
+To: Pu Lehui <pulehui@huawei.com>, Xiao Wang <xiao.w.wang@intel.com>,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ luke.r.nels@gmail.com, xi.wang@gmail.com, bjorn@kernel.org
+Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
+ martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
+ yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
+ sdf@google.com, haoluo@google.com, jolsa@kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, haicheng.li@intel.com
 References: <20240507104528.435980-1-xiao.w.wang@intel.com>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20240507104528.435980-1-xiao.w.wang@intel.com>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemf100007.china.huawei.com (7.202.181.221)
+ <6836eb5c-f135-4e58-987b-987ab446b27c@huawei.com>
+Content-Language: en-GB
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <6836eb5c-f135-4e58-987b-987ab446b27c@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240507_054728_003806_75A55C0A 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20240507_070040_146130_B966AA1A 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,110 +77,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 2024/5/7 18:45, Xiao Wang wrote:
-> The Zba extension provides add.uw insn which can be used to implement
-> zext.w with rs2 set as ZERO.
-> 
-> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
-> ---
->   arch/riscv/Kconfig       | 19 +++++++++++++++++++
->   arch/riscv/net/bpf_jit.h | 18 ++++++++++++++++++
->   2 files changed, 37 insertions(+)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 6bec1bce6586..0679127cc0ea 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -586,6 +586,14 @@ config RISCV_ISA_V_PREEMPTIVE
->   	  preemption. Enabling this config will result in higher memory
->   	  consumption due to the allocation of per-task's kernel Vector context.
->   
-> +config TOOLCHAIN_HAS_ZBA
-> +	bool
-> +	default y
-> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zba)
-> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zba)
-> +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-> +	depends on AS_HAS_OPTION_ARCH
-> +
->   config TOOLCHAIN_HAS_ZBB
->   	bool
->   	default y
-> @@ -601,6 +609,17 @@ config TOOLCHAIN_HAS_VECTOR_CRYPTO
->   	def_bool $(as-instr, .option arch$(comma) +v$(comma) +zvkb)
->   	depends on AS_HAS_OPTION_ARCH
->   
-> +config RISCV_ISA_ZBA
-> +	bool "Zba extension support for bit manipulation instructions"
-> +	depends on TOOLCHAIN_HAS_ZBA
-> +	depends on RISCV_ALTERNATIVE
-> +	default y
-> +	help
-> +	   Adds support to dynamically detect the presence of the ZBA
-> +	   extension (address generation acceleration) and enable its usage.
-
-It would be better to add Zba's function description like Zbb.
-
-> +
-> +	   If you don't know what to do here, say Y.
-> +
->   config RISCV_ISA_ZBB
->   	bool "Zbb extension support for bit manipulation instructions"
->   	depends on TOOLCHAIN_HAS_ZBB
-> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-> index f4b6b3b9edda..18a7885ba95e 100644
-> --- a/arch/riscv/net/bpf_jit.h
-> +++ b/arch/riscv/net/bpf_jit.h
-> @@ -18,6 +18,11 @@ static inline bool rvc_enabled(void)
->   	return IS_ENABLED(CONFIG_RISCV_ISA_C);
->   }
->   
-> +static inline bool rvzba_enabled(void)
-> +{
-> +	return IS_ENABLED(CONFIG_RISCV_ISA_ZBA) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBA);
-> +}
-> +
->   static inline bool rvzbb_enabled(void)
->   {
->   	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
-> @@ -937,6 +942,14 @@ static inline u16 rvc_sdsp(u32 imm9, u8 rs2)
->   	return rv_css_insn(0x7, imm, rs2, 0x2);
->   }
->   
-> +/* RV64-only ZBA instructions. */
-> +
-> +static inline u32 rvzba_zextw(u8 rd, u8 rs1)
-> +{
-> +	/* add.uw rd, rs1, ZERO */
-> +	return rv_r_insn(0x04, RV_REG_ZERO, rs1, 0, rd, 0x3b);
-> +}
-> +
->   #endif /* __riscv_xlen == 64 */
->   
->   /* Helper functions that emit RVC instructions when possible. */
-> @@ -1159,6 +1172,11 @@ static inline void emit_zexth(u8 rd, u8 rs, struct rv_jit_context *ctx)
->   
->   static inline void emit_zextw(u8 rd, u8 rs, struct rv_jit_context *ctx)
->   {
-> +	if (rvzba_enabled()) {
-> +		emit(rvzba_zextw(rd, rs), ctx);
-> +		return;
-> +	}
-
-Looks good to me. It seems that Zba has fewer uses in rv64 bpf jit.
-
-> +
->   	emit_slli(rd, rs, 32, ctx);
->   	emit_srli(rd, rd, 32, ctx);
->   }
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDcvMDUvMjAyNCAxMzo0NywgUHUgTGVodWkgd3JvdGU6Cj4gCj4gT24gMjAyNC81LzcgMTg6
+NDUsIFhpYW8gV2FuZyB3cm90ZToKPj4gVGhlIFpiYSBleHRlbnNpb24gcHJvdmlkZXMgYWRkLnV3
+IGluc24gd2hpY2ggY2FuIGJlIHVzZWQgdG8gaW1wbGVtZW50Cj4+IHpleHQudyB3aXRoIHJzMiBz
+ZXQgYXMgWkVSTy4KPj4KPj4gU2lnbmVkLW9mZi1ieTogWGlhbyBXYW5nIDx4aWFvLncud2FuZ0Bp
+bnRlbC5jb20+Cj4+IC0tLQo+PiDCoCBhcmNoL3Jpc2N2L0tjb25maWfCoMKgwqDCoMKgwqAgfCAx
+OSArKysrKysrKysrKysrKysrKysrCj4+IMKgIGFyY2gvcmlzY3YvbmV0L2JwZl9qaXQuaCB8IDE4
+ICsrKysrKysrKysrKysrKysrKwo+PiDCoCAyIGZpbGVzIGNoYW5nZWQsIDM3IGluc2VydGlvbnMo
+KykKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2Nv
+bmZpZwo+PiBpbmRleCA2YmVjMWJjZTY1ODYuLjA2NzkxMjdjYzBlYSAxMDA2NDQKPj4gLS0tIGEv
+YXJjaC9yaXNjdi9LY29uZmlnCj4+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+PiBAQCAtNTg2
+LDYgKzU4NiwxNCBAQCBjb25maWcgUklTQ1ZfSVNBX1ZfUFJFRU1QVElWRQo+PiDCoMKgwqDCoMKg
+wqDCoCBwcmVlbXB0aW9uLiBFbmFibGluZyB0aGlzIGNvbmZpZyB3aWxsIHJlc3VsdCBpbiBoaWdo
+ZXIgbWVtb3J5Cj4+IMKgwqDCoMKgwqDCoMKgIGNvbnN1bXB0aW9uIGR1ZSB0byB0aGUgYWxsb2Nh
+dGlvbiBvZiBwZXItdGFzaydzIGtlcm5lbCBWZWN0b3IgCj4+IGNvbnRleHQuCj4+ICtjb25maWcg
+VE9PTENIQUlOX0hBU19aQkEKPj4gK8KgwqDCoCBib29sCj4+ICvCoMKgwqAgZGVmYXVsdCB5Cj4+
+ICvCoMKgwqAgZGVwZW5kcyBvbiAhNjRCSVQgfHwgJChjYy1vcHRpb24sLW1hYmk9bHA2NCAtbWFy
+Y2g9cnY2NGltYV96YmEpCj4+ICvCoMKgwqAgZGVwZW5kcyBvbiAhMzJCSVQgfHwgJChjYy1vcHRp
+b24sLW1hYmk9aWxwMzIgLW1hcmNoPXJ2MzJpbWFfemJhKQo+PiArwqDCoMKgIGRlcGVuZHMgb24g
+TExEX1ZFUlNJT04gPj0gMTUwMDAwIHx8IExEX1ZFUlNJT04gPj0gMjM5MDAKPj4gK8KgwqDCoCBk
+ZXBlbmRzIG9uIEFTX0hBU19PUFRJT05fQVJDSAo+PiArCj4+IMKgIGNvbmZpZyBUT09MQ0hBSU5f
+SEFTX1pCQgoKQXQgdGhpcyBwb2ludCB3b3VsZCBpdCBiZSBlYXNpZXIgdG8gYXNrIHRoZSB0b29s
+Y2hhaW4gd2hhdCdzIGVuYWJsZWQKYW5kIHB1dCBpbnRvIGtjb25maWcgdmlhIHNvbWUgc29ydCBv
+ZiBzY3JpcHQ/CgotLSAKQmVuIERvb2tzCQkJCWh0dHA6Ly93d3cuY29kZXRoaW5rLmNvLnVrLwpT
+ZW5pb3IgRW5naW5lZXIJCQkJQ29kZXRoaW5rIC0gUHJvdmlkaW5nIEdlbml1cwoKaHR0cHM6Ly93
+d3cuY29kZXRoaW5rLmNvLnVrL3ByaXZhY3kuaHRtbAoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
