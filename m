@@ -4,109 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9CAC19F4F
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 22:37:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C6ECC19F4F
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 22:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:Subject:Cc:
-	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ND16QbeIY3S/HKDQcr3Bwa8v9+X6A9fpiKO6dkGc1Vg=; b=4hqfvMRVHD41gg
-	J3uH4cDiDfHVXt7a4JVgHaWowllKJZQQJpRHc51NG++rTWe0W83s1qKH7oECFBb5Qv5ylHzQQbJSX
-	ZnBYxJvX3yVtQT+QIC8m1gP1sRirbJNOqD5QbBI2OGn+CxYg/EPYqFzKAMsbOlo9zNMa6zdTU/NRh
-	NJVqglY0l27vaj6JIQzCUOlg7KZbVSOXSi5AsS38QLHVnZR00CF2XO4jRxqLpXXftrYS+1Qa3IfL5
-	Eobmhqeo2E3elHLyAY6kcFWx3Id6C7lOBKK3v7Cn3qF8EYdhQTAf16lPZhjAtilNE7mVXWIxz0SWJ
-	JKsq6VbhmGm9LNgLizwg==;
+	List-Owner; bh=fSv2KqSS8NHtOtXngLzFKnlQQBsK3WIsxqlht/HeoNI=; b=4DAeapi0XIszbi
+	0c9X1hGuVHcqSXWvejacyhVcid3506UKrbvh/tavZb8WwoMaLRhzAfxfZHbwM5MA2FaPFd3U2F70B
+	c1H7A3yDrq1VlxYBQZw8nHK8Mc6G1iC92nUyHBXKhD8X6Lfsn6BrzcsW7zOH/AwRS4aENgGjDxGsu
+	fntUxOqW3nSWAWe+j2gQZAdGMbg6Wd40PwtSSKaOu3cJD6dYEVrme3FQlmoXzzMA5CWmFzNngbGi6
+	9eLu+qOGXqvEiuujOchBcGmg+9PfLBr82DD5Auc6xMfylweafKAvBXkWGlEm01ZpboJuhMSsi8kAk
+	vo2keVLFZwXJlu6oOB1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4TQm-0000000D3k1-3jWw;
-	Tue, 07 May 2024 22:37:04 +0000
+	id 1s4Tld-0000000D6Ve-1i9r;
+	Tue, 07 May 2024 22:58:37 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4TQg-0000000D3g1-1EMd;
-	Tue, 07 May 2024 22:37:00 +0000
+	id 1s4TlZ-0000000D6T9-2cYZ
+	for linux-riscv@lists.infradead.org;
+	Tue, 07 May 2024 22:58:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 40CACCE16B2;
-	Tue,  7 May 2024 22:36:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66C46C2BBFC;
-	Tue,  7 May 2024 22:36:37 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 042C6CE1693;
+	Tue,  7 May 2024 22:58:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D79AC3277B;
+	Tue,  7 May 2024 22:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715121414;
-	bh=vZu8367hXU7oiXYTGuAa3tCsrA1jmnR/kKUKbwIWO24=;
-	h=Date:To:Cc:Subject:From:References:In-Reply-To:From;
-	b=XEs0nlupa/YeV6+Z2Gc+n7c3pIBOkGGmDoCoT6KyVsBYgtXLiIdHulLvrs4YEs/4a
-	 bPdoHs+8QRtFMZ/4gzAHp2vZ0me4r7CzqR/hvFNO1xvIqVWhc36VAXCAZWPLsUhnmu
-	 P4pKvBUvUOxuyv/wka2jPIQy0lQGEB6ym4TAHzN/Nghm7jV2qsTTbggxdx1RLCjLZm
-	 PEwPiir/nrivlQ45L+0JuHP+dxk8rfLOJyq24TPvS3+5GqucsW6YLdcPP8OrUDtb08
-	 EqYSgXFs8+vnP+dGERNlOoRnLFhtM1eiU22yUWrF67SuFuyh5tALynyPQtKp1PEzgM
-	 6xKlBBkuDjhWQ==
-Mime-Version: 1.0
-Date: Wed, 08 May 2024 01:36:35 +0300
-Message-Id: <D13RSJRDTUQO.UA22FQGU3839@kernel.org>
-To: "Edward Liaw" <edliaw@google.com>, <shuah@kernel.org>, "Mark Brown"
- <broonie@kernel.org>, "Jaroslav Kysela" <perex@perex.cz>, "Takashi Iwai"
- <tiwai@suse.com>, "Catalin Marinas" <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, "Nhat Pham" <nphamcs@gmail.com>, "Johannes
- Weiner" <hannes@cmpxchg.org>, "Christian Brauner" <brauner@kernel.org>,
- "Eric Biederman" <ebiederm@xmission.com>, "Kees Cook"
- <keescook@chromium.org>, "OGAWA Hirofumi" <hirofumi@mail.parknet.co.jp>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Peter Zijlstra" <peterz@infradead.org>, "Darren Hart"
- <dvhart@infradead.org>, "Davidlohr Bueso" <dave@stgolabs.net>,
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, "Jiri Kosina"
- <jikos@kernel.org>, "Benjamin Tissoires" <bentiss@kernel.org>, "Jason
- Gunthorpe" <jgg@ziepe.ca>, "Kevin Tian" <kevin.tian@intel.com>, "Andy
- Lutomirski" <luto@amacapital.net>, "Will Drewry" <wad@chromium.org>, "Marc
- Zyngier" <maz@kernel.org>, "Oliver Upton" <oliver.upton@linux.dev>, "James
- Morse" <james.morse@arm.com>, "Suzuki K Poulose" <suzuki.poulose@arm.com>,
- "Zenghui Yu" <yuzenghui@huawei.com>, "Paolo Bonzini" <pbonzini@redhat.com>,
- "Sean Christopherson" <seanjc@google.com>, "Anup Patel"
- <anup@brainfault.org>, "Atish Patra" <atishp@atishpatra.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Christian
- Borntraeger" <borntraeger@linux.ibm.com>, "Janosch Frank"
- <frankja@linux.ibm.com>, "Claudio Imbrenda" <imbrenda@linux.ibm.com>,
- "David Hildenbrand" <david@redhat.com>,
- =?utf-8?q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>, "Paul Moore"
- <paul@paul-moore.com>, "James Morris" <jmorris@namei.org>, "Serge E.
- Hallyn" <serge@hallyn.com>, "Andrew Morton" <akpm@linux-foundation.org>,
- "Seth Forshee" <sforshee@kernel.org>, "Bongsu Jeon"
- <bongsu.jeon@samsung.com>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, "Steffen Klassert"
- <steffen.klassert@secunet.com>, "Herbert Xu" <herbert@gondor.apana.org.au>,
- =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, "Manivannan Sadhasivam"
- <manivannan.sadhasivam@linaro.org>, "Matthieu Baerts" <matttbe@kernel.org>,
- "Mat Martineau" <martineau@kernel.org>, "Geliang Tang"
- <geliang@kernel.org>, "Willem de Bruijn" <willemdebruijn.kernel@gmail.com>,
- "Fenghua Yu" <fenghua.yu@intel.com>, "Reinette Chatre"
- <reinette.chatre@intel.com>, "Mathieu Desnoyers"
- <mathieu.desnoyers@efficios.com>, "Paul E. McKenney" <paulmck@kernel.org>,
- "Boqun Feng" <boqun.feng@gmail.com>, "Alexandre Belloni"
- <alexandre.belloni@bootlin.com>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, "Muhammad Usama Anjum"
- <usama.anjum@collabora.com>
-Cc: <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <kernel-team@android.com>, <linux-sound@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
- <linux-input@vger.kernel.org>, <iommu@lists.linux.dev>,
- <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
- <kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
- <linux-security-module@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
- <netdev@vger.kernel.org>, <linux-actions@lists.infradead.org>,
- <mptcp@lists.linux.dev>, <linux-rtc@vger.kernel.org>,
- <linux-sgx@vger.kernel.org>, <bpf@vger.kernel.org>
-Subject: Re: [PATCH v2 3/5] selftests: Include KHDR_INCLUDES in Makefile
-From: "Jarkko Sakkinen" <jarkko@kernel.org>
-X-Mailer: aerc 0.17.0
-References: <20240507214254.2787305-1-edliaw@google.com>
- <20240507214254.2787305-4-edliaw@google.com>
-In-Reply-To: <20240507214254.2787305-4-edliaw@google.com>
+	s=k20201202; t=1715122711;
+	bh=+c40Uhf6KzmTtn+fKaywtRA/07JP5WBu9P0At09HAK4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=CZlf+LmRKFrurKnLrbBW0seUavLy+h9UK8S9DGp+pV5gYQMYeSbE70YSqOgdoKuET
+	 FAA7485utsoS3MrP13vOMK7BJ3egEcZ3cQu0ejudz2GHAK7SX8toOKrbGB4r0k5g0R
+	 SHCe5BlaFvekhaM8pPbrQ/t3qweOA4cTX89vxMKDjrc5g9sH0sPjRGLGfHpT8HRhme
+	 qHgcTW+FMYWcvOMNjuaxakthKSrqlNzGy3GVxRM+4WwfgTwVSKnjbjhuzxBEhmiR/w
+	 MTgmL1KUwMNNmm39Hwx/4fgJUTw5l3tunT+HjIFv6RRXWQW2n2O6XYkrHAbUYVyuzH
+	 /AG4SYzkYVpdQ==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Sasha Levin <sashal@kernel.org>,
+	shuah@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.8 20/23] selftests: sud_test: return correct emulated syscall value on RISC-V
+Date: Tue,  7 May 2024 18:56:46 -0400
+Message-ID: <20240507225725.390306-20-sashal@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240507225725.390306-1-sashal@kernel.org>
+References: <20240507225725.390306-1-sashal@kernel.org>
+MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.8.9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240507_153658_712595_8F122003 
-X-CRM114-Status: UNSURE (   6.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240507_155833_882961_64651613 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,26 +78,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed May 8, 2024 at 12:38 AM EEST, Edward Liaw wrote:
-> Add KHDR_INCLUDES to CFLAGS to pull in the kselftest harness
-> dependencies (-D_GNU_SOURCE).
->
-> Fixes: 809216233555 ("selftests/harness: remove use of LINE_MAX")
-> Signed-off-by: Edward Liaw <edliaw@google.com>
-
-Oops, this is not for this patch but for SGX. Pressed D by mistake
-in aerch, so for SGX one:
-
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-
-BR, Jarkko
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgoKWyBVcHN0cmVhbSBj
+b21taXQgMTdjNjdlZDc1MmQ2YTQ1NjYwMmIzZGJiMjVjNWFlNGQzZGU1ZGVhYiBdCgpDdXJyZW50
+bHksIHRoZSBzdWRfdGVzdCBleHBlY3RzIHRoZSBlbXVsYXRlZCBzeXNjYWxsIHRvIHJldHVybiB0
+aGUKZW11bGF0ZWQgc3lzY2FsbCBudW1iZXIuIFRoaXMgYXNzdW1wdGlvbiBvbmx5IHdvcmtzIG9u
+IGFyY2hpdGVjdHVyZXMKd2VyZSB0aGUgc3lzY2FsbCBjYWxsaW5nIGNvbnZlbnRpb24gdXNlIHRo
+ZSBzYW1lIHJlZ2lzdGVyIGZvciBzeXNjYWxsCm51bWJlci9zeXNjYWxsIHJldHVybiB2YWx1ZS4g
+VGhpcyBpcyBub3QgdGhlIGNhc2UgZm9yIFJJU0MtViBhbmQgdGh1cwp0aGUgcmV0dXJuIHZhbHVl
+IG11c3QgYmUgYWxzbyBlbXVsYXRlZCB1c2luZyB0aGUgcHJvdmlkZWQgdWNvbnRleHQuCgpTaWdu
+ZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5jb20+ClJldmlld2Vk
+LWJ5OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KQWNrZWQtYnk6IFBhbG1l
+ciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPgpMaW5rOiBodHRwczovL2xvcmUua2VybmVs
+Lm9yZy9yLzIwMjMxMjA2MTM0NDM4LjQ3MzE2Ni0xLWNsZWdlckByaXZvc2luYy5jb20KU2lnbmVk
+LW9mZi1ieTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+ClNpZ25lZC1vZmYt
+Ynk6IFNhc2hhIExldmluIDxzYXNoYWxAa2VybmVsLm9yZz4KLS0tCiAuLi4vc2VsZnRlc3RzL3N5
+c2NhbGxfdXNlcl9kaXNwYXRjaC9zdWRfdGVzdC5jICAgICB8IDE0ICsrKysrKysrKysrKysrCiAx
+IGZpbGUgY2hhbmdlZCwgMTQgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rp
+bmcvc2VsZnRlc3RzL3N5c2NhbGxfdXNlcl9kaXNwYXRjaC9zdWRfdGVzdC5jIGIvdG9vbHMvdGVz
+dGluZy9zZWxmdGVzdHMvc3lzY2FsbF91c2VyX2Rpc3BhdGNoL3N1ZF90ZXN0LmMKaW5kZXggYjVk
+NTkyZDQwOTllOC4uZDk3NWE2NzY3MzI5OSAxMDA2NDQKLS0tIGEvdG9vbHMvdGVzdGluZy9zZWxm
+dGVzdHMvc3lzY2FsbF91c2VyX2Rpc3BhdGNoL3N1ZF90ZXN0LmMKKysrIGIvdG9vbHMvdGVzdGlu
+Zy9zZWxmdGVzdHMvc3lzY2FsbF91c2VyX2Rpc3BhdGNoL3N1ZF90ZXN0LmMKQEAgLTE1OCw2ICsx
+NTgsMjAgQEAgc3RhdGljIHZvaWQgaGFuZGxlX3NpZ3N5cyhpbnQgc2lnLCBzaWdpbmZvX3QgKmlu
+Zm8sIHZvaWQgKnVjb250ZXh0KQogCiAJLyogSW4gcHJlcGFyYXRpb24gZm9yIHNpZ3JldHVybi4g
+Ki8KIAlTWVNDQUxMX0RJU1BBVENIX09GRihnbG9iX3NlbCk7CisKKwkvKgorCSAqIFRoZSB0ZXN0
+cyBmb3IgYXJndW1lbnQgaGFuZGxpbmcgYXNzdW1lIHRoYXQgYHN5c2NhbGwoeCkgPT0geGAuIFRo
+aXMKKwkgKiBpcyBhIE5PUCBvbiB4ODYgYmVjYXVzZSB0aGUgc3lzY2FsbCBudW1iZXIgaXMgcGFz
+c2VkIGluICVyYXgsIHdoaWNoCisJICogaGFwcGVucyB0byBhbHNvIGJlIHRoZSBmdW5jdGlvbiBB
+QkkgcmV0dXJuIHJlZ2lzdGVyLiAgT3RoZXIKKwkgKiBhcmNoaXRlY3R1cmVzIG1heSBuZWVkIHRv
+IHN3aXp6bGUgdGhlIGFyZ3VtZW50cyBhcm91bmQuCisJICovCisjaWYgZGVmaW5lZChfX3Jpc2N2
+KQorLyogUkVHX0E3IGlzIG5vdCBkZWZpbmVkIGluIGxpYmMgaGVhZGVycyAqLworIyBkZWZpbmUg
+UkVHX0E3IChSRUdfQTAgKyA3KQorCisJKCh1Y29udGV4dF90ICopdWNvbnRleHQpLT51Y19tY29u
+dGV4dC5fX2dyZWdzW1JFR19BMF0gPQorCQkJKCh1Y29udGV4dF90ICopdWNvbnRleHQpLT51Y19t
+Y29udGV4dC5fX2dyZWdzW1JFR19BN107CisjZW5kaWYKIH0KIAogVEVTVChkaXNwYXRjaF9hbmRf
+cmV0dXJuKQotLSAKMi40My4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
