@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68755C25B5C
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 01:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1465AC25B75
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 01:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uj8e15UR7pweCsOH3MWOLs0tuR2A+XI1nZ8eTDgC7ak=; b=eu9yYbkmtFumGt
-	WASFMnid+Om4fC1GmfIR5qpys51yTcD/zXsL70kb2BG84zQ/qlHUL+I4wkFG8u8vp59zsRpNWO77S
-	nCEjJN7N/tml45/5NrPpqaz+1DE/MURISCBpk7du8REGcrfAN5jBCh6IK+uQ8i5Jr9CFbNsrZuALx
-	ZpROuWP/cB96Vx+d6ynlNqu1gxVjzsq2oKZVC1vi83MBiuPV79rMyDs22qVkdkuX9D0G3Ckm1letg
-	uEuKbXI2Q8Hp32X9farGDWIJJjeldqQAbxwwRfbGTkKMsLj9yDhhy6cVR34tBCFqW00lms2S6Qlcs
-	zxc2GJgCEqaGNsgPwHjA==;
+	List-Owner; bh=g91jZt8yERTqeM2BTva+TPAEl1G4QS73mnsji9WDO3g=; b=Q8RX8mHlmz2uXn
+	C0sfVgWFJPHq9NPBOLM/sXmocDruP8JznltxaFDvogu7tF81nbn3NPzmCzhqYZhApoSGOz+CSB+tv
+	wNrergl91762mPNVG83PD1DX0BXXnN1ovv6Tu+qzKDVasr91ZU7ZcTmFIwlup0xoAytYSXuPJaei/
+	abhvGUSqPGx72Ahh+94Zf8bt4N2GND1pzheY4Z3WJ0XBO0U2nljliK+yQEByduMoJMk3nScGTbD7f
+	xXB9nTJasJkdZ+BxF9FVBkIwOz2K4dHXuMLY+dX8cUexMCVoHmBxuM77G/3QjEyLpVHFUbKtdEGcC
+	xXPwfB5ve/R0J1Pqn+zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s49rC-00000009H9E-0AbN;
-	Tue, 07 May 2024 01:43:02 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1s49rA-00000009H83-1Yud;
+	Tue, 07 May 2024 01:43:00 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s49r2-00000009H3r-3F3M
+	id 1s49r1-00000009H1A-0RhZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 May 2024 01:42:55 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1ee42b97b32so9312705ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 06 May 2024 18:42:52 -0700 (PDT)
+	Tue, 07 May 2024 01:42:53 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1ee42b97b32so9312355ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 06 May 2024 18:42:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715046172; x=1715650972; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715046166; x=1715650966; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Mrbuhf8lERW/x3AUUGdC3eD15JM+519sglQ52hQ7AhA=;
-        b=YUOpVyFis4qV4q3g/83KuwRqHBwX1uXz4deGbDNGMc/lif+BFDLOWf2UfVwkiCiFEb
-         2YIlY5ot8I7ifVqqGSLlVCv/ySoejgBmIyTfv2CoOBNjfJ3uX/nqEYKkmN+zDy0An7Ij
-         cp0E7Tr5bbUNKoC2QdqumfV7uDOUQsQXSMNf/jr7t/elGS053EZrmXrw9Y9vZFydT7aK
-         GYWWAw64OhhySkfMdZzI24489up09Lz2SXPErOU6Kwa5c64gp8D5IliHhAkVAeD6O8FU
-         fHTZ5oPVrkfiIOGfy78PKmmdgybfh7DhXLzeaLKfsyvOdnDw7IX+Rk04lQOWaQyVZK8H
-         vl6w==
+        bh=t1rtoP2W5LhxJ+J8dI0kYwFURphSK1JVHizOP2fywoc=;
+        b=0zqR/RIzG5QvGcJgG2sWn2kBSFvoBwZiEKog8oLlHw5y9BuJ5UyLbJkWK3wA2zQ4aX
+         /ig9VoK6TnI56KwYrDUQWm2i+SPK3i0jlLfzxDlg7Yd/nK+dHI4pkHkY9/d0ZZue/L2o
+         bs4uKnGHVq7DuRXRxHe69De+HGxpJGKSPL0iaqmoPK+7vEWvEf3qh5Hf0HRvYoSH4aFG
+         gorFansHBSmMRi59W+f8hekMNv0FoSZwW9AZBUPTEkd18ezaGA8V8bdVd53Nr6LPXov8
+         qUG1SMM8MFAG9XjPo+uDh4dLqEw9zfi/Wdw3G6BoZLyy/qAyKGbMKnhgScoFgG42Ycz6
+         cuYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715046172; x=1715650972;
+        d=1e100.net; s=20230601; t=1715046166; x=1715650966;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Mrbuhf8lERW/x3AUUGdC3eD15JM+519sglQ52hQ7AhA=;
-        b=qSutI7k7eBc4Cx/GfJSPaFYXrChMLMKcpqRXXbmLFCerjMrzlB0ZZ5D3qOZ8xhqNDm
-         gzTQ8o8bdtaUq156/uczf9VgyiVWsn0Ku0Vw7OXNf3wNO3TeMrZbJWUuoZ4uSGP2fvO6
-         w0P6ZBHc/EnNE6sGW8igUApdkGDOYqscURQZ54x+D68zwJsRxewCe3jr7ugGDlTVUtxG
-         7j+8txEJ//jJJWsvKFfIWvMDfDWwK1YI66OxDyYRJTfIxde5ld4t4AYyGcgOUbP+BcvO
-         eifN+hDBJLOhF/iAdAh2Sh07c2OeBTWNhEztiEPabYkrbGjML6vLOGnSl6wfJGA93zl4
-         SwGg==
-X-Gm-Message-State: AOJu0YwwIXTxhL2AKN5UHA/tUak9tGURsZS9xe/lpp1636QWtKG0UVeK
-	DFdUXFNvq2+FdR+UNk2g52y8rOGdz99UdNkgVvt6OcC0dMA5R5PurLC/vQJJhKE=
-X-Google-Smtp-Source: AGHT+IGF+LSyNFek/MjWREJIb2DvsG1B8cdEZTM4HWcwxV91ymmqopcN94RSVuM+E6tI2esVsff8YA==
-X-Received: by 2002:a17:902:e548:b0:1e5:5ccd:30e1 with SMTP id n8-20020a170902e54800b001e55ccd30e1mr13723687plf.65.1715046171913;
-        Mon, 06 May 2024 18:42:51 -0700 (PDT)
+        bh=t1rtoP2W5LhxJ+J8dI0kYwFURphSK1JVHizOP2fywoc=;
+        b=BNpR05c6OCwyoG8kpIMzkUVAHPUARQ376cbxhdzdcAJdHS+vKz1H9H7pfXYpmn50Qd
+         IZjcCVyBvABCpf/ULAxj49zGvrZgnzjUU22WS7rLVOg9ZXc3bZwJJOF8wvOYpqGZ4z7b
+         J74m/MiMRPiDCD3LxB20HH5ySI7gPmnAmsuEFM+ryQVCBP6I3RNbGPVzAyvyASNIB9Jm
+         cbchmIu+L113gkoRMgcmFoKmrh5ZT6DWg3sKJSpNEVizfCylg1kLdJAL0yt5LGxlbXj/
+         13CHIbHwwaDi8U7LBcs86z5sTerLCsAmto90ditvbWesvS3Kmg7TQdSinECAXeZK1VeQ
+         L+QA==
+X-Gm-Message-State: AOJu0YzpHPnS7x8fvWPlDQ/VPpxR8PPoJ3vmz8V372XZCr0vOnipqVaQ
+	Zmi5r37iH1nBkABPl4J4r3OolsjhsUdpcBOKzgShYHMRdGwKJ4L57SWYn53F8Mo=
+X-Google-Smtp-Source: AGHT+IEvpciP1sfAIndVjOWdRz7vLHFzpcSQrwQgsqgVau2eSxQs0m4E49rHQF2sOcXRyHJSXo6dDQ==
+X-Received: by 2002:a17:90a:6fc7:b0:2aa:b57c:b178 with SMTP id e65-20020a17090a6fc700b002aab57cb178mr12019684pjk.34.1715046165806;
+        Mon, 06 May 2024 18:42:45 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id q8-20020a170902dac800b001eb3f705ddasm8915311plx.255.2024.05.06.18.42.50
+        by smtp.gmail.com with ESMTPSA id q8-20020a170902dac800b001eb3f705ddasm8915311plx.255.2024.05.06.18.42.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 May 2024 18:42:51 -0700 (PDT)
+        Mon, 06 May 2024 18:42:44 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Mon, 06 May 2024 18:40:49 -0700
-Subject: [PATCH 8/8] riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBS Kconfig
- option
+Date: Mon, 06 May 2024 18:40:45 -0700
+Subject: [PATCH 4/8] riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_SVPBMT
+ Kconfig option
 MIME-Version: 1.0
-Message-Id: <20240506-compile_kernel_with_extensions-v1-8-5c25c134c097@rivosinc.com>
+Message-Id: <20240506-compile_kernel_with_extensions-v1-4-5c25c134c097@rivosinc.com>
 References: <20240506-compile_kernel_with_extensions-v1-0-5c25c134c097@rivosinc.com>
 In-Reply-To: <20240506-compile_kernel_with_extensions-v1-0-5c25c134c097@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -79,16 +79,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1715046158; l=3086;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1715046158; l=2246;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=VSGPqebqjCkV+Jce+IU74T8AjKJ/iHF/vPW/Bia4uwk=;
- b=PDnuVsyyK0HUPATpcCiqShVPqzG7qsmDrxcNZxQQptU20Eb8nLdqbPfj2AbCgNK4RPsM26oGZ
- gmZwE2MylTPC4jC6xpkZtKachs4HLLUOAvrnLkA+xKmCeSbzFLq0q8f
+ bh=a5uHrD6/CgdRcxiHblwyx5kXSDkE21WZp1cyzlXEWj4=;
+ b=bnTpAsp3Zw5Pq5X+mO5DVW5pxHHKVy8FUw83Bk2bzxERC5XixN3igHc8XRzJzdAfFDd6F0ZpQ
+ qURkHGNHFlyCgGYDPobEFSDYFLG17QZXDtd4VvfBloYF51Nv4e0BVtE
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240506_184252_970321_64099B13 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20240506_184251_183080_9C6EA0B0 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,87 +105,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Zbs can optimize kernel instruction sequences. Add a config option
-PLATFORM_SUPPORTS_RISCV_ISA_ZBS that allows arbitrary Zbs instruction
-sequences to be emitted by the compiler.
+Svpbmt would not benefit from having PLATFORM_SUPPORTS_RISCV_ISA_SVPBMT
+so just rename RISCV_ISA_SVPBMT to PLATFORM_MAY_SUPPORT_RISCV_ISA_SVPBMT
+and move the definition to Kconfig.isa.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/riscv/Kconfig.isa | 51 ++++++++++++++++++++++++++++++++++++++++++++++++++
- arch/riscv/Makefile    |  1 +
- 2 files changed, 52 insertions(+)
+ arch/riscv/Kconfig     | 17 -----------------
+ arch/riscv/Kconfig.isa | 17 +++++++++++++++++
+ 2 files changed, 17 insertions(+), 17 deletions(-)
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 9c3a4347953b..22303a3ab59e 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -484,23 +484,6 @@ config RISCV_ALTERNATIVE_EARLY
+ 	help
+ 	  Allows early patching of the kernel for special errata
+ 
+-config RISCV_ISA_SVPBMT
+-	bool "Svpbmt extension support for supervisor mode page-based memory types"
+-	depends on 64BIT && MMU
+-	depends on RISCV_ALTERNATIVE
+-	default y
+-	help
+-	   Add support for the Svpbmt ISA-extension (Supervisor-mode:
+-	   page-based memory types) in the kernel when it is detected at boot.
+-
+-	   The memory type for a page contains a combination of attributes
+-	   that indicate the cacheability, idempotency, and ordering
+-	   properties for access to that page.
+-
+-	   The Svpbmt extension is only available on 64-bit cpus.
+-
+-	   If you don't know what to do here, say Y.
+-
+ config TOOLCHAIN_HAS_ZBB
+ 	bool
+ 	default y
 diff --git a/arch/riscv/Kconfig.isa b/arch/riscv/Kconfig.isa
-index b7399f236bba..60ae1bf71c70 100644
+index 37585bcd763e..50e217dc5719 100644
 --- a/arch/riscv/Kconfig.isa
 +++ b/arch/riscv/Kconfig.isa
-@@ -340,3 +340,54 @@ config PLATFORM_SUPPORTS_RISCV_ISA_ZBC
- 	  systems that do not support the Zbc extension.
+@@ -168,3 +168,20 @@ config PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT
+ 	  not support Svnapot.
  
  endchoice
 +
-+config TOOLCHAIN_HAS_ZBS
-+	bool
-+	default y
-+	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbs)
-+	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbs)
-+	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-+	depends on AS_HAS_OPTION_ARCH
-+
-+config RISCV_ISA_ZBS
-+	bool
-+
-+choice
-+	prompt "Zbs extension for bit manipulation instructions support"
-+	default PLATFORM_MAY_SUPPORT_RISCV_ISA_ZBS
-+	help
-+	  This selects the level of support for Zbs instructions to be
-+	  built into the Linux Kernel. This does not impact whether Zbs
-+	  instructions are allowed to be emitted by user-space code.
-+
-+	  The Zbs extension provides instructions to accelerate carry-less
-+	  multiplication.
-+
-+config PROHIBIT_RISCV_ISA_ZBS
-+	bool "Prohibit Zbs instruction sequences"
-+	depends on NONPORTABLE
-+	help
-+	  Regardless of if the platform supports Zbs instructions,
-+	  prohibit the kernel from emitting Zbs instructions.
-+
-+config PLATFORM_MAY_SUPPORT_RISCV_ISA_ZBS
-+	bool "Allow Zbs instruction sequences if supported"
-+	depends on TOOLCHAIN_HAS_ZBS
++config RISCV_ISA_SVPBMT
++	bool "Svpbmt extension support for supervisor mode page-based memory types"
++	depends on 64BIT && MMU
 +	depends on RISCV_ALTERNATIVE
-+	select RISCV_ISA_ZBS
++	default y
 +	help
-+	  Add support for enabling optimisations in the kernel when the
-+	  Zbs extension is detected at boot.
++	   Add support for the Svpbmt ISA-extension (Supervisor-mode:
++	   page-based memory types) in the kernel when it is detected at boot.
 +
-+config PLATFORM_SUPPORTS_RISCV_ISA_ZBS
-+	bool "Emit Zbs instructions when building Linux"
-+	depends on TOOLCHAIN_HAS_ZBS
-+	depends on NONPORTABLE
-+	select RISCV_ISA_ZBS
-+	help
-+	  Adds "zbs" to the ISA subsets that the toolchain is allowed to emit
-+	  when building Linux, which results in Zbs instructions in the
-+	  Linux binary. This option produces a kernel that will not run on
-+	  systems that do not support the Zbs extension.
++	   The memory type for a page contains a combination of attributes
++	   that indicate the cacheability, idempotency, and ordering
++	   properties for access to that page.
 +
-+endchoice
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 30be0fec976a..7519b68c3bd5 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -70,6 +70,7 @@ riscv-march-$(CONFIG_PLATFORM_SUPPORTS_RISCV_ISA_V)	:= $(riscv-march-y)v
- riscv-march-$(CONFIG_PLATFORM_SUPPORTS_RISCV_ISA_ZBA)	:= $(riscv-march-y)_zba
- riscv-march-$(CONFIG_PLATFORM_SUPPORTS_RISCV_ISA_ZBB)	:= $(riscv-march-y)_zbb
- riscv-march-$(CONFIG_PLATFORM_SUPPORTS_RISCV_ISA_ZBC)	:= $(riscv-march-y)_zbc
-+riscv-march-$(CONFIG_PLATFORM_SUPPORTS_RISCV_ISA_ZBS)	:= $(riscv-march-y)_zbs
- 
- ifdef CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC
- KBUILD_CFLAGS += -Wa,-misa-spec=2.2
++	   The Svpbmt extension is only available on 64-bit cpus.
++
++	   If you don't know what to do here, say Y.
 
 -- 
 2.44.0
