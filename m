@@ -4,89 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508ABC10F1A
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 05:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81AE2C25B5F
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 May 2024 06:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8un4EogaDj3AqDBb7UDQXjxHIDRC731uaGjqwSnaieQ=; b=EB01DA7ZO4iwGH
-	gIrAkbZlK/fyiiNGkguYqx5Qbb7y7S/ClLVVWNBm1K6jpdkKM2gsvaJFd/J1XcfNgXyDV8x2E24AB
-	qDggUbDQctR/8YkOjgJ+R5MKDf0KL12vyD8lpdtc3JSeJw3T7VCqUQnlkt289WsCfMH4vw87w9ren
-	b09l/ILAp/l67VlE3h/Ofm8wIiS88vCGP8WN8QrLTYYl8CFj5hzDWSkCViHhGC0ogPZlUc57WTNnm
-	GpzTkC4IuChS+j0L/FW/pEimdb/MBcir/kyEW1/sgNfNUep2WH3c2Vc0nlrpOZliWbM4oek/WkjUl
-	2RnS75Nf4cFTRBcT2v0w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9Pz+dXAVbkyutb4WnwDekKdxtZl6Mv3QyVyyJTwbOwQ=; b=F1S6NCPZOgxKFo
+	C8a2+Tti22HUFHQbqtPm0zpTP/95vzOCGacVAtN1B5vb4/7a3+IxNT6VpO6hWxbp7jcsoMAK0wuqF
+	tdnpcOqwAeD273Ulkyfsx90LUw/yySa9u/kzUJ4LfiEAIqo6lRmwmMLKOrSapMoVHP+ixCPRRsUIr
+	K5uoLDKzNPztM8w686+GYsRTuJbbLzJzU2/p6GD/pCcddfJc4Zev3bbHFOUFD0OhjkG14utw2PRKr
+	G22J+9yGpohjRzInt5Bko5ps18fobv3CJqFDxV9jV6MU2GMWvrFEGfLBTCWTtN+XNfLqCGvP5auRY
+	jKJBNXGTvX+z+iSWbolA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4DZd-00000009icY-3WDY;
-	Tue, 07 May 2024 05:41:09 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1s4Ehz-00000009tfT-0Xa5;
+	Tue, 07 May 2024 06:53:51 +0000
+Received: from mail-sh0chn02on20724.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::724] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4DZb-00000009ibp-0m1Y
+	id 1s4Ehw-00000009tdE-1HsI
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 May 2024 05:41:09 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-34ddc9fe497so1613533f8f.3
-        for <linux-riscv@lists.infradead.org>; Mon, 06 May 2024 22:41:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user; t=1715060463; x=1715665263; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1kbiGw1I98ggTGFKbaoTCIzpEx78I5vq+dQ9nXNzCpI=;
-        b=jik6CGx2VP9LWdTTC/EjSLytPJJEO9/lXsdHG7eu4mU6etphr4jGIj2V7qTad66JDZ
-         AWVO2H+SsovruuUO/Sn5+W78uqH4dsfNc/W/Pv7cQ3sJ/lIPgoFEO4MU7OyB5Nva5BX+
-         HQ6ZnJKI+Sqn1my4q5KTW44N2WgWDdYEpkX8WaK5j1gqv7yCclQioZbKZ/rSTQa5eyhH
-         ts7hd9xIKP8hCZy8fu9a84/3+iO4nI9J3b2F/Y0hw7gBZhD3Ft3npYsFG+5/UgdnPimH
-         0Z+ot7SSlhYh2QfOnc2w0ImT5w2rFQOT/WO2N9PyMn78eJBuM4kIxjQmzjEdzGP/pKI/
-         piBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715060463; x=1715665263;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1kbiGw1I98ggTGFKbaoTCIzpEx78I5vq+dQ9nXNzCpI=;
-        b=Plsxu/rNrCrvxOVXuUoxyfZP/rke4taSRUI2pQj4KT4+aff6eovf5LptkNzGYlnxZ/
-         4VvE2E0vt5mV4xw9QNKzT4hpqCYbNgPNA8xEau22FEep4Tbud0yTqMy86GuE/Fka+uet
-         TPOBowT65Yj4PtiEOQebRJ2LiIelQ0ziXi/S5iU40XySlo9u7OK5/zq/hgCdrsQhkqhj
-         HX9Af9p5dL41WMfaumw8qhAs34jAUzlHllz6EMuYCfHQneiwGmP+oDLTbxqwf1kxXOT7
-         FWROJag/IN0l9eMiblpo+Ax2RGhv28azU8YqS16xzV74SVKqWTn61SqkLc9aazkGlRgo
-         T6RA==
-X-Forwarded-Encrypted: i=1; AJvYcCWlBgfCpFsYmhx2pSqyNHf0NbpbIOLEi3dRle9MGAmhPlw1oWxz6pZBsMdQLIrLGVAljkcL9HEafYFhL/TpYcxW1/JRdNcl6u/I5w/Yjw0M
-X-Gm-Message-State: AOJu0Yz6aGl1QuzQY68vyl6p5SQO3wWk3ZlqANZswN0GsV7u/ofkir+7
-	w54RkIov3ajKO8e3Tb59qc2jcJpWKElOgxayZZZPukyPQauRzC2wO5ggQ4JN6uI=
-X-Google-Smtp-Source: AGHT+IHa+esdspnEOsUVcm0d3XG+402oGNO03Ku//0E0dzUqeLQ+nfmICyWShJi63tMEMr3wfdEZ2A==
-X-Received: by 2002:a5d:4044:0:b0:349:f220:a1cd with SMTP id w4-20020a5d4044000000b00349f220a1cdmr10272654wrp.27.1715060463126;
-        Mon, 06 May 2024 22:41:03 -0700 (PDT)
-Received: from smtpclient.apple ([131.111.5.246])
-        by smtp.gmail.com with ESMTPSA id x3-20020a5d4903000000b0034dbbcf01f5sm12014714wrq.42.2024.05.06.22.41.02
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 06 May 2024 22:41:02 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.500.171.1.1\))
-Subject: Re: [PATCH 4/8] riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_SVPBMT
- Kconfig option
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <20240506-compile_kernel_with_extensions-v1-4-5c25c134c097@rivosinc.com>
-Date: Tue, 7 May 2024 06:40:52 +0100
+	Tue, 07 May 2024 06:53:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=LRIhjox5LY2IEuMSvjCeZWfEHC8bQMFUc/yBDfTXs0TVd5k2wEGQqX9nyJa7lp156InFEnLs4IuIN0bCh4LSGcKNTFSICmzDZO7HUn5aFR7kMs3Wy4QwzRzCPl6R5ygno3Y4NFiyGvxkvHo50NODCqoeAoyYXiCV/bu2K28Yk6y77/R2ZEZ52KdbTZjLPOExlN6HxgQL0mChDh76rZrmnqRsmjqdRo8EqY5XFPjltfjVd+EBkgysa93YD9bmQy5jsPIe3sh0jm+lqKdN0+Iby2E7UNGgOwhnGCdMDXUCOPdQFtF+GPpwP9egbLZAoTlAG3ALFuM92/9KKmnDR0GGMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HsKXRjNxpLy5oL+nixW6k3X0zh3KH6nERM5pf9BfTh8=;
+ b=BPnvGKBRFwxNxJlIk06uU13caWlTc7RMEfaqaBWutSS7CaFS4MePKXWylGCq8ZNW21rv0m1xhoJ1Fh50qrhDMIyw7+1703jFRY81SGEr6aY+En4PonZ5DrYMOzEAAtasuiow7PhN0b/Mmvu7/xNZs0iHtxSrU7CcNTcuR6Fa5W7twQG1/RSgfEPyOraWLkanU8TXxSZM/NHrt07d0OLV02/hB8RzDBvKWeU9AXBYy2e9f32fI32m1/5ecHelYxqExQsVTIDv4VfjDucEerehD119Qt37gIQjoiu/pWLbvBSmYtt97kO4hj+/CeqoYV1EPog8ivkOurm6wtbgTvPagQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:8::10) by NTZPR01MB1100.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:8::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.44; Tue, 7 May
+ 2024 06:53:27 +0000
+Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e903:99a6:10b7:304d]) by
+ NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn ([fe80::e903:99a6:10b7:304d%6])
+ with mapi id 15.20.7472.044; Tue, 7 May 2024 06:53:27 +0000
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor.dooley@microchip.com>,
- Song Liu <song@kernel.org>,
- Xi Wang <xi.wang@gmail.com>,
- =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- LKML <linux-kernel@vger.kernel.org>
-Message-Id: <11F5B269-05DD-448E-9F85-878E84A5654F@jrtc27.com>
-References: <20240506-compile_kernel_with_extensions-v1-0-5c25c134c097@rivosinc.com>
- <20240506-compile_kernel_with_extensions-v1-4-5c25c134c097@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: Apple Mail (2.3774.500.171.1.1)
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Xingyu Wu <xingyu.wu@starfivetech.com>,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v5 1/2] clk: starfive: jh7110-sys: Add notifier for PLL0 clock
+Date: Tue,  7 May 2024 14:53:18 +0800
+Message-Id: <20240507065319.274976-2-xingyu.wu@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20240507065319.274976-1-xingyu.wu@starfivetech.com>
+References: <20240507065319.274976-1-xingyu.wu@starfivetech.com>
+X-ClientProxiedBy: SH0PR01CA0020.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:5::32) To NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:8::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: NTZPR01MB0956:EE_|NTZPR01MB1100:EE_
+X-MS-Office365-Filtering-Correlation-Id: 97fd2099-bc7f-4544-9e83-08dc6e62658c
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: IQVtz3/8V3KM23kuRdpvR2kX5hbWve944w3IcDZGCt7lohn/JmBQHwMt2F5KVdJXu2a3hOLOoQmiq3uV37daexW5f0TLhH69aOblqlP/dPjq1R8Xq2QJH2laQzQZh50Z4T03kjdGbZ8n4pEcbreUQzKpT/05ZQ+OR1blxSVNDarUG7IOGDFTW9rCQWVldemqDLJ1RDpCq5Hjvb2dZQ9obWHCvYKC6xxkYw23+JDjAMH3ojBzsPth2v9ap5ozMqSQCHnKc4TiNy1jViypZG8uPpuUiClyZYdI6BVFwItT00SAhQiayPTowC2vFyM0cTY6RbUyjARxanXttCEtgWZDjaWFHx4MCgGI0K5kX05MRo4Rvb/SzCepP43TSUKZCZjtnD80LHUE6TRJQVorUhb1RAtL5Q+jDF8xn6pf4TPZtHnp+tKiZQwfSLriDKDnNzfKuvlPzo7DqhOBRQXeKWlGrYIBgcD9WwlWXBtkMEICB+Hmsb0kUJnWlnk32ks7aoW3fQ5BgvEv2tMD7GThp+kg4ZJKPqHuLwu9KityvO6wYegJAotmqawJwBeLKbcWSS13osEuuTprdXpA7y4KkwT/rIBYhfbWnsh5oYBn77kkWqB9jHsDgnn5QPcoA2600UdK
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(366007)(41320700004)(52116005)(7416005)(38350700005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+ATo7AylaMm9ZQu1vkp9C6qgbHozrZ7rN5pHYPD/0r84DoEJTE4vve0u1lCw?=
+ =?us-ascii?Q?zfcnh0nexpDsRSnjfGjUc2c/hpdQ6JMBiepqA+ChFZ2Jz5+RQE5/8/pg9Rp8?=
+ =?us-ascii?Q?dA5x3oQ80GjxohQuT6WnQL++zZjLsjVmkC28DsB8zEN4PbcjShHnWzF4zB5H?=
+ =?us-ascii?Q?hPv+Rsmf5bAR9UI5n9DbMdRvGVeAnK4rMQmERgoPkmVY8V8kTVrh/hK9kFTb?=
+ =?us-ascii?Q?Se8xPHz9L2sjm6CGGNNkJNo06I0AS/XkZScH3hpT7nIV77SYwrI2iJF1Fb+p?=
+ =?us-ascii?Q?BcPh+xkHV9OKQM0Bb0OXx2Ub5NUBcG49LQi+F9WVJqONuNP+K87R9cGESFsR?=
+ =?us-ascii?Q?NzjKKmEIJbo4OEaVB1efCMiFzVdku0aCvmASHNL10q8uN1Mri8ZZJtbBHwfT?=
+ =?us-ascii?Q?j1KulYb92Lw8/fiFsEINZ7oDWWWnpUdWLwQXf5hapLnPVQVicUJstXXf5KBv?=
+ =?us-ascii?Q?t/QU6x+i0L/agnaKDoVT93NC2cQ3womO1HFnQMgQI9ADXu25HJ+il8Q/UYy1?=
+ =?us-ascii?Q?8PanKPRAqguQfKyB0XCEPgtev3Arvdc/kuL2q22HyxNj6HPCZfM6lnZBKVY6?=
+ =?us-ascii?Q?mXP5CFsPuKbmfr9G8SVf6LVFQ047SzDwbcgr7AcieyGs7E0Wm9lJtVTFNY5B?=
+ =?us-ascii?Q?tFfmIyCnoWS1j9EhimACmI1+cRZHrbmwE7bKhQmVBJPOS+7TlEIbxs6sibB4?=
+ =?us-ascii?Q?ogLMC99mviIakBB31DEiphROmZUg3AkEsSGNOQAldFRcqZzo/80SjPVM39pE?=
+ =?us-ascii?Q?SQIoQFPD/Y4p3r4ks1EMIa8p5MR3gS4VPd0/mO0vELfgBBJsO/lx0LNS+cpw?=
+ =?us-ascii?Q?QvuJ8w1j+99xsUWxTsdPbVU0Yu9vsQncOPMF/MMlm8nckGj9AMp3vBUuclbK?=
+ =?us-ascii?Q?PHrupZK3h0vmgNTY7wyVJixXHsXj5OT+0rHZ2b6ScWnoTRL8a06+r0Nys+a/?=
+ =?us-ascii?Q?YdLgJzetlx4Yfv1faoBZaCLUeGC6UKxX8/BWpuQ6QYZL+FeiOTIfJuLCWSA2?=
+ =?us-ascii?Q?Q7uEwAWKaO/l0UFpGPOUfHZbTgpvueq3todx/FweHPsNSWiaHJXEMaq+XYlM?=
+ =?us-ascii?Q?7AgJJye1WuEyz2PnyXsdguMk86WUHSnems1TilWAQVNYn44eIXjZlsm63AE6?=
+ =?us-ascii?Q?s3dLcin9vN70fS5v5gaMzcHo6/v3Fu5PbQnyjDbpOJ87t/dFW1XoMPEuC5SA?=
+ =?us-ascii?Q?E5h6fmkOHLxpcK5HmR/O+8yLiWWnwzrkQW82vnkeYD2LWrI+KXGPb+Kj17w/?=
+ =?us-ascii?Q?A9kAEbQp1Fc68q6xwMUS+D4godei20whPY6sULNgCt73iTVGsoJX3X+gLug9?=
+ =?us-ascii?Q?Xnoeh92fqI432x81VSFs/Tc7W1bcT3jo4FXKZWJotHdouIRXnQ7ulBuHJoQM?=
+ =?us-ascii?Q?WdyEeBiozCxb65Zf02uJlnbJz3cSSHPO4OzXZM2wVDE7zqRckkSrWz5WOWXV?=
+ =?us-ascii?Q?79We9XmK69LyhpkybCSPRj9OTSGTzNextQNiCTNV83SLgDH2sask1EXK0WAL?=
+ =?us-ascii?Q?XWs/gJPL+hvDlXaYQj83OMxQ4P5EAVdjGU4Zws7dFZtblpHXfKZM4PxtHGBo?=
+ =?us-ascii?Q?A7wI6eyoZ8iDknkJy6EMql/fW2pA7gEsZWnH37KVJljUxTIuN0Y0xG1VymzC?=
+ =?us-ascii?Q?Ig=3D=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 97fd2099-bc7f-4544-9e83-08dc6e62658c
+X-MS-Exchange-CrossTenant-AuthSource: NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2024 06:53:27.0655
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2b/6dNvnwep52ugACydxk34v0QdM1sIQRAKoXSuRZZji8BSl2wn6Lu9sOdnswx8WKJbj121J4ryl6pW2eSjcyIdJg28FhCktOjDzCOpyHPA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB1100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240506_224107_319769_97F73C39 
-X-CRM114-Status: GOOD (  24.93  )
+X-CRM114-CacheID: sfid-20240506_235348_370839_62E50E57 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,57 +135,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNyBNYXkgMjAyNCwgYXQgMDI6NDAsIENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2lu
-Yy5jb20+IHdyb3RlOgo+IAo+IFN2cGJtdCB3b3VsZCBub3QgYmVuZWZpdCBmcm9tIGhhdmluZyBQ
-TEFURk9STV9TVVBQT1JUU19SSVNDVl9JU0FfU1ZQQk1UCj4gc28ganVzdCByZW5hbWUgUklTQ1Zf
-SVNBX1NWUEJNVCB0byBQTEFURk9STV9NQVlfU1VQUE9SVF9SSVNDVl9JU0FfU1ZQQk1UCj4gYW5k
-IG1vdmUgdGhlIGRlZmluaXRpb24gdG8gS2NvbmZpZy5pc2EuCj4gCj4gU2lnbmVkLW9mZi1ieTog
-Q2hhcmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4KPiAtLS0KPiBhcmNoL3Jpc2N2
-L0tjb25maWcgICAgIHwgMTcgLS0tLS0tLS0tLS0tLS0tLS0KPiBhcmNoL3Jpc2N2L0tjb25maWcu
-aXNhIHwgMTcgKysrKysrKysrKysrKysrKysKPiAyIGZpbGVzIGNoYW5nZWQsIDE3IGluc2VydGlv
-bnMoKyksIDE3IGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25m
-aWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBpbmRleCA5YzNhNDM0Nzk1M2IuLjIyMzAzYTNhYjU5
-ZSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiArKysgYi9hcmNoL3Jpc2N2L0tj
-b25maWcKPiBAQCAtNDg0LDIzICs0ODQsNiBAQCBjb25maWcgUklTQ1ZfQUxURVJOQVRJVkVfRUFS
-TFkKPiBoZWxwCj4gIEFsbG93cyBlYXJseSBwYXRjaGluZyBvZiB0aGUga2VybmVsIGZvciBzcGVj
-aWFsIGVycmF0YQo+IAo+IC1jb25maWcgUklTQ1ZfSVNBX1NWUEJNVAo+IC0gYm9vbCAiU3ZwYm10
-IGV4dGVuc2lvbiBzdXBwb3J0IGZvciBzdXBlcnZpc29yIG1vZGUgcGFnZS1iYXNlZCBtZW1vcnkg
-dHlwZXMiCj4gLSBkZXBlbmRzIG9uIDY0QklUICYmIE1NVQo+IC0gZGVwZW5kcyBvbiBSSVNDVl9B
-TFRFUk5BVElWRQo+IC0gZGVmYXVsdCB5Cj4gLSBoZWxwCj4gLSAgIEFkZCBzdXBwb3J0IGZvciB0
-aGUgU3ZwYm10IElTQS1leHRlbnNpb24gKFN1cGVydmlzb3ItbW9kZToKPiAtICAgcGFnZS1iYXNl
-ZCBtZW1vcnkgdHlwZXMpIGluIHRoZSBrZXJuZWwgd2hlbiBpdCBpcyBkZXRlY3RlZCBhdCBib290
-Lgo+IC0KPiAtICAgVGhlIG1lbW9yeSB0eXBlIGZvciBhIHBhZ2UgY29udGFpbnMgYSBjb21iaW5h
-dGlvbiBvZiBhdHRyaWJ1dGVzCj4gLSAgIHRoYXQgaW5kaWNhdGUgdGhlIGNhY2hlYWJpbGl0eSwg
-aWRlbXBvdGVuY3ksIGFuZCBvcmRlcmluZwo+IC0gICBwcm9wZXJ0aWVzIGZvciBhY2Nlc3MgdG8g
-dGhhdCBwYWdlLgo+IC0KPiAtICAgVGhlIFN2cGJtdCBleHRlbnNpb24gaXMgb25seSBhdmFpbGFi
-bGUgb24gNjQtYml0IGNwdXMuCj4gLQo+IC0gICBJZiB5b3UgZG9uJ3Qga25vdyB3aGF0IHRvIGRv
-IGhlcmUsIHNheSBZLgo+IC0KPiBjb25maWcgVE9PTENIQUlOX0hBU19aQkIKPiBib29sCj4gZGVm
-YXVsdCB5Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZy5pc2EgYi9hcmNoL3Jpc2N2
-L0tjb25maWcuaXNhCj4gaW5kZXggMzc1ODViY2Q3NjNlLi41MGUyMTdkYzU3MTkgMTAwNjQ0Cj4g
-LS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnLmlzYQo+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZy5p
-c2EKPiBAQCAtMTY4LDMgKzE2OCwyMCBAQCBjb25maWcgUExBVEZPUk1fU1VQUE9SVFNfUklTQ1Zf
-SVNBX1NWTkFQT1QKPiAgbm90IHN1cHBvcnQgU3ZuYXBvdC4KPiAKPiBlbmRjaG9pY2UKPiArCj4g
-K2NvbmZpZyBSSVNDVl9JU0FfU1ZQQk1UCgpIaSBDaGFybGllLApEZXNwaXRlIHRoZSBzdWJqZWN0
-IGFuZCBib2R5IHlvdSBoYXZlbuKAmXQgcmVuYW1lZCBpdCBpbiB0aGlzIHBhdGNoPwoKSmVzcwoK
-PiArIGJvb2wgIlN2cGJtdCBleHRlbnNpb24gc3VwcG9ydCBmb3Igc3VwZXJ2aXNvciBtb2RlIHBh
-Z2UtYmFzZWQgbWVtb3J5IHR5cGVzIgo+ICsgZGVwZW5kcyBvbiA2NEJJVCAmJiBNTVUKPiArIGRl
-cGVuZHMgb24gUklTQ1ZfQUxURVJOQVRJVkUKPiArIGRlZmF1bHQgeQo+ICsgaGVscAo+ICsgICBB
-ZGQgc3VwcG9ydCBmb3IgdGhlIFN2cGJtdCBJU0EtZXh0ZW5zaW9uIChTdXBlcnZpc29yLW1vZGU6
-Cj4gKyAgIHBhZ2UtYmFzZWQgbWVtb3J5IHR5cGVzKSBpbiB0aGUga2VybmVsIHdoZW4gaXQgaXMg
-ZGV0ZWN0ZWQgYXQgYm9vdC4KPiArCj4gKyAgIFRoZSBtZW1vcnkgdHlwZSBmb3IgYSBwYWdlIGNv
-bnRhaW5zIGEgY29tYmluYXRpb24gb2YgYXR0cmlidXRlcwo+ICsgICB0aGF0IGluZGljYXRlIHRo
-ZSBjYWNoZWFiaWxpdHksIGlkZW1wb3RlbmN5LCBhbmQgb3JkZXJpbmcKPiArICAgcHJvcGVydGll
-cyBmb3IgYWNjZXNzIHRvIHRoYXQgcGFnZS4KPiArCj4gKyAgIFRoZSBTdnBibXQgZXh0ZW5zaW9u
-IGlzIG9ubHkgYXZhaWxhYmxlIG9uIDY0LWJpdCBjcHVzLgo+ICsKPiArICAgSWYgeW91IGRvbid0
-IGtub3cgd2hhdCB0byBkbyBoZXJlLCBzYXkgWS4KPiAKPiAtLSAKPiAyLjQ0LjAKPiAKPiAKPiBf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Add notifier function for PLL0 clock. In the function, the cpu_root clock
+should be operated by saving its current parent and setting a new safe
+parent (osc clock) before setting the PLL0 clock rate. After setting PLL0
+rate, it should be switched back to the original parent clock.
+
+Fixes: e2c510d6d630 ("riscv: dts: starfive: Add cpu scaling for JH7110 SoC")
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+---
+ .../clk/starfive/clk-starfive-jh7110-sys.c    | 31 ++++++++++++++++++-
+ drivers/clk/starfive/clk-starfive-jh71x0.h    |  2 ++
+ 2 files changed, 32 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+index 8f5e5abfa178..dafa3ae71751 100644
+--- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
++++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+@@ -385,6 +385,32 @@ int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
+ }
+ EXPORT_SYMBOL_GPL(jh7110_reset_controller_register);
+ 
++/*
++ * This clock notifier is called when the rate of PLL0 clock is to be changed.
++ * The cpu_root clock should save the curent parent clock and swicth its parent
++ * clock to osc before PLL0 rate will be changed. Then swicth its parent clock
++ * back after the PLL0 rate is completed.
++ */
++static int jh7110_pll0_clk_notifier_cb(struct notifier_block *nb,
++				       unsigned long action, void *data)
++{
++	struct jh71x0_clk_priv *priv = container_of(nb, struct jh71x0_clk_priv, pll_clk_nb);
++	struct clk *cpu_root = priv->reg[JH7110_SYSCLK_CPU_ROOT].hw.clk;
++	int ret = 0;
++
++	if (action == PRE_RATE_CHANGE) {
++		struct clk *osc = clk_get(priv->dev, "osc");
++
++		priv->original_clk = clk_get_parent(cpu_root);
++		ret = clk_set_parent(cpu_root, osc);
++		clk_put(osc);
++	} else if (action == POST_RATE_CHANGE) {
++		ret = clk_set_parent(cpu_root, priv->original_clk);
++	}
++
++	return notifier_from_errno(ret);
++}
++
+ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+ {
+ 	struct jh71x0_clk_priv *priv;
+@@ -413,7 +439,10 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+ 		if (IS_ERR(priv->pll[0]))
+ 			return PTR_ERR(priv->pll[0]);
+ 	} else {
+-		clk_put(pllclk);
++		priv->pll_clk_nb.notifier_call = jh7110_pll0_clk_notifier_cb;
++		ret = clk_notifier_register(pllclk, &priv->pll_clk_nb);
++		if (ret)
++			return ret;
+ 		priv->pll[0] = NULL;
+ 	}
+ 
+diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.h b/drivers/clk/starfive/clk-starfive-jh71x0.h
+index 23e052fc1549..e3f441393e48 100644
+--- a/drivers/clk/starfive/clk-starfive-jh71x0.h
++++ b/drivers/clk/starfive/clk-starfive-jh71x0.h
+@@ -114,6 +114,8 @@ struct jh71x0_clk_priv {
+ 	spinlock_t rmw_lock;
+ 	struct device *dev;
+ 	void __iomem *base;
++	struct clk *original_clk;
++	struct notifier_block pll_clk_nb;
+ 	struct clk_hw *pll[3];
+ 	struct jh71x0_clk reg[];
+ };
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
