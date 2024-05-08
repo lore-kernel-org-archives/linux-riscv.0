@@ -4,143 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E92AC04FFE
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 11:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826F7C19F4F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 11:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	References:In-Reply-To:MIME-Version:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvAoacpV3/0JImzXpEP6xbQDqRLsh5nm1kmIrSlVrUY=; b=WX+SUiO/maJsRldncYiY2sU301
-	WHSGF320egY7smERJvxEDk6+z4C0F35inri7puEGSwmXorkSkTq9wbUHax6/WE8n6GhrSnLIz9Hib
-	NwvYIDo/35JkBPI5FkJlIc/UW3aFIRuHHVpSJFWVx7/CWHxj+I3cmDsy/e0xAH6Fp8DUWIhM0Q3Zj
-	SGIqdkQuafiJLw9W3weTE/nx5x10v7HY33+mbbMcX1JF1oVMC9x3L7zi5ayIrZY/OWIN123c7yqx6
-	I0cbIu8CjOVrIq0WcbFwOr9to/PIazZpXn49MpmfWHBbAxPiIEMeVtSKxoyguZm7bEfyyXv0WsPOP
-	Mlv9CnCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JVW3H8kxUDkKfTEXW1y4dGZDi2xnclq/QCkwW/uNlX8=; b=uBewlCtbBeiiK2
+	kA+o2WfdJCxrgC0ra/lyjiN7ZlW2s4FNbkHR9ZygbvjMs4zqySHpEIEOl8O3gcv0I67UEB/+HiENk
+	K0+C9OPe+YvPLgLlmcR48mzZeh1gf1kB1bSY0dI0O86maqk23qAItzkiIXa7/nggg5RouujxNm2ic
+	DpBgJ0ZhF0S+RF9pB+v++eWI3cIkYR8T8UOWRjhfabxUhBO5cLCcy78Mn4m9P8/f8PX7zKNCojJU4
+	gMdB1WyqKvdrmZBf35noa4hBA5p+GQTpuigfJXn91ITDqIRzxxPMNiJnscnSxcuZFM3pSNKD6pW7t
+	CQaFGZXOAcT/djJtJQFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4fcC-0000000FGma-0Lqr;
-	Wed, 08 May 2024 11:37:40 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1s4fd4-0000000FHE7-0uhJ;
+	Wed, 08 May 2024 11:38:34 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4fc5-0000000FGhu-2GOE;
-	Wed, 08 May 2024 11:37:36 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20240508113726euoutp023b917c183029915f96a388a085ef9f3c~NgG6-85E21770217702euoutp02_;
-	Wed,  8 May 2024 11:37:26 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20240508113726euoutp023b917c183029915f96a388a085ef9f3c~NgG6-85E21770217702euoutp02_
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1715168246;
-	bh=cF90zorX3Vhkec3/TFj+N593dqTmsatotOCQjHSZEbM=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=MGedoFgJUxqsWS+zDcnWEQjCsAolmv6XQq26O3hTwtnVUXsPIbO123xNVdDsR1wi8
-	 4ruaFwHk37WfH/K8Vb94HbGRPKKEv2Im4rxPFviwViSVpO0j+oN5tsVWmyq70AhMUk
-	 fkBQHu/4DdTej80roiXkz13NiIEQJKgdnVvkytNE=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20240508113725eucas1p16225069534576a85124b13399ba8b854~NgG6vou7Z2221222212eucas1p1K;
-	Wed,  8 May 2024 11:37:25 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges1new.samsung.com (EUCPMTA) with SMTP id C2.CE.09624.5F36B366; Wed,  8
-	May 2024 12:37:25 +0100 (BST)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20240508113725eucas1p1c73dc1b7bc2780f99b281e4cc534d1a0~NgG6RWhmU1576115761eucas1p1a;
-	Wed,  8 May 2024 11:37:25 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20240508113725eusmtrp125fc799878405e7480db3ef8c0ccefef~NgG6P556t0870508705eusmtrp1k;
-	Wed,  8 May 2024 11:37:25 +0000 (GMT)
-X-AuditID: cbfec7f2-c11ff70000002598-a3-663b63f58af9
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id 28.7B.09010.5F36B366; Wed,  8
-	May 2024 12:37:25 +0100 (BST)
-Received: from CAMSVWEXC02.scsc.local (unknown [106.1.227.72]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20240508113725eusmtip245b7460632450ec5f8efcdd3ed3a83f1~NgG6AtV8G1709017090eusmtip2g;
-	Wed,  8 May 2024 11:37:25 +0000 (GMT)
-Received: from localhost (106.110.32.44) by CAMSVWEXC02.scsc.local
-	(2002:6a01:e348::6a01:e348) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
-	Wed, 8 May 2024 12:37:24 +0100
-Date: Wed, 8 May 2024 13:37:19 +0200
-From: Joel Granados <j.granados@samsung.com>
-To: Kees Cook <keescook@chromium.org>
-CC: Jakub Kicinski <kuba@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>,
-	Kees Cook <keescook@chromium.org>, Eric Dumazet <edumazet@google.com>, Dave
-	Chinner <david@fromorbit.com>, <linux-fsdevel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-mm@kvack.org>,
-	<linux-security-module@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-xfs@vger.kernel.org>,
-	<linux-trace-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
-	<netfilter-devel@vger.kernel.org>, <coreteam@netfilter.org>,
-	<kexec@lists.infradead.org>, <linux-hardening@vger.kernel.org>,
-	<bridge@lists.linux.dev>, <lvs-devel@vger.kernel.org>,
-	<linux-rdma@vger.kernel.org>, <rds-devel@oss.oracle.com>,
-	<linux-sctp@vger.kernel.org>, <linux-nfs@vger.kernel.org>,
-	<apparmor@lists.ubuntu.com>
-Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
- of sysctl handlers
-Message-ID: <20240508113719.pccjkyd5nk5soqrg@joelS2.panther.com>
+	id 1s4fd1-0000000FHC8-0MwD
+	for linux-riscv@lists.infradead.org;
+	Wed, 08 May 2024 11:38:32 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4196c62bb4eso31778025e9.2
+        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 04:38:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715168309; x=1715773109; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9tID4t35K2Xq8XfdKgfehJoKp8xw/RZTmJgN0BGYZu8=;
+        b=iZG758zRYBFafvMndsCVWZGWtkUooKvTBVemDVF0mVFvvJTbtxH3B2h8KChndPQogs
+         2RSEMaZgWooqIinzJCPueyZ4xgIfdPBq/hzTjf6nTRFbkUa0828/F/RTebvwHC0WsGzu
+         J1aLAFisGB/T5AA9dQOIap6/iRleUXhs2dwvW/wxP+kNqwKPv/Gt8mzmHB1ZEDppFE7o
+         HhA76YcAbJWtc7nUAPClTj8XyHsu+B++9vXfVna+qWluX5tj52RSjGqH2/XG/fjBDCG7
+         TMRoBNMlB+mYO5Z/jQmvfrRd5GBqvL0ircN83S90ae3/M0QX8PiGJyZG4vzMEDe1kl/m
+         XLjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1715168309; x=1715773109;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9tID4t35K2Xq8XfdKgfehJoKp8xw/RZTmJgN0BGYZu8=;
+        b=WIzC0irUCXn3w64etGlTQld5O1IauTwBju5tHRJ9mL4eYbOhflzfLlgEZ27m8dBQ2q
+         VckzewYT4YL0rdbQ8T/qCVr1Orzrlwmr+mriqGuevOGHVuEuKwB73yRZ6s8MpBNBnIvG
+         vZv7dfEK0pebCbxwI2P11TnU+oMaYD7ohJyjsG0XFWBwV1ynR2VmlrvIIQDLD/PbDQ+J
+         8RJaJMkWH5ebB3EeDObbgfVJKQt+C3X0In75w87XltegH0iokB1j2v1Z6UYkXaEaovhm
+         DC0ktS5Xk/pchuTxFxLNmetuUX5eZk+FYFq14rsL/wov/7WMqBM2sT/MMzoqpFVwvy/U
+         n+6w==
+X-Forwarded-Encrypted: i=1; AJvYcCUemURJDkI8XsWHMcN0ewWwA/+d6C+qR2VFQT8+kF4e3RRHtbTbDa3lDhcdC+oE2hD9Y5IsI9iTb1ZcU2TRhIBa9MTi1ItVyKgpePpuHMow
+X-Gm-Message-State: AOJu0YxCx6iyTuqHlpsKXKUaIHYMDHHFtCSoT+DID4Q0hG2IOO+ixZTt
+	KlqGKarGCbgEHDfqrzKyeNNStmX84czyU7sVQZbG/3sXswJTkDvgKoc6Zoo1O7o=
+X-Google-Smtp-Source: AGHT+IFc73xLy956G8LkxzJy48Vpp254D4XfW/OPcYqIx5DwErIqgJZXPvuWYs+kahkVNUCZ42Avig==
+X-Received: by 2002:a05:600c:444e:b0:41b:935:24a9 with SMTP id 5b1f17b1804b1-41f714fbe0amr19186605e9.24.1715168308900;
+        Wed, 08 May 2024 04:38:28 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-41f87d20214sm20234005e9.24.2024.05.08.04.38.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 May 2024 04:38:28 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH RESEND v2 4/9] mm: Use common set_huge_pte_at() function for riscv/arm64
+Date: Wed,  8 May 2024 13:34:14 +0200
+Message-Id: <20240508113419.18620-5-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240508113419.18620-1-alexghiti@rivosinc.com>
+References: <20240508113419.18620-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <d11f875e-4fb5-46dd-a412-84818208c575@t-8ch.de>
-X-Originating-IP: [106.110.32.44]
-X-ClientProxiedBy: CAMSVWEXC01.scsc.local (2002:6a01:e347::6a01:e347) To
-	CAMSVWEXC02.scsc.local (2002:6a01:e348::6a01:e348)
-X-Brightmail-Tracker: H4sIAAAAAAAAA2WSf0wTZxzG917vrkez4lGdvIDOwQCz6RhuKO8C21RMdsuiwy1b4pJldnAU
-	Ai2kBabgsiKObvwQtJnQKrMgItCFstI1/DISwDIps0WJkskgqeAmUGB0hSBa13KQmey/z/N8
-	v0/u+7w5iie6RwZTabJsVi4TZ4SRAtxsWb75mjspLiV61L0bFVh0BHL19ZPIfKkEQ0/aVTxk
-	sowBNGlx8NFgiRR1Wt0YsptPE8h4/w6Buq7ewNGPhmWAbndcINHYT08JZO+2Emj4l2YcPegp
-	w5HZdYpEFTWFPDSpmybQfKmDRH2G33DU8biNj1aWPAQqvLjAQyMVkwBZdJtRRfMAjm62uoi9
-	W5nzyiGcGaiFjM6YwxibvicZ48JZPtNa9w3zV6sGMLaqGsDcGRnHGefKrxhjr58hGZfxxcTn
-	PxPEJ7MZabms/PV3jgpSda4JkPVzyLG66iq+EjzZXAz8KEjHwMFyKygGAkpENwBYvzTI58Q/
-	AFaZ7DgnXACqp5r465H2yi6MG1wBcLh4XXi3ZvvH1vJGABufthG+CE6Hw85zHatM0juhbWaU
-	5+NNdARculW4yjy6nQ9trgAfb6SPQtNlNfCxkN4LtY4hnOMAeEMzgXP7x2Dhmcfej1FeDoFX
-	PJTP9qPjYdt5O4+7NBS6L43hHH8NB0y/rx4K6QkB1HTZMG5wALYM95Mcb4RT/aa1mlugVV2K
-	cwE1gNc883xO6L3PVOBeS8fBU8MTa4l90GawEb6LIO0PR5wB3KH+8Ky5ksfZQvhdkYjbjoT6
-	sRm8Arysfaaa9plq2v+qcfZOqOtcIP9n74D1NdM8jt+Gzc1zuA7wm0Agm6OQSljFLhn7VZRC
-	LFXkyCRRSZlSI/D+81ZP/0IbqJ76O6oHYBToAeHesKNFbwfBuCxTxoZtEl5XxaaIhMni43ms
-	PPMLeU4Gq+gBIRQeFiiMSN7GimiJOJtNZ9ksVr4+xSi/YCW2R1rSi4Qx4elB5/Z35R9871Za
-	+ZbjQfXKdOsrOUox3EDMsoJq43MJ6pZDi+P63LRti5GzjTXXFoNky/5FR8J6Ba4909mfJm73
-	XF94kFCg/OHkwzJxxMcn4lRJwsqBw2/2FVyIVmtFcTumh2rclm/z/+guS7g6cyLrYt49Z+Mg
-	9uHIbodGETtep6ib3G9yOJY/Kv38S6vmtqM19uH4n7mS8kfd0p59KU3qOfP9w+ly+uDoXfTG
-	J1Wt+TAy3vnBkeTodztDscsr5g3WkwcOba/tdeclKopWnI3stIQ1vBWTF/8CnZrUwDc1hJd6
-	5k8Hzhnuvk/lT6q2htbqx19iMUr1KAxXpIp3vcqTK8T/AgNMPNVuBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA2WSfUxTZxTG896vtmrntaC+gDpX2WaYVlpofWHAIDHLXXTL9seyZROxK1dg
-	0pb1w+AWNwxmzDIWQCICMotCJ4UUdmGErw1XWSlUpLjJ0Gx11kEmH9mgA0OKZYVmmcn+++V5
-	8jzn5OTwcdEiGcnP0RhYnUaZK6bWEa7AgGfvgurFY7HW4nB02mEmka9/gEIdV4ox9LirCEft
-	Dg9AEw4vD90oVqMe1wKG3B1fkIh7MEai3m8HCfRlyxJAP3ZfpJCneYVE7msuEv30jY1Ak/YS
-	AnX4zlCotK4QRxPmaRL99bmXQv0twwTqXu7kIf+jAIkKL83jaLx0AiCHeQsqtQ0R6Gabj0zd
-	ztQUjBLM0GXImDkjw1nPUgw3X85j2uo/Yf5oqwLMyIU6wIyN3yOYWb8TY9yWGYrxcTte3/CO
-	JEmnNRrYndlavSFZ/K4UySTSBCSRxSdIpHH70xNlcvG+lKRMNjfnBKvbl3JUkl356U2Q1xKV
-	f8ZnIguAf4sJCPiQjoddlb2YCazji+gGAE3dFVTI2Aa//vs2GeIwuDxmWtNF9ByAjdbnQgEO
-	QEuZiVg1CDoa9pzvXgtQ9B44MvMLvsrh9LPw0a3CNcbpLh50LdKrHEYfhe0N58AqC+lUWO0d
-	JUKlrRicthfgIWMTHKz6nQiFT0Bn61xwAD/IUfCrAH9VFtBJsLPGjYcWfQYuXPEQIT4FfY8n
-	QSkIq36iqfqJpur/mkJyDBwPPMT+J78ALXXTeIiToc32J2EGPCsIZ416dZZaL5PolWq9UZMl
-	UWnVHAg+XYdjqb0TNE7NSewA4wM7iA4mva1NbhBJaLQaVhwu/KFo/zGRMFN58kNWp83QGXNZ
-	vR3Ig1cswyM3q7TBD9YYMqSKWLk0XpEQK09QxIm3Cl/J+0wporOUBvY4y+axun9zGF8QWYBZ
-	xWWJk1SvYtDoUnNPN78hM3Utbnq+XvLqaLIqrNZ2teTNuqKLUa7E9T1X9wzE7Bqv2VbW4Tni
-	TO07HXjZ7uZ+Tn1YNb6oqLxeUrzT3HZj5Xr+3ZOXn7LMpsRNC5oiJu+0FH+wvn+0YkzRJapP
-	Gz4gqFj43nJhKOOU//D93VjfsNOmOh/RMLx1Y9TB3dQSeXfzHe39CKtAmNW84S3pvHTO7n+t
-	Nquitqnc8etvM40jMUcyPVPXyvEIWWv0jrRdG8/mr/i42733Bt7P+ah50n8rZuptc7r4Y2c6
-	zTsIdZVNndF732ugqeTD574T9jNpPO/x7QuH+l56oNTL5YYD0uUAb1ZM6LOV0hhcp1f+Aw47
-	jhcJBAAA
-X-CMS-MailID: 20240508113725eucas1p1c73dc1b7bc2780f99b281e4cc534d1a0
-X-Msg-Generator: CA
-X-RootMTR: 20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db
-References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
-	<CGME20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db@eucas1p1.samsung.com>
-	<20240424201234.3cc2b509@kernel.org>
-	<20240425110412.2n5d27smecfncsfa@joelS2.panther.com>
-	<d11f875e-4fb5-46dd-a412-84818208c575@t-8ch.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_043734_227373_CF088A9C 
-X-CRM114-Status: GOOD (  30.71  )
+X-CRM114-CacheID: sfid-20240508_043831_347301_E458CFB0 
+X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,108 +98,378 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5561243732393614351=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5561243732393614351==
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="v7sa5w52x2sbyktg"
-Content-Disposition: inline
+After some adjustments, both architectures have the same implementation
+so move it to generic code.
 
---v7sa5w52x2sbyktg
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/arm64/include/asm/pgtable.h | 14 +++++---
+ arch/arm64/mm/hugetlbpage.c      | 56 -----------------------------
+ arch/riscv/include/asm/pgtable.h | 39 +++++++++++++-------
+ arch/riscv/mm/hugetlbpage.c      | 62 --------------------------------
+ mm/contpte.c                     | 59 ++++++++++++++++++++++++++++++
+ 5 files changed, 95 insertions(+), 135 deletions(-)
 
-Kees
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index e30149a128f2..2e0415fd5083 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -372,9 +372,10 @@ static inline pte_t pte_advance_pfn(pte_t pte, unsigned long nr)
+ 	return pfn_pte(pte_pfn(pte) + nr, pte_pgprot(pte));
+ }
+ 
+-static inline void __set_ptes(struct mm_struct *mm,
+-			      unsigned long __always_unused addr,
+-			      pte_t *ptep, pte_t pte, unsigned int nr)
++static inline void ___set_ptes(struct mm_struct *mm,
++			       unsigned long __always_unused addr,
++			       pte_t *ptep, pte_t pte, unsigned int nr,
++			       size_t pgsize)
+ {
+ 	page_table_check_ptes_set(mm, ptep, pte, nr);
+ 	__sync_cache_and_tags(pte, nr);
+@@ -385,10 +386,15 @@ static inline void __set_ptes(struct mm_struct *mm,
+ 		if (--nr == 0)
+ 			break;
+ 		ptep++;
+-		pte = pte_advance_pfn(pte, 1);
++		pte = pte_advance_pfn(pte, pgsize >> PAGE_SHIFT);
+ 	}
+ }
+ 
++#define __set_ptes(mm, addr, ptep, pte, nr)				\
++			___set_ptes(mm, addr, ptep, pte, nr, PAGE_SIZE)
++
++#define set_contptes	___set_ptes
++
+ /*
+  * Huge pte definitions.
+  */
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index 9e9c80ec6e74..b8353b0a273c 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -159,62 +159,6 @@ static pte_t get_clear_contig_flush(struct mm_struct *mm,
+ 	return orig_pte;
+ }
+ 
+-/*
+- * Changing some bits of contiguous entries requires us to follow a
+- * Break-Before-Make approach, breaking the whole contiguous set
+- * before we can change any entries. See ARM DDI 0487A.k_iss10775,
+- * "Misprogramming of the Contiguous bit", page D4-1762.
+- *
+- * This helper performs the break step for use cases where the
+- * original pte is not needed.
+- */
+-static void clear_flush(struct mm_struct *mm,
+-			     unsigned long addr,
+-			     pte_t *ptep,
+-			     unsigned long pgsize,
+-			     unsigned long ncontig)
+-{
+-	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
+-	unsigned long i, saddr = addr;
+-
+-	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
+-		__ptep_get_and_clear(mm, addr, ptep);
+-
+-	flush_tlb_range(&vma, saddr, addr);
+-}
+-
+-void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+-			    pte_t *ptep, pte_t pte, unsigned long sz)
+-{
+-	size_t pgsize;
+-	int i;
+-	int ncontig;
+-	unsigned long pfn, dpfn;
+-	pgprot_t hugeprot;
+-
+-	ncontig = arch_contpte_get_num_contig(ptep, sz, &pgsize);
+-
+-	if (!pte_present(pte)) {
+-		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
+-			__set_ptes(mm, addr, ptep, pte, 1);
+-		return;
+-	}
+-
+-	if (!pte_cont(pte)) {
+-		__set_ptes(mm, addr, ptep, pte, 1);
+-		return;
+-	}
+-
+-	pfn = pte_pfn(pte);
+-	dpfn = pgsize >> PAGE_SHIFT;
+-	hugeprot = pte_pgprot(pte);
+-
+-	clear_flush(mm, addr, ptep, pgsize, ncontig);
+-
+-	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
+-		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
+-}
+-
+ pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
+ 		      unsigned long addr, unsigned long sz)
+ {
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 66061002ff36..5d1d3a6c7c44 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -535,29 +535,39 @@ static inline void __set_pte_at(struct mm_struct *mm, pte_t *ptep, pte_t pteval)
+ static inline int arch_contpte_get_num_contig(pte_t *ptep, unsigned long size,
+ 					      size_t *pgsize)
+ {
++	unsigned long hugepage_shift;
+ 	pte_t __pte;
+ 
+ 	/* We must read the raw value of the pte to get the size of the mapping */
+ 	__pte = READ_ONCE(*ptep);
+ 
+-	if (pgsize) {
+-		if (size >= PGDIR_SIZE)
++	if (size >= PGDIR_SIZE) {
++		if (pgsize)
+ 			*pgsize = PGDIR_SIZE;
+-		else if (size >= P4D_SIZE)
++		hugepage_shift = PGDIR_SHIFT;
++	} else if (size >= P4D_SIZE) {
++		if (pgsize)
+ 			*pgsize = P4D_SIZE;
+-		else if (size >= PUD_SIZE)
++		hugepage_shift = P4D_SHIFT;
++	} else if (size >= PUD_SIZE) {
++		if (pgsize)
+ 			*pgsize = PUD_SIZE;
+-		else if (size >= PMD_SIZE)
++		hugepage_shift = PUD_SHIFT;
++	} else if (size >= PMD_SIZE) {
++		if (pgsize)
+ 			*pgsize = PMD_SIZE;
+-		else
++		hugepage_shift = PMD_SHIFT;
++	} else {
++		if (pgsize)
+ 			*pgsize = PAGE_SIZE;
++		hugepage_shift = PAGE_SHIFT;
+ 	}
+ 
+ 	/* Make sure __pte is not a swap entry */
+ 	if (pte_valid_napot(__pte))
+ 		return napot_pte_num(napot_cont_order(__pte));
+ 
+-	return 1;
++	return size >> hugepage_shift;
+ }
+ #endif
+ 
+@@ -586,8 +596,8 @@ static inline pte_t __ptep_get(pte_t *ptep)
+ 	return pte;
+ }
+ 
+-static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+-		pte_t *ptep, pte_t pteval, unsigned int nr)
++static inline void __set_ptes(struct mm_struct *mm, unsigned long addr,
++			      pte_t *ptep, pte_t pteval, unsigned int nr)
+ {
+ #ifdef CONFIG_RISCV_ISA_SVNAPOT
+ 	if (unlikely(pte_valid_napot(pteval))) {
+@@ -631,7 +641,8 @@ static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+ 		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
+ 	}
+ }
+-#define set_ptes set_ptes
++#define set_contptes(mm, addr, ptep, pte, nr, pgsize)			\
++			__set_ptes(mm, addr, ptep, pte, nr)
+ 
+ static inline void pte_clear(struct mm_struct *mm,
+ 	unsigned long addr, pte_t *ptep)
+@@ -646,9 +657,8 @@ extern int ptep_set_access_flags(struct vm_area_struct *vma, unsigned long addre
+ extern int ptep_test_and_clear_young(struct vm_area_struct *vma, unsigned long address,
+ 				     pte_t *ptep);
+ 
+-#define __HAVE_ARCH_PTEP_GET_AND_CLEAR
+-static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+-				       unsigned long address, pte_t *ptep)
++static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
++					 unsigned long address, pte_t *ptep)
+ {
+ 	pte_t pte = __pte(atomic_long_xchg((atomic_long_t *)ptep, 0));
+ 
+@@ -687,6 +697,9 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+ }
+ 
+ #define ptep_get		__ptep_get
++#define set_ptes		__set_ptes
++#define __HAVE_ARCH_PTEP_GET_AND_CLEAR
++#define ptep_get_and_clear	__ptep_get_and_clear
+ 
+ #define pgprot_nx pgprot_nx
+ static inline pgprot_t pgprot_nx(pgprot_t _prot)
+diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
+index be129f4f1503..d8f07aef758b 100644
+--- a/arch/riscv/mm/hugetlbpage.c
++++ b/arch/riscv/mm/hugetlbpage.c
+@@ -173,68 +173,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
+ 	return entry;
+ }
+ 
+-static void clear_flush(struct mm_struct *mm,
+-			unsigned long addr,
+-			pte_t *ptep,
+-			unsigned long pgsize,
+-			unsigned long ncontig)
+-{
+-	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
+-	unsigned long i, saddr = addr;
+-
+-	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
+-		ptep_get_and_clear(mm, addr, ptep);
+-
+-	flush_tlb_range(&vma, saddr, addr);
+-}
+-
+-/*
+- * When dealing with NAPOT mappings, the privileged specification indicates that
+- * "if an update needs to be made, the OS generally should first mark all of the
+- * PTEs invalid, then issue SFENCE.VMA instruction(s) covering all 4 KiB regions
+- * within the range, [...] then update the PTE(s), as described in Section
+- * 4.2.1.". That's the equivalent of the Break-Before-Make approach used by
+- * arm64.
+- */
+-void set_huge_pte_at(struct mm_struct *mm,
+-		     unsigned long addr,
+-		     pte_t *ptep,
+-		     pte_t pte,
+-		     unsigned long sz)
+-{
+-	unsigned long hugepage_shift, pgsize;
+-	int i, pte_num;
+-
+-	if (sz >= PGDIR_SIZE)
+-		hugepage_shift = PGDIR_SHIFT;
+-	else if (sz >= P4D_SIZE)
+-		hugepage_shift = P4D_SHIFT;
+-	else if (sz >= PUD_SIZE)
+-		hugepage_shift = PUD_SHIFT;
+-	else if (sz >= PMD_SIZE)
+-		hugepage_shift = PMD_SHIFT;
+-	else
+-		hugepage_shift = PAGE_SHIFT;
+-
+-	pte_num = sz >> hugepage_shift;
+-	pgsize = 1 << hugepage_shift;
+-
+-	if (!pte_present(pte)) {
+-		for (i = 0; i < pte_num; i++, ptep++, addr += pgsize)
+-			set_ptes(mm, addr, ptep, pte, 1);
+-		return;
+-	}
+-
+-	if (!pte_napot(pte)) {
+-		set_ptes(mm, addr, ptep, pte, 1);
+-		return;
+-	}
+-
+-	clear_flush(mm, addr, ptep, pgsize, pte_num);
+-
+-	set_ptes(mm, addr, ptep, pte, pte_num);
+-}
+-
+ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+ 			       unsigned long addr,
+ 			       pte_t *ptep,
+diff --git a/mm/contpte.c b/mm/contpte.c
+index e8574051d0b9..2320ee23478a 100644
+--- a/mm/contpte.c
++++ b/mm/contpte.c
+@@ -10,6 +10,8 @@
+ /*
+  * Any arch that wants to use that needs to define:
+  *   - __ptep_get()
++ *   - __set_ptes()
++ *   - __ptep_get_and_clear()
+  *   - pte_cont()
+  *   - arch_contpte_get_num_contig()
+  */
+@@ -17,6 +19,7 @@
+ /*
+  * This file implements the following contpte aware API:
+  *   - huge_ptep_get()
++ *   - set_huge_pte_at()
+  */
+ 
+ pte_t huge_ptep_get(pte_t *ptep)
+@@ -43,3 +46,59 @@ pte_t huge_ptep_get(pte_t *ptep)
+ 	}
+ 	return orig_pte;
+ }
++
++/*
++ * ARM64: Changing some bits of contiguous entries requires us to follow a
++ * Break-Before-Make approach, breaking the whole contiguous set
++ * before we can change any entries. See ARM DDI 0487A.k_iss10775,
++ * "Misprogramming of the Contiguous bit", page D4-1762.
++ *
++ * RISCV: When dealing with NAPOT mappings, the privileged specification
++ * indicates that "if an update needs to be made, the OS generally should first
++ * mark all of the PTEs invalid, then issue SFENCE.VMA instruction(s) covering
++ * all 4 KiB regions within the range, [...] then update the PTE(s), as
++ * described in Section 4.2.1.". That's the equivalent of the Break-Before-Make
++ * approach used by arm64.
++ *
++ * This helper performs the break step for use cases where the
++ * original pte is not needed.
++ */
++static void clear_flush(struct mm_struct *mm,
++			unsigned long addr,
++			pte_t *ptep,
++			unsigned long pgsize,
++			unsigned long ncontig)
++{
++	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
++	unsigned long i, saddr = addr;
++
++	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
++		__ptep_get_and_clear(mm, addr, ptep);
++
++	flush_tlb_range(&vma, saddr, addr);
++}
++
++void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
++		     pte_t *ptep, pte_t pte, unsigned long sz)
++{
++	size_t pgsize;
++	int i;
++	int ncontig;
++
++	ncontig = arch_contpte_get_num_contig(ptep, sz, &pgsize);
++
++	if (!pte_present(pte)) {
++		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
++			__set_ptes(mm, addr, ptep, pte, 1);
++		return;
++	}
++
++	if (!pte_cont(pte)) {
++		__set_ptes(mm, addr, ptep, pte, 1);
++		return;
++	}
++
++	clear_flush(mm, addr, ptep, pgsize, ncontig);
++
++	set_contptes(mm, addr, ptep, pte, ncontig, pgsize);
++}
+-- 
+2.39.2
 
-Could you comment on the feasibility of this alternative from the
-Control Flow Integrity perspective. My proposal is to change the
-proc_handler to void* and back in the same release. So there would not
-be a kernel released with a void* proc_handler.
-
-> > However, there is an alternative way to do this that allows chunking. We
-> > first define the proc_handler as a void pointer (casting it where it is
-> > being used) [1]. Then we could do the constification by subsystem (like
-> > Jakub proposes). Finally we can "revert the void pointer change so we
-> > don't have one size fit all pointer as our proc_handler [2].
-> >=20
-> > Here are some comments about the alternative:
-> > 1. We would need to make the first argument const in all the derived
-> >    proc_handlers [3]=20
-> > 2. There would be no undefined behavior for two reasons:
-> >    2.1. There is no case where we change the first argument. We know
-> >         this because there are no compile errors after we make it const.
-> >    2.2. We would always go from non-const to const. This is the case
-> >         because all the stuff that is unchanged in non-const.
-> > 3. If the idea sticks, it should go into mainline as one patchset. I
-> >    would not like to have a void* proc_handler in a kernel release.
-> > 4. I think this is a "win/win" solution were the constification goes
-> >    through and it is divided in such a way that it is reviewable.
-> >=20
-> > I would really like to hear what ppl think about this "heretic"
-> > alternative. @Thomas, @Luis, @Kees @Jakub?
->=20
-> Thanks for that alternative, I'm not a big fan though.
->=20
-> Besides the wonky syntax, Control Flow Integrity should trap on
-> this construct. Functions are called through different pointers than
-> their actual types which is exactly what CFI is meant to prevent.
->=20
-> Maybe people find it easier to review when using
-> "--word-diff" and/or "-U0" with git diff/show.
-> There is really nothing going an besides adding a few "const"s.
->=20
-> But if the consensus prefers this solution, I'll be happy to adopt it.
->=20
-> > [1] https://git.kernel.org/pub/scm/linux/kernel/git/joel.granados/linux=
-=2Egit/commit/?h=3Djag/constfy_treewide_alternative&id=3D4a383503b1ea650d4e=
-12c1f5838974e879f5aa6f
-> > [2] https://git.kernel.org/pub/scm/linux/kernel/git/joel.granados/linux=
-=2Egit/commit/?h=3Djag/constfy_treewide_alternative&id=3Da3be65973d27ec2933=
-b9e81e1bec60be3a9b460d
-> > [3] proc_dostring, proc_dobool, proc_dointvec....
->=20
->=20
-> Thomas
-
-Best
---=20
-
-Joel Granados
-
---v7sa5w52x2sbyktg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmY7Y+4ACgkQupfNUreW
-QU9YEgwAhDVP7Y6eoR6THZeBhX5jlhu2G9nJstttqNF2XutpFKVjE8Z3C89eHNng
-DCMo7QPRNspNV7452TWHzjB9TyWvZ3WtKaNd1O0ECwCMpZ32/0aZ5SAsMd+cY2D5
-yDhAjIzVJups6lQWx1bTMDtuWft9Ebi7Wvd9I3Q+Qjq5khbrSHMCzCr1Bl2ZfscY
-ApmHqb3v0KxOM+QrrybFvFCD/tt7uYyJfmH96GgBLdl2+7ceoUigiSK5ebySplCo
-UnNLZi6LEwS1kjyNpbWQbKq9czcSKCCYVM3kzqzcPBdRU/km7XH0oi7SybNt7PSz
-ZvFQgc34OiFAFcb9twbtzTKfXVBXpBwmOwwgqLw4yNS2C8QH+nbO6qUmHoDp44ZW
-6jYrjdWbdDrP+Mwh56FkIcs84+0tgdLgsT6ni9LyK50S8Ik7ivQRCnojjpNJS19p
-wRnfmB6C3lNH2MWxq9gw8k+RMhDB3eRxcXrTbEjYImsO4zb3xo+CjjPG5TGkvezg
-ehHTRa51
-=YpMU
------END PGP SIGNATURE-----
-
---v7sa5w52x2sbyktg--
-
-
---===============5561243732393614351==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5561243732393614351==--
-
