@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC9EDC25B4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 18:47:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD4BC04FFE
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 19:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gG6TID1tQ1myQikyHNrHbbyO/WYkSnc/NKfhnZUZaw4=; b=3ydvVhsGGjGSep
-	i2OY8cP6DG7k0cI1kawCr+cIIx8RiMRFupsvVINyhLUPMpfNDjWvICdnH1tYRpjhzjnLPis7xawF1
-	ODJr+ei8Vom8x13qp2VXi7HvCCOfoj2Fat3Hgu/rD7mNxtM3qNrkngq2pqwODn1fUqaOW3YFUdt4b
-	CP9L+45GrFw1tp2AlECM/ALcoFDTJG2rHhGeoMxgj/I0iZlWFCbyMpam62+ddXePuPOomxX2ECCgD
-	Na+Eb3Wtl0+SdzWS34i2PzY2XBB86nvGzTYYyXS5MCV3n+vdD/G0ChvIDh+s6rlbGgpzA/4Iuf3I5
-	rU6JNrjiijQH56lcAiUg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yz0w5jfuf4Zd9fOqTInOd9dhd4qdncMleBmzlR1YrLY=; b=K9eOexgwsL/gla
+	yfUc9iYsWvXn9uG/B+Pgoxsuzv6QbWcsHSiRn7ViVdUpRDZL1jc+Fd8vsLiiHLFccPYPQCwA4X+gP
+	jbBHOV0iKRKNDQLP+RlnbG9K5DmzK7stW37w375+TgCNFcSrQ8jqR2eKsHgQgpZuhtYyaagGIQ9z1
+	he5J79gwO9T85hgrFYWroPEw72ZbPcoAjRG6DRBrAe2ie83UZtEBeFQBe/kWFwxDclhytjJUIQuuE
+	sLppmQzWknBeJN5PORRzDnzHDEbw9q/rqVjDaPKX10XJq3upY53hf7tx/aIOfatC1IKiVRrOPIPUD
+	tgzw9IU6My1L0USkn8Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4mJn-0000000GaUH-2wBq;
-	Wed, 08 May 2024 18:47:07 +0000
+	id 1s4mp3-0000000Ggmh-2dGp;
+	Wed, 08 May 2024 19:19:25 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4mJh-0000000GaRx-1lpc
+	id 1s4mox-0000000GglI-1MhD
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 18:47:05 +0000
-Date: Wed, 8 May 2024 20:46:49 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1715194017;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=q6o7L7QXNQvx0xNXZVcYSLNmrfCQqLomfxFWX4xHH3k=;
-	b=QDlqL98lFh60txNqqltm1jSCSe1xNNpupP3cvpljw2mRkb6R7qLm2HNoeT+B6uoiujRA6m
-	ulcw4/SrYRftc0zqWJqThQHT1CYdJKymPSpPawo9QWxVSFLoCyUJX/TIP4/9rNPYKSw+yj
-	G7vlhK5heF5/RFsVvDsTo1mA1Sbkd4ZiZbs5fWwPuF1uap0gQbB1ZDHu0RZXzYxQ2mtUen
-	gkc/M8RlXLGtQkUFT+5HoZYmiQiHnXcsfv18/FMNdLQC1g6BSKYeRLI7VOapYHfYye4zzY
-	JAHVRuvSvvflLm7ZSGprEy90tef2bV/8d4pG7Y8+31vu/0qMYyTxTniM7JHuWA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1715194017;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=q6o7L7QXNQvx0xNXZVcYSLNmrfCQqLomfxFWX4xHH3k=;
-	b=0MhzSA9x0EOPrnFl/KOGroBOQUAMqQV0jrCVc0bIBA+Vx8Jul/sryS53O7hGT8AbFSWnh5
-	gDEIhEFQt+G9IMCw==
+	Wed, 08 May 2024 19:19:23 +0000
 From: Nam Cao <namcao@linutronix.de>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1715195957;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=srojUdq0elW15+CVwv4RHuTpXX7dRNIqURJ4CkMJfK8=;
+	b=RdRsqh5t54KsP2O/M/jU5HwPIYVQgwv9Lrd1q7l+fUO/k/kOYFLD7edShEwYjVNq/tmZuR
+	9U6BLoFBM4ik7aTRJY7D6wgRfzkYLLKRV6mJl18dIVgjzdM7uhbAFBCq2MB+b7G6sjD9Gx
+	J0QEfG+I9+aDwZmY9bgqCbjOijKxxSJ8A8RDsb9hgBrV6MxMZy/OPdnaN2KcmFa3W8tGYm
+	2lxSLDdpT+2YABzBdaOEBzpDGYD/nQGvNMUCBSHKMP03ensFCfb+G3qiei0U2HfyGyOi3d
+	VhWGGiACW1TkjGM0YE5f0hkOTbHyuJrxyBSV8K7iIcG1+E0hC1aNygxXrMDvgw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1715195957;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=srojUdq0elW15+CVwv4RHuTpXX7dRNIqURJ4CkMJfK8=;
+	b=YH3r0xnKW3fJM7laX2dVyK2t3LjsPZTX01UAP3Vp4CIn9yQvWI/UYsmmM0snI1K2U18uDZ
+	TPsOZUNmGVOac4BA==
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Don't use hugepage mappings for vmemmap if it's
- not supported
-Message-ID: <20240508184641.WP8ok_Hg@linutronix.de>
-References: <20240508173116.2866192-1-namcao@linutronix.de>
- <43829e94-98ae-46a4-a3e6-dbabbe94d7c1@ghiti.fr>
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: change XIP's kernel_map.size to be size of the entire kernel
+Date: Wed,  8 May 2024 21:19:17 +0200
+Message-Id: <20240508191917.2892064-1-namcao@linutronix.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <43829e94-98ae-46a4-a3e6-dbabbe94d7c1@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_114701_825509_B63FE357 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240508_121919_526726_1D2E715A 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,26 +76,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 08, 2024 at 08:22:43PM +0200, Alexandre Ghiti wrote:
-> Hi Nam,
-Hi Alex,
+With XIP kernel, kernel_map.size is set to be only the size of data part of
+the kernel. This is inconsistent with "normal" kernel, who sets it to be
+the size of the entire kernel.
 
-> > Commit ff172d4818ad ("riscv: Use hugepage mappings for vmemmap") broke XIP
-> > kernel, because huge pages are not supported on XIP kernel.
-> 
-> I don't understand why XIP kernels can't support huge vmalloc mappings,
+More importantly, XIP kernel fails to boot if CONFIG_DEBUG_VIRTUAL is
+enabled, because there are checks on virtual addresses with the assumption
+that kernel_map.size is the size of the entire kernel (these checks are in
+arch/riscv/mm/physaddr.c).
 
-Me neither.
+Change XIP's kernel_map.size to be the size of the entire kernel.
 
-> so I
-> think the right fix would be to enable such mappings on XIP. WDYT?
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+Cc: <stable@vger.kernel.org> # v6.1+
+---
+I wouldn't consider this inconsistency to be a bug. It only became a
+a problem after kernel_map.size is used to check virtual addresses in
+5f763b3b5960 ("riscv: Fix DEBUG_VIRTUAL false warnings"). So I will only
+backport this to stable versions that contain this commit: v6.1+
 
-I agree that is the ideal solution. But I don't want to send any new
-feature to the stable trees (stable folks may even reject such patch).
-So I intend that to be in another patch.
+ arch/riscv/mm/init.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Best regards,
-Nam
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index c081e7d349b1..0c0562839899 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -903,7 +903,7 @@ static void __init create_kernel_page_table(pgd_t *pgdir,
+ 				   PMD_SIZE, PAGE_KERNEL_EXEC);
+ 
+ 	/* Map the data in RAM */
+-	end_va = kernel_map.virt_addr + XIP_OFFSET + kernel_map.size;
++	end_va = kernel_map.virt_addr + kernel_map.size;
+ 	for (va = kernel_map.virt_addr + XIP_OFFSET; va < end_va; va += PMD_SIZE)
+ 		create_pgd_mapping(pgdir, va,
+ 				   kernel_map.phys_addr + (va - (kernel_map.virt_addr + XIP_OFFSET)),
+@@ -1072,7 +1072,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 
+ 	phys_ram_base = CONFIG_PHYS_RAM_BASE;
+ 	kernel_map.phys_addr = (uintptr_t)CONFIG_PHYS_RAM_BASE;
+-	kernel_map.size = (uintptr_t)(&_end) - (uintptr_t)(&_sdata);
++	kernel_map.size = (uintptr_t)(&_end) - (uintptr_t)(&_start);
+ 
+ 	kernel_map.va_kernel_xip_pa_offset = kernel_map.virt_addr - kernel_map.xiprom;
+ #else
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
