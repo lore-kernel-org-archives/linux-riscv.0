@@ -4,86 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB630C19F4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 11:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FEF3C04FFE
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 11:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HEDtzr4ppbnQ1XhgnPQhWqOiYmb8ea7MfIH88GPRMUA=; b=XK2ZCVL42osvfJ
-	S0gZrTcKSPE1mhiUuX14O2d/5T9xeBwXSgdjjMC7mLO+XICcR1XmWx0iG58BB6hKqo4EqCbLMi05f
-	1Wud/9+HihnkeMAb0fumZXYM4AgT5m7+UjCUJaKEC0DaoEH+4eCVpxAqf6TfLqqe7ZuwnFQ9ICy1x
-	oosMBN+8GoDJzjcXryKOp4SHRyTi+DIJfD2+/k6iDWbOktw72ALnRDihmv1D7HvibMv7mP/VIBmSG
-	jHOouDR1NcT91cQfQiWg1c7uDtsIwlM3AoEyUg+ulTP9R2O94s44VhH67bBq+JKJnFYGmkZplbJrN
-	ZTcJ54ED1AeFYaIBMSug==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qCOfhnNIzCF3mqbuDEERU6RU/Qsai6IbTHMdCo2r3Mc=; b=XbPfqwcYKfBdoL
+	/1ksf/b0EB3KYGWy5pk9domHXl00REQWF563KfTjW4mHGW00IAcHw30ZwM/2ilN63zNlu2K0FvIHZ
+	l0SjIfI3jzCDLHZ0OrOg6vQw1l0+koOAtg8GO0kWlpfP4BAtU4+LvcxQoHuzSffdnhhi2v8nFTyuV
+	ilf0l3HvGIpD4Uwy31uw5xS47w3gkdbHE6SdOhYWt6k6xIy9a0F17tZfYFkgx5opyCg7TeZMl8Zad
+	iPFS/nZPSR08/jC5ZJVpTPmCfes2f0g+27GX4hIj6ZQTMIVIg3WSgmFMBPqZXifWON85QigmG/QVD
+	1dUvU+Yx5lUh18pYFvmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4fJu-0000000FAZ9-0yeR;
-	Wed, 08 May 2024 11:18:46 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1s4fKT-0000000FApY-0Foq;
+	Wed, 08 May 2024 11:19:21 +0000
+Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4fJq-0000000FAVw-3ESr
+	id 1s4fKQ-0000000FAlK-149p
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 11:18:44 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2e0933d3b5fso53218091fa.2
-        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 04:18:38 -0700 (PDT)
+	Wed, 08 May 2024 11:19:19 +0000
+Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-23f5a31d948so2094685fac.0
+        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 04:19:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715167117; x=1715771917; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7s2Jc0w0RwoJia0FRkNkBXydPtaseE14QqCOpfNooII=;
-        b=jjrQbhmu1atsqbOEx6YG5Xyx8B2dFyWMghnyl400/e4zWSGfJDAOAOIIMutxLY46Jp
-         QbtnXAFMNkoVx3LGUXlDp+1kjCprMFhMoSCoPEVVXD6FbMtQzGJxsAGBo4N2+NVqwwwS
-         JOQ3xPEv5YLNgZlLgsBhmBPUeTRxjgGPQIX69KoPqxBt+RTumkRGUOb5ivhPGFf4GrSq
-         hcEd2amm7maV6kmpNrZcAKl7KGmquHjZdGewVVPvRPPC4OZ06CZAK94ntvYyJCSHGmbq
-         AZjojWsW9wE9sPpd7fBbD7nBKGfrInUtPJRVOYOQdEpQBvqRk6zt2nrHZBcIS1gqTnzK
-         NTfw==
+        d=bytedance.com; s=google; t=1715167152; x=1715771952; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lx+9Xgjt8qYgmhILpcyWB1vEDTF6K3IN0xYImBlQY5U=;
+        b=GEcJxaAK4vZ2btlCF0Kg66Ar4Dl2OPQOwQ7l/PQ6kY1a9gRJkmz4DAiCzSN51z86dm
+         PFAYIFnX5R8rYgW6n6WSaUTen89f9ww+hRVk2KFmq/RkVLLliV9nR+biwThtcQy7UZui
+         lCKiPJZq5w/mXgBEfFTZ4G49AmPBIZIfGxkz8spERKipvJ1LeKBs3RwMwivXklBQnyxS
+         5pFb+ed1tg4k6Ouae/4TLPuLST0BRUzR1FDQ+Fb9aKODnuyyQ786cdgE1otQ6Fg+9koq
+         Ko/24+nTqvruu6nXH4PyX3yuKHVEcIs67cwGwZeBgZfNK75wxFlabn3Q812SV32G1L3+
+         35Cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715167117; x=1715771917;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7s2Jc0w0RwoJia0FRkNkBXydPtaseE14QqCOpfNooII=;
-        b=b85RwgvGVZZND0OFgriGaHVlvJDWyPaln9R/LEIaAqR4z42g7SXN19NTbeGjkHW4Nd
-         5gENca1PGGtv4KLaWiFnj4pK9puZX7q5qdy1iM34yo79uo88dnLSxFzZH6x2+06+fdyD
-         WFbaq8lPh+IoGImy58jVDJl5kc1H23eGjbWf/bNjCuzxHYk+unaAGpI2OLf0svdtCcki
-         TzeuDtjIX0MfjzFcAyuu6PeOoMV1R5gS/2RTJ+9cYs5xHilrwVJaMM5gXVR1jXi28b1i
-         pTKxe+Er4pBqwLLLWKTYGKDAg+sInlQXpJ7givQDX4tZTkqBFgyxHubZXJ2cu/sF1lGn
-         tZng==
-X-Forwarded-Encrypted: i=1; AJvYcCWCH4RI+OWQe2PAPAG+Hh5PvMP1hcogxTAENtYwl4h7sGehx2LZZRIKGn9Tx95MW+zzO72IEw+fkjLBSIvqGmCsqnYCzT+7dHp7wA0sO1ia
-X-Gm-Message-State: AOJu0YyxjF7N+j1IhnMm6ZNSFqDFHGA3D2ItOV+Ia0nSvRkWOZXQBIOO
-	RuBLxnnUIEw7BWgQSuG6B9/b+taxMQ/fZXgOAdOFPYBE/zD0lt0FiUkHtxx2co4=
-X-Google-Smtp-Source: AGHT+IE4qIFoqxTdkb49q/bY17UwLRoTIUg63kSAW3jbHy8RJOOcZA258spjIObf7gc4cKs2O6G04w==
-X-Received: by 2002:a2e:4602:0:b0:2e0:3132:94d4 with SMTP id 38308e7fff4ca-2e446f7c72amr11638751fa.16.1715167116751;
-        Wed, 08 May 2024 04:18:36 -0700 (PDT)
-Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id f21-20020a2ea0d5000000b002e123933dcbsm2422820ljm.120.2024.05.08.04.18.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 May 2024 04:18:36 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-mm@kvack.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2 0/9] Merge arm64/riscv hugetlbfs contpte support
-Date: Wed,  8 May 2024 13:18:20 +0200
-Message-Id: <20240508111829.16891-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
+        d=1e100.net; s=20230601; t=1715167152; x=1715771952;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lx+9Xgjt8qYgmhILpcyWB1vEDTF6K3IN0xYImBlQY5U=;
+        b=O0vtCYrb+V+c08e31U1oPohtbTZYft5whU6mMPCIlRd6S5xcsaQoLp2fyc8eP6o32W
+         yFrw32ygG/e0AiZVz9sdpYBPlHBnVw8uYlmYgLtUKIStP3SvI2Arne27SUK5wv+aCVdG
+         4RAoeR7701xJ0cBGeLdvU+xZbfxNYu4SM0/ikgQ8G6+UPg1b3tHjHolsHSP6jlAIacCW
+         mGvNgpDaPEaxWLGdAVJ/0V8znOkEzBmR7NUZDinv66G42q5HKK5prj7n9rrwZGVvr5gK
+         zfaKN9+gGCUXsONMsl96IOYooHGOpb6ID4ktapSxJ4VdN3S8vrr5LEE332TSLiru6+zv
+         Ur+g==
+X-Forwarded-Encrypted: i=1; AJvYcCWVP5rWXtLv+U33L2R4yZbQ4JNxXgJM++0Z7ylQA0wHdVWteLngn6b1JSnIRr4eyEZWAw8srqcO26TB7BQwko1sPWe37rLtDLVI5QsiccUg
+X-Gm-Message-State: AOJu0YxS3kRUg0BAqefnpP75YWJ7IIIG7sVkWBcnA0qQxjkF6XXuHU6u
+	alD98ClA/Q3Vw3MJgG4BCDvDc5DpU+vH2o0JZbefef5NlbEMx+fjx59lvCIv6MTClIGQI6AtJHz
+	dWfF9I6fD/2syuQy4LYAPds71QIzWEm76VU/2qnZjz7QcCGeMarEGxw==
+X-Google-Smtp-Source: AGHT+IF3+5FujeR3kO7PsOpHF+5mMBxLYw8Z1NzywDpU6OEN5QBCAec77PNwgwaACUPo4GNnUyl3QXQ0Gu3mZ2LA98k=
+X-Received: by 2002:a05:6870:c155:b0:23d:45cd:ee66 with SMTP id
+ 586e51a60fabf-240992d1c8bmr2486931fac.55.1715167152059; Wed, 08 May 2024
+ 04:19:12 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240418034330.84721-1-cuiyunhui@bytedance.com>
+ <20240418034330.84721-2-cuiyunhui@bytedance.com> <20240502-herald-catty-a03eafc4e6b1@spud>
+In-Reply-To: <20240502-herald-catty-a03eafc4e6b1@spud>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Wed, 8 May 2024 19:19:01 +0800
+Message-ID: <CAEEQ3wnthxGbrJ_qLnZUQ9w3E_1UWgMign5P=+rNP2p5xGm4Bg@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v4 2/3] riscv: cacheinfo: initialize
+ cacheinfo's level and type from ACPI PPTT
+To: Conor Dooley <conor@kernel.org>
+Cc: rafael@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, bhelgaas@google.com, 
+	james.morse@arm.com, jhugo@codeaurora.org, jeremy.linton@arm.com, 
+	john.garry@huawei.com, Jonathan.Cameron@huawei.com, pierre.gondois@arm.com, 
+	sudeep.holla@arm.com, tiantao6@huawei.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_041842_873814_E256ADF3 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20240508_041918_321092_89A10B9A 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,69 +91,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset intends to merge the contiguous ptes hugetlbfs implementation
-of arm64 and riscv.
-
-Both arm64 and riscv support the use of contiguous ptes to map pages that
-are larger than the default page table size, respectively called contpte
-and svnapot.
-
-The riscv implementation differs from the arm64's in that the LSBs of the
-pfn of a svnapot pte are used to store the size of the mapping, allowing
-for future sizes to be added (for now only 64KB is supported). That's an
-issue for the core mm code which expects to find the *real* pfn a pte points
-to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
-and restores the size of the mapping when it is written to a page table.
-
-The following patches are just merges of the 2 different implementations
-that currently exist in arm64 and riscv which are very similar. It paves
-the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
-reimplementing the same in riscv.
-
-This patchset was tested by running the libhugetlbfs testsuite with 64KB
-and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
-
-[1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-ryan.roberts@arm.com/
-
-Changes in v2:
-  - Rebase on top of 6.9-rc3
-
-Alexandre Ghiti (9):
-  riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
-  riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
-  mm: Use common huge_ptep_get() function for riscv/arm64
-  mm: Use common set_huge_pte_at() function for riscv/arm64
-  mm: Use common huge_pte_clear() function for riscv/arm64
-  mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
-  mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
-  mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
-  mm: Use common huge_ptep_clear_flush() function for riscv/arm64
-
- arch/arm64/Kconfig                  |   1 +
- arch/arm64/include/asm/pgtable.h    |  56 +++++-
- arch/arm64/mm/hugetlbpage.c         | 291 +---------------------------
- arch/riscv/Kconfig                  |   1 +
- arch/riscv/include/asm/hugetlb.h    |   2 +-
- arch/riscv/include/asm/pgtable-64.h |  11 ++
- arch/riscv/include/asm/pgtable.h    | 153 +++++++++++++--
- arch/riscv/mm/hugetlbpage.c         | 227 ----------------------
- arch/riscv/mm/pgtable.c             |   6 +-
- mm/Kconfig                          |   3 +
- mm/Makefile                         |   1 +
- mm/contpte.c                        | 272 ++++++++++++++++++++++++++
- 12 files changed, 480 insertions(+), 544 deletions(-)
- create mode 100644 mm/contpte.c
-
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUGFsbWVyLAoKR2VudGxlIHBpbmcuLi4KCk9uIEZyaSwgTWF5IDMsIDIwMjQgYXQgMTI6Mzfi
+gK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVGh1LCBB
+cHIgMTgsIDIwMjQgYXQgMTE6NDM6MjlBTSArMDgwMCwgWXVuaHVpIEN1aSB3cm90ZToKPiA+IEJl
+Zm9yZSBjYWNoZWluZm8gY2FuIGJlIGJ1aWx0IGNvcnJlY3RseSwgd2UgbmVlZCB0byBpbml0aWFs
+aXplIGxldmVsCj4gPiBhbmQgdHlwZS4gU2luY2UgUlNJQy1WIGN1cnJlbnRseSBkb2VzIG5vdCBo
+YXZlIGEgcmVnaXN0ZXIgZ3JvdXAgdGhhdAo+ID4gZGVzY3JpYmVzIGNhY2hlLXJlbGF0ZWQgYXR0
+cmlidXRlcyBsaWtlIEFSTTY0LCB3ZSBjYW5ub3Qgb2J0YWluIHRoZW0KPiA+IGRpcmVjdGx5LCBz
+byBub3cgd2Ugb2J0YWluIGNhY2hlIGxlYXZlcyBmcm9tIHRoZSBBQ1BJIFBQVFQgdGFibGUKPiA+
+IChhY3BpX2dldF9jYWNoZV9pbmZvKCkpIGFuZCBzZXQgdGhlIGNhY2hlIHR5cGUgdGhyb3VnaCBz
+cGxpdF9sZXZlbHMuCj4gPgo+ID4gU3VnZ2VzdGVkLWJ5OiBKZXJlbXkgTGludG9uIDxqZXJlbXku
+bGludG9uQGFybS5jb20+Cj4gPiBTdWdnZXN0ZWQtYnk6IFN1ZGVlcCBIb2xsYSA8c3VkZWVwLmhv
+bGxhQGFybS5jb20+Cj4gOiBTaWduZWQtb2ZmLWJ5OiBZdW5odWkgQ3VpIDxjdWl5dW5odWlAYnl0
+ZWRhbmNlLmNvbT4KPgo+IEknbSBub3QgYW4gQUNQSSBoZWFkLCBzbyB3aGV0aGVyIG9yIG5vdCB0
+aGUgdGFibGUgaXMgdmFsaWQgb24gUklTQy1WIG9yCj4gdy9lIEkgZG8gbm90IGtub3csIGJ1dCB0
+aGUgY29kZSBoZXJlIGxvb2tzIHNhbmUgdG8gbWUsIHNvCgo+IFJldmlld2VkLWJ5OiBDb25vciBE
+b29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+Cj4gQ2hlZXJzLAo+IENvbm9yLgoK
+VGhhbmtzLApZdW5odWkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
