@@ -4,93 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E7FAC04FFE
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 11:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB630C19F4F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 11:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=I87F+3pYjZJtkLVu9PVClWibbwih4VRSuPtlOwJ1CS8=; b=GF17i097QJCEmW
-	Pujbquc8gPNVppA8aN6mJDNTFq6xU8NoeGZwOtsYrKCWTmK6gFm4lLDQV/VDQCvN128nILn0pHcXo
-	fJi+9abWQYQujG9QeF+3oPpdqI9owf8XsOXDK8GqPXxKJVV9vpJnlJhEQrZyGoDVCwsTiQ9WHkQ+K
-	HO12WzYesxHDb9R2X1xcyDZ+u5Fe5SAzeh8qOxZsPBDoalxfUFuUHZdei//ZZGEWRQA4HOOYu673w
-	y8Bi2dH2Eb30cnj4eGtMl7/I7U1WghYgc5mdKeM5m6Efw502HUQXFHcaJA595vcx+gUamlc4tILuI
-	biFQZ4gTEA1KjqtIhk+w==;
+	List-Owner; bh=HEDtzr4ppbnQ1XhgnPQhWqOiYmb8ea7MfIH88GPRMUA=; b=XK2ZCVL42osvfJ
+	S0gZrTcKSPE1mhiUuX14O2d/5T9xeBwXSgdjjMC7mLO+XICcR1XmWx0iG58BB6hKqo4EqCbLMi05f
+	1Wud/9+HihnkeMAb0fumZXYM4AgT5m7+UjCUJaKEC0DaoEH+4eCVpxAqf6TfLqqe7ZuwnFQ9ICy1x
+	oosMBN+8GoDJzjcXryKOp4SHRyTi+DIJfD2+/k6iDWbOktw72ALnRDihmv1D7HvibMv7mP/VIBmSG
+	jHOouDR1NcT91cQfQiWg1c7uDtsIwlM3AoEyUg+ulTP9R2O94s44VhH67bBq+JKJnFYGmkZplbJrN
+	ZTcJ54ED1AeFYaIBMSug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4fHS-0000000F9rX-3VQk;
-	Wed, 08 May 2024 11:16:14 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1s4fJu-0000000FAZ9-0yeR;
+	Wed, 08 May 2024 11:18:46 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4fHP-0000000F9ne-3HfM
+	id 1s4fJq-0000000FAVw-3ESr
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 11:16:13 +0000
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com [209.85.208.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id EC46F40AAF
-	for <linux-riscv@lists.infradead.org>; Wed,  8 May 2024 11:16:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1715166967;
-	bh=ttExS1UnS2n/6Qa/JbmhsWywiSSPxbOTQjuITk/gJkg=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
-	b=VBSvWMAqZNIczhVhmATL0ddvXieeexQtAVda9DDyaCwBiME+F1IBKO251J0cD0loS
-	 obVIsTkqNg80UV5bX5ANvgoOyCPMrx5pfa42iCk/PmQPn5eVrVHz6TVMxgwkme9EQi
-	 YoNwTXzOMrq27Supoyrt2q3ndEBFR2aL4VfniCgo7dKIIvYwxGoqYXQL3POKwbLcpi
-	 Xk/DjE1VFxMb85vYqtB90oUqWkyMMokD7bAHfSOoeZKc18lXNBi54BrJVqVY8Uys6m
-	 vlshjVID34G5yvOU1SmhJbnBKUsld7EJqKbmPCiRmoxldnF9MSEI1rxBISYchay8rv
-	 IDTMsrVB/tIMQ==
-Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-5684c1abc7fso1596646a12.3
-        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 04:16:06 -0700 (PDT)
+	Wed, 08 May 2024 11:18:44 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2e0933d3b5fso53218091fa.2
+        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 04:18:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715167117; x=1715771917; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7s2Jc0w0RwoJia0FRkNkBXydPtaseE14QqCOpfNooII=;
+        b=jjrQbhmu1atsqbOEx6YG5Xyx8B2dFyWMghnyl400/e4zWSGfJDAOAOIIMutxLY46Jp
+         QbtnXAFMNkoVx3LGUXlDp+1kjCprMFhMoSCoPEVVXD6FbMtQzGJxsAGBo4N2+NVqwwwS
+         JOQ3xPEv5YLNgZlLgsBhmBPUeTRxjgGPQIX69KoPqxBt+RTumkRGUOb5ivhPGFf4GrSq
+         hcEd2amm7maV6kmpNrZcAKl7KGmquHjZdGewVVPvRPPC4OZ06CZAK94ntvYyJCSHGmbq
+         AZjojWsW9wE9sPpd7fBbD7nBKGfrInUtPJRVOYOQdEpQBvqRk6zt2nrHZBcIS1gqTnzK
+         NTfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715166966; x=1715771766;
+        d=1e100.net; s=20230601; t=1715167117; x=1715771917;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ttExS1UnS2n/6Qa/JbmhsWywiSSPxbOTQjuITk/gJkg=;
-        b=oDoM/jkgGzpfPrHKc+riTjqSs11lUD7B9WyNd+I/psKKoaApzqRIzEc/AkzfjCst5I
-         d5lhVPLBbubbCjtaeO1eQ23frEUrp+6+UYq7bTeWZulTQwgciCEb9KgFAl6BTf9kzsvN
-         UgvAWFl0Zi6bjep4yZYNKZI9h48HCniroXaXnNGHWrbAEtAhPOcGLyDq8j8p7iRNvu3L
-         Eo5xBmJEN9WpTtMqNMAqxkNACb2WfVdhYdzTEzrIHuWuy6Xi8/K4tiLsHNbsl+kvDKgO
-         gRGYg1t9007kfzJTcCNWJvxptrUJRDcTqTdPpJ/OGmnJyaGxPje7SIDBkjL6v605M7/R
-         T+rQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW1MuzT43XJOI7zQv/dtzFPayGxgsY1x5C9UIiK6woNr06z8Ybn2YstRJE2bfA3RlnbtxWDRV5StFs6BGMhhkqWJTkKlg1weJZ2L8muyjan
-X-Gm-Message-State: AOJu0YypoLHeOW9uCMh7L0YvqtTuLTDE1N64AOMUgkLUFjvlzk7LEHL2
-	2/n7fisBPheMnVmZwQrYqjfEtICL2KYkkkwq2FDOGA5Nf8IEIfJs4lz4BWhHSqZ/wNoKlKQJxiI
-	1PoJBUnaN2i9F/U24hSIEk/H2fD5sazvjaiEtbcfYCcyHpnhoSmnGl7Dwu5dWEnyvV2KKzMWDIu
-	/CL7I6eQ==
-X-Received: by 2002:a50:c04b:0:b0:570:cd6:8ef with SMTP id 4fb4d7f45d1cf-5731da68e1cmr1841378a12.29.1715166966627;
-        Wed, 08 May 2024 04:16:06 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE/zJKBlzUpmhPRWq2mnEwWWSWQxatndRrGKIq4OblBhRgcWleGjKshrbRBqa4BNQ8dbb/k+w==
-X-Received: by 2002:a50:c04b:0:b0:570:cd6:8ef with SMTP id 4fb4d7f45d1cf-5731da68e1cmr1841369a12.29.1715166966301;
-        Wed, 08 May 2024 04:16:06 -0700 (PDT)
-Received: from stitch.. ([2a01:4262:1ab:c:8ce6:9eb:cd7b:fcdd])
-        by smtp.gmail.com with ESMTPSA id co22-20020a0564020c1600b00572a865af10sm7513556edb.44.2024.05.08.04.16.05
+        bh=7s2Jc0w0RwoJia0FRkNkBXydPtaseE14QqCOpfNooII=;
+        b=b85RwgvGVZZND0OFgriGaHVlvJDWyPaln9R/LEIaAqR4z42g7SXN19NTbeGjkHW4Nd
+         5gENca1PGGtv4KLaWiFnj4pK9puZX7q5qdy1iM34yo79uo88dnLSxFzZH6x2+06+fdyD
+         WFbaq8lPh+IoGImy58jVDJl5kc1H23eGjbWf/bNjCuzxHYk+unaAGpI2OLf0svdtCcki
+         TzeuDtjIX0MfjzFcAyuu6PeOoMV1R5gS/2RTJ+9cYs5xHilrwVJaMM5gXVR1jXi28b1i
+         pTKxe+Er4pBqwLLLWKTYGKDAg+sInlQXpJ7givQDX4tZTkqBFgyxHubZXJ2cu/sF1lGn
+         tZng==
+X-Forwarded-Encrypted: i=1; AJvYcCWCH4RI+OWQe2PAPAG+Hh5PvMP1hcogxTAENtYwl4h7sGehx2LZZRIKGn9Tx95MW+zzO72IEw+fkjLBSIvqGmCsqnYCzT+7dHp7wA0sO1ia
+X-Gm-Message-State: AOJu0YyxjF7N+j1IhnMm6ZNSFqDFHGA3D2ItOV+Ia0nSvRkWOZXQBIOO
+	RuBLxnnUIEw7BWgQSuG6B9/b+taxMQ/fZXgOAdOFPYBE/zD0lt0FiUkHtxx2co4=
+X-Google-Smtp-Source: AGHT+IE4qIFoqxTdkb49q/bY17UwLRoTIUg63kSAW3jbHy8RJOOcZA258spjIObf7gc4cKs2O6G04w==
+X-Received: by 2002:a2e:4602:0:b0:2e0:3132:94d4 with SMTP id 38308e7fff4ca-2e446f7c72amr11638751fa.16.1715167116751;
+        Wed, 08 May 2024 04:18:36 -0700 (PDT)
+Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id f21-20020a2ea0d5000000b002e123933dcbsm2422820ljm.120.2024.05.08.04.18.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 May 2024 04:16:06 -0700 (PDT)
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-To: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+        Wed, 08 May 2024 04:18:36 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v1 0/2] riscv: dts: starfive: Enable Bluetooth on JH7100 boards
-Date: Wed,  8 May 2024 13:15:53 +0200
-Message-ID: <20240508111604.887466-1-emil.renner.berthing@canonical.com>
-X-Mailer: git-send-email 2.43.0
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v2 0/9] Merge arm64/riscv hugetlbfs contpte support
+Date: Wed,  8 May 2024 13:18:20 +0200
+Message-Id: <20240508111829.16891-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_041612_268749_6FF2789B 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240508_041842_873814_E256ADF3 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,23 +100,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series enables the in-kernel Bluetooth driver to work with the
-Broadcom Wifi/Bluetooth module on the BeagleV Starlight and StarFive
-VisionFive V1 boards.
+This patchset intends to merge the contiguous ptes hugetlbfs implementation
+of arm64 and riscv.
 
-Previously Bluetooth only worked with some GPIO twiddling and a custom
-program to load firmware from userspace.
+Both arm64 and riscv support the use of contiguous ptes to map pages that
+are larger than the default page table size, respectively called contpte
+and svnapot.
 
-Emil Renner Berthing (2):
-  riscv: dts: starfive: Add JH7100 high speed UARTs
-  riscv: dts: starfive: Enable Bluetooth on JH7100 boards
+The riscv implementation differs from the arm64's in that the LSBs of the
+pfn of a svnapot pte are used to store the size of the mapping, allowing
+for future sizes to be added (for now only 64KB is supported). That's an
+issue for the core mm code which expects to find the *real* pfn a pte points
+to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
+and restores the size of the mapping when it is written to a page table.
 
- .../boot/dts/starfive/jh7100-common.dtsi      | 49 +++++++++++++++++++
- arch/riscv/boot/dts/starfive/jh7100.dtsi      | 26 ++++++++++
- 2 files changed, 75 insertions(+)
+The following patches are just merges of the 2 different implementations
+that currently exist in arm64 and riscv which are very similar. It paves
+the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
+reimplementing the same in riscv.
+
+This patchset was tested by running the libhugetlbfs testsuite with 64KB
+and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
+
+[1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-ryan.roberts@arm.com/
+
+Changes in v2:
+  - Rebase on top of 6.9-rc3
+
+Alexandre Ghiti (9):
+  riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
+  riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
+  mm: Use common huge_ptep_get() function for riscv/arm64
+  mm: Use common set_huge_pte_at() function for riscv/arm64
+  mm: Use common huge_pte_clear() function for riscv/arm64
+  mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
+  mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
+  mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
+  mm: Use common huge_ptep_clear_flush() function for riscv/arm64
+
+ arch/arm64/Kconfig                  |   1 +
+ arch/arm64/include/asm/pgtable.h    |  56 +++++-
+ arch/arm64/mm/hugetlbpage.c         | 291 +---------------------------
+ arch/riscv/Kconfig                  |   1 +
+ arch/riscv/include/asm/hugetlb.h    |   2 +-
+ arch/riscv/include/asm/pgtable-64.h |  11 ++
+ arch/riscv/include/asm/pgtable.h    | 153 +++++++++++++--
+ arch/riscv/mm/hugetlbpage.c         | 227 ----------------------
+ arch/riscv/mm/pgtable.c             |   6 +-
+ mm/Kconfig                          |   3 +
+ mm/Makefile                         |   1 +
+ mm/contpte.c                        | 272 ++++++++++++++++++++++++++
+ 12 files changed, 480 insertions(+), 544 deletions(-)
+ create mode 100644 mm/contpte.c
 
 -- 
-2.43.0
+2.39.2
 
 
 _______________________________________________
