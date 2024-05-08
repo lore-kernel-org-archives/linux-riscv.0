@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4346CC04FFE
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 11:34:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F27FC04FFE
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 11:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HEDtzr4ppbnQ1XhgnPQhWqOiYmb8ea7MfIH88GPRMUA=; b=lUcVrlfoOC8HNX
-	5IREUkmWy9goFJde/sL4AMrVKKE5bJP95sHXLPQnSoQSjigLkcybTTDLd0vKPzE95jjr4eILtChFz
-	jIodoE7sb3Wtfg5na/5gGvELTfgiNW011nH5vUMT9AWhJaJUicSXd1kCeVouYF6bsqLCamiCO/ttf
-	68aPKBJ6AXF6dv/Y64UGHTTEvMfemW3JyJI9EZuWLvlSt1pPWN4ZRKePPiDxJzufdi+TVw03UpBjI
-	sfNktfuSX7Gkt4lpbnok4xE0O7gu2231fh3Y+qqUIH8zrq8VcXDFBR6CbzDvaZT2DG475xCcB69D4
-	UO0tnZ+ChXYFVP6iJItA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=u83SbebWGvuxccUkMcX9mAhJCY2suEqsIdZy2h0H+2s=; b=gp3ZqoEbDvOI1c
+	te8E5NfC1GCUvTmklTOLCW0ukj0MPRoxt+p5iQLumS58iFTziHV2VkyeHGrIh1s0RaqPdk+bG17Tt
+	WlvFyGJix1rDj52FM3NhDDT93SjKhgl4II+EihjDmC07D71pL88hJSL1+p3OPKJER2nvHy/0y0vek
+	kvsiNLoyqGCx2yG5mnEb0GsJFrGo5ZERqPq5FAPY7VN0Ii/v+J+Fdm3yGxZdtuGbQQE2TFyMlgOgd
+	o71oxhsYdkyv5k5pL/trujcdbD/PEb/ymamE50ws1skmB24mDZ2TQ6i0tIVxysZIwBDuN2lw08XQd
+	KRPUX0VvTPPncsCAibhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4fZ8-0000000FFXp-1v6v;
-	Wed, 08 May 2024 11:34:30 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1s4fa8-0000000FFtU-1If0;
+	Wed, 08 May 2024 11:35:32 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4fZ5-0000000FFVa-0PNG
+	id 1s4fa4-0000000FFrX-15nk
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 11:34:28 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5210684cee6so2723962e87.0
-        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 04:34:25 -0700 (PDT)
+	Wed, 08 May 2024 11:35:29 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-51f2ebbd8a7so4958969e87.2
+        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 04:35:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715168064; x=1715772864; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7s2Jc0w0RwoJia0FRkNkBXydPtaseE14QqCOpfNooII=;
-        b=eQ0KJYPs0gQAHqctoVvzeqlFxyt4eoi3klcRWGyTeY6GFUovZ1m+C8Pbcc2OIaikN6
-         18/96R7xwhe0XIsxa1u7FcbnaoJlRxMjSkYtRw+1Z/lxNeNPZBAnOpYG2WEKQCCjzPBZ
-         /1LFRa7iwU78mLw6smz2rMkNH/kabmRK/7OJcxeWd1JSRYVi1UwBgaskYUiLusVwlWlL
-         8s/yEPqlX6U3Yz4H2mVSWdfozc4nRaZt0mW1Cj0larHmZ8DjagimJZpRpLz6oOU8Epw1
-         FH47MYT+0mRUXrlKP5wdONsWqng7bOKSVHizsNWpHwYcKgesT8LyPSRR1uGToqOp/l6K
-         Zffw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715168125; x=1715772925; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eptZ1TC6/9ugjFjSR/N9yJ6dEI/3FvKeew1j70YJt7s=;
+        b=KZLPq+aZg6AYxprFgYbkET9k+Mb6t2ZTRe8gVrEf+6qFIO01LfU5zos3C8scdp3COa
+         6/QGEB5U2efIxrMAl0Crto6/WTzhLAKuhLF0WcD6PG0G1f8FVtebjTMTIZALrQFuxIaw
+         uOpdB8N4vzha57xUqmlN056NkuZ5bRNa8qc5Mji7BQSaZjh6Bid5ssN2y1AS45aedrC0
+         DymGF3pJThlWCcvKBg9JyDERWHLBOX1mPy7DgK8qturBuwxBFxSKQZh4hjjSpKzqAS2p
+         3i2KWbkfH8JWwhfHUUBD1tToO6f7QJjBFspqDPAgSZjeQf4syapogJ6bvbV59MICoV1X
+         oQEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715168064; x=1715772864;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7s2Jc0w0RwoJia0FRkNkBXydPtaseE14QqCOpfNooII=;
-        b=Flo4ueINvN6NXBz48V5ZoH1iJX/34+9JjjXyDhKatDyAc9CcOZCmROwuD5rHJ1cRfy
-         QLvDOixDQ7MceqXyjWPslXwkG6MZdE+1OQFRZK0iiWD1Jqp3U96TX4s3HU4ifp6Wowl5
-         z88828YDMFIybF2XfrZA6IqGoG9YR8Ck5wdWnOqjoYVrBI/Gx+GP5JQ6qox0qvHkbjlM
-         Q9Jvs1kkWspSu0Lo1l67iScKu7lxHRk1SL0SsT3eWsDbtk6QA2Figu721krwzTQfITe4
-         5/YWeGqb/OzXyjH+BhTUyeWHryBbSn/bAVFTYRHhTsj4HCAK7gdCtShkZeoj/MSFDesm
-         OPww==
-X-Forwarded-Encrypted: i=1; AJvYcCUdULQfRUNzuQg+X9DX4fjy6XQTskteYQEqT5W/9VJ+ccpRDx65I5q07rw6TdqQsPwaN55bRB6NAVL1J/8tszDPfpsleBGdF6n8cL+zN7BL
-X-Gm-Message-State: AOJu0YzTjM6ZmdRJEKtIIRkDW+iruUsrdduxtnqH/uj5QDfCuyzzGQrv
-	Fwdpbib8xra+GpHkS8W5/QcZyyDWVB1cZDjhvKCn7d9DEaJXplohdjkX1nA1mas=
-X-Google-Smtp-Source: AGHT+IHQ0+1QRr9yi6sWcDZ0EGp5PxgqjX1SIZMCwr+oGXVeU6XovCaKI7Yf+LAxYXYIcWcDnNZqDg==
-X-Received: by 2002:a05:6512:3493:b0:51d:7d4a:5e6e with SMTP id 2adb3069b0e04-5217c276f94mr1361793e87.3.1715168064446;
-        Wed, 08 May 2024 04:34:24 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1715168125; x=1715772925;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eptZ1TC6/9ugjFjSR/N9yJ6dEI/3FvKeew1j70YJt7s=;
+        b=KZtx27T+UARHUuBvLb4muwm6bC5/ZaCp5jnRuQqtUR/BTELXP5WQgLdO7hHTemG/Zn
+         xZ7osEu58vLrR7/O6BwCHleL6ZjztgdyJzwDwj8/8rWAJtLGkEzg8B90V6KhleVBBfMm
+         83kM9IOTZEh+YxJkJJRRkPjtCS2NNy8/bSSlJc8mJtDBptKLBDB9+F+2JDer/th1f9dm
+         FmSwOeRPmEcWUy13N4Fkr5H70pJffm6XgWZUuyf+ZC5eez55UrO8hsK3o4LoUIdtuv8t
+         aW2jksri2jP7QxVcqkD/OFBPK7G4plO3Ry9XrNB1uCM/BV5/gu62kqK0PEx0MHHjoKRq
+         o3Bw==
+X-Forwarded-Encrypted: i=1; AJvYcCV7MuaQ2xYAWjLB34Czu6mlGHFksYxCK6SY2Dx3aJYIIZO2daszd/6x799HyAtPwCY4XbcsQhSyjfmeDvKnUnM8+JhDKTts6hYoKcB21V7f
+X-Gm-Message-State: AOJu0YzOaz2N7c95C/Wp+NXoXtwQqvODMXeUJFX169UoyOsfbBJ7eFd8
+	qamjT+fH536Cp6R1xAXVpQtGWrATC2ba5ValrBbiSUasWFO7f3rHxVO1QPTKdkY=
+X-Google-Smtp-Source: AGHT+IH3DnJuCq7AQ0FZHFVm1srR1I6oMvrSfB9MDxvIjK3/BYLldiZjiTW9K6zK+rtoMInnMaJsqQ==
+X-Received: by 2002:a05:6512:12c3:b0:520:9775:5d4b with SMTP id 2adb3069b0e04-5217c3714demr2111385e87.13.1715168125494;
+        Wed, 08 May 2024 04:35:25 -0700 (PDT)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id z8-20020a05600c0a0800b00418db9e4228sm2001659wmp.29.2024.05.08.04.34.23
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-41facbd295fsm1760585e9.36.2024.05.08.04.35.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 May 2024 04:34:24 -0700 (PDT)
+        Wed, 08 May 2024 04:35:25 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -76,14 +77,16 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-riscv@lists.infradead.org,
 	linux-mm@kvack.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH RESEND v2 0/9] Merge arm64/riscv hugetlbfs contpte support
-Date: Wed,  8 May 2024 13:34:10 +0200
-Message-Id: <20240508113419.18620-1-alexghiti@rivosinc.com>
+Subject: [PATCH RESEND v2 1/9] riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
+Date: Wed,  8 May 2024 13:34:11 +0200
+Message-Id: <20240508113419.18620-2-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240508113419.18620-1-alexghiti@rivosinc.com>
+References: <20240508113419.18620-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_043427_154134_5CD95339 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20240508_043528_314312_D4A98465 
+X-CRM114-Status: GOOD (  28.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,59 +103,313 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset intends to merge the contiguous ptes hugetlbfs implementation
-of arm64 and riscv.
+The core mm code expects to be able to extract the pfn from a pte. NAPOT
+mappings work differently since its ptes actually point to the first pfn
+of the mapping, the other bits being used to encode the size of the
+mapping.
 
-Both arm64 and riscv support the use of contiguous ptes to map pages that
-are larger than the default page table size, respectively called contpte
-and svnapot.
+So modify ptep_get() so that it returns a pte value that contains the
+*real* pfn (which is then different from what the HW expects) and right
+before storing the ptes to the page table, reset the pfn LSBs to the
+size of the mapping.
 
-The riscv implementation differs from the arm64's in that the LSBs of the
-pfn of a svnapot pte are used to store the size of the mapping, allowing
-for future sizes to be added (for now only 64KB is supported). That's an
-issue for the core mm code which expects to find the *real* pfn a pte points
-to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
-and restores the size of the mapping when it is written to a page table.
+And make sure that all NAPOT mappings are set using set_ptes().
 
-The following patches are just merges of the 2 different implementations
-that currently exist in arm64 and riscv which are very similar. It paves
-the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
-reimplementing the same in riscv.
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/include/asm/pgtable-64.h |  11 +++
+ arch/riscv/include/asm/pgtable.h    | 105 ++++++++++++++++++++++++++--
+ arch/riscv/mm/hugetlbpage.c         |  38 +++++-----
+ 3 files changed, 128 insertions(+), 26 deletions(-)
 
-This patchset was tested by running the libhugetlbfs testsuite with 64KB
-and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
-
-[1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-ryan.roberts@arm.com/
-
-Changes in v2:
-  - Rebase on top of 6.9-rc3
-
-Alexandre Ghiti (9):
-  riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
-  riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
-  mm: Use common huge_ptep_get() function for riscv/arm64
-  mm: Use common set_huge_pte_at() function for riscv/arm64
-  mm: Use common huge_pte_clear() function for riscv/arm64
-  mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
-  mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
-  mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
-  mm: Use common huge_ptep_clear_flush() function for riscv/arm64
-
- arch/arm64/Kconfig                  |   1 +
- arch/arm64/include/asm/pgtable.h    |  56 +++++-
- arch/arm64/mm/hugetlbpage.c         | 291 +---------------------------
- arch/riscv/Kconfig                  |   1 +
- arch/riscv/include/asm/hugetlb.h    |   2 +-
- arch/riscv/include/asm/pgtable-64.h |  11 ++
- arch/riscv/include/asm/pgtable.h    | 153 +++++++++++++--
- arch/riscv/mm/hugetlbpage.c         | 227 ----------------------
- arch/riscv/mm/pgtable.c             |   6 +-
- mm/Kconfig                          |   3 +
- mm/Makefile                         |   1 +
- mm/contpte.c                        | 272 ++++++++++++++++++++++++++
- 12 files changed, 480 insertions(+), 544 deletions(-)
- create mode 100644 mm/contpte.c
-
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index 221a5c1ee287..9fe076fc503e 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -106,6 +106,17 @@ enum napot_cont_order {
+ #define napot_cont_mask(order)	(~(napot_cont_size(order) - 1UL))
+ #define napot_pte_num(order)	BIT(order)
+ 
++static inline bool is_napot_order(unsigned int order)
++{
++	unsigned int napot_order;
++
++	for_each_napot_order(napot_order)
++		if (order == napot_order)
++			return true;
++
++	return false;
++}
++
+ #ifdef CONFIG_RISCV_ISA_SVNAPOT
+ #define HUGE_MAX_HSTATE		(2 + (NAPOT_ORDER_MAX - NAPOT_CONT_ORDER_BASE))
+ #else
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 9f8ea0e33eb1..268c828f5152 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -297,6 +297,8 @@ static inline unsigned long pte_napot(pte_t pte)
+ 	return pte_val(pte) & _PAGE_NAPOT;
+ }
+ 
++#define pte_valid_napot(pte)	(pte_present(pte) && pte_napot(pte))
++
+ static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+ {
+ 	int pos = order - 1 + _PAGE_PFN_SHIFT;
+@@ -306,6 +308,12 @@ static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+ 	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
+ }
+ 
++/* pte at entry must *not* encode the mapping size in the pfn LSBs. */
++static inline pte_t pte_clear_napot(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~_PAGE_NAPOT);
++}
++
+ #else
+ 
+ static __always_inline bool has_svnapot(void) { return false; }
+@@ -315,17 +323,14 @@ static inline unsigned long pte_napot(pte_t pte)
+ 	return 0;
+ }
+ 
++#define pte_valid_napot(pte)	false
++
+ #endif /* CONFIG_RISCV_ISA_SVNAPOT */
+ 
+ /* Yields the page frame number (PFN) of a page table entry */
+ static inline unsigned long pte_pfn(pte_t pte)
+ {
+-	unsigned long res  = __page_val_to_pfn(pte_val(pte));
+-
+-	if (has_svnapot() && pte_napot(pte))
+-		res = res & (res - 1UL);
+-
+-	return res;
++	return __page_val_to_pfn(pte_val(pte));
+ }
+ 
+ #define pte_page(x)     pfn_to_page(pte_pfn(x))
+@@ -525,9 +530,91 @@ static inline void __set_pte_at(struct mm_struct *mm, pte_t *ptep, pte_t pteval)
+ 
+ #define PFN_PTE_SHIFT		_PAGE_PFN_SHIFT
+ 
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++static inline int arch_contpte_get_num_contig(pte_t *ptep, unsigned long size,
++					      size_t *pgsize)
++{
++	pte_t __pte;
++
++	/* We must read the raw value of the pte to get the size of the mapping */
++	__pte = READ_ONCE(*ptep);
++
++	if (pgsize) {
++		if (size >= PGDIR_SIZE)
++			*pgsize = PGDIR_SIZE;
++		else if (size >= P4D_SIZE)
++			*pgsize = P4D_SIZE;
++		else if (size >= PUD_SIZE)
++			*pgsize = PUD_SIZE;
++		else if (size >= PMD_SIZE)
++			*pgsize = PMD_SIZE;
++		else
++			*pgsize = PAGE_SIZE;
++	}
++
++	/* Make sure __pte is not a swap entry */
++	if (pte_valid_napot(__pte))
++		return napot_pte_num(napot_cont_order(__pte));
++
++	return 1;
++}
++#endif
++
++static inline pte_t ptep_get(pte_t *ptep)
++{
++	pte_t pte = READ_ONCE(*ptep);
++
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++	/*
++	 * The pte we load has the N bit set and the size of the mapping in
++	 * the pfn LSBs: keep the N bit and replace the mapping size with
++	 * the *real* pfn since the core mm code expects to find it there.
++	 * The mapping size will be reset just before being written to the
++	 * page table in set_ptes().
++	 */
++	if (unlikely(pte_valid_napot(pte))) {
++		unsigned int order = napot_cont_order(pte);
++		int pos = order - 1 + _PAGE_PFN_SHIFT;
++		unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
++		pte_t *orig_ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * napot_pte_num(order));
++
++		pte = __pte((pte_val(pte) & napot_mask) + ((ptep - orig_ptep) << _PAGE_PFN_SHIFT));
++	}
++#endif
++
++	return pte;
++}
++#define ptep_get	ptep_get
++
+ static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+ 		pte_t *ptep, pte_t pteval, unsigned int nr)
+ {
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++	if (unlikely(pte_valid_napot(pteval))) {
++		unsigned int order = ilog2(nr);
++
++		if (!is_napot_order(order)) {
++			/*
++			 * Something's weird, we are given a NAPOT pte but the
++			 * size of the mapping is not a known NAPOT mapping
++			 * size, so clear the NAPOT bit and map this without
++			 * NAPOT support: core mm only manipulates pte with the
++			 * real pfn so we know the pte is valid without the N
++			 * bit.
++			 */
++			pr_err("Incorrect NAPOT mapping, resetting.\n");
++			pteval = pte_clear_napot(pteval);
++		} else {
++			/*
++			 * NAPOT ptes that arrive here only have the N bit set
++			 * and their pfn does not contain the mapping size, so
++			 * set that here.
++			 */
++			pteval = pte_mknapot(pteval, order);
++		}
++	}
++#endif
++
+ 	page_table_check_ptes_set(mm, ptep, pteval, nr);
+ 
+ 	for (;;) {
+@@ -535,6 +622,12 @@ static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+ 		if (--nr == 0)
+ 			break;
+ 		ptep++;
++
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++		if (unlikely(pte_valid_napot(pteval)))
++			continue;
++#endif
++
+ 		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
+ 	}
+ }
+diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
+index 5ef2a6891158..fe8067ee71b4 100644
+--- a/arch/riscv/mm/hugetlbpage.c
++++ b/arch/riscv/mm/hugetlbpage.c
+@@ -256,8 +256,7 @@ void set_huge_pte_at(struct mm_struct *mm,
+ 
+ 	clear_flush(mm, addr, ptep, pgsize, pte_num);
+ 
+-	for (i = 0; i < pte_num; i++, ptep++, addr += pgsize)
+-		set_pte_at(mm, addr, ptep, pte);
++	set_ptes(mm, addr, ptep, pte, pte_num);
+ }
+ 
+ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+@@ -267,16 +266,16 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+ 			       int dirty)
+ {
+ 	struct mm_struct *mm = vma->vm_mm;
+-	unsigned long order;
++	size_t pgsize;
+ 	pte_t orig_pte;
+-	int i, pte_num;
++	int pte_num;
+ 
+ 	if (!pte_napot(pte))
+ 		return ptep_set_access_flags(vma, addr, ptep, pte, dirty);
+ 
+-	order = napot_cont_order(pte);
+-	pte_num = napot_pte_num(order);
+-	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
++	pte_num = arch_contpte_get_num_contig(ptep, 0, &pgsize);
++	ptep = huge_pte_offset(mm, addr, pte_num * pgsize);
++
+ 	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
+ 
+ 	if (pte_dirty(orig_pte))
+@@ -285,8 +284,7 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+ 	if (pte_young(orig_pte))
+ 		pte = pte_mkyoung(pte);
+ 
+-	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
+-		set_pte_at(mm, addr, ptep, pte);
++	set_ptes(mm, addr, ptep, pte, pte_num);
+ 
+ 	return true;
+ }
+@@ -301,7 +299,7 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
+ 	if (!pte_napot(orig_pte))
+ 		return ptep_get_and_clear(mm, addr, ptep);
+ 
+-	pte_num = napot_pte_num(napot_cont_order(orig_pte));
++	pte_num = arch_contpte_get_num_contig(ptep, 0, NULL);
+ 
+ 	return get_clear_contig(mm, addr, ptep, pte_num);
+ }
+@@ -311,24 +309,23 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
+ 			     pte_t *ptep)
+ {
+ 	pte_t pte = ptep_get(ptep);
+-	unsigned long order;
++	size_t pgsize;
+ 	pte_t orig_pte;
+-	int i, pte_num;
++	int pte_num;
+ 
+ 	if (!pte_napot(pte)) {
+ 		ptep_set_wrprotect(mm, addr, ptep);
+ 		return;
+ 	}
+ 
+-	order = napot_cont_order(pte);
+-	pte_num = napot_pte_num(order);
+-	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
++	pte_num = arch_contpte_get_num_contig(ptep, 0, &pgsize);
++	ptep = huge_pte_offset(mm, addr, pte_num * pgsize);
++
+ 	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
+ 
+ 	orig_pte = pte_wrprotect(orig_pte);
+ 
+-	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
+-		set_pte_at(mm, addr, ptep, orig_pte);
++	set_ptes(mm, addr, ptep, orig_pte, pte_num);
+ }
+ 
+ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+@@ -341,7 +338,7 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+ 	if (!pte_napot(pte))
+ 		return ptep_clear_flush(vma, addr, ptep);
+ 
+-	pte_num = napot_pte_num(napot_cont_order(pte));
++	pte_num = arch_contpte_get_num_contig(ptep, 0, NULL);
+ 
+ 	return get_clear_contig_flush(vma->vm_mm, addr, ptep, pte_num);
+ }
+@@ -351,6 +348,7 @@ void huge_pte_clear(struct mm_struct *mm,
+ 		    pte_t *ptep,
+ 		    unsigned long sz)
+ {
++	size_t pgsize;
+ 	pte_t pte = ptep_get(ptep);
+ 	int i, pte_num;
+ 
+@@ -359,8 +357,8 @@ void huge_pte_clear(struct mm_struct *mm,
+ 		return;
+ 	}
+ 
+-	pte_num = napot_pte_num(napot_cont_order(pte));
+-	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
++	pte_num = arch_contpte_get_num_contig(ptep, 0, &pgsize);
++	for (i = 0; i < pte_num; i++, addr += pgsize, ptep++)
+ 		pte_clear(mm, addr, ptep);
+ }
+ 
 -- 
 2.39.2
 
