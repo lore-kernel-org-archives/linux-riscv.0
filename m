@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9847CC25B4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 19:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8D1C04FFE
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 19:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fYdqjrMLd68Zk1dHbFmYeD6A0TVi3pMnjecDXy6rGZw=; b=gu7LUTPLl1TnZo
-	KkqWZw3+tA+1/feStFk3bnPhRi1SStQ2x4AuWwAUS7jZvDRnC+W6NSpU3E5D0fg46gqhUQgbkuNod
-	+jH97LwTbOCPCoAeRy3oDOXJGmhsz3SoGSDVWdtqkmLH30SuWMuPrrWdOY0kPwpqXDlOywBIRZ09L
-	V7tyXCSAkg2p5xa0gMGfNDNLBtrTfaV7tzFDIAvP/Pmo8bCAzNWZS28dw/ofzUaG9Cs7E35+C9GXq
-	ROOoHMMxfkH3Ix9k7f68IM1bMoRLmArUd+LmzUCbi3uW2RCG9qDCx68LQg3tI236GzUnctjKOCl36
-	0y+DRNKw0j1II4mGzBHA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9kQTF4TnSJbGSbky6nCvqb7NxoXMbyyw09SbmsFnZSk=; b=WIBgbNIOdBbA4i
+	6u4GvV+DtcPjszOR90rgQAdAiIUYLOhjr6UKtYqTzS25GENCBZkYfM5SSe6uRqRvstlaiXM3Vd3gA
+	t1yG1uByiBwxN4U0e+l3bC4D4g9ORYPpdhm8zoCvGbL5HgsFsx5iDW0BrtySQcIA1Z3wP2Qs8EQIs
+	Q5QilvSCtL/8twTfSFMJ2Lm73qKq4BlufZMKC7+doAJ5g862RhS8PcDx00SmJq2KlqTDZOjBuHvOA
+	aMhl+r/jryApFdr6o6ofz10VUTelMf8a94rXNugrit9w5PhVMFTww7jL1EvvXSICo4yYV8aWj26Kq
+	aJMnZ/qPtCE5xCCzdz+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4mpT-0000000Ggw4-3Yx7;
-	Wed, 08 May 2024 19:19:51 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1s4mqH-0000000GhCz-2JdF;
+	Wed, 08 May 2024 19:20:41 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4mpF-0000000Ggoc-2mog
+	id 1s4mqD-0000000GhAc-2tJQ
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 19:19:43 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2e43c481b53so1562981fa.2
-        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 12:19:34 -0700 (PDT)
+	Wed, 08 May 2024 19:20:39 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a59cf8140d0so20571266b.3
+        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 12:20:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715195973; x=1715800773; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=K1uKlYjMTe4xfHBkLhM4fwrAS4H0Wd2FQ2UyNN+YPgM=;
-        b=XlPDjKUSVDei4dQlD6NiL1elef5XeQGeUFo15sXIN9tzkPd30og+QyjN3ns0VwAiW2
-         B1nYr/HWVaFQ/GaY1/VscMn5WDvHtfUIQH/NeJ7pkrsBjGeS+fkCrRmVyzpUfRn51Xe6
-         7rKcGP9sOooAJIwqMkJrzPKT44Z/MmFtwBNGiM/bRecMBaA2Ajjx/KAcv0bfpx1zAOBh
-         olmZ6Q4eMfrTR5Dw0ecsaHkfoWAlI++83HslwALPuggyCMhLXLqssI6ndQnsObgi1DKX
-         4rN5DHxVzvENImGyh2eyV3INaOvtT10b66sG4i9ldAVw+0YJ+gw4p34A8nIzfUtDs/1+
-         FHRA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715196035; x=1715800835; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=datyv3e5LLeWOM64wvZ1mfI1WId3P2rVazcirFn2Oxk=;
+        b=idYCjN/RXOGcRI3Et4CstnRmWY7BqUzuDTvPi8RJcXMTWwqEUFPJaUipvibNYTiA/P
+         Qh69keCy6p2qQDsv1uLiFxheMS8qU0xAeBvroXXllP92NNjuRXZs0xPWpu2nqG2NBw5g
+         771x6wU+aux4NjJK09Ga82hBuxJ6mWwdpmPS51sJFuZRmbzE2yluttQvN3G8hedVf2DE
+         vjeubBEXR6JFKiGV5TbxJ8+zLLk+x6cr/HyClGFJvD6sv8YjqicU85XGTnEuvocFaPKl
+         GUMpx6YSz3q9STVAt+M5GwIqSH8Q1R5V7otXcGUJIJMsIrMOGsxvQ8C7GHnVCnKGpmdx
+         XQjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715195973; x=1715800773;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=K1uKlYjMTe4xfHBkLhM4fwrAS4H0Wd2FQ2UyNN+YPgM=;
-        b=pTE23B63ozf20GHEg4gSYBsW3quEIgEKPkYc+8OZgl/Syvx0/hELevOKfzfI8eCdeB
-         KX/x47HbIQjrQd6ZawUfO+ERclQ3BHOe8HaMhysgp2YLOCelim+41a7rpJcDG9ixDAId
-         Alt6CnZHQVM7Y85NJznd2zYZACb9VZGaNF+BxG9TF6+2DCrLkxlDLHpTeYQ+UnxezrT0
-         nkZgFmXgY1fkwp16Z4oip2ghJd5p4QUsbSIPvO130e5KuDDfd8+nzgbPDb9Kw5NB3CLx
-         osu619FStIdIxhmOV++CpEEDJdPGSvQXj+faV6E/n2bzHV1RQzLAahvnr8fFfXLTK35v
-         8OLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVkVPe2Xz+nBCTN/gkS+v7Sj+W+c7bhITQKLTCXok2HOW/xAxScjGuLYnRSd/jwC0Uv1TNBlsSTPa66VtpbTPwy5NQUXXQFp57Q2++U1zM9
-X-Gm-Message-State: AOJu0YyGokXwSltCjcqDeX6Ac2131QbQqW9thuAuIPBJ1CUE+FPFSU4T
-	GoAX9ZBSl9maZFtRRXxqJebsJve7UWeOnxMqWBTcwF1ldjYArxyUtVCbNlwSKyE=
-X-Google-Smtp-Source: AGHT+IHeP5I15KzeyyHS9QyEylQJKB8BxwDLerdVkeWn4X1OoVdiknVfTODJicHq4kG+uWiKxO6g7A==
-X-Received: by 2002:a2e:81a:0:b0:2e0:12f1:f827 with SMTP id 38308e7fff4ca-2e4479a2ca4mr23591601fa.43.1715195973157;
-        Wed, 08 May 2024 12:19:33 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1715196035; x=1715800835;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=datyv3e5LLeWOM64wvZ1mfI1WId3P2rVazcirFn2Oxk=;
+        b=iIGFGwJMpHqtF1+ha/6hXAOS8AtW/wWBoXcAUPfkz5jbhdQivXYdtbohGniaGSIJQ7
+         qFih/zVpxpqJbex5dxjzKtCBOJdGEWitUvS7JnAeXsrbfK37RWgooc2uOssxsnEYjSrM
+         Sx8ZKhGrokKY1xF2YT8mKePSJqSzH12L982dqxAyLumxaaxzMns3mprH5IQ4ar1AFit9
+         wWD4jrUpsfsUyvHyoWJNfe/QkbgUhafMSDzB7vudZw6mEF/v84jelGsH0vA+rNHL4Fxp
+         IWkn0wTcrJ9KVIoKEcYPaRjgefldOH94P6KTnsIsctK/v5OmJ78eEkqZF7dEm38UfnKN
+         Kkhg==
+X-Forwarded-Encrypted: i=1; AJvYcCWEARerfeLvlVQStWx4Dl99LqxB/imkTyAV4BQvbY5o3n+lP25IruVix1BjYj/UtOgbbo380xqxIodK5/zmME5qjCvawiKVQNToN4GtZwag
+X-Gm-Message-State: AOJu0YxwT6OroxEy3kZ41E5evVpdjwund6dnrupmNq/qQsyHWfTrsWxR
+	j1sVls+Plz9jE2uyAJn+2yH6e7lAtoLeQFqWlP8kdgG7WzMTwVeX/l2nT4j7ARg=
+X-Google-Smtp-Source: AGHT+IFPtUz+3X9HHx3rOZWYiSnLgxFfxDjotG1sGB7J9SeveUOh2JXAABXt+ni1vfq6RI0lDXdHfA==
+X-Received: by 2002:a50:ab59:0:b0:570:3b8:a990 with SMTP id 4fb4d7f45d1cf-5731da6977emr2508293a12.39.1715196034646;
+        Wed, 08 May 2024 12:20:34 -0700 (PDT)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-41f88110f3esm32622515e9.29.2024.05.08.12.19.32
+        by smtp.gmail.com with ESMTPSA id g17-20020a056402091100b00571bbaa1c45sm7881992edz.1.2024.05.08.12.20.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 May 2024 12:19:32 -0700 (PDT)
+        Wed, 08 May 2024 12:20:34 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Ryan Roberts <ryan.roberts@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -88,14 +89,16 @@ To: Ryan Roberts <ryan.roberts@arm.com>,
 	kvm-riscv@lists.infradead.org,
 	linux-mm@kvack.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH 00/12] Make riscv use THP contpte support for arm64
-Date: Wed,  8 May 2024 21:19:19 +0200
-Message-Id: <20240508191931.46060-1-alexghiti@rivosinc.com>
+Subject: [PATCH 01/12] mm, arm64: Rename ARM64_CONTPTE to THP_CONTPTE
+Date: Wed,  8 May 2024 21:19:20 +0200
+Message-Id: <20240508191931.46060-2-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240508191931.46060-1-alexghiti@rivosinc.com>
+References: <20240508191931.46060-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_121938_182952_C684822F 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20240508_122037_801244_A5DDC9BC 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,62 +115,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This allows riscv to support napot (riscv equivalent to contpte) THPs by
-moving arm64 contpte support into mm, the previous series [1] only merging
-riscv and arm64 implementations of hugetlbfs contpte.
+The ARM64_CONTPTE config represents the capability to transparently use
+contpte mappings for THP userspace mappings, which will be implemented
+in the next commits for riscv, so make this config more generic and move
+it to mm.
 
-riscv contpte specification allows for different contpte sizes, although
-only 64KB is supported for now. So in this patchset is implemented the
-support of multiple contpte sizes, which introduces a few arch specific
-helpers to determine what sizes are supported. Even though only one size
-is supported on riscv, the implementation of the multi size support is to
-show what it will look like when we support other sizes, and make sure
-it does not regress arm64.
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/arm64/Kconfig               | 9 ---------
+ arch/arm64/include/asm/pgtable.h | 6 +++---
+ arch/arm64/mm/Makefile           | 2 +-
+ mm/Kconfig                       | 9 +++++++++
+ 4 files changed, 13 insertions(+), 13 deletions(-)
 
-I tested arm64 using the cow kselftest and a kernel build with 4KB base
-page size and 64KB contpte. riscv was tested with the same tests on *all*
-contpte sizes that fit in the last page table level (support for PMD sizes
-is not present here). Both arch were only tested on qemu.
-
-Alexandre Ghiti (12):
-  mm, arm64: Rename ARM64_CONTPTE to THP_CONTPTE
-  mm, riscv, arm64: Use common ptep_get() function
-  mm, riscv, arm64: Use common set_ptes() function
-  mm, riscv, arm64: Use common ptep_get_lockless() function
-  mm, riscv, arm64: Use common set_pte() function
-  mm, riscv, arm64: Use common pte_clear() function
-  mm, riscv, arm64: Use common ptep_get_and_clear() function
-  mm, riscv, arm64: Use common ptep_test_and_clear_young() function
-  mm, riscv, arm64: Use common ptep_clear_flush_young() function
-  mm, riscv, arm64: Use common ptep_set_access_flags() function
-  mm, riscv, arm64: Use common ptep_set_wrprotect()/wrprotect_ptes()
-    functions
-  mm, riscv, arm64: Use common
-    get_and_clear_full_ptes()/clear_full_ptes() functions
-
- arch/arm64/Kconfig               |   9 -
- arch/arm64/include/asm/pgtable.h | 318 +++++---------
- arch/arm64/mm/Makefile           |   1 -
- arch/arm64/mm/contpte.c          | 408 ------------------
- arch/arm64/mm/hugetlbpage.c      |   6 +-
- arch/arm64/mm/mmu.c              |   2 +-
- arch/riscv/include/asm/kfence.h  |   4 +-
- arch/riscv/include/asm/pgtable.h | 206 +++++++++-
- arch/riscv/kernel/efi.c          |   4 +-
- arch/riscv/kernel/hibernate.c    |   2 +-
- arch/riscv/kvm/mmu.c             |  26 +-
- arch/riscv/mm/fault.c            |   2 +-
- arch/riscv/mm/init.c             |   4 +-
- arch/riscv/mm/kasan_init.c       |  16 +-
- arch/riscv/mm/pageattr.c         |   8 +-
- arch/riscv/mm/pgtable.c          |   6 +-
- include/linux/contpte.h          |  37 ++
- mm/Kconfig                       |   9 +
- mm/contpte.c                     | 685 ++++++++++++++++++++++++++++++-
- 19 files changed, 1056 insertions(+), 697 deletions(-)
- delete mode 100644 arch/arm64/mm/contpte.c
- create mode 100644 include/linux/contpte.h
-
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index ac2f6d906cc3..9d823015b4e5 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2227,15 +2227,6 @@ config UNWIND_PATCH_PAC_INTO_SCS
+ 	select UNWIND_TABLES
+ 	select DYNAMIC_SCS
+ 
+-config ARM64_CONTPTE
+-	bool "Contiguous PTE mappings for user memory" if EXPERT
+-	depends on TRANSPARENT_HUGEPAGE
+-	default y
+-	help
+-	  When enabled, user mappings are configured using the PTE contiguous
+-	  bit, for any mappings that meet the size and alignment requirements.
+-	  This reduces TLB pressure and improves performance.
+-
+ endmenu # "Kernel Features"
+ 
+ menu "Boot options"
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 7c2938cb70b9..1758ce71fae9 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -1369,7 +1369,7 @@ extern void ptep_modify_prot_commit(struct vm_area_struct *vma,
+ 				    unsigned long addr, pte_t *ptep,
+ 				    pte_t old_pte, pte_t new_pte);
+ 
+-#ifdef CONFIG_ARM64_CONTPTE
++#ifdef CONFIG_THP_CONTPTE
+ 
+ /*
+  * The contpte APIs are used to transparently manage the contiguous bit in ptes
+@@ -1622,7 +1622,7 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
+ 	return contpte_ptep_set_access_flags(vma, addr, ptep, entry, dirty);
+ }
+ 
+-#else /* CONFIG_ARM64_CONTPTE */
++#else /* CONFIG_THP_CONTPTE */
+ 
+ #define ptep_get				__ptep_get
+ #define set_pte					__set_pte
+@@ -1642,7 +1642,7 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
+ #define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
+ #define ptep_set_access_flags			__ptep_set_access_flags
+ 
+-#endif /* CONFIG_ARM64_CONTPTE */
++#endif /* CONFIG_THP_CONTPTE */
+ 
+ int find_num_contig(struct mm_struct *mm, unsigned long addr,
+ 		    pte_t *ptep, size_t *pgsize);
+diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
+index 60454256945b..52a1b2082627 100644
+--- a/arch/arm64/mm/Makefile
++++ b/arch/arm64/mm/Makefile
+@@ -3,7 +3,7 @@ obj-y				:= dma-mapping.o extable.o fault.o init.o \
+ 				   cache.o copypage.o flush.o \
+ 				   ioremap.o mmap.o pgd.o mmu.o \
+ 				   context.o proc.o pageattr.o fixmap.o
+-obj-$(CONFIG_ARM64_CONTPTE)	+= contpte.o
++obj-$(CONFIG_THP_CONTPTE)	+= contpte.o
+ obj-$(CONFIG_HUGETLB_PAGE)	+= hugetlbpage.o
+ obj-$(CONFIG_PTDUMP_CORE)	+= ptdump.o
+ obj-$(CONFIG_PTDUMP_DEBUGFS)	+= ptdump_debugfs.o
+diff --git a/mm/Kconfig b/mm/Kconfig
+index c325003d6552..fd4de221a1c6 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -984,6 +984,15 @@ config ARCH_HAS_CACHE_LINE_SIZE
+ config ARCH_HAS_CONTPTE
+ 	bool
+ 
++config THP_CONTPTE
++	bool "Contiguous PTE mappings for user memory" if EXPERT
++	depends on ARCH_HAS_CONTPTE && TRANSPARENT_HUGEPAGE
++	default y
++	help
++	  When enabled, user mappings are configured using the PTE contiguous
++	  bit, for any mappings that meet the size and alignment requirements.
++	  This reduces TLB pressure and improves performance.
++
+ config ARCH_HAS_CURRENT_STACK_POINTER
+ 	bool
+ 	help
 -- 
 2.39.2
 
