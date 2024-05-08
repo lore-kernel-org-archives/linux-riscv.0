@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5221C19F4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 13:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C3A8C04FFE
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 13:55:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,60 +13,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=Qvce6kfW7460V0pZtq0Q9kk94ymXWKp+EvCxCyWl6IY=; b=u20MXikzhgaViBJ+3T6nSvMahF
-	e6e9wEYhjwr33eEumcXJX3wE3JUX1JyW+4hac1Hmwhh7ZdKd2c5EbqGlOIFFt3BEuWTMQf4XyxgOv
-	0J27slLkxewHf0c764mNj4M8JGx6G5oy2ybEA5LlOgWdrqqhCLQm1cKJDkbS7jg2yW9POLDYObOME
-	yNw6siLN9B7YnRw66EKGZ55E/u6gESIQ3zKWynoam6t6Jp4k5V0V2MyhTHZNOyP1bb46l/EgUEPUN
-	XIXciQWt4NqbU6x8KbTcfbXwbL79yCD6agJvegVRwUVqLQVpwmjd+7iUu5ph6IdeA/EExeAXv8cXc
-	UPyQmStQ==;
+	bh=SaLDEF4F7+GXyjGlj+aghEJLbkFziMVbmQUh6aBMfHk=; b=WxOLwklgtUJl1fiEYbOTKWtjac
+	trcMv3vq33c4SPpP2P/rjD67vrOidAbQjgEuespg4L6XOL3gZuwdA6qw36wgPDQZPOViGmubB7978
+	V/FsYi6OO1OBJI0mkcwY03Jm8Nm8pROnSNB11z/X4j3CytiJLQZrl744lzuRddKXsyMhoPMu8AAQd
+	c67hOCvOM6u82yOVuPYkfqK3q6myTidL5xbTEM9JqCc45Jmsr5jfC0gBztBjNRVsclA7cDutG+UHJ
+	BAfDezvmz9TL6427H8s+y3OsPZyChzVuZDkco0LBnP/Qo9Fbz8Sod/IWLorVQ9BBoxfR5CaFgv8u2
+	fwYWqSkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4hdh-0000000FigK-42zi;
-	Wed, 08 May 2024 13:47:21 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1s4hl9-0000000Fktb-24wI;
+	Wed, 08 May 2024 13:55:03 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4hdV-0000000FiWf-2O05
+	id 1s4hkx-0000000Fkka-2q48
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 13:47:19 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2a49440f7b5so3643568a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 06:47:05 -0700 (PDT)
+	Wed, 08 May 2024 13:55:01 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-de5a8638579so8165213276.1
+        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 06:54:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1715176025; x=1715780825; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1715176482; x=1715781282; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9Cy96MEbs4JLv+XlnJDrNT2CJ2qEQRDaH5Qu53Pf8ZU=;
-        b=wVPeTmSR+VVWxyue8G8XTPakFUPO54I43cOZ6U91MaEsx/3ivk/R6HuUF4017o/vz8
-         njfZANPmNCMVPrz5EAk8KV0lzvnQ5/7VICaczsMia0IZv7bC7422gUXafafgXFC75agd
-         a3fz2Vu4Xc6ymOwD7rqhE60vwDwFpiB3LSbIbidiaRGNhLHwW+wisATJFQGKV2HRf2f7
-         Mo3sJmKUGk+HwPuNBUcYtTowazR8BaSAMzqE5Ih7eax8lYfV4XA/kQOp7FXFxx0ta46a
-         FJDbAAtchgQoFm5rodNYFOTIaULk/PHvTFHnLbqPHDfWVGSZuBJvkb2MBTCfoFW2vUyG
-         J/ow==
+        bh=qrxifLi18HwIXN/paZijnWPdESXfJJzxe/+u8UtVff4=;
+        b=hGMqGgXl0hiqffOFLMKvE3VVf/qCjgXoxcNJQSLknEjN1dvAwsonVbMGL4KytxkXTN
+         990Qzm6upRaMQahb3oFEGVHOGV44yEzb8Pahx1+CP21jVGSlzX/aUoCEidA6yBZ9kkZX
+         9dcElm//rUaeU2xw1l7eQ2JtMpCxM4TW8T5EuuC4smRiORS893kPTPLVxEcJGx74Jstv
+         lZsJIJYjjHf0mNnbSBwaXOh0DjOzQxzx/aHPg1rZleJp2FSfKeDTEaEmqaANrUYjhfv9
+         TiAkhSMbCLJ0ac3BuZzwR2lPwWoBzvZqbXDi70MR3p8eZBBOUg8gG1mm5cYtbaaD0Nqr
+         Dckg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715176025; x=1715780825;
+        d=1e100.net; s=20230601; t=1715176482; x=1715781282;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9Cy96MEbs4JLv+XlnJDrNT2CJ2qEQRDaH5Qu53Pf8ZU=;
-        b=kcrzQ/T9/JfWl6GMezGPiUWIr2Eg6i3RrBUNTWzvslCtjwWkC/qx4qhmYmO5QODSFx
-         DtAqz/HCaUFOqwS/RmcyFgICvkTHMVKBPjsoGYpJOEEuwIoh3enWRn4dUcJiy6/zsFg6
-         c5U+aUPjIMAJGTfgVybkoG4xiOSntRzkpovgT8IwUEY0npEbxLKGW0ncGpydK1fsrAJS
-         6t+DqFirP6+krPL98arQKkj5Amjwqd4mjgoiokcKdFzmti0OiIyI1zU7IUxCevzQccfO
-         HNrEILxPWBpcPZjw8n4sc2o0Y0qEU9qxdGbT0i56W6vV81EcQsmrmDy7i8q5vLviUXHm
-         xEQw==
-X-Forwarded-Encrypted: i=1; AJvYcCUkammeKxWJ0QC+cX2EVQWmHyBWh6K7eqpCyA/VdJq+8fL3hQNA1gQuw43bQKoEdH0uaNktsUI3kTE0kLypVEgLMTbmdNrtBrxZlalNQLdC
-X-Gm-Message-State: AOJu0YymHiaLJgBarNGkFC0z9Xxo3L6HG8pYxd/gC8Uo5ENSB0F6E3UN
-	86wviuEvJk8gP0OBGwO5qez+B8QGemniAxzVxqTRbs3kzIf35oQ/AKUy6YenKfQDeUX5UTmDGnP
-	Z2w==
-X-Google-Smtp-Source: AGHT+IGkEzt3rrLCYEAc2MIkDJ4rSudkNPJV/ZI7YDr6FjDNwR59XbPWzyPuXmQfxq7n/1Jp45z9S3futCA=
+        bh=qrxifLi18HwIXN/paZijnWPdESXfJJzxe/+u8UtVff4=;
+        b=h7r8C/O0X56PRb40oW4ZaXEhe9mdSveBJOvYQw4wGHECnP31/OTA3oSnh2esrVz435
+         8b3K2bm52ElzzyeUdnS72DQGHBAI2fq9vhrq+JJVuDQx3CdHf4XQpSg1mkY9lk9upDef
+         TWZKNk8SfdbvMdl6hodfEUI6/e8QkNHhowac69qqUyOG5pJ1lR6/IsLwIXjMktbXYOwM
+         CzskRx8+RfoGDyfmUaFjsGW8ixl3V6UKjDFsLJFEOZtPVh1Mw4Lu46mgRJLgWp/hDy0N
+         YuOdaPklYGjcfN54UqvgiQEwmne7LXs1AO+cZHQpVOwm9Utwp3elfJGE9koW3BLa8TWx
+         Xwzg==
+X-Forwarded-Encrypted: i=1; AJvYcCWA0aQ3H6jo+Ia2s/KtcfncyuY1+h4ELzrh1OlnYEaDK7vqrsPCAhXY0rEGhDHxjUX3PyDBzFaEuAtkbkr/BbY1AO3pycyzLYaWK+II9S+Q
+X-Gm-Message-State: AOJu0YzW9zNsrx2GN5Mr0ph4ZigOwKBuoJKZGLOS8ZJxx9bDdmwv7cNy
+	6lffpikMaZXN36c7iwTQlqA6ab9nEH62hhHND4foYzH6YX81x3moG8oVjkL+mKZRmAaoK4ijBdT
+	M+w==
+X-Google-Smtp-Source: AGHT+IGJRBi1UvMX9yVwIeeKPJ5i4MXrMA7fvNEnU0sh0JI0w6+2/9z2FlMIObyx5JUsUOMhiA6kQPpm0zI=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:90b:128d:b0:2b4:32ae:483e with SMTP id
- 98e67ed59e1d1-2b61638c780mr8658a91.2.1715176024465; Wed, 08 May 2024 06:47:04
- -0700 (PDT)
-Date: Wed, 8 May 2024 06:47:03 -0700
-In-Reply-To: <20240507214254.2787305-1-edliaw@google.com>
+ (user=seanjc job=sendgmr) by 2002:a05:6902:18c8:b0:dd9:2789:17fb with SMTP id
+ 3f1490d57ef6-debb9cfd19bmr223701276.3.1715176481930; Wed, 08 May 2024
+ 06:54:41 -0700 (PDT)
+Date: Wed, 8 May 2024 06:54:40 -0700
+In-Reply-To: <20240507214254.2787305-5-edliaw@google.com>
 Mime-Version: 1.0
-References: <20240507214254.2787305-1-edliaw@google.com>
-Message-ID: <ZjuA3aY_iHkjP7bQ@google.com>
-Subject: Re: [PATCH v2 0/5] Define _GNU_SOURCE for sources using
+References: <20240507214254.2787305-1-edliaw@google.com> <20240507214254.2787305-5-edliaw@google.com>
+Message-ID: <ZjuEILj0SZRuTL9I@google.com>
+Subject: Re: [PATCH v2 4/5] selftests: Drop define _GNU_SOURCE
 From: Sean Christopherson <seanjc@google.com>
 To: Edward Liaw <edliaw@google.com>
 Cc: shuah@kernel.org, Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
@@ -109,8 +109,8 @@ Cc: shuah@kernel.org, Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@pe
 	linux-actions@lists.infradead.org, mptcp@lists.linux.dev, 
 	linux-rtc@vger.kernel.org, linux-sgx@vger.kernel.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_064709_705758_774A8E25 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20240508_065451_784712_0C608044 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,37 +128,32 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Tue, May 07, 2024, Edward Liaw wrote:
-> 809216233555 ("selftests/harness: remove use of LINE_MAX") introduced
-> asprintf into kselftest_harness.h, which is a GNU extension and needs
-> _GNU_SOURCE to either be defined prior to including headers or with the
-> -D_GNU_SOURCE flag passed to the compiler.
-> 
-> v1: https://lore.kernel.org/linux-kselftest/20240430235057.1351993-1-edliaw@google.com/
-> v2: add -D_GNU_SOURCE to KHDR_INCLUDES so that it is in a single
-> location.  Remove #define _GNU_SOURCE from source code to resolve
-> redefinition warnings.
-> 
-> Edward Liaw (5):
->   selftests: Compile kselftest headers with -D_GNU_SOURCE
->   selftests/sgx: Include KHDR_INCLUDES in Makefile
->   selftests: Include KHDR_INCLUDES in Makefile
->   selftests: Drop define _GNU_SOURCE
->   selftests: Drop duplicate -D_GNU_SOURCE
+> _GNU_SOURCE is provided by KHDR_INCLUDES, so it should be dropped to
+> prevent _GNU_SOURCE redefined warnings.
 
-Can you rebase this on top of linux-next?  I have a conflicting fix[*] for the
-KVM selftests queued for 6.10, and I would prefer not to drop that commit at
-this stage as it would require a rebase of a pile of other commits.
+...
 
-And I doubt KVM is the only subsystem that has a targeted fix for the _GNU_SOURCE
-mess.
+> diff --git a/tools/testing/selftests/x86/test_syscall_vdso.c b/tools/testing/selftests/x86/test_syscall_vdso.c
+> index 8965c311bd65..5cd13279bba5 100644
+> --- a/tools/testing/selftests/x86/test_syscall_vdso.c
+> +++ b/tools/testing/selftests/x86/test_syscall_vdso.c
+> @@ -8,10 +8,6 @@
+>   * Can be built statically:
+>   * gcc -Os -Wall -static -m32 test_syscall_vdso.c thunks_32.S
+>   */
+> -#undef _GNU_SOURCE
+> -#define _GNU_SOURCE 1
+> -#undef __USE_GNU
+> -#define __USE_GNU 1
 
-If we want/need to get a fix into 6.9, then IMO we should just revert 809216233555
-("selftests/harness: remove use of LINE_MAX"), as that came in quite late in the
-6.9 cycle, and I don't think it's feasible to be 100% confident that globally
-defining _GNU_SOURCE works for all selftests, i.e. we really should have a full
-cycle for folks to test.
+AFAICT, manually defining __USE_GNU is frowned upon, so I'm guessing the __USE_GNU
+stuff is just the result of misguided copy+paste.  But it would be nice to get
+confirmation that this test isn't doing something clever.  Or at the very least,
+explain the removal of __USE_GNU in the changelog.
 
-[*] https://github.com/kvm-x86/linux/commit/730cfa45b5f4
+>  #include <unistd.h>
+>  #include <stdlib.h>
+>  #include <string.h>
 
 _______________________________________________
 linux-riscv mailing list
