@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC44FC19F4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 10:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669B8C04FFE
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 10:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yg32HfakKcBTRAaa6AT7/STAduR+wAHBjZdhKykowfs=; b=ESPQH1CD1m+jWF
-	f+/S8fqzVjJ48tcxjFe7LUgyJ7hPMOioH0bH+5U5J2EDqQYzOIJlmDbDs1ruzjkTPiYu06Tk5NNX7
-	HL+cGcrQncJFqsOo9HzUBoMpT2WXSH9kQvqfLog3efhHuMbmh9mnZHBEgXkUK1Swh6tBtaugqSZz9
-	iVQKpYINEkG1hRdBrrN1TQ2keXo2bi0kO+qkjSZ3CpSp4ElQ4opIJSY8ShUoCPAoitgKu4C1FMZo8
-	QrnkFv0/ijZhw1UICk7p0gNTSUHYlKba7IUS1ORTYAS5x4Dj/ya121v7AR3PAgvyrHSsk9jnMF4cA
-	FDvQXNiDQ9a2eitvnJvg==;
+	List-Owner; bh=y+/qADQJwoeYu9HWLwbhSBkaCOyYcTEhkIpLkXAH/nQ=; b=VnyAkkdfBnkJ13
+	oKP61n1j2uAArM+Bidrrq/XugAJ99A698GWlzV7hpgQrtlPxo6/ufH1Q6PPX6c45uB+L3zUObPw+I
+	g5VRU8sB/QlbLlnV5dE3hbc3ozjagWARZE3S/W0LKmJLF8KK6MADv4CePyhGbgC61ySwpZRsmae6o
+	Qcw2TLd7kAVYPOSn6HLIeMPahuyt1lPSrN03V0hX2xoc77uOtYeNbAQdqvxz44/QDltr/dp20miQM
+	9txBEmha+dbShD72jalCmk+WfUHQ2cplVt+m7C9gsUkAmcoDxBcJDWoX7IVwON28twUvzNAQX3ueV
+	qytREsD4nrWXdm7kvvGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4eQN-0000000ExPl-2O9d;
-	Wed, 08 May 2024 10:21:23 +0000
-Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
+	id 1s4ely-0000000F2df-30BU;
+	Wed, 08 May 2024 10:43:42 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4eQI-0000000ExN3-2qXG
+	id 1s4elu-0000000F2Zn-22sh
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 10:21:21 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:985a:f2a2:ae2e:5981])
-	by albert.telenet-ops.be with bizsmtp
-	id LaMB2C00N241EGo06aMB1b; Wed, 08 May 2024 12:21:11 +0200
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1s4ePP-00EEy8-7I;
-	Wed, 08 May 2024 12:21:11 +0200
-Received: from geert by rox.of.borg with local (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1s4eQB-00HAy7-De;
-	Wed, 08 May 2024 12:21:11 +0200
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Conor Dooley <conor@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Damien Le Moal <dlemoal@kernel.org>
-Cc: linux-riscv@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 2/2] riscv: dts: canaan: Disable I/O devices unless used
-Date: Wed,  8 May 2024 12:20:58 +0200
-Message-Id: <f85d460efd7ad85ec59c9253c989b10a07f2ff24.1715163174.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1715163174.git.geert+renesas@glider.be>
-References: <cover.1715163174.git.geert+renesas@glider.be>
+	Wed, 08 May 2024 10:43:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DD2DC1BF204;
+	Wed,  8 May 2024 10:43:28 +0000 (UTC)
+Message-ID: <d14c1d04-2fd9-4c9b-affb-f4335bd7e6fc@ghiti.fr>
+Date: Wed, 8 May 2024 12:43:28 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/9] riscv: smp: fail booting up smp if inconsistent
+ vlen is detected
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor.dooley@microchip.com>, Heiko Stuebner <heiko@sntech.de>,
+ Guo Ren <guoren@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Jonathan Corbet <corbet@lwn.net>, Evan Green <evan@rivosinc.com>,
+ =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Shuah Khan <shuah@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+ Vincent Chen <vincent.chen@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>, devicetree@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20240412-zve-detection-v4-0-e0c45bb6b253@sifive.com>
+ <20240412-zve-detection-v4-2-e0c45bb6b253@sifive.com>
+ <4acc62d0-d62b-4d42-805b-0bc7f663a81c@ghiti.fr>
+ <CABgGipXcjY9KDU=fN6KtER3mPbxsQdb+Y5Czhq7QDBFFc6p__w@mail.gmail.com>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <CABgGipXcjY9KDU=fN6KtER3mPbxsQdb+Y5Czhq7QDBFFc6p__w@mail.gmail.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_032118_918277_9EFE58F1 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20240508_034338_933548_A772A90A 
+X-CRM114-Status: GOOD (  26.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,364 +71,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It is considered good practice to disable on-SoC devices providing
-external I/O in the SoC-specific .dtsi, and enable them explicitly in
-the board-specific DTS files when actually wired-up and used.
-
-Hence:
-  - Set the status of I/O devices in k210.dtsi to "disabled",
-  - Override the status of used I/O devices in board-specific DTS files
-    to "okay",
-  - Drop unneeded status overrides in board DTS-specific files for the
-    always-enabled pin controller.
-
-On e.g. MAiXBiT, this gets rid of an error message when probing the
-unused slave-only spi2 controller:
-
-    dw_spi_mmio 50240000.spi: error -22: problem registering spi host
-    dw_spi_mmio 50240000.spi: probe with driver dw_spi_mmio failed with error -22
-
-which is seen since commit 98d75b9ef282f6b9 ("spi: dw: Drop default
-number of CS setting").
-
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-Commit 98d75b9ef282f6b9 is in spi/for-next (next-20240508 and later).
-
-See also "[PATCH] spi: dw: Bail out early on unsupported target mode"
-https://lore.kernel.org/r/7ae28d83bff7351f34782658ae1bb69cc731693e.1715163113.git.geert+renesas@glider.be
-
- arch/riscv/boot/dts/canaan/canaan_kd233.dts     |  3 ++-
- arch/riscv/boot/dts/canaan/k210.dtsi            | 16 ++++++++++++++++
- arch/riscv/boot/dts/canaan/k210_generic.dts     |  1 -
- arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts  |  5 ++++-
- arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts |  3 ++-
- arch/riscv/boot/dts/canaan/sipeed_maix_go.dts   |  5 ++++-
- arch/riscv/boot/dts/canaan/sipeed_maixduino.dts |  6 ++++--
- 7 files changed, 32 insertions(+), 7 deletions(-)
-
-diff --git a/arch/riscv/boot/dts/canaan/canaan_kd233.dts b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-index 8cbef8daaec1097b..a7d753b6fdfd1366 100644
---- a/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-+++ b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-@@ -50,7 +50,6 @@ key {
- &fpioa {
- 	pinctrl-0 = <&jtag_pinctrl>;
- 	pinctrl-names = "default";
--	status = "okay";
- 
- 	jtag_pinctrl: jtag-pinmux {
- 		pinmux = <K210_FPIOA(0, K210_PCF_JTAG_TCLK)>,
-@@ -122,6 +121,7 @@ &i2s0 {
- 	#sound-dai-cells = <1>;
- 	pinctrl-0 = <&i2s0_pinctrl>;
- 	pinctrl-names = "default";
-+	status = "okay";
- };
- 
- &spi0 {
-@@ -129,6 +129,7 @@ &spi0 {
- 	pinctrl-names = "default";
- 	num-cs = <1>;
- 	cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
- 
- 	panel@0 {
- 		compatible = "canaan,kd233-tft", "ilitek,ili9341";
-diff --git a/arch/riscv/boot/dts/canaan/k210.dtsi b/arch/riscv/boot/dts/canaan/k210.dtsi
-index febdff79c13cc5fc..4f5d40fa1e77c624 100644
---- a/arch/riscv/boot/dts/canaan/k210.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k210.dtsi
-@@ -130,6 +130,7 @@ uarths0: serial@38000000 {
- 			reg = <0x38000000 0x1000>;
- 			interrupts = <33>;
- 			clocks = <&sysclk K210_CLK_CPU>;
-+			status = "disabled";
- 		};
- 
- 		gpio0: gpio-controller@38001000 {
-@@ -145,6 +146,7 @@ gpio0: gpio-controller@38001000 {
- 				     <62>, <63>, <64>, <65>;
- 			gpio-controller;
- 			ngpios = <32>;
-+			status = "disabled";
- 		};
- 
- 		dmac0: dma-controller@50000000 {
-@@ -180,6 +182,7 @@ gpio1: gpio@50200000 {
- 					 <&sysclk K210_CLK_GPIO>;
- 				clock-names = "bus", "db";
- 				resets = <&sysrst K210_RST_GPIO>;
-+				status = "disabled";
- 
- 				gpio1_0: gpio-port@0 {
- 					#gpio-cells = <2>;
-@@ -207,6 +210,7 @@ uart1: serial@50210000 {
- 				dsr-override;
- 				cts-override;
- 				ri-override;
-+				status = "disabled";
- 			};
- 
- 			uart2: serial@50220000 {
-@@ -223,6 +227,7 @@ uart2: serial@50220000 {
- 				dsr-override;
- 				cts-override;
- 				ri-override;
-+				status = "disabled";
- 			};
- 
- 			uart3: serial@50230000 {
-@@ -239,6 +244,7 @@ uart3: serial@50230000 {
- 				dsr-override;
- 				cts-override;
- 				ri-override;
-+				status = "disabled";
- 			};
- 
- 			spi2: spi@50240000 {
-@@ -252,6 +258,7 @@ spi2: spi@50240000 {
- 					 <&sysclk K210_CLK_APB0>;
- 				clock-names = "ssi_clk", "pclk";
- 				resets = <&sysrst K210_RST_SPI2>;
-+				status = "disabled";
- 			};
- 
- 			i2s0: i2s@50250000 {
-@@ -261,6 +268,7 @@ i2s0: i2s@50250000 {
- 				clocks = <&sysclk K210_CLK_I2S0>;
- 				clock-names = "i2sclk";
- 				resets = <&sysrst K210_RST_I2S0>;
-+				status = "disabled";
- 			};
- 
- 			i2s1: i2s@50260000 {
-@@ -270,6 +278,7 @@ i2s1: i2s@50260000 {
- 				clocks = <&sysclk K210_CLK_I2S1>;
- 				clock-names = "i2sclk";
- 				resets = <&sysrst K210_RST_I2S1>;
-+				status = "disabled";
- 			};
- 
- 			i2s2: i2s@50270000 {
-@@ -279,6 +288,7 @@ i2s2: i2s@50270000 {
- 				clocks = <&sysclk K210_CLK_I2S2>;
- 				clock-names = "i2sclk";
- 				resets = <&sysrst K210_RST_I2S2>;
-+				status = "disabled";
- 			};
- 
- 			i2c0: i2c@50280000 {
-@@ -289,6 +299,7 @@ i2c0: i2c@50280000 {
- 					 <&sysclk K210_CLK_APB0>;
- 				clock-names = "ref", "pclk";
- 				resets = <&sysrst K210_RST_I2C0>;
-+				status = "disabled";
- 			};
- 
- 			i2c1: i2c@50290000 {
-@@ -299,6 +310,7 @@ i2c1: i2c@50290000 {
- 					 <&sysclk K210_CLK_APB0>;
- 				clock-names = "ref", "pclk";
- 				resets = <&sysrst K210_RST_I2C1>;
-+				status = "disabled";
- 			};
- 
- 			i2c2: i2c@502a0000 {
-@@ -309,6 +321,7 @@ i2c2: i2c@502a0000 {
- 					 <&sysclk K210_CLK_APB0>;
- 				clock-names = "ref", "pclk";
- 				resets = <&sysrst K210_RST_I2C2>;
-+				status = "disabled";
- 			};
- 
- 			fpioa: pinmux@502b0000 {
-@@ -457,6 +470,7 @@ spi0: spi@52000000 {
- 				reset-names = "spi";
- 				num-cs = <4>;
- 				reg-io-width = <4>;
-+				status = "disabled";
- 			};
- 
- 			spi1: spi@53000000 {
-@@ -472,6 +486,7 @@ spi1: spi@53000000 {
- 				reset-names = "spi";
- 				num-cs = <4>;
- 				reg-io-width = <4>;
-+				status = "disabled";
- 			};
- 
- 			spi3: spi@54000000 {
-@@ -488,6 +503,7 @@ spi3: spi@54000000 {
- 
- 				num-cs = <4>;
- 				reg-io-width = <4>;
-+				status = "disabled";
- 			};
- 		};
- 	};
-diff --git a/arch/riscv/boot/dts/canaan/k210_generic.dts b/arch/riscv/boot/dts/canaan/k210_generic.dts
-index 36b4ba9cc556bc3f..5734cc03753b1a06 100644
---- a/arch/riscv/boot/dts/canaan/k210_generic.dts
-+++ b/arch/riscv/boot/dts/canaan/k210_generic.dts
-@@ -28,7 +28,6 @@ chosen {
- &fpioa {
- 	pinctrl-0 = <&jtag_pins>;
- 	pinctrl-names = "default";
--	status = "okay";
- 
- 	jtag_pins: jtag-pinmux {
- 		pinmux = <K210_FPIOA(0, K210_PCF_JTAG_TCLK)>,
-diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
-index e5a77672fc65bc47..2ab376d609d2592d 100644
---- a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
-+++ b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
-@@ -62,7 +62,6 @@ key-boot {
- &fpioa {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&jtag_pinctrl>;
--	status = "okay";
- 
- 	jtag_pinctrl: jtag-pinmux {
- 		pinmux = <K210_FPIOA(0, K210_PCF_JTAG_TCLK)>,
-@@ -160,6 +159,7 @@ &i2s0 {
- 	#sound-dai-cells = <1>;
- 	pinctrl-0 = <&i2s0_pinctrl>;
- 	pinctrl-names = "default";
-+	status = "okay";
- };
- 
- &i2c1 {
-@@ -174,6 +174,7 @@ &spi0 {
- 	pinctrl-names = "default";
- 	num-cs = <1>;
- 	cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
- 
- 	panel@0 {
- 		compatible = "sitronix,st7789v";
-@@ -203,6 +204,8 @@ mmc@0 {
- };
- 
- &spi3 {
-+	status = "okay";
-+
- 	flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
-diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
-index 04c2bf227b1c69ad..d98e20775c073639 100644
---- a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
-+++ b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
-@@ -67,7 +67,6 @@ key-boot {
- &fpioa {
- 	pinctrl-0 = <&jtag_pinctrl>;
- 	pinctrl-names = "default";
--	status = "okay";
- 
- 	jtag_pinctrl: jtag-pinmux {
- 		pinmux = <K210_FPIOA(0, K210_PCF_JTAG_TCLK)>,
-@@ -163,6 +162,7 @@ &i2s0 {
- 	#sound-dai-cells = <1>;
- 	pinctrl-0 = <&i2s0_pinctrl>;
- 	pinctrl-names = "default";
-+	status = "okay";
- };
- 
- &i2c1 {
-@@ -177,6 +177,7 @@ &spi0 {
- 	pinctrl-names = "default";
- 	num-cs = <1>;
- 	cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
- 
- 	panel@0 {
- 		compatible = "sitronix,st7789v";
-diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
-index f9f6cc136bc3d98a..79ecd549700a006e 100644
---- a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
-+++ b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
-@@ -73,7 +73,6 @@ key-down {
- &fpioa {
- 	pinctrl-0 = <&jtag_pinctrl>;
- 	pinctrl-names = "default";
--	status = "okay";
- 
- 	jtag_pinctrl: jtag-pinmux {
- 		pinmux = <K210_FPIOA(0, K210_PCF_JTAG_TCLK)>,
-@@ -171,6 +170,7 @@ &i2s0 {
- 	#sound-dai-cells = <1>;
- 	pinctrl-0 = <&i2s0_pinctrl>;
- 	pinctrl-names = "default";
-+	status = "okay";
- };
- 
- &i2c1 {
-@@ -185,6 +185,7 @@ &spi0 {
- 	pinctrl-names = "default";
- 	num-cs = <1>;
- 	cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
- 
- 	panel@0 {
- 		compatible = "sitronix,st7789v";
-@@ -213,6 +214,8 @@ mmc@0 {
- };
- 
- &spi3 {
-+	status = "okay";
-+
- 	flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
-diff --git a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-index e90188bfb70bd8a4..019c03ae51f6c485 100644
---- a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-+++ b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-@@ -43,8 +43,6 @@ vcc_3v3: regulator-3v3 {
- };
- 
- &fpioa {
--	status = "okay";
--
- 	uarths_pinctrl: uarths-pinmux {
- 		pinmux = <K210_FPIOA(4, K210_PCF_UARTHS_RX)>, /* Header "0" */
- 			 <K210_FPIOA(5, K210_PCF_UARTHS_TX)>; /* Header "1" */
-@@ -136,6 +134,7 @@ &i2s0 {
- 	#sound-dai-cells = <1>;
- 	pinctrl-0 = <&i2s0_pinctrl>;
- 	pinctrl-names = "default";
-+	status = "okay";
- };
- 
- &i2c1 {
-@@ -150,6 +149,7 @@ &spi0 {
- 	pinctrl-names = "default";
- 	num-cs = <1>;
- 	cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
- 
- 	panel@0 {
- 		compatible = "sitronix,st7789v";
-@@ -178,6 +178,8 @@ mmc@0 {
- };
- 
- &spi3 {
-+	status = "okay";
-+
- 	flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQW5keSwKCk9uIDA4LzA1LzIwMjQgMTA6MjEsIEFuZHkgQ2hpdSB3cm90ZToKPiBPbiBUaHUs
+IEFwciAyNSwgMjAyNCBhdCA0OjAx4oCvQU0gQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZy
+PiB3cm90ZToKPj4gSGkgQW5keSwKPj4KPj4gT24gMTIvMDQvMjAyNCAwODo0OCwgQW5keSBDaGl1
+IHdyb3RlOgo+Pj4gQ3VycmVudGx5IHdlIG9ubHkgc3VwcG9ydCBWZWN0b3IgZm9yIFNNUCBwbGF0
+Zm9ybXMsIHRoYXQgaXMsIGFsbCBTTVAKPj4+IGNvcmVzIGhhdmUgdGhlIHNhbWUgdmxlbmIuIElm
+IHdlIGhhcHBlbiB0byBkZXRlY3QgYSBtaXNtYXRjaGluZyB2bGVuLCBpdAo+Pj4gaXMgYmV0dGVy
+IHRvIGp1c3QgZmFpbCBib290dGluZyBpdCB1cCB0byBwcmV2ZW50IGZ1cnRoZXIgcmFjZS9zY2hl
+ZHVsaW5nCj4+PiBpc3N1ZXMuCj4+Pgo+Pj4gQWxzbywgbW92ZSAuTHNlY29uZGFyeV9wYXJrIGZv
+cndhcmQgYW5kIGNoYWdlIGB0YWlsIHNtcF9jYWxsaW5gIGludG8gYQo+Pj4gcmVndWxhciBjYWxs
+IGluIHRoZSBlYXJseSBhc3NlbWJseS4gU28gYSBjb3JlIHdvdWxkIGJlIHBhcmtlZCByaWdodAo+
+Pj4gYWZ0ZXIgYSByZXR1cm4gZnJvbSBzbXBfY2FsbGluLiBOb3RlIHRoYXQgYSBzdWNjZXNzZnVs
+IHNtcF9jYWxsaW4KPj4+IGRvZXMgbm90IHJldHVybi4KPj4+Cj4+PiBGaXhlczogNzAxNzg1OGVi
+MmQ3ICgicmlzY3Y6IEludHJvZHVjZSByaXNjdl92X3ZzaXplIHRvIHJlY29yZCBzaXplIG9mIFZl
+Y3RvciBjb250ZXh0IikKPj4+IFJlcG9ydGVkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xl
+eUBtaWNyb2NoaXAuY29tPgo+Pj4gQ2xvc2VzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51
+eC1yaXNjdi8yMDI0MDIyOC12aWNpbml0eS1jb3Juc3RhbGstNGI4ZWI1ZmU1NzMwQHNwdWQvCj4+
+PiBTaWduZWQtb2ZmLWJ5OiBBbmR5IENoaXUgPGFuZHkuY2hpdUBzaWZpdmUuY29tPgo+Pj4gLS0t
+Cj4+PiBDaGFuZ2Vsb2cgdjQ6Cj4+PiAgICAtIHVwZGF0ZSBjb21tZW50IGFsc28gaW4gdGhlIGFz
+c2VtYmx5IGNvZGUgKFl1bmh1aSkKPj4+IENoYW5nZWxvZyB2MjoKPj4+ICAgIC0gdXBkYXRlIGNv
+bW1pdCBtZXNzYWdlIHRvIGV4cGxhaW4gYXNtIGNvZGUgY2hhbmdlIChDb25vcikKPj4+IC0tLQo+
+Pj4gICAgYXJjaC9yaXNjdi9rZXJuZWwvaGVhZC5TICAgIHwgMTkgKysrKysrKysrKysrLS0tLS0t
+LQo+Pj4gICAgYXJjaC9yaXNjdi9rZXJuZWwvc21wYm9vdC5jIHwgMTQgKysrKysrKysrLS0tLS0K
+Pj4+ICAgIDIgZmlsZXMgY2hhbmdlZCwgMjEgaW5zZXJ0aW9ucygrKSwgMTIgZGVsZXRpb25zKC0p
+Cj4+Pgo+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2hlYWQuUyBiL2FyY2gvcmlz
+Y3Yva2VybmVsL2hlYWQuUwo+Pj4gaW5kZXggNDIzNmE2OWMzNWNiLi5hMDBmNzUyM2NiOTEgMTAw
+NjQ0Cj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9oZWFkLlMKPj4+ICsrKyBiL2FyY2gvcmlz
+Y3Yva2VybmVsL2hlYWQuUwo+Pj4gQEAgLTE2NSw5ICsxNjUsMjAgQEAgc2Vjb25kYXJ5X3N0YXJ0
+X3NiaToKPj4+ICAgICNlbmRpZgo+Pj4gICAgICAgIGNhbGwgLkxzZXR1cF90cmFwX3ZlY3Rvcgo+
+Pj4gICAgICAgIHNjc19sb2FkX2N1cnJlbnQKPj4+IC0gICAgIHRhaWwgc21wX2NhbGxpbgo+Pj4g
+KyAgICAgY2FsbCBzbXBfY2FsbGluCj4+PiAgICAjZW5kaWYgLyogQ09ORklHX1NNUCAqLwo+Pj4K
+Pj4+ICsuYWxpZ24gMgo+Pj4gKy5Mc2Vjb25kYXJ5X3Bhcms6Cj4+PiArICAgICAvKgo+Pj4gKyAg
+ICAgICogUGFyayB0aGlzIGhhcnQgaWYgd2U6Cj4+PiArICAgICAgKiAgLSBoYXZlIHRvbyBtYW55
+IGhhcnRzIG9uIENPTkZJR19SSVNDVl9CT09UX1NQSU5XQUlUCj4+PiArICAgICAgKiAgLSByZWNl
+aXZlIGFuIGVhcmx5IHRyYXAsIGJlZm9yZSBzZXR1cF90cmFwX3ZlY3RvciBmaW5pc2hlZAo+Pj4g
+KyAgICAgICogIC0gZmFpbCBpbiBzbXBfY2FsbGluKCksIGFzIGEgc3VjY2Vzc2Z1bCBvbmUgd291
+bGRuJ3QgcmV0dXJuCj4+PiArICAgICAgKi8KPj4+ICsgICAgIHdmaQo+Pj4gKyAgICAgaiAuTHNl
+Y29uZGFyeV9wYXJrCj4+PiArCj4+PiAgICAuYWxpZ24gMgo+Pj4gICAgLkxzZXR1cF90cmFwX3Zl
+Y3RvcjoKPj4+ICAgICAgICAvKiBTZXQgdHJhcCB2ZWN0b3IgdG8gZXhjZXB0aW9uIGhhbmRsZXIg
+Ki8KPj4+IEBAIC0xODEsMTIgKzE5Miw2IEBAIHNlY29uZGFyeV9zdGFydF9zYmk6Cj4+PiAgICAg
+ICAgY3NydyBDU1JfU0NSQVRDSCwgemVybwo+Pj4gICAgICAgIHJldAo+Pj4KPj4+IC0uYWxpZ24g
+Mgo+Pj4gLS5Mc2Vjb25kYXJ5X3Bhcms6Cj4+PiAtICAgICAvKiBXZSBsYWNrIFNNUCBzdXBwb3J0
+IG9yIGhhdmUgdG9vIG1hbnkgaGFydHMsIHNvIHBhcmsgdGhpcyBoYXJ0ICovCj4+PiAtICAgICB3
+ZmkKPj4+IC0gICAgIGogLkxzZWNvbmRhcnlfcGFyawo+Pj4gLQo+Pj4gICAgU1lNX0NPREVfRU5E
+KF9zdGFydCkKPj4+Cj4+PiAgICBTWU1fQ09ERV9TVEFSVChfc3RhcnRfa2VybmVsKQo+Pj4gZGlm
+ZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3NtcGJvb3QuYyBiL2FyY2gvcmlzY3Yva2VybmVs
+L3NtcGJvb3QuYwo+Pj4gaW5kZXggZDQxMDkwZmMzMjAzLi42NzM0MzdjY2MxM2QgMTAwNjQ0Cj4+
+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zbXBib290LmMKPj4+ICsrKyBiL2FyY2gvcmlzY3Yv
+a2VybmVsL3NtcGJvb3QuYwo+Pj4gQEAgLTIxNCw2ICsyMTQsMTUgQEAgYXNtbGlua2FnZSBfX3Zp
+c2libGUgdm9pZCBzbXBfY2FsbGluKHZvaWQpCj4+PiAgICAgICAgc3RydWN0IG1tX3N0cnVjdCAq
+bW0gPSAmaW5pdF9tbTsKPj4+ICAgICAgICB1bnNpZ25lZCBpbnQgY3Vycl9jcHVpZCA9IHNtcF9w
+cm9jZXNzb3JfaWQoKTsKPj4+Cj4+PiArICAgICBpZiAoaGFzX3ZlY3RvcigpKSB7Cj4+PiArICAg
+ICAgICAgICAgIC8qCj4+PiArICAgICAgICAgICAgICAqIFJldHVybiBhcyBlYXJseSBhcyBwb3Nz
+aWJsZSBzbyB0aGUgaGFydCB3aXRoIGEgbWlzbWF0Y2hpbmcKPj4+ICsgICAgICAgICAgICAgICog
+dmxlbiB3b24ndCBib290Lgo+Pj4gKyAgICAgICAgICAgICAgKi8KPj4+ICsgICAgICAgICAgICAg
+aWYgKHJpc2N2X3Zfc2V0dXBfdnNpemUoKSkKPj4+ICsgICAgICAgICAgICAgICAgICAgICByZXR1
+cm47Cj4+PiArICAgICB9Cj4+PiArCj4+PiAgICAgICAgLyogQWxsIGtlcm5lbCB0aHJlYWRzIHNo
+YXJlIHRoZSBzYW1lIG1tIGNvbnRleHQuICAqLwo+Pj4gICAgICAgIG1tZ3JhYihtbSk7Cj4+PiAg
+ICAgICAgY3VycmVudC0+YWN0aXZlX21tID0gbW07Cj4+PiBAQCAtMjI2LDExICsyMzUsNiBAQCBh
+c21saW5rYWdlIF9fdmlzaWJsZSB2b2lkIHNtcF9jYWxsaW4odm9pZCkKPj4+ICAgICAgICBudW1h
+X2FkZF9jcHUoY3Vycl9jcHVpZCk7Cj4+PiAgICAgICAgc2V0X2NwdV9vbmxpbmUoY3Vycl9jcHVp
+ZCwgMSk7Cj4+Pgo+Pj4gLSAgICAgaWYgKGhhc192ZWN0b3IoKSkgewo+Pj4gLSAgICAgICAgICAg
+ICBpZiAocmlzY3Zfdl9zZXR1cF92c2l6ZSgpKQo+Pj4gLSAgICAgICAgICAgICAgICAgICAgIGVs
+Zl9od2NhcCAmPSB+Q09NUEFUX0hXQ0FQX0lTQV9WOwo+Pj4gLSAgICAgfQo+Pj4gLQo+Pj4gICAg
+ICAgIHJpc2N2X3VzZXJfaXNhX2VuYWJsZSgpOwo+Pj4KPj4+ICAgICAgICAvKgo+Pj4KPj4gU28g
+dGhpcyBzaG91bGQgZ28gaW50byAtZml4ZXMsIHdvdWxkIHlvdSBtaW5kIHNlbmRpbmcgYSBzaW5n
+bGUgcGF0Y2ggZm9yCj4+IHRoaXMgZml4Pwo+IEkgdGhvdWdodCBpdCB3b3VsZCBiZSBtYWdpY2Fs
+bHkgcGlja2VkIHVwIGJ5IGEgYm90IGFzIGxvbmcgYXMgd2UgaGF2ZQo+IGEgZml4IHRhZy4gQW0g
+SSBhc3N1bWluZyBzb21ldGhpbmcgd3Jvbmc/CgoKSXQgZ2V0cyBiYWNrcG9ydGVkIHRvIHN0YWJs
+ZSB3aGVuIGl0IGlzIG1lcmdlZCwgYnV0IHRoZW4gaXQgaXMgbWlzc2luZyAKZnJvbSB0aGUgZmly
+c3Qgc3RhYmxlIHJlbGVhc2VzIChhcyBsb25nIGFzIGl0IGlzIG5vdCBtZXJnZWQpLgoKQnV0IGFu
+eXdheSwgNi45IGZpeGVzIGFyZSBhbGwgb3V0LCBzbyBsZXQncyBob3BlIHRoaXMgc2VyaWVzIG1h
+a2VzIGl0IHRvIAo2LjEwLgoKVGhhbmtzLAoKQWxleAoKCj4KPj4gWW91ciBwYXRjaCA4IGlzIGFj
+dHVhbGx5IGFscmVhZHkgZml4ZWQgYnkgQ2xlbWVudCdzIHBhdGNoCj4+IGh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjQwNDA5MTQzODM5LjU1ODc4NC0xLWNsZWdlckByaXZv
+c2luYy5jb20vCj4gT2theSwgSSB3aWxsIGRyb3AgaXQgYXQgdGhlIG5leHQgcmV2aXNpb24uCj4K
+Pj4gYW5kIEkgYWxyZWFkeSBtZW50aW9uZWQgdGhpcyBvbmUgdG8gUGFsbWVyLgo+Pgo+PiBUaGFu
+a3MsCj4+Cj4+IEFsZXgKPj4KPiBUaGFua3MsCj4gQW5keQo+Cj4gX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+PiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
