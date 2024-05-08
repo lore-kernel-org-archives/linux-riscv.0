@@ -4,89 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C554C19F4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 11:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E92AC04FFE
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 11:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JtGsEc6O/iDgjnhw1MxGqhG6JrJnYwmvY+DgdfN1osU=; b=VzHk3f3ErOQQlM
-	cR2iYKFkVY1e6BFwvokAHeEj5RF881xu+zI5axGMZYdueJSzqEuDM8kiDyzyYR92DRtzIq7gbnTPP
-	rSr5ITaBe96n+WFD2o9GBXdH02sSQtPLQXbSkiuT5O7233uL8/bB4iTtFIGSUKEq9j6QbE7BZaGVo
-	7S+dkffJqeF6Q/AZfVrqzvzQEa4iLvwgVuGQwoDBYCokMMW+3JWktxMgBiU822/GO5YpqI+6mRKpj
-	1Oa4jcmQVPu+lFd40PX5RfrY3QEVWoGtCbHKKOlI2huyut8+XM3Mj2X5kOLnYNqyk9qIg5hFUrJMD
-	UnGX3lAbjbvbmNRB5uHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:MIME-Version:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SvAoacpV3/0JImzXpEP6xbQDqRLsh5nm1kmIrSlVrUY=; b=WX+SUiO/maJsRldncYiY2sU301
+	WHSGF320egY7smERJvxEDk6+z4C0F35inri7puEGSwmXorkSkTq9wbUHax6/WE8n6GhrSnLIz9Hib
+	NwvYIDo/35JkBPI5FkJlIc/UW3aFIRuHHVpSJFWVx7/CWHxj+I3cmDsy/e0xAH6Fp8DUWIhM0Q3Zj
+	SGIqdkQuafiJLw9W3weTE/nx5x10v7HY33+mbbMcX1JF1oVMC9x3L7zi5ayIrZY/OWIN123c7yqx6
+	I0cbIu8CjOVrIq0WcbFwOr9to/PIazZpXn49MpmfWHBbAxPiIEMeVtSKxoyguZm7bEfyyXv0WsPOP
+	Mlv9CnCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4fc4-0000000FGin-1S79;
-	Wed, 08 May 2024 11:37:32 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1s4fcC-0000000FGma-0Lqr;
+	Wed, 08 May 2024 11:37:40 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4fc1-0000000FGhl-1nWm
-	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 11:37:30 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-41b5e74fa83so31880535e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 04:37:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715168248; x=1715773048; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YO7yDIQr+QJFeAZFjf5GxhWsbGb5WjqA2EGZTufF1Fc=;
-        b=Xey54uhpkgFglaViZnoPcSDkKcut9+qThtsLSWL6lrmeZCcv4W4zEYgdfY/INRqs/j
-         3FtVvbI3ltPoB4STtGZigePEy/2jDtOSosTdR3+B4q2rsXyzI9d2Asr2Bfpvj5bIAAan
-         /7wfxXgPZFfIgGqG3gKaS4na7iswOdTUgCPSu3pUiiRs/wjEn9gMKtMJdLUoiKGepp3X
-         GLTT1S9n1OwD+3FWCOz+S+bEY6valmd5nhSrJ33UgcWqmTFv/A2bWFdtTdMPwwPXd4Sw
-         +hepoxMEdypMEePlCS0Efzvi6LAcFWqX9NsAlkiUig/UfjtLc3tmttwrcmz0lpcHH1N9
-         twuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715168248; x=1715773048;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YO7yDIQr+QJFeAZFjf5GxhWsbGb5WjqA2EGZTufF1Fc=;
-        b=cDhy22OLNyjB9Ug4aPwKg3kzuOi3ZNRev1lAtTzqgteTyG5D+vPGGIg0eFLChCvCan
-         +gODbj6cqvC6B4brONuTIUJtu5Hw5/7iqkyg0AsWehMT4rnp00xL1B00t7bF2q5hXNsN
-         hroCbsZRQbznvkHKvZKtlYzXihIP0kaceqqHXuWQ6jdvms8dejyRPJjqxm9gqID5VZkm
-         cavmBR1Leuf9JZGaaW9PiCwu410kzmSLJgGRSGNXSsK+fOJo70LCuIwXmv3rY/dDACXe
-         ZPc/Wg6RMqkZdMEV8doF87Qii6uEIwf/WOQptlq87g7R0vaJPXcPiWLwGsS/lUNtsrTR
-         tDJA==
-X-Forwarded-Encrypted: i=1; AJvYcCU7C/Q1ueCeEgcbdGDnkqm3Nncb6p/JkvEGKN0UChxor1PXMuVXPk1cXR4ZQjWFRDOPEnE7jJ7hbDnBLUVzFZxnY/iPABWbMKXR7HOodYNn
-X-Gm-Message-State: AOJu0Yw9UG88I1iXIF1Vw5OlHzrZe++GJxb2iJ1gibyDoVeRPL5710cx
-	4DSpuW/f2K9VLcz7ktnCP32D9iFhbUu98JJnGsK4b35ynJJBwZNzGZUXIBm8sH4=
-X-Google-Smtp-Source: AGHT+IEExaDEn0vN6E4Lxk1Zj77Ju6cFib9bZTV4G4rk0yK8V1Cj9z0Mbupc0fzpXub0lh02TBpHRw==
-X-Received: by 2002:a05:600c:4f0d:b0:41a:7bbe:c3bf with SMTP id 5b1f17b1804b1-41f714f717bmr19142655e9.22.1715168247871;
-        Wed, 08 May 2024 04:37:27 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id dd3-20020a0560001e8300b0034c9f060a14sm15085210wrb.11.2024.05.08.04.37.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 May 2024 04:37:27 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-mm@kvack.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH RESEND v2 3/9] mm: Use common huge_ptep_get() function for riscv/arm64
-Date: Wed,  8 May 2024 13:34:13 +0200
-Message-Id: <20240508113419.18620-4-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20240508113419.18620-1-alexghiti@rivosinc.com>
-References: <20240508113419.18620-1-alexghiti@rivosinc.com>
+	id 1s4fc5-0000000FGhu-2GOE;
+	Wed, 08 May 2024 11:37:36 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20240508113726euoutp023b917c183029915f96a388a085ef9f3c~NgG6-85E21770217702euoutp02_;
+	Wed,  8 May 2024 11:37:26 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20240508113726euoutp023b917c183029915f96a388a085ef9f3c~NgG6-85E21770217702euoutp02_
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1715168246;
+	bh=cF90zorX3Vhkec3/TFj+N593dqTmsatotOCQjHSZEbM=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=MGedoFgJUxqsWS+zDcnWEQjCsAolmv6XQq26O3hTwtnVUXsPIbO123xNVdDsR1wi8
+	 4ruaFwHk37WfH/K8Vb94HbGRPKKEv2Im4rxPFviwViSVpO0j+oN5tsVWmyq70AhMUk
+	 fkBQHu/4DdTej80roiXkz13NiIEQJKgdnVvkytNE=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20240508113725eucas1p16225069534576a85124b13399ba8b854~NgG6vou7Z2221222212eucas1p1K;
+	Wed,  8 May 2024 11:37:25 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges1new.samsung.com (EUCPMTA) with SMTP id C2.CE.09624.5F36B366; Wed,  8
+	May 2024 12:37:25 +0100 (BST)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20240508113725eucas1p1c73dc1b7bc2780f99b281e4cc534d1a0~NgG6RWhmU1576115761eucas1p1a;
+	Wed,  8 May 2024 11:37:25 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20240508113725eusmtrp125fc799878405e7480db3ef8c0ccefef~NgG6P556t0870508705eusmtrp1k;
+	Wed,  8 May 2024 11:37:25 +0000 (GMT)
+X-AuditID: cbfec7f2-c11ff70000002598-a3-663b63f58af9
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 28.7B.09010.5F36B366; Wed,  8
+	May 2024 12:37:25 +0100 (BST)
+Received: from CAMSVWEXC02.scsc.local (unknown [106.1.227.72]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20240508113725eusmtip245b7460632450ec5f8efcdd3ed3a83f1~NgG6AtV8G1709017090eusmtip2g;
+	Wed,  8 May 2024 11:37:25 +0000 (GMT)
+Received: from localhost (106.110.32.44) by CAMSVWEXC02.scsc.local
+	(2002:6a01:e348::6a01:e348) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
+	Wed, 8 May 2024 12:37:24 +0100
+Date: Wed, 8 May 2024 13:37:19 +0200
+From: Joel Granados <j.granados@samsung.com>
+To: Kees Cook <keescook@chromium.org>
+CC: Jakub Kicinski <kuba@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>,
+	Kees Cook <keescook@chromium.org>, Eric Dumazet <edumazet@google.com>, Dave
+	Chinner <david@fromorbit.com>, <linux-fsdevel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-mm@kvack.org>,
+	<linux-security-module@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-xfs@vger.kernel.org>,
+	<linux-trace-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<netfilter-devel@vger.kernel.org>, <coreteam@netfilter.org>,
+	<kexec@lists.infradead.org>, <linux-hardening@vger.kernel.org>,
+	<bridge@lists.linux.dev>, <lvs-devel@vger.kernel.org>,
+	<linux-rdma@vger.kernel.org>, <rds-devel@oss.oracle.com>,
+	<linux-sctp@vger.kernel.org>, <linux-nfs@vger.kernel.org>,
+	<apparmor@lists.ubuntu.com>
+Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
+ of sysctl handlers
+Message-ID: <20240508113719.pccjkyd5nk5soqrg@joelS2.panther.com>
 MIME-Version: 1.0
+In-Reply-To: <d11f875e-4fb5-46dd-a412-84818208c575@t-8ch.de>
+X-Originating-IP: [106.110.32.44]
+X-ClientProxiedBy: CAMSVWEXC01.scsc.local (2002:6a01:e347::6a01:e347) To
+	CAMSVWEXC02.scsc.local (2002:6a01:e348::6a01:e348)
+X-Brightmail-Tracker: H4sIAAAAAAAAA2WSf0wTZxzG917vrkez4lGdvIDOwQCz6RhuKO8C21RMdsuiwy1b4pJldnAU
+	Ai2kBabgsiKObvwQtJnQKrMgItCFstI1/DISwDIps0WJkskgqeAmUGB0hSBa13KQmey/z/N8
+	v0/u+7w5iie6RwZTabJsVi4TZ4SRAtxsWb75mjspLiV61L0bFVh0BHL19ZPIfKkEQ0/aVTxk
+	sowBNGlx8NFgiRR1Wt0YsptPE8h4/w6Buq7ewNGPhmWAbndcINHYT08JZO+2Emj4l2YcPegp
+	w5HZdYpEFTWFPDSpmybQfKmDRH2G33DU8biNj1aWPAQqvLjAQyMVkwBZdJtRRfMAjm62uoi9
+	W5nzyiGcGaiFjM6YwxibvicZ48JZPtNa9w3zV6sGMLaqGsDcGRnHGefKrxhjr58hGZfxxcTn
+	PxPEJ7MZabms/PV3jgpSda4JkPVzyLG66iq+EjzZXAz8KEjHwMFyKygGAkpENwBYvzTI58Q/
+	AFaZ7DgnXACqp5r465H2yi6MG1wBcLh4XXi3ZvvH1vJGABufthG+CE6Hw85zHatM0juhbWaU
+	5+NNdARculW4yjy6nQ9trgAfb6SPQtNlNfCxkN4LtY4hnOMAeEMzgXP7x2Dhmcfej1FeDoFX
+	PJTP9qPjYdt5O4+7NBS6L43hHH8NB0y/rx4K6QkB1HTZMG5wALYM95Mcb4RT/aa1mlugVV2K
+	cwE1gNc883xO6L3PVOBeS8fBU8MTa4l90GawEb6LIO0PR5wB3KH+8Ky5ksfZQvhdkYjbjoT6
+	sRm8Arysfaaa9plq2v+qcfZOqOtcIP9n74D1NdM8jt+Gzc1zuA7wm0Agm6OQSljFLhn7VZRC
+	LFXkyCRRSZlSI/D+81ZP/0IbqJ76O6oHYBToAeHesKNFbwfBuCxTxoZtEl5XxaaIhMni43ms
+	PPMLeU4Gq+gBIRQeFiiMSN7GimiJOJtNZ9ksVr4+xSi/YCW2R1rSi4Qx4elB5/Z35R9871Za
+	+ZbjQfXKdOsrOUox3EDMsoJq43MJ6pZDi+P63LRti5GzjTXXFoNky/5FR8J6Ba4909mfJm73
+	XF94kFCg/OHkwzJxxMcn4lRJwsqBw2/2FVyIVmtFcTumh2rclm/z/+guS7g6cyLrYt49Z+Mg
+	9uHIbodGETtep6ib3G9yOJY/Kv38S6vmtqM19uH4n7mS8kfd0p59KU3qOfP9w+ly+uDoXfTG
+	J1Wt+TAy3vnBkeTodztDscsr5g3WkwcOba/tdeclKopWnI3stIQ1vBWTF/8CnZrUwDc1hJd6
+	5k8Hzhnuvk/lT6q2htbqx19iMUr1KAxXpIp3vcqTK8T/AgNMPNVuBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA2WSfUxTZxTG896vtmrntaC+gDpX2WaYVlpofWHAIDHLXXTL9seyZROxK1dg
+	0pb1w+AWNwxmzDIWQCICMotCJ4UUdmGErw1XWSlUpLjJ0Gx11kEmH9mgA0OKZYVmmcn+++V5
+	8jzn5OTwcdEiGcnP0RhYnUaZK6bWEa7AgGfvgurFY7HW4nB02mEmka9/gEIdV4ox9LirCEft
+	Dg9AEw4vD90oVqMe1wKG3B1fkIh7MEai3m8HCfRlyxJAP3ZfpJCneYVE7msuEv30jY1Ak/YS
+	AnX4zlCotK4QRxPmaRL99bmXQv0twwTqXu7kIf+jAIkKL83jaLx0AiCHeQsqtQ0R6Gabj0zd
+	ztQUjBLM0GXImDkjw1nPUgw3X85j2uo/Yf5oqwLMyIU6wIyN3yOYWb8TY9yWGYrxcTte3/CO
+	JEmnNRrYndlavSFZ/K4UySTSBCSRxSdIpHH70xNlcvG+lKRMNjfnBKvbl3JUkl356U2Q1xKV
+	f8ZnIguAf4sJCPiQjoddlb2YCazji+gGAE3dFVTI2Aa//vs2GeIwuDxmWtNF9ByAjdbnQgEO
+	QEuZiVg1CDoa9pzvXgtQ9B44MvMLvsrh9LPw0a3CNcbpLh50LdKrHEYfhe0N58AqC+lUWO0d
+	JUKlrRicthfgIWMTHKz6nQiFT0Bn61xwAD/IUfCrAH9VFtBJsLPGjYcWfQYuXPEQIT4FfY8n
+	QSkIq36iqfqJpur/mkJyDBwPPMT+J78ALXXTeIiToc32J2EGPCsIZ416dZZaL5PolWq9UZMl
+	UWnVHAg+XYdjqb0TNE7NSewA4wM7iA4mva1NbhBJaLQaVhwu/KFo/zGRMFN58kNWp83QGXNZ
+	vR3Ig1cswyM3q7TBD9YYMqSKWLk0XpEQK09QxIm3Cl/J+0wporOUBvY4y+axun9zGF8QWYBZ
+	xWWJk1SvYtDoUnNPN78hM3Utbnq+XvLqaLIqrNZ2teTNuqKLUa7E9T1X9wzE7Bqv2VbW4Tni
+	TO07HXjZ7uZ+Tn1YNb6oqLxeUrzT3HZj5Xr+3ZOXn7LMpsRNC5oiJu+0FH+wvn+0YkzRJapP
+	Gz4gqFj43nJhKOOU//D93VjfsNOmOh/RMLx1Y9TB3dQSeXfzHe39CKtAmNW84S3pvHTO7n+t
+	Nquitqnc8etvM40jMUcyPVPXyvEIWWv0jrRdG8/mr/i42733Bt7P+ah50n8rZuptc7r4Y2c6
+	zTsIdZVNndF732ugqeTD574T9jNpPO/x7QuH+l56oNTL5YYD0uUAb1ZM6LOV0hhcp1f+Aw47
+	jhcJBAAA
+X-CMS-MailID: 20240508113725eucas1p1c73dc1b7bc2780f99b281e4cc534d1a0
+X-Msg-Generator: CA
+X-RootMTR: 20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db
+References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
+	<CGME20240425031241eucas1p1fb0790e0d03ccbe4fca2b5f6da83d6db@eucas1p1.samsung.com>
+	<20240424201234.3cc2b509@kernel.org>
+	<20240425110412.2n5d27smecfncsfa@joelS2.panther.com>
+	<d11f875e-4fb5-46dd-a412-84818208c575@t-8ch.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_043729_490909_49C62566 
-X-CRM114-Status: GOOD (  22.62  )
+X-CRM114-CacheID: sfid-20240508_043734_227373_CF088A9C 
+X-CRM114-Status: GOOD (  30.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,347 +152,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5561243732393614351=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For that, we need to introduce:
+--===============5561243732393614351==
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="v7sa5w52x2sbyktg"
+Content-Disposition: inline
 
-- a new config: ARCH_HAS_CONTPTE,
-- a new arch specific function which returns the number of contiguous PTE
-  in a mapping and its base page size,
-- a pte_cont() helper, only introduced for riscv since we keep the arm64
-  naming (contpte) which is more explicit than the riscv's (napot).
+--v7sa5w52x2sbyktg
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/arm64/Kconfig               |  1 +
- arch/arm64/include/asm/pgtable.h | 30 +++++++++++++++++
- arch/arm64/mm/hugetlbpage.c      | 55 ++------------------------------
- arch/riscv/Kconfig               |  1 +
- arch/riscv/include/asm/hugetlb.h |  2 +-
- arch/riscv/include/asm/pgtable.h |  6 ++--
- arch/riscv/mm/hugetlbpage.c      | 24 --------------
- mm/Kconfig                       |  3 ++
- mm/Makefile                      |  1 +
- mm/contpte.c                     | 45 ++++++++++++++++++++++++++
- 10 files changed, 88 insertions(+), 80 deletions(-)
- create mode 100644 mm/contpte.c
+Kees
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 7b11c98b3e84..ac2f6d906cc3 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -20,6 +20,7 @@ config ARM64
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
- 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
- 	select ARCH_HAS_CACHE_LINE_SIZE
-+	select ARCH_HAS_CONTPTE
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index afdd56d26ad7..e30149a128f2 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1638,6 +1638,36 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
- 
- #endif /* CONFIG_ARM64_CONTPTE */
- 
-+static inline int arch_contpte_get_num_contig(pte_t *ptep, unsigned long size,
-+					      size_t *pgsize)
-+{
-+	int contig_ptes = 0;
-+
-+	*pgsize = size;
-+
-+	switch (size) {
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	case PUD_SIZE:
-+		if (pud_sect_supported())
-+			contig_ptes = 1;
-+		break;
-+#endif
-+	case PMD_SIZE:
-+		contig_ptes = 1;
-+		break;
-+	case CONT_PMD_SIZE:
-+		*pgsize = PMD_SIZE;
-+		contig_ptes = CONT_PMDS;
-+		break;
-+	case CONT_PTE_SIZE:
-+		*pgsize = PAGE_SIZE;
-+		contig_ptes = CONT_PTES;
-+		break;
-+	}
-+
-+	return contig_ptes;
-+}
-+
- #endif /* !__ASSEMBLY__ */
- 
- #endif /* __ASM_PGTABLE_H */
-diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index 0f0e10bb0a95..9e9c80ec6e74 100644
---- a/arch/arm64/mm/hugetlbpage.c
-+++ b/arch/arm64/mm/hugetlbpage.c
-@@ -112,57 +112,6 @@ static int find_num_contig(struct mm_struct *mm, unsigned long addr,
- 	return CONT_PTES;
- }
- 
--static inline int num_contig_ptes(unsigned long size, size_t *pgsize)
--{
--	int contig_ptes = 0;
--
--	*pgsize = size;
--
--	switch (size) {
--#ifndef __PAGETABLE_PMD_FOLDED
--	case PUD_SIZE:
--		if (pud_sect_supported())
--			contig_ptes = 1;
--		break;
--#endif
--	case PMD_SIZE:
--		contig_ptes = 1;
--		break;
--	case CONT_PMD_SIZE:
--		*pgsize = PMD_SIZE;
--		contig_ptes = CONT_PMDS;
--		break;
--	case CONT_PTE_SIZE:
--		*pgsize = PAGE_SIZE;
--		contig_ptes = CONT_PTES;
--		break;
--	}
--
--	return contig_ptes;
--}
--
--pte_t huge_ptep_get(pte_t *ptep)
--{
--	int ncontig, i;
--	size_t pgsize;
--	pte_t orig_pte = __ptep_get(ptep);
--
--	if (!pte_present(orig_pte) || !pte_cont(orig_pte))
--		return orig_pte;
--
--	ncontig = num_contig_ptes(page_size(pte_page(orig_pte)), &pgsize);
--	for (i = 0; i < ncontig; i++, ptep++) {
--		pte_t pte = __ptep_get(ptep);
--
--		if (pte_dirty(pte))
--			orig_pte = pte_mkdirty(orig_pte);
--
--		if (pte_young(pte))
--			orig_pte = pte_mkyoung(orig_pte);
--	}
--	return orig_pte;
--}
--
- /*
-  * Changing some bits of contiguous entries requires us to follow a
-  * Break-Before-Make approach, breaking the whole contiguous set
-@@ -243,7 +192,7 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
- 	unsigned long pfn, dpfn;
- 	pgprot_t hugeprot;
- 
--	ncontig = num_contig_ptes(sz, &pgsize);
-+	ncontig = arch_contpte_get_num_contig(ptep, sz, &pgsize);
- 
- 	if (!pte_present(pte)) {
- 		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
-@@ -390,7 +339,7 @@ void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
- 	int i, ncontig;
- 	size_t pgsize;
- 
--	ncontig = num_contig_ptes(sz, &pgsize);
-+	ncontig = arch_contpte_get_num_contig(ptep, sz, &pgsize);
- 
- 	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
- 		__pte_clear(mm, addr, ptep);
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 8a0f403432e8..38d93cf44456 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -19,6 +19,7 @@ config RISCV
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
- 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
- 	select ARCH_HAS_BINFMT_FLAT
-+	select ARCH_HAS_CONTPTE if RISCV_ISA_SVNAPOT
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
-diff --git a/arch/riscv/include/asm/hugetlb.h b/arch/riscv/include/asm/hugetlb.h
-index 22deb7a2a6ec..f195f611722b 100644
---- a/arch/riscv/include/asm/hugetlb.h
-+++ b/arch/riscv/include/asm/hugetlb.h
-@@ -49,7 +49,7 @@ pte_t huge_ptep_get(pte_t *ptep);
- pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
- #define arch_make_huge_pte arch_make_huge_pte
- 
--#endif /*CONFIG_RISCV_ISA_SVNAPOT*/
-+#endif /* CONFIG_RISCV_ISA_SVNAPOT */
- 
- #include <asm-generic/hugetlb.h>
- 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 268c828f5152..66061002ff36 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -296,6 +296,7 @@ static inline unsigned long pte_napot(pte_t pte)
- {
- 	return pte_val(pte) & _PAGE_NAPOT;
- }
-+#define pte_cont	pte_napot
- 
- #define pte_valid_napot(pte)	(pte_present(pte) && pte_napot(pte))
- 
-@@ -560,7 +561,7 @@ static inline int arch_contpte_get_num_contig(pte_t *ptep, unsigned long size,
- }
- #endif
- 
--static inline pte_t ptep_get(pte_t *ptep)
-+static inline pte_t __ptep_get(pte_t *ptep)
- {
- 	pte_t pte = READ_ONCE(*ptep);
- 
-@@ -584,7 +585,6 @@ static inline pte_t ptep_get(pte_t *ptep)
- 
- 	return pte;
- }
--#define ptep_get	ptep_get
- 
- static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
- 		pte_t *ptep, pte_t pteval, unsigned int nr)
-@@ -686,6 +686,8 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
- 	return ptep_test_and_clear_young(vma, address, ptep);
- }
- 
-+#define ptep_get		__ptep_get
-+
- #define pgprot_nx pgprot_nx
- static inline pgprot_t pgprot_nx(pgprot_t _prot)
- {
-diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index f042f5c8bdb7..be129f4f1503 100644
---- a/arch/riscv/mm/hugetlbpage.c
-+++ b/arch/riscv/mm/hugetlbpage.c
-@@ -3,30 +3,6 @@
- #include <linux/err.h>
- 
- #ifdef CONFIG_RISCV_ISA_SVNAPOT
--pte_t huge_ptep_get(pte_t *ptep)
--{
--	unsigned long pte_num;
--	int i;
--	pte_t orig_pte = ptep_get(ptep);
--
--	if (!pte_present(orig_pte) || !pte_napot(orig_pte))
--		return orig_pte;
--
--	pte_num = napot_pte_num(napot_cont_order(orig_pte));
--
--	for (i = 0; i < pte_num; i++, ptep++) {
--		pte_t pte = ptep_get(ptep);
--
--		if (pte_dirty(pte))
--			orig_pte = pte_mkdirty(orig_pte);
--
--		if (pte_young(pte))
--			orig_pte = pte_mkyoung(orig_pte);
--	}
--
--	return orig_pte;
--}
--
- pte_t *huge_pte_alloc(struct mm_struct *mm,
- 		      struct vm_area_struct *vma,
- 		      unsigned long addr,
-diff --git a/mm/Kconfig b/mm/Kconfig
-index b1448aa81e15..c325003d6552 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -981,6 +981,9 @@ config ARCH_HAS_CPU_CACHE_ALIASING
- config ARCH_HAS_CACHE_LINE_SIZE
- 	bool
- 
-+config ARCH_HAS_CONTPTE
-+	bool
-+
- config ARCH_HAS_CURRENT_STACK_POINTER
- 	bool
- 	help
-diff --git a/mm/Makefile b/mm/Makefile
-index 4abb40b911ec..605ead58403b 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -89,6 +89,7 @@ obj-$(CONFIG_MIGRATION) += migrate.o
- obj-$(CONFIG_NUMA) += memory-tiers.o
- obj-$(CONFIG_DEVICE_MIGRATION) += migrate_device.o
- obj-$(CONFIG_TRANSPARENT_HUGEPAGE) += huge_memory.o khugepaged.o
-+obj-$(CONFIG_ARCH_HAS_CONTPTE) += contpte.o
- obj-$(CONFIG_PAGE_COUNTER) += page_counter.o
- obj-$(CONFIG_MEMCG) += memcontrol.o vmpressure.o
- ifdef CONFIG_SWAP
-diff --git a/mm/contpte.c b/mm/contpte.c
-new file mode 100644
-index 000000000000..e8574051d0b9
---- /dev/null
-+++ b/mm/contpte.c
-@@ -0,0 +1,45 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2024 Rivos Inc.
-+ */
-+
-+#include <linux/mm.h>
-+#include <linux/pgtable.h>
-+#include <linux/hugetlb.h>
-+
-+/*
-+ * Any arch that wants to use that needs to define:
-+ *   - __ptep_get()
-+ *   - pte_cont()
-+ *   - arch_contpte_get_num_contig()
-+ */
-+
-+/*
-+ * This file implements the following contpte aware API:
-+ *   - huge_ptep_get()
-+ */
-+
-+pte_t huge_ptep_get(pte_t *ptep)
-+{
-+	int ncontig, i;
-+	size_t pgsize;
-+	pte_t orig_pte = __ptep_get(ptep);
-+
-+	if (!pte_present(orig_pte) || !pte_cont(orig_pte))
-+		return orig_pte;
-+
-+	ncontig = arch_contpte_get_num_contig(ptep,
-+					      page_size(pte_page(orig_pte)),
-+					      &pgsize);
-+
-+	for (i = 0; i < ncontig; i++, ptep++) {
-+		pte_t pte = __ptep_get(ptep);
-+
-+		if (pte_dirty(pte))
-+			orig_pte = pte_mkdirty(orig_pte);
-+
-+		if (pte_young(pte))
-+			orig_pte = pte_mkyoung(orig_pte);
-+	}
-+	return orig_pte;
-+}
--- 
-2.39.2
+Could you comment on the feasibility of this alternative from the
+Control Flow Integrity perspective. My proposal is to change the
+proc_handler to void* and back in the same release. So there would not
+be a kernel released with a void* proc_handler.
 
+> > However, there is an alternative way to do this that allows chunking. We
+> > first define the proc_handler as a void pointer (casting it where it is
+> > being used) [1]. Then we could do the constification by subsystem (like
+> > Jakub proposes). Finally we can "revert the void pointer change so we
+> > don't have one size fit all pointer as our proc_handler [2].
+> >=20
+> > Here are some comments about the alternative:
+> > 1. We would need to make the first argument const in all the derived
+> >    proc_handlers [3]=20
+> > 2. There would be no undefined behavior for two reasons:
+> >    2.1. There is no case where we change the first argument. We know
+> >         this because there are no compile errors after we make it const.
+> >    2.2. We would always go from non-const to const. This is the case
+> >         because all the stuff that is unchanged in non-const.
+> > 3. If the idea sticks, it should go into mainline as one patchset. I
+> >    would not like to have a void* proc_handler in a kernel release.
+> > 4. I think this is a "win/win" solution were the constification goes
+> >    through and it is divided in such a way that it is reviewable.
+> >=20
+> > I would really like to hear what ppl think about this "heretic"
+> > alternative. @Thomas, @Luis, @Kees @Jakub?
+>=20
+> Thanks for that alternative, I'm not a big fan though.
+>=20
+> Besides the wonky syntax, Control Flow Integrity should trap on
+> this construct. Functions are called through different pointers than
+> their actual types which is exactly what CFI is meant to prevent.
+>=20
+> Maybe people find it easier to review when using
+> "--word-diff" and/or "-U0" with git diff/show.
+> There is really nothing going an besides adding a few "const"s.
+>=20
+> But if the consensus prefers this solution, I'll be happy to adopt it.
+>=20
+> > [1] https://git.kernel.org/pub/scm/linux/kernel/git/joel.granados/linux=
+=2Egit/commit/?h=3Djag/constfy_treewide_alternative&id=3D4a383503b1ea650d4e=
+12c1f5838974e879f5aa6f
+> > [2] https://git.kernel.org/pub/scm/linux/kernel/git/joel.granados/linux=
+=2Egit/commit/?h=3Djag/constfy_treewide_alternative&id=3Da3be65973d27ec2933=
+b9e81e1bec60be3a9b460d
+> > [3] proc_dostring, proc_dobool, proc_dointvec....
+>=20
+>=20
+> Thomas
+
+Best
+--=20
+
+Joel Granados
+
+--v7sa5w52x2sbyktg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmY7Y+4ACgkQupfNUreW
+QU9YEgwAhDVP7Y6eoR6THZeBhX5jlhu2G9nJstttqNF2XutpFKVjE8Z3C89eHNng
+DCMo7QPRNspNV7452TWHzjB9TyWvZ3WtKaNd1O0ECwCMpZ32/0aZ5SAsMd+cY2D5
+yDhAjIzVJups6lQWx1bTMDtuWft9Ebi7Wvd9I3Q+Qjq5khbrSHMCzCr1Bl2ZfscY
+ApmHqb3v0KxOM+QrrybFvFCD/tt7uYyJfmH96GgBLdl2+7ceoUigiSK5ebySplCo
+UnNLZi6LEwS1kjyNpbWQbKq9czcSKCCYVM3kzqzcPBdRU/km7XH0oi7SybNt7PSz
+ZvFQgc34OiFAFcb9twbtzTKfXVBXpBwmOwwgqLw4yNS2C8QH+nbO6qUmHoDp44ZW
+6jYrjdWbdDrP+Mwh56FkIcs84+0tgdLgsT6ni9LyK50S8Ik7ivQRCnojjpNJS19p
+wRnfmB6C3lNH2MWxq9gw8k+RMhDB3eRxcXrTbEjYImsO4zb3xo+CjjPG5TGkvezg
+ehHTRa51
+=YpMU
+-----END PGP SIGNATURE-----
+
+--v7sa5w52x2sbyktg--
+
+
+--===============5561243732393614351==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5561243732393614351==--
+
