@@ -4,110 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3975BC19F4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 16:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1194C19F4F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 17:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EFMfacJOh1z2vw4K3rcjiwkdorNz0mjB+pmyL68B144=; b=ySSCTaGbytSejG
-	7a35nl8Aw72ajdC8wg2S0CMMGQRgnAv6PzKbBhO0+9tKdj0sgQxIi1KgLR19SXWIiHtVIK3ultsBp
-	H/MHEjpyI2fGOW08hi8676MJOr2+AfmfGlASVLYfU7l9RpVBKlPf4ANmaeuvMD/v3D+yGmRP4+IkZ
-	o50EQ3BTV0akjGd+smBUO9ryYzneVerqOo1zl4dQWext3YAd0iDCrIxwVw2TZkEGgdQf/HmQsWAF4
-	faImVP0ttLD5cES0lCPNy48XLmgmpfvKgbOWE04Ya0GF7vTHLHGc7Q/LB+b0JZ5+S3f3YfLuxAq4h
-	W8kjh4cd1kIzn2x93Z7g==;
+	List-Owner; bh=dlxOP5S+OOxAL+U/1ITl1v59eKlIF+eip8IgM6AiJTI=; b=UOtG7QAmIN0uil
+	6rFDfinIZTqJp4km+wpyoxkQ4H4PPG2tLKXLUL8RG5pxewGNoj0lZMP79up1EEeVV/ZCThf4855s+
+	/2agm6g3o/zkY6f3wnEiZlWB6GfPYurQ+GpbIvp7l2JimzD+GigDp6teFck375ehpJylkpXPtT9Lg
+	UnW7ffP2cGxNvWnFvRIt7lAvBF9HVYZ+17IX/890YFR7dBVZjUFBMXWULtVRUENSwUwcd7eTTo1ml
+	FOU/ozhKDCJMrV0XTlddwdBazL9TqPmhAqrng6FePVRMZebn/Lx/W2/9/gA7GUEL26Uc0P84koR/u
+	2lYIrbv7Ip9mIFOLoLlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4kPm-0000000GDsj-2sdr;
-	Wed, 08 May 2024 16:45:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1s4kjw-0000000GHcM-0a3t;
+	Wed, 08 May 2024 17:06:00 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4kPd-0000000GDoq-38i9;
-	Wed, 08 May 2024 16:45:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E812D61CA5;
-	Wed,  8 May 2024 16:44:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A392AC113CC;
-	Wed,  8 May 2024 16:44:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715186699;
-	bh=0vXy5kTUEu7Jx0jxctDNvQbCc0ApL3aWNbp3Y8Ze7FM=;
-	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
-	b=r6T4Vx0y4QOnGwpBQOgFUY2eu34NThzwvqE9iWCIEwfBWxfBXLKwMeMXC2MZkCWgE
-	 sSy8eWZ2B09C4cJWuUtyV7pp1xxjYBJcb9dKqRcNcRwWuRWNUhvaX8ZZNACrQ8akj+
-	 fVsf0Qgb7/q7++0jy9wmy9zGxZ08j6Zv4QRrw0dL1nzsSXULP5hHSA299xoBM9AD05
-	 6riemVsfFd1imBZpGu8mE+0OdEWqZvuhuWPeX4o1a5jHgyaeVks/tD4RoFmGk5XVgC
-	 it22dgUxqoUlvZZ7CdgHHzCOiO9So64lLxbdbeLXKuMGmV15xh0wplv/ZWkSBTpDGK
-	 EGKaRAElv3B+A==
-Mime-Version: 1.0
-Date: Wed, 08 May 2024 19:44:40 +0300
-Message-Id: <D14EXNEBOKFY.8SJ7SOCABM01@kernel.org>
-Cc: <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <kernel-team@android.com>, <linux-sound@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
- <linux-input@vger.kernel.org>, <iommu@lists.linux.dev>,
- <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
- <kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
- <linux-security-module@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
- <netdev@vger.kernel.org>, <linux-actions@lists.infradead.org>,
- <mptcp@lists.linux.dev>, <linux-rtc@vger.kernel.org>,
- <linux-sgx@vger.kernel.org>, <bpf@vger.kernel.org>, "kernel test robot"
- <oliver.sang@intel.com>
-Subject: Re: [PATCH v2 2/5] selftests/sgx: Include KHDR_INCLUDES in Makefile
-From: "Jarkko Sakkinen" <jarkko@kernel.org>
-To: "Dave Hansen" <dave.hansen@intel.com>, "Edward Liaw"
- <edliaw@google.com>, <shuah@kernel.org>, "Mark Brown" <broonie@kernel.org>,
- "Jaroslav Kysela" <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon"
- <will@kernel.org>, "Nhat Pham" <nphamcs@gmail.com>, "Johannes Weiner"
- <hannes@cmpxchg.org>, "Christian Brauner" <brauner@kernel.org>, "Eric
- Biederman" <ebiederm@xmission.com>, "Kees Cook" <keescook@chromium.org>,
- "OGAWA Hirofumi" <hirofumi@mail.parknet.co.jp>, "Thomas Gleixner"
- <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>, "Peter Zijlstra"
- <peterz@infradead.org>, "Darren Hart" <dvhart@infradead.org>, "Davidlohr
- Bueso" <dave@stgolabs.net>, =?utf-8?q?Andr=C3=A9_Almeida?=
- <andrealmeid@igalia.com>, "Jiri Kosina" <jikos@kernel.org>, "Benjamin
- Tissoires" <bentiss@kernel.org>, "Jason Gunthorpe" <jgg@ziepe.ca>, "Kevin
- Tian" <kevin.tian@intel.com>, "Andy Lutomirski" <luto@amacapital.net>,
- "Will Drewry" <wad@chromium.org>, "Marc Zyngier" <maz@kernel.org>, "Oliver
- Upton" <oliver.upton@linux.dev>, "James Morse" <james.morse@arm.com>,
- "Suzuki K Poulose" <suzuki.poulose@arm.com>, "Zenghui Yu"
- <yuzenghui@huawei.com>, "Paolo Bonzini" <pbonzini@redhat.com>, "Sean
- Christopherson" <seanjc@google.com>, "Anup Patel" <anup@brainfault.org>,
- "Atish Patra" <atishp@atishpatra.org>, "Paul Walmsley"
- <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Christian Borntraeger"
- <borntraeger@linux.ibm.com>, "Janosch Frank" <frankja@linux.ibm.com>,
- "Claudio Imbrenda" <imbrenda@linux.ibm.com>, "David Hildenbrand"
- <david@redhat.com>, =?utf-8?q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
- "Paul Moore" <paul@paul-moore.com>, "James Morris" <jmorris@namei.org>,
- "Serge E. Hallyn" <serge@hallyn.com>, "Andrew Morton"
- <akpm@linux-foundation.org>, "Seth Forshee" <sforshee@kernel.org>, "Bongsu
- Jeon" <bongsu.jeon@samsung.com>, "David S. Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>, "Steffen Klassert"
- <steffen.klassert@secunet.com>, "Herbert Xu" <herbert@gondor.apana.org.au>,
- =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, "Manivannan Sadhasivam"
- <manivannan.sadhasivam@linaro.org>, "Matthieu Baerts" <matttbe@kernel.org>,
- "Mat Martineau" <martineau@kernel.org>, "Geliang Tang"
- <geliang@kernel.org>, "Willem de Bruijn" <willemdebruijn.kernel@gmail.com>,
- "Fenghua Yu" <fenghua.yu@intel.com>, "Reinette Chatre"
- <reinette.chatre@intel.com>, "Mathieu Desnoyers"
- <mathieu.desnoyers@efficios.com>, "Paul E. McKenney" <paulmck@kernel.org>,
- "Boqun Feng" <boqun.feng@gmail.com>, "Alexandre Belloni"
- <alexandre.belloni@bootlin.com>, "Muhammad Usama Anjum"
- <usama.anjum@collabora.com>
-X-Mailer: aerc 0.17.0
-References: <20240507214254.2787305-1-edliaw@google.com>
- <20240507214254.2787305-3-edliaw@google.com>
- <c3fc5396-bc71-4dee-a3e0-d59dbbc6eda1@intel.com>
-In-Reply-To: <c3fc5396-bc71-4dee-a3e0-d59dbbc6eda1@intel.com>
+	id 1s4kjr-0000000GHUv-3PL0
+	for linux-riscv@lists.infradead.org;
+	Wed, 08 May 2024 17:05:58 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-1ed012c1afbso14935ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 10:05:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715187933; x=1715792733; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3NSwC0XUWH2/jAZekAHNFl+y4/f7gtwIOhD7wWr4LzY=;
+        b=jQ7iJMVt4yocKXDuKI02k2d+Mlwl2uS2/HS1hdAMniJItN2D3ncaTxoV0s71HzQ6/F
+         A1/ZVEVPu8VIycaMX0jbxqS6viEGvfEMTYJz0dYMJlOHEWyz0bLfDxY+vQXfStX3DdKg
+         wYekvN97DFmo7t6swzoraMmYltMCJFIz2DD2pAw2eExUhj+r0A26yQ+mEV12ySfaq8Vd
+         XZ8eryUSiHUMVmDzzv9LRtTMOk9Qgj8sXaCrWtJApBVFoWRYkchJsHZtjvq95foaWMP0
+         qxyAG8vNV3TgpD2ygfLtmioNroFlzSvV1EotHWfptVQUyCY2E2fJvkRHQ5XSMh38G3eQ
+         dZBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1715187933; x=1715792733;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3NSwC0XUWH2/jAZekAHNFl+y4/f7gtwIOhD7wWr4LzY=;
+        b=Egc5W+LCuOkRwHNcXU08IRooVwcYNzDWlWEqXwJZzCUHarFyXKz3J8cR0NoP6JroeK
+         uZEo83u/FvvP4qOrjspoyas+NtAlGHFev3LLlAPB9vc+wnrSohrxBJxZvB1a3F6HLhTk
+         XXyM96B0iGSE/iuiV+ml3i90Dj9NC/AvAQOTNLwYnhsaqQbVSfYWQPxwP0816V34PY/B
+         OoMfvvxa8sSshcRhJgDbKG7Q1EQOb/i0iBwnyClTa7phThoNK7SkvvVN/ku6IyWnxwWS
+         MJLNRGIVTLhoo9KPhs9NKtDZkHxoEzya4QUuqg5opNhmcIJd9KVdPw0wyxEjmRRg18dn
+         Qa5A==
+X-Forwarded-Encrypted: i=1; AJvYcCUHcNLbvDyN0rMcQVWpc28DeeNqdwnGfxdQH3mmZbd8JMVIcB09IhGa3V22qOPSDMc7LpkqQoUFeYN+dJOtwvtaoq8zfmZQCLiQWagPJmsW
+X-Gm-Message-State: AOJu0YzBwXOyJicvQ2CJvopOk3Qt14ulImdijE+ILgpsGHOw+75VAKpR
+	RWJFi47528SAFSLEGu8Di4bmzq8Sc01UlZioQP8dOQvNa0XnrgNKilSaKPumC0g=
+X-Google-Smtp-Source: AGHT+IGgz0QEZsH36hv/uUgJ9K6WhGuMsBxbHUfds4fIdLNeyAsKU2bNpkZPr42Zsg1brC4AQL33vQ==
+X-Received: by 2002:a17:902:da84:b0:1e2:a5db:30d1 with SMTP id d9443c01a7336-1eefa138b68mr3407615ad.13.1715187933343;
+        Wed, 08 May 2024 10:05:33 -0700 (PDT)
+Received: from ghost ([2601:647:5700:6860:1d01:8836:5e9d:e040])
+        by smtp.gmail.com with ESMTPSA id jx7-20020a170903138700b001e469386fddsm12124945plb.40.2024.05.08.10.05.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 May 2024 10:05:32 -0700 (PDT)
+Date: Wed, 8 May 2024 10:05:30 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Song Liu <song@kernel.org>, Xi Wang <xi.wang@gmail.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Jessica Clarke <jrtc27@jrtc27.com>,
+	Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/8] riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT
+ Kconfig option
+Message-ID: <Zjuw2t6vL6yIcPR9@ghost>
+References: <20240507-compile_kernel_with_extensions-v2-0-722c21c328c6@rivosinc.com>
+ <20240507-compile_kernel_with_extensions-v2-3-722c21c328c6@rivosinc.com>
+ <b3ff587a-61f5-4abf-b71f-7ad48ff66969@codethink.co.uk>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <b3ff587a-61f5-4abf-b71f-7ad48ff66969@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_094502_162924_E1954FE5 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240508_100555_888542_0F92DD8D 
+X-CRM114-Status: GOOD (  37.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,27 +103,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed May 8, 2024 at 6:33 PM EEST, Dave Hansen wrote:
-> On 5/7/24 14:38, Edward Liaw wrote:
-> > Add KHDR_INCLUDES to the CFLAGS to pull in the kselftest harness
-> > dependencies (-D_GNU_SOURCE).
+On Wed, May 08, 2024 at 10:00:48AM +0100, Ben Dooks wrote:
+> On 08/05/2024 02:36, Charlie Jenkins wrote:
+> > The existing "RISCV_ISA_SVNAPOT" option is repurposed to be used to by
+> > kernel code to determine if either
+> > PLATFORM_MAY_SUPPORT_RISCV_ISA_SVNAPOT or
+> > PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT has been set.
 > > 
-> > Also, remove redefinitions of _GNU_SOURCE in the source code.
->
-> From an x86 and SGX perspective, looks fine.  I assume Shuah is planning
-> on taking this pile.
->
-> Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
+> > PLATFORM_MAY_SUPPORT_RISCV_ISA_SVNAPOT will check if the hardware
+> > supports Svnapot before using it, while
+> > PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT will assume that the hardware
+> > supports Svnapot.
+> > 
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > ---
+> >   arch/riscv/Kconfig               | 19 -----------------
+> >   arch/riscv/Kconfig.isa           | 44 ++++++++++++++++++++++++++++++++++++++++
+> >   arch/riscv/include/asm/pgtable.h |  3 ++-
+> >   3 files changed, 46 insertions(+), 20 deletions(-)
+> > 
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index c2e9eded0a7d..3c1960e8cd7c 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -484,25 +484,6 @@ config RISCV_ALTERNATIVE_EARLY
+> >   	help
+> >   	  Allows early patching of the kernel for special errata
+> > -config RISCV_ISA_SVNAPOT
+> > -	bool "Svnapot extension support for supervisor mode NAPOT pages"
+> > -	depends on 64BIT && MMU
+> > -	depends on RISCV_ALTERNATIVE
+> > -	default y
+> > -	help
+> > -	  Add support for the Svnapot ISA-extension in the kernel when it
+> > -	  is detected at boot.
+> > -
+> > -	  The Svnapot extension is used to mark contiguous PTEs as a range
+> > -	  of contiguous virtual-to-physical translations for a naturally
+> > -	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
+> > -	  size. When HUGETLBFS is also selected this option unconditionally
+> > -	  allocates some memory for each NAPOT page size supported by the kernel.
+> > -	  When optimizing for low memory consumption and for platforms without
+> > -	  the Svnapot extension, it may be better to say N here.
+> > -
+> > -	  If you don't know what to do here, say Y.
+> > -
+> >   config RISCV_ISA_SVPBMT
+> >   	bool "Svpbmt extension support for supervisor mode page-based memory types"
+> >   	depends on 64BIT && MMU
+> > diff --git a/arch/riscv/Kconfig.isa b/arch/riscv/Kconfig.isa
+> > index 0663c98b5b17..37585bcd763e 100644
+> > --- a/arch/riscv/Kconfig.isa
+> > +++ b/arch/riscv/Kconfig.isa
+> > @@ -124,3 +124,47 @@ config RISCV_ISA_V_PREEMPTIVE
+> >   	  This config allows kernel to run SIMD without explicitly disable
+> >   	  preemption. Enabling this config will result in higher memory
+> >   	  consumption due to the allocation of per-task's kernel Vector context.
+> > +
+> > +config RISCV_ISA_SVNAPOT
+> > +	bool
+> > +
+> > +choice
+> > +	prompt "Svnapot extension support for supervisor mode NAPOT pages"
+> > +	default PLATFORM_MAY_SUPPORT_RISCV_ISA_SVNAPOT
+> > +	help
+> > +	  This selects the level of support for Svnapot in the Linux Kernel.
+> > +
+> > +	  The Svnapot extension is used to mark contiguous PTEs as a range
+> > +	  of contiguous virtual-to-physical translations for a naturally
+> > +	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
+> > +	  size. When HUGETLBFS is also selected this option unconditionally
+> > +	  allocates some memory for each NAPOT page size supported by the kernel.
+> > +	  When optimizing for low memory consumption and for platforms without
+> > +	  the Svnapot extension, it may be better to prohibit Svnapot.
+> > +
+> > +config PROHIBIT_RISCV_ISA_SVNAPOT
+> > +	bool "Prohibit Svnapot extension"
+> > +	help
+> > +	  Regardless of if the platform supports Svnapot, prohibit the kernel
+> > +	  from using Svnapot.
+> > +
+> > +config PLATFORM_MAY_SUPPORT_RISCV_ISA_SVNAPOT
+> > +	bool "Allow Svnapot extension if supported"
+> > +	depends on 64BIT && MMU
+> > +	depends on RISCV_ALTERNATIVE
+> > +	select RISCV_ISA_SVNAPOT
+> > +	help
+> > +	  Add support for the Svnapot ISA-extension in the kernel when it
+> > +	  is detected at boot.
+> > +
+> > +config PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT
+> > +	bool "Emit Svnapot mappings when building Linux"
+> > +	depends on 64BIT && MMU
+> > +	depends on NONPORTABLE
+> > +	select RISCV_ISA_SVNAPOT
+> > +	help
+> > +	  Compile a kernel that assumes that the platform supports Svnapot.
+> > +	  This option produces a kernel that will not run on systems that do
+> > +	  not support Svnapot.
+> > +
+> > +endchoice
+> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > index 6afd6bb4882e..432be9691b78 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -289,7 +289,8 @@ static inline pte_t pud_pte(pud_t pud)
+> >   static __always_inline bool has_svnapot(void)
+> >   {
+> > -	return riscv_has_extension_likely(RISCV_ISA_EXT_SVNAPOT);
+> > +	return IS_ENABLED(CONFIG_PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT) ||
+> > +	       riscv_has_extension_likely(RISCV_ISA_EXT_SVNAPOT);
+> 
+> could you add the IS_ENABLED(*) check into riscv_has_extension_likely
+> and other such functions?
 
-Yep,
+I wasn't sure how to support that. An option I was debating about this
+was fixing up riscv_has_extension_likely() so that it's a macro and
+SVNAPOT could be expanded to both
+CONFIG_PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT and RISCV_ISA_EXT_SVNAPOT.
 
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+- Charlie
 
-I also quickly tested with NUC7 for what it is worth:
-
-Tested-by: Jarkko Sakkinen <jarkko@kernel.org>
-
-BR, Jarkko
+> 
+> 
+> -- 
+> Ben Dooks				http://www.codethink.co.uk/
+> Senior Engineer				Codethink - Providing Genius
+> 
+> https://www.codethink.co.uk/privacy.html
+> 
 
 _______________________________________________
 linux-riscv mailing list
