@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EDEDC25B4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 21:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2F4C25B4F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 21:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wS82Ogq21wNrP4Rqc50BQfOBaCqTLmpKz5af7ncXmK0=; b=cRGlvC/p3VXRcF
-	TRikGywCp9tGe644EH470gtOfm3zvObjCiduLEDz6UnFEOQ4P7Zh+JZyhGv3f5PcenDJBgDq+19XN
-	hfq4nrWfG4DC+PciCEIoI45hu04AL/jhOWf5loIquOg6BVGd1oO3cAE8bHaWIUYxTL5WqcOGa5US7
-	IK6La0NVev8YYmeqVHOYwV/6pTPe9Jas2GbAK+QeW6tYpdvXirRXIc61tloLXOUzciPq+Q4PORZ8H
-	OgYgTPOWGSMIgtk/hg83+/y0h0Hizq8DYzMEqjYfMSIMQtgFGrrs3BE2y6OWQuHP3j2mgCUB4Awlh
-	ltnmH0gCNAHPC7o6LprA==;
+	List-Owner; bh=WOLnvotI4lZPDHbWbYYjNCx9y9a4gmLUABx5z3d8jh8=; b=HZPRmOKFzlp2Or
+	XshTypCZo0YNvOGqVwidzrOsaP9GHSDzQvEmoulLZcn59DmTeeWb44r+FH+h5oJaIbN7AD8RlP1Y7
+	T3/oY0b49jTGnrAmqfzVB4XCljtztAs/ZNP5nF1LAC/Ek4yvRMrxOTHSIJQhzb74DrWLvjUajjtWk
+	fX3DpI28BMW8f+fdJR4UNYRgd6n4sKX76ke0XsUbe1V4d3XpyiZWgYqoJBAwxB46GRI/xiqgiZ+lP
+	0J49jzrIx1+/SnLTZh5e6BDJXtxB75iH3fHR4nnJUQKeunZC6btG/XBtMQFKL5r6We98T+Zr3L6VM
+	gB4qOKZWHjpk30OEVnGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4onX-0000000H1JL-0JBb;
-	Wed, 08 May 2024 21:25:59 +0000
-Received: from mail-bn8nam11on20601.outbound.protection.outlook.com ([2a01:111:f403:2414::601] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1s4p2u-0000000H3W7-0YVd;
+	Wed, 08 May 2024 21:41:52 +0000
+Received: from mail-dm3nam02on20600.outbound.protection.outlook.com ([2a01:111:f403:2405::600] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4onU-0000000H1Ha-1phA;
-	Wed, 08 May 2024 21:25:58 +0000
+	id 1s4p2q-0000000H3UD-3JSy;
+	Wed, 08 May 2024 21:41:50 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=CAWGDhPE46U+L7P9i6ggktS3AzE7G+t+t9844EkFSJPNq4Y4EvWTsB0cJOKnZnIjlLEbXUlvW7yMLxf0sMw568nKUfoBWkNjpDpKkOtkIBcD6DxIJY21WkgEkgpJcBGQk/vsAb3sXwayMIio1SN6yfoTEfKGCefRTCKm/W0Ao+ms4XK5A6VdNtoHT4KnGDxC8Yjvj5ohtE7pYrpBRJNpyER4u7qtQj8LVB46tgr+/oOlqu/9vg716SJ9+EWVJnWKmHlfb6N63T4jq4CxJIqhTgu4Hkm0OTZw2YQGsfVdsQo3L8BcRdN8VTk3iixHdx2+ZFFNOP4TJqpJQbFuxk9lZQ==
+ b=S8zf/FVGRWen7PRaUCBM5liAeFWpqbSa8QQj4QV+mCGD0njRN0Z9vLWVsQ0AK2atGchtg5ESQcA6NBa7vrMPpZHiOxg2d+ZNQlVOyQmLNfNYyy0P3yTBKknqsPyxD6IDvkYtbKf8iVkogTWZ7kMc1avdSFdO1uRScgo8upaKEUHX3zXNqMGeXml8QtbYNASgXO5usJmWhunQgCSyjNfAkvi+FXM71MN104nyQN7b3oR3HqQddvvCjyqpwt+AtI+IfGgZd8x4r/WoYHyPGNy4OqRl4qyC8GqC5SqjFn4n+/0eNWHCM6xonTgwE54qE4Nn9ePWt3TwLDkutGDVF4QMlA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9nZte4yQVtEh8kv8G4Ka6Ch6mvl+712ncrj7FsCY+og=;
- b=e6DHftMcik4KRIADueTLyvRZSrZ8mYMXYs94VzX072XqvpOFOSOGVYUxO6b2e4FpXvBkoa0tENf3ohfBPPZMtXnAvL1hH7fxx9OWHS3dR9tZhoy2cpTX275SjgnNbqci4tw2V048+xFYzCV4jV/BR/e6BQT0c34YejbpxvmWVAcquCUibfidsS9ST8fiEF7Cc5cKY3HHJcjExi6pwYbhtCaDnb/PQf80oayOTdz/LJYAzCQ2zjaMHr+Ge1MVuys7BmUEsw6wKXFAONTqqqyFCwQ/A3QWgvohXlw3cGKzsVcea7jsHGBj6NGr4IuySnQIOon5D1XR6MzkFYLTDEY8JA==
+ bh=dlIIGAQPcZzV1QVj1fLa7XKdLklbquz2YLOJaUUAhSk=;
+ b=mLVHLm/i33VmB9E+aHcKN0vnXh5lP11IXxfQS4aqaNb3n9XBEz3QhN63D6Bv5T/8RkzDWVY0X2mnVpNL5Md95Eb8PRNUBxdXihdZYhrjTc7t59XaQ9kOoSjqDFyUWHahxh6weyA8r3jtNtMEANjXAFrMAvwixWBZjr3aj/TmkDZiDtvPQECfNWIzzxfxX8BG7OPnYzxsT9+/vWAajUikAQGsmilaDBAkbKPC2REGf9jbsy7n2K2tTD67xaMQxKaKdO0DEX3vbm1KInH2B7wktrxgToB5cDj6WybTygL/+K0E6M2Tc8ijrpLQHhy4i8H1rt3Le5MkuAESmEM9Bmlb4Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ 216.228.117.160) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9nZte4yQVtEh8kv8G4Ka6Ch6mvl+712ncrj7FsCY+og=;
- b=bfilkXT+B1pyDnAlZQh8fEKVnYdIeVYGbqFYszDMHW4dYuybL9RuBfxX1gl1G6i93Dh0VKHhImdOjQY9rNWL7LVptPVdQkryXjtItEZAoG7GlgjbjLta0ztPXFSUd9WAoYUC/pTrqbULVpPJZ2ZHeMe0rg6Ib7gQRsbEtaEvZ++8ZBkYcJ5kxedaYoQlmo5PahQ3NyoCNyPOG/ryyPgLnVqZiZeGFcJrrpY5/aVwscARniT8PcUIK3iqVjF4M9sI+Wa1c0YEzqAF3T8DCpNbmcdvwQQ8AeqqjmIe8Yyi3nzV7C+KybOnXvKG1z5xpfeaKumZG2erptEe53/gONOQUA==
-Received: from MN2PR01CA0047.prod.exchangelabs.com (2603:10b6:208:23f::16) by
- PH7PR12MB7139.namprd12.prod.outlook.com (2603:10b6:510:1ef::21) with
+ bh=dlIIGAQPcZzV1QVj1fLa7XKdLklbquz2YLOJaUUAhSk=;
+ b=CPOu9RYla9pE7q2ifNAvOpS3IFRZ0a72Z2VrkGuBvc+KJa/RX1Hp85laDcQ5E4QN2NU9Kn/BJ8MaeLSBjsE6Mz9G89ckhDKaL1IRCJlEOcoJolhdNfTi0z7CETrVx2xJAQPwHmbKv6awqrjc+9MdRICJ9/77OvOC/8UPcYHSaymXdXUA3Pn9exxEeUfOKHQmUSQUzvMCEZHQCmaFEpbl/m5+r5aD8Gx+Aa7PDLDpstTIL6ySxdw2ZOCjYY7fZilkYSrSw/HQ3E9jidS4rNzaaEnX1hmbzp1eTN6TzONhNYmR4q5aS3BeHf9rYq5nRI+wxQ1Zb3cJBgejMl1BbmZ9Rw==
+Received: from BN9PR03CA0301.namprd03.prod.outlook.com (2603:10b6:408:112::6)
+ by PH8PR12MB8429.namprd12.prod.outlook.com (2603:10b6:510:258::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7544.42; Wed, 8 May
- 2024 21:25:46 +0000
-Received: from BL6PEPF0001AB53.namprd02.prod.outlook.com
- (2603:10b6:208:23f:cafe::30) by MN2PR01CA0047.outlook.office365.com
- (2603:10b6:208:23f::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7544.45 via Frontend
- Transport; Wed, 8 May 2024 21:25:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ 2024 21:41:41 +0000
+Received: from BN1PEPF0000468D.namprd05.prod.outlook.com
+ (2603:10b6:408:112:cafe::9b) by BN9PR03CA0301.outlook.office365.com
+ (2603:10b6:408:112::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7544.43 via Frontend
+ Transport; Wed, 8 May 2024 21:41:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF0001AB53.mail.protection.outlook.com (10.167.241.5) with Microsoft
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN1PEPF0000468D.mail.protection.outlook.com (10.167.243.138) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7544.18 via Frontend Transport; Wed, 8 May 2024 21:25:45 +0000
+ 15.20.7544.18 via Frontend Transport; Wed, 8 May 2024 21:41:41 +0000
 Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 8 May 2024
- 14:25:26 -0700
+ 14:41:24 -0700
 Received: from [10.110.48.28] (10.126.231.35) by rnnvmail201.nvidia.com
  (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 8 May 2024
- 14:25:23 -0700
-Message-ID: <dececf86-9fbd-4b55-9db0-05550cd45a87@nvidia.com>
-Date: Wed, 8 May 2024 14:25:23 -0700
+ 14:41:22 -0700
+Message-ID: <ec8ab737-a841-4cd5-8ec1-e0a777744262@nvidia.com>
+Date: Wed, 8 May 2024 14:41:21 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] selftests/sgx: Include KHDR_INCLUDES in Makefile
+Subject: Re: [PATCH v2 3/5] selftests: Include KHDR_INCLUDES in Makefile
 To: Edward Liaw <edliaw@google.com>, <shuah@kernel.org>, Mark Brown
 	<broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
 	<tiwai@suse.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
@@ -123,69 +123,68 @@ CC: <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
 	<linux-security-module@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
 	<netdev@vger.kernel.org>, <linux-actions@lists.infradead.org>,
 	<mptcp@lists.linux.dev>, <linux-rtc@vger.kernel.org>,
-	<linux-sgx@vger.kernel.org>, <bpf@vger.kernel.org>, kernel test robot
-	<oliver.sang@intel.com>
+	<linux-sgx@vger.kernel.org>, <bpf@vger.kernel.org>
 References: <20240507214254.2787305-1-edliaw@google.com>
- <20240507214254.2787305-3-edliaw@google.com>
+ <20240507214254.2787305-4-edliaw@google.com>
 Content-Language: en-US
 From: John Hubbard <jhubbard@nvidia.com>
-In-Reply-To: <20240507214254.2787305-3-edliaw@google.com>
+In-Reply-To: <20240507214254.2787305-4-edliaw@google.com>
 X-Originating-IP: [10.126.231.35]
 X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
  rnnvmail201.nvidia.com (10.129.68.8)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB53:EE_|PH7PR12MB7139:EE_
-X-MS-Office365-Filtering-Correlation-Id: d5b61ab3-fc69-4b2f-db04-08dc6fa56c57
+X-MS-TrafficTypeDiagnostic: BN1PEPF0000468D:EE_|PH8PR12MB8429:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea344455-08c6-4345-a4cd-08dc6fa7a5ee
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230031|82310400017|36860700004|1800799015|7416005|376005|921011;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NGEyNTJGUit0NWRCMjZPQ1BkOGxhYXdabGhTbkxCSWZ2b2ViOTZmSWMzb1A2?=
- =?utf-8?B?ZGNXdE5MdnRFOEVYUXNsRWVWZEprVUtlZGMwYlBhQW5BVy9FUHBKK2txWFph?=
- =?utf-8?B?cStpdStRQTI0b3NJTUNwajRvOGl3R2FobnpzTjBBaDU3a0kvK3QzOU5qNHRy?=
- =?utf-8?B?Q3p2eW1UWm5TcXhPSGtYT1BWdVRmamw4WUYyYzRabWVFci9YdjlqUHF0RHdI?=
- =?utf-8?B?UTlDZ3pMaWI0aXlveWNEMmdKbGJrdTBRSDdUa2Y5SjZUdmpETEt4U2habk5y?=
- =?utf-8?B?NGpIVWxLazdrQkZyN2FBREVnMmVsYjdGLzBQZFUyWDA4RVQ4Z1NDSnN4Nndm?=
- =?utf-8?B?RWJXcnFuMFlVeG1Ed0pVVk14LzU3bjNydTI0QUlER0N5a0dTOHFlVFpSdllo?=
- =?utf-8?B?UjFQS0VrUHE1TTNTNHZ1TTFFRktHTElQY3NVRzJPL0RuRWd2N01ueXI2eFBY?=
- =?utf-8?B?U05ET2tpTWVvSWpvUVRkaHpERWdzTGxzMXFhMm1vZ0tpSjFocXF2ZzJERGFV?=
- =?utf-8?B?bzJ4Y3FqU3E2U2JlK0NkWTZYeXF6bmFEbTN5dUZYSUo3Z2pLRlBLWkdaQTR3?=
- =?utf-8?B?NmpZVHZhMW9pc1RhVXJMMElaUFphTTVPbllLSmYxQWpmVXIvd2xRVUlTd0py?=
- =?utf-8?B?VytrV3RvZDJjTDRlb0NLSW1aK0VKcWNIVkhsOGwrZ0c0S3cwWUdld2ZuQkJN?=
- =?utf-8?B?WDNiY2hETnVQem1ncHlnQUtBNDc5TEsvdXNwb3dVNzFwYWJQL0VZTytJazF5?=
- =?utf-8?B?dC9UZDVpVHY2Q0NLV0s0Z3cxWnBKWjRjbFF6QVpJT1VPRmozWHQyOFBUT2Jr?=
- =?utf-8?B?RVRtWjRjV3EwWWU0bTFlWHFCNnpIcGo0Z2ZyZTF5K2UyeEtJeUdEbm1jdXQ0?=
- =?utf-8?B?Sk1lRkQ2Z0VkaWhNcUF4YTBTUVdjK3J1YldyZm9ubGxwaWpaTFRKaFJYaytI?=
- =?utf-8?B?V1R3bkR0dFhvMFpxU0NseXk3RG0xOEtHbHhaMWRJS2ZNN2hjc3ExbnlLdTFh?=
- =?utf-8?B?cWJoWFo4R2pZRTlxVWtlQlgrVng5NlR6WTN1VVlBbGN0Vk9CZWRQWDVZaDdh?=
- =?utf-8?B?SkFLemErZ29jRXFJRFB4Y01BbGl1Nk50OUdhOEdISXhXQmV1eUFSVis4RzU1?=
- =?utf-8?B?cGQySDRJZ1RhNlRGeXo5T2ZrRG1xNTZqYlY4TTNVczFEWFpRTnJUa1JHNXRk?=
- =?utf-8?B?L1JkWWhHTDdrSThwOFlUd1FWbjhVRk9YWEZsTTgzRHdDRnQwdklvS0VCZ09o?=
- =?utf-8?B?UkNzdktOVzNLMEpSRG1PRFhkNnc0TXljaW5WWUxWdk9Fd0JHYnZtWCtjenlV?=
- =?utf-8?B?L2N1akt2cW5lcFdRTXp1UE5jSEp5eDlTbDdlM3Rxai9JVXdscmpWQlljalVl?=
- =?utf-8?B?R0ZtWjFHOGVjTy9va3RndHBUa2FKenAvOExQSTRGSG1qNVYvSmlsaVl4SXlm?=
- =?utf-8?B?MTF2VDJIWWM4WnhwWWlrSkRiSVRCWjV3a2N3U3h5YkM3b3lxeXVNWFJDN0dB?=
- =?utf-8?B?dWhyeFFlaGJKMTZZenlLNDdrMG5pOURoS0dnQU5KenNTd29SaHFwK0NwQ0Vq?=
- =?utf-8?B?M1RxRkV2azhrQUxUUkxBMFl3MEZtNTJRcy81SUNMWGZ1Yno2Q3ZycEhxQzJG?=
- =?utf-8?B?Q3Q5VVl4SGliVmxMMCtVNWFqU2o3a0RtOUcxeEpHTzlKZHNqWCsxSUM5RmRN?=
- =?utf-8?B?YklrWmF4MWNBbExaSjBpbDFBVFBCeU9IV3BQdDVTWkdwWHNIb2dxUmxKVmFY?=
- =?utf-8?B?VWZhQnJvZW05YTdxdFlyOWxmMTdNMzhxZDJVRUZMNUxjNExrSUl5Tm1hNnpq?=
- =?utf-8?B?Tkd3T0ViTk9UaUhkeFVobHZqdTVCQnA5TWIzYXJkVFRhVTlHYkd1WVhtRWZ3?=
- =?utf-8?Q?wj6OSL5Nx2ST2?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230031)(82310400017)(36860700004)(1800799015)(7416005)(376005)(921011);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230031|7416005|376005|1800799015|36860700004|82310400017|921011;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?R3dVQ0IxTC8zai9PQVhRRkY1blk4YS93SHdROTNXTXBWd1VIWlRsb2ZsdlRt?=
+ =?utf-8?B?ZGRVbGpMMGJmN2Y3bjlNRzBOSXBQOHVwTTJIZllIV0I5OGdWQ05sNS9vTzdX?=
+ =?utf-8?B?SzUzdEdvL2lLcVo1VGk2M2Q3R3A5N1ZYbXFIK2QvZldYbXJzbkxxU2N5WE1J?=
+ =?utf-8?B?QkJsSDBISjBxWTh4bFNOajg3RCt0c0IyL2UxeFJmcEZHWWMrcXNVMVg2WFZF?=
+ =?utf-8?B?ZmprUnlDUEhhMG4zTlpUSmVqeFE3K3ZGd1J3aHZTR1BsRFRRTGpHVjQ1TkZV?=
+ =?utf-8?B?alFUK1NPZzg1V3ZzSlJ5U3dmSWVYN29HOUZqbnJBd043RU5mQ2tCenY3TnU0?=
+ =?utf-8?B?Skp6b1U4OXE0YnRDRkNOWHNsVXE1cmNYMDg0NmNHZUpUZnVBdDJXNWtRYVNV?=
+ =?utf-8?B?dmFFNFVjVWljVE1McTB3Q25DR1ZGbU4rL29Dd3VjQ1BHRE1xU0xQN3JaR2d5?=
+ =?utf-8?B?dTRObTliQnRrZUFqS0VKYXdSR05DcnRLZmZSelhMdzhQOXE5OFNGUGtqc1Bz?=
+ =?utf-8?B?SVNXZkpGN0ZpanpQRUhZZm5IK0xDQkkxcEFVUUk2QkR3cU5ya0cxR2JDL3ZW?=
+ =?utf-8?B?MTAzNm1EUlFRM05LVEtxaW5McnZrWTJnR2pHTDhORTlzT2RLTDlSSmU4cXVX?=
+ =?utf-8?B?SDhwVWNFSnY5T1Z0ckJwUU8yU0ovVTVsTkZGYlFXQlYraW9NamplcTBYTEo1?=
+ =?utf-8?B?N2FVdkRRT3hZV2FiNmVscjFoRGVWVDB4OUw4dnlxRnpYdHhkaGEyOUlZekFC?=
+ =?utf-8?B?eTdhbmV1MlBkYUNJQzlQNUFhUXg1eTlWSDZDTmE5WVl4c2NQbmF4S2hkTDBo?=
+ =?utf-8?B?eHI0Y0Q1ZTl5UlFUcHJnWXhxZzBtNUF6QnNWU3lRcU11bnlGckFpaGlERndQ?=
+ =?utf-8?B?djhGK05yK0NsaHBiT3FLemRLTnJrTlVqd3VDSWVvMytzNVdmanBLd2Q2L0l0?=
+ =?utf-8?B?UDYwQ1I5L1QzWk1CQ1BLMFhOQU9DdXZpTTFzOW9iZ2srbWhaTEVDRElyMmFO?=
+ =?utf-8?B?bHA5TmZKMjhDQ3hDVTUvRlZ4WDk2cFNmTUErbG5zcEVBWklEMSsvenk5UldI?=
+ =?utf-8?B?YTRXMndDNzdyYUtjem11dmZmc05vaXRPTU9mUkpwR3VJdmZ6Q1RoOEZ5UGQv?=
+ =?utf-8?B?Wnc0eFh5NGQ4UUhJaTVpbkhKK2RpWm5vcEc0aER2TTFvTGlGRFhLcjRCeXRs?=
+ =?utf-8?B?ZU9UaittanpJUXlTL2pjWTQyczh0OEtFa2NoZzZFMnNRaUNHOTgxaXJqVGs4?=
+ =?utf-8?B?V2JuOE44dlJTY1lZZzgyL1BvS0xDZlFjSzYxYUcxWjVMeWQwYkpGb1BvSUls?=
+ =?utf-8?B?azdVN2lVeFlxajd5cGo0R0lOalJlUitZTWx2SzFIdTNuL1Q4L2JQU0ZxdzhF?=
+ =?utf-8?B?eG5OREZrdmpvQUJDZGIxNUhWYm9OVFRuSGZMYlB1USttcHd3RXRGb0xFckVS?=
+ =?utf-8?B?SWNKVzNiSjFtdnBhNkM5SFFHaVQ0SEJ2Q1RKc1RJS3lrTkhBK1J2RGtSc0dI?=
+ =?utf-8?B?N1hDZnJSWmtpaGdPYVJ4cjdXMXp5S3hVS3NyOGhHWWdwb1puem1YRElyTnR5?=
+ =?utf-8?B?ampqYjgrK1Nwd09IcnZPQ0tzbDRZV21LdUVITm5JNkQzeFdKbVhDYlNUQVVE?=
+ =?utf-8?B?RStJS2x6MjlydGlJSzYwdFFGYzNTak5NRjVGUnE2L3hpeHlSSjc1ZXFlMUp0?=
+ =?utf-8?B?ZWRuTkI4WStreU1OTGpSZHdlZmVVS0NHakVrK1VKelJzOFJzZ3l5YU9lSzJO?=
+ =?utf-8?B?dm0yblI3UVUxYm9OSGZlaEx5Z1psNlVSOWJWekZFU2NqLzRoWkRrd0Q0Slpu?=
+ =?utf-8?B?Z01LSWl5R1l5QW4xZzVtbVdSQWFUbU5aV21yYzkxVzBiaHJ0VHlYT2luTmVh?=
+ =?utf-8?Q?TexE0MEIDVlz2?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230031)(7416005)(376005)(1800799015)(36860700004)(82310400017)(921011);DIR:OUT;SFP:1101;
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2024 21:25:45.5720
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2024 21:41:41.1993
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5b61ab3-fc69-4b2f-db04-08dc6fa56c57
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea344455-08c6-4345-a4cd-08dc6fa7a5ee
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB53.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468D.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7139
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB8429
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_142556_521236_2A070336 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20240508_144148_940050_6FF65C9C 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,24 +202,44 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 5/7/24 2:38 PM, Edward Liaw wrote:
-> Add KHDR_INCLUDES to the CFLAGS to pull in the kselftest harness
+> Add KHDR_INCLUDES to CFLAGS to pull in the kselftest harness
 > dependencies (-D_GNU_SOURCE).
 > 
-> Also, remove redefinitions of _GNU_SOURCE in the source code.
-> 
 > Fixes: 809216233555 ("selftests/harness: remove use of LINE_MAX")
-> Reported-by: kernel test robot <oliver.sang@intel.com>
-> Closes: https://lore.kernel.org/oe-lkp/202404301040.3bea5782-oliver.sang@intel.com
 > Signed-off-by: Edward Liaw <edliaw@google.com>
 > ---
->   tools/testing/selftests/sgx/Makefile    | 2 +-
->   tools/testing/selftests/sgx/sigstruct.c | 1 -
->   2 files changed, 1 insertion(+), 2 deletions(-)
+>   tools/testing/selftests/alsa/Makefile                  | 2 +-
+>   tools/testing/selftests/arm64/signal/Makefile          | 2 +-
+>   tools/testing/selftests/exec/Makefile                  | 2 +-
+>   tools/testing/selftests/filesystems/overlayfs/Makefile | 2 +-
+>   tools/testing/selftests/hid/Makefile                   | 2 +-
+>   tools/testing/selftests/nci/Makefile                   | 2 +-
+>   tools/testing/selftests/prctl/Makefile                 | 2 ++
+>   tools/testing/selftests/proc/Makefile                  | 2 +-
+>   tools/testing/selftests/riscv/mm/Makefile              | 2 +-
+>   tools/testing/selftests/rtc/Makefile                   | 2 +-
+>   tools/testing/selftests/tmpfs/Makefile                 | 2 +-
+>   11 files changed, 12 insertions(+), 10 deletions(-)
 
-Looks good, and also still works with a clang/LLVM build (that is,
-with the whole series applied.
+Hi Edward,
 
-Reviewed-by: John Hubbard <jhubbard@nvidia.com>
+Seeing as how these all include lib.mk, and all use CFLAGS, is there
+any reason not to simply fix this in lib.mk instead? Like this:
+
+diff --git a/tools/testing/selftests/lib.mk b/tools/testing/selftests/lib.mk
+index 7fa4a96e26ed..df72610e0d2b 100644
+--- a/tools/testing/selftests/lib.mk
++++ b/tools/testing/selftests/lib.mk
+@@ -170,6 +170,8 @@ clean: $(if $(TEST_GEN_MODS_DIR),clean_mods_dir)
+  CFLAGS += $(USERCFLAGS)
+  LDFLAGS += $(USERLDFLAGS)
+  
++CFLAGS += $(KHDR_INCLUDES)
++
+  # When make O= with kselftest target from main level
+  # the following aren't defined.
+  #
+
 
 thanks,
 -- 
@@ -228,31 +247,142 @@ John Hubbard
 NVIDIA
 
 > 
-> diff --git a/tools/testing/selftests/sgx/Makefile b/tools/testing/selftests/sgx/Makefile
-> index 867f88ce2570..26ea30fae23c 100644
-> --- a/tools/testing/selftests/sgx/Makefile
-> +++ b/tools/testing/selftests/sgx/Makefile
-> @@ -12,7 +12,7 @@ OBJCOPY := $(CROSS_COMPILE)objcopy
+> diff --git a/tools/testing/selftests/alsa/Makefile b/tools/testing/selftests/alsa/Makefile
+> index 5af9ba8a4645..9a0ef194522c 100644
+> --- a/tools/testing/selftests/alsa/Makefile
+> +++ b/tools/testing/selftests/alsa/Makefile
+> @@ -6,7 +6,7 @@ LDLIBS += $(shell pkg-config --libs alsa)
+>   ifeq ($(LDLIBS),)
+>   LDLIBS += -lasound
 >   endif
+> -CFLAGS += -L$(OUTPUT) -Wl,-rpath=./
+> +CFLAGS += $(KHDR_INCLUDES) -L$(OUTPUT) -Wl,-rpath=./
 >   
->   INCLUDES := -I$(top_srcdir)/tools/include
-> -HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC
-> +HOST_CFLAGS := -Wall -Werror $(KHDR_INCLUDES) -g $(INCLUDES) -fPIC
->   HOST_LDFLAGS := -z noexecstack -lcrypto
->   ENCL_CFLAGS += -Wall -Werror -static-pie -nostdlib -ffreestanding -fPIE \
->   	       -fno-stack-protector -mrdrnd $(INCLUDES)
-> diff --git a/tools/testing/selftests/sgx/sigstruct.c b/tools/testing/selftests/sgx/sigstruct.c
-> index d73b29becf5b..200034a0fee5 100644
-> --- a/tools/testing/selftests/sgx/sigstruct.c
-> +++ b/tools/testing/selftests/sgx/sigstruct.c
-> @@ -1,7 +1,6 @@
->   // SPDX-License-Identifier: GPL-2.0
->   /*  Copyright(c) 2016-20 Intel Corporation. */
+>   LDLIBS+=-lpthread
 >   
-> -#define _GNU_SOURCE
->   #include <assert.h>
->   #include <getopt.h>
->   #include <stdbool.h>
+> diff --git a/tools/testing/selftests/arm64/signal/Makefile b/tools/testing/selftests/arm64/signal/Makefile
+> index 8f5febaf1a9a..ae682ade615d 100644
+> --- a/tools/testing/selftests/arm64/signal/Makefile
+> +++ b/tools/testing/selftests/arm64/signal/Makefile
+> @@ -2,7 +2,7 @@
+>   # Copyright (C) 2019 ARM Limited
+>   
+>   # Additional include paths needed by kselftest.h and local headers
+> -CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
+> +CFLAGS += $(KHDR_INCLUDES) -std=gnu99 -I.
+>   
+>   SRCS := $(filter-out testcases/testcases.c,$(wildcard testcases/*.c))
+>   PROGS := $(patsubst %.c,%,$(SRCS))
+> diff --git a/tools/testing/selftests/exec/Makefile b/tools/testing/selftests/exec/Makefile
+> index fb4472ddffd8..15e78ec7c55e 100644
+> --- a/tools/testing/selftests/exec/Makefile
+> +++ b/tools/testing/selftests/exec/Makefile
+> @@ -1,7 +1,7 @@
+>   # SPDX-License-Identifier: GPL-2.0
+>   CFLAGS = -Wall
+>   CFLAGS += -Wno-nonnull
+> -CFLAGS += -D_GNU_SOURCE
+> +CFLAGS += $(KHDR_INCLUDES)
+>   
+>   TEST_PROGS := binfmt_script.py
+>   TEST_GEN_PROGS := execveat load_address_4096 load_address_2097152 load_address_16777216 non-regular
+> diff --git a/tools/testing/selftests/filesystems/overlayfs/Makefile b/tools/testing/selftests/filesystems/overlayfs/Makefile
+> index 56b2b48a765b..6c29c963c7a8 100644
+> --- a/tools/testing/selftests/filesystems/overlayfs/Makefile
+> +++ b/tools/testing/selftests/filesystems/overlayfs/Makefile
+> @@ -2,6 +2,6 @@
+>   
+>   TEST_GEN_PROGS := dev_in_maps
+>   
+> -CFLAGS := -Wall -Werror
+> +CFLAGS := -Wall -Werror $(KHDR_INCLUDES)
+>   
+>   include ../../lib.mk
+> diff --git a/tools/testing/selftests/hid/Makefile b/tools/testing/selftests/hid/Makefile
+> index 2b5ea18bde38..0661b34488ef 100644
+> --- a/tools/testing/selftests/hid/Makefile
+> +++ b/tools/testing/selftests/hid/Makefile
+> @@ -21,7 +21,7 @@ CXX ?= $(CROSS_COMPILE)g++
+>   
+>   HOSTPKG_CONFIG := pkg-config
+>   
+> -CFLAGS += -g -O0 -rdynamic -Wall -Werror -I$(OUTPUT)
+> +CFLAGS += -g -O0 -rdynamic -Wall -Werror $(KHDR_INCLUDES) -I$(OUTPUT)
+>   CFLAGS += -I$(OUTPUT)/tools/include
+>   
+>   LDLIBS += -lelf -lz -lrt -lpthread
+> diff --git a/tools/testing/selftests/nci/Makefile b/tools/testing/selftests/nci/Makefile
+> index 47669a1d6a59..bbc5b8ec3b17 100644
+> --- a/tools/testing/selftests/nci/Makefile
+> +++ b/tools/testing/selftests/nci/Makefile
+> @@ -1,5 +1,5 @@
+>   # SPDX-License-Identifier: GPL-2.0
+> -CFLAGS += -Wl,-no-as-needed -Wall
+> +CFLAGS += -Wl,-no-as-needed -Wall $(KHDR_INCLUDES)
+>   LDFLAGS += -lpthread
+>   
+>   TEST_GEN_PROGS := nci_dev
+> diff --git a/tools/testing/selftests/prctl/Makefile b/tools/testing/selftests/prctl/Makefile
+> index 01dc90fbb509..1a0aefec9d6f 100644
+> --- a/tools/testing/selftests/prctl/Makefile
+> +++ b/tools/testing/selftests/prctl/Makefile
+> @@ -6,6 +6,8 @@ ARCH ?= $(shell echo $(uname_M) | sed -e s/i.86/x86/ -e s/x86_64/x86/)
+>   ifeq ($(ARCH),x86)
+>   TEST_PROGS := disable-tsc-ctxt-sw-stress-test disable-tsc-on-off-stress-test \
+>   		disable-tsc-test set-anon-vma-name-test set-process-name
+> +
+> +CFLAGS += $(KHDR_INCLUDES)
+>   all: $(TEST_PROGS)
+>   
+>   include ../lib.mk
+> diff --git a/tools/testing/selftests/proc/Makefile b/tools/testing/selftests/proc/Makefile
+> index cd95369254c0..9596014c10a0 100644
+> --- a/tools/testing/selftests/proc/Makefile
+> +++ b/tools/testing/selftests/proc/Makefile
+> @@ -1,6 +1,6 @@
+>   # SPDX-License-Identifier: GPL-2.0-only
+>   CFLAGS += -Wall -O2 -Wno-unused-function
+> -CFLAGS += -D_GNU_SOURCE
+> +CFLAGS += $(KHDR_INCLUDES)
+>   LDFLAGS += -pthread
+>   
+>   TEST_GEN_PROGS :=
+> diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
+> index c333263f2b27..715a21241113 100644
+> --- a/tools/testing/selftests/riscv/mm/Makefile
+> +++ b/tools/testing/selftests/riscv/mm/Makefile
+> @@ -3,7 +3,7 @@
+>   # Originally tools/testing/arm64/abi/Makefile
+>   
+>   # Additional include paths needed by kselftest.h and local headers
+> -CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
+> +CFLAGS += $(KHDR_INCLUDES) -std=gnu99 -I.
+>   
+>   TEST_GEN_FILES := mmap_default mmap_bottomup
+>   
+> diff --git a/tools/testing/selftests/rtc/Makefile b/tools/testing/selftests/rtc/Makefile
+> index 55198ecc04db..654f9d58da3c 100644
+> --- a/tools/testing/selftests/rtc/Makefile
+> +++ b/tools/testing/selftests/rtc/Makefile
+> @@ -1,5 +1,5 @@
+>   # SPDX-License-Identifier: GPL-2.0
+> -CFLAGS += -O3 -Wl,-no-as-needed -Wall
+> +CFLAGS += -O3 -Wl,-no-as-needed -Wall $(KHDR_INCLUDES)
+>   LDLIBS += -lrt -lpthread -lm
+>   
+>   TEST_GEN_PROGS = rtctest
+> diff --git a/tools/testing/selftests/tmpfs/Makefile b/tools/testing/selftests/tmpfs/Makefile
+> index aa11ccc92e5b..bcdc1bb6d2e6 100644
+> --- a/tools/testing/selftests/tmpfs/Makefile
+> +++ b/tools/testing/selftests/tmpfs/Makefile
+> @@ -1,6 +1,6 @@
+>   # SPDX-License-Identifier: GPL-2.0-only
+>   CFLAGS += -Wall -O2
+> -CFLAGS += -D_GNU_SOURCE
+> +CFLAGS += $(KHDR_INCLUDES)
+>   
+>   TEST_GEN_PROGS :=
+>   TEST_GEN_PROGS += bug-link-o-tmpfile
 
 
 
