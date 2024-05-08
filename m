@@ -4,54 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3D3C04FFE
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 20:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 670DEC25B4F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 20:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=Z9VLY6UEG707cFgsG73RykxJf54JR3ao3ux5riQlTd0=; b=tQ6
-	to9SjszVVos3YVmfjK/ElF7yjWoW/qqKTH53yQmNYkQ2tQYbXPWUHTmEXVhWjLaMJdeihZJQyBxDr
-	x7+b0FyGPQErTwvsC5POwpuTZlGc4y4Uz79Xbn2jJOIY6yAth0BHC9wKwH9seOJpAJ0T/1l5r7N+t
-	prdeyj15hEurFDWoOj1FdgfnKOrGP5njUOUucXBft0BELerjneygpLDBM1XXfKSEc08MqVMiF3t0U
-	FRx3Tt0Ewr3KQUvXi1tw78qHniJX6k9dLJFdpVMCf2njYopPQWI5wIDviiygVOXsTG7OvQ4LmSarw
-	2QYSMwFKih8L/9Wq0j9xg3C0qqX3nIA==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XC8SQ1uBIs3dpbP3ROrn8jRup21TlFuQZFe/P+2iA1g=; b=xOUxCjOfUCkvjy0zAdUT3cLEJZ
+	6RA0G45ZyvCucR0S+0V//FGlGkR0DzgL+tnCi7ENj8QUMJVCT0MBSx0us1tlU9qEjT8u9mG7MWYTp
+	HrhKzWMbMssX3uXIRhLH0ny5E1HPbl8q2ArnENQ40ZYSm804/5NaPDYS2W+Ad/w1N53ek7Ua7Sih5
+	2OH4r+HUNjO8YYOMhqBpuXafji3UAEHmtOhX5itn2rgifWH7HxE4RQWmQPL/I9H0t8nQsVwNqlviC
+	WdAjmG2e819F85h0LfD+HuIrif+0qYx1fG+Xmntv2TBkuxF6XGBZP7YDODC2qX9rGMl6ehALxAFRn
+	9OAajjSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4nfv-0000000Gqrv-40Xe;
-	Wed, 08 May 2024 20:14:03 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1s4nli-0000000Gs4c-2AHp;
+	Wed, 08 May 2024 20:20:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4nfs-0000000GqrE-2lpm
+	id 1s4nle-0000000Gs3c-2U4d
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 20:14:02 +0000
+	Wed, 08 May 2024 20:20:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 487B4CE1A2E
-	for <linux-riscv@lists.infradead.org>; Wed,  8 May 2024 20:13:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4694C113CC;
-	Wed,  8 May 2024 20:13:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E79816177A;
+	Wed,  8 May 2024 20:19:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AAA3C113CC;
+	Wed,  8 May 2024 20:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715199237;
-	bh=TU+XskjpMH/W29fIjZitPeykjM+cnjdakCXTCjOr550=;
-	h=Date:From:List-Id:To:Cc:Subject:From;
-	b=A75mbKb/aiiHxmU1Up8YMXFXApkc0ZC7IR5+Plz9JBqsZEqNTGXtbPZ82tGmHDRDN
-	 BW7BcKpzYlo7+j1jb1TbW6zDgu3M+9s0xQVDTTaOG6gl7LhhCSgB09lJgUuIxL2c6W
-	 4VBFKTRIRuK85b1c4fIgRKo/HDMJcC6cpEZnowwqeJYWqwhZEf5yP+m1w3D3NyOTdn
-	 lNO70RGRb4daWRzIBMhTe6GgzUH0+8PTrQ0Knce0GK+qpk9TcveOHq+K4EoPO4xufo
-	 a2t244kix9f4xDilFEr/nHhD9gz1nJdE/mq85AijDXX8nKjgqgrxlBRR1vG8in6cyG
-	 Jfg3SKTYtZWyg==
-Date: Wed, 8 May 2024 21:13:54 +0100
+	s=k20201202; t=1715199597;
+	bh=BlVhgBPENuRR1ZWFVbwAUMlrpcgjW2ScbS4tYNlYnxs=;
+	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
+	b=Fl2L6tIJ09V4OnXjGbc5Z6i3kTU5m7FfYRrJdfCfQTmUqjku8Sg2p4W/EuULEcxV6
+	 7/sHD39jth3T43zJOWjl0/13ZuPYVUn4IKD6e64haB3kXx+AiMBPk/WKGozRWRey6c
+	 f5EPr7P6HPz4lU5VbEacNOzSdT26oZudvgkibQ6xEwe3SVwLe42Ypptksqgv5xMXHI
+	 2I7k5cYCxY4LNgia+d7/ksXUCMm9ssc8uOERGUqf4nfJ8J6HNQ658TFtOtFWXRyKwW
+	 kuuqjnG/P6N7s+HDQ0A6dAcfG41vB/VciwZ1ndHWNUvxubmwZPozKoIJV9jWksEfgG
+	 yzBbwO7xaKRCw==
+Date: Wed, 8 May 2024 21:19:54 +0100
 From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V Devicetrees for v6.10 Take 2
-Message-ID: <20240508-crafter-cement-4f54e4182270@spud>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: "Conor.Dooley" <conor.dooley@microchip.com>, soc@kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [GIT PULL] RISC-V Devicetrees for v6.10
+Message-ID: <20240508-unpaved-courier-fefe1f81897d@spud>
+References: <20240503-swimmer-botany-7368a8a17b1a@spud>
+ <5222e581-a189-4477-ba6a-edf4ce369eb0@app.fastmail.com>
+ <20240507-hungrily-squash-2ac370e05fc0@wendy>
+ <b618c311-8925-4717-b6bf-f3699b106189@app.fastmail.com>
+ <20240507-concrete-come-2899fab0888e@wendy>
+ <9031c5c8-1e93-491d-b756-5794cb87d1cb@app.fastmail.com>
 MIME-Version: 1.0
+In-Reply-To: <9031c5c8-1e93-491d-b756-5794cb87d1cb@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_131401_087868_39CD05C5 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20240508_131958_774671_82DCAE3D 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,114 +71,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6777856618350427530=="
+Content-Type: multipart/mixed; boundary="===============3922003918109960531=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6777856618350427530==
+--===============3922003918109960531==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="K3O2MsiTfJ8u8tPf"
+	protocol="application/pgp-signature"; boundary="jrCX5g0Qg+HhlROA"
 Content-Disposition: inline
 
 
---K3O2MsiTfJ8u8tPf
+--jrCX5g0Qg+HhlROA
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hey Arnd,
+On Tue, May 07, 2024 at 02:15:39PM +0200, Arnd Bergmann wrote:
+> On Tue, May 7, 2024, at 12:21, Conor Dooley wrote:
+> > Cool, just wasn't sure if you were intentionally contradicting yourself
+> > or if the "below" part had just been some general remarks. I'll try to
+> > get a "revised" PR sent tomorrow.
+>=20
+> Ok. To clarify: basing on a bugfix pull request is always fine
+> since those are already in Linus' tree by the time I send my
+> pull requests to him for the merge window, so the branch contents
+> as seen by 'git request-pull' are clean.
 
-Here's a second attempt for ya.. The canaan stuff is dropped and I'll
-send it to you for 6.11 instead.
+Ye, I was pretty sure that this is what you meant, but didn't wanna have
+my second attempt also go awry!
+
+>=20
+> I also try hard (in general) to avoid dependencies between the
+> soc/dt branch and any of the other branches, to be sure that
+> there are no incompatible binding changes. This wasn't a
+> problem here (I think), but if you send something late in the
+> cycle, I pretty much don't want to have to think about that.
+
+If there's anyone you don't need to worry about making incompatible
+binding changes like that, it's probably Krzysztof or I. It'd be a
+bit hypocritical of me to send you stuff like that..
+
+I sent an "take 2" PR there, once the rebased branch had a chance to
+appear in linux-next.
 
 Cheers,
 Conor.
 
-The following changes since commit 4cece764965020c22cff7665b18a012006359095:
-
-  Linux 6.9-rc1 (2024-03-24 14:10:05 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-for-v6.10-take2
-
-for you to fetch changes up to 1c80d50bb697f84bfbc3876e08e1a1d42bfbdddb:
-
-  riscv: dts: microchip: add pac1934 power-monitor to icicle (2024-05-07 17:14:06 +0100)
-
-----------------------------------------------------------------
-RISC-V Devicetrees for v6.10
-
-Microchip:
-A simple addition of a power-monitor on the Icicle dev board, as the
-binding for it is now in mainline.
-
-StarFive:
-Support for the Milk-V Mars. This board is incredibly similar to the
-VisionFive v2 that is already supported, with only the really ethernet
-configuration being slightly different. Emil requested that a common
-dtsi file, so my fixes branch is pulled into for-next to avoid an
-annoying conflict between moved content and some erroneously added
-nodes that were removed as fixes this cycle.
-
-T-Head:
-Re-ordering of some nodes to match the DTS coding style on the th1520.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (2):
-      RISC-V: add Milkv Mars board devicetree
-      riscv: dts: microchip: add pac1934 power-monitor to icicle
-
-Hannah Peuckmann (2):
-      riscv: dts: starfive: visionfive 2: Remove non-existing TDM hardware
-      riscv: dts: starfive: visionfive 2: Remove non-existing I2S hardware
-
-Jisheng Zhang (8):
-      riscv: dts: starfive: add 'cpus' label to jh7110 and jh7100 soc dtsi
-      dt-bindings: riscv: starfive: add Milkv Mars board
-      riscv: dts: starfive: visionfive 2: update sound and codec dt node name
-      riscv: dts: starfive: visionfive 2: use cpus label for timebase freq
-      riscv: dts: starfive: visionfive 2: add tf cd-gpios
-      riscv: dts: starfive: visionfive 2: add "disable-wp" for tfcard
-      riscv: dts: starfive: introduce a common board dtsi for jh7110 based boards
-      riscv: dts: starfive: add Milkv Mars board device tree
-
-Shengyu Qu (1):
-      riscv: dts: starfive: Remove PMIC interrupt info for Visionfive 2 board
-
-Thomas Bonnefille (1):
-      riscv: dts: thead: Fix node ordering in TH1520 device tree
-
- .../devicetree/bindings/riscv/starfive.yaml        |   1 +
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts  |  32 +
- arch/riscv/boot/dts/starfive/Makefile              |   1 +
- arch/riscv/boot/dts/starfive/jh7100.dtsi           |   2 +-
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 599 ++++++++++++++++++
- arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts |  30 +
- .../dts/starfive/jh7110-starfive-visionfive-2.dtsi | 683 +--------------------
- arch/riscv/boot/dts/starfive/jh7110.dtsi           |   2 +-
- arch/riscv/boot/dts/thead/th1520.dtsi              |  54 +-
- 9 files changed, 693 insertions(+), 711 deletions(-)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-common.dtsi
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
-
---K3O2MsiTfJ8u8tPf
+--jrCX5g0Qg+HhlROA
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjvdAgAKCRB4tDGHoIJi
-0sBcAQC7ySvcubiZQEtf9Mrrm1fNGhwbao5K/iBXy7rjQhJxywEAtgXftgRxdH2e
-FM0a5kA3a6d44ZfZR5fpj5rgUJHkoAE=
-=1OZ7
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjveagAKCRB4tDGHoIJi
+0gYIAQClK3SRAzuzcuyG1SQIoaIpsTh4/fQC0Hhkme6wNAHWMQEA0WUy1aBh24WZ
+eiuo5KDKeCl23eb0bmfwhWFDShhcHQc=
+=gClg
 -----END PGP SIGNATURE-----
 
---K3O2MsiTfJ8u8tPf--
+--jrCX5g0Qg+HhlROA--
 
 
---===============6777856618350427530==
+--===============3922003918109960531==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -181,5 +143,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6777856618350427530==--
+--===============3922003918109960531==--
 
