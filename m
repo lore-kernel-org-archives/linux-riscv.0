@@ -4,90 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68D2C19F4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 01:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EFB2C10F1A
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 01:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AzwSTs6WTPhNL9+rbqrJNnjmodYWwvcorGz+5vLzBK0=; b=SuhiNjYjUW/5/b
-	8yi5ejIxz7OhAj5ah1k4IqjzbURgCbkL8cdnbzjSd1vbUVfmy+b9u+pNgXYGINNIKzuIhiesxZSyj
-	3VxHFlou8d7luCJdN78Ya9+FSHq/0p98y5vN0cw8c4M9VrYpUAtjuNLGXGOllE4lN4RsPJQgZkuyP
-	8SP8cY433clTcUNFJ8OITATU3QkUU/g+mxZSGWtUkRrGmM6QsM1c2RGi3ZnkaZuI/hPtqHUOTV4MC
-	7feCFMfzztSfG09NBnrQs9X5tn7/k/AdC8TBg/DfCOXO/BeBqQIhtHFcO3tjWbxujOOJjqRrb0cTB
-	FXvlRaqF1Dh6Si3rOP1g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VJ9JHwfbfTR8s1U5yXBxoggb5BZ6GKeII/Bs6gGJFUQ=; b=D7138fpvvIEFC3
+	hC+pEBHnzALP171swc4XyyH21izJmZPjbBckuhncv6NUsgzWC5BIQrdHeWtIZl0IlRlx+irD/dY4g
+	KaWUSEFC+0xDLVctuswoIE4JS9kj3mIsWh7YrkOnol8+vPDsaW2QlhRqlb8junUujjFpmUMUxa/0I
+	GKLgXV72yTebFqO85E58tpABDU+FspgZ+ZyYRHoW41SKJuGqQIUk02Sd2GeORo3J1SrXOfQTGJAau
+	KBqizwrsC5NtTe/9KiyvhjW0umv4UtxH6JtLwhgCCEZevcIScQeiNgylYijPI7f60S5nLP4Sr3QDK
+	b0GXEpmI6d16msKCZmFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4W3M-0000000Ddi6-0IvE;
-	Wed, 08 May 2024 01:25:04 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1s4WEg-0000000Dexr-2N04;
+	Wed, 08 May 2024 01:36:46 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4W3H-0000000DdhK-40rj
+	id 1s4WEc-0000000DexH-25v3
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 01:25:02 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-6f44bcbaae7so2898209b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 07 May 2024 18:24:58 -0700 (PDT)
+	Wed, 08 May 2024 01:36:44 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2b33d011e5dso262856a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 07 May 2024 18:36:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715131498; x=1715736298; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=IhsVJPabx4zntlcqdXyDkSXBtwoq5OQdKJovK8JOcUw=;
-        b=FPyc+YREP4waub/p72424F64fGSHhTObQv3WM8WycIfh1K+MEQ9qITytoUnX93JVr1
-         flFawA4LUiBg0M/7jjyB0L7LSZBXd6vqrtav5VrsWeft4dTIKcAfcP0AM7B8Vfdra6aX
-         KHeebbAE4d1tKkH9lUMIzJbh1SIJa7WighavQaOBvFfskKLlCsv9tgd/luPyLI6zt3sO
-         xjvLtZn5uAa1LOxc/jv+z8LvLQDdWslYPZI2OVtgDA8xjbqTEuh61bw5mjhnr0cvJpS+
-         za1PbzBpy98FpYWYtwQk0wryccAc9B74NywJkxGvhOJaOOxcSB/gd7XMofK19r+g+oZw
-         Y6QQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715132200; x=1715737000; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+7QlTjnxppzA5Udx+bzDo8JE3hSKFTseR43SNN1UptE=;
+        b=0uPvuk321174oW8HlYXKosncSH1S/MwnIVFD64L1yW/t9jOyqnNTdtHZQAnybUueaI
+         tafrvXzDxO1cSj4oZoFFl+jAm5qfWrHL6tHbKvcCGr7ukDJNDgXejtot8whBN3tCoqed
+         CIjWumH2QViRfZKa3dwVj8o0xk75wMYKFQv62B9krSHpbE5m0cQmXV0GAfqS9uiCp4o6
+         R5PNqJcs3TSDzzbuK7rtMnHjyCDyDZEGbbhsLNzG5kzqUWcfsTnlJ78SbFUSXGUWqTW3
+         BZ1esmqJzA12nSXJ4JN1Q2Lzx4mXfto8WlXpJQXi+aRjiVoIhi50gPWEKwHEXKnpgLl0
+         Is6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715131498; x=1715736298;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IhsVJPabx4zntlcqdXyDkSXBtwoq5OQdKJovK8JOcUw=;
-        b=CQaie7YPSF5Kl6MQHCOIMJxBpeJQ8Oe6A9zS01WY0WB/CHPP2JoVLrHW4mMJ3rFG9N
-         tAPAazCHtOxlWEfNbVpocyNJKPBOAf2N7QVZzetkpsU2JjSnhbuBKxl1bKKdSJjfyCdZ
-         sAyMJsZHJZPH96mNDN66UYh9np5JjmND5dTbzVRHjqAkDHLK9ZKTbor/20hxrBV+A6Jx
-         OIhihXvgNgiWpqyKxa53blNAUbcAYyS3/gI2pH9B+6gqKPanPgpitNMyUOFQjWKHQG61
-         +tx4hg8x3PXm8jFT4V7jFJjh6q8da7E2SBt4eT01dhETUCx8n1S7xqxO5zdijAOj7weK
-         RWxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCURjHoQ77THUZgmDBujpX+z/LWFLGvenOVQvs0bHEfTivrKb2N2Ou7eQYSynIDpkM4X6XJEASL5dg1H00nmueSYKN7ggiYmLGeZEArMcyes
-X-Gm-Message-State: AOJu0YzgUXWxJEz0Ja0OmHDcIfUy9mQE9CJ8cLz5Y0eFT30SWGYptBKq
-	ApeC7tbBBbSAC6uvE4pEXjZ+u29hL+38y3OIiZD1gLdBy/rPBbw9z05QycmicxI=
-X-Google-Smtp-Source: AGHT+IGxrKToRQGeaQOwoFRE1tTJUZMCY6maIjnf3I2s/xOfXSlGbLBrlOsT6whlD51sZanOujXO3g==
-X-Received: by 2002:a05:6a20:7f9d:b0:1ad:7e4d:2ea6 with SMTP id adf61e73a8af0-1afc8d39d69mr1707444637.20.1715131497690;
-        Tue, 07 May 2024 18:24:57 -0700 (PDT)
-Received: from ghost ([2601:647:5700:6860:cc75:5174:3d13:7280])
-        by smtp.gmail.com with ESMTPSA id y9-20020a17090a1f4900b002b15a672805sm191510pjy.23.2024.05.07.18.24.56
+        d=1e100.net; s=20230601; t=1715132200; x=1715737000;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+7QlTjnxppzA5Udx+bzDo8JE3hSKFTseR43SNN1UptE=;
+        b=apzXAm7MPseqrKv5o5kXBXrRFkyv+ZoAJzClwjKsRoFIKdH5JV88GKFonjxC6Nzlr7
+         Mr14ysCoKR4R/kbgiWZlaRa8kPGXclMoACV7FcBNjS6myY7mCNxuqShc8gU9R07Gl9i7
+         QRDvTJSxWJKq7JfILOzB3m6kJ2Yf3XQUpd1TbvbQe/drSNvDEidkCP43qdK8DCorvMxc
+         /YS2F8+JfEQZ0fhK32+Jxr9Qop1/0wkYLyJXXZu470z3VWycFIytxnt6oOziipLJYoaY
+         FxCLdYMDbpn0kgw0wHBLerx3ZYevulsryNsdF/DfeqOQMjBLrwgxWWaNrM+JDAzIsuuB
+         M8kA==
+X-Gm-Message-State: AOJu0Yxfgh6dkxN+q5LNtvie1tsd56RgdcoX2s2SlUBH3VRYzESXs1yS
+	TakCo1QLfY8aXjA6EZ35IfVSbaJPvLX18L/6r0HRX/PO3PLpxFs70wcmh67prDg=
+X-Google-Smtp-Source: AGHT+IGBUMwgwED594JfXAPKf75mxxw8xGyD68Kq1T2yA2i8v2BD/Iit1PYfzguaf0S8GcMHvm4ZFA==
+X-Received: by 2002:a17:90a:d790:b0:2af:33a6:f820 with SMTP id 98e67ed59e1d1-2b611378d9fmr1997613a91.1.1715132200272;
+        Tue, 07 May 2024 18:36:40 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2b62863a265sm171994a91.10.2024.05.07.18.36.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 May 2024 18:24:57 -0700 (PDT)
-Date: Tue, 7 May 2024 18:24:55 -0700
+        Tue, 07 May 2024 18:36:39 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Song Liu <song@kernel.org>, Xi Wang <xi.wang@gmail.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 4/8] riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_SVPBMT
- Kconfig option
-Message-ID: <ZjrUZ9y45zL7yqex@ghost>
-References: <20240506-compile_kernel_with_extensions-v1-0-5c25c134c097@rivosinc.com>
- <20240506-compile_kernel_with_extensions-v1-4-5c25c134c097@rivosinc.com>
- <11F5B269-05DD-448E-9F85-878E84A5654F@jrtc27.com>
- <ZjqRcsheypWX14yy@ghost>
+Subject: [PATCH v2 0/8] riscv: Support compiling the kernel with more
+ extensions
+Date: Tue, 07 May 2024 18:36:26 -0700
+Message-Id: <20240507-compile_kernel_with_extensions-v2-0-722c21c328c6@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZjqRcsheypWX14yy@ghost>
+X-B4-Tracking: v=1; b=H4sIABrXOmYC/4WNUQ6CMBBEr0L225qyUA1+cQ9DiGlX2YgtaUnFk
+ N7dggfw801m3qwQyDMFuBQreIoc2NkMeChADzf7IMEmM6DEWtbYCO1eE4/UP8lbGvs3z0NPy0x
+ 2WwbRoDG5WZkKFWTJ5OnOy35w7TIPHGbnP/tfLLf0p1by9E8dSyGF0qh0WdVaNufWc3SBrT7mJ
+ XQppS+UkX6CzwAAAA==
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor.dooley@microchip.com>, Song Liu <song@kernel.org>, 
+ Xi Wang <xi.wang@gmail.com>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
+ =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
+ Jessica Clarke <jrtc27@jrtc27.com>, Andy Chiu <andy.chiu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1715132198; l=3278;
+ i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
+ bh=JLgbatqmIExlBnuCq3aANbOE8Onz3/4vLKRdWZjAJIg=;
+ b=KiyA7L0KVvS1JXAVEqaLEplXpWMoEL9cajQs3TtOugD7mQ62ZP7TAKqfmSj3ujpal1dMogWjs
+ utnjYrKD1D3Bkd7DacIU9Ge0j4MDOYapJ08pOkqHW8T3bLIMCqV5aoC
+X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
+ pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240507_182500_151158_20DF0861 
-X-CRM114-Status: GOOD (  34.70  )
+X-CRM114-CacheID: sfid-20240507_183642_587554_1D9914A8 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,76 +102,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXkgMDcsIDIwMjQgYXQgMDE6Mzk6MTRQTSAtMDcwMCwgQ2hhcmxpZSBKZW5raW5z
-IHdyb3RlOgo+IE9uIFR1ZSwgTWF5IDA3LCAyMDI0IGF0IDA2OjQwOjUyQU0gKzAxMDAsIEplc3Np
-Y2EgQ2xhcmtlIHdyb3RlOgo+ID4gT24gNyBNYXkgMjAyNCwgYXQgMDI6NDAsIENoYXJsaWUgSmVu
-a2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+IHdyb3RlOgo+ID4gPiAKPiA+ID4gU3ZwYm10IHdv
-dWxkIG5vdCBiZW5lZml0IGZyb20gaGF2aW5nIFBMQVRGT1JNX1NVUFBPUlRTX1JJU0NWX0lTQV9T
-VlBCTVQKPiA+ID4gc28ganVzdCByZW5hbWUgUklTQ1ZfSVNBX1NWUEJNVCB0byBQTEFURk9STV9N
-QVlfU1VQUE9SVF9SSVNDVl9JU0FfU1ZQQk1UCj4gPiA+IGFuZCBtb3ZlIHRoZSBkZWZpbml0aW9u
-IHRvIEtjb25maWcuaXNhLgo+ID4gPiAKPiA+ID4gU2lnbmVkLW9mZi1ieTogQ2hhcmxpZSBKZW5r
-aW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4KPiA+ID4gLS0tCj4gPiA+IGFyY2gvcmlzY3YvS2Nv
-bmZpZyAgICAgfCAxNyAtLS0tLS0tLS0tLS0tLS0tLQo+ID4gPiBhcmNoL3Jpc2N2L0tjb25maWcu
-aXNhIHwgMTcgKysrKysrKysrKysrKysrKysKPiA+ID4gMiBmaWxlcyBjaGFuZ2VkLCAxNyBpbnNl
-cnRpb25zKCspLCAxNyBkZWxldGlvbnMoLSkKPiA+ID4gCj4gPiA+IGRpZmYgLS1naXQgYS9hcmNo
-L3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiA+ID4gaW5kZXggOWMzYTQzNDc5
-NTNiLi4yMjMwM2EzYWI1OWUgMTAwNjQ0Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+
-ID4gPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiA+ID4gQEAgLTQ4NCwyMyArNDg0LDYgQEAg
-Y29uZmlnIFJJU0NWX0FMVEVSTkFUSVZFX0VBUkxZCj4gPiA+IGhlbHAKPiA+ID4gIEFsbG93cyBl
-YXJseSBwYXRjaGluZyBvZiB0aGUga2VybmVsIGZvciBzcGVjaWFsIGVycmF0YQo+ID4gPiAKPiA+
-ID4gLWNvbmZpZyBSSVNDVl9JU0FfU1ZQQk1UCj4gPiA+IC0gYm9vbCAiU3ZwYm10IGV4dGVuc2lv
-biBzdXBwb3J0IGZvciBzdXBlcnZpc29yIG1vZGUgcGFnZS1iYXNlZCBtZW1vcnkgdHlwZXMiCj4g
-PiA+IC0gZGVwZW5kcyBvbiA2NEJJVCAmJiBNTVUKPiA+ID4gLSBkZXBlbmRzIG9uIFJJU0NWX0FM
-VEVSTkFUSVZFCj4gPiA+IC0gZGVmYXVsdCB5Cj4gPiA+IC0gaGVscAo+ID4gPiAtICAgQWRkIHN1
-cHBvcnQgZm9yIHRoZSBTdnBibXQgSVNBLWV4dGVuc2lvbiAoU3VwZXJ2aXNvci1tb2RlOgo+ID4g
-PiAtICAgcGFnZS1iYXNlZCBtZW1vcnkgdHlwZXMpIGluIHRoZSBrZXJuZWwgd2hlbiBpdCBpcyBk
-ZXRlY3RlZCBhdCBib290Lgo+ID4gPiAtCj4gPiA+IC0gICBUaGUgbWVtb3J5IHR5cGUgZm9yIGEg
-cGFnZSBjb250YWlucyBhIGNvbWJpbmF0aW9uIG9mIGF0dHJpYnV0ZXMKPiA+ID4gLSAgIHRoYXQg
-aW5kaWNhdGUgdGhlIGNhY2hlYWJpbGl0eSwgaWRlbXBvdGVuY3ksIGFuZCBvcmRlcmluZwo+ID4g
-PiAtICAgcHJvcGVydGllcyBmb3IgYWNjZXNzIHRvIHRoYXQgcGFnZS4KPiA+ID4gLQo+ID4gPiAt
-ICAgVGhlIFN2cGJtdCBleHRlbnNpb24gaXMgb25seSBhdmFpbGFibGUgb24gNjQtYml0IGNwdXMu
-Cj4gPiA+IC0KPiA+ID4gLSAgIElmIHlvdSBkb24ndCBrbm93IHdoYXQgdG8gZG8gaGVyZSwgc2F5
-IFkuCj4gPiA+IC0KPiA+ID4gY29uZmlnIFRPT0xDSEFJTl9IQVNfWkJCCj4gPiA+IGJvb2wKPiA+
-ID4gZGVmYXVsdCB5Cj4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcuaXNhIGIv
-YXJjaC9yaXNjdi9LY29uZmlnLmlzYQo+ID4gPiBpbmRleCAzNzU4NWJjZDc2M2UuLjUwZTIxN2Rj
-NTcxOSAxMDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnLmlzYQo+ID4gPiArKysg
-Yi9hcmNoL3Jpc2N2L0tjb25maWcuaXNhCj4gPiA+IEBAIC0xNjgsMyArMTY4LDIwIEBAIGNvbmZp
-ZyBQTEFURk9STV9TVVBQT1JUU19SSVNDVl9JU0FfU1ZOQVBPVAo+ID4gPiAgbm90IHN1cHBvcnQg
-U3ZuYXBvdC4KPiA+ID4gCj4gPiA+IGVuZGNob2ljZQo+ID4gPiArCj4gPiA+ICtjb25maWcgUklT
-Q1ZfSVNBX1NWUEJNVAo+ID4gCj4gPiBIaSBDaGFybGllLAo+ID4gRGVzcGl0ZSB0aGUgc3ViamVj
-dCBhbmQgYm9keSB5b3UgaGF2ZW7igJl0IHJlbmFtZWQgaXQgaW4gdGhpcyBwYXRjaD8KPiAKPiBJ
-IGRpZG4ndCBkbyBhIGdvb2Qgam9iIGF0IGV4cGxhaW5pbmcgZXhhY3RseSB3aGF0J3MgaGFwcGVu
-aW5nIGhlcmUuIFRoZQo+IGNvbmZpZyBvcHRpb24gIlBMQVRGT1JNX01BWV9TVVBQT1JUX1JJU0NW
-X0lTQV9TVlBCTVQiIG1vc3QgY2xvc2VseQo+IGZvbGxvd3MgdGhlIHNlbWFudGljcyBvZiB3aGF0
-ICJSSVNDVl9JU0FfU1ZQQk1UIiBwcmV2aW91c2x5IHdhcy4gVGhpcwo+IHBhdGNoIGNoYW5nZXMg
-IlJJU0NWX0lTQV9TVlBCTVQiIHRvIG1lYW4gdGhhdCBlaXRoZXIKPiBQTEFURk9STV9NQVlfU1VQ
-UE9SVF9SSVNDVl9JU0FfU1ZQQk1UIG9yCj4gUExBVEZPUk1fU1VQUE9SVFNfUklTQ1ZfSVNBX1NW
-TkFQT1Qgd2FzIHNlbGVjdGVkLgoKRGlzcmVnYXJkIHdoYXQgSSBzYWlkLi4uIEkgd2FzIHRoaW5r
-aW5nIGFib3V0IHRoZSBvdGhlciBleHRlbnNpb25zIGFuZApmb3Jnb3QgdGhpcyBvbmUgd2FzIGRp
-ZmZlcmVudC4gVGhhbmsgeW91IGZvciBwb2ludGluZyB0aGlzIG91dCEgSSBuZWVkCnRvIGNoYW5n
-ZSB0aGlzIGRlc2NyaXB0aW9uIHRvIGp1c3Qgc2F5IHRoYXQgdGhlIGRlZmluaXRpb24gbW92ZWQg
-dG8KS2NvbmZpZy5pc2EuCgotIENoYXJsaWUKCj4gCj4gLSBDaGFybGllCj4gCj4gPiAKPiA+IEpl
-c3MKPiA+IAo+ID4gPiArIGJvb2wgIlN2cGJtdCBleHRlbnNpb24gc3VwcG9ydCBmb3Igc3VwZXJ2
-aXNvciBtb2RlIHBhZ2UtYmFzZWQgbWVtb3J5IHR5cGVzIgo+ID4gPiArIGRlcGVuZHMgb24gNjRC
-SVQgJiYgTU1VCj4gPiA+ICsgZGVwZW5kcyBvbiBSSVNDVl9BTFRFUk5BVElWRQo+ID4gPiArIGRl
-ZmF1bHQgeQo+ID4gPiArIGhlbHAKPiA+ID4gKyAgIEFkZCBzdXBwb3J0IGZvciB0aGUgU3ZwYm10
-IElTQS1leHRlbnNpb24gKFN1cGVydmlzb3ItbW9kZToKPiA+ID4gKyAgIHBhZ2UtYmFzZWQgbWVt
-b3J5IHR5cGVzKSBpbiB0aGUga2VybmVsIHdoZW4gaXQgaXMgZGV0ZWN0ZWQgYXQgYm9vdC4KPiA+
-ID4gKwo+ID4gPiArICAgVGhlIG1lbW9yeSB0eXBlIGZvciBhIHBhZ2UgY29udGFpbnMgYSBjb21i
-aW5hdGlvbiBvZiBhdHRyaWJ1dGVzCj4gPiA+ICsgICB0aGF0IGluZGljYXRlIHRoZSBjYWNoZWFi
-aWxpdHksIGlkZW1wb3RlbmN5LCBhbmQgb3JkZXJpbmcKPiA+ID4gKyAgIHByb3BlcnRpZXMgZm9y
-IGFjY2VzcyB0byB0aGF0IHBhZ2UuCj4gPiA+ICsKPiA+ID4gKyAgIFRoZSBTdnBibXQgZXh0ZW5z
-aW9uIGlzIG9ubHkgYXZhaWxhYmxlIG9uIDY0LWJpdCBjcHVzLgo+ID4gPiArCj4gPiA+ICsgICBJ
-ZiB5b3UgZG9uJ3Qga25vdyB3aGF0IHRvIGRvIGhlcmUsIHNheSBZLgo+ID4gPiAKPiA+ID4gLS0g
-Cj4gPiA+IDIuNDQuMAo+ID4gPiAKPiA+ID4gCj4gPiA+IF9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCj4gPiA+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+
-ID4gPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gPiA+IGh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKPiA+IAoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+The kernel currently has the restriction that it can only be compiled
+with the extensions that are hardcoded in arch/risc/Makefile.
+
+Any extension that is not listed in the Makefile can still be used by
+explicitly writing the assembly and using alternative patching.
+
+This series introduces Kconfig options that allow the kernel to be
+compiled with additional extensions.
+
+The motivation for this patch is the performance improvements that come
+along with compiling the kernel with these extra instructions. Allowing
+the compiler to emit arbitrary Zb* instructions achieves a 4.9%
+reduction of dynamic instruction count for a test ran in Spike that
+boots the kernel and runs a user space program that prints to the
+console.
+
+Additionally, alternatives that check if an extension is supported can
+be eliminated when the Kconfig options to assume hardware support is
+enabled.
+
+This series is based on the wording changes from Conor in:
+
+https://lore.kernel.org/lkml/20240424-tabby-plural-5f1d9fe44f47@spud/T/
+
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+Changes in v2:
+- Eliminate references to incorrect config in Svpbmt patch (Jess)
+- Add motivation to cover letter (Conor)
+- Remove "v" from march
+- Correct the ifdef for vector
+- Correct the ifdef for Svnapot
+- Link to v1: https://lore.kernel.org/r/20240506-compile_kernel_with_extensions-v1-0-5c25c134c097@rivosinc.com
+
+---
+Charlie Jenkins (8):
+      riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_C Kconfig option
+      riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_V Kconfig option
+      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_SVNAPOT Kconfig option
+      riscv: Move RISCV_ISA_SVPBMT to Kconfig.isa
+      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBB Kconfig option
+      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBA Kconfig option
+      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBC Kconfig option
+      riscv: Add PLATFORM_SUPPORTS_RISCV_ISA_ZBS Kconfig option
+
+ arch/riscv/Kconfig                    | 133 +-----------
+ arch/riscv/Kconfig.isa                | 393 ++++++++++++++++++++++++++++++++++
+ arch/riscv/Makefile                   |  14 +-
+ arch/riscv/crypto/Kconfig             |  14 +-
+ arch/riscv/include/asm/arch_hweight.h |  33 +--
+ arch/riscv/include/asm/checksum.h     |  18 +-
+ arch/riscv/include/asm/pgtable.h      |   3 +-
+ arch/riscv/include/asm/simd.h         |   3 +
+ arch/riscv/include/asm/vector.h       |   3 +-
+ arch/riscv/kernel/cpufeature.c        |   3 +-
+ arch/riscv/kernel/head.S              |   8 +-
+ arch/riscv/kernel/probes/uprobes.c    |   2 +-
+ arch/riscv/kernel/process.c           |  12 +-
+ arch/riscv/kernel/ptrace.c            |   6 +
+ arch/riscv/lib/csum.c                 |  48 ++---
+ arch/riscv/lib/riscv_v_helpers.c      |   1 -
+ arch/riscv/lib/strcmp.S               |   4 +-
+ arch/riscv/lib/strlen.S               |   4 +-
+ arch/riscv/lib/strncmp.S              |   4 +-
+ arch/riscv/lib/uaccess_vector.S       |   2 +
+ arch/riscv/lib/xor.S                  |   2 +
+ arch/riscv/net/bpf_jit.h              |   8 +-
+ 22 files changed, 509 insertions(+), 209 deletions(-)
+---
+base-commit: 2f47357557b7aa98d9d9002688aae480864ca3f6
+change-id: 20240429-compile_kernel_with_extensions-92dd2403d325
+-- 
+- Charlie
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
