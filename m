@@ -4,101 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5791C25B4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 19:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3D3C04FFE
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 20:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nv376o1oMTUklyTjIvvNFVZ5ZSgtxvS5KO7A2V69rCg=; b=h6MpKCsuzWj3+h
-	mL8CxlkMoDghG9wreNjRrMWH/YJQe6tcuHWqVcu2HJgbjk1nVt3S3l20G9ueJFQ0HGMcq8uq9gtgH
-	pXdlCoO8lqJYVELXENGxdPfdExZZXBeafSiwfoYVTaSwsbcj7gz7SuhJXto2SyUnsM2lcfiYKkzx6
-	Lm7sdVXFSzzZYVZ9h770LK8ibDZJeFlWzUkLW/b9jbmo95G5QeNoGNtEIMnqm8pgLa7Cx0BZCoBAt
-	2ORslm0JVVGfCjdTEXX1iou9DGbhIH8LKZ7mW47CqYec1l07pp1SAyDLuUZEIAVVc2BSzphYDKK79
-	8tKbqpyoQTRIFq74GyHA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=Z9VLY6UEG707cFgsG73RykxJf54JR3ao3ux5riQlTd0=; b=tQ6
+	to9SjszVVos3YVmfjK/ElF7yjWoW/qqKTH53yQmNYkQ2tQYbXPWUHTmEXVhWjLaMJdeihZJQyBxDr
+	x7+b0FyGPQErTwvsC5POwpuTZlGc4y4Uz79Xbn2jJOIY6yAth0BHC9wKwH9seOJpAJ0T/1l5r7N+t
+	prdeyj15hEurFDWoOj1FdgfnKOrGP5njUOUucXBft0BELerjneygpLDBM1XXfKSEc08MqVMiF3t0U
+	FRx3Tt0Ewr3KQUvXi1tw78qHniJX6k9dLJFdpVMCf2njYopPQWI5wIDviiygVOXsTG7OvQ4LmSarw
+	2QYSMwFKih8L/9Wq0j9xg3C0qqX3nIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4n1B-0000000GlIS-31Hj;
-	Wed, 08 May 2024 19:31:57 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1s4nfv-0000000Gqrv-40Xe;
+	Wed, 08 May 2024 20:14:03 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4n17-0000000GlFO-0H1V
+	id 1s4nfs-0000000GqrE-2lpm
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 19:31:54 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-34dc9065606so68229f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 12:31:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715196710; x=1715801510; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3Mj4lZQ0sNzizek27x00kn2/PQ3ffbB6QFBBUZYNyzk=;
-        b=s0ocXD7GCjzWOGRkHWVK0cYoCtGsslAovNUb31+56j3pRTyxD1esrjxlQ2+cxbTH7b
-         i9Dh0nqXShbRArkq/5YuDAhT7ijBek/1HOM8VBRX8ZKYjwZE292Pk/xY0uEYTs5JBppK
-         fDkbZqqMSn6tj+VFT+6g7qazMdLbJ+kU3BFEMJedPQuQZkpBzEcf2nkhIXIQnkRS7INB
-         e+D2ZdCBkp8JyWBycUEzX5NMoPNc7RDTe7DF57nMW/BVsZF+ccw8rcZMvl5Hk3Ch7Z06
-         vRTkdUsM54tae4k6n1ofFLNCOQiGALKWWnMWD9EjV7vESofSsQq+RfnAO98wugVExXdz
-         VYYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715196710; x=1715801510;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3Mj4lZQ0sNzizek27x00kn2/PQ3ffbB6QFBBUZYNyzk=;
-        b=SGs+4GIXf1ku9RjSE21V6OgbY7wCiamTCsowpJc+f6YqZJIOCeoEdyRrzAdqfSo9L3
-         N2RaBeNFMq7kF1JGMf9iq+sEaK6WAur4PmsnSFgW2mSDysjA02NEihkDx2mB1mqI6ipT
-         rpfm8K+HlTaIzBtCZ1qF1nPlnnpFNm8mM/Pwpvj9RuoQU00PReVpIRU2XwIsvIXgcYYu
-         pU+d8Zj507TCQnGIQjn6BBrKaBPpYHRbr+43pzKBd51Pcjq50RpKK/W6YMzAZdqYv7Rk
-         Qo7GmPZLiH6lf9GS3mbod5CT4eqldX0J711LPh/qB2IzjCGMED8JQS96QGp7Cdakzc/0
-         Tluw==
-X-Forwarded-Encrypted: i=1; AJvYcCXthtDYVSWeiprKxIrEvvy80VJNyvZurDL5D/H2BB4XXTiBTVCDdwUReay4jmv4GiLdIDc/wMC+pg0u95/fMWwTcXxwJJ28tFjBJV99jfJ6
-X-Gm-Message-State: AOJu0Ywc+9shG04Oz1/Qzrf4G+j5C+I1VY2LYtcClc/ZxPFNCCAuMszh
-	HsIIlwe5ZST7fgNuL4TmjJEgaJatLNWxfebsFMDad4tSJe1+w1DZ1YKAkkCAH6Q=
-X-Google-Smtp-Source: AGHT+IGynnks5bQyXkefndTUc8PNt1+uZJK8w5+sVciCnroxfstzlHH5YDMjCv7Za3kPs8Z2dwdXzA==
-X-Received: by 2002:adf:fe8a:0:b0:34c:fd92:3359 with SMTP id ffacd0b85a97d-350185d57e7mr489056f8f.21.1715196709811;
-        Wed, 08 May 2024 12:31:49 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id s2-20020a5d4242000000b003472489d26fsm15924162wrr.19.2024.05.08.12.31.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 May 2024 12:31:49 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Ryan Roberts <ryan.roberts@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Alexander Potapenko <glider@google.com>,
-	Marco Elver <elver@google.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-mm@kvack.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH 12/12] mm, riscv, arm64: Use common get_and_clear_full_ptes()/clear_full_ptes() functions
-Date: Wed,  8 May 2024 21:19:31 +0200
-Message-Id: <20240508191931.46060-13-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20240508191931.46060-1-alexghiti@rivosinc.com>
-References: <20240508191931.46060-1-alexghiti@rivosinc.com>
+	Wed, 08 May 2024 20:14:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 487B4CE1A2E
+	for <linux-riscv@lists.infradead.org>; Wed,  8 May 2024 20:13:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4694C113CC;
+	Wed,  8 May 2024 20:13:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1715199237;
+	bh=TU+XskjpMH/W29fIjZitPeykjM+cnjdakCXTCjOr550=;
+	h=Date:From:List-Id:To:Cc:Subject:From;
+	b=A75mbKb/aiiHxmU1Up8YMXFXApkc0ZC7IR5+Plz9JBqsZEqNTGXtbPZ82tGmHDRDN
+	 BW7BcKpzYlo7+j1jb1TbW6zDgu3M+9s0xQVDTTaOG6gl7LhhCSgB09lJgUuIxL2c6W
+	 4VBFKTRIRuK85b1c4fIgRKo/HDMJcC6cpEZnowwqeJYWqwhZEf5yP+m1w3D3NyOTdn
+	 lNO70RGRb4daWRzIBMhTe6GgzUH0+8PTrQ0Knce0GK+qpk9TcveOHq+K4EoPO4xufo
+	 a2t244kix9f4xDilFEr/nHhD9gz1nJdE/mq85AijDXX8nKjgqgrxlBRR1vG8in6cyG
+	 Jfg3SKTYtZWyg==
+Date: Wed, 8 May 2024 21:13:54 +0100
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V Devicetrees for v6.10 Take 2
+Message-ID: <20240508-crafter-cement-4f54e4182270@spud>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_123153_164456_9D616DE4 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20240508_131401_087868_39CD05C5 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,298 +63,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6777856618350427530=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make riscv use the contpte aware get_and_clear_full_ptes()/clear_full_ptes()
-function from arm64.
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/arm64/include/asm/pgtable.h | 41 ++++------------------------
- arch/arm64/mm/Makefile           |  1 -
- arch/arm64/mm/contpte.c          | 46 -------------------------------
- arch/riscv/include/asm/pgtable.h | 39 ++++++++++++++++++++++++++
- include/linux/contpte.h          |  5 ++++
- mm/contpte.c                     | 47 ++++++++++++++++++++++++++++++++
- 6 files changed, 96 insertions(+), 83 deletions(-)
- delete mode 100644 arch/arm64/mm/contpte.c
+--===============6777856618350427530==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="K3O2MsiTfJ8u8tPf"
+Content-Disposition: inline
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 162efd9647dd..f8a3159f9df0 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1373,17 +1373,6 @@ extern void ptep_modify_prot_commit(struct vm_area_struct *vma,
- 
- #ifdef CONFIG_THP_CONTPTE
- 
--/*
-- * The contpte APIs are used to transparently manage the contiguous bit in ptes
-- * where it is possible and makes sense to do so. The PTE_CONT bit is considered
-- * a private implementation detail of the public ptep API (see below).
-- */
--extern void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
--				pte_t *ptep, unsigned int nr, int full);
--extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
--				unsigned long addr, pte_t *ptep,
--				unsigned int nr, int full);
--
- #define pte_batch_hint pte_batch_hint
- static inline unsigned int pte_batch_hint(pte_t *ptep, pte_t pte)
- {
-@@ -1428,34 +1417,14 @@ extern void pte_clear(struct mm_struct *mm,
- 		      unsigned long addr, pte_t *ptep);
- #define pte_clear pte_clear
- 
-+extern void clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-+			    pte_t *ptep, unsigned int nr, int full);
- #define clear_full_ptes clear_full_ptes
--static inline void clear_full_ptes(struct mm_struct *mm, unsigned long addr,
--				pte_t *ptep, unsigned int nr, int full)
--{
--	if (likely(nr == 1)) {
--		contpte_try_unfold(mm, addr, ptep, __ptep_get(ptep));
--		__clear_full_ptes(mm, addr, ptep, nr, full);
--	} else {
--		contpte_clear_full_ptes(mm, addr, ptep, nr, full);
--	}
--}
- 
-+extern pte_t get_and_clear_full_ptes(struct mm_struct *mm,
-+				     unsigned long addr, pte_t *ptep,
-+				     unsigned int nr, int full);
- #define get_and_clear_full_ptes get_and_clear_full_ptes
--static inline pte_t get_and_clear_full_ptes(struct mm_struct *mm,
--				unsigned long addr, pte_t *ptep,
--				unsigned int nr, int full)
--{
--	pte_t pte;
--
--	if (likely(nr == 1)) {
--		contpte_try_unfold(mm, addr, ptep, __ptep_get(ptep));
--		pte = __get_and_clear_full_ptes(mm, addr, ptep, nr, full);
--	} else {
--		pte = contpte_get_and_clear_full_ptes(mm, addr, ptep, nr, full);
--	}
--
--	return pte;
--}
- 
- #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
- extern pte_t ptep_get_and_clear(struct mm_struct *mm,
-diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
-index 52a1b2082627..dbd1bc95967d 100644
---- a/arch/arm64/mm/Makefile
-+++ b/arch/arm64/mm/Makefile
-@@ -3,7 +3,6 @@ obj-y				:= dma-mapping.o extable.o fault.o init.o \
- 				   cache.o copypage.o flush.o \
- 				   ioremap.o mmap.o pgd.o mmu.o \
- 				   context.o proc.o pageattr.o fixmap.o
--obj-$(CONFIG_THP_CONTPTE)	+= contpte.o
- obj-$(CONFIG_HUGETLB_PAGE)	+= hugetlbpage.o
- obj-$(CONFIG_PTDUMP_CORE)	+= ptdump.o
- obj-$(CONFIG_PTDUMP_DEBUGFS)	+= ptdump_debugfs.o
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-deleted file mode 100644
-index 1cef93b15d6e..000000000000
---- a/arch/arm64/mm/contpte.c
-+++ /dev/null
-@@ -1,46 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * Copyright (C) 2023 ARM Ltd.
-- */
--
--#include <linux/mm.h>
--#include <linux/efi.h>
--#include <linux/export.h>
--#include <asm/tlbflush.h>
--
--static void contpte_try_unfold_partial(struct mm_struct *mm, unsigned long addr,
--					pte_t *ptep, unsigned int nr)
--{
--	/*
--	 * Unfold any partially covered contpte block at the beginning and end
--	 * of the range.
--	 */
--
--	if (ptep != arch_contpte_align_down(ptep) || nr < CONT_PTES)
--		contpte_try_unfold(mm, addr, ptep, __ptep_get(ptep));
--
--	if (ptep + nr != arch_contpte_align_down(ptep + nr)) {
--		unsigned long last_addr = addr + PAGE_SIZE * (nr - 1);
--		pte_t *last_ptep = ptep + nr - 1;
--
--		contpte_try_unfold(mm, last_addr, last_ptep,
--				   __ptep_get(last_ptep));
--	}
--}
--
--void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
--				pte_t *ptep, unsigned int nr, int full)
--{
--	contpte_try_unfold_partial(mm, addr, ptep, nr);
--	__clear_full_ptes(mm, addr, ptep, nr, full);
--}
--EXPORT_SYMBOL_GPL(contpte_clear_full_ptes);
--
--pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
--				unsigned long addr, pte_t *ptep,
--				unsigned int nr, int full)
--{
--	contpte_try_unfold_partial(mm, addr, ptep, nr);
--	return __get_and_clear_full_ptes(mm, addr, ptep, nr, full);
--}
--EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 728f31da5e6a..a4843bdfdb37 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -754,6 +754,37 @@ static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
- 	return pte;
- }
- 
-+static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-+				     pte_t *ptep, unsigned int nr, int full)
-+{
-+	for (;;) {
-+		__ptep_get_and_clear(mm, addr, ptep);
-+		if (--nr == 0)
-+			break;
-+		ptep++;
-+		addr += PAGE_SIZE;
-+	}
-+}
-+
-+static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
-+					      unsigned long addr, pte_t *ptep,
-+					      unsigned int nr, int full)
-+{
-+	pte_t pte, tmp_pte;
-+
-+	pte = __ptep_get_and_clear(mm, addr, ptep);
-+	while (--nr) {
-+		ptep++;
-+		addr += PAGE_SIZE;
-+		tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
-+		if (pte_dirty(tmp_pte))
-+			pte = pte_mkdirty(pte);
-+		if (pte_young(tmp_pte))
-+			pte = pte_mkyoung(pte);
-+	}
-+	return pte;
-+}
-+
- static inline void __ptep_set_wrprotect(struct mm_struct *mm,
- 					unsigned long address, pte_t *ptep,
- 					pte_t pte)
-@@ -823,6 +854,13 @@ extern void ptep_set_wrprotect(struct mm_struct *mm,
- extern void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
- 			   pte_t *ptep, unsigned int nr);
- #define wrprotect_ptes	wrprotect_ptes
-+extern void clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-+			    pte_t *ptep, unsigned int nr, int full);
-+#define clear_full_ptes	clear_full_ptes
-+extern pte_t get_and_clear_full_ptes(struct mm_struct *mm,
-+				     unsigned long addr, pte_t *ptep,
-+				     unsigned int nr, int full);
-+#define get_and_clear_full_ptes	get_and_clear_full_ptes
- 
- #else /* CONFIG_THP_CONTPTE */
- 
-@@ -842,6 +880,7 @@ extern void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
- #define ptep_set_wrprotect(mm, addr, ptep)					\
- 			__ptep_set_wrprotect(mm, addr, ptep, __ptep_get(ptep))
- #define wrprotect_ptes		__wrprotect_ptes
-+#define clear_full_ptes		__clear_full_ptes
- 
- #endif /* CONFIG_THP_CONTPTE */
- 
-diff --git a/include/linux/contpte.h b/include/linux/contpte.h
-index d1439db1706c..b24554ebca41 100644
---- a/include/linux/contpte.h
-+++ b/include/linux/contpte.h
-@@ -28,5 +28,10 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
- 				  pte_t entry, int dirty);
- void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
- 			    pte_t *ptep, unsigned int nr);
-+void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-+			     pte_t *ptep, unsigned int nr, int full);
-+pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
-+				      unsigned long addr, pte_t *ptep,
-+				      unsigned int nr, int full);
- 
- #endif /* _LINUX_CONTPTE_H */
-diff --git a/mm/contpte.c b/mm/contpte.c
-index fe36b6b1d20a..677344e0e3c3 100644
---- a/mm/contpte.c
-+++ b/mm/contpte.c
-@@ -51,6 +51,8 @@
-  *   - ptep_clear_flush_young()
-  *   - wrprotect_ptes()
-  *   - ptep_set_wrprotect()
-+ *   - clear_full_ptes()
-+ *   - get_and_clear_full_ptes()
-  */
- 
- pte_t huge_ptep_get(pte_t *ptep)
-@@ -905,4 +907,49 @@ __always_inline void ptep_set_wrprotect(struct mm_struct *mm,
- {
- 	wrprotect_ptes(mm, addr, ptep, 1);
- }
-+
-+void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-+			     pte_t *ptep, unsigned int nr, int full)
-+{
-+	contpte_try_unfold_partial(mm, addr, ptep, nr);
-+	__clear_full_ptes(mm, addr, ptep, nr, full);
-+}
-+EXPORT_SYMBOL_GPL(contpte_clear_full_ptes);
-+
-+pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
-+				      unsigned long addr, pte_t *ptep,
-+				      unsigned int nr, int full)
-+{
-+	contpte_try_unfold_partial(mm, addr, ptep, nr);
-+	return __get_and_clear_full_ptes(mm, addr, ptep, nr, full);
-+}
-+EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
-+
-+__always_inline void clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-+				     pte_t *ptep, unsigned int nr, int full)
-+{
-+	if (likely(nr == 1)) {
-+		contpte_try_unfold(mm, addr, ptep, __ptep_get(ptep));
-+		__clear_full_ptes(mm, addr, ptep, nr, full);
-+	} else {
-+		contpte_clear_full_ptes(mm, addr, ptep, nr, full);
-+	}
-+}
-+
-+__always_inline pte_t get_and_clear_full_ptes(struct mm_struct *mm,
-+					      unsigned long addr, pte_t *ptep,
-+					      unsigned int nr, int full)
-+{
-+	pte_t pte;
-+
-+	if (likely(nr == 1)) {
-+		contpte_try_unfold(mm, addr, ptep, __ptep_get(ptep));
-+		pte = __get_and_clear_full_ptes(mm, addr, ptep, nr, full);
-+	} else {
-+		pte = contpte_get_and_clear_full_ptes(mm, addr, ptep, nr, full);
-+	}
-+
-+	return pte;
-+}
-+
- #endif /* CONFIG_THP_CONTPTE */
--- 
-2.39.2
 
+--K3O2MsiTfJ8u8tPf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Hey Arnd,
+
+Here's a second attempt for ya.. The canaan stuff is dropped and I'll
+send it to you for 6.11 instead.
+
+Cheers,
+Conor.
+
+The following changes since commit 4cece764965020c22cff7665b18a012006359095:
+
+  Linux 6.9-rc1 (2024-03-24 14:10:05 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-for-v6.10-take2
+
+for you to fetch changes up to 1c80d50bb697f84bfbc3876e08e1a1d42bfbdddb:
+
+  riscv: dts: microchip: add pac1934 power-monitor to icicle (2024-05-07 17:14:06 +0100)
+
+----------------------------------------------------------------
+RISC-V Devicetrees for v6.10
+
+Microchip:
+A simple addition of a power-monitor on the Icicle dev board, as the
+binding for it is now in mainline.
+
+StarFive:
+Support for the Milk-V Mars. This board is incredibly similar to the
+VisionFive v2 that is already supported, with only the really ethernet
+configuration being slightly different. Emil requested that a common
+dtsi file, so my fixes branch is pulled into for-next to avoid an
+annoying conflict between moved content and some erroneously added
+nodes that were removed as fixes this cycle.
+
+T-Head:
+Re-ordering of some nodes to match the DTS coding style on the th1520.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Conor Dooley (2):
+      RISC-V: add Milkv Mars board devicetree
+      riscv: dts: microchip: add pac1934 power-monitor to icicle
+
+Hannah Peuckmann (2):
+      riscv: dts: starfive: visionfive 2: Remove non-existing TDM hardware
+      riscv: dts: starfive: visionfive 2: Remove non-existing I2S hardware
+
+Jisheng Zhang (8):
+      riscv: dts: starfive: add 'cpus' label to jh7110 and jh7100 soc dtsi
+      dt-bindings: riscv: starfive: add Milkv Mars board
+      riscv: dts: starfive: visionfive 2: update sound and codec dt node name
+      riscv: dts: starfive: visionfive 2: use cpus label for timebase freq
+      riscv: dts: starfive: visionfive 2: add tf cd-gpios
+      riscv: dts: starfive: visionfive 2: add "disable-wp" for tfcard
+      riscv: dts: starfive: introduce a common board dtsi for jh7110 based boards
+      riscv: dts: starfive: add Milkv Mars board device tree
+
+Shengyu Qu (1):
+      riscv: dts: starfive: Remove PMIC interrupt info for Visionfive 2 board
+
+Thomas Bonnefille (1):
+      riscv: dts: thead: Fix node ordering in TH1520 device tree
+
+ .../devicetree/bindings/riscv/starfive.yaml        |   1 +
+ arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts  |  32 +
+ arch/riscv/boot/dts/starfive/Makefile              |   1 +
+ arch/riscv/boot/dts/starfive/jh7100.dtsi           |   2 +-
+ arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 599 ++++++++++++++++++
+ arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts |  30 +
+ .../dts/starfive/jh7110-starfive-visionfive-2.dtsi | 683 +--------------------
+ arch/riscv/boot/dts/starfive/jh7110.dtsi           |   2 +-
+ arch/riscv/boot/dts/thead/th1520.dtsi              |  54 +-
+ 9 files changed, 693 insertions(+), 711 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
+
+--K3O2MsiTfJ8u8tPf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZjvdAgAKCRB4tDGHoIJi
+0sBcAQC7ySvcubiZQEtf9Mrrm1fNGhwbao5K/iBXy7rjQhJxywEAtgXftgRxdH2e
+FM0a5kA3a6d44ZfZR5fpj5rgUJHkoAE=
+=1OZ7
+-----END PGP SIGNATURE-----
+
+--K3O2MsiTfJ8u8tPf--
+
+
+--===============6777856618350427530==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6777856618350427530==--
+
