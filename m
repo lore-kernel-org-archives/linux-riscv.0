@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C3CCC25B4F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 07:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E567C25B4F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 07:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
 	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ojuNrpC3TD0t+8vUEuksUVF+cDhMeoOm3/YK6FA6VOE=; b=tmhbowFlIwIZb9
-	bWAKlQLWNdL7m3rsbfpLbXtkQjVXTVIu58T6iCKIF/C+Cv8KBTHpTUuYXyVAviV71fvS82q5sqFZD
-	bWaLeq0+4FynechAC7+4iVI+HFDkuuYG3wTRJ0kCiKKwwFanHFulHrvH6f6BFOr98M53g4vO0TMeA
-	o0eqeOvUqv5X4tecUdDr/TLiN0ArfPahs0MXW207k/J+GVKG86XOkrVc0QNY68xbxMZdZ5LFYJS7z
-	HMwcxtTsfnsSaurA71q5DKKEnHSqnMDKpcUUVBMW4WJuolpeUQ19jMroIvMH54dix/EloDD75fbrq
-	dj1h2aNEekuMP7X5W7CA==;
+	List-Owner; bh=K9TDJjWkKPaz9MkL5ZpW40HUdL0+7t0Kxepl2x1DXa8=; b=rKRiMyDzL1mVkF
+	yWFf0bmVx/wLzyhxB6vk1phgba+EHcTPW3R9UqEpRtgExWKXFEijg4jGuklH1vhzTQmreB+rNIlWq
+	T9q8sy4Apkjgwqao2j/iDLlfxpt6oUfiN0AjR8mBzVW0duK+WaN0Rfq14TOPHKnDWr7MTWH30wW6c
+	QmLwUWSdG/UXyMhfTagpVXQX6e5o30TcVDwggTn+Z8emQYfzB0cg83vk6o1oFfSL/KIo8gwW2Xrf5
+	R6htgWgBh5EERtKdHiPGnXlSK3QQSI5nEVsaFddoo1S6lKNO0r5uWePjQMLgBOfeBOj2/zuqQVKNw
+	qE08+W8PmfsS6e6bNLMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4c4y-0000000EUT3-3d06;
-	Wed, 08 May 2024 07:51:08 +0000
+	id 1s4cC5-0000000EW3P-3DFw;
+	Wed, 08 May 2024 07:58:29 +0000
 Received: from madrid.collaboradmins.com ([2a00:1098:ed:100::25])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4c4r-0000000EUPE-1Yh9;
-	Wed, 08 May 2024 07:51:04 +0000
+	id 1s4cBy-0000000EVzM-1kDc;
+	Wed, 08 May 2024 07:58:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1715154660;
-	bh=ER1Z4aI2riqIkflza4C4e1PlWp6zX494INQCy0XREMI=;
+	s=mail; t=1715155100;
+	bh=W8h0zv7fM5rho2qCrJQe63u3RrkuJY8jHMl1xzQ0llk=;
 	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=TyCeEKfi6CYhIwEaqOEpH25jFs6qvBUVq945IAEJX0ygECWU589cyU+MvgoMTwPux
-	 6/BdQxBfA97+L51tiYYuC6Z019EIYhFF3sdDZuG2WVBm/WaUFyhWfjl8go6V74ihZL
-	 zBcgP46R18osAyST9mJimRCt5HPROCQi3DU7kLTMECfOKz73i5JJsM6E5KBVualcXQ
-	 5gzkdSfbaSw8tyRODR4he2DEGEVliGska4eIsPBcU5tlE50l57QHTt63UZ0CRXcg2U
-	 D0N9WjN6eZpiBY81Z85YXE8KEKC/rooS7M1+Qvq169eoVStaDUIn3LxqthwG70lAAM
-	 pCsLg40TYView==
+	b=d+6WlldukdN+eWmS3sBsn4libaX2zcJvXa/ngL+dhdc+DchosZSUl43ALM0fKrizz
+	 ysZ99uHC/8UpNmyFE4hOPapdp0NUzrlzrQjGLrkMDMqYNps7lgHGiCM7grlVWeqvuL
+	 e5HkvXoNYPhMwpb30PKIuWAHw1A/b8v33oat12Wn15tu738O33/VYc94jtdztajScu
+	 4J+5rFyzWIZ90H5CzrX9B4Ib32RGjnbcFX2KDX2Cv9yM6dA7sRVQyStsK2OIpLFTHR
+	 MsAgmoQsx7QhT2c2rNTU9MLlxEjijsJQpah0OPot4l0rd5cOVPx4wu8rShkkg7Xmln
+	 rRM76zFaWDvsw==
 Received: from [10.193.1.1] (broslavsky.collaboradmins.com [68.183.210.73])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: usama.anjum)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 7EA2C378216D;
-	Wed,  8 May 2024 07:50:16 +0000 (UTC)
-Message-ID: <9b54b87f-f761-4e4f-8df3-993e426ebc27@collabora.com>
-Date: Wed, 8 May 2024 12:49:58 +0500
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 5163A378107C;
+	Wed,  8 May 2024 07:57:56 +0000 (UTC)
+Message-ID: <e3f6bb2a-a9bd-43c2-9468-85242eab0390@collabora.com>
+Date: Wed, 8 May 2024 12:58:20 +0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Cc: Muhammad Usama Anjum <usama.anjum@collabora.com>,
@@ -57,7 +57,7 @@ Cc: Muhammad Usama Anjum <usama.anjum@collabora.com>,
  linux-fsdevel@vger.kernel.org, netdev@vger.kernel.org,
  linux-actions@lists.infradead.org, mptcp@lists.linux.dev,
  linux-rtc@vger.kernel.org, linux-sgx@vger.kernel.org, bpf@vger.kernel.org
-Subject: Re: [PATCH v2 3/5] selftests: Include KHDR_INCLUDES in Makefile
+Subject: Re: [PATCH v2 5/5] selftests: Drop duplicate -D_GNU_SOURCE
 To: Edward Liaw <edliaw@google.com>, shuah@kernel.org,
  Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
  Takashi Iwai <tiwai@suse.com>, Catalin Marinas <catalin.marinas@arm.com>,
@@ -104,13 +104,13 @@ To: Edward Liaw <edliaw@google.com>, shuah@kernel.org,
  Jarkko Sakkinen <jarkko@kernel.org>,
  Dave Hansen <dave.hansen@linux.intel.com>
 References: <20240507214254.2787305-1-edliaw@google.com>
- <20240507214254.2787305-4-edliaw@google.com>
+ <20240507214254.2787305-6-edliaw@google.com>
 Content-Language: en-US
 From: Muhammad Usama Anjum <usama.anjum@collabora.com>
-In-Reply-To: <20240507214254.2787305-4-edliaw@google.com>
+In-Reply-To: <20240507214254.2787305-6-edliaw@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_005101_598488_74F36724 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20240508_005822_696422_7A138D97 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,163 +128,69 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 5/8/24 2:38 AM, Edward Liaw wrote:
-> Add KHDR_INCLUDES to CFLAGS to pull in the kselftest harness
-> dependencies (-D_GNU_SOURCE).
+> -D_GNU_SOURCE can be de-duplicated here, as it is added by
+> KHDR_INCLUDES.
 > 
-> Fixes: 809216233555 ("selftests/harness: remove use of LINE_MAX")
 > Signed-off-by: Edward Liaw <edliaw@google.com>
 Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
 
 > ---
->  tools/testing/selftests/alsa/Makefile                  | 2 +-
->  tools/testing/selftests/arm64/signal/Makefile          | 2 +-
->  tools/testing/selftests/exec/Makefile                  | 2 +-
->  tools/testing/selftests/filesystems/overlayfs/Makefile | 2 +-
->  tools/testing/selftests/hid/Makefile                   | 2 +-
->  tools/testing/selftests/nci/Makefile                   | 2 +-
->  tools/testing/selftests/prctl/Makefile                 | 2 ++
->  tools/testing/selftests/proc/Makefile                  | 2 +-
->  tools/testing/selftests/riscv/mm/Makefile              | 2 +-
->  tools/testing/selftests/rtc/Makefile                   | 2 +-
->  tools/testing/selftests/tmpfs/Makefile                 | 2 +-
->  11 files changed, 12 insertions(+), 10 deletions(-)
+>  tools/testing/selftests/futex/functional/Makefile | 2 +-
+>  tools/testing/selftests/iommu/Makefile            | 2 --
+>  tools/testing/selftests/net/tcp_ao/Makefile       | 2 +-
+>  tools/testing/selftests/resctrl/Makefile          | 2 +-
+>  4 files changed, 3 insertions(+), 5 deletions(-)
 > 
-> diff --git a/tools/testing/selftests/alsa/Makefile b/tools/testing/selftests/alsa/Makefile
-> index 5af9ba8a4645..9a0ef194522c 100644
-> --- a/tools/testing/selftests/alsa/Makefile
-> +++ b/tools/testing/selftests/alsa/Makefile
-> @@ -6,7 +6,7 @@ LDLIBS += $(shell pkg-config --libs alsa)
->  ifeq ($(LDLIBS),)
->  LDLIBS += -lasound
->  endif
-> -CFLAGS += -L$(OUTPUT) -Wl,-rpath=./
-> +CFLAGS += $(KHDR_INCLUDES) -L$(OUTPUT) -Wl,-rpath=./
->  
->  LDLIBS+=-lpthread
->  
-> diff --git a/tools/testing/selftests/arm64/signal/Makefile b/tools/testing/selftests/arm64/signal/Makefile
-> index 8f5febaf1a9a..ae682ade615d 100644
-> --- a/tools/testing/selftests/arm64/signal/Makefile
-> +++ b/tools/testing/selftests/arm64/signal/Makefile
-> @@ -2,7 +2,7 @@
->  # Copyright (C) 2019 ARM Limited
->  
->  # Additional include paths needed by kselftest.h and local headers
-> -CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
-> +CFLAGS += $(KHDR_INCLUDES) -std=gnu99 -I.
->  
->  SRCS := $(filter-out testcases/testcases.c,$(wildcard testcases/*.c))
->  PROGS := $(patsubst %.c,%,$(SRCS))
-> diff --git a/tools/testing/selftests/exec/Makefile b/tools/testing/selftests/exec/Makefile
-> index fb4472ddffd8..15e78ec7c55e 100644
-> --- a/tools/testing/selftests/exec/Makefile
-> +++ b/tools/testing/selftests/exec/Makefile
-> @@ -1,7 +1,7 @@
->  # SPDX-License-Identifier: GPL-2.0
->  CFLAGS = -Wall
->  CFLAGS += -Wno-nonnull
-> -CFLAGS += -D_GNU_SOURCE
-> +CFLAGS += $(KHDR_INCLUDES)
->  
->  TEST_PROGS := binfmt_script.py
->  TEST_GEN_PROGS := execveat load_address_4096 load_address_2097152 load_address_16777216 non-regular
-> diff --git a/tools/testing/selftests/filesystems/overlayfs/Makefile b/tools/testing/selftests/filesystems/overlayfs/Makefile
-> index 56b2b48a765b..6c29c963c7a8 100644
-> --- a/tools/testing/selftests/filesystems/overlayfs/Makefile
-> +++ b/tools/testing/selftests/filesystems/overlayfs/Makefile
-> @@ -2,6 +2,6 @@
->  
->  TEST_GEN_PROGS := dev_in_maps
->  
-> -CFLAGS := -Wall -Werror
-> +CFLAGS := -Wall -Werror $(KHDR_INCLUDES)
->  
->  include ../../lib.mk
-> diff --git a/tools/testing/selftests/hid/Makefile b/tools/testing/selftests/hid/Makefile
-> index 2b5ea18bde38..0661b34488ef 100644
-> --- a/tools/testing/selftests/hid/Makefile
-> +++ b/tools/testing/selftests/hid/Makefile
-> @@ -21,7 +21,7 @@ CXX ?= $(CROSS_COMPILE)g++
->  
->  HOSTPKG_CONFIG := pkg-config
->  
-> -CFLAGS += -g -O0 -rdynamic -Wall -Werror -I$(OUTPUT)
-> +CFLAGS += -g -O0 -rdynamic -Wall -Werror $(KHDR_INCLUDES) -I$(OUTPUT)
->  CFLAGS += -I$(OUTPUT)/tools/include
->  
->  LDLIBS += -lelf -lz -lrt -lpthread
-> diff --git a/tools/testing/selftests/nci/Makefile b/tools/testing/selftests/nci/Makefile
-> index 47669a1d6a59..bbc5b8ec3b17 100644
-> --- a/tools/testing/selftests/nci/Makefile
-> +++ b/tools/testing/selftests/nci/Makefile
-> @@ -1,5 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0
-> -CFLAGS += -Wl,-no-as-needed -Wall
-> +CFLAGS += -Wl,-no-as-needed -Wall $(KHDR_INCLUDES)
->  LDFLAGS += -lpthread
->  
->  TEST_GEN_PROGS := nci_dev
-> diff --git a/tools/testing/selftests/prctl/Makefile b/tools/testing/selftests/prctl/Makefile
-> index 01dc90fbb509..1a0aefec9d6f 100644
-> --- a/tools/testing/selftests/prctl/Makefile
-> +++ b/tools/testing/selftests/prctl/Makefile
-> @@ -6,6 +6,8 @@ ARCH ?= $(shell echo $(uname_M) | sed -e s/i.86/x86/ -e s/x86_64/x86/)
->  ifeq ($(ARCH),x86)
->  TEST_PROGS := disable-tsc-ctxt-sw-stress-test disable-tsc-on-off-stress-test \
->  		disable-tsc-test set-anon-vma-name-test set-process-name
-> +
-> +CFLAGS += $(KHDR_INCLUDES)
->  all: $(TEST_PROGS)
->  
->  include ../lib.mk
-> diff --git a/tools/testing/selftests/proc/Makefile b/tools/testing/selftests/proc/Makefile
-> index cd95369254c0..9596014c10a0 100644
-> --- a/tools/testing/selftests/proc/Makefile
-> +++ b/tools/testing/selftests/proc/Makefile
+> diff --git a/tools/testing/selftests/futex/functional/Makefile b/tools/testing/selftests/futex/functional/Makefile
+> index a392d0917b4e..f79f9bac7918 100644
+> --- a/tools/testing/selftests/futex/functional/Makefile
+> +++ b/tools/testing/selftests/futex/functional/Makefile
 > @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0-only
+>  # SPDX-License-Identifier: GPL-2.0
+>  INCLUDES := -I../include -I../../ $(KHDR_INCLUDES)
+> -CFLAGS := $(CFLAGS) -g -O2 -Wall -D_GNU_SOURCE -pthread $(INCLUDES) $(KHDR_INCLUDES)
+> +CFLAGS := $(CFLAGS) -g -O2 -Wall -pthread $(INCLUDES) $(KHDR_INCLUDES)
+>  LDLIBS := -lpthread -lrt
+>  
+>  LOCAL_HDRS := \
+> diff --git a/tools/testing/selftests/iommu/Makefile b/tools/testing/selftests/iommu/Makefile
+> index 32c5fdfd0eef..fd6477911f24 100644
+> --- a/tools/testing/selftests/iommu/Makefile
+> +++ b/tools/testing/selftests/iommu/Makefile
+> @@ -2,8 +2,6 @@
 >  CFLAGS += -Wall -O2 -Wno-unused-function
+>  CFLAGS += $(KHDR_INCLUDES)
+>  
 > -CFLAGS += -D_GNU_SOURCE
-> +CFLAGS += $(KHDR_INCLUDES)
->  LDFLAGS += -pthread
->  
+> -
 >  TEST_GEN_PROGS :=
-> diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
-> index c333263f2b27..715a21241113 100644
-> --- a/tools/testing/selftests/riscv/mm/Makefile
-> +++ b/tools/testing/selftests/riscv/mm/Makefile
-> @@ -3,7 +3,7 @@
->  # Originally tools/testing/arm64/abi/Makefile
+>  TEST_GEN_PROGS += iommufd
+>  TEST_GEN_PROGS += iommufd_fail_nth
+> diff --git a/tools/testing/selftests/net/tcp_ao/Makefile b/tools/testing/selftests/net/tcp_ao/Makefile
+> index 522d991e310e..c608b1ec02e6 100644
+> --- a/tools/testing/selftests/net/tcp_ao/Makefile
+> +++ b/tools/testing/selftests/net/tcp_ao/Makefile
+> @@ -26,7 +26,7 @@ LIB	:= $(LIBDIR)/libaotst.a
+>  LDLIBS	+= $(LIB) -pthread
+>  LIBDEPS	:= lib/aolib.h Makefile
 >  
->  # Additional include paths needed by kselftest.h and local headers
-> -CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
-> +CFLAGS += $(KHDR_INCLUDES) -std=gnu99 -I.
+> -CFLAGS	:= -Wall -O2 -g -D_GNU_SOURCE -fno-strict-aliasing
+> +CFLAGS	:= -Wall -O2 -g -fno-strict-aliasing
+>  CFLAGS	+= $(KHDR_INCLUDES)
+>  CFLAGS	+= -iquote ./lib/ -I ../../../../include/
 >  
->  TEST_GEN_FILES := mmap_default mmap_bottomup
->  
-> diff --git a/tools/testing/selftests/rtc/Makefile b/tools/testing/selftests/rtc/Makefile
-> index 55198ecc04db..654f9d58da3c 100644
-> --- a/tools/testing/selftests/rtc/Makefile
-> +++ b/tools/testing/selftests/rtc/Makefile
-> @@ -1,5 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0
-> -CFLAGS += -O3 -Wl,-no-as-needed -Wall
-> +CFLAGS += -O3 -Wl,-no-as-needed -Wall $(KHDR_INCLUDES)
->  LDLIBS += -lrt -lpthread -lm
->  
->  TEST_GEN_PROGS = rtctest
-> diff --git a/tools/testing/selftests/tmpfs/Makefile b/tools/testing/selftests/tmpfs/Makefile
-> index aa11ccc92e5b..bcdc1bb6d2e6 100644
-> --- a/tools/testing/selftests/tmpfs/Makefile
-> +++ b/tools/testing/selftests/tmpfs/Makefile
+> diff --git a/tools/testing/selftests/resctrl/Makefile b/tools/testing/selftests/resctrl/Makefile
+> index 2deac2031de9..5073dbc96125 100644
+> --- a/tools/testing/selftests/resctrl/Makefile
+> +++ b/tools/testing/selftests/resctrl/Makefile
 > @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  CFLAGS += -Wall -O2
-> -CFLAGS += -D_GNU_SOURCE
-> +CFLAGS += $(KHDR_INCLUDES)
+>  # SPDX-License-Identifier: GPL-2.0
 >  
->  TEST_GEN_PROGS :=
->  TEST_GEN_PROGS += bug-link-o-tmpfile
+> -CFLAGS = -g -Wall -O2 -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE
+> +CFLAGS = -g -Wall -O2 -D_FORTIFY_SOURCE=2
+>  CFLAGS += $(KHDR_INCLUDES)
+>  
+>  TEST_GEN_PROGS := resctrl_tests
 
 -- 
 BR,
