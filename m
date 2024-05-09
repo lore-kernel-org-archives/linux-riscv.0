@@ -4,91 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A450BC25B10
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 18:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC660C25B10
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 18:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4DBXRj+BBQ+nxChG62gS/h9lXLnKpPHOAUrdjcSzRUk=; b=1cTDPL8B9lxGEVs7gUzG+BamHO
-	nOWqOqPdj8kBsCePf/gTDDo4/qg2sB5Ik3PR97JJEHn6gbdr/V2aGeGE1vzsCbM1gjjjl+J8g77KV
-	xCdWTPY2OV/XIJ4CS0rl5h/GQaaCoC7lQihl9yxuiHhL3ndJPtjpaHNjwzJZ+pI7VrSSPd+3RyoxY
-	WMoE91HXxcjaUHbkOosD6hylbZoJTDdt/nXrLCy0C2jZ/T6bTlGuaIvvUrWS1md/+cV1ZumOLF4sn
-	KEtcM/7hb9isKH4H+Hf5aDqwk7BdjODdI1msp6dWaFne1JyhlAteOo52yLPqpz2/zwOgnaUM8n1jR
-	4BqLorXA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DSXHYo0mg67fCg91McwyHAlHOZ89gAmRhPJ9cZfqnPQ=; b=PTrsoYnMi8vIFc
+	3pbPv/QkhVUjrQ6NkowvdvAo3Ups7aFA+ofuif+M9rS0h0EmJn/Y0JorblClv9zRCrpaJ8JBTEIJ3
+	UltMkJzOb3xaue8K4MU2KoMPeuyAEx+U0acd99eEitBYRpnqp1me/8Hmw3nqx0u5vND8ufoemSJb4
+	PCTjbtla1MJcZaQFF2JNsGARehqhzFftTxvHJH8RW3VEOxXAhGRwcHLI1hanHPe0q4aF0kYM1U3sC
+	7vh83OPU86Zm0dWZyQx2jcduU4HGaOe+6oFO1QPUUMqsOYDbiyfbp0sEGNjoeXozx2g080j78/0qy
+	N9Hx04Rq2XPEl+ZUR5XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s58I2-00000002LRT-4Atg;
-	Thu, 09 May 2024 18:14:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s58Nb-00000002MB7-45Ew;
+	Thu, 09 May 2024 18:20:32 +0000
+Received: from madrid.collaboradmins.com ([46.235.227.194])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s58Hz-00000002LQ4-1uxY
-	for linux-riscv@lists.infradead.org;
-	Thu, 09 May 2024 18:14:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5D2ED61DA4;
-	Thu,  9 May 2024 18:14:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7996C116B1;
-	Thu,  9 May 2024 18:14:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715278482;
-	bh=hRafjKR2nz/ik0Ybw1Y2FxPsUTThAfB6fkIwc8yWrHs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CcnwgtVCG7xfa9ZqQX9x5aPbB8jIN4eai6HbmPjX9FQGjkRwgfJVizpa671LV5kCx
-	 9QcKPdInn/8JQKidSZN9Eu35JSLnJY15KbOhzGq2w8HE2bY9uZkyk0U+HBxZ7kiM+V
-	 aysA3CouUg5fksg2k89YsqHNjChC1e+QIExkTm0ZKsenA/hFkA7dd0bD95DC+Uf844
-	 S+V1pAlVgGoxrbl2rRuhbFPPz1m/SuYxirzNkqJDLeYRmYySS3s37N8IkpGSb7eQDm
-	 BjuX/N9hoEsXnMZUjzWd0dYjjFNG4QGZO2CS7ceb+lKr8CXBBTstrnjgSa7sJEb+st
-	 WQf+eKiLwhByQ==
-Date: Thu, 9 May 2024 19:14:26 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Rob Herring <robh@kernel.org>, paul.walmsley@sifive.com,
-	rick.p.edgecombe@intel.com, broonie@kernel.org,
-	Szabolcs.Nagy@arm.com, kito.cheng@sifive.com, keescook@chromium.org,
-	ajones@ventanamicro.com, conor.dooley@microchip.com,
-	cleger@rivosinc.com, atishp@atishpatra.org, alex@ghiti.fr,
-	bjorn@rivosinc.com, alexghiti@rivosinc.com,
-	samuel.holland@sifive.com, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	corbet@lwn.net, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	krzysztof.kozlowski+dt@linaro.org, oleg@redhat.com,
-	akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
-	Liam.Howlett@oracle.com, vbabka@suse.cz, lstoakes@gmail.com,
-	shuah@kernel.org, brauner@kernel.org, andy.chiu@sifive.com,
-	jerry.shih@sifive.com, hankuan.chen@sifive.com,
-	greentime.hu@sifive.com, evan@rivosinc.com, xiao.w.wang@intel.com,
-	charlie@rivosinc.com, apatel@ventanamicro.com,
-	mchitale@ventanamicro.com, dbarboza@ventanamicro.com,
-	sameo@rivosinc.com, shikemeng@huaweicloud.com, willy@infradead.org,
-	vincent.chen@sifive.com, guoren@kernel.org, samitolvanen@google.com,
-	songshuaishuai@tinylab.org, gerg@kernel.org, heiko@sntech.de,
-	bhe@redhat.com, jeeheng.sia@starfivetech.com, cyy@cyyself.name,
-	maskray@google.com, ancientmodern4@gmail.com,
-	mathis.salmen@matsal.de, cuiyunhui@bytedance.com,
-	bgray@linux.ibm.com, mpe@ellerman.id.au, baruch@tkos.co.il,
-	alx@kernel.org, david@redhat.com, catalin.marinas@arm.com,
-	revest@chromium.org, josh@joshtriplett.org, shr@devkernel.io,
-	deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
-	jhubbard@nvidia.com
-Subject: Re: [PATCH v3 04/29] riscv: zicfilp / zicfiss in dt-bindings
- (extensions.yaml)
-Message-ID: <20240509-cornflake-foyer-e6589c2bc364@spud>
-References: <20240403234054.2020347-1-debug@rivosinc.com>
- <20240403234054.2020347-5-debug@rivosinc.com>
- <20240410115806.GA4044117-robh@kernel.org>
- <CAKC1njSsZ6wfvJtXkp4J4J6wXFtU92W9JGca-atKxBy8UvUwRg@mail.gmail.com>
- <20240415194105.GA94432-robh@kernel.org>
- <Zh6c0FH2OvrfDLje@debug.ba.rivosinc.com>
+	id 1s58NW-00000002M70-12Ho;
+	Thu, 09 May 2024 18:20:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1715278815;
+	bh=JCJaK6QpOrmmUJdi/1h2/P/m5VnuJoQJ8ijlBJBZs2E=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=Y0vwhbgpxSGiErJBlZANaCoV14K1sUaA4F/ooMPA8bO48t72Fpno5DrnfALIMJiFY
+	 oMSvCEfOkwdTnfzldtNTgWgnNeYnX0lnmSBwYV+uUcXI50biIzPUgTSdbJDAk9h9/N
+	 bVUTOACTMW2U5cMSjfFt9b0R/BiIAN1Kzg0OIMCCtoqr8O1bj2D1Led/rtVGtGTVC8
+	 kz3S35qqjR2mswHsIzoVynyPqK+vGV6uTv4IAVR+VARRqE/hZwUo8M6kQ1/zzNJO7N
+	 IQqLkWeZKdjhwuxngilpfTAlT58QqNdElQbuZGDixBXFgx76yRt8hchoMtP4P0BWps
+	 4uG5Wxt7oOVIg==
+Received: from [100.113.15.66] (ec2-34-240-57-77.eu-west-1.compute.amazonaws.com [34.240.57.77])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: usama.anjum)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 3ED82378214F;
+	Thu,  9 May 2024 18:19:55 +0000 (UTC)
+Message-ID: <57f47bc1-972c-45b5-81ef-d8269dcadebb@collabora.com>
+Date: Thu, 9 May 2024 23:20:19 +0500
 MIME-Version: 1.0
-In-Reply-To: <Zh6c0FH2OvrfDLje@debug.ba.rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Cc: Muhammad Usama Anjum <usama.anjum@collabora.com>, shuah@kernel.org,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Nhat Pham <nphamcs@gmail.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, Christian Brauner
+ <brauner@kernel.org>, Eric Biederman <ebiederm@xmission.com>,
+ Kees Cook <keescook@chromium.org>,
+ OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
+ <andrealmeid@igalia.com>, Jiri Kosina <jikos@kernel.org>,
+ Benjamin Tissoires <bentiss@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Kevin Tian <kevin.tian@intel.com>, Andy Lutomirski <luto@amacapital.net>,
+ Will Drewry <wad@chromium.org>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Sean Christopherson <seanjc@google.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atishp@atishpatra.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ David Hildenbrand <david@redhat.com>, =?UTF-8?Q?Micka=C3=ABl_Sala=C3=BCn?=
+ <mic@digikod.net>, Paul Moore <paul@paul-moore.com>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Seth Forshee
+ <sforshee@kernel.org>, Bongsu Jeon <bongsu.jeon@samsung.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Steffen Klassert <steffen.klassert@secunet.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
+ <afaerber@suse.de>, Manivannan Sadhasivam
+ <manivannan.sadhasivam@linaro.org>, Matthieu Baerts <matttbe@kernel.org>,
+ Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
+ Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+ Fenghua Yu <fenghua.yu@intel.com>,
+ Reinette Chatre <reinette.chatre@intel.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ "Paul E. McKenney" <paulmck@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, kernel-team@android.com,
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, linux-input@vger.kernel.org, iommu@lists.linux.dev,
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-security-module@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-actions@lists.infradead.org, mptcp@lists.linux.dev,
+ linux-rtc@vger.kernel.org, linux-sgx@vger.kernel.org, bpf@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] Define _GNU_SOURCE for sources using
+To: Edward Liaw <edliaw@google.com>, Shuah Khan <skhan@linuxfoundation.org>
+References: <20240507214254.2787305-1-edliaw@google.com>
+ <f4e45604-86b0-4be6-9bea-36edf301df33@linuxfoundation.org>
+ <CAG4es9XE2D94BNboRSf607NbJVW7OW4xkVq4jZ8pDZ_AZsb3nQ@mail.gmail.com>
+ <946ae22f-a4af-448a-92e1-60afb6ed9261@linuxfoundation.org>
+ <CAG4es9V2CcBJr0josSoGNsD+ZPQ6vasVXh_Hc_j88oeSqn__yQ@mail.gmail.com>
+Content-Language: en-US
+From: Muhammad Usama Anjum <usama.anjum@collabora.com>
+In-Reply-To: <CAG4es9V2CcBJr0josSoGNsD+ZPQ6vasVXh_Hc_j88oeSqn__yQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_111443_627652_2E9A1791 
-X-CRM114-Status: GOOD (  27.24  )
+X-CRM114-CacheID: sfid-20240509_112026_444804_841A00AD 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,106 +124,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3570742223195251867=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3570742223195251867==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="JhRnWmWpnp4za6Qf"
-Content-Disposition: inline
-
-
---JhRnWmWpnp4za6Qf
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Apr 16, 2024 at 08:44:16AM -0700, Deepak Gupta wrote:
-> On Mon, Apr 15, 2024 at 02:41:05PM -0500, Rob Herring wrote:
-> > On Wed, Apr 10, 2024 at 02:37:21PM -0700, Deepak Gupta wrote:
-> > > On Wed, Apr 10, 2024 at 4:58=E2=80=AFAM Rob Herring <robh@kernel.org>=
- wrote:
-> > > >
-> > > > On Wed, Apr 03, 2024 at 04:34:52PM -0700, Deepak Gupta wrote:
-> > > > > Make an entry for cfi extensions in extensions.yaml.
-> > > > >
-> > > > > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-> > > > > ---
-> > > > >  .../devicetree/bindings/riscv/extensions.yaml          | 10 ++++=
-++++++
-> > > > >  1 file changed, 10 insertions(+)
-> > > > >
-> > > > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.y=
-aml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > > > index 63d81dc895e5..45b87ad6cc1c 100644
-> > > > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > > > @@ -317,6 +317,16 @@ properties:
-> > > > >              The standard Zicboz extension for cache-block zeroin=
-g as ratified
-> > > > >              in commit 3dd606f ("Create cmobase-v1.0.pdf") of ris=
-cv-CMOs.
-> > > > >
-> > > > > +        - const: zicfilp
-> > > > > +          description:
-> > > > > +            The standard Zicfilp extension for enforcing forward=
- edge control-flow
-> > > > > +            integrity in commit 3a20dc9 of riscv-cfi and is in p=
-ublic review.
-> > > >
-> > > > Does in public review mean the commit sha is going to change?
-> > > >
-> > >=20
-> > > Less likely. Next step after public review is to gather comments from
-> > > public review.
-> > > If something is really pressing and needs to be addressed, then yes
-> > > this will change.
-> > > Else this gets ratified as it is.
-> >=20
-> > If the commit sha can change, then it is useless. What's the guarantee
-> > someone is going to remember to update it if it changes?
->=20
-> Sorry for late reply.
->=20
-> I was following existing wordings and patterns for messaging in this file.
-> You would rather have me remove sha and only mention that spec is in publ=
-ic
-> review?
-
-Nope, having a commit sha is desired. None of this is mergeable until at
-least the spec becomes frozen, so the sha can be updated at that point
-to the freeze state - or better yet to the ratified state. Being in
-public review is not sufficient.
-
-Cheers,
-Conor
-
---JhRnWmWpnp4za6Qf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZj0SggAKCRB4tDGHoIJi
-0mvjAP9d3Qz1PVGc/kOj+XdEfO1FrKoEF9VSW9XYGpnlZvSRVAEAhzTts4ymraHs
-rig86vUonyRRKcngwn/ZR5KdPHqJ3ws=
-=NfI8
------END PGP SIGNATURE-----
-
---JhRnWmWpnp4za6Qf--
-
-
---===============3570742223195251867==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3570742223195251867==--
-
+T24gNS85LzI0IDEwOjQ1IFBNLCBFZHdhcmQgTGlhdyB3cm90ZToKPiBPbiBUaHUsIE1heSA5LCAy
+MDI0IGF0IDc6MzfigK9BTSBTaHVhaCBLaGFuIDxza2hhbkBsaW51eGZvdW5kYXRpb24ub3JnPiB3
+cm90ZToKPj4KPj4gT24gNS85LzI0IDAwOjEzLCBFZHdhcmQgTGlhdyB3cm90ZToKPj4+IE9uIFdl
+ZCwgTWF5IDgsIDIwMjQgYXQgNDoxMOKAr1BNIFNodWFoIEtoYW4gPHNraGFuQGxpbnV4Zm91bmRh
+dGlvbi5vcmc+IHdyb3RlOgo+Pj4+Cj4+Pj4gT24gNS83LzI0IDE1OjM4LCBFZHdhcmQgTGlhdyB3
+cm90ZToKPj4+Pj4gODA5MjE2MjMzNTU1ICgic2VsZnRlc3RzL2hhcm5lc3M6IHJlbW92ZSB1c2Ug
+b2YgTElORV9NQVgiKSBpbnRyb2R1Y2VkCj4+Pj4+IGFzcHJpbnRmIGludG8ga3NlbGZ0ZXN0X2hh
+cm5lc3MuaCwgd2hpY2ggaXMgYSBHTlUgZXh0ZW5zaW9uIGFuZCBuZWVkcwo+Pj4+PiBfR05VX1NP
+VVJDRSB0byBlaXRoZXIgYmUgZGVmaW5lZCBwcmlvciB0byBpbmNsdWRpbmcgaGVhZGVycyBvciB3
+aXRoIHRoZQo+Pj4+PiAtRF9HTlVfU09VUkNFIGZsYWcgcGFzc2VkIHRvIHRoZSBjb21waWxlci4K
+Pj4+Pj4KPj4+Pj4gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LWtzZWxmdGVzdC8y
+MDI0MDQzMDIzNTA1Ny4xMzUxOTkzLTEtZWRsaWF3QGdvb2dsZS5jb20vCj4+Pj4+IHYyOiBhZGQg
+LURfR05VX1NPVVJDRSB0byBLSERSX0lOQ0xVREVTIHNvIHRoYXQgaXQgaXMgaW4gYSBzaW5nbGUK
+Pj4+Pj4gbG9jYXRpb24uICBSZW1vdmUgI2RlZmluZSBfR05VX1NPVVJDRSBmcm9tIHNvdXJjZSBj
+b2RlIHRvIHJlc29sdmUKPj4+Pj4gcmVkZWZpbml0aW9uIHdhcm5pbmdzLgo+Pj4+Pgo+Pj4+PiBF
+ZHdhcmQgTGlhdyAoNSk6Cj4+Pj4+ICAgICBzZWxmdGVzdHM6IENvbXBpbGUga3NlbGZ0ZXN0IGhl
+YWRlcnMgd2l0aCAtRF9HTlVfU09VUkNFCj4+Pj4+ICAgICBzZWxmdGVzdHMvc2d4OiBJbmNsdWRl
+IEtIRFJfSU5DTFVERVMgaW4gTWFrZWZpbGUKPj4+Pgo+Pj4+IEkgYXBwbGVkIHBhdGNoZXMgMS81
+IGFuZCAyLjUgLSBUaGUgcmVzdCBuZWVkIHRvIGJlIHNwbGl0IHVwLgo+Pj4+Cj4+Pj4+ICAgICBz
+ZWxmdGVzdHM6IEluY2x1ZGUgS0hEUl9JTkNMVURFUyBpbiBNYWtlZmlsZQo+Pj4+PiAgICAgc2Vs
+ZnRlc3RzOiBEcm9wIGRlZmluZSBfR05VX1NPVVJDRQo+Pj4+PiAgICAgc2VsZnRlc3RzOiBEcm9w
+IGR1cGxpY2F0ZSAtRF9HTlVfU09VUkNFCj4+Pj4+Cj4+Pj4KPj4+PiBQbGVhc2Ugc3BsaXQgdGhl
+c2UgcGF0Y2hlcyBwd2UgdGVzdCBkaXJlY3RvcnkuIE90aGVyd2lzZSBpdCB3aWxsCj4+Pj4gY2F1
+c2UgbWVyZ2UgY29uZmxpY3RzIHdoaWNoIGNhbiBiZSBoYXJkIHRvIHJlc29sdmUuCj4+Pgo+Pj4g
+SGkgU2h1YWgsCj4+PiBTZWFuIGFza2VkIHRoYXQgSSByZWJhc2UgdGhlIHBhdGNoZXMgb24gbGlu
+dXgtbmV4dCwgYW5kIEkgd2lsbCBuZWVkIHRvCj4+PiByZW1vdmUgYWRkaXRpb25hbCBfR05VX1NP
+VVJDRSBkZWZpbmVzLiAgU2hvdWxkIEkgc2VuZCBhbiB1bnNwbGl0IHYzIHRvCj4+PiBiZSByZXZp
+ZXdlZCwgdGhlbiBzcGxpdCBpdCBhZnRlcndhcmRzPyAgSSdtIGNvbmNlcm5lZCB0aGF0IGl0IHdp
+bGwgYmUKPj4+IGRpZmZpY3VsdCB0byByZXZpZXcgd2l0aCB+NzAgcGF0Y2hlcyBvbmNlIHNwbGl0
+Lgo+Pgo+PiBQbGVhc2Ugc2VuZCB0aGVtIHNwbGl0IC0gaXQgd2lsbCBiZSBlYXNpZXIgdG8gcmV2
+aWV3IGFuZCBhcHBseS4gWW91Cj4+IG1pZ2h0IGFzIHdlbGwgd2FpdCB1bnRpbCB0aGUgbWVyZ2Ug
+d2luZG93IGlzIGRvbmUuIEkgZG9uJ3QgdGhpbmsKPj4gYW55Ym9keSB3b3VsZCBoYXZlIHRpbWUg
+dG8gcmV2aWV3IG5vdyBzaW5jZSBtZXJnZSB3aW5kb3cgc3RhcnRzCj4+IG5leHQgd2Vlay4KPiAK
+PiBTb3JyeSwgSSBoYXZlIHRoZW0gc3BsaXQgYWxyZWFkeTsgaXMgaXQgb2sgaWYgSSBzZW5kIHRo
+ZW0gbm93PyAgSSB3aWxsCj4gYmUgb24gbGVhdmUgc29vbiBhbmQgbWF5IG5vdCBiZSBhYmxlIHRv
+IGdldCBiYWNrIHRvIGl0IGluIGEgd2hpbGUuCkZlZWwgZnJlZSB0byBzZW5kIHRoZSBwYXRjaGVz
+LiBUaGVyZSBpcyBubyByZXN0cmljdGlvbiBvbiB0aGF0LgoKPiAKPiBUaGFua3MsCj4gRWR3YXJk
+Cj4gCj4+Cj4+Cj4+IHRoYW5rcywKPj4gLS0gU2h1YWgKPiAKCi0tIApCUiwKTXVoYW1tYWQgVXNh
+bWEgQW5qdW0KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
