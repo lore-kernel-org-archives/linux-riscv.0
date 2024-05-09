@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B30DC25B10
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 16:27:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303D8C10F1A
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 16:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vj/Q+zv+Qfmw+00Wew4ppgd9AK/SwDMwBk98DflEtI8=; b=SlArzsd5jY4jga
-	mpksetk9x3/S2zVXPSYH0o9S0LVNGwwxWIRXEopS2fCd6oMw+LuRg67YURGBdzoKhSbZ0OxL+kzFW
-	YByJxUGI69kNH6jYfZPDWQkk4Lpa2xbbOx/4Crh3mmwn+1YaBlz2noZtBqKiRIhZb09Q+pWeT+tzE
-	okOgWpHc40QskB6F9IyrUcygz08VUD+DWQq5Bjq5ccHoJyPeNkLgBscUrWEvtttCpoasZrxMeggML
-	mgisox0ocFFm5ukwCwZ98I4bQ57E9yJ1072d3bpYju85wkRwsC6PQZBObjpYfianr9mM5rrP6stEz
-	S/4a2EuyD46674WKwjsw==;
+	List-Owner; bh=dKiX+NuYsQOJovLzq+RJ3wAAJnu0x6ZP1qM+DeZPVYg=; b=ByNTkeMc2+UKXU
+	QLWH/k9KIY8Pa54ZNLeDATzvMWFM9+uGcxH2ECEt2ObfLhI9rZFz+ejOdfZKr8Fng0hwOG4aEXH0V
+	hbWplWJVVjOIhVunu0HPen691pWw72xDLk8q1R1C6LDwjMqYtInxuygRFZU9coi/KaHbtQhwnBm5Z
+	alIs5bXSWG+ojU4jxrng+x+6R3IqYFpYYkXf90SP6jugPyq/V1w9+aylfem81TIGvNeUOFX2fgz8H
+	aiulAkCl+49xVnrR3xG/br5grN6AiPFXcQ3fOcYhHao3Rdb7EIicQSffX0CnSRV5gfWl13yp85QmE
+	ngjwCWp/l6abY0niLTSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s56cY-000000022Xf-3cYc;
-	Thu, 09 May 2024 16:27:50 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1s56cf-000000022dQ-1hve;
+	Thu, 09 May 2024 16:27:57 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s56cU-000000022SX-156z
+	id 1s56ca-000000022W7-1RvA
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 May 2024 16:27:49 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1ec69e3dbcfso8157565ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 09:27:45 -0700 (PDT)
+	Thu, 09 May 2024 16:27:55 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1e651a9f3ffso6458505ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 09:27:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1715272065; x=1715876865; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1715272068; x=1715876868; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gS0Jn2CNRETSxII8vxmdki1qJ+zipNSMB0uxD87mL7s=;
-        b=celi4V7RmmwZEKjzMV2slq0uJcYEaSaGSP9M21KFRr9bF3jpbs++uszUr4yQ0ma4oK
-         T0kcJZpZCq97RhFAcOV2nUrNRsZMuBJGfnoqP8cE3lvJkMUdIzDG8lchLICP1E+4ZkYG
-         nM5/0jDqIiG+nufRdkD1D7qkevIA42ZfC4iEQ3d2q94GCEaCd8KGJuQZIUORk342lDUT
-         heSlcC9ZKCwchoBperL7yzF5jEeya+Lhg/Zs8One35LXblkDby6gZk51I98xkKMxZn0+
-         m/1Lp5EUzy0xA7z65wwBFFogcwo+WyEDZQA7MAE5AduAnlPtBh8TrJlct+mTx+RrJFsy
-         GROQ==
+        bh=1QNNwCwa8ku9/k6tpLOmcrT1B9BtNzaXfpTEHBEwtaA=;
+        b=Mar0He4aWEJ3KQdzqsUx4E7+FlwHlHIP3IyXzCN/IUQDSuG+aqDWoxS1f9ZeQLFSTR
+         WPT6Hud96qjyEu/XizIwNN90llz/yJo13H8R4ticenHhju7IZyX/FoFIxEKJR6fWOLKp
+         6B8HB4Qm/1tNJfG2QR21yXMGf6+I7OZ1o4bbExaKgUkav8Kal4xLlsq3oxjEnhuREQaK
+         dVpS6Bk7mFGv3rQi5Lt9ErL4yy4AqeHESho5s6eRNNP7iV+5gdeiEVcbJdcbuZbdZe2d
+         KxhbsGenE6ni9v9m1JNL0VyO3i4du4/WzozsULkl/57HayJNrioB8pW4Vz31uTC2W+vu
+         mMvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715272065; x=1715876865;
+        d=1e100.net; s=20230601; t=1715272068; x=1715876868;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gS0Jn2CNRETSxII8vxmdki1qJ+zipNSMB0uxD87mL7s=;
-        b=NuqnKOWewMWJYNSoFW4YZzr77sfnNa7HNI61FOeP/NKISioVLGq80/jgEo987aWJBy
-         ZOZnAeEXMJ0QGilLT5rhVUKcj7FkqxsWwfTTU01no0v+xDn8JYuWBJMBX+s5j1+Vymjs
-         S0k0MxkMepxXwPEW/j43A0uT2I/BwkQ4+ckZ0MqBQPQ50dqIXXRTDIn+IK2+z1LREs7c
-         dI6mJvlEjJscrOKZKQ63Cr8q6EDgbqXu0T6P38GmsO1TsXT1IoQBnj/bsirE+58ypxOr
-         dPgthHuBEd2cOdCafzmmO47+lNktEgyJxqvJUIzMTHOnlkKMplEpGa+bj32eMUXZLW3J
-         7nrg==
-X-Gm-Message-State: AOJu0YyFG/FOiuH76FKP2/JPtHCKRfvD8OVKchbKPErbI7xDkXPVgXWW
-	JJlVu/L3nLJJXgS9CU5d1pEuvCR55A1zcbVSQVX9EpkRA86FmFUvarVESFlJK/s=
-X-Google-Smtp-Source: AGHT+IEcfNG5b+WnhP899fciFO7zYJT6fjTvSFp0///eZQlXzATxkTOr3r8djPCFfhzo/MtEAYsIKQ==
-X-Received: by 2002:a17:902:ea10:b0:1ea:2753:2b9f with SMTP id d9443c01a7336-1ef43d15560mr1959745ad.20.1715272064666;
-        Thu, 09 May 2024 09:27:44 -0700 (PDT)
+        bh=1QNNwCwa8ku9/k6tpLOmcrT1B9BtNzaXfpTEHBEwtaA=;
+        b=YXzevu4JC97NOMHqQvVNxUFgZpQH1v6ielj0LeqAUWE1msscjlAxOD4zCI5QYkeKPe
+         WwmLXgeFPBc3B0C0NpSGZPJfmGQqbXAWS3Nq56NgoiXL0v9/8+RNMhkscBfsAGKh6TLj
+         xm2LlGxhPqs/e967X38W4y2KBO1dXDkgzOb8Rj0UGLhbZngZIKKR2JLt7cPYBG+eNg5a
+         CnfT9j3KvADJwwpR6NEdh5EQEEv01PZYDlC9NXzCCOviqhHBERKpdosWrFKtpd9sn6ix
+         AE70k8518xKXHoicMhCXBMOh62Frf+lignIUp2+MiquwAdsFijy6EzCUL1EQI/c0dlse
+         2FmQ==
+X-Gm-Message-State: AOJu0Yy3iHxjjLL7tIGcoafG7/1NdF5BZDwkVsZjwSc9bkFr5kwAT8qx
+	PCaftaMXgC0FIPTpGhH7O+EW/JGUt99ox+f+923Pm76CwlQBk+cRNdoPHgBFyPc=
+X-Google-Smtp-Source: AGHT+IF9YLscVKA/v48suhgFjgLq2LEgwRZmAvKPOqejEXCSJdkMF5M4ISIIbOi/4lCzoWr9myCmQQ==
+X-Received: by 2002:a17:903:228f:b0:1ed:36dc:a570 with SMTP id d9443c01a7336-1ef44050742mr1707285ad.49.1715272068499;
+        Thu, 09 May 2024 09:27:48 -0700 (PDT)
 Received: from [127.0.1.1] (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0c13805asm16210285ad.264.2024.05.09.09.27.41
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0c13805asm16210285ad.264.2024.05.09.09.27.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 May 2024 09:27:44 -0700 (PDT)
+        Thu, 09 May 2024 09:27:48 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
-Date: Fri, 10 May 2024 00:26:56 +0800
-Subject: [PATCH v5 6/8] riscv: hwprobe: add zve Vector subextensions into
- hwprobe interface
+Date: Fri, 10 May 2024 00:26:57 +0800
+Subject: [PATCH v5 7/8] riscv: vector: adjust minimum Vector requirement to
+ ZVE32X
 MIME-Version: 1.0
-Message-Id: <20240510-zve-detection-v5-6-0711bdd26c12@sifive.com>
+Message-Id: <20240510-zve-detection-v5-7-0711bdd26c12@sifive.com>
 References: <20240510-zve-detection-v5-0-0711bdd26c12@sifive.com>
 In-Reply-To: <20240510-zve-detection-v5-0-0711bdd26c12@sifive.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -83,11 +83,12 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  Palmer Dabbelt <palmer@rivosinc.com>, 
  Vincent Chen <vincent.chen@sifive.com>, 
  Greentime Hu <greentime.hu@sifive.com>, devicetree@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Joel Granados <j.granados@samsung.com>
 X-Mailer: b4 0.13-dev-a684c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_092746_479138_647AD9C7 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20240509_092752_617195_22E89AFC 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,74 +100,175 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIGZvbGxvd2luZyBWZWN0b3Igc3ViZXh0ZW5zaW9ucyBmb3IgImVtYmVkZGVkIiBwbGF0Zm9y
-bXMgYXJlIGFkZGVkCmludG8gUklTQ1ZfSFdQUk9CRV9LRVlfSU1BX0VYVF8wOgogLSBaVkUzMlgK
-IC0gWlZFMzJGCiAtIFpWRTY0WAogLSBaVkU2NEYKIC0gWlZFNjRECgpFeHRlbnNpb25zIGVuZGlu
-ZyB3aXRoIGFuIFggaW5kaWNhdGVzIHRoYXQgdGhlIHBsYXRmb3JtIGRvZXNuJ3QgaGF2ZSBhCnZl
-Y3RvciBGUFUuCkV4dGVuc2lvbnMgZW5kaW5nIHdpdGggRi9EIG1lYW4gdGhhdCB3aGV0aGVyIHNp
-bmdsZSAoRikgb3IgZG91YmxlIChEKQpwcmVjaXNpb24gdmVjdG9yIG9wZXJhdGlvbiBpcyBzdXBw
-b3J0ZWQuClRoZSBudW1iZXIgMzIgb3IgNjQgZm9sbG93cyBmcm9tIFpWRSB0ZWxscyB0aGUgbWF4
-aW11bSBlbGVtZW50IGxlbmd0aC4KClNpZ25lZC1vZmYtYnk6IEFuZHkgQ2hpdSA8YW5keS5jaGl1
-QHNpZml2ZS5jb20+ClJldmlld2VkLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2lu
-Yy5jb20+Ci0tLQpDaGFuZ2Vsb2cgdjU6CiAtIFJlYmFzZSB0aHVzIGFkZCBaVkUzMlggYWZ0ZXIg
-UklTQ1ZfSFdQUk9CRV9FWFRfWklDT05ELgpDaGFuZ2Vsb2cgdjI6CiAtIHp2ZSogZXh0ZW5zaW9u
-cyBpbiBod3Byb2JlIGRlcGVuZHMgb24gd2hldGhlciBrZXJuZWwgc3VwcG9ydHMgdiwgc28KICAg
-aW5jbHVkZSB0aGVtIGFmdGVyIGhhc192ZWN0b3IoKS4gRml4IGEgdHlwby4gKENsw6ltZW50KQot
-LS0KIERvY3VtZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdCAgfCAxNSArKysrKysrKysr
-KysrKysKIGFyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmggfCAgNSArKysrKwog
-YXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYyAgICAgICB8ICA1ICsrKysrCiAzIGZpbGVz
-IGNoYW5nZWQsIDI1IGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2Fy
-Y2gvcmlzY3YvaHdwcm9iZS5yc3QgYi9Eb2N1bWVudGF0aW9uL2FyY2gvcmlzY3YvaHdwcm9iZS5y
-c3QKaW5kZXggMjA0Y2Q0NDMzYWY1Li5mYzAxNWI0NTJlYmYgMTAwNjQ0Ci0tLSBhL0RvY3VtZW50
-YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdAorKysgYi9Eb2N1bWVudGF0aW9uL2FyY2gvcmlz
-Y3YvaHdwcm9iZS5yc3QKQEAgLTE5Miw2ICsxOTIsMjEgQEAgVGhlIGZvbGxvd2luZyBrZXlzIGFy
-ZSBkZWZpbmVkOgogICAgICAgIHN1cHBvcnRlZCBhcyBkZWZpbmVkIGluIHRoZSBSSVNDLVYgSVNB
-IG1hbnVhbCBzdGFydGluZyBmcm9tIGNvbW1pdAogICAgICAgIGQ4YWI1Yzc4YzIwNyAoIlppaGlu
-dHBhdXNlIGlzIHJhdGlmaWVkIikuCiAKKyAgKiA6YzptYWNybzpgUklTQ1ZfSFdQUk9CRV9FWFRf
-WlZFMzJYYDogVGhlIFZlY3RvciBzdWItZXh0ZW5zaW9uIFp2ZTMyeCBpcworICAgIHN1cHBvcnRl
-ZCwgYXMgZGVmaW5lZCBieSB2ZXJzaW9uIDEuMCBvZiB0aGUgUklTQy1WIFZlY3RvciBleHRlbnNp
-b24gbWFudWFsLgorCisgICogOmM6bWFjcm86YFJJU0NWX0hXUFJPQkVfRVhUX1pWRTMyRmA6IFRo
-ZSBWZWN0b3Igc3ViLWV4dGVuc2lvbiBadmUzMmYgaXMKKyAgICBzdXBwb3J0ZWQsIGFzIGRlZmlu
-ZWQgYnkgdmVyc2lvbiAxLjAgb2YgdGhlIFJJU0MtViBWZWN0b3IgZXh0ZW5zaW9uIG1hbnVhbC4K
-KworICAqIDpjOm1hY3JvOmBSSVNDVl9IV1BST0JFX0VYVF9aVkU2NFhgOiBUaGUgVmVjdG9yIHN1
-Yi1leHRlbnNpb24gWnZlNjR4IGlzCisgICAgc3VwcG9ydGVkLCBhcyBkZWZpbmVkIGJ5IHZlcnNp
-b24gMS4wIG9mIHRoZSBSSVNDLVYgVmVjdG9yIGV4dGVuc2lvbiBtYW51YWwuCisKKyAgKiA6Yzpt
-YWNybzpgUklTQ1ZfSFdQUk9CRV9FWFRfWlZFNjRGYDogVGhlIFZlY3RvciBzdWItZXh0ZW5zaW9u
-IFp2ZTY0ZiBpcworICAgIHN1cHBvcnRlZCwgYXMgZGVmaW5lZCBieSB2ZXJzaW9uIDEuMCBvZiB0
-aGUgUklTQy1WIFZlY3RvciBleHRlbnNpb24gbWFudWFsLgorCisgICogOmM6bWFjcm86YFJJU0NW
-X0hXUFJPQkVfRVhUX1pWRTY0RGA6IFRoZSBWZWN0b3Igc3ViLWV4dGVuc2lvbiBadmU2NGQgaXMK
-KyAgICBzdXBwb3J0ZWQsIGFzIGRlZmluZWQgYnkgdmVyc2lvbiAxLjAgb2YgdGhlIFJJU0MtViBW
-ZWN0b3IgZXh0ZW5zaW9uIG1hbnVhbC4KKwogKiA6YzptYWNybzpgUklTQ1ZfSFdQUk9CRV9LRVlf
-Q1BVUEVSRl8wYDogQSBiaXRtYXNrIHRoYXQgY29udGFpbnMgcGVyZm9ybWFuY2UKICAgaW5mb3Jt
-YXRpb24gYWJvdXQgdGhlIHNlbGVjdGVkIHNldCBvZiBwcm9jZXNzb3JzLgogCmRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oIGIvYXJjaC9yaXNjdi9pbmNs
-dWRlL3VhcGkvYXNtL2h3cHJvYmUuaAppbmRleCAzMWM1NzBjYmQxYzUuLjY1OTNhZWRiOWQyYiAx
-MDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2h3cHJvYmUuaAorKysgYi9h
-cmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oCkBAIC02MCw2ICs2MCwxMSBAQCBz
-dHJ1Y3QgcmlzY3ZfaHdwcm9iZSB7CiAjZGVmaW5lCQlSSVNDVl9IV1BST0JFX0VYVF9aQUNBUwkJ
-KDFVTEwgPDwgMzQpCiAjZGVmaW5lCQlSSVNDVl9IV1BST0JFX0VYVF9aSUNPTkQJKDFVTEwgPDwg
-MzUpCiAjZGVmaW5lCQlSSVNDVl9IV1BST0JFX0VYVF9aSUhJTlRQQVVTRQkoMVVMTCA8PCAzNikK
-KyNkZWZpbmUJCVJJU0NWX0hXUFJPQkVfRVhUX1pWRTMyWAkoMVVMTCA8PCAzNykKKyNkZWZpbmUJ
-CVJJU0NWX0hXUFJPQkVfRVhUX1pWRTMyRgkoMVVMTCA8PCAzOCkKKyNkZWZpbmUJCVJJU0NWX0hX
-UFJPQkVfRVhUX1pWRTY0WAkoMVVMTCA8PCAzOSkKKyNkZWZpbmUJCVJJU0NWX0hXUFJPQkVfRVhU
-X1pWRTY0RgkoMVVMTCA8PCA0MCkKKyNkZWZpbmUJCVJJU0NWX0hXUFJPQkVfRVhUX1pWRTY0RAko
-MVVMTCA8PCA0MSkKICNkZWZpbmUgUklTQ1ZfSFdQUk9CRV9LRVlfQ1BVUEVSRl8wCTUKICNkZWZp
-bmUJCVJJU0NWX0hXUFJPQkVfTUlTQUxJR05FRF9VTktOT1dOCSgwIDw8IDApCiAjZGVmaW5lCQlS
-SVNDVl9IV1BST0JFX01JU0FMSUdORURfRU1VTEFURUQJKDEgPDwgMCkKZGlmZiAtLWdpdCBhL2Fy
-Y2gvcmlzY3Yva2VybmVsL3N5c19od3Byb2JlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zeXNfaHdw
-cm9iZS5jCmluZGV4IDk2OWVmM2Q1OWRiZS4uMzUzOTBiNGE1YTE3IDEwMDY0NAotLS0gYS9hcmNo
-L3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9iZS5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3N5c19o
-d3Byb2JlLmMKQEAgLTExNCw2ICsxMTQsMTEgQEAgc3RhdGljIHZvaWQgaHdwcm9iZV9pc2FfZXh0
-MChzdHJ1Y3QgcmlzY3ZfaHdwcm9iZSAqcGFpciwKIAkJRVhUX0tFWShaSUhJTlRQQVVTRSk7CiAK
-IAkJaWYgKGhhc192ZWN0b3IoKSkgeworCQkJRVhUX0tFWShaVkUzMlgpOworCQkJRVhUX0tFWSha
-VkUzMkYpOworCQkJRVhUX0tFWShaVkU2NFgpOworCQkJRVhUX0tFWShaVkU2NEYpOworCQkJRVhU
-X0tFWShaVkU2NEQpOwogCQkJRVhUX0tFWShaVkJCKTsKIAkJCUVYVF9LRVkoWlZCQyk7CiAJCQlF
-WFRfS0VZKFpWS0IpOwoKLS0gCjIuNDQuMC5yYzIKCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Make has_vector() to check for ZVE32X. Every in-kernel usage of V that
+requires a more complicate version of V must then call out explicitly.
+
+Also, change riscv_v_first_use_handler(), and boot code that calls
+riscv_v_setup_vsize() to accept ZVE32X.
+
+Most kernel/user interfaces requires minimum of ZVE32X. Thus, programs
+compiled and run with ZVE32X should be supported by the kernel on most
+aspects. This includes context-switch, signal, ptrace, prctl, and
+hwprobe.
+
+One exception is that ELF_HWCAP returns 'V' only if full V is supported
+on the platform. This means that the system without a full V must not
+rely on ELF_HWCAP to tell whether it is allowable to execute Vector
+without first invoking a prctl() check.
+
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+Acked-by: Joel Granados <j.granados@samsung.com>
+---
+Changelog v5:
+ - Remove the paramerter from has_vector()'s prototype. Instead, make it
+   check for ZVE32X only. Everything else should make additional
+   alternative checks. (Conor)
+Changelog v4:
+ - check static_assert for !CONFIG_RISCV_ISA_V case in has_vector.
+Changelog v2:
+ - update the comment in hwprobe.
+---
+ arch/riscv/include/asm/vector.h | 10 +++++-----
+ arch/riscv/kernel/cpufeature.c  |  5 ++++-
+ arch/riscv/kernel/sys_hwprobe.c |  6 +++++-
+ arch/riscv/kernel/vector.c      |  5 ++++-
+ arch/riscv/lib/uaccess.S        |  2 +-
+ 5 files changed, 19 insertions(+), 9 deletions(-)
+
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index 731dcd0ed4de..be7d309cca8a 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -37,7 +37,7 @@ static inline u32 riscv_v_flags(void)
+ 
+ static __always_inline bool has_vector(void)
+ {
+-	return riscv_has_extension_unlikely(RISCV_ISA_EXT_v);
++	return riscv_has_extension_unlikely(RISCV_ISA_EXT_ZVE32X);
+ }
+ 
+ static inline void __riscv_v_vstate_clean(struct pt_regs *regs)
+@@ -91,7 +91,7 @@ static __always_inline void __vstate_csr_restore(struct __riscv_v_ext_state *src
+ {
+ 	asm volatile (
+ 		".option push\n\t"
+-		".option arch, +v\n\t"
++		".option arch, +zve32x\n\t"
+ 		"vsetvl	 x0, %2, %1\n\t"
+ 		".option pop\n\t"
+ 		"csrw	" __stringify(CSR_VSTART) ", %0\n\t"
+@@ -109,7 +109,7 @@ static inline void __riscv_v_vstate_save(struct __riscv_v_ext_state *save_to,
+ 	__vstate_csr_save(save_to);
+ 	asm volatile (
+ 		".option push\n\t"
+-		".option arch, +v\n\t"
++		".option arch, +zve32x\n\t"
+ 		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
+ 		"vse8.v		v0, (%1)\n\t"
+ 		"add		%1, %1, %0\n\t"
+@@ -131,7 +131,7 @@ static inline void __riscv_v_vstate_restore(struct __riscv_v_ext_state *restore_
+ 	riscv_v_enable();
+ 	asm volatile (
+ 		".option push\n\t"
+-		".option arch, +v\n\t"
++		".option arch, +zve32x\n\t"
+ 		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
+ 		"vle8.v		v0, (%1)\n\t"
+ 		"add		%1, %1, %0\n\t"
+@@ -153,7 +153,7 @@ static inline void __riscv_v_vstate_discard(void)
+ 	riscv_v_enable();
+ 	asm volatile (
+ 		".option push\n\t"
+-		".option arch, +v\n\t"
++		".option arch, +zve32x\n\t"
+ 		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
+ 		"vmv.v.i	v0, -1\n\t"
+ 		"vmv.v.i	v8, -1\n\t"
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index ad3e613ee30f..53be3365e302 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -720,11 +720,14 @@ void __init riscv_fill_hwcap(void)
+ 		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
+ 	}
+ 
+-	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
++	if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_ZVE32X)) {
+ 		/*
+ 		 * This cannot fail when called on the boot hart
+ 		 */
+ 		riscv_v_setup_vsize();
++	}
++
++	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
+ 		/*
+ 		 * ISA string in device tree might have 'v' flag, but
+ 		 * CONFIG_RISCV_ISA_V is disabled in kernel.
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index 35390b4a5a17..83fcc939df67 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -69,7 +69,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
+ 	if (riscv_isa_extension_available(NULL, c))
+ 		pair->value |= RISCV_HWPROBE_IMA_C;
+ 
+-	if (has_vector())
++	if (has_vector() && riscv_isa_extension_available(NULL, v))
+ 		pair->value |= RISCV_HWPROBE_IMA_V;
+ 
+ 	/*
+@@ -113,6 +113,10 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
+ 		EXT_KEY(ZICOND);
+ 		EXT_KEY(ZIHINTPAUSE);
+ 
++		/*
++		 * All the following extensions must depend on the kernel
++		 * support of V.
++		 */
+ 		if (has_vector()) {
+ 			EXT_KEY(ZVE32X);
+ 			EXT_KEY(ZVE32F);
+diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+index 6727d1d3b8f2..682b3feee451 100644
+--- a/arch/riscv/kernel/vector.c
++++ b/arch/riscv/kernel/vector.c
+@@ -173,8 +173,11 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
+ 	u32 __user *epc = (u32 __user *)regs->epc;
+ 	u32 insn = (u32)regs->badaddr;
+ 
++	if (!has_vector())
++		return false;
++
+ 	/* Do not handle if V is not supported, or disabled */
+-	if (!(ELF_HWCAP & COMPAT_HWCAP_ISA_V))
++	if (!riscv_v_vstate_ctrl_user_allowed())
+ 		return false;
+ 
+ 	/* If V has been enabled then it is not the first-use trap */
+diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
+index bc22c078aba8..bbe143bb32a0 100644
+--- a/arch/riscv/lib/uaccess.S
++++ b/arch/riscv/lib/uaccess.S
+@@ -14,7 +14,7 @@
+ 
+ SYM_FUNC_START(__asm_copy_to_user)
+ #ifdef CONFIG_RISCV_ISA_V
+-	ALTERNATIVE("j fallback_scalar_usercopy", "nop", 0, RISCV_ISA_EXT_v, CONFIG_RISCV_ISA_V)
++	ALTERNATIVE("j fallback_scalar_usercopy", "nop", 0, RISCV_ISA_EXT_ZVE32X, CONFIG_RISCV_ISA_V)
+ 	REG_L	t0, riscv_v_usercopy_threshold
+ 	bltu	a2, t0, fallback_scalar_usercopy
+ 	tail enter_vector_usercopy
+
+-- 
+2.44.0.rc2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
