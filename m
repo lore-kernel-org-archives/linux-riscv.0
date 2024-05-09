@@ -4,108 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9054C10F1A
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 19:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BDFFC10F1A
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 20:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TUG8O4hUnBUKQR540+kgbaFjpBN2zzaM6pUHkcPFa3s=; b=YzQPTfDBx7yOKfboiNQFWwXS7k
-	3/4UBkGKe99bkzEGkyuGM/9QkOe9S8xl3QzA6Su+EaegsHQ4/E08KRWbXYKVTaJ8E5iJFh53B4hQW
-	CF3LcTiPx48dQQMslAig0mIdrFYnbFzmVfsodipIPvDD2Jayb1PiBf73QcfcQsdF9XvEYp7tXKDxF
-	GoKChMPfAeTQ8uGP4Sr/F1jW/w4kP9DZK27mVZrjUGBfliOZGrZx7vnjWlr1fcEaI0OYCNnviMOWd
-	2MMyTmg5zSAuPu+M/vAaPlvjbb8y9ocY3S/Pyqi+d0fkyDvmdLb6QhN1fqU/VDtaSLPiv9nL0FEWh
-	ITizCobQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=bnQTQ2F8OhRUF5AGSdPKRqIqUJAnyXFGEgMSAalNtbc=; b=VnWbrjIa+MHjINm+CVRV+mxFuY
+	sEqJFP4lTNijKLSZTxSBLnatC2pDdBJdF1d1Y69DZT8MMPB2a31TSpHuZCQp1ARouYxmyDtZ6NFeq
+	57kC0ZX1VjyE147BnySE82O55oK8HuzeLon+j9NBaevDxt7JMaTUp13VmWOzcyav+nAjQo6Ul3yfi
+	yux3D4C7hwmcgQp7uygB0Mw75auNAA46MWYs/rWOGBrcdrslrjIOKdrQRm7TSeFkthO1v5G1deRiU
+	pv0/jrYDBPSEI+e6MLCgBxwYtzGHxbsLRPiJT9Tvg9vuSeJFRtdJtMvcwmNqu2+QZUKhhW+L8PDqr
+	Ty7gN7mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s59G4-00000002Uwy-1DdE;
-	Thu, 09 May 2024 19:16:48 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1s59wi-00000002aie-12Pa;
+	Thu, 09 May 2024 20:00:52 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s59G0-00000002Usu-3aWq
+	id 1s59wd-00000002ag0-0ykW
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 May 2024 19:16:46 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1eb0e08bfd2so8386585ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 12:16:34 -0700 (PDT)
+	Thu, 09 May 2024 20:00:49 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-61be4b79115so22749657b3.1
+        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 13:00:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715282194; x=1715886994; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WRd0Lx0MMpPCEzZHJ+gP+MBiwgoDsG5pFDJFXbEvS5E=;
-        b=OdWj0Vilz7hKtKfmEk5RcD+OAY3N71WJRQuTbyYxezTQ4S0UYDCT6R/4/gwy4h441G
-         bsCbfZn/kE1oe4Hx5bf6/NHtvrxgY3yrlEWdWkIiXQnvxmvpyh8x+32ppSQGk0dMfEcf
-         Aj8uEmffi0FFvGqCHB5OmvUgqNdJ0ZbLeolDr4gYJJ1v0IhBPotOfszr8QEGAvH2AZR0
-         HT8A6r/O9lYtEtyGTVCPezHS9pJasIrdtQ7E3QZMwp+31TJCrtZr2cgIJCtOXvXeHgrj
-         os7GaGyo7+H6np0Jhrm9O/GLfhZ+hXNgqO1IgcdfRHJl6bWLvzzQuzwAqSO2XYSCTEnA
-         ScUg==
+        d=google.com; s=20230601; t=1715284843; x=1715889643; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ba6gtNWy+5dDG4FkE5cayyoNwuE5iBhkuWvzvH75i1U=;
+        b=aYPEROErx4+rmpR15EDZQ8Xm8anUNy3pe2EEepvhRarg6n0FLsNuuhhwR33EJvOlLI
+         Jl2nArwF+575m3YIyEwP2SJPyHu1N1jdhSBMkJP4/jiq82b2tz6sc2NHnfUhz8Mnq04N
+         QGIfNqxUiBWhWL0NqPPzCnnVFAGSKNoaiE4Y0NN+PuppWfis2dE2zCqILnV01VNXdpzK
+         iY0KronJdC56S0cogWyd+hKjgIdsPc1GNSJEc6NdcBQr+TPS6ug5sqOtOZU8sPd+4dzL
+         Acm9wGjhZydR1t925DiPaRq47EOobWN9JxmgJOwVeqfuWaTMdjIrYS4t2eKIZjnq0wAp
+         NTPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715282194; x=1715886994;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WRd0Lx0MMpPCEzZHJ+gP+MBiwgoDsG5pFDJFXbEvS5E=;
-        b=a2Ztc6UqAOV8K/lYlfGn/V+POjfT4DroRIsXRiRWqFUGLL6AJTKeBIpBerq4M1ibL/
-         vX8UA8/arW1ivp3DbVCarnyCZ3jHtnrR4FxXzmzbRST3oz5sDl2PMz/RGnTOkuCbBkPN
-         GcM58eZNyvV11fETLfNYSZJTKEGonaQFVygwEe7xU+QWa6hGuE0Ce1y/KkesUK88VYl5
-         W57umsYJ0LJVb5A1JAbO95Dm8CLUBGFmWp8FHF+dD77tku+7wgloMRn+eMJ1Z1nctQAF
-         2QeOB97wu54JWN3tWGum0+7jMAmFK9Hy8JleBB6d4FXjNVfCRByVMJa2city8IKIa7sU
-         xx9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVLgzh/e4xS8gpbg+xlFWvAb8zvMKEjjqyPn5WSYoJnKil/zlydfs+4XY1F7mqJEhdhwa1NjEsBN/ytZruBfGXHDRLmu6neTmWfDxFIrb7Y
-X-Gm-Message-State: AOJu0Yy9ZCj7PmmBWqCfk8F6TAqoVzJ1L2HQPv+z/oY3/cxDOSpX9BLy
-	4hk4K9I0dF2GCEX+MyadNINgrrHphslhQJ7Z4u8FWOLi1meYk7Oa655aHyPAURM=
-X-Google-Smtp-Source: AGHT+IGVLZ1hk7FPNudPJKafIIo2jYjbH8+I3TnNil7Sy8OT8DfcbS5dMB3RJTTTCW5vQbF2H1ruBQ==
-X-Received: by 2002:a17:903:191:b0:1dc:de65:623b with SMTP id d9443c01a7336-1ef4404b8cdmr7695675ad.60.1715282194292;
-        Thu, 09 May 2024 12:16:34 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0c13692asm17812885ad.252.2024.05.09.12.16.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 May 2024 12:16:33 -0700 (PDT)
-Date: Thu, 9 May 2024 12:16:29 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: paul.walmsley@sifive.com, rick.p.edgecombe@intel.com,
-	broonie@kernel.org, Szabolcs.Nagy@arm.com, kito.cheng@sifive.com,
-	keescook@chromium.org, ajones@ventanamicro.com,
-	conor.dooley@microchip.com, cleger@rivosinc.com,
-	atishp@atishpatra.org, alex@ghiti.fr, bjorn@rivosinc.com,
-	alexghiti@rivosinc.com, samuel.holland@sifive.com, conor@kernel.org,
-	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-mm@kvack.org, linux-arch@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, corbet@lwn.net, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, oleg@redhat.com,
-	akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
-	Liam.Howlett@oracle.com, vbabka@suse.cz, lstoakes@gmail.com,
-	shuah@kernel.org, brauner@kernel.org, andy.chiu@sifive.com,
-	jerry.shih@sifive.com, hankuan.chen@sifive.com,
-	greentime.hu@sifive.com, evan@rivosinc.com, xiao.w.wang@intel.com,
-	apatel@ventanamicro.com, mchitale@ventanamicro.com,
-	dbarboza@ventanamicro.com, sameo@rivosinc.com,
-	shikemeng@huaweicloud.com, willy@infradead.org,
-	vincent.chen@sifive.com, guoren@kernel.org, samitolvanen@google.com,
-	songshuaishuai@tinylab.org, gerg@kernel.org, heiko@sntech.de,
-	bhe@redhat.com, jeeheng.sia@starfivetech.com, cyy@cyyself.name,
-	maskray@google.com, ancientmodern4@gmail.com,
-	mathis.salmen@matsal.de, cuiyunhui@bytedance.com,
-	bgray@linux.ibm.com, mpe@ellerman.id.au, baruch@tkos.co.il,
-	alx@kernel.org, david@redhat.com, catalin.marinas@arm.com,
-	revest@chromium.org, josh@joshtriplett.org, shr@devkernel.io,
-	deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
-	jhubbard@nvidia.com
-Subject: Re: [PATCH v3 29/29] kselftest/riscv: kselftest for user mode cfi
-Message-ID: <Zj0hDT1EZmOaEkCj@debug.ba.rivosinc.com>
-References: <20240403234054.2020347-1-debug@rivosinc.com>
- <20240403234054.2020347-30-debug@rivosinc.com>
- <Zj0UGweLoRD1U9Po@ghost>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Zj0UGweLoRD1U9Po@ghost>
+        d=1e100.net; s=20230601; t=1715284843; x=1715889643;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ba6gtNWy+5dDG4FkE5cayyoNwuE5iBhkuWvzvH75i1U=;
+        b=aaA1XNWj+60qfg/ojeaW8lBPlwf9hVffXNVPUs33tFP6svQugeH3V32cTO7IvoowyW
+         giYYzbvgVNWoPjJ/P787UopS/8T3CkePKi2PBGaNOgwBjOHvTlXQ/w8W4/U2QLctoFVm
+         ufwFLvIh6h+ZaylG5rNvO0mW5HXt9JX8bSGfdwSFcVAjX1UApRcCWmKjPCHDWfXc4wYk
+         sk5xT/iVV78UwTF0i/tyGlx9bwwXBynyMTn3CrWTRZsQpbDHyzfZSPHYmAVIY68nMnGE
+         vhvMoBS1jeZ7f2ERE126gEY3l33If/JnktHA8ZvRIa1iWTaMutPNm3LuyhgPa8EG2jp9
+         xEiw==
+X-Forwarded-Encrypted: i=1; AJvYcCWlbk3kHjoNyQWy8OxdUJrCZCaoHQEKnn3MxzMY13vDf8TCD/COMtjZr9eS3i7vg5uKiwy1BkglxLx/7HupciAqQlooh9b4jkxeXXiLD2w7
+X-Gm-Message-State: AOJu0YxeEGPNhFDortClbOqAA5o3wNQs067fddXbsQ8s1x7LS/J3OWTD
+	/Wmk8Tx/9m2d7r9XJgwvFYBhqK0pelyhhqCdbv+SVVKP99pT5e3nb6/+uSs1gLJ7an17rZJqe9q
+	y9A==
+X-Google-Smtp-Source: AGHT+IFtxzWKY7VhIBdVaBt6o2fKuOgK4J0Sm4jxWWsiePPAsW3qSwIRHpAtz3W+/n8cUj9FLINB0ruDjug=
+X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
+ (user=edliaw job=sendgmr) by 2002:a05:690c:6f08:b0:61b:e39f:143b with SMTP id
+ 00721157ae682-622afd84a02mr1771287b3.0.1715284843538; Thu, 09 May 2024
+ 13:00:43 -0700 (PDT)
+Date: Thu,  9 May 2024 19:57:53 +0000
+In-Reply-To: <20240509200022.253089-1-edliaw@google.com>
+Mime-Version: 1.0
+References: <20240509200022.253089-1-edliaw@google.com>
+X-Mailer: git-send-email 2.45.0.118.g7fe29c98d7-goog
+Message-ID: <20240509200022.253089-2-edliaw@google.com>
+Subject: [PATCH v3 01/68] selftests: Compile kselftest headers with -D_GNU_SOURCE
+From: Edward Liaw <edliaw@google.com>
+To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
+	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
+	Kees Cook <keescook@chromium.org>, Andy Lutomirski <luto@amacapital.net>, 
+	Will Drewry <wad@chromium.org>, Muhammad Usama Anjum <usama.anjum@collabora.com>, 
+	Edward Liaw <edliaw@google.com>, Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	kernel-team@android.com, linux-security-module@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
+	kernel test robot <oliver.sang@intel.com>, Mark Brown <broonie@kernel.org>, 
+	John Hubbard <jhubbard@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_121645_036778_B5E182B4 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20240509_130047_405284_2E252D72 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,66 +98,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 09, 2024 at 11:21:15AM -0700, Charlie Jenkins wrote:
->On Wed, Apr 03, 2024 at 04:35:17PM -0700, Deepak Gupta wrote:
->> +
->> +int main(int argc, char *argv[])
->> +{
->> +	int ret = 0;
->> +	unsigned long lpad_status = 0, ss_status = 0;
->> +
->> +	ksft_print_header();
->> +
->> +	ksft_set_plan(RISCV_CFI_SELFTEST_COUNT);
->> +
->> +	ksft_print_msg("starting risc-v tests\n");
->> +
->> +	/*
->> +	 * Landing pad test. Not a lot of kernel changes to support landing
->> +	 * pad for user mode except lighting up a bit in senvcfg via a prctl
->> +	 * Enable landing pad through out the execution of test binary
->> +	 */
->> +	ret = my_syscall5(__NR_prctl, PR_GET_INDIR_BR_LP_STATUS, &lpad_status, 0, 0, 0);
->
->There is an assumption here that the libc supports setting
->INDIR_BR_LP_STATUS but does not support the standard prctl interface
->defined in <sys/prctl.h>. my_syscall5() is defined to fill in gaps in
->the libc, so this test case should also set the status manually rather
->than relying on the libc.
->
->I don't think it's necessary to define my_syscall5() since every libc
->should have a prctl() definition. However, these CFI prctls are very new
->and glibc does not yet support (correct me if I am wrong) it so these
->prctls should be enabled by the test cases.
+Add the -D_GNU_SOURCE flag to KHDR_INCLUDES so that it is defined in a
+central location.
 
-In one of my previous patches, it was setting landing pad and shadow stack enabling
-directly via handcrafted prctl macro. I changed it to check for status for following reasons
+809216233555 ("selftests/harness: remove use of LINE_MAX") introduced
+asprintf into kselftest_harness.h, which is a GNU extension and needs
+_GNU_SOURCE to either be defined prior to including headers or with the
+-D_GNU_SOURCE flag passed to the compiler.
 
-- If this binary is compiled with landing pad and shadow stack option then toolchain being used
-   already has libc with shadow stack and landing pad enabling
+Fixes: 809216233555 ("selftests/harness: remove use of LINE_MAX")
+Reported-by: kernel test robot <oliver.sang@intel.com>
+Closes: https://lore.kernel.org/oe-lkp/202404301040.3bea5782-oliver.sang@intel.com
+Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: John Hubbard <jhubbard@nvidia.com>
+Signed-off-by: Edward Liaw <edliaw@google.com>
+---
+ tools/testing/selftests/Makefile            | 4 ++--
+ tools/testing/selftests/kselftest_harness.h | 2 +-
+ tools/testing/selftests/lib.mk              | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
 
-- Currently upstream glibc toolchain dont have support but libc with toolchain has the support.
+diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
+index 9039f3709aff..f0431e6cb67e 100644
+--- a/tools/testing/selftests/Makefile
++++ b/tools/testing/selftests/Makefile
+@@ -170,11 +170,11 @@ ifneq ($(KBUILD_OUTPUT),)
+   # $(realpath ...) resolves symlinks
+   abs_objtree := $(realpath $(abs_objtree))
+   BUILD := $(abs_objtree)/kselftest
+-  KHDR_INCLUDES := -isystem ${abs_objtree}/usr/include
++  KHDR_INCLUDES := -D_GNU_SOURCE -isystem ${abs_objtree}/usr/include
+ else
+   BUILD := $(CURDIR)
+   abs_srctree := $(shell cd $(top_srcdir) && pwd)
+-  KHDR_INCLUDES := -isystem ${abs_srctree}/usr/include
++  KHDR_INCLUDES := -D_GNU_SOURCE -isystem ${abs_srctree}/usr/include
+   DEFAULT_INSTALL_HDR_PATH := 1
+ endif
+ 
+diff --git a/tools/testing/selftests/kselftest_harness.h b/tools/testing/selftests/kselftest_harness.h
+index 7612bf09c5f8..31b2c70a2be2 100644
+--- a/tools/testing/selftests/kselftest_harness.h
++++ b/tools/testing/selftests/kselftest_harness.h
+@@ -51,7 +51,7 @@
+ #define __KSELFTEST_HARNESS_H
+ 
+ #ifndef _GNU_SOURCE
+-#define _GNU_SOURCE
++static_assert(0, "kselftest harness requires _GNU_SOURCE to be defined");
+ #endif
+ #include <asm/types.h>
+ #include <ctype.h>
+diff --git a/tools/testing/selftests/lib.mk b/tools/testing/selftests/lib.mk
+index 429535816dbd..3023e0e2f58f 100644
+--- a/tools/testing/selftests/lib.mk
++++ b/tools/testing/selftests/lib.mk
+@@ -67,7 +67,7 @@ MAKEFLAGS += --no-print-directory
+ endif
+ 
+ ifeq ($(KHDR_INCLUDES),)
+-KHDR_INCLUDES := -isystem $(top_srcdir)/usr/include
++KHDR_INCLUDES := -D_GNU_SOURCE -isystem $(top_srcdir)/usr/include
+ endif
+ 
+ # In order to use newer items that haven't yet been added to the user's system
+-- 
+2.45.0.118.g7fe29c98d7-goog
 
-In case of shadow stack enabling, macro is needed and `prctl` function can't be used.
-Because you enter `prctl` function with no shadow stack but exit with shadow stack and will lead to
-fault in its epilog.
-
-Due to all these reasons, kselftests have to be compiled with toolchain with cfi codegen and thus libc
-should have support to light them up. Here tests only checks if they are already lit up, If not it fails.
-
-Although you're spot on one thing here, since this test is assuming libc already lit-up landing pad and
-shadow stack. It doesn't need macro here for status check of feature and can simply use `prctl` syscall
-interface.
-
->
->- Charlie
->
->> +	if (ret)
 
 _______________________________________________
 linux-riscv mailing list
