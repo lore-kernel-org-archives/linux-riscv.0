@@ -4,78 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A61EC25B10
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 20:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AB8C10F1A
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 20:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Subject:To:From:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tGx1gFQmmxtZv62xhz0dsALZDgThw+HUG1CsXD+TpZE=; b=3STdKrZ3FDg+Ie
-	3NEXm6gvBjPbJ3rhOHTkoXz9l879cmeTSxcsU6op/ccu9VUEQMpTdyaHAsbO5ZtloL00mcfKhLUW+
-	OEujcjrCKDdFNRe2MEa+H5NdfN1MHz9YRsfyAQ9ugeLv6aOEZ0DJJUZIEw2mKVfl5fNl2Doawdhwe
-	Qi3sTQVxK6l0hmKkd5ynjGc2wFUKtPNEsgCAey1go4gO58NYhUZSQprR8Afu3t0Q32Ala0CKC6gTB
-	bAsJJkyAdzHWf6RQU03Lv+NYY98DYhPbwCRIzarXVxmyyAYIjn7kzOlcyliP85xjIYrLjHzOBj2c6
-	mULIxik3AmCbN3XNXo1A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hbLFwqe+oLj2tIhczrAjws2Wq0HZ2kR57vGqvTlm0zo=; b=HINQ65RLCkqAVJQM+KwPSyQqPf
+	JgSg5d1AZZ3nLFthczBErxAoD+/Oa4XkmYdTg4/jVUxQcaMGBl6ahvyMESkOW3vK2aB6y6eF6WYfT
+	nysXnph7XhyZgHvCL+9805tAbbc1GViSKdxDk3aOvU2jtox0TJf5RlvK5Qp464YcyWs2xQbdpUvdd
+	shWUPa6tsJEujuP3d5QL3k3CSKa5COi40gyudwGJxjpEe5HEUqZcg9rBthoxUIspjUMQt21AqRmZc
+	SQxMA14zADphbTaHk+D474KFObninC2qpjgZOwLRyrUbrmsX+iCzZrEf3FZ+KvZ5bXl9fV9QCZHoj
+	75Gg8lCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5ARI-00000002mr4-1eLn;
-	Thu, 09 May 2024 20:32:28 +0000
-Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
+	id 1s5AS2-00000002n6B-0Ie8;
+	Thu, 09 May 2024 20:33:14 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5ARF-00000002mp9-0gV9;
-	Thu, 09 May 2024 20:32:26 +0000
-Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-6f09ed75e4cso683553a34.3;
-        Thu, 09 May 2024 13:32:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1715286739; x=1715891539; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=WgzIChNHOybB6YvtmtKRO5fmRYHJDfezozAjqZ0oqsY=;
-        b=NeYu6gbwM/MNqc0FOw2NZv1grp0ZWakrhyhl7lXDtw0YD1aGUSs97jLQQBMiJEinGy
-         MlE9BaftNj7sKt2V+grR/Tn7df4P+PeyavXzFS2IQjlxdMShcpK58ukxJekwMgP48SPf
-         T46el1grhgfVH5U6ijtrP9LRtnOiSiZUhPKIyFkxqhyW6yKmAsQ8UQ/iKdZxRYYB06b2
-         IthG2J4tZYqjiv08i96E5WsvTWlIsnjnQwUrVNLs0esVfEsQ3ou+EIjqRhdY5Ga4hxVl
-         VQmI/2YrQCSECGoc+q3/8bq0kyCe/NHNEmfHa61gesBIcBzpPt1M4/Nhg+JJkDVJMD3S
-         at1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715286739; x=1715891539;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WgzIChNHOybB6YvtmtKRO5fmRYHJDfezozAjqZ0oqsY=;
-        b=pCFJsRgLpEqbgDwEHe2WlKq3+lY5AlQYB4XT4gIBDAWAdZFcwxYr1D4JwOo/wRaqhz
-         KGsPzSXKZkNlvHAupkLFka+u08g0BVTY+RRT1QoJYUX8LDHD6huvKUhBf2ZWzuNXIJrN
-         HRTJ9ToFhpygwTr/PXf4fg3MLr5W0CtHUuuHcFjqyIEBXZWqD3VgyvvUCtIGuQ7pVrx3
-         05XRlvTEt7jUq+tRs2zy2rupnXs7fz11cU3DN9TG6FDY8S9PNkolS8p0UNxrrsENiohF
-         bvwd49KiAuMklYwkt32GA7T89XtqiipWc8s5MQBanJDjTQZq8lfHl75v8WIVpxXgtnnO
-         r6Dg==
-X-Forwarded-Encrypted: i=1; AJvYcCUIFBIzI03qBZxr+ETvCMW8wSQGmm1EmtehQwkY4EEHK0np377UeXhagx5VAjbgb9ETAv4IEh/LwjM9FEu5wfzzzP7NZ81WHTsj+EBwvje2NKsPSuRizkDubUVCU+0GgS38zPCZJ60IZx736nR08xOn/SzOty0=
-X-Gm-Message-State: AOJu0YxiOuf3SrzHVBTS/zbwpEi160nKz6FMDlIQLrXpVCP9FeWsDPmm
-	7dwpIiAv3Vl6Srhy+zGh0azMDIf4mNmjZkig5a6kfJrrVhbAhh9m
-X-Google-Smtp-Source: AGHT+IHEGJhWWa1e30aGL5DnsTEpJiTDTXaGIBCDX2v7pHa+Npm+d4Q9LH1hhmRiUUPUezlEhErNEA==
-X-Received: by 2002:a05:6830:14ce:b0:6f0:417d:5167 with SMTP id 46e09a7af769-6f0e9109a0bmr697703a34.7.1715286739471;
-        Thu, 09 May 2024 13:32:19 -0700 (PDT)
-Received: from neuromancer. ([75.28.21.198])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5b26de89545sm379650eaf.34.2024.05.09.13.32.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 May 2024 13:32:18 -0700 (PDT)
-Message-ID: <663d32d2.4a0a0220.e5dc.2304@mx.google.com>
-X-Google-Original-Message-ID: <Zj0y0D/2P2W6heiu@neuromancer.>
-Date: Thu, 9 May 2024 15:32:16 -0500
-From: Chris Morgan <macroalpha82@gmail.com>
-To: Aleksandr Shubin <privatesub2@gmail.com>
-Subject: Re: [PATCH v8 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-References: <20240131125920.2879433-1-privatesub2@gmail.com>
- <20240131125920.2879433-2-privatesub2@gmail.com>
+	id 1s5ARv-00000002n2o-3zQW
+	for linux-riscv@lists.infradead.org;
+	Thu, 09 May 2024 20:33:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 1546DCE1BD3;
+	Thu,  9 May 2024 20:33:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECA18C116B1;
+	Thu,  9 May 2024 20:32:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1715286785;
+	bh=6iQUzY8aEoDEDTDjSEFz/xHQqilN8EGwR9Ao9LR2DhA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Uy9+y+Wn571zBjkcfWNxqCA9u6G+sV4BOYW+53XaleB+d+ECLFA/QUFNlclIoorDe
+	 hKpRg4eDuONRLyrCriNbQ3Z62aTFZBZWxgTzR0NStKeR7yId4VXZnGyluuTkI5/q2z
+	 hMlkPWtJCjeu9zGzmej+baT6iIlzr6VGyVdAtDODuM/O32Wv7Cx7Mbmh/lE/C7uGum
+	 ULGcH15fuvlg+MBCHLwwmisSxYoKwfZReurwTHwj+0XILwZ1NlK2OGNPPZgXDXU/d0
+	 MO0ilOdWPTjG8X5FLoKkVrm8u7yv7nmp/+qppgGBjsG76Ze7gou+bBddiPRAbwPwf7
+	 2qMDIEht5/Uyg==
+Date: Thu, 9 May 2024 21:32:49 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: Rob Herring <robh@kernel.org>, paul.walmsley@sifive.com,
+	rick.p.edgecombe@intel.com, broonie@kernel.org,
+	Szabolcs.Nagy@arm.com, kito.cheng@sifive.com, keescook@chromium.org,
+	ajones@ventanamicro.com, conor.dooley@microchip.com,
+	cleger@rivosinc.com, atishp@atishpatra.org, alex@ghiti.fr,
+	bjorn@rivosinc.com, alexghiti@rivosinc.com,
+	samuel.holland@sifive.com, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-mm@kvack.org,
+	linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	corbet@lwn.net, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	krzysztof.kozlowski+dt@linaro.org, oleg@redhat.com,
+	akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
+	Liam.Howlett@oracle.com, vbabka@suse.cz, lstoakes@gmail.com,
+	shuah@kernel.org, brauner@kernel.org, andy.chiu@sifive.com,
+	jerry.shih@sifive.com, hankuan.chen@sifive.com,
+	greentime.hu@sifive.com, evan@rivosinc.com, xiao.w.wang@intel.com,
+	charlie@rivosinc.com, apatel@ventanamicro.com,
+	mchitale@ventanamicro.com, dbarboza@ventanamicro.com,
+	sameo@rivosinc.com, shikemeng@huaweicloud.com, willy@infradead.org,
+	vincent.chen@sifive.com, guoren@kernel.org, samitolvanen@google.com,
+	songshuaishuai@tinylab.org, gerg@kernel.org, heiko@sntech.de,
+	bhe@redhat.com, jeeheng.sia@starfivetech.com, cyy@cyyself.name,
+	maskray@google.com, ancientmodern4@gmail.com,
+	mathis.salmen@matsal.de, cuiyunhui@bytedance.com,
+	bgray@linux.ibm.com, mpe@ellerman.id.au, baruch@tkos.co.il,
+	alx@kernel.org, david@redhat.com, catalin.marinas@arm.com,
+	revest@chromium.org, josh@joshtriplett.org, shr@devkernel.io,
+	deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
+	jhubbard@nvidia.com
+Subject: Re: [PATCH v3 04/29] riscv: zicfilp / zicfiss in dt-bindings
+ (extensions.yaml)
+Message-ID: <20240509-clatter-crewmate-9755669b9452@spud>
+References: <20240403234054.2020347-1-debug@rivosinc.com>
+ <20240403234054.2020347-5-debug@rivosinc.com>
+ <20240410115806.GA4044117-robh@kernel.org>
+ <CAKC1njSsZ6wfvJtXkp4J4J6wXFtU92W9JGca-atKxBy8UvUwRg@mail.gmail.com>
+ <20240415194105.GA94432-robh@kernel.org>
+ <Zh6c0FH2OvrfDLje@debug.ba.rivosinc.com>
+ <20240509-cornflake-foyer-e6589c2bc364@spud>
+ <Zj0aAiZiTrt9ACjj@debug.ba.rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240131125920.2879433-2-privatesub2@gmail.com>
+In-Reply-To: <Zj0aAiZiTrt9ACjj@debug.ba.rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_133225_228838_7355513E 
-X-CRM114-Status: GOOD (  25.23  )
+X-CRM114-CacheID: sfid-20240509_133309_693075_40CCF673 
+X-CRM114-Status: GOOD (  34.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,144 +102,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, John Watts <contact@jookia.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>, linux-sunxi@lists.linux.dev, linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-arm-kernel@lists.infradead.org, Cheo Fusi <fusibrandon13@gmail.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2021946053181188873=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 31, 2024 at 03:59:14PM +0300, Aleksandr Shubin wrote:
-> Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
-> controller witch is different from the previous pwm-sun4i.
-> 
-> The D1 and T113 are identical in terms of peripherals,
-> they differ only in the architecture of the CPU core, and
-> even share the majority of their DT. Because of that,
-> using the same compatible makes sense.
-> The R329 is a different SoC though, and should have
-> a different compatible string added, especially as there
-> is a difference in the number of channels.
-> 
-> D1 and T113s SoCs have one PWM controller with 8 channels.
-> R329 SoC has two PWM controllers in both power domains, one of
-> them has 9 channels (CPUX one) and the other has 6 (CPUS one).
-> 
-> Add a device tree binding for them.
-> 
-> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../bindings/pwm/allwinner,sun20i-pwm.yaml    | 88 +++++++++++++++++++
->  1 file changed, 88 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> new file mode 100644
-> index 000000000000..716f75776006
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> @@ -0,0 +1,88 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-pwm.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner D1, T113-S3 and R329 PWM
-> +
-> +maintainers:
-> +  - Aleksandr Shubin <privatesub2@gmail.com>
-> +  - Brandon Cheo Fusi <fusibrandon13@gmail.com>
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - const: allwinner,sun20i-d1-pwm
-> +      - items:
-> +          - const: allwinner,sun20i-r329-pwm
-> +          - const: allwinner,sun20i-d1-pwm
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#pwm-cells":
-> +    const: 3
-> +
-> +  clocks:
-> +    items:
-> +      - description: Bus clock
-> +      - description: 24 MHz oscillator
-> +      - description: APB0 clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: bus
-> +      - const: hosc
-> +      - const: apb0
 
-Sorry for being late to the party, but I'm starting to look at the
-PWM controller for the H700 (H616/T507 are compatible I believe) and
-for those devices they use apb1. Would it be possible to just name this
-clock "apb" and note it's just the "APB clock"?
+--===============2021946053181188873==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="x+pjDPD7FlbQaxoS"
+Content-Disposition: inline
 
-Thank you.
 
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  allwinner,pwm-channels:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: The number of PWM channels configured for this instance
-> +    enum: [6, 9]
-> +
-> +allOf:
-> +  - $ref: pwm.yaml#
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: allwinner,sun20i-r329-pwm
-> +
-> +    then:
-> +      required:
-> +        - allwinner,pwm-channels
-> +
-> +    else:
-> +      properties:
-> +        allwinner,pwm-channels: false
-> +
-> +unevaluatedProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#pwm-cells"
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/sun20i-d1-ccu.h>
-> +    #include <dt-bindings/reset/sun20i-d1-ccu.h>
-> +
-> +    pwm: pwm@2000c00 {
-> +      compatible = "allwinner,sun20i-d1-pwm";
-> +      reg = <0x02000c00 0x400>;
-> +      clocks = <&ccu CLK_BUS_PWM>, <&dcxo>, <&ccu CLK_APB0>;
-> +      clock-names = "bus", "hosc", "apb0";
-> +      resets = <&ccu RST_BUS_PWM>;
-> +      #pwm-cells = <0x3>;
-> +    };
-> +
-> +...
-> -- 
-> 2.25.1
-> 
+--x+pjDPD7FlbQaxoS
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, May 09, 2024 at 11:46:26AM -0700, Deepak Gupta wrote:
+> On Thu, May 09, 2024 at 07:14:26PM +0100, Conor Dooley wrote:
+> > On Tue, Apr 16, 2024 at 08:44:16AM -0700, Deepak Gupta wrote:
+> > > On Mon, Apr 15, 2024 at 02:41:05PM -0500, Rob Herring wrote:
+> > > > On Wed, Apr 10, 2024 at 02:37:21PM -0700, Deepak Gupta wrote:
+> > > > > On Wed, Apr 10, 2024 at 4:58=E2=80=AFAM Rob Herring <robh@kernel.=
+org> wrote:
+> > > > > >
+> > > > > > On Wed, Apr 03, 2024 at 04:34:52PM -0700, Deepak Gupta wrote:
+> > > > > > > Make an entry for cfi extensions in extensions.yaml.
+> > > > > > >
+> > > > > > > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> > > > > > > ---
+> > > > > > >  .../devicetree/bindings/riscv/extensions.yaml          | 10 =
+++++++++++
+> > > > > > >  1 file changed, 10 insertions(+)
+> > > > > > >
+> > > > > > > diff --git a/Documentation/devicetree/bindings/riscv/extensio=
+ns.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > > > > > index 63d81dc895e5..45b87ad6cc1c 100644
+> > > > > > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > > > > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > > > > > @@ -317,6 +317,16 @@ properties:
+> > > > > > >              The standard Zicboz extension for cache-block ze=
+roing as ratified
+> > > > > > >              in commit 3dd606f ("Create cmobase-v1.0.pdf") of=
+ riscv-CMOs.
+> > > > > > >
+> > > > > > > +        - const: zicfilp
+> > > > > > > +          description:
+> > > > > > > +            The standard Zicfilp extension for enforcing for=
+ward edge control-flow
+> > > > > > > +            integrity in commit 3a20dc9 of riscv-cfi and is =
+in public review.
+> > > > > >
+> > > > > > Does in public review mean the commit sha is going to change?
+> > > > > >
+> > > > >
+> > > > > Less likely. Next step after public review is to gather comments =
+=66rom
+> > > > > public review.
+> > > > > If something is really pressing and needs to be addressed, then y=
+es
+> > > > > this will change.
+> > > > > Else this gets ratified as it is.
+> > > >
+> > > > If the commit sha can change, then it is useless. What's the guaran=
+tee
+> > > > someone is going to remember to update it if it changes?
+> > >=20
+> > > Sorry for late reply.
+> > >=20
+> > > I was following existing wordings and patterns for messaging in this =
+file.
+> > > You would rather have me remove sha and only mention that spec is in =
+public
+> > > review?
+> >=20
+> > Nope, having a commit sha is desired. None of this is mergeable until at
+> > least the spec becomes frozen, so the sha can be updated at that point
+> > to the freeze state - or better yet to the ratified state. Being in
+> > public review is not sufficient.
+>=20
+> Spec is frozen.
+> As per RVI spec lifecycle, spec freeze is a prior step to public review.
+> Public review concluded on 25th April
+> https://lists.riscv.org/g/tech-ss-lp-cfi/message/91
+>=20
+> Next step is ratification whenever board meets.
+
+Ah, I did the "silly" thing of looking on the RVI website at extension
+status (because I never know the order of things) and these two
+extensions were marked on there as being in the inception phase, so I
+incorrectly assumed that "public review" came before freeze.
+Freeze is the standard that we have been applying so far, but if
+ratification is imminent, and nothing has changed in the review period,
+then it seems sane to just pick the freeze point for the definition.
+
+Cheers,
+Conor.
+
+--x+pjDPD7FlbQaxoS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZj0y8QAKCRB4tDGHoIJi
+0rP8AQC02hZlGWSuSewjVON0urY69iTQamRjygDbG9NHmoS2CgD9GqLx3inCUKtB
+gHw/mFivxVUjkbE0drkNkmSs+Vn4eAM=
+=uiDQ
+-----END PGP SIGNATURE-----
+
+--x+pjDPD7FlbQaxoS--
+
+
+--===============2021946053181188873==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2021946053181188873==--
+
