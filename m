@@ -4,130 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AAF5C04FFE
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 May 2024 23:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16739C04FFE
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 00:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0oqGyoOlKd7f8T1/6cBN4VY7hHbY0sLprMXScMuKC+I=; b=xir10+cGBj0io5
-	I9ja+DYyU8hXkPY+7WizxDd4iXGYE3JLNmxscGbTB+kt1imBb9Go2m9AAMX1/R4Js1uvdqyZqOwu9
-	GT/xTABSeUCbwIYuPItcXgwP3mNLGEdntE0RYLat7lqgji92d6xnBGaM/HBUPzGkQigziJsu8Fr76
-	Sn9PkXLTMg9x8ZoOe79Heu/nCZIrOevzOA8mzj8F465ELxv//u9J1FP6BZ1DK4zjnejxJ7tkphCU/
-	Ym93egQ/qJbJjYGOzOlyEAMatWcHz2rTBh/Tz+xnHx0iXoVczFvWHcSOEqBiVbaPJunKdOCgHRR9P
-	q20DeBr7yNf26gXBFrjQ==;
+	List-Owner; bh=40UkWTXWjZ4ing7GtVk+lDInO1pExE2KOMJfxDk0bC4=; b=Awyjo03kxMhu3V
+	ZcSryLEAyyCvhls3JPfoP+IILj1RgTWu1uC7O5skxESaSQtMe5UleQV8vFle30MeFh0SvdXallv1M
+	LtxzAbHjcErtZk5j9HRgX9ddv2s/acrZffQhgfbPSgHEkxNWVlM53mVk2GlDist7LjoRjF9A2HosR
+	Oz7AUJANRh80K6CN9z4hIxrTpFLAWicLGztCrO4FBQq4j5hIXhI1Lr8eGLVYdrnXHwl50xl96KXQ9
+	0Nio/Qc/umtQ3EXYDicvhCcO/vekFknHmUOZnbaTZ49SsU24f99pjMiCyRnqMdt0CbmimBTAYY2Un
+	060Rzjnrpr3rQj9tYj3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4qQp-0000000HEVk-0B2k;
-	Wed, 08 May 2024 23:10:39 +0000
-Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
+	id 1s4rDu-0000000HKza-3VBD;
+	Thu, 09 May 2024 00:01:22 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4qQh-0000000HERm-2HIH
+	id 1s4rDr-0000000HKyf-0gOa
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 May 2024 23:10:35 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-36c0d2b0fdeso282665ab.1
-        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 16:10:28 -0700 (PDT)
+	Thu, 09 May 2024 00:01:20 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-61804067da0so3185907b3.0
+        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 17:01:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1715209828; x=1715814628; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xLnlpoMndJv6kXCz+FbZOexc9v1XQ4k/KtWuckbio3c=;
-        b=SO74UbQHih3VUZKCqUVJm0iVizpNeaOGIC2w0y5sKvF/YpusYXvImMCrsRNDoBKS3t
-         7OWg2q8QVV0EHmP8bzbbdwQI+Pf9RzWL87vXFbzidi4jn/zINiYZuxMTeYPKUYABtEGb
-         KThyIJzAjKXjLEMP3U6jcBvT7BuFMUs8AqON0=
+        d=sifive.com; s=google; t=1715212877; x=1715817677; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WMhzkytFcegfpjEh/i5eDjwDl8WcfrhpZN4TsMsNhbA=;
+        b=KzOd6tGaGL2TMz6ixmHMDaSqMD+WDKD3Zl0TfuEWabFSloVGKgLNcw/K7Ej+0OGL9t
+         5OqCQVApnDFOZ65WO4XKrt6E5RaeqLsxaw1Cj+UN+96ezksYbox0hKq0mQ2J4noG3LqB
+         yKq9Edh7+l0Jv+ryyr8fyL1a7Tsr7NwPl/fJFsrf4VxPDSWcRm/h17xj6SjXqntmPA4h
+         0I1zAqOAgW/O8PioidfEtP33u/vsaXJv9WV0XjpWx9yIn2XbQwnuYd4dxKM7znsp9v5S
+         fsU8xs+EIuCSDWlXZ4RM19iSlZsskzqeIWsZRrkdbxARcpSZ3tQSdppXEA8Iv2u3eE34
+         8zWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715209828; x=1715814628;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xLnlpoMndJv6kXCz+FbZOexc9v1XQ4k/KtWuckbio3c=;
-        b=G9VhXKkZU2X2uNdiGBQZDLrEM5qfYEc2RSr6WGV9oT/v9fnuvdsVGLXqCa7ELqxj5g
-         2A3Gv+09l/mYk02twiqcAbi+1Fz42PPnlDf90jFSBVlzrDIQaG56gDjYVSmYoLBydri8
-         vywhz5tdZg/3B+GOAtM2rTVSoGHsk4CjPJ03czHDPR3/3ALykXA0JTdNlY/nE9f1oGl8
-         lDjrjC8pDmOvarGtvg38SFJTdF3z4zOWE5xeBDgihXHKqgZg3VnnNAGzbvOKhGkrEwKZ
-         gvXpDAzLfQNrqd2oc5K+OT90kuDFbEEPqFHh8p8qswiaV6WQqgYuv+z9teaa5YWxqNGU
-         33rA==
-X-Forwarded-Encrypted: i=1; AJvYcCWa93hklctgNfoHv0O3hyeB1mywETl0DI2owDmL0gLu0uXoEYu0SpOkBEcI1zpdUj6+Gd47SNrhmGCPqSQjubCk0c7gzVDhYg0dWioLZAlO
-X-Gm-Message-State: AOJu0Yxqncy2uuxFwdiPJM2fjXmnilVetRGmudHc503snLQmb2BTQvot
-	mtkD8JrzozFfN7cHB5Gc8oHjATO6zjrSQn58zlxZonPlOjzoi7pzVVzjE6AwgFc=
-X-Google-Smtp-Source: AGHT+IGjHhKKM24ZUFIVswkuYx3QwGN8iZAP+skToQSUH9ATxlCCLFZFt3zeJLulXQKSKo0MDx46iA==
-X-Received: by 2002:a05:6e02:2193:b0:369:f53b:6c2 with SMTP id e9e14a558f8ab-36caecc858bmr42995245ab.1.1715209827936;
-        Wed, 08 May 2024 16:10:27 -0700 (PDT)
-Received: from [192.168.1.128] ([38.175.170.29])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-36cb9e08d92sm170485ab.54.2024.05.08.16.10.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 May 2024 16:10:27 -0700 (PDT)
-Message-ID: <f4e45604-86b0-4be6-9bea-36edf301df33@linuxfoundation.org>
-Date: Wed, 8 May 2024 17:10:24 -0600
+        d=1e100.net; s=20230601; t=1715212877; x=1715817677;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WMhzkytFcegfpjEh/i5eDjwDl8WcfrhpZN4TsMsNhbA=;
+        b=TtPkz6g2yUJ7x+drL+qTDMZyaTVvtyGINiunW9ouK8jEZsm3Ny+uWIECIZYYas1x2W
+         VqbjGJ7f2TXGW70E5NhZrKSwfbBVu1fwsvpbi7VovI3PbbdGdLOjXS5QG2S8eGnFGFjV
+         2+E4knv5uFVpq10js/kLvgO689t0KMLxHdpMPcOY/1sWXcTpvS9++1QR0ABND82wZfcP
+         ad5ptp+fi6MwSQ5V8mCrUrD+lEonzCnSX4kemCH1Ia6bU3OKclHj2GksRUZFdIzlnqzs
+         HbIVjGSrNrUf40nQZ3P3TL/vcqIRLuLM5Mk82O5QYxSoUObAR6A29W1z+PigY9biYbvw
+         i3BA==
+X-Forwarded-Encrypted: i=1; AJvYcCXaQUEaL6MOFFN4l4UklfMVXSsVlR2pgrtzzhdRmMSi7ey+cHbrzeRePZrPHbHCGMqcEAG72fXDdJFim9Sg3hEY7Wo8HAzLrfzYd++nDw/Z
+X-Gm-Message-State: AOJu0Yyo9Hw1UNxfRlPSQcWpSfM60WY7IDkSoY+a+KDBWl0EFU7u4Iat
+	wt1MOGHxVKsvl64Ug1i7LHO/8X/hYNW1Z9GyXHWdscwT1fs/v5QNb225snXob792h5kr5rbF+Ex
+	XZVd61v/uKMC870oQC+uKEPLVByg5SVfpF3QJtA==
+X-Google-Smtp-Source: AGHT+IHmVt3D1f9M2NJWrIBfKS+ywa2zQiwLNnWOiwr78hl/9CSscWihllGTFRw/No9gJ2WWzeLcgCWgz+43efCBLuQ=
+X-Received: by 2002:a05:690c:6902:b0:61b:df5:7871 with SMTP id
+ 00721157ae682-62085c7bd51mr46770797b3.16.1715212877458; Wed, 08 May 2024
+ 17:01:17 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] Define _GNU_SOURCE for sources using
-To: Edward Liaw <edliaw@google.com>, shuah@kernel.org,
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Nhat Pham <nphamcs@gmail.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Christian Brauner
- <brauner@kernel.org>, Eric Biederman <ebiederm@xmission.com>,
- Kees Cook <keescook@chromium.org>,
- OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
- <andrealmeid@igalia.com>, Jiri Kosina <jikos@kernel.org>,
- Benjamin Tissoires <bentiss@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
- Kevin Tian <kevin.tian@intel.com>, Andy Lutomirski <luto@amacapital.net>,
- Will Drewry <wad@chromium.org>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>,
- Sean Christopherson <seanjc@google.com>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- David Hildenbrand <david@redhat.com>, =?UTF-8?Q?Micka=C3=ABl_Sala=C3=BCn?=
- <mic@digikod.net>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- Andrew Morton <akpm@linux-foundation.org>, Seth Forshee
- <sforshee@kernel.org>, Bongsu Jeon <bongsu.jeon@samsung.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Steffen Klassert <steffen.klassert@secunet.com>,
- Herbert Xu <herbert@gondor.apana.org.au>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
- <afaerber@suse.de>, Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>, Matthieu Baerts <matttbe@kernel.org>,
- Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
- Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
- Fenghua Yu <fenghua.yu@intel.com>,
- Reinette Chatre <reinette.chatre@intel.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- "Paul E. McKenney" <paulmck@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Jarkko Sakkinen <jarkko@kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Muhammad Usama Anjum <usama.anjum@collabora.com>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- kernel-team@android.com, linux-sound@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-input@vger.kernel.org, iommu@lists.linux.dev, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-security-module@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, netdev@vger.kernel.org,
- linux-actions@lists.infradead.org, mptcp@lists.linux.dev,
- linux-rtc@vger.kernel.org, linux-sgx@vger.kernel.org, bpf@vger.kernel.org,
- Shuah Khan <skhan@linuxfoundation.org>
-References: <20240507214254.2787305-1-edliaw@google.com>
-Content-Language: en-US
-From: Shuah Khan <skhan@linuxfoundation.org>
-In-Reply-To: <20240507214254.2787305-1-edliaw@google.com>
+References: <20240403234054.2020347-1-debug@rivosinc.com> <20240403234054.2020347-6-debug@rivosinc.com>
+In-Reply-To: <20240403234054.2020347-6-debug@rivosinc.com>
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Thu, 9 May 2024 08:00:00 +0800
+Message-ID: <CABgGipX3vXeJ_RKnV17pE-NH6=L0XUF2sdKea7hZHbuq4skh_A@mail.gmail.com>
+Subject: Re: [PATCH v3 05/29] riscv: zicfiss / zicfilp enumeration
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: paul.walmsley@sifive.com, rick.p.edgecombe@intel.com, broonie@kernel.org, 
+	Szabolcs.Nagy@arm.com, kito.cheng@sifive.com, keescook@chromium.org, 
+	ajones@ventanamicro.com, conor.dooley@microchip.com, cleger@rivosinc.com, 
+	atishp@atishpatra.org, alex@ghiti.fr, bjorn@rivosinc.com, 
+	alexghiti@rivosinc.com, samuel.holland@sifive.com, conor@kernel.org, 
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-mm@kvack.org, 
+	linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org, corbet@lwn.net, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, robh+dt@kernel.org, 
+	krzysztof.kozlowski+dt@linaro.org, oleg@redhat.com, akpm@linux-foundation.org, 
+	arnd@arndb.de, ebiederm@xmission.com, Liam.Howlett@oracle.com, vbabka@suse.cz, 
+	lstoakes@gmail.com, shuah@kernel.org, brauner@kernel.org, 
+	jerry.shih@sifive.com, hankuan.chen@sifive.com, greentime.hu@sifive.com, 
+	evan@rivosinc.com, xiao.w.wang@intel.com, charlie@rivosinc.com, 
+	apatel@ventanamicro.com, mchitale@ventanamicro.com, dbarboza@ventanamicro.com, 
+	sameo@rivosinc.com, shikemeng@huaweicloud.com, willy@infradead.org, 
+	vincent.chen@sifive.com, guoren@kernel.org, samitolvanen@google.com, 
+	songshuaishuai@tinylab.org, gerg@kernel.org, heiko@sntech.de, bhe@redhat.com, 
+	jeeheng.sia@starfivetech.com, cyy@cyyself.name, maskray@google.com, 
+	ancientmodern4@gmail.com, mathis.salmen@matsal.de, cuiyunhui@bytedance.com, 
+	bgray@linux.ibm.com, mpe@ellerman.id.au, baruch@tkos.co.il, alx@kernel.org, 
+	david@redhat.com, catalin.marinas@arm.com, revest@chromium.org, 
+	josh@joshtriplett.org, shr@devkernel.io, deller@gmx.de, omosnace@redhat.com, 
+	ojeda@kernel.org, jhubbard@nvidia.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_161032_097796_7065D3AA 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20240508_170119_492254_F5AF500A 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,265 +107,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/7/24 15:38, Edward Liaw wrote:
-> 809216233555 ("selftests/harness: remove use of LINE_MAX") introduced
-> asprintf into kselftest_harness.h, which is a GNU extension and needs
-> _GNU_SOURCE to either be defined prior to including headers or with the
-> -D_GNU_SOURCE flag passed to the compiler.
-> 
-> v1: https://lore.kernel.org/linux-kselftest/20240430235057.1351993-1-edliaw@google.com/
-> v2: add -D_GNU_SOURCE to KHDR_INCLUDES so that it is in a single
-> location.  Remove #define _GNU_SOURCE from source code to resolve
-> redefinition warnings.
-> 
-> Edward Liaw (5):
->    selftests: Compile kselftest headers with -D_GNU_SOURCE
->    selftests/sgx: Include KHDR_INCLUDES in Makefile
-
-I appled patches 1/5 and 2.5 - The rest need to be split up.
-
->    selftests: Include KHDR_INCLUDES in Makefile
->    selftests: Drop define _GNU_SOURCE
->    selftests: Drop duplicate -D_GNU_SOURCE
-> 
-
-Please split these patches pwe test directory. Otherwise it will
-cause merge conflicts which can be hard to resolve.
-
->   tools/testing/selftests/Makefile                              | 4 ++--
->   tools/testing/selftests/alsa/Makefile                         | 2 +-
->   tools/testing/selftests/arm64/signal/Makefile                 | 2 +-
->   tools/testing/selftests/cachestat/test_cachestat.c            | 2 --
->   tools/testing/selftests/capabilities/test_execve.c            | 2 --
->   tools/testing/selftests/clone3/clone3.c                       | 2 --
->   .../testing/selftests/clone3/clone3_cap_checkpoint_restore.c  | 2 --
->   tools/testing/selftests/clone3/clone3_clear_sighand.c         | 2 --
->   tools/testing/selftests/clone3/clone3_selftests.h             | 1 -
->   tools/testing/selftests/clone3/clone3_set_tid.c               | 2 --
->   tools/testing/selftests/core/close_range_test.c               | 2 --
->   tools/testing/selftests/drivers/dma-buf/udmabuf.c             | 1 -
->   tools/testing/selftests/exec/Makefile                         | 2 +-
->   tools/testing/selftests/fchmodat2/fchmodat2_test.c            | 2 --
->   tools/testing/selftests/filesystems/binderfs/binderfs_test.c  | 2 --
->   tools/testing/selftests/filesystems/devpts_pts.c              | 1 -
->   tools/testing/selftests/filesystems/dnotify_test.c            | 1 -
->   tools/testing/selftests/filesystems/epoll/epoll_wakeup_test.c | 2 --
->   tools/testing/selftests/filesystems/eventfd/eventfd_test.c    | 2 --
->   tools/testing/selftests/filesystems/fat/rename_exchange.c     | 2 --
->   tools/testing/selftests/filesystems/overlayfs/Makefile        | 2 +-
->   tools/testing/selftests/filesystems/overlayfs/dev_in_maps.c   | 2 --
->   .../testing/selftests/filesystems/statmount/statmount_test.c  | 3 ---
->   tools/testing/selftests/futex/functional/Makefile             | 2 +-
->   tools/testing/selftests/futex/functional/futex_requeue_pi.c   | 3 ---
->   tools/testing/selftests/hid/Makefile                          | 2 +-
->   tools/testing/selftests/iommu/Makefile                        | 2 --
->   tools/testing/selftests/ipc/msgque.c                          | 1 -
->   tools/testing/selftests/kcmp/kcmp_test.c                      | 2 --
->   tools/testing/selftests/kselftest_harness.h                   | 2 +-
->   tools/testing/selftests/kvm/aarch64/arch_timer.c              | 2 --
->   tools/testing/selftests/kvm/aarch64/page_fault_test.c         | 1 -
->   tools/testing/selftests/kvm/aarch64/psci_test.c               | 3 ---
->   tools/testing/selftests/kvm/aarch64/vgic_init.c               | 1 -
->   tools/testing/selftests/kvm/arch_timer.c                      | 3 ---
->   tools/testing/selftests/kvm/demand_paging_test.c              | 3 ---
->   tools/testing/selftests/kvm/dirty_log_test.c                  | 3 ---
->   tools/testing/selftests/kvm/guest_memfd_test.c                | 2 --
->   tools/testing/selftests/kvm/hardware_disable_test.c           | 3 ---
->   tools/testing/selftests/kvm/include/userfaultfd_util.h        | 3 ---
->   tools/testing/selftests/kvm/kvm_binary_stats_test.c           | 2 --
->   tools/testing/selftests/kvm/kvm_create_max_vcpus.c            | 2 --
->   tools/testing/selftests/kvm/kvm_page_table_test.c             | 3 ---
->   tools/testing/selftests/kvm/lib/assert.c                      | 3 ---
->   tools/testing/selftests/kvm/lib/kvm_util.c                    | 2 --
->   tools/testing/selftests/kvm/lib/memstress.c                   | 2 --
->   tools/testing/selftests/kvm/lib/test_util.c                   | 2 --
->   tools/testing/selftests/kvm/lib/userfaultfd_util.c            | 3 ---
->   tools/testing/selftests/kvm/lib/x86_64/sev.c                  | 1 -
->   tools/testing/selftests/kvm/max_guest_memory_test.c           | 2 --
->   .../testing/selftests/kvm/memslot_modification_stress_test.c  | 3 ---
->   tools/testing/selftests/kvm/riscv/arch_timer.c                | 3 ---
->   tools/testing/selftests/kvm/rseq_test.c                       | 1 -
->   tools/testing/selftests/kvm/s390x/cmma_test.c                 | 2 --
->   tools/testing/selftests/kvm/s390x/sync_regs_test.c            | 2 --
->   tools/testing/selftests/kvm/set_memory_region_test.c          | 1 -
->   tools/testing/selftests/kvm/steal_time.c                      | 1 -
->   tools/testing/selftests/kvm/x86_64/amx_test.c                 | 2 --
->   .../selftests/kvm/x86_64/exit_on_emulation_failure_test.c     | 3 ---
->   tools/testing/selftests/kvm/x86_64/hwcr_msr_test.c            | 2 --
->   tools/testing/selftests/kvm/x86_64/hyperv_cpuid.c             | 2 --
->   tools/testing/selftests/kvm/x86_64/hyperv_evmcs.c             | 1 -
->   tools/testing/selftests/kvm/x86_64/hyperv_ipi.c               | 2 --
->   tools/testing/selftests/kvm/x86_64/hyperv_svm_test.c          | 1 -
->   tools/testing/selftests/kvm/x86_64/hyperv_tlb_flush.c         | 2 --
->   tools/testing/selftests/kvm/x86_64/nested_exceptions_test.c   | 2 --
->   tools/testing/selftests/kvm/x86_64/nx_huge_pages_test.c       | 3 ---
->   tools/testing/selftests/kvm/x86_64/platform_info_test.c       | 2 --
->   tools/testing/selftests/kvm/x86_64/pmu_counters_test.c        | 2 --
->   tools/testing/selftests/kvm/x86_64/pmu_event_filter_test.c    | 3 ---
->   .../selftests/kvm/x86_64/private_mem_conversions_test.c       | 1 -
->   tools/testing/selftests/kvm/x86_64/set_boot_cpu_id.c          | 1 -
->   tools/testing/selftests/kvm/x86_64/set_sregs_test.c           | 1 -
->   .../selftests/kvm/x86_64/smaller_maxphyaddr_emulation_test.c  | 3 ---
->   tools/testing/selftests/kvm/x86_64/smm_test.c                 | 1 -
->   tools/testing/selftests/kvm/x86_64/state_test.c               | 1 -
->   tools/testing/selftests/kvm/x86_64/sync_regs_test.c           | 2 --
->   tools/testing/selftests/kvm/x86_64/ucna_injection_test.c      | 2 --
->   tools/testing/selftests/kvm/x86_64/userspace_msr_exit_test.c  | 2 --
->   tools/testing/selftests/kvm/x86_64/vmx_dirty_log_test.c       | 3 ---
->   tools/testing/selftests/kvm/x86_64/vmx_pmu_caps_test.c        | 1 -
->   .../testing/selftests/kvm/x86_64/vmx_preemption_timer_test.c  | 1 -
->   tools/testing/selftests/kvm/x86_64/xapic_ipi_test.c           | 2 --
->   tools/testing/selftests/kvm/x86_64/xapic_state_test.c         | 1 -
->   tools/testing/selftests/kvm/x86_64/xss_msr_test.c             | 2 --
->   tools/testing/selftests/landlock/base_test.c                  | 2 --
->   tools/testing/selftests/landlock/fs_test.c                    | 2 --
->   tools/testing/selftests/landlock/net_test.c                   | 2 --
->   tools/testing/selftests/landlock/ptrace_test.c                | 2 --
->   tools/testing/selftests/lib.mk                                | 2 +-
->   tools/testing/selftests/lsm/common.c                          | 2 --
->   tools/testing/selftests/lsm/lsm_get_self_attr_test.c          | 2 --
->   tools/testing/selftests/lsm/lsm_list_modules_test.c           | 2 --
->   tools/testing/selftests/lsm/lsm_set_self_attr_test.c          | 2 --
->   tools/testing/selftests/membarrier/membarrier_test_impl.h     | 1 -
->   .../selftests/membarrier/membarrier_test_multi_thread.c       | 1 -
->   .../selftests/membarrier/membarrier_test_single_thread.c      | 1 -
->   tools/testing/selftests/memfd/common.c                        | 1 -
->   tools/testing/selftests/memfd/fuse_test.c                     | 2 --
->   tools/testing/selftests/memfd/memfd_test.c                    | 1 -
->   tools/testing/selftests/mm/cow.c                              | 1 -
->   tools/testing/selftests/mm/gup_longterm.c                     | 1 -
->   tools/testing/selftests/mm/hugepage-mmap.c                    | 1 -
->   tools/testing/selftests/mm/hugepage-mremap.c                  | 2 --
->   tools/testing/selftests/mm/hugetlb-madvise.c                  | 2 --
->   tools/testing/selftests/mm/hugetlb-read-hwpoison.c            | 2 --
->   tools/testing/selftests/mm/khugepaged.c                       | 1 -
->   tools/testing/selftests/mm/ksm_functional_tests.c             | 1 -
->   tools/testing/selftests/mm/madv_populate.c                    | 1 -
->   tools/testing/selftests/mm/map_populate.c                     | 2 --
->   tools/testing/selftests/mm/mdwe_test.c                        | 1 -
->   tools/testing/selftests/mm/memfd_secret.c                     | 2 --
->   tools/testing/selftests/mm/mlock2-tests.c                     | 1 -
->   tools/testing/selftests/mm/mrelease_test.c                    | 1 -
->   tools/testing/selftests/mm/mremap_dontunmap.c                 | 1 -
->   tools/testing/selftests/mm/mremap_test.c                      | 2 --
->   tools/testing/selftests/mm/pagemap_ioctl.c                    | 1 -
->   tools/testing/selftests/mm/pkey-helpers.h                     | 1 -
->   tools/testing/selftests/mm/protection_keys.c                  | 1 -
->   tools/testing/selftests/mm/split_huge_page_test.c             | 2 --
->   tools/testing/selftests/mm/thuge-gen.c                        | 2 --
->   tools/testing/selftests/mm/uffd-common.h                      | 1 -
->   tools/testing/selftests/mount_setattr/mount_setattr_test.c    | 1 -
->   .../move_mount_set_group/move_mount_set_group_test.c          | 1 -
->   tools/testing/selftests/nci/Makefile                          | 2 +-
->   tools/testing/selftests/net/af_unix/diag_uid.c                | 2 --
->   tools/testing/selftests/net/af_unix/scm_pidfd.c               | 1 -
->   tools/testing/selftests/net/af_unix/unix_connect.c            | 2 --
->   tools/testing/selftests/net/csum.c                            | 3 ---
->   tools/testing/selftests/net/gro.c                             | 3 ---
->   tools/testing/selftests/net/ip_defrag.c                       | 3 ---
->   tools/testing/selftests/net/ipsec.c                           | 3 ---
->   tools/testing/selftests/net/ipv6_flowlabel.c                  | 3 ---
->   tools/testing/selftests/net/ipv6_flowlabel_mgr.c              | 3 ---
->   tools/testing/selftests/net/mptcp/mptcp_connect.c             | 3 ---
->   tools/testing/selftests/net/mptcp/mptcp_inq.c                 | 3 ---
->   tools/testing/selftests/net/mptcp/mptcp_sockopt.c             | 3 ---
->   tools/testing/selftests/net/msg_zerocopy.c                    | 3 ---
->   tools/testing/selftests/net/nettest.c                         | 2 --
->   tools/testing/selftests/net/psock_fanout.c                    | 3 ---
->   tools/testing/selftests/net/psock_snd.c                       | 3 ---
->   tools/testing/selftests/net/reuseport_addr_any.c              | 3 ---
->   tools/testing/selftests/net/reuseport_bpf_cpu.c               | 3 ---
->   tools/testing/selftests/net/reuseport_bpf_numa.c              | 3 ---
->   tools/testing/selftests/net/reuseport_dualstack.c             | 3 ---
->   tools/testing/selftests/net/so_incoming_cpu.c                 | 1 -
->   tools/testing/selftests/net/so_netns_cookie.c                 | 1 -
->   tools/testing/selftests/net/so_txtime.c                       | 3 ---
->   tools/testing/selftests/net/tap.c                             | 3 ---
->   tools/testing/selftests/net/tcp_ao/Makefile                   | 2 +-
->   tools/testing/selftests/net/tcp_fastopen_backup_key.c         | 1 -
->   tools/testing/selftests/net/tcp_inq.c                         | 2 --
->   tools/testing/selftests/net/tcp_mmap.c                        | 1 -
->   tools/testing/selftests/net/tls.c                             | 3 ---
->   tools/testing/selftests/net/toeplitz.c                        | 3 ---
->   tools/testing/selftests/net/tun.c                             | 3 ---
->   tools/testing/selftests/net/txring_overwrite.c                | 3 ---
->   tools/testing/selftests/net/txtimestamp.c                     | 3 ---
->   tools/testing/selftests/net/udpgso.c                          | 3 ---
->   tools/testing/selftests/net/udpgso_bench_rx.c                 | 3 ---
->   tools/testing/selftests/net/udpgso_bench_tx.c                 | 3 ---
->   tools/testing/selftests/perf_events/remove_on_exec.c          | 2 --
->   tools/testing/selftests/perf_events/sigtrap_threads.c         | 2 --
->   tools/testing/selftests/pid_namespace/regression_enomem.c     | 1 -
->   tools/testing/selftests/pidfd/pidfd.h                         | 1 -
->   tools/testing/selftests/pidfd/pidfd_fdinfo_test.c             | 2 --
->   tools/testing/selftests/pidfd/pidfd_getfd_test.c              | 2 --
->   tools/testing/selftests/pidfd/pidfd_open_test.c               | 2 --
->   tools/testing/selftests/pidfd/pidfd_poll_test.c               | 2 --
->   tools/testing/selftests/pidfd/pidfd_setns_test.c              | 2 --
->   tools/testing/selftests/pidfd/pidfd_test.c                    | 2 --
->   tools/testing/selftests/pidfd/pidfd_wait.c                    | 2 --
->   tools/testing/selftests/prctl/Makefile                        | 2 ++
->   tools/testing/selftests/proc/Makefile                         | 2 +-
->   tools/testing/selftests/ptrace/get_set_sud.c                  | 1 -
->   tools/testing/selftests/ptrace/peeksiginfo.c                  | 1 -
->   tools/testing/selftests/resctrl/Makefile                      | 2 +-
->   tools/testing/selftests/riscv/mm/Makefile                     | 2 +-
->   tools/testing/selftests/rseq/basic_percpu_ops_test.c          | 1 -
->   tools/testing/selftests/rseq/basic_test.c                     | 2 --
->   tools/testing/selftests/rseq/param_test.c                     | 1 -
->   tools/testing/selftests/rseq/rseq.c                           | 2 --
->   tools/testing/selftests/rtc/Makefile                          | 2 +-
->   tools/testing/selftests/seccomp/seccomp_benchmark.c           | 1 -
->   tools/testing/selftests/seccomp/seccomp_bpf.c                 | 2 --
->   tools/testing/selftests/sgx/Makefile                          | 2 +-
->   tools/testing/selftests/sgx/sigstruct.c                       | 1 -
->   tools/testing/selftests/tmpfs/Makefile                        | 2 +-
->   tools/testing/selftests/user_events/abi_test.c                | 2 --
->   tools/testing/selftests/x86/amx.c                             | 2 --
->   tools/testing/selftests/x86/check_initial_reg_state.c         | 3 ---
->   tools/testing/selftests/x86/corrupt_xstate_header.c           | 3 ---
->   tools/testing/selftests/x86/entry_from_vm86.c                 | 3 ---
->   tools/testing/selftests/x86/fsgsbase.c                        | 2 --
->   tools/testing/selftests/x86/fsgsbase_restore.c                | 2 --
->   tools/testing/selftests/x86/ioperm.c                          | 2 --
->   tools/testing/selftests/x86/iopl.c                            | 2 --
->   tools/testing/selftests/x86/lam.c                             | 1 -
->   tools/testing/selftests/x86/ldt_gdt.c                         | 2 --
->   tools/testing/selftests/x86/mov_ss_trap.c                     | 2 --
->   tools/testing/selftests/x86/nx_stack.c                        | 2 --
->   tools/testing/selftests/x86/ptrace_syscall.c                  | 2 --
->   tools/testing/selftests/x86/sigaltstack.c                     | 2 --
->   tools/testing/selftests/x86/sigreturn.c                       | 3 ---
->   tools/testing/selftests/x86/single_step_syscall.c             | 3 ---
->   tools/testing/selftests/x86/syscall_arg_fault.c               | 3 ---
->   tools/testing/selftests/x86/syscall_numbering.c               | 3 ---
->   tools/testing/selftests/x86/sysret_rip.c                      | 3 ---
->   tools/testing/selftests/x86/sysret_ss_attrs.c                 | 3 ---
->   tools/testing/selftests/x86/test_FCMOV.c                      | 4 ----
->   tools/testing/selftests/x86/test_FCOMI.c                      | 4 ----
->   tools/testing/selftests/x86/test_FISTTP.c                     | 4 ----
->   tools/testing/selftests/x86/test_mremap_vdso.c                | 1 -
->   tools/testing/selftests/x86/test_shadow_stack.c               | 3 ---
->   tools/testing/selftests/x86/test_syscall_vdso.c               | 4 ----
->   tools/testing/selftests/x86/test_vsyscall.c                   | 3 ---
->   tools/testing/selftests/x86/unwind_vdso.c                     | 3 ---
->   tools/testing/selftests/x86/vdso_restorer.c                   | 3 ---
->   218 files changed, 20 insertions(+), 426 deletions(-)
-> 
-> --
-> 2.45.0.rc1.225.g2a3ae87e7f-goog
-> 
-> 
-
-thanks,
--- Shuah
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgRGVlcGFrLAoKT24gVGh1LCBBcHIgNCwgMjAyNCBhdCA3OjQx4oCvQU0gRGVlcGFrIEd1cHRh
+IDxkZWJ1Z0ByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gVGhpcyBwYXRjaCBhZGRzIHN1cHBvcnQg
+Zm9yIGRldGVjdGluZyB6aWNmaXNzIGFuZCB6aWNmaWxwLiB6aWNmaXNzIGFuZAo+IHppY2ZpbHAg
+c3RhbmRzIGZvciB1bnByaXZsZWdlZCBpbnRlZ2VyIHNwZWMgZXh0ZW5zaW9uIGZvciBzaGFkb3cg
+c3RhY2sKPiBhbmQgYnJhbmNoIHRyYWNraW5nIG9uIGluZGlyZWN0IGJyYW5jaGVzLCByZXNwZWN0
+aXZlbHkuCj4KPiBUaGlzIHBhdGNoIGxvb2tzIGZvciB6aWNmaXNzIGFuZCB6aWNmaWxwIGluIGRl
+dmljZSB0cmVlIGFuZCBhY2NvcmRpbmxneQo+IGxpZ2h0cyB1cCBiaXQgaW4gY3B1IGZlYXR1cmUg
+Yml0bWFwLiBGdXJ0aGVybW9yZSB0aGlzIHBhdGNoIGFkZHMgZGV0ZWN0aW9uCj4gdXRpbGl0eSBm
+dW5jdGlvbnMgdG8gcmV0dXJuIHdoZXRoZXIgc2hhZG93IHN0YWNrIG9yIGxhbmRpbmcgcGFkcyBh
+cmUKPiBzdXBwb3J0ZWQgYnkgY3B1Lgo+Cj4gU2lnbmVkLW9mZi1ieTogRGVlcGFrIEd1cHRhIDxk
+ZWJ1Z0ByaXZvc2luYy5jb20+Cj4gLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3B1ZmVh
+dHVyZS5oIHwgMTMgKysrKysrKysrKysrKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2Fw
+LmggICAgICB8ICAyICsrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmggIHwg
+IDEgKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgICAgICB8ICAyICsrCj4gIDQg
+ZmlsZXMgY2hhbmdlZCwgMTggaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20vY3B1ZmVhdHVyZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jcHVm
+ZWF0dXJlLmgKPiBpbmRleCAwYmQxMTg2MmI3NjAuLmYwZmI4ZDhhZTI3MyAxMDA2NDQKPiAtLS0g
+YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NwdWZlYXR1cmUuaAo+ICsrKyBiL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vY3B1ZmVhdHVyZS5oCj4gQEAgLTgsNiArOCw3IEBACj4KPiAgI2luY2x1ZGUg
+PGxpbnV4L2JpdG1hcC5oPgo+ICAjaW5jbHVkZSA8bGludXgvanVtcF9sYWJlbC5oPgo+ICsjaW5j
+bHVkZSA8bGludXgvc21wLmg+Cj4gICNpbmNsdWRlIDxhc20vaHdjYXAuaD4KPiAgI2luY2x1ZGUg
+PGFzbS9hbHRlcm5hdGl2ZS1tYWNyb3MuaD4KPiAgI2luY2x1ZGUgPGFzbS9lcnJuby5oPgo+IEBA
+IC0xMzcsNCArMTM4LDE2IEBAIHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUgYm9vbCByaXNjdl9jcHVf
+aGFzX2V4dGVuc2lvbl91bmxpa2VseShpbnQgY3B1LCBjb25zdCB1bnNpCj4KPiAgREVDTEFSRV9T
+VEFUSUNfS0VZX0ZBTFNFKGZhc3RfbWlzYWxpZ25lZF9hY2Nlc3Nfc3BlZWRfa2V5KTsKPgo+ICtz
+dGF0aWMgaW5saW5lIGJvb2wgY3B1X3N1cHBvcnRzX3NoYWRvd19zdGFjayh2b2lkKQo+ICt7Cj4g
+KyAgICAgICByZXR1cm4gKElTX0VOQUJMRUQoQ09ORklHX1JJU0NWX1VTRVJfQ0ZJKSAmJgo+ICsg
+ICAgICAgICAgICAgICAgICAgcmlzY3ZfY3B1X2hhc19leHRlbnNpb25fdW5saWtlbHkoc21wX3By
+b2Nlc3Nvcl9pZCgpLCBSSVNDVl9JU0FfRVhUX1pJQ0ZJU1MpKTsKPiArfQo+ICsKPiArc3RhdGlj
+IGlubGluZSBib29sIGNwdV9zdXBwb3J0c19pbmRpcmVjdF9icl9scF9pbnN0cih2b2lkKQo+ICt7
+Cj4gKyAgICAgICByZXR1cm4gKElTX0VOQUJMRUQoQ09ORklHX1JJU0NWX1VTRVJfQ0ZJKSAmJgo+
+ICsgICAgICAgICAgICAgICAgICAgcmlzY3ZfY3B1X2hhc19leHRlbnNpb25fdW5saWtlbHkoc21w
+X3Byb2Nlc3Nvcl9pZCgpLCBSSVNDVl9JU0FfRVhUX1pJQ0ZJTFApKTsKPiArfQo+ICsKPiAgI2Vu
+ZGlmCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCBiL2FyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+IGluZGV4IDFmMmQyNTk5YzY1NS4uNzRiNmM3Mjdm
+NTQ1IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+ICsrKyBi
+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+IEBAIC04MCw2ICs4MCw4IEBACj4gICNk
+ZWZpbmUgUklTQ1ZfSVNBX0VYVF9aRkEgICAgICAgICAgICAgIDcxCj4gICNkZWZpbmUgUklTQ1Zf
+SVNBX0VYVF9aVFNPICAgICAgICAgICAgIDcyCj4gICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aQUNB
+UyAgICAgICAgICAgIDczCm5pdDogdHdvIHRhYnMgZm9yIGFsaWdubWVudAoKCj4gKyNkZWZpbmUg
+UklTQ1ZfSVNBX0VYVF9aSUNGSUxQICA3NAo+ICsjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWklDRklT
+UyAgNzUKPgo+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWExJTlVYRU5WQ0ZHICAgICAxMjcKPgo+
+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oIGIvYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAo+IGluZGV4IGE4NTA5Y2MzMWFiMi4uNmM1YjNk
+OTI4YjEyIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmgK
+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oCj4gQEAgLTEzLDYgKzEz
+LDcgQEAKPiAgI2luY2x1ZGUgPHZkc28vcHJvY2Vzc29yLmg+Cj4KPiAgI2luY2x1ZGUgPGFzbS9w
+dHJhY2UuaD4KPiArI2luY2x1ZGUgPGFzbS9od2NhcC5oPgo+Cj4gICNpZmRlZiBDT05GSUdfNjRC
+SVQKPiAgI2RlZmluZSBERUZBVUxUX01BUF9XSU5ET1cgICAgIChVTCgxKSA8PCAoTU1BUF9WQV9C
+SVRTIC0gMSkpCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyBi
+L2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+IGluZGV4IDc5YTVhMzVmYWI5Ni4uZDA1
+MmNhZDViODJmIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+
+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+IEBAIC0yNjMsNiArMjYzLDgg
+QEAgY29uc3Qgc3RydWN0IHJpc2N2X2lzYV9leHRfZGF0YSByaXNjdl9pc2FfZXh0W10gPSB7Cj4g
+ICAgICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQShoLCBSSVNDVl9JU0FfRVhUX2gpLAo+ICAgICAg
+ICAgX19SSVNDVl9JU0FfRVhUX1NVUEVSU0VUKHppY2JvbSwgUklTQ1ZfSVNBX0VYVF9aSUNCT00s
+IHJpc2N2X3hsaW51eGVudmNmZ19leHRzKSwKPiAgICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9TVVBF
+UlNFVCh6aWNib3osIFJJU0NWX0lTQV9FWFRfWklDQk9aLCByaXNjdl94bGludXhlbnZjZmdfZXh0
+cyksCj4gKyAgICAgICBfX1JJU0NWX0lTQV9FWFRfU1VQRVJTRVQoemljZmlscCwgUklTQ1ZfSVNB
+X0VYVF9aSUNGSUxQLCByaXNjdl94bGludXhlbnZjZmdfZXh0cyksCj4gKyAgICAgICBfX1JJU0NW
+X0lTQV9FWFRfU1VQRVJTRVQoemljZmlzcywgUklTQ1ZfSVNBX0VYVF9aSUNGSVNTLCByaXNjdl94
+bGludXhlbnZjZmdfZXh0cyksCj4gICAgICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQSh6aWNudHIs
+IFJJU0NWX0lTQV9FWFRfWklDTlRSKSwKPiAgICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpp
+Y29uZCwgUklTQ1ZfSVNBX0VYVF9aSUNPTkQpLAo+ICAgICAgICAgX19SSVNDVl9JU0FfRVhUX0RB
+VEEoemljc3IsIFJJU0NWX0lTQV9FWFRfWklDU1IpLAo+IC0tCj4gMi40My4yCj4KClRoYW5rcywK
+QW5keQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
