@@ -4,57 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16985C25B10
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 15:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA57C10F1A
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 15:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=76oloZJegVYZmy5galg9rVasKMk8ELrNZbd0qAEzR0s=; b=jf39RKe5TkzuXI
-	ZXFK1NpegnE+ll0JHHEftQbPR+GVy9ZY/f3LF0GTXMksv7R7DkmwwGwEujvHrAwh3qsoXdrJcTUQY
-	S7Bz1xkxv1aVjEKhCHLjCUJ8XxhwjJX8UMfal5FB5XRKGVrM9VD4yu9bwov6/AT3soghjoJ+Ce6C0
-	N7Af8cQkdrW+mnQOtmDm6xlPx+saEfWepmkT9cR/QntIfWLDIZDUqkQSV3FZVlDBG4xft1f3FyZCR
-	3FoNgwn3ObXEyu25B+1MT3BLEcAUPgCIOaNGEuKDaMsku5KU8ZcvnZtd2K09r4qoU75HgjRSLqbE8
-	B3bdMTD3pBBwYKVFSvfA==;
+	List-Owner; bh=xhJNohpyF3+RDQ/lkhjip2xx0y1P+bGbPaHHME1m4LM=; b=l5CJrcaJexAJyp
+	NnLtUvaFuA0wQCvmctAvNeErupirx0eSN7NYEHleHQMOPVXzq/zzgl9+WlxkT4UsvLnOEdZveyhvG
+	HhqPAVGtwC9I6bcJzRlVp2pILYslbVWe06CQWrSsdvdXTzt0gVO4aHIRnr5c5ljmfyIOQsx84qGNH
+	EzG1mct8zxzaLNQoFGSP5A2wAJJkeBPJ5tOo2pb91s27tnmT9d4ANftnMyARkoC+EGWDFqctvexzJ
+	QLiTTly2dvwSkp1pwKZb+DYJzf5yk5JJjeHAEtutj/NvmZMawL0u5eQRl3ZciFxWbANMvIqY1s1a3
+	82+EMV8ITZ8h352jL80g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s55OP-00000001pe4-2LPv;
-	Thu, 09 May 2024 15:09:09 +0000
+	id 1s55gI-00000001tDu-37ME;
+	Thu, 09 May 2024 15:27:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s55ON-00000001pcu-1eWK
+	id 1s55gG-00000001tDH-2N51
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 May 2024 15:09:08 +0000
+	Thu, 09 May 2024 15:27:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34D59106F;
-	Thu,  9 May 2024 08:09:29 -0700 (PDT)
-Received: from [172.27.42.162] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 979AB3F641;
-	Thu,  9 May 2024 08:09:02 -0700 (PDT)
-Message-ID: <571d0194-dd3e-4a68-8879-d6b66276afe5@arm.com>
-Date: Thu, 9 May 2024 10:09:01 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] riscv: cacheinfo: initialize cacheinfo's level and
- type from ACPI PPTT
-Content-Language: en-US
-To: Yunhui Cui <cuiyunhui@bytedance.com>, rafael@kernel.org, lenb@kernel.org,
- linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, sunilvl@ventanamicro.com,
- aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, bhelgaas@google.com,
- james.morse@arm.com, jhugo@codeaurora.org, john.garry@huawei.com,
- Jonathan.Cameron@huawei.com, pierre.gondois@arm.com, sudeep.holla@arm.com,
- tiantao6@huawei.com
-Cc: Conor Dooley <conor.dooley@microchip.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62329106F;
+	Thu,  9 May 2024 08:27:56 -0700 (PDT)
+Received: from bogus (e103737-lin.cambridge.arm.com [10.1.197.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE4E03F641;
+	Thu,  9 May 2024 08:27:28 -0700 (PDT)
+Date: Thu, 9 May 2024 16:27:26 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: Re: [PATCH v5 2/3] riscv: cacheinfo: initialize cacheinfo's level
+ and type from ACPI PPTT
+Message-ID: <ZjzrXnOc5AAost4O@bogus>
 References: <20240509073300.4968-1-cuiyunhui@bytedance.com>
  <20240509073300.4968-2-cuiyunhui@bytedance.com>
-From: Jeremy Linton <jeremy.linton@arm.com>
+MIME-Version: 1.0
+Content-Disposition: inline
 In-Reply-To: <20240509073300.4968-2-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_080907_534153_C137D916 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20240509_082736_726896_01A74CD6 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,79 +59,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: Conor Dooley <conor.dooley@microchip.com>, aou@eecs.berkeley.edu, rafael@kernel.org, jhugo@codeaurora.org, tiantao6@huawei.com, john.garry@huawei.com, linux-kernel@vger.kernel.org, jeremy.linton@arm.com, linux-acpi@vger.kernel.org, pierre.gondois@arm.com, palmer@dabbelt.com, Jonathan.Cameron@huawei.com, paul.walmsley@sifive.com, bhelgaas@google.com, james.morse@arm.com, linux-riscv@lists.infradead.org, lenb@kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 5/9/24 02:32, Yunhui Cui wrote:
-> Before cacheinfo can be built correctly, we need to initialize level
-> and type. Since RISC-V currently does not have a register group that
-> describes cache-related attributes like ARM64, we cannot obtain them
-> directly, so now we obtain cache leaves from the ACPI PPTT table
-> (acpi_get_cache_info()) and set the cache type through split_levels.
-> 
-> Suggested-by: Jeremy Linton <jeremy.linton@arm.com>
-> Suggested-by: Sudeep Holla <sudeep.holla@arm.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> ---
->   arch/riscv/kernel/cacheinfo.c | 22 ++++++++++++++++++++++
->   1 file changed, 22 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-> index 30a6878287ad..d6c108c50cba 100644
-> --- a/arch/riscv/kernel/cacheinfo.c
-> +++ b/arch/riscv/kernel/cacheinfo.c
-> @@ -3,6 +3,7 @@
->    * Copyright (C) 2017 SiFive
->    */
->   
-> +#include <linux/acpi.h>
->   #include <linux/cpu.h>
->   #include <linux/of.h>
->   #include <asm/cacheinfo.h>
-> @@ -78,6 +79,27 @@ int populate_cache_leaves(unsigned int cpu)
->   	struct device_node *prev = NULL;
->   	int levels = 1, level = 1;
->   
-> +	if (!acpi_disabled) {
-> +		int ret, fw_levels, split_levels;
-> +
-> +		ret = acpi_get_cache_info(cpu, &fw_levels, &split_levels);
-> +		if (ret)
-> +			return ret;
-> +
-> +		BUG_ON((split_levels > fw_levels) ||
-> +		       (split_levels + fw_levels > this_cpu_ci->num_leaves));
-> +
-> +		for (; level <= this_cpu_ci->num_levels; level++) {
-> +			if (level <= split_levels) {
-> +				ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-> +				ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> +			} else {
-> +				ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-> +			}
-> +		}
-> +		return 0;
-> +	}
-> +
->   	if (of_property_read_bool(np, "cache-size"))
->   		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
->   	if (of_property_read_bool(np, "i-cache-size"))
-
-
-Yes, still looks good.
-
-Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>
-
-Thanks,
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXkgMDksIDIwMjQgYXQgMDM6MzI6NTlQTSArMDgwMCwgWXVuaHVpIEN1aSB3cm90
+ZToKPiBCZWZvcmUgY2FjaGVpbmZvIGNhbiBiZSBidWlsdCBjb3JyZWN0bHksIHdlIG5lZWQgdG8g
+aW5pdGlhbGl6ZSBsZXZlbAo+IGFuZCB0eXBlLiBTaW5jZSBSSVNDLVYgY3VycmVudGx5IGRvZXMg
+bm90IGhhdmUgYSByZWdpc3RlciBncm91cCB0aGF0Cj4gZGVzY3JpYmVzIGNhY2hlLXJlbGF0ZWQg
+YXR0cmlidXRlcyBsaWtlIEFSTTY0LCB3ZSBjYW5ub3Qgb2J0YWluIHRoZW0KPiBkaXJlY3RseSwg
+c28gbm93IHdlIG9idGFpbiBjYWNoZSBsZWF2ZXMgZnJvbSB0aGUgQUNQSSBQUFRUIHRhYmxlCj4g
+KGFjcGlfZ2V0X2NhY2hlX2luZm8oKSkgYW5kIHNldCB0aGUgY2FjaGUgdHlwZSB0aHJvdWdoIHNw
+bGl0X2xldmVscy4KPiAKPiBTdWdnZXN0ZWQtYnk6IEplcmVteSBMaW50b24gPGplcmVteS5saW50
+b25AYXJtLmNvbT4KPiBTdWdnZXN0ZWQtYnk6IFN1ZGVlcCBIb2xsYSA8c3VkZWVwLmhvbGxhQGFy
+bS5jb20+CgpJIGFtIG5vdCBzdXJlIHdoeSB5b3UgaGF2ZSBub3QgYWRkZWQgbXkgcmV2aWV3ZWQt
+YnkgYXMgSSB3YXMgaGFwcHkgd2l0aAp2MyBvbndhcmRzIElJUkMuIEFueXdheXMsIEkgd2lsbCBn
+aXZlIGl0IGFnYWluIPCfmIQKClJldmlld2VkLWJ5OiBTdWRlZXAgSG9sbGEgPHN1ZGVlcC5ob2xs
+YUBhcm0uY29tPgoKLS0gClJlZ2FyZHMsClN1ZGVlcAoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
