@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A474DC04FFE
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 02:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8849C25B74
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 02:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JpqtTvUIucHS56EcvXslxk1W7SH/w4doQchMyHRBLy0=; b=hcoPuCuNm92v9e
-	1+TbHyq74VE6ExvC/+A3tINxMTtzI/9pLQlmUzCBrysjC6gEqOtmkORnQfWstHFRN34+IvBGnS+l6
-	CKmWXKbZdUpVIqyoTbzNJnXm2u/3j16HcuFkVsjMxD0+Q9ku9AX795X3peS5WpCZCI9yPvVz38JQQ
-	7MxUF8kUpofGeDgJZqdQqqTWLDw69vWzfys87ULdsSDyCd1nlxIQs3aut2vaOuFwjtIwvxvDOg0OS
-	qpOCz+FwNzcX9P2fd4HluzzEit2jAcxhPKKrcNSCPO1lOSUGhgaxt8+vgOYiau6Qgq1Fu5WCLpOOt
-	EGN3itf2lzB06WRK/Mpw==;
+	List-Owner; bh=faKTNB37SG4I9gDFjpKAGY+rQnwEv4AgObCJEeBFFnw=; b=ihrVMgeZIxf1N4
+	4PqF5a7Om4WxZYNER4B+3KzkMA1GccEEV6NR0YpTsAW5Oh0NrFpB0QYythdKy7H7ZI46n62FP/WOj
+	GryZoU9mQ5EYLBmGbk60ukIeQyE1A2R1dml/h5/Xp4/OIe7iK7forgPwlaRE2IkDTGdamxwAnECqz
+	GNa6nZn4qj831Tr2V9wCqmAc5sqZuzfNzBFPbPaBma3fu6RFVkyM7xJ8UtLwJPKXd3nVL99EhFnCO
+	gdbuUaO59OzKYBuEhxfV60N3RdSgs0aGkiZP6LGS5+w7qMQoDGmq4FbDSUPpYkpWF/rxeUs9dyaXK
+	chFWEuXfjFl+crXVCt/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4tK0-000000003PS-1efG;
-	Thu, 09 May 2024 02:15:48 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1s4tK1-000000003QL-3zh5;
+	Thu, 09 May 2024 02:15:49 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4tJv-000000003KZ-07xX
+	id 1s4tJu-000000003JK-3cJA
 	for linux-riscv@lists.infradead.org;
 	Thu, 09 May 2024 02:15:47 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1ec4b2400b6so3148145ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 19:15:41 -0700 (PDT)
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1ecddf96313so2697495ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 19:15:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1715220941; x=1715825741; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1715220939; x=1715825739; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=KXfa/PXX0wNxcWsuTnJvVKBz5xkIckXoldeqVQ+uY6s=;
-        b=koJAqZ9l4OcZWkDhKwgfW0APcrLDfE6aRFMgN4SDt873sjpg/uHLWLYz4ffbGEayiB
-         AV//ZJStXyf/YBRVohu0Jv5hvX6QLZMP9RtCs62Nu8EcsY8F+7MHprGkJ922i975QtLn
-         hoOjufJ3AMgl7nNbagdjKOhrI49JSLt+VRrNw5amodCi5b3zz5a7OSbL+Kt3vcOVY+i8
-         iDwd5ZngoHD3NLpjxL7/DdUeM7ugUCj2w79HeI0yJeikB5jVZ8FIeqVix4u2wuswZDTI
-         q5z108buGGPQM0Y2pxAvAFF3d5q3PyGn5m7L8H+G5XoUKoMHfETYFmK2zJNjH+bAJamJ
-         FeZg==
+        bh=OsqnhxaQmP+8s5AUmhtjZOLCmUrK+sfDqwiHe1ZPGJs=;
+        b=ANRDbx6RT+z4x8EceoR4TD1EIEy/TRKrC+Y5iqyA3AfbuOmjrrssf6rYrfFoxXQ6bk
+         cI4gGp9lkuXV8guF8xQSEXd6JlXGjOxYpV2FUheAC0syjkxLDjbaqYslpiYl3HJvfOh0
+         R34h2XywDdmJ1aJ18/h3ipSs/g1UiHw1e1LIArzST2uITtqU5MBcTWMeJT9mzLs3w3Ub
+         /iYOZXpCIU2+EIUn5jIOVOKMP9JARU/4tz8Hhf7hm3RvolqssyHu1j9ZujPvX3LTY2lT
+         qxyAxr+dYzCwtdohc7tyVJndu/Xq82H43tswAge9l3zXp4xehth+bfxD/06pI/W69Zz7
+         mv9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715220941; x=1715825741;
+        d=1e100.net; s=20230601; t=1715220939; x=1715825739;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=KXfa/PXX0wNxcWsuTnJvVKBz5xkIckXoldeqVQ+uY6s=;
-        b=T7N5PC1viapa+NhmwT3tuV7OXMKi+SA4UeYmKsEl6Lq0cPYmZ62I3Lb9unpfbRwdL0
-         M0MR7GWasl+iP8np20XQfMUyVM3RPBu+wdpm984F+Z2yomnkYJR0mZPXJJ/+d5CHHaNC
-         0c44TTm9YCllY0TwsMYZ36bkAic4sOeoaFFMXDmOLJLEziMxicN2DZkBcsChG6x4rmqZ
-         8ueaFkulkNmKxjYHw+wFha9UNvMsOi9lMvPngQY1+fpFxuM69oiDT/I1/SZm9ln3SgoI
-         0Kh7gbPuQ3WHljqcYw9MGHGU1rqfGAKXPfZwy2Gn3ycayjyzLNxemG72t6I0biCugttc
-         ixqg==
-X-Forwarded-Encrypted: i=1; AJvYcCVl3yeYyHTy/uaAgwITOkFI2CEwD2FqrL0U/Do7ohlVJCusvlT9JItNaCKwecLbiXu0lUiRSQlYKmd5SHVIOn/BDIyxzRuPtXZXg2rLKSmu
-X-Gm-Message-State: AOJu0YxIIJnnFCFDDYf0NHezBXOkcm3glJzsVKBRIe+J3SHSV21AR5oJ
-	ja/dzTEFdqRiljVCtxA3+NIIp38f71cpUgHhHA5yuo3jzVjcZKhaLCLSoiXkmDo=
-X-Google-Smtp-Source: AGHT+IE9ZoyucFXxbdSGw7XJTOvvL/daIX0wCHcvpRgNlMZzb6xM1tdXMzrCLA56bysKpPynTf/B8w==
-X-Received: by 2002:a17:902:f548:b0:1e5:8629:44d with SMTP id d9443c01a7336-1eeb03a6a1dmr52745165ad.1.1715220941080;
-        Wed, 08 May 2024 19:15:41 -0700 (PDT)
+        bh=OsqnhxaQmP+8s5AUmhtjZOLCmUrK+sfDqwiHe1ZPGJs=;
+        b=NLph8hqBpy7Ec26MklIqXPVCvbXPKricsIWWfNOFjx9vqGmSY29xhDj+bUDVT3Tngk
+         sTUhZABKMb3Tmqj8bqQZLjdGogqwyyr9fAQobDATa5KCyL+AZPWPWKoX28SkpnuvfEQK
+         3NkDROySmXl3fUcX+L5EKGI9sh2K5F4PZtGvptSrlVB9kmkrdE9BynDs0x7bcp8+B/8e
+         S5DUPy00BKC+EGsSHADcJ2unrJkCkF7Cs0DJ4EgUBNGwrEx6OHgBHqXLnhjBduMiSaWe
+         0I823zeEJ5O+sXc0O8HhvuUM4EUukp9j4znexjN6H6iZ7UfF0uooZqzSa5Q2/eHAxe2k
+         5I3A==
+X-Forwarded-Encrypted: i=1; AJvYcCUg67j2Qmf5hSm1HBU2bjj8HemERB5cjl9vZX2iMPe2c6S9DLM91k27ABnRvFmYFD/wzhIUgzqgLiUlxJTHoe+gkWAQKjyN1b2DocqwHwot
+X-Gm-Message-State: AOJu0Yy0rHi8ZxlnXqHDijIzNkNlAfLDFlvw53QOXvSHc35GZaOc0cla
+	6Q+ZdK85363Ft/R1a4IOnfU8q7KkCq8WMEDj9R4ynGOrG6K13tPcH63kzLzdTNc=
+X-Google-Smtp-Source: AGHT+IFggpqzp2voiW6Dn5QX5CcCPey3mFBNvNVLgEW7f6Fdb3zuwjAxPItMpaPovLTf+PBcqAQ7Kg==
+X-Received: by 2002:a17:902:8486:b0:1eb:77ed:8fba with SMTP id d9443c01a7336-1eeb01a63f6mr46134765ad.17.1715220939401;
+        Wed, 08 May 2024 19:15:39 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0b9d176fsm2339115ad.58.2024.05.08.19.15.39
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0b9d176fsm2339115ad.58.2024.05.08.19.15.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 May 2024 19:15:40 -0700 (PDT)
+        Wed, 08 May 2024 19:15:39 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Arnaldo Carvalho de Melo <acme@redhat.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -79,16 +79,16 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
 	Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Eric Lin <eric.lin@sifive.com>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH 5/7] perf vendor events riscv: Add SiFive Bullet version 0x0d events
-Date: Wed,  8 May 2024 19:14:58 -0700
-Message-ID: <20240509021531.680920-6-samuel.holland@sifive.com>
+Subject: [PATCH 4/7] perf vendor events riscv: Add SiFive Bullet version 0x07 events
+Date: Wed,  8 May 2024 19:14:57 -0700
+Message-ID: <20240509021531.680920-5-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240509021531.680920-1-samuel.holland@sifive.com>
 References: <20240509021531.680920-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_191543_223755_44D5F07A 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20240508_191543_127802_CD1A840E 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,79 +108,91 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 From: Eric Lin <eric.lin@sifive.com>
 
 SiFive Bullet microarchitecture cores with mimpid values starting with
-0x0d or greater add new PMU events to count TLB miss stall cycles.
+0x07 or greater add new PMU events to support debug, trace, and counter
+sampling and filtering (Sscofpmf).
 
 All other PMU events are unchanged from earlier Bullet cores.
 
 Signed-off-by: Eric Lin <eric.lin@sifive.com>
+Co-developed-by: Samuel Holland <samuel.holland@sifive.com>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
  tools/perf/pmu-events/arch/riscv/mapfile.csv  |  1 +
- .../cycle-and-instruction-count.json          |  1 +
- .../arch/riscv/sifive/bullet-0d/firmware.json |  1 +
- .../riscv/sifive/bullet-0d/instruction.json   |  1 +
- .../arch/riscv/sifive/bullet-0d/memory.json   |  1 +
- .../riscv/sifive/bullet-0d/microarch.json     | 72 +++++++++++++++++++
- .../riscv/sifive/bullet-0d/watchpoint.json    |  1 +
- 7 files changed, 78 insertions(+)
- create mode 120000 tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/cycle-and-instruction-count.json
- create mode 120000 tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/firmware.json
- create mode 120000 tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/instruction.json
- create mode 120000 tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/memory.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/microarch.json
- create mode 120000 tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/watchpoint.json
+ .../cycle-and-instruction-count.json          | 12 ++++
+ .../arch/riscv/sifive/bullet-07/firmware.json |  1 +
+ .../riscv/sifive/bullet-07/instruction.json   |  1 +
+ .../arch/riscv/sifive/bullet-07/memory.json   |  1 +
+ .../riscv/sifive/bullet-07/microarch.json     | 62 +++++++++++++++++++
+ .../riscv/sifive/bullet-07/watchpoint.json    | 42 +++++++++++++
+ 7 files changed, 120 insertions(+)
+ create mode 100644 tools/perf/pmu-events/arch/riscv/sifive/bullet-07/cycle-and-instruction-count.json
+ create mode 120000 tools/perf/pmu-events/arch/riscv/sifive/bullet-07/firmware.json
+ create mode 120000 tools/perf/pmu-events/arch/riscv/sifive/bullet-07/instruction.json
+ create mode 120000 tools/perf/pmu-events/arch/riscv/sifive/bullet-07/memory.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/sifive/bullet-07/microarch.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/sifive/bullet-07/watchpoint.json
 
 diff --git a/tools/perf/pmu-events/arch/riscv/mapfile.csv b/tools/perf/pmu-events/arch/riscv/mapfile.csv
-index 8706d289215e..9e9bd7ac0ebe 100644
+index 521f416b0006..8706d289215e 100644
 --- a/tools/perf/pmu-events/arch/riscv/mapfile.csv
 +++ b/tools/perf/pmu-events/arch/riscv/mapfile.csv
-@@ -16,6 +16,7 @@
+@@ -15,6 +15,7 @@
+ #
  #MVENDORID-MARCHID-MIMPID,Version,Filename,EventType
  0x489-0x8000000000000007-0x[[:xdigit:]]+,v1,sifive/bullet,core
- 0x489-0x8000000000000[1-9a-e]07-0x[78ac][[:xdigit:]]+,v1,sifive/bullet-07,core
-+0x489-0x8000000000000[1-9a-e]07-0xd[[:xdigit:]]+,v1,sifive/bullet-0d,core
++0x489-0x8000000000000[1-9a-e]07-0x[78ac][[:xdigit:]]+,v1,sifive/bullet-07,core
  0x5b7-0x0-0x0,v1,thead/c900-legacy,core
  0x67e-0x80000000db0000[89]0-0x[[:xdigit:]]+,v1,starfive/dubhe-80,core
  0x31e-0x8000000000008a45-0x[[:xdigit:]]+,v1,andes/ax45,core
-diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/cycle-and-instruction-count.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/cycle-and-instruction-count.json
-new file mode 120000
-index 000000000000..ccd29278f61b
+diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/cycle-and-instruction-count.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/cycle-and-instruction-count.json
+new file mode 100644
+index 000000000000..5c8124cfe926
 --- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/cycle-and-instruction-count.json
-@@ -0,0 +1 @@
-+../bullet-07/cycle-and-instruction-count.json
-\ No newline at end of file
-diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/firmware.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/firmware.json
++++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/cycle-and-instruction-count.json
+@@ -0,0 +1,12 @@
++[
++  {
++    "EventName": "CORE_CLOCK_CYCLES",
++    "EventCode": "0x165",
++    "BriefDescription": "Counts core clock cycles"
++  },
++  {
++    "EventName": "INSTRUCTIONS_RETIRED",
++    "EventCode": "0x265",
++    "BriefDescription": "Counts instructions retired"
++  }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/firmware.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/firmware.json
 new file mode 120000
 index 000000000000..34e5c2870eee
 --- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/firmware.json
++++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/firmware.json
 @@ -0,0 +1 @@
 +../bullet/firmware.json
 \ No newline at end of file
-diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/instruction.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/instruction.json
+diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/instruction.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/instruction.json
 new file mode 120000
 index 000000000000..62eacc2d7497
 --- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/instruction.json
++++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/instruction.json
 @@ -0,0 +1 @@
 +../bullet/instruction.json
 \ No newline at end of file
-diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/memory.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/memory.json
+diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/memory.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/memory.json
 new file mode 120000
 index 000000000000..df50fc47a5fe
 --- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/memory.json
++++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/memory.json
 @@ -0,0 +1 @@
 +../bullet/memory.json
 \ No newline at end of file
-diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/microarch.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/microarch.json
+diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/microarch.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/microarch.json
 new file mode 100644
-index 000000000000..6573b24788eb
+index 000000000000..de8efd7b8b34
 --- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/microarch.json
-@@ -0,0 +1,72 @@
++++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/microarch.json
+@@ -0,0 +1,62 @@
 +[
 +  {
 +    "EventName": "ADDRESSGEN_INTERLOCK",
@@ -241,26 +253,56 @@ index 000000000000..6573b24788eb
 +    "EventName": "TRACE_STALL",
 +    "EventCode": "0x80001",
 +    "BriefDescription": "Counts cycles in which the core pipeline is stalled due to backpressure from the Trace Encoder"
-+  },
-+  {
-+    "EventName": "ITLB_MISS_STALL",
-+    "EventCode": "0x100001",
-+    "BriefDescription": "Counts cycles in which the core pipeline is stalled due to ITLB Miss"
-+  },
-+  {
-+    "EventName": "DTLB_MISS_STALL",
-+    "EventCode": "0x200001",
-+    "BriefDescription": "Counts cycles in which the core pipeline is stalled due to DTLB Miss"
 +  }
 +]
-diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/watchpoint.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/watchpoint.json
-new file mode 120000
-index 000000000000..e88b98bfc5c8
+diff --git a/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/watchpoint.json b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/watchpoint.json
+new file mode 100644
+index 000000000000..aa7a12818521
 --- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-0d/watchpoint.json
-@@ -0,0 +1 @@
-+../bullet-07/watchpoint.json
-\ No newline at end of file
++++ b/tools/perf/pmu-events/arch/riscv/sifive/bullet-07/watchpoint.json
+@@ -0,0 +1,42 @@
++[
++  {
++    "EventName": "WATCHPOINT_0",
++    "EventCode": "0x164",
++    "BriefDescription": "Counts occurrences of watchpoint 0 with action=8"
++  },
++  {
++    "EventName": "WATCHPOINT_1",
++    "EventCode": "0x264",
++    "BriefDescription": "Counts occurrences of watchpoint 1 with action=8"
++  },
++  {
++    "EventName": "WATCHPOINT_2",
++    "EventCode": "0x464",
++    "BriefDescription": "Counts occurrences of watchpoint 2 with action=8"
++  },
++  {
++    "EventName": "WATCHPOINT_3",
++    "EventCode": "0x864",
++    "BriefDescription": "Counts occurrences of watchpoint 3 with action=8"
++  },
++  {
++    "EventName": "WATCHPOINT_4",
++    "EventCode": "0x1064",
++    "BriefDescription": "Counts occurrences of watchpoint 4 with action=8"
++  },
++  {
++    "EventName": "WATCHPOINT_5",
++    "EventCode": "0x2064",
++    "BriefDescription": "Counts occurrences of watchpoint 5 with action=8"
++  },
++  {
++    "EventName": "WATCHPOINT_6",
++    "EventCode": "0x4064",
++    "BriefDescription": "Counts occurrences of watchpoint 6 with action=8"
++  },
++  {
++    "EventName": "WATCHPOINT_7",
++    "EventCode": "0x8064",
++    "BriefDescription": "Counts occurrences of watchpoint 7 with action=8"
++  }
++]
 -- 
 2.44.0
 
