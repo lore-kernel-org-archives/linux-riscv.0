@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC90DC25B7A
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 22:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5666C41513
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 22:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=yM7f3psuW9F+45uXj8Y2bGajqYzXB01Kfo9eEEvovPQ=; b=NZKYAH+OJvIWErz/lOPfW+KXx6
-	+kTbBKX/p5P3AxSO3TbzNf2MPtLbKlg/1/jT6LnybajRvBH3M7v73rBNjuTvjaL4UjcF817NEqPn+
-	8tpR0UJNVfG3bjSdJvbmPPiK3vm5wkb6Yu/U43senm89DbJFCuzB6rhmTlurHGjuNQmpHq6H94uYO
-	UXGrRwRI63KvYFbYv71SWo0b1j1Z8ENMbmWE4Lhafx5o84HqWbYe7TY9fKkhjdX06uxgPN4uUmNsk
-	hx6bDDVT5HZXs/icRScrSRVrrPWU9bKda0K0L5yax2zG9cd2XbUbiYEvyLkk7lgi9y9IESQIhjoCd
-	Ouzq4MYg==;
+	bh=BgkGUUHq3cSYYBHNEqQjVD9DungLAKfc6BzTZ2JDXC0=; b=SXQ6KKsvISsgTxg86XKLJG1iWu
+	2pRjJEDiCiaOHAU4yQ0tiGSf0lgVblGuGFl6FJ7Aeand91fya8aEgcNPSzs5LIQ4ltTxIZWdpZXYV
+	DkK7tNeqX9pGovU1eiUfJYNRcM2RPtCKxK34jB24pX4MOJExbjcHxXL2DcNA0h4WcnoTTvML1lTI6
+	2LWAy5MtchPXeLz+P+a5OplcPoOPiBpk0f8ga7cPRlTZhYLsRRG27irduGQBH624RR33Ynf5BgEO8
+	mn0mJ/s4S7hjFGNpFukIe+P7jS4Mxsvpf2NqplTxyo2uUyh5uxiwLdyM2L79GACiJi8Lixn30xr2s
+	AxF+X4EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5CIm-000000036JD-02me;
-	Thu, 09 May 2024 22:31:48 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1s5CIo-000000036Kq-1ezn;
+	Thu, 09 May 2024 22:31:50 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s59zM-00000002chE-0LXW
+	id 1s59zj-00000002czf-2V81
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 May 2024 20:03:40 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-ddaf2f115f2so1896888276.3
-        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 13:03:32 -0700 (PDT)
+	Thu, 09 May 2024 20:04:07 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-6efef492e79so1330118b3a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 13:03:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1715285011; x=1715889811; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1715285035; x=1715889835; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=k5k6MfrHn5zAXreDA+C7cs5PpXHJQO9KnwpSZ9g5UlI=;
-        b=WzSbBOjVMIXYau8BQCNJWa+XOJ8GyplG3A8Z7p6B4Ja+cvEivE8NycLf6QN8Z029kt
-         FsU9Uw6zcnWrVbelIPlpbe5Zjp/jZcpboJvu/d8Fb8M20lrIMZl8eCUOvH1iVlMy4E5Q
-         ZqkC582yoRiyVhN33fEwFjDk1WmUlx0+jshf7Z5ZlfZD96qS0U7QGWPNDd4AvZ22+Snf
-         g/WNRU81GYZETBqatmrvr3c1lfPnrtFzfBuYIyfTdp2qdNWJ2lqQAthYNxa/1XccEDqW
-         En8PmRwlOOgWG6snGtSDLpk6XtWRxgrnF09I4JTD+Uma10TX7ZlsbrWFltnWWE5AOp8A
-         6AdQ==
+        bh=WC7D8aH0v4uQUEV7LLGnAs38/YjV1LtGmErWE1cbhiE=;
+        b=db5L1nw380TPaYNjHK/5j3SteOb49GM1pU3qSdLU6OAUYyBsT2rt59dGx7QmYqoKXs
+         SNeAiaAsU5FeuYIjewkjVs3Id2yB9QCkaAQrsJ9RDLfjTuSbFNouVg2om+quS2/4L8x/
+         GRHMTMc8UOFamXC9V3GjpU/GBn9KOSX0GTY++VigXPZdSgMSAmML4nfu5/gv0jYsqOqK
+         wNpMZSQ6hOR/mhbIstJwmdkXUAsbClIK1vxAt9gxg0EHTrhUU6cIlBKTu0XITJCDxgwl
+         94jZ7AY2fHInj9rUEBNZ+NxVOEqri9FjvnbfuEnlvHSVc+KY6mumDkJSmH9QRvpUM+HT
+         kOcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715285011; x=1715889811;
+        d=1e100.net; s=20230601; t=1715285035; x=1715889835;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=k5k6MfrHn5zAXreDA+C7cs5PpXHJQO9KnwpSZ9g5UlI=;
-        b=k9kQaACQZWtRmhnJQg2xkm3CmIlQRel0sNpEQyNG4nJGfLrocDH5Fv6SHMXEnbcWJw
-         dhrvH3BLj8eTZZLKysTmznr6QKxEb6YvbizkL47c4MWPtY2QrhYO8p7R4NH8dxe6zCOo
-         3TA7b6EVPbqTikuHdF8zHjHPRTeY5i4pAoTe0lMZqIdQRoanGPZ/7BkFZ6AuGuLjM9lB
-         7h7Ekq2uJormP45dvkQCy30g2d9HeyygAuclM6tEoYGA9ntZqt9gskgIC1z4WOFSszHH
-         gpy6WzaN2RaxmeTujmOlEp8No42aoMWKm+Waax7u6HrCKa7zvmUL0a5iau1gspHDxYyv
-         104w==
-X-Forwarded-Encrypted: i=1; AJvYcCVLu2IByJYAOQYsoL1Y3tkFrrGgaPULLhx5lpnuxubIOMcXqgL/1s/QyQLduzs7sIeGJRg7OBSLVNjiTA4r70cf8Ct9XwLtYHCCgStgbFuU
-X-Gm-Message-State: AOJu0YxQirtMIQhf3hGg0b7Dl2kdwZXWomTrftPyScjLMGPSkO37tedW
-	hgEX3EFkEkzJsAVTa7s/cGxLTxDy1JVTzV0r3J/01tVzqyTKhUDXZ6/Npo46KJrmGdkigPiDtxb
-	Erg==
-X-Google-Smtp-Source: AGHT+IGb4ng9OJg5Fp+YefUa4FZNwRQyl6/nmjKMnKC/LgTLkL3Ns0/OurcHg47bBiuW1FC3zvfiy+ei/Po=
+        bh=WC7D8aH0v4uQUEV7LLGnAs38/YjV1LtGmErWE1cbhiE=;
+        b=lph057cA7erBZpIwE03ImIuaojiDNMWvdzXudE6MiWoAEPDGn8zlX/lKsffiNX+THr
+         R8jtsh9svYwN3ECokkswjNFlXz0j5eNuNORBectTv+9BYoiADmtNBhJWx70m4FH+74wI
+         W7t9hFbJUwJxuZipWvh/nhUiDiaeJEVIaYG9zLglJaUoNfeQC3WEMo/rjL+iDrVg+PF3
+         MeRUHed9BE03tu4ZRybGbTYfVao5RSNCk0JibarroRs6RMpYbgOzMWQvlWmiN/TXOdHV
+         MMkZPQJVSMK/nrSZ4qyYDYTRfGEO6+9+v9J+RNgfSMAk3O3Nov77HRfAU/ZFjvTnIQ6W
+         AfEA==
+X-Forwarded-Encrypted: i=1; AJvYcCVjkPFB/dgcKj8ivkUan3Xi2yIUfAiAddp9zfJUCT9HWeGfOhZLfH0oWld6HqxJh0a0mY0MVd6+LXbp7iroW8ivjll1pqdXVaVcMPCRHr/n
+X-Gm-Message-State: AOJu0YxE52NSfkUbpAsHZv2ofkzGsB9qCedSkRDB63RAUeVApSbbo2z3
+	1mZaeIpG5mxiPy6FQ4DHkEFJSYZevp8g47JKLm9T+pfvFBq6s9hVdXH3HzcrXx+ULyTvUqV6131
+	2Eg==
+X-Google-Smtp-Source: AGHT+IH2SbJN822nfl37wycvsXND96WvS/1faYgMHWYRV6m5iJpfeL+wLm1M6pioafAmOBMqwtyFIThDOZ8=
 X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a05:6902:c09:b0:de5:5304:3206 with SMTP id
- 3f1490d57ef6-dee4f52d715mr61724276.11.1715285011299; Thu, 09 May 2024
- 13:03:31 -0700 (PDT)
-Date: Thu,  9 May 2024 19:58:48 +0000
+ (user=edliaw job=sendgmr) by 2002:a05:6a00:3c91:b0:6ea:aafa:815c with SMTP id
+ d2e1a72fcca58-6f4e0263dd0mr25176b3a.1.1715285034729; Thu, 09 May 2024
+ 13:03:54 -0700 (PDT)
+Date: Thu,  9 May 2024 19:58:57 +0000
 In-Reply-To: <20240509200022.253089-1-edliaw@google.com>
 Mime-Version: 1.0
 References: <20240509200022.253089-1-edliaw@google.com>
 X-Mailer: git-send-email 2.45.0.118.g7fe29c98d7-goog
-Message-ID: <20240509200022.253089-57-edliaw@google.com>
-Subject: [PATCH v3 56/68] selftests/sched: Drop define _GNU_SOURCE
+Message-ID: <20240509200022.253089-66-edliaw@google.com>
+Subject: [PATCH v3 65/68] selftests/user_events: Drop define _GNU_SOURCE
 From: Edward Liaw <edliaw@google.com>
 To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
 	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
@@ -76,14 +76,16 @@ To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>
 	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
 	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
 	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
-	Muhammad Usama Anjum <usama.anjum@collabora.com>, Edward Liaw <edliaw@google.com>, 
+	Edward Liaw <edliaw@google.com>, Muhammad Usama Anjum <usama.anjum@collabora.com>, 
 	Andrew Morton <akpm@linux-foundation.org>
 Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
 	kernel-team@android.com, linux-security-module@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+	netdev@vger.kernel.org, linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
+	John Hubbard <jhubbard@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_130337_871521_ECDED166 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20240509_130400_021220_09280F97 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,24 +106,26 @@ _GNU_SOURCE is provided by lib.mk, so it should be dropped to prevent
 redefinition warnings.
 
 Fixes: 809216233555 ("selftests/harness: remove use of LINE_MAX")
+Reviewed-by: John Hubbard <jhubbard@nvidia.com>
+Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
 Signed-off-by: Edward Liaw <edliaw@google.com>
 ---
- tools/testing/selftests/sched/cs_prctl_test.c | 2 --
+ tools/testing/selftests/user_events/abi_test.c | 2 --
  1 file changed, 2 deletions(-)
 
-diff --git a/tools/testing/selftests/sched/cs_prctl_test.c b/tools/testing/selftests/sched/cs_prctl_test.c
-index 62fba7356af2..abf907f243b6 100644
---- a/tools/testing/selftests/sched/cs_prctl_test.c
-+++ b/tools/testing/selftests/sched/cs_prctl_test.c
-@@ -18,8 +18,6 @@
-  * You should have received a copy of the GNU Lesser General Public License
-  * along with this library; if not, see <http://www.gnu.org/licenses>.
+diff --git a/tools/testing/selftests/user_events/abi_test.c b/tools/testing/selftests/user_events/abi_test.c
+index 7288a05136ba..a1f156dbbd56 100644
+--- a/tools/testing/selftests/user_events/abi_test.c
++++ b/tools/testing/selftests/user_events/abi_test.c
+@@ -4,8 +4,6 @@
+  *
+  * Copyright (c) 2022 Beau Belgrave <beaub@linux.microsoft.com>
   */
 -
 -#define _GNU_SOURCE
- #include <sys/eventfd.h>
- #include <sys/wait.h>
- #include <sys/types.h>
+ #include <sched.h>
+ 
+ #include <errno.h>
 -- 
 2.45.0.118.g7fe29c98d7-goog
 
