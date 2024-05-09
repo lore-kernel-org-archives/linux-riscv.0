@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F070C25B10
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 20:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A438AC10F1A
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 20:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=Tny6/N4INZZ4ODoMWcvxISEoZ3zyH3pwgqaIDQ3Wv4g=; b=YWFoozzfLOgHKexIsPedca/VIZ
-	6kYabWr6MUXSOJ+bqK0ipTSkFQr/wG3ShN7P6Jh/KvBKS66nkQs6QK6zaRyQwiutj7DmUTL/wmcTd
-	v1Zg5fUUbv40SPW3XQMwwFFdLtMwvAoI6FrRwGrr7K44mQ/gTXWuZWbo0btDivqfznNTRxrPUN/EH
-	dRwet3VFACXtvfiNNTaeIsDfymvS1uBwOuVvdmCqrYMqW+3MMrfrjoLmPPsee7J3V9SlYGraqZoJp
-	6WfddklZF5wa86AHujwJ6mh16/D4mnRjKJhzboIkIrm8ene+VNyYKik6QLRR8L9ozzXZByo0nqCvV
-	Qaf8NEkQ==;
+	bh=+B48bLXmFFMkzzHixhx7bAiopoMYa59nVY6RT8sNjvI=; b=dacJGXeBHH9GbrhBniOFARERK+
+	D1QvPuEu8vuFXWkIrd2m3UNuz3bDxR436VKPuXzpbWWjaQsowCoIJoC4scG2HOh68PcQRWzOK+VRU
+	CNU1uXSmW2OifBCJ1scx1mJQQIZfFBtciqivwdzpvvOv8fwx7B4a9ADZ0Jl64b/2JVsy59J+cZMfu
+	Ur0j7gL0kV3NHzVZAootuM8/dGiEM0smPJxOEfq+Lhn/p+n2jjIbGS1u8+jpGDO2hu/ITHE4eUunB
+	xcrmGtQxwQRNXg3yir3I0CJysEPaaz7L0/t4LULfWT/mIyQF59y2o7FEGulUh5OXSOcHVw+yn09zb
+	VFFXYwkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s59zT-00000002cpZ-30JV;
-	Thu, 09 May 2024 20:03:43 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1s59za-00000002cvD-18uD;
+	Thu, 09 May 2024 20:03:50 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s59y4-00000002bgs-0Nvd
+	id 1s59yh-00000002cFv-1LNm
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 09 May 2024 20:02:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=O/ROtSes3ZQb3WG9zfhdXtPEPHl3PoGiMttA81TOGVo=; b=cMBgbz+0ecyPKn342IMA9qn/6Y
+	5h1ZqJubv/5d2jjycD8PC/y2Iu9iiySkvJ9wDJeECg3eUivX/wqLUclFrTWF6dk+F10Bqs+GN1T3w
+	ojvg576f4C4GA9YUU+uHztza8p2IvvQkXbIWf1DNWpMljA0CMmOmzTAK+GUHKikuNFU4g6OO9WL/O
+	HErHiWl+Wd1PA++IMxmgq5k3qQcPcqxFMcVHYGGe4pG6gam/QcU55Kdpd4oDmN2fWRYeMJGrJnyFR
+	oOxqnhUjuVe9eL3mgGu0KHZk9pUIK+dmqAK6tll0s9lnEJaorpAOTeIVTG9wD9/mxk0mCC8beMXRf
+	B+SzD9hQ==;
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s59yd-00000001Jjw-1rlq
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 May 2024 20:02:33 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-61c9675ae5aso20633967b3.0
-        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 13:02:11 -0700 (PDT)
+	Thu, 09 May 2024 20:02:54 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1e604136b6dso8224045ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 13:02:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1715284931; x=1715889731; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1715284965; x=1715889765; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Di7Erv/XRsHV/bMQeC6cRhGef1PHcLc0ShAwyYHpOVU=;
-        b=CTr3GdUPw3dOaFYl9zXbPLCoFjx8Jk/QkYHZiJi5O52zT8SPTON0orOlJekBbw6Y1+
-         o/baR/CObruX/8guQLQeYsxVyYfeBzTYH9333JEZLoO9PxacQAp8snBE5F9RQkT7An7Y
-         IFgP2Ts9SyAcCfd9v6v/UVjmQ3wuf9JyLU2dOBxQyIlq/e6arqovOMghwiJ5huebKI45
-         itFnQjVI7/2dNZET5t0DjIoZ4WHorc0hc3WmTZszU+gvr/IgIs4vxA3T+B2AQ6etEemR
-         5aPkKlsx23L1xsCxelGkoBueTh63Fo2IVXPuylZ7dRDj8b5tfp3KyFz4oRrdYk9kKGfE
-         9uuA==
+        bh=O/ROtSes3ZQb3WG9zfhdXtPEPHl3PoGiMttA81TOGVo=;
+        b=Xb5bzz0LyCNcGjThastcj3cSIh4V0vS/9PM5+pHKNh+aWCzQUnPuznzdpoISbdsySo
+         Pnst4KisdRjGi1JaRtMOayYhSii+G0iaAZbbDVJOaKvUnkv8dHXmxM9RA/FV2Wxt0owU
+         JwWd7/OkkqXc2P+VpV4kzu0Bz2DXVR4AAERBmH+j7tTaJmn67qLwKoAQZeEIKY2SOFlU
+         HKqTwTp9as/NL1iI0ZTh9QDYZRQqv5jZpC6ChFXSCTZ52MAXfOCxzeYwQqxgDTlvuSh6
+         EK83yBISYiT8iuibud4wH8nfa329Qo5iMDxEgFZyBLgRdyGoWT2iXZMlGzClH1vaaboC
+         3YwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715284931; x=1715889731;
+        d=1e100.net; s=20230601; t=1715284965; x=1715889765;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Di7Erv/XRsHV/bMQeC6cRhGef1PHcLc0ShAwyYHpOVU=;
-        b=J3+LozJd3anydlU71pz7i3cP7Rok09WIT6Nys7rtFimIyjxujEpuYFtp5gIsjI4LNg
-         Pa4oFwZ3h7944dx6Aap90Ynl1cyZMyJ70OZ2v6UXiRzOfHKRFDNkgkGk/tG+xdPOprRJ
-         IjDHAB3wrW3YKABgB13WFeez8L2TwfV4IR96scCc2FV5mPOCMYGDMpD1YlRjaeaQG96c
-         SkA9MqgeYRm1+pzRx3WzDf4xVIKUbqgwpPXUo1Y9xxrhfGSv8RjVAayYbAs4cKWtJWAj
-         TJn9aOkaiPfbbH3YdmtMVyzs73D+odDxb1XXHEJ9MWSFp1netbdl21J3c8bzkOQSIL0/
-         jHVw==
-X-Forwarded-Encrypted: i=1; AJvYcCWGnVdjoGCyjQT7ITEFMUPGcvA1nS1nvianiFlOr+zSNobbBJIxcMa5uR8HAmE35WZbIiScgUUQEEscAQauVK5R3WNbOGmo8RGBlfnUSlYD
-X-Gm-Message-State: AOJu0YxZe8UXSlx7M3rT6YlA+8YUjBp3ZT66zZiDyh0zAwA34IPHDsgN
-	/Hzhy4YSA6480LZQ89sO8A2thqorsLID+0u9uStvrNJGyRLabnobLBXyQDo4ImSSWFcgYl3XVXJ
-	9Fw==
-X-Google-Smtp-Source: AGHT+IGzNz2UjieyVL+13PppSOIoCCWtRL0jFRrJh3a18AgOw9IEjMhpDthMiXvHB10Rx4IrrNB28zpbHTM=
+        bh=O/ROtSes3ZQb3WG9zfhdXtPEPHl3PoGiMttA81TOGVo=;
+        b=qS+C5Hiv7XRnuJUp8Gtsfs+WFGWacUaYcJuOjB5ryCrgsXo4lYzXv5LOhiSdSCMCY5
+         EEOCuR7RymuAMr47J3o4Xr2Obh6lCwdqLwHYlY4byDX953HUJq5xTS6qJTny0h/Pa8pd
+         0WOmuTLUueFPgwR+iBOFG4IpUN0H5qLmP5WtMjk66mLJvicASJY7q1EieW3q/umwa6ns
+         jF0+cBMPhTPLQDHe29ocE+4IjkANZFW5E5MhTfzZmzKMkLufyyHmF2W5UXs6Mj3ICuu3
+         JUPoTkC7K4CvGDVbS1yssXk3P/TByxpHVHp74waxT/ZMJqx1taAeHOkM8Xb5PVoQxjj1
+         U3Ig==
+X-Forwarded-Encrypted: i=1; AJvYcCVLGkXRmaOOA+e8eqMZ39hTCmri0DLmoUNG4/5ZAArDu+LxUCW57s892+PZmGtajzI9LpfUEZl9/80qo8usmYEzEUzKnwjKU0cmsjVv23Wq
+X-Gm-Message-State: AOJu0Yyf0UWSMwTgnoXezSzN1A14/qFzedwkI4vJC0cz4lKaE9/j8+sI
+	C6G5Un+YJqRIseyGjD6yl4ibzOokIHtFYdMu/+qZ32vffeXlUjiqqeNnffucU1tdYcjgkXBV6Sv
+	HNA==
+X-Google-Smtp-Source: AGHT+IGvJuQrQiMk9Le6lHJjBtL89ErJtLYzOJrcQMdwjm9MuNs1OLxjtGfyc0HVY5s6lkIGlnPJdYKFNqo=
 X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a05:690c:6d0c:b0:61b:e6a8:a8a with SMTP id
- 00721157ae682-622affeb280mr1228217b3.6.1715284931252; Thu, 09 May 2024
- 13:02:11 -0700 (PDT)
-Date: Thu,  9 May 2024 19:58:22 +0000
+ (user=edliaw job=sendgmr) by 2002:a17:902:f54b:b0:1e4:a76f:6da1 with SMTP id
+ d9443c01a7336-1ef43f522edmr136425ad.12.1715284964895; Thu, 09 May 2024
+ 13:02:44 -0700 (PDT)
+Date: Thu,  9 May 2024 19:58:32 +0000
 In-Reply-To: <20240509200022.253089-1-edliaw@google.com>
 Mime-Version: 1.0
 References: <20240509200022.253089-1-edliaw@google.com>
 X-Mailer: git-send-email 2.45.0.118.g7fe29c98d7-goog
-Message-ID: <20240509200022.253089-31-edliaw@google.com>
-Subject: [PATCH v3 30/68] selftests/memfd: Drop define _GNU_SOURCE
+Message-ID: <20240509200022.253089-41-edliaw@google.com>
+Subject: [PATCH v3 40/68] selftests/nsfs: Drop define _GNU_SOURCE
 From: Edward Liaw <edliaw@google.com>
 To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
 	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
@@ -80,11 +95,11 @@ To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>
 	Andrew Morton <akpm@linux-foundation.org>
 Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
 	kernel-team@android.com, linux-security-module@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
-	John Hubbard <jhubbard@nvidia.com>
+	netdev@vger.kernel.org, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_130216_555981_25AA2613 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20240509_210251_515464_E5B27A3F 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,48 +120,32 @@ _GNU_SOURCE is provided by lib.mk, so it should be dropped to prevent
 redefinition warnings.
 
 Fixes: 809216233555 ("selftests/harness: remove use of LINE_MAX")
-Reviewed-by: John Hubbard <jhubbard@nvidia.com>
-Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
 Signed-off-by: Edward Liaw <edliaw@google.com>
 ---
- tools/testing/selftests/memfd/common.c     | 1 -
- tools/testing/selftests/memfd/fuse_test.c  | 2 --
- tools/testing/selftests/memfd/memfd_test.c | 1 -
- 3 files changed, 4 deletions(-)
+ tools/testing/selftests/nsfs/owner.c | 1 -
+ tools/testing/selftests/nsfs/pidns.c | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/tools/testing/selftests/memfd/common.c b/tools/testing/selftests/memfd/common.c
-index 8eb3d75f6e60..879d4f4c66fa 100644
---- a/tools/testing/selftests/memfd/common.c
-+++ b/tools/testing/selftests/memfd/common.c
+diff --git a/tools/testing/selftests/nsfs/owner.c b/tools/testing/selftests/nsfs/owner.c
+index 96a976c74550..975834ef42aa 100644
+--- a/tools/testing/selftests/nsfs/owner.c
++++ b/tools/testing/selftests/nsfs/owner.c
 @@ -1,5 +1,4 @@
  // SPDX-License-Identifier: GPL-2.0
 -#define _GNU_SOURCE
- #define __EXPORTED_HEADERS__
- 
+ #include <sched.h>
+ #include <unistd.h>
  #include <stdio.h>
-diff --git a/tools/testing/selftests/memfd/fuse_test.c b/tools/testing/selftests/memfd/fuse_test.c
-index dbc171a3806d..e35c6909f0bb 100644
---- a/tools/testing/selftests/memfd/fuse_test.c
-+++ b/tools/testing/selftests/memfd/fuse_test.c
-@@ -12,8 +12,6 @@
-  * the read() syscall with our memory-mapped memfd object as receive buffer to
-  * force the kernel to write into our memfd object.
-  */
--
--#define _GNU_SOURCE
- #define __EXPORTED_HEADERS__
- 
- #include <errno.h>
-diff --git a/tools/testing/selftests/memfd/memfd_test.c b/tools/testing/selftests/memfd/memfd_test.c
-index 95af2d78fd31..ee019b57bb98 100644
---- a/tools/testing/selftests/memfd/memfd_test.c
-+++ b/tools/testing/selftests/memfd/memfd_test.c
+diff --git a/tools/testing/selftests/nsfs/pidns.c b/tools/testing/selftests/nsfs/pidns.c
+index e3c772c6a7c7..9136fcaf3f40 100644
+--- a/tools/testing/selftests/nsfs/pidns.c
++++ b/tools/testing/selftests/nsfs/pidns.c
 @@ -1,5 +1,4 @@
  // SPDX-License-Identifier: GPL-2.0
 -#define _GNU_SOURCE
- #define __EXPORTED_HEADERS__
- 
- #include <errno.h>
+ #include <sched.h>
+ #include <unistd.h>
+ #include <stdio.h>
 -- 
 2.45.0.118.g7fe29c98d7-goog
 
