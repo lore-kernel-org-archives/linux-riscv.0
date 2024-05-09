@@ -4,106 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235E0C04FFE
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 00:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C551EC25B4F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 00:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H/+Tbq0suMRt3vFTrAzs4dz1tERGXMClxTqYQBc0y60=; b=R5LeiqO0h+6saZ
-	NKUi8xojigWvbiTwvTzYOlM1jxlGkKf7CWJYH32SQ3HrU39mfvcuwmDa6zd9ZFRkG0pgSwEeaF4NO
-	FHmzX/ewuLfcrdFKXYU35Q7GL+K7jr6FP3Mzr/+CwyGDPvJ+oqaD2zneI+WBDIubFtudFnHhi2he5
-	95Yw5A+yRsetH3f8Y1sACKUsanuUTX4gXwW5D8FJi/PYuL61BjjuiDm1rNZjuTs5Pk6TReG0VNPtW
-	3y506oR310O+mP+yPVz+zK6mqBA0SHGSRmWzdAeAU8pHBqpgb3Emy8U//+lXyeQqL0TAKYgF7BrmD
-	L63GmXDpM7NgpcmHt0Aw==;
+	List-Owner; bh=9hIYOOGfaZ/JNpqGvy2zbIIwEhv8ZDY2Q1zgL0OVD1w=; b=doVevwiOKDHSK4
+	JMgAjJIJQoS7kHY6FHEqIWy5Y1fDOugBYr3rgSTBAZQddV4u7hsfom2yc1P+9nP8zxlNkIxAE2JFd
+	TnQ2B+RByBgbbynSup8BHZitZd5kPlrAEFzKnBDxj98nNLRAeHZphODEolKhAOfNfoxTPOLjiviKV
+	tbXeXrDnPJ3ChOWE435NWZNwElqA3uXATOzcgIpi0iIXQbDY3M6gzoBbOerCB3EYunJ59mtL+v8EB
+	Xw+fh0wnM2/j46Bb9xycq5hqOoQQ6zDGBba7/d+m0CBhwYngvQwBLSunhoUt4saohp7H+GlWgkWAP
+	WY3yv17FDiV9fjMlKqIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4riz-0000000HPQF-22cz;
-	Thu, 09 May 2024 00:33:29 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1s4rwA-0000000HRLp-0bhB;
+	Thu, 09 May 2024 00:47:06 +0000
+Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s4riv-0000000HPO2-1NxT
-	for linux-riscv@lists.infradead.org;
-	Thu, 09 May 2024 00:33:27 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-6333b2551ebso271038a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 08 May 2024 17:33:22 -0700 (PDT)
+	id 1s4rvt-0000000HRDa-2Ymc;
+	Thu, 09 May 2024 00:46:57 +0000
+Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-4df265f634aso128619e0c.3;
+        Wed, 08 May 2024 17:46:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715214802; x=1715819602; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ryuqORYcPz0+pc/IX1bINOqGn4QcbQeAD0aN/YcW+a0=;
-        b=dMjS1mGjH2HYbpICjNn/gF5ZS9CU34EfIjoAaeK5SGFF0GnpQqSr8oY89/KHd/WpgJ
-         HsN74KbWRkUqHUl7Pl6xPwQbFBP0DAHifGDja+QGhKfObg5p7u4s3CJyzPEoZEq85S6X
-         TmKjlG/t7tsw20lxXx8dQ44xuXi7+QU/BuFe21gvd6smX12p8rc3ZQRwYIr7hAaVhiW5
-         6TzlvyAOfwZktm0FW7uB5DqW6Nf4U7759CMTSQEJELl8SbqBbPhWMv/efEWgRiM0Hgh2
-         ZKIaEuOi+8chd4quSqEBTot9zVLvkDHsI5Hjdm9M9q4GFP8FPb/IVb2S5Z0XxDCgqL79
-         ja/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715214802; x=1715819602;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1715215607; x=1715820407; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ryuqORYcPz0+pc/IX1bINOqGn4QcbQeAD0aN/YcW+a0=;
-        b=H74Y5PESiu3pvUsZLms0uS7jSNjQRyFc/rH8fF+F23b+w3/DQMVMzlyebU2gjMTJa/
-         Zral2V1ty0tU7dNmpdk0MCrHvgZq7JL2oHeP5Xooy1RIDZCCSJPAdCdzA64/XW1MNlR/
-         5nIWSIY5NDiJotWbO4YkuI6jshF1XVkZcvscvI/9qMq/JduW8IlOp8j+4o7oPmj4Pg/6
-         5wsRMCPtdKC4LkOwHI/W1mGF5yDkwPf9blqihQzBsQq2RtaWoSc3EO2gBhC+CbtREUxs
-         t+HFn9yjSPBuIzjdwyzxGd05pYsbCDLWelo6hpo3JoOVW9IZVUaJUzRExD8xAdo1wwJs
-         wvvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXUH2vl4RiyJ40v4cHd/YUCVTyctF3VtwvfEnk/j0pasqRSiakCXk7lFZx+m8sC7ekyqOPs5vDDV1+2yodnI974WQtaScFzHGq/Pdq8YlzF
-X-Gm-Message-State: AOJu0YytpZrGtldnJP91YcMG2hekEarVfbE8i/hqdcVTsVOQQxkpMvSF
-	D0hru2RJ96yJDQ3cxL4BK2XvaW60WsDii/0uBgWjctTtHlrFh7gBDO4aQjCln3k=
-X-Google-Smtp-Source: AGHT+IHdropjLT7GTh0X7WVpcuGcFXvciZz0PPopuVK7WREz89rBGsBlLrTpoRWlSn9JTjqGGz8pew==
-X-Received: by 2002:a17:90a:d50b:b0:2a5:be1a:6831 with SMTP id 98e67ed59e1d1-2b65fe213cfmr1805609a91.19.1715214801866;
-        Wed, 08 May 2024 17:33:21 -0700 (PDT)
-Received: from ghost ([2601:647:5700:6860:4144:6911:574f:fec1])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2b67126ac21sm169379a91.30.2024.05.08.17.33.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 May 2024 17:33:21 -0700 (PDT)
-Date: Wed, 8 May 2024 17:33:15 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: paul.walmsley@sifive.com, rick.p.edgecombe@intel.com,
-	broonie@kernel.org, Szabolcs.Nagy@arm.com, kito.cheng@sifive.com,
-	keescook@chromium.org, ajones@ventanamicro.com,
-	conor.dooley@microchip.com, cleger@rivosinc.com,
-	atishp@atishpatra.org, alex@ghiti.fr, bjorn@rivosinc.com,
-	alexghiti@rivosinc.com, samuel.holland@sifive.com, conor@kernel.org,
-	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-mm@kvack.org, linux-arch@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, corbet@lwn.net, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, oleg@redhat.com,
-	akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
-	Liam.Howlett@oracle.com, vbabka@suse.cz, lstoakes@gmail.com,
-	shuah@kernel.org, brauner@kernel.org, andy.chiu@sifive.com,
-	jerry.shih@sifive.com, hankuan.chen@sifive.com,
-	greentime.hu@sifive.com, evan@rivosinc.com, xiao.w.wang@intel.com,
-	apatel@ventanamicro.com, mchitale@ventanamicro.com,
-	dbarboza@ventanamicro.com, sameo@rivosinc.com,
-	shikemeng@huaweicloud.com, willy@infradead.org,
-	vincent.chen@sifive.com, guoren@kernel.org, samitolvanen@google.com,
-	songshuaishuai@tinylab.org, gerg@kernel.org, heiko@sntech.de,
-	bhe@redhat.com, jeeheng.sia@starfivetech.com, cyy@cyyself.name,
-	maskray@google.com, ancientmodern4@gmail.com,
-	mathis.salmen@matsal.de, cuiyunhui@bytedance.com,
-	bgray@linux.ibm.com, mpe@ellerman.id.au, baruch@tkos.co.il,
-	alx@kernel.org, david@redhat.com, catalin.marinas@arm.com,
-	revest@chromium.org, josh@joshtriplett.org, shr@devkernel.io,
-	deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
-	jhubbard@nvidia.com
-Subject: Re: [PATCH v3 00/29] riscv control-flow integrity for usermode
-Message-ID: <ZjwZy7bvR9h/+P3e@ghost>
-References: <20240403234054.2020347-1-debug@rivosinc.com>
+        bh=1HutaMr4YNAQdV0piVG8U9fxjw32ZuJHu11VAl/8knE=;
+        b=apIj4kwxYzIDwkW9Rd1OFS9OvT2+sev1qFBh+ePYaecGyf7fWo0M6ACPECwtPNiUhG
+         0VHzi51mAyz+0IpPB3aQpgd+nFoETCPnK3HtHYhr99ovhOUoJ0vI4lxsB8+WlneEo7UX
+         YzYhX/Cdh6ye14Ql8EJtEWlSUwvmGWfzq0uJ1ruEuLl37g3nJwxMg17Q6dA/C6TcqgLB
+         pV+2AT+PyRBZJ/1DUz4s5QwUdj82EHppC/y1plYKcqaMZQnG9OOxAVGO/HcwRWdxhV96
+         r70yyVFRBgDx2ix56iZOm8l+mkgwB7dwUUaTJ6L9TK0nj58F6n/x4UNvuwWeHf1jCm3I
+         UJdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1715215607; x=1715820407;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1HutaMr4YNAQdV0piVG8U9fxjw32ZuJHu11VAl/8knE=;
+        b=wv3fB+ZEDSXukBn5koIqURB0MSxaaK//rN4pJeWf4+yLs/48ZlPpS2uhCSAnbIxCTZ
+         i0bjmK81nlk6wqDyEsOhxD+zjfWYjsbm9q2es5Z5NwBMVXZq02My3EMWZMqPL5fSvduu
+         uhtf+2ac+bML0Bw6rBc0mlz8RrJJP0e/QDI15BZ/7zmirxEXD/eSYitYiBmrkA+kRadx
+         FRn/JDL3Lu9xEPySDzl49B2jTQVc32BiaBnLOIZsnqfWkSQcz+jQzHkDb6m2FNjsJWOa
+         p1EEz7erxj2B0CxXVDFLIdBELoN/08VMlHj8M2HMbYoTUJwcktgtNyaCxVMYAtv1h0wv
+         Icsw==
+X-Forwarded-Encrypted: i=1; AJvYcCWICC6c9aHYD1jqwax9gMHMvydnFJYEa5+BjIoScVBYOGzhu6nIOsvKDo59ktGgjIJ6/lYu7raxWPISBKYAvmbz0DETPU3i+pyyV52CJy/GAP40mpDIgHqInOAvH0D5ELu65bIdPxj7hMhVaikR4tFcN7OxmtnNZ3hBqSqdkbLvlTDmy+HllmwEBdmT86n9HEVWAlqg
+X-Gm-Message-State: AOJu0YzMDK+G/R7l1BcjzPc5/rOICqCyapP9wtJ+FRUwkwlvC5hDlgiM
+	7pd/0XOJXv2i3Q5tC6NkuFOgiFfFvPkH/7V5uuxXjib9BxBLl3uaZJgOXYTk56fW7j4efmEdt5+
+	wNGeJkfU5hYREcaUZP4Chtrndhkc=
+X-Google-Smtp-Source: AGHT+IF79LXSq4NewTC5DFVGeNH4TGRK7B023rxeM+UTTC9bpQ7D2OYFXWiN0Dal3DjFVZkbQyCweJ7ZkvtSI8S33PY=
+X-Received: by 2002:a05:6122:7cb:b0:4d8:797b:94df with SMTP id
+ 71dfb90a1353d-4df6929c091mr4383063e0c.2.1715215607538; Wed, 08 May 2024
+ 17:46:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240403234054.2020347-1-debug@rivosinc.com>
+References: <20240508191931.46060-1-alexghiti@rivosinc.com> <20240508191931.46060-2-alexghiti@rivosinc.com>
+In-Reply-To: <20240508191931.46060-2-alexghiti@rivosinc.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Thu, 9 May 2024 12:46:35 +1200
+Message-ID: <CAGsJ_4xayC4D4y0d7SPXxCvuW4-rJQUCa_-OUDSsOGm_HyPm1w@mail.gmail.com>
+Subject: Re: [PATCH 01/12] mm, arm64: Rename ARM64_CONTPTE to THP_CONTPTE
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Alexander Potapenko <glider@google.com>, Marco Elver <elver@google.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Ard Biesheuvel <ardb@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-mm@kvack.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240508_173325_415587_368E967A 
-X-CRM114-Status: GOOD (  30.27  )
+X-CRM114-CacheID: sfid-20240508_174649_811703_C8C1D3E9 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,170 +93,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 03, 2024 at 04:34:48PM -0700, Deepak Gupta wrote:
-> Sending out v3 for cpu assisted riscv user mode control flow integrity.
-> 
-> v2 [9] was sent a week ago for this riscv usermode control flow integrity
-> enabling. RFC patchset was (v1) early this year (January) [7].
-> 
-> changes in v3
-> --------------
-> envcfg:
-> logic to pick up base envcfg had a bug where `ENVCFG_CBZE` could have been
-> picked on per task basis, even though CPU didn't implement it. Fixed in
-> this series.
-> 
-> dt-bindings:
-> As suggested, split into separate commit. fixed the messaging that spec is
-> in public review
-> 
-> arch_is_shadow_stack change:
-> arch_is_shadow_stack changed to vma_is_shadow_stack
-> 
-> hwprobe:
-> zicfiss / zicfilp if present will get enumerated in hwprobe
-> 
-> selftests:
-> As suggested, added object and binary filenames to .gitignore
-> Selftest binary anyways need to be compiled with cfi enabled compiler which
-> will make sure that landing pad and shadow stack are enabled. Thus removed
-> separate enable/disable tests. Cleaned up tests a bit.
-> 
-> changes in v2
-> ---------------
-> As part of testing effort, compiled a rootfs with shadow stack and landing
-> pad enabled (libraries and binaries) and booted to shell. As part of long
-> running tests, I have been able to run some spec 2006 benchmarks [8] (here
-> link is provided only for list of benchmarks that were tested for long
-> running tests, excel sheet provided here actually is for some static stats
-> like code size growth on spec binaries). Thus converting from RFC to
-> regular patchset.
-> 
-> Securing control-flow integrity for usermode requires following
-> 
->     - Securing forward control flow : All callsites must reach
->       reach a target that they actually intend to reach.
-> 
->     - Securing backward control flow : All function returns must
->       return to location where they were called from.
-> 
-> This patch series use riscv cpu extension `zicfilp` [2] to secure forward
-> control flow and `zicfiss` [2] to secure backward control flow. `zicfilp`
-> enforces that all indirect calls or jmps must land on a landing pad instr
-> and label embedded in landing pad instr must match a value programmed in
-> `x7` register (at callsite via compiler). `zicfiss` introduces shadow stack
-> which can only be writeable via shadow stack instructions (sspush and
-> ssamoswap) and thus can't be tampered with via inadvertent stores. More
-> details about extension can be read from [2] and there are details in
-> documentation as well (in this patch series).
-> 
-> Using config `CONFIG_RISCV_USER_CFI`, kernel support for riscv control flow
-> integrity for user mode programs can be compiled in the kernel.
-> 
-> Enabling of control flow integrity for user programs is left to user runtime
-> (specifically expected from dynamic loader). There has been a lot of earlier
-> discussion on the enabling topic around x86 shadow stack enabling [3, 4, 5] and
-> overall consensus had been to let dynamic loader (or usermode) to decide for
-> enabling the feature.
-> 
-> This patch series introduces arch agnostic `prctls` to enable shadow stack
-> and indirect branch tracking. And implements them on riscv. arm64 is expected
-> to implement shadow stack part of these arch agnostic `prctls` [6]
-> 
-> Changes since last time
-> ***********************
-> 
-> Spec changes
-> ------------
-> - Forward cfi spec has become much simpler. `lpad` instruction is pseudo for
->   `auipc rd, <20bit_imm>`. `lpad` checks x7 against 20bit embedded in instr.
->   Thus label width is 20bit.
-> 
-> - Shadow stack management instructions are reduced to
->     sspush - to push x1/x5 on shadow stack
->     sspopchk - pops from shadow stack and comapres with x1/x5.
->     ssamoswap - atomically swap value on shadow stack.
->     rdssp - reads current shadow stack pointer
-> 
-> - Shadow stack accesses on readonly memory always raise AMO/store page fault.
->   `sspopchk` is load but if underlying page is readonly, it'll raise a store
->   page fault. It simplifies hardware and kernel for COW handling for shadow
->   stack pages.
-> 
-> - riscv defines a new exception type `software check exception` and control flow
->   violations raise software check exception.
-> 
-> - enabling controls for shadow stack and landing are in xenvcfg CSR and controls
->   lower privilege mode enabling. As an example senvcfg controls enabling for U and
->   menvcfg controls enabling for S mode.
-> 
-> core mm shadow stack enabling
-> -----------------------------
-> Shadow stack for x86 usermode are now in mainline and thus this patch
-> series builds on top of that for arch-agnostic mm related changes. Big
-> thanks and shout out to Rick Edgecombe for that.
-> 
-> selftests
-> ---------
-> Created some minimal selftests to test the patch series.
-> 
-> 
-> [1] - https://lore.kernel.org/lkml/20230213045351.3945824-1-debug@rivosinc.com/
-> [2] - https://github.com/riscv/riscv-cfi
-> [3] - https://lore.kernel.org/lkml/ZWHcBq0bJ+15eeKs@finisterre.sirena.org.uk/T/#mb121cd8b33d564e64234595a0ec52211479cf474
-> [4] - https://lore.kernel.org/all/20220130211838.8382-1-rick.p.edgecombe@intel.com/
-> [5] - https://lore.kernel.org/lkml/CAHk-=wgP5mk3poVeejw16Asbid0ghDt4okHnWaWKLBkRhQntRA@mail.gmail.com/
-> [6] - https://lore.kernel.org/linux-mm/20231122-arm64-gcs-v7-2-201c483bd775@kernel.org/
-> [7] - https://lore.kernel.org/lkml/20240125062739.1339782-1-debug@rivosinc.com/
-> [8] - https://docs.google.com/spreadsheets/d/1_cHGH4ctNVvFRiS7hW9dEGKtXLAJ3aX4Z_iTSa3Tw2U/edit#gid=0
-> [9] - https://lore.kernel.org/lkml/20240329044459.3990638-1-debug@rivosinc.com/
-> 
-
-This is a note for people wanting to test this series.
-
-1. Need a toolchain that has CFI support
-
-$ git clone git@github.com:sifive/riscv-gnu-toolchain.git -b cfi-dev
-$ riscv-gnu-toolchain/configure --prefix=<path-to-where-to-build> --with-arch=rv64gc_zicfilp_zicfiss --enable-linux --disable-gdb  --with-extra-multilib-test="rv64gc_zicfilp_zicfiss-lp64d:-static"
-$ make -j$(nproc)
-
-2. QEMU
-
-$ git clone git@github.com:deepak0414/qemu.git -b zicfilp_zicfiss_mar24_spec_v8.1.1
-$ cd qemu
-$ mkdir build
-$ cd build
-$ ../configure --target-list=riscv64-softmmu
-$ make -j$(nproc)
-
-3. OpenSBI
-
-$ git clone git@github.com:deepak0414/opensbi.git -b cfi_spec_split_opensbi
-$ make CROSS_COMPILE=<your riscv toolchain> -j$(nproc) PLATFORM=generic
-
-4. Linux
-
-Running defconfig is fine. CFI is enabled by default if the toolchain
-supports it.
-
-$ make ARCH=riscv CROSS_COMPILE=<path-to-cfi-riscv-gnu-toolchain>/build/bin/riscv64-unknown-linux-gnu- -j$(nproc) defconfig
-$ make ARCH=riscv CROSS_COMPILE=<path-to-cfi-riscv-gnu-toolchain>/build/bin/riscv64-unknown-linux-gnu- -j$(nproc)
-
-5. Running
-
-Modify your qemu command to have:
--bios <path-to-cfi-opensbi>/build/platform/generic/firmware/fw_dynamic.bin
--cpu rv64,zicfilp=true,zicfiss=true
-
-- Charlie
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXkgOSwgMjAyNCBhdCA3OjIw4oCvQU0gQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hp
+dGlAcml2b3NpbmMuY29tPiB3cm90ZToKPgo+IFRoZSBBUk02NF9DT05UUFRFIGNvbmZpZyByZXBy
+ZXNlbnRzIHRoZSBjYXBhYmlsaXR5IHRvIHRyYW5zcGFyZW50bHkgdXNlCj4gY29udHB0ZSBtYXBw
+aW5ncyBmb3IgVEhQIHVzZXJzcGFjZSBtYXBwaW5ncywgd2hpY2ggd2lsbCBiZSBpbXBsZW1lbnRl
+ZAo+IGluIHRoZSBuZXh0IGNvbW1pdHMgZm9yIHJpc2N2LCBzbyBtYWtlIHRoaXMgY29uZmlnIG1v
+cmUgZ2VuZXJpYyBhbmQgbW92ZQo+IGl0IHRvIG1tLgo+Cj4gU2lnbmVkLW9mZi1ieTogQWxleGFu
+ZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+IC0tLQo+ICBhcmNoL2FybTY0L0tj
+b25maWcgICAgICAgICAgICAgICB8IDkgLS0tLS0tLS0tCj4gIGFyY2gvYXJtNjQvaW5jbHVkZS9h
+c20vcGd0YWJsZS5oIHwgNiArKystLS0KPiAgYXJjaC9hcm02NC9tbS9NYWtlZmlsZSAgICAgICAg
+ICAgfCAyICstCj4gIG1tL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgIHwgOSArKysrKysr
+KysKPiAgNCBmaWxlcyBjaGFuZ2VkLCAxMyBpbnNlcnRpb25zKCspLCAxMyBkZWxldGlvbnMoLSkK
+Pgo+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0L0tjb25maWcgYi9hcmNoL2FybTY0L0tjb25maWcK
+PiBpbmRleCBhYzJmNmQ5MDZjYzMuLjlkODIzMDE1YjRlNSAxMDA2NDQKPiAtLS0gYS9hcmNoL2Fy
+bTY0L0tjb25maWcKPiArKysgYi9hcmNoL2FybTY0L0tjb25maWcKPiBAQCAtMjIyNywxNSArMjIy
+Nyw2IEBAIGNvbmZpZyBVTldJTkRfUEFUQ0hfUEFDX0lOVE9fU0NTCj4gICAgICAgICBzZWxlY3Qg
+VU5XSU5EX1RBQkxFUwo+ICAgICAgICAgc2VsZWN0IERZTkFNSUNfU0NTCj4KPiAtY29uZmlnIEFS
+TTY0X0NPTlRQVEUKPiAtICAgICAgIGJvb2wgIkNvbnRpZ3VvdXMgUFRFIG1hcHBpbmdzIGZvciB1
+c2VyIG1lbW9yeSIgaWYgRVhQRVJUCj4gLSAgICAgICBkZXBlbmRzIG9uIFRSQU5TUEFSRU5UX0hV
+R0VQQUdFCj4gLSAgICAgICBkZWZhdWx0IHkKPiAtICAgICAgIGhlbHAKPiAtICAgICAgICAgV2hl
+biBlbmFibGVkLCB1c2VyIG1hcHBpbmdzIGFyZSBjb25maWd1cmVkIHVzaW5nIHRoZSBQVEUgY29u
+dGlndW91cwo+IC0gICAgICAgICBiaXQsIGZvciBhbnkgbWFwcGluZ3MgdGhhdCBtZWV0IHRoZSBz
+aXplIGFuZCBhbGlnbm1lbnQgcmVxdWlyZW1lbnRzLgo+IC0gICAgICAgICBUaGlzIHJlZHVjZXMg
+VExCIHByZXNzdXJlIGFuZCBpbXByb3ZlcyBwZXJmb3JtYW5jZS4KPiAtCj4gIGVuZG1lbnUgIyAi
+S2VybmVsIEZlYXR1cmVzIgo+Cj4gIG1lbnUgIkJvb3Qgb3B0aW9ucyIKPiBkaWZmIC0tZ2l0IGEv
+YXJjaC9hcm02NC9pbmNsdWRlL2FzbS9wZ3RhYmxlLmggYi9hcmNoL2FybTY0L2luY2x1ZGUvYXNt
+L3BndGFibGUuaAo+IGluZGV4IDdjMjkzOGNiNzBiOS4uMTc1OGNlNzFmYWU5IDEwMDY0NAo+IC0t
+LSBhL2FyY2gvYXJtNjQvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4gKysrIGIvYXJjaC9hcm02NC9p
+bmNsdWRlL2FzbS9wZ3RhYmxlLmgKPiBAQCAtMTM2OSw3ICsxMzY5LDcgQEAgZXh0ZXJuIHZvaWQg
+cHRlcF9tb2RpZnlfcHJvdF9jb21taXQoc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsCj4gICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBhZGRyLCBwdGVf
+dCAqcHRlcCwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwdGVfdCBvbGRf
+cHRlLCBwdGVfdCBuZXdfcHRlKTsKPgo+IC0jaWZkZWYgQ09ORklHX0FSTTY0X0NPTlRQVEUKPiAr
+I2lmZGVmIENPTkZJR19USFBfQ09OVFBURQoKSXMgaXQgbmVjZXNzYXJpbHkgVEhQPyBjYW4ndCBi
+ZSBodWdldGxiIG9yIG90aGVycz8gSSBmZWVsIFRIUF9DT05UUFRFCmlzbid0IGEgZ29vZCBuYW1l
+LgoKPgo+ICAvKgo+ICAgKiBUaGUgY29udHB0ZSBBUElzIGFyZSB1c2VkIHRvIHRyYW5zcGFyZW50
+bHkgbWFuYWdlIHRoZSBjb250aWd1b3VzIGJpdCBpbiBwdGVzCj4gQEAgLTE2MjIsNyArMTYyMiw3
+IEBAIHN0YXRpYyBpbmxpbmUgaW50IHB0ZXBfc2V0X2FjY2Vzc19mbGFncyhzdHJ1Y3Qgdm1fYXJl
+YV9zdHJ1Y3QgKnZtYSwKPiAgICAgICAgIHJldHVybiBjb250cHRlX3B0ZXBfc2V0X2FjY2Vzc19m
+bGFncyh2bWEsIGFkZHIsIHB0ZXAsIGVudHJ5LCBkaXJ0eSk7Cj4gIH0KPgo+IC0jZWxzZSAvKiBD
+T05GSUdfQVJNNjRfQ09OVFBURSAqLwo+ICsjZWxzZSAvKiBDT05GSUdfVEhQX0NPTlRQVEUgKi8K
+Pgo+ICAjZGVmaW5lIHB0ZXBfZ2V0ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF9fcHRl
+cF9nZXQKPiAgI2RlZmluZSBzZXRfcHRlICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIF9fc2V0X3B0ZQo+IEBAIC0xNjQyLDcgKzE2NDIsNyBAQCBzdGF0aWMgaW5saW5lIGlu
+dCBwdGVwX3NldF9hY2Nlc3NfZmxhZ3Moc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsCj4gICNk
+ZWZpbmUgX19IQVZFX0FSQ0hfUFRFUF9TRVRfQUNDRVNTX0ZMQUdTCj4gICNkZWZpbmUgcHRlcF9z
+ZXRfYWNjZXNzX2ZsYWdzICAgICAgICAgICAgICAgICAgX19wdGVwX3NldF9hY2Nlc3NfZmxhZ3MK
+Pgo+IC0jZW5kaWYgLyogQ09ORklHX0FSTTY0X0NPTlRQVEUgKi8KPiArI2VuZGlmIC8qIENPTkZJ
+R19USFBfQ09OVFBURSAqLwo+Cj4gIGludCBmaW5kX251bV9jb250aWcoc3RydWN0IG1tX3N0cnVj
+dCAqbW0sIHVuc2lnbmVkIGxvbmcgYWRkciwKPiAgICAgICAgICAgICAgICAgICAgIHB0ZV90ICpw
+dGVwLCBzaXplX3QgKnBnc2l6ZSk7Cj4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvbW0vTWFrZWZp
+bGUgYi9hcmNoL2FybTY0L21tL01ha2VmaWxlCj4gaW5kZXggNjA0NTQyNTY5NDViLi41MmExYjIw
+ODI2MjcgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9hcm02NC9tbS9NYWtlZmlsZQo+ICsrKyBiL2FyY2gv
+YXJtNjQvbW0vTWFrZWZpbGUKPiBAQCAtMyw3ICszLDcgQEAgb2JqLXkgICAgICAgICAgICAgICAg
+ICAgICAgICAgICA6PSBkbWEtbWFwcGluZy5vIGV4dGFibGUubyBmYXVsdC5vIGluaXQubyBcCj4g
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjYWNoZS5vIGNvcHlwYWdlLm8gZmx1
+c2gubyBcCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpb3JlbWFwLm8gbW1h
+cC5vIHBnZC5vIG1tdS5vIFwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNv
+bnRleHQubyBwcm9jLm8gcGFnZWF0dHIubyBmaXhtYXAubwo+IC1vYmotJChDT05GSUdfQVJNNjRf
+Q09OVFBURSkgICAgKz0gY29udHB0ZS5vCj4gK29iai0kKENPTkZJR19USFBfQ09OVFBURSkgICAg
+ICArPSBjb250cHRlLm8KPiAgb2JqLSQoQ09ORklHX0hVR0VUTEJfUEFHRSkgICAgICs9IGh1Z2V0
+bGJwYWdlLm8KPiAgb2JqLSQoQ09ORklHX1BURFVNUF9DT1JFKSAgICAgICs9IHB0ZHVtcC5vCj4g
+IG9iai0kKENPTkZJR19QVERVTVBfREVCVUdGUykgICArPSBwdGR1bXBfZGVidWdmcy5vCj4gZGlm
+ZiAtLWdpdCBhL21tL0tjb25maWcgYi9tbS9LY29uZmlnCj4gaW5kZXggYzMyNTAwM2Q2NTUyLi5m
+ZDRkZTIyMWExYzYgMTAwNjQ0Cj4gLS0tIGEvbW0vS2NvbmZpZwo+ICsrKyBiL21tL0tjb25maWcK
+PiBAQCAtOTg0LDYgKzk4NCwxNSBAQCBjb25maWcgQVJDSF9IQVNfQ0FDSEVfTElORV9TSVpFCj4g
+IGNvbmZpZyBBUkNIX0hBU19DT05UUFRFCj4gICAgICAgICBib29sCj4KPiArY29uZmlnIFRIUF9D
+T05UUFRFCj4gKyAgICAgICBib29sICJDb250aWd1b3VzIFBURSBtYXBwaW5ncyBmb3IgdXNlciBt
+ZW1vcnkiIGlmIEVYUEVSVAo+ICsgICAgICAgZGVwZW5kcyBvbiBBUkNIX0hBU19DT05UUFRFICYm
+IFRSQU5TUEFSRU5UX0hVR0VQQUdFCj4gKyAgICAgICBkZWZhdWx0IHkKPiArICAgICAgIGhlbHAK
+PiArICAgICAgICAgV2hlbiBlbmFibGVkLCB1c2VyIG1hcHBpbmdzIGFyZSBjb25maWd1cmVkIHVz
+aW5nIHRoZSBQVEUgY29udGlndW91cwo+ICsgICAgICAgICBiaXQsIGZvciBhbnkgbWFwcGluZ3Mg
+dGhhdCBtZWV0IHRoZSBzaXplIGFuZCBhbGlnbm1lbnQgcmVxdWlyZW1lbnRzLgo+ICsgICAgICAg
+ICBUaGlzIHJlZHVjZXMgVExCIHByZXNzdXJlIGFuZCBpbXByb3ZlcyBwZXJmb3JtYW5jZS4KPiAr
+Cj4gIGNvbmZpZyBBUkNIX0hBU19DVVJSRU5UX1NUQUNLX1BPSU5URVIKPiAgICAgICAgIGJvb2wK
+PiAgICAgICAgIGhlbHAKPiAtLQo+IDIuMzkuMgoKVGhhbmtzCkJhcnJ5CgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
