@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E90C25B77
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 22:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D39AC10F1A
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 22:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=SZoR6EVMOCYnxI0nNuKaQTc06ZH+pAg+TXSgs46u6zE=; b=bP9zrbnHXpR9KR06qcdqmu7iQf
-	banDJ3dIz+zXUWNcgPR+ZYnoQiZabYn4gBEWfxTIlYdTld9RHjyBT12ZeJPfOVacZRWXgqvXFLlLt
-	xl1zw+54zb4Mf89DdJ/XZuq39ko5y7amrEKNm0LkpcwuoJMpw+FPHw8w0Kmvv1hhedZJdP6IfTrie
-	kYKrgTuPI5TTxI4HqCH39X4JUTM7ZxDMsEmnKNaG7395NMI6I44N0fcIiqazMaZkiqjAw67YZswFS
-	ZUSLB5XiV4bKsTC3+kF102ZlhOuI10Q9to5O6fl2Hvx94kMEX6Fs4zMI/ybv24p31X+y8WxQwZPsg
-	6X2zxMFg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0vmbo0FDQurEbBoi8WXE/BTwwQClA6t0yZVbaTtEE+E=; b=xyCoJA2LYpXsfs
+	uxSZz6l400wwDziPOEjsrD3rvcbVaBLhOeYjE/uHyjHRh5iBVP++60yyD3ZA0u/lsubl2444E5KRa
+	+WkZRLbbZFW2u9W+eDlbwo8MOZch9VClztXrfwwW2rTiIEkv/Ey7zokSRB81r9iEnrjAoT3BC6sdr
+	KgintLQhWb4w5xR3ZNYDxmsOFyxgPiefaEwuO0NFpJ2ha+h9HweY9c6j7wXdDMQsbZ1LVrFJ+V45H
+	ETyxKCrvPN6MLUwSrthxQD1D6BvuxgAtNaty6w8rtwKPgqsgJvVGx5v/5BcPAypENLbygAuBBH/cy
+	1vd6IJLJMQwethO3sljg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5CIr-000000036My-2GzO;
-	Thu, 09 May 2024 22:31:53 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1s5Cfg-00000003CKg-35I8;
+	Thu, 09 May 2024 22:55:28 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s59zu-00000002d9x-1EUx
+	id 1s5Cfd-00000003CJD-1LHI
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 May 2024 20:04:30 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-6f46ebdd8d7so1072673b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 13:04:07 -0700 (PDT)
+	Thu, 09 May 2024 22:55:27 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6f4dcc3eeb3so459761b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 15:55:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1715285046; x=1715889846; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=C0otcg5Kc1nNe2NFGUPsfuJIN9yuuH8NW7LY5DKgrkM=;
-        b=W0grNB6vPcavHvKxJh2mjh6181pTZ0VAo7rjHNwXVYY/eg5SHt3ngnhvCOBmU/78JD
-         Ag4ZVmtsDoTsbzCG0nr0FHFjgnh82l1r9H+eLO2lE5DkegSgizqi+KeueTGKDicSdQ7G
-         XHPO6gbtJw07mqfeCPfGdpMgTPhn5zPDN+LUw5R5xofQWSXunuL2PjXYJBAF4RCPsxcG
-         vFQaF9crreL6RO6xqqh4KBwGaqdeIG638uEOAMSzrO8OUcYFbmEKCi3gqhP1pLt1WrcI
-         6Rbfs9mVLleH5nPcz55JgakxJPMYSf05lzHIinzXMg4o4Kt8cltVrqsrCRyarawwtzoP
-         oIXw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715295316; x=1715900116; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Eu5Mej2H1ai5OU3q5e1PLVD6XX6aJfH4yB34qW6PVtM=;
+        b=wFwMtMeSYv3SbSK9bxOr9KDwuAc2vtsVPxANCaPzLvWxO+L4UU9Am9nuc0fb+Qm57h
+         RJ7nc8MKa5UFUIivU9GTUowzNeLuTV2yjjZd51TSDP3aLO0RmmdMK/rboub/SFtd+fer
+         DHbYFr7ol10mv0XB1AZW7Lfv7+C/OOQRwe0eCNT0Z4otcl+AdQmtjwi8/H+7+pl1g7Q5
+         7IB5lNc0rrMuv4FDiktQ835a8dTRrVw+fuBdYiYRiuNrmsg/ASo2s45Ly/4yJDsEwnFs
+         d5wXUXPa/NjC/ASavTO89YzjMnjk64OPxUGg+O5X3XH5HRhg9YBsgntu7yjis49oWK1R
+         obwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715285046; x=1715889846;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=C0otcg5Kc1nNe2NFGUPsfuJIN9yuuH8NW7LY5DKgrkM=;
-        b=oTKxBjpUrU8Dptu1YVdPVdmExDyu6slxfH68ibUi2wu3w5gSp0QqUmf+AsGQJOo2Qn
-         3U7iHz4/n22dOX7NttFd7Rkb0CVJvGdic+bMZRQ6hJjPHI0xhHzf9fbpst0FT+WVbZyM
-         3nrrP5Yp7ahja7lxZA/CFB9vtKpGlnWtxPQm94irusF7b3T5Foa9OUQR7ssLsgZMXFNa
-         f/2ELiCPVq3xLMmCY0Uqa96ojmkyEhVHxqEOmTFX78rFBoRPecnjtEVa8peFvRX0TWMO
-         dgX2q8CdTGySGDvCYhFGYjN0iAMwwDAsyiqV3zrC1vhWAlbq3UDatWVvc/pXazAauFE3
-         zOvw==
-X-Forwarded-Encrypted: i=1; AJvYcCUOfyOckISL87kZxXNjbVnsdijlb28c4+gOXF9lsvZJqjCn6pVHFwi7hHGmszU7dJqY3/1YoPDJ5uTkW6rboRVP9qQ7A1RT5+89aY313k4R
-X-Gm-Message-State: AOJu0YyALLfXUu8zIyvJHvmpNX8XfgXsDVNLTsUU+82YuBJ+Gr+eDnp4
-	D2dSNsoUEvam7k/efLomgjxvtX4FIQSe+03GvOKfu6YMXa5GNSsBbClkdcLblfXSbm4p+2oJ9cv
-	/lA==
-X-Google-Smtp-Source: AGHT+IHJWSxIWf7k9jnbwrAmheoAWG8ycVBs/La0GyeTAF4mCIcXMoq1cZGgpfURlks7BqOhLA9SGrNDEDQ=
-X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a05:6a00:1144:b0:6f3:ecdc:1b94 with SMTP id
- d2e1a72fcca58-6f4e03a253amr15967b3a.6.1715285046407; Thu, 09 May 2024
- 13:04:06 -0700 (PDT)
-Date: Thu,  9 May 2024 19:59:00 +0000
-In-Reply-To: <20240509200022.253089-1-edliaw@google.com>
-Mime-Version: 1.0
-References: <20240509200022.253089-1-edliaw@google.com>
-X-Mailer: git-send-email 2.45.0.118.g7fe29c98d7-goog
-Message-ID: <20240509200022.253089-69-edliaw@google.com>
-Subject: [PATCH v3 68/68] selftests/x86: Drop define _GNU_SOURCE
-From: Edward Liaw <edliaw@google.com>
-To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
-	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, 
-	Muhammad Usama Anjum <usama.anjum@collabora.com>, Edward Liaw <edliaw@google.com>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	kernel-team@android.com, linux-security-module@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
-	John Hubbard <jhubbard@nvidia.com>
+        d=1e100.net; s=20230601; t=1715295316; x=1715900116;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Eu5Mej2H1ai5OU3q5e1PLVD6XX6aJfH4yB34qW6PVtM=;
+        b=XLOsgA6Ibco0ZoTNrZMN+6kjE5ckSuid6osChmKFwT7x+c66WO+DQpokj8yHpQ5tK6
+         NCYRjDAWOqzOBoH63W/v37YTQMb1FPamp0VbroBLI3FY0+yjgvIbI/Nx2q6sP7AeumWa
+         2pRbEg0v021Ncy7nd4iBBTZ0BTbBXWHQz4iex6sDHIAyFDY3AjSJ76+wzDjiNfjYkTGV
+         teJXGoY81bpEMy5/FNlkG0tSqMX1Wogy16/q6E6fYUSsgPHa/52Vs//ZaFDaBfqc+AVO
+         FHoutpfKTkhBvKiOOc3HuCpeKBHtidsHY9Hnr01HHGEU/vHPi0kDrQ+NcqSFZ7h6rz1B
+         kRfw==
+X-Forwarded-Encrypted: i=1; AJvYcCVdiKWUXR+OTNUCGqsen22ICSpOqi45gjB37EWPg2vC62M68VwfVIaGWsSv9QfaPAy4Zs3oQ7E6vS15VKWk8/uql/zR6Oak+eTwM/kkr9N2
+X-Gm-Message-State: AOJu0Ywa94jSbNG2mO8tnQKWv4IKPMitDE9gdxGYFkDGnExXDM6geLOo
+	ij88Y3XLfoe5IpuOGAPyRXH9Y41+/04YOwVdys1FPbbSOae+a78jPPujVM2F0G0=
+X-Google-Smtp-Source: AGHT+IHhcqlc/9uc+42yJUpBS0mUXfMgHLDsJw6mnEBMha0w59awAWv4LPy0XGgtfdc5JH2jgdu07A==
+X-Received: by 2002:a05:6a20:7285:b0:1af:ce5e:ca5e with SMTP id adf61e73a8af0-1afde0b0de0mr1482210637.22.1715295316177;
+        Thu, 09 May 2024 15:55:16 -0700 (PDT)
+Received: from ghost ([2601:647:5700:6860:3668:6b5b:d71d:2683])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-6f4d2a8146csm1811936b3a.50.2024.05.09.15.55.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 May 2024 15:55:15 -0700 (PDT)
+Date: Thu, 9 May 2024 15:55:12 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Song Liu <song@kernel.org>, Xi Wang <xi.wang@gmail.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Jessica Clarke <jrtc27@jrtc27.com>,
+	Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/8] riscv: Support compiling the kernel with more
+ extensions
+Message-ID: <Zj1UUIY8RYV1kJLM@ghost>
+References: <20240507-compile_kernel_with_extensions-v2-0-722c21c328c6@rivosinc.com>
+ <20240509-uptown-aging-5bdec4730d70@spud>
+ <Zj09IUE5k1EJL08X@ghost>
+ <20240509-google-passing-3e7577235c44@spud>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240509-google-passing-3e7577235c44@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_130410_873033_AED51BBB 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20240509_155525_617325_F9B34647 
+X-CRM114-Status: GOOD (  93.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,430 +104,329 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-_GNU_SOURCE is provided by lib.mk, so it should be dropped to prevent
-redefinition warnings.
+On Thu, May 09, 2024 at 11:08:34PM +0100, Conor Dooley wrote:
+> On Thu, May 09, 2024 at 02:16:17PM -0700, Charlie Jenkins wrote:
+> > On Thu, May 09, 2024 at 09:25:10PM +0100, Conor Dooley wrote:
+> > > On Tue, May 07, 2024 at 06:36:26PM -0700, Charlie Jenkins wrote:
+> > > > The kernel currently has the restriction that it can only be compiled
+> > > > with the extensions that are hardcoded in arch/risc/Makefile.
+> > > > 
+> > > > Any extension that is not listed in the Makefile can still be used by
+> > > > explicitly writing the assembly and using alternative patching.
+> > > > 
+> > > > This series introduces Kconfig options that allow the kernel to be
+> > > > compiled with additional extensions.
+> > > > 
+> > > > The motivation for this patch is the performance improvements that come
+> > > > along with compiling the kernel with these extra instructions. Allowing
+> > > > the compiler to emit arbitrary Zb* instructions achieves a 4.9%
+> > > > reduction of dynamic instruction count for a test ran in Spike that
+> > > > boots the kernel and runs a user space program that prints to the
+> > > > console.
+> > > > 
+> > > > Additionally, alternatives that check if an extension is supported can
+> > > > be eliminated when the Kconfig options to assume hardware support is
+> > > > enabled.
+> > > 
+> > > I brought this up yesterday at the weekly patchwork call and meant to
+> > > reply here yesterday, but I didn't get a chance to. I'll start off with
+> > > my thoughts on the idea and the implementation and then mention some of
+> > > what was said at the call.
+> > > 
+> > > Firstly, I don't like an implementation of this behaviour that requires
+> > > doing ifdeffery around alternative sites. I think that iff this is done,
+> > > the alternative itself should be evaluated at compile time, rather than
+> > > having to add more decoration to callsites. That becomes particular
+> > > important in the cases where the alternative may not be a simple a or b
+> > > case, although I don't think there are any of those in the extensions
+> > > you've looked at so far - or at least, you've not tackled those cases.
+> > > 
+> > > I am curious about the Svpbmt patch, as you say
+> > > > Svpbmt would not benefit from having PLATFORM_SUPPORTS_RISCV_ISA_SVPBMT
+> > > > so just move the definition of RISCV_ISA_SVPBMT to Kconfig.isa.
+> > > without any any justification for why it would not benefit. There's
+> > > alternatives in the codebase right now for Svpbmt, why wouldn't those
+> > > get evaluated at build time also? Or why not Zicbom? Was your rationale
+> > > for the extensions chosen just the ones that the compiler can actually
+> > > generate code for?
+> > 
+> > It's only used in a place that has errata so I wasn't sure how to
+> > handle that.
+> > 
+> > > That aside, the series seems to address the easiest parts of doing
+> > > compile-time extension configuration rather than the messier cases like
+> > > Zicbom. To me it seems like the messier cases is actually where we should
+> > > be starting, so that we have a scheme that works well.
+> > 
+> > That's good advice. I wanted to send out something to start the
+> > conversation on what people were interested in optimizing here. I can
+> > look more into Zicbom.
+> > 
+> > > 
+> > > Ben mentioned something along the same lines for the
+> > > has_extension_likely() stuff, which should be far simpler, and can be
+> > > implemented via a macro, as you already pointed out.
+> > 
+> > I was hesistant to change "too much" as I was expecting push back and
+> > didn't want to have to re-write everything ;)
+> > 
+> > > 
+> > > I did notice that you left the riscv_isa_extension_available() stuff
+> > > alone. I think that's reasonable as that code serves more than one
+> > > purpose and is intended for use in either in probe functions where
+> > > there's no perf (or even code-size impact really, just disable the
+> > > driver if you don't want it) or in cases where the user provides its own
+> > > bitmap, like KVM.
+> > > 
+> > > I haven't actually reviewed the content line by line yet, so I don't
+> > > have any detailed comment on any patches, but I think the two things
+> > > being done here deserve to be split apart - the first element is
+> > > evaluating things that are using alternatives at build time and the
+> > > other is adding extensions to the toolchain's march.
+> > 
+> > That will double the size of the series but if you think that's better
+> > than I can do that.
+> > 
+> > >
+> > > Moving onto the objection to the series that I have though, at least at
+> > > the moment. Adding more and more optimisations to the kernel already has
+> > > potential to balloon to silly levels, and that's before we even consider
+> > > the permutations of different build-time options. Both of those things
+> > > feel like "where does it stop?" situation, with every single extension
+> > > that could have code-gen impact becoming another build-time option for
+> > > the kernel. As a result, I'm not convinced that we should do this at all,
+> > > and I am starting to wonder about some of stuff that we have already
+> > > merged..
+> > > 
+> > 
+> > Vendors that expect a high level of performance need a way to be able to
+> > compile the kernel with more extensions than the base extensions. We are
+> > leaving 5% that can easily be gained by not allowing this.
+> 
+> Maybe we are, but if people want their 5% they need to show up with
+> evidence that there is actually 5% to be gained. Also, if you read on, I
+> am not saying we should never do this, and leave that 5% permanently on
+> the table, only that we should significantly constrain the permutations
+> that we are allowing. And honestly, if some vendor is really desperate to
+> compile the kernel with Zxy in march but not whatever other extensions
+> that may be in a profile's mandatory set, they can always do it out of
+> tree. Carrying a single out of tree patch is nothing to most vendors...
 
-Drop #define __USE_GNU too, as it is bad practice and the GNU extensions
-aren't actually being used in test_FCMOV, etc. where it is being defined.
+My impression is that every vendor will want this, so it makes sense to
+have this be a standard option. Internally to Rivos we test with
+additional extensions hard-coded to append to march. That is obviously not
+something that should be upstreamed. We can continue to carry this hack,
+but I want something that is standardized that all vendors can use.
 
-Fixes: 809216233555 ("selftests/harness: remove use of LINE_MAX")
-Reviewed-by: John Hubbard <jhubbard@nvidia.com>
-Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
-Signed-off-by: Edward Liaw <edliaw@google.com>
----
- tools/testing/selftests/x86/amx.c                     | 2 --
- tools/testing/selftests/x86/check_initial_reg_state.c | 3 ---
- tools/testing/selftests/x86/corrupt_xstate_header.c   | 3 ---
- tools/testing/selftests/x86/entry_from_vm86.c         | 3 ---
- tools/testing/selftests/x86/fsgsbase.c                | 2 --
- tools/testing/selftests/x86/fsgsbase_restore.c        | 2 --
- tools/testing/selftests/x86/ioperm.c                  | 2 --
- tools/testing/selftests/x86/iopl.c                    | 2 --
- tools/testing/selftests/x86/lam.c                     | 1 -
- tools/testing/selftests/x86/ldt_gdt.c                 | 2 --
- tools/testing/selftests/x86/mov_ss_trap.c             | 2 --
- tools/testing/selftests/x86/nx_stack.c                | 2 --
- tools/testing/selftests/x86/ptrace_syscall.c          | 2 --
- tools/testing/selftests/x86/sigaltstack.c             | 2 --
- tools/testing/selftests/x86/sigreturn.c               | 3 ---
- tools/testing/selftests/x86/single_step_syscall.c     | 3 ---
- tools/testing/selftests/x86/syscall_arg_fault.c       | 3 ---
- tools/testing/selftests/x86/syscall_numbering.c       | 3 ---
- tools/testing/selftests/x86/sysret_rip.c              | 3 ---
- tools/testing/selftests/x86/sysret_ss_attrs.c         | 3 ---
- tools/testing/selftests/x86/test_FCMOV.c              | 4 ----
- tools/testing/selftests/x86/test_FCOMI.c              | 4 ----
- tools/testing/selftests/x86/test_FISTTP.c             | 4 ----
- tools/testing/selftests/x86/test_mremap_vdso.c        | 1 -
- tools/testing/selftests/x86/test_shadow_stack.c       | 3 ---
- tools/testing/selftests/x86/test_syscall_vdso.c       | 4 ----
- tools/testing/selftests/x86/test_vsyscall.c           | 3 ---
- tools/testing/selftests/x86/unwind_vdso.c             | 3 ---
- tools/testing/selftests/x86/vdso_restorer.c           | 3 ---
- 29 files changed, 77 deletions(-)
+> 
+> > > I don't think the configurability this series adds is worth the burden of
+> > > maintaining support for all the various configurations you're proposing
+> > > here (and the others that someone will come along with the week after
+> > > this would be merged. After all, with extant hardware that distros are
+> > > supporting, albeit in developer or bring-up type builds, one of these
+> > > options could even be enabled. Which I suppose could be translated to
+> > > a NAK from me on doing something like this at the moment...
+> > 
+> > By migrating everything into more refined macros I think I can ease this
+> > burden. I don't see this as a burden, these options are all so closly
+> > tied to each other
+> 
+> What does "closely tied to each other" actually mean?
 
-diff --git a/tools/testing/selftests/x86/amx.c b/tools/testing/selftests/x86/amx.c
-index 95aad6d8849b..3259362a7117 100644
---- a/tools/testing/selftests/x86/amx.c
-+++ b/tools/testing/selftests/x86/amx.c
-@@ -1,6 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--
--#define _GNU_SOURCE
- #include <err.h>
- #include <errno.h>
- #include <pthread.h>
-diff --git a/tools/testing/selftests/x86/check_initial_reg_state.c b/tools/testing/selftests/x86/check_initial_reg_state.c
-index 3bc95f3ed585..0129cdae8abe 100644
---- a/tools/testing/selftests/x86/check_initial_reg_state.c
-+++ b/tools/testing/selftests/x86/check_initial_reg_state.c
-@@ -3,9 +3,6 @@
-  * check_initial_reg_state.c - check that execve sets the correct state
-  * Copyright (c) 2014-2016 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
--
- #include <stdio.h>
- 
- unsigned long ax, bx, cx, dx, si, di, bp, sp, flags;
-diff --git a/tools/testing/selftests/x86/corrupt_xstate_header.c b/tools/testing/selftests/x86/corrupt_xstate_header.c
-index cf9ce8fbb656..d2c746149678 100644
---- a/tools/testing/selftests/x86/corrupt_xstate_header.c
-+++ b/tools/testing/selftests/x86/corrupt_xstate_header.c
-@@ -4,9 +4,6 @@
-  *
-  * Based on analysis and a test case from Thomas Gleixner.
-  */
--
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <stdio.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/entry_from_vm86.c b/tools/testing/selftests/x86/entry_from_vm86.c
-index d1e919b0c1dc..9fa9d4a847ac 100644
---- a/tools/testing/selftests/x86/entry_from_vm86.c
-+++ b/tools/testing/selftests/x86/entry_from_vm86.c
-@@ -5,9 +5,6 @@
-  *
-  * This exercises a few paths that need to special-case vm86 mode.
-  */
--
--#define _GNU_SOURCE
--
- #include <assert.h>
- #include <stdlib.h>
- #include <sys/syscall.h>
-diff --git a/tools/testing/selftests/x86/fsgsbase.c b/tools/testing/selftests/x86/fsgsbase.c
-index 8c780cce941d..348134d2cefc 100644
---- a/tools/testing/selftests/x86/fsgsbase.c
-+++ b/tools/testing/selftests/x86/fsgsbase.c
-@@ -3,8 +3,6 @@
-  * fsgsbase.c, an fsgsbase test
-  * Copyright (c) 2014-2016 Andy Lutomirski
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <stdbool.h>
-diff --git a/tools/testing/selftests/x86/fsgsbase_restore.c b/tools/testing/selftests/x86/fsgsbase_restore.c
-index 6fffadc51579..88dce47ab8e6 100644
---- a/tools/testing/selftests/x86/fsgsbase_restore.c
-+++ b/tools/testing/selftests/x86/fsgsbase_restore.c
-@@ -12,8 +12,6 @@
-  *
-  * This is not part of fsgsbase.c, because that test is 64-bit only.
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <stdbool.h>
-diff --git a/tools/testing/selftests/x86/ioperm.c b/tools/testing/selftests/x86/ioperm.c
-index 57ec5e99edb9..07b7c10f8d39 100644
---- a/tools/testing/selftests/x86/ioperm.c
-+++ b/tools/testing/selftests/x86/ioperm.c
-@@ -3,8 +3,6 @@
-  * ioperm.c - Test case for ioperm(2)
-  * Copyright (c) 2015 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
- #include <err.h>
- #include <stdio.h>
- #include <stdint.h>
-diff --git a/tools/testing/selftests/x86/iopl.c b/tools/testing/selftests/x86/iopl.c
-index 7e3e09c1abac..baa691154905 100644
---- a/tools/testing/selftests/x86/iopl.c
-+++ b/tools/testing/selftests/x86/iopl.c
-@@ -3,8 +3,6 @@
-  * iopl.c - Test case for a Linux on Xen 64-bit bug
-  * Copyright (c) 2015 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
- #include <err.h>
- #include <stdio.h>
- #include <stdint.h>
-diff --git a/tools/testing/selftests/x86/lam.c b/tools/testing/selftests/x86/lam.c
-index 0ea4f6813930..cbfb19d546fa 100644
---- a/tools/testing/selftests/x86/lam.c
-+++ b/tools/testing/selftests/x86/lam.c
-@@ -1,5 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/ldt_gdt.c b/tools/testing/selftests/x86/ldt_gdt.c
-index 3a29346e1452..3b4237a85a12 100644
---- a/tools/testing/selftests/x86/ldt_gdt.c
-+++ b/tools/testing/selftests/x86/ldt_gdt.c
-@@ -3,8 +3,6 @@
-  * ldt_gdt.c - Test cases for LDT and GDT access
-  * Copyright (c) 2015 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
- #include <err.h>
- #include <stdio.h>
- #include <stdint.h>
-diff --git a/tools/testing/selftests/x86/mov_ss_trap.c b/tools/testing/selftests/x86/mov_ss_trap.c
-index cc3de6ff9fba..47ecc63220b7 100644
---- a/tools/testing/selftests/x86/mov_ss_trap.c
-+++ b/tools/testing/selftests/x86/mov_ss_trap.c
-@@ -19,8 +19,6 @@
-  *
-  * This should mostly cover CVE-2018-1087 and CVE-2018-8897.
-  */
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <sys/ptrace.h>
- #include <sys/types.h>
-diff --git a/tools/testing/selftests/x86/nx_stack.c b/tools/testing/selftests/x86/nx_stack.c
-index ea4a4e246879..97c5b34096cc 100644
---- a/tools/testing/selftests/x86/nx_stack.c
-+++ b/tools/testing/selftests/x86/nx_stack.c
-@@ -23,8 +23,6 @@
-  * Regular stack is completely overwritten before testing.
-  * Test doesn't exit SIGSEGV handler after first fault at INT3.
-  */
--#undef _GNU_SOURCE
--#define _GNU_SOURCE
- #undef NDEBUG
- #include <assert.h>
- #include <signal.h>
-diff --git a/tools/testing/selftests/x86/ptrace_syscall.c b/tools/testing/selftests/x86/ptrace_syscall.c
-index 12aaa063196e..bdc81c8bd1a7 100644
---- a/tools/testing/selftests/x86/ptrace_syscall.c
-+++ b/tools/testing/selftests/x86/ptrace_syscall.c
-@@ -1,6 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#define _GNU_SOURCE
--
- #include <sys/ptrace.h>
- #include <sys/types.h>
- #include <sys/wait.h>
-diff --git a/tools/testing/selftests/x86/sigaltstack.c b/tools/testing/selftests/x86/sigaltstack.c
-index f689af75e979..7f41c3a4268b 100644
---- a/tools/testing/selftests/x86/sigaltstack.c
-+++ b/tools/testing/selftests/x86/sigaltstack.c
-@@ -1,6 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0-only
--
--#define _GNU_SOURCE
- #include <signal.h>
- #include <stdio.h>
- #include <stdbool.h>
-diff --git a/tools/testing/selftests/x86/sigreturn.c b/tools/testing/selftests/x86/sigreturn.c
-index 5d7961a5f7f6..2054f729b2c2 100644
---- a/tools/testing/selftests/x86/sigreturn.c
-+++ b/tools/testing/selftests/x86/sigreturn.c
-@@ -24,9 +24,6 @@
-  *
-  * Do not run on outdated, unpatched kernels at risk of nasty crashes.
-  */
--
--#define _GNU_SOURCE
--
- #include <sys/time.h>
- #include <time.h>
- #include <stdlib.h>
-diff --git a/tools/testing/selftests/x86/single_step_syscall.c b/tools/testing/selftests/x86/single_step_syscall.c
-index 9a30f443e928..375f3b50a0b5 100644
---- a/tools/testing/selftests/x86/single_step_syscall.c
-+++ b/tools/testing/selftests/x86/single_step_syscall.c
-@@ -9,9 +9,6 @@
-  * immediately issues #DB from CPL 0.  This requires special handling in
-  * the kernel.
-  */
--
--#define _GNU_SOURCE
--
- #include <sys/time.h>
- #include <time.h>
- #include <stdlib.h>
-diff --git a/tools/testing/selftests/x86/syscall_arg_fault.c b/tools/testing/selftests/x86/syscall_arg_fault.c
-index 461fa41a4d02..10eee1bcd015 100644
---- a/tools/testing/selftests/x86/syscall_arg_fault.c
-+++ b/tools/testing/selftests/x86/syscall_arg_fault.c
-@@ -3,9 +3,6 @@
-  * syscall_arg_fault.c - tests faults 32-bit fast syscall stack args
-  * Copyright (c) 2015 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <stdio.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/syscall_numbering.c b/tools/testing/selftests/x86/syscall_numbering.c
-index 991591718bb0..c72fc8aaa4d3 100644
---- a/tools/testing/selftests/x86/syscall_numbering.c
-+++ b/tools/testing/selftests/x86/syscall_numbering.c
-@@ -5,9 +5,6 @@
-  *
-  * Copyright (c) 2018 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <stdio.h>
- #include <stdbool.h>
-diff --git a/tools/testing/selftests/x86/sysret_rip.c b/tools/testing/selftests/x86/sysret_rip.c
-index 84d74be1d902..24bc219358a5 100644
---- a/tools/testing/selftests/x86/sysret_rip.c
-+++ b/tools/testing/selftests/x86/sysret_rip.c
-@@ -3,9 +3,6 @@
-  * sigreturn.c - tests that x86 avoids Intel SYSRET pitfalls
-  * Copyright (c) 2014-2016 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <unistd.h>
- #include <stdio.h>
-diff --git a/tools/testing/selftests/x86/sysret_ss_attrs.c b/tools/testing/selftests/x86/sysret_ss_attrs.c
-index 5f3d4fca440f..f8b9e0b2a0c5 100644
---- a/tools/testing/selftests/x86/sysret_ss_attrs.c
-+++ b/tools/testing/selftests/x86/sysret_ss_attrs.c
-@@ -7,9 +7,6 @@
-  * the hidden attributes set to an unusable state.  Make sure the kernel
-  * doesn't let this happen.
-  */
--
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <unistd.h>
- #include <stdio.h>
-diff --git a/tools/testing/selftests/x86/test_FCMOV.c b/tools/testing/selftests/x86/test_FCMOV.c
-index 6b5036fbb735..0c9431ba7d31 100644
---- a/tools/testing/selftests/x86/test_FCMOV.c
-+++ b/tools/testing/selftests/x86/test_FCMOV.c
-@@ -1,8 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#undef _GNU_SOURCE
--#define _GNU_SOURCE 1
--#undef __USE_GNU
--#define __USE_GNU 1
- #include <unistd.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/test_FCOMI.c b/tools/testing/selftests/x86/test_FCOMI.c
-index aec6692c6dcf..ba186665918d 100644
---- a/tools/testing/selftests/x86/test_FCOMI.c
-+++ b/tools/testing/selftests/x86/test_FCOMI.c
-@@ -1,8 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#undef _GNU_SOURCE
--#define _GNU_SOURCE 1
--#undef __USE_GNU
--#define __USE_GNU 1
- #include <unistd.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/test_FISTTP.c b/tools/testing/selftests/x86/test_FISTTP.c
-index 09789c0ce3e9..95580cdaaa32 100644
---- a/tools/testing/selftests/x86/test_FISTTP.c
-+++ b/tools/testing/selftests/x86/test_FISTTP.c
-@@ -1,8 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#undef _GNU_SOURCE
--#define _GNU_SOURCE 1
--#undef __USE_GNU
--#define __USE_GNU 1
- #include <unistd.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/test_mremap_vdso.c b/tools/testing/selftests/x86/test_mremap_vdso.c
-index d53959e03593..34f199b0d615 100644
---- a/tools/testing/selftests/x86/test_mremap_vdso.c
-+++ b/tools/testing/selftests/x86/test_mremap_vdso.c
-@@ -9,7 +9,6 @@
-  * Can be built statically:
-  * gcc -Os -Wall -static -m32 test_mremap_vdso.c
-  */
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <errno.h>
- #include <unistd.h>
-diff --git a/tools/testing/selftests/x86/test_shadow_stack.c b/tools/testing/selftests/x86/test_shadow_stack.c
-index ee909a7927f9..ca1c13e89d8d 100644
---- a/tools/testing/selftests/x86/test_shadow_stack.c
-+++ b/tools/testing/selftests/x86/test_shadow_stack.c
-@@ -7,9 +7,6 @@
-  * special glibc shadow stack support (longjmp(), swapcontext(), etc). Just
-  * stick to the basics and hope the compiler doesn't do anything strange.
-  */
--
--#define _GNU_SOURCE
--
- #include <sys/syscall.h>
- #include <asm/mman.h>
- #include <sys/mman.h>
-diff --git a/tools/testing/selftests/x86/test_syscall_vdso.c b/tools/testing/selftests/x86/test_syscall_vdso.c
-index 8965c311bd65..5cd13279bba5 100644
---- a/tools/testing/selftests/x86/test_syscall_vdso.c
-+++ b/tools/testing/selftests/x86/test_syscall_vdso.c
-@@ -8,10 +8,6 @@
-  * Can be built statically:
-  * gcc -Os -Wall -static -m32 test_syscall_vdso.c thunks_32.S
-  */
--#undef _GNU_SOURCE
--#define _GNU_SOURCE 1
--#undef __USE_GNU
--#define __USE_GNU 1
- #include <unistd.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/test_vsyscall.c b/tools/testing/selftests/x86/test_vsyscall.c
-index d4c8e8d79d38..8e879263412d 100644
---- a/tools/testing/selftests/x86/test_vsyscall.c
-+++ b/tools/testing/selftests/x86/test_vsyscall.c
-@@ -1,7 +1,4 @@
- /* SPDX-License-Identifier: GPL-2.0 */
--
--#define _GNU_SOURCE
--
- #include <stdio.h>
- #include <sys/time.h>
- #include <time.h>
-diff --git a/tools/testing/selftests/x86/unwind_vdso.c b/tools/testing/selftests/x86/unwind_vdso.c
-index 4c311e1af4c7..754f5d4d425a 100644
---- a/tools/testing/selftests/x86/unwind_vdso.c
-+++ b/tools/testing/selftests/x86/unwind_vdso.c
-@@ -5,9 +5,6 @@
-  *
-  * This tests __kernel_vsyscall's unwind info.
-  */
--
--#define _GNU_SOURCE
--
- #include <features.h>
- #include <stdio.h>
- 
-diff --git a/tools/testing/selftests/x86/vdso_restorer.c b/tools/testing/selftests/x86/vdso_restorer.c
-index fe99f2434155..8193de22a390 100644
---- a/tools/testing/selftests/x86/vdso_restorer.c
-+++ b/tools/testing/selftests/x86/vdso_restorer.c
-@@ -10,9 +10,6 @@
-  * 64-bit userspace has never supported sa_restorer == NULL, so this is
-  * 32-bit only.
-  */
--
--#define _GNU_SOURCE
--
- #include <err.h>
- #include <stdio.h>
- #include <dlfcn.h>
--- 
-2.45.0.118.g7fe29c98d7-goog
+Assuming that the hardware has an extension vs the hardware may support
+an extension vs the hardware doesn't support an extension. It adds 2
+additional options since the existing code only checks if the hardware
+may support the extension. However, these two additional options do not
+add significant more complexity. That's what I meant by closely tied to
+each other.
+
+> 
+> > and only matter when a kernel developer explicitly
+> > wants to use an extension.
+> 
+> Unless your definition of "kernel developer" extends to "people that
+> compile their own kernel based on menuconfig", then I don't think you
+> and I are on the same page about what the series actually does.
+> Remember, there's the making alternatives and other optimisations
+> unconditional /and/ the addition of stuff to march going on in this
+> series.
+
+True, I was referring to the alternatives when I said that.
+
+> 
+> > If this is all wrapped up into the macros
+> > that check if an extension is available it won't even be an extra step
+> > than what it currently is.
+> > 
+> > > Palmer suggested in the weekly call that what would make more sense is
+> > > having established bases, that align with what distros are likely to
+> > > ship, which probably means something approximating the mandatory set for
+> > > profiles, although he also said that the rva23 profiles had already been
+> > > given the kibosh by folks. He'll have to provide more information on
+> > > that one though.
+> > > I think that that seems like a sane approach, as it would produce a far
+> > > more limited set of combinations to maintain, but it also means not doing
+> > > something like this until the point that distros commit to some specific
+> > > set of extensions that is not rv64gc... As well as reducing the
+> > > combinations that we need to reason about as developers, I think that the
+> > > "user story" for people deciding what is worth enabling in their kernel
+> > > config before simpler too.
+> > 
+> > There is a chicken and the egg problem here. The
+> > hardware/software/distros all want to support the same thing. Somebody
+> > needs to step up and make a decision. With a patch like this, a distro
+> > can see all of the functionality and select what they want. This can
+> > then be rolled up into a config that selects something like all of the
+> > bitmanip options.
+> 
+> I don't think there's a chicken and egg problem, or at least not one
+> that kernel config options for every extension solves. I expect distros
+> to work with RVI to define something, which may well be the platform
+> spec (hopefully it's the platform spec...) and then we can make that a
+> config option.
+
+I'll wait for Palmer to weigh in but I see no reason to wait for that
+since right now we can get the performance improvement. This won't be
+merged into 6.10, and 6.11 won't be released for a couple of months so
+we are looking at a timeline in the future anyway but I wanted to start
+the conversation now.
+
+> 
+> > > * Something else that came up during that call, and I think it was
+> > > Palmer's suggestion was having a hard think about what we are
+> > > currently accepting optimisations for in the kernel. I think we need to
+> > > up the "burden of proof" for what we will merge optimisations for to
+> > > things that are demonstrated to have significant benefits. I don't mean
+> > > to single you out here, cos I did ack the patch after all and it was
+> > > just the random example I stumbled on this evening while looking at some
+> > > alternative users in the course of writing a reply here. Take this code
+> > > for example:
+> > > 
+> > > 	/*
+> > > 	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
+> > > 	 * worth checking if supported without Alternatives.
+> > > 	 */
+> > > 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> > > 	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> > > 		unsigned long fold_temp;
+> > > 
+> > > 		asm goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
+> > > 					      RISCV_ISA_EXT_ZBB, 1)
+> > > 		    :
+> > > 		    :
+> > > 		    :
+> > > 		    : no_zbb);
+> > > 
+> > > 		if (IS_ENABLED(CONFIG_32BIT)) {
+> > > 			asm(".option push				\n\
+> > > 			.option arch,+zbb				\n\
+> > > 				not	%[fold_temp], %[csum]		\n\
+> > > 				rori	%[csum], %[csum], 16		\n\
+> > > 				sub	%[csum], %[fold_temp], %[csum]	\n\
+> > > 			.option pop"
+> > > 			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
+> > > 		} else {
+> > > 			asm(".option push				\n\
+> > > 			.option arch,+zbb				\n\
+> > > 				rori	%[fold_temp], %[csum], 32	\n\
+> > > 				add	%[csum], %[fold_temp], %[csum]	\n\
+> > > 				srli	%[csum], %[csum], 32		\n\
+> > > 				not	%[fold_temp], %[csum]		\n\
+> > > 				roriw	%[csum], %[csum], 16		\n\
+> > > 				subw	%[csum], %[fold_temp], %[csum]	\n\
+> > > 			.option pop"
+> > > 			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
+> > > 		}
+> > > 		return (__force __sum16)(csum >> 16);
+> > > 	}
+> > > 
+> > > The comment there made me think as to why we even have this optimisation
+> > > for Zbb at all - is the saving of 3 - 1 or 5 - 1 instructions actually
+> > > worth having 3 code paths? The commit message for this contains no
+> > > information on the performance benefit of the code at, and while the cover
+> > > letter has some information, it was not actually tested in hardware and
+> > > does not look to be a real-word benchmark. This one is already merged,
+> > > but something like this in the future would really need to be subjected to
+> > > significantly more scrutiny! At the very least, "optimisations" need to be
+> > > proved to be beneficial in hardware.
+> > 
+> > I put the justification in the cover letter of the series:
+> 
+> If you read what I wrote I acknowledge that there's info in the cover,
+> but if you continue reading you'll note I said that "it was not tested
+> in hardware and does not look to be a real-word [sic] benchmark".
+
+I wanted to copy what I said in the cover letter here for other readers
+to see. It's not "real world" but it tests the functions which use the
+optimizations. The functions that are being optimized are 50% faster and
+that's the benefit.
+
+> 
+> > "Tested on QEMU, this series allows the CHECKSUM_KUNIT tests to complete
+> > an average of 50.9% faster."
+> > 
+> > I did a lot of testing locally to ensure that every combination was as
+> > performant as it possibly could be. I did not provide numbers for every
+> > case simply because the combination with 64-bit and Zbb was the
+> > primary target of the series and nobody asked about the other cases.
+> > 
+> > There is pretty much only this code and the bitops optimization in the
+> > kernel that try to do anything extreme for the sake of performance.
+> > These checksum functions are very critical to performance as these
+> > checksums are computed on every network packet that is received by the
+> > kernel. Networking drivers rely on these functions and they need to be
+> > as fast as possible. 50% improvement is very good even if it's only
+> > qemu.
+> > 
+> > We could just say we don't care about performance if you are running
+> > 32-bit linux or don't have Zbb, but we would be making that decision
+> > because we don't feel like maintaining the code. The code was written,
+> > tested, reviewed, and it provided large performance gains. I fail to
+> > understand why this is a burden to maintain.
+> 
+> Maybe if you read what I wrote you'd see what I was getting at, or maybe
+> not as I might not have been sufficiently clear. I'm not saying that this
+> particular optimisation is not worth having, but rather than I wanted to
+
+I seem to frequently give you the impression that I don't read what you
+say before responding. What we each view as "important" in the kernel is
+different so we come from different places when approaching a problem. I
+respond in the way that I do not because I am not listening to you, but
+simply because I have a different opinion and I am not explaining that
+properly.
+
+> see why this particular optimisation was worth maintaining 3 code paths
+
+I interpreted the "3 code paths" as with Zbb + 64 bit, with Zbb + 32
+bit, and without Zbb. I directly responded to that by saying that we
+could eliminate all of the code paths that are not Zbb + 64 bit could be
+eliminated. I should have given performance numbers for these alternate
+cases too, and somebody should have asked. I agree that performance
+needs justification, and I understand that I did not provide ample
+justification in this patch. All other architectures optimized these
+code paths so I figured that was sufficient justification for riscv to
+do the same, but I understand that it is not.
+
+> for but the commit message does not detail any of the benefits, and
+> looking at the cover I discovered that it was not tested in hardware nor
+> seemingly with a real test case.
+
+It's hard when riscv currently is very focused on microcontrollers.
+These changes are in order to help future hardware that is more focused
+about performance. That's why I contribute this upstream with the hope
+that other people, like me, care about performance. Rivos could carry
+all of these performance patches internally, but if they already exist
+why not let other vendors use them too?
+
+- Charlie
+
+> I am saying that the future standard should require both of those things,
+> not that I think your optimisation is not worthwhile and should therefore
+> be thrown out.
+> 
+> Hope that helps,
+> Conor.
+
 
 
 _______________________________________________
