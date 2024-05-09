@@ -4,174 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5D7C10F1A
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 21:26:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961FFC10F1A
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 May 2024 22:08:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BbmTI8tsDgvu7sQ9swPmNyDF5OxPT5dZ56eo9ZCLy6k=; b=nhdJ//IgRqeLooSPDHyg+Iyx5m
-	fnfIsy+WYJuORH1TfrMDaC5qUfw7laipU0emrEf6SsgztlDgcQCl5vsfO0FZdkg5JuA/m2rY4HMzW
-	B0jCX03ec59pfQ0GoqWLt2ukMZrYmu1HYN+XfgHK7ZTh8ysiDQARmkt9zGGx3+Qh4EoAa498AJiaD
-	7LpQbTygbXgjEKWpiasjyaEVg1an6+0HWOlpWRWtiuzlmuxaQMG9iWFlRVyvnTq1geT+/o528e1F7
-	++3rTb461taiNcKlwcnkgexjTT27vbZuh5keeWSwBq7WKzbPW2Phzf7QK9tKpRporL9QavGp1oFnC
-	bsk1n3uA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kg71Qe3xSXXwVmBni3sWBrHCa4RfQk32ECobSxTLfWk=; b=1XAjbPUHB2FswsxZX/95h3RMWA
+	FS0wexb7UGXZ601yxp2tFsjWWBQ7G8uDSiMNDMiF8/6sDC3JmCsYe/cZCGUsjJPkSfkJCtGtUktIj
+	FasD++X06xiVV4W4fp4ukHGs5Hu6AmrixSpExZVOZ9SqBZQEOypTHAu0dBwMqfem+iAGg/zcxslOX
+	897kcjAslnfKLyF89CGjhtnCCZlhO+KcDiIYhS1kHwL0MvyBt7Kpi0PP+PEoNwkc6cQqzFUdF5BRy
+	VAKtaw/uFbphP7gbciH/lm54lWlRrNvV59dgVaaWHx0b61AiusHBIyI92CzsJOKWp3PtAqCuuhkpR
+	HEaoF9pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5BH8-00000002x06-25rD;
-	Thu, 09 May 2024 21:26:03 +0000
-Received: from mail-bn7nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2009::600] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1s5BwW-000000033Sb-0NpQ;
+	Thu, 09 May 2024 22:08:48 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5BH0-00000002wyh-2PbO
+	id 1s5BwS-000000033PX-1kI3
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 May 2024 21:25:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=mLiOBCbq2UDTAPoGjOPspRoKtQD9MufIvlsYeUozFUjjOWR3wLxnSqJOciWKwhYiBiuqJ880H/uDHNewU/O7pEHMuI+XB3Jjf9k3sd64e0WRmNP+p6Lj/P4LbplxYzAaAVKr/K8TfEWWWRwho+KDk9NcBLlgY8x+lUbTylM0o1kjQAzkIMEPRhewgQ+5lmxxOIqWAv5HlhlcAZJDU48oXKii74osJdDewahnJaxKPxjABtJzw9l2jyBH2uf1mu1c52aTf3wZUOCe/5L3CFFTUr1dVihEM3gxa9O2FtNrHD7GwYqRGvGV8l1vCkQsqH3MSkCGCsm1dOY5Bx+kYRQbvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SO7EoBy7ZU/ewsoNcVo+CX5B4f7g+z7jQYIOjPWT3BA=;
- b=FpJruB/XDz6JGx7Kne4Pd16vmzTgh0Gx8+a23tdrIATF4bYg9vC+d/vCdT6V1rnC88KbcHYINpBIb331Z9PtDOuUEIc7X8GSJ7D4UnDck7x9MJgGfRodKnOV0lBaVX288tSKRPJ6DVYKNgI3Oxmg36xI5f+AQjs8K9YzybYEiOHn1UQHZJeS6EWVYLuXL8pwowMAITWMUEfx5MGzYw0TTWy6I2/9XICYUE2W02BhEUy6C2MIuBAmVGHPMlsgBAxar6ViHpRdZ2PwAPHdlrD9HOkSpO5EGTotFXdkMfFgvsjAWlWuimj7rV6u7usBxj3isG+EwYgNCERv8I8cRFKvpQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SO7EoBy7ZU/ewsoNcVo+CX5B4f7g+z7jQYIOjPWT3BA=;
- b=Z2qlZQthB0me7OLo3cLtXdtHoKweSFmAxhYamRoJuH6DNHjT6ANSZ2lUrj1evDiJyLeNH3A9grMuWr9zyhR5NJ0QSNZNR4yWkrBlO3LW9eOVnGvsfadFs2t+DE6n72Qv1evYNKO2GnkAh2oN76/Ad2i/AD8b8vPDSCVyl+I+pzsZODytaG32mIObTetsGKl9+fc2dQ1GYwDEf/1ms1pkwBNzYGnfMgmHOq5hiSyRBJUys3kVqvq8g8IBL2dao2geSLCksHXTLzt9NDAtR3Vf/6AB/AN3uvYQtMSyHIjZ5ESrQPSe3WfC3LMqrbgg2IwsV+pk1r9aHGeX+s6QGfa/Eg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BY5PR12MB4130.namprd12.prod.outlook.com (2603:10b6:a03:20b::16)
- by SA3PR12MB7830.namprd12.prod.outlook.com (2603:10b6:806:315::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7544.47; Thu, 9 May
- 2024 21:25:42 +0000
-Received: from BY5PR12MB4130.namprd12.prod.outlook.com
- ([fe80::2cf4:5198:354a:cd07]) by BY5PR12MB4130.namprd12.prod.outlook.com
- ([fe80::2cf4:5198:354a:cd07%4]) with mapi id 15.20.7544.046; Thu, 9 May 2024
- 21:25:42 +0000
-Message-ID: <0e196143-c0bf-4d70-9735-7e6d9a69ea8f@nvidia.com>
-Date: Thu, 9 May 2024 14:25:29 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 03/68] selftests: Compile with -D_GNU_SOURCE when
- including lib.mk
-To: Edward Liaw <edliaw@google.com>, shuah@kernel.org,
- =?UTF-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
- =?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>,
- Christian Brauner <brauner@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Muhammad Usama Anjum <usama.anjum@collabora.com>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- kernel-team@android.com, linux-security-module@vger.kernel.org,
- netdev@vger.kernel.org, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-References: <20240509200022.253089-1-edliaw@google.com>
- <20240509200022.253089-4-edliaw@google.com>
-Content-Language: en-US
-From: John Hubbard <jhubbard@nvidia.com>
-In-Reply-To: <20240509200022.253089-4-edliaw@google.com>
-X-ClientProxiedBy: SJ0PR05CA0067.namprd05.prod.outlook.com
- (2603:10b6:a03:332::12) To BY5PR12MB4130.namprd12.prod.outlook.com
- (2603:10b6:a03:20b::16)
+	Thu, 09 May 2024 22:08:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id CEA34CE1B77;
+	Thu,  9 May 2024 22:08:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84B0BC116B1;
+	Thu,  9 May 2024 22:08:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1715292519;
+	bh=Hg44u7ibQJGu7rYhd2A4qsD9a8Yna0KkwhFe6+PAAfI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WYNm80obu3MGlsXeF1YOPHK4rkvGtvXHQdLiFAer1aYQ2VxHWQZID6yoE2C7Sd5rd
+	 1T+CvNL2r9T1QHmq1D3GyEZ3wOfErWJcuVSZ9bwD7pd+QXH9FQIncyKKalP5uKimiU
+	 pKPSMwvBcL2YXVlm4Px7HPxlzgq4ycgx80Oy3CNF5kaNhdVwDJouCO1/it7owHVseB
+	 bR+GHb6+L+5vhPg2kT4OVyFPSgHnN7FWtd2MRyrOyewsAbsrMvlpvD22xxq7DHctM7
+	 X0ax2Cw3Tf/R04GzF1bD55sS+IDyN7XSM+xFqPT56NjmExzHhuWkdE5RW99bVQib+G
+	 hOX05ORoxFhsQ==
+Date: Thu, 9 May 2024 23:08:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Song Liu <song@kernel.org>, Xi Wang <xi.wang@gmail.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Jessica Clarke <jrtc27@jrtc27.com>,
+	Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/8] riscv: Support compiling the kernel with more
+ extensions
+Message-ID: <20240509-google-passing-3e7577235c44@spud>
+References: <20240507-compile_kernel_with_extensions-v2-0-722c21c328c6@rivosinc.com>
+ <20240509-uptown-aging-5bdec4730d70@spud>
+ <Zj09IUE5k1EJL08X@ghost>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY5PR12MB4130:EE_|SA3PR12MB7830:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0cd2a724-fd9c-4157-621e-08dc706e94b5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230031|7416005|376005|366007|1800799015|921011;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TlZRWXlENHdzSk5KNkZvKzBkMjNTSUhIRDd3QnZlUDAzZ1ZiZzRlelY4UitS?=
- =?utf-8?B?SEd2Um8rMU5NZm9aMVRlVXBGMWZTd0hBYXE2bGxJL1NPRTVETW9YOHFoMytH?=
- =?utf-8?B?WE1uak5sRlU1YmdrZDlWNWFzemtQNWphS1A2M2krdk55cTYySlpHeTJZYm1u?=
- =?utf-8?B?ekRJWklISnNxTnUxbk5JTzlad0ozRlZTVG1CaG5UNTlSZUpVOEhmMFZuMFdP?=
- =?utf-8?B?NGlyNis4U0xwS1JmUEFnWmRRa252WDNJb1NhMzk1TmFpOUxGNEE2ZkozcjFM?=
- =?utf-8?B?Z1BOUUxPME0xQXhhak14SHo3ay9kWWJyS1ZPNUNVOGx0eDNUaU42WkExRWp0?=
- =?utf-8?B?WFdHaFZjNmNhRjgrUi9ENjJvZkZIRVZwVzVmNVVVSVpmVkZIdmtuQ2Z5dzZQ?=
- =?utf-8?B?ZUVyeVVGckZtS1V5dWNoMVpPTkdIY3E1VklMWmdaZ2pHcm5yeFVDVEtHanBh?=
- =?utf-8?B?eEdLSVZyZjJVd1lYOVVtS3ZKelRZRmJkU0NrNjZPWkpVbU90bGpKb3NQMDNJ?=
- =?utf-8?B?SnMzSzV4MlJtNkZCMGdsbzNaVThkeVlxdmZ4Rk5BRzYrckxMdUU5cmp2UDBN?=
- =?utf-8?B?Y0hLN1hEZVJsVTdPTHltc0dKZjdYN2FCbXpwYmc2dHVDRkpWUEtxTDRKdkcv?=
- =?utf-8?B?by9keEMyWVQ0dXg2NDhVQlpHS2xqWkV1U1dKQ0lQMDdRbS9Lei9QN0dPRzNn?=
- =?utf-8?B?RmR6b29tM2hoczcxTXZGRGdzVDZ6eUtUR3pWdW80TGRUOXFVYmtyMFZmV1ds?=
- =?utf-8?B?bGxQMXlseXo1Mjlqa25SN0wyNzRIRGphS1EvcmJQaTREN1VEQzY4dGZpamFI?=
- =?utf-8?B?VEFpYUx0NG10UzRWOXhpZTZIWHpaK2dud0RsUHRnT0xYUDB1RC9RUUdGcGpL?=
- =?utf-8?B?eEhzenFCUDhDdFpFU09hS0dmdWF1SkRRS1B5bVlwUWE1SUFNYmNZUENDRlNq?=
- =?utf-8?B?UExNRnVLRmRMQkxFZGZCd0NFV1BZbkNaTXNUTE1KQkRqMnE2Qm5DQUY4S0JJ?=
- =?utf-8?B?c1duOTBpaENiWnBHMjFDMWs5L3JXYzl0Z2ZDNklaRmNZVnpWN1NxQ2ttTmtz?=
- =?utf-8?B?SEJjd3VSTWgxOW5tdm9XcCtiNXJFbjg5RTZTWXRoZFRKeFQ0d3Raa3NxYXZM?=
- =?utf-8?B?R1hRc3ZaN2ZQb09yb0tHMUZVYzdmUDduTkZveGcwN1lyakU3dE11TEovS3U3?=
- =?utf-8?B?R3EvVmNMWndsODQ3Q05MZzNyWHlocU5yVTdPNU9DcmduU2dNczk2WUdyZHIz?=
- =?utf-8?B?RWZjb2NldXJ6ckQyVkIrWDVkYTRkaHBTTWZUVjZhSGxEYlMrQ3cycGxYQUJ6?=
- =?utf-8?B?aFlDWmlwb2VaNVdxYkduUE5Qam5EdlNHek9odXdRRlptRXpGUUZGaXc1emxo?=
- =?utf-8?B?K0hZbkdUaVhTWnVpUlpLSksxRGpkWElkTzFRdmVkSTlSbFVCWXZETHNHWm1S?=
- =?utf-8?B?bXo4YjlUdkM5RW45dEs1T0Nsak1ZMHp6V05Uc2pVeG9DdmhZRGIrVmpidlJ5?=
- =?utf-8?B?d0NCT251eG13dzZrVFp5cE9Ka1ZBMFRvYnZpVzlTK3BLeG83YWM4ZjJ2L2xN?=
- =?utf-8?B?ZU4rNGJGOFMvRzFZZWY1ODhTVzdvYVlTend0NGhsb2ZiSWtoR2tTd2tNOEVD?=
- =?utf-8?B?NDd5eFV3NWpiOXZIYzlrcTFNQ1BzczF3NFhJTlZFS1paNW13dnJkbnRpNzFE?=
- =?utf-8?B?UEN2Tmp5MVNzVThFWW1wUWRaMXFldlVKZmE1TkcrTWx0TVVWaHhpN05hL1Jl?=
- =?utf-8?Q?IMmeAQs67qe2gN8dDe8KMuSUos/1GCNvw8ykBpf?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY5PR12MB4130.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(7416005)(376005)(366007)(1800799015)(921011);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WUt1RDVUS1QxbzJjYTloN0ZCcXFObExTTngzOEE1ajV2M2pLVUU2ZzE2TW51?=
- =?utf-8?B?RkFHVHlSOVRVWlg3NWhWbS8xSDcrbWl5QTdCcWcyZjBzeDVpa1dtRm8yenQ1?=
- =?utf-8?B?TGdhSmwxeS8zY1VJS1h2ZDNIQTBVcTZCUzVVZERVZFRtNTh5cVFQWnY2emVy?=
- =?utf-8?B?cXQ1R1BlV2pRTXF2cDFjNmFTRUJHZUxxamJOZ1F0TXZ3L1JoZThNemlaSGtr?=
- =?utf-8?B?MmRRUklIQjl1L1NoTnNtZWZZNzdpYUFiSVV2aDRIQmtJWWJQN25hLytPdTVZ?=
- =?utf-8?B?RjV3dmNIMDdhSUFaRjVJNHJobzViTnBkdDF6TGszM1NhWHNiaXEvUFZSOHFr?=
- =?utf-8?B?UlpERVRNaUJ2NG15WnRESkJ0VEZFMWJVdERLUURRa0lZa1lyek5ySlJkZ0gw?=
- =?utf-8?B?RWZub1I5TjBCWitGdExodGxtYmN3TGMvZXVQczlyZW0wR3BLeDV2QTlyT1Vl?=
- =?utf-8?B?STlSdmprU2d5NVRtVTRjT2d6Ui9MUWlrMGtjOUswdnlrY05oODg4ZGRFdFMx?=
- =?utf-8?B?RHE0YmtmWlhwQVlscmNhVG5laytpZWJscWxVVDRkdzJyWjkxNWRiV1ZYQkZr?=
- =?utf-8?B?bERjejhZbXByMVNCeUpJTzBMQlFvaGVjWUllbnpsMUFzUGo0QWJNNU5kVlJ1?=
- =?utf-8?B?bW9mSEVrUlc4ckttQzhyazZjNzJILzRteXJkVmFrczRYZzIrOFZzZ1NweFp4?=
- =?utf-8?B?VWdTTEpxbnFqU3BFbGE3R3RzL2pXaHlQUTkvMWowN3dmRUFLTWpIUnhjTzlD?=
- =?utf-8?B?UnJyVTdWMXNBNUx6WHV1OU0zbGZJRnFxaVpFNzRmMkxWTGorbjFZL1MxS1F3?=
- =?utf-8?B?eERHRE1XUWdoZ3dlVlNjZkNsK0pHL2dJRmdMZ21iM2lXaTJtMmE4K1F6NG5S?=
- =?utf-8?B?MmlHM21WeUdWdmI1VnVCckpRMjlGV2VHbytkbUl6MmQ0dmo0bjZiZm9BcEIv?=
- =?utf-8?B?VzYxTUNMdWlTc2Zlb1lMUksyNVRGMEZtTmJTc3cyUG12bklDREUyQ0YyVFF4?=
- =?utf-8?B?SFN0eHAvYkp5dXVvNTNLdGZlaEpuZGJoQnVld3hjQzJYaXlDeTlOR3Y0MDFK?=
- =?utf-8?B?a0FBaDU3aGdLbUxuWlVNd0pyZkhjMGZVQ0NTT3ZsdVdLcFhKcTVpR2xZVGtZ?=
- =?utf-8?B?dU0yVUhSejAzNy9lQ2xNdEkzaDdBYjdVQXErSno0aWU4M0VlS21yQWk3L21L?=
- =?utf-8?B?VUxpQ0NnSG94cmE4RGRrdFJYUitOQS84aHgyTXJhZVkvUSt4cjYxaWhIY1Jy?=
- =?utf-8?B?enE2S1NxbnYxSDM2cDUzSU9GZTgyUVlkbjl2K2tzZlhYbjQybjk2cUZ4OXJP?=
- =?utf-8?B?SnpjMnM4dDZwU2NDa1Nud2FLM2NkNFF6ODdpODhpWW42THE3NHM2UURRQW1n?=
- =?utf-8?B?ODMxVTNGQ1lvM094QjRxVlozMGhzWUswSjVHK0Z1QW5GcXdYRWhSaFpoWVYx?=
- =?utf-8?B?SmNobmVYdlVWSHg5cm9kdm04b2pQYkFxditIeGQycHpzL0hPbTJVd0oxK2Fu?=
- =?utf-8?B?TldjUHNiaXFHUlNycUVhZFFkWG9iczFCMFQ2bm55SDlHaEFvd1FOb1AvYzNl?=
- =?utf-8?B?MUluYWZmSy91REZ2ZHU3UVZGdjhHaG0vNHZVU3I0YTZxeENGeVVaek8xN095?=
- =?utf-8?B?MHBiT1ZPZS85cHZ3Z3NqNmFPQjhONDZTcE5xSjZIUWY4eWNhUVZSNGlOQmYr?=
- =?utf-8?B?MVpkTk1adENTaC9abi9kVGF5T0taMXdOTms2czYrWmtmSHdtVVF2b1hVZlpu?=
- =?utf-8?B?S01sVHdvaHo3SHN3dWlPV0NraktzaWlPVjlqRHZZZGVrYXRJaXZOcUZ2bEZE?=
- =?utf-8?B?RVpQbW5aanJOUklTWkVlekN2SnVNeHVwRm8wYkRlN0drSWRFaWZBbzdyTUlJ?=
- =?utf-8?B?Nlh4dHR0MVJNbFh4Mkt5VXBPVHpFYjRwNWVCMGRJZksrVFF6OFFGM0pvbUlH?=
- =?utf-8?B?K0tJS1VsNzlSUUhQY0hwK253WUY5MFhMSTBUTGFCRlFHUVJ6OVhQMzd0Mncy?=
- =?utf-8?B?WXpQVnl3U0Z1dDkrV3JjVjVLWGNwN1U5Y2c2akZuVzVUdnhKclBwd291NCtu?=
- =?utf-8?B?ZENUbXp0MHhlZlhJTmRwVm9BNGZLdG9KbDFqajlQL1dFYllUM0k4Q01Hdmxt?=
- =?utf-8?B?ckdnRVNZenAwb09vU1NPa00vNG5XelFVUWR5UzBFS0plR0w2TnlzZWc0VVlB?=
- =?utf-8?B?d3c9PQ==?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0cd2a724-fd9c-4157-621e-08dc706e94b5
-X-MS-Exchange-CrossTenant-AuthSource: BY5PR12MB4130.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 May 2024 21:25:42.4607
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vgDaSmE1h3q5zzKBnrYaUAaQAOrG4VG8WmUc5cpgNNqyOH6AdTisL+Yrq8dlXjGXwLjHUWYVbVQjSaKpChoHFA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7830
+In-Reply-To: <Zj09IUE5k1EJL08X@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_142554_756140_2BB1A314 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20240509_150844_860585_4F9EE042 
+X-CRM114-Status: GOOD (  95.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,86 +77,321 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============0236862959720319104=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/9/24 12:57 PM, Edward Liaw wrote:
-> lib.mk will add -D_GNU_SOURCE to CFLAGS by default.  This will make it
-> unnecessary to add #define _GNU_SOURCE in the source code.
-> 
-> Fixes: 809216233555 ("selftests/harness: remove use of LINE_MAX")
-> Suggested-by: John Hubbard <jhubbard@nvidia.com>
-> Signed-off-by: Edward Liaw <edliaw@google.com>
-> ---
->   tools/testing/selftests/Makefile | 4 ++--
->   tools/testing/selftests/lib.mk   | 5 ++++-
->   2 files changed, 6 insertions(+), 3 deletions(-)
->
 
-Hi Edward,
-
-This looks good, with one small refactoring opportunity remaining, though:
-
-> diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
-> index f0431e6cb67e..9039f3709aff 100644
-> --- a/tools/testing/selftests/Makefile
-> +++ b/tools/testing/selftests/Makefile
-> @@ -170,11 +170,11 @@ ifneq ($(KBUILD_OUTPUT),)
->     # $(realpath ...) resolves symlinks
->     abs_objtree := $(realpath $(abs_objtree))
->     BUILD := $(abs_objtree)/kselftest
-> -  KHDR_INCLUDES := -D_GNU_SOURCE -isystem ${abs_objtree}/usr/include
-> +  KHDR_INCLUDES := -isystem ${abs_objtree}/usr/include
->   else
->     BUILD := $(CURDIR)
->     abs_srctree := $(shell cd $(top_srcdir) && pwd)
-> -  KHDR_INCLUDES := -D_GNU_SOURCE -isystem ${abs_srctree}/usr/include
-> +  KHDR_INCLUDES := -isystem ${abs_srctree}/usr/include
-
-As mentioned in [1] (but there are a lot of patches to manage here, and
-I think it got overlooked), you could factor out the duplicated
--D_GNU_SOURCE items into a single place:
-
-[1] 
-https://lore.kernel.org/all/ac8c217e-4109-4ca7-a7dd-fc4fc8b0a4de@nvidia.com/
-
-thanks,
--- 
-John Hubbard
-NVIDIA
-
->     DEFAULT_INSTALL_HDR_PATH := 1
->   endif
->   
-> diff --git a/tools/testing/selftests/lib.mk b/tools/testing/selftests/lib.mk
-> index 3023e0e2f58f..e782f4c96aee 100644
-> --- a/tools/testing/selftests/lib.mk
-> +++ b/tools/testing/selftests/lib.mk
-> @@ -67,7 +67,7 @@ MAKEFLAGS += --no-print-directory
->   endif
->   
->   ifeq ($(KHDR_INCLUDES),)
-> -KHDR_INCLUDES := -D_GNU_SOURCE -isystem $(top_srcdir)/usr/include
-> +KHDR_INCLUDES := -isystem $(top_srcdir)/usr/include
->   endif
->   
->   # In order to use newer items that haven't yet been added to the user's system
-> @@ -188,6 +188,9 @@ endef
->   clean: $(if $(TEST_GEN_MODS_DIR),clean_mods_dir)
->   	$(CLEAN)
->   
-> +# Build with _GNU_SOURCE by default
-> +CFLAGS += -D_GNU_SOURCE
-> +
->   # Enables to extend CFLAGS and LDFLAGS from command line, e.g.
->   # make USERCFLAGS=-Werror USERLDFLAGS=-static
->   CFLAGS += $(USERCFLAGS)
+--===============0236862959720319104==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="UsyF7h4OVwtBkffN"
+Content-Disposition: inline
 
 
+--UsyF7h4OVwtBkffN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, May 09, 2024 at 02:16:17PM -0700, Charlie Jenkins wrote:
+> On Thu, May 09, 2024 at 09:25:10PM +0100, Conor Dooley wrote:
+> > On Tue, May 07, 2024 at 06:36:26PM -0700, Charlie Jenkins wrote:
+> > > The kernel currently has the restriction that it can only be compiled
+> > > with the extensions that are hardcoded in arch/risc/Makefile.
+> > >=20
+> > > Any extension that is not listed in the Makefile can still be used by
+> > > explicitly writing the assembly and using alternative patching.
+> > >=20
+> > > This series introduces Kconfig options that allow the kernel to be
+> > > compiled with additional extensions.
+> > >=20
+> > > The motivation for this patch is the performance improvements that co=
+me
+> > > along with compiling the kernel with these extra instructions. Allowi=
+ng
+> > > the compiler to emit arbitrary Zb* instructions achieves a 4.9%
+> > > reduction of dynamic instruction count for a test ran in Spike that
+> > > boots the kernel and runs a user space program that prints to the
+> > > console.
+> > >=20
+> > > Additionally, alternatives that check if an extension is supported can
+> > > be eliminated when the Kconfig options to assume hardware support is
+> > > enabled.
+> >=20
+> > I brought this up yesterday at the weekly patchwork call and meant to
+> > reply here yesterday, but I didn't get a chance to. I'll start off with
+> > my thoughts on the idea and the implementation and then mention some of
+> > what was said at the call.
+> >=20
+> > Firstly, I don't like an implementation of this behaviour that requires
+> > doing ifdeffery around alternative sites. I think that iff this is done,
+> > the alternative itself should be evaluated at compile time, rather than
+> > having to add more decoration to callsites. That becomes particular
+> > important in the cases where the alternative may not be a simple a or b
+> > case, although I don't think there are any of those in the extensions
+> > you've looked at so far - or at least, you've not tackled those cases.
+> >=20
+> > I am curious about the Svpbmt patch, as you say
+> > > Svpbmt would not benefit from having PLATFORM_SUPPORTS_RISCV_ISA_SVPB=
+MT
+> > > so just move the definition of RISCV_ISA_SVPBMT to Kconfig.isa.
+> > without any any justification for why it would not benefit. There's
+> > alternatives in the codebase right now for Svpbmt, why wouldn't those
+> > get evaluated at build time also? Or why not Zicbom? Was your rationale
+> > for the extensions chosen just the ones that the compiler can actually
+> > generate code for?
+>=20
+> It's only used in a place that has errata so I wasn't sure how to
+> handle that.
+>=20
+> > That aside, the series seems to address the easiest parts of doing
+> > compile-time extension configuration rather than the messier cases like
+> > Zicbom. To me it seems like the messier cases is actually where we shou=
+ld
+> > be starting, so that we have a scheme that works well.
+>=20
+> That's good advice. I wanted to send out something to start the
+> conversation on what people were interested in optimizing here. I can
+> look more into Zicbom.
+>=20
+> >=20
+> > Ben mentioned something along the same lines for the
+> > has_extension_likely() stuff, which should be far simpler, and can be
+> > implemented via a macro, as you already pointed out.
+>=20
+> I was hesistant to change "too much" as I was expecting push back and
+> didn't want to have to re-write everything ;)
+>=20
+> >=20
+> > I did notice that you left the riscv_isa_extension_available() stuff
+> > alone. I think that's reasonable as that code serves more than one
+> > purpose and is intended for use in either in probe functions where
+> > there's no perf (or even code-size impact really, just disable the
+> > driver if you don't want it) or in cases where the user provides its own
+> > bitmap, like KVM.
+> >=20
+> > I haven't actually reviewed the content line by line yet, so I don't
+> > have any detailed comment on any patches, but I think the two things
+> > being done here deserve to be split apart - the first element is
+> > evaluating things that are using alternatives at build time and the
+> > other is adding extensions to the toolchain's march.
+>=20
+> That will double the size of the series but if you think that's better
+> than I can do that.
+>=20
+> >
+> > Moving onto the objection to the series that I have though, at least at
+> > the moment. Adding more and more optimisations to the kernel already has
+> > potential to balloon to silly levels, and that's before we even consider
+> > the permutations of different build-time options. Both of those things
+> > feel like "where does it stop?" situation, with every single extension
+> > that could have code-gen impact becoming another build-time option for
+> > the kernel. As a result, I'm not convinced that we should do this at al=
+l,
+> > and I am starting to wonder about some of stuff that we have already
+> > merged..
+> >=20
+>=20
+> Vendors that expect a high level of performance need a way to be able to
+> compile the kernel with more extensions than the base extensions. We are
+> leaving 5% that can easily be gained by not allowing this.
+
+Maybe we are, but if people want their 5% they need to show up with
+evidence that there is actually 5% to be gained. Also, if you read on, I
+am not saying we should never do this, and leave that 5% permanently on
+the table, only that we should significantly constrain the permutations
+that we are allowing. And honestly, if some vendor is really desperate to
+compile the kernel with Zxy in march but not whatever other extensions
+that may be in a profile's mandatory set, they can always do it out of
+tree. Carrying a single out of tree patch is nothing to most vendors...
+
+> > I don't think the configurability this series adds is worth the burden =
+of
+> > maintaining support for all the various configurations you're proposing
+> > here (and the others that someone will come along with the week after
+> > this would be merged. After all, with extant hardware that distros are
+> > supporting, albeit in developer or bring-up type builds, one of these
+> > options could even be enabled. Which I suppose could be translated to
+> > a NAK from me on doing something like this at the moment...
+>=20
+> By migrating everything into more refined macros I think I can ease this
+> burden. I don't see this as a burden, these options are all so closly
+> tied to each other
+
+What does "closely tied to each other" actually mean?
+
+> and only matter when a kernel developer explicitly
+> wants to use an extension.
+
+Unless your definition of "kernel developer" extends to "people that
+compile their own kernel based on menuconfig", then I don't think you
+and I are on the same page about what the series actually does.
+Remember, there's the making alternatives and other optimisations
+unconditional /and/ the addition of stuff to march going on in this
+series.
+
+> If this is all wrapped up into the macros
+> that check if an extension is available it won't even be an extra step
+> than what it currently is.
+>=20
+> >=20
+> > Palmer suggested in the weekly call that what would make more sense is
+> > having established bases, that align with what distros are likely to
+> > ship, which probably means something approximating the mandatory set for
+> > profiles, although he also said that the rva23 profiles had already been
+> > given the kibosh by folks. He'll have to provide more information on
+> > that one though.
+> > I think that that seems like a sane approach, as it would produce a far
+> > more limited set of combinations to maintain, but it also means not doi=
+ng
+> > something like this until the point that distros commit to some specific
+> > set of extensions that is not rv64gc... As well as reducing the
+> > combinations that we need to reason about as developers, I think that t=
+he
+> > "user story" for people deciding what is worth enabling in their kernel
+> > config before simpler too.
+>=20
+> There is a chicken and the egg problem here. The
+> hardware/software/distros all want to support the same thing. Somebody
+> needs to step up and make a decision. With a patch like this, a distro
+> can see all of the functionality and select what they want. This can
+> then be rolled up into a config that selects something like all of the
+> bitmanip options.
+
+I don't think there's a chicken and egg problem, or at least not one
+that kernel config options for every extension solves. I expect distros
+to work with RVI to define something, which may well be the platform
+spec (hopefully it's the platform spec...) and then we can make that a
+config option.
+
+> > * Something else that came up during that call, and I think it was
+> > Palmer's suggestion was having a hard think about what we are
+> > currently accepting optimisations for in the kernel. I think we need to
+> > up the "burden of proof" for what we will merge optimisations for to
+> > things that are demonstrated to have significant benefits. I don't mean
+> > to single you out here, cos I did ack the patch after all and it was
+> > just the random example I stumbled on this evening while looking at some
+> > alternative users in the course of writing a reply here. Take this code
+> > for example:
+> >=20
+> > 	/*
+> > 	 * ZBB only saves three instructions on 32-bit and five on 64-bit so n=
+ot
+> > 	 * worth checking if supported without Alternatives.
+> > 	 */
+> > 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> > 	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> > 		unsigned long fold_temp;
+> >=20
+> > 		asm goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
+> > 					      RISCV_ISA_EXT_ZBB, 1)
+> > 		    :
+> > 		    :
+> > 		    :
+> > 		    : no_zbb);
+> >=20
+> > 		if (IS_ENABLED(CONFIG_32BIT)) {
+> > 			asm(".option push				\n\
+> > 			.option arch,+zbb				\n\
+> > 				not	%[fold_temp], %[csum]		\n\
+> > 				rori	%[csum], %[csum], 16		\n\
+> > 				sub	%[csum], %[fold_temp], %[csum]	\n\
+> > 			.option pop"
+> > 			: [csum] "+r" (csum), [fold_temp] "=3D&r" (fold_temp));
+> > 		} else {
+> > 			asm(".option push				\n\
+> > 			.option arch,+zbb				\n\
+> > 				rori	%[fold_temp], %[csum], 32	\n\
+> > 				add	%[csum], %[fold_temp], %[csum]	\n\
+> > 				srli	%[csum], %[csum], 32		\n\
+> > 				not	%[fold_temp], %[csum]		\n\
+> > 				roriw	%[csum], %[csum], 16		\n\
+> > 				subw	%[csum], %[fold_temp], %[csum]	\n\
+> > 			.option pop"
+> > 			: [csum] "+r" (csum), [fold_temp] "=3D&r" (fold_temp));
+> > 		}
+> > 		return (__force __sum16)(csum >> 16);
+> > 	}
+> >=20
+> > The comment there made me think as to why we even have this optimisation
+> > for Zbb at all - is the saving of 3 - 1 or 5 - 1 instructions actually
+> > worth having 3 code paths? The commit message for this contains no
+> > information on the performance benefit of the code at, and while the co=
+ver
+> > letter has some information, it was not actually tested in hardware and
+> > does not look to be a real-word benchmark. This one is already merged,
+> > but something like this in the future would really need to be subjected=
+ to
+> > significantly more scrutiny! At the very least, "optimisations" need to=
+ be
+> > proved to be beneficial in hardware.
+>=20
+> I put the justification in the cover letter of the series:
+
+If you read what I wrote I acknowledge that there's info in the cover,
+but if you continue reading you'll note I said that "it was not tested
+in hardware and does not look to be a real-word [sic] benchmark".
+
+> "Tested on QEMU, this series allows the CHECKSUM_KUNIT tests to complete
+> an average of 50.9% faster."
+>=20
+> I did a lot of testing locally to ensure that every combination was as
+> performant as it possibly could be. I did not provide numbers for every
+> case simply because the combination with 64-bit and Zbb was the
+> primary target of the series and nobody asked about the other cases.
+>=20
+> There is pretty much only this code and the bitops optimization in the
+> kernel that try to do anything extreme for the sake of performance.
+> These checksum functions are very critical to performance as these
+> checksums are computed on every network packet that is received by the
+> kernel. Networking drivers rely on these functions and they need to be
+> as fast as possible. 50% improvement is very good even if it's only
+> qemu.
+>=20
+> We could just say we don't care about performance if you are running
+> 32-bit linux or don't have Zbb, but we would be making that decision
+> because we don't feel like maintaining the code. The code was written,
+> tested, reviewed, and it provided large performance gains. I fail to
+> understand why this is a burden to maintain.
+
+Maybe if you read what I wrote you'd see what I was getting at, or maybe
+not as I might not have been sufficiently clear. I'm not saying that this
+particular optimisation is not worth having, but rather than I wanted to
+see why this particular optimisation was worth maintaining 3 code paths
+for but the commit message does not detail any of the benefits, and
+looking at the cover I discovered that it was not tested in hardware nor
+seemingly with a real test case.
+I am saying that the future standard should require both of those things,
+not that I think your optimisation is not worthwhile and should therefore
+be thrown out.
+
+Hope that helps,
+Conor.
+
+--UsyF7h4OVwtBkffN
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZj1JYgAKCRB4tDGHoIJi
+0jSZAQCjxGD+rECe8QH48LKnrjN84x50ogXkkRnw9zhscMf50wD/YxwAUp8+fjAx
+feEqZl9tzlOLBJZep5VY9fmnpdLIEQo=
+=wUyu
+-----END PGP SIGNATURE-----
+
+--UsyF7h4OVwtBkffN--
+
+
+--===============0236862959720319104==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0236862959720319104==--
+
