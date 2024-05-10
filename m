@@ -4,69 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DACC25B74
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 22:26:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05464C25B10
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 22:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AMM9SiVvc0A87eYahBSTr24oqAzcriqVn9J3aFdg8OQ=; b=NVKh182KEhA94jROFHWUG/hvFu
-	ZsyJ+ppLMsnRVxw61hPXSSxNyOXCJBkSpCzYCSOto/VJANtfwwTs1Rivce81sWsdKTm/bZWA6AYjx
-	ig/jBcXjEx7dZUXS6hsWQVlNBSXNg+b2IGnf8WmuQccmGVr58zxCfYyXVRFxFyabwjUCeEyTD9rxB
-	2eWhkPas+Z1bTpLt5P8Y01RGh5ojJegE1mrizWawnFeTvyBaajHZHwJx+zUqLXMrlfhjkJsH7ZVLi
-	/Q7upCnK+mTVcX/8R9Q169NLI3n0xsrd94qKlSaq+DgwI3xQ1SQ1Qu28gJx4fKzUa4cfg1KXYINQe
-	0Ag2MaAw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=umGLElI3Oy3OkPU2dH/E4+RbWJkBDt9gPoY28WRDmGA=; b=Zw7Tgw94J8D7QX
+	vRvVU2Y8pT/ocrqETkJhQ79joQHiijOcFXpzsWUWmYfhnHq+0KPjOGMU3qbOFen7KmCH24EizUMHR
+	ER+yBmnGuThPZEZduMqhyr4dyBk/Tfl1TRjmYw/aT/e74Hb4oY9e6vB9Z4k7jI6trYuY8K0ERChRS
+	7qvwemowrFZWVUWCu3p1CEYwgti7WRPYIvDBX/oB8drWi3VoLWdn00dpiTMPc0zBjZodf4ZNkzN4L
+	au2PC3qlg9Y2qj9sIy4NTaeHbkoeLzLFM3ZZ2OV4aw4SwsdKBhrUsB/cyjOysvVAMgH0MNdq2RomR
+	iul6LjPsg7L0OT/MWtAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5YhD-00000006etC-49vP;
-	Fri, 10 May 2024 22:26:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s5YoF-00000006flP-2JZI;
+	Fri, 10 May 2024 22:33:47 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5YhA-00000006erw-1dMI
+	id 1s5YoB-00000006fkV-2YWN
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 May 2024 22:26:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A598861F1F;
-	Fri, 10 May 2024 22:26:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDD57C113CC;
-	Fri, 10 May 2024 22:26:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715379987;
-	bh=7AiDI83wh1yuDTxM8zawvskTQliLVpgN03KQsOSmIbs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X5vbAAzyygPUoflDfm2+WfORsmKIWrU5hyDenSGkQpfTj3vlQ1o4tBqK+Hg0zTSiA
-	 d69twgicFFhPkapfZVrTAjoh6J9jiO5lmuwlb7a38ykiZ2aD4+OiN0cuWnGPgkhyq2
-	 zxLJoyITqmNPmfFFnwAl7iZikmc0lLP3KwbywOJpMfWG9d+hIj7Dg03jBMgaXQL8IQ
-	 RBu3nrBZyoANA5z1DHPxL89svP9WQ8nTEHNpjcBvcpPkBxwuferQZg6wWvz8+vTURA
-	 R62ZtkeuLBlKr9AsmxFxsuU3xJdvbxVb7BwZ/lSkl4bhC4yTgy5q6hEwxW52XhgWu2
-	 DfN6Fc1hCQOZQ==
-Date: Fri, 10 May 2024 23:26:22 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Song Liu <song@kernel.org>, Xi Wang <xi.wang@gmail.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/8] riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_V
- Kconfig option
-Message-ID: <20240510-pursuable-oppose-e0b8430271f6@spud>
-References: <20240507-compile_kernel_with_extensions-v2-0-722c21c328c6@rivosinc.com>
- <20240507-compile_kernel_with_extensions-v2-2-722c21c328c6@rivosinc.com>
- <20240510-earthly-regress-7a8c8dba55db@spud>
- <Zj6U7sZNNh8GQPYM@ghost>
+	Fri, 10 May 2024 22:33:45 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1ee42b97b32so21345195ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 10 May 2024 15:33:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715380421; x=1715985221; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Rx86BKf20oqqJvvyTkwVjgHBFBglkui4kaaauK5EOTw=;
+        b=rPbqkdmvU4F0khTh8nSLwYotygm1xiOAO6AzlNRVlf5TZ17quXKKSNMlPWY6HCKDC3
+         W0dxT9T56SqPZkaw2nQkCb0ymIEsoREKp3xaM6vMQjkyQnWagChSf4/L7YLjrlXkNKuM
+         Lpi0h3geQ8/kzvYJRz4wbincLCCnObLCKTPBYTV++JAba25pUmnLwB+lTbXirAsVyrnz
+         g93hxAVKSrgNlcvXIVbpCRmhugH/3cQIedkHUniv8uwYNiNdBMydn5ATbpAgDHZ2F3PX
+         1BobMlvVEBKPSnbcER/ymSZQ2UW6x2MI3E8B/nv3Qz1/qGkM082T8lJBGWcrgBOjDZdY
+         USdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1715380421; x=1715985221;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Rx86BKf20oqqJvvyTkwVjgHBFBglkui4kaaauK5EOTw=;
+        b=oGgjZoJZjKKPJ6NkhFaAoSr0kA4s0lZlYx9KWrgdNYz+ZP60od0s38Tx0/TF9tLDUE
+         gU6hyxYFxgtPcPOYk4KBInnzFKRxN56BRJXjWMFp27AdN5s8BzooHdiiSg26Uy730wDZ
+         I2aGYMECDgP/CY5uXvBmwWwhGUwxlTClEnqw2qlTcc5bMAAL6OlGdI/aXMP1MoUSnoih
+         ldZ25qpNhOtu7hjXLA1VMT95ltALxHcnSFiTfVd7C6LVwXAn3qqkKqFGFiB2VBg4lX7U
+         1sDKxKx8WsIwhvLFobx2H7L0xrqUoCW9KJfAbD33TRcnmcM+vwolmBqArnJBhSPm1zdC
+         C4dA==
+X-Forwarded-Encrypted: i=1; AJvYcCVoBmWgVGCtak4MJQUrmeY1+sBNu3I4iEX4RkKMux4h2l/F/dF5YoZ9mejPJDHBS10M4nutjI4PKTNPIY0OgF+DUx6+8rTQYmOQTQCgQfa3
+X-Gm-Message-State: AOJu0Yyw4U3r8PtY46zOXRnKmdYRSdMGb6cNXQJpd2mXlBUxfSLQb4Wg
+	PYtHFP8Tzkc7O+wrQS9p11k1GmNTDOkMtWIPMkGr7cmkEtizqzMhZh9Ej5W6Z0Y=
+X-Google-Smtp-Source: AGHT+IHCbIPqYj/CMVX+dpcmx2/ThEVPaXPHBWvK+JEhPYkGjzop6fsJUs8nt4PjI1Rtz6v88FXlIQ==
+X-Received: by 2002:a17:902:d483:b0:1eb:57cb:4c69 with SMTP id d9443c01a7336-1ef43f4d1ebmr53974765ad.45.1715380420958;
+        Fri, 10 May 2024 15:33:40 -0700 (PDT)
+Received: from ghost ([2601:647:5700:6860:629e:3f2:f321:6c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0c16093fsm37221825ad.281.2024.05.10.15.33.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 May 2024 15:33:40 -0700 (PDT)
+Date: Fri, 10 May 2024 15:33:36 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: paul.walmsley@sifive.com, rick.p.edgecombe@intel.com,
+	broonie@kernel.org, Szabolcs.Nagy@arm.com, kito.cheng@sifive.com,
+	keescook@chromium.org, ajones@ventanamicro.com,
+	conor.dooley@microchip.com, cleger@rivosinc.com,
+	atishp@atishpatra.org, alex@ghiti.fr, bjorn@rivosinc.com,
+	alexghiti@rivosinc.com, samuel.holland@sifive.com, conor@kernel.org,
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-mm@kvack.org, linux-arch@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, corbet@lwn.net, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, oleg@redhat.com,
+	akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
+	Liam.Howlett@oracle.com, vbabka@suse.cz, lstoakes@gmail.com,
+	shuah@kernel.org, brauner@kernel.org, andy.chiu@sifive.com,
+	jerry.shih@sifive.com, hankuan.chen@sifive.com,
+	greentime.hu@sifive.com, evan@rivosinc.com, xiao.w.wang@intel.com,
+	apatel@ventanamicro.com, mchitale@ventanamicro.com,
+	dbarboza@ventanamicro.com, sameo@rivosinc.com,
+	shikemeng@huaweicloud.com, willy@infradead.org,
+	vincent.chen@sifive.com, guoren@kernel.org, samitolvanen@google.com,
+	songshuaishuai@tinylab.org, gerg@kernel.org, heiko@sntech.de,
+	bhe@redhat.com, jeeheng.sia@starfivetech.com, cyy@cyyself.name,
+	maskray@google.com, ancientmodern4@gmail.com,
+	mathis.salmen@matsal.de, cuiyunhui@bytedance.com,
+	bgray@linux.ibm.com, mpe@ellerman.id.au, baruch@tkos.co.il,
+	alx@kernel.org, david@redhat.com, catalin.marinas@arm.com,
+	revest@chromium.org, josh@joshtriplett.org, shr@devkernel.io,
+	deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
+	jhubbard@nvidia.com
+Subject: Re: [PATCH v3 02/29] riscv: define default value for envcfg for task
+Message-ID: <Zj6gwFvj2gA04NJq@ghost>
+References: <20240403234054.2020347-1-debug@rivosinc.com>
+ <20240403234054.2020347-3-debug@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <Zj6U7sZNNh8GQPYM@ghost>
+Content-Disposition: inline
+In-Reply-To: <20240403234054.2020347-3-debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_152628_618040_BDC4015B 
-X-CRM114-Status: GOOD (  27.08  )
+X-CRM114-CacheID: sfid-20240510_153343_709473_0C237F29 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,82 +116,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0672183765512933754=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 03, 2024 at 04:34:50PM -0700, Deepak Gupta wrote:
+> Defines a base default value for envcfg per task. By default all tasks
+> should have cache zeroing capability. Any future base capabilities that
+> apply to all tasks can be turned on same way.
+> 
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/csr.h | 2 ++
+>  arch/riscv/kernel/process.c  | 6 ++++++
+>  2 files changed, 8 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 2468c55933cd..bbd2207adb39 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -202,6 +202,8 @@
+>  #define ENVCFG_CBIE_FLUSH		_AC(0x1, UL)
+>  #define ENVCFG_CBIE_INV			_AC(0x3, UL)
+>  #define ENVCFG_FIOM			_AC(0x1, UL)
+> +/* by default all threads should be able to zero cache */
+> +#define ENVCFG_BASE			ENVCFG_CBZE
+>  
+>  /* Smstateen bits */
+>  #define SMSTATEEN0_AIA_IMSIC_SHIFT	58
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index 92922dbd5b5c..d3109557f951 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -152,6 +152,12 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
+>  	else
+>  		regs->status |= SR_UXL_64;
+>  #endif
+> +	/*
+> +	 * read current envcfg settings, AND it with base settings applicable
+> +	 * for all the tasks. Base settings should've been set up during CPU
+> +	 * bring up.
+> +	 */
+> +	current->thread_info.envcfg = csr_read(CSR_ENVCFG) & ENVCFG_BASE;
 
---===============0672183765512933754==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="HEtmufuxgphf9/yt"
-Content-Disposition: inline
+This needs to be gated on xlinuxenvcfg.
 
+- Charlie
 
---HEtmufuxgphf9/yt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, May 10, 2024 at 02:43:10PM -0700, Charlie Jenkins wrote:
-> On Fri, May 10, 2024 at 09:43:33PM +0100, Conor Dooley wrote:
-> > Hey Charlie,
-> >=20
-> > On Tue, May 07, 2024 at 06:36:28PM -0700, Charlie Jenkins wrote:
-> > > Current versions of the kernel add "v" to the march and then immeidat=
-ely
-> > > filter it out such that "v" is not passed to CFLAGS.  Instead of doing
-> > > this filtering, code blocks in the kernel that want to use vector
-> > > assembly have been changed to locally enable vector (using ".option
-> > > arch, +v").
-> >=20
-> > Other content in the series aside, since this is a change that could be
-> > made independently of the main series objectives, I figured it was worth
-> > pointing out that this is not a change without downsides: I think that
-> > it would drop support for vector with most versions of LLVM as
-> > .option arch support there is much more recent thing than it is for gcc.
-> > Off the top of my head I don't know exactly the versions involved, but
-> > it is something like LLVM-14 supports vector but only LLVM-17 and later
-> > supports .option arch.
->=20
-> Toolchain incompatibilities are always fun. It does look like .option
-> arch was introduced in LLVM-17. That would be a regression. We do use
-> .option arch for every other extension, but vector was treated special
-> when it was introduced unfortunately so maybe we have to live with the
-> weird march parsing hack.
-
-I wrote out a long message about the history of some of this, but right
-at the end I was scrolling through my chat logs with Andy and realised
-we actually did make it depend on AS_HAS_OPTION_ARCH, so it should be
-safe to do without regressing anything. I didn't notice in the diff that
-the AS_HAS_OPTION_ARCH was a movement, not an addition. Maybe Andy knows
-why, despite the dependency on the assembler having it, we didn't use it
-everywhere.
-
-
---HEtmufuxgphf9/yt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZj6fDgAKCRB4tDGHoIJi
-0lfQAQD3cQ2CGBi7hXtxX18Wz1zL4peotma/GipMZCf24Lst1wD+Pe1HhV+6Rivu
-m6xh9DDrjmnxYPbvbcSjixAM7a5evwc=
-=FWXT
------END PGP SIGNATURE-----
-
---HEtmufuxgphf9/yt--
-
-
---===============0672183765512933754==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>  }
+>  
+>  void flush_thread(void)
+> -- 
+> 2.43.2
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0672183765512933754==--
-
