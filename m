@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 161FBC25B74
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 21:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A496C25B10
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 21:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e19UT19EvuF3aPJh8GCrkGrmlENR0y3MQBSNSltq/PU=; b=yeonNjfksE7+A4RxGb5NDpZbZs
-	oQAQFxPmanFxmOyAZlXPhn+h+VtfFWDFz6GDo68qNx3eVxonALePPlo8IPY7Oy4Urk9tNuK27Cyv7
-	Sd2mhin1psW7YivgORMFqrvt4IRT6hF4zAV9C7PeVTanU0KfA1E16yuwxAyXw4i8sIo9EVpsUBzFA
-	fBT8kK6gr2KQZUIk6eiP8smmauKTl2lJsW2oCbBVwOUDslWLTWU/4ULPDmFSfftzsnb4qiPZFNwUL
-	n7AeK33h16oATqme7ZXERjIxJ0Kz43Se6jzs5hS0mTYdhDbyuk/TjjT3zkf8NK4Az2uW8+VRdvY3f
-	UjHzbYWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Y9jvXCP7GTsel1ImotBl2CCm1adUMC9ZAE7EmPlM8Ts=; b=PzNUADsZJCczrC
+	/hpKvVXlTclkmxzd0WaLZ1t5QBLspj9blygmn31EKHW/ZUvXWB8ooI0zwTXPMPxOefauufu+YGPB8
+	IHZkY3lOosRTsbeSAcQRsg9npVOSs4uOX05cKsFtBagUc50H1nfDsBfyiGkxT/G3vTP7d50Pe24Pm
+	aDNsU7KEAjlid5kWlc4Mfo6Gosq5sO9K+MtG+zcUkJTfOpZSQ2x7wms7U7NBdKBAML4M0gDXSXNrs
+	ZJU1cD/hfEaxQPJITD2PXZsmGbF3X2vGfgS8QXimqAErYW0mxiyUatmek/tsF+5MS4LJDE+cM8mPd
+	eCwl1EWhyAuxyR7czvnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5Xqw-00000006XSz-2YSW;
-	Fri, 10 May 2024 21:32:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s5Y1P-00000006ZGy-1zHa;
+	Fri, 10 May 2024 21:43:19 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5Xqt-00000006XRu-0XmT;
-	Fri, 10 May 2024 21:32:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0FE4A61ED0;
-	Fri, 10 May 2024 21:32:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4010FC2BD11;
-	Fri, 10 May 2024 21:32:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715376745;
-	bh=HaAF5YLZNnHFDlTcRRRh1aLznDIBDt54LRmZro1kBkY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PW0loYjBa6QcXh8gmikKKdFQ+JniYLnMAwVmZvGkjTJ0rDFzoJZbvYtI56baJyF+I
-	 gc2m1x1XG5f/Df6pBje4TguN/vGK8UrmL+3rV64DotR+AG/+iwJMfgQx78wYWNpv6X
-	 kb1gvVD0w4RjMFvfoE1zDAPMNGRkLXkcCJ6AcvZPHLmFJkW5zLMyZoTpIuQOf++BXu
-	 5cqXNmgNIDj8OhwCxbZDyuQ34sZWdpai2kLZHn/qPXBqevODaevVM4e+5E8A8fWiYw
-	 7ZqOFAvSOJLpZR1pveFlSDZhpQyySDjVqIbFXdbrunnUNYO+a9bnZBV0h32zvviK8d
-	 T/Or0mgVLdhXQ==
-Date: Fri, 10 May 2024 22:32:19 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1s5Y1M-00000006ZGL-3CVe
+	for linux-riscv@lists.infradead.org;
+	Fri, 10 May 2024 21:43:18 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-613a6bb2947so2020337a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 10 May 2024 14:43:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715377393; x=1715982193; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=znZGy/yRb95OVSydA0Olf96JQhjDXvAUrAWe45/YUwk=;
+        b=X7yY2E0ZkTxEIQaEQe8yWezNa/48qFDiANvX0nslCLtXlaoDbQFh4zMUBII9M5aW+n
+         whJH0s5aqa7yhJpEYSJkYGjOCwCtltQTRfLfZE8Ss8MtY7R2kNdWbY7UACn88sH+LdEl
+         b97aoTVrtnGQ4eCzFHzLyGF4rnp1/TwYC8ohNDdopCcgHaazFaIcPd02xgu6xMqTKc8L
+         Ngt8kvA7S2uB2Kif5iq8xAYXjM+ecczCzHGwcL7BzKbDFxHt9kDP77i58hYSNwNFkW0u
+         V3bt5IvvGX/xY0DTDoUDuSPNWG4fJyUTy7sbCW76uNWH6zHk4WrURKZD2PUxMekTAo2J
+         fzfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1715377393; x=1715982193;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=znZGy/yRb95OVSydA0Olf96JQhjDXvAUrAWe45/YUwk=;
+        b=PkAgCiV/viwwHF0chk3iHHJwcQ6LAP5hQvzbH7VVO1fqyGOdrAY3nUk66sbLHuWrmu
+         HmwNQehJ9vo/ooZVq82KzlY63S2xXm/2LVRwGx7x3/YCQGCFoZ0xP/JPS4fHVvZWIrss
+         QhK2dxIuAqZIM6xdWnvAcxF7DdMyDHSGJ/fRzd2Heg3a7ZM6Tkxt+IIppQze4aiXHOos
+         a7nDsqIlo5QYRNroHhM7fyHyHTkn5vu7dv9wYUU6I//Jgb9T7DesR/xymO2lKamqV0sN
+         9pMVcZbnzaPiS4WTKEV27tz+AJ1r3nuRAu2sMeifaYtFXpNdwLWNUro73tJW9Gg4+LlP
+         1TSw==
+X-Forwarded-Encrypted: i=1; AJvYcCW6+++hlSABpTkQ6EDbbo545mY0CsNz3uiclUYsjsUcOTIdGBEA0n3OvGvT5dkQIB7dX3oaPXDhfINV5J2Xn6NTqbohBxBE52hS8N9dgPVn
+X-Gm-Message-State: AOJu0Yy7SW/r1EwDDWyYd9ak0WrmsJlI/wMMBqMKdBGIXWhSEWIdyT/p
+	TK5k3F6SfoApPAP4QcsG8YBavqIUs52M46zhdI3VZ0yt23z59BWzHD8Jk5mviBw=
+X-Google-Smtp-Source: AGHT+IEtWLoTUTyK9dq4C93jgusnhYvSA4MYBGRO8UJYdGlNtOkcUj+f4EOdfFkiYl3CVVhOT2FWPA==
+X-Received: by 2002:a05:6a20:2595:b0:1af:a4f7:cba1 with SMTP id adf61e73a8af0-1afde10ae6bmr4824878637.31.1715377393467;
+        Fri, 10 May 2024 14:43:13 -0700 (PDT)
+Received: from ghost ([2601:647:5700:6860:629e:3f2:f321:6c])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-6f4d2af2ab5sm3386387b3a.155.2024.05.10.14.43.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 May 2024 14:43:12 -0700 (PDT)
+Date: Fri, 10 May 2024 14:43:10 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Evan Green <evan@rivosinc.com>,
+	Song Liu <song@kernel.org>, Xi Wang <xi.wang@gmail.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
 	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v6 06/17] riscv: Add vendor extensions to /proc/cpuinfo
-Message-ID: <20240510-unexposed-desecrate-e30674d4530b@spud>
-References: <20240503-dev-charlie-support_thead_vector_6_9-v6-0-cb7624e65d82@rivosinc.com>
- <20240503-dev-charlie-support_thead_vector_6_9-v6-6-cb7624e65d82@rivosinc.com>
- <20240507-divisive-swoop-c2737a2d9a9f@spud>
- <20240510-childcare-outlook-d18e3cc5ccb3@spud>
- <Zj6QxisrBZSWq7ax@ghost>
+	Jessica Clarke <jrtc27@jrtc27.com>,
+	Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/8] riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_V
+ Kconfig option
+Message-ID: <Zj6U7sZNNh8GQPYM@ghost>
+References: <20240507-compile_kernel_with_extensions-v2-0-722c21c328c6@rivosinc.com>
+ <20240507-compile_kernel_with_extensions-v2-2-722c21c328c6@rivosinc.com>
+ <20240510-earthly-regress-7a8c8dba55db@spud>
 MIME-Version: 1.0
-In-Reply-To: <Zj6QxisrBZSWq7ax@ghost>
+Content-Disposition: inline
+In-Reply-To: <20240510-earthly-regress-7a8c8dba55db@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_143227_277658_A660340C 
-X-CRM114-Status: GOOD (  24.89  )
+X-CRM114-CacheID: sfid-20240510_144316_925718_AA581F46 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,100 +98,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5399179359574608460=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 10, 2024 at 09:43:33PM +0100, Conor Dooley wrote:
+> Hey Charlie,
+> 
+> On Tue, May 07, 2024 at 06:36:28PM -0700, Charlie Jenkins wrote:
+> > Current versions of the kernel add "v" to the march and then immeidately
+> > filter it out such that "v" is not passed to CFLAGS.  Instead of doing
+> > this filtering, code blocks in the kernel that want to use vector
+> > assembly have been changed to locally enable vector (using ".option
+> > arch, +v").
+> 
+> Other content in the series aside, since this is a change that could be
+> made independently of the main series objectives, I figured it was worth
+> pointing out that this is not a change without downsides: I think that
+> it would drop support for vector with most versions of LLVM as
+> .option arch support there is much more recent thing than it is for gcc.
+> Off the top of my head I don't know exactly the versions involved, but
+> it is something like LLVM-14 supports vector but only LLVM-17 and later
+> supports .option arch.
 
---===============5399179359574608460==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="a4gruBJ406lMx+Li"
-Content-Disposition: inline
+Toolchain incompatibilities are always fun. It does look like .option
+arch was introduced in LLVM-17. That would be a regression. We do use
+.option arch for every other extension, but vector was treated special
+when it was introduced unfortunately so maybe we have to live with the
+weird march parsing hack.
 
+- Charlie
 
---a4gruBJ406lMx+Li
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, May 10, 2024 at 02:25:26PM -0700, Charlie Jenkins wrote:
-> On Fri, May 10, 2024 at 09:50:32PM +0100, Conor Dooley wrote:
-> > On Tue, May 07, 2024 at 06:03:19PM +0100, Conor Dooley wrote:
-> > > On Fri, May 03, 2024 at 11:18:21AM -0700, Charlie Jenkins wrote:
-> > > > All of the supported vendor extensions that have been listed in
-> > > > riscv_isa_vendor_ext_list can be exported through /proc/cpuinfo.
-> > > >=20
-> > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > >=20
-> > > This seems fine, thanks for updating this interface :)
-> > >=20
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > Hmm, actually the automation on patchwork is complaining a bunch about
-> > the series, but I think that's mostly false positives except for this
-> > patch. The nommu defconfigs are prob the easiest way to reproduce this:
-> >   /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:41:55: er=
-ror: 'struct riscv_isa_vendor_ext_data_list' has no member named 'vendor_bi=
-tmap'
-> >   /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:42:60: er=
-ror: 'struct riscv_isa_vendor_ext_data_list' has no member named 'per_hart_=
-vendor_bitmap'; did you mean 'per_hart_isa_bitmap'?
-> >   /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:43:60: er=
-ror: 'struct riscv_isa_vendor_ext_data_list' has no member named 'bitmap_si=
-ze'
-> >=20
-> > Cheers,
-> > Conor.
->=20
-> The false negatives always throw me off.
-
-Aye, it's pretty frustrating for me trying to report anything. Any time
-a bunch of headers change produces a bunch of file rebuilds and
-therefore warnings. That should in theory be caught by the fact that we
-apply the patch & build, jump back to HEAD~1, build that & grab the
-"before" warning state and then jump forward, rebuild the patch and
-gather the "after" state. The idea is that that is an apples:apples
-comparison as the same files will need to be rebuilt for both but it is
-falling over somewhere. Maybe I'll have time to look into that soonTM.
-
-> The errors are also offset by
-> one patch.
-
-Ye, that's my bad I think. In a rush off to another patch before the
-thought I had on it left my brain and just pressed reply on the wrong
-email. Sorry bout that :)
-
-> This was actually introduced in the following patch "riscv:
-> Introduce vendor variants of extension helpers" because I accidentally
-> fixed this issue in the patch "riscv: cpufeature: Extract common
-> elements from extension checking" instead of the one it was introduced
-> in.
+> 
+> Thanks,
+> Conor.
 
 
---a4gruBJ406lMx+Li
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZj6SYwAKCRB4tDGHoIJi
-0qSAAP9DtyG6cFxATpySce/LDWJjuSKIYinHHmeKGVGjDvqZkAEAkXi4b5NHBscV
-XEmApTynzq59bPinnFytkPxtGEnfKAw=
-=Z9vu
------END PGP SIGNATURE-----
-
---a4gruBJ406lMx+Li--
-
-
---===============5399179359574608460==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5399179359574608460==--
-
