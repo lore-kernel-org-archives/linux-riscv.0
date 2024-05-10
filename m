@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD87DC25B10
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 17:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A663C25B74
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 17:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xr4EzYgDolywlXbUabWSAI+5KAHJwS1YtHq2efLx+rs=; b=BSylcugL3L7xlR
-	H2hiY81w3mURhC5escS/OX6NNmGS2Crn/7zrqK+ciaFEYwSelbWs54weSpBaHrnljvNtlKUCzarTo
-	YQSePouGkeOKhkMgxa0z3lH9gDa8QjW8dLTtJwPaGnqnejfLTmG1mff5mgy9R689jJFLzKPqOZuZN
-	0z1xFGNg+OlEoOcv+KcoiQ+H6QyoXXsghqzCvSwlUGycso0tbHcm8TP10uI1fCYG5td6TKkfxFSGF
-	wFt+R6DSOUr5aMwu5T2Ey0RcPJVcW/RYaSEjksmTlwULDKf+WuZtgk30ZeT7Sc2vwE0mxPi2hySr4
-	cYFMGc7Dw7v5JiJ2W4aw==;
+	List-Owner; bh=hFVhheMZRjkiXOEZFFBYLKfzeVRp+cX6atICaDYqUFE=; b=R1/LKvXcYyGeuI
+	WsNALEKv9oLhS8ZiiMMgGef6u645C7SjaeDaaPiipD1Igjwl1lPBaHcTuQu9YpIlo4X2cGW7S2US/
+	hwS6zfELv3iTBHP9z+FomCI1lrH43e3vF0C6hwfKuyUyClDnv8645zesKKsyyM6pUlhk2JftE/5ev
+	UvLsscfbcDSsH1PT4JpnWOWxObD4jobYG68iiZMRUQWQwv2+KEBiK0zMmfkm/wEIRZxTZQduk9eaV
+	5hWCpTCneXaT6kvE2QtZUZxsncDFQThIDuPZRyCKQ/11IhQRB0cwHoiTtrT7zWxioiEi1KwupaCUv
+	3hZ0CYXWa0Bkimaj5gmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5UIf-000000062sM-0I3V;
-	Fri, 10 May 2024 17:44:53 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1s5UIt-000000062xk-0qid;
+	Fri, 10 May 2024 17:45:07 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5UIc-000000062rH-35dk
+	id 1s5UIq-000000062vu-2F36
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 May 2024 17:44:52 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2b273cbbdfdso1866054a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 10 May 2024 10:44:47 -0700 (PDT)
+	Fri, 10 May 2024 17:45:06 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6f44dd41a5cso2345796b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 10 May 2024 10:45:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1715363087; x=1715967887; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1715363103; x=1715967903; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=L57+zK9MzVoCupg09U6DhX9rKCFQrUW4lM5mF0fCgNY=;
-        b=VV+dM9Gw20pNq4/e8F5VGR2klxtuN7ADPb1Lg+Hc9tXlz29fXQoUJYqxq6Xj4yyeyT
-         K+g+kAIAxHgcDYNjR4IODcR0QP9N3r7NhhI3s2UND8xlXRyEz9onkvvz7a81fyhA2b4P
-         ZcWEr5gBpOthjhgwgeuu5ge5BfQpOtiNg9rQE=
+        bh=RH25751FQUD9IraRYi3Ng4hTjnmqYgAtJrim8UnR4Lw=;
+        b=EJicJ+WFK+KsAZYkdL8ME6PRg3mvnbIM6zfA4wnzB3IwUIK3SArjDZYSKMqsnigOIH
+         4FlWEAfQLGWYVMh7IHOBGkhX1PETmv13OcXJEyIowwx/8muRb18btmwhTwbsgznBJjv2
+         q4M1jL2JhNyq/xfpEE/v24nridqKgLvAPNmsE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715363087; x=1715967887;
+        d=1e100.net; s=20230601; t=1715363103; x=1715967903;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=L57+zK9MzVoCupg09U6DhX9rKCFQrUW4lM5mF0fCgNY=;
-        b=EZ1KxUASVF+KZJ0tIiA/d4y9OpzmcRzSYYEETvssAWcuTru9gWIE/sAYNMPobbjpsJ
-         D5deWU90/gh85EMKUYSs/iLv48Q/4jn91YhIEujE82IxoI6GTlLL6ox989/ME0ZL/ej0
-         uvOWHG5UkzmhUYd4Laq4UET0BvbPP3fSRCZZDx0/x0Qa16TX/dXHIPrVUAivGoTJXtdV
-         lWs+vqk8T4g+Iau8YJwP6edrLGXadm7NqgEleLNzhRQrfqqhHrsi780RyFW+xWQZPLhI
-         lOP202MFcjd0E2uotrNamw/mJAxrIedCLRFKUvIoxlsMwI0vehSXYtaT6fgtErle8J0K
-         wbAA==
-X-Forwarded-Encrypted: i=1; AJvYcCXApA0PFQ2O4pcuh0FLsp/l8uxnto23DH5GPfrqeZC+bPyC/3qNQMzbgVD/MHueqkGCZdFo6Y9kq/ojSNSjxaOrzrQ8USTs2rwA/lKvUxky
-X-Gm-Message-State: AOJu0YwfYCKpEJBuPR39FUEPM4TF+s1E4IgXBbn8Q/6VdABGaZwzQy6Z
-	HHCXeUDCE+H3ib8w9ZnGFvhiNY9SXaDldZ4ORvl1HU2VgExcnlVTnc4MnR36nQ==
-X-Google-Smtp-Source: AGHT+IES457OerJ6E+sjpYxMiTqrSeTP8IOKWgMKTpX1LuCp+KnQ+g1iaESf6bNjK6mubIK/EdZwFw==
-X-Received: by 2002:a17:90b:46c4:b0:2b1:817d:982b with SMTP id 98e67ed59e1d1-2b6cc777f3cmr3358191a91.14.1715363086792;
-        Fri, 10 May 2024 10:44:46 -0700 (PDT)
+        bh=RH25751FQUD9IraRYi3Ng4hTjnmqYgAtJrim8UnR4Lw=;
+        b=Ks+KgLVgivdPmDThQes+NahQHzvxb67ov8n9X1wmvML/yxY6JWRtEvW8BmgRuLK9Z3
+         Gegna04CkIh6cl2t1erwLc+ZVymYTW25J/VpF5JLR869CeJROwUVjh09lIByjY0Kbu+H
+         2TtKNXaEwoJfDzXustGAswg5BzEGe8i4nz5jxDAN2g/KS5i9dOq1oors+/AUch0OOqjR
+         vxEqjUe+R4jUwWdSLRGWYiuVNgtDbXCxiQew+Z2WceTuhpVxFUBpLk89RZ6KRxzcrvgH
+         i7TmrFOWxOMj/xGpkgUCIBXPffaKO9CVqtHWxclnek4ltxdidEOz56rvdG4LRluei3u+
+         OwFg==
+X-Forwarded-Encrypted: i=1; AJvYcCWfBJeshXPBkhJwc4S6e7eyRsniU3L43vURHfwPL2+jPThydWr1pASBM8S6+mQ/MV8ov2bpUERfH31tfkX3dwiQvhK6Wa2+MBzL8n8wOLCN
+X-Gm-Message-State: AOJu0YyzFvTA0ObZnR+ntqxUVPFcy0UxoSZfTJuN7pOq5fuuUz3OLjbQ
+	q6ClyhMMO00JsUxKzJtZd+weVWGNsT9xHqf0D6Euu2CjvbZ/7r7OPyXVPLuOvQ==
+X-Google-Smtp-Source: AGHT+IGGFWmKinmr/BozpgZxQxrIJHVGNpMfgrtBUBSomrJR7j5qbTiNJokxk2pPxp48vFhrBfY0LA==
+X-Received: by 2002:a05:6a21:3405:b0:1a8:e79a:2b0a with SMTP id adf61e73a8af0-1afddf036eemr3785881637.0.1715363103156;
+        Fri, 10 May 2024 10:45:03 -0700 (PDT)
 Received: from www.outflux.net ([198.0.35.241])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2b628ca53cesm5360572a91.44.2024.05.10.10.44.45
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-6341134706asm2937275a12.86.2024.05.10.10.45.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 May 2024 10:44:45 -0700 (PDT)
-Date: Fri, 10 May 2024 10:44:44 -0700
+        Fri, 10 May 2024 10:45:02 -0700 (PDT)
+Date: Fri, 10 May 2024 10:45:02 -0700
 From: Kees Cook <keescook@chromium.org>
 To: Edward Liaw <edliaw@google.com>
 Cc: shuah@kernel.org, =?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
@@ -75,21 +75,23 @@ Cc: shuah@kernel.org, =?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Jesper Dangaard Brouer <hawk@kernel.org>,
 	John Fastabend <john.fastabend@gmail.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	kernel-team@android.com, linux-security-module@vger.kernel.org,
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
-	bpf@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH v4 13/66] selftests/exec: Drop duplicate -D_GNU_SOURCE
-Message-ID: <202405101044.5D2742EC@keescook>
+	Andy Lutomirski <luto@amacapital.net>,
+	Will Drewry <wad@chromium.org>, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, kernel-team@android.com,
+	linux-security-module@vger.kernel.org, netdev@vger.kernel.org,
+	linux-riscv@lists.infradead.org, bpf@vger.kernel.org,
+	John Hubbard <jhubbard@nvidia.com>,
+	Muhammad Usama Anjum <usama.anjum@collabora.com>
+Subject: Re: [PATCH v4 55/66] selftests/seccomp: Drop define _GNU_SOURCE
+Message-ID: <202405101044.DB260BB@keescook>
 References: <20240510000842.410729-1-edliaw@google.com>
- <20240510000842.410729-14-edliaw@google.com>
+ <20240510000842.410729-56-edliaw@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240510000842.410729-14-edliaw@google.com>
+In-Reply-To: <20240510000842.410729-56-edliaw@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_104450_800443_D9BB9473 
-X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-CacheID: sfid-20240510_104504_598162_B3292A8A 
+X-CRM114-Status: UNSURE (   8.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,12 +109,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 10, 2024 at 12:06:30AM +0000, Edward Liaw wrote:
-> -D_GNU_SOURCE can be de-duplicated here, as it is added by lib.mk.
+On Fri, May 10, 2024 at 12:07:12AM +0000, Edward Liaw wrote:
+> _GNU_SOURCE is provided by lib.mk, so it should be dropped to prevent
+> redefinition warnings.
 > 
+> Reviewed-by: John Hubbard <jhubbard@nvidia.com>
+> Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
 > Signed-off-by: Edward Liaw <edliaw@google.com>
-
-Thanks!
 
 Acked-by: Kees Cook <keescook@chromium.org>
 
