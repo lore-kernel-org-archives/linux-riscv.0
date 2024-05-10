@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AAAAC25B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 00:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1CB6C25B74
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 00:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=HWz1qDbURFcE6pF+Hn/b6id76pndePPxi4pD9wAtmJc=; b=a6wrxhMZWpC83/p6+dWtdFc0l7
-	q9G3yraY7OkaxaF724sT0YTol1SIlRP9fAoTUU8eI0Qpkf2JUkqFiIhUMMyGNKvdxNa1KmsBUNTjL
-	b6HiJqDhAW8086g60SWJ2eUXvsrSxDKo20lI9kEp4BAfWszKIzAhpRgrLadRemBB1UHPVohzyxb7B
-	jgHwTTY77BIILCw3qZRtWgGF0Nstuzs/ENolDcDOMqJ6Psbtks78DrzgSJ7C8yvl3tKs2sQDNOWre
-	OkhekjqOPCawdZqbK00Be501+zU6Qr3u2mnTQh/0sb72oD980UlRyqQPornDrMh8KTyLMPK5dKF/f
-	da1ArYpA==;
+	bh=MLeG81tsL9m/3y425cenFbrf6HJkkQf94rvj6gpto0c=; b=rehhw3CUgB8RXrWe32ZV/U0XHq
+	ZVmmI50gbAbLW4SixqLE0NUw4h9Jfm3mt9b5bFGc9qxl+mVfJvU14fOaBKopsl7b+efq9GQ2sqGJ9
+	Jjv5vqTfCNIEIJwGX1424RHqDqnkyGmRhuBkWwGY86iUNQZGPxqa3RyQL/FpA43CYT7i6GUyJZYaZ
+	1NKyoAU5SEJaUSEevy2S4C5nMOXQSNkOZ6xznCbBRGPNLiRTqr0IkERjvhjzTt3mZ6NfZcmgefq83
+	OliKzoLm0hlZc/SRjdStndO8cjrYUV4gEnwolOBg75el0wAq+6YXI/oL0OU3QzpM3U2jCrNoYKSc3
+	/Refjz0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5DsU-00000003P1h-16jC;
-	Fri, 10 May 2024 00:12:46 +0000
-Received: from mail-yb1-f201.google.com ([209.85.219.201])
+	id 1s5DsX-00000003P4D-2EAg;
+	Fri, 10 May 2024 00:12:49 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5Dr9-00000003O2Z-3inf
+	id 1s5DrD-00000003O68-0xQS
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 May 2024 00:11:41 +0000
-Received: by mail-yb1-f201.google.com with SMTP id 3f1490d57ef6-dc6b26783b4so2009010276.0
-        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 17:11:20 -0700 (PDT)
+	Fri, 10 May 2024 00:11:46 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2b6209f5246so1427809a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 17:11:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1715299879; x=1715904679; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1715299884; x=1715904684; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZsiI/uc5MiF5hVrzWysDwKaH6OKN5b01GtVR6T+4Ou8=;
-        b=ZrGJKdXBMCjt8fK7/9B2EYUHwJkHC7DxFe5ko6l6oy+CSaqDNFu+W/5odkGRqAFd2q
-         7Tok1AHa6YH4JB2AcJvzABjJwL7ukhvJbKBYwraN8FRQ1ypTTIhMMTiVh24RjdbuGJGr
-         7BZGtLHY9djkJUJWXks06Zwrz9EfLCLwoQuJzNECEnWW7vn5ZRpYxOpEdHg195fxXzpX
-         j1r718EVEhFJl+BczQVh3JBnLt2jnHk6tU+eyNuJExbkyM11k0By0qFa92d/PeHdS9j4
-         tZqtam6dAW/Il1sgu0fgdA7EWHVkS/C1Z86U+YIf3cdBk91W3v/njHbu2PJRO/lRqfBD
-         +UtA==
+        bh=Hhc5ZT51Bf+X0xh3itiryFkYQiK1VIkMBG+josVXNL0=;
+        b=fcjCJ1AioY7FfBg/w+dhUa2/a4SrDP3P4dJb4e7Px6M3D8ec3fEzjcmEfaF4Zowm7V
+         BBUEjFL7SSwn1Ka2eimGqgNCcL7W1HFN5eDxcz249jTVzhqHuY4PFTVQZhmRzVI1z2Lp
+         8wWh7ScDlIzkfhB3iC5NE9kLjyIv2EG9r40zwSdUU2I4pg8N4eAUMxHOfslXJ1upBpLk
+         hGKrgNa/InEqj3zLKRG3Fuyh1N20sBg8Pk3r11v78KTH6Xjm7cC4qKMDiO3c9E0Q8Ax6
+         85LZ6ulgnE0b6KbtvA6Ao+e0xsu8bxTPLzWV7IGoh0O/PhG60YKgI9aZ28uyUcrRQp1I
+         3W3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715299879; x=1715904679;
+        d=1e100.net; s=20230601; t=1715299884; x=1715904684;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZsiI/uc5MiF5hVrzWysDwKaH6OKN5b01GtVR6T+4Ou8=;
-        b=dPLF/7UC8Mb5jKyyUhVaS6wQbzN5tVLq2Oltg7tLgxxVOmjJbngdYSrR473YwVYjK3
-         srP4rx1WOvKwsfGZTZlpEQjqfvX3r8qnv/UkAe+lNFH3FGxnLNPB7lcg20UtDxo6TYYU
-         8e86aRN+H5XtyM3+TDm4u2f6FbHiPRhLNBndKGCPMgNBvdd05ZI1XnLIxMAhVkpq0v/d
-         VTBYsCwlF4jjNBhZ2O2zuMxXg9AGYmwuWHOlDD31X8VAgdpnPJEzLA+OIsm5LGsfpdFm
-         aH8T44OLQZIs+S43nNLn57hSffzAzA5Lsjjp32kCCCVhMSBfJt54iIXLfA+k/X51ueBL
-         cGgw==
-X-Forwarded-Encrypted: i=1; AJvYcCWAZn7dlVkhJ4zo3oZChAn2dlTNttzb9U4BmdB1oE0B4/9iYxLStYzh+dFSvTsyT46GS1Yq/A7pa9RCAPmD5QZsdi2zNE7lSi6+8hAnrB5G
-X-Gm-Message-State: AOJu0Yz79htT5uNaDaXAbB6RQB/zMUFhumMd4FB94VsZpCC3sjUFfHdN
-	z4LwlObenOLizNmVn+n8mjoWhVQL/RVzO0cDpQ0d1B7CNU9zVmx9smdhXTDR3vF3AMf90LacwFh
-	ULQ==
-X-Google-Smtp-Source: AGHT+IE5lK4O5tKmIABh+/0fZfzUGpesvK3r0yQsigzHVYkbLRrBgnWaOZUctD25gmyF5UaK8CUOK4LhdqQ=
+        bh=Hhc5ZT51Bf+X0xh3itiryFkYQiK1VIkMBG+josVXNL0=;
+        b=iVKWwTqaFE72Mq4iM3VtVZ96oAjSpnryVxjHkUu7GTOQqv9iGmFtwMZOsVps4Kyrte
+         T6JGDdhsfXvbG2oCvkWcC54nTeX4/lWn4WelGDjUXsAzF4q9qsdFDrvr9WcOfyulkACW
+         wy6XA1ml5ItIyE1Qr7s7A/zilly4N3QFaMnxWwGG3KdzheoIaaa5oWwn4p1iB+lrrxur
+         t7+ypB12AxDC6YzE0R0Fc1y/jd8E6CzOFLQDG9F0wnQGBA/uZI/kOWL/kWg4ZqDsCSlQ
+         G+3wONpBgRvjpPQGNaRp+TQjSmgkK5Qj1LqUBfE/wOYuz0FmLy0PFE+i5+CeW3qXPeUr
+         PPEw==
+X-Forwarded-Encrypted: i=1; AJvYcCWIBGYgONZJiEpyfEdGbp2AbP09Dev3sdnx+VqV7+gQ0Bxt0C8Z7c/H6R72WsGyZbcf9NHMDyGlrZbJbCqtqVbEmCbUOHJrIHUSDXfX4tzx
+X-Gm-Message-State: AOJu0YyfSznHAIO8wad6+MBcN4fur7YavuGL/0T0Rh8tU4iyXUzt6nIV
+	4nlcLef2ic1EZyusgwnK5zdV0daNFu+pgqtmFodvN+5+72y8twytJKhP2nG5QZ9L6Hc4ezmWTwA
+	j4A==
+X-Google-Smtp-Source: AGHT+IEeA3HoMtx0riBcurUZp19Bisk3YOU2mcitL9911KMtdK5oYFtWJ3cEeUHag98MrRliuC7lKihL3M8=
 X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a25:a1e3:0:b0:dda:d7cf:5c2c with SMTP id
- 3f1490d57ef6-dee4f365eb8mr105581276.13.1715299878998; Thu, 09 May 2024
- 17:11:18 -0700 (PDT)
-Date: Fri, 10 May 2024 00:07:02 +0000
+ (user=edliaw job=sendgmr) by 2002:a17:90a:c7d1:b0:2b6:c70e:d3b6 with SMTP id
+ 98e67ed59e1d1-2b6cc44fa2fmr2940a91.2.1715299883775; Thu, 09 May 2024 17:11:23
+ -0700 (PDT)
+Date: Fri, 10 May 2024 00:07:04 +0000
 In-Reply-To: <20240510000842.410729-1-edliaw@google.com>
 Mime-Version: 1.0
 References: <20240510000842.410729-1-edliaw@google.com>
 X-Mailer: git-send-email 2.45.0.118.g7fe29c98d7-goog
-Message-ID: <20240510000842.410729-46-edliaw@google.com>
-Subject: [PATCH v4 45/66] selftests/proc: Drop define _GNU_SOURCE
+Message-ID: <20240510000842.410729-48-edliaw@google.com>
+Subject: [PATCH v4 47/66] selftests/ptp: Drop define _GNU_SOURCE
 From: Edward Liaw <edliaw@google.com>
 To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
 	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
@@ -79,11 +79,10 @@ To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>
 Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
 	kernel-team@android.com, Edward Liaw <edliaw@google.com>, 
 	linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org
+	linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_171124_078656_2D6EB534 
-X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-CacheID: sfid-20240509_171127_713485_D7D53D1A 
+X-CRM114-Status: UNSURE (   9.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,23 +105,21 @@ redefinition warnings.
 
 Signed-off-by: Edward Liaw <edliaw@google.com>
 ---
- tools/testing/selftests/proc/proc-empty-vm.c | 3 ---
- 1 file changed, 3 deletions(-)
+ tools/testing/selftests/ptp/testptp.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/tools/testing/selftests/proc/proc-empty-vm.c b/tools/testing/selftests/proc/proc-empty-vm.c
-index 56198d4ca2bf..f92a8dce58cf 100644
---- a/tools/testing/selftests/proc/proc-empty-vm.c
-+++ b/tools/testing/selftests/proc/proc-empty-vm.c
-@@ -23,9 +23,6 @@
-  *	/proc/${pid}/smaps
-  *	/proc/${pid}/smaps_rollup
+diff --git a/tools/testing/selftests/ptp/testptp.c b/tools/testing/selftests/ptp/testptp.c
+index 011252fe238c..ea3c48b97468 100644
+--- a/tools/testing/selftests/ptp/testptp.c
++++ b/tools/testing/selftests/ptp/testptp.c
+@@ -4,7 +4,6 @@
+  *
+  * Copyright (C) 2010 OMICRON electronics GmbH
   */
--#undef _GNU_SOURCE
 -#define _GNU_SOURCE
--
- #undef NDEBUG
- #include <assert.h>
+ #define __SANE_USERSPACE_TYPES__        /* For PPC64, to get LL64 types */
  #include <errno.h>
+ #include <fcntl.h>
 -- 
 2.45.0.118.g7fe29c98d7-goog
 
