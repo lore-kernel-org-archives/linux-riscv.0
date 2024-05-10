@@ -4,40 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73427C25B5F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 12:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740A5C25B74
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 13:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5MocnDkQVfAuyMMJ3O+s0cjkXpIBttJF+veaZRD0+wY=; b=jsMOkzsy331ey9
-	gAymfv/GDO7WTmAq9RE7DacxvvlX096yG1Mahw9YXIy39Gjj5Q9BuKz/NMCoR39FvnnQzcnjrndOz
-	E0Sg8YMUnJ2iTf1B+knrnBCBTvpiWh2f3EBq+arDv66s9/JwoKXB+fE/6GX0VxRZ4eMZUtcRJIyit
-	iTcc9h+6MHS+yVBirFMCzWqcLWn1n6Okkl3fYXAI4PtatQJrcpV7ba0r0KYB1JInGTY5Ao9lXzVUE
-	KrfCU7ah9OkWnoqQM2J6LVkJS6r05bF7UeGrnWg0moPxnwOOVKoC5Ov0LKyNIs8TKLLSdZk42fb2M
-	FINo6StOGNoRHnY0vwXQ==;
+	List-Owner; bh=3NCsapV2WE5waGpR/T+4wDnkV0nTO8QfkIhtbLC2BR0=; b=hMQTf1mvRRYTUL
+	Jf8aQ3eWgGGmDEqvL8OyqhwFIKzVJoKVeu2XMz3WR0TLDv99C4HvMD/Cjs6CeAaHDXebSDdtoiZhE
+	5rceIqTZw7NYGuY43nax4BQmZC9swEMoRLgxDLm8NPpX3AhZfsJH2fmsbr3h7DjOlViG+ghSA4Yc0
+	yfep5y/46PAOv5NVvIhxt4mQRjzV3A0v9/O+1cleUGgPSNtUJSOw9kji5oGHQqVL9J11edMUYnekB
+	Ivk9Iho72cKDKTpufe9bsMqNH5FiOpcSZlP1Ysyxduj28TF99qlxVgDLEJ3T7pGO6QXrl6y0JFlcs
+	SHA8JlH2uf+DpLP/zGQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5PFB-00000005Emi-0nLP;
-	Fri, 10 May 2024 12:20:57 +0000
+	id 1s5QdU-00000005RoT-3xfI;
+	Fri, 10 May 2024 13:50:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5PF6-00000005Eli-45sK;
-	Fri, 10 May 2024 12:20:54 +0000
+	id 1s5QdO-00000005Rmc-4BXH;
+	Fri, 10 May 2024 13:50:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C921D106F;
-	Fri, 10 May 2024 05:21:15 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04CFE106F;
+	Fri, 10 May 2024 06:50:23 -0700 (PDT)
 Received: from [10.57.65.1] (unknown [10.57.65.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF89A3F6A8;
-	Fri, 10 May 2024 05:20:48 -0700 (PDT)
-Message-ID: <8aa0a606-f47c-4826-96ad-121ac1f7eb96@arm.com>
-Date: Fri, 10 May 2024 13:20:47 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02C483F641;
+	Fri, 10 May 2024 06:49:55 -0700 (PDT)
+Message-ID: <6d37f914-d139-48ea-be63-c428ac767cc1@arm.com>
+Date: Fri, 10 May 2024 14:49:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v2 1/9] riscv: Restore the pfn in a NAPOT pte when
- manipulated by core mm code
+Subject: Re: [PATCH RESEND v2 0/9] Merge arm64/riscv hugetlbfs contpte support
 Content-Language: en-GB
 To: Alexandre Ghiti <alexghiti@rivosinc.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -48,12 +47,11 @@ To: Alexandre Ghiti <alexghiti@rivosinc.com>,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-mm@kvack.org
 References: <20240508113419.18620-1-alexghiti@rivosinc.com>
- <20240508113419.18620-2-alexghiti@rivosinc.com>
 From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20240508113419.18620-2-alexghiti@rivosinc.com>
+In-Reply-To: <20240508113419.18620-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_052053_164601_40E23A45 
-X-CRM114-Status: GOOD (  41.26  )
+X-CRM114-CacheID: sfid-20240510_065003_454739_C3EDCEBD 
+X-CRM114-Status: GOOD (  28.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,330 +69,91 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 08/05/2024 12:34, Alexandre Ghiti wrote:
-> The core mm code expects to be able to extract the pfn from a pte. NAPOT
-> mappings work differently since its ptes actually point to the first pfn
-> of the mapping, the other bits being used to encode the size of the
-> mapping.
+> This patchset intends to merge the contiguous ptes hugetlbfs implementation
+> of arm64 and riscv.
 > 
-> So modify ptep_get() so that it returns a pte value that contains the
-> *real* pfn (which is then different from what the HW expects) and right
-> before storing the ptes to the page table, reset the pfn LSBs to the
-> size of the mapping.
+> Both arm64 and riscv support the use of contiguous ptes to map pages that
+> are larger than the default page table size, respectively called contpte
+> and svnapot.
+> 
+> The riscv implementation differs from the arm64's in that the LSBs of the
+> pfn of a svnapot pte are used to store the size of the mapping, allowing
+> for future sizes to be added (for now only 64KB is supported). That's an
+> issue for the core mm code which expects to find the *real* pfn a pte points
+> to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
+> and restores the size of the mapping when it is written to a page table.
+> 
+> The following patches are just merges of the 2 different implementations
+> that currently exist in arm64 and riscv which are very similar. It paves
+> the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
+> reimplementing the same in riscv.
 
-Did you consider leaving the pte as is and instead modifying your pte_pfn()
-implementation?
+Hi Alexandre,
 
-For arm64 at least, it is beneficial to keep the pte marked as contiguous when
-passing it up to core-mm because there are other helpers which need to parse the
-contiguous bit (e.g. pte_leaf_size()). If we were to clear the cont bit in
-ptep_get() that info would be lost and perf_get_pgtable_size() would always
-conclude the leaf size is 4K even when it is actually 64K.
+I've skimmed through this series and the one that moves contpte. I can see there
+is definitely value in sharing the implementation, and the rough shape of things
+seems appropriate. I had some minor concerns about making it harder to implement
+potential future arm64 errata workarounds but on reflection, most of the
+now-shared code is really just wrapping the primitives that are still arch-specific.
+
+I'm going to need to spend proper time reviewing it to give detailed feedback,
+but I'll be out on paternity leave for 3 weeks from end of Monday at the latest.
+So realistically I won't be able to do the detailed review until at least the
+first week of June.
+
+Some high level thoughts:
+
+ - huge_ptep_* functions could be working on different sized huge ptes - arm64
+supports contpte, pmd, contpmd and pud. Is keeping them in contpte.c
+appropriate? Perhaps it's better to keep huge_pte and contpte separate? Also, it
+only works on arm64 because we can get away with calling the lower-level pte
+functions even when the huge_pte is actually a contpmd/pmd/pud, because the
+format is the same. That might present challenges to other arches if the format
+is different?
+
+ - It might be easier to review if the arm64 stuff is first moved (without
+changes) then modified to make it suitable for riscv, then for riscv to be
+hooked up. At the moment I'm trying to follow all 3 parts per-function.
+
+Thanks,
+Ryan
+
 
 > 
-> And make sure that all NAPOT mappings are set using set_ptes().
+> This patchset was tested by running the libhugetlbfs testsuite with 64KB
+> and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
 > 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  arch/riscv/include/asm/pgtable-64.h |  11 +++
->  arch/riscv/include/asm/pgtable.h    | 105 ++++++++++++++++++++++++++--
->  arch/riscv/mm/hugetlbpage.c         |  38 +++++-----
->  3 files changed, 128 insertions(+), 26 deletions(-)
+> [1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-ryan.roberts@arm.com/
 > 
-> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> index 221a5c1ee287..9fe076fc503e 100644
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -106,6 +106,17 @@ enum napot_cont_order {
->  #define napot_cont_mask(order)	(~(napot_cont_size(order) - 1UL))
->  #define napot_pte_num(order)	BIT(order)
->  
-> +static inline bool is_napot_order(unsigned int order)
-> +{
-> +	unsigned int napot_order;
-> +
-> +	for_each_napot_order(napot_order)
-> +		if (order == napot_order)
-> +			return true;
-> +
-> +	return false;
-> +}
-> +
->  #ifdef CONFIG_RISCV_ISA_SVNAPOT
->  #define HUGE_MAX_HSTATE		(2 + (NAPOT_ORDER_MAX - NAPOT_CONT_ORDER_BASE))
->  #else
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 9f8ea0e33eb1..268c828f5152 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -297,6 +297,8 @@ static inline unsigned long pte_napot(pte_t pte)
->  	return pte_val(pte) & _PAGE_NAPOT;
->  }
->  
-> +#define pte_valid_napot(pte)	(pte_present(pte) && pte_napot(pte))
-> +
->  static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
->  {
->  	int pos = order - 1 + _PAGE_PFN_SHIFT;
-> @@ -306,6 +308,12 @@ static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
->  	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
->  }
->  
-> +/* pte at entry must *not* encode the mapping size in the pfn LSBs. */
-> +static inline pte_t pte_clear_napot(pte_t pte)
-> +{
-> +	return __pte(pte_val(pte) & ~_PAGE_NAPOT);
-> +}
-> +
->  #else
->  
->  static __always_inline bool has_svnapot(void) { return false; }
-> @@ -315,17 +323,14 @@ static inline unsigned long pte_napot(pte_t pte)
->  	return 0;
->  }
->  
-> +#define pte_valid_napot(pte)	false
-> +
->  #endif /* CONFIG_RISCV_ISA_SVNAPOT */
->  
->  /* Yields the page frame number (PFN) of a page table entry */
->  static inline unsigned long pte_pfn(pte_t pte)
->  {
-> -	unsigned long res  = __page_val_to_pfn(pte_val(pte));
-> -
-> -	if (has_svnapot() && pte_napot(pte))
-> -		res = res & (res - 1UL);
-> -
-> -	return res;
-> +	return __page_val_to_pfn(pte_val(pte));
->  }
->  
->  #define pte_page(x)     pfn_to_page(pte_pfn(x))
-> @@ -525,9 +530,91 @@ static inline void __set_pte_at(struct mm_struct *mm, pte_t *ptep, pte_t pteval)
->  
->  #define PFN_PTE_SHIFT		_PAGE_PFN_SHIFT
->  
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +static inline int arch_contpte_get_num_contig(pte_t *ptep, unsigned long size,
-> +					      size_t *pgsize)
-> +{
-> +	pte_t __pte;
-> +
-> +	/* We must read the raw value of the pte to get the size of the mapping */
-> +	__pte = READ_ONCE(*ptep);
-> +
-> +	if (pgsize) {
-> +		if (size >= PGDIR_SIZE)
-> +			*pgsize = PGDIR_SIZE;
-> +		else if (size >= P4D_SIZE)
-> +			*pgsize = P4D_SIZE;
-> +		else if (size >= PUD_SIZE)
-> +			*pgsize = PUD_SIZE;
-> +		else if (size >= PMD_SIZE)
-> +			*pgsize = PMD_SIZE;
-> +		else
-> +			*pgsize = PAGE_SIZE;
-> +	}
-> +
-> +	/* Make sure __pte is not a swap entry */
-> +	if (pte_valid_napot(__pte))
-> +		return napot_pte_num(napot_cont_order(__pte));
-> +
-> +	return 1;
-> +}
-> +#endif
-> +
-> +static inline pte_t ptep_get(pte_t *ptep)
-> +{
-> +	pte_t pte = READ_ONCE(*ptep);
-> +
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +	/*
-> +	 * The pte we load has the N bit set and the size of the mapping in
-> +	 * the pfn LSBs: keep the N bit and replace the mapping size with
-> +	 * the *real* pfn since the core mm code expects to find it there.
-> +	 * The mapping size will be reset just before being written to the
-> +	 * page table in set_ptes().
-> +	 */
-> +	if (unlikely(pte_valid_napot(pte))) {
-> +		unsigned int order = napot_cont_order(pte);
-> +		int pos = order - 1 + _PAGE_PFN_SHIFT;
-> +		unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
-> +		pte_t *orig_ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * napot_pte_num(order));
-> +
-> +		pte = __pte((pte_val(pte) & napot_mask) + ((ptep - orig_ptep) << _PAGE_PFN_SHIFT));
-> +	}
-> +#endif
-> +
-> +	return pte;
-> +}
-> +#define ptep_get	ptep_get
-> +
->  static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
->  		pte_t *ptep, pte_t pteval, unsigned int nr)
->  {
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +	if (unlikely(pte_valid_napot(pteval))) {
-> +		unsigned int order = ilog2(nr);
-> +
-> +		if (!is_napot_order(order)) {
-> +			/*
-> +			 * Something's weird, we are given a NAPOT pte but the
-> +			 * size of the mapping is not a known NAPOT mapping
-> +			 * size, so clear the NAPOT bit and map this without
-> +			 * NAPOT support: core mm only manipulates pte with the
-> +			 * real pfn so we know the pte is valid without the N
-> +			 * bit.
-> +			 */
-> +			pr_err("Incorrect NAPOT mapping, resetting.\n");
-> +			pteval = pte_clear_napot(pteval);
-> +		} else {
-> +			/*
-> +			 * NAPOT ptes that arrive here only have the N bit set
-> +			 * and their pfn does not contain the mapping size, so
-> +			 * set that here.
-> +			 */
-> +			pteval = pte_mknapot(pteval, order);
-> +		}
-> +	}
-> +#endif
-
-I think all this complexity comes along due to using this function both as a
-public interface that the core-mm uses (which never sets napot) and also using
-it as an internal interface that riscv-hugetlb uses (which does set napot)? It
-might be more understandable if you layer it into a lower level/internal API and
-a higher level/public API (similar to arm64)?
-
-> +
->  	page_table_check_ptes_set(mm, ptep, pteval, nr);
->  
->  	for (;;) {
-> @@ -535,6 +622,12 @@ static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
->  		if (--nr == 0)
->  			break;
->  		ptep++;
-> +
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +		if (unlikely(pte_valid_napot(pteval)))
-> +			continue;
-> +#endif
-> +
->  		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
->  	}
->  }
-> diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-> index 5ef2a6891158..fe8067ee71b4 100644
-> --- a/arch/riscv/mm/hugetlbpage.c
-> +++ b/arch/riscv/mm/hugetlbpage.c
-> @@ -256,8 +256,7 @@ void set_huge_pte_at(struct mm_struct *mm,
->  
->  	clear_flush(mm, addr, ptep, pgsize, pte_num);
->  
-> -	for (i = 0; i < pte_num; i++, ptep++, addr += pgsize)
-> -		set_pte_at(mm, addr, ptep, pte);
-> +	set_ptes(mm, addr, ptep, pte, pte_num);
->  }
->  
->  int huge_ptep_set_access_flags(struct vm_area_struct *vma,
-> @@ -267,16 +266,16 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->  			       int dirty)
->  {
->  	struct mm_struct *mm = vma->vm_mm;
-> -	unsigned long order;
-> +	size_t pgsize;
->  	pte_t orig_pte;
-> -	int i, pte_num;
-> +	int pte_num;
->  
->  	if (!pte_napot(pte))
->  		return ptep_set_access_flags(vma, addr, ptep, pte, dirty);
->  
-> -	order = napot_cont_order(pte);
-> -	pte_num = napot_pte_num(order);
-> -	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
-> +	pte_num = arch_contpte_get_num_contig(ptep, 0, &pgsize);
-> +	ptep = huge_pte_offset(mm, addr, pte_num * pgsize);
-> +
->  	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
->  
->  	if (pte_dirty(orig_pte))
-> @@ -285,8 +284,7 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->  	if (pte_young(orig_pte))
->  		pte = pte_mkyoung(pte);
->  
-> -	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-> -		set_pte_at(mm, addr, ptep, pte);
-> +	set_ptes(mm, addr, ptep, pte, pte_num);
->  
->  	return true;
->  }
-> @@ -301,7 +299,7 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
->  	if (!pte_napot(orig_pte))
->  		return ptep_get_and_clear(mm, addr, ptep);
->  
-> -	pte_num = napot_pte_num(napot_cont_order(orig_pte));
-> +	pte_num = arch_contpte_get_num_contig(ptep, 0, NULL);
->  
->  	return get_clear_contig(mm, addr, ptep, pte_num);
->  }
-> @@ -311,24 +309,23 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
->  			     pte_t *ptep)
->  {
->  	pte_t pte = ptep_get(ptep);
-> -	unsigned long order;
-> +	size_t pgsize;
->  	pte_t orig_pte;
-> -	int i, pte_num;
-> +	int pte_num;
->  
->  	if (!pte_napot(pte)) {
->  		ptep_set_wrprotect(mm, addr, ptep);
->  		return;
->  	}
->  
-> -	order = napot_cont_order(pte);
-> -	pte_num = napot_pte_num(order);
-> -	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
-> +	pte_num = arch_contpte_get_num_contig(ptep, 0, &pgsize);
-> +	ptep = huge_pte_offset(mm, addr, pte_num * pgsize);
-> +
->  	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
->  
->  	orig_pte = pte_wrprotect(orig_pte);
->  
-> -	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-> -		set_pte_at(mm, addr, ptep, orig_pte);
-> +	set_ptes(mm, addr, ptep, orig_pte, pte_num);
->  }
->  
->  pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
-> @@ -341,7 +338,7 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
->  	if (!pte_napot(pte))
->  		return ptep_clear_flush(vma, addr, ptep);
->  
-> -	pte_num = napot_pte_num(napot_cont_order(pte));
-> +	pte_num = arch_contpte_get_num_contig(ptep, 0, NULL);
->  
->  	return get_clear_contig_flush(vma->vm_mm, addr, ptep, pte_num);
->  }
-> @@ -351,6 +348,7 @@ void huge_pte_clear(struct mm_struct *mm,
->  		    pte_t *ptep,
->  		    unsigned long sz)
->  {
-> +	size_t pgsize;
->  	pte_t pte = ptep_get(ptep);
->  	int i, pte_num;
->  
-> @@ -359,8 +357,8 @@ void huge_pte_clear(struct mm_struct *mm,
->  		return;
->  	}
->  
-> -	pte_num = napot_pte_num(napot_cont_order(pte));
-> -	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-> +	pte_num = arch_contpte_get_num_contig(ptep, 0, &pgsize);
-> +	for (i = 0; i < pte_num; i++, addr += pgsize, ptep++)
->  		pte_clear(mm, addr, ptep);
->  }
->  
+> Changes in v2:
+>   - Rebase on top of 6.9-rc3
+> 
+> Alexandre Ghiti (9):
+>   riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
+>   riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
+>   mm: Use common huge_ptep_get() function for riscv/arm64
+>   mm: Use common set_huge_pte_at() function for riscv/arm64
+>   mm: Use common huge_pte_clear() function for riscv/arm64
+>   mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
+>   mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
+>   mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
+>   mm: Use common huge_ptep_clear_flush() function for riscv/arm64
+> 
+>  arch/arm64/Kconfig                  |   1 +
+>  arch/arm64/include/asm/pgtable.h    |  56 +++++-
+>  arch/arm64/mm/hugetlbpage.c         | 291 +---------------------------
+>  arch/riscv/Kconfig                  |   1 +
+>  arch/riscv/include/asm/hugetlb.h    |   2 +-
+>  arch/riscv/include/asm/pgtable-64.h |  11 ++
+>  arch/riscv/include/asm/pgtable.h    | 153 +++++++++++++--
+>  arch/riscv/mm/hugetlbpage.c         | 227 ----------------------
+>  arch/riscv/mm/pgtable.c             |   6 +-
+>  mm/Kconfig                          |   3 +
+>  mm/Makefile                         |   1 +
+>  mm/contpte.c                        | 272 ++++++++++++++++++++++++++
+>  12 files changed, 480 insertions(+), 544 deletions(-)
+>  create mode 100644 mm/contpte.c
+> 
 
 
 _______________________________________________
