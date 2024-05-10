@@ -4,119 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB144C25B5F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 11:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73427C25B5F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 12:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=162lzD1waV7jYU1FOsjU3M0BlrV955HlaWGjFM1xWhU=; b=mTOQLu9vxahAC4
-	kgvf4E21IF73nWFfmBlnWHxhtf3q/fqqtquGnLv/NuTzqJ8eynqVTuSHQ5iQ4zkEyEqhRYhHa7h+v
-	okRvncz13MnDWPiIl9yn/BEnh1p5cB77Ass1V8hSmPnQ6+2wcqkTeLZce/xQUsY/d7Bh1/vWmjW8w
-	tFq5RDZmAl5K8VMwipbqfOLI1rxASBHD5Wk6cEdYbW9iNHsGftTTQR8oA+OynBnohf8aS+ceIwd0U
-	b2YeJm0t0sGAzUmLsvHPRecSala5OgyI7B+96Pmz9w1A1yYTpePaNuytOkTgQEtHqMP6iblgYhGaB
-	J7eIy3eF4ZWLsG+617hA==;
+	List-Owner; bh=5MocnDkQVfAuyMMJ3O+s0cjkXpIBttJF+veaZRD0+wY=; b=jsMOkzsy331ey9
+	gAymfv/GDO7WTmAq9RE7DacxvvlX096yG1Mahw9YXIy39Gjj5Q9BuKz/NMCoR39FvnnQzcnjrndOz
+	E0Sg8YMUnJ2iTf1B+knrnBCBTvpiWh2f3EBq+arDv66s9/JwoKXB+fE/6GX0VxRZ4eMZUtcRJIyit
+	iTcc9h+6MHS+yVBirFMCzWqcLWn1n6Okkl3fYXAI4PtatQJrcpV7ba0r0KYB1JInGTY5Ao9lXzVUE
+	KrfCU7ah9OkWnoqQM2J6LVkJS6r05bF7UeGrnWg0moPxnwOOVKoC5Ov0LKyNIs8TKLLSdZk42fb2M
+	FINo6StOGNoRHnY0vwXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5OHi-000000050hf-06Ij;
-	Fri, 10 May 2024 11:19:30 +0000
-Received: from mail-bn8nam12olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c18::801] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5OHd-000000050dV-1KJ0;
-	Fri, 10 May 2024 11:19:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=eWjsxFbHyApjgLIJQSfs+qkuPr83zZ902m4+BHvtbE51K12kKS6x8KmUcVEBJf1ZEzmr01ekDc24zEsO4nNlg8I6+m848nBbR1yUNmPHxK9M8FMa9yc/Q1Ut7cOBetKUjcH1B+VZWnPFelc2BdKMsDqfuk8Cv3hSmZawMwTC4Rro0zkB0TuWlpWcUxoOFxN/6Ur1iogp2j2QESIw9G+SyKLCv+pq6b01r5koi+eNOQxVUhqKxFKoEGVGi9EQCDFIN2VSAYWEyG7uNwWENcJQt7M089sIT3aV5FB+jPwLxXAv6JMnRtmkoie80bvW9Hgv+A24GSTxY7lOjenH18Q1PA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZfWGaUcSRRWSWw05uLPcxxQ+yQsyAQNti7HMc/5AqQw=;
- b=lqIcBtEEw43kM9ZoDhgkyh9SBxYQ13vMmxtytdN8D8HZYO+TgHaW0HdQNjYMfAXV1CgRXSyn2ikpRFrEuy2J2IKkp+M5ThLzyEKAYTFQmosT59amPNVsIcU9RLtd+jd96KuDrBhkVqns1YFtJADZB6QiBGRsMBUGTK1fNH/d7y5CCv7bg7jiodmyTpbSuLW9FTwYajSR1k/WxFSswXc06/cMS68StHUtgwet9lLyzLaHh8cxaiAOI3QpXuGWnYVMpK0xi8jnuaP4xgQsVsE9/IwPFtp3dQmLyw34TDsG4joP0MkD1OBngmXI9Cb1dmd+7dlBKYD1FDdov5H046yTEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZfWGaUcSRRWSWw05uLPcxxQ+yQsyAQNti7HMc/5AqQw=;
- b=IsPcL8EpxynLuA+pHjcGECRZiMAZ7Y1MWJhw5eP7nkdR9WtJ9QoVhPEzgryTJxhTmF9uscnmfC938XS7CZAXaO5aIhhJhQ+dpVZXf6YUPSd5K6R2i9uxOsaVOG36la6iaeHA5rslH+qAksqQKdyImlfRCA3S5a1OOAZTyUE2HwMvBzbA5spvNvIojhZjkqLZzLcb9zfwf53yFuztNYmr0cHm4pfFr1i4a7Uz/UTrMXLFGIZUQaf7mh3/prfaZP1RdNnSdgj7usGBNnq+08o6I07ogElTPdyZvxxAxQU8k+BQtTUqcY0o+ehGElhUFF/bO/2Hj+r6tZ4dkoVojK+8zA==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SA1PR20MB5381.namprd20.prod.outlook.com (2603:10b6:806:29f::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7544.41; Fri, 10 May
- 2024 11:19:14 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7544.046; Fri, 10 May 2024
- 11:19:14 +0000
-Date: Fri, 10 May 2024 19:19:49 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Rob Herring <robh@kernel.org>, Inochi Amaoto <inochiama@outlook.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang <jszhang@kernel.org>, 
-	Liu Gui <kenneth.liu@sophgo.com>, Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: phy: Add Sophgo CV1800 USB phy
-Message-ID: <IA1PR20MB49539EF552099FD466E38D6ABBE72@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953C1876484E149AA390DD5BB1D2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953612130BFC78A8E92F6C5BB1D2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <595f76bf-5e89-4027-87e5-ff316c699669@kernel.org>
- <IA1PR20MB4953FC99B680A3040D4CB611BB1C2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240507190829.GA880949-robh@kernel.org>
-Content-Disposition: inline
-In-Reply-To: <20240507190829.GA880949-robh@kernel.org>
-X-TMN: [nZ7tJRFVOE5xmGk5ICvokVfvQWqfyzBa6MRo8dsYjzM=]
-X-ClientProxiedBy: PS2PR02CA0093.apcprd02.prod.outlook.com
- (2603:1096:300:5c::33) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <q6qvjikuuks6xetgugq5nev3igqe7lkghasqkkubu6ljvhxjpc@x2d2l6u7uzuu>
+	id 1s5PFB-00000005Emi-0nLP;
+	Fri, 10 May 2024 12:20:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s5PF6-00000005Eli-45sK;
+	Fri, 10 May 2024 12:20:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C921D106F;
+	Fri, 10 May 2024 05:21:15 -0700 (PDT)
+Received: from [10.57.65.1] (unknown [10.57.65.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF89A3F6A8;
+	Fri, 10 May 2024 05:20:48 -0700 (PDT)
+Message-ID: <8aa0a606-f47c-4826-96ad-121ac1f7eb96@arm.com>
+Date: Fri, 10 May 2024 13:20:47 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA1PR20MB5381:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e204bf3-1010-49c0-254c-08dc70e30641
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199019|3412199016|440099019|1710799017;
-X-Microsoft-Antispam-Message-Info: 397BYGW3MPki85gX6w09oUqR2bdOB0IQ8pm0EQQh7NPZK7RXMWPnsgIfmH3NeBlgJm+CmwJQ+9yOWBaGp7TwKDzRdGAtoH8JXrNl4Fma1n+/igTnbu3EZ9jkq45w1fnQlkaI7/3NqA3nBKtqGYZ/0IxkBiaY9rSE9vZr4H9XGnDh52hLi65iYxzpGIYrb74cbxK/6zpDjo/xfJY4xa03hW37AZeDxU/nI1XyfEINFVlsxnAaiUUtevuF0e5W1JZuT2HF2syTG9iNh1H7e4+V9FRF88FQK7AmixpIyVhGrVt7sBYTu9ir9E7/AfP+BpxbbVMu0lKiGRQuS4v11VftYxTIrEV7YY2t5eDL+MCyX4LwSSpxce5zFFVwh8CeseB8D8Orn2PMTEqcnPnfq2uwt4LcsFsp4i4m0L1A22xuLtSMqrXJgBbaeFS+j42FiQvkNvfehC9M54sbSiICLrpwZqZzey3oW0JjHSs5sLQk/x8YZuwGkQS87NyyKdM2gkf1RHGdmZe7LATP3ZLxp02yCXQypif/tx3I+BMQ1K8UVYsgdyjFPbCvVRAY/0VCdltwcJKT+Ah+lYg0f2lF6mvRLwN35apGdPOi3WZBwE/hM8UBF8o2HjHbzbOmKdPF1whp
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?J5227mN+ycQYzNfIQJb6hp796eazxfKO7zIu8ciFStekeHEvSlBv33FSYtvk?=
- =?us-ascii?Q?linHogCXt0qi9dN9xHwaW7B5YPcmzYIUL1e5o+CXf1v6FNwFAKA7tWfzwnLJ?=
- =?us-ascii?Q?hdn7WU7dzzXNEHgrPbNKP/P5NmmMu6V9zHoVz6iWKJaGVYAc5WkWvn1+WuDk?=
- =?us-ascii?Q?QWjAJNzDuMJUVXuhFz8bPrahgB9UOZVDB9aeI9kbcc8zSGco3AIcdpmGlwFz?=
- =?us-ascii?Q?NYuhlvk8MQYI/i0k8b63wqyz/SIrriyOtcyuftaqiBleGTH58L5JuDc5juAg?=
- =?us-ascii?Q?c4D7JpN2iJaGGQeQIHTyuVGIuzL2oNaCgq/xIXz041rU7D219wp8cLXUL5Zm?=
- =?us-ascii?Q?9qYitr1MxgD+fUqI2QISXlMc9a4zzneEA27zvuj8g90gYSdoXez/+u5EuI+x?=
- =?us-ascii?Q?A8chD6/RGWgo9xVwDzLG5OyEMnk/rht1X17fZdQprL5jDvESFFjdL7BBgzEE?=
- =?us-ascii?Q?xE3w3XLYCBFD1HEXRg2wcFk6ORA4eyGrhfl/L5r3KOm5QfnP6H8HrVVmktTr?=
- =?us-ascii?Q?hT1D/09ml34YL/Tx6cvGYCYALU6Nis1HLGKe6QIMbn5DYs3l0c+KSwf9IeJl?=
- =?us-ascii?Q?7mHyECbBQzVkdTV+OM9Bm5NNYTUIzT+9s0vPaS6v2K9VmvPZK52tALoVbZmM?=
- =?us-ascii?Q?5mwcl8gc+/LNE7rhM1ASI2JpPS/m5yUiHwHnptyQ4wPz8P77OLoMfyzvUucA?=
- =?us-ascii?Q?K0xemqij2qzWyWqEaVmIrRbhqbf2836HPgaRT7Au+h87es2njNSuCfgizDxM?=
- =?us-ascii?Q?RDpNzRGZoO9cYCeNiM3z39tezi+WaaVxhUsnA2bl6Ud9eaiFuzUHrnkG+hbb?=
- =?us-ascii?Q?MdfWJpvabY3K0PPfIpDSlPN8fkG0ELv99yg3oDryyaEWHD7yCzY26vMWR8Am?=
- =?us-ascii?Q?Jq1xuz6b/D/F1Ptob46X5N/P7yZT/+KuuHZcNOG+OjfSErbStJBn7DuhVO9t?=
- =?us-ascii?Q?fcYZeNVKbiCjK+tc36ElhLwwkDGyv0sjHWuu71xoDB2NCJ5IFBLxxid32ndp?=
- =?us-ascii?Q?BZxfn1lF6cyHvyLWZrx8dlVjBQTAETmBFDyCr+aTYgrHpQEZmQInu/ZGyszK?=
- =?us-ascii?Q?a77JJQ0mBab82TMr5MhFbjVCtLeh7rsBwFG8n46bw5fBfw3HuTUzfRVhtxv0?=
- =?us-ascii?Q?Juhgadr+xDgeAd0pbHBFS0ZmiTQ+0MYQDuRQ51H2tRUvk798gaNS59pyySzi?=
- =?us-ascii?Q?qFa5WV0ABkiayeEdAqAeHJj4ITRkIg6Z7ONXBNfWAdI2zw3p3Er7t7PLIXor?=
- =?us-ascii?Q?eYJcN/4KCiv/oQj16iJM?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e204bf3-1010-49c0-254c-08dc70e30641
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 May 2024 11:19:14.8047
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB5381
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v2 1/9] riscv: Restore the pfn in a NAPOT pte when
+ manipulated by core mm code
+Content-Language: en-GB
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton
+ <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-mm@kvack.org
+References: <20240508113419.18620-1-alexghiti@rivosinc.com>
+ <20240508113419.18620-2-alexghiti@rivosinc.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20240508113419.18620-2-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_041925_419525_DF115780 
-X-CRM114-Status: GOOD (  28.98  )
+X-CRM114-CacheID: sfid-20240510_052053_164601_40E23A45 
+X-CRM114-Status: GOOD (  41.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,86 +70,332 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 07, 2024 at 02:08:29PM GMT, Rob Herring wrote:
-> On Mon, May 06, 2024 at 08:17:30PM +0800, Inochi Amaoto wrote:
-> > On Mon, May 06, 2024 at 08:51:59AM GMT, Krzysztof Kozlowski wrote:
-> > > On 05/05/2024 03:52, Inochi Amaoto wrote:
-> > > > The USB phy of Sophgo CV18XX series SoC needs to sense a pin called
-> > > > "VBUS_DET" to get the right operation mode. If this pin is not
-> > > > connected, it only supports setting the mode manually.
-> > > > 
-> > > > Add USB phy bindings for Sophgo CV18XX/SG200X series SoC.
-> > > 
-> > > ...
-> > > 
-> > > > +
-> > > > +  clock-names:
-> > > > +    items:
-> > > > +      - const: phy
-> > > > +      - const: app
-> > > > +      - const: stb
-> > > > +      - const: lpm
-> > > > +
-> > > > +  vbus_det-gpios:
-> > > 
-> > > No underscores.
-> > > 
-> > 
-> > Thanks.
-> > 
-> > > > +    description: GPIO to the USB OTG VBUS detect pin. This should not be
-> > > > +      defined if vbus_det pin and switch pin are connected, which may
-> > > > +      break the VBUS detection.
-> > > 
-> > > Why is this property of the PHY? VBUS pin goes to the connector, doesn't
-> > > it? It looks like you combined two or three (!!!) bindings into one.
-> > > 
-> > 
-> > Yes, but I am not sure which is the best to write this bindings.
-> > The topology of USB likes this:
-> > 
-> > controller -- phy -- switch --> (host) port/hub
-> >                             --> (device) port
-> > 
-> > The vbus-detect connect to the device port, but it will change the mode for
-> > both phy and switch. And the switch is just a switching circuit.
-> > I am pretty confused on how to split this binding. I think it may like the 
-> > following:
-> > 
-> > phy {
-> > 	switch {
-> > 		/* This is the switch in the follows */
-> > 		connector1 {
-> > 			/* host port */
-> > 		};
-> > 		connector2 {
-> > 			/* device port*/
-> > 			/* the vbus pin is here */
-> > 		};
-> > 	};
-> > };
-> > 
-> > Could you share some suggestion on this?
+On 08/05/2024 12:34, Alexandre Ghiti wrote:
+> The core mm code expects to be able to extract the pfn from a pte. NAPOT
+> mappings work differently since its ptes actually point to the first pfn
+> of the mapping, the other bits being used to encode the size of the
+> mapping.
 > 
-> Something like the above assuming 2 physical connectors, but probably 
-> should be a child of the USB controller or on its own. PHYs usually 
-> aren't put into a parent/child hierarchy, but are out of band.
+> So modify ptep_get() so that it returns a pte value that contains the
+> *real* pfn (which is then different from what the HW expects) and right
+> before storing the ptes to the page table, reset the pfn LSBs to the
+> size of the mapping.
+
+Did you consider leaving the pte as is and instead modifying your pte_pfn()
+implementation?
+
+For arm64 at least, it is beneficial to keep the pte marked as contiguous when
+passing it up to core-mm because there are other helpers which need to parse the
+contiguous bit (e.g. pte_leaf_size()). If we were to clear the cont bit in
+ptep_get() that info would be lost and perf_get_pgtable_size() would always
+conclude the leaf size is 4K even when it is actually 64K.
+
 > 
-
-Yes, your are right. I should add port definition under the controller.
-
-> Is this switch implemented on the board level? If so, you should create 
-> something that would work on any platform with a GPIO controlled USB 
-> switch like this. 
+> And make sure that all NAPOT mappings are set using set_ptes().
 > 
-> Rob
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/pgtable-64.h |  11 +++
+>  arch/riscv/include/asm/pgtable.h    | 105 ++++++++++++++++++++++++++--
+>  arch/riscv/mm/hugetlbpage.c         |  38 +++++-----
+>  3 files changed, 128 insertions(+), 26 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> index 221a5c1ee287..9fe076fc503e 100644
+> --- a/arch/riscv/include/asm/pgtable-64.h
+> +++ b/arch/riscv/include/asm/pgtable-64.h
+> @@ -106,6 +106,17 @@ enum napot_cont_order {
+>  #define napot_cont_mask(order)	(~(napot_cont_size(order) - 1UL))
+>  #define napot_pte_num(order)	BIT(order)
+>  
+> +static inline bool is_napot_order(unsigned int order)
+> +{
+> +	unsigned int napot_order;
+> +
+> +	for_each_napot_order(napot_order)
+> +		if (order == napot_order)
+> +			return true;
+> +
+> +	return false;
+> +}
+> +
+>  #ifdef CONFIG_RISCV_ISA_SVNAPOT
+>  #define HUGE_MAX_HSTATE		(2 + (NAPOT_ORDER_MAX - NAPOT_CONT_ORDER_BASE))
+>  #else
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 9f8ea0e33eb1..268c828f5152 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -297,6 +297,8 @@ static inline unsigned long pte_napot(pte_t pte)
+>  	return pte_val(pte) & _PAGE_NAPOT;
+>  }
+>  
+> +#define pte_valid_napot(pte)	(pte_present(pte) && pte_napot(pte))
+> +
+>  static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+>  {
+>  	int pos = order - 1 + _PAGE_PFN_SHIFT;
+> @@ -306,6 +308,12 @@ static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+>  	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
+>  }
+>  
+> +/* pte at entry must *not* encode the mapping size in the pfn LSBs. */
+> +static inline pte_t pte_clear_napot(pte_t pte)
+> +{
+> +	return __pte(pte_val(pte) & ~_PAGE_NAPOT);
+> +}
+> +
+>  #else
+>  
+>  static __always_inline bool has_svnapot(void) { return false; }
+> @@ -315,17 +323,14 @@ static inline unsigned long pte_napot(pte_t pte)
+>  	return 0;
+>  }
+>  
+> +#define pte_valid_napot(pte)	false
+> +
+>  #endif /* CONFIG_RISCV_ISA_SVNAPOT */
+>  
+>  /* Yields the page frame number (PFN) of a page table entry */
+>  static inline unsigned long pte_pfn(pte_t pte)
+>  {
+> -	unsigned long res  = __page_val_to_pfn(pte_val(pte));
+> -
+> -	if (has_svnapot() && pte_napot(pte))
+> -		res = res & (res - 1UL);
+> -
+> -	return res;
+> +	return __page_val_to_pfn(pte_val(pte));
+>  }
+>  
+>  #define pte_page(x)     pfn_to_page(pte_pfn(x))
+> @@ -525,9 +530,91 @@ static inline void __set_pte_at(struct mm_struct *mm, pte_t *ptep, pte_t pteval)
+>  
+>  #define PFN_PTE_SHIFT		_PAGE_PFN_SHIFT
+>  
+> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> +static inline int arch_contpte_get_num_contig(pte_t *ptep, unsigned long size,
+> +					      size_t *pgsize)
+> +{
+> +	pte_t __pte;
+> +
+> +	/* We must read the raw value of the pte to get the size of the mapping */
+> +	__pte = READ_ONCE(*ptep);
+> +
+> +	if (pgsize) {
+> +		if (size >= PGDIR_SIZE)
+> +			*pgsize = PGDIR_SIZE;
+> +		else if (size >= P4D_SIZE)
+> +			*pgsize = P4D_SIZE;
+> +		else if (size >= PUD_SIZE)
+> +			*pgsize = PUD_SIZE;
+> +		else if (size >= PMD_SIZE)
+> +			*pgsize = PMD_SIZE;
+> +		else
+> +			*pgsize = PAGE_SIZE;
+> +	}
+> +
+> +	/* Make sure __pte is not a swap entry */
+> +	if (pte_valid_napot(__pte))
+> +		return napot_pte_num(napot_cont_order(__pte));
+> +
+> +	return 1;
+> +}
+> +#endif
+> +
+> +static inline pte_t ptep_get(pte_t *ptep)
+> +{
+> +	pte_t pte = READ_ONCE(*ptep);
+> +
+> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> +	/*
+> +	 * The pte we load has the N bit set and the size of the mapping in
+> +	 * the pfn LSBs: keep the N bit and replace the mapping size with
+> +	 * the *real* pfn since the core mm code expects to find it there.
+> +	 * The mapping size will be reset just before being written to the
+> +	 * page table in set_ptes().
+> +	 */
+> +	if (unlikely(pte_valid_napot(pte))) {
+> +		unsigned int order = napot_cont_order(pte);
+> +		int pos = order - 1 + _PAGE_PFN_SHIFT;
+> +		unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
+> +		pte_t *orig_ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * napot_pte_num(order));
+> +
+> +		pte = __pte((pte_val(pte) & napot_mask) + ((ptep - orig_ptep) << _PAGE_PFN_SHIFT));
+> +	}
+> +#endif
+> +
+> +	return pte;
+> +}
+> +#define ptep_get	ptep_get
+> +
+>  static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+>  		pte_t *ptep, pte_t pteval, unsigned int nr)
+>  {
+> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> +	if (unlikely(pte_valid_napot(pteval))) {
+> +		unsigned int order = ilog2(nr);
+> +
+> +		if (!is_napot_order(order)) {
+> +			/*
+> +			 * Something's weird, we are given a NAPOT pte but the
+> +			 * size of the mapping is not a known NAPOT mapping
+> +			 * size, so clear the NAPOT bit and map this without
+> +			 * NAPOT support: core mm only manipulates pte with the
+> +			 * real pfn so we know the pte is valid without the N
+> +			 * bit.
+> +			 */
+> +			pr_err("Incorrect NAPOT mapping, resetting.\n");
+> +			pteval = pte_clear_napot(pteval);
+> +		} else {
+> +			/*
+> +			 * NAPOT ptes that arrive here only have the N bit set
+> +			 * and their pfn does not contain the mapping size, so
+> +			 * set that here.
+> +			 */
+> +			pteval = pte_mknapot(pteval, order);
+> +		}
+> +	}
+> +#endif
 
-Yes, the switch is FSUSB30UMX. If I understand you correctly, I need to
-add a driver to control this switch, right?
+I think all this complexity comes along due to using this function both as a
+public interface that the core-mm uses (which never sets napot) and also using
+it as an internal interface that riscv-hugetlb uses (which does set napot)? It
+might be more understandable if you layer it into a lower level/internal API and
+a higher level/public API (similar to arm64)?
 
+> +
+>  	page_table_check_ptes_set(mm, ptep, pteval, nr);
+>  
+>  	for (;;) {
+> @@ -535,6 +622,12 @@ static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+>  		if (--nr == 0)
+>  			break;
+>  		ptep++;
+> +
+> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> +		if (unlikely(pte_valid_napot(pteval)))
+> +			continue;
+> +#endif
+> +
+>  		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
+>  	}
+>  }
+> diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
+> index 5ef2a6891158..fe8067ee71b4 100644
+> --- a/arch/riscv/mm/hugetlbpage.c
+> +++ b/arch/riscv/mm/hugetlbpage.c
+> @@ -256,8 +256,7 @@ void set_huge_pte_at(struct mm_struct *mm,
+>  
+>  	clear_flush(mm, addr, ptep, pgsize, pte_num);
+>  
+> -	for (i = 0; i < pte_num; i++, ptep++, addr += pgsize)
+> -		set_pte_at(mm, addr, ptep, pte);
+> +	set_ptes(mm, addr, ptep, pte, pte_num);
+>  }
+>  
+>  int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+> @@ -267,16 +266,16 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+>  			       int dirty)
+>  {
+>  	struct mm_struct *mm = vma->vm_mm;
+> -	unsigned long order;
+> +	size_t pgsize;
+>  	pte_t orig_pte;
+> -	int i, pte_num;
+> +	int pte_num;
+>  
+>  	if (!pte_napot(pte))
+>  		return ptep_set_access_flags(vma, addr, ptep, pte, dirty);
+>  
+> -	order = napot_cont_order(pte);
+> -	pte_num = napot_pte_num(order);
+> -	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
+> +	pte_num = arch_contpte_get_num_contig(ptep, 0, &pgsize);
+> +	ptep = huge_pte_offset(mm, addr, pte_num * pgsize);
+> +
+>  	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
+>  
+>  	if (pte_dirty(orig_pte))
+> @@ -285,8 +284,7 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+>  	if (pte_young(orig_pte))
+>  		pte = pte_mkyoung(pte);
+>  
+> -	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
+> -		set_pte_at(mm, addr, ptep, pte);
+> +	set_ptes(mm, addr, ptep, pte, pte_num);
+>  
+>  	return true;
+>  }
+> @@ -301,7 +299,7 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
+>  	if (!pte_napot(orig_pte))
+>  		return ptep_get_and_clear(mm, addr, ptep);
+>  
+> -	pte_num = napot_pte_num(napot_cont_order(orig_pte));
+> +	pte_num = arch_contpte_get_num_contig(ptep, 0, NULL);
+>  
+>  	return get_clear_contig(mm, addr, ptep, pte_num);
+>  }
+> @@ -311,24 +309,23 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
+>  			     pte_t *ptep)
+>  {
+>  	pte_t pte = ptep_get(ptep);
+> -	unsigned long order;
+> +	size_t pgsize;
+>  	pte_t orig_pte;
+> -	int i, pte_num;
+> +	int pte_num;
+>  
+>  	if (!pte_napot(pte)) {
+>  		ptep_set_wrprotect(mm, addr, ptep);
+>  		return;
+>  	}
+>  
+> -	order = napot_cont_order(pte);
+> -	pte_num = napot_pte_num(order);
+> -	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
+> +	pte_num = arch_contpte_get_num_contig(ptep, 0, &pgsize);
+> +	ptep = huge_pte_offset(mm, addr, pte_num * pgsize);
+> +
+>  	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
+>  
+>  	orig_pte = pte_wrprotect(orig_pte);
+>  
+> -	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
+> -		set_pte_at(mm, addr, ptep, orig_pte);
+> +	set_ptes(mm, addr, ptep, orig_pte, pte_num);
+>  }
+>  
+>  pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+> @@ -341,7 +338,7 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+>  	if (!pte_napot(pte))
+>  		return ptep_clear_flush(vma, addr, ptep);
+>  
+> -	pte_num = napot_pte_num(napot_cont_order(pte));
+> +	pte_num = arch_contpte_get_num_contig(ptep, 0, NULL);
+>  
+>  	return get_clear_contig_flush(vma->vm_mm, addr, ptep, pte_num);
+>  }
+> @@ -351,6 +348,7 @@ void huge_pte_clear(struct mm_struct *mm,
+>  		    pte_t *ptep,
+>  		    unsigned long sz)
+>  {
+> +	size_t pgsize;
+>  	pte_t pte = ptep_get(ptep);
+>  	int i, pte_num;
+>  
+> @@ -359,8 +357,8 @@ void huge_pte_clear(struct mm_struct *mm,
+>  		return;
+>  	}
+>  
+> -	pte_num = napot_pte_num(napot_cont_order(pte));
+> -	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
+> +	pte_num = arch_contpte_get_num_contig(ptep, 0, &pgsize);
+> +	for (i = 0; i < pte_num; i++, addr += pgsize, ptep++)
+>  		pte_clear(mm, addr, ptep);
+>  }
+>  
 
-Regards,
-Inochi
 
 _______________________________________________
 linux-riscv mailing list
