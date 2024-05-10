@@ -4,80 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A501CC25B10
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 06:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA9CC25B10
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 06:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6Zt4v38IJijolJZV6WDZiIzpd14VAW6wiRQOVP/EPhI=; b=i8slhWC0wq/Vws
-	eF2ZN8uuRE1MIyCW5vZoDdcWEOk/0AT3EqKSqRT8ulzyJ5DOy8mIdUbcZrLaB2qOndKLg8ato+wkU
-	KWUdBNfJ616T/auR9+c5LFK+euRWLRhcD/skVFxRO/cDzPdeLFNxGh6hivS/nZK5LWPltdEDMvkWG
-	UZvxCAzlNEJGZ6NS0M0GQ5o475Sx0TvjcKBTcKwbeoN05gHnG4gIaLSBWDHYe9tfz4vHbY4qpYbPp
-	W2GXtvbg35XbWac8Pxxemr/KCpaNhPR7ebZLuz9XuIj9/Logxo3uncHKFH3lU6JulWXp1pQctgO0y
-	rusIkSXavNLxyaviG8YA==;
+	List-Owner; bh=ZXPOskRY+jAjAkYmv+uPqQ7/zX+hYeopkIJi7AROY+E=; b=iTLSsXhuG1L1tO
+	QfLvJHaBB2cbkrBopK03K1Ic32OxeUcachMlR2OIPrPSi+hUu4llTaN9nyQDvm66hykYc0GBl6j9o
+	KVaolkEnGxPci79BFEw4l4jMimMHZQ8CsuvbOPyhaRB1qSvuIx+Y8MD+3YnpwfdxYfFk02JTg1pCx
+	IwUSxAV+o/2Wb1lO0+ZOO12yHx33eKbUxtcSWeNPW5Sgf94nvL7dvErifC3LBodSIHbfmUd88Lh43
+	C4A7jbW/+CHs0Tsp52O41RBExfUkc9N1HXk57xTT8w8TikuY78Ip846gb2Tx/9+uaYHl1LNuI0c0X
+	cg4z3yXSOsGlN3gIOsPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5JrD-00000004Ebh-2iaq;
-	Fri, 10 May 2024 06:35:51 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1s5KCx-00000004Hgc-1uDz;
+	Fri, 10 May 2024 06:58:19 +0000
+Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5Jr9-00000004Eam-28Ic
+	id 1s5KCt-00000004HfH-4Ao3
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 May 2024 06:35:50 +0000
-Date: Fri, 10 May 2024 08:35:44 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1715322945;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wiWgwXZNUgYVT1P/WFHirbZXJDsaudwsuRNKyAlK2ok=;
-	b=SSlw25eDytsAMiPK9m+dJ2SXFuQcqByVDNzD1tV9nuh39DHN9vqUZt51VWVAskuGNcDESn
-	ztmFebpvF8RNYrYZsWuP9EtDWnTUODT2QuYonY7WabufV87j7KNvAmvKclXtbF0xKxV2Qz
-	/j6L6m3xKx18AZ9BJcxMTUyIqUFDiG6RDLYw2uEuwSgpfyAf+ntWIhih2nUCzBpfw1WvBL
-	GseN1BeiLWd/Q01I4mR5i3fglQHr8GxPq7hwy6TkeLOsZ/6tcN2FfemfzDXFvkJ+Fw+k5t
-	j6sH1NAO4gENYO3OaC9tyB8Q4fYCXkm8gUiIbw+eRF4F5YDCYThX5vJ13Drw+w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1715322945;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wiWgwXZNUgYVT1P/WFHirbZXJDsaudwsuRNKyAlK2ok=;
-	b=TXVjyMoW8j4fu5MdczhZ1yVQwKOcnWrwxFr9fIBQppS3/LsD7p0B95utP1iiHD5tiHBQSb
-	v7w2TeqBOZRU1hBg==
-From: Nam Cao <namcao@linutronix.de>
-To: Joel Granados <j.granados@samsung.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Mike Rapoport <rppt@kernel.org>,
-	Andreas Dilger <adilger@dilger.ca>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"ndesaulniers @ google . com" <ndesaulniers@google.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Tejun Heo <tj@kernel.org>,
-	Krister Johansen <kjlx@templeofstupid.com>,
-	Changbin Du <changbin.du@huawei.com>, Arnd Bergmann <arnd@arndb.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] init: fix allocated page overlapping with PTR_ERR
-Message-ID: <20240510063544.cAHy0hF8@linutronix.de>
-References: <20240418102943.180510-1-namcao@linutronix.de>
- <CGME20240429125236eucas1p24219f2d332e0267794a2f87dea9f39c4@eucas1p2.samsung.com>
- <20240429125230.s5pbeye24iw5aurz@joelS2.panther.com>
- <20240430073056.bEG4-yk8@linutronix.de>
- <0049995a-07d0-4aaa-abc7-5bfc0dc22ace@ghiti.fr>
- <20240430154238.nu6pebmdlpkxnk7q@joelS2.panther.com>
+	Fri, 10 May 2024 06:58:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1715324286;
+	bh=ze4zdjo0fbz33aF2z7EukPA4jLCJ45hoe9ptXCI2FWA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LoPMsBkp+4SADwS6jrdQNBJGi7DCW73il17aUnDwIa1oyXji8Q/4pc/iKFIzJLY/c
+	 Q+z//3FFDHszb0g6PtGL5I026GJFKPn+JmHgnAvadcY419eX/foh0ynFGckgalFFOq
+	 HLg577n8fZ8bMgT8eQfvMVA4UfdUCoQF6nttbLmM=
+Date: Fri, 10 May 2024 08:58:05 +0200
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
+To: Edward Liaw <edliaw@google.com>
+Cc: shuah@kernel.org, 
+	=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>, =?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>, 
+	Christian Brauner <brauner@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, "David S. Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, Willy Tarreau <w@1wt.eu>, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, kernel-team@android.com, linux-security-module@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH v4 37/66] selftests/nolibc: Drop define _GNU_SOURCE
+Message-ID: <b2ed9fed-0263-405d-9e5a-71c49421619a@t-8ch.de>
+References: <20240510000842.410729-1-edliaw@google.com>
+ <20240510000842.410729-38-edliaw@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240430154238.nu6pebmdlpkxnk7q@joelS2.panther.com>
+In-Reply-To: <20240510000842.410729-38-edliaw@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_233547_723774_545A4675 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20240509_235816_229645_FBD84F56 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,30 +73,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 30, 2024 at 05:42:38PM +0200, Joel Granados wrote:
-> On Tue, Apr 30, 2024 at 10:37:59AM +0200, Alexandre Ghiti wrote:
-> > The config shows that it is a XIP kernel that comes with its own 
-> > limitations (text is limited to 32MB for example), so I'm not surprised 
-> > to see those overlaps.
-> > 
-> > We already discussed the removal of randconfig builds on XIP configs, 
-> > but IIRC it is not possible.
+Hi Edward,
+
+On 2024-05-10 00:06:54+0000, Edward Liaw wrote:
+> _GNU_SOURCE is provided by lib.mk, so it should be dropped to prevent
+> redefinition warnings.
+
+The nolibc tests do not use lib.mk.
+
+This change breaks "make libc-test", please drop it.
+
+> Signed-off-by: Edward Liaw <edliaw@google.com>
+> ---
+>  tools/testing/selftests/nolibc/nolibc-test.c | 2 --
+>  1 file changed, 2 deletions(-)
 > 
-> I just tested this going back until "2023-09-20 602bf1830798 (HEAD)
-> Merge branch 'for-6.7' into for-next  [Petr Mladek]" and I still saw the
-> overlapping errors.
-> 
-> Is this just something that happens always?
+> diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
+> index 94bb6e11c16f..a28813f4367f 100644
+> --- a/tools/testing/selftests/nolibc/nolibc-test.c
+> +++ b/tools/testing/selftests/nolibc/nolibc-test.c
+> @@ -1,6 +1,4 @@
+>  /* SPDX-License-Identifier: GPL-2.0 */
+> -
+> -#define _GNU_SOURCE
+>  #define _LARGEFILE64_SOURCE
+>  
+>  /* libc-specific include files
+> -- 
+> 2.45.0.118.g7fe29c98d7-goog
 
-Alex is write that this is due to the 32MB size limit on XIP kernel. This
-means build failure happens if too many configurations are enabled and the
-kernel gets too large.
-
-I just sent a series to lift the size restriction and fix this build failure:
-https://lore.kernel.org/lkml/cover.1715286093.git.namcao@linutronix.de/
-
-Best regards,
-Nam
+Thomas
 
 _______________________________________________
 linux-riscv mailing list
