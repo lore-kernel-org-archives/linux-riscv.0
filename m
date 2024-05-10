@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A976AC10F1A
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 00:12:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00CD5C25B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 00:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,76 +13,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=GIfTlfX0SoVoNtfoTboqoqCixviXnoS+jDYG0fASC6Y=; b=HtVq8yQVXBVfak3Eh7/PWaKdFD
-	lr/Pc260WmD/qrLW/2EotFQfW06USgQH4MdUA5KZBHCtAHKU6Bl3Y431ZQZJ0cL6se87RUiukOymE
-	H0YE7NXy45/59NuQpfiORtNKytL7mrCPMdN5kP+cs+0dkiKwSpmPseh/WEoASF5+xFWtE+rThvDlG
-	D2g3pT2D8zjfIervA9DS3udcB5hUVpcSfHBIIrMN3VQo8IcwdsQamLC3L7+z+fIXflmAgUAyZ46ZP
-	tPoAzEnaitOu5fuF9uIjbDQYEf2yfLi2uTpdo5Rn19fPmSvu2eXD95bAZdX2ZCg00EYlnjQIt/7vL
-	mQa2PbtQ==;
+	bh=0gR7xCdPnWm9tYFC388Ydwn32Z2sksgCovjX3vO9pZ4=; b=IK1NhvJHkGbF2kP8shwcYYtuOf
+	qI+ZlU0rrYbLufCt7KZy25sCx2wfrEhxsx7DhGddGST+CZkoezo1Um6nDRfygpP0EcjIYxgWrIUOO
+	mwxka1itfIIM8seF4ZXC+Mw0vXjif5kq/2oJbnT1id529v6p06k1IZNvSaMKQ3SMSzhedAAWVk6d+
+	P4yNTeRaP3ocKSNup63mweIhZhoHwTWYX/rLx2BiVrfwAxbiu66xp3PEFW+Yz3XoJXsz/WVq7g+NK
+	Vw23rcd1vVFUTfcimrtxBW+9/IEXMsMoi1OiZq7XCg62KHn/HLeHi6j1qq+NQYADN2sRjJIiHiUFI
+	jJVF5RRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5DsA-00000003Or8-2TSU;
-	Fri, 10 May 2024 00:12:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1s5DsE-00000003Otj-2RdU;
+	Fri, 10 May 2024 00:12:30 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5DrI-00000003OCN-15eg
+	id 1s5DrO-00000003OIH-3OqZ
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 10 May 2024 00:11:32 +0000
+	Fri, 10 May 2024 00:11:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ESmT2jtN52DILKLVJVrC92SEPSvw9e8hG07GobJ+hQY=; b=UAbLOE+0k/AhO0LdgneuFOWvAi
-	VOOeLPkzj/AXYFRIjtiVvXhKXViOOKM4LSz5WnJjq7LNE0+ew0R/2cZLv4fQbL6V1ir8C2hWPuxCP
-	TLF0g/0y8vOUI6SbhNAL4GBQ6hCPKAjC4MFwwterkPO9yuSL4SxvOVzGil3qqwF/8qnUf6viDSSMM
-	udT4/a1Mxbn5AsDA0E0D0FDiWtB4iQlKEvZMn89kplEMhTQBHjSqUDxPvrnTfmaPIqZEVH92RBjQU
-	YY5DQ+NTFVGG3bU6TqHA9NpzjNifdj3hMm5ou3EOe6pWZKCdNh84zCj0ZwkpivashOvFy0WhYarCc
-	c6EUKgFA==;
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5DrD-000000036HH-2EGF
+	bh=LuB3m194wkKvY0eVyf5M25YoLPjrODu7ClV5j+qOpls=; b=BzFJRBtLEaI+S8BrglA3uPPkNJ
+	1eKQeg0SSWWFIMrlxeQyzqsw44e120eE95nWCgEIuqoR6EXZCF8Nbzw8h21GI0wXFyJjx/VrhjpwX
+	DyVDJkwLyR0lYT+/9HNGfszmeqovZmV00zdjKzkKj0+qSRQ8mWqvkhvLv8I2X7Krddq9WEd30iSms
+	I2rgHoqH8jLw0uQ9EkR0zfZa2QA55VD05uU+kxSUKpdra4ynSlY8eQAhZR0NJkBS9X6TtQnkN1jYJ
+	8IuF0mz8d6dWMx6XBQSNi7ErpJUt7mcJAPFL/gikEnkcWzD6/gnTrumcFqyj0tDEl/zGLKzx2aoAO
+	fAZQ1JDw==;
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s5DrJ-00000001mUh-0DU5
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 May 2024 00:11:30 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1ecd9a80d84so19387305ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 17:11:18 -0700 (PDT)
+	Fri, 10 May 2024 00:11:36 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-6ee128aa957so1490012b3a.2
+        for <linux-riscv@lists.infradead.org>; Thu, 09 May 2024 17:11:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1715299876; x=1715904676; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1715299889; x=1715904689; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ESmT2jtN52DILKLVJVrC92SEPSvw9e8hG07GobJ+hQY=;
-        b=nvQV0H/l5K0GWJ1zmt6jiOnwS7qWIs62hxYnYo4ClcDoJr0a6I6J0oCXoybuUNRMvt
-         tLXWDwgotC/EzhdhoFqFj32W7QfM93ExODBH1zeCH/zsh5OK9KE11sneSvtFwtD/IDt8
-         qbqfs24etjwZY8PIaOzZOaxeAG5BJXPqhgRpUDx+M54dBel/txJsgEp9XiLkYGxLX1IR
-         Nhmjfo5LRpxNDwRFlPQN7Wg/7bK0I0gzhiPPSipcqBjalYST9RCB0nhQDsrPW2Kz4fHY
-         sXgJI2+R3hd7Sn/t7ZNpCqE/iYjOKFFXWGjHjr6vTLg7yxwB7RbFSCwAFfprIH4UWUuu
-         vn1w==
+        bh=LuB3m194wkKvY0eVyf5M25YoLPjrODu7ClV5j+qOpls=;
+        b=KomxxZKF2xCzslZTnktg5DS6AbImkw4U7d5fAekEZ38hjavzoRnCCQz/iMUmHtAKXF
+         3ljmFe0hcWTAN967BxB++MkEhRuPoRy9yU0AtsD+8MXoY8Q1Pf85wfe9OkwiQsoE9cSF
+         pIVXJZCq63gD1VW1ZWAMev8iurEQKSgI/AP4lOEdr8k5G+R6soSsUz8GEg8RFTALaPGE
+         dTw2wb/8CgzbUDTzbg3GQS3T1vxrwi0LDyNsSaB5LHpVG7YnUkw1kMA9csgpMUEpEkEc
+         QtCJABSjasn+2rGqh75fjQwS5/5xHv4/KT/iisxokxcMU6VXOdx9GbWsJOmSEZOgBVVe
+         4AaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715299876; x=1715904676;
+        d=1e100.net; s=20230601; t=1715299889; x=1715904689;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ESmT2jtN52DILKLVJVrC92SEPSvw9e8hG07GobJ+hQY=;
-        b=bblJQqiy5QQv3QuR76ki+xPKN5HRuazk4VAONBRePC0+2jR9QJsu+HAjkcEx1Ep7YF
-         /YcTsa6pNU6ePv9+NqdPz1L5Rm33kPuiW+m9/8gWl7W6MSv4fVeaheUeR/eGzTEIzwnk
-         cf+HPS367KCyfCfwK6JltfkIZ7F6hdqqVKvglgzhBfat8RH+pewfUNgu+l5JVgrWdDu3
-         iBHiez5flvkOSBgijYVIT0QBI/hLOy/8N+17l7nQvpzD4aalFY6bXbm8Z7TuHZjCfckn
-         1iB2hGfnuLAbJA8atjt/lGtJrfHIt4KdRMRLjLRQ9kpOsMBdpJJk2YYU+2AAqeyhXLdi
-         CWgw==
-X-Forwarded-Encrypted: i=1; AJvYcCWKRtaeevWol/wzuDu9heCmxrsREzIb4Rkvt6dBdbqmBr7bAEfNwUJCpcrz3uHLDxrd4zcE0sEk+7qIgIbskZOYCRUuJDTx6odUz0d+C0KN
-X-Gm-Message-State: AOJu0YzYrStT3DBhoRiu1zkIT8VVRe13C6tBzSi5RvrsrRqPKfnxq8V5
-	5ev6GUrbQwU/25NEa6/mK78iZkhEJ+9Buy9GtagNpUVyB3BXv780De6D2cZUyD0ZPUt2t7VjOg7
-	b3Q==
-X-Google-Smtp-Source: AGHT+IE7KdoFbApuFl+Iu0XJtc8m92TzBIZf0gIiC7ZeB/SVENXx4zsl1djV7bHKkrlViCVVSAY3OQVhlFI=
+        bh=LuB3m194wkKvY0eVyf5M25YoLPjrODu7ClV5j+qOpls=;
+        b=FCKddMpe8vG6UZal1GYsVrZD/kjwqSNn6CCholsZnu0J/o6wTWPUuB5HYhT2DGr3xX
+         vRTo/MvFlNx6d3p29S2qp3bNTdh/Qv9/iXHIo/W31CpNkzE0/bFx9ymWY5+2lX6HSCVx
+         A06N6ZIk1o7TkXq9/+dDTx6u2Z6U0+djhSpnfw54+5tNRuNn3HcmyYVtrNwnM6PC9NC6
+         gT/auxQLXl2IPNZbpExWlrXgP6JzRYKOTabWsv4JwqfjAVX5dI+UG8I3tv5JlE6zQ5eE
+         S9xXTj8NZrqWE7FmZLneU0cfQ06UyctTiznv/z0pLMtYw8vqfklet9eZAQq/vKXV6FDi
+         jXog==
+X-Forwarded-Encrypted: i=1; AJvYcCVmabIHFwG2fzQjExLmy4KMfbJXY0JWDPlKv2Y6o9SuoQmLgsDJj9Eb53Zblc1b5FHdoA9SzvLYQchXwipqOhPjPMViXMakhGcNyAqSniAw
+X-Gm-Message-State: AOJu0YwzUPzMB8ybqQcRRITKESv5eWD99R4l5gx34S5AssUjDvBhPjbN
+	BvDn9cpAWyET5LC0pB+rmbvq9+149AzAo1NqPjFqeocYuyMe1urPiOAvqijlpi1Y4unNwMwKJD6
+	PXg==
+X-Google-Smtp-Source: AGHT+IEAPDmiCGGPRhY6JBRoUT6dlR+CkZjrxhOj+xsSstNk+8V5LsggLR8ug+7H1pKBdhGr0v4AK8MG9gc=
 X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a17:902:d507:b0:1e5:5c69:fcd7 with SMTP id
- d9443c01a7336-1ef433c0d6cmr197625ad.5.1715299876524; Thu, 09 May 2024
- 17:11:16 -0700 (PDT)
-Date: Fri, 10 May 2024 00:07:01 +0000
+ (user=edliaw job=sendgmr) by 2002:a05:6a00:17a0:b0:6ec:ee42:b143 with SMTP id
+ d2e1a72fcca58-6f4e02ad1f1mr31327b3a.2.1715299888557; Thu, 09 May 2024
+ 17:11:28 -0700 (PDT)
+Date: Fri, 10 May 2024 00:07:06 +0000
 In-Reply-To: <20240510000842.410729-1-edliaw@google.com>
 Mime-Version: 1.0
 References: <20240510000842.410729-1-edliaw@google.com>
 X-Mailer: git-send-email 2.45.0.118.g7fe29c98d7-goog
-Message-ID: <20240510000842.410729-45-edliaw@google.com>
-Subject: [PATCH v4 44/66] selftests/powerpc: Drop define _GNU_SOURCE
+Message-ID: <20240510000842.410729-50-edliaw@google.com>
+Subject: [PATCH v4 49/66] selftests/riscv: Drop define _GNU_SOURCE
 From: Edward Liaw <edliaw@google.com>
 To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
 	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
@@ -90,17 +90,15 @@ To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
 	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
 	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>
+	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>
 Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
 	kernel-team@android.com, Edward Liaw <edliaw@google.com>, 
 	linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org
+	linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_011127_791463_2EDC5732 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20240510_011133_129761_14FB3599 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,491 +120,34 @@ redefinition warnings.
 
 Signed-off-by: Edward Liaw <edliaw@google.com>
 ---
- tools/testing/selftests/powerpc/benchmarks/context_switch.c    | 2 --
- tools/testing/selftests/powerpc/benchmarks/exec_target.c       | 2 --
- tools/testing/selftests/powerpc/benchmarks/fork.c              | 2 --
- tools/testing/selftests/powerpc/benchmarks/futex_bench.c       | 3 ---
- tools/testing/selftests/powerpc/dexcr/hashchk_test.c           | 3 ---
- tools/testing/selftests/powerpc/dscr/dscr_default_test.c       | 3 ---
- tools/testing/selftests/powerpc/dscr/dscr_explicit_test.c      | 3 ---
- tools/testing/selftests/powerpc/dscr/dscr_sysfs_thread_test.c  | 1 -
- tools/testing/selftests/powerpc/mm/exec_prot.c                 | 2 --
- tools/testing/selftests/powerpc/mm/pkey_exec_prot.c            | 2 --
- tools/testing/selftests/powerpc/mm/pkey_siginfo.c              | 2 --
- tools/testing/selftests/powerpc/mm/tlbie_test.c                | 2 --
- tools/testing/selftests/powerpc/papr_vpd/papr_vpd.c            | 1 -
- tools/testing/selftests/powerpc/pmu/count_instructions.c       | 3 ---
- tools/testing/selftests/powerpc/pmu/count_stcx_fail.c          | 3 ---
- tools/testing/selftests/powerpc/pmu/ebb/ebb.c                  | 3 ---
- .../testing/selftests/powerpc/pmu/ebb/instruction_count_test.c | 3 ---
- tools/testing/selftests/powerpc/pmu/event.c                    | 2 --
- tools/testing/selftests/powerpc/pmu/lib.c                      | 3 ---
- tools/testing/selftests/powerpc/pmu/per_event_excludes.c       | 3 ---
- tools/testing/selftests/powerpc/ptrace/perf-hwbreak.c          | 3 ---
- tools/testing/selftests/powerpc/ptrace/ptrace-syscall.c        | 2 --
- tools/testing/selftests/powerpc/signal/sig_sc_double_restart.c | 1 -
- tools/testing/selftests/powerpc/signal/sigreturn_kernel.c      | 3 ---
- tools/testing/selftests/powerpc/signal/sigreturn_vdso.c        | 3 ---
- tools/testing/selftests/powerpc/syscalls/ipc_unmuxed.c         | 2 --
- tools/testing/selftests/powerpc/tm/tm-exec.c                   | 2 --
- tools/testing/selftests/powerpc/tm/tm-poison.c                 | 2 --
- .../testing/selftests/powerpc/tm/tm-signal-context-force-tm.c  | 2 --
- tools/testing/selftests/powerpc/tm/tm-signal-sigreturn-nt.c    | 2 --
- tools/testing/selftests/powerpc/tm/tm-tmspr.c                  | 2 --
- tools/testing/selftests/powerpc/tm/tm-trap.c                   | 2 --
- tools/testing/selftests/powerpc/tm/tm-unavailable.c            | 2 --
- tools/testing/selftests/powerpc/utils.c                        | 3 ---
- 34 files changed, 79 deletions(-)
+ tools/testing/selftests/riscv/hwprobe/cbo.c        | 1 -
+ tools/testing/selftests/riscv/hwprobe/which-cpus.c | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/tools/testing/selftests/powerpc/benchmarks/context_switch.c b/tools/testing/selftests/powerpc/benchmarks/context_switch.c
-index 96554e2794d1..0b245572bd45 100644
---- a/tools/testing/selftests/powerpc/benchmarks/context_switch.c
-+++ b/tools/testing/selftests/powerpc/benchmarks/context_switch.c
-@@ -4,8 +4,6 @@
-  *
-  * Copyright (C) 2015 Anton Blanchard <anton@au.ibm.com>, IBM
-  */
--
--#define _GNU_SOURCE
- #include <errno.h>
- #include <sched.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/powerpc/benchmarks/exec_target.c b/tools/testing/selftests/powerpc/benchmarks/exec_target.c
-index c14b0fc1edde..8646540037d8 100644
---- a/tools/testing/selftests/powerpc/benchmarks/exec_target.c
-+++ b/tools/testing/selftests/powerpc/benchmarks/exec_target.c
-@@ -5,8 +5,6 @@
-  *
-  * Copyright 2018, Anton Blanchard, IBM Corp.
-  */
--
--#define _GNU_SOURCE
- #include <unistd.h>
- #include <sys/syscall.h>
- 
-diff --git a/tools/testing/selftests/powerpc/benchmarks/fork.c b/tools/testing/selftests/powerpc/benchmarks/fork.c
-index d312e638cb37..327231646a2a 100644
---- a/tools/testing/selftests/powerpc/benchmarks/fork.c
-+++ b/tools/testing/selftests/powerpc/benchmarks/fork.c
-@@ -5,8 +5,6 @@
-  *
-  * Copyright 2018, Anton Blanchard, IBM Corp.
-  */
--
--#define _GNU_SOURCE
- #include <assert.h>
- #include <errno.h>
- #include <getopt.h>
-diff --git a/tools/testing/selftests/powerpc/benchmarks/futex_bench.c b/tools/testing/selftests/powerpc/benchmarks/futex_bench.c
-index 017057090490..0483a13c88f9 100644
---- a/tools/testing/selftests/powerpc/benchmarks/futex_bench.c
-+++ b/tools/testing/selftests/powerpc/benchmarks/futex_bench.c
-@@ -2,9 +2,6 @@
- /*
-  * Copyright 2016, Anton Blanchard, Michael Ellerman, IBM Corp.
-  */
--
--#define _GNU_SOURCE
--
- #include <stdio.h>
- #include <sys/syscall.h>
- #include <time.h>
-diff --git a/tools/testing/selftests/powerpc/dexcr/hashchk_test.c b/tools/testing/selftests/powerpc/dexcr/hashchk_test.c
-index 645224bdc142..2499ab7fe563 100644
---- a/tools/testing/selftests/powerpc/dexcr/hashchk_test.c
-+++ b/tools/testing/selftests/powerpc/dexcr/hashchk_test.c
-@@ -1,7 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0+
--
--#define _GNU_SOURCE
--
- #include <errno.h>
- #include <fcntl.h>
- #include <limits.h>
-diff --git a/tools/testing/selftests/powerpc/dscr/dscr_default_test.c b/tools/testing/selftests/powerpc/dscr/dscr_default_test.c
-index 60ab02525b79..fe6aff1e5dad 100644
---- a/tools/testing/selftests/powerpc/dscr/dscr_default_test.c
-+++ b/tools/testing/selftests/powerpc/dscr/dscr_default_test.c
-@@ -9,9 +9,6 @@
-  * Copyright 2012, Anton Blanchard, IBM Corporation.
-  * Copyright 2015, Anshuman Khandual, IBM Corporation.
-  */
--
--#define _GNU_SOURCE
--
- #include "dscr.h"
- 
- #include <pthread.h>
-diff --git a/tools/testing/selftests/powerpc/dscr/dscr_explicit_test.c b/tools/testing/selftests/powerpc/dscr/dscr_explicit_test.c
-index e2268e9183a8..93b6efdc2eef 100644
---- a/tools/testing/selftests/powerpc/dscr/dscr_explicit_test.c
-+++ b/tools/testing/selftests/powerpc/dscr/dscr_explicit_test.c
-@@ -15,9 +15,6 @@
-  * Copyright 2012, Anton Blanchard, IBM Corporation.
-  * Copyright 2015, Anshuman Khandual, IBM Corporation.
-  */
--
--#define _GNU_SOURCE
--
- #include "dscr.h"
- #include "utils.h"
- 
-diff --git a/tools/testing/selftests/powerpc/dscr/dscr_sysfs_thread_test.c b/tools/testing/selftests/powerpc/dscr/dscr_sysfs_thread_test.c
-index 191ed126f118..ace7d23492c1 100644
---- a/tools/testing/selftests/powerpc/dscr/dscr_sysfs_thread_test.c
-+++ b/tools/testing/selftests/powerpc/dscr/dscr_sysfs_thread_test.c
-@@ -9,7 +9,6 @@
-  *
-  * Copyright 2015, Anshuman Khandual, IBM Corporation.
+diff --git a/tools/testing/selftests/riscv/hwprobe/cbo.c b/tools/testing/selftests/riscv/hwprobe/cbo.c
+index a40541bb7c7d..4de6f63fc537 100644
+--- a/tools/testing/selftests/riscv/hwprobe/cbo.c
++++ b/tools/testing/selftests/riscv/hwprobe/cbo.c
+@@ -5,7 +5,6 @@
+  * Run with 'taskset -c <cpu-list> cbo' to only execute hwprobe on a
+  * subset of cpus, as well as only executing the tests on those cpus.
   */
 -#define _GNU_SOURCE
- #include "dscr.h"
- 
- static int test_thread_dscr(unsigned long val)
-diff --git a/tools/testing/selftests/powerpc/mm/exec_prot.c b/tools/testing/selftests/powerpc/mm/exec_prot.c
-index db75b2225de1..65712597cc68 100644
---- a/tools/testing/selftests/powerpc/mm/exec_prot.c
-+++ b/tools/testing/selftests/powerpc/mm/exec_prot.c
-@@ -6,8 +6,6 @@
-  *
-  * Test if applying execute protection on pages works as expected.
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/powerpc/mm/pkey_exec_prot.c b/tools/testing/selftests/powerpc/mm/pkey_exec_prot.c
-index 0af4f02669a1..5cf72cd9694d 100644
---- a/tools/testing/selftests/powerpc/mm/pkey_exec_prot.c
-+++ b/tools/testing/selftests/powerpc/mm/pkey_exec_prot.c
-@@ -6,8 +6,6 @@
-  * Test if applying execute protection on pages using memory
-  * protection keys works as expected.
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/powerpc/mm/pkey_siginfo.c b/tools/testing/selftests/powerpc/mm/pkey_siginfo.c
-index 2db76e56d4cb..fcaa591abf88 100644
---- a/tools/testing/selftests/powerpc/mm/pkey_siginfo.c
-+++ b/tools/testing/selftests/powerpc/mm/pkey_siginfo.c
-@@ -8,8 +8,6 @@
-  * attempted to be protected by two different keys from two competing
-  * threads at the same time.
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/powerpc/mm/tlbie_test.c b/tools/testing/selftests/powerpc/mm/tlbie_test.c
-index 48344a74b212..512cd405de92 100644
---- a/tools/testing/selftests/powerpc/mm/tlbie_test.c
-+++ b/tools/testing/selftests/powerpc/mm/tlbie_test.c
-@@ -14,8 +14,6 @@
-  * and copy it back to the original area. This helps us to detect if any
-  * store continued to happen after we marked the memory PROT_READ.
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <sys/mman.h>
- #include <sys/types.h>
-diff --git a/tools/testing/selftests/powerpc/papr_vpd/papr_vpd.c b/tools/testing/selftests/powerpc/papr_vpd/papr_vpd.c
-index d6f99eb9be65..0b9b20668fa4 100644
---- a/tools/testing/selftests/powerpc/papr_vpd/papr_vpd.c
-+++ b/tools/testing/selftests/powerpc/papr_vpd/papr_vpd.c
-@@ -1,5 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0-only
--#define _GNU_SOURCE
- #include <errno.h>
- #include <fcntl.h>
- #include <stdlib.h>
-diff --git a/tools/testing/selftests/powerpc/pmu/count_instructions.c b/tools/testing/selftests/powerpc/pmu/count_instructions.c
-index a3984ef1e96a..57d63ff75397 100644
---- a/tools/testing/selftests/powerpc/pmu/count_instructions.c
-+++ b/tools/testing/selftests/powerpc/pmu/count_instructions.c
-@@ -2,9 +2,6 @@
- /*
-  * Copyright 2013, Michael Ellerman, IBM Corp.
-  */
--
--#define _GNU_SOURCE
--
- #include <stdio.h>
  #include <stdbool.h>
+ #include <stdint.h>
  #include <string.h>
-diff --git a/tools/testing/selftests/powerpc/pmu/count_stcx_fail.c b/tools/testing/selftests/powerpc/pmu/count_stcx_fail.c
-index 2070a1e2b3a5..5d3bbd38528d 100644
---- a/tools/testing/selftests/powerpc/pmu/count_stcx_fail.c
-+++ b/tools/testing/selftests/powerpc/pmu/count_stcx_fail.c
-@@ -2,9 +2,6 @@
-  * Copyright 2013, Michael Ellerman, IBM Corp.
-  * Licensed under GPLv2.
+diff --git a/tools/testing/selftests/riscv/hwprobe/which-cpus.c b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
+index 82c121412dfc..c3f080861c06 100644
+--- a/tools/testing/selftests/riscv/hwprobe/which-cpus.c
++++ b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
+@@ -5,7 +5,6 @@
+  * Test the RISCV_HWPROBE_WHICH_CPUS flag of hwprobe. Also provides a command
+  * line interface to get the cpu list for arbitrary hwprobe pairs.
   */
--
 -#define _GNU_SOURCE
--
  #include <stdio.h>
- #include <stdbool.h>
+ #include <stdlib.h>
  #include <string.h>
-diff --git a/tools/testing/selftests/powerpc/pmu/ebb/ebb.c b/tools/testing/selftests/powerpc/pmu/ebb/ebb.c
-index 21537d6eb6b7..e99a455e8c2e 100644
---- a/tools/testing/selftests/powerpc/pmu/ebb/ebb.c
-+++ b/tools/testing/selftests/powerpc/pmu/ebb/ebb.c
-@@ -2,9 +2,6 @@
- /*
-  * Copyright 2014, Michael Ellerman, IBM Corp.
-  */
--
--#define _GNU_SOURCE	/* For CPU_ZERO etc. */
--
- #include <sched.h>
- #include <sys/wait.h>
- #include <setjmp.h>
-diff --git a/tools/testing/selftests/powerpc/pmu/ebb/instruction_count_test.c b/tools/testing/selftests/powerpc/pmu/ebb/instruction_count_test.c
-index eed338b18e11..ab3f888922d6 100644
---- a/tools/testing/selftests/powerpc/pmu/ebb/instruction_count_test.c
-+++ b/tools/testing/selftests/powerpc/pmu/ebb/instruction_count_test.c
-@@ -2,9 +2,6 @@
- /*
-  * Copyright 2014, Michael Ellerman, IBM Corp.
-  */
--
--#define _GNU_SOURCE
--
- #include <stdio.h>
- #include <stdbool.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/powerpc/pmu/event.c b/tools/testing/selftests/powerpc/pmu/event.c
-index 0c1c1bdba081..5468bd2c3c5b 100644
---- a/tools/testing/selftests/powerpc/pmu/event.c
-+++ b/tools/testing/selftests/powerpc/pmu/event.c
-@@ -2,8 +2,6 @@
- /*
-  * Copyright 2013, Michael Ellerman, IBM Corp.
-  */
--
--#define _GNU_SOURCE
- #include <unistd.h>
- #include <sys/syscall.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/powerpc/pmu/lib.c b/tools/testing/selftests/powerpc/pmu/lib.c
-index 321357987408..fa208701dbdc 100644
---- a/tools/testing/selftests/powerpc/pmu/lib.c
-+++ b/tools/testing/selftests/powerpc/pmu/lib.c
-@@ -2,9 +2,6 @@
- /*
-  * Copyright 2014, Michael Ellerman, IBM Corp.
-  */
--
--#define _GNU_SOURCE	/* For CPU_ZERO etc. */
--
- #include <errno.h>
- #include <sched.h>
- #include <setjmp.h>
-diff --git a/tools/testing/selftests/powerpc/pmu/per_event_excludes.c b/tools/testing/selftests/powerpc/pmu/per_event_excludes.c
-index ad32a09a6540..066e0c4799fd 100644
---- a/tools/testing/selftests/powerpc/pmu/per_event_excludes.c
-+++ b/tools/testing/selftests/powerpc/pmu/per_event_excludes.c
-@@ -2,9 +2,6 @@
- /*
-  * Copyright 2014, Michael Ellerman, IBM Corp.
-  */
--
--#define _GNU_SOURCE
--
- #include <elf.h>
- #include <limits.h>
- #include <stdio.h>
-diff --git a/tools/testing/selftests/powerpc/ptrace/perf-hwbreak.c b/tools/testing/selftests/powerpc/ptrace/perf-hwbreak.c
-index e374c6b7ace6..1f7e3c63742d 100644
---- a/tools/testing/selftests/powerpc/ptrace/perf-hwbreak.c
-+++ b/tools/testing/selftests/powerpc/ptrace/perf-hwbreak.c
-@@ -16,9 +16,6 @@
-  *
-  * Copyright (C) 2018 Michael Neuling, IBM Corporation.
-  */
--
--#define _GNU_SOURCE
--
- #include <unistd.h>
- #include <assert.h>
- #include <sched.h>
-diff --git a/tools/testing/selftests/powerpc/ptrace/ptrace-syscall.c b/tools/testing/selftests/powerpc/ptrace/ptrace-syscall.c
-index 3353210dcdbd..6e5294c1b60b 100644
---- a/tools/testing/selftests/powerpc/ptrace/ptrace-syscall.c
-+++ b/tools/testing/selftests/powerpc/ptrace/ptrace-syscall.c
-@@ -8,8 +8,6 @@
-  * test, and it was adapted to run on Powerpc by
-  * Breno Leitao <leitao@debian.org>
-  */
--#define _GNU_SOURCE
--
- #include <sys/ptrace.h>
- #include <sys/types.h>
- #include <sys/wait.h>
-diff --git a/tools/testing/selftests/powerpc/signal/sig_sc_double_restart.c b/tools/testing/selftests/powerpc/signal/sig_sc_double_restart.c
-index e3972264615b..8bad5e65bbb7 100644
---- a/tools/testing/selftests/powerpc/signal/sig_sc_double_restart.c
-+++ b/tools/testing/selftests/powerpc/signal/sig_sc_double_restart.c
-@@ -18,7 +18,6 @@
-  *  that sucker at the same time.  Same for multiple signals of any kind
-  *  interrupting that sucker on 64bit...
-  */
--#define _GNU_SOURCE
- #include <sys/types.h>
- #include <sys/wait.h>
- #include <sys/syscall.h>
-diff --git a/tools/testing/selftests/powerpc/signal/sigreturn_kernel.c b/tools/testing/selftests/powerpc/signal/sigreturn_kernel.c
-index 0a1b6e591eee..772c3373560f 100644
---- a/tools/testing/selftests/powerpc/signal/sigreturn_kernel.c
-+++ b/tools/testing/selftests/powerpc/signal/sigreturn_kernel.c
-@@ -2,9 +2,6 @@
- /*
-  * Test that we can't sigreturn to kernel addresses, or to kernel mode.
-  */
--
--#define _GNU_SOURCE
--
- #include <stdio.h>
- #include <signal.h>
- #include <stdlib.h>
-diff --git a/tools/testing/selftests/powerpc/signal/sigreturn_vdso.c b/tools/testing/selftests/powerpc/signal/sigreturn_vdso.c
-index e282fff0fe25..d5aecd2c4b95 100644
---- a/tools/testing/selftests/powerpc/signal/sigreturn_vdso.c
-+++ b/tools/testing/selftests/powerpc/signal/sigreturn_vdso.c
-@@ -5,9 +5,6 @@
-  *
-  * See handle_rt_signal64() and setup_trampoline() in signal_64.c
-  */
--
--#define _GNU_SOURCE
--
- #include <errno.h>
- #include <stdio.h>
- #include <signal.h>
-diff --git a/tools/testing/selftests/powerpc/syscalls/ipc_unmuxed.c b/tools/testing/selftests/powerpc/syscalls/ipc_unmuxed.c
-index 4c582524aeb3..a49c699d86d4 100644
---- a/tools/testing/selftests/powerpc/syscalls/ipc_unmuxed.c
-+++ b/tools/testing/selftests/powerpc/syscalls/ipc_unmuxed.c
-@@ -5,8 +5,6 @@
-  * This test simply tests that certain syscalls are implemented. It doesn't
-  * actually exercise their logic in any way.
-  */
--
--#define _GNU_SOURCE
- #include <errno.h>
- #include <stdio.h>
- #include <unistd.h>
-diff --git a/tools/testing/selftests/powerpc/tm/tm-exec.c b/tools/testing/selftests/powerpc/tm/tm-exec.c
-index c59919d6710d..8cfc859dcf37 100644
---- a/tools/testing/selftests/powerpc/tm/tm-exec.c
-+++ b/tools/testing/selftests/powerpc/tm/tm-exec.c
-@@ -8,8 +8,6 @@
-  * It makes little sense for after an exec() call for the previously
-  * suspended transaction to still exist.
-  */
--
--#define _GNU_SOURCE
- #include <errno.h>
- #include <inttypes.h>
- #include <libgen.h>
-diff --git a/tools/testing/selftests/powerpc/tm/tm-poison.c b/tools/testing/selftests/powerpc/tm/tm-poison.c
-index a7bbf034b5bb..1b3a596a6a51 100644
---- a/tools/testing/selftests/powerpc/tm/tm-poison.c
-+++ b/tools/testing/selftests/powerpc/tm/tm-poison.c
-@@ -11,8 +11,6 @@
-  * present child's poison will leak into parent's f31 or vr31 registers,
-  * otherwise, poison will never leak into parent's f31 and vr31 registers.
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <unistd.h>
-diff --git a/tools/testing/selftests/powerpc/tm/tm-signal-context-force-tm.c b/tools/testing/selftests/powerpc/tm/tm-signal-context-force-tm.c
-index 421cb082f6be..f28ba2828df6 100644
---- a/tools/testing/selftests/powerpc/tm/tm-signal-context-force-tm.c
-+++ b/tools/testing/selftests/powerpc/tm/tm-signal-context-force-tm.c
-@@ -15,8 +15,6 @@
-  * This test never fails (as returning EXIT_FAILURE). It either succeeds,
-  * or crash the kernel (on a buggy kernel).
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <signal.h>
-diff --git a/tools/testing/selftests/powerpc/tm/tm-signal-sigreturn-nt.c b/tools/testing/selftests/powerpc/tm/tm-signal-sigreturn-nt.c
-index 06b801906f27..73f8e7dd5a1a 100644
---- a/tools/testing/selftests/powerpc/tm/tm-signal-sigreturn-nt.c
-+++ b/tools/testing/selftests/powerpc/tm/tm-signal-sigreturn-nt.c
-@@ -8,8 +8,6 @@
-  * It returns from the signal handler with the CPU at suspended state, but
-  * without setting usercontext MSR Transaction State (TS) fields.
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <signal.h>
-diff --git a/tools/testing/selftests/powerpc/tm/tm-tmspr.c b/tools/testing/selftests/powerpc/tm/tm-tmspr.c
-index dd5ddffa28b7..01118f7db1b2 100644
---- a/tools/testing/selftests/powerpc/tm/tm-tmspr.c
-+++ b/tools/testing/selftests/powerpc/tm/tm-tmspr.c
-@@ -22,8 +22,6 @@
-  *    	(b) abort transaction
-  *	(c) check TEXASR to see if FS has been corrupted
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <unistd.h>
-diff --git a/tools/testing/selftests/powerpc/tm/tm-trap.c b/tools/testing/selftests/powerpc/tm/tm-trap.c
-index 97cb74768e30..164b345b5bd3 100644
---- a/tools/testing/selftests/powerpc/tm/tm-trap.c
-+++ b/tools/testing/selftests/powerpc/tm/tm-trap.c
-@@ -26,8 +26,6 @@
-  * the endianness is verified on subsequent traps to determine if the
-  * endianness "flipped back" to the native endianness (BE).
-  */
--
--#define _GNU_SOURCE
- #include <error.h>
- #include <stdio.h>
- #include <stdlib.h>
-diff --git a/tools/testing/selftests/powerpc/tm/tm-unavailable.c b/tools/testing/selftests/powerpc/tm/tm-unavailable.c
-index 6bf1b65b020d..712267831112 100644
---- a/tools/testing/selftests/powerpc/tm/tm-unavailable.c
-+++ b/tools/testing/selftests/powerpc/tm/tm-unavailable.c
-@@ -13,8 +13,6 @@
-  * corruption, but only for registers vs0 and vs32, which are respectively
-  * representatives of FP and VEC/Altivec reg sets.
-  */
--
--#define _GNU_SOURCE
- #include <error.h>
- #include <stdio.h>
- #include <stdlib.h>
-diff --git a/tools/testing/selftests/powerpc/utils.c b/tools/testing/selftests/powerpc/utils.c
-index e5f2d8735c64..664722a01636 100644
---- a/tools/testing/selftests/powerpc/utils.c
-+++ b/tools/testing/selftests/powerpc/utils.c
-@@ -2,9 +2,6 @@
- /*
-  * Copyright 2013-2015, Michael Ellerman, IBM Corp.
-  */
--
--#define _GNU_SOURCE	/* For CPU_ZERO etc. */
--
- #include <elf.h>
- #include <errno.h>
- #include <fcntl.h>
 -- 
 2.45.0.118.g7fe29c98d7-goog
 
