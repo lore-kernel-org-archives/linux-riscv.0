@@ -4,91 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7546C41513
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 09:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FA0C25B10
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 09:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=JqoLivopous5A0ttwP+NJUr1zfRV1yQ5ZnYnuGn0Y8k=; b=DspWocDEGPiFsdd4/1brZMKj5t
-	KO6OGtMSz8Oz2CvJG86v72RfRYu/CWbRECSr+D/OHiWImIwkiVUDqwA1KF3a5FEceexUpqcP5eV7M
-	+EYQkWG5NGA3rQX2trQU8eO1jcEl+MtCiAP+60ESCypYjBJT1wgbzyVYaEbgPBLAVesQj9oFKevUJ
-	SuPF2uUpAYEpiT3H9G+MmkdbIc+8Ox7M+qBdDukrTU2vxesoVOWWMGtKDsMPfQbvh0MlYGpPwFyDn
-	Oy786vs8ISb+ImHL+WuTieg/8K3dwbXfJs28T65uOu+ixQPOqDWJONxz4v9/ZqZ+Tg22Cm6k2zEIy
-	xgdUgxFw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WFO8RLoj+C5eW3qk4RGHnMqIUxKn86/L9EdlIt+VIZc=; b=RyTfW2DXFNBVeC
+	sEQsFgy3isuCa7d/CTq2Aa/2xVzkAEtmADizxmZPQPy474qDWg3iY7iDtlPazQRz+SonQsmoj7S9x
+	sazwzikyJGyg4w19jomSyUniOQpbkIE+56g5szqy1k+zNAgfDuxptPmkQc/VDHyNpL/EB4CIv1zFZ
+	tiiFcePsO6vHpwr3AFUh7PKEdjRhLWJnVcgnagCUd3CEEvrwBTnM57RHWORzUKLBJ6Qh2BlmRPNGI
+	ozRIjFdlVxpnefvQQCoOJTWx6vlC9W7vemfGfgFvxjLXuE5t+hzA8fqYLb0bIO6/QqTHbYKvMgrYY
+	73vuSBhhlDvsofdrxhhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5MA2-00000004a1I-42lO;
-	Fri, 10 May 2024 09:03:26 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5M9p-00000004Zwe-1Mvw
+	id 1s5MCG-00000004aQE-1Vmf;
+	Fri, 10 May 2024 09:05:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s5MCC-00000004aOt-29DO
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 May 2024 09:03:25 +0000
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id A00BF41200
-	for <linux-riscv@lists.infradead.org>; Fri, 10 May 2024 09:03:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1715331783;
-	bh=EZg3bZExhlWVK50gpSicBrX5JPsAAk8r1XrLNevR8+8=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=TX5+xMsvsbxEUoSMimMTBo2mmwWV4mRa3e3pO4AQoCFbI4w10pgRpp9Mx98CpRH1s
-	 h+FRO8THwSY8QnEi6s/YKbGXHsk5wuJsgCYRXC3nv+oIlwSxY3Ft6OCQWpulmdc4Ok
-	 YmHgP0n40zhWOnJAjdhRZVQC2Pz8VNmWMEZNNyOlwK+g9RlJZHZvXDi/vzU6WSmn7E
-	 1r6trSYkcRZyfNlGFcCqBQKDFm60IzF5XWJTZVKDfDK7hbBOplc65fgEdblxHxfbR6
-	 9AslhanLZHyWo1O6ERoUrrNQwX1rOph/9RYoOTEs2Coa9EoQxFhTF96a44LY+OiIJm
-	 wQKEwuU2QqOAg==
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-43b08a9d373so18349461cf.3
-        for <linux-riscv@lists.infradead.org>; Fri, 10 May 2024 02:03:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715331780; x=1715936580;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EZg3bZExhlWVK50gpSicBrX5JPsAAk8r1XrLNevR8+8=;
-        b=wIpPDOEwFAFF6SIL8ETNUhwJ99mTeWHk6Mdr62uuxy2Zojwr7LeCJTBuK0xyU9IfgM
-         cttMcSiXARIy9m7zqtecv/7FdhvzVubLZtaMrhDtw1InJKpTK3rIYZ9rz7pzUEzlO/hP
-         3FltNEBxD6R7Bqp76CR4gWiR8ak9OeFz0cbNgzhxDTIE3UPz1L92U8ZGH3wAmETkVvnN
-         yBovS0bd+zSEUa2Dpym1L7uE+g9yBDr/2vvbkaDNuGuRavfHZ9a9kpkaqusgzHIBK/aB
-         UYTrWbwSC1YCWU5xzfGdnwE3V6hbzq+PfHYdGizZRRvYdbA/opvU+9uqxIc3VnHG46Mw
-         Zeiw==
-X-Forwarded-Encrypted: i=1; AJvYcCX6O4VjWuEwGueAhzq0TrfvdZC/1dWfuc1z++DckDDl5kSO+35WX7Z5gBwa1peQLiyu/etgfDrJWg7gj+GFDPWybcSJw2eJjj5XUb8k26iC
-X-Gm-Message-State: AOJu0YyMJiKDGKlt66lHsgbgRk6wUtaVSoGrC4LduYwYgNtS9kOzbAt1
-	9bZNi1isIzL1cBOVJ2XPTPriIagB0Opyou4wuhV91ud03VPp/kDVQZgIUp7SoaxNJHLOacItO2J
-	4x71KTqt89dTM1AtwL9Ne1r79Wo4646IaEzMSGX3tfHE4pRfS9Wd2pWpQWcr1t7l+XWx7CfdpZm
-	eEC3D158RnYZwJbooz/S8lx4lWO54l3rD6dEYCY4QtXQz/NRto8MHdGiVe
-X-Received: by 2002:ac8:570a:0:b0:43a:fc66:35d8 with SMTP id d75a77b69052e-43dfdb06fccmr22804931cf.7.1715331779843;
-        Fri, 10 May 2024 02:02:59 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHm3BolVFsu22mYiTmhPkAgiTCxY6SWjICQtL4EpS7KCkeY9VWrwi7XisKP2lAOKpom9apfc0uDgJLCEOJTYis=
-X-Received: by 2002:ac8:570a:0:b0:43a:fc66:35d8 with SMTP id
- d75a77b69052e-43dfdb06fccmr22804731cf.7.1715331779539; Fri, 10 May 2024
- 02:02:59 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 10 May 2024 04:02:59 -0500
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <87wmo2nmee.fsf@linux-m68k.org>
-References: <20240508111604.887466-1-emil.renner.berthing@canonical.com> <87wmo2nmee.fsf@linux-m68k.org>
-Mime-Version: 1.0
-Date: Fri, 10 May 2024 04:02:58 -0500
-Message-ID: <CAJM55Z-F6N6ua5LoqyMFogDtLp=FaRPoDv4osXFDMjR1b8r9nw@mail.gmail.com>
-Subject: Re: [PATCH v1 0/2] riscv: dts: starfive: Enable Bluetooth on JH7100 boards
-To: Andreas Schwab <schwab@linux-m68k.org>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
+	Fri, 10 May 2024 09:05:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67B2B106F;
+	Fri, 10 May 2024 02:06:02 -0700 (PDT)
+Received: from [10.57.65.1] (unknown [10.57.65.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E08003F762;
+	Fri, 10 May 2024 02:05:34 -0700 (PDT)
+Message-ID: <eb41fcb3-7207-40a8-9b49-0825a2e74e86@arm.com>
+Date: Fri, 10 May 2024 10:05:33 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/5] mm: Add update_mmu_tlb_range()
+Content-Language: en-GB
+To: Bang Li <libang.li@antgroup.com>, akpm@linux-foundation.org,
+ chenhuacai@kernel.org, tsbogend@alpha.franken.de, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, chris@zankel.net, jcmvbkbc@gmail.com
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ david@redhat.com, ioworker0@gmail.com, libang.linux@gmail.com
+References: <20240506155120.83105-1-libang.li@antgroup.com>
+ <20240506155120.83105-6-libang.li@antgroup.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20240506155120.83105-6-libang.li@antgroup.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_020314_232898_A1A30582 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240510_020540_703794_EB8C4168 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,27 +68,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Andreas Schwab wrote:
-> On Mai 08 2024, Emil Renner Berthing wrote:
->
-> > This series enables the in-kernel Bluetooth driver to work with the
-> > Broadcom Wifi/Bluetooth module on the BeagleV Starlight and StarFive
-> > VisionFive V1 boards.
->
-> That does not work for me:
->
-> [  +0.369276] Bluetooth: hci0: command 0x1001 tx timeout
-> [  +0.025545] Bluetooth: hci0: BCM: Reading local version info failed (-110)
+On 06/05/2024 16:51, Bang Li wrote:
+> After the commit 19eaf44954df ("mm: thp: support allocation of anonymous
+> multi-size THP"), it may need to batch update tlb of an address range
+> through the update_mmu_tlb function. We can simplify this operation by
+> adding the update_mmu_tlb_range function, which may also reduce the
+> execution of some unnecessary code in some architectures.
+> 
+> Signed-off-by: Bang Li <libang.li@antgroup.com>
+> ---
+>  include/linux/pgtable.h | 8 ++++++++
+>  mm/memory.c             | 4 +---
+>  2 files changed, 9 insertions(+), 3 deletions(-)
+> 
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 18019f037bae..869bfe6054f1 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -737,6 +737,14 @@ static inline void update_mmu_tlb(struct vm_area_struct *vma,
+>  #define __HAVE_ARCH_UPDATE_MMU_TLB
+>  #endif
 
-Hi Andreas,
+Given you are implementing update_mmu_tlb_range() in all the arches that
+currently override update_mmu_tlb() I wonder if it would be cleaner to remove
+update_mmu_tlb() from all those arches, and define generically, removing the
+ability for arches to override it:
 
-You don't include any information useful for debugging this, but if it get's
-far enough to load the firmware could you at least make sure you run the
-version below, so that's at least the same.
+static inline void update_mmu_tlb(struct vm_area_struct *vma,
+				unsigned long address, pte_t *ptep)
+{
+	update_mmu_tlb_range(vma, address, ptep, 1);
+}
 
-https://github.com/esmil/linux/blob/visionfive/firmware/brcm/BCM43430A1.hcd
+>  
+> +#ifndef __HAVE_ARCH_UPDATE_MMU_TLB_RANGE
+> +static inline void update_mmu_tlb_range(struct vm_area_struct *vma,
+> +				unsigned long address, pte_t *ptep, unsigned int nr)
+> +{
+> +}
+> +#define __HAVE_ARCH_UPDATE_MMU_TLB_RANGE
+> +#endif
 
-/Emil
+Then you could use the modern override scheme as Lance suggested and you won't
+have any confusion with __HAVE_ARCH_UPDATE_MMU_TLB because it won't exist anymore.
+
+> +
+>  /*
+>   * Some architectures may be able to avoid expensive synchronization
+>   * primitives when modifications are made to PTE's which are already
+> diff --git a/mm/memory.c b/mm/memory.c
+> index eea6e4984eae..2d53e29cf76e 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -4421,7 +4421,6 @@ static vm_fault_t do_anonymous_page(struct vm_fault *vmf)
+>  	vm_fault_t ret = 0;
+>  	int nr_pages = 1;
+>  	pte_t entry;
+> -	int i;
+>  
+>  	/* File mapping without ->vm_ops ? */
+>  	if (vma->vm_flags & VM_SHARED)
+> @@ -4491,8 +4490,7 @@ static vm_fault_t do_anonymous_page(struct vm_fault *vmf)
+>  		update_mmu_tlb(vma, addr, vmf->pte);
+>  		goto release;
+>  	} else if (nr_pages > 1 && !pte_range_none(vmf->pte, nr_pages)) {
+> -		for (i = 0; i < nr_pages; i++)
+> -			update_mmu_tlb(vma, addr + PAGE_SIZE * i, vmf->pte + i);
+> +		update_mmu_tlb_range(vma, addr, vmf->pte, nr_pages);
+
+I certainly agree that this will be a useful helper to have. I expect there will
+be more users in future.
+
+>  		goto release;
+>  	}
+>  
+
 
 _______________________________________________
 linux-riscv mailing list
