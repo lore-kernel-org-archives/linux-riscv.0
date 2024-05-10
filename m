@@ -4,54 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740A5C25B74
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 13:50:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1653DC25B4F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 16:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3NCsapV2WE5waGpR/T+4wDnkV0nTO8QfkIhtbLC2BR0=; b=hMQTf1mvRRYTUL
-	Jf8aQ3eWgGGmDEqvL8OyqhwFIKzVJoKVeu2XMz3WR0TLDv99C4HvMD/Cjs6CeAaHDXebSDdtoiZhE
-	5rceIqTZw7NYGuY43nax4BQmZC9swEMoRLgxDLm8NPpX3AhZfsJH2fmsbr3h7DjOlViG+ghSA4Yc0
-	yfep5y/46PAOv5NVvIhxt4mQRjzV3A0v9/O+1cleUGgPSNtUJSOw9kji5oGHQqVL9J11edMUYnekB
-	Ivk9Iho72cKDKTpufe9bsMqNH5FiOpcSZlP1Ysyxduj28TF99qlxVgDLEJ3T7pGO6QXrl6y0JFlcs
-	SHA8JlH2uf+DpLP/zGQQ==;
+	List-Owner; bh=QIkIYR7M8OdCiVbFJP3T3YLM+p0bjLTPkHX1yGypkoc=; b=l7I4dvBTR2VxmN
+	10119MmBVmCeIK0pmnqoE5BzPtYuRQsovbcL8XTwJ3bIq1WEODUbcIE9R305mImWbULaw+m2z+SCr
+	xfqV4okF+R2a3PigN0ji6MLoV4PPoenqW4vLzKOnNG/QJdVbfrUK1uNyxE5r168BWNxrCGtjXCRv+
+	WA2BiWcZ8g2w3KkfbPN8gRGdmcR2HbkXn8fZHv1Qc980/AP5a2eFXC3oFyX2o4tGa8jLzNbFMNuH2
+	X0u5P2BY+u4uIbyOdrPJQlvBivFFLEp7zRPtlVgcakSns0JhuRO8RXvKtKIsF9tepkYOHzz+w0FoJ
+	kH2N2eDEuphs9c7ddXTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5QdU-00000005RoT-3xfI;
-	Fri, 10 May 2024 13:50:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5QdO-00000005Rmc-4BXH;
-	Fri, 10 May 2024 13:50:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04CFE106F;
-	Fri, 10 May 2024 06:50:23 -0700 (PDT)
-Received: from [10.57.65.1] (unknown [10.57.65.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02C483F641;
-	Fri, 10 May 2024 06:49:55 -0700 (PDT)
-Message-ID: <6d37f914-d139-48ea-be63-c428ac767cc1@arm.com>
-Date: Fri, 10 May 2024 14:49:54 +0100
+	id 1s5TEp-00000005tbO-3Qc9;
+	Fri, 10 May 2024 16:36:51 +0000
+Received: from out0-205.mail.aliyun.com ([140.205.0.205])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s5TEk-00000005tXk-3PYw
+	for linux-riscv@lists.infradead.org;
+	Fri, 10 May 2024 16:36:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=antgroup.com; s=default;
+	t=1715359001; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=qtTzD4p4/mI5FQfHMAQ4AseA2ZJSqFbFGgw9hxpmGnA=;
+	b=k5Df+2z6wUSf1COeQsfruH2ujE2DY+OFJrtXHn9EHT82+BhC6WrztA8p/rN5nUeIWMoncVmi8c0y4ms/EYoBfJt8+HvEVVcmzlWvnegqo3TJi1D09J9rjHbBdSe6gU97DBKmiKV82tUsOmBNDXnYG4Qgz4iNRUwOXaPH+Q6gZGk=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018047212;MF=libang.li@antgroup.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---.XYAMMf6_1715358997;
+Received: from 30.39.184.43(mailfrom:libang.li@antgroup.com fp:SMTPD_---.XYAMMf6_1715358997)
+          by smtp.aliyun-inc.com;
+          Sat, 11 May 2024 00:36:38 +0800
+Message-ID: <41acfd35-69b4-41bc-a45b-4426d5110077@antgroup.com>
+Date: Sat, 11 May 2024 00:36:35 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v2 0/9] Merge arm64/riscv hugetlbfs contpte support
-Content-Language: en-GB
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton
- <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-mm@kvack.org
-References: <20240508113419.18620-1-alexghiti@rivosinc.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20240508113419.18620-1-alexghiti@rivosinc.com>
+Subject: Re: [PATCH v2 5/5] mm: Add update_mmu_tlb_range()
+To: Ryan Roberts <ryan.roberts@arm.com>, akpm@linux-foundation.org,
+ chenhuacai@kernel.org, tsbogend@alpha.franken.de, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, chris@zankel.net, jcmvbkbc@gmail.com
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ david@redhat.com, ioworker0@gmail.com, libang.linux@gmail.com,
+ baolin.wang@linux.alibaba.com
+References: <20240506155120.83105-1-libang.li@antgroup.com>
+ <20240506155120.83105-6-libang.li@antgroup.com>
+ <eb41fcb3-7207-40a8-9b49-0825a2e74e86@arm.com>
+Content-Language: en-US
+From: "Bang Li" <libang.li@antgroup.com>
+In-Reply-To: <eb41fcb3-7207-40a8-9b49-0825a2e74e86@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_065003_454739_C3EDCEBD 
-X-CRM114-Status: GOOD (  28.48  )
+X-CRM114-CacheID: sfid-20240510_093647_530214_478D990A 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,100 +68,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/05/2024 12:34, Alexandre Ghiti wrote:
-> This patchset intends to merge the contiguous ptes hugetlbfs implementation
-> of arm64 and riscv.
-> 
-> Both arm64 and riscv support the use of contiguous ptes to map pages that
-> are larger than the default page table size, respectively called contpte
-> and svnapot.
-> 
-> The riscv implementation differs from the arm64's in that the LSBs of the
-> pfn of a svnapot pte are used to store the size of the mapping, allowing
-> for future sizes to be added (for now only 64KB is supported). That's an
-> issue for the core mm code which expects to find the *real* pfn a pte points
-> to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
-> and restores the size of the mapping when it is written to a page table.
-> 
-> The following patches are just merges of the 2 different implementations
-> that currently exist in arm64 and riscv which are very similar. It paves
-> the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
-> reimplementing the same in riscv.
-
-Hi Alexandre,
-
-I've skimmed through this series and the one that moves contpte. I can see there
-is definitely value in sharing the implementation, and the rough shape of things
-seems appropriate. I had some minor concerns about making it harder to implement
-potential future arm64 errata workarounds but on reflection, most of the
-now-shared code is really just wrapping the primitives that are still arch-specific.
-
-I'm going to need to spend proper time reviewing it to give detailed feedback,
-but I'll be out on paternity leave for 3 weeks from end of Monday at the latest.
-So realistically I won't be able to do the detailed review until at least the
-first week of June.
-
-Some high level thoughts:
-
- - huge_ptep_* functions could be working on different sized huge ptes - arm64
-supports contpte, pmd, contpmd and pud. Is keeping them in contpte.c
-appropriate? Perhaps it's better to keep huge_pte and contpte separate? Also, it
-only works on arm64 because we can get away with calling the lower-level pte
-functions even when the huge_pte is actually a contpmd/pmd/pud, because the
-format is the same. That might present challenges to other arches if the format
-is different?
-
- - It might be easier to review if the arm64 stuff is first moved (without
-changes) then modified to make it suitable for riscv, then for riscv to be
-hooked up. At the moment I'm trying to follow all 3 parts per-function.
-
-Thanks,
-Ryan
-
-
-> 
-> This patchset was tested by running the libhugetlbfs testsuite with 64KB
-> and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-ryan.roberts@arm.com/
-> 
-> Changes in v2:
->   - Rebase on top of 6.9-rc3
-> 
-> Alexandre Ghiti (9):
->   riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
->   riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
->   mm: Use common huge_ptep_get() function for riscv/arm64
->   mm: Use common set_huge_pte_at() function for riscv/arm64
->   mm: Use common huge_pte_clear() function for riscv/arm64
->   mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
->   mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
->   mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
->   mm: Use common huge_ptep_clear_flush() function for riscv/arm64
-> 
->  arch/arm64/Kconfig                  |   1 +
->  arch/arm64/include/asm/pgtable.h    |  56 +++++-
->  arch/arm64/mm/hugetlbpage.c         | 291 +---------------------------
->  arch/riscv/Kconfig                  |   1 +
->  arch/riscv/include/asm/hugetlb.h    |   2 +-
->  arch/riscv/include/asm/pgtable-64.h |  11 ++
->  arch/riscv/include/asm/pgtable.h    | 153 +++++++++++++--
->  arch/riscv/mm/hugetlbpage.c         | 227 ----------------------
->  arch/riscv/mm/pgtable.c             |   6 +-
->  mm/Kconfig                          |   3 +
->  mm/Makefile                         |   1 +
->  mm/contpte.c                        | 272 ++++++++++++++++++++++++++
->  12 files changed, 480 insertions(+), 544 deletions(-)
->  create mode 100644 mm/contpte.c
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUnlhbiwKClRoYW5rcyBmb3IgeW91IHJldmlldyEKCk9uIDIwMjQvNS8xMCAxNzowNSwgUnlh
+biBSb2JlcnRzIHdyb3RlOgo+IE9uIDA2LzA1LzIwMjQgMTY6NTEsIEJhbmcgTGkgd3JvdGU6Cj4+
+IEFmdGVyIHRoZSBjb21taXQgMTllYWY0NDk1NGRmICgibW06IHRocDogc3VwcG9ydCBhbGxvY2F0
+aW9uIG9mIGFub255bW91cwo+PiBtdWx0aS1zaXplIFRIUCIpLCBpdCBtYXkgbmVlZCB0byBiYXRj
+aCB1cGRhdGUgdGxiIG9mIGFuIGFkZHJlc3MgcmFuZ2UKPj4gdGhyb3VnaCB0aGUgdXBkYXRlX21t
+dV90bGIgZnVuY3Rpb24uIFdlIGNhbiBzaW1wbGlmeSB0aGlzIG9wZXJhdGlvbiBieQo+PiBhZGRp
+bmcgdGhlIHVwZGF0ZV9tbXVfdGxiX3JhbmdlIGZ1bmN0aW9uLCB3aGljaCBtYXkgYWxzbyByZWR1
+Y2UgdGhlCj4+IGV4ZWN1dGlvbiBvZiBzb21lIHVubmVjZXNzYXJ5IGNvZGUgaW4gc29tZSBhcmNo
+aXRlY3R1cmVzLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBCYW5nIExpIDxsaWJhbmcubGlAYW50Z3Jv
+dXAuY29tPgo+PiAtLS0KPj4gICBpbmNsdWRlL2xpbnV4L3BndGFibGUuaCB8IDggKysrKysrKysK
+Pj4gICBtbS9tZW1vcnkuYyAgICAgICAgICAgICB8IDQgKy0tLQo+PiAgIDIgZmlsZXMgY2hhbmdl
+ZCwgOSBpbnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvaW5j
+bHVkZS9saW51eC9wZ3RhYmxlLmggYi9pbmNsdWRlL2xpbnV4L3BndGFibGUuaAo+PiBpbmRleCAx
+ODAxOWYwMzdiYWUuLjg2OWJmZTYwNTRmMSAxMDA2NDQKPj4gLS0tIGEvaW5jbHVkZS9saW51eC9w
+Z3RhYmxlLmgKPj4gKysrIGIvaW5jbHVkZS9saW51eC9wZ3RhYmxlLmgKPj4gQEAgLTczNyw2ICs3
+MzcsMTQgQEAgc3RhdGljIGlubGluZSB2b2lkIHVwZGF0ZV9tbXVfdGxiKHN0cnVjdCB2bV9hcmVh
+X3N0cnVjdCAqdm1hLAo+PiAgICNkZWZpbmUgX19IQVZFX0FSQ0hfVVBEQVRFX01NVV9UTEIKPj4g
+ICAjZW5kaWYKPiAKPiBHaXZlbiB5b3UgYXJlIGltcGxlbWVudGluZyB1cGRhdGVfbW11X3RsYl9y
+YW5nZSgpIGluIGFsbCB0aGUgYXJjaGVzIHRoYXQKPiBjdXJyZW50bHkgb3ZlcnJpZGUgdXBkYXRl
+X21tdV90bGIoKSBJIHdvbmRlciBpZiBpdCB3b3VsZCBiZSBjbGVhbmVyIHRvIHJlbW92ZQo+IHVw
+ZGF0ZV9tbXVfdGxiKCkgZnJvbSBhbGwgdGhvc2UgYXJjaGVzLCBhbmQgZGVmaW5lIGdlbmVyaWNh
+bGx5LCByZW1vdmluZyB0aGUKPiBhYmlsaXR5IGZvciBhcmNoZXMgdG8gb3ZlcnJpZGUgaXQ6Cj4g
+Cj4gc3RhdGljIGlubGluZSB2b2lkIHVwZGF0ZV9tbXVfdGxiKHN0cnVjdCB2bV9hcmVhX3N0cnVj
+dCAqdm1hLAo+IAkJCQl1bnNpZ25lZCBsb25nIGFkZHJlc3MsIHB0ZV90ICpwdGVwKQo+IHsKPiAJ
+dXBkYXRlX21tdV90bGJfcmFuZ2Uodm1hLCBhZGRyZXNzLCBwdGVwLCAxKTsKPiB9CgpBZ3JlZWQh
+IFRoYW5rIHlvdSBmb3IgeW91ciBzdWdnZXN0aW9uLCBJIHdpbGwgbW9kaWZ5IGl0IGluIHRoZSBu
+ZXh0IHZlcnNpb24uCgo+IAo+PiAgIAo+PiArI2lmbmRlZiBfX0hBVkVfQVJDSF9VUERBVEVfTU1V
+X1RMQl9SQU5HRQo+PiArc3RhdGljIGlubGluZSB2b2lkIHVwZGF0ZV9tbXVfdGxiX3JhbmdlKHN0
+cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hLAo+PiArCQkJCXVuc2lnbmVkIGxvbmcgYWRkcmVzcywg
+cHRlX3QgKnB0ZXAsIHVuc2lnbmVkIGludCBucikKPj4gK3sKPj4gK30KPj4gKyNkZWZpbmUgX19I
+QVZFX0FSQ0hfVVBEQVRFX01NVV9UTEJfUkFOR0UKPj4gKyNlbmRpZgo+IAo+IFRoZW4geW91IGNv
+dWxkIHVzZSB0aGUgbW9kZXJuIG92ZXJyaWRlIHNjaGVtZSBhcyBMYW5jZSBzdWdnZXN0ZWQgYW5k
+IHlvdSB3b24ndAo+IGhhdmUgYW55IGNvbmZ1c2lvbiB3aXRoIF9fSEFWRV9BUkNIX1VQREFURV9N
+TVVfVExCIGJlY2F1c2UgaXQgd29uJ3QgZXhpc3QgYW55bW9yZS4KClllcywgdXNlIHVwZGF0ZV9t
+bXVfdGxiX3JhbmdlIHRvIGltcGxlbWVudCB1cGRhdGVfbW11X3RsYiwgd2Ugb25seSBuZWVkIAp0
+byBkZWZpbmUgdGhlIHVwZGF0ZV9tbXVfdGxiX3JhbmdlIG1hY3JvLgoKPiAKPj4gKwo+PiAgIC8q
+Cj4+ICAgICogU29tZSBhcmNoaXRlY3R1cmVzIG1heSBiZSBhYmxlIHRvIGF2b2lkIGV4cGVuc2l2
+ZSBzeW5jaHJvbml6YXRpb24KPj4gICAgKiBwcmltaXRpdmVzIHdoZW4gbW9kaWZpY2F0aW9ucyBh
+cmUgbWFkZSB0byBQVEUncyB3aGljaCBhcmUgYWxyZWFkeQo+PiBkaWZmIC0tZ2l0IGEvbW0vbWVt
+b3J5LmMgYi9tbS9tZW1vcnkuYwo+PiBpbmRleCBlZWE2ZTQ5ODRlYWUuLjJkNTNlMjljZjc2ZSAx
+MDA2NDQKPj4gLS0tIGEvbW0vbWVtb3J5LmMKPj4gKysrIGIvbW0vbWVtb3J5LmMKPj4gQEAgLTQ0
+MjEsNyArNDQyMSw2IEBAIHN0YXRpYyB2bV9mYXVsdF90IGRvX2Fub255bW91c19wYWdlKHN0cnVj
+dCB2bV9mYXVsdCAqdm1mKQo+PiAgIAl2bV9mYXVsdF90IHJldCA9IDA7Cj4+ICAgCWludCBucl9w
+YWdlcyA9IDE7Cj4+ICAgCXB0ZV90IGVudHJ5Owo+PiAtCWludCBpOwo+PiAgIAo+PiAgIAkvKiBG
+aWxlIG1hcHBpbmcgd2l0aG91dCAtPnZtX29wcyA/ICovCj4+ICAgCWlmICh2bWEtPnZtX2ZsYWdz
+ICYgVk1fU0hBUkVEKQo+PiBAQCAtNDQ5MSw4ICs0NDkwLDcgQEAgc3RhdGljIHZtX2ZhdWx0X3Qg
+ZG9fYW5vbnltb3VzX3BhZ2Uoc3RydWN0IHZtX2ZhdWx0ICp2bWYpCj4+ICAgCQl1cGRhdGVfbW11
+X3RsYih2bWEsIGFkZHIsIHZtZi0+cHRlKTsKPj4gICAJCWdvdG8gcmVsZWFzZTsKPj4gICAJfSBl
+bHNlIGlmIChucl9wYWdlcyA+IDEgJiYgIXB0ZV9yYW5nZV9ub25lKHZtZi0+cHRlLCBucl9wYWdl
+cykpIHsKPj4gLQkJZm9yIChpID0gMDsgaSA8IG5yX3BhZ2VzOyBpKyspCj4+IC0JCQl1cGRhdGVf
+bW11X3RsYih2bWEsIGFkZHIgKyBQQUdFX1NJWkUgKiBpLCB2bWYtPnB0ZSArIGkpOwo+PiArCQl1
+cGRhdGVfbW11X3RsYl9yYW5nZSh2bWEsIGFkZHIsIHZtZi0+cHRlLCBucl9wYWdlcyk7Cj4gCj4g
+SSBjZXJ0YWlubHkgYWdyZWUgdGhhdCB0aGlzIHdpbGwgYmUgYSB1c2VmdWwgaGVscGVyIHRvIGhh
+dmUuIEkgZXhwZWN0IHRoZXJlIHdpbGwKPiBiZSBtb3JlIHVzZXJzIGluIGZ1dHVyZS4KClRoYW5r
+IHlvdSBmb3IgeW91ciBhZmZpcm1hdGlvbi4gQmFvbGlu4oCZcyAiYWRkIG1USFAgc3VwcG9ydCBm
+b3IgYW5vbnltb3VzIApzaG1lbSIgc2VyaWVzWzFdIGNhbiBhbHNvIHVzZSB0aGlzIGZ1bmN0aW9u
+IHRvIHNpbXBsaWZ5IHRoZSBjb2RlLgoKWzFdIApodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51
+eC1tbS9jb3Zlci4xNzE0OTc4OTAyLmdpdC5iYW9saW4ud2FuZ0BsaW51eC5hbGliYWJhLmNvbS8K
+ClRoYW5rcywKQmFuZwoKPiAKPj4gICAJCWdvdG8gcmVsZWFzZTsKPj4gICAJfQo+PiAgIAoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
+bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
+LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
