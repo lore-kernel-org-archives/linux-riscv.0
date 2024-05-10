@@ -4,67 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 127B2C25B10
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 21:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 161FBC25B74
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 21:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9vZUDUp+AC/SBm11HVmt6zSmuVKJKry2RHLfXHvC4no=; b=wSoIN12sGwfl4t
-	DG7XpjfwNsAzXkB3woMxCQ46GeaFIP4WvzOVCk2Y30vk2/bMFQoTchRfYIHJ5BFD+xTDINLTqn2Aj
-	eigQ6y0kcXCBPnrhzEnbT9Msp7GHO0J5pCaj4riFl62QVLuB8ZFF3JKDK2/JW4qJLHexA9uFdbqbA
-	lJxuZcJ3gwh03hkI9DW+JfmUDGRxN+YtZ3tlme3KLueUsnUOpBLuuFOi0SnT4RurYWJtgkmQN4QNK
-	SspG4g7xB4Cmkudx7mGsQxb+4nA6pMZuXsOctHTlEKYaz3g2/Rz1b+L9WVhOhH93UtvyV1YK3jnyX
-	qpulVgY+eNywiAlwawUQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e19UT19EvuF3aPJh8GCrkGrmlENR0y3MQBSNSltq/PU=; b=yeonNjfksE7+A4RxGb5NDpZbZs
+	oQAQFxPmanFxmOyAZlXPhn+h+VtfFWDFz6GDo68qNx3eVxonALePPlo8IPY7Oy4Urk9tNuK27Cyv7
+	Sd2mhin1psW7YivgORMFqrvt4IRT6hF4zAV9C7PeVTanU0KfA1E16yuwxAyXw4i8sIo9EVpsUBzFA
+	fBT8kK6gr2KQZUIk6eiP8smmauKTl2lJsW2oCbBVwOUDslWLTWU/4ULPDmFSfftzsnb4qiPZFNwUL
+	n7AeK33h16oATqme7ZXERjIxJ0Kz43Se6jzs5hS0mTYdhDbyuk/TjjT3zkf8NK4Az2uW8+VRdvY3f
+	UjHzbYWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5XkE-00000006WND-1PDf;
-	Fri, 10 May 2024 21:25:34 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1s5Xqw-00000006XSz-2YSW;
+	Fri, 10 May 2024 21:32:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5XkB-00000006WLy-0LVS
-	for linux-riscv@lists.infradead.org;
-	Fri, 10 May 2024 21:25:32 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1ecd9a81966so25645865ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 10 May 2024 14:25:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715376330; x=1715981130; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=EbHwqyrBSxlaInOgJHXkpBV851gT6eWfUw4RtCMLqkQ=;
-        b=R0hrid9iQ4lbjiCIUkZJQSg9uluSN7QIK6G54TBn8viof/Qlp844NZAhpEL78m4OjJ
-         L+o8KwFFVoOp9UtQmySlsXhjGvC5tzx/wEosPLhW55mwFHO23AJ+2/Q/Z0ECQlQoJf0z
-         ysGcogHY8o+IAHaMBzavCK4Wzl3HB7bdM6ts9axCgP1sEec0AHzIW/CuIQ8lFBh2kyl4
-         Y1Yw8sWrmgO/u/rKksGuvi2dUHISKvvpu0SLKwDaKJga1vLFq62xLh/vB9hqBRumo4Pl
-         N0N1r/npuNbQqP6sC7+RVwzX+SSpE+gMD4XWxIggzToUSSEJNyokSmH9If71/xBg7gbE
-         mEtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715376330; x=1715981130;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EbHwqyrBSxlaInOgJHXkpBV851gT6eWfUw4RtCMLqkQ=;
-        b=oSyj6xTKpSdYxmGE01bDvcEauM0oyOEGcB7p6grbzqdc2uDqYz4yxTQ3c6wOlrmRaR
-         s3CrFc+VJH5l+n+St2oh7wUznEc4zeXEPSNR0jBmN9RTef12yV7aFDLPt7y16Hw18umk
-         tAuvFm2Pq0VMv09erJnDMhiY1+OJfDTWEFd0/2CEJUbG83rvTp9Ocspn0O8M4+K4wZ4S
-         iNOlyiBveFc72jmDrMRZVtjAWgUMNZi7nakqGQef+A7KbaUUS9V13Bd6++DR1fIrPGfR
-         Ppf+PTOLaeL2xAcqOZ5xJF84cUE8iAlWntRHUEUnIj+EwEmthCgFzMyZhPjyYocADKNh
-         tJjw==
-X-Forwarded-Encrypted: i=1; AJvYcCXOEWf2lquiI2+thziwjDkt+G/hUxTWOSx+dBJLsKDTdwlLU0obJYVqUgKcWvy/P5bgSAqcpGcDC2x1AVodW/ncYrjr5vNCe+/b0v5nSDLI
-X-Gm-Message-State: AOJu0YxAm4Sp7hpfm0ClqyGi8VdpmHIksCdfMQWMw93onChNRz99C61z
-	A5XIYq0ZkbRlYOenYVzAp/EhhKpSxllFm8+MbxE2DgxwQw9P51ImadsmcIWcwno=
-X-Google-Smtp-Source: AGHT+IEW69BEVO8myOChhepwVIMyAvXTkksrs6sLcKMonG9mCSm10McFQyRA5n6lZJBf+YbxIyRNZA==
-X-Received: by 2002:a17:903:2443:b0:1ec:b6e2:da8f with SMTP id d9443c01a7336-1eefa03a440mr105945135ad.12.1715376330278;
-        Fri, 10 May 2024 14:25:30 -0700 (PDT)
-Received: from ghost ([2601:647:5700:6860:629e:3f2:f321:6c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0bf30fddsm36780655ad.136.2024.05.10.14.25.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 May 2024 14:25:29 -0700 (PDT)
-Date: Fri, 10 May 2024 14:25:26 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
+	id 1s5Xqt-00000006XRu-0XmT;
+	Fri, 10 May 2024 21:32:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0FE4A61ED0;
+	Fri, 10 May 2024 21:32:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4010FC2BD11;
+	Fri, 10 May 2024 21:32:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1715376745;
+	bh=HaAF5YLZNnHFDlTcRRRh1aLznDIBDt54LRmZro1kBkY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PW0loYjBa6QcXh8gmikKKdFQ+JniYLnMAwVmZvGkjTJ0rDFzoJZbvYtI56baJyF+I
+	 gc2m1x1XG5f/Df6pBje4TguN/vGK8UrmL+3rV64DotR+AG/+iwJMfgQx78wYWNpv6X
+	 kb1gvVD0w4RjMFvfoE1zDAPMNGRkLXkcCJ6AcvZPHLmFJkW5zLMyZoTpIuQOf++BXu
+	 5cqXNmgNIDj8OhwCxbZDyuQ34sZWdpai2kLZHn/qPXBqevODaevVM4e+5E8A8fWiYw
+	 7ZqOFAvSOJLpZR1pveFlSDZhpQyySDjVqIbFXdbrunnUNYO+a9bnZBV0h32zvviK8d
+	 T/Or0mgVLdhXQ==
+Date: Fri, 10 May 2024 22:32:19 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
 Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -82,17 +61,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
 	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
 Subject: Re: [PATCH v6 06/17] riscv: Add vendor extensions to /proc/cpuinfo
-Message-ID: <Zj6QxisrBZSWq7ax@ghost>
+Message-ID: <20240510-unexposed-desecrate-e30674d4530b@spud>
 References: <20240503-dev-charlie-support_thead_vector_6_9-v6-0-cb7624e65d82@rivosinc.com>
  <20240503-dev-charlie-support_thead_vector_6_9-v6-6-cb7624e65d82@rivosinc.com>
  <20240507-divisive-swoop-c2737a2d9a9f@spud>
  <20240510-childcare-outlook-d18e3cc5ccb3@spud>
+ <Zj6QxisrBZSWq7ax@ghost>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240510-childcare-outlook-d18e3cc5ccb3@spud>
+In-Reply-To: <Zj6QxisrBZSWq7ax@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_142531_148903_477986B3 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20240510_143227_277658_A660340C 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +83,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5399179359574608460=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 10, 2024 at 09:50:32PM +0100, Conor Dooley wrote:
-> On Tue, May 07, 2024 at 06:03:19PM +0100, Conor Dooley wrote:
-> > On Fri, May 03, 2024 at 11:18:21AM -0700, Charlie Jenkins wrote:
-> > > All of the supported vendor extensions that have been listed in
-> > > riscv_isa_vendor_ext_list can be exported through /proc/cpuinfo.
-> > > 
-> > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > 
-> > This seems fine, thanks for updating this interface :)
-> > 
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Hmm, actually the automation on patchwork is complaining a bunch about
-> the series, but I think that's mostly false positives except for this
-> patch. The nommu defconfigs are prob the easiest way to reproduce this:
->   /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:41:55: error: 'struct riscv_isa_vendor_ext_data_list' has no member named 'vendor_bitmap'
->   /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:42:60: error: 'struct riscv_isa_vendor_ext_data_list' has no member named 'per_hart_vendor_bitmap'; did you mean 'per_hart_isa_bitmap'?
->   /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:43:60: error: 'struct riscv_isa_vendor_ext_data_list' has no member named 'bitmap_size'
-> 
-> Cheers,
-> Conor.
 
-The false negatives always throw me off. The errors are also offset by
-one patch. This was actually introduced in the following patch "riscv:
-Introduce vendor variants of extension helpers" because I accidentally
-fixed this issue in the patch "riscv: cpufeature: Extract common
-elements from extension checking" instead of the one it was introduced
-in.
+--===============5399179359574608460==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="a4gruBJ406lMx+Li"
+Content-Disposition: inline
 
-- Charlie
 
+--a4gruBJ406lMx+Li
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, May 10, 2024 at 02:25:26PM -0700, Charlie Jenkins wrote:
+> On Fri, May 10, 2024 at 09:50:32PM +0100, Conor Dooley wrote:
+> > On Tue, May 07, 2024 at 06:03:19PM +0100, Conor Dooley wrote:
+> > > On Fri, May 03, 2024 at 11:18:21AM -0700, Charlie Jenkins wrote:
+> > > > All of the supported vendor extensions that have been listed in
+> > > > riscv_isa_vendor_ext_list can be exported through /proc/cpuinfo.
+> > > >=20
+> > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > >=20
+> > > This seems fine, thanks for updating this interface :)
+> > >=20
+> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > Hmm, actually the automation on patchwork is complaining a bunch about
+> > the series, but I think that's mostly false positives except for this
+> > patch. The nommu defconfigs are prob the easiest way to reproduce this:
+> >   /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:41:55: er=
+ror: 'struct riscv_isa_vendor_ext_data_list' has no member named 'vendor_bi=
+tmap'
+> >   /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:42:60: er=
+ror: 'struct riscv_isa_vendor_ext_data_list' has no member named 'per_hart_=
+vendor_bitmap'; did you mean 'per_hart_isa_bitmap'?
+> >   /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:43:60: er=
+ror: 'struct riscv_isa_vendor_ext_data_list' has no member named 'bitmap_si=
+ze'
+> >=20
+> > Cheers,
+> > Conor.
+>=20
+> The false negatives always throw me off.
+
+Aye, it's pretty frustrating for me trying to report anything. Any time
+a bunch of headers change produces a bunch of file rebuilds and
+therefore warnings. That should in theory be caught by the fact that we
+apply the patch & build, jump back to HEAD~1, build that & grab the
+"before" warning state and then jump forward, rebuild the patch and
+gather the "after" state. The idea is that that is an apples:apples
+comparison as the same files will need to be rebuilt for both but it is
+falling over somewhere. Maybe I'll have time to look into that soonTM.
+
+> The errors are also offset by
+> one patch.
+
+Ye, that's my bad I think. In a rush off to another patch before the
+thought I had on it left my brain and just pressed reply on the wrong
+email. Sorry bout that :)
+
+> This was actually introduced in the following patch "riscv:
+> Introduce vendor variants of extension helpers" because I accidentally
+> fixed this issue in the patch "riscv: cpufeature: Extract common
+> elements from extension checking" instead of the one it was introduced
+> in.
+
+
+--a4gruBJ406lMx+Li
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZj6SYwAKCRB4tDGHoIJi
+0qSAAP9DtyG6cFxATpySce/LDWJjuSKIYinHHmeKGVGjDvqZkAEAkXi4b5NHBscV
+XEmApTynzq59bPinnFytkPxtGEnfKAw=
+=Z9vu
+-----END PGP SIGNATURE-----
+
+--a4gruBJ406lMx+Li--
+
+
+--===============5399179359574608460==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5399179359574608460==--
+
