@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75415C25B10
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 20:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1067C25B74
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 20:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1p/tUs1C3Pg2nuJFwqOmZzlpbdAA+DJk1HixfCHDoo=; b=4KJDepFTYtmECbX+DShkoNSvpF
-	xpR6pYw1OLna0xFNNcxwe8dQFgtcpYLPgxUPdl50EqmZcBa4Zqlmo/vc9rucibsNSUcEWZ6vuM3Ml
-	9XTJVdsUYfDE65WnwKPOIji9sA2As8U6aFGJoH2euXdFxkRt7GYDeAErvF276DdacQZTj0lshcdm+
-	M57P23u86EshtCqrGzZs3mpMqygRV5VvTE5hZx/uSavmKN1N/jDqopEr4u96XUR+lr52Pl/jy5TrJ
-	cI0Iwbwd5r6j4guarVmdn1FN7iWROtzSX0S4hIeODki6Xcrn3dqD4BSuTcIthcLCwNnz3uOgbGnNr
-	YovOdM6Q==;
+	bh=VuQFGYnu2PGaf5yRigPlaQ9GijSq7/I/ao5i5VO7xOw=; b=ZE37JKt27rwaSRMYqSap82cbqx
+	XWf2zJRS/4p5N4b20lKBdBQRc7NFEAlRixe8OYdiSKKeEAGD/ddbO7P4PCKXHcKn+KlhbvAZF1xNM
+	KF+kUmuKP7egVQAyjzkUnCH0OUcjB856teK+4G5ZlskT8OnEi6AzUscmXf2xRla5lVFcpWz3D5fA5
+	gSfLX6Nup1S/izxfFmvLNcy9D5NrG19EPGy6ETPqMsIb2jzs7B6R0Sh9TMs0tlbhxF0XzS6c48+/5
+	/jTE2RTAN/7CThnuaO/oYmQIu23l1SELwr/xWsnTbFdI/BKL+bVG0VJX3Ar7YV1NCu7b+FtvAlP45
+	u0kQYurA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5X5l-00000006Ppt-2LEq;
-	Fri, 10 May 2024 20:43:45 +0000
+	id 1s5XCX-00000006QVn-46SN;
+	Fri, 10 May 2024 20:50:45 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5X5h-00000006PpC-4Bmk
-	for linux-riscv@lists.infradead.org;
-	Fri, 10 May 2024 20:43:43 +0000
+	id 1s5XCU-00000006QTw-0Np5;
+	Fri, 10 May 2024 20:50:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id D5870CE1ED8;
-	Fri, 10 May 2024 20:43:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 824FFC32781;
-	Fri, 10 May 2024 20:43:35 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id E8B1ECE1ECE;
+	Fri, 10 May 2024 20:50:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF4BC32781;
+	Fri, 10 May 2024 20:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715373818;
-	bh=V1weiyqYUi8cf0/ypiHaTqUR1iBXGA2Jxo6KOzagAx8=;
+	s=k20201202; t=1715374239;
+	bh=+9uY+3QS/KU4LqGvBa9PuWhKX14BfkblrVKzdImHbHE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZXZkQa3pJnj42KiEXIR1BP+TayP4gESPmBa6+RH8LUZrZlcAKDsgA8sI5IK3F13vB
-	 +ibcG3vY+8oNiJJJOu+DsPmfvRnKbaL0pf4Fxa9Yi6k89Tnn+zOAAoIDdmc5wIwS0E
-	 jmh6xA+pLxIcHfDHR4qZsqnL5sccoupfGTEJwaqq920X/OeZJtrYU/BS8YwgHmSN9q
-	 JQWYjqzbAFrgImdxj7kaIJmGMd7LAIJD4ET03kSwowkAGljZorS8YvpKF2Sj2GordG
-	 jePeLEMLyNSi4szrut/FoCSe70RPX79lSrYdHgnfMGHzPKwluHdRAS9qhVE/yM2gFu
-	 03vgHJeLDBY3Q==
-Date: Fri, 10 May 2024 21:43:33 +0100
+	b=B2Rz0POxy4nvsZ9o7IKxVQPe6AU1Y5raSL2PH5Oq3Rmz9k8KRtPC1aeUKTzmOEOmB
+	 n71lEqdV6eRXzZanUG2D7rEuULiSpRFrDJ9IO9Vz10Bl16Bfwfq85+pXyM6rMFmlI4
+	 +Lhh0FZaryAI5Zv7h6a3CUH7A/zjs8HOEOz89ULFAlJpiSafjizZPyECELU1b07WSD
+	 vywqr+1jWnM0GTV1UaDeTW3gA1enGAqHExtiEYv222nusjRmFleW9jG7We53M7KEdE
+	 jPbZtVtERRLHwRgUbNclnBiRcRtw07M2GPeESJZlrhzrvk3zn1KHFhgmw34EUO6mby
+	 R7ylxUW7WiWbQ==
+Date: Fri, 10 May 2024 21:50:32 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Song Liu <song@kernel.org>, Xi Wang <xi.wang@gmail.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
 	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/8] riscv: Add PLATFORM_MAY_SUPPORT_RISCV_ISA_V
- Kconfig option
-Message-ID: <20240510-earthly-regress-7a8c8dba55db@spud>
-References: <20240507-compile_kernel_with_extensions-v2-0-722c21c328c6@rivosinc.com>
- <20240507-compile_kernel_with_extensions-v2-2-722c21c328c6@rivosinc.com>
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v6 06/17] riscv: Add vendor extensions to /proc/cpuinfo
+Message-ID: <20240510-childcare-outlook-d18e3cc5ccb3@spud>
+References: <20240503-dev-charlie-support_thead_vector_6_9-v6-0-cb7624e65d82@rivosinc.com>
+ <20240503-dev-charlie-support_thead_vector_6_9-v6-6-cb7624e65d82@rivosinc.com>
+ <20240507-divisive-swoop-c2737a2d9a9f@spud>
 MIME-Version: 1.0
-In-Reply-To: <20240507-compile_kernel_with_extensions-v2-2-722c21c328c6@rivosinc.com>
+In-Reply-To: <20240507-divisive-swoop-c2737a2d9a9f@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_134342_343585_7A1BACD9 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20240510_135042_506714_92EED9B8 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,57 +81,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5469006252773111894=="
+Content-Type: multipart/mixed; boundary="===============8728392941061447518=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5469006252773111894==
+--===============8728392941061447518==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="kt7YioCjm2Pco75f"
+	protocol="application/pgp-signature"; boundary="BHMvR13gFgTG0XBs"
 Content-Disposition: inline
 
 
---kt7YioCjm2Pco75f
+--BHMvR13gFgTG0XBs
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hey Charlie,
+On Tue, May 07, 2024 at 06:03:19PM +0100, Conor Dooley wrote:
+> On Fri, May 03, 2024 at 11:18:21AM -0700, Charlie Jenkins wrote:
+> > All of the supported vendor extensions that have been listed in
+> > riscv_isa_vendor_ext_list can be exported through /proc/cpuinfo.
+> >=20
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+>=20
+> This seems fine, thanks for updating this interface :)
+>=20
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-On Tue, May 07, 2024 at 06:36:28PM -0700, Charlie Jenkins wrote:
-> Current versions of the kernel add "v" to the march and then immeidately
-> filter it out such that "v" is not passed to CFLAGS.  Instead of doing
-> this filtering, code blocks in the kernel that want to use vector
-> assembly have been changed to locally enable vector (using ".option
-> arch, +v").
+Hmm, actually the automation on patchwork is complaining a bunch about
+the series, but I think that's mostly false positives except for this
+patch. The nommu defconfigs are prob the easiest way to reproduce this:
+  /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:41:55: error:=
+ 'struct riscv_isa_vendor_ext_data_list' has no member named 'vendor_bitmap'
+  /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:42:60: error:=
+ 'struct riscv_isa_vendor_ext_data_list' has no member named 'per_hart_vend=
+or_bitmap'; did you mean 'per_hart_isa_bitmap'?
+  /build/tmp.QPMRM3oUNu/arch/riscv/kernel/vendor_extensions.c:43:60: error:=
+ 'struct riscv_isa_vendor_ext_data_list' has no member named 'bitmap_size'
 
-Other content in the series aside, since this is a change that could be
-made independently of the main series objectives, I figured it was worth
-pointing out that this is not a change without downsides: I think that
-it would drop support for vector with most versions of LLVM as
-.option arch support there is much more recent thing than it is for gcc.
-Off the top of my head I don't know exactly the versions involved, but
-it is something like LLVM-14 supports vector but only LLVM-17 and later
-supports .option arch.
-
-Thanks,
+Cheers,
 Conor.
 
---kt7YioCjm2Pco75f
+--BHMvR13gFgTG0XBs
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHQEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZj6G9QAKCRB4tDGHoIJi
-0q+gAPjjKuRZgtdpysJjkfjOXgAbIViLfJa9YW6kDhN9A8nZAP9+kEU1aZXKxvFD
-4McVJZQgAsM/xY3ZI7ahJNfgyKE5Bg==
-=hfje
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZj6ImAAKCRB4tDGHoIJi
+0v5GAQDz/COSUgwYOrRhiE95HyXWBcrE7N78mp8pUkk9m/hrFgEAxmMo1xhXO2iP
+tU7a1ZH2VRD826Ot6whFO6eC88ci1wU=
+=8S+4
 -----END PGP SIGNATURE-----
 
---kt7YioCjm2Pco75f--
+--BHMvR13gFgTG0XBs--
 
 
---===============5469006252773111894==
+--===============8728392941061447518==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -137,5 +147,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5469006252773111894==--
+--===============8728392941061447518==--
 
