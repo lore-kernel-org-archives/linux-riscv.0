@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF76CC25B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 06:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E5CC25B10
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 May 2024 06:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Q68KPyuPT+Ux6Z4REFtnHdVjSadkRJvv/5mJeShNpo=; b=35zXxvcrRdpLe1
-	ixr/kzZA+blNk8xa8xDMHIXc9EUF3R+UUJcXcKJchfxKOtYHvaipbQez48joMveSuYjLHsm3i2WdK
-	X/WD1Mg55gbbt8jBa4Yk0JVQlf93t5YELO1lJ9yl+PrwDtwJ7FzulfmokK3xa/kP3N5IrQBJieKo+
-	lSDyZI5oOnhLAc6ryKJYV0HB5d1iXeZWhDx+V5FmE9YCRe9ALrMc9dwuxIf1y0K7BsUXeYxq+jQDe
-	OVXoChXYVB5XVPKZNWOhoQAN9GlmPCcqu4Pk3n1zqJF8jnPSR39sX8yENG0gdpOAanSs2lBhf2610
-	1EehFihjvSdnXaMHEFeA==;
+	List-Owner; bh=4ndVoj61cyrO0occKU5TZMs9DtIJFLcVR3/6Kkanp+Q=; b=erpyYmdZv2PuwI
+	u88E2I6TMs+tanb3g7Vyu9LkQl1XRvRGK0MAWQJTD344CsCQgHW9DesUjRKoyBekT2Kc6ipp3OcCn
+	oGcKErNynFaNcvKi5DZ/azyObDrrqCBhv9hMOSp2biBG0HvptcdTQmEpkoo56CzwdhhFIO+g9fbGg
+	zQFVPXexOMZVaqBvtioQ7taDfcPaUOm1nmD1TFcrz3UKwQ8vuwaeUFrLFcuFJmBpXqT83szsmKgNZ
+	xz3A0vDNOkKr7m1p7XzYvGMwIUfu010DjZWQcs66x7urtZ7Jqs9O01f+BujS9J0OzvAPDdJZ72QWP
+	00A0mgHP+U6WDN9vUTxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5Jkn-00000004DKD-42N4;
-	Fri, 10 May 2024 06:29:13 +0000
+	id 1s5JlC-00000004DSF-0fbZ;
+	Fri, 10 May 2024 06:29:38 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5JkV-00000004DFK-3HII
+	id 1s5JkV-00000004DFJ-3VNV
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 May 2024 06:29:00 +0000
+	Fri, 10 May 2024 06:29:25 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1715322531;
@@ -34,36 +34,36 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PHH4si6HFtRU8b7XLsqZ3Kjry/eLFHCUpKXqXT+XYYE=;
-	b=pJH6m5nrkDt3+jD3PIkIMz8VBpZ/9+k99dffmckcKtKwiuuaD+8TsfYWRZfXVAcQNG2nt5
-	NlUFIBbQQWT8F6Zrx71jV7YqKNmTFF/+PUDWuecv/Viz5S5KWlM3+QE8vQOTtHPibmOZPS
-	wLzc7GWC8GRQc3z3773AWuVSSsFE120Fk/Xm8A/7WgCmp+5kJlHayekS0/K4t2qDk5BCst
-	+kNj3l8Dn1yE30RRbxhU8W/inDJj5FjgsJpLGBfhxo1g0dgzVXIn1h0N08S8DoVxncnR0g
-	NpkkcsH1IHedk8aPfOnloFWRjlhKtUKYz59QFj0zzmRzztVuly1wtc9uf7URhg==
+	bh=eHgttoFFWFRLkchEo2QfX0lB112yKyL9eNSmZIo3a+8=;
+	b=rym64PB+TVDtCShFhxpKTOgaRSwibgR7yFlmNFd4PvRAuUrYMc2UEwlsOKr+TaA2X44nKV
+	/BGxJK9Lz4G67Y++lwd+9styGjOi3EJMSAckZSpmyt1Q6ailUw3Xf3l2DOiF40V1U/JZJp
+	9AfXnueGo9xcQGlawkeXI+cpmV6+WRVdB0bp2GqbzI1z+8tL21tnqud3yB/gzQw8aO0caN
+	X6WpDnfSbqejhpXjrUfApK8jWG8/z+mvSS9iT+CL20f0h1woOwJc3FdR4h2bsGR4C3aCOj
+	Nvl2zdqa1AWxKEuUTTZlLL+QlcecxyhlgNYw14dGuhq5uJ0d3zgrfyRCfNPCxA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1715322531;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PHH4si6HFtRU8b7XLsqZ3Kjry/eLFHCUpKXqXT+XYYE=;
-	b=2Lo9Nf1Ifnp4bxdW9nkeaSAmtEmKy9Oi9r3EaIijAJh2luo9NqMhHCeyyYg22CUMqEjmY2
-	mKXahnaTxjw4PoCA==
+	bh=eHgttoFFWFRLkchEo2QfX0lB112yKyL9eNSmZIo3a+8=;
+	b=0PkNmo9aY3VUVjYwMRi7xLx59JUldrS/CLbglWFZDpVhxTuy5/Erscv7pKrXKonLZoj7mR
+	7fDp+5SrNKk0kuDA==
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 4/7] riscv: drop the use of XIP_OFFSET in XIP_FIXUP_FLASH_OFFSET
-Date: Fri, 10 May 2024 08:28:42 +0200
-Message-Id: <a49044c3833e40546f35dd1f821a683e6f4dfc1f.1715286093.git.namcao@linutronix.de>
+Subject: [PATCH 1/7] riscv: cleanup XIP_FIXUP macro
+Date: Fri, 10 May 2024 08:28:39 +0200
+Message-Id: <19e63324d7a099f561c4a2e55f7df051bd5b8a6f.1715286093.git.namcao@linutronix.de>
 In-Reply-To: <cover.1715286093.git.namcao@linutronix.de>
 References: <cover.1715286093.git.namcao@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240509_232855_997739_F93E5071 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20240509_232856_176178_2B300359 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,53 +80,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-XIP_OFFSET is the hard-coded offset of writable data section within the
-kernel.
+The XIP_FIXUP macro is used to fix addresses early during boot before MMU:
+generated code "thinks" the data section is in ROM while it is actually in
+RAM. So this macro correct the addresses in the data section.
 
-By hard-coding this value, the read-only section of the kernel (which is
-placed before the writable data section) is restricted in size.
+This macro determines if the address needs to be fixed by checking if it is
+within the range startting of ROM address up to the size of 2 * XIP_OFFSET
 
-As a preparation to remove this hard-coded macro XIP_OFFSET entirely, stop
-using XIP_OFFSET in XIP_FIXUP_FLASH_OFFSET. Instead, use __data_loc and
-_sdata to do the same thing.
+This means addresses within the .text section would incorrectly get fixed.
+Also if the kernel size if bigger than (2 * XIP_OFFSET), some addresses
+would not be fixed up.
 
-While at it, also add a description for XIP_FIXUP_FLASH_OFFSET.
+XIP kernel can still work if the above 2 cases do not happen. But this
+macro is obviously incorrect.
+
+Rewrite this macro to only fix up addresses within the data section.
 
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 ---
- arch/riscv/include/asm/xip_fixup.h | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+ arch/riscv/include/asm/pgtable.h | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/asm/xip_fixup.h b/arch/riscv/include/asm/xip_fixup.h
-index 9ed2cfae09e0..f3d56299bc22 100644
---- a/arch/riscv/include/asm/xip_fixup.h
-+++ b/arch/riscv/include/asm/xip_fixup.h
-@@ -24,13 +24,21 @@
- 	sub \reg, \reg, t0
- .endm
- .macro XIP_FIXUP_FLASH_OFFSET reg
-+	/* In linker script, at the transition from read-only section to
-+	 * writable section, the VMA is increased while LMA remains the same.
-+	 * (See in linker script how _sdata, __data_loc and LOAD_OFFSET is
-+	 * changed)
-+	 *
-+	 * Consequently, early during boot before MMU is up, the generated code
-+	 * reads the "writable" section at wrong addresses, because VMA is used
-+	 * by compiler to generate code, but the data is located in Flash using
-+	 * LMA.
-+	 */
-+	la t0, _sdata
-+	sub \reg, \reg, t0
- 	la t0, __data_loc
--	REG_L t1, _xip_phys_offset
--	sub \reg, \reg, t1
- 	add \reg, \reg, t0
- .endm
--
--_xip_phys_offset: .dword CONFIG_XIP_PHYS_ADDR + XIP_OFFSET
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 58fd7b70b903..fbf342f4afee 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -139,11 +139,14 @@
+ 
+ #ifdef CONFIG_XIP_KERNEL
+ #define XIP_FIXUP(addr) ({							\
++	extern char _sdata[], _start[], _end[];					\
++	uintptr_t __rom_start_data = CONFIG_XIP_PHYS_ADDR			\
++				+ (uintptr_t)&_sdata - (uintptr_t)&_start;	\
++	uintptr_t __rom_end_data = CONFIG_XIP_PHYS_ADDR				\
++				+ (uintptr_t)&_end - (uintptr_t)&_start;	\
+ 	uintptr_t __a = (uintptr_t)(addr);					\
+-	(__a >= CONFIG_XIP_PHYS_ADDR && \
+-	 __a < CONFIG_XIP_PHYS_ADDR + XIP_OFFSET * 2) ?	\
+-		__a - CONFIG_XIP_PHYS_ADDR + CONFIG_PHYS_RAM_BASE - XIP_OFFSET :\
+-		__a;								\
++	(__a >= __rom_start_data && __a < __rom_end_data) ?			\
++		__a - __rom_start_data + CONFIG_PHYS_RAM_BASE :	__a;		\
+ 	})
  #else
- .macro XIP_FIXUP_OFFSET reg
- .endm
+ #define XIP_FIXUP(addr)		(addr)
 -- 
 2.39.2
 
