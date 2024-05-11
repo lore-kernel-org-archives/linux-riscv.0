@@ -4,79 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE209C25B10
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 May 2024 01:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939F9C25B10
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 May 2024 02:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CkVdUoxdDTMqXi4ivd/1ldlsFY1jDO7u4YvSVXt0tSQ=; b=BEPXsLSbxIx2YT
-	z4Q5yzkLSzRkos6AT+ovE/oh4fZwXrf3GpcH510P37ZSTwMHvD9YjadPVRgVOJqD3woYVP4nOdSBU
-	vdBJ7pYCcKmBi1UTt7aUcdfYETgsDrszQIb3zYh8gsdBIXm4VMqH1fhJdCwePY525Ry7BRsu/KUgx
-	cly1CxOlkspbvwMtgl7HJPQkoiooz8/yNDpF6svk+TDQ5sQ/39gIBBUndGkCC/R77EOot8Okco/UH
-	/279ndSLTJ0LYJTFmbLGCRp37qly3Zd1ljSAjL8YnebKR50BVHhIT3OWC0T7s+uQ53s4yFWlt5bGR
-	dEb9BwPm3tUDrdcABriw==;
+	List-Owner; bh=CaCxWZQWms2YN72f0zfD0vIqxMiMVHderuFYgHlPK1c=; b=Lt4K8Y5rTyqN7j
+	iATQPODOx9jgsezx8JgtDoujnAoNFz4HfeHBPwXC3E5u1NHJ6Iw3wQFNPxtwYc/C6/gty3WG9434L
+	e6RDelAReHYDFREHlGv3LsIdzyt9HRX6idCToKF22mAcYaqFGaE7L6nXbxPjXRRBedYyTU1wqJbOz
+	VLdG6Xh1T9gHhTtBM3/uDKF1qvwki7DZoJPWVh+eP4vxwRZQngDHvuLQmc0Rz8qL2fDGGXbDlW7v4
+	xY7aRl1Z83VCtUILbKTeMEoKxNnj7PFU6bEdFMjCfYB6Xpvp0OYbwpgVoJblLzIb/yMFj/AtmaKgq
+	r5Tq5YglzVE17jYHdWww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5bza-000000072jv-3fVI;
-	Sat, 11 May 2024 01:57:42 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1s5cWG-000000076L1-3h93;
+	Sat, 11 May 2024 02:31:28 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5bzX-000000072jG-0vKX
+	id 1s5cWD-000000076JD-2FTg
 	for linux-riscv@lists.infradead.org;
-	Sat, 11 May 2024 01:57:40 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1e4c4fb6af3so16292545ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 10 May 2024 18:57:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1715392656; x=1715997456; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1wZqXklLg0B4d9pxI+uMj8pVTiukxNVXaQsQAgYgVq0=;
-        b=XPfACho9XOwkxH+zMaKSychvMSYG7q3Ou7/Wby/ucLy1TxcuDEud3O5x6LDc+dXhS8
-         /5WiEtIz+3H9AxWlMbmHyAHb4K6cn4GOrpYK4w4+WUHAbw24bqVHmUxEbNNyhr0hC6gv
-         CYnJl9jS92svXbuYDJlu6bljSKBwAAFT4nxewgeMNfmIAdVdL8jJggf74HneE+khAHY9
-         RkqMh6caSxjBNOxqk0qk+cZDKJOyCL9QwiZQeXuO331e7G2xhATP7osENphuXlPptZac
-         fa7iYL9qzR9gfoB3c9IlDftyhjQF8WdlxWr/4KNlKpLVDF0RnyEKYr73WjXNqnxTaO8b
-         WytQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715392656; x=1715997456;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1wZqXklLg0B4d9pxI+uMj8pVTiukxNVXaQsQAgYgVq0=;
-        b=cXtUclewL/gEPJJNQutNk170fAdV7mlRWZ8X+/L1WFEd2vmaQFO1dlusMtqV6xcpRm
-         qq2s9xToqxb/7EmEeWXFXZANkRkkhEw5OrbQ2dYZFQA8kLRO7x5WIPxdFmWugNLT/xAz
-         RyBzx2NbnjB0kul9wcg06Hpx66XW+9hv8fuPTlQzEsh+1ZlhvOdGluVSCazQ6lowaqO0
-         UR4TLSRFGAV7ZmJNuyFMhb5yIojJ1VcbJHadVGoSK6ej5MlfoaIMCWuM8FgR2B6FpIXD
-         F7Si+FubCTwvNkIzc6Kg7+0tqsraRhBmtr5O0OmIvhKWLcv/3bO4E8d9WgrsHm+3SUuw
-         JDjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWHZbC69L01NxhPXa1RgUJ9ozVBVqOa05S5+R5+AB8qIpxK83L2np4a97mDMg/aD8rak0y20Xpkyp9WvsceTCKTttOyr67q8jUAc1Yzv7WB
-X-Gm-Message-State: AOJu0YxinDXCoSXe+KHUUegb5dQLdPvBtOuKmTehmddJ5Dp14ZjTWwQn
-	IKYv+BgiRY3Tixk3rNMCTQUpxyoU1Aamrx7fFtefqIVzsAyfP79qom+GsdmG
-X-Google-Smtp-Source: AGHT+IEux3ZgZ+IjmOlJTT4iyWCBlWPONI96OiCEBJb1XXZu2Wuj3k7Urkco5CuV88bSPmjSZyGdng==
-X-Received: by 2002:a17:902:da8d:b0:1ec:8206:626f with SMTP id d9443c01a7336-1ef42e6d9c0mr66859535ad.9.1715392655780;
-        Fri, 10 May 2024 18:57:35 -0700 (PDT)
-Received: from gmail.com ([2a09:bac5:6249:183c::26a:94])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0bad61c7sm39075565ad.68.2024.05.10.18.57.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 May 2024 18:57:35 -0700 (PDT)
-From: Qingfang Deng <dqfext@gmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	Sat, 11 May 2024 02:31:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1715394685; x=1746930685;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=zOqj5z27hn5Ja+9Hiogv2yU6ck56jE/mAfjwUewOMc8=;
+  b=M0fOsmLEuGVE14z0CfPG+KW6hebfXuLOylJoJo6ExMZbHnBz8a9foNmv
+   1OWl9wFtfEpKiSTcrr9Ugbt1Oxoq51IapC+dl5bwl3JpsPudMeh0zS6Df
+   N6URl872kX1Vy8C+t987FBzSmHANArZwZqLsIPpg6MKmIcH0xkQucGBoC
+   BsUP0tnxbulAysRMP3ARSCHlKZPBQRS2rkQ45/Pl0rYXudSHJzkqlYAzi
+   7S4EBfJvNa5Nr7wce3La3JPC80rfdBuyYI7e/nZlHsN9jmfY1vUHtjsAL
+   8ikVEGbnloTpt9Rp/T6/Sk9Aeyxp5594A99HTMAa4RS7IF32KEUruIY5w
+   g==;
+X-CSE-ConnectionGUID: +ieFl3LsSS6Thyw/YmkF0g==
+X-CSE-MsgGUID: X20BVGM0RtKwEnrpJpl+hw==
+X-IronPort-AV: E=McAfee;i="6600,9927,11069"; a="11532828"
+X-IronPort-AV: E=Sophos;i="6.08,152,1712646000"; 
+   d="scan'208";a="11532828"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 May 2024 19:31:21 -0700
+X-CSE-ConnectionGUID: 9UgOqJBlSziTAnLQ3DxYtw==
+X-CSE-MsgGUID: 50XnkUn5TWqBlry7JtN2iw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.08,152,1712646000"; 
+   d="scan'208";a="29867299"
+Received: from xiao-desktop.sh.intel.com ([10.239.46.158])
+  by fmviesa010.fm.intel.com with ESMTP; 10 May 2024 19:31:15 -0700
+From: Xiao Wang <xiao.w.wang@intel.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	luke.r.nels@gmail.com,
+	xi.wang@gmail.com,
+	bjorn@kernel.org
+Cc: ast@kernel.org,
+	daniel@iogearbox.net,
+	andrii@kernel.org,
+	martin.lau@linux.dev,
+	eddyz87@gmail.com,
+	song@kernel.org,
+	yonghong.song@linux.dev,
+	john.fastabend@gmail.com,
+	kpsingh@kernel.org,
+	sdf@google.com,
+	haoluo@google.com,
+	jolsa@kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Qingfang Deng <qingfang.deng@siflower.com.cn>
-Subject: [PATCH] riscv: do not select MODULE_SECTIONS by default
-Date: Sat, 11 May 2024 09:57:25 +0800
-Message-Id: <20240511015725.1162-1-dqfext@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	pulehui@huawei.com,
+	haicheng.li@intel.com,
+	conor@kernel.org,
+	Xiao Wang <xiao.w.wang@intel.com>
+Subject: [PATCH v2] riscv, bpf: Optimize zextw insn with Zba extension
+Date: Sat, 11 May 2024 10:34:36 +0800
+Message-Id: <20240511023436.3282285-1-xiao.w.wang@intel.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_185739_291158_383D7441 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20240510_193125_664660_E386AAAD 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,44 +104,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Qingfang Deng <qingfang.deng@siflower.com.cn>
+The Zba extension provides add.uw insn which can be used to implement
+zext.w with rs2 set as ZERO.
 
-Since commit aad15bc85c18 ("riscv: Change code model of module to
-medany to improve data accessing"), kernel modules have not been built
-with -fPIC, so they wouldn't have R_RISCV_GOT_HI20 or R_RISCV_CALL_PLT
-relocations, and handling of those relocations is unnecessary.
-
-If RELOCATABLE=y, kernel modules will be built with -fPIE, which would
-reintroduce said relocations, so only select MODULE_SECTIONS when
-RELOCATABLE.
-
-Signed-off-by: Qingfang Deng <qingfang.deng@siflower.com.cn>
+Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
 ---
- arch/riscv/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+v2:
+* Add Zba description in the Kconfig. (Lehui)
+* Reword the Kconfig help message to make it clearer. (Conor)
+---
+ arch/riscv/Kconfig       | 22 ++++++++++++++++++++++
+ arch/riscv/net/bpf_jit.h | 18 ++++++++++++++++++
+ 2 files changed, 40 insertions(+)
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 6bec1bce6586..3f92dd3b45d2 100644
+index 6bec1bce6586..e262a8668b41 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -169,7 +169,6 @@ config RISCV
- 	select LOCK_MM_AND_FIND_VMA
- 	select MMU_GATHER_RCU_TABLE_FREE if SMP && MMU
- 	select MODULES_USE_ELF_RELA if MODULES
--	select MODULE_SECTIONS if MODULES
- 	select OF
- 	select OF_EARLY_FLATTREE
- 	select OF_IRQ
-@@ -858,6 +857,7 @@ config PARAVIRT_TIME_ACCOUNTING
- config RELOCATABLE
- 	bool "Build a relocatable kernel"
- 	depends on MMU && 64BIT && !XIP_KERNEL
-+	select MODULE_SECTIONS if MODULES
- 	help
-           This builds a kernel as a Position Independent Executable (PIE),
-           which retains all relocation metadata required to relocate the
+@@ -586,6 +586,14 @@ config RISCV_ISA_V_PREEMPTIVE
+ 	  preemption. Enabling this config will result in higher memory
+ 	  consumption due to the allocation of per-task's kernel Vector context.
+ 
++config TOOLCHAIN_HAS_ZBA
++	bool
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zba)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zba)
++	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
++	depends on AS_HAS_OPTION_ARCH
++
+ config TOOLCHAIN_HAS_ZBB
+ 	bool
+ 	default y
+@@ -601,6 +609,20 @@ config TOOLCHAIN_HAS_VECTOR_CRYPTO
+ 	def_bool $(as-instr, .option arch$(comma) +v$(comma) +zvkb)
+ 	depends on AS_HAS_OPTION_ARCH
+ 
++config RISCV_ISA_ZBA
++	bool "Zba extension support for bit manipulation instructions"
++	depends on TOOLCHAIN_HAS_ZBA
++	depends on RISCV_ALTERNATIVE
++	default y
++	help
++	   Add support for enabling optimisations in the kernel when the Zba
++	   extension is detected at boot.
++
++	   The Zba extension provides instructions to accelerate the generation
++	   of addresses that index into arrays of basic data types.
++
++	   If you don't know what to do here, say Y.
++
+ config RISCV_ISA_ZBB
+ 	bool "Zbb extension support for bit manipulation instructions"
+ 	depends on TOOLCHAIN_HAS_ZBB
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index f4b6b3b9edda..18a7885ba95e 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -18,6 +18,11 @@ static inline bool rvc_enabled(void)
+ 	return IS_ENABLED(CONFIG_RISCV_ISA_C);
+ }
+ 
++static inline bool rvzba_enabled(void)
++{
++	return IS_ENABLED(CONFIG_RISCV_ISA_ZBA) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBA);
++}
++
+ static inline bool rvzbb_enabled(void)
+ {
+ 	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
+@@ -937,6 +942,14 @@ static inline u16 rvc_sdsp(u32 imm9, u8 rs2)
+ 	return rv_css_insn(0x7, imm, rs2, 0x2);
+ }
+ 
++/* RV64-only ZBA instructions. */
++
++static inline u32 rvzba_zextw(u8 rd, u8 rs1)
++{
++	/* add.uw rd, rs1, ZERO */
++	return rv_r_insn(0x04, RV_REG_ZERO, rs1, 0, rd, 0x3b);
++}
++
+ #endif /* __riscv_xlen == 64 */
+ 
+ /* Helper functions that emit RVC instructions when possible. */
+@@ -1159,6 +1172,11 @@ static inline void emit_zexth(u8 rd, u8 rs, struct rv_jit_context *ctx)
+ 
+ static inline void emit_zextw(u8 rd, u8 rs, struct rv_jit_context *ctx)
+ {
++	if (rvzba_enabled()) {
++		emit(rvzba_zextw(rd, rs), ctx);
++		return;
++	}
++
+ 	emit_slli(rd, rs, 32, ctx);
+ 	emit_srli(rd, rd, 32, ctx);
+ }
 -- 
-2.34.1
+2.25.1
 
 
 _______________________________________________
