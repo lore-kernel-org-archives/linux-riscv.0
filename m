@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BADF8C04FFE
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 May 2024 06:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6BAC04FFE
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 May 2024 09:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EPf5oAv6cyEpT3dv8aSOJsu1cu0wjbEIGkuOagsYrWE=; b=FmM5Kjgbm+a4/a
-	n8TEF5ZyvctEL3Q+yRMS9eYwWMPAAzHND7n54qNE/VkdRcjrzbGhdBNbqUPoj+aZqgV66klXeusQN
-	KK2hUHOFOAm1NbjSs6zhsdlHm4zmgM7cmSPrnl93xteylqSxou/ZFSzawIFlSgLUwcpvXyYujgODN
-	ufw/swzXUwjWfJb6TZaubT7Tg1ssHCvu0MtCVBeEQBraL+28fKD1WCbV5e5s8z3PyuKFO27J+WIAv
-	RsGNqOmG7jJh1T6E+bazjFA2yO71TO/qXzbifPW/RBDleTJKoBVV1U6FuEdjwlxVoKipT2AlYi+up
-	EuMvayKIFABXmscLqKCw==;
+	List-Owner; bh=ncgs8b3sSoeHTDFfKKk4213dHT4s6l3ccL6iRzyaXE4=; b=4zXCsaBJUxVovh
+	+t3D5NSOr21jZLqAYgFr2SwPnT3aJomVtKLPPLj+z8OpbyCi3Kc/O+ROSLiQzfDE7T10rtgVzanma
+	dwtzw6BsMkZsRmwkb5p426YnBsX8RlAn4YCIWdBdtr+F+nbqnDB48dDL0zDUMgz7whuyLtf9E8amc
+	ztTJ62jOcgDUnLr3KTYhyekttpbrVS+7tIwT7hy3BApLqPzjJQ12Xo7xgWNyxhQhc5m0Lc5jXkEY0
+	ZxNMGOOPfcrNohgqycYv0xzKAySlk9P7/PZGbn5nznhu82yuOjtkxXIzuse/O3S8K6XZqgeaodTua
+	8sub9VGphLufpT3vva+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5gYt-00000007PkG-0b83;
-	Sat, 11 May 2024 06:50:27 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1s5jOA-00000007evD-1PSy;
+	Sat, 11 May 2024 09:51:34 +0000
+Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5gYo-00000007PjV-42RQ
-	for linux-riscv@lists.infradead.org;
-	Sat, 11 May 2024 06:50:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id D7788CE1B20;
-	Sat, 11 May 2024 06:50:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 270FEC2BD10;
-	Sat, 11 May 2024 06:50:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715410219;
-	bh=lblVBvZuddzuH51cR8bOvxbCQSkyGJaGFeuYszSiyVI=;
+	id 1s5jO3-00000007erl-2te6;
+	Sat, 11 May 2024 09:51:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1715421078;
+	bh=0cJX+ofKilB0YeAddG2Rk34Tcb84daQhOHXhdzx0r3M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IGkVoDnUyxFEG56w7+HuB2jpgmBVaJMMe6Fv4rXtMdyTjoVePK7lwdsQN6/yRI4zC
-	 fF4GtCGRoWEI/y6eom0/Wx6eUsQj02VA/s2biezFods6BpGUs3nhJn8hghTDmbwNyx
-	 LI5kuaTCMtvLNluAbzC/eXJQ+BZlLiN2xA6BN0NeHkJWQZuJEwlDqqVELHU0Yo84nR
-	 mH0ezWfY9CbT7B88ziN7GTsrLuyIc3kZSBaAfKUvy9oJKWFJvxcae0sh+qXNshrPJB
-	 3sZ7Q/YFs+qD2RCS0xMjl2sTQMbMj+7st0WeeiDdKyGVu+CElQu48tpS9lXWUY4ioY
-	 gMMhUwb5yMsSQ==
-Date: Sat, 11 May 2024 02:50:13 -0400
-From: Guo Ren <guoren@kernel.org>
-To: Leonardo Bras <leobras@redhat.com>
-Cc: paulmck@kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
-	andi.shyti@linux.intel.com, andrzej.hajda@intel.com,
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com
-Subject: Re: [PATCH RFC cmpxchg 8/8] riscv: Emulate one-byte and two-byte
- cmpxchg
-Message-ID: <Zj8VJZmQC7hRzDdz@gmail.com>
-References: <20240401213950.3910531-8-paulmck@kernel.org>
- <mhng-d6a8a972-5054-4c48-a903-5a53a31da9ad@palmer-ri-x1c9a>
+	b=k56XE3N3d4pgs8RXOwLSnRLB27sLWUfITEgcvrDMjZdmJPa/Ir6S6oi9PpE553jPt
+	 sb7k+FxSLFp8Odclpb2t4vqVdgVnPhAwWUDBH9QwI80jAM7LA7gxjkMhJ80aDoR2yw
+	 DUA3ugAMpnt1Nr9pHpMHzjCRdAMZeTMxIBsCjZb8=
+Date: Sat, 11 May 2024 11:51:18 +0200
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
+To: Kees Cook <keescook@chromium.org>
+Cc: Jakub Kicinski <kuba@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Joel Granados <j.granados@samsung.com>, Eric Dumazet <edumazet@google.com>, 
+	Dave Chinner <david@fromorbit.com>, linux-fsdevel@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
+	bpf@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-xfs@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	netfilter-devel@vger.kernel.org, coreteam@netfilter.org, kexec@lists.infradead.org, 
+	linux-hardening@vger.kernel.org, bridge@lists.linux.dev, lvs-devel@vger.kernel.org, 
+	linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com, linux-sctp@vger.kernel.org, 
+	linux-nfs@vger.kernel.org, apparmor@lists.ubuntu.com
+Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
+ of sysctl handlers
+Message-ID: <8d1daa64-3746-46a3-b696-127a70cdf7e7@t-8ch.de>
+References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
+ <20240424201234.3cc2b509@kernel.org>
+ <202405080959.104A73A914@keescook>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-d6a8a972-5054-4c48-a903-5a53a31da9ad@palmer-ri-x1c9a>
+In-Reply-To: <202405080959.104A73A914@keescook>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_235023_391114_3BE272C2 
-X-CRM114-Status: GOOD (  26.28  )
+X-CRM114-CacheID: sfid-20240511_025128_210643_587D38F8 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,134 +70,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 04, 2024 at 07:15:40AM -0700, Palmer Dabbelt wrote:
-> On Mon, 01 Apr 2024 14:39:50 PDT (-0700), paulmck@kernel.org wrote:
-> > Use the new cmpxchg_emu_u8() and cmpxchg_emu_u16() to emulate one-byte
-> > and two-byte cmpxchg() on riscv.
-> > 
-> > [ paulmck: Apply kernel test robot feedback. ]
-> 
-> I'm not entirely following the thread, but sounds like there's going to be
-> generic kernel users of this now?  Before we'd said "no" to the byte/half
-> atomic emulation routines beacuse they weren't used, but if it's a generic
-> thing then I'm find adding them.
-> 
-> There's a patch set over here
-> <https://lore.kernel.org/all/20240103163203.72768-2-leobras@redhat.com/>
-> that implements these more directly using LR/SC.  I was sort of on the fence
-> about just taking it even with no direct users right now, as the byte/half
-> atomic extension is working its way through the spec process so we'll have
-> them for real soon.  I stopped right there for the last merge window,
-> though, as I figured it was too late to be messing with the atomics...
-> 
-> So
-> 
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-F.Y.I Leonardo Bras <leobras@redhat.com>
-
-> 
-> if you guys want to take some sort of tree-wide change to make the byte/half
-> stuff be required everywhere.  We'll eventually end up with arch routines
-> for the extension, so at that point we might as well also have the more
-> direct LR/SC flavors.
-> 
-> If you want I can go review/merge that RISC-V patch set and then it'll have
-> time to bake for a shared tag you can pick up for all this stuff?  No rush
-> on my end, just LMK.
-> 
-> > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
-> > Cc: Andi Shyti <andi.shyti@linux.intel.com>
-> > Cc: Andrzej Hajda <andrzej.hajda@intel.com>
-> > Cc: <linux-riscv@lists.infradead.org>
-> > ---
-> >  arch/riscv/Kconfig               |  1 +
-> >  arch/riscv/include/asm/cmpxchg.h | 25 +++++++++++++++++++++++++
-> >  2 files changed, 26 insertions(+)
-> > 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index be09c8836d56b..4eaf40d0a52ec 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -44,6 +44,7 @@ config RISCV
-> >  	select ARCH_HAS_UBSAN
-> >  	select ARCH_HAS_VDSO_DATA
-> >  	select ARCH_KEEP_MEMBLOCK if ACPI
-> > +	select ARCH_NEED_CMPXCHG_1_2_EMU
-> >  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
-> >  	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
-> >  	select ARCH_STACKWALK
-> > diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-> > index 2fee65cc84432..a5b377481785c 100644
-> > --- a/arch/riscv/include/asm/cmpxchg.h
-> > +++ b/arch/riscv/include/asm/cmpxchg.h
-> > @@ -9,6 +9,7 @@
-> >  #include <linux/bug.h>
-> > 
-> >  #include <asm/fence.h>
-> > +#include <linux/cmpxchg-emu.h>
-> > 
-> >  #define __xchg_relaxed(ptr, new, size)					\
-> >  ({									\
-> > @@ -170,6 +171,12 @@
-> >  	__typeof__(*(ptr)) __ret;					\
-> >  	register unsigned int __rc;					\
-> >  	switch (size) {							\
-> > +	case 1:								\
-> > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
-> > +		break;							\
-> > +	case 2:								\
-> > +		break;							\
-> > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
-> >  	case 4:								\
-> >  		__asm__ __volatile__ (					\
-> >  			"0:	lr.w %0, %2\n"				\
-> > @@ -214,6 +221,12 @@
-> >  	__typeof__(*(ptr)) __ret;					\
-> >  	register unsigned int __rc;					\
-> >  	switch (size) {							\
-> > +	case 1:								\
-> > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
-> > +		break;							\
-> > +	case 2:								\
-> > +		break;							\
-> > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
-> >  	case 4:								\
-> >  		__asm__ __volatile__ (					\
-> >  			"0:	lr.w %0, %2\n"				\
-> > @@ -260,6 +273,12 @@
-> >  	__typeof__(*(ptr)) __ret;					\
-> >  	register unsigned int __rc;					\
-> >  	switch (size) {							\
-> > +	case 1:								\
-> > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
-> > +		break;							\
-> > +	case 2:								\
-> > +		break;							\
-> > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
-> >  	case 4:								\
-> >  		__asm__ __volatile__ (					\
-> >  			RISCV_RELEASE_BARRIER				\
-> > @@ -306,6 +325,12 @@
-> >  	__typeof__(*(ptr)) __ret;					\
-> >  	register unsigned int __rc;					\
-> >  	switch (size) {							\
-> > +	case 1:								\
-> > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
-> > +		break;							\
-> > +	case 2:								\
-> > +		break;							\
-> > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
-> >  	case 4:								\
-> >  		__asm__ __volatile__ (					\
-> >  			"0:	lr.w %0, %2\n"				\
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgS2VlcywKCk9uIDIwMjQtMDUtMDggMTA6MTE6MzUrMDAwMCwgS2VlcyBDb29rIHdyb3RlOgo+
+IE9uIFdlZCwgQXByIDI0LCAyMDI0IGF0IDA4OjEyOjM0UE0gLTA3MDAsIEpha3ViIEtpY2luc2tp
+IHdyb3RlOgo+ID4gT24gVHVlLCAyMyBBcHIgMjAyNCAwOTo1NDozNSArMDIwMCBUaG9tYXMgV2Vp
+w59zY2h1aCB3cm90ZToKPiA+ID4gVGhlIHNlcmllcyB3YXMgc3BsaXQgZnJvbSBteSBsYXJnZXIg
+c2VyaWVzIHN5c2N0bC1jb25zdCBzZXJpZXMgWzBdLgo+ID4gPiBJdCBvbmx5IGZvY3Vzc2VzIG9u
+IHRoZSBwcm9jX2hhbmRsZXJzIGJ1dCBpcyBhbiBpbXBvcnRhbnQgc3RlcCB0byBiZQo+ID4gPiBh
+YmxlIHRvIG1vdmUgYWxsIHN0YXRpYyBkZWZpbml0aW9ucyBvZiBjdGxfdGFibGUgaW50byAucm9k
+YXRhLgo+ID4gCj4gPiBTcGxpdCB0aGlzIHBlciBzdWJzeXN0ZW0sIHBsZWFzZS4KPiAKPiBJJ3Zl
+IGRvbmUgYSBmZXcgcGFpbmZ1bCBBUEkgdHJhbnNpdGlvbnMgYmVmb3JlLCBhbmQgSSBkb24ndCB0
+aGluayB0aGUKPiBjb21wbGV4aXR5IG9mIHRoZXNlIGNoYW5nZXMgbmVlZHMgYSBwZXItc3Vic3lz
+dGVtIGNvbnN0aWZpY2F0aW9uIHBhc3MuIEkKPiB0aGluayB0aGlzIHNlcmllcyBpcyB0aGUgcmln
+aHQgYXBwcm9hY2gsIGJ1dCB0aGF0IHBhdGNoIDExIHdpbGwgbmVlZAo+IGNvb3JkaW5hdGlvbiB3
+aXRoIExpbnVzLiBXZSByZWd1bGFybHkgZG8gc3lzdGVtLXdpZGUgcHJvdG90eXBlIGNoYW5nZXMK
+PiBsaWtlIHRoaXMgcmlnaHQgYXQgdGhlIGVuZCBvZiB0aGUgbWVyZ2Ugd2luZG93IGJlZm9yZSAt
+cmMxIGNvbWVzIG91dC4KClRoYXQgc291bmRzIGdvb2QuCgo+IFRoZSByZXF1aXJlbWVudHMgYXJl
+IHByZXR0eSBzaW1wbGU6IGl0IG5lZWRzIHRvIGJlIGEgb2J2aW91cyBjaGFuZ2VzCj4gKHRoaXMg
+Y2VydGFpbmx5IGlzKSBhbmQgYXMgY2xvc2UgdG8gMTAwJSBtZWNoYW5pY2FsIGFzIHBvc3NpYmxl
+LiBJIHRoaW5rCj4gcGF0Y2ggMTEgZWFzaWx5IHF1YWxpZmllcy4gTGludXMgc2hvdWxkIGJlIGFi
+bGUgdG8gcnVuIHRoZSBzYW1lIENvY2NpbmVsbGUKPiBzY3JpcHQgYW5kIGdldCBuZWFybHkgdGhl
+IHNhbWUgcmVzdWx0cywgZXRjLiBBbmQgYWxsIHRoZSBvdGhlciBjaGFuZ2VzCj4gbmVlZCB0byBo
+YXZlIGxhbmRlZC4gVGhpcyBjaGFuZ2UgYWxzbyBoYXMgbm8gInNpbGVudCBmYWlsdXJlIiBjb25k
+aXRpb25zOgo+IGFueXRoaW5nIG1pc21hdGNoZWQgd2lsbCBpbW1lZGlhdGVseSBzdGFuZCBvdXQu
+CgpVbmZvcnR1bmF0ZWx5IGNvY2NpbmVsbGUgYWxvbmUgaXMgbm90IHN1ZmZpY2llbnQsIGFzIHNv
+bWUgaGVscGVycyB3aXRoCmRpZmZlcmVudCBwcm90b3R5cGVzIGFyZSBjYWxsZWQgYnkgaGFuZGxl
+cnMgYW5kIHRoZW1zZWx2ZXMgYXJlIGNhbGxpbmcKaGFuZGxlciBhbmQgdGhlcmVmb3JlIG5lZWQg
+dG8gY2hhbmdlIGluIHRoZSBzYW1lIGNvbW1pdC4KQnV0IGlmIEkgYWRkIGEgZGlmZiBmb3IgdGhv
+c2Ugb24gdG9wIG9mIHRoZSBjb2NjaW5lbGxlIHNjcmlwdCB0byB0aGUKY2hhbmdlbG9nIGl0IHNo
+b3VsZCBiZSBvYnZpb3VzLgoKPiBTbywgaGF2ZSBwYXRjaGVzIDEtMTAgZ28gdmlhIHRoZWlyIHJl
+c3BlY3RpdmUgc3Vic3lzdGVtcywgYW5kIG9uY2UgYWxsCj4gb2YgdGhvc2UgYXJlIGluIExpbnVz
+J3MgdHJlZSwgc2VuZCBwYXRjaCAxMSBhcyBhIHN0YW5kLWFsb25lIFBSLgoKQWNrLCBJJ2xsIGRv
+IHRoYXQgd2l0aCB0aGUgY292ZXIgbGV0dGVyIGluZm9ybWF0aW9uIHJlcXVlc3RlZCBieSBKb2Vs
+LgoKPiAoRnJvbSBwYXRjaCAxMSwgaXQgbG9va3MgbGlrZSB0aGUgc2VjY29tcCByZWFkL3dyaXRl
+IGZ1bmN0aW9uIGNoYW5nZXMKPiBjb3VsZCBiZSBzcGxpdCBvdXQ/IEknbGwgZG8gdGhhdCBub3cu
+Li4pCgpUaGFua3MhCgpUaG9tYXMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
