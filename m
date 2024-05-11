@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A52FC04FFE
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 May 2024 12:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BEDC04FFE
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 May 2024 14:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WAnvQcErRHaVEUBSYlS77bqOEZHSScHiBZLBpsiyJLg=; b=YLHBnrEnq9Zsol0kIYbF4IswEb
-	3mt9jXXUV6ZSFpa1aKw/EONk2iDX/s5NGahZZc309ojY+kjjbXSp4ct7NiQJXHyejv3vvOdoyvI0T
-	R+0ht+3gJKii9HB4TrfJz6vq0QNKDb6BDHqpZpF9+DHtrsq6l3StLjnlRsUpqrugys+QMaN78BysS
-	Kf3IMFj9KxmRxm64S1tuUztWyF5FVINhYTemsNK1oFCiWqcbTvPtlwazX+ReyIzyCed8Dw3tGKqdU
-	1supEx6mp9KHP+D+q25o0E/3KnUActt0XeBLsECgUqX8G3jBLRRIkVJ+7yLn3Jb6s+KXPiS5cZhix
-	iW0KFrmA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=v1pn1xh17fHklxRmDBj4/b05GkkQIpOhLDO4cg5T/+0=; b=zpC+3PeTVQ1kG+
+	ZZ+aSzLCbMBctz/riWdIsZaRbbvDdfMIcerlUdWwXbXN8NdsPVj1YcRnlVAXZGvM3b4Q2wh5cPQ0C
+	/uXVJn6D5+3b1CT/fgNmTifVOG+aIvj3Q9Xqs5DEBAhpxrGXpYDe0R3d+Nzek5jBEqR5jdZ+bkPJM
+	IKy2P6+Aizdljii0f0W6NEpGIW2+QHCli1dlPYt6seGqi4aMh23CnorDrKw5ZfSry3mq/gaM297jg
+	ZRYmAwNNmMRh3OC2q/Aq01sOWQRVKB10ZHo/gxgASCJrctmVazzfq+N7PewOonp0S+jwrfq/WnKEk
+	Mo4d8VIpZ8p+ZCflAUHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5lgg-00000007sgM-1wfv;
-	Sat, 11 May 2024 12:18:50 +0000
+	id 1s5o7V-000000087TG-0YEg;
+	Sat, 11 May 2024 14:54:41 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5lgd-00000007sfm-48H6
+	id 1s5o7R-000000087SJ-2giQ
 	for linux-riscv@lists.infradead.org;
-	Sat, 11 May 2024 12:18:49 +0000
+	Sat, 11 May 2024 14:54:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AC0976098A;
-	Sat, 11 May 2024 12:18:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F6E7C2BBFC;
-	Sat, 11 May 2024 12:18:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 15A0A612F5;
+	Sat, 11 May 2024 14:54:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B401FC2BBFC;
+	Sat, 11 May 2024 14:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715429926;
-	bh=s+M9h0DBUQzIAjC8URttvL4W46/RRLRnAX+0HaoiRJI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G/6ke5/c5OoLeBvn2RdkJkBy6iB8OiTNKb0NMyf8j5FtnDl4Yi5PjTaeUlns3cIOp
-	 mC5LT+b2P1SfMZabSGhbeeSB2J6uAMA+iSNSG3ZmBgFxD+o2trHRZ8KPQ7oa7BnyWA
-	 V2Q5v4i37XtvluH9ctWIHl+3+pP6HwwuGIwD8BQ06HLfIeFDKoiC0INjMt3E/bzjWT
-	 /Uljpo7zyXJTsJfKeciN8Tp6IWA07Jg9FPZmLm6XjAotY0gL9XmENG2bOZMi1OC7Us
-	 Dp5ykq3/v6KyKbw2UfxA09dYJ4nVTrtXVCivfQ7DzH+T+WzS3KcMMB7TgVonkJ+6DO
-	 kXByUnWWnbvsA==
-Date: Sat, 11 May 2024 13:18:41 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v5 0/2] Add notifier for PLL0 clock and set it 1.5GHz on
-Message-ID: <20240511-unbiased-dainty-ccb5ece9b1b9@spud>
-References: <20240507065319.274976-1-xingyu.wu@starfivetech.com>
- <20240510-unfounded-syrup-d1263d57d05a@spud>
- <NTZPR01MB0956D48361098E8AA4B3930A9FE02@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
+	s=k20201202; t=1715439274;
+	bh=rubNTKa3Iwun2UymZEiP0WYCh3XNAOyMB5tCLTlUEFI=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=ZurLr3OXzHvnrGXTC0m0EjbLQcWxLY8Sd8TfY83aiW61ZZyjC3/e9a5GbfnLII4JF
+	 FCKllJgagsqPk15iOK2VWkzCZmj3LgADqytPr/xUK+PLOmy9LWyWiyayqjsBShNIDb
+	 Bzr9KMT/T7u/hKYD03UhBobomiFLb/cS2nIyumnYQR0lT6LPBSNdhirExo+dph3oWh
+	 M6O9zEvCuCx9S6AheT3VDcXuNBBgIH6TcV8sB8q/tgagCXjwE1OEuGEzS9XzekDbK0
+	 t+AlY31dWNadimMISPDEx95SGQMPUqcx+KhON7uRXBSvxH9WuCqy3pg8rK5Rc91JB0
+	 WbQxFumacovNg==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 595AECE0F8E; Sat, 11 May 2024 07:54:34 -0700 (PDT)
+Date: Sat, 11 May 2024 07:54:34 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: Leonardo Bras <leobras@redhat.com>, linux-kernel@vger.kernel.org,
+	kernel-team@meta.com, andi.shyti@linux.intel.com,
+	andrzej.hajda@intel.com, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com
+Subject: Re: [PATCH RFC cmpxchg 8/8] riscv: Emulate one-byte and two-byte
+ cmpxchg
+Message-ID: <9a84b94c-34ff-4c3a-ab2b-2741a5755db9@paulmck-laptop>
+References: <20240401213950.3910531-8-paulmck@kernel.org>
+ <mhng-d6a8a972-5054-4c48-a903-5a53a31da9ad@palmer-ri-x1c9a>
+ <Zj8VJZmQC7hRzDdz@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <NTZPR01MB0956D48361098E8AA4B3930A9FE02@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
+Content-Disposition: inline
+In-Reply-To: <Zj8VJZmQC7hRzDdz@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240511_051848_153142_002C8A7E 
-X-CRM114-Status: GOOD (  27.54  )
+X-CRM114-CacheID: sfid-20240511_075437_865950_21B68C25 
+X-CRM114-Status: GOOD (  33.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,93 +74,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6088666371328672822=="
+Reply-To: paulmck@kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, May 11, 2024 at 02:50:13AM -0400, Guo Ren wrote:
+> On Thu, Apr 04, 2024 at 07:15:40AM -0700, Palmer Dabbelt wrote:
+> > On Mon, 01 Apr 2024 14:39:50 PDT (-0700), paulmck@kernel.org wrote:
+> > > Use the new cmpxchg_emu_u8() and cmpxchg_emu_u16() to emulate one-byte
+> > > and two-byte cmpxchg() on riscv.
+> > > 
+> > > [ paulmck: Apply kernel test robot feedback. ]
+> > 
+> > I'm not entirely following the thread, but sounds like there's going to be
+> > generic kernel users of this now?  Before we'd said "no" to the byte/half
+> > atomic emulation routines beacuse they weren't used, but if it's a generic
+> > thing then I'm find adding them.
+> > 
+> > There's a patch set over here
+> > <https://lore.kernel.org/all/20240103163203.72768-2-leobras@redhat.com/>
+> > that implements these more directly using LR/SC.  I was sort of on the fence
+> > about just taking it even with no direct users right now, as the byte/half
+> > atomic extension is working its way through the spec process so we'll have
+> > them for real soon.  I stopped right there for the last merge window,
+> > though, as I figured it was too late to be messing with the atomics...
+> > 
+> > So
+> > 
+> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> F.Y.I Leonardo Bras <leobras@redhat.com>
 
---===============6088666371328672822==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="333ws8b+xrVh64Qn"
-Content-Disposition: inline
+I am carrying this in -rcu, but only for testing purposes, not for
+inclusion into mainline.  Not that I know of anyone testing -rcu on
+RISC-V, but still, I wouldn't want to do anything do discourage such
+testing.
 
+The reason that this patch is no longer intended for inclusion is that it
+has been obsoleted by a patch that provides native support for one-byte
+and two-byte cmpxchg() operations.  Which is even better!  ;-)
 
---333ws8b+xrVh64Qn
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+							Thanx, Paul
 
-On Sat, May 11, 2024 at 03:02:56AM +0000, Xingyu Wu wrote:
-> On 11/05/2024 05:05, Conor Dooley wrote:
-> >=20
-> > On Tue, May 07, 2024 at 02:53:17PM +0800, Xingyu Wu wrote:
-> > > This patch is to add the notifier for PLL0 clock and set the PLL0 rate
-> > > to 1.5GHz to fix the lower rate of CPUfreq on the JH7110 SoC.
-> > >
-> > > The first patch is to add the notifier for PLL0 clock. Setting the
-> > > PLL0 rate need the son clock (cpu_root) to switch its parent clock to
-> > > OSC clock and switch it back after setting PLL0 rate. It need to use
-> > > the cpu_root clock from SYSCRG and register the notifier in the SYSCRG
-> > > driver.
-> > >
-> > > The second patch is to set cpu_core rate to 500MHz and PLL0 rate to
-> > > 1.5GHz to fix the problem about the lower rate of CPUfreq on the
-> > > visionfive board. The cpu_core clock rate is set to 500MHz first to
-> > > ensure that the cpu frequency will not suddenly become high and the
-> > > cpu voltage is not enough to cause a crash when the PLL0 is set to 1.=
-5GHz.
-> > > The cpu voltage and frequency are then adjusted together by CPUfreq.
-> >=20
-> > Hmm, how does sequencing work here? If we split the patches between tre=
-es it
-> > sounds like without the dts patch, the clock tree would (or
-> > could) crash, or mainline if the clock changes there before the dts one=
-s do. Am I
-> > misunderstanding that?
->=20
-> Oh, I think you misunderstood it. Patch 1 (clock driver patch) does not c=
-ause the
-> clock tree crash without the patch 2 (dts patch), and it just provides th=
-e correct
-> flow of how to change the PLL0 rate. The patch 2 is to set the clock rate=
- of
-> cpu_core and PLL0 rate, which causes the crash without patch 1. Setting c=
-pu_core
-> rate is to avoid crashes by insufficient cpu voltage when setting PLL0 ra=
-te.
-
-So is the problem in the other direction then? My dts tree will crash if
-I apply the dts change without the clock patch?
-Additionally, what about U-Boot? Will it have problems if the dts is
-imported there without changes to its clock driver?
-
-Cheers,
-Conor.
-
---333ws8b+xrVh64Qn
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZj9iIQAKCRB4tDGHoIJi
-0jz7AQDMGT0ZB2SbFkWjxos3cZ08Ze3mWlouJG3EZjiHUCiEpQD9GdnqEmDDi+rg
-c/RIx75GM1ix0t3Vh238l/JUOHWRsg0=
-=/uka
------END PGP SIGNATURE-----
-
---333ws8b+xrVh64Qn--
-
-
---===============6088666371328672822==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> > if you guys want to take some sort of tree-wide change to make the byte/half
+> > stuff be required everywhere.  We'll eventually end up with arch routines
+> > for the extension, so at that point we might as well also have the more
+> > direct LR/SC flavors.
+> > 
+> > If you want I can go review/merge that RISC-V patch set and then it'll have
+> > time to bake for a shared tag you can pick up for all this stuff?  No rush
+> > on my end, just LMK.
+> > 
+> > > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> > > Cc: Andi Shyti <andi.shyti@linux.intel.com>
+> > > Cc: Andrzej Hajda <andrzej.hajda@intel.com>
+> > > Cc: <linux-riscv@lists.infradead.org>
+> > > ---
+> > >  arch/riscv/Kconfig               |  1 +
+> > >  arch/riscv/include/asm/cmpxchg.h | 25 +++++++++++++++++++++++++
+> > >  2 files changed, 26 insertions(+)
+> > > 
+> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > index be09c8836d56b..4eaf40d0a52ec 100644
+> > > --- a/arch/riscv/Kconfig
+> > > +++ b/arch/riscv/Kconfig
+> > > @@ -44,6 +44,7 @@ config RISCV
+> > >  	select ARCH_HAS_UBSAN
+> > >  	select ARCH_HAS_VDSO_DATA
+> > >  	select ARCH_KEEP_MEMBLOCK if ACPI
+> > > +	select ARCH_NEED_CMPXCHG_1_2_EMU
+> > >  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+> > >  	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+> > >  	select ARCH_STACKWALK
+> > > diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+> > > index 2fee65cc84432..a5b377481785c 100644
+> > > --- a/arch/riscv/include/asm/cmpxchg.h
+> > > +++ b/arch/riscv/include/asm/cmpxchg.h
+> > > @@ -9,6 +9,7 @@
+> > >  #include <linux/bug.h>
+> > > 
+> > >  #include <asm/fence.h>
+> > > +#include <linux/cmpxchg-emu.h>
+> > > 
+> > >  #define __xchg_relaxed(ptr, new, size)					\
+> > >  ({									\
+> > > @@ -170,6 +171,12 @@
+> > >  	__typeof__(*(ptr)) __ret;					\
+> > >  	register unsigned int __rc;					\
+> > >  	switch (size) {							\
+> > > +	case 1:								\
+> > > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
+> > > +		break;							\
+> > > +	case 2:								\
+> > > +		break;							\
+> > > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
+> > >  	case 4:								\
+> > >  		__asm__ __volatile__ (					\
+> > >  			"0:	lr.w %0, %2\n"				\
+> > > @@ -214,6 +221,12 @@
+> > >  	__typeof__(*(ptr)) __ret;					\
+> > >  	register unsigned int __rc;					\
+> > >  	switch (size) {							\
+> > > +	case 1:								\
+> > > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
+> > > +		break;							\
+> > > +	case 2:								\
+> > > +		break;							\
+> > > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
+> > >  	case 4:								\
+> > >  		__asm__ __volatile__ (					\
+> > >  			"0:	lr.w %0, %2\n"				\
+> > > @@ -260,6 +273,12 @@
+> > >  	__typeof__(*(ptr)) __ret;					\
+> > >  	register unsigned int __rc;					\
+> > >  	switch (size) {							\
+> > > +	case 1:								\
+> > > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
+> > > +		break;							\
+> > > +	case 2:								\
+> > > +		break;							\
+> > > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
+> > >  	case 4:								\
+> > >  		__asm__ __volatile__ (					\
+> > >  			RISCV_RELEASE_BARRIER				\
+> > > @@ -306,6 +325,12 @@
+> > >  	__typeof__(*(ptr)) __ret;					\
+> > >  	register unsigned int __rc;					\
+> > >  	switch (size) {							\
+> > > +	case 1:								\
+> > > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
+> > > +		break;							\
+> > > +	case 2:								\
+> > > +		break;							\
+> > > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
+> > >  	case 4:								\
+> > >  		__asm__ __volatile__ (					\
+> > >  			"0:	lr.w %0, %2\n"				\
+> > 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6088666371328672822==--
-
