@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6BAC04FFE
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 May 2024 09:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A52FC04FFE
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 May 2024 12:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ncgs8b3sSoeHTDFfKKk4213dHT4s6l3ccL6iRzyaXE4=; b=4zXCsaBJUxVovh
-	+t3D5NSOr21jZLqAYgFr2SwPnT3aJomVtKLPPLj+z8OpbyCi3Kc/O+ROSLiQzfDE7T10rtgVzanma
-	dwtzw6BsMkZsRmwkb5p426YnBsX8RlAn4YCIWdBdtr+F+nbqnDB48dDL0zDUMgz7whuyLtf9E8amc
-	ztTJ62jOcgDUnLr3KTYhyekttpbrVS+7tIwT7hy3BApLqPzjJQ12Xo7xgWNyxhQhc5m0Lc5jXkEY0
-	ZxNMGOOPfcrNohgqycYv0xzKAySlk9P7/PZGbn5nznhu82yuOjtkxXIzuse/O3S8K6XZqgeaodTua
-	8sub9VGphLufpT3vva+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WAnvQcErRHaVEUBSYlS77bqOEZHSScHiBZLBpsiyJLg=; b=YLHBnrEnq9Zsol0kIYbF4IswEb
+	3mt9jXXUV6ZSFpa1aKw/EONk2iDX/s5NGahZZc309ojY+kjjbXSp4ct7NiQJXHyejv3vvOdoyvI0T
+	R+0ht+3gJKii9HB4TrfJz6vq0QNKDb6BDHqpZpF9+DHtrsq6l3StLjnlRsUpqrugys+QMaN78BysS
+	Kf3IMFj9KxmRxm64S1tuUztWyF5FVINhYTemsNK1oFCiWqcbTvPtlwazX+ReyIzyCed8Dw3tGKqdU
+	1supEx6mp9KHP+D+q25o0E/3KnUActt0XeBLsECgUqX8G3jBLRRIkVJ+7yLn3Jb6s+KXPiS5cZhix
+	iW0KFrmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5jOA-00000007evD-1PSy;
-	Sat, 11 May 2024 09:51:34 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	id 1s5lgg-00000007sgM-1wfv;
+	Sat, 11 May 2024 12:18:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5jO3-00000007erl-2te6;
-	Sat, 11 May 2024 09:51:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1715421078;
-	bh=0cJX+ofKilB0YeAddG2Rk34Tcb84daQhOHXhdzx0r3M=;
+	id 1s5lgd-00000007sfm-48H6
+	for linux-riscv@lists.infradead.org;
+	Sat, 11 May 2024 12:18:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AC0976098A;
+	Sat, 11 May 2024 12:18:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F6E7C2BBFC;
+	Sat, 11 May 2024 12:18:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1715429926;
+	bh=s+M9h0DBUQzIAjC8URttvL4W46/RRLRnAX+0HaoiRJI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=k56XE3N3d4pgs8RXOwLSnRLB27sLWUfITEgcvrDMjZdmJPa/Ir6S6oi9PpE553jPt
-	 sb7k+FxSLFp8Odclpb2t4vqVdgVnPhAwWUDBH9QwI80jAM7LA7gxjkMhJ80aDoR2yw
-	 DUA3ugAMpnt1Nr9pHpMHzjCRdAMZeTMxIBsCjZb8=
-Date: Sat, 11 May 2024 11:51:18 +0200
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
-To: Kees Cook <keescook@chromium.org>
-Cc: Jakub Kicinski <kuba@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Joel Granados <j.granados@samsung.com>, Eric Dumazet <edumazet@google.com>, 
-	Dave Chinner <david@fromorbit.com>, linux-fsdevel@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
-	bpf@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-xfs@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	netfilter-devel@vger.kernel.org, coreteam@netfilter.org, kexec@lists.infradead.org, 
-	linux-hardening@vger.kernel.org, bridge@lists.linux.dev, lvs-devel@vger.kernel.org, 
-	linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com, linux-sctp@vger.kernel.org, 
-	linux-nfs@vger.kernel.org, apparmor@lists.ubuntu.com
-Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
- of sysctl handlers
-Message-ID: <8d1daa64-3746-46a3-b696-127a70cdf7e7@t-8ch.de>
-References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
- <20240424201234.3cc2b509@kernel.org>
- <202405080959.104A73A914@keescook>
+	b=G/6ke5/c5OoLeBvn2RdkJkBy6iB8OiTNKb0NMyf8j5FtnDl4Yi5PjTaeUlns3cIOp
+	 mC5LT+b2P1SfMZabSGhbeeSB2J6uAMA+iSNSG3ZmBgFxD+o2trHRZ8KPQ7oa7BnyWA
+	 V2Q5v4i37XtvluH9ctWIHl+3+pP6HwwuGIwD8BQ06HLfIeFDKoiC0INjMt3E/bzjWT
+	 /Uljpo7zyXJTsJfKeciN8Tp6IWA07Jg9FPZmLm6XjAotY0gL9XmENG2bOZMi1OC7Us
+	 Dp5ykq3/v6KyKbw2UfxA09dYJ4nVTrtXVCivfQ7DzH+T+WzS3KcMMB7TgVonkJ+6DO
+	 kXByUnWWnbvsA==
+Date: Sat, 11 May 2024 13:18:41 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v5 0/2] Add notifier for PLL0 clock and set it 1.5GHz on
+Message-ID: <20240511-unbiased-dainty-ccb5ece9b1b9@spud>
+References: <20240507065319.274976-1-xingyu.wu@starfivetech.com>
+ <20240510-unfounded-syrup-d1263d57d05a@spud>
+ <NTZPR01MB0956D48361098E8AA4B3930A9FE02@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <202405080959.104A73A914@keescook>
+In-Reply-To: <NTZPR01MB0956D48361098E8AA4B3930A9FE02@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240511_025128_210643_587D38F8 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20240511_051848_153142_002C8A7E 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,45 +79,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6088666371328672822=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgS2VlcywKCk9uIDIwMjQtMDUtMDggMTA6MTE6MzUrMDAwMCwgS2VlcyBDb29rIHdyb3RlOgo+
-IE9uIFdlZCwgQXByIDI0LCAyMDI0IGF0IDA4OjEyOjM0UE0gLTA3MDAsIEpha3ViIEtpY2luc2tp
-IHdyb3RlOgo+ID4gT24gVHVlLCAyMyBBcHIgMjAyNCAwOTo1NDozNSArMDIwMCBUaG9tYXMgV2Vp
-w59zY2h1aCB3cm90ZToKPiA+ID4gVGhlIHNlcmllcyB3YXMgc3BsaXQgZnJvbSBteSBsYXJnZXIg
-c2VyaWVzIHN5c2N0bC1jb25zdCBzZXJpZXMgWzBdLgo+ID4gPiBJdCBvbmx5IGZvY3Vzc2VzIG9u
-IHRoZSBwcm9jX2hhbmRsZXJzIGJ1dCBpcyBhbiBpbXBvcnRhbnQgc3RlcCB0byBiZQo+ID4gPiBh
-YmxlIHRvIG1vdmUgYWxsIHN0YXRpYyBkZWZpbml0aW9ucyBvZiBjdGxfdGFibGUgaW50byAucm9k
-YXRhLgo+ID4gCj4gPiBTcGxpdCB0aGlzIHBlciBzdWJzeXN0ZW0sIHBsZWFzZS4KPiAKPiBJJ3Zl
-IGRvbmUgYSBmZXcgcGFpbmZ1bCBBUEkgdHJhbnNpdGlvbnMgYmVmb3JlLCBhbmQgSSBkb24ndCB0
-aGluayB0aGUKPiBjb21wbGV4aXR5IG9mIHRoZXNlIGNoYW5nZXMgbmVlZHMgYSBwZXItc3Vic3lz
-dGVtIGNvbnN0aWZpY2F0aW9uIHBhc3MuIEkKPiB0aGluayB0aGlzIHNlcmllcyBpcyB0aGUgcmln
-aHQgYXBwcm9hY2gsIGJ1dCB0aGF0IHBhdGNoIDExIHdpbGwgbmVlZAo+IGNvb3JkaW5hdGlvbiB3
-aXRoIExpbnVzLiBXZSByZWd1bGFybHkgZG8gc3lzdGVtLXdpZGUgcHJvdG90eXBlIGNoYW5nZXMK
-PiBsaWtlIHRoaXMgcmlnaHQgYXQgdGhlIGVuZCBvZiB0aGUgbWVyZ2Ugd2luZG93IGJlZm9yZSAt
-cmMxIGNvbWVzIG91dC4KClRoYXQgc291bmRzIGdvb2QuCgo+IFRoZSByZXF1aXJlbWVudHMgYXJl
-IHByZXR0eSBzaW1wbGU6IGl0IG5lZWRzIHRvIGJlIGEgb2J2aW91cyBjaGFuZ2VzCj4gKHRoaXMg
-Y2VydGFpbmx5IGlzKSBhbmQgYXMgY2xvc2UgdG8gMTAwJSBtZWNoYW5pY2FsIGFzIHBvc3NpYmxl
-LiBJIHRoaW5rCj4gcGF0Y2ggMTEgZWFzaWx5IHF1YWxpZmllcy4gTGludXMgc2hvdWxkIGJlIGFi
-bGUgdG8gcnVuIHRoZSBzYW1lIENvY2NpbmVsbGUKPiBzY3JpcHQgYW5kIGdldCBuZWFybHkgdGhl
-IHNhbWUgcmVzdWx0cywgZXRjLiBBbmQgYWxsIHRoZSBvdGhlciBjaGFuZ2VzCj4gbmVlZCB0byBo
-YXZlIGxhbmRlZC4gVGhpcyBjaGFuZ2UgYWxzbyBoYXMgbm8gInNpbGVudCBmYWlsdXJlIiBjb25k
-aXRpb25zOgo+IGFueXRoaW5nIG1pc21hdGNoZWQgd2lsbCBpbW1lZGlhdGVseSBzdGFuZCBvdXQu
-CgpVbmZvcnR1bmF0ZWx5IGNvY2NpbmVsbGUgYWxvbmUgaXMgbm90IHN1ZmZpY2llbnQsIGFzIHNv
-bWUgaGVscGVycyB3aXRoCmRpZmZlcmVudCBwcm90b3R5cGVzIGFyZSBjYWxsZWQgYnkgaGFuZGxl
-cnMgYW5kIHRoZW1zZWx2ZXMgYXJlIGNhbGxpbmcKaGFuZGxlciBhbmQgdGhlcmVmb3JlIG5lZWQg
-dG8gY2hhbmdlIGluIHRoZSBzYW1lIGNvbW1pdC4KQnV0IGlmIEkgYWRkIGEgZGlmZiBmb3IgdGhv
-c2Ugb24gdG9wIG9mIHRoZSBjb2NjaW5lbGxlIHNjcmlwdCB0byB0aGUKY2hhbmdlbG9nIGl0IHNo
-b3VsZCBiZSBvYnZpb3VzLgoKPiBTbywgaGF2ZSBwYXRjaGVzIDEtMTAgZ28gdmlhIHRoZWlyIHJl
-c3BlY3RpdmUgc3Vic3lzdGVtcywgYW5kIG9uY2UgYWxsCj4gb2YgdGhvc2UgYXJlIGluIExpbnVz
-J3MgdHJlZSwgc2VuZCBwYXRjaCAxMSBhcyBhIHN0YW5kLWFsb25lIFBSLgoKQWNrLCBJJ2xsIGRv
-IHRoYXQgd2l0aCB0aGUgY292ZXIgbGV0dGVyIGluZm9ybWF0aW9uIHJlcXVlc3RlZCBieSBKb2Vs
-LgoKPiAoRnJvbSBwYXRjaCAxMSwgaXQgbG9va3MgbGlrZSB0aGUgc2VjY29tcCByZWFkL3dyaXRl
-IGZ1bmN0aW9uIGNoYW5nZXMKPiBjb3VsZCBiZSBzcGxpdCBvdXQ/IEknbGwgZG8gdGhhdCBub3cu
-Li4pCgpUaGFua3MhCgpUaG9tYXMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+
+--===============6088666371328672822==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="333ws8b+xrVh64Qn"
+Content-Disposition: inline
+
+
+--333ws8b+xrVh64Qn
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, May 11, 2024 at 03:02:56AM +0000, Xingyu Wu wrote:
+> On 11/05/2024 05:05, Conor Dooley wrote:
+> >=20
+> > On Tue, May 07, 2024 at 02:53:17PM +0800, Xingyu Wu wrote:
+> > > This patch is to add the notifier for PLL0 clock and set the PLL0 rate
+> > > to 1.5GHz to fix the lower rate of CPUfreq on the JH7110 SoC.
+> > >
+> > > The first patch is to add the notifier for PLL0 clock. Setting the
+> > > PLL0 rate need the son clock (cpu_root) to switch its parent clock to
+> > > OSC clock and switch it back after setting PLL0 rate. It need to use
+> > > the cpu_root clock from SYSCRG and register the notifier in the SYSCRG
+> > > driver.
+> > >
+> > > The second patch is to set cpu_core rate to 500MHz and PLL0 rate to
+> > > 1.5GHz to fix the problem about the lower rate of CPUfreq on the
+> > > visionfive board. The cpu_core clock rate is set to 500MHz first to
+> > > ensure that the cpu frequency will not suddenly become high and the
+> > > cpu voltage is not enough to cause a crash when the PLL0 is set to 1.=
+5GHz.
+> > > The cpu voltage and frequency are then adjusted together by CPUfreq.
+> >=20
+> > Hmm, how does sequencing work here? If we split the patches between tre=
+es it
+> > sounds like without the dts patch, the clock tree would (or
+> > could) crash, or mainline if the clock changes there before the dts one=
+s do. Am I
+> > misunderstanding that?
+>=20
+> Oh, I think you misunderstood it. Patch 1 (clock driver patch) does not c=
+ause the
+> clock tree crash without the patch 2 (dts patch), and it just provides th=
+e correct
+> flow of how to change the PLL0 rate. The patch 2 is to set the clock rate=
+ of
+> cpu_core and PLL0 rate, which causes the crash without patch 1. Setting c=
+pu_core
+> rate is to avoid crashes by insufficient cpu voltage when setting PLL0 ra=
+te.
+
+So is the problem in the other direction then? My dts tree will crash if
+I apply the dts change without the clock patch?
+Additionally, what about U-Boot? Will it have problems if the dts is
+imported there without changes to its clock driver?
+
+Cheers,
+Conor.
+
+--333ws8b+xrVh64Qn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZj9iIQAKCRB4tDGHoIJi
+0jz7AQDMGT0ZB2SbFkWjxos3cZ08Ze3mWlouJG3EZjiHUCiEpQD9GdnqEmDDi+rg
+c/RIx75GM1ix0t3Vh238l/JUOHWRsg0=
+=/uka
+-----END PGP SIGNATURE-----
+
+--333ws8b+xrVh64Qn--
+
+
+--===============6088666371328672822==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6088666371328672822==--
+
