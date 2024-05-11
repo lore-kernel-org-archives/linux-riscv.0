@@ -4,56 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 909FCC04FFE
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 May 2024 06:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BADF8C04FFE
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 May 2024 06:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YcQGQqHecDWo/lSBO1gO9i+8DaFYApi/RnvQ//Bf8O4=; b=T7TTi3c5lQsf4r
-	SGmVt1EvntsDysBNkhYpiotgVMhSHXqTohLZsAHxf/l2q/s6Ccy2Gx+5KlFwwxvMknlfpMCohh4U1
-	ocId5dxKbfLrSH0w4n5TWaZ0+IgZj26Fkh9CvowFE85FwPutejqAX2Ahkrd1AkJa9oeWDUeg5jV99
-	QdTwmxUqnmL6zpdTDxV+vtnD/jqCO6LlSmGFCeIfMVPQ/NgcnknYbbg/87aQf2veIF4WhIf4ufH3M
-	6Z2W4t9nG9xhrZyrZOrNT5HJRu3m/ia6rsDqCKkWEM5ldTBGbF4k3I+2r/WCqDu2bjXednZ4VHWaB
-	WT79i1cMBYI3rd3V3nNw==;
+	List-Owner; bh=EPf5oAv6cyEpT3dv8aSOJsu1cu0wjbEIGkuOagsYrWE=; b=FmM5Kjgbm+a4/a
+	n8TEF5ZyvctEL3Q+yRMS9eYwWMPAAzHND7n54qNE/VkdRcjrzbGhdBNbqUPoj+aZqgV66klXeusQN
+	KK2hUHOFOAm1NbjSs6zhsdlHm4zmgM7cmSPrnl93xteylqSxou/ZFSzawIFlSgLUwcpvXyYujgODN
+	ufw/swzXUwjWfJb6TZaubT7Tg1ssHCvu0MtCVBeEQBraL+28fKD1WCbV5e5s8z3PyuKFO27J+WIAv
+	RsGNqOmG7jJh1T6E+bazjFA2yO71TO/qXzbifPW/RBDleTJKoBVV1U6FuEdjwlxVoKipT2AlYi+up
+	EuMvayKIFABXmscLqKCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5fsx-00000007Ma7-3B3X;
-	Sat, 11 May 2024 06:07:07 +0000
-Received: from fgw20-7.mail.saunalahti.fi ([62.142.5.81])
+	id 1s5gYt-00000007PkG-0b83;
+	Sat, 11 May 2024 06:50:27 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s5fss-00000007MOo-1mPG
+	id 1s5gYo-00000007PjV-42RQ
 	for linux-riscv@lists.infradead.org;
-	Sat, 11 May 2024 06:07:04 +0000
-Received: from localhost (88-113-25-208.elisa-laajakaista.fi [88.113.25.208])
-	by fgw22.mail.saunalahti.fi (Halon) with ESMTP
-	id ab27d1fa-0f5c-11ef-a9de-005056bdf889;
-	Sat, 11 May 2024 09:06:56 +0300 (EEST)
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Sat, 11 May 2024 09:06:55 +0300
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Drew Fustini <dfustini@baylibre.com>
-Subject: Re: [PATCH v2 2/8] pinctrl: Add driver for the T-Head TH1520 SoC
-Message-ID: <Zj8K_0zpI_IAY66R@surfacebook.localdomain>
-References: <20240103132852.298964-1-emil.renner.berthing@canonical.com>
- <20240103132852.298964-3-emil.renner.berthing@canonical.com>
+	Sat, 11 May 2024 06:50:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id D7788CE1B20;
+	Sat, 11 May 2024 06:50:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 270FEC2BD10;
+	Sat, 11 May 2024 06:50:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1715410219;
+	bh=lblVBvZuddzuH51cR8bOvxbCQSkyGJaGFeuYszSiyVI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IGkVoDnUyxFEG56w7+HuB2jpgmBVaJMMe6Fv4rXtMdyTjoVePK7lwdsQN6/yRI4zC
+	 fF4GtCGRoWEI/y6eom0/Wx6eUsQj02VA/s2biezFods6BpGUs3nhJn8hghTDmbwNyx
+	 LI5kuaTCMtvLNluAbzC/eXJQ+BZlLiN2xA6BN0NeHkJWQZuJEwlDqqVELHU0Yo84nR
+	 mH0ezWfY9CbT7B88ziN7GTsrLuyIc3kZSBaAfKUvy9oJKWFJvxcae0sh+qXNshrPJB
+	 3sZ7Q/YFs+qD2RCS0xMjl2sTQMbMj+7st0WeeiDdKyGVu+CElQu48tpS9lXWUY4ioY
+	 gMMhUwb5yMsSQ==
+Date: Sat, 11 May 2024 02:50:13 -0400
+From: Guo Ren <guoren@kernel.org>
+To: Leonardo Bras <leobras@redhat.com>
+Cc: paulmck@kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
+	andi.shyti@linux.intel.com, andrzej.hajda@intel.com,
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com
+Subject: Re: [PATCH RFC cmpxchg 8/8] riscv: Emulate one-byte and two-byte
+ cmpxchg
+Message-ID: <Zj8VJZmQC7hRzDdz@gmail.com>
+References: <20240401213950.3910531-8-paulmck@kernel.org>
+ <mhng-d6a8a972-5054-4c48-a903-5a53a31da9ad@palmer-ri-x1c9a>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240103132852.298964-3-emil.renner.berthing@canonical.com>
+In-Reply-To: <mhng-d6a8a972-5054-4c48-a903-5a53a31da9ad@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240510_230702_829001_98B89568 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20240510_235023_391114_3BE272C2 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,240 +75,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Wed, Jan 03, 2024 at 02:28:39PM +0100, Emil Renner Berthing kirjoitti:
-> Add pinctrl driver for the T-Head TH1520 RISC-V SoC.
+On Thu, Apr 04, 2024 at 07:15:40AM -0700, Palmer Dabbelt wrote:
+> On Mon, 01 Apr 2024 14:39:50 PDT (-0700), paulmck@kernel.org wrote:
+> > Use the new cmpxchg_emu_u8() and cmpxchg_emu_u16() to emulate one-byte
+> > and two-byte cmpxchg() on riscv.
+> > 
+> > [ paulmck: Apply kernel test robot feedback. ]
+> 
+> I'm not entirely following the thread, but sounds like there's going to be
+> generic kernel users of this now?  Before we'd said "no" to the byte/half
+> atomic emulation routines beacuse they weren't used, but if it's a generic
+> thing then I'm find adding them.
+> 
+> There's a patch set over here
+> <https://lore.kernel.org/all/20240103163203.72768-2-leobras@redhat.com/>
+> that implements these more directly using LR/SC.  I was sort of on the fence
+> about just taking it even with no direct users right now, as the byte/half
+> atomic extension is working its way through the spec process so we'll have
+> them for real soon.  I stopped right there for the last merge window,
+> though, as I figured it was too late to be messing with the atomics...
+> 
+> So
+> 
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+F.Y.I Leonardo Bras <leobras@redhat.com>
 
-...
-
-> +#include <linux/array_size.h>
-> +#include <linux/bits.h>
-> +#include <linux/cleanup.h>
-> +#include <linux/clk.h>
-> +#include <linux/device.h>
-> +#include <linux/io.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/seq_file.h>
-> +#include <linux/spinlock.h>
-
-+ types.h
-
-...
-
-> +#define TH1520_PAD(_nr, _name, m0, m1, m2, m3, m4, m5, _flags) \
-> +	{ .number = _nr, .name = #_name, .drv_data = (void *)((_flags) | \
-> +		(TH1520_MUX_##m0 <<  0) | (TH1520_MUX_##m1 <<  5) | (TH1520_MUX_##m2 << 10) | \
-> +		(TH1520_MUX_##m3 << 15) | (TH1520_MUX_##m4 << 20) | (TH1520_MUX_##m5 << 25)) }
-
-It's better to read in a form of
-
-#define TH1520_PAD(_nr, _name, m0, m1, m2, m3, m4, m5, _flags)					\
-{												\
-	.number = _nr,										\
-	.name = #_name,										\
-	.drv_data = (void *)((_flags) |								\
-		(TH1520_MUX_##m0 <<  0) | (TH1520_MUX_##m1 <<  5) | (TH1520_MUX_##m2 << 10) |	\
-		(TH1520_MUX_##m3 << 15) | (TH1520_MUX_##m4 << 20) | (TH1520_MUX_##m5 << 25))	\
-}
-
-...
-
-> +static void th1520_pin_dbg_show(struct pinctrl_dev *pctldev,
-> +				struct seq_file *s, unsigned int pin)
-
-static void th1520_pin_dbg_show(struct pinctrl_dev *pctldev, struct seq_file *s,
-				unsigned int pin)
-
-(it even satisfies 80 characters limit)
-
-...
-
-> +	nmaps = 0;
-> +	for_each_available_child_of_node(np, child) {
-
-You want to use _scoped() variant.
-
-> +		int npins = of_property_count_strings(child, "pins");
-> +
-> +		if (npins <= 0) {
-
-Better to decouple definition and assignment
-
-		int npins;
-
-		npins = of_property_count_strings(child, "pins");
-		if (npins <= 0) {
-
-Besides that, if npins can hold an error code...
-
-
-> +			of_node_put(child);
-> +			dev_err(thp->pctl->dev, "no pins selected for %pOFn.%pOFn\n",
-> +				np, child);
-
-> +			return -EINVAL;
-
-...why is it being shadowed?
-
-> +		}
-> +		nmaps += npins;
-> +		if (of_property_present(child, "function"))
-> +			nmaps += npins;
-> +	}
-
-> +	map = kcalloc(nmaps, sizeof(*map), GFP_KERNEL);
-> +	if (!map)
-> +		return -ENOMEM;
-> +
-> +	nmaps = 0;
-> +	mutex_lock(&thp->mutex);
-> +	for_each_available_child_of_node(np, child) {
-
-You want to use _scoped() variant.
-
-> +		unsigned int rollback = nmaps;
-> +		enum th1520_muxtype muxtype;
-> +		struct property *prop;
-> +		const char *funcname;
-> +		const char **pgnames;
-> +		const char *pinname;
-> +		int npins;
-> +
-> +		ret = pinconf_generic_parse_dt_config(child, pctldev, &configs, &nconfigs);
-> +		if (ret) {
-> +			dev_err(thp->pctl->dev, "%pOFn.%pOFn: error parsing pin config\n",
-> +				np, child);
-> +			goto put_child;
-> +		}
-
-> +		if (!of_property_read_string(child, "function", &funcname)) {
-
-Why not traditional pattern, i.e. "errors first"?
-
-		if (of_property_read_string(child, "function", &funcname)) {
-			funcname = NULL;
-		} else {
-			...
-		}
-
-> +			muxtype = th1520_muxtype_get(funcname);
-> +			if (!muxtype) {
-> +				dev_err(thp->pctl->dev, "%pOFn.%pOFn: unknown function '%s'\n",
-> +					np, child, funcname);
-> +				ret = -EINVAL;
-> +				goto free_configs;
-> +			}
-> +
-> +			funcname = devm_kasprintf(thp->pctl->dev, GFP_KERNEL, "%pOFn.%pOFn",
-> +						  np, child);
-
-With help of
-
-	struct device *dev = thp->pctl->dev;
-
-this and other lines in this function become shorter and easier to read.
-
-> +			if (!funcname) {
-> +				ret = -ENOMEM;
-> +				goto free_configs;
-> +			}
-> +
-> +			npins = of_property_count_strings(child, "pins");
-> +			pgnames = devm_kcalloc(thp->pctl->dev, npins, sizeof(*pgnames), GFP_KERNEL);
-> +			if (!pgnames) {
-> +				ret = -ENOMEM;
-> +				goto free_configs;
-> +			}
-> +		} else {
-> +			funcname = NULL;
-> +		}
-> +
-> +		npins = 0;
-> +		of_property_for_each_string(child, "pins", prop, pinname) {
-> +			unsigned int i;
-> +
-> +			for (i = 0; i < thp->desc.npins; i++) {
-> +				if (!strcmp(pinname, thp->desc.pins[i].name))
-> +					break;
-> +			}
-> +			if (i == thp->desc.npins) {
-> +				nmaps = rollback;
-> +				dev_err(thp->pctl->dev, "%pOFn.%pOFn: unknown pin '%s'\n",
-> +					np, child, pinname);
-> +				goto free_configs;
-> +			}
-> +
-> +			if (nconfigs) {
-> +				map[nmaps].type = PIN_MAP_TYPE_CONFIGS_PIN;
-> +				map[nmaps].data.configs.group_or_pin = thp->desc.pins[i].name;
-> +				map[nmaps].data.configs.configs = configs;
-> +				map[nmaps].data.configs.num_configs = nconfigs;
-> +				nmaps += 1;
-
-++ ?
-
-> +			}
-> +			if (funcname) {
-> +				pgnames[npins++] = thp->desc.pins[i].name;
-> +				map[nmaps].type = PIN_MAP_TYPE_MUX_GROUP;
-> +				map[nmaps].data.mux.function = funcname;
-> +				map[nmaps].data.mux.group = thp->desc.pins[i].name;
-> +				nmaps += 1;
-
-++ ?
-
-> +			}
-> +		}
-> +
-> +		if (funcname) {
-> +			ret = pinmux_generic_add_function(pctldev, funcname, pgnames,
-> +							  npins, (void *)muxtype);
-> +			if (ret < 0) {
-> +				dev_err(thp->pctl->dev, "error adding function %s\n", funcname);
-> +				goto put_child;
-> +			}
-> +		}
-> +	}
-> +
-> +	*maps = map;
-> +	*num_maps = nmaps;
-> +	mutex_unlock(&thp->mutex);
-> +	return 0;
-> +
-> +free_configs:
-> +	kfree(configs);
-> +put_child:
-> +	of_node_put(child);
-> +	th1520_pinctrl_dt_free_map(pctldev, map, nmaps);
-> +	mutex_unlock(&thp->mutex);
-> +	return ret;
-> +}
-
-...
-
-> +	if ((uintptr_t)desc->drv_data & TH1520_PAD_NO_PADCFG)
-
-You have a lot of explicit castings here and there, can you reduce the usage
-count of them?
-
-> +		return -ENOTSUPP;
-
-...
-
-> +	if ((uintptr_t)desc->drv_data & TH1520_PAD_NO_PADCFG)
-
-At least this one can be moved to a helper (macro?).
-
-> +		return -ENOTSUPP;
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+> 
+> if you guys want to take some sort of tree-wide change to make the byte/half
+> stuff be required everywhere.  We'll eventually end up with arch routines
+> for the extension, so at that point we might as well also have the more
+> direct LR/SC flavors.
+> 
+> If you want I can go review/merge that RISC-V patch set and then it'll have
+> time to bake for a shared tag you can pick up for all this stuff?  No rush
+> on my end, just LMK.
+> 
+> > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> > Cc: Andi Shyti <andi.shyti@linux.intel.com>
+> > Cc: Andrzej Hajda <andrzej.hajda@intel.com>
+> > Cc: <linux-riscv@lists.infradead.org>
+> > ---
+> >  arch/riscv/Kconfig               |  1 +
+> >  arch/riscv/include/asm/cmpxchg.h | 25 +++++++++++++++++++++++++
+> >  2 files changed, 26 insertions(+)
+> > 
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index be09c8836d56b..4eaf40d0a52ec 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -44,6 +44,7 @@ config RISCV
+> >  	select ARCH_HAS_UBSAN
+> >  	select ARCH_HAS_VDSO_DATA
+> >  	select ARCH_KEEP_MEMBLOCK if ACPI
+> > +	select ARCH_NEED_CMPXCHG_1_2_EMU
+> >  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+> >  	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+> >  	select ARCH_STACKWALK
+> > diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+> > index 2fee65cc84432..a5b377481785c 100644
+> > --- a/arch/riscv/include/asm/cmpxchg.h
+> > +++ b/arch/riscv/include/asm/cmpxchg.h
+> > @@ -9,6 +9,7 @@
+> >  #include <linux/bug.h>
+> > 
+> >  #include <asm/fence.h>
+> > +#include <linux/cmpxchg-emu.h>
+> > 
+> >  #define __xchg_relaxed(ptr, new, size)					\
+> >  ({									\
+> > @@ -170,6 +171,12 @@
+> >  	__typeof__(*(ptr)) __ret;					\
+> >  	register unsigned int __rc;					\
+> >  	switch (size) {							\
+> > +	case 1:								\
+> > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
+> > +		break;							\
+> > +	case 2:								\
+> > +		break;							\
+> > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
+> >  	case 4:								\
+> >  		__asm__ __volatile__ (					\
+> >  			"0:	lr.w %0, %2\n"				\
+> > @@ -214,6 +221,12 @@
+> >  	__typeof__(*(ptr)) __ret;					\
+> >  	register unsigned int __rc;					\
+> >  	switch (size) {							\
+> > +	case 1:								\
+> > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
+> > +		break;							\
+> > +	case 2:								\
+> > +		break;							\
+> > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
+> >  	case 4:								\
+> >  		__asm__ __volatile__ (					\
+> >  			"0:	lr.w %0, %2\n"				\
+> > @@ -260,6 +273,12 @@
+> >  	__typeof__(*(ptr)) __ret;					\
+> >  	register unsigned int __rc;					\
+> >  	switch (size) {							\
+> > +	case 1:								\
+> > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
+> > +		break;							\
+> > +	case 2:								\
+> > +		break;							\
+> > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
+> >  	case 4:								\
+> >  		__asm__ __volatile__ (					\
+> >  			RISCV_RELEASE_BARRIER				\
+> > @@ -306,6 +325,12 @@
+> >  	__typeof__(*(ptr)) __ret;					\
+> >  	register unsigned int __rc;					\
+> >  	switch (size) {							\
+> > +	case 1:								\
+> > +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
+> > +		break;							\
+> > +	case 2:								\
+> > +		break;							\
+> > +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
+> >  	case 4:								\
+> >  		__asm__ __volatile__ (					\
+> >  			"0:	lr.w %0, %2\n"				\
+> 
 
 _______________________________________________
 linux-riscv mailing list
