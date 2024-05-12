@@ -4,47 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0683CC25B4F
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 May 2024 15:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06CFEC25B4F
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 May 2024 16:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:To:Subject:From:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+90PCw1QqB7Ho/rxXUKgNtRl65Khj2ZwDCHBuBr72kI=; b=trzdif6qo4HzUWQAYMwrZKGfQM
-	zTL6rcEqEr9zEuhTl2nrWbkKKmWXfE6han5KFsyFBM1v+E2u73UGUrsOUMmy1iSqPCBy/OWJEE1pi
-	gY0RA4queQuje1rxjQnPg6VyeO2bmc9FYHDp3KR0x1RSfJCz9oHw8psjzEAGY98MX/XqrGWTsfr9P
-	vHy8UACmZA4In9j3DV2TxyanbIY83tBy1bFvaLcigrSTIkzpASL5Ue98T15bH00sn/upjVUyq1akC
-	F8gdAQXU5btbJOCKQbtpiI9k+Z2qFQsF113IN652GRkvQzrwVOKgWjgA2VIHkqV+bK94fOGiq0mt1
-	ErJGLnsA==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6B270CI2qxAmSR3tOp1qr2Fh12/y+Q0EwZuxJOgvfE4=; b=ZWjt+XQUqup1tj
+	kLcCfCl9eKunxnwOh9IHgb8F5m5va0wXibQ5bC43J4jfxEY7PTDTES/DkDKqN44qsw8uHNX9+noHU
+	9viGm2YFNffK8V0Ydjb66F2EmCruhiymvr7aLdEoulspTvhx32fChOTu+EqX5wGk0gaoIthNBMNsK
+	lwUu3EI6lPbeuxxPfYK8QESllHqQ7/CRUV8RLm292Js28hM7ZzIrqP7yoX9c1rvrV3UMAXcdwzqUw
+	NzxNr0SVtpTWfn0lzRCF1YhhCij2Iat6u7MVMB8+9u0uK3BTL8zVYuloxKWqufPh9pl6Wy2V7W7Pj
+	Qxq1oGYBwVaqrXTjmKdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6BQP-0000000AEy3-4AUR;
-	Sun, 12 May 2024 15:47:45 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1s6C1b-0000000AJGT-3hGN;
+	Sun, 12 May 2024 16:26:11 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6BQM-0000000AEx1-1X4a
+	id 1s6C1X-0000000AJEd-32Xc
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 May 2024 15:47:44 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 03BA41C0004;
-	Sun, 12 May 2024 15:47:28 +0000 (UTC)
-Message-ID: <46c70799-87b1-4478-95bb-4d4c90519f5b@ghiti.fr>
-Date: Sun, 12 May 2024 17:47:24 +0200
+	Sun, 12 May 2024 16:26:10 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C222060002;
+	Sun, 12 May 2024 16:24:50 +0000 (UTC)
+Message-ID: <c759444d-fe84-4a61-8448-80fb692c7904@ghiti.fr>
+Date: Sun, 12 May 2024 18:24:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH 0/7] remove size limit on XIP kernel
-To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1715286093.git.namcao@linutronix.de>
+Subject: Re: [PATCH v3 10/29] riscv/mm : ensure PROT_WRITE leads to VM_READ |
+ VM_WRITE
 Content-Language: en-US
-In-Reply-To: <cover.1715286093.git.namcao@linutronix.de>
+To: Deepak Gupta <debug@rivosinc.com>, paul.walmsley@sifive.com,
+ rick.p.edgecombe@intel.com, broonie@kernel.org, Szabolcs.Nagy@arm.com,
+ kito.cheng@sifive.com, keescook@chromium.org, ajones@ventanamicro.com,
+ conor.dooley@microchip.com, cleger@rivosinc.com, atishp@atishpatra.org,
+ bjorn@rivosinc.com, alexghiti@rivosinc.com, samuel.holland@sifive.com,
+ conor@kernel.org
+Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-mm@kvack.org, linux-arch@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, corbet@lwn.net, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, oleg@redhat.com,
+ akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
+ Liam.Howlett@oracle.com, vbabka@suse.cz, lstoakes@gmail.com,
+ shuah@kernel.org, brauner@kernel.org, andy.chiu@sifive.com,
+ jerry.shih@sifive.com, hankuan.chen@sifive.com, greentime.hu@sifive.com,
+ evan@rivosinc.com, xiao.w.wang@intel.com, charlie@rivosinc.com,
+ apatel@ventanamicro.com, mchitale@ventanamicro.com,
+ dbarboza@ventanamicro.com, sameo@rivosinc.com, shikemeng@huaweicloud.com,
+ willy@infradead.org, vincent.chen@sifive.com, guoren@kernel.org,
+ samitolvanen@google.com, songshuaishuai@tinylab.org, gerg@kernel.org,
+ heiko@sntech.de, bhe@redhat.com, jeeheng.sia@starfivetech.com,
+ cyy@cyyself.name, maskray@google.com, ancientmodern4@gmail.com,
+ mathis.salmen@matsal.de, cuiyunhui@bytedance.com, bgray@linux.ibm.com,
+ mpe@ellerman.id.au, baruch@tkos.co.il, alx@kernel.org, david@redhat.com,
+ catalin.marinas@arm.com, revest@chromium.org, josh@joshtriplett.org,
+ shr@devkernel.io, deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
+ jhubbard@nvidia.com
+References: <20240403234054.2020347-1-debug@rivosinc.com>
+ <20240403234054.2020347-11-debug@rivosinc.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240403234054.2020347-11-debug@rivosinc.com>
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240512_084742_587067_A497BA94 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20240512_092608_093592_5C998F43 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,62 +88,132 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nam,
+Hi Deepak,
 
-On 10/05/2024 08:28, Nam Cao wrote:
-> Hi,
+On 04/04/2024 01:34, Deepak Gupta wrote:
+> `arch_calc_vm_prot_bits` is implemented on risc-v to return VM_READ |
+> VM_WRITE if PROT_WRITE is specified. Similarly `riscv_sys_mmap` is
+> updated to convert all incoming PROT_WRITE to (PROT_WRITE | PROT_READ).
+> This is to make sure that any existing apps using PROT_WRITE still work.
 >
-> For XIP kernel, the writable data section is always at offset specified in
-> XIP_OFFSET, which is hard-coded to 32MB.
+> Earlier `protection_map[VM_WRITE]` used to pick read-write PTE encodings.
+> Now `protection_map[VM_WRITE]` will always pick PAGE_SHADOWSTACK PTE
+> encodings for shadow stack. Above changes ensure that existing apps
+> continue to work because underneath kernel will be picking
+> `protection_map[VM_WRITE|VM_READ]` PTE encodings.
 >
-> Unfortunately, this means the read-only section (placed before the
-> writable section) is restricted in size. This causes build failure if the
-> kernel gets too large.
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>   arch/riscv/include/asm/mman.h    | 24 ++++++++++++++++++++++++
+>   arch/riscv/include/asm/pgtable.h |  1 +
+>   arch/riscv/kernel/sys_riscv.c    | 11 +++++++++++
+>   arch/riscv/mm/init.c             |  2 +-
+>   mm/mmap.c                        |  1 +
+>   5 files changed, 38 insertions(+), 1 deletion(-)
+>   create mode 100644 arch/riscv/include/asm/mman.h
 >
-> This series remove the use of XIP_OFFSET one by one, then remove this
-> macro entirely at the end, with the goal of lifting this size restriction.
->
-> Also some cleanup and documentation along the way.
->
-> This series depends on
->      https://lore.kernel.org/linux-riscv/20240508191917.2892064-1-namcao@linutronix.de/
-> to apply cleanly, and also depends on
->      https://lore.kernel.org/linux-riscv/20240508173116.2866192-1-namcao@linutronix.de/
-> which fixes a boot issue.
->
-> Best regards,
-> Nam
->
-> Nam Cao (7):
->    riscv: cleanup XIP_FIXUP macro
->    riscv: replace va_kernel_pa_offset with va_kernel_data_pa_offset on
->      XIP
->    riscv: drop the use of XIP_OFFSET in XIP_FIXUP_OFFSET
->    riscv: drop the use of XIP_OFFSET in XIP_FIXUP_FLASH_OFFSET
->    riscv: drop the use of XIP_OFFSET in kernel_mapping_va_to_pa()
->    riscv: drop the use of XIP_OFFSET in create_kernel_page_table()
->    riscv: remove limit on the size of read-only section for XIP kernel
->
->   arch/riscv/include/asm/page.h       | 25 ++++++++++++++++++------
->   arch/riscv/include/asm/pgtable.h    | 18 +++++++----------
->   arch/riscv/include/asm/xip_fixup.h  | 30 +++++++++++++++++++++++------
->   arch/riscv/kernel/vmlinux-xip.lds.S |  4 ++--
->   arch/riscv/mm/init.c                | 11 +++++++----
->   5 files changed, 59 insertions(+), 29 deletions(-)
->
+> diff --git a/arch/riscv/include/asm/mman.h b/arch/riscv/include/asm/mman.h
+> new file mode 100644
+> index 000000000000..ef9fedf32546
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/mman.h
+> @@ -0,0 +1,24 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_MMAN_H__
+> +#define __ASM_MMAN_H__
+> +
+> +#include <linux/compiler.h>
+> +#include <linux/types.h>
+> +#include <uapi/asm/mman.h>
+> +
+> +static inline unsigned long arch_calc_vm_prot_bits(unsigned long prot,
+> +	unsigned long pkey __always_unused)
+> +{
+> +	unsigned long ret = 0;
+> +
+> +	/*
+> +	 * If PROT_WRITE was specified, force it to VM_READ | VM_WRITE.
+> +	 * Only VM_WRITE means shadow stack.
+> +	 */
+> +	if (prot & PROT_WRITE)
+> +		ret = (VM_READ | VM_WRITE);
+> +	return ret;
+> +}
+> +#define arch_calc_vm_prot_bits(prot, pkey) arch_calc_vm_prot_bits(prot, pkey)
+> +
+> +#endif /* ! __ASM_MMAN_H__ */
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 6066822e7396..4d5983bc6766 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -184,6 +184,7 @@ extern struct pt_alloc_ops pt_ops __initdata;
+>   #define PAGE_READ_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ | _PAGE_EXEC)
+>   #define PAGE_WRITE_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ |	\
+>   					 _PAGE_EXEC | _PAGE_WRITE)
+> +#define PAGE_SHADOWSTACK       __pgprot(_PAGE_BASE | _PAGE_WRITE)
+>   
+>   #define PAGE_COPY		PAGE_READ
+>   #define PAGE_COPY_EXEC		PAGE_READ_EXEC
+> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+> index f1c1416a9f1e..846c36b1b3d5 100644
+> --- a/arch/riscv/kernel/sys_riscv.c
+> +++ b/arch/riscv/kernel/sys_riscv.c
+> @@ -8,6 +8,8 @@
+>   #include <linux/syscalls.h>
+>   #include <asm/cacheflush.h>
+>   #include <asm-generic/mman-common.h>
+> +#include <vdso/vsyscall.h>
+> +#include <asm/mman.h>
+>   
+>   static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+>   			   unsigned long prot, unsigned long flags,
+> @@ -17,6 +19,15 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+>   	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
+>   		return -EINVAL;
+>   
+> +	/*
+> +	 * If only PROT_WRITE is specified then extend that to PROT_READ
+> +	 * protection_map[VM_WRITE] is now going to select shadow stack encodings.
+> +	 * So specifying PROT_WRITE actually should select protection_map [VM_WRITE | VM_READ]
+> +	 * If user wants to create shadow stack then they should use `map_shadow_stack` syscall.
+> +	 */
+> +	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
+> +		prot |= PROT_READ;
+> +
+>   	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
+>   			       offset >> (PAGE_SHIFT - page_shift_offset));
+>   }
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index fa34cf55037b..98e5ece4052a 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -299,7 +299,7 @@ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+>   static const pgprot_t protection_map[16] = {
+>   	[VM_NONE]					= PAGE_NONE,
+>   	[VM_READ]					= PAGE_READ,
+> -	[VM_WRITE]					= PAGE_COPY,
+> +	[VM_WRITE]					= PAGE_SHADOWSTACK,
+>   	[VM_WRITE | VM_READ]				= PAGE_COPY,
+>   	[VM_EXEC]					= PAGE_EXEC,
+>   	[VM_EXEC | VM_READ]				= PAGE_READ_EXEC,
+> diff --git a/mm/mmap.c b/mm/mmap.c
+> index d89770eaab6b..57a974f49b00 100644
+> --- a/mm/mmap.c
+> +++ b/mm/mmap.c
+> @@ -47,6 +47,7 @@
+>   #include <linux/oom.h>
+>   #include <linux/sched/mm.h>
+>   #include <linux/ksm.h>
+> +#include <linux/processor.h>
+>   
+>   #include <linux/uaccess.h>
+>   #include <asm/cacheflush.h>
 
-XIP kernels are intended for use with flash devices so the XIP_OFFSET 
-restriction actually represents the size of the flash device: IIRC this 
-32MB was chosen because it would fit "most devices". I think it would be 
-good to come up with a mechanism that allows to restrict the size at 
-build time: a config? XIP kernels are custom kernels so the user could 
-enter its flash size so that if kernel ends up being too large, it 
-fails. And by default, we could a very large size to avoid kernel test 
-robot build failures.
 
-Thanks,
+What happens if someone restricts the permission to PROT_WRITE using 
+mprotect()? I would say this is an issue since it would turn the pages 
+into shadow stack pages.
 
-Alex
 
 
 _______________________________________________
