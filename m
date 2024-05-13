@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76563C25B4F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 May 2024 00:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F252DC25B4F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 May 2024 02:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W5QCyH9iUwSIFuOK9SYi9FK/K1itqgXIKoHvF4pCqWw=; b=09nf5eLDh+u/wM
-	3/7M9J3EShmi3kT3rYtsz/iuqgIT3aYMLC3l8DPEAhEYsS2QPS4DDYN3Sb+zGs95YblN0AbLAoBim
-	FNlhuuFsSOgSRraQZtDTz74V0zBPdYxTpkgQc0sy/xJ6CY0pk9+8oT2NExGjNrgLyIHFBeSqh44Fg
-	TCqSzYcln5rmUjxpLr4e9fOLUIwl3XB9NY3oqY7Mmkaf30xh4fitpu5UJbbPwck5wP9JPbCecMMpS
-	FDiMGU0hN47t4ZSnN8XC3BHAWVOtgRcZVhp+6ocTVoMdc3hjm0GN+hHMFQRwp1GcA7eRCpE7yx+C8
-	0l/z50sUZhZzEr9/bfSg==;
+	List-Owner; bh=/fIZodoHmtL2a/p5J4oP6ckqDcYa9QEFpjNbjj90rVg=; b=Vg+Y/odQ4qli9o
+	jodoSdaQEPgGOWmEX5Ov0YyjiwXxvVxtLCs0hExoZxLJ++44yh3IewLgxC9Lr9DorEFeKgfp6n7t5
+	wiO/WnwEzf4vYwvoQ4Yq7iXJh6jh1voFz2yW2tq52KSwDWDjW4+L/8aYZC/kIdYvkhURVNPmRCQnB
+	g58EH5XRjB4uKWl90Ex+LtdM5TQ0PNkC63WPyZG1WLQkZ5VDNz4HyXSFmqyd7BzD4DsujNsD4gSIy
+	dCbjfotoScm0VCsSMfzHK7uueg/m5v+yPwdrwfJoZflyBzLpEQZIQik+39aNwnz8v6Mirv+R934JS
+	Vjk4Yx89RNL6lUYiqBig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6J7p-0000000B7Jb-2vgN;
-	Mon, 13 May 2024 00:01:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s6LtA-0000000BRyp-3Q58;
+	Mon, 13 May 2024 02:58:08 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6J7U-0000000B77x-1Wt0
+	id 1s6Lt6-0000000BRwW-3NFn
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 May 2024 00:00:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 69F2260BD3;
-	Mon, 13 May 2024 00:00:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0BAA6C4AF68;
-	Mon, 13 May 2024 00:00:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715558430;
-	bh=DiRTuxx7jNsBtxssJVhLLs4f7CaGC42GVb0//KHi0+Q=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=DNezXcoAnZJoDgMjJrPT+jgW4KILzJjpEM9I1RtcUGJaYC+xaKT3GH36QU49ZGauM
-	 D6GRY1JhP+lgWjY13ekzLROJQGQrwGpEYG23kSIO8rhVWMFQE85a466uE05fLHh+M0
-	 tpUuyxGA90OFXWrZFO6j7SgBHVtj6YySFLgDqa3TckzZcOaOevrl+vCbSmJDS0NG5d
-	 dl63CnVVAKaINqsr29kIpxYjbVO8qhLjd1Qmngtjb0gnklBRcPrZnURQKQ+L/9Fs6Y
-	 FAn2A7ehdYOaabu2DvDuJ82ZGekpsU0ht20RCfMszzsB+ComXlYHlqrgRkVT7v1mJF
-	 xQ0Gps4GxHOyA==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id EB394C43336;
-	Mon, 13 May 2024 00:00:29 +0000 (UTC)
+	Mon, 13 May 2024 02:58:07 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6f4302187c0so3319572b3a.1
+        for <linux-riscv@lists.infradead.org>; Sun, 12 May 2024 19:58:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1715569083; x=1716173883; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Y/lu5TaLovMBUI69zhtefvoAbFIExvkJe/gVrMPa9Rs=;
+        b=d3R5/kNAul4804cuCdvk2Di3wQQuvjX0fvfHnrM2xzxCD3IXHi4n0co0mV6QG1W3J3
+         VBl/ZnKk40lQduh2bSYtrpww5gTCYLluXmC/HtO9GBw4c1n3OKFz1e6zg0YP0eX/kTAh
+         WIVHUwkFLsyAeSpkB9mX2VLZE9khgZj6v87bU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1715569083; x=1716173883;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y/lu5TaLovMBUI69zhtefvoAbFIExvkJe/gVrMPa9Rs=;
+        b=wSHX4uVVgVSKd2oIXbouE5AAG8NId3imUldI6tWjmKxotKxJkpwpvPLn/y1NkzL6Fy
+         VROo52FvS3h6xuzRIUgs4Gc92Jkh9becZAJOyA18v8ZLAuEJ73DsNp696yQmABfxnPP6
+         1Hx1FkgYT469WDV0PHG3if8VzlascXuj0Bj+19VfmpBsMbXK60EwhqcqQxh27LlCSfiu
+         6l8ZZkyHd2aQABdkJK0YSx8mMiZRYhd/O0ismqgU0qJjCZKyZsookFilqQ/YI5Ui95bz
+         PMb/j8u15knnsTPJ5OrGzg9nlpnhCvIepdL5hmkoab1tLLT9BUG6Z7RY53z/TnumhWfa
+         QcyA==
+X-Forwarded-Encrypted: i=1; AJvYcCXvLbejijrKMFL/wmXasqfNeY9JdnjWLKP7PwNl69yd2fS2F8i9roOdRZSPOeHSnkOWf9++lDMqfEPyilhJsUWCp+TXd1esQrilh6vbyZQN
+X-Gm-Message-State: AOJu0YyVQiKOxAEfG9R2IMnJN4sJ/S2tgnLEWto0D4xYL38oHjMWakyR
+	5XJFWH5fKsS1msqBum8MfUq+oPgajSYgMaCBi58uhHXPtkOreRSxi09WLNJR5Q==
+X-Google-Smtp-Source: AGHT+IEKZ/LshmwPejdGxanAmq+x/Okf3LXGs+1GNXJLM4QWlBn90rXQR1Oeyq1KkYKRq0CgAkrYow==
+X-Received: by 2002:a05:6a21:1505:b0:1ad:7e68:570c with SMTP id adf61e73a8af0-1afde07d801mr12977761637.4.1715569082704;
+        Sun, 12 May 2024 19:58:02 -0700 (PDT)
+Received: from www.outflux.net ([198.0.35.241])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-6f4d2b2fa86sm6335827b3a.213.2024.05.12.19.58.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 May 2024 19:58:00 -0700 (PDT)
+Date: Sun, 12 May 2024 19:57:58 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Joel Granados <j.granados@samsung.com>
+Cc: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Dave Chinner <david@fromorbit.com>, linux-fsdevel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-xfs@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org, kexec@lists.infradead.org,
+	linux-hardening@vger.kernel.org, bridge@lists.linux.dev,
+	lvs-devel@vger.kernel.org, linux-rdma@vger.kernel.org,
+	rds-devel@oss.oracle.com, linux-sctp@vger.kernel.org,
+	linux-nfs@vger.kernel.org, apparmor@lists.ubuntu.com
+Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
+ of sysctl handlers
+Message-ID: <202405121955.BC922680BA@keescook>
+References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
+ <20240424201234.3cc2b509@kernel.org>
+ <202405080959.104A73A914@keescook>
+ <CGME20240511095125eucas1p1e6cd077a31c94dcdda88967d4ffc9262@eucas1p1.samsung.com>
+ <8d1daa64-3746-46a3-b696-127a70cdf7e7@t-8ch.de>
+ <20240512193240.kholmilosdqjb52p@joelS2.panther.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv, bpf: Fix typo in comment
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <171555842995.18024.4820208884159276915.git-patchwork-notify@kernel.org>
-Date: Mon, 13 May 2024 00:00:29 +0000
-References: <20240507111618.437121-1-xiao.w.wang@intel.com>
-In-Reply-To: <20240507111618.437121-1-xiao.w.wang@intel.com>
-To: Xiao Wang <xiao.w.wang@intel.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- luke.r.nels@gmail.com, xi.wang@gmail.com, bjorn@kernel.org, ast@kernel.org,
- daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
- eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
- john.fastabend@gmail.com, kpsingh@kernel.org, sdf@google.com,
- haoluo@google.com, jolsa@kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, pulehui@huawei.com,
- haicheng.li@intel.com
+Content-Disposition: inline
+In-Reply-To: <20240512193240.kholmilosdqjb52p@joelS2.panther.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240512_170044_512175_7C59C99A 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240512_195805_034062_009ABF22 
+X-CRM114-Status: GOOD (  31.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,34 +106,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Sun, May 12, 2024 at 09:32:40PM +0200, Joel Granados wrote:
+> On Sat, May 11, 2024 at 11:51:18AM +0200, Thomas Wei=DFschuh wrote:
+> > Hi Kees,
+> > =
 
-This patch was applied to bpf/bpf-next.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
+> > On 2024-05-08 10:11:35+0000, Kees Cook wrote:
+> > > On Wed, Apr 24, 2024 at 08:12:34PM -0700, Jakub Kicinski wrote:
+> > > > On Tue, 23 Apr 2024 09:54:35 +0200 Thomas Wei=DFschuh wrote:
+> > > > > The series was split from my larger series sysctl-const series [0=
+].
+> > > > > It only focusses on the proc_handlers but is an important step to=
+ be
+> > > > > able to move all static definitions of ctl_table into .rodata.
+> > > > =
 
-On Tue,  7 May 2024 19:16:18 +0800 you wrote:
-> We can use either "instruction" or "insn" in the comment.
-> 
-> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
-> ---
->  arch/riscv/net/bpf_jit.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> > > > Split this per subsystem, please.
+> > > =
 
-Here is the summary with links:
-  - riscv, bpf: Fix typo in comment
-    https://git.kernel.org/bpf/bpf-next/c/80c5a07ae673
+> > > I've done a few painful API transitions before, and I don't think the
+> > > complexity of these changes needs a per-subsystem constification pass=
+. I
+> > > think this series is the right approach, but that patch 11 will need
+> > > coordination with Linus. We regularly do system-wide prototype changes
+> > > like this right at the end of the merge window before -rc1 comes out.
+> > =
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> > That sounds good.
+> > =
 
+> > > The requirements are pretty simple: it needs to be a obvious changes
+> > > (this certainly is) and as close to 100% mechanical as possible. I th=
+ink
+> > > patch 11 easily qualifies. Linus should be able to run the same Cocci=
+nelle
+> > > script and get nearly the same results, etc. And all the other changes
+> > > need to have landed. This change also has no "silent failure" conditi=
+ons:
+> > > anything mismatched will immediately stand out.
+> > =
 
+> > Unfortunately coccinelle alone is not sufficient, as some helpers with
+> > different prototypes are called by handlers and themselves are calling
+> > handler and therefore need to change in the same commit.
+> > But if I add a diff for those on top of the coccinelle script to the
+> > changelog it should be obvious.
+> Judging by Kees' comment on "100% mechanical", it might be better just
+> having the diff and have Linus apply than rather than two step process?
+> Have not these types of PRs, so am interested in what folks think.
+
+I tried to soften it a little with my "*close* to 100%" modifier, and
+I think that patch basically matched that requirement, and where it had
+manual changes it was detailed in the commit log. I only split out the
+seccomp part because it could actually stand alone.
+
+So yeah, let's get the last of the subsystem specific stuff landed after
+-rc1, and it should be possible to finish it all up for 6.11. Yay! :)
+
+-Kees
+
+-- =
+
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
