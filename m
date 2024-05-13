@@ -4,97 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F252DC25B4F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 May 2024 02:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C9DC25B5F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 May 2024 05:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/fIZodoHmtL2a/p5J4oP6ckqDcYa9QEFpjNbjj90rVg=; b=Vg+Y/odQ4qli9o
-	jodoSdaQEPgGOWmEX5Ov0YyjiwXxvVxtLCs0hExoZxLJ++44yh3IewLgxC9Lr9DorEFeKgfp6n7t5
-	wiO/WnwEzf4vYwvoQ4Yq7iXJh6jh1voFz2yW2tq52KSwDWDjW4+L/8aYZC/kIdYvkhURVNPmRCQnB
-	g58EH5XRjB4uKWl90Ex+LtdM5TQ0PNkC63WPyZG1WLQkZ5VDNz4HyXSFmqyd7BzD4DsujNsD4gSIy
-	dCbjfotoScm0VCsSMfzHK7uueg/m5v+yPwdrwfJoZflyBzLpEQZIQik+39aNwnz8v6Mirv+R934JS
-	Vjk4Yx89RNL6lUYiqBig==;
+	List-Owner; bh=wOZh7aSuEX6uI2tSQ2GaoVXiYhqXrTdNGFNxUIf8RsA=; b=J5GyfS7YGo9uzP
+	yEcwTqn4+Vxd3LgfB+ZI9S1I3Khl/llPKduBqJW2qtP6XMuvQJloKp/31P/5BgETx65gQpxJVdx8i
+	0VlSyI/FHGPMZ3K3NQXNc9hv0MsrM/AlvyiRgq5yy/gi9nEasRlpxXP4H2f8jdUiNO1SCAou6FWm9
+	2ZeoOMkAcuRHZu6nl/Fyf44pyVAT0jQ3D8//PCuS1ssonhLaQZpeoQTNtXmH7FFul5SdrIYdo6bk9
+	OLk7sOrFZPtnXan45bgVHK/jztp67OvY9MLrzIs/CtdV5A6DiFpix+o1R6BGKWC7sadklx2xVYo9H
+	3ZjUwm7mSbz+4Wwm1CZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6LtA-0000000BRyp-3Q58;
-	Mon, 13 May 2024 02:58:08 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1s6NyV-0000000Bhtv-3miY;
+	Mon, 13 May 2024 05:11:47 +0000
+Received: from smtp-190f.mail.infomaniak.ch ([2001:1600:7:10::190f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6Lt6-0000000BRwW-3NFn
+	id 1s6NyS-0000000Bht6-0XyZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 May 2024 02:58:07 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6f4302187c0so3319572b3a.1
-        for <linux-riscv@lists.infradead.org>; Sun, 12 May 2024 19:58:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1715569083; x=1716173883; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Y/lu5TaLovMBUI69zhtefvoAbFIExvkJe/gVrMPa9Rs=;
-        b=d3R5/kNAul4804cuCdvk2Di3wQQuvjX0fvfHnrM2xzxCD3IXHi4n0co0mV6QG1W3J3
-         VBl/ZnKk40lQduh2bSYtrpww5gTCYLluXmC/HtO9GBw4c1n3OKFz1e6zg0YP0eX/kTAh
-         WIVHUwkFLsyAeSpkB9mX2VLZE9khgZj6v87bU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715569083; x=1716173883;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y/lu5TaLovMBUI69zhtefvoAbFIExvkJe/gVrMPa9Rs=;
-        b=wSHX4uVVgVSKd2oIXbouE5AAG8NId3imUldI6tWjmKxotKxJkpwpvPLn/y1NkzL6Fy
-         VROo52FvS3h6xuzRIUgs4Gc92Jkh9becZAJOyA18v8ZLAuEJ73DsNp696yQmABfxnPP6
-         1Hx1FkgYT469WDV0PHG3if8VzlascXuj0Bj+19VfmpBsMbXK60EwhqcqQxh27LlCSfiu
-         6l8ZZkyHd2aQABdkJK0YSx8mMiZRYhd/O0ismqgU0qJjCZKyZsookFilqQ/YI5Ui95bz
-         PMb/j8u15knnsTPJ5OrGzg9nlpnhCvIepdL5hmkoab1tLLT9BUG6Z7RY53z/TnumhWfa
-         QcyA==
-X-Forwarded-Encrypted: i=1; AJvYcCXvLbejijrKMFL/wmXasqfNeY9JdnjWLKP7PwNl69yd2fS2F8i9roOdRZSPOeHSnkOWf9++lDMqfEPyilhJsUWCp+TXd1esQrilh6vbyZQN
-X-Gm-Message-State: AOJu0YyVQiKOxAEfG9R2IMnJN4sJ/S2tgnLEWto0D4xYL38oHjMWakyR
-	5XJFWH5fKsS1msqBum8MfUq+oPgajSYgMaCBi58uhHXPtkOreRSxi09WLNJR5Q==
-X-Google-Smtp-Source: AGHT+IEKZ/LshmwPejdGxanAmq+x/Okf3LXGs+1GNXJLM4QWlBn90rXQR1Oeyq1KkYKRq0CgAkrYow==
-X-Received: by 2002:a05:6a21:1505:b0:1ad:7e68:570c with SMTP id adf61e73a8af0-1afde07d801mr12977761637.4.1715569082704;
-        Sun, 12 May 2024 19:58:02 -0700 (PDT)
-Received: from www.outflux.net ([198.0.35.241])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-6f4d2b2fa86sm6335827b3a.213.2024.05.12.19.58.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 May 2024 19:58:00 -0700 (PDT)
-Date: Sun, 12 May 2024 19:57:58 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Joel Granados <j.granados@samsung.com>
-Cc: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Dave Chinner <david@fromorbit.com>, linux-fsdevel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-xfs@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org, kexec@lists.infradead.org,
-	linux-hardening@vger.kernel.org, bridge@lists.linux.dev,
-	lvs-devel@vger.kernel.org, linux-rdma@vger.kernel.org,
-	rds-devel@oss.oracle.com, linux-sctp@vger.kernel.org,
-	linux-nfs@vger.kernel.org, apparmor@lists.ubuntu.com
-Subject: Re: [PATCH v3 00/11] sysctl: treewide: constify ctl_table argument
- of sysctl handlers
-Message-ID: <202405121955.BC922680BA@keescook>
-References: <20240423-sysctl-const-handler-v3-0-e0beccb836e2@weissschuh.net>
- <20240424201234.3cc2b509@kernel.org>
- <202405080959.104A73A914@keescook>
- <CGME20240511095125eucas1p1e6cd077a31c94dcdda88967d4ffc9262@eucas1p1.samsung.com>
- <8d1daa64-3746-46a3-b696-127a70cdf7e7@t-8ch.de>
- <20240512193240.kholmilosdqjb52p@joelS2.panther.com>
+	Mon, 13 May 2024 05:11:46 +0000
+Received: from smtp-3-0001.mail.infomaniak.ch (smtp-3-0001.mail.infomaniak.ch [10.4.36.108])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4Vd6zD72sYzBRV;
+	Mon, 13 May 2024 07:11:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=digikod.net;
+	s=20191114; t=1715577096;
+	bh=NzaTA4RcapZkISmaHLv46iIYK7VaukIA9ZguF6MFZZA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hw3En7ijFCwNJoThQiowXkrUxCT44rzwcTmIeGAxmMKpeUBmBD1BLh+85VHxhgwc7
+	 JBbg/rqFfZCDo0dPtfgcvOHScY8qdox00AoYekCDtfXJcIcsUmdc+pInQOE27YE5Ni
+	 +P34v4BDOwCSyvCB1aryA/Skhpq3+1VxUbfjd74w=
+Received: from unknown by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4Vd6z94yx1zHTv;
+	Mon, 13 May 2024 07:11:33 +0200 (CEST)
+Date: Mon, 13 May 2024 07:11:31 +0200
+From: =?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>
+To: Edward Liaw <edliaw@google.com>
+Cc: shuah@kernel.org, =?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>, 
+	Christian Brauner <brauner@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, "David S. Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, Muhammad Usama Anjum <usama.anjum@collabora.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	kernel-team@android.com, linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, bpf@vger.kernel.org, John Hubbard <jhubbard@nvidia.com>
+Subject: Re: [PATCH v3 27/68] selftests/landlock: Drop define _GNU_SOURCE
+Message-ID: <20240513.wo9coof8Dae4@digikod.net>
+References: <20240509200022.253089-1-edliaw@google.com>
+ <20240509200022.253089-28-edliaw@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240512193240.kholmilosdqjb52p@joelS2.panther.com>
+In-Reply-To: <20240509200022.253089-28-edliaw@google.com>
+X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240512_195805_034062_009ABF22 
-X-CRM114-Status: GOOD (  31.89  )
+X-CRM114-CacheID: sfid-20240512_221144_616135_F1B6FF9A 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,75 +74,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 12, 2024 at 09:32:40PM +0200, Joel Granados wrote:
-> On Sat, May 11, 2024 at 11:51:18AM +0200, Thomas Wei=DFschuh wrote:
-> > Hi Kees,
-> > =
-
-> > On 2024-05-08 10:11:35+0000, Kees Cook wrote:
-> > > On Wed, Apr 24, 2024 at 08:12:34PM -0700, Jakub Kicinski wrote:
-> > > > On Tue, 23 Apr 2024 09:54:35 +0200 Thomas Wei=DFschuh wrote:
-> > > > > The series was split from my larger series sysctl-const series [0=
-].
-> > > > > It only focusses on the proc_handlers but is an important step to=
- be
-> > > > > able to move all static definitions of ctl_table into .rodata.
-> > > > =
-
-> > > > Split this per subsystem, please.
-> > > =
-
-> > > I've done a few painful API transitions before, and I don't think the
-> > > complexity of these changes needs a per-subsystem constification pass=
-. I
-> > > think this series is the right approach, but that patch 11 will need
-> > > coordination with Linus. We regularly do system-wide prototype changes
-> > > like this right at the end of the merge window before -rc1 comes out.
-> > =
-
-> > That sounds good.
-> > =
-
-> > > The requirements are pretty simple: it needs to be a obvious changes
-> > > (this certainly is) and as close to 100% mechanical as possible. I th=
-ink
-> > > patch 11 easily qualifies. Linus should be able to run the same Cocci=
-nelle
-> > > script and get nearly the same results, etc. And all the other changes
-> > > need to have landed. This change also has no "silent failure" conditi=
-ons:
-> > > anything mismatched will immediately stand out.
-> > =
-
-> > Unfortunately coccinelle alone is not sufficient, as some helpers with
-> > different prototypes are called by handlers and themselves are calling
-> > handler and therefore need to change in the same commit.
-> > But if I add a diff for those on top of the coccinelle script to the
-> > changelog it should be obvious.
-> Judging by Kees' comment on "100% mechanical", it might be better just
-> having the diff and have Linus apply than rather than two step process?
-> Have not these types of PRs, so am interested in what folks think.
-
-I tried to soften it a little with my "*close* to 100%" modifier, and
-I think that patch basically matched that requirement, and where it had
-manual changes it was detailed in the commit log. I only split out the
-seccomp part because it could actually stand alone.
-
-So yeah, let's get the last of the subsystem specific stuff landed after
--rc1, and it should be possible to finish it all up for 6.11. Yay! :)
-
--Kees
-
--- =
-
-Kees Cook
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXkgMDksIDIwMjQgYXQgMDc6NTg6MTlQTSArMDAwMCwgRWR3YXJkIExpYXcgd3Jv
+dGU6Cj4gX0dOVV9TT1VSQ0UgaXMgcHJvdmlkZWQgYnkgbGliLm1rLCBzbyBpdCBzaG91bGQgYmUg
+ZHJvcHBlZCB0byBwcmV2ZW50Cj4gcmVkZWZpbml0aW9uIHdhcm5pbmdzLgo+IAo+IEZpeGVzOiA4
+MDkyMTYyMzM1NTUgKCJzZWxmdGVzdHMvaGFybmVzczogcmVtb3ZlIHVzZSBvZiBMSU5FX01BWCIp
+Cj4gUmV2aWV3ZWQtYnk6IEpvaG4gSHViYmFyZCA8amh1YmJhcmRAbnZpZGlhLmNvbT4KPiBSZXZp
+ZXdlZC1ieTogTXVoYW1tYWQgVXNhbWEgQW5qdW0gPHVzYW1hLmFuanVtQGNvbGxhYm9yYS5jb20+
+Cj4gU2lnbmVkLW9mZi1ieTogRWR3YXJkIExpYXcgPGVkbGlhd0Bnb29nbGUuY29tPgoKUGxlYXNl
+IG9ubHkgcmVtb3ZlIGxpbmVzIHdpdGggX0dOVV9TT1VSQ0UsIG5vdCB0aGUgZW1wdHkgbGluZXMu
+ICBJIHRoaW5rCml0IHdvdWxkIGJlIGJldHRlciB0byBub3QgY2hhbmdlIHN1Y2ggc3R5bGUgY2hv
+aWNlIGZvciBvdGhlciBzdWJzeXN0ZW1zCnRvby4KV2l0aCB0aGlzIGNoYW5nZSBmb3IgdGhlIExh
+bmRsb2NrIHNlbGZ0ZXN0czoKQWNrZWQtYnk6IE1pY2thw6tsIFNhbGHDvG4gPG1pY0BkaWdpa29k
+Lm5ldD4KCj4gLS0tCj4gIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2xhbmRsb2NrL2Jhc2VfdGVz
+dC5jICAgfCAyIC0tCj4gIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2xhbmRsb2NrL2ZzX3Rlc3Qu
+YyAgICAgfCAyIC0tCj4gIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2xhbmRsb2NrL25ldF90ZXN0
+LmMgICAgfCAyIC0tCj4gIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2xhbmRsb2NrL3B0cmFjZV90
+ZXN0LmMgfCAyIC0tCj4gIDQgZmlsZXMgY2hhbmdlZCwgOCBkZWxldGlvbnMoLSkKPiAKPiBkaWZm
+IC0tZ2l0IGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbGFuZGxvY2svYmFzZV90ZXN0LmMgYi90
+b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9sYW5kbG9jay9iYXNlX3Rlc3QuYwo+IGluZGV4IDNjMWU5
+ZjM1YjUzMS4uYzg2ZTZmODdiMzk4IDEwMDY0NAo+IC0tLSBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRl
+c3RzL2xhbmRsb2NrL2Jhc2VfdGVzdC5jCj4gKysrIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMv
+bGFuZGxvY2svYmFzZV90ZXN0LmMKPiBAQCAtNSw4ICs1LDYgQEAKPiAgICogQ29weXJpZ2h0IMKp
+IDIwMTctMjAyMCBNaWNrYcOrbCBTYWxhw7xuIDxtaWNAZGlnaWtvZC5uZXQ+Cj4gICAqIENvcHly
+aWdodCDCqSAyMDE5LTIwMjAgQU5TU0kKPiAgICovCj4gLQo+IC0jZGVmaW5lIF9HTlVfU09VUkNF
+Cj4gICNpbmNsdWRlIDxlcnJuby5oPgo+ICAjaW5jbHVkZSA8ZmNudGwuaD4KPiAgI2luY2x1ZGUg
+PGxpbnV4L2xhbmRsb2NrLmg+Cj4gZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3Rz
+L2xhbmRsb2NrL2ZzX3Rlc3QuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2xhbmRsb2NrL2Zz
+X3Rlc3QuYwo+IGluZGV4IDZiNWE5ZmY4OGMzZC4uZWVjMGQ5YTQ0ZDUwIDEwMDY0NAo+IC0tLSBh
+L3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2xhbmRsb2NrL2ZzX3Rlc3QuYwo+ICsrKyBiL3Rvb2xz
+L3Rlc3Rpbmcvc2VsZnRlc3RzL2xhbmRsb2NrL2ZzX3Rlc3QuYwo+IEBAIC02LDggKzYsNiBAQAo+
+ICAgKiBDb3B5cmlnaHQgwqkgMjAyMCBBTlNTSQo+ICAgKiBDb3B5cmlnaHQgwqkgMjAyMC0yMDIy
+IE1pY3Jvc29mdCBDb3Jwb3JhdGlvbgo+ICAgKi8KPiAtCj4gLSNkZWZpbmUgX0dOVV9TT1VSQ0UK
+PiAgI2luY2x1ZGUgPGFzbS90ZXJtYml0cy5oPgo+ICAjaW5jbHVkZSA8ZmNudGwuaD4KPiAgI2lu
+Y2x1ZGUgPGxpYmdlbi5oPgo+IGRpZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9s
+YW5kbG9jay9uZXRfdGVzdC5jIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbGFuZGxvY2svbmV0
+X3Rlc3QuYwo+IGluZGV4IGYyMWNmYmJjMzYzOC4uZWVkMDQwYWRjYmFjIDEwMDY0NAo+IC0tLSBh
+L3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2xhbmRsb2NrL25ldF90ZXN0LmMKPiArKysgYi90b29s
+cy90ZXN0aW5nL3NlbGZ0ZXN0cy9sYW5kbG9jay9uZXRfdGVzdC5jCj4gQEAgLTUsOCArNSw2IEBA
+Cj4gICAqIENvcHlyaWdodCDCqSAyMDIyLTIwMjMgSHVhd2VpIFRlY2guIENvLiwgTHRkLgo+ICAg
+KiBDb3B5cmlnaHQgwqkgMjAyMyBNaWNyb3NvZnQgQ29ycG9yYXRpb24KPiAgICovCj4gLQo+IC0j
+ZGVmaW5lIF9HTlVfU09VUkNFCj4gICNpbmNsdWRlIDxhcnBhL2luZXQuaD4KPiAgI2luY2x1ZGUg
+PGVycm5vLmg+Cj4gICNpbmNsdWRlIDxmY250bC5oPgo+IGRpZmYgLS1naXQgYS90b29scy90ZXN0
+aW5nL3NlbGZ0ZXN0cy9sYW5kbG9jay9wdHJhY2VfdGVzdC5jIGIvdG9vbHMvdGVzdGluZy9zZWxm
+dGVzdHMvbGFuZGxvY2svcHRyYWNlX3Rlc3QuYwo+IGluZGV4IGExOWRiNGQwYjNiZC4uYzgzMWU2
+ZDAzYjAyIDEwMDY0NAo+IC0tLSBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2xhbmRsb2NrL3B0
+cmFjZV90ZXN0LmMKPiArKysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9sYW5kbG9jay9wdHJh
+Y2VfdGVzdC5jCj4gQEAgLTUsOCArNSw2IEBACj4gICAqIENvcHlyaWdodCDCqSAyMDE3LTIwMjAg
+TWlja2HDq2wgU2FsYcO8biA8bWljQGRpZ2lrb2QubmV0Pgo+ICAgKiBDb3B5cmlnaHQgwqkgMjAx
+OS0yMDIwIEFOU1NJCj4gICAqLwo+IC0KPiAtI2RlZmluZSBfR05VX1NPVVJDRQo+ICAjaW5jbHVk
+ZSA8ZXJybm8uaD4KPiAgI2luY2x1ZGUgPGZjbnRsLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9sYW5k
+bG9jay5oPgo+IC0tIAo+IDIuNDUuMC4xMTguZzdmZTI5Yzk4ZDctZ29vZwo+IAo+IAoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
