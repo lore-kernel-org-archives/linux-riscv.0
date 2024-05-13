@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BEADC25B10
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 May 2024 18:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E874C25B10
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 May 2024 18:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aBqpStI1JuC+rGNHQyYZvH9N4YQVn+wtd+k93sAoQOE=; b=ypBxuB59+YdlwSZ7YygrXe8r+s
-	lTOyfB6Boy2b2veRb0irpx2HIt+pE43tJ6g8zXR/UcpJ5galAeGOVc6jBFASeMA8Ccb4d2u76TFdT
-	KcCRiOVhA1lRQeWPb02P095mDIzFqXeqL0sMqqRNSHAJPBHdwo+Vw+I2bWX4r1CO/EjzjG1vZbmMF
-	yfSWwO+zqqK3frldPsk6Kbpzsjh/tRZDgT+qNdPA+3uvBunFs0x4p9gva9kJRtamatfPmUKLSxq0w
-	1lZ65+patepLSA9EtbhaZFitoThNLX0dXm3fh9K8TOm+1Dedfv0ZYDO+QgZtcpWgbgyJHEypJCU8W
-	JD/UVh1Q==;
+	bh=xTw7v/QpUSdHG7ifWzq2lcTMVCV+8xMRtBvKRHkSing=; b=JvKZYLPZVTprvWw2Chz914gen1
+	yTOQsDbDSLki9lj/I/NNlj4oWMRYu32D0uK7q1dD0bDdngpG18JgJxMZXk+WkFJQkOnQsZ8kWFVcj
+	ZENQH37slE9VRDqjPVC5Q8UmrneKC+X+sq+xXOjOAUiSabChjOsSZMNNlnfvQKKBkJCwV49o9s8yj
+	XPbUyXYd/HhBBJnasGAYHtmLzrCPfEZuHxhcN98xh5RPxlulKIqpakr6AYG9bt8jRq5Mq7EafrHsT
+	ukqzCdfCje0NuyJEKSOX9hYraHtmxtD0foRBAw5bvGr3wSYuj9Jc1Lu9kOR7M3Y1p7pw7pciG6b8m
+	Ecn5DZhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6aQa-0000000Drq4-2Saw;
-	Mon, 13 May 2024 18:29:36 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1s6aST-0000000DsJj-2Kbb;
+	Mon, 13 May 2024 18:31:33 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6aQX-0000000Drp2-26YE
+	id 1s6aSQ-0000000DsGl-1TWf
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 May 2024 18:29:35 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2b6208c88dcso3696242a91.3
-        for <linux-riscv@lists.infradead.org>; Mon, 13 May 2024 11:29:33 -0700 (PDT)
+	Mon, 13 May 2024 18:31:31 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-6f47787a0c3so4248116b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 13 May 2024 11:31:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715624972; x=1716229772; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715625088; x=1716229888; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PiRTZzs1aSfsYke8dHlxZkqknmQw6lQNFES/HAZTAzg=;
-        b=wgWsCLZDJHw4MH+C+itut3rl+oP72IxlSgyGSFaO0MSJGwPGvBUiKOrfa8fLfrpeLA
-         lj41KkTEqsYNFphwP4IsywdKALLqmlQqkhWywqkIv710XiHzQnT833+ZH5QliAzY3CM2
-         g0ifb5JPEDVUrylSVu1iS+COb2/CNUMEP/2u327UN+ORDTSWpqgV65rQ27cXMKGna5Jo
-         yvc4lbfZZh3aw2CzqbDtrTi2BF9s3Bjc0ba6Bss07FqU4Y9UrLxpIwhm0VGiqxGL49t9
-         Dc9q5GUjfSX8tYt4KsAmXOzQmbwJzdUlt3o6kWZF7UepqBxl1VKK0Tw5m/vTsR5d746D
-         6+cw==
+        bh=9lfxB6TGC4fu8lY9DVlJ3Uo04rJaZ2CFPzF6bJyMTII=;
+        b=tJTd4QoeZCZKQctnmBnLmRzMVxnnrzJJeVNpgMA7JDpjjOHHuV+kcALyfJG+mv74DV
+         Yk5h+LDHdlz/oLbhw3E2qxl7vWXMQm8Lym76rA+Hwhr/8oWbUUL/NVlXJj7xIrMc77L5
+         E8p4VGJlzyzB9tflzQu90iSzBWzgEoDGGF/6e5DoblCPiVOKZjlwXDFbIq0DS1EfC+2e
+         +YHwbKua5X+YgGAtaDwApuunL7cO4f/sJfSgb7rPiebQzhvjMnd3N0eb4VSAhPf8fXlV
+         Cmyy4IIGcQOksoOk0HTpM6irFR49+CrcwbhktYR+9YeH97ndHCvCGgsf6Mnn+yAKd+qd
+         Foew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715624972; x=1716229772;
+        d=1e100.net; s=20230601; t=1715625088; x=1716229888;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PiRTZzs1aSfsYke8dHlxZkqknmQw6lQNFES/HAZTAzg=;
-        b=UpypuX8217hnIDl4VPh+UcS5ZNIwaJSEVpgx4sibMU0eJvQ9arnZ0WCL5W1xZysewo
-         M+C8w3prsjPsTarLbL/aOgevJAt9hyDWVgPV2P4L2YS2WmX6NFVUocSVYRnPOhu4AtbZ
-         PxQ12X4N8M67175oD0FBQEQkwero+6dh4Qq9+Idtfi5T2jeBP4nc75Q2sr/EvdVc2hjg
-         c1+hX7eSK7GtNe2hxNKAvgQAYqTqjuHkG+B4pA6R6VzdqnDlEcxrA4MTmFPJWCFAc4of
-         phMeddK9PCgKcyII2j5eO34AKghqYHzFIGxmzkn74qWxsQ8NZy9UXVSkf3fvCtpFagJh
-         tkKA==
-X-Forwarded-Encrypted: i=1; AJvYcCVwF1CqlmlfYwHKZHOt0l9BCyywrUXQy9baROfpNTsbFVPq3i7Bkh+TS5oSLkv4yDUq1BXST5cGjwBxyO875jNg6pbN+9QhIVAsEdGLkkB3
-X-Gm-Message-State: AOJu0YzT2Z8bBwNYFXeqoCXg4DAYGJTNte0FIr+V9PaKmtHBNb44zfw7
-	orqWTZ30WB2p9eoBjGhDIvVsM9Sr7ZXaLzhOzj7kdx74z6ybBKu6cDRLCoGfW9A=
-X-Google-Smtp-Source: AGHT+IFicEZcKeNvrbf0O6DdxrDGspREEgzWPCly98S4fjg/+yKIhmUX03N3FPrODmM7wQKDwilkhg==
-X-Received: by 2002:a17:90a:9604:b0:2b3:ed2:1a77 with SMTP id 98e67ed59e1d1-2b6cc340388mr9349756a91.10.1715624972209;
-        Mon, 13 May 2024 11:29:32 -0700 (PDT)
+        bh=9lfxB6TGC4fu8lY9DVlJ3Uo04rJaZ2CFPzF6bJyMTII=;
+        b=DqVThHfNxxfNTprzQzDg38UQN4rd8WXdCdy6Y83ifSqWVsCBFAIr+A3lbn7pM/nOl6
+         s2IiynEDn4lWe5D+Gz/+CIeeQF2MwVvJUIGX+T4hv0myE/O2uhYZSgcM/O6hKgE4yorx
+         nNKrgecihb+iNz6/KknpjSURgQzqbmtQOY/rS+uByyd5PI4B7WvKZpzAnyjqqRHprPLF
+         KTZx+2K5LB+M70FOyvnVkAyQMq8Buf77HuYpg2JTRLGR9nNbVhZ+xkl3xe6G7iJeMoLu
+         7qCeyTf4f6BBfGcFr7LLqlwSRmnhw8mvq9PC9jHnHm+J9ceOEpGg0WLj26bYU9iCxX68
+         KsHA==
+X-Forwarded-Encrypted: i=1; AJvYcCXgZTAguGYxxwBdMIpBJ1DDk5LsfAaOjxva/p9rVwxWRi8gRKbdiINHDjss8QYoavlKYYt3KeGzYTsbIpHJLx+YtZMi73XhXOt4K2Yf7D6p
+X-Gm-Message-State: AOJu0YxGjFoGT8URWmMWF0XackijQq1hwJ67iGXUuzyQrwltquZ9FEtF
+	fltHWQuk4xOVr7nXr8gxzgAAbXJN86GmNIhDVrzAEzUTiLlXMPA4OU6WqkTu64Q=
+X-Google-Smtp-Source: AGHT+IH1OSRQPwx8UUxBA+2NIldqGQBfyQNuOaQuzBWIoDTXDv4FJlctQ5Ean61dJ4G8ZeTtENbZeA==
+X-Received: by 2002:a05:6a20:8428:b0:1a9:d9bb:acdc with SMTP id adf61e73a8af0-1afde10df02mr12897298637.28.1715625088408;
+        Mon, 13 May 2024 11:31:28 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2b628ea6affsm10023078a91.54.2024.05.13.11.29.28
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-6340b48a152sm8067572a12.20.2024.05.13.11.31.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 May 2024 11:29:31 -0700 (PDT)
-Date: Mon, 13 May 2024 11:29:27 -0700
+        Mon, 13 May 2024 11:31:28 -0700 (PDT)
+Date: Mon, 13 May 2024 11:31:23 -0700
 From: Deepak Gupta <debug@rivosinc.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
+To: Charlie Jenkins <charlie@rivosinc.com>
 Cc: paul.walmsley@sifive.com, rick.p.edgecombe@intel.com,
 	broonie@kernel.org, Szabolcs.Nagy@arm.com, kito.cheng@sifive.com,
 	keescook@chromium.org, ajones@ventanamicro.com,
 	conor.dooley@microchip.com, cleger@rivosinc.com,
-	atishp@atishpatra.org, bjorn@rivosinc.com, alexghiti@rivosinc.com,
-	samuel.holland@sifive.com, conor@kernel.org,
+	atishp@atishpatra.org, alex@ghiti.fr, bjorn@rivosinc.com,
+	alexghiti@rivosinc.com, samuel.holland@sifive.com, conor@kernel.org,
 	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-mm@kvack.org, linux-arch@vger.kernel.org,
@@ -82,9 +82,9 @@ Cc: paul.walmsley@sifive.com, rick.p.edgecombe@intel.com,
 	shuah@kernel.org, brauner@kernel.org, andy.chiu@sifive.com,
 	jerry.shih@sifive.com, hankuan.chen@sifive.com,
 	greentime.hu@sifive.com, evan@rivosinc.com, xiao.w.wang@intel.com,
-	charlie@rivosinc.com, apatel@ventanamicro.com,
-	mchitale@ventanamicro.com, dbarboza@ventanamicro.com,
-	sameo@rivosinc.com, shikemeng@huaweicloud.com, willy@infradead.org,
+	apatel@ventanamicro.com, mchitale@ventanamicro.com,
+	dbarboza@ventanamicro.com, sameo@rivosinc.com,
+	shikemeng@huaweicloud.com, willy@infradead.org,
 	vincent.chen@sifive.com, guoren@kernel.org, samitolvanen@google.com,
 	songshuaishuai@tinylab.org, gerg@kernel.org, heiko@sntech.de,
 	bhe@redhat.com, jeeheng.sia@starfivetech.com, cyy@cyyself.name,
@@ -95,18 +95,18 @@ Cc: paul.walmsley@sifive.com, rick.p.edgecombe@intel.com,
 	revest@chromium.org, josh@joshtriplett.org, shr@devkernel.io,
 	deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
 	jhubbard@nvidia.com
-Subject: Re: [PATCH v3 10/29] riscv/mm : ensure PROT_WRITE leads to VM_READ |
- VM_WRITE
-Message-ID: <ZkJcB5u+0bZ2KsS+@debug.ba.rivosinc.com>
+Subject: Re: [PATCH v3 17/29] prctl: arch-agnostic prctl for indirect branch
+ tracking
+Message-ID: <ZkJce/hix5kRhubS@debug.ba.rivosinc.com>
 References: <20240403234054.2020347-1-debug@rivosinc.com>
- <20240403234054.2020347-11-debug@rivosinc.com>
- <c759444d-fe84-4a61-8448-80fb692c7904@ghiti.fr>
+ <20240403234054.2020347-18-debug@rivosinc.com>
+ <Zj6tzxWFj4H+250p@ghost>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <c759444d-fe84-4a61-8448-80fb692c7904@ghiti.fr>
+In-Reply-To: <Zj6tzxWFj4H+250p@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240513_112933_679743_0B1D2E0B 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20240513_113130_494285_A93CD84E 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,139 +123,150 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 12, 2024 at 06:24:45PM +0200, Alexandre Ghiti wrote:
->Hi Deepak,
->
->On 04/04/2024 01:34, Deepak Gupta wrote:
->>`arch_calc_vm_prot_bits` is implemented on risc-v to return VM_READ |
->>VM_WRITE if PROT_WRITE is specified. Similarly `riscv_sys_mmap` is
->>updated to convert all incoming PROT_WRITE to (PROT_WRITE | PROT_READ).
->>This is to make sure that any existing apps using PROT_WRITE still work.
+On Fri, May 10, 2024 at 04:29:19PM -0700, Charlie Jenkins wrote:
+>On Wed, Apr 03, 2024 at 04:35:05PM -0700, Deepak Gupta wrote:
+>> Three architectures (x86, aarch64, riscv) have support for indirect branch
+>> tracking feature in a very similar fashion. On a very high level, indirect
+>> branch tracking is a CPU feature where CPU tracks branches which uses
+>> memory operand to perform control transfer in program. As part of this
+>> tracking on indirect branches, CPU goes in a state where it expects a
+>> landing pad instr on target and if not found then CPU raises some fault
+>> (architecture dependent)
 >>
->>Earlier `protection_map[VM_WRITE]` used to pick read-write PTE encodings.
->>Now `protection_map[VM_WRITE]` will always pick PAGE_SHADOWSTACK PTE
->>encodings for shadow stack. Above changes ensure that existing apps
->>continue to work because underneath kernel will be picking
->>`protection_map[VM_WRITE|VM_READ]` PTE encodings.
+>> x86 landing pad instr - `ENDBRANCH`
+>> aarch64 landing pad instr - `BTI`
+>> riscv landing instr - `lpad`
 >>
->>Signed-off-by: Deepak Gupta <debug@rivosinc.com>
->>---
->>  arch/riscv/include/asm/mman.h    | 24 ++++++++++++++++++++++++
->>  arch/riscv/include/asm/pgtable.h |  1 +
->>  arch/riscv/kernel/sys_riscv.c    | 11 +++++++++++
->>  arch/riscv/mm/init.c             |  2 +-
->>  mm/mmap.c                        |  1 +
->>  5 files changed, 38 insertions(+), 1 deletion(-)
->>  create mode 100644 arch/riscv/include/asm/mman.h
+>> Given that three major arches have support for indirect branch tracking,
+>> This patch makes `prctl` for indirect branch tracking arch agnostic.
 >>
->>diff --git a/arch/riscv/include/asm/mman.h b/arch/riscv/include/asm/mman.h
->>new file mode 100644
->>index 000000000000..ef9fedf32546
->>--- /dev/null
->>+++ b/arch/riscv/include/asm/mman.h
->>@@ -0,0 +1,24 @@
->>+/* SPDX-License-Identifier: GPL-2.0 */
->>+#ifndef __ASM_MMAN_H__
->>+#define __ASM_MMAN_H__
->>+
->>+#include <linux/compiler.h>
->>+#include <linux/types.h>
->>+#include <uapi/asm/mman.h>
->>+
->>+static inline unsigned long arch_calc_vm_prot_bits(unsigned long prot,
->>+	unsigned long pkey __always_unused)
->>+{
->>+	unsigned long ret = 0;
->>+
->>+	/*
->>+	 * If PROT_WRITE was specified, force it to VM_READ | VM_WRITE.
->>+	 * Only VM_WRITE means shadow stack.
->>+	 */
->>+	if (prot & PROT_WRITE)
->>+		ret = (VM_READ | VM_WRITE);
->>+	return ret;
->>+}
->>+#define arch_calc_vm_prot_bits(prot, pkey) arch_calc_vm_prot_bits(prot, pkey)
->>+
->>+#endif /* ! __ASM_MMAN_H__ */
->>diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
->>index 6066822e7396..4d5983bc6766 100644
->>--- a/arch/riscv/include/asm/pgtable.h
->>+++ b/arch/riscv/include/asm/pgtable.h
->>@@ -184,6 +184,7 @@ extern struct pt_alloc_ops pt_ops __initdata;
->>  #define PAGE_READ_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ | _PAGE_EXEC)
->>  #define PAGE_WRITE_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ |	\
->>  					 _PAGE_EXEC | _PAGE_WRITE)
->>+#define PAGE_SHADOWSTACK       __pgprot(_PAGE_BASE | _PAGE_WRITE)
->>  #define PAGE_COPY		PAGE_READ
->>  #define PAGE_COPY_EXEC		PAGE_READ_EXEC
->>diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
->>index f1c1416a9f1e..846c36b1b3d5 100644
->>--- a/arch/riscv/kernel/sys_riscv.c
->>+++ b/arch/riscv/kernel/sys_riscv.c
->>@@ -8,6 +8,8 @@
->>  #include <linux/syscalls.h>
->>  #include <asm/cacheflush.h>
->>  #include <asm-generic/mman-common.h>
->>+#include <vdso/vsyscall.h>
->>+#include <asm/mman.h>
->>  static long riscv_sys_mmap(unsigned long addr, unsigned long len,
->>  			   unsigned long prot, unsigned long flags,
->>@@ -17,6 +19,15 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
->>  	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
->>  		return -EINVAL;
->>+	/*
->>+	 * If only PROT_WRITE is specified then extend that to PROT_READ
->>+	 * protection_map[VM_WRITE] is now going to select shadow stack encodings.
->>+	 * So specifying PROT_WRITE actually should select protection_map [VM_WRITE | VM_READ]
->>+	 * If user wants to create shadow stack then they should use `map_shadow_stack` syscall.
->>+	 */
->>+	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
->>+		prot |= PROT_READ;
->>+
->>  	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
->>  			       offset >> (PAGE_SHIFT - page_shift_offset));
+>> To allow userspace to enable this feature for itself, following prtcls are
+>> defined:
+>>  - PR_GET_INDIR_BR_LP_STATUS: Gets current configured status for indirect
+>>    branch tracking.
+>>  - PR_SET_INDIR_BR_LP_STATUS: Sets a configuration for indirect branch
+>>    tracking.
+>>    Following status options are allowed
+>>        - PR_INDIR_BR_LP_ENABLE: Enables indirect branch tracking on user
+>>          thread.
+>>        - PR_INDIR_BR_LP_DISABLE; Disables indirect branch tracking on user
+>>          thread.
+>>  - PR_LOCK_INDIR_BR_LP_STATUS: Locks configured status for indirect branch
+>>    tracking for user thread.
+>>
+>> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+>> ---
+>>  include/uapi/linux/prctl.h | 27 +++++++++++++++++++++++++++
+>>  kernel/sys.c               | 30 ++++++++++++++++++++++++++++++
+>>  2 files changed, 57 insertions(+)
+>>
+>> diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+>> index 3c66ed8f46d8..b7a8212a068e 100644
+>> --- a/include/uapi/linux/prctl.h
+>> +++ b/include/uapi/linux/prctl.h
+>> @@ -328,4 +328,31 @@ struct prctl_mm_map {
+>>   */
+>>  #define PR_LOCK_SHADOW_STACK_STATUS      73
+>>
+>> +/*
+>> + * Get the current indirect branch tracking configuration for the current
+>> + * thread, this will be the value configured via PR_SET_INDIR_BR_LP_STATUS.
+>> + */
+>> +#define PR_GET_INDIR_BR_LP_STATUS      74
+>> +
+>> +/*
+>> + * Set the indirect branch tracking configuration. PR_INDIR_BR_LP_ENABLE will
+>> + * enable cpu feature for user thread, to track all indirect branches and ensure
+>> + * they land on arch defined landing pad instruction.
+>> + * x86 - If enabled, an indirect branch must land on `ENDBRANCH` instruction.
+>> + * arch64 - If enabled, an indirect branch must land on `BTI` instruction.
+>> + * riscv - If enabled, an indirect branch must land on `lpad` instruction.
+>> + * PR_INDIR_BR_LP_DISABLE will disable feature for user thread and indirect
+>> + * branches will no more be tracked by cpu to land on arch defined landing pad
+>> + * instruction.
+>> + */
+>> +#define PR_SET_INDIR_BR_LP_STATUS      75
+>> +# define PR_INDIR_BR_LP_ENABLE		   (1UL << 0)
+>> +
+>> +/*
+>> + * Prevent further changes to the specified indirect branch tracking
+>> + * configuration.  All bits may be locked via this call, including
+>> + * undefined bits.
+>> + */
+>> +#define PR_LOCK_INDIR_BR_LP_STATUS      76
+>> +
+>>  #endif /* _LINUX_PRCTL_H */
+>> diff --git a/kernel/sys.c b/kernel/sys.c
+>> index 242e9f147791..c770060c3f06 100644
+>> --- a/kernel/sys.c
+>> +++ b/kernel/sys.c
+>> @@ -2330,6 +2330,21 @@ int __weak arch_lock_shadow_stack_status(struct task_struct *t, unsigned long st
+>>  	return -EINVAL;
 >>  }
->>diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->>index fa34cf55037b..98e5ece4052a 100644
->>--- a/arch/riscv/mm/init.c
->>+++ b/arch/riscv/mm/init.c
->>@@ -299,7 +299,7 @@ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
->>  static const pgprot_t protection_map[16] = {
->>  	[VM_NONE]					= PAGE_NONE,
->>  	[VM_READ]					= PAGE_READ,
->>-	[VM_WRITE]					= PAGE_COPY,
->>+	[VM_WRITE]					= PAGE_SHADOWSTACK,
->>  	[VM_WRITE | VM_READ]				= PAGE_COPY,
->>  	[VM_EXEC]					= PAGE_EXEC,
->>  	[VM_EXEC | VM_READ]				= PAGE_READ_EXEC,
->>diff --git a/mm/mmap.c b/mm/mmap.c
->>index d89770eaab6b..57a974f49b00 100644
->>--- a/mm/mmap.c
->>+++ b/mm/mmap.c
->>@@ -47,6 +47,7 @@
->>  #include <linux/oom.h>
->>  #include <linux/sched/mm.h>
->>  #include <linux/ksm.h>
->>+#include <linux/processor.h>
->>  #include <linux/uaccess.h>
->>  #include <asm/cacheflush.h>
+>>
+>> +int __weak arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
+>> +{
+>> +	return -EINVAL;
+>> +}
+>> +
+>> +int __weak arch_set_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
+>> +{
+>> +	return -EINVAL;
+>> +}
+>> +
+>> +int __weak arch_lock_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
+>> +{
+>> +	return -EINVAL;
+>> +}
+>> +
 >
+>These weak references each cause a warning:
 >
->What happens if someone restricts the permission to PROT_WRITE using 
->mprotect()? I would say this is an issue since it would turn the pages 
->into shadow stack pages.
+>kernel/sys.c:2333:12: warning: no previous prototype for 'arch_get_indir_br_lp_status' [-Wmissing-prototypes]
+> 2333 | int __weak arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
+>      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>kernel/sys.c:2338:12: warning: no previous prototype for 'arch_set_indir_br_lp_status' [-Wmissing-prototypes]
+> 2338 | int __weak arch_set_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
+>      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>kernel/sys.c:2343:12: warning: no previous prototype for 'arch_lock_indir_br_lp_status' [-Wmissing-prototypes]
+> 2343 | int __weak arch_lock_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
+>
+>Can the definitions be added to include/linux/mm.h alongside the
+>*_shadow_stack_status() definitions?
 
-look at this patch in this patch series.
-"riscv/mm : ensure PROT_WRITE leads to VM_READ | VM_WRITE"
-
-It implements `arch_calc_vm_prot_bits` for risc-v and enforces that incoming
-PROT_WRITE is converted to VM_READ | VM_WRITE. And thus it'll become read/write
-memory. This way `mprotect` can be used to convert a shadow stack page to
-read/write memory but not a regular memory to shadow stack page.
+Noted. Will work on a fix for this.
 
 >
+>- Charlie
 >
+>>  #define PR_IO_FLUSHER (PF_MEMALLOC_NOIO | PF_LOCAL_THROTTLE)
+>>
+>>  #ifdef CONFIG_ANON_VMA_NAME
+>> @@ -2787,6 +2802,21 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
+>>  			return -EINVAL;
+>>  		error = arch_lock_shadow_stack_status(me, arg2);
+>>  		break;
+>> +	case PR_GET_INDIR_BR_LP_STATUS:
+>> +		if (arg3 || arg4 || arg5)
+>> +			return -EINVAL;
+>> +		error = arch_get_indir_br_lp_status(me, (unsigned long __user *) arg2);
+>> +		break;
+>> +	case PR_SET_INDIR_BR_LP_STATUS:
+>> +		if (arg3 || arg4 || arg5)
+>> +			return -EINVAL;
+>> +		error = arch_set_indir_br_lp_status(me, (unsigned long __user *) arg2);
+>> +		break;
+>> +	case PR_LOCK_INDIR_BR_LP_STATUS:
+>> +		if (arg3 || arg4 || arg5)
+>> +			return -EINVAL;
+>> +		error = arch_lock_indir_br_lp_status(me, (unsigned long __user *) arg2);
+>> +		break;
+>>  	default:
+>>  		error = -EINVAL;
+>>  		break;
+>> --
+>> 2.43.2
+>>
 
 _______________________________________________
 linux-riscv mailing list
