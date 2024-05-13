@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C3BC25B74
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 May 2024 18:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49416C25B74
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 May 2024 18:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fIMdUAMxHYscO1GsXuYPo4PAM13Dw4VxJkN9IWQ5y74=; b=21LX70k/++LDXq6t3unqSZP/5y
-	Y8s2UEBaaJ5jmc6SOQ1grK5aNrD5w5JQO3CHFCbgMmB1xqfKBXZRNog/ntMWjJ805tSYz2OqUdNZ5
-	lS/IHq0Vu6JuAdV6F7itK9qTOKYUSOg9SmSEXdcXb4UPZwgzWd5PT917ULpMfNb4xo6yGX8iAPMJ2
-	/n3d3QONhnMSYDj/pLNtHYRR27KrQ+LoGI6PTRnxO8BBONqj/rGvfz5wgcr9cNTsLdEvLSUlcAUkw
-	oG4k6627z+AjWe97SiTZhmNqd8SuG4+kPcuAbXsSVp0jz/P33m3mOaV0miGnJIix2K9mkw+MRy1KX
-	CSpTCx1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jBcsUdruCkpUD4nvyM98y/Q2vc9MiqXSlshnqaYtXdc=; b=VFSkqWFMwsH0An
+	T1Z+p8D7tfaji+joeyrezrKnjXabea7VTLo6IzLnuzjTwoJo6nUfsZreO0nI6ZXiVg+NVipDxTFnl
+	wlN8J3yTFHvVVvbUNUOJYYHEqlF+Mv0JG+FBssIb+8bbk8p0BIwaooLEYFZnQ1ATAQZtGfsPhZyj+
+	77J9Pa23nQ54m4J5toeUT6Vd2kJhjXft6eEtIUh3+S+PH6dd3UBlGbQh8OU8xYbmxYZcan0rJW4Zg
+	UZXvv5nbJBNbrMGYPlrYPUAWDgZ6m8v4UIvLuy5wznzKU1HCTm3Cl7+epLN5PyyoxygIGG8hXkNOA
+	yWh/Yk1pWxQdpAXkSXTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6aUq-0000000Dsjy-3D0A;
-	Mon, 13 May 2024 18:34:00 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1s6aXn-0000000DtLx-43Ke;
+	Mon, 13 May 2024 18:37:03 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6aUo-0000000Dsia-0d5o
+	id 1s6aXk-0000000DtKZ-2JYD
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 May 2024 18:33:59 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1eeabda8590so33557345ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 13 May 2024 11:33:56 -0700 (PDT)
+	Mon, 13 May 2024 18:37:02 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-6f489e64eb3so3364792b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 13 May 2024 11:36:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715625236; x=1716230036; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715625418; x=1716230218; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zIieT11BAyr5eCbucIfDMPYSpqd8uK7xxfWKvzozEyI=;
-        b=SBe3c/k4e0NvbVdJ0tOIC0K9I8PiLAwnG3hhTGM3p0Yn6/e1n8UZT86TdTJq53+Ezf
-         npevsMz9Bsf3L4HqWHwM3byhujznu7S7b92uF+EKCPn3jDjvxW33Ry4+zt5wlNHCvEol
-         REJAoZ8TC42tK3PHjZ+HK1oVijNBHa/r6I82YRfEAWqMvoye0NfOPOUbK4VMiVYSsXHK
-         WY8Xg16BfdKNFTnHz9DDc2JIzTxUVTbe1oesdGYL6mCVbcf1BIXy7WpPK3l6QofusPMW
-         5wxKUhcizXC10IkXatEWEjAu3ONiEEjrei3IY77O4oLPmipvndXnvtsHTediZFnofD1q
-         AthQ==
+        bh=EJ8xaQQ9gfY7+cG8KujzU2LQ7mZBfQgErlO4DocitkQ=;
+        b=BDIHkIr34jix8PNoTVM1dwvVq4XohQgP7R5IfpQE3rrMNFQf3b1g05C8lhGGEoHrRz
+         VrEB6boY4weVU8x4sRnh4qzP/tjP/roAmB4nq1e1Og2ZbvoVEQCbYUwEp1hu+xh5f78X
+         kIOT7ewLLn42CRFfJvNFyok0Cewg7rOPUvStBp3ueNAqRFmj/Gn4rhJO9W4bzb1fjk6D
+         UwyCtM7t7Bo7EGY153aQomYa0ih3Ya+svOpFunITTeUdUcYdflwT2ZxyNWWE4LOTOsJI
+         6f0AJh6w2neSMacUHKMu5bCGEz5s3SZjsPYu4y1NueShdsAaH3kdPHBCKfJ2S4iVC9ZZ
+         IYew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715625236; x=1716230036;
+        d=1e100.net; s=20230601; t=1715625418; x=1716230218;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zIieT11BAyr5eCbucIfDMPYSpqd8uK7xxfWKvzozEyI=;
-        b=CBBdLpOIWNpxVME3tDQ1OfunuEl7Te0A/vYto5xIuslsXm82FQx60Z80pvodPUBrcK
-         KNvs6RyiipxoxBlZzucv+v2KLPj+U5qfqP9z/jH6zf8NsDjumit5ZrhXg3v4Gyzhz7r5
-         u2JD2vhqBXWWtebtPsgwD5w6iHzIykcye9SeTohbhgnmohLy+LPfUCrhLLQlKAw14m/y
-         WI98U/0bZOV8VWBugVbdxc2htl7ucjYFmsHVnJ4W3wqQHlXz5aS7h3ArnDnulIWiGgJS
-         wLYf2awUZbiLZ4OXbqjZfYxMBY05CKdwW38+5b7aff5tomQFmPARjHqocSCsofH/+PZl
-         CYjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXmWJbhzf6mFXT86pPmEihjuQaOLGYcHPCGi3krPrae/Uu6DQSAFfZ2rEZnBFkqPXyMmD+3B7+cRNpmMuchNKACyB6xpQrn0M4LQSpopVNJ
-X-Gm-Message-State: AOJu0YxUYfQHutLxJU0RnYmrGm2Mn4wE8Lw1kLtXHygAP/BYywFW/iD/
-	a8ZkE7Zq24rDRDiA4tEAlJB54WYjI5OMugxD9qFSDD4hfAtT6WzzX4pHvHBD4tw=
-X-Google-Smtp-Source: AGHT+IFnbLXicXE+Y/UKuSVClJLtlfBWO7CdnrEkpjnDppDvuoBtNhLdA/briBDaFchoAw9tI2ob0A==
-X-Received: by 2002:a17:902:f68e:b0:1e4:c07b:a8e0 with SMTP id d9443c01a7336-1ef441a76fcmr123301465ad.66.1715625235664;
-        Mon, 13 May 2024 11:33:55 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0bf32b4dsm84209665ad.137.2024.05.13.11.33.51
+        bh=EJ8xaQQ9gfY7+cG8KujzU2LQ7mZBfQgErlO4DocitkQ=;
+        b=gdOf6Npo2F+I0fhR7eNvouGjN3NdsnfDFmapiRx0LHzkCUXV5sNtEsWdN2jSbnKUfZ
+         lnEM3J0fJeO+jWtlRheA7QnH6ulp8Q7MH5MITOKP48qnQxoQdEmzKBW0amUysRpIwiVE
+         4xJIxYd+0p4JFeh/2rkZ79TpgxvE3SCBlF3RR3+A8ShakaIB19PKIpA2XfmMxnPR3WDi
+         Njo8hITnCy1BKkbQZZtmIeHnZCvDqSnDiVLFy4dQ1J1r49sGgorAEnLcvW93ZN1AlVAl
+         wN+UvdmguwdlKDItCFMs5yPze8HsOynxkLl8i2V9fc3Y+v9NnpkjqUjNB2P5618q5Zim
+         wAXw==
+X-Forwarded-Encrypted: i=1; AJvYcCUNti/fy93PxCqo+EekcGQSwdM+XpF6KqmLjAxSyh/052MYwFYXKb3oV9Vhd0rXzJJlYF8jcqxXJemjqnf6ps7zk7FWBvd7dnxPRhqvxbTY
+X-Gm-Message-State: AOJu0YwVkL32GNb1nqfDYca9STGQQjoI4/8X1Poz0gqSbiZtdniDn88v
+	6vhd0JnHPL+3N1CGNNnALelizcHNcOP7M87N6MEDveU/43nanNRhyLbyJ9iOaJ4=
+X-Google-Smtp-Source: AGHT+IEtFJqHdWFS93HqHX5hpNlL66iEYhRvuRmrd98dRBICcH+zlHlVBgPVDx05Rv0/gkrNtS6Lwg==
+X-Received: by 2002:a05:6a00:2406:b0:6f3:86ac:5eae with SMTP id d2e1a72fcca58-6f4e03843d1mr10090101b3a.28.1715625418280;
+        Mon, 13 May 2024 11:36:58 -0700 (PDT)
+Received: from ghost ([2600:1010:b062:ae34:7efe:e26b:c29e:9a14])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-6f4d2a9d9acsm7881752b3a.90.2024.05.13.11.36.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 May 2024 11:33:55 -0700 (PDT)
-Date: Mon, 13 May 2024 11:33:50 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
+        Mon, 13 May 2024 11:36:57 -0700 (PDT)
+Date: Mon, 13 May 2024 11:36:49 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Deepak Gupta <debug@rivosinc.com>
 Cc: paul.walmsley@sifive.com, rick.p.edgecombe@intel.com,
 	broonie@kernel.org, Szabolcs.Nagy@arm.com, kito.cheng@sifive.com,
 	keescook@chromium.org, ajones@ventanamicro.com,
@@ -95,17 +95,19 @@ Cc: paul.walmsley@sifive.com, rick.p.edgecombe@intel.com,
 	revest@chromium.org, josh@joshtriplett.org, shr@devkernel.io,
 	deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
 	jhubbard@nvidia.com
-Subject: Re: [PATCH v3 02/29] riscv: define default value for envcfg for task
-Message-ID: <ZkJdDnfjm+DMzgEa@debug.ba.rivosinc.com>
+Subject: Re: [PATCH v3 10/29] riscv/mm : ensure PROT_WRITE leads to VM_READ |
+ VM_WRITE
+Message-ID: <ZkJdYvkUqHkX7yPf@ghost>
 References: <20240403234054.2020347-1-debug@rivosinc.com>
- <20240403234054.2020347-3-debug@rivosinc.com>
- <Zj6gwFvj2gA04NJq@ghost>
+ <20240403234054.2020347-11-debug@rivosinc.com>
+ <Zj6LfpQhOjTLEx2O@ghost>
+ <ZkJSLTk1iWFGJZCQ@debug.ba.rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Zj6gwFvj2gA04NJq@ghost>
+In-Reply-To: <ZkJSLTk1iWFGJZCQ@debug.ba.rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240513_113358_221485_BFA450B0 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20240513_113701_232001_2D803099 
+X-CRM114-Status: GOOD (  47.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,64 +119,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 10, 2024 at 03:33:36PM -0700, Charlie Jenkins wrote:
->On Wed, Apr 03, 2024 at 04:34:50PM -0700, Deepak Gupta wrote:
->> Defines a base default value for envcfg per task. By default all tasks
->> should have cache zeroing capability. Any future base capabilities that
->> apply to all tasks can be turned on same way.
->>
->> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
->> ---
->>  arch/riscv/include/asm/csr.h | 2 ++
->>  arch/riscv/kernel/process.c  | 6 ++++++
->>  2 files changed, 8 insertions(+)
->>
->> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
->> index 2468c55933cd..bbd2207adb39 100644
->> --- a/arch/riscv/include/asm/csr.h
->> +++ b/arch/riscv/include/asm/csr.h
->> @@ -202,6 +202,8 @@
->>  #define ENVCFG_CBIE_FLUSH		_AC(0x1, UL)
->>  #define ENVCFG_CBIE_INV			_AC(0x3, UL)
->>  #define ENVCFG_FIOM			_AC(0x1, UL)
->> +/* by default all threads should be able to zero cache */
->> +#define ENVCFG_BASE			ENVCFG_CBZE
->>
->>  /* Smstateen bits */
->>  #define SMSTATEEN0_AIA_IMSIC_SHIFT	58
->> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
->> index 92922dbd5b5c..d3109557f951 100644
->> --- a/arch/riscv/kernel/process.c
->> +++ b/arch/riscv/kernel/process.c
->> @@ -152,6 +152,12 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
->>  	else
->>  		regs->status |= SR_UXL_64;
->>  #endif
->> +	/*
->> +	 * read current envcfg settings, AND it with base settings applicable
->> +	 * for all the tasks. Base settings should've been set up during CPU
->> +	 * bring up.
->> +	 */
->> +	current->thread_info.envcfg = csr_read(CSR_ENVCFG) & ENVCFG_BASE;
->
->This needs to be gated on xlinuxenvcfg.
+On Mon, May 13, 2024 at 10:47:25AM -0700, Deepak Gupta wrote:
+> On Fri, May 10, 2024 at 02:02:54PM -0700, Charlie Jenkins wrote:
+> > On Wed, Apr 03, 2024 at 04:34:58PM -0700, Deepak Gupta wrote:
+> > > `arch_calc_vm_prot_bits` is implemented on risc-v to return VM_READ |
+> > > VM_WRITE if PROT_WRITE is specified. Similarly `riscv_sys_mmap` is
+> > > updated to convert all incoming PROT_WRITE to (PROT_WRITE | PROT_READ).
+> > > This is to make sure that any existing apps using PROT_WRITE still work.
+> > > 
+> > > Earlier `protection_map[VM_WRITE]` used to pick read-write PTE encodings.
+> > > Now `protection_map[VM_WRITE]` will always pick PAGE_SHADOWSTACK PTE
+> > > encodings for shadow stack. Above changes ensure that existing apps
+> > > continue to work because underneath kernel will be picking
+> > > `protection_map[VM_WRITE|VM_READ]` PTE encodings.
+> > > 
+> > > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> > > ---
+> > >  arch/riscv/include/asm/mman.h    | 24 ++++++++++++++++++++++++
+> > >  arch/riscv/include/asm/pgtable.h |  1 +
+> > >  arch/riscv/kernel/sys_riscv.c    | 11 +++++++++++
+> > >  arch/riscv/mm/init.c             |  2 +-
+> > >  mm/mmap.c                        |  1 +
+> > >  5 files changed, 38 insertions(+), 1 deletion(-)
+> > >  create mode 100644 arch/riscv/include/asm/mman.h
+> > > 
+> > > diff --git a/arch/riscv/include/asm/mman.h b/arch/riscv/include/asm/mman.h
+> > > new file mode 100644
+> > > index 000000000000..ef9fedf32546
+> > > --- /dev/null
+> > > +++ b/arch/riscv/include/asm/mman.h
+> > > @@ -0,0 +1,24 @@
+> > > +/* SPDX-License-Identifier: GPL-2.0 */
+> > > +#ifndef __ASM_MMAN_H__
+> > > +#define __ASM_MMAN_H__
+> > > +
+> > > +#include <linux/compiler.h>
+> > > +#include <linux/types.h>
+> > > +#include <uapi/asm/mman.h>
+> > > +
+> > > +static inline unsigned long arch_calc_vm_prot_bits(unsigned long prot,
+> > > +	unsigned long pkey __always_unused)
+> > > +{
+> > > +	unsigned long ret = 0;
+> > > +
+> > > +	/*
+> > > +	 * If PROT_WRITE was specified, force it to VM_READ | VM_WRITE.
+> > > +	 * Only VM_WRITE means shadow stack.
+> > > +	 */
+> > > +	if (prot & PROT_WRITE)
+> > > +		ret = (VM_READ | VM_WRITE);
+> > > +	return ret;
+> > > +}
+> > > +#define arch_calc_vm_prot_bits(prot, pkey) arch_calc_vm_prot_bits(prot, pkey)
+> > > +
+> > > +#endif /* ! __ASM_MMAN_H__ */
+> > > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > > index 6066822e7396..4d5983bc6766 100644
+> > > --- a/arch/riscv/include/asm/pgtable.h
+> > > +++ b/arch/riscv/include/asm/pgtable.h
+> > > @@ -184,6 +184,7 @@ extern struct pt_alloc_ops pt_ops __initdata;
+> > >  #define PAGE_READ_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ | _PAGE_EXEC)
+> > >  #define PAGE_WRITE_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ |	\
+> > >  					 _PAGE_EXEC | _PAGE_WRITE)
+> > > +#define PAGE_SHADOWSTACK       __pgprot(_PAGE_BASE | _PAGE_WRITE)
+> > > 
+> > >  #define PAGE_COPY		PAGE_READ
+> > >  #define PAGE_COPY_EXEC		PAGE_READ_EXEC
+> > > diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+> > > index f1c1416a9f1e..846c36b1b3d5 100644
+> > > --- a/arch/riscv/kernel/sys_riscv.c
+> > > +++ b/arch/riscv/kernel/sys_riscv.c
+> > > @@ -8,6 +8,8 @@
+> > >  #include <linux/syscalls.h>
+> > >  #include <asm/cacheflush.h>
+> > >  #include <asm-generic/mman-common.h>
+> > > +#include <vdso/vsyscall.h>
+> > > +#include <asm/mman.h>
+> > > 
+> > >  static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+> > >  			   unsigned long prot, unsigned long flags,
+> > > @@ -17,6 +19,15 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+> > >  	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
+> > >  		return -EINVAL;
+> > > 
+> > > +	/*
+> > > +	 * If only PROT_WRITE is specified then extend that to PROT_READ
+> > > +	 * protection_map[VM_WRITE] is now going to select shadow stack encodings.
+> > > +	 * So specifying PROT_WRITE actually should select protection_map [VM_WRITE | VM_READ]
+> > > +	 * If user wants to create shadow stack then they should use `map_shadow_stack` syscall.
+> > > +	 */
+> > > +	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
+> > 
+> > The comments says that this should extend to PROT_READ if only
+> > PROT_WRITE is specified. This condition instead is checking if
+> > PROT_WRITE is selected but PROT_READ is not. If prot is (VM_EXEC |
+> > VM_WRITE) then it would be extended to (VM_EXEC | VM_WRITE | VM_READ).
+> > This will not currently cause any issues because these both map to the
+> > same value in the protection_map PAGE_COPY_EXEC, however this seems to
+> > be not the intention of this change.
+> > 
+> > prot == PROT_WRITE better suits the condition explained in the comment.
+> 
+> If someone specifies this (PROT_EXEC | PROT_WRITE) today, it works because
+> of the way permissions are setup in `protection_map`. On risc-v there is no
+> way to have a page which is execute and write only. So expectation is that
+> if some apps were using `PROT_EXEC | PROT_WRITE` today, they were working
+> because internally it was translating to read, write and execute on page
+> permissions level. This patch make sure that, it stays same from page
+> permissions perspective.
+> 
+> If someone was using PROT_EXEC, it may translate to execute only and this change
+> doesn't impact that.
+> 
+> Patch simply looks for presence of `PROT_WRITE` and absence of `PROT_READ` in
+> protection flags and if that condition is satisfied, it assumes that caller assumed
+> page is going to be read allowed as well.
 
-You're right. This csr read should be gated on xlinuxenvcfg. Will fix it.
+The purpose of this change is for compatibility with shadow stack pages
+but this affects flags for pages that are not shadow stack pages.
+Adding PROT_READ to the other cases is redundant as protection_map
+already handles that mapping. Permissions being strictly PROT_WRITE is
+the only case that needs to be handled, and is the only case that is
+called out in the commit message and in the comment.
 
->
->- Charlie
->
->>  }
->>
->>  void flush_thread(void)
->> --
->> 2.43.2
->>
+- Charlie
+
+> 
+> 
+> > 
+> > > +		prot |= PROT_READ;
+> > > +
+> > >  	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
+> > >  			       offset >> (PAGE_SHIFT - page_shift_offset));
+> > >  }
+> > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > > index fa34cf55037b..98e5ece4052a 100644
+> > > --- a/arch/riscv/mm/init.c
+> > > +++ b/arch/riscv/mm/init.c
+> > > @@ -299,7 +299,7 @@ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+> > >  static const pgprot_t protection_map[16] = {
+> > >  	[VM_NONE]					= PAGE_NONE,
+> > >  	[VM_READ]					= PAGE_READ,
+> > > -	[VM_WRITE]					= PAGE_COPY,
+> > > +	[VM_WRITE]					= PAGE_SHADOWSTACK,
+> > >  	[VM_WRITE | VM_READ]				= PAGE_COPY,
+> > >  	[VM_EXEC]					= PAGE_EXEC,
+> > >  	[VM_EXEC | VM_READ]				= PAGE_READ_EXEC,
+> > > diff --git a/mm/mmap.c b/mm/mmap.c
+> > > index d89770eaab6b..57a974f49b00 100644
+> > > --- a/mm/mmap.c
+> > > +++ b/mm/mmap.c
+> > > @@ -47,6 +47,7 @@
+> > >  #include <linux/oom.h>
+> > >  #include <linux/sched/mm.h>
+> > >  #include <linux/ksm.h>
+> > > +#include <linux/processor.h>
+> > 
+> > It doesn't seem like this is necessary for this patch.
+> 
+> Thanks. Yeah it looks like I forgot to remove this over the churn.
+> Will fix it.
+> 
+> > 
+> > - Charlie
+> > 
+> > > 
+> > >  #include <linux/uaccess.h>
+> > >  #include <asm/cacheflush.h>
+> > > --
+> > > 2.43.2
+> > > 
 
 _______________________________________________
 linux-riscv mailing list
