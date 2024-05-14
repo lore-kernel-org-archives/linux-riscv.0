@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1C9C25B74
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 May 2024 03:15:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5F4C04FFE
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 May 2024 05:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:Subject:From:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bf84qyJBSfOgIuZNmsYSCxo1/eSFVre2fnoFMIoXdhE=; b=3pRSrbJtkZhnw0
-	0uB68HrdrD3gcZK1bU8MxzmWLtB+bVCkqm9mvkGR95WshAYHcQynQNKyRfZgIIHoKf0VhEBJ2+UUq
-	Lmz2aEupT7Fs+l4HfUnfFvcmrIHOKdHuP0D3dFzpKpksWrbim0VohpWubHW2v9s0yccvQt/HspdxX
-	wbtpRYGl5v76OmrF7Wciher2iXaPUvmqfUSQ2tE6Z8bEwib3PULEFTR3QCQR6y+jMZAh98jZmg2AU
-	O4MpMGiPWwddRuVmlOKGXkzUovKB4kglfDD9CRIYRc106h18Bt0JdSyPdLUDh2xP+k+61JdwCYKQi
-	KfShCqZKUxe1fxAgW4Qg==;
+	List-Owner; bh=tq1Sp/42JqasSyGuF1pz7B/Pu67iIiVria/rsGXYpTA=; b=M/X/57mLJbqGWi
+	0cbvPTIDXPEFwNWyVi2i1bNzZaoKzds6TKAwrcDT5gYYKNyKF/HPDquKES8wwJuJP96iJ/REZjvJq
+	Qgdzhb4PqY+z/gF2iZLKC1LAbv26JfLk6gQlnS4v9kfWl3CaKBp1h3ayetM82bm4eLZwJ+/wXvDga
+	b/byA5/GK+jHvtUfF1lFhQbWRY1vDRf9n3UE5mBgco6UnWuhnf65LEPLPS8f9L9fM0BBTeXvfQZ9V
+	sffviXCIWuFUcvZva82eNTiTFmfe8GJIlyZ3kMxUVOUpVYbNdZ27wDxmvtE45zMbA82F6ZWMkyUSk
+	SovhSszgboZ5bnyNXiig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6id1-0000000EsG3-00e7;
-	Tue, 14 May 2024 03:14:59 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1s6l9f-0000000F52W-2G0f;
+	Tue, 14 May 2024 05:56:51 +0000
+Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6icx-0000000EsE6-2LPl;
-	Tue, 14 May 2024 03:14:56 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 44DJ8svH024231;
-	Tue, 14 May 2024 03:14:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	message-id:date:mime-version:from:subject:to:cc:references
-	:in-reply-to:content-type:content-transfer-encoding; s=
-	qcppdkim1; bh=lhiZUR02R0SWrwr3dvTvUIP0NvYrnDtZcWB6iVMfBn8=; b=Q5
-	3s3NS4nUMPqvw8fAoAgVuKY10zLTK7o0hLuUhrPBxRytOTzM2KlI9qk2gVLfWedJ
-	sHiFBG/AwQSkOOz6LAyggbLahQzUd42M/eJI19/3RYzUZTud+f4Y+oP0+6sE84Tu
-	biUXRFYRwuIlCgaHlT+f0pZwnaDv8/XE5Wb/Ijhh5NrngK4FgoN0OTKqCy6x/+Ld
-	Lf1m+PsM5ipstn8/rEkg5LSZwzNdDLsfGD6E12wYkCKzicpiks2ZkKXqSHFEDwqv
-	S9rHXxJ9vSdcoIiXzgoW/4yLE7gBy2b/CWECpl0UryOtC9+mbzKFVJ5iOD5D3/+s
-	ZZaB2lsao0KQRROmw7Eg==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 3y1ymq579v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 May 2024 03:14:39 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA05.qualcomm.com (8.17.1.5/8.17.1.5) with ESMTPS id 44E3EcAW006727
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 May 2024 03:14:38 GMT
-Received: from [10.216.57.43] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 13 May
- 2024 20:14:27 -0700
-Message-ID: <3f6faea5-575d-46db-3a7b-ed6dbde060ea@quicinc.com>
-Date: Tue, 14 May 2024 08:44:22 +0530
+	id 1s6l9c-0000000F51x-1YGI
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 May 2024 05:56:50 +0000
+Received: by mail-io1-xd32.google.com with SMTP id ca18e2360f4ac-7e1c2ea8481so107649139f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 13 May 2024 22:56:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1715666206; x=1716271006; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=440oD4b9Bphk4WWjPWWaKFmIBo6vJ3VIwixVh9ybBDo=;
+        b=gCaqu52Rsy+H7WX128Za9mznmRPOVSw182zk7iBQ9FDD9TtZG1cp1OSBywX8cAGva5
+         hm4YDrrAliBWQzQILd3Q/egUelbbLReYav50jaah6N7+6yKX8Ie4Ee+9CtjKL0YfRNNC
+         MIsY8CsP8AkfjCTFkWwQrcV5KE9jjVe8PC4vypqd8aCDnWOqo+IVENAf7NCN7zfCvkeY
+         0eHuJBta1xXfQImxeVwFOBAjz7MxmOPJwZSdLfWbcllwSN1Hi20Sx/Gw6J36U1I42Fdm
+         tlYNVflTX2dlGgOspMdsp3KX+bQJwCExFGmM5e5EpL+9i2trfR56HlS1YMfOaSCtLs9Z
+         6U9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1715666206; x=1716271006;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=440oD4b9Bphk4WWjPWWaKFmIBo6vJ3VIwixVh9ybBDo=;
+        b=jUm9ry1px5VhHIGw0kPg0IeGC2Y7eYfasAjsn88R2Gwm8Rb8ZmGkkJxCQGW0pz5RLe
+         prgklhYa/ySOfcxSK3wXrPc1i/8+FOI59ZI4xev3jBPsx6kQeSMCXW+0UP8eQZcCIxEX
+         Ov42z5u6E1ibS6aa3+agT+sgcRkCMLVXjeyGAwb/PbDPRixRd+m/glHNqDXteXW+KUfI
+         Tioax0mymWCsiCKarPTKq4pn4Y1+AArq71VZxzIhTmei3N+IALAX7cjj8+ntnao5Jvpg
+         z2i6J9PzNSjZTpdPgdNYoKr8uMBrYt22Oc9fbZgQTVxGHg80kydzKh8u2zOf7QQWhD02
+         jhRw==
+X-Forwarded-Encrypted: i=1; AJvYcCUglUr5gSlb/0iACx4IMnHa9fo7Tfx2rEzLBqg3GwdHmnDuFopWtukfiCQ0mylFfx5iiayMKNaXjSwng7xG1e7/PUKf+qdGrsyId6abhrSW
+X-Gm-Message-State: AOJu0YzTlXrPn52RZYkxLup5Vb8a2yxSFnl/Uem3FyvYEUoLloSpFHbk
+	AIKHD+lOagdi+XRpSuZeU4pVeZCPz/qkLDoknD/2Qfd5QFgC45V2M7mq7qTSTsypq+lT+rSPjci
+	AZTHk5sX+ZKOrBL0QLD+Jtr0j7MM/w0aKSZ+qrQ==
+X-Google-Smtp-Source: AGHT+IF9N9dfmP7bVHVJo2ZfC3OHvLjDan409QcJv1aNsscxhoEEW8h6W1834/OEIiZpFBCIoCKO6oKWs8pWyT7uDD8=
+X-Received: by 2002:a05:6602:3049:b0:7e1:d5cc:84bf with SMTP id
+ ca18e2360f4ac-7e1d5cc851dmr559335339f.6.1715666206518; Mon, 13 May 2024
+ 22:56:46 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-From: Amrit Anand <quic_amrianan@quicinc.com>
-Subject: Re: [PATCH v2 2/2] dt-bindings: qcom: Update DT bindings for multiple
- DT
-To: Caleb Connolly <caleb.connolly@linaro.org>, <robh@kernel.org>,
-        <krzysztof.kozlowski+dt@linaro.org>, <conor+dt@kernel.org>,
-        <agross@kernel.org>, <andersson@kernel.org>,
-        <konrad.dybcio@linaro.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <kernel@quicinc.com>,
-        <peter.griffin@linaro.org>, <linux-riscv@lists.infradead.org>,
-        <chrome-platform@lists.linux.dev>,
-        <linux-mediatek@lists.infradead.org>, Simon Glass <sjg@chromium.org>
-References: <1710418312-6559-1-git-send-email-quic_amrianan@quicinc.com>
- <1710418312-6559-3-git-send-email-quic_amrianan@quicinc.com>
- <f6f317d9-830d-4c38-998f-b229b3d9f95a@linaro.org>
- <a5eac9d5-1e88-4d7a-b8e8-677f6d116782@linaro.org>
-Content-Language: en-US
-In-Reply-To: <a5eac9d5-1e88-4d7a-b8e8-677f6d116782@linaro.org>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: -yV4KEYXNc3XSkcHYWdAkYL7u1Bw6tM-
-X-Proofpoint-ORIG-GUID: -yV4KEYXNc3XSkcHYWdAkYL7u1Bw6tM-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.650,FMLib:17.11.176.26
- definitions=2024-05-13_17,2024-05-10_02,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 clxscore=1011
- bulkscore=0 malwarescore=0 mlxlogscore=999 priorityscore=1501 phishscore=0
- lowpriorityscore=0 mlxscore=0 impostorscore=0 suspectscore=0 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2405010000
- definitions=main-2405140023
+References: <cover.1714752293.git.tjeznach@rivosinc.com> <b28d4fe49c5fe4e3ece9de789cfd92cfa5b3c16c.1714752293.git.tjeznach@rivosinc.com>
+In-Reply-To: <b28d4fe49c5fe4e3ece9de789cfd92cfa5b3c16c.1714752293.git.tjeznach@rivosinc.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Tue, 14 May 2024 13:56:35 +0800
+Message-ID: <CANXhq0q+aQ1T37j4uQi5ryUyPxBtvQkaBJ9qvS9iGwSRGaQSyQ@mail.gmail.com>
+Subject: Re: [PATCH v4 4/7] iommu/riscv: Enable IOMMU registration and device probe.
+To: Tomasz Jeznach <tjeznach@rivosinc.com>
+Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, 
+	Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, 
+	linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
+	Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, 
+	Lu Baolu <baolu.lu@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240513_201455_653534_D27815C3 
-X-CRM114-Status: GOOD (  25.49  )
+X-CRM114-CacheID: sfid-20240513_225648_490500_3978C497 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,197 +92,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 3/14/2024 8:05 PM, Caleb Connolly wrote:
-> On 14/03/2024 14:20, Caleb Connolly wrote:
->> Hi Amrit,
->>
->> On 14/03/2024 12:11, Amrit Anand wrote:
->>> Qualcomm produces a lot of "unique" boards with slight differences in
->>> SoC's and board's configuration. For eg, there can be SM8150v1 on MTPv1,
->>> SM8150v1 on MTPv2, SM8150v2 on MTPv2, SM8150v2 on MTPv2 with a different
->>> PMIC, SM8150v2 with no modem support and so on. For instance, suppose we
->>> have 3 SoC, each with 4 boards supported, along with 2 PMIC support for
->>> each case which would lead to total of 24 DTB files. Along with these
->>> configurations, OEMs may also add certain additional board variants. Thus
->>> a mechanism is required to pick the correct DTB for the corresponding board.
->>>
->>> Introduce mechanism to select required DTB using newly introduced device
->>> tree properties "board-id" and "board-id-type". "board-id" will contain
->>> the list of values of "qcom,soc-id", "qcom,board-id", "qcom,pmic-id" or
->>> "qcom,oem-id". "board-id-types" contains the type of parameter which is
->>> entered. It can be either "qcom,soc-id", "qcom,board-id", "qcom,pmic-id"
->>> or "qcom,oem-id".
->> Thanks for working on this, it's nice to finally see this logic
->> documented in the kernel.
->>> Qualcomm based bootloader will use these properties to pick the best
->>> matched DTB to boot the device with.
->>>
->>> Signed-off-by: Amrit Anand<quic_amrianan@quicinc.com>
->>> ---
->>>   Documentation/devicetree/bindings/arm/qcom.yaml | 90 +++++++++++++++++++++++++
->>>   1 file changed, 90 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
->>> index 7f80f48..dc66ae9 100644
->>> --- a/Documentation/devicetree/bindings/arm/qcom.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/qcom.yaml
->>> @@ -1100,6 +1100,76 @@ properties:
->>>         kernel
->>>         The property is deprecated.
->>>   
->>> +  board-id:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
->>> +    minItems: 2
->>> +    description: |
->>> +      Qualcomm specific bootloader uses multiple different identifiers
->>> +      (qcom,soc-id, qcom,board-id, qcom,pmic-id, qcom,oem-id) to select
->>> +      single Devicetree among list of Devicetrees. For different identifiers,
->>> +      the selection can be done either based on exact match (where the
->>> +      identifiers information coming from firmware should exactly match
->>> +      the ones described in devicetree) or best match (firmware provided
->>> +      identifier information closely matches with the one of the Devicetree).
->>> +      Below table describes matching criteria for each identifier::
->>> +      |----------------------------------------------------------------------|
->>> +      |  DT property  |  Individual fields   |   Exact  |  Best  |  Default  |
->>> +      |----------------------------------------------------------------------|
->>> +      | qcom,soc-id   |                                                      |
->>> +      |               |  Chipset Id          |     Y    |    N   |     -     |
->>> +      |               |  SoC Revision        |     N    |    Y   |     -     |
->>> +      | qcom,board-id |                                                      |
->>> +      |               |  Board Id            |     Y    |    N   |     -     |
->>> +      |               |  Board Major         |     N    |    Y   |     -     |
->>> +      |               |  Board Minor         |     N    |    Y   |     -     |
->>> +      |               |  Subtype             |     Y    |    N   |     0     |
->>> +      |               |  DDRtype             |     Y    |    N   |     0     |
->>> +      |               |  BootDevice Type     |     Y    |    N   |     0     |
->>> +      | qcom,pmic-id  |                                                      |
->>> +      |               |  Slave Id            |     Y    |    N   |     0     |
->>> +      |               |  PMIC Id             |     Y    |    N   |     0     |
->>> +      |               |  PMIC Major          |     N    |    Y   |     0     |
->>> +      |               |  PMIC Minor          |     N    |    Y   |     0     |
->>> +      | qcom,oem-id   |                                                      |
->>> +      |               |  OEM Id              |     Y    |    N   |     0     |
->>> +      |----------------------------------------------------------------------|
->>> +      For best match, identifiers are matched based on following priority order::
->>> +      SoC Revision > Board Major > Board Minor > PMIC Major > PMIC Minor
->>> +
->>> +  board-id-types:
->>> +    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
->>> +    description:
->>> +       Each field and helper macros are defined at include/dt-bindings/arm/qcom,ids.
->>> +    minItems: 2
->>> +    items:
->>> +       oneOf:
->>> +         - const: qcom,soc-id
->>> +           description:
->>> +              Matches Qualcomm Technologies, Inc. boards with the specified SoC.
->>> +              2 integers are needed to describe a soc-id. The first integer is the
->>> +              SoC ID and the second integer is the SoC revision.
->>> +              qcom,soc-id = <soc-id  soc-revision>
->>> +         - const: qcom,board-id
->>> +           description: |
->>> +              Matches Qualcomm Technologies, Inc. boards with the specified board.
->>> +              2 integers are needed to describe a board-id. The first integer is the
->>> +              board ID. The second integer is the board-subtype.
->>> +              qcom,board-id = <board-id  board-subtype>
-> This is a recursive definition. You partially described the individual
-> fields above, you should do that here.
-
-The information about these fields are documented in header 
-include/dt-bindings/arm/qcom,ids.h
-sent in patch 1.
-
-> What is DDR type? What information is encoded that doesn't make sense to
-> describe elsewhere in DT?
->
-> Same for "bootdevice type", why would you pick a different DT based on
-> whether the bootloader was loaded from UFS or NAND? Why does this
-> information belong in DT?
-
-We can have multiple DT for different DDR types and boot device types. 
-In order to distinguish different DT when
-all other parameters are same, we are using DDR type, boot device type 
-as distinguishable parameters.
-
->>> +         - const: qcom,pmic-id
->>> +           description: |
->>> +              Qualcomm boards can be attached to multiple PMICs where slave-id (SID)
->>> +              indicates the address of the bus on which the PMIC is attached. It can be
->>> +              any number. The model for a PMIC indicates the PMIC name attached to bus
->>> +              described by SID along with  major and minor version. 2 integers are needed
->>> +              to describe qcom,pmic-id. The first integer is the slave-id and the second integer
->>> +              is the pmic model.
->>> +              qcom,pmic-id = <pmic-sid pmic-model>
-> Same questions here, why don't you just walk the DT and read the
-> compatible properties of PMIC nodes?
->>> +         - const: qcom,oem-id
->>> +           description: |
->>> +              Matches Qualcomm Technologies, Inc. boards with the specified OEM ID.
->>> +              1 integer is needed to describe the oem-id.
->>> +              qcom,oem-id = <oem-id>
->>> +
->>>   allOf:
->>>     # Explicit allow-list for older SoCs. The legacy properties are not allowed
->>>     # on newer SoCs.
->>> @@ -1167,4 +1237,24 @@ allOf:
->>>   
->>>   additionalProperties: true
->>>   
->>> +examples:
->>> +  - |
->>> +    #include <dt-bindings/arm/qcom,ids.h>
->>> +    / {
->>> +         model = "Qualcomm Technologies, Inc. sc7280 IDP SKU1 platform";
->>> +         compatible = "qcom,sc7280-idp", "google,senor", "qcom,sc7280";
->>> +
->>> +         #board-id-cells = <2>;
->>> +         board-id = <QCOM_SOC_ID(SC7280) QCOM_SOC_REVISION(1)>,
->>> +                    <QCOM_SOC_ID(SC7280) QCOM_SOC_REVISION(2)>,
->>> +                    <QCOM_BOARD_ID(IDP, 1, 0) QCOM_BOARD_SUBTYPE(UFS, ANY, 1)>;
->>> +         board-id-types = "qcom,soc-id",
->>> +                          "qcom,soc-id",
->>> +                          "qcom,board-id";
->> Forgive me if this is a particularly cynical view, but this seems
->> incredibly blatant, the "qcom,board-id" property is deprecated for
->> various good reasons, just using a key/value map where "qcom,board-id"
->> is a key doesn't change that. There are two main issues I have with the
->> proposal here:
->>
->> 1. This breaks backwards compatibility, millions of production devices
->> with bootloaders that will never receive another update might be
->> compatible with the downstream "qcom,board-id" property, but they won't
->> work with this.
->> 2. A top level board-id property that isn't namespaced implies that it
->> isn't vendor specific, but the proposed implementation doesn't even
->> pretend to be vendor agnostic.
-
-ok, will try to redefine it. Meantime, since Elliot has some suggestions 
-from his EOSS conference presentation,
-will also co-work with him towards making another attempt at vendor 
-agnostic approach as well.
-
-
->>
->> U-Boot also has some ideas around this issue, there you can pass in
->> multiple DTBs and provide some board specific "best match" function.
->> I think there's definitely some value in exposing this information, but
->> there's no good reason to define the same data as `qcom,board-id` while
->> breaking production bootloaders.
->>> +
->>> +         #address-cells = <2>;
->>> +         #size-cells = <2>;
->>> +    };
->>> +
->>> +
->>>   ...
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBNYXkgNCwgMjAyNCBhdCAxMjoxM+KAr0FNIFRvbWFzeiBKZXpuYWNoIDx0amV6bmFj
+aEByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gQWR2ZXJ0aXNlIElPTU1VIGRldmljZSBhbmQgaXRz
+IGNvcmUgQVBJLgo+IE9ubHkgbWluaW1hbCBpbXBsZW1lbnRhdGlvbiBmb3Igc2luZ2xlIGlkZW50
+aXR5IGRvbWFpbiB0eXBlLCB3aXRob3V0Cj4gcGVyLWdyb3VwIGRvbWFpbiBwcm90ZWN0aW9uLgo+
+Cj4gUmV2aWV3ZWQtYnk6IEx1IEJhb2x1IDxiYW9sdS5sdUBsaW51eC5pbnRlbC5jb20+Cj4gU2ln
+bmVkLW9mZi1ieTogVG9tYXN6IEplem5hY2ggPHRqZXpuYWNoQHJpdm9zaW5jLmNvbT4KPiAtLS0K
+PiAgZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS5jIHwgNjYgKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKwo+ICAxIGZpbGUgY2hhbmdlZCwgNjYgaW5zZXJ0aW9ucygrKQo+Cj4g
+ZGlmZiAtLWdpdCBhL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYyBiL2RyaXZlcnMvaW9tbXUv
+cmlzY3YvaW9tbXUuYwo+IGluZGV4IDNjNWE2YjQ5NjY5ZC4uMWY4ODlkYWZmYjBlIDEwMDY0NAo+
+IC0tLSBhL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYwo+ICsrKyBiL2RyaXZlcnMvaW9tbXUv
+cmlzY3YvaW9tbXUuYwo+IEBAIC0xNyw2ICsxNyw3IEBACj4gICNpbmNsdWRlIDxsaW51eC9pbml0
+Lmg+Cj4gICNpbmNsdWRlIDxsaW51eC9pb21tdS5oPgo+ICAjaW5jbHVkZSA8bGludXgva2VybmVs
+Lmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9wY2kuaD4KPgo+ICAjaW5jbHVkZSAiaW9tbXUtYml0cy5o
+Igo+ICAjaW5jbHVkZSAiaW9tbXUuaCIKPiBAQCAtMzYsNiArMzcsNjAgQEAgc3RhdGljIHZvaWQg
+cmlzY3ZfaW9tbXVfZGlzYWJsZShzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21tdSkKPiAg
+ICAgICAgIHJpc2N2X2lvbW11X3dyaXRlbChpb21tdSwgUklTQ1ZfSU9NTVVfUkVHX1BRQ1NSLCAw
+KTsKPiAgfQo+Cj4gK3N0YXRpYyBpbnQgcmlzY3ZfaW9tbXVfYXR0YWNoX2lkZW50aXR5X2RvbWFp
+bihzdHJ1Y3QgaW9tbXVfZG9tYWluICppb21tdV9kb21haW4sCj4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBkZXZpY2UgKmRldikKPiArewo+ICsg
+ICAgICAgLyogR2xvYmFsIHBhc3MtdGhyb3VnaCBhbHJlYWR5IGVuYWJsZWQsIGRvIG5vdGhpbmcg
+Zm9yIG5vdy4gKi8KPiArICAgICAgIHJldHVybiAwOwo+ICt9Cj4gKwo+ICtzdGF0aWMgc3RydWN0
+IGlvbW11X2RvbWFpbiByaXNjdl9pb21tdV9pZGVudGl0eV9kb21haW4gPSB7Cj4gKyAgICAgICAu
+dHlwZSA9IElPTU1VX0RPTUFJTl9JREVOVElUWSwKPiArICAgICAgIC5vcHMgPSAmKGNvbnN0IHN0
+cnVjdCBpb21tdV9kb21haW5fb3BzKSB7Cj4gKyAgICAgICAgICAgICAgIC5hdHRhY2hfZGV2ID0g
+cmlzY3ZfaW9tbXVfYXR0YWNoX2lkZW50aXR5X2RvbWFpbiwKPiArICAgICAgIH0KPiArfTsKPiAr
+Cj4gK3N0YXRpYyBpbnQgcmlzY3ZfaW9tbXVfZGV2aWNlX2RvbWFpbl90eXBlKHN0cnVjdCBkZXZp
+Y2UgKmRldikKPiArewo+ICsgICAgICAgcmV0dXJuIElPTU1VX0RPTUFJTl9JREVOVElUWTsKPiAr
+fQo+ICsKPiArc3RhdGljIHN0cnVjdCBpb21tdV9ncm91cCAqcmlzY3ZfaW9tbXVfZGV2aWNlX2dy
+b3VwKHN0cnVjdCBkZXZpY2UgKmRldikKPiArewo+ICsgICAgICAgaWYgKGRldl9pc19wY2koZGV2
+KSkKPiArICAgICAgICAgICAgICAgcmV0dXJuIHBjaV9kZXZpY2VfZ3JvdXAoZGV2KTsKPiArICAg
+ICAgIHJldHVybiBnZW5lcmljX2RldmljZV9ncm91cChkZXYpOwo+ICt9Cj4gKwo+ICtzdGF0aWMg
+aW50IHJpc2N2X2lvbW11X29mX3hsYXRlKHN0cnVjdCBkZXZpY2UgKmRldiwgY29uc3Qgc3RydWN0
+IG9mX3BoYW5kbGVfYXJncyAqYXJncykKPiArewo+ICsgICAgICAgcmV0dXJuIGlvbW11X2Z3c3Bl
+Y19hZGRfaWRzKGRldiwgYXJncy0+YXJncywgMSk7Cj4gK30KPiArCj4gK3N0YXRpYyBzdHJ1Y3Qg
+aW9tbXVfZGV2aWNlICpyaXNjdl9pb21tdV9wcm9iZV9kZXZpY2Uoc3RydWN0IGRldmljZSAqZGV2
+KQo+ICt7Cj4gKyAgICAgICBzdHJ1Y3QgaW9tbXVfZndzcGVjICpmd3NwZWMgPSBkZXZfaW9tbXVf
+ZndzcGVjX2dldChkZXYpOwo+ICsgICAgICAgc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9t
+bXU7Cj4gKwo+ICsgICAgICAgaWYgKCFmd3NwZWMtPmlvbW11X2Z3bm9kZS0+ZGV2IHx8ICFmd3Nw
+ZWMtPm51bV9pZHMpCj4gKyAgICAgICAgICAgICAgIHJldHVybiBFUlJfUFRSKC1FTk9ERVYpOwoK
+SXQgc2VlbXMgdG8gbWUgdGhhdCB3ZSBtaWdodCBuZWVkIHRvIGVuc3VyZSBmd3NwZWMgaXMgbm90
+IE5VTEwgYmVmb3JlCmFjY2Vzc2luZyBmd3NwZWMtPmlvbW11X2Z3bm9kZSwgb3RoZXJ3aXNlLCBp
+dCB3aWxsIGNhdXNlIE5VTEwgcG9pbnRlcgpkZXJlZmVyZW5jZS4KCj4gKwo+ICsgICAgICAgaW9t
+bXUgPSBkZXZfZ2V0X2RydmRhdGEoZndzcGVjLT5pb21tdV9md25vZGUtPmRldik7Cj4gKyAgICAg
+ICBpZiAoIWlvbW11KQo+ICsgICAgICAgICAgICAgICByZXR1cm4gRVJSX1BUUigtRU5PREVWKTsK
+PiArCj4gKyAgICAgICByZXR1cm4gJmlvbW11LT5pb21tdTsKPiArfQo+ICsKPiArc3RhdGljIGNv
+bnN0IHN0cnVjdCBpb21tdV9vcHMgcmlzY3ZfaW9tbXVfb3BzID0gewo+ICsgICAgICAgLm9mX3hs
+YXRlID0gcmlzY3ZfaW9tbXVfb2ZfeGxhdGUsCj4gKyAgICAgICAuaWRlbnRpdHlfZG9tYWluID0g
+JnJpc2N2X2lvbW11X2lkZW50aXR5X2RvbWFpbiwKPiArICAgICAgIC5kZWZfZG9tYWluX3R5cGUg
+PSByaXNjdl9pb21tdV9kZXZpY2VfZG9tYWluX3R5cGUsCj4gKyAgICAgICAuZGV2aWNlX2dyb3Vw
+ID0gcmlzY3ZfaW9tbXVfZGV2aWNlX2dyb3VwLAo+ICsgICAgICAgLnByb2JlX2RldmljZSA9IHJp
+c2N2X2lvbW11X3Byb2JlX2RldmljZSwKPiArfTsKPiArCj4gIHN0YXRpYyBpbnQgcmlzY3ZfaW9t
+bXVfaW5pdF9jaGVjayhzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21tdSkKPiAgewo+ICAg
+ICAgICAgdTY0IGRkdHA7Cj4gQEAgLTcxLDYgKzEyNiw3IEBAIHN0YXRpYyBpbnQgcmlzY3ZfaW9t
+bXVfaW5pdF9jaGVjayhzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21tdSkKPgo+ICB2b2lk
+IHJpc2N2X2lvbW11X3JlbW92ZShzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21tdSkKPiAg
+ewo+ICsgICAgICAgaW9tbXVfZGV2aWNlX3VucmVnaXN0ZXIoJmlvbW11LT5pb21tdSk7Cj4gICAg
+ICAgICBpb21tdV9kZXZpY2Vfc3lzZnNfcmVtb3ZlKCZpb21tdS0+aW9tbXUpOwo+ICB9Cj4KPiBA
+QCAtOTUsNSArMTUxLDE1IEBAIGludCByaXNjdl9pb21tdV9pbml0KHN0cnVjdCByaXNjdl9pb21t
+dV9kZXZpY2UgKmlvbW11KQo+ICAgICAgICAgICAgICAgICByZXR1cm4gZGV2X2Vycl9wcm9iZShp
+b21tdS0+ZGV2LCByYywKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgImNh
+bm5vdCByZWdpc3RlciBzeXNmcyBpbnRlcmZhY2VcbiIpOwo+Cj4gKyAgICAgICByYyA9IGlvbW11
+X2RldmljZV9yZWdpc3RlcigmaW9tbXUtPmlvbW11LCAmcmlzY3ZfaW9tbXVfb3BzLCBpb21tdS0+
+ZGV2KTsKPiArICAgICAgIGlmIChyYykgewo+ICsgICAgICAgICAgICAgICBkZXZfZXJyX3Byb2Jl
+KGlvbW11LT5kZXYsIHJjLCAiY2Fubm90IHJlZ2lzdGVyIGlvbW11IGludGVyZmFjZVxuIik7Cj4g
+KyAgICAgICAgICAgICAgIGdvdG8gZXJyX3JlbW92ZV9zeXNmczsKPiArICAgICAgIH0KPiArCj4g
+ICAgICAgICByZXR1cm4gMDsKPiArCj4gK2Vycl9yZW1vdmVfc3lzZnM6Cj4gKyAgICAgICBpb21t
+dV9kZXZpY2Vfc3lzZnNfcmVtb3ZlKCZpb21tdS0+aW9tbXUpOwo+ICsgICAgICAgcmV0dXJuIHJj
+Owo+ICB9Cj4gLS0KPiAyLjM0LjEKPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
