@@ -4,112 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25761C25B5F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 May 2024 21:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1C9C25B74
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 May 2024 03:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:Subject:From:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SGqv5N/8IwI5zmhaZD3aZjpmXALYKqCMFIjEc2apIcA=; b=eSmQ7AkdVx+ixe
-	1O97w7KLL1958ujQOXWe6bresMWqLLT5c4ZH7quQYOOqzHSsMBd+DyC3iq6FEoMA54psr1q/O/xGB
-	cHwVE15uPWjfrpmMMFhuER4XPQKJkSutx9Xu//VEKcqnj2UR5LSMlz5FYGfed2Cg2yfmrdqNH3x5c
-	UzPvQ2xpCvR2oGeFeXbRpmkU3QfR4UOhAXxJ/E7Rx8gidH99RBbOJl6a/Y8+1NKWcAdLNs1/6tK+9
-	u1CnZ+c5UamRjH232N+ZRrLdwVa6Qj1fK3/QUPq5ewinKNran+lwTINdEv7yrfLnIeIyGGAjYOexp
-	f9giIFiKL5RztOQBIUIA==;
+	List-Owner; bh=Bf84qyJBSfOgIuZNmsYSCxo1/eSFVre2fnoFMIoXdhE=; b=3pRSrbJtkZhnw0
+	0uB68HrdrD3gcZK1bU8MxzmWLtB+bVCkqm9mvkGR95WshAYHcQynQNKyRfZgIIHoKf0VhEBJ2+UUq
+	Lmz2aEupT7Fs+l4HfUnfFvcmrIHOKdHuP0D3dFzpKpksWrbim0VohpWubHW2v9s0yccvQt/HspdxX
+	wbtpRYGl5v76OmrF7Wciher2iXaPUvmqfUSQ2tE6Z8bEwib3PULEFTR3QCQR6y+jMZAh98jZmg2AU
+	O4MpMGiPWwddRuVmlOKGXkzUovKB4kglfDD9CRIYRc106h18Bt0JdSyPdLUDh2xP+k+61JdwCYKQi
+	KfShCqZKUxe1fxAgW4Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6dC6-0000000EF0p-0zLy;
-	Mon, 13 May 2024 21:26:50 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1s6id1-0000000EsG3-00e7;
+	Tue, 14 May 2024 03:14:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6dC2-0000000EExK-2o4V
-	for linux-riscv@lists.infradead.org;
-	Mon, 13 May 2024 21:26:48 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1ee954e0aa6so37468585ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 13 May 2024 14:26:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715635599; x=1716240399; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1Av9RgaPQsUZwKrihewqWhIa6dx8V7kURy0F4c3tXz8=;
-        b=eR+qFUS/8AY7+ftxf6s/x08PqmwAKw5KUMnnH76cQ4isfAQm2Zh01vQwzshE6YM0ti
-         HbeqcCtR2fVJxpPZUo5if0FooW+X45uo3qaEleZzVxwn3hcrCTyPuX1mGNO7JNI6+109
-         +9njYGWUXLYidXgZOs27KSvFQNvCRMesPbdYhq5Jfkk3/bhE2KDv9cTsKrVqqCKLVRKX
-         r9oq4lIcKDGPI13Vhx4NSiWqfcu100vnPKF1dKApnoCVUP8ThiZrUBBoG8JlGYWDd+Uv
-         m6MihqFiJpCpSYJ/3hDPGRMdnwCKen1/Xqim9m/HNsvpkhIgwZjjA6eiBtvY/o+9h7Pa
-         lovg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715635599; x=1716240399;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1Av9RgaPQsUZwKrihewqWhIa6dx8V7kURy0F4c3tXz8=;
-        b=CPrDVdC9GVQN0W/75VnzgFoWBrFMLydEwdzjEV0Ia9XUtOBLlCkVatAlAeBsDIaJ7V
-         q91cAH3elQjJaqNnvt970//ENiv77mvfvP39o/ADUopGejOdlu9Mh8xLBDuHlsuwfByd
-         ALTv02rZMphOOPj+QsQW7Orj304Def0etaMvhG0vj9JUJdofplzB6zClbV0x+VfD8Q1A
-         1LpNZFtNMEAKlomoN2n+GbssGU8N2GqmWaljZC+erUdyWWfwZMd4yBTjYGyamzowHIWp
-         h42RXsZsEuzgnS2aH+WDjVnMFunU1T4lYQjxt05T0WN3ARZtjk6bNG3Z/z4K4ZiKOCyt
-         cOYw==
-X-Forwarded-Encrypted: i=1; AJvYcCWZ+KkP/r8J+eTMdMU4lFYbE2+p/H64gv1Ejbss921oqJfX59twehOdQwzshnnAFWBYq7BuddxTxwp2pkKs/3wlfmMB8gYJyvJloJ5i6tBH
-X-Gm-Message-State: AOJu0YyFiailcLIb1bJPOg1DzuixoalXkw/ttrra91LbatkKQT/P0Ie5
-	1xTqjs6RDLY/E9rJ7zDQJCO0Ut6M5oLUxaz2NITnRbI0AgjK1Taybt9Zz7a6zRk=
-X-Google-Smtp-Source: AGHT+IF+SpgNET3nuWJL5IGg9s5FZ86fG3Sc9l5DoORtZhuAz8MnSfbhg/ec9V32N2UyWUAOUoMzhg==
-X-Received: by 2002:a17:902:b70b:b0:1ec:76a6:ea9 with SMTP id d9443c01a7336-1ef43e338fcmr103173085ad.26.1715635598847;
-        Mon, 13 May 2024 14:26:38 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0b9d16cfsm84105425ad.18.2024.05.13.14.26.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 May 2024 14:26:38 -0700 (PDT)
-Date: Mon, 13 May 2024 14:26:31 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: paul.walmsley@sifive.com, rick.p.edgecombe@intel.com,
-	broonie@kernel.org, Szabolcs.Nagy@arm.com, kito.cheng@sifive.com,
-	keescook@chromium.org, ajones@ventanamicro.com,
-	conor.dooley@microchip.com, cleger@rivosinc.com,
-	atishp@atishpatra.org, alex@ghiti.fr, bjorn@rivosinc.com,
-	alexghiti@rivosinc.com, samuel.holland@sifive.com, conor@kernel.org,
-	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-mm@kvack.org, linux-arch@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, corbet@lwn.net, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, oleg@redhat.com,
-	akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
-	Liam.Howlett@oracle.com, vbabka@suse.cz, lstoakes@gmail.com,
-	shuah@kernel.org, brauner@kernel.org, andy.chiu@sifive.com,
-	jerry.shih@sifive.com, hankuan.chen@sifive.com,
-	greentime.hu@sifive.com, evan@rivosinc.com, xiao.w.wang@intel.com,
-	apatel@ventanamicro.com, mchitale@ventanamicro.com,
-	dbarboza@ventanamicro.com, sameo@rivosinc.com,
-	shikemeng@huaweicloud.com, willy@infradead.org,
-	vincent.chen@sifive.com, guoren@kernel.org, samitolvanen@google.com,
-	songshuaishuai@tinylab.org, gerg@kernel.org, heiko@sntech.de,
-	bhe@redhat.com, jeeheng.sia@starfivetech.com, cyy@cyyself.name,
-	maskray@google.com, ancientmodern4@gmail.com,
-	mathis.salmen@matsal.de, cuiyunhui@bytedance.com,
-	bgray@linux.ibm.com, mpe@ellerman.id.au, baruch@tkos.co.il,
-	alx@kernel.org, david@redhat.com, catalin.marinas@arm.com,
-	revest@chromium.org, josh@joshtriplett.org, shr@devkernel.io,
-	deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
-	jhubbard@nvidia.com
-Subject: Re: [PATCH v3 10/29] riscv/mm : ensure PROT_WRITE leads to VM_READ |
- VM_WRITE
-Message-ID: <ZkKFh2YJh3AcUTfN@ghost>
-References: <20240403234054.2020347-1-debug@rivosinc.com>
- <20240403234054.2020347-11-debug@rivosinc.com>
- <Zj6LfpQhOjTLEx2O@ghost>
- <ZkJSLTk1iWFGJZCQ@debug.ba.rivosinc.com>
- <ZkJdYvkUqHkX7yPf@ghost>
- <ZkJe3ivq7m4NptHd@debug.ba.rivosinc.com>
+	id 1s6icx-0000000EsE6-2LPl;
+	Tue, 14 May 2024 03:14:56 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 44DJ8svH024231;
+	Tue, 14 May 2024 03:14:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	message-id:date:mime-version:from:subject:to:cc:references
+	:in-reply-to:content-type:content-transfer-encoding; s=
+	qcppdkim1; bh=lhiZUR02R0SWrwr3dvTvUIP0NvYrnDtZcWB6iVMfBn8=; b=Q5
+	3s3NS4nUMPqvw8fAoAgVuKY10zLTK7o0hLuUhrPBxRytOTzM2KlI9qk2gVLfWedJ
+	sHiFBG/AwQSkOOz6LAyggbLahQzUd42M/eJI19/3RYzUZTud+f4Y+oP0+6sE84Tu
+	biUXRFYRwuIlCgaHlT+f0pZwnaDv8/XE5Wb/Ijhh5NrngK4FgoN0OTKqCy6x/+Ld
+	Lf1m+PsM5ipstn8/rEkg5LSZwzNdDLsfGD6E12wYkCKzicpiks2ZkKXqSHFEDwqv
+	S9rHXxJ9vSdcoIiXzgoW/4yLE7gBy2b/CWECpl0UryOtC9+mbzKFVJ5iOD5D3/+s
+	ZZaB2lsao0KQRROmw7Eg==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 3y1ymq579v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 14 May 2024 03:14:39 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.17.1.5/8.17.1.5) with ESMTPS id 44E3EcAW006727
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 14 May 2024 03:14:38 GMT
+Received: from [10.216.57.43] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 13 May
+ 2024 20:14:27 -0700
+Message-ID: <3f6faea5-575d-46db-3a7b-ed6dbde060ea@quicinc.com>
+Date: Tue, 14 May 2024 08:44:22 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZkJe3ivq7m4NptHd@debug.ba.rivosinc.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+From: Amrit Anand <quic_amrianan@quicinc.com>
+Subject: Re: [PATCH v2 2/2] dt-bindings: qcom: Update DT bindings for multiple
+ DT
+To: Caleb Connolly <caleb.connolly@linaro.org>, <robh@kernel.org>,
+        <krzysztof.kozlowski+dt@linaro.org>, <conor+dt@kernel.org>,
+        <agross@kernel.org>, <andersson@kernel.org>,
+        <konrad.dybcio@linaro.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <kernel@quicinc.com>,
+        <peter.griffin@linaro.org>, <linux-riscv@lists.infradead.org>,
+        <chrome-platform@lists.linux.dev>,
+        <linux-mediatek@lists.infradead.org>, Simon Glass <sjg@chromium.org>
+References: <1710418312-6559-1-git-send-email-quic_amrianan@quicinc.com>
+ <1710418312-6559-3-git-send-email-quic_amrianan@quicinc.com>
+ <f6f317d9-830d-4c38-998f-b229b3d9f95a@linaro.org>
+ <a5eac9d5-1e88-4d7a-b8e8-677f6d116782@linaro.org>
+Content-Language: en-US
+In-Reply-To: <a5eac9d5-1e88-4d7a-b8e8-677f6d116782@linaro.org>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: -yV4KEYXNc3XSkcHYWdAkYL7u1Bw6tM-
+X-Proofpoint-ORIG-GUID: -yV4KEYXNc3XSkcHYWdAkYL7u1Bw6tM-
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.650,FMLib:17.11.176.26
+ definitions=2024-05-13_17,2024-05-10_02,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 clxscore=1011
+ bulkscore=0 malwarescore=0 mlxlogscore=999 priorityscore=1501 phishscore=0
+ lowpriorityscore=0 mlxscore=0 impostorscore=0 suspectscore=0 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2405010000
+ definitions=main-2405140023
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240513_142646_747006_6524B28B 
-X-CRM114-Status: GOOD (  55.36  )
+X-CRM114-CacheID: sfid-20240513_201455_653534_D27815C3 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,196 +103,195 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 13, 2024 at 11:41:34AM -0700, Deepak Gupta wrote:
-> On Mon, May 13, 2024 at 11:36:49AM -0700, Charlie Jenkins wrote:
-> > On Mon, May 13, 2024 at 10:47:25AM -0700, Deepak Gupta wrote:
-> > > On Fri, May 10, 2024 at 02:02:54PM -0700, Charlie Jenkins wrote:
-> > > > On Wed, Apr 03, 2024 at 04:34:58PM -0700, Deepak Gupta wrote:
-> > > > > `arch_calc_vm_prot_bits` is implemented on risc-v to return VM_READ |
-> > > > > VM_WRITE if PROT_WRITE is specified. Similarly `riscv_sys_mmap` is
-> > > > > updated to convert all incoming PROT_WRITE to (PROT_WRITE | PROT_READ).
-> > > > > This is to make sure that any existing apps using PROT_WRITE still work.
-> > > > >
-> > > > > Earlier `protection_map[VM_WRITE]` used to pick read-write PTE encodings.
-> > > > > Now `protection_map[VM_WRITE]` will always pick PAGE_SHADOWSTACK PTE
-> > > > > encodings for shadow stack. Above changes ensure that existing apps
-> > > > > continue to work because underneath kernel will be picking
-> > > > > `protection_map[VM_WRITE|VM_READ]` PTE encodings.
-> > > > >
-> > > > > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-> > > > > ---
-> > > > >  arch/riscv/include/asm/mman.h    | 24 ++++++++++++++++++++++++
-> > > > >  arch/riscv/include/asm/pgtable.h |  1 +
-> > > > >  arch/riscv/kernel/sys_riscv.c    | 11 +++++++++++
-> > > > >  arch/riscv/mm/init.c             |  2 +-
-> > > > >  mm/mmap.c                        |  1 +
-> > > > >  5 files changed, 38 insertions(+), 1 deletion(-)
-> > > > >  create mode 100644 arch/riscv/include/asm/mman.h
-> > > > >
-> > > > > diff --git a/arch/riscv/include/asm/mman.h b/arch/riscv/include/asm/mman.h
-> > > > > new file mode 100644
-> > > > > index 000000000000..ef9fedf32546
-> > > > > --- /dev/null
-> > > > > +++ b/arch/riscv/include/asm/mman.h
-> > > > > @@ -0,0 +1,24 @@
-> > > > > +/* SPDX-License-Identifier: GPL-2.0 */
-> > > > > +#ifndef __ASM_MMAN_H__
-> > > > > +#define __ASM_MMAN_H__
-> > > > > +
-> > > > > +#include <linux/compiler.h>
-> > > > > +#include <linux/types.h>
-> > > > > +#include <uapi/asm/mman.h>
-> > > > > +
-> > > > > +static inline unsigned long arch_calc_vm_prot_bits(unsigned long prot,
-> > > > > +	unsigned long pkey __always_unused)
-> > > > > +{
-> > > > > +	unsigned long ret = 0;
-> > > > > +
-> > > > > +	/*
-> > > > > +	 * If PROT_WRITE was specified, force it to VM_READ | VM_WRITE.
-> > > > > +	 * Only VM_WRITE means shadow stack.
-> > > > > +	 */
-> > > > > +	if (prot & PROT_WRITE)
-> > > > > +		ret = (VM_READ | VM_WRITE);
-> > > > > +	return ret;
-> > > > > +}
-> > > > > +#define arch_calc_vm_prot_bits(prot, pkey) arch_calc_vm_prot_bits(prot, pkey)
-> > > > > +
-> > > > > +#endif /* ! __ASM_MMAN_H__ */
-> > > > > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> > > > > index 6066822e7396..4d5983bc6766 100644
-> > > > > --- a/arch/riscv/include/asm/pgtable.h
-> > > > > +++ b/arch/riscv/include/asm/pgtable.h
-> > > > > @@ -184,6 +184,7 @@ extern struct pt_alloc_ops pt_ops __initdata;
-> > > > >  #define PAGE_READ_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ | _PAGE_EXEC)
-> > > > >  #define PAGE_WRITE_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ |	\
-> > > > >  					 _PAGE_EXEC | _PAGE_WRITE)
-> > > > > +#define PAGE_SHADOWSTACK       __pgprot(_PAGE_BASE | _PAGE_WRITE)
-> > > > >
-> > > > >  #define PAGE_COPY		PAGE_READ
-> > > > >  #define PAGE_COPY_EXEC		PAGE_READ_EXEC
-> > > > > diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-> > > > > index f1c1416a9f1e..846c36b1b3d5 100644
-> > > > > --- a/arch/riscv/kernel/sys_riscv.c
-> > > > > +++ b/arch/riscv/kernel/sys_riscv.c
-> > > > > @@ -8,6 +8,8 @@
-> > > > >  #include <linux/syscalls.h>
-> > > > >  #include <asm/cacheflush.h>
-> > > > >  #include <asm-generic/mman-common.h>
-> > > > > +#include <vdso/vsyscall.h>
-> > > > > +#include <asm/mman.h>
-> > > > >
-> > > > >  static long riscv_sys_mmap(unsigned long addr, unsigned long len,
-> > > > >  			   unsigned long prot, unsigned long flags,
-> > > > > @@ -17,6 +19,15 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
-> > > > >  	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
-> > > > >  		return -EINVAL;
-> > > > >
-> > > > > +	/*
-> > > > > +	 * If only PROT_WRITE is specified then extend that to PROT_READ
-> > > > > +	 * protection_map[VM_WRITE] is now going to select shadow stack encodings.
-> > > > > +	 * So specifying PROT_WRITE actually should select protection_map [VM_WRITE | VM_READ]
-> > > > > +	 * If user wants to create shadow stack then they should use `map_shadow_stack` syscall.
-> > > > > +	 */
-> > > > > +	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
-> > > >
-> > > > The comments says that this should extend to PROT_READ if only
-> > > > PROT_WRITE is specified. This condition instead is checking if
-> > > > PROT_WRITE is selected but PROT_READ is not. If prot is (VM_EXEC |
-> > > > VM_WRITE) then it would be extended to (VM_EXEC | VM_WRITE | VM_READ).
-> > > > This will not currently cause any issues because these both map to the
-> > > > same value in the protection_map PAGE_COPY_EXEC, however this seems to
-> > > > be not the intention of this change.
-> > > >
-> > > > prot == PROT_WRITE better suits the condition explained in the comment.
-> > > 
-> > > If someone specifies this (PROT_EXEC | PROT_WRITE) today, it works because
-> > > of the way permissions are setup in `protection_map`. On risc-v there is no
-> > > way to have a page which is execute and write only. So expectation is that
-> > > if some apps were using `PROT_EXEC | PROT_WRITE` today, they were working
-> > > because internally it was translating to read, write and execute on page
-> > > permissions level. This patch make sure that, it stays same from page
-> > > permissions perspective.
-> > > 
-> > > If someone was using PROT_EXEC, it may translate to execute only and this change
-> > > doesn't impact that.
-> > > 
-> > > Patch simply looks for presence of `PROT_WRITE` and absence of `PROT_READ` in
-> > > protection flags and if that condition is satisfied, it assumes that caller assumed
-> > > page is going to be read allowed as well.
-> > 
-> > The purpose of this change is for compatibility with shadow stack pages
-> > but this affects flags for pages that are not shadow stack pages.
-> > Adding PROT_READ to the other cases is redundant as protection_map
-> > already handles that mapping. Permissions being strictly PROT_WRITE is
-> > the only case that needs to be handled, and is the only case that is
-> > called out in the commit message and in the comment.
-> 
-> Yeah that's fine.
-> I can change the commit message or just strictly check for PROT_WRITE.
-> It doesn't change bottomline, I am fine with either option.
-> 
-> Let me know your preference.
 
-I would prefer the strict check. This is not critical though so I will
-support whatever you decide!
+On 3/14/2024 8:05 PM, Caleb Connolly wrote:
+> On 14/03/2024 14:20, Caleb Connolly wrote:
+>> Hi Amrit,
+>>
+>> On 14/03/2024 12:11, Amrit Anand wrote:
+>>> Qualcomm produces a lot of "unique" boards with slight differences in
+>>> SoC's and board's configuration. For eg, there can be SM8150v1 on MTPv1,
+>>> SM8150v1 on MTPv2, SM8150v2 on MTPv2, SM8150v2 on MTPv2 with a different
+>>> PMIC, SM8150v2 with no modem support and so on. For instance, suppose we
+>>> have 3 SoC, each with 4 boards supported, along with 2 PMIC support for
+>>> each case which would lead to total of 24 DTB files. Along with these
+>>> configurations, OEMs may also add certain additional board variants. Thus
+>>> a mechanism is required to pick the correct DTB for the corresponding board.
+>>>
+>>> Introduce mechanism to select required DTB using newly introduced device
+>>> tree properties "board-id" and "board-id-type". "board-id" will contain
+>>> the list of values of "qcom,soc-id", "qcom,board-id", "qcom,pmic-id" or
+>>> "qcom,oem-id". "board-id-types" contains the type of parameter which is
+>>> entered. It can be either "qcom,soc-id", "qcom,board-id", "qcom,pmic-id"
+>>> or "qcom,oem-id".
+>> Thanks for working on this, it's nice to finally see this logic
+>> documented in the kernel.
+>>> Qualcomm based bootloader will use these properties to pick the best
+>>> matched DTB to boot the device with.
+>>>
+>>> Signed-off-by: Amrit Anand<quic_amrianan@quicinc.com>
+>>> ---
+>>>   Documentation/devicetree/bindings/arm/qcom.yaml | 90 +++++++++++++++++++++++++
+>>>   1 file changed, 90 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
+>>> index 7f80f48..dc66ae9 100644
+>>> --- a/Documentation/devicetree/bindings/arm/qcom.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/qcom.yaml
+>>> @@ -1100,6 +1100,76 @@ properties:
+>>>         kernel
+>>>         The property is deprecated.
+>>>   
+>>> +  board-id:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+>>> +    minItems: 2
+>>> +    description: |
+>>> +      Qualcomm specific bootloader uses multiple different identifiers
+>>> +      (qcom,soc-id, qcom,board-id, qcom,pmic-id, qcom,oem-id) to select
+>>> +      single Devicetree among list of Devicetrees. For different identifiers,
+>>> +      the selection can be done either based on exact match (where the
+>>> +      identifiers information coming from firmware should exactly match
+>>> +      the ones described in devicetree) or best match (firmware provided
+>>> +      identifier information closely matches with the one of the Devicetree).
+>>> +      Below table describes matching criteria for each identifier::
+>>> +      |----------------------------------------------------------------------|
+>>> +      |  DT property  |  Individual fields   |   Exact  |  Best  |  Default  |
+>>> +      |----------------------------------------------------------------------|
+>>> +      | qcom,soc-id   |                                                      |
+>>> +      |               |  Chipset Id          |     Y    |    N   |     -     |
+>>> +      |               |  SoC Revision        |     N    |    Y   |     -     |
+>>> +      | qcom,board-id |                                                      |
+>>> +      |               |  Board Id            |     Y    |    N   |     -     |
+>>> +      |               |  Board Major         |     N    |    Y   |     -     |
+>>> +      |               |  Board Minor         |     N    |    Y   |     -     |
+>>> +      |               |  Subtype             |     Y    |    N   |     0     |
+>>> +      |               |  DDRtype             |     Y    |    N   |     0     |
+>>> +      |               |  BootDevice Type     |     Y    |    N   |     0     |
+>>> +      | qcom,pmic-id  |                                                      |
+>>> +      |               |  Slave Id            |     Y    |    N   |     0     |
+>>> +      |               |  PMIC Id             |     Y    |    N   |     0     |
+>>> +      |               |  PMIC Major          |     N    |    Y   |     0     |
+>>> +      |               |  PMIC Minor          |     N    |    Y   |     0     |
+>>> +      | qcom,oem-id   |                                                      |
+>>> +      |               |  OEM Id              |     Y    |    N   |     0     |
+>>> +      |----------------------------------------------------------------------|
+>>> +      For best match, identifiers are matched based on following priority order::
+>>> +      SoC Revision > Board Major > Board Minor > PMIC Major > PMIC Minor
+>>> +
+>>> +  board-id-types:
+>>> +    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
+>>> +    description:
+>>> +       Each field and helper macros are defined at include/dt-bindings/arm/qcom,ids.
+>>> +    minItems: 2
+>>> +    items:
+>>> +       oneOf:
+>>> +         - const: qcom,soc-id
+>>> +           description:
+>>> +              Matches Qualcomm Technologies, Inc. boards with the specified SoC.
+>>> +              2 integers are needed to describe a soc-id. The first integer is the
+>>> +              SoC ID and the second integer is the SoC revision.
+>>> +              qcom,soc-id = <soc-id  soc-revision>
+>>> +         - const: qcom,board-id
+>>> +           description: |
+>>> +              Matches Qualcomm Technologies, Inc. boards with the specified board.
+>>> +              2 integers are needed to describe a board-id. The first integer is the
+>>> +              board ID. The second integer is the board-subtype.
+>>> +              qcom,board-id = <board-id  board-subtype>
+> This is a recursive definition. You partially described the individual
+> fields above, you should do that here.
 
-- Charlie
+The information about these fields are documented in header 
+include/dt-bindings/arm/qcom,ids.h
+sent in patch 1.
 
-> 
-> > 
-> > - Charlie
-> > 
-> > > 
-> > > 
-> > > >
-> > > > > +		prot |= PROT_READ;
-> > > > > +
-> > > > >  	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
-> > > > >  			       offset >> (PAGE_SHIFT - page_shift_offset));
-> > > > >  }
-> > > > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > > > index fa34cf55037b..98e5ece4052a 100644
-> > > > > --- a/arch/riscv/mm/init.c
-> > > > > +++ b/arch/riscv/mm/init.c
-> > > > > @@ -299,7 +299,7 @@ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
-> > > > >  static const pgprot_t protection_map[16] = {
-> > > > >  	[VM_NONE]					= PAGE_NONE,
-> > > > >  	[VM_READ]					= PAGE_READ,
-> > > > > -	[VM_WRITE]					= PAGE_COPY,
-> > > > > +	[VM_WRITE]					= PAGE_SHADOWSTACK,
-> > > > >  	[VM_WRITE | VM_READ]				= PAGE_COPY,
-> > > > >  	[VM_EXEC]					= PAGE_EXEC,
-> > > > >  	[VM_EXEC | VM_READ]				= PAGE_READ_EXEC,
-> > > > > diff --git a/mm/mmap.c b/mm/mmap.c
-> > > > > index d89770eaab6b..57a974f49b00 100644
-> > > > > --- a/mm/mmap.c
-> > > > > +++ b/mm/mmap.c
-> > > > > @@ -47,6 +47,7 @@
-> > > > >  #include <linux/oom.h>
-> > > > >  #include <linux/sched/mm.h>
-> > > > >  #include <linux/ksm.h>
-> > > > > +#include <linux/processor.h>
-> > > >
-> > > > It doesn't seem like this is necessary for this patch.
-> > > 
-> > > Thanks. Yeah it looks like I forgot to remove this over the churn.
-> > > Will fix it.
-> > > 
-> > > >
-> > > > - Charlie
-> > > >
-> > > > >
-> > > > >  #include <linux/uaccess.h>
-> > > > >  #include <asm/cacheflush.h>
-> > > > > --
-> > > > > 2.43.2
-> > > > >
+> What is DDR type? What information is encoded that doesn't make sense to
+> describe elsewhere in DT?
+>
+> Same for "bootdevice type", why would you pick a different DT based on
+> whether the bootloader was loaded from UFS or NAND? Why does this
+> information belong in DT?
+
+We can have multiple DT for different DDR types and boot device types. 
+In order to distinguish different DT when
+all other parameters are same, we are using DDR type, boot device type 
+as distinguishable parameters.
+
+>>> +         - const: qcom,pmic-id
+>>> +           description: |
+>>> +              Qualcomm boards can be attached to multiple PMICs where slave-id (SID)
+>>> +              indicates the address of the bus on which the PMIC is attached. It can be
+>>> +              any number. The model for a PMIC indicates the PMIC name attached to bus
+>>> +              described by SID along with  major and minor version. 2 integers are needed
+>>> +              to describe qcom,pmic-id. The first integer is the slave-id and the second integer
+>>> +              is the pmic model.
+>>> +              qcom,pmic-id = <pmic-sid pmic-model>
+> Same questions here, why don't you just walk the DT and read the
+> compatible properties of PMIC nodes?
+>>> +         - const: qcom,oem-id
+>>> +           description: |
+>>> +              Matches Qualcomm Technologies, Inc. boards with the specified OEM ID.
+>>> +              1 integer is needed to describe the oem-id.
+>>> +              qcom,oem-id = <oem-id>
+>>> +
+>>>   allOf:
+>>>     # Explicit allow-list for older SoCs. The legacy properties are not allowed
+>>>     # on newer SoCs.
+>>> @@ -1167,4 +1237,24 @@ allOf:
+>>>   
+>>>   additionalProperties: true
+>>>   
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/arm/qcom,ids.h>
+>>> +    / {
+>>> +         model = "Qualcomm Technologies, Inc. sc7280 IDP SKU1 platform";
+>>> +         compatible = "qcom,sc7280-idp", "google,senor", "qcom,sc7280";
+>>> +
+>>> +         #board-id-cells = <2>;
+>>> +         board-id = <QCOM_SOC_ID(SC7280) QCOM_SOC_REVISION(1)>,
+>>> +                    <QCOM_SOC_ID(SC7280) QCOM_SOC_REVISION(2)>,
+>>> +                    <QCOM_BOARD_ID(IDP, 1, 0) QCOM_BOARD_SUBTYPE(UFS, ANY, 1)>;
+>>> +         board-id-types = "qcom,soc-id",
+>>> +                          "qcom,soc-id",
+>>> +                          "qcom,board-id";
+>> Forgive me if this is a particularly cynical view, but this seems
+>> incredibly blatant, the "qcom,board-id" property is deprecated for
+>> various good reasons, just using a key/value map where "qcom,board-id"
+>> is a key doesn't change that. There are two main issues I have with the
+>> proposal here:
+>>
+>> 1. This breaks backwards compatibility, millions of production devices
+>> with bootloaders that will never receive another update might be
+>> compatible with the downstream "qcom,board-id" property, but they won't
+>> work with this.
+>> 2. A top level board-id property that isn't namespaced implies that it
+>> isn't vendor specific, but the proposed implementation doesn't even
+>> pretend to be vendor agnostic.
+
+ok, will try to redefine it. Meantime, since Elliot has some suggestions 
+from his EOSS conference presentation,
+will also co-work with him towards making another attempt at vendor 
+agnostic approach as well.
+
+
+>>
+>> U-Boot also has some ideas around this issue, there you can pass in
+>> multiple DTBs and provide some board specific "best match" function.
+>> I think there's definitely some value in exposing this information, but
+>> there's no good reason to define the same data as `qcom,board-id` while
+>> breaking production bootloaders.
+>>> +
+>>> +         #address-cells = <2>;
+>>> +         #size-cells = <2>;
+>>> +    };
+>>> +
+>>> +
+>>>   ...
 
 _______________________________________________
 linux-riscv mailing list
