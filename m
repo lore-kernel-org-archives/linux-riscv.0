@@ -4,197 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 811ADC04FFE
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 May 2024 07:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A778C04FFE
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 May 2024 07:40:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Yo/cYG9ep+8WpPZRtsIzyVozHM9Q/8nxWvb9s0huwI=; b=3jATociSG9pK/x
-	oUIwdI3Xombodsi4ryCFrEhvHdmqBSwwG6ISwpIAT5IEP9ME8oIQbCUkjhqdJiJAmiNR0eRJmjWJT
-	6sx/nl+MbJbs+skQRDrH1/fm7+XPb5qRCflVhpYFRAmQI4yfl5wxTDr0iwEiOl8ptQvKPHhCD3A7X
-	3ONWr2K0j8gibwmayi8jQpj1pKlVngHoVi0zhdNww7WR0b0IrsIBVJHX5le3pXj/R4gRtVYl7KJL1
-	aBVjQWPtZgweErkgfUmQN7CQDJcsXWIJy6aT+TVLJLDePrYl+fd9ctgAFb5q6QzPgDMkbJI3fXore
-	S97WOo5Hq6N5Ra4EOkag==;
+	List-Owner; bh=5QM1HBJ6TzCDz5jawnnCbLyZQNRZe0BXYlMga+IJHRE=; b=k4H35QZyuhaQgj
+	63py8gshcN7pXzBAD/CoBsFBWqpnfWtqP8FkIMc0l6BUNusj2VQlSIuSLeOJRr0aayXYK3MSPfOlZ
+	aNUY6TUGBcEQUOvf4rE85MmcYr1OqwD1pGFc+nSPklWEJPzYFdHDaKijrVmP7M8Mv3vS+s3p90grq
+	AScfolnHbutDAp+e5LtA+iToC1M1bDJt/Q6k4SkqD5AigIWtOshAzZDIczp0NZUr44+Bgsdcgm7yh
+	zLP2is8c18QkKZ5X10iBtGg2m3/L8RUcY0avQRrlqfGoemXCD/uz2m8GzkloPIG2SXwC68psYjl1s
+	BhJilZkYD/OoSPTjGnsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6mhr-0000000FFVG-0ok3;
-	Tue, 14 May 2024 07:36:15 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1s6mmI-0000000FGJ8-1Dvy;
+	Tue, 14 May 2024 07:40:50 +0000
+Received: from mail-bjschn02on20706.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::706] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6mho-0000000FFUl-1PKl
+	id 1s6mmE-0000000FGFk-2Tif
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 May 2024 07:36:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1715672172; x=1747208172;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=44T0KR7swBNc4t8JXmgGgMbX7mtjb2K6dZYXjWNCtIE=;
-  b=UkTg0AUEEEzlD9W2VX4xl0pmqk/HStsNtwzejPU/XL30Dchqx3n5naHZ
-   y3Jx7n1LCiAZ9kJOp/cjJtdkD5KwGQ9tyMDDNNgmg6NP4gjW/4sqUps4q
-   /H5+8kiIyvZk2AUvZlgkOxts8ZAAGlrV5vJ7Ct4UbSXBsaSLyjtccvQhL
-   DvczcQJIaIx4981qZKQNmMubwWx76FPArh+UI+uhIkbxkDSV8RS8d88Bi
-   ks2ru1JvmT8n1a/c2aG0tUU4htlntBkePIe8/h2G7OqAKlUJKlOHX5hTH
-   bLK/IhCgcearYdk5rwjIU4p2HG2NPze8KJIzDCs+/o+aNtKmiqbTCXuTn
-   w==;
-X-CSE-ConnectionGUID: TjG32NS4RCaTc0jMeSdt1w==
-X-CSE-MsgGUID: pGnRNqXBQ4GkYWfr8iZ8Iw==
-X-IronPort-AV: E=McAfee;i="6600,9927,11072"; a="11768951"
-X-IronPort-AV: E=Sophos;i="6.08,159,1712646000"; 
-   d="scan'208";a="11768951"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2024 00:36:08 -0700
-X-CSE-ConnectionGUID: RIfGoa1FTfCd6yZL1M57zQ==
-X-CSE-MsgGUID: UYt/O7/jTiCc0tRFcYyQVQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.08,159,1712646000"; 
-   d="scan'208";a="30609849"
-Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
-  by fmviesa009.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 14 May 2024 00:36:07 -0700
-Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
- fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 14 May 2024 00:36:06 -0700
-Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
- fmsmsx610.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35 via Frontend Transport; Tue, 14 May 2024 00:36:06 -0700
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.40) by
- edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.35; Tue, 14 May 2024 00:36:05 -0700
+	Tue, 14 May 2024 07:40:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ZMlmnh3/4sMF5BnDmPt+L+I8ecMBkCXxU2w8z9N7u7P4vVICqJRVFPVwJfMrxDhtdypDFehKGyxG/1BtU/IdxsZr9nmrB9RB2BVK0GNewdEUxuevdKj5vnOY0Sx2LQui8ceiGhLgg2y6gZvw9ABZIG43qPfjseHYVyDedtvQibxOEiG+dUvfQcgL5j/V0kzigV4uVI4EncjeyEr27RTD9BhJFDwS12krnl/YxTpLm7I/wr+tRqp3P6aMpkZxupJTM7/u+g3X2q328xD3bRk/Al/xuY29yWXm4Ml59yReVMhZg3YOSXTvS48CQZ0TOANOPSX6qv4ewyUGdPVy6jER6g==
+ b=nLK12ondh2aaBPXPJHEIuYF4aMPOJ/o1/pndXQ3Qqu+aq/ggm51gHScUlw2QuQGJawumplE59K1AbDXQazVo2nSQfNjjEmW6u4E5RlKJQJuknXEzOB/99okWaFkzxIRCGQv32hG5VvO7OpoFq4NEI7L7i/zAFAeZQHZlw3MZ4xC9wHhO9xb+q44HQEs/l6YzKi5XAQ5UmlPVwA7FeFvHrQgIetP99PrV1fAPd4c0hVvB7rTnVPQ3Hoze/kaD7uVuAyOzYs2orpyPzcwECQNpVemp1iqoIRnG69bhQmeSXSCXXVAGGXLGfGhaMR+7t+NUH+5F7+sExI8AiNUKwUDXOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KPpefHqeHsTTrdsxnIrPLsG+iF1UartQbfEhRN7b2QU=;
- b=SHCFU2L1MowhYaJ6naQ+7tb9SOMAZHtwVdM7Pe9hHlMn6oNH41KHFjsLAROHvsWfCm51+Reh/+FTn7PF5rb6k4qwWKB8tup7iU39zgyHL5zdLHD+qnpMfvV8AIOHvSYIV5+ZKhak8l0w7ma8qFCZ6pwYYYDhIYicwhEddqbVaV0JwVTAq34FGnbJ+HfEfaLp5EIgadfiMa5QkhcWlQAK+wvSPMj6x2e5BYWWh84Fe1Ai6HDKNmnwnXtg9lWwlF7D74Wg60XNjXrZsH69EbaJA0VLI7zTG8PPffzwb+RMaMhONVF0B13JCuvZgr9uFxB/5uKcLIsCcc1eA3rxN/sbGA==
+ bh=XcIdD0Ev4gpHLC2xbiBnygH6iDqeWbRLm6uGgpswxeY=;
+ b=hTQ84przq7UMrOBTASEiQjsQmW1lHDno/QBdhVPMnhoyLhOT5mLQ3n8lUTTYF+Fuxno81Jg5HYnVZ0JAGI767c21+mt11lwLxHkiuw/mzq9oowG5G5o2QmZ0HmAhd5A+NvexoDdObRO/u4N15Y+ZvXg3AJhft0MfAmWP/xVYnUN7mkRvXUw9wrwKRTmFiOUizH2/JpwptY1UV6EJtLGePzgU3sHcV+exPurEJYMjBVHTshkikNsPZAIGzW9jzckHiS6KroMJV0L5wVXTXZNJsLo6tCNgIWpQri0lfOzlJq64n1PePuktNlFdwZdRbD0bfVRXSSnEZYktRv78FFgTFA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from DM8PR11MB5751.namprd11.prod.outlook.com (2603:10b6:8:12::16) by
- MN2PR11MB4695.namprd11.prod.outlook.com (2603:10b6:208:260::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7544.55; Tue, 14 May
- 2024 07:36:04 +0000
-Received: from DM8PR11MB5751.namprd11.prod.outlook.com
- ([fe80::abaf:6ba7:2d70:7840]) by DM8PR11MB5751.namprd11.prod.outlook.com
- ([fe80::abaf:6ba7:2d70:7840%2]) with mapi id 15.20.7544.052; Tue, 14 May 2024
- 07:36:04 +0000
-From: "Wang, Xiao W" <xiao.w.wang@intel.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "luke.r.nels@gmail.com" <luke.r.nels@gmail.com>,
-	"xi.wang@gmail.com" <xi.wang@gmail.com>, "bjorn@kernel.org"
-	<bjorn@kernel.org>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net"
-	<daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>,
-	"martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com"
-	<eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>,
-	"yonghong.song@linux.dev" <yonghong.song@linux.dev>,
-	"john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org"
-	<kpsingh@kernel.org>, "sdf@google.com" <sdf@google.com>, "haoluo@google.com"
-	<haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:8::10) by NTZPR01MB1003.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:1::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.33; Tue, 14 May
+ 2024 07:40:03 +0000
+Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e903:99a6:10b7:304d]) by
+ NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn ([fe80::e903:99a6:10b7:304d%6])
+ with mapi id 15.20.7472.044; Tue, 14 May 2024 07:40:03 +0000
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"bpf@vger.kernel.org" <bpf@vger.kernel.org>, "pulehui@huawei.com"
-	<pulehui@huawei.com>, "Li, Haicheng" <haicheng.li@intel.com>,
-	"conor@kernel.org" <conor@kernel.org>, Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: RE: [PATCH v2] riscv, bpf: Optimize zextw insn with Zba extension
-Thread-Topic: [PATCH v2] riscv, bpf: Optimize zextw insn with Zba extension
-Thread-Index: AQHao0tSYAL6LqZaWUWtv7jZE6ZoR7GVZY4AgADuVMA=
-Date: Tue, 14 May 2024 07:36:04 +0000
-Message-ID: <DM8PR11MB575179A3EB8D056B3EEECA74B8E32@DM8PR11MB5751.namprd11.prod.outlook.com>
-References: <20240511023436.3282285-1-xiao.w.wang@intel.com>
- <20240513-5c6f04fb4a29963c63d09aa2@orel>
-In-Reply-To: <20240513-5c6f04fb4a29963c63d09aa2@orel>
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: RE: [PATCH v5 0/2] Add notifier for PLL0 clock and set it 1.5GHz on
+Thread-Topic: [PATCH v5 0/2] Add notifier for PLL0 clock and set it 1.5GHz on
+Thread-Index: AQHaoEtCPDK2HwhwXUSWjcDZE/pIQ7GQ+umAgABXAkCAAKg2gIAEWZ+w
+Date: Tue, 14 May 2024 07:40:02 +0000
+Message-ID: <NTZPR01MB0956A7393097129D3CD048EB9FE32@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
+References: <20240507065319.274976-1-xingyu.wu@starfivetech.com>
+ <20240510-unfounded-syrup-d1263d57d05a@spud>
+ <NTZPR01MB0956D48361098E8AA4B3930A9FE02@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
+ <20240511-unbiased-dainty-ccb5ece9b1b9@spud>
+In-Reply-To: <20240511-unbiased-dainty-ccb5ece9b1b9@spud>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM8PR11MB5751:EE_|MN2PR11MB4695:EE_
-x-ms-office365-filtering-correlation-id: 5adb08c8-8b8f-495c-367a-08dc73e882ad
+x-ms-traffictypediagnostic: NTZPR01MB0956:EE_|NTZPR01MB1003:EE_
+x-ms-office365-filtering-correlation-id: 9fea678b-8ae3-4c0c-381c-08dc73e910fd
 x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230031|7416005|1800799015|376005|366007|38070700009;
-x-microsoft-antispam-message-info: =?Windows-1252?Q?KrM7LRyZ1K28Qo4UgOVYzgOFpaBwg9RzFzNh46FQ7JLsQIEx4MN7x1so?=
- =?Windows-1252?Q?aOTPkJgAjYmDRxU3VMirpOKjfCQ2jEHP1w+gsxxIDW/MZ8OYWZ09Iv0b?=
- =?Windows-1252?Q?Fau/1LA1SllXcmrwBXgJZcQNd9iSzBP6+6nOBK/2zvLkd9xEaqPQ2Ewi?=
- =?Windows-1252?Q?xX1TtObvEKekyMdrBgIasBhHZMOF7M8I8UYE18kTpws2g3DO8G+JrcUT?=
- =?Windows-1252?Q?wbiuAOyUYU4Zpt0Jjn2ENwRdpoZXQiw5NiuYzb8Z/+xs2bt0u3cK90cm?=
- =?Windows-1252?Q?fPuuA74XP7gv3Hcf85eJ0dmQ5S+j/SpdbrjfYM88tFWfcBO/yN62PkKZ?=
- =?Windows-1252?Q?xQ+K59zzphq7i6cDbCZP7/06/vmFWkPlxkmIcDlNKlAE4Lx7bx75eXOK?=
- =?Windows-1252?Q?vxjYYM2m6qmWCemEKq8JiWlvXLbgHB65TfMhSv+sd8kovihmI3lO4Lyt?=
- =?Windows-1252?Q?j54eRkIjtMORNBTRkwIcgxue+2eyFJ8PM+pBgnfaIwCw/2ySKb6F/YFx?=
- =?Windows-1252?Q?vLenrizUevYAFTm76eU2QU/1Yq2D0/8QutqAZCkvABSvcxFhxn67UFWP?=
- =?Windows-1252?Q?hCOH3RdKVf3g/hBfJofyomBrE7a49zkToEY1/JJPWfQ91wAH73jqPoFk?=
- =?Windows-1252?Q?u0ncX37msdAXhb7+aEsEZB4jdf7yZwJ1U0/WzhAJ6sbdXIHWpqEj5iEO?=
- =?Windows-1252?Q?B2vUhtMvk4cza2gJgM26YSgt88OcAZtq8Lw3gjn+8Sstpi6K2i1QsObR?=
- =?Windows-1252?Q?rgnX2ePXfKptRI/egKJZUJCTEJVC8Nr5rcJ6tiChD8miEwsVpH+YtKoe?=
- =?Windows-1252?Q?ODcK7YAplBi2aEuZbm3RTBoBevKa2qa2gX+qoSgeFUzZXzddA6g2SBfB?=
- =?Windows-1252?Q?UA7yvoKLFJKdaSm/CSr0LiIPePFKpXwFXqx5xw56JSzIlORXNvj7CUy3?=
- =?Windows-1252?Q?4fynQn577CW87hEhuGficOXVZCx3UQDQOZ/T5xjgaXgZs+W10K4zNnSq?=
- =?Windows-1252?Q?cf7xZ8vTeHluKB0REM4MDF3OlIycLdtmc5ImE4BZ6iOBqumZ/6ao20wP?=
- =?Windows-1252?Q?QfBzUoXPZ3FSyJL3EDdKS+L6K5k3bKFpP5UTi8FzyUUPcTFDHXeQWeyd?=
- =?Windows-1252?Q?VAQHmcvgT3eneh6U/zgdA7xkKlBMC87FXjfstdTHlXsnkiujn6A4k80P?=
- =?Windows-1252?Q?w5qExZFecjWCXus+WoyK0Dfmp/2hs1S2shD+1JZc8LSHskDoKFu9ZSYu?=
- =?Windows-1252?Q?y+TgV0bl9jEq2XAs/2Ont9b+A4UkCfmFxzSt39sA6UtYy3gl7yLBaYkq?=
- =?Windows-1252?Q?BjvoEGbRFyZCMJ9OCqiGfTvinva8oOAKHPUAw9unu0RsP2CouuKFDXnY?=
- =?Windows-1252?Q?xThW8vwL7ijxgFBXJanylQW+RsHAZeph+T9CDCtA4f4Cf3N1fOQ2WnkN?=
- =?Windows-1252?Q?jB1yJySzoW77CHnP6U1nxA=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR11MB5751.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(7416005)(1800799015)(376005)(366007)(38070700009);DIR:OUT;SFP:1101;
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: BQOgBIxEWID32f5nQZsBJr6MWbtq+iKQpJr96dA00ETrp5mHkoNZSJE2EAXV+ImZD+ZrT/rbVTE/zi4c8fH8ksQN1PrNH47SJhcj7UW0k2vwoNV8Hv9F2Z7QQ+Y8KCcFFFxatjtmLem7vKDc+n9JRYP5hRO0OCs+BnIjaCZQXvn1wG279VCBXd+ML43AgDaL5cCcoRlL0B6vf/3IWN3X5mIsSsq0TtHeEzSrijvHwI7+JUjEx5K7DQTdp2gAntikWuJUOGi/tpzC0r9OWFtZu6MvxSsV0WXH9dIrPbY6KSVNo8S21A3UwiZtb4UvNVmAelXvUMuFhlQIYg5DtBsYVDO7OJc+JVionZwZ4Ig4yosSs/pPx5d8ux8JyXJdWtjnM9AaqH5oRVNSIUEjWoY+/cI/57nCtpRJrXEIQoP9QsOP/tQaFO7H349RYm3di6Tcb9PPLoB0+1G1Pw6lauAh7IK58lrp7+zCiUoKLjCKSqgBsZaUk4w0RbFe4x9jmZ9L+V7NV2NEqnb759mxMpDYMLAERlyEK6LolnZUjQwSmhjCaKBlTJ7fMsl/mZfvSUb9Gy2t1jiHPvLbxAO9pwL/31FG0BSANfnSwCeUhFqtIE3fLu+yAZF87h8gX6DWI2E/
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(7416005)(366007)(41320700004)(38070700009);DIR:OUT;SFP:1102;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?Windows-1252?Q?VBn4WNQIgZl+7960aGDjhq1y/SmOf8FGSHukCM0BNWsDriHZL73H+gwe?=
- =?Windows-1252?Q?cItNN54SHcxT6NLBAoHUJ0UEbdXnNJ6kXzp/syxlfvcsokIFhFlhsun5?=
- =?Windows-1252?Q?5p4V2GVMW9w+/f+zYzLm36UEK77kGIakrMKeHQVZ7YcoMeX7t0apNTel?=
- =?Windows-1252?Q?n99rgT66PYsncB8oYUi1iEjMb6b3D09hVGnZKj4SOx7a5t2raXCQx038?=
- =?Windows-1252?Q?UXt5q1hZZxNaNnaibsto5OWXLgnBd8zuPcC/5Yyarmj6AOxUr5hAYS+B?=
- =?Windows-1252?Q?s+qet79ZgzHkmgAQ2UOjWln1H0HIbF0kAMpT9jKNSai8MBtmSbiO7k3Z?=
- =?Windows-1252?Q?em9WSQ10XFclqwaY/feRwC6HAzAuYBS9kLiyBnUhdIum0EpGmFqxkYsg?=
- =?Windows-1252?Q?bUrI9slK8kHZSJSZ0ZF1zYahJaU4cyiIQVcVEH/18schF/PTbZGPNk0t?=
- =?Windows-1252?Q?ABDNQNdiI/a3RKvQ1Q+1PvUyvurDcdYwNCB+VyMpR04wm44cWNHYQ41n?=
- =?Windows-1252?Q?LpNqjqT3XrjQP1iqzbneRXqaA7jENgPD7fIrXcoeYsN9z0Ow01XZVhyj?=
- =?Windows-1252?Q?0Tazv1K8zYnqtp711e1jtmkvTvxzZsKr0VbiJ5evrP+X0bF7FfauivHs?=
- =?Windows-1252?Q?+WxnDOSykGSZLyUKP5q74D6PhdlaRYDPVRFfIBIvc9hoAA5J9V+j1TaU?=
- =?Windows-1252?Q?HhMyL1ZfS7HWvUfT4InCa4P7UEPUOoAnkmoENTLBbxPahT91ArcX3J/8?=
- =?Windows-1252?Q?BCFJ4Vbk/2L/kmXEhZsoCZaGRQKP1k3Orv//OERL01YHxNr6sxx9FhL8?=
- =?Windows-1252?Q?OgiF0Eo5vaqOGMOTQHNgabSIGtYTj3cBQT5abjqDC036ERHTII9TMjX3?=
- =?Windows-1252?Q?8FFUAbt85kQAmIeUEKhBR0ZXjj9mvcRWDiTKxyuN95r6UAbQmk0UDzl8?=
- =?Windows-1252?Q?BFKUXEz0i+OL5gJpvxDyGT63LKi4tPvJlUv21a305kZIhZwwTM3aaYgm?=
- =?Windows-1252?Q?2O9Olxr7Doz5uPuyMoGWdZBlpU1gBx1Q4JbFTlBBAqkm3D1VATNeaaop?=
- =?Windows-1252?Q?VympOurFNFfWdwHTm+j5cSKbIXL3sVW8bqe9J4S1qB2KfRZaN0Y1GWZa?=
- =?Windows-1252?Q?w4hjaSQVCVkF8yi+lcvb2z+2NlzTafYW2Jn/jA9yudLrE8mzBWBv4CKd?=
- =?Windows-1252?Q?FICE697fu5KTjcdiEAy8/IM3ZSiCZhLUg6fENl69o9LfsItvQMbhVCeJ?=
- =?Windows-1252?Q?/guzrYqGMh2HiLCsRrA+HrA0NgnLNoXBLF4dGQpAGclC9dJSM8lIjPqu?=
- =?Windows-1252?Q?9h0IoMiT4xHpHSCqyr6P/seDe4zSukr9V8Y2zQrKngKobkmBg5crL9kr?=
- =?Windows-1252?Q?l3B+XVQXtQISz2BH0TwvY3t+xayMYJIxT1/hoNSwWWyoKpibtpp4mQZS?=
- =?Windows-1252?Q?R+JPflvu0J7nBS9GhBt9D5dGJ//DwvlDxZymJ4hPF7pn0/w3mpI8praj?=
- =?Windows-1252?Q?/Gd9Me2KQoFTSMHya5W/tOwRw53XlHihvTfKHxshFZIS72v///6QvWZZ?=
- =?Windows-1252?Q?K1cf4faPD6xqILasmpoXOws5IpyJYQF+UXnORZENAtty9AosuFfP1ZCc?=
- =?Windows-1252?Q?KR9K0gzHh+JkroUN4IxEkA08Tf4V1PCZd8eZZZl+BK8V9pJPlPgUkGDa?=
- =?Windows-1252?Q?ofl+BZ/wbS7EBiQVvP8jApzqjTrD8LWt?=
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?xEKKK8uwB3urTPd/RPalwR9qWmSmbZnBl/D+/qhk/eBjco5/l3xlQ0kWwBTW?=
+ =?us-ascii?Q?Xxhw9bmiKajoaP7ZrL4UYQemhUmOjby9RI1LfZmNt4CVK16FnnsUpSgeU+un?=
+ =?us-ascii?Q?vqcvsAlyU7mlORsOGxs8SxJAmW0fPtPGyOuVlvJKucZXRIUre1Wz6+qpoisN?=
+ =?us-ascii?Q?R9hBfvo/rBt6QjmiWbGtrOGmI1uw1rDU6I6GxrNhnp5cqBQc70YgczbkFRdU?=
+ =?us-ascii?Q?vktPpGhYkIOgvCq4j1bqDjAxK0tOn8rKwLrfltJg35LtpC9MFWjaGkqbLCDe?=
+ =?us-ascii?Q?uPD3izB29TDWi5acckMRdp4KJsYo/0dmf8uU9trhSQcBFPL2vXYzMnSh0KzE?=
+ =?us-ascii?Q?sC9TXDunAsaqp5Wfds0q3Gqz/sHMnO+tXOw/40c5DL5FPGyZkQCgd84OW5ZZ?=
+ =?us-ascii?Q?nh0Yqzt6LmgGdi0y9AgiQvvD39WdQvn7lJqaiXTgazfQTgofx0xwuyhRtA/s?=
+ =?us-ascii?Q?JL92x3zrCn4Ocx4mfWt9KIOudsAleEnI0ORPn7w6FKCy+U0pkJpW1nFMtGje?=
+ =?us-ascii?Q?EQ/1mkQ7vGKzjHXOMpQcjhERVb4OOgUNd9l2vYS5SnSoCVsMfnYCFokx+ulO?=
+ =?us-ascii?Q?OLJSyQlUYFdB1kWcaiCRBYrRT8xhv5w32q3+T4EduWavd4jo5k7b/0cdSbO4?=
+ =?us-ascii?Q?GVWs7BlUdweMi7CyTD3TvFyZo2yh7Nv4/I3PQ4zQ9HO8L8Znh81i+aiKWoRP?=
+ =?us-ascii?Q?CfClOqevJpN/vK7y4jzJaKG9D738DpKMt29Q0SkJRLOe1MXkzk94NcotB+bX?=
+ =?us-ascii?Q?fZn6PcHJSf6Tq5DhpZecA6WCtsQLWdIGrmBQKRxpmKyWx5jQ6tSFsx7SKaOr?=
+ =?us-ascii?Q?m0fnZpyM19MWZq10640VWFI7OnlGDoPrlxrQnSDQwmYjCcK5vL8R30Hg561L?=
+ =?us-ascii?Q?Ey3u61ZF7SWh/Wove4AN/EeRAmR6g6mMF0VkKVFC+ytUdKGxcqAyS2yd3Grd?=
+ =?us-ascii?Q?FQaeHiJziYFkfVSqZcqqibVmcm0x3g2RacCBnXO8ckzgOW80uGMF9VskXPHx?=
+ =?us-ascii?Q?04ZmgiWo9FxHhebmiuWkBWXzSdzYAXGxxjlJvCLTZlYHKuY3Se3MHM/Uf36r?=
+ =?us-ascii?Q?26eYy76U/BjPkPLmxS3+IDzP21YDj9tLTmbeejN5rfshqeazk4a/0hW58F9G?=
+ =?us-ascii?Q?107yl4lTFta455t/SS+gGCdIp38lM3AJdtbPomiIMBG0RSF0DiC874qJHLFu?=
+ =?us-ascii?Q?CffRWc9jNU/jOypgoDjayrRBjAPStvXSweZn/610tLQozZpJwXd/iu/boMYI?=
+ =?us-ascii?Q?P8dIQzEz52TrtnpGStlPjiGbZ6E/SNOCzQ6mMg+IkVfPY55KErIqmOjRMW+W?=
+ =?us-ascii?Q?lYAa2Ju1+0ayFGjzZMZFJuFzNJsrOHPIFaD6CnR6+aBFDJI+voNI8jSIzLJw?=
+ =?us-ascii?Q?2gQ0nBdDBtapKVfSQ8hXauGTjNbOq0O2rVkbApwnFWENorUo+ykPdedP448d?=
+ =?us-ascii?Q?hTHpqvysWuoSu8AhRhThm9amF14n5jxJUu520RYQfLgbKScp/7gM/wvJwIth?=
+ =?us-ascii?Q?u1RkUygdoYpblnni5C6cMHRsqGQEe6GZYuN196TgyRIHLsLbCx7Zzheuhiu0?=
+ =?us-ascii?Q?pu+YJ9mq6BaHLYP2fJ9kNpupKvmC6c8WsBjjQSLJ?=
 MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM8PR11MB5751.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5adb08c8-8b8f-495c-367a-08dc73e882ad
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 May 2024 07:36:04.1586
+X-MS-Exchange-CrossTenant-AuthSource: NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fea678b-8ae3-4c0c-381c-08dc73e910fd
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 May 2024 07:40:02.9101
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: cE095cX+YFWOcy2wOnpt84E1n7VzCkXdELt0IgDwC6sCqB2jK/umpT0KhdVo/45tx2t8jwPwazyd67b1KaBciw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB4695
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-userprincipalname: U5U++6IwC9bjV3E6eM5/q53Oz1PUPDKmNPB6rOiLQ1HG24X8D9Vsc3cMKbL8zfzqa4Y1nZzOLuipFaRJBk0DkAgJvkIZpCNHiFixEmMGWLs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB1003
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240514_003612_464531_0782A8EB 
-X-CRM114-Status: GOOD (  22.20  )
+X-CRM114-CacheID: sfid-20240514_004046_654155_77C8EF97 
+X-CRM114-Status: GOOD (  30.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -211,103 +140,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> -----Original Message-----
-> From: Andrew Jones <ajones@ventanamicro.com>
-> Sent: Tuesday, May 14, 2024 12:53 AM
-> To: Wang, Xiao W <xiao.w.wang@intel.com>
-> Cc: paul.walmsley@sifive.com; palmer@dabbelt.com;
-> aou@eecs.berkeley.edu; luke.r.nels@gmail.com; xi.wang@gmail.com;
-> bjorn@kernel.org; ast@kernel.org; daniel@iogearbox.net; andrii@kernel.org;
-> martin.lau@linux.dev; eddyz87@gmail.com; song@kernel.org;
-> yonghong.song@linux.dev; john.fastabend@gmail.com; kpsingh@kernel.org;
-> sdf@google.com; haoluo@google.com; jolsa@kernel.org; linux-
-> riscv@lists.infradead.org; linux-kernel@vger.kernel.org; bpf@vger.kernel.org;
-> pulehui@huawei.com; Li, Haicheng <haicheng.li@intel.com>;
-> conor@kernel.org
-> Subject: Re: [PATCH v2] riscv, bpf: Optimize zextw insn with Zba extension
+On 11/05/2024 20:19, Conor Dooley wrote:
 > 
-> On Sat, May 11, 2024 at 10:34:36AM GMT, Xiao Wang wrote:
-> > The Zba extension provides add.uw insn which can be used to implement
-> > zext.w with rs2 set as ZERO.
+> On Sat, May 11, 2024 at 03:02:56AM +0000, Xingyu Wu wrote:
+> > On 11/05/2024 05:05, Conor Dooley wrote:
+> > >
+> > > On Tue, May 07, 2024 at 02:53:17PM +0800, Xingyu Wu wrote:
+> > > > This patch is to add the notifier for PLL0 clock and set the PLL0
+> > > > rate to 1.5GHz to fix the lower rate of CPUfreq on the JH7110 SoC.
+> > > >
+> > > > The first patch is to add the notifier for PLL0 clock. Setting the
+> > > > PLL0 rate need the son clock (cpu_root) to switch its parent clock
+> > > > to OSC clock and switch it back after setting PLL0 rate. It need
+> > > > to use the cpu_root clock from SYSCRG and register the notifier in
+> > > > the SYSCRG driver.
+> > > >
+> > > > The second patch is to set cpu_core rate to 500MHz and PLL0 rate
+> > > > to 1.5GHz to fix the problem about the lower rate of CPUfreq on
+> > > > the visionfive board. The cpu_core clock rate is set to 500MHz
+> > > > first to ensure that the cpu frequency will not suddenly become
+> > > > high and the cpu voltage is not enough to cause a crash when the PLL0 is set
+> to 1.5GHz.
+> > > > The cpu voltage and frequency are then adjusted together by CPUfreq.
+> > >
+> > > Hmm, how does sequencing work here? If we split the patches between
+> > > trees it sounds like without the dts patch, the clock tree would (or
+> > > could) crash, or mainline if the clock changes there before the dts
+> > > ones do. Am I misunderstanding that?
 > >
-> > Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
-> > ---
-> > v2:
-> > * Add Zba description in the Kconfig. (Lehui)
-> > * Reword the Kconfig help message to make it clearer. (Conor)
-> > ---
-> >  arch/riscv/Kconfig       | 22 ++++++++++++++++++++++
-> >  arch/riscv/net/bpf_jit.h | 18 ++++++++++++++++++
-> >  2 files changed, 40 insertions(+)
-> >
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 6bec1bce6586..e262a8668b41 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -586,6 +586,14 @@ config RISCV_ISA_V_PREEMPTIVE
-> >  	  preemption. Enabling this config will result in higher memory
-> >  	  consumption due to the allocation of per-task's kernel Vector
-> context.
-> >
-> > +config TOOLCHAIN_HAS_ZBA
-> > +	bool
-> > +	default y
-> > +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zba)
-> > +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zba)
-> > +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-> > +	depends on AS_HAS_OPTION_ARCH
-> > +
-> >  config TOOLCHAIN_HAS_ZBB
-> >  	bool
-> >  	default y
-> > @@ -601,6 +609,20 @@ config TOOLCHAIN_HAS_VECTOR_CRYPTO
-> >  	def_bool $(as-instr, .option arch$(comma) +v$(comma) +zvkb)
-> >  	depends on AS_HAS_OPTION_ARCH
-> >
-> > +config RISCV_ISA_ZBA
-> > +	bool "Zba extension support for bit manipulation instructions"
-> > +	depends on TOOLCHAIN_HAS_ZBA
+> > Oh, I think you misunderstood it. Patch 1 (clock driver patch) does
+> > not cause the clock tree crash without the patch 2 (dts patch), and it
+> > just provides the correct flow of how to change the PLL0 rate. The
+> > patch 2 is to set the clock rate of cpu_core and PLL0 rate, which
+> > causes the crash without patch 1. Setting cpu_core rate is to avoid crashes by
+> insufficient cpu voltage when setting PLL0 rate.
 > 
-> We handcraft the instruction, so why do we need toolchain support?
+> So is the problem in the other direction then? My dts tree will crash if I apply the
+> dts change without the clock patch?
 
-Good point, we don't need toolchain support for this bpf jit case.
+Sorry, I tested it and it could not crash using only dts patch. It can separate the
+patches and use it individually.
 
+> Additionally, what about U-Boot? Will it have problems if the dts is imported
+> there without changes to its clock driver?
 > 
-> > +	depends on RISCV_ALTERNATIVE
-> 
-> Also, while riscv_has_extension_likely() will be accelerated with
-> RISCV_ALTERNATIVE, it's not required.
 
-Agree, it's not required. For this bpf jit case, we should drop these two dependencies.
+It is not apply to U-Boot. In the U-Boot, the PLL0 rate should be 1GHz to for GMAC
+and PMIC to work. But now the PLL0 rate should be 1.5GHz in the Linux.
 
-BTW, Zbb is used in bpf jit, the usage there also doesn't depend on toolchain and
-RISCV_ALTERNATIVE, but the Kconfig for RISCV_ISA_ZBB has forced the dependencies
-due to Zbb assembly programming elsewhere.
-Maybe we could just dynamically check the existence of RISCV_ISA_ZB* before jit code
-emission? or introduce new config options for bpf jit? I prefer the first method and
-welcome any comments.
-
-Thanks,
-Xiao
-
-[...]
-> >  {
-> > +	if (rvzba_enabled()) {
-> > +		emit(rvzba_zextw(rd, rs), ctx);
-> > +		return;
-> > +	}
-> > +
-> >  	emit_slli(rd, rs, 32, ctx);
-> >  	emit_srli(rd, rd, 32, ctx);
-> >  }
-> > --
-> > 2.25.1
-> >
-> 
-> Thanks,
-> drew
+Best regards,
+Xingyu Wu
 
 _______________________________________________
 linux-riscv mailing list
