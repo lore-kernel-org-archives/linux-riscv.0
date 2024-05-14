@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D376C04FFE
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 May 2024 10:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C61C25B75
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 May 2024 12:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DyogOSAFaNH8aHQk7N2+mpyizEu0N3FJY2w5gEYG13g=; b=S5BgC+Ad4Y+c+G
-	AmNc7hcwwT12oUkejziOS+pt3AFcd2qe7xy4L/daOCmPID6C5IeKPBTTEzeRN83rFh0Rm1iUTrzWu
-	KPFn0mDtnZaN7N8lD8idzVcaH1YkHdHw5fyQpxq8jCKtn+xmObLr6PRKlFk2lq1CRJQ4QHiWEbYRa
-	YhGsCjC+n0nv/g6pNpZQ4SjemWgvt1qyhjcwu3Am+3GAeKRGZB9XvJ0UXBG16Oboe5Mo7xnEFmo1T
-	r5QJe4Ecb/Wrvvva3V72XtvoM5Dr9hscnQqp/TTUatDF1VRdO+Ls+4uaZivsVPOq6PWRMiTjC0MpW
-	O7Dxv8ouR9K16uz8rGHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s/NriAYKKqEn8cJEBji6vjdhZ7dI7jCWlDdDxys3YpE=; b=W/hwW5Tq6uzBwDWmi1/9MG62Tx
+	z6PKLgetr9b6DeBTaz1oKSI0+woLXKxyrYqXIyH1kmUPX7IhbaEzQXsj/NCQMZcEmktO/hNA98Gt+
+	SaCSnCw4s6yxpoROFsmn3w3DRWWznOSTr4+47Ivq1w4QN9YEcNVL5lPK204ViI5BwSxqMcRkQSPHw
+	gyRU0Jg+5A7F6m0ILFhiNCeIDHHU/EyPCRkmdtcWl6esflbizfqLWaeORPQnx4wIdsbb06fgxgUKh
+	xcJDnrBvH32xpa5vQN+EpedxCKrPaAHXoLbfSxnRluaT+Nu8OC8aodaUdFWcvMf4Vl+KZ1k2g2g4T
+	OmwcmTRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6pfu-0000000FcfO-0OE2;
-	Tue, 14 May 2024 10:46:26 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1s6rVs-0000000Fu1y-3o7L;
+	Tue, 14 May 2024 12:44:12 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6pfr-0000000FcdN-0c7U
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 May 2024 10:46:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1715683583; x=1747219583;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=4slCxc3P8EDvVix44D3POLsDodsmYi4dyKslEAmSSbc=;
-  b=Ts2LRsbEw1ejGLdPpaLjCCehXJ48iOmpG2n7hs7vR3nU+n5NGCC0Lm6P
-   FTey8VRWTDI4Q5t6YY3zmTkrdmMkr8qLRLY695df00S6addtmj1vZDSx7
-   r6DQYIsvikETbRV0XUh1xRhwze4nog9nPpVLqI1kvBANDh2ByT9L3fvPf
-   UdQZsX7D+nhGLjqi8gieIGU92MyW91L9tBupJ3qzIez5DU1uH/8kivbXf
-   uS3UXRuIuMI0s4i6xgQ+j4joHoCEZNU2lVrNQx+3viIYkjQtxP1ZwpJlN
-   RPFxRcQ/CDZ3qvc3eqF7OsCdDFy3MqPD5fCoJfJN/ovu2xJHLNhdeQW1M
-   w==;
-X-CSE-ConnectionGUID: pbXPAEwqSv+MVNI86TSxeg==
-X-CSE-MsgGUID: eHmYSOjGTcGSvJS2RCp+kg==
-X-IronPort-AV: E=Sophos;i="6.08,159,1712646000"; 
-   d="scan'208";a="25223737"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 May 2024 03:46:22 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 14 May 2024 03:44:59 -0700
-Received: from Lily.microchip.com (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Tue, 14 May 2024 03:44:57 -0700
-From: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
-To: Mark Brown <broonie@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-spi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>,
-	<valentina.fernandezalanis@microchip.com>,
-	<prajna.rajendrakumar@microchip.com>
-Subject: [PATCH v2 2/3] spi: spi-microchip-core: Fix the number of chip selects supported
-Date: Tue, 14 May 2024 11:45:07 +0100
-Message-ID: <20240514104508.938448-3-prajna.rajendrakumar@microchip.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20240514104508.938448-1-prajna.rajendrakumar@microchip.com>
-References: <20240514104508.938448-1-prajna.rajendrakumar@microchip.com>
+	id 1s6rVo-0000000Ftzs-2tmV;
+	Tue, 14 May 2024 12:44:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 74F39CE126A;
+	Tue, 14 May 2024 12:44:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2213C2BD10;
+	Tue, 14 May 2024 12:43:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1715690640;
+	bh=frcCTz483GMnhYg7RWj0qSs/9NEH9LvHXWO5H2Yy4ig=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WHZuW4srm0yCDfSbJUt5JCAxCjKy7cx7Q1H3MbIduBZqdIECmEiWfF/AXzRGjYxME
+	 GW2/CRUxcrQ0bQp8yDXScoMqdoZG0/KtGNE7ImqeXvan3fS7YfUL+u14bqag6i3gzD
+	 IQLtGQazfqcdl/DkfSnxxX38HL4cvm/vuT0/djBaE1+wID4tOnzwJVIBw10ppTJ9HX
+	 p/xSP4MFZp8AMV/0GEAo/MsORo1RdQ3eZlmsx1m3OHYIBqUZJyv42UczQ5JPWf6Liq
+	 XfyKyJ10c0bVUZns5frYAgeCGUVeoLkF7BQR7t4Q0qaEOD7XpZblYZ0iouWN5YvG2W
+	 jk2uzrlyC7etw==
+Date: Tue, 14 May 2024 13:43:54 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
+	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 02/11] riscv: add ISA extensions validation
+Message-ID: <20240514-sip-exclusion-014b07b01f4c@spud>
+References: <20240429150553.625165-1-cleger@rivosinc.com>
+ <20240429150553.625165-3-cleger@rivosinc.com>
+ <20240429-subtext-tabby-3a1532f058a5@spud>
+ <5d5febd5-d113-4e8c-9535-9e75acf23398@rivosinc.com>
+ <20240430-payable-famished-6711765d5ca4@wendy>
+ <e57f8b70-7981-42c1-bb04-2060054dd796@rivosinc.com>
 MIME-Version: 1.0
+In-Reply-To: <e57f8b70-7981-42c1-bb04-2060054dd796@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240514_034623_275294_45518671 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20240514_054409_495947_474DE2FE 
+X-CRM114-Status: GOOD (  48.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +79,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8753692578752052121=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SPI "hard" controller in PolarFire SoC has eight CS lines, but only
-one CS line is wired. When the 'num-cs' property is not specified in
-the device tree, the driver defaults to the MAX_CS value, which has
-been fixed to 1 to match the hardware configuration; however, when the
-'num-cs' property is explicitly defined in the device tree, it
-overrides the default value.
 
-Fixes: 9ac8d17694b6 ("spi: add support for microchip fpga spi controllers")
-Signed-off-by: Prajna Rajendra Kumar <prajna.rajendrakumar@microchip.com>
----
- drivers/spi/spi-microchip-core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--===============8753692578752052121==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="d4LtUScPc142c/dS"
+Content-Disposition: inline
 
-diff --git a/drivers/spi/spi-microchip-core.c b/drivers/spi/spi-microchip-core.c
-index 634364c7cfe6..c10de45aa472 100644
---- a/drivers/spi/spi-microchip-core.c
-+++ b/drivers/spi/spi-microchip-core.c
-@@ -21,7 +21,7 @@
- #include <linux/spi/spi.h>
- 
- #define MAX_LEN				(0xffff)
--#define MAX_CS				(8)
-+#define MAX_CS				(1)
- #define DEFAULT_FRAMESIZE		(8)
- #define FIFO_DEPTH			(32)
- #define CLK_GEN_MODE1_MAX		(255)
--- 
-2.25.1
 
+--d4LtUScPc142c/dS
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, May 14, 2024 at 09:53:08AM +0200, Cl=E9ment L=E9ger wrote:
+>=20
+>=20
+> On 30/04/2024 13:44, Conor Dooley wrote:
+> > On Tue, Apr 30, 2024 at 09:18:47AM +0200, Cl=E9ment L=E9ger wrote:
+> >>
+> >>
+> >> On 30/04/2024 00:15, Conor Dooley wrote:
+> >>> On Mon, Apr 29, 2024 at 05:04:55PM +0200, Cl=E9ment L=E9ger wrote:
+> >>>> Since a few extensions (Zicbom/Zicboz) already needs validation and
+> >>>> future ones will need it as well (Zc*) add a validate() callback to
+> >>>> struct riscv_isa_ext_data. This require to rework the way extensions=
+ are
+> >>>> parsed and split it in two phases. First phase is isa string or isa
+> >>>> extension list parsing and consists in enabling all the extensions i=
+n a
+> >>>> temporary bitmask without any validation. The second step "resolves"=
+ the
+> >>>> final isa bitmap, handling potential missing dependencies. The mecha=
+nism
+> >>>> is quite simple and simply validate each extension described in the
+> >>>> temporary bitmap before enabling it in the final isa bitmap. validat=
+e()
+> >>>> callbacks can return either 0 for success, -EPROBEDEFER if extension
+> >>>> needs to be validated again at next loop. A previous ISA bitmap is k=
+ept
+> >>>> to avoid looping mutliple times if an extension dependencies are nev=
+er
+> >>>> satisfied until we reach a stable state. In order to avoid any poten=
+tial
+> >>>> infinite looping, allow looping a maximum of the number of extension=
+ we
+> >>>> handle. Zicboz and Zicbom extensions are modified to use this valida=
+tion
+> >>>> mechanism.
+> >>>
+> >>> Your reply to my last review only talked about part of my comments,
+> >>> which is usually what you do when you're gonna implement the rest, but
+> >>> you haven't.
+> >>> I like the change you've made to shorten looping, but I'd at least li=
+ke
+> >>> a response to why a split is not worth doing :)
+> >>
+> >> Hi Conor,
+> >>
+> >> Missed that point since I was feeling that my solution actually
+> >> addresses your concerns. Your argument was that there is no reason to
+> >> loop for Zicbom/Zicboz but that would also apply to Zcf in case we are
+> >> on RV64 as well (since zcf is not supported on RV64). So for Zcf, that
+> >> would lead to using both mecanism or additional ifdefery with little to
+> >> no added value since the current solution actually solves both cases:
+> >>
+> >> - We don't have any extra looping if all validation callback returns 0
+> >> (except the initial one on riscv_isa_ext, which is kind of unavoidable=
+).
+> >> - Zicbom, Zicboz callbacks will be called only once (which was one of
+> >> your concern).
+> >>
+> >> Adding a second kind of callback for after loop validation would only
+> >> lead to a bunch of additional macros/ifdefery for extensions with
+> >> validate() callback, with validate_end() or with both (ie Zcf)). For
+> >> these reasons, I do not think there is a need for a separate mechanism
+> >> nor additional callback for such extensions except adding extra code
+> >> with no real added functionality.
+> >>
+> >> AFAIK, the platform driver probing mechanism works the same, the probe=
+()
+> >> callback is actually called even if for some reason properties are
+> >> missing from nodes for platform devices and thus the probe() returns
+> >> -EINVAL or whatever.
+> >>
+> >> Hope this answers your question,
+> >=20
+> > Yeah, pretty much I am happy with just an "it's not worth doing it"
+> > response. Given it wasn't your first choice, I doubt you're overly happy
+> > with it either, but I really would like to avoid looping to closure to
+> > sort out dependencies - particularly on the boot CPU before we bring
+> > anyone else up, but if the code is now more proactive about breaking
+> > out, I suppose that'll have to do :)
+> > I kinda wish we didn't do this at all, but I think we've brought this
+> > upon ourselves via hwprobe. I'm still on the fence as to whether things
+> > that are implied need to be handled in this way. I think I'll bring this
+> > up tomorrow at the weekly call, because so far it's only been you and I
+> > discussing this really and it's a policy decision that hwprobe-ists
+> > should be involved in I think.
+>=20
+> Hi Conor,
+>=20
+> Were you able to discuss that topic ?
+
+I realised last night that I'd not got back to this thread and meant to
+do that today (I had accidentally deleted it from my mailbox), but I had
+a migraine this morning and so didn't.
+I did bring it up and IIRC Palmer was of the opinion that we should try
+our best to infer extensions.
+
+> > Implied extensions aside, I think we will eventually need this stuff
+> > anyway, for extensions that make no sense to consider if a config option
+> > for a dependency is disabled.
+> > From talking to Eric Biggers the other week about
+> > riscv_isa_extension_available() I'm of the opinion that we need to do
+> > better with that interface w.r.t. extension and config dependencies,
+> > and what seems like a good idea to me at the moment is putting tests for
+> > IS_ENABLED(RISCV_ISA_FOO) into these validate hooks.
+> >=20
+> > I'll try to look at the actual implementation here tomorrow.
+>=20
+> Did you found time to look at the implementation ?
+
+No, with the above excuse. I'll try to get to it today or tomorrow...
+
+--d4LtUScPc142c/dS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZkNcigAKCRB4tDGHoIJi
+0kA2AQDbZCPdb5B0I8LI5ibKy3ZRNF+UdA1ZiQXHtgoETMFd0gEA1hljHOnzoE/w
+C3Pfa2PGHUyVZgXKvpMsjyz8TWUNpQE=
+=uWRj
+-----END PGP SIGNATURE-----
+
+--d4LtUScPc142c/dS--
+
+
+--===============8753692578752052121==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8753692578752052121==--
+
