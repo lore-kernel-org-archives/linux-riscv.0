@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0520EC04FFE
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 May 2024 14:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E204DC04FFE
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 May 2024 14:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DG+pvBBXALlMNCx8X0dteKR3Mts7Q/zOf6Y8VfRaJ/I=; b=xh2CGKpw+kYpCjMbMJq/rY97T3
-	n8+1LotzAhxcN2DHamjP/6fUdh5VCLPR3IP4VdTczbjCuoos2QHA409LRaQtQoBszJPAbv91AafrF
-	//X/4miD2G+t5rM3TLPH+dN9skSUyP/FjzRWUpZBZ7nZP3s5rIAN/LAIdkwtxl/b+6R0ICe10TFWr
-	TH6VIDY3ZsjoGK3XJuU6ul4C6iXE7v1P0uLh5HXI1Z8A4FqQ1WyUeHEJ1nuf7YQ7x55mRDUMUufjV
-	tw+EgkRKFdNMhVHpDAXMjYw9rubptYIZGegoMSX7Q7ZeBG4MrhpJy0LWbDbon8jJE3/fmNcVmOdb0
-	d4TYut3A==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G4Cz7bGH3KSTzhhC9o891259Viyr5Snn/3np5nC6vZk=; b=hHTVRyGdrb0w7lBcBTj0olUC1q
+	fJHxHjdXE5hFolsjRKAIr0vryRBIw0L89dr7ObEib0FmnG/giC/RaJWy+pG1OJ4fHwXYPivD9a1az
+	l9Npj17MwuUmwcT6OnZf/hTyvj8xzsQOr9oByvKnvrtrsCdyriYKW/CdaxxNPWjdf0IASX+xqXLMw
+	bwqP6f5gbILXhK/g0bomc3lj5gyKMipTI3xfaVYfceIJgjJHXddHnsn5MhbiSyVeuf+miTLBTIUaH
+	jSzMDUAFQ73yDUxp3MnoqB3yUFrhMkCvHZlkp8K2+TkbuS9VryBzIh7AYdnlvuKZ4VMSqM3G266+9
+	XRjSP1Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6tJA-0000000GD42-0A5i;
-	Tue, 14 May 2024 14:39:12 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1s6tO4-0000000GDpj-2XBR;
+	Tue, 14 May 2024 14:44:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s6tJ6-0000000GD29-33Xl
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 May 2024 14:39:10 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6f490b5c23bso4804331b3a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 14 May 2024 07:39:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715697542; x=1716302342; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=WNcVowLF738bBUYU9q9s1F6x75YSSD23yiDfQaIObKk=;
-        b=X9hiyNhJvCGSlJCSvHF4jgCDXaRYdAV3oBv284mLKTRisz74yJ4Bm2tDQX3zs6Rw4Z
-         0BUzkRnlvj/+caILl3KC0t1CnPlBe0LRW9JIZFH2r6RSnv0VELxRRBI3JpuWKly93lni
-         xhhvjMxcTlAsd3k+tHR5wZ5/kFyoupUhVUkI3+3HE36kXbDM4E3/0ukBKjCY0KaXypzz
-         YQ7DNTqWLfzPTm/qy8T1Yw5vDf9u5hktnhi6w5rw6r0YR7rE0VPh+vuvhjSbG4sQ7h8P
-         UZ2ZA7UwuLSFxC/U4EDyF/TCeaKzySKFDQkJOpDrgHAutKtx+V55d9j2WcwK7zO8ddnp
-         Oa1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715697542; x=1716302342;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WNcVowLF738bBUYU9q9s1F6x75YSSD23yiDfQaIObKk=;
-        b=gsJwR06wsZ/zo9xbZG8EbE4C05EjxEK96t8RndeUoyURhsKciMO0SlrT9KYC1j0Hn0
-         56rXCzDHNBk/d5Fn6Nv96LKPKSVEd6j8GQZFTOzcTcO2VJ7VKVeGmTKEztFJYczsAZrc
-         FQwoTL0HFv2ptO7UsoIPqPO/FwnmuBc9k0ugHNjz0DghzW1KpDh/4p/Gj58V8dciAllB
-         mN3P2xoBw4sFAc7DWIHADgt3sP1vP0AI//dyszO1jE4ZJEWXraM8ePLN70sR1TF88O26
-         FVrXvaxf47nOLZe6n3WHq5pm+E8dbLcN0HdNtZReFx4NQhxpx3sooLrhUM7AfQPfAoHh
-         c0FQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUx0Oe3i3ZvFzR6JN9ofmNsslCs260KoQGag1cS9+8llG5+uTGuitcFPIcGNBfyzGMgEPpxJQBXXE0QpukL1C5DYILfBvZeXt5oGCR3pWbG
-X-Gm-Message-State: AOJu0Yy1VSNTGVx+i+BmY/oCyf9aoWiOKjZ0VM/UIID87feYa9kWAgsT
-	AiwgkWauFMk/q0Uh3wOfcinr7nKKscEey14nt5qBs4Ni/8jKZgd48DVYVUiGyu8=
-X-Google-Smtp-Source: AGHT+IHdkOKBG0DyoFSxyrRHAS+ghpUAA5spIffvQqpiXqFnRsKCPZ4PJ12xD5NX3np4aQAOmlluRg==
-X-Received: by 2002:a05:6a00:14d1:b0:6e7:20a7:9fc0 with SMTP id d2e1a72fcca58-6f4e03a70c4mr15441852b3a.34.1715697541813;
-        Tue, 14 May 2024 07:39:01 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-6f4d2b26ceasm9183891b3a.187.2024.05.14.07.39.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 May 2024 07:39:01 -0700 (PDT)
-Date: Tue, 14 May 2024 07:38:59 -0700
-From: Deepak Gupta <debug@rivosinc.com>
+	id 1s6tO0-0000000GDoG-0slz;
+	Tue, 14 May 2024 14:44:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 24A8C61274;
+	Tue, 14 May 2024 14:44:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54926C2BD10;
+	Tue, 14 May 2024 14:44:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1715697850;
+	bh=y6f6cP8b+wbXxgeRLntoPzUrt10oVgLSe6lqdbiAE/Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JNn88E3qwlFZ8IDo6NLYz/WL2sOshJD3Uwz336B+1EH4VNtFWEZ+38K/urjlox5v4
+	 +p20OpHYmetUOS7FZF3FMG+TTHQ74Py0oaqF+8nysAdUl6Q/S+A6DtPPu1CbPT0nD2
+	 56JsY/sPwMcRh+UeCI85oV+CUt42T8bkE/rro8rs6hAli5pQnKnI6mikqVICbwyVtE
+	 T/89KdPyIKiQM5KK3IxQEOcmODsQ6xNUdO5WbgVHnDkYF/G5O9Otq4LkDmXfqLHxwu
+	 8uLS1hakZ34fk7+HjgCTmylScgB4wF6RJM2WTkGHUyuZJLNwKszxO5OW1N0yZa0b9x
+	 qfcktlIO2YeRA==
+Date: Tue, 14 May 2024 15:44:05 +0100
+From: Conor Dooley <conor@kernel.org>
 To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, Ved Shanbhogue <ved@rivosinc.com>
-Subject: Re: [RFC PATCH 5/7] riscv: add double trap driver
-Message-ID: <ZkN3gyfL1hUcjPgD@debug.ba.rivosinc.com>
-References: <20240418142701.1493091-1-cleger@rivosinc.com>
- <20240418142701.1493091-6-cleger@rivosinc.com>
- <Ziw//90J0WfOY/tl@debug.ba.rivosinc.com>
- <e33b8eba-85f0-44b7-8a6f-802a6979f6c8@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
+	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 02/11] riscv: add ISA extensions validation
+Message-ID: <20240514-ascend-joyous-a15969f703de@spud>
+References: <20240429150553.625165-1-cleger@rivosinc.com>
+ <20240429150553.625165-3-cleger@rivosinc.com>
+ <20240429-subtext-tabby-3a1532f058a5@spud>
+ <5d5febd5-d113-4e8c-9535-9e75acf23398@rivosinc.com>
+ <20240430-payable-famished-6711765d5ca4@wendy>
+ <e57f8b70-7981-42c1-bb04-2060054dd796@rivosinc.com>
+ <20240514-sip-exclusion-014b07b01f4c@spud>
+ <9d0840ff-d00a-4866-8f45-e8676f369ad6@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <e33b8eba-85f0-44b7-8a6f-802a6979f6c8@rivosinc.com>
+In-Reply-To: <9d0840ff-d00a-4866-8f45-e8676f369ad6@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240514_073908_985639_4B030848 
-X-CRM114-Status: GOOD (  23.45  )
+X-CRM114-CacheID: sfid-20240514_074412_363357_2ACE7F3F 
+X-CRM114-Status: GOOD (  46.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,175 +81,188 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============6799104851159612825=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 14, 2024 at 10:06:31AM +0200, Cl=E9ment L=E9ger wrote:
->
->
->On 27/04/2024 01:59, Deepak Gupta wrote:
->> On Thu, Apr 18, 2024 at 04:26:44PM +0200, Cl=E9ment L=E9ger wrote:
->>> Add a small driver to request double trap enabling as well as
->>> registering a SSE handler for double trap. This will also be used by KVM
->>> SBI FWFT extension support to detect if it is possible to enable double
->>> trap in VS-mode.
->>>
->>> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
->>> ---
->>> arch/riscv/include/asm/sbi.h=A0=A0=A0 |=A0 1 +
->>> drivers/firmware/Kconfig=A0=A0=A0=A0=A0=A0=A0 |=A0 7 +++
->>> drivers/firmware/Makefile=A0=A0=A0=A0=A0=A0 |=A0 1 +
->>> drivers/firmware/riscv_dbltrp.c | 95 +++++++++++++++++++++++++++++++++
->>> include/linux/riscv_dbltrp.h=A0=A0=A0 | 19 +++++++
->>> 5 files changed, 123 insertions(+)
->>> create mode 100644 drivers/firmware/riscv_dbltrp.c
->>> create mode 100644 include/linux/riscv_dbltrp.h
->>>
->>> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
->>> index 744aa1796c92..9cd4ca66487c 100644
->>> --- a/arch/riscv/include/asm/sbi.h
->>> +++ b/arch/riscv/include/asm/sbi.h
->>> @@ -314,6 +314,7 @@ enum sbi_sse_attr_id {
->>> #define SBI_SSE_ATTR_INTERRUPTED_FLAGS_SPIE=A0=A0=A0 (1 << 2)
->>>
->>> #define SBI_SSE_EVENT_LOCAL_RAS=A0=A0=A0=A0=A0=A0=A0 0x00000000
->>> +#define SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP=A0=A0=A0 0x00000001
->>> #define SBI_SSE_EVENT_GLOBAL_RAS=A0=A0=A0 0x00008000
->>> #define SBI_SSE_EVENT_LOCAL_PMU=A0=A0=A0=A0=A0=A0=A0 0x00010000
->>> #define SBI_SSE_EVENT_LOCAL_SOFTWARE=A0=A0=A0 0xffff0000
->>> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
->>> index 59f611288807..a037f6e89942 100644
->>> --- a/drivers/firmware/Kconfig
->>> +++ b/drivers/firmware/Kconfig
->>> @@ -197,6 +197,13 @@ config RISCV_SSE_TEST
->>> =A0=A0=A0=A0=A0 Select if you want to enable SSE extension testing at b=
-oot time.
->>> =A0=A0=A0=A0=A0 This will run a series of test which verifies SSE sanit=
-y.
->>>
->>> +config RISCV_DBLTRP
->>> +=A0=A0=A0 bool "Enable Double trap handling"
->>> +=A0=A0=A0 depends on RISCV_SSE && RISCV_SBI
->>> +=A0=A0=A0 default n
->>> +=A0=A0=A0 help
->>> +=A0=A0=A0=A0=A0 Select if you want to enable SSE double trap handler.
->>> +
->>> config SYSFB
->>> =A0=A0=A0=A0bool
->>> =A0=A0=A0=A0select BOOT_VESA_SUPPORT
->>> diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
->>> index fb7b0c08c56d..ad67a1738c0f 100644
->>> --- a/drivers/firmware/Makefile
->>> +++ b/drivers/firmware/Makefile
->>> @@ -18,6 +18,7 @@ obj-$(CONFIG_RASPBERRYPI_FIRMWARE) +=3D raspberrypi.o
->>> obj-$(CONFIG_FW_CFG_SYSFS)=A0=A0=A0 +=3D qemu_fw_cfg.o
->>> obj-$(CONFIG_RISCV_SSE)=A0=A0=A0=A0=A0=A0=A0 +=3D riscv_sse.o
->>> obj-$(CONFIG_RISCV_SSE_TEST)=A0=A0=A0 +=3D riscv_sse_test.o
->>> +obj-$(CONFIG_RISCV_DBLTRP)=A0=A0=A0 +=3D riscv_dbltrp.o
->>> obj-$(CONFIG_SYSFB)=A0=A0=A0=A0=A0=A0=A0 +=3D sysfb.o
->>> obj-$(CONFIG_SYSFB_SIMPLEFB)=A0=A0=A0 +=3D sysfb_simplefb.o
->>> obj-$(CONFIG_TI_SCI_PROTOCOL)=A0=A0=A0 +=3D ti_sci.o
->>> diff --git a/drivers/firmware/riscv_dbltrp.c
->>> b/drivers/firmware/riscv_dbltrp.c
->>> new file mode 100644
->>> index 000000000000..72f9a067e87a
->>> --- /dev/null
->>> +++ b/drivers/firmware/riscv_dbltrp.c
->>> @@ -0,0 +1,95 @@
->>> +// SPDX-License-Identifier: GPL-2.0-only
->>> +/*
->>> + * Copyright (C) 2023 Rivos Inc.
->>> + */
->>
->> nit: fix copyright year
->>> +
->>> +#define pr_fmt(fmt) "riscv-dbltrp: " fmt
->>> +
->>> +#include <linux/cpu.h>
->>> +#include <linux/init.h>
->>> +#include <linux/riscv_dbltrp.h>
->>> +#include <linux/riscv_sse.h>
->>> +
->>> +#include <asm/sbi.h>
->>> +
->>> +static bool double_trap_enabled;
->>> +
->>> +static int riscv_sse_dbltrp_handle(uint32_t evt, void *arg,
->>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 struct pt_regs =
-*regs)
->>> +{
->>> +=A0=A0=A0 __show_regs(regs);
->>> +=A0=A0=A0 panic("Double trap !\n");
->>> +
->>> +=A0=A0=A0 return 0;
->> Curious:
->> Does panic return?
->> What's the point of returning from here?
->
->Hi Deepak,
->
->No, panic() does not return and indeed, the "return 0" is useless. It's
->a leftover of a previous implementation without panic in order to keep
->GCC mouth shut ;).
->
->>
->>> +}
->>> +
->>> +struct cpu_dbltrp_data {
->>> +=A0=A0=A0 int error;
->>> +};
->>> +
->>> +static void
->>> +sbi_cpu_enable_double_trap(void *data)
->>> +{
->>> +=A0=A0=A0 struct sbiret ret;
->>> +=A0=A0=A0 struct cpu_dbltrp_data *cdd =3D data;
->>> +
->>> +=A0=A0=A0 ret =3D sbi_ecall(SBI_EXT_FWFT, SBI_EXT_FWFT_SET,
->>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 SBI_FWFT_DOUBLE_TRAP_ENABLE, 1, 0, 0=
-, 0, 0);
->>> +
->>> +=A0=A0=A0 if (ret.error) {
->>> +=A0=A0=A0=A0=A0=A0=A0 cdd->error =3D 1;
->>> +=A0=A0=A0=A0=A0=A0=A0 pr_err("Failed to enable double trap on cpu %d\n=
-",
->>> smp_processor_id());
->>> +=A0=A0=A0 }
->>> +}
->>> +
->>> +static int sbi_enable_double_trap(void)
->>> +{
->>> +=A0=A0=A0 struct cpu_dbltrp_data cdd =3D {0};
->>> +
->>> +=A0=A0=A0 on_each_cpu(sbi_cpu_enable_double_trap, &cdd, 1);
->>> +=A0=A0=A0 if (cdd.error)
->>> +=A0=A0=A0=A0=A0=A0=A0 return -1;
->>
->> There is a bug here. If `sbi_cpu_enable_double_trap` failed on all cpus
->> but last cpu.
->> Then cdd.error would not record error and will be reflect as if double
->> trap was enabled.
->
->cdd.error is only written in case of error by the per-cpu callbacks, so
->it is only set if enabled failed. Is there something I'm missing ?
 
-No. Sorry I missed that detail. lgtm.
+--===============6799104851159612825==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="77IYhpXVRVT+g+0m"
+Content-Disposition: inline
 
->
->Thanks,
->
->Cl=E9ment
->
->>
->> Its less likely to happen that FW would return success for one cpu and
->> fail for others.
->> But there is non-zero probablity here.
->>
->
+
+--77IYhpXVRVT+g+0m
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, May 14, 2024 at 02:48:01PM +0200, Cl=E9ment L=E9ger wrote:
+>=20
+>=20
+> On 14/05/2024 14:43, Conor Dooley wrote:
+> > On Tue, May 14, 2024 at 09:53:08AM +0200, Cl=E9ment L=E9ger wrote:
+> >>
+> >>
+> >> On 30/04/2024 13:44, Conor Dooley wrote:
+> >>> On Tue, Apr 30, 2024 at 09:18:47AM +0200, Cl=E9ment L=E9ger wrote:
+> >>>>
+> >>>>
+> >>>> On 30/04/2024 00:15, Conor Dooley wrote:
+> >>>>> On Mon, Apr 29, 2024 at 05:04:55PM +0200, Cl=E9ment L=E9ger wrote:
+> >>>>>> Since a few extensions (Zicbom/Zicboz) already needs validation and
+> >>>>>> future ones will need it as well (Zc*) add a validate() callback to
+> >>>>>> struct riscv_isa_ext_data. This require to rework the way extensio=
+ns are
+> >>>>>> parsed and split it in two phases. First phase is isa string or isa
+> >>>>>> extension list parsing and consists in enabling all the extensions=
+ in a
+> >>>>>> temporary bitmask without any validation. The second step "resolve=
+s" the
+> >>>>>> final isa bitmap, handling potential missing dependencies. The mec=
+hanism
+> >>>>>> is quite simple and simply validate each extension described in the
+> >>>>>> temporary bitmap before enabling it in the final isa bitmap. valid=
+ate()
+> >>>>>> callbacks can return either 0 for success, -EPROBEDEFER if extensi=
+on
+> >>>>>> needs to be validated again at next loop. A previous ISA bitmap is=
+ kept
+> >>>>>> to avoid looping mutliple times if an extension dependencies are n=
+ever
+> >>>>>> satisfied until we reach a stable state. In order to avoid any pot=
+ential
+> >>>>>> infinite looping, allow looping a maximum of the number of extensi=
+on we
+> >>>>>> handle. Zicboz and Zicbom extensions are modified to use this vali=
+dation
+> >>>>>> mechanism.
+> >>>>>
+> >>>>> Your reply to my last review only talked about part of my comments,
+> >>>>> which is usually what you do when you're gonna implement the rest, =
+but
+> >>>>> you haven't.
+> >>>>> I like the change you've made to shorten looping, but I'd at least =
+like
+> >>>>> a response to why a split is not worth doing :)
+> >>>>
+> >>>> Hi Conor,
+> >>>>
+> >>>> Missed that point since I was feeling that my solution actually
+> >>>> addresses your concerns. Your argument was that there is no reason to
+> >>>> loop for Zicbom/Zicboz but that would also apply to Zcf in case we a=
+re
+> >>>> on RV64 as well (since zcf is not supported on RV64). So for Zcf, th=
+at
+> >>>> would lead to using both mecanism or additional ifdefery with little=
+ to
+> >>>> no added value since the current solution actually solves both cases:
+> >>>>
+> >>>> - We don't have any extra looping if all validation callback returns=
+ 0
+> >>>> (except the initial one on riscv_isa_ext, which is kind of unavoidab=
+le).
+> >>>> - Zicbom, Zicboz callbacks will be called only once (which was one of
+> >>>> your concern).
+> >>>>
+> >>>> Adding a second kind of callback for after loop validation would only
+> >>>> lead to a bunch of additional macros/ifdefery for extensions with
+> >>>> validate() callback, with validate_end() or with both (ie Zcf)). For
+> >>>> these reasons, I do not think there is a need for a separate mechani=
+sm
+> >>>> nor additional callback for such extensions except adding extra code
+> >>>> with no real added functionality.
+> >>>>
+> >>>> AFAIK, the platform driver probing mechanism works the same, the pro=
+be()
+> >>>> callback is actually called even if for some reason properties are
+> >>>> missing from nodes for platform devices and thus the probe() returns
+> >>>> -EINVAL or whatever.
+> >>>>
+> >>>> Hope this answers your question,
+> >>>
+> >>> Yeah, pretty much I am happy with just an "it's not worth doing it"
+> >>> response. Given it wasn't your first choice, I doubt you're overly ha=
+ppy
+> >>> with it either, but I really would like to avoid looping to closure to
+> >>> sort out dependencies - particularly on the boot CPU before we bring
+> >>> anyone else up, but if the code is now more proactive about breaking
+> >>> out, I suppose that'll have to do :)
+> >>> I kinda wish we didn't do this at all, but I think we've brought this
+> >>> upon ourselves via hwprobe. I'm still on the fence as to whether thin=
+gs
+> >>> that are implied need to be handled in this way. I think I'll bring t=
+his
+> >>> up tomorrow at the weekly call, because so far it's only been you and=
+ I
+> >>> discussing this really and it's a policy decision that hwprobe-ists
+> >>> should be involved in I think.
+> >>
+> >> Hi Conor,
+> >>
+> >> Were you able to discuss that topic ?
+> >=20
+> > I realised last night that I'd not got back to this thread and meant to
+> > do that today (I had accidentally deleted it from my mailbox), but I had
+> > a migraine this morning and so didn't.
+> > I did bring it up and IIRC Palmer was of the opinion that we should try
+> > our best to infer extensions.
+> >=20
+> >>> Implied extensions aside, I think we will eventually need this stuff
+> >>> anyway, for extensions that make no sense to consider if a config opt=
+ion
+> >>> for a dependency is disabled.
+> >>> From talking to Eric Biggers the other week about
+> >>> riscv_isa_extension_available() I'm of the opinion that we need to do
+> >>> better with that interface w.r.t. extension and config dependencies,
+> >>> and what seems like a good idea to me at the moment is putting tests =
+for
+> >>> IS_ENABLED(RISCV_ISA_FOO) into these validate hooks.
+> >>>
+> >>> I'll try to look at the actual implementation here tomorrow.
+> >>
+> >> Did you found time to look at the implementation ?
+> >=20
+> > No, with the above excuse. I'll try to get to it today or tomorrow...
+>=20
+> No worries, I was on vacation and was just checking if I hadn't missed
+> anything in the meantime. Take your time ;)
+
+I forget where we talked about validation for F/V, but I chucked this
+together last week in response to another thread of Andy's that was
+adding some of the vector subset stuff, because I realised we don't turn
+off any of the stuff that depends on vector if vector gets disabled:
+https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=
+=3Driscv-check_vector&id=3D38050c6858143f43ce2fd04e9824727a7d7731d0
+
+What I've got there doesn't actually work for the vector subsets though,
+only for vector itself, because of the probe ordering. Your validate
+callback stuff should solve that issue though.
+
+--77IYhpXVRVT+g+0m
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZkN4tQAKCRB4tDGHoIJi
+0qISAP90Cmxbqg0YPzaeFWc+C9/VvgVu9xKpX7ljk8pbm7X1owD6AnM5MtNIBLJQ
+RIKtT/ATp2dDqn5rjyDfcJhTFVb4Qwk=
+=e78x
+-----END PGP SIGNATURE-----
+
+--77IYhpXVRVT+g+0m--
+
+
+--===============6799104851159612825==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6799104851159612825==--
+
