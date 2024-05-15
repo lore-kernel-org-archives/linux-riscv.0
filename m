@@ -4,128 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949C1C04FFE
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 May 2024 02:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB690C25B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 May 2024 05:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2aRxatOQeaYQ44XawfR88IZYWlKuFyNDnAIt0MnKjH8=; b=v7KgOgW5d4lKeW
-	0dWqB6HWvUPUU/2os8C/U5bxHZYKK4Z3PlZS44/u4xGsV3hgZWu4XY22P3fgGVzTyq8LAmQoRxvD1
-	k8xn8WUjjo0RvtlAu5aVmgXbk1qimr3jR/z5rQ/E19QyOYQULwZ1bCi/3uIu2U5n5YxdYisy9S6mU
-	5z+BJQgR00tylfzYs6yVdnyT85Q8LT47Cb03AETFDhb7BV4Pg265FuLcFFZ9gj5NdjtQPjcAS8KhL
-	lMf6dM0ZNmACDf14aE9o9kTOV6hHlizUXc0I4L0j5d0W3dS1Kx98W3K5sClgub64F5dbw0pySchIQ
-	mRUo0FZ68tOiiuyw0DVg==;
+	List-Owner; bh=8T9Pn31icwGVl/i1er9ZiIjyPIehsRqzSi+oVMDt0V4=; b=yOh6xkcwGmXlwN
+	+OgqMU61H5MaN17Qra7RD4J32gjWP7q3IdzFMICol/DB7wtEvkF5lKnVB7yUlazxftUdKIR2/+s3I
+	KRnzBsSLslu6n2uf+2TMvNpk6Dqj0Tpgs9JEJDrJK20juwYxvJ/hxYr1eGtpkIKVlsZo8LjHiKhgq
+	PmwnYJFZmgDFFV+gAb795QJ8GIgJQcqbjy2COoUF0NMv6Gx7kHynRbo0pqdjbeZEaDe7o6YYR8xRh
+	l7VBipK2hYDgNGYBC9gxIcTtVQSlzMwjJ/hosVfBT1MdBpTxCxl4nkLv+KlMCnGlgKU/okwvV7vH0
+	eOOnI60lGGrjVJpSglVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s74JU-000000008gZ-0o45;
-	Wed, 15 May 2024 02:24:16 +0000
-Received: from mail-bjschn02on20720.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::720] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1s76o9-00000000Tkj-2uGP;
+	Wed, 15 May 2024 05:04:05 +0000
+Received: from mail-sh0chn02on2072e.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::72e] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s74JQ-000000008eX-3j3v
+	id 1s76o5-00000000Tih-3PKU
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 May 2024 02:24:14 +0000
+	Wed, 15 May 2024 05:04:03 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=UfKegW3oePo1ggSmdca9j9PgtC8D0J9/IlW28+Pc0HQxBFX9889GnusFD0oO4K6ujjJsGPPs411ndrUig3XcJlwrrRcRirLzVL+2wCP0lLI14GtH1b5yOyx4lULdKg6ykyqporKmfFWo436PG/85GJao90eyNvkd9g2c6i/zfX9CZBfz2PwI6blE3ChRK4Ux3TskpkQSbryly7/O6mYnGBhzSS4RNdLAPMh9gE+uChb2GReK+NtfYM1jrsquVeKJLMd+aruYP8K7vXTCbK8OE+Q4Gboq6D3XWpsdi1EvKRcnSlZ8upkG+0Fagf2EfY8nRf3JIKf2y82Ug0sJFy938g==
+ b=lJ5+3y4x0zmR/cGc4A934b/k9WtvZX6PnyxtlD8XAL5LdVHJ6AUXx+CpfanfedWP8mEW+uUvwd+qW+vHfQolwlRPuaNXdtdDJHFw7mM6GhkWU2VsYXpoPSGiZliDtMC5BWhAepC+80Iu9EETrg5QuSpgktJVsPcq1OP2rnf7zF9VQQny+E4Cgmoupl2Cq/XYaNu5QTUMZl6xyiAaQa2/bgesBdEOiXdLiK14BkhoyrmRdesdhtsHJXwsgY1WlFBi9sdG/m6psAXZVAnG/NJJVI4bO4P5c0KDXXaMnYOBeb2pXVBl5w6I61+wzrHLOz9qieSs8fK26UZqt6Xwj5fEbg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=juykI4KxJpPd+HSTYr18AIlTmvsWU2/XL7PboPIe8Dc=;
- b=Klpvrv6gnzNOttslvI6XXqUcb4sDco0FediEMdtm6nSwy4c38Cvyk7CvUyo5qDBnHSipJrHWeK/6OzkrP4OnnRXhfpgVH9LHjf/ww5kfRTdF+NLXM0cvBmUE6ts1BPraXpNOO1wutDVT5Ydaz0lkWATZOvPkLJ4SZe3v/quDuKx2loNgbAOTE9HOYUo8sF4ijGt8TSntEsNTSdv+hGHZBh/5TG3h+k5aXWNaI8BeyEd7qCHfq6NGBy/Hbp616tclfdVfUhRmh9mAFXYVaoGy/ucikcGivWh49hPQ/vfbvhKriRB/0088P13++Viv+Ak+tbJdgr+u34pt/0mE2ALwAg==
+ bh=fxIDl4HLV9bJC7hy01jnyiv1VF4IpHjXIeN+QCog/Hg=;
+ b=EPOxE1RtKZc6r0zhwvTZX3XiSyCzPCHnCfvlmrVvy0M74QYnefeSsguvdAaqafg41H/iMVkqVytklnTiCcRNZR43WKSR/b+Qu+bD5WZbc75WI0bOleyvjAwg+mp7P8a/eyNND9TmS9UdUj3AeJVHi44hZIuK+Ols0BAXR5FQiosGvJHQP6hzxFnYJ/2Phw08iUnd3aZul2hr3u/BNBnqny2zWsrmyvZ9EZmGKoKCl8EsX/jIieTKvQeo6/ybR0XY67u3w9BXiPIWP8eMYfVafrb9qHev8SubW6UE2n8MbSbSc09u2uGhDw0LSm3Qhjz/0BnVTu7ax8iyvB+TCc27TA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:8::10) by NTZPR01MB1002.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:b::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.33; Wed, 15 May
- 2024 02:23:47 +0000
-Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
- ([fe80::e903:99a6:10b7:304d]) by
- NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn ([fe80::e903:99a6:10b7:304d%6])
- with mapi id 15.20.7472.044; Wed, 15 May 2024 02:23:47 +0000
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: RE: [PATCH v5 0/2] Add notifier for PLL0 clock and set it 1.5GHz on
-Thread-Topic: [PATCH v5 0/2] Add notifier for PLL0 clock and set it 1.5GHz on
-Thread-Index: AQHaoEtCPDK2HwhwXUSWjcDZE/pIQ7GQ+umAgABXAkCAAKg2gIAEWZ+wgAC+9gCAAIQbsA==
-Date: Wed, 15 May 2024 02:23:47 +0000
-Message-ID: <NTZPR01MB0956CF1AA9EA5A20A174FD8A9FEC2@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
-References: <20240507065319.274976-1-xingyu.wu@starfivetech.com>
- <20240510-unfounded-syrup-d1263d57d05a@spud>
- <NTZPR01MB0956D48361098E8AA4B3930A9FE02@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
- <20240511-unbiased-dainty-ccb5ece9b1b9@spud>
- <NTZPR01MB0956A7393097129D3CD048EB9FE32@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
- <20240514-congenial-smother-1e4b0fc6a5df@spud>
-In-Reply-To: <20240514-congenial-smother-1e4b0fc6a5df@spud>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
+Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: NTZPR01MB0956:EE_|NTZPR01MB1002:EE_
-x-ms-office365-filtering-correlation-id: b2c51c7d-98e3-42a1-5224-08dc74860d1b
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: dM12cF7KI3pKWC0YB1+wvHJVT1dtjIqhwI8p9w+sssXLO1QPYFz0ue/GEKcWUhNzTjRZ+nzFXr9lCp/DtXj7nCBgctC7yAtRxVOvlhBFFkzd27XB3EHQ3SazLHhPw1MTMkPpb4MQt5M8bee6zZEvqNe1tpZofXbxm2QDjhYbykAIBndLwShmAH2n4NnfJK35pYCgTLv4djP32LJpnNYVdsAQImMGVClEz1spJASJGOrbB5UvdWN7a8/vKnbpY4bo4pgwrpeFbGTE9hrTBsdb2/JWGf9Bu5eqAfMQ+EhmRWkUEiXLxXXhaXhk7jHguTFs+YOCJSOxoep5e780aHhX5G4EcXTREBEwjUuPYKSNOVy7f/q5JJrd9OnfZnKPdnXHM3hMpB/ROKFTPolNjNUaOJo5mTB7r/ta15InNsVba1vliOEiG5vQ/lsP2cDjYMzFHhTB/LtC/wxxQLO5ibtvrQcFmUAswHy4PYtVkflW5t+q//zUlNqLA7KHd3/TIPdxC46d+9sfur0kA9/O+44EtmjTnipLkTwNANkWGWP4cnvvrLTzaUZLNYSLaKNSfCMx7N/QkXq05LN7KaMWu71UlFZBTOovjujQY2a5tXZ9YNv0r3mkc/Js84O8xxEEPaXP
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(366007)(7416005)(41320700004)(38070700009);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ogPuLDcKEquOYoRpp1omm5qe+K4XtmbiH6L85hZqMSUDkFLJ0gdHGARkh0ST?=
- =?us-ascii?Q?+feJwKMDpEkkUHqeugg76x7wdND8hrWRcCGcYA1e9fUNBRGe4XOKkCK/1YmL?=
- =?us-ascii?Q?x/ijGgb8vVu0+lM6XJkcad0DoWzY2+4mPe0CzEZvtVEQ67yzJaNiIRXfz4ly?=
- =?us-ascii?Q?1Ab9LUXcA2PQ6CLVuXNLPF7jakrihDjccpRdXLPsiTdh8xKQE8yD/lJNzn9f?=
- =?us-ascii?Q?kiS3ACI5l32yD3m2fvJp+2thrghFXeC4LcOUEagFbxnWV5Irkoal99UJbIqz?=
- =?us-ascii?Q?CZOfnQ4PzY32DxKZFLwrw5H/gUAdt9/s/VzvL+yV+x5Z9Qr+vWuryZ4FoxFY?=
- =?us-ascii?Q?0FnvGe7ZlnrZZ63tjc43YSYVGtgy/91zt4gGPhc9tSDHqpHGLUhTmkVJPI4G?=
- =?us-ascii?Q?5TQLjMlGndFCoUpew87pPoYqxgp63Xoa7rCResBSXYENV9PawMbdaYvD3Uji?=
- =?us-ascii?Q?wZlEQs3cPTlOtPWEVNBTTBX5sxuAJ4mW3bzWxy6Lib+ENfCwIyWf7hg+Ti0y?=
- =?us-ascii?Q?FHL30p9J49cTXlQnGOVsuC7bE1KlJTkv2PTWXWCHdr/Fmp9qQJMfAAU9L7Ek?=
- =?us-ascii?Q?x1ZnWX7ROxWlfnNNT8o0GJzXNdvqEe65xXoZ5ywbw29NYIWE/nVoK36pMk/f?=
- =?us-ascii?Q?znPzyYK5bNOnGMVRfoyPOFqqxM9GtY7ChJaHk9nmrxnqW46yM6EBu4ObqkC/?=
- =?us-ascii?Q?HBfx8u5w2gWPY1hH3iIjZVWAjA5QLGZjSF8jf6edRQusZ7N+f/QwtynzIxZK?=
- =?us-ascii?Q?aIVSc8H6dlrJcKLFOHQx2avVqR3wRHOsIU5IeVlLVDUwIv+tFs293FuSwTyY?=
- =?us-ascii?Q?kZ7yMbZR2ibKn5WzV4GdLXId1KyKDZumIg+Ld4C55RPM/6p05ToMoxzNNQbe?=
- =?us-ascii?Q?7KIkDoY5R3f8nYOuD4G5RVD3kx+Dxc5cATUXxO2MM/CNNh8wiPaLtg3sqpKF?=
- =?us-ascii?Q?wngALbbTjRCCS+pcxyyI/C4mXiljZlqEcnf/4UqmX9Ib3WfJZrMhRN038in9?=
- =?us-ascii?Q?y1l12xTTlwKMUwPS0i4sIuFftvPFEwu5PalGv5zbx8U/fWF30rSzROoxqW0M?=
- =?us-ascii?Q?OG8W5GwferafH/E082mTfzVpWgUlb1hhxQdhOcXW/lCHlLmuciQVbFf43rhm?=
- =?us-ascii?Q?SAGR97eY7C95Ol0+mdrACQqUC67cJOw0jOJCsO2olUKBXSNVnPMuaV9ABocO?=
- =?us-ascii?Q?B02tccPmLXuDoFQiGjkAsGkAYLjp8Tjsqvlndxbl25MVrnNiDMYtHkCJoKyu?=
- =?us-ascii?Q?ZMAz4VOJAgaxn+2HPpzTgh2yGhkdxP3uIyCpAGlJSRr+a0BCtFwyc+GLI6Dc?=
- =?us-ascii?Q?7VndP0awnGvWBNumJmFWXddsH7SBTo7NfeorBtpn9kjgL2jG/BiGT6qPvdMP?=
- =?us-ascii?Q?Fucxq8PAXQRIAebn4tTJIFyU1FEhGmKfVCGtJXHPKxB57mqnVCG/SXTtiE6R?=
- =?us-ascii?Q?JCG3/ZVyewAwIrPFTZPY2WCdRzoLjI2j04TSeLTJJs+F/y+Mc+7qbXke2wy1?=
- =?us-ascii?Q?jxINluR2obToPE7pF+adke19xV2RGtqMxG3MSzE+8miTidHg11vWFQdUHyli?=
- =?us-ascii?Q?SWBbAK6lsKW5NAKT4etjirM08Fe0UHcBchjufahJ?=
+Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:20::14) by SH0PR01MB0859.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:23::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.44; Wed, 15 May
+ 2024 05:03:40 +0000
+Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e0a:f88a:cad1:dc1c]) by SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e0a:f88a:cad1:dc1c%7]) with mapi id 15.20.7472.044; Wed, 15 May 2024
+ 05:03:40 +0000
+From: Joshua Yeong <joshua.yeong@starfivetech.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	conor@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	joshua.yeong@starfivetech.com,
+	leyfoon.tan@starfivetech.com,
+	jeeheng.sia@starfivetech.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 2/2 RESEND] dt-bindings: cache: Add docs for StarFive Starlink cache controller
+Date: Wed, 15 May 2024 13:02:53 +0800
+Message-Id: <20240515050253.38061-3-joshua.yeong@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20240515050253.38061-1-joshua.yeong@starfivetech.com>
+References: <20240515050253.38061-1-joshua.yeong@starfivetech.com>
+X-ClientProxiedBy: SHXPR01CA0017.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1b::26) To SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:20::14)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SH0PR01MB0841:EE_|SH0PR01MB0859:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78f54616-0531-40a7-71c4-08dc749c6303
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: dd0rNxqdOR7Uf2FhJ6niZHgQfVsZ3Z9lOCt8jkrAyjTScmEIv9yPH1RtzIyBwEYce4MW03b+EGOPlfaxil4whl0gjEEbqCZ5YMydsIOF8vW3+yqScFbslDIN5tuaTEC08oEVRPs5GNu43Nprxh1VBDIfjsKK3LNTEhOPSWN0ncMjK4VM9ieLFkMXNItqPYahpPJVM8gfjRhZipqyHMcdWgM/IhCbF21VBuShzYtofq37GDx+GYJ7F0qIvM7n3HAVD/a25+J9p3uZuzDeKZWf2s8Bx0cCuPmKUuiunmqrltcdaZBROUu+DiktxKrldg0cSuMa4YCRlfHj/G0LDbJ1+Z2f8+b6h8Qpb5EwBA1I0g2FBstyIbE/rfN2+OCJKIlE1UPqlj1WtuV97s7qcBksnH1JS6g4u2WQDNhlvTgK1u6GCde4DBRTFHFAR5aPTCbwrUzcXeOvvNB8d6xm90069fRL5pIYjzPUGPDPi/2E/KV9FXCaslU54Ka9E0jmsUIn6VyOZZRSS+XASd2IUDfaKZjQmON2f1Mj5Lqp15IYu2JjTP/Pns0ZPts9ftCK3gw0Bq9uL9wh/G4AzIpXvlEcuYNb1lqxb5LspU7bFonJhMq7J58/3oXvD22SZZyJWyOjkjPcNN1M2humYN/8NdSVFA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(52116005)(7416005)(366007)(41320700004)(38350700005)(921011);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+8kZM2It/6aqD8ovAOH95xDooWD2Xa04XroKSZWVUCQlihGklbhiIJEnB1PZ?=
+ =?us-ascii?Q?kNOXWHH4pHm1fWsEq79zxJFGOz96gzkOS/iwvHVe7dkq6HNUyo9HT+vofRmf?=
+ =?us-ascii?Q?MWOP3oIaMLXV15+R7mEnepOfHU+5PB1V5UsKPXkQ5CtT81t8hJMAlScY75uf?=
+ =?us-ascii?Q?+Yehh4wyepX+hAXsZmZsjDkU6jeOKGLbWjWD4oBT58IVAV+YJIgZcYL4njfg?=
+ =?us-ascii?Q?bDLaom6EXcszrjQsDAU0GjNoyEDTsPBtLV09zCPoHcT6mwsgp9SkHAe2VOrA?=
+ =?us-ascii?Q?nmg8oLhaWOzHs3/0WBCqedievmeoUOnLlitOAJobZ7RHNotAEuLrLM/h7TDa?=
+ =?us-ascii?Q?jb/zgW3/os0f/iAoON9RFQIMbugkNTyHw+VCLyvE1toAymciYZW8ECQxw69V?=
+ =?us-ascii?Q?6i3JQbEVRsMT2mZlauF+LsIkpNkNX/Ea6P60Ppgu3RleZ928kxgaOA3kb6m+?=
+ =?us-ascii?Q?yjKj2EXDkDIRAvM/AYyMVbUlFOUsE0LiTJkw9/crC9AGp9ltkXUc+VefdtiH?=
+ =?us-ascii?Q?s0ZMev/F+u1oSnBgeLutXvllS1FIKSmc48EyLPa8skCG4N8RGCmp7/IdO6hp?=
+ =?us-ascii?Q?0Xu3wTpY8C/0RCjLa2jP0au7lzE5V7NOcUJtrEBOIPxj9qITXgllW68ZIsph?=
+ =?us-ascii?Q?yc60V58uIaG1YHXbFv1dUo7Ofyu++w5N6NhQejwvvg2zY53pDKmiZGf5x8rF?=
+ =?us-ascii?Q?bykdo+PKDdHc1yQYK5eQmPGv+jsJfRu27vYW48WbJOqdNO0xiJcQmjF1FWkM?=
+ =?us-ascii?Q?AfRcepEVM9tnT2PVekLbGhB3nFrD7lmMo9OEpnl+DrUCNKy/qMdSBf1zDUIT?=
+ =?us-ascii?Q?3v9s9owpl5CpNV88K0exUr6whH8oAIHeOTJ78Lnl43rXJvskk1xCkKkQsGwz?=
+ =?us-ascii?Q?t0gmxRv7P1rerTTfdZQ0d4MhLtdeCTfaVxPOPagcrMaVM8CrvQiQB+Fp2tug?=
+ =?us-ascii?Q?J3wIBWbkQMxpRQfQ5eAV5i9gYAnJTHaI/XUJvyhTfC5XLbb1BvjUjM++sVUd?=
+ =?us-ascii?Q?bbn8OIQXhhuzf7Bk8lWePLhm8RiIndkQljSxrgqLMXOoRH18bmOT04Hwvezl?=
+ =?us-ascii?Q?LGQmbc+FZ598/P7zFugJocfiuoqgJqYOt7B5WWwyFKlWMLip3bKwkoyUI81I?=
+ =?us-ascii?Q?2Yx7akvHJbWcVBVsTMfPrbhlLsMhMcIxrw7imirqJYYDv2eZA2id3az34cp4?=
+ =?us-ascii?Q?4y05OMeWH7bB+2NXFeAx0jyXWwTaaUKfpJRNPXYA4ce1nQO30kHp92k7rU8H?=
+ =?us-ascii?Q?HIAFeUo5BFXlhXe1xYja0fxqNeDpATSpmuiz5oXtyzj8GJzSNIdydmW035sr?=
+ =?us-ascii?Q?TICDHy6XFo9fc8LZPRh98J0D+70vDFuBpSM9JdTydvBy9uAg7k0zCRcJ5XN0?=
+ =?us-ascii?Q?XX1cPXlk49EEp4VlIL8/6twZzDOMm54Z9TPK3oc2FGLUb2g51uxwYbzOkkJ+?=
+ =?us-ascii?Q?O3V+7LxyORyOUjfkX4Ge6kUdKOwmd/r6OhxStcT3uy39rNNpqmdtyj3bvKMq?=
+ =?us-ascii?Q?9nvFIRIYKvCPxcZMJaJrMDetJUY5qKWln2ddaeqk2Y0drnmLCmAWc2s8uQp1?=
+ =?us-ascii?Q?TAYdRotdUQyS+nCboj9h8583OaCH270FAVJeIPDC3+nO2l7ROX/dXKz/M2FH?=
+ =?us-ascii?Q?urfSnjeMSp8PXq69r+JUotg=3D?=
 X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78f54616-0531-40a7-71c4-08dc749c6303
+X-MS-Exchange-CrossTenant-AuthSource: SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: b2c51c7d-98e3-42a1-5224-08dc74860d1b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 May 2024 02:23:47.3879
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2024 05:03:40.5405
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: UyVjhXhus+Kgyj53BnzJgu+11+S/IUuc97Ckp0rmMp4tUZi3nUbfpO4l4EK006b3/6VlhON6hMZYMdjq0FINQ7ki7DsfLmyvMbrMXAdrLdE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB1002
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OvqV0UmXze7cD4bYtjJbJ2AliX2NA8H+d3GC6vTHuVkTUs4/vXRQg9ovvbmVrea3knjulyCyF8FnDtFHdzQTTZ5/EkT1ztqgQu56ZfpL7rw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SH0PR01MB0859
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240514_192412_973649_61314A06 
-X-CRM114-Status: GOOD (  39.86  )
+X-CRM114-CacheID: sfid-20240514_220401_880429_A6FBC777 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,75 +138,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/05/2024 02:08, Conor Dooley wrote:
-> 
-> On Tue, May 14, 2024 at 07:40:02AM +0000, Xingyu Wu wrote:
-> > On 11/05/2024 20:19, Conor Dooley wrote:
-> > >
-> > > On Sat, May 11, 2024 at 03:02:56AM +0000, Xingyu Wu wrote:
-> > > > On 11/05/2024 05:05, Conor Dooley wrote:
-> > > > >
-> > > > > On Tue, May 07, 2024 at 02:53:17PM +0800, Xingyu Wu wrote:
-> > > > > > This patch is to add the notifier for PLL0 clock and set the
-> > > > > > PLL0 rate to 1.5GHz to fix the lower rate of CPUfreq on the JH7110 SoC.
-> > > > > >
-> > > > > > The first patch is to add the notifier for PLL0 clock. Setting
-> > > > > > the
-> > > > > > PLL0 rate need the son clock (cpu_root) to switch its parent
-> > > > > > clock to OSC clock and switch it back after setting PLL0 rate.
-> > > > > > It need to use the cpu_root clock from SYSCRG and register the
-> > > > > > notifier in the SYSCRG driver.
-> > > > > >
-> > > > > > The second patch is to set cpu_core rate to 500MHz and PLL0
-> > > > > > rate to 1.5GHz to fix the problem about the lower rate of
-> > > > > > CPUfreq on the visionfive board. The cpu_core clock rate is
-> > > > > > set to 500MHz first to ensure that the cpu frequency will not
-> > > > > > suddenly become high and the cpu voltage is not enough to
-> > > > > > cause a crash when the PLL0 is set
-> > > to 1.5GHz.
-> > > > > > The cpu voltage and frequency are then adjusted together by CPUfreq.
-> > > > >
-> > > > > Hmm, how does sequencing work here? If we split the patches
-> > > > > between trees it sounds like without the dts patch, the clock
-> > > > > tree would (or
-> > > > > could) crash, or mainline if the clock changes there before the
-> > > > > dts ones do. Am I misunderstanding that?
-> > > >
-> > > > Oh, I think you misunderstood it. Patch 1 (clock driver patch)
-> > > > does not cause the clock tree crash without the patch 2 (dts
-> > > > patch), and it just provides the correct flow of how to change the
-> > > > PLL0 rate. The patch 2 is to set the clock rate of cpu_core and
-> > > > PLL0 rate, which causes the crash without patch 1. Setting
-> > > > cpu_core rate is to avoid crashes by
-> > > insufficient cpu voltage when setting PLL0 rate.
-> > >
-> > > So is the problem in the other direction then? My dts tree will
-> > > crash if I apply the dts change without the clock patch?
-> >
-> > Sorry, I tested it and it could not crash using only dts patch. It can
-> > separate the patches and use it individually.
-> >
-> > > Additionally, what about U-Boot? Will it have problems if the dts is
-> > > imported there without changes to its clock driver?
-> > >
-> >
-> > It is not apply to U-Boot. In the U-Boot, the PLL0 rate should be 1GHz
-> > to for GMAC and PMIC to work. But now the PLL0 rate should be 1.5GHz in the
-> Linux.
-> 
-> There's a push in U-Boot to move devicestrees to use "OF_UPSTREAM", which
-> means importing devicetrees directly from Linux and using them in U-Boot. I
-> don't really want to merge a patch that would present U-Boot with a problem if
-> the VisionFive 2 moved to that model there.
-> 
-> Cheers,
-> Conor.
+Add DT binding documentation used by StarFive's
+Starlink cache controller.
 
-Would it be better  if I  change the rates of PLL0 and CPU core in the driver not dts,
-and avoid the dts of Linux and U-Boot being different?
+Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../cache/starfive,jh8100-starlink-cache.yaml | 66 +++++++++++++++++++
+ 1 file changed, 66 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/cache/starfive,jh8100-starlink-cache.yaml
 
-Thanks,
-Xingyu Wu 
+diff --git a/Documentation/devicetree/bindings/cache/starfive,jh8100-starlink-cache.yaml b/Documentation/devicetree/bindings/cache/starfive,jh8100-starlink-cache.yaml
+new file mode 100644
+index 000000000000..6d61098e388b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/cache/starfive,jh8100-starlink-cache.yaml
+@@ -0,0 +1,66 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/cache/starfive,jh8100-starlink-cache.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive StarLink Cache Controller
++
++maintainers:
++  - Joshua Yeong <joshua.yeong@starfivetech.com>
++
++description:
++  StarFive's StarLink Cache Controller manages the L3 cache shared between
++  clusters of CPU cores. The cache driver enables RISC-V non-standard cache
++  management as an alternative to instructions in the RISC-V Zicbom extension.
++
++allOf:
++  - $ref: /schemas/cache-controller.yaml#
++
++# We need a select here so we don't match all nodes with 'cache'
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - starfive,jh8100-starlink-cache
++
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: starfive,jh8100-starlink-cache
++      - const: cache
++
++  reg:
++    maxItems: 1
++
++unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - cache-block-size
++  - cache-level
++  - cache-sets
++  - cache-size
++  - cache-unified
++
++examples:
++  - |
++      soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        cache-controller@15000000 {
++          compatible = "starfive,jh8100-starlink-cache", "cache";
++          reg = <0x0 0x15000000 0x0 0x278>;
++          cache-block-size = <64>;
++          cache-level = <3>;
++          cache-sets = <8192>;
++          cache-size = <0x400000>;
++          cache-unified;
++        };
++      };
+--
+2.25.1
 
 _______________________________________________
 linux-riscv mailing list
