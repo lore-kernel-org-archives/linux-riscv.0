@@ -4,65 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A5EC25B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 May 2024 07:40:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A71ECC25B77
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 May 2024 08:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MXSNFKWxeJQ4oyI8MQbnV0Hi+CIHNkUUH2AlwkEEPNs=; b=T7tdIiqFuwlTG4
-	ltIo9OpHKAhS1RrVVg5ss1v1QRX4YWtsflSANz+CUzDTEQB+8gbFLCTJ+TYnXKKvsalcxNrigbkKF
-	p0YcCItbd9GdO7SjPehs+g/e1mTItMo93t+CWwt6cXKN8U1NvtXMxor5SCRWUzEZx3rwimjfDlLg7
-	i+A/uOw0sAw0w96Ibqd4s5moHflN6rxEzEchQOx9wAe6m7uQFyJFhcKL6AJd2ugQhlC+vyvFBi+V6
-	bKHA5KCWNuwne0xaSJp9tTGLfvve6t8iU/WCXOSbWecwO9bcNkCE+AhPlGkyHfsBbsckdwgXxPLk8
-	kzAoa7kdWFnlOzEcmUzw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=z/zPbP+ZN3r08t/h1RM6U3AZ1VUtr4BGofg2NS1Pxic=; b=P83fwvKkFzLnTv
+	p6YgunD0aBIyFF/9Y+Ec7wSYMeUdsF+9mz0u73u058TpnqWQrKkGcYix3T6L1zGX/r3xw617hldCA
+	leQgRWsnA1kaV/DiaZoixa1eiIRKga+YY/uRBIje/TRh8bXiXfrO5nkiYcoWr6MD7gQAvZapfXZCN
+	X/+8blajdfFdUdsFliA1Oq8ba8T7geI2seY9Q6Fyy96kSY+3jdZ/oieCs9grdqxzqnv7H9ulav0PK
+	0JGA2sYxWqbwoKDuMoVe9hSrK1dTPbbyT2iXW6fEUvxLmPJQj/vCEFMNQ3dBaYCcbV7T0PIy9MTFv
+	61Oz89X3kV3Mp/Bdl+pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s79F1-00000000oGT-3Zti;
-	Wed, 15 May 2024 07:39:59 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1s79aZ-00000000sOf-3tI0;
+	Wed, 15 May 2024 08:02:15 +0000
+Received: from mail.explorepulse.pl ([51.91.254.67])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s79Ew-00000000oF7-3LY8
+	id 1s79aW-00000000sMT-0f59
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 May 2024 07:39:58 +0000
-Date: Wed, 15 May 2024 09:39:47 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1715758792;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0mk9oc6DES1RAS2h7quf07H1P5S+bDmfrogk/iErpU4=;
-	b=foaKI6IM5Xwm9ZUGZuaCITCkR/q/NCFdyim4nGlyEX0OPDr6sHSjZK3ucwmd6L1NosZTYj
-	2oLGZfUsyGLkFHsNwhd5rUMi8Y57qVQVotlcuT+VkuLGfsUiqZ45Lbkhb4K5rLHFNvUCh1
-	wlitQS1/9RLhLkWHB37bBxiybQy+NFDssrLh/jq3S0L4tUTrG3HpveOZ0HDxgTDhw1fDO1
-	UO8WcjcsZC/DHUD9FwpUnVjwVIBvhcSDjyzJXlI2HD5GtMVE9A7GEhmvczw3zBeRnNQH1B
-	OUdRt7gxm0uc28n3RJmRMtN2Jq8BVyotcfnM+lcJQMWk2UagW/AQ/Hj/1Tj8NQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1715758792;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0mk9oc6DES1RAS2h7quf07H1P5S+bDmfrogk/iErpU4=;
-	b=xXNGajDr+Xr0xqNRVyHIIoN1Nn4grCsCaNVO0gjxipKBlAOvGt/B8LYAnwpdIFmkoaNzhF
-	RTa8/aKddsbswlDw==
-From: Nam Cao <namcao@linutronix.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Zong Li <zong.li@sifive.com>
-Subject: Re: [PATCH 0/2] riscv: fix debug_pagealloc
-Message-ID: <20240515073947.J1Hzlsm5@linutronix.de>
-References: <cover.1715750938.git.namcao@linutronix.de>
+	Wed, 15 May 2024 08:02:14 +0000
+Received: by mail.explorepulse.pl (Postfix, from userid 1002)
+	id 6B8B72496D; Wed, 15 May 2024 10:01:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=explorepulse.pl;
+	s=mail; t=1715760125;
+	bh=dqx6etWJTU7o7oR1uR2aRBCwaPXPl4dirwwzUCFBDcc=;
+	h=Date:From:To:Subject:From;
+	b=BdpyR+bVUjqGQ8R26dB4SULc6TfLhGiJ9sGSmncNWNZFy7NpEk8s5k4+0ckaxkY2x
+	 eCkKNrBw3dLazYxA6yygTy70B1TTxtCKlMitVn0bhb0KT0eF2BKTINld/s43wzUq1W
+	 lrDNfZtul6Ip79bMqMrzV1hJCoKOAcW4Q2seXIjumoKskFKt8CYOUqJoMJkuX8qy5I
+	 vCFN7ezEecaDHM2bKNNbeX5OL1wEonbGcgpUs0mXhLwNgTtGEPjzomevM4tzaqmBLy
+	 IiyGJ8lxahgsoNuo8vmDZ7iD2/AHcAAmYf9aHEfCAJtmWXBLXyqeVpFVRRvXDjp/ir
+	 0tCqc19OrfXmA==
+Received: by mail.explorepulse.pl for <linux-riscv@lists.infradead.org>; Wed, 15 May 2024 08:01:03 GMT
+Message-ID: <20240515084500-0.1.b7.qgah.0.n9kynvo3gf@explorepulse.pl>
+Date: Wed, 15 May 2024 08:01:03 GMT
+From: "Marcin Gard" <marcin.grad@explorepulse.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
+X-Mailer: mail.explorepulse.pl
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1715750938.git.namcao@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240515_003954_998958_CB1DC05E 
-X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-CacheID: sfid-20240515_010213_035438_E86F9A4F 
+X-CRM114-Status: UNSURE (   0.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,43 +62,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Forgot to Cc the original author.
-+Cc: Zong Li <zong.li@sifive.com>
-
-On Wed, May 15, 2024 at 07:50:38AM +0200, Nam Cao wrote:
-> The debug_pagealloc feature is not functional on RISCV. With this feature
-> enabled (CONFIG_DEBUG_PAGEALLOC=y and debug_pagealloc=on), kernel crashes
-> early during boot.
-> 
-> QEMU command that can reproduce this problem:
->    qemu-system-riscv64 -machine virt \
->    -kernel Image \
->    -append "console=ttyS0 root=/dev/vda debug_pagealloc=on" \
->    -nographic \
->    -drive "file=root.img,format=raw,id=hd0" \
->    -device virtio-blk-device,drive=hd0 \
->    -m 4G \
-> 
-> This series makes debug_pagealloc functional.
-> 
-> Nam Cao (2):
->   riscv: force PAGE_SIZE linear mapping if debug_pagealloc is enabled
->   riscv: rewrite __kernel_map_pages() to fix sleeping in invalid context
-> 
->  arch/riscv/mm/init.c     |  3 +++
->  arch/riscv/mm/pageattr.c | 28 ++++++++++++++++++++++------
->  2 files changed, 25 insertions(+), 6 deletions(-)
-> 
-> -- 
-> 2.39.2
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKQ3p5IGplc3QgbW/FvGxpd2/Fm8SHIG5hd2nEhXphbmlhIHdzcMOzxYJw
+cmFjeSB6IFBhxYRzdHdlbT8KClogY2jEmWNpxIUgcG9yb3ptYXdpYW0geiBvc29ixIUgemFqbXVq
+xIVjxIUgc2nEmSBkemlhxYJhbmlhbWkgendpxIV6YW55bWkgemUgc3ByemVkYcW8xIUuCgpQb21h
+Z2FteSBza3V0ZWN6bmllIHBvenlza2l3YcSHIG5vd3ljaCBrbGllbnTDs3cuCgpaYXByYXN6YW0g
+ZG8ga29udGFrdHUuCgoKUG96ZHJhd2lhbSBzZXJkZWN6bmllCk1hcmNpbiBHYXJkCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
