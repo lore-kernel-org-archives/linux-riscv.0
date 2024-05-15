@@ -4,81 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FACC04FFE
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 May 2024 22:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949C1C04FFE
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 May 2024 02:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LJc/ofTS58VLXrThQzaF85zF8MdMzixT/zf8ACt6UVg=; b=KScM3+oKqQYIog
-	EAtmDGsMvgU+kCRaTKsyHnC0thMAPXmlD/X4NbcN0pjpgh3pqxXFBLjBQrm8lhOVQ3xMaQR/O7RCe
-	/Woc+xX8oac0OIh9qlCFWiMMJojBb5+swYtLYz6+DGM45e+PLcxbhfD3tn4EfdAKxsF8ADgHOwTcJ
-	qs3jFKJhobjB1mlCjwKB7P8VzhwmrLrvcQyGLoNCSoMzZAzO4TxvZiJriU7xCKnuXVPk8QdrDnsKm
-	CN/aY6k0j9eSulaeHwXerepIHkQ7y77JknjjgpzKce1l6rSX4blZ3ZjWFicPiVL63I/w/yaitFDlO
-	K+4zBZ8Hl+REg44lYQ8A==;
+	List-Owner; bh=2aRxatOQeaYQ44XawfR88IZYWlKuFyNDnAIt0MnKjH8=; b=v7KgOgW5d4lKeW
+	0dWqB6HWvUPUU/2os8C/U5bxHZYKK4Z3PlZS44/u4xGsV3hgZWu4XY22P3fgGVzTyq8LAmQoRxvD1
+	k8xn8WUjjo0RvtlAu5aVmgXbk1qimr3jR/z5rQ/E19QyOYQULwZ1bCi/3uIu2U5n5YxdYisy9S6mU
+	5z+BJQgR00tylfzYs6yVdnyT85Q8LT47Cb03AETFDhb7BV4Pg265FuLcFFZ9gj5NdjtQPjcAS8KhL
+	lMf6dM0ZNmACDf14aE9o9kTOV6hHlizUXc0I4L0j5d0W3dS1Kx98W3K5sClgub64F5dbw0pySchIQ
+	mRUo0FZ68tOiiuyw0DVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s70FX-0000000HIRT-3RbH;
-	Tue, 14 May 2024 22:03:56 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1s74JU-000000008gZ-0o45;
+	Wed, 15 May 2024 02:24:16 +0000
+Received: from mail-bjschn02on20720.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::720] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s70FT-0000000HIQu-3Lxe
+	id 1s74JQ-000000008eX-3j3v
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 May 2024 22:03:53 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-6f4e59081e6so3376220b3a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 14 May 2024 15:03:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715724229; x=1716329029; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vkiSNZElAJybtnCmIixSp8O/INwHpHiOAq0SsZz+2kI=;
-        b=QlZ25drzVv8JxayL1BTUqRXv3GGZKVpQbGfOjDY3g6f71xLp33DlbRkT6d5x+2wLe3
-         QnKsSYXrcBbA9QMLmuZ+mrK1uhAjw1UaQSOldiq08ByLKTq0bWWPWRjiDVMUnPp+0sAS
-         Y1svhxVnVI8w2xr0rP4WYZFdRsKg4dXRpj52/+jTfXMQumndxqhYIDO3Pc0kIDXxFirD
-         9jufMws/JLrOwroCbmWOE0Lu1tEhCWg9/cqrCm/Sr6Wd6WDdXwuF1Yvbgi4Iadum6pkp
-         LLIKUmJWNQtVdM8DGzYbFqXoILuvBQ7wSDNvgXgckxDqanfw2dcgUwzFFsLPqORnUGZc
-         RjoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715724229; x=1716329029;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vkiSNZElAJybtnCmIixSp8O/INwHpHiOAq0SsZz+2kI=;
-        b=YPJutJB7JGgYiduckf1Bn+KLOCIYFskqj56vnfsKaLbIhFxuBHAC3nDst9+7swCFVs
-         tiIodwmL3yUBN3nPSRA39LEIbzZYU+i5DI+lgD1yAU89z4qX8xrCRtSNBJIaMud48QYF
-         8duWy6mzbaLa2LAfTZmdyZRRBqnRmKLeNtRZtQst8hVPey7eN8wm5p10Hvm7xZmfAHu6
-         9Vv6I/GS/N/ap/hu2HPzW3j5YAvPX4/V2tWxVylA5wMNUCv4E8PzJIsgPlv5ZLLp1fHJ
-         NtZCOkx8K91/OBy6v6o3NI6kLlcPMM9D34q5x6IwpbKOzHQaFSCLSS4SW4isM3TlcuX1
-         m8QQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXZ1/6MTVfYDQut1S5NPfGUUQWjxA4oJKBv7dFcRPOcrzb6oo7JW+h03fyT2I+CnCHrp2FpVuJDRJl1wJtNEUmNLEzq9T+JqhlvsIYjt+gq
-X-Gm-Message-State: AOJu0YwMpNWJXob6g80V+/47sXH+82OZHvHZh703DctT/ZFZ2jX9P1YB
-	9Y8F5NZwb/vGyo5YDYF5fqlkXfjCEk4+O5Hh365wmmpoveokQpP7OtwcjKJ7tCI=
-X-Google-Smtp-Source: AGHT+IFzz6no4CjoUbD4CmZsphn6hLm+cR/XvpBU0wg3uHhiu2k35I3C2xLgsT9+XMdGuUICVA/YGg==
-X-Received: by 2002:a05:6a20:5527:b0:1af:d647:3108 with SMTP id adf61e73a8af0-1afde0af5c2mr12122015637.2.1715724228879;
-        Tue, 14 May 2024 15:03:48 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0bf32b4dsm105280505ad.137.2024.05.14.15.03.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 May 2024 15:03:48 -0700 (PDT)
-Date: Tue, 14 May 2024 15:03:45 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Qingfang Deng <dqfext@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Qingfang Deng <qingfang.deng@siflower.com.cn>
-Subject: Re: [PATCH] riscv: do not select MODULE_SECTIONS by default
-Message-ID: <ZkPfwRj+QR2okyJv@ghost>
-References: <20240511015725.1162-1-dqfext@gmail.com>
+	Wed, 15 May 2024 02:24:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=UfKegW3oePo1ggSmdca9j9PgtC8D0J9/IlW28+Pc0HQxBFX9889GnusFD0oO4K6ujjJsGPPs411ndrUig3XcJlwrrRcRirLzVL+2wCP0lLI14GtH1b5yOyx4lULdKg6ykyqporKmfFWo436PG/85GJao90eyNvkd9g2c6i/zfX9CZBfz2PwI6blE3ChRK4Ux3TskpkQSbryly7/O6mYnGBhzSS4RNdLAPMh9gE+uChb2GReK+NtfYM1jrsquVeKJLMd+aruYP8K7vXTCbK8OE+Q4Gboq6D3XWpsdi1EvKRcnSlZ8upkG+0Fagf2EfY8nRf3JIKf2y82Ug0sJFy938g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=juykI4KxJpPd+HSTYr18AIlTmvsWU2/XL7PboPIe8Dc=;
+ b=Klpvrv6gnzNOttslvI6XXqUcb4sDco0FediEMdtm6nSwy4c38Cvyk7CvUyo5qDBnHSipJrHWeK/6OzkrP4OnnRXhfpgVH9LHjf/ww5kfRTdF+NLXM0cvBmUE6ts1BPraXpNOO1wutDVT5Ydaz0lkWATZOvPkLJ4SZe3v/quDuKx2loNgbAOTE9HOYUo8sF4ijGt8TSntEsNTSdv+hGHZBh/5TG3h+k5aXWNaI8BeyEd7qCHfq6NGBy/Hbp616tclfdVfUhRmh9mAFXYVaoGy/ucikcGivWh49hPQ/vfbvhKriRB/0088P13++Viv+Ak+tbJdgr+u34pt/0mE2ALwAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:8::10) by NTZPR01MB1002.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:b::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.33; Wed, 15 May
+ 2024 02:23:47 +0000
+Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e903:99a6:10b7:304d]) by
+ NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn ([fe80::e903:99a6:10b7:304d%6])
+ with mapi id 15.20.7472.044; Wed, 15 May 2024 02:23:47 +0000
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: RE: [PATCH v5 0/2] Add notifier for PLL0 clock and set it 1.5GHz on
+Thread-Topic: [PATCH v5 0/2] Add notifier for PLL0 clock and set it 1.5GHz on
+Thread-Index: AQHaoEtCPDK2HwhwXUSWjcDZE/pIQ7GQ+umAgABXAkCAAKg2gIAEWZ+wgAC+9gCAAIQbsA==
+Date: Wed, 15 May 2024 02:23:47 +0000
+Message-ID: <NTZPR01MB0956CF1AA9EA5A20A174FD8A9FEC2@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
+References: <20240507065319.274976-1-xingyu.wu@starfivetech.com>
+ <20240510-unfounded-syrup-d1263d57d05a@spud>
+ <NTZPR01MB0956D48361098E8AA4B3930A9FE02@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
+ <20240511-unbiased-dainty-ccb5ece9b1b9@spud>
+ <NTZPR01MB0956A7393097129D3CD048EB9FE32@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
+ <20240514-congenial-smother-1e4b0fc6a5df@spud>
+In-Reply-To: <20240514-congenial-smother-1e4b0fc6a5df@spud>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: NTZPR01MB0956:EE_|NTZPR01MB1002:EE_
+x-ms-office365-filtering-correlation-id: b2c51c7d-98e3-42a1-5224-08dc74860d1b
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: dM12cF7KI3pKWC0YB1+wvHJVT1dtjIqhwI8p9w+sssXLO1QPYFz0ue/GEKcWUhNzTjRZ+nzFXr9lCp/DtXj7nCBgctC7yAtRxVOvlhBFFkzd27XB3EHQ3SazLHhPw1MTMkPpb4MQt5M8bee6zZEvqNe1tpZofXbxm2QDjhYbykAIBndLwShmAH2n4NnfJK35pYCgTLv4djP32LJpnNYVdsAQImMGVClEz1spJASJGOrbB5UvdWN7a8/vKnbpY4bo4pgwrpeFbGTE9hrTBsdb2/JWGf9Bu5eqAfMQ+EhmRWkUEiXLxXXhaXhk7jHguTFs+YOCJSOxoep5e780aHhX5G4EcXTREBEwjUuPYKSNOVy7f/q5JJrd9OnfZnKPdnXHM3hMpB/ROKFTPolNjNUaOJo5mTB7r/ta15InNsVba1vliOEiG5vQ/lsP2cDjYMzFHhTB/LtC/wxxQLO5ibtvrQcFmUAswHy4PYtVkflW5t+q//zUlNqLA7KHd3/TIPdxC46d+9sfur0kA9/O+44EtmjTnipLkTwNANkWGWP4cnvvrLTzaUZLNYSLaKNSfCMx7N/QkXq05LN7KaMWu71UlFZBTOovjujQY2a5tXZ9YNv0r3mkc/Js84O8xxEEPaXP
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(366007)(7416005)(41320700004)(38070700009);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ogPuLDcKEquOYoRpp1omm5qe+K4XtmbiH6L85hZqMSUDkFLJ0gdHGARkh0ST?=
+ =?us-ascii?Q?+feJwKMDpEkkUHqeugg76x7wdND8hrWRcCGcYA1e9fUNBRGe4XOKkCK/1YmL?=
+ =?us-ascii?Q?x/ijGgb8vVu0+lM6XJkcad0DoWzY2+4mPe0CzEZvtVEQ67yzJaNiIRXfz4ly?=
+ =?us-ascii?Q?1Ab9LUXcA2PQ6CLVuXNLPF7jakrihDjccpRdXLPsiTdh8xKQE8yD/lJNzn9f?=
+ =?us-ascii?Q?kiS3ACI5l32yD3m2fvJp+2thrghFXeC4LcOUEagFbxnWV5Irkoal99UJbIqz?=
+ =?us-ascii?Q?CZOfnQ4PzY32DxKZFLwrw5H/gUAdt9/s/VzvL+yV+x5Z9Qr+vWuryZ4FoxFY?=
+ =?us-ascii?Q?0FnvGe7ZlnrZZ63tjc43YSYVGtgy/91zt4gGPhc9tSDHqpHGLUhTmkVJPI4G?=
+ =?us-ascii?Q?5TQLjMlGndFCoUpew87pPoYqxgp63Xoa7rCResBSXYENV9PawMbdaYvD3Uji?=
+ =?us-ascii?Q?wZlEQs3cPTlOtPWEVNBTTBX5sxuAJ4mW3bzWxy6Lib+ENfCwIyWf7hg+Ti0y?=
+ =?us-ascii?Q?FHL30p9J49cTXlQnGOVsuC7bE1KlJTkv2PTWXWCHdr/Fmp9qQJMfAAU9L7Ek?=
+ =?us-ascii?Q?x1ZnWX7ROxWlfnNNT8o0GJzXNdvqEe65xXoZ5ywbw29NYIWE/nVoK36pMk/f?=
+ =?us-ascii?Q?znPzyYK5bNOnGMVRfoyPOFqqxM9GtY7ChJaHk9nmrxnqW46yM6EBu4ObqkC/?=
+ =?us-ascii?Q?HBfx8u5w2gWPY1hH3iIjZVWAjA5QLGZjSF8jf6edRQusZ7N+f/QwtynzIxZK?=
+ =?us-ascii?Q?aIVSc8H6dlrJcKLFOHQx2avVqR3wRHOsIU5IeVlLVDUwIv+tFs293FuSwTyY?=
+ =?us-ascii?Q?kZ7yMbZR2ibKn5WzV4GdLXId1KyKDZumIg+Ld4C55RPM/6p05ToMoxzNNQbe?=
+ =?us-ascii?Q?7KIkDoY5R3f8nYOuD4G5RVD3kx+Dxc5cATUXxO2MM/CNNh8wiPaLtg3sqpKF?=
+ =?us-ascii?Q?wngALbbTjRCCS+pcxyyI/C4mXiljZlqEcnf/4UqmX9Ib3WfJZrMhRN038in9?=
+ =?us-ascii?Q?y1l12xTTlwKMUwPS0i4sIuFftvPFEwu5PalGv5zbx8U/fWF30rSzROoxqW0M?=
+ =?us-ascii?Q?OG8W5GwferafH/E082mTfzVpWgUlb1hhxQdhOcXW/lCHlLmuciQVbFf43rhm?=
+ =?us-ascii?Q?SAGR97eY7C95Ol0+mdrACQqUC67cJOw0jOJCsO2olUKBXSNVnPMuaV9ABocO?=
+ =?us-ascii?Q?B02tccPmLXuDoFQiGjkAsGkAYLjp8Tjsqvlndxbl25MVrnNiDMYtHkCJoKyu?=
+ =?us-ascii?Q?ZMAz4VOJAgaxn+2HPpzTgh2yGhkdxP3uIyCpAGlJSRr+a0BCtFwyc+GLI6Dc?=
+ =?us-ascii?Q?7VndP0awnGvWBNumJmFWXddsH7SBTo7NfeorBtpn9kjgL2jG/BiGT6qPvdMP?=
+ =?us-ascii?Q?Fucxq8PAXQRIAebn4tTJIFyU1FEhGmKfVCGtJXHPKxB57mqnVCG/SXTtiE6R?=
+ =?us-ascii?Q?JCG3/ZVyewAwIrPFTZPY2WCdRzoLjI2j04TSeLTJJs+F/y+Mc+7qbXke2wy1?=
+ =?us-ascii?Q?jxINluR2obToPE7pF+adke19xV2RGtqMxG3MSzE+8miTidHg11vWFQdUHyli?=
+ =?us-ascii?Q?SWBbAK6lsKW5NAKT4etjirM08Fe0UHcBchjufahJ?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240511015725.1162-1-dqfext@gmail.com>
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: b2c51c7d-98e3-42a1-5224-08dc74860d1b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 May 2024 02:23:47.3879
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: UyVjhXhus+Kgyj53BnzJgu+11+S/IUuc97Ckp0rmMp4tUZi3nUbfpO4l4EK006b3/6VlhON6hMZYMdjq0FINQ7ki7DsfLmyvMbrMXAdrLdE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB1002
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240514_150351_970921_417D7C5B 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20240514_192412_973649_61314A06 
+X-CRM114-Status: GOOD (  39.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,56 +142,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 11, 2024 at 09:57:25AM +0800, Qingfang Deng wrote:
-> From: Qingfang Deng <qingfang.deng@siflower.com.cn>
+On 15/05/2024 02:08, Conor Dooley wrote:
 > 
-> Since commit aad15bc85c18 ("riscv: Change code model of module to
-> medany to improve data accessing"), kernel modules have not been built
-> with -fPIC, so they wouldn't have R_RISCV_GOT_HI20 or R_RISCV_CALL_PLT
-> relocations, and handling of those relocations is unnecessary.
+> On Tue, May 14, 2024 at 07:40:02AM +0000, Xingyu Wu wrote:
+> > On 11/05/2024 20:19, Conor Dooley wrote:
+> > >
+> > > On Sat, May 11, 2024 at 03:02:56AM +0000, Xingyu Wu wrote:
+> > > > On 11/05/2024 05:05, Conor Dooley wrote:
+> > > > >
+> > > > > On Tue, May 07, 2024 at 02:53:17PM +0800, Xingyu Wu wrote:
+> > > > > > This patch is to add the notifier for PLL0 clock and set the
+> > > > > > PLL0 rate to 1.5GHz to fix the lower rate of CPUfreq on the JH7110 SoC.
+> > > > > >
+> > > > > > The first patch is to add the notifier for PLL0 clock. Setting
+> > > > > > the
+> > > > > > PLL0 rate need the son clock (cpu_root) to switch its parent
+> > > > > > clock to OSC clock and switch it back after setting PLL0 rate.
+> > > > > > It need to use the cpu_root clock from SYSCRG and register the
+> > > > > > notifier in the SYSCRG driver.
+> > > > > >
+> > > > > > The second patch is to set cpu_core rate to 500MHz and PLL0
+> > > > > > rate to 1.5GHz to fix the problem about the lower rate of
+> > > > > > CPUfreq on the visionfive board. The cpu_core clock rate is
+> > > > > > set to 500MHz first to ensure that the cpu frequency will not
+> > > > > > suddenly become high and the cpu voltage is not enough to
+> > > > > > cause a crash when the PLL0 is set
+> > > to 1.5GHz.
+> > > > > > The cpu voltage and frequency are then adjusted together by CPUfreq.
+> > > > >
+> > > > > Hmm, how does sequencing work here? If we split the patches
+> > > > > between trees it sounds like without the dts patch, the clock
+> > > > > tree would (or
+> > > > > could) crash, or mainline if the clock changes there before the
+> > > > > dts ones do. Am I misunderstanding that?
+> > > >
+> > > > Oh, I think you misunderstood it. Patch 1 (clock driver patch)
+> > > > does not cause the clock tree crash without the patch 2 (dts
+> > > > patch), and it just provides the correct flow of how to change the
+> > > > PLL0 rate. The patch 2 is to set the clock rate of cpu_core and
+> > > > PLL0 rate, which causes the crash without patch 1. Setting
+> > > > cpu_core rate is to avoid crashes by
+> > > insufficient cpu voltage when setting PLL0 rate.
+> > >
+> > > So is the problem in the other direction then? My dts tree will
+> > > crash if I apply the dts change without the clock patch?
+> >
+> > Sorry, I tested it and it could not crash using only dts patch. It can
+> > separate the patches and use it individually.
+> >
+> > > Additionally, what about U-Boot? Will it have problems if the dts is
+> > > imported there without changes to its clock driver?
+> > >
+> >
+> > It is not apply to U-Boot. In the U-Boot, the PLL0 rate should be 1GHz
+> > to for GMAC and PMIC to work. But now the PLL0 rate should be 1.5GHz in the
+> Linux.
 > 
-> If RELOCATABLE=y, kernel modules will be built with -fPIE, which would
-> reintroduce said relocations, so only select MODULE_SECTIONS when
-> RELOCATABLE.
+> There's a push in U-Boot to move devicestrees to use "OF_UPSTREAM", which
+> means importing devicetrees directly from Linux and using them in U-Boot. I
+> don't really want to merge a patch that would present U-Boot with a problem if
+> the VisionFive 2 moved to that model there.
 > 
-> Signed-off-by: Qingfang Deng <qingfang.deng@siflower.com.cn>
-> ---
->  arch/riscv/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 6bec1bce6586..3f92dd3b45d2 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -169,7 +169,6 @@ config RISCV
->  	select LOCK_MM_AND_FIND_VMA
->  	select MMU_GATHER_RCU_TABLE_FREE if SMP && MMU
->  	select MODULES_USE_ELF_RELA if MODULES
-> -	select MODULE_SECTIONS if MODULES
->  	select OF
->  	select OF_EARLY_FLATTREE
->  	select OF_IRQ
-> @@ -858,6 +857,7 @@ config PARAVIRT_TIME_ACCOUNTING
->  config RELOCATABLE
->  	bool "Build a relocatable kernel"
->  	depends on MMU && 64BIT && !XIP_KERNEL
-> +	select MODULE_SECTIONS if MODULES
->  	help
->            This builds a kernel as a Position Independent Executable (PIE),
->            which retains all relocation metadata required to relocate the
-> -- 
-> 2.34.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Cheers,
+> Conor.
 
-Looks great!
+Would it be better  if I  change the rates of PLL0 and CPU core in the driver not dts,
+and avoid the dts of Linux and U-Boot being different?
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-
+Thanks,
+Xingyu Wu 
 
 _______________________________________________
 linux-riscv mailing list
