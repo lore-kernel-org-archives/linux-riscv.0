@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF78C25B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 May 2024 16:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFBCAC25B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 May 2024 17:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/gQdc5qiuR3h9whsnciw1/z7s8Xsg0ByRn5KdyR2tXI=; b=FFGMHyEDSpcMYXjHDRaQHtLQfo
-	P8y2u0k5l5q5bN3YyWXwSuSXHhwmyPyHiOFlcIAYaXGPmtu675qCNeGK6TRbfROUV+OKBqfsN9HYd
-	zYZB26b9NXM/lHabiuBOUNHkg6pLhbSl2dCyyPxGJttYaj9RdLNNtdm66ZUFrT07p2a3LyWZ5Wd6x
-	r/Ym3VmwGSsf9Aanop8Sda8SMHyrvmC1M2Z/EzOYZOqyCBzBSvw7mH65sb9ZJjxKMy/8DZUoqhu5U
-	7djM38yYX/sp/2aa8+1aTKjbAFy11oyRsuRXsyFyURa9sUBeY64fPMXenS6mjtEZK0rpudadzZnC8
-	26Z/Cd6Q==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=hAXAcLCH8a7qmvFlqAomFD72slOvY1riSyjCyWIESIw=; b=5GeJw+xd0H3Ntu63geZSHfvlSy
+	RQENeb9kCmxpxIr97qT55kM+KipN+qJErkgfCO6qS9fx4AbMco4mS2f/3/fSlz4/0CeqpuIen+r3r
+	FjZcUMf2cLsGP+/JDcoD2xhiFY9taS0wGYDUcUFbu2YIo8DCxVze7xAV0bfAkd/DK3ctXju3q1OCr
+	r9Kt9BPlp4SHiLmNaePwsb3CgcsUi8tGVGdx25t+0uqTc4dziHrWo5rK3psji3dGOHJlFE3ZfQJiQ
+	HMHgmFVB9dI9Y1kKPfIINlgLE2lymK4AGZnUXjgYKdgxjOKhHiCna33uNQsXKx3OkMK5SgpdHu0VS
+	Mr9CRK9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7Hvh-00000002Byh-3QDi;
-	Wed, 15 May 2024 16:56:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s7I4u-00000002E4u-2u9K;
+	Wed, 15 May 2024 17:06:08 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7Hvf-00000002ByE-0jj1
+	id 1s7I4p-00000002Dz3-0a6w
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 May 2024 16:56:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6FF4360A77;
-	Wed, 15 May 2024 16:56:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4041C116B1;
-	Wed, 15 May 2024 16:56:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715792194;
-	bh=Vc3UgsyCKJ4NlKCBb8Zg9oPYMZOJ5N00h4qjUnYkSiQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z85sj6ioU31bj8SUZwrJbHqazoJD2vBx5+ch1dJKqKBm0Z6cvXxmEASXGCJr8I6Jr
-	 7JSsovXepWMtpi+SPtNSjFjSJH8jQQ9J8nYiahl/Yjqah4QW4XoUbQH3+2wAz0ZM28
-	 oCBbYA0j0onTffnFOZEQpfKHqVSwOES3Rq6X4UWNtn2trcG4gRkCRq7QqJ4waTooSZ
-	 qNPV85rpN/PLTfQ53xaQinGar22x8CaB0u8WGtQbQmReZGbm3I1B4Y3wG+aHlAiGhZ
-	 UgR4awLb/g0Q4Jf71QS8gueK4RQpzJgPH4N1p5IVClFzCQcx2hqayHoWky60cG5Anx
-	 z/K5wbbcgmvkA==
-Date: Wed, 15 May 2024 17:56:30 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] RISC-V: fix Andes errata build issues
-Message-ID: <20240515-slander-stranger-683758537aee@spud>
-References: <20240515-comic-sketch-3b40e6676f55@spud>
- <ZkTnlEnoFFrQdXi2@ghost>
-MIME-Version: 1.0
-In-Reply-To: <ZkTnlEnoFFrQdXi2@ghost>
+	Wed, 15 May 2024 17:06:07 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1eb0e08bfd2so43727805ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 15 May 2024 10:06:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1715792760; x=1716397560; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mQQzdQzBGV3DZrL9QqRIhsLoIytzbr5Nn+q/+rp6S9U=;
+        b=o2tkPi4ryPDgzH3kDnkrM4PggEOBy7LbJN/IaCsbunOg04xNQVb8FW0DgvQCma1GrN
+         ArmTyYzMhsKKyNh7AjxIsNsZPFViv353C9Pth2o/ZJ4/h9LmFmzLbeY0NNu9A7gugwYz
+         mVx5JpIDERdCDicDw72Uoj97LAa44qm8QBjvQmgvDdEHPmA2X9I4rufnuy5SsB86PYLB
+         Pwev8FPmALK9XBT9M0jE959Fuon/wGD8+amnk2FiZ8Zzw/qy0s5D45PKszDWuDv12Dyd
+         0OI2Qp8rpJuZJ1HwQEtr5svn4uWSSppn0At+oEyY3VZwLbWunBrXt5D1GE/ojTGab1Xs
+         j0qQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1715792760; x=1716397560;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mQQzdQzBGV3DZrL9QqRIhsLoIytzbr5Nn+q/+rp6S9U=;
+        b=Rao9rDG/wSr3xrgJ3yNJDyvhuQ/3+p+DADKjj76ukNS+X1SdO5GqaRAQp64qIuS2/J
+         Ff5Fsl53k4ZxfN4Reu8XOIAIMfeYHV1FDXgTMdQMzMyKwX57cuOANnlHsd7H9BywOMLq
+         2jUxOCfoXWcsKB2AqXvAvcro8o1eAZC+h1D8h7M6/985hKTn8VD898/iT38BjJE7PMzW
+         WPzA1/RjkuAng5qA2iwlOdFjrOS0w+s/9htZ9/jclrDKYZBcZao6RgXZLaVEsJeRCpgO
+         bD0gQcoUe/U5qb4IYAtsgRqrromu3qdGtJB/tjio2oWq9GKh37fLMbW0xo38Uh+U0KJA
+         kIFA==
+X-Forwarded-Encrypted: i=1; AJvYcCVypYje0UMAooC0es7bFIrlxg/JLoatgiBer87iM4hDUerOlIzoPL2coWLfluWEtn+w5nza3I+rpbF1W4sQ2tmNYsUHCVvHoVXNizMvEs3n
+X-Gm-Message-State: AOJu0YzdTokP9qiRI6PlQyinw2rs8I5Bxe3mmf01KD75rCeZW9vrqln5
+	NU5p3RBpfreGBRasMtk686olu/N5TuYzVjy2//HnClfyRPG7zQfAoaZgl/24ryU=
+X-Google-Smtp-Source: AGHT+IHcHqSyEX4mzVByjYRHADLbnyHvlA3EH+pwK15IXluhS5E+pQUXzIRMTRRMFI5dY8+8yAW0/Q==
+X-Received: by 2002:a17:902:744a:b0:1e5:3c5:55a5 with SMTP id d9443c01a7336-1ef43c0ceb1mr150722395ad.8.1715792759795;
+        Wed, 15 May 2024 10:05:59 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0bf316f7sm120938135ad.164.2024.05.15.10.05.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 May 2024 10:05:59 -0700 (PDT)
+Date: Wed, 15 May 2024 10:05:59 -0700 (PDT)
+X-Google-Original-Date: Wed, 15 May 2024 10:05:57 PDT (-0700)
+Subject: Re: riscv: irq-riscv-imsic-early.c:52:9: error: too many arguments to function 'riscv_ipi_set_virq_range'
+In-Reply-To: <20240515-zen-calculate-289cfb90cd65@spud>
+CC: naresh.kamboju@linaro.org, linux-kernel@vger.kernel.org,
+  lkft-triage@lists.linaro.org, regressions@lists.linux.dev, linux-riscv@lists.infradead.org,
+  apatel@ventanamicro.com, tglx@linutronix.de, anders.roxell@linaro.org, dan.carpenter@linaro.org,
+  Arnd Bergmann <arnd@arndb.de>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-10b71228-cf3e-42ca-9abf-5464b15093f1@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240515_095635_301738_521B0F61 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20240515_100603_783831_8D20F542 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,76 +89,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4973450064750514121=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 15 May 2024 07:36:33 PDT (-0700), Conor Dooley wrote:
+> Palmer,
+> This is the issue I point out to you on the call earlier:
 
---===============4973450064750514121==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="UK+D9MXCwBQBpFDQ"
-Content-Disposition: inline
+Ya, thanks, I just hit it.  Looks like it's a semantic conflict between 
+21a8f8a0eb35 ("irqchip: Add RISC-V incoming MSI controller early 
+driver") and dc892fb44322 ("riscv: Use IPIs for remote cache/TLB flushes 
+by default").  I think all we need is 
 
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index 886418ec06cb..4fbb37074d29 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -49,7 +49,7 @@ static int __init imsic_ipi_domain_init(void)
+                return virq < 0 ? virq : -ENOMEM;
 
---UK+D9MXCwBQBpFDQ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+        /* Set vIRQ range */
+-       riscv_ipi_set_virq_range(virq, IMSIC_NR_IPI, true);
++       riscv_ipi_set_virq_range(virq, IMSIC_NR_IPI);
 
-On Wed, May 15, 2024 at 09:49:24AM -0700, Charlie Jenkins wrote:
-> On Wed, May 15, 2024 at 05:09:34PM +0100, Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > Commit e47c37c24024 ("riscv: Introduce vendor variants of extension
-> > helpers") added includes for the new vendor_extensions.h header in
-> > the T-Head and SiFive errata handling code but didn't do so for Andes,
-> > resulting in allmodconfig build issues when commit 589e2fc85850
-> > ("riscv: Convert xandespmu to use the vendor extension framework")
-> > added a user of a macro defined there.
-> >=20
-> > Fixes: 589e2fc85850 ("riscv: Convert xandespmu to use the vendor extens=
-ion framework")
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+        /* Announce that IMSIC is providing IPIs */
+        pr_info("%pfwP: providing IPIs using interrupt %d\n", imsic->fwnode, IMSIC_IPI_ID);
 
->=20
-> I was going to fix this in my next version but was waiting for the
-> reviews on the thead stuff. I wasn't anticipating these patches to be
-> able to jump the queue :)
+as a conflict resolution, which IIUC should happen when Linus merges my 
+next PR.  So I'll try and remember to call that out.
 
-Yah, the reason for that is I asked him to take the non-vector parts of
-the series as 6.10 material so that we'd have less stuff movin' around
-in cpufeatures.c so that Clement's Zc* + validation changes wouldn't run
-into a bunch of conflicts etc. Same reason that I pushed for getting
-Andy's vector subset stuff merged today, but that mighta been before you
-hopped in.
-
-Cheers,
-Conor.
-
---UK+D9MXCwBQBpFDQ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZkTpPgAKCRB4tDGHoIJi
-0sSJAQCfVevJgU8rQ4m6T39juTOULgq+RetJE+zsp3P2MQd4BgEA/T2OiRexNN3w
-g0d2C05XlOyLLThFSyWR5vfKNZ2+WQI=
-=MIIp
------END PGP SIGNATURE-----
-
---UK+D9MXCwBQBpFDQ--
-
-
---===============4973450064750514121==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
+> On Wed, May 15, 2024 at 04:18:58PM +0200, Naresh Kamboju wrote:
+>> The riscv builds failed on Linux next-20240515 tag due to following build
+>> warnings / errors with gcc-13 and clang toolchain.
+>> 
+>> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+>> 
+>> Build Log:
+>> -----
+>> drivers/irqchip/irq-riscv-imsic-early.c: In function 'imsic_ipi_domain_init':
+>> drivers/irqchip/irq-riscv-imsic-early.c:52:9: error: too many
+>> arguments to function 'riscv_ipi_set_virq_range'
+>>    52 |         riscv_ipi_set_virq_range(virq, IMSIC_NR_IPI, true);
+>>       |         ^~~~~~~~~~~~~~~~~~~~~~~~
+>> In file included from include/linux/smp.h:119,
+>>                  from include/linux/lockdep.h:14,
+>>                  from include/linux/spinlock.h:63,
+>>                  from include/linux/sched.h:2142,
+>>                  from include/linux/ratelimit.h:6,
+>>                  from include/linux/dev_printk.h:16,
+>>                  from include/linux/device.h:15,
+>>                  from include/linux/node.h:18,
+>>                  from include/linux/cpu.h:17,
+>>                  from drivers/irqchip/irq-riscv-imsic-early.c:8:
+>> arch/riscv/include/asm/smp.h:52:6: note: declared here
+>>    52 | void riscv_ipi_set_virq_range(int virq, int nr);
+>>       |      ^~~~~~~~~~~~~~~~~~~~~~~~
+>> 
+>> metadata:
+>>   git_describe: next-20240515
+>>   git_repo: https://gitlab.com/Linaro/lkft/mirrors/next/linux-next
+>>   git_sha: 82d92a9a1b9ea0ea52aff27cddd05009b4edad49
+>>   git_short_log: 82d92a9a1b9e ("Add linux-next specific files for 20240515")
+>> 
+>> Links:
+>>  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20240515/testrun/23894295/suite/build/test/gcc-13-lkftconfig/details/
+>>  - https://storage.tuxsuite.com/public/linaro/lkft/builds/2gUiKdxX7qM27ritMJT5pRyZhyi/
+>>  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20240515/testrun/23894295/suite/build/test/gcc-13-lkftconfig/history/
+>> 
+>> --
+>> Linaro LKFT
+>> https://lkft.linaro.org
+>> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4973450064750514121==--
-
