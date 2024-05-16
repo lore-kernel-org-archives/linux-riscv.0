@@ -4,85 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962AFC25B74
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 May 2024 04:10:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F31B7C25B74
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 May 2024 04:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6fJDL3Tp+fJ+ogRg8ssdmE0QetqEWbQ3xiPbpJeQGWg=; b=BpTL9lwsyWx4xg
-	EuhiWujr3mkXdKsmEX6PHNfSv01LHO7/K89M8IAAont0sRBzqANtyXP2Lq1fkZZqiUxfd5yn4mACB
-	5IcpF4tEYMyFRVv36eWpiv8PuP8ucsNy7r7NcgNwYrE5bl6g+MGv3q3+RmwTv7l50xvuEyaLxo0Q/
-	/vNDtwcQVKw+bBwgNyIRz9VFEIYeRBVnFtL6Rq74Bp9xJgh46yBe5+pA8IWveOVm1nRUPRW7gcorG
-	lcB17vFeXa/9lOySGrPSxGhnnyI7rbtpHs7X197QmJVELhUXQOyFtLsgH6zHuYkIvaHNSUY7nbsXH
-	cLgcndZElwbz28QyNayQ==;
+	List-Owner; bh=IWcKiqJoWkjpXBcWjkNdOppzep7oEPfxUuQTCh81mmY=; b=3NVPZRi5FRi5MT
+	2kUBmjLFf7ss9Vt5g0lqyqeNI4kLR9/s8aEQ6TyzOcxkhGggf6wLqfk2eM2m0jAilEK97cvMGtFkA
+	Tyk+z1O5RqpzDNDCvco39wx5gvx5N5Cv98jXTx+j2MYxwlmZGdL0HwZasx+EArK11ejFtwNl0rQ+Z
+	j1emONmTjRvNn+0IkKqJVn7MC8f5RloOD8zFIND033JHiLF1W61fio3D925fM3wHfuPCxWazLlc6F
+	BOOYWlxp8X6km7C/z47pqUMa1mHVZGopvqJ14s8LCxPgNuvNuepM3Fm/YDJnoJ72vi2gkjQfLfwNC
+	D0/LniedYfFrutAgAIcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7SRV-00000003de8-1Kil;
-	Thu, 16 May 2024 04:10:09 +0000
-Received: from mail-oa1-x2d.google.com ([2001:4860:4864:20::2d])
+	id 1s7TCl-00000003jOB-1C4Y;
+	Thu, 16 May 2024 04:58:59 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7SRR-00000003ddL-27se
+	id 1s7TCh-00000003jNe-2HiF
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 May 2024 04:10:07 +0000
-Received: by mail-oa1-x2d.google.com with SMTP id 586e51a60fabf-23e78ef3de7so119084fac.1
-        for <linux-riscv@lists.infradead.org>; Wed, 15 May 2024 21:10:03 -0700 (PDT)
+	Thu, 16 May 2024 04:58:57 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-5dca1efad59so5650142a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 15 May 2024 21:58:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1715832603; x=1716437403; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mFrog2h5nAkzpq5WoUadeeUmrdg//eB0XW+3OoY88O0=;
-        b=i6DfZufqke3WAusD0JPu5slGESW/ura4L6ZpjXJmfPm22/wf5cgmBkR1CB0/LlonhU
-         KIm5Zeos287R24bltdTxblyn6mNxBPLrusgeQ/DchO5ye0QOqHfi/4zHLEUex56C6y1d
-         mkVvHB2kPRBH9gFQb1C/NWMY1+mthyPEQfFJ8nufF+93WMnCS5CUFKIdC4UXG8rL3icZ
-         myQcZiYY8buKudaq9ozW+M6CSrkfAwv/5u9DlgPDdyySjGK9g4xaPsMnVu/YR4T6smZ2
-         8g50cDPzaJE8gVQD+yp+iVDpf7zNoZJrVv8FPr6VZYstO5q7OWf+EF+k4vUDjGWvFLZ+
-         qyOA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1715835533; x=1716440333; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RTSdj0J0ohQfIN2Zi+05yVLixxog7dNtfShb6uY41gE=;
+        b=o6kxLH4SmaR4o7lpirfh02lMyi9DFhzeYzifUKGmKzO8GwlGbCBdK6KZb6gvx/AUay
+         Q0kYuCm1TbTH9T4q3NBimq3eo5Hg1Zd177Nh4HLEtocuh1DSlTtqBd/liqCWqR1NyJww
+         u7MKY3WEdIl3m0jrNxiUOqpvkHn85nSeOXHbja1r1LGoKmq5pYsklGy4yamjPJMYP8uU
+         maDInYM0Lqytsd+uATT+FT0hQtN8XNtQTTcoKYS2Lz7RY3XHW1XL6tAhoUh3LuUmt11K
+         oczQoWwmmruk8j2u5J0Wu6H5F1APf8cxBu4pcElwtPuVTTKie+ipcyOJ+PKVeu3WP8LK
+         Ny1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715832603; x=1716437403;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mFrog2h5nAkzpq5WoUadeeUmrdg//eB0XW+3OoY88O0=;
-        b=M+dy3CzOwOd29Bfyn7kmhh3Ee1Dwz0+/LPeuQt+fzOs9H+QBH0ZqeRGBRn/HfkeQhf
-         I5UkvpyS+WGgZgUZE8hzStaex3MTYve/bsCdCSV5HAsa1iXQdWbyBh3Jaisxh/QyavnC
-         IWKMF6EtD0ppcxgtSnalmPKr8GdOUiWWxzWZY9IxPQdb9rrvbYdBTNTePCDuShLJNshB
-         ZDn/mwazRtWLrKGrbdHjWkt1l88wX+328My8NGu1LRzbuKx13YtOgFAo86E/t5Wxq12Q
-         hDn3d/TPDV/0bnZ8M8dtog0QQiia5P1yH4/GXs6Lv4gE+i+uACOFVATzAKMqtH4MRWwY
-         HGhA==
-X-Forwarded-Encrypted: i=1; AJvYcCVTxN4PVGg39MP+uOs5KjKf6kwv+7HwuiDOeCL637Z8z6j7bx7dYfPg8vH1++/gCUf2cF+vKZXhydG9gXlYd2ToWsWqUirj1n/sRSa7yAiu
-X-Gm-Message-State: AOJu0YxzXN2cMYPqZ/z6g6RF20oIvrRKBbyUaJ9a316+BYprp8QqFxix
-	WubTMzqdRfp2u1ibwzAT4pKWACsK/LOAvOpDNiBCzjsMK2lCQ4MiaYLA+oGzwsG0+UsPcMUOPFw
-	Q9GaTXa5HwjUsBre0H1oM3Ylq1e1ZFyHGlZiYqMDQ5f5MPK6tPu2zlA==
-X-Google-Smtp-Source: AGHT+IEZwOTguoznC6GO7B8DWo9mKJcJa+X8xXJwVFs0MwvGABgNROFhXX+idM0oJv5WOU5cfX3Gc8V5kZLRXZTdZrY=
-X-Received: by 2002:a05:6870:d106:b0:23c:cab7:1310 with SMTP id
- 586e51a60fabf-241730dc0edmr24147517fac.56.1715832602830; Wed, 15 May 2024
- 21:10:02 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1715835533; x=1716440333;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RTSdj0J0ohQfIN2Zi+05yVLixxog7dNtfShb6uY41gE=;
+        b=EoJlBwuTRqUdkop5NLSbPfpto/qpLhZvBV1hB5wyTh6a0fqew1hEWmQX3uzu61YrOH
+         wed3/ni19vRD7feCw48w3Jc990+VOnl2Z2ptQjby5+607zUCaasc79rdqFraSR0vAuao
+         T4THen8ZxNWssg2YrOvoUfmfeDWRXabC9z2ZSkcPiJh7lPZOl+9tY3nYG0Hz0/YFpUGU
+         7vG/YTNrWCsiQAVktfCU/XZuGYfIOt4Ltcdkf+SrIa9EmSOCQOX8tynXPw7GYX2R0WLE
+         HNLlgTHYG7gh+Ey+g9kFtuOt744dkJh8u1M3aWtN33Y00AOXpmWkjo2bmqANju3sLavw
+         LdDQ==
+X-Gm-Message-State: AOJu0YzH4XOUd9pz8k1zLg9t8MaAPGbd49YzC+iGqXdYwTc5UhBjmeRH
+	DlFcI5QWQufXmjlC/2GOlZWbs7ZXZ6kHWECt6xh8pJZF/DZeBpY/aKJtcEHBsZw=
+X-Google-Smtp-Source: AGHT+IHWktKOQnC3021sITYZulmoyXKxZd77raBVrIuG1Z0WF/w1GeVm313YjA+3EucPc9xtmVHfrg==
+X-Received: by 2002:a05:6a20:9747:b0:1af:cf63:3742 with SMTP id adf61e73a8af0-1afde1b0193mr16224620637.42.1715835533364;
+        Wed, 15 May 2024 21:58:53 -0700 (PDT)
+Received: from ghost ([2601:647:5700:6860:144c:7973:ee0f:85cd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0bad63bcsm128800265ad.75.2024.05.15.21.58.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 May 2024 21:58:52 -0700 (PDT)
+Date: Wed, 15 May 2024 21:58:50 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>, xiao.w.wang@intel.com,
+	Andrew Jones <ajones@ventanamicro.com>, pulehui@huawei.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] RISC-V: separate Zbb optimisations requiring and not
+ requiring toolchain support
+Message-ID: <ZkWSioeSHh8p3pxM@ghost>
+References: <20240515-hedging-passage-44fd394ab1be@spud>
 MIME-Version: 1.0
-References: <20240226065113.1690534-1-nick.hu@sifive.com> <CAPDyKFph3WsZMmALnzBQKE4S_80Ji5h386Wi0vHda37QUsjMtg@mail.gmail.com>
- <CAKddAkDcdaXKzpcKN=LCCx9S4Trv+joLX2s=nyhzaRtM5HorqA@mail.gmail.com>
- <CAKddAkC6N=Cfo0z+F8herKTuJzCyt_MA0vWNbLCr6CbQnj0y8g@mail.gmail.com>
- <CAPDyKFr_M0NDH0gaunBpybnALOFfz4LpX4_JW2GCUxjwGzdZsg@mail.gmail.com>
- <CAKddAkC5CRX+ZTh=MgzPYU72SY13+AQYhknhV_CC+=XX9=DKyg@mail.gmail.com>
- <CAAhSdy1SDd=VUqDQA0T5n9LwHo=3uGzFq1dUcbDFcB3aBdaioA@mail.gmail.com>
- <CAAhSdy33DcNw+pbDRrR=hBH86kwvu3xZbomQby8XhRXcc-exqQ@mail.gmail.com>
- <CAKddAkBrP2iQBC+aY1Xw5pssBpiQZe4V-6ww5m8hbKP6V0jzLg@mail.gmail.com> <CAAhSdy12-_Hdb-WVrs8kyfCy_OQA0p27DS6TOV87dh9HODrU_Q@mail.gmail.com>
-In-Reply-To: <CAAhSdy12-_Hdb-WVrs8kyfCy_OQA0p27DS6TOV87dh9HODrU_Q@mail.gmail.com>
-From: Nick Hu <nick.hu@sifive.com>
-Date: Thu, 16 May 2024 12:09:52 +0800
-Message-ID: <CAKddAkCQOvnci-bzKx1pBUJh5t1uPT-wNXGH1WyqDyb5qR_Scg@mail.gmail.com>
-Subject: Re: [PATCH] cpuidle: riscv-sbi: Add cluster_pm_enter()/exit()
-To: Anup Patel <anup@brainfault.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, palmer@dabbelt.com, rafael@kernel.org, 
-	daniel.lezcano@linaro.org, paul.walmsley@sifive.com, linux-pm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	zong.li@sifive.com, Cyan Yang <cyan.yang@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <20240515-hedging-passage-44fd394ab1be@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240515_211005_602959_721ED3CA 
-X-CRM114-Status: GOOD (  55.84  )
+X-CRM114-CacheID: sfid-20240515_215855_800684_AF093822 
+X-CRM114-Status: GOOD (  39.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,185 +90,266 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQW51cAoKT24gV2VkLCBNYXkgMTUsIDIwMjQgYXQgOTo0NuKAr1BNIEFudXAgUGF0ZWwgPGFu
-dXBAYnJhaW5mYXVsdC5vcmc+IHdyb3RlOgo+Cj4gSGkgTmljaywKPgo+IE9uIFdlZCwgTWF5IDE1
-LCAyMDI0IGF0IDU6NDXigK9QTSBOaWNrIEh1IDxuaWNrLmh1QHNpZml2ZS5jb20+IHdyb3RlOgo+
-ID4KPiA+IEhpIEFudXAsCj4gPgo+ID4gVGhhbmsgeW91IGZvciB5b3VyIGd1aWRhbmNlLgo+ID4g
-QWZ0ZXIgZW5hYmxpbmcgdGhlIGRlYnVnIG1lc3NhZ2UsIHdlIGZvdW5kIGEgd2F5IHRvIHNvbHZl
-IHRoZSBwcm9ibGVtCj4gPiBieSB0aGUgZm9sbG93aW5nIHN0ZXBzOgo+ID4gMS4gQWRkIGEgY29t
-cGF0aWJsZSBzdHJpbmcgaW4gJ3Bvd2VyLWRvbWFpbnMnIG5vZGUgb3RoZXJ3aXNlIGl0IHdvbid0
-Cj4gPiBiZSB0aGUgc3VwcGxpZXIgb2YgdGhlIGNvbnN1bWVycy4gKFNlZSBvZl9saW5rX3RvX3Bo
-YW5kbGUoKSkKPgo+IEhtbSwgcmVxdWlyaW5nIGEgY29tcGF0aWJsZSBzdHJpbmcgaXMgb2RkLiBX
-aGVyZSBzaG91bGQgd2UgZG9jdW1lbnQKPiB0aGlzIGNvbXBhdGlibGUgc3RyaW5nID8KPgpTb3Jy
-eSwgdGhpcyBpcyBteSBmYXVsdC4gSSBkaWRuJ3QgaW5jbHVkZSBzb21lIHVwZGF0ZXMgaW4Kb2Zf
-bGlua190b19waGFuZGxlKCkuIFRoaXMgbGVkIHNvbWUgbWlzdW5kZXJzdGFuZGluZ3MgaGVyZS4K
-WW91IGFyZSByaWdodCwgd2UgZG9uJ3QgbmVlZCBpdC4KVGhlIHN1cHBsaWVyIHdpbGwgYmUgbGlu
-a2VkIHRvIHRoZSBDTFVTVEVSX1BEIG5vZGUuCgo+ID4gMi4gTW92ZSB0aGUgJ3Bvd2VyLWRvbWFp
-bnMnIG5vZGUgb3V0c2lkZSB0aGUgJ2NwdXMnIG5vZGUgb3RoZXJ3aXNlIGl0Cj4gPiB3b24ndCBi
-ZSBhZGRlZCB0byB0aGUgZGV2aWNlIGhpZXJhcmNoeSBieSBkZXZpY2VfYWRkKCkuCj4gPiAzLiBV
-cGRhdGUgdGhlIGNwdWlkbGUtcmlzY3Ytc2JpIGRyaXZlciB0byBnZXQgdGhlIHBkc19ub2RlIGZy
-b20KPiA+ICcvcG93ZXItZG9tYWlucycuCj4KPiBCeSBhZGRpbmcgYSBjb21wYXRpYmxlIHN0cmlu
-ZyBhbmQgbW92aW5nIHRoZSAicG93ZXItZG9tYWlucyIgbm9kZQo+IG91dHNpZGUsIHlvdSBhcmUg
-c2ltcGx5IGZvcmNpbmcgdGhlIE9GIGZyYW1ld29yayB0byBwb3B1bGF0ZSBkZXZpY2VzLgo+Cj4g
-SG93IGFib3V0IG1hbnVhbGx5IGNyZWF0aW5nIHBsYXRmb3JtX2RldmljZSBmb3IgZWFjaCBwb3dl
-ci1kb21haW4KPiBEVCBub2RlIHVzaW5nIG9mX3BsYXRmb3JtX2RldmljZV9jcmVhdGUoKSBpbiBz
-YmlfcGRfaW5pdCgpID8KPgpUaGFua3MgZm9yIHRoZSBzdWdnZXN0aW9uISBXZSBoYXZlIHRlc3Qg
-dGhlIHNvbHV0aW9uIGFuZCBpdCBjb3VsZCB3b3JrLgpXZSB3YXMgd29uZGVyaW5nIGlmIGl0J3Mg
-ZmVhc2libGUgZm9yIHVzIHRvIHJlbG9jYXRlIHRoZQoncG93ZXItZG9tYWlucycgbm9kZSBvdXRz
-aWRlIG9mIHRoZSAvY3B1cz8gVGhlIENMVVNURVJfUEQgbWlnaHQKZW5jb21wYXNzIG5vdCBvbmx5
-IHRoZSBDUFVzIGJ1dCBhbHNvIG90aGVyIGNvbXBvbmVudHMgd2l0aGluIHRoZQpjbHVzdGVyLgoK
-V2UgYWxzbyBsb29rIGF0IGNwdWlkbGVfcHNjaV9kb21haW4gZHJpdmVyIGFuZCBpdCBzZWVtcyBB
-cm0gZG9lc24ndApjcmVhdGUgdGhlIGRldmljZXMgZm9yIGVhY2ggc3Vibm9kZSBvZiBwc2NpIGRv
-bWFpbi4KSXMgdGhlcmUgYW55IHJlYXNvbiB0aGF0IHRoZXkgZG9uJ3QgbmVlZCBpdD8KCj4gPgo+
-ID4gU28gdGhlIERUUyB3aWxsIGJlIGxpa2U6Cj4gPiBjcHVzIHsKPiA+ICAgICAuLi4KPiA+ICAg
-ICAgZG9tYWluLWlkbGUtc3RhdGVzIHsKPiA+ICAgICAgICAgICAgQ0xVU1RFUl9TTEVFUDpjbHVz
-dGVyLXNsZWVwIHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAiZG9t
-YWluLWlkbGUtc3RhdGUiOwo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgLi4uCj4gPiAgICAg
-ICAgICAgICB9Cj4gPiAgICAgIH0KPiA+IH0KPiA+IHBvd2VyLWRvbWFpbnMgewo+ID4gICAgICAg
-ICAgICAgY29tcGF0aWJsZSA9ICJyaXNjdixzYmktcG93ZXItZG9tYWlucyIKPiA+ICAgICAgICAg
-ICAgIC4uLgo+ID4gICAgICAgICAgICAgLi4uCj4gPiAgICAgICAgICAgICBDTFVTVEVSX1BEOiBj
-bHVzdGVycGQgewo+ID4gICAgICAgICAgICAgICAgICAgICBkb21haW4taWRsZS1zdGF0ZXMgPSA8
-JkNMVVNURVJfU0xFRVA+Owo+ID4gICAgICAgICAgICAgfTsKPiA+IH0KPiA+IHNvYyB7Cj4gPiAg
-ICAgICBkZXZpY2VBQHh4eHsKPiA+ICAgICAgICAgICAgICAuLi4KPiA+ICAgICAgICAgICAgICBw
-b3dlci1kb21haW5zID0gPCZDTFVTVEVSX1BEPjsKPiA+ICAgICAgICAgICAgICAuLi4KPiA+ICAg
-ICAgIH0KPiA+IH0KPgo+IFJlZ2FyZHMsCj4gQW51cAo+Cj4gPgo+ID4gUmVnYXJkcywKPiA+IE5p
-Y2sKPiA+Cj4gPiBPbiBUdWUsIE1heSAxNCwgMjAyNCBhdCAxMDo1NOKAr1BNIEFudXAgUGF0ZWwg
-PGFudXBAYnJhaW5mYXVsdC5vcmc+IHdyb3RlOgo+ID4gPgo+ID4gPiBPbiBUdWUsIE1heSAxNCwg
-MjAyNCBhdCA3OjUz4oCvUE0gQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4gd3JvdGU6
-Cj4gPiA+ID4KPiA+ID4gPiBIaSBOaWNrLAo+ID4gPiA+Cj4gPiA+ID4gT24gVHVlLCBNYXkgMTQs
-IDIwMjQgYXQgMzoyMOKAr1BNIE5pY2sgSHUgPG5pY2suaHVAc2lmaXZlLmNvbT4gd3JvdGU6Cj4g
-PiA+ID4gPgo+ID4gPiA+ID4gSGkgVWxmLAo+ID4gPiA+ID4KPiA+ID4gPiA+IFRoYW5rIHlvdSBm
-b3IgeW91ciB2YWx1YWJsZSBzdWdnZXN0aW9uLgo+ID4gPiA+ID4gSSBzaW5jZXJlbHkgYXBvbG9n
-aXplIGZvciB0aGUgZGVsYXkgaW4gcmVzcG9uZGluZyB0byB5b3VyIG1lc3NhZ2UuIFdlCj4gPiA+
-ID4gPiBoYXZlIGRpbGlnZW50bHkgd29ya2VkIG9uIGV4cGVyaW1lbnRpbmcgd2l0aCB0aGUgc3Vn
-Z2VzdGlvbiB5b3UKPiA+ID4gPiA+IHByb3ZpZGVkLgo+ID4gPiA+ID4KPiA+ID4gPiA+IEFzIHBl
-ciB5b3VyIHJlY29tbWVuZGF0aW9uLCB3ZSBoYXZlIGluY29ycG9yYXRlZCB0aGUgInBvd2VyLWRv
-bWFpbnM9PD4KPiA+ID4gPiA+IHByb3BlcnR5IiBpbnRvIHRoZSBjb25zdW1lcidzIG5vZGUsIHJl
-c3VsdGluZyBpbiBtb2RpZmljYXRpb25zIHRvIHRoZQo+ID4gPiA+ID4gRFRTIGFzIGlsbHVzdHJh
-dGVkIGJlbG93Ogo+ID4gPiA+ID4KPiA+ID4gPiA+IGNwdXMgewo+ID4gPiA+ID4gICAgIC4uLgo+
-ID4gPiA+ID4gICAgICBkb21haW4taWRsZS1zdGF0ZXMgewo+ID4gPiA+ID4gICAgICAgICAgICBD
-TFVTVEVSX1NMRUVQOmNsdXN0ZXItc2xlZXAgewo+ID4gPiA+ID4gICAgICAgICAgICAgICAgICAg
-ICAgICAgY29tcGF0aWJsZSA9ICJkb21haW4taWRsZS1zdGF0ZSI7Cj4gPiA+ID4gPiAgICAgICAg
-ICAgICAgICAgICAgICAgICAuLi4KPiA+ID4gPiA+ICAgICAgICAgICAgIH0KPiA+ID4gPiA+ICAg
-ICAgfQo+ID4gPiA+ID4gICAgICBwb3dlci1kb21haW5zIHsKPiA+ID4gPiA+ICAgICAgICAgICAg
-IC4uLgo+ID4gPiA+ID4gICAgICAgICAgICAgLi4uCj4gPiA+ID4gPiAgICAgICAgICAgICBDTFVT
-VEVSX1BEOiBjbHVzdGVycGQgewo+ID4gPiA+ID4gICAgICAgICAgICAgICAgICAgICBkb21haW4t
-aWRsZS1zdGF0ZXMgPSA8JkNMVVNURVJfU0xFRVA+Owo+ID4gPiA+ID4gICAgICAgICAgICAgfTsK
-PiA+ID4gPiA+ICAgICAgfQo+ID4gPiA+ID4gfQo+ID4gPiA+ID4gc29jIHsKPiA+ID4gPiA+ICAg
-ICAgIGRldmljZUFAeHh4ewo+ID4gPiA+ID4gICAgICAgICAgICAgIC4uLgo+ID4gPiA+ID4gICAg
-ICAgICAgICAgIHBvd2VyLWRvbWFpbnMgPSA8JkNMVVNURVJfUEQ+Owo+ID4gPiA+ID4gICAgICAg
-ICAgICAgIC4uLgo+ID4gPiA+ID4gICAgICAgfQo+ID4gPiA+ID4gfQo+ID4gPiA+ID4KPiA+ID4g
-PiA+IEhvd2V2ZXIsIHRoaXMgYWRqdXN0bWVudCBoYXMgbGVkIHRvIGFuIGlzc3VlIHdoZXJlIHRo
-ZSBwcm9iZSBmb3IKPiA+ID4gPiA+ICdkZXZpY2VBJyBpcyBkZWZlcnJlZCBieSAnZGV2aWNlX2xp
-bmtzX2NoZWNrX3N1cHBsaWVycygpJyB3aXRoaW4KPiA+ID4gPiA+ICdyZWFsbHlfcHJvYmUoKScu
-IEluIGFuIGF0dGVtcHQgdG8gbWl0aWdhdGUgdGhpcyBpc3N1ZSwgd2UKPiA+ID4gPiA+IGV4cGVy
-aW1lbnRlZCB3aXRoIGEgd29ya2Fyb3VuZCBieSBhZGRpbmcgdGhlIGF0dHJpYnV0ZQo+ID4gPiA+
-ID4gInN0YXR1cz0iZGlzYWJsZWQiIiB0byB0aGUgJ0NMVVNURVJfUEQnIG5vZGUuIFRoaXMgYWN0
-aW9uIGFpbWVkIHRvCj4gPiA+ID4gPiBwcmV2ZW50IHRoZSBjcmVhdGlvbiBvZiBhIGRldmljZSBs
-aW5rIGJldHdlZW4gJ2RldmljZUEnIGFuZAo+ID4gPiA+ID4gJ0NMVVNURVJfUEQnLiBOZXZlcnRo
-ZWxlc3MsIHdlIHJlbWFpbiB1bmNlcnRhaW4gYWJvdXQgdGhlCj4gPiA+ID4gPiBhcHByb3ByaWF0
-ZW5lc3Mgb2YgdGhpcyBzb2x1dGlvbi4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBEbyB5b3UgaGF2ZSBz
-dWdnZXN0aW9ucyBvbiBob3cgdG8gZWZmZWN0aXZlbHkgYWRkcmVzcyB0aGlzIGlzc3VlPwo+ID4g
-PiA+Cj4gPiA+ID4gSSB0b3RhbGx5IG1pc3NlZCB0aGlzIGVtYWlsIHNpbmNlIEkgd2FzIG5vdCBD
-QydlZCBzb3JyeSBhYm91dCB0aGF0LiBQbGVhc2UKPiA+ID4gPiB1c2UgZ2V0X21haW50YWluZXJz
-LnBsIHdoZW4gc2VuZGluZyBwYXRjaGVzLgo+ID4gPgo+ID4gPiBJIHN0YW5kIGNvcnJlY3RlZC4g
-VGhpcyBwYXRjaCBoYWQgbGFuZGVkIGluIHRoZSAic3BhbSIgZm9sZGVyLiBJIGRvbid0IGtub3cg
-d2h5Lgo+ID4gPgo+ID4gPiBSZWdhcmRzLAo+ID4gPiBBbnVwCj4gPiA+Cj4gPiA+ID4KPiA+ID4g
-PiBUaGUgZ2VucGRfYWRkX3Byb3ZpZGVyKCkgKGNhbGxlZCBieSBvZl9nZW5wZF9hZGRfcHJvdmlk
-ZXJfc2ltcGxlKCkpCj4gPiA+ID4gZG9lcyBtYXJrIHRoZSBwb3dlci1kb21haW4gRFQgbm9kZSBh
-cyBpbml0aWFsaXplZCAoZndub2RlX2Rldl9pbml0aWFsaXplZCgpKQo+ID4gPiA+IHNvIGFmdGVy
-IHRoZSBjcHVpZGxlLXJpc2N2LXNiaSBkcml2ZXIgaXMgcHJvYmVkIHRoZSAnZGV2aWNlQScgZGVw
-ZW5kZW5jeSBpcwo+ID4gPiA+IHJlc29sdmVkIGFuZCAnZGV2aWNlQScgc2hvdWxkIGJlIHByb2Jl
-ZCB1bmxlc3MgdGhlcmUgYXJlIG90aGVyIHVubWV0Cj4gPiA+ID4gZGVwZW5kZW5jaWVzLgo+ID4g
-PiA+Cj4gPiA+ID4gVHJ5IGFkZGluZyAiI2RlZmluZSBERUJVRyIgYmVmb3JlIGFsbCBpbmNsdWRl
-cyBpbiBkcml2ZXJzL2NvcmUvYmFzZS5jCj4gPiA+ID4gYW5kIGFkZCAibG9nbGV2ZWw9OCIgaW4g
-a2VybmVsIHBhcmFtZXRlcnMsIHRoaXMgd2lsbCBwcmludCBwcm9kdWNlci1jb25zdW1lcgo+ID4g
-PiA+IGxpbmthZ2Ugb2YgYWxsIGRldmljZXMuCj4gPiA+ID4KPiA+ID4gPiBNYXJraW5nIHRoZSBw
-b3dlci1kb21haW4gRFQgbm9kZSBhcyAiZGlzYWJsZWQiIGlzIGNlcnRhaW5seSBub3QgdGhlCj4g
-PiA+ID4gcmlnaHQgd2F5Lgo+ID4gPiA+Cj4gPiA+ID4gUmVnYXJkcywKPiA+ID4gPiBBbnVwCj4g
-PiA+ID4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBSZWdhcmRzLAo+ID4gPiA+ID4gTmljawo+ID4gPiA+
-ID4KPiA+ID4gPiA+IE9uIFR1ZSwgQXByIDMwLCAyMDI0IGF0IDQ6MTPigK9QTSBVbGYgSGFuc3Nv
-biA8dWxmLmhhbnNzb25AbGluYXJvLm9yZz4gd3JvdGU6Cj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+
-IE9uIE1vbiwgMjkgQXByIDIwMjQgYXQgMTg6MjYsIE5pY2sgSHUgPG5pY2suaHVAc2lmaXZlLmNv
-bT4gd3JvdGU6Cj4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiBPbiBUdWUsIEFwciAzMCwgMjAy
-NCBhdCAxMjoyMuKAr0FNIE5pY2sgSHUgPG5pY2suaHVAc2lmaXZlLmNvbT4gd3JvdGU6Cj4gPiA+
-ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+ID4gSGkgVWxmCj4gPiA+ID4gPiA+ID4gPgo+ID4gPiA+
-ID4gPiA+ID4gT24gTW9uLCBBcHIgMjksIDIwMjQgYXQgMTA6MzLigK9QTSBVbGYgSGFuc3NvbiA8
-dWxmLmhhbnNzb25AbGluYXJvLm9yZz4gd3JvdGU6Cj4gPiA+ID4gPiA+ID4gPiA+Cj4gPiA+ID4g
-PiA+ID4gPiA+IE9uIE1vbiwgMjYgRmViIDIwMjQgYXQgMDc6NTEsIE5pY2sgSHUgPG5pY2suaHVA
-c2lmaXZlLmNvbT4gd3JvdGU6Cj4gPiA+ID4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiA+ID4g
-PiBXaGVuIHRoZSBjcHVzIGluIHRoZSBzYW1lIGNsdXN0ZXIgYXJlIGFsbCBpbiB0aGUgaWRsZSBz
-dGF0ZSwgdGhlIGtlcm5lbAo+ID4gPiA+ID4gPiA+ID4gPiA+IG1pZ2h0IHB1dCB0aGUgY2x1c3Rl
-ciBpbnRvIGEgZGVlcGVyIGxvdyBwb3dlciBzdGF0ZS4gQ2FsbCB0aGUKPiA+ID4gPiA+ID4gPiA+
-ID4gPiBjbHVzdGVyX3BtX2VudGVyKCkgYmVmb3JlIGVudGVyaW5nIHRoZSBsb3cgcG93ZXIgc3Rh
-dGUgYW5kIGNhbGwgdGhlCj4gPiA+ID4gPiA+ID4gPiA+ID4gY2x1c3Rlcl9wbV9leGl0KCkgYWZ0
-ZXIgdGhlIGNsdXN0ZXIgd29rZW4gdXAuCj4gPiA+ID4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4g
-PiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBOaWNrIEh1IDxuaWNrLmh1QHNpZml2ZS5jb20+Cj4gPiA+
-ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiA+IEkgd2FzIG5vdCBjY2VkIHRoaXMgcGF0Y2gs
-IGJ1dCBub3RpY2VkIHRoYXQgdGhpcyBwYXRjaCBnb3QgcXVldWVkIHVwCj4gPiA+ID4gPiA+ID4g
-PiA+IHJlY2VudGx5LiBTb3JyeSBmb3Igbm90IG5vdGljaW5nIGVhcmxpZXIuCj4gPiA+ID4gPiA+
-ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiA+IElmIG5vdCB0b28gbGF0ZSwgY2FuIHlvdSBwbGVhc2Ug
-ZHJvcC9yZXZlcnQgaXQ/IFdlIHNob3VsZCByZWFsbHkgbW92ZQo+ID4gPiA+ID4gPiA+ID4gPiBh
-d2F5IGZyb20gdGhlIENQVSBjbHVzdGVyIG5vdGlmaWVycy4gU2VlIG1vcmUgaW5mb3JtYXRpb24g
-YmVsb3cuCj4gPiA+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiA+ID4gLS0tCj4gPiA+ID4g
-PiA+ID4gPiA+ID4gIGRyaXZlcnMvY3B1aWRsZS9jcHVpZGxlLXJpc2N2LXNiaS5jIHwgMjQgKysr
-KysrKysrKysrKysrKysrKysrKy0tCj4gPiA+ID4gPiA+ID4gPiA+ID4gIDEgZmlsZSBjaGFuZ2Vk
-LCAyMiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+ID4gPiA+ID4gPiA+ID4gPiA+Cj4g
-PiA+ID4gPiA+ID4gPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvY3B1aWRsZS9jcHVpZGxlLXJp
-c2N2LXNiaS5jIGIvZHJpdmVycy9jcHVpZGxlL2NwdWlkbGUtcmlzY3Ytc2JpLmMKPiA+ID4gPiA+
-ID4gPiA+ID4gPiBpbmRleCBlODA5NGZjOTI0OTEuLjI5OGRjNzZhMDBjZiAxMDA2NDQKPiA+ID4g
-PiA+ID4gPiA+ID4gPiAtLS0gYS9kcml2ZXJzL2NwdWlkbGUvY3B1aWRsZS1yaXNjdi1zYmkuYwo+
-ID4gPiA+ID4gPiA+ID4gPiA+ICsrKyBiL2RyaXZlcnMvY3B1aWRsZS9jcHVpZGxlLXJpc2N2LXNi
-aS5jCj4gPiA+ID4gPiA+ID4gPiA+ID4gQEAgLTM5NCw2ICszOTQsNyBAQCBzdGF0aWMgaW50IHNi
-aV9jcHVpZGxlX3BkX3Bvd2VyX29mZihzdHJ1Y3QgZ2VuZXJpY19wbV9kb21haW4gKnBkKQo+ID4g
-PiA+ID4gPiA+ID4gPiA+ICB7Cj4gPiA+ID4gPiA+ID4gPiA+ID4gICAgICAgICBzdHJ1Y3QgZ2Vu
-cGRfcG93ZXJfc3RhdGUgKnN0YXRlID0gJnBkLT5zdGF0ZXNbcGQtPnN0YXRlX2lkeF07Cj4gPiA+
-ID4gPiA+ID4gPiA+ID4gICAgICAgICB1MzIgKnBkX3N0YXRlOwo+ID4gPiA+ID4gPiA+ID4gPiA+
-ICsgICAgICAgaW50IHJldDsKPiA+ID4gPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+ID4gPiA+
-ICAgICAgICAgaWYgKCFzdGF0ZS0+ZGF0YSkKPiA+ID4gPiA+ID4gPiA+ID4gPiAgICAgICAgICAg
-ICAgICAgcmV0dXJuIDA7Cj4gPiA+ID4gPiA+ID4gPiA+ID4gQEAgLTQwMSw2ICs0MDIsMTAgQEAg
-c3RhdGljIGludCBzYmlfY3B1aWRsZV9wZF9wb3dlcl9vZmYoc3RydWN0IGdlbmVyaWNfcG1fZG9t
-YWluICpwZCkKPiA+ID4gPiA+ID4gPiA+ID4gPiAgICAgICAgIGlmICghc2JpX2NwdWlkbGVfcGRf
-YWxsb3dfZG9tYWluX3N0YXRlKQo+ID4gPiA+ID4gPiA+ID4gPiA+ICAgICAgICAgICAgICAgICBy
-ZXR1cm4gLUVCVVNZOwo+ID4gPiA+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiA+ID4gKyAg
-ICAgICByZXQgPSBjcHVfY2x1c3Rlcl9wbV9lbnRlcigpOwo+ID4gPiA+ID4gPiA+ID4gPiA+ICsg
-ICAgICAgaWYgKHJldCkKPiA+ID4gPiA+ID4gPiA+ID4gPiArICAgICAgICAgICAgICAgcmV0dXJu
-IHJldDsKPiA+ID4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiA+ID4gUmF0aGVyIHRoYW4gdXNp
-bmcgdGhlIENQVSBjbHVzdGVyIG5vdGlmaWVycywgY29uc3VtZXJzIG9mIHRoZSBnZW5wZAo+ID4g
-PiA+ID4gPiA+ID4gPiBjYW4gcmVnaXN0ZXIgdGhlbXNlbHZlcyB0byByZWNlaXZlIGdlbnBkIG9u
-L29mZiBub3RpZmllcnMuCj4gPiA+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiA+IEluIG90
-aGVyIHdvcmRzLCBub25lIG9mIHRoaXMgc2hvdWxkIGJlIG5lZWRlZCwgcmlnaHQ/Cj4gPiA+ID4g
-PiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiBUaGFua3MgZm9yIHRoZSBmZWVkYmFjayEKPiA+ID4g
-PiA+ID4gPiA+IE1heWJlIEkgbWlzcyBzb21ldGhpbmcsIEknbSB3b25kZXJpbmcgYWJvdXQgYSBj
-YXNlIGxpa2UgYmVsb3c6Cj4gPiA+ID4gPiA+ID4gPiBJZiB3ZSBoYXZlIGEgc2hhcmVkIEwyIGNh
-Y2hlIGNvbnRyb2xsZXIgaW5zaWRlIHRoZSBjcHUgY2x1c3RlciBwb3dlcgo+ID4gPiA+ID4gPiA+
-ID4gZG9tYWluIGFuZCB3ZSBhZGQgdGhpcyBjb250cm9sbGVyIHRvIGJlIGEgY29uc3VtZXIgb2Yg
-dGhlIHBvd2VyCj4gPiA+ID4gPiA+ID4gPiBkb21haW4sIFNob3VsZG4ndCB0aGUgZ2VucGQgaW52
-b2tlIHRoZSBkb21haW4gaWRsZSBvbmx5IGFmdGVyIHRoZQo+ID4gPiA+ID4gPiA+ID4gc2hhcmVk
-IEwyIGNhY2hlIGNvbnRyb2xsZXIgaXMgc3VzcGVuZGVkPwo+ID4gPiA+ID4gPiA+ID4gSXMgdGhl
-cmUgYSB3YXkgdGhhdCB3ZSBjYW4gcHV0IHRoZSBMMiBjYWNoZSBkb3duIHdoaWxlIGFsbCBjcHVz
-IGluIHRoZQo+ID4gPiA+ID4gPiA+ID4gc2FtZSBjbHVzdGVyIGFyZSBpZGxlPwo+ID4gPiA+ID4g
-PiA+ID4gPiBbLi4uXQo+ID4gPiA+ID4gPiA+IFNvcnJ5LCBJIG1hZGUgc29tZSBtaXN0YWtlIGlu
-IG15IHNlY29uZCBxdWVzdGlvbi4KPiA+ID4gPiA+ID4gPiBVcGRhdGUgdGhlIHF1ZXN0aW9uIGhl
-cmU6Cj4gPiA+ID4gPiA+ID4gSXMgdGhlcmUgYSB3YXkgdGhhdCB3ZSBjYW4gc2F2ZSB0aGUgTDIg
-Y2FjaGUgc3RhdGVzIHdoaWxlIGFsbCBjcHVzIGluIHRoZQo+ID4gPiA+ID4gPiA+IHNhbWUgY2x1
-c3RlciBhcmUgaWRsZSBhbmQgdGhlIGNsdXN0ZXIgY291bGQgYmUgcG93ZXJlZCBkb3duPwo+ID4g
-PiA+ID4gPgo+ID4gPiA+ID4gPiBJZiB0aGUgTDIgY2FjaGUgaXMgYSBjb25zdW1lciBvZiB0aGUg
-Y2x1c3RlciwgdGhlIGNvbnN1bWVyIGRyaXZlciBmb3IKPiA+ID4gPiA+ID4gdGhlIEwyIGNhY2hl
-IHNob3VsZCByZWdpc3RlciBmb3IgZ2VucGQgb24vb2ZmIG5vdGlmaWVycy4KPiA+ID4gPiA+ID4K
-PiA+ID4gPiA+ID4gVGhlIGRldmljZSByZXByZXNlbnRpbmcgdGhlIEwyIGNhY2hlIG5lZWRzIHRv
-IGJlIGVuYWJsZWQgZm9yIHJ1bnRpbWUKPiA+ID4gPiA+ID4gUE0sIHRvIGJlIHRha2VuIGludG8g
-YWNjb3VudCBjb3JyZWN0bHkgYnkgdGhlIGNsdXN0ZXIgZ2VucGQuIEluIHRoaXMKPiA+ID4gPiA+
-ID4gY2FzZSwgdGhlIGRldmljZSBzaG91bGQgbW9zdCBsaWtlbHkgcmVtYWluIHJ1bnRpbWUgc3Vz
-cGVuZGVkLCBidXQKPiA+ID4gPiA+ID4gaW5zdGVhZCByZWx5IG9uIHRoZSBnZW5wZCBvbi9vZmYg
-bm90aWZpZXJzIHRvIHVuZGVyc3RhbmQgd2hlbgo+ID4gPiA+ID4gPiBzYXZlL3Jlc3RvcmUgb2Yg
-dGhlIGNhY2hlIHN0YXRlcyBzaG91bGQgYmUgZG9uZS4KPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4g
-S2luZCByZWdhcmRzCj4gPiA+ID4gPiA+IFVmZmUKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, May 15, 2024 at 04:27:40PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> It seems a bit ridiculous to require toolchain support for BPF to
+> assemble Zbb instructions, so introduce hidden a Kconfig option that
+> controls the use of any toolchain-requiring optimisations while support
+> is available.
+> 
+> Zbb support has always depended on alternatives, so while adjusting the
+> config options guarding optimisations, remove any checks for
+> whether or not alternatives are enabled.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> 
+> This patch stems out of a conversation about Zba optimisations in BPF.
+> I'm not super sold on the approach in all honesty, even though we
+> recently had a conversation about respecting the Kconfig options - but
+> at this point I'd be convinced to just add some wording to the Kconfig
+> options mentioning that BPF optimisations are excluded.
+> Having hidden options that mean someone can turn what on what they
+> think are Zbb optimisations but not actually get any cos their toolchain
+> doesn't support it seems crap to me. I don't wanna add another
+> user-visible option for that situation cos I wanna try to minimise the
+> extent of our extension-related Kconfig options, not blow them up like
+> Augustus Gloop!
+> 
+> Cheers,
+> Conor.
+> 
+> CC: xiao.w.wang@intel.com
+> CC: Andrew Jones <ajones@ventanamicro.com>
+> CC: pulehui@huawei.com
+> CC: Charlie Jenkins <charlie@rivosinc.com>
+> CC: Paul Walmsley <paul.walmsley@sifive.com>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: Conor Dooley <conor.dooley@microchip.com>
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  arch/riscv/Kconfig                    | 15 ++++++++++++---
+>  arch/riscv/include/asm/arch_hweight.h |  4 ++--
+>  arch/riscv/include/asm/bitops.h       |  4 ++--
+>  arch/riscv/include/asm/checksum.h     |  3 +--
+>  arch/riscv/lib/csum.c                 |  9 +++------
+>  arch/riscv/lib/strcmp.S               |  4 ++--
+>  arch/riscv/lib/strlen.S               |  4 ++--
+>  arch/riscv/lib/strncmp.S              |  4 ++--
+>  8 files changed, 26 insertions(+), 21 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e927b52b420c..f216a52ed181 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -605,14 +605,23 @@ config TOOLCHAIN_HAS_VECTOR_CRYPTO
+>  	def_bool $(as-instr, .option arch$(comma) +v$(comma) +zvkb)
+>  	depends on AS_HAS_OPTION_ARCH
+>  
+> -config RISCV_ISA_ZBB
+> -	bool "Zbb extension support for bit manipulation instructions"
+> +config RISCV_ISA_ZBB_ALT
+> +	def_bool RISCV_ISA_ZBB
+>  	depends on TOOLCHAIN_HAS_ZBB
+>  	depends on RISCV_ALTERNATIVE
+> +	help
+> +	  This option controls whether or not we build optimisations that
+> +	  depend on toolchain support. It's automatically enabled whenever the
+> +	  toolchain in use supports assembling Zbb instructions and
+> +	  RISCV_ISA_ZBB is set.
+> +
+> +config RISCV_ISA_ZBB
+> +	bool "Zbb extension support for bit manipulation instructions"
+>  	default y
+>  	help
+>  	   Add support for enabling optimisations in the kernel when the
+> -	   Zbb extension is detected at boot.
+> +	   Zbb extension is detected at boot. Some optimisations may
+> +	   additionally depend on toolchain support for Zbb.
+>  
+>  	   The Zbb extension provides instructions to accelerate a number
+>  	   of bit-specific operations (count bit population, sign extending,
+> diff --git a/arch/riscv/include/asm/arch_hweight.h b/arch/riscv/include/asm/arch_hweight.h
+> index 85b2c443823e..a677f6b82228 100644
+> --- a/arch/riscv/include/asm/arch_hweight.h
+> +++ b/arch/riscv/include/asm/arch_hweight.h
+> @@ -19,7 +19,7 @@
+>  
+>  static __always_inline unsigned int __arch_hweight32(unsigned int w)
+>  {
+> -#ifdef CONFIG_RISCV_ISA_ZBB
+> +#ifdef CONFIG_RISCV_ISA_ZBB_ALT
+>  	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
+>  				      RISCV_ISA_EXT_ZBB, 1)
+>  			  : : : : legacy);
+> @@ -50,7 +50,7 @@ static inline unsigned int __arch_hweight8(unsigned int w)
+>  #if BITS_PER_LONG == 64
+>  static __always_inline unsigned long __arch_hweight64(__u64 w)
+>  {
+> -# ifdef CONFIG_RISCV_ISA_ZBB
+> +# ifdef CONFIG_RISCV_ISA_ZBB_ALT
+>  	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
+>  				      RISCV_ISA_EXT_ZBB, 1)
+>  			  : : : : legacy);
+> diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
+> index 880606b0469a..3ed810a6123d 100644
+> --- a/arch/riscv/include/asm/bitops.h
+> +++ b/arch/riscv/include/asm/bitops.h
+> @@ -15,7 +15,7 @@
+>  #include <asm/barrier.h>
+>  #include <asm/bitsperlong.h>
+>  
+> -#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE)
+> +#if !defined(CONFIG_RISCV_ISA_ZBB_ALT) || defined(NO_ALTERNATIVE)
+>  #include <asm-generic/bitops/__ffs.h>
+>  #include <asm-generic/bitops/__fls.h>
+>  #include <asm-generic/bitops/ffs.h>
+> @@ -175,7 +175,7 @@ static __always_inline int variable_fls(unsigned int x)
+>  	 variable_fls(x_);					\
+>  })
+>  
+> -#endif /* !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE) */
+> +#endif /* !defined(CONFIG_RISCV_ISA_ZBB_ALT) || defined(NO_ALTERNATIVE) */
+>  
+>  #include <asm-generic/bitops/ffz.h>
+>  #include <asm-generic/bitops/fls64.h>
+> diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
+> index 88e6f1499e88..956224ea8199 100644
+> --- a/arch/riscv/include/asm/checksum.h
+> +++ b/arch/riscv/include/asm/checksum.h
+> @@ -49,8 +49,7 @@ static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+>  	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
+>  	 * worth checking if supported without Alternatives.
+>  	 */
+> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB_ALT)) {
+>  		unsigned long fold_temp;
+>  
+>  		asm goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
+> diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
+> index 7fb12c59e571..7a97394c252b 100644
+> --- a/arch/riscv/lib/csum.c
+> +++ b/arch/riscv/lib/csum.c
+> @@ -44,8 +44,7 @@ __sum16 csum_ipv6_magic(const struct in6_addr *saddr,
+>  	 * Zbb support saves 4 instructions, so not worth checking without
+>  	 * alternatives if supported
+>  	 */
+> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB_ALT)) {
+>  		unsigned long fold_temp;
+>  
+>  		/*
+> @@ -161,8 +160,7 @@ do_csum_with_alignment(const unsigned char *buff, int len)
+>  	 * Zbb support saves 6 instructions, so not worth checking without
+>  	 * alternatives if supported
+>  	 */
+> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB_ALT)) {
+>  		unsigned long fold_temp;
+>  
+>  		/*
+> @@ -248,8 +246,7 @@ do_csum_no_alignment(const unsigned char *buff, int len)
+>  	 * Zbb support saves 6 instructions, so not worth checking without
+>  	 * alternatives if supported
+>  	 */
+> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB_ALT)) {
+>  		unsigned long fold_temp;
+>  
+>  		/*
+> diff --git a/arch/riscv/lib/strcmp.S b/arch/riscv/lib/strcmp.S
+> index 687b2bea5c43..a4dd2ac306f1 100644
+> --- a/arch/riscv/lib/strcmp.S
+> +++ b/arch/riscv/lib/strcmp.S
+> @@ -8,7 +8,7 @@
+>  /* int strcmp(const char *cs, const char *ct) */
+>  SYM_FUNC_START(strcmp)
+>  
+> -	ALTERNATIVE("nop", "j strcmp_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB)
+> +	ALTERNATIVE("nop", "j strcmp_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB_ALT)
+>  
+>  	/*
+>  	 * Returns
+> @@ -43,7 +43,7 @@ SYM_FUNC_START(strcmp)
+>   * The code was published as part of the bitmanip manual
+>   * in Appendix A.
+>   */
+> -#ifdef CONFIG_RISCV_ISA_ZBB
+> +#ifdef CONFIG_RISCV_ISA_ZBB_ALT
+>  strcmp_zbb:
+>  
+>  .option push
+> diff --git a/arch/riscv/lib/strlen.S b/arch/riscv/lib/strlen.S
+> index 8ae3064e45ff..3ab1310a7b83 100644
+> --- a/arch/riscv/lib/strlen.S
+> +++ b/arch/riscv/lib/strlen.S
+> @@ -8,7 +8,7 @@
+>  /* int strlen(const char *s) */
+>  SYM_FUNC_START(strlen)
+>  
+> -	ALTERNATIVE("nop", "j strlen_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB)
+> +	ALTERNATIVE("nop", "j strlen_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB_ALT)
+
+I appreciate the direction this is going in, getting rid of the
+CONFIG_RISCV_ALTERNATIVE checks in the code that checks
+CONFIG_RISCV_ISA_ZBB is a great change.
+
+I am missing why these str functions are changed to use
+CONFIG_RISCV_ISA_ZBB_ALT when the __arch_hweight* functions were left as
+using CONFIG_RISCV_ISA_ZBB in their alternatives.
+
+- Charlie
+
+>  
+>  	/*
+>  	 * Returns
+> @@ -33,7 +33,7 @@ SYM_FUNC_START(strlen)
+>  /*
+>   * Variant of strlen using the ZBB extension if available
+>   */
+> -#ifdef CONFIG_RISCV_ISA_ZBB
+> +#ifdef CONFIG_RISCV_ISA_ZBB_ALT
+>  strlen_zbb:
+>  
+>  #ifdef CONFIG_CPU_BIG_ENDIAN
+> diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
+> index aba5b3148621..aeed830804d7 100644
+> --- a/arch/riscv/lib/strncmp.S
+> +++ b/arch/riscv/lib/strncmp.S
+> @@ -8,7 +8,7 @@
+>  /* int strncmp(const char *cs, const char *ct, size_t count) */
+>  SYM_FUNC_START(strncmp)
+>  
+> -	ALTERNATIVE("nop", "j strncmp_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB)
+> +	ALTERNATIVE("nop", "j strncmp_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB_ALT)
+>  
+>  	/*
+>  	 * Returns
+> @@ -46,7 +46,7 @@ SYM_FUNC_START(strncmp)
+>  /*
+>   * Variant of strncmp using the ZBB extension if available
+>   */
+> -#ifdef CONFIG_RISCV_ISA_ZBB
+> +#ifdef CONFIG_RISCV_ISA_ZBB_ALT
+>  strncmp_zbb:
+>  
+>  .option push
+> -- 
+> 2.43.0
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
