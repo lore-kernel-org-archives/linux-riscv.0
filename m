@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DEBCC04FFE
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 May 2024 09:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A6D5C25B78
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 May 2024 09:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t5T4eyl+RtN3jYMKRVvFUZCsmmRGUhhTOz6yPNsFDnU=; b=VZdfWFJGwwI6cb
-	KFvkZehOPr2DXOeTeLE1B2MThWk+OmJBV2b8w7cnqboFZUCzwAUZwe0eRmylgGAh30ZiZZYYSQgK3
-	t8y/RyCD+mUuMJfN0mPXXt8I09xJ3mYsWa3FDHXyBE1xbityXfNMyBwMq7Pf5bLqPm01Ji17BPshR
-	mNkja98V5+nWNCjtrtlkwu/b59FaLfpSZ5ihcBe7w+TdeB+xeTlg2RNMV3+/R+mZsnsAspDsVvJKy
-	NGSiomUX17OQlPwwozwLg8HgqlWiM3Fv6TnUA6jplRuyVHPI7NITnIzVRXJ/PKBPOASpuaZxcQpB3
-	nQpdPJ9d5VJb8mQSgfYw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LP0Xq+WhmP7fQK1ZYd1B9GOZ5nsdPvc5OdzVVFdMpyU=; b=vFCN/wZoxdE8Nx
+	j+tyfhDaCt+0QpWLR0fYxlbDs1pAoQUXUxDVFDL2m1z8nezYM3vwGwI9B8YGH2eEUDZz4W9szUvmb
+	oTHWfMlcThbOo0X5SaKswMD72lT2cBH2kxMb7Y62UC+tdX0V+X1EQXIHXY5sQavYN2genJd0N9bzU
+	hfjueMA3wwGcqataE2KVSZB/z6bElc90X/PT89nabDQPMQX2ProDAa6MGGlmYssBedKvco4A7go5d
+	dcPL6RmR6PFMoCyX/XrrTZKt7thxvEZ5atgsslvH/os9/dmHuSkm7IQ/OYYJOI7U8qYpKb2WlG9lj
+	ffC7eROLORDJLypj8x7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7tbd-00000007Idc-1Eev;
-	Fri, 17 May 2024 09:10:25 +0000
+	id 1s7tba-00000007IdB-2N0I;
+	Fri, 17 May 2024 09:10:22 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7tbX-00000007Ibo-3I5t
+	id 1s7tbW-00000007IbT-2m8W
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 May 2024 09:10:21 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DCD142000E;
-	Fri, 17 May 2024 09:10:15 +0000 (UTC)
+	Fri, 17 May 2024 09:10:20 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2A19320003;
+	Fri, 17 May 2024 09:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1715937016;
+	t=1715937013;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AFbldK+YrNkPHEp7U+iGoJtDTLbUW/U0B2C/LsdOF6E=;
-	b=klGl0Tyc1SJDCTEgSMqT8gslZT1WoMIsRul91Fj6KHTBRJAkMGueFNTsdogwc9TTIuKN1+
-	q7MjMuwS4DRHn+A+7S93UAu0hDz7p60u9KHYUu4C+CjzctkD7KJTabkjw+07ZaR7IsMYee
-	IQ8irHYV5w9J6dpkCjfXIDwwmKfPp7xT4Xd/oeA+5FXtbzeV6q2VGsqdvUqIFA3PhMk4ZU
-	mFE1jtlJWKqLHOU7tYAliU5uHyctDNJZZzcUkIeEar5nTNNM7U4vNUV8jVs1E9x2VqOgjj
-	qke6aaFRTiGT27xsBgU8+f48uqusnMcjyFeBQ0uLuXNsYFleQ6awAvYkBr7vfw==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=E9YI5IhJQd+9CPiNZ2Juj0hyKn1eM6koEnskZ7nXuGk=;
+	b=Z3XVq7HTZDQDQNn5t+fzpekKxhSYeQR0NMJsT0E7v0NazyG3Hhd6Ij3FodPhpxYXezfIJR
+	2iP1ZwBWYEj0iyUI8ijZEwnm48MU51UBF03xMCZoYiUDom7zrRfo1hVhg5btwgXAtzgOhI
+	pmN/L9ci8XIRqwztOOBo8FPD9KAh0SSVD8rK6Nx83JFtMi4WwT1BPClN9Ns8R3uxdmfVG+
+	X3o+kD1tMz9+rUJuLHDj7wDntCwSCawoO0D58y5bLO4+5lUT/mj40cIaUkmxMke2JovFD+
+	G8vxkgmp4Wo1KEBaFpH+hY33JP/IK31HHo6WnSDonQ7Us7wvzslv4xCJG3adXw==
 From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Date: Fri, 17 May 2024 11:09:55 +0200
-Subject: [PATCH v2 3/3] riscv: dts: thead: Enable I2C on the BeagleV-Ahead
+Subject: [PATCH v2 0/3] Add I2C support on TH1520
+Date: Fri, 17 May 2024 11:09:52 +0200
+Message-Id: <20240517-i2c-th1520-v2-0-d364d135ccc6@bootlin.com>
 MIME-Version: 1.0
-Message-Id: <20240517-i2c-th1520-v2-3-d364d135ccc6@bootlin.com>
-References: <20240517-i2c-th1520-v2-0-d364d135ccc6@bootlin.com>
-In-Reply-To: <20240517-i2c-th1520-v2-0-d364d135ccc6@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIAOAeR2YC/1XMQQ7CIBCF4as0sxYDI6TElfcwXRRKZRIFA4RoG
+ u4u1pXL/yXv2yC7RC7DedgguUqZYuiBhwGsn8PNMVp6A3KUXKJihJYVLxRyttqTdWLWRo4I/fB
+ MbqXXjl2n3p5yiem92xW/649R4o+pyDgzRokF9agk1xcTY7lTONr4gKm19gGCJDUwpgAAAA==
 To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
@@ -65,8 +65,8 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 X-Mailer: b4 0.13.0
 X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240517_021020_120952_9CACDB8C 
-X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-CacheID: sfid-20240517_021018_871713_7942D4EB 
+X-CRM114-Status: UNSURE (   9.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,127 +84,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This commit enables the I2C0 controller of the TH1520, together with
-the FT24C32A EEPROM that is connected to it.
-In addition, this commit also enables the I2C controllers I2C2, I2C4
-and I2C5 as they are all three exposed on headers (P9 19 and 20 for I2C2,
-P9 17 and 18 for I2C5 and MikroBus 7 and 5 for I2C4).
-It also defined the required pinctrl nodes.
+This adds I2C support in the device tree of the T-Head TH1520 RISCV-SoC
+and a default configuration for the BeagleV-Ahead. It appears that the
+TH1520 I2C is already supported in the upstream kernel through the
+Synopsis Designware I2C adapter driver.
+
+This patch depends on the clock patch from Drew Fustini
+Link: https://lore.kernel.org/linux-riscv/20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com
+and the pinctrl patch from Emil Renner Berthing
+Link: https://lore.kernel.org/linux-riscv/20240103132852.298964-1-emil.renner.berthing@canonical.com
+
+Changed from v1:
+1. Remove redundant example for Synopsis DesignWare-I2C bindings
+2. Remove Node Ordering commit as it has already been taken
+3. Remove EEPROM label
+4. Rebase on pinctrl and clock driver patches
+5. Add pinctrl configuration
+6. Replaced the fixed-clock with a correct configuration
 
 Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 ---
+Thomas Bonnefille (3):
+      dt-bindings: i2c: dw: Document compatible thead,th1520-i2c
+      riscv: dts: thead: Add TH1520 I2C nodes
+      riscv: dts: thead: Enable I2C on the BeagleV-Ahead
+
+ .../bindings/i2c/snps,designware-i2c.yaml          |  4 ++
  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 84 ++++++++++++++++++++++
- 1 file changed, 84 insertions(+)
+ arch/riscv/boot/dts/thead/th1520.dtsi              | 50 +++++++++++++
+ 3 files changed, 138 insertions(+)
+---
+base-commit: e1fb0b71c746f863fa49ff359d58c949538ce181
+change-id: 20240425-i2c-th1520-fc3ce1a8b472
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-index 57a2578123eb..aeb04f5159d5 100644
---- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-+++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-@@ -121,6 +121,47 @@ led-pins {
- 	};
- };
- 
-+&padctrl1_apsys {
-+	i2c0_pins: i2c0-0 {
-+		i2c-pins {
-+			pins = "I2C0_SDA",
-+			       "I2C0_SCL";
-+			function = "i2c";
-+			bias-pull-up = <2100>;
-+			drive-strength = <7>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	i2c4_pins: i2c4-0 {
-+		i2c-pins {
-+			pins = "GPIO0_19", /*I2C4_SDA*/
-+			       "GPIO0_18"; /*I2C4_SCL*/
-+			function = "i2c";
-+			bias-pull-up = <2100>;
-+			drive-strength = <7>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	i2c5_pins: i2c5-0 {
-+		i2c-pins {
-+			pins = "QSPI1_D0_MOSI", /*I2C5_SDA*/
-+			       "QSPI1_CSN0";    /*I2C5_SCL*/
-+			function = "i2c";
-+			bias-pull-up = <2100>;
-+			drive-strength = <7>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
-+};
-+
- &padctrl0_apsys {
- 	uart0_pins: uart0-0 {
- 		tx-pins {
-@@ -143,6 +184,19 @@ rx-pins {
- 			slew-rate = <0>;
- 		};
- 	};
-+
-+	i2c2_pins: i2c2-0 {
-+		i2c-pins {
-+			pins = "I2C2_SDA",
-+			       "I2C2_SCL";
-+			function = "i2c";
-+			bias-pull-up = <2100>;
-+			drive-strength = <7>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
- };
- 
- &uart0 {
-@@ -150,3 +204,33 @@ &uart0 {
- 	pinctrl-0 = <&uart0_pins>;
- 	status = "okay";
- };
-+
-+&i2c0 {
-+	status = "okay";
-+	clock-frequency = <100000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c0_pins>;
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c32";
-+		reg = <0x50>;
-+	};
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c2_pins>;
-+};
-+
-+&i2c4 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c4_pins>;
-+};
-+
-+&i2c5 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c5_pins>;
-+};
-
+Best regards,
 -- 
-2.45.1
+Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 
 
 _______________________________________________
