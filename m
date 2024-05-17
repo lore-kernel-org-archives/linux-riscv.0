@@ -4,87 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4FBC25B79
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 May 2024 15:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CF0C04FFE
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 May 2024 15:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UeQKU0B+xjLY0nPC4tHEDk+2W9u5luZeMmpXK5a4W0g=; b=BX7EvFrN9ipqsm
-	CVc3GFaHHtD69ZBTW72hRGb0inRQy0FVYTMSO2NE2J6u8Y2vwIx8JbcgEZqfqBRZfMpcGsGJCGAvz
-	1x9n4y+WrPV1BDLB0XEed3nXoejhSuQQaBxF85rTwta7WMf+AqZTDEt3rMeIa0AzUVhXQQdZ0+jCX
-	ICMjIQE9OqH/pJgzzlnAkrBda02Zznb69HDYUpElCsKdFgs7nk3qiAuYi14VFN8IYZ/IsjKEKkTBi
-	eDyIbXy3ADm9W/K/1VqNfEtSiETQqkBL5JKbTVCRGvSQXRdWYLkTLK1H7mOZ41j1TysLH+RdP/N+M
-	368eob748TB/ORebBzKg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qXcGnI/CJGJAipoe4WdT1sPS6Oc7OYE3B+ym/djEqGo=; b=ttL3B8zXZ732rr
+	N8JaF4pRg9vPCI9Jist9htP3RsQwZMQRjwQtD5ekWZVKPHvJtD2KUmCSonj48/+HUODEPXdSrda5z
+	ZrvDZu6r4Je6C7fkmmC5PPnKSKSvJN5HnHW4jEyqU0fB6ZYcdqKXU4MNo/IydTjOspfUg1b99EAGH
+	z+iHOasjhlRNXgnX3P2l5JqgD3QUm6MUEdhcOYL8nlDgKECCz5/xZe1/0ebTCr5l5wgTZiTDhEZgl
+	KYxMTpZ/b5rgl1iG1Vbr0rg1U7szXf2zqfWiaeGt3ToS3IrL35WWskKeBjoA5dK+gZVnTjhhPUO3Z
+	ECuRoJlJRAlKv4WVHPRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7zCB-00000008D2N-2NPT;
-	Fri, 17 May 2024 15:08:31 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1s7zLn-00000008EUk-0qbn;
+	Fri, 17 May 2024 15:18:27 +0000
+Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7zC8-00000008D1v-0w4u
+	id 1s7zLk-00000008ENN-0bGU
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 May 2024 15:08:30 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1eeabda8590so11012185ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 17 May 2024 08:08:25 -0700 (PDT)
+	Fri, 17 May 2024 15:18:25 +0000
+Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-36d93568a58so3070015ab.3
+        for <linux-riscv@lists.infradead.org>; Fri, 17 May 2024 08:18:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1715958505; x=1716563305; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Iv54+/RYiMmMOtNi1mq/Z0D5fhkYk22Dy/dLYDtHm+c=;
-        b=IgO7PxJs/I47PmqEBd33TtWe1X5pT9L4N2Uds44aKViKhAPlWsk2cmbfu1owRVNbTa
-         jxULhVFt+3psAkRsN5IYzXCmzr+73KzsBHBZAs4pU+oqhuneGSdvnSI3/PxnWwPdqMmF
-         JFTcPP0Odcle1Bfzx6gtP0eBRxm5Dreh3WECAMp+ftnZMHxyhfi1cmb7203E5n7OK2tV
-         SLdwlrL15zExUx9Ws2BJAgkI+/SjuCRcCRjodi0/PwZx7sc8V0jlu43qiNozX1lMv6ju
-         uzHp4ZaSnc2VJKO9ZVZpitz0CfRRsjmUyKdZW1izOTFIJgqU0iWzUltEX88SpZnetZ5n
-         PrZQ==
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1715959084; x=1716563884; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ef3MF8Rs0G3jit24HO3OWy+0DrrgzGDkN37Y+6PEB9I=;
+        b=LcyfPbBGiEts05BXuSPFON0AngZ14H9DHw7gNeV3VNlNeLSg8Kb1QUgT9YGYTgGILO
+         41yS9MnRMqW0HZgdUD9XlOonz8UxYUtrUHRS4GOfghBiht+jbrN7+5zEQLAc8GME4XDx
+         LHa02RxUVz3hsgtwS8psXPuI2h8BFrm072TVOtl5G2sP8yjOsrvdr172l9RiTgGbc2/X
+         gRffSDHWrL1+BSoECurqHOLhPc30joGE98ud22d63i8niAV57htmrrbsJbgr9FTjNgiL
+         SCG/ARt0qwAWR3tsSp0QJql+38yGxithqXS1LQ6XS2YUmHYYiX1rg6pVywdDEXR6M61u
+         Xlkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715958505; x=1716563305;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Iv54+/RYiMmMOtNi1mq/Z0D5fhkYk22Dy/dLYDtHm+c=;
-        b=W6ncd0/Y4KfOkNshhsQgg0uZmuxAH5VmrdRu1bNvLe7+QUolrHujKO8hrPtebgZoV+
-         CHEW1Y40K0yIIuxFYas/zY+OPH4bGl0f12alNBi0DVj0nIgmxevzmdAOU14ueTU0RngV
-         IMa2YGUQwtvWhymt5wxl4hUYD1+2d9WrOtQQD6nMPE09Rnt0ZN2htbhbn3NvleGRQMmU
-         rw6b7Dm1UnMh33mhncrKgOGdNJ/BmL3EFKmby3aCSyAEjNVBERjZjl4BF49rpX4BKSz+
-         1cNHFiK+V915F6GNwPbb/eyh7aVYkVIFDC8FBuGHHwW4tIF3K4/ybEBvWhfz5a0k81AX
-         Xb3A==
-X-Forwarded-Encrypted: i=1; AJvYcCWNNN661m4VGRs+aG8lYmUsOBhs4cx3xP2l8GJKnAYbQKmz2mmumNL6DSgKiPdKij8lmpk4pcKdlPKF5vmRZyW84Hbde80Q86aUgsxq/adG
-X-Gm-Message-State: AOJu0Yxoo2EKKgXrl2uJVY6mUNw1wDW+ZaQmAAZ4+RGBNyOznqP8ma+L
-	/Jw63DjTPj5SQiemCM3fc5O1ZC9yKwxnyYgBfVg+903ip44u5125
-X-Google-Smtp-Source: AGHT+IFOk1Z8tKHx4PNlsmj1SdqKmikqavDjQTEj4ooLTFLGPr7uF21G5WM/AlInMnfWHnhIFhKhsg==
-X-Received: by 2002:a17:902:e892:b0:1e5:9dff:a52c with SMTP id d9443c01a7336-1ef43d2e258mr262962585ad.10.1715958505178;
-        Fri, 17 May 2024 08:08:25 -0700 (PDT)
-Received: from localhost.localdomain ([223.178.82.123])
-        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-64f61b921ddsm6563371a12.89.2024.05.17.08.08.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 May 2024 08:08:24 -0700 (PDT)
-From: Kanak Shilledar <kanakshilledar@gmail.com>
-X-Google-Original-From: Kanak Shilledar <kanakshilledar111@protonmail.com>
-To: 
-Cc: Kanak Shilledar <kanakshilledar111@protonmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] dt-bindings: interrupt-controller: riscv,cpu-intc: convert to dtschema
-Date: Fri, 17 May 2024 20:37:40 +0530
-Message-Id: <20240517150741.181303-1-kanakshilledar111@protonmail.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20230601; t=1715959084; x=1716563884;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ef3MF8Rs0G3jit24HO3OWy+0DrrgzGDkN37Y+6PEB9I=;
+        b=jSKDM4R+r378gMCf8ds5qp4LygJ9fVIx0Lpu/hSOUuiFIF+oGYwEpCnvFbKUeZ3jyE
+         PsBjn0GP9PmQbWgdzdtOV67ixg8QtMwns4lDtcB6CB7MnIyrMKywH+t75hlGXXw3JAif
+         LgIujUD1g1qqRYfF0GyP7JCJKuKt3FJOzgdJfrhtXMqMr3wuLGrAJ2vvN1+zDbQ0QEPm
+         zcuAjWXNkEzVNo6sFXK2Zs0TZsw0Sh9SxgakkEGO8cLKKUJWqo3LmGzDtZa0wpxfmi3U
+         RWm/gXLD9FtPm8+PHgqE2DLetOD3CTuNhFUvb9q2T3VY583ed7UHvhzJ80F2xm60aiT7
+         E7tw==
+X-Forwarded-Encrypted: i=1; AJvYcCX1uYXx6udU2AFikkb4zict85duVMPh/YJW92a6ta5GUFTQ4qjOMS7AMZILbWI5j9ZP8cFVhmlTJQk5v8IJWivkhSi4OnfkF1xCz7js9F4A
+X-Gm-Message-State: AOJu0YzrdsdMCtyTcH9IoIbmrQDSGAE3R8FmAFiCTaNoWlUCGuDxV5BN
+	Kb8eUJL3ywuXNJUaj8Fmc147fkkakOYS6w3CYLNSX3oienrXubcJMmUSXubTQcHHQj9lK68u76H
+	YJqpOkecDIWJs7ny5d/njwAGnccqwBQaCnLzc2g==
+X-Google-Smtp-Source: AGHT+IHuY13zH4hhNjNUU8E5CU5OnLiqg38O1otrjb+/eoZzOjdRjWwMMh69eiDOSrh7CQUbUVho6c8rmZEAihhoEvk=
+X-Received: by 2002:a05:6e02:1886:b0:36a:1725:e123 with SMTP id
+ e9e14a558f8ab-36cc14913bfmr268024205ab.14.1715959084494; Fri, 17 May 2024
+ 08:18:04 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240517145302.971019-1-cleger@rivosinc.com> <20240517145302.971019-5-cleger@rivosinc.com>
+In-Reply-To: <20240517145302.971019-5-cleger@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 17 May 2024 20:47:51 +0530
+Message-ID: <CAAhSdy0Ft5KV5ABBPNjxhy71jY0ypF7S6vhrb7gfq892WQkv1w@mail.gmail.com>
+Subject: Re: [PATCH v5 04/16] RISC-V: KVM: Allow Zimop extension for Guest/VM
+To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Shuah Khan <shuah@kernel.org>, 
+	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240517_080828_289946_1D63DC9D 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20240517_081824_189615_8288727A 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,154 +91,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert the RISC-V Hart-Level Interrupt Controller (HLIC) to newer
-DT schema, Created DT schema based on the .txt file which had
-`compatible`, `#interrupt-cells` and `interrupt-controller` as
-required properties.
-Changes made with respect to original file:
-- Changed the example to just use interrupt-controller instead of
-using the whole cpu block
-- Changed the example compatible string.
-
-Signed-off-by: Kanak Shilledar <kanakshilledar111@protonmail.com>
----
- .../interrupt-controller/riscv,cpu-intc.txt   | 52 -----------------
- .../interrupt-controller/riscv,cpu-intc.yaml  | 57 +++++++++++++++++++
- 2 files changed, 57 insertions(+), 52 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.yaml
-
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-deleted file mode 100644
-index 265b223cd978..000000000000
---- a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-+++ /dev/null
-@@ -1,52 +0,0 @@
--RISC-V Hart-Level Interrupt Controller (HLIC)
-----------------------------------------------
--
--RISC-V cores include Control Status Registers (CSRs) which are local to each
--CPU core (HART in RISC-V terminology) and can be read or written by software.
--Some of these CSRs are used to control local interrupts connected to the core.
--Every interrupt is ultimately routed through a hart's HLIC before it
--interrupts that hart.
--
--The RISC-V supervisor ISA manual specifies three interrupt sources that are
--attached to every HLIC: software interrupts, the timer interrupt, and external
--interrupts.  Software interrupts are used to send IPIs between cores.  The
--timer interrupt comes from an architecturally mandated real-time timer that is
--controlled via Supervisor Binary Interface (SBI) calls and CSR reads.  External
--interrupts connect all other device interrupts to the HLIC, which are routed
--via the platform-level interrupt controller (PLIC).
--
--All RISC-V systems that conform to the supervisor ISA specification are
--required to have a HLIC with these three interrupt sources present.  Since the
--interrupt map is defined by the ISA it's not listed in the HLIC's device tree
--entry, though external interrupt controllers (like the PLIC, for example) will
--need to define how their interrupts map to the relevant HLICs.  This means
--a PLIC interrupt property will typically list the HLICs for all present HARTs
--in the system.
--
--Required properties:
--- compatible : "riscv,cpu-intc"
--- #interrupt-cells : should be <1>.  The interrupt sources are defined by the
--  RISC-V supervisor ISA manual, with only the following three interrupts being
--  defined for supervisor mode:
--    - Source 1 is the supervisor software interrupt, which can be sent by an SBI
--      call and is reserved for use by software.
--    - Source 5 is the supervisor timer interrupt, which can be configured by
--      SBI calls and implements a one-shot timer.
--    - Source 9 is the supervisor external interrupt, which chains to all other
--      device interrupts.
--- interrupt-controller : Identifies the node as an interrupt controller
--
--Furthermore, this interrupt-controller MUST be embedded inside the cpu
--definition of the hart whose CSRs control these local interrupts.
--
--An example device tree entry for a HLIC is show below.
--
--	cpu1: cpu@1 {
--		compatible = "riscv";
--		...
--		cpu1-intc: interrupt-controller {
--			#interrupt-cells = <1>;
--			compatible = "sifive,fu540-c000-cpu-intc", "riscv,cpu-intc";
--			interrupt-controller;
--		};
--	};
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.yaml
-new file mode 100644
-index 000000000000..6fe86d243633
---- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.yaml
-@@ -0,0 +1,57 @@
-+# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/riscv,cpu-intc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V Hart-Level Interrupt Controller (HLIC)
-+
-+description:
-+  RISC-V cores include Control Status Registers (CSRs) which are local to
-+  each CPU core (HART in RISC-V terminology) and can be read or written by
-+  software. Some of these CSRs are used to control local interrupts connected
-+  to the core. Every interrupt is ultimately routed through a hart's HLIC
-+  before it interrupts that hart.
-+
-+  The RISC-V supervisor ISA manual specifies three interrupt sources that are
-+  attached to every HLIC namely software interrupts, the timer interrupt, and
-+  external interrupts. Software interrupts are used to send IPIs between
-+  cores.  The timer interrupt comes from an architecturally mandated real-
-+  time timer that is controlled via Supervisor Binary Interface (SBI) calls
-+  and CSR reads. External interrupts connect all other device interrupts to
-+  the HLIC, which are routed via the platform-level interrupt controller
-+  (PLIC).
-+
-+  All RISC-V systems that conform to the supervisor ISA specification are
-+  required to have a HLIC with these three interrupt sources present.  Since
-+  the interrupt map is defined by the ISA it's not listed in the HLIC's device
-+  tree entry, though external interrupt controllers (like the PLIC, for
-+  example) will need to define how their interrupts map to the relevant HLICs.
-+  This means a PLIC interrupt property will typically list the HLICs for all
-+  present HARTs in the system.
-+
-+maintainers:
-+  - Kanak Shilledar <kanakshilledar111@protonmail.com>
-+
-+properties:
-+  compatible:
-+    const: "riscv,cpu-intc"
-+
-+  interrupt-controller: true
-+
-+  '#interrupt-cells': true
-+
-+required:
-+  - compatible
-+  - '#interrupt-cells'
-+  - interrupt-controller
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    interrupt-controller {
-+        #interrupt-cells = <1>;
-+        compatible = "riscv,cpu-intc";
-+        interrupt-controller;
-+    };
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXkgMTcsIDIwMjQgYXQgODoyM+KAr1BNIENsw6ltZW50IEzDqWdlciA8Y2xlZ2Vy
+QHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBFeHRlbmQgdGhlIEtWTSBJU0EgZXh0ZW5zaW9uIE9O
+RV9SRUcgaW50ZXJmYWNlIHRvIGFsbG93IEtWTSB1c2VyIHNwYWNlCj4gdG8gZGV0ZWN0IGFuZCBl
+bmFibGUgWmltb3AgZXh0ZW5zaW9uIGZvciBHdWVzdC9WTS4KPgo+IFNpZ25lZC1vZmYtYnk6IENs
+w6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4KCkxHVE0uCgpSZXZpZXdlZC1ieTog
+QW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KQWNrZWQtYnk6IEFudXAgUGF0ZWwgPGFu
+dXBAYnJhaW5mYXVsdC5vcmc+CgpSZWdhcmRzLApBbnVwCgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2lu
+Y2x1ZGUvdWFwaS9hc20va3ZtLmggfCAxICsKPiAgYXJjaC9yaXNjdi9rdm0vdmNwdV9vbmVyZWcu
+YyAgICAgIHwgMiArKwo+ICAyIGZpbGVzIGNoYW5nZWQsIDMgaW5zZXJ0aW9ucygrKQo+Cj4gZGlm
+ZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9rdm0uaCBiL2FyY2gvcmlzY3Yv
+aW5jbHVkZS91YXBpL2FzbS9rdm0uaAo+IGluZGV4IGIxYzUwM2MyOTU5Yy4uMzVhMTJhYTE5NTNl
+IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9rdm0uaAo+ICsrKyBi
+L2FyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9rdm0uaAo+IEBAIC0xNjcsNiArMTY3LDcgQEAg
+ZW51bSBLVk1fUklTQ1ZfSVNBX0VYVF9JRCB7Cj4gICAgICAgICBLVk1fUklTQ1ZfSVNBX0VYVF9a
+RkEsCj4gICAgICAgICBLVk1fUklTQ1ZfSVNBX0VYVF9aVFNPLAo+ICAgICAgICAgS1ZNX1JJU0NW
+X0lTQV9FWFRfWkFDQVMsCj4gKyAgICAgICBLVk1fUklTQ1ZfSVNBX0VYVF9aSU1PUCwKPiAgICAg
+ICAgIEtWTV9SSVNDVl9JU0FfRVhUX01BWCwKPiAgfTsKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2t2bS92Y3B1X29uZXJlZy5jIGIvYXJjaC9yaXNjdi9rdm0vdmNwdV9vbmVyZWcuYwo+IGlu
+ZGV4IGY0YTYxMjRkMjVjOS4uYzZlZTc2MzQyMmYyIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
+a3ZtL3ZjcHVfb25lcmVnLmMKPiArKysgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1X29uZXJlZy5jCj4g
+QEAgLTYwLDYgKzYwLDcgQEAgc3RhdGljIGNvbnN0IHVuc2lnbmVkIGxvbmcga3ZtX2lzYV9leHRf
+YXJyW10gPSB7Cj4gICAgICAgICBLVk1fSVNBX0VYVF9BUlIoWklISU5UTlRMKSwKPiAgICAgICAg
+IEtWTV9JU0FfRVhUX0FSUihaSUhJTlRQQVVTRSksCj4gICAgICAgICBLVk1fSVNBX0VYVF9BUlIo
+WklIUE0pLAo+ICsgICAgICAgS1ZNX0lTQV9FWFRfQVJSKFpJTU9QKSwKPiAgICAgICAgIEtWTV9J
+U0FfRVhUX0FSUihaS05EKSwKPiAgICAgICAgIEtWTV9JU0FfRVhUX0FSUihaS05FKSwKPiAgICAg
+ICAgIEtWTV9JU0FfRVhUX0FSUihaS05IKSwKPiBAQCAtMTM3LDYgKzEzOCw3IEBAIHN0YXRpYyBi
+b29sIGt2bV9yaXNjdl92Y3B1X2lzYV9kaXNhYmxlX2FsbG93ZWQodW5zaWduZWQgbG9uZyBleHQp
+Cj4gICAgICAgICBjYXNlIEtWTV9SSVNDVl9JU0FfRVhUX1pJSElOVE5UTDoKPiAgICAgICAgIGNh
+c2UgS1ZNX1JJU0NWX0lTQV9FWFRfWklISU5UUEFVU0U6Cj4gICAgICAgICBjYXNlIEtWTV9SSVND
+Vl9JU0FfRVhUX1pJSFBNOgo+ICsgICAgICAgY2FzZSBLVk1fUklTQ1ZfSVNBX0VYVF9aSU1PUDoK
+PiAgICAgICAgIGNhc2UgS1ZNX1JJU0NWX0lTQV9FWFRfWktORDoKPiAgICAgICAgIGNhc2UgS1ZN
+X1JJU0NWX0lTQV9FWFRfWktORToKPiAgICAgICAgIGNhc2UgS1ZNX1JJU0NWX0lTQV9FWFRfWktO
+SDoKPiAtLQo+IDIuNDMuMAo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
