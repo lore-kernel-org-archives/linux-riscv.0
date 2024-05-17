@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023F1C25B79
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 May 2024 16:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730D4C25B79
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 May 2024 17:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGPmP8A08G8L6B/3vtrusFZQ8POofpfYN6CKB9b4qcY=; b=veDnyuijQu7VJ61C9ma0w3aDIU
-	8aVp5ikhF5aSTWpWjM/GYiFhpIUkpFHn8qdxvQwF7RisLjLch+Ua/gwbM9BHKuQTl+rk+H307n3kE
-	VRPaQyTUAfQD9r+G4cQnKqWlHnRZsdDf1iufmkWUwXf3OULiSxRKyi+GOcf7gquuBnqH0o8vFDsV4
-	i94HhK7Ou/VvTXpUtBoR0h3oU99U6H7gkEr/HX2JsP9nYigdtwxMjsgpCpGXcOw9YCnsEfjr5vcLX
-	/ZBgfKTkUXP8nOHYQzqDojJjCpYQpw2AHRiSigtBkNucdk7GzB/L0VtXXx3w2WcT7qLX+g0+Dgjj/
-	i0cJsMvw==;
+	bh=80BVM2D/a+9HcuJKRmd/D+4VVt3uCtpHkwZjxTG7DKw=; b=Lx5pJrs0wdzAc4WczJCW47kR5P
+	hFM9vEvUHXrKQDUrjKNOPi2TszLvycJpWcbfI83klqk5+PrTXFhk9BQtsdeh6y/v70DAA1X6FbaJV
+	aRocaBFFLQVOTv0ZvthcFl8v7qUEs/R2pbpl42Az0dmA/IMGNrawFBeL06cgf3DzUEV7PdxSpn5v9
+	x9zvo5Xd0cgjNp2DzC9+4nwXkGrRZUorBzRqaLufUl7vTVmYH9UcDtdaJPxgmEItHdwZkhZZnOK7+
+	fYMZ6SSZoLAm9Xo/GyUwqMqR7nZzqqlCgPZ2gh+sPRqOwGEwL7SbqNCrlfnotHlE/CmiA7plGD/V3
+	AhgLrBbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s80hZ-00000008Qy7-1L8J;
-	Fri, 17 May 2024 16:45:01 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1s81D3-00000008VCg-2zUO;
+	Fri, 17 May 2024 17:17:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s80hU-00000008Qv6-49uP;
-	Fri, 17 May 2024 16:44:59 +0000
+	id 1s80Ek-00000008M4c-3nYl
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 17 May 2024 16:15:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=0f3VHO7RMXtFaZP126+RB4mZ3zyGDNwOOkBNFAvaZv4=; b=DLekCzIRlFnu3hI6XSqemQLuiR
+	LnwzkrONWjg/2Jk6MJ7f5V4Qr3ju7oJZj8e4u7QY/u1vQ4AuDOsfHoo0wFhp2vx2WykyWNR6Oq8Nd
+	8/M3HfkE6TEQjy6mMYGCSYLT6CARKWQdERz4swzjIedFPZH4XSPd+VcEDV2P8oj1PzOgwWnU20OUw
+	4Tbm489stuGg/8P8GXEvf2H9/AGkKiLH61iixx8v0qDTpNadjtOjnkMS8nKGVcuEELBZDpHTQNdEF
+	ZLJmZJBW3n3aEejB1C2O/qTrDDqRrBX7O9YVjFzqOLEFU9S5CQ+51nswONYY9D6Eb5ZO75gQSSo0j
+	R/FGxxmA==;
+Received: from sin.source.kernel.org ([145.40.73.55])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s80Eh-00000005jvr-0W1X
+	for linux-riscv@lists.infradead.org;
+	Fri, 17 May 2024 16:15:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 9DCBFCE1B50;
-	Fri, 17 May 2024 16:44:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4330C2BD10;
-	Fri, 17 May 2024 16:44:46 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 1F5D4CE1AB3;
+	Fri, 17 May 2024 16:15:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE84EC2BD10;
+	Fri, 17 May 2024 16:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1715964290;
-	bh=QgpU1zoyPrzUzveFTEOAv83qjETN+zMW2porc0qvn8o=;
+	s=k20201202; t=1715962502;
+	bh=0f3VHO7RMXtFaZP126+RB4mZ3zyGDNwOOkBNFAvaZv4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QxOWVUlkeOGUO6nin1HrAxJzDDBkF12l8UCJ/u77wE4lVOQt7hHeEPBvaabU0v/hI
-	 Ipa841XmuJndKRJ1cFI2nWuMtLTyl8vxLr4sxizfyRljHV5KT3y1V/JN4GhIJbB2RZ
-	 fEkLYIWpf1cvtxUd33HRN+SbD5rPvbn4PpPfHF0x3ZRTSJP6xndv69bXeE4uXG0vJM
-	 IOgEICJuvVWtWVm5nLKGzTeZFfTes3KrS7T4rkP9sM/RUDApKMUPM/tpHtyrkCKEy0
-	 QbZH7pR8SqHRupdnelhpROsCEWejLnI0PuWt89grFM5rT5fQ0p/SNqme1R32pM3y93
-	 zGJFdKHc6uaeQ==
-Date: Fri, 17 May 2024 17:44:44 +0100
+	b=qGBhi2/R7jd5bbFZeGp93256IL1NfP37VfriCxbtPRXXBM/UO46rHwSnkq9GwlT7q
+	 1/WifOsWUEVrtOv9GvCbaan5KIZUTW2zbkqnR3CzZ2ArvVQ/eXxBibJ1Icsfoji45y
+	 BLUczPx09k4B1wDNUELj2utnlqphZu+y2aPFhhVwlAeDdcEqHmqbJFeQfVvAFz6J6a
+	 5jqZvhaJXFfqXcs3skFv/wyRkIIjoAJfroTVgvOzMRj1StYwDRGUG/ef62SqONbrGV
+	 KzVvPlmpXiGtlLJbU4BXpV5m5xFcci1jkUfOMgHdzt5VZgTh03xNbEHmntBd0zQWN7
+	 yhCFadwIohJTQ==
+Date: Fri, 17 May 2024 17:14:56 +0100
 From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Drew Fustini <dfustini@tenstorrent.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
-	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v5 07/16] riscv: add ISA extensions validation callback
-Message-ID: <20240517-scrunch-palace-2f83aa8cc3ce@spud>
-References: <20240517145302.971019-1-cleger@rivosinc.com>
- <20240517145302.971019-8-cleger@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?iso-8859-1?Q?Miqu=E8l?= Raynal <miquel.raynal@bootlin.com>,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: i2c: dw: Document compatible
+ thead,th1520-i2c
+Message-ID: <20240517-mummified-judicial-3e25bf4b760f@spud>
+References: <20240517-i2c-th1520-v2-0-d364d135ccc6@bootlin.com>
+ <20240517-i2c-th1520-v2-1-d364d135ccc6@bootlin.com>
 MIME-Version: 1.0
-In-Reply-To: <20240517145302.971019-8-cleger@rivosinc.com>
+In-Reply-To: <20240517-i2c-th1520-v2-1-d364d135ccc6@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240517_094457_432641_AA3380D7 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20240517_171511_610605_B7C6B6BF 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,65 +95,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4261414045056047416=="
+Content-Type: multipart/mixed; boundary="===============6882978113852662134=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4261414045056047416==
+--===============6882978113852662134==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="W/IHxON2BVIcsXV6"
+	protocol="application/pgp-signature"; boundary="71HbPEXGH1oiwxL1"
 Content-Disposition: inline
 
 
---W/IHxON2BVIcsXV6
-Content-Type: text/plain; charset=iso-8859-1
+--71HbPEXGH1oiwxL1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, May 17, 2024 at 04:52:47PM +0200, Cl=E9ment L=E9ger wrote:
-> Since a few extensions (Zicbom/Zicboz) already needs validation and
-> future ones will need it as well (Zc*) add a validate() callback to
-> struct riscv_isa_ext_data. This require to rework the way extensions are
-> parsed and split it in two phases. First phase is isa string or isa
-> extension list parsing and consists in enabling all the extensions in a
-> temporary bitmask (source isa) without any validation. The second step
-> "resolves" the final isa bitmap, handling potential missing dependencies.
-> The mechanism is quite simple and simply validate each extension
-> described in the source bitmap before enabling it in the resolved isa
-> bitmap. validate() callbacks can return either 0 for success,
-> -EPROBEDEFER if extension needs to be validated again at next loop. A
-> previous ISA bitmap is kept to avoid looping multiple times if an
-> extension dependencies are never satisfied until we reach a stable
-> state. In order to avoid any potential infinite looping, allow looping
-> a maximum of the number of extension we handle. Zicboz and Zicbom
-> extensions are modified to use this validation mechanism.
+On Fri, May 17, 2024 at 11:09:53AM +0200, Thomas Bonnefille wrote:
+> Add documentation for compatible string thead,th1520-i2c which can be
+> used specifically for the TH1520 SoC.
+>=20
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 
-I wish we weren't doin' it at all, but since we have to, I think what
-you've got here is good.
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Do you want me to send some patches for the F/V stuff we discussed
-previously?
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
 Cheers,
 Conor.
 
---W/IHxON2BVIcsXV6
+--71HbPEXGH1oiwxL1
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZkeJfAAKCRB4tDGHoIJi
-0kl2APwOQPrdeOk2UeAnU791s9RSGh57l/KFZUV8B/odusv3NQD/Umivns2bYz6q
-g4XXrW4VGMdCkveeyrvnkMklbwDTswA=
-=bE5t
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZkeCgAAKCRB4tDGHoIJi
+0gf6AQCpyToQ+uzYUl89vhM5TD0TeV1Wj/3Dy1R7kpdK3ljLMwEAl/QQkdxlsEzs
+53qFdL5/5XDkqkdArBN22iyImZG/1gs=
+=1DWo
 -----END PGP SIGNATURE-----
 
---W/IHxON2BVIcsXV6--
+--71HbPEXGH1oiwxL1--
 
 
---===============4261414045056047416==
+--===============6882978113852662134==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -143,5 +147,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4261414045056047416==--
+--===============6882978113852662134==--
 
