@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A6D5C25B78
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 May 2024 09:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 922A3C04FFE
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 May 2024 11:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LP0Xq+WhmP7fQK1ZYd1B9GOZ5nsdPvc5OdzVVFdMpyU=; b=vFCN/wZoxdE8Nx
-	j+tyfhDaCt+0QpWLR0fYxlbDs1pAoQUXUxDVFDL2m1z8nezYM3vwGwI9B8YGH2eEUDZz4W9szUvmb
-	oTHWfMlcThbOo0X5SaKswMD72lT2cBH2kxMb7Y62UC+tdX0V+X1EQXIHXY5sQavYN2genJd0N9bzU
-	hfjueMA3wwGcqataE2KVSZB/z6bElc90X/PT89nabDQPMQX2ProDAa6MGGlmYssBedKvco4A7go5d
-	dcPL6RmR6PFMoCyX/XrrTZKt7thxvEZ5atgsslvH/os9/dmHuSkm7IQ/OYYJOI7U8qYpKb2WlG9lj
-	ffC7eROLORDJLypj8x7w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hThIWHP7qV0PEJLSFbgHljjoQVNiWCVfJp7xSPPdzg8=; b=Hjr4ya7lIZjsra
+	S/MRq0Oj7aXf9mf6JuXvs3p85s3836xyPu6cXU99bd9FRpLneGDyGi6wE90jnn6T5zr7sd6mStAce
+	S3Dr0NLWZgLv5+k4OUxWgDe7k7aTsOiDEt6XKxVoXW9quuRWO4+5vGPseBq/qzECpse+qmAXQ3FDB
+	Gb+8O1EsNA1wkueA+Ghdp78I43x/NcWI6tOrJkanUTCeu8FPNPfQ1IDd2kk4nhGICYWaTwjuCjPSu
+	BkQoMoqFiEgqroCppGaB+I2l4HgAZ4uB4Kp2DH1y/KDyeqMyYzlXUYUhotLhkyK7s2vW5e0blT3AJ
+	2nsZs6aOCinljA9d9VLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7tba-00000007IdB-2N0I;
-	Fri, 17 May 2024 09:10:22 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1s7vZg-00000007cOG-1X9G;
+	Fri, 17 May 2024 11:16:32 +0000
+Received: from mail-pl1-f176.google.com ([209.85.214.176])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7tbW-00000007IbT-2m8W
+	id 1s7vZd-00000007cNm-0CRb
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 May 2024 09:10:20 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 2A19320003;
-	Fri, 17 May 2024 09:10:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1715937013;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=E9YI5IhJQd+9CPiNZ2Juj0hyKn1eM6koEnskZ7nXuGk=;
-	b=Z3XVq7HTZDQDQNn5t+fzpekKxhSYeQR0NMJsT0E7v0NazyG3Hhd6Ij3FodPhpxYXezfIJR
-	2iP1ZwBWYEj0iyUI8ijZEwnm48MU51UBF03xMCZoYiUDom7zrRfo1hVhg5btwgXAtzgOhI
-	pmN/L9ci8XIRqwztOOBo8FPD9KAh0SSVD8rK6Nx83JFtMi4WwT1BPClN9Ns8R3uxdmfVG+
-	X3o+kD1tMz9+rUJuLHDj7wDntCwSCawoO0D58y5bLO4+5lUT/mj40cIaUkmxMke2JovFD+
-	G8vxkgmp4Wo1KEBaFpH+hY33JP/IK31HHo6WnSDonQ7Us7wvzslv4xCJG3adXw==
-From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Subject: [PATCH v2 0/3] Add I2C support on TH1520
-Date: Fri, 17 May 2024 11:09:52 +0200
-Message-Id: <20240517-i2c-th1520-v2-0-d364d135ccc6@bootlin.com>
+	Fri, 17 May 2024 11:16:30 +0000
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-1ee7963db64so5015325ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 17 May 2024 04:16:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1715944588; x=1716549388;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uM5/EWorMlMeij6RhB6j/f4ZuioOE/OA53wAKnmrl34=;
+        b=t2JQd5icL2NmZoLFrr3MVvwsNcjHrm87kQ54fGd3wZuy62S5s4GLP5P2tElK8gV6z6
+         8TI8uj17nMO/3C9dfaiwT1D1lVHOs0UddPR+uccklh6ZlQ5OEIF+BWr+tuUHczfUCRqn
+         3SHFYKU/sopUZqWadlI0lw4WOtNi3SNsru7msKFF0WxUNPzhsTzjbk1CcJbO6PQQd3fZ
+         sosIpLXf6BdLMcqmT6DyL6hBryQqFHK3VzgX/hL+Gqwi2foO1LFkIsfFuEC1+d3xGNc8
+         unUn9qafL0V2mLzeyWRKCcDdwJUIomWaXbv0lgYFXXXL17VuYmTuBqXeFtlsAx9aHqAw
+         ie+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXkHqAZ4PXRm/WvNaMtSg+QW5eSAynJIFqSdLWSuLKhO65LmooCE46mDwSOZJ4YmqKdFqKfzuN3fiWmpj6rMak/kmjW1CYsD079PD7yIesH
+X-Gm-Message-State: AOJu0Yxd0bt3EYg3lunbC+N+TB5tT+d4D+Bf9PswqOSz8qfeYOKiy3m9
+	qN0OFe6KuWOvzrYUX4HjCjocu8WwBR16DrObx/qGjXnUkMBjagL5
+X-Google-Smtp-Source: AGHT+IE/H8dabmSgLuU/yv52WzguCq/CXaLL9ZLastuGGvuASE6dILZc3r3z312dhBfjhGMP+ogM0g==
+X-Received: by 2002:a05:6a00:4fcb:b0:6ed:4a97:5dec with SMTP id d2e1a72fcca58-6f4e02981demr26839016b3a.20.1715944588012;
+        Fri, 17 May 2024 04:16:28 -0700 (PDT)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-6f4d2af2a98sm14463913b3a.169.2024.05.17.04.16.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 May 2024 04:16:27 -0700 (PDT)
+Date: Fri, 17 May 2024 20:16:26 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+Subject: Re: [PATCH v16 00/22] Refactoring Microchip PCIe driver and add
+ StarFive PCIe
+Message-ID: <20240517111626.GP202520@rocinante>
+References: <20240328091835.14797-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAOAeR2YC/1XMQQ7CIBCF4as0sxYDI6TElfcwXRRKZRIFA4RoG
- u4u1pXL/yXv2yC7RC7DedgguUqZYuiBhwGsn8PNMVp6A3KUXKJihJYVLxRyttqTdWLWRo4I/fB
- MbqXXjl2n3p5yiem92xW/649R4o+pyDgzRokF9agk1xcTY7lTONr4gKm19gGCJDUwpgAAAA==
-To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
- Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
- Drew Fustini <dfustini@tenstorrent.com>, 
- Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
- Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- =?utf-8?q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>, 
- linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-X-Mailer: b4 0.13.0
-X-GND-Sasl: thomas.bonnefille@bootlin.com
+Content-Disposition: inline
+In-Reply-To: <20240328091835.14797-1-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240517_021018_871713_7942D4EB 
-X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-CacheID: sfid-20240517_041629_213533_B52B8CB1 
+X-CRM114-Status: UNSURE (   8.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,43 +97,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds I2C support in the device tree of the T-Head TH1520 RISCV-SoC
-and a default configuration for the BeagleV-Ahead. It appears that the
-TH1520 I2C is already supported in the upstream kernel through the
-Synopsis Designware I2C adapter driver.
+Hello,
 
-This patch depends on the clock patch from Drew Fustini
-Link: https://lore.kernel.org/linux-riscv/20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com
-and the pinctrl patch from Emil Renner Berthing
-Link: https://lore.kernel.org/linux-riscv/20240103132852.298964-1-emil.renner.berthing@canonical.com
+> This patchset final purpose is add PCIe driver for StarFive JH7110 SoC.
+> JH7110 using PLDA XpressRICH PCIe IP. Microchip PolarFire Using the
+> same IP and have commit their codes, which are mixed with PLDA
+> controller codes and Microchip platform codes.
+> 
+> For re-use the PLDA controller codes, I request refactoring microchip
+> codes, move PLDA common codes to PLDA files.
+> Desigware and Cadence is good example for refactoring codes.
 
-Changed from v1:
-1. Remove redundant example for Synopsis DesignWare-I2C bindings
-2. Remove Node Ordering commit as it has already been taken
-3. Remove EEPROM label
-4. Rebase on pinctrl and clock driver patches
-5. Add pinctrl configuration
-6. Replaced the fixed-clock with a correct configuration
+Applied to controller/microchip, thank you!
 
-Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
----
-Thomas Bonnefille (3):
-      dt-bindings: i2c: dw: Document compatible thead,th1520-i2c
-      riscv: dts: thead: Add TH1520 I2C nodes
-      riscv: dts: thead: Enable I2C on the BeagleV-Ahead
+[01/21] dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
+        https://git.kernel.org/pci/pci/c/0ce827c82eea
+[02/21] dt-bindings: PCI: Add StarFive JH7110 PCIe controller
+        https://git.kernel.org/pci/pci/c/91b4524c9135
+[03/21] PCI: Add PCIE_RESET_CONFIG_DEVICE_WAIT_MS waiting time value
+        https://git.kernel.org/pci/pci/c/4b83a1379e8c
+[04/21] PCI: microchip: Move pcie-microchip-host.c to PLDA directory
+        https://git.kernel.org/pci/pci/c/ced442bf0124
+[05/21] PCI: microchip: Move PLDA IP register macros to pcie-plda.h
+        https://git.kernel.org/pci/pci/c/571f57cc281c
+[06/21] PCI: microchip: Add bridge_addr field to struct mc_pcie
+        https://git.kernel.org/pci/pci/c/73c9dcd35dd8
+[07/21] PCI: microchip: Rename two PCIe data structures
+        https://git.kernel.org/pci/pci/c/e92d66e0aa1e
+[08/08] PCI: microchip: Move PCIe host data structures to plda-pcie.h
+        https://git.kernel.org/pci/pci/c/79c0d7d53a51
+[09/21] PCI: microchip: Rename two setup functions
+        https://git.kernel.org/pci/pci/c/082bda75f7b0
+[10/21] PCI: microchip: Change the argument of plda_pcie_setup_iomems()
+        https://git.kernel.org/pci/pci/c/9251a0b72188
+[11/21] PCI: microchip: Move setup functions to pcie-plda-host.c
+        https://git.kernel.org/pci/pci/c/047cc7da3a25
+[12/21] PCI: microchip: Rename interrupt related functions
+        https://git.kernel.org/pci/pci/c/ddac0618211f
+[13/21] PCI: microchip: Add num_events field to struct plda_pcie_rp
+        https://git.kernel.org/pci/pci/c/cb90f7f6145b
+[14/21] PCI: microchip: Add request_event_irq() callback function
+        https://git.kernel.org/pci/pci/c/0ffbe1c70551
+[15/21] PCI: microchip: Add INTx and MSI event num to struct plda_event
+        https://git.kernel.org/pci/pci/c/9932c5d45e5a
+[16/21] PCI: microchip: Add get_events() callback and add PLDA get_event()
+        https://git.kernel.org/pci/pci/c/170407afbcc4
+[17/21] PCI: microchip: Add event irqchip field to host port and add PLDA irqchip
+        https://git.kernel.org/pci/pci/c/5e33af45dbcb
+[18/21] PCI: microchip: Move IRQ functions to pcie-plda-host.c
+        https://git.kernel.org/pci/pci/c/4e47aaf7afed
+[19/21] PCI: plda: Add event bitmap field to struct plda_pcie_rp
+        https://git.kernel.org/pci/pci/c/008d2bc41e3c
+[20/21] PCI: plda: Add host init/deinit and map bus functions
+        https://git.kernel.org/pci/pci/c/d86b148a401c
+[21/21] PCI: starfive: Add JH7110 PCIe controller
+        https://git.kernel.org/pci/pci/c/e6e7b974e425
 
- .../bindings/i2c/snps,designware-i2c.yaml          |  4 ++
- arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 84 ++++++++++++++++++++++
- arch/riscv/boot/dts/thead/th1520.dtsi              | 50 +++++++++++++
- 3 files changed, 138 insertions(+)
----
-base-commit: e1fb0b71c746f863fa49ff359d58c949538ce181
-change-id: 20240425-i2c-th1520-fc3ce1a8b472
-
-Best regards,
--- 
-Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-
+	Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
