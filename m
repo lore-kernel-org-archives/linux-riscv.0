@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF65C04FFE
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 May 2024 07:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 628E2C04FFE
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 May 2024 09:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aQZB3+p8c36hFC8c0X9RNR8Kg6PyTuOcTwmbmWghL2Y=; b=qecyykWL5olc+D
-	umTN0mdf+SIjHO++hKa7iTQd183L6g8uYyr1TZSbTPFakZFfA/wLC/nomDcIEPd2w3Q94jVhiOBSr
-	4X4JYuNx3CXfN48v50v5t5RKVhYzvaUXBbieB5zXLt+ztnnoPH9cMedPD1PWYGM6pVwZjZ/kF0yOd
-	jH8GHeIrs5yOtarOgfccCEMbIpXDwJx3ODiSU13/A7bG75oXDW8TKvl+luk7koTDbSdDRu59URTmq
-	qZtahBQezc0abpjBrWgRGKhaY0qUDzzsWUXpD3sniFbChirjQ6iCNjKfYtxi3sq1Wa+dnq7s28Z8g
-	c4YsUrvGhE8SONzyCZkQ==;
+	List-Owner; bh=h0Nn5S8C/AuWGh/P7JmVWlGhFiw1phdJjz8Fl9dFaPY=; b=WJGxeFJbag8ZJC
+	7+Qdd46noY9qVuwokOHJHdfSw+WtyT7+a3WtAtEPwsMFpYRfgl7GLTkIVaZynTQCMc/wlH7tNJ4ev
+	+cOEA1TOgz+Vmqt1GSaWDdS4ynXX6Z+EP3xEwwnZxnrgc+iDbcEbL4ECfkSWoekOuXiQywgqcMO/1
+	+5QoW1poDkjlM4a4NG3jy1YavbtpfpjGgx1nirGmZpPjSAQqOErxFcwq7gTJ7DGFQvFU1Quxg304E
+	iiX/64vPAVIhVoJiegQAP0pMJLqG6mrCWPtY2e0AO+Q0I/grkI2DA9bZ/HhSm+wJOV+D3oCKKoBQU
+	FLFF4wd1ZIJx/8Gt8Pfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7rwy-000000073EB-2wSs;
-	Fri, 17 May 2024 07:24:20 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1s7tbZ-00000007Icu-20FX;
+	Fri, 17 May 2024 09:10:21 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s7rwu-000000073Ce-0hze
+	id 1s7tbW-00000007IbU-2kjt
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 May 2024 07:24:18 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4VgdfK1Xmzz1j55s;
-	Fri, 17 May 2024 15:20:41 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6CCBA1A016C;
-	Fri, 17 May 2024 15:24:05 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Fri, 17 May 2024 15:24:04 +0800
-Message-ID: <3d7bca4f-492a-46cb-b65f-0bf14da97bb2@huawei.com>
-Date: Fri, 17 May 2024 15:24:03 +0800
+	Fri, 17 May 2024 09:10:20 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9411620002;
+	Fri, 17 May 2024 09:10:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1715937014;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Pq7XQqi3/Cq4U6P2JcpzcOtiqC8L/GBHpBIFcU2OyKc=;
+	b=RoDudsoI7xov79JDbeurmxUGeYsvpgvRxon//txTj24ZV2L0u4uzM1nR5+Y5Iiqqih6Ko8
+	vqNiDTGAqptva1IncZcFl4S+k6TyYzy95kbSq7TrqOiwCmpW5whLqjub6viKuiRbpLrOIv
+	6f1KeBJC42jK1kcPbMmO6d6ZZTMZPdbBAzoc9kGAFdPULscbEzGsvUKTrpZKEx2Ezw7kGg
+	uWh6GLX/Psx1ZRiu3cIobHPZB/LVKqYQWbS7QBrTccXQOlZW/2/TmCK04OqAnnipXy3ebG
+	kVUQTwM777C6oFcW3H+newyr1fjdd9eQVSF4iEu7dnE5HE/Ozxlhk0fUuHBYcA==
+From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Date: Fri, 17 May 2024 11:09:53 +0200
+Subject: [PATCH v2 1/3] dt-bindings: i2c: dw: Document compatible
+ thead,th1520-i2c
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] riscv, bpf: Optimize zextw insn with Zba extension
-Content-Language: en-US
-To: Xiao Wang <xiao.w.wang@intel.com>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<luke.r.nels@gmail.com>, <xi.wang@gmail.com>, <bjorn@kernel.org>,
-	<ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>,
-	<martin.lau@linux.dev>, <eddyz87@gmail.com>, <song@kernel.org>,
-	<yonghong.song@linux.dev>, <john.fastabend@gmail.com>, <kpsingh@kernel.org>,
-	<sdf@google.com>, <haoluo@google.com>, <jolsa@kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<bpf@vger.kernel.org>, <haicheng.li@intel.com>, <conor@kernel.org>,
-	<ben.dooks@codethink.co.uk>, <ajones@ventanamicro.com>
-References: <20240516090430.493122-1-xiao.w.wang@intel.com>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20240516090430.493122-1-xiao.w.wang@intel.com>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemf100007.china.huawei.com (7.202.181.221)
+Message-Id: <20240517-i2c-th1520-v2-1-d364d135ccc6@bootlin.com>
+References: <20240517-i2c-th1520-v2-0-d364d135ccc6@bootlin.com>
+In-Reply-To: <20240517-i2c-th1520-v2-0-d364d135ccc6@bootlin.com>
+To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+ Drew Fustini <dfustini@tenstorrent.com>, 
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+ Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ =?utf-8?q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>, 
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+X-Mailer: b4 0.13.0
+X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240517_002416_588232_53A9A18B 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20240517_021018_872091_417D70DA 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,98 +80,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add documentation for compatible string thead,th1520-i2c which can be
+used specifically for the TH1520 SoC.
 
+Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+---
+ Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-On 2024/5/16 17:04, Xiao Wang wrote:
-> The Zba extension provides add.uw insn which can be used to implement
-> zext.w with rs2 set as ZERO.
-> 
-> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
-> ---
-> v3:
-> * Remove the Kconfig dependencies on TOOLCHAIN_HAS_ZBA and
->    RISCV_ALTERNATIVE. (Andrew)
-> v2:
-> * Add Zba description in the Kconfig. (Lehui)
-> * Reword the Kconfig help message to make it clearer. (Conor)
-> ---
->   arch/riscv/Kconfig       | 12 ++++++++++++
->   arch/riscv/net/bpf_jit.h | 18 ++++++++++++++++++
->   2 files changed, 30 insertions(+)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 6bec1bce6586..b64d55dc929f 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -601,6 +601,18 @@ config TOOLCHAIN_HAS_VECTOR_CRYPTO
->   	def_bool $(as-instr, .option arch$(comma) +v$(comma) +zvkb)
->   	depends on AS_HAS_OPTION_ARCH
->   
-> +config RISCV_ISA_ZBA
-> +	bool "Zba extension support for bit manipulation instructions"
-> +	default y
-> +	help
-> +	   Add support for enabling optimisations in the kernel when the Zba
-> +	   extension is detected at boot.
-> +
-> +	   The Zba extension provides instructions to accelerate the generation
-> +	   of addresses that index into arrays of basic data types.
-> +
-> +	   If you don't know what to do here, say Y.
-> +
->   config RISCV_ISA_ZBB
->   	bool "Zbb extension support for bit manipulation instructions"
->   	depends on TOOLCHAIN_HAS_ZBB
-> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-> index f4b6b3b9edda..18a7885ba95e 100644
-> --- a/arch/riscv/net/bpf_jit.h
-> +++ b/arch/riscv/net/bpf_jit.h
-> @@ -18,6 +18,11 @@ static inline bool rvc_enabled(void)
->   	return IS_ENABLED(CONFIG_RISCV_ISA_C);
->   }
->   
-> +static inline bool rvzba_enabled(void)
-> +{
-> +	return IS_ENABLED(CONFIG_RISCV_ISA_ZBA) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBA);
-> +}
-> +
->   static inline bool rvzbb_enabled(void)
->   {
->   	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
-> @@ -937,6 +942,14 @@ static inline u16 rvc_sdsp(u32 imm9, u8 rs2)
->   	return rv_css_insn(0x7, imm, rs2, 0x2);
->   }
->   
-> +/* RV64-only ZBA instructions. */
-> +
-> +static inline u32 rvzba_zextw(u8 rd, u8 rs1)
-> +{
-> +	/* add.uw rd, rs1, ZERO */
-> +	return rv_r_insn(0x04, RV_REG_ZERO, rs1, 0, rd, 0x3b);
-> +}
-> +
->   #endif /* __riscv_xlen == 64 */
->   
->   /* Helper functions that emit RVC instructions when possible. */
-> @@ -1159,6 +1172,11 @@ static inline void emit_zexth(u8 rd, u8 rs, struct rv_jit_context *ctx)
->   
->   static inline void emit_zextw(u8 rd, u8 rs, struct rv_jit_context *ctx)
->   {
-> +	if (rvzba_enabled()) {
-> +		emit(rvzba_zextw(rd, rs), ctx);
-> +		return;
-> +	}
-> +
->   	emit_slli(rd, rs, 32, ctx);
->   	emit_srli(rd, rd, 32, ctx);
->   }
-Reviewed-by: Pu Lehui <pulehui@huawei.com>
-Tested-by: Pu Lehui <pulehui@huawei.com>
+diff --git a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+index d9293c57f573..60035a787e5c 100644
+--- a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
++++ b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+@@ -33,6 +33,10 @@ properties:
+           - const: snps,designware-i2c
+       - description: Baikal-T1 SoC System I2C controller
+         const: baikal,bt1-sys-i2c
++      - description: T-HEAD TH1520 SoCs I2C controller
++        items:
++          - const: thead,th1520-i2c
++          - const: snps,designware-i2c
+ 
+   reg:
+     minItems: 1
+
+-- 
+2.45.1
+
 
 _______________________________________________
 linux-riscv mailing list
