@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FB3C25B7B
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 May 2024 09:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A23C25B74
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 May 2024 15:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7J8y27D92o0rIFXFce52RONcnA0lKbiue/U5J8fZOLU=; b=KLaF6q/F22tZVB
-	F4Qa5XCILk6f89qSMSZ2QunDgNu6exZJ1m94CYUCOiUugG/CJWJoxHDfMRMFPgNkb1POfU8YbH0/C
-	EoLuGJaajZopJrxuq2/4tXKSSrWjX6szbKLFf9spl15QHVYqWlgRdCdunVClCx7e4xHBwHwMDNumE
-	a3V/ZPHfAXVLViZ4hd0vx6qjd0j8bww9FzWKPy3XxFiYgX0a3W0q8SODKEc9iEmvzIDFYthze2yYu
-	Ms2IzQ8XkO43/WKNRmYjSt1M7nnPD5ryX5BNh5COgGXhTCuF7Hvwjr+GXb9E6DL8XTZNYizWhzaWc
-	Ypl026V3/Crb8E6tI/EA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2Y9d1VbraCNnlmC24PVU6xL7q4f/R4tDcuEbQH8VJxU=; b=g30zxYpGDgDpJ6
+	KlJn1PCK9otUcvkhJC11N0DUy/xCb8nGeQhBtOyK/VTbDf6OFe0M3/eXh2j9VZDo/HPLvFpD1Uy6f
+	fM9OFytnlh84+Swq5dU3uwmlZsILn3Ot51G4VIDeuhdRqHJjZSKzuG7IGIM+DZUvHl6Rk/BsGTadz
+	uvNX+rqFNbXNhvycPx3YrSFpkSAh1zXUsAM7vplOvKBKWbs7NLVFccrhNLOV0LvUGkgN5mQNLmEEQ
+	2wpyQq1J+iansU5v/FsAJKhhbTnh7I+dXPh1vCJtLWnU7WS9W4bxmganPNEpLBWYzM8CFVqFM5+DY
+	lPbDZ8WtVge5MR6npEbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s8GMo-00000009po6-1pap;
-	Sat, 18 May 2024 09:28:38 +0000
-Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
+	id 1s8MS2-0000000ALvd-1jQz;
+	Sat, 18 May 2024 15:58:26 +0000
+Received: from out203-205-251-36.mail.qq.com ([203.205.251.36])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s8GMg-00000009piN-27HN
+	id 1s8MRy-0000000ALqB-0f7E
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 May 2024 09:28:34 +0000
-Received: from mail.maildlp.com (unknown [172.19.93.142])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4VhJQx1Gnpz4f3jHT
-	for <linux-riscv@lists.infradead.org>; Sat, 18 May 2024 17:28:09 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id CF5971A016E
-	for <linux-riscv@lists.infradead.org>; Sat, 18 May 2024 17:28:14 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP2 (Coremail) with SMTP id Syh0CgBnwvWtdEhmbxE_NQ--.58131S5;
-	Sat, 18 May 2024 17:28:14 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>,
-	Puranjay Mohan <puranjay@kernel.org>,
+	Sat, 18 May 2024 15:58:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1716047871; bh=tAscGdrOoDFuMMheeDr7p+FqOHBXTQvTsOI3LnIgptI=;
+	h=From:To:Cc:Subject:Date;
+	b=GGT+svErobVJZ9z26eiVNtR4Y6gTBka8K7cVS2rCPErFlJYbZlMOa8GHsg7yKegNg
+	 ZDvD4Fn5gezQ3yO28YgTuh4ajfGEHSnoJHB6YRpqiiliuP2Z+JUL6OooL7Cb7a42Hg
+	 JTAdWqvKSkC8HRNtBscCH/aXYVKueWczq5bBSbII=
+Received: from cyy-pc.lan ([240e:379:227e:fc00:28c6:7f50:fe33:13fe])
+	by newxmesmtplogicsvrsza15-1.qq.com (NewEsmtp) with SMTP
+	id E6F39492; Sat, 18 May 2024 23:57:47 +0800
+X-QQ-mid: xmsmtpt1716047867td774prpc
+Message-ID: <tencent_9D721BDDF88C04DBB5151D57711D62524209@qq.com>
+X-QQ-XMAILINFO: N1L4R2fPZA3sGxWRvyML2lSmPDupt8TqlCjRvFnm+hC6uaH9gXe0Pm3XD0PSL/
+	 0erheW3tBktAEYY1aGCsZMQ+9Km7EjyMrugsV/1l1P6crb/C1CZff/eKpC/3Wa6GfdIumsU6HVkt
+	 3NZKdmpULhbB7Z1uhNU/adSopXtbLEEk6HRJ8igxn/oNXPX1mOPoWR2PHaU3b5YazgVMHIYDHNjN
+	 MPefZ91iplsmyKG5OKvi97a5lTfhCRCoLnj9VNxIKlrkLs1lPwJM+gxxJ9Vmj4PhxeNohlDZrfd6
+	 XCohexsFERKvzDLN695swbTQX1chHh3r5099is1qYNaI1qn12kd5Icf/G/nZyfICbcxZzES6WRWX
+	 8RJEo42Fkvyj+nN3Q4ZW5FzyDOlvigGNF7OZYI7v4PvRv1Y18NaqHe3aZ/hmXnF3egReKW+WN/dp
+	 cH8LEDAqI/KaCJ9AtAAifV6YOdv8lEtBPJpwq7dIGSEiEP0oWbyCptsU8f1Yk/4lIK+x9K765QyC
+	 QP4mnkX1pDMR/xyDrjtYvDeq6vbcYNLXAiKVLkelPWgsrh0VEyBTUzC7+TPqcfc9i9HCnGzNRZtL
+	 +uIdBB69Shyd9rIG6DWrWKrnu9tFQzvREOEbRxM8xR2622D/lz4+546WyvXa6BuPv/8Umnkp3p4h
+	 8M2F+ssKMuyOFlwgIeCGKAt7RGqUXVOiNngpMDt0EYGO/HruiBz5fSdUO5KjUScmBUK3+ogvESHb
+	 HV3pjo7TwfB+Ov2oNhb8G24QKviYvmn16xcaAJ41J2sA2gd1Qbg830M9VgdtcUtsJyxJRIU/Rbkb
+	 RtIm8wNJtyEL39MubshwbQKPx7kkfqmcnBoiDE7miufs0yTDawZlCrV+1XNplP+ioUY2wOK9JU6y
+	 +kbMc1oN/820cub/UlbrJvLl398C+L34JYi+yxh9d4RGRVLpdOyQ8uVzWom35seoxo4onN1gxdUF
+	 clsrI+752+eW1IvssCTQkEl1vZiv4qqtGPyqXXJx7+xDjBxcRJcedvF6vfDp4PuIb5Ta34AYOa6f
+	 n7aD+rKA==
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+From: Yangyu Chen <cyy@cyyself.name>
+To: linux-riscv@lists.infradead.org
+Cc: Elliott Hughes <enh@google.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pu Lehui <pulehui@gmail.com>
-Subject: [PATCH bpf-next v2 3/3] riscv, bpf: Use bpf_prog_pack for RV64 bpf trampoline
-Date: Sat, 18 May 2024 09:29:17 +0000
-Message-Id: <20240518092917.2771703-4-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240518092917.2771703-1-pulehui@huaweicloud.com>
-References: <20240518092917.2771703-1-pulehui@huaweicloud.com>
+	Evan Green <evan@rivosinc.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH 0/2] docs: riscv: Some clarifies on hwprobe misaligned performance
+Date: Sat, 18 May 2024 23:57:45 +0800
+X-OQ-MSGID: <20240518155745.891372-1-cyy@cyyself.name>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-CM-TRANSID: Syh0CgBnwvWtdEhmbxE_NQ--.58131S5
-X-Coremail-Antispam: 1UD129KBjvJXoWxZFy8ZryUur45WryfuF1kGrg_yoWrJr13pa
-	1kCw1akaykXr13ta4kJ3yUZF1a93ykW343GFZxG3y8CFZ8ZrZ8GryrK3yFvFWFkryrCr18
-	JF4qvrn8uF1UJa7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUWw
-	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
-	Ij6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
-	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l42xK82IYc2Ij64
-	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
-	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2I
-	x0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAI
-	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x
-	0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07UQZ2-UUUUU=
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240518_022831_342054_5DD4206F 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20240518_085822_631191_094F30CA 
+X-CRM114-Status: UNSURE (   6.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,74 +88,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KCldlIHVzZWQgYnBmX3Byb2dfcGFj
-ayB0byBhZ2dyZWdhdGUgYnBmIHByb2dyYW1zIGludG8gaHVnZSBwYWdlIHRvCnJlbGlldmUgdGhl
-IGlUTEIgcHJlc3N1cmUgb24gdGhlIHN5c3RlbS4gV2UgY2FuIGFwcGx5IGl0IHRvIGJwZgp0cmFt
-cG9saW5lLCBhcyBTb25nIGhhZCBiZWVuIGltcGxlbWVudGVkIGl0IGluIGNvcmUgYW5kIHg4NiBb
-MF0uIFRoaXMKcGF0Y2ggaXMgZ29pbmcgdG8gdXNlIGJwZl9wcm9nX3BhY2sgdG8gUlY2NCBicGYg
-dHJhbXBvbGluZS4gU2luY2UgU29uZwphbmQgUHVyYW5qYXkgaGF2ZSBkb25lIGEgbG90IG9mIHdv
-cmsgZm9yIGJwZl9wcm9nX3BhY2sgb24gUlY2NCwKaW1wbGVtZW50aW5nIHRoaXMgZnVuY3Rpb24g
-d2lsbCBiZSBlYXN5LgoKTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjMxMjA2
-MjI0MDU0LjQ5MjI1MC0xLXNvbmdAa2VybmVsLm9yZyBbMF0KU2lnbmVkLW9mZi1ieTogUHUgTGVo
-dWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KVGVzdGVkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkBy
-aXZvc2luYy5jb20+ICNyaXNjdgotLS0KIGFyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMg
-fCA0MyArKysrKysrKysrKysrKysrKysrKysrLS0tLS0tLS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCAy
-OSBpbnNlcnRpb25zKCspLCAxNCBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L25ldC9icGZfaml0X2NvbXA2NC5jIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwpp
-bmRleCAyMTJiMDE1ZTA5YjcuLmVhMWI4NWFlYjEyNyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9u
-ZXQvYnBmX2ppdF9jb21wNjQuYworKysgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5j
-CkBAIC05NTYsNyArOTU2LDcgQEAgc3RhdGljIGludCBfX2FyY2hfcHJlcGFyZV9icGZfdHJhbXBv
-bGluZShzdHJ1Y3QgYnBmX3RyYW1wX2ltYWdlICppbSwKIAkJCWdvdG8gb3V0OwogCQllbWl0X3Nk
-KFJWX1JFR19GUCwgLXJldHZhbF9vZmYsIFJWX1JFR19BMCwgY3R4KTsKIAkJZW1pdF9zZChSVl9S
-RUdfRlAsIC0ocmV0dmFsX29mZiAtIDgpLCByZWdtYXBbQlBGX1JFR18wXSwgY3R4KTsKLQkJaW0t
-PmlwX2FmdGVyX2NhbGwgPSBjdHgtPmluc25zICsgY3R4LT5uaW5zbnM7CisJCWltLT5pcF9hZnRl
-cl9jYWxsID0gY3R4LT5yb19pbnNucyArIGN0eC0+bmluc25zOwogCQkvKiAyIG5vcHMgcmVzZXJ2
-ZWQgZm9yIGF1aXBjK2phbHIgcGFpciAqLwogCQllbWl0KHJ2X25vcCgpLCBjdHgpOwogCQllbWl0
-KHJ2X25vcCgpLCBjdHgpOwpAQCAtOTc3LDcgKzk3Nyw3IEBAIHN0YXRpYyBpbnQgX19hcmNoX3By
-ZXBhcmVfYnBmX3RyYW1wb2xpbmUoc3RydWN0IGJwZl90cmFtcF9pbWFnZSAqaW0sCiAJfQogCiAJ
-aWYgKGZsYWdzICYgQlBGX1RSQU1QX0ZfQ0FMTF9PUklHKSB7Ci0JCWltLT5pcF9lcGlsb2d1ZSA9
-IGN0eC0+aW5zbnMgKyBjdHgtPm5pbnNuczsKKwkJaW0tPmlwX2VwaWxvZ3VlID0gY3R4LT5yb19p
-bnNucyArIGN0eC0+bmluc25zOwogCQllbWl0X2ltbShSVl9SRUdfQTAsIGN0eC0+aW5zbnMgPyAo
-Y29uc3QgczY0KWltIDogUlZfTUFYX0NPVU5UX0lNTSwgY3R4KTsKIAkJcmV0ID0gZW1pdF9jYWxs
-KChjb25zdCB1NjQpX19icGZfdHJhbXBfZXhpdCwgdHJ1ZSwgY3R4KTsKIAkJaWYgKHJldCkKQEAg
-LTEwNDAsMjUgKzEwNDAsMzMgQEAgaW50IGFyY2hfYnBmX3RyYW1wb2xpbmVfc2l6ZShjb25zdCBz
-dHJ1Y3QgYnRmX2Z1bmNfbW9kZWwgKm0sIHUzMiBmbGFncywKIAlyZXR1cm4gcmV0IDwgMCA/IHJl
-dCA6IG5pbnNuc19ydm9mZihjdHgubmluc25zKTsKIH0KIAotaW50IGFyY2hfcHJlcGFyZV9icGZf
-dHJhbXBvbGluZShzdHJ1Y3QgYnBmX3RyYW1wX2ltYWdlICppbSwgdm9pZCAqaW1hZ2UsCi0JCQkJ
-dm9pZCAqaW1hZ2VfZW5kLCBjb25zdCBzdHJ1Y3QgYnRmX2Z1bmNfbW9kZWwgKm0sCit2b2lkICph
-cmNoX2FsbG9jX2JwZl90cmFtcG9saW5lKHVuc2lnbmVkIGludCBzaXplKQoreworCXJldHVybiBi
-cGZfcHJvZ19wYWNrX2FsbG9jKHNpemUsIGJwZl9maWxsX2lsbF9pbnNucyk7Cit9CisKK3ZvaWQg
-YXJjaF9mcmVlX2JwZl90cmFtcG9saW5lKHZvaWQgKmltYWdlLCB1bnNpZ25lZCBpbnQgc2l6ZSkK
-K3sKKwlicGZfcHJvZ19wYWNrX2ZyZWUoaW1hZ2UsIHNpemUpOworfQorCitpbnQgYXJjaF9wcmVw
-YXJlX2JwZl90cmFtcG9saW5lKHN0cnVjdCBicGZfdHJhbXBfaW1hZ2UgKmltLCB2b2lkICpyb19p
-bWFnZSwKKwkJCQl2b2lkICpyb19pbWFnZV9lbmQsIGNvbnN0IHN0cnVjdCBidGZfZnVuY19tb2Rl
-bCAqbSwKIAkJCQl1MzIgZmxhZ3MsIHN0cnVjdCBicGZfdHJhbXBfbGlua3MgKnRsaW5rcywKIAkJ
-CQl2b2lkICpmdW5jX2FkZHIpCiB7CiAJaW50IHJldDsKKwl2b2lkICppbWFnZSwgKnJlczsKIAlz
-dHJ1Y3QgcnZfaml0X2NvbnRleHQgY3R4OwotCXUzMiBzaXplID0gaW1hZ2VfZW5kIC0gaW1hZ2U7
-CisJdTMyIHNpemUgPSByb19pbWFnZV9lbmQgLSByb19pbWFnZTsKKworCWltYWdlID0ga3ZtYWxs
-b2Moc2l6ZSwgR0ZQX0tFUk5FTCk7CisJaWYgKCFpbWFnZSkKKwkJcmV0dXJuIC1FTk9NRU07CiAK
-IAljdHgubmluc25zID0gMDsKLQkvKgotCSAqIFRoZSBicGZfaW50X2ppdF9jb21waWxlKCkgdXNl
-cyBhIFJXIGJ1ZmZlciAoY3R4Lmluc25zKSB0byB3cml0ZSB0aGUKLQkgKiBKSVRlZCBpbnN0cnVj
-dGlvbnMgYW5kIGxhdGVyIGNvcGllcyBpdCB0byBhIFJYIHJlZ2lvbiAoY3R4LnJvX2luc25zKS4K
-LQkgKiBJdCBhbHNvIHVzZXMgY3R4LnJvX2luc25zIHRvIGNhbGN1bGF0ZSBvZmZzZXRzIGZvciBq
-dW1wcyBldGMuIEFzIHRoZQotCSAqIHRyYW1wb2xpbmUgaW1hZ2UgdXNlcyB0aGUgc2FtZSBtZW1v
-cnkgYXJlYSBmb3Igd3JpdGluZyBhbmQgZXhlY3V0aW9uLAotCSAqIGJvdGggY3R4Lmluc25zIGFu
-ZCBjdHgucm9faW5zbnMgY2FuIGJlIHNldCB0byBpbWFnZS4KLQkgKi8KIAljdHguaW5zbnMgPSBp
-bWFnZTsKLQljdHgucm9faW5zbnMgPSBpbWFnZTsKKwljdHgucm9faW5zbnMgPSByb19pbWFnZTsK
-IAlyZXQgPSBfX2FyY2hfcHJlcGFyZV9icGZfdHJhbXBvbGluZShpbSwgbSwgdGxpbmtzLCBmdW5j
-X2FkZHIsIGZsYWdzLCAmY3R4KTsKIAlpZiAocmV0IDwgMCkKIAkJZ290byBvdXQ7CkBAIC0xMDY4
-LDggKzEwNzYsMTUgQEAgaW50IGFyY2hfcHJlcGFyZV9icGZfdHJhbXBvbGluZShzdHJ1Y3QgYnBm
-X3RyYW1wX2ltYWdlICppbSwgdm9pZCAqaW1hZ2UsCiAJCWdvdG8gb3V0OwogCX0KIAotCWJwZl9m
-bHVzaF9pY2FjaGUoaW1hZ2UsIGltYWdlX2VuZCk7CisJcmVzID0gYnBmX2FyY2hfdGV4dF9jb3B5
-KHJvX2ltYWdlLCBpbWFnZSwgc2l6ZSk7CisJaWYgKElTX0VSUihyZXMpKSB7CisJCXJldCA9IFBU
-Ul9FUlIocmVzKTsKKwkJZ290byBvdXQ7CisJfQorCisJYnBmX2ZsdXNoX2ljYWNoZShyb19pbWFn
-ZSwgcm9faW1hZ2VfZW5kKTsKIG91dDoKKwlrdmZyZWUoaW1hZ2UpOwogCXJldHVybiByZXQgPCAw
-ID8gcmV0IDogc2l6ZTsKIH0KIAotLSAKMi4zNC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This patchset clarifies some unclear things about hwprobe's misaligned
+performance. Including:
+
+- hwprobe misaligned performance is only applied to scalar from patch [1]
+- The defined keys of RISCV_HWPROBE_MISALIGNED_* are values not bitmasks
+
+I cherry-picked [1] rather than write dependency because the original patch
+was submitted with a line wrapped to 80 characters. We can't directly apply
+that patch using `git am.` 
+
+[1] https://lore.kernel.org/linux-riscv/CAJgzZorn5anPH8dVPqvjVWmLKqTi5bkLDR=FH-ZAcdXFnNe8Eg@mail.gmail.com/
+
+Yangyu Chen (1):
+  docs: riscv: hwprobe: Clarify misaligned keys are values not bitmasks
+
+enh (1):
+  docs: riscv: Clarify risc-v hwprobe RISCV_HWPROBE_MISALIGNED_* docs.
+
+ Documentation/arch/riscv/hwprobe.rst | 31 ++++++++++++++++------------
+ 1 file changed, 18 insertions(+), 13 deletions(-)
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
