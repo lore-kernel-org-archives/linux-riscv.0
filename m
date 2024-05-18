@@ -4,103 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542B3C25B79
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 May 2024 04:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 234AEC25B74
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 May 2024 06:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BpVwqVdUWZwRsWgEx7/8gqwSmKFGZAPhbrsenpg6ABc=; b=wq6YrMxjp5MHAS
-	OEsTrxXCJo9vZT8gumC2X4CT0+yaZ6Jo7374lWKph93296gtFhfUERPwzT028fMCM8hVG+4eLTE5V
-	RqmCNvRzDDbIfWR/mHkeclVypmm4vOIZ34/YGx1pvEFidUYpLjobCrLpdEmuVlpWSu/qIB7Dmd59x
-	3erjolow8ltWHjmCaQhIUNoy2c/uVVA8cxG0h7HI+/KiwI/V5cKQxF0UiiiCsVO8o6XmMnu2U5vEI
-	NpQ5LJM2CXSs9H2sww25YlItKyotCRrMeYf/Z9NWJGhJSMIP5Mk2058lFprq8n1lLbKvrfxOZvhUR
-	u4zF7BOloVhUWQ0sQ3/Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qCJjDl/tkrdpJSqqMkaS8xaerFmk7xUCE1PerzjVBuc=; b=a5qGZRZksjhMNS
+	iqie+47VmgZ3BGzX2zMmZRVjYbbEfrM2AI8mXyVx/1FWk+NDpUpixksUYpO1XKKGK1WEznML4lwvW
+	+7prLwaC+SjykvaUfQH/ktcrh4RZecC9WFvpVgNVATCj2aY12AIrYhcLtg1/4Ot6sL2oIhceTST2j
+	WdF8/x7JyZ+8OBGinMg0dXpEMuusnzb1z01RRvM/OKMFxvvH+Xt9WWHDDydpGE8KaSdtdoCu52InT
+	RFmf3Kgl2HW47IsI+mrA73c99ic6/aKadN+/Ss+p2bDuSyuL4a2JxQ89oMK9BkWvksMPCkuPs7IgZ
+	+UReXmNyAwtZeTdFh/gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s8BkV-00000009YC8-33OO;
-	Sat, 18 May 2024 04:32:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1s8DTt-00000009eMR-0Hqq;
+	Sat, 18 May 2024 06:23:45 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s8AkF-00000009UZB-0bcc
-	for linux-riscv@bombadil.infradead.org;
-	Sat, 18 May 2024 03:28:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Mi4KwURnMZq/Vkc8prJ4q9bHVgaIQUxKuPGghGuEE90=; b=ehFcLHVXE7iF3YnUlIzmPd6KWX
-	epDh0sLOVYQENl3x1T8zGTDmyMFwRSBbObid+izXOcc0Hv1Q/1Cbpx9QBnmIfLrtTQdng4ey62Zo1
-	MecXOZahYZcf8l2z8ynXyXFtwSFGhOFU3wNVcBt21N46v+yUQC4uvF9uYxgNGrWit1sSionQSv8dp
-	bYNhcebPlTFgHltPAtB1/7ag7kLqFGka3WoOGrAVIzNimFJUsb69MHfDDzj8VIyOTg4F3IPaHUZGG
-	bv3x/U+Qulep0hS8tqs0aT5HnX6rkc9fTk3IX5fs+LYTC9QgQyKv2k0yEsuT4oNE8RzhrAKddp5Ce
-	QFqirFpA==;
-Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s8Ak1-00000005sD5-1EYM
+	id 1s8DTp-00000009eLw-1aUp
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 May 2024 03:28:23 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4Vh8R53nW4z4f3lCf
-	for <linux-riscv@lists.infradead.org>; Sat, 18 May 2024 11:27:45 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id CD8B61A04C2
-	for <linux-riscv@lists.infradead.org>; Sat, 18 May 2024 11:27:55 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP2 (Coremail) with SMTP id Syh0CgC3Gf05IEhmkYcnNQ--.13474S3;
-	Sat, 18 May 2024 11:27:55 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>,
-	Puranjay Mohan <puranjay@kernel.org>,
+	Sat, 18 May 2024 06:23:43 +0000
+Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-3c99257e0cbso560810b6e.3
+        for <linux-riscv@lists.infradead.org>; Fri, 17 May 2024 23:23:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1716013420; x=1716618220; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lChIbpiKLjP/99jCI9/LiFKYC4nQkzM10+P+N1G1jz4=;
+        b=LQCnQHgiUfjDG19+q2cYIzIdjsGOXsOUz5mc8InXALr2R+uekM6BFO0VeXysnXPPKp
+         MtC75U9NMKukMq0eiSOEWMk8f8t7MRwtRMkriCwTU3f7Rii6ZMa+qCOBhkaL9CGl175I
+         tMb6Qao3VtXjlXu4TAJjl3t+DVI/+e9V5SHZKXrA4EB8cTC6xEv0+QcHdYKsxfqqih+j
+         Hk8a09vaoq55TxMufAg48t47upPiB2pisIuv+KfgKPjjUvMndSJ4xZIKv9ibw9ewENCr
+         lkJavSVILmTtrTW1XLhiMfu2Tb/SRB67D/C3SSHIoBYTt/C8Al2NQMmaoZQ49WO9pWoT
+         7mEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716013420; x=1716618220;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lChIbpiKLjP/99jCI9/LiFKYC4nQkzM10+P+N1G1jz4=;
+        b=Kpe2Lip9pXpBx/SGug8uJRtkWiYNvtsmPKZJQCtvjyf1Ro86djzegZzh4XMLeX2KGb
+         w7Z3zJWWsfQ06W3PAYmMyCUawQb9biSm5stJxSMMtM5I/5FTKgCHDF85YWltju6RVbN1
+         A1bolhCC8tqoAPHGxdrI+9GZ+uBq5HgA8SIyV3In1Z4q6vAWstFFCcXCu8Q+B3WGHolC
+         MFp4mfV6OUd2ysNxr/wj1CeWZrg03J4CexzhhRUNd5IeBUumpzD1bbrMSvLPEsjzGAJt
+         yyO1pZvnIXp3ZnGN6D7wm9fjbxR2vc6qwtjnBYxf96+LisEVI752AvTZGOIti9BtfFX3
+         R3wg==
+X-Forwarded-Encrypted: i=1; AJvYcCUbAr5sjiJBvCnq8pYM7Aab+2p5lt9f/Bmeiq0azl61HrUgtOUMO8mj25a+j4sGU8PHto0ipi9F3LB4Lslcy/od7hIA6d2lo6Z+EUU618Vh
+X-Gm-Message-State: AOJu0YxUTJammjvbmllALw3TS0POgeSwP2r9gUQxoiop34Kv5R//DHBD
+	zBdpRIHFBmjQRWc3Z/O7sPbYJiV8peMfklR0yWnuXdG0nMjADL5P
+X-Google-Smtp-Source: AGHT+IHs0B7rpGA8YYCnNcrbM/HW2ScrpVogeU4D5lviCUZIwCnatilzhab0d1p6drNssb7I4s0+gg==
+X-Received: by 2002:a05:6871:8002:b0:245:2ccf:becf with SMTP id 586e51a60fabf-2452ccfc883mr10283944fac.37.1716013419743;
+        Fri, 17 May 2024 23:23:39 -0700 (PDT)
+Received: from localhost.localdomain ([223.178.82.123])
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-6f4d2a6669dsm15691233b3a.31.2024.05.17.23.23.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 May 2024 23:23:39 -0700 (PDT)
+From: Kanak Shilledar <kanakshilledar@gmail.com>
+X-Google-Original-From: Kanak Shilledar <kanakshilledar111@protonmail.com>
+To: 
+Cc: Kanak Shilledar <kanakshilledar111@protonmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Menglong Dong <imagedong@tencent.com>,
-	Pu Lehui <pulehui@gmail.com>
-Subject: [PATCH bpf-next v4 1/3] riscv, bpf: Add 12-argument support for RV64 bpf trampoline
-Date: Sat, 18 May 2024 03:28:54 +0000
-Message-Id: <20240518032856.2721688-2-pulehui@huaweicloud.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2] dt-bindings: interrupt-controller: riscv,cpu-intc: convert to dtschema
+Date: Sat, 18 May 2024 11:49:21 +0530
+Message-Id: <20240518061925.43549-1-kanakshilledar111@protonmail.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240518032856.2721688-1-pulehui@huaweicloud.com>
-References: <20240518032856.2721688-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: Syh0CgC3Gf05IEhmkYcnNQ--.13474S3
-X-Coremail-Antispam: 1UD129KBjvJXoW3Ar15Jw13Kr13Ww4xtF4UXFb_yoWxGw1kp3
-	WDKrsxAF9YqF47GaykWa1UXF1aya1qv34akFW7Gas3uayYqr98GayFkF4jyry5GryrAw1f
-	AFs0vr95K3W7ArDanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBjb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGw
-	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	WxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx
-	0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWU
-	JVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCF04k20xvY0x0EwI
-	xGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480
-	Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7
-	IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k2
-	6cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxV
-	AFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07UQ_-PUUUUU=
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240518_042814_237727_058DD298 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20240517_232341_453394_8A6D2F65 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,121 +96,178 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KClRoaXMgcGF0Y2ggYWRkcyAxMiBm
-dW5jdGlvbiBhcmd1bWVudHMgc3VwcG9ydCBmb3IgcmlzY3Y2NCBicGYKdHJhbXBvbGluZS4gVGhl
-IGN1cnJlbnQgYnBmIHRyYW1wb2xpbmUgc3VwcG9ydHMgPD0gc2l6ZW9mKHU2NCkgYnl0ZXMKc2Nh
-bGFyIGFyZ3VtZW50cyBbMF0gYW5kIDw9IDE2IGJ5dGVzIHN0cnVjdCBhcmd1bWVudHMgWzFdLiBU
-aGVyZWZvcmUsIHdlCmZvY3VzIG9uIHRoZSBzaXR1YXRpb24gd2hlcmUgc2NhbGFycyBhcmUgYXQg
-bW9zdCBYTEVOIGJpdHMgYW5kCmFnZ3JlZ2F0ZXMgd2hvc2UgdG90YWwgc2l6ZSBkb2VzIG5vdCBl
-eGNlZWQgMsOXWExFTiBiaXRzIGluIHRoZSByaXNjdgpjYWxsaW5nIGNvbnZlbnRpb24gWzJdLgoK
-TGluazogaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGludXgvdjYuOC9zb3VyY2Uva2VybmVs
-L2JwZi9idGYuYyNMNjE4NCBbMF0KTGluazogaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGlu
-dXgvdjYuOC9zb3VyY2Uva2VybmVsL2JwZi9idGYuYyNMNjc2OSBbMV0KTGluazogaHR0cHM6Ly9n
-aXRodWIuY29tL3Jpc2N2LW5vbi1pc2EvcmlzY3YtZWxmLXBzYWJpLWRvYy9yZWxlYXNlcy9kb3du
-bG9hZC9kcmFmdC0yMDIzMDkyOS1lNWM4MDBlNjYxYTUzZWZlM2MyNjc4ZDcxYTMwNjMyM2I2MGVi
-MTNiL3Jpc2N2LWFiaS5wZGYgWzJdClNpZ25lZC1vZmYtYnk6IFB1IExlaHVpIDxwdWxlaHVpQGh1
-YXdlaS5jb20+CkFja2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJuZWwub3JnPgpSZXZp
-ZXdlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgotLS0KIGFyY2gvcmlz
-Y3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgfCA2NiArKysrKysrKysrKysrKysrKysrKysrKy0tLS0t
-LS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCA0NyBpbnNlcnRpb25zKCspLCAxOSBkZWxldGlvbnMoLSkK
-CmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jIGIvYXJjaC9yaXNj
-di9uZXQvYnBmX2ppdF9jb21wNjQuYwppbmRleCA3OWEwMDFkNTUzM2UuLmRhOGM3NTAyNGY3NyAx
-MDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYworKysgYi9hcmNoL3Jp
-c2N2L25ldC9icGZfaml0X2NvbXA2NC5jCkBAIC0xNSw2ICsxNSw3IEBACiAjaW5jbHVkZSA8YXNt
-L3BlcmNwdS5oPgogI2luY2x1ZGUgImJwZl9qaXQuaCIKIAorI2RlZmluZSBSVl9NQVhfUkVHX0FS
-R1MgOAogI2RlZmluZSBSVl9GRU5UUllfTklOU05TIDIKIAogI2RlZmluZSBSVl9SRUdfVENDIFJW
-X1JFR19BNgpAQCAtNjg5LDI2ICs2OTAsNDUgQEAgaW50IGJwZl9hcmNoX3RleHRfcG9rZSh2b2lk
-ICppcCwgZW51bSBicGZfdGV4dF9wb2tlX3R5cGUgcG9rZV90eXBlLAogCXJldHVybiByZXQ7CiB9
-CiAKLXN0YXRpYyB2b2lkIHN0b3JlX2FyZ3MoaW50IG5yZWdzLCBpbnQgYXJnc19vZmYsIHN0cnVj
-dCBydl9qaXRfY29udGV4dCAqY3R4KQorc3RhdGljIHZvaWQgc3RvcmVfYXJncyhpbnQgbnJfYXJn
-X3Nsb3RzLCBpbnQgYXJnc19vZmYsIHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4KQogewogCWlu
-dCBpOwogCi0JZm9yIChpID0gMDsgaSA8IG5yZWdzOyBpKyspIHsKLQkJZW1pdF9zZChSVl9SRUdf
-RlAsIC1hcmdzX29mZiwgUlZfUkVHX0EwICsgaSwgY3R4KTsKKwlmb3IgKGkgPSAwOyBpIDwgbnJf
-YXJnX3Nsb3RzOyBpKyspIHsKKwkJaWYgKGkgPCBSVl9NQVhfUkVHX0FSR1MpIHsKKwkJCWVtaXRf
-c2QoUlZfUkVHX0ZQLCAtYXJnc19vZmYsIFJWX1JFR19BMCArIGksIGN0eCk7CisJCX0gZWxzZSB7
-CisJCQkvKiBza2lwIHNsb3RzIGZvciBUMCBhbmQgRlAgb2YgdHJhY2VkIGZ1bmN0aW9uICovCisJ
-CQllbWl0X2xkKFJWX1JFR19UMSwgMTYgKyAoaSAtIFJWX01BWF9SRUdfQVJHUykgKiA4LCBSVl9S
-RUdfRlAsIGN0eCk7CisJCQllbWl0X3NkKFJWX1JFR19GUCwgLWFyZ3Nfb2ZmLCBSVl9SRUdfVDEs
-IGN0eCk7CisJCX0KIAkJYXJnc19vZmYgLT0gODsKIAl9CiB9CiAKLXN0YXRpYyB2b2lkIHJlc3Rv
-cmVfYXJncyhpbnQgbnJlZ3MsIGludCBhcmdzX29mZiwgc3RydWN0IHJ2X2ppdF9jb250ZXh0ICpj
-dHgpCitzdGF0aWMgdm9pZCByZXN0b3JlX2FyZ3MoaW50IG5yX3JlZ19hcmdzLCBpbnQgYXJnc19v
-ZmYsIHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4KQogewogCWludCBpOwogCi0JZm9yIChpID0g
-MDsgaSA8IG5yZWdzOyBpKyspIHsKKwlmb3IgKGkgPSAwOyBpIDwgbnJfcmVnX2FyZ3M7IGkrKykg
-ewogCQllbWl0X2xkKFJWX1JFR19BMCArIGksIC1hcmdzX29mZiwgUlZfUkVHX0ZQLCBjdHgpOwog
-CQlhcmdzX29mZiAtPSA4OwogCX0KIH0KIAorc3RhdGljIHZvaWQgcmVzdG9yZV9zdGFja19hcmdz
-KGludCBucl9zdGFja19hcmdzLCBpbnQgYXJnc19vZmYsIGludCBzdGtfYXJnX29mZiwKKwkJCSAg
-ICAgICBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCkKK3sKKwlpbnQgaTsKKworCWZvciAoaSA9
-IDA7IGkgPCBucl9zdGFja19hcmdzOyBpKyspIHsKKwkJZW1pdF9sZChSVl9SRUdfVDEsIC0oYXJn
-c19vZmYgLSBSVl9NQVhfUkVHX0FSR1MgKiA4KSwgUlZfUkVHX0ZQLCBjdHgpOworCQllbWl0X3Nk
-KFJWX1JFR19GUCwgLXN0a19hcmdfb2ZmLCBSVl9SRUdfVDEsIGN0eCk7CisJCWFyZ3Nfb2ZmIC09
-IDg7CisJCXN0a19hcmdfb2ZmIC09IDg7CisJfQorfQorCiBzdGF0aWMgaW50IGludm9rZV9icGZf
-cHJvZyhzdHJ1Y3QgYnBmX3RyYW1wX2xpbmsgKmwsIGludCBhcmdzX29mZiwgaW50IHJldHZhbF9v
-ZmYsCiAJCQkgICBpbnQgcnVuX2N0eF9vZmYsIGJvb2wgc2F2ZV9yZXQsIHN0cnVjdCBydl9qaXRf
-Y29udGV4dCAqY3R4KQogewpAQCAtNzgxLDggKzgwMSw4IEBAIHN0YXRpYyBpbnQgX19hcmNoX3By
-ZXBhcmVfYnBmX3RyYW1wb2xpbmUoc3RydWN0IGJwZl90cmFtcF9pbWFnZSAqaW0sCiB7CiAJaW50
-IGksIHJldCwgb2Zmc2V0OwogCWludCAqYnJhbmNoZXNfb2ZmID0gTlVMTDsKLQlpbnQgc3RhY2tf
-c2l6ZSA9IDAsIG5yZWdzID0gbS0+bnJfYXJnczsKLQlpbnQgcmV0dmFsX29mZiwgYXJnc19vZmYs
-IG5yZWdzX29mZiwgaXBfb2ZmLCBydW5fY3R4X29mZiwgc3JlZ19vZmY7CisJaW50IHN0YWNrX3Np
-emUgPSAwLCBucl9hcmdfc2xvdHMgPSAwOworCWludCByZXR2YWxfb2ZmLCBhcmdzX29mZiwgbnJl
-Z3Nfb2ZmLCBpcF9vZmYsIHJ1bl9jdHhfb2ZmLCBzcmVnX29mZiwgc3RrX2FyZ19vZmY7CiAJc3Ry
-dWN0IGJwZl90cmFtcF9saW5rcyAqZmVudHJ5ID0gJnRsaW5rc1tCUEZfVFJBTVBfRkVOVFJZXTsK
-IAlzdHJ1Y3QgYnBmX3RyYW1wX2xpbmtzICpmZXhpdCA9ICZ0bGlua3NbQlBGX1RSQU1QX0ZFWElU
-XTsKIAlzdHJ1Y3QgYnBmX3RyYW1wX2xpbmtzICpmbW9kX3JldCA9ICZ0bGlua3NbQlBGX1RSQU1Q
-X01PRElGWV9SRVRVUk5dOwpAQCAtODI4LDIwICs4NDgsMjEgQEAgc3RhdGljIGludCBfX2FyY2hf
-cHJlcGFyZV9icGZfdHJhbXBvbGluZShzdHJ1Y3QgYnBmX3RyYW1wX2ltYWdlICppbSwKIAkgKiBG
-UCAtIHNyZWdfb2ZmICAgIFsgY2FsbGVlIHNhdmVkIHJlZwldCiAJICoKIAkgKgkJICAgIFsgcGFk
-cyAgICAgICAgICAgICAgXSBwYWRzIGZvciAxNiBieXRlcyBhbGlnbm1lbnQKKwkgKgorCSAqCQkg
-ICAgWyBzdGFja19hcmdOICAgICAgICBdCisJICoJCSAgICBbIC4uLiAgICAgICAgICAgICAgIF0K
-KwkgKiBGUCAtIHN0a19hcmdfb2ZmIFsgc3RhY2tfYXJnMSAgICAgICAgXSBCUEZfVFJBTVBfRl9D
-QUxMX09SSUcKIAkgKi8KIAogCWlmIChmbGFncyAmIChCUEZfVFJBTVBfRl9PUklHX1NUQUNLIHwg
-QlBGX1RSQU1QX0ZfU0hBUkVfSVBNT0RJRlkpKQogCQlyZXR1cm4gLUVOT1RTVVBQOwogCi0JLyog
-ZXh0cmEgcmVnaXRlcnMgZm9yIHN0cnVjdCBhcmd1bWVudHMgKi8KLQlmb3IgKGkgPSAwOyBpIDwg
-bS0+bnJfYXJnczsgaSsrKQotCQlpZiAobS0+YXJnX2ZsYWdzW2ldICYgQlRGX0ZNT0RFTF9TVFJV
-Q1RfQVJHKQotCQkJbnJlZ3MgKz0gcm91bmRfdXAobS0+YXJnX3NpemVbaV0sIDgpIC8gOCAtIDE7
-Ci0KLQkvKiA4IGFyZ3VtZW50cyBwYXNzZWQgYnkgcmVnaXN0ZXJzICovCi0JaWYgKG5yZWdzID4g
-OCkKKwlpZiAobS0+bnJfYXJncyA+IE1BWF9CUEZfRlVOQ19BUkdTKQogCQlyZXR1cm4gLUVOT1RT
-VVBQOwogCisJZm9yIChpID0gMDsgaSA8IG0tPm5yX2FyZ3M7IGkrKykKKwkJbnJfYXJnX3Nsb3Rz
-ICs9IHJvdW5kX3VwKG0tPmFyZ19zaXplW2ldLCA4KSAvIDg7CisKIAkvKiByb29tIG9mIHRyYW1w
-b2xpbmUgZnJhbWUgdG8gc3RvcmUgcmV0dXJuIGFkZHJlc3MgYW5kIGZyYW1lIHBvaW50ZXIgKi8K
-IAlzdGFja19zaXplICs9IDE2OwogCkBAIC04NTEsNyArODcyLDcgQEAgc3RhdGljIGludCBfX2Fy
-Y2hfcHJlcGFyZV9icGZfdHJhbXBvbGluZShzdHJ1Y3QgYnBmX3RyYW1wX2ltYWdlICppbSwKIAkJ
-cmV0dmFsX29mZiA9IHN0YWNrX3NpemU7CiAJfQogCi0Jc3RhY2tfc2l6ZSArPSBucmVncyAqIDg7
-CisJc3RhY2tfc2l6ZSArPSBucl9hcmdfc2xvdHMgKiA4OwogCWFyZ3Nfb2ZmID0gc3RhY2tfc2l6
-ZTsKIAogCXN0YWNrX3NpemUgKz0gODsKQEAgLTg2OCw4ICs4ODksMTQgQEAgc3RhdGljIGludCBf
-X2FyY2hfcHJlcGFyZV9icGZfdHJhbXBvbGluZShzdHJ1Y3QgYnBmX3RyYW1wX2ltYWdlICppbSwK
-IAlzdGFja19zaXplICs9IDg7CiAJc3JlZ19vZmYgPSBzdGFja19zaXplOwogCisJaWYgKG5yX2Fy
-Z19zbG90cyAtIFJWX01BWF9SRUdfQVJHUyA+IDApCisJCXN0YWNrX3NpemUgKz0gKG5yX2FyZ19z
-bG90cyAtIFJWX01BWF9SRUdfQVJHUykgKiA4OworCiAJc3RhY2tfc2l6ZSA9IHJvdW5kX3VwKHN0
-YWNrX3NpemUsIDE2KTsKIAorCS8qIHJvb20gZm9yIGFyZ3Mgb24gc3RhY2sgbXVzdCBiZSBhdCB0
-aGUgdG9wIG9mIHN0YWNrICovCisJc3RrX2FyZ19vZmYgPSBzdGFja19zaXplOworCiAJaWYgKCFp
-c19zdHJ1Y3Rfb3BzKSB7CiAJCS8qIEZvciB0aGUgdHJhbXBvbGluZSBjYWxsZWQgZnJvbSBmdW5j
-dGlvbiBlbnRyeSwKIAkJICogdGhlIGZyYW1lIG9mIHRyYWNlZCBmdW5jdGlvbiBhbmQgdGhlIGZy
-YW1lIG9mCkBAIC05MDUsMTAgKzkzMiwxMCBAQCBzdGF0aWMgaW50IF9fYXJjaF9wcmVwYXJlX2Jw
-Zl90cmFtcG9saW5lKHN0cnVjdCBicGZfdHJhbXBfaW1hZ2UgKmltLAogCQllbWl0X3NkKFJWX1JF
-R19GUCwgLWlwX29mZiwgUlZfUkVHX1QxLCBjdHgpOwogCX0KIAotCWVtaXRfbGkoUlZfUkVHX1Qx
-LCBucmVncywgY3R4KTsKKwllbWl0X2xpKFJWX1JFR19UMSwgbnJfYXJnX3Nsb3RzLCBjdHgpOwog
-CWVtaXRfc2QoUlZfUkVHX0ZQLCAtbnJlZ3Nfb2ZmLCBSVl9SRUdfVDEsIGN0eCk7CiAKLQlzdG9y
-ZV9hcmdzKG5yZWdzLCBhcmdzX29mZiwgY3R4KTsKKwlzdG9yZV9hcmdzKG5yX2FyZ19zbG90cywg
-YXJnc19vZmYsIGN0eCk7CiAKIAkvKiBza2lwIHRvIGFjdHVhbCBib2R5IG9mIHRyYWNlZCBmdW5j
-dGlvbiAqLwogCWlmIChmbGFncyAmIEJQRl9UUkFNUF9GX1NLSVBfRlJBTUUpCkBAIC05NDgsNyAr
-OTc1LDggQEAgc3RhdGljIGludCBfX2FyY2hfcHJlcGFyZV9icGZfdHJhbXBvbGluZShzdHJ1Y3Qg
-YnBmX3RyYW1wX2ltYWdlICppbSwKIAl9CiAKIAlpZiAoZmxhZ3MgJiBCUEZfVFJBTVBfRl9DQUxM
-X09SSUcpIHsKLQkJcmVzdG9yZV9hcmdzKG5yZWdzLCBhcmdzX29mZiwgY3R4KTsKKwkJcmVzdG9y
-ZV9hcmdzKG1pbl90KGludCwgbnJfYXJnX3Nsb3RzLCBSVl9NQVhfUkVHX0FSR1MpLCBhcmdzX29m
-ZiwgY3R4KTsKKwkJcmVzdG9yZV9zdGFja19hcmdzKG5yX2FyZ19zbG90cyAtIFJWX01BWF9SRUdf
-QVJHUywgYXJnc19vZmYsIHN0a19hcmdfb2ZmLCBjdHgpOwogCQlyZXQgPSBlbWl0X2NhbGwoKGNv
-bnN0IHU2NClvcmlnX2NhbGwsIHRydWUsIGN0eCk7CiAJCWlmIChyZXQpCiAJCQlnb3RvIG91dDsK
-QEAgLTk4Myw3ICsxMDExLDcgQEAgc3RhdGljIGludCBfX2FyY2hfcHJlcGFyZV9icGZfdHJhbXBv
-bGluZShzdHJ1Y3QgYnBmX3RyYW1wX2ltYWdlICppbSwKIAl9CiAKIAlpZiAoZmxhZ3MgJiBCUEZf
-VFJBTVBfRl9SRVNUT1JFX1JFR1MpCi0JCXJlc3RvcmVfYXJncyhucmVncywgYXJnc19vZmYsIGN0
-eCk7CisJCXJlc3RvcmVfYXJncyhtaW5fdChpbnQsIG5yX2FyZ19zbG90cywgUlZfTUFYX1JFR19B
-UkdTKSwgYXJnc19vZmYsIGN0eCk7CiAKIAlpZiAoc2F2ZV9yZXQpIHsKIAkJZW1pdF9sZChSVl9S
-RUdfQTAsIC1yZXR2YWxfb2ZmLCBSVl9SRUdfRlAsIGN0eCk7Ci0tIAoyLjM0LjEKCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Convert the RISC-V Hart-Level Interrupt Controller (HLIC) to newer
+DT schema, Created DT schema based on the .txt file which had
+`compatible`, `#interrupt-cells` and `interrupt-controller` as
+required properties.
+Changes made with respect to original file:
+- Changed the example to just use interrupt-controller instead of
+using the whole cpu block
+- Changed the example compatible string.
+
+Signed-off-by: Kanak Shilledar <kanakshilledar111@protonmail.com>
+---
+Changes in v2:
+- Update the maintainers list.
+- Add reference to `interrupt-controller` in `riscv/cpus.yaml`.
+- Update compatible property with the reference in `cpus.yaml`.
+- Include description for '#interrupt-cells' property.
+- Change '#interrupt-cells' property to have `const: 1` as per the
+text binding.
+- Fixed the warning thrown by `/renesas/r9a07g043f01-smarc.dtb`.
+---
+ .../interrupt-controller/riscv,cpu-intc.txt   | 52 --------------
+ .../interrupt-controller/riscv,cpu-intc.yaml  | 72 +++++++++++++++++++
+ 2 files changed, 72 insertions(+), 52 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.yaml
+
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
+deleted file mode 100644
+index 265b223cd978..000000000000
+--- a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
++++ /dev/null
+@@ -1,52 +0,0 @@
+-RISC-V Hart-Level Interrupt Controller (HLIC)
+----------------------------------------------
+-
+-RISC-V cores include Control Status Registers (CSRs) which are local to each
+-CPU core (HART in RISC-V terminology) and can be read or written by software.
+-Some of these CSRs are used to control local interrupts connected to the core.
+-Every interrupt is ultimately routed through a hart's HLIC before it
+-interrupts that hart.
+-
+-The RISC-V supervisor ISA manual specifies three interrupt sources that are
+-attached to every HLIC: software interrupts, the timer interrupt, and external
+-interrupts.  Software interrupts are used to send IPIs between cores.  The
+-timer interrupt comes from an architecturally mandated real-time timer that is
+-controlled via Supervisor Binary Interface (SBI) calls and CSR reads.  External
+-interrupts connect all other device interrupts to the HLIC, which are routed
+-via the platform-level interrupt controller (PLIC).
+-
+-All RISC-V systems that conform to the supervisor ISA specification are
+-required to have a HLIC with these three interrupt sources present.  Since the
+-interrupt map is defined by the ISA it's not listed in the HLIC's device tree
+-entry, though external interrupt controllers (like the PLIC, for example) will
+-need to define how their interrupts map to the relevant HLICs.  This means
+-a PLIC interrupt property will typically list the HLICs for all present HARTs
+-in the system.
+-
+-Required properties:
+-- compatible : "riscv,cpu-intc"
+-- #interrupt-cells : should be <1>.  The interrupt sources are defined by the
+-  RISC-V supervisor ISA manual, with only the following three interrupts being
+-  defined for supervisor mode:
+-    - Source 1 is the supervisor software interrupt, which can be sent by an SBI
+-      call and is reserved for use by software.
+-    - Source 5 is the supervisor timer interrupt, which can be configured by
+-      SBI calls and implements a one-shot timer.
+-    - Source 9 is the supervisor external interrupt, which chains to all other
+-      device interrupts.
+-- interrupt-controller : Identifies the node as an interrupt controller
+-
+-Furthermore, this interrupt-controller MUST be embedded inside the cpu
+-definition of the hart whose CSRs control these local interrupts.
+-
+-An example device tree entry for a HLIC is show below.
+-
+-	cpu1: cpu@1 {
+-		compatible = "riscv";
+-		...
+-		cpu1-intc: interrupt-controller {
+-			#interrupt-cells = <1>;
+-			compatible = "sifive,fu540-c000-cpu-intc", "riscv,cpu-intc";
+-			interrupt-controller;
+-		};
+-	};
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.yaml
+new file mode 100644
+index 000000000000..e2da595ee389
+--- /dev/null
++++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.yaml
+@@ -0,0 +1,72 @@
++# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interrupt-controller/riscv,cpu-intc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V Hart-Level Interrupt Controller (HLIC)
++
++description:
++  RISC-V cores include Control Status Registers (CSRs) which are local to
++  each CPU core (HART in RISC-V terminology) and can be read or written by
++  software. Some of these CSRs are used to control local interrupts connected
++  to the core. Every interrupt is ultimately routed through a hart's HLIC
++  before it interrupts that hart.
++
++  The RISC-V supervisor ISA manual specifies three interrupt sources that are
++  attached to every HLIC namely software interrupts, the timer interrupt, and
++  external interrupts. Software interrupts are used to send IPIs between
++  cores.  The timer interrupt comes from an architecturally mandated real-
++  time timer that is controlled via Supervisor Binary Interface (SBI) calls
++  and CSR reads. External interrupts connect all other device interrupts to
++  the HLIC, which are routed via the platform-level interrupt controller
++  (PLIC).
++
++  All RISC-V systems that conform to the supervisor ISA specification are
++  required to have a HLIC with these three interrupt sources present.  Since
++  the interrupt map is defined by the ISA it's not listed in the HLIC's device
++  tree entry, though external interrupt controllers (like the PLIC, for
++  example) will need to define how their interrupts map to the relevant HLICs.
++  This means a PLIC interrupt property will typically list the HLICs for all
++  present HARTs in the system.
++
++maintainers:
++  - Palmer Dabbelt <palmer@dabbelt.com>
++  - Paul Walmsley <paul.walmsley@sifive.com>
++
++allOf:
++  - $ref: /schemas/riscv/cpus.yaml#/properties/interrupt-controller
++
++properties:
++  compatible:
++    $ref: /schemas/riscv/cpus.yaml#/properties/interrupt-controller/properties/compatible
++
++  interrupt-controller: true
++
++  '#interrupt-cells':
++    const: 1
++    description: |
++      The interrupt sources are defined by the RISC-V supervisor ISA manual,
++      with only the following three interrupts being defined for
++      supervisor mode:
++        - Source 1 is the supervisor software interrupt, which can be sent by
++          an SBI call and is reserved for use by software.
++        - Source 5 is the supervisor timer interrupt, which can be configured
++          by SBI calls and implements a one-shot timer.
++        - Source 9 is the supervisor external interrupt, which chains to all
++          other device interrupts.
++
++required:
++  - compatible
++  - '#interrupt-cells'
++  - interrupt-controller
++
++additionalProperties: false
++
++examples:
++  - |
++    interrupt-controller {
++        #interrupt-cells = <1>;
++        compatible = "riscv,cpu-intc";
++        interrupt-controller;
++    };
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
