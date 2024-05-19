@@ -4,79 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F48C25B75
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 May 2024 16:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25632C25B75
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 May 2024 05:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7HhBgmbcccYk/jvSa+KJ3PxWvIB9UoMb3umcIzL/CGM=; b=DRSzu7HsLN4F7R
-	poY+RlDHUW5TmNwrh7pwT7NCrdOs9/BpmprwERdoDNXKiQSzHRBj+mibQkrOCgH4TEP7RTJoj21Gf
-	A1URyu1Vicf9bIAgy8/SfNROFK5GgLUWu6D6U428jXIU25IZKJqznhhIsX4PhPNETj6TdFxmG3X3B
-	ZTg3mPtb1M4/uP9gLNl4s8/Vx4VnEtZetAZdGB+aFM2ddhsRkb0JWRJxHgsONR9tBZxV3KNEkhzy4
-	pB52A5k6WedY83I0TiFDpk6MtgxePKgaUxvsbaeRVH31KVyiQXZikkEB7E27OMc1YJvjIRKS93MSL
-	zeMa2iFmUNdlMJI/qjpQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6178wcjm3Le7I6I0hErh0Gp4xGNNewBLPNypjqxwWew=; b=tSU9LmirXjLjbN
+	pe1PY1kRz2J1HEOf3I1ufU0lZbeyCRb7CWdE4O/yT/JHDpmZ/FJzWxvYoOPO0O1gngxjmX+gPaavC
+	Fh84Z2johz4xvGkyrw5NjcMEY5dlbRrS+Yv26BAnrl2aUQ5b7wkpPqUF0QRAEsPUt6i66z7z7kGh3
+	hMkHk9boDgO5opxCTWKBZ7GOjKJ8gb4GqrzFaEVpQgnjd/jWBCfWkuXwm0c12OIlIRWJKG2tgUqUX
+	9KkkG3mwH9889aCLTuRsJ5DL3GpxLbc0LLfmd9BjXDJ68A8pMUCPCqn3MWUBFcYssk9UfhL3cMXjp
+	qSZ50v0JCx463rsG6K2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s8MUK-0000000AMBw-17U2;
-	Sat, 18 May 2024 16:00:48 +0000
-Received: from out203-205-251-66.mail.qq.com ([203.205.251.66])
+	id 1s8YgP-0000000BN6i-2TA9;
+	Sun, 19 May 2024 05:02:05 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s8MUG-0000000AM9U-2LF8
+	id 1s8YgM-0000000BN5x-3J2W
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 May 2024 16:00:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1716048030; bh=G4b7Gy7au2RGDdIfISCbBgIRap2G195EA9qLAZb1j00=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=BeotOVyfXSlQems8W0+Tz8b38pFY3XnZrWbqkmjvXbICw9o+CaJrA0KbxFPAxeutu
-	 HFlSyDsU3AQICxoy/ZOdWEdUkpNEPU14hszQqX9tRJuGxfYPmFQ/QaqQazhwtkZYH0
-	 UNOTZGEQg26b9aw3OI1qwfE0CxJz2fOhZKDgEPtc=
-Received: from cyy-pc.lan ([240e:379:227e:fc00:28c6:7f50:fe33:13fe])
-	by newxmesmtplogicsvrsza10-0.qq.com (NewEsmtp) with SMTP
-	id 198A620; Sun, 19 May 2024 00:00:25 +0800
-X-QQ-mid: xmsmtpt1716048025tb9g5oicz
-Message-ID: <tencent_7C21508D6B7C6C824ADA8E8E28B827310908@qq.com>
-X-QQ-XMAILINFO: Mee1Vp/QiDAWWkXRv90vh1x1lkAExZPbvkAPEF12ooNqsdf4ptrfkOpg3xq8gA
-	 xE1sVpz+ZDPlFvtbiqSl1u3VFgtw0o8lgsV8GL/GnFz1ZaIZyS9Y++AlKlsoH+2LMVNciFYbEubP
-	 zoD+61Iwlyqa2lXQcWYAfRohYJamV+fBDvG4FjGoZR+EUueCIjcihNP6sW/EnDnZkqudqLizU14/
-	 50nxRuNUKBY6NGK97pKArVRB6BdzrHyOqegrsjqaJ82jWhkjGiCnwySr1aIoURIBZhp25swpINQz
-	 8eE7zUTcskMlqGHGhpZl3v1lOJH0pk3zPzO/pKoEi8Xo1Z2TzQbsWApQLli9Bf1WJl7X/VjHCTSW
-	 YAiYTwHMYNSqg9QIiOEaf1PWcWW5TykRu06XTfMxTF7yncyqZ6TaYrKJg0fJuzqVQbSlDulNueuE
-	 GlWJB3N0kLMerljjpQdeSfeTIppxsl4Eo1/lpnMb/69IFq1QcnlmV/9RBBePTsKXBQ5NyeArNGBv
-	 EKRBBhskXbAakmOE5yFEIsisg0j/LUWyQAutsJSfd8Iz10eK9uO3sCPDc1fZbXUINz+EMrKCHURF
-	 mXKDs2MP/YiWxtU/A2JVDGM2oQdQEGrfG1ENyOTssXMbin+cPwrIPtp3IQS7am1fvz464kr2Ci4I
-	 22U6LQBiETfOI9qrySp8hhaGU5QzUi09xQGSlqiqnCH2w1Suor+NdPMBz+DWUVP6/Qr0byY0BTJe
-	 BHT4RjlAp3zZ62rcsAcehBKNvbMPsQ5tOEyQaQQiw3XRuiqX6pIi2WQ0HrfjqJexJqzIlly2f5T3
-	 3Q47RtLTmwBu5xOgllfLbq2ZprFfD7mbf+Et19r+TFoIHbm1OgmaR2npuacdd4NBiUQ+mLAOLdyz
-	 QEBQExwRT8TG+wWuvQvLCVOOD+O1+35TGcP6ntwuJB46StXeCshtIzPzjhcX7LcpyttrH9xx22F2
-	 JKS87RB4lMEjQ2M6boXb3yE7kAOa/EB9bRkZaBC3hLJFz9rmmxkqVRkGZdp7CF
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-From: Yangyu Chen <cyy@cyyself.name>
-To: linux-riscv@lists.infradead.org
-Cc: Elliott Hughes <enh@google.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Evan Green <evan@rivosinc.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
+	Sun, 19 May 2024 05:02:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1716094923; x=1747630923;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=JOXyQnL/Rd4T3+2ptcou/ugUznzFoHrhbhcuHxJtPgI=;
+  b=eJSQRbH7RFtBzrQmRl4fCz668NzRUNFaqEPiIGTNoFmTgmfl++0rSAtw
+   VtsYSciR5g0Tirp6BECgg25/toR0UB0J6qgA7mLA5tpH8ilfSnr/9MN/3
+   IKR2rDqa02iTJyUqzwNuAZDfbBWnu/ZxJBur1BlEk4CsIe5NsqWq9p3Ds
+   oanH1X6rfHB1pN5xrDdmIIV2cs8I0VGCVnDot45AQBZjr3E6WUuFYvBYx
+   PGpyQHL+/X4jBfKVRJ+dW21EOCvt0+QRrGEYZfB+OKHmbURl7MS5i1m+T
+   kNToxI2h4m8aQnrMd+nSLFsCRQKEaObeEkc4ASx/ntnFHy01cwXUzs2qe
+   Q==;
+X-CSE-ConnectionGUID: kTJEVgfjTQCVUc9hrkGqVQ==
+X-CSE-MsgGUID: sMRb2hORTxGV8xQQEp4IUQ==
+X-IronPort-AV: E=McAfee;i="6600,9927,11076"; a="12182840"
+X-IronPort-AV: E=Sophos;i="6.08,172,1712646000"; 
+   d="scan'208";a="12182840"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2024 22:01:57 -0700
+X-CSE-ConnectionGUID: VMTxTzD9SMe76W4d80VeWw==
+X-CSE-MsgGUID: Mf1dO27hTISmu4yA6Z9XBg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.08,172,1712646000"; 
+   d="scan'208";a="32110053"
+Received: from xiao-desktop.sh.intel.com ([10.239.46.158])
+  by fmviesa007.fm.intel.com with ESMTP; 18 May 2024 22:01:51 -0700
+From: Xiao Wang <xiao.w.wang@intel.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	luke.r.nels@gmail.com,
+	xi.wang@gmail.com,
+	bjorn@kernel.org
+Cc: ast@kernel.org,
+	daniel@iogearbox.net,
+	andrii@kernel.org,
+	martin.lau@linux.dev,
+	eddyz87@gmail.com,
+	song@kernel.org,
+	yonghong.song@linux.dev,
+	john.fastabend@gmail.com,
+	kpsingh@kernel.org,
+	sdf@google.com,
+	haoluo@google.com,
+	jolsa@kernel.org,
+	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH 1/2] docs: riscv: Clarify risc-v hwprobe RISCV_HWPROBE_MISALIGNED_* docs.
-Date: Sun, 19 May 2024 00:00:11 +0800
-X-OQ-MSGID: <20240518160012.892135-1-cyy@cyyself.name>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <tencent_9D721BDDF88C04DBB5151D57711D62524209@qq.com>
-References: <tencent_9D721BDDF88C04DBB5151D57711D62524209@qq.com>
+	bpf@vger.kernel.org,
+	pulehui@huawei.com,
+	haicheng.li@intel.com,
+	Xiao Wang <xiao.w.wang@intel.com>
+Subject: [PATCH] riscv, bpf: try RVC for reg move within BPF_CMPXCHG JIT
+Date: Sun, 19 May 2024 13:05:07 +0800
+Message-Id: <20240519050507.2217791-1-xiao.w.wang@intel.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240518_090045_059311_3AD3CB37 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20240518_220202_929010_9240D794 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,53 +104,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: enh <enh@google.com>
+We could try to emit compressed insn for reg move operation during CMPXCHG
+JIT, the instruction compression has no impact on the jump offsets of
+following forward and backward jump instructions.
 
-These only tell you about scalar accesses, not vector accesses.
-
-Signed-off-by: Elliott Hughes <enh@google.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
 ---
- Documentation/arch/riscv/hwprobe.rst | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ arch/riscv/net/bpf_jit_comp64.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index b2bcc9eed9aa..239be63f5089 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -192,21 +192,21 @@ The following keys are defined:
-   information about the selected set of processors.
- 
-   * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
--    accesses is unknown.
-+    scalar accesses is unknown.
- 
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned accesses are
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned scalar accesses are
-     emulated via software, either in or below the kernel.  These accesses are
-     always extremely slow.
- 
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned accesses are slower
--    than equivalent byte accesses.  Misaligned accesses may be supported
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned scalar accesses are
-+    slower than equivalent byte accesses.  Misaligned accesses may be supported
-     directly in hardware, or trapped and emulated by software.
- 
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned accesses are faster
--    than equivalent byte accesses.
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned scalar accesses are
-+    faster than equivalent byte accesses.
- 
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
--    not supported at all and will generate a misaligned address fault.
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned scalar accesses
-+    are not supported at all and will generate a misaligned address fault.
- 
- * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
-   represents the size of the Zicboz block in bytes.
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index aac190085472..c134aaec4295 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -531,8 +531,10 @@ static void emit_atomic(u8 rd, u8 rs, s16 off, s32 imm, bool is64,
+ 	/* r0 = atomic_cmpxchg(dst_reg + off16, r0, src_reg); */
+ 	case BPF_CMPXCHG:
+ 		r0 = bpf_to_rv_reg(BPF_REG_0, ctx);
+-		emit(is64 ? rv_addi(RV_REG_T2, r0, 0) :
+-		     rv_addiw(RV_REG_T2, r0, 0), ctx);
++		if (is64)
++			emit_mv(RV_REG_T2, r0, ctx);
++		else
++			emit_addiw(RV_REG_T2, r0, 0, ctx);
+ 		emit(is64 ? rv_lr_d(r0, 0, rd, 0, 0) :
+ 		     rv_lr_w(r0, 0, rd, 0, 0), ctx);
+ 		jmp_offset = ninsns_rvoff(8);
 -- 
-2.43.0
+2.25.1
 
 
 _______________________________________________
