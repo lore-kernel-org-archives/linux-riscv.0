@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91D24C25B74
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 May 2024 09:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 132D5C25B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 May 2024 09:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N4JjPM/kBnUSp4WRasWUdF5eIeCvi0Ozc4hdltu829s=; b=cZP+/j7mwEttal
-	d2QFa3bzp1C6QkNrlnySHK/+V0PgRa/yNuU/BmEictqQhcO9/qYnA0bTlWrjgrM+8Q/5zEf1MACTT
-	wqh2IgY9iuhkDDBBfdM50HRPWuyNuVQE/GFZ+UCbqIol0KJ/XzNaJXZlQydEMvt0eHXBWiTV756Yh
-	r+ntsyrOaGBlxdSZaVdbu1dw1XvWAscR78EsKyLFY5Dze7BYG5Lb44Cf3eGgktFt3BlXBQbqcEqL7
-	7lLMaGhqK4E7qaIIm2JZ+DlHnPHJyA8LVvr+Nzk8+OBLneXSmYlJqp6UDGEFAjRC9qThaYDxKJ2wA
-	LsDSPXmdRoNrIVZI68yg==;
+	List-Owner; bh=5e/YLHCpKcK2vlWmJkyk4NgaWGSJqkpFVuDlJgV7hhY=; b=YOkt7ZAaPp3sI3
+	izwd4cY/1ahewRc6NXr91hRJ8vzd/Y2nIHKheipAZNi4h1PqkjrWImBhqJHDKWwCrBDnB0Lod0ata
+	Zu+WWzaLo+7vH7uIbISFyBx2g6tUMjXrlD6J0+7OTBpFTPNjRyFghgQm7/MXWCq1X4AzjjRh6cx8Q
+	vsClmy2piqjiqbw/hIZajG7DYUEczGq1WRqNn+Kqsvoqtv0gy43EZ+qZQeZJsusMSeeczxYJKnYNP
+	xy+N4dC1R5PWTSaxL2Qe8onx50lp+qkqNfgcm9S0+amcN+/e4fJ+7cSXWW1UBgolINnrPnt9YaWB3
+	hSNoxGFokdwa2951Ykpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9LvQ-0000000GvQP-1km0;
-	Tue, 21 May 2024 09:36:52 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1s9Lvm-0000000Gvau-3Jm0;
+	Tue, 21 May 2024 09:37:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9LvM-0000000GvOU-28EF
+	id 1s9Lvj-0000000GvYF-16xp
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 May 2024 09:36:50 +0000
+	Tue, 21 May 2024 09:37:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1716284207;
+	s=mimecast20190719; t=1716284230;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=8TotQymrkTXKJP2dbOeE/8/7QYh8IcgEOhwgpcYLit4=;
-	b=YLv/ULHgvdhVUp4UZ2/UoY6XhgK6cIvXMhcAuxRMH8aBQVup0qFsWy5D6EVe/uaKaB64vE
-	6RuCE1+HbqqALl5uDFBfSMFYQjQBwOXI9qEx9XqqC419whiWkOBP83Ed57SlqxJIe22kCV
-	DJHJbTeFYIJlgMEdugQLCGuhkaOo3A8=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=rDFlJpNTjiUekAo5FWMGJemrvpMD/p0F/vFU1Y8pBs0=;
+	b=IrgEGZFmLlf+RVwfEWFtU0T+PMUZW+Y1+/6IcRDkCKxaIAEEMBs0siTrSCCdXMa9hZosyk
+	QWa0q6EBWrs4KEzWFjgZeuu2yV03hW18I9PNOzZEJOdyHPihgOsSh7QiCzv6kMaOnt63OM
+	AIWMUwsvVHCqt/1gCnrSXTS/BXHKNFg=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-175-l3dzwqnkMKWaZ5nyeEOwcQ-1; Tue, 21 May 2024 05:36:45 -0400
-X-MC-Unique: l3dzwqnkMKWaZ5nyeEOwcQ-1
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-34dc66313b3so7628784f8f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 02:36:45 -0700 (PDT)
+ us-mta-522-6sulxSl8MaGXTBysgwN_4Q-1; Tue, 21 May 2024 05:37:06 -0400
+X-MC-Unique: 6sulxSl8MaGXTBysgwN_4Q-1
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-34f7618a1f2so6861589f8f.1
+        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 02:37:05 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716284204; x=1716889004;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=8TotQymrkTXKJP2dbOeE/8/7QYh8IcgEOhwgpcYLit4=;
-        b=b+YeJwBZNVE0pXHkUZFbyuTobH+8AXekchF2uHbZBLOp8LvZPibqoLCrRh0R/dUqWW
-         TXKYR4gVVxr31OTmGJADrQKD40yoE5p7WEWM3gIlud3CT0OnBZXMmKw9cKgSFKPQNqn5
-         U9wT7jVyjFzg241t219U9IJ9cBPJRSsCR322pkV+Rro83olibx9uW/hHKBiYH9hKpthI
-         Rj6f1uzDe6aGnsVXJeotcZfuzvJBdg2F4sTE6tFG47YiaZ9sANbZT2y1snCJcgLzs6V1
-         0Dy/0L91w+NfZTXpkIrl1bWZkDles3FB3N3t9l1A23u4aCLKXXfSVaOSnK9Hma81seQt
-         3v6g==
-X-Forwarded-Encrypted: i=1; AJvYcCVRtk+gGfqZerASjiNRgDxV3J5TJvaF1r2EH55Ujq1x1IssQ0H7A1KOedRUvMbpjNhnmjDqX7G4Oy1s79T8n2kpLjAmN+O342uCdOyPmo4l
-X-Gm-Message-State: AOJu0YyRvd7seCTDxGwfWQ1J89Tzx2kHrAP4fnlQRDZaaVXVHhsVdpss
-	MeUpiWRT/lV/NnP4kZkE0eINeA5es3J/NY4RDUKkbDsDzmm/euwZKwyZ/bOOPLyWN3anXeOXkks
-	IK9LrTn1ebutPmF2oQorPuneJekjJCgAC+t+jIiXIa8OEZ7l9V1cB6TYBH0OojYDc9g==
-X-Received: by 2002:adf:f590:0:b0:34c:b86a:794c with SMTP id ffacd0b85a97d-3504a96b845mr29768828f8f.70.1716284204296;
-        Tue, 21 May 2024 02:36:44 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGkrfOPTQeHBK0L612NDmEfoV6h/sGmyVuwJjpTZyriwnIAr0c/urZ2Tu2jhH0ROmfzvFkapg==
-X-Received: by 2002:adf:f590:0:b0:34c:b86a:794c with SMTP id ffacd0b85a97d-3504a96b845mr29768805f8f.70.1716284203881;
-        Tue, 21 May 2024 02:36:43 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1716284225; x=1716889025;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rDFlJpNTjiUekAo5FWMGJemrvpMD/p0F/vFU1Y8pBs0=;
+        b=hkHHDyzjwX9QVjuBNrSEDvs7pcgVwbxl2IP7NS9POvqljXcCF6g86TKfzhM2MMVyf5
+         hwVW3x6xFA/1cgViVwH52EzDQpd/xlhWDHxSOCEJd2Ui/11TmY4w2QZiV19x9MRYCfz2
+         y0J5aEyxr6VPQqefrOhV3jjsWsg9NAA7y1aN7hImqC2LaNHx2WcEUHm/i6g4RhEdt+fN
+         odBebwaaVK8o1F64TwKveB2DTgPVWbUQEHCkBnckwZS0UcPFaChyCihvPNGENBxd1GpE
+         ECo/OslPxVX9hLXjjYIPkQFF6PBrB15OovKVH81fChkY0r27mPyumWQdg0odw/25RtvZ
+         BK8A==
+X-Forwarded-Encrypted: i=1; AJvYcCUNbbC+Joz65sB0MPjVDLzrmIRRRqxRBZuuxk7PDUpz1ZkLFAs6quiEnk2IovzpWtLz3n+KODrI75OCd0qvtCJHht9sGsJxvpL47i56iKhc
+X-Gm-Message-State: AOJu0Yy6bNp74fUMKvL5txbadTFe5d8lAMyCHsB69aqoh70VyrdiWN49
+	YREwnK/gRecpqd+0uyOvrr5jY7pU2Uj6KObzFkIf8Oyz12hjjoylub7ynu0Pz9FBF9VU15kgQW3
+	Q6gSPBvMNVH3PTlNIN/awGUkNbsYqpwRmsTOMsaqVoCncqXbnVog7/eJrqHrmTqI1iCilo9KzGA
+	==
+X-Received: by 2002:a05:6000:e50:b0:34a:6fac:6dab with SMTP id ffacd0b85a97d-354b8dfddc1mr7273227f8f.12.1716284224905;
+        Tue, 21 May 2024 02:37:04 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHZHbSrxCuT/wa8crEuH3CPQzv1FNo859SSRyP6VjZBMZLItGlJKgLbp9PLk0pfe2Z3u4lI4Q==
+X-Received: by 2002:a05:6000:e50:b0:34a:6fac:6dab with SMTP id ffacd0b85a97d-354b8dfddc1mr7273204f8f.12.1716284224572;
+        Tue, 21 May 2024 02:37:04 -0700 (PDT)
 Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3502b79bd09sm31289718f8f.14.2024.05.21.02.36.43
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-351d3bdad9bsm14849747f8f.46.2024.05.21.02.37.03
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 May 2024 02:36:43 -0700 (PDT)
-Message-ID: <4650b888-d90f-40e3-8c53-c9949e539959@redhat.com>
-Date: Tue, 21 May 2024 11:36:42 +0200
+        Tue, 21 May 2024 02:37:04 -0700 (PDT)
+Message-ID: <2401d1fb-33cb-49b0-8bd7-594ff3e5ae91@redhat.com>
+Date: Tue, 21 May 2024 11:37:03 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] mm: Refactor update_mmu_tlb()
+Subject: Re: [PATCH v3 3/3] mm: Use update_mmu_tlb_range() to simplify code
 To: Bang Li <libang.li@antgroup.com>, akpm@linux-foundation.org,
  chenhuacai@kernel.org, tsbogend@alpha.franken.de, paul.walmsley@sifive.com,
  palmer@dabbelt.com, chris@zankel.net, jcmvbkbc@gmail.com
@@ -82,7 +83,7 @@ Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
  ryan.roberts@arm.com, ioworker0@gmail.com, libang.linux@gmail.com
 References: <20240518074914.52170-1-libang.li@antgroup.com>
- <20240518074914.52170-3-libang.li@antgroup.com>
+ <20240518074914.52170-4-libang.li@antgroup.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -129,14 +130,13 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240518074914.52170-3-libang.li@antgroup.com>
+In-Reply-To: <20240518074914.52170-4-libang.li@antgroup.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240521_023648_756276_FE3F8B4E 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240521_023711_416944_BC7391E4 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,29 +154,35 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 18.05.24 09:49, Bang Li wrote:
-> Remove update_mmu_tlb() from those architectures and define
-> generically via update_mmu_tlb_range(), removing the ability
-> for arches to override it.
-
-I'd suggest something like
-
-"mm: implement update_mmu_tlb() using update_mmu_tlb_range()
-
-Let's make update_mmu_tlb() simply a generic wrapper around 
-update_mmu_tlb_range(). Only the latter can now be overridden by the 
-architecture. We can now remove __HAVE_ARCH_UPDATE_MMU_TLB as well.
-"
-
-[...]
-
-> +#ifndef update_mmu_tlb_range
-> +static inline void update_mmu_tlb_range(struct vm_area_struct *vma,
-> +				unsigned long address, pte_t *ptep, unsigned int nr)
-> +{
-> +}
-> +#endif
-
-With that in patch #1
+> Let us simplify the code by update_mmu_tlb_range().
+> 
+> Signed-off-by: Bang Li <libang.li@antgroup.com>
+> ---
+>   mm/memory.c | 4 +---
+>   1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/mm/memory.c b/mm/memory.c
+> index eea6e4984eae..2d53e29cf76e 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -4421,7 +4421,6 @@ static vm_fault_t do_anonymous_page(struct vm_fault *vmf)
+>   	vm_fault_t ret = 0;
+>   	int nr_pages = 1;
+>   	pte_t entry;
+> -	int i;
+>   
+>   	/* File mapping without ->vm_ops ? */
+>   	if (vma->vm_flags & VM_SHARED)
+> @@ -4491,8 +4490,7 @@ static vm_fault_t do_anonymous_page(struct vm_fault *vmf)
+>   		update_mmu_tlb(vma, addr, vmf->pte);
+>   		goto release;
+>   	} else if (nr_pages > 1 && !pte_range_none(vmf->pte, nr_pages)) {
+> -		for (i = 0; i < nr_pages; i++)
+> -			update_mmu_tlb(vma, addr + PAGE_SIZE * i, vmf->pte + i);
+> +		update_mmu_tlb_range(vma, addr, vmf->pte, nr_pages);
+>   		goto release;
+>   	}
+>   
 
 Acked-by: David Hildenbrand <david@redhat.com>
 
