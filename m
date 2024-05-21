@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19DD6C25B75
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 May 2024 19:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CB4C25B74
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 May 2024 19:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=g42loK8RapsxvZynZ8liYFlqMWYlBrWiu4OTnifxMaY=; b=4yf6JpmG1RA04+
-	yGZC8tn4kncA1c+l8n1zMeb1dC/8ChRh/QbC+XuReiMK0o2kX3eZTCLDW9zSrEimcoWW2UwOSsE9M
-	QLEzFO6hTiRDcYU/VNRNg+m1sT8xv9OMMQaabcwIX0qkQKxgbuKVeJA6C0rPSYA4aYK4WwpyTKbyJ
-	KJDeZcJgu9DHc3PjAQZSQq2J8RXCufkY3lZVINufhvrCDY1AH7xzCn7yGV/Thb1w/5WmdN8K6VsOJ
-	cTuWDiUXULrTMpJUqroETYhuJIxlD3T1YkcsBKmOBsftZ8wVq2Ipqp4vJmYSlLhu/BtUvEvk238Mj
-	4A51uhOmCwTAhkssJKAA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U3aUnSeRf0gMB8jhKhKjycavIbbj6SiSz9sRnxG3nno=; b=rj63wUKco/N3nv/4eTHRweehP8
+	h77V1vD441qGzzFvSkJT2jkJftYfYaRHnDM6FAi2J3y82BwtT2BfFDCl81/Y4dYjUqC4wucZGkUDe
+	dChOSkGBBvnC7MkfMT1+smZorBZNNwFNcGSc8+BmU36PZxNJBX13F2G+74/QujK5gKN3lemApB54U
+	zucoMeRtOr9zJ/ZxH3Epy5oEw24YW++6u+cOoav2nVSMKSxpBoIItftiWxqO28edWLEZpidivjfNG
+	U1x6lEklpZNw6wA3lDHHmJHPeTwXfqINDTH3wCUNmGdfuR3kLGDy0nq9VVvB0Tr/ctqc9ovngoiKW
+	5p4xMgIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9Uze-00000000sxV-2dkc;
-	Tue, 21 May 2024 19:17:50 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1s9VUH-00000000wvE-22EE;
+	Tue, 21 May 2024 19:49:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9Uzb-00000000swz-0pG3
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 May 2024 19:17:49 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-7e1b936987fso269220139f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 12:17:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1716319058; x=1716923858; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=w/RCXgufMdDOcZSOZfYQF6MjnQ11qbUv6flAGmbTaK0=;
-        b=ELJly7peFngnAIRzbmY5tDUgqEz3tiI4+4NZXtfKksJLKl5bbZgkGn4iVpqmzMWLFM
-         uMh9yVysdbydMV6F6nZZ9zKvjjwOOdWMTEcUlIpdJxWfNRxMpeLLy5C1a8PXf6a56IB3
-         udvTh7XH+AVspz0TVf77VFevPpIBiAqPGQEt7B8aWT9tFBdU2OorV2lxWykvuJWoSTSd
-         n8zglWF6lovD/jLxGC/cWMLKTRlA1a+SWnhcrgpOWyUpkdTpEG+VViuCPn5XRaHHmMOL
-         YqSO6fy2x47NQUdbLSpvoKg2VG9Djd6R/MffUWrD52CIdx/aumSz4YU15Rvj4YGch03d
-         +Ijg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716319058; x=1716923858;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=w/RCXgufMdDOcZSOZfYQF6MjnQ11qbUv6flAGmbTaK0=;
-        b=W0GX+eCGkDQgGWWme2p3WZCSpdidye4+WUlWCNzRPSbQ9y3Q68xJ6+WC/Wt3dVWDr9
-         tpoK/SVwMFb2lHO8YgcGn7uUKixxVXbXgf/tHsoRUPKlOvFI7TOMR8DSXx1VdKpGuHOZ
-         u2l2MgeEL9/kHkIg5yDdGktitXE6/kjXeaWTyCoc/fcRWS8dvaAYCuRUAPt/iJz12Z8Q
-         15VBKtIXx69arcgKVjd5TPg4344vKTV9erkdmbV00x5xD+qs4uxXgXhW/RAdZikpaypu
-         AMJpmY/3lj4acmAy+sW4z60w8IPyEW38Ma6RBAikENbiKaHecLsHItZQAcrKSteiRRDH
-         3RbA==
-X-Gm-Message-State: AOJu0Yxtk9YEwwgIOTfq5VSzBjtnF6276brBmbpmn8TE1x+m4abtEE3U
-	10SCX3VC1gLWPF3LN5GeweippoTCS4Il/hjLdFj5weJkSmB/TT8Y
-X-Google-Smtp-Source: AGHT+IEGitA6KuMvsLbj1oJLd4kwmUKw8KsKCN3tl6tptVZnx4hhmLBWUy6HSOsWNtJGPuW5LU/ENw==
-X-Received: by 2002:a5d:9489:0:b0:7e1:c607:ec47 with SMTP id ca18e2360f4ac-7e1c607ed07mr3590013739f.17.1716319057714;
-        Tue, 21 May 2024 12:17:37 -0700 (PDT)
-Received: from localhost.localdomain (5cfc9148.dynamic.mv.ru. [92.252.145.72])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-7e20378a041sm403777039f.26.2024.05.21.12.17.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 May 2024 12:17:37 -0700 (PDT)
-From: Matthew Bystrin <dev.mbstr@gmail.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org
-Subject: [PATCH v3] riscv: stacktrace: fixed walk_stackframe()
-Date: Tue, 21 May 2024 22:13:13 +0300
-Message-ID: <20240521191727.62012-1-dev.mbstr@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1s9VUE-00000000wu6-1dUs;
+	Tue, 21 May 2024 19:49:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 68A5362461;
+	Tue, 21 May 2024 19:49:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDBDAC32782;
+	Tue, 21 May 2024 19:49:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1716320965;
+	bh=5VxfSyKHqzOTEZZXzZT0aLiSoKTpopx0vsuhYEVZU44=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bKAcwqxMdvphissksxBIPo4FGq5KPKX5AEWVVQ7lfMWYqInRJAiv62MhaLPG8X/CJ
+	 LPy2sNv63Ns1zkEtgNV5LYXsdZZxw2z9bmmmUBOV3XvxhyUmm4NLiRft4/a/9tvmAd
+	 JgFA+/vxMLqr18xEdz4O8WjbWSLTvY6QSkQxiJ6Ch2Kk63BOeNCBoMoSppWHHAC6T4
+	 u73/wl8C6JEKK1Dbz+0RbvlfAn/zKENyT8qj2OlRC6J9rtupS9o2Okfe8K2dsqSxoE
+	 zSHmCE6ARjH+EqqoV+acJDZTEK2z5xBLiavm3H8wzLBpW9uDz+1021dqaMh7HmU4Ld
+	 opUY8g2tiYyLA==
+Date: Tue, 21 May 2024 20:49:19 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
+	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v5 08/16] riscv: add ISA parsing for Zca, Zcf, Zcd and Zcb
+Message-ID: <20240521-spiny-undergrad-efa1a391ad3d@spud>
+References: <20240517145302.971019-1-cleger@rivosinc.com>
+ <20240517145302.971019-9-cleger@rivosinc.com>
 MIME-Version: 1.0
+In-Reply-To: <20240517145302.971019-9-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240521_121747_333644_02702B72 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20240521_124926_542534_87E66ABB 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,132 +75,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8906106261232856963=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If the load access fault occures in a leaf function (with
-CONFIG_FRAME_POINTER=y), when wrong stack trace will be displayed:
 
-[<ffffffff804853c2>] regmap_mmio_read32le+0xe/0x1c
----[ end trace 0000000000000000 ]---
+--===============8906106261232856963==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ZUPGMxJHsaJik2Qb"
+Content-Disposition: inline
 
-Registers dump:
-    ra     0xffffffff80485758 <regmap_mmio_read+36>
-    sp     0xffffffc80200b9a0
-    fp     0xffffffc80200b9b0
-    pc     0xffffffff804853ba <regmap_mmio_read32le+6>
 
-Stack dump:
-    0xffffffc80200b9a0:  0xffffffc80200b9e0  0xffffffc80200b9e0
-    0xffffffc80200b9b0:  0xffffffff8116d7e8  0x0000000000000100
-    0xffffffc80200b9c0:  0xffffffd8055b9400  0xffffffd8055b9400
-    0xffffffc80200b9d0:  0xffffffc80200b9f0  0xffffffff8047c526
-    0xffffffc80200b9e0:  0xffffffc80200ba30  0xffffffff8047fe9a
+--ZUPGMxJHsaJik2Qb
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The assembler dump of the function preambula:
-    add     sp,sp,-16
-    sd      s0,8(sp)
-    add     s0,sp,16
+On Fri, May 17, 2024 at 04:52:48PM +0200, Cl=E9ment L=E9ger wrote:
 
-In the fist stack frame, where ra is not stored on the stack we can
-observe:
+> +static int riscv_ext_zca_depends(const struct riscv_isa_ext_data *data,
+> +				 const unsigned long *isa_bitmap)
+> +{
+> +	return __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZCA) ?=
+ 0 : -EPROBE_DEFER;
+> +}
+> +static int riscv_ext_zcd_validate(const struct riscv_isa_ext_data *data,
+> +				  const unsigned long *isa_bitmap)
+> +{
+> +	return __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZCA) &&
+> +	       __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_d) ? 0=
+ : -EPROBE_DEFER;
+> +}
 
-        0(sp)                  8(sp)
-        .---------------------------------------------.
-    sp->|       frame->fp      | frame->ra (saved fp) |
-        |---------------------------------------------|
-    fp->|         ....         |         ....         |
-        |---------------------------------------------|
-        |                      |                      |
+Could you write the logic in these out normally please? I think they'd
+be more understandable (particular this second one) broken down and with
+early return.
 
-and in the code check is performed:
-	if (regs && (regs->epc == pc) && (frame->fp & 0x7))
+Otherwise,
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-I see no reason to check frame->fp value at all, because it is can be
-uninitialized value on the stack. A better way is to check frame->ra to
-be an address on the stack. After the stacktrace shows as expect:
+Cheers,
+Conor.
 
-[<ffffffff804853c2>] regmap_mmio_read32le+0xe/0x1c
-[<ffffffff80485758>] regmap_mmio_read+0x24/0x52
-[<ffffffff8047c526>] _regmap_bus_reg_read+0x1a/0x22
-[<ffffffff8047fe9a>] _regmap_read+0x5c/0xea
-[<ffffffff80480376>] _regmap_update_bits+0x76/0xc0
-...
----[ end trace 0000000000000000 ]---
-As pointed by Samuel Holland it is incorrect to remove check of the stackframe
-entirely.
+--ZUPGMxJHsaJik2Qb
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Changes since v2 [2]:
- - Add accidentally forgotten curly brace
+-----BEGIN PGP SIGNATURE-----
 
-Changes since v1 [1]:
- - Instead of just dropping frame->fp check, replace it with validation of
-   frame->ra, which should be a stack address.
- - Move frame pointer validation into the separate function.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZkz6vwAKCRB4tDGHoIJi
+0kLvAQCE6VdTKzQsLhuTCAot4T9V9f4Lr+mwFH/JYa+PN4XSawEA4Bpid+JyrYkM
+5yKjg6DZQIn95XuoTjrLNnKL0qkRvw0=
+=XDFW
+-----END PGP SIGNATURE-----
 
-[1] https://lore.kernel.org/linux-riscv/20240426072701.6463-1-dev.mbstr@gmail.com/
-[2] https://lore.kernel.org/linux-riscv/20240521131314.48895-1-dev.mbstr@gmail.com/
+--ZUPGMxJHsaJik2Qb--
 
-Fixes: f766f77a74f5 ("riscv/stacktrace: Fix stack output without ra on the stack top")
-Signed-off-by: Matthew Bystrin <dev.mbstr@gmail.com>
----
- arch/riscv/kernel/stacktrace.c | 20 ++++++++++++++------
- 1 file changed, 14 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 64a9c093aef9..528ec7cc9a62 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -18,6 +18,16 @@
- 
- extern asmlinkage void ret_from_exception(void);
- 
-+static inline int fp_is_valid(unsigned long fp, unsigned long sp)
-+{
-+	unsigned long low, high;
-+
-+	low = sp + sizeof(struct stackframe);
-+	high = ALIGN(sp, THREAD_SIZE);
-+
-+	return !(fp < low || fp > high || fp & 0x07);
-+}
-+
- void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 			     bool (*fn)(void *, unsigned long), void *arg)
- {
-@@ -41,21 +51,19 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 	}
- 
- 	for (;;) {
--		unsigned long low, high;
- 		struct stackframe *frame;
- 
- 		if (unlikely(!__kernel_text_address(pc) || (level++ >= 0 && !fn(arg, pc))))
- 			break;
- 
--		/* Validate frame pointer */
--		low = sp + sizeof(struct stackframe);
--		high = ALIGN(sp, THREAD_SIZE);
--		if (unlikely(fp < low || fp > high || fp & 0x7))
-+		if (unlikely(!fp_is_valid(fp, sp)))
- 			break;
-+
- 		/* Unwind stack frame */
- 		frame = (struct stackframe *)fp - 1;
- 		sp = fp;
--		if (regs && (regs->epc == pc) && (frame->fp & 0x7)) {
-+		if (regs && (regs->epc == pc) && fp_is_valid(frame->ra, sp)) {
-+			/* We hit function where ra is not saved on the stack */
- 			fp = frame->ra;
- 			pc = regs->ra;
- 		} else {
--- 
-2.43.0
-
+--===============8906106261232856963==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8906106261232856963==--
+
