@@ -4,78 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37316C25B7A
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 May 2024 22:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 924B6C25B74
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 00:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QoTzXHdN0/Xp3Fct5n4qXMBoY3CdNR+VyrXKXT6wWYQ=; b=pt6X9+FxKJFbRp
-	4s12s2/O7nKOSktMzfX811nWBO+sba6XQlxKTOnjFtUiHARaNhB+zMTYmahrwzhxaZyLXSQt25I1h
-	1jWhuGuYauikVyaAjIGUYjav40X3RsSbI1iXbcQL8Uakfs3La9Ht0u3HuJdS3maTGIGFXT3NJRSVg
-	jdB990MrNYTsTcPz3jczLUBI3zLzJnU4yg7wMTQergDxAKq0rxSAJk+U3THQGJpjLTnLEMPi5Ite6
-	cS6+PR5jQOGaGTCE23IusipfIv3h0lcZi07IcWzqhnTtMTlu2HmjqyarxPqmGIc1c6yarDC21cMRE
-	aaAq3hv6526tUDQIy9qQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=DSynInphoUnNRAM0g8FLGkqpmisAGwLQbTYqaM8UYvI=; b=dqqing4aYKKaFMzGvQ11C8fntB
+	V5uqnwvA+7TV1KCSH+gF9uqSV0CRqYCpP5yEnAxg31uTtsht0xawoeFRJ4OyxfMYSUkwwdIU9VWlF
+	gjVfJXxYUYKoiviEqazz8K60qnzW/I60KAFdnnzhQRO1gOMSWZz+kAE/oIdmHQEpCGnzvsV+/7w9w
+	lWQhAbmTIMgcTy/e3oiYIoqEhcvx7Gmq4BhOCklxeTE33EjViTkDHWOHkrGABXwD9pDjPU+xWyN+H
+	GqQ2td4haslVp8sU2eaGDoHzr77DL65zWrj7PX4JbLrbjvcmABt73roJX41PwQ8CAcosxYPVkuh31
+	phVQS96A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9XsF-00000001Esf-2Dvr;
-	Tue, 21 May 2024 22:22:23 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1s9aKO-00000001Suh-38WA;
+	Wed, 22 May 2024 00:59:36 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9XsB-00000001Enh-3a01
+	id 1s9aKI-00000001Ssx-3q9M
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 May 2024 22:22:21 +0000
-Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-36dd37767dfso8658645ab.1
-        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 15:22:12 -0700 (PDT)
+	Wed, 22 May 2024 00:59:32 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-df4d631a4c1so1243517276.1
+        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 17:59:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1716330132; x=1716934932; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Nsf8SrCeR4KSgkFV5c3G1dvBTUXk7qKqUjOXNsEW4qo=;
-        b=YLe3eUlWmMizwxhfcF6aHtIFHZioU+B0SGP/VGXNPtWvoS1jqlyV1sgTNGrHZmxG7D
-         zKXjMQAy+5Utf1itnk0ocUXxSgNYGc8tTuAu3Ngg2k0fr551UHaA/WxmEfXw2USve//+
-         t4oA7GxIdAO8KFGSQsesBDDEIqx8fJtD23l4qKBro5HS/NO4ISv9S/S8yWYiMp7OKBxV
-         LlGQO6GhrT10FNx72e9bgpQPq8zQmgg4KiBBZbqfYWW2lQWc2hOCvb+RbnWPlXOxh4L1
-         laB3NKzCuNKDl+sM4eqc+iFHXokCZgChUrUx/51E56XMdpveciiYOGYDalBGtTspsHW3
-         8JYQ==
+        d=google.com; s=20230601; t=1716339568; x=1716944368; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=iZfRAHT6JEYkQgkQi9RSt0VBBFkg9g20KHoFp+lD64Q=;
+        b=ST4p//LsP1PnNTGFcRGbJbtsfey1VAIOiyDy6f7netbQpKqxS3k8yE8p2awsLJvUeT
+         axEUWGKfXC+hJEkfNoMGKaEOcQfW3piuLTSiwn6/DHJIi8g+P0bj1AxnblIVuuKd0uDk
+         c+CdUEcUnq6FwUXfcZegnBhFXernLZmzDQLWCzyN/yVhWzI8yOA2h7ZfXEf12ombVWev
+         3STnTbBOAe9JUnyziPL401f3+nUON/EY1Rg5HHGI5G2dHReYp1oj7ya2MvS6ySseJCc5
+         hgQ639aEdhoKp3mHE5epyLnlxTom+N2FfmO2sZICFW6rKvsgTI+cErwmpCpo8ir1pzYp
+         QNEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716330132; x=1716934932;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nsf8SrCeR4KSgkFV5c3G1dvBTUXk7qKqUjOXNsEW4qo=;
-        b=n2SVjElHFiGodNJEqjnp/TQLlGNZfwMM2Ag+fy34yrOtOtGIGGS5IDHc8pd3k/bro0
-         EEjOMG0dfcX5DBuGCCWLn47MKOFhz2J7/mxGnxaEM/XjFMRuCzYKSUmzBCqGOBfWu4RZ
-         FJLnnaxeD5uvI7kTOIa2MYk17p9cS8wgeLxiVEs+mWQM88Fo/wHYZvhx2J2m5DNseLDC
-         d5vBKgnlS6z5hRkRRxNHLNurh2/EQditdUyBkQk8TbZgi0gDThL0tGJHpdseFLTNqG+C
-         /FMSl28h2rwyY50Qsrw2QjossgmRZd7P0y3HEN9+dpip/SeZ7OE0tzA66LFlqdDNit1E
-         L79A==
-X-Gm-Message-State: AOJu0YyGWrgB0slTStwjTE9AQ7QM9ZSbjBn45tTpMPrwFCooJ352IzOL
-	FMAMITglwn8pk/cDM9kurDISovkiB2iR4m3d2qoPvlYzpwhqdqQZijX3cFfqPGI=
-X-Google-Smtp-Source: AGHT+IEpjfL72/gE9z+Nthm8neHTNF0kcd5zwmS6OUPXKsFgEGGcbjhXNons6AqWaDOUZobOBTda+w==
-X-Received: by 2002:a05:6e02:1a2a:b0:36b:1e1:552f with SMTP id e9e14a558f8ab-371faf56c05mr3538565ab.23.1716330131517;
-        Tue, 21 May 2024 15:22:11 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.6.197])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-371d3955b58sm1438205ab.77.2024.05.21.15.22.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 May 2024 15:22:11 -0700 (PDT)
-Message-ID: <e7632a45-46ea-429a-8af5-48a17650a092@sifive.com>
-Date: Tue, 21 May 2024 17:22:09 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] riscv: stacktrace: fixed walk_stackframe()
-To: Matthew Bystrin <dev.mbstr@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org
-References: <20240521191727.62012-1-dev.mbstr@gmail.com>
-Content-Language: en-US
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20240521191727.62012-1-dev.mbstr@gmail.com>
+        d=1e100.net; s=20230601; t=1716339568; x=1716944368;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iZfRAHT6JEYkQgkQi9RSt0VBBFkg9g20KHoFp+lD64Q=;
+        b=bpv2Dv+LbpVWN+GjwEBTyX5odCpw5O6bWngHzFu0Dti8E0485mTFziAjzlQgvG5D04
+         rBWV/hkf4K14zaJVSgDBkOT/jxOG9SCoKrRDINepFK40RxDKUZJKA/44/TqonBntxPlx
+         LhcEibOLVD9jZroeBHu4v+jRYeZHoLJ7zYXK9hTm3IeaQWaa1l6FX404s8XuQaxC2qzx
+         ljN/9ZZajNG9REMAYQio3T7dShk6fIMy00AnbpPKp6kNPPz/jX7KGZCmRkMT6Z2arSg+
+         BY2+jbPXq1uD4MxF2uSfTs4R7bYnU8nt6IgwY7N98I1QRc+SiCeCqN6MzZbVxfZbd/DF
+         NJqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXgNusth4uWKOJ+5sLlmmDBVf5B4d0PifuoCFV/JBzCEeRwooTLsvZPwH2y+Af6Plw4fHzeg3OVNxyC3axpZfyrgZWbsCMduo5NkODBYCDL
+X-Gm-Message-State: AOJu0YzwumFf/KowU6nIyXMNz+qUq0yelqrupaEen9wCaegTKxZCtB4n
+	POvab390CYfCwE7kr6Y7TD4d80EBhMxFk4rBwl7QrObarT2Rso6eMF6xBOtpUhaN/vv8+KvX6jr
+	o5A==
+X-Google-Smtp-Source: AGHT+IGHXu+2VGmFaeast6zhMZ19NE5/92wXoClK1c06+eobhw7P/LEdr5T/7eLijAwtdqou/skFpj5TJBE=
+X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
+ (user=edliaw job=sendgmr) by 2002:a05:6902:70a:b0:df4:628c:3045 with SMTP id
+ 3f1490d57ef6-df4e0e130ebmr75748276.8.1716339568433; Tue, 21 May 2024 17:59:28
+ -0700 (PDT)
+Date: Wed, 22 May 2024 00:56:47 +0000
+In-Reply-To: <20240522005913.3540131-1-edliaw@google.com>
+Mime-Version: 1.0
+References: <20240522005913.3540131-1-edliaw@google.com>
+X-Mailer: git-send-email 2.45.1.288.g0e0cd299f1-goog
+Message-ID: <20240522005913.3540131-2-edliaw@google.com>
+Subject: [PATCH v5 01/68] selftests: Compile with -D_GNU_SOURCE when including lib.mk
+From: Edward Liaw <edliaw@google.com>
+To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
+	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	kernel-team@android.com, Edward Liaw <edliaw@google.com>, 
+	linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
+	John Hubbard <jhubbard@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240521_152220_195728_D14596A3 
-X-CRM114-Status: GOOD (  28.57  )
+X-CRM114-CacheID: sfid-20240521_175930_994508_6846A3A2 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,129 +101,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-05-21 2:13 PM, Matthew Bystrin wrote:
-> If the load access fault occures in a leaf function (with
-> CONFIG_FRAME_POINTER=y), when wrong stack trace will be displayed:
-> 
-> [<ffffffff804853c2>] regmap_mmio_read32le+0xe/0x1c
-> ---[ end trace 0000000000000000 ]---
-> 
-> Registers dump:
->     ra     0xffffffff80485758 <regmap_mmio_read+36>
->     sp     0xffffffc80200b9a0
->     fp     0xffffffc80200b9b0
->     pc     0xffffffff804853ba <regmap_mmio_read32le+6>
-> 
-> Stack dump:
->     0xffffffc80200b9a0:  0xffffffc80200b9e0  0xffffffc80200b9e0
->     0xffffffc80200b9b0:  0xffffffff8116d7e8  0x0000000000000100
->     0xffffffc80200b9c0:  0xffffffd8055b9400  0xffffffd8055b9400
->     0xffffffc80200b9d0:  0xffffffc80200b9f0  0xffffffff8047c526
->     0xffffffc80200b9e0:  0xffffffc80200ba30  0xffffffff8047fe9a
-> 
-> The assembler dump of the function preambula:
->     add     sp,sp,-16
->     sd      s0,8(sp)
->     add     s0,sp,16
-> 
-> In the fist stack frame, where ra is not stored on the stack we can
-> observe:
-> 
->         0(sp)                  8(sp)
->         .---------------------------------------------.
->     sp->|       frame->fp      | frame->ra (saved fp) |
->         |---------------------------------------------|
->     fp->|         ....         |         ....         |
->         |---------------------------------------------|
->         |                      |                      |
-> 
-> and in the code check is performed:
-> 	if (regs && (regs->epc == pc) && (frame->fp & 0x7))
-> 
-> I see no reason to check frame->fp value at all, because it is can be
-> uninitialized value on the stack. A better way is to check frame->ra to
-> be an address on the stack. After the stacktrace shows as expect:
-> 
-> [<ffffffff804853c2>] regmap_mmio_read32le+0xe/0x1c
-> [<ffffffff80485758>] regmap_mmio_read+0x24/0x52
-> [<ffffffff8047c526>] _regmap_bus_reg_read+0x1a/0x22
-> [<ffffffff8047fe9a>] _regmap_read+0x5c/0xea
-> [<ffffffff80480376>] _regmap_update_bits+0x76/0xc0
-> ...
-> ---[ end trace 0000000000000000 ]---
-> As pointed by Samuel Holland it is incorrect to remove check of the stackframe
-> entirely.
-> 
-> Changes since v2 [2]:
->  - Add accidentally forgotten curly brace
-> 
-> Changes since v1 [1]:
->  - Instead of just dropping frame->fp check, replace it with validation of
->    frame->ra, which should be a stack address.
->  - Move frame pointer validation into the separate function.
-> 
-> [1] https://lore.kernel.org/linux-riscv/20240426072701.6463-1-dev.mbstr@gmail.com/
-> [2] https://lore.kernel.org/linux-riscv/20240521131314.48895-1-dev.mbstr@gmail.com/
-> 
-> Fixes: f766f77a74f5 ("riscv/stacktrace: Fix stack output without ra on the stack top")
-> Signed-off-by: Matthew Bystrin <dev.mbstr@gmail.com>
-> ---
->  arch/riscv/kernel/stacktrace.c | 20 ++++++++++++++------
->  1 file changed, 14 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-> index 64a9c093aef9..528ec7cc9a62 100644
-> --- a/arch/riscv/kernel/stacktrace.c
-> +++ b/arch/riscv/kernel/stacktrace.c
-> @@ -18,6 +18,16 @@
->  
->  extern asmlinkage void ret_from_exception(void);
->  
-> +static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+lib.mk will add -D_GNU_SOURCE to CFLAGS by default.  This will make it
+unnecessary to add #define _GNU_SOURCE in the source code.
 
-It would make sense for this function to return bool, but the generated code
-would be the same, so:
+Suggested-by: John Hubbard <jhubbard@nvidia.com>
+Signed-off-by: Edward Liaw <edliaw@google.com>
+---
+ tools/testing/selftests/lib.mk | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-
-> +{
-> +	unsigned long low, high;
-> +
-> +	low = sp + sizeof(struct stackframe);
-> +	high = ALIGN(sp, THREAD_SIZE);
-> +
-> +	return !(fp < low || fp > high || fp & 0x07);
-> +}
-> +
->  void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->  			     bool (*fn)(void *, unsigned long), void *arg)
->  {
-> @@ -41,21 +51,19 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->  	}
->  
->  	for (;;) {
-> -		unsigned long low, high;
->  		struct stackframe *frame;
->  
->  		if (unlikely(!__kernel_text_address(pc) || (level++ >= 0 && !fn(arg, pc))))
->  			break;
->  
-> -		/* Validate frame pointer */
-> -		low = sp + sizeof(struct stackframe);
-> -		high = ALIGN(sp, THREAD_SIZE);
-> -		if (unlikely(fp < low || fp > high || fp & 0x7))
-> +		if (unlikely(!fp_is_valid(fp, sp)))
->  			break;
-> +
->  		/* Unwind stack frame */
->  		frame = (struct stackframe *)fp - 1;
->  		sp = fp;
-> -		if (regs && (regs->epc == pc) && (frame->fp & 0x7)) {
-> +		if (regs && (regs->epc == pc) && fp_is_valid(frame->ra, sp)) {
-> +			/* We hit function where ra is not saved on the stack */
->  			fp = frame->ra;
->  			pc = regs->ra;
->  		} else {
+diff --git a/tools/testing/selftests/lib.mk b/tools/testing/selftests/lib.mk
+index 429535816dbd..e782f4c96aee 100644
+--- a/tools/testing/selftests/lib.mk
++++ b/tools/testing/selftests/lib.mk
+@@ -188,6 +188,9 @@ endef
+ clean: $(if $(TEST_GEN_MODS_DIR),clean_mods_dir)
+ 	$(CLEAN)
+ 
++# Build with _GNU_SOURCE by default
++CFLAGS += -D_GNU_SOURCE
++
+ # Enables to extend CFLAGS and LDFLAGS from command line, e.g.
+ # make USERCFLAGS=-Werror USERLDFLAGS=-static
+ CFLAGS += $(USERCFLAGS)
+-- 
+2.45.1.288.g0e0cd299f1-goog
 
 
 _______________________________________________
