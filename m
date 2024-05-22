@@ -4,101 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FFBBC25B78
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 07:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD9AC25B77
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 08:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7u4rr4gKyrMMRIUk23F4bwKtH4b0xvhLmiDct1ZPqMQ=; b=bSWskxKq0pwvrv
-	n+IF2ssj4BRwb2XzsIuxax6I0A+urpm0iGzDOeAPJLCg0IjOp/som25bmNkmDkd8T8IRCx5niFBMS
-	ORxVW2cwKchL/+8pI+ZIWdMCPbavQfe6uaCEhfYwI8WFe85f1VmDVXkHFV5iyVLsBuUr72Nz2FEoT
-	noDeqtd95Ls4enIEPJoqqGOaGQdjBTKiqKzvMZH+aXoitRcJI46Cp71sbpANOxE8xEXZFpkgAWxnh
-	XwbeGqIsnrGgDRslhYonIMBXoCMXQn6bvcuSpOkEqhcKi2dQeDoH0L1rxCnfkc1PLtDWlyuJN2kSs
-	MjbBAC0F4evn7t8shQPA==;
+	List-Owner; bh=q6WXrk8IPUQSZ5HoYibKSHY6smBRYJ5NHG2gy49CjBc=; b=snVkblexAh/fDa
+	f+YRZOemTPYZqAROlKC3MP11MgnRgD0iko45k6e6Je0woP6LplQqZOCR2s0bL64CMXUWG98HEPHY/
+	99anUzxzqsvIfvAb0MIAsVZZmmJpI7PT9Hx+1fDo7jbBm4CcIPQaawzJARn1fGrRZeKrkK6ARiZ8I
+	1C8XN6xckKnaVrY++RxQwI86M6GKYb/vTayHFJXiKb5gdGtxguW7WnkYsg8hgMQDZNscznDvi71dB
+	0J00eN7WH4szmukLxvhR9sQb78YuKUZUGqm3KTdtDQK4UoOq2x9MosTeAO3p83kDbBZ48y5TohKGv
+	bABtabma1NDS1WebotiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9gcf-00000002Fr0-00uT;
-	Wed, 22 May 2024 07:42:53 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1s9h0L-00000002J57-0Jdq;
+	Wed, 22 May 2024 08:07:21 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9gcb-00000002FmH-48P8
+	id 1s9h0I-00000002J4e-0Tjj
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 07:42:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1716363763;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=1B+iTRkM26xJDQ0//STek9xRvnM84UISSi2Pz/0R1YU=;
-	b=QGl0X/bI4uNiCgAvidX2miqicz3sP2yCnddv91BDYL7c3ryn/RqoEOIJIJcYz2zDtmjDhN
-	06NB46xFv+dkA8ArrSzfjbSlkKYRt1JLGjNJdx5Qxy5Oz7A2hRoJc5PGJ98jpZthbuF0WY
-	CcrLn+7pvMSuj3imwi/9LEBJhgVoVOo=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-151-5rwNtSG7Ndy2malV-AB1bg-1; Wed, 22 May 2024 03:42:42 -0400
-X-MC-Unique: 5rwNtSG7Ndy2malV-AB1bg-1
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-354e222dcc5so28331f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 May 2024 00:42:41 -0700 (PDT)
+	Wed, 22 May 2024 08:07:19 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-56e1bbdb362so7794978a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 22 May 2024 01:07:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1716365236; x=1716970036; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=EjJc7AAlreo5EdXOmmG11eZiUCAvljdqIc2K+uOGIsQ=;
+        b=auNsmEVW1pqi0sZqZh2nuNkikpm1NPIwxHdCJiNo05LQfUaEdkdNUR+x5SYK+9iVse
+         9dfOk19yXLqGOZoWGD/dHZrNA1d7eLMPteRIqJ436HBP+8oky2TAoB8537whAddIPMu8
+         TyPsAXAY6yYWJMpad4r5hdzYExv1CeUpGGNzomsoNRtdlBbz7zfen+HafoTA33MMG0+j
+         aZH1nfDQF9vqtVg0kO4bp5+DjJRE/vXqRVMV3ZGmuriGv15xHfN8uoveaGah5vNO7IyG
+         fd+/jDotAjB7Bl5FVZor5ytpvDUFpNMf8CSxyc6oOiamsn0Lbj/25Y7K8AVurJsiQtne
+         hhOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716363761; x=1716968561;
-        h=mime-version:user-agent:content-transfer-encoding:autocrypt
-         :references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1B+iTRkM26xJDQ0//STek9xRvnM84UISSi2Pz/0R1YU=;
-        b=HaXPD2nilJAOAM5kyUOfxF76h4wBkW11lQbCHujU86+a1o66pMW0sp6yRRCW89I51x
-         prwbyboMF2hzRubWrZpYQLdpxg1qJ8h+MvWqMHkIdQNAwya4mOn+fPLDKWhlxaFXvGEa
-         JHCDZgwpinn4rAY2amlP3Ap8VUFwNexcX5+CiWcTgwF96IU25wbpJdgVIWG85kbRKj9E
-         tV+p9SjvTDokVhlCv5Zysqfnby4I5UtaMErI5c4U9P9P1YF2OeaT+N2/f/2SIo7bsmQ5
-         UDyuRO2a0ZRxnv16B7HKgxgQoJEsgJGuXXb1QfXtZbvnNZo+qdYgFwPzignmWkwh2RQw
-         bK/w==
-X-Forwarded-Encrypted: i=1; AJvYcCWg4zu2jv58ghwr/g1fxsbcbkpoJJGxDqTVueU7VmUTT/TT2+3DtALNbg5q2Q8tGJtDvs8yUbuyquzDaioiVmYd5AK+tPVnPy/s9dPzdR2W
-X-Gm-Message-State: AOJu0YxZZUrYbM31gdFE4gKZxHsYeOZCmqUI8sGmMmhFTRNZSnO4psJP
-	ym2idlWzmymqrqYYFeYb3t+/aFPm5srDe53k85kqVkiG3LRpkyuplZ+Lf8HKNWNcaYMpLcNsjmd
-	Ul9F7aGrldbxanphB+d87274bN3QihD0fq8TFmr+bgWgTAyEtienfULPftgrtfdA+Gw==
-X-Received: by 2002:a05:600c:3544:b0:41b:e83e:8bb with SMTP id 5b1f17b1804b1-420fd376c84mr8033265e9.3.1716363760490;
-        Wed, 22 May 2024 00:42:40 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHrNJYQNBCV6/mB0UpUckR8l2hFK7QYVo9GtdTwp5hyr0ELTVeHubB7Oy+dPQUccQniC+/LQw==
-X-Received: by 2002:a05:600c:3544:b0:41b:e83e:8bb with SMTP id 5b1f17b1804b1-420fd376c84mr8033045e9.3.1716363760101;
-        Wed, 22 May 2024 00:42:40 -0700 (PDT)
-Received: from gerbillo.redhat.com ([2a0d:3341:b094:ab10::f71])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-41fccee934csm490842515e9.38.2024.05.22.00.42.38
+        d=1e100.net; s=20230601; t=1716365236; x=1716970036;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EjJc7AAlreo5EdXOmmG11eZiUCAvljdqIc2K+uOGIsQ=;
+        b=lUWN8lbSBZ6sNy2fhsImMVJ2kIRZgA5jvv0nLLMdCizFn5/rilyarB242rDmnIS2J3
+         0rwSS1Vx10JYfyTGZjCQvnlBNl8UbcR2iCvRLvvgFSOch91BED6m7fMoYtVxE/eohcAQ
+         4ikxBkzeJxzpoP5svU0RTnO54SHBh+VS7+ibqRCE9XVpNBsIkFLnl2GcnBlJSlL3ugU5
+         l+JzZmjPobCD4dus8f3TgtUIE3GYQZftngpTR6H3iMEIObMW7zkY+ONMHZfiHTfgm57j
+         QRZ8HsOSfxxf83EZ9sFylG9PQd80kf1cixY2Qn3PbaAZyAlabxbS0J693gT1L1iHEk6m
+         jSRA==
+X-Forwarded-Encrypted: i=1; AJvYcCW9S/mGks1y7lturEntzTLi/It/6W+bN5+ks7VM406Eq4lWlOi6qHKop+4LcXiiopUGoKtMeZztOqpia0sDT2GirSUXyS+fPKwQzkGsu/3F
+X-Gm-Message-State: AOJu0Yz8Yw15olRf0Vl+7z3zLhskLCVNYCK2/JYpgimfZs/pvIcYs5y4
+	RBIi6Z+G4cF4U0bqldaGSUCHgFLgIC+dDPJ6+aKkmzBRNieWppGc4YpJh763fF0=
+X-Google-Smtp-Source: AGHT+IFxkk46rQN7LJxAzq5cGNXR84hroJkBlxdzGPSkPpe2syhCs/1Mf1/sjeCOL+ArtyBeWNzrvw==
+X-Received: by 2002:a50:ab4b:0:b0:574:ecc4:6b54 with SMTP id 4fb4d7f45d1cf-578329c7ca3mr1206147a12.9.1716365235959;
+        Wed, 22 May 2024 01:07:15 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5733c323887sm18071800a12.89.2024.05.22.01.07.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 May 2024 00:42:39 -0700 (PDT)
-Message-ID: <b5e333368d9e69efc6325187a23cef4f4337c738.camel@redhat.com>
-Subject: Re: [PATCH v5 00/68] Define _GNU_SOURCE for sources using
-From: Paolo Abeni <pabeni@redhat.com>
-To: Edward Liaw <edliaw@google.com>, shuah@kernel.org, 
- =?ISO-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
- =?ISO-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,  Christian Brauner
- <brauner@kernel.org>, Richard Cochran <richardcochran@gmail.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, "David S. Miller"
- <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Jesper Dangaard
- Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- kernel-team@android.com, linux-security-module@vger.kernel.org, 
- netdev@vger.kernel.org, linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Date: Wed, 22 May 2024 09:42:37 +0200
-In-Reply-To: <20240522005913.3540131-1-edliaw@google.com>
-References: <20240522005913.3540131-1-edliaw@google.com>
-Autocrypt: addr=pabeni@redhat.com; prefer-encrypt=mutual; keydata=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
-User-Agent: Evolution 3.50.4 (3.50.4-1.fc39)
+        Wed, 22 May 2024 01:07:15 -0700 (PDT)
+Date: Wed, 22 May 2024 10:07:14 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Tomasz Jeznach <tjeznach@rivosinc.com>
+Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, linux-kernel@vger.kernel.org, 
+	Rob Herring <robh+dt@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, 
+	Lu Baolu <baolu.lu@linux.intel.com>
+Subject: Re: [PATCH v5 7/7] iommu/riscv: Paging domain support
+Message-ID: <20240522-b25680db03b547123f1cd59a@orel>
+References: <cover.1715708679.git.tjeznach@rivosinc.com>
+ <1ddb50a47c86d384157a979a7475b45f807ba81e.1715708679.git.tjeznach@rivosinc.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <1ddb50a47c86d384157a979a7475b45f807ba81e.1715708679.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240522_004250_200742_23EAF175 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240522_010718_175693_3912C726 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,21 +99,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2024-05-22 at 00:56 +0000, Edward Liaw wrote:
-> Centralizes the definition of _GNU_SOURCE into KHDR_INCLUDES and removes
-> redefinitions of _GNU_SOURCE from source code.
-> 
-> 809216233555 ("selftests/harness: remove use of LINE_MAX") introduced
-> asprintf into kselftest_harness.h, which is a GNU extension and needs
-> _GNU_SOURCE to either be defined prior to including headers or with the
-> -D_GNU_SOURCE flag passed to the compiler.
+On Tue, May 14, 2024 at 11:16:19AM GMT, Tomasz Jeznach wrote:
+...
+> +static int riscv_iommu_bond_link(struct riscv_iommu_domain *domain,
+> +				 struct device *dev)
+> +{
+> +	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+> +	struct riscv_iommu_bond *bond;
+> +	struct list_head *bonds;
+> +
+> +	bond = kzalloc(sizeof(*bond), GFP_KERNEL);
+> +	if (!bond)
+> +		return -ENOMEM;
+> +	bond->dev = dev;
+> +
+> +	/*
+> +	 * List of devices attached to the domain is arranged based on
+> +	 * managed IOMMU device.
+> +	 */
+> +
+> +	spin_lock(&domain->lock);
+> +	list_for_each_rcu(bonds, &domain->bonds)
+> +		if (dev_to_iommu(list_entry(bonds, struct riscv_iommu_bond, list)->dev) == iommu)
+> +			break;
 
-I'm sorry for the late question, but what is the merge plan here?
+We should wrap this list_for_each_rcu() in rcu_read_lock() and
+rcu_read_unlock().
 
-Thanks!
+Thanks,
+drew
 
-Paolo
-
+> +	list_add_rcu(&bond->list, bonds);
+> +	spin_unlock(&domain->lock);
+> +
+> +	/* Synchronize with riscv_iommu_iotlb_inval() sequence. See comment below. */
+> +	smp_mb();
+> +
+> +	return 0;
+> +}
 
 _______________________________________________
 linux-riscv mailing list
