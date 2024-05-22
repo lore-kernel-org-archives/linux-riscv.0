@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92100C25B77
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 06:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E4A4C25B77
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 06:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BzYk2qlTZn2Ez8IgFEU8uuWmVsoc7iOuCZ76nwWaoYs=; b=N9OrKtARaRIXWH
-	XbDDs8wzXOvmJx6yrlBxkttM8A6LbA70oc6GyKyE8j/nWE3L004ZUq/UJqwdvef37pnYQ3LeGtVXR
-	gBZNhrWvgiclLfP0OQbcJVLcDznA3RQ2YZrZXqwCep/SRt0L3PSLxFJWVOw7AkBo1/HkXYR0oPjZo
-	c53HvtfDh28k+IaMZGaDtmZ8TrKaxBSyFIZr0WNWIfHlIl0lVFa0g6uBMFCuR20dzM27LZpbB4KW3
-	fvRftt2S1xVzFbzmCCBVXNCJmxjKwOXGxvBFqPHNtejsU2F6XqugZ/kYQp9PgVI5l8y3TpSO1UArb
-	OV/4fbmQsRnqiaJOpLtw==;
+	List-Owner; bh=UuFOMTHxYbxdQyoKn3O6degqDApz0r575+47CVuvu8g=; b=vgkCQ3De8zi7aJ
+	drT3Rdl0pQTBb7/GlVBY4zzgaofyj1UhC3FZ3scQiM44cOdLR4l+lsKciTYl6I/1v8zLsYyr/mFkJ
+	+CeWAXOrePXmK4rvuxe3pxJZldw9YNHQrbM3E9kh1q4Ggwlbjm1OYCSgp8XevIvIZPfpbO0Ix2TIj
+	sGZPHwUYOB5y7rjK1YnE0a2w86pVPi1f9gXZR2Ef9y0OABm0qFO9myDDtPtxge1ajGn6hXv+vECga
+	e5J5DDGgMvfiPRIRoQblQRJOUjK/fdESBPtTCRBNnkwfupS0dIXDYYXRBWu9nG8qe6d7Pax3dHvp9
+	dzdLOBVcL3860NnkCExg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9fEF-000000025eQ-3lmE;
-	Wed, 22 May 2024 06:13:35 +0000
-Received: from out0-200.mail.aliyun.com ([140.205.0.200])
+	id 1s9fUM-000000027kk-3S2p;
+	Wed, 22 May 2024 06:30:14 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9fEA-000000025bk-2p8N
+	id 1s9fUJ-000000027iv-3wE2
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 06:13:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=antgroup.com; s=default;
-	t=1716358405; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=NpGCr7uMs7nN0Q+sV09/b3UAtSy1OaurTOZpW7g+KIc=;
-	b=Zz2E42iXtPAMehCnFvxiA9k7q7+99Z98tkyU+N+Omfuuu9L0TIgpNx+OenepexiogIZFcejGNp7cLvbVmJJ9wZp62YPMKvBfgA6hVB5DuXg+fkpIYsY2UMksc5/8gd1L2ubo6ALxmBrF45BjpWgEKOtUWnw+pr+sIXR49ebcMUA=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045002061;MF=libang.li@antgroup.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---.XjzNVuG_1716358401;
-Received: from localhost(mailfrom:libang.li@antgroup.com fp:SMTPD_---.XjzNVuG_1716358401)
-          by smtp.aliyun-inc.com;
-          Wed, 22 May 2024 14:13:22 +0800
-From: "Bang Li" <libang.li@antgroup.com>
-To: akpm@linux-foundation.org,
-	chenhuacai@kernel.org,
-	tsbogend@alpha.franken.de,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	chris@zankel.net,
-	jcmvbkbc@gmail.com
-Cc: <linux-kernel@vger.kernel.org>,
-   <linux-mm@kvack.org>,
-   <loongarch@lists.linux.dev>,
-   <linux-riscv@lists.infradead.org>,
-   <david@redhat.com>,
-   <ryan.roberts@arm.com>,
-   <ioworker0@gmail.com>,
-   <libang.linux@gmail.com>,
-  "Bang Li" <libang.li@antgroup.com>
-Subject: [PATCH v4 1/3] mm: Add update_mmu_tlb_range()
-Date: Wed, 22 May 2024 14:12:02 +0800
-Message-Id: <20240522061204.117421-2-libang.li@antgroup.com>
-X-Mailer: git-send-email 2.19.1.6.gb485710b
-In-Reply-To: <20240522061204.117421-1-libang.li@antgroup.com>
-References: <20240522061204.117421-1-libang.li@antgroup.com>
+	Wed, 22 May 2024 06:30:14 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4VkhFz58Wszcj7F;
+	Wed, 22 May 2024 14:28:39 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id 356FD1401E9;
+	Wed, 22 May 2024 14:29:57 +0800 (CST)
+Received: from [10.67.109.184] (10.67.109.184) by
+ kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Wed, 22 May 2024 14:29:56 +0800
+Message-ID: <af4cf420-558a-4893-8469-c354d3e337eb@huawei.com>
+Date: Wed, 22 May 2024 14:29:55 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv, bpf: Use STACK_ALIGN macro for size rounding up
+Content-Language: en-US
+To: Xiao Wang <xiao.w.wang@intel.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <luke.r.nels@gmail.com>,
+	<xi.wang@gmail.com>, <bjorn@kernel.org>
+CC: <ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>,
+	<martin.lau@linux.dev>, <eddyz87@gmail.com>, <song@kernel.org>,
+	<yonghong.song@linux.dev>, <john.fastabend@gmail.com>, <kpsingh@kernel.org>,
+	<sdf@google.com>, <haoluo@google.com>, <jolsa@kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<bpf@vger.kernel.org>, <haicheng.li@intel.com>
+References: <20240522054507.3941595-1-xiao.w.wang@intel.com>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20240522054507.3941595-1-xiao.w.wang@intel.com>
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240521_231330_916663_854D3CE6 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240521_233012_179485_775305F5 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,115 +72,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Added update_mmu_tlb_range(), we can batch update tlb of an
-address range.
 
-Signed-off-by: Bang Li <libang.li@antgroup.com>
----
- arch/loongarch/include/asm/pgtable.h | 2 ++
- arch/mips/include/asm/pgtable.h      | 2 ++
- arch/riscv/include/asm/pgtable.h     | 2 ++
- arch/xtensa/include/asm/pgtable.h    | 3 +++
- arch/xtensa/mm/tlb.c                 | 6 ++++++
- include/linux/pgtable.h              | 7 +++++++
- 6 files changed, 22 insertions(+)
+On 2024/5/22 13:45, Xiao Wang wrote:
+> Use the macro STACK_ALIGN that is defined in asm/processor.h for stack size
+> rounding up, just like bpf_jit_comp32.c does.
+> 
+> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
+> ---
+>   arch/riscv/net/bpf_jit_comp64.c | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index 39149ad002da..bd869d41612f 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> @@ -858,7 +858,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+>   	stack_size += 8;
+>   	sreg_off = stack_size;
+>   
+> -	stack_size = round_up(stack_size, 16);
+> +	stack_size = round_up(stack_size, STACK_ALIGN);
+>   
+>   	if (!is_struct_ops) {
+>   		/* For the trampoline called from function entry,
+> @@ -1723,7 +1723,7 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
+>   {
+>   	int i, stack_adjust = 0, store_offset, bpf_stack_adjust;
+>   
+> -	bpf_stack_adjust = round_up(ctx->prog->aux->stack_depth, 16);
+> +	bpf_stack_adjust = round_up(ctx->prog->aux->stack_depth, STACK_ALIGN);
+>   	if (bpf_stack_adjust)
+>   		mark_fp(ctx);
+>   
+> @@ -1743,7 +1743,7 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
+>   	if (seen_reg(RV_REG_S6, ctx))
+>   		stack_adjust += 8;
+>   
+> -	stack_adjust = round_up(stack_adjust, 16);
+> +	stack_adjust = round_up(stack_adjust, STACK_ALIGN);
+>   	stack_adjust += bpf_stack_adjust;
+>   
+>   	store_offset = stack_adjust - 8;
 
-diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
-index af3acdf3481a..5ccc2a3a6f7a 100644
---- a/arch/loongarch/include/asm/pgtable.h
-+++ b/arch/loongarch/include/asm/pgtable.h
-@@ -469,6 +469,8 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 
- #define __HAVE_ARCH_UPDATE_MMU_TLB
- #define update_mmu_tlb	update_mmu_cache
-+#define update_mmu_tlb_range(vma, addr, ptep, nr) \
-+	update_mmu_cache_range(NULL, vma, addr, ptep, nr)
- 
- static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
- 			unsigned long address, pmd_t *pmdp)
-diff --git a/arch/mips/include/asm/pgtable.h b/arch/mips/include/asm/pgtable.h
-index e27a4c83c548..0891ad7d43b6 100644
---- a/arch/mips/include/asm/pgtable.h
-+++ b/arch/mips/include/asm/pgtable.h
-@@ -596,6 +596,8 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 
- #define	__HAVE_ARCH_UPDATE_MMU_TLB
- #define update_mmu_tlb	update_mmu_cache
-+#define update_mmu_tlb_range(vma, address, ptep, nr) \
-+	update_mmu_cache_range(NULL, vma, address, ptep, nr)
- 
- static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
- 	unsigned long address, pmd_t *pmdp)
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 55a7c3ec246b..4630815b0253 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -491,6 +491,8 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 
- #define __HAVE_ARCH_UPDATE_MMU_TLB
- #define update_mmu_tlb update_mmu_cache
-+#define update_mmu_tlb_range(vma, addr, ptep, nr) \
-+	update_mmu_cache_range(NULL, vma, addr, ptep, nr)
- 
- static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
- 		unsigned long address, pmd_t *pmdp)
-diff --git a/arch/xtensa/include/asm/pgtable.h b/arch/xtensa/include/asm/pgtable.h
-index 9a7e5e57ee9a..436158bd9030 100644
---- a/arch/xtensa/include/asm/pgtable.h
-+++ b/arch/xtensa/include/asm/pgtable.h
-@@ -413,6 +413,9 @@ typedef pte_t *pte_addr_t;
- void update_mmu_tlb(struct vm_area_struct *vma,
- 		    unsigned long address, pte_t *ptep);
- #define __HAVE_ARCH_UPDATE_MMU_TLB
-+void update_mmu_tlb_range(struct vm_area_struct *vma,
-+		unsigned long address, pte_t *ptep, unsigned int nr);
-+#define update_mmu_tlb_range update_mmu_tlb_range
- 
- #endif /* !defined (__ASSEMBLY__) */
- 
-diff --git a/arch/xtensa/mm/tlb.c b/arch/xtensa/mm/tlb.c
-index d8b60d6e50a8..05efba86b870 100644
---- a/arch/xtensa/mm/tlb.c
-+++ b/arch/xtensa/mm/tlb.c
-@@ -169,6 +169,12 @@ void update_mmu_tlb(struct vm_area_struct *vma,
- 	local_flush_tlb_page(vma, address);
- }
- 
-+void update_mmu_tlb_range(struct vm_area_struct *vma,
-+			unsigned long address, pte_t *ptep, unsigned int nr)
-+{
-+	local_flush_tlb_range(vma, address, address + PAGE_SIZE * nr);
-+}
-+
- #ifdef CONFIG_DEBUG_TLB_SANITY
- 
- static unsigned get_pte_for_vaddr(unsigned vaddr)
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 18019f037bae..17d1caee39ab 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -729,6 +729,13 @@ static inline void clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-  * fault. This function updates TLB only, do nothing with cache or others.
-  * It is the difference with function update_mmu_cache.
-  */
-+#ifndef update_mmu_tlb_range
-+static inline void update_mmu_tlb_range(struct vm_area_struct *vma,
-+				unsigned long address, pte_t *ptep, unsigned int nr)
-+{
-+}
-+#endif
-+
- #ifndef __HAVE_ARCH_UPDATE_MMU_TLB
- static inline void update_mmu_tlb(struct vm_area_struct *vma,
- 				unsigned long address, pte_t *ptep)
--- 
-2.19.1.6.gb485710b
-
+Reviewed-by: Pu Lehui <pulehui@huawei.com>
 
 _______________________________________________
 linux-riscv mailing list
