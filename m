@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C0EC25B79
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 15:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57879C25B78
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 16:05:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vlCaKMrLYJVkDA+y4hA7NldYpSbUNcNmPIHA6/C2R+A=; b=SASKEQWoopdUTW
-	uDyLoKvZCsxPxpks+w79/ko6dTO/1w9179/arPqzopZ6+TP8AkQIKwcvZl5inbCysV31NaCTZonTo
-	UdOYHqZWWAMqDBE4EzdwFH20YC3/tmFYMVzB03qnsVTX3UI35THOj5ldaeXxl+c5CO2wzXqLPT/QJ
-	d6TrBdINlOw6se7w6L0CMMqwViMuI/SwGZGv1ZWbK8MWzXkZfjy6dqiwA2ayXdqrSD4KYY4VIg9oU
-	bFODw76Ejt5IIPdFcOQj2eq9cqY7JUQoSsmqWopQut2mpzB72v7akqEW0qTg93grVwc8TohEOj0uy
-	Z/RXWX8jMPcZWV+iggdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F9WXJPShlAxFoHkgF9TRq0cfqOiATRSEGq4SGqTdeaM=; b=vRsW9HOrSUAzQpbDy/pjcRV6hl
+	/BArYuNpyv2LQJaVWu+DB/Bp6H0JbKkei9BbgAlRr9d4gvi9Iyylqe1tkm3ivCk/qYOxnRJ0CeyV3
+	EWHqbLAxPCJDWFwQkYNk21OJ9OeqJeu8tKPRtp7ejbrJ6u9FutiT7mnf3jZEOWndsK1k3jI8LAzrF
+	I84Cz+05kO08J7idIkhLZz2iND/lWtWrm3hHHReG0qBLD7XhwgtjjjCe4D8HlwPxUfs4sX+TZZobu
+	tvKqKa5wplGW1PafFhjbHAAr3ZYrqljxhMkOFJSafwhoo/rVFKQZ3nmyw/ZUNeeX+eC8rE9t3p1tU
+	Hk/6mVVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9o40-00000003Ok9-2cvo;
-	Wed, 22 May 2024 15:39:36 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1s9oSS-00000003TPH-3HFa;
+	Wed, 22 May 2024 16:04:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9o3y-00000003OiT-0q4P
+	id 1s9oSP-00000003TOM-3N3x
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 15:39:35 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-5ce2aada130so2283857a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 May 2024 08:39:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1716392373; x=1716997173; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Yvxfqkh+gSZbJyfshoQXFXdD3Y8gaC/pv6t5Ay+4a2U=;
-        b=Qqnn1H+muUA/c5CPuuPwF9Bh95jUx6p+XP+algFQV0FsxAGI53eGp0XVtuo2GT1G6p
-         f3uDlPVmxT+ce+eTuB0j/vV6ONsTtcj21s8ek9f1ywtAtEf1RFNwh55wVok7VZI3MN3o
-         HnrNoBKNZhiRCwTKQ8Xq30H8vtfbuqclDSNQKZ3TyEOOK8HT1WDvjHEp46kCLy7LbB94
-         D57YrsNmjH9DVG7Jysee039bJOVo5VNsXQQTZpi/oeZYYQnTZxKyQwImruBBQdOvXH2V
-         qOwWD/m/ZGWeFiZMhwcKcK1hy7UrudgGdkqe0DfLkUvhIIOmZOYtDGB2Zxq2OXkr/7JU
-         gW7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716392373; x=1716997173;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Yvxfqkh+gSZbJyfshoQXFXdD3Y8gaC/pv6t5Ay+4a2U=;
-        b=UiO2gR2XEILDIKXgz+j5djtSY3FW00zfQFpe6h37+L1Tx+/lLMdkHh2yVWiWljREZr
-         ejHmby2R8GVC/VfLzruGwjTWZ8D+ycZWe2HPgh7KOgSiXFSl4mRx2j9v7FRxedWj0LDP
-         VjPOq2vvDp/3+Ia/2ISQZ/rJNLUpipBR28sdrroCIgORiRqrpMI4UwRb5VpibR2mdn/E
-         qTfeOUu9Hpagnt7X5j9WB7QURp9emcGAEbeWcWOfYbClb1F6QcADyBigcP2X6dNxGmVJ
-         Wje+SGaglTaVtQSCDpvZYcz0jw4+MvlWvx897PwVnJetmjFAIMJto01gpc50ORV8yp0p
-         mUNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXhmLAmw9iOx/Q9vc4z/MWJ/dbqVMC7ExWl8Kiw8zQQ8jLcivXYp7kgA+k1+PBlZZdePdFqxGaESeQNq0p0n9hMC5KFcFmmhsg7Q+y3CPpS
-X-Gm-Message-State: AOJu0YzRwE3c6RbZGmO1XeAd0HR5XD+cb+G6xtY9khvMxSeZvpKZF7yI
-	12ziFDFZGT73ZfWHOjFamSZL4ZmW4Mx9IdmTSM4ALc46VC2dQNBw
-X-Google-Smtp-Source: AGHT+IEvl2jl89Ll5aU5bNVUfIG87vrt2cUkmGN76Ttw5yLV7y7OkQZbEcTGoE9Ry6NS8Vd6Ho5icQ==
-X-Received: by 2002:a17:90a:5982:b0:2bd:8aed:740a with SMTP id 98e67ed59e1d1-2bd9f483e65mr2313191a91.23.1716392373545;
-        Wed, 22 May 2024 08:39:33 -0700 (PDT)
-Received: from localhost.localdomain ([223.178.84.74])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2b628ea59absm25574077a91.47.2024.05.22.08.39.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 May 2024 08:39:33 -0700 (PDT)
-From: Kanak Shilledar <kanakshilledar@gmail.com>
-X-Google-Original-From: Kanak Shilledar <kanakshilledar111@protonmail.com>
-To: 
+	Wed, 22 May 2024 16:04:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B981E62A60;
+	Wed, 22 May 2024 16:04:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDC34C2BBFC;
+	Wed, 22 May 2024 16:04:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1716393885;
+	bh=1vicdVPng3fETAqpS3OYsILf4v6JPsudUhtYWNmeKFM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T7ZvkPfdyjrKlBm/FTG9TU+EkjklqPbuERB6Y9m9/+Q1jHW4x/d2W2a6TX+FECKfh
+	 vJ/92gc2wjm0s0T7DBHTxNoE+byTqlUs5TWIYHv7NtJKe2jlstI8AFhwb/q4sBAIjT
+	 xWm2hwH9VU9fSc7lMGttMImlnx+PQZmVTP+5nNY8Gz5K5KMgwQydASFhhEEvzsXvf0
+	 Sx4ytR4LzuMmUsSVwAirgrB3/wpaElPJqgNm/FpOJOGivEJa7UJBVgC+t+EjV2AbyP
+	 wj4NGmOVQKxIWLsgMMaWHDqGdO+z1CfqUmp9llADlZhHV8GdSHrojF1K/uNOLlzZaX
+	 0TUjw1qAG7A8w==
+Date: Wed, 22 May 2024 17:04:40 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Kanak Shilledar <kanakshilledar@gmail.com>
 Cc: Kanak Shilledar <kanakshilledar111@protonmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Samuel Holland <samuel.holland@sifive.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 2/2] dt-bindings: riscv: cpus: add ref to interrupt-controller
-Date: Wed, 22 May 2024 21:08:38 +0530
-Message-Id: <20240522153835.22712-3-kanakshilledar111@protonmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240522153835.22712-1-kanakshilledar111@protonmail.com>
+Subject: Re: [PATCH v2 0/2] dt-bindings: interrupt-controller: riscv,cpu-intc
+Message-ID: <20240522-yoga-blurt-dc5e40a0ae3a@spud>
 References: <20240522153835.22712-1-kanakshilledar111@protonmail.com>
 MIME-Version: 1.0
+In-Reply-To: <20240522153835.22712-1-kanakshilledar111@protonmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240522_083934_260681_432F3041 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240522_090450_001886_9535EFAA 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,62 +74,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1854312080490684410=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-removed the redundant properties for interrupt-controller
-and provide reference to the riscv,cpu-intc.yaml which defines
-the interrupt-controller. making the properties for riscv
-interrupt-controller at a central place.
 
-Signed-off-by: Kanak Shilledar <kanakshilledar111@protonmail.com>
----
-Changes in v2:
-- Fix warning of `type` is a required property during `make
-dt_bindings_check`.
----
- .../devicetree/bindings/riscv/cpus.yaml       | 21 +------------------
- 1 file changed, 1 insertion(+), 20 deletions(-)
+--===============1854312080490684410==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="eeg5JD55UAT+KHlg"
+Content-Disposition: inline
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index d87dd50f1a4b..f1241e5e8753 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -102,26 +102,7 @@ properties:
- 
-   interrupt-controller:
-     type: object
--    additionalProperties: false
--    description: Describes the CPU's local interrupt controller
--
--    properties:
--      '#interrupt-cells':
--        const: 1
--
--      compatible:
--        oneOf:
--          - items:
--              - const: andestech,cpu-intc
--              - const: riscv,cpu-intc
--          - const: riscv,cpu-intc
--
--      interrupt-controller: true
--
--    required:
--      - '#interrupt-cells'
--      - compatible
--      - interrupt-controller
-+    $ref: /schemas/interrupt-controller/riscv,cpu-intc.yaml#
- 
-   cpu-idle-states:
-     $ref: /schemas/types.yaml#/definitions/phandle-array
--- 
-2.34.1
 
+--eeg5JD55UAT+KHlg
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, May 22, 2024 at 09:08:34PM +0530, Kanak Shilledar wrote:
+> This series of patches converts the RISC-V CPU interrupt controller to
+> the newer dt-schema binding.
+>=20
+> Patch 1:
+> This patch is currently at v3 as it has been previously rolled out.
+> Contains the bindings for the interrupt controller.
+>=20
+> Patch 2:
+> This patch is currently at v2.
+> Contains the reference to the above interrupt controller. Thus, making
+> all the RISC-V interrupt controller bindings in a centralized place.o
+
+Don't do this, it breaks tooling:
+
+	b4 shazam 20240522153835.22712-2-kanakshilledar111@protonmail.com
+	Grabbing thread from lore.kernel.org/all/20240522153835.22712-2-kanakshill=
+edar111@protonmail.com/t.mbox.gz
+	Checking for newer revisions
+	Grabbing search results from lore.kernel.org
+	Analyzing 3 messages in the thread
+	Looking for additional code-review trailers on lore.kernel.org
+	Will use the latest revision: v3
+	You can pick other revisions using the -vN flag
+	Checking attestation on all messages, may take a moment...
+	Retrieving CI status, may take a moment...
+	---
+	  =E2=9C=93 [PATCH v3 1/2] dt-bindings: interrupt-controller: riscv,cpu-in=
+tc: convert to dtschema
+	    =E2=9C=93 Signed: DKIM/gmail.com
+	    + Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+	  ERROR: missing [2/2]!
+	---
+	Total patches: 1
+	---
+	WARNING: Thread incomplete!
+	 Base: using specified base-commit 20cb38a7af88dc40095da7c2c9094da3873fea23
+	Applying: dt-bindings: interrupt-controller: riscv,cpu-intc: convert to dt=
+schema
+
+If you change one patch in a series, the whole series gets a new version.
+Just let git format-patch do that for you with the "-v N" argument and
+you'll not have to worry about breaking people's tooling.
+
+Patches themselves are
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Cheers,
+Conor.
+
+--eeg5JD55UAT+KHlg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZk4XmAAKCRB4tDGHoIJi
+0su4AP9z+Txrf6KWtFYERWILq00267oges3Pu8u242cyzQesKQEA5Yre424wVHVT
+o9tzXZgPfqWGP7LkQ5a5BFjbABdJ6wE=
+=CDKs
+-----END PGP SIGNATURE-----
+
+--eeg5JD55UAT+KHlg--
+
+
+--===============1854312080490684410==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1854312080490684410==--
+
