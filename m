@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4CCC25B78
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 22:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 127FBC25B78
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 23:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=LD0O9V9hB/5yUPGjgvea+shmRLzTnWJyIwakcv2Yecg=; b=SC+QJK10xggwvy
-	fZRMHyaioC4BicGc9iw+GVkRNHZUZBWewCvzK1dbPnuZXVTZwv+iVy2XVUsouAJqiHtH6R/veZLnH
-	85s3CY3zDm9erCWhpsMnI5I/xIFII3569o0q2Xz9GGGwW44dR4M1QgBKXZUXKAAPPikqdYA7KjbKh
-	B7mrROPUUmq+fwSq7VnTotAIlQwN43U/y0WYMbEpX/SKvSpjsBrGx77dFeTdTKDARW1sTMxf157Pa
-	weIS16GKlQg0QFwm6lIPHOqfDw9/EMN8GFwOVxsJCvcZ6hpHzVwJU4lDoc8G03frMBbBzga75Ybg4
-	c2dnzx1jj4lfRxKwUkRQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SoLUB16nu/hd/tOZKz6U9No+wWlyyoww8wTz76qqrWo=; b=yIyn1wdq+M6sdn
+	Je9oT/n9/4YapGGgeEySJ22Zdb+CQG2S4S3Ch5GQPp3NfA2T6yF828xyV7HQ0IYh+zfbW/lKeAGmg
+	DVoH1sPhXY2jmCymzAP0UVBNSRNWKJTgD6yIXCq1p/LYxAKeHwpfKA0HLvi1FJ8I8d6+K2VB//GEk
+	cZkCty+WKC11sMfMHtO0BZQ2AjI3AXv4fnsN+ycANS/pvzYhOYKm0xcgpvom39eM4jBeunKH7Mdj3
+	fWsF5eqiQ5RgGw10UC0s0KfhuGf2kR2DHDwublV2lcXGLLOLyE9Cz6A4fT3LNWBu9qirwzNvsADlB
+	pNaUt6wm8gMpzNFpUyxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9uAT-00000004EIS-2EHT;
-	Wed, 22 May 2024 22:10:42 +0000
+	id 1s9vRe-00000004RUp-1BZV;
+	Wed, 22 May 2024 23:32:30 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9uAQ-00000004EHp-24tp
+	id 1s9vRZ-00000004RRj-2MJ7
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 22:10:39 +0000
+	Wed, 22 May 2024 23:32:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CC8B962B60;
-	Wed, 22 May 2024 22:10:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A5CAC2BBFC;
-	Wed, 22 May 2024 22:10:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6F4FC62BFD;
+	Wed, 22 May 2024 23:32:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A0791C4AF0D;
+	Wed, 22 May 2024 23:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1716415836;
-	bh=78lSOt435SpzlKtYFJRnRC9xals+PsmCRmkOx4okULU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=QG9l8swAl+2uLJlTgqBUAn1o2pxnCYHODesOdRxMEAL+yKCPO/ptqgxYEmtcEWHza
-	 2Ttp0uF6DOs/G/2dn6c5nT8/MuORHjJXMXq8en+AaL4Rx9QNMBLwgH3sH1pqLkZ0sU
-	 /yzJtJGaq8erEVBauiQaBlmSVXWip0wwdZPtvuXVEOGNLorpqdz3hb7uKhWOpI6DtM
-	 E7VeoG7Lv6MpKiUJqMo8bLHMbIB6qKbniCDkIsFmWaJxi9JN7encYqT8WsB3v+j2H/
-	 Th3B+Ik4ds12hJz3pXKtiAQikPmd5iyPC6hHTNWHxweBaIKxKHeFPTUoNJ9F2giBKy
-	 /7+hB7Ceb732w==
-Date: Wed, 22 May 2024 17:10:34 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Minda Chen <minda.chen@starfivetech.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQ0ggdjE2IDA4?=
- =?utf-8?Q?=2F22=5D_PCI?= =?utf-8?Q?=3A?= microchip: Change the argument of
- plda_pcie_setup_iomems()
-Message-ID: <20240522221034.GA83828@bhelgaas>
+	s=k20201202; t=1716420743;
+	bh=tEHrjijHfI1dW0qehjRUeQTBRs2hxXM4LHxZP9ugrHc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=bMFLPMK/srok+FyjdHtbHkP+ZgL5XHdr2nMDlz3R/AiQk7J6GWWuCYpHf6Hc4QEGj
+	 YNcTJfbYyYqyQ/EOjlGQ1OMPsBJbP24gN7+b5fQQ/ips+o4jGvIAuhfLhP0bq0ZnRK
+	 aXdQzA+eTgDk/wDII14GbvuaUNUCDV+HRTY9EE9DoygEw7sZAFKeBWAa5eixwP+5R+
+	 9VPI/VbwsXbg4rvK2YNLfNWmwwbukxfZzhhVp6Iwe42YwN4L48ri9oMXnAXM74UT2K
+	 Vu5P2+0QxQDzzp9AZzwBuTI9w24o/w9wSD4DshN1zkLczfdE4YXrco0sduX6a+/S7+
+	 hHEXqgLYa4siA==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 8DAFAC4361C;
+	Wed, 22 May 2024 23:32:23 +0000 (UTC)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <SHXPR01MB086351396027D8A443BB6068E6EB2@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+Subject: Re: [PATCH v1 0/5] BeagleV Fire support
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <171642074357.9409.6131755278467232949.git-patchwork-notify@kernel.org>
+Date: Wed, 22 May 2024 23:32:23 +0000
+References: <20240327-parkway-dodgy-f0fe1fa20892@spud>
+In-Reply-To: <20240327-parkway-dodgy-f0fe1fa20892@spud>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, conor.dooley@microchip.com,
+ daire.mcnamara@microchip.com, jamie.gibbons@microchip.com,
+ valentina.fernandezalanis@microchip.com, linus.walleij@linaro.org,
+ brgl@bgdev.pl, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240522_151038_720420_B25EA3F2 
-X-CRM114-Status: GOOD (  38.59  )
+X-CRM114-CacheID: sfid-20240522_163225_870709_F3016725 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,108 +79,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 22, 2024 at 01:50:57AM +0000, Minda Chen wrote:
-> > The patch is OK, but the subject line is not very informative.  It
-> > should be useful all by itself even without the commit log.
-> > "Change the argument of X" doesn't say anything about why we would
-> > want to do that.
-> > 
-> > On Thu, Mar 28, 2024 at 05:18:21PM +0800, Minda Chen wrote:
-> > > If other vendor do not select PCI_HOST_COMMON, the driver data is not
-> > > struct pci_host_bridge.
-> > 
-> > Also, I don't think this is the real problem.  Your PCIE_MICROCHIP_HOST
-> > Kconfig selects PCI_HOST_COMMON, and the driver calls
-> > pci_host_common_probe(), so the driver wouldn't even build without
-> > PCI_HOST_COMMON.
-> > 
-> > This patch is already applied and ready to go, but if you can tell
-> > us what's really going on here, I'd like to update the commit log.
-> > 
-> It is modified for Starfive code. Starfive JH7110 PCIe do not select
-> PCI_HOST_COMMON
-> plda_pcie_setup_iomems() will be changed to common plda code.
+Hello:
+
+This series was applied to riscv/linux.git (fixes)
+by Rob Herring (Arm) <robh@kernel.org>:
+
+On Wed, 27 Mar 2024 12:24:35 +0000 you wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> I think I can modify the title and commit log like this.
+> Yo,
 > 
-> Title: 
-> PCI: microchip: Get struct pci_host_bridge pointer from platform code
+> Wee series adding support for the BeagleV Fire. I've had a dts sitting
+> locally for this for over a year for testing Auto Update and I meant to
+> submit something to mainline once the board got announced publicly, but
+> only got around to that now.
 > 
-> Since plda_pcie_setup_iomems() will be a common PLDA core driver
-> function, but the argument0 is a struct platform_device pointer.
-> plda_pcie_setup_iomems() actually using struct pci_host_bridge
-> pointer other than platform_device pointer. Further more if a new
-> PLDA core PCIe driver do not select PCI_HOST_COMMON, the platform
-> driver data is not struct pci_host_bridge pointer. So get struct
-> pci_host_bridge pointer from platform code function
-> mc_platform_init() and make it to be an argument of
-> plda_pcie_setup_iomems().
+> [...]
 
-OK, I see what you're doing.  This actually has nothing to do with
-whether PCI_HOST_COMMON is *enabled*.  It has to do with whether
-drivers use pci_host_common_probe().  Here's what I propose:
+Here is the summary with links:
+  - [v1,1/5] dt-bindings: riscv: microchip: document beaglev-fire
+    (no matching commit)
+  - [v1,2/5] dt-bindings: gpio: mpfs: add coreGPIO support
+    https://git.kernel.org/riscv/c/6e12a52c1459
+  - [v1,3/5] dt-bindings: gpio: mpfs: allow gpio-line-names
+    https://git.kernel.org/riscv/c/f752a52d34cb
+  - [v1,4/5] dt-bindings: PCI: microchip: increase number of items in ranges property
+    https://git.kernel.org/riscv/c/649bad67d4b1
+  - [v1,5/5] riscv: dts: microchip: add an initial devicetree for the BeagleV Fire
+    (no matching commit)
 
-  PCI: plda: Pass pci_host_bridge to plda_pcie_setup_iomems()
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-  plda_pcie_setup_iomems() needs the bridge->windows list from struct
-  pci_host_bridge and is currently used only by pcie-microchip-host.c.  This
-  driver uses pci_host_common_probe(), which sets a pci_host_bridge as the
-  drvdata, so plda_pcie_setup_iomems() used platform_get_drvdata() to find
-  the pci_host_bridge.
 
-  But we also want to use plda_pcie_setup_iomems() in the new pcie-starfive.c
-  driver, which does not use pci_host_common_probe() and will have struct
-  starfive_jh7110_pcie as its drvdata, so pass the pci_host_bridge directly
-  to plda_pcie_setup_iomems() so it doesn't need platform_get_drvdata() to
-  find it.
-
-> > > Move calling platform_get_drvdata() to mc_platform_init().
-> > >
-> > > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > ---
-> > >  drivers/pci/controller/plda/pcie-microchip-host.c | 6 +++---
-> > >  1 file changed, 3 insertions(+), 3 deletions(-)
-> > >
-> > > diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c
-> > > b/drivers/pci/controller/plda/pcie-microchip-host.c
-> > > index 9b367927cd32..805870aed61d 100644
-> > > --- a/drivers/pci/controller/plda/pcie-microchip-host.c
-> > > +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-> > > @@ -876,11 +876,10 @@ static void plda_pcie_setup_window(void __iomem
-> > *bridge_base_addr, u32 index,
-> > >  	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);  }
-> > >
-> > > -static int plda_pcie_setup_iomems(struct platform_device *pdev,
-> > > +static int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
-> > >  				  struct plda_pcie_rp *port)
-> > >  {
-> > >  	void __iomem *bridge_base_addr = port->bridge_addr;
-> > > -	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
-> > >  	struct resource_entry *entry;
-> > >  	u64 pci_addr;
-> > >  	u32 index = 1;
-> > > @@ -1018,6 +1017,7 @@ static int mc_platform_init(struct
-> > > pci_config_window *cfg)  {
-> > >  	struct device *dev = cfg->parent;
-> > >  	struct platform_device *pdev = to_platform_device(dev);
-> > > +	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
-> > >  	void __iomem *bridge_base_addr =
-> > >  		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-> > >  	int ret;
-> > > @@ -1031,7 +1031,7 @@ static int mc_platform_init(struct
-> > pci_config_window *cfg)
-> > >  	mc_pcie_enable_msi(port, cfg->win);
-> > >
-> > >  	/* Configure non-config space outbound ranges */
-> > > -	ret = plda_pcie_setup_iomems(pdev, &port->plda);
-> > > +	ret = plda_pcie_setup_iomems(bridge, &port->plda);
-> > >  	if (ret)
-> > >  		return ret;
-> > >
-> > > --
-> > > 2.17.1
-> > >
 
 _______________________________________________
 linux-riscv mailing list
