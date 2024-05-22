@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FABAC25B7D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADE0C25B78
 	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 23:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DHzeRhsQcOBK+MgLOZZIeWtU/1l4VlgRcQ7o2CUNTvo=; b=KORh9a9Xua8PuU
-	T+kHZp5cw2KzSG+e2A/M+3xsVJUk7s6MpCxx8n45iPMOoUtUukWo/zK8bb6Mn3O48PPih+zQmYkNi
-	hk5IICeDsVjhM27Ne5gITxKvL6ka5u+AhaZQnraOzwGjXXMXSvcfW5ckoDPlBYLRg0pCeZ2CzqWzx
-	qZlVtQ+OXTGG8gbm7q+HcepGq5rz5cmj50JvxUWQbSh06E2khbXO1kk91Ez9486Gk+rzSuceo+geR
-	dXACUSLqDc7jMIlzmATvXQDWGNL1h1S+ehWS3UH3qKu60qmnqbZcgV6OQ9KC4Oj95EVgwrfwXOtGH
-	iE4COjYEqUFlZfCG4Odw==;
+	List-Owner; bh=2bIaQZ6vI6SUtH8/EdvV8hJltv77SY87gE3hk/swYKU=; b=1ANDNZdWaETo74
+	7V7vgW/0ipeirXR3UJGFUMwIbJJ+7r+aqdnM/Lq0rjihmgpIU8YrDzlh9DGMIwMHZGIpN/RsxDOZg
+	MVdSsIgLDO/XYudx1mBEQxhpc0bMfQf6D2ut09qO8O+WmD/rppgfzvciDOsOl3GEZ/7BCl7aSvysD
+	ppGLFEPVRq0OQgheGM0KLnAUPLZhzGDmMnv/kaOPKNr9W9WyaSRe01W4YCFNPtoA2deVpqgg78ydY
+	H9xy4x3yi1JXiuxEb87fDaxWWWgWJ2laZ2cMGZfPEfSDun58hUuTpKn5KtjJOU1/h2yScJRhmpDcF
+	l9pDhQWcKC+hAyCb8nPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9vkO-00000004VPs-0Peq;
-	Wed, 22 May 2024 23:51:52 +0000
+	id 1s9vkP-00000004VQp-3VWx;
+	Wed, 22 May 2024 23:51:53 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9vkK-00000004VMb-3DvV
+	id 1s9vkL-00000004VMu-34vu
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 23:51:50 +0000
+	Wed, 22 May 2024 23:51:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E322362BF9;
-	Wed, 22 May 2024 23:51:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9AF56C3277B;
+	by dfw.source.kernel.org (Postfix) with ESMTP id B722962C01;
+	Wed, 22 May 2024 23:51:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B9E76C4AF0A;
 	Wed, 22 May 2024 23:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1716421907;
-	bh=Wz6FwdvgNhDesiVH6dQghRM42TWv9+GR59lUb5hn/E4=;
+	bh=WxJ6YXhCfPuZ517v7LggLzpx3WamKrtIwMEXRH1SkOs=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Gdnzibckaz5cwwTCArZbF5NHieAhZNuBW55C4Js2e7xiejIwL1qDzPUSCJRA4neAJ
-	 R08Kl7qzp/aMwumDYHWADsnV8sFbMKL2utt/IIN9SvaZBQUDDzAuJZJifx1iMAa7lb
-	 OTyv2Mq5oKDHRbPaEru6GeIswqmkq+AY/hSGT260paQ6aCExrNfGryanLlU6WpMXRm
-	 pEiU5H76wmMz/sSi2UBS6xN0g/vNjklDR8ZLGCNfniWGvLWVnHUOrfbkY0bxQQSB3b
-	 W7IAGQzqvYTYLyZ6fnCfqo0rx3QvB4ROYjNYfvIZF31Pzf7bAfou3CRVq98rsM9p2d
-	 ced3spMHDRqmg==
+	b=urSOuSENx+V2tYjtyhElDa8RGuy6Yw2ejpx3a5Jpk2tG1Is1oN+9fpqbUqBszAYLI
+	 highrSAdxr5LyMCPvlFNIzGXb+Hce93cFZCuKLDhnLQQFKD5Y2h7h3cErqWqNfXLHc
+	 PPrtRCjOZEhRCk6mgWUcgUvdxMqhB/GtUDsOyVAmiZJoYf5PVynhnbOLyOduA1u6kt
+	 mfKiJGmD4ixh2Wj+kaFbeA56QwAjLCfuFIpeOCD8JIsZLfBNVUxabigZfyTcvMLSJB
+	 RZeLZzsH0pHAsyE4dGd/nYRxwvPMtjoJUe8W8IH7eLBqfsMKtyjUzsNh6OZ9stqfBO
+	 cYPt0Me+dG28g==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 837C7C43618;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id ADCCFC54BB1;
 	Wed, 22 May 2024 23:51:47 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [GIT PULL] RISC-V Patches for the 6.10 Merge Window, Part 1
+Subject: Re: [PATCH] riscv: typo in comment for get_f64_reg
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171642190753.9409.11050201174881713187.git-patchwork-notify@kernel.org>
+Message-Id: <171642190770.9409.8853343046568203839.git-patchwork-notify@kernel.org>
 Date: Wed, 22 May 2024 23:51:47 +0000
-References: <mhng-e73e59bf-92fc-4122-9f9e-a329d20eba55@palmer-ri-x1c9>
-In-Reply-To: <mhng-e73e59bf-92fc-4122-9f9e-a329d20eba55@palmer-ri-x1c9>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
- linux-kernel@vger.kernel.org
+References: <20240317055556.9449-1-rockrush@rockwork.org>
+In-Reply-To: <20240317055556.9449-1-rockrush@rockwork.org>
+To: Xingyou Chen <rockrush@rockwork.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ ajones@ventanamicro.com, cleger@rivosinc.com, aou@eecs.berkeley.edu,
+ palmer@dabbelt.com, paul.walmsley@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240522_165148_962728_9C5C25D3 
-X-CRM114-Status: UNSURE (   6.94  )
+X-CRM114-CacheID: sfid-20240522_165149_839855_E4F9FDDC 
+X-CRM114-Status: UNSURE (   7.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,23 +78,18 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This pull request was applied to riscv/linux.git (for-next)
-by Linus Torvalds <torvalds@linux-foundation.org>:
+This patch was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed, 22 May 2024 09:13:28 -0700 (PDT) you wrote:
-> The following changes since commit 4cece764965020c22cff7665b18a012006359095:
-> 
->   Linux 6.9-rc1 (2024-03-24 14:10:05 -0700)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.10-mw1
-> 
-> [...]
+On Sun, 17 Mar 2024 13:55:56 +0800 you wrote:
+> Signed-off-by: Xingyou Chen <rockrush@rockwork.org>
+> ---
+>  arch/riscv/kernel/fpu.S | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 Here is the summary with links:
-  - [GIT,PULL] RISC-V Patches for the 6.10 Merge Window, Part 1
-    https://git.kernel.org/riscv/c/0bfbc914d943
+  - riscv: typo in comment for get_f64_reg
+    https://git.kernel.org/riscv/c/fca93def4e41
 
 You are awesome, thank you!
 -- 
