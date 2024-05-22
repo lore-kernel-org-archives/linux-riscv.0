@@ -4,77 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B9FC25B77
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 11:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871FEC25B7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 11:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ray5p6jDVk5GBl1qifbyrQIU91dRn61lpvFJSJIW5+I=; b=d/MjV+0aIQTVeIgNjKybz/T3VF
-	25lFoWuzps9eOzfjSzvv3xNhwg9MPjRAcCptm3kL+ipCbfu8pKhqoI/ejIoXxv6Z1WdyGGGhFGfmq
-	Hex6niw80WbQkAoOSU2zj1v17oDWL5rhyq95YlPpkTT8Gl/Tm1IBoK00JAEXYu7muKA35NDgQGLYU
-	51BHPKxdMRq6OsLvhAVmkjYTIv0SEzkFkth/rOthYftBilvxfwIDs0U2HfvZ80O5Cg7vORSKt6nqK
-	I4ojJR0AZbfd0TtObjnXEqlg8ikqA5hoL3/uKj6N0TCuPpnV2tzz8YkuXPCehzb7ALzOnrKokpROt
-	gEB4mgcQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=L/IdFznYkYJhX2wef08nJcJgC4iJahQuIxwLw5XBI9M=; b=Hj2TL+6X4BxToy
+	KcRUd//+N1FYZ481oEBANdHlUApy+Z1dRTw9PQeSODyso01gR8T1snexUaw9/V+ecgspdAChMqXA9
+	t6Rw9pgKEFo0X4LE90I5gFXMRXYSfXJ7dltYdAnReSWGhIItLrOx4QJNeByfhnL/SSLNUqZmz089f
+	SrsMkui0FYNvhTrwVj+Q98c6wDiIrXD62lKHy6klu2JPjzAVPFglBqTZNaZM5kHW3eF2fyb7FPGD9
+	5TIZmslLegYI7ykCSFspAkIxMPMXZ8EyTA8hkzOq0/JMkIyJzEwRfoXbz5rO5uL84X/AUcZqHJKAD
+	3ZfoobGFuxJl5epMsF3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9k2B-00000002leo-1R47;
-	Wed, 22 May 2024 11:21:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s9k3X-00000002lue-2kml;
+	Wed, 22 May 2024 11:22:51 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9k28-00000002leN-2RMw
+	id 1s9k3Q-00000002lrc-0Ln1
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 11:21:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B635F62481;
-	Wed, 22 May 2024 11:21:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A68AEC2BD11;
-	Wed, 22 May 2024 11:21:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1716376883;
-	bh=6LFpisAJ3P2zL/wDbYfaPPwjur7WX2IAIulJ4g4PAAA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iqoFvCWhL06a+t3NwIiHw7f7YkYWr6An8TRv4o2dAlkTeFZh0noWkl8eHYPTJ7/L2
-	 TbYkFtaSP/IxDAkggFuA7DKY5bcZ8xT8qT4RVKbVJ9gdUQj9VrIdQqwiwRrEXLsqdA
-	 wwyDT+5UTEQj/NZLNW0BfAxrgiC0oXA0JtJYoD5IWAvOZ+Hm7CWjxwkEJtxqrBYgLo
-	 nWePa0mTUVjoCIZAWcNj7VvrxBbLdGB0OYgAeCBR/quUErwE7SWWeoscdX0UkNVTGN
-	 z6woD/4Ji2GtDcuFgtx1+D7X5zz1NYYsVcAVcd8paZo/ykOopjL94IV7OfzK2D7O37
-	 7LyBbaoe1ptyA==
-Date: Wed, 22 May 2024 12:21:14 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Edward Liaw <edliaw@google.com>
-Cc: shuah@kernel.org, =?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Kees Cook <keescook@chromium.org>,
-	Andy Lutomirski <luto@amacapital.net>,
-	Will Drewry <wad@chromium.org>, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, kernel-team@android.com,
-	linux-security-module@vger.kernel.org, netdev@vger.kernel.org,
-	linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH v5 02/68] kselftest: Desecalate reporting of missing
- _GNU_SOURCE
-Message-ID: <94b73291-5b8a-480d-942d-cfc72971c2f5@sirena.org.uk>
-References: <20240522005913.3540131-1-edliaw@google.com>
- <20240522005913.3540131-3-edliaw@google.com>
+	Wed, 22 May 2024 11:22:45 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E86A61BF207;
+	Wed, 22 May 2024 11:22:32 +0000 (UTC)
+Message-ID: <fd2100a8-a17c-460c-a8e8-b5cede3d51c1@ghiti.fr>
+Date: Wed, 22 May 2024 13:22:31 +0200
 MIME-Version: 1.0
-In-Reply-To: <20240522005913.3540131-3-edliaw@google.com>
-X-Cookie: Bridge ahead.  Pay troll.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] riscv: rewrite __kernel_map_pages() to fix sleeping
+ in invalid context
+Content-Language: en-US
+To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+References: <cover.1715750938.git.namcao@linutronix.de>
+ <1289ecba9606a19917bc12b6c27da8aa23e1e5ae.1715750938.git.namcao@linutronix.de>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <1289ecba9606a19917bc12b6c27da8aa23e1e5ae.1715750938.git.namcao@linutronix.de>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240522_042124_906370_459E29D3 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20240522_042244_446162_6E8ADCB5 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,66 +60,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4885830271356608625=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4885830271356608625==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WIFHs1Yh6LyJ3Qfq"
-Content-Disposition: inline
-
-
---WIFHs1Yh6LyJ3Qfq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, May 22, 2024 at 12:56:48AM +0000, Edward Liaw wrote:
-
-> to make stopping builds early replace the static_assert() with a
-> missing without making the error more severe than it already was.  This
-> will be moot once the issue is fixed properly but reduces the disruption
-> while that happens.
->=20
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> Reviewed-by: Kees Cook <keescook@chromium.org>
+On 15/05/2024 07:50, Nam Cao wrote:
+> __kernel_map_pages() is a debug function which clears the valid bit in page
+> table entry for deallocated pages to detect illegal memory accesses to
+> freed pages.
+>
+> This function set/clear the valid bit using __set_memory(). __set_memory()
+> acquires init_mm's semaphore, and this operation may sleep. This is
+> problematic, because  __kernel_map_pages() can be called in atomic context,
+> and thus is illegal to sleep. An example warning that this causes:
+>
+> BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1578
+> in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 2, name: kthreadd
+> preempt_count: 2, expected: 0
+> CPU: 0 PID: 2 Comm: kthreadd Not tainted 6.9.0-g1d4c6d784ef6 #37
+> Hardware name: riscv-virtio,qemu (DT)
+> Call Trace:
+> [<ffffffff800060dc>] dump_backtrace+0x1c/0x24
+> [<ffffffff8091ef6e>] show_stack+0x2c/0x38
+> [<ffffffff8092baf8>] dump_stack_lvl+0x5a/0x72
+> [<ffffffff8092bb24>] dump_stack+0x14/0x1c
+> [<ffffffff8003b7ac>] __might_resched+0x104/0x10e
+> [<ffffffff8003b7f4>] __might_sleep+0x3e/0x62
+> [<ffffffff8093276a>] down_write+0x20/0x72
+> [<ffffffff8000cf00>] __set_memory+0x82/0x2fa
+> [<ffffffff8000d324>] __kernel_map_pages+0x5a/0xd4
+> [<ffffffff80196cca>] __alloc_pages_bulk+0x3b2/0x43a
+> [<ffffffff8018ee82>] __vmalloc_node_range+0x196/0x6ba
+> [<ffffffff80011904>] copy_process+0x72c/0x17ec
+> [<ffffffff80012ab4>] kernel_clone+0x60/0x2fe
+> [<ffffffff80012f62>] kernel_thread+0x82/0xa0
+> [<ffffffff8003552c>] kthreadd+0x14a/0x1be
+> [<ffffffff809357de>] ret_from_fork+0xe/0x1c
+>
+> Rewrite this function with apply_to_existing_page_range(). It is fine to
+> not have any locking, because __kernel_map_pages() works with pages being
+> allocated/deallocated and those pages are not changed by anyone else in the
+> meantime.
+>
+> Fixes: 5fde3db5eb02 ("riscv: add ARCH_SUPPORTS_DEBUG_PAGEALLOC support")
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> Cc: stable@vger.kernel.org
 > ---
->  tools/testing/selftests/kselftest_harness.h | 2 +-
+>   arch/riscv/mm/pageattr.c | 28 ++++++++++++++++++++++------
+>   1 file changed, 22 insertions(+), 6 deletions(-)
+>
+> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+> index 410056a50aa9..271d01a5ba4d 100644
+> --- a/arch/riscv/mm/pageattr.c
+> +++ b/arch/riscv/mm/pageattr.c
+> @@ -387,17 +387,33 @@ int set_direct_map_default_noflush(struct page *page)
+>   }
+>   
+>   #ifdef CONFIG_DEBUG_PAGEALLOC
+> +static int debug_pagealloc_set_page(pte_t *pte, unsigned long addr, void *data)
+> +{
+> +	int enable = *(int *)data;
+> +
+> +	unsigned long val = pte_val(ptep_get(pte));
+> +
+> +	if (enable)
+> +		val |= _PAGE_PRESENT;
+> +	else
+> +		val &= ~_PAGE_PRESENT;
+> +
+> +	set_pte(pte, __pte(val));
+> +
+> +	return 0;
+> +}
+> +
+>   void __kernel_map_pages(struct page *page, int numpages, int enable)
+>   {
+>   	if (!debug_pagealloc_enabled())
+>   		return;
+>   
+> -	if (enable)
+> -		__set_memory((unsigned long)page_address(page), numpages,
+> -			     __pgprot(_PAGE_PRESENT), __pgprot(0));
+> -	else
+> -		__set_memory((unsigned long)page_address(page), numpages,
+> -			     __pgprot(0), __pgprot(_PAGE_PRESENT));
+> +	unsigned long start = (unsigned long)page_address(page);
+> +	unsigned long size = PAGE_SIZE * numpages;
+> +
+> +	apply_to_existing_page_range(&init_mm, start, size, debug_pagealloc_set_page, &enable);
+> +
+> +	flush_tlb_kernel_range(start, start + size);
+>   }
+>   #endif
+>   
 
-You've not provided a Signed-off-by for this so people can't do anything
-with it, please see Documentation/process/submitting-patches.rst for
-details on what this is and why it's important.
 
---WIFHs1Yh6LyJ3Qfq
-Content-Type: application/pgp-signature; name="signature.asc"
+And you can add:
 
------BEGIN PGP SIGNATURE-----
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmZN1SkACgkQJNaLcl1U
-h9ALrgf/W2wyJyKvxhDmFrYgFJhxqTL7kAvJooFztcjGspGzZ11XMWpg5qCx0HHS
-CMQ056M6KjXP56PoyIJZUlgKZS/iTbNbN16CdgfzNjmm+bVoyI7RnHG5VU5ynmuC
-BgqlUZvPgjjEyxrdq3VZTEnGRMkOhSyGofvXfHkmTyxG6iPMEQP7oBAiYyKitqw1
-p16mfKVsFOWMVIa4Pz7N6DrB/DYMdLs+nmaueOfuqShFo4LwGkaP5f0ey5OFLqk4
-RSB8dbe74T8sqtlAiC+2eAHk4PIT7tsmiyAK1n80aE2bf+JBR4hWjhrniS1JKSoW
-znqrGa5yeQ/laQLifd57Xg0iW8mesw==
-=umSn
------END PGP SIGNATURE-----
+Thanks!
 
---WIFHs1Yh6LyJ3Qfq--
+Alex
 
-
---===============4885830271356608625==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4885830271356608625==--
-
