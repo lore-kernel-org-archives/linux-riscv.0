@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA883C25B74
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 01:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A877C25B7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 01:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,76 +13,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=Fxqd+H7D0uI9LKnk83MxcPuHRJpa+5Kj6tDPvk7YBQM=; b=mhM9Xxspr65YC2X/2adCHSFxQj
-	A6cBvtunT+qPtAbYxoUYpyI8Y4+uIW9YahJ+MdUBuip4sTCUqwNWbn7S1bIUuk5d2kxx0UY32gb+l
-	ULUHXWgSd5VrEwLgQHMKrtJUPjRCVyJgsW6s9NSFaxpxLm9h3HrEuJ2YiMfxTVnmRRhjTpbZE3180
-	Pm/0gKVIUuFahUJ90wsgPm4rczrIBm1q+Qg/vgiVTs3wlocTqhwETzRteSOsxz5gbfjV8iyK/S/a5
-	yH3K1Wk1/wsWpcMzyZpPhkvpKU0IgeM2PZVUwgEUZgsN/uxMGjLDJgcXb1/FgK61jNqWM09uUdUBs
-	9xcseDCw==;
+	bh=RYvbZDpkXr/4bn6j3Vp6IFiAXd8Y1Tfzl1W6tlHB8jQ=; b=QicXvF1NVzhwHgd7ERPEdoSFd5
+	Ny8ooNwAdDv+BTR+trTkoWAJIm1TLOXcyJkioFa/bNAfG4UXk0qfOUNbkFPEmBpReIs7imLgNIlEO
+	vYI/qevjHbO2Bt384N7b3MTk8Rk46Fznhqol9eHCUQaicHUQcF46ZyseTvoQ2Ba7kjW7/8cMZdZze
+	wV7TBRRoHulHTnEDHiUYtCWoS/JgP1mp9oQ2wbki/My27pvJnAHG5OxZl33c1mdk5H8yFWnoWndDT
+	+E7y9wVK9sD+n1UVeRe48DxkaMJCv8KVuX9eQsu94yjeDb1KPAaJR3ymMW+c9bHG8FAWbwL0Lf35l
+	FOnsrP4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9aNk-00000001VFo-0Mwz;
-	Wed, 22 May 2024 01:03:04 +0000
+	id 1s9aNn-00000001VHz-22bt;
+	Wed, 22 May 2024 01:03:07 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9aMK-00000001UJ4-2bf9
+	id 1s9aMS-00000001UP3-12wY
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 22 May 2024 01:01:36 +0000
+	Wed, 22 May 2024 01:01:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=hKqcMH+cHcivjSlV0iWazZDih52rI3iEBn71iAK9Nco=; b=QS3Z8t5ZHhx4dQoPRvTs7Wuqd0
-	s6cxr/bN1tHvEYjQOUarV5KxhF/60Q2QXBbB+OgXqrVfxiPeHpSYWnSxpnVQNAAuNStVz+/9/uSA1
-	TthBxiwqALlouLpDtKbArLyHky1hZdf9PrCA9SypiMJS+1l9Lff1KgDNr1luvxftiibcZNw8/lZjW
-	xYrNa/bvUiGIWLLMAwynJEe8lDp+qnQu7xDuX0uk20YThb/PF5ehnHgP+9SsNWmao+UxCzcZSL7Np
-	ZcZiiwS3vVrrnkozQ2/adxvBkJ5luFCDLBe0rdYclzltEobMIH7Gu1RNr7suI7t2DILlF+Mk/1ARq
-	cGRmy7Yw==;
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	bh=+hOshFmf6G7zEK9XyWMlNtDhU83mdpWiA8UPY2QVI6c=; b=Cjps5FgBplXi+CFaYLU/OXfyVh
+	Z9L0tA7TLohKLlpvYYHkuw8LE66sQAqWeyb5CiEaRisT6MdBjL/DQVsB5dJWXVFJbZYhUWGSp1sEn
+	XXNcSXJ2MVg1ElbmCpP6yReY3l0l34CJZAux6cR0BkPcyWPMyGqiUMX3OI3JnK2DUq8QIocD8nGGv
+	eOzObFjEvsqKgXqXv9FKZna4nsxmkIx+kKgrN8lhOsIJDyCAm6hbhfMPTQ0i/Qzi3LVFXvAXW4ORg
+	InrAy8f2ILC+CpiI18fyhc5dZCIgfO8v/qd/PhCZwQkjbBGia9qLD/w8/YAii0eoEQXpH1mDTeNdQ
+	fJchHxyw==;
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9aMH-00000000AxT-2BJr
+	id 1s9aMO-00000000Az3-23G0
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 01:01:35 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-5cdfd47de98so12784394a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 18:01:33 -0700 (PDT)
+	Wed, 22 May 2024 01:01:42 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-6f474d00351so9451523b3a.3
+        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 18:01:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1716339691; x=1716944491; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1716339697; x=1716944497; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hKqcMH+cHcivjSlV0iWazZDih52rI3iEBn71iAK9Nco=;
-        b=RAWofpbbfuUrKyvzn2bhKnr86n7Zl+zcs58kQKGujfxg4IcZXeFkI22W+vs8mtPAdZ
-         dLmPFZpl3HxtjZkbj44lHcHfcatYRNJ1kFI/oUD9hmSZCGDXp+gAxRns6iofCrDjCOEC
-         TcjmLJdmHe0ZfyrIErBVyIB+O98jcHUAu7+m3cLMDBjw+hHqr4ay8jKLVuxFXT8QJnkn
-         SJcneI9PKqMhJ0VNb4loLKbsfsVwyxa5dS2p5/nLV4CYx2Ezwgb48sdzjy5UsK1iUyMI
-         RstnTKeUsTFuoE5Ma1R5vStmyF3+2KXqZmHaQ6vfPJuCDi1BSj1B8ZuG173joJxuxsF1
-         z4Nw==
+        bh=+hOshFmf6G7zEK9XyWMlNtDhU83mdpWiA8UPY2QVI6c=;
+        b=JaFZqxZFGGjPr4VCEEiQffXxtkGxcgr0VyqS3OqedEJnpNaBVD9P1BUliBfpSh4qIr
+         RQ3wAhjA1QAF/yd/HU7dEeYDca6dvqjUO+0Hx0esYD8iuhlEcVz16l/zYF5eSswzdDJ5
+         U2OFpDEcIuT3yTFlMrSOLtbWvMUJiUbCix84rNrjDjeWZ51+UryMB7Gikg8ohLFRgkDs
+         S5YJCY1ztmmd8vJN9BBvchSPEJfmJ1zyU7ji+zThePjGi5KgszB3GiKdOWqX/5HE5dNl
+         CWyaGt3kW7GiWsVkk5DpEID7g2J3RrGauJ2iSmUJCGFmWm0DROOVuxFmWpV1M4NqdwTW
+         kfhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716339691; x=1716944491;
+        d=1e100.net; s=20230601; t=1716339697; x=1716944497;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hKqcMH+cHcivjSlV0iWazZDih52rI3iEBn71iAK9Nco=;
-        b=VcVZqKAI7G6tDKz32UhO4cunpQuuEes4H7R9kYx0Rez2Vp/0qHrm66OAV0okaXOsHY
-         X9Z++DKC0GN6CjUTEcEPc132k16QOORNTwnip8iome1kUlkQrPFczvIIZXegsQku8yr9
-         Fy4YMSc34o0zSWGK2Mng/CB3+FZakEA6UcESVzcMUfARBP6rYvc0/BINKzudrDGly/dQ
-         zOhBuZT075b9X0iZ1EXiXSleBoR6MAHLA5FSWU1SP/pShsF1Pw4ffu2sGrFJhNPW3xj1
-         wMKGw3K2U4Jcxq8Y6uLCh1+et+BSyYsg7Aja6OKaybDW4+96nUcEsh42/Rgv1jSc+mU7
-         JSEA==
-X-Forwarded-Encrypted: i=1; AJvYcCWarrPrqK/HBILT7kR4HaklDW7TM9Lu/nxW+z48o421RytjpNyUqmpju0AwrAgIvS6rXA/DZTqGArjxQhDiHXy77fAnUGx6emv1R5jcHJwE
-X-Gm-Message-State: AOJu0YwLEYqTigezX8MmYcjJB/zMY69SGumGNZtxGnlyIkj+KZJ5PW+f
-	32wWg9BLfiyY3Ivjfs0AZmOAXGg2FQEmrSpdMF4nF3uZyWrUlXvjJ6LrJ9AamMjkk7PAYn2kGL+
-	r6A==
-X-Google-Smtp-Source: AGHT+IHEdlPEV5C7CUmVhgzYSyvdP68FXeZPwJi2pFA4aRhZIMBKvPNDfPXTnCO1F52hvMs38tuZRBZ9qyk=
+        bh=+hOshFmf6G7zEK9XyWMlNtDhU83mdpWiA8UPY2QVI6c=;
+        b=ATfPjGfAoGCQ70Ddi5c2uJHjIPlBxdeEPEdN6peWCSyb7CD8A6JleIj+EQAn85g7wZ
+         g8NRG2ZyEVYAMZKpJAkV7yFhbtDLbjYlVUAnZcBg+ZrP1ZmWfujvSK4qK1fwiZDn2orQ
+         iU6d+oNPOVbSJL0urW5xd8g4a2en6wWiF42yIlG+41uvQw5wwR+1IO0SxxKxBAiCJFSp
+         qndfwVZTfY5AYB4ayXHkUDi651AgNXCtBDUmp9YvaMOu4OIzDOpTw9JGHdsfW0ZleNGA
+         NO/AV00AFKcmvK0C/RKdnshRK1u3cLT2msxau5SL9kXwFlUAc0riTpEVjO1tfQzDHeAs
+         5jjA==
+X-Forwarded-Encrypted: i=1; AJvYcCUfsyJUd45dDLZuE5K6lRjqXvBTp+JuSuUjuvKpJASoKVuSjRq/zvS7iP5WL1e+yip23LOLFN1h00sQJQ1yHAIZlPYnUR4fnXP/h6CcrSbT
+X-Gm-Message-State: AOJu0YzCTDVTe63ISy7RqeDvxYKkwDpKLko+LHiD5blhaBg0/XoqbYb9
+	QNRrtgQ9gnKjFs8bNt7zdK4s+PZ3K8XlpCL87TShWMea7AGf8Tj3YurAw3hbtpcMi0WFXlv/Wc3
+	OKw==
+X-Google-Smtp-Source: AGHT+IHysubaIzqInuZoraBMn6KY3/zhAPfwf/Xk9cMSLEOs6DDr4Qj7OXFhv9O7YBXKJiOesYtWd3F2Ac8=
 X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a63:3715:0:b0:623:2c3c:ab09 with SMTP id
- 41be03b00d2f7-67640145dbemr1343a12.0.1716339690894; Tue, 21 May 2024 18:01:30
- -0700 (PDT)
-Date: Wed, 22 May 2024 00:57:27 +0000
+ (user=edliaw job=sendgmr) by 2002:a05:6a00:2e17:b0:6f3:eeda:a844 with SMTP id
+ d2e1a72fcca58-6f6d5fdba7fmr15269b3a.1.1716339697132; Tue, 21 May 2024
+ 18:01:37 -0700 (PDT)
+Date: Wed, 22 May 2024 00:57:29 +0000
 In-Reply-To: <20240522005913.3540131-1-edliaw@google.com>
 Mime-Version: 1.0
 References: <20240522005913.3540131-1-edliaw@google.com>
 X-Mailer: git-send-email 2.45.1.288.g0e0cd299f1-goog
-Message-ID: <20240522005913.3540131-42-edliaw@google.com>
-Subject: [PATCH v5 41/68] selftests/pid_namespace: Drop define _GNU_SOURCE
+Message-ID: <20240522005913.3540131-44-edliaw@google.com>
+Subject: [PATCH v5 43/68] selftests/ptrace: Drop define _GNU_SOURCE
 From: Edward Liaw <edliaw@google.com>
 To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
 	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
@@ -97,8 +97,8 @@ Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
 	John Hubbard <jhubbard@nvidia.com>, Muhammad Usama Anjum <usama.anjum@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240522_020133_607080_AB008308 
-X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-CacheID: sfid-20240522_020140_739080_05F546C2 
+X-CRM114-Status: UNSURE (   7.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,18 +123,30 @@ Reviewed-by: John Hubbard <jhubbard@nvidia.com>
 Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
 Signed-off-by: Edward Liaw <edliaw@google.com>
 ---
- tools/testing/selftests/pid_namespace/regression_enomem.c | 1 -
- 1 file changed, 1 deletion(-)
+ tools/testing/selftests/ptrace/get_set_sud.c | 1 -
+ tools/testing/selftests/ptrace/peeksiginfo.c | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/tools/testing/selftests/pid_namespace/regression_enomem.c b/tools/testing/selftests/pid_namespace/regression_enomem.c
-index 7d84097ad45c..54dc8f16d92a 100644
---- a/tools/testing/selftests/pid_namespace/regression_enomem.c
-+++ b/tools/testing/selftests/pid_namespace/regression_enomem.c
-@@ -1,4 +1,3 @@
+diff --git a/tools/testing/selftests/ptrace/get_set_sud.c b/tools/testing/selftests/ptrace/get_set_sud.c
+index 5297b10d25c3..054a78ebe8b5 100644
+--- a/tools/testing/selftests/ptrace/get_set_sud.c
++++ b/tools/testing/selftests/ptrace/get_set_sud.c
+@@ -1,5 +1,4 @@
+ // SPDX-License-Identifier: GPL-2.0
 -#define _GNU_SOURCE
- #include <assert.h>
- #include <errno.h>
- #include <fcntl.h>
+ #include "../kselftest_harness.h"
+ #include <stdio.h>
+ #include <string.h>
+diff --git a/tools/testing/selftests/ptrace/peeksiginfo.c b/tools/testing/selftests/ptrace/peeksiginfo.c
+index a6884f66dc01..1b7b77190f72 100644
+--- a/tools/testing/selftests/ptrace/peeksiginfo.c
++++ b/tools/testing/selftests/ptrace/peeksiginfo.c
+@@ -1,5 +1,4 @@
+ // SPDX-License-Identifier: GPL-2.0
+-#define _GNU_SOURCE
+ #include <stdio.h>
+ #include <signal.h>
+ #include <unistd.h>
 -- 
 2.45.1.288.g0e0cd299f1-goog
 
