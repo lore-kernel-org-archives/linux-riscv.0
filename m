@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A956AC25B78
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 16:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D248AC25B78
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 16:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=2WQwYqhS1WwjsWczNbCRyrv/EZBP0B1tKDd3XwWECZY=; b=WcNXyXt5J3hdpL+YX8eNShZiEm
-	x/gl85Rk/XexMVxW7Mo4cwHnh+ys00RkdCUaz7vhOFxE7ehKu1eEkvtKNg2aUdputqcnywwKzBCX3
-	vdy009Y/KtDJ+WCNwKzDFMAsOdFsa7vr3w8W+JimumKmyAI7vFSnntX5IuhG4hlDn7YeG93ZlvUyQ
-	dFwa2EGGMZh/TLihAKaeFXQa1kdNKC/VccQD4ZClL6YoQ3nUOh9EP1p3pIVS0hJ20mYrNPOaRycI/
-	xilhEqjmyuIZh1PNnaYiOiuTMfQiLw1sVGN3haHbnzpjbN0UnZnIMyH7OdyeYiP+WMOcXxeuCPJ2f
-	rn7DlakA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8GB1+VL2MCGp6HcppH/j2f3/bNLRJjgTFCWrGs8OzMI=; b=KuSlHDOK24DReZ
+	K/F+6DhvE9QG7pUW7W3lcU9d34uj1I8Csh0RqUB6XQenv9U/vLrR0WRFuFTfrzoDIpM0AG6dZ9IC1
+	5LSDThb1RA/KAcYEswhYXZbdOa8YXyueHj8+6dGzFf8W3hUvkPtY2U9w3V2SSO2pm5gMwlYhm9f4j
+	fUvU9t3YCda5d7ZG4+86AqrLcYFgfVARKMB2g+/4rgzmLv06/5Yy4DjWoAPARMfMQpnwHwQKW+O22
+	GoX9Ofkj0HR+8P9MEJdSvdLoAaRE2ziihMNbWLwzqg/2phrANNVotdrAKfdwepsFHpJJob8tpady/
+	Z27NTffB3okffLzQ3CUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9p14-00000003YWh-23b3;
-	Wed, 22 May 2024 16:40:38 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1s9p23-00000003Yfb-0JdL;
+	Wed, 22 May 2024 16:41:39 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9p0z-00000003YVl-1bUK
+	id 1s9p1z-00000003YeX-2ZFC
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 16:40:36 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1f335e8d493so1597365ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 May 2024 09:40:32 -0700 (PDT)
+	Wed, 22 May 2024 16:41:36 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-57230faeb81so6276648a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 22 May 2024 09:41:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1716396032; x=1717000832; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Nh2hEBp7C+i2NTaEC7uyemcMKD8WTFnEb/ThoPY8mY0=;
-        b=fZB5IeMtzuBlNzyk6o+j8GgdK4UbtyWZLSpfEsb5wSbAQe4hnW1koRBne8gkuHfuSz
-         2nTcrC1ZgJY9jVcSNwOxu4MLLhhLAoNS+8ZC2pJfpC1cqNbelQPztH5B6Jk5gsXSg/xY
-         NLGp9lxix21SuthL3zCS5yh+KYwLuEe0CUSMSoFyPbk5uB8+URqIAGqnMfzWReURzLiA
-         rbpEI8b08syfe2Xj2/nY/1xAptqL5Ls1th3C4gI8HBmRGkmU1mvNdFiIqFoYFG24ELU+
-         WB/AlOYbZb7pZJZZAc+gHGhb/aBySlkb7jC5Y/sm/txcQh5OFP7gSymNNRKPC7+1bNjQ
-         yTiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716396032; x=1717000832;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1716396093; x=1717000893; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Nh2hEBp7C+i2NTaEC7uyemcMKD8WTFnEb/ThoPY8mY0=;
-        b=kp65NHmXKAYt0QZsSJoRdqnG33o6ma6BklmSKvJz9qCrt7OrPQz5cVMXAz6wCFGK3+
-         A0hBnK+iKo+pdz65AUH8R8L1RZGb1tlo6p8JzgSoc8Tix2uYq6J6oeXTRFV3x10LYZwx
-         q04GIV1ICvUDzsaSndnJhfXCskFdzA6ebKTSlQFMy4NT8u1b4o8G2qRx+Fh/YkR0mqbd
-         d5SnekZsZkmcMnS0m8wFZNGwfU9CQW1+l4bTP5U4NdKqaquT9petoB6fxJ6ZfM01kg5W
-         5CFOuaZOJ5CAWpJcoUzO/bJq+4lA3Q0MCdvzQBbxjZ2k+p91HTB5N9c/q19IXrx7Et33
-         jAwA==
-X-Forwarded-Encrypted: i=1; AJvYcCXbgzlAtKLHVoF8J3AOPKp2HN4YdRw6gP4w0qXD57vSBR1MZpiZTBx0szQgtVcQMTDrEuYp0OoSgJE4wbLvPcuhH9P5TGDIoPsWEE+q1BlR
-X-Gm-Message-State: AOJu0Ywt9MTmeieGa/FBShdLP4AMJTpaHoadZbzWxsq60ENO/5cIm0c/
-	/8tm5y+GHSn+H5kKPk+8e9nfFmcDSvjsKZjiRlc7aOIeLOEm/z042cLfol/Zo/w=
-X-Google-Smtp-Source: AGHT+IHTgDEZ1Rdi9Tw0QmvSjoSsko/OAJhdhHxBLtqT7rpxgRJiixbvhXF7RsPN5V9wFt21tEw6+Q==
-X-Received: by 2002:a17:902:9895:b0:1f2:efdf:a410 with SMTP id d9443c01a7336-1f31c97be08mr23788185ad.15.1716396031849;
-        Wed, 22 May 2024 09:40:31 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1ef0bad7eb8sm241308015ad.90.2024.05.22.09.40.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 May 2024 09:40:31 -0700 (PDT)
-Date: Wed, 22 May 2024 09:40:31 -0700 (PDT)
-X-Google-Original-Date: Wed, 22 May 2024 09:40:20 PDT (-0700)
-Subject: Re: [PATCH] riscv: selftests: Add signal handling vector tests
-In-Reply-To: <20240403-vector_sigreturn_tests-v1-1-2e68b7a3b8d7@rivosinc.com>
-CC: shuah@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, andy.chiu@sifive.com, bjorn@kernel.org, Vineet Gupta <vineetg@rivosinc.com>,
-  linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-  Charlie Jenkins <charlie@rivosinc.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Message-ID: <mhng-50849ea8-b103-43af-aef4-073aff99ae61@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        bh=D0D2E2cfbbxVHUzTYoIqfwhIyGan3otmR2xS4JLclOU=;
+        b=e2f3W3+F78Nu/kjnLyZ0FRHzHxqpeZAOLLHKBc70OTBF2REAHEgEY1I1/2XBpoqzCo
+         ypDwiyOs8nVeUpu8VokF9eEgvep4mZoJkH93nRGI18bU70SgMgZfIaaFus9o7+/3etzz
+         xg7quccKq2eq349OvaBLy2Wnp9BLI2mIZHnghkJ+3+BHiC4vfATaqNwWYx//dhfI4+ZJ
+         x269Jauw1OUlg+SWjibnivUfhmyccHwprpQUQkkYXkJnPZbQPaNYJurLHmPpQyQLT3Um
+         xIfvee5ontS0MzXvuXoh+4oYDq1kjHIdEt4WMSr9ti9O3amC7cRw45ZHDef+TH0+GOGO
+         UrYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716396093; x=1717000893;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=D0D2E2cfbbxVHUzTYoIqfwhIyGan3otmR2xS4JLclOU=;
+        b=C1rCgp3kY0x9DEaorZimMtPMVui0pdzWQyTgDoSuaG6vB5p84TbgxeJ6evjcGpU+GX
+         GJ2lBVWRZf0xSIkjhq8mvcmUANNPNG9n/bWWnFXCuwOfAEO7HuG94MQJnlEUb/f7VeNk
+         oT7eAJixYFc8x0QG8++bbNLZN55XErelVzkzbsRO4M3leQumzsH7kfMi99yoytfSLG4Z
+         4cDP5F8HPqwOWdzkcI5N1N0b/1KLRP81ZbMcL36xASmko+rFT5+twZpKOV46dU2EqY2b
+         y9dCg1ITPp/P7dxFPShfHi7vjuzIagYrKrBXuBRkFZEF3R1RwSKp/ZnBldSbuIw/JUrb
+         q12w==
+X-Forwarded-Encrypted: i=1; AJvYcCWkfrcJc/WuZn7cZ/bF6lCI8xrUrsQ/X529HD9Hl3s8oUaMpyBnDv2azppgM+4+SJPcd8s9fiAl627UvIQ82uYhSZyBt4WP1jl0IYtjgJ6y
+X-Gm-Message-State: AOJu0YydijN8ww+c333XzBOojv/PpeeGHAGjFTZ9Ah+etiJHXVaLVoKE
+	uBq6D+0gVySNSUFXJD+VLYvobKu3iQKiHK6DRPV4kdP8rfPW63rHNXSdoxs92oL4kBSijnwYb76
+	XWXb0mlsRI4+uSANzgqqszviXvJMZ9g==
+X-Google-Smtp-Source: AGHT+IFFX3MYqZxTykrBDqEhWWplDnP3uOhy/1gv12cOKWc1GtiHAJtX3Yuzanuue7f8uxVzBuYnBeq7lKYou4B2Xrc=
+X-Received: by 2002:a50:9b42:0:b0:570:5bcc:f749 with SMTP id
+ 4fb4d7f45d1cf-57832c326cbmr1934151a12.29.1716396093397; Wed, 22 May 2024
+ 09:41:33 -0700 (PDT)
+MIME-Version: 1.0
+References: <20240522153835.22712-1-kanakshilledar111@protonmail.com> <20240522-yoga-blurt-dc5e40a0ae3a@spud>
+In-Reply-To: <20240522-yoga-blurt-dc5e40a0ae3a@spud>
+From: Kanak Shilledar <kanakshilledar@gmail.com>
+Date: Wed, 22 May 2024 22:11:20 +0530
+Message-ID: <CAGLn_=vfnQrNh63jWtUCojONAYqX3dm6qnXgA--Zi1KQ0P0o-A@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] dt-bindings: interrupt-controller: riscv,cpu-intc
+To: Conor Dooley <conor@kernel.org>
+Cc: Kanak Shilledar <kanakshilledar111@protonmail.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Samuel Holland <samuel.holland@sifive.com>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240522_094035_091540_1CAE4A81 
-X-CRM114-Status: GOOD (  30.12  )
+X-CRM114-CacheID: sfid-20240522_094135_685349_43D5CB1E 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,299 +89,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 03 Apr 2024 16:50:29 PDT (-0700), Charlie Jenkins wrote:
-> Add two tests to check vector save/restore when a signal is received
-> during a vector routine. One test ensures that a value is not clobbered
-> during signal handling. The other verifies that vector registers
-> modified in the signal handler are properly reflected when the signal
-> handling is complete.
->
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
-> These tests came about to highlight the bug fixed in
-> https://lore.kernel.org/lkml/20240403072638.567446-1-bjorn@kernel.org/
-> and will only pass with that fix applied.
-
-Thaks.  I'm just staging this, I have a testcase too that I keep 
-forgetting to post because I haven't gotten in into the selftests sanely 
-yet...
-
-    #include "../../kselftest.h"
-    #include <signal.h>
-    #include <stdlib.h>
-    #include <asm/ptrace.h>
-    #include <stdint.h>
-    
-    #define ITERATIONS     (1 << 24)
-    #define RISCV_V_MAGIC  0x53465457
-    
-    struct __riscv_ctx_hdr {
-            __u32 magic;
-            __u32 size;
-    };
-    
-    struct __riscv_extra_ext_header {
-            __u32 __padding[129] __attribute__((aligned(16)));
-            /*
-             * Reserved for expansion of sigcontext structure.  Currently zeroed
-             * upon signal, and must be zero upon sigreturn.
-             */
-            __u32 reserved;
-            struct __riscv_ctx_hdr hdr;
-    };
-    
-    
-    struct __riscv_v_ext_state {
-            unsigned long vstart;
-            unsigned long vl;
-            unsigned long vtype;
-            unsigned long vcsr;
-            unsigned long vlenb;
-            void *datap;
-            /*
-             * In signal handler, datap will be set a correct user stack offset
-             * and vector registers will be copied to the address of datap
-             * pointer.
-             */
-    };
-    
-    /* The beginning of the actual state. */
-    int count;
-    
-    void handler(int, siginfo_t *si, void *ucontext_void)
-    {
-    	ucontext_t *ucontext = ucontext_void;
-    
-    	/* Skip over the SEGV by just jumping to a0. */
-    	ucontext->uc_mcontext.__gregs[REG_PC] = ucontext->uc_mcontext.__gregs[REG_A0];
-    
-    	/* Increment the first element of v0. */
-    	{
-    		struct __riscv_extra_ext_header *ext;
-    		struct __riscv_v_ext_state *v_ext_state;
-    		uint32_t val;
-    
-    		/* Find the vector context. */
-    		ext = (void *)(&ucontext->uc_mcontext.__fpregs);
-    		if (ext->hdr.magic != RISCV_V_MAGIC) {
-    			fprintf(stderr, "bad vector magic: %x\n", ext->hdr.magic);
-    			abort();
-    		}
-    
-    		v_ext_state = (void *)((char *)(ext) + sizeof(*ext));
-    
-    		/* Actually do the increment. */
-    		memcpy(&val, v_ext_state->datap, sizeof(val));
-    		val++;
-    		memcpy(v_ext_state->datap, &val, sizeof(val));
-    	}
-    
-    	/* Count the delivered signal, to make sure we don't miss any. */
-    	count++;
-    }
-    
-    void sigill(int, siginfo_t *si, void *ucontext_void)
-    {
-    	fprintf(stderr, "SIGILL after %d iterations\n", count);
-    	abort();
-    }
-    
-    void check_signal(void)
-    {
-    	int check = rand();
-    	int out;
-    
-    	__asm__ volatile (
-    		"vsetvli a0, %2, e32, ta, ma\n\t"
-    		"vmv.s.x v0, %1\n\t"
-    		"la a0, 1f\n\t"
-    		"lw t0, 0(x0)\n\t"
-    		"1:\n\t"
-    		"vmv.x.s %0, v0"
-    		: "=&r"(out)
-    		: "r"(check-1), "r"(1)
-    		: "a0"
-    #ifdef __riscv_vector
-    		  , "v0"
-    #endif
-    	);
-    
-    	if (out != check) {
-    		fprintf(stderr, "out: %d\ncheck: %d\n", out, check);
-    		abort();
-    	}
-    }
-    
-    int main(void)
-    {
-    	struct sigaction sa_segv, sa_ill;
-    
-    	memset(&sa_segv, 0, sizeof(sa_segv));
-    	sa_segv.sa_sigaction = &handler;
-    	sa_segv.sa_flags     = SA_SIGINFO;
-    	sigaction(SIGSEGV, &sa_segv, NULL);
-    
-    	memset(&sa_ill, 0, sizeof(sa_ill));
-    	sa_ill.sa_sigaction = &sigill;
-    	sa_ill.sa_flags     = SA_SIGINFO;
-    	sigaction(SIGILL, &sa_ill, NULL);
-    
-    	count = 0;
-    	for (int i = 0; i < ITERATIONS; ++i)
-    		check_signal();
-    
-    	if (count != ITERATIONS) {
-    		fprintf(stderr, "count: %d\n", count);
-    		abort();
-    	}
-    
-    	return 0;
-    }
-
-> ---
->  tools/testing/selftests/riscv/Makefile             |  2 +-
->  tools/testing/selftests/riscv/sigreturn/.gitignore |  1 +
->  tools/testing/selftests/riscv/sigreturn/Makefile   | 12 ++++
->  .../testing/selftests/riscv/sigreturn/sigreturn.c  | 82 ++++++++++++++++++++++
->  4 files changed, 96 insertions(+), 1 deletion(-)
->
-> diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
-> index 4a9ff515a3a0..7ce03d832b64 100644
-> --- a/tools/testing/selftests/riscv/Makefile
-> +++ b/tools/testing/selftests/riscv/Makefile
-> @@ -5,7 +5,7 @@
->  ARCH ?= $(shell uname -m 2>/dev/null || echo not)
->
->  ifneq (,$(filter $(ARCH),riscv))
-> -RISCV_SUBTARGETS ?= hwprobe vector mm
-> +RISCV_SUBTARGETS ?= hwprobe vector mm sigreturn
->  else
->  RISCV_SUBTARGETS :=
->  endif
-> diff --git a/tools/testing/selftests/riscv/sigreturn/.gitignore b/tools/testing/selftests/riscv/sigreturn/.gitignore
-> new file mode 100644
-> index 000000000000..35002b8ae780
-> --- /dev/null
-> +++ b/tools/testing/selftests/riscv/sigreturn/.gitignore
-> @@ -0,0 +1 @@
-> +sigreturn
-> diff --git a/tools/testing/selftests/riscv/sigreturn/Makefile b/tools/testing/selftests/riscv/sigreturn/Makefile
-> new file mode 100644
-> index 000000000000..eb8bac9279a8
-> --- /dev/null
-> +++ b/tools/testing/selftests/riscv/sigreturn/Makefile
-> @@ -0,0 +1,12 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +# Copyright (C) 2021 ARM Limited
-> +# Originally tools/testing/arm64/abi/Makefile
-> +
-> +CFLAGS += -I$(top_srcdir)/tools/include
-> +
-> +TEST_GEN_PROGS := sigreturn
-> +
-> +include ../../lib.mk
-> +
-> +$(OUTPUT)/sigreturn: sigreturn.c
-> +	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-> diff --git a/tools/testing/selftests/riscv/sigreturn/sigreturn.c b/tools/testing/selftests/riscv/sigreturn/sigreturn.c
-> new file mode 100644
-> index 000000000000..62397d5934f1
-> --- /dev/null
-> +++ b/tools/testing/selftests/riscv/sigreturn/sigreturn.c
-> @@ -0,0 +1,82 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +#include <signal.h>
-> +#include <stdio.h>
-> +#include <stdlib.h>
-> +#include <ucontext.h>
-> +#include <linux/ptrace.h>
-> +#include "../../kselftest_harness.h"
-> +
-> +#define RISCV_V_MAGIC		0x53465457
-> +#define DEFAULT_VALUE		2
-> +#define SIGNAL_HANDLER_OVERRIDE	3
-> +
-> +static void simple_handle(int sig_no, siginfo_t *info, void *vcontext)
-> +{
-> +	ucontext_t *context = vcontext;
-> +
-> +	context->uc_mcontext.__gregs[REG_PC] = context->uc_mcontext.__gregs[REG_PC] + 4;
-> +}
-> +
-> +static void vector_override(int sig_no, siginfo_t *info, void *vcontext)
-> +{
-> +	ucontext_t *context = vcontext;
-> +
-> +	// vector state
-> +	struct __riscv_extra_ext_header *ext;
-> +	struct __riscv_v_ext_state *v_ext_state;
-> +
-> +	/* Find the vector context. */
-> +	ext = (void *)(&context->uc_mcontext.__fpregs);
-> +	if (ext->hdr.magic != RISCV_V_MAGIC) {
-> +		fprintf(stderr, "bad vector magic: %x\n", ext->hdr.magic);
-> +		abort();
-> +	}
-> +
-> +	v_ext_state = (void *)((char *)(ext) + sizeof(*ext));
-> +
-> +	*(int *)v_ext_state->datap = SIGNAL_HANDLER_OVERRIDE;
-> +
-> +	context->uc_mcontext.__gregs[REG_PC] = context->uc_mcontext.__gregs[REG_PC] + 4;
-> +}
-> +
-> +static int vector_sigreturn(int data, void (*handler)(int, siginfo_t *, void *))
-> +{
-> +	int after_sigreturn;
-> +	struct sigaction sig_action = {
-> +		.sa_sigaction = handler,
-> +		.sa_flags = SA_SIGINFO
-> +	};
-> +
-> +	sigaction(SIGSEGV, &sig_action, 0);
-> +
-> +	asm(".option push				\n\
-> +		.option		arch, +v		\n\
-> +		vsetivli	x0, 1, e32, ta, ma	\n\
-> +		vmv.s.x		v0, %1			\n\
-> +		# Generate SIGSEGV			\n\
-> +		lw		a0, 0(x0)		\n\
-> +		vmv.x.s		%0, v0			\n\
-> +		.option pop" : "=r" (after_sigreturn) : "r" (data));
-> +
-> +	return after_sigreturn;
-> +}
-> +
-> +TEST(vector_restore)
-> +{
-> +	int result;
-> +
-> +	result = vector_sigreturn(DEFAULT_VALUE, &simple_handle);
-> +
-> +	EXPECT_EQ(DEFAULT_VALUE, result);
-> +}
-> +
-> +TEST(vector_restore_signal_handler_override)
-> +{
-> +	int result;
-> +
-> +	result = vector_sigreturn(DEFAULT_VALUE, &vector_override);
-> +
-> +	EXPECT_EQ(SIGNAL_HANDLER_OVERRIDE, result);
-> +}
-> +
-> +TEST_HARNESS_MAIN
->
-> ---
-> base-commit: 4cece764965020c22cff7665b18a012006359095
-> change-id: 20240403-vector_sigreturn_tests-8118f0ac54fa
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ29ub3IsCgpPbiBXZWQsIE1heSAyMiwgMjAyNCBhdCA5OjM04oCvUE0gQ29ub3IgRG9vbGV5
+IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIFdlZCwgTWF5IDIyLCAyMDI0IGF0IDA5
+OjA4OjM0UE0gKzA1MzAsIEthbmFrIFNoaWxsZWRhciB3cm90ZToKPiA+IFRoaXMgc2VyaWVzIG9m
+IHBhdGNoZXMgY29udmVydHMgdGhlIFJJU0MtViBDUFUgaW50ZXJydXB0IGNvbnRyb2xsZXIgdG8K
+PiA+IHRoZSBuZXdlciBkdC1zY2hlbWEgYmluZGluZy4KPiA+Cj4gPiBQYXRjaCAxOgo+ID4gVGhp
+cyBwYXRjaCBpcyBjdXJyZW50bHkgYXQgdjMgYXMgaXQgaGFzIGJlZW4gcHJldmlvdXNseSByb2xs
+ZWQgb3V0Lgo+ID4gQ29udGFpbnMgdGhlIGJpbmRpbmdzIGZvciB0aGUgaW50ZXJydXB0IGNvbnRy
+b2xsZXIuCj4gPgo+ID4gUGF0Y2ggMjoKPiA+IFRoaXMgcGF0Y2ggaXMgY3VycmVudGx5IGF0IHYy
+Lgo+ID4gQ29udGFpbnMgdGhlIHJlZmVyZW5jZSB0byB0aGUgYWJvdmUgaW50ZXJydXB0IGNvbnRy
+b2xsZXIuIFRodXMsIG1ha2luZwo+ID4gYWxsIHRoZSBSSVNDLVYgaW50ZXJydXB0IGNvbnRyb2xs
+ZXIgYmluZGluZ3MgaW4gYSBjZW50cmFsaXplZCBwbGFjZS5vCj4KPiBEb24ndCBkbyB0aGlzLCBp
+dCBicmVha3MgdG9vbGluZzoKPgo+ICAgICAgICAgYjQgc2hhemFtIDIwMjQwNTIyMTUzODM1LjIy
+NzEyLTIta2FuYWtzaGlsbGVkYXIxMTFAcHJvdG9ubWFpbC5jb20KPiAgICAgICAgIEdyYWJiaW5n
+IHRocmVhZCBmcm9tIGxvcmUua2VybmVsLm9yZy9hbGwvMjAyNDA1MjIxNTM4MzUuMjI3MTItMi1r
+YW5ha3NoaWxsZWRhcjExMUBwcm90b25tYWlsLmNvbS90Lm1ib3guZ3oKPiAgICAgICAgIENoZWNr
+aW5nIGZvciBuZXdlciByZXZpc2lvbnMKPiAgICAgICAgIEdyYWJiaW5nIHNlYXJjaCByZXN1bHRz
+IGZyb20gbG9yZS5rZXJuZWwub3JnCj4gICAgICAgICBBbmFseXppbmcgMyBtZXNzYWdlcyBpbiB0
+aGUgdGhyZWFkCj4gICAgICAgICBMb29raW5nIGZvciBhZGRpdGlvbmFsIGNvZGUtcmV2aWV3IHRy
+YWlsZXJzIG9uIGxvcmUua2VybmVsLm9yZwo+ICAgICAgICAgV2lsbCB1c2UgdGhlIGxhdGVzdCBy
+ZXZpc2lvbjogdjMKPiAgICAgICAgIFlvdSBjYW4gcGljayBvdGhlciByZXZpc2lvbnMgdXNpbmcg
+dGhlIC12TiBmbGFnCj4gICAgICAgICBDaGVja2luZyBhdHRlc3RhdGlvbiBvbiBhbGwgbWVzc2Fn
+ZXMsIG1heSB0YWtlIGEgbW9tZW50Li4uCj4gICAgICAgICBSZXRyaWV2aW5nIENJIHN0YXR1cywg
+bWF5IHRha2UgYSBtb21lbnQuLi4KPiAgICAgICAgIC0tLQo+ICAgICAgICAgICDinJMgW1BBVENI
+IHYzIDEvMl0gZHQtYmluZGluZ3M6IGludGVycnVwdC1jb250cm9sbGVyOiByaXNjdixjcHUtaW50
+YzogY29udmVydCB0byBkdHNjaGVtYQo+ICAgICAgICAgICAgIOKckyBTaWduZWQ6IERLSU0vZ21h
+aWwuY29tCj4gICAgICAgICAgICAgKyBTaWduZWQtb2ZmLWJ5OiBDb25vciBEb29sZXkgPGNvbm9y
+LmRvb2xleUBtaWNyb2NoaXAuY29tPgo+ICAgICAgICAgICBFUlJPUjogbWlzc2luZyBbMi8yXSEK
+PiAgICAgICAgIC0tLQo+ICAgICAgICAgVG90YWwgcGF0Y2hlczogMQo+ICAgICAgICAgLS0tCj4g
+ICAgICAgICBXQVJOSU5HOiBUaHJlYWQgaW5jb21wbGV0ZSEKPiAgICAgICAgICBCYXNlOiB1c2lu
+ZyBzcGVjaWZpZWQgYmFzZS1jb21taXQgMjBjYjM4YTdhZjg4ZGM0MDA5NWRhN2MyYzkwOTRkYTM4
+NzNmZWEyMwo+ICAgICAgICAgQXBwbHlpbmc6IGR0LWJpbmRpbmdzOiBpbnRlcnJ1cHQtY29udHJv
+bGxlcjogcmlzY3YsY3B1LWludGM6IGNvbnZlcnQgdG8gZHRzY2hlbWEKPgo+IElmIHlvdSBjaGFu
+Z2Ugb25lIHBhdGNoIGluIGEgc2VyaWVzLCB0aGUgd2hvbGUgc2VyaWVzIGdldHMgYSBuZXcgdmVy
+c2lvbi4KPiBKdXN0IGxldCBnaXQgZm9ybWF0LXBhdGNoIGRvIHRoYXQgZm9yIHlvdSB3aXRoIHRo
+ZSAiLXYgTiIgYXJndW1lbnQgYW5kCj4geW91J2xsIG5vdCBoYXZlIHRvIHdvcnJ5IGFib3V0IGJy
+ZWFraW5nIHBlb3BsZSdzIHRvb2xpbmcuCgpTb3JyeSBmb3IgdGhlIHRvb2xpbmcgYnJlYWtpbmcu
+IEkgdXNlZCB0aGUgIi12IE4iIGFyZ3VtZW50IHRvIG1ha2UgdGhlCnYyIHBhdGNoZXMgYnV0IEkg
+YnVtcGVkIHVwIHRoZSAicmlzY3YsY3B1LWludGMicGF0Y2gKdG8gdjMgZHVlIHRvIGl0IGJlaW5n
+IGluIHYzIGFscmVhZHkgYW5kIGl0IGdhdmUgZXJyb3JzIGluIHRoZSBwcmV2aW91cwpwYXRjaHNl
+dCBhbmQgeW91IG1lbnRpb25lZCB0aGF0IEkgbWlzc2VkIHRoZSB2MyBpbiBzdWJqZWN0IGxpbmUu
+CkhvdyBzaGFsbCBJIHByb2NlZWQgd2l0aCB0aGlzIHZlcnNpb24gbWlzbWF0Y2g/IFNoYWxsIEkg
+bWFrZSB0aGUKcGF0Y2hzZXQgYXMgdjMgYW5kIGhhdmUgYm90aCB0aGUgcGF0Y2hlcyBhdCB2Mz8K
+Cj4gUGF0Y2hlcyB0aGVtc2VsdmVzIGFyZQo+IFJldmlld2VkLWJ5OiBDb25vciBEb29sZXkgPGNv
+bm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgoKSSBzaGFsbCBpbmNsdWRlIHRoaXMgaW4gbXkgY29t
+bWl0IG1lc3NhZ2UuIElzIGl0IHJlcXVpcmVkIHRvIGJ1bXAgdGhlCnZlcnNpb24gb2YgdGhlIHBh
+dGNoIGp1c3QgZm9yIHRoZSByZXZpZXdlZCBmbGFnPwoKPiBDaGVlcnMsCj4gQ29ub3IuCgpUaGFu
+a3MgYW5kIFJlZ2FyZHMsCkthbmFrIFNoaWxsZWRhcgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
