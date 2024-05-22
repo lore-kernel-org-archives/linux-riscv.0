@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CCAC25B74
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 02:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89AA5C25B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 02:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=5MbHjOHQL7NRurgJJCNmcUH6LLyrlrjH0VmI3G83Rmg=; b=ZkiYI7kCDfVgpPKNZQssDMkm8R
-	ugEoHsOY35E2+/fwbc2u0XY/g9a651gc2UY8/G5WYy89zDFmM2A/NVQtF+U9hcDnScnARdWzfiy1F
-	OF8VBHw8CKR1uwziltIAyvTNZrWA5+Vycfv/WE4Jr/WS2jZG+MgqfE63T50uU0kcyPJwCyiYVwXDt
-	2qH/B93Nb4ahVHqusQCEmAUfnrYMn2SwADqNM4aZ1EamOg4H5cTmMfdqNTR9ncn4URjmwM2BZmiQy
-	hrkj4clGwCRr7mZBOw1lkLTpU0Yo7m+3j5E7J7SkgFki9B62qjkSIxe3DJHXEyeTcrMlXdUR3eg/n
-	uwrcJLbA==;
+	bh=MS9O4u6A/qMdiAXz6HanhfypRB9BnVYjiVnt4bSCv9Y=; b=37GyCRD+pwgmAEhC4SWc6l8P10
+	j3Lv+dg2yfyM6kfidSmso2SNB8xAdCQL91wdAoQ+0/Tea/ReMUco6BmI5Jec26q2WJLJ2CxtA9mYd
+	1B66WNjETjMGpDN9D0nRrdPHn6A/L5sf1za52VAyrw0mpT0fnO26MuEmi5GvWHeaM1HdvjJeMUZc3
+	x36P587j8txqrlgXdlXabRVvj7jf5vIklU3KS9LrJyoIGS93wQGBEqNySgmL0hSRhvNPXIOGP3nxI
+	GD+Tl3l9pHrp7yk3+/1wd2zdzR3D3v7DShNYEkUcs6LOWC2okVlQWTe/NKe1nRlLcAUqpSrDaufOJ
+	C7NLa16A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9bWl-00000001jY5-2vwe;
-	Wed, 22 May 2024 02:16:27 +0000
-Received: from mail-pl1-f201.google.com ([209.85.214.201])
+	id 1s9bWi-00000001jWP-1vUa;
+	Wed, 22 May 2024 02:16:24 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9aMg-00000001Ua6-2AW9
+	id 1s9aMZ-00000001UU9-1PJ7
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 01:02:11 +0000
-Received: by mail-pl1-f201.google.com with SMTP id d9443c01a7336-1ec620ccf77so96539835ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 18:01:57 -0700 (PDT)
+	Wed, 22 May 2024 01:02:05 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-649731dd35bso7971536a12.0
+        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 18:01:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1716339717; x=1716944517; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1716339710; x=1716944510; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CdhZH2VylrS+6EeGuf6ae6S+DzMPS8o3sFjSdgWRyqU=;
-        b=CC6AnToiDHJg5HywXuWHBkVef5S8MrYFC/y3bk2b8guwKrC/SW6xlqraUQTq2oL5SR
-         7hOLx5w7e1ilaslFl5459OQSiao8WBFd1Xk3xfxsJwaOpP1q4vESGEeKOpXK4o7SfIpX
-         9W0N4ezRE7+5STiMQSqVHsXH7oekEJT/7oi7owZx0MuZ7A8/3aLwPVqxOsAK2990+fCU
-         1KMMTmh9rcT3dA4iJRWg3M04XJGphSoN8HGl5sSzQKEP5A2jbfztvnlv7ct4o9f0Zsp1
-         rM8k2naRi2D4se0aaoBKlI7P1xMR76sc+ykxfZe6ztKgQnl+uDcXCxDBW/SNnXQKf/IW
-         IlIA==
+        bh=0Ddm347wncUXhvBA0WIqVxztes14b3U0yNoWhmDeDFY=;
+        b=w9Y7wtTscF7iW5g0AUsf/75i9d4vj7PJD7J/kguo7d9n1c08mSzA7RunQFmTI8icm/
+         Zwni65Fpk9gzJk2kLhr46TgLdlpW8gBOGua5aJOOAAKGLBn8NcHKdCJQ7WnJRff2r5Jx
+         GKq/tU6RnsZ4TapvzbDRYeGSbhgojmFCGJW1sF7tjQ2G8S5I+nxMuDSIC6lEbwP4nBXx
+         9tQb6s0Xr9+GjsQwb7NKBzvubZ7rIr0h1m001AE+Ur6mSSvdY3QqILy3B+Vl6kdoreqR
+         IrLIAbRM4uQJ5uVKgr+1gGWCNITXu+IsFPBlfc3dC1p3z4f3992nZ5abGsgC7IMpxj9D
+         VM2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716339717; x=1716944517;
+        d=1e100.net; s=20230601; t=1716339710; x=1716944510;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CdhZH2VylrS+6EeGuf6ae6S+DzMPS8o3sFjSdgWRyqU=;
-        b=E0DXTthuEIHeXSYkbZe6xumvs9iNCgrN/ifw9dXjG4zZB79qfHQ6rTWkbXQBpvXEgl
-         Wu3YAM8euxOuDQx/F2EgaLu+6GkPPwThqNdWHbjuAgiasMrxNSd/VEGOl/DKZVpeunrE
-         0zyUfTC6saHmDtL0s5gBkS2eIB9702omMOx9wOFHmwSWFJG1fd8cH4u+2pRsliT6Faly
-         ec2mttegvmzy7DLt3R8lBucDeYVpvqqFtuGsEty4ZYT6DqWIydEmILd4ZyRgejhiHK5Z
-         sCAK95O9DHNSdQ6mlMb2jEC3busBvL9Ozh8wFD22tVO5zKO6txhWQVe4Xt7sqWVnn0iu
-         pxrw==
-X-Forwarded-Encrypted: i=1; AJvYcCVLa49aYrrd50p3Oq04FknH0boEbQgFQwmRj4mv0cFjXaKlMo9YaxG1quJcNKEAVXOGf9vi4QZKscB/sDq/pkWX5z5UG9KhAZPWNY4xeEf2
-X-Gm-Message-State: AOJu0Yz9OjhRYrTJ6g9MkYY7K24tThtC8xsqTkqAiKrBDeMcfFRe52BJ
-	fL0phbgV3ORo11Q0AZePnIem/V7jEWS5ULRt4I6jU5J36J8E9K0Bb3DLjGM6QuN1HJyJEhMzDa/
-	OvQ==
-X-Google-Smtp-Source: AGHT+IFXkW29jWSmXKYdgVJioCSYV7fU9D+QDgsIm3BIsuSFmV/S8sHX1eOFRDsg9MXg5XjDONxLYS9KAdU=
+        bh=0Ddm347wncUXhvBA0WIqVxztes14b3U0yNoWhmDeDFY=;
+        b=TR2qTbs/ZkA6H3LDjV2z2II6fUZzEZALXGp902Kq89aVVOgYAbtuTvM8vx96mQAgUS
+         7RPSQ0+9DW3DvLimzj17JF9GMa+j2Jy6GkCFKiDxAJowuTQAw2G/5CSiGhnBFfStT+Zb
+         ZLvtwye0pSgySc/E7vCOebwVGffCi7t7gSyaNCRuCsp0WyyBcMa26ozwOkSFAQ7hEO6s
+         vK51SC+bqKWROJ33rpHrocUIQ15bpdWbvM9F4KvOClPNTdm/zD57gVvbW54Bz5sWj0dN
+         sym9VWTBHMm7+edPNt5jMTq4f69XHtEDunUVNy1+C8fYHSgv1uomZXnKQ3sg1haspQ+8
+         byOw==
+X-Forwarded-Encrypted: i=1; AJvYcCW2xeqcRoNxPXh5PhfQhxnzcbHcYylnDEi7c8MMJmRJkU4ViIA0Ze68B/+XOquBgaRqRfqktD3Yx9FPbkpzx5HmEIYjdR9LxB7yi7vwp7y+
+X-Gm-Message-State: AOJu0YzrlO0oPMo+GeZmItSpQ/EX+FgOSqJj3HQa0xnHWSwBGl0FhHE+
+	OmuOk6Zh3wFwE+ltqI+lwHKDpzYwPqCCyeeKFGsimRbCi3nf0RSnYCXENPm80+729KShKEQiHbT
+	DLQ==
+X-Google-Smtp-Source: AGHT+IHViMDRF07gYGA4O1kZVdy742miSAJ5o6zH/GL3MaXuWgF70gUFd0Ml+qHdUScPYudMioDDIIFR1uM=
 X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a17:902:ea0b:b0:1f2:fb7a:19ac with SMTP id
- d9443c01a7336-1f31c9e7df6mr65215ad.12.1716339716964; Tue, 21 May 2024
- 18:01:56 -0700 (PDT)
-Date: Wed, 22 May 2024 00:57:35 +0000
+ (user=edliaw job=sendgmr) by 2002:a63:371c:0:b0:630:dcf6:f224 with SMTP id
+ 41be03b00d2f7-6763f99bfffmr1357a12.0.1716339709684; Tue, 21 May 2024 18:01:49
+ -0700 (PDT)
+Date: Wed, 22 May 2024 00:57:32 +0000
 In-Reply-To: <20240522005913.3540131-1-edliaw@google.com>
 Mime-Version: 1.0
 References: <20240522005913.3540131-1-edliaw@google.com>
 X-Mailer: git-send-email 2.45.1.288.g0e0cd299f1-goog
-Message-ID: <20240522005913.3540131-50-edliaw@google.com>
-Subject: [PATCH v5 49/68] selftests/riscv: Drop define _GNU_SOURCE
+Message-ID: <20240522005913.3540131-47-edliaw@google.com>
+Subject: [PATCH v5 46/68] selftests/proc: Drop duplicate -D_GNU_SOURCE
 From: Edward Liaw <edliaw@google.com>
 To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
 	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
@@ -79,10 +79,12 @@ To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>
 Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
 	kernel-team@android.com, Edward Liaw <edliaw@google.com>, 
 	linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, bpf@vger.kernel.org
+	linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240521_180159_024488_FF8EA3D6 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20240521_180151_590262_BF3B16AD 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,39 +101,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-_GNU_SOURCE is provided by lib.mk, so it should be dropped to prevent
-redefinition warnings.
+-D_GNU_SOURCE can be de-duplicated here, as it is added by lib.mk.
 
 Signed-off-by: Edward Liaw <edliaw@google.com>
 ---
- tools/testing/selftests/riscv/hwprobe/cbo.c        | 1 -
- tools/testing/selftests/riscv/hwprobe/which-cpus.c | 1 -
- 2 files changed, 2 deletions(-)
+ tools/testing/selftests/proc/Makefile | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/tools/testing/selftests/riscv/hwprobe/cbo.c b/tools/testing/selftests/riscv/hwprobe/cbo.c
-index a40541bb7c7d..4de6f63fc537 100644
---- a/tools/testing/selftests/riscv/hwprobe/cbo.c
-+++ b/tools/testing/selftests/riscv/hwprobe/cbo.c
-@@ -5,7 +5,6 @@
-  * Run with 'taskset -c <cpu-list> cbo' to only execute hwprobe on a
-  * subset of cpus, as well as only executing the tests on those cpus.
-  */
--#define _GNU_SOURCE
- #include <stdbool.h>
- #include <stdint.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/riscv/hwprobe/which-cpus.c b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-index 82c121412dfc..c3f080861c06 100644
---- a/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-+++ b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-@@ -5,7 +5,6 @@
-  * Test the RISCV_HWPROBE_WHICH_CPUS flag of hwprobe. Also provides a command
-  * line interface to get the cpu list for arbitrary hwprobe pairs.
-  */
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
+diff --git a/tools/testing/selftests/proc/Makefile b/tools/testing/selftests/proc/Makefile
+index cd95369254c0..25c34cc9238e 100644
+--- a/tools/testing/selftests/proc/Makefile
++++ b/tools/testing/selftests/proc/Makefile
+@@ -1,6 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ CFLAGS += -Wall -O2 -Wno-unused-function
+-CFLAGS += -D_GNU_SOURCE
+ LDFLAGS += -pthread
+ 
+ TEST_GEN_PROGS :=
 -- 
 2.45.1.288.g0e0cd299f1-goog
 
