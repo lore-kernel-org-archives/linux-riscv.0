@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BFD2C25B74
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 02:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 233ECC25B78
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 02:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=r4LHQcoz0vZ9XW/T/O672mlzPDtGN/Zob+7SPpYZiGA=; b=Cai+Pm3jgg/7IMn9/8XKZJ26h3
-	xcy3vgRvLhI0B8uor3qznAVAc8+5xr/LckFaen1Xf6rC+UWujQyv7eKdnWSaeEyV9Y15wwauyuikc
-	FBoKBcpx+4jGykasda4Pjfl8GcUUA4aPzdjdLB4uQ8ZgJEcVKw6KUBvOhfQdSrylgve6V1+FsvNZ0
-	apsjJ+AiVnchygVE/Opat3jfvuawcK0Y3P7JCUZgYbkH2BEuKAaA/h5Bt38avFqRJZzhDt905Ddjz
-	VCxphTIMlBmy66wXtoBL+2r/0GJ1ox2AzRPxV+aj6qJyNTxYszRdGWh/RKtBFGMbfyzIhwi+ONzAS
-	SnuYwaQw==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VwjOOqUVwF0qr8UMJB5Y+DHo8JRP3Gum9G0807AmqaM=; b=qrprjGgMcsB/Kq
+	myuDS8UlRkU3gQP++c+cEa8BJCJ6vW0gbWWGLYNxdFatWMJWRNpTDL085HkkHgrLXHcJzE0ylYogp
+	DufdgdnUR93oe5gDey2sYIpKvoURI1HTqOS49GpnUUlqfUe7p0wmhucXKULVbixAKqu2HQOuUTXPL
+	joUKIz/Wel+L2kp1+va8K76OINj03fDt0qjrS0WPsnhUraaW18vRTkELVg9DxHtHTIRowHyfvylTj
+	FmStwKwZdIeKcrcz3AnMOvhhaSpPvHrrKQJ8wgVHRi9tIjBRjdxeWqWXyay4yTpeRvbu1qFeapydy
+	Gcccd6DBHhr+8O07wYTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9bXB-00000001jvq-3P1X;
-	Wed, 22 May 2024 02:16:53 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1s9bzd-00000001oiw-09PS;
+	Wed, 22 May 2024 02:46:17 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9aNY-00000001V7Z-1SwY
+	id 1s9axw-00000001ecT-2bF8
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 01:02:57 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-6f44b2e0bf2so12433952b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 18:02:51 -0700 (PDT)
+	Wed, 22 May 2024 01:40:30 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-627751b5411so138420977b3.2
+        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 18:40:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1716339770; x=1716944570; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1716342027; x=1716946827; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pJALbJf7ZzkOZows6Y3539RInRdAQzTeZML6lGtFemU=;
-        b=ugkIDyXru3eVGtfMevRximFLl1GPsXgCG5nictmSBimUmX9G+YeqLzw1r1aHkva5nx
-         a87wt8dOoOlBbsInynObr/iCtpRsot40vlYa3/pdPAmkGoMUglNzSSzDY72opkwiNcb0
-         7fnNcotuHoamKBSq71vjaG8/Nbc64WFPZvlA5HbLp3ysX+qnY4R8FtnOdt6cBJ2qL++u
-         034rC7Ldm5TPydOliKNpkyXCXA4+nh7NVeqkcDcYUtQBJf9hLqJq273tE9HIGhfrGIy0
-         P2wTXp2xn02q2hHD065km4ro7/wtSm7MKB9ZaiZnld4oIMAPkdDSpM1vq8sp6G4CUzNa
-         B2nQ==
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=N3tcdNqgpk0g0Qawt6D2SIU8FL4Y9j5vsBcc8xUlRY4=;
+        b=2oWGlNmCe8w33HIw9yv4q15DZuN1ISUv3VtStwK62131kbYjxOBYNiOtI8lPumkUwk
+         C/dqbCvjkJG6Ag7MLebMpYcqdq4HlPRSM4nyNZ1sU6q3WD6+yf9c1mg0LNELhf87puDW
+         VcMISYhRNEWbs6F1TrIfQZAZsncUreiG2qOYGqyxNg2IStN23Wasgi9zP+rGjjqGDstl
+         OkCtGhC/MBXiB8mt0AK3fW4ekqDSFSMndw4Krem1LMbjYcBfStwibVz769HUOU2ZWNQg
+         GEd0QrLM7sn0/MrS+am7Q88fBf88LyQKWhw1dC4Uk0jfpi92DmrPA47hN7cOW4iPc4LT
+         32gQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716339770; x=1716944570;
+        d=1e100.net; s=20230601; t=1716342027; x=1716946827;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pJALbJf7ZzkOZows6Y3539RInRdAQzTeZML6lGtFemU=;
-        b=lOiNJnYMgiZyDPeVYVNnmwRdakSi9WQZPwhjaMWzcs1erHD2IYxEv2ESz2IrheK2D0
-         G3S0gUgYeQyT9VXQxbZdh5fd8EJIOjLHpf3i6ogAhpLT44bsG0P19H01u7G7AzKFX8eY
-         SNsWq8AQB5OujiJpmRcczgjtMvqpY4utes5dVq2awBLlq0xYWukGiF4alNdYo5hBx+LJ
-         eRCaBMy/WE05fvtUGdTT5u/vnmKYce8gqPVtq1K4UFUGrceaLRrK8T2r1oCnT3P+TZcf
-         /1Hm1okfq/IFGMkCQ6P4DmKOZ14STXGsS2CBzQpcWX6dJhMvJQTrwDlWVMEFnYcbprs3
-         Ia8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVN1h5x65vSXs3tY70lT3P0dSmiBryFltzEr9KsV7/1AydIa/1sWbKPGrb3vAWp8faD7sn2q+1Se9uG3gce8EhU5y3nSE6UTaBOlc/kqQIN
-X-Gm-Message-State: AOJu0Yy1IYFcTmkB857irDNhnFa2wD/HE+aAdMS8KvCSIp7rQECfjFJ+
-	cV3x2w6JdCS2/c7DLUv69U3yilorbMhoqZJl+0NTLbd/m7Xqyaj2tUgvuG0vNEI02IdEwFP1cZj
-	rRw==
-X-Google-Smtp-Source: AGHT+IGsUdFdzFV3H5qkfDQKMQ91K3EjjIQawhERTmxc0zUw5YGZNBjf239GhoVFhPRZmZkqVFT2UGOXNdI=
-X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a05:6a00:3a18:b0:6f4:133:f5a5 with SMTP id
- d2e1a72fcca58-6f6d645c526mr21798b3a.4.1716339770525; Tue, 21 May 2024
- 18:02:50 -0700 (PDT)
-Date: Wed, 22 May 2024 00:57:54 +0000
-In-Reply-To: <20240522005913.3540131-1-edliaw@google.com>
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=N3tcdNqgpk0g0Qawt6D2SIU8FL4Y9j5vsBcc8xUlRY4=;
+        b=KQpULjhf6+Zw8Z5yBe90TctJmQGMEu0KGXiOteU6Pojd2hYNNGUWYUl7Ybb0+brL9c
+         scHUUl4HibfA8zbpWvFRYiPIs6JHlaem8+MZFbpqrol77qP3FKp0FW1JxrNG8modEsP6
+         pA8/YrHnpOPDnc5nekVV3kBBmbIrVBusG6kiRd9qVOzMTQWbGndvSOjI9jWu/Z6gRILz
+         IEx6Y6OXPjiC9LzLQoX9V8ImzEbERf0LYiM6Gt/4ofSPq2wpUkDmWUTYGEHJ9nSH/v6+
+         AypLckCiJJ2ecmaRnoAXsJj0g4FjVHa3oWqKoSJDEhiYVN6XSROWTdOtu9mU/XKWVlaC
+         bKKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXV9CjYKeLB890hgdBwDl/xlvmINotiP8srb+E4BELFlV07zXvvMyY4+CScQDYm2NVCCh5uxcCuKcHiez9X0Apz9gyn93kioO+6W+gfRveW
+X-Gm-Message-State: AOJu0YxYeM5gAyoAHgOO1otMI280E9VgCh8cdf3dyHJgPEjuuaH9Be6t
+	vafztARszKYWnVofMkhZVEIso3nRgbEP6GD986dfDXoPHuS4Sb6jx9ftP64oDS4o1vT+fudBMbb
+	MCQ==
+X-Google-Smtp-Source: AGHT+IFL81/qwy5rtkuJ10qcaRdu2JQbneM9E+pjVdbps1/0e/VA4O7XiaE6CliC0DQxJV6ImSRXVMyGgXw=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a81:4984:0:b0:61b:e6d8:1c01 with SMTP id
+ 00721157ae682-627e487fd2emr1914977b3.10.1716342027243; Tue, 21 May 2024
+ 18:40:27 -0700 (PDT)
+Date: Tue, 21 May 2024 18:40:13 -0700
+In-Reply-To: <20240522014013.1672962-1-seanjc@google.com>
 Mime-Version: 1.0
-References: <20240522005913.3540131-1-edliaw@google.com>
-X-Mailer: git-send-email 2.45.1.288.g0e0cd299f1-goog
-Message-ID: <20240522005913.3540131-69-edliaw@google.com>
-Subject: [PATCH v5 68/68] selftests/x86: Drop define _GNU_SOURCE
-From: Edward Liaw <edliaw@google.com>
-To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
-	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+References: <20240522014013.1672962-1-seanjc@google.com>
+X-Mailer: git-send-email 2.45.0.215.g3402c0e53f-goog
+Message-ID: <20240522014013.1672962-7-seanjc@google.com>
+Subject: [PATCH v2 6/6] KVM: x86: Drop now-superflous setting of
+ l1tf_flush_l1d in vcpu_run()
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	kernel-team@android.com, Edward Liaw <edliaw@google.com>, 
-	linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
-	John Hubbard <jhubbard@nvidia.com>, Muhammad Usama Anjum <usama.anjum@collabora.com>
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240521_180252_838682_5D3E117D 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20240521_184028_700360_01E2F37F 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,434 +96,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-_GNU_SOURCE is provided by lib.mk, so it should be dropped to prevent
-redefinition warnings.
+Now that KVM unconditionally sets l1tf_flush_l1d in kvm_arch_vcpu_load(),
+drop the redundant store from vcpu_run().  The flag is cleared only when
+VM-Enter is imminent, deep below vcpu_run(), i.e. barring a KVM bug, it's
+impossible for l1tf_flush_l1d to be cleared between loading the vCPU and
+calling vcpu_run().
 
-Drop #define __USE_GNU too, as it is bad practice and the GNU extensions
-aren't actually being used in test_FCMOV, etc. where it is being defined.
-
-Reviewed-by: John Hubbard <jhubbard@nvidia.com>
-Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
-Signed-off-by: Edward Liaw <edliaw@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/x86/amx.c                     | 2 --
- tools/testing/selftests/x86/check_initial_reg_state.c | 3 ---
- tools/testing/selftests/x86/corrupt_xstate_header.c   | 3 ---
- tools/testing/selftests/x86/entry_from_vm86.c         | 3 ---
- tools/testing/selftests/x86/fsgsbase.c                | 2 --
- tools/testing/selftests/x86/fsgsbase_restore.c        | 2 --
- tools/testing/selftests/x86/ioperm.c                  | 2 --
- tools/testing/selftests/x86/iopl.c                    | 2 --
- tools/testing/selftests/x86/lam.c                     | 1 -
- tools/testing/selftests/x86/ldt_gdt.c                 | 2 --
- tools/testing/selftests/x86/mov_ss_trap.c             | 2 --
- tools/testing/selftests/x86/nx_stack.c                | 2 --
- tools/testing/selftests/x86/ptrace_syscall.c          | 2 --
- tools/testing/selftests/x86/sigaltstack.c             | 2 --
- tools/testing/selftests/x86/sigreturn.c               | 3 ---
- tools/testing/selftests/x86/single_step_syscall.c     | 3 ---
- tools/testing/selftests/x86/syscall_arg_fault.c       | 3 ---
- tools/testing/selftests/x86/syscall_numbering.c       | 3 ---
- tools/testing/selftests/x86/sysret_rip.c              | 3 ---
- tools/testing/selftests/x86/sysret_ss_attrs.c         | 3 ---
- tools/testing/selftests/x86/test_FCMOV.c              | 4 ----
- tools/testing/selftests/x86/test_FCOMI.c              | 4 ----
- tools/testing/selftests/x86/test_FISTTP.c             | 4 ----
- tools/testing/selftests/x86/test_mremap_vdso.c        | 1 -
- tools/testing/selftests/x86/test_shadow_stack.c       | 3 ---
- tools/testing/selftests/x86/test_syscall_vdso.c       | 4 ----
- tools/testing/selftests/x86/test_vsyscall.c           | 3 ---
- tools/testing/selftests/x86/unwind_vdso.c             | 3 ---
- tools/testing/selftests/x86/vdso_restorer.c           | 3 ---
- 29 files changed, 77 deletions(-)
+ arch/x86/kvm/vmx/vmx.c | 7 ++++---
+ arch/x86/kvm/x86.c     | 1 -
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/x86/amx.c b/tools/testing/selftests/x86/amx.c
-index 95aad6d8849b..3259362a7117 100644
---- a/tools/testing/selftests/x86/amx.c
-+++ b/tools/testing/selftests/x86/amx.c
-@@ -1,6 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--
--#define _GNU_SOURCE
- #include <err.h>
- #include <errno.h>
- #include <pthread.h>
-diff --git a/tools/testing/selftests/x86/check_initial_reg_state.c b/tools/testing/selftests/x86/check_initial_reg_state.c
-index 3bc95f3ed585..0129cdae8abe 100644
---- a/tools/testing/selftests/x86/check_initial_reg_state.c
-+++ b/tools/testing/selftests/x86/check_initial_reg_state.c
-@@ -3,9 +3,6 @@
-  * check_initial_reg_state.c - check that execve sets the correct state
-  * Copyright (c) 2014-2016 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
--
- #include <stdio.h>
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index da2f95385a12..552b6a9887a5 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -6672,9 +6672,10 @@ static noinstr void vmx_l1d_flush(struct kvm_vcpu *vcpu)
+ 		bool flush_l1d;
  
- unsigned long ax, bx, cx, dx, si, di, bp, sp, flags;
-diff --git a/tools/testing/selftests/x86/corrupt_xstate_header.c b/tools/testing/selftests/x86/corrupt_xstate_header.c
-index cf9ce8fbb656..d2c746149678 100644
---- a/tools/testing/selftests/x86/corrupt_xstate_header.c
-+++ b/tools/testing/selftests/x86/corrupt_xstate_header.c
-@@ -4,9 +4,6 @@
-  *
-  * Based on analysis and a test case from Thomas Gleixner.
-  */
--
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <stdio.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/entry_from_vm86.c b/tools/testing/selftests/x86/entry_from_vm86.c
-index d1e919b0c1dc..9fa9d4a847ac 100644
---- a/tools/testing/selftests/x86/entry_from_vm86.c
-+++ b/tools/testing/selftests/x86/entry_from_vm86.c
-@@ -5,9 +5,6 @@
-  *
-  * This exercises a few paths that need to special-case vm86 mode.
-  */
--
--#define _GNU_SOURCE
--
- #include <assert.h>
- #include <stdlib.h>
- #include <sys/syscall.h>
-diff --git a/tools/testing/selftests/x86/fsgsbase.c b/tools/testing/selftests/x86/fsgsbase.c
-index 8c780cce941d..348134d2cefc 100644
---- a/tools/testing/selftests/x86/fsgsbase.c
-+++ b/tools/testing/selftests/x86/fsgsbase.c
-@@ -3,8 +3,6 @@
-  * fsgsbase.c, an fsgsbase test
-  * Copyright (c) 2014-2016 Andy Lutomirski
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <stdbool.h>
-diff --git a/tools/testing/selftests/x86/fsgsbase_restore.c b/tools/testing/selftests/x86/fsgsbase_restore.c
-index 6fffadc51579..88dce47ab8e6 100644
---- a/tools/testing/selftests/x86/fsgsbase_restore.c
-+++ b/tools/testing/selftests/x86/fsgsbase_restore.c
-@@ -12,8 +12,6 @@
-  *
-  * This is not part of fsgsbase.c, because that test is 64-bit only.
-  */
--
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <stdbool.h>
-diff --git a/tools/testing/selftests/x86/ioperm.c b/tools/testing/selftests/x86/ioperm.c
-index 57ec5e99edb9..07b7c10f8d39 100644
---- a/tools/testing/selftests/x86/ioperm.c
-+++ b/tools/testing/selftests/x86/ioperm.c
-@@ -3,8 +3,6 @@
-  * ioperm.c - Test case for ioperm(2)
-  * Copyright (c) 2015 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
- #include <err.h>
- #include <stdio.h>
- #include <stdint.h>
-diff --git a/tools/testing/selftests/x86/iopl.c b/tools/testing/selftests/x86/iopl.c
-index 7e3e09c1abac..baa691154905 100644
---- a/tools/testing/selftests/x86/iopl.c
-+++ b/tools/testing/selftests/x86/iopl.c
-@@ -3,8 +3,6 @@
-  * iopl.c - Test case for a Linux on Xen 64-bit bug
-  * Copyright (c) 2015 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
- #include <err.h>
- #include <stdio.h>
- #include <stdint.h>
-diff --git a/tools/testing/selftests/x86/lam.c b/tools/testing/selftests/x86/lam.c
-index 0ea4f6813930..cbfb19d546fa 100644
---- a/tools/testing/selftests/x86/lam.c
-+++ b/tools/testing/selftests/x86/lam.c
-@@ -1,5 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/ldt_gdt.c b/tools/testing/selftests/x86/ldt_gdt.c
-index 3a29346e1452..3b4237a85a12 100644
---- a/tools/testing/selftests/x86/ldt_gdt.c
-+++ b/tools/testing/selftests/x86/ldt_gdt.c
-@@ -3,8 +3,6 @@
-  * ldt_gdt.c - Test cases for LDT and GDT access
-  * Copyright (c) 2015 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
- #include <err.h>
- #include <stdio.h>
- #include <stdint.h>
-diff --git a/tools/testing/selftests/x86/mov_ss_trap.c b/tools/testing/selftests/x86/mov_ss_trap.c
-index cc3de6ff9fba..47ecc63220b7 100644
---- a/tools/testing/selftests/x86/mov_ss_trap.c
-+++ b/tools/testing/selftests/x86/mov_ss_trap.c
-@@ -19,8 +19,6 @@
-  *
-  * This should mostly cover CVE-2018-1087 and CVE-2018-8897.
-  */
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <sys/ptrace.h>
- #include <sys/types.h>
-diff --git a/tools/testing/selftests/x86/nx_stack.c b/tools/testing/selftests/x86/nx_stack.c
-index ea4a4e246879..97c5b34096cc 100644
---- a/tools/testing/selftests/x86/nx_stack.c
-+++ b/tools/testing/selftests/x86/nx_stack.c
-@@ -23,8 +23,6 @@
-  * Regular stack is completely overwritten before testing.
-  * Test doesn't exit SIGSEGV handler after first fault at INT3.
-  */
--#undef _GNU_SOURCE
--#define _GNU_SOURCE
- #undef NDEBUG
- #include <assert.h>
- #include <signal.h>
-diff --git a/tools/testing/selftests/x86/ptrace_syscall.c b/tools/testing/selftests/x86/ptrace_syscall.c
-index 12aaa063196e..bdc81c8bd1a7 100644
---- a/tools/testing/selftests/x86/ptrace_syscall.c
-+++ b/tools/testing/selftests/x86/ptrace_syscall.c
-@@ -1,6 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#define _GNU_SOURCE
--
- #include <sys/ptrace.h>
- #include <sys/types.h>
- #include <sys/wait.h>
-diff --git a/tools/testing/selftests/x86/sigaltstack.c b/tools/testing/selftests/x86/sigaltstack.c
-index f689af75e979..7f41c3a4268b 100644
---- a/tools/testing/selftests/x86/sigaltstack.c
-+++ b/tools/testing/selftests/x86/sigaltstack.c
-@@ -1,6 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0-only
--
--#define _GNU_SOURCE
- #include <signal.h>
- #include <stdio.h>
- #include <stdbool.h>
-diff --git a/tools/testing/selftests/x86/sigreturn.c b/tools/testing/selftests/x86/sigreturn.c
-index 5d7961a5f7f6..2054f729b2c2 100644
---- a/tools/testing/selftests/x86/sigreturn.c
-+++ b/tools/testing/selftests/x86/sigreturn.c
-@@ -24,9 +24,6 @@
-  *
-  * Do not run on outdated, unpatched kernels at risk of nasty crashes.
-  */
--
--#define _GNU_SOURCE
--
- #include <sys/time.h>
- #include <time.h>
- #include <stdlib.h>
-diff --git a/tools/testing/selftests/x86/single_step_syscall.c b/tools/testing/selftests/x86/single_step_syscall.c
-index 9a30f443e928..375f3b50a0b5 100644
---- a/tools/testing/selftests/x86/single_step_syscall.c
-+++ b/tools/testing/selftests/x86/single_step_syscall.c
-@@ -9,9 +9,6 @@
-  * immediately issues #DB from CPL 0.  This requires special handling in
-  * the kernel.
-  */
--
--#define _GNU_SOURCE
--
- #include <sys/time.h>
- #include <time.h>
- #include <stdlib.h>
-diff --git a/tools/testing/selftests/x86/syscall_arg_fault.c b/tools/testing/selftests/x86/syscall_arg_fault.c
-index 461fa41a4d02..10eee1bcd015 100644
---- a/tools/testing/selftests/x86/syscall_arg_fault.c
-+++ b/tools/testing/selftests/x86/syscall_arg_fault.c
-@@ -3,9 +3,6 @@
-  * syscall_arg_fault.c - tests faults 32-bit fast syscall stack args
-  * Copyright (c) 2015 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <stdio.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/syscall_numbering.c b/tools/testing/selftests/x86/syscall_numbering.c
-index 991591718bb0..c72fc8aaa4d3 100644
---- a/tools/testing/selftests/x86/syscall_numbering.c
-+++ b/tools/testing/selftests/x86/syscall_numbering.c
-@@ -5,9 +5,6 @@
-  *
-  * Copyright (c) 2018 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <stdio.h>
- #include <stdbool.h>
-diff --git a/tools/testing/selftests/x86/sysret_rip.c b/tools/testing/selftests/x86/sysret_rip.c
-index 84d74be1d902..24bc219358a5 100644
---- a/tools/testing/selftests/x86/sysret_rip.c
-+++ b/tools/testing/selftests/x86/sysret_rip.c
-@@ -3,9 +3,6 @@
-  * sigreturn.c - tests that x86 avoids Intel SYSRET pitfalls
-  * Copyright (c) 2014-2016 Andrew Lutomirski
-  */
--
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <unistd.h>
- #include <stdio.h>
-diff --git a/tools/testing/selftests/x86/sysret_ss_attrs.c b/tools/testing/selftests/x86/sysret_ss_attrs.c
-index 5f3d4fca440f..f8b9e0b2a0c5 100644
---- a/tools/testing/selftests/x86/sysret_ss_attrs.c
-+++ b/tools/testing/selftests/x86/sysret_ss_attrs.c
-@@ -7,9 +7,6 @@
-  * the hidden attributes set to an unusable state.  Make sure the kernel
-  * doesn't let this happen.
-  */
--
--#define _GNU_SOURCE
--
- #include <stdlib.h>
- #include <unistd.h>
- #include <stdio.h>
-diff --git a/tools/testing/selftests/x86/test_FCMOV.c b/tools/testing/selftests/x86/test_FCMOV.c
-index 6b5036fbb735..0c9431ba7d31 100644
---- a/tools/testing/selftests/x86/test_FCMOV.c
-+++ b/tools/testing/selftests/x86/test_FCMOV.c
-@@ -1,8 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#undef _GNU_SOURCE
--#define _GNU_SOURCE 1
--#undef __USE_GNU
--#define __USE_GNU 1
- #include <unistd.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/test_FCOMI.c b/tools/testing/selftests/x86/test_FCOMI.c
-index aec6692c6dcf..ba186665918d 100644
---- a/tools/testing/selftests/x86/test_FCOMI.c
-+++ b/tools/testing/selftests/x86/test_FCOMI.c
-@@ -1,8 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#undef _GNU_SOURCE
--#define _GNU_SOURCE 1
--#undef __USE_GNU
--#define __USE_GNU 1
- #include <unistd.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/test_FISTTP.c b/tools/testing/selftests/x86/test_FISTTP.c
-index 09789c0ce3e9..95580cdaaa32 100644
---- a/tools/testing/selftests/x86/test_FISTTP.c
-+++ b/tools/testing/selftests/x86/test_FISTTP.c
-@@ -1,8 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#undef _GNU_SOURCE
--#define _GNU_SOURCE 1
--#undef __USE_GNU
--#define __USE_GNU 1
- #include <unistd.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/test_mremap_vdso.c b/tools/testing/selftests/x86/test_mremap_vdso.c
-index d53959e03593..34f199b0d615 100644
---- a/tools/testing/selftests/x86/test_mremap_vdso.c
-+++ b/tools/testing/selftests/x86/test_mremap_vdso.c
-@@ -9,7 +9,6 @@
-  * Can be built statically:
-  * gcc -Os -Wall -static -m32 test_mremap_vdso.c
-  */
--#define _GNU_SOURCE
- #include <stdio.h>
- #include <errno.h>
- #include <unistd.h>
-diff --git a/tools/testing/selftests/x86/test_shadow_stack.c b/tools/testing/selftests/x86/test_shadow_stack.c
-index ee909a7927f9..ca1c13e89d8d 100644
---- a/tools/testing/selftests/x86/test_shadow_stack.c
-+++ b/tools/testing/selftests/x86/test_shadow_stack.c
-@@ -7,9 +7,6 @@
-  * special glibc shadow stack support (longjmp(), swapcontext(), etc). Just
-  * stick to the basics and hope the compiler doesn't do anything strange.
-  */
--
--#define _GNU_SOURCE
--
- #include <sys/syscall.h>
- #include <asm/mman.h>
- #include <sys/mman.h>
-diff --git a/tools/testing/selftests/x86/test_syscall_vdso.c b/tools/testing/selftests/x86/test_syscall_vdso.c
-index 8965c311bd65..5cd13279bba5 100644
---- a/tools/testing/selftests/x86/test_syscall_vdso.c
-+++ b/tools/testing/selftests/x86/test_syscall_vdso.c
-@@ -8,10 +8,6 @@
-  * Can be built statically:
-  * gcc -Os -Wall -static -m32 test_syscall_vdso.c thunks_32.S
-  */
--#undef _GNU_SOURCE
--#define _GNU_SOURCE 1
--#undef __USE_GNU
--#define __USE_GNU 1
- #include <unistd.h>
- #include <stdlib.h>
- #include <string.h>
-diff --git a/tools/testing/selftests/x86/test_vsyscall.c b/tools/testing/selftests/x86/test_vsyscall.c
-index d4c8e8d79d38..8e879263412d 100644
---- a/tools/testing/selftests/x86/test_vsyscall.c
-+++ b/tools/testing/selftests/x86/test_vsyscall.c
-@@ -1,7 +1,4 @@
- /* SPDX-License-Identifier: GPL-2.0 */
--
--#define _GNU_SOURCE
--
- #include <stdio.h>
- #include <sys/time.h>
- #include <time.h>
-diff --git a/tools/testing/selftests/x86/unwind_vdso.c b/tools/testing/selftests/x86/unwind_vdso.c
-index 4c311e1af4c7..754f5d4d425a 100644
---- a/tools/testing/selftests/x86/unwind_vdso.c
-+++ b/tools/testing/selftests/x86/unwind_vdso.c
-@@ -5,9 +5,6 @@
-  *
-  * This tests __kernel_vsyscall's unwind info.
-  */
--
--#define _GNU_SOURCE
--
- #include <features.h>
- #include <stdio.h>
+ 		/*
+-		 * Clear the per-vcpu flush bit, it gets set again
+-		 * either from vcpu_run() or from one of the unsafe
+-		 * VMEXIT handlers.
++		 * Clear the per-vcpu flush bit, it gets set again if the vCPU
++		 * is reloaded, i.e. if the vCPU is scheduled out or if KVM
++		 * exits to userspace, or if KVM reaches one of the unsafe
++		 * VMEXIT handlers, e.g. if KVM calls into the emulator.
+ 		 */
+ 		flush_l1d = vcpu->arch.l1tf_flush_l1d;
+ 		vcpu->arch.l1tf_flush_l1d = false;
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 60fea297f91f..86ae7392cc59 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -11264,7 +11264,6 @@ static int vcpu_run(struct kvm_vcpu *vcpu)
+ 	int r;
  
-diff --git a/tools/testing/selftests/x86/vdso_restorer.c b/tools/testing/selftests/x86/vdso_restorer.c
-index fe99f2434155..8193de22a390 100644
---- a/tools/testing/selftests/x86/vdso_restorer.c
-+++ b/tools/testing/selftests/x86/vdso_restorer.c
-@@ -10,9 +10,6 @@
-  * 64-bit userspace has never supported sa_restorer == NULL, so this is
-  * 32-bit only.
-  */
--
--#define _GNU_SOURCE
--
- #include <err.h>
- #include <stdio.h>
- #include <dlfcn.h>
+ 	vcpu->run->exit_reason = KVM_EXIT_UNKNOWN;
+-	vcpu->arch.l1tf_flush_l1d = true;
+ 
+ 	for (;;) {
+ 		/*
 -- 
-2.45.1.288.g0e0cd299f1-goog
+2.45.0.215.g3402c0e53f-goog
 
 
 _______________________________________________
