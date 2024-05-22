@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36B34C25B78
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 23:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6F5C25B78
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 23:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eKmxyIrLGnalIMYpBbvUtpEEjMFmgF6Kc1EpPToCEQo=; b=d9Ff+ka5gPmRG4
-	WAgGvFrDR984hHmKsaYjQvdXlJC7feyADN/3PSTukP4fdkoTsjAei5LOEpmgkpIMrUHzOu0yVTDYl
-	0TMz5L13GGNgOFItbPqnM1j4PbQuBUnUOkdklegxe18ZKENPKJRPxwEB2Sbjdl6LNpjEgyoTIt2md
-	IpY7WuVcwJbDWwS2LE55IZc7u8nRQpEgceJNHXDLI79uztP2XJdlIJXH0l+7nr6bAO+4cxhDDs2My
-	WxNkFymil74cFePlAsPikmvOdK4YOI/Of5MV8kdkefAI2NVHAN9dgFft4fNDNrSBJaF3Qp0uK2pdz
-	Q3+zI8BFlVZPH8JP8OAw==;
+	List-Owner; bh=Yjx37xWr83nBb4HIbJ9Wz1H8zlgcw9Xlwwmo7yr5rv8=; b=1OPFQn3wvLOxSz
+	pyD+oy+ZZ/RprN2JFx3NdXf6uC2kCxdN3zeyRO3TTnRMyom9lqQamEaI0q5rPWtuHCGhBzYLGr8Rg
+	BF17Lb126E1AEilzGmXZBsnDbAGk6YZcByYqpx8MYNMStziRJHQgjaXyBZtPjMYff0798IHZXYfJF
+	q9SRgaUbwbu3zQ2iSd/S/TboArxOx47/bD5Fulx0h47XdLqKlp6vtUnjw1uao4/b5QxlB2zzvv/Uc
+	cPaEsxdFhedBTChFfQoL3B+Y2nCXlHDxFaN5vFDdnPdC75FN72GCwo5U0zQHjS6F7zz1dPHjWy4DD
+	lyuh+HFfZ67H60m2MPIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9vkf-00000004Va7-38mo;
-	Wed, 22 May 2024 23:52:09 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1s9vki-00000004VcY-1fX1;
+	Wed, 22 May 2024 23:52:12 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9vkN-00000004VN3-0cxx
+	id 1s9vkN-00000004VNQ-0hSF
 	for linux-riscv@lists.infradead.org;
 	Wed, 22 May 2024 23:51:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 91C3FCE137E;
-	Wed, 22 May 2024 23:51:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id AC5CCC4AF07;
+	by sin.source.kernel.org (Postfix) with ESMTP id 3E0CFCE1387;
+	Wed, 22 May 2024 23:51:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DD314C4AF10;
 	Wed, 22 May 2024 23:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1716421907;
-	bh=ioi6hVc2nEfWRbNZ3lg5Z200sbO2gZVHrpry3fbgHJk=;
+	bh=n9A8B2bi1boYYZUvXlGtFezy2ShJanph4rjH8GXQdoA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=BELPVch4tSn7j38Q2vYR5hdVashLpRM9ExSHZwKcvf+4TrFUXuGVQQA3u7OS8dL98
-	 cdroRK3JWQ2fBJQVqW75Xh0O5ouemy0W/xE0UFGLTri+QYoq6qfkOMA7ittCLgNDVN
-	 Q3owqXjqHykWiXEIffm6vqHHZzd5jhafjeODEk+uuC7HCAd+RwkJZn7i7E7T0LCGZa
-	 3WCgMob95z7L2h1HdT8xzNmpeSjzdvx9x/FhEvzqbarfReRyq+2g0hD2myMV8tNY4K
-	 aHsDOqkNvqSwrS7d+wQLm2CnFZynaCXg6UwJO6mDW09ELVBtriIZhmrRSIEuAqHE31
-	 zxujMedqGoANw==
+	b=rbmiGK1u/ss/abz9OJF4XgUBvyZvlMriaHA12q4Ru1tBpxNiObC7nvN+jkcz5MlkI
+	 lLACip46Q71mta/ConRPspZkpppHTyAGCHWZQ/1lDYmdmpEaDp9bAX0LzgAN1HyLHc
+	 iMocukrXukSwUa0u6ruWOgEvWT6pzrT48ucfSoS99kqjmm22fbjcKlsehGmS5kaaEg
+	 fFNlQ6Ynj+IX+9GCo2/Cdlas7cn2dpIZU+xh+/wC/kGw9Ety/V9rsMoNTEXHsXAVLp
+	 6F6OkoR2Vbth821mLFGpoJtbYOxw/kVnBUWOKWpy7dCIxyZOjWtl6EZKZEmt3iT8Fx
+	 wH5C5iiFc4mNw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 94D65C43638;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D1A5FC43619;
 	Wed, 22 May 2024 23:51:47 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 0/2] riscv: Extension parsing fixes
+Subject: Re: [PATCH] riscv: uaccess: Allow the last potential unrolled copy
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171642190760.9409.9505694012625639228.git-patchwork-notify@kernel.org>
+Message-Id: <171642190785.9409.1593588970269968258.git-patchwork-notify@kernel.org>
 Date: Wed, 22 May 2024 23:51:47 +0000
-References: <20240502-cpufeature_fixes-v4-0-b3d1a088722d@rivosinc.com>
-In-Reply-To: <20240502-cpufeature_fixes-v4-0-b3d1a088722d@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
+References: <20240313103334.4036554-1-xiao.w.wang@intel.com>
+In-Reply-To: <20240313103334.4036554-1-xiao.w.wang@intel.com>
+To: Xiao Wang <xiao.w.wang@intel.com>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
- conor@kernel.org, conor.dooley@microchip.com, cleger@rivosinc.com,
- evan@rivosinc.com, palmer@rivosinc.com, linux-kernel@vger.kernel.org,
- alexghiti@rivosinc.com, ajones@ventanamicro.com
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, jerry.shih@sifive.com,
+ nick.knight@sifive.com, ajones@ventanamicro.com, bjorn@rivosinc.com,
+ andy.chiu@sifive.com, viro@zeniv.linux.org.uk, cleger@rivosinc.com,
+ alexghiti@rivosinc.com, haicheng.li@intel.com, akira.tsukamoto@gmail.com,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240522_165151_518320_BCA82547 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20240522_165151_547154_0C9C360D 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,27 +81,21 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
+This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu, 02 May 2024 21:50:49 -0700 you wrote:
-> This series contains two minor fixes for the extension parsing in
-> cpufeature.c.
+On Wed, 13 Mar 2024 18:33:34 +0800 you wrote:
+> When the dst buffer pointer points to the last accessible aligned addr, we
+> could still run another iteration of unrolled copy.
 > 
-> Some T-Head boards without vector 1.0 support report "v" in the isa
-> string in their DT which will cause the kernel to run vector code. The
-> code to blacklist "v" from these boards was doing so by using
-> riscv_cached_mvendorid() which has not been populated at the time of
-> extension parsing. This fix instead greedily reads the mvendorid CSR of
-> the boot hart to determine if the cpu is from T-Head.
-> 
-> [...]
+> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
+> ---
+>  arch/riscv/lib/uaccess.S | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 Here is the summary with links:
-  - [v4,1/2] riscv: cpufeature: Fix thead vector hwcap removal
-    https://git.kernel.org/riscv/c/e482eab4d1eb
-  - [v4,2/2] riscv: cpufeature: Fix extension subset checking
-    https://git.kernel.org/riscv/c/e67e98ee8952
+  - riscv: uaccess: Allow the last potential unrolled copy
+    https://git.kernel.org/riscv/c/74362d66a416
 
 You are awesome, thank you!
 -- 
