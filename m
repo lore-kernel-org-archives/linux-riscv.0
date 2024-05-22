@@ -4,69 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9BFC25B74
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 01:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 015ACC25B74
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 01:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5kbmVuaV62w4qjah8VwOsVdvt87Aji20ha8d9NqiQio=; b=zP0/FXzkWrRpUY
-	NO6N+FfNlN/rput9xr3VNqpc9VvrYlCEFr2GcFfLY+EiCFXig5dBkDoyoJrStm18noRtCBpuWHGor
-	lX33Xuz8rgBT4c+YhtpkDLXcHJ+8rKfa6NPluIQt+AwZaXo8Bn7fa8J4VYNQRqso5Se0DOzf+Phbb
-	R+dmDA+n8WcREXnSFZUgcfVVeJzQwYOhcCC7gHYzLbw849Om8ddilFVETxJuj/QMtsHJgK0TK8wOA
-	79xR9915/Osvpm0uoEbwEogf2GYitH//l60YpMQGXN/EECQKq+BxmQstNOfU3JIgWVj37oHWbWrRt
-	+7fjfKpv6Qm0DUE6a1Cw==;
+	List-Owner; bh=kf3tfPTEf2CMHheajfV8cC5Dx2L4BvHXFfeCdI3rNSQ=; b=Eo8eLrvy7FlZuO
+	Fb0iTMIAQr+FmH15ycILY+oqcY6jFWuX/NjHn49UZD5ul6dovVyzwzgOIoEmuRZKHRcU8zTJ+wbQO
+	iT6CHJXb5Scp7zjl+BIGlKV71W6dxWZTo8+N/AhmngHWej0OTWs24ihnnGdEXDaxw/ZH+spn0Tw0I
+	LHbPP6Z2VN4COO8t2RgXi0JxvOg7aqclx3beO6r9Vel/gG9suGm7Nc1S6uQToQ5CKupSCwdKOx5KL
+	AfAo7U6de+DwVUHF6vHNZVav7cj7EUzhXLWYbrI2mc+onsDUGERCNqRLdk2KsvEIGJwfJwl9P0qS5
+	V2pGJ/21n8zCRbCOgHSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9aVQ-00000001Yw0-1rWe;
-	Wed, 22 May 2024 01:11:00 +0000
-Received: from vmicros1.altlinux.org ([194.107.17.57])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9aVM-00000001YqM-0BWr
+	id 1s9adf-00000001aq6-0oHi;
+	Wed, 22 May 2024 01:19:31 +0000
+Received: from mail-sh0chn02on20709.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::709] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1s9adc-00000001amh-1Z48
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 01:10:58 +0000
-Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
-	by vmicros1.altlinux.org (Postfix) with ESMTP id 3D4EC72C8F5;
-	Wed, 22 May 2024 04:10:31 +0300 (MSK)
-Received: from altlinux.org (sole.flsd.net [185.75.180.6])
-	by imap.altlinux.org (Postfix) with ESMTPSA id 2249B36D0168;
-	Wed, 22 May 2024 04:10:31 +0300 (MSK)
-Date: Wed, 22 May 2024 04:10:31 +0300
-From: Vitaly Chikunov <vt@altlinux.org>
-To: Edward Liaw <edliaw@google.com>, Mark Brown <broonie@kernel.org>
-Cc: shuah@kernel.org,
-	=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
-	=?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Kees Cook <keescook@chromium.org>,
-	Andy Lutomirski <luto@amacapital.net>,
-	Will Drewry <wad@chromium.org>, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, kernel-team@android.com,
-	linux-security-module@vger.kernel.org, netdev@vger.kernel.org,
-	linux-riscv@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH v5 02/68] kselftest: Desecalate reporting of missing
- _GNU_SOURCE
-Message-ID: <20240522011031.nps5dejrgk5b442y@altlinux.org>
-References: <20240522005913.3540131-1-edliaw@google.com>
- <20240522005913.3540131-3-edliaw@google.com>
+	Wed, 22 May 2024 01:19:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=bX+zpL/Z9HoM20eDJYioNT/1FgdqP3EIELzGzpRvWVucFq2GFOn5iTnnvGlZvgR7DlJ3AAG4SM/2sa70ZLRv2gI9IyyQBeQqaNYyuBRdJBrTedz3lnrR2IQDJ+sApvpf2PEpgWIKJ8q5z/QfDLWc3ZqAheblm+m7fTfbHIy5RPV6fAqgOlbXGZhqyGcBdOBykR59ZhoWU9MtuJbwDkaz8swIP4BV9O/qfr3Oivjjh6Iv28Gpsu8bOLwQENKNWXHxL8uJFrc1Q64okBAUx+uGMffGy0RfDEVf7dMJvnNSqqMje0B2z4fTcMWIu4vUrWo5NBfqnEnQlg+53zeaEgH6Tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Tcj0nV0QKTR6KYMKm5D5jAyIT43iPeTTe0tlkJpe7xc=;
+ b=eMm9cMLi+XIimhMazDq2EEvRI+Gsi0ZG6HJEBorgZuPHVVOW9JM8lEBSW328XLVJpxQ72BsA4KT3xGeFWXogD8vbo/Vg8uiP82utwIdQEmfyEW2nz75TSxzeY8ij4vXSszNYa/YK3FXoUFtLDUWzcHhIqLm2FyBFLgYP9YJIKx8Sh7XzpHpP6JaUpjmZZ900Z3SwlfaMwMf18aSKj9xWc5jnsPWVkaXhKKs4SXCx53pFLzJk4QNAwVPxooACZvbzp5hm5LdbKAPWEl2E947eGLfkLVrr6dU46TRIFhxBgCgpDghdRSrVqqGrBJzo/+mscyfwyDaZjmIka8J1WgyoIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550::13) by ZQ0PR01MB0951.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:e::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7587.37; Wed, 22 May
+ 2024 01:19:10 +0000
+Received: from ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn
+ ([fe80::a350:34aa:a63c:287f]) by
+ ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn ([fe80::a350:34aa:a63c:287f%6])
+ with mapi id 15.20.7587.028; Wed, 22 May 2024 01:19:10 +0000
+From: Kevin Xie <kevin.xie@starfivetech.com>
+To: Minda Chen <minda.chen@starfivetech.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Conor Dooley <conor@kernel.org>,
+	=?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kw@linux.com>, Rob Herring
+	<robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner
+	<tglx@linutronix.de>, Daire McNamara <daire.mcnamara@microchip.com>, Emil
+ Renner Berthing <emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>
+Subject: Re: [PATCH v16 19/22] dt-bindings: PCI: Add StarFive JH7110 PCIe
+ controller
+Thread-Topic: [PATCH v16 19/22] dt-bindings: PCI: Add StarFive JH7110 PCIe
+ controller
+Thread-Index: AQHagPD6N6etUUNV8EKahT86V8hnLbGiyjZw
+Date: Wed, 22 May 2024 01:19:10 +0000
+Message-ID: <ZQ0PR01MB09818F373ACAA70B3C9F39E282EB2@ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn>
+References: <20240328091835.14797-1-minda.chen@starfivetech.com>
+ <20240328091835.14797-20-minda.chen@starfivetech.com>
+In-Reply-To: <20240328091835.14797-20-minda.chen@starfivetech.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ0PR01MB0981:EE_|ZQ0PR01MB0951:EE_
+x-ms-office365-filtering-correlation-id: dd824be0-73d8-45f8-c363-08dc79fd2f2c
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230031|366007|7416005|1800799015|921011|38070700009;
+x-microsoft-antispam-message-info: BI6GmKmB/BdY3XeJTG8rMpk+DxpdX+JkNj3NDmC4Uu19e/zcY0zhHtygyXWUK3O40coTq9oTzeZDzD0jlg5jP0bevoobz0nQD23lF8Gyy7+wYw3SYcFdDIPB4SMBl7UHpcFHQ/usoLS3Y0PBK2kK261KzPQeSOfkiRtHhBA3KSnwT19unjJCnPcCqtkuLaOd3xqd+MxbDsZr3kn9yGVINShIkrAeHx6gUsUfesozbUc/YxwcQETelIuq2pMznA9dcFSIRWgzMpWTPHSZDuQx5T/TwQhERlGZ6DnLc7QBEBe/+bW7juTR98n4kk3LfUglsrkbr6iRvUn9oZ+Enrw+KNkGhKf6k8vHrA4QPYdcxUCFdFiRrg2bUxaGl1ZXWPzai9QG6bUm/WSeBEwAdzi0oXXLmQrh4tqn3wnBoEPW0i5vM+e6knxACYOfRI6n99fyWuUVU5MyWwHE6tQyEAoL6CLbY3PJuSS2ISoZ0Ly5FCNIfHagdMzP4l0Zx0/XyZsWom4kJ9/4WyY8yyKVJZouI78FyueEqI9P2uyjDIWNUJwD+W4PIie4grY0Wsz3LogRiGLoYTXgy3Pm6JVz3Dq/G/91ETWVgYIYzgCcWWkVznXLqry+arx8LcrZ1LLxTnS52LN+plJ1DN71K7IWWh2XLQ==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(366007)(7416005)(1800799015)(921011)(38070700009);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?FJ7RwoJOAlihYMalqyQ01lVDLRNtxp0r4wz47A0dNRnmRVZ7ES4cWttOwn?=
+ =?iso-8859-2?Q?Pvai5Pwv9JpYwWDYT6MUfNQb8oos/PuPszjtxexXEHfFJk5INtjN/W5yO6?=
+ =?iso-8859-2?Q?CiTyMAEkAO+boNqn+IdT01z1qAVL/geruCrfrc5RquwHD82LQIjhtpdCCE?=
+ =?iso-8859-2?Q?d4kljn1+MSp1yQy50AjkIwnkHnY5cfAlC6nzReq9SJD+x/5L8H34biZw1+?=
+ =?iso-8859-2?Q?HdmVyfiGF5WShSSS7LQ/pQ/xz0z+CjNPxcbC/8xT2MAvQxbQfzS0QZZG61?=
+ =?iso-8859-2?Q?aV/91ZGx2Md8w9PG7hbENKdROcmCflAKI5tAnqSLEtbVmMkJKh+Acoy3O0?=
+ =?iso-8859-2?Q?r+GGQlQOhOK7U0js+w5kAQW5GfntT1HOx+3CeC2tQ8r120t22dqLQ5XR+6?=
+ =?iso-8859-2?Q?niDBb2RMQWzVPLXs0eo08Rkk3ri8z08MlOkIE5UxiHc+iMs736FKEF7Cwu?=
+ =?iso-8859-2?Q?K9HhcW3cZ4Mfx4t4bmPP48OBA7DaXce9pmQ9maGpSOsxQGxY8SugQnv21H?=
+ =?iso-8859-2?Q?CNKgu0wMOnE/DP6Qn/Cv/2JLLwpikCrsTqWv43M4GnvBeh5TjdjG/YgmVe?=
+ =?iso-8859-2?Q?5eqJWa6GfpqXa/d1D+yunL2YGT0comMlqarStamXf+qgqVm/zOfoAjYNNZ?=
+ =?iso-8859-2?Q?ytIx66nwtp3S6QUZT5nLtktI1ZscvopkzfXOSDvVIz8rpwaUayKFe7fOYn?=
+ =?iso-8859-2?Q?13WTZ6nSTm6f8K1eeyIQ4nbdxLILSxEbfGptf/QB6VWuHI/e7KiJRaUr00?=
+ =?iso-8859-2?Q?e+iBaaVgg9a44uiuVBrwvHfK7Hs+GJyTOIqQJmip4VfVPwjkOznNkCFzr1?=
+ =?iso-8859-2?Q?Ugf+Bt0R17keX8NWRUoGdbncA+m4w/7CP2oQW58vcpYXjyNP5y+V/vhi4U?=
+ =?iso-8859-2?Q?0SA7QCpYbQMQvajN5m6NqshJVJlgkZC+yP0FPMYC100hray/WNb3MNVcyS?=
+ =?iso-8859-2?Q?5l1zQ2O48fmFp5FhzqsMT99q2voSz8y4F4ZzfFrY4jT9kjsEI9qBi66cif?=
+ =?iso-8859-2?Q?iAE9alDF2f54XdgdRJkarC70D76kjt1h0utJ+XoB8HM1/kZwMeNmCSkf4t?=
+ =?iso-8859-2?Q?oW7VR6TvD/lzMuZn9omtyY2wn58ah5gXI0YlFrb5ZY057PNzaUJPENTTgu?=
+ =?iso-8859-2?Q?6Dm1o40c7MuK9Eg7PrZ+RrdacioCZPQoABwMQE4z8siXZ4kWHCzABVvFF0?=
+ =?iso-8859-2?Q?n56DyeJNvZkQcgDgOPPgMrDSAOu4V9mnFuu0kPTjfBC+USH3BDKBzHw8gD?=
+ =?iso-8859-2?Q?rJb2Hmo3mo4UPWEjthq01lgi9BIkSIjWClnDpjyz5mjDAABzSZFy6Bhhm6?=
+ =?iso-8859-2?Q?fUDM5/NrWqD14zpyuJMBjNnxNJgqVCRNEt8ifPbUbtaaenOTMfDXsB6O5M?=
+ =?iso-8859-2?Q?ZLe+pnWZIe6xvtyogEdAizL0kpdinlQWUptbNtR/MMFCSI500864hmvj27?=
+ =?iso-8859-2?Q?tfEjiphQBfuyiSMTwRg0/RDFuN+O08rLI/Y+jnTgmJCzZjcOOtAvfBWNL6?=
+ =?iso-8859-2?Q?fgAGk15NxClf/kiIDwaUuFIJZBGdLf5hS3QmX9RWN3TB2bt+jllm31iwSN?=
+ =?iso-8859-2?Q?qwYYDhb60bbW1ELDOHU03P+Vvm+FTBRTR7L4TUsZTvhWlwadcvq09zb7LR?=
+ =?iso-8859-2?Q?0fhauX0ciEpm7YTJ0g0nNX4BK2z1QYkIjn?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240522005913.3540131-3-edliaw@google.com>
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd824be0-73d8-45f8-c363-08dc79fd2f2c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 May 2024 01:19:10.4776
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: whPvcV45kSnhi6q2Vvh+Qi6o/6c1K2Q7LP/SoJquu5SZQrkEcM4aHONHTDcs/TF2V+92tRWLcQ81Y1EcZwGtzGbxw10RJ4MvqXp3eNA0dJM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB0951
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240521_181056_972577_979E9EA3 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20240521_181928_434512_E6447352 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,51 +145,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 22, 2024 at 12:56:48AM +0000, Edward Liaw wrote:
-> From: Mark Brown <broonie@kernel.org>
+> Add StarFive JH7110 SoC PCIe controller dt-bindings. JH7110 using PLDA
+> XpressRICH PCIe host controller IP.
 > 
-> Commit daef47b89efd0b7 ("selftests: Compile kselftest headers with
-> -D_GNU_SOURCE") adds a static_assert() which means that things which
-> would be warnings about undeclared functions get escalated into build
-> failures.  While we do actually want _GNU_SOURCE to be defined for users
-> of kselftest_harness we haven't actually done that yet and this is
-> causing widespread build breaks which were previously warnings about
-> uses of asprintf() without prototypes, including causing other test
-> programs in the same directory to fail to build.
-> 
-> Since the build failures that are introduced cause additional issues due
-> to make stopping builds early replace the static_assert() with a
-> missing without making the error more severe than it already was.  This
-> will be moot once the issue is fixed properly but reduces the disruption
-> while that happens.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> Reviewed-by: Kees Cook <keescook@chromium.org>
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Rob Herring <robh@kernel.org>
+Acked-by: Kevin Xie <kevin.xie@starfivetech.com>
 > ---
->  tools/testing/selftests/kselftest_harness.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/tools/testing/selftests/kselftest_harness.h b/tools/testing/selftests/kselftest_harness.h
-> index b634969cbb6f..8e53686b71cb 100644
-> --- a/tools/testing/selftests/kselftest_harness.h
-> +++ b/tools/testing/selftests/kselftest_harness.h
-> @@ -51,7 +51,7 @@
->  #define __KSELFTEST_HARNESS_H
->  
->  #ifndef _GNU_SOURCE
-> -#define _GNU_SOURCE
-> +#warning kselftest harness requires _GNU_SOURCE to be defined
-
-Maybe this should be `#error` if it really requires?
-
-Thanks,
-
->  #endif
->  #include <asm/types.h>
->  #include <ctype.h>
-> -- 
-> 2.45.1.288.g0e0cd299f1-goog
-> 
+>  .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++++++++++++++++
+>  MAINTAINERS                                   |   6 +
+>  2 files changed, 126 insertions(+)
+>  create mode 100644
+> Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
 
 _______________________________________________
 linux-riscv mailing list
