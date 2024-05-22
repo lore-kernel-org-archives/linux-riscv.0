@@ -4,140 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29E8C25B74
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 01:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA13C25B74
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 02:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=50lij7XhUsNScE9488rculuCvAZdAO4OKvqeVKTrV5Y=; b=1ul32nhrKWZqdQ
-	0TNndCO/1aFa+EwH689EFxDQNln2NZXhUf1F+NqXKUB+RFyJ7QFEXm5uWqcH/xyB53VdeuAt227N+
-	0I1iqQivFSY/+RV1eG0pbQ4AMBn4Vu4tI2Fe1XYR4TjAN95yDHxL6tB+jW56qfgXeNUTgBs8zEBoo
-	nV71a15SGN8vzpdGsu5XksRBC5rAHyvxmkpKmm9AQFXke13sNh8Kj0fJYYxQqAqIBEOCQ3SFXyytr
-	NF1Kn56qUS8JPew3HYqPCRBsrXemrS3dzoQT62QS62ajwwLsxpF5XtoRaGNEp7WEMv29QRx7T1cgM
-	N8g+pQRbIQNmnJl5x5ng==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=tpVAwWeed/1UJg+5vHl869z0F+0yhS8gC8hwFi0W7Bo=; b=ExDGt3eAgLB5vHJtjkurnOVxdS
+	UUJaKCqEAlFCeckDGMoAgFvnrXfh0s9vpHn3vu5RG33GR9Ab3BvLeeTkFgM+bdlLRnTamiz01yfkD
+	5JwUVR+2a4X0SmWunzR58FANywpoMYhIMtyCYkztBdWaktmDQMaFzMB+U4qk1N46Fo0l4+pcyrhg8
+	M/kRsmOdSiEvo2OHYLEwTyCwll0ftJXBAAxJdMKV2kCebCj5WMwkFEVIxrUvA0G6Ok8x0r/HTtyAl
+	6shMXpeKph++mC5RPETN7j/X62z6KB2jTVTGwBhUVV4c9mibCoybsC/BmluBa3et9RYBIIgAyiyji
+	2jQZiBzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9b8Q-00000001gEE-0Tz6;
-	Wed, 22 May 2024 01:51:18 +0000
-Received: from mail-sh0chn02on20717.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::717] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1s9bWb-00000001jRK-1SWS;
+	Wed, 22 May 2024 02:16:17 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9b8L-00000001gDA-1WYB
+	id 1s9aLK-00000001TZO-0bbu
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 May 2024 01:51:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ILXuluOBL1WAGeMJdokhAx1tuixve9VSdWUQLVquwZZae0COvnfDnsjrLsXEhoAyRVs7egjJiMm3wq8d1SYCUJNfIY0N3XCigARg7xXZQXl3N7jzacmAgGvTvdiXgZNku/4tW4RmbApa5nd/p0+YE9DLYzoDoOREKofExGJlVpr44VFgup+h3p6ZOQOjJJiVbjUx/whK6YASeuVWLCm//dngP6rW4dYKcsXRM+vChSiO0N6+eCTX8HXfOCDHKKWPVpLzinvCSi7JuU9zfkdZxx1Fs/52UG28+KkjMGIRIX5dJDmgwGHJax6ZZdWW1nE7VSKvYq9egjqdiDM1sgnmAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j4yoTHtbsPHnMLh+Cb5EiK9S4L+2OX7IWth7jFWKZh4=;
- b=EnZQCe8+sogd7UzXAqQimThRRf8xdkUfso/dpF2Omn+TeGkuN9CtqeS2Tl4bgiUZ6BQUQU4TJxv2o7UxKgImZQtDAavEpCLyGWBoYAzCZHZzB1VDJueHglLus7Ir44QE9BkEBS9pj+eScZxm2GLFDKjcHgUxs3P4+ZuWTdxF0XS1U5rwmd5/FYOx2bi1d5XI+BTDhuUUZvIjjKDuurOFmSu6xzsX7VfPLEiIaEnm1DmOusR5SqN3Ey5esPh7zXbn2NnkxhIH49OFPYIKoKrc4ORjJEfMYy5efUr4stkpE/mkT830X5H+mj5vp7yQIbB33UCZd2DpYrW4Nxb0xspIyg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:25::15) by SHXPR01MB0830.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:27::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7472.44; Wed, 22 May
- 2024 01:50:58 +0000
-Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- ([fe80::358e:d57d:439f:4e8a]) by
- SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::358e:d57d:439f:4e8a%7])
- with mapi id 15.20.7587.035; Wed, 22 May 2024 01:50:58 +0000
-From: Minda Chen <minda.chen@starfivetech.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: Lorenzo Pieralisi <lpieralisi@kernel.org>, Conor Dooley
-	<conor@kernel.org>, =?gb2312?B?S3J6eXN6dG9mIFdpbGN6eai9c2tp?= <kw@linux.com>,
-	Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Thomas
- Gleixner <tglx@linutronix.de>, Daire McNamara <daire.mcnamara@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Krzysztof
- Kozlowski <krzysztof.kozlowski+dt@linaro.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp
- Zabel <p.zabel@pengutronix.de>, Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>, Kevin Xie
-	<kevin.xie@starfivetech.com>
-Subject: =?gb2312?B?u9i4tDogW1BBVENIIHYxNiAwOC8yMl0gUENJOiBtaWNyb2NoaXA6IENoYW5n?=
- =?gb2312?B?ZSB0aGUgYXJndW1lbnQgb2YgcGxkYV9wY2llX3NldHVwX2lvbWVtcygp?=
-Thread-Topic: [PATCH v16 08/22] PCI: microchip: Change the argument of
- plda_pcie_setup_iomems()
-Thread-Index: AQHagPDzrxFwM5ned0uU5e4g9ZRYQ7GimIiAgAAs70A=
-Date: Wed, 22 May 2024 01:50:57 +0000
-Message-ID: <SHXPR01MB086351396027D8A443BB6068E6EB2@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
-References: <20240328091835.14797-9-minda.chen@starfivetech.com>
- <20240521222121.GA51329@bhelgaas>
-In-Reply-To: <20240521222121.GA51329@bhelgaas>
-Accept-Language: en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SHXPR01MB0863:EE_|SHXPR01MB0830:EE_
-x-ms-office365-filtering-correlation-id: d7625557-c0c8-4ee4-24d8-08dc7a01a021
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: LjSItgXDQoOttq+iEjows3gNg79A7LofiMuZfH8WGsT3ERkiroz9z259iUUu+raXgLZ0alY4yXKYP8dv6DdhPFZ8dCGeLkXqvTBJns0R7Y8LKHMKiEBRyc8mRdwa7EgkY1Fi1zw0f7ZT4yD/B8uJFs9wPNqhfYN4BMXu3HzDuhRTnY7Zf2NKKndQTe35QIFaYloOAFzhzMKwUKUHcmT1TEANrXEbtQD5owXzyx1hLihBg3TInFkOhZYS84I/LR9SGFjpbwZlE7RaufvjfaVhxbaePq4KE+2E1TIesQIMgFdLDfVLEqBVnu9sy/9H+VFjeOF214+8q/baqxzCUEZmyaeEhD68gsB6C1Vbe6Jxr0vjPXpAgDCeAZTgy8IzpPCT665/Sa2Y5Lxf5J8IqrWXFXs8rw/jLkRxiQWJvQJFOSe+JzBLil968meU3mKqyLQ2X1Ff7mTB+fkPDfmKWgVZkz3PmWlOXHtxyWwPFsQBfCu+cFV5yMOGq1NJW6AVdQQLKoLjMYLh90Q5oB500Xp6nDCGgbhn5nKZ2IZR8UG03JIrpJnQ9CNDnx1LvozgbCFKbRr+joEAdOh+UA8OO9QlbIyIekDRnBlUGQSR7oFLU9ycFzyF7BEIegsvwgp1HwSt
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(7416005)(366007)(1800799015)(41320700004)(38070700009);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?akRRYnB2UllvVnZOWERpVDJielRjK1doQTJRS05qTHQzTzZMVktSZk1nUVRx?=
- =?gb2312?B?NWxvbTVUdlJxQ3I5WERIQVdNRmNzd1JTNzI5czdrRHlFalprRDJzQkIwZzRH?=
- =?gb2312?B?SFpIalBLRHhkZnl3cXhrd1lpVlJJRjNnbytOc1lUaFdLdTJOZ0N5bzFVcmV3?=
- =?gb2312?B?bTNySzBLSHduOWpXWldXNzVia2s5M3VsMWJTVmxOSnY0OXlGYkNhaFF0czFJ?=
- =?gb2312?B?N29aWnZhZm1QdFdpV0NwRXRSZ2hoMDA2VC9ldHJGOXJkcmhXVkpJNFhCbzBq?=
- =?gb2312?B?TkowTkpScDVoWlYwL2VaRTJCeE5JL1hLTllIZ0dEZjdiRGozQWk4M3lCWHNl?=
- =?gb2312?B?ZDJKTmZWbTZqTkVhemNkMlZYVUdPd3FQMzFtQnB6L3RuZVR3SGh4VkpsNE1h?=
- =?gb2312?B?ODFKUzZRRGpOUkt5S3RjeXAvWGhPVmZwbUJySHVIOVVubjkwTnArQVdqcFRR?=
- =?gb2312?B?NHA5VUpldmp5ZU5NdWVycE44UktUU3NxSklRWHZ2bVdwRy9Ecjg4NStTMHJO?=
- =?gb2312?B?SDhrR3UrL2hxdGZBK0FXeDN3c2gxSzMxNWFTMEJLRW9BQVREWTdXTC9kUnd3?=
- =?gb2312?B?OFN1aTMzUXpMZk8zVGRDYVU0OERiNFRhQ0JMc3NrUmdsTmliRW1zQUdJaWh5?=
- =?gb2312?B?SVNDSVpRUXZtaFhCaVNQNENEQWtNNm8waEc0YXJXTk04UEI1eFlHWWJOMXpE?=
- =?gb2312?B?RGwwcGVLOXZIcTFyRDV5a0RKdUl6eUluT3l5WEtxYjM2VmRpaDlJcnVCSUhz?=
- =?gb2312?B?UFhpdFJkSTlWVCswdzNKcXZUZGVLQ3BxUkttQmlFVDF4M2pabjdkakQrMjhX?=
- =?gb2312?B?L1JyM0w1QldoQkxxdDFUNmNGQjdwQWdockpvRXJBYzBuSnZqQk9odWF3bThx?=
- =?gb2312?B?aEwxZzlxTlE1ckVsSHRnT0xGT2VGTW5ucHAvcnV6SHNUSlFTUHpoOXc0azRD?=
- =?gb2312?B?SVRia2tJakZ2RWlScWd5UStabVJiY2tTa3pTSGNrMFNHbEQ0Uit6S09wT3I1?=
- =?gb2312?B?clZzRkJyY2xzVUtZMEx5NzNsTUpDY1YwNmtKKzVMREpGa2hCRVJxMzBSY2J2?=
- =?gb2312?B?WktjcXJnZDJEay9YcUY1UEs2SHQzbzh2cWROby9vR1d5K3dkd211amZJclZr?=
- =?gb2312?B?d0todHpjKzY5NDlsNmt0U2ZtTG5TeFNEQlNJeStPNGptaWZ2Q2M0M3UzNnhz?=
- =?gb2312?B?UkFmWFBFdTFrc3V6amZQbERhYjBwSXJVVVVyVndIYmxuU1RWQjNZZDRWcXhV?=
- =?gb2312?B?T3JRYkNFTE5LejJaVXRCNnRDdEFNNGduTDc2MmZScnlPMHhRU2tCMXNMV2Qr?=
- =?gb2312?B?eDdkU1lhZ0YvYXAvck1OeWlPYTJid21vZlh2RmdxalFBSVBtWldmN1JFNGpS?=
- =?gb2312?B?OGpzcnFyeC8wVVJ1T3NLNVNqNmMrVUpvYWx0T09oMFIzRnQ0dURpZ09pY0FJ?=
- =?gb2312?B?N3JuL01aYlNpeVNJeGNQOEs0SElqUmM4TmdpbHY1Y1I0N3k0YlRVT1g3MzB3?=
- =?gb2312?B?ZDErc1V1Z0pWRXczeFpSUy91NUJzSGV0a0FVcHc3OUVRcWlXbFV3NS9tOGxI?=
- =?gb2312?B?TWViNjBmd3Z2R21tcTdIWkc0NGtPTml1aCtIQWFKT1lmRzZFQnVxVE1Gandt?=
- =?gb2312?B?UktIYUJPaXhocWU3VGxMMm9zd3pHdmJMbDV0bEJrMnEvTWx1cjdUV1pUQlQ5?=
- =?gb2312?B?S1dRemJWaGxsT3ZKbGlJbmJxYS84UE1UOVR0UlRJK3FFOWZuTWxEM1Yyd2xE?=
- =?gb2312?B?WG1VK2hlTVo1RWhCRkhVMm1IZlMzYzBsaTcyR1ZiajBuVng2UUFVVzd3MDY1?=
- =?gb2312?B?L3c2bHBzMHEzTDJMSkw0NHNOTXBjcytVeTZDdUpQaGRQTWNubndiT0FUK0Vv?=
- =?gb2312?B?ZGVJd01oNS9zc29JYmxleGFnT0psd2doTmZoRDYxamdCcHU5SHkrZFhYbWta?=
- =?gb2312?B?b25YaTIyNWhqVzNnMFRGMEIwemN4cmRNR2piNk9VNzU1Nk1KYUxzWCtYYnh4?=
- =?gb2312?B?QjduRlZ4ZEhEK0NFS1h2Rlh5VVZyZk9xSFU1djhuSyt3SWxjVXhMclVsTmtN?=
- =?gb2312?B?U3I1WFFCSE5GSjY4ektKK1pRMGpFcENKWncvL2N0QWxKUm1UVmhraUVQVXJN?=
- =?gb2312?B?RHgxbkROVjdKVDlOSVFQbnRCQkZDVnVSZ0lZditlLyt5cFdUcHlCQ1dDVEV0?=
- =?gb2312?B?MWc9PQ==?=
-MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: d7625557-c0c8-4ee4-24d8-08dc7a01a021
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 May 2024 01:50:57.9362
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 2xjs1hc/OVRcF6vNNAHD9WA4HkMqkzQhJXS64OtBzUS3gQxByz06vQk6dlIupmXhlK2lBml4k33/aZ8qkIH+2sxo96Go2sRotsMZkV/ARUw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0830
+	Wed, 22 May 2024 01:00:48 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-de60321ce6cso24313306276.1
+        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 18:00:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1716339632; x=1716944432; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=oewyckT7yCJdv6PsHxuPsX+KPG3aBwcB83OXgCrutjo=;
+        b=Er+DrYr7mRGj+jcY2lYQSCTAGATRwrmdkLrs8D58b8HgPPGyU+OpO3X5CnJ0fQfFd4
+         BM2glsviAgrMhMtfzbDnj+zOap/GlpABHLBNmnirY9PtEEh7TZeZn0dfeICT+hXfNHr1
+         OpFi7m6KuS4b1aB93ArFLBIPJZxK4AUd2ad0O4jIbTlFZScGX1yROyTS7UR9bW6eeWDf
+         VNpF8vJpjoh6IW0dpl7PP9woEyDmcHfztZZvpMXvtXQe2s7sos5V8FJ0Rd7Vgbb9XH7B
+         xDeE/bEvGIuxuH4eD/bmFxMhaQ1YlBemCD/RCRFXZzH3wgxXFCSZP65oJNsH+2M8O7ji
+         DlOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716339632; x=1716944432;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oewyckT7yCJdv6PsHxuPsX+KPG3aBwcB83OXgCrutjo=;
+        b=EIoa8E+WNG28KcG62xqFvOc7Pmi77MPAZS/7bRMFbGWnMhUHAeyqleTvMADApqPUNY
+         hUziqgcEB/AkhTEc2eRevK2vAdkjye8yPAABiZP9pUpLLpINwU6ZTQYBm15WU1Ejed8/
+         mHUAob6SlVncjJ1CJ62WfhwCtOyFryMRUqzZmiE71GPNA2YcBgz8I4PD42AAlguYJEN2
+         WejGQFcGapOGE6sOWQz7Bxw9BG/zmlM4QIkuAiTGThVvhdcZoeF1W1TghOOG88qUWqvI
+         +wVLPeRO7WalpWY6jKini+uI/x2nig3XurWYS7nRborDHFBzAtOenW2ptNtAsczFigzq
+         SpUw==
+X-Forwarded-Encrypted: i=1; AJvYcCX87PYmwi4zsmRShCBeRDT942+ENBizHxDZoe7x96vkAucMeWg5e968pCmzhye1xRCz93/y+9CBetlhHdP1oEqwyAl9PC67suOjhxpzx069
+X-Gm-Message-State: AOJu0Yz1Wm91nYe5LnqyakiZeDm+7/UXDjO9VvQFe1t0vPcAs9+7OS1u
+	fqMzDo1GWFAIjmQco1xtAVnSsHneTf9mIawLrquP1i+KbpbUAlLBwniKDHVUxkY6A2ioc2OatZl
+	cZg==
+X-Google-Smtp-Source: AGHT+IHUNo8cvfMfJNAVfAe+BtdbpT1JP+r7S8PiEYjzPEdLVkTG1XyhCc3cwbOFMzIaHwj4vfyOysmUIdw=
+X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
+ (user=edliaw job=sendgmr) by 2002:a05:6902:2b91:b0:df4:a381:517a with SMTP id
+ 3f1490d57ef6-df4e0905878mr221333276.0.1716339632667; Tue, 21 May 2024
+ 18:00:32 -0700 (PDT)
+Date: Wed, 22 May 2024 00:57:08 +0000
+In-Reply-To: <20240522005913.3540131-1-edliaw@google.com>
+Mime-Version: 1.0
+References: <20240522005913.3540131-1-edliaw@google.com>
+X-Mailer: git-send-email 2.45.1.288.g0e0cd299f1-goog
+Message-ID: <20240522005913.3540131-23-edliaw@google.com>
+Subject: [PATCH v5 22/68] selftests/intel_pstate: Drop duplicate -D_GNU_SOURCE
+From: Edward Liaw <edliaw@google.com>
+To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
+	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	kernel-team@android.com, Edward Liaw <edliaw@google.com>, 
+	linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240521_185113_538416_2A16F6E2 
-X-CRM114-Status: GOOD (  29.76  )
+X-CRM114-CacheID: sfid-20240521_180034_612477_D432C4FD 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,90 +100,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+-D_GNU_SOURCE can be de-duplicated here, as it is added by lib.mk.
+
+Signed-off-by: Edward Liaw <edliaw@google.com>
+---
+ tools/testing/selftests/intel_pstate/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/testing/selftests/intel_pstate/Makefile b/tools/testing/selftests/intel_pstate/Makefile
+index 05d66ef50c97..f45372cb00fe 100644
+--- a/tools/testing/selftests/intel_pstate/Makefile
++++ b/tools/testing/selftests/intel_pstate/Makefile
+@@ -1,5 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+-CFLAGS := $(CFLAGS) -Wall -D_GNU_SOURCE
++CFLAGS := $(CFLAGS) -Wall
+ LDLIBS += -lm
+ 
+ ARCH ?= $(shell uname -m 2>/dev/null || echo not)
+-- 
+2.45.1.288.g0e0cd299f1-goog
 
 
-> 
-> The patch is OK, but the subject line is not very informative.  It should be useful
-> all by itself even without the commit log.  "Change the argument of X" doesn't
-> say anything about why we would want to do that.
-> 
-> On Thu, Mar 28, 2024 at 05:18:21PM +0800, Minda Chen wrote:
-> > If other vendor do not select PCI_HOST_COMMON, the driver data is not
-> > struct pci_host_bridge.
-> 
-> Also, I don't think this is the real problem.  Your PCIE_MICROCHIP_HOST
-> Kconfig selects PCI_HOST_COMMON, and the driver calls
-> pci_host_common_probe(), so the driver wouldn't even build without
-> PCI_HOST_COMMON.
-> 
-> This patch is already applied and ready to go, but if you can tell us what's really
-> going on here, I'd like to update the commit log.
-> 
-It is modified for Starfive code. Starfive JH7110 PCIe do not select
-PCI_HOST_COMMON
-plda_pcie_setup_iomems() will be changed to common plda code.
-
-I think I can modify the title and commit log like this.
-
-Title: 
-PCI: microchip: Get struct pci_host_bridge pointer from platform code
-
-Since plda_pcie_setup_iomems() will be a common PLDA core driver function, but the 
-argument0 is a struct platform_device pointer. plda_pcie_setup_iomems() actually
-using struct pci_host_bridge pointer other than platform_device pointer. Further
-more if a new PLDA core PCIe driver do not select PCI_HOST_COMMON, the platform
-driver data is not struct pci_host_bridge pointer. So get struct pci_host_bridge pointer
-from platform code function mc_platform_init() and make it to be an argument of 
-plda_pcie_setup_iomems().
-
-
-> > Move calling platform_get_drvdata() to mc_platform_init().
-> >
-> > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  drivers/pci/controller/plda/pcie-microchip-host.c | 6 +++---
-> >  1 file changed, 3 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c
-> > b/drivers/pci/controller/plda/pcie-microchip-host.c
-> > index 9b367927cd32..805870aed61d 100644
-> > --- a/drivers/pci/controller/plda/pcie-microchip-host.c
-> > +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-> > @@ -876,11 +876,10 @@ static void plda_pcie_setup_window(void __iomem
-> *bridge_base_addr, u32 index,
-> >  	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);  }
-> >
-> > -static int plda_pcie_setup_iomems(struct platform_device *pdev,
-> > +static int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
-> >  				  struct plda_pcie_rp *port)
-> >  {
-> >  	void __iomem *bridge_base_addr = port->bridge_addr;
-> > -	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
-> >  	struct resource_entry *entry;
-> >  	u64 pci_addr;
-> >  	u32 index = 1;
-> > @@ -1018,6 +1017,7 @@ static int mc_platform_init(struct
-> > pci_config_window *cfg)  {
-> >  	struct device *dev = cfg->parent;
-> >  	struct platform_device *pdev = to_platform_device(dev);
-> > +	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
-> >  	void __iomem *bridge_base_addr =
-> >  		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-> >  	int ret;
-> > @@ -1031,7 +1031,7 @@ static int mc_platform_init(struct
-> pci_config_window *cfg)
-> >  	mc_pcie_enable_msi(port, cfg->win);
-> >
-> >  	/* Configure non-config space outbound ranges */
-> > -	ret = plda_pcie_setup_iomems(pdev, &port->plda);
-> > +	ret = plda_pcie_setup_iomems(bridge, &port->plda);
-> >  	if (ret)
-> >  		return ret;
-> >
-> > --
-> > 2.17.1
-> >
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
