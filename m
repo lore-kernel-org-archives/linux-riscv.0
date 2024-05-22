@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCC5C25B7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 01:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9955C25B74
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 May 2024 01:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=iBuFgzr1eB4BeY9kmaBNOfw69Kk46v+/aSIPg8OvH3Y=; b=pGEp0Jq209z9pidbm8URt6wEsg
-	RhsRubEslWfUCYse9KgMnfvZrDXn+pjc5IQDAszKJfE83uEClvGjT+0s1A0sl98dhSHQH117hAlf6
-	3x7irKV1NIGq4Z3qSHx/1cvbIpBFjwFQNkiXUfNs7AEOpSMJzIDyHViQyIDDNk8Gai/Taq7p5rbnD
-	ZXEv+h32NK/gqQAn6jUbA8exag0ZzwZhrfKu48VLmpy0UbYBSUSUf9TXwrX9NRa/TIevFNCkB+nwr
-	Ph9c4bVmKAHDAw5NiCucwmKtXkbnIj9Hm8Bf4DGoseiuAn9BhuAsKori9+GAmJL1muQ0NQXUgcY1N
-	PBluI6Qw==;
+	bh=vJiKMgNz19aqw1PtTh9u8zcm/PkZGbfSGHgTA/MIKxM=; b=C/sL4WztteUG7zVQel9KQeqjTf
+	Wq+P0ipL9laaPsAaBJIZkj9mQns3E5M4sh8WG1zkpTkHCWXvAJW2Iw5ZmlgEwCIMMFJWgyRIidVZn
+	Lxob1YDQYifkf/kwTfl9TZ1IjaV/20p57S1Ohn88H0tWg3rZCMovIBxnAFTHc7c3J0rPalVnMDAvb
+	T2z1R4bWB0sc61uDYDSwtT9MGWvknPr6vwGHjQ8KmnKA0cbUOh07Z/iXSSHVFvP+yE0Ybl8X8PNJz
+	4XEFF/JZznzL/Ifu1hJcpl5cLDAFKwIpBxUYBCnSvi3XvBllCKmRolWmkdjjUwWEf+kRq1P7hwVOQ
+	A8Fnwdow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9aOu-00000001WBI-2agr;
-	Wed, 22 May 2024 01:04:16 +0000
-Received: from mail-yw1-f202.google.com ([209.85.128.202])
+	id 1s9aP2-00000001WIJ-3Adc;
+	Wed, 22 May 2024 01:04:24 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9aN3-00000001UoP-3COy
+	id 1s9aN3-00000001Upm-3odD
 	for linux-riscv@lists.infradead.org;
 	Wed, 22 May 2024 01:02:29 +0000
-Received: by mail-yw1-f202.google.com with SMTP id 00721157ae682-627956be166so89716967b3.0
-        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 18:02:18 -0700 (PDT)
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-622ccd54587so217023217b3.0
+        for <linux-riscv@lists.infradead.org>; Tue, 21 May 2024 18:02:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1716339737; x=1716944537; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1716339740; x=1716944540; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2p/91SZXiolultWfykg7Se/3Y6CJnO46NmIdpmtDTd8=;
-        b=VKAwLlCyll0r/DNBFcHu6+G4b3ddug7i6/JNAcaR+HoAjS2D1mJx4w6LpC60jfd+eF
-         AqZ+h5ojljHm/Gv0jX0HxhM96oFQt4DIIWLRhq1vYfjdkyGQ2t++RSyU5sknL6WauVZF
-         0WKbkBLbGruJvDi20cVKxM6NJ1crecQtb8v/uaduO31awbR/ZQl40cHWMJU9SdigbQzk
-         l8HBmANdhreMajawpcU11txK85TkmheWMtrUlaqU3TLGe+g/cyph+RkUicFEf/LHr1hz
-         jqTZPuRTxcZ1krpD1DcO52apaIVNItKmoRctvjLbiH3h5z6imyOvOgXGcoOhtPhG+tfU
-         XHAQ==
+        bh=wlialQE3WRWR1pwtVktV/TGzvnI/Kx+cCanCgGp3ksk=;
+        b=YvaHBm3jZca/vzITscGWQfm+CvtS8K8BBRskFBhDPSyvdiZ0zfOv0azPrw68zMLsBK
+         gRHTT2bfEkYuCfDDxoK2CE9KsFlghNbr+reAuRj4Y7t5SkUyoPB6wu5j5eqn58wXoBhI
+         gzH3mbmZTovlUJCjyDJx8616Fsmw9f/pztOu1gQUQmAqLAQKJuGkBDLN3f/8kVVIF8+i
+         x5W2lLQtc+jWdcrmdEaa/JuBPWU9EPS1SzSwXSODkzkiDzPptpwUnl8nic3200oV2GNK
+         sIM3b1lbnuDUL8iX62ZEscTfptLkIPvwYqKQbvwL46yQa3orFl4kv9JSOdiu12oEKyO9
+         OT0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716339737; x=1716944537;
+        d=1e100.net; s=20230601; t=1716339740; x=1716944540;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2p/91SZXiolultWfykg7Se/3Y6CJnO46NmIdpmtDTd8=;
-        b=BrVw2IviUldT9uqDLCp+m7kOkXm2vzyN/wQYDiVGJubdwxeqSYfy8fy+D8b2JQ9ViI
-         3VYqDJb7FNlSTtoqmXHWZFaJQsOxwHb6fcKX5KuJIYEtSo9vnTXtKBI9CzUENhyHvdTH
-         BxBFI51Fekfl+nZMlGrVV0Qr15sa9sPpskFoWELcBv7XIF27Qr6PMkeUcWGkS7kyiX0Z
-         mDGI28vO65eZiG+Wz1/vWTDZ4L6gHblgm9hfp/8oPSU9FWdtXZy7B7xen3KIvtY3e9vZ
-         Ku+kBIYf+RYWsRD3GSIlMxZKXTAm6wnFfUgdGulaEVDQD5LWX43DEY6KOhoQVmLCphNt
-         W+7g==
-X-Forwarded-Encrypted: i=1; AJvYcCXJVvraoMlaJ4XLpVOSeBlVTvusgfk/ihBlx+VSOegrDt7LvpoqfJluF28GUY2O4IKF+WNKgJN7Du/mEUspCbwmEa8y2vsm2hfSl325Q7dR
-X-Gm-Message-State: AOJu0YxsEb1si3wpMQCk+OiNNeSrfrBHBda37tv5neSGVX1HrGW9vM8n
-	R31KKpr2ac0e0kXCWm45uv3D3s8RnjStGim0daLnefhull+Wd8UeGtF9a3CdaMTPB+bXsajuZoa
-	amQ==
-X-Google-Smtp-Source: AGHT+IGfhOk9YJsYNy8CZV+lV+R/zOJsJYrZoh4Vhc9wR+bdPu7ruFNEsPOKmbOVrGY3YMxlYG3w5xawAtE=
+        bh=wlialQE3WRWR1pwtVktV/TGzvnI/Kx+cCanCgGp3ksk=;
+        b=XLBxjk9j2bpSQJLC8smvuwGPq6OLzxmO1y6lUeaks88S9VftyghYcnF7ww+ZnxUYze
+         I32mgNg9A5zfYuCdCP4P6Tq9HAzk3rx/rBTxKQnUmCWhMywqCLNyLW1Zu9M4m+diRZTc
+         Y4qEYZaOA1vZqZuOd0e6R42/FlOac/zCpSx/QpEP54NYPYiZ4XQpn+8qpOOz0wCfNtwo
+         HvHrfyPkRv0/rN8VhuCEMDURSBp/juupQvPbgDbul/8HwiZRoJEbWjcRr19v/4bMwDVW
+         KMSbEb9pqKKe4RNbnAqU3SNbdTPnod/fh442E7QZ5qNrzRERzTVnZ75VG9x1dwvAHwqF
+         ipxA==
+X-Forwarded-Encrypted: i=1; AJvYcCUndSRytJI9Hknjrq4cRgSKYnqD69p0WCm8dt4odnPJPlCy7CjQgKPwDrmiwPG8YZrJlRYYhUyEZtUAGYJWWWVBycllX+YBypNR+CvpQCOl
+X-Gm-Message-State: AOJu0YwEbZ7310ihKZPqT+ZKoHWup7q2EPGStaqwlztMV2CPcdCGr7Qy
+	IibCs3LswwzO+A/qodyzi/p70haodu7dpeaNpia5KoSsBJdexuCJdoQzcrlA0aYe8Jl3hHcMUVN
+	AMA==
+X-Google-Smtp-Source: AGHT+IHHzL4YxLE2AEcSk2fAIkbtuKw7ZK5BSNmkghB0hZ3ZZbutYPAUIbkCPCupmeXDdyNkLsvPeNDVP3A=
 X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a0d:d80d:0:b0:627:dad9:bf54 with SMTP id
- 00721157ae682-627e48c3490mr1899317b3.10.1716339737591; Tue, 21 May 2024
- 18:02:17 -0700 (PDT)
-Date: Wed, 22 May 2024 00:57:43 +0000
+ (user=edliaw job=sendgmr) by 2002:a0d:df15:0:b0:61d:ece5:2bf with SMTP id
+ 00721157ae682-627e46ca886mr1794187b3.4.1716339740171; Tue, 21 May 2024
+ 18:02:20 -0700 (PDT)
+Date: Wed, 22 May 2024 00:57:44 +0000
 In-Reply-To: <20240522005913.3540131-1-edliaw@google.com>
 Mime-Version: 1.0
 References: <20240522005913.3540131-1-edliaw@google.com>
 X-Mailer: git-send-email 2.45.1.288.g0e0cd299f1-goog
-Message-ID: <20240522005913.3540131-58-edliaw@google.com>
-Subject: [PATCH v5 57/68] selftests/sgx: Compile with -D_GNU_SOURCE
+Message-ID: <20240522005913.3540131-59-edliaw@google.com>
+Subject: [PATCH v5 58/68] selftests/splice: Drop define _GNU_SOURCE
 From: Edward Liaw <edliaw@google.com>
 To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, 
 	"=?UTF-8?q?G=C3=BCnther=20Noack?=" <gnoack@google.com>, Christian Brauner <brauner@kernel.org>, 
@@ -75,17 +75,14 @@ To: shuah@kernel.org, "=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
 	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
 	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Edward Liaw <edliaw@google.com>, 
-	Muhammad Usama Anjum <usama.anjum@collabora.com>
+	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>
 Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	kernel-team@android.com, linux-security-module@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
-	kernel test robot <oliver.sang@intel.com>, linux-sgx@vger.kernel.org
+	kernel-team@android.com, Edward Liaw <edliaw@google.com>, 
+	linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240521_180222_156298_FB1387A4 
-X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-CacheID: sfid-20240521_180222_225437_14E30463 
+X-CRM114-Status: UNSURE (   9.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,42 +100,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add -D_GNU_SOURCE to HOST_CFLAGS and remove #define _GNU_SOURCE.
+_GNU_SOURCE is provided by lib.mk, so it should be dropped to prevent
+redefinition warnings.
 
-Fixes: 809216233555 ("selftests/harness: remove use of LINE_MAX")
-Reported-by: kernel test robot <oliver.sang@intel.com>
-Closes: https://lore.kernel.org/oe-lkp/202404301040.3bea5782-oliver.sang@intel.com
 Signed-off-by: Edward Liaw <edliaw@google.com>
 ---
- tools/testing/selftests/sgx/Makefile    | 2 +-
- tools/testing/selftests/sgx/sigstruct.c | 1 -
- 2 files changed, 1 insertion(+), 2 deletions(-)
+ tools/testing/selftests/splice/default_file_splice_read.c | 1 -
+ tools/testing/selftests/splice/splice_read.c              | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/tools/testing/selftests/sgx/Makefile b/tools/testing/selftests/sgx/Makefile
-index 867f88ce2570..272da790d9ae 100644
---- a/tools/testing/selftests/sgx/Makefile
-+++ b/tools/testing/selftests/sgx/Makefile
-@@ -12,7 +12,7 @@ OBJCOPY := $(CROSS_COMPILE)objcopy
- endif
- 
- INCLUDES := -I$(top_srcdir)/tools/include
--HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC
-+HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC -D_GNU_SOURCE
- HOST_LDFLAGS := -z noexecstack -lcrypto
- ENCL_CFLAGS += -Wall -Werror -static-pie -nostdlib -ffreestanding -fPIE \
- 	       -fno-stack-protector -mrdrnd $(INCLUDES)
-diff --git a/tools/testing/selftests/sgx/sigstruct.c b/tools/testing/selftests/sgx/sigstruct.c
-index d73b29becf5b..200034a0fee5 100644
---- a/tools/testing/selftests/sgx/sigstruct.c
-+++ b/tools/testing/selftests/sgx/sigstruct.c
-@@ -1,7 +1,6 @@
+diff --git a/tools/testing/selftests/splice/default_file_splice_read.c b/tools/testing/selftests/splice/default_file_splice_read.c
+index a3c6e5672e09..a46c5ffb573d 100644
+--- a/tools/testing/selftests/splice/default_file_splice_read.c
++++ b/tools/testing/selftests/splice/default_file_splice_read.c
+@@ -1,5 +1,4 @@
  // SPDX-License-Identifier: GPL-2.0
- /*  Copyright(c) 2016-20 Intel Corporation. */
- 
 -#define _GNU_SOURCE
- #include <assert.h>
- #include <getopt.h>
- #include <stdbool.h>
+ #include <fcntl.h>
+ 
+ int main(int argc, char **argv)
+diff --git a/tools/testing/selftests/splice/splice_read.c b/tools/testing/selftests/splice/splice_read.c
+index 46dae6a25cfb..418a03837938 100644
+--- a/tools/testing/selftests/splice/splice_read.c
++++ b/tools/testing/selftests/splice/splice_read.c
+@@ -1,5 +1,4 @@
+ // SPDX-License-Identifier: GPL-2.0
+-#define _GNU_SOURCE
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <limits.h>
 -- 
 2.45.1.288.g0e0cd299f1-goog
 
