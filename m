@@ -4,89 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C9FC25B75
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 May 2024 18:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE862C25B75
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 May 2024 19:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yuSmMe2PJCbQ0Y18bFoJb1asow5qMPaVLnNyv/VyUV8=; b=T7iM3LwWlXpgjW
-	CiBKM9kCuCZlhiv3nh2fcYuldsF0U45K1F9K4BmwtdgoHZQf21LopuLBT+kDLOaX+tLOlGqNX31Ve
-	bOt6XixwB0j2flzac5eOAb69mx+xjgWf+/kMZ2NJAgBtE7GIewZINvSTTssLQu4RRCclxsrou952w
-	Utnap0lJCNbURj5YWCFyANCnqA3NoomVKjN2VsGW9BzSWxVd654I37rTsGsQtMxyGVXGY/kr/3aRu
-	8sHBUVI5u1UXIzavZMw02a2QJKfXR9YxdQgX/E67MhC7vjCKkfKKCEW4vul0RtdPVP8a4UVVfDjjZ
-	aJCw0K/xOwhUe7YLn1SQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:From:To
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7TNy+bjzipqadSNP2QR3q1SyUJbjni6/W4hvP79m3/c=; b=3i4sSfYe8ZYEff
+	rxtVrHsxZY9ZrSVZuzzE+7h0LwYCwTGOQhu02eUKXpqMgDH8M8B0SH3nWgi0X1NMI6Q/oSMTKGiJp
+	el5/sAcRv5ZZ1LBY6Pdhb7b3dJOKgaCZKbF7Tv8vk94+xwFbonuOVkGkFr8t2gLtNqhDl6bTnHh9v
+	fDNiNUHcC9Esu92xlueZ3qnKFWnBd2bfe8dhc2telStMaRQY/spWkGvAW6OF3t4OatB16OXaL8dMq
+	+pubwIhaOaBWcc3+JzA+P5KpUG1HMsoawg1kByR8YHlArMvsrWvNz2ujJz6yMNFQ5QHt13kmquC6z
+	ZDKhy1zSuFQi0oaKJr/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sACwR-00000006zPH-2pAn;
-	Thu, 23 May 2024 18:13:27 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1sADlY-000000075o2-3VJk;
+	Thu, 23 May 2024 19:06:16 +0000
+Received: from mail-4027.protonmail.ch ([185.70.40.27])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sACwO-00000006zOO-3VuN
+	id 1sADlV-000000075nK-3Wd1
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 May 2024 18:13:26 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-572f6c56cdaso2365a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 23 May 2024 11:13:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1716488000; x=1717092800; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TmV9pjx2Z/cgyKoVK6PJ6k9Fa04AQ2nQf51yC2c36Uc=;
-        b=uJ3Z/4tWo8IYjQz34UAPo9uZqSGmWfxpKcnWpPV9kMdknn5uPgRH430LDxdyqOrJJa
-         MV26pdmMgbjVGhlJsgajUhH4B9N/LgIkJhKwk+toeInlF1jAHKNZJrqFfHku9s8ejr1M
-         UuPExBDYksWfnbn6jEZVvrkF0bIgcTvxSYoY9Zz535ozy74797Ps9mWeONRVL7OXHK8v
-         WTzASSaYlmCgZvGX4dWzuLoAXk751jpIkmTQVTzNHyUbYpCVXnxezBLlNHnAdS4S4nbE
-         dRPJvyUAxNMEmOPbodcVZQ05/Q3DYjc8WVj8fFg7FFVjDfg1GkmUvGZm3Je/Ao7lefSR
-         ToAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716488000; x=1717092800;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TmV9pjx2Z/cgyKoVK6PJ6k9Fa04AQ2nQf51yC2c36Uc=;
-        b=SwLrY4W7mR4T6f55rWO7JI7yO0xHCfTvqc0nyKFvbCcxWm39CvEfRoTjc1N6S8MJu8
-         C+rbhkek2Y51L3mUQOyWm6L3Bfp91df9ujMqSR/Z4M8Ld2bumoZGmjRAbvCEz0arg7tR
-         WR7qywNoXkJ2MTRAroExlWIGvKwOdtxedSqJbG+iVWa/tUam3GYhD4O8fHhDL8rRCAk5
-         ITd9F/V3EqVydRqTNI3p2NfIQZNr9Bb0LhEjW25Sf+NbZkA2QLtFnyOqxV2TRKv6BEH7
-         VTfcMf9IUkObgZAgm9yF9Zd2tqO7C3M4+y7rjalWBr1b3Wm2LrUSi1SorIFIeA1Ednpa
-         8qcA==
-X-Forwarded-Encrypted: i=1; AJvYcCWPQXgZO1vryIsLIQnZgyKTFxycbhXZJabF/pvt5d1n+JWsYcEJdc8FbPdq5dvyPuDLqmOeQpQ5ws4ZO2UDjf+6bRLCrhLzGyLjyqpgwkWQ
-X-Gm-Message-State: AOJu0Yy3QFPlIvoFD9Y5zEzOcermwZaqZhxknMg+wAZApV+tEqCdsApi
-	RMH7KZMiSnbKibx9+xTXV4l0A6PAlR8PJvdzG/OJnHkq2Hq1xwp4ijrGBa9qnOXQXU5YSMcQ0GT
-	pMZnyqCYqzVgi3pTLummlNlIrjQt33mWVPxQO
-X-Google-Smtp-Source: AGHT+IH4XyN34wwdQO+LD1omzn19g4Z0hsO4LF5HJg6/COqxImkywXTVpGaksCMO62vMlBB+i2WN/mYDnRwwA5mbJXU=
-X-Received: by 2002:aa7:c941:0:b0:578:33c0:f00e with SMTP id
- 4fb4d7f45d1cf-578510d677dmr19276a12.0.1716487999947; Thu, 23 May 2024
- 11:13:19 -0700 (PDT)
+	Thu, 23 May 2024 19:06:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1716491168; x=1716750368;
+	bh=nKVtgmNgCPvFw75ETX/ZyMKoiz86YChWiGXW6xRcOCA=;
+	h=Date:To:From:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=jDxnH/WOznYscoYQtxSgB0KyFrCgko4jGpNbfRU1q6u9PW1fvjaq5ji1tAjO6zsNL
+	 S7RENnVYq60wH3vazDTW6Nk18PoptOaJhkm7oEI63LkmUKp43csQUqYvJ+YnzvBqJA
+	 lofoN1gpO3vfdrzHEbJWV7bD2JI9D+zWIhsWQFD+wKgH2ZALKDKhK3NUPpFvR1gSDg
+	 2FMj32edjwrAfI/Uv+nECX3xxbh1byGyTWAAyH4ryJGAfbZfjMDY5XfX8V6ua1PuE/
+	 2fiBcJDQjbKUXQDIriqkxsHOVesBTQuWgg+FmxedLmofS2rw/jnrdLmXwKir4dXkIi
+	 kiNByXT99DRFA==
+Date: Thu, 23 May 2024 19:06:04 +0000
+To: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+From: H Bell <dmoo_dv@protonmail.com>
+Subject: [PATCH] RISC-V: add Star64 board devicetree
+Message-ID: <IPHlm5mOKUzYfwGy0auyufx-oPkSrtQjUjiQLbtvspD69UPX9O98iB8P2mqM8ahNaerz0yUa009f4XABRniq7aj2PUp83hbRVVhhKmqT0Ss=@protonmail.com>
+Feedback-ID: 106097379:user:proton
+X-Pm-Message-ID: b780bb72757bb9f05bb140b9d649e489d2401f2e
 MIME-Version: 1.0
-References: <20240522005913.3540131-1-edliaw@google.com> <20240522005913.3540131-3-edliaw@google.com>
- <94b73291-5b8a-480d-942d-cfc72971c2f5@sirena.org.uk> <CAG4es9WAASaSG+Xgp31-kLT3G8wpeT5vAqbCA4r=Z8G_zAF73w@mail.gmail.com>
- <9e2677ec-1d54-4969-907b-112b71ef8dd3@nvidia.com> <d5471e30-227d-4e6d-9bbd-90a74bd9006b@linuxfoundation.org>
-In-Reply-To: <d5471e30-227d-4e6d-9bbd-90a74bd9006b@linuxfoundation.org>
-From: Edward Liaw <edliaw@google.com>
-Date: Thu, 23 May 2024 11:12:52 -0700
-Message-ID: <CAG4es9XU2fMo7hBv81vpn1JGKFWt9gExOhyAyRtOc-5OR5eiLQ@mail.gmail.com>
-Subject: Re: [PATCH v5 02/68] kselftest: Desecalate reporting of missing _GNU_SOURCE
-To: Shuah Khan <skhan@linuxfoundation.org>
-Cc: John Hubbard <jhubbard@nvidia.com>, Mark Brown <broonie@kernel.org>, shuah@kernel.org, 
-	=?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
-	=?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
-	Christian Brauner <brauner@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, "David S. Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>, 
-	John Fastabend <john.fastabend@gmail.com>, Kees Cook <keescook@chromium.org>, 
-	Andy Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, kernel-team@android.com, 
-	linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240523_111324_928056_D1224D14 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20240523_120614_056126_DB5646AF 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,28 +61,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBNYXkgMjMsIDIwMjQgYXQgMTE6MDLigK9BTSBTaHVhaCBLaGFuIDxza2hhbkBsaW51
-eGZvdW5kYXRpb24ub3JnPiB3cm90ZToKPgo+IE9uIDUvMjIvMjQgMjA6MjgsIEpvaG4gSHViYmFy
-ZCB3cm90ZToKPiA+IE9uIDUvMjIvMjQgMTA6NDYgQU0sIEVkd2FyZCBMaWF3IHdyb3RlOgo+ID4+
-IE9uIFdlZCwgTWF5IDIyLCAyMDI0IGF0IDQ6MjHigK9BTSBNYXJrIEJyb3duIDxicm9vbmllQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+ID4+PiBPbiBXZWQsIE1heSAyMiwgMjAyNCBhdCAxMjo1Njo0OEFN
-ICswMDAwLCBFZHdhcmQgTGlhdyB3cm90ZToKPiA+IC4uLgo+ID4+PiBZb3UndmUgbm90IHByb3Zp
-ZGVkIGEgU2lnbmVkLW9mZi1ieSBmb3IgdGhpcyBzbyBwZW9wbGUgY2FuJ3QgZG8gYW55dGhpbmcK
-PiA+Pj4gd2l0aCBpdCwgcGxlYXNlIHNlZSBEb2N1bWVudGF0aW9uL3Byb2Nlc3Mvc3VibWl0dGlu
-Zy1wYXRjaGVzLnJzdCBmb3IKPiA+Pj4gZGV0YWlscyBvbiB3aGF0IHRoaXMgaXMgYW5kIHdoeSBp
-dCdzIGltcG9ydGFudC4KPiA+Pgo+ID4+IFNvcnJ5LCBteSBtaXN0YWtlLCBJIGZvcmdvdCB0byBh
-ZGQgaXQgYWZ0ZXIgY2hlcnJ5LXBpY2tpbmcuICBJZiBhZGRlZAo+ID4KPiA+IEFkZGluZyB0aGlz
-IHRvIHlvdXIgLmdpdGNvbmZpZyB3b3VsZCBjb3ZlciB5b3UgZm9yIGNhc2VzIGxpa2UgdGhpcywg
-SSB0aGluawo+ID4gaXQncyBwcmV0dHkgY29tbW9uIHRvIGRvIHRoaXM6Cj4gPgo+ID4gW2Zvcm1h
-dF0KPiA+ICAgICAgc2lnbm9mZiA9IHRydWUKPiA+Cj4gPgoKVGhhbmtzIE1hcmssIEknbGwgYWRk
-IHRoYXQuCgo+Cj4gTWFyaywgRWR3YXJkLAo+Cj4gSXMgdGhpcyBwYXRjaCBzdGlsbCBuZWNlc3Nh
-cnkgb2YgdGhlIHNlcmllcyBpcyBkcm9wcGVkPwo+Cj4gdGhhbmtzLAo+IC0tIFNodWFoCj4KCk5v
-LCBpdCBpcyBub3QgbmVjZXNzYXJ5IGFueW1vcmUuCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+The Pine64 Star64 is a development board based on the Starfive JH7110 SoC.
+The board features:
+
+- JH7110 SoC
+- 4/8 GiB LPDDR4 DRAM
+- AXP15060 PMIC
+- 40 pin GPIO header
+- 1x USB 3.0 host port
+- 3x USB 2.0 host port
+- 1x eMMC slot
+- 1x MicroSD slot
+- 1x QSPI Flash
+- 2x 1Gbps Ethernet port
+- 1x HDMI port
+- 1x 4-lane DSI
+- 1x 2-lane CSI
+- 1x PCIe 2.0 x1 lane
+
+Signed-off-by: Henry Bell <dmoo_dv@protonmail.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/boot/dts/starfive/Makefile         |  1 +
+ .../dts/starfive/jh7110-pine64-star64.dts     | 62 +++++++++++++++++++
+ 2 files changed, 63 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
+
+diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+index 2fa0cd7f31c3..7a163a7d6ba3 100644
+--- a/arch/riscv/boot/dts/starfive/Makefile
++++ b/arch/riscv/boot/dts/starfive/Makefile
+@@ -9,5 +9,6 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-beaglev-starlight.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+ 
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
++dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts b/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
+new file mode 100644
+index 000000000000..c70fffd51181
+--- /dev/null
++++ b/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
+@@ -0,0 +1,62 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++* Copyright (C) 2022 StarFive Technology Co., Ltd.
++* Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
++*/
++
++/dts-v1/;
++#include "jh7110-common.dtsi"
++
++/ {
++	model = "Pine64 Star64";
++	compatible = "pine64,star64", "starfive,jh7110";
++		aliases {
++				ethernet1 = &gmac1;
++		};
++};
++
++&gmac0 {
++	starfive,tx-use-rgmii-clk;
++	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
++	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
++};
++
++&gmac1 {
++	phy-handle = <&phy1>;
++	phy-mode = "rgmii-id";
++	status = "okay";
++	starfive,tx-use-rgmii-clk;
++	assigned-clocks = <&syscrg JH7110_SYSCLK_GMAC1_TX>;
++	assigned-clock-parents = <&syscrg JH7110_SYSCLK_GMAC1_RMII_RTX>;
++
++	mdio {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		compatible = "snps,dwmac-mdio";
++
++		phy1: ethernet-phy@1 {
++			reg = <0>;
++		};
++	};
++};
++
++&phy0 {
++	motorcomm,tx-clk-adj-enabled;
++	motorcomm,tx-clk-10-inverted;
++	motorcomm,tx-clk-100-inverted;
++	motorcomm,tx-clk-1000-inverted;
++	motorcomm,rx-clk-drv-microamp = <2910>;
++	motorcomm,rx-data-drv-microamp = <2910>;
++	rx-internal-delay-ps = <1900>; 
++	tx-internal-delay-ps = <1500>;
++};
++
++&phy1 {
++	motorcomm,tx-clk-adj-enabled;
++	motorcomm,tx-clk-10-inverted;
++	motorcomm,tx-clk-100-inverted;
++	motorcomm,rx-clk-drv-microamp = <2910>;
++	motorcomm,rx-data-drv-microamp = <2910>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <300>;
++};
+-- 
+2.44.0
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
