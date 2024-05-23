@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5799BC25B7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 May 2024 02:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32B3C25B79
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 May 2024 03:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=RibP/uhbyTUF5Y2zuKzTB5bGSRtyeiFcKDqRJh4TSlk=; b=QR5bk0CoLXmuO9
-	QlLvikNKZs4ZLjLzoBOAMDb941osbLpgL+CvLPJ08+OFpQt3XkZos40+v0CYU5wZBn71AVYUrEdum
-	kVXbCnAxXCLs+m/WY3gnnpcS2x+QtRoS+/AAz+9GBkIOjzjKdHmF49c9tBelEQ/Hxk6BAq+DN7cG8
-	LHG9EqIw8b/DxlMj0g9mOiXqwUTkznNPZyl1qwbEQqtvU3CrYUzHmJdpO33WlAxFT7hymmOCZ3IYN
-	Jo1/J8/4+/QF5Qy30qeWh7zkEEWpt9GZIz7kBWLHQBUwThOHYJt+ntnFe/2fOaUyUdzzZxOj0uw6E
-	W0x6xGueMEUZzJcuvwRg==;
+	List-Archive:List-Unsubscribe:List-Id:From:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CjwF37Lxgu56JfH9LNncpavgyMb8SoHVtRxKulAogBE=; b=iXGLRzz40Nn4bd
+	6M336a79uLJWXH3us1/ZbjZT25bL2yL6/jGeEq0ScWpj0tG88dESf0fAfbC6WtuTmOTZGJBErBUPN
+	GrSNw2lvZelUGjQnXx+M0+iOlKHuslDRdbK/Ps0URsiTzW/owebjK+GnDpINMyUU5H2sHXYtx/UUo
+	lXRrnB3Ffj50T7+TlmQ9YaRqsQtS23ivfCW74XFeaRoTwdKRWt7ga5w3/ct+VTAUA9W2g/v/nma0x
+	z0bvwg77bIIPK/DNRrW2U/z4c6uIf4v2PYvzXoZmxxE/Fj6LCw58kbApmugnOjWBKUWXBWGPEh3nx
+	BA22zRO7R4c32cK43Elg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9yJE-00000004n9Y-0dtl;
-	Thu, 23 May 2024 02:36:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1s9yjx-00000004qV6-0Hf3;
+	Thu, 23 May 2024 03:03:37 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9yJ7-00000004n8U-4C6R
+	id 1s9yjs-00000004qUf-17jg
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 May 2024 02:35:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E383162AF9;
-	Thu, 23 May 2024 02:35:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D00BC2BBFC;
-	Thu, 23 May 2024 02:35:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1716431751;
-	bh=zhQmBBMVvVCkundq1HInPxU/OC6UeXZbEC1QHoq4MM0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=LNO9S6KF9l4oOc3kcBGJfxz5pKwqRYXEmJYz3V9pgrdttmlESBaQm/hoMx3+KOaY7
-	 FkxP5yzzbYHruF0zmZtpP7ykzAho52khy2ht7lVarOnqDTFfdQc0sLPbGKqhXl5laB
-	 qliAvxnzrW0rtc9YgYifg+6mjCWp3SbIHe2VHel9IfIliZxIyP7MprmwiTFjG3TMvt
-	 epw8JG0eE9GbqmpgalCCTjmpRMF2fLummkTK/6uS2ZHtw7h0MeUg8YwI9cHzsC5bgM
-	 w6EVMARW4sQXbpDIWWukIP+I/uCHwCB9gFNNL5BLK0YK6l7IrUkvr1RJFx5OyhyjgW
-	 0hjOf2wQ/B4UA==
-Date: Wed, 22 May 2024 21:35:49 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Minda Chen <minda.chen@starfivetech.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v16 08/22] PCI: microchip: Change the argument of
- plda_pcie_setup_iomems()
-Message-ID: <20240523023549.GA105928@bhelgaas>
+	Thu, 23 May 2024 03:03:35 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1f05b669b6cso16400885ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 22 May 2024 20:03:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1716433410; x=1717038210; darn=lists.infradead.org;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=nwUquAnhRk8ji3d7tZogBxnB1fXB0se2TAZQfiqE/wg=;
+        b=UqjutHKdc7qsy9ovlIb858Krqo2u3KACyn/vGAiwaNqV2xTksXZ79IOH4u07oim6zf
+         WUFywMD0C9bs3A/zg26exBOCoORyQhy4QxTUOOhUQIyARUiFu4nXlrBbKDH1eCpr71gG
+         IiceW0shQ+VjTEVRPKxPLAgeVJt7kHLzqOkiUzbpsZ5gMnqwSIR7j1BDCDeBmD4Grou7
+         3vnsHX2CAtpKd0qVSQ57jzXioj1X66Bo/sGBtuaoS6QsO0QjeipXYAXVTexfP55HbiA1
+         zlmRz2V92IHZtjaSMk22hPaUuzJ1pTqxjkm2t/yoolu0oWygWY6r3Y+FNyU1ioVH4nvb
+         G4Jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716433410; x=1717038210;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nwUquAnhRk8ji3d7tZogBxnB1fXB0se2TAZQfiqE/wg=;
+        b=Bk/PsFURzEvnOOgFZx60cdEfGFfzP+qWq8cur9sEgszv2xaqKAiOY2E5lsV8bjFagu
+         dz/3jL1UpbJzPhLhrubR2qgKASxpAldpkeS+THrZXBc5PyhVwPFjJDHZB30CCIfee4Me
+         LdrwJU1963eX0/ZD8qxGCVvd7lz9Tq215dJ4oRTOSYiHZhBDdc+ayVTLj6M4qYzuY5lv
+         QMZp0Gx2JpcrVzLqYp0P+L0NHdmLGdDnl+Aiq+sawOMPFrlKw6pDwcF24vwYHHPMd9Rb
+         GXhw4SN2hLrN2bA13/qAbPhPpY+BQWE65bXaMzAmnyFJljnN62tEvsfVBbPBSF3/MeVr
+         z2NQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWTEIlN7DrWyqWsBW4EgafidowaG3h2V871a0AlcqQ+nO0azw4gUdeYXWJZBlDB7wwYBaNu9UqEHDVPnExq6rSQh2nDH2TuGxEdlZ9Ob3O3
+X-Gm-Message-State: AOJu0Yw03FaML82CieIypRJTeIwXFcOYK3P75/5Cn4AZyUI36RMHDCdw
+	QwV0rwnYj7Vg8UzITVS/nN6Il/zlto3L1okzxdkUShCzL+L58NO6Wx/m3BgXLbU=
+X-Google-Smtp-Source: AGHT+IG8gFAJ37vNZkt/pFRbjWbnr7scBCXxw0nfWJ9qohe6/zfobei3QKSBGLGIn9UXOF1QoB+eew==
+X-Received: by 2002:a17:902:d543:b0:1e4:3c7f:c060 with SMTP id d9443c01a7336-1f31c9e2a09mr43905155ad.66.1716433409867;
+        Wed, 22 May 2024 20:03:29 -0700 (PDT)
+Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f302b31e74sm59195715ad.142.2024.05.22.20.03.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 May 2024 20:03:29 -0700 (PDT)
+Message-ID: <664eb201.170a0220.fce40.187e@mx.google.com>
+Date: Wed, 22 May 2024 20:03:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <SHXPR01MB086345C911E227889E3A4211E6F42@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+X-Kernelci-Branch: fixes
+X-Kernelci-Tree: riscv
+X-Kernelci-Kernel: v6.9-11078-g0bfbc914d9433
+X-Kernelci-Report-Type: build
+Subject: riscv/fixes build: 10 builds: 8 failed, 2 passed,
+ 8 errors (v6.9-11078-g0bfbc914d9433)
+To: kernelci-results@groups.io, kernel-ci-triage@rivosinc.com,
+ linux-riscv@lists.infradead.org
+From: "kernelci.org bot" <bot@kernelci.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240522_193554_168551_E042C561 
-X-CRM114-Status: GOOD (  50.96  )
+X-CRM114-CacheID: sfid-20240522_200332_563980_D5535912 
+X-CRM114-Status: UNSURE (   3.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,133 +89,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 23, 2024 at 01:09:58AM +0000, Minda Chen wrote:
-> > On Wed, May 22, 2024 at 01:50:57AM +0000, Minda Chen wrote:
-> > > > The patch is OK, but the subject line is not very informative.  It
-> > > > should be useful all by itself even without the commit log.
-> > > > "Change the argument of X" doesn't say anything about why we would
-> > > > want to do that.
-> > > >
-> > > > On Thu, Mar 28, 2024 at 05:18:21PM +0800, Minda Chen wrote:
-> > > > > If other vendor do not select PCI_HOST_COMMON, the driver data is
-> > > > > not struct pci_host_bridge.
-> > > >
-> > > > Also, I don't think this is the real problem.  Your
-> > > > PCIE_MICROCHIP_HOST Kconfig selects PCI_HOST_COMMON, and the
-> > driver
-> > > > calls pci_host_common_probe(), so the driver wouldn't even build
-> > > > without PCI_HOST_COMMON.
-> > > >
-> > > > This patch is already applied and ready to go, but if you can tell
-> > > > us what's really going on here, I'd like to update the commit log.
-> > > >
-> > > It is modified for Starfive code. Starfive JH7110 PCIe do not select
-> > > PCI_HOST_COMMON
-> > > plda_pcie_setup_iomems() will be changed to common plda code.
-> > >
-> > > I think I can modify the title and commit log like this.
-> > >
-> > > Title:
-> > > PCI: microchip: Get struct pci_host_bridge pointer from platform code
-> > >
-> > > Since plda_pcie_setup_iomems() will be a common PLDA core driver
-> > > function, but the argument0 is a struct platform_device pointer.
-> > > plda_pcie_setup_iomems() actually using struct pci_host_bridge pointer
-> > > other than platform_device pointer. Further more if a new PLDA core
-> > > PCIe driver do not select PCI_HOST_COMMON, the platform driver data is
-> > > not struct pci_host_bridge pointer. So get struct pci_host_bridge
-> > > pointer from platform code function
-> > > mc_platform_init() and make it to be an argument of
-> > > plda_pcie_setup_iomems().
-> > 
-> > OK, I see what you're doing.  This actually has nothing to do with whether
-> > PCI_HOST_COMMON is *enabled*.  It has to do with whether drivers use
-> > pci_host_common_probe().  Here's what I propose:
-> > 
-> >   PCI: plda: Pass pci_host_bridge to plda_pcie_setup_iomems()
-> > 
-> >   plda_pcie_setup_iomems() needs the bridge->windows list from struct
-> >   pci_host_bridge and is currently used only by pcie-microchip-host.c.  This
-> >   driver uses pci_host_common_probe(), which sets a pci_host_bridge as the
-> >   drvdata, so plda_pcie_setup_iomems() used platform_get_drvdata() to find
-> >   the pci_host_bridge.
-> > 
-> >   But we also want to use plda_pcie_setup_iomems() in the new pcie-starfive.c
-> >   driver, which does not use pci_host_common_probe() and will have struct
-> >   starfive_jh7110_pcie as its drvdata, so pass the pci_host_bridge directly
-> >   to plda_pcie_setup_iomems() so it doesn't need platform_get_drvdata() to
-> >   find it.
-> > 
-> OK, Thanks. 
-> 
-> I see PCIe 6.10 changed have been merged to main line. 
-> Should I resend this patch set base on 6.10-rc1? 
-
-No need, I rebased it to f0bae243b2bc ("Merge tag 'pci-v6.10-changes'
-of git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci") already and
-it will be a trivial rebase to v6.10-rc1 next week.
-
-The current pci/controller/microchip branch is at:
-https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/?h=ed261441e224
-Let me know if anything is missing from there.  I can't merge it into
-linux-next until v6.10-rc1 is tagged, but as soon as it is, I'll put
-it in linux-next.
-
-> > > > > Move calling platform_get_drvdata() to mc_platform_init().
-> > > > >
-> > > > > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> > > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > > ---
-> > > > >  drivers/pci/controller/plda/pcie-microchip-host.c | 6 +++---
-> > > > >  1 file changed, 3 insertions(+), 3 deletions(-)
-> > > > >
-> > > > > diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c
-> > > > > b/drivers/pci/controller/plda/pcie-microchip-host.c
-> > > > > index 9b367927cd32..805870aed61d 100644
-> > > > > --- a/drivers/pci/controller/plda/pcie-microchip-host.c
-> > > > > +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-> > > > > @@ -876,11 +876,10 @@ static void plda_pcie_setup_window(void
-> > > > > __iomem
-> > > > *bridge_base_addr, u32 index,
-> > > > >  	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);  }
-> > > > >
-> > > > > -static int plda_pcie_setup_iomems(struct platform_device *pdev,
-> > > > > +static int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
-> > > > >  				  struct plda_pcie_rp *port)
-> > > > >  {
-> > > > >  	void __iomem *bridge_base_addr = port->bridge_addr;
-> > > > > -	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
-> > > > >  	struct resource_entry *entry;
-> > > > >  	u64 pci_addr;
-> > > > >  	u32 index = 1;
-> > > > > @@ -1018,6 +1017,7 @@ static int mc_platform_init(struct
-> > > > > pci_config_window *cfg)  {
-> > > > >  	struct device *dev = cfg->parent;
-> > > > >  	struct platform_device *pdev = to_platform_device(dev);
-> > > > > +	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
-> > > > >  	void __iomem *bridge_base_addr =
-> > > > >  		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-> > > > >  	int ret;
-> > > > > @@ -1031,7 +1031,7 @@ static int mc_platform_init(struct
-> > > > pci_config_window *cfg)
-> > > > >  	mc_pcie_enable_msi(port, cfg->win);
-> > > > >
-> > > > >  	/* Configure non-config space outbound ranges */
-> > > > > -	ret = plda_pcie_setup_iomems(pdev, &port->plda);
-> > > > > +	ret = plda_pcie_setup_iomems(bridge, &port->plda);
-> > > > >  	if (ret)
-> > > > >  		return ret;
-> > > > >
-> > > > > --
-> > > > > 2.17.1
-> > > > >
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+cmlzY3YvZml4ZXMgYnVpbGQ6IDEwIGJ1aWxkczogOCBmYWlsZWQsIDIgcGFzc2VkLCA4IGVycm9y
+cyAodjYuOS0xMTA3OC1nMGJmYmM5MTRkOTQzMykKClRoaXMgbGVnYWN5IEtlcm5lbENJIHByb3Zp
+ZGluZyB0aGlzIHJlcG9ydCB3aWxsIHNodXRkb3duIHNvbWV0aW1lCnNvb24gaW4gZmF2b3Igb2Yg
+b3VyIG5ldyBLZXJuZWxDSSBpbmZyYS4gTm90IGFsbCB0ZXN0cyBhcmUgYmVpbmcKbWlncmF0ZWQu
+CklmIHlvdSBhcmUgc3RpbGwgdXNpbmcgdGhpcyByZXBvcnQgYW5kIHdhbnQgdXMgdG8gcHJpb3Jp
+dGl6ZSB5b3VyCnVzZWNhc2UgaW4gdGhlIG5ldyBzeXN0ZW0sIHBsZWFzZSBsZXQgdXMga25vdyBh
+dAprZXJuZWxjaUBsaXN0cy5saW51eC5kZXYKCkZ1bGwgQnVpbGQgU3VtbWFyeTogaHR0cHM6Ly9r
+ZXJuZWxjaS5vcmcvYnVpbGQvcmlzY3YvYnJhbmNoL2ZpeGVzL2tlcm5lbC92Ni45LTExMDc4LWcw
+YmZiYzkxNGQ5NDMzLwoKVHJlZTogcmlzY3YKQnJhbmNoOiBmaXhlcwpHaXQgRGVzY3JpYmU6IHY2
+LjktMTEwNzgtZzBiZmJjOTE0ZDk0MzMKR2l0IENvbW1pdDogMGJmYmM5MTRkOTQzM2Q4YWMyNzYz
+YTljZTk5Y2U3NzIxZWU1YzhlMApHaXQgVVJMOiBodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9z
+Y20vbGludXgva2VybmVsL2dpdC9yaXNjdi9saW51eC5naXQKQnVpbHQ6IDEgdW5pcXVlIGFyY2hp
+dGVjdHVyZQoKQnVpbGQgRmFpbHVyZXMgRGV0ZWN0ZWQ6CgpyaXNjdjoKICAgIGRlZmNvbmZpZzog
+KGNsYW5nLTE2KSBGQUlMCiAgICBub21tdV9rMjEwX2RlZmNvbmZpZzogKGNsYW5nLTE2KSBGQUlM
+CiAgICBub21tdV9rMjEwX3NkY2FyZF9kZWZjb25maWc6IChjbGFuZy0xNikgRkFJTAogICAgbm9t
+bXVfdmlydF9kZWZjb25maWc6IChjbGFuZy0xNikgRkFJTAogICAgZGVmY29uZmlnOiAoZ2NjLTEw
+KSBGQUlMCiAgICBub21tdV9rMjEwX2RlZmNvbmZpZzogKGdjYy0xMCkgRkFJTAogICAgbm9tbXVf
+azIxMF9zZGNhcmRfZGVmY29uZmlnOiAoZ2NjLTEwKSBGQUlMCiAgICBub21tdV92aXJ0X2RlZmNv
+bmZpZzogKGdjYy0xMCkgRkFJTAoKRXJyb3JzIERldGVjdGVkOgoKcmlzY3Y6CiAgICBkZWZjb25m
+aWcgKGdjYy0xMCk6IDEgZXJyb3IKICAgIGRlZmNvbmZpZyAoY2xhbmctMTYpOiAxIGVycm9yCiAg
+ICBub21tdV9rMjEwX2RlZmNvbmZpZyAoZ2NjLTEwKTogMSBlcnJvcgogICAgbm9tbXVfazIxMF9k
+ZWZjb25maWcgKGNsYW5nLTE2KTogMSBlcnJvcgogICAgbm9tbXVfazIxMF9zZGNhcmRfZGVmY29u
+ZmlnIChnY2MtMTApOiAxIGVycm9yCiAgICBub21tdV9rMjEwX3NkY2FyZF9kZWZjb25maWcgKGNs
+YW5nLTE2KTogMSBlcnJvcgogICAgbm9tbXVfdmlydF9kZWZjb25maWcgKGdjYy0xMCk6IDEgZXJy
+b3IKICAgIG5vbW11X3ZpcnRfZGVmY29uZmlnIChjbGFuZy0xNik6IDEgZXJyb3IKCkVycm9ycyBz
+dW1tYXJ5OgoKICAgIDQgICAgZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1lYXJseS5j
+OjUyOjQ3OiBlcnJvcjogdG9vIG1hbnkgYXJndW1lbnRzIHRvIGZ1bmN0aW9uIGNhbGwsIGV4cGVj
+dGVkIDIsIGhhdmUgMwogICAgNCAgICBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLWVh
+cmx5LmM6NTI6MjogZXJyb3I6IHRvbyBtYW55IGFyZ3VtZW50cyB0byBmdW5jdGlvbiDigJhyaXNj
+dl9pcGlfc2V0X3ZpcnFfcmFuZ2XigJkKCgo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQoKRGV0YWls
+ZWQgcGVyLWRlZmNvbmZpZyBidWlsZCByZXBvcnRzOgoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0K
+ZGVmY29uZmlnIChyaXNjdiwgZ2NjLTEwKSDigJQgRkFJTCwgMSBlcnJvciwgMCB3YXJuaW5ncywg
+MCBzZWN0aW9uIG1pc21hdGNoZXMKCkVycm9yczoKICAgIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlz
+Y3YtaW1zaWMtZWFybHkuYzo1MjoyOiBlcnJvcjogdG9vIG1hbnkgYXJndW1lbnRzIHRvIGZ1bmN0
+aW9uIOKAmHJpc2N2X2lwaV9zZXRfdmlycV9yYW5nZeKAmQoKLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0KZGVmY29uZmlnIChyaXNjdiwgY2xhbmctMTYpIOKAlCBGQUlMLCAxIGVycm9yLCAwIHdhcm5p
+bmdzLCAwIHNlY3Rpb24gbWlzbWF0Y2hlcwoKRXJyb3JzOgogICAgZHJpdmVycy9pcnFjaGlwL2ly
+cS1yaXNjdi1pbXNpYy1lYXJseS5jOjUyOjQ3OiBlcnJvcjogdG9vIG1hbnkgYXJndW1lbnRzIHRv
+IGZ1bmN0aW9uIGNhbGwsIGV4cGVjdGVkIDIsIGhhdmUgMwoKLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0KZGVmY29uZmlnK0NPTkZJR19TTVA9biAocmlzY3YsIGdjYy0xMCkg4oCUIFBBU1MsIDAgZXJy
+b3JzLCAwIHdhcm5pbmdzLCAwIHNlY3Rpb24gbWlzbWF0Y2hlcwoKLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0KZGVmY29uZmlnK0NPTkZJR19TTVA9biAocmlzY3YsIGNsYW5nLTE2KSDigJQgUEFTUywg
+MCBlcnJvcnMsIDAgd2FybmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVzCgotLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLQpub21tdV9rMjEwX2RlZmNvbmZpZyAocmlzY3YsIGdjYy0xMCkg4oCUIEZBSUws
+IDEgZXJyb3IsIDAgd2FybmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVzCgpFcnJvcnM6CiAgICBk
+cml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLWVhcmx5LmM6NTI6MjogZXJyb3I6IHRvbyBt
+YW55IGFyZ3VtZW50cyB0byBmdW5jdGlvbiDigJhyaXNjdl9pcGlfc2V0X3ZpcnFfcmFuZ2XigJkK
+Ci0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCm5vbW11X2syMTBfZGVmY29uZmlnIChyaXNjdiwgY2xh
+bmctMTYpIOKAlCBGQUlMLCAxIGVycm9yLCAwIHdhcm5pbmdzLCAwIHNlY3Rpb24gbWlzbWF0Y2hl
+cwoKRXJyb3JzOgogICAgZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1lYXJseS5jOjUy
+OjQ3OiBlcnJvcjogdG9vIG1hbnkgYXJndW1lbnRzIHRvIGZ1bmN0aW9uIGNhbGwsIGV4cGVjdGVk
+IDIsIGhhdmUgMwoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0Kbm9tbXVfazIxMF9zZGNhcmRfZGVm
+Y29uZmlnIChyaXNjdiwgZ2NjLTEwKSDigJQgRkFJTCwgMSBlcnJvciwgMCB3YXJuaW5ncywgMCBz
+ZWN0aW9uIG1pc21hdGNoZXMKCkVycm9yczoKICAgIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3Yt
+aW1zaWMtZWFybHkuYzo1MjoyOiBlcnJvcjogdG9vIG1hbnkgYXJndW1lbnRzIHRvIGZ1bmN0aW9u
+IOKAmHJpc2N2X2lwaV9zZXRfdmlycV9yYW5nZeKAmQoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0K
+bm9tbXVfazIxMF9zZGNhcmRfZGVmY29uZmlnIChyaXNjdiwgY2xhbmctMTYpIOKAlCBGQUlMLCAx
+IGVycm9yLCAwIHdhcm5pbmdzLCAwIHNlY3Rpb24gbWlzbWF0Y2hlcwoKRXJyb3JzOgogICAgZHJp
+dmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1lYXJseS5jOjUyOjQ3OiBlcnJvcjogdG9vIG1h
+bnkgYXJndW1lbnRzIHRvIGZ1bmN0aW9uIGNhbGwsIGV4cGVjdGVkIDIsIGhhdmUgMwoKLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0Kbm9tbXVfdmlydF9kZWZjb25maWcgKHJpc2N2LCBnY2MtMTApIOKA
+lCBGQUlMLCAxIGVycm9yLCAwIHdhcm5pbmdzLCAwIHNlY3Rpb24gbWlzbWF0Y2hlcwoKRXJyb3Jz
+OgogICAgZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1lYXJseS5jOjUyOjI6IGVycm9y
+OiB0b28gbWFueSBhcmd1bWVudHMgdG8gZnVuY3Rpb24g4oCYcmlzY3ZfaXBpX3NldF92aXJxX3Jh
+bmdl4oCZCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpub21tdV92aXJ0X2RlZmNvbmZpZyAocmlz
+Y3YsIGNsYW5nLTE2KSDigJQgRkFJTCwgMSBlcnJvciwgMCB3YXJuaW5ncywgMCBzZWN0aW9uIG1p
+c21hdGNoZXMKCkVycm9yczoKICAgIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtZWFy
+bHkuYzo1Mjo0NzogZXJyb3I6IHRvbyBtYW55IGFyZ3VtZW50cyB0byBmdW5jdGlvbiBjYWxsLCBl
+eHBlY3RlZCAyLCBoYXZlIDMKCi0tLQpGb3IgbW9yZSBpbmZvIHdyaXRlIHRvIDxpbmZvQGtlcm5l
+bGNpLm9yZz4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
