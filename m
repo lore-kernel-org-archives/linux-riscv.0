@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E76DC25B79
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 May 2024 11:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7F4C25B75
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 May 2024 11:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x20VAhRhVfmGpeKp4aV0d00phvyLKB35mgaXKk7xchU=; b=q4pkGoJ1IQon5T
-	ZSwFi95Qidw381XDYHs/Z5iOKROb7WftzDBPtRuXl2wjvFBvT+kBGD73KD57k+mMMq4wju5eM8sma
-	p8LmQ0Es0YNQjeHOlRMbzTGpeLyzt6bJbxRMkWNbjhCY9Cj42Dzk8BGE23oxV+I0E/LHbBNMS4t/r
-	MUggbVDxyJT6ggG+qx+AehOoPyUAZFsdz5smm4afAoqHqJa2NAnvAOVlUXnduXVUjGorERIly/IBO
-	LUaAiXbJKETjdnFcdD9P2MyukFVe472GjYtudusc8Abu/VYRtIoO91hq/R7C7uHQLcq2DHmPBYgPW
-	DyiD+usYnNiaK7Ajn55Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CyxDcWI3uUvv//eYA8YaTnOjJeuS6+fQAAgwQo1Ag+0=; b=DeAjcifgnag7u1
+	0RCgcZLwqBg9se+BVoq/hTuZlchusjxIIqGDHkUTOW+iKIdKIwd0o/0aGGAxbeKv3Oo1HFvhIMxkR
+	gFhPYcgYAT1c0UkkjqwsrTw4m0ZlQ9Pi8wi955sZ2r1wjdu4ByD2NtZxzP5WDXxw/PMR7sFFEDnko
+	WFEbK28MUOIVJFXDDPibXTrNBv/b4zY5fFLbHWkaZK4TttO7bKUtoARXkTwght2s5wrgTQMkCS9FL
+	8bBixzs+c7aEZETp1gn1JI9EooDcNb4GbhZF1syAyfqYdDbKkvQwI7lI0hjzsi3qYzdVj778PctDu
+	JGcWtPRdTSVmQ9XfMEOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sA6OS-000000060Fi-37o6;
-	Thu, 23 May 2024 11:13:56 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sA6ON-000000060Cs-0K1I
-	for linux-riscv@lists.infradead.org;
+	id 1sA6OP-000000060EP-39Wd;
 	Thu, 23 May 2024 11:13:53 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1f304533064so13855645ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 23 May 2024 04:13:50 -0700 (PDT)
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sA6OM-000000060CA-2TPi
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 May 2024 11:13:52 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1f332528c1aso9885365ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 23 May 2024 04:13:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1716462829; x=1717067629; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/f2nZESk5IwUhjcBCwDQD5m6WSIwM88cL3SwI9ltT4Q=;
-        b=fWhCuygeBY1Zt5xM7exmOCXEVB2UZiti1vu3NMtf/3p77o5THZhm/rgP4xAv1mNp94
-         DGRBXnOZKts/L3ddqPjC4vQLmR5zFf8uliYrWBdkSBfBSyXcuwAvDPQ5tsYUATNM8HoD
-         SpjJQojjiwSrJjUny85nQEnX/35EzSauBdVhv19qhDpNpkqU/TIP33Kw1wDlyrY6MVkt
-         vgfljjXWv77MYZFINBcoI7dyyXBW+RlM9DrJfWgC5p9M2QNHwPxnCOnUUVlXKfwlnBny
-         8bdndRIvBwPwrGw0Eg71mz1yu4Kq08x5jmIBf2rgk80CA7d6eBQEZwB/+7pucJ2xYVhY
-         rRqQ==
+        d=bytedance.com; s=google; t=1716462824; x=1717067624; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+aKuxY2Fk4OLcsa0CSr6w7+nYt28fnnuhVioZfggdrc=;
+        b=AVu7TjUhPY/AiuOCQtZU2Y3lCa/meY6GGVp3P7W8xU5ab3av1o6u5EBU++VxXQW+2A
+         rcDTaeRFqciCw9EYykhfqMx7j2kgfacmmfbaPMJ9GZ3UZyzYpoPpXFRCOR7tLdYWcfFW
+         wA4tDFKO0cVdHGWqlstPy3GPu3nszvB3pODG+0PD7Y3nOcnruZAea1Kig4WHyriUasvg
+         ZM2nTRaUl6/+czkD2XT1MKM+pBuwA5Ltv1AzyJpYRPHRt30IkS8naiUUoJmaz419hof5
+         HprASVG0Q8Wd++xNsRAuGG4a3y96hTzEvb6SDrGg9b7pe463g2JEz/BdRAJWDRtNLmXx
+         wH1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716462829; x=1717067629;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/f2nZESk5IwUhjcBCwDQD5m6WSIwM88cL3SwI9ltT4Q=;
-        b=mjgVMK2/LE1X5JKQvXUGyk77Zv0woDeDl78cjlsA3gX5hS0wRLB6IZUmyzuHknZh+1
-         cQ2N/gj4KjhHMB3OhqXH+E/Mp+NKnl3+B9Ys0JeYGIVLtrKDZWbVEL5sq7A7K6uxidf9
-         J1b3c0kIltmv8DOX4mkk1UE10B4eI4tO+jI1Eju5xvp9q2O/Q/ccLYF2Y9l3vLxj7nRF
-         EpYtm2pks9v8qc62B13WF1iT6MQwTKh/HpMulnoSTO/RXnReWFe/8Vzt87OmStAu2HoH
-         vWGgB7YhIzuZVDK/qzsE7WRvTKQ8jLmdH5OGGMuNgQiJwb46TAigI6lhW8hwWPYHBDJv
-         FFEg==
-X-Forwarded-Encrypted: i=1; AJvYcCXYxtl66bb3sJHtEnJYm7VDq3NnSC7plLGGpNCFVAMTb1xt5iqL1yrgHA6I2/ecZl/TcJOkPUs34nrqXC+jlqRw2YmYahJ7io3owvX+hkdg
-X-Gm-Message-State: AOJu0YykULZk/tzNg9GHlKHJOXfOW4sz7en5ORJafZLNTIdz0qwWShvu
-	QRo+wmijKo1kCWlqBtLw5Jr88NW6p5b6JOzvwnpUWTXRBJZyftkxLkbKEvU+y5M=
-X-Google-Smtp-Source: AGHT+IGZ11ZGVf2+lfQ+CO04h7/H65xj0+v0lVBzHE9gqd6ctUMXI7IPUiUEZxYjkmeoEd9vNdVmxg==
-X-Received: by 2002:a17:902:c942:b0:1f3:830:783e with SMTP id d9443c01a7336-1f339f0d128mr27457195ad.20.1716462829566;
-        Thu, 23 May 2024 04:13:49 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1716462824; x=1717067624;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+aKuxY2Fk4OLcsa0CSr6w7+nYt28fnnuhVioZfggdrc=;
+        b=KZnmdEC7qFriduEeqTN8uk4+kbJc3IP5b5VhupGWgqmdF7j2WW/U35oRio42jeKVcX
+         vAilA4ReZ4F58kqO3Y53L3nS8Q/g2b2zLjDIUla8hMebaV3D0P6aYsxCGM0FPsGKn1I8
+         H01+tlq+6cYzwdVbZYInvCRULM6Lg2OuEI5WBIIJVZpw4od9G/qH3iCV99X4wAaqqvus
+         /mJH9aWUBN1MLuHNzNGQcgu67+S5mNdg1CuYsqB9mEBReiIwZlAUNV2q4J3xMg1VH3Rf
+         BLVZ2dJy7X5JvCGJp4NMcoc1Booy5CWVYScYcS0mIET672f18TzF27S16VsNdCHcv+py
+         tlSA==
+X-Forwarded-Encrypted: i=1; AJvYcCXlT6nKUOqGUIiSz2ZjYlle0/sacOT5aTbrqGI5zkS28CdqJBOPfVN6jQH2RlnC4mGvOr7bDU62dHrzHEcQR4ibXMmxIMoTmdoCV32nEiLL
+X-Gm-Message-State: AOJu0YwNb8f0C/vKc/shMdXIZX5/oEWUtatygVqdBUwXR5kpLz3/aJyU
+	L6SikLxaBwM9r1QVQMKYij1hMowAVxgYHTVV3h4PnncIKjsb2J1KahO6OZ8onmM=
+X-Google-Smtp-Source: AGHT+IGfvwX4nHErQyEQ6tKcNt4WXio4qE4pV5EfAuWWShz5bnwIL0deO6asuZ7WelH2PvE/SRuq2w==
+X-Received: by 2002:a17:903:1104:b0:1e5:3c5:55a5 with SMTP id d9443c01a7336-1f31c95d67emr50609535ad.8.1716462824368;
+        Thu, 23 May 2024 04:13:44 -0700 (PDT)
 Received: from L6YN4KR4K9.bytedance.net ([61.213.176.14])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f2fb4ca0ebsm76399555ad.119.2024.05.23.04.13.44
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f2fb4ca0ebsm76399555ad.119.2024.05.23.04.13.39
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 23 May 2024 04:13:49 -0700 (PDT)
+        Thu, 23 May 2024 04:13:44 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: rafael@kernel.org,
 	lenb@kernel.org,
@@ -80,18 +79,16 @@ To: rafael@kernel.org,
 	pierre.gondois@arm.com,
 	sudeep.holla@arm.com,
 	tiantao6@huawei.com
-Cc: Yunhui Cui <cuiyunhui@bytedance.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH RESEND v5 2/3] riscv: cacheinfo: initialize cacheinfo's level and type from ACPI PPTT
-Date: Thu, 23 May 2024 19:13:21 +0800
-Message-Id: <20240523111322.19243-2-cuiyunhui@bytedance.com>
+Cc: Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: [PATCH RESEND v5 1/3] riscv: cacheinfo: remove the useless input parameter (node) of ci_leaf_init()
+Date: Thu, 23 May 2024 19:13:20 +0800
+Message-Id: <20240523111322.19243-1-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
-In-Reply-To: <20240523111322.19243-1-cuiyunhui@bytedance.com>
-References: <20240523111322.19243-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240523_041351_227591_1DA58936 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20240523_041351_017375_E1883508 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,63 +105,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Before cacheinfo can be built correctly, we need to initialize level
-and type. Since RISC-V currently does not have a register group that
-describes cache-related attributes like ARM64, we cannot obtain them
-directly, so now we obtain cache leaves from the ACPI PPTT table
-(acpi_get_cache_info()) and set the cache type through split_levels.
+ci_leaf_init() is a declared static function. The implementation of the
+function body and the caller do not use the parameter (struct device_node
+*node) input parameter, so remove it.
 
-Suggested-by: Jeremy Linton <jeremy.linton@arm.com>
-Suggested-by: Sudeep Holla <sudeep.holla@arm.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
+Fixes: 6a24915145c9 ("Revert "riscv: Set more data to cacheinfo"")
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>
 Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- arch/riscv/kernel/cacheinfo.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ arch/riscv/kernel/cacheinfo.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
 diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-index 30a6878287ad..d6c108c50cba 100644
+index 09e9b88110d1..30a6878287ad 100644
 --- a/arch/riscv/kernel/cacheinfo.c
 +++ b/arch/riscv/kernel/cacheinfo.c
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2017 SiFive
-  */
+@@ -64,7 +64,6 @@ uintptr_t get_cache_geometry(u32 level, enum cache_type type)
+ }
  
-+#include <linux/acpi.h>
- #include <linux/cpu.h>
- #include <linux/of.h>
- #include <asm/cacheinfo.h>
-@@ -78,6 +79,27 @@ int populate_cache_leaves(unsigned int cpu)
- 	struct device_node *prev = NULL;
+ static void ci_leaf_init(struct cacheinfo *this_leaf,
+-			 struct device_node *node,
+ 			 enum cache_type type, unsigned int level)
+ {
+ 	this_leaf->level = level;
+@@ -80,11 +79,11 @@ int populate_cache_leaves(unsigned int cpu)
  	int levels = 1, level = 1;
  
-+	if (!acpi_disabled) {
-+		int ret, fw_levels, split_levels;
-+
-+		ret = acpi_get_cache_info(cpu, &fw_levels, &split_levels);
-+		if (ret)
-+			return ret;
-+
-+		BUG_ON((split_levels > fw_levels) ||
-+		       (split_levels + fw_levels > this_cpu_ci->num_leaves));
-+
-+		for (; level <= this_cpu_ci->num_levels; level++) {
-+			if (level <= split_levels) {
-+				ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-+				ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-+			} else {
-+				ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-+			}
-+		}
-+		return 0;
-+	}
-+
  	if (of_property_read_bool(np, "cache-size"))
- 		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
+-		ci_leaf_init(this_leaf++, np, CACHE_TYPE_UNIFIED, level);
++		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
  	if (of_property_read_bool(np, "i-cache-size"))
+-		ci_leaf_init(this_leaf++, np, CACHE_TYPE_INST, level);
++		ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
+ 	if (of_property_read_bool(np, "d-cache-size"))
+-		ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
++		ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
+ 
+ 	prev = np;
+ 	while ((np = of_find_next_cache_node(np))) {
+@@ -97,11 +96,11 @@ int populate_cache_leaves(unsigned int cpu)
+ 		if (level <= levels)
+ 			break;
+ 		if (of_property_read_bool(np, "cache-size"))
+-			ci_leaf_init(this_leaf++, np, CACHE_TYPE_UNIFIED, level);
++			ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
+ 		if (of_property_read_bool(np, "i-cache-size"))
+-			ci_leaf_init(this_leaf++, np, CACHE_TYPE_INST, level);
++			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
+ 		if (of_property_read_bool(np, "d-cache-size"))
+-			ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
++			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
+ 		levels = level;
+ 	}
+ 	of_node_put(np);
 -- 
 2.20.1
 
