@@ -4,64 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2504BC25B75
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 May 2024 18:00:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE34C25B75
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 May 2024 18:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ha3P7hLcqHX4jwtb+jXCRaPJ2I32aZt+LbVNP5PUp7c=; b=dq3hKHRy7cwGq/
-	RM1TU440hq535XNYplaGnC8y3fSvR04eNJDaSAhqAFNUhqzYxMprayv3ahqWDfucciQb0XRuzS6gp
-	bjnubELPEW2vuVnX4OgtXLMfdE7DZIl8vg0Qja/AtZp/ZSHlzlviUm9Mzyamr4t/UUiRxWYfsFMk5
-	d53HM+zqbkACXVKPuL10xjaSt9KdQ7D575tjXUhXieScX2i4+7F7UatydNOXE9Qqh09oTfXnM6vOT
-	pJtnqMDapmqSWMbNdCeExP3Brwe46wY/rI528JDTHytxraOllgtjZbG6s5niw9TVbCVOYfFcF8ij/
-	50y6rv3kwZlXC0i2Jorg==;
+	List-Owner; bh=BQRWWVYCF0xVIMxPhQ5hJRtBm76qH5IaOuxuhz8g8Q8=; b=LrrKVxSIQWssXv
+	zsZM9mudFNwyvNyMuinBIYhtmBLHdcXiKwvl/NeDygxPwTFEk75z8CHAqyY2ScH0czLu5T11V8LzP
+	TksMVQAchXGG89l252rFt/9TAvlkngRMpEXxtnVvm+69OGRIqHNNjzLhFtjL4doePhY1A2QV438Iw
+	fHbSuP7lmuHs19ze9WhMuaOqPGfA/AzfxMrEcejN74tJfBAJzmUkQ2Wu2IroTatS779oZHjpVXe+q
+	o/R4+thjYj1UmCAIjjVKPzmL0tX4Yq2UDFx0nNnvPGuG48fSPYwRKKG4yZ6wnnK7+ocfvsED00DOI
+	1wvPLhVXgYInXHK/E1xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sACk3-00000006xUT-3AoS;
-	Thu, 23 May 2024 18:00:39 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sAClU-00000006xfb-1J5r;
+	Thu, 23 May 2024 18:02:08 +0000
+Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sACk0-00000006xTi-43sl
+	id 1sAClP-00000006xeG-2ICk
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 May 2024 18:00:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 029C6CE16E0;
-	Thu, 23 May 2024 18:00:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 375C1C3277B;
-	Thu, 23 May 2024 18:00:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1716487233;
-	bh=LPuvBxy3iF5eqbTEUy7UQgJ9ro1OJVRiXbhQTYzW4BU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=WWyACaHvCcfSiW7Ac4wmfxxD63inDTSeTQasgttg15eqpjaWjoMX6sBR/bwKGnUWT
-	 9DbS8DwB3QAPriD2RywSRG3igxM1Mzp0ZFVmkeHC3fW2RXfY18ckiOqXod//4SHPux
-	 vGR42czNI55h8SOJRlBYh8KGUIPuOdO6Abvz91OiNVh4nSCblRzHFFpVxkIHxx3rrq
-	 fjbB4cwCRjPkab6E23zz0cKyYBbtS+bafbJ58ZZrvqqOjtNAQIy4K8QV48bLeBpAvx
-	 ZOlicjpQ/6gklqHRbGbqaR1q0Wl7cnhOQqrMs2CFXIavIKjDcqxUa6VgXfhI+iRwrg
-	 m/RUeAf0PAHvQ==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 16D73C43617;
-	Thu, 23 May 2024 18:00:33 +0000 (UTC)
+	Thu, 23 May 2024 18:02:04 +0000
+Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-36da87c973cso3239015ab.0
+        for <linux-riscv@lists.infradead.org>; Thu, 23 May 2024 11:02:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linuxfoundation.org; s=google; t=1716487321; x=1717092121; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CcmoKrno51oIESzU6CRBDsbzTPCeYv0t1iR5nNF3XwI=;
+        b=Ge8KOK29IEd3lxP5RdO5I0O44HbuygyKVbc7bEmRDN6cdG+08e7hVITRvaG8Ed9oJ3
+         ADUlECMtDvYIw7DXVuCQCTz5taW3QRKek3qmPYUu0UjMaXgPYtP+MX3JsOE1PxSci+oT
+         WDS81EiADRp3iARKQd6h6NdvimyfRTATMxBAQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716487321; x=1717092121;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CcmoKrno51oIESzU6CRBDsbzTPCeYv0t1iR5nNF3XwI=;
+        b=ICTuyIbooDwLr+AhFNGc8uOTeZx1UuDHjUlG/yAYpx2BeVotrkf1jzBbrS/xcnoQbO
+         /U++da+XioQMtnFAFAKcGuHaKIxVpfYbc1WuTdxmEzCwxwTi1PFsmJ67xIW97sAmZjDc
+         2aBYluOY34vSSYWgjpVLpJyA0MjrUH0igMUA9+cBWr0F8tLMweLsFFnZdw7Rs+mPNhMP
+         s8L7rAKsx1jC+nXMYwOemOSiB4bEh0m3NJHe6Q60Ux4SBnINSyN4RsM3/QS+c7zwaSAf
+         AFsYITJ9HLoGr6clurgAc0ly2FNBZ6h6Zyv4HuGEXiy6Wi0oKkdEV82LGciGuOJKzHX6
+         S1gw==
+X-Forwarded-Encrypted: i=1; AJvYcCWanHFNH168C1SfbBgKD6kXz16z8gLXMVfcNf8hM4QUMnubVubh0EDA0ULnEpAvuCEI4URRB6d3q0r9hTMZ0I0rC81qF+4jm56IPXI5KXCw
+X-Gm-Message-State: AOJu0Yx+XfwZHIDBrn21yisTgrgo+kQH1sPnHZawn4Ok58o8dzyUHPlC
+	w9fjcaFu4AMcytkYtoio/vS516aIsxGD//4g8XzgoErhMOQHkVesguTUeUcZ5xI=
+X-Google-Smtp-Source: AGHT+IHFL67Z83I3o40zCsNMJ+ZoJnLtFsbE/QtO0U+1g9W23Ofor/d2rDbzaegpkLYOLJ/pxEIroQ==
+X-Received: by 2002:a05:6e02:1fc1:b0:36c:3856:4386 with SMTP id e9e14a558f8ab-3737b3cad00mr209585ab.3.1716487320819;
+        Thu, 23 May 2024 11:02:00 -0700 (PDT)
+Received: from [192.168.1.128] ([38.175.170.29])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3737a5e826bsm519205ab.73.2024.05.23.11.01.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 May 2024 11:02:00 -0700 (PDT)
+Message-ID: <d5471e30-227d-4e6d-9bbd-90a74bd9006b@linuxfoundation.org>
+Date: Thu, 23 May 2024 12:01:59 -0600
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Fix early ftrace nop patching
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171648723308.17418.17188308425434687140.git-patchwork-notify@kernel.org>
-Date: Thu, 23 May 2024 18:00:33 +0000
-References: <20240523115134.70380-1-alexghiti@rivosinc.com>
-In-Reply-To: <20240523115134.70380-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, rostedt@goodmis.org,
- mhiramat@kernel.org, mark.rutland@arm.com, parri.andrea@gmail.com,
- bjorn@rivosinc.com, conor.dooley@microchip.com, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 02/68] kselftest: Desecalate reporting of missing
+ _GNU_SOURCE
+To: John Hubbard <jhubbard@nvidia.com>, Edward Liaw <edliaw@google.com>,
+ Mark Brown <broonie@kernel.org>
+Cc: shuah@kernel.org, =?UTF-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
+ =?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>,
+ Christian Brauner <brauner@kernel.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, Kees Cook
+ <keescook@chromium.org>, Andy Lutomirski <luto@amacapital.net>,
+ Will Drewry <wad@chromium.org>, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, kernel-team@android.com,
+ linux-security-module@vger.kernel.org, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, bpf@vger.kernel.org,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20240522005913.3540131-1-edliaw@google.com>
+ <20240522005913.3540131-3-edliaw@google.com>
+ <94b73291-5b8a-480d-942d-cfc72971c2f5@sirena.org.uk>
+ <CAG4es9WAASaSG+Xgp31-kLT3G8wpeT5vAqbCA4r=Z8G_zAF73w@mail.gmail.com>
+ <9e2677ec-1d54-4969-907b-112b71ef8dd3@nvidia.com>
+Content-Language: en-US
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <9e2677ec-1d54-4969-907b-112b71ef8dd3@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240523_110037_230073_43B6AEF4 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240523_110203_619259_E578A59D 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,40 +106,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Thu, 23 May 2024 13:51:34 +0200 you wrote:
-> Commit c97bf629963e ("riscv: Fix text patching when IPI are used")
-> converted ftrace_make_nop() to use patch_insn_write() which does not
-> emit any icache flush relying entirely on __ftrace_modify_code() to do
-> that.
-> 
-> But we missed that ftrace_make_nop() was called very early directly when
-> converting mcount calls into nops (actually on riscv it converts 2B nops
-> emitted by the compiler into 4B nops).
-> 
-> [...]
-
-Here is the summary with links:
-  - riscv: Fix early ftrace nop patching
-    https://git.kernel.org/riscv/c/6ca445d8af0e
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gNS8yMi8yNCAyMDoyOCwgSm9obiBIdWJiYXJkIHdyb3RlOgo+IE9uIDUvMjIvMjQgMTA6NDYg
+QU0sIEVkd2FyZCBMaWF3IHdyb3RlOgo+PiBPbiBXZWQsIE1heSAyMiwgMjAyNCBhdCA0OjIx4oCv
+QU0gTWFyayBCcm93biA8YnJvb25pZUBrZXJuZWwub3JnPiB3cm90ZToKPj4+IE9uIFdlZCwgTWF5
+IDIyLCAyMDI0IGF0IDEyOjU2OjQ4QU0gKzAwMDAsIEVkd2FyZCBMaWF3IHdyb3RlOgo+IC4uLgo+
+Pj4gWW91J3ZlIG5vdCBwcm92aWRlZCBhIFNpZ25lZC1vZmYtYnkgZm9yIHRoaXMgc28gcGVvcGxl
+IGNhbid0IGRvIGFueXRoaW5nCj4+PiB3aXRoIGl0LCBwbGVhc2Ugc2VlIERvY3VtZW50YXRpb24v
+cHJvY2Vzcy9zdWJtaXR0aW5nLXBhdGNoZXMucnN0IGZvcgo+Pj4gZGV0YWlscyBvbiB3aGF0IHRo
+aXMgaXMgYW5kIHdoeSBpdCdzIGltcG9ydGFudC4KPj4KPj4gU29ycnksIG15IG1pc3Rha2UsIEkg
+Zm9yZ290IHRvIGFkZCBpdCBhZnRlciBjaGVycnktcGlja2luZy7CoCBJZiBhZGRlZAo+IAo+IEFk
+ZGluZyB0aGlzIHRvIHlvdXIgLmdpdGNvbmZpZyB3b3VsZCBjb3ZlciB5b3UgZm9yIGNhc2VzIGxp
+a2UgdGhpcywgSSB0aGluawo+IGl0J3MgcHJldHR5IGNvbW1vbiB0byBkbyB0aGlzOgo+IAo+IFtm
+b3JtYXRdCj4gIMKgwqDCoCBzaWdub2ZmID0gdHJ1ZQo+IAo+IAoKTWFyaywgRWR3YXJkLAoKSXMg
+dGhpcyBwYXRjaCBzdGlsbCBuZWNlc3Nhcnkgb2YgdGhlIHNlcmllcyBpcyBkcm9wcGVkPwoKdGhh
+bmtzLAotLSBTaHVhaAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
