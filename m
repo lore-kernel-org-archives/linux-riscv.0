@@ -4,158 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6251C25B78
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 May 2024 02:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5799BC25B7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 May 2024 02:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5cN4HWHgtNivq71Yab+aP0bcwBcihc7I+4EL5pPxOg4=; b=e9MtXSVBx1CwgM
-	KzZrIB2uG6S6Z/M81swO0NaT66Oh9ne68aRBO9kgwmIWiCsZPDLTbXSIuKU7ZS6yBpbUaf7eqsmPH
-	NRuEHQieE4MrnLaUQMfMBV+mYBiXWnsM6SR4Yx99cPz5p0HfAOdREHkUAca/F0w0KMOQjHeNIMM0W
-	JeeuGgOda8SO8r4TeiOFbcaRaKs6sqMR2OVNW1F4ATS5T0F6B+hYe/nk3nCJFQ3vVt68PpbU3k9xH
-	HLcSbeHmh6CK88DYClOLDA6yl1OyG75z8XDurFe0Ag/GnkmNl7Egar8EPNfqwKILifPrwDlF5BSgu
-	upPZfycF8vri47z8o3qg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=RibP/uhbyTUF5Y2zuKzTB5bGSRtyeiFcKDqRJh4TSlk=; b=QR5bk0CoLXmuO9
+	QlLvikNKZs4ZLjLzoBOAMDb941osbLpgL+CvLPJ08+OFpQt3XkZos40+v0CYU5wZBn71AVYUrEdum
+	kVXbCnAxXCLs+m/WY3gnnpcS2x+QtRoS+/AAz+9GBkIOjzjKdHmF49c9tBelEQ/Hxk6BAq+DN7cG8
+	LHG9EqIw8b/DxlMj0g9mOiXqwUTkznNPZyl1qwbEQqtvU3CrYUzHmJdpO33WlAxFT7hymmOCZ3IYN
+	Jo1/J8/4+/QF5Qy30qeWh7zkEEWpt9GZIz7kBWLHQBUwThOHYJt+ntnFe/2fOaUyUdzzZxOj0uw6E
+	W0x6xGueMEUZzJcuvwRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9yCi-00000004mC7-0bTL;
-	Thu, 23 May 2024 02:29:16 +0000
-Received: from mail-dm6nam12on20601.outbound.protection.outlook.com ([2a01:111:f403:2417::601] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1s9yJE-00000004n9Y-0dtl;
+	Thu, 23 May 2024 02:36:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1s9yCe-00000004mAu-3dlJ
+	id 1s9yJ7-00000004n8U-4C6R
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 May 2024 02:29:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=N9seY1n6WqpV0LecKtPypWVfDUTEJUOfoxJYDZp7xOhl6+YbqAGg8BJTNqFKRV+JrubRNl2F9OJ3eiCCWzucRlCbE5vplfbbEJzvNH+MXoo9iRy/qIC5YpcNvs7f7a8AIp/YxiZTQvChbZTiene+ak13jZd5wjbP7ArhxPZW+7DgskuoKiZs4r4rpEAT/kQk1Us2RJkyvn+jsxSxCp+ZkbxLfBkBz9haJNPn8/nhDn2AP+5V2GKY5P7hWOceN8u/7Nlk1x5H3iPrGXqLhmUOv5aHzdl/+Xe/2D61Zwo6CWZLFSAHUsUBbDEIAoujvIzfphYyLm+QXrmojOAN0nyZXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=t5PZteq1ir9VyDK7/kE82+oQab2J/vlu29EWaM/TSUY=;
- b=Irl2zzGTlHIzoh4QAi/b2gVd7SJkyx41UgGZwnhy3wXjlQU3RLNIjRwBWM9Z3BRULEESKFatxg+RNxVy+p9Bgdj+L+EjlR/llKog7Oe2RK+N15KaOewwPlMEO/rp9vZXHzM541KZhEHOEJ5BYiErmp5A17XoUHOkhHCU5CMUTBN4Zp4xq6oSLmvPI0wOUmq/5oYfEU/62bImftlDP0/F2nK2GKNgyKUP7H0osq2pTYFiLjYr9NjHXG8tV8xMOZ3ubnwhmQPzXdABWuEB8E91HcK+jZ/aqL8hClCgTTAO76dF9E9byqxUtLr10/w1tA/sLHHuloEu8GvBXyZPQNVekw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=t5PZteq1ir9VyDK7/kE82+oQab2J/vlu29EWaM/TSUY=;
- b=f0ba2GBa7wbqnN4qHNDgGwKZsAVfxkX3h2sVkf58OJfudEcXqcGjtA7sQoEBICkNjW9p74IPqcsKTY6GFxXJGk2mpla66JpBKgxOEKmplfl3euHDkZCD9X2OR6TkePqQ+WWVHFySARzb8cOu1l4f3fhxD+3FN4aPRoKt1X0YBh/5hhpfHMOIw5/TcT8fRf1f/9rKPwqxhwAGFM9Z097tPtTTqaonmuUKgtmPVbPYFIYLDbF6JeB7DEYirgcaIcfnAZj5af5iTeErOYKhSgc3ImblDWvjj6211VWtuulOWNe5tFlAf7iTPJHbLsaJAnZo/TgE4sLVt+yDcL7u/7LqBA==
-Received: from DM6PR06CA0020.namprd06.prod.outlook.com (2603:10b6:5:120::33)
- by SJ1PR12MB6220.namprd12.prod.outlook.com (2603:10b6:a03:455::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7587.36; Thu, 23 May
- 2024 02:29:04 +0000
-Received: from DS1PEPF00017097.namprd05.prod.outlook.com
- (2603:10b6:5:120:cafe::e2) by DM6PR06CA0020.outlook.office365.com
- (2603:10b6:5:120::33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7611.19 via Frontend
- Transport; Thu, 23 May 2024 02:29:04 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- DS1PEPF00017097.mail.protection.outlook.com (10.167.18.101) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7611.14 via Frontend Transport; Thu, 23 May 2024 02:29:04 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 22 May
- 2024 19:28:50 -0700
-Received: from [10.110.48.28] (10.126.231.35) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 22 May
- 2024 19:28:49 -0700
-Message-ID: <9e2677ec-1d54-4969-907b-112b71ef8dd3@nvidia.com>
-Date: Wed, 22 May 2024 19:28:48 -0700
+	Thu, 23 May 2024 02:35:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E383162AF9;
+	Thu, 23 May 2024 02:35:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D00BC2BBFC;
+	Thu, 23 May 2024 02:35:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1716431751;
+	bh=zhQmBBMVvVCkundq1HInPxU/OC6UeXZbEC1QHoq4MM0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=LNO9S6KF9l4oOc3kcBGJfxz5pKwqRYXEmJYz3V9pgrdttmlESBaQm/hoMx3+KOaY7
+	 FkxP5yzzbYHruF0zmZtpP7ykzAho52khy2ht7lVarOnqDTFfdQc0sLPbGKqhXl5laB
+	 qliAvxnzrW0rtc9YgYifg+6mjCWp3SbIHe2VHel9IfIliZxIyP7MprmwiTFjG3TMvt
+	 epw8JG0eE9GbqmpgalCCTjmpRMF2fLummkTK/6uS2ZHtw7h0MeUg8YwI9cHzsC5bgM
+	 w6EVMARW4sQXbpDIWWukIP+I/uCHwCB9gFNNL5BLK0YK6l7IrUkvr1RJFx5OyhyjgW
+	 0hjOf2wQ/B4UA==
+Date: Wed, 22 May 2024 21:35:49 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+Subject: Re: [PATCH v16 08/22] PCI: microchip: Change the argument of
+ plda_pcie_setup_iomems()
+Message-ID: <20240523023549.GA105928@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 02/68] kselftest: Desecalate reporting of missing
- _GNU_SOURCE
-To: Edward Liaw <edliaw@google.com>, Mark Brown <broonie@kernel.org>
-CC: <shuah@kernel.org>, =?UTF-8?Q?Micka=C3=ABl_Sala=C3=BCn?=
-	<mic@digikod.net>, =?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, Richard Cochran
-	<richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Alexei
- Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, "David
- S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, "Jesper
- Dangaard Brouer" <hawk@kernel.org>, John Fastabend
-	<john.fastabend@gmail.com>, Kees Cook <keescook@chromium.org>, Andy
- Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>,
-	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<kernel-team@android.com>, <linux-security-module@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<bpf@vger.kernel.org>
-References: <20240522005913.3540131-1-edliaw@google.com>
- <20240522005913.3540131-3-edliaw@google.com>
- <94b73291-5b8a-480d-942d-cfc72971c2f5@sirena.org.uk>
- <CAG4es9WAASaSG+Xgp31-kLT3G8wpeT5vAqbCA4r=Z8G_zAF73w@mail.gmail.com>
-Content-Language: en-US
-From: John Hubbard <jhubbard@nvidia.com>
-In-Reply-To: <CAG4es9WAASaSG+Xgp31-kLT3G8wpeT5vAqbCA4r=Z8G_zAF73w@mail.gmail.com>
-X-Originating-IP: [10.126.231.35]
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017097:EE_|SJ1PR12MB6220:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3aceb185-6cf6-42d0-9f33-08dc7ad01d6d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230031|7416005|1800799015|82310400017|36860700004|376005;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?czJPOHNDanBmT0FVVFNaVzlTdnpIVmVGcUpqcHYyY2I1SDh3MVU0U2piRnZM?=
- =?utf-8?B?SGNyWDNLRW9BUHc5UUdpZVExaTZVcmE3emlxS0c4N1gvWWozNmlMUEZmWWhl?=
- =?utf-8?B?S25MaHVFcDVnRGpXODhqT3YvdWFkL2V1Wktaaml3T3RZcUhpWitaTjAzdTJB?=
- =?utf-8?B?QVhMN211L0lneTUzSk92RnRIYkFOczRra3l5SWJaRkVtdDVBbUU2TDIwVDIr?=
- =?utf-8?B?ZFlwcXBEVWxtUDY5NWthRHVnT2ErN3ZYb01UY0wvS0JHS084ZlBwcWw2SU9u?=
- =?utf-8?B?MEhZRkZvTmpRcm93ZU9DOHk4NmJGOHJlekJ6T0k5cEh5TUpMZTdxQkhHV3I3?=
- =?utf-8?B?aG9HYVpzOGd0YnhDQzBTSWVPaG10Rkl2clR4QVRoU05CSVR5ZmljV1FRY1NF?=
- =?utf-8?B?TFZwckRyUGpHYXcrakJibVlZbjkvSElhdkJtMy9JSmdSdFRhWjNab0VyWUVz?=
- =?utf-8?B?Vnd1QUkxL2RJR0dwWVJxT0dCbXFGZHhDS2M5UDZYdXp3U0FOTjN3alk5bWJ0?=
- =?utf-8?B?c2xNZVEvRUp5N1dYVDlDcXpHMGthTWhobWsvTTh5MU5QN2dYOW1ZS0lMcFY2?=
- =?utf-8?B?TGFNMk9Pd2tjRzJGZ3plMDFlcDV2eUNiZXg0b3NERjltYkM0TDBuMG9OQXZq?=
- =?utf-8?B?Y1RKU0JhanorVmRvVHlJNUVVeU4xNXVmcE9yT0ZPMlE5UlJKOUYrK3h4ODVv?=
- =?utf-8?B?RDllVG9uMCtUNDBGU1I3SWI3RTkyMmdBWkRZQmVDbFFSZXRNczZwcmViQUtQ?=
- =?utf-8?B?VUl1T3dVK2ZuajhEVERqblVaTDVqTUhxMmNjOHFQcVVaZ1o5S0hyUVVlNVFZ?=
- =?utf-8?B?enlzbUF3V09ZNXJGVTFXMi9aeTgvOU8zam8xMm01SFd2by8zcmpwQWJlQU11?=
- =?utf-8?B?NUhFT0QwdUFHOFRrb1hxWjVTeTVUc1BUUDVmWlFLMHdXY2ZlVFBPaVZhalVs?=
- =?utf-8?B?S2hIUlJUYzdGVVpMSnN1VVZIbXN0RjdMbXkydGQ4TGZhRXFxTWE5U05JZ2wy?=
- =?utf-8?B?T3UwNzArWWJjblF6b1BNUW8wV0tjTE41aW9pdFM0NlU5OXZmejE3OENWVVli?=
- =?utf-8?B?MElxdVFsblUrdGl2NDFIQ25TUEdjV2VNRlFRNGZySUhxMGdTc0Q0cm1Lblhn?=
- =?utf-8?B?T2dxSHlhcTRCZzRaNG0weGtmYm9QSTlOajJkL0xHZE5sbzJsU2pxbkhtQjFL?=
- =?utf-8?B?eW5qd25HTkVOODVuYzRtaitybTFqNndYWnYyK1crOGRQb1VuR3NqbjJIM09H?=
- =?utf-8?B?ZStEUlFkdnJFRTNwMVAvYVAzTGhwanhpTGJyd095Mk5VR2FCMUVEWWZ1bDl0?=
- =?utf-8?B?NThIL2dUeTNWS1FvVGZKVVVsV0xTb3RrNVI3VllVSDhSb3lkN2hzK3JjdmdM?=
- =?utf-8?B?NlRkb1E0T29MYkYwOURocGF5S3VjNDVBT3dKRXFaSjliTVZGQ0ducUZlUDdR?=
- =?utf-8?B?Q0Q2eDkyOVlwTVo4eU1UQVJjekUxRDE0OGpzM2RVK1Z6ejhpTkcyUGNLaVhR?=
- =?utf-8?B?L1VsdWxocE5ienhTRVcyQm5TZTRMaHh4M203aFQyWlJSTXBidjViWHhkS2NS?=
- =?utf-8?B?S3IwRWVDZ284ajlCbUZVRHcxblpnOXU5U21JelRDS1hzN21sYThBRmVFdVpr?=
- =?utf-8?B?b2N3M0lFWm9uYnpoZTFWTkozUFZqdUtqNkxSaU5icHptc1Z0b1RnUXFqbkFE?=
- =?utf-8?B?NG1WM04xUmRUeWdUNVg2R2thWGtQOWp2eEpvNkxNZHY0WTV3T3ZmYmZxSjQ4?=
- =?utf-8?B?MDBxc29NTElTcWozU1BFd3RJbjFwTTZEZG5Qd09NeFAxS3ZHVDVhMkJKeUcz?=
- =?utf-8?B?RzZOc3lkSlI2cTFndG9nYkpJM1VLWnk4TWJJbmV2Zm9PNFUvK2t0N2tXU1l0?=
- =?utf-8?Q?C2SygUAB9yeUr?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230031)(7416005)(1800799015)(82310400017)(36860700004)(376005);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2024 02:29:04.3714
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3aceb185-6cf6-42d0-9f33-08dc7ad01d6d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017097.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6220
+Content-Disposition: inline
+In-Reply-To: <SHXPR01MB086345C911E227889E3A4211E6F42@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240522_192912_945927_92EDCDAF 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240522_193554_168551_E042C561 
+X-CRM114-Status: GOOD (  50.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,22 +85,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNS8yMi8yNCAxMDo0NiBBTSwgRWR3YXJkIExpYXcgd3JvdGU6Cj4gT24gV2VkLCBNYXkgMjIs
-IDIwMjQgYXQgNDoyMeKAr0FNIE1hcmsgQnJvd24gPGJyb29uaWVAa2VybmVsLm9yZz4gd3JvdGU6
-Cj4+IE9uIFdlZCwgTWF5IDIyLCAyMDI0IGF0IDEyOjU2OjQ4QU0gKzAwMDAsIEVkd2FyZCBMaWF3
-IHdyb3RlOgouLi4KPj4gWW91J3ZlIG5vdCBwcm92aWRlZCBhIFNpZ25lZC1vZmYtYnkgZm9yIHRo
-aXMgc28gcGVvcGxlIGNhbid0IGRvIGFueXRoaW5nCj4+IHdpdGggaXQsIHBsZWFzZSBzZWUgRG9j
-dW1lbnRhdGlvbi9wcm9jZXNzL3N1Ym1pdHRpbmctcGF0Y2hlcy5yc3QgZm9yCj4+IGRldGFpbHMg
-b24gd2hhdCB0aGlzIGlzIGFuZCB3aHkgaXQncyBpbXBvcnRhbnQuCj4gCj4gU29ycnksIG15IG1p
-c3Rha2UsIEkgZm9yZ290IHRvIGFkZCBpdCBhZnRlciBjaGVycnktcGlja2luZy4gIElmIGFkZGVk
-CgpBZGRpbmcgdGhpcyB0byB5b3VyIC5naXRjb25maWcgd291bGQgY292ZXIgeW91IGZvciBjYXNl
-cyBsaWtlIHRoaXMsIEkgdGhpbmsKaXQncyBwcmV0dHkgY29tbW9uIHRvIGRvIHRoaXM6CgpbZm9y
-bWF0XQogICAgIHNpZ25vZmYgPSB0cnVlCgoKCnRoYW5rcywKLS0gCkpvaG4gSHViYmFyZApOVklE
-SUEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, May 23, 2024 at 01:09:58AM +0000, Minda Chen wrote:
+> > On Wed, May 22, 2024 at 01:50:57AM +0000, Minda Chen wrote:
+> > > > The patch is OK, but the subject line is not very informative.  It
+> > > > should be useful all by itself even without the commit log.
+> > > > "Change the argument of X" doesn't say anything about why we would
+> > > > want to do that.
+> > > >
+> > > > On Thu, Mar 28, 2024 at 05:18:21PM +0800, Minda Chen wrote:
+> > > > > If other vendor do not select PCI_HOST_COMMON, the driver data is
+> > > > > not struct pci_host_bridge.
+> > > >
+> > > > Also, I don't think this is the real problem.  Your
+> > > > PCIE_MICROCHIP_HOST Kconfig selects PCI_HOST_COMMON, and the
+> > driver
+> > > > calls pci_host_common_probe(), so the driver wouldn't even build
+> > > > without PCI_HOST_COMMON.
+> > > >
+> > > > This patch is already applied and ready to go, but if you can tell
+> > > > us what's really going on here, I'd like to update the commit log.
+> > > >
+> > > It is modified for Starfive code. Starfive JH7110 PCIe do not select
+> > > PCI_HOST_COMMON
+> > > plda_pcie_setup_iomems() will be changed to common plda code.
+> > >
+> > > I think I can modify the title and commit log like this.
+> > >
+> > > Title:
+> > > PCI: microchip: Get struct pci_host_bridge pointer from platform code
+> > >
+> > > Since plda_pcie_setup_iomems() will be a common PLDA core driver
+> > > function, but the argument0 is a struct platform_device pointer.
+> > > plda_pcie_setup_iomems() actually using struct pci_host_bridge pointer
+> > > other than platform_device pointer. Further more if a new PLDA core
+> > > PCIe driver do not select PCI_HOST_COMMON, the platform driver data is
+> > > not struct pci_host_bridge pointer. So get struct pci_host_bridge
+> > > pointer from platform code function
+> > > mc_platform_init() and make it to be an argument of
+> > > plda_pcie_setup_iomems().
+> > 
+> > OK, I see what you're doing.  This actually has nothing to do with whether
+> > PCI_HOST_COMMON is *enabled*.  It has to do with whether drivers use
+> > pci_host_common_probe().  Here's what I propose:
+> > 
+> >   PCI: plda: Pass pci_host_bridge to plda_pcie_setup_iomems()
+> > 
+> >   plda_pcie_setup_iomems() needs the bridge->windows list from struct
+> >   pci_host_bridge and is currently used only by pcie-microchip-host.c.  This
+> >   driver uses pci_host_common_probe(), which sets a pci_host_bridge as the
+> >   drvdata, so plda_pcie_setup_iomems() used platform_get_drvdata() to find
+> >   the pci_host_bridge.
+> > 
+> >   But we also want to use plda_pcie_setup_iomems() in the new pcie-starfive.c
+> >   driver, which does not use pci_host_common_probe() and will have struct
+> >   starfive_jh7110_pcie as its drvdata, so pass the pci_host_bridge directly
+> >   to plda_pcie_setup_iomems() so it doesn't need platform_get_drvdata() to
+> >   find it.
+> > 
+> OK, Thanks. 
+> 
+> I see PCIe 6.10 changed have been merged to main line. 
+> Should I resend this patch set base on 6.10-rc1? 
+
+No need, I rebased it to f0bae243b2bc ("Merge tag 'pci-v6.10-changes'
+of git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci") already and
+it will be a trivial rebase to v6.10-rc1 next week.
+
+The current pci/controller/microchip branch is at:
+https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/?h=ed261441e224
+Let me know if anything is missing from there.  I can't merge it into
+linux-next until v6.10-rc1 is tagged, but as soon as it is, I'll put
+it in linux-next.
+
+> > > > > Move calling platform_get_drvdata() to mc_platform_init().
+> > > > >
+> > > > > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> > > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > > > > ---
+> > > > >  drivers/pci/controller/plda/pcie-microchip-host.c | 6 +++---
+> > > > >  1 file changed, 3 insertions(+), 3 deletions(-)
+> > > > >
+> > > > > diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c
+> > > > > b/drivers/pci/controller/plda/pcie-microchip-host.c
+> > > > > index 9b367927cd32..805870aed61d 100644
+> > > > > --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+> > > > > +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+> > > > > @@ -876,11 +876,10 @@ static void plda_pcie_setup_window(void
+> > > > > __iomem
+> > > > *bridge_base_addr, u32 index,
+> > > > >  	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);  }
+> > > > >
+> > > > > -static int plda_pcie_setup_iomems(struct platform_device *pdev,
+> > > > > +static int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+> > > > >  				  struct plda_pcie_rp *port)
+> > > > >  {
+> > > > >  	void __iomem *bridge_base_addr = port->bridge_addr;
+> > > > > -	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+> > > > >  	struct resource_entry *entry;
+> > > > >  	u64 pci_addr;
+> > > > >  	u32 index = 1;
+> > > > > @@ -1018,6 +1017,7 @@ static int mc_platform_init(struct
+> > > > > pci_config_window *cfg)  {
+> > > > >  	struct device *dev = cfg->parent;
+> > > > >  	struct platform_device *pdev = to_platform_device(dev);
+> > > > > +	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+> > > > >  	void __iomem *bridge_base_addr =
+> > > > >  		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+> > > > >  	int ret;
+> > > > > @@ -1031,7 +1031,7 @@ static int mc_platform_init(struct
+> > > > pci_config_window *cfg)
+> > > > >  	mc_pcie_enable_msi(port, cfg->win);
+> > > > >
+> > > > >  	/* Configure non-config space outbound ranges */
+> > > > > -	ret = plda_pcie_setup_iomems(pdev, &port->plda);
+> > > > > +	ret = plda_pcie_setup_iomems(bridge, &port->plda);
+> > > > >  	if (ret)
+> > > > >  		return ret;
+> > > > >
+> > > > > --
+> > > > > 2.17.1
+> > > > >
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
