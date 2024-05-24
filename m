@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 818C4C25B74
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 May 2024 03:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BB3C25B74
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 May 2024 04:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DnLAJfgLxiGazYHL4lk76QcQxHZPE+5273QFMT3YDdk=; b=p/EmRal5dKiB/Y
-	zj6LnFun6o5XLVEyxdLQk8FbZ73841u6PdpMgsgHmNsx7CfkDRE0IOemQG/ppPXgejTUd7kNdtT4S
-	dQvZR5eslDFi2V4AEwkXwxt8yjK+c7OH6DKYyjGItgsX2KiTqIimteLmAT5uTYJqQjEwW9uoDAiL8
-	dpkUq94jeX50zjYMXX3FQSI2ftxvCm+T+2LoXPt/zPpB+ROHSK6zn4MqIR/xC+aIM0Qfij+hTOfsS
-	gF6IX/eS6t1kc/97tX0lYo3ln0goKDwwzdsm3Vf+iIHfn4oQzYFLs+Ww1Hwcq02KoyuWNiFnBhJBj
-	mnVHOVdZ9MGW1wkDkorQ==;
+	List-Owner; bh=WqAIAi2T02jexGfdckv+o0v0N7Eh9eP0y8e8+sI6lFs=; b=QX8OjR1zLnilzu
+	msRYTiRuMZ/Y+Dd0GL1em6V8rwbh99pL4qXlM7gvZ1lnDfPXumXthQi3/q6y/T/JaBJxXOKJl1nQD
+	72pgaux4EFfWjcFhF8L659aVdAG6+seLWYiNGW1V9kWDQHj3+BvQMWYh//kZhvung/4+SsWJYjoXY
+	H20t8266J/XK2Z2AzSvzcMaFpsAou3EG46LO1sYmdsnma/zVGNl125fjqW31HN4uUAElu2u5y0DOM
+	fnElI5oxse56TyVOewNw8rk4GDMMshZu4FDj66H6NDEh4759Q5Bv7wIa+1KqknpY1MQEaRfT840DZ
+	ZuNAPx17QIOx/mrTiMqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sALja-00000007wGl-10FI;
-	Fri, 24 May 2024 03:36:46 +0000
-Received: from out203-205-221-242.mail.qq.com ([203.205.221.242])
+	id 1sAMtG-000000083WZ-01UW;
+	Fri, 24 May 2024 04:50:50 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sALjW-00000007wDe-2lFe
-	for linux-riscv@lists.infradead.org;
-	Fri, 24 May 2024 03:36:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1716521799; bh=F+wpGwccmcn6o4Ew+LaZ6dWwIWr+GXbaYvvVaDRhjFI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nLgSHJ8zUsnI27wgIYDDZs0bv7kHXNb+QoPT3FbmiMinGB5hgJwS+wVTPE8qO1FMQ
-	 74npXRlGobJDzn6tI9HzbiEZSqw8RGogTaADjzEu3pvOK5duzvsKYkDw7NcPECtQm/
-	 HG4Vr0NKXBz0Y4QVd2roml16QufsKMr8Tnh+oJFY=
-Received: from cyy-pc.lan ([240e:379:2259:4c00:b652:79f2:d4c3:c8a8])
-	by newxmesmtplogicsvrszb16-1.qq.com (NewEsmtp) with SMTP
-	id 90C8A481; Fri, 24 May 2024 11:36:12 +0800
-X-QQ-mid: xmsmtpt1716521776t16vwkpjg
-Message-ID: <tencent_AC4A216B8D1B7C7882DCDA648E1AB8653108@qq.com>
-X-QQ-XMAILINFO: OaubouGXmhNz1eavt//OG67W7xDtIvYLLMONKHsz6+IiIO4dHYHDqnoCwbCZPI
-	 okSz/bJukyevJNvtVzbzOHiS4nNIrtxS2Mykj2dg3/lyLU2ewATOcco0IQfceysIqiHu2TgvyqRY
-	 KYLbWGMEViuFuoEWrtK5j3BQuhmkLddFxnQf0uZltF1B60xGsHFadstuybh25U9iiIEZHViFhcHh
-	 pAHu/MWf0HQtdHHi/bN5mN27ij/fpMFEZYSkSfcHtyXgsVVIqriH3bZVOQzsojADprZOZfODKdyT
-	 7co0MBhPGrFOqjhC7bV7ZPEyClJ6Oul2ZZANoFkRnGBxrDch7bGMBuAv+ADCXXBV5LOz7pvUQsXp
-	 68YMle8uV54DAGsNxVHkiy3Qyp9oW4xbb67UoUmyknFtZdIyj0F5DpspU3d3srI2VY822KSSWuAf
-	 sp2+3Sobn82hAgA/1t6G/MLhGnLY7jPfv7Q3Aw+l+Njxihx+1TAY4/gfVfbQvBwFPNV43Eem2/Gc
-	 AZts+FNdAVyXvd8pJkq3z8y6ryOhWNxwXAi208W9yajlH19Pdj8TP157qO3ENqK77ZGjtRdwNmdy
-	 +sPlQ7/YTG1AxFnJgYhEbTzq6YJNHJEJf9rk8wxaFpkCGSelyHAAWiKxG8zjtY4Bsc6xaOeJtAMy
-	 Qz/7kdaLTARX9cSdHHOBkAEo3HMfQ3egdlTedPGISdKK4pLj+5hiBsvF9L4zVclYfkAa2YxJNIdB
-	 316KlTSM0ux9K0ekDqQ/ibn1bY7J+PzMhhwfZMQ/eeiyv7SMFBJZ6UfY25VUi8hrmiwJd3zR7nZE
-	 0k/lmSO2CBSEe1MTsRtuu/ES992Z132BrJgF0Z0BSubE0/O5c13IUoFnDfBsX+NhKjASroCKz99S
-	 5AZXp6QjjrF/Zo4m83h44XwDdtKbAfv4qD5fuHhA4uoL49YZFlV7zKOAifscEQyKCuRGfEgc1aF4
-	 fy7Crj7XYEnMMMJRu4+pK+9cFJveWciofCv50c+3Y0x+FXJSMBNytOci7IMbF1OqCvAXaLq0UmiB
-	 B7tCvrnrH33xVv6szV
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
-From: Yangyu Chen <cyy@cyyself.name>
-To: linux-riscv@lists.infradead.org
-Cc: Elliott Hughes <enh@google.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Evan Green <evan@rivosinc.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH v2 2/3] docs: riscv: hwprobe: Clarify misaligned keys are values not bitmasks
-Date: Fri, 24 May 2024 11:35:58 +0800
-X-OQ-MSGID: <20240524033559.298935-2-cyy@cyyself.name>
-X-Mailer: git-send-email 2.45.1
-In-Reply-To: <tencent_1E3506F09D08066B8F3BAEE136C4F887540A@qq.com>
-References: <tencent_1E3506F09D08066B8F3BAEE136C4F887540A@qq.com>
+	id 1sAMtC-000000083Vx-1YAg;
+	Fri, 24 May 2024 04:50:47 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-656d8b346d2so3309070a12.2;
+        Thu, 23 May 2024 21:50:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1716526243; x=1717131043; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OIptIV19IdFhks5FxO4qOze6Xd4kuAo9MJ+XTfG/tCk=;
+        b=I9MVYDuYLACfGNb7YtvhyuCQwzPgyRqFwj9TDwoJFQ5a5N2LacYf80F9G3RIwFSYk+
+         4L/0/ZpBdE6zkCDpp35LfR2xyEnXqDMyUdoTTCVLK2L/5yvNPUR4VshFymfGHiUuKVge
+         j1R//udANhPn2PQSWr34/ZxJhJPQPA+5orV45An9d3WQG4qPSu79v4uZgBB5OozKDvtr
+         PUmIqDbuFH3Xve69a3gyyvI96CJ9WfaaaloJQtDI12HiGO2ySMNL7R+sMbNEJKVRnyZH
+         7nI5l/GUKvNgQ+45bCg8INEf7KvYt3v9lntvbQAKFM5YveawjJ0ehIWWZEmxYov9/Duo
+         R6Pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716526243; x=1717131043;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OIptIV19IdFhks5FxO4qOze6Xd4kuAo9MJ+XTfG/tCk=;
+        b=d0mOrHOULSP0FihhvhCGM/J8y9UmZUlg8/AVMxMGJNqlXybHvJNd4lp2VMt+/tVM/V
+         z2RLwATg+KAxMKZM1AK0+BdOgnIGiRCvGl4JmExIR9lff//FApNH3qrECdQ7oyYFPBrQ
+         Ar0EI6fi8ltqPvgSF0uD7YipVWFkAtxkWwdkrs4sa6qyGTgSWLRWH65EKJwfVuQ36UFb
+         I1Jb6bLW3yH8XcfPww1QZFMWJfMBwdHRvHdTPotDhE8L2JT6cnvlhZrofr0YJsnNpYpt
+         sOQJcGB/CIQ9VqaTXEy1UOKEUE0iivjKicFJw5ytaIGrVzK4eWgSiOBMtyg9NPVpVvDQ
+         BD3A==
+X-Forwarded-Encrypted: i=1; AJvYcCVZI1C0ZgEdQKQ4RQkYVwGRAKNQKjXSqmClL8v+m71chpdAHl9bqVsLb7pQcnuZfjlXVQdashNE5L46qcrjGI9nMufJzlFssIqu1dsnDWFVxg8hoZr4/LK1eHN2PsymXxaoO/eTsfRWrxCnFlEnYAabWo2A4S8=
+X-Gm-Message-State: AOJu0Yye5xh3xajVVwh5kHrXKBszVGB+iEnoiff0TKXpBGOnWGNxdyla
+	XnaWbG4wtNz9Cgqo/YpWJUO/HHltE2YD4zHNxASeaEOeQiT31Ovf
+X-Google-Smtp-Source: AGHT+IGph2ngJGkIc2ZoYCJl38SlsP/yXGoytXnEgHL9Q+wVYFcQgbKU4AH+MCEZUe8DoMBNd28k3w==
+X-Received: by 2002:a17:902:64d7:b0:1f3:3f33:2873 with SMTP id d9443c01a7336-1f4486ed8afmr11797375ad.25.1716526243411;
+        Thu, 23 May 2024 21:50:43 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f44c7ab7fasm4449235ad.81.2024.05.23.21.50.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 May 2024 21:50:42 -0700 (PDT)
+Date: Thu, 23 May 2024 21:50:40 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	Christoph Hellwig <hch@lst.de>, loongarch@lists.linux.dev,
+	amd-gfx@lists.freedesktop.org,
+	Alex Deucher <alexander.deucher@amd.com>
+Subject: Re: [PATCH v4 13/15] drm/amd/display: Use ARCH_HAS_KERNEL_FPU_SUPPORT
+Message-ID: <eeffaec3-df63-4e55-ab7a-064a65c00efa@roeck-us.net>
+References: <20240329072441.591471-1-samuel.holland@sifive.com>
+ <20240329072441.591471-14-samuel.holland@sifive.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240329072441.591471-14-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240523_203643_046433_B58258A0 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20240523_215046_438426_015B9143 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,65 +98,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The original documentation says hwprobe keys are bitmasks, but actually,
-they are values. This patch clarifies this to avoid confusion.
+Hi,
 
-Signed-off-by: Yangyu Chen <cyy@cyyself.name>
----
- Documentation/arch/riscv/hwprobe.rst | 31 ++++++++++++++++------------
- 1 file changed, 18 insertions(+), 13 deletions(-)
+On Fri, Mar 29, 2024 at 12:18:28AM -0700, Samuel Holland wrote:
+> Now that all previously-supported architectures select
+> ARCH_HAS_KERNEL_FPU_SUPPORT, this code can depend on that symbol instead
+> of the existing list of architectures. It can also take advantage of the
+> common kernel-mode FPU API and method of adjusting CFLAGS.
+> 
+> Acked-by: Alex Deucher <alexander.deucher@amd.com>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index d720712e9734..2e212956185d 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -192,25 +192,30 @@ The following keys are defined:
-        supported as defined in the RISC-V ISA manual starting from commit
-        d8ab5c78c207 ("Zihintpause is ratified").
- 
--* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
-+* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A value that contains performance
-   information about the selected set of processors.
- 
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
--    scalar accesses is unknown.
-+  * :c:macro:`RISCV_HWPROBE_MISALIGNED_MASK`: The bitmask of the misaligned
-+    access performance field in the value of key `RISCV_HWPROBE_KEY_CPUPERF_0`.
- 
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned scalar accesses are
--    emulated via software, either in or below the kernel.  These accesses are
--    always extremely slow.
-+    The following values (not bitmasks) in this field are defined:
- 
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned scalar accesses are
--    slower than equivalent byte accesses.  Misaligned accesses may be supported
--    directly in hardware, or trapped and emulated by software.
-+    * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
-+      scalar accesses is unknown.
- 
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned scalar accesses are
--    faster than equivalent byte accesses.
-+    * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned scalar accesses are
-+      emulated via software, either in or below the kernel.  These accesses are
-+      always extremely slow.
- 
--  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned scalar accesses
--    are not supported at all and will generate a misaligned address fault.
-+    * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned scalar accesses are
-+      slower than equivalent byte accesses.  Misaligned accesses may be supported
-+      directly in hardware, or trapped and emulated by software.
-+
-+    * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned scalar accesses are
-+      faster than equivalent byte accesses.
-+
-+    * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned scalar accesses
-+      are not supported at all and will generate a misaligned address fault.
- 
- * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
-   represents the size of the Zicboz block in bytes.
--- 
-2.45.1
+With this patch in the mainline kernel, I get the following build error
+when trying to build powerpc:ppc32_allmodconfig.
 
+powerpc64-linux-ld: drivers/gpu/drm/amd/amdgpu/../display/dc/dml/display_mode_lib.o uses hard float, drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_helpers.o uses soft float
+powerpc64-linux-ld: failed to merge target specific data of file drivers/gpu/drm/amd/amdgpu/../display/dc/dml/display_mode_lib.o
+
+[ repeated many times ]
+
+The problem is no longer seen after reverting this patch.
+
+Guenter
 
 _______________________________________________
 linux-riscv mailing list
