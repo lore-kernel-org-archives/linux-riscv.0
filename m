@@ -4,50 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D67CC25B74
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 May 2024 07:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE300C25B74
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 May 2024 07:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GLYgizh7M6nsiOxMkcsjJgK+owpI5q58X2CKg9YprjM=; b=PoSoU5dMYd/8Bx
-	wvDD9wbcZGzMveWT2b/j2tkd7jT+gT8FZxe8VM+0o3lcAybpyo+P+7nR9LP1br4we1zN+MRSfduzu
-	q8WIZQzhquTpj2zPKRj0PJsmvXBsQ24mriDEJj7GzvRQXXTMaBbKbQpaaswvn7IGN9gPChVDbRdDh
-	qNdyqR72/ToFafe33g/htcdcVpAskZz6jA0O9V4NNW8+6x1utMauOS4iZHz3qRxEKSPCNkDH4bPR4
-	CnfZXYfU8FPvO0DWVEfoMIWndOslxDo0Kge5IiTMoLSyjp/YvwWE9FtDDnDoQcL7jtK8bC/WtIC8G
-	RyD+h2gHJMv+lMQdc39A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=00iAZeeZ54nTxXW+lL54SBTq8J5Q1O/ptd6pxvgQzuc=; b=aDQjyDU/ToK9Fy
+	FC0CBRCbETbjdHQNDTz+0OFzXMNhNfAOSAd8vVMS9VMihSkVMQHeqeOoRXIT6jk/ybPW8pEGfWQmo
+	7JhgiONFSxnzZ4MKxRB+oDqF+7M0Gz8xCNS5LBipQPF8qpYB5H3FjUuJIVWtpG3r35IVQitv2Ti1v
+	lbLY4yoY9WRNlRlFQyEGaODuP/oDnultfbTStmigTIFbWlQa/idYQxtZsP4tfp+AaA5O7Mw0QNlvq
+	4strFIJ+jvhMlcbb7NkXyvWe80pxYJE5QSEyR2fvoXuAOe/zGwBD3tH3ge0g6xSeLPm4EW2sH1XPK
+	ahUXG4R7qJaItsI8dc1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sAPJe-00000008GOd-1gwg;
-	Fri, 24 May 2024 07:26:14 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1sAPZI-00000008IKv-1QPN;
+	Fri, 24 May 2024 07:42:24 +0000
+Received: from mail.quirkbyte.pl ([94.177.238.152])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sAPJa-00000008GK7-2Chg
+	id 1sAPZF-00000008IJQ-34uQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 May 2024 07:26:12 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 886651C0007;
-	Fri, 24 May 2024 07:25:59 +0000 (UTC)
-Message-ID: <545a7f3e-436e-4fd7-a45f-4f800bd58b20@ghiti.fr>
-Date: Fri, 24 May 2024 09:25:59 +0200
+	Fri, 24 May 2024 07:42:23 +0000
+Received: by mail.quirkbyte.pl (Postfix, from userid 1002)
+	id 673A4853BC; Fri, 24 May 2024 09:41:20 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=quirkbyte.pl; s=mail;
+	t=1716536540; bh=V4qwQGqC7KpJoyielzRpnopuINFIOvKXsSgJ3ZENIXU=;
+	h=Date:From:To:Subject:From;
+	b=Bt9K6dUmxw0Xks5VflJg3NcrkbyygRfpbtPxwV2Lm+n9UlGzZcfhNDC8nZYpn0OoX
+	 iYNpu2niIp/541JcQOrS1uYKkX2+q0FwMNQHdRfRROTUvhNeJrGirc2WGoJb4PeTJD
+	 f/1T6qxlEvLuq03IhY2BHTRrTUSdyGp+H9Gzokq3gp1Kqf+X+04cX2Hjnzh01Nun7x
+	 ecpgXEkhkmYa1qKgLVhSR6LL+D5eWurB8W7PYCsZ+fgbyHUHD9QoVIo+tbTBVw0E4E
+	 hNMey5PIVis2LFzDcBczbt2N6qLn6r59CczzJPO/8UJNTi4/i1tTL+/bDB23W0AXfQ
+	 Whh79fDUA2JwQ==
+Received: by mail.quirkbyte.pl for <linux-riscv@lists.infradead.org>; Fri, 24 May 2024 07:40:52 GMT
+Message-ID: <20240524084500-0.1.37.1t0e5.0.gq7pbrz42g@quirkbyte.pl>
+Date: Fri, 24 May 2024 07:40:52 GMT
+From: "Norbert Karecki" <norbert.karecki@quirkbyte.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: Fotowoltaika - propozycja instalacji
+X-Mailer: mail.quirkbyte.pl
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [-fixes] riscv: kexec: Avoid deadlock in kexec crash path
-Content-Language: en-US
-To: takakura@valinux.co.jp, songshuaishuai@tinylab.org,
- paul.walmsley@sifive.com
-Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
- xianting.tian@linux.alibaba.com, takahiro.akashi@linaro.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <0e34cd12-66d8-4432-780a-f08d03a2c95e@sifive.com>
- <20240506051058.20386-1-takakura@valinux.co.jp>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240506051058.20386-1-takakura@valinux.co.jp>
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240524_002610_769534_5B5A3733 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20240524_004221_920274_A5B2BF9E 
+X-CRM114-Status: UNSURE (   0.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,85 +61,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Song, Ryo,
-
-On 06/05/2024 07:10, takakura@valinux.co.jp wrote:
-> Hi Song and Paul!
->
->>> To avoid the deadlock, this patch directly EOI the irq regardless of
->>> the active status of irqchip.
->> Taking a quick look at the other architectures, looks like no one else is
->> doing this.  Is this addressing a RISC-V-only problem?
->>
->>> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
->>> index f6c7135b00d7..d7ddf4d2b243 100644
->>> --- a/arch/riscv/kernel/machine_kexec.c
->>> +++ b/arch/riscv/kernel/machine_kexec.c
->>> @@ -149,20 +149,12 @@ static void machine_kexec_mask_interrupts(void)
->>>   
->>>   	for_each_irq_desc(i, desc) {
->>>   		struct irq_chip *chip;
->>> -		int ret;
->>>   
->>>   		chip = irq_desc_get_chip(desc);
->>>   		if (!chip)
->>>   			continue;
->>>   
->>> -		/*
->>> -		 * First try to remove the active state. If this
->>> -		 * fails, try to EOI the interrupt.
->>> -		 */
->>> -		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
->>> -
->>> -		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
->>> -		    chip->irq_eoi)
->>> +		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
->>>   			chip->irq_eoi(&desc->irq_data);
-> I think this deadlock is relevant to riscv and arm64 as they both
-> acquire irqdesc spinlock by calling irq_set_irqchip_state() during their
-> machine_kexec_mask_interrupts().
->
-> However, I think calling irq_set_irqchip_state() during
-> machine_kexec_mask_interrupts() is arm64 specific way of handling EOI
-> which is not necessary for riscv.
-> For arm64, its interrupt controller(gic) seems to have two ways of EOIing
-> an interrupt depending on the mode which gic is configured. One of them
-> treats EOI as two step procedure, priority drop and deactivation. I think
-> irq_set_irqchip_state() is there to handle the deactivation part of
-> the procedure.
-> For riscv, EOI only requires irq_eoi handler to complete EOI and I think
-> keeping irq_set_irqchip_state() will only leave this possible deadlock
-> without any use.
-> So I think it's best we simply remove irq_set_irqchip_state() as Song did.
-
-
-I think this ^ is relevant and should be added to the commit log. @Song 
-can you respin another version with the updated commit log? @Ryo can you 
-add your Reviewed-by when it's done?
-
-This fix has been lagging behind for quite some time, it would be nice 
-to merge this in 6.10 and backport to stable.
-
-Thanks,
-
-Alex
-
-
->
-> Sincerely,
-> Ryo Takakura
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAogCkN6eSByb3p3YcW8YWxpIFBhxYRzdHdvIG1vbnRhxbwgc3lzdGVtdSBm
+b3Rvd29sdGFpY3puZWdvPwogCkluc3RhbGFjamEgZm90b3dvbHRhaWN6bmEgamVzdCBuYWpsZXBz
+enltIHNwb3NvYmVtIG5hIG9ibmnFvGVuaWUgd3lzb2tvxZtjaSByYWNodW5rw7N3IHphIHByxIVk
+IChwb3pvc3RhasSFIHR5bGtvIG9wxYJhdHkgc3RhxYJlKSBpIHphYmV6cGllY3plbmllIHNpxJkg
+cHJ6ZWQgcm9zbsSFY3ltaSBjZW5hbWkgZW5lcmdpaSBlbGVrdHJ5Y3puZWouIEplc3QgdG8gdyBw
+ZcWCbmkgb2RuYXdpYWxuZSBpIGJlemVtaXN5am5lIMW6csOzZMWCbyBlbmVyZ2lpLCBkemnEmWtp
+IGN6ZW11IHByenljenluaWFteSBzacSZIGRvIG9jaHJvbnkgxZtyb2Rvd2lza2EgbmF0dXJhbG5l
+Z28uCiAKRHppYcWCYW15IG9kIHdpZWx1IGxhdCBuYSByeW5rdSBlbmVyZ2V0eWN6bnltLiBQcnp5
+Z290dWplbXkgcHJvamVrdCwgd3ljZW7EmSBvcmF6IGtvbXBsZWtzb3dvIHd5a29uYW15IGkgemfF
+gm9zaW15IHJlYWxpemFjasSZIGRvIHpha8WCYWR1IGVuZXJnZXR5Y3puZWdvLiAKIApDenkgY2hj
+xIUgUGHFhHN0d28gcG96bmHEhyBuYXN6xIUgcHJvcG96eWNqxJk/ICAKCgpQb3pkcmF3aWFtCk5v
+cmJlcnQgS2FyZWNraQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
