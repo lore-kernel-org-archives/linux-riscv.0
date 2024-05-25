@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92197C25B78
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 May 2024 12:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 918DBC25B78
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 May 2024 12:26:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nSLc1Ax/RyLRZl0YZfJDic7YbH0KYI/oZ/FdQ9eIzhY=; b=NN8BftcJeJ1Rr1
-	s6c8Kg7vxSzDb3OGDtrNR2W6gzxt0jGXxgUcHsLw/A94s6keMWuh9UST7eN6DQ4Bw55yPaJyI26Kb
-	8gB0MAvYFhX9Wgl1PZV1bA8R4YsglNSvGUq7p2VdJu8UUVP5oeCxPR3yJydtTLdH9Pk3Lt/ed5eeO
-	jepsY2gE8MpWEG+LlbJSMezARvyEeF4y78mwD+heu7AhpjADnyVai7hEo/vJubE7R1A/2XqNrXBRo
-	tF40E+oIlTVIk4qn31HIA061XamKyYsBCnYxn940skyXBwg2pTgk+Ni2LbFN+/GcaJiF3LV6VcY9+
-	UDUNSpdANXihdi2IOHow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mhmr5Qxos6rCM4uwm9Ef6tTYmm84RnWIIE7SkVi4Fyo=; b=bMzgnYAEUXFmfXex0Z+Poh2GRK
+	odju2uL82+GckZS/EPm5V2HEQDcXI/fpcuAZLNvFX9DGkQnwbEgXfYLBQbz8J6T/CpF4GH6VOBF4r
+	rnKRm8S3sUYA3Sy2PAplncHXLV9BQ/bumAdnzPSc3WeWeZT0M29JaoKKiWvpb6Efq47kFW8bgRRr2
+	f8zpD7M0b2MSJOoDjijrzx+iHMLIU5L82T9kYfM3/RlTaH0m1XwJsjNJ1CJdr39ZoLer2PITlla8g
+	t3iY5vrO0oV20U/F9HYsaKALAKSrEbnNG9GLC+7o8lLW9WZ1uPujCfZY8EocEZzRl5iJhJKqjazpT
+	BwIvGGuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sAqF4-0000000AzDC-25mk;
-	Sat, 25 May 2024 12:11:18 +0000
-Received: from mout.web.de ([212.227.15.14])
+	id 1sAqTF-0000000B06W-0ujc;
+	Sat, 25 May 2024 12:25:57 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sAqF0-0000000AzCW-3HUR
+	id 1sAqTB-0000000B05R-1ZU9
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 May 2024 12:11:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1716639066; x=1717243866; i=markus.elfring@web.de;
-	bh=oGuyy/VHQckd3cRSTJawLRY3MC0H+b0W1sAThyAgWmE=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=YjqQFezlxATkBtOxcUIHEn1v+9tJ9LJbSOl7dRHIdy7HoFSGeXuPxnphG74VEHII
-	 6ZhJyBgo4ReHn4zdD/Uj+XERhLsW/1DDGwrifZcSzxklmfV9BpVFnv6Xk9qgOpOvW
-	 WpD7YAjgLa2b7+mqcgctmArLxiwFlHyC1E5yORXOrgJ+J2uSE2/yMSbRIsd7HXzIH
-	 nn8bfCwhv7MNs9Hl4P2kWh4itS0zTl8BkHcc+AULeoU3sIH5Xt10UDYju9QOTdn8z
-	 FxabmID7uYAT/atJoZng+6IngrSSr4SesC/SD/It404RERt+8LLpKkC/aNvgdmYkW
-	 QRXA/sCYtIg50Rgnww==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.21] ([94.31.83.95]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MP384-1rs3pW03Q4-00XcIJ; Sat, 25
- May 2024 14:11:06 +0200
-Message-ID: <b52685a3-127a-4367-b11a-54ab88467dcf@web.de>
-Date: Sat, 25 May 2024 14:11:05 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Sat, 25 May 2024 12:25:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 2E4D6CE0690;
+	Sat, 25 May 2024 12:25:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51AFEC2BD11;
+	Sat, 25 May 2024 12:25:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1716639949;
+	bh=uuutn1siWRfLN8VrmLQsvkar1/xh4in+lXCkVh75NNE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WBZou4/4P5uSEv7MlskTVJ8tOAnh1CurHxktslMywg/aVBTxLd0yHQnlopmMJOQZP
+	 9zMUwcSPMfzhxw6XXGAdYuT3N+3jKIkfkckiDqEYN08hCCdm+3Z1z80IA4ejMcy4Mn
+	 nFwy8nVkYRGJRhILFK4300UaJXoaOJnYYHRr+guvJKWFp1FSgP3coKXGkcM8ozRczF
+	 KqJCWak29MjcrIDHjWsLkrXhlN8xwmMXWKDi17wVEp2Mz/uRFlp5i7nyU5GuAW0A4A
+	 JQq2N9wY49GWimQQsKpgs5zVK7pwCryLU3ixytCWpc4w0NMJUntuT5C09cEfyBSG6J
+	 h14wh0R4pNsKw==
+Date: Sat, 25 May 2024 13:25:45 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: Henry Bell <dmoo_dv@protonmail.com>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh@kernel.org>, LKML <linux-kernel@vger.kernel.org>
 Subject: Re: RISC-V: add Star64 board devicetree
-To: Conor Dooley <conor@kernel.org>, Henry Bell <dmoo_dv@protonmail.com>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
- Emil Renner Berthing <kernel@esmil.dk>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>
+Message-ID: <20240525-shirt-scratch-6708b2a4f63b@spud>
 References: <IPHlm5mOKUzYfwGy0auyufx-oPkSrtQjUjiQLbtvspD69UPX9O98iB8P2mqM8ahNaerz0yUa009f4XABRniq7aj2PUp83hbRVVhhKmqT0Ss=@protonmail.com>
  <1b55aad1-1442-41a5-acc6-16baab90c021@web.de>
  <caCBlFpvjmhO9G1A1_2qHImmuoGai2NoPYonB5RCVftq4zIrSxlP8Msh9z_FX9GwQXzfSrB40dRxy1zfxZesOJENeebWQsERa03sDvArzec=@protonmail.com>
  <20240525-dumpster-bootlace-10123081a6f2@spud>
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20240525-dumpster-bootlace-10123081a6f2@spud>
-X-Provags-ID: V03:K1:KB0lVXM+MsqV8BunvAuq/CNlANGmoJmtaXNBiUIOvgIcUA1zhMU
- Nas5nCALipDqrdlMZm2Hj5qz2plBIF/oI2iMCtsbycKkvWGXDtrAbr6BtWRzretNVYsgBlz
- +R4QCTMl/5UEng1DnVVZ1R5PCNlA5vQShmmZP5LHbhxXDklciosgM6EGOavkhmScBKlO75Y
- 2ynSEMGrAEdkaq9FX88pA==
-UI-OutboundReport: notjunk:1;M01:P0:c14ACTMRubY=;QJC4K/TMIoXaAoncU4CL816gqhq
- nXFgHOR0cu9Vc1GFRSUqiRTgo703b7+M4GiAnsjRr8GsU/vMXCGwPqfk9G9Hi/jjUclsBLt+Z
- Xba2bdLgeDA0O/Nfyzt1rXY+OCeQhmCCEVJY3neJp09TOWzaQKCLUPodSBX/0axmFrTR06a2D
- C/7Mn2XlvHiVKcDirqIymb7Ebh5MbxIB1fVhkK3odjGzV2MUferGpp89W8FPRH+bMA2ok0mgd
- x5/oKhVHHrLCpeqHjgkOPIq6swuKHnWDyPOjNFdCj8YXQghsLTAHKzbkl84FEiQtEGqsKDHET
- R2kZarnVO/KC/jTVjfKp/xKvDwep7Q0N0kbrjyqWW5bi21ZCHtZW4N37+sHJKUNQZ3hWSeCnz
- a/c3jENLXrNv0pIu4zN6KhGB0m/grDBg92pz4CjU2GjsZMfQbxdncz5erBy7S/5aj/LZZ027s
- MB3CXarVc+CAKkIsMNK2HZPgdvdXoyAvM7lzIx+4TwEnBI/2SwndBD0VedGvrl6PtivLbWHTM
- TR4f/nALz1nVHJjOqDdf5eeDg+RULTYLU6nRYySIK3AEIWwAHX2lX82n0ygBLEwouTWl2QDEV
- 2gK/McUNqErZ/d7ftbgA+cUPn+KSgD3PCpUXMwtbqvSb3HS6OWMz481IY2z3GqNadN9qqskUg
- WwrooZhw8KqZI0i69TYk1fyipThGSnRJwh+wP2L+TUdmRNjOGwrp6J2IofHEKWZoFVOTloxIj
- s58FUdd9ODsSrIxRJjtRwD/9GeIUOJcwBAmLVf+ODmY9iNP6jBU7ldw7P47aoIQCUfARAIYLf
- snm5H+0pMhv8AEfrlcBB640n85wsSiNnJhrKnO6CYwWSg=
+ <b52685a3-127a-4367-b11a-54ab88467dcf@web.de>
+MIME-Version: 1.0
+In-Reply-To: <b52685a3-127a-4367-b11a-54ab88467dcf@web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240525_051115_526724_F59073E9 
-X-CRM114-Status: UNSURE (   4.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240525_052553_618137_7A8D3B0D 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,24 +76,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8352006716130370220=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pj4+IFdvdWxkIHlvdSBsaWtlIHRvIGFkZCBhbiBpbXBlcmF0aXZlIHdvcmRpbmcgZm9yIGFuIGlt
-cHJvdmVkIGNoYW5nZSBkZXNjcmlwdGlvbj8KPj4+IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHVi
-L3NjbS9saW51eC9rZXJuZWwvZ2l0L3RvcnZhbGRzL2xpbnV4LmdpdC90cmVlL0RvY3VtZW50YXRp
-b24vcHJvY2Vzcy9zdWJtaXR0aW5nLXBhdGNoZXMucnN0P2g9djYuOSNuOTQK4oCmCj4+IEknbSBo
-YXBweSB0byBjaGFuZ2UgaXQsIGJ1dCB3YXMgZ29pbmcgb2ZmIHRoZSBmb3JtYXQgdXNlZCBpbiBD
-b25vcidzICBNaWxrdiBNYXJzIGNvbW1pdAo+PiBodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9z
-Y20vbGludXgva2VybmVsL2dpdC9jb25vci9saW51eC5naXQvY29tbWl0Lz9pZD0wNGEyMjhhYWRi
-ODRkODk0NzIxYjEzMTk3NjQ5Y2E3NDFmMzAxOGJjCj4KPiBEb24ndCB3b3JyeSBhYm91dCBNYXJr
-dXMsIG1vc3QgbWFpbnRhaW5lcnMgKG15c2VsZiBpbmNsdWRlZCkgaWdub3JlIGhpcwo+IGNvbW1l
-bnRzIG9uIHBhdGNoZXMuIFRoZSBjb21taXQgbWVzc2FnZSBoZXJlIGlzIGZpbmUuCgpXb3VsZCBz
-dWNoIGEgcmVzcG9uc2UgbWVhbiBhbHNvIHRoYXQgeW91IGFyZSBvY2Nhc2lvbmFsbHkgaWdub3Jp
-bmcgcmVxdWlyZW1lbnRzCmZyb20gYSByZWZlcmVuY2VkIExpbnV4IGRldmVsb3BtZW50IGd1aWRl
-bGluZT8KClJlZ2FyZHMsCk1hcmt1cwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+
+--===============8352006716130370220==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="6WI4GTcOugy2KI8b"
+Content-Disposition: inline
+
+
+--6WI4GTcOugy2KI8b
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, May 25, 2024 at 02:11:05PM +0200, Markus Elfring wrote:
+> >>> Would you like to add an imperative wording for an improved change de=
+scription?
+> >>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tr=
+ee/Documentation/process/submitting-patches.rst?h=3Dv6.9#n94
+> =E2=80=A6
+> >> I'm happy to change it, but was going off the format used in Conor's  =
+Milkv Mars commit
+> >> https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit=
+/?id=3D04a228aadb84d894721b13197649ca741f3018bc
+> >
+> > Don't worry about Markus, most maintainers (myself included) ignore his
+> > comments on patches. The commit message here is fine.
+>=20
+> Would such a response mean also that you are occasionally ignoring requir=
+ements
+> from a referenced Linux development guideline?
+
+I do ignore it from time to time, yes. Being a stickler to the
+guidelines wastes everybody's time (just like this discussion).
+That said, the tense used in this patch is perfectly in-line with the
+guideline you reference. "Add Star64 board devicetree" is in the
+imperative and the commit message body contains additional information
+about the board's configuration.
+
+Thanks,
+Conor.
+
+--6WI4GTcOugy2KI8b
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZlHYyQAKCRB4tDGHoIJi
+0oTUAP94LrOxy2p8XfaXuefNL2Vk1HswZhmUTF28/ERnU2emAQD+I1g497DfVS6G
+WaJk05M15ZqUswocaw+gXzJOKt7XjAs=
+=LQw1
+-----END PGP SIGNATURE-----
+
+--6WI4GTcOugy2KI8b--
+
+
+--===============8352006716130370220==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8352006716130370220==--
+
