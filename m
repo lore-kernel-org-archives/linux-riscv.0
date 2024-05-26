@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1900C25B75
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 May 2024 12:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B503CC25B75
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 May 2024 12:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,71 +13,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=k7ef9CU5VcK5XBFdrnCj1MCIIsrUqksNJOgacd3OvpE=; b=LwbgSooAeQ+9P1A7rSeKK0hH9S
-	7U1hfW4C05d3J/Sr56qAa1f8TzIuiZ8XXz2IziQS7oiVNBgNm336KcjikSkRGk2wibCUknRadFg88
-	YjHQ3Zg/MSlUgG2gp5Pl608nsz6B9WhjvXIOQIIzc/cpGCjbvnAQHwCVImHRbhay8JqCFtXSPXs95
-	26aSPHMyO+XfCPmo2mCHANeAQvy1llLoyVWof8L9K8bho9Vq9H97651gwpZXcJceFRWA+Fu+9flp6
-	UBY6kRDkSEZ1VJn36+cLSZJ0Pcd9wC4s2DC/nFt1+5mu1sHwqrvpoHECa2U4mf49lOeEFjrwkANlA
-	cVtjHpEw==;
+	bh=rTvPyy7NIcNnH0GHp7fK2llvY3RO0CjmHpZmXUrnEm0=; b=KebU00Vr+acGuKrtMr1fnxaJJS
+	40HnyLmFWChVtTizK1GPyUx6bpdBAZpMJIH9Jjk7FdEfJSGWLfB1pEr502unRkkHuIVNLDmWr+Rob
+	iJ6IyQehRbai/GRbFOUYJnE8r5bCH2IMHwxyL9F6J4jsUYj7bNX59pEg6C+HUkYZG4A387+YPuofs
+	aEx6j6245jmH/q6iSBYPlMiIuIUKMTA7CvzRO3X031sG+0sm1VJ82nee94udfr9uMl+1/tmUCLyQM
+	wuNCPapQL56qmlz+ya+fouBdfbL7Hw4rT2f07Wl6dUgATJCbbtOmXpdI7kN6Mj9ifgoih8i9QmqwW
+	wAb6veBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBCYz-0000000CerW-1LLP;
-	Sun, 26 May 2024 12:01:21 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1sBCdp-0000000CfDV-2pfT;
+	Sun, 26 May 2024 12:06:21 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBCYv-0000000Ceqs-49Q3
+	id 1sBCdl-0000000CfCn-3pPm
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 May 2024 12:01:20 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	Sun, 26 May 2024 12:06:19 +0000
+Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com [209.85.167.69])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id C97013F469
-	for <linux-riscv@lists.infradead.org>; Sun, 26 May 2024 12:01:08 +0000 (UTC)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id B35EB424A1
+	for <linux-riscv@lists.infradead.org>; Sun, 26 May 2024 12:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1716724868;
-	bh=tvkwPnG/2WS9EBDE3dwEymI8zBU1MKtjDDlk1d+P43Y=;
+	s=20210705; t=1716725173;
+	bh=QzPjQrvRFTNCaY9bkkx1AdOfiqg86uxrelAFKCvzxQw=;
 	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=cZxp1FGpu5+RT5MxAL/6L5ZboOyid6UKX6919bXRJ/p3k7xPvz5aKiEDCBLbVaIxZ
-	 Pr2aepMBY86bZyZiItsSPG/JI3CXVuqkscX+RpffDvYSZ7S0NMlNHuQ9MBJhFl+D1A
-	 waIdkb1yeDnZ06EkiH2R7fCjx3MSU50dewrzEiJ1K0hsMh9EVfWnzhLdRqeqgc4qIm
-	 dosU+iVZzeC89Uyr+dcHCAwNurbzSYrgllJC0PgwVttH+o8B0cuv3tPLaY6VvOxB9+
-	 HUQ+qZFL0OiGTwFHkzupJTYyl7+2y5PB/65PVA21/60nAk79SSFUGTB2YW9hLnS/Ti
-	 gCL+dL6G0pdJg==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-43fb0949d28so38641441cf.0
-        for <linux-riscv@lists.infradead.org>; Sun, 26 May 2024 05:01:08 -0700 (PDT)
+	b=WZAanrXnJGynHRMBC+FXiICapcQCjqNOSvPcuI2jeNolNUy3JPcNdAQKQ5za3gzu3
+	 XmHpPLPG1W7Z2nJfIc/eP8OCMpFgGIUoCJkzqiycmot+pW6uIC/2tcGeq7/cs+ZL/e
+	 2b3m9oo/S8+cYAFyLVq8l38EcNfoHHnd/JOUrftpTzd7vqddwwkQaXE0q2/SsmtRsd
+	 edwyPrTP3/Hw79jScxcnbx+Y5kvsADWJRoR5AlFwmHSMC2OLbyMipuokibPcGp30h3
+	 rhkZCRzZKkgOCR8Yti3hLUKM0+XJVkR2U8PgFzrImEwCxjIdpsFdoUfUPrn6dJyg01
+	 4VgWllBQSiM/g==
+Received: by mail-lf1-f69.google.com with SMTP id 2adb3069b0e04-5295f0125dbso1492489e87.1
+        for <linux-riscv@lists.infradead.org>; Sun, 26 May 2024 05:06:13 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716724868; x=1717329668;
+        d=1e100.net; s=20230601; t=1716725172; x=1717329972;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tvkwPnG/2WS9EBDE3dwEymI8zBU1MKtjDDlk1d+P43Y=;
-        b=cT4b0G3F6yBN0992pG3qM/6brspkU9PGDrZL8jc3clfE/mXSiD1/nCOjuC7UgCpudF
-         BAdxsL0hf5y1ko4BfOLmIM6DmBpfsHAYKXmDK2Y5Ui9Jfhe2filLKPD6+nM8PDLCEAJA
-         xafxao6CjRoa3uevcVdaUNEN0d6JU3UpkE3lQ7QJWmE5iPYmm0zcGzobuCzohJ5vXpMo
-         lRvHvhoT2JgAReEcsr/qTYm2895mCVoxIS/yj5E8pjK3LG70FwV25mX96YEGiCAcpKjY
-         99+z/shKXt0f2+4eZbnJ9YJOULAYB6sjfYqCoJZKRXx33nAzvQCsiiTJ6SNvr7SiS34s
-         OlhA==
-X-Forwarded-Encrypted: i=1; AJvYcCV9Ht6Io1+9qXtvT+bTZuDZeK+4zpN00TMDJbNAG48TfGRLu7pqqCKazhqTwQEYhYprxoKdSXe7SycWejIj7ll+lnAMk0q49JOpONZHmoGd
-X-Gm-Message-State: AOJu0YxhcKOuFll2aP3QzKGg5tvHn8HjJbVWsQ5tMgoYgX8A61J5kphO
-	0YJpxvdy11qCd02JnIvzA29K4Axtn1CkyeNVkQThJdgGBleznWssQNVDERCUGCF8dOwm9agrU4k
-	0eKODzzQ3YbSygKoXXsVn8o8ljQ0bdaM+NvJku8SHeAxTD8W6xwZhXybV/dCE0hUfK+tIWFVura
-	QoSSEurAKxtBSrGNOD4XhVXQXX/PwvlbdQu8n1eMx9o38VX2o74J0SycmA
-X-Received: by 2002:ac8:7c44:0:b0:43e:b52:eea1 with SMTP id d75a77b69052e-43fa746b00cmr180430411cf.16.1716724867705;
-        Sun, 26 May 2024 05:01:07 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEJkeH2LUqAq82Lwd2C/Zgjoasg6mKLwrH8I1wgWYFfVMAYYWA5MjWZNr4+CmcBQiREsO5oMSN6bb46jagFZVU=
-X-Received: by 2002:ac8:7c44:0:b0:43e:b52:eea1 with SMTP id
- d75a77b69052e-43fa746b00cmr180430101cf.16.1716724867369; Sun, 26 May 2024
- 05:01:07 -0700 (PDT)
+        bh=QzPjQrvRFTNCaY9bkkx1AdOfiqg86uxrelAFKCvzxQw=;
+        b=ojKjZzRHaM3ZdP2t5gYzrnYEo16mik88KcVS3HAlfw6gckQrWSsY6Fyi6lx17gBa0C
+         gPdHtp567M4LHHZvDn2OCI5KFsOMlmIx/33gYsXXBjq5P9nneRGRXKe+IwTIoEIgUf36
+         wP+1eIY64xSKlLQBq5WEFdkcjQFoPjYy4ChelPyIOvQzaAMOwyJLnKY8OukeuFEKXiIQ
+         KS4M8GGi+qJho66RwooxaUEl28Tx0CK2Dex8/nS7juv+n6XDar8Vf9lYuflMXdd+h2Rc
+         w1zIYO1OLlhz+o2A6Jo6L7WSwknEJ4sdhn0DuXVINKyE/7yrgzQlOJw9fOEZdd1KDycK
+         iLMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVvplSqPoK5jEAizFwf1gJrLqaXRRd5coVoJ8UI/cwvik+sSEyzVEg+/erny7y/98EbKfumkXg+BY7hQGeS8tk+y/qm42dbGRA7InniL8lZ
+X-Gm-Message-State: AOJu0YxvP/OPie0nKogdLkRU3M8RN1oZz9RVMjqtQQtFx6wXpwtBa4AJ
+	fDB9rG9hvxW2IlpWJkBlXkYv6uiruCYtrM+SkzRMEWUjc19Zguq1fLyIcXrRzjFIv3qSMnDDCsG
+	I8qYhS8b7qiNZn7I0eH2swwS0x9lvaOlz+yNMVN1Jwj7r/gIYb9iwJjbchsjHOGUWLZZ+2IK/yQ
+	YlK5hzEcZKUE9zz4m0Df34L35ZuhBsTdm4CezwZzSRFHBl7rK8//R69Fyv
+X-Received: by 2002:a05:6512:344c:b0:519:1a91:30cc with SMTP id 2adb3069b0e04-5296410ae61mr3785551e87.4.1716725172289;
+        Sun, 26 May 2024 05:06:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEwx7fR7skOCtVUuIXew7lgRD1ZuwehO7HuKQP+7Gl7dRBpMQppQ1tqUrzN65seVnBlikG+1ZckVZ05Ol2ZpUE=
+X-Received: by 2002:a05:6512:344c:b0:519:1a91:30cc with SMTP id
+ 2adb3069b0e04-5296410ae61mr3785524e87.4.1716725171737; Sun, 26 May 2024
+ 05:06:11 -0700 (PDT)
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Sun, 26 May 2024 12:01:06 +0000
+ HTTPREST; Sun, 26 May 2024 08:06:10 -0400
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240517-i2c-th1520-v2-2-d364d135ccc6@bootlin.com>
-References: <20240517-i2c-th1520-v2-0-d364d135ccc6@bootlin.com> <20240517-i2c-th1520-v2-2-d364d135ccc6@bootlin.com>
+In-Reply-To: <20240517-i2c-th1520-v2-3-d364d135ccc6@bootlin.com>
+References: <20240517-i2c-th1520-v2-0-d364d135ccc6@bootlin.com> <20240517-i2c-th1520-v2-3-d364d135ccc6@bootlin.com>
 Mime-Version: 1.0
-Date: Sun, 26 May 2024 12:01:06 +0000
-Message-ID: <CAJM55Z_jXFx05YJFOfsguvdABALhi143xpwt61AGiXiyTwRc7A@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] riscv: dts: thead: Add TH1520 I2C nodes
+Date: Sun, 26 May 2024 08:06:10 -0400
+Message-ID: <CAJM55Z9FZxv9TskSX7H5U8_C4a1-LMv52sFgoyzO0bYUKnZ3Ug@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] riscv: dts: thead: Enable I2C on the BeagleV-Ahead
 To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Andi Shyti <andi.shyti@kernel.org>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
@@ -89,8 +89,8 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240526_050118_380039_9B185A45 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20240526_050618_197053_9D7FCC49 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,103 +107,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
-
-Thanks for the patch. Some comments below.
-
 Thomas Bonnefille wrote:
-> Add nodes for the five I2C on the T-Head TH1520 RISCV SoC.
+> This commit enables the I2C0 controller of the TH1520, together with
+> the FT24C32A EEPROM that is connected to it.
+> In addition, this commit also enables the I2C controllers I2C2, I2C4
+> and I2C5 as they are all three exposed on headers (P9 19 and 20 for I2C2,
+> P9 17 and 18 for I2C5 and MikroBus 7 and 5 for I2C4).
+> It also defined the required pinctrl nodes.
 >
 > Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 > ---
->  arch/riscv/boot/dts/thead/th1520.dtsi | 50 +++++++++++++++++++++++++++++++++++
->  1 file changed, 50 insertions(+)
+>  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 84 ++++++++++++++++++++++
+>  1 file changed, 84 insertions(+)
 >
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index de7116290ca4..ae6cf4c441cf 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -252,6 +252,36 @@ gpio2: gpio-controller@0 {
->  			};
+> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> index 57a2578123eb..aeb04f5159d5 100644
+> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> @@ -121,6 +121,47 @@ led-pins {
+>  	};
+>  };
+>
+> +&padctrl1_apsys {
+
+These node references should be ordered alphabetically, so please put this
+below &padctrl0_apsys.
+
+> +	i2c0_pins: i2c0-0 {
+> +		i2c-pins {
+> +			pins = "I2C0_SDA",
+> +			       "I2C0_SCL";
+> +			function = "i2c";
+> +			bias-pull-up = <2100>;
+
+Are you sure the strong pull-up is needed here and below?
+
+> +			drive-strength = <7>;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+> +	i2c4_pins: i2c4-0 {
+> +		i2c-pins {
+> +			pins = "GPIO0_19", /*I2C4_SDA*/
+> +			       "GPIO0_18"; /*I2C4_SCL*/
+
+Please add spaces here like other kernel comments. Eg. /* I2C4_SDA */
+
+> +			function = "i2c";
+> +			bias-pull-up = <2100>;
+> +			drive-strength = <7>;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+> +	i2c5_pins: i2c5-0 {
+> +		i2c-pins {
+> +			pins = "QSPI1_D0_MOSI", /*I2C5_SDA*/
+> +			       "QSPI1_CSN0";    /*I2C5_SCL*/
+
+Same here.
+
+> +			function = "i2c";
+> +			bias-pull-up = <2100>;
+> +			drive-strength = <7>;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +};
+> +
+>  &padctrl0_apsys {
+>  	uart0_pins: uart0-0 {
+>  		tx-pins {
+> @@ -143,6 +184,19 @@ rx-pins {
+>  			slew-rate = <0>;
 >  		};
+>  	};
+> +
+> +	i2c2_pins: i2c2-0 {
+
+i2c2-0 sorts before uart0-0 alphabetically.
+
+> +		i2c-pins {
+> +			pins = "I2C2_SDA",
+> +			       "I2C2_SCL";
+> +			function = "i2c";
+> +			bias-pull-up = <2100>;
+> +			drive-strength = <7>;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+>  };
 >
-> +		i2c0: i2c@ffe7f20000 {
-> +			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-> +			reg = <0xff 0xe7f20000 0x0 0x4000>;
-> +			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clk CLK_I2C0>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
+>  &uart0 {
+> @@ -150,3 +204,33 @@ &uart0 {
+>  	pinctrl-0 = <&uart0_pins>;
+>  	status = "okay";
+>  };
 > +
-> +		i2c1: i2c@ffe7f24000 {
-> +			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-> +			reg = <0xff 0xe7f24000 0x0 0x4000>;
-> +			interrupts = <45 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clk CLK_I2C1>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
-> +		i2c4: i2c@ffe7f28000 {
-> +			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-> +			reg = <0xff 0xe7f28000 0x0 0x4000>;
-> +			interrupts = <48 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clk CLK_I2C4>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
+> +&i2c0 {
 
-These nodes should be ordered by their memory addres, but the gpio2 controller
-above has address 0xffe7f34000 which is greater than i2c0 at 0xffe7f20000.
+Again please sort these references alphabetically.
 
->  		gpio@ffe7f38000 {
->  			compatible = "snps,dw-apb-gpio";
->  			reg = <0xff 0xe7f38000 0x0 0x1000>;
-> @@ -342,6 +372,16 @@ uart2: serial@ffec010000 {
->  			status = "disabled";
->  		};
->
-> +		i2c3: i2c@ffec014000 {
-> +			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-> +			reg = <0xff 0xec014000 0x0 0x4000>;
-> +			interrupts = <47 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clk CLK_I2C3>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
+> +	status = "okay";
+
+And the properties. Eg. move status below pinctrl-0.
+
+
+> +	clock-frequency = <100000>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c0_pins>;
 > +
->  		dmac0: dma-controller@ffefc00000 {
->  			compatible = "snps,axi-dma-1.01a";
->  			reg = <0xff 0xefc00000 0x0 0x1000>;
-> @@ -416,6 +456,16 @@ uart5: serial@fff7f0c000 {
->  			status = "disabled";
->  		};
->
-> +		i2c5: i2c@fff7f2c000 {
-> +			compatible = "thead,th1520-i2c", "snps,designware-i2c";
-> +			reg = <0xff 0xf7f2c000 0x0 0x4000>;
-> +			interrupts = <49 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clk CLK_I2C5>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
+> +	eeprom@50 {
+> +		compatible = "atmel,24c32";
+> +		reg = <0x50>;
+> +	};
+> +};
 > +
-
-I know it's probably hard to test i2c2 with the Ahead board, but chances are
-very low that the disignware driver works with i2c0, i2c1, i2c3, i2c4 and i2c5,
-but not i2c2, so plaese add that node too. The audio and aon i2cs are fine to
-add later.
-
->  		timer4: timer@ffffc33000 {
->  			compatible = "snps,dw-apb-timer";
->  			reg = <0xff 0xffc33000 0x0 0x14>;
+> +&i2c2 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c2_pins>;
+> +};
+> +
+> +&i2c4 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c4_pins>;
+> +};
+> +
+> +&i2c5 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c5_pins>;
+> +};
 >
 > --
 > 2.45.1
