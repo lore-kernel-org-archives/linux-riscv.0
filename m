@@ -4,117 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDABC25B74
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 15:57:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 580CDC25B74
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 16:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ReCVTWFwsdKLEfcHj9AeHn6F2Pv/lMFcbos3vP1gcH0=; b=rGF30Ik2lDgbBJ
-	+iY8fK3cOglLN4F+PCkjf+FVwSvw7gvdOyVha00WWy7BvMctcwxvFHbiAEtcBJJNRtXV4zCdaf2RZ
-	S6TzmpnKxwdfDSC4n4aH0U4wpvrBbQcrvROFg9prtQ59DHpbEBdP/x1kfiyFObaRJ501c7w3cCkKz
-	zBMD2YV7poz8X6/Y1n3+YEPyJPeczpY/DpdYhLi5nuOijOxFXJ6J4vP44g+J5YHxuOjnp7t/1FRZK
-	5TtobL0A1jPDVnczvYOCbV9wPJUQ4Mjeu4he6gSm1i5ljkD3o9Do/TXLxKawFcunLIm9242F5/fel
-	qFT94td5l8OfJvgK/5IQ==;
+	List-Owner; bh=3rbk3E20hRTikaFgwa92IeL66TP9yHWXPIfitQ7EF8E=; b=er/5lbAbFMVzX5
+	WYk8i/BmqoWmWWqJG/lK/pd6tSrdgbH3BNYbIazEIB4RJRuPMxY+oyVZtGpBftqHq+ZXrmCWBmegH
+	AdZge35ZZ2Efr/G68yZU6066CxHKYcdnwvwhD34SjwDjsuS72/1BtuLuxlPusUPZb4EKNMJe3GM72
+	zqcFW4w25E4OGo4/cFvr1LVdBqRjEWBxNkHnDWYUwMmPR8pObHWZNNSUDsshrioi2Puu8eYiz5A1E
+	igQrec9U5jpnDUlNZ3Q/rpdmZ4S89/t+ZQ/IsdHORDEDSFaqY2hJZ8vATSsyA0czOmQWT2zj0bOwi
+	0v5ERK2BwcwS72XcEbpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBcjO-0000000FhdZ-3KJj;
-	Mon, 27 May 2024 15:57:50 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1sBcmA-0000000FidJ-394r;
+	Mon, 27 May 2024 16:00:42 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBcjL-0000000FhcN-26s7;
-	Mon, 27 May 2024 15:57:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1716825410; x=1717430210; i=markus.elfring@web.de;
-	bh=cCQzbMHV0uZw8ARZF6tyJxZsTWRc/buEbEqLjIXSnlw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=PUTkJtv+17tmHPSwdj2hf899Cxz87JZtpAv6Jc/t460ErK6rIZ1XjrMEwjT/IL5e
-	 u6asEjjbaWV05EEJOrnLlJNLso+bKJ6JUhoe+vAQmYcyr1mOVJ9CmwVzJFYdsDjWk
-	 lhH7BRvhFBzVj6hnFHPSxBLuofy8FnxnuGCzKVh06VXSoykW9+Z5sNppeifyGBhS7
-	 Tbby0eXDkzEd3ur+rXCvlZhYwOhxY2j+kjNeQE+m/gaI7bzpQ3HVkzXeOYg+oIyfZ
-	 hv0kSHTDq7XWjQmMF+X+gAfIYHkN5y02reNDf+/pFuI1uzraU+ayvVz08dwXuor0H
-	 +gQ8lygtBMIj/W0VNQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.21] ([94.31.83.95]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1N6JxT-1sa0Ai3q9J-016inV; Mon, 27
- May 2024 17:56:50 +0200
-Message-ID: <aa58efd3-b502-4bed-8c84-e5d78da23fbe@web.de>
-Date: Mon, 27 May 2024 17:56:43 +0200
+	id 1sBcm8-0000000Fibv-0UU5
+	for linux-riscv@lists.infradead.org;
+	Mon, 27 May 2024 16:00:41 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-42011507a54so32620465e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 27 May 2024 09:00:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1716825637; x=1717430437; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GnnpD0FzpzbYfq1ngxZSbacY0kBYXWsANl4BUlAOofU=;
+        b=BDU61mdnVWcTGHH9z/e1Unsf1m7jLfTe1QF6m2sNELpSHoQqQoQ2HJAR6U87dt8DpP
+         e2+eBRfO6MtXMa4rvRw3IGLKzCUI3km6j+pwKX5wujjvXUVGLZyizA1NMOk0fp12xUNL
+         ZYX0KNW2Do53HZBhmoEm/QE0MTII4eBQgn4NkYKNMsoBj+aJ1wFrDX1lweIKtESOjw9k
+         mSf778q+jz1cGfFDmKoaVudm8QXfN/NzS7oi8AXOQ9g9fdt9iTCBqX5aYPNBD2731bP5
+         lTgDycgLXw3dYxEFRQaa4buYtigYIbSDFCp1gPuNAGcBr+B0dmB4kzaVHklHfcx0BUdF
+         fhfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716825637; x=1717430437;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GnnpD0FzpzbYfq1ngxZSbacY0kBYXWsANl4BUlAOofU=;
+        b=RK/Ny5cyWnP7HxvdVzJ+0OjWxaV08hoZn5fIk5b24aJ78ldhPbUG4Jhu+FmZKOytZk
+         rGo99aHM609zlOvmSuUCLgbr0TYIbyR9nQklcFW6WOTJTwr2zeyylORA5QAGGtQuonL3
+         ouLdYddfOuHACgAbtfip+1qbYungbxRHVlnI01Roiho/8pfCBzLpJbAXRWjG0MeqUPP1
+         uq9D0iNADxXi41/EBd7T0085/sKzl89wdYFlLJ0fhg/C1j4bCUSr5WuWTIm6pmJLzkLz
+         QoTBcdojahTUoVH9UujQ6vSY7jVCu2oYNumwNnFBhs19atRnvoIkso1OQtl8nQ6WUfjh
+         CgiA==
+X-Forwarded-Encrypted: i=1; AJvYcCW3sKvUy/ayF/2inIv2BQvw+T4h7KPMt4OTOJS3IdS1EVuwGizRpqUCbM6xrjfeYfyqjPrIL8+y72lsCw3eyzgy1Lq5OTejFcrX9lIxonZN
+X-Gm-Message-State: AOJu0YzhlhlE6O/4a3Nh/EbyiKIIa6Rg7FyBCTRqglj6UMonG1xJ1xq4
+	GgU2aHwJxA0auuY9KnbAF3AMSfAwQqT+x1KULbHdb26VR/9nILXv
+X-Google-Smtp-Source: AGHT+IGtO7+X98RuvpMG2dActz0xWJmVguWHzph/jBeY6LMcG/4HZrsbQNDsc+iimhUZE7+DFXGchw==
+X-Received: by 2002:a05:600c:450a:b0:41a:8035:af77 with SMTP id 5b1f17b1804b1-421015c7259mr107577395e9.12.1716825636675;
+        Mon, 27 May 2024 09:00:36 -0700 (PDT)
+Received: from krava (2001-1ae9-1c2-4c00-726e-c10f-8833-ff22.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:726e:c10f:8833:ff22])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-421089667fbsm113219105e9.9.2024.05.27.09.00.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 May 2024 09:00:36 -0700 (PDT)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Mon, 27 May 2024 18:00:34 +0200
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH -fixes] bpf: resolve_btfids: Fix integer overflow when
+ calling elf_update()
+Message-ID: <ZlSuIu1aFLzAiH_1@krava>
+References: <20240527153137.271933-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Peng Fan <peng.fan@nxp.com>, soc@kernel.org,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Chester Lin <chester62515@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Damien Le Moal <dlemoal@kernel.org>, Dan Carpenter
- <dan.carpenter@linaro.org>, Dong Aisheng <aisheng.dong@nxp.com>,
- Dvorkin Dmitry <dvorkin@tibbo.com>, Emil Renner Berthing <kernel@esmil.dk>,
- Fabio Estevam <festevam@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
- Hal Feng <hal.feng@starfivetech.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Jacky Bai <ping.bai@nxp.com>,
- Jianlong Huang <jianlong.huang@starfivetech.com>,
- Joel Stanley <joel@jms.id.au>, Jonathan Hunter <jonathanh@nvidia.com>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Ludovic Desroches <ludovic.desroches@microchip.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Matthias Brugger <mbrugger@suse.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>, Orson Zhai
- <orsonzhai@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sean Wang <sean.wang@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>,
- Shiraz Hashim <shiraz.linux.kernel@gmail.com>,
- Stephen Warren <swarren@wwwdotorg.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Thierry Reding <thierry.reding@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Viresh Kumar <vireshk@kernel.org>, Wells Lu <wellslutw@gmail.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, linux-gpio@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-samsung-soc@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
- imx@lists.linux.dev, linux-aspeed@lists.ozlabs.org,
- openbmc@lists.ozlabs.org, kernel@pengutronix.de,
- Peng Fan <peng.fan@oss.nxp.com>
-References: <20240504-pinctrl-cleanup-v2-18-26c5f2dc1181@nxp.com>
-Subject: Re: [PATCH v2 18/20] pinctrl: freescale: mxs: Fix refcount of child
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20240504-pinctrl-cleanup-v2-18-26c5f2dc1181@nxp.com>
-X-Provags-ID: V03:K1:fY28vuOzSy7D3myo+NUo+Q8h4MAB+DMYH6x54XY9zacr23bFm3Z
- XEU1mqywgExmQK1yZjuU6En9jXs1HgcwzsaQZ+4suTC5BPEjIf/Fg4o0HdX3AuRpQZI2yac
- KrkniKWThKnQbs96+yLl/Dm5E5NsImhOyFs1ksUAetHBWVW2WfIWoOdGSaoQFZRJLEXutYy
- iCHwBxLqQsK9Mq+39k2DQ==
-UI-OutboundReport: notjunk:1;M01:P0:TjeN7uyFccs=;bjTTRHq6gIBTOMFXSFUogBWSZuQ
- ZTwgZq2VnppV1aZlnrDYMmOmytXyq0JrjEzIfy/yH2myRvZFwVxrMpYgtVdN++fuf8ainJk/t
- uFkTD8huhpK+v/6sd6lXCGtTOMoxBExDvHrzfiIvMwNnj5vJaD78bXrOpQIviBkrbo/dpouOC
- Ln7QFnEpQNN9tfIRGg8gaddFRITCsPb8eIY2ZjqdGWqcC0mpb+GXVonl0LzMFBCnUIrGNucUB
- JyF0gcU5WkAg6RJMxI6bQbphTn5At4z7kJpzYsMNnHFABhVCUal+gm0247pr1mpjl/KiGECTR
- XNTX442NdkykPvhiMNWp17M35HW0J6oLENbsSL8PyhGQHAW5h5EnpFB5SuC+MkmcW7VQwxd36
- lCdpZmXrsZsRJ7AbJhptgf/dByjHu/LOLAj4+ethb/xC2SLDH84JLTDzzYCw43EzHk/09K8p9
- cDEpfpl8+VPFN35SSlqs/3lTQxU1UurqQF96DxIJCZdCGRE3icPsCoTwZMOJqDYJkYsmztQRH
- YW541Ftvhar9wZSgE19Bcj1s0L3HXu9Xp3pkz7IcX+lrc7RPJuNoPC+xc48ucMhoGmNSMI5WK
- RVp1WSoLoJahSt7/mjjyxqyly6XzUtnKE6um1tWMAR0vojK8hQcOOL84UbAmXM7tbS+2QyuCj
- LkzuEZ/KIlY89jP9+dNMuuSCCwKeQJA7ykttwUV0aQte1rS7POYfJSX2aeTAa8Z7rWLzt7kHc
- AmtJvjHPIr4iMol58kTZo18kQbOqJQsi9qx7qS9pObTVMxyOiWt4lPdDW0vYOWO4MOmC4QlIy
- k96VHg44SU3OMjnGBpPp4v6EScAmUEUHJaYg/CdI/NGc8=
+Content-Disposition: inline
+In-Reply-To: <20240527153137.271933-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_085747_857137_C73716AA 
-X-CRM114-Status: UNSURE (   5.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240527_090040_177293_0BBA92F5 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,22 +97,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SG93IGRvIHlvdSB0aGluayBhYm91dCB0byB1c2UgdGhlIHN1bW1hcnkgcGhyYXNlIOKAnEZpeCBy
-ZWZlcmVuY2UgY291bnRpbmcgZm9yIGNoaWxkcmVuIGluIG14c19waW5jdHJsX3Byb2JlX2R0KCni
-gJ0/CgoK4oCmCj4gb2ZfZ2V0X25leHRfY2hpbGQoKSB3aWxsIGluY3JlYXNlIHJlZmNvdW50IOKA
-pgoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGhlIHJlZmVyZW5jZSBjb3Vu
-dGVyPwoKCj4gUGVyIGN1cnJlbnQgaW1wbGVtZW50YXRpb24sICdjaGlsZCcgd2lsbCBiZSBvdmVy
-cmlkZSBieQoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG92
-ZXJyaWRkZW4/CgoKPiBmb3JfZWFjaF9jaGlsZF9vZl9ub2RlKG5wLCBjaGlsZCksIHNvIHVzZSBv
-Zl9nZXRfY2hpbGRfY291bnQgdG8gYXZvaWQKPiByZWZjb3VudCBsZWFrYWdlLgoKQW5vdGhlciB3
-b3JkaW5nIHN1Z2dlc3Rpb246CiAgZm9yX2VhY2hfY2hpbGRfb2Zfbm9kZShucCwgY2hpbGQpLiBU
-aHVzIHVzZSBhbiBvZl9nZXRfY2hpbGRfY291bnQoKSBjYWxsCiAgdG8gYXZvaWQgcmVmZXJlbmNl
-IGNvdW50aW5nIGxlYWthZ2UuCgoKUmVnYXJkcywKTWFya3VzCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, May 27, 2024 at 05:31:37PM +0200, Alexandre Ghiti wrote:
+> The following error was encoutered in [1]:
+> 
+> FAILED elf_update(WRITE): no error
+
+hi,
+this fix got already in, check this patch:
+  https://patchwork.kernel.org/project/netdevbpf/patch/20240514070931.199694-1-friedrich.vock@gmx.de/
+
+thanks,
+jirka
+
+> 
+> elf_update() returns the total size of the file which here happens to be
+> a ~2.5GB vmlinux file: this size overflows the integer used to hold the
+> return value of elf_update() and is then interpreted as being negative.
+> 
+> So fix this by using the correct type expected by elf_update() which is
+> off_t.
+> 
+> Fixes: fbbb68de80a4 ("bpf: Add resolve_btfids tool to resolve BTF IDs in ELF object")
+> Link: https://bugzilla.kernel.org/show_bug.cgi?id=218887 [1]
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>  tools/bpf/resolve_btfids/main.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/tools/bpf/resolve_btfids/main.c b/tools/bpf/resolve_btfids/main.c
+> index d9520cb826b3..af393c7dee1f 100644
+> --- a/tools/bpf/resolve_btfids/main.c
+> +++ b/tools/bpf/resolve_btfids/main.c
+> @@ -728,7 +728,7 @@ static int sets_patch(struct object *obj)
+>  
+>  static int symbols_patch(struct object *obj)
+>  {
+> -	int err;
+> +	off_t err;
+>  
+>  	if (__symbols_patch(obj, &obj->structs)  ||
+>  	    __symbols_patch(obj, &obj->unions)   ||
+> -- 
+> 2.39.2
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
