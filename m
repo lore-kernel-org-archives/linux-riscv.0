@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B62C25B74
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 12:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88827C25B74
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 12:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
 	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pqfLzOSIKBBVTcgJFIkcSOfYp7581Ue5DaLuVWHcGws=; b=HkONKXCNm7rJpqtZK/61x5fzH9
-	Q5TBF7YJ0wieZryz7dqw5P/c+3580JEZu8zKJVUpijOqlmNVMOXIm1yldh5mFvIFeab4blNWm/ZRg
-	N1/ZjD58TmT+q40uRhGQ2xLB4l1Mz+AyQv+7NmsgiZgaffOQX3X359goMx+dkfkTNkkD7/WhgppNf
-	7gLWo5r3pmTFeAmavU/5tJeuD8uWOWciKeWSdWtE0dq7a3YoIsPzt4sbCFUD+uAILeORsled8OdB6
-	mR7c9SvGzkmJaFHHtuuwRzmtq1gzqb2FsyQsbk94AuOmh/2j8BHe2B11CUJod/L71vQ5Udh+AoGE0
-	nf6N6Snw==;
+	bh=hf8q8Fy/Q3cVCJvYBdlEJiuT1L1ktyxi7WMFgJ5WrX0=; b=Ka+iPbStTLyMT7aXUcGJYe5hIk
+	hQcYNbiojRlI85WP1zOxsSFc90H9ASd6Ew5MkeDHhKU7D1cu7uIkLfTLK1VzNHwpsJuohJrjCnAza
+	45+uKIfYqcGCNVThE5wIwIRnBbL6wRyBod87g3uSLWCs7VwnRQrBU8WDb79+KybmY6poCVl5USJJZ
+	uizgcECrV5CmiMYI6ASr3I9HePzzy6xDM38rGTnxoAVEk/JJjnwW0Fohw6mq837Su/ZlHY37KhdQ1
+	FMqnlkn4+nIPWbRFONr8WcB/IQ6oZ+NG8tsu9CnGYrnZroLpHg73EjYaOI0Lp3iYaHeXmGs9u/Z1b
+	WB2Rir/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBZkt-0000000Evfi-2pdv;
-	Mon, 27 May 2024 12:47:11 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1sBZng-0000000Ew3h-3sba;
+	Mon, 27 May 2024 12:50:04 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBZkr-0000000Evf7-1SOR
+	id 1sBZnd-0000000Ew0C-2U4L
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 May 2024 12:47:10 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 356CAE000A;
-	Mon, 27 May 2024 12:47:05 +0000 (UTC)
-Message-ID: <5f7e9b88-f70f-406e-9eb3-2619594ad4fd@ghiti.fr>
-Date: Mon, 27 May 2024 14:47:04 +0200
+	Mon, 27 May 2024 12:50:03 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2EE121C000C;
+	Mon, 27 May 2024 12:49:57 +0000 (UTC)
+Message-ID: <187d7992-e2a7-446c-9f53-d0e7bf6a5843@ghiti.fr>
+Date: Mon, 27 May 2024 14:49:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] riscv: drop the use of XIP_OFFSET in
- XIP_FIXUP_FLASH_OFFSET
+Subject: Re: [PATCH 5/7] riscv: drop the use of XIP_OFFSET in
+ kernel_mapping_va_to_pa()
 Content-Language: en-US
 To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <cover.1715286093.git.namcao@linutronix.de>
- <a49044c3833e40546f35dd1f821a683e6f4dfc1f.1715286093.git.namcao@linutronix.de>
+ <5439a181cdd7ba185d55457200ddda2d2efa5eb1.1715286093.git.namcao@linutronix.de>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <a49044c3833e40546f35dd1f821a683e6f4dfc1f.1715286093.git.namcao@linutronix.de>
+In-Reply-To: <5439a181cdd7ba185d55457200ddda2d2efa5eb1.1715286093.git.namcao@linutronix.de>
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_054709_564514_4063C11F 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20240527_055001_905959_0709CE61 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,47 +71,29 @@ On 10/05/2024 08:28, Nam Cao wrote:
 > By hard-coding this value, the read-only section of the kernel (which is
 > placed before the writable data section) is restricted in size.
 >
-> As a preparation to remove this hard-coded macro XIP_OFFSET entirely, stop
-> using XIP_OFFSET in XIP_FIXUP_FLASH_OFFSET. Instead, use __data_loc and
-> _sdata to do the same thing.
->
-> While at it, also add a description for XIP_FIXUP_FLASH_OFFSET.
+> As a preparation to remove this hard-coded macro XIP_OFFSET entirely,
+> remove the use of XIP_OFFSET in kernel_mapping_va_to_pa(). The macro
+> XIP_OFFSET is used in this case to check if the virtual address is mapped
+> to Flash or to RAM. The same check can be done with kernel_map.xiprom_sz.
 >
 > Signed-off-by: Nam Cao <namcao@linutronix.de>
 > ---
->   arch/riscv/include/asm/xip_fixup.h | 16 ++++++++++++----
->   1 file changed, 12 insertions(+), 4 deletions(-)
+>   arch/riscv/include/asm/page.h | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/arch/riscv/include/asm/xip_fixup.h b/arch/riscv/include/asm/xip_fixup.h
-> index 9ed2cfae09e0..f3d56299bc22 100644
-> --- a/arch/riscv/include/asm/xip_fixup.h
-> +++ b/arch/riscv/include/asm/xip_fixup.h
-> @@ -24,13 +24,21 @@
->   	sub \reg, \reg, t0
->   .endm
->   .macro XIP_FIXUP_FLASH_OFFSET reg
-> +	/* In linker script, at the transition from read-only section to
-> +	 * writable section, the VMA is increased while LMA remains the same.
-> +	 * (See in linker script how _sdata, __data_loc and LOAD_OFFSET is
-> +	 * changed)
-> +	 *
-> +	 * Consequently, early during boot before MMU is up, the generated code
-> +	 * reads the "writable" section at wrong addresses, because VMA is used
-> +	 * by compiler to generate code, but the data is located in Flash using
-> +	 * LMA.
-> +	 */
-> +	la t0, _sdata
-> +	sub \reg, \reg, t0
->   	la t0, __data_loc
-> -	REG_L t1, _xip_phys_offset
-> -	sub \reg, \reg, t1
->   	add \reg, \reg, t0
->   .endm
-> -
-> -_xip_phys_offset: .dword CONFIG_XIP_PHYS_ADDR + XIP_OFFSET
->   #else
->   .macro XIP_FIXUP_OFFSET reg
->   .endm
+> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> index 14d0de928f9b..bcd77df15835 100644
+> --- a/arch/riscv/include/asm/page.h
+> +++ b/arch/riscv/include/asm/page.h
+> @@ -159,7 +159,7 @@ phys_addr_t linear_mapping_va_to_pa(unsigned long x);
+>   #ifdef CONFIG_XIP_KERNEL
+>   #define kernel_mapping_va_to_pa(y) ({						\
+>   	unsigned long _y = (unsigned long)(y);					\
+> -	(_y < kernel_map.virt_addr + XIP_OFFSET) ?				\
+> +	(_y < kernel_map.virt_addr + kernel_map.xiprom_sz) ?			\
+>   		(_y - kernel_map.va_kernel_xip_pa_offset) :			\
+>   		(_y - kernel_map.va_kernel_data_pa_offset);			\
+>   	})
 
 
 Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
