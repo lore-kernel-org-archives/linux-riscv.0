@@ -4,49 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88827C25B74
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 12:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596DBC25B74
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 12:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hf8q8Fy/Q3cVCJvYBdlEJiuT1L1ktyxi7WMFgJ5WrX0=; b=Ka+iPbStTLyMT7aXUcGJYe5hIk
-	hQcYNbiojRlI85WP1zOxsSFc90H9ASd6Ew5MkeDHhKU7D1cu7uIkLfTLK1VzNHwpsJuohJrjCnAza
-	45+uKIfYqcGCNVThE5wIwIRnBbL6wRyBod87g3uSLWCs7VwnRQrBU8WDb79+KybmY6poCVl5USJJZ
-	uizgcECrV5CmiMYI6ASr3I9HePzzy6xDM38rGTnxoAVEk/JJjnwW0Fohw6mq837Su/ZlHY37KhdQ1
-	FMqnlkn4+nIPWbRFONr8WcB/IQ6oZ+NG8tsu9CnGYrnZroLpHg73EjYaOI0Lp3iYaHeXmGs9u/Z1b
-	WB2Rir/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NYq0BKu3K0Ld9jgnwc/qQqPddh4tsLI4f0FdqzghFkE=; b=nxS2pMw3UW0oOb
+	yrzzD8lBJxltJd3l0/l/xHezmbtBXuqvtc9oSofe8eGt+cViWBXIJwGYqaVZVwko5kZ+e1kqUVix/
+	hAk1En3SRv9BooQFQWS/OUGLkbmRSibDrV0Zo2+uZnh2JzJ3ftYSDHqbgQEN2N8JySaqSNy2o556n
+	Qen1YA9E0LaTfrJyRZ7KfYHYPGK80I3AxsIQcDYDWPODQ5dByDmdWdKqE/7LJ+D7gBCgQk+gizH4f
+	B3pZ0NkEdeAyR87hWqUUs0Dg6Dj3HuD9GbgOpiEUXCP0pj+kWfJpvuyi6JDeQFj8OrSD6Tn4t4aKo
+	9oU3Ccx25ibe573Bx4LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBZng-0000000Ew3h-3sba;
-	Mon, 27 May 2024 12:50:04 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1sBZpa-0000000EwZM-2Ryc;
+	Mon, 27 May 2024 12:52:02 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBZnd-0000000Ew0C-2U4L
+	id 1sBZpX-0000000EwVl-2pVm
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 May 2024 12:50:03 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 2EE121C000C;
-	Mon, 27 May 2024 12:49:57 +0000 (UTC)
-Message-ID: <187d7992-e2a7-446c-9f53-d0e7bf6a5843@ghiti.fr>
-Date: Mon, 27 May 2024 14:49:57 +0200
+	Mon, 27 May 2024 12:52:01 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4VnwRd2JWMz1S5lv;
+	Mon, 27 May 2024 20:48:13 +0800 (CST)
+Received: from kwepemi500008.china.huawei.com (unknown [7.221.188.139])
+	by mail.maildlp.com (Postfix) with ESMTPS id 215F01402C7;
+	Mon, 27 May 2024 20:51:47 +0800 (CST)
+Received: from huawei.com (10.67.174.55) by kwepemi500008.china.huawei.com
+ (7.221.188.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Mon, 27 May
+ 2024 20:51:46 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <anup@brainfault.org>, <tglx@linutronix.de>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH] irqchip/riscv-aplic: Simplify the to_of_node code
+Date: Mon, 27 May 2024 12:50:00 +0000
+Message-ID: <20240527125000.3502935-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/7] riscv: drop the use of XIP_OFFSET in
- kernel_mapping_va_to_pa()
-Content-Language: en-US
-To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1715286093.git.namcao@linutronix.de>
- <5439a181cdd7ba185d55457200ddda2d2efa5eb1.1715286093.git.namcao@linutronix.de>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <5439a181cdd7ba185d55457200ddda2d2efa5eb1.1715286093.git.namcao@linutronix.de>
-X-GND-Sasl: alex@ghiti.fr
+X-Originating-IP: [10.67.174.55]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemi500008.china.huawei.com (7.221.188.139)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_055001_905959_0709CE61 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20240527_055159_959720_895D1323 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,49 +64,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The to_of_node has is_of_node check, so there is no need to repeat the
+is_of_node and to_of_node. And if is_of_node is false, the to_of_node will
+return NULL, the of_property_present will also return NULL, so remove the
+redundant check.
 
-On 10/05/2024 08:28, Nam Cao wrote:
-> XIP_OFFSET is the hard-coded offset of writable data section within the
-> kernel.
->
-> By hard-coding this value, the read-only section of the kernel (which is
-> placed before the writable data section) is restricted in size.
->
-> As a preparation to remove this hard-coded macro XIP_OFFSET entirely,
-> remove the use of XIP_OFFSET in kernel_mapping_va_to_pa(). The macro
-> XIP_OFFSET is used in this case to check if the virtual address is mapped
-> to Flash or to RAM. The same check can be done with kernel_map.xiprom_sz.
->
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-> ---
->   arch/riscv/include/asm/page.h | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 14d0de928f9b..bcd77df15835 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -159,7 +159,7 @@ phys_addr_t linear_mapping_va_to_pa(unsigned long x);
->   #ifdef CONFIG_XIP_KERNEL
->   #define kernel_mapping_va_to_pa(y) ({						\
->   	unsigned long _y = (unsigned long)(y);					\
-> -	(_y < kernel_map.virt_addr + XIP_OFFSET) ?				\
-> +	(_y < kernel_map.virt_addr + kernel_map.xiprom_sz) ?			\
->   		(_y - kernel_map.va_kernel_xip_pa_offset) :			\
->   		(_y - kernel_map.va_kernel_data_pa_offset);			\
->   	})
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ drivers/irqchip/irq-riscv-aplic-main.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+index 774a0c97fdab..28dd175b5764 100644
+--- a/drivers/irqchip/irq-riscv-aplic-main.c
++++ b/drivers/irqchip/irq-riscv-aplic-main.c
+@@ -127,6 +127,7 @@ static void aplic_init_hw_irqs(struct aplic_priv *priv)
+ 
+ int aplic_setup_priv(struct aplic_priv *priv, struct device *dev, void __iomem *regs)
+ {
++	struct device_node *np = to_of_node(dev->fwnode);
+ 	struct of_phandle_args parent;
+ 	int rc;
+ 
+@@ -134,7 +135,7 @@ int aplic_setup_priv(struct aplic_priv *priv, struct device *dev, void __iomem *
+ 	 * Currently, only OF fwnode is supported so extend this
+ 	 * function for ACPI support.
+ 	 */
+-	if (!is_of_node(dev->fwnode))
++	if (!np)
+ 		return -EINVAL;
+ 
+ 	/* Save device pointer and register base */
+@@ -142,8 +143,7 @@ int aplic_setup_priv(struct aplic_priv *priv, struct device *dev, void __iomem *
+ 	priv->regs = regs;
+ 
+ 	/* Find out number of interrupt sources */
+-	rc = of_property_read_u32(to_of_node(dev->fwnode), "riscv,num-sources",
+-				  &priv->nr_irqs);
++	rc = of_property_read_u32(np, "riscv,num-sources", &priv->nr_irqs);
+ 	if (rc) {
+ 		dev_err(dev, "failed to get number of interrupt sources\n");
+ 		return rc;
+@@ -155,8 +155,8 @@ int aplic_setup_priv(struct aplic_priv *priv, struct device *dev, void __iomem *
+ 	 * If "msi-parent" property is present then we ignore the
+ 	 * APLIC IDCs which forces the APLIC driver to use MSI mode.
+ 	 */
+-	if (!of_property_present(to_of_node(dev->fwnode), "msi-parent")) {
+-		while (!of_irq_parse_one(to_of_node(dev->fwnode), priv->nr_idcs, &parent))
++	if (!of_property_present(np, "msi-parent")) {
++		while (!of_irq_parse_one(np, priv->nr_idcs, &parent))
+ 			priv->nr_idcs++;
+ 	}
+ 
+@@ -184,8 +184,7 @@ static int aplic_probe(struct platform_device *pdev)
+ 	 * If msi-parent property is present then setup APLIC MSI
+ 	 * mode otherwise setup APLIC direct mode.
+ 	 */
+-	if (is_of_node(dev->fwnode))
+-		msi_mode = of_property_present(to_of_node(dev->fwnode), "msi-parent");
++	msi_mode = of_property_present(to_of_node(dev->fwnode), "msi-parent");
+ 	if (msi_mode)
+ 		rc = aplic_msi_setup(dev, regs);
+ 	else
+-- 
+2.34.1
 
 
 _______________________________________________
