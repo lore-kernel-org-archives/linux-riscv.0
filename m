@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D740C25B74
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 16:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC15C25B78
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 16:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kLOXE7iH4edY+EEC9WK4Cb5vis+6+xOFsQHGOolzC00=; b=gH3coB+SD/skWO
-	Fq0/+5rHr+Ha3eUSpGJ2scinU7Z6eXXz9eayO68mA4tzRh4h4j8xCUdb8iTOKgcltu9VfaEyXvCQe
-	DP7J4xlqlJahHTJ0QyFRBq+TcwqURx1cdEVMUyL4aaKGWD32PVguihX0KidJXvCkDKej1WKj3b547
-	wfCQuQGhT2ZLctX0/mdImbjTmRZs3Vk03U8pSbhxnb17sfVx7uwoLbcupT92Fr2KCkccGk/TISCV3
-	uh+e8xtSla3azX+ARFHTMEorqongP51YIdPugujgWIkRPH3lRGzdqqsu5UNx6xVzuYvIdIEqHHEWe
-	KvaBn0ceRM0CSEOpcACQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aLP9AfYiwccj9ttBkSSJ3mFtCV0ytftu2MYHZltbkHo=; b=heBSPYyy65jGzgAdMfOn/AjT9T
+	cSIEwkJ9+MFvo6V9PHKjuI4FZiKE7ZYz1fdB6d7jwWovbkH8dIAP44whqyffya6EHD+tjAIAugFk8
+	T5XB+rdYRTpcdmMqbxAy/cpM0ZqTeD7B0wWwxDFf+M+5Zxb0MZI8kl7SMf2Dsi6AHHKL7Fx0HG3Jq
+	xH59NJOvTLuEWtkWJZt14wJaSLmpIdPh0eyc2QbVNPi32+zTi2Dfa70bWNHUZ2YWfGfbZUH5m0z9X
+	PxwVRTaS8Cshfqg7lVaww0OThDs7FnfY7cuqMzQHZ/hfdI2rQHtgCsa4+DqBisH1+M4dgPrdQXsN0
+	cH6tLywg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBdEO-0000000FrVP-2IXQ;
-	Mon, 27 May 2024 16:29:52 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1sBdNQ-0000000FtPZ-2SCt;
+	Mon, 27 May 2024 16:39:12 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBdEL-0000000FrRh-1rG1
+	id 1sBdNN-0000000FtPC-1K2u
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 May 2024 16:29:50 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-42101a2ac2cso35455705e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 May 2024 09:29:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1716827387; x=1717432187; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=H2zB37FLsCEU3qcA1K5WX2J0t5s2Si0hkv34drQge/E=;
-        b=RQkmwtT0261/7hRbiR7Kx0Db7OwCuXO/3ahe1KkjVLZL2sMfBJZJlXRq8w58/B1wja
-         Zyidti9j7B0VFRCHykip9viCSEpcy3Qc0gkeW3ogPGeHuZFkYD/KTdMnuoeeK1fbqqby
-         AT8w3ncIQvF6mlUCmq0hq9tddi1kVGHvY1vlCroMX9z6LW8cMepG38zI78DLvx3ckMkR
-         +4ZhyLhxyfC3GOW8i3GAbezLE/Nru5wpx4lkAlk25U1vXhvWNIpacmFvI65Fhr9768m7
-         OaASgra14+c1HBkJcaXAGFE/Edkpb6L1iXF1vcchAfPDirI0OcIx2QfhYkFYjTSb/u8t
-         dYfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716827387; x=1717432187;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=H2zB37FLsCEU3qcA1K5WX2J0t5s2Si0hkv34drQge/E=;
-        b=UeNej9Xo6316zEm6U7EpQmYTqAfSTb3a5DR8ya3F9wYKoybxjscjOsHMUgDPWrggmw
-         ylTgdJhLI6hXvuXkWwIPoZ7dJrfteIOY4VhJ8/qZBoRyaADJuhjwS1SPAFe0WE3QVgUw
-         GzjvZobSrDApVhwj0OXt9tzuBUTvfyEtYquTtTHrOCKU4EqhiH0fevlpMCV7w/5V9oey
-         kUhM535I0zy92qbVGp6NfIZ8TUKbBVLMcQXM2VN59/u6idpwHifymwV1H9RMVdNWFbIa
-         2gkc2nt+ZWBZN9o2VS9eEQLjr9vSWpEbqs5TQpmLODpT/imAC7PairI0+6K8ik7vmB3n
-         4jIQ==
-X-Gm-Message-State: AOJu0YwkNtjq6bzfPUu4tIkTgPunofMKX53fJlnHM48Yoc+bsiI+TPX2
-	4gh9Vp2/EHsTl6o8U81yrf7qR8lSvIPClHc9Hit1xMYeIrYz/h3AY0IyP382tr1nvHilK9SYBiS
-	0eTo=
-X-Google-Smtp-Source: AGHT+IHINXCkiw2NUljFrgeUFwhaZdwQ+fb2vuaNPpG8uSuGOg50lvCQavB66BSGklf0wD2Hp15QoA==
-X-Received: by 2002:a7b:cbd8:0:b0:420:11cd:d302 with SMTP id 5b1f17b1804b1-421089d7682mr64769185e9.9.1716827386761;
-        Mon, 27 May 2024 09:29:46 -0700 (PDT)
-Received: from localhost ([176.74.158.132])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4210896f442sm113388455e9.11.2024.05.27.09.29.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 May 2024 09:29:46 -0700 (PDT)
-Date: Mon, 27 May 2024 18:29:45 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, greentime.hu@sifive.com, vincent.chen@sifive.com, 
-	cleger@rivosinc.com, alex@ghiti.fr, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v4 5/5] KVM: riscv: selftests: Add Svadu Extension to
- get-reg-list testt
-Message-ID: <20240527-e9845c06619bca5cd285098c@orel>
-References: <20240524103307.2684-1-yongxuan.wang@sifive.com>
- <20240524103307.2684-6-yongxuan.wang@sifive.com>
+	Mon, 27 May 2024 16:39:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 743D9CE0FE5;
+	Mon, 27 May 2024 16:39:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC76EC2BBFC;
+	Mon, 27 May 2024 16:39:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1716827946;
+	bh=nZai3wSxMfczIOwG1N88zrdt0uoepTu3YmE3rL46WOE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=riMOUc4NVSfS0ecagO6O0oeM3MuZde99/wOVQLfVD1Rw+o1uNkZ2OJUcFWRztAUGn
+	 1UyERoNxFQnIy6XetRWZ08rZlAvfXpRR8EB8sz5/K+pykZNl2nrAQO6WVljwBDBpF1
+	 n70AOzQtJx4DWiVQXoscukA2nKEADRrwoZ431uNA+CzFtQ2J9v2Ga7guDqru5J0IPf
+	 ghSiEEJmo9RsHGWryP9QnEHzAowOuTwOID9NdCv3orVYDSTAMrZAWTfeFcxLhQmtK+
+	 +blgvpRq0RzZlRPJx8RCWPwTbykccmZutO7Oyqn7MsH1zGBf/URh4o1yi/I8/Cy49C
+	 WEjOYvw2fmm6w==
+Date: Mon, 27 May 2024 17:39:00 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Chao Wei <chao.wei@sophgo.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?iso-8859-1?Q?Miqu=E8l?= Raynal <miquel.raynal@bootlin.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/5] dt-bindings: timer: Add SOPHGO SG2002 clint
+Message-ID: <20240527-gem-perceive-b3b33cb8b2f9@spud>
+References: <20240527-sg2002-v1-0-1b6cb38ce8f4@bootlin.com>
+ <20240527-sg2002-v1-2-1b6cb38ce8f4@bootlin.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240524103307.2684-6-yongxuan.wang@sifive.com>
+In-Reply-To: <20240527-sg2002-v1-2-1b6cb38ce8f4@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_092949_519088_97EA0186 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20240527_093909_551866_6B7BFDFE 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,63 +80,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6995445321314470268=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 24, 2024 at 06:33:05PM GMT, Yong-Xuan Wang wrote:
-> Update the get-reg-list test to test the Svadu Extension is available for
-> guest OS.
-> 
-> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-> ---
->  tools/testing/selftests/kvm/riscv/get-reg-list.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> index b882b7b9b785..3e71b7e40dbf 100644
-> --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -44,6 +44,7 @@ bool filter_reg(__u64 reg)
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SMSTATEEN:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSAIA:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSTC:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVADU:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVINVAL:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVNAPOT:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVPBMT:
-> @@ -409,6 +410,7 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
->  		KVM_ISA_EXT_ARR(SMSTATEEN),
->  		KVM_ISA_EXT_ARR(SSAIA),
->  		KVM_ISA_EXT_ARR(SSTC),
-> +		KVM_ISA_EXT_ARR(SVADU),
->  		KVM_ISA_EXT_ARR(SVINVAL),
->  		KVM_ISA_EXT_ARR(SVNAPOT),
->  		KVM_ISA_EXT_ARR(SVPBMT),
-> @@ -932,6 +934,7 @@ KVM_ISA_EXT_SUBLIST_CONFIG(fp_d, FP_D);
->  KVM_ISA_EXT_SIMPLE_CONFIG(h, H);
->  KVM_ISA_EXT_SUBLIST_CONFIG(smstateen, SMSTATEEN);
->  KVM_ISA_EXT_SIMPLE_CONFIG(sstc, SSTC);
-> +KVM_ISA_EXT_SIMPLE_CONFIG(svadu, SVADU);
->  KVM_ISA_EXT_SIMPLE_CONFIG(svinval, SVINVAL);
->  KVM_ISA_EXT_SIMPLE_CONFIG(svnapot, SVNAPOT);
->  KVM_ISA_EXT_SIMPLE_CONFIG(svpbmt, SVPBMT);
-> @@ -987,6 +990,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
->  	&config_h,
->  	&config_smstateen,
->  	&config_sstc,
-> +	&config_svadu,
->  	&config_svinval,
->  	&config_svnapot,
->  	&config_svpbmt,
-> -- 
-> 2.17.1
->
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+--===============6995445321314470268==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="/0iu3V337FLgXjyV"
+Content-Disposition: inline
+
+
+--/0iu3V337FLgXjyV
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, May 27, 2024 at 12:28:18PM +0200, Thomas Bonnefille wrote:
+> Add compatible string for SOPHGO SG2002 Core-Local Interrupt Controller.
+>=20
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+--/0iu3V337FLgXjyV
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZlS3JAAKCRB4tDGHoIJi
+0kiaAP9spLCvPOWUuuMl+xxQ/ZlirHHi7Fr8SWxQ95LtWYyC1gD/V8c/NyHHIjMs
+L70GsY3xpX5Zb5FnWWEJro/UzARXyAU=
+=816W
+-----END PGP SIGNATURE-----
+
+--/0iu3V337FLgXjyV--
+
+
+--===============6995445321314470268==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6995445321314470268==--
+
