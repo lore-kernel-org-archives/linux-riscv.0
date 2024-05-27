@@ -4,104 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2568AC25B7D
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 12:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635BBC25B7C
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 12:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WC2PW//DkFXJYiut+BXCpK9NSl/IvZ2CzqKzTRmSzGY=; b=c672e/2d9mtZo1
-	4qZ13+iJ+0y907LJF/5Kptpu+8sUbb/1cGUm4A2EIVH3Ap13POxCWn0idW8o+RiddfPLqPMXWpBXe
-	kavcHHypfYdjWoamaN3ZZNmcUvd2b7Xv5eGcdKkkz8Mu312mxjmAllil1klthOYtgYOuhMu/Bv0Gd
-	lQ40TK899uBPwCNJL0Nu8MQ0exXTLSgZ4i3UkiBjzt3O+CmG/n/WGo4/g40hbWcPFuzQBGH6ZXdjC
-	gQwuYEjZTuh6ckGUTukBYkNPRF1NjEpPzyz7fEiCXIspG7mA+K2yBc5aexGvfvaBBuTAiFi40Msxa
-	HDnaKPGkN7ZhLw8dX/uw==;
+	List-Owner; bh=z3j8hrypWimGfQ3uv9pt3OIUmoBE0w/mpnt3vj/4ISA=; b=wkIxvOXY+whTln
+	w65KwBGdrM0WOMrKrtfTj/Pk1vTmUYxVwhMa9sL4XNHdHtfCeoZoI9BblLCqRfBhAC7HwcU2tnEwT
+	gI8mUTENfoaZtOp5HqyKBvI1ZtSO/Z7b9iIFXbObwdi80manjGsK3wKKNGWmofteSd4of5oxCdt/e
+	SNjknLdH/SCnoC1lf73k7I1SyHk/JRpHqyNd4eW7QvNV77k5lI/aTxvU9D/1kUD0qYsVIfqBSCQuF
+	Nsgi/Z22rtWxE+Q/YMkz/K3RM4bY4EqrfPTX69a43iW+QtuUo39VkGdKyhSBKg9y02ZhTmH8MOdmU
+	CKG890usf1nEsz5KicXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBZw3-0000000Eylc-2EEX;
-	Mon, 27 May 2024 12:58:43 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1sBZwC-0000000EytY-0maj;
+	Mon, 27 May 2024 12:58:52 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBZv9-0000000EyAZ-1zfR
+	id 1sBZve-0000000EyQ6-1JKb
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 May 2024 12:57:53 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-df771b6cc9cso3529293276.3
-        for <linux-riscv@lists.infradead.org>; Mon, 27 May 2024 05:57:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1716814666; x=1717419466; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rNZ98tycbIm8gHCECF6fFAUqvVWA7Py4cjGRVlBtUzM=;
-        b=YAfXQ9P7Kdh1v4FJD9mBzGlX/+pKjiki1nC+WVeajx0aVnQi0ZCTEuclKTwEozGogx
-         /JIPiOoFARKOzltzJG9f9IKh4jCL2DqwZGbwuX3rruAb7Bo1SeoiPyqe3hPCXIYzTGwx
-         pxW2pBczrs9PDFAjAmSCLHRSVMySIN9z8gdZI/U6q+xEyHFiXbv3X+NBjG6RyPBcNMum
-         hhou0/P2MGrsDGj/zs9ciai9UaZkD4pVykN6DtXppN/Pu6wD7Wvjf3Gm2ElcB6TwWOMi
-         z5i+yrCcMAThDLJk8fEFyk9OAkCYJ/TrpfoO83XJbf52XKPigtyfcrg8Lle/oiTMRbWz
-         g2ZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716814666; x=1717419466;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rNZ98tycbIm8gHCECF6fFAUqvVWA7Py4cjGRVlBtUzM=;
-        b=vA4a8FOLsQUvK4QIajVnIAAX6/B5X5Os0xVnjmVe7+fHd/jW5+atA23eOjVHMgf5Sh
-         7oj6p4VnGtKQtaJqMmkUbvk2scWKJpSnvt0+zFRjKyT0Ih9JfaAipkG8cq205KpOEjw7
-         weLwpzqPaDeIKbhzrb6b4IeLyScucOw7IEphPNA13P6IqthhEi88aqcBIbRyn7IIukWh
-         hUhjiTc6w8PTqgOA662QD2S0pIaZMsEIlBbgsXTRcFkGtAi4J3WURtqg+Czhi8YJBm3p
-         pRc4PgkdnlyDWpjiwXUC33OF81k00B2Ke2F4REuMqnw8/t0RqOxibshB3WU1o6ixZ+zV
-         jx0w==
-X-Forwarded-Encrypted: i=1; AJvYcCUnS+1ZI++/8LSINgQaBC2xo+nrg3zMRDlK3BOCx2Eabgq/4kuT4kg1qwskC23vjfEfYub/bTD2wXtNuP02rDbVxwpgXtWonm9g0ryvRWYb
-X-Gm-Message-State: AOJu0YyhDJH5SG2Hq7Xf3+J9GskrMNYWTtIxJmII9fLlpE+ReYZtvIei
-	lswUSuDn040So3FIK8MfA30UA0tMkE/Ln1esDSMOccSC7JYa+gNm9j04mFcWGLI5pibY0Zq2cmk
-	uXDhnaK91gVdNlDQ0knefsY+d+s7jK3uiookOdw==
-X-Google-Smtp-Source: AGHT+IGPHGbdeDgQwNEq4mWXFwTqV0k8iDBOK2TyTZ4utk5viKokv4dr91DnLp+C01zzJZrl1Jzg3NthvUqaC/NhrDk=
-X-Received: by 2002:a05:6902:70a:b0:df7:9946:b32c with SMTP id
- 3f1490d57ef6-df79946bc95mr6983978276.29.1716814666366; Mon, 27 May 2024
- 05:57:46 -0700 (PDT)
+	Mon, 27 May 2024 12:58:20 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2C3D620008;
+	Mon, 27 May 2024 12:58:15 +0000 (UTC)
+Message-ID: <2e092f39-0716-4b73-9268-da9211a4b600@ghiti.fr>
+Date: Mon, 27 May 2024 14:58:14 +0200
 MIME-Version: 1.0
-References: <20240504-pinctrl-cleanup-v2-0-26c5f2dc1181@nxp.com> <20240504-pinctrl-cleanup-v2-8-26c5f2dc1181@nxp.com>
-In-Reply-To: <20240504-pinctrl-cleanup-v2-8-26c5f2dc1181@nxp.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 27 May 2024 14:57:35 +0200
-Message-ID: <CACRpkdbt0kE6VP3O+63U1rmJ_JKRvWENCnETT4f+mvNMMphLeA@mail.gmail.com>
-Subject: Re: [PATCH v2 08/20] pinctrl: st: Use scope based of_node_put() cleanups
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
-	Hal Feng <hal.feng@starfivetech.com>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Patrice Chotard <patrice.chotard@foss.st.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Damien Le Moal <dlemoal@kernel.org>, Ludovic Desroches <ludovic.desroches@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Chester Lin <chester62515@gmail.com>, 
-	Matthias Brugger <mbrugger@suse.com>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
-	Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Joel Stanley <joel@jms.id.au>, Dan Carpenter <dan.carpenter@linaro.org>, 
-	Tony Lindgren <tony@atomide.com>, Stephen Warren <swarren@wwwdotorg.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-samsung-soc@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	imx@lists.linux.dev, linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
-	Peng Fan <peng.fan@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/7] riscv: remove limit on the size of read-only section
+ for XIP kernel
+Content-Language: en-US
+To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: kernel test robot <lkp@intel.com>
+References: <cover.1715286093.git.namcao@linutronix.de>
+ <9eea4b61f7b6300def3b6582d8e465ef4207501e.1715286093.git.namcao@linutronix.de>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <9eea4b61f7b6300def3b6582d8e465ef4207501e.1715286093.git.namcao@linutronix.de>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_055747_594142_B970B77A 
-X-CRM114-Status: UNSURE (   7.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240527_055818_687811_6F358A1A 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,16 +59,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBNYXkgNCwgMjAyNCBhdCAzOjE04oCvUE0gUGVuZyBGYW4gKE9TUykgPHBlbmcuZmFu
-QG9zcy5ueHAuY29tPiB3cm90ZToKCj4gRnJvbTogUGVuZyBGYW4gPHBlbmcuZmFuQG54cC5jb20+
-Cj4KPiBVc2Ugc2NvcGUgYmFzZWQgb2Zfbm9kZV9wdXQoKSBjbGVhbnVwIHRvIHNpbXBsaWZ5IGNv
-ZGUuCj4KPiBTaWduZWQtb2ZmLWJ5OiBQZW5nIEZhbiA8cGVuZy5mYW5AbnhwLmNvbT4KClBhdGNo
-IGFwcGxpZWQuCgpZb3VycywKTGludXMgV2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+On 10/05/2024 08:28, Nam Cao wrote:
+> XIP_OFFSET is the hard-coded offset of writable data section within the
+> kernel.
+>
+> By hard-coding this value, the read-only section of the kernel (which is
+> placed before the writable data section) is restricted in size. This causes
+> build failures if the kernel get too big (an example is in Closes:).
+
+s/get/gets
+
+I think you can use:
+
+Closes: https://lore.kernel.org/oe-kbuild-all/202404211031.J6l2AfJk-lkp@intel.com/ [1]
+
+And instead use:
+
+s/an example is in Closes:/[1]
+
+
+>
+> Remove this limit.
+>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202404211031.J6l2AfJk-lkp@intel.com/
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> ---
+>   arch/riscv/include/asm/pgtable.h    | 7 -------
+>   arch/riscv/kernel/vmlinux-xip.lds.S | 4 ++--
+>   2 files changed, 2 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index fbf342f4afee..75f4a92ea5bb 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -104,13 +104,6 @@
+>   
+>   #endif
+>   
+> -#ifdef CONFIG_XIP_KERNEL
+> -#define XIP_OFFSET		SZ_32M
+> -#define XIP_OFFSET_MASK		(SZ_32M - 1)
+> -#else
+> -#define XIP_OFFSET		0
+> -#endif
+> -
+>   #ifndef __ASSEMBLY__
+>   
+>   #include <asm/page.h>
+> diff --git a/arch/riscv/kernel/vmlinux-xip.lds.S b/arch/riscv/kernel/vmlinux-xip.lds.S
+> index 8c3daa1b0531..01f73f2ffecc 100644
+> --- a/arch/riscv/kernel/vmlinux-xip.lds.S
+> +++ b/arch/riscv/kernel/vmlinux-xip.lds.S
+> @@ -65,10 +65,10 @@ SECTIONS
+>    * From this point, stuff is considered writable and will be copied to RAM
+>    */
+>   	__data_loc = ALIGN(PAGE_SIZE);		/* location in file */
+> -	. = KERNEL_LINK_ADDR + XIP_OFFSET;	/* location in memory */
+> +	. = ALIGN(SZ_2M);			/* location in memory */
+
+
+You can't use SZ_2M here since it corresponds to PMD_SIZE for rv64 but 
+on rv32 (which is allowed to use xip kernels), it's 4MB. Use 
+SECTION_ALIGN instead.
+
+
+>   
+>   #undef LOAD_OFFSET
+> -#define LOAD_OFFSET (KERNEL_LINK_ADDR + XIP_OFFSET - (__data_loc & XIP_OFFSET_MASK))
+> +#define LOAD_OFFSET (KERNEL_LINK_ADDR + _sdata - __data_loc)
+>   
+>   	_sdata = .;			/* Start of data section */
+>   	_data = .;
+
+When the above comment is fixed, you can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+And many thanks for this big cleanup.
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
