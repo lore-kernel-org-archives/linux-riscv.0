@@ -4,49 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF33C25B79
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 06:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98013C25B74
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 07:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2x8289lD/JP3jLxnfQqKZrSZp31F30xgJZUcF0EH9m8=; b=P/SqvywXLBF9xN
-	GtNfGlZameRIfGodqw1imBvzIiInvrnCHUMoOOG8wsZZpbcyLkBTVuXxq30RC3c5VrzxSJYeB2Nwi
-	1OILhLDGveVnUzQ+JExWDRZcRHILb2Rlx+DJJDiBJYt52Qox2kAnmjYMxkQ1xZSlD2aNXHcydfWp5
-	TGRc1z25vVhHMBc4t/SH6y/JOjfJts2u+BpOXAwdlfIix/9MiG/RF+2IQZ3Dfh7+QdP0I68UHrFTw
-	3wuRwCFiTs/pJJYZPRosvxViGQo/3PwQYHeNaJ4OD5BMO9bSUbIze0podViWeQGsBKVKWXtH9fhCj
-	VOwFgPTOXn/AzMluuLKA==;
+	List-Owner; bh=5eUwI4HMnJuP27ooH9SGz6/lHHzM1uCWlnFQorn86ls=; b=l8aVpFePLJOrhy
+	w0lber2WBhp4Ev59ntKKDm0IKqUYLZnvWV9MRLA0lcf1+3c9rXLFgXQI6kFsWqLPn8oIoUFYnnSKQ
+	mc/wFCjQXEfDxa5ufq6A2q2F2BmV8uA9ZkYwEJ6WSQKK85OCBgM8+bvifJGtGcwr59jgA+3x3p2dd
+	cSnUSXt22vj/kLbEbScRXMaH4csT02n4v1bZ8tRuuU6xBmK7xMdzX7oXFCeza95M7SDGFPfovGBoo
+	UKb8ADbdRxGhJdCkPTia8X8RLNPH2tvjac7N6BKwmNEywMX3nuShR5Bhk4P8IZvInrSLLZOKUb2w8
+	s4cxXzjH9sdG40cVmeOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBUFF-0000000Dz9E-3YHU;
-	Mon, 27 May 2024 06:54:09 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1sBV1p-0000000E6LN-02RO;
+	Mon, 27 May 2024 07:44:21 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBUFC-0000000Dz7k-0lSG
+	id 1sBV1l-0000000E6K0-1O2e
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 May 2024 06:54:08 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D31F1FF80B;
-	Mon, 27 May 2024 06:53:56 +0000 (UTC)
-Message-ID: <a00942ea-d208-475d-b595-922d8432ddc6@ghiti.fr>
-Date: Mon, 27 May 2024 08:53:56 +0200
+	Mon, 27 May 2024 07:44:20 +0000
+Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
+	by smtp-out1.suse.de (Postfix) with ESMTP id 3371B21D1C;
+	Mon, 27 May 2024 07:44:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1716795853; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tfTEwhz17LhBXJ7/IsPznzhELsWPwN0beYnNi8p1FD0=;
+	b=w8dUBJ0XL2QX+E5WRQ7lRxJXa7dw2ob4+UYKhErg99SykbszjfcrLUwgoR7yIfgOr0+i0w
+	6ejvuUNj1MTnEb4QfTzL9UcWUmVrpPpKuzp1QIScbv9dGPyeqaN1el4Bpv6WVsE0yOVpp0
+	tWmLDN8iRX8/Z1vbqSuRVmQkYn5RlM0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1716795853;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tfTEwhz17LhBXJ7/IsPznzhELsWPwN0beYnNi8p1FD0=;
+	b=C73yQLQm+NpIA0s2TLH3Q1IRtmv91635FJsFTaVu7z0Q+MnVjslPuUaMqHVDSNexghbx0c
+	Ni+//G2W5VHjrPCQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1716795853; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tfTEwhz17LhBXJ7/IsPznzhELsWPwN0beYnNi8p1FD0=;
+	b=w8dUBJ0XL2QX+E5WRQ7lRxJXa7dw2ob4+UYKhErg99SykbszjfcrLUwgoR7yIfgOr0+i0w
+	6ejvuUNj1MTnEb4QfTzL9UcWUmVrpPpKuzp1QIScbv9dGPyeqaN1el4Bpv6WVsE0yOVpp0
+	tWmLDN8iRX8/Z1vbqSuRVmQkYn5RlM0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1716795853;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tfTEwhz17LhBXJ7/IsPznzhELsWPwN0beYnNi8p1FD0=;
+	b=C73yQLQm+NpIA0s2TLH3Q1IRtmv91635FJsFTaVu7z0Q+MnVjslPuUaMqHVDSNexghbx0c
+	Ni+//G2W5VHjrPCQ==
+Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
+	id 24CFD4A0577; Mon, 27 May 2024 09:44:13 +0200 (CEST)
+From: Andreas Schwab <schwab@suse.de>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] RISC-V: io: Don't have a void* PCI_IOBASE
+In-Reply-To: <20240526213617.12890-2-palmer@rivosinc.com> (Palmer Dabbelt's
+	message of "Sun, 26 May 2024 14:36:18 -0700")
+References: <20240526213617.12890-2-palmer@rivosinc.com>
+X-Yow: I feel better about world problems now!
+Date: Mon, 27 May 2024 09:44:13 +0200
+Message-ID: <mvm5xuzwvg2.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: enable HAVE_ARCH_HUGE_VMAP for XIP kernel
-Content-Language: en-US
-To: Nam Cao <namcao@linutronix.de>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-References: <20240526110104.470429-1-namcao@linutronix.de>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240526110104.470429-1-namcao@linutronix.de>
-X-GND-Sasl: alex@ghiti.fr
+X-Spamd-Result: default: False [-4.20 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_NO_TLS_LAST(0.10)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_COUNT_ONE(0.00)[1];
+	TO_DN_SOME(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWO(0.00)[2];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240526_235406_401707_E5B22210 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20240527_004417_537157_C26FB6CB 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,52 +111,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nam,
+On Mai 26 2024, Palmer Dabbelt wrote:
 
-On 26/05/2024 13:01, Nam Cao wrote:
-> HAVE_ARCH_HUGE_VMAP also works on XIP kernel, so remove its dependency on
-> !XIP_KERNEL.
+> I recently started noticing warnings along the lines of
 >
-> This also fixes a boot problem for XIP kernel introduced by the commit in
-> "Fixes:". This commit used huge page mapping for vmemmap, but huge page
-> vmap was not enabled for XIP kernel.
+>     include/asm-generic/io.h:752:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>             insw(addr, buffer, count);
+>             ^~~~~~~~~~~~~~~~~~~~~~~~~
+>     arch/riscv/include/asm/io.h:105:53: note: expanded from macro 'insw'
+>     #define insw(addr, buffer, count) __insw(PCI_IOBASE + (addr), buffer, count)
 >
-> Fixes: ff172d4818ad ("riscv: Use hugepage mappings for vmemmap")
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-> Cc: <stable@vger.kernel.org>
-> ---
-> This patch replaces:
-> https://patchwork.kernel.org/project/linux-riscv/patch/20240508173116.2866192-1-namcao@linutronix.de/
->
->   arch/riscv/Kconfig | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index b94176e25be1..0525ee2d63c7 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -106,7 +106,7 @@ config RISCV
->   	select HAS_IOPORT if MMU
->   	select HAVE_ARCH_AUDITSYSCALL
->   	select HAVE_ARCH_HUGE_VMALLOC if HAVE_ARCH_HUGE_VMAP
-> -	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT && !XIP_KERNEL
-> +	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT
->   	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
->   	select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
->   	select HAVE_ARCH_KASAN if MMU && 64BIT
+> which are triggered by having PCI_IOBASE be a "void __iomem *".  I'm not
+> quite sure what the right thing to do is here: having it as u8 to make
+> the pointer arithmetic work seems reasonable to me,
 
+A u8 null pointer is still a null pointer.  Are you sure you are quoting
+the right warning?  AFAICS, PCI_IOBASE is not a null pointer.
 
-Great, thanks!
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Alex
-
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
