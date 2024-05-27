@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2ADEC25B79
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 04:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B998C25B79
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 04:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C3XkVTeiiMiq9nLfNB5o/yVrOuMzoRfz+H72JaeWbNY=; b=t6LZLkoa6y1SM3
-	qZ+lzry2HtDaN6tthNMxFutvmZcTAZz3M6PzrSHOhF6Xd2/l+s5gZ8Hlthdy4e+anlTTTsUceP58b
-	cPtYyIz5Pz359S6nDoulQmD6WP8TbpOlwC1jdkMs13qSS9yS9Q8BtNXHOODh6AHmN9C/CZZrNasG/
-	BopYyqtvVSQpyGAJPRAUyh2GVqiuaV9kGi5FLLQ7jp9kHuHGO0VfvV2ESnzy2uP1zglZwIGa9Oz1E
-	rfO9b48jzyHrQSr/mFRCWXXWbItXb9dT5ashPyOCKZ8kmceN5TvOMyaaMVwohpjDkMSzWOEZMSWN5
-	M5ZJHhZjVK0iizbfmYVQ==;
+	List-Owner; bh=SF3fsxbh8lQwr3K8bPGrQywfuPD4Wg1SguIxHaVeJFA=; b=ZvzhKGEr4icnkm
+	zVePJLZHRDahwJwi8DVvniO95Tr7w9jmGeUYA85i06HYdmlYe8ahdXcf7H5dF30n94qVvCp8aQRKV
+	qEY90o6jZx+W2fE/OJc09QScA6TmSpM2FOTngbUlpC7pRo5GXeOv8EbzpNq5It7yhhxy3W/cVSCKN
+	a0JXvT0yMVEDZOd0YMYY5q8WlZ5hYP8FNNhBp2WFYOgfIkg6ZmZhPwDtuVZ8djdRJ9anmAX590ngK
+	Bc6vsKKakgccwpqGaRYM9ztIG0OT6O7UCucsimqedGFyBWhduYaEWQoW2EqeVgGgS0okX448A2MkI
+	BgAAPNXWphV1LuTLEtaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBS5m-0000000DlDg-3pdi;
-	Mon, 27 May 2024 04:36:14 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1sBS99-0000000Dlmu-3n5Q;
+	Mon, 27 May 2024 04:39:43 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBS5i-0000000DlCP-2Vag
+	id 1sBS97-0000000Dlm0-0cYs
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 May 2024 04:36:13 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1f4a52b9589so2682465ad.3
-        for <linux-riscv@lists.infradead.org>; Sun, 26 May 2024 21:36:07 -0700 (PDT)
+	Mon, 27 May 2024 04:39:42 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-681a4427816so2129574a12.3
+        for <linux-riscv@lists.infradead.org>; Sun, 26 May 2024 21:39:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1716784567; x=1717389367; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1716784779; x=1717389579; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GCL45r5HwUdhMGMoKs1ELoA50Buz5dFrdewkzzL6SwI=;
-        b=jIU2ap7DsrDiHRl9gxwipRwQ4vo7Ngfhy5qrpx0n7CKKVxlKa9eVk4B/9F5FbbR8at
-         VFpBV2Y4VjC016uVVbDE13YAQqkqQ40PWFogoc5I3QkdtexlGINDHscZfzCOa2xdFCF0
-         kJFMpeUBGLO6b4dD7ee/ob8fveMPa/Hty8rBI6zXDTQ210pzKQs8/wx4rRT5wSoTFdRn
-         4Fcb2KaoImHJVSbSOlihHI7tBPvOrAdOEnrWNbZGSz7Zfh5ilnoYGb5X4YTMRkyptRSr
-         fbH5k6bMhdgCdUhwnHyIdg2QtJikfkd/OSyqI4HWkNU7WsSCoDsVBVDN5V2LccQD/PK5
-         9VgA==
+        bh=+6YXrviCLcyxXmmDXMgEBXPU7+X84327YvIUqwBQ/Tg=;
+        b=hu2irHgCFHsXj0spGq+GvH5rGa6bgsk9pdo8sFi90vP/FVV379+KMuPNAN38Pu1ovs
+         rk1rlaj/t8TIivvkWo1Xiac9gCm+FYA3Di4TOd7d9+V5b9t5gWbSZd6nEHr1+ccLN5qh
+         vDzYUL9fWhxw9xpVLS5NsX+MgOG0PtKwSw2531FDO70a14DYqak/HGN7+q0S4lX6otKh
+         /74vvMLeuxuRJLJOKozwLRawOQAGzZZIXgs56My1eNOsztRBUVsnawWx0xd6jdq6wia1
+         DMx/tIx6v4ExPYZ9c//iCgJBfvGCoiMMXEBR6963tpSUFrqjLwDzn7G8EF+RkcZpv/3i
+         lR0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716784567; x=1717389367;
+        d=1e100.net; s=20230601; t=1716784779; x=1717389579;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GCL45r5HwUdhMGMoKs1ELoA50Buz5dFrdewkzzL6SwI=;
-        b=JOxFQClJbmBEDRvXFDg0m5nDjzalayQqss0Ras7G7552GqS3En5N/qxXafSQ+ahj1g
-         mzgwBP4nImIX4JElk5io2n32H9sPzn/ciybNqHW06V6pQKGAFtHcemABpTMHXUZzOEpg
-         LhoDBZIgiZMjTJFNDCKWW6FmeszwnA+k7jhvBB0OOmvfBGSuyx/EDTxovIpNxQVO0Wdj
-         VnDFSJXAgC75jHVeS177KW+fX4OWmpaqDC05qaTinzdCxeKq0VWHEXKFYuH+70pNpGrY
-         aLywBkADpjKPaQFwUL9H1U5ochKTxGzgvnA5EPOIJKEs3waKwXxLLgfwRBhkoVV0qqGc
-         WBvw==
-X-Forwarded-Encrypted: i=1; AJvYcCU5GYFbWMjqUhWmDQqcTJ11uMKINA7EhT5Kwl8h2oYS1ATYTAbbc7gWk4HqhOBDvM2iDjjXfmmwK4SjWjY+97Jh/fSMDvaH4YoHin6GDzyG
-X-Gm-Message-State: AOJu0YwLQVfvhHV8hoIyOB+76zoYvBodjogWzN2LOfmlVwuZeQgnpXFR
-	dr8aVJfP0jvT5ikihhF6/TJNSPuzCJgqQVUI9Nq46KdbgBDaRr3yq7jS+WKLDds=
-X-Google-Smtp-Source: AGHT+IH2qTAk+H4YWdMT+3HDQ47VPDZxZ9rT9jbAlx84jUV+F91w+En1i4ZeI520OwORxw1JjKsITQ==
-X-Received: by 2002:a17:903:2306:b0:1f4:a77a:3bb9 with SMTP id d9443c01a7336-1f4a77a3ea0mr9409085ad.64.1716784566971;
-        Sun, 26 May 2024 21:36:06 -0700 (PDT)
+        bh=+6YXrviCLcyxXmmDXMgEBXPU7+X84327YvIUqwBQ/Tg=;
+        b=n1a6CmjrJ/aKEytWYujwT8o0IMxWCGP7fhtC1FhKi3ZIY1hB21QddniSq2BuN4+0bZ
+         /0lugqN9mlsv+IRxkMSs/a4KM7PIWnRduQ3tBdaZsbWPzufr6gdjK6sULlJ/XBjadoYY
+         iFGyqEuNtUpHjP0ByPhiYq7kbaWObYNFTbU55bDalBBJtVM0unkRPzg2VAIzLWq2sKZC
+         yaxHYOWEB+oWzsHKgGZ6sB14X3bxeJ4Ks6m6Y5CzTBPmzi6WsBiadPadGthNjpmO9m1c
+         D2JZh4cR92hYv926AWxheKZViSZtfIgcEwVjN1vtz6XKUe1RZIAnDVyGg6tNY+oRqKLB
+         29wQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUPwbGMCpDNjyjaLWouKhKkNrYueP1Vn00ExtbDL24ELBOCvf1lIfUg5shUDXz5aorB5YJ6AX1SZYGuNtQWiBWfieukJDz/m4szhPVfC/FD
+X-Gm-Message-State: AOJu0YwKoRPkHcomUK+wsK/Hh+rLtCdFjOdoLhSztFeveGOtO7hQ00XV
+	FiWkqXcw20fjgH/Cpb7cv+2zdWsX5OSX2mof4WAiKonPj3N27irEVXt92lhQgDE=
+X-Google-Smtp-Source: AGHT+IE9JvCAMKXsid9Oup9PtkMG3gbKLCIeVIPVgCCtq14j1hr2UK2tj9TrDVbVzYBOJhbbgWrYoQ==
+X-Received: by 2002:a17:903:188:b0:1f3:900:8f83 with SMTP id d9443c01a7336-1f4498ec4ecmr99852385ad.52.1716784778805;
+        Sun, 26 May 2024 21:39:38 -0700 (PDT)
 Received: from sunil-laptop ([106.51.188.31])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f44c968516sm50975975ad.179.2024.05.26.21.35.57
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f44c9903b5sm50879945ad.189.2024.05.26.21.39.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 May 2024 21:36:06 -0700 (PDT)
-Date: Mon, 27 May 2024 10:05:54 +0530
+        Sun, 26 May 2024 21:39:38 -0700 (PDT)
+Date: Mon, 27 May 2024 10:09:26 +0530
 From: Sunil V L <sunilvl@ventanamicro.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
@@ -76,7 +76,6 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	"Rafael J . Wysocki" <rafael@kernel.org>,
 	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
 	Anup Patel <anup@brainfault.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jiri Slaby <jirislaby@kernel.org>,
@@ -89,16 +88,17 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Andrei Warkentin <andrei.warkentin@intel.com>,
 	Haibo1 Xu <haibo1.xu@intel.com>,
 	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Subject: Re: [PATCH v5 07/17] ACPI: bus: Add RINTC IRQ model for RISC-V
-Message-ID: <ZlQNqiWXNpv30AGp@sunil-laptop>
-References: <20240501121742.1215792-8-sunilvl@ventanamicro.com>
- <20240523215903.GA138985@bhelgaas>
+Subject: Re: [PATCH v5 13/17] irqchip/riscv-intc: Add ACPI support for AIA
+Message-ID: <ZlQOfrMHHaGV0cDg@sunil-laptop>
+References: <20240501121742.1215792-1-sunilvl@ventanamicro.com>
+ <20240501121742.1215792-14-sunilvl@ventanamicro.com>
+ <874jaofbfp.ffs@tglx>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240523215903.GA138985@bhelgaas>
+In-Reply-To: <874jaofbfp.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240526_213610_669851_D31126A1 
-X-CRM114-Status: GOOD (  21.40  )
+X-CRM114-CacheID: sfid-20240526_213941_244401_BDE7EC27 
+X-CRM114-Status: GOOD (  34.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,58 +115,239 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 23, 2024 at 04:59:03PM -0500, Bjorn Helgaas wrote:
-> On Wed, May 01, 2024 at 05:47:32PM +0530, Sunil V L wrote:
-> > Add the IRQ model for RISC-V INTC so that acpi_set_irq_model can use this
-> > for RISC-V.
-> > 
-> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > ---
-> >  drivers/acpi/bus.c   | 3 +++
-> >  include/linux/acpi.h | 1 +
-> >  2 files changed, 4 insertions(+)
-> > 
-> > diff --git a/drivers/acpi/bus.c b/drivers/acpi/bus.c
-> > index 17ee483c3bf4..6739db258a95 100644
-> > --- a/drivers/acpi/bus.c
-> > +++ b/drivers/acpi/bus.c
-> > @@ -1190,6 +1190,9 @@ static int __init acpi_bus_init_irq(void)
-> >  	case ACPI_IRQ_MODEL_LPIC:
-> >  		message = "LPIC";
-> >  		break;
-> > +	case ACPI_IRQ_MODEL_RINTC:
-> > +		message = "RINTC";
-> > +		break;
-> >  	default:
-> >  		pr_info("Unknown interrupt routing model\n");
-> >  		return -ENODEV;
-> > diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-> > index 846a4001b5e0..c1a01fd02873 100644
-> > --- a/include/linux/acpi.h
-> > +++ b/include/linux/acpi.h
-> > @@ -107,6 +107,7 @@ enum acpi_irq_model_id {
-> >  	ACPI_IRQ_MODEL_PLATFORM,
-> >  	ACPI_IRQ_MODEL_GIC,
-> >  	ACPI_IRQ_MODEL_LPIC,
-> > +	ACPI_IRQ_MODEL_RINTC,
-> 
-> Is the ACPI_IRQ_MODEL_RINTC value documented somewhere?  Maybe an ECR
-> for the ACPI spec?
-> 
-> acpi_bus_init_irq() is going to pass ACPI_IRQ_MODEL_RINTC to _PIC, and
-> ACPI r6.5, sec 5.8.1 only mentions the ACPI_IRQ_MODEL_PIC,
-> ACPI_IRQ_MODEL_IOAPIC, and ACPI_IRQ_MODEL_IOSAPIC values.
-> 
-> Even the existing ACPI_IRQ_MODEL_PLATFORM, ACPI_IRQ_MODEL_GIC, and
-> ACPI_IRQ_MODEL_LPIC values aren't mentioned in ACPI r6.5.
-> 
-Yeah, I also noticed it. I don't know the history behind this. Rafael or
-someone else might have better knowledge. IMO, it is better to update
-ACPI spec _PIC with all these values. If I don't see any objections, I
-will raise an ECR to update the spec.
+Hi Thomas,
 
-Thanks,
-Sunl
+On Thu, May 23, 2024 at 11:47:06PM +0200, Thomas Gleixner wrote:
+> On Wed, May 01 2024 at 17:47, Sunil V L wrote:
+> > diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+> > index 9e71c4428814..af7a2f78f0ee 100644
+> > --- a/drivers/irqchip/irq-riscv-intc.c
+> > +++ b/drivers/irqchip/irq-riscv-intc.c
+> > @@ -249,14 +249,105 @@ IRQCHIP_DECLARE(riscv, "riscv,cpu-intc", riscv_intc_init);
+> >  IRQCHIP_DECLARE(andes, "andestech,cpu-intc", riscv_intc_init);
+> >  
+> >  #ifdef CONFIG_ACPI
+> > +struct rintc_data {
+> > +	u32 ext_intc_id;
+> > +	unsigned long hart_id;
+> > +	u64 imsic_addr;
+> > +	u32 imsic_size;
+> 
+> https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#struct-declarations-and-initializers
+>
+Sure, thanks!
+ 
+> > +};
+> > +
+> > +static u32 nr_rintc;
+> > +static struct rintc_data *rintc_acpi_data[NR_CPUS];
+> > +
+> > +int acpi_get_intc_index_hartid(u32 index, unsigned long *hartid)
+> 
+> Why int? All of these functions have strictly boolean return values:
+> success = true, fail = false, no?
+> 
+> Either bool or get rid of the pointer and let the function return
+> either the real hart id or an invalid one.
+>
+Sure. I just tried to keep it similar to the parent function. But let me
+go with your suggestion in the next revision.
+ 
+> > +{
+> > +	if (index >= nr_rintc)
+> > +		return -1;
+> > +
+> > +	*hartid = rintc_acpi_data[index]->hart_id;
+> > +	return 0;
+> 
+> I.e.
+> 
+> 	return index >= nr_rintc ? rintc_acpi_data[index]->hart_id : INVALID_HART_ID;
+> 
+Sure.
+
+> > +int acpi_get_ext_intc_parent_hartid(u8 id, u32 idx, unsigned long *hartid)
+> > +{
+> > +	int i, j = 0;
+> > +
+> > +	for (i = 0; i < nr_rintc; i++) {
+> > +		if (APLIC_PLIC_ID(rintc_acpi_data[i]->ext_intc_id) == id) {
+> > +			if (idx == j) {
+> > +				*hartid = rintc_acpi_data[i]->hart_id;
+> > +				return 0;
+> > +			}
+> > +			j++;
+> > +		}
+> > +	}
+> > +
+> > +	return -1;
+> > +}
+> > +
+> > +void acpi_get_plic_nr_contexts(u8 id, int *nr_contexts)
+> > +{
+> > +	int i, j = 0;
+> > +
+> > +	for (i = 0; i < nr_rintc; i++) {
+> > +		if (APLIC_PLIC_ID(rintc_acpi_data[i]->ext_intc_id) == id)
+> > +			j++;
+> > +	}
+> > +
+> > +	*nr_contexts = j;
+> > +}
+> > +
+> > +int acpi_get_plic_context(u8 id, u32 idx, int *context_id)
+> > +{
+> > +	int i, j = 0;
+> > +
+> > +	for (i = 0; i < nr_rintc; i++) {
+> > +		if (APLIC_PLIC_ID(rintc_acpi_data[i]->ext_intc_id) == id) {
+> > +			if (idx == j) {
+> > +				*context_id = IDC_CONTEXT_ID(rintc_acpi_data[i]->ext_intc_id);
+> > +				return 0;
+> > +			}
+> > +
+> > +			j++;
+> > +		}
+> > +	}
+> 
+> So that's the third incarnation of the same loop with the truly self
+> explaining variable and argument names.
+> 
+>     j is actually the index of the context which is associated to a
+>     given PLIC ID.
+> 
+>     idx is the context index to search for
+> 
+> Right? So why can't these things be named in a way which makes the
+> intent of the code clear?
+> 
+> Also why are all the arguments u8/u32? There is no hardware
+> involved. Simple 'unsigned int' is just fine and the u8/u32 is not bying
+> you anything here.
+> 
+> Aside of that these ugly macros can be completely avoided and the code
+> can be written without a copy & pasta orgy.
+> 
+> struct rintc_data {
+> 	union {
+> 		u32		ext_intc_id;
+>                 struct {
+>                 	u32	context_id	: 16,
+>                         			:  8,
+>                         	aplic_plic_id	:  8;
+>                 }
+>         };
+> 	unsigned long		hart_id;
+> 	u64			imsic_addr;
+> 	u32			imsic_size;
+> };
+> 
+> #define for_each_matching_plic(_plic, _plic_id)				\
+> 	for (_plic = 0; _plic < nr_rintc; _plict++)			\
+>         	if (rintc_acpi_data[_plic]->aplic_plic_id != _plic_id)	\
+>                 	continue;					\
+>                 else
+> 
+> unsigned int acpi_get_plic_nr_contexts(unsigned int plic_id)
+> {
+> 	unsigned int nctx = 0;
+> 
+> 	for_each_matching_plic(plic, plic_id)
+> 		nctx++;
+> 
+> 	return nctx;
+> }
+> 
+> static struct rintc_data *get_plic_context(unsigned int plic_id, unsigned int ctxt_idx)
+> {
+> 	unsigned int ctxt = 0;
+> 
+> 	for_each_matching_plic(plic, plic_id) {
+>         	if (ctxt == ctxt_idx)
+>                 	return rintc_acpi_data + plic;
+>         }
+>         return NULL;
+> }
+> 
+> unsigned long acpi_get_ext_intc_parent_hartid(unsigned int plic_id, unsigned int ctxt_idx)
+> {
+>         struct rintc_data *data = get_plic_context(plic_id, ctxt_idx);
+> 
+>         return data ? data->hart_id : INVALID_HART_ID;
+> }
+> 
+> unsigned int acpi_get_plic_context(unsigned int plic_id, unsigned int ctxt_idx)
+> {
+>         struct rintc_data *data = get_plic_context(plic_id, ctxt_idx);
+> 
+>         return data ? data->context_id : INVALID_CONTEXT;
+> }
+> 
+> Or something like that. Hmm?
+>
+Nice!. Yes, this is better. Thanks a lot for the suggestion. Let me
+update in the next revision.
+ 
+> > +int acpi_get_imsic_mmio_info(u32 index, struct resource *res)
+> > +{
+> > +	if (index >= nr_rintc)
+> > +		return -1;
+> > +
+> > +	res->start = rintc_acpi_data[index]->imsic_addr;
+> > +	res->end = res->start + rintc_acpi_data[index]->imsic_size - 1;
+> > +	res->flags = IORESOURCE_MEM;
+> > +	return 0;
+> > +}
+> > +
+> > +static struct fwnode_handle *ext_entc_get_gsi_domain_id(u32 gsi)
+> > +{
+> > +	return riscv_acpi_get_gsi_domain_id(gsi);
+> > +}
+> 
+> This wrapper is required because using riscv_acpi_get_gsi_domain_id()
+> directly is too obvious, right?
+>
+:-). Let me remove it.
+ 
+> >  static int __init riscv_intc_acpi_init(union acpi_subtable_headers *header,
+> >  				       const unsigned long end)
+> >  {
+> > -	struct fwnode_handle *fn;
+> >  	struct acpi_madt_rintc *rintc;
+> > +	struct fwnode_handle *fn;
+> > +	int rc;
+> >  
+> >  	rintc = (struct acpi_madt_rintc *)header;
+> > +	rintc_acpi_data[nr_rintc] = kzalloc(sizeof(*rintc_acpi_data[0]), GFP_KERNEL);
+> > +	if (!rintc_acpi_data[nr_rintc])
+> > +		return -ENOMEM;
+> > +
+> > +	rintc_acpi_data[nr_rintc]->ext_intc_id = rintc->ext_intc_id;
+> > +	rintc_acpi_data[nr_rintc]->hart_id = rintc->hart_id;
+> > +	rintc_acpi_data[nr_rintc]->imsic_addr = rintc->imsic_addr;
+> > +	rintc_acpi_data[nr_rintc]->imsic_size = rintc->imsic_size;
+> > +	nr_rintc++;
+> >  
+> >  	/*
+> >  	 * The ACPI MADT will have one INTC for each CPU (or HART)
+> > @@ -273,7 +364,14 @@ static int __init riscv_intc_acpi_init(union acpi_subtable_headers *header,
+> >  		return -ENOMEM;
+> >  	}
+> >  
+> > -	return riscv_intc_init_common(fn, &riscv_intc_chip);
+> > +	rc = riscv_intc_init_common(fn, &riscv_intc_chip);
+> > +	if (rc) {
+> > +		irq_domain_free_fwnode(fn);
+> > +		return rc;
+> > +	}
+> 
+> This looks like a completely unrelated bug fix. Please don't mix functional
+> changes and fixes.
+> 
+Makes sense. Let me create separate patch.
+
+Thanks a lot for the review!
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
