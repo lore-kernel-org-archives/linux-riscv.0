@@ -4,89 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3074C25B74
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 15:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDABC25B74
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 15:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qvYtKGT0f3icLEy0VjNEoVrgwEhj8l1uXcJYwWwgv58=; b=rmZWg3b3yToQ/V
-	MxuPZJIVa/TtGm2CrNkEKT3A6SoRSwjjyqqkuUVSQLWNwm5kcuIakovWjDGyIb0nHFkJXCC4SHcUa
-	HWZ/9LqrBRdZTE0kngqgAV26QnP3pWaE2V2/fKMvP67RqgUslJPNni4myvs7jCEPTQ69HQwcxmY+f
-	f4eZhgxYSyD0LobWlkqGpnx+kin+73ebMCWhdBdIKfB46z3CP6tDGybGvFL3WkeDzXY/npPGtThZ3
-	avk6X/p/K396jjA2nLBFQW5Vv1ndOi6pzqY9z0YPqEGHRZUpmwM7EgzYgl8SEr3vPaO9DL/MPlqId
-	+/moxWfUbA7uFu44thug==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ReCVTWFwsdKLEfcHj9AeHn6F2Pv/lMFcbos3vP1gcH0=; b=rGF30Ik2lDgbBJ
+	+iY8fK3cOglLN4F+PCkjf+FVwSvw7gvdOyVha00WWy7BvMctcwxvFHbiAEtcBJJNRtXV4zCdaf2RZ
+	S6TzmpnKxwdfDSC4n4aH0U4wpvrBbQcrvROFg9prtQ59DHpbEBdP/x1kfiyFObaRJ501c7w3cCkKz
+	zBMD2YV7poz8X6/Y1n3+YEPyJPeczpY/DpdYhLi5nuOijOxFXJ6J4vP44g+J5YHxuOjnp7t/1FRZK
+	5TtobL0A1jPDVnczvYOCbV9wPJUQ4Mjeu4he6gSm1i5ljkD3o9Do/TXLxKawFcunLIm9242F5/fel
+	qFT94td5l8OfJvgK/5IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBcK9-0000000FbcI-3Ye1;
-	Mon, 27 May 2024 15:31:45 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1sBcjO-0000000FhdZ-3KJj;
+	Mon, 27 May 2024 15:57:50 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBcK7-0000000FbbI-16PW
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 May 2024 15:31:45 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-42108822e3cso17533135e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 May 2024 08:31:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1716823900; x=1717428700; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3NNSVjNWOYxdySt3enWuEY8NgLaDOrN76ngl0Gdie4Y=;
-        b=J72Hpi86KDWm6NimQe0MHMXqLJLAoz0BngcwKZUFscIP0of9AQN/5ruGTduIZF3Gp4
-         Fm8h45ncq7yWeon6D3ZcvAaM1LeMRXyoAmeRat/dj8dkg2CR/Fk0Ap0EYul4UeX3qPks
-         /o9JQRHiT657Kf8da5XbQibscnuvco/lltAe49hBVQJMXDJGeX0FiqfoZIHRYvn/5N3J
-         29y2YzvP38HlmooDENBvwhx8uMVVj+xmcGCE1BBOnahwuRg7ebry/isoyEgcYx/FW1kH
-         Nr/IMyHElSPyCMMghms5+yUx2ETegyZSqV4ussHNHp2U2mErlYHnwgmOyGb673Exhkd7
-         h9IQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716823900; x=1717428700;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3NNSVjNWOYxdySt3enWuEY8NgLaDOrN76ngl0Gdie4Y=;
-        b=RyjDzK2+g0ClxSL1jdR27iAF+nSZPRxqACiP8FdzCUVEZVrcPKtf9GDJHHBIQVxQLh
-         3bHiQzrOuF3pa/bNFi+lMs8MqjP1z8JUR1STteI7nMKGk/MpcUClHfMxwsKJY2Z0Bwgl
-         HVnYY5uP/okXOSUoiak8PsGPcJN+9vwM9HUthOQKKKfE1Hse0UMGK/TjZeR5l3ubrjqO
-         OKZw00yBSQQtLSiOIbR9/2v6+N7y1sn4zAJjn6TqcsLEmsqBVqXaekIxrsOnppg4jx4z
-         kMhcGZLou2W2B/Y53cNUYfAiBJ4AtSiNhGv0aqJOC/vmOpmK0mkaoF5sh3gL/sxmJDlS
-         E8yw==
-X-Forwarded-Encrypted: i=1; AJvYcCWT+1KovTDCBX3Fl1UtUiPt7zo6t6R1lK9tpJbbVKCNwf402pTl/+zmXuGXVft5/kBrCN1FiOQdtZum2H+zWpC0FlPBMFyXUJrJwkWFyQbH
-X-Gm-Message-State: AOJu0YyKcxJL3+VCITifCzIcrG7WaGukGtlPIAnp9fKCtF8zbNy79uE7
-	hQNGIrqShBwR01CpswsNLE+6DMrL62GLDQ0WjA80qNNB9b4zao0DIwKJzGoQBLo=
-X-Google-Smtp-Source: AGHT+IFSDuvlJ2R7D/NqkTDnql6BSN77CVwr33o+H6Jjh+G4hTBM9HNZ/ptH1Wz7cL3YA694hyF33A==
-X-Received: by 2002:a05:600c:4449:b0:41b:f4e1:381b with SMTP id 5b1f17b1804b1-421015a60b9mr122553155e9.2.1716823899690;
-        Mon, 27 May 2024 08:31:39 -0700 (PDT)
-Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-42108970967sm113261895e9.17.2024.05.27.08.31.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 May 2024 08:31:39 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH -fixes] bpf: resolve_btfids: Fix integer overflow when calling elf_update()
-Date: Mon, 27 May 2024 17:31:37 +0200
-Message-Id: <20240527153137.271933-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
+	id 1sBcjL-0000000FhcN-26s7;
+	Mon, 27 May 2024 15:57:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1716825410; x=1717430210; i=markus.elfring@web.de;
+	bh=cCQzbMHV0uZw8ARZF6tyJxZsTWRc/buEbEqLjIXSnlw=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=PUTkJtv+17tmHPSwdj2hf899Cxz87JZtpAv6Jc/t460ErK6rIZ1XjrMEwjT/IL5e
+	 u6asEjjbaWV05EEJOrnLlJNLso+bKJ6JUhoe+vAQmYcyr1mOVJ9CmwVzJFYdsDjWk
+	 lhH7BRvhFBzVj6hnFHPSxBLuofy8FnxnuGCzKVh06VXSoykW9+Z5sNppeifyGBhS7
+	 Tbby0eXDkzEd3ur+rXCvlZhYwOhxY2j+kjNeQE+m/gaI7bzpQ3HVkzXeOYg+oIyfZ
+	 hv0kSHTDq7XWjQmMF+X+gAfIYHkN5y02reNDf+/pFuI1uzraU+ayvVz08dwXuor0H
+	 +gQ8lygtBMIj/W0VNQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.21] ([94.31.83.95]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1N6JxT-1sa0Ai3q9J-016inV; Mon, 27
+ May 2024 17:56:50 +0200
+Message-ID: <aa58efd3-b502-4bed-8c84-e5d78da23fbe@web.de>
+Date: Mon, 27 May 2024 17:56:43 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: Peng Fan <peng.fan@nxp.com>, soc@kernel.org,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Chester Lin <chester62515@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Damien Le Moal <dlemoal@kernel.org>, Dan Carpenter
+ <dan.carpenter@linaro.org>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Dvorkin Dmitry <dvorkin@tibbo.com>, Emil Renner Berthing <kernel@esmil.dk>,
+ Fabio Estevam <festevam@gmail.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+ Hal Feng <hal.feng@starfivetech.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Jacky Bai <ping.bai@nxp.com>,
+ Jianlong Huang <jianlong.huang@starfivetech.com>,
+ Joel Stanley <joel@jms.id.au>, Jonathan Hunter <jonathanh@nvidia.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Ludovic Desroches <ludovic.desroches@microchip.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>, Orson Zhai
+ <orsonzhai@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Sean Wang <sean.wang@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>,
+ Shiraz Hashim <shiraz.linux.kernel@gmail.com>,
+ Stephen Warren <swarren@wwwdotorg.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Thierry Reding <thierry.reding@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Viresh Kumar <vireshk@kernel.org>, Wells Lu <wellslutw@gmail.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, linux-gpio@vger.kernel.org,
+ linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-samsung-soc@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ imx@lists.linux.dev, linux-aspeed@lists.ozlabs.org,
+ openbmc@lists.ozlabs.org, kernel@pengutronix.de,
+ Peng Fan <peng.fan@oss.nxp.com>
+References: <20240504-pinctrl-cleanup-v2-18-26c5f2dc1181@nxp.com>
+Subject: Re: [PATCH v2 18/20] pinctrl: freescale: mxs: Fix refcount of child
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20240504-pinctrl-cleanup-v2-18-26c5f2dc1181@nxp.com>
+X-Provags-ID: V03:K1:fY28vuOzSy7D3myo+NUo+Q8h4MAB+DMYH6x54XY9zacr23bFm3Z
+ XEU1mqywgExmQK1yZjuU6En9jXs1HgcwzsaQZ+4suTC5BPEjIf/Fg4o0HdX3AuRpQZI2yac
+ KrkniKWThKnQbs96+yLl/Dm5E5NsImhOyFs1ksUAetHBWVW2WfIWoOdGSaoQFZRJLEXutYy
+ iCHwBxLqQsK9Mq+39k2DQ==
+UI-OutboundReport: notjunk:1;M01:P0:TjeN7uyFccs=;bjTTRHq6gIBTOMFXSFUogBWSZuQ
+ ZTwgZq2VnppV1aZlnrDYMmOmytXyq0JrjEzIfy/yH2myRvZFwVxrMpYgtVdN++fuf8ainJk/t
+ uFkTD8huhpK+v/6sd6lXCGtTOMoxBExDvHrzfiIvMwNnj5vJaD78bXrOpQIviBkrbo/dpouOC
+ Ln7QFnEpQNN9tfIRGg8gaddFRITCsPb8eIY2ZjqdGWqcC0mpb+GXVonl0LzMFBCnUIrGNucUB
+ JyF0gcU5WkAg6RJMxI6bQbphTn5At4z7kJpzYsMNnHFABhVCUal+gm0247pr1mpjl/KiGECTR
+ XNTX442NdkykPvhiMNWp17M35HW0J6oLENbsSL8PyhGQHAW5h5EnpFB5SuC+MkmcW7VQwxd36
+ lCdpZmXrsZsRJ7AbJhptgf/dByjHu/LOLAj4+ethb/xC2SLDH84JLTDzzYCw43EzHk/09K8p9
+ cDEpfpl8+VPFN35SSlqs/3lTQxU1UurqQF96DxIJCZdCGRE3icPsCoTwZMOJqDYJkYsmztQRH
+ YW541Ftvhar9wZSgE19Bcj1s0L3HXu9Xp3pkz7IcX+lrc7RPJuNoPC+xc48ucMhoGmNSMI5WK
+ RVp1WSoLoJahSt7/mjjyxqyly6XzUtnKE6um1tWMAR0vojK8hQcOOL84UbAmXM7tbS+2QyuCj
+ LkzuEZ/KIlY89jP9+dNMuuSCCwKeQJA7ykttwUV0aQte1rS7POYfJSX2aeTAa8Z7rWLzt7kHc
+ AmtJvjHPIr4iMol58kTZo18kQbOqJQsi9qx7qS9pObTVMxyOiWt4lPdDW0vYOWO4MOmC4QlIy
+ k96VHg44SU3OMjnGBpPp4v6EScAmUEUHJaYg/CdI/NGc8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_083143_412302_6E97044A 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20240527_085747_857137_C73716AA 
+X-CRM114-Status: UNSURE (   5.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,47 +126,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following error was encoutered in [1]:
-
-FAILED elf_update(WRITE): no error
-
-elf_update() returns the total size of the file which here happens to be
-a ~2.5GB vmlinux file: this size overflows the integer used to hold the
-return value of elf_update() and is then interpreted as being negative.
-
-So fix this by using the correct type expected by elf_update() which is
-off_t.
-
-Fixes: fbbb68de80a4 ("bpf: Add resolve_btfids tool to resolve BTF IDs in ELF object")
-Link: https://bugzilla.kernel.org/show_bug.cgi?id=218887 [1]
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- tools/bpf/resolve_btfids/main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/tools/bpf/resolve_btfids/main.c b/tools/bpf/resolve_btfids/main.c
-index d9520cb826b3..af393c7dee1f 100644
---- a/tools/bpf/resolve_btfids/main.c
-+++ b/tools/bpf/resolve_btfids/main.c
-@@ -728,7 +728,7 @@ static int sets_patch(struct object *obj)
- 
- static int symbols_patch(struct object *obj)
- {
--	int err;
-+	off_t err;
- 
- 	if (__symbols_patch(obj, &obj->structs)  ||
- 	    __symbols_patch(obj, &obj->unions)   ||
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SG93IGRvIHlvdSB0aGluayBhYm91dCB0byB1c2UgdGhlIHN1bW1hcnkgcGhyYXNlIOKAnEZpeCBy
+ZWZlcmVuY2UgY291bnRpbmcgZm9yIGNoaWxkcmVuIGluIG14c19waW5jdHJsX3Byb2JlX2R0KCni
+gJ0/CgoK4oCmCj4gb2ZfZ2V0X25leHRfY2hpbGQoKSB3aWxsIGluY3JlYXNlIHJlZmNvdW50IOKA
+pgoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGhlIHJlZmVyZW5jZSBjb3Vu
+dGVyPwoKCj4gUGVyIGN1cnJlbnQgaW1wbGVtZW50YXRpb24sICdjaGlsZCcgd2lsbCBiZSBvdmVy
+cmlkZSBieQoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG92
+ZXJyaWRkZW4/CgoKPiBmb3JfZWFjaF9jaGlsZF9vZl9ub2RlKG5wLCBjaGlsZCksIHNvIHVzZSBv
+Zl9nZXRfY2hpbGRfY291bnQgdG8gYXZvaWQKPiByZWZjb3VudCBsZWFrYWdlLgoKQW5vdGhlciB3
+b3JkaW5nIHN1Z2dlc3Rpb246CiAgZm9yX2VhY2hfY2hpbGRfb2Zfbm9kZShucCwgY2hpbGQpLiBU
+aHVzIHVzZSBhbiBvZl9nZXRfY2hpbGRfY291bnQoKSBjYWxsCiAgdG8gYXZvaWQgcmVmZXJlbmNl
+IGNvdW50aW5nIGxlYWthZ2UuCgoKUmVnYXJkcywKTWFya3VzCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
