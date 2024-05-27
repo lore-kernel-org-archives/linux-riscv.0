@@ -4,118 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2499DC25B7D
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 14:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA884C25B74
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 15:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YDvh+Heti1EOF9A/2w6p/06YjJe0IzTxDEN5kUSn56s=; b=iuuy9hwy/luU2b
-	xBo/Y590rDJnVXyVy9Z6FcHYigntdkUqid7RbdDjZ8hYrg8mJCeAwC7hRpIgoXrVG6AZAjXvvg1IT
-	mgh5dId/sbkEMtYhA+KrHd86e5SwYL66z05hiU/BEG6TrNOXJAzdcyKIraZwviAuvEugQTg7kws3Q
-	42Ag5yMzjichtVAD3cbm+mu4Qg2JGC4aBUdRr3gCC2c2Y2jB3tex101B5OJd/s6WFnAm7G2rdkchN
-	dtQc7fCqvOe7MOb4Oypsr0abWESdjRA+wOabEv/j7CGuapMI4LmxMBaJPYl+ZvNkP1tGcb2pXwDPl
-	txhefLeFHytJhygwfVtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v21nG0kfa52xg/GyRjSyFKjCRFO+uoUHDL6qQn53E4E=; b=Osut+2/nhozJB6bxgt5b5OHIV/
+	rPm9yo4zmzc1hyU4qYpKnKGXl4aBMnQ/ye7X16l/XYbAbpESf8xFzX4cTuUPJ+iE1rDMNCT/EqHmx
+	D6YDNTMqpS/gZt+vBnUAFmSfPwk3SwRtc1zcQDlm2wERLWZkWDxtbcgcbC7gapTYe7+/KEL6xvdOI
+	M39ltKsbR+JB1zZGvWpUFmVKManjYW5BzZ7qvjm+00g5vs6QgxlNjMMZbYQ8ZKXOtc3mVGGhDanrm
+	IOLh2v/id6LNBO0TbeEEXbWG6eYC9t0qlGXyTTEcqtoFb30MUbTueeiA3ggSq1aII0Lr7MvZfWD39
+	dm5vLeOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBbJd-0000000FMeA-14ek;
-	Mon, 27 May 2024 14:27:09 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1sBbyU-0000000FWcp-16Io;
+	Mon, 27 May 2024 15:09:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBbJD-0000000FMKS-0kaT;
-	Mon, 27 May 2024 14:26:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1716819939; x=1717424739; i=markus.elfring@web.de;
-	bh=WBD5fZbJKASRGqCVJjwjF0/sBlA3tJ1is50PhfAuexQ=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=vX3VhVktvAsC3VEpXA8voazwMQsxjS3krCXirqMDaKAZ3hS5dLEBLJJcYH/CnQUD
-	 LX884yPHk6T2CjcYkXrEWl3j7h+qjsuQr6krfiSjSbT9o7hELP6R1MOL3ePslfGIM
-	 nUn+Cno9/WCN6Qt7tnw9wJkEH43RGHNxZEMJFx1wgs5oyZoUK9bL3MJfGys243Jnt
-	 RWe1fGAwlia3NmWKjA9buWb62mNSN4PEffNKdBdV4ee2XJY9EETUDzwTlBNTo8KlT
-	 kv2IvCfd4sTrUVWvA5STc6LBECDk34micjPSbDUs3ES7nw1m899uLKkS35frEPwr4
-	 gv2XA0CeWBiz5oCAtw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.21] ([94.31.83.95]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mtgyj-1sV3WP3CJT-017EBc; Mon, 27
- May 2024 16:25:38 +0200
-Message-ID: <96beb071-ec2c-475f-8fa2-d519a1b1dc28@web.de>
-Date: Mon, 27 May 2024 16:25:18 +0200
+	id 1sBbyR-0000000FWcG-1Z1J;
+	Mon, 27 May 2024 15:09:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4DB0B6198C;
+	Mon, 27 May 2024 15:09:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10D29C2BBFC;
+	Mon, 27 May 2024 15:09:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1716822558;
+	bh=YuKxD3bWQ8aYWzULrWddjuARczonPYhNEB+CaCLpbT0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RbtSOJS5A0pxbhhg/T2QRACi/3qELIIl8uDyGzpJ3dNKNbzcNWSr1VSk3Bq+S71KQ
+	 //wLknjrjCT3MPDI9Z0TuqVRrwd/nAllBflc5Cfs+g1CtRc2di7xgxJ8reDR+HBrNT
+	 h1z5IIKT5V919t72iKuNeAElyVwOr3G0ya5mWiRnl8GsZ49TLpZR8o7zHsMwVw2IRG
+	 zmEtR3AG5NgtNbxL9EQU1kBUYNLUk2qaHg8a9dn6GRJ0KNBfcetBxHw2nIkqmDCJuE
+	 04Ho9cLZezkdeoXMGmPJzXkX4ck/JWvbCk4UC4PIJg6NtfsdE9IWJm7EYiO68i5jLD
+	 nMsUxBi+WcFSA==
+Date: Mon, 27 May 2024 16:09:12 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org, greentime.hu@sifive.com,
+	vincent.chen@sifive.com, cleger@rivosinc.com, alex@ghiti.fr,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v4 2/5] dt-bindings: riscv: Add Svadu Entry
+Message-ID: <20240527-widely-goatskin-bb5575541aed@spud>
+References: <20240524103307.2684-1-yongxuan.wang@sifive.com>
+ <20240524103307.2684-3-yongxuan.wang@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Peng Fan <peng.fan@nxp.com>, soc@kernel.org,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Chester Lin <chester62515@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Damien Le Moal <dlemoal@kernel.org>, Dan Carpenter
- <dan.carpenter@linaro.org>, Dong Aisheng <aisheng.dong@nxp.com>,
- Dvorkin Dmitry <dvorkin@tibbo.com>, Emil Renner Berthing <kernel@esmil.dk>,
- Fabio Estevam <festevam@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
- Hal Feng <hal.feng@starfivetech.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Jacky Bai <ping.bai@nxp.com>,
- Jianlong Huang <jianlong.huang@starfivetech.com>,
- Joel Stanley <joel@jms.id.au>, Jonathan Hunter <jonathanh@nvidia.com>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Ludovic Desroches <ludovic.desroches@microchip.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Matthias Brugger <mbrugger@suse.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>, Orson Zhai
- <orsonzhai@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sean Wang <sean.wang@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>,
- Shiraz Hashim <shiraz.linux.kernel@gmail.com>,
- Stephen Warren <swarren@wwwdotorg.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Thierry Reding <thierry.reding@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Viresh Kumar <vireshk@kernel.org>, Wells Lu <wellslutw@gmail.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, linux-gpio@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-samsung-soc@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
- imx@lists.linux.dev, linux-aspeed@lists.ozlabs.org,
- openbmc@lists.ozlabs.org, kernel@pengutronix.de,
- Peng Fan <peng.fan@oss.nxp.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>
-References: <20240504-pinctrl-cleanup-v2-4-26c5f2dc1181@nxp.com>
-Subject: Re: [PATCH v2 04/20] pinctrl: starfive: Use scope based of_node_put()
- cleanups
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20240504-pinctrl-cleanup-v2-4-26c5f2dc1181@nxp.com>
-X-Provags-ID: V03:K1:+RyPoq5wWT0ZiaKtbHEM7oUjpYEVZsaQY6N7Y3GqAcCCbvu/2JH
- u2A1o9G2LZb7XdHLU3H69K/ZAgfhJvU9jxdpYiqAnNWG9BA1SqA6BdADoQmnmuaRrP6fAil
- 8Vj3+benFoPx5AOFPUxJJt7XUQwXd4D4fxOV2u0S4nMX3GZIShaRs493PFfPvepvyAbRCtv
- sA0TyVvmVIL0Nk6+KE4zA==
-UI-OutboundReport: notjunk:1;M01:P0:31oKYLNiYt8=;Hxns51jU3fPbLxYZhS6Zxy9O8BL
- qcSJkc+8tI81FYEgYUDEjPFyxO5CsD0G4Yr1KM0HiJM1RAdO+budqXdzmwIJQJO5p6Qgg2nVe
- YKgM7j5yLFrWsSzyaik+NFTvY+PW6VUe11QHVHkDricbyYHE5P9qzbTg86+yeRiFSOOQZksg9
- Xdrs6r2eTX9AowMfEJqKIKNofU6TcDdmBmEh2hd5cMEugRlaO/xU/ubiYD/XRmfkiGEw2Tk9X
- NW8zaQg81GL2PPwft4f4poEafCoYwl+CIrmPHqURH/2YArZiC4UDm9VTu3lTVR8WSADgs2juL
- WzjmfuF3Nb/H8VSJqqzY977EL7BYu0JfjXhqczsj/AJHIU8x7U9FkHQwVLD+/aW9Q5b/a9OPw
- LI1zUhjAqpzjkl9ILHME5dfhA7gkD4YfqDP0iVyWu+VnmZh/pblaybHt4rD5ZI5OfaaxJKTej
- VGs+IMuQBrMttXj/4DWsuAy6tL2ASvq9ajbc+W4PfJFRO8eiyAiXlRr8A1ilG3Wwi2usEs8x0
- pyhK5u8Ye84ZDNXC0xiObkf3AMdCBhIc+0OAJbS7S/lr4Wa88XoId5G8Ib9v3q3Danb/+yyUK
- 5YECHUaogBhuwKJTAPf6awFWX25sWIKFsuMiL9bOP098OSKsVamHNvrpo4VNiI2KTPlO3jYMF
- m4zC6H3fMiyTT6q5AwrZQbBuPo5FStw2mq46jULp/VkrI2I5mP81da+ZdY2nuNi0JHqnAsXYb
- nCNKXCaTB/N8hkFz1ZJ6BaXlj9tzCbHQ/4RlK/pJC38X/hUvhfMryOHSpF+68/zEebizBSnT2
- Xmop5HdbEWKcl91rEpyYcoeHY0XK5F3NVihbciHAlOag4=
+In-Reply-To: <20240524103307.2684-3-yongxuan.wang@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_072644_227595_5AF20FA8 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20240527_080919_482754_B3DDE150 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,49 +73,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2006312678041821968=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PiBVc2Ugc2NvcGUgYmFzZWQgb2Zfbm9kZV9wdXQoKSBjbGVhbnVwIHRvIHNpbXBsaWZ5IGNvZGUu
-CgpJIHNlZSBvcHBvcnR1bml0aWVzIHRvIGltcHJvdmUgYWZmZWN0ZWQgZnVuY3Rpb24gaW1wbGVt
-ZW50YXRpb25zIGFub3RoZXIgYml0LgoKCuKApgo+ICsrKyBiL2RyaXZlcnMvcGluY3RybC9zdGFy
-Zml2ZS9waW5jdHJsLXN0YXJmaXZlLWpoNzEwMC5jCuKApgo+IEBAIC01NDMsMTggKzU0MCwxOCBA
-QCBzdGF0aWMgaW50IHN0YXJmaXZlX2R0X25vZGVfdG9fbWFwKHN0cnVjdCBwaW5jdHJsX2RldiAq
-cGN0bGRldiwKPiAgCQkJcGlucyA9IGRldm1fa2NhbGxvYyhkZXYsIG5waW5zLCBzaXplb2YoKnBp
-bnMpLCBHRlBfS0VSTkVMKTsKPiAgCQkJaWYgKCFwaW5zKSB7Cj4gIAkJCQlyZXQgPSAtRU5PTUVN
-Owo+IC0JCQkJZ290byBwdXRfY2hpbGQ7Cj4gKwkJCQlnb3RvIGZyZWVfbWFwOwo+ICAJCQl9Cj4K
-PiAgCQkJcGlubXV4ID0gZGV2bV9rY2FsbG9jKGRldiwgbnBpbnMsIHNpemVvZigqcGlubXV4KSwg
-R0ZQX0tFUk5FTCk7Cj4gIAkJCWlmICghcGlubXV4KSB7Cj4gIAkJCQlyZXQgPSAtRU5PTUVNOwo+
-IC0JCQkJZ290byBwdXRfY2hpbGQ7Cj4gKwkJCQlnb3RvIGZyZWVfbWFwOwo+ICAJCQl9CuKApgo+
-IEBAIC02MjMsOCArNjIwLDYgQEAgc3RhdGljIGludCBzdGFyZml2ZV9kdF9ub2RlX3RvX21hcChz
-dHJ1Y3QgcGluY3RybF9kZXYgKnBjdGxkZXYsCj4gIAltdXRleF91bmxvY2soJnNmcC0+bXV0ZXgp
-Owo+ICAJcmV0dXJuIDA7Cj4KPiAtcHV0X2NoaWxkOgo+IC0Jb2Zfbm9kZV9wdXQoY2hpbGQpOwo+
-ICBmcmVlX21hcDoKPiAgCXBpbmN0cmxfdXRpbHNfZnJlZV9tYXAocGN0bGRldiwgbWFwLCBubWFw
-cyk7Cj4gIAltdXRleF91bmxvY2soJnNmcC0+bXV0ZXgpOwrigKYKPiArKysgYi9kcml2ZXJzL3Bp
-bmN0cmwvc3RhcmZpdmUvcGluY3RybC1zdGFyZml2ZS1qaDcxMTAuYwrigKYKPiBAQCAtMTc1LDE4
-ICsxNzUsMTggQEAgc3RhdGljIGludCBqaDcxMTBfZHRfbm9kZV90b19tYXAoc3RydWN0IHBpbmN0
-cmxfZGV2ICpwY3RsZGV2LAo+ICAJCXBpbnMgPSBkZXZtX2tjYWxsb2MoZGV2LCBucGlucywgc2l6
-ZW9mKCpwaW5zKSwgR0ZQX0tFUk5FTCk7Cj4gIAkJaWYgKCFwaW5zKSB7Cj4gIAkJCXJldCA9IC1F
-Tk9NRU07Cj4gLQkJCWdvdG8gcHV0X2NoaWxkOwo+ICsJCQlnb3RvIGZyZWVfbWFwOwo+ICAJCX0K
-Pgo+ICAJCXBpbm11eCA9IGRldm1fa2NhbGxvYyhkZXYsIG5waW5zLCBzaXplb2YoKnBpbm11eCks
-IEdGUF9LRVJORUwpOwo+ICAJCWlmICghcGlubXV4KSB7Cj4gIAkJCXJldCA9IC1FTk9NRU07Cj4g
-LQkJCWdvdG8gcHV0X2NoaWxkOwo+ICsJCQlnb3RvIGZyZWVfbWFwOwo+ICAJCX0K4oCmCj4gQEAg
-LTIzMyw4ICsyMzMsNiBAQCBzdGF0aWMgaW50IGpoNzExMF9kdF9ub2RlX3RvX21hcChzdHJ1Y3Qg
-cGluY3RybF9kZXYgKnBjdGxkZXYsCj4gIAkqbnVtX21hcHMgPSBubWFwczsKPiAgCXJldHVybiAw
-Owo+Cj4gLXB1dF9jaGlsZDoKPiAtCW9mX25vZGVfcHV0KGNoaWxkKTsKPiAgZnJlZV9tYXA6Cj4g
-IAlwaW5jdHJsX3V0aWxzX2ZyZWVfbWFwKHBjdGxkZXYsIG1hcCwgbm1hcHMpOwo+ICAJbXV0ZXhf
-dW5sb2NrKCZzZnAtPm11dGV4KTsKCgoxLiBFeGNlcHRpb24gaGFuZGxpbmcgaXMgcmVwZWF0ZWQg
-YSBmZXcgdGltZXMgYWxzbyBhY2NvcmRpbmcgdG8gbWVtb3J5IGFsbG9jYXRpb24gZmFpbHVyZXMu
-CiAgIEhvdyBkbyB5b3UgdGhpbmsgYWJvdXQgdG8gdXNlIGEgY29ycmVzcG9uZGluZyBsYWJlbCBs
-aWtlIOKAnGVfbm9tZW3igJ0KICAgc28gdGhhdCBhbm90aGVyIGJpdCBvZiBkdXBsaWNhdGUgc291
-cmNlIGNvZGUgY2FuIGJlIGF2b2lkZWQ/CiAgIGh0dHBzOi8vd2lraS5zZWkuY211LmVkdS9jb25m
-bHVlbmNlL2Rpc3BsYXkvYy9NRU0xMi1DLitDb25zaWRlcit1c2luZythK2dvdG8rY2hhaW4rd2hl
-bitsZWF2aW5nK2ErZnVuY3Rpb24rb24rZXJyb3Ird2hlbit1c2luZythbmQrcmVsZWFzaW5nK3Jl
-c291cmNlcwoKMi4gV2lsbCBkZXZlbG9wbWVudCBpbnRlcmVzdHMgZ3JvdyBmb3IgdGhlIHVzYWdl
-IG9mIGEgc3RhdGVtZW50IGxpa2Ug4oCcZ3VhcmQobXV0ZXgpKCZzZnAtPm11dGV4KTvigJ0/CgoK
-UmVnYXJkcywKTWFya3VzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+
+--===============2006312678041821968==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="39tUOd5aicq+YFEC"
+Content-Disposition: inline
+
+
+--39tUOd5aicq+YFEC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, May 24, 2024 at 06:33:02PM +0800, Yong-Xuan Wang wrote:
+> Add an entry for the Svadu extension to the riscv,isa-extensions property.
+>=20
+> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+I'm going to un-ack this, not because you did something wrong per se,
+but because there's some discussion on the OpenSBI list about what is
+and what is not backwards compatible and how an OS should interpret
+svade and svadu:
+https://lists.infradead.org/pipermail/opensbi/2024-May/006949.html
+
+Thanks,
+Conor.
+
+> ---
+>  Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index 468c646247aa..598a5841920f 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -153,6 +153,12 @@ properties:
+>              ratified at commit 3f9ed34 ("Add ability to manually trigger
+>              workflow. (#2)") of riscv-time-compare.
+> =20
+> +        - const: svadu
+> +          description: |
+> +            The standard Svadu supervisor-level extension for hardware u=
+pdating
+> +            of PTE A/D bits as ratified at commit c1abccf ("Merge pull r=
+equest
+> +            #25 from ved-rivos/ratified") of riscv-svadu.
+> +
+>          - const: svinval
+>            description:
+>              The standard Svinval supervisor-level extension for fine-gra=
+ined
+> --=20
+> 2.17.1
+>=20
+
+--39tUOd5aicq+YFEC
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZlSiGAAKCRB4tDGHoIJi
+0rsyAQDVctvH18CS7Wmm09E45EARmF5ZCi1dVq5wi3eKs6RM2gEA4XNa7WqLM3B8
+qQI+GhZGvFqrbLnnav9sXWDnIHogkQU=
+=AIHm
+-----END PGP SIGNATURE-----
+
+--39tUOd5aicq+YFEC--
+
+
+--===============2006312678041821968==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2006312678041821968==--
+
