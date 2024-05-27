@@ -4,83 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63CBC25B74
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 12:32:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE816C25B74
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 May 2024 12:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LrBexVrfinFESARqS261c2DOeFLVoyU3BZLfRFHQNbE=; b=ThcPgZBy7QwFYh
-	ojnforU7ckoO16Vpu8qki47MorvRwJGVDLk4iu6uWbeKStUG9ebY2/yOFwqYhtgy/Ek4eobyAaHd+
-	AlCm25+C0qWj/A2FzIaJEJAxuVOw9jp6B3qzYAyKZay/UDbUMaWHQFYR4uJ2kRiYNKFT92tblcQrI
-	Qr4+ebCWm8FK6vbWE7Wj37WIzVSPIdDtp0ptJNuLmAC6KcRyJCWOb7snT5tY2Zj8mZtA4qEdGju6/
-	6Trb4zqQKsEwqlfzcdQpK6IwtavAeJYGR2uDlVuUYxDgEu0JNP78oV3UYDd5uoWv2TPRyB092+JDU
-	62fYqMWUtHQT4aGFz8Yw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rIQRqz4GUucGbBYkXb6grgcLFJPryeaajAM/7K5t1Vs=; b=WYYzGJEzt9oLXwyCvq+hcEcz2W
+	VLtJZcdJDYXEkGlK4m2xlULsjqbTE27YcW//Xg0EXH+FFTmGXl9x8ZtrpE9eOTsxTYUii+PT1Rzcw
+	nb3joG+wMdxoKWIzTV8BgPAd5KXaqypbqkwAiRSMSxJdIKP5QImnZwjCNqm4ISmpuohhFyOeYTPi4
+	uRQP+pdlXppYmQh0+y33g9nT5SB5oCeEFEzOqtNs8nRt5VegbG2dXZTpOX6SpvjS5iJLHYiqVEGu1
+	MmMY9Za4CgwTC+zaStPjJ28alofkdFe2FLjmXww6zQh3ztHn4zr+05JvkU2PrCAskpKHwfBj5qzAh
+	fWOzfd0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBZWJ-0000000EtJT-2a5P;
-	Mon, 27 May 2024 12:32:07 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1sBZXE-0000000EtXf-0Rih;
+	Mon, 27 May 2024 12:33:04 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBZWG-0000000EtJ5-3l4v
+	id 1sBZXB-0000000EtWo-2YxO
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 May 2024 12:32:06 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-df4e40a3cb6so5583567276.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 May 2024 05:32:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1716813122; x=1717417922; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZJDUGLRRsJ0ivWLRLg9qi0jczqwj4hSiWcWfn/3vXsg=;
-        b=tGo/9i8a7bi3EFNmdKE7sxZR+1pAkX4/y3XJyizSRj3OvbMK39VkkGtZTeqjzgyh1u
-         kEuZnYsTDDnrgwRmX321+W5YtSVt0KqIINfAAoqAPXTvHIB9/WednvF2SGgaHCpH/D8N
-         uIbT7wCiiiETsUfCBj6HCcB1LH0vlQAaypJ8PMrLmGFIRzZGnLwI6eHL82ddWHmcPC49
-         OD3N/siFhzZapiKYJp3yYpoZCrdQLb7tCB+QQN2eMNCPIhLw6ug6fZottlIx9uByVJK2
-         QIrq2itLQZtqfQJrlcFvPZOh7eN+7QzFo0ESMdz00nVJHshw7viS3mn0XoTucdf7ngTM
-         XY6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716813122; x=1717417922;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZJDUGLRRsJ0ivWLRLg9qi0jczqwj4hSiWcWfn/3vXsg=;
-        b=InP2ZyA/miMmrdleWVNc32A1JadHu6B8lKEUX+RZzK8UrpOaerv04p0f0dHv0ex9o2
-         kpH4elVHz+dpJWwBOxXShAI1zCQjaWlITMYmpWtlxbQtZqHPc97d9F38eOP7gGke6gx4
-         y65DayP0Bc9pNgjTiJe/rSCpAj80OZEIxT5WSpd73hjtNdSZbHsvyqEAWAMXqecluJqP
-         IPpuifs3SzPfd02x4cP/tw/SHpX/a/ITXgkG8G1idxvV/nIctqLHZ0AOYaTXC29/ZJFX
-         PXDJOZMJP6aQmMXVtKVHi/ShBhNoYNVJbjjLSskUcjn3iGQ18mrLrR8Hpb0TIPN1pxhZ
-         HK1g==
-X-Forwarded-Encrypted: i=1; AJvYcCUM1r0rApWKKaS3qd0KV//9E0o7v76Q2axE8sI/VUdWEZbfPtFr9ANm0fvz5IM3pHPrWyID4QAP4b6kSDM5AjCoP6isbIZaDAxLUdLwK5Rq
-X-Gm-Message-State: AOJu0YyQJlkwGPilkPzJNAgfNwavsZY4X/aGTkNarjmBxPCqDj/GUeXX
-	p+go0ifoGmWsskVHHrFnMp8SUxl3cfnVYssqPSojafS/108NMyNNASTTxS+a0jTX/o2ariFeEIU
-	zFbP7oLNwMW6e/D+m0F61WrUn9yb9UnA0fuWTOQ==
-X-Google-Smtp-Source: AGHT+IFbWEK6qKocYhw6f8EvHhlrGAgfVZ6YKjWo+tvRZyGR5zLrpIUyxn/pC4oFmBGHvnvExLlnPLbfXeXIcI3u80E=
-X-Received: by 2002:a25:abeb:0:b0:df7:69a2:f823 with SMTP id
- 3f1490d57ef6-df77215546amr9090048276.7.1716813122592; Mon, 27 May 2024
- 05:32:02 -0700 (PDT)
+	Mon, 27 May 2024 12:33:03 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id ED0CE2000E;
+	Mon, 27 May 2024 12:32:58 +0000 (UTC)
+Message-ID: <335c8f7e-cef7-483c-bab7-6110e5d31071@ghiti.fr>
+Date: Mon, 27 May 2024 14:32:58 +0200
 MIME-Version: 1.0
-References: <20240503111436.113089-1-yuklin.soo@starfivetech.com> <20240503111436.113089-7-yuklin.soo@starfivetech.com>
-In-Reply-To: <20240503111436.113089-7-yuklin.soo@starfivetech.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 27 May 2024 14:31:51 +0200
-Message-ID: <CACRpkdajd1WkzscPiZL8JKvf10VHy5ppYjy-zAOaNTh0cFXtbQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v3 6/7] gpiolib: enable GPIO interrupt to wake up a
- system from sleep
-To: Alex Soo <yuklin.soo@starfivetech.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Hal Feng <hal.feng@starfivetech.com>, 
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>, 
-	Jianlong Huang <jianlong.huang@starfivetech.com>, Emil Renner Berthing <kernel@esmil.dk>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Drew Fustini <drew@beagleboard.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/7] riscv: replace va_kernel_pa_offset with
+ va_kernel_data_pa_offset on XIP
+Content-Language: en-US
+To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1715286093.git.namcao@linutronix.de>
+ <133e7cd43a67abfed96bc246ae5f8a870edde684.1715286093.git.namcao@linutronix.de>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <133e7cd43a67abfed96bc246ae5f8a870edde684.1715286093.git.namcao@linutronix.de>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_053204_954701_CCFF41D4 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20240527_053302_020664_887545E8 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,41 +58,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMywgMjAyNCBhdCAxOjE14oCvUE0gQWxleCBTb28gPHl1a2xpbi5zb29Ac3Rh
-cmZpdmV0ZWNoLmNvbT4gd3JvdGU6Cgo+IEFkZCBmdW5jdGlvbiBncGlvY2hpcF93YWtldXBfaXJx
-X3NldHVwKCkgdG8gY29uZmlndXJlIGFuZCBlbmFibGUgYQo+IEdQSU8gcGluIHdpdGggaW50ZXJy
-dXB0IHdha2V1cCBjYXBhYmlsaXR5IGFjY29yZGluZyB0byB1c2VyLWRlZmluZWQKPiB3YWtldXAt
-Z3Bpb3MgcHJvcGVydHkgaW4gdGhlIGRldmljZSB0cmVlLiBJbnRlcnJ1cHQgZ2VuZXJhdGVkIGJ5
-Cj4gdG9nZ2xpbmcgdGhlIGxvZ2ljIGxldmVsIChyaXNpbmcvZmFsbGluZyBlZGdlKSBvbiB0aGUg
-c3BlY2lmaWVkCj4gR1BJTyBwaW4gY2FuIHdha2UgdXAgYSBzeXN0ZW0gZnJvbSBzbGVlcCBtb2Rl
-Lgo+Cj4gU2lnbmVkLW9mZi1ieTogQWxleCBTb28gPHl1a2xpbi5zb29Ac3RhcmZpdmV0ZWNoLmNv
-bT4KClRoaXMgaXMgYSB2ZXJ5IGhlbHBmdWwgcGF0Y2ggSSB0aGluay4KCkknbSBsb29raW5nIGZv
-cndhcmQgdG8gdGhlIG5leHQgaXRlcmF0aW9uLgoKPiBAQCAtMTA0NSw4ICsxMDQ3LDE1IEBAIGlu
-dCBncGlvY2hpcF9hZGRfZGF0YV93aXRoX2tleShzdHJ1Y3QgZ3Bpb19jaGlwICpnYywgdm9pZCAq
-ZGF0YSwKPiAgICAgICAgICAgICAgICAgaWYgKHJldCkKPiAgICAgICAgICAgICAgICAgICAgICAg
-ICBnb3RvIGVycl9yZW1vdmVfaXJxY2hpcDsKPiAgICAgICAgIH0KPiArCj4gKyAgICAgICByZXQg
-PSBncGlvY2hpcF93YWtldXBfaXJxX3NldHVwKGdjKTsKPiArICAgICAgIGlmIChyZXQpCj4gKyAg
-ICAgICAgICAgICAgIGdvdG8gZXJyX3JlbW92ZV9kZXZpY2U7CgpEbyB3ZSBoYXZlIGFueSBpbi10
-cmVlIGRyaXZlcnMgdGhhdCBkbyB0aGlzIGJ5IHRoZW1zZWx2ZXMgYWxyZWFkeT8KCkluIHRoYXQg
-Y2FzZSB3ZSBzaG91bGQgY29udmVydCB0aGVtIHRvIHVzZSB0aGlzIGZ1bmN0aW9uIGluIHRoZSBz
-YW1lCnBhdGNoIHRvIGF2b2lkIHJlZ3Jlc3Npb25zLgoKPiArc3RhdGljIGlycXJldHVybl90IGdw
-aW9fd2FrZV9pcnFfaGFuZGxlcihpbnQgaXJxLCB2b2lkICpkYXRhKQo+ICt7Cj4gKyAgICAgICBz
-dHJ1Y3QgaXJxX2RhdGEgKmlycV9kYXRhID0gZGF0YTsKCkknbSBtaW5pbWFsaXN0IHNvIEkgdXN1
-YWxseSBqdXN0IGNhbGwgdGhlIHBhcmFtZXRlciAiZCIgaW5zdGVhZCBvZiAiZGF0YSIKYW5kIGly
-cV9kYXRhIEkgd291bGQgY2FsbCAqaWQgYnV0IGl0J3MgeW91ciBwaWNrLgoKPiArCj4gKyAgICAg
-ICBpZiAoIWlycV9kYXRhIHx8IGlycSAhPSBpcnFfZGF0YS0+aXJxKQo+ICsgICAgICAgICAgICAg
-ICByZXR1cm4gSVJRX05PTkU7Cj4gKwo+ICsgICAgICAgcmV0dXJuIElSUV9IQU5ETEVEOwoKUGxl
-YXNlIGFkZCBzb21lIGRlYnVnIHByaW50OgoKc3RydWN0IGdwaW9fY2hpcCAqZ2MgPSBpcnFfZGF0
-YS0+Y2hpcF9kYXRhOwoKY2hpcF9kYmcoZ2MsICJHUElPIHdha2V1cCBvbiBJUlEgJWRcbiIsIGly
-cSk7CgpUaGUgcmVzdCBsb29rcyBnb29kIHRvIG1lIChhZnRlciBmaXhpbmcgQW5keSdzIGNvbW1l
-bnRzISkKCkkgd291bGQgcGVyaGFwcyBwdXQgc29tZQpkZWJ1ZyBwcmludCB0aGF0ICJHUElPIHdh
-a2V1cCBlbmFibGVkIGF0IG9mZnNldCAlZCIgaW4gdGhlCmVuZCBhcyB3ZWxsLCBzbyBwZW9wbGUg
-Y2FuIGVhc2lseSBmb2xsb3cgdGhpcyBpbiB0aGUgZGVidWcgcHJpbnRzLgoKWW91cnMsCkxpbnVz
-IFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+On 10/05/2024 08:28, Nam Cao wrote:
+> On XIP kernel, the name "va_kernel_pa_offset" is misleading: unlike
+> "normal" kernel, it is not the virtual-physical address offset of kernel
+> mapping, it is the offset of kernel mapping's first virtual address to
+> first physical address in DRAM, which is not meaningful because the
+> kernel's first physical address is not in DRAM.
+>
+> For XIP kernel, there are 2 different offsets because the read-only part of
+> the kernel resides in ROM while the rest is in RAM. The offset to ROM is in
+> kernel_map.va_kernel_xip_pa_offset, while the offset to RAM is not stored
+> anywhere: it is calculated on-the-fly.
+>
+> Remove this confusing "va_kernel_pa_offset" and add
+> "va_kernel_data_pa_offset" as its replacement. This new variable is the
+> offset of virtual mapping of the kernel's data portion to the corresponding
+> physical addresses.
+>
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> ---
+>   arch/riscv/include/asm/page.h | 25 +++++++++++++++++++------
+>   arch/riscv/mm/init.c          |  4 +++-
+>   2 files changed, 22 insertions(+), 7 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> index 115ac98b8d72..14d0de928f9b 100644
+> --- a/arch/riscv/include/asm/page.h
+> +++ b/arch/riscv/include/asm/page.h
+> @@ -112,11 +112,13 @@ struct kernel_mapping {
+>   	/* Offset between linear mapping virtual address and kernel load address */
+>   	unsigned long va_pa_offset;
+>   	/* Offset between kernel mapping virtual address and kernel load address */
+> -	unsigned long va_kernel_pa_offset;
+> -	unsigned long va_kernel_xip_pa_offset;
+>   #ifdef CONFIG_XIP_KERNEL
+> +	unsigned long va_kernel_xip_pa_offset;
+> +	unsigned long va_kernel_data_pa_offset;
+
+
+I would call that new field va_kernel_xip_data_pa_offset so that we know 
+at first sight it only applies to XIP_KERNEL (and maybe rename 
+va_kernel_xip_pa_offset into va_kernel_xip_text_pa_offset?).
+
+
+>   	uintptr_t xiprom;
+>   	uintptr_t xiprom_sz;
+> +#else
+> +	unsigned long va_kernel_pa_offset;
+>   #endif
+>   };
+>   
+> @@ -134,12 +136,18 @@ extern phys_addr_t phys_ram_base;
+>   #else
+>   void *linear_mapping_pa_to_va(unsigned long x);
+>   #endif
+> +
+> +#ifdef CONFIG_XIP_KERNEL
+>   #define kernel_mapping_pa_to_va(y)	({					\
+>   	unsigned long _y = (unsigned long)(y);					\
+> -	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < phys_ram_base) ?			\
+> +	(_y < phys_ram_base) ?							\
+>   		(void *)(_y + kernel_map.va_kernel_xip_pa_offset) :		\
+> -		(void *)(_y + kernel_map.va_kernel_pa_offset + XIP_OFFSET);	\
+> +		(void *)(_y + kernel_map.va_kernel_data_pa_offset);		\
+>   	})
+> +#else
+> +#define kernel_mapping_pa_to_va(y) (void *)((unsigned long)(y) + kernel_map.va_kernel_pa_offset)
+> +#endif
+> +
+>   #define __pa_to_va_nodebug(x)		linear_mapping_pa_to_va(x)
+>   
+>   #ifndef CONFIG_DEBUG_VIRTUAL
+> @@ -147,12 +155,17 @@ void *linear_mapping_pa_to_va(unsigned long x);
+>   #else
+>   phys_addr_t linear_mapping_va_to_pa(unsigned long x);
+>   #endif
+> +
+> +#ifdef CONFIG_XIP_KERNEL
+>   #define kernel_mapping_va_to_pa(y) ({						\
+>   	unsigned long _y = (unsigned long)(y);					\
+> -	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < kernel_map.virt_addr + XIP_OFFSET) ? \
+> +	(_y < kernel_map.virt_addr + XIP_OFFSET) ?				\
+>   		(_y - kernel_map.va_kernel_xip_pa_offset) :			\
+> -		(_y - kernel_map.va_kernel_pa_offset - XIP_OFFSET);		\
+> +		(_y - kernel_map.va_kernel_data_pa_offset);			\
+>   	})
+> +#else
+> +#define kernel_mapping_va_to_pa(y) ((unsigned long)(y) - kernel_map.va_kernel_pa_offset)
+> +#endif
+>   
+>   #define __va_to_pa_nodebug(x)	({						\
+>   	unsigned long _x = x;							\
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 5e3ec076ab95..9846c6924509 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -1089,10 +1089,13 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>   	kernel_map.size = (uintptr_t)(&_end) - (uintptr_t)(&_start);
+>   
+>   	kernel_map.va_kernel_xip_pa_offset = kernel_map.virt_addr - kernel_map.xiprom;
+> +	kernel_map.va_kernel_data_pa_offset = kernel_map.virt_addr - kernel_map.phys_addr
+> +						+ (uintptr_t)&_sdata - (uintptr_t)&_start;
+>   #else
+>   	kernel_map.page_offset = _AC(CONFIG_PAGE_OFFSET, UL);
+>   	kernel_map.phys_addr = (uintptr_t)(&_start);
+>   	kernel_map.size = (uintptr_t)(&_end) - kernel_map.phys_addr;
+> +	kernel_map.va_kernel_pa_offset = kernel_map.virt_addr - kernel_map.phys_addr;
+>   #endif
+>   
+>   #if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
+> @@ -1114,7 +1117,6 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>   	 */
+>   	kernel_map.va_pa_offset = IS_ENABLED(CONFIG_64BIT) ?
+>   				0UL : PAGE_OFFSET - kernel_map.phys_addr;
+> -	kernel_map.va_kernel_pa_offset = kernel_map.virt_addr - kernel_map.phys_addr;
+>   
+>   	/*
+>   	 * The default maximal physical memory size is KERN_VIRT_SIZE for 32-bit
+
+
+I think you missed the occurence of va_kernel_pa_offset() in 
+arch/riscv/kernel/vmcore_info.c.
+
+Although some nits above, you can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
