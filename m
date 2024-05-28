@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559FAC25B7C
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 13:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E15BC25B78
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 15:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/N79IirO1tT1kAkTrs/dbwjWyT7xzBMwdIMhfzVlW/g=; b=VtvvDcq9i93k/e
-	SaSuby24SYXNiKz7WDlOVUbruhaUDSZW+LjlClHBUFRTCtZKGghv/QBtkPWCVFgcgQfNG+MrtiIG6
-	BAWe5LOpvlT1xOHJIWOPZgKgbbDtAPWVdU27lt6lUwS/9YhnAD7xrd3g8nHH8XxC9SmS6EAFDVvBQ
-	1Q7dAYVTczgYgabJxKkEeIR7RQ5OjUuuCAmpAaPv19SDOBP226ocjSgzgyWH9yaSMH/XVd5caMBXW
-	XBqKCOxrhVRopRL4joL55LKEGX/JGb0DmiOpWM49YBuRXK+U/MAVCWSvhMNER03QcOmAKQ938RvUO
-	PLwbGFd8Q7ZOGnSmEuhA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/H4jIobelH+G1Igq+x5tiDItIs0gGhjcDHzKEHGn2Uk=; b=s0s2wL0PzjyTKO
+	lEJY+InsiBheW21RfVvJ0KOz829kCSbAz4CJUteA0qfO3pU2uVcKe0HhldSp/DPlbqSa1hhShQIwj
+	zXv/fiHwVkJH/5JaFvti27iad+oPZ6tNqCmQFVmniw4fj0Op65epM6aw00V5Y7kOaETBJsuZ+WmN6
+	rB3YgawYsz323k4bmaSsibTXLcMj+IyjIvEe3ly+3Tc4fG7+wSq8qqA4qyDQcRX53AQLlqcRUnGrE
+	qeHwj0qyUcuuU76OKr71zTpEWFSCv0e2eJi9TF6m+mv7ewgWaJZBAbgfuH8k5ijC+i6OI3GsFrqfA
+	HPKsrZo0rV9lSmP+INQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBwzR-00000000q32-2vt7;
-	Tue, 28 May 2024 13:35:45 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1sByTl-00000001A6p-3zKh;
+	Tue, 28 May 2024 15:11:09 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBwzO-00000000q1o-0vKk
+	id 1sByTa-000000019xr-178q
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 May 2024 13:35:43 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-357f1c0b86fso611888f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 28 May 2024 06:35:41 -0700 (PDT)
+	Tue, 28 May 2024 15:11:07 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-42120fc8cbfso4112845e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 28 May 2024 08:10:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1716903340; x=1717508140; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SjGXaowzOpIF3QbPazGFsBGPsl4FgWIVG9cNH5OZlLw=;
-        b=W7Gmi4XzAHR63IJQYCDLhx9uhhxKobocUaBlJ5OksXI9VzXpqCBWzfWQWtYQu7BOiS
-         FrwVySSUaGoDudKArLPMU++WuLZvBf0CjzCh6lnnLZUyMSlaVXW88/mKIL1+7cuWl2/S
-         qTDJFhxLnoys4PG7++Nf3Apn2f00ySFencTF0/UljKQmCe5E6PvBDcJvEKhwowx0Qj81
-         KF4Fk0HipxcY8witXuZpdI498sGK6iW7N/KWXAvQg1/QbAWpSf7NA2gAqjbFUEuKBF/y
-         reKi/IMCNyrwNaZrDCUNAK+iTwI1GOO9NNTEJMoYozgRgQLYW4nj3v+4fD/LArtIcIeo
-         7x5A==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1716909055; x=1717513855; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=k0AGpQFir7bYkY6Hm/qOL+w8L3+MGNDSpFH+GMgURdQ=;
+        b=LR0ScoyaSHRnp/yt7cHV9aRFJECsGoO+b+ATU4111bnwNHBOLWy0Ei9UD01VfobEWt
+         izG4REYmvpj42JewIX8hud13N43bBIMs2LlPCCDg7DPRhLh9YgLQ7RTw76EzU5LndTzB
+         GG36RizI0V2Bh4KPs+sVT5hNXDrEugsPjbqL5ZZpPcfIRMvtflnV0odM9GUayDc/pP+U
+         3KP6iNMaU2vppHQUIJX9kE6Wk3EMIPHBHRClc3hyuJ1gqnJNePtfn9AupKe+HylK61IY
+         +spG1oAVwGPwWwYkA51hyg/PL5304CJBOtXDbTllkXs+fCsX1Rc1eaBmijsTnqrXg6dB
+         wa0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716903340; x=1717508140;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SjGXaowzOpIF3QbPazGFsBGPsl4FgWIVG9cNH5OZlLw=;
-        b=HjU5ie0t+Qy5Di3htN/YxHm3/FSBwb9ZndxOTySMC/0G4HFX+z98R8UgFVkY9zgAjN
-         ZJ8nchG5yDtPI8P/YCgSLDIQmnsm/pSInO09LD4EcQiNqDdxnKzII/Fgqujm8Do6w6H8
-         hj5OkESVi0nKDOanpn4i1GiaFifFAx/RCS3mSuDS4pAejN9xVVrrBl+v9VGPjxh5BF82
-         u1HD5zUXPtzkMYBSPuro4DQvOBQsqWZZ7cMRVR3UJu4X2HWObcgjQ4prcOIAiksaEvZa
-         jTgCZ/IPzleOgczxFX6gJSvECRLnbF+Qd2n934E6K32nJF5DVlBLnUO7AE3QRNSnY9oL
-         nG7g==
-X-Gm-Message-State: AOJu0YyAlxk2oVSdnwjCqfcQaNKnTncNDvh7TsSgWu5yeluwxElQJ7pR
-	hjMNbIWQZ4hykIWz1Fcckxbq4MzF4hke4yS+UirqBiXfR2ZXXgsUlJGTSP3ztBt9SWn1jjvZzs+
-	8Q+E=
-X-Google-Smtp-Source: AGHT+IFbOwoRSz6/nVrWGNSVmDQHjWUjIuJdCuhVXgFdFXelciHbbbL1yL6O7el2JjJ+1u9RO6CYZA==
-X-Received: by 2002:adf:f08e:0:b0:354:dd23:7607 with SMTP id ffacd0b85a97d-3552fdfd438mr8792336f8f.57.1716903339771;
-        Tue, 28 May 2024 06:35:39 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3582917b222sm7268083f8f.93.2024.05.28.06.35.38
+        d=1e100.net; s=20230601; t=1716909055; x=1717513855;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=k0AGpQFir7bYkY6Hm/qOL+w8L3+MGNDSpFH+GMgURdQ=;
+        b=VoKb0+qyK01f+Yuc5XokfHD4yKDaYGBtmn3ObxtOpGyycjj79u6zad9MUlIg5GKOhg
+         mjkU0vzwDjSpynX0xtRIcS9+s2UNVu3xv+mZKRuIB3gdL2Wvg3BIupUJhrFiyRnopAT4
+         jwvBqjLmYBEe6oQunYmaSqbxIfmul3RQ1A+gdINoy0IWdGjalAXiOAdGVA+vqzfjIhh9
+         ryqX1Ev6x5HjpYQfeu/TdFCmdRGC+/Xa9usQqQZY+3bbLdsKCe4VYtI3UfMczJj5DhDQ
+         B3Mx+OCsxzZM4QNufWI2gXKS/VTtkwNJQwFAtBKJ50g8QfUrqqx+gOb1KNF68LOtlTnI
+         GmhA==
+X-Forwarded-Encrypted: i=1; AJvYcCVnmf1Uvd34KOJn2Y2B2U5xCGGrtWwDGsN17cfP+tWSLVM/4H99/fdeKeUCRm56dC60noP9GdINWQIZB7FqyUdSbhl8UbzlZaReGGVMiG0m
+X-Gm-Message-State: AOJu0Yz58QNdf48WVjvYs7qaf5LRtf09DU0l4GfZJQlvAdq/ZgM1mUdU
+	K9cQLpgyrDzXJQ5HJnzMI9pPs2SxUJBqywHXqYkVq36t3kRY1hnAjHCOqmrFNUvY4lGv6odrlm2
+	l
+X-Google-Smtp-Source: AGHT+IHwEZnGvgBLJ+odBijV5gGLQhEjsnEBuwZ3zDPr0k4TFSH0yVpvuN/r5/6VstbLixDjb6DW3w==
+X-Received: by 2002:a05:600c:4703:b0:420:1fab:1798 with SMTP id 5b1f17b1804b1-421089fe2c2mr95474985e9.29.1716909054785;
+        Tue, 28 May 2024 08:10:54 -0700 (PDT)
+Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-35579d7da64sm12293475f8f.4.2024.05.28.08.10.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 May 2024 06:35:39 -0700 (PDT)
-Date: Tue, 28 May 2024 15:35:38 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, 
-	Conor Dooley <conor.dooley@microchip.com>, xiao.w.wang@intel.com, pulehui@huawei.com, 
-	Charlie Jenkins <charlie@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org, 
-	Samuel Holland <samuel.holland@sifive.com>, Pu Lehui <pulehui@huaweicloud.com>, 
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Subject: Re: [PATCH v3 2/2] RISC-V: separate Zbb optimisations requiring and
- not requiring toolchain support
-Message-ID: <20240528-4a498a28af8d912561d1a103@orel>
-References: <20240528-applaud-violin-facef8d9d846@spud>
- <20240528-opossum-flavorful-3411811b87e2@spud>
+        Tue, 28 May 2024 08:10:54 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Will Deacon <will@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Leonardo Bras <leobras@redhat.com>,
+	Guo Ren <guoren@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH 0/7] Zacas/Zabha support and qspinlocks
+Date: Tue, 28 May 2024 17:10:45 +0200
+Message-Id: <20240528151052.313031-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240528-opossum-flavorful-3411811b87e2@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240528_063542_292175_EC2ECF93 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20240528_081059_278858_06F31F5E 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +105,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 28, 2024 at 12:11:12PM GMT, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> It seems a bit ridiculous to require toolchain support for BPF to
-> assemble Zbb instructions, so move the dependency on toolchain support
-> for Zbb optimisations out of the Kconfig option and to the callsites.
-> 
-> Zbb support has always depended on alternatives, so while adjusting the
-> config options guarding optimisations, remove any checks for
-> whether or not alternatives are enabled.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> v2/v3:
-> - Per Drew's suggestion, drop the stub Kconfig option and instead push
->   out the toolchain dependency to the relevant callsites.
-> - Delete a bunch of comments about only attempting Zbb if alternatives
->   are available, since they always are.
-> ---
->  arch/riscv/Kconfig                    |  4 ++--
->  arch/riscv/include/asm/arch_hweight.h |  6 +++---
->  arch/riscv/include/asm/bitops.h       |  4 ++--
->  arch/riscv/include/asm/checksum.h     |  3 +--
->  arch/riscv/lib/csum.c                 | 21 +++------------------
->  arch/riscv/lib/strcmp.S               |  5 +++--
->  arch/riscv/lib/strlen.S               |  5 +++--
->  arch/riscv/lib/strncmp.S              |  5 +++--
->  8 files changed, 20 insertions(+), 33 deletions(-)
+This implements [cmp]xchgXX() macros using Zacas and Zabha extensions
+and finally uses those newly introduced macros to add support for
+qspinlocks: note that this implementation of qspinlocks satisfies the
+forward progress guarantee.
 
+Thanks to Guo and Leonardo for their work!
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Alexandre Ghiti (5):
+  riscv: Implement cmpxchg32/64() using Zacas
+  riscv: Implement cmpxchg8/16() using Zabha
+  riscv: Implement arch_cmpxchg128() using Zacas
+  riscv: Implement xchg8/16() using Zabha
+  riscv: Add qspinlock support based on Zabha extension
+
+Guo Ren (2):
+  asm-generic: ticket-lock: Reuse arch_spinlock_t of qspinlock
+  asm-generic: ticket-lock: Add separate ticket-lock.h
+
+ .../locking/queued-spinlocks/arch-support.txt |   2 +-
+ arch/riscv/Kconfig                            |  35 ++++++
+ arch/riscv/Makefile                           |  21 ++++
+ arch/riscv/include/asm/Kbuild                 |   4 +-
+ arch/riscv/include/asm/cmpxchg.h              | 114 ++++++++++++++++--
+ arch/riscv/include/asm/hwcap.h                |   1 +
+ arch/riscv/include/asm/spinlock.h             |  39 ++++++
+ arch/riscv/kernel/cpufeature.c                |   1 +
+ arch/riscv/kernel/setup.c                     |  18 +++
+ include/asm-generic/qspinlock.h               |   2 +
+ include/asm-generic/spinlock.h                |  87 +------------
+ include/asm-generic/spinlock_types.h          |  12 +-
+ include/asm-generic/ticket_spinlock.h         | 105 ++++++++++++++++
+ 13 files changed, 336 insertions(+), 105 deletions(-)
+ create mode 100644 arch/riscv/include/asm/spinlock.h
+ create mode 100644 include/asm-generic/ticket_spinlock.h
+
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
