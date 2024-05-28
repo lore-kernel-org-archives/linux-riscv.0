@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 568E0C25B7C
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 11:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559FAC25B7C
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 13:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YPTakNHD8kIxVq1idfms4CpEKXIjAgdhs4yNgdI9cEw=; b=NjFwGhkiqfN3xex2C3LqDshUSO
-	CUUcPFUR/+o2fLb3PDojaVTtaeBNILMYKGlEqKOjF3yeXFpmi7Sxrc0p5DbxReYzYI0ZKUMXrVaST
-	JZPIsxExqr1rSisi8BpeQbt0IN2wLVXSYZRkoDBKkhnfLN1+17MuxBSI4+xE83NuWzkbIOUS1lDg+
-	meRHuOqvGGpACEhiraG0qQ9Ye1EhK34dtVjdZ7xvFWyEtWulZPDzI7KJhAKgJAlQEnQg/2TL1pHqU
-	MVv3OT88BKiTdOT2QLqPP1DuGjiwChoc2M66yLDddw0NK0soNR4zwMmwqLT9hMslgCg6ErHnSY6Bi
-	lfp12XYg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/N79IirO1tT1kAkTrs/dbwjWyT7xzBMwdIMhfzVlW/g=; b=VtvvDcq9i93k/e
+	SaSuby24SYXNiKz7WDlOVUbruhaUDSZW+LjlClHBUFRTCtZKGghv/QBtkPWCVFgcgQfNG+MrtiIG6
+	BAWe5LOpvlT1xOHJIWOPZgKgbbDtAPWVdU27lt6lUwS/9YhnAD7xrd3g8nHH8XxC9SmS6EAFDVvBQ
+	1Q7dAYVTczgYgabJxKkEeIR7RQ5OjUuuCAmpAaPv19SDOBP226ocjSgzgyWH9yaSMH/XVd5caMBXW
+	XBqKCOxrhVRopRL4joL55LKEGX/JGb0DmiOpWM49YBuRXK+U/MAVCWSvhMNER03QcOmAKQ938RvUO
+	PLwbGFd8Q7ZOGnSmEuhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBvSt-00000000TYs-2qWT;
-	Tue, 28 May 2024 11:58:03 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sBwzR-00000000q32-2vt7;
+	Tue, 28 May 2024 13:35:45 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBvSr-00000000TXt-00RE
+	id 1sBwzO-00000000q1o-0vKk
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 May 2024 11:58:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 54E00CE0B26;
-	Tue, 28 May 2024 11:57:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B9DDC3277B;
-	Tue, 28 May 2024 11:57:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1716897478;
-	bh=1lYQK5mXOyUpa175X1Sy96vhJCVsXrfaSlYdbye/ge8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LI/XBhMMNJFFMWherkusHeRzK7+ig9lgB76uzLfVZp6mhu+jz6rvYccIm0xFBmnKI
-	 qdIp+dgugEptH32RE3YLTOitOBMYIkW2ueYGAhLeAMPyxUOVCSOta9cjGgW1C4zOwq
-	 NPG4ouUTyBKglYbxJy43bFGuKim5CphIm3SzdPGjIbeMsjvBwRhxSag7ZF37u6JI7v
-	 slfoiaO2tH4JIOhF6hiISFnV6FP+EPXBqSnwoLRHUdXfAxWjd9PoxOVOTWUtwxR3zb
-	 PQ7jbqxiTd1NKwpJEwNtDkY8ZihuVAt9Nv59Uwgr6NKwU4MDZdrVCRFvdWakdI1uFC
-	 MK1nXmNHqjmyw==
-Date: Tue, 28 May 2024 12:57:53 +0100
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Jamie Gibbons <jamie.gibbons@microchip.com>,
-	Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org
-Subject: Re: [PATCH v1 5/5] riscv: dts: microchip: add an initial devicetree
- for the BeagleV Fire
-Message-ID: <20240528-movable-chlorine-cc5ebabb8abf@spud>
-References: <20240327-parkway-dodgy-f0fe1fa20892@spud>
- <20240327-hurry-escapable-e3212bf3cdd8@spud>
+	Tue, 28 May 2024 13:35:43 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-357f1c0b86fso611888f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 28 May 2024 06:35:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1716903340; x=1717508140; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SjGXaowzOpIF3QbPazGFsBGPsl4FgWIVG9cNH5OZlLw=;
+        b=W7Gmi4XzAHR63IJQYCDLhx9uhhxKobocUaBlJ5OksXI9VzXpqCBWzfWQWtYQu7BOiS
+         FrwVySSUaGoDudKArLPMU++WuLZvBf0CjzCh6lnnLZUyMSlaVXW88/mKIL1+7cuWl2/S
+         qTDJFhxLnoys4PG7++Nf3Apn2f00ySFencTF0/UljKQmCe5E6PvBDcJvEKhwowx0Qj81
+         KF4Fk0HipxcY8witXuZpdI498sGK6iW7N/KWXAvQg1/QbAWpSf7NA2gAqjbFUEuKBF/y
+         reKi/IMCNyrwNaZrDCUNAK+iTwI1GOO9NNTEJMoYozgRgQLYW4nj3v+4fD/LArtIcIeo
+         7x5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716903340; x=1717508140;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SjGXaowzOpIF3QbPazGFsBGPsl4FgWIVG9cNH5OZlLw=;
+        b=HjU5ie0t+Qy5Di3htN/YxHm3/FSBwb9ZndxOTySMC/0G4HFX+z98R8UgFVkY9zgAjN
+         ZJ8nchG5yDtPI8P/YCgSLDIQmnsm/pSInO09LD4EcQiNqDdxnKzII/Fgqujm8Do6w6H8
+         hj5OkESVi0nKDOanpn4i1GiaFifFAx/RCS3mSuDS4pAejN9xVVrrBl+v9VGPjxh5BF82
+         u1HD5zUXPtzkMYBSPuro4DQvOBQsqWZZ7cMRVR3UJu4X2HWObcgjQ4prcOIAiksaEvZa
+         jTgCZ/IPzleOgczxFX6gJSvECRLnbF+Qd2n934E6K32nJF5DVlBLnUO7AE3QRNSnY9oL
+         nG7g==
+X-Gm-Message-State: AOJu0YyAlxk2oVSdnwjCqfcQaNKnTncNDvh7TsSgWu5yeluwxElQJ7pR
+	hjMNbIWQZ4hykIWz1Fcckxbq4MzF4hke4yS+UirqBiXfR2ZXXgsUlJGTSP3ztBt9SWn1jjvZzs+
+	8Q+E=
+X-Google-Smtp-Source: AGHT+IFbOwoRSz6/nVrWGNSVmDQHjWUjIuJdCuhVXgFdFXelciHbbbL1yL6O7el2JjJ+1u9RO6CYZA==
+X-Received: by 2002:adf:f08e:0:b0:354:dd23:7607 with SMTP id ffacd0b85a97d-3552fdfd438mr8792336f8f.57.1716903339771;
+        Tue, 28 May 2024 06:35:39 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3582917b222sm7268083f8f.93.2024.05.28.06.35.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 May 2024 06:35:39 -0700 (PDT)
+Date: Tue, 28 May 2024 15:35:38 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, 
+	Conor Dooley <conor.dooley@microchip.com>, xiao.w.wang@intel.com, pulehui@huawei.com, 
+	Charlie Jenkins <charlie@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org, 
+	Samuel Holland <samuel.holland@sifive.com>, Pu Lehui <pulehui@huaweicloud.com>, 
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Subject: Re: [PATCH v3 2/2] RISC-V: separate Zbb optimisations requiring and
+ not requiring toolchain support
+Message-ID: <20240528-4a498a28af8d912561d1a103@orel>
+References: <20240528-applaud-violin-facef8d9d846@spud>
+ <20240528-opossum-flavorful-3411811b87e2@spud>
 MIME-Version: 1.0
-In-Reply-To: <20240327-hurry-escapable-e3212bf3cdd8@spud>
+Content-Disposition: inline
+In-Reply-To: <20240528-opossum-flavorful-3411811b87e2@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240528_045801_420068_91CA04A8 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20240528_063542_292175_EC2ECF93 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,94 +93,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6748613909776140350=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============6748613909776140350==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="z79wW9aJnFNbzgAR"
-Content-Disposition: inline
-
-
---z79wW9aJnFNbzgAR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Wed, Mar 27, 2024 at 12:24:40PM +0000, Conor Dooley wrote:
-
-> +	fabric-pcie-bus@3000000000 {
-> +		compatible = "simple-bus";
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges = <0x0 0x40000000 0x0 0x40000000 0x0 0x20000000>,
-> +			 <0x30 0x0 0x30 0x0 0x10 0x0>;
-> +
-> +		pcie: pcie@3000000000 {
-> +			compatible = "microchip,pcie-host-1.0";
-> +			#address-cells = <0x3>;
-> +			#interrupt-cells = <0x1>;
-> +			#size-cells = <0x2>;
-> +			device_type = "pci";
-> +			reg = <0x30 0x0 0x0 0x8000000>,
-> +			      <0x0 0x43000000 0x0 0x10000>;
-
-So this ain't right, I sent some patches yesterday to sort out accessing
-instance 2:
-https://lore.kernel.org/all/20240527-slather-backfire-db4605ae7cd7@wendy/
-
-> +			reg-names = "cfg", "apb";
-> +			bus-range = <0x0 0x7f>;
-> +			interrupt-parent = <&plic>;
-> +			interrupts = <119>;
-> +			interrupt-map = <0 0 0 1 &pcie_intc 0>,
-> +					<0 0 0 2 &pcie_intc 1>,
-> +					<0 0 0 3 &pcie_intc 2>,
-> +					<0 0 0 4 &pcie_intc 3>;
-> +			interrupt-map-mask = <0 0 0 7>;
-> +			clocks = <&ccc_nw CLK_CCC_PLL0_OUT1>,
-> +				 <&ccc_nw CLK_CCC_PLL0_OUT3>;
-> +			clock-names = "fic1", "fic3";
-> +			ranges = <0x43000000 0x0 0x9000000 0x30 0x9000000 0x0 0xf000000>,
-> +				 <0x1000000 0x0 0x8000000 0x30 0x8000000 0x0 0x1000000>,
-> +				 <0x3000000 0x0 0x18000000 0x30 0x18000000 0x0 0x70000000>;
-> +			msi-parent = <&pcie>;
-> +			msi-controller;
-> +			status = "disabled";
-> +
-> +			pcie_intc: interrupt-controller {
-> +				#address-cells = <0>;
-> +				#interrupt-cells = <1>;
-> +				interrupt-controller;
-> +			};
-> +		};
-> +	};
-
---z79wW9aJnFNbzgAR
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZlXGwQAKCRB4tDGHoIJi
-0oeuAQCripgxkKIvfMVj9OYaqpJnxghyOymmY6JCpmywHPYZ3gD+JxPnKPy7CEG/
-pxHE90yC5iB1AQRd+jHpUhskYg101gg=
-=Au0t
------END PGP SIGNATURE-----
-
---z79wW9aJnFNbzgAR--
+On Tue, May 28, 2024 at 12:11:12PM GMT, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> It seems a bit ridiculous to require toolchain support for BPF to
+> assemble Zbb instructions, so move the dependency on toolchain support
+> for Zbb optimisations out of the Kconfig option and to the callsites.
+> 
+> Zbb support has always depended on alternatives, so while adjusting the
+> config options guarding optimisations, remove any checks for
+> whether or not alternatives are enabled.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> v2/v3:
+> - Per Drew's suggestion, drop the stub Kconfig option and instead push
+>   out the toolchain dependency to the relevant callsites.
+> - Delete a bunch of comments about only attempting Zbb if alternatives
+>   are available, since they always are.
+> ---
+>  arch/riscv/Kconfig                    |  4 ++--
+>  arch/riscv/include/asm/arch_hweight.h |  6 +++---
+>  arch/riscv/include/asm/bitops.h       |  4 ++--
+>  arch/riscv/include/asm/checksum.h     |  3 +--
+>  arch/riscv/lib/csum.c                 | 21 +++------------------
+>  arch/riscv/lib/strcmp.S               |  5 +++--
+>  arch/riscv/lib/strlen.S               |  5 +++--
+>  arch/riscv/lib/strncmp.S              |  5 +++--
+>  8 files changed, 20 insertions(+), 33 deletions(-)
 
 
---===============6748613909776140350==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6748613909776140350==--
-
