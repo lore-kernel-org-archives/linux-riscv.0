@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ABE9C25B78
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 05:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6312C25B79
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 08:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/jp3ESt/uTpHJnWjNzPH3ARgMPAV6giFBH0NPx+niFM=; b=39LtJ1J3NuQ9eK
-	KfF4A7MpuGQApicS2BOv0giWHa5GJhDRnAXncVsCzIFOjnXSvIksPO4Q6N9tmo0gHArvE0L4TVZl0
-	CEajaupXEf/vHOj7NgPAnnTuIJMMWZcbVLMXRkyIVrM/PSX+RQ5/BlBSOrWj1MdoFkZpQgJyu+vIU
-	hJr1vI5juGwUG8CIZL2FAbzx9w4zGkL5FHRtBjrnbJpD6K3VuebVHksujtGAioXVsPe7POFpXVBJp
-	2pEuN5OiKCuuSA6B3zFyia1HH592OsqU7KuUc/M9HKC9E/s4R42OLXuMB5SDpOaUranUotTJpLjjE
-	bfPNKanmLy6PXiIjrafg==;
+	List-Owner; bh=ZMBFtzmIN3nEC1Dmu9HWlsgH+NV30GhT9qFhwIBGiN8=; b=UdkVSbhHxrfqOl
+	jQCAi2RWLOXtLDIiY5IpdYTR5ZQq+6L3rRZmgx5zWu4PxCkLq7NrWvb96R74SkoIAc7EeJsIO5V7K
+	Fad8ZD0Gsf8bC82vFPmJe7eZUVy6nq5DJDwuk9f2y1u0CRCXZtl+1shDSv57G6mLcmKnP0inZMizG
+	G5L+vEiphSU0HQ4/y66v6cPHCpyRb4dvZ6PIVCiGVSnVm+X3wnlK6QGP+sHuJntWM5/bxI0/k5WRR
+	m4Ij18Kw0jcFme1kJ5asTo0R6bXVK1Xc47WLojEfWWcM/28W9aG8blvFNt81ykjf998SEVzLaSRSh
+	OnqckXHduVnJT37ktPBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBp8n-0000000H54C-47L8;
-	Tue, 28 May 2024 05:12:53 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1sBrrK-0000000HPNB-0N1B;
+	Tue, 28 May 2024 08:07:02 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBp8j-0000000H53k-3E6i
+	id 1sBrrH-0000000HP2G-30Lm
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 May 2024 05:12:51 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a63359aaacaso39672566b.1
-        for <linux-riscv@lists.infradead.org>; Mon, 27 May 2024 22:12:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1716873164; x=1717477964; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sEzBOXaIzbfMi17IPevGDHsDdowwd5GTFXbnEzHCSrk=;
-        b=VCcn5sZZ3VMiQ++WmCfJXWkgPPTO4yC4I9Tphd+xq5TDnHoqLEr16Eivig3wb2ipNy
-         tPRh6iVQPdLAhRrxVjruf3q7fiCj3h4xlTSENLsVAL6d1qfgqKbNkctBuZ2whyqlUYXs
-         QsLWdnxPCNRQbBx+SprARuJcvaxqcs+kPfOjD8dkBikNmUyIoak1Za+EV/iNEtRv69WK
-         uCM2O8wzQmIN/RKo2nwHYi7lWDKDXfjMblEzukYdX//BB25Dtbub4jNdDMsfbm+p5HGM
-         YeXeGM7eyThU7oifHZlnyNYaPjwSpKln9IY/sofeBHZPZgMjW/N/LNDTQ5YX/Eb7W7Xa
-         n6VQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1716873164; x=1717477964;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=sEzBOXaIzbfMi17IPevGDHsDdowwd5GTFXbnEzHCSrk=;
-        b=b9TfdiAi9xnxqR03U2MqZ2wm6tCntvdJvaZPK8UqJ/6eVxNq9RTsB2sA24+yu3cJl+
-         rPkZKlKp4fUQP+WVwwNOCT60PfnjtOhAWqptbTh4vPPGFQNsBWG+bDvaXM0yCBjYhO3Z
-         OVEcR4CeCTmQx6gG6TddSFlLlE8JZO1ym/ppeZdAPcXyMUrprWmBuE8+iq6W5Ow55iJK
-         sMsvPpbw2+vtiyZ6PuQTbYkqlyRRAdQJeWLwqNfX2Ffbi6VeJKGfjvLvFCo5K6rAdieJ
-         vNILWFXkkg0aiaubjgDCd/E0gydDNytGbpPMWcbde6syKTW7TUCF7YtqkL58T68yKnRe
-         AATg==
-X-Forwarded-Encrypted: i=1; AJvYcCVfCqM5l/uuIqhzj0eT/fSNQ4Bouv+lH6poSZLIY8RDPWSA8Eaw2uQqITx4grLObJK1h34kUQsqRHrwTimAJrfNx973n9S/b74zvPCk0vUm
-X-Gm-Message-State: AOJu0Yz9/O9HJ3yvUm8I+99umnq2SpnT/Gc5uSboX65kEvEpMgJf/igA
-	akFdeH4j6amFoFHgsh2iCCTWOuhhNtDRTNy9l8b1TWwu2OmjWh4RPr0mB4jVN77imHDtjwdv3v9
-	Ma9NF+zYED6ZX+9PqkHgsJLmjVA0XfivW4sbguQ==
-X-Google-Smtp-Source: AGHT+IEgxGjpAfcQgJZPSZI09AOkDzjS2yiXb3qyIvWjw9VwAJvJ9LR53vE4/EKu6a8gJSxYcCVxmFt54915XaKYz7w=
-X-Received: by 2002:a17:906:69a:b0:a5a:7ce8:f52c with SMTP id
- a640c23a62f3a-a62641b1fccmr653519166b.16.1716873163902; Mon, 27 May 2024
- 22:12:43 -0700 (PDT)
-MIME-Version: 1.0
-References: <20240527153137.271933-1-alexghiti@rivosinc.com> <ZlSuIu1aFLzAiH_1@krava>
-In-Reply-To: <ZlSuIu1aFLzAiH_1@krava>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Tue, 28 May 2024 07:12:31 +0200
-Message-ID: <CAHVXubhSXjFKP_7qfw0GMvrrVinwvCKizAiC2Xeu5EP6U0JpKQ@mail.gmail.com>
-Subject: Re: [PATCH -fixes] bpf: resolve_btfids: Fix integer overflow when
- calling elf_update()
-To: Jiri Olsa <olsajiri@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, 
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Tue, 28 May 2024 08:07:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=T1kkozHdAWncRAY26LRIlcmiras1bPg20TXNvg/U/KY=; b=Z/3d3nBpM6tBXg3l2yk3TLVzXQ
+	wh3kY858l94g3RMqEd7wzU0t7n0cntF40q50QW2iDI2UHPOlC0Vup16ADO620EkFktVcSfUcYqjFv
+	9MJuXcTWYdMQ6K6rAnZCOnqARVomgke9Jje8pKZ3/BS9dpVh9qDCVS4lHYSKAu+iSLVVNEPEjkl32
+	CyeCa1e5E5CQOedayL+Uc4rgBGmHzpBKLpcWJSWSU4QJ8m0MkOLDJvxvpufkdDS9s114+EIZ24Liy
+	+UcJPs19UjzvbWEPYpDozyBe0ptclcquizRmXHkK0S2yp1jtGG7oaQbS+Nk1w6XVLqTYrwwqpvwkS
+	dtUTW4iQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49854)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1sBron-0004Pb-0B;
+	Tue, 28 May 2024 09:04:25 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1sBrol-000361-I5; Tue, 28 May 2024 09:04:23 +0100
+Date: Tue, 28 May 2024 09:04:23 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Guenter Roeck <linux@roeck-us.net>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh@kernel.org>, Yang Li <yang.lee@linux.alibaba.com>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] clk: sifive: Do not register clkdevs for PRCI clocks
+Message-ID: <ZlWQB1q+8cE+mOAN@shell.armlinux.org.uk>
+References: <20240528001432.1200403-1-samuel.holland@sifive.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240528001432.1200403-1-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_221249_965091_9638AE49 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20240528_010659_784424_4C05C229 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +80,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSmlyaSwKCk9uIE1vbiwgTWF5IDI3LCAyMDI0IGF0IDY6MDDigK9QTSBKaXJpIE9sc2EgPG9s
-c2FqaXJpQGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBPbiBNb24sIE1heSAyNywgMjAyNCBhdCAwNToz
-MTozN1BNICswMjAwLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4gPiBUaGUgZm9sbG93aW5nIGVy
-cm9yIHdhcyBlbmNvdXRlcmVkIGluIFsxXToKPiA+Cj4gPiBGQUlMRUQgZWxmX3VwZGF0ZShXUklU
-RSk6IG5vIGVycm9yCj4KPiBoaSwKPiB0aGlzIGZpeCBnb3QgYWxyZWFkeSBpbiwgY2hlY2sgdGhp
-cyBwYXRjaDoKPiAgIGh0dHBzOi8vcGF0Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9uZXRkZXZi
-cGYvcGF0Y2gvMjAyNDA1MTQwNzA5MzEuMTk5Njk0LTEtZnJpZWRyaWNoLnZvY2tAZ214LmRlLwoK
-RGFtbiwgSSBtaXNzZWQgdGhpcy4KCklmIHBvc3NpYmxlLCBJIHRoaW5rIHRoYXQgYWRkaW5nIHRo
-ZSBsaW5rIHRvIHRoZSBidWcgcmVwb3J0IChvciBhdApsZWFzdCB0aGUgIkZBSUxFRCBlbGZfdXBk
-YXRlKFdSSVRFKTogbm8gZXJyb3IiIHN0cmluZykgd291bGQgbWFrZQpzZW5zZSwgc2luY2UgaXQg
-aXMgbm90IGEgInBvdGVudGlhbCIgb3ZlcmZsb3cgYW55bW9yZS4KClRoYW5rcywKCkFsZXgKCj4K
-PiB0aGFua3MsCj4gamlya2EKPgo+ID4KPiA+IGVsZl91cGRhdGUoKSByZXR1cm5zIHRoZSB0b3Rh
-bCBzaXplIG9mIHRoZSBmaWxlIHdoaWNoIGhlcmUgaGFwcGVucyB0byBiZQo+ID4gYSB+Mi41R0Ig
-dm1saW51eCBmaWxlOiB0aGlzIHNpemUgb3ZlcmZsb3dzIHRoZSBpbnRlZ2VyIHVzZWQgdG8gaG9s
-ZCB0aGUKPiA+IHJldHVybiB2YWx1ZSBvZiBlbGZfdXBkYXRlKCkgYW5kIGlzIHRoZW4gaW50ZXJw
-cmV0ZWQgYXMgYmVpbmcgbmVnYXRpdmUuCj4gPgo+ID4gU28gZml4IHRoaXMgYnkgdXNpbmcgdGhl
-IGNvcnJlY3QgdHlwZSBleHBlY3RlZCBieSBlbGZfdXBkYXRlKCkgd2hpY2ggaXMKPiA+IG9mZl90
-Lgo+ID4KPiA+IEZpeGVzOiBmYmJiNjhkZTgwYTQgKCJicGY6IEFkZCByZXNvbHZlX2J0ZmlkcyB0
-b29sIHRvIHJlc29sdmUgQlRGIElEcyBpbiBFTEYgb2JqZWN0IikKPiA+IExpbms6IGh0dHBzOi8v
-YnVnemlsbGEua2VybmVsLm9yZy9zaG93X2J1Zy5jZ2k/aWQ9MjE4ODg3IFsxXQo+ID4gU2lnbmVk
-LW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+ID4gLS0t
-Cj4gPiAgdG9vbHMvYnBmL3Jlc29sdmVfYnRmaWRzL21haW4uYyB8IDIgKy0KPiA+ICAxIGZpbGUg
-Y2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0
-IGEvdG9vbHMvYnBmL3Jlc29sdmVfYnRmaWRzL21haW4uYyBiL3Rvb2xzL2JwZi9yZXNvbHZlX2J0
-Zmlkcy9tYWluLmMKPiA+IGluZGV4IGQ5NTIwY2I4MjZiMy4uYWYzOTNjN2RlZTFmIDEwMDY0NAo+
-ID4gLS0tIGEvdG9vbHMvYnBmL3Jlc29sdmVfYnRmaWRzL21haW4uYwo+ID4gKysrIGIvdG9vbHMv
-YnBmL3Jlc29sdmVfYnRmaWRzL21haW4uYwo+ID4gQEAgLTcyOCw3ICs3MjgsNyBAQCBzdGF0aWMg
-aW50IHNldHNfcGF0Y2goc3RydWN0IG9iamVjdCAqb2JqKQo+ID4KPiA+ICBzdGF0aWMgaW50IHN5
-bWJvbHNfcGF0Y2goc3RydWN0IG9iamVjdCAqb2JqKQo+ID4gIHsKPiA+IC0gICAgIGludCBlcnI7
-Cj4gPiArICAgICBvZmZfdCBlcnI7Cj4gPgo+ID4gICAgICAgaWYgKF9fc3ltYm9sc19wYXRjaChv
-YmosICZvYmotPnN0cnVjdHMpICB8fAo+ID4gICAgICAgICAgIF9fc3ltYm9sc19wYXRjaChvYmos
-ICZvYmotPnVuaW9ucykgICB8fAo+ID4gLS0KPiA+IDIuMzkuMgo+ID4KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, May 27, 2024 at 05:14:12PM -0700, Samuel Holland wrote:
+> These clkdevs were unnecessary, because systems using this driver always
+> look up clocks using the devicetree. And as Russell King points out[1],
+> since the provided device name was truncated, lookups via clkdev would
+> never match.
+
+There is another reason they would never match - clkdev has always been
+about matching the clock _consumer_ using the device name and connection
+name to the producer. The device and connection name passed into clkdev
+should always be the consumer (it's documented as such.)
+
+Providing the producer device name to clkdev when registering an entry
+will mean that clk_get(consumer_dev, consumer_name) will fail to find
+the entry in clkdev's table, and thus fail to find the clock.
+
+So, this code has been incorrect from the very start.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
