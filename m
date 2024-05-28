@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A741CC25B78
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 11:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63646C25B78
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 11:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IHdeWSev2QxRVmvigaCRdnQfNWINkM9C+IubULinZnY=; b=1qQNbMdNPXNWyU
-	WkR65E7cqSkyQacA0zbX0+YprBINgEbuLOGaDMHexNLiuQMNM3aqDEV6pV8/Fuk+KPjqToL3iYDGf
-	cJ/xXwETvT6IZ4GW82HAnPrXJ120plhv58UowZHiuSYsBVbWqIEQWKXtvOPVyinpkix0SvBCnPZC5
-	kkkF0nvno2zvUUoKuXwx0U8s6fG0rjJx4nm6oQGZ7qvk2thTaqYfLStYQVy55m9QlnpRs2AAlDEyQ
-	W4GdfTOyrp9pVFoPaMPQ3sQPGVTTBqiG8wvbcCuhImzFfMvIrFxHXMIgkSyU7hHQFUkyeMzspbZ5x
-	mULD6Ar+BhrnJ75YBpiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2i/r3L14q5+A9eTqC3pwsVAo4sLHgIjRmigeOBTwH3k=; b=wLue6EdFmiTJ8Y/S73xwKvhRMW
+	qGnEK9WVKhLcxvBW0YyOBTUangikgPkJURtEz2ZfOJog97Xo+VPqPXZ+ttQO6Esjkw3QVXn97wAxj
+	qgRIGGJvTflnc+csV2MR3hu6U0u/ncaf41DOjIE2YO2dfyCsS4Bkj5nsZLA/+HyuwtEHrbHUhSezO
+	dK4AQZn4O0YHOmiX6rI56SL86BIVciXtDCzTeCcsQ/Iq53Yb6d6wzl75MPRAGAcGRfxvvSJzIEriB
+	pAR53n4qrztYbV8HpNT8IUiDQX8APMmdVWLRDMrd2vTCu2vOS/CFlM2rL7LxB8ja1BlrzfLrWJov/
+	Mul7/uHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBv04-00000000MEv-1B65;
-	Tue, 28 May 2024 11:28:16 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sBv2e-00000000Mns-3Yd5;
+	Tue, 28 May 2024 11:30:56 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBv01-00000000MEM-07U8
+	id 1sBv2b-00000000Mm4-2upY
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 May 2024 11:28:14 +0000
+	Tue, 28 May 2024 11:30:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 23605CE1174;
-	Tue, 28 May 2024 11:28:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A5B8C3277B;
-	Tue, 28 May 2024 11:28:08 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id DD16ECE1140;
+	Tue, 28 May 2024 11:30:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B148AC3277B;
+	Tue, 28 May 2024 11:30:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1716895690;
-	bh=vjEv9p4ao6Y5ZHViWdaOc/j4X2E7teuLXNwZ68jp9Is=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=THEVKOnNiLFdPYcAdsIznrPdRdkC6RZVTocC6/Ve14PBQ3UcQ5qCCH69RD+WE1ZPF
-	 yoVUJIgzuOUrWTW3k7ZH1KuszD+QHMtz4x8i+VtjDR7vZPa6imgzwXaG66LsfXTq7c
-	 AAOKpO6F1XUbRpXerLUubtwK3gVSMOhdo0ntwvX6OOke5jVsNeLQKQPewoskaxLAiJ
-	 VcAjByQGAOMjzNrVLwdtawiEOqp9Rcb0epXENSAqxpsZq6/e8DamWC0HgPnAIRz1Cp
-	 fFX+RsYuNt0NbRxxnxb2C88TU7/nGHodWO8wxGCIeWVtFhrYdd4IO/DrPOvQ8meXfD
-	 2ETaMkAYcWqgg==
+	s=k20201202; t=1716895851;
+	bh=J2mWDdJtos/H4lrmEII8x+5AKEqMgDmRzY9/k9sRI38=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fjavsE/HR1q6SqX7BknI3GNgr/s/PsVb+eMfFgjREQ7IvE0102h6PO0ItgahJRsvS
+	 O+6Ov04jlmuFGEWdk15DdtKkD0MDC5evcOFELwmk9rGCyTgKmO5GPkD18GW92lNxnK
+	 9QIBY/rKZn0Mb+UzXNUTfiNGYBDNA9aiVgQbNG/DGXbpmJv1YnqYz+W1D4KtEhsElc
+	 KnYy/XU6bYZAR/GqL9m2fPU8O8IhYbIdWxlTqpcYj2o1w8yGrnWLrmE2O2rTqz6rdv
+	 PiGFWRVYtA77wLaxY6fZhp6HX/ePoIWi9p+QC/ATgaI9PUGQNRl1yxVNV2uctFbIli
+	 7bhNLMUfB+eJA==
+Date: Tue, 28 May 2024 12:30:46 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor@kernel.org>,
+To: Andreas Schwab <schwab@linux-m68k.org>
+Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 0/2] riscv: dts: canaan: Unused devices cleanup
-Date: Tue, 28 May 2024 12:26:29 +0100
-Message-ID: <20240528-starving-overripe-0352bef3b811@spud>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1715163174.git.geert+renesas@glider.be>
-References: <cover.1715163174.git.geert+renesas@glider.be>
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v1 0/2] riscv: dts: starfive: Enable Bluetooth on JH7100
+ boards
+Message-ID: <20240528-outpost-subduing-2e84f77427a4@spud>
+References: <20240508111604.887466-1-emil.renner.berthing@canonical.com>
+ <87wmo2nmee.fsf@linux-m68k.org>
+ <CAJM55Z-F6N6ua5LoqyMFogDtLp=FaRPoDv4osXFDMjR1b8r9nw@mail.gmail.com>
+ <87zfsy102h.fsf@igel.home>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=511; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=imlwy2HZD/oXMqJSCfm2ctuuHbtyRNrzgX7i0tfGZCs=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGmh+5OX5/P7L/zWIzjhj84S508vHT7//T9r1YKX/N9uK Z7StIve3lHKwiDGwSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJCMUzMsyNmDlz3Z7rTelF vLP4l1kvdU+zLeIX/bC2kTfs+/0rmxsZ/um5T4jQE9bov+pTu+3//DmTGXV2tjcILZv6vP5vqPn xGj4A
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <87zfsy102h.fsf@igel.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240528_042813_275055_E5813BB7 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240528_043054_110313_06FF93E6 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +78,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0968358994952388578=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-On Wed, 08 May 2024 12:20:56 +0200, Geert Uytterhoeven wrote:
-> 	Hi all,
-> 
-> This patch series clean ups aliases and device enablement for unused
-> devices on Kendryte K210-based systems.
-> 
-> Thanks for your comments!
-> 
-> [...]
+--===============0968358994952388578==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="dcH1rd/ToVgelCkf"
+Content-Disposition: inline
 
-I've put these on fixes. I think #1 is maybe stretching the definition
-of a fix, but #2's fair game since it avoids runtime warnings. Thanks
-for the patches.
 
-[1/2] riscv: dts: canaan: Clean up serial aliases
-      https://git.kernel.org/conor/c/9235784cb63f
-[2/2] riscv: dts: canaan: Disable I/O devices unless used
-      https://git.kernel.org/conor/c/2c917b55d665
+--dcH1rd/ToVgelCkf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Emil,
+
+On Fri, May 10, 2024 at 11:35:34AM +0200, Andreas Schwab wrote:
+> On Mai 10 2024, Emil Renner Berthing wrote:
+>=20
+> > You don't include any information useful for debugging this, but if it =
+get's
+> > far enough to load the firmware could you at least make sure you run the
+> > version below, so that's at least the same.
+> >
+> > https://github.com/esmil/linux/blob/visionfive/firmware/brcm/BCM43430A1=
+=2Ehcd
+>=20
+> That didn't change anything (and there are no messages related to
+> firmware loading from hci_uart).
+
+Looking at things to apply post -rc1, are you still looking into this
+issue?
 
 Thanks,
 Conor.
+
+>=20
+> [  +0.879623] Bluetooth: Core ver 2.22
+> [  +0.004843] NET: Registered PF_BLUETOOTH protocol family
+> [  +0.008787] Bluetooth: HCI device and connection manager initialized
+> [  +0.021944] Bluetooth: HCI socket layer initialized
+> [  +0.008488] Bluetooth: L2CAP socket layer initialized
+> [  +0.006333] Bluetooth: SCO socket layer initialized
+> [  +0.097478] Bluetooth: HCI UART driver ver 2.3
+> [  +0.007943] Bluetooth: HCI UART protocol H4 registered
+> [  +0.006066] Bluetooth: HCI UART protocol BCSP registered
+> [  +0.006962] Bluetooth: HCI UART protocol LL registered
+> [  +0.000015] Bluetooth: HCI UART protocol ATH3K registered
+> [  +0.000084] Bluetooth: HCI UART protocol Three-wire (H5) registered
+> [  +0.000247] Bluetooth: HCI UART protocol Intel registered
+> [  +0.000455] Bluetooth: HCI UART protocol Broadcom registered
+> [  +0.000084] Bluetooth: HCI UART protocol QCA registered
+> [  +0.000008] Bluetooth: HCI UART protocol AG6XX registered
+> [  +0.000057] Bluetooth: HCI UART protocol Marvell registered
+> [  +0.051854] hci_uart_bcm serial0-0: supply vbat not found, using dummy =
+regulator
+> [  +0.000387] hci_uart_bcm serial0-0: supply vddio not found, using dummy=
+ regulator
+> [  +0.094658] hci_uart_bcm serial0-0: No reset resource, using default ba=
+ud rate
+> [  +0.990297] Bluetooth: hci0: command 0x1001 tx timeout
+> [  +0.022893] Bluetooth: hci0: BCM: Reading local version info failed (-1=
+10)
+> [  +3.306159] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+> [  +0.013336] Bluetooth: BNEP filters: protocol multicast
+> [  +0.124262] Bluetooth: BNEP socket layer initialized
+>=20
+> --=20
+> Andreas Schwab, schwab@linux-m68k.org
+> GPG Key fingerprint =3D 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+> "And now for something completely different."
+
+--dcH1rd/ToVgelCkf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZlXAZgAKCRB4tDGHoIJi
+0rRYAQCPV3NyOXggUlW5QYTcZrOknlvRNJsQPgvriNuR3R88agD/b1uTRd5yeqxu
+DGOC09v8twvgMfBK721fZgjGYgug3wQ=
+=k8pT
+-----END PGP SIGNATURE-----
+
+--dcH1rd/ToVgelCkf--
+
+
+--===============0968358994952388578==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0968358994952388578==--
+
