@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E827C25B7C
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 02:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CCDC25B74
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 02:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aLnJCG9VQq13sgZ6qT8fNcWFFkURD7bTmW9nF5mrI2k=; b=Yw0n730YdhKY1k
-	WMV7H3gJrSiJuYtoOnqp3mKvonsFe5KsofY4+eaHeRm5Eh+s2AjuCLu2zrczmit9yRTDpK+LCildC
-	nSD32LB2ESMlMrE3JzgM5MYskOeBpVdP7El2AYRilOgPV4z0m2wgMgcLWYzyzXZujiJmsPzZ8PRgg
-	do7UXbLe45ThJcZGxVEWXGQGQq8vPRZatS0Uy2nklc+ez0k0rkbPEb93PytsMeyUug585niqfbSsn
-	FI0Kk5xczpTEcE27KZ1Acvh2d+KoZqkMG9Gl3wxjVN+EjNNc/OeYhSd6A2gut5jf2z2OleCJ0RTk+
-	78/NFtUy21DS1rWiisSw==;
+	List-Owner; bh=8U9Xq+WzFkWRgQ4E4uyOk/HgaE6n7Spwux0VRGzZVdw=; b=DRadPd5VvqqnKT
+	nPbblDhCCdHkBFdDSxfpWxSDEJqHgTOE/3ANYX5z3yCuwy4K/GuXq3gNY+1Tllz6rD9sbI3/w92r0
+	uSGcM6pWuSf5CXURkS71PX9W6X0IVRhwYzubxtlDaqBbuZrfVSnJQjjhNviKk4dkx6NbeCco5FH5p
+	7lyWyHXEGqUlC3bxGTHGfVQNXxWP5iJnMUBCmd8+9HXT3JKHcE/NkvYbjuBi0nhbYep18CxV/hsjo
+	XvvbpWs3vmaD3qYmH6P3nOfzYJI0IdOMPbyrYKHqNKN1Jpwa+8HRVwVS80EYQoXev9ylLfZbIQf/9
+	StH2anebXCdwMNSNZW0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBmQV-0000000GpZz-19zu;
-	Tue, 28 May 2024 02:18:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sBmQi-0000000Gpg8-3fFC;
+	Tue, 28 May 2024 02:19:12 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBmQT-0000000GpY1-1FqE
+	id 1sBmQf-0000000Gpdc-2VX9
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 May 2024 02:18:58 +0000
+	Tue, 28 May 2024 02:19:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0E9DF61DA1;
-	Tue, 28 May 2024 02:18:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B045C32782;
-	Tue, 28 May 2024 02:18:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7366B61DAA;
+	Tue, 28 May 2024 02:19:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02233C2BBFC;
+	Tue, 28 May 2024 02:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1716862732;
-	bh=lA8NtYKtmK3cU7OzJId506XmthIl4+Xkz0k+EAhBp88=;
+	s=k20201202; t=1716862748;
+	bh=DYwIRoN2C7rBJfLlUVd7IdAgf6u/jVHpwWH2EcdaZ94=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Axvz5ywfvv5NCCeWiNd4DctfJCA0vjaT485oNWPEQKjVqj0Y2+3+36tWY0sBG2ad2
-	 OLAzvC9jRTUbWifS1heZBpzhnAyovbATXzNZI+IturryiEU4Ya0NLkOMbvVxOCxcv7
-	 iftnDNda/gOyLih5LkWt6dtQe6uz++kwoqVj/eVksdrsB9b7MaGjzMsmOHjGgrekLD
-	 qgJwezvdf2yiPvnALMJZGZIczT99F7OFi5CGpPu0o7pCr/hplaeUAJdVMcKZA4M1Qx
-	 1rhSbhpeRCEJX9YYcX5YqzUPNwZFufKX948Y6k6lzoUWh+sv2XCaFMLb1CWgqgecyz
-	 ctiu/mRuFJ2uQ==
+	b=XpEnBpfFtPGHxHkGcvJKww/D6f4dF/3j/joEH05If9tPrbU74Ddk9zRReYGlvt1up
+	 nKi5A3PymMXULM3I3s0etiUxCigLqDjFh6JE9mXaIeWP0RRgGi4tyFv2OICCeBasaa
+	 +7a9bq6+5GQnzgt60vJn0IPQgfNzSjph+7smS/kL44t3tr9ifUug39yQx9fT6b4Z9n
+	 Aqln8NjxpnKX39X9zYfmvPwhKMPYpXoDXpwQ9No3z7moE+i3Agbsb+SjMgpt3N+OJj
+	 0/5P2iK/UeyeXLDpA4RioUtx7Weya1WhOYPmwtkP+s/FR6JTdKaYnOu2cQ+f0evLvH
+	 O/S785S6Nzm1w==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -70,18 +70,18 @@ Cc: Stephen Brennan <stephen.s.brennan@oracle.com>,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.8 4/4] kprobe/ftrace: bail out if ftrace was killed
-Date: Mon, 27 May 2024 22:18:39 -0400
-Message-ID: <20240528021840.3905128-4-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 4/4] kprobe/ftrace: bail out if ftrace was killed
+Date: Mon, 27 May 2024 22:18:53 -0400
+Message-ID: <20240528021854.3905245-4-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240528021840.3905128-1-sashal@kernel.org>
-References: <20240528021840.3905128-1-sashal@kernel.org>
+In-Reply-To: <20240528021854.3905245-1-sashal@kernel.org>
+References: <20240528021854.3905245-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.8.11
+X-stable-base: Linux 6.6.32
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_191857_453558_91FCCC2D 
+X-CRM114-CacheID: sfid-20240527_191909_895433_0EECA498 
 X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -252,10 +252,10 @@ index dd2ec14adb77b..15af7e98e161a 100644
  	if (bit < 0)
  		return;
 diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
-index 0ff44d6633e33..5fcbc254d1864 100644
+index 8de5d51a0b5e7..45d5b0a76b0bd 100644
 --- a/include/linux/kprobes.h
 +++ b/include/linux/kprobes.h
-@@ -378,11 +378,15 @@ static inline void wait_for_kprobe_optimizer(void) { }
+@@ -383,11 +383,15 @@ static inline void wait_for_kprobe_optimizer(void) { }
  extern void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
  				  struct ftrace_ops *ops, struct ftrace_regs *fregs);
  extern int arch_prepare_kprobe_ftrace(struct kprobe *p);
@@ -271,7 +271,7 @@ index 0ff44d6633e33..5fcbc254d1864 100644
  #endif /* CONFIG_KPROBES_ON_FTRACE */
  
  /* Get the kprobe at this addr (if any) - called with preemption disabled */
-@@ -495,6 +499,9 @@ static inline void kprobe_flush_task(struct task_struct *tk)
+@@ -496,6 +500,9 @@ static inline void kprobe_flush_task(struct task_struct *tk)
  static inline void kprobe_free_init_mem(void)
  {
  }
@@ -282,7 +282,7 @@ index 0ff44d6633e33..5fcbc254d1864 100644
  {
  	return -EOPNOTSUPP;
 diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-index 65adc815fc6e6..166ebf81dc450 100644
+index c2841e5957130..c8720bed8ed6a 100644
 --- a/kernel/kprobes.c
 +++ b/kernel/kprobes.c
 @@ -1068,6 +1068,7 @@ static struct ftrace_ops kprobe_ipmodify_ops __read_mostly = {
