@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5BDC25B74
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 02:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E827C25B7C
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 02:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eUv3h/CzlIGNt3okhdLcLfXlZTSjrMyWtQfh4w9rDJI=; b=aQ/wYZZHvv+/sw
-	xCxA2DQ8LeBwV9vZzfw98yQykh2B1vkUla/4Y42TlScn7ad3r5pUMIHa+Jns10SuCewBXd/FzZuyu
-	8MJLUoFssB5HJw55CXhZd6b6zRpvxsgJWyJFb2+MsV+zkMkOQAuoSdcMNZ74TpSbfCBU1HzXvw8z9
-	eLvTr+TSWm9HbROs7NAiAXfZldvi6/dnK2Ylg+U8+LlEhlk6apSSLazRSAi4lF11thq08KFkvyljl
-	CZobkW73dMNupYsYwKjQTGcooQLNgIC7cc+/8hB+ORlfYGW05p6xVertTMaIQR1PLcPeE4TZRZBnd
-	/aLcpVsPEUlV8FQ9hjDA==;
+	List-Owner; bh=aLnJCG9VQq13sgZ6qT8fNcWFFkURD7bTmW9nF5mrI2k=; b=Yw0n730YdhKY1k
+	WMV7H3gJrSiJuYtoOnqp3mKvonsFe5KsofY4+eaHeRm5Eh+s2AjuCLu2zrczmit9yRTDpK+LCildC
+	nSD32LB2ESMlMrE3JzgM5MYskOeBpVdP7El2AYRilOgPV4z0m2wgMgcLWYzyzXZujiJmsPzZ8PRgg
+	do7UXbLe45ThJcZGxVEWXGQGQq8vPRZatS0Uy2nklc+ez0k0rkbPEb93PytsMeyUug585niqfbSsn
+	FI0Kk5xczpTEcE27KZ1Acvh2d+KoZqkMG9Gl3wxjVN+EjNNc/OeYhSd6A2gut5jf2z2OleCJ0RTk+
+	78/NFtUy21DS1rWiisSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBmQG-0000000GpVL-2gyX;
-	Tue, 28 May 2024 02:18:44 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sBmQV-0000000GpZz-19zu;
+	Tue, 28 May 2024 02:18:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBmQD-0000000GpSz-0nQT
+	id 1sBmQT-0000000GpY1-1FqE
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 May 2024 02:18:43 +0000
+	Tue, 28 May 2024 02:18:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id E6697CE1174;
-	Tue, 28 May 2024 02:18:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50B11C4AF12;
-	Tue, 28 May 2024 02:18:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0E9DF61DA1;
+	Tue, 28 May 2024 02:18:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B045C32782;
+	Tue, 28 May 2024 02:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1716862718;
-	bh=XUVDaLZZB0jtTHQ/d7v6HdM3/mdUtKGlHBGeb0bnkQI=;
+	s=k20201202; t=1716862732;
+	bh=lA8NtYKtmK3cU7OzJId506XmthIl4+Xkz0k+EAhBp88=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C0RiCU16crLO7qqM8wuP/SCjsXP5NeNjJoo4SOSonXHkRo5Lq3GV1Gak37Cg85r4Y
-	 jOVk8o6mg2FGWNxuzG80awNx409EYgmt6lkaaopofcNHkhboS5POGcGEapTEHiQO2l
-	 m/ovXc0SugZOBbOb0FNFuNuQ3ctPXpxT15sL2BIAHKcK+9PfrOCzH0fk2OXrcP9ZDv
-	 XrZ2oTmhQMu4xuW+ZImESosPuMym0YtM09Ph8kMGYQnOqADZNThrHLZyWoYAh9Sffr
-	 b9+6HaVND3kj/MX9QukXgATFCZvfJLrafCwIqCAnNKtiKnPW9IGfoCtC2+61+MnF4R
-	 D+3oQdKtaKE2Q==
+	b=Axvz5ywfvv5NCCeWiNd4DctfJCA0vjaT485oNWPEQKjVqj0Y2+3+36tWY0sBG2ad2
+	 OLAzvC9jRTUbWifS1heZBpzhnAyovbATXzNZI+IturryiEU4Ya0NLkOMbvVxOCxcv7
+	 iftnDNda/gOyLih5LkWt6dtQe6uz++kwoqVj/eVksdrsB9b7MaGjzMsmOHjGgrekLD
+	 qgJwezvdf2yiPvnALMJZGZIczT99F7OFi5CGpPu0o7pCr/hplaeUAJdVMcKZA4M1Qx
+	 1rhSbhpeRCEJX9YYcX5YqzUPNwZFufKX948Y6k6lzoUWh+sv2XCaFMLb1CWgqgecyz
+	 ctiu/mRuFJ2uQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -70,19 +70,19 @@ Cc: Stephen Brennan <stephen.s.brennan@oracle.com>,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.9 5/5] kprobe/ftrace: bail out if ftrace was killed
-Date: Mon, 27 May 2024 22:18:21 -0400
-Message-ID: <20240528021823.3904980-5-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.8 4/4] kprobe/ftrace: bail out if ftrace was killed
+Date: Mon, 27 May 2024 22:18:39 -0400
+Message-ID: <20240528021840.3905128-4-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240528021823.3904980-1-sashal@kernel.org>
-References: <20240528021823.3904980-1-sashal@kernel.org>
+In-Reply-To: <20240528021840.3905128-1-sashal@kernel.org>
+References: <20240528021840.3905128-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.9.2
+X-stable-base: Linux 6.8.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240527_191841_633700_EA932752 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20240527_191857_453558_91FCCC2D 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -306,10 +306,10 @@ index 65adc815fc6e6..166ebf81dc450 100644
  static inline int arm_kprobe_ftrace(struct kprobe *p)
  {
 diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index da1710499698b..96db99c347b3b 100644
+index 83ba342aef31f..4bdaed40e30d0 100644
 --- a/kernel/trace/ftrace.c
 +++ b/kernel/trace/ftrace.c
-@@ -7895,6 +7895,7 @@ void ftrace_kill(void)
+@@ -7892,6 +7892,7 @@ void ftrace_kill(void)
  	ftrace_disabled = 1;
  	ftrace_enabled = 0;
  	ftrace_trace_function = ftrace_stub;
