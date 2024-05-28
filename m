@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E26C25B78
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 15:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0780C25B78
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 16:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=haTmOQ97tGpEvY3ldwEHh7gV+kPoSO/3BOpVNG+JDDs=; b=WxzfM9NqZrp0co5X3mRjMuo3X6
-	8MgNxv6Z4qPEsaVlYoP4deZ523FEnJM3NncUs1Pc4ZdlVdpZsDrF5SoQYzfHWRznUOXNKXIOvTxX3
-	xxEzuR6Y6Bt9ZkOBRp+4l/+JmMnD+CaW7zCZUii9WCAcBKI5K2NqZ9s5ZKyrZkAK2gOyfN1Gr7YCx
-	k5Cu4MIKrXkSEj2Ct8SlDdoPqyLvNqZbz/8VnPSR6w5ieFrVxynqYYyY5TrVQT8Y6twUVd92jEo5r
-	uPA9ov3YS9ETA9j8odkyE9mJkn/gVRemwaw2AlN7WgtHPhN93iWExwnSYO7em1q64YivsocmVGJ4K
-	gkF5TwEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HiThieCAw2kmzB35Ae2WkLsxxP3tN/uXdiTErePDSn8=; b=fwEyeQii1w6fq4
+	X8eHHGNNhDf5P30eJy3bS8VE8JpGPDJo0uEorYWr01DcJLQW/SJxcrAqlRc/4EpmjMsjnaWq+7ew6
+	PePBOAD3Ikh31NeA5tPL2Iey5CeQmBjHmb6cJaPGbvxDf4AJHKAXAXSl9vTg8QP/p+wtEJJTgdxIw
+	IS5LqP239DLwP1Y7p2SlWUzX/KGBTyGWsXddfH4AyJrlG2PFfOuiBqkhKxHr9KR93Yvpw3PEBYo4n
+	6ZgLmNb2F8/s0YGJHUGZOXvEJxaKCURzCQYnFzfwvlzQtP71d57Jy1a7JhCJBezrI1mov1ISWI7bn
+	iJEnn+OkBnmEKc/z6Ttg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sByup-00000001Gpw-37Vc;
-	Tue, 28 May 2024 15:39:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sBzoF-00000001RJe-3nCD;
+	Tue, 28 May 2024 16:36:23 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sByum-00000001GpC-3Nbm
+	id 1sBzoC-00000001RJ9-20wv
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 May 2024 15:39:06 +0000
+	Tue, 28 May 2024 16:36:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3D16E621AA;
-	Tue, 28 May 2024 15:39:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F513C3277B;
-	Tue, 28 May 2024 15:39:01 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 47023CE13C8;
+	Tue, 28 May 2024 16:36:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BBF4C3277B;
+	Tue, 28 May 2024 16:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1716910743;
-	bh=DF1SyvC/MZMzA6HY8m/jHm28CfGPXLZdj+xqP2V8MhY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p0rIxd7Ni2RUqwiZxBjZHBC6a/p6roA0uztJkxME3SO2+xeZahPudti/lmQoJONDl
-	 glm7CsdcgYtnZJ++caMLymIee/7GM67D70B1D/W+s9YCXW52gsKWMMGezcqvlHFo6w
-	 upnqC3Lwtta8VSiaesHF/+/dmVkOFPa4+SZyt5LyM/qqQmQIZJiA3g0Jf9zU3tiAx9
-	 fd+pHUxDCWfO9/zoc/XUV1btddeoPmdZtE4vhUnSzt7LKxSWr7zcVEpWcRGU4MIiET
-	 zUaa9aOlKoa6CpBh6lLlWRRSIsrfZPvtNZ9HPRvp+b4WkIM406RfZf9fYsGDevGCIv
-	 yQDRUB7C+nStQ==
-Date: Tue, 28 May 2024 16:38:59 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Andreas Schwab <schwab@linux-m68k.org>
-Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v1 0/2] riscv: dts: starfive: Enable Bluetooth on JH7100
- boards
-Message-ID: <20240528-likeness-outrank-203235db1b62@spud>
-References: <20240508111604.887466-1-emil.renner.berthing@canonical.com>
- <87wmo2nmee.fsf@linux-m68k.org>
- <CAJM55Z-F6N6ua5LoqyMFogDtLp=FaRPoDv4osXFDMjR1b8r9nw@mail.gmail.com>
- <87zfsy102h.fsf@igel.home>
- <20240528-outpost-subduing-2e84f77427a4@spud>
- <87ttii54n7.fsf@igel.home>
-MIME-Version: 1.0
-In-Reply-To: <87ttii54n7.fsf@igel.home>
+	s=k20201202; t=1716914177;
+	bh=NuefzrUj9FO/t6wc3pR2TCeJn0nDqx9DSuM502grMnQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=to9eUQnaJbyB7NCzJ2G4rbqeNYs95A7m70tx9yOFS+k39aec+WOxXgptyeEFQ9uIV
+	 PBt5BTLemlb5fAei1Sh+nhoO4t2l4X/AZnerO88r0qBjBI68FlKOWAoInpfg1nBivx
+	 dGKkV2d+D4Dwf+exD/Wn3qPLgzxjnLLZlFu3en8GHPagFjuW2tFsL+7u2GiA/3D/ZL
+	 FnXeRLtkz4FVYOH0kLVoOKKZuPkN2ZxX2bvLk87+LryQQxoiNuO9qc2ja4uRPYL2k7
+	 F/KsXvNzc4kX+h4zWwx4yx9ZN2zU6e9wH/nMACyNnKlWxWfhZS/lyk1aQF2olZQ983
+	 s3xGwztL+4Rrw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1sBzo6-00GNJS-Sr;
+	Tue, 28 May 2024 17:36:15 +0100
+Date: Tue, 28 May 2024 17:36:14 +0100
+Message-ID: <86ed9lnbb5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH v4] of: property: Add fw_devlink support for interrupt-map property
+In-Reply-To: <20240509120820.1430587-1-apatel@ventanamicro.com>
+References: <20240509120820.1430587-1-apatel@ventanamicro.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.2
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, robh@kernel.org, saravanak@google.com, palmer@dabbelt.com, paul.walmsley@sifive.com, atishp@atishpatra.org, ajones@ventanamicro.com, sunilvl@ventanamicro.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240528_083904_906259_40E7B09A 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20240528_093620_900107_3A643F34 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,57 +77,194 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2949900239731410137=="
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, devicetree@vger.kernel.org, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 09 May 2024 13:08:20 +0100,
+Anup Patel <apatel@ventanamicro.com> wrote:
+> 
+> Some of the PCI host controllers (such as generic PCI host controller)
+> use "interrupt-map" DT property to describe the mapping between PCI
+> endpoints and PCI interrupt pins. This is the only case where the
+> interrupts are not described in DT.
+> 
+> Currently, there is no fw_devlink created based on "interrupt-map"
+> DT property so interrupt controller is not guaranteed to be probed
+> before the PCI host controller. This affects every platform where
+> both PCI host controller and interrupt controllers are probed as
+> regular platform devices.
+> 
+> This creates fw_devlink between consumers (PCI host controller) and
+> supplier (interrupt controller) based on "interrupt-map" DT property.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Reviewed-by: Saravana Kannan <saravanak@google.com>
+> ---
+> Changes since v3:
+> - Added a comment about of_irq_parse_raw()
+> - Removed redundant NULL assignments to sup_args.np
+> Changes since v2:
+> - No need for a loop to find #interrupt-cells property value
+> - Fix node de-reference leak when index is greater than number
+>   of entries in interrupt-map property
+> Changes since v1:
+> - Updated commit description based on Rob's suggestion
+> - Use of_irq_parse_raw() for parsing interrupt-map DT property
 
---===============2949900239731410137==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="SU71k9OfCAjrB0pw"
-Content-Disposition: inline
+This patch breaks badly on my M1 Mini, with a continuous stream of
+boot time warnings lasting about 100 seconds:
 
+[   97.832335] ------------[ cut here ]------------
+[   97.836955] /soc/pcie@690000000/pci@2,0 interrupt-map failed, using interrupt-controller
+[   97.845072] WARNING: CPU: 0 PID: 1 at drivers/of/irq.c:277 of_irq_parse_raw+0x620/0x730
+[   97.853087] Modules linked in:
+[   97.856139] CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W          6.10.0-rc1 #2915
+[   97.864163] Hardware name: Apple Mac mini (M1, 2020) (DT)
+[   97.869570] pstate: 61400009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+[   97.876546] pc : of_irq_parse_raw+0x620/0x730
+[   97.880907] lr : of_irq_parse_raw+0x620/0x730
+[   97.885267] sp : ffffc000800538a0
+[   97.888581] x29: ffffc000800538a0 x28: 0000000000000000 x27: ffffffffff5ffc68
+[   97.895732] x26: ffffc000800539a4 x25: ffffffffff5ffbbc x24: ffffc00080053a48
+[   97.902883] x23: ffffe3ff73284e68 x22: ffffb7889aede6d0 x21: ffffe3ff735f9320
+[   97.910034] x20: ffffc00080053964 x19: ffffb7889aede6d0 x18: ffffffffffffffff
+[   97.917185] x17: 7075727265746e69 x16: 20676e697375202c x15: 64656c6961662070
+[   97.924336] x14: 616d2d7470757272 x13: 72656c6c6f72746e x12: 6f632d7470757272
+[   97.931487] x11: 65746e6920676e69 x10: ffffe3ff740bcb68 x9 : ffffe3ff72335b38
+[   97.938639] x8 : 00000001000028a4 x7 : ffffe3ff740afc08 x6 : 00000000000038a4
+[   97.945789] x5 : 00000000000067b0 x4 : c0000001000028a4 x3 : 0000000000000000
+[   97.952940] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffb784c16ade00
+[   97.960092] Call trace:
+[   97.962534]  of_irq_parse_raw+0x620/0x730
+[   97.966545]  parse_interrupt_map+0xfc/0x188
+[   97.970731]  of_fwnode_add_links+0x170/0x1e0
+[   97.975004]  fw_devlink_parse_fwtree+0x44/0x98
+[   97.979452]  fw_devlink_parse_fwtree+0x6c/0x98
+[   97.983899]  fw_devlink_parse_fwtree+0x6c/0x98
+[   97.988347]  device_add+0x610/0x6a8
+[   97.991836]  of_device_add+0x4c/0x70
+[   97.995411]  of_platform_device_create_pdata+0xa0/0x160
+[   98.000644]  of_platform_bus_create+0x184/0x370
+[   98.005178]  of_platform_populate+0x68/0x160
+[   98.009451]  of_platform_default_populate_init+0xf4/0x118
+[   98.014859]  do_one_initcall+0x4c/0x320
+[   98.018695]  do_initcalls+0xf4/0x1d8
+[   98.022271]  kernel_init_freeable+0x12c/0x280
+[   98.026632]  kernel_init+0x2c/0x1f8
+[   98.030120]  ret_from_fork+0x10/0x20
+[   98.033696] ---[ end trace 0000000000000000 ]---
 
---SU71k9OfCAjrB0pw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+which comes from 10a20b34d735f ("of/irq: Don't ignore
+interrupt-controller when interrupt-map failed").
 
-On Tue, May 28, 2024 at 05:37:32PM +0200, Andreas Schwab wrote:
-> On Mai 28 2024, Conor Dooley wrote:
->=20
-> > Looking at things to apply post -rc1, are you still looking into this
-> > issue?
->=20
-> I don't know what to look for.
+Each of the 3 PCIe ports are described as such:
 
-Fortunately for you, it is Emil I was asking :) I thought I'd addressed
-the mail to him.
+	port02: pci@2,0 {
+		device_type = "pci";
+		reg = <0x1000 0x0 0x0 0x0 0x0>;
+		reset-gpios = <&pinctrl_ap 33 GPIO_ACTIVE_LOW>;
 
---SU71k9OfCAjrB0pw
-Content-Type: application/pgp-signature; name="signature.asc"
+		#address-cells = <3>;
+		#size-cells = <2>;
+		ranges;
 
------BEGIN PGP SIGNATURE-----
+		interrupt-controller;
+		#interrupt-cells = <1>;
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZlX6kwAKCRB4tDGHoIJi
-0u/DAQCB8pdGfzhDav26IupTirOHbUvJR+udBVopIhQ5HFVtlgD+LIvTWn/Sjj2l
-71AxmORSmHlaRUwuyH4N8MtPEvg1IAU=
-=7l+D
------END PGP SIGNATURE-----
+		interrupt-map-mask = <0 0 0 7>;
+		interrupt-map = <0 0 0 1 &port02 0 0 0 0>,
+				<0 0 0 2 &port02 0 0 0 1>,
+				<0 0 0 3 &port02 0 0 0 2>,
+				<0 0 0 4 &port02 0 0 0 3>;
+		status = "disabled";
+	};
 
---SU71k9OfCAjrB0pw--
+and get probed *972 times*, which seem... excessive, given that there
+are only 4 entries per port.
 
+> ---
+>  drivers/of/property.c | 52 +++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 52 insertions(+)
+> 
+> diff --git a/drivers/of/property.c b/drivers/of/property.c
+> index a6358ee99b74..2d749a18b037 100644
+> --- a/drivers/of/property.c
+> +++ b/drivers/of/property.c
+> @@ -1311,6 +1311,57 @@ static struct device_node *parse_interrupts(struct device_node *np,
+>  	return of_irq_parse_one(np, index, &sup_args) ? NULL : sup_args.np;
+>  }
+>  
+> +static struct device_node *parse_interrupt_map(struct device_node *np,
+> +					       const char *prop_name, int index)
+> +{
+> +	const __be32 *imap, *imap_end, *addr;
+> +	struct of_phandle_args sup_args;
+> +	u32 addrcells, intcells;
+> +	int i, imaplen;
+> +
+> +	if (!IS_ENABLED(CONFIG_OF_IRQ))
+> +		return NULL;
+> +
+> +	if (strcmp(prop_name, "interrupt-map"))
+> +		return NULL;
+> +
+> +	if (of_property_read_u32(np, "#interrupt-cells", &intcells))
+> +		return NULL;
+> +	addrcells = of_bus_n_addr_cells(np);
+> +
+> +	imap = of_get_property(np, "interrupt-map", &imaplen);
+> +	if (!imap || imaplen <= (addrcells + intcells))
 
---===============2949900239731410137==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+This is "interesting". You compare a number of *bytes* with a number
+of cells. Only off by a factor of 4...
+
+Also, you need a minimum of one extra cell to hold the phandle, and a
+yet unknown number of cells for whatever follows the phandle.
+
+> +		return NULL;
+> +	imap_end = imap + imaplen;
+
+Same problem, with pointer arithmetic this time.
+
+> +
+> +	while (imap < imap_end) {
+> +		addr = imap;
+> +		imap += addrcells;
+> +
+> +		sup_args.np = np;
+> +		sup_args.args_count = intcells;
+> +		for (i = 0; i < intcells; i++)
+> +			sup_args.args[i] = be32_to_cpu(imap[i]);
+> +		imap += intcells;
+> +
+> +		/*
+> +		 * Upon success, the function of_irq_parse_raw() returns
+> +		 * interrupt controller DT node pointer in sup_args.np.
+> +		 */
+> +		if (of_irq_parse_raw(addr, &sup_args))
+> +			return NULL;
+> +
+> +		if (!index)
+> +			return sup_args.np;
+> +
+> +		of_node_put(sup_args.np);
+> +		imap += sup_args.args_count + 1;
+
+This really doesn't map (pun intended) to the way the interrupt-map
+entries are built. You need to account for the parent address size as
+well.
+
+I'll post a patch fixing both issues.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2949900239731410137==--
-
