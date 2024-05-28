@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63646C25B78
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 11:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFF2C25B78
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 May 2024 11:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2i/r3L14q5+A9eTqC3pwsVAo4sLHgIjRmigeOBTwH3k=; b=wLue6EdFmiTJ8Y/S73xwKvhRMW
-	qGnEK9WVKhLcxvBW0YyOBTUangikgPkJURtEz2ZfOJog97Xo+VPqPXZ+ttQO6Esjkw3QVXn97wAxj
-	qgRIGGJvTflnc+csV2MR3hu6U0u/ncaf41DOjIE2YO2dfyCsS4Bkj5nsZLA/+HyuwtEHrbHUhSezO
-	dK4AQZn4O0YHOmiX6rI56SL86BIVciXtDCzTeCcsQ/Iq53Yb6d6wzl75MPRAGAcGRfxvvSJzIEriB
-	pAR53n4qrztYbV8HpNT8IUiDQX8APMmdVWLRDMrd2vTCu2vOS/CFlM2rL7LxB8ja1BlrzfLrWJov/
-	Mul7/uHA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jGUBs/Ic3OSNPDFsetvm7WYspYgSJNLh0hcsI9yqSa4=; b=CBg5CewaNqUygY
+	6nSkCxvmvDNWAVPXLowfaRRvVG6zswKyYTCy0lZBXsCzUCVj1OERBoOFKcYVC4whauy5et0KtGWRe
+	dQZJz0mjlQGafNyzMnq5LOjBccvYYrwXig5MVY/f32836XIL7dw1AuZeRMgtzKcAAs/aFH3o/grkR
+	qgINZqdU8qe4i36UQo6PdcnO7NdQxBjSslooO97euXLP2/5eNovOh4x3jcGtLFS5sBtS06bBy0u1j
+	9lW6GpSe5q1EsGrEkFZdekN5UZbHkqTJNgkcjEMgsYUJinovkOXxHjZ17IcDqjBzxSjeIIBVe6cP8
+	0cEl9+wzoCfuTj2/S1Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBv2e-00000000Mns-3Yd5;
-	Tue, 28 May 2024 11:30:56 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sBvHL-00000000QMo-3bgg;
+	Tue, 28 May 2024 11:46:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sBv2b-00000000Mm4-2upY
+	id 1sBvHI-00000000QLf-2umM
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 May 2024 11:30:55 +0000
+	Tue, 28 May 2024 11:46:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id DD16ECE1140;
-	Tue, 28 May 2024 11:30:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B148AC3277B;
-	Tue, 28 May 2024 11:30:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F20A861FAD;
+	Tue, 28 May 2024 11:46:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFBC5C3277B;
+	Tue, 28 May 2024 11:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1716895851;
-	bh=J2mWDdJtos/H4lrmEII8x+5AKEqMgDmRzY9/k9sRI38=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fjavsE/HR1q6SqX7BknI3GNgr/s/PsVb+eMfFgjREQ7IvE0102h6PO0ItgahJRsvS
-	 O+6Ov04jlmuFGEWdk15DdtKkD0MDC5evcOFELwmk9rGCyTgKmO5GPkD18GW92lNxnK
-	 9QIBY/rKZn0Mb+UzXNUTfiNGYBDNA9aiVgQbNG/DGXbpmJv1YnqYz+W1D4KtEhsElc
-	 KnYy/XU6bYZAR/GqL9m2fPU8O8IhYbIdWxlTqpcYj2o1w8yGrnWLrmE2O2rTqz6rdv
-	 PiGFWRVYtA77wLaxY6fZhp6HX/ePoIWi9p+QC/ATgaI9PUGQNRl1yxVNV2uctFbIli
-	 7bhNLMUfB+eJA==
-Date: Tue, 28 May 2024 12:30:46 +0100
+	s=k20201202; t=1716896763;
+	bh=8eK4lFuvzROCoqOLZA6LdYRepQBeBPy2QYRR9Nmd0YM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=YPHNRnR+D1quPmAPgEqPEV0D5R4/+uh9DdwSowMS7wP+Ni08dTDPkGQpov8fOtgk3
+	 EdBDPMyk3HUZ7gSOS5t6ZIX+6/3+sFBIhwjcLQr8+iDTdVBi46BeNy0uCQLWcJTN4A
+	 nUjgO46k8jhMSUF0KOMPTOeP/CWb5UfduJBudCmV+joKxaf5fw8uhmOnJObPisz1K+
+	 IQgGEdoRjEajOnnhCMovItmG4aBEDFi5QK70dxeWV/n/zyg0Cqu+R6PZlB1ykWQZdm
+	 wjlJmlj1TmXszIRNAcIGm2QKsV306rlj5zN68YlP6zUh2iSc48ARV+AVc+dljKRxIO
+	 LTK73ul2SjOeQ==
 From: Conor Dooley <conor@kernel.org>
-To: Andreas Schwab <schwab@linux-m68k.org>
-Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	conor@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	leyfoon.tan@starfivetech.com,
+	jeeheng.sia@starfivetech.com,
+	Joshua Yeong <joshua.yeong@starfivetech.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v1 0/2] riscv: dts: starfive: Enable Bluetooth on JH7100
- boards
-Message-ID: <20240528-outpost-subduing-2e84f77427a4@spud>
-References: <20240508111604.887466-1-emil.renner.berthing@canonical.com>
- <87wmo2nmee.fsf@linux-m68k.org>
- <CAJM55Z-F6N6ua5LoqyMFogDtLp=FaRPoDv4osXFDMjR1b8r9nw@mail.gmail.com>
- <87zfsy102h.fsf@igel.home>
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 0/2 RESEND] Add StarFive's StarLink Cache Controller
+Date: Tue, 28 May 2024 12:44:37 +0100
+Message-ID: <20240528-slimy-strum-49808758ecf6@spud>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240515050253.38061-1-joshua.yeong@starfivetech.com>
+References: <20240515050253.38061-1-joshua.yeong@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <87zfsy102h.fsf@igel.home>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=744; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=uwmj+IvuPNH2MXt62/g3umyKOAR249jIBU85pO/nLLY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGmhh5fUVIos+Plm27aMOWEel8Nu8X0W1Tn5X7RlrSW/h eTTXSb9HaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZiI2GxGhm3unXHHk3cr26ht yV/IoO62+UCV2o2uN1ObJXtXMFtwlzD8d9DzqP2zejZr32zvf/sZkzb9E4l4skflmdsuc56FnCu 2MAEA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240528_043054_110313_06FF93E6 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20240528_044604_801294_4AC19DE0 
+X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,104 +81,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0968358994952388578=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============0968358994952388578==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="dcH1rd/ToVgelCkf"
-Content-Disposition: inline
+On Wed, 15 May 2024 13:02:51 +0800, Joshua Yeong wrote:
+> StarFive's StarLink Cache Controller flush/invalidates cache using non-
+> conventional RISC-V Zicbom extension instructions. This driver provides the
+> cache handling on StarFive RISC-V SoC.
+> 
+> Changes in v4:
+> - Move cache controller initialization to arch_initcall()
+> - Link to v3: https://lore.kernel.org/all/20240424075856.145850-1-joshua.yeong@starfivetech.com/
+> 
+> [...]
 
+I've picked these two up and applied to riscv-cache-for-next, with their
+order corrected. Emil, shout if there was something left from your
+feedback that was unimplemented. The wording etc seems to have been
+"fixed" in this version.
 
---dcH1rd/ToVgelCkf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Emil,
-
-On Fri, May 10, 2024 at 11:35:34AM +0200, Andreas Schwab wrote:
-> On Mai 10 2024, Emil Renner Berthing wrote:
->=20
-> > You don't include any information useful for debugging this, but if it =
-get's
-> > far enough to load the firmware could you at least make sure you run the
-> > version below, so that's at least the same.
-> >
-> > https://github.com/esmil/linux/blob/visionfive/firmware/brcm/BCM43430A1=
-=2Ehcd
->=20
-> That didn't change anything (and there are no messages related to
-> firmware loading from hci_uart).
-
-Looking at things to apply post -rc1, are you still looking into this
-issue?
+[1/2] cache: Add StarFive StarLink cache management
+      https://git.kernel.org/conor/c/cabff60ca77d
+[2/2] dt-bindings: cache: Add docs for StarFive Starlink cache controller
+      https://git.kernel.org/conor/c/c6005d4dd216
 
 Thanks,
 Conor.
-
->=20
-> [  +0.879623] Bluetooth: Core ver 2.22
-> [  +0.004843] NET: Registered PF_BLUETOOTH protocol family
-> [  +0.008787] Bluetooth: HCI device and connection manager initialized
-> [  +0.021944] Bluetooth: HCI socket layer initialized
-> [  +0.008488] Bluetooth: L2CAP socket layer initialized
-> [  +0.006333] Bluetooth: SCO socket layer initialized
-> [  +0.097478] Bluetooth: HCI UART driver ver 2.3
-> [  +0.007943] Bluetooth: HCI UART protocol H4 registered
-> [  +0.006066] Bluetooth: HCI UART protocol BCSP registered
-> [  +0.006962] Bluetooth: HCI UART protocol LL registered
-> [  +0.000015] Bluetooth: HCI UART protocol ATH3K registered
-> [  +0.000084] Bluetooth: HCI UART protocol Three-wire (H5) registered
-> [  +0.000247] Bluetooth: HCI UART protocol Intel registered
-> [  +0.000455] Bluetooth: HCI UART protocol Broadcom registered
-> [  +0.000084] Bluetooth: HCI UART protocol QCA registered
-> [  +0.000008] Bluetooth: HCI UART protocol AG6XX registered
-> [  +0.000057] Bluetooth: HCI UART protocol Marvell registered
-> [  +0.051854] hci_uart_bcm serial0-0: supply vbat not found, using dummy =
-regulator
-> [  +0.000387] hci_uart_bcm serial0-0: supply vddio not found, using dummy=
- regulator
-> [  +0.094658] hci_uart_bcm serial0-0: No reset resource, using default ba=
-ud rate
-> [  +0.990297] Bluetooth: hci0: command 0x1001 tx timeout
-> [  +0.022893] Bluetooth: hci0: BCM: Reading local version info failed (-1=
-10)
-> [  +3.306159] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
-> [  +0.013336] Bluetooth: BNEP filters: protocol multicast
-> [  +0.124262] Bluetooth: BNEP socket layer initialized
->=20
-> --=20
-> Andreas Schwab, schwab@linux-m68k.org
-> GPG Key fingerprint =3D 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-> "And now for something completely different."
-
---dcH1rd/ToVgelCkf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZlXAZgAKCRB4tDGHoIJi
-0rRYAQCPV3NyOXggUlW5QYTcZrOknlvRNJsQPgvriNuR3R88agD/b1uTRd5yeqxu
-DGOC09v8twvgMfBK721fZgjGYgug3wQ=
-=k8pT
------END PGP SIGNATURE-----
-
---dcH1rd/ToVgelCkf--
-
-
---===============0968358994952388578==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0968358994952388578==--
-
