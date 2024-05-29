@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7944C27C44
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 19:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7834AC25B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 19:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=xrZWlumFoCX5QJg+G6izxcjnmf7jP1sAhVH/8UgTbyc=; b=FJKQzDngsZhXsH3M0vP9HB3YJv
-	QMblPfr3fgFnWd7eIsUmfgu/tIq8rTsffqRI9KjRY8PEiyN7+FUk0Ecsg/hMNVkzxj11G5gCAO5D3
-	WJXE5L82ONtCCW73VBv+58JkG2ZZHw3067ZrcK9erPdSUVNg/LmW5GvHw3frEos9D2y08hUf0saK0
-	fTUPdpasrIplSDqDkZ7rgCn/J3KD/xE5spmv9bf2GR1lidnnHbkLJqE5eU95iGF/y1vialMWiuCwx
-	MSkwPN4PCGxszFNwmLjeBNS68X5E0s2xq2QNVwF0IQm/6oeU4Hw6yrKCdLdYQS76C9jbrT7LDfRck
-	52Nfn32w==;
+	bh=/nTRBxoV8JpdcaoKxrW0LLAvoSjOGThC/QTEf5uQm9s=; b=r94g+rdJWfQh+7Zq0LkMAsth6F
+	9L5J7wo/gI+NsOs0z1JfcArCZEpJQ7RJrx0ezQ8glvsg3vSUurpgMnPk0N6OeSRyWy8cczMxKU7AT
+	hMjtv/FV2SlQ6xr3LenykfVViQBLGrAwQqWe3gJN/+m2xWEqW8LaIBHa9jUFoUG5VoKBus7qNZEuw
+	uQ2jSmXi7ehuRJbBC8HghnIQ8O0bz6l4tm4RdDs/N8wg1DGf7h5aQVNOcJTSgl+U5yw/YV45F6ANC
+	4rgrUuZj5WpVUDYcQeJYfeNB4RuQqi4f8QzUb5xdFC0JSXvyam0OA4p7fatmybBRZ8w7hM+JKjjHK
+	uRPlirGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCOmF-00000005JPu-3jjB;
-	Wed, 29 May 2024 19:16:00 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1sCOmH-00000005JR5-2pZm;
+	Wed, 29 May 2024 19:16:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCNfw-000000058hs-0RF1
+	id 1sCNg3-000000058pP-1drW
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 29 May 2024 18:05:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=K/D/1FA4Uw1YrzG6+cN1+7larQcduYYAcSD+7tGLFpU=; b=SYucbSC0jVNTnj5dToxEUrBRjW
+	n3EFgadIaJufTt9P6ZS7UJ9EXmix1EgoVm5t60we4wfOyntF7PLHvrib/fsqYeZ5KWtsumERz5n1g
+	4ZYSitTQ7e8L8UoGf07SsJiO2z8kJH3tohWRKtI5HCnj6IYZH8Xm2SDnTSjiBu74blnp8gE2j579N
+	8MHwCc1lnQ1SQ5BCiwaDcUe10Vh3yxjY+/v4OY/bHmrGtDXMQJNna5DRh53tAlaoemvTdevMac5te
+	B+1ldLyILbE0R8CUxNLKfZmUG9vegxeN+NxqICJy4uGmYa9WXdvlQlXtGduH2GvdBreUr9J9wzAnP
+	8tN4aWww==;
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sCNfw-0000000E1ol-3T6o
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 May 2024 18:05:30 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-df78ea30f83so315097276.1
-        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 11:05:21 -0700 (PDT)
+	Wed, 29 May 2024 18:05:28 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-627e9a500faso36958047b3.1
+        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 11:05:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1717005921; x=1717610721; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1717005923; x=1717610723; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CwoKXote5Ew7Jsdz/aAIUFFvPSk6A909NzRQYNohjtE=;
-        b=lmbM3rv18dU1DWcpLzgBAHtouF6dXDYzld5WWJv0QdV13DdMJX4G1wlofiF9k0wYkO
-         /2W2EOjS5ELhZlTK5VOs+TCzoGeOVsHb7O3oA/mMW2iVlKDxC4c2qUYPUwE6g16we6Os
-         R2P8QhF3bK/u5V/4NSK/mHd/WDGpP1GIaFnAdcKR6mBFKoht01UtALRFnCvHsR+XSeem
-         b+Z8ZyQ1ZdE8m8vgN1Vt1PANzF27vfTVJE7ntbD30Ttdr3LJADwquuwFNGEc1MCKd3Th
-         m40K11uq6Yra/WMop53Lz6SogCNVLa+sgIHKMppl0c8CfAAzKqOLeUvaFsMljYdN2E5O
-         +VoQ==
+        bh=K/D/1FA4Uw1YrzG6+cN1+7larQcduYYAcSD+7tGLFpU=;
+        b=H+XBvkUeg8sDezRU6S5ZIMZGpzQdoBOMC2MUFjLWT1TeCQhEH/bo4Lvj0pyqnYvhJX
+         rWkYzWcXOfqcxmbIkjZh8bVd1fYMsdCud8OEQqrTYcgWGMlNqEyq9KnFQ9XJCReO4t+s
+         AvPavWWckLcPHSri8kcVQfHDedaslGrOpf8BDj8tNbfrVeXiPJtd71384bfND6hGsmvM
+         HSqlHVQAAr6mLm1GXWFl+kGjoeyssqHaJ65kkXr1/OeRhX+lbY+GWfy2l89ijig2vV2q
+         7fWZMFvZZ63WhL/z7c0ZkcspCbHJ/PGcPh57rJWzq/60MY0/YmPEeMtGHPpLw+9GS6Yl
+         FiaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717005921; x=1717610721;
+        d=1e100.net; s=20230601; t=1717005923; x=1717610723;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CwoKXote5Ew7Jsdz/aAIUFFvPSk6A909NzRQYNohjtE=;
-        b=UALQUEpFujqrYTyBKu/flsrUFx0w0XjnV5tQPN9QpzUCjOIUxI/BARfAh1ZXS+grpw
-         CZI5c+8V259NM1VXA1m2f2fos+z4Zp+8B2CRvtqiarvWXrn0EHNs6g8TMhX8AYoY8XPI
-         9AIk1wi3IwrzbJiYLCamxShJ/XJdz3bIuutmu3NoeT4L8MinkAtOKVySAnxLaP9uUeVG
-         H4BoZp9/+Wl6Jbrg9bWUSCA6tmEfAsZztI/PWAslpwTJK1YwgVZD6e2OkMrN4rf1l4S7
-         oxodYh878dr+XYs0pr/KZFexanYCwPtVaODPGx/HqKGs7VWtbJWwnDbY5gYOS5mjrIOl
-         zC7A==
-X-Forwarded-Encrypted: i=1; AJvYcCVuh/d5nTn02CJj5kCv1N3F6TD0QQQCzX43+mH3geR3yKuyymR3NSfD33U16CIZViqCe/sTCmzmf6HqJyMpKYJuUP9JFCajLWtsaVaU5Rsu
-X-Gm-Message-State: AOJu0Yzr085XWJuQEeQ6ymHgQn5RxfiX1gf7JZmG/wy6RK5r4Y30P7bU
-	YH+dB9zLdXnTJOoJJkh1deg3fB25v+rfUGvZevUC4VAtZhCLHK4RvSaFnz8Ak7Qf7/+cYGkFeVW
-	pcZu0HLyNiv1cLFPgWg==
-X-Google-Smtp-Source: AGHT+IF9TgFBMPkNgtG0hPNwMJ317N5S8DzPgfu78mJAr8hsxOfUSU1lJMom0dwIl649roanAV0XRBVJc/tZTtZp
+        bh=K/D/1FA4Uw1YrzG6+cN1+7larQcduYYAcSD+7tGLFpU=;
+        b=apy3ae+AaaeCMbG5Ilw5UvC4BV9ZMQsnYMx4G5pL53KiMlFuy3DPFk0u/AUgADZDgo
+         Ot8zz8dJKBU/P5wJvU3ZQmZr74HfDlFOEfK9DO5Kj68jvkcW2pRLQdIwncq2W3G1m0TB
+         auc34tS1i3z2Ae+0/sNDsgWr1gkICQngQmCRP+GGxrrA/b5WU2mQvZcTFjD6TLOdtPLn
+         RPrCaJDnnbFNEFdryM28Fd5Wb9PH7FWja+RfJP98GchNhflsh+ta8LIaTV9wZcGvUvh7
+         u+C40gxMaevWujcjRDIduM5hZZ7loXbnQ+7wMZsEaXetMYOzFfLnBwekXir2JtFsY+lJ
+         Z2kw==
+X-Forwarded-Encrypted: i=1; AJvYcCXCU87N4QUJvF/IwsXeNv6U7++G0e/IUM0x6cjn2hZ1FN1Rncossi8nr6niDXmfA0f4xvh8AptOAck8YdoSVCF5EQfOYrA/bf79/ibCVlyB
+X-Gm-Message-State: AOJu0Yz3EkkivTAQ9iK63mw8kJ0KtyG/x+ME76wxO9BAOuRWHStqcsBF
+	83lNbSadVp1dZu1/MJ090Rl5xynwuOYhAZIu/t2ebjbRU1SkY2Qm4X6/WBFnOYvtLNShJWckTbW
+	1QjegH1likT2Ri6NM9g==
+X-Google-Smtp-Source: AGHT+IFSnjz7OFMOWeVI0MI1apHPovJ16H+bOSMdUdDO7KbUX1eLZ6QqkPj6sVplMDT0O6FTB3I8hMUTstLZ6+/c
 X-Received: from jthoughton.c.googlers.com ([fda3:e722:ac3:cc00:14:4d90:c0a8:2a4f])
- (user=jthoughton job=sendgmr) by 2002:a05:6902:1005:b0:df7:9df5:4bbc with
- SMTP id 3f1490d57ef6-dfa462d091bmr641866276.0.1717005921060; Wed, 29 May 2024
- 11:05:21 -0700 (PDT)
-Date: Wed, 29 May 2024 18:05:07 +0000
+ (user=jthoughton job=sendgmr) by 2002:a05:690c:6010:b0:61a:e7f7:a4cc with
+ SMTP id 00721157ae682-62a08dd7631mr39296497b3.4.1717005922981; Wed, 29 May
+ 2024 11:05:22 -0700 (PDT)
+Date: Wed, 29 May 2024 18:05:09 +0000
 In-Reply-To: <20240529180510.2295118-1-jthoughton@google.com>
 Mime-Version: 1.0
 References: <20240529180510.2295118-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.45.1.288.g0e0cd299f1-goog
-Message-ID: <20240529180510.2295118-5-jthoughton@google.com>
-Subject: [PATCH v4 4/7] KVM: Move MMU lock acquisition for test/clear_young to architecture
+Message-ID: <20240529180510.2295118-7-jthoughton@google.com>
+Subject: [PATCH v4 6/7] KVM: arm64: Relax locking for kvm_test_age_gfn and kvm_age_gfn
 From: James Houghton <jthoughton@google.com>
 To: Andrew Morton <akpm@linux-foundation.org>, Paolo Bonzini <pbonzini@redhat.com>
 Cc: Albert Ou <aou@eecs.berkeley.edu>, Ankit Agrawal <ankita@nvidia.com>, 
@@ -90,8 +105,8 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>, Ankit Agrawal <ankita@nvidia.com>,
 	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
 	loongarch@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240529_110524_442701_010762C8 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20240529_190525_033479_4422723E 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,308 +123,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For implementation mmu_notifier_{test,clear}_young, the KVM memslot
-walker used to take the MMU lock for us. Now make the architectures
-take it themselves.
+Replace the MMU write locks for read locks.
 
-Don't relax locking for any architecture except powerpc e500; its
-implementations of kvm_age_gfn and kvm_test_age_gfn simply return false,
-so there is no need to grab the KVM MMU lock.
+Grabbing the read lock instead of the write lock is safe because the
+only requirement we have is that the stage-2 page tables do not get
+deallocated while we are walking them. The stage2_age_walker() callback
+is safe to race with itself; update the comment to reflect the
+synchronization change.
 
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
- arch/arm64/kvm/mmu.c      | 30 ++++++++++++++++++++++--------
- arch/loongarch/kvm/mmu.c  | 20 +++++++++++++++-----
- arch/mips/kvm/mmu.c       | 21 ++++++++++++++++-----
- arch/powerpc/kvm/book3s.c | 14 ++++++++++++--
- arch/riscv/kvm/mmu.c      | 26 ++++++++++++++++++++------
- arch/x86/kvm/mmu/mmu.c    |  8 ++++++++
- virt/kvm/kvm_main.c       |  4 ++--
- 7 files changed, 95 insertions(+), 28 deletions(-)
+ arch/arm64/kvm/hyp/pgtable.c | 9 ++++-----
+ arch/arm64/kvm/mmu.c         | 8 ++++----
+ 2 files changed, 8 insertions(+), 9 deletions(-)
 
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 9e2bbee77491..eabb07c66a07 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1319,10 +1319,8 @@ static int stage2_age_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 	data->young = true;
+ 
+ 	/*
+-	 * stage2_age_walker() is always called while holding the MMU lock for
+-	 * write, so this will always succeed. Nonetheless, this deliberately
+-	 * follows the race detection pattern of the other stage-2 walkers in
+-	 * case the locking mechanics of the MMU notifiers is ever changed.
++	 * This walk may not be exclusive; the PTE is permitted to change
++	 * from under us.
+ 	 */
+ 	if (data->mkold && !stage2_try_set_pte(ctx, new))
+ 		return -EAGAIN;
+@@ -1345,7 +1343,8 @@ bool kvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr,
+ 	struct kvm_pgtable_walker walker = {
+ 		.cb		= stage2_age_walker,
+ 		.arg		= &data,
+-		.flags		= KVM_PGTABLE_WALK_LEAF,
++		.flags		= KVM_PGTABLE_WALK_LEAF |
++				  KVM_PGTABLE_WALK_SHARED,
+ 	};
+ 
+ 	WARN_ON(kvm_pgtable_walk(pgt, addr, size, &walker));
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 8bcab0cc3fe9..8337009dde77 100644
+index 8337009dde77..40e7427462a7 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1773,25 +1773,39 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
+@@ -1775,7 +1775,7 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
  	u64 size = (range->end - range->start) << PAGE_SHIFT;
-+	bool young = false;
-+
-+	write_lock(&kvm->mmu_lock);
- 
- 	if (!kvm->arch.mmu.pgt)
--		return false;
-+		goto out;
- 
--	return kvm_pgtable_stage2_test_clear_young(kvm->arch.mmu.pgt,
--						   range->start << PAGE_SHIFT,
--						   size, true);
-+	young = kvm_pgtable_stage2_test_clear_young(kvm->arch.mmu.pgt,
-+						    range->start << PAGE_SHIFT,
-+						    size, true);
-+
-+out:
-+	write_unlock(&kvm->mmu_lock);
-+	return young;
- }
- 
- bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
-+	bool young = false;
-+
-+	write_lock(&kvm->mmu_lock);
- 
- 	if (!kvm->arch.mmu.pgt)
--		return false;
-+		goto out;
- 
--	return kvm_pgtable_stage2_test_clear_young(kvm->arch.mmu.pgt,
--						   range->start << PAGE_SHIFT,
--						   size, false);
-+	young = kvm_pgtable_stage2_test_clear_young(kvm->arch.mmu.pgt,
-+						    range->start << PAGE_SHIFT,
-+						    size, false);
-+
-+out:
-+	write_unlock(&kvm->mmu_lock);
-+	return young;
- }
- 
- phys_addr_t kvm_mmu_get_httbr(void)
-diff --git a/arch/loongarch/kvm/mmu.c b/arch/loongarch/kvm/mmu.c
-index 98883aa23ab8..5eb262bcf6b0 100644
---- a/arch/loongarch/kvm/mmu.c
-+++ b/arch/loongarch/kvm/mmu.c
-@@ -497,24 +497,34 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
- 	kvm_ptw_ctx ctx;
-+	bool young;
-+
-+	spin_lock(&kvm->mmu_lock);
- 
- 	ctx.flag = 0;
- 	ctx.ops = kvm_mkold_pte;
- 	kvm_ptw_prepare(kvm, &ctx);
- 
--	return kvm_ptw_top(kvm->arch.pgd, range->start << PAGE_SHIFT,
-+	young = kvm_ptw_top(kvm->arch.pgd, range->start << PAGE_SHIFT,
- 				range->end << PAGE_SHIFT, &ctx);
-+
-+	spin_unlock(&kvm->mmu_lock);
-+	return young;
- }
- 
- bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
- 	gpa_t gpa = range->start << PAGE_SHIFT;
--	kvm_pte_t *ptep = kvm_populate_gpa(kvm, NULL, gpa, 0);
-+	kvm_pte_t *ptep;
-+	bool young;
- 
--	if (ptep && kvm_pte_present(NULL, ptep) && kvm_pte_young(*ptep))
--		return true;
-+	spin_lock(&kvm->mmu_lock);
-+	ptep = kvm_populate_gpa(kvm, NULL, gpa, 0);
- 
--	return false;
-+	young = ptep && kvm_pte_present(NULL, ptep) && kvm_pte_young(*ptep);
-+
-+	spin_unlock(&kvm->mmu_lock);
-+	return young;
- }
- 
- /*
-diff --git a/arch/mips/kvm/mmu.c b/arch/mips/kvm/mmu.c
-index c17157e700c0..db3b7cf22db1 100644
---- a/arch/mips/kvm/mmu.c
-+++ b/arch/mips/kvm/mmu.c
-@@ -446,17 +446,28 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- 
- bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
--	return kvm_mips_mkold_gpa_pt(kvm, range->start, range->end);
-+	bool young;
-+
-+	spin_lock(&kvm->mmu_lock);
-+	young = kvm_mips_mkold_gpa_pt(kvm, range->start, range->end);
-+	spin_unlock(&kvm->mmu_lock);
-+	return young;
- }
- 
- bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
- 	gpa_t gpa = range->start << PAGE_SHIFT;
--	pte_t *gpa_pte = kvm_mips_pte_for_gpa(kvm, NULL, gpa);
-+	pte_t *gpa_pte;
-+	bool young = false;
- 
--	if (!gpa_pte)
--		return false;
--	return pte_young(*gpa_pte);
-+	spin_lock(&kvm->mmu_lock);
-+	gpa_pte = kvm_mips_pte_for_gpa(kvm, NULL, gpa);
-+
-+	if (gpa_pte)
-+		young = pte_young(*gpa_pte);
-+
-+	spin_unlock(&kvm->mmu_lock);
-+	return young;
- }
- 
- /**
-diff --git a/arch/powerpc/kvm/book3s.c b/arch/powerpc/kvm/book3s.c
-index ff6c38373957..f503ab9ac3a5 100644
---- a/arch/powerpc/kvm/book3s.c
-+++ b/arch/powerpc/kvm/book3s.c
-@@ -887,12 +887,22 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- 
- bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
--	return kvm->arch.kvm_ops->age_gfn(kvm, range);
-+	bool young;
-+
-+	spin_lock(&kvm->mmu_lock);
-+	young = kvm->arch.kvm_ops->age_gfn(kvm, range);
-+	spin_unlock(&kvm->mmu_lock);
-+	return young;
- }
- 
- bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
--	return kvm->arch.kvm_ops->test_age_gfn(kvm, range);
-+	bool young;
-+
-+	spin_lock(&kvm->mmu_lock);
-+	young = kvm->arch.kvm_ops->test_age_gfn(kvm, range);
-+	spin_unlock(&kvm->mmu_lock);
-+	return young;
- }
- 
- int kvmppc_core_init_vm(struct kvm *kvm)
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index b63650f9b966..c78abe8041fb 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -555,17 +555,24 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- 	pte_t *ptep;
- 	u32 ptep_level = 0;
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
-+	bool young = false;
-+
-+	spin_lock(&kvm->mmu_lock);
- 
- 	if (!kvm->arch.pgd)
--		return false;
-+		goto out;
- 
- 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
- 
- 	if (!gstage_get_leaf_entry(kvm, range->start << PAGE_SHIFT,
- 				   &ptep, &ptep_level))
--		return false;
-+		goto out;
-+
-+	young = ptep_test_and_clear_young(NULL, 0, ptep);
- 
--	return ptep_test_and_clear_young(NULL, 0, ptep);
-+out:
-+	spin_unlock(&kvm->mmu_lock);
-+	return young;
- }
- 
- bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-@@ -573,17 +580,24 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- 	pte_t *ptep;
- 	u32 ptep_level = 0;
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
-+	bool young = false;
-+
-+	spin_lock(&kvm->mmu_lock);
- 
- 	if (!kvm->arch.pgd)
--		return false;
-+		goto out;
- 
- 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
- 
- 	if (!gstage_get_leaf_entry(kvm, range->start << PAGE_SHIFT,
- 				   &ptep, &ptep_level))
--		return false;
-+		goto out;
-+
-+	young = pte_young(ptep_get(ptep));
- 
--	return pte_young(ptep_get(ptep));
-+out:
-+	spin_unlock(&kvm->mmu_lock);
-+	return young;
- }
- 
- int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index 662f62dfb2aa..6a2a557c2c31 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -1630,12 +1630,16 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
  	bool young = false;
  
-+	write_lock(&kvm->mmu_lock);
-+
- 	if (kvm_memslots_have_rmaps(kvm))
- 		young = kvm_handle_gfn_range(kvm, range, kvm_age_rmap);
+-	write_lock(&kvm->mmu_lock);
++	read_lock(&kvm->mmu_lock);
  
- 	if (tdp_mmu_enabled)
- 		young |= kvm_tdp_mmu_age_gfn_range(kvm, range);
+ 	if (!kvm->arch.mmu.pgt)
+ 		goto out;
+@@ -1785,7 +1785,7 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 						    size, true);
  
-+	write_unlock(&kvm->mmu_lock);
-+
+ out:
+-	write_unlock(&kvm->mmu_lock);
++	read_unlock(&kvm->mmu_lock);
  	return young;
  }
  
-@@ -1643,12 +1647,16 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
+@@ -1794,7 +1794,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	u64 size = (range->end - range->start) << PAGE_SHIFT;
  	bool young = false;
  
-+	write_lock(&kvm->mmu_lock);
-+
- 	if (kvm_memslots_have_rmaps(kvm))
- 		young = kvm_handle_gfn_range(kvm, range, kvm_test_age_rmap);
+-	write_lock(&kvm->mmu_lock);
++	read_lock(&kvm->mmu_lock);
  
- 	if (tdp_mmu_enabled)
- 		young |= kvm_tdp_mmu_test_age_gfn(kvm, range);
+ 	if (!kvm->arch.mmu.pgt)
+ 		goto out;
+@@ -1804,7 +1804,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 						    size, false);
  
-+	write_unlock(&kvm->mmu_lock);
-+
+ out:
+-	write_unlock(&kvm->mmu_lock);
++	read_unlock(&kvm->mmu_lock);
  	return young;
  }
  
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index d197b6725cb3..8d2d3acf18d8 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -901,7 +901,7 @@ static int kvm_mmu_notifier_clear_young(struct mmu_notifier *mn,
- 	 * more sophisticated heuristic later.
- 	 */
- 	return kvm_handle_hva_range_no_flush(mn, start, end,
--					     kvm_age_gfn, false);
-+					     kvm_age_gfn, true);
- }
- 
- static int kvm_mmu_notifier_test_young(struct mmu_notifier *mn,
-@@ -911,7 +911,7 @@ static int kvm_mmu_notifier_test_young(struct mmu_notifier *mn,
- 	trace_kvm_test_age_hva(address);
- 
- 	return kvm_handle_hva_range_no_flush(mn, address, address + 1,
--					     kvm_test_age_gfn, false);
-+					     kvm_test_age_gfn, true);
- }
- 
- static void kvm_mmu_notifier_release(struct mmu_notifier *mn,
 -- 
 2.45.1.288.g0e0cd299f1-goog
 
