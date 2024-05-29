@@ -4,82 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB551C27C43
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 21:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 443D4C25B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 21:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8PTsVdwpRvWsjRSfjfIZtQMng08XVwk3Ga7p709QK7c=; b=GoZ0kuX1O49ASI
-	MVkVpP+WvqUWv3uJrjNNMNY02xQ5GTiCe3hINpscl3vI6xg/ju2+lWwifMonfyfwWJhsuFc0hWSER
-	KZBMMSGn5PN7EQ130L2YWrM5a5A+onZVduC+qLqQUuVl0Y1LJzqcwksIogmxH6I7L7TTVPq18ILEB
-	EprxK7ApgRlIEWceHlrq/Zn+3sLFzfRhf8Q8D/BaKp3dpxLFvi1QWKv2cvjTO4IGsgwuiIuth4Jnz
-	HxKBTZRIrNEIgwl/2Idx88iq0FzrCsMGit1CSoX+0cMsUqyqdbUCS7UQOIuWIajbv1/1UsJxsDBkF
-	qzr6442NW8wKPIk20wgQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=zjTk7guFFizfLZI3ywdjskpVOmcdu08+yBoMrQuI3Yk=; b=xZpuWeSYoEWE7Tp2c9j6ldsSZ7
+	g9t5+IZ+2LNCahyIY9+3wdlZ1eduGcHYTaAe/KLVUFHLPS3YGIqLwo84PVNvv+QtlyV3YfNGsuGe2
+	34gDZCDsH1zslYU+eE/DXyWvM1TMtl48oDAGOmpRxYYPaTL6Jmi6iXC8mAKqc42XPS2aqk6h7/Ezw
+	C9vEx8KMcwkmpQ37RzF9DaxEd0OZDaiSUDDkZrClal2JypuZfvsINyvJUN7b81/h6dGgSvOhzGOxG
+	VNwsR9803FRA+k6zUzFJokKk6GCdtXDdF7Y2n/wOdhQZ0UhFWHhOu2IcDbuAWYWbtULamwMNuKf/0
+	QlFkfGTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCRGD-00000005dt9-0KsI;
-	Wed, 29 May 2024 21:55:05 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1sCRH1-00000005e2j-11dW;
+	Wed, 29 May 2024 21:55:55 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCRG9-00000005dsA-2hUg
+	id 1sCRGx-00000005e0a-21wL
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 May 2024 21:55:03 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-68195b58daeso187096a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 14:55:01 -0700 (PDT)
+	Wed, 29 May 2024 21:55:52 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-66348aafadcso214484a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 14:55:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1717019700; x=1717624500; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JkamhnzZzL+d5XOCP7ZQRgk3oaOwgUEN9NLGiuPviks=;
-        b=Ev8nSMSFJGPXRS091xR1q1JSoi2WjZLljwBs2mQjFmHBbsW5QVA3Qvw+BkaBtHOsuF
-         QgFMRIOCqsiNyRM+8DmuFqMeAfPE7p9My+wMdRlm31XSDPhYjJ27L8lfpEDiaZXcsYLi
-         ofN5GvWVhihEghoLEHnlrpEodJWEXIEM/hzxFWNJtONeZjERBnKTRSWkc4zIDqdJ5QZZ
-         ZIGmMjOahinxjGLdU0EIQ0IoSFyqXXEYN0YgE2mU++gCsY6Vwl+7tESL7uy8WlhQLvSw
-         sgAbxB/8Xzmyp/k9QK/Hz87nRsPB9xq9d+3+cXAMv5Jmx0xKn1bdf7lkM/1XdPWoUVE6
-         guUw==
+        d=google.com; s=20230601; t=1717019749; x=1717624549; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=R0O8RdWVLc2UjPDSDGViR160MauFo82inRxl7GpP6bk=;
+        b=0zBxsdjGBWKf7TCVl9ikOXUBvH7Zyl+4K/7m/gRMbamtCx9xKdJpGmeWFpVfaj7Vqm
+         x2H2rtMCiZVCwyCXIGrKBxTEf4WDIIYW5X6NOlh+nGvHEjkXRoY52siJVZCbQMEsL9lf
+         VNdj81X9o7NWoOlX0TmGHq70jcgLCbT0kfn5S1GOC17uIijekPKpkfZHhN1czm5HGkdU
+         PX7PsY+IVlPSiEcDYFvmnJs8aJUDBMbTP9Xzn/DNYQtAdoPJW6CYPwiIwDbIkYuonoQg
+         vKbsZxPyf0WP/4OFUpqmH4pRVt2l+vQhTit+4ty/MzvXxvNlA9n/9eVEXFyZW7bQ2HML
+         dvig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717019700; x=1717624500;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JkamhnzZzL+d5XOCP7ZQRgk3oaOwgUEN9NLGiuPviks=;
-        b=Ptug6WGEtfpSsMf160CbW6k0RAfJJDQykbQDg+S2eUTmOyALOiEF2n7Fi51jwYKA1G
-         SJWqGMsmDpnaidtw4Vw+I1WzF1mqKcQ1yokNm84OHS6PIkxUoRmV1beY9KpWlTFUR8v0
-         khwtGG48rXWJZ4ceCv/gTVsXhUppNL9n1N8ivAQnbeCf9OQ31Lk7eq2kdz7kF9Ucugxn
-         KfMtI0/i8LGpmeNMu5wLGQw5RgjqPbS1zmjLIFGcQf11tB4N5PWel2wlGcBDZboCf8pN
-         Z9g6+SyGeC4geBa3OhSrE3oKPWB3LBIiyjnRnGglYpqC53kguKxQIZIMgSmTVAoTgeG+
-         WUQA==
-X-Forwarded-Encrypted: i=1; AJvYcCXEtXN0T4nd9RtjXGdHOZE7cKHMOgbohGim8TSmTz3bT/waSRXFupuF3LkU90VbSAaZiYiNhmOkaG0DgewQb9qt7isNiu1lPYDODtXHE7Z3
-X-Gm-Message-State: AOJu0YwmarHcHtiMAkf52sG5KHSSewhKKheUunR/sGuTtMiMCLkjxfi0
-	Ae07UeuWOs/keoeTlEDeE1VxCY7DM7FYyq+Nl/v+aDqiL2UJBuDMhsVVExq9mUI=
-X-Google-Smtp-Source: AGHT+IEyd+1nf+mYeXxqbzWxP0KkmJ38q4hcn4FSLb1gMwyFmtQyII9SHwxxRo8Vj3wVM4NLSPx0tg==
-X-Received: by 2002:a17:902:e806:b0:1f2:fe82:21e9 with SMTP id d9443c01a7336-1f61983aad4mr3454005ad.46.1717019700374;
-        Wed, 29 May 2024 14:55:00 -0700 (PDT)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f44c994a66sm104445115ad.182.2024.05.29.14.54.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 May 2024 14:54:59 -0700 (PDT)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] irqchip/sifive-plic: Chain to parent IRQ after handlers are ready
-Date: Wed, 29 May 2024 14:54:56 -0700
-Message-ID: <20240529215458.937817-1-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.44.1
-MIME-Version: 1.0
+        d=1e100.net; s=20230601; t=1717019749; x=1717624549;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=R0O8RdWVLc2UjPDSDGViR160MauFo82inRxl7GpP6bk=;
+        b=LQTRQCn/Eu5DxechVScyrBpoi+iih5V70ANCbQRoewqQ/lGgArHHfKHXvJT7X1JnXO
+         5LQb/ibsSvImPla/SvQGHhWccztXCV5WR0Now+D2PaSpXtOC0vgHdxnShX589hXvJs8p
+         RwhkUme6M7K4jqV2mwqCe58So43MAwr5mwY45clLdhnC3dFl1E+y8aWSOnJYGu8gNvza
+         oi4S4cgP1E2HpqucXvt163Dr50LKpoen8yGCGGsfAXzT/xcWJvY5eH7etLnsD8rCOc95
+         qJWTEraSt9jn0LJMl9HUmq22oUeMRcxO+sk/N6+ZUxfZ5ZGyaGe1sHUo9P8EHRFlhYyp
+         gvbw==
+X-Forwarded-Encrypted: i=1; AJvYcCUcGPBSGPOGazFaqzsIwy83H/Naa6xxw0B72+4ob/5/3J9f7vxvWW+iE9qb21VqxzVBA86RH+YD5q1o5wJKjKVJ6kMWziq6+I7N8hEzzXuM
+X-Gm-Message-State: AOJu0YwBzMDc0zP4HLNyKWsx9IxtlKQe0mgYKsXVQpj5OhQjNEF5Zv5o
+	+BO6FaTT698WVUnnRsixtdzfm1JKYfkXb/rWqXxZck0Fj8uL7odr3yvQXQz9tv/wCHHY2dF5zef
+	jBA==
+X-Google-Smtp-Source: AGHT+IGx3SrykKCWRo4963j21qgI5u7l1D5l4vFz5cSTor42JO4rQICXW/WPSO9JICYG6TRZvTrpM8pyR8k=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a05:6a02:308:b0:65c:f515:1590 with SMTP id
+ 41be03b00d2f7-6bfdaf2b2f6mr480a12.11.1717019747924; Wed, 29 May 2024 14:55:47
+ -0700 (PDT)
+Date: Wed, 29 May 2024 14:55:46 -0700
+In-Reply-To: <20240529180510.2295118-5-jthoughton@google.com>
+Mime-Version: 1.0
+References: <20240529180510.2295118-1-jthoughton@google.com> <20240529180510.2295118-5-jthoughton@google.com>
+Message-ID: <ZlekYljG7KJwblUj@google.com>
+Subject: Re: [PATCH v4 4/7] KVM: Move MMU lock acquisition for
+ test/clear_young to architecture
+From: Sean Christopherson <seanjc@google.com>
+To: James Houghton <jthoughton@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Ankit Agrawal <ankita@nvidia.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Axel Rasmussen <axelrasmussen@google.com>, Bibo Mao <maobibo@loongson.cn>, 
+	Catalin Marinas <catalin.marinas@arm.com>, David Matlack <dmatlack@google.com>, 
+	David Rientjes <rientjes@google.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	James Morse <james.morse@arm.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Raghavendra Rao Ananta <rananta@google.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Shaoqin Huang <shahuang@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Will Deacon <will@kernel.org>, Yu Zhao <yuzhao@google.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240529_145502_361253_26625119 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20240529_145551_547471_FAFB3AEC 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,108 +109,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the PLIC uses a platform driver, the driver probed later in the
-boot process, where interrupts from peripherals might already be
-pending. As a result, plic_handle_irq() may be called as early as the
-call to irq_set_chained_handler(). But this call happens before the
-per-context handler is completely set up, so there is a window where
-plic_handle_irq() can see incomplete per-context state and crash. Avoid
-this by delaying the call to irq_set_chained_handler() until all
-handlers from all PLICs are initialized.
+On Wed, May 29, 2024, James Houghton wrote:
+> For implementation mmu_notifier_{test,clear}_young, the KVM memslot
+> walker used to take the MMU lock for us. Now make the architectures
+> take it themselves.
 
-Fixes: 8ec99b033147 ("irqchip/sifive-plic: Convert PLIC driver into a platform driver")
-Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Closes: https://lore.kernel.org/r/CAMuHMdVYFFR7K5SbHBLY-JHhb7YpgGMS_hnRWm8H0KD-wBo+4A@mail.gmail.com/
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
----
+Hmm, *forcing* architectures to take mmu_lock is a step backwards.  Rather than
+add all of this churn, what about adding CONFIG_KVM_MMU_NOTIFIER_LOCKLESS, e.g.
 
- drivers/irqchip/irq-sifive-plic.c | 34 +++++++++++++++----------------
- 1 file changed, 17 insertions(+), 17 deletions(-)
+static __always_inline int kvm_handle_hva_range_no_flush(struct mmu_notifier *mn,
+							 unsigned long start,
+							 unsigned long end,
+							 gfn_handler_t handler)
+{
+	struct kvm *kvm = mmu_notifier_to_kvm(mn);
+	const struct kvm_mmu_notifier_range range = {
+		.start		= start,
+		.end		= end,
+		.handler	= handler,
+		.on_lock	= (void *)kvm_null_fn,
+		.flush_on_ret	= false,
+		.may_block	= false,
+		.lockless	= IS_ENABLED(CONFIG_KVM_MMU_NOTIFIER_LOCKLESS),
+	};
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 8fb183ced1e7..9e22f7e378f5 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -85,7 +85,7 @@ struct plic_handler {
- 	struct plic_priv	*priv;
- };
- static int plic_parent_irq __ro_after_init;
--static bool plic_cpuhp_setup_done __ro_after_init;
-+static bool plic_global_setup_done __ro_after_init;
- static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
- 
- static int plic_irq_set_type(struct irq_data *d, unsigned int type);
-@@ -487,10 +487,8 @@ static int plic_probe(struct platform_device *pdev)
- 	unsigned long plic_quirks = 0;
- 	struct plic_handler *handler;
- 	u32 nr_irqs, parent_hwirq;
--	struct irq_domain *domain;
- 	struct plic_priv *priv;
- 	irq_hw_number_t hwirq;
--	bool cpuhp_setup;
- 
- 	if (is_of_node(dev->fwnode)) {
- 		const struct of_device_id *id;
-@@ -549,14 +547,6 @@ static int plic_probe(struct platform_device *pdev)
- 			continue;
- 		}
- 
--		/* Find parent domain and register chained handler */
--		domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(), DOMAIN_BUS_ANY);
--		if (!plic_parent_irq && domain) {
--			plic_parent_irq = irq_create_mapping(domain, RV_IRQ_EXT);
--			if (plic_parent_irq)
--				irq_set_chained_handler(plic_parent_irq, plic_handle_irq);
--		}
--
- 		/*
- 		 * When running in M-mode we need to ignore the S-mode handler.
- 		 * Here we assume it always comes later, but that might be a
-@@ -597,25 +587,35 @@ static int plic_probe(struct platform_device *pdev)
- 		goto fail_cleanup_contexts;
- 
- 	/*
--	 * We can have multiple PLIC instances so setup cpuhp state
-+	 * We can have multiple PLIC instances so setup global state
- 	 * and register syscore operations only once after context
- 	 * handlers of all online CPUs are initialized.
- 	 */
--	if (!plic_cpuhp_setup_done) {
--		cpuhp_setup = true;
-+	if (!plic_global_setup_done) {
-+		struct irq_domain *domain;
-+		bool global_setup = true;
-+
- 		for_each_online_cpu(cpu) {
- 			handler = per_cpu_ptr(&plic_handlers, cpu);
- 			if (!handler->present) {
--				cpuhp_setup = false;
-+				global_setup = false;
- 				break;
- 			}
- 		}
--		if (cpuhp_setup) {
-+
-+		if (global_setup) {
-+			/* Find parent domain and register chained handler */
-+			domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(), DOMAIN_BUS_ANY);
-+			if (domain)
-+				plic_parent_irq = irq_create_mapping(domain, RV_IRQ_EXT);
-+			if (plic_parent_irq)
-+				irq_set_chained_handler(plic_parent_irq, plic_handle_irq);
-+
- 			cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
- 					  "irqchip/sifive/plic:starting",
- 					  plic_starting_cpu, plic_dying_cpu);
- 			register_syscore_ops(&plic_irq_syscore_ops);
--			plic_cpuhp_setup_done = true;
-+			plic_global_setup_done = true;
- 		}
- 	}
- 
--- 
-2.44.1
-
+	return __kvm_handle_hva_range(kvm, &range).ret;
+}
 
 _______________________________________________
 linux-riscv mailing list
