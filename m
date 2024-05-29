@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E657C25B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 15:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88965C25B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 15:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pt2BxM5VEksXjmVa+0Hayo5vnjPZQ6uRXcFV/enT0Gw=; b=IDZbBm6ijTZGxW
-	aWEuon5/6KC6k7W7qy74AMVO8Ggvi1/KqGzOaPZStJ6K+EHJIloBO/EnfH4qWUdCFPv6lCzcLDS5v
-	UKuuIEAQHZVty49wgE4dblkcwSoQKOkPXkWgQYgXkFR0WDUGohoE4GMIemBT1AuEFxeK67QBOxNOW
-	NlEaD0saqPalAA6zjo+tTRP3wtdJXSk7KGv4LM4vJOXD/BJBNTeTXkGqicQTIZlC/b0F9oIb6QoMd
-	UizZa4U/Q7Nq55YcYs1lq5GJ5LwTSo8/ee9ke+y8RAKDF59Sp/pzeR3Vmz8AsNh2ZSS47w+OCvHBQ
-	rf5AnWR53jlTvB6YKQoQ==;
+	List-Owner; bh=3vUT9fgntnTFWYmAXZF0+cfpVHdBbEw93szjs3tloBU=; b=bPEKrxHrnOOulV
+	zwMcF6LJHa4ZsHlfLzqOeSh3PMCW/5bxdJt1T81wg6sV3hwVXztsLOc4lm29YtDVhcWTJ+vZsuRNl
+	37qu4eN9SWPW5jKfb5uHJaDVIhv5BjKARNIxs5rbRaM1p/+V3+JAGqKPTA26GMxn/xEwqQ6Eq1FpQ
+	yUmnPDEKqHg1NSsKtfHz3nyb0l2HjpwqrvPMUsmxyf2JHWaoQfuPc1B2x/zPDulqCuigLmJbXyYjU
+	SGvQayzCn2X+pmNsGuKNyu2lH5xBPjGxi6AFEXGY+mLNlBi73xnsT/Rx5tX3pp4AtHvIUXjVlu8KM
+	e/ekydmykNqZ/3fqWBxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCLcX-00000004mF6-1xie;
-	Wed, 29 May 2024 15:53:45 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1sCLgd-00000004n53-3rrx;
+	Wed, 29 May 2024 15:57:59 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCLcU-00000004mE7-2Edt
+	id 1sCLga-00000004n3v-0rlq
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 May 2024 15:53:44 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
-	by mail-out.m-online.net (Postfix) with ESMTP id 4VqDSW0FVcz1qsPH;
-	Wed, 29 May 2024 17:53:30 +0200 (CEST)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.68])
-	by mail.m-online.net (Postfix) with ESMTP id 4VqDSV6Gwqz1qqlc;
-	Wed, 29 May 2024 17:53:30 +0200 (CEST)
-X-Virus-Scanned: amavis at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.68]) (amavis, port 10024)
- with ESMTP id KX2dlM8WheZz; Wed, 29 May 2024 17:53:30 +0200 (CEST)
-X-Auth-Info: SJeIiO1rcsLcTt+IL1oruYTZ/1F0tXYKZQaoRKYEVhcZHeLOHoHmD6I7lXsiUoCl
-Received: from igel.home (aftr-82-135-83-252.dynamic.mnet-online.de [82.135.83.252])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.mnet-online.de (Postfix) with ESMTPSA;
-	Wed, 29 May 2024 17:53:30 +0200 (CEST)
-Received: by igel.home (Postfix, from userid 1000)
-	id B9ED42C02CE; Wed, 29 May 2024 17:53:29 +0200 (CEST)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: devicetree@vger.kernel.org,  linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  Emil Renner Berthing <kernel@esmil.dk>,
-  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>,  Paul Walmsley
- <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,  Albert
- Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v1 0/2] riscv: dts: starfive: Enable Bluetooth on JH7100
- boards
-In-Reply-To: <CAJM55Z8Ce1i==pSUj0z4T2y71g713-675mAYQP5qSN5Euz=rLQ@mail.gmail.com>
-	(Emil Renner Berthing's message of "Wed, 29 May 2024 04:49:03 -0400")
-References: <20240508111604.887466-1-emil.renner.berthing@canonical.com>
-	<87wmo2nmee.fsf@linux-m68k.org>
-	<CAJM55Z-F6N6ua5LoqyMFogDtLp=FaRPoDv4osXFDMjR1b8r9nw@mail.gmail.com>
-	<87zfsy102h.fsf@igel.home>
-	<CAJM55Z8Ce1i==pSUj0z4T2y71g713-675mAYQP5qSN5Euz=rLQ@mail.gmail.com>
-X-Yow: ..  I think I'd better go back to my DESK and toy with
- a few common MISAPPREHENSIONS...
-Date: Wed, 29 May 2024 17:53:29 +0200
-Message-ID: <878qzsbona.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Wed, 29 May 2024 15:57:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 56953CE0A53;
+	Wed, 29 May 2024 15:57:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12D28C113CC;
+	Wed, 29 May 2024 15:57:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1716998272;
+	bh=OYSSBejeV+h0PVcSSif4AfjAaQ8JCT/Hva0H2R4ia90=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gSkDCEhlOxLXGm6lJ/xoOCrEOygETBWQSbf75n62dS1s2Znq+1O1leoHDMz2n2aZk
+	 agVKmRJJ+TdsUTHtlgUe8urgEhUmDs6OE3FwnBJViKwQOVA6VRXdXqYVBVDd+aoRiR
+	 ie2zuSz4gC2mFjUrRRir6eXQlSJlDv1CPcD0yB3FbF8bKgGbc/JrSLzyNwvyYL6al9
+	 FGXEPjua7QhBRIwnCkWXHvAfxZs6hnORKrEEk87UtZP+a/Jr90ZSkmsmMrCYIiAJok
+	 TxLpSBzzFbrm0nDz6dPk4rj6tG/y7kf+Gr/uEVJHKj37mtRjYpShMY1t02dDLGCcwJ
+	 x0v3CQgkSBqjA==
+Date: Wed, 29 May 2024 08:57:49 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
+	Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH 2/7] riscv: Implement cmpxchg8/16() using Zabha
+Message-ID: <20240529155749.GA1339768@thelio-3990X>
+References: <20240528151052.313031-1-alexghiti@rivosinc.com>
+ <20240528151052.313031-3-alexghiti@rivosinc.com>
+ <20240528193110.GA2196855@thelio-3990X>
+ <CAHVXubjYVjOH8RKaF1h=iogO3xBM6k+xrGwkPnc-md2oRxbxrQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAHVXubjYVjOH8RKaF1h=iogO3xBM6k+xrGwkPnc-md2oRxbxrQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240529_085342_857241_C3707855 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20240529_085756_647948_4A4AE42E 
+X-CRM114-Status: GOOD (  23.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +84,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mai 29 2024, Emil Renner Berthing wrote:
+On Wed, May 29, 2024 at 02:49:58PM +0200, Alexandre Ghiti wrote:
+> Then I missed that, I should have checked the generated code. Is the
+> extension version "1p0" in '-march=' only required for experimental
+> extensions?
 
-> Oddly it doesn't work on my Starlight board either. I was thinking the firmware
-> might set up pinconf differently, but comparing
->
->   /sys/kernel/debug/pinctrl/11910000.pinctrl-pinctrl-starfive/pinconf-pins
->
-> on the two boards shows no differences. I've also not been able to spot any
-> differences in how the AP6236 module is connected in the schematics for the two
-> boards, so not really sure how to proceed.
+I think so, if my understanding of the message is correct.
 
-I see no difference between Starlight and Visionfive boards, both fail
-the same way.
+> But from Conor comment here [1], we should not enable extensions that
+> are only experimental. In that case, we should be good with this.
+> 
+> [1] https://lore.kernel.org/linux-riscv/20240528151052.313031-1-alexghiti@rivosinc.com/T/#mefb283477bce852f3713cbbb4ff002252281c9d5
 
-I also see that sometimes the firmware greeting from brcmfmac occurs
-_after_ the timeout error from hci0:
+Yeah, I tend to agree with Conor on that front. I had not noticed that
+part of the message when I was looking at other parts of this thread. I
+could see an argument for allowing experimental extensions for
+qualification purposes but I think it does create a bit of a support
+nightmare, especially when there are breaking changes across revisions.
 
-# journalctl -b -2 | grep -e brcmf_c_preinit_dcmds -e hci0:
-May 16 12:01:54 beaglev kernel: Bluetooth: hci0: command 0x1001 tx timeout
-May 16 12:01:54 beaglev kernel: Bluetooth: hci0: BCM: Reading local version info failed (-110)
-May 16 12:01:54 beaglev kernel: brcmfmac: brcmf_c_preinit_dcmds: Firmware: BCM43430/1 wl0: Mar 30 2021 01:12:21 version 7.45.98.118 (7d96287 CY) FWID 01-32059766
+> > config EXPERIMENTAL_EXTENSIONS
+> >     bool
+> >
+> > config TOOLCHAIN_HAS_ZABHA
+> >     def_bool y
+> >     select EXPERIMENTAL_EXETNSIONS if CC_IS_CLANG
+> >     ...
+> >
+> > config TOOLCHAIN_HAS_ZACAS
+> >     def_bool_y
+> >     # ZACAS was experimental until Clang 19: https://github.com/llvm/llvm-project/commit/95aab69c109adf29e183090c25dc95c773215746
+> >     select EXPERIMENTAL_EXETNSIONS if CC_IS_CLANG && CLANG_VERSION < 190000
+> >     ...
+> >
+> > Then in the Makefile:
+> >
+> > ifdef CONFIG_EXPERIMENTAL_EXTENSIONS
+> > KBUILD_AFLAGS += -menable-experimental-extensions
+> > KBUILD_CFLAGS += -menable-experimental-extensions
+> > endif
 
-Is this perhaps a race with the firmware loading?
+Perhaps with that in mind, maybe EXPERIMENTAL_EXTENSIONS (or whatever)
+should be a user selectable option and the TOOLCHAIN values depend on it
+when the user has a clang version that does not support the ratified
+version.
 
--- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+> That's a good idea to me, let's see what Conor thinks [2]
+> 
+> [2] https://lore.kernel.org/linux-riscv/20240528151052.313031-1-alexghiti@rivosinc.com/T/#m1d798dfc4c27e5b6d9e14117d81b577ace123322
+
+FWIW, I think your plan of removing support for the experimental version
+of the extension and pushing to remove the experimental status in LLVM
+(especially since it seems like it is ratified like zacas?
+https://jira.riscv.org/browse/RVS-1685) is probably the best thing going
+forward. If the LLVM folks are made aware soon, it should be easy to get
+that change into clang-19, which is branching at the end of July I
+believe.
+
+> Thanks for your thorough review!
+
+Thanks for taking LLVM support into consideration :)
+
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
