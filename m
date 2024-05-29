@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD32C25B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 18:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A43C41513
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 18:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=W4rRfmQ0OdJqrLjt+Jmg4FEZDFlULTk8V9FtgwDZV+s=; b=T17HtZIx8IG+N5
-	5YUVoj+80CCFdnyeYfJIXG+I8FxjslLOsZTjLGdk0UZC66qEoPhsd6NPHUERvECPmLIIrNOAAR04G
-	Dk8+5tTawn6/RgCbFfEC1+TlLrI7v0raEU9BjW97JCTDfe/izZI+M/l9kXSO3CYRZTjKAqwFKm62x
-	IX2QaHcbAAdt24U8hsGv5FDHvAxSILFGhZQNqvOLdaRaZvN6eI7XGwlfrpQTahqGzG+0Arv4On8UN
-	s6vVKuWOeqC7OzzNFE9SSToGpkseMCmvhGvEsf1P29FaxFT1w1t9c5hxkcnwt+OZ4GVlxwvUFATHl
-	ga7Lx4rOobcblAKh1cRw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mXRxlVStz34JCwaz+AsTCc718K2qXOwpV4Jh5UaWQYA=; b=Q2SBW7dVbhvvdl
+	i6EcpiLczARZqvd7EO7wZn2vDA1++whqY+oaz192slV1ABT09sFArRD8vOCs4mshcUcbPIpWfxHUy
+	oJqnNE8XU/T3L+NSl72/kwffYlYu+TYUER2drnIbDp7nvrk/fkxS1JCN9ke1nVgKwseVf6+t0YSlb
+	4/njpFz7nT8I+Aj6DfxeI/p+kvk7UR0cXGetv8kj0mbuLgbdp53JyQtBSwTcUhQe113cD3o0nlwFS
+	IMrqyjBKZZm2LRVtsRgj5/TN2alJuKYAhyZaAF5AxpgEsm+LyqZy5SlgqHLjWZ/bWDCoh274Fgq5E
+	DKfZ0CsfY6lpJy8eVCag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCORZ-00000005G80-0Iu2;
-	Wed, 29 May 2024 18:54:37 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1sCORc-00000005G8t-0AHC;
+	Wed, 29 May 2024 18:54:40 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCORU-00000005G5J-3nYM
+	id 1sCORV-00000005G5c-3R85
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 May 2024 18:54:34 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-42120fc8cbfso357055e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 11:54:31 -0700 (PDT)
+	Wed, 29 May 2024 18:54:35 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4210aa00c94so429335e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 11:54:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717008870; x=1717613670; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=uIic4JMyc/4c63XW9p+6fbZplpp0iCITvAcX9Knosjg=;
-        b=yaTjwpjfPvi95LjaGnLh/Pp/d+mZsFmuB8cIXHqvHaa90Hv6QiJNxd8BM/T8q6g4we
-         B+OindwBXczUoYFWxdvrBZhVqyfU0ks7xRocWlBH4PlvODB4/1LNzem+21EjtixY+dYl
-         MOU+Xy20kGepmqliUL2D2LBoWvYuqJYk5LLXYstVQvx1Mfk/JIhocdsQRTEVgdPFbew7
-         45AErPnmXtPVxfahihNMUubxZwqg+/ik3DXzSQ2aa/o/Nk27iv69KoEUnXazwa8JxKkF
-         7cSZC86b+CevkZSiLuRHpNiV+F7PDYTBaktpOypoei294OTC1moPqwwPhahB78x6qz4o
-         +bSg==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717008871; x=1717613671; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=688BMYms93lIkdSUxmL3fbJu+G2/bRYi5WNxrC0uGt8=;
+        b=NY7zLlbwxhbXUWaokDRn6A/gs+32Hq+rprblz0y4U6yBxvXOs02XuXfmObgFugUqSN
+         7wKG5u9kU6s+pVp0Rx5pMEK6KSj4zvdF6fMSQVDcfjfBg9HHCj7bNCp6UPFCVDlBmGji
+         K4QF4w0LqF/HKVV4kagoRIWiE6NTkbPgvL8CGjeYxuIfB+KrXNZacmjRX23bBLUfpy1S
+         rJCBlmJ6a70r4V7FPLow7xT2lb6AHGVv4zlgjrFgpoeDqY3PlsepGIcUX+ToK44/xpqT
+         +TbUZMORnN5Wjfz1043xANy18RPVB/YT7EGZ2VHsNg1HCiS5ymDjEXUwW/V9MQ/R/np+
+         km3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717008870; x=1717613670;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uIic4JMyc/4c63XW9p+6fbZplpp0iCITvAcX9Knosjg=;
-        b=Vf8wKevC+nUZTNYHE8yMX7JNAhMA+R5cuUIcvy+gU5pLk+WO9MjZBxT2FVK/XUKCM9
-         0atsg5hRjgy9PQjjT8ntQrhJoP6u6CZpIM0WkGBUhvG+2Ulw5FmP0R0pxIzBuQu16i2A
-         h8xqtIh6rCzLqr+A+inNgLiSjtI4zGNXMuRh1Ji2ZQop6MYfgfLW/hiiqrxUBo5ZlzPC
-         1XpKwjOlzv4z2cvJUfBd+X6DQF/L3kR9E4xqXDe5yeSRhCL9oI0pGFfw7SQrg2qAuDg1
-         jaSvu1TdG7jRlZZAC+p+9uRtnPDksBv0fCMJh0AuW2VTMNJNYfr21+J9i8s8kWIhD8FZ
-         /Sjg==
-X-Forwarded-Encrypted: i=1; AJvYcCWhyMLQF8LUJNAOblH4aSa27axB3u2SkE2iSpDPLn27tb28gLV91soq6LZtca9GqUS+IvB8LnEM3mYFETJ16j4CQSXtoIMEqB+e/maHbiCG
-X-Gm-Message-State: AOJu0YypPLCxmyS9VeNgWdg5YfwIbDkCnsackL67CFptCu3wZR8P3KJR
-	bU1hS8YnU0L8SWoLWPsn91ByPfhZBMWuUTJ86kjH3gDjoZPIlOgmjOB9oUqJmiU=
-X-Google-Smtp-Source: AGHT+IHjVdn4dC57WqV/+1RRT5q3fW+n/nZ4ue2S8a0hdIxSFd8EjP08PNXy9B40Ht2SXbol1HVG6Q==
-X-Received: by 2002:a05:600c:b8f:b0:41c:f64:2f5 with SMTP id 5b1f17b1804b1-4212792d887mr210975e9.36.1717008869932;
-        Wed, 29 May 2024 11:54:29 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1717008871; x=1717613671;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=688BMYms93lIkdSUxmL3fbJu+G2/bRYi5WNxrC0uGt8=;
+        b=lO1kCi2si13JJ84IEl3IGgCwmwGA1amgQVLPBzQdfvBKpOWMzzfNRm9JCXcoGJRmli
+         L2nmEOgnL8WVsgdM/FFgCLjNJk6Y2gbCH0cac0mKoiJdmV6eqABqAPmhvxXO7GHtjUCe
+         jNOlBm9NJWFCOGGrpjvezzfmMWuh0EVeUfwzgOX/6LB1xXlIzCsRSTR3yP0T/HkjxBKd
+         pOc3gz3/axQ1Now4rTDPkPSqn3auHfDvrsXmWHtDxSt1WcJPqnwMbtYeYTr+vg419ox7
+         MKQnBn1xKIvAKOGfWpAgJkGOCVAkK698A86/qqd/dqaleJjn6qeT+uK4pT4SEL5jyLu3
+         c0ZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUOq28SGYyVkeAkZiywpjdL0DCZlFFR7ch98eqQOR9C3HLNJ4Qr1ipkaC/Pl9r1IICDKzqSgWGK4eIAWqo6oj/LAM9FgSvE7hn4QjZ4xrks
+X-Gm-Message-State: AOJu0Ywix+GDJDjkIDy8fBBpsdOosm917D5uANimhyB3KB7zyivwxMsL
+	cta9tZ7liPhrec3dd3EltjjHp03SeE7LXEvyW4YxbGJ8CO/64bEIJNpwUZ7GOZ0=
+X-Google-Smtp-Source: AGHT+IFXjh/sO2hf9fpunrpzb5/Ur0BabTosyM0Or0Urw/4lUp/bZLnXNorWqgLPv7xYyl4q0uveYw==
+X-Received: by 2002:a05:600c:4ed0:b0:421:22c4:db60 with SMTP id 5b1f17b1804b1-4212781b273mr404635e9.23.1717008870867;
+        Wed, 29 May 2024 11:54:30 -0700 (PDT)
 Received: from rkanwal-XPS-15-9520.Home ([2a02:c7c:7527:ee00:7446:71c1:a41a:da9b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4212706a23csm2787885e9.27.2024.05.29.11.54.29
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4212706a23csm2787885e9.27.2024.05.29.11.54.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 May 2024 11:54:29 -0700 (PDT)
+        Wed, 29 May 2024 11:54:30 -0700 (PDT)
 From: Rajnesh Kanwal <rkanwal@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-perf-users@vger.kernel.org,
@@ -87,14 +88,16 @@ Cc: linux-perf-users@vger.kernel.org,
 	will@kernel.org,
 	kaiwenxue1@gmail.com,
 	Rajnesh Kanwal <rkanwal@rivosinc.com>
-Subject: [PATCH RFC 0/6] riscv: perf: Add support for Control Transfer Records Ext.
-Date: Wed, 29 May 2024 19:53:31 +0100
-Message-Id: <20240529185337.182722-1-rkanwal@rivosinc.com>
+Subject: [PATCH RFC 1/6] perf: Increase the maximum number of samples to 256.
+Date: Wed, 29 May 2024 19:53:32 +0100
+Message-Id: <20240529185337.182722-2-rkanwal@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240529185337.182722-1-rkanwal@rivosinc.com>
+References: <20240529185337.182722-1-rkanwal@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240529_115432_971481_A47EAC26 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20240529_115434_201368_CE17523D 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,78 +114,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series enables Control Transfer Records extension support on riscv
-platform. CTR extension is similar to Arch LBR in x86 and BRBE in ARM. The
-Extension is in stable state but not yet frozen and the latest release can
-be found here [0]
+RISCV CTR extension support a maximum depth of 256 last branch records.
+The 127 entries limit results in corrupting CTR entries for RISC-V if
+configured to be 256 entries. This will not impact any other architectures
+as it is just increasing maximum limit of possible entries.
 
-CTR extension provides a method to record a limited branch history in
-register-accessible internal core storage. CTR allows to selectively record
-branches using filter bitmask. On a counter overflow, CTR stops recording and
-the kernel samples the recorded branches in the overflow handler. CTR also
-supports RASEMU mode. In RASEMU mode, a call is recorded on every function call
-and on every return an entry is removed from the buffer.
+Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
+---
+ tools/perf/util/machine.c | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-CTR extension depends on couple of other extensions:
-
-1. S[m|s]csrind : The indirect CSR extension [1] which defines additional
-   ([M|S|VS]IREG2-[M|S|VS]IREG6) register to address size limitation of
-   RISC-V CSR address space. CTR access ctrsource, ctrtartget and ctrdata
-   CSRs using sscsrind extension.
-
-2. Smstateen: The mstateen bit[54] controls the access to the CTR ext to
-   S-mode.
-
-3. Sscofpmf: Counter overflow and privilege mode filtering. [2]
-
-The series is based on Smcdeleg/Ssccfg counter delegation extension [3]
-patches [4]. CTR itself doesn't depend on counter delegation support. This
-rebase is basically to include the Smcsrind patches.
-
-The last patch is in the perf tool to allow processing 256 entries. Without
-this perf seems to consider that sample as corrupted and discards it.
-
-Here is the link to a quick guide [5] to setup and run a basic perf demo on
-Linux to use CTR Ext.
-
-The Qemu patches can be found here:
-https://github.com/rajnesh-kanwal/qemu/tree/ctr_upstream
-
-The opensbi patch can be found here:
-https://github.com/rajnesh-kanwal/opensbi/tree/ctr_upstream
-
-The Linux kernel patches can be found here:
-https://github.com/rajnesh-kanwal/linux/tree/ctr_upstream
-
-[0]: https://github.com/riscv/riscv-control-transfer-records/release
-[1]: https://github.com/riscv/riscv-indirect-csr-access
-[2]: https://github.com/riscvarchive/riscv-count-overflow/tree/main
-[3]: https://github.com/riscv/riscv-smcdeleg-ssccfg
-[4]: https://lore.kernel.org/lkml/20240217005738.3744121-1-atishp@rivosinc.com/
-[5]: https://github.com/rajnesh-kanwal/linux/wiki/Running-CTR-basic-demo-on-QEMU-RISC%E2%80%90V-Virt-machine
-
-Rajnesh Kanwal (6):
-  perf: Increase the maximum number of samples to 256.
-  riscv: perf: Add Control transfer records CSR definations.
-  riscv: perf: Add Control Transfer Records extension parsing
-  riscv: perf: Add infrastructure for Control Transfer Record
-  riscv: perf: Add driver for Control Transfer Records Ext.
-  riscv: perf: Integrate CTR Ext support in riscv_pmu_dev driver
-
- MAINTAINERS                     |   1 +
- arch/riscv/include/asm/csr.h    |  83 ++++++
- arch/riscv/include/asm/hwcap.h  |   4 +
- arch/riscv/kernel/cpufeature.c  |   2 +
- drivers/perf/Kconfig            |  11 +
- drivers/perf/Makefile           |   1 +
- drivers/perf/riscv_ctr.c        | 469 ++++++++++++++++++++++++++++++++
- drivers/perf/riscv_pmu_common.c |  18 +-
- drivers/perf/riscv_pmu_dev.c    |  84 +++++-
- include/linux/perf/riscv_pmu.h  |  49 ++++
- tools/perf/util/machine.c       |  21 +-
- 11 files changed, 722 insertions(+), 21 deletions(-)
- create mode 100644 drivers/perf/riscv_ctr.c
-
+diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
+index 527517db3182..ec12f0199d46 100644
+--- a/tools/perf/util/machine.c
++++ b/tools/perf/util/machine.c
+@@ -2254,25 +2254,32 @@ static void save_iterations(struct iterations *iter,
+ 		iter->cycles += be[i].flags.cycles;
+ }
+ 
+-#define CHASHSZ 127
+-#define CHASHBITS 7
+-#define NO_ENTRY 0xff
++#define CHASHBITS 8
++#define NO_ENTRY 0xffU
+ 
+-#define PERF_MAX_BRANCH_DEPTH 127
++#define PERF_MAX_BRANCH_DEPTH 256
+ 
+ /* Remove loops. */
++/* Note: Last entry (i==ff) will never be checked against NO_ENTRY
++ * so it's safe to have an unsigned char array to process 256 entries
++ * without causing clash between last entry and NO_ENTRY value.
++ */
+ static int remove_loops(struct branch_entry *l, int nr,
+ 			struct iterations *iter)
+ {
+ 	int i, j, off;
+-	unsigned char chash[CHASHSZ];
++	unsigned char chash[PERF_MAX_BRANCH_DEPTH];
+ 
+ 	memset(chash, NO_ENTRY, sizeof(chash));
+ 
+-	BUG_ON(PERF_MAX_BRANCH_DEPTH > 255);
++	BUG_ON(PERF_MAX_BRANCH_DEPTH > 256);
+ 
+ 	for (i = 0; i < nr; i++) {
+-		int h = hash_64(l[i].from, CHASHBITS) % CHASHSZ;
++		/* Remainder division by PERF_MAX_BRANCH_DEPTH is not
++		 * needed as hash_64 will anyway limit the hash
++		 * to CHASHBITS
++		 */
++		int h = hash_64(l[i].from, CHASHBITS);
+ 
+ 		/* no collision handling for now */
+ 		if (chash[h] == NO_ENTRY) {
 -- 
 2.34.1
 
