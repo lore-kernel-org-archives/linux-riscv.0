@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01573C41513
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 18:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F7CC25B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 18:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=kYfqw8dFd184S3M+GeS/cSbJOyoJmzg6HIbRMrrpxHU=; b=sQF
-	5f7+/eU0BWKxsXsLCYNXDA+5TsPJ2vytpA44Pb/wRK4qH8DFcuVWmCawzI1zBubI3dCklCD53k8rc
-	R+jVPEKwyy06XzIsiJXESdwar97R9NdjldfyYLu4zDqjm4t2TZpspGpsyxMb1mamcyHg4qE/PkWxd
-	FF5SsJBMBNOyV12dpqIg6ye3zitu3vnY63639/uNTyBHNws6AjuNMI/hbu+lHvo5rnNh92DNIEKOd
-	n+gQBj6Wb8oJ6FCKdt9D7+JzLXXvNNNwY/cYvwjhFqWQq1XP2w0XatDpmJNTBoG+ijsxEjzAs23g5
-	wWTbSXV3NomH/pC/g83cTFeInjJ7CSQ==;
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=OCArnowRyi5MGQc3VAFgDbh/BCQvMm6NvUdak/Ujd6I=; b=Su00JRdsaiAqBzCc426OErlQQZ
+	mCZLdWKQqPex03EE6LEKI1iz8/3SDLKs6dWzpvC9wvgaE1WawIZRj8DdNWaqsa3TY8mOZlzVIWOdv
+	O949XxEMdreiGdKJsNPfwlocgj60E1E/n9DTgBvNC7GRs6zoSdaMdC+5p0An2QlRT+3Os7Wx53fqX
+	WxmKG/TKn7ZLi7vZozZLTT4fI16GtpWtKWATTEx3VkOpfmT1biMvqjutqqtO4ovDVWjWL691l3iIe
+	tpUoIrWMOLjo72wvBzVD96YTypFPJWUxU3BeiObx89GNDxvNjHmMI6dZ3cgy7D5miKN154+d2Gg6F
+	OgfR9f2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCNgE-000000058zo-46BU;
-	Wed, 29 May 2024 18:05:43 +0000
-Received: from mail-ua1-x94a.google.com ([2607:f8b0:4864:20::94a])
+	id 1sCNgS-0000000599y-1lVj;
+	Wed, 29 May 2024 18:05:56 +0000
+Received: from mail-ua1-x949.google.com ([2607:f8b0:4864:20::949])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCNfu-000000058hS-3qdA
+	id 1sCNfv-000000058hl-1ErY
 	for linux-riscv@lists.infradead.org;
 	Wed, 29 May 2024 18:05:27 +0000
-Received: by mail-ua1-x94a.google.com with SMTP id a1e0cc1a2514c-80ac7778992so17432241.3
-        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 11:05:18 -0700 (PDT)
+Received: by mail-ua1-x949.google.com with SMTP id a1e0cc1a2514c-80a3807d7eeso17761241.1
+        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 11:05:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1717005917; x=1717610717; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=oSeK4HIzvhbzZ4+kBhyxeRArFmVuKpeUMlCOBrkyZKY=;
-        b=gPtYY8HRHXx361FEwwwThzZyFyFFU8vyYL+z4CNj3xKDRltjFILgGNKekmI/r1vR5r
-         giuQbD5W2Xms+00cnFaNErA72XpAtii36txToAaT35PJM2po1+l+VI7Vn4IALEgwk/xm
-         Lcd673MG3VvmdiUDbYk77u0Anot8EjrwyBvTWDQ0anqd+WFLi8B7OymcQ229Z+nlgerk
-         8a/blJ0N9ExkEQcVslhL06TUz2Xx1X3Bu1QoYdJPjXyJJ4Hoi3ueTJ+DXr29qGON/Mpi
-         hHeDwxSADndw7+Nok1njyfZZIjwFcdAxodoFxnV/7QvEjRd3YmzkcZIJHgCtcXo5gOS1
-         /7WA==
+        d=google.com; s=20230601; t=1717005920; x=1717610720; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=9IVaEi5zQfJ05wKpIy/u5NLNm+GzTdT+Fqa7TW9318s=;
+        b=ELPYzS3r4H+tg+auLLgszbUyd5Z1QrQdUNR0vGZdurOlvaTveAhLppVXU8mEuDP3aP
+         y0dm984e3DVI6Y1HR2rnlDZGgewB6xroO29QUx8EolX30ad8TpWwcK+G4o+1NTJQNwvu
+         hv2fQiUjCSMwCoJhmiXDq/9wOI4IelUCmnVdA+/bq/MqV1Zj9PnRzF9i361PFtXAOJGy
+         ObOTjIS9uFiLYjh+6nczyHgrt84fTxhaubJYBjE6pdblYgEY1eM+URCHTOk28aiZmLlb
+         2p2+beiEqREzhEK/tHZ7vbXpXnn5d6i4lk27mR7vzSjZnhIoJDomDoqJh5rpg0bdCB79
+         f27g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717005917; x=1717610717;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oSeK4HIzvhbzZ4+kBhyxeRArFmVuKpeUMlCOBrkyZKY=;
-        b=AF0sLzZQnoX6vYunRYb9tfd/3tu3R27xoAtblxNwg/L7/70Ix9gfsosR4xd0DIiTvW
-         Fgu4t6htMns7FDiK3YGD/IpQ1T7Z5RbL5fapjrN8oTt8jW+kHc0oLKrhERWMoG4cdBmB
-         lI/oKsl65l1s4SLgMKk4jEC3gUw6oH3UtPM0X142Jt1EiHrN/yQnqCe+dH5Pj2V52v75
-         q34dhRqRuS1/qzXpOvbRtOIbPbKnRA+QJOVwUCYegG935qF+uacHDjrlGjq9F923ScPk
-         FqzxYhvA4EM1NgylyiE8Oku11vwDuPvnHXlDLb5IG48MZcBpR4KIgbKlIwZBXZ5rcWEn
-         yNZw==
-X-Forwarded-Encrypted: i=1; AJvYcCVqc/QYVSSP6fQOxEdPOgVQ5eT6J/QwnGvYQQHuQsdnaBQI1CkLR3SJGU5pfE2Rxod6oxtOaVEtjS2BpR8MOEx5p940WhZz2aFtVXsyxKCN
-X-Gm-Message-State: AOJu0Yx1t74Xvx6N7Gv7+8uRW9fdQYUGkueMP5ZfIeY6uJ5NSlQydxsj
-	Wd2d7f01bm8yOYkA3Q+GOuSI7FlXWekoG38mAiJRn3dMyly0PmBg+Vpk7AhLk2NBxM4/uHo0ud+
-	ICnHeV3Hy9Up3Lcqwew==
-X-Google-Smtp-Source: AGHT+IGirSTR9frt+FMY7mEAkHJfvAwcaa/uk6kZfZAYRVHTIdMTLDcjTaGUq6V+fW4RjZ9NSYV+AI/l972bzeUv
+        d=1e100.net; s=20230601; t=1717005920; x=1717610720;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9IVaEi5zQfJ05wKpIy/u5NLNm+GzTdT+Fqa7TW9318s=;
+        b=jrKy4IXwpVHgAJTkI4NxPvq+lfIhfQyWT83+JrIcL+68oM/YWSpvfptJTCU7f0Sznl
+         FOXR1kJ4Da/gRrK0cwFjQ8jafOoNT4H2eTFfRFESR6xC17u9sajRNb9j8nh782WDMVLM
+         jEs+peqeqKzAbLoM8oG259B/BG+h44jqqFM16Hy7+ofggNCvpdE4uQqVmQchGjfS5R6F
+         yBnUNkgDnkKiBsiv+gbCq3dxHiL45Qucwxo2VR6SSesvOpQRM+DdT8822mxvXPWBOt1e
+         d9Rw/fqq2a79C8KGDCrOVFs2hqHLlqA49iYp/UPZX3bDtO11fNDCKpeRJdRM2LDjFuYg
+         9Mlg==
+X-Forwarded-Encrypted: i=1; AJvYcCWNoDuIfAHPj4PcOY/fLm9+6oPGTvT6zZtYdoVdr8iE65rDCJ6WQQv07DL47TGiQu0aNJKRNuXSAZzNkBkcqolEW9V+/utW8ZHD7tAuN/SI
+X-Gm-Message-State: AOJu0YwayvBX22wnFaALKjmNGOKdvrnFZrsFG8nUB1YsC9BEc6R0M5c0
+	LiGaSO23AnM2YGAptTEMnrDuvrh1OkDWn9BGFmGdamdLmD14qlseaCxhRxSUuBAullah0H7Oi4k
+	HpbU1FTf2ha0HxyCM1A==
+X-Google-Smtp-Source: AGHT+IHvckbiyzzys4cYuqrWT42OTG48lfJUuChD2cJY5KHOUyTU+EmIW59KYswmWzGhXx+WNvqLQXCKjQe35xSx
 X-Received: from jthoughton.c.googlers.com ([fda3:e722:ac3:cc00:14:4d90:c0a8:2a4f])
- (user=jthoughton job=sendgmr) by 2002:a05:6102:3f9e:b0:48a:5834:cea7 with
- SMTP id ada2fe7eead31-48a5834e759mr882345137.7.1717005917523; Wed, 29 May
- 2024 11:05:17 -0700 (PDT)
-Date: Wed, 29 May 2024 18:05:03 +0000
+ (user=jthoughton job=sendgmr) by 2002:a05:6130:2289:b0:80a:5330:87c5 with
+ SMTP id a1e0cc1a2514c-80a5330931fmr5289241.2.1717005920232; Wed, 29 May 2024
+ 11:05:20 -0700 (PDT)
+Date: Wed, 29 May 2024 18:05:06 +0000
+In-Reply-To: <20240529180510.2295118-1-jthoughton@google.com>
 Mime-Version: 1.0
+References: <20240529180510.2295118-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.45.1.288.g0e0cd299f1-goog
-Message-ID: <20240529180510.2295118-1-jthoughton@google.com>
-Subject: [PATCH v4 0/7] mm: multi-gen LRU: Walk secondary MMU page tables
- while aging
+Message-ID: <20240529180510.2295118-4-jthoughton@google.com>
+Subject: [PATCH v4 3/7] KVM: Add lockless memslot walk to KVM
 From: James Houghton <jthoughton@google.com>
 To: Andrew Morton <akpm@linux-foundation.org>, Paolo Bonzini <pbonzini@redhat.com>
 Cc: Albert Ou <aou@eecs.berkeley.edu>, Ankit Agrawal <ankita@nvidia.com>, 
@@ -88,8 +90,8 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>, Ankit Agrawal <ankita@nvidia.com>,
 	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
 	loongarch@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240529_110522_967363_0FD9CE86 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20240529_110523_392926_23E815DA 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,136 +108,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset makes it possible for MGLRU to consult secondary MMUs
-while doing aging, not just during eviction. This allows for more
-accurate reclaim decisions, which is especially important for proactive
-reclaim.
+Provide flexibility to the architecture to synchronize as optimally as
+they can instead of always taking the MMU lock for writing.
 
-This series makes the necessary MMU notifier changes to MGLRU and then
-includes optimizations on top of that. This series also now includes
-changes to access_tracking_perf_test to verify that aging works properly
-for pages that are mainly used by KVM.
+The immediate application is to allow architectures to implement the
+test/clear_young MMU notifiers more cheaply.
 
-access_tracking_perf_test also has a mode (-p) to check performance of
-MGLRU aging while the VM is faulting memory in. Here are some results:
+Suggested-by: Yu Zhao <yuzhao@google.com>
+Signed-off-by: James Houghton <jthoughton@google.com>
+---
+ include/linux/kvm_host.h |  1 +
+ virt/kvm/kvm_main.c      | 38 +++++++++++++++++++++++++-------------
+ 2 files changed, 26 insertions(+), 13 deletions(-)
 
-  Testing MGLRU aging while vCPUs are faulting in memory on x86 with the
-  TDP MMU. THPs disabled.
-
-  The test results varied a decent amount from run to run. I did my best to
-  take representative averages, but nonetheless, the big picture is the
-  important part.
-
-  Main takeaways:
-  - With the optimizations, the workload is much less impacted
-    by the presence of aging.
-  - With the optimizations, MGLRU is able to do aging much more
-    quickly, especially at 8+ vCPUs on my machine.
-
-  ./access_tracking_perf_test -p -l -b 1G -v $N_VCPUS # 1G per vCPU
-
-  num_vcpus       vcpu wall time          aging avg pass time
-
-  1 (no aging)    0.878822016             n/a
-  1 (no opt)      0.938250568             0.008236007
-  1 (opt)         0.912270190             0.007314582
-
-  2 (no aging)    0.984959659             n/a
-  2 (no opt)      1.057880728             0.017989741
-  2 (opt)         1.037735641             0.013996319
-
-  4 (no aging)    1.264881581             n/a
-  4 (no opt)      1.318849182             0.056164918
-  4 (opt)         1.314653465             0.029311993
-
-  8 (no aging)    1.473883699             n/a
-  8 (no opt)      1.589441079             0.227419586s
-  8 (opt)         1.498439592             0.063857740s
-
-  16 (no aging)   2.048766096             n/a
-  16 (no opt)     2.399335597             1.247142841s
-  16 (opt)        2.000914001             0.121628689s
-
-  32 (no aging)   3.316256321             n/a
-  32 (no opt)     3.955417018             4.347290433
-  32 (opt)        3.355274507             0.250886289
-
-  64 (no aging)   6.498958516             n/a
-  64 (no opt)     7.127533884             9.815592054
-  64 (opt)        6.442582168             1.392907010
-
-  112 (no aging)  8.498029491             n/a
-  112 (no opt)    10.21372495             13.47381656
-  112 (opt)       8.896963554             2.292223850
-
-Previous versions of this series included logic in MGLRU and KVM to
-support batching the updates to secondary page tables. This version
-removes this logic, as it was complex and not necessary to enable
-proactive reclaim. This optimization, as well as the additional
-optimizations for arm64 and powerpc, can be done in a later series.
-
-Changes since v3[1]:
- - Vastly simplified the series (thanks David). Removed mmu notifier
-   batching logic entirely.
- - Cleaned up how locking is done for mmu_notifier_test/clear_young
-   (thanks David).
- - Look-around is now only done when there are no secondary MMUs
-   subscribed to MMU notifiers.
- - CONFIG_LRU_GEN_WALKS_SECONDARY_MMU has been added.
- - Fixed the lockless implementation of kvm_{test,}age_gfn for x86
-   (thanks David).
- - Added MGLRU functional and performance tests to
-   access_tracking_perf_test (thanks Axel).
- - In v3, an mm would be completely ignored (for aging) if there was a
-   secondary MMU but support for secondary MMU walking was missing. Now,
-   missing secondary MMU walking support simply skips the notifier
-   calls (except for eviction).
- - Added a sanity check for that range->lockless and range->on_lock are
-   never both provided for the memslot walk.
-
-For the changes from v2[2] to v3, see v3[1].
-
-This series applies cleanly to mm/mm-unstable and kvm/queue.
-
-[1]: https://lore.kernel.org/linux-mm/20240401232946.1837665-1-jthoughton@google.com/
-[2]: https://lore.kernel.org/kvmarm/20230526234435.662652-1-yuzhao@google.com/
-
-James Houghton (7):
-  mm/Kconfig: Add LRU_GEN_WALKS_SECONDARY_MMU
-  mm: multi-gen LRU: Have secondary MMUs participate in aging
-  KVM: Add lockless memslot walk to KVM
-  KVM: Move MMU lock acquisition for test/clear_young to architecture
-  KVM: x86: Relax locking for kvm_test_age_gfn and kvm_age_gfn
-  KVM: arm64: Relax locking for kvm_test_age_gfn and kvm_age_gfn
-  KVM: selftests: Add multi-gen LRU aging to access_tracking_perf_test
-
- Documentation/admin-guide/mm/multigen_lru.rst |   6 +-
- arch/arm64/kvm/hyp/pgtable.c                  |   9 +-
- arch/arm64/kvm/mmu.c                          |  30 +-
- arch/loongarch/kvm/mmu.c                      |  20 +-
- arch/mips/kvm/mmu.c                           |  21 +-
- arch/powerpc/kvm/book3s.c                     |  14 +-
- arch/riscv/kvm/mmu.c                          |  26 +-
- arch/x86/include/asm/kvm_host.h               |   1 +
- arch/x86/kvm/mmu/mmu.c                        |  10 +-
- arch/x86/kvm/mmu/tdp_iter.h                   |  27 +-
- arch/x86/kvm/mmu/tdp_mmu.c                    |  67 ++-
- include/linux/kvm_host.h                      |   1 +
- include/linux/mmzone.h                        |   6 +-
- mm/Kconfig                                    |   8 +
- mm/rmap.c                                     |   9 +-
- mm/vmscan.c                                   | 144 +++++--
- tools/testing/selftests/kvm/Makefile          |   1 +
- .../selftests/kvm/access_tracking_perf_test.c | 365 ++++++++++++++--
- .../selftests/kvm/include/lru_gen_util.h      |  55 +++
- .../testing/selftests/kvm/lib/lru_gen_util.c  | 391 ++++++++++++++++++
- virt/kvm/kvm_main.c                           |  38 +-
- 21 files changed, 1104 insertions(+), 145 deletions(-)
- create mode 100644 tools/testing/selftests/kvm/include/lru_gen_util.h
- create mode 100644 tools/testing/selftests/kvm/lib/lru_gen_util.c
-
-
-base-commit: e0cce98fe279b64f4a7d81b7f5c3a23d80b92fbc
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 692c01e41a18..4d7c3e8632e6 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -266,6 +266,7 @@ struct kvm_gfn_range {
+ 	gfn_t end;
+ 	union kvm_mmu_notifier_arg arg;
+ 	bool may_block;
++	bool lockless;
+ };
+ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range);
+ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range);
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 14841acb8b95..d197b6725cb3 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -558,6 +558,7 @@ struct kvm_mmu_notifier_range {
+ 	on_lock_fn_t on_lock;
+ 	bool flush_on_ret;
+ 	bool may_block;
++	bool lockless;
+ };
+ 
+ /*
+@@ -612,6 +613,10 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
+ 			 IS_KVM_NULL_FN(range->handler)))
+ 		return r;
+ 
++	/* on_lock will never be called for lockless walks */
++	if (WARN_ON_ONCE(range->lockless && !IS_KVM_NULL_FN(range->on_lock)))
++		return r;
++
+ 	idx = srcu_read_lock(&kvm->srcu);
+ 
+ 	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+@@ -643,15 +648,18 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
+ 			gfn_range.start = hva_to_gfn_memslot(hva_start, slot);
+ 			gfn_range.end = hva_to_gfn_memslot(hva_end + PAGE_SIZE - 1, slot);
+ 			gfn_range.slot = slot;
++			gfn_range.lockless = range->lockless;
+ 
+ 			if (!r.found_memslot) {
+ 				r.found_memslot = true;
+-				KVM_MMU_LOCK(kvm);
+-				if (!IS_KVM_NULL_FN(range->on_lock))
+-					range->on_lock(kvm);
+-
+-				if (IS_KVM_NULL_FN(range->handler))
+-					break;
++				if (!range->lockless) {
++					KVM_MMU_LOCK(kvm);
++					if (!IS_KVM_NULL_FN(range->on_lock))
++						range->on_lock(kvm);
++
++					if (IS_KVM_NULL_FN(range->handler))
++						break;
++				}
+ 			}
+ 			r.ret |= range->handler(kvm, &gfn_range);
+ 		}
+@@ -660,7 +668,7 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
+ 	if (range->flush_on_ret && r.ret)
+ 		kvm_flush_remote_tlbs(kvm);
+ 
+-	if (r.found_memslot)
++	if (r.found_memslot && !range->lockless)
+ 		KVM_MMU_UNLOCK(kvm);
+ 
+ 	srcu_read_unlock(&kvm->srcu, idx);
+@@ -686,10 +694,12 @@ static __always_inline int kvm_handle_hva_range(struct mmu_notifier *mn,
+ 	return __kvm_handle_hva_range(kvm, &range).ret;
+ }
+ 
+-static __always_inline int kvm_handle_hva_range_no_flush(struct mmu_notifier *mn,
+-							 unsigned long start,
+-							 unsigned long end,
+-							 gfn_handler_t handler)
++static __always_inline int kvm_handle_hva_range_no_flush(
++		struct mmu_notifier *mn,
++		unsigned long start,
++		unsigned long end,
++		gfn_handler_t handler,
++		bool lockless)
+ {
+ 	struct kvm *kvm = mmu_notifier_to_kvm(mn);
+ 	const struct kvm_mmu_notifier_range range = {
+@@ -699,6 +709,7 @@ static __always_inline int kvm_handle_hva_range_no_flush(struct mmu_notifier *mn
+ 		.on_lock	= (void *)kvm_null_fn,
+ 		.flush_on_ret	= false,
+ 		.may_block	= false,
++		.lockless	= lockless,
+ 	};
+ 
+ 	return __kvm_handle_hva_range(kvm, &range).ret;
+@@ -889,7 +900,8 @@ static int kvm_mmu_notifier_clear_young(struct mmu_notifier *mn,
+ 	 * cadence. If we find this inaccurate, we might come up with a
+ 	 * more sophisticated heuristic later.
+ 	 */
+-	return kvm_handle_hva_range_no_flush(mn, start, end, kvm_age_gfn);
++	return kvm_handle_hva_range_no_flush(mn, start, end,
++					     kvm_age_gfn, false);
+ }
+ 
+ static int kvm_mmu_notifier_test_young(struct mmu_notifier *mn,
+@@ -899,7 +911,7 @@ static int kvm_mmu_notifier_test_young(struct mmu_notifier *mn,
+ 	trace_kvm_test_age_hva(address);
+ 
+ 	return kvm_handle_hva_range_no_flush(mn, address, address + 1,
+-					     kvm_test_age_gfn);
++					     kvm_test_age_gfn, false);
+ }
+ 
+ static void kvm_mmu_notifier_release(struct mmu_notifier *mn,
 -- 
 2.45.1.288.g0e0cd299f1-goog
 
