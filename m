@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74EE5C25B75
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 22:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB36AC25B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 22:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6KVZVYoIixO1ZFj6fRWlYpcDv3EjD6t5tyGNOk59YUQ=; b=QV1pYEuAqtPie1
-	A3R0nWTvMTA5Z6nEV7f7DAh86Dzrj14D+BVXjBukfx9k9OK+Yqfl3kk1H7Zz29H4COY8O87BS3cCx
-	hDPBgl2fEKwrSbtZusUztsYxMCYZrF1CyI48G4ZkqnUlBCXD/bPDJnkSHCpRSgKH7EO57pPbKY7IO
-	LS2uCV5yjcCAHQRTzwd5Ec3mZYEIbH/euV3pOHmmfKadjP0R8R28AYyRmLf8OMOhI5YqXTxSVfL5I
-	oiT4WpdcERjbKcsczAEYYom/aUkUDAKyfDlpLyxe1pxLcslbVNVgBBXZnVai8Als5w9XMbMTwp0Yt
-	vcSZRgEbMlcYVkpLB64A==;
+	List-Owner; bh=EzuOrXBqr7qYMuYrb7Cwxl5MzL+C79e5nA42WqDuoDg=; b=Hu8YatbZrxbIVQ
+	fjJOWOY7fZBRn2w7rvPxceYMFMxeLHwIeYS9MRuCKdVtm2PQkvabSfed6cSexOmOVbTyYIJULoQcy
+	NvSScVhAPOg5vNTnd8xoOfJcRG1EBAN5dDTAjqDSiG5KJKtxQjmi9OTxK3Jx3MtlVHJvcu7CNjPiQ
+	RW9G7yUb9PL99lE5MLO51965FbyX3X0vFsrPr0hfEercXq+JaTWJrUagmJfxAED6BQ/iqVILgywnW
+	vzSq94+ariUvnbDxV+wnvn/3QJlDYTsZc9USpM8bPHikr84Xgj2o153IFiPlixth9fxl0OeE1g+kN
+	vSZyZ1LcXC7xoFCt6i2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCRXp-00000005hAb-0tns;
-	Wed, 29 May 2024 22:13:17 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1sCRbT-00000005haU-0gN5;
+	Wed, 29 May 2024 22:17:03 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCRXm-00000005h9m-3CWZ
+	id 1sCRbP-00000005hYZ-0iKC
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 May 2024 22:13:16 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-6bfd4b88606so102585a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 15:13:13 -0700 (PDT)
+	Wed, 29 May 2024 22:17:01 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-70109d34a16so246382b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 15:16:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717020793; x=1717625593; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717021017; x=1717625817; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=0IlII5UPz7okOGVtp4oFhfmfzPg6aAU73p7l7C1qc+k=;
-        b=3ELQ76mZck9RjCdz1pwTuOggZWuuzhEH1nduk+3DlPFq0KNQzSQXkg9kTpNU0eav50
-         EHknAzMcCvFYwnKOQuRT+rn8u/Qp8Wwkf6tRjMCWdnK4pLYXLeu/tTr80T56RGTYFd86
-         ZYVXBnUsASi3rKwS/Fx8pqNOCWXfCKIGPNFoohin6O6udQ+6Ynid2CKpwvA3gb+FbxWc
-         J/I3tchOo5q7YQ66HK8nZkwqjP79ACtBkJjFHvbPICra74VWtsOEIZ1DkM5ZS0loDOsa
-         9qK1TPEUXgz69Kdxl8+31595C0sv5nYzn/lyiCkzxeMXWPLmtwLFKayDOjTSO6F7mq+k
-         MHtA==
+        bh=80ksSo6mSUkyM2Bp/41caPk6UaONL0Ucenm+2d45iFE=;
+        b=UgG2TFGfNPJOMv27ao6dsriskdXvG0ATspKZjmpdjqlvCVPzsqH9R6pNNRxQgcBorf
+         uwz5QV33OyfPEQbEVnTnVyflSx3hTJnHYIzHjpZB+pOzIPEwVTJJx8h1dvw25leKLdUM
+         C+GbPO5vFZOyepgQJdPWEfFo2Mpb4zfYedKHqoch7Zj+luyo71/PteSbC6mmcqLuCHcD
+         xYPSGJVuDST1dTTAQxnMPQI1Tdr6gWPjxpY11epGyggh/OZhsFA/cJ8QMzHOvL1jHr/3
+         vqkMtFOnfkPcW/UvPewaiWGBXM1L6eNNVyjyCM7X+/EQrdrLizEpAIKluVzzhD/8qmea
+         Sc6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717020793; x=1717625593;
+        d=1e100.net; s=20230601; t=1717021017; x=1717625817;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0IlII5UPz7okOGVtp4oFhfmfzPg6aAU73p7l7C1qc+k=;
-        b=hk8kH6PHApRkTS+ALciCAGo+tbtuFwxYXqO1id8lD5jToIppkzU7MvtRwzLg85xEUR
-         qUhKEDmOnrF9ojZwh3Gp+2sY4S0xgLgZAH0rOMZv4HJvfeDzi5fdjFE1Xxq6/DfJ1Avc
-         cfRtULyJmtUklq9JwRYgUw//setrtbWIOWS+QSAsNxjcyo8NGEt53rGO+55TRdEFeOPZ
-         WZ2TszBLhlcXMz7LteyNEIj4W/8MyNA7/XCuf2hnVebxHMF8uNglB9ryqpFQ4VkPL6KE
-         HyUN6kQJqah0qmq45MpvqUPwSY27KUCQtRtqZujD3awctr3bcMbKRldyDCF+RG9Pfe4l
-         IWqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXGDk4x5ennMG64SF88/9XgvWaIeipQuwXPZLCJu1acVAun/3FQh/13ko6pOyZEBSzlPSe2zZDFaBR6mYsyYtdrW6vlC9PlECVsls68cgnl
-X-Gm-Message-State: AOJu0YyFT00WZukMrlO9jpRfWJ3IALWeCsSRYGBFtECxuqo+TdgzCEcH
-	7ioSauto+veiqyiFojoRAha8FrmxvWMOmYj3RVCJxQuuDxT1CNXMmTLoOEJDJZQ=
-X-Google-Smtp-Source: AGHT+IGZO+QhLAfwlgYNEFfJDCtn8LQjOZE5KcgbzkziiPV98AS34GxnJcpziGZFsgu3JA+ZTJhYwA==
-X-Received: by 2002:a17:90a:ad6:b0:2bf:dcba:a3c1 with SMTP id 98e67ed59e1d1-2c1abc3e316mr512737a91.34.1717020793113;
-        Wed, 29 May 2024 15:13:13 -0700 (PDT)
+        bh=80ksSo6mSUkyM2Bp/41caPk6UaONL0Ucenm+2d45iFE=;
+        b=FEue08bIN6hv6gtzBbhSOuch3a1JmYkowFBO9WXH/5pxe8YvQj3T0+peTbO8Wlztmi
+         U5AD8MvTWXJwnejkqtziam8PSvWO/eNjhrl9ybj0JeINGA6r8dddVQiwqw39OiZgALnr
+         3F3ixk3RfVO/PgbNz++Os/n9QzLbhxdqGy070o1sJz7iBGS//ekycUlZ4ry1RnFKGiKQ
+         HhOlmUxwkDGt3p4ztTPsyDGwpLS+xKhnKyauqwdRde3s3NTPGDWWXTBXWUX49sgH8eFX
+         i1n/KQZvq7dXAjyT25Pt9WlybRsbbqOXyFG0qxd4iB9lYcQr2WtSoWcOwwHpOArH3UTo
+         chlw==
+X-Forwarded-Encrypted: i=1; AJvYcCVVU9VLms+7aBvzGzXouPV1xitrnxt0BrKcQ19fGYuqoLlmIHI/C9OfDDZPOJLaSinA5TW91tj3Ed+bDtIlCDde1ZTAPX1J1P52yleTGOkr
+X-Gm-Message-State: AOJu0YzlvfYerWs8lYzzFHLwAZZ2OhaT5hJqhFTWnvxW8l62bsUJgy8o
+	+YqrwlScqLj0POUHvRDOzWCXPrj45TjQZ9uuSAYjskZ0uXK9BojPFon4jR885b4=
+X-Google-Smtp-Source: AGHT+IE5XuXetrfb8TvXQ2JVC0+20NvyBoxanxPvqd5tz8uV2AkKu0FS4Ru4PJq/9qbYZb1FKJwuSg==
+X-Received: by 2002:a05:6a00:410f:b0:6ea:d114:5ea1 with SMTP id d2e1a72fcca58-7023113ef39mr464430b3a.17.1717021016699;
+        Wed, 29 May 2024 15:16:56 -0700 (PDT)
 Received: from ghost ([2601:647:5700:6860:32f9:8d5b:110a:1952])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2c1a7772cebsm287763a91.17.2024.05.29.15.13.12
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-6f8fd4d4ebcsm8503826b3a.187.2024.05.29.15.16.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 May 2024 15:13:12 -0700 (PDT)
-Date: Wed, 29 May 2024 15:13:10 -0700
+        Wed, 29 May 2024 15:16:56 -0700 (PDT)
+Date: Wed, 29 May 2024 15:16:53 -0700
 From: Charlie Jenkins <charlie@rivosinc.com>
 To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
 Cc: Jonathan Corbet <corbet@lwn.net>,
@@ -76,19 +76,17 @@ Cc: Jonathan Corbet <corbet@lwn.net>,
 	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v5 06/16] dt-bindings: riscv: add Zca, Zcf, Zcd and Zcb
- ISA extension description
-Message-ID: <ZleodmaYG7qsvNmu@ghost>
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v5 04/16] RISC-V: KVM: Allow Zimop extension for Guest/VM
+Message-ID: <ZlepVSNhhLzpM32y@ghost>
 References: <20240517145302.971019-1-cleger@rivosinc.com>
- <20240517145302.971019-7-cleger@rivosinc.com>
+ <20240517145302.971019-5-cleger@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240517145302.971019-7-cleger@rivosinc.com>
+In-Reply-To: <20240517145302.971019-5-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240529_151314_835272_4BE396AD 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20240529_151659_456731_5372D0F4 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,137 +103,59 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 17, 2024 at 04:52:46PM +0200, Cl=E9ment L=E9ger wrote:
-> Add description for Zca, Zcf, Zcd and Zcb extensions which are part the
-> Zc* standard extensions for code size reduction. Additional validation
-> rules are added since Zcb depends on Zca, Zcf, depends on Zca and F, Zcd
-> depends on Zca and D and finally, Zcf can not be present on rv64.
+On Fri, May 17, 2024 at 04:52:44PM +0200, Cl=E9ment L=E9ger wrote:
+> Extend the KVM ISA extension ONE_REG interface to allow KVM user space
+> to detect and enable Zimop extension for Guest/VM.
 > =
 
 > Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  .../devicetree/bindings/riscv/extensions.yaml | 78 +++++++++++++++++++
->  1 file changed, 78 insertions(+)
+>  arch/riscv/include/uapi/asm/kvm.h | 1 +
+>  arch/riscv/kvm/vcpu_onereg.c      | 2 ++
+>  2 files changed, 3 insertions(+)
 > =
 
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
-cumentation/devicetree/bindings/riscv/extensions.yaml
-> index b9100addeb90..39084c58d4e4 100644
-> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -220,6 +220,38 @@ properties:
->              instructions as ratified at commit 6d33919 ("Merge pull requ=
-est #158
->              from hirooih/clmul-fix-loop-end-condition") of riscv-bitmani=
-p.
+> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/=
+asm/kvm.h
+> index b1c503c2959c..35a12aa1953e 100644
+> --- a/arch/riscv/include/uapi/asm/kvm.h
+> +++ b/arch/riscv/include/uapi/asm/kvm.h
+> @@ -167,6 +167,7 @@ enum KVM_RISCV_ISA_EXT_ID {
+>  	KVM_RISCV_ISA_EXT_ZFA,
+>  	KVM_RISCV_ISA_EXT_ZTSO,
+>  	KVM_RISCV_ISA_EXT_ZACAS,
+
+KVM_RISCV_ISA_EXT_SSCOFPMF got added here in 6.10-rc1 so there is a
+conflict now unfortunately. Easy to fix at least!
+
+- Charlie
+
+> +	KVM_RISCV_ISA_EXT_ZIMOP,
+>  	KVM_RISCV_ISA_EXT_MAX,
+>  };
 >  =
 
-> +        - const: zca
-> +          description: |
-> +            The Zca extension part of Zc* standard extensions for code s=
-ize
-> +            reduction, as ratified in commit 8be3419c1c0 ("Zcf doesn't e=
-xist on
-> +            RV64 as it contains no instructions") of riscv-code-size-red=
-uction,
-> +            merged in the riscv-isa-manual by commit dbc79cf28a2 ("Initi=
-al seed
-> +            of zc.adoc to src tree.").
-> +
-> +        - const: zcb
-> +          description: |
-> +            The Zcb extension part of Zc* standard extensions for code s=
-ize
-> +            reduction, as ratified in commit 8be3419c1c0 ("Zcf doesn't e=
-xist on
-> +            RV64 as it contains no instructions") of riscv-code-size-red=
-uction,
-> +            merged in the riscv-isa-manual by commit dbc79cf28a2 ("Initi=
-al seed
-> +            of zc.adoc to src tree.").
-> +
-> +        - const: zcd
-> +          description: |
-> +            The Zcd extension part of Zc* standard extensions for code s=
-ize
-> +            reduction, as ratified in commit 8be3419c1c0 ("Zcf doesn't e=
-xist on
-> +            RV64 as it contains no instructions") of riscv-code-size-red=
-uction,
-> +            merged in the riscv-isa-manual by commit dbc79cf28a2 ("Initi=
-al seed
-> +            of zc.adoc to src tree.").
-> +
-> +        - const: zcf
-> +          description: |
-> +            The Zcf extension part of Zc* standard extensions for code s=
-ize
-> +            reduction, as ratified in commit 8be3419c1c0 ("Zcf doesn't e=
-xist on
-> +            RV64 as it contains no instructions") of riscv-code-size-red=
-uction,
-> +            merged in the riscv-isa-manual by commit dbc79cf28a2 ("Initi=
-al seed
-> +            of zc.adoc to src tree.").
-> +
->          - const: zfa
->            description:
->              The standard Zfa extension for additional floating point
-> @@ -499,5 +531,51 @@ properties:
->              The T-HEAD specific 0.7.1 vector implementation as written in
->              https://github.com/T-head-Semi/thead-extension-spec/blob/953=
-58cb2cca9489361c61d335e03d3134b14133f/xtheadvector.adoc.
->  =
-
-> +    allOf:
-> +      # Zcb depends on Zca
-> +      - if:
-> +          contains:
-> +            const: zcb
-> +        then:
-> +          contains:
-> +            const: zca
-> +      # Zcd depends on Zca and D
-> +      - if:
-> +          contains:
-> +            const: zcd
-> +        then:
-> +          allOf:
-> +            - contains:
-> +                const: zca
-> +            - contains:
-> +                const: d
-> +      # Zcf depends on Zca and F
-> +      - if:
-> +          contains:
-> +            const: zcf
-> +        then:
-> +          allOf:
-> +            - contains:
-> +                const: zca
-> +            - contains:
-> +                const: f
-> +
-> +allOf:
-> +  # Zcf extension does not exist on rv64
-> +  - if:
-> +      properties:
-> +        riscv,isa-extensions:
-> +          contains:
-> +            const: zcf
-> +        riscv,isa-base:
-> +          contains:
-> +            const: rv64i
-> +    then:
-> +      properties:
-> +        riscv,isa-extensions:
-> +          not:
-> +            contains:
-> +              const: zcf
-> +
->  additionalProperties: true
->  ...
+> diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+> index f4a6124d25c9..c6ee763422f2 100644
+> --- a/arch/riscv/kvm/vcpu_onereg.c
+> +++ b/arch/riscv/kvm/vcpu_onereg.c
+> @@ -60,6 +60,7 @@ static const unsigned long kvm_isa_ext_arr[] =3D {
+>  	KVM_ISA_EXT_ARR(ZIHINTNTL),
+>  	KVM_ISA_EXT_ARR(ZIHINTPAUSE),
+>  	KVM_ISA_EXT_ARR(ZIHPM),
+> +	KVM_ISA_EXT_ARR(ZIMOP),
+>  	KVM_ISA_EXT_ARR(ZKND),
+>  	KVM_ISA_EXT_ARR(ZKNE),
+>  	KVM_ISA_EXT_ARR(ZKNH),
+> @@ -137,6 +138,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsign=
+ed long ext)
+>  	case KVM_RISCV_ISA_EXT_ZIHINTNTL:
+>  	case KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
+>  	case KVM_RISCV_ISA_EXT_ZIHPM:
+> +	case KVM_RISCV_ISA_EXT_ZIMOP:
+>  	case KVM_RISCV_ISA_EXT_ZKND:
+>  	case KVM_RISCV_ISA_EXT_ZKNE:
+>  	case KVM_RISCV_ISA_EXT_ZKNH:
 > -- =
 
 > 2.43.0
@@ -247,8 +167,6 @@ al seed
 > linux-riscv mailing list
 > linux-riscv@lists.infradead.org
 > http://lists.infradead.org/mailman/listinfo/linux-riscv
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-
 
 _______________________________________________
 linux-riscv mailing list
