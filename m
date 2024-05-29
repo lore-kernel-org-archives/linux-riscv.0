@@ -4,194 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F14C25B78
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 01:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D1CCC25B75
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 May 2024 05:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gn/Gb1I+OsAinrxTb86QBqjvgIbG4vVgabzvuZ4IiVI=; b=zrUqHvsxUzupt6
-	VMxveyb5i3cN3dDUTBq0FEJ5m6mlu97Q5IknjmsvVJrmDZqxS8Kn1XtaqRqNsOOD5B+pRAIcl6s8w
-	PibZa0X7SBQ5z80Sldpe8PfZFpPkQQZQtgF/4g60dl43TZjKidFIVYIqoGsEpnQBTzRHBGYwzqdp5
-	/EODJPb0d8UA5MRrJ+pBcYeFjBE58f5JKyFZv1iPTAW3wg+/lH3tZ/DeSMgvnz5i2kkpk7plLo3LT
-	VeptHju9iEAYt80VI6NiwHaUY7MdPypcftt19yJvVUV0R4oqFflAe4/h++iE2i4TmypzXLmbZN0IH
-	MWIgLPd0sbIl83GZkHDQ==;
+	List-Owner; bh=JVWPFc5H/m+b/mS9Gcu71WJs63kZNS/A/YcO9031FZM=; b=qfDrcY+Qoydojc
+	Z4mvp+qHmeulyXJOSyPCaExTIkqS0IyrSxindAglwc2YozPEXD4uFQV7YyEJHk323g7U8H/fDw07M
+	wOUiFNnE7dD/JAuiRGtC0Jbue9xI8jSbzUuyfxAw6zZyjlPpU1RJFRVGJnbavwNtdHDpAkeWY6WNq
+	6KAwuvYnfLAnAaHfi94+YOifkrAB+W+DNibUkrPSUJvHN2k8w4Bxc3eHYwEbgOITerwFRNp17RFhl
+	JrySfFjIN/f4noKYgkgdCAnJ7MPpVeEwUyue/TT/F8QPqldcyJGZLYtB1H+ZB3EBGxWWYuXYoFbqb
+	PaKxamQRUkHgytQbHPvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sC7h8-00000002T3X-0IlM;
-	Wed, 29 May 2024 01:01:34 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1sCBfY-00000002rWv-3FxE;
+	Wed, 29 May 2024 05:16:13 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sC7h4-00000002T32-1Kn7
+	id 1sCBfU-00000002rVr-3bsI
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 May 2024 01:01:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1716944490; x=1748480490;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=cF/L7gaVnTOwJ/KSXaP+4WYU7fJ0xCN7KtEeMdaw8/o=;
-  b=ad9J98D4BhfIAxNfF707sj7fqkKZ9S6nKhagbzkIv6FqR8aA2Z3g/l+b
-   MQPCNozOXo5z5S55bC1YChT7dqI5/0Lb85nWP3iWFs9bPngu3Gb5+O2PG
-   WcQbph9Nb+A2R0XfB1YydrUuOPxhK/Acho0EBzSHZjfnYJpdT3Dr4pNrk
-   PBot/Tgq/YhdvU2pZ9xpvOZd5NlxHYNpgR2hczbqxw7JsT0NO7iSzoDwU
-   UyM6V/Vj6SyQQ3itklfWmq6rY9v+L0OqcDc0dQLB011lS5z6zKiuNekp0
-   lVstd70nsqHdRHo+uMTthDGI1lWdP1/QEBQW/UbF07XhR4l/rVDAXKMPm
-   Q==;
-X-CSE-ConnectionGUID: oBCCiilMTX6FXhKj3l4Kqg==
-X-CSE-MsgGUID: BVR/9yalQa+Jx6KJ8eziQw==
-X-IronPort-AV: E=McAfee;i="6600,9927,11085"; a="23930363"
-X-IronPort-AV: E=Sophos;i="6.08,197,1712646000"; 
-   d="scan'208";a="23930363"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2024 18:01:28 -0700
-X-CSE-ConnectionGUID: RPXp8b9uQp+eS81vVCl8kQ==
-X-CSE-MsgGUID: Jw0YzOWZT4uJNG77Alq7NA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.08,197,1712646000"; 
-   d="scan'208";a="35721882"
-Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
-  by orviesa006.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 28 May 2024 18:01:28 -0700
-Received: from orsmsx611.amr.corp.intel.com (10.22.229.24) by
- ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Tue, 28 May 2024 18:01:28 -0700
-Received: from orsmsx610.amr.corp.intel.com (10.22.229.23) by
- ORSMSX611.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Tue, 28 May 2024 18:01:27 -0700
-Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
- orsmsx610.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Tue, 28 May 2024 18:01:27 -0700
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (104.47.56.168)
- by edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 28 May 2024 18:01:27 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Up6iAoNhId2EpRgZtBtDcuaWkgN/LN+OngI2k9H/dnc/iXKaYj85OuGl70JHxXg0ggRhta4GCEj/DSudT1Hu17Nt4UW2wsxOzuM1jaNEDCOvZBLj5fuTSllbTEb/LZsyUmgrzeXG4NZml07EXVnsJrwdzHTCqhj/Leh9nqWtpLMKT1jOXpUvHTvXpEvteQHA36yHBPuAO+EnGswIr7jnRwiz11MHYKEBj8cdkQYRNsnID9nLg0lOhsVQw51FO/j9mwzQ/eEsMgyez+cBituYgvBqHXl6/FRWTOs05+SCyWHrCMxtXCqz14JEQGrucMBLF6dkPoTJ1spaUng7oQx1tw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fkYuO0kNQ41MZBZ8VYDN5+fvi1rWSKxruryNjkiccGo=;
- b=VzSE7o9Gi/gMut32orp5ECEWvNMxP3PUpkbhHU9ldZCfTMhZOHZTJcONU7M+wCahMoHJ5Pvr5/djOgPBoXBpJsYph4STv2PcpqccShnurPPgNfsdD9V+H93I8Gcf0VnMHBIj4rAmMA/QXA/7H2IkD6AGjPQtlmL+ayUzUS6QZUTMRfDvcTtEaWM+Zg5n1AegRo+FyPeESCIZuFozgqN8g6CnzmDHynxSjj1xveyDgJ6fTt+XLZrwtu0EvqRx+HqAJDmTjVFcWo49hat5vBGCyMRzhKk/BXbGQElo+OShe6DkE+guJp45D5Sx4ER3x/esbaRgQ82Sdx2hsrIXe2jsCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from DM8PR11MB5751.namprd11.prod.outlook.com (2603:10b6:8:12::16) by
- PH7PR11MB6955.namprd11.prod.outlook.com (2603:10b6:510:206::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7611.30; Wed, 29 May
- 2024 01:01:24 +0000
-Received: from DM8PR11MB5751.namprd11.prod.outlook.com
- ([fe80::4046:430d:f16c:b842]) by DM8PR11MB5751.namprd11.prod.outlook.com
- ([fe80::4046:430d:f16c:b842%4]) with mapi id 15.20.7611.030; Wed, 29 May 2024
- 01:01:24 +0000
-From: "Wang, Xiao W" <xiao.w.wang@intel.com>
-To: Conor Dooley <conor@kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-CC: Conor Dooley <conor.dooley@microchip.com>, Andrew Jones
-	<ajones@ventanamicro.com>, "pulehui@huawei.com" <pulehui@huawei.com>,
-	"Charlie Jenkins" <charlie@rivosinc.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Samuel Holland
-	<samuel.holland@sifive.com>, Pu Lehui <pulehui@huaweicloud.com>,
-	=?Windows-1252?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Subject: RE: [PATCH v3 2/2] RISC-V: separate Zbb optimisations requiring and
- not requiring toolchain support
-Thread-Topic: [PATCH v3 2/2] RISC-V: separate Zbb optimisations requiring and
- not requiring toolchain support
-Thread-Index: AQHasO/Q81BwKHiJLU+eTWZMI9PyE7GtY8Bg
-Date: Wed, 29 May 2024 01:01:24 +0000
-Message-ID: <DM8PR11MB5751DBB6A068008269E7D399B8F22@DM8PR11MB5751.namprd11.prod.outlook.com>
-References: <20240528-applaud-violin-facef8d9d846@spud>
- <20240528-opossum-flavorful-3411811b87e2@spud>
-In-Reply-To: <20240528-opossum-flavorful-3411811b87e2@spud>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM8PR11MB5751:EE_|PH7PR11MB6955:EE_
-x-ms-office365-filtering-correlation-id: 44809241-5633-43a6-7234-08dc7f7adcaa
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230031|1800799015|7416005|376005|366007|38070700009;
-x-microsoft-antispam-message-info: =?Windows-1252?Q?vOSHcF3VtOPMoHdYJsy4kBeqGjyxkPal3aWW6u9crWEHTwExzdYr9FGX?=
- =?Windows-1252?Q?SWhRCPqysl+MCmATSlwmoBWgpmeQh7K73Usnai2A/2+EtWwTqR8evjhX?=
- =?Windows-1252?Q?wxi034VRCgZYcFV7OzwghOYvbMbaNcSCiRiT3JzaXqn0FOYGlQzaCyYA?=
- =?Windows-1252?Q?ChAWwfoV70qwTI0Rzhio/vL781JDegD8iUZvVoyJw07HKyrk/AkQfEdf?=
- =?Windows-1252?Q?aHW8RjVx9WsOa4pgHr6Z75TUKecbRecdYf0ZfZMz9t6rZItBfBTqL/68?=
- =?Windows-1252?Q?MWrj9ib2mFv05uy4zPGolQ1FNIa7Its4QKIOusRhC5Es+RBT4yPJqmG9?=
- =?Windows-1252?Q?5nmhsoJc6V5i2abQH8WWArT6I3bHZ5T+hMVvAr9k85dzeO7bYfe+xYQ0?=
- =?Windows-1252?Q?fTJOCstiuv70ULRVT31K/dFcqoHmXy2ATImHedw8BHoc1j5/oSCy7l1V?=
- =?Windows-1252?Q?XkwxmdZlUI83A5bnC+xY3ZZ7NcqCEwbk6xd1hnPmVQ3mIJuvkTbGro6d?=
- =?Windows-1252?Q?gxfDrnGWEYPrhAtqu59kiIvGZGJlyHXysXZUw6XjQC5zTaOfiHQWLKyb?=
- =?Windows-1252?Q?okGd2EYRgiTz/FauygBxargoqOCivz9m7kNYLXtvcz+pzR8nqHo0yIKj?=
- =?Windows-1252?Q?tSQqqi0ec0817QyCvOOqY9AZrd1Nwv47Y3vCd3MJ5Zv4HHkue6pdl8eN?=
- =?Windows-1252?Q?LGw/7XIpCFBUHWpHmvF4xBAufZy7zZt3WE7NbsHcq0ujUN1fBVx7TL3r?=
- =?Windows-1252?Q?BOKUx/NqNHf1+vgoXuCAo5mtDolcogv5MkYtu2Ibopx6DkU4lWYp+oM1?=
- =?Windows-1252?Q?ntMl/42Tiq/TrG9KTg1A9RGx+zJuhdJnHMRmhoMhGhx9POfUZgjKS8AH?=
- =?Windows-1252?Q?31K1eYLrYOuAuFUzicSLDZbAcNIBicykXuvqZvPNMUUi9F1RF7jnQZBo?=
- =?Windows-1252?Q?xkDb8pXr2SWuSrW5wJV6BXi1ixmQp59t7nMYP0uPOGTxqo4r/zr3UCyC?=
- =?Windows-1252?Q?gc+JJVBKpIrdOT67O7jugWWMr49GNuFxzSt1PPuDtPSgqkir2ABzVF8K?=
- =?Windows-1252?Q?23DX4rF74ucYZeslKJLmWgEbm4ZYhPwfaHW5Pmrn/LIOArwxe5Pbl70w?=
- =?Windows-1252?Q?iZOjY6yt+i0VdbQY6aLWNdAJk2v0iKtscXsYs6vypddStB6iA/6msZaD?=
- =?Windows-1252?Q?OdnoAfw6bPKy5nbwnX6ZD2YxdXLGSBYyyrp5wXJ8Pzc2ztatdTpZ3CkT?=
- =?Windows-1252?Q?s2WHMu2nzoNlFiN4eaQyH8ryWzip/DYVzEs+S5rv/BSt7aBJavT2j6cf?=
- =?Windows-1252?Q?rz9N6dGWt5Cl4St/XvdgSrybwbV8LnLpM4mx+A2KAYrq/YfxWp1Pba6a?=
- =?Windows-1252?Q?3OIgvOZPDhlnfz2cvCFrK3DrZ0YOjpgaSOA7M/52eEJ74i/TWc5/L1LZ?=
- =?Windows-1252?Q?ukV+1yZ+TCOLVZ55Qey7Kw=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR11MB5751.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(7416005)(376005)(366007)(38070700009);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?Windows-1252?Q?CDAa7VvhdV0KZhpM+wBjhst5USD+/JyJI6IQB/66BAFLSg7pscNKah+1?=
- =?Windows-1252?Q?B7aB73I9k8zifKANQOAFE4p/HYkU/fnz7lXTTIczXQATtum0hSxo/Xdb?=
- =?Windows-1252?Q?1I+pDY+whg43KNDX9sEo7PP24nzY4TqbxeOMjeYckpUc5VbvAcizoPA/?=
- =?Windows-1252?Q?N6ZjRC7loVyBwQYq2xgaZsaIGaj82IJNcigLlDaXUjgDQdvWqW/XdwUp?=
- =?Windows-1252?Q?X1CyNuHfTVfka+RwKga3+B0UB41Cik+m+Dx0b9n8F2De7oW2lXhF1HQo?=
- =?Windows-1252?Q?xBw00+l08N7WoUdRqrPLS32m4lNiUt5MBH6TcHuv0M7xxKE4zAzINzu5?=
- =?Windows-1252?Q?61CFqJd98em3i0XeJv0m/LxGSZeQBkWZXUNg9DgFL3JKdd1gnmrYXm7+?=
- =?Windows-1252?Q?nYTYUwSDEd3jUrs16EjkLtZ3DwL6aA9yVxg6MicKRh10mpIb5nF95CWE?=
- =?Windows-1252?Q?i2MVZD+CkHl7A0lxWIrfpw7Ofn5PblI0nK8QR9Dmze/fCezoUiB/sJmv?=
- =?Windows-1252?Q?FH9rvPakxcdm5cD5wWpncC9qVPzmPDxswOP37lsvTL8Nnjv83qKcJcLA?=
- =?Windows-1252?Q?ninK5qPJzgUNPmgyzQeLBpiIQCDHXL1mAtYF+DYxR89F/GjZTO8Tu3iq?=
- =?Windows-1252?Q?SrmRJmRb9+GawLCK0k+R61QTDNvXoBPEadgqSla1pbPQsL4/KHFid+GZ?=
- =?Windows-1252?Q?MaJxtjLAa9SGmwLMj45iY8jbWPVs/QEoeDPru96WMLDDQLn3MaSGJzTV?=
- =?Windows-1252?Q?ZYTQEUmypf9CW4JFn8ko03voU03LWIHy6DPl6FtMzp/HbZBbJrq5Xet5?=
- =?Windows-1252?Q?F1gdXrPqLFvjJq45ESmDsaAnCS1BubwicpcoLOPkDXYsEhRMiCZ94WMV?=
- =?Windows-1252?Q?ChWk6rI6p38fybfnU+l3C3jhCFAIzGTw66uT4oGl4PT/eg3P4AAjwVnn?=
- =?Windows-1252?Q?TSSL1WR2ifozzUYiYknwUQenU1PdcxSgkEs946TsWv8MER7gk1gJMOya?=
- =?Windows-1252?Q?nUyTWhdCduzAFT7JdNcLI9kXAYy05+opJjZHS2vf1x9+isLRz7IV4P5Q?=
- =?Windows-1252?Q?TBcO86Vy1DaGZ2pxjv6xkwGIzugVOrskqMGYR0BzPss4deG0tZn5T7yo?=
- =?Windows-1252?Q?BBY34csyyuYhYAA13o71XSz/aIcrSo/NTPhEHFY54lo2Y7Fj/jFV4HZi?=
- =?Windows-1252?Q?urlbr/RotRS5JiB5Qbz7ueun9iFeZuDwKt2kbNcGnMdBCe3LAgxHLqDl?=
- =?Windows-1252?Q?+ax6oyvK2pPjYu7MR6kR9TOuFcNI2kyD1lwYoaeSv9L1Y8yk2EW8XPdh?=
- =?Windows-1252?Q?q5+ARlPmmHg+pN2PxTiOriHG3mCQm2CrGqg6zgCSLCw+Dq6ZyNW3UoXD?=
- =?Windows-1252?Q?BmqZ/mIIYqWWfaRcP7hu5vgmhEaYAzvTQay42PaoEec1OI4c1DEl7hFk?=
- =?Windows-1252?Q?YpJ8QEHWM+PJJO9l/KSHOm3EWoxX9/aimyVNj4gNptA1gMJ1pJvUQvUv?=
- =?Windows-1252?Q?4QA2BOuwxtZFuYzt2KT24UOiULgcWYQzfL0FH9LRT2kt7u/MaHziHZ0K?=
- =?Windows-1252?Q?33nEpX7xHswNYEOvcLseX9LJnrjQAfVwm3sSiH43BO+yZxfyJ+tC99+o?=
- =?Windows-1252?Q?yiZHBCIfTJBZqLr0PiJnYEFKfSPxUWMxGzFjBdV3hGWJlLaqsLU3thrO?=
- =?Windows-1252?Q?nU0C1+tY3yHnQDRqRH0oujGY7IiS5oDX?=
+	Wed, 29 May 2024 05:16:10 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2e95abc7259so17397521fa.3
+        for <linux-riscv@lists.infradead.org>; Tue, 28 May 2024 22:16:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1716959764; x=1717564564; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y9ZQ9DZWQvzLjVwLl3ADCun2JEpKNxcZ7yv0Pu1NHRw=;
+        b=dUf3hI5Ysjgyxzz3a9IlSjmTR55B+QYvI4Dn8Hnc3UEuKm2Vaxf08xl0NdeULLi2Sa
+         KItRoMcuXSxBlDC4sPX4vXAGHJSaucD4iTGzyxDBHlFhWHGpOEerKFt4q+Arv43BQoLN
+         YCdO6cf87cGE56gGZbqy8esFodYVDVshXxWuOEg9tCzWFC9ZvKCQEBSfTRNZSALlIXRv
+         7SB42yf5/NUAcssIvLQkWrbH1us+3Jusgvhp/DHktSQyWDGXTRqu32GvOm1NrYmrAfWy
+         aTicujExMDfb78oeikxWdFJJiJTsYwWJSR7TbM9Il7vv0FASz21m4GTHEauBBCrBhU35
+         OiDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716959764; x=1717564564;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y9ZQ9DZWQvzLjVwLl3ADCun2JEpKNxcZ7yv0Pu1NHRw=;
+        b=vDE//Dky+g3N01Agf9OHjxjQonfqXBPSNLlT7hn3LXXttLaGbHNwXn+MAugDSGoybD
+         M0ebf0jPoRCvAu541kbOTXO4fu6IwdP6Fx7CO0nGWpz2AEOdanVj4ByZVddBBPl3Es/U
+         KA1YncxvklwmW1ZS1ZzI4I4ytXjTfGG2GWMoryzhNKxWMLUoIvnirQU1vTRUbOQHMlDz
+         DMeFGQFx76Ba7eTflz+dsKgDXnMArvJFVc5WZGPEtjRYBI5xbWnAlOp5VwJaS6JBSga+
+         3t5DQJ9KGO8UCqFbiEfEbwLaK2jXJq/b3PO0DlJKlq7mz86eSCG76Kw/p3bpo9eBEads
+         8KPg==
+X-Forwarded-Encrypted: i=1; AJvYcCXuX1FvvVqvzcnz71Pe1C9Gk90VydR72zjPtXVmzmeH96chgNcCpP2RKdnMGxKEsyQs4hfe+kd8BNPLAzJcaFhnAJM727zINOFygNvdxvCm
+X-Gm-Message-State: AOJu0YxSuHDplcy8bk/6jsuFv0wmeh1SiRdhkU9/CZ5gk75piPSQsmvS
+	0WFshLT2i4TxAM3Zr36qWSRN6R1VOnkzorUS5lVgDZ7IAy67OMxXy6RvZhzkBCtmPttefTYd43y
+	71bxtGjGfhRFNhGNFn0W9v/8o0eFWnEqWwUQWfA==
+X-Google-Smtp-Source: AGHT+IE4Ixyyb9dBIC7b/LMvEyISULydyhrMO3jCXkTNja3SosYDAO4Cj0e7ftfvuomR4+6kRgh5fxUQRNLL0+8ak0I=
+X-Received: by 2002:a2e:87c7:0:b0:2e9:794c:19ae with SMTP id
+ 38308e7fff4ca-2e9794c1b09mr40977011fa.23.1716959763885; Tue, 28 May 2024
+ 22:16:03 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM8PR11MB5751.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44809241-5633-43a6-7234-08dc7f7adcaa
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 May 2024 01:01:24.4242
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: hsrtcvzV5poAcEQ2BMifw5W31k1VBW0Az3nSxVYvWKEMvCwSJ5VBcVYThmTg5GS7kFjYStCkXGa6k3EhVtfXBg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB6955
-X-OriginatorOrg: intel.com
+References: <20240528164132.2451685-1-maz@kernel.org>
+In-Reply-To: <20240528164132.2451685-1-maz@kernel.org>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Wed, 29 May 2024 10:45:52 +0530
+Message-ID: <CAK9=C2XNPJP0X=pg5TSrQbsuouDD3jP-gy2Sm4BXNJp0ZiWp+A@mail.gmail.com>
+Subject: Re: [PATCH] of: property: Fix fw_devlink handling of interrupt-map
+To: Marc Zyngier <maz@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	Saravana Kannan <saravanak@google.com>, Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240528_180130_452313_58C7A516 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20240528_221609_036051_19961D37 
+X-CRM114-Status: GOOD (  27.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,325 +86,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="windows-1252"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> -----Original Message-----
-> From: Conor Dooley <conor@kernel.org>
-> Sent: Tuesday, May 28, 2024 7:11 PM
-> To: linux-riscv@lists.infradead.org
-> Cc: conor@kernel.org; Conor Dooley <conor.dooley@microchip.com>; Wang,
-> Xiao W <xiao.w.wang@intel.com>; Andrew Jones
-> <ajones@ventanamicro.com>; pulehui@huawei.com; Charlie Jenkins
-> <charlie@rivosinc.com>; Paul Walmsley <paul.walmsley@sifive.com>; Palmer
-> Dabbelt <palmer@dabbelt.com>; linux-kernel@vger.kernel.org; Samuel
-> Holland <samuel.holland@sifive.com>; Pu Lehui
-> <pulehui@huaweicloud.com>; Bj=F6rn T=F6pel <bjorn@kernel.org>
-> Subject: [PATCH v3 2/2] RISC-V: separate Zbb optimisations requiring and =
-not
-> requiring toolchain support
-> =
-
-> From: Conor Dooley <conor.dooley@microchip.com>
-> =
-
-> It seems a bit ridiculous to require toolchain support for BPF to
-> assemble Zbb instructions, so move the dependency on toolchain support
-> for Zbb optimisations out of the Kconfig option and to the callsites.
-> =
-
-> Zbb support has always depended on alternatives, so while adjusting the
-> config options guarding optimisations, remove any checks for
-> whether or not alternatives are enabled.
-> =
-
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> v2/v3:
-> - Per Drew's suggestion, drop the stub Kconfig option and instead push
->   out the toolchain dependency to the relevant callsites.
-> - Delete a bunch of comments about only attempting Zbb if alternatives
->   are available, since they always are.
-> ---
->  arch/riscv/Kconfig                    |  4 ++--
->  arch/riscv/include/asm/arch_hweight.h |  6 +++---
->  arch/riscv/include/asm/bitops.h       |  4 ++--
->  arch/riscv/include/asm/checksum.h     |  3 +--
->  arch/riscv/lib/csum.c                 | 21 +++------------------
->  arch/riscv/lib/strcmp.S               |  5 +++--
->  arch/riscv/lib/strlen.S               |  5 +++--
->  arch/riscv/lib/strncmp.S              |  5 +++--
->  8 files changed, 20 insertions(+), 33 deletions(-)
-> =
-
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 3b702e6cc051..a91c53b096e8 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -613,12 +613,12 @@ config TOOLCHAIN_HAS_VECTOR_CRYPTO
-> =
-
->  config RISCV_ISA_ZBB
->  	bool "Zbb extension support for bit manipulation instructions"
-> -	depends on TOOLCHAIN_HAS_ZBB
->  	depends on RISCV_ALTERNATIVE
->  	default y
->  	help
->  	   Add support for enabling optimisations in the kernel when the
-> -	   Zbb extension is detected at boot.
-> +	   Zbb extension is detected at boot. Some optimisations may
-> +	   additionally depend on toolchain support for Zbb.
-> =
-
->  	   The Zbb extension provides instructions to accelerate a number
->  	   of bit-specific operations (count bit population, sign extending,
-> diff --git a/arch/riscv/include/asm/arch_hweight.h
-> b/arch/riscv/include/asm/arch_hweight.h
-> index 85b2c443823e..b94db541901a 100644
-> --- a/arch/riscv/include/asm/arch_hweight.h
-> +++ b/arch/riscv/include/asm/arch_hweight.h
-> @@ -19,7 +19,7 @@
-> =
-
->  static __always_inline unsigned int __arch_hweight32(unsigned int w)
->  {
-> -#ifdef CONFIG_RISCV_ISA_ZBB
-> +#if defined(CONFIG_RISCV_ISA_ZBB) &&
-> defined(CONFIG_TOOLCHAIN_HAS_ZBB)
->  	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
->  				      RISCV_ISA_EXT_ZBB, 1)
->  			  : : : : legacy);
-> @@ -50,7 +50,7 @@ static inline unsigned int __arch_hweight8(unsigned int
-> w)
->  #if BITS_PER_LONG =3D=3D 64
->  static __always_inline unsigned long __arch_hweight64(__u64 w)
->  {
-> -# ifdef CONFIG_RISCV_ISA_ZBB
-> +#if defined(CONFIG_RISCV_ISA_ZBB) &&
-> defined(CONFIG_TOOLCHAIN_HAS_ZBB)
->  	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
->  				      RISCV_ISA_EXT_ZBB, 1)
->  			  : : : : legacy);
-> @@ -64,7 +64,7 @@ static __always_inline unsigned long
-> __arch_hweight64(__u64 w)
->  	return w;
-> =
-
->  legacy:
-> -# endif
-> +#endif
->  	return __sw_hweight64(w);
->  }
->  #else /* BITS_PER_LONG =3D=3D 64 */
-> diff --git a/arch/riscv/include/asm/bitops.h
-> b/arch/riscv/include/asm/bitops.h
-> index 880606b0469a..6966d00c3a8a 100644
-> --- a/arch/riscv/include/asm/bitops.h
-> +++ b/arch/riscv/include/asm/bitops.h
-> @@ -15,7 +15,7 @@
->  #include <asm/barrier.h>
->  #include <asm/bitsperlong.h>
-> =
-
-> -#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE)
-> +#if !(defined(CONFIG_RISCV_ISA_ZBB) &&
-> defined(CONFIG_TOOLCHAIN_HAS_ZBB)) || defined(NO_ALTERNATIVE)
->  #include <asm-generic/bitops/__ffs.h>
->  #include <asm-generic/bitops/__fls.h>
->  #include <asm-generic/bitops/ffs.h>
-> @@ -175,7 +175,7 @@ static __always_inline int variable_fls(unsigned int =
-x)
->  	 variable_fls(x_);					\
->  })
-> =
-
-> -#endif /* !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE)
-> */
-> +#endif /* !(defined(CONFIG_RISCV_ISA_ZBB) &&
-> defined(CONFIG_TOOLCHAIN_HAS_ZBB)) || defined(NO_ALTERNATIVE) */
-> =
-
->  #include <asm-generic/bitops/ffz.h>
->  #include <asm-generic/bitops/fls64.h>
-> diff --git a/arch/riscv/include/asm/checksum.h
-> b/arch/riscv/include/asm/checksum.h
-> index 88e6f1499e88..da378856f1d5 100644
-> --- a/arch/riscv/include/asm/checksum.h
-> +++ b/arch/riscv/include/asm/checksum.h
-> @@ -49,8 +49,7 @@ static inline __sum16 ip_fast_csum(const void *iph,
-> unsigned int ihl)
->  	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
->  	 * worth checking if supported without Alternatives.
->  	 */
-> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB)) {
->  		unsigned long fold_temp;
-> =
-
->  		asm goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-> diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
-> index 7fb12c59e571..9408f50ca59a 100644
-> --- a/arch/riscv/lib/csum.c
-> +++ b/arch/riscv/lib/csum.c
-> @@ -40,12 +40,7 @@ __sum16 csum_ipv6_magic(const struct in6_addr
-> *saddr,
->  	uproto =3D (__force unsigned int)htonl(proto);
->  	sum +=3D uproto;
-> =
-
-> -	/*
-> -	 * Zbb support saves 4 instructions, so not worth checking without
-> -	 * alternatives if supported
-> -	 */
-> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB)) {
->  		unsigned long fold_temp;
-> =
-
->  		/*
-> @@ -157,12 +152,7 @@ do_csum_with_alignment(const unsigned char
-> *buff, int len)
->  	csum =3D do_csum_common(ptr, end, data);
-> =
-
->  #ifdef CC_HAS_ASM_GOTO_TIED_OUTPUT
-> -	/*
-> -	 * Zbb support saves 6 instructions, so not worth checking without
-> -	 * alternatives if supported
-> -	 */
-> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB)) {
->  		unsigned long fold_temp;
-> =
-
->  		/*
-> @@ -244,12 +234,7 @@ do_csum_no_alignment(const unsigned char *buff,
-> int len)
->  	end =3D (const unsigned long *)(buff + len);
->  	csum =3D do_csum_common(ptr, end, data);
-> =
-
-> -	/*
-> -	 * Zbb support saves 6 instructions, so not worth checking without
-> -	 * alternatives if supported
-> -	 */
-> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB)) {
->  		unsigned long fold_temp;
-> =
-
->  		/*
-> diff --git a/arch/riscv/lib/strcmp.S b/arch/riscv/lib/strcmp.S
-> index 687b2bea5c43..204fb1c184f3 100644
-> --- a/arch/riscv/lib/strcmp.S
-> +++ b/arch/riscv/lib/strcmp.S
-> @@ -8,7 +8,8 @@
->  /* int strcmp(const char *cs, const char *ct) */
->  SYM_FUNC_START(strcmp)
-> =
-
-> -	ALTERNATIVE("nop", "j strcmp_zbb", 0, RISCV_ISA_EXT_ZBB,
-> CONFIG_RISCV_ISA_ZBB)
-> +	__ALTERNATIVE_CFG("nop", "j strcmp_zbb", 0, RISCV_ISA_EXT_ZBB,
-> +		IS_ENABLED(CONFIG_RISCV_ISA_ZBB_ALT) &&
-> IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
-
-s/CONFIG_RISCV_ISA_ZBB_ALT/ CONFIG_RISCV_ISA_ZBB
-Same issue for below changes in strn*.S
-
-BRs,
-Xiao
-
-> =
-
->  	/*
->  	 * Returns
-> @@ -43,7 +44,7 @@ SYM_FUNC_START(strcmp)
->   * The code was published as part of the bitmanip manual
->   * in Appendix A.
->   */
-> -#ifdef CONFIG_RISCV_ISA_ZBB
-> +#if defined(CONFIG_RISCV_ISA_ZBB) &&
-> defined(CONFIG_TOOLCHAIN_HAS_ZBB)
->  strcmp_zbb:
-> =
-
->  .option push
-> diff --git a/arch/riscv/lib/strlen.S b/arch/riscv/lib/strlen.S
-> index 8ae3064e45ff..84909807d988 100644
-> --- a/arch/riscv/lib/strlen.S
-> +++ b/arch/riscv/lib/strlen.S
-> @@ -8,7 +8,8 @@
->  /* int strlen(const char *s) */
->  SYM_FUNC_START(strlen)
-> =
-
-> -	ALTERNATIVE("nop", "j strlen_zbb", 0, RISCV_ISA_EXT_ZBB,
-> CONFIG_RISCV_ISA_ZBB)
-> +	__ALTERNATIVE_CFG("nop", "j strlen_zbb", 0, RISCV_ISA_EXT_ZBB,
-> +		IS_ENABLED(CONFIG_RISCV_ISA_ZBB_ALT) &&
-> IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
-> =
-
->  	/*
->  	 * Returns
-> @@ -33,7 +34,7 @@ SYM_FUNC_START(strlen)
->  /*
->   * Variant of strlen using the ZBB extension if available
->   */
-> -#ifdef CONFIG_RISCV_ISA_ZBB
-> +#if defined(CONFIG_RISCV_ISA_ZBB) &&
-> defined(CONFIG_TOOLCHAIN_HAS_ZBB)
->  strlen_zbb:
-> =
-
->  #ifdef CONFIG_CPU_BIG_ENDIAN
-> diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
-> index aba5b3148621..87e7c83c1672 100644
-> --- a/arch/riscv/lib/strncmp.S
-> +++ b/arch/riscv/lib/strncmp.S
-> @@ -8,7 +8,8 @@
->  /* int strncmp(const char *cs, const char *ct, size_t count) */
->  SYM_FUNC_START(strncmp)
-> =
-
-> -	ALTERNATIVE("nop", "j strncmp_zbb", 0, RISCV_ISA_EXT_ZBB,
-> CONFIG_RISCV_ISA_ZBB)
-> +	__ALTERNATIVE_CFG("nop", "j strncmp_zbb", 0, RISCV_ISA_EXT_ZBB,
-> +		IS_ENABLED(CONFIG_RISCV_ISA_ZBB_ALT) &&
-> IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
-> =
-
->  	/*
->  	 * Returns
-> @@ -46,7 +47,7 @@ SYM_FUNC_START(strncmp)
->  /*
->   * Variant of strncmp using the ZBB extension if available
->   */
-> -#ifdef CONFIG_RISCV_ISA_ZBB
-> +#if defined(CONFIG_RISCV_ISA_ZBB) &&
-> defined(CONFIG_TOOLCHAIN_HAS_ZBB)
->  strncmp_zbb:
-> =
-
->  .option push
-> --
-> 2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXkgMjgsIDIwMjQgYXQgMTA6MTHigK9QTSBNYXJjIFp5bmdpZXIgPG1hekBrZXJu
+ZWwub3JnPiB3cm90ZToKPgo+IENvbW1pdCBkOTc2YzZmNGIzMmMgKCJvZjogcHJvcGVydHk6IEFk
+ZCBmd19kZXZsaW5rIHN1cHBvcnQgZm9yCj4gaW50ZXJydXB0LW1hcCBwcm9wZXJ0eSIpIHRyaWVk
+IHRvIGRvIHdoYXQgaXQgc2F5cyBvbiB0aGUgdGluLAo+IGJ1dCBmYWlsZWQgb24gYSBjb3VwbGUg
+b2YgcG9pbnRzOgo+Cj4gLSBpdCBjb25mdXNlcyBieXRlcyBhbmQgY2VsbHMuIE5vdCBhIGh1Z2Ug
+ZGVhbCwgZXhjZXB0IHdoZW4gaXQKPiAgIGNvbWVzIHRvIHBvaW50ZXIgYXJpdGhtZXRpYwo+Cj4g
+LSBpdCBkb2Vzbid0IHJlYWxseSBoYW5kbGUgYW55dGhpbmcgYnV0IGludGVycnVwdC1tYXBzIHRo
+YXQgaGF2ZQo+ICAgdGhlaXIgcGFyZW50ICNhZGRyZXNzLWNlbGxzIHNldCB0byAwCj4KPiBUaGUg
+Y29tYmluYXRpb25zIG9mIHRoZSB0d28gbGVhZHMgdG8gc29tZSBzZXJpb3VzIGZ1biBvbiBteSBN
+MQo+IGJveCwgd2l0aCBwbGVudHkgb2YgV0FSTi1PTigpIGZpcmluZyBhbGwgb3ZlciB0aGUgc2hv
+cCwgYW5kCj4gYW11c2luZyB2YWx1ZXMgYmVpbmcgZ2VuZXJhdGVkIGZvciBpbnRlcnJ1cHQgc3Bl
+Y2lmaWVycy4KPgo+IEFkZHJlc3MgYm90aCBpc3N1ZXMgc28gdGhhdCBJIGNhbiBib290IG15IG1h
+Y2hpbmVzIGFnYWluLgo+Cj4gRml4ZXM6IGQ5NzZjNmY0YjMyYyAoIm9mOiBwcm9wZXJ0eTogQWRk
+IGZ3X2Rldmxpbmsgc3VwcG9ydCBmb3IgaW50ZXJydXB0LW1hcCBwcm9wZXJ0eSIpCj4gU2lnbmVk
+LW9mZi1ieTogTWFyYyBaeW5naWVyIDxtYXpAa2VybmVsLm9yZz4KPiBDYzogQW51cCBQYXRlbCA8
+YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+Cj4gQ2M6IFNhcmF2YW5hIEthbm5hbiA8c2FyYXZhbmFr
+QGdvb2dsZS5jb20+Cj4gQ2M6IFJvYiBIZXJyaW5nIChBcm0pIDxyb2JoQGtlcm5lbC5vcmc+CgpU
+aGFua3MgZm9yIHRoZSBmaXggcGF0Y2ggYnV0IHVuZm9ydHVuYXRlbHkgaXQgYnJlYWtzIGZvciBS
+SVNDLVYuCgo+IC0tLQo+ICBkcml2ZXJzL29mL3Byb3BlcnR5LmMgfCAxNiArKysrKysrKysrKysr
+Ky0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAxNCBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+
+Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvb2YvcHJvcGVydHkuYyBiL2RyaXZlcnMvb2YvcHJvcGVy
+dHkuYwo+IGluZGV4IDFjODNlNjhmODA1Yi4uOWFkZWJjNjNiZWE5IDEwMDY0NAo+IC0tLSBhL2Ry
+aXZlcnMvb2YvcHJvcGVydHkuYwo+ICsrKyBiL2RyaXZlcnMvb2YvcHJvcGVydHkuYwo+IEBAIC0x
+MzIyLDcgKzEzMjIsMTMgQEAgc3RhdGljIHN0cnVjdCBkZXZpY2Vfbm9kZSAqcGFyc2VfaW50ZXJy
+dXB0X21hcChzdHJ1Y3QgZGV2aWNlX25vZGUgKm5wLAo+ICAgICAgICAgYWRkcmNlbGxzID0gb2Zf
+YnVzX25fYWRkcl9jZWxscyhucCk7Cj4KPiAgICAgICAgIGltYXAgPSBvZl9nZXRfcHJvcGVydHko
+bnAsICJpbnRlcnJ1cHQtbWFwIiwgJmltYXBsZW4pOwo+IC0gICAgICAgaWYgKCFpbWFwIHx8IGlt
+YXBsZW4gPD0gKGFkZHJjZWxscyArIGludGNlbGxzKSkKPiArICAgICAgIGltYXBsZW4gLz0gc2l6
+ZW9mKCppbWFwKTsKPiArCj4gKyAgICAgICAvKgo+ICsgICAgICAgICogQ2hlY2sgdGhhdCB3ZSBo
+YXZlIGVub3VnaCBydW53YXkgZm9yIHRoZSBjaGlsZCB1bml0IGludGVycnVwdAo+ICsgICAgICAg
+ICogc3BlY2lmaWVyIGFuZCBhIHBoYW5kbGUuIFRoYXQncyB0aGUgYmFyZSBtaW5pbXVtIHdlIGNh
+biBleHBlY3QuCj4gKyAgICAgICAgKi8KPiArICAgICAgIGlmICghaW1hcCB8fCBpbWFwbGVuIDw9
+IChhZGRyY2VsbHMgKyBpbnRjZWxscyArIDEpKQo+ICAgICAgICAgICAgICAgICByZXR1cm4gTlVM
+TDsKPiAgICAgICAgIGltYXBfZW5kID0gaW1hcCArIGltYXBsZW47Cj4KPiBAQCAtMTM0Niw4ICsx
+MzUyLDE0IEBAIHN0YXRpYyBzdHJ1Y3QgZGV2aWNlX25vZGUgKnBhcnNlX2ludGVycnVwdF9tYXAo
+c3RydWN0IGRldmljZV9ub2RlICpucCwKPiAgICAgICAgICAgICAgICAgaWYgKCFpbmRleCkKPiAg
+ICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gc3VwX2FyZ3MubnA7Cj4KPiAtICAgICAgICAg
+ICAgICAgb2Zfbm9kZV9wdXQoc3VwX2FyZ3MubnApOwo+ICsgICAgICAgICAgICAgICAvKgo+ICsg
+ICAgICAgICAgICAgICAgKiBBY2NvdW50IGZvciB0aGUgZnVsbCBwYXJlbnQgdW5pdCBpbnRlcnJ1
+cHQgc3BlY2lmaWVyCj4gKyAgICAgICAgICAgICAgICAqIChhZGRyZXNzIGNlbGxzLCBpbnRlcnJ1
+cHQgY2VsbHMsIGFuZCBwaGFuZGxlKS4KPiArICAgICAgICAgICAgICAgICovCj4gKyAgICAgICAg
+ICAgICAgIGltYXAgKz0gb2ZfYnVzX25fYWRkcl9jZWxscyhzdXBfYXJncy5ucCk7CgpUaGlzIGJy
+ZWFrcyBmb3IgUklTQy1WIGJlY2F1c2Ugd2UgZG9uJ3QgaGF2ZSAiI2FkZHJlc3MtY2VsbHMiCnBy
+b3BlcnR5IGluIGludGVycnVwdCBjb250cm9sbGVyIERUIG5vZGUgYW5kIG9mX2J1c19uX2FkZHJf
+Y2VsbHMoKQpyZXRyaWV2ZXMgIiNhZGRyZXNzLWNlbGxzIiBmcm9tIHRoZSBwYXJlbnQgb2YgaW50
+ZXJydXB0IGNvbnRyb2xsZXIuCgpUaGUgb2ZfaXJxX3BhcnNlX3JhdygpIGxvb2tzIGZvciAiI2Fk
+ZHJlc3MtY2VsbHMiIHByb3BlcnR5CmluIHRoZSBpbnRlcnJ1cHQgY29udHJvbGxlciBEVCBub2Rl
+IG9ubHkgc28gd2Ugc2hvdWxkIGRvIGEKc2ltaWxhciB0aGluZyBoZXJlIGFzIHdlbGwuCgpUaGUg
+YmVsb3cgY2hhbmdlIG9uIHRvcCBvZiB0aGlzIHBhdGNoIHdvcmtlZCBmb3IgbWUuCgpkaWZmIC0t
+Z2l0IGEvZHJpdmVycy9vZi9wcm9wZXJ0eS5jIGIvZHJpdmVycy9vZi9wcm9wZXJ0eS5jCmluZGV4
+IDlhZGViYzYzYmVhOS4uZjU0ZGEyOTg5ZWE5IDEwMDY0NAotLS0gYS9kcml2ZXJzL29mL3Byb3Bl
+cnR5LmMKKysrIGIvZHJpdmVycy9vZi9wcm9wZXJ0eS5jCkBAIC0xMzA4LDcgKzEzMDgsNyBAQCBz
+dGF0aWMgc3RydWN0IGRldmljZV9ub2RlCipwYXJzZV9pbnRlcnJ1cHRfbWFwKHN0cnVjdCBkZXZp
+Y2Vfbm9kZSAqbnAsCiB7CiAgICAgY29uc3QgX19iZTMyICppbWFwLCAqaW1hcF9lbmQsICphZGRy
+OwogICAgIHN0cnVjdCBvZl9waGFuZGxlX2FyZ3Mgc3VwX2FyZ3M7Ci0gICAgdTMyIGFkZHJjZWxs
+cywgaW50Y2VsbHM7CisgICAgdTMyIGFkZHJjZWxscywgaW50Y2VsbHMsIHBhZGRyY2VsbHM7CiAg
+ICAgaW50IGksIGltYXBsZW47CgogICAgIGlmICghSVNfRU5BQkxFRChDT05GSUdfT0ZfSVJRKSkK
+QEAgLTEzNTYsNyArMTM1Niw4IEBAIHN0YXRpYyBzdHJ1Y3QgZGV2aWNlX25vZGUKKnBhcnNlX2lu
+dGVycnVwdF9tYXAoc3RydWN0IGRldmljZV9ub2RlICpucCwKICAgICAgICAgICogQWNjb3VudCBm
+b3IgdGhlIGZ1bGwgcGFyZW50IHVuaXQgaW50ZXJydXB0IHNwZWNpZmllcgogICAgICAgICAgKiAo
+YWRkcmVzcyBjZWxscywgaW50ZXJydXB0IGNlbGxzLCBhbmQgcGhhbmRsZSkuCiAgICAgICAgICAq
+LwotICAgICAgICBpbWFwICs9IG9mX2J1c19uX2FkZHJfY2VsbHMoc3VwX2FyZ3MubnApOworICAg
+ICAgICBpZiAoIW9mX3Byb3BlcnR5X3JlYWRfdTMyKHN1cF9hcmdzLm5wLCAiI2FkZHJlc3MtY2Vs
+bHMiLCAmcGFkZHJjZWxscykpCisgICAgICAgICAgICBpbWFwICs9IHBhZGRyY2VsbHM7CiAgICAg
+ICAgIGltYXAgKz0gc3VwX2FyZ3MuYXJnc19jb3VudCArIDE7CgogICAgICAgICBvZl9ub2RlX3B1
+dChzdXBfYXJncy5ucCk7Cgo8c25pcD4KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
