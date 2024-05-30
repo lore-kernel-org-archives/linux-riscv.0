@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28215C25B74
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 21:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF7EC25B7E
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 21:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oDVTvgjKC/bCLLijgT20U19s67GYOIKwSJ6f1vcSnz4=; b=w4FuJXn1JzRcmc
-	SwcjGMOrw28YL4CXU4t9Jo80AhG+vbcyuk7fpz0wnuIT5r0XrtBj991a4TmWlQ9WBRwU2PpC+s7aD
-	qjCp2ustugm5ttUDB7uaoizPp7hlXA7E0MX6qmHmLpqbbgAB1SpEvIzXq0tlPXVWyjHyQJNCIl5DJ
-	sLxi7pgsxd1Bnk5dbME6e34CPkq4bzUykcBuyM1oSfxfwdNfbauE+FbH/sHSVPDDVFEwvc6/h24Qy
-	WrO0AAZEvpupw79XXeCBj7E9icBVudAa+iFbtjwsR1v8HZL1QfbSEde4wlD6eALUM+wufrA13LS6z
-	3rQoJgtKhhBdAjuSNJCA==;
+	List-Owner; bh=BDtkbujOExQG9tv9Ho4hfRnMWkGu0ZaptwuxZLQJ8IY=; b=QVtly2zGruzwtA
+	D+eAYzUwtwNHIvaTsXYPmoiIHfXJfy4jrrKyIJG+dFM1C0hIL+kHR+Dwu0NYtRMaUS01rWEmp5Mey
+	3wNbV2+JMhANuwI/fFrFhlym+qypzhxqer/o8MYaKnMogfDAek6ZyACu13J6jf/D+0+4No3oBj70c
+	NDSVbikg5xEmsnCsa0uu7i3Nv8jDZxX7Ko6bjkNFvkIRa7OcPfOfvoNHHu9qzGDOyOZ8xgklry7Lo
+	XgiX54umUCEtNpGwlbOUlgq9s/bsu/3i2ycbUHxPIzNLKqUMgR2JoHJSoBdrD9/6GwoQsAE4IPsLL
+	ELxtWiJpNm4TooqqcYeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCn2m-00000008Qxl-1BsT;
-	Thu, 30 May 2024 21:10:40 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sCn2n-00000008Qy4-0ANc;
+	Thu, 30 May 2024 21:10:41 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCn2g-00000008QvU-0l5x
+	id 1sCn2g-00000008QuY-3SV0
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 21:10:35 +0000
+	Thu, 30 May 2024 21:10:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7527ECE1B6B;
+	by sin.source.kernel.org (Postfix) with ESMTP id 6EFE3CE1B6A;
 	Thu, 30 May 2024 21:10:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B6457C4AF07;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id AFA85C4AF08;
 	Thu, 30 May 2024 21:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1717103430;
-	bh=4HJqKtgGK39M+z3ADW4pz+yh2a4Pysk28/17uInmge4=;
+	bh=zk2nrz7k0maanOnHvn/BGhqGZmMiVkfBehn19R9qQiY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=AfLL8MoLRhhgfMujWXaqTYfcWLJwJGZTGMInrmH58Ws/D5ODITYVwKOpJcGlsLdF6
-	 w0nbAi/VIZvb1rYa+cviSGpGmVDw8D0lfyrfI89aZ1km0g+8S2vNhfT5QcC7dptSY5
-	 /Pp+JSxvqVG/8sHdHao7zgZCwilspIrTn/I7daQUsDAWT7tglf0PJUSbjruv9s+Y6A
-	 zQO69omm7TdYgTsji/VX5CJFmnmWrZwVu3MDpfu1tv0NBA9AWJsppW72QZTNUEaqJk
-	 OINbk8GQNBeCKF9vz2PTGf6B4tI1D7pDY03B5s3nWITFoePytiG9PlwxBNqUaHlidb
-	 rJpJxdsxOnrOw==
+	b=i8QHWn0j+0G4EthV2coDLY8+kcfPVW53rGyw90R+yaHB6rwwskTCQh2rFLVTJrB7W
+	 DK3QVX5fbv0MISHiNk9EXx3KT9ewifBgeoLTHbePsV54z+SwlIZAo2jUTN6aTQrUM0
+	 0rqd7VhoRzdI1354atb7jMZev1I1cuZwlHNPrzaeUsdylriJSPvSfLLmzfnN2CGeOW
+	 u0HwjsAWsGbsNZJJIJM9mOfQUSwOAQAU27bcOnSEtSmuvtfNtKBngA9Ghvg8xYKiqZ
+	 nM8zFQ+yC+7ZKtQfvddleRi+V3coxNajWVlAU+w3UG9IPS4/oFQNP3wPnyDJNtQcSk
+	 rrelUlzdIOA4g==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id A7E06D84BD0;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 9E5EBD84BCC;
 	Thu, 30 May 2024 21:10:30 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH -fixes v2] riscv: Fix fully ordered LR/SC xchg[8|16]()
- implementations
+Subject: Re: [PATCH] riscv: enable HAVE_ARCH_HUGE_VMAP for XIP kernel
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171710343068.6624.13466290859953012929.git-patchwork-notify@kernel.org>
+Message-Id: <171710343064.6624.15790778712539042062.git-patchwork-notify@kernel.org>
 Date: Thu, 30 May 2024 21:10:30 +0000
-References: <20240530145546.394248-1-alexghiti@rivosinc.com>
-In-Reply-To: <20240530145546.394248-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, leobras@redhat.com,
- linux-kernel@vger.kernel.org, parri.andrea@gmail.com
+References: <20240526110104.470429-1-namcao@linutronix.de>
+In-Reply-To: <20240526110104.470429-1-namcao@linutronix.de>
+To: Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, alexghiti@rivosinc.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_141034_428742_5EC982BD 
-X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-CacheID: sfid-20240530_141035_072728_0D0B732B 
+X-CRM114-Status: UNSURE (   8.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,24 +81,19 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu, 30 May 2024 16:55:46 +0200 you wrote:
-> The fully ordered versions of xchg[8|16]() using LR/SC lack the
-> necessary memory barriers to guarantee the order.
+On Sun, 26 May 2024 13:01:04 +0200 you wrote:
+> HAVE_ARCH_HUGE_VMAP also works on XIP kernel, so remove its dependency on
+> !XIP_KERNEL.
 > 
-> Fix this by matching what is already implemented in the fully ordered
-> versions of cmpxchg() using LR/SC.
-> 
-> Suggested-by: Andrea Parri <parri.andrea@gmail.com>
-> Reported-by: Andrea Parri <parri.andrea@gmail.com>
-> Closes: https://lore.kernel.org/linux-riscv/ZlYbupL5XgzgA0MX@andrea/T/#u
-> Fixes: a8ed2b7a2c13 ("riscv/cmpxchg: Implement xchg for variables of size 1 and 2")
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> This also fixes a boot problem for XIP kernel introduced by the commit in
+> "Fixes:". This commit used huge page mapping for vmemmap, but huge page
+> vmap was not enabled for XIP kernel.
 > 
 > [...]
 
 Here is the summary with links:
-  - [-fixes,v2] riscv: Fix fully ordered LR/SC xchg[8|16]() implementations
-    https://git.kernel.org/riscv/c/1d84afaf0252
+  - riscv: enable HAVE_ARCH_HUGE_VMAP for XIP kernel
+    https://git.kernel.org/riscv/c/7bed51617401
 
 You are awesome, thank you!
 -- 
