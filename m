@@ -4,102 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D0CEC27C43
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 09:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A1EC25B74
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 09:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eSy0QAtRRpZPZxkBQkFTSArAHykh30XdW0tvWi94SGE=; b=tZPxWrZmTmXeim
-	02KtMGb7QiD/B/LyKeGPpQbkipinF6BVJT7/rvnKyZFbmN1By3TxjnxGcHkGxwIVZCzEki0ZqySEo
-	GRPRI/yDpTAgWxgHa/YdiLoxbtFj5+GWaVnP5kiHZXVGOp5l/M9204T6N0yU8kHuMW2uJ1Oqu5M0t
-	w7cN2yoPYicAdkCZf+R4HXyyTfS4JPJWIrXX9H/FCmcTVXYBKMp+PJTO7uVjQ3538is849WU1kNvO
-	mKg/WXVuo4UmB3OJAJCiNzwk4G1MbkYZWWto1fmrdHu3ZKtmnzOUuxAL4azplBof7DhTu4+WR7avo
-	7OgLJfVX22F0rFPZzMBg==;
+	List-Owner; bh=YaoPn/PzBlmSMYn+oZDTwknVgwSqCWS3P/65I2NDsW4=; b=p3++81mohPrGd3
+	v7npeCxrLS4AfdLgQ59yOpOnKS6gMON9Uw6GjvnkNyaNbDbN56VSASk38HSKtRiiTe7DRDciRdEmA
+	fODAUnEFVnc7W7axzacTIZpGY6Ep1jSA/vh58AE5HojTX6p7DCoPrym7NSDwutDgvfaWxZMPXGWuo
+	3jJetCZ0TvBEj0KyADx1aY/toqeGOXVWeA8zUVCDgO41N5bBsn06kmdRnL3beht6v9FTi9Xc7YeQt
+	Si6MTJ5O6l6C8RfFa5AdFHM0cukqAF2ECAZFb0wnTxbmGY+h8SRt04CKbfGVRTYkx7+FqZFwsGj7z
+	6KgWSZipMyJGlIEWX+AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCbz4-00000006nX0-45X6;
-	Thu, 30 May 2024 09:22:06 +0000
-Received: from mail-qv1-f45.google.com ([209.85.219.45])
+	id 1sCc1x-00000006oS6-3E0g;
+	Thu, 30 May 2024 09:25:05 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCbyt-00000006nU6-0aaj;
-	Thu, 30 May 2024 09:21:59 +0000
-Received: by mail-qv1-f45.google.com with SMTP id 6a1803df08f44-6ad7a2f8715so6173346d6.1;
-        Thu, 30 May 2024 02:21:51 -0700 (PDT)
+	id 1sCc1u-00000006oPF-36ZK
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 May 2024 09:25:04 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-52b4fcbf078so832414e87.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 02:25:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1717061099; x=1717665899; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=FGWcoQz6bp5W8A5c5FEsjIeyZdnGRxg5AvvBbn2QbK0=;
+        b=jtZ2HGVIAcV1d/+kUC4+n4Cz+9hpEs5p6N0VADyfPPY+45okSXUXaeCNTsJXfMz7j/
+         XAGOWHgBCOgcKZugT5aHPGz3b4zMR5bMxGQwXdVW3d2x11EwTQXGOwniBLX1dDI8UZH8
+         fTnIjnyA69Iv0lt04jLX6g5vMzkMH21rZq/CyJ7hX8lwEarEYruRjgSS0PVHczOsygfo
+         PWhaqdqKeudkMkQr7Xc53VIi7zd4TkcN93u10EBMe9SxcKB3vjVtzqZzXNChzqm2Uiz6
+         qYPOcaouAbdZIFVd0APJHkMxVdc3x2Hqq3C4FRy6WNdbMxwZ4LMe2/nJQE8dNtiUHYgh
+         5O5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717060910; x=1717665710;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FWN78EB24MX6Q0HZqErBr8t9tcr4nbKt3etlWVHkE68=;
-        b=H6IRWEuZgjr4Mnw0/rf+ILgJamZXuvifH36yXtysGkfdH+oYRJkKZ1Hd18E/TrV4AE
-         ll3X5evCCFLe6CljeSLLsSgPIi6YJ3MlUX0xH+Skf4aMHYuw54EvmXpOHF6HnENGkCCT
-         /gbkaB6AI/9qNsGzcbm6WCr0YhKZxoA8/+puE/9QLs8cJy1R2CTqh96z1AYq3o/VECuw
-         LD/GmH2bO0FHv4QElRZ4GieqHqxKvatL4xdsVRi8tnNZsn1COZ9lRF8VhSoLWPHEKTwI
-         9+vM9g0Fsh6HihZiDbCksYBXz2xj/N74NiN9d58mlxWItzOdyvRJap35s0AkYlvxRFAC
-         pxvw==
-X-Forwarded-Encrypted: i=1; AJvYcCVM1N05ibS0Rdqb31RyvgypN50t1bqvr9AcNEcs+bgVIZxpjVxnr8udNkJBQob/9hYwgk8aQHDFEOBmaw3nCovnXjzPUIyd6xz7txMufioas0Vv4JUgCZZUBQ906ovZaw5lU2Voj5FPqLDvXK9Gb5LUKe5nB2s9FCFWJuo85yM9w09MESx7GJTYXhU9fgyDV5uyrhpWdPBVTW2wUBtzkFdUj1jA8exSrt0B1Kqw90i/MeSejpaDh4dD5/Y/fms=
-X-Gm-Message-State: AOJu0YwqkaSj9gxeEAKfcpxZJY6DDZ4pzEr70OHeqStmmygA0czVgkxe
-	zQZZyStk2n/sXlaUF6pLqpbnG30r6Dzis7T3947moUBm81qORcNx7j2AgpZ7
-X-Google-Smtp-Source: AGHT+IH/USYzmkxRCQHaW2776bKsoNvXA99L8ys9FUU/EztaPiSrBpYjs7WLOMmolLExxgDv3nMMkA==
-X-Received: by 2002:a05:6214:3102:b0:6ad:7087:ef8a with SMTP id 6a1803df08f44-6ae0e76ff37mr24081896d6.9.1717060910165;
-        Thu, 30 May 2024 02:21:50 -0700 (PDT)
-Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com. [209.85.222.169])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6ae0c519abesm6040806d6.29.2024.05.30.02.21.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 May 2024 02:21:50 -0700 (PDT)
-Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-792bdf626beso58528485a.1;
-        Thu, 30 May 2024 02:21:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXAm7vKovo7bMsLPPOY9VqoSn3RwURJOKsCyzH20qt3I5xSsqL+5BH+8z+2regGreq9Q3RTSP2ociXLfSWPdG2g2NgNS00NxS6AWkDDTOkiJVANGrZn7qmw2NZ5ghkcIJmxhAQ42+kO66T8IiklYbHHgYK9WkankgemN8YRH2G7vWhU7bcYNzpyOJtag7Dne7OFocQf+XaIQbN4gNGENCRlE7OBvkIUW+5NmQ0C/ItHlMAzOI/q9l4LyA7xnTo=
-X-Received: by 2002:a25:8c84:0:b0:dd1:6cad:8fd3 with SMTP id
- 3f1490d57ef6-dfa5dcdc800mr946343276.27.1717060889311; Thu, 30 May 2024
- 02:21:29 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1717061099; x=1717665899;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FGWcoQz6bp5W8A5c5FEsjIeyZdnGRxg5AvvBbn2QbK0=;
+        b=wuackCf1aU0H3pHnpgMVFdAR6NMiSdzT2vAP9Lkzxaz1iWnQkMXKP/fxRDBFTPiuoJ
+         Z4Kj99dssxymgmAyVRqf3h6ZLaoC3BanF5st/WCiYhCyBNQh8Eqh5cdvVkniTOSExQ3w
+         4ie79MaP923HDk21mYK1AEsG6KYDCv17d/dn441su+7H7k7+tkM+gSA+2KeQSm2Xewbs
+         BsGY7/jK8VO80Exx1BSaRG80hFhumb4Wxz/CBmX+gv4BBp4djlviBvGYdTjpcvOR7dDM
+         RW3C2TGiSKLS9Jp84R395I23Pe6p5+txl/xddDX6h+KHZFKmMCn8ycwNLA5cjlsAvWM+
+         ct8A==
+X-Forwarded-Encrypted: i=1; AJvYcCU/niYbz1SCMwvvVKK6hLhqXdU7B3AAjlJ7ZCL6rqEJ90G1KinDoFw30BOQObg7PEAxjfhVK7Lo1twWXHYe1FbcHQJSLlsfgNDB7rZC6a6O
+X-Gm-Message-State: AOJu0Yw4rxc0bSmiZ1Qwv0cxUPDX7/hS3379Cn9PbS/yGV5LqGdP46pI
+	p5RfmSLoeK8dE1K+FsGNtqdFSMwUEVByfpme1IJUQo/mwGXcKIWPqeBwRX+et2A=
+X-Google-Smtp-Source: AGHT+IELCUAFliwbdnLlRoUjMofrcBrzQ/gONVqlkzwZRu4BVC/i56ENc2IuIJrAiK/uaL4mr6II2g==
+X-Received: by 2002:ac2:522b:0:b0:52a:f4f5:5cfa with SMTP id 2adb3069b0e04-52b7d480912mr782775e87.58.1717061098823;
+        Thu, 30 May 2024 02:24:58 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3557a08ab81sm16840093f8f.39.2024.05.30.02.24.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 02:24:58 -0700 (PDT)
+Date: Thu, 30 May 2024 11:24:57 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Yong-Xuan Wang <yongxuan.wang@sifive.com>, 
+	linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	greentime.hu@sifive.com, vincent.chen@sifive.com, cleger@rivosinc.com, 
+	Jinyu Tang <tjytimi@163.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Anup Patel <anup@brainfault.org>, Conor Dooley <conor.dooley@microchip.com>, 
+	Mayuresh Chitale <mchitale@ventanamicro.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	Samuel Ortiz <sameo@rivosinc.com>, Evan Green <evan@rivosinc.com>, 
+	Xiao Wang <xiao.w.wang@intel.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Kemeng Shi <shikemeng@huaweicloud.com>, 
+	"Mike Rapoport (IBM)" <rppt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Charlie Jenkins <charlie@rivosinc.com>, 
+	Leonardo Bras <leobras@redhat.com>, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v4 1/5] RISC-V: Detect and Enable Svadu Extension
+ Support
+Message-ID: <20240530-de1fde9735e6648dc34654f3@orel>
+References: <20240524103307.2684-1-yongxuan.wang@sifive.com>
+ <20240524103307.2684-2-yongxuan.wang@sifive.com>
+ <20240527-41b376a2bfedb3b9cf7e9c7b@orel>
+ <ec110587-d557-439b-ae50-f3472535ef3a@ghiti.fr>
+ <20240530-3e5538b8e4dea932e2d3edc4@orel>
+ <3b76c46f-c502-4245-ae58-be3bd3f8a41f@ghiti.fr>
 MIME-Version: 1.0
-References: <20240504-pinctrl-cleanup-v2-0-26c5f2dc1181@nxp.com>
- <20240504-pinctrl-cleanup-v2-7-26c5f2dc1181@nxp.com> <CAMuHMdUD=1rpns_mLF2rMM-x5EnOK7TExaJxoJVkbXjVz1H8uQ@mail.gmail.com>
- <ZlhAm-giX6jNaUKr@surfacebook.localdomain>
-In-Reply-To: <ZlhAm-giX6jNaUKr@surfacebook.localdomain>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 30 May 2024 11:21:17 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXqXVT3Y7N8pTb_68E23RkLGi=ySOSDkAWX4MOpP09Q4g@mail.gmail.com>
-Message-ID: <CAMuHMdXqXVT3Y7N8pTb_68E23RkLGi=ySOSDkAWX4MOpP09Q4g@mail.gmail.com>
-Subject: Re: [PATCH v2 07/20] pinctrl: renesas: Use scope based of_node_put() cleanups
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
-	Hal Feng <hal.feng@starfivetech.com>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Patrice Chotard <patrice.chotard@foss.st.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Damien Le Moal <dlemoal@kernel.org>, Ludovic Desroches <ludovic.desroches@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Chester Lin <chester62515@gmail.com>, 
-	Matthias Brugger <mbrugger@suse.com>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
-	Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Joel Stanley <joel@jms.id.au>, Dan Carpenter <dan.carpenter@linaro.org>, 
-	Tony Lindgren <tony@atomide.com>, Stephen Warren <swarren@wwwdotorg.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-samsung-soc@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	imx@lists.linux.dev, linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
-	Peng Fan <peng.fan@nxp.com>
+Content-Disposition: inline
+In-Reply-To: <3b76c46f-c502-4245-ae58-be3bd3f8a41f@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_022155_233416_51EFFB8B 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20240530_022502_837312_9E290F36 
+X-CRM114-Status: GOOD (  40.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,35 +104,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5keSwKCk9uIFRodSwgTWF5IDMwLCAyMDI0IGF0IDExOjAz4oCvQU0gQW5keSBTaGV2Y2hl
-bmtvCjxhbmR5LnNoZXZjaGVua29AZ21haWwuY29tPiB3cm90ZToKPiBNb24sIE1heSAxMywgMjAy
-NCBhdCAwMTo1OTowM1BNICswMjAwLCBHZWVydCBVeXR0ZXJob2V2ZW4ga2lyam9pdHRpOgo+ID4g
-T24gU2F0LCBNYXkgNCwgMjAyNCBhdCAzOjE04oCvUE0gUGVuZyBGYW4gKE9TUykgPHBlbmcuZmFu
-QG9zcy5ueHAuY29tPiB3cm90ZToKPiA+IFlvdSBtaXNzZWQgb25lIHRyaXZpYWwgY29udmVyc2lv
-biwgcHJlc3VtYWJseSBiZWNhdXNlIG5vIGVycm9yIGhhbmRsaW5nCj4gPiBhbmQgdGh1cyBubyBv
-Zl9ub2RlX3B1dCgpIGlzIGludm9sdmVkPwo+Cj4gTm90aGluZyBpcyBtaXNzZWQuIFRoZSBiZWxv
-dyBpcyBhIHJlZHVuZGFudCBjaGFuZ2UuCj4KPiAuLi4KPgo+ID4gLSAgICAgICBmb3JfZWFjaF9j
-aGlsZF9vZl9ub2RlKG5wLCBjaGlsZCkgewo+ID4gKyAgICAgICBmb3JfZWFjaF9jaGlsZF9vZl9u
-b2RlX3Njb3BlZChucCwgY2hpbGQpIHsKPiA+ICAgICAgICAgICAgICAgICBpZiAob2ZfcHJvcGVy
-dHlfY291bnRfdTMyX2VsZW1zKGNoaWxkLCBSWk4xX1BJTlNfUFJPUCkgPiAwKQo+ID4gICAgICAg
-ICAgICAgICAgICAgICAgICAgY291bnQrKzsKPiA+ICAgICAgICAgfQo+ID4KPiA+IElmIHlvdSBw
-cmVmZXIgbm90IHRvIGluY2x1ZGUgdGhpcwo+Cj4gSSBwcmVmZXIgdGhpcyBub3QgdG8gYmUgaW5j
-bHVkZWQgYXMgaXQgd2lsbCBnaXZlIGEgbWlzbGVhZGluZyBzaWduYWxzIHRvIHRoZQo+IHVzZSBv
-ZiB0aGUgb3JpZ2luYWwgQVBJKHMpLgoKVGhhbmsgeW91IGZvciByZW1pbmRpbmcgbWUgdG8gc2Vu
-ZCB0aGlzIG91dCBhcyBhIHNlcGFyYXRlIHBhdGNoIDotKQoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
-cmcvci9jMGEyOGY0NjZjNDJkNWQ1OWM3ZmFkZmExZmQwNWZkNTEyZDQzYjZmLjE3MTcwNjA3MDgu
-Z2l0LmdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlCgpHcntvZXRqZSxlZXRpbmd9cywKCiAgICAgICAg
-ICAgICAgICAgICAgICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3Mg
-bG90cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVy
-c29uYWwgY29udmVyc2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYg
-YSBoYWNrZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkg
-InByb2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgLS0gTGludXMgVG9ydmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, May 30, 2024 at 11:01:20AM GMT, Alexandre Ghiti wrote:
+> Hi Andrew,
+> 
+> On 30/05/2024 10:47, Andrew Jones wrote:
+> > On Thu, May 30, 2024 at 10:19:12AM GMT, Alexandre Ghiti wrote:
+> > > Hi Yong-Xuan,
+> > > 
+> > > On 27/05/2024 18:25, Andrew Jones wrote:
+> > > > On Fri, May 24, 2024 at 06:33:01PM GMT, Yong-Xuan Wang wrote:
+> > > > > Svadu is a RISC-V extension for hardware updating of PTE A/D bits.
+> > > > > 
+> > > > > In this patch we detect Svadu extension support from DTB and enable it
+> > > > > with SBI FWFT extension. Also we add arch_has_hw_pte_young() to enable
+> > > > > optimization in MGLRU and __wp_page_copy_user() if Svadu extension is
+> > > > > available.
+> > > 
+> > > So we talked about this yesterday during the linux-riscv patchwork meeting.
+> > > We came to the conclusion that we should not wait for the SBI FWFT extension
+> > > to enable Svadu but instead, it should be enabled by default by openSBI if
+> > > the extension is present in the device tree. This is because we did not find
+> > > any backward compatibility issues, meaning that enabling Svadu should not
+> > > break any S-mode software.
+> > Unfortunately I joined yesterday's patchwork call late and missed this
+> > discussion. I'm still not sure how we avoid concerns with S-mode software
+> > expecting exceptions by purposely not setting A/D bits, but then not
+> > getting those exceptions.
+> 
+> 
+> Most other architectures implement hardware A/D updates, so I don't see
+> what's specific in riscv. In addition, if an OS really needs the exceptions,
+> it can always play with the page table permissions to achieve such
+> behaviour.
+
+Hmm, yeah we're probably pretty safe since sorting this out is just one of
+many things an OS will have to learn to manage when getting ported. Also,
+handling both svade and svadu at boot is trivial since the OS simply needs
+to set the A/D bits when creating the PTEs or have exception handlers
+which do nothing but set the bits ready just in case.
+
+> 
+> 
+> > 
+> > > This is what you did in your previous versions of
+> > > this patchset so the changes should be easy. This behaviour must be added to
+> > > the dtbinding description of the Svadu extension.
+> > > 
+> > > Another thing that we discussed yesterday. There exist 2 schemes to manage
+> > > the A/D bits updates, Svade and Svadu. If a platform supports both
+> > > extensions and both are present in the device tree, it is M-mode firmware's
+> > > responsibility to provide a "sane" device tree to the S-mode software,
+> > > meaning the device tree can not contain both extensions. And because on such
+> > > platforms, Svadu is more performant than Svade, Svadu should be enabled by
+> > > the M-mode firmware and only Svadu should be present in the device tree.
+> > I'm not sure firmware will be able to choose svadu when it's available.
+> > For example, platforms which want to conform to the upcoming "Server
+> > Platform" specification must also conform to the RVA23 profile, which
+> > mandates Svade and lists Svadu as an optional extension. This implies to
+> > me that S-mode should be boot with both svade and svadu in the DT and with
+> > svade being the active one. Then, S-mode can choose to request switching
+> > to svadu with FWFT.
+> 
+> 
+> The problem is that FWFT is not there and won't be there for ~1y (according
+> to Anup). So in the meantime, we prevent all uarchs that support Svadu to
+> take advantage of this.
+
+I think we should have documented behaviors for all four possibilities
+
+ 1. Neither svade nor svadu in DT -- current behavior
+ 2. Only svade in DT -- current behavior
+ 3. Only svadu in DT -- expect hardware A/D updating
+ 4. Both svade and svadu in DT -- current behavior, but, if we have FWFT,
+    then use it to switch to svadu. If we don't have FWFT, then, oh well...
+
+Platforms/firmwares that aren't concerned with the profiles can choose (3)
+and Linux is fine. Those that do want to conform to the profile will
+choose (4) but Linux won't get the benefit of svadu until it also gets
+FWFT.
+
+IOW, I think your proposal is fine except for wanting to document in the
+DT bindings that only svade or svadu may be provided, since I think we'll
+want both to be allowed eventually.
+
+Thanks,
+drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
