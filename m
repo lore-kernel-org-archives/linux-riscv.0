@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A50C27C43
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 14:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D156C25B74
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 14:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mnaRhpCgE5AXjveOti/ykDjsR0d0NA1Y+lZ/2mAeI4w=; b=lJbCKwCkQpRyOkHMYZ8C/cy1po
-	A1QI1+K6PKcQYWvtfw5diP82n2+5x81K7Zu3K/ZzfOYSLS7AV47SvxE85K7PQt1hQqrZ1lsA/yE4J
-	slU+U4QXCfBb+INNjAKSoB+h7D/AmX12YyVNwbOPc2/O92r7yyQmae1PlNcdv8Zfgtr78+mrLmkHN
-	3mltRTH+v9t4vyXyhRv6Fxqusej6fsJCLOOmfzI3rQ+nPct0LdpOdK5vyBlZ/+0i24jJoL32ePvTx
-	9QNaJzeVpO5YtoELiIEhAS+SIGfHpFqUJn507mnqUL/xKCMHsYfqBrkM+TksK0q1rlfqIdlqPa7OM
-	y2ranwCA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TXETVT0Hp0P+eVNvV6T4o+Wah4X2hPlT0R9FC1pcuKg=; b=nQthhzcROHV33h
+	rFrCnBDlvVZxBitIAMXZPXoGGyQGf9iPUMr+5BOAZypN3r30Z5tC/6ths2uMsP7iKg+fEqMG3xpT1
+	yB1Sxpj7s2OJoniRp1h3Ww1bJ9ZcH5dVx32BsnXYyei+rkCGaL5uqmWGafqSC4o6ecrZConzIVJdx
+	tuB2zFsqJZjZSdtCChko4spBkLTx1iNm6l1ao6cvqtKFBD7lnfQ0zFlewY/+2f8lMypNNwwm9/Ry8
+	NlP4Jw3p4HEOgKAmJS9mVjrS+6MywnvcMc5Dyx4gqLY+qpnJXGKRl/eliVJHg6fGdkZ8B1ViQD9J6
+	AFOpHVzil34AlhN/DAdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCgzx-00000007aAi-2NuA;
-	Thu, 30 May 2024 14:43:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sCh90-00000007cC0-0aEV;
+	Thu, 30 May 2024 14:52:42 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCgzu-00000007aA3-46DN
+	id 1sCh8w-00000007cB5-27Fr
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 14:43:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EF50462803;
-	Thu, 30 May 2024 14:43:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BCAFC2BBFC;
-	Thu, 30 May 2024 14:43:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717080197;
-	bh=e1+5dT8+B+5U3e3Q8tyccbJPxgYrjn+AJggCEUN5eR4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rMqCm59jdJJs3oe/iUw0G8iGrR/MRYfg69+6CWrnvOzeO0sSmDV/qSTn4JOsREbqt
-	 ioiNo2ilbyZh2ide5ehezgb6vZaOkWF82CKYvPEk5i6M55/5BCCZMuPRdlIyrVyrRX
-	 YnJv3AAYzvK4+bMCdvVwWHIg/iNW94vqH0BBKJ/MoiHh/DtXB65jEuzVvptnjsD/q8
-	 7OFIehwtJih9AEKdH/Tv/6a6wQGuaoKogH2S6gikRrqW1sELiWG43d5N+1ANytAD7M
-	 L1PRhAtMU3r7ZJg78e95yOCCDzx5IK+r970c2em+lQesDcVAMygRm2c0R1U+GFTzJZ
-	 RW2gQ1yTRFwZw==
-Date: Thu, 30 May 2024 15:43:12 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
-	Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH 1/7] riscv: Implement cmpxchg32/64() using Zacas
-Message-ID: <20240530-swear-espresso-563e3a19d7e7@spud>
-References: <20240528151052.313031-1-alexghiti@rivosinc.com>
- <20240528151052.313031-2-alexghiti@rivosinc.com>
- <20240528-repaint-graffiti-ec4f0e038e5a@spud>
- <CAHVXubjk-2EAJ0U08p7uATkJM1_La94SVcVNLO5yieGbfqUGYw@mail.gmail.com>
+	Thu, 30 May 2024 14:52:39 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2e95abc7259so10382461fa.3
+        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 07:52:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1717080755; x=1717685555; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8xju9nW5aEF63Pcv0lMb3cbBthG2ZJ9khtPEmPPr3uI=;
+        b=e6hDbUfVLqV94upDU9H+ElaQbcUJv+zt0/Rmw6Or9XaCdWEM4wUogCt0vBhvgWAKqn
+         H8/8Ol0FeK8zWSTy5OtWIlc7jA7x90HjKemnSOIfhP2/PXgCGi9GPHq9Ha97Fc/pNoj1
+         t/Op2eAkhUMIDj9P7TyJaG6j8UHNGmS+i8bP9EGyrdAq/bQkoXJXjHtaZl12V0yaECZl
+         cxm9ZXs3N45Nxd3KDH05QD8s2+DYJfTwIceqS9y3J7Wuzw8ygAc4G/fx+zhK6wI+4Byg
+         n/rqE+uBJgXN5e86gSKJomeiVO+2GWJlQuFCpvHEWc6xOgyiMqn234+uPTPB6nwSTPuy
+         rfZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717080755; x=1717685555;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8xju9nW5aEF63Pcv0lMb3cbBthG2ZJ9khtPEmPPr3uI=;
+        b=oItqyB38hfzt/wJfPxk7TTAxQk7m8yn4gDL3cjoCA1iotaybeVnnfWvFeOd5nwZ0w2
+         fMlKBhz0B2PD1WSboWIGXYFA2v5yrhX7kbDu07LxHykw6gd2HOK+4ltPApqyJUZyMfEH
+         62kWW4wAuHW7fG76R6Q3k1ygFP/UljBN1pxk5obDl4GO59q7zyruZhVEVbf99yMo+uy1
+         kdbMLv1bxrTf+aPH+6qMl8yj+5YbChqd0nOpHk+q+9HSwg/tDK4iU7TDiz9jACHb+xS0
+         DAGfZJj2MXeHvEA5v/LVs73ztu6wrdF99DgQDs8AlZHCDO6r87rm2Zcw3XPuwyxPKIQb
+         BUcg==
+X-Forwarded-Encrypted: i=1; AJvYcCULe8Htun5b9WwddwD1wu6NR9wmvmhL18RGGiQr0iEPVEUNgWQQCjMnYt3kJzLVw6EbXGFJacMk5wS7aQcQFJa11qSkrAY9JwqMeW5gWP5a
+X-Gm-Message-State: AOJu0YzexghGBIRlLaK7m1ziumI6K+pC7UvsgL7+XRUY8ALTnHcCFOSw
+	jI0cCL+n5+iolLbEUgnvdkZHAjjS/ahpf2PcM4JycbO2kCTKUOs2/SE6XSQeZ6DeY0BXdCXfTL0
+	sUuTNsJHnPLXVE+VD+7SykOpLLaH1TdvPdbPIQQ==
+X-Google-Smtp-Source: AGHT+IHf8TmrUvKHY3tZVeP9T/NeHo/+xLt+IhXkdMwRroWcQhly/ewRsUPfk31Cc9BSWLvx0W2D6Ia7qNisp/t3DcU=
+X-Received: by 2002:a05:651c:224:b0:2ea:8e94:a2f4 with SMTP id
+ 38308e7fff4ca-2ea8e94a54emr2778791fa.21.1717080755423; Thu, 30 May 2024
+ 07:52:35 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAHVXubjk-2EAJ0U08p7uATkJM1_La94SVcVNLO5yieGbfqUGYw@mail.gmail.com>
+References: <20240529-dt-interrupt-map-fix-v2-0-ef86dc5bcd2a@kernel.org>
+In-Reply-To: <20240529-dt-interrupt-map-fix-v2-0-ef86dc5bcd2a@kernel.org>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Thu, 30 May 2024 20:22:23 +0530
+Message-ID: <CAK9=C2WvmXujHT-PpvhcHgg1Tck3k_K_BmLVp-=1Z71Y385Cbw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] of: Fix interrupt-map for fw_devlink
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_074319_316165_F5B8C0F5 
-X-CRM114-Status: GOOD (  32.92  )
+X-CRM114-CacheID: sfid-20240530_075238_572190_23F6D709 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,123 +86,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7455952328360969796=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7455952328360969796==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="z9kbXMXV8iYZ4uhg"
-Content-Disposition: inline
-
-
---z9kbXMXV8iYZ4uhg
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, May 29, 2024 at 02:20:33PM +0200, Alexandre Ghiti wrote:
-> On Tue, May 28, 2024 at 5:34=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
-rote:
-> > On Tue, May 28, 2024 at 05:10:46PM +0200, Alexandre Ghiti wrote:
-
-> > >  config TOOLCHAIN_HAS_ZBB
-> > >       bool
-> > >       default y
-> > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > > index 5b3115a19852..d5b60b87998c 100644
-> > > --- a/arch/riscv/Makefile
-> > > +++ b/arch/riscv/Makefile
-> > > @@ -78,6 +78,17 @@ endif
-> > >  # Check if the toolchain supports Zihintpause extension
-> > >  riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) :=3D $(riscv-march-y=
-)_zihintpause
-> > >
-> > > +# Check if the toolchain supports Zacas
-> > > +ifdef CONFIG_AS_IS_LLVM
-> > > +# Support for experimental Zacas was merged in LLVM 17, but the remo=
-val of
-> > > +# the "experimental" was merged in LLVM 19.
-> > > +KBUILD_CFLAGS +=3D -menable-experimental-extensions
-> > > +KBUILD_AFLAGS +=3D -menable-experimental-extensions
-> > > +riscv-march-y :=3D $(riscv-march-y)_zacas1p0
-> > > +else
-> > > +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZACAS) :=3D $(riscv-march-y)_zacas
-> > > +endif
-> >
-> > I'm almost certain that we discussed this before for vector and it was
-> > decided to not enable experimental extensions (particularly as it is a
-> > global option), and instead require the non-experimental versions.
-> > This isn't even consistent with your TOOLCHAIN_HAS_ZACAS checks, that
-> > will only enable the option for the ratified version.
->=20
-> Zacas was ratified, hence the removal of "experimental" in LLVM 19.
-> But unfortunately Zabha lacks such changes in LLVM, so that will make
-> this inconsistent (ratified extension but still experimental).
->=20
-> I'll remove the enablement of the experimental extensions then so that
-> will fail for LLVM < 19. And for Zabha, I'll try to push the removal
-> of experimental from LLVM.
-
-Ye, as Nathan mentioned there may yet be some time. It'd be great if you
-could.
-
-> > I think we should
-> > continue to avoid enabling experimental extensions, even if that imposes
-> > a requirement of having a bleeding edge toolchain to actually use the
-> > extension.
->=20
-> Would it make sense to have a
-> CONFIG_RISCV_LLVM_ENABLE_EXPERIMENTAL_EXTENSIONS or similar? So that
-> people who want to play with those extensions will still be able to do
-> so without patching the kernel?
-
-Maybe, but I think something like that should depend on BROKEN and only
-be done when the extension hasn't had its experimental status removed by
-a released version of LLVM and is not supported by a release of GCC.
-Given we only allow frozen extensions into the kernel, actually having to
-do this would be rather rare.
-
-I think we should also reserve the right to drop support for the
-experimental version as soon as it does get its status changed, and
-depending on BROKEN would let us do that without any regressions in terms
-of toolchain version support.
-
-Yes, making the option depend on BROKEN would require patching a Kconfig
-file but this would be a facility for kernel developers to test prior to
-the release of a toolchain that actually supports the extension, and the
-"hard" part in the Makefile to hook it up would already be done. I think
-if you're capable of messing about with experimental extensions in the
-kernel you're capable of also modifying a Kconfig file locally ;)
-
-Cheers,
-Conor.
-
---z9kbXMXV8iYZ4uhg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZliQgAAKCRB4tDGHoIJi
-0meaAP4hpp+ON/+4CUCouNiEU6Wr4S461QKuus3DdOd3JDRNQwEAr3sv/LmPdRsa
-sUgsKALjJuli5YHzz/dQq7PlVqqiyw4=
-=WxZU
------END PGP SIGNATURE-----
-
---z9kbXMXV8iYZ4uhg--
-
-
---===============7455952328360969796==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7455952328360969796==--
-
+T24gVGh1LCBNYXkgMzAsIDIwMjQgYXQgMToyOeKAr0FNIFJvYiBIZXJyaW5nIChBcm0pIDxyb2Jo
+QGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gVGhlIGR1cGxpY2F0ZWQgcGFyc2luZyBjb250aW51ZWQg
+dG8gYm90aGVyIG1lLCBzbyBJJ3ZlIHJlZmFjdG9yZWQgdGhpbmdzCj4gdG8gYXZvaWQgdGhhdCBm
+b3IgcGFyc2luZyB0aGUgaW50ZXJydXB0IHBhcmVudCBhbmQgYXJncyBpbiB0aGUKPiBpbnRlcnJ1
+cHQtbWFwLgo+Cj4gSXQgcGFzc2VzIHRlc3Rpbmcgd2l0aCB1bml0dGVzdHMgb24gUUVNVSB2aXJ0
+IHBsYXRmb3JtLCBidXQgSSBkb24ndAo+IHRoaW5rIHRoYXQgY2F0Y2hlcyB0aGUgcHJvYmxlbWF0
+aWMgY2FzZXMuIFNvIHBsZWFzZSB0ZXN0Lgo+Cj4gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
+L2FsbC8yMDI0MDUyODE2NDEzMi4yNDUxNjg1LTEtbWF6QGtlcm5lbC5vcmcvCj4gIC0gUmVmYWN0
+b3IgZXhpc3RpbmcgaW50ZXJydXB0LW1hcCBwYXJzaW5nIGNvZGUgYW5kIHVzZSBpdCBmb3IKPiAg
+ICBmd19kZXZsaW5rCj4KPiBTaWduZWQtb2ZmLWJ5OiBSb2IgSGVycmluZyAoQXJtKSA8cm9iaEBr
+ZXJuZWwub3JnPgo+IC0tLQo+IE1hcmMgWnluZ2llciAoMSk6Cj4gICAgICAgb2Y6IHByb3BlcnR5
+OiBGaXggZndfZGV2bGluayBoYW5kbGluZyBvZiBpbnRlcnJ1cHQtbWFwCj4KPiBSb2IgSGVycmlu
+ZyAoQXJtKSAoMSk6Cj4gICAgICAgb2YvaXJxOiBGYWN0b3Igb3V0IHBhcnNpbmcgb2YgaW50ZXJy
+dXB0LW1hcCBwYXJlbnQgcGhhbmRsZSthcmdzIGZyb20gb2ZfaXJxX3BhcnNlX3JhdygpCj4KPiAg
+ZHJpdmVycy9vZi9pcnEuYyAgICAgICAgfCAxMjcgKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KystLS0tLS0tLS0tLS0tLS0tLS0tCj4gIGRyaXZlcnMvb2Yvb2ZfcHJpdmF0ZS5oIHwgICAzICsr
+Cj4gIGRyaXZlcnMvb2YvcHJvcGVydHkuYyAgIHwgIDMwICsrKystLS0tLS0tLQo+ICAzIGZpbGVz
+IGNoYW5nZWQsIDg5IGluc2VydGlvbnMoKyksIDcxIGRlbGV0aW9ucygtKQo+IC0tLQo+IGJhc2Ut
+Y29tbWl0OiAxNjEzZTYwNGRmMGNkMzU5Y2YyYTdmYmQ5YmU3YTBiY2ZhY2ZhYmQwCj4gY2hhbmdl
+LWlkOiAyMDI0MDUyOS1kdC1pbnRlcnJ1cHQtbWFwLWZpeC1hMzdiOWFmZjVjYTAKPgo+IEJlc3Qg
+cmVnYXJkcywKPiAtLQo+IFJvYiBIZXJyaW5nIChBcm0pIDxyb2JoQGtlcm5lbC5vcmc+Cj4KCldv
+cmtzIHdlbGwgZm9yIFJJU0MtViwgVGhhbmtzIQoKVGVzdGVkLWJ5OiBBbnVwIFBhdGVsIDxhcGF0
+ZWxAdmVudGFuYW1pY3JvLmNvbT4KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
