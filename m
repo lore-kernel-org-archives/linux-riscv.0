@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECCADC25B78
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 07:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 642D8C25B78
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 07:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C3Sxs0sd76s9lk988tehjUjm0K/lAhoBoAwg7WRDSfo=; b=vWgJ6buukn12Jx
-	31tLckJE8KuPLpupZ3ys39bM/063xcBGCTh8GWKk44xA3tuwAv8hy9+rbomXYGhgMUFLA42DVQdGj
-	mdJYZ6VtM0NbwoiQf0j2fuJc1jZp7ijcmhZuTWOYTGLCEB/eR+ZKWdqe4A3ho1F0VdUVl9wlCEYSD
-	THw0QD8A739tNyJHP9umqVEyp5m48yfrlrsbZBv+OHRI2vJIU5sRvpES204RZcurRVh6HAQ/DFRaX
-	9XzkPyVlgoGt13i/V3m2pU9f03c3aWmtEYuMeKB3+wFl+p8Q73y36t4UCHCWeRXc2NxFF2FkStcRB
-	QGK1THWKpLc4XzATx98g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Kk5QsQ2J9fmGhhSSOPBQwLUbajudrduiU6WZqK5rHFc=; b=tmrdNkuLAIK8je
+	U0S03axOK9m6M+hhlyHYwCDA+JXMNmkrCJ7H+4XMK6YvePFtpPTqVyydem4zqvcUwwRP/xkrBkBZH
+	VYx6wDjvwPeAZYy5bD5mb/tClEJZFzqpkRDxr5Lnbt1rsP5LRJF9VKdAXHQ2LNk2HuM3rbhle6ChD
+	DRAAEZkLItRumBMqjx2rqjp0oUCALTarZH6qBNyaCfYitqLHJkrm8Mo4hjR40PVrtKoEeBWXasmen
+	d0hwOELExPoqzjn+jfb1Fd2yxatiJoVR36BKjV3BJIbyKKAg1uHcS+n7GOeYZ+/V8RhsY9++a9lAW
+	OP1ShMFeLdanxPpppG+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCZyr-00000006UFN-0CnF;
-	Thu, 30 May 2024 07:13:45 +0000
-Received: from mail-yw1-f169.google.com ([209.85.128.169])
+	id 1sCacN-00000006YdS-1ocP;
+	Thu, 30 May 2024 07:54:35 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCZyo-00000006UEv-2PC5
+	id 1sCacJ-00000006Ycy-18dP
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 07:13:44 +0000
-Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-627e3368394so5373117b3.2
-        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 00:13:39 -0700 (PDT)
+	Thu, 30 May 2024 07:54:33 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4211a86f124so6727795e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 00:54:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717055668; x=1717660468; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1gEk4cRtLIMz1d+ONWzu542I10bGkCjrk9ZcxQfZHt8=;
+        b=d2/O+gs0zzybotZipHL3Lplmki5JWSVJ6b/a8dXd1Qg7ghrns/iqafsIOGM+fyh4/u
+         oZRmLeRrcOLI21gfdXGGR9/x2walQkYPh0qERWVUytTGGGCtlJfxO+8syOm/I/gKSG3E
+         +/bljIq/MGsmLIIxaSBxCXzEzyUtN5mPPoNf6XTmESHx0JAE7qZLZQJV4egxnp8lnSQk
+         FCaLRtWpIIgNzgrBiKZrVg1xN26P8ubJ0UMA9Ft1H1brGIUpKj/jERp3NTP37l0rVL+e
+         47bWw7UcX1FC5N7InV2vm9zBFHp8B+xLyGU6NgB3y47nmzj+KUpQBuZEEsyK2Makwsps
+         TZTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717053216; x=1717658016;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6F3VqP7Q2oLA+uLC5C8SWEiyXRUAjqkP7GVUyyrZleE=;
-        b=U9YSm28bqorv1Hxw+So17kB2aQ7YhEnvWYuJcQVbxgCNUunMMwsO0fX9aV2Orc5pPH
-         L9MP875Uo5uMBQqIaaVNjYydwU5N5LhBwXtYme6HLYlN0s72qm1CLxfzR82Udr3I1phP
-         5sHJZNCnSRALJxCCN07XIjFX0faSWLFCc1PMOzOOzJZFuevlJUVrQynk63EYy2ZyvrDF
-         BBovGlAKc0kbxenq7fJeRjbanwAXx8e9YkFpi6q6zqKo13r3Jg/5Rz+DPe/nhVvfOdQ8
-         TUbQinjeUz6o9y/bRfbxcF8k6ZUYiIyMBFWV5fBhWCEUNsqcdIAM9MMA6DyyYDx4OUFW
-         F92Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWexibGzBtb8dfoNz0RvfAXxryNewDS+4hylaqxGISOMM62nSnTJo7NGvvgGnvevz2lboxuQr1In/tkFDzAnaUMMapzIdVVNiB3RzbgMZPS
-X-Gm-Message-State: AOJu0YyFj/rgJPRpTJr3lKJ+HfWcjUsuC0nd/c7cDZ+obM7lyleIilsh
-	8crqzl9kfC7bALATBkxQms99XKORiw5OaiOByma4LXr7CDyA8t7XFQGo0Krl
-X-Google-Smtp-Source: AGHT+IG4e/9ZFXdorCajomqYxA+kEO0uI1P8wpVuYgS2kHvtnBcUlV3SmgQhHyXNsxSzw/QLEIfgpA==
-X-Received: by 2002:a0d:f943:0:b0:61a:e4ef:51d with SMTP id 00721157ae682-62c6bbce9c1mr14293317b3.9.1717053216433;
-        Thu, 30 May 2024 00:13:36 -0700 (PDT)
-Received: from mail-yb1-f181.google.com (mail-yb1-f181.google.com. [209.85.219.181])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-62a0a52eb60sm27267167b3.112.2024.05.30.00.13.35
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 May 2024 00:13:36 -0700 (PDT)
-Received: by mail-yb1-f181.google.com with SMTP id 3f1490d57ef6-df4dce67becso494248276.2
-        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 00:13:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWlsf0AwpN4+LxevfvnoH3Ib3Q1r61PsdCThfzEVwaLmJUR8ZCBcqnQchVyTRl4LKQ6jrErfIAiFP6ezw7UFT8wQN9Gy+9ll5ybVIqj4WM9
-X-Received: by 2002:a25:53c9:0:b0:de5:4ab8:317f with SMTP id
- 3f1490d57ef6-dfa5a5da05amr1478827276.20.1717053215497; Thu, 30 May 2024
- 00:13:35 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1717055668; x=1717660468;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1gEk4cRtLIMz1d+ONWzu542I10bGkCjrk9ZcxQfZHt8=;
+        b=u5qLwwlVx0uTPKvpT/DU7doRFlpkqlh2U745AiYi+022ONSphYOfnWPbf5pjvSZXQ/
+         0yR5WFOlrt/MjfqzyzAYcyWZnPqbPZClhF9/0NPcCwWqe9V1AAQVfwE4A3CfkEVvQO56
+         OaQ9OypExrFvbzX6G0ptrHe5ZMgnF/TsJ18b1/STjyJxX1HG/hBU+UKwuonaUgS+z5Ty
+         aIR9hBPcDKpS8MjNQa5Kb3+5e52U4poembIKVP6rva/7wYvDePqBj0MbhBrbPKh180Zo
+         eR27F9wzq9LmJStcc6R77w5aWSFTlZPjYPTOROgzAQPVby5L9EHxaVpyNDgJSTnq79YJ
+         u5NA==
+X-Forwarded-Encrypted: i=1; AJvYcCXw7fZlwsKm9XW/+7qWr1IX48DDYJE0/Y9vg/sCB9t99QSDjJNg6WFyeV9/kzUavgLOC9IzMg/TavGks3PyhthHcfTbfXWv9DgfpwlazU3W
+X-Gm-Message-State: AOJu0YzorNfWGNxko/l1Zo8EL3ipuYbzlXXW9iHj/KASeVm1zj62xABM
+	EkAuRm81ZyWYxsHR26qLz4xFA3y8iuv256kdxcBWLFmZbnuExgRYXfKMEslgvVE=
+X-Google-Smtp-Source: AGHT+IGeI7XRpZK2v9DADY+iDjOcvT75H36nmiKPi9Fmv16Kmngas9i40NRhcRNrQXkLHUYN59XZKA==
+X-Received: by 2002:a05:600c:1896:b0:418:e04b:ee63 with SMTP id 5b1f17b1804b1-42127935444mr15689335e9.36.1717055668219;
+        Thu, 30 May 2024 00:54:28 -0700 (PDT)
+Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-421270791c7sm16650635e9.31.2024.05.30.00.54.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 00:54:27 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Leonardo Bras <leobras@redhat.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrea Parri <parri.andrea@gmail.com>
+Subject: [PATCH -fixes] riscv: Fix fully ordered LR/SC xchg[8|16]() implementations
+Date: Thu, 30 May 2024 09:54:24 +0200
+Message-Id: <20240530075424.380557-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-References: <20240529215458.937817-1-samuel.holland@sifive.com>
-In-Reply-To: <20240529215458.937817-1-samuel.holland@sifive.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 30 May 2024 09:13:23 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVLgpxPCK0chTY=GvMVPgF5G1Oyj=XXoJZBORvH5shFxQ@mail.gmail.com>
-Message-ID: <CAMuHMdVLgpxPCK0chTY=GvMVPgF5G1Oyj=XXoJZBORvH5shFxQ@mail.gmail.com>
-Subject: Re: [PATCH] irqchip/sifive-plic: Chain to parent IRQ after handlers
- are ready
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_001342_710094_E73585FD 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20240530_005431_528735_1B18D55C 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,38 +91,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgU2FtdWVsLAoKT24gV2VkLCBNYXkgMjksIDIwMjQgYXQgMTE6NTXigK9QTSBTYW11ZWwgSG9s
-bGFuZAo8c2FtdWVsLmhvbGxhbmRAc2lmaXZlLmNvbT4gd3JvdGU6Cj4gTm93IHRoYXQgdGhlIFBM
-SUMgdXNlcyBhIHBsYXRmb3JtIGRyaXZlciwgdGhlIGRyaXZlciBwcm9iZWQgbGF0ZXIgaW4gdGhl
-Cj4gYm9vdCBwcm9jZXNzLCB3aGVyZSBpbnRlcnJ1cHRzIGZyb20gcGVyaXBoZXJhbHMgbWlnaHQg
-YWxyZWFkeSBiZQo+IHBlbmRpbmcuIEFzIGEgcmVzdWx0LCBwbGljX2hhbmRsZV9pcnEoKSBtYXkg
-YmUgY2FsbGVkIGFzIGVhcmx5IGFzIHRoZQo+IGNhbGwgdG8gaXJxX3NldF9jaGFpbmVkX2hhbmRs
-ZXIoKS4gQnV0IHRoaXMgY2FsbCBoYXBwZW5zIGJlZm9yZSB0aGUKPiBwZXItY29udGV4dCBoYW5k
-bGVyIGlzIGNvbXBsZXRlbHkgc2V0IHVwLCBzbyB0aGVyZSBpcyBhIHdpbmRvdyB3aGVyZQo+IHBs
-aWNfaGFuZGxlX2lycSgpIGNhbiBzZWUgaW5jb21wbGV0ZSBwZXItY29udGV4dCBzdGF0ZSBhbmQg
-Y3Jhc2guIEF2b2lkCj4gdGhpcyBieSBkZWxheWluZyB0aGUgY2FsbCB0byBpcnFfc2V0X2NoYWlu
-ZWRfaGFuZGxlcigpIHVudGlsIGFsbAo+IGhhbmRsZXJzIGZyb20gYWxsIFBMSUNzIGFyZSBpbml0
-aWFsaXplZC4KPgo+IEZpeGVzOiA4ZWM5OWIwMzMxNDcgKCJpcnFjaGlwL3NpZml2ZS1wbGljOiBD
-b252ZXJ0IFBMSUMgZHJpdmVyIGludG8gYSBwbGF0Zm9ybSBkcml2ZXIiKQo+IFJlcG9ydGVkLWJ5
-OiBHZWVydCBVeXR0ZXJob2V2ZW4gPGdlZXJ0QGxpbnV4LW02OGsub3JnPgo+IENsb3NlczogaHR0
-cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci9DQU11SE1kVllGRlI3SzVTYkhCTFktSkhoYjdZcGdHTVNf
-aG5SV204SDBLRC13Qm8rNEFAbWFpbC5nbWFpbC5jb20vCj4gU2lnbmVkLW9mZi1ieTogU2FtdWVs
-IEhvbGxhbmQgPHNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20+CgpUaGFua3MgZm9yIHlvdXIgcGF0
-Y2ghCgpUaGlzIGZpeGVzIHRoZSBpc3N1ZSBJIHdhcyBzZWVyaW5nIG9uIFN0YXJsaWdodCwgYW5k
-IGRvZXMgbm90IHNlZW0gdG8KY2F1c2UgcmVncmVzc2lvbnMgb24gUlovRml2ZSwgSWNpY2xlLCBL
-MjEwLCBvciBWZXhSaXNjVi4KClRlc3RlZC1ieTogR2VlcnQgVXl0dGVyaG9ldmVuIDxnZWVydCty
-ZW5lc2FzQGdsaWRlci5iZT4KCkdye29ldGplLGVldGluZ31zLAoKICAgICAgICAgICAgICAgICAg
-ICAgICAgR2VlcnQKCgotLQpHZWVydCBVeXR0ZXJob2V2ZW4gLS0gVGhlcmUncyBsb3RzIG9mIExp
-bnV4IGJleW9uZCBpYTMyIC0tIGdlZXJ0QGxpbnV4LW02OGsub3JnCgpJbiBwZXJzb25hbCBjb252
-ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3BsZSwgSSBjYWxsIG15c2VsZiBhIGhhY2tlci4g
-QnV0CndoZW4gSSdtIHRhbGtpbmcgdG8gam91cm5hbGlzdHMgSSBqdXN0IHNheSAicHJvZ3JhbW1l
-ciIgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAtLSBMaW51cyBUb3J2YWxkcwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+The fully ordered versions of xchg[8|16]() using LR/SC lack the
+necessary memory barriers to guarantee the order.
+
+Fix this by matching what is already implemented in the fully ordered
+versions of cmpxchg() using LR/SC.
+
+Suggested-by: Andrea Parri <parri.andrea@gmail.com>
+Reported-by: Andrea Parri <parri.andrea@gmail.com>
+Closes: https://lore.kernel.org/linux-riscv/ZlYbupL5XgzgA0MX@andrea/T/#u
+Fixes: a8ed2b7a2c13 ("riscv/cmpxchg: Implement xchg for variables of size 1 and 2")
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/include/asm/cmpxchg.h | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index ddb002ed89de..e1e564f5dc7b 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -10,7 +10,7 @@
+ 
+ #include <asm/fence.h>
+ 
+-#define __arch_xchg_masked(prepend, append, r, p, n)			\
++#define __arch_xchg_masked(sc_sfx, prepend, append, r, p, n)		\
+ ({									\
+ 	u32 *__ptr32b = (u32 *)((ulong)(p) & ~0x3);			\
+ 	ulong __s = ((ulong)(p) & (0x4 - sizeof(*p))) * BITS_PER_BYTE;	\
+@@ -25,7 +25,7 @@
+ 	       "0:	lr.w %0, %2\n"					\
+ 	       "	and  %1, %0, %z4\n"				\
+ 	       "	or   %1, %1, %z3\n"				\
+-	       "	sc.w %1, %1, %2\n"				\
++	       "	sc.w" sc_sfx " %1, %1, %2\n"			\
+ 	       "	bnez %1, 0b\n"					\
+ 	       append							\
+ 	       : "=&r" (__retx), "=&r" (__rc), "+A" (*(__ptr32b))	\
+@@ -46,7 +46,7 @@
+ 		: "memory");						\
+ })
+ 
+-#define _arch_xchg(ptr, new, sfx, prepend, append)			\
++#define _arch_xchg(ptr, new, sc_sfx, swap_sfx, prepend, append)		\
+ ({									\
+ 	__typeof__(ptr) __ptr = (ptr);					\
+ 	__typeof__(*(__ptr)) __new = (new);				\
+@@ -55,15 +55,15 @@
+ 	switch (sizeof(*__ptr)) {					\
+ 	case 1:								\
+ 	case 2:								\
+-		__arch_xchg_masked(prepend, append,			\
++		__arch_xchg_masked(sc_sfx, prepend, append,		\
+ 				   __ret, __ptr, __new);		\
+ 		break;							\
+ 	case 4:								\
+-		__arch_xchg(".w" sfx, prepend, append,			\
++		__arch_xchg(".w" swap_sfx, prepend, append,		\
+ 			      __ret, __ptr, __new);			\
+ 		break;							\
+ 	case 8:								\
+-		__arch_xchg(".d" sfx, prepend, append,			\
++		__arch_xchg(".d" swap_sfx, prepend, append,		\
+ 			      __ret, __ptr, __new);			\
+ 		break;							\
+ 	default:							\
+@@ -73,16 +73,16 @@
+ })
+ 
+ #define arch_xchg_relaxed(ptr, x)					\
+-	_arch_xchg(ptr, x, "", "", "")
++	_arch_xchg(ptr, x, "", "", "", "")
+ 
+ #define arch_xchg_acquire(ptr, x)					\
+-	_arch_xchg(ptr, x, "", "", RISCV_ACQUIRE_BARRIER)
++	_arch_xchg(ptr, x, "", "", "", RISCV_ACQUIRE_BARRIER)
+ 
+ #define arch_xchg_release(ptr, x)					\
+-	_arch_xchg(ptr, x, "", RISCV_RELEASE_BARRIER, "")
++	_arch_xchg(ptr, x, "", "", RISCV_RELEASE_BARRIER, "")
+ 
+ #define arch_xchg(ptr, x)						\
+-	_arch_xchg(ptr, x, ".aqrl", "", "")
++	_arch_xchg(ptr, x, ".rl", ".aqrl", "", "     fence rw, rw\n")
+ 
+ #define xchg32(ptr, x)							\
+ ({									\
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
