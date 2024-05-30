@@ -4,82 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F6FC25B74
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 08:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9A1C25B74
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 08:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8dRFAMvzeKR4PWRZN2QiHw8uwPpdNKEAQ4J6L1YQhCE=; b=izesCTxnx7IucC
-	JXVxtr/OFBSSNGqxmcqqazuxup8a2IFDKhIj45aPhoFz3FBqslgNDJLA0xl2LTjjVixkrFYplrnWN
-	PW6U6JOLZRDl3FC1KDQdYXVVG8ZZfOPej8ZYIJzdz+tZcz8iFenIPc9n0WpDNEac8G/mpXHYgI5mM
-	rXWydbvAF4wgJ4cXjDqwP0mzvbpYztx08cStKYP9/68+mv7KafEDb7FXoQQpq/Srr3zchj7EWa/2F
-	67qMaNUIY0LhRRe2yJZAXZdZq3bBo6OTnxg0z7maNAvUCauQdMRIs2mt3yGb4YUMVLuU3WcuFydtz
-	3Xbg33UF/eKVWb8zrGkA==;
+	List-Owner; bh=YMfJHwT14K8CCyeAygEHlsOeW/kzq3GQL43NMsdK9KI=; b=OrnR6W+JtOBvYZ
+	oIiel6NuehxVEOg3dvG/mNxaOZ+WBVKFRG6gCtBUQfZzPXASgxvl+zmuSrr9ihJc9u7avIia596ED
+	59SQB8pvy7EudSiI5Czp8YhJLfGCtUF/Za/lmvvraKxigvAepPevrPBQ75rzKY9eZs+/K3FDtzUzx
+	3Ow4Cy2odxDnr7Ab6K37n6MRPOst/KLnM5FtyWq3HHN0vnluAlG3WbIihIlBVQbR6epdv66mAqk3H
+	39dRqthv92fEb4tWsMcIUmlBwLgGiJ1gRepvEj7rtsB/lJq8/2lJFanb82s+oGdTQl/wwT0xWd70v
+	d4tZMS/vJyH2kuxiJK9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCaoc-00000006a3V-0vF4;
-	Thu, 30 May 2024 08:07:14 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1sCauD-00000006avJ-3h4j;
+	Thu, 30 May 2024 08:13:02 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCaoX-00000006a16-3zZN
+	id 1sCau6-00000006apO-1XGj
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 08:07:11 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-42108856c33so4152495e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 01:07:08 -0700 (PDT)
+	Thu, 30 May 2024 08:12:57 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5295f2f6ba2so33116e87.1
+        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 01:12:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1717056427; x=1717661227; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=imJe00y9Y1CwcN7JN2PUg+7wMYdo2Jj6de/HwT6F9Uc=;
-        b=RbgROkEDvpni0luN8zoPpsFFx9v5t13MmcBtf1V2uwzPkGXCmswMBRS8PdzDmFNTsH
-         3kE6qxWShWr3n/PopS+nAkBpj+3Vu9bXdbBF2OVMWPBsnEUbZ94kVzNtN+S8d6E9X+IG
-         CvQogOCxaQgvONNmF6wV2qH5ADw8GkvxIrkufk0Z6T4ijYSYrxAYjqEFz8G5QPiYjiTa
-         hJz/3CYFS4ShU/jfsqoo3Ldy/Y+KcjmuY88ze2TeD3OlQ89yZI8efIa5ZBRe2JbdvfCQ
-         bjHVNtm/qGBnPBKod3ogbLJCcHiQ15UiuO/blb5h5CHyadrDvALGtpFi2BjDFpCJ/2Ni
-         t5Cw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717056762; x=1717661562; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=0RoFCn1cKvd1zoXQP5ZuJdh9HnrCwhzMajErjx8js2Q=;
+        b=plRV2VV2yIdMJ6Miozmjg7FiEOQwlo6wXwI5iLspssUzZBdm0BfzuS8MLrMv2hh0CP
+         GkEjvDQOVxNEL/IgrX9qNwI/9NsGSPgWeoLwW+PIEDnA06tPEEU9yWk5fzHUv3soOJnZ
+         NX+ZnKnfeCeorL0V/xStcajBf3Qe+eRrNNboXXjw7rm0qJY9+UZ0i7abovn4seenH0qM
+         A0BVcTMobiL4IJ1Hp5mCLZbqBZ+IXKNQE749DkSMMOLilrNixMQp3JzIwTVRRtBsTuoC
+         PPwAwEPmLN5MpJsA17w9U3Z/AVZ0zoGm0tuYeUoASHrDjDjhQ/niDGyPE2ZKS7TK+wmQ
+         jFpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717056427; x=1717661227;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=imJe00y9Y1CwcN7JN2PUg+7wMYdo2Jj6de/HwT6F9Uc=;
-        b=tcnUJvJteGVoJGwPFDr5mHTFJhnN2VJGsISrpn5CkGU7IDCeI0vIWz+IdQXfkwQ49h
-         m+jzMpbLLBECXxiKizOQ3AxJ1Da5yxMpFoXl/9YYYCcMXME16Br27k4iEK1dJeNvFvAD
-         7qCls5iICY8gHPrhALtXjkQvQIQmGHFP3sU26nW/zO0M4uEMKab3urWNHK2HsXupjSZO
-         4SS8huwtVGboEg4ieSfJVBRte/wWNQ7bjHncmxDhW7LewUuz4mGVOnID8YYmnna/O/r5
-         HW611v/A3gjluNF6vAzYd/bSN5MYurqLHz5a9DnCj4DRMsGUzsjEnrr9AJDpbFjrKsfK
-         EfEA==
-X-Forwarded-Encrypted: i=1; AJvYcCUk6rXTUeD8QvpMDzy49LVQ6YBE0DoNCw9YlW96Q4xVFJzHQKEyU9jHQb93xoHvN2vaA5uX46Gooaz4/K31DR9R5HlNOdbDGEUPyrozP+IG
-X-Gm-Message-State: AOJu0YyYd4PFj3BLXII/7PBYkgDB7bdqcgmPk4rj5B83i+u4eTEL+Mb8
-	h2y/VVzZNzJmBDWtYGHI3rbLSXT+gHlJJVUnNICqVu8q81xbe1WjFlk1le6LFHw=
-X-Google-Smtp-Source: AGHT+IFz86hjWVwDP/dkomv8c6/5Rk3tvlfabY/M/AgBKzpkM/zbIEiVEW4Mio38VYNi7sJ39diFGA==
-X-Received: by 2002:a05:600c:1c9b:b0:421:2985:559a with SMTP id 5b1f17b1804b1-4212985574cmr4252445e9.7.1717056426856;
-        Thu, 30 May 2024 01:07:06 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-42127059769sm17110705e9.5.2024.05.30.01.07.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 May 2024 01:07:06 -0700 (PDT)
-Date: Thu, 30 May 2024 10:07:05 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Evan Green <evan@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Yangyu Chen <cyy@cyyself.name>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andy.chiu@sifive.com>, 
-	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	Costa Shulyupin <costa.shul@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Sami Tolvanen <samitolvanen@google.com>, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] RISC-V: hwprobe: Add MISALIGNED_PERF key
-Message-ID: <20240530-ae9f7725d4566a72e895f8fa@orel>
-References: <20240529182649.2635123-1-evan@rivosinc.com>
+        d=1e100.net; s=20230601; t=1717056762; x=1717661562;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=0RoFCn1cKvd1zoXQP5ZuJdh9HnrCwhzMajErjx8js2Q=;
+        b=BXSkzOTThJv2oQwlyy8IoC9f1T46cQhqDv7EfzvNq3DN2aT1Rbu/DS+VKkF4wUy5OT
+         fp7sKJ/mGZD+6OEN9n0xnSrpZc7MiIoxuGf5YHe5MIsAqk09idrrKlyQobo8L22unLhU
+         +umRa4KPFSlF4AInhnDIDXW//5VabUjrxxCqiSxpYfKejIw5V2oir0hKbP/dyKtDgpmc
+         DKPuLBhmsegMCY9RIRg6hCRdA9J0q1gFLeugA45yGHEKbRBXolEbiCWKIoZFoOk6NqCF
+         L8ntXdbnwScgV3qFwZObVfLASQeWmrXBA0LUYtYr1u8pP/GAMKDCxZUmf1Wkwc4g14yD
+         mJoA==
+X-Forwarded-Encrypted: i=1; AJvYcCVPDoDMcPA01yvelQedN+lxDbfw38aG657XZV8JCaHylL7iodZ+AkAT8ljE89JdlgyO3DrejG9p5RbFgxZajdr2zbzDovt9UgWtGEM89NNe
+X-Gm-Message-State: AOJu0YyN8s8zxup12JQdVkLUhDkvGmbvVn9ykUjHRQPR4A9JMnlJx/MC
+	jK4KhKvJ6w23CWtrA6df5iPhHxl6dd1tkff/Al1rsj7oQPzJ06kIs2Rgj2Bc5ow=
+X-Google-Smtp-Source: AGHT+IFDH/BtR0IqfU1MMNNRmaYz2QjK/JKuYYRlqhpvwnINHfFSvpEeQs/Qm8e5sz1sHPGcXd9sFQ==
+X-Received: by 2002:a05:6512:1111:b0:51f:1bf8:3ea9 with SMTP id 2adb3069b0e04-52b7d49951fmr1181406e87.3.1717056761685;
+        Thu, 30 May 2024 01:12:41 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:999:a3a0:a3c2:7707:741:7c5c? ([2a01:e0a:999:a3a0:a3c2:7707:741:7c5c])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-42126fea343sm17505945e9.0.2024.05.30.01.12.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 May 2024 01:12:41 -0700 (PDT)
+Message-ID: <4d23f17e-cc1e-45e3-9ca2-a884baacf207@rivosinc.com>
+Date: Thu, 30 May 2024 10:12:39 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240529182649.2635123-1-evan@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 02/16] riscv: add ISA extension parsing for Zimop
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
+ Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+References: <20240517145302.971019-1-cleger@rivosinc.com>
+ <20240517145302.971019-3-cleger@rivosinc.com> <ZlenZ+NvXxOxvqEO@ghost>
+ <ZleqVUhDW+xgiTwu@ghost>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <ZleqVUhDW+xgiTwu@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_010710_116367_1469085A 
-X-CRM114-Status: GOOD (  31.82  )
+X-CRM114-CacheID: sfid-20240530_011254_426587_6752CBEE 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,126 +99,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 29, 2024 at 11:26:48AM GMT, Evan Green wrote:
-> RISCV_HWPROBE_KEY_CPUPERF_0 was mistakenly flagged as a bitmask in
-> hwprobe_key_is_bitmask(), when in reality it was an enum value. This
-> causes problems when used in conjunction with RISCV_HWPROBE_WHICH_CPUS,
-> since SLOW, FAST, and EMULATED have values whose bits overlap with
-> each other. If the caller asked for the set of CPUs that was SLOW or
-> EMULATED, the returned set would also include CPUs that were FAST.
-> 
-> Introduce a new hwprobe key, RISCV_HWPROBE_KEY_MISALIGNED_PERF, which
-> returns the same values in response to a direct query (with no flags),
-> but is properly handled as an enumerated value. As a result, SLOW,
-> FAST, and EMULATED are all correctly treated as distinct values under
-> the new key when queried with the WHICH_CPUS flag.
-> 
-> Leave the old key in place to avoid disturbing applications which may
-> have already come to rely on the broken behavior.
-
-I appreciate the paranoia, even if I think we could probably get away
-with fixing CPUPERF_0.
-
-> 
-> Fixes: e178bf146e4b ("RISC-V: hwprobe: Introduce which-cpus flag")
-> Signed-off-by: Evan Green <evan@rivosinc.com>
-> 
-> ---
-> 
-> 
-> Note: Yangyu also has a fix out for this issue at [1]. That fix is much
-> tidier, but comes with the slight risk that some very broken userspace
-> application may break now that FAST cpus are not included for the query
-> of which cpus are SLOW or EMULATED. I wanted to get this fix out so that
-> we have both as options, and can discuss. These fixes are mutually
-> exclusive, don't take both.
-> 
-> [1] https://lore.kernel.org/linux-riscv/tencent_01F8E0050FB4B11CC170C3639E43F41A1709@qq.com/
-> 
-> ---
->  Documentation/arch/riscv/hwprobe.rst  | 8 ++++++--
->  arch/riscv/include/asm/hwprobe.h      | 2 +-
->  arch/riscv/include/uapi/asm/hwprobe.h | 1 +
->  arch/riscv/kernel/sys_hwprobe.c       | 1 +
->  4 files changed, 9 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-> index 204cd4433af5..616ee372adaf 100644
-> --- a/Documentation/arch/riscv/hwprobe.rst
-> +++ b/Documentation/arch/riscv/hwprobe.rst
-> @@ -192,8 +192,12 @@ The following keys are defined:
->         supported as defined in the RISC-V ISA manual starting from commit
->         d8ab5c78c207 ("Zihintpause is ratified").
->  
-> -* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
-> -  information about the selected set of processors.
-> +* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated. Returns similar values to
-> +     :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`, but the key was mistakenly
-> +     classified as a bitmask rather than a value.
-> +
-> +* :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`: An enum value describing the
-> +  performance of misaligned scalar accesses on the selected set of processors.
->  
->    * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
->      accesses is unknown.
-> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-> index 630507dff5ea..150a9877b0af 100644
-> --- a/arch/riscv/include/asm/hwprobe.h
-> +++ b/arch/riscv/include/asm/hwprobe.h
-> @@ -8,7 +8,7 @@
->  
->  #include <uapi/asm/hwprobe.h>
->  
-> -#define RISCV_HWPROBE_MAX_KEY 6
-> +#define RISCV_HWPROBE_MAX_KEY 7
->  
->  static inline bool riscv_hwprobe_key_is_valid(__s64 key)
->  {
-> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-> index dda76a05420b..bc34e33fef23 100644
-> --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> @@ -68,6 +68,7 @@ struct riscv_hwprobe {
->  #define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	(4 << 0)
->  #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
-
-Can we also remove the unnecessary ( << 0) shifts for each of the
-MISALIGNED_* values? The shifts imply bits of a bitmask (to me).
-
->  #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
-> +#define RISCV_HWPROBE_KEY_MISALIGNED_PERF	7
->  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
->  
->  /* Flags */
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> index 969ef3d59dbe..c8b7d57eb55e 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -208,6 +208,7 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
->  		break;
->  
->  	case RISCV_HWPROBE_KEY_CPUPERF_0:
-> +	case RISCV_HWPROBE_KEY_MISALIGNED_PERF:
->  		pair->value = hwprobe_misaligned(cpus);
->  		break;
->  
-> -- 
-> 2.34.1
->
-
-Otherwise,
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAzMC8wNS8yMDI0IDAwOjIxLCBDaGFybGllIEplbmtpbnMgd3JvdGU6Cj4gT24gV2VkLCBN
+YXkgMjksIDIwMjQgYXQgMDM6MDg6MzlQTSAtMDcwMCwgQ2hhcmxpZSBKZW5raW5zIHdyb3RlOgo+
+PiBPbiBGcmksIE1heSAxNywgMjAyNCBhdCAwNDo1Mjo0MlBNICswMjAwLCBDbMOpbWVudCBMw6ln
+ZXIgd3JvdGU6Cj4+PiBBZGQgcGFyc2luZyBmb3IgWmltb3AgSVNBIGV4dGVuc2lvbiB3aGljaCB3
+YXMgcmF0aWZpZWQgaW4gY29tbWl0Cj4+PiA1ODIyMDYxNGE1ZiBvZiB0aGUgcmlzY3YtaXNhLW1h
+bnVhbC4KPj4+Cj4+PiBTaWduZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZv
+c2luYy5jb20+Cj4+PiAtLS0KPj4+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmggfCAx
+ICsKPj4+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgfCAxICsKPj4+ICAyIGZpbGVz
+IGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2h3Y2FwLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPj4+
+IGluZGV4IDFmMmQyNTk5YzY1NS4uYjE4OTZkYWRlNzRjIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L2h3Y2FwLmgKPj4+IEBAIC04MCw2ICs4MCw3IEBACj4+PiAgI2RlZmluZSBSSVNDVl9JU0FfRVhU
+X1pGQQkJNzEKPj4+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWlRTTwkJNzIKPj4+ICAjZGVmaW5l
+IFJJU0NWX0lTQV9FWFRfWkFDQVMJCTczCj4+PiArI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pJTU9Q
+CQk3NAo+Pgo+PiBTaW5jZSBteSBjaGFuZ2VzIGZvciByZW1vdmluZyB4YW5kZXNwbXUgaGF2ZW4n
+dCBsYW5kZWQgaGVyZSB5ZXQgSSB0aGluawo+PiB5b3Ugc2hvdWxkIGtlZXAgUklTQ1ZfSVNBX0VY
+VF9YQU5ERVNQTVUgaW4gdGhlIGRpZmYgaGVyZSBhbmQgbWFrZQo+PiBSSVNDVl9JU0FfRVhUX1pJ
+TU9QIGhhdmUgYSBrZXkgb2YgNzUuIFBhbG1lciBjYW4gcHJvYmFibHkgcmVzb2x2ZSB0aGUKPj4g
+Y29uZmxpY3Rpbmcga2V5cyB3aGVuIHRoZXNlIHR3byBzZXJpZXMgYXJlIG1lcmdlZC4KPj4KPj4g
+LSBDaGFybGllCj4gCj4gSSBtaXNzZWQgdGhhdCBvdGhlciBwYXRjaGVzIGluIHRoaXMgc2VyaWVz
+IHdlcmUgYmFzZWQgb2ZmIG15Cj4geHRoZWFkdmVjdG9yIGNoYW5nZXMuIEl0J3Mgbm90IGluIHRo
+ZSBjb3ZlciBsZXR0ZXIgdGhhdCB0aGVyZSBpcyBhCj4gZGVwZW5kZW5jeSB0aG91Z2guIFdoYXQg
+ZG8geW91IG5lZWQgZnJvbSB0aGF0IHNlcmllcyBmb3IgdGhpcyBzZXJpZXMgdG8KPiB3b3JrPwoK
+SGV5IENoYXJsaWUsIEknbSBub3QgYmFzZWQgZGlyZWN0bHkgb24gYW55IG9mIHlvdXIgc2VyaWVz
+LCBidXQgb24KcmlzY3YvZm9yLW5leHQgd2hpY2ggcHJvYmFibHkgYWxyZWFkeSBjb250YWlucyB5
+b3VyIHBhdGNoZXMuCgpDbMOpbWVudAoKPiAKPiAtIENoYXJsaWUKPiAKPj4KPj4+ICAKPj4+ICAj
+ZGVmaW5lIFJJU0NWX0lTQV9FWFRfWExJTlVYRU5WQ0ZHCTEyNwo+Pj4gIAo+Pj4gZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2Nw
+dWZlYXR1cmUuYwo+Pj4gaW5kZXggMjk5MzMxOGI4ZWEyLi40MWY4YWUyMmU3YTAgMTAwNjQ0Cj4+
+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPj4+ICsrKyBiL2FyY2gvcmlz
+Y3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+Pj4gQEAgLTI0MSw2ICsyNDEsNyBAQCBjb25zdCBzdHJ1
+Y3QgcmlzY3ZfaXNhX2V4dF9kYXRhIHJpc2N2X2lzYV9leHRbXSA9IHsKPj4+ICAJX19SSVNDVl9J
+U0FfRVhUX0RBVEEoemloaW50bnRsLCBSSVNDVl9JU0FfRVhUX1pJSElOVE5UTCksCj4+PiAgCV9f
+UklTQ1ZfSVNBX0VYVF9EQVRBKHppaGludHBhdXNlLCBSSVNDVl9JU0FfRVhUX1pJSElOVFBBVVNF
+KSwKPj4+ICAJX19SSVNDVl9JU0FfRVhUX0RBVEEoemlocG0sIFJJU0NWX0lTQV9FWFRfWklIUE0p
+LAo+Pj4gKwlfX1JJU0NWX0lTQV9FWFRfREFUQSh6aW1vcCwgUklTQ1ZfSVNBX0VYVF9aSU1PUCks
+Cj4+PiAgCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHphY2FzLCBSSVNDVl9JU0FfRVhUX1pBQ0FTKSwK
+Pj4+ICAJX19SSVNDVl9JU0FfRVhUX0RBVEEoemZhLCBSSVNDVl9JU0FfRVhUX1pGQSksCj4+PiAg
+CV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpmaCwgUklTQ1ZfSVNBX0VYVF9aRkgpLAo+Pj4gLS0gCj4+
+PiAyLjQzLjAKPj4+Cj4+Pgo+Pj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KPj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+Pj4gbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwo+Pj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo+PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
