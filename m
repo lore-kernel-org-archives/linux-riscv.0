@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24998C27C43
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 14:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84152C25B74
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 14:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qk/s+Bs3YYRWQvYmdbI0Fjz3E6Tsh5nxrRe5jxL0ZKs=; b=WEFSx0JGTBS4PW
-	DAVn4REavk0yurucxKBeXjxsqQGvFX2AdQ9gQKSOmBKTAsuCQZA4kDtiuTqyuyFr6dsSoBy61/JpH
-	LF5g/jF94USoxF4eKnxW1wLklKxr5rt45CDzLlV6IO63TcEJqiY0UHakW3v0raXF/UFZLdmJW7Zos
-	9+3KKuTRDIEFAp0LTNVfcTWMIvc8Z1EKkc4zJRR2VrC2okWx77hrfAQDAWp7Ou3uMrlpiveaENVpx
-	SO4EsZtCF2iv2pCihBMIipUSO2NRKpTbH3Qvy8OU9+WY/gafm5P8duqgcbTYgbIDuxv34xF4Mia6Y
-	CDHuizRgaG0v2b26vX4Q==;
+	List-Owner; bh=w4rcsDEeK08A7jOZA1RR736SKJw4+RibVmave3ZYuoI=; b=lKYxXcfa58d29s
+	idf354BzMB06goAkvEDX1uwqS2KxLflchf3EIMSLp6+1rbGPu6GBxnVf4OtsPCNqVe947WCQtZjvL
+	QeCsizzsaC89jR0A54gRI2lKOeDzFONqjdX288wHeZSLrRolkVotB2DFifu1/hyiFP7mQyCQueMjR
+	0GWyeEBLNMLXUhJkpoGgUncEYWRcYpQh9YVUvF5ErDnyt95pwRgZP7SZVzE8B9a6HirjS96In0upg
+	/I5zBJ6UEbefH1wDmQJT5jSGr6yKVG+UP08pcWWaHBqgFUC/mXm1VpTW2qOel9NTbYhZSqWLv30h5
+	kTSGGOEfj98rRLZDW4Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCggJ-00000007Vw3-1704;
-	Thu, 30 May 2024 14:23:03 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1sCgln-00000007Xsi-1bq0;
+	Thu, 30 May 2024 14:28:43 +0000
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCggF-00000007Vva-25Np
+	id 1sCglj-00000007Xqf-3W44
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 14:23:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1717078980; x=1748614980;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=0TzI08c66avPZJEdsDRUEmen7CFRPyXzgnULJsKiuKw=;
-  b=dFgXwNkJ/bPDw6SePTxryvX+cH/Kh0mD96VW2vp+j2cEKK7QaN6HI9aB
-   T8ehzLi7HYy1ULIJFGU+1fBSRoT/KBEshSTdMIMYilugdU2AueS5kVAxC
-   KzzkGskBSgz10+n/iInnAd546Xw25VEGYgvuCxWnycvINOmdBzwvWqp1l
-   LkU5dxnNJOOnUdxICLOktvq2jV7FwnS+T16F5KJSNzEhBd+rgs0QHizE0
-   JZE2HFkgpbKui0ShasEzQOmIC97ov79UOPqqWc3rYweIkz2Ev7SEbPDqT
-   5QthlZWf9HLDEXCJyoJgn644KhW6R7wEjz8hfBWo9HUX8i9Tc0XUGmNfK
-   g==;
-X-CSE-ConnectionGUID: nvDSxrAySZa1oSZP0gUQsw==
-X-CSE-MsgGUID: QtAlWHIHQBut+npN4hbAlg==
-X-IronPort-AV: E=McAfee;i="6600,9927,11088"; a="24971286"
-X-IronPort-AV: E=Sophos;i="6.08,201,1712646000"; 
-   d="scan'208";a="24971286"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 May 2024 07:22:54 -0700
-X-CSE-ConnectionGUID: JU4D+hkIS5GrqJb6iNRbeg==
-X-CSE-MsgGUID: cDohpN6KSJ2/DX72oY4GmA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.08,201,1712646000"; 
-   d="scan'208";a="35764100"
-Received: from unknown (HELO 0610945e7d16) ([10.239.97.151])
-  by fmviesa007.fm.intel.com with ESMTP; 30 May 2024 07:22:52 -0700
-Received: from kbuild by 0610945e7d16 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1sCgfx-000FY4-2t;
-	Thu, 30 May 2024 14:22:47 +0000
-Date: Thu, 30 May 2024 22:19:35 +0800
-From: kernel test robot <lkp@intel.com>
-To: Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Andy Chiu <andy.chiu@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	Matthew Bystrin <dev.mbstr@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH 4/4] riscv: entry: Save a frame record for exceptions
-Message-ID: <202405302207.M9bDz8l3-lkp@intel.com>
-References: <20240530001733.1407654-5-samuel.holland@sifive.com>
+	Thu, 30 May 2024 14:28:41 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-7e8dbc4bc67so35938439f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 07:28:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1717079314; x=1717684114; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wrFY0VaYKU2vD77g/VQDb0AaoaOV/tz1VO820emrTH8=;
+        b=HX9zy1mq7jNOXFcRhOxu8WIwqtvowtAm8zQ5b1d4z6sgYHCur2juTF9p7xmC/k8eFx
+         C2hdPCfPByRIO2NCr/iEROXToiqHF2ewtmnotF2LS99RnCOUSqF8ulb2InI5YKTU+yFB
+         uccBgMD3sYWB4E7WSo6jP7EsEJQ1sJKkl9MZfk6HMZxL4lIAuguCHKu8PfljtCZpZMMv
+         PoRGoKNz3s+V73KNatBP4QaPtajktdXax+eQh/cCPuWZSMGoM5e75F36rroFqGfQDlqr
+         LZIlDzy+RGyaRq9VodA58NM/Jn6XkKMNL9YxigPdzyzBfBTUPBV/9rvZxBOxFWIxwLB5
+         vpUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717079314; x=1717684114;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wrFY0VaYKU2vD77g/VQDb0AaoaOV/tz1VO820emrTH8=;
+        b=wkPBvPvnMFsWqor09RRvED6kJmtKhxGxXA+CBJ3zecEW0VBWdR8JgnaJD+2hQ0x0wt
+         Dbskf+2iTPdnMMgU7kJqUECI+WdJ9nA2DsC4uBZ6FwA5yh2cnp45C6iFyB+uul3aYnER
+         9T3JKLu0ISO7nQFAHCvCp8nzxxWjXlqkr99ml2P7XWpl7qJrPH9xO3iY+LcB9JLgVqTH
+         8u5OBZYMjA6OJHmRAhNLJPVbD5Ec4oDkStqKafVL0pux1At//oHLsbcAMLgmQZqwY976
+         0Qj/ITvkmFcYO+y4LkVP0fwU49NyKx+deRlwHUANSCpa/QJpI1R2ERNtxK03Ieg8OooV
+         LfYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWCAl/LCCCywWDUwswCMVeOsLEhfdbLoGhxcPT82wnbrmdwxC6GnieIIFA7W/rE9EE81pdOAXKZDSLbUHmJoOAPQJmkeriZpb+UxMUAMEMB
+X-Gm-Message-State: AOJu0Yz3F38mt6VyWCqJS9pf5KgWgEnScHTKlOGd7xktony0IA36lQdW
+	rWq4M2TVNUqq6iz46IJgnR2onNjO4mIRz9GqhnNRwugaHYXqBnda/4N3nwUfLdgeGhpjadKYDTq
+	1FrFNcTmGoRoCcJ1whxj36othx+R9yjuZmEzY1w==
+X-Google-Smtp-Source: AGHT+IH7s7fRBncwQz/8YMXyL69aYbbbtWJ7w39VrMU/rk9239KjSERSYxjfvzkXIhh2PcCbFD7ALB2y7Lq+jxLKKk0=
+X-Received: by 2002:a05:6e02:1b0e:b0:373:8d04:28a4 with SMTP id
+ e9e14a558f8ab-3747e239d28mr17072745ab.13.1717079313717; Thu, 30 May 2024
+ 07:28:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240530001733.1407654-5-samuel.holland@sifive.com>
+References: <20240529215458.937817-1-samuel.holland@sifive.com>
+In-Reply-To: <20240529215458.937817-1-samuel.holland@sifive.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 30 May 2024 19:58:22 +0530
+Message-ID: <CAAhSdy2kO5TYfh6-h4R3UWNidzYpp-CN7zL=JmAKdt1Q23TrwQ@mail.gmail.com>
+Subject: Re: [PATCH] irqchip/sifive-plic: Chain to parent IRQ after handlers
+ are ready
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_072259_612885_F4DCE51D 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240530_072840_058027_2EF0F3CB 
+X-CRM114-Status: GOOD (  26.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,210 +88,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.10-rc1 next-20240529]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Samuel-Holland/riscv=
--Fix-32-bit-call_on_irq_stack-frame-pointer-ABI/20240530-081923
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20240530001733.1407654-5-samuel.ho=
-lland%40sifive.com
-patch subject: [PATCH 4/4] riscv: entry: Save a frame record for exceptions
-config: riscv-randconfig-001-20240530 (https://download.01.org/0day-ci/arch=
-ive/20240530/202405302207.M9bDz8l3-lkp@intel.com/config)
-compiler: clang version 19.0.0git (https://github.com/llvm/llvm-project baf=
-da89a0944d947fc4b3b5663185e07a397ac30)
-reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archive=
-/20240530/202405302207.M9bDz8l3-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new versio=
-n of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202405302207.M9bDz8l3-lkp@i=
-ntel.com/
-
-All errors (new ones prefixed by >>):
-
->> arch/riscv/kernel/probes/rethook_trampoline.S:79:15: error: operand must=
- be a symbol with %lo/%pcrel_lo/%tprel_lo modifier or an integer in the ran=
-ge [-2048, 2047]
-    addi sp, sp, -(PT_SIZE_ON_STACK)
-                 ^
-   arch/riscv/kernel/probes/rethook_trampoline.S:90:15: error: operand must=
- be a symbol with %lo/%pcrel_lo/%tprel_lo modifier or an integer in the ran=
-ge [-2048, 2047]
-    addi sp, sp, PT_SIZE_ON_STACK
-                 ^
-
-
-vim +79 arch/riscv/kernel/probes/rethook_trampoline.S
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17   9  =
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  10  	.text
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  11  	.altmacro
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  12  =
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  13  	.macro save_all_base_regs
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  14  	REG_S x1,  PT_RA(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  15  	REG_S x3,  PT_GP(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  16  	REG_S x4,  PT_TP(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  17  	REG_S x5,  PT_T0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  18  	REG_S x6,  PT_T1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  19  	REG_S x7,  PT_T2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  20  	REG_S x8,  PT_S0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  21  	REG_S x9,  PT_S1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  22  	REG_S x10, PT_A0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  23  	REG_S x11, PT_A1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  24  	REG_S x12, PT_A2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  25  	REG_S x13, PT_A3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  26  	REG_S x14, PT_A4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  27  	REG_S x15, PT_A5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  28  	REG_S x16, PT_A6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  29  	REG_S x17, PT_A7(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  30  	REG_S x18, PT_S2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  31  	REG_S x19, PT_S3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  32  	REG_S x20, PT_S4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  33  	REG_S x21, PT_S5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  34  	REG_S x22, PT_S6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  35  	REG_S x23, PT_S7(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  36  	REG_S x24, PT_S8(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  37  	REG_S x25, PT_S9(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  38  	REG_S x26, PT_S10(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  39  	REG_S x27, PT_S11(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  40  	REG_S x28, PT_T3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  41  	REG_S x29, PT_T4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  42  	REG_S x30, PT_T5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  43  	REG_S x31, PT_T6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  44  	.endm
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  45  =
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  46  	.macro restore_all_base_regs
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  47  	REG_L x3,  PT_GP(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  48  	REG_L x4,  PT_TP(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  49  	REG_L x5,  PT_T0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  50  	REG_L x6,  PT_T1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  51  	REG_L x7,  PT_T2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  52  	REG_L x8,  PT_S0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  53  	REG_L x9,  PT_S1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  54  	REG_L x10, PT_A0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  55  	REG_L x11, PT_A1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  56  	REG_L x12, PT_A2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  57  	REG_L x13, PT_A3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  58  	REG_L x14, PT_A4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  59  	REG_L x15, PT_A5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  60  	REG_L x16, PT_A6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  61  	REG_L x17, PT_A7(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  62  	REG_L x18, PT_S2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  63  	REG_L x19, PT_S3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  64  	REG_L x20, PT_S4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  65  	REG_L x21, PT_S5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  66  	REG_L x22, PT_S6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  67  	REG_L x23, PT_S7(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  68  	REG_L x24, PT_S8(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  69  	REG_L x25, PT_S9(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  70  	REG_L x26, PT_S10(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  71  	REG_L x27, PT_S11(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  72  	REG_L x28, PT_T3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  73  	REG_L x29, PT_T4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  74  	REG_L x30, PT_T5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  75  	REG_L x31, PT_T6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  76  	.endm
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  77  =
-
-76329c693924d8 arch/riscv/kernel/probes/rethook_trampoline.S Cl=E9ment L=E9=
-ger 2023-10-24  78  SYM_CODE_START(arch_rethook_trampoline)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17 @79  	addi sp, sp, -(PT_SIZE_ON_STACK)
-
--- =
-
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXkgMzAsIDIwMjQgYXQgMzoyNeKAr0FNIFNhbXVlbCBIb2xsYW5kCjxzYW11ZWwu
+aG9sbGFuZEBzaWZpdmUuY29tPiB3cm90ZToKPgo+IE5vdyB0aGF0IHRoZSBQTElDIHVzZXMgYSBw
+bGF0Zm9ybSBkcml2ZXIsIHRoZSBkcml2ZXIgcHJvYmVkIGxhdGVyIGluIHRoZQo+IGJvb3QgcHJv
+Y2Vzcywgd2hlcmUgaW50ZXJydXB0cyBmcm9tIHBlcmlwaGVyYWxzIG1pZ2h0IGFscmVhZHkgYmUK
+PiBwZW5kaW5nLiBBcyBhIHJlc3VsdCwgcGxpY19oYW5kbGVfaXJxKCkgbWF5IGJlIGNhbGxlZCBh
+cyBlYXJseSBhcyB0aGUKPiBjYWxsIHRvIGlycV9zZXRfY2hhaW5lZF9oYW5kbGVyKCkuIEJ1dCB0
+aGlzIGNhbGwgaGFwcGVucyBiZWZvcmUgdGhlCj4gcGVyLWNvbnRleHQgaGFuZGxlciBpcyBjb21w
+bGV0ZWx5IHNldCB1cCwgc28gdGhlcmUgaXMgYSB3aW5kb3cgd2hlcmUKPiBwbGljX2hhbmRsZV9p
+cnEoKSBjYW4gc2VlIGluY29tcGxldGUgcGVyLWNvbnRleHQgc3RhdGUgYW5kIGNyYXNoLiBBdm9p
+ZAo+IHRoaXMgYnkgZGVsYXlpbmcgdGhlIGNhbGwgdG8gaXJxX3NldF9jaGFpbmVkX2hhbmRsZXIo
+KSB1bnRpbCBhbGwKPiBoYW5kbGVycyBmcm9tIGFsbCBQTElDcyBhcmUgaW5pdGlhbGl6ZWQuCj4K
+PiBGaXhlczogOGVjOTliMDMzMTQ3ICgiaXJxY2hpcC9zaWZpdmUtcGxpYzogQ29udmVydCBQTElD
+IGRyaXZlciBpbnRvIGEgcGxhdGZvcm0gZHJpdmVyIikKPiBSZXBvcnRlZC1ieTogR2VlcnQgVXl0
+dGVyaG9ldmVuIDxnZWVydEBsaW51eC1tNjhrLm9yZz4KPiBDbG9zZXM6IGh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL3IvQ0FNdUhNZFZZRkZSN0s1U2JIQkxZLUpIaGI3WXBnR01TX2huUldtOEgwS0Qt
+d0JvKzRBQG1haWwuZ21haWwuY29tLwo+IFNpZ25lZC1vZmYtYnk6IFNhbXVlbCBIb2xsYW5kIDxz
+YW11ZWwuaG9sbGFuZEBzaWZpdmUuY29tPgoKTEdUTS4KClJldmlld2VkLWJ5OiBBbnVwIFBhdGVs
+IDxhbnVwQGJyYWluZmF1bHQub3JnPgoKVGhhbmtzIGZvciBmaXhpbmcgdGhpcy4KClJlZ2FyZHMs
+CkFudXAKCj4gLS0tCj4KPiAgZHJpdmVycy9pcnFjaGlwL2lycS1zaWZpdmUtcGxpYy5jIHwgMzQg
+KysrKysrKysrKysrKysrLS0tLS0tLS0tLS0tLS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgMTcgaW5z
+ZXJ0aW9ucygrKSwgMTcgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFj
+aGlwL2lycS1zaWZpdmUtcGxpYy5jIGIvZHJpdmVycy9pcnFjaGlwL2lycS1zaWZpdmUtcGxpYy5j
+Cj4gaW5kZXggOGZiMTgzY2VkMWU3Li45ZTIyZjdlMzc4ZjUgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVy
+cy9pcnFjaGlwL2lycS1zaWZpdmUtcGxpYy5jCj4gKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1z
+aWZpdmUtcGxpYy5jCj4gQEAgLTg1LDcgKzg1LDcgQEAgc3RydWN0IHBsaWNfaGFuZGxlciB7Cj4g
+ICAgICAgICBzdHJ1Y3QgcGxpY19wcml2ICAgICAgICAqcHJpdjsKPiAgfTsKPiAgc3RhdGljIGlu
+dCBwbGljX3BhcmVudF9pcnEgX19yb19hZnRlcl9pbml0Owo+IC1zdGF0aWMgYm9vbCBwbGljX2Nw
+dWhwX3NldHVwX2RvbmUgX19yb19hZnRlcl9pbml0Owo+ICtzdGF0aWMgYm9vbCBwbGljX2dsb2Jh
+bF9zZXR1cF9kb25lIF9fcm9fYWZ0ZXJfaW5pdDsKPiAgc3RhdGljIERFRklORV9QRVJfQ1BVKHN0
+cnVjdCBwbGljX2hhbmRsZXIsIHBsaWNfaGFuZGxlcnMpOwo+Cj4gIHN0YXRpYyBpbnQgcGxpY19p
+cnFfc2V0X3R5cGUoc3RydWN0IGlycV9kYXRhICpkLCB1bnNpZ25lZCBpbnQgdHlwZSk7Cj4gQEAg
+LTQ4NywxMCArNDg3LDggQEAgc3RhdGljIGludCBwbGljX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9k
+ZXZpY2UgKnBkZXYpCj4gICAgICAgICB1bnNpZ25lZCBsb25nIHBsaWNfcXVpcmtzID0gMDsKPiAg
+ICAgICAgIHN0cnVjdCBwbGljX2hhbmRsZXIgKmhhbmRsZXI7Cj4gICAgICAgICB1MzIgbnJfaXJx
+cywgcGFyZW50X2h3aXJxOwo+IC0gICAgICAgc3RydWN0IGlycV9kb21haW4gKmRvbWFpbjsKPiAg
+ICAgICAgIHN0cnVjdCBwbGljX3ByaXYgKnByaXY7Cj4gICAgICAgICBpcnFfaHdfbnVtYmVyX3Qg
+aHdpcnE7Cj4gLSAgICAgICBib29sIGNwdWhwX3NldHVwOwo+Cj4gICAgICAgICBpZiAoaXNfb2Zf
+bm9kZShkZXYtPmZ3bm9kZSkpIHsKPiAgICAgICAgICAgICAgICAgY29uc3Qgc3RydWN0IG9mX2Rl
+dmljZV9pZCAqaWQ7Cj4gQEAgLTU0OSwxNCArNTQ3LDYgQEAgc3RhdGljIGludCBwbGljX3Byb2Jl
+KHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCj4gICAgICAgICAgICAgICAgICAgICAgICAg
+Y29udGludWU7Cj4gICAgICAgICAgICAgICAgIH0KPgo+IC0gICAgICAgICAgICAgICAvKiBGaW5k
+IHBhcmVudCBkb21haW4gYW5kIHJlZ2lzdGVyIGNoYWluZWQgaGFuZGxlciAqLwo+IC0gICAgICAg
+ICAgICAgICBkb21haW4gPSBpcnFfZmluZF9tYXRjaGluZ19md25vZGUocmlzY3ZfZ2V0X2ludGNf
+aHdub2RlKCksIERPTUFJTl9CVVNfQU5ZKTsKPiAtICAgICAgICAgICAgICAgaWYgKCFwbGljX3Bh
+cmVudF9pcnEgJiYgZG9tYWluKSB7Cj4gLSAgICAgICAgICAgICAgICAgICAgICAgcGxpY19wYXJl
+bnRfaXJxID0gaXJxX2NyZWF0ZV9tYXBwaW5nKGRvbWFpbiwgUlZfSVJRX0VYVCk7Cj4gLSAgICAg
+ICAgICAgICAgICAgICAgICAgaWYgKHBsaWNfcGFyZW50X2lycSkKPiAtICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIGlycV9zZXRfY2hhaW5lZF9oYW5kbGVyKHBsaWNfcGFyZW50X2lycSwg
+cGxpY19oYW5kbGVfaXJxKTsKPiAtICAgICAgICAgICAgICAgfQo+IC0KPiAgICAgICAgICAgICAg
+ICAgLyoKPiAgICAgICAgICAgICAgICAgICogV2hlbiBydW5uaW5nIGluIE0tbW9kZSB3ZSBuZWVk
+IHRvIGlnbm9yZSB0aGUgUy1tb2RlIGhhbmRsZXIuCj4gICAgICAgICAgICAgICAgICAqIEhlcmUg
+d2UgYXNzdW1lIGl0IGFsd2F5cyBjb21lcyBsYXRlciwgYnV0IHRoYXQgbWlnaHQgYmUgYQo+IEBA
+IC01OTcsMjUgKzU4NywzNSBAQCBzdGF0aWMgaW50IHBsaWNfcHJvYmUoc3RydWN0IHBsYXRmb3Jt
+X2RldmljZSAqcGRldikKPiAgICAgICAgICAgICAgICAgZ290byBmYWlsX2NsZWFudXBfY29udGV4
+dHM7Cj4KPiAgICAgICAgIC8qCj4gLSAgICAgICAgKiBXZSBjYW4gaGF2ZSBtdWx0aXBsZSBQTElD
+IGluc3RhbmNlcyBzbyBzZXR1cCBjcHVocCBzdGF0ZQo+ICsgICAgICAgICogV2UgY2FuIGhhdmUg
+bXVsdGlwbGUgUExJQyBpbnN0YW5jZXMgc28gc2V0dXAgZ2xvYmFsIHN0YXRlCj4gICAgICAgICAg
+KiBhbmQgcmVnaXN0ZXIgc3lzY29yZSBvcGVyYXRpb25zIG9ubHkgb25jZSBhZnRlciBjb250ZXh0
+Cj4gICAgICAgICAgKiBoYW5kbGVycyBvZiBhbGwgb25saW5lIENQVXMgYXJlIGluaXRpYWxpemVk
+Lgo+ICAgICAgICAgICovCj4gLSAgICAgICBpZiAoIXBsaWNfY3B1aHBfc2V0dXBfZG9uZSkgewo+
+IC0gICAgICAgICAgICAgICBjcHVocF9zZXR1cCA9IHRydWU7Cj4gKyAgICAgICBpZiAoIXBsaWNf
+Z2xvYmFsX3NldHVwX2RvbmUpIHsKPiArICAgICAgICAgICAgICAgc3RydWN0IGlycV9kb21haW4g
+KmRvbWFpbjsKPiArICAgICAgICAgICAgICAgYm9vbCBnbG9iYWxfc2V0dXAgPSB0cnVlOwo+ICsK
+PiAgICAgICAgICAgICAgICAgZm9yX2VhY2hfb25saW5lX2NwdShjcHUpIHsKPiAgICAgICAgICAg
+ICAgICAgICAgICAgICBoYW5kbGVyID0gcGVyX2NwdV9wdHIoJnBsaWNfaGFuZGxlcnMsIGNwdSk7
+Cj4gICAgICAgICAgICAgICAgICAgICAgICAgaWYgKCFoYW5kbGVyLT5wcmVzZW50KSB7Cj4gLSAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjcHVocF9zZXR1cCA9IGZhbHNlOwo+ICsgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2xvYmFsX3NldHVwID0gZmFsc2U7Cj4gICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsKPiAgICAgICAgICAgICAgICAgICAgICAg
+ICB9Cj4gICAgICAgICAgICAgICAgIH0KPiAtICAgICAgICAgICAgICAgaWYgKGNwdWhwX3NldHVw
+KSB7Cj4gKwo+ICsgICAgICAgICAgICAgICBpZiAoZ2xvYmFsX3NldHVwKSB7Cj4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgLyogRmluZCBwYXJlbnQgZG9tYWluIGFuZCByZWdpc3RlciBjaGFpbmVk
+IGhhbmRsZXIgKi8KPiArICAgICAgICAgICAgICAgICAgICAgICBkb21haW4gPSBpcnFfZmluZF9t
+YXRjaGluZ19md25vZGUocmlzY3ZfZ2V0X2ludGNfaHdub2RlKCksIERPTUFJTl9CVVNfQU5ZKTsK
+PiArICAgICAgICAgICAgICAgICAgICAgICBpZiAoZG9tYWluKQo+ICsgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgcGxpY19wYXJlbnRfaXJxID0gaXJxX2NyZWF0ZV9tYXBwaW5nKGRvbWFp
+biwgUlZfSVJRX0VYVCk7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgaWYgKHBsaWNfcGFyZW50
+X2lycSkKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlycV9zZXRfY2hhaW5lZF9o
+YW5kbGVyKHBsaWNfcGFyZW50X2lycSwgcGxpY19oYW5kbGVfaXJxKTsKPiArCj4gICAgICAgICAg
+ICAgICAgICAgICAgICAgY3B1aHBfc2V0dXBfc3RhdGUoQ1BVSFBfQVBfSVJRX1NJRklWRV9QTElD
+X1NUQVJUSU5HLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJp
+cnFjaGlwL3NpZml2ZS9wbGljOnN0YXJ0aW5nIiwKPiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBwbGljX3N0YXJ0aW5nX2NwdSwgcGxpY19keWluZ19jcHUpOwo+ICAg
+ICAgICAgICAgICAgICAgICAgICAgIHJlZ2lzdGVyX3N5c2NvcmVfb3BzKCZwbGljX2lycV9zeXNj
+b3JlX29wcyk7Cj4gLSAgICAgICAgICAgICAgICAgICAgICAgcGxpY19jcHVocF9zZXR1cF9kb25l
+ID0gdHJ1ZTsKPiArICAgICAgICAgICAgICAgICAgICAgICBwbGljX2dsb2JhbF9zZXR1cF9kb25l
+ID0gdHJ1ZTsKPiAgICAgICAgICAgICAgICAgfQo+ICAgICAgICAgfQo+Cj4gLS0KPiAyLjQ0LjEK
+Pgo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
