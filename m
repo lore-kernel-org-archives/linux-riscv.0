@@ -4,95 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622DFC25B75
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 03:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC069C25B74
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 03:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
+	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f70ZidJXCafMAg0QQfSaqJykuQyo28nUjEJ6hC6TE24=; b=r6R8577ys1Gmvv
-	rA6cU9jZP9ni/wxJRBzKVC7jVhKToR/552IIuWvmnURF6ePWqLot3phHNWOvvbJlS/gMuHpTFKZmp
-	RL94DG86txehcce8xuuFtVTXIVkGQLCczEiz8jSXXofcTITjAJj50kQNIy63hzKoJn4WHY8ZNmB4I
-	bdWq2eOGIqI7m0Sy2tV+evv16jSmHtGidiHOlodvism+8KXn2gGiU4rqiggtSQekYMUAw5SJ+S23m
-	zoNmAGYpVkemaEyVFAoETBkqi/d+62+mzzCw2C/tT0QcW7Sas67BJfjut0hgn0Dr/mWgGoOEIorpy
-	pcFneN/L0wRTHdHvVHRQ==;
+	List-Owner; bh=hnBOrXWbiraDavW/o9zM6zb+8+gNUm6dzRbzMcxBgQs=; b=M9DAme5GJcUgmt
+	mIIs94SfpTkwjKgIaOM1+nyaxb0uL7L3bSOkW3YNoJhDq2pcROxeoepZyIAUIBW7bO7Hbdp4d8xYB
+	T7Tp6676R3CB4usUBoSqq+BQodokndM/vnHx8A5p5LEm4cWfYmPeEyuJUdCqn+oIuvAdKAb4BY2sh
+	hJVu5936v675tSThNWc+9V2q2y/yUhf2O9cUaUX6oLPzhNBf3VUwG/8yAZpylpju7Fo9zk0vlcB52
+	C6wQYr4EfW+gsgq7MdxDWzTHHzrkksZJeyDoHoWLUcTzqngOf/PIbD36l67Eahd9S81Rcmjhj9o4X
+	kfEN6s8nmVdLTfNGBuNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCWSr-00000006Byc-3H4N;
-	Thu, 30 May 2024 03:28:29 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1sCWbZ-00000006CqP-0q28;
+	Thu, 30 May 2024 03:37:29 +0000
+Received: from out162-62-58-216.mail.qq.com ([162.62.58.216])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCWSm-00000006BuB-3Jak
+	id 1sCWbS-00000006Cpb-1gFc
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 03:28:27 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-43fe3289fc5so118541cf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 20:28:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1717039702; x=1717644502; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CyFUQdvGKe8UpOcfXmkz33OD4v6xcNcft6Wk6HjbLrw=;
-        b=M6cbfFneVkIt2SrODbCzHAqbVmybQn3VXNqyHkcNjUv4U51rFxw5a2hMkNh1Zv6mpl
-         2fCYyo1zsXtSmZn/q0yRfxXU2f7UF1c3uDtpOHUkb2bxBKUbDSMn/yqCCns++uEJvLug
-         0LFdpvGOTRmZhhJUPQZD4uENogxo2ZgS//k5Ben62UGw+yZJ19MqMW9jtUr4tif90gML
-         ZsaVZJgy77HjpV863BBlvOl068kPXZ2eGSF2PIvXPGo1rKq3mpTi8p5A3WxAYepWNbDB
-         3kkwl7Ld0+OXW1n7Tw++X+wrT8IkUqgZaYseB/Ruk9n9tbtZfcNRgDZwAXu2naf5wuXS
-         p7jQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717039702; x=1717644502;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CyFUQdvGKe8UpOcfXmkz33OD4v6xcNcft6Wk6HjbLrw=;
-        b=G2HWu62HQUrNQPQoe+i2lOHcuEFz4ehZjmSj3O5wIoA9FnEr5xH9eEX19mePoRmnd7
-         jkiKS8gA9uKDQyMyr9q+kfCis1OVfP36+27rbw7YJVVZ3FVVfuNZ3LONILtD9NY2RkND
-         319H1xZYp4lAjXZCOEk79amgxKiAP0dqhKya7b95kF8Hhb5mRcW4cGhVva49IfbX3jsv
-         KhcNmic197jbX8ideFlK+CbBpyx73QZo57IWz/FnOOWvV4M5M0VWYEMOvaUzYHN2SwIb
-         kAExPbPSAtY+6EW3Xl9hvasszmINBwhfhCxnaybPMEUMc/kRLTMEt/aNAoTAyIUdTaXK
-         Ac3g==
-X-Forwarded-Encrypted: i=1; AJvYcCWpCa8zop+Y5ocFWRIUC6mI8hJKwiDdHC36uvqOH4P5s8z/3zHhRa9OK83xY37Hz1j7xpmfeKFCembaTcUHkRMBwMGshQIuvduFX+tzGR3r
-X-Gm-Message-State: AOJu0Yy5NbOUi42TqRfA2wh02mFnlYyKLLWbZw/KpgwnGWOXBRRdFkeZ
-	r1uu9bXOr70f8wGjzIoTOs87dlnhKkAIK0QlZBFg6txlQqMmW0i4HvsAtYOHanpGKT/zYGWPKq/
-	eNptEzsQdTBJHZ9vrW9oClL2M+JUN7/oeMliT
-X-Google-Smtp-Source: AGHT+IGBhNbFRaaD0WOEIsVSMflxCvd13kkSSK1hcGeX1B4TzLlXvTq7xC3rTsBmGx8uhqPHEIa2GYmfEXsD+JkYxAs=
-X-Received: by 2002:a05:622a:90e:b0:43e:cb4:1d10 with SMTP id
- d75a77b69052e-43fe8e5f830mr1851431cf.14.1717039701993; Wed, 29 May 2024
- 20:28:21 -0700 (PDT)
-MIME-Version: 1.0
-References: <20240529180510.2295118-1-jthoughton@google.com>
- <20240529180510.2295118-5-jthoughton@google.com> <ZlekYljG7KJwblUj@google.com>
-In-Reply-To: <ZlekYljG7KJwblUj@google.com>
-From: James Houghton <jthoughton@google.com>
-Date: Wed, 29 May 2024 20:27:45 -0700
-Message-ID: <CADrL8HVZxoO33F2UJBoTjF_SXpxyZmH=RTM5G3stgo_kRPjazA@mail.gmail.com>
-Subject: Re: [PATCH v4 4/7] KVM: Move MMU lock acquisition for
- test/clear_young to architecture
-To: Sean Christopherson <seanjc@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Ankit Agrawal <ankita@nvidia.com>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Axel Rasmussen <axelrasmussen@google.com>, Bibo Mao <maobibo@loongson.cn>, 
-	Catalin Marinas <catalin.marinas@arm.com>, David Matlack <dmatlack@google.com>, 
-	David Rientjes <rientjes@google.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	James Morse <james.morse@arm.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Raghavendra Rao Ananta <rananta@google.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Shaoqin Huang <shahuang@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Will Deacon <will@kernel.org>, Yu Zhao <yuzhao@google.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev
+	Thu, 30 May 2024 03:37:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1717040224; bh=W+5Ks2nSljVj8pYcDqby5hGNu9Ghhwrfc6A07R0SAhQ=;
+	h=Subject:From:In-Reply-To:Date:Cc:References:To;
+	b=qLiWi4KWBuioBlXm/K0GO0a7XBB/p9QK4eXqc3lqfyPh5u2y+SgbV2ihyw87rHKAG
+	 yc7jrUnd5LJkBjGCNnjUygO9z95v0GuhayGEXm+AY61oqwWoUEBS6BMr1mjjNwkIP8
+	 bP1x/qMzBJFQuIk08uaytOzKkpklDhzUvSCPFlvk=
+Received: from smtpclient.apple ([2408:8207:18a0:162f:64ab:dad6:af9f:27b2])
+	by newxmesmtplogicsvrsza15-1.qq.com (NewEsmtp) with SMTP
+	id 93BB5C3A; Thu, 30 May 2024 11:36:59 +0800
+X-QQ-mid: xmsmtpt1717040219t0woo2fy3
+Message-ID: <tencent_C5BBD6F106D73F662084BD91904F54504805@qq.com>
+X-QQ-XMAILINFO: M79JLxWTMB1h2KmKdGdTSvzFCeQgQlHjNQ+9jX7TiUQ/waSoCje4RE7QVI5LyL
+	 6+gfl1aJiH2luTL0EegevsOBf2YN64de+BAHGvNykYNmxYgYEss0DiRcvo1MyBxz7r/10zUbHyF5
+	 FYPT1igb/Bk3U8TfJp2gCgQ/lvofOwh95DU3U1sn0nrUDPqKdxqytJZ++u5QdS6+jhz0M4tw5cgN
+	 Z8eeRlHmo7DB8owyGW8jmymZ24mJJEbVKb9wCsI7ttIz1FKhVmDhUw5e1opLaaNx+IKenwTtmLDD
+	 TCiwPAK+3ZyW/3vpvd9WjbfkrkN7YMQrV1PCto48y77kUWTGhup/l14fVX9XBzo0mYuygO5iZng5
+	 JmdbFB1+OTodbJdxWjoJv0NKPv4xtCMYiDt8Pd4iEquB3zYphMiQtNWQcpqTcmNV5n5I2S5lyzLQ
+	 rR+iNYsU5ge5y4LI/5JMNyDROpeeozN9FvaT6nGinTwycdU+T+aURcfoLzkZyJZLyQziOIqZUVoN
+	 fNP13btjlBNhwVWkYyZSvkSO9+ko1p4m4QLGXj7EnvAa26Li8tuEYlt8ArRZ5/UZRWvUv43SSvTu
+	 gAsARXT8u+Ib9qLHj2Io4vbYaovuZDtcUDxv02JTDkM6aNxh0ESQ+rxn+IqSV2Dlnw4XwLb9ljjF
+	 aClPDHiHZQeSgQEvjR3Byxur/miE8BNPrwJLaYzRutNxWeyDstqsX2hXnFMgvxqKTzCDgHgyxiip
+	 k15o/bG0cSX6nZwbp1f5chwTueYg38QQhJwylmwPSzOGFWwA2OC5js0p7n+086cDUt3ewhDaI86M
+	 HPKjbhWomC0jsIXVPRBUlWGM43sOxr7Z/m/z2BoctKg9d3jl/rERFcGce+IaJBqv6Wuu/h9yTkgr
+	 N55Tno5FGxS2dji2DW0gN9ku0CyG0yCTT1iPEDB3gqAciSAYf7zeLTETE3NFhMP0aadGLDg84f1R
+	 iCvl37TOKehlKEbFmJVx6MxdtjuP6UscReRyd1uvJoWJsqUbBCJGGFxMI8dQHv
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.500.171.1.1\))
+Subject: Re: [PATCH] RISC-V: hwprobe: Add MISALIGNED_PERF key
+From: Yangyu Chen <cyy@cyyself.name>
+In-Reply-To: <20240529182649.2635123-1-evan@rivosinc.com>
+Date: Thu, 30 May 2024 11:36:45 +0800
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Jones <ajones@ventanamicro.com>,
+ Andy Chiu <andy.chiu@sifive.com>,
+ =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Costa Shulyupin <costa.shul@redhat.com>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Sami Tolvanen <samitolvanen@google.com>,
+ linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+X-OQ-MSGID: <4AAEA79D-BC7A-43A1-BD4E-B8CE355DEC0D@cyyself.name>
+References: <20240529182649.2635123-1-evan@rivosinc.com>
+To: Evan Green <evan@rivosinc.com>
+X-Mailer: Apple Mail (2.3774.500.171.1.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240529_202824_924463_5917C834 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20240529_203726_511693_F2326CF4 
+X-CRM114-Status: GOOD (  34.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,36 +89,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgMjksIDIwMjQgYXQgMjo1NeKAr1BNIFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNl
-YW5qY0Bnb29nbGUuY29tPiB3cm90ZToKPgo+IE9uIFdlZCwgTWF5IDI5LCAyMDI0LCBKYW1lcyBI
-b3VnaHRvbiB3cm90ZToKPiA+IEZvciBpbXBsZW1lbnRhdGlvbiBtbXVfbm90aWZpZXJfe3Rlc3Qs
-Y2xlYXJ9X3lvdW5nLCB0aGUgS1ZNIG1lbXNsb3QKPiA+IHdhbGtlciB1c2VkIHRvIHRha2UgdGhl
-IE1NVSBsb2NrIGZvciB1cy4gTm93IG1ha2UgdGhlIGFyY2hpdGVjdHVyZXMKPiA+IHRha2UgaXQg
-dGhlbXNlbHZlcy4KPgo+IEhtbSwgKmZvcmNpbmcqIGFyY2hpdGVjdHVyZXMgdG8gdGFrZSBtbXVf
-bG9jayBpcyBhIHN0ZXAgYmFja3dhcmRzLiAgUmF0aGVyIHRoYW4KPiBhZGQgYWxsIG9mIHRoaXMg
-Y2h1cm4sIHdoYXQgYWJvdXQgYWRkaW5nIENPTkZJR19LVk1fTU1VX05PVElGSUVSX0xPQ0tMRVNT
-LCBlLmcuCj4KPiBzdGF0aWMgX19hbHdheXNfaW5saW5lIGludCBrdm1faGFuZGxlX2h2YV9yYW5n
-ZV9ub19mbHVzaChzdHJ1Y3QgbW11X25vdGlmaWVyICptbiwKPiAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIHN0YXJ0
-LAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIHVuc2lnbmVkIGxvbmcgZW5kLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIGdmbl9oYW5kbGVyX3QgaGFuZGxlcikKPiB7Cj4gICAg
-ICAgICBzdHJ1Y3Qga3ZtICprdm0gPSBtbXVfbm90aWZpZXJfdG9fa3ZtKG1uKTsKPiAgICAgICAg
-IGNvbnN0IHN0cnVjdCBrdm1fbW11X25vdGlmaWVyX3JhbmdlIHJhbmdlID0gewo+ICAgICAgICAg
-ICAgICAgICAuc3RhcnQgICAgICAgICAgPSBzdGFydCwKPiAgICAgICAgICAgICAgICAgLmVuZCAg
-ICAgICAgICAgID0gZW5kLAo+ICAgICAgICAgICAgICAgICAuaGFuZGxlciAgICAgICAgPSBoYW5k
-bGVyLAo+ICAgICAgICAgICAgICAgICAub25fbG9jayAgICAgICAgPSAodm9pZCAqKWt2bV9udWxs
-X2ZuLAo+ICAgICAgICAgICAgICAgICAuZmx1c2hfb25fcmV0ICAgPSBmYWxzZSwKPiAgICAgICAg
-ICAgICAgICAgLm1heV9ibG9jayAgICAgID0gZmFsc2UsCj4gICAgICAgICAgICAgICAgIC5sb2Nr
-bGVzcyAgICAgICA9IElTX0VOQUJMRUQoQ09ORklHX0tWTV9NTVVfTk9USUZJRVJfTE9DS0xFU1Mp
-LAo+ICAgICAgICAgfTsKPgo+ICAgICAgICAgcmV0dXJuIF9fa3ZtX2hhbmRsZV9odmFfcmFuZ2Uo
-a3ZtLCAmcmFuZ2UpLnJldDsKPiB9CgpUaGFua3MgU2VhbiwgeWVzIHRoaXMgaXMgYSBsb3QgYmV0
-dGVyLiBJIHdpbGwgZG8gdGhpcyBmb3IgdjUuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 2024/5/30 02:26, Evan Green wrote:
+> RISCV_HWPROBE_KEY_CPUPERF_0 was mistakenly flagged as a bitmask in
+> hwprobe_key_is_bitmask(), when in reality it was an enum value. This
+> causes problems when used in conjunction with RISCV_HWPROBE_WHICH_CPUS,
+> since SLOW, FAST, and EMULATED have values whose bits overlap with
+> each other. If the caller asked for the set of CPUs that was SLOW or
+> EMULATED, the returned set would also include CPUs that were FAST.
+> 
+> Introduce a new hwprobe key, RISCV_HWPROBE_KEY_MISALIGNED_PERF, which
+> returns the same values in response to a direct query (with no flags),
+> but is properly handled as an enumerated value. As a result, SLOW,
+> FAST, and EMULATED are all correctly treated as distinct values under
+> the new key when queried with the WHICH_CPUS flag.
+> 
+> Leave the old key in place to avoid disturbing applications which may
+> have already come to rely on the broken behavior.
+> 
+> Fixes: e178bf146e4b ("RISC-V: hwprobe: Introduce which-cpus flag")
+> Signed-off-by: Evan Green <evan@rivosinc.com>
+> 
+> ---
+> 
+> 
+> Note: Yangyu also has a fix out for this issue at [1]. That fix is much
+> tidier, but comes with the slight risk that some very broken userspace
+> application may break now that FAST cpus are not included for the query
+> of which cpus are SLOW or EMULATED.
+
+Indeed. Since the value of FAST is 0b11, the SLOW and EMULATED are 0b10 and
+0b01 respectively.
+
+When this key is treated as a bitmask and query with
+RISCV_HWPROBE_WHICH_CPUS if a CPU has a superset bitmask of the requested
+value on the requested key, it will remain in the CPU mask. Otherwise, the
+CPU will be clear in the CPU mask. But when a key is treated as a value, we
+will just do a comparison. if it is not equal, then the CPU will be clear
+in the CPU. That's why FAST cpus are included when querying with SLOW or
+EMULATED with RISCV_HWPROBE_KEY_CPUPERF_0 key now.
+
+For me, deprecating the original hwprobe key and introducing a new key
+would be a better solution than changing the behavior as my patch did.
+
+> I wanted to get this fix out so that
+> we have both as options, and can discuss. These fixes are mutually
+> exclusive, don't take both.
+
+It's better to note this strange behavior on
+Documentation/arch/riscv/hwprobe.rst so users can quickly understand the
+differences on the behavior of these two keys.
+
+The C code part looks good to me.
+
+> 
+> [1] https://lore.kernel.org/linux-riscv/tencent_01F8E0050FB4B11CC170C3639E43F41A1709@qq.com/
+> 
+> ---
+> Documentation/arch/riscv/hwprobe.rst | 8 ++++++--
+> arch/riscv/include/asm/hwprobe.h | 2 +-
+> arch/riscv/include/uapi/asm/hwprobe.h | 1 +
+> arch/riscv/kernel/sys_hwprobe.c | 1 +
+> 4 files changed, 9 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+> index 204cd4433af5..616ee372adaf 100644
+> --- a/Documentation/arch/riscv/hwprobe.rst
+> +++ b/Documentation/arch/riscv/hwprobe.rst
+> @@ -192,8 +192,12 @@ The following keys are defined:
+> supported as defined in the RISC-V ISA manual starting from commit
+> d8ab5c78c207 ("Zihintpause is ratified").
+> 
+> -* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
+> - information about the selected set of processors.
+> +* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated. Returns similar values to
+> + :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`, but the key was mistakenly
+> + classified as a bitmask rather than a value.
+> +
+> +* :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`: An enum value describing the
+> + performance of misaligned scalar accesses on the selected set of processors.
+> 
+> * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
+> accesses is unknown.
+> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+> index 630507dff5ea..150a9877b0af 100644
+> --- a/arch/riscv/include/asm/hwprobe.h
+> +++ b/arch/riscv/include/asm/hwprobe.h
+> @@ -8,7 +8,7 @@
+> 
+> #include <uapi/asm/hwprobe.h>
+> 
+> -#define RISCV_HWPROBE_MAX_KEY 6
+> +#define RISCV_HWPROBE_MAX_KEY 7
+> 
+> static inline bool riscv_hwprobe_key_is_valid(__s64 key)
+> {
+> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+> index dda76a05420b..bc34e33fef23 100644
+> --- a/arch/riscv/include/uapi/asm/hwprobe.h
+> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
+> @@ -68,6 +68,7 @@ struct riscv_hwprobe {
+> #define RISCV_HWPROBE_MISALIGNED_UNSUPPORTED (4 << 0)
+> #define RISCV_HWPROBE_MISALIGNED_MASK (7 << 0)
+> #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE 6
+> +#define RISCV_HWPROBE_KEY_MISALIGNED_PERF 7
+> /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+> 
+> /* Flags */
+> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+> index 969ef3d59dbe..c8b7d57eb55e 100644
+> --- a/arch/riscv/kernel/sys_hwprobe.c
+> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> @@ -208,6 +208,7 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+> break;
+> 
+> case RISCV_HWPROBE_KEY_CPUPERF_0:
+> + case RISCV_HWPROBE_KEY_MISALIGNED_PERF:
+> pair->value = hwprobe_misaligned(cpus);
+> break;
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
