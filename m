@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1AACC25B7E
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 00:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9874C27C4F
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 00:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AHaHZEbfz0rpLLQFswOXnAdvkYWJqSbbOCkLzOGn55Y=; b=HJiDkXN8kmOqRC
-	u6R++POWOYBx0qM/+Gd3fkRxWv/TBGZ0Ppgh9Q9jtqCOLCjW/7OhtpsIQ7CF/qXzKUpbRKGidNp9J
-	r/kp3lzCA6K/A6r/jh72kIOVa/kfiljKShhEI2ABJwQi4nQxwfNApO8SxSmDzK8VLSDJX6nVHRtpo
-	DyxlI6VmFw3mXxELwBHekUZyAvR7d1qaZuGWPR5DGgemdLlT2Kq5NECLd+2Km59/s/F59+vHkVu5W
-	7ZS3evrHgUyZQZBzcQysyC/xshgNMaI8LVY9JUZm2k5mJwudPpyNscKsXLXLsjeipmXoWEXxbOIeS
-	WZKoNUGhzAP4Rm7cnC4g==;
+	List-Owner; bh=deUm4ktsoZpsJN42DzUTWR4jEa6Afr9RqokuaE50OnU=; b=uuK9gUnvAyyBl6
+	bRHR8RWMqwqlsMa3p4Xi4wWV3NeYsXU8E/oaLRNSOBk6aIOUxKZ8OOxOZnLQQ1KoLoxO8AhFGOxK7
+	1+5tqVGLtHoHEA8Q8ttf9BiOeZQHYz1Bi5wYqY9UHImQOL5Yo1QaXXvWcE3K7kFJJsHwM/N+wj+6c
+	pqV7ZNP+MAXn+t5aHu+Pw1gQegz6/Gil5E7jSLyNdhoSE9FCEhJIn/CUgFoY49nfXSt7MqHb5aXZA
+	rQELIeWweQ2goaVpVZOMrsvp0ID/Vxksae47iWYfC8gfZzrCg6VJ4Klho9rgaFUcdwGMD3y3ks5XI
+	YR6mQeRaJoUVMZF97O2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCTUH-00000005s2f-0Vko;
-	Thu, 30 May 2024 00:17:45 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1sCTUI-00000005s39-0CXn;
+	Thu, 30 May 2024 00:17:46 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCTUC-00000005s0o-0GIm
+	id 1sCTUD-00000005s1K-15vv
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 00:17:41 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-6818eea9c3aso237010a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 17:17:39 -0700 (PDT)
+	Thu, 30 May 2024 00:17:42 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-65c5a29f7f0so260557a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 29 May 2024 17:17:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1717028259; x=1717633059; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1717028260; x=1717633060; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VORirj/p8laQYqtwQSljZN4IPQTPn3tED4t61Nbfhh4=;
-        b=ktC90tQ0LSVijIDQz+7T2GR96lYf3wOMPvlfS8Al+iQu2q05gffkMmTNJsE82xitEs
-         JfrrjPD1Hc9Rwhb7ExVnmEMEWCbT79NZNARYEoXmDKCv6u23wA6Vs1SAushViOGb3dXx
-         GhCk2LPXJxiXaxWGNBTEQLsqiN/JKWkuvAxz/fwIVT4TaYXf5tbb9HPbCElc4KcTaQ8S
-         MZ19UEQ/8shkbqI0iqsX7bfWQT7UVcvle3o8rzktODCAgO+6QgEOuPLXipPqNjn1yYva
-         2dnYdIXLgISDte5ZfRG5jhZ3C5ZMcQ8HiC9CpfVPVkMJ1ys2FZGs9dZSWd7lNl91S8EQ
-         KnYw==
+        bh=xM/ESoaJ23Br0UgFTe6IQH0BbO+2q0cmF/lAEmoPXas=;
+        b=J/C+8fmQ43GvruQY4SN1DoeDCdtZx2hmOURp4XVBP5Pbmt6TOUvX6onELIcU5zff1L
+         3TwpO8lkN0NABfrBzNJWoySP2M1LJ9zgrGD7vtvkHVOX4E4Y46nv9hzm5s9CsUWu6PW6
+         i9cCuQl1Pe2Vqbn8nCTGXqxBkKxSVkx+skBClgplfUpcD/S1ir0u9sf+guRXi0mPzide
+         YJPv6FeXAQJo8vSVfZ0bidtbFP5idiMHE0XlcVawXoft9xaSc+lnlqNiT06w0GJhO9QT
+         YwLR9WpblZ458wehmOB1Cf01itJwhDQGQ5nK6ujPjEbmrYVD68rzHmfVrL0qmTmwQrKF
+         7voQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717028259; x=1717633059;
+        d=1e100.net; s=20230601; t=1717028260; x=1717633060;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VORirj/p8laQYqtwQSljZN4IPQTPn3tED4t61Nbfhh4=;
-        b=l/gY4Zv1WxMW9x/7b4URZ3Pa/a+B7O+5KhYrfw8UhHxjzfslOcH7Si3v/GX5JlE83L
-         HHKgrkuN1TZr3tP2XcSi3njZaT69JqOO2pYpsb/V5WnqJnhSk17admUGzD9lJoSG63XA
-         WXprYVJ2qU70u+f4xWt1cLT1WNxcHW7EQlrOOfbwlWFeTETZxlY6m6AuTvG+c/J+pfow
-         DLyaMwf5r5dmPKEkSrFZ9KTwMb0HGtDmSX1LYpcSARX5VvJqPg7MoA0MZjA4S//d1yJK
-         7MkLC9c4UIOF46+8EZ+FvczpCoGhKT443jqYTNp1BQr2uwGlktFokAEmKXEU2JutFVt+
-         e6RA==
-X-Forwarded-Encrypted: i=1; AJvYcCVaYO6UVL+NwfTC+BmTo3zv9rgHnQV9k3Ycz/Fd8x+kwHJN1cbmxTxR6UKSo2Nod0R4rj2XplADg354URjWMrL8qJ5RI5XRVyb2LC2IVZmT
-X-Gm-Message-State: AOJu0YzPaSRWMsUmetXceqVF+Xk30OJx4kYDftx95cPY6r8QlnTGjqTh
-	VfvznAEp6F3mDfcDBWIQAKS3OWdqPpsEsfgbf8HKCfzTru5urzLE6qD0CuTK7u4=
-X-Google-Smtp-Source: AGHT+IFSmHA6v4nmJKFL/xqyz99p7ZxJlwInOFAA+iOduDMGY/Lg03JJ5ApeduhAHcnmMFHvH2XKWw==
-X-Received: by 2002:a17:90a:65c1:b0:2bf:cf2d:67db with SMTP id 98e67ed59e1d1-2c1abc4317cmr647425a91.39.1717028258789;
-        Wed, 29 May 2024 17:17:38 -0700 (PDT)
+        bh=xM/ESoaJ23Br0UgFTe6IQH0BbO+2q0cmF/lAEmoPXas=;
+        b=iQCM0KmS5TmAQLz6jLURUGL/hfs6Tj5PLUkgGnTPKJCukVMmvRXUypAOrr18fvD6WM
+         xOmQuM86TwTO6q+PuFcepOIucsEnNNNvW561WNRQWbtEj2j1WLwjaUGtZqTNjuXkyMQZ
+         Hj64x0dIderClJc3ad0x91g5E7eEvZnrOrEnUtjO3XxwQnWDGczR0okuSFAGEIgVtVL4
+         Vm9ziPuFEhgnNqo2SJQVfnaubQcMCu4OhKyV1nDJQjg7YxqDH0XwWWbAyDFz5hvP2DFr
+         UIQoqqe3lWLhOr/RNr6kxXOUZWhCUXDTRQ1wDueYVUzvOwdkfXOyBVEzT2GxXC9+cVbg
+         5Oiw==
+X-Forwarded-Encrypted: i=1; AJvYcCViuYCP79a8yxwgOoytJcfERI+li4eFywV2Kmlx2+wh0+EhutXG7++LJL5lvW6Yf+EdoChAzQgJzov9mEv/Rz96hSVz2OSrZdl8p0J+Ikla
+X-Gm-Message-State: AOJu0YyNeEQbQrwxMPev337vCpBa9NNA2cCxU2h7nhv2WFKbLSi5U5Po
+	sEWpRf0L5HfdsqV0kwIfZedkqPEqrrGdV8kiK5HLitWfHfYDkOeD3FWnBrSBVTU=
+X-Google-Smtp-Source: AGHT+IGL+E/7b54TqXhjg4b7i20AFCS38QG/+9WHYKtBzXAhSy55KZzGAnUPFX5KV7QGVTHOSWayRQ==
+X-Received: by 2002:a17:90a:be11:b0:2bf:bb85:edc1 with SMTP id 98e67ed59e1d1-2c1abc79fd1mr668298a91.40.1717028260094;
+        Wed, 29 May 2024 17:17:40 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2c1a776e206sm432171a91.20.2024.05.29.17.17.37
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2c1a776e206sm432171a91.20.2024.05.29.17.17.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 May 2024 17:17:38 -0700 (PDT)
+        Wed, 29 May 2024 17:17:39 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>
 Cc: linux-kernel@vger.kernel.org,
@@ -71,16 +71,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Matthew Bystrin <dev.mbstr@gmail.com>,
 	Sami Tolvanen <samitolvanen@google.com>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH 3/4] riscv: entry: Do not clobber the frame pointer
-Date: Wed, 29 May 2024 17:15:58 -0700
-Message-ID: <20240530001733.1407654-4-samuel.holland@sifive.com>
+Subject: [PATCH 4/4] riscv: entry: Save a frame record for exceptions
+Date: Wed, 29 May 2024 17:15:59 -0700
+Message-ID: <20240530001733.1407654-5-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.44.1
 In-Reply-To: <20240530001733.1407654-1-samuel.holland@sifive.com>
 References: <20240530001733.1407654-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240529_171740_131177_47E0D567 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20240529_171741_384702_CC671BF5 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,141 +97,204 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-s0 is reserved for the frame pointer, so it should not be used as a
-temporary register. Clobbering the frame pointer breaks stack traces.
-
-- In handle_exception() and ret_from_exception(), use a2 for the saved
-  stack pointer. a2 is chosen because r2 is the stack pointer register.
-- In ret_from_exception(), use s1 for the saved status CSR value. Avoid
-  clobbering s1 in the privilege mode check so it does not need to be
-  reloaded later in the function.
-- Use s1 and s2 in ret_from_fork() instead of s0 and s1. The entire
-  p->thread.s array is zeroed at the beginning of copy_thread(), so the
-  registers do not need to be zeroed separately for kernel threads.
+This follows the frame pointer ABI and allows stack traces to cross
+exception boundaries without a special case in the stack walking code.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
- arch/riscv/kernel/entry.S   | 29 ++++++++++++++---------------
- arch/riscv/kernel/process.c |  5 ++---
- 2 files changed, 16 insertions(+), 18 deletions(-)
+ arch/riscv/include/asm/processor.h  |  9 +++++++--
+ arch/riscv/include/asm/ptrace.h     |  5 +++++
+ arch/riscv/include/asm/stacktrace.h |  5 -----
+ arch/riscv/kernel/asm-offsets.c     |  6 +++---
+ arch/riscv/kernel/entry.S           | 16 ++++++++++------
+ arch/riscv/kernel/head.S            |  6 ++----
+ arch/riscv/kernel/stacktrace.c      |  9 ---------
+ 7 files changed, 27 insertions(+), 29 deletions(-)
 
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index 68c3432dc6ea..ccbb1e363c7f 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -144,9 +144,14 @@ static inline void arch_thread_struct_whitelist(unsigned long *offset,
+ 	.align_ctl = PR_UNALIGN_NOPRINT,		\
+ }
+ 
++#ifdef CONFIG_FRAME_POINTER
++#define EXCEPTION_FRAME_SIZE ALIGN(sizeof(struct pt_regs) + sizeof(struct stackframe), STACK_ALIGN)
++#else
++#define EXCEPTION_FRAME_SIZE ALIGN(sizeof(struct pt_regs), STACK_ALIGN)
++#endif
++
+ #define task_pt_regs(tsk)						\
+-	((struct pt_regs *)(task_stack_page(tsk) + THREAD_SIZE		\
+-			    - ALIGN(sizeof(struct pt_regs), STACK_ALIGN)))
++	((struct pt_regs *)(task_stack_page(tsk) + THREAD_SIZE - EXCEPTION_FRAME_SIZE))
+ 
+ #define KSTK_EIP(tsk)		(task_pt_regs(tsk)->epc)
+ #define KSTK_ESP(tsk)		(task_pt_regs(tsk)->sp)
+diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
+index b5b0adcc85c1..f475f6acec49 100644
+--- a/arch/riscv/include/asm/ptrace.h
++++ b/arch/riscv/include/asm/ptrace.h
+@@ -12,6 +12,11 @@
+ 
+ #ifndef __ASSEMBLY__
+ 
++struct stackframe {
++	unsigned long fp;
++	unsigned long ra;
++};
++
+ struct pt_regs {
+ 	unsigned long epc;
+ 	unsigned long ra;
+diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+index b1495a7e06ce..3019558f747c 100644
+--- a/arch/riscv/include/asm/stacktrace.h
++++ b/arch/riscv/include/asm/stacktrace.h
+@@ -6,11 +6,6 @@
+ #include <linux/sched.h>
+ #include <asm/ptrace.h>
+ 
+-struct stackframe {
+-	unsigned long fp;
+-	unsigned long ra;
+-};
+-
+ extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 				    bool (*fn)(void *, unsigned long), void *arg);
+ extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index 84c056f5ee09..582b52713e93 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -477,10 +477,10 @@ void asm_offsets(void)
+ 	);
+ 
+ 	/*
+-	 * We allocate a pt_regs on the stack when entering the kernel.  This
+-	 * ensures the alignment is sane.
++	 * We allocate a pt_regs and possibly a stackframe on the stack when
++	 * entering the kernel. This ensures the alignment is sane.
+ 	 */
+-	DEFINE(PT_SIZE_ON_STACK, ALIGN(sizeof(struct pt_regs), STACK_ALIGN));
++	DEFINE(EXCEPTION_FRAME_SIZE, EXCEPTION_FRAME_SIZE);
+ 
+ 	OFFSET(KERNEL_MAP_VIRT_ADDR, kernel_mapping, virt_addr);
+ 	OFFSET(SBI_HART_BOOT_TASK_PTR_OFFSET, sbi_hart_boot_data, task_ptr);
 diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index d13d1aad7649..bd1c5621df45 100644
+index bd1c5621df45..cdb58ce32cbb 100644
 --- a/arch/riscv/kernel/entry.S
 +++ b/arch/riscv/kernel/entry.S
-@@ -58,13 +58,13 @@ SYM_CODE_START(handle_exception)
- 	 */
- 	li t0, SR_SUM | SR_FS_VS
+@@ -33,7 +33,7 @@ SYM_CODE_START(handle_exception)
+ 	REG_S sp, TASK_TI_KERNEL_SP(tp)
  
--	REG_L s0, TASK_TI_USER_SP(tp)
-+	REG_L a2, TASK_TI_USER_SP(tp)
- 	csrrc s1, CSR_STATUS, t0
- 	csrr s2, CSR_EPC
- 	csrr s3, CSR_TVAL
- 	csrr s4, CSR_CAUSE
- 	csrr s5, CSR_SCRATCH
--	REG_S s0, PT_SP(sp)
-+	REG_S a2, PT_SP(sp)
- 	REG_S s1, PT_STATUS(sp)
- 	REG_S s2, PT_EPC(sp)
- 	REG_S s3, PT_BADADDR(sp)
-@@ -125,19 +125,19 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
- 	call riscv_v_context_nesting_end
- #endif
+ #ifdef CONFIG_VMAP_STACK
+-	addi sp, sp, -(PT_SIZE_ON_STACK)
++	addi sp, sp, -EXCEPTION_FRAME_SIZE
+ 	srli sp, sp, THREAD_SHIFT
+ 	andi sp, sp, 0x1
+ 	bnez sp, handle_kernel_stack_overflow
+@@ -43,7 +43,7 @@ SYM_CODE_START(handle_exception)
+ .Lsave_context:
+ 	REG_S sp, TASK_TI_USER_SP(tp)
+ 	REG_L sp, TASK_TI_KERNEL_SP(tp)
+-	addi sp, sp, -(PT_SIZE_ON_STACK)
++	addi sp, sp, -EXCEPTION_FRAME_SIZE
+ 	REG_S x1,  PT_RA(sp)
+ 	REG_S x3,  PT_GP(sp)
+ 	REG_S x5,  PT_T0(sp)
+@@ -83,6 +83,12 @@ SYM_CODE_START(handle_exception)
+ 	/* Load the kernel shadow call stack pointer if coming from userspace */
+ 	scs_load_current_if_task_changed s5
  
--	REG_L s0, PT_STATUS(sp)
-+	REG_L s1, PT_STATUS(sp)
- #ifdef CONFIG_RISCV_M_MODE
- 	/* the MPP value is too large to be used as an immediate arg for addi */
- 	li t0, SR_MPP
--	and s0, s0, t0
-+	and t0, s1, t0
- #else
--	andi s0, s0, SR_SPP
-+	andi t0, s1, SR_SPP
- #endif
--	bnez s0, 1f
-+	bnez t0, 1f
++#ifdef CONFIG_FRAME_POINTER
++	REG_S	ra, (EXCEPTION_FRAME_SIZE + STACKFRAME_RA)(sp)
++	REG_S	s0, (EXCEPTION_FRAME_SIZE + STACKFRAME_FP)(sp)
++	addi	s0, sp, EXCEPTION_FRAME_SIZE
++#endif
++
+ #ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
+ 	move a0, sp
+ 	call riscv_v_context_nesting_start
+@@ -136,7 +142,7 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
+ 	bnez t0, 1f
  
  	/* Save unwound kernel stack pointer in thread_info */
--	addi s0, sp, PT_SIZE_ON_STACK
--	REG_S s0, TASK_TI_KERNEL_SP(tp)
-+	addi t0, sp, PT_SIZE_ON_STACK
-+	REG_S t0, TASK_TI_KERNEL_SP(tp)
+-	addi t0, sp, PT_SIZE_ON_STACK
++	addi t0, sp, EXCEPTION_FRAME_SIZE
+ 	REG_S t0, TASK_TI_KERNEL_SP(tp)
  
  	/* Save the kernel shadow call stack pointer */
- 	scs_save_current
-@@ -148,7 +148,6 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
- 	 */
- 	csrw CSR_SCRATCH, tp
- 1:
--	REG_L a0, PT_STATUS(sp)
- 	/*
- 	 * The current load reservation is effectively part of the processor's
- 	 * state, in the sense that load reservations cannot be shared between
-@@ -169,7 +168,7 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
- 	REG_L  a2, PT_EPC(sp)
- 	REG_SC x0, a2, PT_EPC(sp)
+@@ -192,14 +198,12 @@ SYM_CODE_START_LOCAL(handle_kernel_stack_overflow)
+ 	/* we reach here from kernel context, sscratch must be 0 */
+ 	csrrw x31, CSR_SCRATCH, x31
+ 	asm_per_cpu sp, overflow_stack, x31
+-	li x31, OVERFLOW_STACK_SIZE
++	li x31, OVERFLOW_STACK_SIZE - EXCEPTION_FRAME_SIZE
+ 	add sp, sp, x31
+ 	/* zero out x31 again and restore x31 */
+ 	xor x31, x31, x31
+ 	csrrw x31, CSR_SCRATCH, x31
  
--	csrw CSR_STATUS, a0
-+	csrw CSR_STATUS, s1
- 	csrw CSR_EPC, a2
+-	addi sp, sp, -(PT_SIZE_ON_STACK)
+-
+ 	//save context to overflow stack
+ 	REG_S x1,  PT_RA(sp)
+ 	REG_S x3,  PT_GP(sp)
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 4236a69c35cb..09ee5e6c2a98 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -290,9 +290,8 @@ SYM_CODE_START(_start_kernel)
  
- 	REG_L x1,  PT_RA(sp)
-@@ -207,13 +206,13 @@ SYM_CODE_START_LOCAL(handle_kernel_stack_overflow)
- 	REG_S x5,  PT_T0(sp)
- 	save_from_x6_to_x31
+ 	/* Initialize page tables and relocate to virtual addresses */
+ 	la tp, init_task
+-	la sp, init_thread_union + THREAD_SIZE
++	la sp, init_thread_union + THREAD_SIZE - EXCEPTION_FRAME_SIZE
+ 	XIP_FIXUP_OFFSET sp
+-	addi sp, sp, -PT_SIZE_ON_STACK
+ 	scs_load_init_stack
+ #ifdef CONFIG_BUILTIN_DTB
+ 	la a0, __dtb_start
+@@ -310,8 +309,7 @@ SYM_CODE_START(_start_kernel)
+ 	call .Lsetup_trap_vector
+ 	/* Restore C environment */
+ 	la tp, init_task
+-	la sp, init_thread_union + THREAD_SIZE
+-	addi sp, sp, -PT_SIZE_ON_STACK
++	la sp, init_thread_union + THREAD_SIZE - EXCEPTION_FRAME_SIZE
+ 	scs_load_current
  
--	REG_L s0, TASK_TI_KERNEL_SP(tp)
-+	REG_L a2, TASK_TI_KERNEL_SP(tp)
- 	csrr s1, CSR_STATUS
- 	csrr s2, CSR_EPC
- 	csrr s3, CSR_TVAL
- 	csrr s4, CSR_CAUSE
- 	csrr s5, CSR_SCRATCH
--	REG_S s0, PT_SP(sp)
-+	REG_S a2, PT_SP(sp)
- 	REG_S s1, PT_STATUS(sp)
- 	REG_S s2, PT_EPC(sp)
- 	REG_S s3, PT_BADADDR(sp)
-@@ -227,10 +226,10 @@ ASM_NOKPROBE(handle_kernel_stack_overflow)
+ #ifdef CONFIG_KASAN
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index 528ec7cc9a62..6be8f8942f6b 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -16,8 +16,6 @@
  
- SYM_CODE_START(ret_from_fork)
- 	call schedule_tail
--	beqz s0, 1f	/* not from kernel thread */
-+	beqz s1, 1f	/* not from kernel thread */
- 	/* Call fn(arg) */
--	move a0, s1
--	jalr s0
-+	move a0, s2
-+	jalr s1
- 1:
- 	move a0, sp /* pt_regs */
- 	la ra, ret_from_exception
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index e4bc61c4e58a..5512c31e1256 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -208,8 +208,8 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 		/* Supervisor/Machine, irqs on: */
- 		childregs->status = SR_PP | SR_PIE;
+ #ifdef CONFIG_FRAME_POINTER
  
--		p->thread.s[0] = (unsigned long)args->fn;
--		p->thread.s[1] = (unsigned long)args->fn_arg;
-+		p->thread.s[1] = (unsigned long)args->fn;
-+		p->thread.s[2] = (unsigned long)args->fn_arg;
- 	} else {
- 		*childregs = *(current_pt_regs());
- 		/* Turn off status.VS */
-@@ -219,7 +219,6 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 		if (clone_flags & CLONE_SETTLS)
- 			childregs->tp = tls;
- 		childregs->a0 = 0; /* Return value of fork() */
--		p->thread.s[0] = 0;
+-extern asmlinkage void ret_from_exception(void);
+-
+ static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+ {
+ 	unsigned long low, high;
+@@ -70,13 +68,6 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 			fp = frame->fp;
+ 			pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
+ 						   &frame->ra);
+-			if (pc == (unsigned long)ret_from_exception) {
+-				if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
+-					break;
+-
+-				pc = ((struct pt_regs *)sp)->epc;
+-				fp = ((struct pt_regs *)sp)->s0;
+-			}
+ 		}
+ 
  	}
- 	p->thread.riscv_v_flags = 0;
- 	if (has_vector())
 -- 
 2.44.1
 
