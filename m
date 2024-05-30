@@ -4,66 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5528C25B74
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 09:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B759C25B78
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 09:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S8Eb3nRS/FHMQAzHKbSrKYqDMNVVmWYMaLsmL+0lkUA=; b=fzwl8T+zRSOwVn
-	CfFMDVibVkX2BOKD/4rNrzwm1e2DTa+qeH0vxHX7qd85XxfO0F6BpWOquVt1fo5vVJnz9i5Dq/z65
-	dclRo2pZ7oKNghDVRJxWmta05WrknUnRfSMZ5s1QUnteXj9ZRX9Ucx6Hiqzpn1s40EEZIkB0+tW4d
-	8TJlCU5z69C7LEddOqcs7k2riGVOtjXYgYtq8GXo5vp3kpYSwRRX8OHuB2QOhbSxJyjcm4p+FlM4y
-	wLdQnRDyt4TMsRa565jYmW6OAkRWw1obYNVmJ+wRCqBXSbkymUIdIPF5N5iH9poBGSUI1yj9Ix4kR
-	oFY7O5KOL/uzlG5RelNw==;
+	List-Owner; bh=tG1lb7RZ4VjBj9AYeZRL6BdevgapnF51zumRbChEJVQ=; b=NGaKfDpNdel+Qc
+	nrV/TjYq4YpHX1Vf0UNIRNfrgXQpHsbrNYpuI6XNvZMfjhN8zo1v/vEg6VhDBL8BhUDL5mLfMaTab
+	HjwlsJDs0VlFM5/fCqEW/i1h6PG3wG8j8X1Mb9MND/5Dy356bcM5jSjSi4Qe0FwhHUNyM9Samp42J
+	zXFbau5LUmGliI3iUwvO+xiVkiTo37JFvjLsxw4zOpqM4pHUNp0LdDaxNVvXnc+v62pZ/l3HDDpI3
+	q/By0P3LrryOOASaET9FIb7xBKYJ9IPuz5aW3rRAaX9UH3eE7MTHw6mU/ZNr+Xq41gXyCM7CUoEke
+	7JKqijw+yN03op04uYQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCbfE-00000006kJP-0Kg2;
-	Thu, 30 May 2024 09:01:36 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1sCbg6-00000006kaf-21Jn;
+	Thu, 30 May 2024 09:02:30 +0000
+Received: from fgw22-7.mail.saunalahti.fi ([62.142.5.83])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCbf8-00000006kGe-0lpc;
-	Thu, 30 May 2024 09:01:33 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id CD71EFF80E;
-	Thu, 30 May 2024 09:01:20 +0000 (UTC)
-Message-ID: <3b76c46f-c502-4245-ae58-be3bd3f8a41f@ghiti.fr>
-Date: Thu, 30 May 2024 11:01:20 +0200
+	id 1sCbg0-00000006kXb-1kBW
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 May 2024 09:02:26 +0000
+Received: from localhost (88-113-26-230.elisa-laajakaista.fi [88.113.26.230])
+	by fgw23.mail.saunalahti.fi (Halon) with ESMTP
+	id 51e6d162-1e63-11ef-80c8-005056bdfda7;
+	Thu, 30 May 2024 12:02:22 +0300 (EEST)
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Thu, 30 May 2024 12:02:19 +0300
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Jianlong Huang <jianlong.huang@starfivetech.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Joel Stanley <joel@jms.id.au>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Stephen Warren <swarren@wwwdotorg.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-samsung-soc@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, imx@lists.linux.dev,
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 07/20] pinctrl: renesas: Use scope based of_node_put()
+ cleanups
+Message-ID: <ZlhAm-giX6jNaUKr@surfacebook.localdomain>
+References: <20240504-pinctrl-cleanup-v2-0-26c5f2dc1181@nxp.com>
+ <20240504-pinctrl-cleanup-v2-7-26c5f2dc1181@nxp.com>
+ <CAMuHMdUD=1rpns_mLF2rMM-x5EnOK7TExaJxoJVkbXjVz1H8uQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v4 1/5] RISC-V: Detect and Enable Svadu Extension
- Support
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Yong-Xuan Wang <yongxuan.wang@sifive.com>,
- linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
- kvm@vger.kernel.org, greentime.hu@sifive.com, vincent.chen@sifive.com,
- cleger@rivosinc.com, Jinyu Tang <tjytimi@163.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Conor Dooley <conor.dooley@microchip.com>,
- Mayuresh Chitale <mchitale@ventanamicro.com>,
- Samuel Holland <samuel.holland@sifive.com>, Samuel Ortiz
- <sameo@rivosinc.com>, Evan Green <evan@rivosinc.com>,
- Xiao Wang <xiao.w.wang@intel.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Kemeng Shi <shikemeng@huaweicloud.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Charlie Jenkins <charlie@rivosinc.com>, Leonardo Bras <leobras@redhat.com>,
- linux-kernel@vger.kernel.org
-References: <20240524103307.2684-1-yongxuan.wang@sifive.com>
- <20240524103307.2684-2-yongxuan.wang@sifive.com>
- <20240527-41b376a2bfedb3b9cf7e9c7b@orel>
- <ec110587-d557-439b-ae50-f3472535ef3a@ghiti.fr>
- <20240530-3e5538b8e4dea932e2d3edc4@orel>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240530-3e5538b8e4dea932e2d3edc4@orel>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdUD=1rpns_mLF2rMM-x5EnOK7TExaJxoJVkbXjVz1H8uQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_020130_548681_937016E9 
-X-CRM114-Status: GOOD (  36.10  )
+X-CRM114-CacheID: sfid-20240530_020224_678896_9E505566 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,207 +109,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-On 30/05/2024 10:47, Andrew Jones wrote:
-> On Thu, May 30, 2024 at 10:19:12AM GMT, Alexandre Ghiti wrote:
->> Hi Yong-Xuan,
->>
->> On 27/05/2024 18:25, Andrew Jones wrote:
->>> On Fri, May 24, 2024 at 06:33:01PM GMT, Yong-Xuan Wang wrote:
->>>> Svadu is a RISC-V extension for hardware updating of PTE A/D bits.
->>>>
->>>> In this patch we detect Svadu extension support from DTB and enable it
->>>> with SBI FWFT extension. Also we add arch_has_hw_pte_young() to enable
->>>> optimization in MGLRU and __wp_page_copy_user() if Svadu extension is
->>>> available.
->>
->> So we talked about this yesterday during the linux-riscv patchwork meeting.
->> We came to the conclusion that we should not wait for the SBI FWFT extension
->> to enable Svadu but instead, it should be enabled by default by openSBI if
->> the extension is present in the device tree. This is because we did not find
->> any backward compatibility issues, meaning that enabling Svadu should not
->> break any S-mode software.
-> Unfortunately I joined yesterday's patchwork call late and missed this
-> discussion. I'm still not sure how we avoid concerns with S-mode software
-> expecting exceptions by purposely not setting A/D bits, but then not
-> getting those exceptions.
-
-
-Most other architectures implement hardware A/D updates, so I don't see 
-what's specific in riscv. In addition, if an OS really needs the 
-exceptions, it can always play with the page table permissions to 
-achieve such behaviour.
-
-
->
->> This is what you did in your previous versions of
->> this patchset so the changes should be easy. This behaviour must be added to
->> the dtbinding description of the Svadu extension.
->>
->> Another thing that we discussed yesterday. There exist 2 schemes to manage
->> the A/D bits updates, Svade and Svadu. If a platform supports both
->> extensions and both are present in the device tree, it is M-mode firmware's
->> responsibility to provide a "sane" device tree to the S-mode software,
->> meaning the device tree can not contain both extensions. And because on such
->> platforms, Svadu is more performant than Svade, Svadu should be enabled by
->> the M-mode firmware and only Svadu should be present in the device tree.
-> I'm not sure firmware will be able to choose svadu when it's available.
-> For example, platforms which want to conform to the upcoming "Server
-> Platform" specification must also conform to the RVA23 profile, which
-> mandates Svade and lists Svadu as an optional extension. This implies to
-> me that S-mode should be boot with both svade and svadu in the DT and with
-> svade being the active one. Then, S-mode can choose to request switching
-> to svadu with FWFT.
-
-
-The problem is that FWFT is not there and won't be there for ~1y 
-(according to Anup). So in the meantime, we prevent all uarchs that 
-support Svadu to take advantage of this.
-
-
->
-> Thanks,
-> drew
->
->> I hope that clearly explains what we discussed yesterday, let me know if you
->> (or anyone else) need more explanations. If no one is opposed to this
->> solution, do you think you can implement this behaviour? If not, I can deal
->> with it, just let me know.
->>
->> Thanks
->>
->>
->>>> Co-developed-by: Jinyu Tang <tjytimi@163.com>
->>>> Signed-off-by: Jinyu Tang <tjytimi@163.com>
->>>> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
->>>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->>>> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
->>> I think this patch changed too much to keep r-b's. We didn't have the
->>> FWFT part before.
->>>
->>>> ---
->>>>    arch/riscv/Kconfig               |  1 +
->>>>    arch/riscv/include/asm/csr.h     |  1 +
->>>>    arch/riscv/include/asm/hwcap.h   |  1 +
->>>>    arch/riscv/include/asm/pgtable.h |  8 +++++++-
->>>>    arch/riscv/kernel/cpufeature.c   | 11 +++++++++++
->>>>    5 files changed, 21 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->>>> index be09c8836d56..30fa558ee284 100644
->>>> --- a/arch/riscv/Kconfig
->>>> +++ b/arch/riscv/Kconfig
->>>> @@ -34,6 +34,7 @@ config RISCV
->>>>    	select ARCH_HAS_PMEM_API
->>>>    	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
->>>>    	select ARCH_HAS_PTE_SPECIAL
->>>> +	select ARCH_HAS_HW_PTE_YOUNG
->>>>    	select ARCH_HAS_SET_DIRECT_MAP if MMU
->>>>    	select ARCH_HAS_SET_MEMORY if MMU
->>>>    	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
->>>> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
->>>> index 2468c55933cd..2ac270ad4acd 100644
->>>> --- a/arch/riscv/include/asm/csr.h
->>>> +++ b/arch/riscv/include/asm/csr.h
->>>> @@ -194,6 +194,7 @@
->>>>    /* xENVCFG flags */
->>>>    #define ENVCFG_STCE			(_AC(1, ULL) << 63)
->>>>    #define ENVCFG_PBMTE			(_AC(1, ULL) << 62)
->>>> +#define ENVCFG_ADUE			(_AC(1, ULL) << 61)
->>>>    #define ENVCFG_CBZE			(_AC(1, UL) << 7)
->>>>    #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
->>>>    #define ENVCFG_CBIE_SHIFT		4
->>>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
->>>> index e17d0078a651..8d539e3f4e11 100644
->>>> --- a/arch/riscv/include/asm/hwcap.h
->>>> +++ b/arch/riscv/include/asm/hwcap.h
->>>> @@ -81,6 +81,7 @@
->>>>    #define RISCV_ISA_EXT_ZTSO		72
->>>>    #define RISCV_ISA_EXT_ZACAS		73
->>>>    #define RISCV_ISA_EXT_XANDESPMU		74
->>>> +#define RISCV_ISA_EXT_SVADU		75
->>>>    #define RISCV_ISA_EXT_XLINUXENVCFG	127
->>>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
->>>> index 9f8ea0e33eb1..1f1b326ccf63 100644
->>>> --- a/arch/riscv/include/asm/pgtable.h
->>>> +++ b/arch/riscv/include/asm/pgtable.h
->>>> @@ -117,6 +117,7 @@
->>>>    #include <asm/tlbflush.h>
->>>>    #include <linux/mm_types.h>
->>>>    #include <asm/compat.h>
->>>> +#include <asm/cpufeature.h>
->>>>    #define __page_val_to_pfn(_val)  (((_val) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT)
->>>> @@ -285,7 +286,6 @@ static inline pte_t pud_pte(pud_t pud)
->>>>    }
->>>>    #ifdef CONFIG_RISCV_ISA_SVNAPOT
->>>> -#include <asm/cpufeature.h>
->>>>    static __always_inline bool has_svnapot(void)
->>>>    {
->>>> @@ -621,6 +621,12 @@ static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
->>>>    	return __pgprot(prot);
->>>>    }
->>>> +#define arch_has_hw_pte_young arch_has_hw_pte_young
->>>> +static inline bool arch_has_hw_pte_young(void)
->>>> +{
->>>> +	return riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
->>>> +}
->>>> +
->>>>    /*
->>>>     * THP functions
->>>>     */
->>>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->>>> index 3ed2359eae35..b023908c5932 100644
->>>> --- a/arch/riscv/kernel/cpufeature.c
->>>> +++ b/arch/riscv/kernel/cpufeature.c
->>>> @@ -93,6 +93,16 @@ static bool riscv_isa_extension_check(int id)
->>>>    			return false;
->>>>    		}
->>>>    		return true;
->>>> +	case RISCV_ISA_EXT_SVADU:
->>>> +		if (sbi_probe_extension(SBI_EXT_FWFT) > 0) {
->>> I think we've decided the appropriate way to prove for SBI extensions is
->>> to first ensure the SBI version and then do the probe, like we do for STA
->>> in has_pv_steal_clock()
->>>
->>>> +			struct sbiret ret;
->>>> +
->>>> +			ret = sbi_ecall(SBI_EXT_FWFT, SBI_EXT_FWFT_SET, SBI_FWFT_PTE_AD_HW_UPDATING,
->>>> +					1, 0, 0, 0, 0);
->>>> +
->>>> +			return ret.error == SBI_SUCCESS;
->>>> +		}
->>>> +		return false;
->>>>    	case RISCV_ISA_EXT_INVALID:
->>>>    		return false;
->>>>    	}
->>>> @@ -301,6 +311,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
->>>>    	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
->>>>    	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
->>>>    	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
->>>> +	__RISCV_ISA_EXT_SUPERSET(svadu, RISCV_ISA_EXT_SVADU, riscv_xlinuxenvcfg_exts),
->>> We do we need XLINUXENVCFG?
->>>
->>> Thanks,
->>> drew
->>>
->>>>    	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
->>>>    	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
->>>>    	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
->>>> -- 
->>>> 2.17.1
->>>>
->>> _______________________________________________
->>> linux-riscv mailing list
->>> linux-riscv@lists.infradead.org
->>> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TW9uLCBNYXkgMTMsIDIwMjQgYXQgMDE6NTk6MDNQTSArMDIwMCwgR2VlcnQgVXl0dGVyaG9ldmVu
+IGtpcmpvaXR0aToKPiBPbiBTYXQsIE1heSA0LCAyMDI0IGF0IDM6MTTigK9QTSBQZW5nIEZhbiAo
+T1NTKSA8cGVuZy5mYW5Ab3NzLm54cC5jb20+IHdyb3RlOgoKLi4uCgo+IFlvdSBtaXNzZWQgb25l
+IHRyaXZpYWwgY29udmVyc2lvbiwgcHJlc3VtYWJseSBiZWNhdXNlIG5vIGVycm9yIGhhbmRsaW5n
+Cj4gYW5kIHRodXMgbm8gb2Zfbm9kZV9wdXQoKSBpcyBpbnZvbHZlZD8KCk5vdGhpbmcgaXMgbWlz
+c2VkLiBUaGUgYmVsb3cgaXMgYSByZWR1bmRhbnQgY2hhbmdlLgoKLi4uCgo+IC0gICAgICAgZm9y
+X2VhY2hfY2hpbGRfb2Zfbm9kZShucCwgY2hpbGQpIHsKPiArICAgICAgIGZvcl9lYWNoX2NoaWxk
+X29mX25vZGVfc2NvcGVkKG5wLCBjaGlsZCkgewo+ICAgICAgICAgICAgICAgICBpZiAob2ZfcHJv
+cGVydHlfY291bnRfdTMyX2VsZW1zKGNoaWxkLCBSWk4xX1BJTlNfUFJPUCkgPiAwKQo+ICAgICAg
+ICAgICAgICAgICAgICAgICAgIGNvdW50Kys7Cj4gICAgICAgICB9Cj4gCj4gSWYgeW91IHByZWZl
+ciBub3QgdG8gaW5jbHVkZSB0aGlzCgpJIHByZWZlciB0aGlzIG5vdCB0byBiZSBpbmNsdWRlZCBh
+cyBpdCB3aWxsIGdpdmUgYSBtaXNsZWFkaW5nIHNpZ25hbHMgdG8gdGhlCnVzZSBvZiB0aGUgb3Jp
+Z2luYWwgQVBJKHMpLgoKLS0gCldpdGggQmVzdCBSZWdhcmRzLApBbmR5IFNoZXZjaGVua28KCgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
