@@ -4,95 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A1EC25B74
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 09:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 393EBC25B74
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 09:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YaoPn/PzBlmSMYn+oZDTwknVgwSqCWS3P/65I2NDsW4=; b=p3++81mohPrGd3
-	v7npeCxrLS4AfdLgQ59yOpOnKS6gMON9Uw6GjvnkNyaNbDbN56VSASk38HSKtRiiTe7DRDciRdEmA
-	fODAUnEFVnc7W7axzacTIZpGY6Ep1jSA/vh58AE5HojTX6p7DCoPrym7NSDwutDgvfaWxZMPXGWuo
-	3jJetCZ0TvBEj0KyADx1aY/toqeGOXVWeA8zUVCDgO41N5bBsn06kmdRnL3beht6v9FTi9Xc7YeQt
-	Si6MTJ5O6l6C8RfFa5AdFHM0cukqAF2ECAZFb0wnTxbmGY+h8SRt04CKbfGVRTYkx7+FqZFwsGj7z
-	6KgWSZipMyJGlIEWX+AQ==;
+	List-Owner; bh=FTAo5yd9/W6TOpQdPjPJaAFBEiAY0AJxWYfZWqjsaAU=; b=lvGMvSyIv3Tn9C
+	UsRHfCglNqvAbBl26PHfBTBAzqazjwIGyybVc7teqPvlgDhqgIebvdLKpCD/jL2W9lh2IoDcEZ0Or
+	t9DkttPZ2YZ/bdeBHZr276ulwG7xG3JHwGbSSbnfBjvmb8+XlKheX/MEsA/mcU3V5RkjaKU70Hh15
+	Ae3OR1Y+e+FoBwV5skP2DtLAiH9TodgQ3OMjModQFD4Mrb5hI+TaJRs1rqeQ47HKFt0XSwi42WaQO
+	jE3Lp5IdyI7HIAo2Emv444zrEYZCSdl6z92cBdkQsZ/uIqzL4r29qkIV35v5jKNf7RHD5z6dyITRV
+	30EmwSmg7Mp8jDtN1qHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCc1x-00000006oS6-3E0g;
-	Thu, 30 May 2024 09:25:05 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1sCcCK-00000006qon-04ux;
+	Thu, 30 May 2024 09:35:48 +0000
+Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCc1u-00000006oPF-36ZK
+	id 1sCcCB-00000006qeU-3CNC
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 09:25:04 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-52b4fcbf078so832414e87.0
-        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 02:25:00 -0700 (PDT)
+	Thu, 30 May 2024 09:35:41 +0000
+Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-24cbb884377so357208fac.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 02:35:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1717061099; x=1717665899; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FGWcoQz6bp5W8A5c5FEsjIeyZdnGRxg5AvvBbn2QbK0=;
-        b=jtZ2HGVIAcV1d/+kUC4+n4Cz+9hpEs5p6N0VADyfPPY+45okSXUXaeCNTsJXfMz7j/
-         XAGOWHgBCOgcKZugT5aHPGz3b4zMR5bMxGQwXdVW3d2x11EwTQXGOwniBLX1dDI8UZH8
-         fTnIjnyA69Iv0lt04jLX6g5vMzkMH21rZq/CyJ7hX8lwEarEYruRjgSS0PVHczOsygfo
-         PWhaqdqKeudkMkQr7Xc53VIi7zd4TkcN93u10EBMe9SxcKB3vjVtzqZzXNChzqm2Uiz6
-         qYPOcaouAbdZIFVd0APJHkMxVdc3x2Hqq3C4FRy6WNdbMxwZ4LMe2/nJQE8dNtiUHYgh
-         5O5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717061099; x=1717665899;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1717061727; x=1717666527; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FGWcoQz6bp5W8A5c5FEsjIeyZdnGRxg5AvvBbn2QbK0=;
-        b=wuackCf1aU0H3pHnpgMVFdAR6NMiSdzT2vAP9Lkzxaz1iWnQkMXKP/fxRDBFTPiuoJ
-         Z4Kj99dssxymgmAyVRqf3h6ZLaoC3BanF5st/WCiYhCyBNQh8Eqh5cdvVkniTOSExQ3w
-         4ie79MaP923HDk21mYK1AEsG6KYDCv17d/dn441su+7H7k7+tkM+gSA+2KeQSm2Xewbs
-         BsGY7/jK8VO80Exx1BSaRG80hFhumb4Wxz/CBmX+gv4BBp4djlviBvGYdTjpcvOR7dDM
-         RW3C2TGiSKLS9Jp84R395I23Pe6p5+txl/xddDX6h+KHZFKmMCn8ycwNLA5cjlsAvWM+
-         ct8A==
-X-Forwarded-Encrypted: i=1; AJvYcCU/niYbz1SCMwvvVKK6hLhqXdU7B3AAjlJ7ZCL6rqEJ90G1KinDoFw30BOQObg7PEAxjfhVK7Lo1twWXHYe1FbcHQJSLlsfgNDB7rZC6a6O
-X-Gm-Message-State: AOJu0Yw4rxc0bSmiZ1Qwv0cxUPDX7/hS3379Cn9PbS/yGV5LqGdP46pI
-	p5RfmSLoeK8dE1K+FsGNtqdFSMwUEVByfpme1IJUQo/mwGXcKIWPqeBwRX+et2A=
-X-Google-Smtp-Source: AGHT+IELCUAFliwbdnLlRoUjMofrcBrzQ/gONVqlkzwZRu4BVC/i56ENc2IuIJrAiK/uaL4mr6II2g==
-X-Received: by 2002:ac2:522b:0:b0:52a:f4f5:5cfa with SMTP id 2adb3069b0e04-52b7d480912mr782775e87.58.1717061098823;
-        Thu, 30 May 2024 02:24:58 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3557a08ab81sm16840093f8f.39.2024.05.30.02.24.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 May 2024 02:24:58 -0700 (PDT)
-Date: Thu, 30 May 2024 11:24:57 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Yong-Xuan Wang <yongxuan.wang@sifive.com>, 
-	linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	greentime.hu@sifive.com, vincent.chen@sifive.com, cleger@rivosinc.com, 
-	Jinyu Tang <tjytimi@163.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Anup Patel <anup@brainfault.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Samuel Ortiz <sameo@rivosinc.com>, Evan Green <evan@rivosinc.com>, 
-	Xiao Wang <xiao.w.wang@intel.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Kemeng Shi <shikemeng@huaweicloud.com>, 
-	"Mike Rapoport (IBM)" <rppt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Leonardo Bras <leobras@redhat.com>, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v4 1/5] RISC-V: Detect and Enable Svadu Extension
- Support
-Message-ID: <20240530-de1fde9735e6648dc34654f3@orel>
-References: <20240524103307.2684-1-yongxuan.wang@sifive.com>
- <20240524103307.2684-2-yongxuan.wang@sifive.com>
- <20240527-41b376a2bfedb3b9cf7e9c7b@orel>
- <ec110587-d557-439b-ae50-f3472535ef3a@ghiti.fr>
- <20240530-3e5538b8e4dea932e2d3edc4@orel>
- <3b76c46f-c502-4245-ae58-be3bd3f8a41f@ghiti.fr>
+        bh=aIKK60Me9RhDM5LPzOVIbg3hAvv72+j6Tp3QihasYZ0=;
+        b=f71R+qIm03Nv1fH/YRilqc0JKDmtiuJNQZrVvdxbYVcDZ84Vet6RAbAKxaN2eY1rWH
+         7aV/ynKjnfXoBa6YLr7jIV5Jhw8Q67AsnBKwJDO2c9DWTYqaXtdLgjSneJG11WU/Uf1C
+         enkv4t19RVGeIfgLLNL9tnUYDm/CgutjUnwGqEkJLtLshyqpbiJJW+R0RDmo+hB72Wji
+         NiVW6u07IiZ5fxc+GriRdyWCngCnNEZFLkaRqVoSLjRLO+5e3pLonq8jfQZzUimgyg7y
+         qAt5rPTfHW2qBSba0sf2nTq71buHx7dUfG6De+6RG9cjMxEBupcTh6uzu/FZTV+5ob58
+         u1jQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717061727; x=1717666527;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aIKK60Me9RhDM5LPzOVIbg3hAvv72+j6Tp3QihasYZ0=;
+        b=DinbCzsCrb0T8zWFX3guFPH7C6pXIW0x/knf4UnUUAjWwibvj74TCNhLMBwYLSGRfM
+         IN3/3E4SwoDDqOz0RPGsRmO6V/ggygq8KmgEFiexUpMPnyp3+V/RuFSCSk1YEFFO0Y1Z
+         Uol32j/VDYoXepbY25Nb/khgdeDbdqxaJFmREgoERxisI5bwkLqbEES4SSC+cVDuQ5j8
+         lPz+GBfx6judEbnyVIexQgJyVFmpbDPwASqTngCi5RqlqeTUlRxXIyKZoGrcfsCTzJvD
+         cFpLm1jko/A/X2t9q7zh7hwCyLFByAQqiim8l284hhjwd3R4sXNguiIoe44hkU+VFErj
+         +EFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVzCX3lWFx4QNc9N+Z5FpX5Hd/93rDqr+ioZUvnfbVQY+6hYahGXibQR4epaGX0nbn6OWljVB91y0t5s/rXoqTF/mgueCNZ2TLhNXl53SvZ
+X-Gm-Message-State: AOJu0YxvGUoz3+XVERKqJqY6g8xjfJ7b6+i4PX2vaD1XrsH9V8Me19A0
+	Vq8A9FErvDpkBZ0+h8J7rmzfQxPEQL57RH5NOc+nNkfFv1PFSaQYY1SRjjDIgQ724iCHg2l6lEU
+	sURtNX4NRszJGVyqBDoFZDHT96rA6rA11ya+0jw==
+X-Google-Smtp-Source: AGHT+IGQo/4+Bcec7GR4w4t9VuGgDnfgRuIzi4gbmVB9EXNZxFk4++tYC42KZVEUtna/+lcQBmHO84N93cneyoHhbbs=
+X-Received: by 2002:a05:6871:3329:b0:24c:ac96:ac78 with SMTP id
+ 586e51a60fabf-25060de9e8amr1722957fac.44.1717061727430; Thu, 30 May 2024
+ 02:35:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3b76c46f-c502-4245-ae58-be3bd3f8a41f@ghiti.fr>
+References: <20240131155929.169961-1-alexghiti@rivosinc.com> <20240131155929.169961-5-alexghiti@rivosinc.com>
+In-Reply-To: <20240131155929.169961-5-alexghiti@rivosinc.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Thu, 30 May 2024 17:35:16 +0800
+Message-ID: <CAEEQ3wnmCr5NTEFo3wTN_zWse2DPkE6ieVUk_=Vv7A-UzDCCvQ@mail.gmail.com>
+Subject: Re: [External] [PATCH RFC/RFT v2 4/4] riscv: Stop emitting preventive
+ sfence.vma for new userspace mappings with Svvptc
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton <akpm@linux-foundation.org>, 
+	Ved Shanbhogue <ved@rivosinc.com>, Matt Evans <mev@rivosinc.com>, Dylan Jhong <dylan@andestech.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-mm@kvack.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_022502_837312_9E290F36 
-X-CRM114-Status: GOOD (  40.59  )
+X-CRM114-CacheID: sfid-20240530_023539_863099_78F1F441 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,98 +93,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 30, 2024 at 11:01:20AM GMT, Alexandre Ghiti wrote:
-> Hi Andrew,
-> 
-> On 30/05/2024 10:47, Andrew Jones wrote:
-> > On Thu, May 30, 2024 at 10:19:12AM GMT, Alexandre Ghiti wrote:
-> > > Hi Yong-Xuan,
-> > > 
-> > > On 27/05/2024 18:25, Andrew Jones wrote:
-> > > > On Fri, May 24, 2024 at 06:33:01PM GMT, Yong-Xuan Wang wrote:
-> > > > > Svadu is a RISC-V extension for hardware updating of PTE A/D bits.
-> > > > > 
-> > > > > In this patch we detect Svadu extension support from DTB and enable it
-> > > > > with SBI FWFT extension. Also we add arch_has_hw_pte_young() to enable
-> > > > > optimization in MGLRU and __wp_page_copy_user() if Svadu extension is
-> > > > > available.
-> > > 
-> > > So we talked about this yesterday during the linux-riscv patchwork meeting.
-> > > We came to the conclusion that we should not wait for the SBI FWFT extension
-> > > to enable Svadu but instead, it should be enabled by default by openSBI if
-> > > the extension is present in the device tree. This is because we did not find
-> > > any backward compatibility issues, meaning that enabling Svadu should not
-> > > break any S-mode software.
-> > Unfortunately I joined yesterday's patchwork call late and missed this
-> > discussion. I'm still not sure how we avoid concerns with S-mode software
-> > expecting exceptions by purposely not setting A/D bits, but then not
-> > getting those exceptions.
-> 
-> 
-> Most other architectures implement hardware A/D updates, so I don't see
-> what's specific in riscv. In addition, if an OS really needs the exceptions,
-> it can always play with the page table permissions to achieve such
-> behaviour.
-
-Hmm, yeah we're probably pretty safe since sorting this out is just one of
-many things an OS will have to learn to manage when getting ported. Also,
-handling both svade and svadu at boot is trivial since the OS simply needs
-to set the A/D bits when creating the PTEs or have exception handlers
-which do nothing but set the bits ready just in case.
-
-> 
-> 
-> > 
-> > > This is what you did in your previous versions of
-> > > this patchset so the changes should be easy. This behaviour must be added to
-> > > the dtbinding description of the Svadu extension.
-> > > 
-> > > Another thing that we discussed yesterday. There exist 2 schemes to manage
-> > > the A/D bits updates, Svade and Svadu. If a platform supports both
-> > > extensions and both are present in the device tree, it is M-mode firmware's
-> > > responsibility to provide a "sane" device tree to the S-mode software,
-> > > meaning the device tree can not contain both extensions. And because on such
-> > > platforms, Svadu is more performant than Svade, Svadu should be enabled by
-> > > the M-mode firmware and only Svadu should be present in the device tree.
-> > I'm not sure firmware will be able to choose svadu when it's available.
-> > For example, platforms which want to conform to the upcoming "Server
-> > Platform" specification must also conform to the RVA23 profile, which
-> > mandates Svade and lists Svadu as an optional extension. This implies to
-> > me that S-mode should be boot with both svade and svadu in the DT and with
-> > svade being the active one. Then, S-mode can choose to request switching
-> > to svadu with FWFT.
-> 
-> 
-> The problem is that FWFT is not there and won't be there for ~1y (according
-> to Anup). So in the meantime, we prevent all uarchs that support Svadu to
-> take advantage of this.
-
-I think we should have documented behaviors for all four possibilities
-
- 1. Neither svade nor svadu in DT -- current behavior
- 2. Only svade in DT -- current behavior
- 3. Only svadu in DT -- expect hardware A/D updating
- 4. Both svade and svadu in DT -- current behavior, but, if we have FWFT,
-    then use it to switch to svadu. If we don't have FWFT, then, oh well...
-
-Platforms/firmwares that aren't concerned with the profiles can choose (3)
-and Linux is fine. Those that do want to conform to the profile will
-choose (4) but Linux won't get the benefit of svadu until it also gets
-FWFT.
-
-IOW, I think your proposal is fine except for wanting to document in the
-DT bindings that only svade or svadu may be provided, since I think we'll
-want both to be allowed eventually.
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQWxleCwKCk9uIFRodSwgRmViIDEsIDIwMjQgYXQgMTI6MDTigK9BTSBBbGV4YW5kcmUgR2hp
+dGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gVGhlIHByZXZlbnRpdmUgc2Zl
+bmNlLnZtYSB3ZXJlIGVtaXR0ZWQgYmVjYXVzZSBuZXcgbWFwcGluZ3MgbXVzdCBiZSBtYWRlCj4g
+dmlzaWJsZSB0byB0aGUgcGFnZSB0YWJsZSB3YWxrZXIgYnV0IFN2dnB0YyBndWFyYW50ZWVzIHRo
+YXQgeFJFVCBhY3QgYXMKPiBhIGZlbmNlLCBzbyBubyBuZWVkIHRvIHNmZW5jZS52bWEgZm9yIHRo
+ZSB1YXJjaHMgdGhhdCBpbXBsZW1lbnQgdGhpcwo+IGV4dGVuc2lvbi4KPgo+IFRoaXMgYWxsb3dz
+IHRvIGRyYXN0aWNhbGx5IHJlZHVjZSB0aGUgbnVtYmVyIG9mIHNmZW5jZS52bWEgZW1pdHRlZDoK
+Pgo+ICogVWJ1bnR1IGJvb3QgdG8gbG9naW46Cj4gQmVmb3JlOiB+NjMwayBzZmVuY2Uudm1hCj4g
+QWZ0ZXI6ICB+MjAwayBzZmVuY2Uudm1hCj4KPiAqIGx0cCAtIG1tYXBzdHJlc3MwMQo+IEJlZm9y
+ZTogfjQ1awo+IEFmdGVyOiAgfjYuM2sKPgo+ICogbG1iZW5jaCAtIGxhdF9wYWdlZmF1bHQKPiBC
+ZWZvcmU6IH42NjVrCj4gQWZ0ZXI6ICAgODMyICghKQo+Cj4gKiBsbWJlbmNoIC0gbGF0X21tYXAK
+PiBCZWZvcmU6IH41NDZrCj4gQWZ0ZXI6ICAgNzE4ICghKQo+Cj4gU2lnbmVkLW9mZi1ieTogQWxl
+eGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL3BndGFibGUuaCB8IDE2ICsrKysrKysrKysrKysrKy0KPiAgYXJjaC9yaXNj
+di9tbS9wZ3RhYmxlLmMgICAgICAgICAgfCAxMyArKysrKysrKysrKysrCj4gIDIgZmlsZXMgY2hh
+bmdlZCwgMjggaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
+Z3RhYmxlLmgKPiBpbmRleCAwYzk0MjYwYjVkMGMuLjUwOTg2ZTRjNDYwMSAxMDA2NDQKPiAtLS0g
+YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vcGd0YWJsZS5oCj4gQEAgLTQ3Myw2ICs0NzMsOSBAQCBzdGF0aWMgaW5saW5lIHZv
+aWQgdXBkYXRlX21tdV9jYWNoZV9yYW5nZShzdHJ1Y3Qgdm1fZmF1bHQgKnZtZiwKPiAgICAgICAg
+ICAgICAgICAgc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsIHVuc2lnbmVkIGxvbmcgYWRkcmVz
+cywKPiAgICAgICAgICAgICAgICAgcHRlX3QgKnB0ZXAsIHVuc2lnbmVkIGludCBucikKPiAgewo+
+ICsgICAgICAgYXNtX3ZvbGF0aWxlX2dvdG8oQUxURVJOQVRJVkUoIm5vcCIsICJqICVsW3N2dnB0
+Y10iLCAwLCBSSVNDVl9JU0FfRVhUX1NWVlBUQywgMSkKPiArICAgICAgICAgICAgICAgICAgICAg
+ICAgIDogOiA6IDogc3Z2cHRjKTsKPiArCj4gICAgICAgICAvKgo+ICAgICAgICAgICogVGhlIGtl
+cm5lbCBhc3N1bWVzIHRoYXQgVExCcyBkb24ndCBjYWNoZSBpbnZhbGlkIGVudHJpZXMsIGJ1dAo+
+ICAgICAgICAgICogaW4gUklTQy1WLCBTRkVOQ0UuVk1BIHNwZWNpZmllcyBhbiBvcmRlcmluZyBj
+b25zdHJhaW50LCBub3QgYQo+IEBAIC00ODIsMTIgKzQ4NSwyMyBAQCBzdGF0aWMgaW5saW5lIHZv
+aWQgdXBkYXRlX21tdV9jYWNoZV9yYW5nZShzdHJ1Y3Qgdm1fZmF1bHQgKnZtZiwKPiAgICAgICAg
+ICAqLwo+ICAgICAgICAgd2hpbGUgKG5yLS0pCj4gICAgICAgICAgICAgICAgIGxvY2FsX2ZsdXNo
+X3RsYl9wYWdlKGFkZHJlc3MgKyBuciAqIFBBR0VfU0laRSk7Cj4gKwo+ICtzdnZwdGM6Cj4gKyAg
+ICAgICAvKgo+ICsgICAgICAgICogU3Z2cHRjIGd1YXJhbnRlZXMgdGhhdCB4UkVUIGFjdCBhcyBh
+IGZlbmNlLCBzbyB3aGVuIHRoZSB1YXJjaCBkb2VzCj4gKyAgICAgICAgKiBub3QgY2FjaGUgaW52
+YWxpZCBlbnRyaWVzLCB3ZSBkb24ndCBoYXZlIHRvIGRvIGFueXRoaW5nLgo+ICsgICAgICAgICov
+Cj4gKyAgICAgICA7Cj4gIH0KCkZyb20gdGhlIHBlcnNwZWN0aXZlIG9mIFJJU0MtViBhcmNoLCB0
+aGUgbG9naWMgb2YgdGhpcyBwYXRjaCBpcwpyZWFzb25hYmxlLiBUaGUgY29kZSBvZiBtbSBjb21t
+IHN1Ym1vZHVsZSBtYXkgYmUgbWlzc2luZwp1cGRhdGVfbW11X2NhY2hlX3JhbmdlKCksIGZvciBl
+eGFtcGxlOiB0aGVyZSBpcyBubyBmbHVzaCBUTEIgaW4KcmVtYXBfcHRlX3JhbmdlKCkgYWZ0ZXIg
+dXBkYXRpbmcgcHRlLgpJIHdpbGwgc2VuZCBhIHBhdGNoIHRvIG1tLyB0byBmaXggdGhpcyBwcm9i
+bGVtIG5leHQuCgoKVGhhbmtzLApZdW5odWkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
