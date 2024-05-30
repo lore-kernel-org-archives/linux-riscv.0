@@ -4,90 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3240BC27C44
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 15:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B190C25B74
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 15:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NFiulG/oE4WkEfX/fA3fzsjubbcUrGrz9gGYvxkZA8g=; b=lXVwXrw/vGO9Ws
-	A5QYsQts21UzdLcpkzpyYnWlezRlrHbhgy7p5TWntUjUSenAWa0lkGgDe+gX3fLlNwudzb1DKc9c8
-	yBtozoFYO4l38gfDYLMasaV6dE6xB6qcUhipOy/rk5+0ukIORdEVrhuPmyedNGhGl8A87C7woJK8H
-	q4jzbYTo3bVbYhfkdstdUiOAA15W/zzCNlrKYMc5a3ScBNqOqwZy5828AQAXep3dnyaLPjTEFurU/
-	H1T7VjedQBDrcwO4UqeWAdTFP11FTvtjjma57tmqKwoEdka7NrGTlQSDiyW+GiUXKPPotB3dLjovD
-	JBXnHnhGbsd2A1Az/Yaw==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=Es8vDQg5GjqzLkNo2sD/jNiOIZIY0tgPadIE2g/cSrA=; b=ZIu9rlXMXao7KjDCRitGTFiRpv
+	HKR9cFSCL4ChSuH6CP4ICTTBbS0kv3AitcW/Mt6NbuOC1AroplUgNP6tZi/SxAdPqLsAyUktRxBUp
+	fA7D/B6WleOkhvxlRo8dxLVyhb4CEroxhvqBYpwRLrRCQvHegKCzKTpn4wOZL41MC7TIWw9CQ02D+
+	3rNslpPHpFVberFZyGXc+BwbOItCAPO9RkWuuUYg9q/psHHmXoq+Qfjn/Tf47CE8n5q5Zp1pOw95R
+	4qrS1PRf6LT/wTrAEpBU777SxDfvuHVAEflXQNV/XRtevFraiR3MiqgQq13q0lmly1VWx7CH/RIKl
+	vch6kB1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sChfD-00000007hte-1LpZ;
-	Thu, 30 May 2024 15:25:59 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1sChio-00000007iXj-32qq;
+	Thu, 30 May 2024 15:29:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sChf7-00000007hor-3LKE
+	id 1sChil-00000007iWy-0E2n
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 15:25:57 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-70231ac9093so758599b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 08:25:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717082746; x=1717687546; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=xpRgYa4dwqPbFkBgIi25CyTHChxu5ecl64Veh8E6qX4=;
-        b=rkWa90+iZYA7e/Xd88bpQKH7hFPphh/c4oT5YBsaMQfWP0a6WcNKjubxknX6fgj/nJ
-         kIlhT+3qUCR8/1o+uzbfuUoyMyXkMnUQSjrcCa7kvmqiMCVn5KziQSnd2jPlyIPcGWlM
-         9vd+ncDBi2MGPjI9sDZuiDBXirCNbF7byeBt5lmuXkTq8u70VuVjLkFlxuuYj+ZeSIFi
-         6pstFzrceMwFaFKlGfBPwNSOi+ZJGOEOGued2NjgarKbt1NnM/wB9eOUzp0pW/8GeZhA
-         VNbKglZAFtBsgc574mTXCHzH1kJ16f/Ft268ehHKzd+R+kcdLhLpitypCw7EcMMMu7kI
-         +upQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717082746; x=1717687546;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xpRgYa4dwqPbFkBgIi25CyTHChxu5ecl64Veh8E6qX4=;
-        b=pDvbWDSDSMUFxgcqwHtjxeMVd6/9ELmHasKse9P2EpehiMX7THNXLqpBZ9NHny1Kr2
-         J1bTQP3Gil5SKgrnSlEXIETa/jlh6VYZDX9k8GJ3rS3es6isR07lchQ8ZoNYnAawuSgz
-         FDdxtiqDXRsL4AzMaJcsziK8t3eJAiZ6izY3sBo0x+ROZZL3QATrg8ojxNeChePb94Pm
-         XRPJNAjrxYcna/KWWldlBqXe6ShB8ApgUW0/l/jJzOCqkzn9VXKWnER/s1NFGUz76JYP
-         hy88c0lKw2U3F5jAAuP9VMGv5iTrayT7YUi82zNYq+VGmj7Uu5EQcCnG9TvgyH8pXIPd
-         H+3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXZQH5holqEPMJxYf3lruneWb1zaDqptUBB6iMxLxFEzRc6KBcvnUKYcm89hObcaw6AdUJmXP/fUAoDbSNyRACqcAqibZ3JwLaR5ovIDSws
-X-Gm-Message-State: AOJu0YwvJnXNV5tbynNKIzq9OEtJyS/jxxfvui4rmI7u+mAoxEShx8aR
-	MP7L+lXmLK3qrM4kJCTPolIZ2si0cAIa2BZAJgXGjh5lQVYWN/ce0B6KI9XN5UY=
-X-Google-Smtp-Source: AGHT+IEborn6L609viyJY6HL00IRTeefiOYqFrtGZGbG+Un7sype/7J809TXJhOL2x2fa0cmRNR4eg==
-X-Received: by 2002:a05:6a20:5647:b0:1ad:5325:d9b7 with SMTP id adf61e73a8af0-1b26460b6bbmr2226154637.52.1717082746244;
-        Thu, 30 May 2024 08:25:46 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7022b6c6047sm1848587b3a.46.2024.05.30.08.25.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 May 2024 08:25:45 -0700 (PDT)
-Date: Thu, 30 May 2024 08:25:42 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Anup Patel <anup@brainfault.org>, Shuah Khan <shuah@kernel.org>,
-	Atish Patra <atishp@atishpatra.org>, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v5 09/16] riscv: hwprobe: export Zca, Zcf, Zcd and Zcb
- ISA extensions
-Message-ID: <ZliadoA5v5obWNYn@ghost>
-References: <20240517145302.971019-1-cleger@rivosinc.com>
- <20240517145302.971019-10-cleger@rivosinc.com>
+	Thu, 30 May 2024 15:29:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9909660917;
+	Thu, 30 May 2024 15:29:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AB4EC2BBFC;
+	Thu, 30 May 2024 15:29:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717082977;
+	bh=Gi2b4tAeapnVFAVHATW9DZyWTw7+azG8pibOfQ/C8e8=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=vRP95coT68pAHJGBDi9kVMTJ79uAxqNsBKkOE7p29gfV0pBjoJlkwJDsQn8qnUevx
+	 j/BWVwTSOHbEz6cNq3tQ6JsSgd4RNTrmK3YTK4ARwD+WfahSqquHNcXLySqnILMPFQ
+	 SKCLHykULGRWDBwl/LIVAT6TxMXiXIL7qPJPATG+gZVAvfCG0SAGyMQCh0X+b7lZId
+	 Ilau25M9Vr7x40oj/UCveD5JnyisJIUhvp7NmF4PlqzcFCuqNQR2XeHJREN17NwS8K
+	 1arLemDqGbB2LiXhzTlZO+E1Ah3jD+HKdU6Auz53G2IRp9wDBzp+MqYHeie6qncroH
+	 Vu8kMXAzmFpUQ==
+Date: Thu, 30 May 2024 10:29:36 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240517145302.971019-10-cleger@rivosinc.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Haylen Chu <heylenay@outlook.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+ linux-pm@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
+ Inochi Amaoto <inochiama@outlook.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Chen Wang <unicorn_wang@outlook.com>, devicetree@vger.kernel.org, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+In-Reply-To: <SEYPR01MB4221BD44992A23E2B0061023D7F32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+References: <SEYPR01MB422119B40F4CF05B823F93DCD7F32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+ <SEYPR01MB4221BD44992A23E2B0061023D7F32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+Message-Id: <171708297616.2297193.3978844021510397590.robh@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: thermal: sophgo,cv180x-thermal: Add
+ Sophgo CV180x thermal
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_082553_849678_E1AE241B 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20240530_082939_182318_FF476A3E 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,121 +78,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 17, 2024 at 04:52:49PM +0200, Cl=E9ment L=E9ger wrote:
-> Export Zca, Zcf, Zcd and Zcb ISA extension through hwprobe.
-> =
 
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+On Thu, 30 May 2024 13:48:25 +0000, Haylen Chu wrote:
+> Add devicetree binding documentation for thermal sensors integrated in
+> Sophgo CV180X SoCs.
+> 
+> Signed-off-by: Haylen Chu <heylenay@outlook.com>
 > ---
->  Documentation/arch/riscv/hwprobe.rst  | 20 ++++++++++++++++++++
->  arch/riscv/include/uapi/asm/hwprobe.h |  4 ++++
->  arch/riscv/kernel/sys_hwprobe.c       |  4 ++++
->  3 files changed, 28 insertions(+)
-> =
+>  .../thermal/sophgo,cv180x-thermal.yaml        | 46 +++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/thermal/sophgo,cv180x-thermal.yaml
+> 
 
-> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/ri=
-scv/hwprobe.rst
-> index 48be38e0b788..cad84f51412d 100644
-> --- a/Documentation/arch/riscv/hwprobe.rst
-> +++ b/Documentation/arch/riscv/hwprobe.rst
-> @@ -196,6 +196,26 @@ The following keys are defined:
->         supported as defined in the RISC-V ISA manual starting from commit
->         58220614a5f ("Zimop is ratified/1.0").
->  =
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> +  * :c:macro:`RISCV_HWPROBE_EXT_ZCA`: The Zca extension part of Zc* stan=
-dard
-> +       extensions for code size reduction, as ratified in commit 8be3419=
-c1c0
-> +       ("Zcf doesn't exist on RV64 as it contains no instructions") of
-> +       riscv-code-size-reduction.
-> +
-> +  * :c:macro:`RISCV_HWPROBE_EXT_ZCB`: The Zcb extension part of Zc* stan=
-dard
-> +       extensions for code size reduction, as ratified in commit 8be3419=
-c1c0
-> +       ("Zcf doesn't exist on RV64 as it contains no instructions") of
-> +       riscv-code-size-reduction.
-> +
-> +  * :c:macro:`RISCV_HWPROBE_EXT_ZCD`: The Zcd extension part of Zc* stan=
-dard
-> +       extensions for code size reduction, as ratified in commit 8be3419=
-c1c0
-> +       ("Zcf doesn't exist on RV64 as it contains no instructions") of
-> +       riscv-code-size-reduction.
-> +
-> +  * :c:macro:`RISCV_HWPROBE_EXT_ZCF`: The Zcf extension part of Zc* stan=
-dard
-> +       extensions for code size reduction, as ratified in commit 8be3419=
-c1c0
-> +       ("Zcf doesn't exist on RV64 as it contains no instructions") of
-> +       riscv-code-size-reduction.
-> +
->  * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains perfor=
-mance
->    information about the selected set of processors.
->  =
+yamllint warnings/errors:
 
-> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/u=
-api/asm/hwprobe.h
-> index 3b16a12204b1..652b2373729f 100644
-> --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> @@ -61,6 +61,10 @@ struct riscv_hwprobe {
->  #define		RISCV_HWPROBE_EXT_ZICOND	(1ULL << 35)
->  #define		RISCV_HWPROBE_EXT_ZIHINTPAUSE	(1ULL << 36)
->  #define		RISCV_HWPROBE_EXT_ZIMOP		(1ULL << 37)
-> +#define		RISCV_HWPROBE_EXT_ZCA		(1ULL << 38)
-> +#define		RISCV_HWPROBE_EXT_ZCB		(1ULL << 39)
-> +#define		RISCV_HWPROBE_EXT_ZCD		(1ULL << 40)
-> +#define		RISCV_HWPROBE_EXT_ZCF		(1ULL << 41)
->  #define RISCV_HWPROBE_KEY_CPUPERF_0	5
->  #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
->  #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwpr=
-obe.c
-> index fc6f4238f0b3..11def345a42d 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -113,6 +113,8 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pa=
-ir,
->  		EXT_KEY(ZICOND);
->  		EXT_KEY(ZIHINTPAUSE);
->  		EXT_KEY(ZIMOP);
-> +		EXT_KEY(ZCA);
-> +		EXT_KEY(ZCB);
->  =
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/sophgo,cv180x-thermal.example.dtb: temperature_sensor@30e0000: 'clock-names' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/thermal/sophgo,cv180x-thermal.yaml#
 
->  		if (has_vector()) {
->  			EXT_KEY(ZVBB);
-> @@ -133,6 +135,8 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pa=
-ir,
->  			EXT_KEY(ZFH);
->  			EXT_KEY(ZFHMIN);
->  			EXT_KEY(ZFA);
-> +			EXT_KEY(ZCD);
-> +			EXT_KEY(ZCF);
->  		}
->  #undef EXT_KEY
->  	}
-> -- =
+doc reference errors (make refcheckdocs):
 
-> 2.43.0
-> =
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/SEYPR01MB4221BD44992A23E2B0061023D7F32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com
 
-> =
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
 _______________________________________________
