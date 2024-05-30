@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F901C25B74
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 16:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D92DC25B76
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 16:45:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=ZSoUtXWlz+fo9P+XYQUZJ2hSCCNzh5YTJDIyFsv4sVk=; b=Z6t9sEKfSGJm/2
-	v4max+k5uWzE8rz1KH5duuuJjVQKwGtheI0tGYjDbwWx0BN2QLgH9uQyAZNqqEpNDEkyJU53RaOCT
-	PMgWPuFvhnynN+YpD9o+gWgDZhf61JpvYvV2xl2qTkQkj9SI7gBBXTp0WO4sECO1+WxIwtx2iQ5W1
-	zK7GuHAlTFq9m9/a9P0GnBW1OxsJCksIlJ3dcb/Q/HR7PC67Lhnies8bscngu0GdITiKcnAPF3Un8
-	azORUzs6sysx99Wd0DhZ6NAeKFoeLkMksm0J7sQaNmsBC2wU0CMIbOSg9AoFHwa7TSBB9q++5xAU5
-	37v8kxV+EWk6lAecNRRg==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-ID:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ce5K1oVhwy4Gf39lm+Aui2bF10lxhtzPtfLP/QUwEJY=; b=1hlQzgcT7kIRXt
+	VWirHifX4J8EtCQwPobdpQq/nZ7JXSWuNR0hajhdl7Pe0OyF6XYOLViaeTSXi9h/obP0OwVy9NpeH
+	JEpwFV+ctzkQxG0TnUTGSh3yB+k3EL0g/QAVHSfPvXZc5vsj/xEXoNGJXuylBtKJ56Jz4aJtltCIa
+	4uFbcFudTfCXyyO+VjvSfVU2Kl2nuBK73/1irSO7c64eGqxAreYeEkPyxo7FK/FpkmNCuXxxrK65T
+	YyqX36mZObdQBbj0B2vkboFJjNn26XiCrwSmWEt9ykGev+I5+6daWlj+FomzLwawwAxdulu1feoUB
+	xTg3gQOA+riwjCQM0nfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCirL-00000007sT6-460K;
-	Thu, 30 May 2024 16:42:35 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sCitv-00000007soh-04lV;
+	Thu, 30 May 2024 16:45:15 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCirJ-00000007sRs-0q5i
+	id 1sCitr-00000007snX-0jTO
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 16:42:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 9CF56CE1AF7;
-	Thu, 30 May 2024 16:42:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98529C2BBFC;
-	Thu, 30 May 2024 16:42:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717087348;
-	bh=0dLZR7E5oKp84UdjpgU9+xrQH9dWMGNNbHW3aibuRLE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=OWEshGzsUQnWA7DWaY96TZRjvxcpw45CwlzVYBmCQ9RGabDaYp2eoxQV8tJQOcXzx
-	 blLU9+fJH4EC38RQmg8u93Yuf083lfaU46sFwhfLnVlMcbIgkRFJ8l0HpAng2ru2qE
-	 XlL+qQSJqXDygXnvdmwXd0RvOdUyyWBW5Sqmv/t2Lk3a0qghcTJQGMbxpjC5DD5ZtD
-	 V2LClagvE3xmqphXeBEDCL7ZTm6N7v2CVEQ9LuCIgohD7Q7F8UgJRM1NjqtUBYAn0y
-	 Zva8STI9ImMw30THqyGM+EDxhLqM2N+7C9d/TFphujokr6ZBFcGjQcIWCT7fFE4nKF
-	 UeQVBxWaS6gVQ==
-Date: Thu, 30 May 2024 11:42:26 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: daire.mcnamara@microchip.com
-Cc: conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, bhelgaas@google.com,
-	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v3 7/7] PCI: microchip: Re-partition code between probe()
- and init()
-Message-ID: <20240530164226.GA550240@bhelgaas>
+	Thu, 30 May 2024 16:45:13 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1f61f775738so6125185ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 30 May 2024 09:45:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717087509; x=1717692309; darn=lists.infradead.org;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=xOzegM0vd+pENLEU3lhD32Gn7D6Mcf1VzkpF3e85750=;
+        b=PF+YcwpDPdTKRZLUtZi5rgWgkWmMTY5+sEEbgavwZ+w2HjtY5356JNXFkyJlyHY/02
+         CAMiNqQmEPugDxsSwUCoDvxmtSgdCS+i/MmnrX6HixC/BDI9wsm9ItLBPdHW2LUZs+7F
+         zLPAwUlCe5Ng8FWe0BpruqNxedV0UrC7xK6LBU7dN6BJPzi93LRtB/SKP+TIQF+zVoF6
+         /n4fYQFf58EJCA5D4KK5Sw8WNkmvx+nDiaK9OibqoUoPAi+lZVy+Jb/1z2UbhA8yIqGK
+         A2adAcW7VtEcsiDSBCeMOx47+Puoj/WnuTb47rORCiKnD+k73/l6T9c0hI9d0SZ/g6GZ
+         WzZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717087509; x=1717692309;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xOzegM0vd+pENLEU3lhD32Gn7D6Mcf1VzkpF3e85750=;
+        b=IDKiHcgBM+V+mng8jYyYXIUvl3rNlANkle2dUC6Zc5oT8p3cQwKB0JBJXYne08xXtE
+         OhapWfqEfd9vxruRbqo2e7gDPIbmU0oX4shLK67o2fibYzwNEmdJ3BioCDJItazO8vOS
+         oxgZfzitQ2yS0f5/2ssbsZbdMfR6TpnCuF/g54Hj4aFHzhP1eDLsrWxH2UU3lR1T4/cE
+         9PyZeiva6QTJhYXPCdfbldS/tRRh7zP3j8KtWEkneE2PC+3iGpK4oJP8hU+fiVOuy3qA
+         vFlDkslqbW31qrZj+SoOWEIJFex/fCYj2phXvI66iRBFIaeIlPs2f7EYisoJYIkhEWKK
+         RD8g==
+X-Gm-Message-State: AOJu0Yz+t/yaqbBUQunHhzz6E22jlRH9AvBfLM1xo0DoGnVMKpn/nsTj
+	39eoTCuRcmQOZwNtI164vMGnTWcAPAoCgXKZdPkqj6953XkEe0rASrFLSqWh7SM=
+X-Google-Smtp-Source: AGHT+IF5ZCUTHA4RbuWZrUM95v4mHrXe0BsCSWZE2Kc+Ge5l/lR0EiQ15vA/YZsp2wheVERfoRTC2Q==
+X-Received: by 2002:a17:902:cec3:b0:1f4:8190:33c3 with SMTP id d9443c01a7336-1f61962ed55mr31844515ad.40.1717087509402;
+        Thu, 30 May 2024 09:45:09 -0700 (PDT)
+Received: from localhost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f6312b1fd5sm472665ad.172.2024.05.30.09.45.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 09:45:09 -0700 (PDT)
+Subject: [PATCH] Revert "riscv: mm: accelerate pagefault when badaccess"
+Date: Thu, 30 May 2024 09:44:51 -0700
+Message-ID: <20240530164451.21336-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.45.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230728131401.1615724-8-daire.mcnamara@microchip.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+  aou@eecs.berkeley.edu, surenb@google.com, akpm@linux-foundation.org, alexghiti@rivosinc.com,
+  wangkefeng.wang@huawei.com, jszhang@kernel.org, ben@decadent.org.uk, Bjorn Topel <bjorn@rivosinc.com>,
+  willy@infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_094233_442118_63358AF5 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20240530_094511_239586_A941E2E7 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +92,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 28, 2023 at 02:14:01PM +0100, daire.mcnamara@microchip.com wrote:
-> From: Daire McNamara <daire.mcnamara@microchip.com>
-> 
-> Continuing to use pci_host_common_probe() for the PCIe Root Complex on
-> PolarFire SoC was leading to an extremely large _init() function and
-> some unnatural code flow. Re-partition so some tasks are done in
-> a _probe() routine, which calls pci_host_common_probe() and then use a
-> much smaller _init() function, mainly to enable interrupts after address
-> translation tables are set up.
-> ...
+From: Palmer Dabbelt <palmer@rivosinc.com>
 
-> +++ b/drivers/pci/controller/pcie-microchip-host.c
-> @@ -384,6 +384,8 @@ static struct {
->  
->  static char poss_clks[][5] = { "fic0", "fic1", "fic2", "fic3" };
->  
-> +static struct mc_pcie *port;
-> ...
+I accidentally picked up an earlier version of this patch, which had
+already landed via mm.  The patch  I picked up contains a bug, which I
+kept as I thought it was a fix.  So let's just revert it.
 
-> +static int mc_host_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
->  	void __iomem *bridge_base_addr;
->  	int ret;
->  	u32 val;
-> @@ -1112,13 +1141,8 @@ static int mc_platform_init(struct pci_config_window *cfg)
->  	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+This reverts commit 4c6c0020427a4547845a83f7e4d6085e16c3e24f.
 
-Saving this per-device pointer in a static singleton is kind of
-problematic.  We may know there can only be a single instance right
-now, but even if that remains true forever for this driver, we don't
-want this pattern to be be copied elsewhere.
+Fixes: 4c6c0020427a ("riscv: mm: accelerate pagefault when badaccess")
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+ arch/riscv/mm/fault.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-I didn't look hard enough to figure out exactly what problem this
-singleton solves, but is there any other way to address it?
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index b3fcf7d67efb..5224f3733802 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -293,8 +293,8 @@ void handle_page_fault(struct pt_regs *regs)
+ 	if (unlikely(access_error(cause, vma))) {
+ 		vma_end_read(vma);
+ 		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
+-		tsk->thread.bad_cause = SEGV_ACCERR;
+-		bad_area_nosemaphore(regs, code, addr);
++		tsk->thread.bad_cause = cause;
++		bad_area_nosemaphore(regs, SEGV_ACCERR, addr);
+ 		return;
+ 	}
+ 
+-- 
+2.45.1
 
-I suspect it's related to using pci_host_common_probe(), and it's
-great to share that code, but it seems like that basically forces some
-non-ECAM initialization into the struct pci_ecam_ops.init() method
-where it doesn't really fit very well.
-
-Bjorn
 
 _______________________________________________
 linux-riscv mailing list
