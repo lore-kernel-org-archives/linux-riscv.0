@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C543C25B74
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 13:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0D9C25B74
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 May 2024 13:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aN2KgyCJKYsx1727KHB4ANsr/ajQCUjALwr40gJ6ajk=; b=uqHQHfxYQZBEEc
-	mCENIbyb1jFlMxmH334Ig38QXLnFuB2kJXDems8ytqYcXNKAz0kr4fS05Mu3hgTkFFKT6NpqngeMR
-	hIwUuGRpsIuXlR3dXOlHXaTRRlRmKm8IvJ5mefAwJrSeOmMs37RAB7WvJhyvWdk9enAfsyXe2oMsv
-	aOJyOrAxHQpHI7PzwUrNsv3u6kdNNeCcAPW+PMfZp5LS1VAkkmGb+HLL9Txb+zT/Q3M53ZPLXYl7N
-	lcdQtyXxffUY5N1WVgJ5MNyZVXM+jqye9tfP3Sab4Yu2fcU13lc9UbaDf7gncnqj4E/eCbcJ6QN5d
-	dld9HS8JBE6x9oGhJoxQ==;
+	List-Owner; bh=dCf8NVAonkXoPDYreUpMKbOs4DUlixG7vxgq22zfs6A=; b=SV166z0mwX8SZ9
+	NXPhnGrUXXhc82c00w3wwx6g6ugOTya9mXFUCQkAxRkkqL9HG+VmuFyxqQUkANDHNajRPs3VcSHNA
+	B0OwIw1kGP+PBDRqkbzRxe44quG+R70eEzp3+eJJA6ZNM8kVBZWRwQBuimqlW+SY12gAx2d8JoocK
+	tNLF6US+qdw8fhJDMcvzIWUrd9CR8Djxy2B/yymL/wZsRiFSB+ewrC++L7oIEWmoJ+7WNmoqlNlik
+	N/ZOkX28aHq8t3aQ4z1cMZ6KyZ07aoVyXUcqMH7bEGp3HXejqO1X0ZCPJH6oziCkwPLKMQSKGIUdb
+	w//Y6wdcAIB9y0Ypa7Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCfxL-00000007OSA-3unR;
-	Thu, 30 May 2024 13:36:35 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1sCg6n-00000007Pgz-3ZlI;
+	Thu, 30 May 2024 13:46:21 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCfxI-00000007ORm-3MiN
-	for linux-riscv@lists.infradead.org;
-	Thu, 30 May 2024 13:36:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1717076193; x=1748612193;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=dvXBBgEi4XiF4NuQUXxKbOsA/Dj0DKOKfST7p2/9ItM=;
-  b=O6bwwe+dq5xppBOkpmCyZmQIX9IDmow85rjiecdZn2hao+2ot7/L81DE
-   mCz3BgTM7s5y2bDmNOx/5DLcGqQrfbJD6MF8kSpUD6YcMOifDdRqtL1hY
-   hhpV+TiuPF102Rw/dpFG8MkSca0pjTlit4+UbRW3TNyhLFlhH0nbHcWt/
-   bv7YTBR2kWu7JQCe+5ZqfqO3aceiJKS9xqDc6k5wYIZqQhnFuzo/t5jot
-   9d5AJBHVLVZ1D9OTLLCR11bRZ2XXli+egPiruRiZ4a75q5yM0NBKEsdyo
-   IO65lXEZvG6OeFsvBOVEJigKcDC8vPdGlKxktBRwNs0IvevokFWHVRrnd
-   g==;
-X-CSE-ConnectionGUID: xu4cYXaDR0KpJ3uHsW41jw==
-X-CSE-MsgGUID: JkmaOeSkQLeHs9o/aJFkmg==
-X-IronPort-AV: E=McAfee;i="6600,9927,11088"; a="24681477"
-X-IronPort-AV: E=Sophos;i="6.08,201,1712646000"; 
-   d="scan'208";a="24681477"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 May 2024 06:36:30 -0700
-X-CSE-ConnectionGUID: py9lAhkhQA6O4KhnuZOthg==
-X-CSE-MsgGUID: 72ijirNkQJeIiou3cDt3UA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.08,201,1712646000"; 
-   d="scan'208";a="40733932"
-Received: from unknown (HELO 0610945e7d16) ([10.239.97.151])
-  by orviesa005.jf.intel.com with ESMTP; 30 May 2024 06:36:28 -0700
-Received: from kbuild by 0610945e7d16 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1sCfxB-000FOF-04;
-	Thu, 30 May 2024 13:36:25 +0000
-Date: Thu, 30 May 2024 21:36:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
-	Matthew Bystrin <dev.mbstr@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH 4/4] riscv: entry: Save a frame record for exceptions
-Message-ID: <202405302103.1V3ufzgK-lkp@intel.com>
-References: <20240530001733.1407654-5-samuel.holland@sifive.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240530001733.1407654-5-samuel.holland@sifive.com>
+	id 1sCg6j-00000007PfV-0wfW;
+	Thu, 30 May 2024 13:46:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 8A385CE1A95;
+	Thu, 30 May 2024 13:46:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA33CC32786;
+	Thu, 30 May 2024 13:46:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717076773;
+	bh=rmN/CuQwtYSCBMHu0PjHZJZkczGNhMDmrCHhNf4781Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=N6N7K8U1MYLtPsBvXFs4TMoPJIyyQYodKhzeKWKXvjBx6NnSqm1INEI5J2cr8vikJ
+	 VtxS0wca+ityVskAlyT+MKFjyA6a+eKjhLGTpvpFK6avUHBxTtppM/MtBIX9Kf2JW6
+	 1cNHssEUfIxrmIu773b+YJgI8rx8eJPlxl3PfJ0GS0vytuc65B11gdqoHD5F0rfteU
+	 2Pow+aOPjg9GKGIXfGdXH/Z2I5MoJPt19TYa0OpnaiRN+qrjNbLjCFa03IkHTMpkNL
+	 eoG5RDAmVlJ6hboF+ewwQXAt/Tcew5QW0uG5FhinzkhYw2gVlO48Jhg7GGaR90Lnhi
+	 AuqpdKi27HPng==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1sCg6d-00GuJ9-DW;
+	Thu, 30 May 2024 14:46:11 +0100
+Date: Thu, 30 May 2024 14:46:10 +0100
+Message-ID: <86y17rl8f1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Saravana Kannan <saravanak@google.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] of/irq: Factor out parsing of interrupt-map parent phandle+args from of_irq_parse_raw()
+In-Reply-To: <20240529-dt-interrupt-map-fix-v2-1-ef86dc5bcd2a@kernel.org>
+References: <20240529-dt-interrupt-map-fix-v2-0-ef86dc5bcd2a@kernel.org>
+	<20240529-dt-interrupt-map-fix-v2-1-ef86dc5bcd2a@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.2
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: robh@kernel.org, saravanak@google.com, apatel@ventanamicro.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240530_063632_922760_A76577D8 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240530_064617_689409_113338E6 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,228 +83,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
+On Wed, 29 May 2024 20:59:20 +0100,
+"Rob Herring (Arm)" <robh@kernel.org> wrote:
+> 
+> Factor out the parsing of interrupt-map interrupt parent phandle and its
+> arg cells to a separate function, of_irq_parse_imap_parent(), so that it
+> can be used in other parsing scenarios (e.g. fw_devlink).
+> 
+> There was a refcount leak on non-matching entries when iterating thru
+> "interrupt-map" which is fixed.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  drivers/of/irq.c        | 127 +++++++++++++++++++++++++++++-------------------
+>  drivers/of/of_private.h |   3 ++
+>  2 files changed, 79 insertions(+), 51 deletions(-)
+> 
+> diff --git a/drivers/of/irq.c b/drivers/of/irq.c
+> index 174900072c18..a7cdb892991e 100644
+> --- a/drivers/of/irq.c
+> +++ b/drivers/of/irq.c
+> @@ -25,6 +25,8 @@
+>  #include <linux/string.h>
+>  #include <linux/slab.h>
+>  
+> +#include "of_private.h"
+> +
+>  /**
+>   * irq_of_parse_and_map - Parse and map an interrupt into linux virq space
+>   * @dev: Device node of the device whose interrupt is to be mapped
+> @@ -96,6 +98,59 @@ static const char * const of_irq_imap_abusers[] = {
+>  	NULL,
+>  };
+>  
+> +const __be32 *of_irq_parse_imap_parent(const __be32 *imap, int len, struct of_phandle_args *out_irq)
+> +{
+> +	u32 intsize, addrsize;
+> +	struct device_node *np;
+> +
+> +	/* Get the interrupt parent */
+> +	if (of_irq_workarounds & OF_IMAP_NO_PHANDLE)
+> +		np = of_node_get(of_irq_dflt_pic);
+> +	else
+> +		np = of_find_node_by_phandle(be32_to_cpup(imap));
+> +	imap++;
+> +
+> +	/* Check if not found */
+> +	if (!np) {
+> +		pr_debug(" -> imap parent not found !\n");
+> +		return NULL;
+> +	}
+> +
+> +	/* Get #interrupt-cells and #address-cells of new
+> +		* parent
+> +		*/
 
-kernel test robot noticed the following build errors:
+nit: funky formatting.
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.10-rc1 next-20240529]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+	M.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Samuel-Holland/riscv=
--Fix-32-bit-call_on_irq_stack-frame-pointer-ABI/20240530-081923
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20240530001733.1407654-5-samuel.ho=
-lland%40sifive.com
-patch subject: [PATCH 4/4] riscv: entry: Save a frame record for exceptions
-config: riscv-randconfig-002-20240530 (https://download.01.org/0day-ci/arch=
-ive/20240530/202405302103.1V3ufzgK-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 13.2.0
-reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archive=
-/20240530/202405302103.1V3ufzgK-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new versio=
-n of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202405302103.1V3ufzgK-lkp@i=
-ntel.com/
-
-All errors (new ones prefixed by >>):
-
-   arch/riscv/kernel/probes/rethook_trampoline.S: Assembler messages:
->> arch/riscv/kernel/probes/rethook_trampoline.S:79: Error: illegal operand=
-s `addi sp,sp,-(PT_SIZE_ON_STACK)'
->> arch/riscv/kernel/probes/rethook_trampoline.S:90: Error: illegal operand=
-s `addi sp,sp,PT_SIZE_ON_STACK'
-
-
-vim +79 arch/riscv/kernel/probes/rethook_trampoline.S
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17   9  =
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  10  	.text
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  11  	.altmacro
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  12  =
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  13  	.macro save_all_base_regs
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  14  	REG_S x1,  PT_RA(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  15  	REG_S x3,  PT_GP(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  16  	REG_S x4,  PT_TP(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  17  	REG_S x5,  PT_T0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  18  	REG_S x6,  PT_T1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  19  	REG_S x7,  PT_T2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  20  	REG_S x8,  PT_S0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  21  	REG_S x9,  PT_S1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  22  	REG_S x10, PT_A0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  23  	REG_S x11, PT_A1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  24  	REG_S x12, PT_A2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  25  	REG_S x13, PT_A3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  26  	REG_S x14, PT_A4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  27  	REG_S x15, PT_A5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  28  	REG_S x16, PT_A6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  29  	REG_S x17, PT_A7(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  30  	REG_S x18, PT_S2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  31  	REG_S x19, PT_S3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  32  	REG_S x20, PT_S4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  33  	REG_S x21, PT_S5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  34  	REG_S x22, PT_S6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  35  	REG_S x23, PT_S7(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  36  	REG_S x24, PT_S8(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  37  	REG_S x25, PT_S9(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  38  	REG_S x26, PT_S10(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  39  	REG_S x27, PT_S11(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  40  	REG_S x28, PT_T3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  41  	REG_S x29, PT_T4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  42  	REG_S x30, PT_T5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  43  	REG_S x31, PT_T6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  44  	.endm
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  45  =
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  46  	.macro restore_all_base_regs
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  47  	REG_L x3,  PT_GP(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  48  	REG_L x4,  PT_TP(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  49  	REG_L x5,  PT_T0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  50  	REG_L x6,  PT_T1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  51  	REG_L x7,  PT_T2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  52  	REG_L x8,  PT_S0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  53  	REG_L x9,  PT_S1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  54  	REG_L x10, PT_A0(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  55  	REG_L x11, PT_A1(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  56  	REG_L x12, PT_A2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  57  	REG_L x13, PT_A3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  58  	REG_L x14, PT_A4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  59  	REG_L x15, PT_A5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  60  	REG_L x16, PT_A6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  61  	REG_L x17, PT_A7(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  62  	REG_L x18, PT_S2(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  63  	REG_L x19, PT_S3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  64  	REG_L x20, PT_S4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  65  	REG_L x21, PT_S5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  66  	REG_L x22, PT_S6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  67  	REG_L x23, PT_S7(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  68  	REG_L x24, PT_S8(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  69  	REG_L x25, PT_S9(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  70  	REG_L x26, PT_S10(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  71  	REG_L x27, PT_S11(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  72  	REG_L x28, PT_T3(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  73  	REG_L x29, PT_T4(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  74  	REG_L x30, PT_T5(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  75  	REG_L x31, PT_T6(sp)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  76  	.endm
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  77  =
-
-76329c693924d8 arch/riscv/kernel/probes/rethook_trampoline.S Cl=E9ment L=E9=
-ger 2023-10-24  78  SYM_CODE_START(arch_rethook_trampoline)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17 @79  	addi sp, sp, -(PT_SIZE_ON_STACK)
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  80  	save_all_base_regs
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  81  =
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  82  	move a0, sp /* pt_regs */
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  83  =
-
-b57c2f12409845 arch/riscv/kernel/probes/rethook_trampoline.S Binglei Wang  =
-2022-10-25  84  	call arch_rethook_trampoline_callback
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  85  =
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  86  	/* use the result as the return-address */
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  87  	move ra, a0
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  88  =
-
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17  89  	restore_all_base_regs
-c22b0bcb1dd024 arch/riscv/kernel/probes/kprobes_trampoline.S Guo Ren       =
-2020-12-17 @90  	addi sp, sp, PT_SIZE_ON_STACK
-
--- =
-
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
