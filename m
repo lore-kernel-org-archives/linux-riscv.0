@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B46E9C25B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 16:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF7CC27C50
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 16:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WKoDpx5K8dV4h1zi291/ny/6JiOJQqvXXC/KjIfyVs4=; b=s70VY+irae4850
-	dT813oBXIHM8X7CVW7dFfDXAeTscW6UQSb4ZDCT8w9CZnOAPaKVC/8hVOn2BIC377PxCwt/VXe8Jt
-	Wcsec2AXk/AVxH3lTJPGgA1Te+M6pX5KWeLFXklQNqN3TJ1rwqQCNgDgTTjJM7apkTJiyPCGF2W1A
-	VZoKdfvXl7V+RdBZsfpIX98g9xsnX48pnuo0LmCLisZhVweEu5YZR4QgideELSfocpQ4Y8Kw+dygr
-	uUMDp7Urmrl622+s3aYQiPTCIJE3mJNAipQlgVF4PbP/MdiFGCIVuKTWFlztLP+T4WyYLxDpiOkyj
-	7Z052VDGH6iUSUfgKPOw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R8U0e6/cWMGiity/2dIpY0/qkkcA3bGqeq8wEG3Siew=; b=2wxkRkpd8g7poJ
+	6TyFIJJL2cjxN6vWp4K5/eIkZx2G3yIhxLLKsUY+wX4ImMDcnYbZ9LYtWLrDVk61ELBO6+Dt1jQJd
+	F0lNSTmcwGqFafue2XGnQXlbEjDkpWj2Wp0bRb+L4bvxPVOPrFbXQ2dnuAOAk7nIu0R9gKEr1gJw1
+	TO8ULQvs5zVbYa3vG5zzj63L7gLKXSeHNUAmohw+YWCXth8AT4t6gvW54Xpy/Cbd29DU/PRCzpTTy
+	9azI0pZOPP+zaem7//RDhaefs8WZ4inPU9wijiC0jTWcM/335+c0TdiDI1JsndBgVyFbp4H10jX77
+	O6bdufTisQTCAgk3/lZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD4gQ-0000000Akmc-255A;
-	Fri, 31 May 2024 16:00:46 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sD4mP-0000000AlkT-1mDb;
+	Fri, 31 May 2024 16:06:57 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD4gN-0000000AklK-2QpZ
+	id 1sD4mL-0000000Alir-0UfC
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 16:00:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id B13DECE1D0F;
-	Fri, 31 May 2024 16:00:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D985CC32786;
-	Fri, 31 May 2024 16:00:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717171236;
-	bh=ue49JlCpjRBuJwkDVBPStXgNI/crZ5RD6wSv46b3h3k=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=usSwkHvUVsf7/ZNRXUCMNsqvZHcyzc4kvc1SZOpeCW1uFaQUIFbpOGhzBT2P8HIT6
-	 Ylx8eTuBrpw8Lyr4nYYEJK6e1Q25nq4Ka9CY2eppnCYnLPWvO4cbvP1AQW7YnnR1KX
-	 0sNg4uAHyi12kch59Mq8IgHaGiSVF18tLoxoVSqs9Y1fNHtgQrrcbvw3ukuLaiF49w
-	 DLYw5PNShkR1l4Cukkj8SBUNxSAsj3hnAeA/zHR3lgAIsFR/JCmlR/PP+93UjHHcju
-	 ijgGiem5Q4cxWXUjBwiSR4DHNakUzcCGXiY/9hCfzIlQE7/L+tWn7Yl1Vo8Y4VqJ/c
-	 cCP+ptG9j7/Kw==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id C4528DEA710;
-	Fri, 31 May 2024 16:00:36 +0000 (UTC)
-MIME-Version: 1.0
-Subject: Re: [PATCH] Revert "riscv: mm: accelerate pagefault when badaccess"
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171717123679.27814.3225238698035039427.git-patchwork-notify@kernel.org>
-Date: Fri, 31 May 2024 16:00:36 +0000
-References: <20240530164451.21336-1-palmer@rivosinc.com>
-In-Reply-To: <20240530164451.21336-1-palmer@rivosinc.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, surenb@google.com,
- akpm@linux-foundation.org, alexghiti@rivosinc.com,
- wangkefeng.wang@huawei.com, jszhang@kernel.org, ben@decadent.org.uk,
- bjorn@rivosinc.com, willy@infradead.org, linux-kernel@vger.kernel.org
+	Fri, 31 May 2024 16:06:55 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2c1afe1751cso1422776a91.3
+        for <linux-riscv@lists.infradead.org>; Fri, 31 May 2024 09:06:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717171609; x=1717776409; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=59bPOkit/bk/X5CUNpKpOBEpf+FwqR7nda+qLGURm8M=;
+        b=lx2s0wY0KOloOxR72iyFEdMRDh1cTgrY4vyrPqieUVQaunYEYt/jWlyB0KyA4SQbPk
+         JI5qZ9icbF1ikYBT+jeT0mrAJZd3sAVomeOT97oe4BVmBTWwWDjaOM8WGph1+3VT5CFG
+         M5W7b5pCd/IL3MD3GjtAR2Q1k5I0YEUZ+Cpcrij4eakrs1rocHyC/UL7XdGE2TbaPYpJ
+         AxeizWMBGBLdt7FV02x70+LXQaJ2sZB03jBYCoIpgchuOJougM47L9gaStyLk6XqyOy4
+         6TXPoyp8bPGMonZhnuTa+BJfduzoHvbaqKQTolLyUE4fQAHhq1I+ctbbBHvo0D5RAx99
+         9NRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717171609; x=1717776409;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=59bPOkit/bk/X5CUNpKpOBEpf+FwqR7nda+qLGURm8M=;
+        b=j4XxOjCTq/SaZroN51B+92kbyHVYtnmEMU4d+6T4KsEvz2Rk/UlcYufv3CKnbhdVNC
+         jSSJMm12c3WupPtrYWfYn91DID357JGPnlxUaYAe34qG1GxbarM/umrPXnA/TjnuqfD/
+         bBQfOAAELDWGUGcRHbgR4quIFHbqtqf0bbtbzBuQdZMUGOmF1RtcrtqDv3wxHSEEj+TB
+         Jfm53S8kUwL4KZ5EvzfjcOH34XW+0oBzRgUw9m6yZB1Y1ErfSaVYL4V2t8FZR3fn/leN
+         Y1vqloRQLzSKiyA5TWwcUnCkPotKnZ9G1rOH2F35jdDcGzkmnJjonsA8JFRAEseS+NqE
+         uv+g==
+X-Gm-Message-State: AOJu0Yxf+01Id5d/K2Fcme7GHux2W1C0+dAw7I9WbDpmvNzM6+l5Wy5l
+	cdFNu/VEeviYceaXtx8Bv+ORI9P42a9m6kKRa7rbmzxIzLQIaMETzmmNGXS6mFDdKXezGAnmBea
+	P
+X-Google-Smtp-Source: AGHT+IEMigNfn1r6huzicsFKt2kn2Nt7nxSoyfkxZfZCNNTaNpu9jKUKM5YvL/KwFqdKX7px3NAhtg==
+X-Received: by 2002:a17:90a:d593:b0:2ab:eff6:e2ce with SMTP id 98e67ed59e1d1-2c1dc4b3f75mr2568823a91.0.1717171609109;
+        Fri, 31 May 2024 09:06:49 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2c1c28450d4sm1651552a91.55.2024.05.31.09.06.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 May 2024 09:06:48 -0700 (PDT)
+Date: Fri, 31 May 2024 09:06:48 -0700 (PDT)
+X-Google-Original-Date: Fri, 31 May 2024 09:06:37 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.10-rc2
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-d5ff54e8-e0e4-4b50-8461-c23eeb95b31d@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_090043_859564_4ACC9803 
-X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-CacheID: sfid-20240531_090653_336729_E21A7F41 
+X-CRM114-Status: UNSURE (   8.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,37 +83,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+The following changes since commit 1613e604df0cd359cf2a7fbd9be7a0bcfacfabd0:
 
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+  Linux 6.10-rc1 (2024-05-26 15:20:12 -0700)
 
-On Thu, 30 May 2024 09:44:51 -0700 you wrote:
-> From: Palmer Dabbelt <palmer@rivosinc.com>
-> 
-> I accidentally picked up an earlier version of this patch, which had
-> already landed via mm.  The patch  I picked up contains a bug, which I
-> kept as I thought it was a fix.  So let's just revert it.
-> 
-> This reverts commit 4c6c0020427a4547845a83f7e4d6085e16c3e24f.
-> 
-> [...]
+are available in the Git repository at:
 
-Here is the summary with links:
-  - Revert "riscv: mm: accelerate pagefault when badaccess"
-    https://git.kernel.org/riscv/c/7932b172ac7e
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.10-rc2
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+for you to fetch changes up to 1d84afaf02524d2558e8ca3ca169be2ef720380b:
 
+  riscv: Fix fully ordered LR/SC xchg[8|16]() implementations (2024-05-30 09:43:14 -0700)
 
+----------------------------------------------------------------
+RISC-V Fixes for 6.10-rc2
+
+* A fix to avoid pt_regs aliasing with idle thread stacks on secondary
+  harts.
+* HAVE_ARCH_HUGE_VMAP is enabled on XIP kernels, which fixes boot issues
+  on XIP systems with huge pages.
+* An update to the uABI documentation clarifying that only scalar
+  misaligned accesses were grandfathered in as supported, as the vector
+  extension did not exist at the time the uABI was frozen.
+* A fix for the recently-added byte/half atomics to avoid losing the
+  fully ordered decorations.
+
+----------------------------------------------------------------
+Alexandre Ghiti (1):
+      riscv: Fix fully ordered LR/SC xchg[8|16]() implementations
+
+Nam Cao (1):
+      riscv: enable HAVE_ARCH_HUGE_VMAP for XIP kernel
+
+Palmer Dabbelt (1):
+      Documentation: RISC-V: uabi: Only scalar misaligned loads are supported
+
+Sergey Matyukevich (1):
+      riscv: prevent pt_regs corruption for secondary idle threads
+
+ Documentation/arch/riscv/uabi.rst    |  4 +++-
+ arch/riscv/Kconfig                   |  2 +-
+ arch/riscv/include/asm/cmpxchg.h     | 22 ++++++++++++----------
+ arch/riscv/kernel/cpu_ops_sbi.c      |  2 +-
+ arch/riscv/kernel/cpu_ops_spinwait.c |  3 +--
+ 5 files changed, 18 insertions(+), 15 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
