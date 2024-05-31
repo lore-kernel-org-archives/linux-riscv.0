@@ -4,128 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A002C25B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 19:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E58FC25B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 19:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UmYPy0Z4B5Fi7SZDLEhiB44RMFwOITDTInn++LaLHc4=; b=W/Yt250L9e9a6D
-	my8Zb2KgQJ3Zsg0cNDElMrIYIi74PzhmRze+tQBF04et+dXqWSMFOz+92w6QyHoyQIbKo7RJQLftK
-	ciqpFs0E5NmWCh03N6f2PQr2Fz2UqYdEYZrWRVrGCON28agvhaf3s7T5aqkCY/EozjyQQePLaZ8RH
-	LfdoHx1GfOiVFHffuUDJ/wZ0I7/RbiOWY6a9MMzM/ZZL9w7HsZOLZ1I35gk94X4JsmN2ukAtvWmdb
-	UkCek57582aYPMvVCUbc5sfxkaOgaGsvQP3A1ba9qJjaD4jLAqNj0nXpubhjWtvymhDKACT2XQntf
-	JWr4bN21HWdXXgSJISSw==;
+	List-Owner; bh=kHgvqwQCQOx3fycB5OjoJyA52rA9kluo0dckMPaX0uU=; b=UYcv7t/oDfxdtO
+	DGIOOL6Mm7/BWfUmrwWthMmGTinWTm0KF+XVw0id73MniMAy6VDjusw+OkExuCHSzPWruoghJfrHx
+	1e144NpTF8H/wHjw0AR6jRu/buVelSaxd6bgAQ+TRwIpHdCmCYXs4Y8Hkw3DD+6n9rv4DtIGSksY7
+	SK3leKscUg9t3/DRfHVyWAvN9ha0M2jNAChV2/xKVJqwnaymYBZYipmXlyy4lzxHwgfsMBgwFdwzw
+	tLbMA4+BTrB0rKSZM/pgdMME6tGHuCNx6+eBCU5efb0IKQGLrlD4Jid/7E+yDnpMn4pMsJHYgpNwA
+	ww2peqt0tcgot1O82IHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD7lo-0000000BEPO-0bg9;
-	Fri, 31 May 2024 19:18:32 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1sD7nh-0000000BEzk-2wDA;
+	Fri, 31 May 2024 19:20:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD7lh-0000000BELB-2Ged
+	id 1sD7ne-0000000BEvf-09PT
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 31 May 2024 19:20:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Date:Message-Id:References:
+	In-Reply-To:From:Subject:Sender:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=x5N2fLIvlPKF4dxhifO6O1Uv2N5YEKUAbJuwliptOto=; b=oXi6MFldgPI6snq2tLtmmLEU9n
+	3XBzBBcHvR1wx25SaD01HOGMtyWdsxwv5pi4jLfgm/uvM6KLxebFdtFF+4pnsg+ZN3VuYCzMuhp0l
+	1PbAcNr67GKdP5W9BIFURbLs9ci+8z9SSBhILUQbpdZ6ZXYbPhMvCE2FORaVYSkAa5Dli1ldfPOta
+	uGS2v947hDH1xbs4WaDPJAvfpJJTzaJGLh/UPEqHiUs/qamtKZWBeeSIeRUG6TyQLJsK0LyYTsHJj
+	ikK5aakQQ83dL4gzjRt0kKtSPWZT+fkvsbJw3TsVvOuO4pM7zrmQ6i6bC0U/bqdltX8/npuGBeC6F
+	xWftP3Tw==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sD7nZ-0000000Es9q-29MQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 19:18:27 +0000
-X-Envelope-To: jthoughton@google.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1717183102;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2PNxbejm0F++LAZR/c3kykM2MBahftMSuulGipIjRRI=;
-	b=OL//CPF3OaxDLNyUcF7L7kyNMf3VPjTvzSryLUW5C3BaNJ8N7qvdo+GYUTIaqfYoH8qbo6
-	hUFuWYcFNlSydh5QitAFxaO+uiSO8irmL6Dy7FoK51VSXO1IpH+zzZd24unXmg4kvPBA2e
-	eDLUrnlpHUL5vYjUk6kginvv7JlKt2g=
-X-Envelope-To: akpm@linux-foundation.org
-X-Envelope-To: pbonzini@redhat.com
-X-Envelope-To: aou@eecs.berkeley.edu
-X-Envelope-To: ankita@nvidia.com
-X-Envelope-To: anup@brainfault.org
-X-Envelope-To: atishp@atishpatra.org
-X-Envelope-To: axelrasmussen@google.com
-X-Envelope-To: maobibo@loongson.cn
-X-Envelope-To: catalin.marinas@arm.com
-X-Envelope-To: dmatlack@google.com
-X-Envelope-To: rientjes@google.com
-X-Envelope-To: chenhuacai@kernel.org
-X-Envelope-To: james.morse@arm.com
-X-Envelope-To: corbet@lwn.net
-X-Envelope-To: maz@kernel.org
-X-Envelope-To: mpe@ellerman.id.au
-X-Envelope-To: npiggin@gmail.com
-X-Envelope-To: palmer@dabbelt.com
-X-Envelope-To: paul.walmsley@sifive.com
-X-Envelope-To: rananta@google.com
-X-Envelope-To: ryan.roberts@arm.com
-X-Envelope-To: seanjc@google.com
-X-Envelope-To: shahuang@redhat.com
-X-Envelope-To: shuah@kernel.org
-X-Envelope-To: suzuki.poulose@arm.com
-X-Envelope-To: zhaotianrui@loongson.cn
-X-Envelope-To: will@kernel.org
-X-Envelope-To: yuzhao@google.com
-X-Envelope-To: yuzenghui@huawei.com
-X-Envelope-To: kvm-riscv@lists.infradead.org
-X-Envelope-To: kvm@vger.kernel.org
-X-Envelope-To: kvmarm@lists.linux.dev
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-X-Envelope-To: linux-doc@vger.kernel.org
-X-Envelope-To: linux-kernel@vger.kernel.org
-X-Envelope-To: linux-kselftest@vger.kernel.org
-X-Envelope-To: linux-mips@vger.kernel.org
-X-Envelope-To: linux-mm@kvack.org
-X-Envelope-To: linux-riscv@lists.infradead.org
-X-Envelope-To: linuxppc-dev@lists.ozlabs.org
-X-Envelope-To: loongarch@lists.linux.dev
-Date: Fri, 31 May 2024 12:18:11 -0700
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: James Houghton <jthoughton@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Ankit Agrawal <ankita@nvidia.com>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Bibo Mao <maobibo@loongson.cn>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Matlack <dmatlack@google.com>,
-	David Rientjes <rientjes@google.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	James Morse <james.morse@arm.com>, Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shaoqin Huang <shahuang@redhat.com>, Shuah Khan <shuah@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Will Deacon <will@kernel.org>, Yu Zhao <yuzhao@google.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev
-Subject: Re: [PATCH v4 6/7] KVM: arm64: Relax locking for kvm_test_age_gfn
- and kvm_age_gfn
-Message-ID: <Zloicw4IU8_-V5Ns@linux.dev>
-References: <20240529180510.2295118-1-jthoughton@google.com>
- <20240529180510.2295118-7-jthoughton@google.com>
- <Zlog5Yk_Pjq0jQhC@linux.dev>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Zlog5Yk_Pjq0jQhC@linux.dev>
-X-Migadu-Flow: FLOW_OUT
+	Fri, 31 May 2024 19:20:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3B2BC62E00;
+	Fri, 31 May 2024 19:20:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0D961C4AF0C;
+	Fri, 31 May 2024 19:20:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717183208;
+	bh=uvgNr+17dGAuta3h+AvGUhyHsaMfOoqD3cJPO7N8Dso=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=h/gLOADhfnPFaTr3kF7dumdjE+R3svsY6PSWoImYWpsXMF/BKicHou9l0aaNdLKNh
+	 /4iV5Ig8hWfioCTMsP+TewrJQs0pARlbxMAC1a23OmN9fCGvOf5GGBdnasZpmYZVRD
+	 TgVQlf8w4xbDRIzwlvY6fW3gqC6vedKk3m+YVwdAn/OV+hwrdlbnXXmMxiJckbXehg
+	 OX8/BJ80qdzhTl1DReEbewJZ/le5Tr/Ar/CEl0z2Uahegl9K1I/qwu3qe6QPoWnnsX
+	 lBo23Ohbn8nCcO9OZ1ytZSdP2Qa4S/ZVuQ/4uDHzjGVJHi9FUoyTdy+HOBiuLudDQx
+	 hii0DW/wuu3Pw==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id F3081CF21DC;
+	Fri, 31 May 2024 19:20:07 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.10-rc2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-d5ff54e8-e0e4-4b50-8461-c23eeb95b31d@palmer-ri-x1c9>
+References: <mhng-d5ff54e8-e0e4-4b50-8461-c23eeb95b31d@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <mhng-d5ff54e8-e0e4-4b50-8461-c23eeb95b31d@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.10-rc2
+X-PR-Tracked-Commit-Id: 1d84afaf02524d2558e8ca3ca169be2ef720380b
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: c6cc9799b4c16b1bd42de35be563d4fa6ea43799
+Message-Id: <171718320798.20247.3141512146525127618.pr-tracker-bot@kernel.org>
+Date: Fri, 31 May 2024 19:20:07 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_121825_730182_DAFB30C0 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20240531_202021_896537_59D51B31 
+X-CRM114-Status: UNSURE (   2.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,47 +90,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 31, 2024 at 12:11:33PM -0700, Oliver Upton wrote:
-> On Wed, May 29, 2024 at 06:05:09PM +0000, James Houghton wrote:
-> 
-> [...]
-> 
-> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> > index 9e2bbee77491..eabb07c66a07 100644
-> > --- a/arch/arm64/kvm/hyp/pgtable.c
-> > +++ b/arch/arm64/kvm/hyp/pgtable.c
-> > @@ -1319,10 +1319,8 @@ static int stage2_age_walker(const struct kvm_pgtable_visit_ctx *ctx,
-> >  	data->young = true;
-> >  
-> >  	/*
-> > -	 * stage2_age_walker() is always called while holding the MMU lock for
-> > -	 * write, so this will always succeed. Nonetheless, this deliberately
-> > -	 * follows the race detection pattern of the other stage-2 walkers in
-> > -	 * case the locking mechanics of the MMU notifiers is ever changed.
-> > +	 * This walk may not be exclusive; the PTE is permitted to change
-> > +	 * from under us.
-> >  	 */
-> >  	if (data->mkold && !stage2_try_set_pte(ctx, new))
-> >  		return -EAGAIN;
-> 
-> It is probably worth mentioning that if there was a race to update the
-> PTE then the GFN is most likely young, so failing to clear AF probably
-> isn't even consequential.
+The pull request you sent on Fri, 31 May 2024 09:06:48 -0700 (PDT):
 
-Oh, and the WARN_ON() in kvm_pgtable_stage2_test_clear_young() is bogus
-now. Maybe demote it to:
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.10-rc2
 
-  r = kvm_pgtable_walk(...);
-  WARN_ON_ONCE(r && r != -EAGAIN);
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/c6cc9799b4c16b1bd42de35be563d4fa6ea43799
+
+Thank you!
 
 -- 
-Thanks,
-Oliver
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
