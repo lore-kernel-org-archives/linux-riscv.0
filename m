@@ -4,81 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E58FC25B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 19:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8928EC25B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 20:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kHgvqwQCQOx3fycB5OjoJyA52rA9kluo0dckMPaX0uU=; b=UYcv7t/oDfxdtO
-	DGIOOL6Mm7/BWfUmrwWthMmGTinWTm0KF+XVw0id73MniMAy6VDjusw+OkExuCHSzPWruoghJfrHx
-	1e144NpTF8H/wHjw0AR6jRu/buVelSaxd6bgAQ+TRwIpHdCmCYXs4Y8Hkw3DD+6n9rv4DtIGSksY7
-	SK3leKscUg9t3/DRfHVyWAvN9ha0M2jNAChV2/xKVJqwnaymYBZYipmXlyy4lzxHwgfsMBgwFdwzw
-	tLbMA4+BTrB0rKSZM/pgdMME6tGHuCNx6+eBCU5efb0IKQGLrlD4Jid/7E+yDnpMn4pMsJHYgpNwA
-	ww2peqt0tcgot1O82IHQ==;
+	List-Owner; bh=4B0tqV7MWGBgMY0vOs9t2IS3DDRGmbxUTzB3BiD5yAk=; b=knLLXJjKB/UaTO
+	4vSOjGPhyMKBN/l5aI7dEq6fdmxqrWVy6uZLrBj9ljzHafclbyGFtGeqYj3A8MgtrILF3F8xb19xr
+	lihRaOjxq7UpFd7cg5Xb0xFoE+87xqta3anu6dLB+qOjfrxtcjx8F0rU47zsmXG3CW6BUqseMBYzS
+	SLb9Qe9UrWSLGyUpFeodE91/z9LTgOwQNTtkWHDM5WllsaQ4K5HlqNfl/679+oAO8HNBcNsFDsi53
+	dsEsBP/ePs6OXKaQKQgYZLyQMmQTyv/ZT6OjdddRHZL0N/HJCkANX3SMRKnCtBnJrN+Kkv2JB/8Yk
+	xgQ0a2jTPnZB/LFHLdSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD7nh-0000000BEzk-2wDA;
-	Fri, 31 May 2024 19:20:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sD8ih-0000000BMTJ-42pd;
+	Fri, 31 May 2024 20:19:23 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD7ne-0000000BEvf-09PT
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 31 May 2024 19:20:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Date:Message-Id:References:
-	In-Reply-To:From:Subject:Sender:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=x5N2fLIvlPKF4dxhifO6O1Uv2N5YEKUAbJuwliptOto=; b=oXi6MFldgPI6snq2tLtmmLEU9n
-	3XBzBBcHvR1wx25SaD01HOGMtyWdsxwv5pi4jLfgm/uvM6KLxebFdtFF+4pnsg+ZN3VuYCzMuhp0l
-	1PbAcNr67GKdP5W9BIFURbLs9ci+8z9SSBhILUQbpdZ6ZXYbPhMvCE2FORaVYSkAa5Dli1ldfPOta
-	uGS2v947hDH1xbs4WaDPJAvfpJJTzaJGLh/UPEqHiUs/qamtKZWBeeSIeRUG6TyQLJsK0LyYTsHJj
-	ikK5aakQQ83dL4gzjRt0kKtSPWZT+fkvsbJw3TsVvOuO4pM7zrmQ6i6bC0U/bqdltX8/npuGBeC6F
-	xWftP3Tw==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD7nZ-0000000Es9q-29MQ
+	id 1sD8ie-0000000BMSl-2qIF
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 19:20:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3B2BC62E00;
-	Fri, 31 May 2024 19:20:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0D961C4AF0C;
-	Fri, 31 May 2024 19:20:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717183208;
-	bh=uvgNr+17dGAuta3h+AvGUhyHsaMfOoqD3cJPO7N8Dso=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=h/gLOADhfnPFaTr3kF7dumdjE+R3svsY6PSWoImYWpsXMF/BKicHou9l0aaNdLKNh
-	 /4iV5Ig8hWfioCTMsP+TewrJQs0pARlbxMAC1a23OmN9fCGvOf5GGBdnasZpmYZVRD
-	 TgVQlf8w4xbDRIzwlvY6fW3gqC6vedKk3m+YVwdAn/OV+hwrdlbnXXmMxiJckbXehg
-	 OX8/BJ80qdzhTl1DReEbewJZ/le5Tr/Ar/CEl0z2Uahegl9K1I/qwu3qe6QPoWnnsX
-	 lBo23Ohbn8nCcO9OZ1ytZSdP2Qa4S/ZVuQ/4uDHzjGVJHi9FUoyTdy+HOBiuLudDQx
-	 hii0DW/wuu3Pw==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id F3081CF21DC;
-	Fri, 31 May 2024 19:20:07 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V Fixes for 6.10-rc2
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-d5ff54e8-e0e4-4b50-8461-c23eeb95b31d@palmer-ri-x1c9>
-References: <mhng-d5ff54e8-e0e4-4b50-8461-c23eeb95b31d@palmer-ri-x1c9>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <mhng-d5ff54e8-e0e4-4b50-8461-c23eeb95b31d@palmer-ri-x1c9>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.10-rc2
-X-PR-Tracked-Commit-Id: 1d84afaf02524d2558e8ca3ca169be2ef720380b
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: c6cc9799b4c16b1bd42de35be563d4fa6ea43799
-Message-Id: <171718320798.20247.3141512146525127618.pr-tracker-bot@kernel.org>
-Date: Fri, 31 May 2024 19:20:07 +0000
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	Fri, 31 May 2024 20:19:22 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-6f693306b7cso2194172b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 31 May 2024 13:19:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717186758; x=1717791558; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qAGjhFHnXf9IpViW/yMwbiFI16GqjUPhP70I5dCooFE=;
+        b=ugHEIJgUrtKqHek1iFfDYcAG2n7ShrFg5+2y3zE1GMGQHesyQAopKwI+8NEmu3ggwq
+         gIZa/0M56SrVkzsO76ERVcD+5XhUjNdHwK3xTEXxps/y9MWLcSsCZQwDKXpL6F1OByRS
+         WZGoCrU46FNBQt6AjOzzze45czSwDJK//a18neDAbgixykP4nznCYr/snKe9iZ71Q8OM
+         6fQn0jIpag2kNRuiY4QFwm+DiAIFvvt/iflshIbN+8MU8PeTFvlIi1hwmUB5xa0hRr9j
+         Af96hQYa2CmrTLWAj8CcQHaEPALwxMjQmAvFvC6XjmjJ+E3yOQV65JX1+khqFbyjT+6t
+         ckNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717186758; x=1717791558;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qAGjhFHnXf9IpViW/yMwbiFI16GqjUPhP70I5dCooFE=;
+        b=QP5zZNUvES4DDlt4AOIp0xEGFAGIihuNv6Ij+JYMZmF1R3qiaVlmEgn23+eEAkBGVn
+         eIJesFfdEhGCWrFKSZYRT2x+0AWNRsLIAzEj6OiJl9vuBqT2A2gpygRPTnflCoN86VCO
+         YDRF1cHNDDUupsCgAs5rVazCGWnga9p/28jKggAgl6P0UV/0W4LCICptBUDPvm5HJMBP
+         2GRCSHb2HDxNMJFtw+4ECxgbO/ZoXnvSd3V5J1tB57QtF7VZTxQQ9ja+pJwuGxdRmW5b
+         UZGyenh+/FWLS7/bjxHpcWi51P/rbxkQuCDgoCimCpMThaRj+r3o0dpPEiuuDTmWDUpk
+         6dTg==
+X-Forwarded-Encrypted: i=1; AJvYcCUJ4C8O4gxmFq89UljCLGVvmAsiWP7oj1hcSJzkODyO772CG3CIzd1HubTBeh0gw29xXkbaQ6Ui16WHwe/iot/n0+kapR3cFjtEsLr+VbZL
+X-Gm-Message-State: AOJu0Yx6nlr9XizocngbhDJHH7rlOAZi2csPyoyxaUf4+Gz6p8gh+dVM
+	0WZaWjOr/GQxfSH1OMcRBCScbH4kdk8YWo500IPgltL19nqtuDHihFs6/uzpE8w=
+X-Google-Smtp-Source: AGHT+IGVzy3+vOIUubWLHwauUWb5Skr6TuZH88CsARiNo0nv/hRvULtFg2uHbqI0Wo/CnlmesOhwIw==
+X-Received: by 2002:a05:6a00:198d:b0:6f0:b53c:dfb4 with SMTP id d2e1a72fcca58-7024788e80bmr3955148b3a.22.1717186757959;
+        Fri, 31 May 2024 13:19:17 -0700 (PDT)
+Received: from ghost ([2601:647:5700:6860:4d3b:392b:5722:91c1])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70242c245absm1745251b3a.200.2024.05.31.13.19.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 May 2024 13:19:17 -0700 (PDT)
+Date: Fri, 31 May 2024 13:19:14 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>
+Subject: Re: [PATCH v0] RISC-V: Use Zkr to seed KASLR base address
+Message-ID: <ZlowwohstpT0sJVl@ghost>
+References: <20240531162327.2436962-1-jesse@rivosinc.com>
+ <20240531-uselessly-spied-262ecf44e694@spud>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240531-uselessly-spied-262ecf44e694@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_202021_896537_59D51B31 
-X-CRM114-Status: UNSURE (   2.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240531_131920_947474_9A2D3452 
+X-CRM114-Status: GOOD (  29.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,24 +96,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 31 May 2024 09:06:48 -0700 (PDT):
+On Fri, May 31, 2024 at 06:31:09PM +0100, Conor Dooley wrote:
+> On Fri, May 31, 2024 at 12:23:27PM -0400, Jesse Taube wrote:
+> > Dectect the Zkr extension and use it to seed the kernel base address.
+> > 
+> > Detection of the extension can not be done in the typical fashion, as
+> > this is very early in the boot process. Instead, add a trap handler
+> > and run it to see if the extension is present.
+> 
+> You can't rely on the lack of a trap meaning that Zkr is present unless
+> you know that the platform implements Ssstrict. The CSR with that number
+> could do anything if not Ssstrict compliant, so this approach gets a
+> nak from me. Unfortunately, Ssstrict doesn't provide a way to detect
+> it, so you're stuck with getting that information from firmware.
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.10-rc2
+The Scalar Cryptography v1.0.1 spec says "If Zkr is not implemented, the
+[s,u]seed bits must be hardwired to zero". It also says "Without the
+corresponding access control bit set to 1, any attempted access to seed
+from U, S, or HS modes will raise an illegal instruction exception."
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/c6cc9799b4c16b1bd42de35be563d4fa6ea43799
+There is a slight nuance here as the definition of Ssstrict is:
 
-Thank you!
+"No non-conforming extensions are present. Attempts to execute
+unimplemented opcodes or access unimplemented CSRs in the standard or
+reserved encoding spaces raises an illegal instruction exception that
+results in a contained trap to the supervisor-mode trap handler."
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+The trap that Jesse is relying on in the code here is related to access
+bits and not related to the CSR being unimplemented. Since the access
+bits are required to be 0 on an implementation without Zkr, it is
+required to trap if seed is accessed, regardless of Ssstrict.
+
+The situation here is slightly odd because the spec is defining behavior
+for what to do if the extension is not supported, and requires
+implementations to follow this aspect of the Scalar Cryptography spec
+even though they may not implement any of the instructions in the spec.
+
+> 
+> For DT systems, you can actually parse the DT in the pi, we do it to get
+> the kaslr seed if present, so you can actually check for Zkr. With ACPI
+> I have no idea how you can get that information, I amn't an ACPI-ist.
+
+It is feasible to check if Zkr is present in the device tree at this
+stage in boot, but at first glance does not seem feasible to read the
+ACPI tables this early.
+
+The CSR being read is just for entropy so even if the seed CSR doesn't
+trap and provides an arbitrary value on an implementation that does not
+support Zkr, it can still be used as a source of entropy. If the
+implementation does trap, the entropy will be set to 0 which is just a
+different hard-coded arbitrary value. 
+
+- Charlie
+
+> 
+> Thanks,
+> Conor.
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
 
 _______________________________________________
 linux-riscv mailing list
