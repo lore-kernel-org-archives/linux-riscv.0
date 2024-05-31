@@ -4,129 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51C4FC27C44
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 07:24:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD3DC27C44
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 08:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ftSgDlwNoi0Y4KoOhrY38XYdcipvyOxdmX8qvA06Pmc=; b=2AJLjeajTctfPW
-	phCSGerqhrER7+2ejrb/9GOZ56Ioc4FM+IGU+UXI+MAhWvoHWVBtBFFAUuSn2UITKHKnY+QECNXTT
-	It7JIt7rDNwRLSEwI1K0JVbjvdoxybSs7Uo12VodWMhf7OLoKCdiRpHmpiZErPIZ0Oy02ywYH9ASu
-	tAu2kCYswuRZQeaT++ENVQvKr126K2Nwqt/tafpHcwrsT193auHNkCGkzbb+Dhzi+8b22IPgcz1OF
-	3rxiHqbHWxQacjdhO55A+kgjeckkcZFfA3f9giN5cRIXxjgyAS48Fj+NPgnqpqC7bpphPyriojl7Z
-	l2iANRG7V1D6qqhwKyRw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lAOAQRmSgeozhPgzj4h+LxTqecvQnBujDeJxjhEVC3Q=; b=Y7jyw28tUOqIon
+	40mm3yCDYTbJOKis5sf4YFrw/tVs9ZBqKPrRvkCM58wBZWJsEKHVZO7Yb6xVB/bp/db5Mknlh128Y
+	inlyhpFwaZCSKCBT3USFb8pP9LAd12mifuHdVOF9UY4HP8rV3sMHrT+lEHggGEAjUVEeNFUtiuFyd
+	yai0l5Jy3JZtDv/LVURlSf4Lc1q93IF7mgHlfmxcS21JtxeYOoxo8+ehCJ4YnIgxVi6NPy0VM/f27
+	DbTqt9btRyxqUwFB3r4T19UihQaRvblB7POE5IiFgsoA4azqW95k+EduEygoCltxJJodOIorN8oOY
+	9hrZWDpdcBWrPy16U4uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCwd0-00000009UKr-31Jn;
-	Fri, 31 May 2024 07:24:42 +0000
-Received: from out-185.mta0.migadu.com ([91.218.175.185])
+	id 1sCxiy-00000009d1T-2H9c;
+	Fri, 31 May 2024 08:34:56 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCwcw-00000009UIr-2u74
+	id 1sCxit-00000009d00-40yQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 07:24:41 +0000
-X-Envelope-To: yuzhao@google.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1717140273;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=v6pyP4SRO/9BT5GrT52jbiQuxRO/wk0HtBPD4YgPhLk=;
-	b=r37JI0j7taWeZmoSnTE82903GeLstAD8AcPnN/lPbb+eAAkY0defxPmiJPHwGWnd294WLb
-	FjgHxx1Px9O8RnwjA1f9bxRoJnyH+BVooELFS2MSFgtlTifw+nQzg6kbOK9o4nC/oVDgtV
-	trAyzjYJwoWDB3IsG5rivC2BXJjWLQk=
-X-Envelope-To: jthoughton@google.com
-X-Envelope-To: akpm@linux-foundation.org
-X-Envelope-To: pbonzini@redhat.com
-X-Envelope-To: aou@eecs.berkeley.edu
-X-Envelope-To: ankita@nvidia.com
-X-Envelope-To: anup@brainfault.org
-X-Envelope-To: atishp@atishpatra.org
-X-Envelope-To: axelrasmussen@google.com
-X-Envelope-To: maobibo@loongson.cn
-X-Envelope-To: catalin.marinas@arm.com
-X-Envelope-To: dmatlack@google.com
-X-Envelope-To: rientjes@google.com
-X-Envelope-To: chenhuacai@kernel.org
-X-Envelope-To: james.morse@arm.com
-X-Envelope-To: corbet@lwn.net
-X-Envelope-To: maz@kernel.org
-X-Envelope-To: mpe@ellerman.id.au
-X-Envelope-To: npiggin@gmail.com
-X-Envelope-To: palmer@dabbelt.com
-X-Envelope-To: paul.walmsley@sifive.com
-X-Envelope-To: rananta@google.com
-X-Envelope-To: ryan.roberts@arm.com
-X-Envelope-To: seanjc@google.com
-X-Envelope-To: shahuang@redhat.com
-X-Envelope-To: shuah@kernel.org
-X-Envelope-To: suzuki.poulose@arm.com
-X-Envelope-To: zhaotianrui@loongson.cn
-X-Envelope-To: will@kernel.org
-X-Envelope-To: yuzenghui@huawei.com
-X-Envelope-To: kvm-riscv@lists.infradead.org
-X-Envelope-To: kvm@vger.kernel.org
-X-Envelope-To: kvmarm@lists.linux.dev
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-X-Envelope-To: linux-doc@vger.kernel.org
-X-Envelope-To: linux-kernel@vger.kernel.org
-X-Envelope-To: linux-kselftest@vger.kernel.org
-X-Envelope-To: linux-mips@vger.kernel.org
-X-Envelope-To: linux-mm@kvack.org
-X-Envelope-To: linux-riscv@lists.infradead.org
-X-Envelope-To: linuxppc-dev@lists.ozlabs.org
-X-Envelope-To: loongarch@lists.linux.dev
-Date: Fri, 31 May 2024 00:24:18 -0700
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Yu Zhao <yuzhao@google.com>
-Cc: James Houghton <jthoughton@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Ankit Agrawal <ankita@nvidia.com>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Bibo Mao <maobibo@loongson.cn>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Matlack <dmatlack@google.com>,
-	David Rientjes <rientjes@google.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	James Morse <james.morse@arm.com>, Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shaoqin Huang <shahuang@redhat.com>, Shuah Khan <shuah@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev
-Subject: Re: [PATCH v4 2/7] mm: multi-gen LRU: Have secondary MMUs
- participate in aging
-Message-ID: <Zll7IuGYGG5uI20W@linux.dev>
-References: <20240529180510.2295118-1-jthoughton@google.com>
- <20240529180510.2295118-3-jthoughton@google.com>
- <CAOUHufYFHKLwt1PWp2uS6g174GZYRZURWJAmdUWs5eaKmhEeyQ@mail.gmail.com>
+	Fri, 31 May 2024 08:34:54 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4VrGbH0bhjz1HCrM;
+	Fri, 31 May 2024 16:32:59 +0800 (CST)
+Received: from kwepemi500008.china.huawei.com (unknown [7.221.188.139])
+	by mail.maildlp.com (Postfix) with ESMTPS id D689514011F;
+	Fri, 31 May 2024 16:34:40 +0800 (CST)
+Received: from huawei.com (10.67.174.55) by kwepemi500008.china.huawei.com
+ (7.221.188.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 31 May
+ 2024 16:34:40 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
+	<namhyung@kernel.org>, <mark.rutland@arm.com>,
+	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
+	<irogers@google.com>, <adrian.hunter@intel.com>, <kan.liang@linux.intel.com>,
+	<dev.mbstr@gmail.com>, <samuel.holland@sifive.com>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH] riscv: stacktrace: Add USER_STACKTRACE support
+Date: Fri, 31 May 2024 08:32:57 +0000
+Message-ID: <20240531083258.386709-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAOUHufYFHKLwt1PWp2uS6g174GZYRZURWJAmdUWs5eaKmhEeyQ@mail.gmail.com>
-X-Migadu-Flow: FLOW_OUT
+X-Originating-IP: [10.67.174.55]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemi500008.china.huawei.com (7.221.188.139)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_002439_209080_85A579D1 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20240531_013452_343277_3991AB36 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,48 +69,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgMjksIDIwMjQgYXQgMDM6MDM6MjFQTSAtMDYwMCwgWXUgWmhhbyB3cm90ZToK
-PiBPbiBXZWQsIE1heSAyOSwgMjAyNCBhdCAxMjowNeKAr1BNIEphbWVzIEhvdWdodG9uIDxqdGhv
-dWdodG9uQGdvb2dsZS5jb20+IHdyb3RlOgo+ID4KPiA+IFNlY29uZGFyeSBNTVVzIGFyZSBjdXJy
-ZW50bHkgY29uc3VsdGVkIGZvciBhY2Nlc3MvYWdlIGluZm9ybWF0aW9uIGF0Cj4gPiBldmljdGlv
-biB0aW1lLCBidXQgYmVmb3JlIHRoZW4sIHdlIGRvbid0IGdldCBhY2N1cmF0ZSBhZ2UgaW5mb3Jt
-YXRpb24uCj4gPiBUaGF0IGlzLCBwYWdlcyB0aGF0IGFyZSBtb3N0bHkgYWNjZXNzZWQgdGhyb3Vn
-aCBhIHNlY29uZGFyeSBNTVUgKGxpa2UKPiA+IGd1ZXN0IG1lbW9yeSwgdXNlZCBieSBLVk0pIHdp
-bGwgYWx3YXlzIGp1c3QgcHJvY2VlZCBkb3duIHRvIHRoZSBvbGRlc3QKPiA+IGdlbmVyYXRpb24s
-IGFuZCB0aGVuIGF0IGV2aWN0aW9uIHRpbWUsIGlmIEtWTSByZXBvcnRzIHRoZSBwYWdlIHRvIGJl
-Cj4gPiB5b3VuZywgdGhlIHBhZ2Ugd2lsbCBiZSBhY3RpdmF0ZWQvcHJvbW90ZWQgYmFjayB0byB0
-aGUgeW91bmdlc3QKPiA+IGdlbmVyYXRpb24uCj4gCj4gQ29ycmVjdCwgYW5kIGFzIEkgZXhwbGFp
-bmVkIG9mZmxpbmUsIHRoaXMgaXMgdGhlIG9ubHkgcmVhc29uYWJsZQo+IGJlaGF2aW9yIGlmIHdl
-IGNhbid0IGxvY2tsZXNzbHkgd2FsayBzZWNvbmRhcnkgTU1Vcy4KPiAKPiBKdXN0IGZvciB0aGUg
-cmVjb3JkLCB0aGUgKGNydWRlKSBhbmFsb2d5IEkgdXNlZCB3YXM6Cj4gSW1hZ2luZSBhIGxhcmdl
-IHJvb20gd2l0aCBtYW55IGJpbGxzICgkMSwgJDUsICQxMCwgLi4uKSBvbiB0aGUgZmxvb3IsCj4g
-YnV0IHlvdSBhcmUgb25seSBhbGxvd2VkIHRvIHBpY2sgdXAgMTAgb2YgdGhlbSAoYW5kIHB1dCB0
-aGVtIGluIHlvdXIKPiBwb2NrZXQpLiBBIHNtYXJ0IG1vdmUgd291bGQgYmUgdG8gc3VydmV5IHRo
-ZSByb29tICpmaXJzdCBhbmQgdGhlbioKPiBwaWNrIHVwIHRoZSBsYXJnZXN0IG9uZXMuIEJ1dCBp
-ZiB5b3UgYXJlIGNhcnJ5aW5nIGEgNTAwIGxicyBiYWNrcGFjaywKPiB5b3Ugd291bGQganVzdCB3
-YW50IHRvIHBpY2sgdXAgd2hpY2hldmVyIHRoYXQncyBpbiBmcm9udCBvZiB5b3UgcmF0aGVyCj4g
-dGhhbiB3YWxrIHRoZSBlbnRpcmUgcm9vbS4KPiAKPiBNR0xSVSBzaG91bGQgb25seSBzY2FuIChv
-ciBsb29rYXJvdW5kKSBzZWNvbmRhcnkgTU1VcyBpZiBpdCBjYW4gYmUKPiBkb25lIGxvY2tsZXNz
-LiBPdGhlcndpc2UsIGl0IHNob3VsZCBqdXN0IGZhbGwgYmFjayB0byB0aGUgZXhpc3RpbmcKPiBh
-cHByb2FjaCwgd2hpY2ggZXhpc3RlZCBpbiBwcmV2aW91cyB2ZXJzaW9ucyBidXQgaXMgcmVtb3Zl
-ZCBpbiB0aGlzCj4gdmVyc2lvbi4KCkdyYWJiaW5nIHRoZSBNTVUgbG9jayBmb3Igd3JpdGUgdG8g
-c2NhbiBzdWNrcywgbm8gYXJndW1lbnQgdGhlcmUuIEJ1dApjYW4geW91IHBsZWFzZSBiZSBzcGVj
-aWZpYyBhYm91dCB0aGUgaW1wYWN0IG9mIHJlYWQgbG9jayB2LiBSQ1UgaW4gdGhlCmNhc2Ugb2Yg
-YXJtNjQ/IEkgaGFkIGFza2VkIGFib3V0IHRoaXMgYmVmb3JlIGFuZCB5b3UgbmV2ZXIgcmVwbGll
-ZC4KCk15IGNvbmNlcm4gcmVtYWlucyB0aGF0IGFkZGluZyBzdXBwb3J0IGZvciBzb2Z0d2FyZSB0
-YWJsZSB3YWxrZXJzCm91dHNpZGUgb2YgdGhlIE1NVSBsb2NrIGVudGlyZWx5IHJlcXVpcmVzIG1v
-cmUgd29yayB0aGFuIGp1c3QgZGVmZXJyaW5nCnRoZSBkZWFsbG9jYXRpb24gdG8gYW4gUkNVIGNh
-bGxiYWNrLiBXYWxrZXJzIHRoYXQgcHJldmlvdXNseSBhc3N1bWVkCidleGNsdXNpdmUnIGFjY2Vz
-cyB3aGlsZSBob2xkaW5nIHRoZSBNTVUgbG9jayBmb3Igd3JpdGUgbXVzdCBub3cgY29wZQp3aXRo
-IHZvbGF0aWxlIFBURXMuCgpZZXMsIHRoaXMgcHJvYmxlbSBhbHJlYWR5IGV4aXN0cyB3aGVuIGhh
-cmR3YXJlIHNldHMgdGhlIEFGLCBidXQgdGhlCmxvY2stZnJlZSB3YWxrZXIgaW1wbGVtZW50YXRp
-b24gbmVlZHMgdG8gYmUgZ2VuZXJpYyBzbyBpdCBjYW4gYmUgYXBwbGllZApmb3Igb3RoZXIgUFRF
-IGJpdHMuCgotLSAKVGhhbmtzLApPbGl2ZXIKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+Currently, userstacktrace is unsupported for riscv. So use the
+perf_callchain_user() code as blueprint to implement the
+arch_stack_walk_user() which add userstacktrace support on riscv.
+Meanwhile, we can use arch_stack_walk_user() to simplify the implementation
+of perf_callchain_user().
+
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/riscv/Kconfig                 |  1 +
+ arch/riscv/kernel/perf_callchain.c | 46 ++----------------------------
+ arch/riscv/kernel/stacktrace.c     | 43 ++++++++++++++++++++++++++++
+ 3 files changed, 47 insertions(+), 43 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index b94176e25be1..4a7ba6a08dee 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -193,6 +193,7 @@ config RISCV
+ 	select THREAD_INFO_IN_TASK
+ 	select TRACE_IRQFLAGS_SUPPORT
+ 	select UACCESS_MEMCPY if !MMU
++	select USER_STACKTRACE_SUPPORT
+ 	select ZONE_DMA32 if 64BIT
+ 
+ config CLANG_SUPPORTS_DYNAMIC_FTRACE
+diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
+index 3348a61de7d9..c7468af77c66 100644
+--- a/arch/riscv/kernel/perf_callchain.c
++++ b/arch/riscv/kernel/perf_callchain.c
+@@ -6,37 +6,9 @@
+ 
+ #include <asm/stacktrace.h>
+ 
+-/*
+- * Get the return address for a single stackframe and return a pointer to the
+- * next frame tail.
+- */
+-static unsigned long user_backtrace(struct perf_callchain_entry_ctx *entry,
+-				    unsigned long fp, unsigned long reg_ra)
++static bool fill_callchain(void *entry, unsigned long pc)
+ {
+-	struct stackframe buftail;
+-	unsigned long ra = 0;
+-	unsigned long __user *user_frame_tail =
+-		(unsigned long __user *)(fp - sizeof(struct stackframe));
+-
+-	/* Check accessibility of one struct frame_tail beyond */
+-	if (!access_ok(user_frame_tail, sizeof(buftail)))
+-		return 0;
+-	if (__copy_from_user_inatomic(&buftail, user_frame_tail,
+-				      sizeof(buftail)))
+-		return 0;
+-
+-	if (reg_ra != 0)
+-		ra = reg_ra;
+-	else
+-		ra = buftail.ra;
+-
+-	fp = buftail.fp;
+-	if (ra != 0)
+-		perf_callchain_store(entry, ra);
+-	else
+-		return 0;
+-
+-	return fp;
++	return perf_callchain_store(entry, pc) == 0;
+ }
+ 
+ /*
+@@ -56,19 +28,7 @@ static unsigned long user_backtrace(struct perf_callchain_entry_ctx *entry,
+ void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
+ 			 struct pt_regs *regs)
+ {
+-	unsigned long fp = 0;
+-
+-	fp = regs->s0;
+-	perf_callchain_store(entry, regs->epc);
+-
+-	fp = user_backtrace(entry, fp, regs->ra);
+-	while (fp && !(fp & 0x3) && entry->nr < entry->max_stack)
+-		fp = user_backtrace(entry, fp, 0);
+-}
+-
+-static bool fill_callchain(void *entry, unsigned long pc)
+-{
+-	return perf_callchain_store(entry, pc) == 0;
++	arch_stack_walk_user(fill_callchain, entry, regs);
+ }
+ 
+ void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index 528ec7cc9a62..e0f556b680d8 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -161,3 +161,46 @@ noinline void arch_stack_walk(stack_trace_consume_fn consume_entry, void *cookie
+ {
+ 	walk_stackframe(task, regs, consume_entry, cookie);
+ }
++
++/*
++ * Get the return address for a single stackframe and return a pointer to the
++ * next frame tail.
++ */
++static unsigned long unwind_user_frame(stack_trace_consume_fn consume_entry,
++				       void *cookie, unsigned long fp,
++				       unsigned long reg_ra)
++{
++	struct stackframe buftail;
++	unsigned long ra = 0;
++	unsigned long __user *user_frame_tail =
++		(unsigned long __user *)(fp - sizeof(struct stackframe));
++
++	/* Check accessibility of one struct frame_tail beyond */
++	if (!access_ok(user_frame_tail, sizeof(buftail)))
++		return 0;
++	if (__copy_from_user_inatomic(&buftail, user_frame_tail,
++				      sizeof(buftail)))
++		return 0;
++
++	ra = reg_ra ? : buftail.ra;
++
++	fp = buftail.fp;
++	if (!ra || (ra && !consume_entry(cookie, ra)))
++		return 0;
++
++	return fp;
++}
++
++void arch_stack_walk_user(stack_trace_consume_fn consume_entry, void *cookie,
++			  const struct pt_regs *regs)
++{
++	unsigned long fp = 0;
++
++	fp = regs->s0;
++	if (!consume_entry(cookie, regs->epc))
++		return;
++
++	fp = unwind_user_frame(consume_entry, cookie, fp, regs->ra);
++	while (fp && !(fp & 0x3))
++		fp = unwind_user_frame(consume_entry, cookie, fp, 0);
++}
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
