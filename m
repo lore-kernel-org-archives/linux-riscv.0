@@ -4,56 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA0DBC25B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 13:37:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FBAC25B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 15:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5t94anlAHpYWrYs4GtPhXFrJAv7rzZdCPnwBXwVTHc4=; b=dIibWTXRt5A5hQ
-	D27heu6qHbKVjZf6oTSNYlsPjGNIvGCV/ejUEYIbre1Sqnd4OMiNPIluhP0aCYQCI1aZElVG7sTPa
-	4kphPGxDenjsX5bCyBkuN6/I8sucwfGPoOV8YXeLGC76QCiF8jb4Ub9emw9R/xiRS+u5G3uRB7SEc
-	14ecEKdYLyZW9DF+Ca5R69r8c0SO+4ZJPlz1y3Te4SmXeC9VCWbs3f0kroUjI590MzXmlN0Bb1doO
-	i8mOQ7kZ/QCtqUx/cCIdEBO8hDmzWUIYw+kU9RemI+MIpTdo81TvJjMl/GXtUHcY8lHC5FwhiQION
-	0wGrt4IceYWd8aiMm2nA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G7UXc6tdsyeOTmRoJQfhUEUU4MLmZFQ0PLMRDaXLA0s=; b=X09JgY0W+p3te/cRKpItCIVsji
+	SyGg56uaiz09+queboTZ6h6gC57SMfK19XFUxkz28KYrLHvoYWZvDfzlyH4rgWBjUxXG0gOQ1tRWc
+	Uo9E21HgH4l8oQtNIVfG2WNTYosVBHFWQpkVspKE5h8Z0UYVp51OAIM9M1rn1VWTuVWi6KoMN7wJX
+	UVXs8791x4SR1nGvd1w1errA9s4RoehhBHV5B0OG08tkU/kr6wzWhVSUdLlMOswFNEYjA0p0jPiHd
+	8xZrNzCZfJLQq76vAlfFU2Rf1sWYiMlsf3OaZmZIFJP6XRJDB49qPeBZbvW2M3ziNexthF6L4AQrH
+	wi8zgjfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD2SA-0000000AN0u-1v7p;
-	Fri, 31 May 2024 13:37:54 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1sD3nK-0000000AbPN-3siK;
+	Fri, 31 May 2024 15:03:50 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD2S3-0000000AMwh-0SS9
+	id 1sD3nD-0000000AbOl-39KB
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 13:37:50 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 42D571BF207;
-	Fri, 31 May 2024 13:37:38 +0000 (UTC)
-Message-ID: <39a9b28c-2792-45ce-a8c6-1703cab0f2de@ghiti.fr>
-Date: Fri, 31 May 2024 15:37:37 +0200
+	Fri, 31 May 2024 15:03:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 56419CE1CBC;
+	Fri, 31 May 2024 15:03:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FB00C116B1;
+	Fri, 31 May 2024 15:03:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717167820;
+	bh=kzwdmdMivwWbu5Pb/8+YQ58BObGKh4rKu+UvlJwfFUQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JyDhaIvvHsmyO+DgChXw9qUEqUvOzPG6r93W6GoRT5W7YUEKR0Br6mZJCujvfLrx7
+	 IIgezlL3LbNOfC3tQxupOvBrr2f8mLyaCsLqEkSNgpgnG5YI+4SYAuvi/EhcJiBIrc
+	 zG7sKPheoWI6D6wFafreEztoE71IAs1AhlyyCYZOW2vIPwryj5SI6DLpmaFPEp2RbY
+	 HoZOuxrO9C4nHuUL09pTewJQke5e3HDWyy0NygwAuyaQpNIQJjvAFSzVXZFssZXGwf
+	 G0CUsLPpoNxhVv/pabmJBP4Z+fW7E9hTRkdtJ0DSfmW2vxV5V7X4jWTXW8zp8mosvC
+	 zAP8kZz+O5urA==
+Date: Fri, 31 May 2024 16:03:35 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: thead: th1520: Add PMU event node
+Message-ID: <20240531-reseal-sabbath-4994673eb98c@spud>
+References: <IA1PR20MB4953BA3638A0839FCB0EF86BBBF32@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <CAJF2gTRu8WUkjOOzH4MZvinZv=0cgF988c7HyzP5jw0p3w+MWQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/7] riscv: Add qspinlock support based on Zabha extension
-Content-Language: en-US
-To: Andrea Parri <parri.andrea@gmail.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
- Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
- Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org
-References: <20240528151052.313031-1-alexghiti@rivosinc.com>
- <20240528151052.313031-8-alexghiti@rivosinc.com> <ZlZ8/Nv3QS99AgY9@andrea>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <ZlZ8/Nv3QS99AgY9@andrea>
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <CAJF2gTRu8WUkjOOzH4MZvinZv=0cgF988c7HyzP5jw0p3w+MWQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_063747_394786_F695D007 
-X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-CacheID: sfid-20240531_080343_988542_DD35AD91 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -66,33 +75,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============7709128918580990394=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
 
-On 29/05/2024 02:55, Andrea Parri wrote:
->> +	select ARCH_USE_QUEUED_SPINLOCKS if TOOLCHAIN_HAS_ZABHA
-> IIUC, we should make sure qspinlocks run with ARCH_WEAK_RELEASE_ACQUIRE,
-> perhaps a similar select for the latter?  (not a kconfig expert)
-
-
-Where did you see this dependency? And if that is really a dependency of 
-qspinlocks, shouldn't this be under CONFIG_QUEUED_SPINLOCKS? (not a 
-Kconfig expert too).
+--===============7709128918580990394==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="hFbzC4Jn/xKf+UkR"
+Content-Disposition: inline
 
 
->
->    Andrea
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+--hFbzC4Jn/xKf+UkR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Fri, May 31, 2024 at 09:43:00AM +0800, Guo Ren wrote:
+> LGTM! Reviewed-by: Guo Ren <guoren@kernel.org>
+
+Please provide tags on a new line so that tooling picks them up.
+I had to amend this commit cos I forgot a signoff, so I added it.
+
+Thanks,
+Conor.
+
+--hFbzC4Jn/xKf+UkR
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZlnmxwAKCRB4tDGHoIJi
+0mWyAQCtRDjlV2EDCpIRC6SNrAMNrikM8qQS5Cv/TvuW/ikVBwEA1f58SB+mNN9k
+pDLsbVdZhVH4q91F16Bt0AnC24yHAQw=
+=JZ98
+-----END PGP SIGNATURE-----
+
+--hFbzC4Jn/xKf+UkR--
+
+
+--===============7709128918580990394==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7709128918580990394==--
+
