@@ -4,76 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4132EC27C4F
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 07:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A0BC25B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 07:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RofHJso/JtAxyoVoHe+tg6ONZMRF9w9BPbxqL/DD0bw=; b=r0ZE+9Ef7G9X37
-	cdvrBPkRt2mbahhyfVh6xrzZO4MZx6ZOTAOccHbHOR3FFJqF3lm4COJ6QmUvBObcXdj5TNsjuHG7V
-	QJxpIx6NL/nAyaSwyhwqv1FFimcKrfuriVc9Yw2AV+5rTyR3rpHFaeHmHctSQJIDKorCwExGDoSl2
-	7NZPP90sYDcS9DXmWmPJlbl92VSmWUlZT8So4BgW4CRau+UEL4Tw7DDkmzQQ0gUCs/FnMm6/J7j6Q
-	fFfj2QvuLo38bZaxnqT3QhoaGBbmfT8TCEhlHSFl78UwtzgyBPrp9YMK4P5J+vstnAwjsFWse9sA8
-	X7nBjag7A5I5mJ4bszmA==;
+	List-Owner; bh=fKWJOhwWqXVN14dsTqUU65iK57UhHVMs8QAUSYuPWPY=; b=AoGc37aFF4B1BH
+	Nnjpep82f1fJxVVGR7JE4Qdl3XjYq2lO5DqkMyTzXAxidNfV2+50qMYDneMFpANYfYXKCMKHNmWf5
+	6t1UttWTrJEe1DvwHz5+umo72NwU/nL3BwphS2c00FJKAadyYpJOSqXsMa5Rik4Fk64ib/f9ZMjTU
+	1m5CCFbrhmTElGbOCtPgJ5ExNWjzvwoe82QLVzBXeCqd9aiZ2kp4L4dhJYLnt9jYWSLaD7Zuyf9cJ
+	CbDpBrXEwo4LS2VICF5A3bdgLZpXHoA1lM3idTD2BD4zrDvO20oEJcdc25GRxSKKl/FnoYsFjXVpF
+	H2pYVykM1D5gS94sePZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCwKs-00000009SsY-3yyl;
-	Fri, 31 May 2024 07:05:58 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1sCwM3-00000009TGs-3ka3;
+	Fri, 31 May 2024 07:07:11 +0000
+Received: from mail-oo1-f47.google.com ([209.85.161.47])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCwKk-00000009Spw-0t6O
-	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 07:05:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1717139150; x=1748675150;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=uQRwfODC5iTuvYyr2nM4AkwurG3nP5PWSj482gaZt9s=;
-  b=zSnLjC92qRXT4Gnmqir2Cw3GFh95cTUvKwZ99VPZJRLZtwtn8yqMoo0j
-   MR5EMN50Kz/pVip/GcUhWfWp7UuG19gAanxWCtUYRwAusot+FE8YeRfiN
-   TdzYXkBycAlcn+7cgHBo4Y45HBV2RPIivQY0NBtBjC70DZ+qXrdmTwc63
-   fomQ/yTt8U39nmOGJHp89n+G4MXXqBYD0QQktJ6TOGZNp+Z+LnaIa79C5
-   xGckxKkLTPMfiS+0yg9nA3fTZ/HYjnjhUnVviwT3DsL2J/b9mxrqR5fS+
-   9PbCosjZ2Om4xXNaZ3bBjiPcwS4ulpRPzT9CS0vz88uAnfYkCvVp5vtL0
-   g==;
-X-CSE-ConnectionGUID: YBLIF/bfSzSBNqzeook+qQ==
-X-CSE-MsgGUID: qlSQJNvdSiSJKfZJ951vyw==
-X-IronPort-AV: E=Sophos;i="6.08,203,1712646000"; 
-   d="scan'208";a="26795688"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 31 May 2024 00:05:48 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 31 May 2024 00:05:29 -0700
-Received: from wendy.microchip.com (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Fri, 31 May 2024 00:05:26 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <linux-usb@vger.kernel.org>
-CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Daire McNamara
-	<daire.mcnamara@microchip.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Bin Liu <b-liu@ti.com>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 2/2] usb: musb: mpfs: detect UPLI external vbus control requirement from DT
-Date: Fri, 31 May 2024 08:04:32 +0100
-Message-ID: <20240531-spilt-garage-ed2113d628e8@wendy>
-X-Mailer: git-send-email 2.43.2
-In-Reply-To: <20240531-citable-copier-188d32c108ff@wendy>
-References: <20240531-citable-copier-188d32c108ff@wendy>
+	id 1sCwLz-00000009TFJ-0x8T;
+	Fri, 31 May 2024 07:07:08 +0000
+Received: by mail-oo1-f47.google.com with SMTP id 006d021491bc7-5b970a97e8eso993849eaf.1;
+        Fri, 31 May 2024 00:07:04 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717139224; x=1717744024;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ayp9OTJcx8xBTEOWGr76ffez+fesdX+4XqGBVIDxEaQ=;
+        b=gFSNU3Qixvx7abSpL8M39QguIemtRokJEMiTfRVFVckaeiSBWm/4Dve60D6Mk6/Ukx
+         Ij2iidFdu+AZR+lOCLfjvxee9MgqjHOAqqgo9aKblZxoFDVbhfp17umdsjOgaESFF8yq
+         thI4wx17Z82FG8FdT/lK1iM5opWOvhBP3Ma8RvjoElQThMpK2xyL8fMxrmFZc3ZLNaak
+         8WwXQ+FYwqKbcankjC8ePnKI0C6rjanwzlW9KnPgp5up3TF88/Pv+lgmby2ICSyWH/Cf
+         2fQeNWLZz779bny+8pcFIl0eZzUlqcanDXFpCPKQBOPOpx+DBAnMTAdLh+Nf7sr7fz2a
+         OMjg==
+X-Forwarded-Encrypted: i=1; AJvYcCWoCdIN7nOEO6FIGCnKSn5Eu0bij36ktPv4PXyTOMp+VCZ6eIS1yTX6Odf4TBMknX2TTQux8GuqbBFSXY2b1c6p1I1+WCfdVHfQr5psiFulU6VwozTpLj1mYIdzVM4w9HQDAN5kz0ffVTn/eCj534Qr7i7/8PQL1tcegi6+fm8BrG+m6k4nvz3XcudiWY+BoDRVPw+Yhg+H3vRW5uEgIlwmLkOB8xCDnIs6hr0BeK3OiF6XroPefqUMXYOe9Z4=
+X-Gm-Message-State: AOJu0YyeTtjEnbV6ckF7bdL1J70FWTzlF34R+uwILbJmedWxD1g8BkVV
+	0QEcZFg9RKakcIPqI0/AZfxf70pvpMYX0gLJ5K1kyTHYjMiD6ER1DLiSxzUL
+X-Google-Smtp-Source: AGHT+IEvw8EaNVAIsUueI9lry6ganIkRRYHroy3+qisIhM7iH7/OZBwJi/3uyOMzOOwDcp76t/gcmA==
+X-Received: by 2002:a05:6820:1aca:b0:5b2:bc0:f387 with SMTP id 006d021491bc7-5ba05d3212amr1200272eaf.5.1717139223694;
+        Fri, 31 May 2024 00:07:03 -0700 (PDT)
+Received: from mail-oo1-f50.google.com (mail-oo1-f50.google.com. [209.85.161.50])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5ba004f25a0sm268240eaf.42.2024.05.31.00.07.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 31 May 2024 00:07:03 -0700 (PDT)
+Received: by mail-oo1-f50.google.com with SMTP id 006d021491bc7-5b5254f9c32so990361eaf.0;
+        Fri, 31 May 2024 00:07:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWuwsdsFjOi6htPU2WkKHYpnN62jm/vCtQOe8+ONLKSj/4ZDWEfKIe9HD4sp2/2m+HcVg6C8YM2H9vnry2Mr4J/l9LEaTi/F5DZUuZ+7zPyxkR4CDeJWj/iVYTdV+PsyUDnSL6pRihy8A9FM9Cbt3y0FkX9IXZ3MRjhlXjPc9ZkMFB4X7uHvkXnC/UP2hiMvUyOT20mBfrg6LqVYyD++QooWPSJW5s1hfHVfjY1DDUkL4w8Zhk6wm9d3kXnNO4=
+X-Received: by 2002:a25:5f46:0:b0:df4:f149:1fc7 with SMTP id
+ 3f1490d57ef6-dfa73dc4a2dmr974775276.58.1717139203004; Fri, 31 May 2024
+ 00:06:43 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=988; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=uQRwfODC5iTuvYyr2nM4AkwurG3nP5PWSj482gaZt9s=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGmRZU0N1gXVX+7MDY77Y5XF/zXHL/ZV8Uy2PpcPui7WnyLP v3bsKGVhEONgkBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwESWhDL8T/Y0NCt99u+QUUHy3f9xrz 98Ubib935+TeK/1RF71r584cfwV7ayIHt9at/b0BYhxSmrLhyXFVLJmuI/6U6YwYZ8v++ZTAA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+References: <20240504-pinctrl-cleanup-v2-0-26c5f2dc1181@nxp.com>
+ <CAMuHMdVprgpjDP6PDn7appofJv8Tv30nRA4+7n4sR8n6n4qy+g@mail.gmail.com> <DU0PR04MB9417FF2632A278BF6605AE1F88FC2@DU0PR04MB9417.eurprd04.prod.outlook.com>
+In-Reply-To: <DU0PR04MB9417FF2632A278BF6605AE1F88FC2@DU0PR04MB9417.eurprd04.prod.outlook.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 31 May 2024 09:06:30 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdW01HtY7d+L=44czH_dqV6bresLeF=SRqyn9p=jk3MTAw@mail.gmail.com>
+Message-ID: <CAMuHMdW01HtY7d+L=44czH_dqV6bresLeF=SRqyn9p=jk3MTAw@mail.gmail.com>
+Subject: Re: [PATCH v2 00/20] pinctrl: Use scope based of_node_put() cleanups
+To: Peng Fan <peng.fan@nxp.com>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
+	Hal Feng <hal.feng@starfivetech.com>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim <shiraz.linux.kernel@gmail.com>, 
+	"soc@kernel.org" <soc@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Damien Le Moal <dlemoal@kernel.org>, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Aisheng Dong <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Chester Lin <chester62515@gmail.com>, 
+	Matthias Brugger <mbrugger@suse.com>, 
+	"Ghennadi Procopciuc (OSS)" <ghennadi.procopciuc@oss.nxp.com>, Sean Wang <sean.wang@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Joel Stanley <joel@jms.id.au>, Dan Carpenter <dan.carpenter@linaro.org>, 
+	Tony Lindgren <tony@atomide.com>, Stephen Warren <swarren@wwwdotorg.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>, 
+	"linux-samsung-soc@vger.kernel.org" <linux-samsung-soc@vger.kernel.org>, 
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>, 
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_000550_338756_45145861 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20240531_000707_294561_C19E00CD 
+X-CRM114-Status: GOOD (  30.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +119,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The musb driver core already supports external vbus control for ULPI
-PHYs, but none of the drivers actually enable it. A customer reported
-needing this for their device, and now that a DT property for detecting
-this configuration exists, read the property to enable the feature.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/usb/musb/mpfs.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/usb/musb/mpfs.c b/drivers/usb/musb/mpfs.c
-index f0f56df388355..29c7e5cdb230e 100644
---- a/drivers/usb/musb/mpfs.c
-+++ b/drivers/usb/musb/mpfs.c
-@@ -190,6 +190,8 @@ static int mpfs_probe(struct platform_device *pdev)
- 	pdata->config = &mpfs_musb_hdrc_config;
- 	pdata->platform_ops = &mpfs_ops;
- 
-+	pdata->extvbus = device_property_read_bool(dev, "microchip,ext-vbus-drv");
-+
- 	pdata->mode = usb_get_dr_mode(dev);
- 	if (pdata->mode == USB_DR_MODE_UNKNOWN) {
- 		dev_info(dev, "No dr_mode property found, defaulting to otg\n");
--- 
-2.43.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUGVuZywKCk9uIEZyaSwgTWF5IDMxLCAyMDI0IGF0IDU6MDfigK9BTSBQZW5nIEZhbiA8cGVu
+Zy5mYW5AbnhwLmNvbT4gd3JvdGU6Cj4gPiBTdWJqZWN0OiBSZTogW1BBVENIIHYyIDAwLzIwXSBw
+aW5jdHJsOiBVc2Ugc2NvcGUgYmFzZWQgb2Zfbm9kZV9wdXQoKQo+ID4gY2xlYW51cHMKPiA+IE9u
+IFNhdCwgTWF5IDQsIDIwMjQgYXQgMzoxMuKAr1BNIFBlbmcgRmFuIChPU1MpIDxwZW5nLmZhbkBv
+c3MubnhwLmNvbT4KPiA+IHdyb3RlOgo+ID4gPiBVc2Ugc2NvcGUgYmFzZWQgb2Zfbm9kZV9wdXQo
+KSB0byBzaW1wbGlmeSBjb2RlLiBJdCByZWR1Y2VzIHRoZSBjaGFuY2UKPiA+ID4gb2YgZm9yZ2V0
+dGluZyBvZl9ub2RlX3B1dCgpLCBhbmQgYWxzbyBzaW1wbGlmaWVzIGVycm9yIGhhbmRsaW5nIHBh
+dGguCj4gPiA+IEkgbm90IGFibGUgdG8gdGVzdCB0aGUgY2hhbmdlcyBvbiBhbGwgdGhlIGhhcmR3
+YXJlcywgc28gZHJpdmVyIG93bmVycywKPiA+ID4gcGxlYXNlIGhlbHAgcmV2aWV3IHdoZW4geW91
+IGhhdmUgdGltZS4KPiA+ID4KPiA+ID4gVGhpcyBwYXRjaHNldCB3YXMgaW5zcGlyZWQgZnJvbSBE
+YW4ncyBjb21tZW50cyBvbiBwaW5jdHJsLXNjbWktaW14LmMsCj4gPiA+IHRoYW5rcy4KPiA+ID4K
+PiA+ID4gU2lnbmVkLW9mZi1ieTogUGVuZyBGYW4gPHBlbmcuZmFuQG54cC5jb20+Cj4gPgo+ID4g
+QW5keSdzIHF1ZXN0aW9uIGFib3V0IGNvZGUgZ2VuZXJhdGlvbiBvbiBhIHJlbGF0ZWQgcGF0Y2gg
+bWFkZSBtZSB3b25kZXIsCj4gPiB0b28uCj4gPgo+ID4gT24gYXJtMzIsIGEgY29udmVyc2lvbiB0
+byBmb3JfZWFjaF9jaGlsZF9vZl9ub2RlX3Njb3BlZCgpIHNlZW1zIHRvIGNvc3QgY2EuCj4gPiA0
+OCBieXRlcyBvZiBhZGRpdGlvbmFsIGNvZGUsIHJlZ2FyZGxlc3Mgb2Ygd2hldGhlciB0aGVyZSB3
+ZXJlIGV4cGxpY2l0Cj4gPiBjbGVhbnVwcyBiZWZvcmUgb3Igbm90Lgo+ID4KPiA+IEkgY2hlY2tl
+ZCAicGluY3RybDogcmVuZXNhczogVXNlIHNjb3BlIGJhc2VkIG9mX25vZGVfcHV0KCkgY2xlYW51
+cHMiLCBhbmQgYWxsCj4gPiBidXQgdGhlIGNvbnZlcnNpb25zIGluICpfZHRfbm9kZV90b19tYXAo
+KSBjb3N0IDQ4IGJ5dGVzIGVhY2guCj4KPiBJIGFtIG5vdCBzdXJlIHRoaXMgaXMgYW4gaXNzdWUg
+b3IgZWxzZS4gV2hhdCB3b3VsZCB5b3Ugc3VnZ2VzdCBtZSB0byBkbz8KPiBJZiB5b3UgdGhpbmsg
+ZXh0cmEgNDhieXRlcyBjb25zdW1wdGlvbiBpcyBub3QgZ29vZCBoZXJlLCBmZWVsIGZyZWUgdG8g
+ZHJvcCB0aGUKPiBwYXRjaC4KCkkgc3VnZ2VzdCBkb2luZyBub3RoaW5nIGFib3V0IHRoaXMuICBJ
+IGp1c3Qgd2FudGVkIHBlb3BsZSB0byBiZSBhd2FyZQpvZiB0aGUgaW1wYWN0LiAgSSBndWVzcyBp
+dCdzIGp1c3QgcGFydCBvZiB0aGUgc2xvdyBidXQgc3RlYWR5IGluY3JlYXNlCm9mIGtlcm5lbCBz
+aXplIChjYS4gMjAtMzAgS2lCL3JlbGVhc2UpLi4uIDstKQoKR3J7b2V0amUsZWV0aW5nfXMsCgog
+ICAgICAgICAgICAgICAgICAgICAgICBHZWVydAoKLS0gCkdlZXJ0IFV5dHRlcmhvZXZlbiAtLSBU
+aGVyZSdzIGxvdHMgb2YgTGludXggYmV5b25kIGlhMzIgLS0gZ2VlcnRAbGludXgtbTY4ay5vcmcK
+CkluIHBlcnNvbmFsIGNvbnZlcnNhdGlvbnMgd2l0aCB0ZWNobmljYWwgcGVvcGxlLCBJIGNhbGwg
+bXlzZWxmIGEgaGFja2VyLiBCdXQKd2hlbiBJJ20gdGFsa2luZyB0byBqb3VybmFsaXN0cyBJIGp1
+c3Qgc2F5ICJwcm9ncmFtbWVyIiBvciBzb21ldGhpbmcgbGlrZSB0aGF0LgogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIC0tIExpbnVzIFRvcnZhbGRzCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
