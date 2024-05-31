@@ -4,82 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A7D9C25B7C
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 18:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E483C25B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 19:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6NKsHX2HLZIsbz8D29xJZxR6Kf8+j2we90Zz98bnpw4=; b=EZXonFV/EWCOnv
-	p7QHbTNf8X2wKIz2kaHx3NViSL4r6cnYLczxi58DkwgjbcozqWlIHLQj7GQXm95SQj5pg57lQs3gb
-	N8VFCIxRa/3UcjFNnOc4GyZ8/O2UNA+0VYZb+pDMHSSrQXvvYqIAyZkqbua/zIVBSCC/VEpOiZCUR
-	EGcWSDeuyFWtu85LP6whjY1oASiW1/gwiskwZsM8JPjA5/YHxZEBYX8kB3DBiqmLAYyD2fvMqo2Tn
-	CJUsoOUzz71SNa4PPxu1l9whHW5UWXYhqSMK7DT/RhoAHRlkmn1xEfTRtCCGGtfKR1/sFvFcF1jy0
-	SNSIJlMO8CsvSsu5FrUw==;
+	List-Owner; bh=w1V/tSooVwS4SRYDrIi22gfpqiYtthDE4OgZrRPPtC4=; b=HG6vMEFOAP1yz0
+	F6dpwixzA872jvm7D8i3GF8jsp4DI8RW9CQbHHkODBj8kclgKVRhwLogi+4CGM8r22/0pAfE+gLLx
+	1FpzK+KPJRJeY81SwAU08TxtD4kclSq9H20XRXXdQFpswdr1WZRvpjwBVAu56jWW4Qmc2NMWMhYBY
+	1XK1eqzV+pvsbniUdSyRpaPQd7j5TtX+fNb+wzBhBDipY3ne43r2xNfXuZtx7YCRcxUdReHOM/K4M
+	meUlXE/O/ouT9UvzAhPLFrw6o/iX9eifxiym3MkusnAO3tYB/ZXni/kd1qsYnoTr+RFcKBi+TCH6C
+	uL3vIAVN/E2Yv9fGLHbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD7Qm-0000000BBA8-2L65;
-	Fri, 31 May 2024 18:56:48 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1sD7fM-0000000BCwg-49In;
+	Fri, 31 May 2024 19:11:52 +0000
+Received: from out-186.mta0.migadu.com ([91.218.175.186])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD7Qh-0000000BB9B-1Mcv
-	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 18:56:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1717181803; x=1748717803;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SrJwZ/7eOLujVLRysciVp6Tf179CgGDJdlrnRGdI2qk=;
-  b=D4eF8gge9we+d5XpioTtWr0g7t6cvEMkNoZLBBKwpH4SGwzxX6EkhwsD
-   qMUE6d2oQnoHj0JzOSpG8PhBlUw5A1LtOdvuvtOyQB1kGoLCHQMAKMq+6
-   cdB6NNOjYWGBQi4N94cK/aaSZxtNTMf/afxyPPFjdgzoWTfkIGTmd/GvJ
-   elX6962W2D4s7QY8eshoMdGztPvFAf3mCahNBzTV/Al8OzeenI4vJuP+L
-   kxVpp5fzMoNe8h+hAIwBoz0vU71lXL2hEZ5bhPUlCR6FYjWcbXs3yuybY
-   7eEodTUV0RrScQ/BhYZyUnFfrP0YZZfQ2M5aYoNZgwWp3G442klystMZn
-   g==;
-X-CSE-ConnectionGUID: F6u5XuTLQGuTr/RiPAlDTA==
-X-CSE-MsgGUID: uCdBG7XVSkqYMmuZCy7O0Q==
-X-IronPort-AV: E=McAfee;i="6600,9927,11089"; a="13581617"
-X-IronPort-AV: E=Sophos;i="6.08,205,1712646000"; 
-   d="scan'208";a="13581617"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 May 2024 11:56:42 -0700
-X-CSE-ConnectionGUID: ghdv28QiTZ+1fU84+KkuEw==
-X-CSE-MsgGUID: C3uIBoSNQoqmiTs/k80Z+g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.08,205,1712646000"; 
-   d="scan'208";a="40685318"
-Received: from unknown (HELO 0610945e7d16) ([10.239.97.151])
-  by fmviesa003.fm.intel.com with ESMTP; 31 May 2024 11:56:39 -0700
-Received: from kbuild by 0610945e7d16 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1sD7QW-000Hfl-0L;
-	Fri, 31 May 2024 18:56:33 +0000
-Date: Sat, 1 Jun 2024 02:55:57 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1sD7fJ-0000000BCub-1y9f;
+	Fri, 31 May 2024 19:11:51 +0000
+X-Envelope-To: jthoughton@google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1717182706;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=H/R5IQbpE5t+x2dR39LRiJBqiBXfmFPbwxdtpnn5hGs=;
+	b=c+stuysyrYtChztUjj8bfOLa+pidnwFeuWOXm8J8IFP59C7O1SPwkzhQYX7vXUlN1P6bs5
+	FvYG4eEtw8I3Z1F5NDtIKLP4wlgV4ZNL+EPxaYtUlojUk2IX9MNoL7r3xWNfltbQiD1hec
+	SsERK6rU5wdZ1zfN5Rp0Z+kjvAVliNw=
+X-Envelope-To: akpm@linux-foundation.org
+X-Envelope-To: pbonzini@redhat.com
+X-Envelope-To: aou@eecs.berkeley.edu
+X-Envelope-To: ankita@nvidia.com
+X-Envelope-To: anup@brainfault.org
+X-Envelope-To: atishp@atishpatra.org
+X-Envelope-To: axelrasmussen@google.com
+X-Envelope-To: maobibo@loongson.cn
+X-Envelope-To: catalin.marinas@arm.com
+X-Envelope-To: dmatlack@google.com
+X-Envelope-To: rientjes@google.com
+X-Envelope-To: chenhuacai@kernel.org
+X-Envelope-To: james.morse@arm.com
+X-Envelope-To: corbet@lwn.net
+X-Envelope-To: maz@kernel.org
+X-Envelope-To: mpe@ellerman.id.au
+X-Envelope-To: npiggin@gmail.com
+X-Envelope-To: palmer@dabbelt.com
+X-Envelope-To: paul.walmsley@sifive.com
+X-Envelope-To: rananta@google.com
+X-Envelope-To: ryan.roberts@arm.com
+X-Envelope-To: seanjc@google.com
+X-Envelope-To: shahuang@redhat.com
+X-Envelope-To: shuah@kernel.org
+X-Envelope-To: suzuki.poulose@arm.com
+X-Envelope-To: zhaotianrui@loongson.cn
+X-Envelope-To: will@kernel.org
+X-Envelope-To: yuzhao@google.com
+X-Envelope-To: yuzenghui@huawei.com
+X-Envelope-To: kvm-riscv@lists.infradead.org
+X-Envelope-To: kvm@vger.kernel.org
+X-Envelope-To: kvmarm@lists.linux.dev
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+X-Envelope-To: linux-doc@vger.kernel.org
+X-Envelope-To: linux-kernel@vger.kernel.org
+X-Envelope-To: linux-kselftest@vger.kernel.org
+X-Envelope-To: linux-mips@vger.kernel.org
+X-Envelope-To: linux-mm@kvack.org
+X-Envelope-To: linux-riscv@lists.infradead.org
+X-Envelope-To: linuxppc-dev@lists.ozlabs.org
+X-Envelope-To: loongarch@lists.linux.dev
+Date: Fri, 31 May 2024 12:11:33 -0700
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: James Houghton <jthoughton@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Ankit Agrawal <ankita@nvidia.com>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Bibo Mao <maobibo@loongson.cn>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	David Matlack <dmatlack@google.com>,
+	David Rientjes <rientjes@google.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	James Morse <james.morse@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>
-Subject: Re: [PATCH v0] RISC-V: Use Zkr to seed KASLR base address
-Message-ID: <202406010241.HBpKhSuj-lkp@intel.com>
-References: <20240531162327.2436962-1-jesse@rivosinc.com>
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Shaoqin Huang <shahuang@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Will Deacon <will@kernel.org>, Yu Zhao <yuzhao@google.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev
+Subject: Re: [PATCH v4 6/7] KVM: arm64: Relax locking for kvm_test_age_gfn
+ and kvm_age_gfn
+Message-ID: <Zlog5Yk_Pjq0jQhC@linux.dev>
+References: <20240529180510.2295118-1-jthoughton@google.com>
+ <20240529180510.2295118-7-jthoughton@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240531162327.2436962-1-jesse@rivosinc.com>
+In-Reply-To: <20240529180510.2295118-7-jthoughton@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_115643_481277_FA6D6630 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20240531_121149_820921_8600F007 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,78 +140,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jesse,
+On Wed, May 29, 2024 at 06:05:09PM +0000, James Houghton wrote:
 
-kernel test robot noticed the following build warnings:
+[...]
 
-[auto build test WARNING on linus/master]
-[also build test WARNING on v6.10-rc1 next-20240531]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index 9e2bbee77491..eabb07c66a07 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -1319,10 +1319,8 @@ static int stage2_age_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  	data->young = true;
+>  
+>  	/*
+> -	 * stage2_age_walker() is always called while holding the MMU lock for
+> -	 * write, so this will always succeed. Nonetheless, this deliberately
+> -	 * follows the race detection pattern of the other stage-2 walkers in
+> -	 * case the locking mechanics of the MMU notifiers is ever changed.
+> +	 * This walk may not be exclusive; the PTE is permitted to change
+> +	 * from under us.
+>  	 */
+>  	if (data->mkold && !stage2_try_set_pte(ctx, new))
+>  		return -EAGAIN;
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jesse-Taube/RISC-V-Use-Zkr-to-seed-KASLR-base-address/20240601-002545
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20240531162327.2436962-1-jesse%40rivosinc.com
-patch subject: [PATCH v0] RISC-V: Use Zkr to seed KASLR base address
-config: riscv-defconfig (https://download.01.org/0day-ci/archive/20240601/202406010241.HBpKhSuj-lkp@intel.com/config)
-compiler: clang version 19.0.0git (https://github.com/llvm/llvm-project bafda89a0944d947fc4b3b5663185e07a397ac30)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240601/202406010241.HBpKhSuj-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202406010241.HBpKhSuj-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from arch/riscv/kernel/pi/archrandom_early.c:13:
-   In file included from arch/riscv/include/asm/archrandom.h:13:
-   In file included from arch/riscv/include/asm/processor.h:71:
-   In file included from include/linux/cpumask.h:11:
-   In file included from include/linux/kernel.h:31:
->> include/linux/printk.h:619:9: warning: 'pr_err_once' macro redefined [-Wmacro-redefined]
-     619 | #define pr_err_once(fmt, ...)                                   \
-         |         ^
-   arch/riscv/kernel/pi/archrandom_early.c:9:9: note: previous definition is here
-       9 | #define pr_err_once(...)
-         |         ^
->> arch/riscv/kernel/pi/archrandom_early.c:51:22: warning: variable 'tvec' is uninitialized when used here [-Wuninitialized]
-      51 |         csr_write(CSR_TVEC, tvec);
-         |                             ^~~~
-   arch/riscv/include/asm/csr.h:506:38: note: expanded from macro 'csr_write'
-     506 |         unsigned long __v = (unsigned long)(val);               \
-         |                                             ^~~
-   arch/riscv/kernel/pi/archrandom_early.c:44:20: note: initialize the variable 'tvec' to silence this warning
-      44 |         unsigned long tvec;
-         |                           ^
-         |                            = 0
-   2 warnings generated.
-
-
-vim +/pr_err_once +619 include/linux/printk.h
-
-16cb839f1332497 Joe Perches     2011-01-12  612  
-16cb839f1332497 Joe Perches     2011-01-12  613  #define pr_emerg_once(fmt, ...)					\
-16cb839f1332497 Joe Perches     2011-01-12  614  	printk_once(KERN_EMERG pr_fmt(fmt), ##__VA_ARGS__)
-16cb839f1332497 Joe Perches     2011-01-12  615  #define pr_alert_once(fmt, ...)					\
-16cb839f1332497 Joe Perches     2011-01-12  616  	printk_once(KERN_ALERT pr_fmt(fmt), ##__VA_ARGS__)
-16cb839f1332497 Joe Perches     2011-01-12  617  #define pr_crit_once(fmt, ...)					\
-16cb839f1332497 Joe Perches     2011-01-12  618  	printk_once(KERN_CRIT pr_fmt(fmt), ##__VA_ARGS__)
-16cb839f1332497 Joe Perches     2011-01-12 @619  #define pr_err_once(fmt, ...)					\
-16cb839f1332497 Joe Perches     2011-01-12  620  	printk_once(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
-16cb839f1332497 Joe Perches     2011-01-12  621  #define pr_warn_once(fmt, ...)					\
-16cb839f1332497 Joe Perches     2011-01-12  622  	printk_once(KERN_WARNING pr_fmt(fmt), ##__VA_ARGS__)
-16cb839f1332497 Joe Perches     2011-01-12  623  #define pr_notice_once(fmt, ...)				\
-16cb839f1332497 Joe Perches     2011-01-12  624  	printk_once(KERN_NOTICE pr_fmt(fmt), ##__VA_ARGS__)
-16cb839f1332497 Joe Perches     2011-01-12  625  #define pr_info_once(fmt, ...)					\
-16cb839f1332497 Joe Perches     2011-01-12  626  	printk_once(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
-eb012d125a24197 Tetsuo Handa    2020-05-25  627  /* no pr_cont_once, don't do that... */
-36d308d8b547ee1 Mikhail Gruzdev 2013-02-21  628  
+It is probably worth mentioning that if there was a race to update the
+PTE then the GFN is most likely young, so failing to clear AF probably
+isn't even consequential.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks,
+Oliver
 
 _______________________________________________
 linux-riscv mailing list
