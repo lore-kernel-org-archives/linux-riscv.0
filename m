@@ -4,38 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E483C25B75
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 19:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A002C25B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 19:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w1V/tSooVwS4SRYDrIi22gfpqiYtthDE4OgZrRPPtC4=; b=HG6vMEFOAP1yz0
-	F6dpwixzA872jvm7D8i3GF8jsp4DI8RW9CQbHHkODBj8kclgKVRhwLogi+4CGM8r22/0pAfE+gLLx
-	1FpzK+KPJRJeY81SwAU08TxtD4kclSq9H20XRXXdQFpswdr1WZRvpjwBVAu56jWW4Qmc2NMWMhYBY
-	1XK1eqzV+pvsbniUdSyRpaPQd7j5TtX+fNb+wzBhBDipY3ne43r2xNfXuZtx7YCRcxUdReHOM/K4M
-	meUlXE/O/ouT9UvzAhPLFrw6o/iX9eifxiym3MkusnAO3tYB/ZXni/kd1qsYnoTr+RFcKBi+TCH6C
-	uL3vIAVN/E2Yv9fGLHbQ==;
+	List-Owner; bh=UmYPy0Z4B5Fi7SZDLEhiB44RMFwOITDTInn++LaLHc4=; b=W/Yt250L9e9a6D
+	my8Zb2KgQJ3Zsg0cNDElMrIYIi74PzhmRze+tQBF04et+dXqWSMFOz+92w6QyHoyQIbKo7RJQLftK
+	ciqpFs0E5NmWCh03N6f2PQr2Fz2UqYdEYZrWRVrGCON28agvhaf3s7T5aqkCY/EozjyQQePLaZ8RH
+	LfdoHx1GfOiVFHffuUDJ/wZ0I7/RbiOWY6a9MMzM/ZZL9w7HsZOLZ1I35gk94X4JsmN2ukAtvWmdb
+	UkCek57582aYPMvVCUbc5sfxkaOgaGsvQP3A1ba9qJjaD4jLAqNj0nXpubhjWtvymhDKACT2XQntf
+	JWr4bN21HWdXXgSJISSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD7fM-0000000BCwg-49In;
-	Fri, 31 May 2024 19:11:52 +0000
-Received: from out-186.mta0.migadu.com ([91.218.175.186])
+	id 1sD7lo-0000000BEPO-0bg9;
+	Fri, 31 May 2024 19:18:32 +0000
+Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD7fJ-0000000BCub-1y9f;
-	Fri, 31 May 2024 19:11:51 +0000
+	id 1sD7lh-0000000BELB-2Ged
+	for linux-riscv@lists.infradead.org;
+	Fri, 31 May 2024 19:18:27 +0000
 X-Envelope-To: jthoughton@google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1717182706;
+	t=1717183102;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=H/R5IQbpE5t+x2dR39LRiJBqiBXfmFPbwxdtpnn5hGs=;
-	b=c+stuysyrYtChztUjj8bfOLa+pidnwFeuWOXm8J8IFP59C7O1SPwkzhQYX7vXUlN1P6bs5
-	FvYG4eEtw8I3Z1F5NDtIKLP4wlgV4ZNL+EPxaYtUlojUk2IX9MNoL7r3xWNfltbQiD1hec
-	SsERK6rU5wdZ1zfN5Rp0Z+kjvAVliNw=
+	bh=2PNxbejm0F++LAZR/c3kykM2MBahftMSuulGipIjRRI=;
+	b=OL//CPF3OaxDLNyUcF7L7kyNMf3VPjTvzSryLUW5C3BaNJ8N7qvdo+GYUTIaqfYoH8qbo6
+	hUFuWYcFNlSydh5QitAFxaO+uiSO8irmL6Dy7FoK51VSXO1IpH+zzZd24unXmg4kvPBA2e
+	eDLUrnlpHUL5vYjUk6kginvv7JlKt2g=
 X-Envelope-To: akpm@linux-foundation.org
 X-Envelope-To: pbonzini@redhat.com
 X-Envelope-To: aou@eecs.berkeley.edu
@@ -77,7 +78,7 @@ X-Envelope-To: linux-mm@kvack.org
 X-Envelope-To: linux-riscv@lists.infradead.org
 X-Envelope-To: linuxppc-dev@lists.ozlabs.org
 X-Envelope-To: loongarch@lists.linux.dev
-Date: Fri, 31 May 2024 12:11:33 -0700
+Date: Fri, 31 May 2024 12:18:11 -0700
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: James Houghton <jthoughton@google.com>
@@ -114,16 +115,17 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	loongarch@lists.linux.dev
 Subject: Re: [PATCH v4 6/7] KVM: arm64: Relax locking for kvm_test_age_gfn
  and kvm_age_gfn
-Message-ID: <Zlog5Yk_Pjq0jQhC@linux.dev>
+Message-ID: <Zloicw4IU8_-V5Ns@linux.dev>
 References: <20240529180510.2295118-1-jthoughton@google.com>
  <20240529180510.2295118-7-jthoughton@google.com>
+ <Zlog5Yk_Pjq0jQhC@linux.dev>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240529180510.2295118-7-jthoughton@google.com>
+In-Reply-To: <Zlog5Yk_Pjq0jQhC@linux.dev>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_121149_820921_8600F007 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20240531_121825_730182_DAFB30C0 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,31 +142,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 29, 2024 at 06:05:09PM +0000, James Houghton wrote:
+On Fri, May 31, 2024 at 12:11:33PM -0700, Oliver Upton wrote:
+> On Wed, May 29, 2024 at 06:05:09PM +0000, James Houghton wrote:
+> 
+> [...]
+> 
+> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> > index 9e2bbee77491..eabb07c66a07 100644
+> > --- a/arch/arm64/kvm/hyp/pgtable.c
+> > +++ b/arch/arm64/kvm/hyp/pgtable.c
+> > @@ -1319,10 +1319,8 @@ static int stage2_age_walker(const struct kvm_pgtable_visit_ctx *ctx,
+> >  	data->young = true;
+> >  
+> >  	/*
+> > -	 * stage2_age_walker() is always called while holding the MMU lock for
+> > -	 * write, so this will always succeed. Nonetheless, this deliberately
+> > -	 * follows the race detection pattern of the other stage-2 walkers in
+> > -	 * case the locking mechanics of the MMU notifiers is ever changed.
+> > +	 * This walk may not be exclusive; the PTE is permitted to change
+> > +	 * from under us.
+> >  	 */
+> >  	if (data->mkold && !stage2_try_set_pte(ctx, new))
+> >  		return -EAGAIN;
+> 
+> It is probably worth mentioning that if there was a race to update the
+> PTE then the GFN is most likely young, so failing to clear AF probably
+> isn't even consequential.
 
-[...]
+Oh, and the WARN_ON() in kvm_pgtable_stage2_test_clear_young() is bogus
+now. Maybe demote it to:
 
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index 9e2bbee77491..eabb07c66a07 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -1319,10 +1319,8 @@ static int stage2_age_walker(const struct kvm_pgtable_visit_ctx *ctx,
->  	data->young = true;
->  
->  	/*
-> -	 * stage2_age_walker() is always called while holding the MMU lock for
-> -	 * write, so this will always succeed. Nonetheless, this deliberately
-> -	 * follows the race detection pattern of the other stage-2 walkers in
-> -	 * case the locking mechanics of the MMU notifiers is ever changed.
-> +	 * This walk may not be exclusive; the PTE is permitted to change
-> +	 * from under us.
->  	 */
->  	if (data->mkold && !stage2_try_set_pte(ctx, new))
->  		return -EAGAIN;
-
-It is probably worth mentioning that if there was a race to update the
-PTE then the GFN is most likely young, so failing to clear AF probably
-isn't even consequential.
+  r = kvm_pgtable_walk(...);
+  WARN_ON_ONCE(r && r != -EAGAIN);
 
 -- 
 Thanks,
