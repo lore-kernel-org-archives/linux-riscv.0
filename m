@@ -4,60 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD3DC27C44
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 08:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7FDC25B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 08:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lAOAQRmSgeozhPgzj4h+LxTqecvQnBujDeJxjhEVC3Q=; b=Y7jyw28tUOqIon
-	40mm3yCDYTbJOKis5sf4YFrw/tVs9ZBqKPrRvkCM58wBZWJsEKHVZO7Yb6xVB/bp/db5Mknlh128Y
-	inlyhpFwaZCSKCBT3USFb8pP9LAd12mifuHdVOF9UY4HP8rV3sMHrT+lEHggGEAjUVEeNFUtiuFyd
-	yai0l5Jy3JZtDv/LVURlSf4Lc1q93IF7mgHlfmxcS21JtxeYOoxo8+ehCJ4YnIgxVi6NPy0VM/f27
-	DbTqt9btRyxqUwFB3r4T19UihQaRvblB7POE5IiFgsoA4azqW95k+EduEygoCltxJJodOIorN8oOY
-	9hrZWDpdcBWrPy16U4uw==;
+	List-Owner; bh=jqHPXFbRQfRi8GzWpSE2OzE9KP4b+4z5Oj7j0QoAELc=; b=xoMDr3gFS1Uvms
+	hE1QL6KkhaTNVYa2zDDbrqhJXqWP/8WDB1IMiD8Bu7Crjd5Tdx2SRJgcCHxbLa8DwWZdWeqUOF4oK
+	C/hPDcpfUlpVBRz+shl7hi42HWg1UBi+U2OHSVOBAcbGABdvCIK9emtX8aZiVJBsNc/uscstx/yz4
+	uowHx0SXU6iFAg55sGpfsH3PlliBjZkoPXBKVs8MXoi8Aa0Uu3pGQHqp6GDzhT0PWOHXG7/oDylc6
+	VDxYBmWFKx9NeBV3FYIk7n+InSDKRuFjSdhQsohEgciGqyhpma4V3vY4Ldq++zbW6QxlKFmv54qxI
+	jV2o+4DNTaKsvh47FZEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCxiy-00000009d1T-2H9c;
-	Fri, 31 May 2024 08:34:56 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1sCy1o-00000009h84-3TCS;
+	Fri, 31 May 2024 08:54:24 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sCxit-00000009d00-40yQ
+	id 1sCy1l-00000009h5w-0JoM
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 08:34:54 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4VrGbH0bhjz1HCrM;
-	Fri, 31 May 2024 16:32:59 +0800 (CST)
-Received: from kwepemi500008.china.huawei.com (unknown [7.221.188.139])
-	by mail.maildlp.com (Postfix) with ESMTPS id D689514011F;
-	Fri, 31 May 2024 16:34:40 +0800 (CST)
-Received: from huawei.com (10.67.174.55) by kwepemi500008.china.huawei.com
- (7.221.188.139) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 31 May
- 2024 16:34:40 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <adrian.hunter@intel.com>, <kan.liang@linux.intel.com>,
-	<dev.mbstr@gmail.com>, <samuel.holland@sifive.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH] riscv: stacktrace: Add USER_STACKTRACE support
-Date: Fri, 31 May 2024 08:32:57 +0000
-Message-ID: <20240531083258.386709-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 31 May 2024 08:54:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1717145661; x=1748681661;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=tCHprlLlnw6uDZ2ngRA1f3x4YFwg7beapb8nxZV2la8=;
+  b=vGXDDKfQ1SCzztQsOv6mRtrdpJMR1BZ9ppo/vNz8LhGCzD/iH6PYtMQZ
+   1+Y/kR8AvDXPVLqVNFvWFGd1YeNdFvwr2TDyXE+akNuJIFPhCLxqJgKpa
+   5m3kmZPWE2YaYVdjFGmc7ulTMc8H+eATZbhP/HWzcC8UFU26RVn7s9l3t
+   cVWqqVTkGCCA+bNfRi7b/BF7MqfNsxwcE5E+Fck/+wF+U6SRRcplMI3Tw
+   sHdbDjcjgqFgdx5aXze/u21EZkon50yqavbkDp6o5rwFUP11mdQSpyw4S
+   a0gUN7OeG0xAO9n3RdQRtkcWdydQhem5RKFLzWvYz1w4XNouL6VsuETme
+   A==;
+X-CSE-ConnectionGUID: l/lpyU7jQm+PQYj0dIm0ag==
+X-CSE-MsgGUID: B88xxOsDQdusAgOLtg78RQ==
+X-IronPort-AV: E=Sophos;i="6.08,203,1712646000"; 
+   d="scan'208";a="194194712"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 31 May 2024 01:54:18 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 31 May 2024 01:53:54 -0700
+Received: from wendy.microchip.com (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Fri, 31 May 2024 01:53:52 -0700
+From: Daire McNamara <daire.mcnamara@microchip.com>
+To: <linux-pci@vger.kernel.org>
+CC: Conor Dooley <conor.dooley@microchip.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
+	<kw@linux.com>, Rob Herring <robh@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Daire McNamara
+	<daire.mcnamara@microchip.com>
+Subject: [PATCH 0/2] Fix address translations on MPFS PCIe controller
+Date: Fri, 31 May 2024 09:53:31 +0100
+Message-ID: <20240531085333.2501399-1-daire.mcnamara@microchip.com>
+X-Mailer: git-send-email 2.43.2
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.55]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemi500008.china.huawei.com (7.221.188.139)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_013452_343277_3991AB36 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20240531_015421_305000_C557A0F6 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,147 +86,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, userstacktrace is unsupported for riscv. So use the
-perf_callchain_user() code as blueprint to implement the
-arch_stack_walk_user() which add userstacktrace support on riscv.
-Meanwhile, we can use arch_stack_walk_user() to simplify the implementation
-of perf_callchain_user().
+Hi all,
 
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/riscv/Kconfig                 |  1 +
- arch/riscv/kernel/perf_callchain.c | 46 ++----------------------------
- arch/riscv/kernel/stacktrace.c     | 43 ++++++++++++++++++++++++++++
- 3 files changed, 47 insertions(+), 43 deletions(-)
+On Microchip PolarFire SoC (MPFS), the PCIe controller is connected to the
+CPU via one of three Fabric Interface Connectors (FICs).  Each FIC present
+to the CPU complex as 64-bit AXI-M and 64-bit AXI-S.  To preserve
+compatibility with other PolarFire family members, the PCIe controller is
+connected to its encapsulating FIC via a 32-bit AXI-M and 32-bit AXI-S
+interface.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index b94176e25be1..4a7ba6a08dee 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -193,6 +193,7 @@ config RISCV
- 	select THREAD_INFO_IN_TASK
- 	select TRACE_IRQFLAGS_SUPPORT
- 	select UACCESS_MEMCPY if !MMU
-+	select USER_STACKTRACE_SUPPORT
- 	select ZONE_DMA32 if 64BIT
- 
- config CLANG_SUPPORTS_DYNAMIC_FTRACE
-diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
-index 3348a61de7d9..c7468af77c66 100644
---- a/arch/riscv/kernel/perf_callchain.c
-+++ b/arch/riscv/kernel/perf_callchain.c
-@@ -6,37 +6,9 @@
- 
- #include <asm/stacktrace.h>
- 
--/*
-- * Get the return address for a single stackframe and return a pointer to the
-- * next frame tail.
-- */
--static unsigned long user_backtrace(struct perf_callchain_entry_ctx *entry,
--				    unsigned long fp, unsigned long reg_ra)
-+static bool fill_callchain(void *entry, unsigned long pc)
- {
--	struct stackframe buftail;
--	unsigned long ra = 0;
--	unsigned long __user *user_frame_tail =
--		(unsigned long __user *)(fp - sizeof(struct stackframe));
--
--	/* Check accessibility of one struct frame_tail beyond */
--	if (!access_ok(user_frame_tail, sizeof(buftail)))
--		return 0;
--	if (__copy_from_user_inatomic(&buftail, user_frame_tail,
--				      sizeof(buftail)))
--		return 0;
--
--	if (reg_ra != 0)
--		ra = reg_ra;
--	else
--		ra = buftail.ra;
--
--	fp = buftail.fp;
--	if (ra != 0)
--		perf_callchain_store(entry, ra);
--	else
--		return 0;
--
--	return fp;
-+	return perf_callchain_store(entry, pc) == 0;
- }
- 
- /*
-@@ -56,19 +28,7 @@ static unsigned long user_backtrace(struct perf_callchain_entry_ctx *entry,
- void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
- 			 struct pt_regs *regs)
- {
--	unsigned long fp = 0;
--
--	fp = regs->s0;
--	perf_callchain_store(entry, regs->epc);
--
--	fp = user_backtrace(entry, fp, regs->ra);
--	while (fp && !(fp & 0x3) && entry->nr < entry->max_stack)
--		fp = user_backtrace(entry, fp, 0);
--}
--
--static bool fill_callchain(void *entry, unsigned long pc)
--{
--	return perf_callchain_store(entry, pc) == 0;
-+	arch_stack_walk_user(fill_callchain, entry, regs);
- }
- 
- void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 528ec7cc9a62..e0f556b680d8 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -161,3 +161,46 @@ noinline void arch_stack_walk(stack_trace_consume_fn consume_entry, void *cookie
- {
- 	walk_stackframe(task, regs, consume_entry, cookie);
- }
-+
-+/*
-+ * Get the return address for a single stackframe and return a pointer to the
-+ * next frame tail.
-+ */
-+static unsigned long unwind_user_frame(stack_trace_consume_fn consume_entry,
-+				       void *cookie, unsigned long fp,
-+				       unsigned long reg_ra)
-+{
-+	struct stackframe buftail;
-+	unsigned long ra = 0;
-+	unsigned long __user *user_frame_tail =
-+		(unsigned long __user *)(fp - sizeof(struct stackframe));
-+
-+	/* Check accessibility of one struct frame_tail beyond */
-+	if (!access_ok(user_frame_tail, sizeof(buftail)))
-+		return 0;
-+	if (__copy_from_user_inatomic(&buftail, user_frame_tail,
-+				      sizeof(buftail)))
-+		return 0;
-+
-+	ra = reg_ra ? : buftail.ra;
-+
-+	fp = buftail.fp;
-+	if (!ra || (ra && !consume_entry(cookie, ra)))
-+		return 0;
-+
-+	return fp;
-+}
-+
-+void arch_stack_walk_user(stack_trace_consume_fn consume_entry, void *cookie,
-+			  const struct pt_regs *regs)
-+{
-+	unsigned long fp = 0;
-+
-+	fp = regs->s0;
-+	if (!consume_entry(cookie, regs->epc))
-+		return;
-+
-+	fp = unwind_user_frame(consume_entry, cookie, fp, regs->ra);
-+	while (fp && !(fp & 0x3))
-+		fp = unwind_user_frame(consume_entry, cookie, fp, 0);
-+}
+Each FIC is implemented in FPGA logic and can incorporate logic along its 64-bit
+AXI-M to 32-bit AXI-M chain (including address translation) and, likewise, along
+its 32-bit AXI-S to 64-bit AXI-S chain (again including address translation).
+
+In order to reduce the potential support space for the PCIe controller in
+this environment, MPFS supports certain reference designs for these address
+translations: reference designs for cache-coherent memory accesses
+and reference designs for non-cache-coherent memory accesses. The precise
+details of these reference designs and associated customer guidelines
+recommending that customers adhere to the addressing schemes used in those
+reference designs are available from Microchip, but the implication for the
+PCIe controller address translation between CPU-space and PCIe-space are:
+
+For outbound address translation, the PCIe controller address translation tables
+are treated as if they are 32-bit only.  Any further address translation must
+be done in FPGA fabric.
+
+For inbound address translation, the PCIe controller is configurable for two
+cases:
+* In the case of cache-coherent designs, the base of the AXI-S side of the
+  address translation must be set to 0 and the size should be 4 GiB wide. The
+  FPGA fabric must complete any address translations based on that 0-based
+  address translation.
+* In the case of non-cache coherent designs, the base of AXI-S side of the
+  address translation must be set to 0x8000'0000 and the size shall be 2 GiB
+  wide.  The FPGA fabric must complete any address translation based on that
+  0x80000000 base.
+
+So, for example, in the non-cache-coherent case, with a device tree property
+that maps an inbound range from 0x10'0000'0000 in PCIe space to 0x10'0000'0000
+in CPU space, the PCIe rootport will translate a PCIe address of 0x10'0000'0000
+to an intermediate 32-bit AXI-S address of 0x8000'0000 and the FIC is
+responsible for translating that intermediate 32-bit AXI-S address of
+0x8000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
+
+And similarly, for example, in the cache-coherent case, with a device tree
+property that maps an inbound range from 0x10'0000'0000 in PCIe space to
+0x10'0000'0000 in CPU space, the PCIe rootport will translate a PCIe address
+of 0x10'0000'0000 to an intermediate 32-bit AXI-S address of 0x0000'0000 and
+the FIC is responsible for translating that intermediate 32-bit AXI-S address
+of 0x0000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
+
+See https://lore.kernel.org/all/20220902142202.2437658-1-daire.mcnamara@microchip.com/T/
+for backstory.
+
+Daire McNamara (2):
+  PCI: microchip: Fix outbound address translation tables
+  PCI: microchip: Fix inbound address translation tables
+
+ drivers/pci/controller/pcie-microchip-host.c | 104 +++++++++++++++++--
+ 1 file changed, 96 insertions(+), 8 deletions(-)
+
+
+base-commit: a38297e3fb012ddfa7ce0321a7e5a8daeb1872b6
 -- 
 2.34.1
 
