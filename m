@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D27C25B7E
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 16:52:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0903C25B75
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 17:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Q7NLh8/P3ejU2w3ES75cJilgYdRW4Xoxg+swcFfyiak=; b=XZYZIXFyvfmG4k
-	SBwHb0FN35Z45b+Ua3jY9jv6YFVDMEz03u+r9e+hMyL9dyoA/80cJyMm2Mv79Aa1jBGyvOU37J1eY
-	VWE+HjjDsxpAuIVjtgii8IWa8vIJSsKCYKh9PQ+vjhuh8xEMWsdrPszoBci8PwzUecRychvdTmTiH
-	tevJChb/ugcCRy9Tl/BdwKvtvhqNKC1kclxJWqfco4pp2a2xS9jy2fcJtLsXN/QDzra0uV/zDI/hI
-	DuHvB5udT8dYHRAPWGU0nAl7cm6d8czWIv7yHoG8kc4Vdj1fUXkIQXG5alH3i65IOM03ipM2khs9Y
-	27+r1rKH+8lamja1eKAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8YMhmD9OXyu/K32PQ+vCICDyi6QBwmHztioJuM0D6bY=; b=PDDDeC1bxJWXbAANeO6w74BlVY
+	EnuJsItMj3UwUtdXIkSGWmk0hbDbppmMSE7uKQf6oyNNS/9zMGrITGPkb3601v2F0LR/5OX6xTsQN
+	9M6cEDxwDdJTWz9PAWqDdaO01pr98k0SAP20GDD3rN8PsbQU5epDGjW/ma6QTWwEcy5o7AjUjfxMF
+	B/G8lsSTrKFBTWUotoWMAIt3T2Zspw/FNdZo9pFs+EuRUqLsHtMHF25MbZkuHgeyqF07dfDK8nfXM
+	h31VXdO00sbWic5im92qsBUF6RNegjtkNfpQadRZEiwtqCJ5mlbN4T4HwmgUTXbIHi65w/H9wVkob
+	/iWjZd3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD5UA-0000000AvBS-3yVE;
-	Fri, 31 May 2024 16:52:10 +0000
-Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
+	id 1sD666-0000000B0u4-1Paa;
+	Fri, 31 May 2024 17:31:22 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD5U6-0000000Av8G-47MS
+	id 1sD662-0000000B0tP-2ISU
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 16:52:09 +0000
-Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-374891eb5d3so5592925ab.3
-        for <linux-riscv@lists.infradead.org>; Fri, 31 May 2024 09:52:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1717174324; x=1717779124; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=pTNg6zMiXRkJXri9kOZIRbdVDUfZydQpGNpHvB31YmM=;
-        b=E87yjKo2c5KdjuXCzmuhI6RwxgF5Nxh0JR+hX1J3Gk98waXvSQo7PDSXDfGwce1aYc
-         sJr+Z5hjEIG88BvUVuHrBUgRp0Qb45UBc6Zh+r22ZqY2tIjYG5e6aoodKbHi2YJ4y//G
-         hC9egkhHn8kAiDJ+KkavNkex4zAuj+4kUXuSf0R8GtezHQlg4k3gGMM/QEz/Qss5kKVD
-         cQ00HualuKo87aXm7cqfWeB8ymkN642twPQLoL9CM8H8pU3EQWh83wV2elcLOafY7ux2
-         j/jaOpv4CeXiJPhlp4CsUXZg7AoUaLJJOgZU5h4PLQm8gtE3y1tir0zE8st7DDcrkF0e
-         9NoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717174324; x=1717779124;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pTNg6zMiXRkJXri9kOZIRbdVDUfZydQpGNpHvB31YmM=;
-        b=VBH9h1/AGtc5+gpWE8fxEPKJsM/MN2c8WIEA2J4OEDQdp/HKiu/vNqUHumUPyu2BCg
-         4cy5sxZMXJ9MNkEKGIodrsMRsqCnzTJxemzEJyGb/oZkQOzB35JW/9UAPF66ROUX4q0L
-         5uy/rCmjsoyJpfEp5g85cVS2LiCfU3LseOimMzLubAQq6SivPEl+ZI3Qd9Ia8i5kojDZ
-         OBwApV91USDqPxevUNopQmOKIF6Bvb6L39MOTddWgzVXaRJ+5wPyV4d+NNtPzsP86va2
-         l1DYgCL7UFGYBma2YWkb/u3GWrgOd324g4MeT5ltbgfdfaqNIveE1D1iZM1HID1ucpP0
-         dh4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWOGS2x+3I3U5HKDg6yxepTH2QMUG76TRkE/QtW8jiz9v19d5KEC2Vo+YgU8mpbOHUd1aiE/OiMJFHOHx+kzz4kMwPxhFflalWSXKylw5dQ
-X-Gm-Message-State: AOJu0YyPSVcMCLF+Q2i2EVUktJixFrvJtj/lGHUM+QQgrCZH6kL8DNTs
-	6jZsJeR1mvucq0aCL9uQ5tQyMq8VVXbGfJZf4vHSnpVEslxUUUsbcy82YTNV5c0094yPHEvFmq4
-	ArhKyJEDMx7YIk4gRvHw9ihAl+UmqrnoB3oRjFw==
-X-Google-Smtp-Source: AGHT+IH23fWU350+O/Ga1ZOOHV+eDByH+luo7mLUsI3si2RtDZKDd2qThEgwWzavJJFJ6WXu0YhwdsQAKR/symM78II=
-X-Received: by 2002:a05:6e02:1d81:b0:374:70ae:e86a with SMTP id
- e9e14a558f8ab-3748b9d0239mr28334425ab.22.1717174324429; Fri, 31 May 2024
- 09:52:04 -0700 (PDT)
+	Fri, 31 May 2024 17:31:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id D1426CE1B26;
+	Fri, 31 May 2024 17:31:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8966DC2BD10;
+	Fri, 31 May 2024 17:31:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717176674;
+	bh=ugKsI1n0ps5BfECIOYx/A6IymgUIGBxwn3EHv/Id8mE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rGf8CKyHFijgLDSqYePnQ5BCTYnBTXCTIR7yFEJknvnNOQ/hdxJ2qZAs0M7kcsxLm
+	 pk76gkHxefmIVBYIrtYbxwMb5x2CbUZ7sqalM1gvrqc4uMBNY+Z7fH1UBhsXarwcxp
+	 FTLaEWHCxtKiJzjjNd0CIsJJe+3tiWuqjfkoRefwjTFy3PCs6UTm7hi4YqP1XzHG1g
+	 eaJ/meSnXuj1Li4yDdzDFHZ0XctqhnbxhWTcPCLffmGOaXdTeCkPH2pEnFnBHvLe51
+	 10OondmOCzovC/AY9gpGpxUzdQJSI2OuorxHNORYMDnuHTBbAoNMtyYN5NLjetfX7A
+	 OEaogdLCfTaBg==
+Date: Fri, 31 May 2024 18:31:09 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jesse Taube <jesse@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>
+Subject: Re: [PATCH v0] RISC-V: Use Zkr to seed KASLR base address
+Message-ID: <20240531-uselessly-spied-262ecf44e694@spud>
+References: <20240531162327.2436962-1-jesse@rivosinc.com>
 MIME-Version: 1.0
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 31 May 2024 22:21:52 +0530
-Message-ID: <CAAhSdy1mug8sUpNc=RaXYQWJoHNBQahAv5_rLRp0vOdT=xrHNg@mail.gmail.com>
-Subject: [GIT PULL] KVM/riscv fixes for 6.10 take #1
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+In-Reply-To: <20240531162327.2436962-1-jesse@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_095207_260545_E16A2BE0 
-X-CRM114-Status: UNSURE (   7.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240531_103119_019625_C8A35026 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +73,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============9146099775300677852=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
 
-We have two minor fixes for 6.10. One is a special case
-handling for hart-index-bits = 0 in IMSIC virtualization and
-another one is a typo fix in kvm_riscv_vcpu_set_reg_isa_ext().
+--===============9146099775300677852==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="xt66x2nsbKVBAiZs"
+Content-Disposition: inline
 
-Please pull.
 
-Regards,
-Anup
+--xt66x2nsbKVBAiZs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The following changes since commit 1613e604df0cd359cf2a7fbd9be7a0bcfacfabd0:
+On Fri, May 31, 2024 at 12:23:27PM -0400, Jesse Taube wrote:
+> Dectect the Zkr extension and use it to seed the kernel base address.
+>=20
+> Detection of the extension can not be done in the typical fashion, as
+> this is very early in the boot process. Instead, add a trap handler
+> and run it to see if the extension is present.
 
-  Linux 6.10-rc1 (2024-05-26 15:20:12 -0700)
+You can't rely on the lack of a trap meaning that Zkr is present unless
+you know that the platform implements Ssstrict. The CSR with that number
+could do anything if not Ssstrict compliant, so this approach gets a
+nak from me. Unfortunately, Ssstrict doesn't provide a way to detect
+it, so you're stuck with getting that information from firmware.
 
-are available in the Git repository at:
+For DT systems, you can actually parse the DT in the pi, we do it to get
+the kaslr seed if present, so you can actually check for Zkr. With ACPI
+I have no idea how you can get that information, I amn't an ACPI-ist.
 
-  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-6.10-1
+Thanks,
+Conor.
 
-for you to fetch changes up to c66f3b40b17d3dfc4b6abb5efde8e71c46971821:
+--xt66x2nsbKVBAiZs
+Content-Type: application/pgp-signature; name="signature.asc"
 
-  RISC-V: KVM: Fix incorrect reg_subtype labels in
-kvm_riscv_vcpu_set_reg_isa_ext function (2024-05-31 10:40:39 +0530)
+-----BEGIN PGP SIGNATURE-----
 
-----------------------------------------------------------------
-KVM/riscv fixes for 6.10, take #1
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZloJXQAKCRB4tDGHoIJi
+0q+NAQDg7dQm4yIuqIpJJUx6xVHNdm7QHRH1oZhb6KTvKdauPAEAjlDPmXth3suH
+EyUEa4xRA2F6Bpo7l3BF2i0FndH74gw=
+=J8qv
+-----END PGP SIGNATURE-----
 
-- No need to use mask when hart-index-bits is 0
-- Fix incorrect reg_subtype labels in kvm_riscv_vcpu_set_reg_isa_ext()
+--xt66x2nsbKVBAiZs--
 
-----------------------------------------------------------------
-Quan Zhou (1):
-      RISC-V: KVM: Fix incorrect reg_subtype labels in
-kvm_riscv_vcpu_set_reg_isa_ext function
 
-Yong-Xuan Wang (1):
-      RISC-V: KVM: No need to use mask when hart-index-bit is 0
-
- arch/riscv/kvm/aia_device.c  | 7 ++++---
- arch/riscv/kvm/vcpu_onereg.c | 4 ++--
- 2 files changed, 6 insertions(+), 5 deletions(-)
+--===============9146099775300677852==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============9146099775300677852==--
+
