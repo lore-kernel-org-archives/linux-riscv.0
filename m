@@ -4,73 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76651C25B7E
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 15:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B0D1C25B7E
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 15:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9mdtJR3k5RyWWCVdDnoetvg2QM4bBj3pTFyrys54pc=; b=sM6vmRy7QeMeuBxNW3PKuI3OS5
-	wIGIPiBzCFw4YpMtQS5M5JJcnox1ewBblWd/UGifnQERK9Wzl/OlnQuApidvigMs2q4ZjAHYU/k/w
-	CqL77FIjZd3yYlgkCjmaHRIMVr4pshH5pgrOo6/0sLM2EgF6eSPfISCKwhKYmcRFK8qsw0P19AP6f
-	Fos+o6aWsxyjpJchCejltGFrrUY/7r4nmyQH/Ll15BdfssRVhnWkXMXs8dOVlchs61xsRAGYJZMDQ
-	EqOQCe4jLpHgrk0GCVvqOEjXTbSCJQQiODLAbMCdoh39Qda2I4mbpzooKS00B+tuRJRUMbOkHn+N+
-	VpJwZ4EQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ftSE47L4uoHxu+dZ5LZFKQJn5t4fYibiOdF9TqDMOiA=; b=zk/+7IuS6cO+/0
+	IQVcPD7m/3uRN0gZ2YVoTRiIGNoNyAvmaed0jlmm9iCEShA5pR3da+wpQhgIpb0gsKILnxxOMt+A9
+	WBQZgGkeiiF4Qw61vHe+Uj7rcyRdBqpcm8/zoPxq89e+5kfm7PMrCxk0FF0E96KinAigZt0Cm9j6X
+	YMQHHhNTgdxz/Zig8Uw3s0MeYIDBRJuGQLcM68bu+a2PVUDn61syde24UsCiep1iVfXDxIrtxVZh8
+	AZlSATB+D0HHQvNt2iDaI2auGeSQJaBDZNIPRbJLUrpAY+PAzcGLr2tg8RgSWxuAYCCvBo8eOjBlw
+	ifezCu0dVEWuCeOCFFqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD3o9-0000000AbUp-3Unk;
-	Fri, 31 May 2024 15:04:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sD4YL-0000000Ajyy-3MZk;
+	Fri, 31 May 2024 15:52:25 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sD3o7-0000000AbUK-1YAv
+	id 1sD4YG-0000000Ajvp-31kk
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 15:04:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A0FC062C21;
-	Fri, 31 May 2024 15:04:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C353DC116B1;
-	Fri, 31 May 2024 15:04:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717167878;
-	bh=WlONLvUzuGAWpIFAckDTFmIFip9XIDRJ004IX70Pa7c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j0r8HZ6wRlWQ8R7CpmEvEMHRZ8f5m4JQa4hyyRFq+uqUEAYINjfc7wUw8O4xqvvhl
-	 f/EBqTzaVIiGe+3P3TVXsSSDEFY04V8CmIPLCl4A6mGInJRmUd4uxt+lOCOzoS//lT
-	 5OctIOrg7J0+8y++Kwh5uEfiXKvD0ZJtZJBJAINyOHE4uK12UuawnUeAzmTIPx3Itg
-	 h3PN0MiYCKmOKTv9TvRoYUuH8yT2Khhc9Y7+g8/XeP6GKXbAQv9hVyaW+Q0x0sKhdF
-	 zLMYwfZT8TwziirNpOt94sJlBoq7rFPcf8jceK2odSb5rMf3UWT+OQvHDvHjt5nQyX
-	 OeR1OKATPKrYw==
-Date: Fri, 31 May 2024 16:04:32 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Haylen Chu <heylenay@outlook.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
+	Fri, 31 May 2024 15:52:23 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5785eab8d5dso2543620a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 31 May 2024 08:52:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1717170735; x=1717775535; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=B1+QjxjxBPrIugYD0OZnRQMiPTgmwtCBI97ys8OyOiU=;
+        b=kGRV2nvM6wlEmGQlb/XPHr+Hb3yDG+Z3tzxsOb/KBxbOyfLuzNLQzVoESEw52RlQ1g
+         loeCw+Fvz7hhk+m9SjnJFC9ade0pWo63RdLehUqOEeVH0TzCfaczFC4BAH6d+xVQUSJ6
+         OioLoc8O90r84l8kZM42zvsZ+L7LVr2vYYFSlr/nKwBW3V1WOp5t9ReaHncBVS1A8m5N
+         Fg/+6PLDVSxMKdWdFWoJ0XvZL5iGXIJ00efQ21YkXTrtnzAEBSCILtOyU0SN00ttufeb
+         pzz9gFnshkIBmE2xaLHYmOKPUkaklgJR9B8MF2sKMlrOegj0Ziez+eksEXmG4KbyxWXf
+         PiNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717170735; x=1717775535;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B1+QjxjxBPrIugYD0OZnRQMiPTgmwtCBI97ys8OyOiU=;
+        b=BGGSdiTCstAVtPsAhEvdNlR5dk2Ip/8tvIe1QTGnCMHqTSKozO2mPoZ36INepLWO3V
+         2Hkb+jmdFYu6OI15IVLMXkFWfmAyc+u+nTR0esUx7wwo0REaUWB0ymTaYdrAUtz0DkqM
+         gBbU+iNL/aQnjZ9eBiGSRHHZN7BtCiVWp3eA74eCTZkB76xUDQmbN4H1X2+JXqdl4t+U
+         d1m9BfpWPkGcc3NBJ8ahWTdZHdDMpJHpEkmup4Dkf/wLYlA6x+FRYAFlcy1T8yTLsX2n
+         Tf5PrMLw/77/M1dx8Oi0D9qKclnZjkr4BHewvPa+CWI1jjgwgyYlERbZpPMYimD4J9wc
+         W0Gg==
+X-Forwarded-Encrypted: i=1; AJvYcCUHsp84Lj+tnFOMvp+sXxyQoO1kalxwOFrhi6NIJwXjQgOMyO5w4iZi4XvxQlyBy3re3piblx58M8ftPOkA9puARQCWOhKdtdD8iSBtQ9FP
+X-Gm-Message-State: AOJu0Yz7oJqn7cWgE1ue+lXBK5PjjITBiyEvimk4zI4A1QvzG+2fjvC+
+	WPHUEwgef7JnrtQaPQyRgDXY6dy184ykCgufPlx4/hFMgOppRtRW
+X-Google-Smtp-Source: AGHT+IGbfRp1452zzCRnB9sJc29htGrbuzhsS6g6C0EBQQxO8KLQ7fkvTbV09Id0Zo9VJiu87sACYg==
+X-Received: by 2002:a50:d4d2:0:b0:56e:99e:1fac with SMTP id 4fb4d7f45d1cf-57a365a0b9cmr1818306a12.39.1717170734692;
+        Fri, 31 May 2024 08:52:14 -0700 (PDT)
+Received: from andrea ([151.76.32.59])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-57a31b98e01sm1135963a12.16.2024.05.31.08.52.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 May 2024 08:52:14 -0700 (PDT)
+Date: Fri, 31 May 2024 17:52:09 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: thermal: sophgo,cv180x-thermal: Add
- Sophgo CV180x thermal
-Message-ID: <20240531-oyster-duct-9eaf5f3e6f35@spud>
-References: <SEYPR01MB422119B40F4CF05B823F93DCD7F32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <SEYPR01MB4221BD44992A23E2B0061023D7F32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <1624f2f0-0a2d-4918-a129-84dca6da9af8@kernel.org>
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
+	Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org
+Subject: Re: [PATCH 7/7] riscv: Add qspinlock support based on Zabha extension
+Message-ID: <ZlnyKclZOQdrJTtU@andrea>
+References: <20240528151052.313031-1-alexghiti@rivosinc.com>
+ <20240528151052.313031-8-alexghiti@rivosinc.com>
+ <ZlZ8/Nv3QS99AgY9@andrea>
+ <39a9b28c-2792-45ce-a8c6-1703cab0f2de@ghiti.fr>
 MIME-Version: 1.0
-In-Reply-To: <1624f2f0-0a2d-4918-a129-84dca6da9af8@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <39a9b28c-2792-45ce-a8c6-1703cab0f2de@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_080439_566106_B4193654 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20240531_085220_872851_3F8F5184 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,94 +100,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0383231222011155373=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+> > > +	select ARCH_USE_QUEUED_SPINLOCKS if TOOLCHAIN_HAS_ZABHA
+> > IIUC, we should make sure qspinlocks run with ARCH_WEAK_RELEASE_ACQUIRE,
+> > perhaps a similar select for the latter?  (not a kconfig expert)
+> 
+> 
+> Where did you see this dependency? And if that is really a dependency of
+> qspinlocks, shouldn't this be under CONFIG_QUEUED_SPINLOCKS? (not a Kconfig
+> expert too).
 
---===============0383231222011155373==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="+uuAo5InwkaQdoaN"
-Content-Disposition: inline
+The comment on smp_mb__after_unlock_lock() in include/linux/rcupdate.h
+(the barrier is currently only used by the RCU subsystem) recalls:
 
+  /*
+   * Place this after a lock-acquisition primitive to guarantee that
+   * an UNLOCK+LOCK pair acts as a full barrier.  This guarantee applies
+   * if the UNLOCK and LOCK are executed by the same CPU or if the
+   * UNLOCK and LOCK operate on the same lock variable.
+   */
+  #ifdef CONFIG_ARCH_WEAK_RELEASE_ACQUIRE
+  #define smp_mb__after_unlock_lock()	smp_mb()  /* Full ordering for lock. */
+  #else /* #ifdef CONFIG_ARCH_WEAK_RELEASE_ACQUIRE */
+  #define smp_mb__after_unlock_lock()	do { } while (0)
+  #endif /* #else #ifdef CONFIG_ARCH_WEAK_RELEASE_ACQUIRE */
 
---+uuAo5InwkaQdoaN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Architectures whose UNLOCK+LOCK implementation does not (already) meet
+the required "full barrier" ordering property (currently, only powerpc)
+can overwrite the "default"/common #define for this barrier (NOP) and
+meet the ordering by opting in for ARCH_WEAK_RELEASE_ACQUIRE.
 
-On Fri, May 31, 2024 at 10:54:24AM +0200, Krzysztof Kozlowski wrote:
-> On 30/05/2024 15:48, Haylen Chu wrote:
-> > Add devicetree binding documentation for thermal sensors integrated in
-> > Sophgo CV180X SoCs.
-> >=20
-> > Signed-off-by: Haylen Chu <heylenay@outlook.com>
-> > ---
-> >  .../thermal/sophgo,cv180x-thermal.yaml        | 46 +++++++++++++++++++
-> >  1 file changed, 46 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/thermal/sophgo,cv=
-180x-thermal.yaml
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/thermal/sophgo,cv180x-th=
-ermal.yaml b/Documentation/devicetree/bindings/thermal/sophgo,cv180x-therma=
-l.yaml
-> > new file mode 100644
-> > index 000000000000..0364ae6c1055
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/thermal/sophgo,cv180x-thermal.y=
-aml
-> > @@ -0,0 +1,46 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/thermal/sophgo,cv180x-thermal.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Sophgo CV180x on-SoC Thermal Sensor
-> > +
-> > +maintainers:
-> > +  - Haylen Chu <heylenay@outlook.com>
-> > +
-> > +description: Binding for Sophgo CV180x on-SoC thermal sensor
-> > +
-> > +properties:
-> > +  compatible:
-> > +    items:
->=20
-> Drop items
->=20
-> > +      - enum:
-> > +          - sophgo,cv180x-thermal
+The (current) "generic" ticket lock implementation provides "the full
+barrier" in its LOCK operations (hence in part. in UNLOCK+LOCK), cf.
 
-And a soc-specific compatible too please.
+  arch_spin_trylock() -> atomic_try_cmpxchg()
+  arch_spin_lock() -> atomic_fetch_add()
+                   -> atomic_cond_read_acquire(); smp_mb()
 
-Thanks,
-Conor.
+but the "UNLOCK+LOCK pairs act as a full barrier" property doesn't hold
+true for riscv (and powerpc) when switching over to queued spinlocks.
+OTOH, I see no particular reason for other "users" of queued spinlocks
+(notably, x86 and arm64) for selecting ARCH_WEAK_RELEASE_ACQUIRE.
 
---+uuAo5InwkaQdoaN
-Content-Type: application/pgp-signature; name="signature.asc"
+But does this address your concern?  Let me know if I misunderstood it.
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZlnnAAAKCRB4tDGHoIJi
-0qptAP4qGy3UQyXxXeohA72UPBX2kjoA0eFZmEQmtys4kbms9gEAlrIcVuX9VmxR
-vRHaOBCFCMp9dhqbo/U7804CHW3NYgM=
-=annq
------END PGP SIGNATURE-----
-
---+uuAo5InwkaQdoaN--
-
-
---===============0383231222011155373==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+  Andrea
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0383231222011155373==--
-
