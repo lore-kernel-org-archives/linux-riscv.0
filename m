@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB47C25B76
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2024 15:05:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABFE9C25B7E
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2024 15:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IHQvORr9HtOVH98sMwQG0iq/4omNPD5XZl9Lg9A9jkQ=; b=YZqNK0roe5vVc4
-	3CQhzAlviwGpQFIIq7okBkNvQYLpsCaNMQ7B1eQC9plYh+RkyQzalROWyCGHFo5q8KGQWpB4Pj0Jr
-	UcboVJJSbbsZVJdWDzInQ9hYjgUh6mm4q8GDrQQTZvnrevWYg7RnLSo1bBARlc0VV2PlAHeqq6oWU
-	VMrOWrz77H38WUc8PVXBOvr2+pYzN3ggDzpp0NUyxn/i+EnHTJ0bHrSq7q+EOe1RLQ0iAayG1KRX2
-	sba7APlIkfJMfAuR10zUmAKXCpWcrF9LcFY8eFhS6nfVkgr8Wsr7ulRM4niQWp70ejRRz+zAreZcg
-	x/Ep1BiZZ3gssviU32zg==;
+	List-Owner; bh=y3kmCBTwl/0Hw7islljoPYCkmylWMecI+9U0iOH2rak=; b=Goavm0aNjBqw+K
+	HGJOREw9TP5TRyqObvqfJfbTGfkbLjvWy/QDhe0Oeg42nQ4dlTLLSQGoxHjCQAv4f2GLOQLHuwZrz
+	FcT8wLdOYyDtsn5/nV0pifhvYIqBWs2xB8S5glLIJ8NeIHLjuJaCWazzySWrHk5/mmxNrTnBtUSat
+	zCf/vvyKalmX3i+gTxZtDlLWHE5evB2lRatYnnfa+eCOIymaCAeIEKilwM8Y5z02PJOd5Dztgnaj4
+	mbX4oWUiYn6b1BT5rQbtuQf3EilY148/CmattNMBs7BYS1mrqD1w0KkX7E9hxHLM2CqvAF/qViFBa
+	3OD4i1cq0AUDpL1wP2cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sDQIG-0000000Cp1G-3rP1;
-	Sat, 01 Jun 2024 15:05:16 +0000
-Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
+	id 1sDQIR-0000000Cp9w-0UXZ;
+	Sat, 01 Jun 2024 15:05:27 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sDQI6-0000000Cor7-2EWt
+	id 1sDQIC-0000000Cowp-1rcF
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Jun 2024 15:05:12 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-37491216a53so3073205ab.2
-        for <linux-riscv@lists.infradead.org>; Sat, 01 Jun 2024 08:05:04 -0700 (PDT)
+	Sat, 01 Jun 2024 15:05:17 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-6c4f3e0e407so1042761a12.1
+        for <linux-riscv@lists.infradead.org>; Sat, 01 Jun 2024 08:05:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1717254304; x=1717859104; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1717254311; x=1717859111; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Z/CsLBy86VnyNo2isQPCT1WZPGBpvem+xh2ISHmLXVs=;
-        b=KOOoMZxD4hXaZxIikTlth29RBu/2RWasdlHrhp2lii1+ml+8PgBDsJd1ejvLCRCcr8
-         2QdE463biQ+6ES36h3FQGDtl7oKzV1Ac0Z3A+9J4kZGKmwkcu4JGglCebIbZZZXJVbHg
-         PEnMPK0To1hx5Xv5aFpQC/VcUmxP+Hct0/vV7iOfHth3iTEOAnrCmGHThGrE5qHcEkl+
-         RtI+GzxVE5+eZZs+he2Wt0VW38E12ZpPiurV4LXbnMcxexlcqQ4bJA3oOGQM6bl9S5hv
-         W1BQbsboh1rRgodUhZh8piiCHdkrkqVMYh5TPd7+NUANCjtauu9/JcnDISXxSUDMg8F2
-         VlOg==
+        bh=B4M/mYQsiafz27308Ygh9HE2jpjvmPpXdwbsDZU0p4U=;
+        b=Lu5FO0hDdTzKu5klhu6L35awqwKtRIgyTVnXqaQ5L1bW5qFuB5ur9h521i5UarSa9i
+         avjjbJ94FJylommcJ7qWUWEW/FF5F65WD4DZ4fYm00dU6K6srBDeaHLtnx2atY9j06o8
+         k72tqwDkd27ZAHhFow4cKOGAWxtTsPcprYQuVQvokQfCzwk2LsZ0iNI5OmWwrXby8FxY
+         DPdc8HVbw/o7WqW90jN2ZI3XP8jMzQFbfqCMobd4LhcyGo43qRFiqCXX74zfZrFQR1Vt
+         YQBlnxRu6/ju3ROQO6G/j9416jSNS3YIHjqW6yu6WAM/NZxfTjpYE0/t9GcC+Sxi5HlV
+         eUhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717254304; x=1717859104;
+        d=1e100.net; s=20230601; t=1717254311; x=1717859111;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Z/CsLBy86VnyNo2isQPCT1WZPGBpvem+xh2ISHmLXVs=;
-        b=qXqAvPe43ua6qvqDBgBzSx/DUFmRBo40PuoBywGRpxnO7L8UlbQ20W9+ZETOmjiFxe
-         jfREiKnUQLDPDVQdYbyXzIlQMyMHKV3MWj5O9neeLjXyjLOWy6bZeucrb4FmZBpCgqQm
-         1TDw4G/gpgY3+vfPNMUIIsNgIuWF3bXSlOZK3Btkubw1PcjGpaxe6tG98fRr2okOmTeB
-         hGmUSH5r4FoFsDUdx4gLLMrHIQZ/eavLR4y2HI+3JwBl2kviO5sZpK+Y8GAVfTLUYfzG
-         9/HR2bOlLVk3noumQQowZ2CXtPmG+XfRhOEFHxtrp1M1TPgXIv7I/kXjP7q86o/6PV+r
-         PvnA==
-X-Forwarded-Encrypted: i=1; AJvYcCWYpVJ5Dyzemev4P4alVQLYiMWgRi7cR1uwOMn2gwppnqC6qXXHr7o3IPBlTXUJ6YpJWhory9XfQ/Je4FS095mCQ1Kkrlq0mJvdk55JXpY+
-X-Gm-Message-State: AOJu0YxUAz3IDvHusOkqrjTG2Ep5Sw4PCKNgrpb+9itWt4cV89pDNmR4
-	ffSG/FQrKoGYbuFmRPIJQjxpvq2qKq57D/6nab7lTBIKHpeKUNSYEfNcts7LUgM=
-X-Google-Smtp-Source: AGHT+IF3OVauvlGO1nxR3XDABScTnbIuW6VxwtguVbngDcxS9MthKKzwc9GQNZ47KhPfz+utEVmKGg==
-X-Received: by 2002:a05:6e02:1a63:b0:374:5672:6791 with SMTP id e9e14a558f8ab-3748b97ee00mr54534805ab.8.1717254303897;
-        Sat, 01 Jun 2024 08:05:03 -0700 (PDT)
+        bh=B4M/mYQsiafz27308Ygh9HE2jpjvmPpXdwbsDZU0p4U=;
+        b=kAn8/c9H/LroLhLqj3xRe3jQ4t7ufqW01vvyGAwfOf/TnMnzSKFBunns2QQ8JNswGg
+         15BAstR5lhPVZkyIHkgYNaDzqvu4ZJqUzPoCImjIo9qwUSHEefLEKpC5zF7duBSMYbDS
+         ErNPCNtDyQDtwxa18fARIWFe3H+jUnuPiPZrfauMCD1KrXomPct9MIQNYg+RJqaQoByC
+         D+OQaz+1D+yY5keX5BLOqKrhjrGu/vlFVCXoHSOmEZKl+mtft7ywiI4lEqTeY/ssTnVb
+         1Mho3RKeUO4/Hxw/gRkfGtmtw8vHwRKD9jKHT9OzNBqwbnyLmklA5og2OBCBvgIGwucr
+         J2cQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWs+YvCUiCgjk9s6dCjR2Wl6H6uiNbT8EV0tmRQFlsQ2djfoy8kZqe5xuWEeh1Yz5rNIOl2747mBnxBSlWRp3gnKxJ0xL8Hrf9dY8OHqf26
+X-Gm-Message-State: AOJu0YwAC52BlQe5oyaBiNLBgjAwFXRN1VjOUeMXfmHaZ0zEgi0tzp9c
+	zXrrDg4Y3w/DSuWfRDcXV9Ay6nmaZnQuFcREpV82ZpwEZKwrioH1hkBXf5UAVmY=
+X-Google-Smtp-Source: AGHT+IH8CUtTilyts1LQmIwjtfiqczpJ90H7WVJzan1b3vUk1N8n0tjhHWRHLwYTOBrAh4nFvjs79Q==
+X-Received: by 2002:a17:90b:1bcd:b0:2c2:a2a:6151 with SMTP id 98e67ed59e1d1-2c20a2a631emr797621a91.39.1717254310835;
+        Sat, 01 Jun 2024 08:05:10 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.187.237])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-6c35a4ba741sm2559410a12.85.2024.06.01.08.04.57
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-6c35a4ba741sm2559410a12.85.2024.06.01.08.05.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Jun 2024 08:05:03 -0700 (PDT)
+        Sat, 01 Jun 2024 08:05:10 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -70,16 +70,16 @@ To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	acpica-devel@lists.linux.dev
-Subject: [PATCH v6 06/17] ACPI: scan: Define weak function to populate dependencies
-Date: Sat,  1 Jun 2024 20:34:00 +0530
-Message-Id: <20240601150411.1929783-7-sunilvl@ventanamicro.com>
+Subject: [PATCH v6 07/17] ACPI: bus: Add RINTC IRQ model for RISC-V
+Date: Sat,  1 Jun 2024 20:34:01 +0530
+Message-Id: <20240601150411.1929783-8-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20240601150411.1929783-1-sunilvl@ventanamicro.com>
 References: <20240601150411.1929783-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240601_080506_812343_6468C1CF 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20240601_080513_276529_311E2602 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,54 +97,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some architectures like RISC-V need to add dependencies without explicit
-_DEP. Define a weak function which can be implemented by the architecture.
+Add the IRQ model for RISC-V INTC so that acpi_set_irq_model can use this
+for RISC-V.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/scan.c     | 11 +++++++++++
- include/acpi/acpi_bus.h |  1 +
- 2 files changed, 12 insertions(+)
+ drivers/acpi/bus.c   | 3 +++
+ include/linux/acpi.h | 1 +
+ 2 files changed, 4 insertions(+)
 
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 6f3152170084..918e71fc54cb 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -2068,11 +2068,22 @@ static void acpi_scan_init_hotplug(struct acpi_device *adev)
- 	}
- }
+diff --git a/drivers/acpi/bus.c b/drivers/acpi/bus.c
+index 8d0710ade8c6..d5286e39668e 100644
+--- a/drivers/acpi/bus.c
++++ b/drivers/acpi/bus.c
+@@ -1201,6 +1201,9 @@ static int __init acpi_bus_init_irq(void)
+ 	case ACPI_IRQ_MODEL_LPIC:
+ 		message = "LPIC";
+ 		break;
++	case ACPI_IRQ_MODEL_RINTC:
++		message = "RINTC";
++		break;
+ 	default:
+ 		pr_info("Unknown interrupt routing model\n");
+ 		return -ENODEV;
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index 0c6d9539f737..3dd67ee09c39 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -107,6 +107,7 @@ enum acpi_irq_model_id {
+ 	ACPI_IRQ_MODEL_PLATFORM,
+ 	ACPI_IRQ_MODEL_GIC,
+ 	ACPI_IRQ_MODEL_LPIC,
++	ACPI_IRQ_MODEL_RINTC,
+ 	ACPI_IRQ_MODEL_COUNT
+ };
  
-+u32 __weak arch_acpi_add_auto_dep(acpi_handle handle) { return 0; }
-+
- static u32 acpi_scan_check_dep(acpi_handle handle)
- {
- 	struct acpi_handle_list dep_devices;
- 	u32 count = 0;
- 
-+	/*
-+	 * Some architectures like RISC-V need to add dependencies for
-+	 * all devices which use GSI to the interrupt controller so that
-+	 * interrupt controller is probed before any of those devices.
-+	 * Instead of mandating _DEP on all the devices, detect the
-+	 * dependency and add automatically.
-+	 */
-+	count += arch_acpi_add_auto_dep(handle);
-+
- 	/*
- 	 * Check for _HID here to avoid deferring the enumeration of:
- 	 * 1. PCI devices.
-diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
-index 28a9b87c23fa..5fba4075d764 100644
---- a/include/acpi/acpi_bus.h
-+++ b/include/acpi/acpi_bus.h
-@@ -994,6 +994,7 @@ static inline void acpi_put_acpi_dev(struct acpi_device *adev)
- int acpi_wait_for_acpi_ipmi(void);
- 
- int acpi_scan_add_dep(acpi_handle handle, struct acpi_handle_list *dep_devices);
-+u32 arch_acpi_add_auto_dep(acpi_handle handle);
- #else	/* CONFIG_ACPI */
- 
- static inline int register_acpi_bus_type(void *bus) { return 0; }
 -- 
 2.40.1
 
