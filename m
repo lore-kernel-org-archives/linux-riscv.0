@@ -4,120 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E0AC25B7E
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2024 00:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C17C25B75
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2024 03:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WNaFIe366DLX1YqrwCY339qI2jqtpPWe6H9g3IUQ+dQ=; b=jpt4P2VwT4KUfK
-	EPaOPDWG3cKX/pZzl9Qe9e7JlaJgoiaLE+UGLz49/MiICGhecgWHZpCx+eYtAysBi6VAupX2ly9DH
-	PxCqLwXu3XZFYhAhLfsIYM2Jvh7V5j2sE5oZx7J1gRjHC9sbf8m58yFDLujLxQJwMnUbQ0Whwl3qf
-	nsUXnbzOFXLOu1KyqGuah9G5SoiSnkzZEV1gpcQatgqDRrrwjQLIKKibHRLjklOzjMTlpUuY6aAP7
-	PgCeTeNrV2AJjsSEWQ+NlikRV268AUlcBxdG9xPr0ENZzvvjxiWpCKp+Hlk1pghWfWzfabpfvDB9E
-	TgS4XxrBGXxFKERJtlQA==;
+	List-Owner; bh=PlAa704SdgSzZYtiWZzL9mbS1Ttm7gWAhKTp0w1MgCE=; b=vMeBTGOYB2EroW
+	OEff6gSigaA8tCIUWCouMhK+jr0/b8VNNcmmgDSZWjt+voWd3SbT3/5c5hoWKW3vf6m/E1BovH5kp
+	UF0pcrKVUG0C+eFpQco8RqeDrEoZ2jdP96XzLWgQBECMEiTqFfYQgKt38PBqu/6lIumBVYnLSUiig
+	F+MPpGvH42hzadAxNuzV8LAB6F1JWcsO4dKz9yKgbfag8adbum94fmRaTSnOrnXu36pXnRZJyAEcs
+	CXZ/8Kl2088i8OtqXxcRGV6LNBisIYKfpPLStpytJfuKJO9gXZ9or0ZWMKmeqJ8PHtZaHDQztPKsN
+	RkmKrm11ldls1DDYfXuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sDCiK-0000000BkVZ-34aW;
-	Sat, 01 Jun 2024 00:35:16 +0000
-Received: from mail-dm6nam11olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c15::801] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1sDF6F-0000000BsGJ-0oSV;
+	Sat, 01 Jun 2024 03:08:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sDCiD-0000000BkT2-0O8b
+	id 1sDF6C-0000000BsFw-2ntQ
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Jun 2024 00:35:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=BvJsQ+k3TAgQHtye1gsEDQz5cMUN25YUz2Y10xWlu7tJx/9Gc79Bv87GIpLfVtWYsOLu0A9BzB+A9FyJyOypjBazZ5CRSS9FSVLI9gms5tqh5USuS5M5DmYxCUfpwdGEudCw2b1FiROSw2KjT3bMRDbNNQ9rnx1DoirWXu9PN4Mn5A3qUWbqmCb0Sq8W5pMuaZmZ0DL2lo80kcSskXQEc+nhaBp05seFN8MQW6XGKhkGgydf6GQuLg8GjYA655Rv/OIhbo2bqnrx56wpK6TsCa1E8yk+kKsMwpjUKqzgXiM8V1PJQ2pBM2xGrlaPjlDlLLuFvrmbiDfq6Hrt4MytmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YihQBVyXclUgfsxPVeL93sGTTwxjm4OzDsK076sk8wU=;
- b=VqGOgMBp4rH33ludLiNaTuWZb22/vk97VTfX2R3dqZ7eLq+UtrsY/A00sosTMnAE6LtFJ0y6AVk1VafZbUiJdyg4lgtAHCoRWheYW8pUob9L9L0iAAZaOJRODPKSC8NLlKlFfIf7LzK2wBTF7Yr02CQv323tIKNKxDXpD1hbHwWl+UZUnuN8f/9O6/flSJrTvYJbuXtu+vvW7RxEiiswb43OdeEhuEn+TxWvRnOihsbTb/R9za4pJvMG4DOuo4nK++iQc9E/JARAAwTe7F8RPgsicOVyZqRJrjaO/0ExwsGibrRK8NN3tl8KdEOFduIgPp82Y+5/p4qQ4U6+WcN8OQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YihQBVyXclUgfsxPVeL93sGTTwxjm4OzDsK076sk8wU=;
- b=pP93GMMBFekCqJY03G6FvfuOJJanFak18EBFNBjubmIoimxwJVQ2SM/xIgp2s2fbTGTCjEWjxEQ0/0auBfOUKXfhqiGYdVbWnDZqhOPu9BhY53vFgYx1V1UKEu1yyCUUHnTXW5tazw5gwdc7SZ7PVXRMz0/J7tiWevsmsYkKToYOtLXFmiDYBWE/OJNxbCd6CYrPZQiA0MZ6I2EkON5dw5MTI23WzJP557OXJe2TvWiCnPGyrogqlxBqn/F8soJV4k9WakTLsNvOTLPIfrS7SUB/kNrPPlnf3gvLPqRdWURLfOZfDeO3LhLJFnTrXw0vgpuJCzJIVS/4/DsLuTA4SQ==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by BY1PR20MB7509.namprd20.prod.outlook.com (2603:10b6:a03:4a8::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7633.22; Sat, 1 Jun
- 2024 00:34:41 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%6]) with mapi id 15.20.7633.021; Sat, 1 Jun 2024
- 00:34:41 +0000
-Date: Sat, 1 Jun 2024 08:34:23 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Haylen Chu <heylenay@outlook.com>, 
-	Inochi Amaoto <inochiama@outlook.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jisheng Zhang <jszhang@kernel.org>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 3/3] thermal: cv180x: Add cv180x thermal driver support
-Message-ID: <IA1PR20MB4953523D31D45463D5A5E5CCBBFD2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <SEYPR01MB422119B40F4CF05B823F93DCD7F32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <SEYPR01MB4221BEBBF659F8495BF0E831D7F32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <IA1PR20MB49533177BEFC431FC16D1AB8BBF32@IA1PR20MB4953.namprd20.prod.outlook.com>
- <SEYPR01MB4221A59D51DDA225207D23F6D7FC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
-Content-Disposition: inline
-In-Reply-To: <SEYPR01MB4221A59D51DDA225207D23F6D7FC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
-X-TMN: [SINP3Fmt+RUNu9TEIc1/YqjmpV4Aa/ALwMhOkxcdOGc=]
-X-ClientProxiedBy: PS2PR01CA0059.apcprd01.prod.exchangelabs.com
- (2603:1096:300:57::23) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <pd52sfhbqfvcicuyo43sgfjdafybznohsxldtpphlggmvwx46x@kyyg23wnl4c4>
+	Sat, 01 Jun 2024 03:08:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 48A0F62E72
+	for <linux-riscv@lists.infradead.org>; Sat,  1 Jun 2024 03:07:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFD97C116B1
+	for <linux-riscv@lists.infradead.org>; Sat,  1 Jun 2024 03:07:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717211278;
+	bh=cqaO2mscY2nvy4zNayXNs9Wfa7beJ4b5F0q/LUYBUJg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=V+c4GBFq+AJHHmirAvekwH+/IsgVpXuVDd6U1UGAeXUfuzeuc1NLSIlYjMaCq3cmJ
+	 vlysgvnRMYy6fbCPsjSDGEREJMBNvVr81YevgCzJPCPgOGhSQCTgtx5PvWT8CHBY1v
+	 /yPwdx4NIBGx43SaBnJ8nQ9nGajK39IW4a7wr+Httdk1IK8Q807TYGra/c1vqiYYzZ
+	 pmZbGJIe1+3iSk1eWZI8wofiJQlwGYEJ3OY6dOzqBmhN0cAena1h98Ora+uQUZpL3X
+	 6LyKqzRejUYZUofbj2uZTfVapENfSC8tIJ0Ld6KeJ5ieHKyE2y5+Wyg4HZYorIkJQ6
+	 ooYqqYUIs87/A==
+Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-2e95a1f9c53so33378051fa.0
+        for <linux-riscv@lists.infradead.org>; Fri, 31 May 2024 20:07:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWhUfUdl19kZbVMhMFoHS8VysFcAExYD5B9DKVC1JjaQZKkVI8rk+ZHQNafOaryUv96EjoEJsPkOuom0ciSoWG3r56k1oIYaq4OyZxFIEaF
+X-Gm-Message-State: AOJu0Yy4kXpps9vugElOuVQy3MCdWcIoKOTrKE9zVvPbh8YIiZwuoztX
+	n6Enic8gv0Tg/YZRmhVSg1TRLvhgwkd+GWaDfwv1h6AB9ZN+TFrTrJt+q/xIRZxpof6Ui4cQ0+F
+	AyKzLAdTJxZALE80JLVK3csYUx9Q=
+X-Google-Smtp-Source: AGHT+IFeCE4qyDl4YzuCOe6hydlRibgFllVHhxftqrceEaiCEbO5cuy+v8E7x8MdzPi9PQ5s4gSuJfAumWwUV24KUA8=
+X-Received: by 2002:ac2:5dc3:0:b0:52b:88db:a554 with SMTP id
+ 2adb3069b0e04-52b89564ffcmr2258561e87.8.1717211277004; Fri, 31 May 2024
+ 20:07:57 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|BY1PR20MB7509:EE_
-X-MS-Office365-Filtering-Correlation-Id: 56ac9706-139a-4fe5-9d5e-08dc81d2a066
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199019|440099019|3412199016|1710799017;
-X-Microsoft-Antispam-Message-Info: Kl+PDBCBPVk+Fo6c+Bb3dy+oUPB0qpMvbXfAICzAHRSH328pK6v2ZMZwkG1DZosnbrLEx2pKLyaZ1t1bBXJ7zXgz+lseYnYw1gRizFoKo4nDSPFrL6M1WxZDkALnOqXAcxyQySIibMBlgRdGVBFIYXGmjAKYWwZ2GiEu/wOiRu/nKts2h3Er7+TB6AvAxRgPUulZ7jaBc8v1t72KiSDqzdW4kenNfnpSz8wiox923aCqB/vN2XmpzldjJHLJAgKQToPwUAF4hx84IJM7Uc+OU6fd1Tznyj+XN5w3iHMAD5w8z4W3y1FtcoLyukEyXXbTn49zH5RkDBL/mCW1AHU2Q9Xt/1EYcby1xYKYin2wvvsva2t7TsRMgrGEMQmPMuKB8PTiXIHFI5ZbHg68faiIjSGvQOkXT+WvvzIvNpPKn0HvAsCu29X+lDWJG8ZLY7TgfamNAtL9xf1koGB07PN5rhApQTMidmk7m6ShssYkHyFa4hCEr75xkaXlP3gJgpd2HwVeT7H8X0ydUpj7nt5mJE6SuO+9oGjlmGVH6j7lLpgGEJxFc8D/Yz0mg4Ai1o3Aga1OCLR6PH20iBU2Uv2sAmDWAccBK0YR3kDLxdrr/2caZlK10Qi7Ah6UNzDnXfug
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZcgsEEmPFuMiRzbMmEGhcB9/qVP82Cl28163V+ftGA0BAEo6LzvTdj4tBsvH?=
- =?us-ascii?Q?iqOla57Yf6w/uoiNuvB3usVgtvxuAgWY4BtsgLhqY7MjIA5RCzyTjKZ249uq?=
- =?us-ascii?Q?20vigkfXhoUrhB277kHqXBTpQWUXfgX8Idj4ezmSfmy4XB+4HAG3wKZ8OEbY?=
- =?us-ascii?Q?Rm/ShieWcfZdMlqauIMIyNNIAfj9OhI8Lxi23nCBdAwTnD7g58ia7PGaXhU3?=
- =?us-ascii?Q?Bq055NClFN4aQ/miugSNgw2RbdmfE6P9fj6FPofrodKO7tM8m1NhkjJ5YWo/?=
- =?us-ascii?Q?nXHICnzagaOIYJKh/xlUhpCvLJr2eKm5Ew2dpz1F2Wjeb9Yy/fOfwxcq60du?=
- =?us-ascii?Q?4eqikapTgg2LI9uVIWbgcYOXyJMp4tMZSL1xFp2DhncrLj3pP8NAD6/0fC8f?=
- =?us-ascii?Q?x9aabyPxMc2WJKqzDAr2C4mBbyHervMQLevjtywJ8Ft2iuJ0t/N8LdDG+tQA?=
- =?us-ascii?Q?H5ms0CBzbwIs3NhcAYFahpTbZJYgVkyzi+OQYS+AnnG3DcKZl1MDAH0dLyW1?=
- =?us-ascii?Q?HTEaCaWP2pNN7t2nLRdTO2d51zhaPG0dODR9kMOOPyv0zvdoeUjvE4SZDAjX?=
- =?us-ascii?Q?Ou+VayORC5X+GmsrPaACyvziNILjjKteRAkuZBCUj7SftseFyrOzdW3DZbav?=
- =?us-ascii?Q?5GpyxtVTGtJjFsf7k+29zHShOCmva0g2ZxrhrwDDNluOVlsMuoY/ibK2Gj/K?=
- =?us-ascii?Q?lxD7CYO4gjQMdB9CzowSSVChXc0lie8WX+r+cntkzE7fllEKOig1NxGJc/Dg?=
- =?us-ascii?Q?Q4n1PGRhFuS3hlxI4YSQF8SZ5Ic/kzOorNRGPb5TZHcLe7kaci3Dpctwt7MY?=
- =?us-ascii?Q?pw73CRb/cOpYqS49qtaRZ2YYCIqhlfiCKLYb4/BD7Mh4KzoQWL0Yx+9J210y?=
- =?us-ascii?Q?lH5oqxi/jDS1eNwyDDbqktGFZ9ovzdV+WdExunrS9EBZm7RjpE+hKoBCmezN?=
- =?us-ascii?Q?xlNMGWeosw08WrA6mObfaE3Elw0gGAVCav0NobVvc5MdhCWSPCfpX1I0/yvi?=
- =?us-ascii?Q?HlW5NPiLAIqE96gybelwyiUxk+EeJvdHhY3c1PTPkPsw8UzI/wwt8CsO9VMs?=
- =?us-ascii?Q?ew4lV99u5QHYBu5/DH/YxWvgeGfVgEoYCfBvdVqdAuS9eBVAF3FjEx3ulB6A?=
- =?us-ascii?Q?KLRhNySWpENvq9b497HLR81lGXebRTC3zc3HfLqGsBZiCzLcaOn4n8bJ0SlY?=
- =?us-ascii?Q?3Fv62Th9zEuGsxpYcBfKGnDOBMuO1A8qvGFwSx+1Zy1do97yTJW0hl7ZpQ92?=
- =?us-ascii?Q?f4yeJx2l6Td4M8aQDxnl?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 56ac9706-139a-4fe5-9d5e-08dc81d2a066
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2024 00:34:41.6594
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR20MB7509
+References: <IA1PR20MB4953BA3638A0839FCB0EF86BBBF32@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <CAJF2gTRu8WUkjOOzH4MZvinZv=0cgF988c7HyzP5jw0p3w+MWQ@mail.gmail.com> <20240531-reseal-sabbath-4994673eb98c@spud>
+In-Reply-To: <20240531-reseal-sabbath-4994673eb98c@spud>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 1 Jun 2024 11:07:44 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQYT+2Q4K4jPoD3X=JArKReD6O8uF4Q1o2fGqYXb2RPWw@mail.gmail.com>
+Message-ID: <CAJF2gTQYT+2Q4K4jPoD3X=JArKReD6O8uF4Q1o2fGqYXb2RPWw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: dts: thead: th1520: Add PMU event node
+To: Conor Dooley <conor@kernel.org>
+Cc: Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_173510_351508_AEBAE7F5 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20240531_200804_807171_73839A85 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,41 +82,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 31, 2024 at 01:37:01PM GMT, Haylen Chu wrote:
-> Sorry, I forgot add cc and to in the last email. This is a resend.
-> 
-> On Fri, May 31, 2024 at 07:45:37AM +0800, Inochi Amaoto wrote:
-> > The sensors of CV1800 support various periods, I think you should add
-> > support for all of them and let user select them. The configuration
-> > you use now can be left as the default.
-> 
-> I will make sample period configurable in next revision.
-> 
-> > > +{
-> > > +   return ((result * 1000) * 716 / 2048 - 273000);
-> > > +}
-> >
-> > Why these magic number, I have not see any info in the document.
-> 
-> Actually, there is no document of calculating real temperature from raw
-> register value. The equation above is extracted from code provided by
-> Sophgo.
-> 
-> I have figured out meaning of part of the equation and could add some
-> comments to document it.
-> 
-
-I think you misunderstood. I did not only ask for the document, but also 
-a formula that respects the configuration. It is pretty weird to use all
-fix magic number to calculate the temp value since the sensors itself
-supports various configuration, right?
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXkgMzEsIDIwMjQgYXQgMTE6MDPigK9QTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gRnJpLCBNYXkgMzEsIDIwMjQgYXQgMDk6NDM6MDBBTSAr
+MDgwMCwgR3VvIFJlbiB3cm90ZToKPiA+IExHVE0hIFJldmlld2VkLWJ5OiBHdW8gUmVuIDxndW9y
+ZW5Aa2VybmVsLm9yZz4KPgo+IFBsZWFzZSBwcm92aWRlIHRhZ3Mgb24gYSBuZXcgbGluZSBzbyB0
+aGF0IHRvb2xpbmcgcGlja3MgdGhlbSB1cC4KPiBJIGhhZCB0byBhbWVuZCB0aGlzIGNvbW1pdCBj
+b3MgSSBmb3Jnb3QgYSBzaWdub2ZmLCBzbyBJIGFkZGVkIGl0LgpPa2F5LCBUaHggZm9yIHRlbGxp
+bmcuCgo+Cj4gVGhhbmtzLAo+IENvbm9yLgoKCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
