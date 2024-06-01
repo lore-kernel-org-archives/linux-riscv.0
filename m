@@ -4,82 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B051BC27C4F
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 May 2024 22:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E0AC25B7E
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2024 00:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AV5EWxyUdo9gyaJ95UcaQLGUdkqOmONH8s3QQy91Uk8=; b=yW8/HhXcmuyXC9
-	ZYBguZfHCejURDteTwaDj2BGvVQuQ2HbfS8KunoWD+Rg6GR53Nf0LWUmzIDTFvrtKHczEE/DKj9UK
-	zyB665TQ+hTcMxX7yuDKFYCwq76xmf4TgKIhBuF4VHgHHg0K89tw8o/XYCZwGaYrANfkeh5zuaihA
-	YQRuX6yzPP22MkttATGBSTVIklzMZJZZuJJtfGf/njx8wwfU0S5/ptMpj1Rw7vBJFbWu4nFX/BdGn
-	b8xvXRFOxq9LVLyScsYosQvZi6Z0FlcAF3x8NK02XH1vEoX0APWRcEAJXKXcZp7pqU/UdNeLnaShg
-	K/pUn5cZRxPlysbjmRbA==;
+	List-Owner; bh=WNaFIe366DLX1YqrwCY339qI2jqtpPWe6H9g3IUQ+dQ=; b=jpt4P2VwT4KUfK
+	EPaOPDWG3cKX/pZzl9Qe9e7JlaJgoiaLE+UGLz49/MiICGhecgWHZpCx+eYtAysBi6VAupX2ly9DH
+	PxCqLwXu3XZFYhAhLfsIYM2Jvh7V5j2sE5oZx7J1gRjHC9sbf8m58yFDLujLxQJwMnUbQ0Whwl3qf
+	nsUXnbzOFXLOu1KyqGuah9G5SoiSnkzZEV1gpcQatgqDRrrwjQLIKKibHRLjklOzjMTlpUuY6aAP7
+	PgCeTeNrV2AJjsSEWQ+NlikRV268AUlcBxdG9xPr0ENZzvvjxiWpCKp+Hlk1pghWfWzfabpfvDB9E
+	TgS4XxrBGXxFKERJtlQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sDAz4-0000000BcUT-1vj0;
-	Fri, 31 May 2024 22:44:26 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1sDCiK-0000000BkVZ-34aW;
+	Sat, 01 Jun 2024 00:35:16 +0000
+Received: from mail-dm6nam11olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c15::801] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sDAz0-0000000BcTQ-3n0u
+	id 1sDCiD-0000000BkT2-0O8b
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 May 2024 22:44:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1717195463; x=1748731463;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Sus4y6UmNR5dzGV4IzmSLrPvvrNGonDyWCvKjZx6etY=;
-  b=gPrS8FuPdNYlaLmhuzatC6nzBZuhWsi+tlwQRTWkPmE4tENsNMvZAqUt
-   prHdKBMkrf4Jvx2OylLutgQeFaANhZ3pJ/UGl1ZXVd/5SrGOSSuBtSJp8
-   HvQUE5paGY6V/1UjfxAuIttMeihz4Y3y/Xwjj/pDzJEboiha0lHZExKrB
-   D1nMeJuHj/hnLpiQs5rRFgQk9ugiKp0Ez6CWiWpAETNXc268z7Gg+x0UG
-   09Gcm+m2FLAmn1ZJKgigrShk1ELQZI7UuwDfxqFuMEGeOzEJZpZ/Mpoir
-   JqtBR4Xl384QXYCjlJd3Qhy4ByyPUdoDDJEXvn2iUAPgMoKsIHCMWDQ6e
-   w==;
-X-CSE-ConnectionGUID: Zvjdfn4dTHedPAyySZ/9IA==
-X-CSE-MsgGUID: HLMJpR9CQN+32HU6IBxSqg==
-X-IronPort-AV: E=McAfee;i="6600,9927,11089"; a="13882288"
-X-IronPort-AV: E=Sophos;i="6.08,205,1712646000"; 
-   d="scan'208";a="13882288"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 May 2024 15:44:20 -0700
-X-CSE-ConnectionGUID: ngmWe3QmTvmwk9vRxe5PZg==
-X-CSE-MsgGUID: 76dvYXejRtWErjwhEgsmwg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.08,205,1712646000"; 
-   d="scan'208";a="41223266"
-Received: from unknown (HELO 0610945e7d16) ([10.239.97.151])
-  by orviesa003.jf.intel.com with ESMTP; 31 May 2024 15:44:17 -0700
-Received: from kbuild by 0610945e7d16 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1sDAys-000HxN-1J;
-	Fri, 31 May 2024 22:44:14 +0000
-Date: Sat, 1 Jun 2024 06:44:10 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>
-Subject: Re: [PATCH v0] RISC-V: Use Zkr to seed KASLR base address
-Message-ID: <202406010606.hHFDxmHY-lkp@intel.com>
-References: <20240531162327.2436962-1-jesse@rivosinc.com>
-MIME-Version: 1.0
+	Sat, 01 Jun 2024 00:35:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=BvJsQ+k3TAgQHtye1gsEDQz5cMUN25YUz2Y10xWlu7tJx/9Gc79Bv87GIpLfVtWYsOLu0A9BzB+A9FyJyOypjBazZ5CRSS9FSVLI9gms5tqh5USuS5M5DmYxCUfpwdGEudCw2b1FiROSw2KjT3bMRDbNNQ9rnx1DoirWXu9PN4Mn5A3qUWbqmCb0Sq8W5pMuaZmZ0DL2lo80kcSskXQEc+nhaBp05seFN8MQW6XGKhkGgydf6GQuLg8GjYA655Rv/OIhbo2bqnrx56wpK6TsCa1E8yk+kKsMwpjUKqzgXiM8V1PJQ2pBM2xGrlaPjlDlLLuFvrmbiDfq6Hrt4MytmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YihQBVyXclUgfsxPVeL93sGTTwxjm4OzDsK076sk8wU=;
+ b=VqGOgMBp4rH33ludLiNaTuWZb22/vk97VTfX2R3dqZ7eLq+UtrsY/A00sosTMnAE6LtFJ0y6AVk1VafZbUiJdyg4lgtAHCoRWheYW8pUob9L9L0iAAZaOJRODPKSC8NLlKlFfIf7LzK2wBTF7Yr02CQv323tIKNKxDXpD1hbHwWl+UZUnuN8f/9O6/flSJrTvYJbuXtu+vvW7RxEiiswb43OdeEhuEn+TxWvRnOihsbTb/R9za4pJvMG4DOuo4nK++iQc9E/JARAAwTe7F8RPgsicOVyZqRJrjaO/0ExwsGibrRK8NN3tl8KdEOFduIgPp82Y+5/p4qQ4U6+WcN8OQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YihQBVyXclUgfsxPVeL93sGTTwxjm4OzDsK076sk8wU=;
+ b=pP93GMMBFekCqJY03G6FvfuOJJanFak18EBFNBjubmIoimxwJVQ2SM/xIgp2s2fbTGTCjEWjxEQ0/0auBfOUKXfhqiGYdVbWnDZqhOPu9BhY53vFgYx1V1UKEu1yyCUUHnTXW5tazw5gwdc7SZ7PVXRMz0/J7tiWevsmsYkKToYOtLXFmiDYBWE/OJNxbCd6CYrPZQiA0MZ6I2EkON5dw5MTI23WzJP557OXJe2TvWiCnPGyrogqlxBqn/F8soJV4k9WakTLsNvOTLPIfrS7SUB/kNrPPlnf3gvLPqRdWURLfOZfDeO3LhLJFnTrXw0vgpuJCzJIVS/4/DsLuTA4SQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by BY1PR20MB7509.namprd20.prod.outlook.com (2603:10b6:a03:4a8::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7633.22; Sat, 1 Jun
+ 2024 00:34:41 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149%6]) with mapi id 15.20.7633.021; Sat, 1 Jun 2024
+ 00:34:41 +0000
+Date: Sat, 1 Jun 2024 08:34:23 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Haylen Chu <heylenay@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 3/3] thermal: cv180x: Add cv180x thermal driver support
+Message-ID: <IA1PR20MB4953523D31D45463D5A5E5CCBBFD2@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <SEYPR01MB422119B40F4CF05B823F93DCD7F32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+ <SEYPR01MB4221BEBBF659F8495BF0E831D7F32@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+ <IA1PR20MB49533177BEFC431FC16D1AB8BBF32@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <SEYPR01MB4221A59D51DDA225207D23F6D7FC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
 Content-Disposition: inline
-In-Reply-To: <20240531162327.2436962-1-jesse@rivosinc.com>
+In-Reply-To: <SEYPR01MB4221A59D51DDA225207D23F6D7FC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+X-TMN: [SINP3Fmt+RUNu9TEIc1/YqjmpV4Aa/ALwMhOkxcdOGc=]
+X-ClientProxiedBy: PS2PR01CA0059.apcprd01.prod.exchangelabs.com
+ (2603:1096:300:57::23) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <pd52sfhbqfvcicuyo43sgfjdafybznohsxldtpphlggmvwx46x@kyyg23wnl4c4>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|BY1PR20MB7509:EE_
+X-MS-Office365-Filtering-Correlation-Id: 56ac9706-139a-4fe5-9d5e-08dc81d2a066
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199019|440099019|3412199016|1710799017;
+X-Microsoft-Antispam-Message-Info: Kl+PDBCBPVk+Fo6c+Bb3dy+oUPB0qpMvbXfAICzAHRSH328pK6v2ZMZwkG1DZosnbrLEx2pKLyaZ1t1bBXJ7zXgz+lseYnYw1gRizFoKo4nDSPFrL6M1WxZDkALnOqXAcxyQySIibMBlgRdGVBFIYXGmjAKYWwZ2GiEu/wOiRu/nKts2h3Er7+TB6AvAxRgPUulZ7jaBc8v1t72KiSDqzdW4kenNfnpSz8wiox923aCqB/vN2XmpzldjJHLJAgKQToPwUAF4hx84IJM7Uc+OU6fd1Tznyj+XN5w3iHMAD5w8z4W3y1FtcoLyukEyXXbTn49zH5RkDBL/mCW1AHU2Q9Xt/1EYcby1xYKYin2wvvsva2t7TsRMgrGEMQmPMuKB8PTiXIHFI5ZbHg68faiIjSGvQOkXT+WvvzIvNpPKn0HvAsCu29X+lDWJG8ZLY7TgfamNAtL9xf1koGB07PN5rhApQTMidmk7m6ShssYkHyFa4hCEr75xkaXlP3gJgpd2HwVeT7H8X0ydUpj7nt5mJE6SuO+9oGjlmGVH6j7lLpgGEJxFc8D/Yz0mg4Ai1o3Aga1OCLR6PH20iBU2Uv2sAmDWAccBK0YR3kDLxdrr/2caZlK10Qi7Ah6UNzDnXfug
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZcgsEEmPFuMiRzbMmEGhcB9/qVP82Cl28163V+ftGA0BAEo6LzvTdj4tBsvH?=
+ =?us-ascii?Q?iqOla57Yf6w/uoiNuvB3usVgtvxuAgWY4BtsgLhqY7MjIA5RCzyTjKZ249uq?=
+ =?us-ascii?Q?20vigkfXhoUrhB277kHqXBTpQWUXfgX8Idj4ezmSfmy4XB+4HAG3wKZ8OEbY?=
+ =?us-ascii?Q?Rm/ShieWcfZdMlqauIMIyNNIAfj9OhI8Lxi23nCBdAwTnD7g58ia7PGaXhU3?=
+ =?us-ascii?Q?Bq055NClFN4aQ/miugSNgw2RbdmfE6P9fj6FPofrodKO7tM8m1NhkjJ5YWo/?=
+ =?us-ascii?Q?nXHICnzagaOIYJKh/xlUhpCvLJr2eKm5Ew2dpz1F2Wjeb9Yy/fOfwxcq60du?=
+ =?us-ascii?Q?4eqikapTgg2LI9uVIWbgcYOXyJMp4tMZSL1xFp2DhncrLj3pP8NAD6/0fC8f?=
+ =?us-ascii?Q?x9aabyPxMc2WJKqzDAr2C4mBbyHervMQLevjtywJ8Ft2iuJ0t/N8LdDG+tQA?=
+ =?us-ascii?Q?H5ms0CBzbwIs3NhcAYFahpTbZJYgVkyzi+OQYS+AnnG3DcKZl1MDAH0dLyW1?=
+ =?us-ascii?Q?HTEaCaWP2pNN7t2nLRdTO2d51zhaPG0dODR9kMOOPyv0zvdoeUjvE4SZDAjX?=
+ =?us-ascii?Q?Ou+VayORC5X+GmsrPaACyvziNILjjKteRAkuZBCUj7SftseFyrOzdW3DZbav?=
+ =?us-ascii?Q?5GpyxtVTGtJjFsf7k+29zHShOCmva0g2ZxrhrwDDNluOVlsMuoY/ibK2Gj/K?=
+ =?us-ascii?Q?lxD7CYO4gjQMdB9CzowSSVChXc0lie8WX+r+cntkzE7fllEKOig1NxGJc/Dg?=
+ =?us-ascii?Q?Q4n1PGRhFuS3hlxI4YSQF8SZ5Ic/kzOorNRGPb5TZHcLe7kaci3Dpctwt7MY?=
+ =?us-ascii?Q?pw73CRb/cOpYqS49qtaRZ2YYCIqhlfiCKLYb4/BD7Mh4KzoQWL0Yx+9J210y?=
+ =?us-ascii?Q?lH5oqxi/jDS1eNwyDDbqktGFZ9ovzdV+WdExunrS9EBZm7RjpE+hKoBCmezN?=
+ =?us-ascii?Q?xlNMGWeosw08WrA6mObfaE3Elw0gGAVCav0NobVvc5MdhCWSPCfpX1I0/yvi?=
+ =?us-ascii?Q?HlW5NPiLAIqE96gybelwyiUxk+EeJvdHhY3c1PTPkPsw8UzI/wwt8CsO9VMs?=
+ =?us-ascii?Q?ew4lV99u5QHYBu5/DH/YxWvgeGfVgEoYCfBvdVqdAuS9eBVAF3FjEx3ulB6A?=
+ =?us-ascii?Q?KLRhNySWpENvq9b497HLR81lGXebRTC3zc3HfLqGsBZiCzLcaOn4n8bJ0SlY?=
+ =?us-ascii?Q?3Fv62Th9zEuGsxpYcBfKGnDOBMuO1A8qvGFwSx+1Zy1do97yTJW0hl7ZpQ92?=
+ =?us-ascii?Q?f4yeJx2l6Td4M8aQDxnl?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56ac9706-139a-4fe5-9d5e-08dc81d2a066
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2024 00:34:41.6594
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR20MB7509
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240531_154423_303154_8D86ACC6 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20240531_173510_351508_AEBAE7F5 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +134,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jesse,
+On Fri, May 31, 2024 at 01:37:01PM GMT, Haylen Chu wrote:
+> Sorry, I forgot add cc and to in the last email. This is a resend.
+> 
+> On Fri, May 31, 2024 at 07:45:37AM +0800, Inochi Amaoto wrote:
+> > The sensors of CV1800 support various periods, I think you should add
+> > support for all of them and let user select them. The configuration
+> > you use now can be left as the default.
+> 
+> I will make sample period configurable in next revision.
+> 
+> > > +{
+> > > +   return ((result * 1000) * 716 / 2048 - 273000);
+> > > +}
+> >
+> > Why these magic number, I have not see any info in the document.
+> 
+> Actually, there is no document of calculating real temperature from raw
+> register value. The equation above is extracted from code provided by
+> Sophgo.
+> 
+> I have figured out meaning of part of the equation and could add some
+> comments to document it.
+> 
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.10-rc1 next-20240531]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Jesse-Taube/RISC-V-Use-Zkr-to-seed-KASLR-base-address/20240601-002545
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20240531162327.2436962-1-jesse%40rivosinc.com
-patch subject: [PATCH v0] RISC-V: Use Zkr to seed KASLR base address
-config: riscv-defconfig (https://download.01.org/0day-ci/archive/20240601/202406010606.hHFDxmHY-lkp@intel.com/config)
-compiler: clang version 19.0.0git (https://github.com/llvm/llvm-project bafda89a0944d947fc4b3b5663185e07a397ac30)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240601/202406010606.hHFDxmHY-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202406010606.hHFDxmHY-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> ld.lld: error: undefined symbol: __pi__printk
-   >>> referenced by __pi_archrandom_early.c
-   >>>               arch/riscv/kernel/pi/archrandom_early.pi.o:(__pi_get_kaslr_seed_zkr) in archive vmlinux.a
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+I think you misunderstood. I did not only ask for the document, but also 
+a formula that respects the configuration. It is pretty weird to use all
+fix magic number to calculate the temp value since the sensors itself
+supports various configuration, right?
 
 _______________________________________________
 linux-riscv mailing list
