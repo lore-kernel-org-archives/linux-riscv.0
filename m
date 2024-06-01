@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F54C25B7E
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2024 15:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F135C25B7E
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2024 15:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2JOXDYdUVN6rMCziP4ROYLm2lA+tk9p/jqEiRo8ZYI4=; b=yztjirE92jO4EX
-	i3ps5ACQBicHkh/endg2eueD17zL1/psXyoaGUMR/Pq1I1Hj3v1yFvrh1SYXPrmzQpf6N3eCiKGFK
-	gherP62JrkmDrNsrkZUB7O7ASqKeizv5ATEb8sijLP+z3Et3uzIMHFHto8RtO/nQ21QfpqduQTwRG
-	rJvInEJ66s40VkXxPcSztV5/gRH/xOUF4kUfZdXIpB7kt9GnJmjQgK/Oz2RF8JTfZNvO1zC+zBT+e
-	Wy7yg+8nAnGm7A2FJJElbQQbyiJDYwfGI4FeWiMCZ3hsF+xBe7t9Q9w+wj4O3zJP/hImfp1b4ZwP4
-	Sboc3yCtK2DZiiXOHaIA==;
+	List-Owner; bh=ajWKWTzAVjqb1AHrQBrAkZJaYkioIkKMFWLrr35yt7M=; b=Zd9zM0GSSTcRPp
+	sHAkt+HJ4DJ42WphJz1Eg6hKJzFo61aesOTmDruh7cB4UtJ07KpNvTB9OKa1g2At/YSvdUfeipTWD
+	0M34KkGhkL+NXruy/H1laB9Y8biMabJ3nnoJuVNqGhBm1OeBQykxERMu3+BqiqqfavfxYxugXAKJQ
+	u6McLMGSEQ6qinlEa6Xk1jL4OaGsQd3457f62f5G/GuDDFTT5a4wOUkirhzM+aXE6YKGPoJw66Vdy
+	ul9OBp687c5Sky7vcnnoNCBbMmBTtDBfEKW+p8DjSN0vJqvSiUNaK8J4aLyxXvvfjI9X8xvz4hzBh
+	5jreTuy3yw8koJNIYzvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sDQK2-0000000Cqc6-1HRt;
-	Sat, 01 Jun 2024 15:07:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sDQKH-0000000CqpA-0aC8;
+	Sat, 01 Jun 2024 15:07:21 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sDQJU-0000000Cq7l-2TaW
-	for linux-riscv@bombadil.infradead.org;
-	Sat, 01 Jun 2024 15:06:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=zW4fXjPpT42pLVv05FwYUtW5DHy0qyH2wbeyOWXak5Q=; b=K+15u6qpldrPopfeTNzo6N1OEY
-	EYnYQyOGvdtYp6DWpYOgvBbxr1pI8KrMXOPLpR75g7sGWxK5EwpffkBh7iLp47B2pbO/Wn0alp1Gg
-	ZfxzI12CV8WurzwNR1vKLbjljMsEsnNFgUVuP1qrrkPtoB0bZYQKcYu3zTaaFH1o4J+G49NmBi8FX
-	9cXyQEnb4Frk0JlTYiPMwvxvJBPvXXpSnbpIQK3BqexZWYDeB4A+/ky5jljYMGcH1gQ2sg4Rp6bFa
-	BvUasN+O/kKTyfXp9zOJKhABl6MqOYk7gK3H8fbEbYyy62O0adUb2zshAbvU9hY+W+2RnPxYl4NdA
-	hE7SdABg==;
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sDQJQ-0000000F3dF-1fm2
+	id 1sDQJ8-0000000CpnK-1er5
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Jun 2024 15:06:30 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-702555eb23bso537802b3a.1
-        for <linux-riscv@lists.infradead.org>; Sat, 01 Jun 2024 08:06:24 -0700 (PDT)
+	Sat, 01 Jun 2024 15:06:40 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-702548b056aso619335b3a.1
+        for <linux-riscv@lists.infradead.org>; Sat, 01 Jun 2024 08:06:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1717254382; x=1717859182; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1717254368; x=1717859168; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zW4fXjPpT42pLVv05FwYUtW5DHy0qyH2wbeyOWXak5Q=;
-        b=Ps1VlsC9wfAcC/Uu8fcr3mVl+sZ19JqmhraNH28MEFV0Mj8Bwq3Z3PVzqJUP49bPLg
-         s4FfFu0tOj7CY0FWN9xQpbMXyIeCJlccNPK6lqYlqBT3CsVPDOZnRAi1u/lN9EPmpIxX
-         ge+JH4rfjCNIiRScDjY2wb1kUA3nB38OH7cV9dHtvtwr1kALfsudCHj3CeGQd77LMMw1
-         /aO4pHO6ZloW6qPPy8/H8cbITKHUSrqt6IUxqXyp2tzlvgaaLx8+5CSVQcU4vCBA2riS
-         9GC7MGHkVxGNCQ1pwWKT5JK3aWId8faIOrKYGeCtfyAcwcBVhFdBBjTQBoO5lKx1qrQr
-         tjsQ==
+        bh=bieOckQA/OdAZamZYetSX8Y5sqY4/SqoIaxENg7tXYU=;
+        b=hUsZBUUbHFiNn+aZkQT+XZPH0CFb3K5ZjwawrlsobDgAmb8Vv77WW5wG/kC2fFWLnB
+         1kzZUeRotTFiyXDwTgybYx1QkcXEB0L1XixMw/B2FmZiv8Uhs2GgwYjx1RvRTyBldvhF
+         KtSpCOPGI2kTQ76VF+bpwz9MomGvt9pbqf8HegAVpd4FmAaF+pybni0n5JY/6Ov7RIjp
+         w4oZPU+9FHqPMO9bwwBPGcA0DmfmZdM0mz4NwMuOSmk7xstQtV2W4msXf3o/Kjrjk18H
+         SjlRPeG32MiYhVRM7c5a8HNAhbwpMW5TWvMJYIyUNAuQlmD1iQZpRX0/WMeZa1wODSUT
+         2Ccw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717254382; x=1717859182;
+        d=1e100.net; s=20230601; t=1717254368; x=1717859168;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zW4fXjPpT42pLVv05FwYUtW5DHy0qyH2wbeyOWXak5Q=;
-        b=K+YJ8/KKpU/+C17J5/yRIqaqfCG6h4Guw0w0NrOJSzC0+6O1g8YgGT7MjQweX22MEw
-         8lU/oo+s/CqVVS6k1BYL8cfMTQyIxAmWXxkMBsCU4Lz0ltMxvSyxdlexN5YgzEg2a1ce
-         EiXR1OkpeRdBCke94dn+pRibzwUXoWsbAMqKjcGAemLQf/1TeI/LvOPXhME+Ep2O6GZZ
-         KFN7dkh3jAe5+7zo+JQMs6F4P0V9fo/huxryKy8O4G5lzLvfzbZlIQDZnGJ2YGspkdPM
-         za+VJj/sKHP49zp+e6+waMpqy6s97L90P4oj6ThBSmSeD95BOSqx1/na3Tu2SVqYB5HY
-         GD9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUdXsV8ENzXz/gvuOG9kPHNstuT53ZOzc8F88QovQK8Nt/mvenwjjUXfFjaVOeAxcVjAIqq4qC0+FF05F9ueT6yHGXN3Z77BRSlk4YuI0pw
-X-Gm-Message-State: AOJu0YxLtFjPveZsh+pQykiU4LkE/V8NxP2MlNzq1Dw8TJ6zcY9XTHcy
-	HVei3BduibbksA7Da5sNqoJwHFcE2A3G4omwgPN55cJ+JVUxbXcubA+Sbvix81A=
-X-Google-Smtp-Source: AGHT+IFuXEPFBN0We6rdV6a/iSYDuKPWGhuoDCz5EfXXYkEbKpU23aOijuX7nTlft734/9HFXfeWsA==
-X-Received: by 2002:a05:6a20:1595:b0:1ad:9413:d5c3 with SMTP id adf61e73a8af0-1b26f1428b1mr5444483637.17.1717254382443;
-        Sat, 01 Jun 2024 08:06:22 -0700 (PDT)
+        bh=bieOckQA/OdAZamZYetSX8Y5sqY4/SqoIaxENg7tXYU=;
+        b=NDARxb/VPYy4FLUhSvFQsMjfg7wXpHRKlFRAX7gonzQ4bJWv0CAO3fSw8sL4/Mdk7K
+         cvgA+pVp7BNpnvyiAwtH52ekOwLSOzzYkFK934Oe+waRf5+AdKCftrKAArxLSYMa990X
+         Xhddptci/dWdX5xc64WjAY/OFA7+6ssMm3rDocslccHofvOClZ4bqgHX/fzJvzgEmR7z
+         OriKwJFgNpTPMfdNnrelUEsBGyYiDohYa83dqJyYCnuVbJuCKZeNHvWHUCJBtP0kKADH
+         x9JWUhGzsddz6z+IjE8GugXsJYrKVAXR5/kUwstjLOVFWCO/10oYwVOJvSwSLHfqAwLj
+         KJaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUOyAapc0o1Za/HI/kKwAmMqBDkDsEvWYhiFj0KDU62/y1+L8zORuKZMAY6DEEQHb8SM0+loC7acxHz1qg7Gytb5UGqdgp02Vb+Rk9XebCh
+X-Gm-Message-State: AOJu0Yyk+klaCpRj6/YjYqtoQ4IIQiaAGoodb0/bPNuRMCfBM/CXnVWQ
+	XXXN7fVD89jzwpd15qw5L0nlIXbqekrbyWyN+v6WEWise9+wug5yZ0eK5xmsDMc=
+X-Google-Smtp-Source: AGHT+IGpQemm+8CE4X9z9ez/Hldkhjrfn9X2HmSTqIXMuf45inJMRNs9j84XQDLO/okfZoTL3FB5+w==
+X-Received: by 2002:a05:6a20:9188:b0:1b0:14a0:c873 with SMTP id adf61e73a8af0-1b26f185930mr5757294637.35.1717254368009;
+        Sat, 01 Jun 2024 08:06:08 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.187.237])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-6c35a4ba741sm2559410a12.85.2024.06.01.08.06.15
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-6c35a4ba741sm2559410a12.85.2024.06.01.08.06.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Jun 2024 08:06:21 -0700 (PDT)
+        Sat, 01 Jun 2024 08:06:06 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -85,16 +70,16 @@ To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	acpica-devel@lists.linux.dev
-Subject: [PATCH v6 17/17] irqchip/sifive-plic: Add ACPI support
-Date: Sat,  1 Jun 2024 20:34:11 +0530
-Message-Id: <20240601150411.1929783-18-sunilvl@ventanamicro.com>
+Subject: [PATCH v6 15/17] irqchip/riscv-imsic: Add ACPI support
+Date: Sat,  1 Jun 2024 20:34:09 +0530
+Message-Id: <20240601150411.1929783-16-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20240601150411.1929783-1-sunilvl@ventanamicro.com>
 References: <20240601150411.1929783-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240601_160628_801740_AEF36FB6 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20240601_080611_329149_10601605 
+X-CRM114-Status: GOOD (  25.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,234 +97,338 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add ACPI support in PLIC driver. Use the mapping created early during
-boot to get details about the PLIC.
+RISC-V IMSIC interrupt controller provides IPI and MSI support.
+Currently, DT based drivers setup the IPI feature early during boot but
+defer setting up the MSI functionality. However, in ACPI systems, PCI
+subsystem is probed early and assume MSI controller is already setup.
+Hence, both IPI and MSI features need to be initialized early itself.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-Co-developed-by: Haibo Xu <haibo1.xu@intel.com>
-Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 ---
- drivers/irqchip/irq-sifive-plic.c | 94 ++++++++++++++++++++++++-------
- 1 file changed, 73 insertions(+), 21 deletions(-)
+ drivers/irqchip/irq-riscv-imsic-early.c    | 64 +++++++++++++++++++++-
+ drivers/irqchip/irq-riscv-imsic-platform.c | 32 +++++++++--
+ drivers/irqchip/irq-riscv-imsic-state.c    | 57 +++++++++++--------
+ drivers/irqchip/irq-riscv-imsic-state.h    |  2 +-
+ include/linux/irqchip/riscv-imsic.h        |  9 +++
+ 5 files changed, 134 insertions(+), 30 deletions(-)
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 8fb183ced1e7..89c04f257f81 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2017 SiFive
-  * Copyright (C) 2018 Christoph Hellwig
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index 4fbb37074d29..c5c2e6929a2f 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -5,13 +5,16 @@
   */
+ 
+ #define pr_fmt(fmt) "riscv-imsic: " fmt
 +#include <linux/acpi.h>
  #include <linux/cpu.h>
  #include <linux/interrupt.h>
  #include <linux/io.h>
-@@ -70,6 +71,8 @@ struct plic_priv {
- 	unsigned long plic_quirks;
- 	unsigned int nr_irqs;
- 	unsigned long *prio_save;
-+	u32 gsi_base;
-+	int id;
- };
+ #include <linux/irq.h>
+ #include <linux/irqchip.h>
+ #include <linux/irqchip/chained_irq.h>
++#include <linux/irqchip/riscv-imsic.h>
+ #include <linux/module.h>
++#include <linux/pci.h>
+ #include <linux/spinlock.h>
+ #include <linux/smp.h>
  
- struct plic_handler {
-@@ -324,6 +327,10 @@ static int plic_irq_domain_translate(struct irq_domain *d,
- {
- 	struct plic_priv *priv = d->host_data;
- 
-+	/* For DT, gsi_base is always zero. */
-+	if (fwspec->param[0] >= priv->gsi_base)
-+		fwspec->param[0] = fwspec->param[0] - priv->gsi_base;
-+
- 	if (test_bit(PLIC_QUIRK_EDGE_INTERRUPT, &priv->plic_quirks))
- 		return irq_domain_translate_twocell(d, fwspec, hwirq, type);
- 
-@@ -424,18 +431,37 @@ static const struct of_device_id plic_match[] = {
- 	{}
- };
- 
-+#ifdef CONFIG_ACPI
-+
-+static const struct acpi_device_id plic_acpi_match[] = {
-+	{ "RSCV0001", 0 },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(acpi, plic_acpi_match);
-+
-+#endif
- static int plic_parse_nr_irqs_and_contexts(struct platform_device *pdev,
--					   u32 *nr_irqs, u32 *nr_contexts)
-+					   u32 *nr_irqs, u32 *nr_contexts,
-+					   u32 *gsi_base, u32 *id)
- {
- 	struct device *dev = &pdev->dev;
+@@ -182,7 +185,7 @@ static int __init imsic_early_dt_init(struct device_node *node, struct device_no
  	int rc;
  
--	/*
--	 * Currently, only OF fwnode is supported so extend this
--	 * function for ACPI support.
--	 */
--	if (!is_of_node(dev->fwnode))
--		return -EINVAL;
-+	if (!is_of_node(dev->fwnode)) {
-+		rc = riscv_acpi_get_gsi_info(dev->fwnode, gsi_base, id, nr_irqs, NULL);
-+		if (rc) {
-+			dev_err(dev, "failed to find GSI mapping\n");
-+			return rc;
-+		}
-+
-+		*nr_contexts = acpi_get_plic_nr_contexts(*id);
-+		if (WARN_ON(!*nr_contexts)) {
-+			dev_err(dev, "no PLIC context available\n");
-+			return -EINVAL;
-+		}
-+
-+		return 0;
-+	}
- 
- 	rc = of_property_read_u32(to_of_node(dev->fwnode), "riscv,ndev", nr_irqs);
+ 	/* Setup IMSIC state */
+-	rc = imsic_setup_state(fwnode);
++	rc = imsic_setup_state(fwnode, NULL);
  	if (rc) {
-@@ -449,23 +475,29 @@ static int plic_parse_nr_irqs_and_contexts(struct platform_device *pdev,
- 		return -EINVAL;
- 	}
+ 		pr_err("%pfwP: failed to setup state (error %d)\n", fwnode, rc);
+ 		return rc;
+@@ -199,3 +202,62 @@ static int __init imsic_early_dt_init(struct device_node *node, struct device_no
+ }
  
-+	*gsi_base = 0;
-+	*id = 0;
+ IRQCHIP_DECLARE(riscv_imsic, "riscv,imsics", imsic_early_dt_init);
 +
++#ifdef CONFIG_ACPI
++
++static struct fwnode_handle *imsic_acpi_fwnode;
++
++struct fwnode_handle *imsic_acpi_get_fwnode(struct device *dev)
++{
++	return imsic_acpi_fwnode;
++}
++
++static int __init imsic_early_acpi_init(union acpi_subtable_headers *header,
++					const unsigned long end)
++{
++	struct acpi_madt_imsic *imsic = (struct acpi_madt_imsic *)header;
++	int rc;
++
++	imsic_acpi_fwnode = irq_domain_alloc_named_fwnode("imsic");
++	if (!imsic_acpi_fwnode) {
++		pr_err("unable to allocate IMSIC FW node\n");
++		return -ENOMEM;
++	}
++
++	/* Setup IMSIC state */
++	rc = imsic_setup_state(imsic_acpi_fwnode, imsic);
++	if (rc) {
++		pr_err("%pfwP: failed to setup state (error %d)\n", imsic_acpi_fwnode, rc);
++		return rc;
++	}
++
++	/* Do early setup of IMSIC state and IPIs */
++	rc = imsic_early_probe(imsic_acpi_fwnode);
++	if (rc) {
++		irq_domain_free_fwnode(imsic_acpi_fwnode);
++		imsic_acpi_fwnode = NULL;
++		return rc;
++	}
++
++	rc = imsic_platform_acpi_probe(imsic_acpi_fwnode);
++
++#ifdef CONFIG_PCI
++	if (!rc)
++		pci_msi_register_fwnode_provider(&imsic_acpi_get_fwnode);
++#endif
++
++	if (rc)
++		pr_err("%pfwP: failed to register IMSIC for MSI functionality (error %d)\n",
++		       imsic_acpi_fwnode, rc);
++
++	/*
++	 * Even if imsic_platform_acpi_probe() fails, the IPI part of IMSIC can
++	 * continue to work. So, no need to return failure. This is similar to
++	 * DT where IPI works but MSI probe fails for some reason.
++	 */
++	return 0;
++}
++
++IRQCHIP_ACPI_DECLARE(riscv_imsic, ACPI_MADT_TYPE_IMSIC, NULL,
++		     1, imsic_early_acpi_init);
++#endif
+diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
+index 11723a763c10..64905e6f52d7 100644
+--- a/drivers/irqchip/irq-riscv-imsic-platform.c
++++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #define pr_fmt(fmt) "riscv-imsic: " fmt
++#include <linux/acpi.h>
+ #include <linux/bitmap.h>
+ #include <linux/cpu.h>
+ #include <linux/interrupt.h>
+@@ -348,18 +349,37 @@ int imsic_irqdomain_init(void)
  	return 0;
  }
  
- static int plic_parse_context_parent(struct platform_device *pdev, u32 context,
--				     u32 *parent_hwirq, int *parent_cpu)
-+				     u32 *parent_hwirq, int *parent_cpu, u32 id)
+-static int imsic_platform_probe(struct platform_device *pdev)
++static int imsic_platform_probe_common(struct fwnode_handle *fwnode)
  {
- 	struct device *dev = &pdev->dev;
+-	struct device *dev = &pdev->dev;
+-
+-	if (imsic && imsic->fwnode != dev->fwnode) {
+-		dev_err(dev, "fwnode mismatch\n");
++	if (imsic && imsic->fwnode != fwnode) {
++		pr_err("%pfwP: fwnode mismatch\n", fwnode);
+ 		return -ENODEV;
+ 	}
+ 
+ 	return imsic_irqdomain_init();
+ }
+ 
++static int imsic_platform_dt_probe(struct platform_device *pdev)
++{
++	return imsic_platform_probe_common(pdev->dev.fwnode);
++}
++
++#ifdef CONFIG_ACPI
++
++/*
++ *  On ACPI based systems, PCI enumeration happens early during boot in
++ *  acpi_scan_init(). PCI enumeration expects MSI domain setup before
++ *  it calls pci_set_msi_domain(). Hence, unlike in DT where
++ *  imsic-platform drive probe happens late during boot, ACPI based
++ *  systems need to setup the MSI domain early.
++ */
++int imsic_platform_acpi_probe(struct fwnode_handle *fwnode)
++{
++	return imsic_platform_probe_common(fwnode);
++}
++
++#endif
++
+ static const struct of_device_id imsic_platform_match[] = {
+ 	{ .compatible = "riscv,imsics" },
+ 	{}
+@@ -370,6 +390,6 @@ static struct platform_driver imsic_platform_driver = {
+ 		.name		= "riscv-imsic",
+ 		.of_match_table	= imsic_platform_match,
+ 	},
+-	.probe = imsic_platform_probe,
++	.probe = imsic_platform_dt_probe,
+ };
+ builtin_platform_driver(imsic_platform_driver);
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+index f9e70832863a..73faa64bffda 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.c
++++ b/drivers/irqchip/irq-riscv-imsic-state.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #define pr_fmt(fmt) "riscv-imsic: " fmt
++#include <linux/acpi.h>
+ #include <linux/cpu.h>
+ #include <linux/bitmap.h>
+ #include <linux/interrupt.h>
+@@ -564,18 +565,36 @@ static int __init imsic_populate_global_dt(struct fwnode_handle *fwnode,
+ 	return 0;
+ }
+ 
++static int __init imsic_populate_global_acpi(struct fwnode_handle *fwnode,
++					     struct imsic_global_config *global,
++					     u32 *nr_parent_irqs, void *opaque)
++{
++	struct acpi_madt_imsic *imsic = (struct acpi_madt_imsic *)opaque;
++
++	global->guest_index_bits = imsic->guest_index_bits;
++	global->hart_index_bits = imsic->hart_index_bits;
++	global->group_index_bits = imsic->group_index_bits;
++	global->group_index_shift = imsic->group_index_shift;
++	global->nr_ids = imsic->num_ids;
++	global->nr_guest_ids = imsic->num_guest_ids;
++	return 0;
++}
++
+ static int __init imsic_get_parent_hartid(struct fwnode_handle *fwnode,
+ 					  u32 index, unsigned long *hartid)
+ {
  	struct of_phandle_args parent;
- 	unsigned long hartid;
  	int rc;
  
 -	/*
 -	 * Currently, only OF fwnode is supported so extend this
 -	 * function for ACPI support.
 -	 */
--	if (!is_of_node(dev->fwnode))
+-	if (!is_of_node(fwnode))
 -		return -EINVAL;
-+	if (!is_of_node(dev->fwnode)) {
-+		hartid = acpi_get_ext_intc_parent_hartid(id, context);
-+		if (hartid == INVALID_HARTID)
++	if (!is_of_node(fwnode)) {
++		if (hartid)
++			*hartid = acpi_get_intc_index_hartid(index);
++
++		if (!hartid || (*hartid == INVALID_HARTID))
 +			return -EINVAL;
 +
-+		*parent_cpu = riscv_hartid_to_cpuid(hartid);
-+		*parent_hwirq = RV_IRQ_EXT;
 +		return 0;
 +	}
  
- 	rc = of_irq_parse_one(to_of_node(dev->fwnode), context, &parent);
+ 	rc = of_irq_parse_one(to_of_node(fwnode), index, &parent);
  	if (rc)
-@@ -490,7 +522,9 @@ static int plic_probe(struct platform_device *pdev)
- 	struct irq_domain *domain;
- 	struct plic_priv *priv;
- 	irq_hw_number_t hwirq;
-+	int id, context_id;
- 	bool cpuhp_setup;
-+	u32 gsi_base;
+@@ -594,12 +613,8 @@ static int __init imsic_get_parent_hartid(struct fwnode_handle *fwnode,
+ static int __init imsic_get_mmio_resource(struct fwnode_handle *fwnode,
+ 					  u32 index, struct resource *res)
+ {
+-	/*
+-	 * Currently, only OF fwnode is supported so extend this
+-	 * function for ACPI support.
+-	 */
+ 	if (!is_of_node(fwnode))
+-		return -EINVAL;
++		return acpi_get_imsic_mmio_info(index, res);
  
- 	if (is_of_node(dev->fwnode)) {
- 		const struct of_device_id *id;
-@@ -500,7 +534,7 @@ static int plic_probe(struct platform_device *pdev)
- 			plic_quirks = (unsigned long)id->data;
+ 	return of_address_to_resource(to_of_node(fwnode), index, res);
+ }
+@@ -607,20 +622,14 @@ static int __init imsic_get_mmio_resource(struct fwnode_handle *fwnode,
+ static int __init imsic_parse_fwnode(struct fwnode_handle *fwnode,
+ 				     struct imsic_global_config *global,
+ 				     u32 *nr_parent_irqs,
+-				     u32 *nr_mmios)
++				     u32 *nr_mmios,
++				     void *opaque)
+ {
+ 	unsigned long hartid;
+ 	struct resource res;
+ 	int rc;
+ 	u32 i;
+ 
+-	/*
+-	 * Currently, only OF fwnode is supported so extend this
+-	 * function for ACPI support.
+-	 */
+-	if (!is_of_node(fwnode))
+-		return -EINVAL;
+-
+ 	*nr_parent_irqs = 0;
+ 	*nr_mmios = 0;
+ 
+@@ -632,7 +641,11 @@ static int __init imsic_parse_fwnode(struct fwnode_handle *fwnode,
+ 		return -EINVAL;
  	}
  
--	error = plic_parse_nr_irqs_and_contexts(pdev, &nr_irqs, &nr_contexts);
-+	error = plic_parse_nr_irqs_and_contexts(pdev, &nr_irqs, &nr_contexts, &gsi_base, &id);
- 	if (error)
- 		return error;
- 
-@@ -511,6 +545,8 @@ static int plic_probe(struct platform_device *pdev)
- 	priv->dev = dev;
- 	priv->plic_quirks = plic_quirks;
- 	priv->nr_irqs = nr_irqs;
-+	priv->gsi_base = gsi_base;
-+	priv->id = id;
- 
- 	priv->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (WARN_ON(!priv->regs))
-@@ -521,12 +557,22 @@ static int plic_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	for (i = 0; i < nr_contexts; i++) {
--		error = plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu);
-+		error = plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu, priv->id);
- 		if (error) {
- 			dev_warn(dev, "hwirq for context%d not found\n", i);
- 			continue;
- 		}
- 
-+		if (is_of_node(dev->fwnode)) {
-+			context_id = i;
-+		} else {
-+			context_id = acpi_get_plic_context(priv->id, i);
-+			if (context_id == INVALID_CONTEXT) {
-+				dev_warn(dev, "invalid context id for context%d\n", i);
-+				continue;
-+			}
-+		}
+-	rc = imsic_populate_global_dt(fwnode, global, nr_parent_irqs);
++	if (is_of_node(fwnode))
++		rc = imsic_populate_global_dt(fwnode, global, nr_parent_irqs);
++	else
++		rc = imsic_populate_global_acpi(fwnode, global, nr_parent_irqs, opaque);
 +
- 		/*
- 		 * Skip contexts other than external interrupts for our
- 		 * privilege level.
-@@ -572,10 +618,10 @@ static int plic_probe(struct platform_device *pdev)
- 		cpumask_set_cpu(cpu, &priv->lmask);
- 		handler->present = true;
- 		handler->hart_base = priv->regs + CONTEXT_BASE +
--			i * CONTEXT_SIZE;
-+			context_id * CONTEXT_SIZE;
- 		raw_spin_lock_init(&handler->enable_lock);
- 		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
--			i * CONTEXT_ENABLE_SIZE;
-+			context_id * CONTEXT_ENABLE_SIZE;
- 		handler->priv = priv;
+ 	if (rc)
+ 		return rc;
  
- 		handler->enable_save = devm_kcalloc(dev, DIV_ROUND_UP(nr_irqs, 32),
-@@ -591,8 +637,8 @@ static int plic_probe(struct platform_device *pdev)
- 		nr_handlers++;
+@@ -701,7 +714,7 @@ static int __init imsic_parse_fwnode(struct fwnode_handle *fwnode,
+ 	return 0;
+ }
+ 
+-int __init imsic_setup_state(struct fwnode_handle *fwnode)
++int __init imsic_setup_state(struct fwnode_handle *fwnode, void *opaque)
+ {
+ 	u32 i, j, index, nr_parent_irqs, nr_mmios, nr_handlers = 0;
+ 	struct imsic_global_config *global;
+@@ -742,7 +755,7 @@ int __init imsic_setup_state(struct fwnode_handle *fwnode)
  	}
  
--	priv->irqdomain = irq_domain_add_linear(to_of_node(dev->fwnode), nr_irqs + 1,
--						&plic_irqdomain_ops, priv);
-+	priv->irqdomain = irq_domain_create_linear(dev->fwnode, nr_irqs + 1,
-+						   &plic_irqdomain_ops, priv);
- 	if (WARN_ON(!priv->irqdomain))
- 		goto fail_cleanup_contexts;
+ 	/* Parse IMSIC fwnode */
+-	rc = imsic_parse_fwnode(fwnode, global, &nr_parent_irqs, &nr_mmios);
++	rc = imsic_parse_fwnode(fwnode, global, &nr_parent_irqs, &nr_mmios, opaque);
+ 	if (rc)
+ 		goto out_free_local;
  
-@@ -619,13 +665,18 @@ static int plic_probe(struct platform_device *pdev)
- 		}
- 	}
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
+index 5ae2f69b035b..391e44280827 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.h
++++ b/drivers/irqchip/irq-riscv-imsic-state.h
+@@ -102,7 +102,7 @@ void imsic_vector_debug_show_summary(struct seq_file *m, int ind);
+ 
+ void imsic_state_online(void);
+ void imsic_state_offline(void);
+-int imsic_setup_state(struct fwnode_handle *fwnode);
++int imsic_setup_state(struct fwnode_handle *fwnode, void *opaque);
+ int imsic_irqdomain_init(void);
+ 
+ #endif
+diff --git a/include/linux/irqchip/riscv-imsic.h b/include/linux/irqchip/riscv-imsic.h
+index faf0b800b1b0..7494952c5518 100644
+--- a/include/linux/irqchip/riscv-imsic.h
++++ b/include/linux/irqchip/riscv-imsic.h
+@@ -8,6 +8,8 @@
+ 
+ #include <linux/types.h>
+ #include <linux/bitops.h>
++#include <linux/device.h>
++#include <linux/fwnode.h>
+ #include <asm/csr.h>
+ 
+ #define IMSIC_MMIO_PAGE_SHIFT		12
+@@ -84,4 +86,11 @@ static inline const struct imsic_global_config *imsic_get_global_config(void)
+ 
+ #endif
  
 +#ifdef CONFIG_ACPI
-+	if (!acpi_disabled)
-+		acpi_dev_clear_dependencies(ACPI_COMPANION(dev));
++int imsic_platform_acpi_probe(struct fwnode_handle *fwnode);
++struct fwnode_handle *imsic_acpi_get_fwnode(struct device *dev);
++#else
++static inline struct fwnode_handle *imsic_acpi_get_fwnode(struct device *dev) { return NULL; }
 +#endif
 +
- 	dev_info(dev, "mapped %d interrupts with %d handlers for %d contexts.\n",
- 		 nr_irqs, nr_handlers, nr_contexts);
- 	return 0;
- 
- fail_cleanup_contexts:
- 	for (i = 0; i < nr_contexts; i++) {
--		if (plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu))
-+		if (plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu, priv->id))
- 			continue;
- 		if (parent_hwirq != RV_IRQ_EXT || cpu < 0)
- 			continue;
-@@ -644,6 +695,7 @@ static struct platform_driver plic_driver = {
- 	.driver = {
- 		.name		= "riscv-plic",
- 		.of_match_table	= plic_match,
-+		.acpi_match_table = ACPI_PTR(plic_acpi_match),
- 	},
- 	.probe = plic_probe,
- };
+ #endif
 -- 
 2.40.1
 
