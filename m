@@ -4,82 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8AC3C25B76
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2024 12:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8128FC25B75
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2024 12:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tlouDEI9jXa5f2W4YHofu+QK3sl0H6TXoRBJDxb8M7Q=; b=yg7hba673kvytI
-	HxnGg17+JTuMOKwjjh7Vvj/eiQuBBhr2grRtgjTAGKqvWWlxo0q1AboBFgWNg7+5iJv3U6jXo2haO
-	QZmOB53/FdCZTS6tamYKC7HETGrf71MaZMCR35+qLN0wJNl790W9k+9xJ3er1Oe68UY9fI0dq7Jqk
-	VqQBXcICn7vviPnFiDWLOxPueCvnurMeZbQzP1KfIBriiLgzIucmYMtVapJfM4303JCaIQOpcAUBo
-	lRaJALbpvUmGYbUJLM8Xb+i3Thq5JIPY3L0994vXPOFiUcnyUHD2qVl7kgdX2YEsH7GKIWc1tLiXn
-	7jE3V78fbtemfw779WRQ==;
+	List-Owner; bh=bCryvi8k1bSreZXTost2RUcVfOd4sCn6vBryYawIenY=; b=1zO+IB/0wuMCcj
+	mkMg97NgAclNxX5Wv4KoIVLciskh8Y6oAANbr1itv+NCIBB7iJKdL0OgS/iz09MplAxp6ZXv4fNvb
+	7LAt8z02eL6MA1nStDiLgm2n35UBgW01UGUGi97mftQc7yIZ6JjcaagtDJOJoPPgMezbJ3NXbm2CE
+	TurahhlZR8zU7JV75GIED4RGTQ/kFL07svqftgqn0l89qNjSfy/wgFKgXVzl78hgddgoO64IJ77MV
+	8pv2JdFuAfue/F1b+Y50OYA8I83cKL2UWPbZuKsFhC78ZptiemYUfTMtrZrBtP1CsoDDGJ1hgBWuD
+	hI9hRaM3ff0uxuIBLssQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sE6vi-0000000GiIX-31rZ;
-	Mon, 03 Jun 2024 12:36:50 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1sE6yB-0000000Giko-0xFR;
+	Mon, 03 Jun 2024 12:39:23 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sE6vf-0000000GiHJ-2g6l
-	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jun 2024 12:36:49 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-57a033c2e9fso5372989a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Jun 2024 05:36:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1717418204; x=1718023004; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FzkA2fr/rz/BmZYjPybok7znUmISuIim/Yn56iqZo2k=;
-        b=ab5/+UkEzSI40LmxyhPK2Kot9RfFEh5mdQTrglaNpTeY6pPJlvIL3ssnLA4te+4tfr
-         uzyqNp8XUnjqgPDy/KG+34Jtlobb+sDGXYRa23qcmwPmvvQ+NSb4nSJ/l0wIUVAp6Ah4
-         nUZLIuIMji+LDVRyxM6Fx1sF39CmXZb9g4y8JfDrTuRd8yXWRIf15Wkk6hPtZ2ShRuR2
-         +dH6d7Czn+kO7w6mmVu0x1anDBJSWkrkpuAiAJXPZcalBDL2v8/919mU7+VbW5lOLtJN
-         QrxRNBm6L9P9lHdHxRwcoqdb3TeWERrhONMA9nmSyREOBoa4Mq9YpF0NfDi2i0PRwWKS
-         u2Wg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717418204; x=1718023004;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FzkA2fr/rz/BmZYjPybok7znUmISuIim/Yn56iqZo2k=;
-        b=Y90TwMgImh/VCa6ANyZpda2g1MplrE8ZjCC+ta4nS3HOs2EKw8TkNKFhHUi+hoO5Xv
-         PGQ5ItKJyIf8cwBwUvbU4jZIL8fCXmqvBIFIV+Dx2BXtVAZqPlBaiYgXODjCkcKKPT2y
-         JZarwMeal/MGNEBEMDnvZDrGasoFR1zpS07uH9eopuDsCD6lnynmNpy3WtWqoQImQaEz
-         5AKnGtCiARzciCUXSTmWKzc2XjBWw1Xp4exw7P4KChfAJ49x4EGF4pbRKqIJGMoj+wqW
-         G9+bSz841JgJmweS5fZCilB5XTvIaqGM1lm0Mfh9NBmmsyxn/JlM1ptA3SqTHXO74mzP
-         Y/yw==
-X-Gm-Message-State: AOJu0YzITg8q0EcjX7/zr2iayoqoEsKyLHrvyww/mvOdUFmfLiFGljb1
-	1uW/PSdkTesWCHpXQxaPV2+f2BWQltWxw0kQ0mwAuMMyvhE5KgKQDZdvfRVRgoByLDom7ce3AhP
-	HaK8=
-X-Google-Smtp-Source: AGHT+IG4OgNpuMY0dLHLNzZ2D0uwJKaftXcMDRGcuAtARNo9vSYCff1KNvpkujqzuVFqZqrzx8Ap7A==
-X-Received: by 2002:a50:d541:0:b0:579:c37e:976 with SMTP id 4fb4d7f45d1cf-57a365c9e33mr7168527a12.36.1717418203498;
-        Mon, 03 Jun 2024 05:36:43 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-57a31bbbe18sm5197005a12.37.2024.06.03.05.36.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Jun 2024 05:36:42 -0700 (PDT)
-Date: Mon, 3 Jun 2024 14:36:42 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	conor.dooley@microchip.com, anup@brainfault.org, atishp@atishpatra.org, robh@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, christoph.muellner@vrull.eu, 
-	heiko@sntech.de, charlie@rivosinc.com, David.Laight@aculab.com, 
-	parri.andrea@gmail.com, luxu.kernel@bytedance.com
-Subject: Re: [PATCH v3 0/6] riscv: Apply Zawrs when available
-Message-ID: <20240603-f8650a2cc220b73cf52d77c7@orel>
-References: <20240426100820.14762-8-ajones@ventanamicro.com>
+	id 1sE6y6-0000000Gij3-381i;
+	Mon, 03 Jun 2024 12:39:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1717418358; x=1748954358;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=LEM9nLCZweC6fzBGd3LiqBJyI0EVR5DWYNV+RHxhfJc=;
+  b=nt0gjnLZwkhqMadgg6Z4IgjxnBNhJXyyN6FVylesspZuBSbUzMQMqQPw
+   thdk0EN89kqXG5bj2vPpB2Qc0anWdscs59ADq1P2BShBbrNe0e6/DF3GM
+   wlCK2vVxjR04gxJxhuAmZz4nPvxlWyr2/I7dM/IBWXdGvOBRyLjnD+OJz
+   JvlFTbA7hlsqocAuGlFbvaPbHIai2mSKURjeKUuISZ9eZ9BpbEOHonkTR
+   DcIQQQsxfyUGeqIxclzao4qP8KAkX25AakzR5BKa621VTV6rizqR6o7PH
+   2/jJOW2Iruh37xEigL1aI8E46sxn9027kEvbB0Fb9Ddy17yfoVTXEwxeW
+   Q==;
+X-CSE-ConnectionGUID: mGTV6IY0SjuqO4B8d/I3Zg==
+X-CSE-MsgGUID: cs2mH/dwScqctcaN/BguNA==
+X-IronPort-AV: E=Sophos;i="6.08,211,1712646000"; 
+   d="scan'208";a="194291692"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 03 Jun 2024 05:39:11 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 3 Jun 2024 05:38:36 -0700
+Received: from [10.159.227.221] (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Mon, 3 Jun 2024 05:38:23 -0700
+Message-ID: <7e618af0-51a7-4941-a386-0ac68c66d358@microchip.com>
+Date: Mon, 3 Jun 2024 14:38:22 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240426100820.14762-8-ajones@ventanamicro.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 9/9] mmc: Convert from tasklet to BH workqueue
+To: Allen Pais <apais@linux.microsoft.com>, <linux-kernel@vger.kernel.org>
+CC: <tj@kernel.org>, <keescook@chromium.org>, <vkoul@kernel.org>,
+	<marcan@marcan.st>, <sven@svenpeter.dev>, <florian.fainelli@broadcom.com>,
+	<rjui@broadcom.com>, <sbranden@broadcom.com>, <paul@crapouillou.net>,
+	<Eugeniy.Paltsev@synopsys.com>, <manivannan.sadhasivam@linaro.org>,
+	<vireshk@kernel.org>, <Frank.Li@nxp.com>, <leoyang.li@nxp.com>,
+	<zw@zh-kernel.org>, <wangzhou1@hisilicon.com>, <haijie1@huawei.com>,
+	<shawnguo@kernel.org>, <s.hauer@pengutronix.de>, <sean.wang@mediatek.com>,
+	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
+	<afaerber@suse.de>, <logang@deltatee.com>, <daniel@zonque.org>,
+	<haojian.zhuang@gmail.com>, <robert.jarzmik@free.fr>, <andersson@kernel.org>,
+	<konrad.dybcio@linaro.org>, <orsonzhai@gmail.com>,
+	<baolin.wang@linux.alibaba.com>, <zhang.lyra@gmail.com>,
+	<patrice.chotard@foss.st.com>, <linus.walleij@linaro.org>, <wens@csie.org>,
+	<jernej.skrabec@gmail.com>, <peter.ujfalusi@gmail.com>, <kys@microsoft.com>,
+	<haiyangz@microsoft.com>, <wei.liu@kernel.org>, <decui@microsoft.com>,
+	<jassisinghbrar@gmail.com>, <mchehab@kernel.org>,
+	<maintainers@bluecherrydvr.com>, <ulf.hansson@linaro.org>,
+	<manuel.lauss@gmail.com>, <mirq-linux@rere.qmqm.pl>,
+	<jh80.chung@samsung.com>, <oakad@yahoo.com>,
+	<hayashi.kunihiko@socionext.com>, <mhiramat@kernel.org>,
+	<brucechang@via.com.tw>, <HaraldWelte@viatech.com>, <pierre@ossman.eu>,
+	<duncan.sands@free.fr>, <stern@rowland.harvard.edu>, <oneukum@suse.com>,
+	<openipmi-developer@lists.sourceforge.net>, <dmaengine@vger.kernel.org>,
+	<asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-rpi-kernel@lists.infradead.org>, <linux-mips@vger.kernel.org>,
+	<imx@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-actions@lists.infradead.org>,
+	<linux-arm-msm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-tegra@vger.kernel.org>,
+	<linux-hyperv@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
+	<linux-media@vger.kernel.org>, <linux-mmc@vger.kernel.org>,
+	<linux-omap@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
+	<linux-s390@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-usb@vger.kernel.org>
+References: <20240327160314.9982-1-apais@linux.microsoft.com>
+ <20240327160314.9982-10-apais@linux.microsoft.com>
+Content-Language: en-US, fr
+From: Aubin Constans <aubin.constans@microchip.com>
+In-Reply-To: <20240327160314.9982-10-apais@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240603_053647_693238_E5F7F237 
-X-CRM114-Status: GOOD (  38.80  )
+X-CRM114-CacheID: sfid-20240603_053919_005731_4F43DA24 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,126 +113,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+On 27/03/2024 17:03, Allen Pais wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> The only generic interface to execute asynchronously in the BH context is
+> tasklet; however, it's marked deprecated and has some design flaws. To
+> replace tasklets, BH workqueue support was recently added. A BH workqueue
+> behaves similarly to regular workqueues except that the queued work items
+> are executed in the BH context.
+> 
+> This patch converts drivers/infiniband/* from tasklet to BH workqueue.
+> 
+> Based on the work done by Tejun Heo <tj@kernel.org>
+> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
+> 
+> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
+> ---
+>   drivers/mmc/host/atmel-mci.c                  | 35 ++++-----
+[...]
 
-I submit our concerns of wrs.nto to RVI ARC for consideration. They
-discussed it but don't believe there's a need for concern. The
-expectation is that there will always be enough interrupt activity
-and that those interrupts with activity will not likely be locally
-disabled.
+For atmel-mci, judging from a few simple tests, performance is preserved.
+E.g. writing to a SD Card on the SAMA5D3-Xplained board:
+time dd if=/dev/zero of=/opt/_del_me bs=4k count=64k
 
-Can we consider this series for 6.10?
+      Base 6.9.0 : 0.07user 5.05system 0:18.92elapsed 27%CPU
+   Patched 6.9.0+: 0.12user 4.92system 0:18.76elapsed 26%CPU
 
-Thanks,
-drew
+However, please resolve what checkpatch is complaining about:
+scripts/checkpatch.pl --strict 
+PATCH-9-9-mmc-Convert-from-tasklet-to-BH-workqueue.mbox
 
-On Fri, Apr 26, 2024 at 12:08:20PM GMT, Andrew Jones wrote:
-> Zawrs provides two instructions (wrs.nto and wrs.sto), where both are
-> meant to allow the hart to enter a low-power state while waiting on a
-> store to a memory location. The instructions also both wait an
-> implementation-defined "short" duration (unless the implementation
-> terminates the stall for another reason). The difference is that while
-> wrs.sto will terminate when the duration elapses, wrs.nto, depending on
-> configuration, will either just keep waiting or an ILL exception will be
-> raised. Linux will use wrs.nto, so if platforms have an implementation
-> which falls in the "just keep waiting" category (which is not expected),
-> then it should _not_ advertise Zawrs in the hardware description.
-> 
-> Like wfi (and with the same {m,h}status bits to configure it), when
-> wrs.nto is configured to raise exceptions it's expected that the higher
-> privilege level will see the instruction was a wait instruction, do
-> something, and then resume execution following the instruction. For
-> example, KVM does configure exceptions for wfi (hstatus.VTW=1) and
-> therefore also for wrs.nto. KVM does this for wfi since it's better to
-> allow other tasks to be scheduled while a VCPU waits for an interrupt.
-> For waits such as those where wrs.nto/sto would be used, which are
-> typically locks, it is also a good idea for KVM to be involved, as it
-> can attempt to schedule the lock holding VCPU.
-> 
-> This series starts with Christoph's addition of the riscv
-> smp_cond_load_relaxed function which applies wrs.sto when available.
-> That patch has been reworked to use wrs.nto and to use the same approach
-> as Arm for the wait loop, since we can't have arbitrary C code between
-> the load-reserved and the wrs. Then, hwprobe support is added (since the
-> instructions are also usable from usermode), and finally KVM is
-> taught about wrs.nto, allowing guests to see and use the Zawrs
-> extension.
-> 
-> We still don't have test results from hardware, and it's not possible to
-> prove that using Zawrs is a win when testing on QEMU, not even when
-> oversubscribing VCPUs to guests. However, it is possible to use KVM
-> selftests to force a scenario where we can prove Zawrs does its job and
-> does it well. [4] is a test which does this and, on my machine, without
-> Zawrs it takes 16 seconds to complete and with Zawrs it takes 0.25
-> seconds.
-> 
-> This series is also available here [1]. In order to use QEMU for testing
-> a build with [2] is needed. In order to enable guests to use Zawrs with
-> KVM using kvmtool, the branch at [3] may be used.
-> 
-> [1] https://github.com/jones-drew/linux/commits/riscv/zawrs-v3/
-> [2] https://lore.kernel.org/all/20240312152901.512001-2-ajones@ventanamicro.com/
-> [3] https://github.com/jones-drew/kvmtool/commits/riscv/zawrs/
-> [4] https://github.com/jones-drew/linux/commit/cb2beccebcece10881db842ed69bdd5715cfab5d
-> 
-> Thanks,
-> drew
-> 
-> v3:
->  - Moved comment about expected termination from the DT binding text
->    to a code comment.
-> 
-> v2:
->  - Added DT bindings patch with additional Linux specifications due
->    to wrs.nto potentially never terminating, as suggested by Palmer
->  - Added patch to share pause insn definition
->  - Rework main Zawrs support patch to use Arm approach (which is
->    also the approach that Andrea Parri suggested)
->  - Dropped the riscv implementation of smp_cond_load_acquire().
->    afaict, the generic implementation, which will use the riscv
->    implementation of smp_cond_load_relaxed() is sufficient for riscv.
->  - The rework was large enough (IMO) to drop Heiko's s-o-b and to
->    add myself as a co-developer
-> 
-> 
-> Andrew Jones (5):
->   riscv: Provide a definition for 'pause'
->   dt-bindings: riscv: Add Zawrs ISA extension description
->   riscv: hwprobe: export Zawrs ISA extension
->   KVM: riscv: Support guest wrs.nto
->   KVM: riscv: selftests: Add Zawrs extension to get-reg-list test
-> 
-> Christoph M??llner (1):
->   riscv: Add Zawrs support for spinlocks
-> 
->  Documentation/arch/riscv/hwprobe.rst          |  4 ++
->  .../devicetree/bindings/riscv/extensions.yaml |  7 +++
->  arch/riscv/Kconfig                            | 20 ++++---
->  arch/riscv/Makefile                           |  3 -
->  arch/riscv/include/asm/barrier.h              | 45 +++++++++-----
->  arch/riscv/include/asm/cmpxchg.h              | 58 +++++++++++++++++++
->  arch/riscv/include/asm/hwcap.h                |  1 +
->  arch/riscv/include/asm/insn-def.h             |  4 ++
->  arch/riscv/include/asm/kvm_host.h             |  1 +
->  arch/riscv/include/asm/vdso/processor.h       |  8 +--
->  arch/riscv/include/uapi/asm/hwprobe.h         |  1 +
->  arch/riscv/include/uapi/asm/kvm.h             |  1 +
->  arch/riscv/kernel/cpufeature.c                |  1 +
->  arch/riscv/kernel/sys_hwprobe.c               |  1 +
->  arch/riscv/kvm/vcpu.c                         |  1 +
->  arch/riscv/kvm/vcpu_insn.c                    | 15 +++++
->  arch/riscv/kvm/vcpu_onereg.c                  |  2 +
->  .../selftests/kvm/riscv/get-reg-list.c        |  4 ++
->  18 files changed, 146 insertions(+), 31 deletions(-)
-> 
-> -- 
-> 2.44.0
-> 
+   WARNING: please, no space before tabs
+   #72: FILE: drivers/mmc/host/atmel-mci.c:367:
+   +^Istruct work_struct ^Iwork;$
+
+Same as discussions on the USB patch[1] and others in this series, I am 
+also in favour of "workqueue" or similar in the comments, rather than 
+just "work".
+
+Apart from that:
+Tested-by: Aubin Constans <aubin.constans@microchip.com>
+Acked-by: Aubin Constans <aubin.constans@microchip.com>
+
+Thanks.
+
+[1]: 
+https://lore.kernel.org/linux-mmc/CAOMdWSLipPfm3OZTpjZz4uF4M+E_8QAoTeMcKBXawLnkTQx6Jg@mail.gmail.com/
 
 _______________________________________________
 linux-riscv mailing list
