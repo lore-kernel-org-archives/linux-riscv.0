@@ -4,104 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8128FC25B75
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2024 12:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B877C25B75
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2024 12:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bCryvi8k1bSreZXTost2RUcVfOd4sCn6vBryYawIenY=; b=1zO+IB/0wuMCcj
-	mkMg97NgAclNxX5Wv4KoIVLciskh8Y6oAANbr1itv+NCIBB7iJKdL0OgS/iz09MplAxp6ZXv4fNvb
-	7LAt8z02eL6MA1nStDiLgm2n35UBgW01UGUGi97mftQc7yIZ6JjcaagtDJOJoPPgMezbJ3NXbm2CE
-	TurahhlZR8zU7JV75GIED4RGTQ/kFL07svqftgqn0l89qNjSfy/wgFKgXVzl78hgddgoO64IJ77MV
-	8pv2JdFuAfue/F1b+Y50OYA8I83cKL2UWPbZuKsFhC78ZptiemYUfTMtrZrBtP1CsoDDGJ1hgBWuD
-	hI9hRaM3ff0uxuIBLssQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h65/7ePeptAsVUuY/Pv4j7L9IDXyUp3tCOTOHvQUm7Y=; b=AAB8GfN6NUXGRbwDvopeQLJwkW
+	GWxvtylvLW6iUEQNhN284dyCA3jAPMq7+OUXEZr2wvbczMgomnKaRysXmrFHWkc2h2P2d1OmNFHxY
+	tcbCV/HJ4ASb4NXpHc8M9bSv/CRFz8a+1I66I2hCXwvHApjpejpwANujQ+5BYcd8wjVoytM0uYoDs
+	RiqfCVRPyKwZ383/fM0QIR3vqjl5mlQpaFR6TjUpu0N0ULpsRAVmFZDd+BP3RyDB42d+N3cmcfgtO
+	1KxP7hm2ahWyP0XuXpAsCz25en1n4x2JmkNchDHy+wQAxLKsVh4Cfj472bTO+zQy2X5PRed678VKl
+	MnChE4pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sE6yB-0000000Giko-0xFR;
-	Mon, 03 Jun 2024 12:39:23 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1sE76M-0000000GkAZ-1qbq;
+	Mon, 03 Jun 2024 12:47:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sE6y6-0000000Gij3-381i;
-	Mon, 03 Jun 2024 12:39:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1717418358; x=1748954358;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=LEM9nLCZweC6fzBGd3LiqBJyI0EVR5DWYNV+RHxhfJc=;
-  b=nt0gjnLZwkhqMadgg6Z4IgjxnBNhJXyyN6FVylesspZuBSbUzMQMqQPw
-   thdk0EN89kqXG5bj2vPpB2Qc0anWdscs59ADq1P2BShBbrNe0e6/DF3GM
-   wlCK2vVxjR04gxJxhuAmZz4nPvxlWyr2/I7dM/IBWXdGvOBRyLjnD+OJz
-   JvlFTbA7hlsqocAuGlFbvaPbHIai2mSKURjeKUuISZ9eZ9BpbEOHonkTR
-   DcIQQQsxfyUGeqIxclzao4qP8KAkX25AakzR5BKa621VTV6rizqR6o7PH
-   2/jJOW2Iruh37xEigL1aI8E46sxn9027kEvbB0Fb9Ddy17yfoVTXEwxeW
-   Q==;
-X-CSE-ConnectionGUID: mGTV6IY0SjuqO4B8d/I3Zg==
-X-CSE-MsgGUID: cs2mH/dwScqctcaN/BguNA==
-X-IronPort-AV: E=Sophos;i="6.08,211,1712646000"; 
-   d="scan'208";a="194291692"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 03 Jun 2024 05:39:11 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 3 Jun 2024 05:38:36 -0700
-Received: from [10.159.227.221] (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Mon, 3 Jun 2024 05:38:23 -0700
-Message-ID: <7e618af0-51a7-4941-a386-0ac68c66d358@microchip.com>
-Date: Mon, 3 Jun 2024 14:38:22 +0200
+	id 1sE76J-0000000Gk8j-2ddt
+	for linux-riscv@lists.infradead.org;
+	Mon, 03 Jun 2024 12:47:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E942560DE7;
+	Mon,  3 Jun 2024 12:47:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18AA1C4AF07;
+	Mon,  3 Jun 2024 12:47:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717418864;
+	bh=xjvuuOdnqOIhK5ZBtlN6ndKEQrQUjVsyjGmdjk8KDM8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jx9j+DBzZp16t8GUoTabwdp9sySO5qFu4XyiaobyhE0bWZwGYAOot9E1RKFHAGYn1
+	 RFsK6myrrIx2X2exvfkwD06gQ3WHr6ZYP0rC6kRpLfp+Yw6+qyPFIJ3wNt2Do8lDRw
+	 XlKSVa+zhpiYpdo4ATR6iTBlhCqmlI3pK90eRLAdF6y3vgSkOu2HfFxLuH0vBaSdb0
+	 8Nb4ZCCxOVH8GQ/30htNKhSoPm2sqqExt91urxrj4zWKfMiSKE7BtkWjaZBi3V02Dl
+	 cvSBUIfXhsLmcP4umDOyuEW90vH3ruTPyFgiFAQYhyREH7WHaicWHcBssMiWSzb+HU
+	 BrCqREjhNes9g==
+Date: Mon, 3 Jun 2024 13:47:40 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>
+Subject: Re: [PATCH v0] RISC-V: Use Zkr to seed KASLR base address
+Message-ID: <20240603-stinking-roster-cfad46696ae5@spud>
+References: <20240531162327.2436962-1-jesse@rivosinc.com>
+ <20240531-uselessly-spied-262ecf44e694@spud>
+ <b199fde6-c24e-4c18-9c38-fdc923294551@ghiti.fr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 9/9] mmc: Convert from tasklet to BH workqueue
-To: Allen Pais <apais@linux.microsoft.com>, <linux-kernel@vger.kernel.org>
-CC: <tj@kernel.org>, <keescook@chromium.org>, <vkoul@kernel.org>,
-	<marcan@marcan.st>, <sven@svenpeter.dev>, <florian.fainelli@broadcom.com>,
-	<rjui@broadcom.com>, <sbranden@broadcom.com>, <paul@crapouillou.net>,
-	<Eugeniy.Paltsev@synopsys.com>, <manivannan.sadhasivam@linaro.org>,
-	<vireshk@kernel.org>, <Frank.Li@nxp.com>, <leoyang.li@nxp.com>,
-	<zw@zh-kernel.org>, <wangzhou1@hisilicon.com>, <haijie1@huawei.com>,
-	<shawnguo@kernel.org>, <s.hauer@pengutronix.de>, <sean.wang@mediatek.com>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
-	<afaerber@suse.de>, <logang@deltatee.com>, <daniel@zonque.org>,
-	<haojian.zhuang@gmail.com>, <robert.jarzmik@free.fr>, <andersson@kernel.org>,
-	<konrad.dybcio@linaro.org>, <orsonzhai@gmail.com>,
-	<baolin.wang@linux.alibaba.com>, <zhang.lyra@gmail.com>,
-	<patrice.chotard@foss.st.com>, <linus.walleij@linaro.org>, <wens@csie.org>,
-	<jernej.skrabec@gmail.com>, <peter.ujfalusi@gmail.com>, <kys@microsoft.com>,
-	<haiyangz@microsoft.com>, <wei.liu@kernel.org>, <decui@microsoft.com>,
-	<jassisinghbrar@gmail.com>, <mchehab@kernel.org>,
-	<maintainers@bluecherrydvr.com>, <ulf.hansson@linaro.org>,
-	<manuel.lauss@gmail.com>, <mirq-linux@rere.qmqm.pl>,
-	<jh80.chung@samsung.com>, <oakad@yahoo.com>,
-	<hayashi.kunihiko@socionext.com>, <mhiramat@kernel.org>,
-	<brucechang@via.com.tw>, <HaraldWelte@viatech.com>, <pierre@ossman.eu>,
-	<duncan.sands@free.fr>, <stern@rowland.harvard.edu>, <oneukum@suse.com>,
-	<openipmi-developer@lists.sourceforge.net>, <dmaengine@vger.kernel.org>,
-	<asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-rpi-kernel@lists.infradead.org>, <linux-mips@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-actions@lists.infradead.org>,
-	<linux-arm-msm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-tegra@vger.kernel.org>,
-	<linux-hyperv@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
-	<linux-media@vger.kernel.org>, <linux-mmc@vger.kernel.org>,
-	<linux-omap@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-	<linux-s390@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-usb@vger.kernel.org>
-References: <20240327160314.9982-1-apais@linux.microsoft.com>
- <20240327160314.9982-10-apais@linux.microsoft.com>
-Content-Language: en-US, fr
-From: Aubin Constans <aubin.constans@microchip.com>
-In-Reply-To: <20240327160314.9982-10-apais@linux.microsoft.com>
+In-Reply-To: <b199fde6-c24e-4c18-9c38-fdc923294551@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240603_053919_005731_4F43DA24 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240603_054747_832671_E136E578 
+X-CRM114-Status: GOOD (  29.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,59 +76,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============5438137588542720607=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27/03/2024 17:03, Allen Pais wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> The only generic interface to execute asynchronously in the BH context is
-> tasklet; however, it's marked deprecated and has some design flaws. To
-> replace tasklets, BH workqueue support was recently added. A BH workqueue
-> behaves similarly to regular workqueues except that the queued work items
-> are executed in the BH context.
-> 
-> This patch converts drivers/infiniband/* from tasklet to BH workqueue.
-> 
-> Based on the work done by Tejun Heo <tj@kernel.org>
-> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
-> 
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
-> ---
->   drivers/mmc/host/atmel-mci.c                  | 35 ++++-----
-[...]
 
-For atmel-mci, judging from a few simple tests, performance is preserved.
-E.g. writing to a SD Card on the SAMA5D3-Xplained board:
-time dd if=/dev/zero of=/opt/_del_me bs=4k count=64k
+--===============5438137588542720607==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="iJdrl4qDKkXrEMBS"
+Content-Disposition: inline
 
-      Base 6.9.0 : 0.07user 5.05system 0:18.92elapsed 27%CPU
-   Patched 6.9.0+: 0.12user 4.92system 0:18.76elapsed 26%CPU
 
-However, please resolve what checkpatch is complaining about:
-scripts/checkpatch.pl --strict 
-PATCH-9-9-mmc-Convert-from-tasklet-to-BH-workqueue.mbox
+--iJdrl4qDKkXrEMBS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-   WARNING: please, no space before tabs
-   #72: FILE: drivers/mmc/host/atmel-mci.c:367:
-   +^Istruct work_struct ^Iwork;$
+On Mon, Jun 03, 2024 at 11:14:49AM +0200, Alexandre Ghiti wrote:
+> Hi Conor,
+>=20
+> On 31/05/2024 19:31, Conor Dooley wrote:
+> > On Fri, May 31, 2024 at 12:23:27PM -0400, Jesse Taube wrote:
+> > > Dectect the Zkr extension and use it to seed the kernel base address.
+> > >=20
+> > > Detection of the extension can not be done in the typical fashion, as
+> > > this is very early in the boot process. Instead, add a trap handler
+> > > and run it to see if the extension is present.
+> > You can't rely on the lack of a trap meaning that Zkr is present unless
+> > you know that the platform implements Ssstrict. The CSR with that number
+> > could do anything if not Ssstrict compliant, so this approach gets a
+> > nak from me. Unfortunately, Ssstrict doesn't provide a way to detect
+> > it, so you're stuck with getting that information from firmware.
+>=20
+>=20
+> FYI, this patch is my idea, so I'm the one to blame here :)
+>=20
+>=20
+> >=20
+> > For DT systems, you can actually parse the DT in the pi, we do it to get
+> > the kaslr seed if present, so you can actually check for Zkr. With ACPI
+> > I have no idea how you can get that information, I amn't an ACPI-ist.
+>=20
+>=20
+> I took a look at how to access ACPI tables this early when implementing t=
+he
+> Zabha/Zacas patches, but it seems not possible.
+>=20
+> But I'll look into this more, this is not the first time we need the
+> extensions list very early and since we have no way to detect the presence
+> of an extension at runtime, something needs to be done.
 
-Same as discussions on the USB patch[1] and others in this series, I am 
-also in favour of "workqueue" or similar in the comments, rather than 
-just "work".
+Aye, having remembered that reading CSR_SEED could have side-effects on a
+system with non-conforming extensions, it'd be good to see if we can
+actually do this via detection on ACPI - especially for some other
+extensions that we may need to turn on very early (I forget which ones we
+talked about this before for). I didn't arm64 do anything with ACPI in the
+pi code, is the code arch/x86/boot/compressed run at an equivilent-ish point
+in boot?
 
-Apart from that:
-Tested-by: Aubin Constans <aubin.constans@microchip.com>
-Acked-by: Aubin Constans <aubin.constans@microchip.com>
+--iJdrl4qDKkXrEMBS
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks.
+-----BEGIN PGP SIGNATURE-----
 
-[1]: 
-https://lore.kernel.org/linux-mmc/CAOMdWSLipPfm3OZTpjZz4uF4M+E_8QAoTeMcKBXawLnkTQx6Jg@mail.gmail.com/
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZl27awAKCRB4tDGHoIJi
+0qGGAP0dROI2kQOiSz/LUNHcEMeZPOeCAtT2w2ieJ5CnnqdxFAEA0+On5DOHDyHW
+ScDD2IjkJxreOi0zn1lj8uq2WccodwI=
+=fWLb
+-----END PGP SIGNATURE-----
+
+--iJdrl4qDKkXrEMBS--
+
+
+--===============5438137588542720607==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5438137588542720607==--
+
