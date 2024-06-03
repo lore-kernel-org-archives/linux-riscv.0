@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49077C25B75
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2024 18:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57131C25B75
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2024 20:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=hI2VJ4tU+sIsrqnWooUZCVkCLlkuLYwT9yiwpNIO5kE=; b=Cx0bSjuKCCmJwA
-	FkgH6BVWlXtYK4bRp3ZUtv2BOE4J9Ol1a+Y+dUhVOKUHi3NgnEq2d8s1phVfyV49vDW3Pr6EzSu65
-	f7+F8FqED0N7J9DPEMeNyNU2ErS5RC2Wtjm7fpQixO4VdeOjx5P81sFCeZTEcuXG6BmZfhQ88REZp
-	jaMK4G6Ss0iO6WFzEXP0GH7xb+xxbSB3EqcbEIaiPdF2ZsRwR9Lh0Kmx95nf93rsyiazMFa+Mqefx
-	iIfdn7MGKs0Vbgvt9i34napfYS8Mvpstc8VeCY6EsFz7za3NbwRwU2ApTEch1fdnNnAtoAwoJ07Sd
-	NUKruIPMryJ5k0v/w7Dw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=UBofFes6GA8W/1E0VQg+dwBaQYq5F80RxYsow3j3sZo=; b=e5C5KWpHdj4cOSS5UaVJ/TTKuk
+	FGwddLkEI83ZKJEUuz+8lsgLdm/NZXbE7XgOasQpFNYU97XzSmyJ68lDmvCGjjRgfv0pcXvQFfxeR
+	Xb5H7ammjhULRmjxBoZkjuf3kG7lmQekfIBhIHl5H2rLVx2T/rTbmnlonEJBdJHkEw4fZggkgHC65
+	HR0r8Zby9XFiQGDMzlKj8Q8vdjJba5a4S4L/olfHEuJx+cmvaAa3uYGBDsjB3irZZGd8aJW7ZoJ8I
+	nlI2Ot3Z1+A/IjAm9OnDJ1IjnVSQivUwDvHNNBa/AO0EgbZoYBV3zRd4RtquCu1zDwIwwt4Nh41Vm
+	d3wsqr+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sECgL-000000003z4-0l7a;
-	Mon, 03 Jun 2024 18:45:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sEELK-00000000IUn-1yeo;
+	Mon, 03 Jun 2024 20:31:46 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sECgI-000000003xC-3tEX
+	id 1sEELG-00000000ITO-2f7U
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jun 2024 18:45:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6081660F37;
-	Mon,  3 Jun 2024 18:45:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8F3BC2BD10;
-	Mon,  3 Jun 2024 18:45:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717440318;
-	bh=CYD9CNW0hZo4GzQTwjKIvClwD4HPTw+g0MIeUFCe3Y0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=lgB7SAWG7DZyT4ECryCmxnq/4wdodJoEmymX6A+mU2SJNfhdoxiDi9wcUyi0CZbNf
-	 aJrI8sX0L+/RmOMZWOxd/oA4RqT7YdkI3PrOE8mMWb7pyVcLZUDJXqkstRXxyJyv1C
-	 SJn4721FDUz4OXwCW5iVAX/NgAAzCe8G9+tfCvQTvWdBQRiWmKxgrVRGfxffUyck/Q
-	 Fr98dkDZtI8JRN6OqIzXp3AqTbPHgvjAqV1K1xz87DmuZhyHLAbLlFkUDfZZPbuR1D
-	 VCOrRU22ozmOl3skUJcIsz6eg9+cPtpYf7AfCsPT5ChhGL6clybsShOp2aAVUZRRBF
-	 7dcZl2qxjB+6Q==
-Date: Mon, 3 Jun 2024 13:45:16 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Daire McNamara <daire.mcnamara@microchip.com>
-Cc: linux-pci@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/2] PCI: microchip: Fix outbound address translation
- tables
-Message-ID: <20240603184516.GA687362@bhelgaas>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240531085333.2501399-2-daire.mcnamara@microchip.com>
+	Mon, 03 Jun 2024 20:31:44 +0000
+Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id D641B412C2
+	for <linux-riscv@lists.infradead.org>; Mon,  3 Jun 2024 20:31:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1717446697;
+	bh=ahV+EJLz1b7kXv8nPMYOtMyUKc6v5M9VH6zQprdv2v0=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=PdG1+DoZ4EzBGxVWEKmjZoBQnA7cmuY3DnHzTYD4Q5nzDzurF8IQeF7V2lBylPeau
+	 O7gYxKzDEj1qOkYzKq0MBYr74LMXz9KUIZxgcQJfKDqrdtWbM90WVDK1L2TEV28d6N
+	 jTPpfFf+Nweoy9CSEExdSIdWwuzYxlKmRhtAbU4GseGqMkQh5ytyTZWm5LW0A2uwyy
+	 qKB2bf1njwVDopas+qKJtlTSqx85P0DC5th5vE1eDhNaySgeUSYm2QAEFRvz5lACKo
+	 F251YbqLJ15riwNLIU+Fyu8niaCiLF6Tt3QHazdNxMzYD6PuACP2nzGNhiwBXtMHK+
+	 o8ApRQTyVXUWQ==
+Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-5b9cc90b70aso4473007eaf.0
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Jun 2024 13:31:37 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717446696; x=1718051496;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ahV+EJLz1b7kXv8nPMYOtMyUKc6v5M9VH6zQprdv2v0=;
+        b=IYSFA1I5DDzXLel0EE5eTbP1f8OzhGqP0h3E3XmE0U9iqhjmgMssuy5LDUQVkZjl+a
+         csW3OqTIWKjkWvcOOJ1rfCdMt9WBQ5ZxYVK5pI5Aiz7az7Hhiiby3i8ggjDwvRceFN/+
+         5EoMCXqJx3aF9eM7uywqoIu1mNEFyFPt0N9oJVC0dM41HKrxcsmrL+FAgrfup/Kj+psG
+         ZX/hmHz6aYf+O+gNNHApgc0qh4UjL9Tdk4yb3QkGvIR2UsHn70S2cs6t8OF5Vfh4eiaA
+         Sgx/JDVwsAN4wb7/9mORr0Oz58FgO3lYyEIKCe2ogLeVWHIup6LMxcTFGhRzc2Y7/C7M
+         C1KQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVuKgNLvIdQNuESdaCO/Hyph7McGhY/Zmv9H8DSZ9rc8A6oK2ua4IM4E0OTuIwTyZRzV4QBNA/ZoTcE5jv01bhCJZrrbNnhl37TwRfCnaiD
+X-Gm-Message-State: AOJu0YwTjqdRQvBcKroTcqFmZjmHkLafrTV/MHpvd0TGlPGSMSjOn7bO
+	MNk50vkvsbLV5ZrmGJjeLwuk9zXiPIvLCnFOtOyCi1p8e3u2SUumdJOAx9+AJNkzdM5Thb35UeN
+	+ZnBLhTwb4h10xRKAnNBy5yBzGssQ/TLX/FPxZ047bGYlayZt+07v7Mzya2+KLrp2Twe47/4yFM
+	DVT5YfllIckTXJYisQ4Ebl0JJj+pYt0uHjDInVdW+ixeMUP2fijDXufbZZ
+X-Received: by 2002:a05:6358:e49b:b0:192:2717:4ed4 with SMTP id e5c5f4694b2df-19b48d606f7mr1494300755d.19.1717446696522;
+        Mon, 03 Jun 2024 13:31:36 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGNOqELb+TNrrcp0k/w7K34E/nZ0eKhmkZ1wR5a0BvRi2qcNm8V+dmkcOht1G0ZNEE2zOCO/z+ZLZWTjCb1Ndg=
+X-Received: by 2002:a05:6358:e49b:b0:192:2717:4ed4 with SMTP id
+ e5c5f4694b2df-19b48d606f7mr1494298355d.19.1717446696068; Mon, 03 Jun 2024
+ 13:31:36 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 3 Jun 2024 15:31:35 -0500
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <0eb3b03d-f817-4f6d-8a29-abf87c3632f6@canonical.com>
+References: <20240603150759.9643-1-matthias.bgg@kernel.org>
+ <CAJM55Z82+_RL1Z+DCW+_xgE7ZMmiWdPekCt6qtREPXg1jB+68g@mail.gmail.com> <0eb3b03d-f817-4f6d-8a29-abf87c3632f6@canonical.com>
+Mime-Version: 1.0
+Date: Mon, 3 Jun 2024 15:31:35 -0500
+Message-ID: <CAJM55Z8pntz8=aHhad4LW5cH4BLTCw5vfJPYRpYmTjtuuqiZtw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: dts: starfive: Update flash partition layout
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, duwe@suse.de, 
+	linux-kernel@vger.kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	linux-riscv@lists.infradead.org, Matthias Brugger <matthias.bgg@gmail.com>, 
+	matthias.bgg@kernel.org, kernel@esmil.dk, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240603_114519_098114_397E2290 
-X-CRM114-Status: GOOD (  25.80  )
+X-CRM114-CacheID: sfid-20240603_133143_018773_04EEFA07 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,74 +105,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 31, 2024 at 09:53:32AM +0100, Daire McNamara wrote:
-> On Microchip PolarFire SoC (MPFS) the PCIe Root Port can be behind one of
-> three general-purpose Fabric Interface Controller (FIC) buses that
-> encapsulate an AXI-M interface. That FIC is responsible for managing
-> the translations of the upper 32-bits of the AXI-M address. On MPFS,
-> the Root Port driver needs to take account of that outbound address
-> translation done by the parent FIC bus before setting up its own
-> outbound address translation tables.  In all cases on MPFS,
-> the remaining outbound address translation tables are 32-bit only.
-> 
-> Limit the outbound address translation tables to 32-bit only.
-> 
-> Fixes: 6f15a9c9f941 ("PCI: microchip: Add Microchip Polarfire PCIe controller driver")
-> 
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> ---
->  drivers/pci/controller/pcie-microchip-host.c | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-> index 137fb8570ba2..0795cd122a4a 100644
-> --- a/drivers/pci/controller/pcie-microchip-host.c
-> +++ b/drivers/pci/controller/pcie-microchip-host.c
-> @@ -983,7 +983,8 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
->  		if (resource_type(entry->res) == IORESOURCE_MEM) {
->  			pci_addr = entry->res->start - entry->offset;
->  			mc_pcie_setup_window(bridge_base_addr, index,
-> -					     entry->res->start, pci_addr,
-> +					     entry->res->start & 0xffffffff,
-> +					     pci_addr & 0xffffffff,
->  					     resource_size(entry->res));
+Heinrich Schuchardt wrote:
+> On 6/3/24 18:10, Emil Renner Berthing wrote:
+> > matthias.bgg@ wrote:
+> >> From: Matthias Brugger <matthias.bgg@gmail.com>
+> >>
+> >> Up to now, the describe flash partition layout has some gaps.
+> >> Use the whole flash chip by getting rid of the gaps.
+> >>
+> >> Suggested-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> >> Signed-off-by: Matthias Brugger <matthias.bgg@gmail.com>
+> >
+> > Hi Matthias,
+> >
+> > Thanks for the patch.
+> >
+> >>
+> >> ---
+> >>
+> >>   arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 7 ++-----
+> >>   1 file changed, 2 insertions(+), 5 deletions(-)
+> >>
+> >> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> >> index 8ff6ea64f0489..37b4c294ffcc5 100644
+> >> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> >> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> >> @@ -321,16 +321,13 @@ partitions {
+> >>   			#size-cells = <1>;
+> >>
+> >>   			spl@0 {
+> >> -				reg = <0x0 0x80000>;
+> >> +				reg = <0x0 0xf0000>;
+> >
+> > ..this is definitely fine, but..
+> >
+> >>   			};
+> >>   			uboot-env@f0000 {
+> >>   				reg = <0xf0000 0x10000>;
+> >>   			};
+> >>   			uboot@100000 {
+> >> -				reg = <0x100000 0x400000>;
+> >> -			};
+> >> -			reserved-data@600000 {
+> >> -				reg = <0x600000 0xa00000>;
+> >> +				reg = <0x100000 0xf00000>;
+> >
+> > Do we know that all of the VF2 1.2A, VF2 1.3B and Milk-V Mars boards have at
+> > least 15kB SPI flash chips? In other words were there a reason this previously
+> > ended at 10kB?
+> >
+> > Also it looks like my Mars board and VF2 1.3B both report discovering a
+> > "gd25lq128d" chip of 16kB, so why stop at 15kB?
+>
+> Hello Emil,
+>
+> 0xf00000 (15 MiB) is the value of the size-cell. gd25lq128d has 128 Mbit
+> (=16 MiB).
+>
+> Cf. the examples in
+> Documentation/devicetree/bindings/mtd/partitions/fixed-partitions.yaml
+>
+> The prior partition scheme had a partition 'reserved-data' also ending
+> at 16 MiB. We don't change the expected size with the current patch.
 
-Is this masking something that the PCI core needs to be aware of when
-it allocates address space for BARs?
+Oh, you're right. I totally misread that, sorry. You can add my
 
-The PCI core knows about the CPU physical address range of each bridge
-window and the corresponding PCI address range.  From this patch, it
-looks like only the low 32 bits of the CPU address are used by the
-Root Port.  That might not be a problem as long as the windows
-described by DT are correct and none of them overlap after masking out
-the upper 32 bits.  But for example, if DT has windows like this:
-
-  [mem 0x1'0000'0000-0x1'8000'0000]
-  [mem 0x2'0000'0000-0x2'8000'0000]
-
-the PCI core will assume they are valid and non-overlapping, when
-IIUC, they *do* overlap.
-
-But also only the low 32 bits of the PCI address are used, and it
-seems like the PCI core will need to know that so it doesn't program a
-64-bit BAR with a value above 4GB?
-
->  			index++;
->  		}
-> @@ -1117,8 +1118,8 @@ static int mc_platform_init(struct pci_config_window *cfg)
->  	int ret;
->  
->  	/* Configure address translation table 0 for PCIe config space */
-> -	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
-> -			     cfg->res.start,
-> +	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start & 0xffffffff,
-> +			     cfg->res.start & 0xffffffff,
->  			     resource_size(&cfg->res));
->  
->  	/* Need some fixups in config space */
-> -- 
-> 2.34.1
-> 
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
 _______________________________________________
 linux-riscv mailing list
