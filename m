@@ -4,93 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664A1C25B76
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2024 15:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27BF8C25B75
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2024 15:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wIxx8PzFYlo4IlR9muy/HPpyR+X/EgtOzDETAW2fYx0=; b=fO8Hf9WY5BZFvq
-	3aqjbEbODSdzr2h0Es/vvccMuXFD684B1IX0JbADHGb91EFEDU4h9KOI9pVarQ1X+JznLZTnSRzBc
-	p3yoBvhCVZoVI8ZHWKbhDuFhKtUQfe6Zx/qdnQc2lcAbAIKBFQ4Sy7D/SCE8Ee8rLuathZJoArJpQ
-	4Qhl9zt+btb3hR06wvs/q05M2AsSQvQL/0lWED08NAoT6H0jZDuMJFBDW8/1IlsdOggFLMKNdpT1B
-	iIWj1fjLlizmnXVoYacb0/s/U0vlJtGhjQQzSDCbeDWf3nrRZ5i4YycDo1TTaiv3aFrYIFnsNhz64
-	o7ok/SJpdhV+OxIKbIhQ==;
+	List-Owner; bh=FqIO5+bs3grDSh3jyNrY52qjYsnf4d04uL+o3AD33CI=; b=rhY6G36afNStHs
+	6Gchu2QOC5Agp7WhpyP63TjoqIQuZpwBCrXOfJ7HLXSD1VhpGuA8uPllRTjRZJ+ZOqixZAILTMetH
+	dBczW3Bz4cLJeqX8sZKmU4z+nRVIJ22j5LfA+XTyuB5amoW+cVXTbimOFDUqxkWBSh3sEwmieZ2dO
+	0M9pKT44hs6L+SQPlBHKcOkR3DlidhV84glJFhi95ux62LDo+Ju3zvGMCcDwRO11xX3o3yNV8Y/VN
+	/VgvuwqP2u2kf051E8Lppx79/dt7mjqs1gQMBHWw55nDWKb9IGHGooROC+w1UlOfo+TQvyKPTBMJT
+	fHnVzvyOwg6HOrfWdWuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sE9b0-0000000HEAX-279P;
-	Mon, 03 Jun 2024 15:27:38 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1sE9f4-0000000HEqy-1RoH;
+	Mon, 03 Jun 2024 15:31:50 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sE9au-0000000HE85-2uux
+	id 1sE9f1-0000000HEqE-1X1r
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jun 2024 15:27:36 +0000
-Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com [209.85.167.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 418B9412CF
-	for <linux-riscv@lists.infradead.org>; Mon,  3 Jun 2024 15:27:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1717428445;
-	bh=Fr+lwAk3qfyLZR/E+av3Bn4ZLoKvig7SyD53fLchvOA=;
-	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type;
-	b=jrcHkDadeOO4NAAucQUZqKM5VCZ5fi1KAVBtQfgowc0WaNodP+yvtnYWNNR2EmlPv
-	 fwEqibOWTZpRDuYRpTIggaawODJuRe1mPglGpC1QOAmjNqs8s1stBELIUQIFi/SgV5
-	 esY5z3Rja1/fGCn84PEirfVz6//7OGD/d1h70LlJ+y4gOAMtXY3MJsRPVCE2GmbanI
-	 arjsClpeWLfbCtPO2HXI3baM3hddKC1uYQPQj3ePyKyr7GItNzFRO8TJFzmIAldTmh
-	 eueHVbWTuTiUswSocMMqlLGpRJzCtJTXJ0wNHLqDB2tRyH/bnhvonWMDT5bSPQ08O0
-	 rtWAmUeLJ0ORA==
-Received: by mail-lf1-f71.google.com with SMTP id 2adb3069b0e04-52b88c558a5so2818518e87.3
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Jun 2024 08:27:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717428443; x=1718033243;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fr+lwAk3qfyLZR/E+av3Bn4ZLoKvig7SyD53fLchvOA=;
-        b=LQ3DQsqT+nQr6baG2bygQEkoL6ZVrT0J5ObFOo7/+9ExAvQzg4ACgZSoc4+aQclsye
-         kH8KKOwjJ89dxvvpqYyogTMSLfqGXcM5VyiATrpHYR4mh5FtCAOsYlVUsIEZaGQDJ/7a
-         c0yJRmB6LfQD+ewGbe7UvKNUVO3atY4UaTgzVvCgATSEnMlNCuam08/fm/pvS8gfcU7O
-         BKPwFsxg6pb7bsxOoVOPTeu3x+T3zTBvnbVr9t68JWdoqsHzqYiu4ymO3XueMuxjhXD0
-         L8bjLCuISbriKxyVViQyRUlJl/zFpLLFu0/tTHYvX1Lia8rKTH0L9LxZky1LEbs/N1OO
-         w5FA==
-X-Forwarded-Encrypted: i=1; AJvYcCWPbvv+ddl/hpble1HwqdDMyNf3qrrTXMD9P/+dPBpBiEsJIq5sDBtIhVeRESAiRRa5ZRjTG76IaTlujomZzHy+SE3PWiCr+G9DG2GjBcsF
-X-Gm-Message-State: AOJu0YwW2QbcQNvh52KuA6ONMuMoQ1ldoh/xvwE3PnbKxnYOFH7h9hM9
-	qJUoVxm8omFdtW3/3snoputtmRUxCOo9Z69dhKFrS+qbftifJU7Z2I//j+zUjjAfHAj/x2CuCm0
-	KwejqHJJuRPkZafMKX5S88er1W8hZAipjObJHz/vsLONTkoYQPh6cuR2CDOCjoGi+rO4qB5l8T2
-	mLbvDmZg==
-X-Received: by 2002:ac2:58d8:0:b0:525:32aa:443e with SMTP id 2adb3069b0e04-52b8954e931mr7769744e87.17.1717428442713;
-        Mon, 03 Jun 2024 08:27:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF4tA4IuchCsdrErWQrGd4V6yhmYuIPHnknJtEIeTtg0eU4jolMUpFBqZbhOrx6k/P93dx1fw==
-X-Received: by 2002:ac2:58d8:0:b0:525:32aa:443e with SMTP id 2adb3069b0e04-52b8954e931mr7769726e87.17.1717428442197;
-        Mon, 03 Jun 2024 08:27:22 -0700 (PDT)
-Received: from ?IPV6:2a00:20:d00b:f75d:a576:8b02:7e96:f388? ([2a00:20:d00b:f75d:a576:8b02:7e96:f388])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a68a53d38bdsm402013066b.172.2024.06.03.08.27.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Jun 2024 08:27:21 -0700 (PDT)
-Message-ID: <8e50216c-2a3a-4946-ad90-9d66c6aae20c@canonical.com>
-Date: Mon, 3 Jun 2024 17:27:19 +0200
+	Mon, 03 Jun 2024 15:31:48 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9EA2820008;
+	Mon,  3 Jun 2024 15:31:41 +0000 (UTC)
+Message-ID: <f00b1928-3d91-4900-a588-c12c4933c870@ghiti.fr>
+Date: Mon, 3 Jun 2024 17:31:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: dts: starfive: Update flash partition layout
-To: matthias.bgg@kernel.org
-Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, duwe@suse.de,
- linux-kernel@vger.kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org, Matthias Brugger <matthias.bgg@gmail.com>,
- kernel@esmil.dk, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- Hal Feng <hal.feng@starfivetech.com>,
- Minda Chen <minda.chen@starfivetech.com>
-References: <20240603150759.9643-1-matthias.bgg@kernel.org>
+Subject: Re: [PATCH 2/7] riscv: Implement cmpxchg8/16() using Zabha
 Content-Language: en-US
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <20240603150759.9643-1-matthias.bgg@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+ Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
+ Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, llvm@lists.linux.dev
+References: <20240528151052.313031-1-alexghiti@rivosinc.com>
+ <20240528151052.313031-3-alexghiti@rivosinc.com>
+ <20240528193110.GA2196855@thelio-3990X>
+ <CAHVXubjYVjOH8RKaF1h=iogO3xBM6k+xrGwkPnc-md2oRxbxrQ@mail.gmail.com>
+ <20240529155749.GA1339768@thelio-3990X>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240529155749.GA1339768@thelio-3990X>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240603_082733_156998_223A8C1B 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20240603_083147_674230_880DC23A 
+X-CRM114-Status: GOOD (  25.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,57 +74,80 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03.06.24 17:07, matthias.bgg@kernel.org wrote:
-> From: Matthias Brugger <matthias.bgg@gmail.com>
-> 
-> Up to now, the describe flash partition layout has some gaps.
-> Use the whole flash chip by getting rid of the gaps.
-> 
-> Suggested-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> Signed-off-by: Matthias Brugger <matthias.bgg@gmail.com>
+Hi Conor, Nathan,
 
-For flashing larger firmware like EDK II it is helpful to maximize the 
-partition sizes. Thanks for sending the patch.
+On 29/05/2024 17:57, Nathan Chancellor wrote:
+> On Wed, May 29, 2024 at 02:49:58PM +0200, Alexandre Ghiti wrote:
+>> Then I missed that, I should have checked the generated code. Is the
+>> extension version "1p0" in '-march=' only required for experimental
+>> extensions?
+> I think so, if my understanding of the message is correct.
+>
+>> But from Conor comment here [1], we should not enable extensions that
+>> are only experimental. In that case, we should be good with this.
+>>
+>> [1] https://lore.kernel.org/linux-riscv/20240528151052.313031-1-alexghiti@rivosinc.com/T/#mefb283477bce852f3713cbbb4ff002252281c9d5
+> Yeah, I tend to agree with Conor on that front. I had not noticed that
+> part of the message when I was looking at other parts of this thread. I
+> could see an argument for allowing experimental extensions for
+> qualification purposes but I think it does create a bit of a support
+> nightmare, especially when there are breaking changes across revisions.
+>
+>>> config EXPERIMENTAL_EXTENSIONS
+>>>      bool
+>>>
+>>> config TOOLCHAIN_HAS_ZABHA
+>>>      def_bool y
+>>>      select EXPERIMENTAL_EXETNSIONS if CC_IS_CLANG
+>>>      ...
+>>>
+>>> config TOOLCHAIN_HAS_ZACAS
+>>>      def_bool_y
+>>>      # ZACAS was experimental until Clang 19: https://github.com/llvm/llvm-project/commit/95aab69c109adf29e183090c25dc95c773215746
+>>>      select EXPERIMENTAL_EXETNSIONS if CC_IS_CLANG && CLANG_VERSION < 190000
+>>>      ...
+>>>
+>>> Then in the Makefile:
+>>>
+>>> ifdef CONFIG_EXPERIMENTAL_EXTENSIONS
+>>> KBUILD_AFLAGS += -menable-experimental-extensions
+>>> KBUILD_CFLAGS += -menable-experimental-extensions
+>>> endif
+> Perhaps with that in mind, maybe EXPERIMENTAL_EXTENSIONS (or whatever)
+> should be a user selectable option and the TOOLCHAIN values depend on it
+> when the user has a clang version that does not support the ratified
+> version.
+>
+>> That's a good idea to me, let's see what Conor thinks [2]
+>>
+>> [2] https://lore.kernel.org/linux-riscv/20240528151052.313031-1-alexghiti@rivosinc.com/T/#m1d798dfc4c27e5b6d9e14117d81b577ace123322
+> FWIW, I think your plan of removing support for the experimental version
+> of the extension and pushing to remove the experimental status in LLVM
+> (especially since it seems like it is ratified like zacas?
+> https://jira.riscv.org/browse/RVS-1685) is probably the best thing going
+> forward. If the LLVM folks are made aware soon, it should be easy to get
+> that change into clang-19, which is branching at the end of July I
+> believe.
 
-Commit 8384087a ("riscv: dts: starfive: Add QSPI controller node for 
-StarFive JH7110 SoC") 
-https://lore.kernel.org/linux-riscv/20230804020254.291239-4-william.qiu@starfivetech.com/ 
-introduced the current layout.
 
-CCing Starfive's U-Boot reviewers.
+FYI, it was just merged https://github.com/llvm/llvm-project/pull/93831
 
-Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Thanks again,
 
-> 
-> ---
-> 
->   arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 7 ++-----
->   1 file changed, 2 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> index 8ff6ea64f0489..37b4c294ffcc5 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> @@ -321,16 +321,13 @@ partitions {
->   			#size-cells = <1>;
->   
->   			spl@0 {
-> -				reg = <0x0 0x80000>;
-> +				reg = <0x0 0xf0000>;
->   			};
->   			uboot-env@f0000 {
->   				reg = <0xf0000 0x10000>;
->   			};
->   			uboot@100000 {
-> -				reg = <0x100000 0x400000>;
-> -			};
-> -			reserved-data@600000 {
-> -				reg = <0x600000 0xa00000>;
-> +				reg = <0x100000 0xf00000>;
->   			};
->   		};
->   	};
+Alex
 
+
+>
+>> Thanks for your thorough review!
+> Thanks for taking LLVM support into consideration :)
+>
+> Cheers,
+> Nathan
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
