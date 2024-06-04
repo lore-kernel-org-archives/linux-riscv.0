@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A51C25B78
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jun 2024 16:54:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A95C41513
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jun 2024 16:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSF8J3b8DODFRUz8kItD1pliYXcDeXGbr8o5zMYFnfI=; b=vl5Qu3lmprpbHpcc5iGk2gC4BV
-	d8cA56krEfYg1E97rYlxx9HtZ00/Q2jDdInFiOeHfWDLq085T1bN67wh821gVHaDWARUDrxy4yJ8E
-	bpjt24ZxgJ8Whl/KZYRkLgLLJCV7wSqLzxSle7mOzZouYOCfFKj8NBs1NebAhGmfrR5fHofHP2DZ+
-	IbnJiAmFL38KOpeyj9GP3RpPxtnnvF6nE3wkHA6k9xO9H9TKDiDbm0LPjhInkhtppM7L1DMW5X0zK
-	YCJK6QbWq93yL4Gmvg172S+qxa9dEJAwy5j1hHFeoiOxlPlVipZGQsacqhufUsnPCnNmJz0kfBJlc
-	RjRUTHCg==;
+	bh=VU1rBsTCUBVlqqu60gu2WRqvxsvYcXSMM8ytsZ3n7tg=; b=y22QBR3+Nx4hrIYFsKTUGYuDyQ
+	QisiOXk+J9oY1kU8+qnqb7c8k+R6Dmfq9I+poBLUIgGRTn9Ne1YeLexcXMnio4YMco+pl8gvOw/J3
+	DRAro8Tcvh1Kt9qU7Wm6XZJ4Kr5SIDgWntYwy60a/mHXJkgbisEozMtGwW4Nht2MnQ9qkmd+g2mE4
+	xIpATGDg+ybF2xBt/qcyXB3bJua9PqakHRtQfBq/fjXVEP4ZY1wGB6HQL9NPqJ8o+aam4L3HOslht
+	Q31oAaMUZdNXlQchHE4FcqWCgU1XoFBrBWbkMdpOIB15b27USgYURjw9Zv86Z9SvXsg6+Zz/M1vOd
+	4pOBw90w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEXQ8-00000003CtD-08WC;
-	Tue, 04 Jun 2024 16:54:00 +0000
+	id 1sEXQi-00000003D0B-29Fe;
+	Tue, 04 Jun 2024 16:54:36 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEXQ3-00000003Crt-3NRL
+	id 1sEXQf-00000003CzX-1eZH
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Jun 2024 16:53:57 +0000
+	Tue, 04 Jun 2024 16:54:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 3ACC7CE0FD1;
-	Tue,  4 Jun 2024 16:53:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D85BC2BBFC;
-	Tue,  4 Jun 2024 16:53:46 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 7BB9BCE0E62;
+	Tue,  4 Jun 2024 16:54:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2A47C2BBFC;
+	Tue,  4 Jun 2024 16:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717520029;
-	bh=3y3SJEQnabNC/ZTOS/h9D5v1FyvFsvGwCvIleX2IRlc=;
+	s=k20201202; t=1717520070;
+	bh=9QxiAFyRtObELcKE8Pdt8Q3G8VNOVmS0MGj3q8rQD1Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N0gZLT/SrbxinE5aaiPs1SfqHUfMda+zbnhDDYSVPrNZ4M0MZlKrV/z3k+CxJimpL
-	 0KfQFAd9R3KNNw6P/82BDLEju2yrNKiH/kjFZBDr8TzJKrOfnFo8IxzwF6qWDzGzAa
-	 gTZOnG3n6vezz58qmsQsBjHDpKOBA3HBfV5V+0E1C0HZ4dP8gtziI9YK+hqfSoTitm
-	 3Pe9NWYCHmflyJqtMODczgp6rb6Q+nKX5N+RnsbucFMgR9IjOsDm7vXXZM/zWG6A1N
-	 kBEKmxXQRuEQukrZ7KJTTs95LdPfj6MMpq/mZTaFFrhtffVjtlssquhEOp6g4+BOIK
-	 RDF+NZEh4yMUg==
-Date: Tue, 4 Jun 2024 17:53:44 +0100
+	b=Vfjd0UrE2T+Gw7EaDN2F9IKww+eROskhaELkjqCbX0lg+lVJ+MLsrQfelrViaAjRK
+	 vrTuTLxSPpypv72kmQAt8Cde37e0dM0by7sRAXP0j2/P0ICSo/VDotdM1ThDn23VKx
+	 nchFMcSkJp3H1Go+ZPvoQgK90QywEjPLEfPc5m0fmGSr4lmmVyUpdTi9T1esqkrB7z
+	 jFUz8p5LZUBgPwHI4sb84alubcVZSfqIdk1ar2MEhpeU0hXfVlNr6Mm8btlKkr6y7g
+	 8V5ZydI77l33AdOWULTvZm554rTgl5qkqVRCqnb5gvWo5bWP4Btsqp0X02t8eUcyp3
+	 H/GbHVznSCciA==
+Date: Tue, 4 Jun 2024 17:54:25 +0100
 From: Conor Dooley <conor@kernel.org>
-To: David Abdurachmanov <david.abdurachmanov@gmail.com>
-Cc: Xingyu Wu <xingyu.wu@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v5 0/2] Add notifier for PLL0 clock and set it 1.5GHz on
-Message-ID: <20240604-defame-common-b0e056562303@spud>
-References: <20240507065319.274976-1-xingyu.wu@starfivetech.com>
- <20240510-unfounded-syrup-d1263d57d05a@spud>
- <NTZPR01MB0956D48361098E8AA4B3930A9FE02@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
- <20240511-unbiased-dainty-ccb5ece9b1b9@spud>
- <NTZPR01MB0956A7393097129D3CD048EB9FE32@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
- <20240514-congenial-smother-1e4b0fc6a5df@spud>
- <NTZPR01MB0956CF1AA9EA5A20A174FD8A9FEC2@NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn>
- <20240515-reorder-even-8b9eebd91b45@spud>
- <CAEn-LTrKn079kbs2Wx5AuTs5+_sB4zaJsTf=MKn_nZZL04E5gA@mail.gmail.com>
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	devicetree@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: serial: snps-dw-apb-uart: Add one
+ more reset signal for StarFive JH7110 SoC
+Message-ID: <20240604-sagging-unbiased-17083b875576@spud>
+References: <20240604084729.57239-1-hal.feng@starfivetech.com>
+ <20240604084729.57239-2-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <CAEn-LTrKn079kbs2Wx5AuTs5+_sB4zaJsTf=MKn_nZZL04E5gA@mail.gmail.com>
+In-Reply-To: <20240604084729.57239-2-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240604_095356_228777_E908BE58 
-X-CRM114-Status: GOOD (  28.93  )
+X-CRM114-CacheID: sfid-20240604_095433_635734_72315581 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,82 +79,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6997048962119380056=="
+Content-Type: multipart/mixed; boundary="===============4161529539068383987=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6997048962119380056==
+--===============4161529539068383987==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="R3Sbf+JjNJ+j7/EU"
+	protocol="application/pgp-signature"; boundary="gEvQNIf624IsR0Q/"
 Content-Disposition: inline
 
 
---R3Sbf+JjNJ+j7/EU
-Content-Type: text/plain; charset=utf-8
+--gEvQNIf624IsR0Q/
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jun 04, 2024 at 12:45:48PM +0300, David Abdurachmanov wrote:
-> On Wed, May 15, 2024 at 7:31=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Wed, May 15, 2024 at 02:23:47AM +0000, Xingyu Wu wrote:
-> > > On 15/05/2024 02:08, Conor Dooley wrote:
-> >
-> > > > There's a push in U-Boot to move devicestrees to use "OF_UPSTREAM",=
- which
-> > > > means importing devicetrees directly from Linux and using them in U=
--Boot. I
-> > > > don't really want to merge a patch that would present U-Boot with a=
- problem if
-> > > > the VisionFive 2 moved to that model there.
-> >
-> > > Would it be better  if I  change the rates of PLL0 and CPU core in th=
-e driver not dts,
-> > > and avoid the dts of Linux and U-Boot being different?
-> >
-> > I'd definitely prefer if we don't include stuff in the kernel tree that
-> > would cause problems for U-Boot if imported there, yeah.
-> >
+On Tue, Jun 04, 2024 at 04:47:27PM +0800, Hal Feng wrote:
+> The UART of StarFive JH7110 has two reset signals.
+> Both of them are necessary for JH7110 to initialize UART.
 >=20
-> What is the current state of this patchset?
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 
-v6: https://lore.kernel.org/all/20240603020607.25122-1-xingyu.wu@starfivete=
-ch.com/
-
-Guess it didn't go to the riscv ml because the dts patch was dropped.
-
-> I noticed this patchset on the U-Boot side from Hal Feng:
-> [PATCH v1 0/4] Sync StarFive JH7110 clock and reset dt-bindings with Linux
->=20
-> It seems to indicate that there is WIP for OF_UPSTREAM support.
-
-And as a commenter on that patchset you reference said, they should
-actually use OF_UPSTREAM directly rather than manual syncs like that
-series. I'm not sure how the U-Boot folks want to address that w.r.t.
-bisection though, in cases like this where the defines do not have
-identical names.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 Thanks,
 Conor.
 
-
---R3Sbf+JjNJ+j7/EU
+--gEvQNIf624IsR0Q/
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZl9GmAAKCRB4tDGHoIJi
-0k+GAP96lINbMq1W/A4BwbQPVG0viC6vHyo3x/Ar2htPOhhfswD/SrQ1lr3v7H6N
-VcjSz+tSQvfbcga97HxKDA4tgz3kQg0=
-=58JS
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZl9GwQAKCRB4tDGHoIJi
+0pIEAQCPDEC7F3bwjXqRwHk8slfZh89WNAGHTG3bfBDIyQqRJAD/Rel/CIsjO73v
+ESIZqBFtkTn9zKJuSZN0Z3XX9Kv1qwc=
+=tyjt
 -----END PGP SIGNATURE-----
 
---R3Sbf+JjNJ+j7/EU--
+--gEvQNIf624IsR0Q/--
 
 
---===============6997048962119380056==
+--===============4161529539068383987==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -172,5 +131,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6997048962119380056==--
+--===============4161529539068383987==--
 
