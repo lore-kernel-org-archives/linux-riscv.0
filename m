@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68F8C25B76
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 16:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A10C25B76
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 16:55:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HgFqmEBtjG3m8a9KqQHOk0b33vzY7qnba0uOFvMvGc4=; b=nnZFsZ4q8MWXJSyjT52V+sY0qN
-	9eCGq1HDVpuBAdJS674I538nXF6pQnCCJNVrOj5fizzDrIbwszeEClwAPzTZz7/4AJjLR8qogOFcz
-	JXmzjJZSQInfcSRVjFqcRg/EBU3GwVNZVzhg9XgE9xP7G/SdW8M8I4WCPxYDtAqCH1hj63zMuYQQP
-	LR2VdPzP/umamSMFcJFL8fl4Hcr6CSgEQQtnbAq8mvjT9Cqiy05KX8F+sY4qTm7norNg9NUyX/Kb3
-	rz76tjF10BhqiLIOEaA+0W9+wIZBc1Wx4EEXLGTVoNpccDYmqtpEAcDVxYv+kS5nJPHuqk7nbF/iK
-	Q5cxSDrQ==;
+	bh=1eNrPDjWjPtKm84iqBp7eAB4C2/8uBDbBPOxvXiDJHo=; b=RwyvofkILW2zkmQvmwh98F7OqW
+	KZARd5KWfNID5NIl6Qs43sit9A7vtVNumt7jlDNVcpGWoCff71S7Z8MxDMzHuJ8wUQxLa2sbV9uEG
+	JO9AXDKoku2WvlClM4m3AvIcXQZJyIpULU4q3zWhF3y0Ao86lQTrZG7hfiMqcbdAGSTCEu1qo6WCx
+	ZMjhOmw+njfTko1odraMLTf6ueaA+BW70cGdtK0FtKJ+JkX+9XSCMi1Je2wyup+wpnl4RlVzLd0Mj
+	N7AKA/qbCeevT6XqMVHt+yryCT+TULp9ST2JWz1FV6M2vHn8vlUanDg4NnXGqbQ2qOKTSUBY2ylUi
+	zmuNXomA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEtbL-00000006roM-0hCi;
-	Wed, 05 Jun 2024 16:35:03 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sEtum-00000006u2g-099t;
+	Wed, 05 Jun 2024 16:55:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEtbI-00000006rnU-0Wih
-	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jun 2024 16:35:01 +0000
+	id 1sEtuj-00000006u1Q-0MgE;
+	Wed, 05 Jun 2024 16:55:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id ECB9ECE1874;
-	Wed,  5 Jun 2024 16:34:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EB2EC2BD11;
-	Wed,  5 Jun 2024 16:34:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2CA4E619BA;
+	Wed,  5 Jun 2024 16:55:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBDE3C3277B;
+	Wed,  5 Jun 2024 16:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717605297;
-	bh=xUjOgD1MyQ9M5v+aEoVa+5lBN47le78b6xl8mERqNMw=;
+	s=k20201202; t=1717606503;
+	bh=BSnD9wLTtKbSKikywrrQT5l9mkvhTFfOEYd7ndU0zhg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TQBIbr1KCC2UDPT1LxhnakDfxnaoCREnhIPWuz0dcxbM21NXf3c5aD2MLx1YzZ75a
-	 0504O+ZkHJ90rqRDmXZfBSKzybYjRdR4LuG/xKKeehpAvnzDx0i5ylN5qL2E/8MGmQ
-	 9LYLUZx1Is3g88LL47P80XZHqOva46h9iDq2af82/j39TkZxQ71WBJiFVZN+Y79vVw
-	 MJVxUAzzLTl7Ub5TvfwqP/zs8aY4wC95C64eu5LQEsWDHTQZi9xGpl7x/9Egvggr7B
-	 jABJvOFRQzf4uk7JXGc+YjUhza+k6b3hdy9Ru9WEtoLLyTKPRPpSPzhUM0xvq+9luL
-	 7uWNo+RBv7REw==
-Date: Wed, 5 Jun 2024 17:34:51 +0100
+	b=e5XCRj96A0ShjEuilfFCPUt4VolsLcZBGYj5R/qcp0O9NFkBlt7kYC/ztC/cGPfpD
+	 iGJFKR26NPrn5yfFhuWHMgyr9kg+rhDoxOX4Vdhx6kfTxWbqItMTK+6YiOnBXBglVC
+	 HWWR9KaQxWJJreCrwXjsAxFwE8TN+gC0TLb4INkB82SnBIhlAsDGifzXeaeB7M7E6h
+	 WYAbBMfA4GdYLqlVDemcs65Yny7KeRuSvlouZvDIZPP8CH5Q3FFNoDLqikyM4q9aFT
+	 3ywJLHXhmbWc63yE8SD5XmV+sSwDwAfj4mx+b5SM5Yi6lqKQnhd2Wfq6oW5/OTJUec
+	 Wf037EwFDJ3Ew==
+Date: Wed, 5 Jun 2024 17:54:58 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org,
+To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	apatel@ventanamicro.com, alex@ghiti.fr, ajones@ventanamicro.com,
+	greentime.hu@sifive.com, vincent.chen@sifive.com,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Erick Archer <erick.archer@gmx.com>, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v0] RISCV: Report vector unaligned accesses hwprobe
-Message-ID: <20240605-swipe-giant-2f9659fbf430@spud>
-References: <20240604162457.3757417-1-jesse@rivosinc.com>
- <CALs-Hsu5LakOVKvGRP0-sbq5ptH8FLPGhBAkupv3tRLKVAdnUA@mail.gmail.com>
- <20240605-bullfight-ivory-b0151ad2b987@spud>
+	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org
+Subject: Re: [PATCH v5 2/4] dt-bindings: riscv: Add Svade and Svadu Entries
+Message-ID: <20240605-atrium-neuron-c2512b34d3da@spud>
+References: <20240605121512.32083-1-yongxuan.wang@sifive.com>
+ <20240605121512.32083-3-yongxuan.wang@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <20240605-bullfight-ivory-b0151ad2b987@spud>
+In-Reply-To: <20240605121512.32083-3-yongxuan.wang@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240605_093500_371990_605831B3 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20240605_095505_278367_ED6AB2E4 
+X-CRM114-Status: GOOD (  22.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,55 +73,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7920942431983440760=="
+Content-Type: multipart/mixed; boundary="===============6103823890612368787=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7920942431983440760==
+--===============6103823890612368787==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="8xKL+FQLxTuCrMWr"
+	protocol="application/pgp-signature"; boundary="MuN5kP8SHGJqYdTt"
 Content-Disposition: inline
 
 
---8xKL+FQLxTuCrMWr
-Content-Type: text/plain; charset=utf-8
+--MuN5kP8SHGJqYdTt
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-> On Wed, Jun 05, 2024 at 08:54:21AM -0700, Evan Green wrote:
-> > On Tue, Jun 4, 2024 at 9:25=E2=80=AFAM Jesse Taube <jesse@rivosinc.com>=
- wrote:
-> > What value should be returned when V is not enabled in the kernel, or
-> > V is not supported in the hardware? Currently in the code it would be
-> > UNKNOWN, right? Is that what we want, or is it worth differentiating
-> > "no support for V" from "I don't know the speed of misaligned loads"?
-> > Maybe UNKNOWN is the right value, as there are other values to tell
-> > you V is not enabled.
+On Wed, Jun 05, 2024 at 08:15:08PM +0800, Yong-Xuan Wang wrote:
+> Add entries for the Svade and Svadu extensions to the riscv,isa-extensions
+> property.
 >=20
-> I think UNKNOWN is fine for !V, assuming identical definitions as scalar.
+> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+> ---
+>  .../devicetree/bindings/riscv/extensions.yaml | 30 +++++++++++++++++++
+>  1 file changed, 30 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index 468c646247aa..1e30988826b9 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -153,6 +153,36 @@ properties:
+>              ratified at commit 3f9ed34 ("Add ability to manually trigger
+>              workflow. (#2)") of riscv-time-compare.
+> =20
+> +        - const: svade
+> +          description: |
+> +            The standard Svade supervisor-level extension for raising pa=
+ge-fault
+> +            exceptions when PTE A/D bits need be set as ratified in the =
+20240213
+> +            version of the privileged ISA specification.
+> +
+> +            Both Svade and Svadu extensions control the hardware behavio=
+r when
+> +            the PTE A/D bits need to be set. The default behavior for th=
+e four
+> +            possible combinations of these extensions in the device tree=
+ are:
+> +            1. Neither svade nor svadu in DT: default to svade.
 
-I dunno, maybe we should set it to UNSUPPORTED in that case, but there's
-probably some funny behaviour around the v prctl we might need to be
-aware of. If the system has vector, we should probably figure out the
-actual speed is, but not report it while vector is disabled from the
-prctl?
+I think this needs to be expanded on, as to why nothing means svade.
 
---8xKL+FQLxTuCrMWr
+> +            2. Only svade in DT: use svade.
+
+That's a statement of the obvious, right?
+
+> +            3. Only svadu in DT: use svadu.
+
+This is not relevant for Svade.
+
+> +            4. Both svade and svadu in DT: default to svade (Linux can s=
+witch to
+> +               svadu once the SBI FWFT extension is available).
+
+"The privilege level to which this devicetree has been provided can switch =
+to
+Svadu if the SBI FWFT extension is available".
+
+> +        - const: svadu
+> +          description: |
+> +            The standard Svadu supervisor-level extension for hardware u=
+pdating
+> +            of PTE A/D bits as ratified at commit c1abccf ("Merge pull r=
+equest
+> +            #25 from ved-rivos/ratified") of riscv-svadu.
+> +
+> +            Both Svade and Svadu extensions control the hardware behavio=
+r when
+> +            the PTE A/D bits need to be set. The default behavior for th=
+e four
+> +            possible combinations of these extensions in the device tree=
+ are:
+
+@Anup/Drew/Alex, are we missing some wording in here about it only being
+valid to have Svadu in isolation if the provider of the devicetree has
+actually turned on Svadu? The binding says "the default behaviour", but
+it is not the "default" behaviour, the behaviour is a must AFAICT. If
+you set Svadu in isolation, you /must/ have turned it on. If you set
+Svadu and Svade, you must have Svadu turned off?
+
+> +            1. Neither svade nor svadu in DT: default to svade.
+> +            2. Only svade in DT: use svade.
+
+These two are not relevant to Svadu, I'd leave them out.
+
+> +            3. Only svadu in DT: use svadu.
+
+Again, statement of the obvious?
+
+> +            4. Both svade and svadu in DT: default to svade (Linux can s=
+witch to
+> +               svadu once the SBI FWFT extension is available).
+
+Same here as in the Svade entry.
+
+Thanks,
+Conor.
+
+
+--MuN5kP8SHGJqYdTt
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmCTqwAKCRB4tDGHoIJi
-0iTYAQDoRc7CTqJQPG3KQEVPKCP3+Otu7uuOldxgilGh0Fu6VAD/Twk8nc9C3hfp
-zLZbFEP0/FzGD0K2QtWUaQT0WccX7Qs=
-=dr74
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmCYYgAKCRB4tDGHoIJi
+0tLVAQDaJxypeK+klc9eSIXgb1/wgPLmEylTnc8/4ceKF/GFnwEAq4ysX3JMpe/B
+tD+9p+XFfXCPa2GD2rvlTIT6YJMYuwI=
+=Q4pd
 -----END PGP SIGNATURE-----
 
---8xKL+FQLxTuCrMWr--
+--MuN5kP8SHGJqYdTt--
 
 
---===============7920942431983440760==
+--===============6103823890612368787==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -140,5 +207,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7920942431983440760==--
+--===============6103823890612368787==--
 
