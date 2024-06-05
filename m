@@ -4,60 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B37C27C52
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 18:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5040EC25B76
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 18:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=de+Rigk3J9NlDxL+87LjlgAd1hrxEH94DSYhU2pI+Mo=; b=DT08tf6P37iMAI6I5pvr4wzkq1
-	UMl9thP8+GOjMrcwzzckrCE2nPHVnHrkCQCUQPQkK23u6D807BmEhWSsiklP+/jAKlASOJu7zKWHS
-	VfZ8SAl8e16X6uxVm4bnDfc9zaN0xNCHxqQMtpT3DlO5RNRbI9YTRvN4mY5JF2kq5aPulK8qQOatw
-	L7aZmdYj4UrdP4r1w3H/sO6K6tgDxhokBKa4++YOqCD9DOWOAODZHqIg8jKraM/a+fig+byS8vDVA
-	K/0a31/BENgmHhgpo1LTpNwXIDsP4FiI/DHcD0Re79fJYiSvWJH/DBkSdna5j6RtiYnJb9ofZxHOR
-	mkmEmpXw==;
+	bh=6MO1Rnl9uqYf5kthxCWTUsyShI02SUNbktIyVqxhXKs=; b=VIWiJqfVhSSxuSmukqDLq/EuiD
+	bj0i9I/GvkYXFcGONwUFmj2XeUBReUTetai3bTmnj4aT2kt7dKL0rm7mZq93tzbISElrsQTE+Bv/1
+	QXP2iNQk7+wKWNU95wrQix6zAvcEDNHnf9g31i6repdxAtE7aLYQOj2Dg7xT0oBDFblVq19e+MiCb
+	j9r1yoDb0OsaZd7LyLHUnopW1t5KV79SL8D2s5SPkSoaPBT2RzAa4XrHYPQgTCJPUT8LxlmP6qJGm
+	bXlSHE2DjmL2kfNp9nlvHEzSFVgdNYdeGag5RjqXjdaJhvbStAIes4dJhO25/SN+H80R3Z0mei0e2
+	0yLQvFaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEuzM-000000075Iy-2JdQ;
-	Wed, 05 Jun 2024 18:03:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sEv2D-000000076Gm-2b04;
+	Wed, 05 Jun 2024 18:06:53 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEuyx-0000000754B-2vpX
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 05 Jun 2024 18:03:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=sEPOXD3/LK+tpxdX8uG+NlDqUaGEpDPcLkomF2Kj95U=; b=IeW0WiHWHa+FPnrEPNE0pUpJf3
-	72CHLPGUNoZPIJs7xGBXUaiIWb1Rw54nwQ2+Wj4QsY/UV0BXegGDxmM4NayOb7pzpl+unhueZvKOE
-	BlgvyRhIY26XnGOf6NLf2O4xx7VpbsAEIBrxoDhsPnBNBbFk/UfD40mK3ws6wkdxnN9V98xJriNCz
-	SqBGgMx+YqBwStQHJNY9BRkzBpDgNK/rveP7Pamzu+dh7WjCOsZIL0dNJ5hm29dMBkC6aAEG0en/p
-	73SJTZnEYO+t1bBdTI1Xz5EZpg15nhJB/b7+iL+qYPoDz0WmNdSSni2/vdxl2NBdOfqaKTE91Cyer
-	GAHeeW1A==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEuyt-0000000FpNZ-2WoC
+	id 1sEv29-000000076Fk-1l8X
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jun 2024 18:03:30 +0000
+	Wed, 05 Jun 2024 18:06:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6AE9D61917;
-	Wed,  5 Jun 2024 18:03:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0FDBC2BD11;
-	Wed,  5 Jun 2024 18:03:18 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 5A59FCE18BE;
+	Wed,  5 Jun 2024 18:06:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B8F6C2BD11;
+	Wed,  5 Jun 2024 18:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717610603;
-	bh=WArTwWnRq32lxotUkfi4osAL299fnM7mL+wrQf5QP9c=;
+	s=k20201202; t=1717610806;
+	bh=5WLgWmi7391vEDkONzbYlVsXiq5rBsI0l3Wft0d2pmY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NOQbkYrEiQtzDxjUAFPT3wScBuptAXHhgvzyn4FVnelso76pV6wPvXIaKf/Wb9r8L
-	 vpSVHIC+4OQ0s6HV5sVRRZ+EoocROGsEHFXSBKNeXPBM9fi9uZgqvS0GBNwDqnolzO
-	 x7VIlwWkFfhIjvPpUtB5emOHWmqpd23KdglsGNryq2QIgkJ+r7a7T8eOjuuSEnXFwn
-	 sbQhQBosxBbo+XloFsM3lYyZ8PotUV+qWZbzATRGZzb4C9xF8IFQgCB11uxzw6x2Xp
-	 kFXQs2paYymTr6PkbTzShu3dlWysNw5t1gWR/fVmKK0GDxAqEnkSpPA3Tf7rbHFgNc
-	 ja/3a5tqp/iMQ==
-Date: Wed, 5 Jun 2024 19:03:16 +0100
+	b=RLjJiy2Ri4l+KMnvg98/r6lSB63VeIuqIbk66sBo6whE1DzQNBHsIsYsJWDgxFLGs
+	 JT7LntNOIe98YiQPQrXDmdIMI/BSdjYlu+csdYXmRLjRjjzFCIcPsAGEnm1rgEFFPI
+	 goVMzhoB3T6U2YlyZgkevetfl0IzC4SyYK1ma0//MGkpZkt25Ptk/9K8du9BZHH29E
+	 RPHRjlgT3WeZo2+VO+f2p0y/yl+3/ExMeImgsPXUXb8w1/5CE3sx7oKIOXJ0bQCAj0
+	 yAN4rRhLd2JWa19Rw87TTXl8wJcnn0wqWnrUTlMNM4xxNR/r5E1u4IFakHd2mEIOkK
+	 x0dwlIamvULsQ==
+Date: Wed, 5 Jun 2024 19:06:40 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Rajnesh Kanwal <rkanwal@rivosinc.com>
 Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
@@ -70,16 +55,16 @@ Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
 	jisheng.teoh@starfivetech.com, palmer@dabbelt.com,
 	tech-control-transfer-records@lists.riscv.org, will@kernel.org,
 	kaiwenxue1@gmail.com
-Subject: Re: [PATCH RFC 2/6] riscv: perf: Add Control transfer records CSR
- definations.
-Message-ID: <20240605-manila-exploit-d7191ec7a4bc@spud>
+Subject: Re: [PATCH RFC 3/6] riscv: perf: Add Control Transfer Records
+ extension parsing
+Message-ID: <20240605-thaw-giant-87eb299c43d0@spud>
 References: <20240529185337.182722-1-rkanwal@rivosinc.com>
- <20240529185337.182722-3-rkanwal@rivosinc.com>
+ <20240529185337.182722-4-rkanwal@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240529185337.182722-3-rkanwal@rivosinc.com>
+In-Reply-To: <20240529185337.182722-4-rkanwal@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240605_190328_060615_567C4466 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20240605_110650_011940_31961199 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,166 +76,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3636310894642557184=="
+Content-Type: multipart/mixed; boundary="===============0096508900542001513=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3636310894642557184==
+--===============0096508900542001513==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="gAmoqjSbm9aJCwFl"
+	protocol="application/pgp-signature"; boundary="RRX4c9uXLV2+FCJl"
 Content-Disposition: inline
 
 
---gAmoqjSbm9aJCwFl
+--RRX4c9uXLV2+FCJl
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, May 29, 2024 at 07:53:33PM +0100, Rajnesh Kanwal wrote:
-> Adding CSR defines for RISCV Control Transfer Records extension [0]
-> along with bit-field macros for each CSR.
->=20
-> [0]: https://github.com/riscv/riscv-control-transfer-records
+On Wed, May 29, 2024 at 07:53:34PM +0100, Rajnesh Kanwal wrote:
+> Adding CTR extension in ISA extension map to lookup for extension
+> availability.
 >=20
 > Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
-> ---
->  arch/riscv/include/asm/csr.h | 83 ++++++++++++++++++++++++++++++++++++
 
-This patch isn't for perf, so $subject is a bit misleading.
+Same comment here about $subject.
+
+You're also missing dt-bindings for the extension.
 
 Thanks,
 Conor.
 
->  1 file changed, 83 insertions(+)
+> ---
+>  arch/riscv/include/asm/hwcap.h | 4 ++++
+>  arch/riscv/kernel/cpufeature.c | 2 ++
+>  2 files changed, 6 insertions(+)
 >=20
-> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> index 701963b64fc4..a80a2ee9d44e 100644
-> --- a/arch/riscv/include/asm/csr.h
-> +++ b/arch/riscv/include/asm/csr.h
-> @@ -309,6 +309,85 @@
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
+p.h
+> index b8cc459ee8a4..aff5ef398671 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -86,6 +86,8 @@
+>  #define RISCV_ISA_EXT_SSCCFG            77
+>  #define RISCV_ISA_EXT_SMCDELEG          78
+>  #define RISCV_ISA_EXT_SMCNTRPMF         79
+> +#define RISCV_ISA_EXT_SMCTR             80
+> +#define RISCV_ISA_EXT_SSCTR             81
 > =20
->  #define CSR_SSCOUNTOVF		0xda0
+>  #define RISCV_ISA_EXT_XLINUXENVCFG	127
 > =20
-> +/* M-mode Control Transfer Records CSRs */
-> +#define CSR_MCTRCTL		0x34e
-> +
-> +/* S-mode Control Transfer Records CSRs */
-> +#define CSR_SCTRCTL		0x14e
-> +#define CSR_SCTRSTATUS		0x14f
-> +#define CSR_SCTRDEPTH		0x15f
-> +
-> +/* VS-mode Control Transfer Records CSRs */
-> +#define CSR_VSCTRCTL		0x24e
-> +
-> +/* xctrtl CSR bits. */
-> +#define CTRCTL_U_ENABLE		_AC(0x1, UL)
-> +#define CTRCTL_S_ENABLE		_AC(0x2, UL)
-> +#define CTRCTL_M_ENABLE		_AC(0x4, UL)
-> +#define CTRCTL_RASEMU		_AC(0x80, UL)
-> +#define CTRCTL_STE		_AC(0x100, UL)
-> +#define CTRCTL_MTE		_AC(0x200, UL)
-> +#define CTRCTL_BPFRZ		_AC(0x800, UL)
-> +#define CTRCTL_LCOFIFRZ		_AC(0x1000, UL)
-> +#define CTRCTL_EXCINH		_AC(0x200000000, UL)
-> +#define CTRCTL_INTRINH		_AC(0x400000000, UL)
-> +#define CTRCTL_TRETINH		_AC(0x800000000, UL)
-> +#define CTRCTL_NTBREN		_AC(0x1000000000, UL)
-> +#define CTRCTL_TKBRINH		_AC(0x2000000000, UL)
-> +#define CTRCTL_INDCALL_INH	_AC(0x10000000000, UL)
-> +#define CTRCTL_DIRCALL_INH	_AC(0x20000000000, UL)
-> +#define CTRCTL_INDJUMP_INH	_AC(0x40000000000, UL)
-> +#define CTRCTL_DIRJUMP_INH	_AC(0x80000000000, UL)
-> +#define CTRCTL_CORSWAP_INH	_AC(0x100000000000, UL)
-> +#define CTRCTL_RET_INH		_AC(0x200000000000, UL)
-> +#define CTRCTL_INDOJUMP_INH	_AC(0x400000000000, UL)
-> +#define CTRCTL_DIROJUMP_INH	_AC(0x800000000000, UL)
-> +
-> +/* sctrstatus CSR bits. */
-> +#define SCTRSTATUS_WRPTR_MASK	0xFF
-> +#define SCTRSTATUS_FROZEN	_AC(0x80000000, UL)
-> +
-> +#ifdef CONFIG_RISCV_M_MODE
-> +#define CTRCTL_KERNEL_ENABLE	CTRCTL_M_ENABLE
-> +#else
-> +#define CTRCTL_KERNEL_ENABLE	CTRCTL_S_ENABLE
-> +#endif
-> +
-> +/* sctrdepth CSR bits. */
-> +#define SCTRDEPTH_MASK		0x7
-> +
-> +#define SCTRDEPTH_MIN		0x0 /* 16 Entries. */
-> +#define SCTRDEPTH_MAX		0x4 /* 256 Entries. */
-> +
-> +/* ctrsource, ctrtarget and ctrdata CSR bits. */
-> +#define CTRSOURCE_VALID		0x1ULL
-> +#define CTRTARGET_MISP		0x1ULL
-> +
-> +#define CTRDATA_TYPE_MASK	0xF
-> +#define CTRDATA_CCV		0x8000
-> +#define CTRDATA_CCM_MASK	0xFFF0000
-> +#define CTRDATA_CCE_MASK	0xF0000000
-> +
-> +#define CTRDATA_TYPE_NONE			0
-> +#define CTRDATA_TYPE_EXCEPTION			1
-> +#define CTRDATA_TYPE_INTERRUPT			2
-> +#define CTRDATA_TYPE_TRAP_RET			3
-> +#define CTRDATA_TYPE_NONTAKEN_BRANCH		4
-> +#define CTRDATA_TYPE_TAKEN_BRANCH		5
-> +#define CTRDATA_TYPE_RESERVED_6			6
-> +#define CTRDATA_TYPE_RESERVED_7			7
-> +#define CTRDATA_TYPE_INDIRECT_CALL		8
-> +#define CTRDATA_TYPE_DIRECT_CALL		9
-> +#define CTRDATA_TYPE_INDIRECT_JUMP		10
-> +#define CTRDATA_TYPE_DIRECT_JUMP		11
-> +#define CTRDATA_TYPE_CO_ROUTINE_SWAP		12
-> +#define CTRDATA_TYPE_RETURN			13
-> +#define CTRDATA_TYPE_OTHER_INDIRECT_JUMP	14
-> +#define CTRDATA_TYPE_OTHER_DIRECT_JUMP		15
-> +
-> +#define CTR_ENTRIES_FIRST	0x200
-> +#define CTR_ENTRIES_LAST	0x2ff
-> +
->  #define CSR_SSTATUS		0x100
->  #define CSR_SIE			0x104
->  #define CSR_STVEC		0x105
-> @@ -490,6 +569,8 @@
->  # define CSR_TOPEI	CSR_MTOPEI
->  # define CSR_TOPI	CSR_MTOPI
+> @@ -95,9 +97,11 @@
+>  #ifdef CONFIG_RISCV_M_MODE
+>  #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
+>  #define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SMCSRIND
+> +#define RISCV_ISA_EXT_SxCTR		RISCV_ISA_EXT_SMCTR
+>  #else
+>  #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
+>  #define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SSCSRIND
+> +#define RISCV_ISA_EXT_SxCTR		RISCV_ISA_EXT_SSCTR
+>  #endif
 > =20
-> +# define CSR_CTRCTL     CSR_MCTRCTL
-> +
->  # define SR_IE		SR_MIE
->  # define SR_PIE		SR_MPIE
->  # define SR_PP		SR_MPP
-> @@ -520,6 +601,8 @@
->  # define CSR_TOPEI	CSR_STOPEI
->  # define CSR_TOPI	CSR_STOPI
-> =20
-> +# define CSR_CTRCTL     CSR_SCTRCTL
-> +
->  # define SR_IE		SR_SIE
->  # define SR_PIE		SR_SPIE
->  # define SR_PP		SR_SPP
+>  #endif /* _ASM_RISCV_HWCAP_H */
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index d1fb6a8c5492..4334d822b2f2 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -298,6 +298,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
+>  	__RISCV_ISA_EXT_DATA(zvkt, RISCV_ISA_EXT_ZVKT),
+>  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+>  	__RISCV_ISA_EXT_DATA(smcdeleg, RISCV_ISA_EXT_SMCDELEG),
+> +	__RISCV_ISA_EXT_DATA(smctr, RISCV_ISA_EXT_SMCTR),
+>  	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
+>  	__RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
+>  	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
+> @@ -305,6 +306,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
+>  	__RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
+>  	__RISCV_ISA_EXT_DATA(ssccfg, RISCV_ISA_EXT_SSCCFG),
+>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> +	__RISCV_ISA_EXT_DATA(ssctr, RISCV_ISA_EXT_SSCTR),
+>  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+>  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+>  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
 > --=20
 > 2.34.1
 >=20
 
---gAmoqjSbm9aJCwFl
+--RRX4c9uXLV2+FCJl
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmCoZAAKCRB4tDGHoIJi
-0iM2AP9Si9iGkGWZfIT4Wvz1ik8Yid4XdH6yDVXY9JRWgW2TLwEA36YWxUghLcHi
-yEnAbSIY+i6bhhpL9m6M50Uq5UF/mAs=
-=DmjO
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmCpMAAKCRB4tDGHoIJi
+0kEpAQCsOUjZl8R2wNCVzJXQJV4UjjC09oI/oJy7iOQTgrCXpgD/bslLlxazlWXA
+89hLVyp5e76pm/wa8mAGOes1wwKLNgo=
+=memG
 -----END PGP SIGNATURE-----
 
---gAmoqjSbm9aJCwFl--
+--RRX4c9uXLV2+FCJl--
 
 
---===============3636310894642557184==
+--===============0096508900542001513==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -261,5 +186,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3636310894642557184==--
+--===============0096508900542001513==--
 
