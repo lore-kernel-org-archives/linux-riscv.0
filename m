@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC2DC25B76
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 17:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B37C27C52
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 18:04:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQ7o2DmhJeykIzOjZQkDELRize7UsEZk1b62A+AZKtQ=; b=aJJMx799TF4Kkndd54t7uY/2e7
-	fXUYbmtvnZqrWBegNxzE5//TYhJQ+dDbDw2S+YyxzLfm6bo9igGQ9ZKDx1PKG43mpCHvs5Wimb/vZ
-	DpRXWQ419s0xxROnPhDVrFEhccIaz+0QBFyp0d1Zr5NVSXFuK2JLXVsx6bPsdp+D66asf/7Dm2YtF
-	N3fMd/C7RsFqe3hv+0j7KNQ5XaGm75OFG2iQZq8DhEt9HfwsLO0mjUOofj+77S32eI1KGejzQiL7y
-	4WkeOrl0nzqVseR/F+uBrZOuP3Qk7cCBTSkpJGZ+RnwFgBxaRzsU6r8fC1KXkdGBZGlCAmonTeLAo
-	3ZVx3UGg==;
+	bh=de+Rigk3J9NlDxL+87LjlgAd1hrxEH94DSYhU2pI+Mo=; b=DT08tf6P37iMAI6I5pvr4wzkq1
+	UMl9thP8+GOjMrcwzzckrCE2nPHVnHrkCQCUQPQkK23u6D807BmEhWSsiklP+/jAKlASOJu7zKWHS
+	VfZ8SAl8e16X6uxVm4bnDfc9zaN0xNCHxqQMtpT3DlO5RNRbI9YTRvN4mY5JF2kq5aPulK8qQOatw
+	L7aZmdYj4UrdP4r1w3H/sO6K6tgDxhokBKa4++YOqCD9DOWOAODZHqIg8jKraM/a+fig+byS8vDVA
+	K/0a31/BENgmHhgpo1LTpNwXIDsP4FiI/DHcD0Re79fJYiSvWJH/DBkSdna5j6RtiYnJb9ofZxHOR
+	mkmEmpXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEuqC-000000071pJ-0EeJ;
-	Wed, 05 Jun 2024 17:54:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sEuzM-000000075Iy-2JdQ;
+	Wed, 05 Jun 2024 18:03:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEuq8-000000071oq-3aDy
+	id 1sEuyx-0000000754B-2vpX
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 05 Jun 2024 18:03:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=sEPOXD3/LK+tpxdX8uG+NlDqUaGEpDPcLkomF2Kj95U=; b=IeW0WiHWHa+FPnrEPNE0pUpJf3
+	72CHLPGUNoZPIJs7xGBXUaiIWb1Rw54nwQ2+Wj4QsY/UV0BXegGDxmM4NayOb7pzpl+unhueZvKOE
+	BlgvyRhIY26XnGOf6NLf2O4xx7VpbsAEIBrxoDhsPnBNBbFk/UfD40mK3ws6wkdxnN9V98xJriNCz
+	SqBGgMx+YqBwStQHJNY9BRkzBpDgNK/rveP7Pamzu+dh7WjCOsZIL0dNJ5hm29dMBkC6aAEG0en/p
+	73SJTZnEYO+t1bBdTI1Xz5EZpg15nhJB/b7+iL+qYPoDz0WmNdSSni2/vdxl2NBdOfqaKTE91Cyer
+	GAHeeW1A==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sEuyt-0000000FpNZ-2WoC
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jun 2024 17:54:26 +0000
+	Wed, 05 Jun 2024 18:03:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5F277619F9;
-	Wed,  5 Jun 2024 17:54:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83FD8C2BD11;
-	Wed,  5 Jun 2024 17:54:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6AE9D61917;
+	Wed,  5 Jun 2024 18:03:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0FDBC2BD11;
+	Wed,  5 Jun 2024 18:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717610063;
-	bh=A8lg5hz+MBOmGn5ya8/fL07rjZlvK77wfF8N5N6s7aA=;
+	s=k20201202; t=1717610603;
+	bh=WArTwWnRq32lxotUkfi4osAL299fnM7mL+wrQf5QP9c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kzecBLOcSILnskzdHSvhm2It8XC1bmx/lcsBrKDsKX86PvaXgBWRFa+xUD+26xIDJ
-	 SFLQxn9UDgsrp4y3e0Z5nFYhTT7ekyNHbCLr0SdhIW65m2vpMRx6F0d/NPshS8EMrx
-	 zqb/c+X8v94QIWOmN2HEBoNa6qS4LwJ975bk9cvo5njY6qQeBc5ZMhMgyeGXH7XZQg
-	 Ef1v0hQqrcvRZllDwbxnBId9n/YCOlQBVNMy8AILyg9CSA0KxGSID5u/smQ7CTXpBY
-	 clssyHfC1PN+jDBiD/uEHld7OX9xG2nBBuLqc4TYAEVS0JX179I6RUhDBubBIjDPM0
-	 935ce12yzNZIA==
-Date: Wed, 5 Jun 2024 18:54:17 +0100
+	b=NOQbkYrEiQtzDxjUAFPT3wScBuptAXHhgvzyn4FVnelso76pV6wPvXIaKf/Wb9r8L
+	 vpSVHIC+4OQ0s6HV5sVRRZ+EoocROGsEHFXSBKNeXPBM9fi9uZgqvS0GBNwDqnolzO
+	 x7VIlwWkFfhIjvPpUtB5emOHWmqpd23KdglsGNryq2QIgkJ+r7a7T8eOjuuSEnXFwn
+	 sbQhQBosxBbo+XloFsM3lYyZ8PotUV+qWZbzATRGZzb4C9xF8IFQgCB11uxzw6x2Xp
+	 kFXQs2paYymTr6PkbTzShu3dlWysNw5t1gWR/fVmKK0GDxAqEnkSpPA3Tf7rbHFgNc
+	 ja/3a5tqp/iMQ==
+Date: Wed, 5 Jun 2024 19:03:16 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Haylen Chu <heylenay@outlook.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: thermal: sophgo,cv180x-thermal: Add
- Sophgo CV180x thermal
-Message-ID: <20240605-tightwad-janitor-82cfceb1469d@spud>
-References: <SG2PR01MB4218013241B3EED779D3BAE8D7F82@SG2PR01MB4218.apcprd01.prod.exchangelabs.com>
- <SG2PR01MB42189977B4172405F5704CC4D7F82@SG2PR01MB4218.apcprd01.prod.exchangelabs.com>
- <IA1PR20MB49531F55C8D7DC5D0050CAF9BBF92@IA1PR20MB4953.namprd20.prod.outlook.com>
+To: Rajnesh Kanwal <rkanwal@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org, adrian.hunter@intel.com,
+	alexander.shishkin@linux.intel.com, ajones@ventanamicro.com,
+	anup@brainfault.org, acme@kernel.org, atishp@rivosinc.com,
+	beeman@rivosinc.com, brauner@kernel.org, heiko@sntech.de,
+	irogers@google.com, mingo@redhat.com, james.clark@arm.com,
+	renyu.zj@linux.alibaba.com, jolsa@kernel.org,
+	jisheng.teoh@starfivetech.com, palmer@dabbelt.com,
+	tech-control-transfer-records@lists.riscv.org, will@kernel.org,
+	kaiwenxue1@gmail.com
+Subject: Re: [PATCH RFC 2/6] riscv: perf: Add Control transfer records CSR
+ definations.
+Message-ID: <20240605-manila-exploit-d7191ec7a4bc@spud>
+References: <20240529185337.182722-1-rkanwal@rivosinc.com>
+ <20240529185337.182722-3-rkanwal@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB49531F55C8D7DC5D0050CAF9BBF92@IA1PR20MB4953.namprd20.prod.outlook.com>
+In-Reply-To: <20240529185337.182722-3-rkanwal@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240605_105425_045399_B652CE25 
-X-CRM114-Status: GOOD (  26.22  )
+X-CRM114-CacheID: sfid-20240605_190328_060615_567C4466 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,175 +91,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4132772192358777659=="
+Content-Type: multipart/mixed; boundary="===============3636310894642557184=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4132772192358777659==
+--===============3636310894642557184==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zOo6vMANsZN3Leyq"
+	protocol="application/pgp-signature"; boundary="gAmoqjSbm9aJCwFl"
 Content-Disposition: inline
 
 
---zOo6vMANsZN3Leyq
+--gAmoqjSbm9aJCwFl
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Jun 05, 2024 at 11:40:32AM +0800, Inochi Amaoto wrote:
-> On Tue, Jun 04, 2024 at 12:54:19PM GMT, Haylen Chu wrote:
-> > Add devicetree binding documentation for thermal sensors integrated in
-> > Sophgo CV180X SoCs.
-> >=20
-> > Signed-off-by: Haylen Chu <heylenay@outlook.com>
-> > ---
-> >  .../thermal/sophgo,cv180x-thermal.yaml        | 82 +++++++++++++++++++
-> >  1 file changed, 82 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/thermal/sophgo,cv=
-180x-thermal.yaml
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/thermal/sophgo,cv180x-th=
-ermal.yaml b/Documentation/devicetree/bindings/thermal/sophgo,cv180x-therma=
-l.yaml
-> > new file mode 100644
-> > index 000000000000..1c3a6f74ff1d
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/thermal/sophgo,cv180x-thermal.y=
-aml
-> > @@ -0,0 +1,82 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/thermal/sophgo,cv180x-thermal.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Sophgo CV180x on-SoC Thermal Sensor
-> > +
-> > +maintainers:
-> > +  - Haylen Chu <heylenay@outlook.com>
-> > +
-> > +description: Binding for Sophgo CV180x on-SoC thermal sensor
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - sophgo,cv1800-thermal
-> > +      - sophgo,cv180x-thermal
-> > +
+On Wed, May 29, 2024 at 07:53:33PM +0100, Rajnesh Kanwal wrote:
+> Adding CSR defines for RISCV Control Transfer Records extension [0]
+> along with bit-field macros for each CSR.
 >=20
-> Is this necessary? I don't find any change between the sensor of these.
+> [0]: https://github.com/riscv/riscv-control-transfer-records
+>=20
+> Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/csr.h | 83 ++++++++++++++++++++++++++++++++++++
 
-"cv180x" isn't even a real device. Either we have a compatible that
-matches an actual SoC and use it everywhere, or we add ones for each SoC
-and have a fallback to cv1800.
-
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    description: The thermal sensor clock
-> > +
-> > +  clock-names:
-> > +    const: clk_tempsen
-
-clock-names is not useful here as there's only one clock.
-"clk_tempsen" sounds more like the name for this clock at the provider
-than at the consumer anyway.
-
-> > +
-> > +  accumulation-period:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    description: Accumulation period for a sample
-> > +    oneOf:
-> > +      - const: 0
-> > +        description: 512 ticks
-> > +      - const: 1
-> > +        description: 1024 ticks
-> > +      - const: 2
-> > +        description: 2048 ticks
-> > +      - const: 3
-> > +        description: 4096 ticks
-> > +    default: 2
-> > +
-> > +  chop-period:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    description: ADC chop period
-
-What's a "chop" and why is either this or the accumulation-period a
-fixed property of the hardware? Shouldn't this choice really be up to
-the user?
-
-> > +    oneOf:
-> > +      - const: 0
-> > +        description: 128 ticks
-> > +      - const: 1
-> > +        description: 256 ticks
-> > +      - const: 2
-> > +        description: 512 ticks
-> > +      - const: 3
-> > +        description: 1024 ticks
-
-Can we just make the number of ticks the unit here, and above?
-Also, a "oneOf: - const" structure is just an enum.
-
-> > +    default: 3
-> > +
-> > +  sample-cycle-us:
-> > +    description: Period between samples
-> > +    default: 1000000
-
-No constraints?
+This patch isn't for perf, so $subject is a bit misleading.
 
 Thanks,
 Conor.
 
-> > +
-> > +  '#thermal-sensor-cells':
-> > +    const: 0
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - clock-names
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +        #include <dt-bindings/clock/sophgo,cv1800.h>
-> > +        thermal-sensor@30e0000 {
-> > +            compatible =3D "sophgo,cv180x-thermal";
-> > +            reg =3D <0x30e0000 0x100>;
-> > +            clocks =3D <&clk CLK_TEMPSEN>;
-> > +            clock-names =3D "clk_tempsen";
-> > +            #thermal-sensor-cells =3D <0>;
-> > +        };
-> > +...
+>  1 file changed, 83 insertions(+)
 >=20
-> Where is the interrupt number? The sensors does support the interrupt,
-> but I don't see you describe it in the binding.
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 701963b64fc4..a80a2ee9d44e 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -309,6 +309,85 @@
+> =20
+>  #define CSR_SSCOUNTOVF		0xda0
+> =20
+> +/* M-mode Control Transfer Records CSRs */
+> +#define CSR_MCTRCTL		0x34e
+> +
+> +/* S-mode Control Transfer Records CSRs */
+> +#define CSR_SCTRCTL		0x14e
+> +#define CSR_SCTRSTATUS		0x14f
+> +#define CSR_SCTRDEPTH		0x15f
+> +
+> +/* VS-mode Control Transfer Records CSRs */
+> +#define CSR_VSCTRCTL		0x24e
+> +
+> +/* xctrtl CSR bits. */
+> +#define CTRCTL_U_ENABLE		_AC(0x1, UL)
+> +#define CTRCTL_S_ENABLE		_AC(0x2, UL)
+> +#define CTRCTL_M_ENABLE		_AC(0x4, UL)
+> +#define CTRCTL_RASEMU		_AC(0x80, UL)
+> +#define CTRCTL_STE		_AC(0x100, UL)
+> +#define CTRCTL_MTE		_AC(0x200, UL)
+> +#define CTRCTL_BPFRZ		_AC(0x800, UL)
+> +#define CTRCTL_LCOFIFRZ		_AC(0x1000, UL)
+> +#define CTRCTL_EXCINH		_AC(0x200000000, UL)
+> +#define CTRCTL_INTRINH		_AC(0x400000000, UL)
+> +#define CTRCTL_TRETINH		_AC(0x800000000, UL)
+> +#define CTRCTL_NTBREN		_AC(0x1000000000, UL)
+> +#define CTRCTL_TKBRINH		_AC(0x2000000000, UL)
+> +#define CTRCTL_INDCALL_INH	_AC(0x10000000000, UL)
+> +#define CTRCTL_DIRCALL_INH	_AC(0x20000000000, UL)
+> +#define CTRCTL_INDJUMP_INH	_AC(0x40000000000, UL)
+> +#define CTRCTL_DIRJUMP_INH	_AC(0x80000000000, UL)
+> +#define CTRCTL_CORSWAP_INH	_AC(0x100000000000, UL)
+> +#define CTRCTL_RET_INH		_AC(0x200000000000, UL)
+> +#define CTRCTL_INDOJUMP_INH	_AC(0x400000000000, UL)
+> +#define CTRCTL_DIROJUMP_INH	_AC(0x800000000000, UL)
+> +
+> +/* sctrstatus CSR bits. */
+> +#define SCTRSTATUS_WRPTR_MASK	0xFF
+> +#define SCTRSTATUS_FROZEN	_AC(0x80000000, UL)
+> +
+> +#ifdef CONFIG_RISCV_M_MODE
+> +#define CTRCTL_KERNEL_ENABLE	CTRCTL_M_ENABLE
+> +#else
+> +#define CTRCTL_KERNEL_ENABLE	CTRCTL_S_ENABLE
+> +#endif
+> +
+> +/* sctrdepth CSR bits. */
+> +#define SCTRDEPTH_MASK		0x7
+> +
+> +#define SCTRDEPTH_MIN		0x0 /* 16 Entries. */
+> +#define SCTRDEPTH_MAX		0x4 /* 256 Entries. */
+> +
+> +/* ctrsource, ctrtarget and ctrdata CSR bits. */
+> +#define CTRSOURCE_VALID		0x1ULL
+> +#define CTRTARGET_MISP		0x1ULL
+> +
+> +#define CTRDATA_TYPE_MASK	0xF
+> +#define CTRDATA_CCV		0x8000
+> +#define CTRDATA_CCM_MASK	0xFFF0000
+> +#define CTRDATA_CCE_MASK	0xF0000000
+> +
+> +#define CTRDATA_TYPE_NONE			0
+> +#define CTRDATA_TYPE_EXCEPTION			1
+> +#define CTRDATA_TYPE_INTERRUPT			2
+> +#define CTRDATA_TYPE_TRAP_RET			3
+> +#define CTRDATA_TYPE_NONTAKEN_BRANCH		4
+> +#define CTRDATA_TYPE_TAKEN_BRANCH		5
+> +#define CTRDATA_TYPE_RESERVED_6			6
+> +#define CTRDATA_TYPE_RESERVED_7			7
+> +#define CTRDATA_TYPE_INDIRECT_CALL		8
+> +#define CTRDATA_TYPE_DIRECT_CALL		9
+> +#define CTRDATA_TYPE_INDIRECT_JUMP		10
+> +#define CTRDATA_TYPE_DIRECT_JUMP		11
+> +#define CTRDATA_TYPE_CO_ROUTINE_SWAP		12
+> +#define CTRDATA_TYPE_RETURN			13
+> +#define CTRDATA_TYPE_OTHER_INDIRECT_JUMP	14
+> +#define CTRDATA_TYPE_OTHER_DIRECT_JUMP		15
+> +
+> +#define CTR_ENTRIES_FIRST	0x200
+> +#define CTR_ENTRIES_LAST	0x2ff
+> +
+>  #define CSR_SSTATUS		0x100
+>  #define CSR_SIE			0x104
+>  #define CSR_STVEC		0x105
+> @@ -490,6 +569,8 @@
+>  # define CSR_TOPEI	CSR_MTOPEI
+>  # define CSR_TOPI	CSR_MTOPI
+> =20
+> +# define CSR_CTRCTL     CSR_MCTRCTL
+> +
+>  # define SR_IE		SR_MIE
+>  # define SR_PIE		SR_MPIE
+>  # define SR_PP		SR_MPP
+> @@ -520,6 +601,8 @@
+>  # define CSR_TOPEI	CSR_STOPEI
+>  # define CSR_TOPI	CSR_STOPI
+> =20
+> +# define CSR_CTRCTL     CSR_SCTRCTL
+> +
+>  # define SR_IE		SR_SIE
+>  # define SR_PIE		SR_SPIE
+>  # define SR_PP		SR_SPP
+> --=20
+> 2.34.1
 >=20
-> > --=20
-> > 2.45.2
-> >=20
 
---zOo6vMANsZN3Leyq
+--gAmoqjSbm9aJCwFl
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmCmSQAKCRB4tDGHoIJi
-0lO6AP9sW5xE2Dz5LvNJjPgXDWtF96Y9pG6mweRGMoUn50K5aQEAibhcLwbeJFd5
-S4Ye7d9hhxUVcwTpWFotGEFVBPZPlAk=
-=GiCK
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmCoZAAKCRB4tDGHoIJi
+0iM2AP9Si9iGkGWZfIT4Wvz1ik8Yid4XdH6yDVXY9JRWgW2TLwEA36YWxUghLcHi
+yEnAbSIY+i6bhhpL9m6M50Uq5UF/mAs=
+=DmjO
 -----END PGP SIGNATURE-----
 
---zOo6vMANsZN3Leyq--
+--gAmoqjSbm9aJCwFl--
 
 
---===============4132772192358777659==
+--===============3636310894642557184==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -260,5 +261,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4132772192358777659==--
+--===============3636310894642557184==--
 
