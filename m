@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FDEAC27C53
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 16:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00567C25B76
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 16:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9qQcGWLBSwbs86Ra1sLp+4WCIlLAGGMOjGVFRNnW9tI=; b=I4VsytDw6HAImn
-	Lp70HnKbiLRO6Aw15XcFtET/G/KttXf7OjBkJGybSnJOmwtxP9fd4t7i1wZV9rXA/ScrDw+jNuvpV
-	3miw7NaDTnA12IqQlEQcrP6Y87nlTUK3gJBXUvnIGLakHwuQEcqemvgutLRDU1P9TW4+hwBdk487b
-	E2+0tuHgjnqqzF5uIxxdGs/jyTBeBidCEx8vKHGtSMKDWiGX9LtJTANFOljM5FxpcInxdbll7AOEr
-	P+V/c3h1DBEjncFgATz/oM6EK7cKLyrNNBB1GAQnoLD+txgqK/nKwHHDMdzhOlD/W+RAXT4YBmNiW
-	8wBy1otwZobRym1bPMaQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C0AsoUdSgm+UwDYbAEukOcyTSen+ISsr0AL1h9UQHwg=; b=2CzNz7/NLHk7THyiSafNb7xrzV
+	W/CK/ClGL9s3pK/7yL4wP7FQgRzJ1cYGF9UeC8Mg9LUxsWzOv+k/NEMlxWtDhiWnEbZLnl8dMT48c
+	v486dtS73QDGqtLVyopkCUKbr+MlA8FWrbTfQYRLmKuVNKdpCHSI88GDkAMkOdmWvherJqWjqy4CG
+	TbCxoKLHeUnKuzTOTRGlYHc5pRVZpk8Ud0eUwncYzUz5n+Tgbf7qggwpPG9m0Mewl9iFtuFmiAn+L
+	Kg8+6FOGO3+dS4rfgLERaVOyvqElRyCRNtRCqGcJc/BUuMx78ONHShU6luUm1/U2+qsyd8pCBbOKE
+	mvZKF4lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEtMX-00000006pLI-3IBk;
-	Wed, 05 Jun 2024 16:19:45 +0000
-Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
+	id 1sEtQb-00000006qIb-0IpW;
+	Wed, 05 Jun 2024 16:23:57 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEtMU-00000006pJE-0jqo
+	id 1sEtQW-00000006qHw-3RKI
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jun 2024 16:19:43 +0000
-Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-3d1ffaf6091so1112619b6e.3
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Jun 2024 09:19:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717604380; x=1718209180; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Iko996D4Mb1kYI4Dm3IbnaDyW4jb6FzfDHMfW1qMDyk=;
-        b=Gw0GXU6yMp8n1e+Sa5TzQicI/vsjSnfXjaXjvoS68hqMGVqXgL4BBmXpF9QpFuu/sM
-         TsZkCUqRYOlGM7qNRQB/URDjYnhxvY06IrwEf/z3o9aOSPxucgUfkwQAnNkkqRrAdfyy
-         uD/TYjGqaF8FKtmka1NsqcnivdATjiEgvMWM+eczGHRYaqUJU8wlH4E1fzA3dIkBC9kh
-         i/ykOSAtAVuc3Mt0X+In2U3hOM7O9rIbNo3vLgBy5tteTqkJ+aVq0eP2HSfZe7f2zTIX
-         wakgI3cLXY1EezWqN6J9SAe3mCMHYGAc5xPBofoa2yVpesQmmhU/w/cns5XtIgRF0p+j
-         7Uxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717604380; x=1718209180;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Iko996D4Mb1kYI4Dm3IbnaDyW4jb6FzfDHMfW1qMDyk=;
-        b=o5FSTtd3/VIOa/ehfBc+WTlK5g6AawOzNYXXeoyi8og2+aTQb8oCRVqByNaFW+QJy7
-         FGeKxAA3Yku4vBiKMcOdZiwaGbHQuaQ6Ombzw6E5xjOf3sWcXfZz7clCsThdKCnbtMBT
-         ysnlOL7vA1eO2XTWEufKicDlFERl1ctG/xv0kD1PF3h/eELOTRWSmpc5tbmxgd287AW7
-         C3vIkf9Fp4eqA0IHBeXIiNNGPXrOdWVtGJByD4DbkF8Re3ZSgx0JKbXQIu9+GmFLeIss
-         ie/7pD6HR4Ahr62phuLswwN84k+WXBk/xVmiWKUD4//qTskBvy+F57ToBdjbpBZrZRo4
-         /FaQ==
-X-Gm-Message-State: AOJu0YzV/y732GVqfTV8w8dZD5732z37nRBYn3TDp76XnS23BzvSn70c
-	HleyY+The/Y1xaMYZ9DZJcWagPebsSJeVYW8l2kVP4csvaxS+m7uyBWBsQvR3LYT82sIhST33ux
-	PIUU=
-X-Google-Smtp-Source: AGHT+IHhOmjx2vg5PasWqom+cN1RxNf9wAxbhvj1uIPlHEejkmAhEFYjlAXvcrGfFIH1ZJU7zrjeEQ==
-X-Received: by 2002:a54:4015:0:b0:3c9:bdfb:d358 with SMTP id 5614622812f47-3d2043a7216mr2976183b6e.26.1717604379561;
-        Wed, 05 Jun 2024 09:19:39 -0700 (PDT)
-Received: from [10.4.10.38] (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-794f2f042e6sm456367985a.6.2024.06.05.09.19.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 05 Jun 2024 09:19:39 -0700 (PDT)
-Message-ID: <f1090399-c035-4155-bbb9-b5cd47501a59@rivosinc.com>
-Date: Wed, 5 Jun 2024 12:19:38 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v0] RISCV: Report vector unaligned accesses hwprobe
+	Wed, 05 Jun 2024 16:23:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 9BAC6CE1856;
+	Wed,  5 Jun 2024 16:23:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F55FC4AF0A;
+	Wed,  5 Jun 2024 16:23:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717604629;
+	bh=cswrUXpikOMwLXy4PmCqlsiI+n3k7j4vCHyy0Pgzbpk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G2d/hdaECrfAYIuDhjeaftW5MKS7D+ZVD33bMdjkAlVX8KK4rrnDcwa+ET7zN4bD8
+	 H0e/yuFt+Er4j8EkSWGnDPWLYsO+eMFxnfBNQMU4XVJrJpioNoXObhJULGqQ+ynBNm
+	 LscPpBlJ++euiYwYp/Yke1EPWbGovn+jtSATrxBp4UoZdmp1YKJCn9NwKCBZKhEBU4
+	 fqyYFxB3Q5Uyu6ZhPpDzx8YOkuN/aG18V+EkNcyWlyyuZ4UTRYhqJ5m4t3S32PruwC
+	 28iWqlO0YR2gvWZ6XeSib/sfZjRlQjrrDue6TJ4t/ZSGn/aGgP7ynwCJWYfC04BmuR
+	 SC0eEnDtery4A==
+Date: Wed, 5 Jun 2024 17:23:43 +0100
+From: Conor Dooley <conor@kernel.org>
 To: Evan Green <evan@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley
- <conor.dooley@microchip.com>, Charlie Jenkins <charlie@rivosinc.com>,
- Andrew Jones <ajones@ventanamicro.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?=
- <cleger@rivosinc.com>, Xiao Wang <xiao.w.wang@intel.com>,
- Andy Chiu <andy.chiu@sifive.com>, Costa Shulyupin <costa.shul@redhat.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Ben Dooks <ben.dooks@codethink.co.uk>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Alexandre Ghiti <alexghiti@rivosinc.com>, Erick Archer
- <erick.archer@gmx.com>, linux-kernel@vger.kernel.org
+Cc: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
+	Costa Shulyupin <costa.shul@redhat.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Ben Dooks <ben.dooks@codethink.co.uk>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Erick Archer <erick.archer@gmx.com>, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v0] RISCV: Report vector unaligned accesses hwprobe
+Message-ID: <20240605-bullfight-ivory-b0151ad2b987@spud>
 References: <20240604162457.3757417-1-jesse@rivosinc.com>
  <CALs-Hsu5LakOVKvGRP0-sbq5ptH8FLPGhBAkupv3tRLKVAdnUA@mail.gmail.com>
-Content-Language: en-US
-From: Jesse Taube <jesse@rivosinc.com>
+MIME-Version: 1.0
 In-Reply-To: <CALs-Hsu5LakOVKvGRP0-sbq5ptH8FLPGhBAkupv3tRLKVAdnUA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240605_091942_439968_399D19DE 
-X-CRM114-Status: GOOD (  47.12  )
+X-CRM114-CacheID: sfid-20240605_092353_279617_D87A4BC5 
+X-CRM114-Status: GOOD (  57.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,220 +80,382 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============4251564052663377403=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA2LzUvMjQgMTE6NTQsIEV2YW4gR3JlZW4gd3JvdGU6Cj4gT24gVHVlLCBKdW4gNCwgMjAy
-NCBhdCA5OjI14oCvQU0gSmVzc2UgVGF1YmUgPGplc3NlQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4+
-Cj4+IERldGVjdGVkIGlmIGEgc3lzdGVtIHRyYXBzIGludG8gdGhlIGtlcm5lbCBvbiBhbiB2ZWN0
-b3IgdW5hbGlnbmVkIGFjY2Vzcy4KPj4gQWRkIHRoZSByZXN1bHQgdG8gYSBuZXcga2V5IGluIGh3
-cHJvYmUuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEplc3NlIFRhdWJlIDxqZXNzZUByaXZvc2luYy5j
-b20+Cj4gCj4gRm9yIHRoZSBzY2FsYXIgd29ybGQsIHdlIHdhbnRlZCB0byBrbm93IHdoZXRoZXIg
-bWlzYWxpZ25lZCBhY2Nlc3Nlcwo+IHdlcmUgZmFzdGVyIG9yIHNsb3dlciB0aGFuIGVxdWl2YWxl
-bnQgYnl0ZSBhY2Nlc3Nlcywgc28gdXNlcm1vZGUgY291bGQKPiBrbm93IGZvciBzb21ldGhpbmcg
-bGlrZSBtZW1jcHkgd2hpY2ggb3B0aW9uIGhhZCBiZXR0ZXIgYmFuZHdpZHRoLiAKClllcyB0aGF0
-IHdpbGwgYmUgaW4gYW5vdGhlciBwYXRjaCBhbmQgd2lsbCBzZXQgaXQgdG8gZWl0aGVyIGZhc3Qg
-b3Igc2xvdy4KVGhpcyBwYXRjaCB3aWxsIGp1c3QgZGV0ZWN0IGlmIHdlIGNhbiBydW4gaXQuCgo+
-IElzCj4gdGhlIG1vdGl2YXRpb24gaGVyZSB0aGUgc2FtZSwgd2hlcmUgd2UncmUgZ29pbmcgdG8g
-dXNlIHZlY3Rvcgo+IHJlZ2lzdGVycyBmb3IgbWVtY3B5IGFuZCB3ZSB3YW50IHRvIGtub3cgd2hp
-Y2ggc2l6ZSBsb2FkIHRvIHVzZT8gT3IKPiB3aWxsIHVzZXJtb2RlIGJlIGNvbnN1bWluZyB0aGlz
-IGluZm8gZm9yIGEgZGlmZmVyZW50IHB1cnBvc2UgYXMgd2VsbD8KPiBJIGtub3cgdGhpcyBpcyBh
-IGJhc2ljIHF1ZXN0aW9uLCBidXQgaGF2aW5nIHRoZSBtb3RpdmF0aW9uIGhlbHBzIG1lCj4gZ2V0
-IHRoZSByaWdodCBsZW5zIGZvciByZXZpZXdpbmcgaXQuIFBlcmhhcHMgdGhhdCBzaG91bGQgYmUg
-YWRkZWQgdG8KPiB0aGUgY29tbWl0IG1lc3NhZ2UgYXMgd2VsbC4KPiAKPj4gLS0tCj4+ICAgYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9jcHVmZWF0dXJlLmggICAgICAgIHwgIDMgKysKPj4gICBhcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2h3cHJvYmUuaCAgICAgICAgICAgfCAgMiArLQo+PiAgIGFyY2gv
-cmlzY3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmggICAgICB8ICA2ICsrKwo+PiAgIGFyY2gv
-cmlzY3Yva2VybmVsL3N5c19od3Byb2JlLmMgICAgICAgICAgICB8IDM0ICsrKysrKysrKysrKwo+
-PiAgIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYyAgICAgICB8IDYwICsrKysr
-KysrKysrKysrKysrKysrKysKPj4gICBhcmNoL3Jpc2N2L2tlcm5lbC91bmFsaWduZWRfYWNjZXNz
-X3NwZWVkLmMgfCAgNCArKwo+PiAgIDYgZmlsZXMgY2hhbmdlZCwgMTA4IGluc2VydGlvbnMoKyks
-IDEgZGVsZXRpb24oLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-Y3B1ZmVhdHVyZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jcHVmZWF0dXJlLmgKPj4gaW5k
-ZXggMzQ3ODA1NDQ2MTUxLi41YWQ2OWNmMjViMjUgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vY3B1ZmVhdHVyZS5oCj4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-Y3B1ZmVhdHVyZS5oCj4+IEBAIC0zNSw5ICszNSwxMiBAQCB2b2lkIHJpc2N2X3VzZXJfaXNhX2Vu
-YWJsZSh2b2lkKTsKPj4KPj4gICAjaWYgZGVmaW5lZChDT05GSUdfUklTQ1ZfTUlTQUxJR05FRCkK
-Pj4gICBib29sIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfZW11bGF0ZWRfYWxsX2NwdXModm9pZCk7
-Cj4+ICtib29sIGNoZWNrX3ZlY3Rvcl91bmFsaWduZWRfYWNjZXNzX2FsbF9jcHVzKHZvaWQpOwo+
-PiArCj4+ICAgdm9pZCB1bmFsaWduZWRfZW11bGF0aW9uX2ZpbmlzaCh2b2lkKTsKPj4gICBib29s
-IHVuYWxpZ25lZF9jdGxfYXZhaWxhYmxlKHZvaWQpOwo+PiAgIERFQ0xBUkVfUEVSX0NQVShsb25n
-LCBtaXNhbGlnbmVkX2FjY2Vzc19zcGVlZCk7Cj4+ICtERUNMQVJFX1BFUl9DUFUobG9uZywgdmVj
-dG9yX21pc2FsaWduZWRfYWNjZXNzKTsKPj4gICAjZWxzZQo+PiAgIHN0YXRpYyBpbmxpbmUgYm9v
-bCB1bmFsaWduZWRfY3RsX2F2YWlsYWJsZSh2b2lkKQo+PiAgIHsKPj4gZGlmZiAtLWdpdCBhL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vaHdwcm9iZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9o
-d3Byb2JlLmgKPj4gaW5kZXggNjMwNTA3ZGZmNWVhLi4xNTBhOTg3N2IwYWYgMTAwNjQ0Cj4+IC0t
-LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdwcm9iZS5oCj4+ICsrKyBiL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vaHdwcm9iZS5oCj4+IEBAIC04LDcgKzgsNyBAQAo+Pgo+PiAgICNpbmNsdWRl
-IDx1YXBpL2FzbS9od3Byb2JlLmg+Cj4+Cj4+IC0jZGVmaW5lIFJJU0NWX0hXUFJPQkVfTUFYX0tF
-WSA2Cj4+ICsjZGVmaW5lIFJJU0NWX0hXUFJPQkVfTUFYX0tFWSA3Cj4+Cj4+ICAgc3RhdGljIGlu
-bGluZSBib29sIHJpc2N2X2h3cHJvYmVfa2V5X2lzX3ZhbGlkKF9fczY0IGtleSkKPj4gICB7Cj4+
-IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oIGIvYXJj
-aC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2h3cHJvYmUuaAo+PiBpbmRleCAwNjAyMTIzMzFhMDMu
-LjQ0NzRlOThkMTdiZCAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNt
-L2h3cHJvYmUuaAo+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5o
-Cj4+IEBAIC02OCw2ICs2OCwxMiBAQCBzdHJ1Y3QgcmlzY3ZfaHdwcm9iZSB7Cj4+ICAgI2RlZmlu
-ZSAgICAgICAgICAgICAgICBSSVNDVl9IV1BST0JFX01JU0FMSUdORURfVU5TVVBQT1JURUQgICAg
-KDQgPDwgMCkKPj4gICAjZGVmaW5lICAgICAgICAgICAgICAgIFJJU0NWX0hXUFJPQkVfTUlTQUxJ
-R05FRF9NQVNLICAgICAgICAgICAoNyA8PCAwKQo+PiAgICNkZWZpbmUgUklTQ1ZfSFdQUk9CRV9L
-RVlfWklDQk9aX0JMT0NLX1NJWkUgICAgNgo+PiArI2RlZmluZSBSSVNDVl9IV1BST0JFX1ZFQ19L
-RVlfTUlTQUxJR05FRF9QRVJGICA3Cj4+ICsjZGVmaW5lICAgICAgICAgICAgICAgIFJJU0NWX0hX
-UFJPQkVfVkVDX01JU0FMSUdORURfVU5LTk9XTiAgICAgICAgICAgIDAKPj4gKyNkZWZpbmUgICAg
-ICAgICAgICAgICAgUklTQ1ZfSFdQUk9CRV9WRUNfTUlTQUxJR05FRF9FTVVMQVRFRCAgICAgICAg
-ICAgMQo+PiArI2RlZmluZSAgICAgICAgICAgICAgICBSSVNDVl9IV1BST0JFX1ZFQ19NSVNBTElH
-TkVEX1NMT1cgICAgICAgICAgICAgICAyCj4+ICsjZGVmaW5lICAgICAgICAgICAgICAgIFJJU0NW
-X0hXUFJPQkVfVkVDX01JU0FMSUdORURfRkFTVCAgICAgICAgICAgICAgIDMKPj4gKyNkZWZpbmUg
-ICAgICAgICAgICAgICAgUklTQ1ZfSFdQUk9CRV9WRUNfTUlTQUxJR05FRF9VTlNVUFBPUlRFRCAg
-ICAgICAgNAo+IAo+IFRoaXMgbmVlZHMgdG8gYmUgYWRkZWQgdG8gdGhlIGRvY3VtZW50YXRpb24g
-YXMgd2VsbC4KPiAKPiBXaGF0IHZhbHVlIHNob3VsZCBiZSByZXR1cm5lZCB3aGVuIFYgaXMgbm90
-IGVuYWJsZWQgaW4gdGhlIGtlcm5lbCwgb3IKPiBWIGlzIG5vdCBzdXBwb3J0ZWQgaW4gdGhlIGhh
-cmR3YXJlPyBDdXJyZW50bHkgaW4gdGhlIGNvZGUgaXQgd291bGQgYmUKPiBVTktOT1dOLCByaWdo
-dD8KClllcy4gSXQgd291bGQgYmUgdHJpdmlhbCB0byBzZXQgaXQgdG8gdW5zdXBwb3J0ZWQgaWYg
-ViBpcyBub3QgZW5hYmxlZC4KCj4gSXMgdGhhdCB3aGF0IHdlIHdhbnQsIG9yIGlzIGl0IHdvcnRo
-IGRpZmZlcmVudGlhdGluZwo+ICJubyBzdXBwb3J0IGZvciBWIiBmcm9tICJJIGRvbid0IGtub3cg
-dGhlIHNwZWVkIG9mIG1pc2FsaWduZWQgbG9hZHMiPwo+IE1heWJlIFVOS05PV04gaXMgdGhlIHJp
-Z2h0IHZhbHVlLCBhcyB0aGVyZSBhcmUgb3RoZXIgdmFsdWVzIHRvIHRlbGwKPiB5b3UgViBpcyBu
-b3QgZW5hYmxlZC4KPiAKPiAKPj4gICAvKiBJbmNyZWFzZSBSSVNDVl9IV1BST0JFX01BWF9LRVkg
-d2hlbiBhZGRpbmcgaXRlbXMuICovCj4+Cj4+ICAgLyogRmxhZ3MgKi8KPj4gZGlmZiAtLWdpdCBh
-L2FyY2gvcmlzY3Yva2VybmVsL3N5c19od3Byb2JlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zeXNf
-aHdwcm9iZS5jCj4+IGluZGV4IGIyODZiNzNlNzYzZS4uY2U2NDFjYzZlNDdhIDEwMDY0NAo+PiAt
-LS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9iZS5jCj4+ICsrKyBiL2FyY2gvcmlzY3Yv
-a2VybmVsL3N5c19od3Byb2JlLmMKPj4gQEAgLTE4NCw2ICsxODQsMzYgQEAgc3RhdGljIHU2NCBo
-d3Byb2JlX21pc2FsaWduZWQoY29uc3Qgc3RydWN0IGNwdW1hc2sgKmNwdXMpCj4+ICAgfQo+PiAg
-ICNlbmRpZgo+Pgo+PiArI2lmIGRlZmluZWQoQ09ORklHX1JJU0NWX1BST0JFX1VOQUxJR05FRF9B
-Q0NFU1MpCj4+ICtzdGF0aWMgdTY0IGh3cHJvYmVfdmVjX21pc2FsaWduZWQoY29uc3Qgc3RydWN0
-IGNwdW1hc2sgKmNwdXMpCj4+ICt7Cj4+ICsgICAgICAgaW50IGNwdTsKPj4gKyAgICAgICB1NjQg
-cGVyZiA9IC0xVUxMOwo+PiArCj4+ICsgICAgICAgZm9yX2VhY2hfY3B1KGNwdSwgY3B1cykgewo+
-PiArICAgICAgICAgICAgICAgaW50IHRoaXNfcGVyZiA9IHBlcl9jcHUodmVjdG9yX21pc2FsaWdu
-ZWRfYWNjZXNzLCBjcHUpOwo+PiArCj4+ICsgICAgICAgICAgICAgICBpZiAocGVyZiA9PSAtMVVM
-TCkKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgcGVyZiA9IHRoaXNfcGVyZjsKPj4gKwo+PiAr
-ICAgICAgICAgICAgICAgaWYgKHBlcmYgIT0gdGhpc19wZXJmKSB7Cj4+ICsgICAgICAgICAgICAg
-ICAgICAgICAgIHBlcmYgPSBSSVNDVl9IV1BST0JFX1ZFQ19NSVNBTElHTkVEX1VOS05PV047Cj4+
-ICsgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+PiArICAgICAgICAgICAgICAgfQo+PiAr
-ICAgICAgIH0KPj4gKwo+PiArICAgICAgIGlmIChwZXJmID09IC0xVUxMKQo+PiArICAgICAgICAg
-ICAgICAgcmV0dXJuIFJJU0NWX0hXUFJPQkVfVkVDX01JU0FMSUdORURfVU5LTk9XTjsKPj4gKwo+
-PiArICAgICAgIHJldHVybiBwZXJmOwo+PiArfQo+PiArI2Vsc2UKPj4gK3N0YXRpYyB1NjQgaHdw
-cm9iZV92ZWNfbWlzYWxpZ25lZChjb25zdCBzdHJ1Y3QgY3B1bWFzayAqY3B1cykKPj4gK3sKPj4g
-KyAgICAgICByZXR1cm4gUklTQ1ZfSFdQUk9CRV9WRUNfTUlTQUxJR05FRF9VTktOT1dOOwo+PiAr
-fQo+PiArI2VuZGlmCj4+ICsKPj4gICBzdGF0aWMgdm9pZCBod3Byb2JlX29uZV9wYWlyKHN0cnVj
-dCByaXNjdl9od3Byb2JlICpwYWlyLAo+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBj
-b25zdCBzdHJ1Y3QgY3B1bWFzayAqY3B1cykKPj4gICB7Cj4+IEBAIC0yMTEsNiArMjQxLDEwIEBA
-IHN0YXRpYyB2b2lkIGh3cHJvYmVfb25lX3BhaXIoc3RydWN0IHJpc2N2X2h3cHJvYmUgKnBhaXIs
-Cj4+ICAgICAgICAgICAgICAgICAgcGFpci0+dmFsdWUgPSBod3Byb2JlX21pc2FsaWduZWQoY3B1
-cyk7Cj4+ICAgICAgICAgICAgICAgICAgYnJlYWs7Cj4+Cj4+ICsgICAgICAgY2FzZSBSSVNDVl9I
-V1BST0JFX1ZFQ19LRVlfTUlTQUxJR05FRF9QRVJGOgo+PiArICAgICAgICAgICAgICAgcGFpci0+
-dmFsdWUgPSBod3Byb2JlX3ZlY19taXNhbGlnbmVkKGNwdXMpOwo+PiArICAgICAgICAgICAgICAg
-YnJlYWs7Cj4+ICsKPj4gICAgICAgICAgY2FzZSBSSVNDVl9IV1BST0JFX0tFWV9aSUNCT1pfQkxP
-Q0tfU0laRToKPj4gICAgICAgICAgICAgICAgICBwYWlyLT52YWx1ZSA9IDA7Cj4+ICAgICAgICAg
-ICAgICAgICAgaWYgKGh3cHJvYmVfZXh0MF9oYXMoY3B1cywgUklTQ1ZfSFdQUk9CRV9FWFRfWklD
-Qk9aKSkKPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQu
-YyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYwo+PiBpbmRleCAyYWRiN2Mz
-ZTRkZDUuLjBjMDdlOTkwZTljNSAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJh
-cHNfbWlzYWxpZ25lZC5jCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWdu
-ZWQuYwo+PiBAQCAtMTYsNiArMTYsNyBAQAo+PiAgICNpbmNsdWRlIDxhc20vZW50cnktY29tbW9u
-Lmg+Cj4+ICAgI2luY2x1ZGUgPGFzbS9od3Byb2JlLmg+Cj4+ICAgI2luY2x1ZGUgPGFzbS9jcHVm
-ZWF0dXJlLmg+Cj4+ICsjaW5jbHVkZSA8YXNtL3ZlY3Rvci5oPgo+Pgo+PiAgICNkZWZpbmUgSU5T
-Tl9NQVRDSF9MQiAgICAgICAgICAgICAgICAgIDB4Mwo+PiAgICNkZWZpbmUgSU5TTl9NQVNLX0xC
-ICAgICAgICAgICAgICAgICAgIDB4NzA3Zgo+PiBAQCAtNDI2LDYgKzQyNywxNCBAQCBpbnQgaGFu
-ZGxlX21pc2FsaWduZWRfbG9hZChzdHJ1Y3QgcHRfcmVncyAqcmVncykKPj4gICAgICAgICAgaWYg
-KGdldF9pbnNuKHJlZ3MsIGVwYywgJmluc24pKQo+PiAgICAgICAgICAgICAgICAgIHJldHVybiAt
-MTsKPj4KPj4gKyNpZmRlZiBDT05GSUdfUklTQ1ZfUFJPQkVfVU5BTElHTkVEX0FDQ0VTUwo+PiAr
-ICAgICAgIGlmICgqdGhpc19jcHVfcHRyKCZ2ZWN0b3JfbWlzYWxpZ25lZF9hY2Nlc3MpID09IFJJ
-U0NWX0hXUFJPQkVfVkVDX01JU0FMSUdORURfVU5LTk9XTikgewo+PiArICAgICAgICAgICAgICAg
-KnRoaXNfY3B1X3B0cigmdmVjdG9yX21pc2FsaWduZWRfYWNjZXNzKSA9IFJJU0NWX0hXUFJPQkVf
-VkVDX01JU0FMSUdORURfVU5TVVBQT1JURUQ7Cj4gCj4gU2hvdWxkbid0IHRoaXMgYmUgRU1VTEFU
-RUQsIGdpdmVuIHdlIHdlcmUganVzdCBkZWxlZ2F0ZWQgdGhpcyB0cmFwPyBJCj4gZ3Vlc3MgaXQg
-ZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSdyZSBnb2luZyB0byBhZGQgc3VwcG9ydCBmb3IgYWN0dWFs
-bHkKPiBoYW5kbGluZyB0aGUgbWlzYWxpZ25lZCB2ZWN0b3IgdHJhcCwgYXMgQ2zDqW1lbnQgbWVu
-dGlvbmVkLgoKWWVhaCBJIGFjY2VkZW50YWx5IGZvcmdvdCB0byBjaGVjayBpZiB0aGUgdHJhcCB3
-YXMgY2F1c2VkIGJ5IGEgdmVjdG9yIAppbnN0cnVjdGlvbi4gSSB3YXMgbm90IHBsYW5pbmcgb24g
-ZW11bGF0aW5nIHRoZW0sIHRoaXMgaXMganVzdCBhIApvbmUtdGltZSBjaGVjay4KCj4gCj4gU2Nh
-bGFyIG1pc2FsaWduZWQgbG9hZHMgaGFkIGEgaGlzdG9yeSB0byBsZWFuIG9uIHNpbmNlIHRoZSBz
-cGVjcyB3ZXJlCj4gYWx3YXlzIGV4cGxpY2l0IHRoYXQgbWlzYWxpZ25lZCBsb2Fkcy9zdG9yZSBo
-YWQgdG8gYmUgc3VwcG9ydGVkIG9uZQo+IHdheSBvciBhbm90aGVyLiBTbyBVTlNVUFBPUlRFRCB3
-YXMgYSBmdXR1cmUgdGhlb3JldGljYWwgdmFsdWUuIEkKPiBoYXZlbid0IGR1ZyB0aHJvdWdoIHRo
-ZSBzcGVjcyB5ZXQsIGRvIHlvdSBrbm93IHdoYXQgdGhlIHN0b3J5IGlzIGZvciBWCj4gYW5kIG1p
-c2FsaWduZWQgbG9hZHM/CgoiCjguIFZlY3RvciBNZW1vcnkgQWxpZ25tZW50IENvbnN0cmFpbnRz
-CiAgSWYgYW4gZWxlbWVudCBhY2Nlc3NlZCBieSBhIHZlY3RvciBtZW1vcnkgaW5zdHJ1Y3Rpb24g
-aXMgbm90IG5hdHVyYWxseSAKYWxpZ25lZCB0byB0aGUgc2l6ZSBvZiB0aGUgZWxlbWVudCwgZWl0
-aGVyIHRoZSBlbGVtZW50IGlzIHRyYW5zZmVycmVkIApzdWNjZXNzZnVsbHkgb3IgYW4gYWRkcmVz
-cyBtaXNhbGlnbmVkIGV4Y2VwdGlvbiBpcyByYWlzZWQgb24gdGhhdCBlbGVtZW50LgpTdXBwb3J0
-IGZvciBtaXNhbGlnbmVkIHZlY3RvciBtZW1vcnkgYWNjZXNzZXMgaXMgaW5kZXBlbmRlbnQgb2Yg
-YW4gCmltcGxlbWVudGF0aW9u4oCZcyBzdXBwb3J0IGZvciBtaXNhbGlnbmVkIHNjYWxhciBtZW1v
-cnkgYWNjZXNzZXMuCiIKCkl0IGlzIGlmIHRoZSBsb2FkL3N0b3JlIGlzIG5hdHVyYWxseSBhbGln
-bmVkIHRvIHRoZSBzaXplIG9mIHRoZSBlbGVtZW50LgoKICBNeSBzdWItcXVlc3Rpb24gaXMgd2hh
-dCB0aGUgcnVsZXMgYXJlIGZvcgo+IGRldGVjdGluZyB0aGUgZGlmZmVyZW5jZSBiZXR3ZWVuIEVN
-VUxBVEVEIGFuZCBVTlNVUFBPUlRFRC4KCkZvciB2ZWN0b3IgRU1VTEFURUQgaXNudCB1c2VkIHRo
-b3VnaHQgaXQgY2FuIGJlIGFkZGVkIGlmIEkgYWRkIGVtdWxhdGlvbi4KSWRlYWx5IHRoYXQgd291
-bGQgYmUgZG9uZSBpbiB0aGUgU0JJLgoKPiAKPj4gKyAgICAgICAgICAgICAgIHJlZ3MtPmVwYyA9
-IGVwYyArIElOU05fTEVOKGluc24pOwo+PiArICAgICAgICAgICAgICAgcmV0dXJuIDA7Cj4+ICsg
-ICAgICAgfQo+PiArI2VuZGlmCj4+ICsKPj4gICAgICAgICAgcmVncy0+ZXBjID0gMDsKPj4KPj4g
-ICAgICAgICAgaWYgKChpbnNuICYgSU5TTl9NQVNLX0xXKSA9PSBJTlNOX01BVENIX0xXKSB7Cj4+
-IEBAIC02MjUsNiArNjM0LDU3IEBAIHN0YXRpYyBib29sIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3Nf
-ZW11bGF0ZWQoaW50IGNwdSkKPj4gICAgICAgICAgcmV0dXJuIG1pc2FsaWduZWRfZW11X2RldGVj
-dGVkOwo+PiAgIH0KPj4KPj4gKyNpZmRlZiBDT05GSUdfUklTQ1ZfSVNBX1YKPj4gK3N0YXRpYyBi
-b29sIGNoZWNrX3ZlY3Rvcl91bmFsaWduZWRfYWNjZXNzKGludCBjcHUpCj4+ICt7Cj4+ICsgICAg
-ICAgbG9uZyAqbWFzX3B0ciA9IHBlcl9jcHVfcHRyKCZ2ZWN0b3JfbWlzYWxpZ25lZF9hY2Nlc3Ms
-IGNwdSk7Cj4+ICsgICAgICAgc3RydWN0IHJpc2N2X2lzYWluZm8gKmlzYWluZm8gPSAmaGFydF9p
-c2FbY3B1XTsKPj4gKyAgICAgICB1bnNpZ25lZCBsb25nIHRtcF92YXI7Cj4+ICsgICAgICAgYm9v
-bCBtaXNhbGlnbmVkX3ZlY19zdXBvcnRlZDsKPj4gKwo+PiArICAgICAgIGlmICghcmlzY3ZfaXNh
-X2V4dGVuc2lvbl9hdmFpbGFibGUoaXNhaW5mby0+aXNhLCB2KSkKPj4gKyAgICAgICAgICAgICAg
-IHJldHVybiBmYWxzZTsKPj4gKwo+PiArICAgICAgIC8qIFRoaXMgY2FzZSB3aWxsIG9ubHkgaGFw
-cGVuIGlmIGEgdW5hbGlnbmVkIHZlY3RvciBsb2FkCj4+ICsgICAgICAgICogd2FzIGNhbGxlZCBi
-eSB0aGUga2VybmVsIGJlZm9yZSB0aGlzIGNoZWNrCj4+ICsgICAgICAgICovCj4+ICsgICAgICAg
-aWYgKCptYXNfcHRyICE9IFJJU0NWX0hXUFJPQkVfVkVDX01JU0FMSUdORURfVU5LTk9XTikKPj4g
-KyAgICAgICAgICAgICAgIHJldHVybiBmYWxzZTsKPj4gKwo+PiArICAgICAgIGtlcm5lbF92ZWN0
-b3JfYmVnaW4oKTsKPj4gKyAgICAgICBfX2FzbV9fIF9fdm9sYXRpbGVfXyAoCj4+ICsgICAgICAg
-ICAgICAgICAiLm9wdGlvbiBwdXNoXG5cdCIKPj4gKyAgICAgICAgICAgICAgICIub3B0aW9uIGFy
-Y2gsICt2XG5cdCIKPj4gKyAgICAgICAgICAgICAgICIgICAgICAgbGkgdDEsIDB4MVxuIiAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIC8vc2l6ZQo+PiArICAgICAgICAgICAgICAgIiAgICAgICB2
-c2V0dmxpIHQwLCB0MSwgZTE2LCBtMiwgdGEsIG1hXG5cdCIgICAgLy8gVmVjdG9ycyBvZiAxNmIK
-Pj4gKyAgICAgICAgICAgICAgICIgICAgICAgYWRkaSB0MCwgJVtwdHJdLCAxXG5cdCIgICAgICAg
-ICAgICAgICAgIC8vIE1pc2FsaWduIGFkZHJlc3MKPj4gKyAgICAgICAgICAgICAgICIgICAgICAg
-dmxlMTYudiB2MCwgKHQwKVxuXHQiICAgICAgICAgICAgICAgICAgIC8vIExvYWQgYnl0ZXMKPj4g
-KyAgICAgICAgICAgICAgICIub3B0aW9uIHBvcFxuXHQiCj4+ICsgICAgICAgICAgICAgICA6IDog
-W3B0cl0gInIiICgmdG1wX3ZhcikgOiAidjAiLCAidDAiLCAidDEiLCAibWVtb3J5Iik7Cj4+ICsg
-ICAgICAga2VybmVsX3ZlY3Rvcl9lbmQoKTsKPj4gKwo+PiArICAgICAgIG1pc2FsaWduZWRfdmVj
-X3N1cG9ydGVkID0gKCptYXNfcHRyID09IFJJU0NWX0hXUFJPQkVfVkVDX01JU0FMSUdORURfVU5L
-Tk9XTik7Cj4+ICsKPj4gKyAgICAgICByZXR1cm4gbWlzYWxpZ25lZF92ZWNfc3Vwb3J0ZWQ7Cj4+
-ICt9Cj4+ICsjZWxzZQo+PiArc3RhdGljIGJvb2wgY2hlY2tfdmVjdG9yX3VuYWxpZ25lZF9hY2Nl
-c3MoaW50IGNwdSkKPj4gK3sKPj4gKyAgICAgICByZXR1cm4gZmFsc2U7Cj4+ICt9Cj4+ICsjZW5k
-aWYKPj4gKwo+PiArYm9vbCBjaGVja192ZWN0b3JfdW5hbGlnbmVkX2FjY2Vzc19hbGxfY3B1cyh2
-b2lkKQo+PiArewo+PiArICAgICAgIGludCBjcHU7Cj4+ICsKPj4gKyAgICAgICBmb3JfZWFjaF9v
-bmxpbmVfY3B1KGNwdSkKPj4gKyAgICAgICAgICAgICAgIGlmICghY2hlY2tfdmVjdG9yX3VuYWxp
-Z25lZF9hY2Nlc3MoY3B1KSkKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNl
-Owo+PiArCj4+ICsgICAgICAgcmV0dXJuIHRydWU7Cj4+ICt9Cj4gCj4gVGhlc2UgZnVuY3Rpb25z
-IHJldHVybiBhIGJvb2wsIGJ1dCB0aGUgYm9vbCBpcyBuZXZlciBjaGVja2VkLiBJJ20KPiBndWVz
-c2luZyB0aGF0J3MgYmVjYXVzZSB5b3UncmUgZ29pbmcgdG8gY2hlY2sgaXQgaW4gYSBmdXR1cmUg
-cGF0Y2gKPiB3aGVyZSB5b3UgZGVjaWRlIHdoZXRoZXIgb3Igbm90IHRvIHByb2JlIGZvciBmYXN0
-L3Nsb3c/CgpZZXMuIFJlbGF0aW5nIHRvIHlvdXIgZmlyc3QgcXVlc3Rpb24uIFRoZSB2YWx1ZXMg
-c2hvdWxkIGhhdmUgdGhlIHNhbWUgCm1lYW5pbmcgYXMgc2NhbGFyLiBTbyBVTktOT1dOIHdob3Vs
-ZCBtZWFuIGl0J3Mgc3VwcG9ydGVkLCB3ZSBkb250IGtub3cgCnRoZSBzcGVlZC4KCj4gCj4gCj4+
-ICsKPj4gICBib29sIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfZW11bGF0ZWRfYWxsX2NwdXModm9p
-ZCkKPj4gICB7Cj4+ICAgICAgICAgIGludCBjcHU7Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2tlcm5lbC91bmFsaWduZWRfYWNjZXNzX3NwZWVkLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC91bmFs
-aWduZWRfYWNjZXNzX3NwZWVkLmMKPj4gaW5kZXggYTlhNmJjYjAyYWNmLi45MmE4NDIzOWJlYWEg
-MTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3VuYWxpZ25lZF9hY2Nlc3Nfc3BlZWQu
-Ywo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC91bmFsaWduZWRfYWNjZXNzX3NwZWVkLmMKPj4g
-QEAgLTIwLDYgKzIwLDcgQEAKPj4gICAjZGVmaW5lIE1JU0FMSUdORURfQ09QWV9TSVpFICgoTUlT
-QUxJR05FRF9CVUZGRVJfU0laRSAvIDIpIC0gMHg4MCkKPj4KPj4gICBERUZJTkVfUEVSX0NQVShs
-b25nLCBtaXNhbGlnbmVkX2FjY2Vzc19zcGVlZCk7Cj4+ICtERUZJTkVfUEVSX0NQVShsb25nLCB2
-ZWN0b3JfbWlzYWxpZ25lZF9hY2Nlc3MpID0gUklTQ1ZfSFdQUk9CRV9WRUNfTUlTQUxJR05FRF9V
-TktOT1dOOwo+Pgo+PiAgICNpZmRlZiBDT05GSUdfUklTQ1ZfUFJPQkVfVU5BTElHTkVEX0FDQ0VT
-Uwo+PiAgIHN0YXRpYyBjcHVtYXNrX3QgZmFzdF9taXNhbGlnbmVkX2FjY2VzczsKPj4gQEAgLTI2
-NCw2ICsyNjUsOCBAQCBzdGF0aWMgaW50IGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfYWxsX2NwdXMo
-dm9pZCkKPj4gICB7Cj4+ICAgICAgICAgIGJvb2wgYWxsX2NwdXNfZW11bGF0ZWQgPSBjaGVja191
-bmFsaWduZWRfYWNjZXNzX2VtdWxhdGVkX2FsbF9jcHVzKCk7Cj4+Cj4+ICsgICAgICAgY2hlY2tf
-dmVjdG9yX3VuYWxpZ25lZF9hY2Nlc3NfYWxsX2NwdXMoKTsKPj4gKwo+PiAgICAgICAgICBpZiAo
-IWFsbF9jcHVzX2VtdWxhdGVkKQo+PiAgICAgICAgICAgICAgICAgIHJldHVybiBjaGVja191bmFs
-aWduZWRfYWNjZXNzX3NwZWVkX2FsbF9jcHVzKCk7Cj4+Cj4+IEBAIC0yNzMsNiArMjc2LDcgQEAg
-c3RhdGljIGludCBjaGVja191bmFsaWduZWRfYWNjZXNzX2FsbF9jcHVzKHZvaWQpCj4+ICAgc3Rh
-dGljIGludCBjaGVja191bmFsaWduZWRfYWNjZXNzX2FsbF9jcHVzKHZvaWQpCj4+ICAgewo+PiAg
-ICAgICAgICBjaGVja191bmFsaWduZWRfYWNjZXNzX2VtdWxhdGVkX2FsbF9jcHVzKCk7Cj4+ICsg
-ICAgICAgY2hlY2tfdmVjdG9yX3VuYWxpZ25lZF9hY2Nlc3NfYWxsX2NwdXMoKTsKPj4KPj4gICAg
-ICAgICAgcmV0dXJuIDA7Cj4+ICAgfQo+PiAtLQo+PiAyLjQzLjAKPj4KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============4251564052663377403==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="BJ5Lnf9kA5JE7RaD"
+Content-Disposition: inline
+
+
+--BJ5Lnf9kA5JE7RaD
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Yo,
+
+Beat me to some things I wanted to saw, so I'll leave my comments on top
+of yours.
+
+On Wed, Jun 05, 2024 at 08:54:21AM -0700, Evan Green wrote:
+> On Tue, Jun 4, 2024 at 9:25=E2=80=AFAM Jesse Taube <jesse@rivosinc.com> w=
+rote:
+> >
+> > Detected if a system traps into the kernel on an vector unaligned acces=
+s.
+> > Add the result to a new key in hwprobe.
+> >
+> > Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+>=20
+> For the scalar world, we wanted to know whether misaligned accesses
+> were faster or slower than equivalent byte accesses, so usermode could
+> know for something like memcpy which option had better bandwidth. Is
+> the motivation here the same, where we're going to use vector
+> registers for memcpy and we want to know which size load to use? Or
+> will usermode be consuming this info for a different purpose as well?
+> I know this is a basic question, but having the motivation helps me
+> get the right lens for reviewing it. Perhaps that should be added to
+> the commit message as well.
+
+Motivation should always be in the commit message ;)
+
+> >  arch/riscv/include/asm/cpufeature.h        |  3 ++
+> >  arch/riscv/include/asm/hwprobe.h           |  2 +-
+> >  arch/riscv/include/uapi/asm/hwprobe.h      |  6 +++
+> >  arch/riscv/kernel/sys_hwprobe.c            | 34 ++++++++++++
+> >  arch/riscv/kernel/traps_misaligned.c       | 60 ++++++++++++++++++++++
+> >  arch/riscv/kernel/unaligned_access_speed.c |  4 ++
+> >  6 files changed, 108 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/a=
+sm/cpufeature.h
+> > index 347805446151..5ad69cf25b25 100644
+> > --- a/arch/riscv/include/asm/cpufeature.h
+> > +++ b/arch/riscv/include/asm/cpufeature.h
+> > @@ -35,9 +35,12 @@ void riscv_user_isa_enable(void);
+> >
+> >  #if defined(CONFIG_RISCV_MISALIGNED)
+> >  bool check_unaligned_access_emulated_all_cpus(void);
+> > +bool check_vector_unaligned_access_all_cpus(void);
+> > +
+> >  void unaligned_emulation_finish(void);
+> >  bool unaligned_ctl_available(void);
+> >  DECLARE_PER_CPU(long, misaligned_access_speed);
+> > +DECLARE_PER_CPU(long, vector_misaligned_access);
+> >  #else
+> >  static inline bool unaligned_ctl_available(void)
+> >  {
+> > diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/=
+hwprobe.h
+> > index 630507dff5ea..150a9877b0af 100644
+> > --- a/arch/riscv/include/asm/hwprobe.h
+> > +++ b/arch/riscv/include/asm/hwprobe.h
+> > @@ -8,7 +8,7 @@
+> >
+> >  #include <uapi/asm/hwprobe.h>
+> >
+> > -#define RISCV_HWPROBE_MAX_KEY 6
+> > +#define RISCV_HWPROBE_MAX_KEY 7
+> >
+> >  static inline bool riscv_hwprobe_key_is_valid(__s64 key)
+> >  {
+> > diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include=
+/uapi/asm/hwprobe.h
+> > index 060212331a03..4474e98d17bd 100644
+> > --- a/arch/riscv/include/uapi/asm/hwprobe.h
+> > +++ b/arch/riscv/include/uapi/asm/hwprobe.h
+> > @@ -68,6 +68,12 @@ struct riscv_hwprobe {
+> >  #define                RISCV_HWPROBE_MISALIGNED_UNSUPPORTED    (4 << 0)
+> >  #define                RISCV_HWPROBE_MISALIGNED_MASK           (7 << 0)
+> >  #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE    6
+> > +#define RISCV_HWPROBE_VEC_KEY_MISALIGNED_PERF  7
+> > +#define                RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN           =
+ 0
+> > +#define                RISCV_HWPROBE_VEC_MISALIGNED_EMULATED          =
+ 1
+> > +#define                RISCV_HWPROBE_VEC_MISALIGNED_SLOW              =
+ 2
+> > +#define                RISCV_HWPROBE_VEC_MISALIGNED_FAST              =
+ 3
+> > +#define                RISCV_HWPROBE_VEC_MISALIGNED_UNSUPPORTED       =
+ 4
+>=20
+> This needs to be added to the documentation as well.
+
++1
+
+> What value should be returned when V is not enabled in the kernel, or
+> V is not supported in the hardware? Currently in the code it would be
+> UNKNOWN, right? Is that what we want, or is it worth differentiating
+> "no support for V" from "I don't know the speed of misaligned loads"?
+> Maybe UNKNOWN is the right value, as there are other values to tell
+> you V is not enabled.
+
+I think UNKNOWN is fine for !V, assuming identical definitions as scalar.
+Realistically, we /should/ always know the value once we get as far as
+userspace (ignoring the fact that this patch as implemented doesn't know),
+either by probing for it or config options like those that the non-vector
+stuff has.
+
+What I am not a fan of in this patch is how it makes UNKNOWN a proxy
+for "SUPPORTED", I think we should set SLOW as a minimum. Really we
+should either add probing and Kconfig options, and maybe emulation if
+there's a strong case for it.
+
+> >  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+> >
+> >  /* Flags */
+> > diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hw=
+probe.c
+> > index b286b73e763e..ce641cc6e47a 100644
+> > --- a/arch/riscv/kernel/sys_hwprobe.c
+> > +++ b/arch/riscv/kernel/sys_hwprobe.c
+> > @@ -184,6 +184,36 @@ static u64 hwprobe_misaligned(const struct cpumask=
+ *cpus)
+> >  }
+> >  #endif
+> >
+> > +#if defined(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)
+> > +static u64 hwprobe_vec_misaligned(const struct cpumask *cpus)
+> > +{
+> > +       int cpu;
+> > +       u64 perf =3D -1ULL;
+> > +
+> > +       for_each_cpu(cpu, cpus) {
+> > +               int this_perf =3D per_cpu(vector_misaligned_access, cpu=
+);
+> > +
+> > +               if (perf =3D=3D -1ULL)
+> > +                       perf =3D this_perf;
+> > +
+> > +               if (perf !=3D this_perf) {
+> > +                       perf =3D RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN;
+> > +                       break;
+> > +               }
+> > +       }
+> > +
+> > +       if (perf =3D=3D -1ULL)
+> > +               return RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN;
+> > +
+> > +       return perf;
+> > +}
+> > +#else
+> > +static u64 hwprobe_vec_misaligned(const struct cpumask *cpus)
+> > +{
+> > +       return RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN;
+> > +}
+> > +#endif
+> > +
+> >  static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+> >                              const struct cpumask *cpus)
+> >  {
+> > @@ -211,6 +241,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe =
+*pair,
+> >                 pair->value =3D hwprobe_misaligned(cpus);
+> >                 break;
+> >
+> > +       case RISCV_HWPROBE_VEC_KEY_MISALIGNED_PERF:
+> > +               pair->value =3D hwprobe_vec_misaligned(cpus);
+> > +               break;
+> > +
+> >         case RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE:
+> >                 pair->value =3D 0;
+> >                 if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
+> > diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/t=
+raps_misaligned.c
+> > index 2adb7c3e4dd5..0c07e990e9c5 100644
+> > --- a/arch/riscv/kernel/traps_misaligned.c
+> > +++ b/arch/riscv/kernel/traps_misaligned.c
+> > @@ -16,6 +16,7 @@
+> >  #include <asm/entry-common.h>
+> >  #include <asm/hwprobe.h>
+> >  #include <asm/cpufeature.h>
+> > +#include <asm/vector.h>
+> >
+> >  #define INSN_MATCH_LB                  0x3
+> >  #define INSN_MASK_LB                   0x707f
+> > @@ -426,6 +427,14 @@ int handle_misaligned_load(struct pt_regs *regs)
+> >         if (get_insn(regs, epc, &insn))
+> >                 return -1;
+> >
+> > +#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
+> > +       if (*this_cpu_ptr(&vector_misaligned_access) =3D=3D RISCV_HWPRO=
+BE_VEC_MISALIGNED_UNKNOWN) {
+> > +               *this_cpu_ptr(&vector_misaligned_access) =3D RISCV_HWPR=
+OBE_VEC_MISALIGNED_UNSUPPORTED;
+>=20
+> Shouldn't this be EMULATED, given we were just delegated this trap? I
+> guess it depends on whether you're going to add support for actually
+> handling the misaligned vector trap, as Cl=C3=A9ment mentioned.
+
+Also, we should not actually set EMULATED if we don't actually emulate
+it - this patch just advances epc, right? Also, is it even correct to
+arbitrarily set this value on a misaligned trap - how do we know if this
+was a vector access at this point? Finally, with how handle_misaligned_load=
+()
+works, aren't we gonna set the scalar misaligned access speed to EMULATED
+during this trap even if the trapping instruction is a vector one? That see=
+ms
+like it should be fixed in a patch of its own.
+
+> Scalar misaligned loads had a history to lean on since the specs were
+> always explicit that misaligned loads/store had to be supported one
+> way or another. So UNSUPPORTED was a future theoretical value. I
+> haven't dug through the specs yet, do you know what the story is for V
+> and misaligned loads? My sub-question is what the rules are for
+> detecting the difference between EMULATED and UNSUPPORTED.
+
+I mean, if we emulate it, then it's EMULATED. If we don't EMULATE it and
+nothing below us emulates it, then it is UNSUPPORTED. The one that has
+questionmarks is EMULATED v SLOW, where firmware emulation is
+communicated to userspace as SLOW, because we can't really tell that it
+is in fact EMULATED.
+
+Cheers,
+Conor.
+
+> > +               regs->epc =3D epc + INSN_LEN(insn);
+> > +               return 0;
+> > +       }
+> > +#endif
+> > +
+> >         regs->epc =3D 0;
+> >
+> >         if ((insn & INSN_MASK_LW) =3D=3D INSN_MATCH_LW) {
+> > @@ -625,6 +634,57 @@ static bool check_unaligned_access_emulated(int cp=
+u)
+> >         return misaligned_emu_detected;
+> >  }
+> >
+> > +#ifdef CONFIG_RISCV_ISA_V
+> > +static bool check_vector_unaligned_access(int cpu)
+> > +{
+> > +       long *mas_ptr =3D per_cpu_ptr(&vector_misaligned_access, cpu);
+> > +       struct riscv_isainfo *isainfo =3D &hart_isa[cpu];
+> > +       unsigned long tmp_var;
+> > +       bool misaligned_vec_suported;
+> > +
+> > +       if (!riscv_isa_extension_available(isainfo->isa, v))
+> > +               return false;
+> > +
+> > +       /* This case will only happen if a unaligned vector load
+> > +        * was called by the kernel before this check
+> > +        */
+> > +       if (*mas_ptr !=3D RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN)
+> > +               return false;
+> > +
+> > +       kernel_vector_begin();
+> > +       __asm__ __volatile__ (
+> > +               ".option push\n\t"
+> > +               ".option arch, +v\n\t"
+> > +               "       li t1, 0x1\n"                           //size
+> > +               "       vsetvli t0, t1, e16, m2, ta, ma\n\t"    // Vect=
+ors of 16b
+> > +               "       addi t0, %[ptr], 1\n\t"                 // Misa=
+lign address
+> > +               "       vle16.v v0, (t0)\n\t"                   // Load=
+ bytes
+> > +               ".option pop\n\t"
+> > +               : : [ptr] "r" (&tmp_var) : "v0", "t0", "t1", "memory");
+> > +       kernel_vector_end();
+> > +
+> > +       misaligned_vec_suported =3D (*mas_ptr =3D=3D RISCV_HWPROBE_VEC_=
+MISALIGNED_UNKNOWN);
+> > +
+> > +       return misaligned_vec_suported;
+> > +}
+> > +#else
+> > +static bool check_vector_unaligned_access(int cpu)
+> > +{
+> > +       return false;
+> > +}
+> > +#endif
+> > +
+> > +bool check_vector_unaligned_access_all_cpus(void)
+> > +{
+> > +       int cpu;
+> > +
+> > +       for_each_online_cpu(cpu)
+> > +               if (!check_vector_unaligned_access(cpu))
+> > +                       return false;
+> > +
+> > +       return true;
+> > +}
+>=20
+> These functions return a bool, but the bool is never checked. I'm
+> guessing that's because you're going to check it in a future patch
+> where you decide whether or not to probe for fast/slow?
+>=20
+>=20
+> > +
+> >  bool check_unaligned_access_emulated_all_cpus(void)
+> >  {
+> >         int cpu;
+> > diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/ke=
+rnel/unaligned_access_speed.c
+> > index a9a6bcb02acf..92a84239beaa 100644
+> > --- a/arch/riscv/kernel/unaligned_access_speed.c
+> > +++ b/arch/riscv/kernel/unaligned_access_speed.c
+> > @@ -20,6 +20,7 @@
+> >  #define MISALIGNED_COPY_SIZE ((MISALIGNED_BUFFER_SIZE / 2) - 0x80)
+> >
+> >  DEFINE_PER_CPU(long, misaligned_access_speed);
+> > +DEFINE_PER_CPU(long, vector_misaligned_access) =3D RISCV_HWPROBE_VEC_M=
+ISALIGNED_UNKNOWN;
+> >
+> >  #ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
+> >  static cpumask_t fast_misaligned_access;
+> > @@ -264,6 +265,8 @@ static int check_unaligned_access_all_cpus(void)
+> >  {
+> >         bool all_cpus_emulated =3D check_unaligned_access_emulated_all_=
+cpus();
+> >
+> > +       check_vector_unaligned_access_all_cpus();
+> > +
+> >         if (!all_cpus_emulated)
+> >                 return check_unaligned_access_speed_all_cpus();
+> >
+> > @@ -273,6 +276,7 @@ static int check_unaligned_access_all_cpus(void)
+> >  static int check_unaligned_access_all_cpus(void)
+> >  {
+> >         check_unaligned_access_emulated_all_cpus();
+> > +       check_vector_unaligned_access_all_cpus();
+> >
+> >         return 0;
+> >  }
+> > --
+> > 2.43.0
+> >
+>=20
+
+--BJ5Lnf9kA5JE7RaD
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmCRDwAKCRB4tDGHoIJi
+0pnTAP9/S3PgwP0FzLW129s4yzQKlpv67Jvk+Dysq4FH5/KdEQD/aju5bg+cVeCJ
+JeJGr51RAawZjRcbFmWAPIvfeZejpQA=
+=KIEF
+-----END PGP SIGNATURE-----
+
+--BJ5Lnf9kA5JE7RaD--
+
+
+--===============4251564052663377403==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4251564052663377403==--
+
