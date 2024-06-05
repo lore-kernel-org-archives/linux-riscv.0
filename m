@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5040EC25B76
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 18:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F21C8C25B76
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 18:44:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6MO1Rnl9uqYf5kthxCWTUsyShI02SUNbktIyVqxhXKs=; b=VIWiJqfVhSSxuSmukqDLq/EuiD
-	bj0i9I/GvkYXFcGONwUFmj2XeUBReUTetai3bTmnj4aT2kt7dKL0rm7mZq93tzbISElrsQTE+Bv/1
-	QXP2iNQk7+wKWNU95wrQix6zAvcEDNHnf9g31i6repdxAtE7aLYQOj2Dg7xT0oBDFblVq19e+MiCb
-	j9r1yoDb0OsaZd7LyLHUnopW1t5KV79SL8D2s5SPkSoaPBT2RzAa4XrHYPQgTCJPUT8LxlmP6qJGm
-	bXlSHE2DjmL2kfNp9nlvHEzSFVgdNYdeGag5RjqXjdaJhvbStAIes4dJhO25/SN+H80R3Z0mei0e2
-	0yLQvFaw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=l43gDmLh1xoZY5q2xHLsW+IGsnDlkdEBcSQIYRQ1kd0=; b=dwnrnlvtisruxa
+	mV9IEbwBwYr8ZL3o+xGuAvamSNhMPmMmZe0umg2j8cRUS+bW+UwtdP6ThSvmQ5EPpkR902Rx6geKS
+	yuBi9P5VW7Kse1Vtb+pQx/7PYO1UtRQcVI0vYi6Hzs5zUXg8IwLydHGvpgbM0VgVD2lJ4XRfWEXop
+	iGgYLb4eJcWfQ6bEjs8dWqMb/GYfmZiNAGmGGpF4MtkuxUTmCUHrtzjh5z3TufGhTosfg+JukF+eT
+	uxihZyEJr2uWjoeu903WDjmw4PmV9amVVzvZ2pfJ2cJxcf0Y8ntSgumdHjmZeDtyDX8bT64zVPV6G
+	SdIAdgMjWLmOLuGiQxJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEv2D-000000076Gm-2b04;
-	Wed, 05 Jun 2024 18:06:53 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sEvc9-00000007Bym-3Qre;
+	Wed, 05 Jun 2024 18:44:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEv29-000000076Fk-1l8X
+	id 1sEvc7-00000007ByD-01uB
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jun 2024 18:06:51 +0000
+	Wed, 05 Jun 2024 18:44:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5A59FCE18BE;
-	Wed,  5 Jun 2024 18:06:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B8F6C2BD11;
-	Wed,  5 Jun 2024 18:06:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 23D1960BEA;
+	Wed,  5 Jun 2024 18:43:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72306C2BD11;
+	Wed,  5 Jun 2024 18:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717610806;
-	bh=5WLgWmi7391vEDkONzbYlVsXiq5rBsI0l3Wft0d2pmY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RLjJiy2Ri4l+KMnvg98/r6lSB63VeIuqIbk66sBo6whE1DzQNBHsIsYsJWDgxFLGs
-	 JT7LntNOIe98YiQPQrXDmdIMI/BSdjYlu+csdYXmRLjRjjzFCIcPsAGEnm1rgEFFPI
-	 goVMzhoB3T6U2YlyZgkevetfl0IzC4SyYK1ma0//MGkpZkt25Ptk/9K8du9BZHH29E
-	 RPHRjlgT3WeZo2+VO+f2p0y/yl+3/ExMeImgsPXUXb8w1/5CE3sx7oKIOXJ0bQCAj0
-	 yAN4rRhLd2JWa19Rw87TTXl8wJcnn0wqWnrUTlMNM4xxNR/r5E1u4IFakHd2mEIOkK
-	 x0dwlIamvULsQ==
-Date: Wed, 5 Jun 2024 19:06:40 +0100
+	s=k20201202; t=1717613037;
+	bh=cmQPW06kzMzdKox9m8m1jh7GNWP+/LQm2wfZlpUN0zE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Tkd17MuUFZ+NzMexmWRrZCIilumk1ZP6GDRSJLyICuUDUPzFxa7CV3+asAFu70heb
+	 5N2R8rVrAB+2Bt8MHphuorWMSfzUE3IQMfWW65l+CyVbdC9Q8vadChgV28E7pC0qNP
+	 UXU+uuOvxYFh+2EYyGt7SZ7oRBEIf58MdN94HT3FJNGOuVtsEo0lppPV9iPU+sdqak
+	 HLmTTtO+3aIsY++FO+mNHVaCQQBunkqIBSFEDfhKDNo0+SmfuCCs3WpoxQQ1TFB/PN
+	 FR/zNC7SwsnAErI//AxywJXzI2++sHZ15dcKJZ1V+srs1rdGbSpYn4rnhZvYg7cger
+	 +IA6w33LNR8/w==
 From: Conor Dooley <conor@kernel.org>
-To: Rajnesh Kanwal <rkanwal@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org, adrian.hunter@intel.com,
-	alexander.shishkin@linux.intel.com, ajones@ventanamicro.com,
-	anup@brainfault.org, acme@kernel.org, atishp@rivosinc.com,
-	beeman@rivosinc.com, brauner@kernel.org, heiko@sntech.de,
-	irogers@google.com, mingo@redhat.com, james.clark@arm.com,
-	renyu.zj@linux.alibaba.com, jolsa@kernel.org,
-	jisheng.teoh@starfivetech.com, palmer@dabbelt.com,
-	tech-control-transfer-records@lists.riscv.org, will@kernel.org,
-	kaiwenxue1@gmail.com
-Subject: Re: [PATCH RFC 3/6] riscv: perf: Add Control Transfer Records
- extension parsing
-Message-ID: <20240605-thaw-giant-87eb299c43d0@spud>
-References: <20240529185337.182722-1-rkanwal@rivosinc.com>
- <20240529185337.182722-4-rkanwal@rivosinc.com>
+To: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Cyril Jean <cyril.jean@microchip.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v1 0/5] PolarFire SoC Auto Update design info support
+Date: Wed,  5 Jun 2024 19:42:54 +0100
+Message-ID: <20240605-comply-cycling-d9bbc9a4c933@spud>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240410-opulently-epic-8654bdac3422@spud>
+References: <20240410-opulently-epic-8654bdac3422@spud>
 MIME-Version: 1.0
-In-Reply-To: <20240529185337.182722-4-rkanwal@rivosinc.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1011; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=951blRr0Ng7FD/2XOVi7DbaObReZBWsO7Iyp9j4pFLA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGkJG9dNvfRq/8If/zK3Hrx8NHGW9bzjzP2mp+TdJwfsf fTmyZlf3B2lLAxiHAyyYoosibf7WqTW/3HZ4dzzFmYOKxPIEAYuTgGYSEQPwz8rp3smAn/Xt4Tx +dezbulgWC4tn57X773rYarh6o8vQxYxMrytSTTkeXvNMYGnkf9J7rvE+pttZ113PIvxK9++siQ zmRsA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240605_110650_011940_31961199 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20240605_114359_134652_FED949FC 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,115 +72,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0096508900542001513=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============0096508900542001513==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="RRX4c9uXLV2+FCJl"
-Content-Disposition: inline
+On Wed, 10 Apr 2024 12:58:03 +0100, Conor Dooley wrote:
+> There's a document that is internally available that the author of the
+> design info/overlay format stuff wrote about how it is composed and I
+> need to go read it and make a version of it publicly available before
+> this can be merged.
+> 
+> While implementing the design info support, I found a few opportunities
+> for cleaning up the code and fixed a bug that had been mentioned
+> internally about failure cases printing success. The scope based cleanup
+> stuff in particular is rather helpful for the drivers using the system
+> services mailbox, so I'll roll that out to the other users soonTM.
+> 
+> [...]
 
+The document that 1/5 relied on has been published, so I've applied
+these to riscv-firmware-for-next.
 
---RRX4c9uXLV2+FCJl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[1/5] firmware: microchip: support writing bitstream info to flash
+      https://git.kernel.org/conor/c/a2bf9dfe0090
+[4/5] firmware: microchip: move buffer allocation into mpfs_auto_update_set_image_address()
+      https://git.kernel.org/conor/c/e277026b5e2d
 
-On Wed, May 29, 2024 at 07:53:34PM +0100, Rajnesh Kanwal wrote:
-> Adding CTR extension in ISA extension map to lookup for extension
-> availability.
->=20
-> Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
-
-Same comment here about $subject.
-
-You're also missing dt-bindings for the extension.
+And 5/5 too, a conflict resolution seems to have upset b4.
 
 Thanks,
 Conor.
-
-> ---
->  arch/riscv/include/asm/hwcap.h | 4 ++++
->  arch/riscv/kernel/cpufeature.c | 2 ++
->  2 files changed, 6 insertions(+)
->=20
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index b8cc459ee8a4..aff5ef398671 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -86,6 +86,8 @@
->  #define RISCV_ISA_EXT_SSCCFG            77
->  #define RISCV_ISA_EXT_SMCDELEG          78
->  #define RISCV_ISA_EXT_SMCNTRPMF         79
-> +#define RISCV_ISA_EXT_SMCTR             80
-> +#define RISCV_ISA_EXT_SSCTR             81
-> =20
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
-> =20
-> @@ -95,9 +97,11 @@
->  #ifdef CONFIG_RISCV_M_MODE
->  #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
->  #define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SMCSRIND
-> +#define RISCV_ISA_EXT_SxCTR		RISCV_ISA_EXT_SMCTR
->  #else
->  #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
->  #define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SSCSRIND
-> +#define RISCV_ISA_EXT_SxCTR		RISCV_ISA_EXT_SSCTR
->  #endif
-> =20
->  #endif /* _ASM_RISCV_HWCAP_H */
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index d1fb6a8c5492..4334d822b2f2 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -298,6 +298,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
->  	__RISCV_ISA_EXT_DATA(zvkt, RISCV_ISA_EXT_ZVKT),
->  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
->  	__RISCV_ISA_EXT_DATA(smcdeleg, RISCV_ISA_EXT_SMCDELEG),
-> +	__RISCV_ISA_EXT_DATA(smctr, RISCV_ISA_EXT_SMCTR),
->  	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
->  	__RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
->  	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
-> @@ -305,6 +306,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
->  	__RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
->  	__RISCV_ISA_EXT_DATA(ssccfg, RISCV_ISA_EXT_SSCCFG),
->  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> +	__RISCV_ISA_EXT_DATA(ssctr, RISCV_ISA_EXT_SSCTR),
->  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
->  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
->  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
-> --=20
-> 2.34.1
->=20
-
---RRX4c9uXLV2+FCJl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmCpMAAKCRB4tDGHoIJi
-0kEpAQCsOUjZl8R2wNCVzJXQJV4UjjC09oI/oJy7iOQTgrCXpgD/bslLlxazlWXA
-89hLVyp5e76pm/wa8mAGOes1wwKLNgo=
-=memG
------END PGP SIGNATURE-----
-
---RRX4c9uXLV2+FCJl--
-
-
---===============0096508900542001513==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0096508900542001513==--
-
