@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A10C25B76
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 16:55:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC2DC25B76
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jun 2024 17:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1eNrPDjWjPtKm84iqBp7eAB4C2/8uBDbBPOxvXiDJHo=; b=RwyvofkILW2zkmQvmwh98F7OqW
-	KZARd5KWfNID5NIl6Qs43sit9A7vtVNumt7jlDNVcpGWoCff71S7Z8MxDMzHuJ8wUQxLa2sbV9uEG
-	JO9AXDKoku2WvlClM4m3AvIcXQZJyIpULU4q3zWhF3y0Ao86lQTrZG7hfiMqcbdAGSTCEu1qo6WCx
-	ZMjhOmw+njfTko1odraMLTf6ueaA+BW70cGdtK0FtKJ+JkX+9XSCMi1Je2wyup+wpnl4RlVzLd0Mj
-	N7AKA/qbCeevT6XqMVHt+yryCT+TULp9ST2JWz1FV6M2vHn8vlUanDg4NnXGqbQ2qOKTSUBY2ylUi
-	zmuNXomA==;
+	bh=MQ7o2DmhJeykIzOjZQkDELRize7UsEZk1b62A+AZKtQ=; b=aJJMx799TF4Kkndd54t7uY/2e7
+	fXUYbmtvnZqrWBegNxzE5//TYhJQ+dDbDw2S+YyxzLfm6bo9igGQ9ZKDx1PKG43mpCHvs5Wimb/vZ
+	DpRXWQ419s0xxROnPhDVrFEhccIaz+0QBFyp0d1Zr5NVSXFuK2JLXVsx6bPsdp+D66asf/7Dm2YtF
+	N3fMd/C7RsFqe3hv+0j7KNQ5XaGm75OFG2iQZq8DhEt9HfwsLO0mjUOofj+77S32eI1KGejzQiL7y
+	4WkeOrl0nzqVseR/F+uBrZOuP3Qk7cCBTSkpJGZ+RnwFgBxaRzsU6r8fC1KXkdGBZGlCAmonTeLAo
+	3ZVx3UGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEtum-00000006u2g-099t;
-	Wed, 05 Jun 2024 16:55:08 +0000
+	id 1sEuqC-000000071pJ-0EeJ;
+	Wed, 05 Jun 2024 17:54:28 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sEtuj-00000006u1Q-0MgE;
-	Wed, 05 Jun 2024 16:55:06 +0000
+	id 1sEuq8-000000071oq-3aDy
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Jun 2024 17:54:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2CA4E619BA;
-	Wed,  5 Jun 2024 16:55:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBDE3C3277B;
-	Wed,  5 Jun 2024 16:55:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5F277619F9;
+	Wed,  5 Jun 2024 17:54:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83FD8C2BD11;
+	Wed,  5 Jun 2024 17:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717606503;
-	bh=BSnD9wLTtKbSKikywrrQT5l9mkvhTFfOEYd7ndU0zhg=;
+	s=k20201202; t=1717610063;
+	bh=A8lg5hz+MBOmGn5ya8/fL07rjZlvK77wfF8N5N6s7aA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e5XCRj96A0ShjEuilfFCPUt4VolsLcZBGYj5R/qcp0O9NFkBlt7kYC/ztC/cGPfpD
-	 iGJFKR26NPrn5yfFhuWHMgyr9kg+rhDoxOX4Vdhx6kfTxWbqItMTK+6YiOnBXBglVC
-	 HWWR9KaQxWJJreCrwXjsAxFwE8TN+gC0TLb4INkB82SnBIhlAsDGifzXeaeB7M7E6h
-	 WYAbBMfA4GdYLqlVDemcs65Yny7KeRuSvlouZvDIZPP8CH5Q3FFNoDLqikyM4q9aFT
-	 3ywJLHXhmbWc63yE8SD5XmV+sSwDwAfj4mx+b5SM5Yi6lqKQnhd2Wfq6oW5/OTJUec
-	 Wf037EwFDJ3Ew==
-Date: Wed, 5 Jun 2024 17:54:58 +0100
+	b=kzecBLOcSILnskzdHSvhm2It8XC1bmx/lcsBrKDsKX86PvaXgBWRFa+xUD+26xIDJ
+	 SFLQxn9UDgsrp4y3e0Z5nFYhTT7ekyNHbCLr0SdhIW65m2vpMRx6F0d/NPshS8EMrx
+	 zqb/c+X8v94QIWOmN2HEBoNa6qS4LwJ975bk9cvo5njY6qQeBc5ZMhMgyeGXH7XZQg
+	 Ef1v0hQqrcvRZllDwbxnBId9n/YCOlQBVNMy8AILyg9CSA0KxGSID5u/smQ7CTXpBY
+	 clssyHfC1PN+jDBiD/uEHld7OX9xG2nBBuLqc4TYAEVS0JX179I6RUhDBubBIjDPM0
+	 935ce12yzNZIA==
+Date: Wed, 5 Jun 2024 18:54:17 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	apatel@ventanamicro.com, alex@ghiti.fr, ajones@ventanamicro.com,
-	greentime.hu@sifive.com, vincent.chen@sifive.com,
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Haylen Chu <heylenay@outlook.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org
-Subject: Re: [PATCH v5 2/4] dt-bindings: riscv: Add Svade and Svadu Entries
-Message-ID: <20240605-atrium-neuron-c2512b34d3da@spud>
-References: <20240605121512.32083-1-yongxuan.wang@sifive.com>
- <20240605121512.32083-3-yongxuan.wang@sifive.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: thermal: sophgo,cv180x-thermal: Add
+ Sophgo CV180x thermal
+Message-ID: <20240605-tightwad-janitor-82cfceb1469d@spud>
+References: <SG2PR01MB4218013241B3EED779D3BAE8D7F82@SG2PR01MB4218.apcprd01.prod.exchangelabs.com>
+ <SG2PR01MB42189977B4172405F5704CC4D7F82@SG2PR01MB4218.apcprd01.prod.exchangelabs.com>
+ <IA1PR20MB49531F55C8D7DC5D0050CAF9BBF92@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <20240605121512.32083-3-yongxuan.wang@sifive.com>
+In-Reply-To: <IA1PR20MB49531F55C8D7DC5D0050CAF9BBF92@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240605_095505_278367_ED6AB2E4 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20240605_105425_045399_B652CE25 
+X-CRM114-Status: GOOD (  26.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,130 +81,175 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6103823890612368787=="
+Content-Type: multipart/mixed; boundary="===============4132772192358777659=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6103823890612368787==
+--===============4132772192358777659==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="MuN5kP8SHGJqYdTt"
+	protocol="application/pgp-signature"; boundary="zOo6vMANsZN3Leyq"
 Content-Disposition: inline
 
 
---MuN5kP8SHGJqYdTt
+--zOo6vMANsZN3Leyq
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Jun 05, 2024 at 08:15:08PM +0800, Yong-Xuan Wang wrote:
-> Add entries for the Svade and Svadu extensions to the riscv,isa-extensions
-> property.
+On Wed, Jun 05, 2024 at 11:40:32AM +0800, Inochi Amaoto wrote:
+> On Tue, Jun 04, 2024 at 12:54:19PM GMT, Haylen Chu wrote:
+> > Add devicetree binding documentation for thermal sensors integrated in
+> > Sophgo CV180X SoCs.
+> >=20
+> > Signed-off-by: Haylen Chu <heylenay@outlook.com>
+> > ---
+> >  .../thermal/sophgo,cv180x-thermal.yaml        | 82 +++++++++++++++++++
+> >  1 file changed, 82 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/thermal/sophgo,cv=
+180x-thermal.yaml
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/thermal/sophgo,cv180x-th=
+ermal.yaml b/Documentation/devicetree/bindings/thermal/sophgo,cv180x-therma=
+l.yaml
+> > new file mode 100644
+> > index 000000000000..1c3a6f74ff1d
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/thermal/sophgo,cv180x-thermal.y=
+aml
+> > @@ -0,0 +1,82 @@
+> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/thermal/sophgo,cv180x-thermal.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Sophgo CV180x on-SoC Thermal Sensor
+> > +
+> > +maintainers:
+> > +  - Haylen Chu <heylenay@outlook.com>
+> > +
+> > +description: Binding for Sophgo CV180x on-SoC thermal sensor
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - sophgo,cv1800-thermal
+> > +      - sophgo,cv180x-thermal
+> > +
 >=20
-> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-> ---
->  .../devicetree/bindings/riscv/extensions.yaml | 30 +++++++++++++++++++
->  1 file changed, 30 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
-cumentation/devicetree/bindings/riscv/extensions.yaml
-> index 468c646247aa..1e30988826b9 100644
-> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -153,6 +153,36 @@ properties:
->              ratified at commit 3f9ed34 ("Add ability to manually trigger
->              workflow. (#2)") of riscv-time-compare.
-> =20
-> +        - const: svade
-> +          description: |
-> +            The standard Svade supervisor-level extension for raising pa=
-ge-fault
-> +            exceptions when PTE A/D bits need be set as ratified in the =
-20240213
-> +            version of the privileged ISA specification.
-> +
-> +            Both Svade and Svadu extensions control the hardware behavio=
-r when
-> +            the PTE A/D bits need to be set. The default behavior for th=
-e four
-> +            possible combinations of these extensions in the device tree=
- are:
-> +            1. Neither svade nor svadu in DT: default to svade.
+> Is this necessary? I don't find any change between the sensor of these.
 
-I think this needs to be expanded on, as to why nothing means svade.
+"cv180x" isn't even a real device. Either we have a compatible that
+matches an actual SoC and use it everywhere, or we add ones for each SoC
+and have a fallback to cv1800.
 
-> +            2. Only svade in DT: use svade.
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    description: The thermal sensor clock
+> > +
+> > +  clock-names:
+> > +    const: clk_tempsen
 
-That's a statement of the obvious, right?
+clock-names is not useful here as there's only one clock.
+"clk_tempsen" sounds more like the name for this clock at the provider
+than at the consumer anyway.
 
-> +            3. Only svadu in DT: use svadu.
+> > +
+> > +  accumulation-period:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    description: Accumulation period for a sample
+> > +    oneOf:
+> > +      - const: 0
+> > +        description: 512 ticks
+> > +      - const: 1
+> > +        description: 1024 ticks
+> > +      - const: 2
+> > +        description: 2048 ticks
+> > +      - const: 3
+> > +        description: 4096 ticks
+> > +    default: 2
+> > +
+> > +  chop-period:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    description: ADC chop period
 
-This is not relevant for Svade.
+What's a "chop" and why is either this or the accumulation-period a
+fixed property of the hardware? Shouldn't this choice really be up to
+the user?
 
-> +            4. Both svade and svadu in DT: default to svade (Linux can s=
-witch to
-> +               svadu once the SBI FWFT extension is available).
+> > +    oneOf:
+> > +      - const: 0
+> > +        description: 128 ticks
+> > +      - const: 1
+> > +        description: 256 ticks
+> > +      - const: 2
+> > +        description: 512 ticks
+> > +      - const: 3
+> > +        description: 1024 ticks
 
-"The privilege level to which this devicetree has been provided can switch =
-to
-Svadu if the SBI FWFT extension is available".
+Can we just make the number of ticks the unit here, and above?
+Also, a "oneOf: - const" structure is just an enum.
 
-> +        - const: svadu
-> +          description: |
-> +            The standard Svadu supervisor-level extension for hardware u=
-pdating
-> +            of PTE A/D bits as ratified at commit c1abccf ("Merge pull r=
-equest
-> +            #25 from ved-rivos/ratified") of riscv-svadu.
-> +
-> +            Both Svade and Svadu extensions control the hardware behavio=
-r when
-> +            the PTE A/D bits need to be set. The default behavior for th=
-e four
-> +            possible combinations of these extensions in the device tree=
- are:
+> > +    default: 3
+> > +
+> > +  sample-cycle-us:
+> > +    description: Period between samples
+> > +    default: 1000000
 
-@Anup/Drew/Alex, are we missing some wording in here about it only being
-valid to have Svadu in isolation if the provider of the devicetree has
-actually turned on Svadu? The binding says "the default behaviour", but
-it is not the "default" behaviour, the behaviour is a must AFAICT. If
-you set Svadu in isolation, you /must/ have turned it on. If you set
-Svadu and Svade, you must have Svadu turned off?
-
-> +            1. Neither svade nor svadu in DT: default to svade.
-> +            2. Only svade in DT: use svade.
-
-These two are not relevant to Svadu, I'd leave them out.
-
-> +            3. Only svadu in DT: use svadu.
-
-Again, statement of the obvious?
-
-> +            4. Both svade and svadu in DT: default to svade (Linux can s=
-witch to
-> +               svadu once the SBI FWFT extension is available).
-
-Same here as in the Svade entry.
+No constraints?
 
 Thanks,
 Conor.
 
+> > +
+> > +  '#thermal-sensor-cells':
+> > +    const: 0
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - clocks
+> > +  - clock-names
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +        #include <dt-bindings/clock/sophgo,cv1800.h>
+> > +        thermal-sensor@30e0000 {
+> > +            compatible =3D "sophgo,cv180x-thermal";
+> > +            reg =3D <0x30e0000 0x100>;
+> > +            clocks =3D <&clk CLK_TEMPSEN>;
+> > +            clock-names =3D "clk_tempsen";
+> > +            #thermal-sensor-cells =3D <0>;
+> > +        };
+> > +...
+>=20
+> Where is the interrupt number? The sensors does support the interrupt,
+> but I don't see you describe it in the binding.
+>=20
+> > --=20
+> > 2.45.2
+> >=20
 
---MuN5kP8SHGJqYdTt
+--zOo6vMANsZN3Leyq
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmCYYgAKCRB4tDGHoIJi
-0tLVAQDaJxypeK+klc9eSIXgb1/wgPLmEylTnc8/4ceKF/GFnwEAq4ysX3JMpe/B
-tD+9p+XFfXCPa2GD2rvlTIT6YJMYuwI=
-=Q4pd
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmCmSQAKCRB4tDGHoIJi
+0lO6AP9sW5xE2Dz5LvNJjPgXDWtF96Y9pG6mweRGMoUn50K5aQEAibhcLwbeJFd5
+S4Ye7d9hhxUVcwTpWFotGEFVBPZPlAk=
+=GiCK
 -----END PGP SIGNATURE-----
 
---MuN5kP8SHGJqYdTt--
+--zOo6vMANsZN3Leyq--
 
 
---===============6103823890612368787==
+--===============4132772192358777659==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -207,5 +260,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6103823890612368787==--
+--===============4132772192358777659==--
 
