@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07ED8C27C54
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2024 19:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C03A1C27C52
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2024 20:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QDsenPc4dg/5tybdPLeusu0gxnymqx9SIW8yEiBOr5A=; b=cxNOF5NoKs0P6X
-	2V+hvTSDM3pAWTnJSlrAxy5dOAAYdnS810aVpWs/KjflZtt77/izFFYBaUQXHVruBjgB/3N7OMTXQ
-	QSBnbuWoDebtYpti0YYwdEX4L8E/v7/I11/n5CQqdOICjMKmwVtuyWZon0IMpclxau7htP8epu02a
-	u/EOB6ZbHSLCtP9iX1OPyjmj7BjsfF2QMWbRrsmQnIoxZWzo5DHhpCy7SwBrjaM5KU5mTvwH8wA6N
-	LgP6sLOeZD+qQ5mJ8GXqQ1e9zbBlWvCMew24i4BJuOlEp/URhzDHuwMWcKO0IlDsntOdUEk9YQcPM
-	LS50yt4jswfKD0xNMxAQ==;
+	List-Owner; bh=XMbxG/biEzaV9Ue0cVWQ75FjM3J/bdPIC7L20f7gqn8=; b=oM/YX0zH2yrBFn
+	x+QLlphtWlvuvQCtlA60qnBwidC8dUs0U0TDZwCvwsxjSltGlpzxzvNY2Z/4vecorLL1X4OkWoKqC
+	SrKEQGo+vrlJzSiOK+tX4dUcO3UuqUqAv9TI11Tv1yic/19NArAxlxmopRLHAiJo6GNibEHk8j86a
+	S+S3FbrbuZGXsJ3kukt9IUVzJBLUhkTJVUtZVUWNQ27LOo7LRT62nMc8Dz2XZ/wU0OVU/LOCxAjnU
+	s3pX8cjC7WiqC1o2BtSsJRk1IDNA+7brniHDO4beoNCzTwskkm0VzOQPBgLczf6yLQKOFB5JW5/A6
+	sRfzMowhNhoVELklRI1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFILT-0000000B32J-2G49;
-	Thu, 06 Jun 2024 19:00:19 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1sFJQs-0000000BCkw-447A;
+	Thu, 06 Jun 2024 20:09:58 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFILG-0000000B2qA-1GvC
+	id 1sFJQp-0000000BCjP-3OT2
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jun 2024 19:00:08 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1f6a837e9a3so9670225ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Jun 2024 11:59:58 -0700 (PDT)
+	Thu, 06 Jun 2024 20:09:57 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-52b8b7b8698so1841658e87.1
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Jun 2024 13:09:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717700398; x=1718305198; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ia5T96X7Cdh71B4P1DUGWX14XzgXv8MDLAXPXG9Rctk=;
-        b=rRci4nEg9nJMfD7oeEsLw3fwn+Uf6gLNZV53lijLCbrEmhFuQACIxvfiSC0lIWerjx
-         lEcY92JewHc7ys4zV+gQ4n2NCF0RPDeywq1rjBCrB/ubg1sZNB7WVQ8FH+qv21tmu2ns
-         YlQR/d+6UzcW3nF5iNYX1mJGtBWqimNduhCfuwJItTtiON8EvVQ0KIGcGYtO3mtQjZaJ
-         XN+OAbtTezcFmhfOhjUMbT0SOICuBarwHEkaVVuM4e3wL1lGiMcnI7t0hPMgfRnW8zO9
-         OHtbu2/FfYSTqnh+6C5eFjnrxtEUsDkrji8hAyZ+YM6NMRWVIEBs3De4V3f3IfqteWUq
-         Jz4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717700398; x=1718305198;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1717704591; x=1718309391; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ia5T96X7Cdh71B4P1DUGWX14XzgXv8MDLAXPXG9Rctk=;
-        b=AvnluLJKfm683R02adA39LI4YSF8uq5k5ixQUyXfbKkdviTL9Grg2uT9DiXyrpEBj/
-         vUPayX4RufaVU5q6jKe3CjDPYhvpuSS4qpIQl1VScjPtDBLtFhVKuynMlKXgKblAouvs
-         rTJ9Cm5CqXwXKXX2fl76AHWK6VF7Awd1tx8G+0sTHxRTpQApNyWLad/DdIJU2CzsZMC4
-         WSE6hNgOFOAe9vXJzr2DjtaC994BeiFw7qGGrgy1BrZtTzWy0q4obXrx2/D3HKkwfr8t
-         WCVpNkZJ0BVwH1Kllir6WPdhZpJeAsSzVl9zQCIQX/dQqUt14cAII/+nPDSQdiP1GLbY
-         ar2Q==
-X-Gm-Message-State: AOJu0YyjnEjCn5UE++4zMZQyTDbGD/VeXWDSoOup3UagQsj7BQMshAqr
-	WeCMlIJ7BD3/1CsFEB4M+ynKtgLNP6D9X7V/ommENVxu1usfSs7CHK6sejwSGMk=
-X-Google-Smtp-Source: AGHT+IG0mTorn4UEEtaw8tMjG5VLaVYsSBfByfTDWyjZz8MAIW4igAg5dCtNVB+4OhFZ69AIpdCMtw==
-X-Received: by 2002:a17:902:e847:b0:1f6:782e:da23 with SMTP id d9443c01a7336-1f6d039d1efmr5796465ad.63.1717700398198;
-        Thu, 06 Jun 2024 11:59:58 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f6bd7e578asm19058455ad.232.2024.06.06.11.59.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Jun 2024 11:59:57 -0700 (PDT)
-Date: Thu, 6 Jun 2024 11:59:55 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Jesse Taube <jesse@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Nam Cao <namcaov@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Andy Chiu <andy.chiu@sifive.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] RISC-V: fix vector insn load/store width mask
-Message-ID: <ZmIHKwhEyuQJnymK@ghost>
-References: <20240606182800.415831-1-jesse@rivosinc.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240606182800.415831-1-jesse@rivosinc.com>
+        bh=/x/2WBQ6gbCvrND5IFxR/WBO/YzUMRUz9LhDGSvyj84=;
+        b=bI9oS33FgtETzpN8cNOv3nBgjspG+ZQzrJn+JdgPtTVZAuW4s/Lcq3rgtsl6gOS2wu
+         kjQZaIp2vHCS+hxQbWZfu3AHjCFfZ2+cWm4/vVF5mUtg4WdFkE2gvmhIEe2JkmtTQxUy
+         VYE9DrWRWZpQYF+Ml2gXfO8zTm4uKFg0SNsBk8gc/Y9ooe+yIn084VDTrAEztJGt1C7c
+         6zfFu4/2jW0sHx6NKsK47QP2sMrx4vNwY272HJIgaRof378VAD2+aqUeZy63VwAWLeuK
+         Fc5S6P8m+klN43HP1dhxXE5CqA83YY2M0sNztqNPLtuAEtCNJvAPKUvvrfy+NeNsqqOf
+         dqHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717704591; x=1718309391;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=/x/2WBQ6gbCvrND5IFxR/WBO/YzUMRUz9LhDGSvyj84=;
+        b=TYpDrDJXjryrD3TquwesAbUhAMyekRN9nbiB3ZAftwLsTXFAc1SxnG9iFRHtFv0pj0
+         ntgfr6f+L1P6NljQ0fGztEdH57ic/aDdIHV5bOPUIe++mcNO6a9m2KSCEx4yblAPV/ES
+         BoWlx7Ke+0l3NuegRtg4bBl2gH85DlMkYQkvbitp0xkZmtDcJGyI8cYLKN69IkRqLc4B
+         2lNylGYFLIa0MEHlY20Ip1lcNpuJYe5Tspvt4oF2t55R45Noa2DvHbJ2pg4LYkAtoics
+         pxfrXsaPutFhkCzONWeaEzJV1kp0z9PeYeXh5lHOcl4jMUcXHYrQ4at8vkb66MX7Lnlj
+         Gm9w==
+X-Gm-Message-State: AOJu0YyYVBhyTTr0922Ty15o3I1iJEubilAHkFhpdnRCNtooH34F9z85
+	1l7ung1aJv1vLT0zVBDGq75pPJVV6YGzDyjgPh6+6ZRfUOURN6F16OTd4w==
+X-Google-Smtp-Source: AGHT+IFMfUWxTcXE7jBqrp2Tc4LC6zjHPkg4CMCIpoorHg0SDKqa9BsjNrIHbnXKOQDYdlxiTanoAg==
+X-Received: by 2002:a05:6512:5d3:b0:51b:e0f0:e4f8 with SMTP id 2adb3069b0e04-52bb9f815d2mr364391e87.31.1717704591106;
+        Thu, 06 Jun 2024 13:09:51 -0700 (PDT)
+Received: from localhost (5cfc9638.dynamic.mv.ru. [92.252.150.56])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-52bb433c30fsm286016e87.250.2024.06.06.13.09.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Jun 2024 13:09:50 -0700 (PDT)
+Mime-Version: 1.0
+Date: Thu, 06 Jun 2024 23:09:49 +0300
+Message-Id: <D1T7GIYA1OXX.CX879LDSBWN6@gmail.com>
+Cc: <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 1/4] riscv: Fix 32-bit call_on_irq_stack() frame pointer
+ ABI
+From: "Matthew Bystrin" <dev.mbstr@gmail.com>
+To: "Samuel Holland" <samuel.holland@sifive.com>, "Palmer Dabbelt"
+ <palmer@dabbelt.com>
+References: <20240530001733.1407654-1-samuel.holland@sifive.com>
+ <20240530001733.1407654-2-samuel.holland@sifive.com>
+In-Reply-To: <20240530001733.1407654-2-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240606_120006_517735_79EF3E32 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20240606_130955_876839_35344996 
+X-CRM114-Status: UNSURE (   3.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,37 +94,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 06, 2024 at 02:28:00PM -0400, Jesse Taube wrote:
-> RVFDQ_FL_FS_WIDTH_MASK should be 3 bits [14-12], shifted down by 12 bits.
-> Replace GENMASK(3, 0) with GENMASK(2, 0).
-> 
-> Fixes: cd054837243b ("riscv: Allocate user's vector context in the first-use trap")
-> Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-> ---
->  arch/riscv/include/asm/insn.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-> index 06e439eeef9a..09fde95a5e8f 100644
-> --- a/arch/riscv/include/asm/insn.h
-> +++ b/arch/riscv/include/asm/insn.h
-> @@ -145,7 +145,7 @@
->  
->  /* parts of opcode for RVF, RVD and RVQ */
->  #define RVFDQ_FL_FS_WIDTH_OFF	12
-> -#define RVFDQ_FL_FS_WIDTH_MASK	GENMASK(3, 0)
-> +#define RVFDQ_FL_FS_WIDTH_MASK	GENMASK(2, 0)
->  #define RVFDQ_FL_FS_WIDTH_W	2
->  #define RVFDQ_FL_FS_WIDTH_D	3
->  #define RVFDQ_LS_FS_WIDTH_Q	4
-> -- 
-> 2.43.0
-> 
+LGTM, thanks!
 
-Thanks!
-
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-
+Reviewed-by: Matthew Bystrin <dev.mbstr@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
