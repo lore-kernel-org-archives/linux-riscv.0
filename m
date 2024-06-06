@@ -4,99 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44AC4C27C52
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2024 22:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81940C27C52
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2024 22:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WO5qMKi1hloF3pdUkDFX02fPXrIIPDXIR7NrIFU4cCE=; b=jYAbWgIF2gURDX
-	EG6tPAUdh4AL2pBSlV3wu/df3G0kQ1IxY3Nr2OurJrN7grK2bupl03IESeT0ECG/ghkl7H3jUvlNS
-	4s5ut47Xi4AkA+1fYHa8qSQXYpRwU5fm/d0wABDSmN7IvmgcjD2Tt1knSl753Mp8kXjUdKX1Jmc8P
-	B2Hk2A9Wnx9/yBi3FeCSwbw2AO5Gyp/5KPb4MdJAu8oh8hWEVHpeDrZaUDWveGoCxtAuRyJuf6G3B
-	L1mcJx02cxqfE+NP7jqrROr2yRScTds8GQkU+xa5Zf7iKUGXuz/UJ9wycNyZ2x11SGLuAqZH0zjak
-	HKOsWwJGC3OSpt/P/e7w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=8LAvhuQ6yxPsKxwL9xCT86MJu98ZvLIFo1v1MOTDdE8=; b=F2edHHidRCT/xB
+	5X9KdwOGTdFfE3KPiDNB7gMcAuSBcmj0WPJKsB2xpkUV8WVLBd/Ykrig6Z2T2jxAHGTJdGixvfhd2
+	Yw2qXQLivjfopTTPgSgp2H3mCq5Kka4LEriDpER4dsrbJ7WFwFHqzpZDd0E7SL5ncqqy+xXh+pajQ
+	FPM/jquJy3Q1/EZoMCI1ZB95D7gzB9RQF7ikQqvIeqiMFDRGV4K6TxVThkQajlcND8mgp/8KZXuQ1
+	PTKqbjjWdeNwC64T4TnsXVhbAp0yVOXou1cwg1sz94+RFMNz1/Rt2yuWpL88h4dDTmGNjta5CIm/z
+	KpR68N/jBH3Ewul9PHcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFLJQ-0000000BW44-3WJV;
-	Thu, 06 Jun 2024 22:10:24 +0000
-Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
+	id 1sFLfQ-0000000Bavz-1Ote;
+	Thu, 06 Jun 2024 22:33:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFLJN-0000000BW2G-3SHm
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jun 2024 22:10:23 +0000
-Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-6f8edde24b3so800242a34.2
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Jun 2024 15:10:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717711818; x=1718316618; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mJTeyb0eINc0gwLURpfqtisGaEu72F/v9nDe3ziMfx8=;
-        b=cyi4cBZgKsoFlBQzwU0uBcVVSAWX9vaWZpIHXrHCC9dx0TIXZimUn/UyLdT5JyjVkJ
-         PkFz8cWKQnLEr1y9wYxKFtY6PGoCbNtAYHF4qqPZHbZ3SclUNq7f3UIcgN5oWC9dzPpW
-         lhVjiAJrQlsMWpxsOBUbbHPtVKLT8CqUu0lWvO38jWODQZwKYlhfHazEzvg6BAFlnqDk
-         2ZALKNVvjhCM9xxQiubyi8NGKpoyKbIBmzeFXyKGQ7yK3fHQPlPa8KWGRcq5MJXDk3E6
-         tvAbP7/0yc3IZJcUTYOOC42OEzatig5/A1TAbByyL+0mmd0A/YmDqem5PrOB2y90LgyP
-         hOuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717711818; x=1718316618;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mJTeyb0eINc0gwLURpfqtisGaEu72F/v9nDe3ziMfx8=;
-        b=BjbKdBGEzHkOB9MlBxLTCOpiAFhWkEYtPWy7CCDHoQyvhfbF4QsbGrhMHFfESqdnSw
-         o1LfhH366+NdwzSMLjwjKI0vrI1QrpFJsfxUhjOOOPX/BI0jPz7l67cRzPgcwoDk+L66
-         6HR3A0Y3kdiVqpxH13ndYuwUQsJKJG5f63CPurs/tVJLjkcjD+/Qc17KsZpveVHTVf87
-         0hsb3TXc9QgbhjHT94P//uZsTfGG2PO22GlhvHEOM2UqZBhZtZxLKP/Dvp+PQvH7zNS4
-         8O/fKZ02+WkGM+mxIysf1OYDNco5jcaazCEIzVBVYCKq0xnYIk5Rb3uIIKdAsAA6Ua4B
-         foCg==
-X-Forwarded-Encrypted: i=1; AJvYcCXGTCSS4V9lybCt5B3D+tPaCFwpxnr0JcTayuiBWzbdKO/hpDsao+xle0f/YLNTcT1Qu5uMcPYy+lDzCZOAjSfKXnsbeYnsFWAicA9qobz1
-X-Gm-Message-State: AOJu0YycvYaaY/4fY/3CGnJDzXkWoRxfiicMfLeAXW6aANe7J2+tT9sw
-	isESgTtxI7ODDh7yYdq2DB9GUbIZ9AFq8QzhuITRb/XSd/Hqbhx//y0F4+Cvh60=
-X-Google-Smtp-Source: AGHT+IHtnyWwXVrneu4BW4k4zNBmga8uhKsNdRgD+FGVHVTj0yCMQj+8zj2UHpYqSzUhz3bjsiIUww==
-X-Received: by 2002:a05:6358:63a3:b0:199:a132:8aa with SMTP id e5c5f4694b2df-19f1fedc4b3mr123515855d.17.1717711817515;
-        Thu, 06 Jun 2024 15:10:17 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-6de2017fc69sm1356840a12.17.2024.06.06.15.10.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Jun 2024 15:10:16 -0700 (PDT)
-Date: Thu, 6 Jun 2024 15:10:13 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org,
+	id 1sFLfM-0000000BavP-32jj;
+	Thu, 06 Jun 2024 22:33:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9B87C61E6F;
+	Thu,  6 Jun 2024 22:33:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BAB4C2BD10;
+	Thu,  6 Jun 2024 22:33:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717713181;
+	bh=daFQuWzgfeqnC7TXF4xUI9j9WgRNKpwZIoXV6lTPUjE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=LK+PwnJjXqoZt992WhL0w2L5rQE+D9pKZYxQ10gmWFdOHhG/8B7hSkSxDdUeNNxSi
+	 td4Omshq+Nk5/6dnAGHVWQIc4JsTh3Tje1PHODNOM1pRqep6nb5iw2WANxyDqjYk5V
+	 Q35x5GgmWPGftZsty1E9HuL7k66gsRv/ESprd3mdN1JaFFKHNsKAaD7/iTEJiUd3S9
+	 nhylpoE+lznac5AySsOeh1um8dF8ptOWYND0Pl4l2xcmZM9O9eyVoCUqbxokg1UP32
+	 QdfNERvREsMJrymv4hLpFOIxaZtc8yg5oWyyLJZsAJalv3I8ZJj4qIyDqNpNStYRQn
+	 BuENN4Ov08mTw==
+Date: Thu, 6 Jun 2024 17:32:59 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, acpica-devel@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Anup Patel <anup@brainfault.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Robert Moore <robert.moore@intel.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Evan Green <evan@rivosinc.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
-	Xiao Wang <xiao.w.wang@intel.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Zong Li <zong.li@sifive.com>, Ben Dooks <ben.dooks@codethink.co.uk>,
-	Erick Archer <erick.archer@gmx.com>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Joel Granados <j.granados@samsung.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] RISC-V: Add Zicclsm to cpufeature and hwprobe
-Message-ID: <ZmIzxcdUJftnxptc@ghost>
-References: <20240606183215.416829-1-jesse@rivosinc.com>
- <20240606-acetone-whisking-af2ba796238f@spud>
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Haibo1 Xu <haibo1.xu@intel.com>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Subject: Re: [PATCH v6 11/17] ACPI: RISC-V: Initialize GSI mapping structures
+Message-ID: <20240606223259.GA822964@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240606-acetone-whisking-af2ba796238f@spud>
+In-Reply-To: <20240601150411.1929783-12-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240606_151021_892970_6A6CA129 
-X-CRM114-Status: GOOD (  30.80  )
+X-CRM114-CacheID: sfid-20240606_153305_041687_70293B30 
+X-CRM114-Status: GOOD (  27.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,109 +89,249 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 06, 2024 at 07:43:52PM +0100, Conor Dooley wrote:
-> On Thu, Jun 06, 2024 at 02:32:13PM -0400, Jesse Taube wrote:
-> > > Zicclsm Misaligned loads and stores to main memory regions with both
-> > > the cacheability and coherence PMAs must be supported.
-> > > Note:
-> > > This introduces a new extension name for this feature.
-> > > This requires misaligned support for all regular load and store
-> > > instructions (including scalar and vector) but not AMOs or other
-> > > specialized forms of memory access. Even though mandated, misaligned
-> > > loads and stores might execute extremely slowly. Standard software
-> > > distributions should assume their existence only for correctness,
-> > > not for performance.
-> > 
-> > Detecing zicclsm allows the kernel to report if the
-> > hardware supports misaligned accesses even if support wasn't probed.
-> > 
-> > This is useful for usermode to know if vector misaligned accesses are
-> > supported.
-> > 
-> > Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-> > ---
-> >  arch/riscv/include/asm/hwcap.h        | 1 +
-> >  arch/riscv/include/uapi/asm/hwprobe.h | 1 +
-> >  arch/riscv/kernel/cpufeature.c        | 1 +
-> >  arch/riscv/kernel/sys_hwprobe.c       | 1 +
-> >  4 files changed, 4 insertions(+)
-> > 
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> > index e17d0078a651..8c0d0b555a8e 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -81,6 +81,7 @@
-> >  #define RISCV_ISA_EXT_ZTSO		72
-> >  #define RISCV_ISA_EXT_ZACAS		73
-> >  #define RISCV_ISA_EXT_XANDESPMU		74
-> > +#define RISCV_ISA_EXT_ZICCLSM		75
-> >  
-> >  #define RISCV_ISA_EXT_XLINUXENVCFG	127
-> >  
-> > diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-> > index 2902f68dc913..060212331a03 100644
-> > --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> > +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> > @@ -59,6 +59,7 @@ struct riscv_hwprobe {
-> >  #define		RISCV_HWPROBE_EXT_ZTSO		(1ULL << 33)
-> >  #define		RISCV_HWPROBE_EXT_ZACAS		(1ULL << 34)
-> >  #define		RISCV_HWPROBE_EXT_ZICOND	(1ULL << 35)
-> > +#define		RISCV_HWPROBE_EXT_ZICCLSM	(1ULL << 36)
-> 
-> Missing an update to hwprobe.rst.
-> 
+On Sat, Jun 01, 2024 at 08:34:05PM +0530, Sunil V L wrote:
+> RISC-V has PLIC and APLIC in MADT as well as namespace devices.
+> Initialize the list of those structures using MADT and namespace devices
+> to create mapping between the ACPI handle and the GSI ranges. This will
+> be used later to add dependencies.
 
-"RISCV_HWPROBE_EXT_ZIHINTPAUSE	(1ULL << 36)" was also defined here in
-6.10 so this key needs to be bumped down one.
+From a long ways away, this looks like "map a GSI to an interrupt
+controller described either via MADT or namespace" plus a little bit
+of RISC-V stuff.
 
-- Charlie
+That first part, mapping GSI to interrupt controller, is generic and
+other arches need to do the same thing.  It would be nice if every
+arch didn't have to roll their own list of (handle, gsi_base, nr_irqs)
+tuples.  And it might clarify the whole concept of GSI, which is
+conceptually very simple but gets muddied by all the magic stuff
+around it.
 
-> >  #define RISCV_HWPROBE_KEY_CPUPERF_0	5
-> >  #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
-> >  #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > index 3ed2359eae35..863c708f2f2e 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -305,6 +305,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
-> >  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
-> >  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> >  	__RISCV_ISA_EXT_DATA(xandespmu, RISCV_ISA_EXT_XANDESPMU),
-> > +	__RISCV_ISA_EXT_DATA(zicclsm, RISCV_ISA_EXT_ZICCLSM),
-> 
-> Please read the ordering comment above this structure!
-> Also, you're missing dt-binding documentation for the extension.
-> 
-> >  };
-> >  
-> >  const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
-> > diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> > index 8cae41a502dd..b286b73e763e 100644
-> > --- a/arch/riscv/kernel/sys_hwprobe.c
-> > +++ b/arch/riscv/kernel/sys_hwprobe.c
-> > @@ -125,6 +125,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
-> >  			EXT_KEY(ZVKT);
-> >  			EXT_KEY(ZVFH);
-> >  			EXT_KEY(ZVFHMIN);
-> > +			EXT_KEY(ZICCLSM);
-> 
-> Order looks off here too, I think this should be added in in the same
-> order as to riscv_isa_ext, although the requirement isn't hard here,
-> just that adding to the end of a list means it's annoying to check for
-> what's missing.
-> 
-> Thanks,
-> Conor.
-> 
-> >  		}
-> >  
-> >  		if (has_fpu()) {
-> > -- 
-> > 2.43.0
-> > 
-> > 
+This is probably just wishful thinking and not actionable feedback.
 
-
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/irq.h |  22 ++++++
+>  drivers/acpi/riscv/init.c    |   2 +
+>  drivers/acpi/riscv/init.h    |   4 +
+>  drivers/acpi/riscv/irq.c     | 142 +++++++++++++++++++++++++++++++++++
+>  4 files changed, 170 insertions(+)
+>  create mode 100644 drivers/acpi/riscv/init.h
+> 
+> diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
+> index 8e10a94430a2..44a0b128c602 100644
+> --- a/arch/riscv/include/asm/irq.h
+> +++ b/arch/riscv/include/asm/irq.h
+> @@ -16,4 +16,26 @@ void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void));
+>  
+>  struct fwnode_handle *riscv_get_intc_hwnode(void);
+>  
+> +#ifdef CONFIG_ACPI
+> +
+> +enum riscv_irqchip_type {
+> +	ACPI_RISCV_IRQCHIP_INTC		= 0x00,
+> +	ACPI_RISCV_IRQCHIP_IMSIC	= 0x01,
+> +	ACPI_RISCV_IRQCHIP_PLIC		= 0x02,
+> +	ACPI_RISCV_IRQCHIP_APLIC	= 0x03,
+> +};
+> +
+> +int riscv_acpi_get_gsi_info(struct fwnode_handle *fwnode, u32 *gsi_base,
+> +			    u32 *id, u32 *nr_irqs, u32 *nr_idcs);
+> +struct fwnode_handle *riscv_acpi_get_gsi_domain_id(u32 gsi);
+> +
+> +#else
+> +static inline int riscv_acpi_get_gsi_info(struct fwnode_handle *fwnode, u32 *gsi_base,
+> +					  u32 *id, u32 *nr_irqs, u32 *nr_idcs)
+> +{
+> +	return 0;
+> +}
+> +
+> +#endif /* CONFIG_ACPI */
+> +
+>  #endif /* _ASM_RISCV_IRQ_H */
+> diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
+> index 5f7571143245..22db97f7a772 100644
+> --- a/drivers/acpi/riscv/init.c
+> +++ b/drivers/acpi/riscv/init.c
+> @@ -6,7 +6,9 @@
+>   */
+>  
+>  #include <linux/acpi.h>
+> +#include "init.h"
+>  
+>  void __init acpi_riscv_init(void)
+>  {
+> +	riscv_acpi_init_gsi_mapping();
+>  }
+> diff --git a/drivers/acpi/riscv/init.h b/drivers/acpi/riscv/init.h
+> new file mode 100644
+> index 000000000000..0b9a07e4031f
+> --- /dev/null
+> +++ b/drivers/acpi/riscv/init.h
+> @@ -0,0 +1,4 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#include <linux/init.h>
+> +
+> +void __init riscv_acpi_init_gsi_mapping(void);
+> diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
+> index f56e103a501f..0473428e8d1e 100644
+> --- a/drivers/acpi/riscv/irq.c
+> +++ b/drivers/acpi/riscv/irq.c
+> @@ -7,6 +7,21 @@
+>  
+>  #include <linux/acpi.h>
+>  #include <linux/sort.h>
+> +#include <linux/irq.h>
+> +
+> +#include "init.h"
+> +
+> +struct riscv_ext_intc_list {
+> +	acpi_handle handle;
+> +	u32 gsi_base;
+> +	u32 nr_irqs;
+> +	u32 nr_idcs;
+> +	u32 id;
+> +	u32 type;
+> +	struct list_head list;
+> +};
+> +
+> +LIST_HEAD(ext_intc_list);
+>  
+>  static int irqchip_cmp_func(const void *in0, const void *in1)
+>  {
+> @@ -30,3 +45,130 @@ void arch_sort_irqchip_probe(struct acpi_probe_entry *ap_head, int nr)
+>  		return;
+>  	sort(ape, nr, sizeof(*ape), irqchip_cmp_func, NULL);
+>  }
+> +
+> +static void riscv_acpi_update_gsi_handle(u32 gsi_base, acpi_handle handle)
+> +{
+> +	struct riscv_ext_intc_list *ext_intc_element;
+> +	struct list_head *i, *tmp;
+> +
+> +	list_for_each_safe(i, tmp, &ext_intc_list) {
+> +		ext_intc_element = list_entry(i, struct riscv_ext_intc_list, list);
+> +		if (gsi_base == ext_intc_element->gsi_base) {
+> +			ext_intc_element->handle = handle;
+> +			return;
+> +		}
+> +	}
+> +
+> +	acpi_handle_err(handle, "failed to find the GSI mapping entry\n");
+> +}
+> +
+> +int riscv_acpi_get_gsi_info(struct fwnode_handle *fwnode, u32 *gsi_base,
+> +			    u32 *id, u32 *nr_irqs, u32 *nr_idcs)
+> +{
+> +	struct riscv_ext_intc_list *ext_intc_element;
+> +	struct list_head *i, *tmp;
+> +
+> +	list_for_each_safe(i, tmp, &ext_intc_list) {
+> +		ext_intc_element = list_entry(i, struct riscv_ext_intc_list, list);
+> +		if (ext_intc_element->handle == ACPI_HANDLE_FWNODE(fwnode)) {
+> +			*gsi_base = ext_intc_element->gsi_base;
+> +			*id = ext_intc_element->id;
+> +			*nr_irqs = ext_intc_element->nr_irqs;
+> +			if (nr_idcs)
+> +				*nr_idcs = ext_intc_element->nr_idcs;
+> +
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	return -ENODEV;
+> +}
+> +
+> +struct fwnode_handle *riscv_acpi_get_gsi_domain_id(u32 gsi)
+> +{
+> +	struct riscv_ext_intc_list *ext_intc_element;
+> +	struct acpi_device *adev;
+> +	struct list_head *i, *tmp;
+> +
+> +	list_for_each_safe(i, tmp, &ext_intc_list) {
+> +		ext_intc_element = list_entry(i, struct riscv_ext_intc_list, list);
+> +		if (gsi >= ext_intc_element->gsi_base &&
+> +		    gsi < (ext_intc_element->gsi_base + ext_intc_element->nr_irqs)) {
+> +			adev = acpi_fetch_acpi_dev(ext_intc_element->handle);
+> +			if (!adev)
+> +				return NULL;
+> +
+> +			return acpi_fwnode_handle(adev);
+> +		}
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static int __init riscv_acpi_register_ext_intc(u32 gsi_base, u32 nr_irqs, u32 nr_idcs,
+> +					       u32 id, u32 type)
+> +{
+> +	struct riscv_ext_intc_list *ext_intc_element;
+> +
+> +	ext_intc_element = kzalloc(sizeof(*ext_intc_element), GFP_KERNEL);
+> +	if (!ext_intc_element)
+> +		return -ENOMEM;
+> +
+> +	ext_intc_element->gsi_base = gsi_base;
+> +	ext_intc_element->nr_irqs = nr_irqs;
+> +	ext_intc_element->nr_idcs = nr_idcs;
+> +	ext_intc_element->id = id;
+> +	list_add_tail(&ext_intc_element->list, &ext_intc_list);
+> +	return 0;
+> +}
+> +
+> +static acpi_status __init riscv_acpi_create_gsi_map(acpi_handle handle, u32 level,
+> +						    void *context, void **return_value)
+> +{
+> +	acpi_status status;
+> +	u64 gbase;
+> +
+> +	if (!acpi_has_method(handle, "_GSB")) {
+> +		acpi_handle_err(handle, "_GSB method not found\n");
+> +		return AE_OK;
+> +	}
+> +
+> +	status = acpi_evaluate_integer(handle, "_GSB", NULL, &gbase);
+> +	if (ACPI_FAILURE(status)) {
+> +		acpi_handle_err(handle, "failed to evaluate _GSB method\n");
+> +		return AE_OK;
+> +	}
+> +
+> +	riscv_acpi_update_gsi_handle((u32)gbase, handle);
+> +	return AE_OK;
+> +}
+> +
+> +static int __init riscv_acpi_aplic_parse_madt(union acpi_subtable_headers *header,
+> +					      const unsigned long end)
+> +{
+> +	struct acpi_madt_aplic *aplic = (struct acpi_madt_aplic *)header;
+> +
+> +	return riscv_acpi_register_ext_intc(aplic->gsi_base, aplic->num_sources, aplic->num_idcs,
+> +					    aplic->id, ACPI_RISCV_IRQCHIP_APLIC);
+> +}
+> +
+> +static int __init riscv_acpi_plic_parse_madt(union acpi_subtable_headers *header,
+> +					     const unsigned long end)
+> +{
+> +	struct acpi_madt_plic *plic = (struct acpi_madt_plic *)header;
+> +
+> +	return riscv_acpi_register_ext_intc(plic->gsi_base, plic->num_irqs, 0,
+> +					    plic->id, ACPI_RISCV_IRQCHIP_PLIC);
+> +}
+> +
+> +void __init riscv_acpi_init_gsi_mapping(void)
+> +{
+> +	/* There can be either PLIC or APLIC */
+> +	if (acpi_table_parse_madt(ACPI_MADT_TYPE_PLIC, riscv_acpi_plic_parse_madt, 0) > 0) {
+> +		acpi_get_devices("RSCV0001", riscv_acpi_create_gsi_map, NULL, NULL);
+> +		return;
+> +	}
+> +
+> +	if (acpi_table_parse_madt(ACPI_MADT_TYPE_APLIC, riscv_acpi_aplic_parse_madt, 0) > 0)
+> +		acpi_get_devices("RSCV0002", riscv_acpi_create_gsi_map, NULL, NULL);
+> +}
+> -- 
+> 2.40.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
