@@ -4,83 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610B0C25B75
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2024 09:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6217FC25B75
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2024 13:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZPBXrshrqWDOysvoMwaFwWZ46vhGlPtd/BPvd3PFUTw=; b=ZTEMqpQFG4xXZE
-	by9lL94r7wxqf7czl9JXQPOm8uBF73TKcuLttZNN9jPHNbR5Bn87NTs29yLvZhnVnweJTdS8yQIP2
-	LC9GnYn9NwaCkoIfeEcotPWFGjCpjKBlBWLNnLjxrY3Fblo1ASSx2VGt9kRH5nmWt2FTIyj4ObkjZ
-	0ZfDGbrOLeluRRH0sdoiD5CM45rS+pYKbkXBElamaQSbShh3Dg5fHRjWSuLJukrlA+S+tNrgWMvVA
-	HUe+V+N2CSWGNm0NeFC68kUBBhjUYkpsmantusN2gYrehSeGBbhTfbFw5RY7xUgRGwP9HXQdHCjy0
-	055kNpCRNZOhInc/pNLQ==;
+	List-Owner; bh=d7XAzdGALmWYfCtok0xobULXHHBbC3c9l46rdL0443w=; b=uivgWPWNcrjYBi
+	Hh9PHWZ47RfDVJmVBpt6gJHuXs6rWAa8VXEp1x/SD3Q/dMb70p+mT6R8o7yhDEH7kYNbAGjxos30g
+	laSxhI18X5YTyusHx4Z97I0mChYj7d7XYGvGYahTwDIrN1FJpsYnx8og/ANbnwcWGzrNAHjBL7XxR
+	uUXhsA9VKCF8N0NLSgSCclQJsQt3ecsYi7TgwduQZYMRBa9qWoBQ6SqRNjUNQw1Bd+ZJK7cR7HAV3
+	JEgu36X7Gzk0/fjApNYm2w772R0V10eBb1GSxo01kTyBg7IYLblBKLRomnDO3JxShoOqbEQuNkqS0
+	bdkZwcAmeMRBcyP5mkvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sF9n8-00000009Hdq-21AR;
-	Thu, 06 Jun 2024 09:52:18 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1sFDEz-00000009tz7-1NSH;
+	Thu, 06 Jun 2024 13:33:17 +0000
+Received: from mail-tyzapc01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:280c::800] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sF9n5-00000009Hbl-0Jzl
+	id 1sFDEw-00000009txH-0bId
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jun 2024 09:52:16 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2eaccc0979eso9178441fa.1
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Jun 2024 02:52:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1717667531; x=1718272331; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hzMInXZBrq08VfXm9EodIoLXJ2qNXwWHpR/vSZpB+as=;
-        b=AWCKQERlyAivjloDyznsfVXUPfzEKvNzdaf/Q0mHq6faeJX+9EuA7FTwLrjgs01/ny
-         aSo9rba9c1D1dqJLux6rdibNyX7xke9SN4yEbNTptsczImMD3Njfy6HN39Wed7U/HTq5
-         +NonRH/egFBzNr7OAObzTyv5ogqxn/nzC/THZYMbggM+P5cgkJOqFNfKgwuUudbgxIHp
-         6QVpfFJewP/r5d+u4LPkqI0Tt+XvtH2/Q3zSEJkP9cH8nMpEliJVKGXL8QdlE7LIqNQZ
-         TJtU93gItpv6PpPNo27Qw6SVV+3sSSR6XH/wTryPyUJoGmYzPaBx3U23Y7ME5powZ58z
-         Fd1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717667531; x=1718272331;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hzMInXZBrq08VfXm9EodIoLXJ2qNXwWHpR/vSZpB+as=;
-        b=ObGuXhQZDPup2Vtn6zWZy/y+xTDN22GQXV+Yy6SwYh84+585ArxmdSUxTge5pKDr+H
-         u9Pt7fJ8aWXCWjYxFACUwzi4MCTG7nx5vh+RJBDozV7Hg+3uIXJ1Nt7oiVLUFFdr03yJ
-         iUW/sB91yagONiTvcqwDlo0mpDYpai5vLLdP5uvCWcOk7ua9KoW8/8P8L/IeVSQsya82
-         n7KFAvyEhZbamcs9BGBlxHPOnY+2IaH00X/cEq9P/gbQ9rGuxgwa2yThNG91dZHTpCf6
-         siyags3JMteRjJ/1R5+q1mG9YHGxCz8Qu+kjfoNybSN1SiSSywNW1najO96ow2HgqWgv
-         CvJA==
-X-Forwarded-Encrypted: i=1; AJvYcCUVXaLYlSEb7qSeQ2Zf1ep4EB6oEWJng8e3yxfqoR7vYI1GXqbcEovuyI4M7OCrzRx116DZVW9cOyvSNkBO9yyg+UPDsaAWnO2PWrpHZ/u0
-X-Gm-Message-State: AOJu0YyQo+k12IocI0Od/tuqpg4IfL6kPj2qy8vwTHPzRSPS685/zWwd
-	q5iHhNWEq44ofeZe8GF3P2Y6LTgDa88q4xppntDjBrFUITzalZCh8Rtb9+k+SwDbJzH1gaGy3S4
-	w7kZORr4XPeZ3ntlEMc00L7SeCEcULenT1xPUYg==
-X-Google-Smtp-Source: AGHT+IGRjxg5JxSkcZ0TIa9nvKzj+6js95PShzriLgFiyIk8WZvSEOxoci54ygHxxx3XlK6Ngc3iCOMpgDTyPLdieC0=
-X-Received: by 2002:a2e:9617:0:b0:2d8:3e60:b9c9 with SMTP id
- 38308e7fff4ca-2eac7a82898mr28203101fa.33.1717667530690; Thu, 06 Jun 2024
- 02:52:10 -0700 (PDT)
+	Thu, 06 Jun 2024 13:33:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=TjlayhP+TJqKDx02J6t4dyPtcmAoYq2PM/TX4car2QKMKnd+51ZwwA3qWpVxutQLGRrQvu983FTeD91/F/zX0gCHiUCAShlO4wqMu6DVvY/H4btYpzngHfmB4glPEMmKfagxpFD/ZfTwke+UCsxOtKciCduR8a94eaPueKdH988K5FWbQhm9aVMfp7A5shKQhfX2uTZd1lIgQaGgVNVeFzGWOaaBEgswq/JOoZu39P3NvXSUJA64hUKAq/9328p0ya66sk5j5QC3fxnxRGM6LArXqF7l/icD8zqOwztWrx+nkZO66TCiX6gFQkTYjjh7TLCpW4YTCovj/yjpGR3Yiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=S7RyNEK/SZiMBPFRsyChZe4sv+YZt9bOrcIjLaQkwHA=;
+ b=gEsV7PBhRmB+HidY+41YiqLicP0B/o1r6/xPcqKUbG2dSTNpk5I+1GfYThAKYK2+Ymt933rj516f5A8WfK5C0qLVGVVFdRGl0ABoy2hYEJvVxJ4xNnHoySsSOcLwE3gq9e2YxEbQdu4kwl7PAbv2oVrAYWZFlpqzhUBF0NWl5YSn8O7J7htDCAyz4c5xXL0rM/6ACbOmTO8CxyOgWiF4wSQECR4pncI/NDmVRcCO9oW1/Ji2DgvDSIqNNrGYZuqFwIL0dEMVXKgM52GLqzyLZw8Ph2bS/PYM+7vmicqb3bmanE5jmcbxqu/IaG/MYHV7iCZfvXxTu1dO96+xnPzeyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=S7RyNEK/SZiMBPFRsyChZe4sv+YZt9bOrcIjLaQkwHA=;
+ b=SC4lwstz/BxzatjEIRO1+kXsb2ZhUrXCkm2T8qaWXHFEBUCcshimMex0phjyT+NQ20RvVEeOyJgTjjwG+AFVQyIUHRPBcVy0msFZEyyNB4olvlzoFOSMLjvh3pBar1RlcQVRYPjIKDi8mbeNIbnz0miUcUGp7NcOLFTWDOqlvvzlbasPysNEbr1rOpd7RRPrkWUIybIiifuPdi8uVh7p0oDALTGijnTX0ZVk9auq2mJmW2esQu82bVEBfN0FZh7o1YHqqxM9BDY+tr2WdrgSKLv7KIVdoG+juVW1enP6g3BKfi4JKxhftqBzLInflY1iii5BHexse2vsJ7Kzv5rm/g==
+Received: from SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ (2603:1096:101:56::12) by TY0PR0101MB4585.apcprd01.prod.exchangelabs.com
+ (2603:1096:400:206::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7633.33; Thu, 6 Jun
+ 2024 13:32:54 +0000
+Received: from SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ ([fe80::b674:8f70:6e29:3756]) by SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ ([fe80::b674:8f70:6e29:3756%4]) with mapi id 15.20.7633.033; Thu, 6 Jun 2024
+ 13:32:54 +0000
+Date: Thu, 6 Jun 2024 13:32:46 +0000
+From: Haylen Chu <heylenay@outlook.com>
+To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@outlook.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: thermal: sophgo,cv180x-thermal: Add
+ Sophgo CV180x thermal
+Message-ID: <SEYPR01MB4221F0E46F600E013974F21BD7FA2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+References: <SG2PR01MB4218013241B3EED779D3BAE8D7F82@SG2PR01MB4218.apcprd01.prod.exchangelabs.com>
+ <SG2PR01MB42189977B4172405F5704CC4D7F82@SG2PR01MB4218.apcprd01.prod.exchangelabs.com>
+ <IA1PR20MB49531F55C8D7DC5D0050CAF9BBF92@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20240605-tightwad-janitor-82cfceb1469d@spud>
+Content-Disposition: inline
+In-Reply-To: <20240605-tightwad-janitor-82cfceb1469d@spud>
+X-TMN: [jFjPx4ocdXOp+2tsDXSBaiWOiBmI4omW]
+X-ClientProxiedBy: SI2PR02CA0040.apcprd02.prod.outlook.com
+ (2603:1096:4:196::6) To SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ (2603:1096:101:56::12)
+X-Microsoft-Original-Message-ID: <ZmG6fi9fdSCC3P28@ketchup>
 MIME-Version: 1.0
-References: <20240422080833.8745-1-liangshenlin@eswincomputing.com>
- <20240422080833.8745-3-liangshenlin@eswincomputing.com> <mvmr0das93i.fsf@suse.de>
-In-Reply-To: <mvmr0das93i.fsf@suse.de>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Thu, 6 Jun 2024 15:21:59 +0530
-Message-ID: <CAK9=C2Ug2gcS5Rbqc9EQ6mVwrJkoeLscOm6wtgqGKHdqEdSpSA@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] perf kvm/riscv: Port perf kvm stat to RISC-V
-To: Andreas Schwab <schwab@suse.de>
-Cc: Shenlin Liang <liangshenlin@eswincomputing.com>, anup@brainfault.org, 
-	atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	peterz@infradead.org, mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, 
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
-	irogers@google.com, adrian.hunter@intel.com, linux-perf-users@vger.kernel.org
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEYPR01MB4221:EE_|TY0PR0101MB4585:EE_
+X-MS-Office365-Filtering-Correlation-Id: 897ad3e1-835f-4798-ba35-08dc862d2bac
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199019|3412199016|440099019;
+X-Microsoft-Antispam-Message-Info: PHQiJ6SYFtx8JefPfJdb8OKNuNemZM8hB6boojVMRwyocQMLeIH05/k+Gk/Ast4J3RTJCf8v6LgGfTLIumNQwJS7ishwilHnfNUqqj6MfZJmi/897269nlTum1t/NCefv5dyqzZZCGpGT5gMxiWg5mTrURgZ3Dh/FHJYEqKXAKNDTcEQ1IbukHW6STN2TWp4BraIDzeVtuNFpM3EAtlW7sc1Nksa53pSkZoGVgLObSztrDracxfPH4wndOmZ1eelcnXUBFMiCn+2r/v7f7+aqwJgMFZpw0TnUFMM+pbJJC8xQyqs2go3JTBKuze8i/B+MZZRPvdNedUJpn4gL0N1fC/Qxj6q9MmxohzZVBPNObC7y8RaapmJSzPLKQKx7FgtfGmqML99YzdGw0sOWxxgBB3guhNP2PwYhNMC9ridskKAGYqyhvZVc/35ASMIEAoF6qyn8RZSj49uux5yWwxZoyammkAdvmjKOTEpObgdYsTW2ZlIEiuYfONstAqcV/tnaIWcjzo5EYlFO47CzXkXmmKqw2ZBrjq3+q2NyAymgcTFyGlCv5h3rI435RIetJ4d
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6Qoh+eC7T/Jhs6tmQyrPLx6WigUMcr+EPuprH49c20qlHlTtXwd3BmhTRP6D?=
+ =?us-ascii?Q?2Twwxgr7RE0r4Kd8QxhGry7yqg28iGSf5nJQaHGXDHsdqhwUqj4uC38S7YeP?=
+ =?us-ascii?Q?q3FTfOsW/lasmgJwBUegk5MsqvunmVJLMn6TgBY8Kqye2SyzXX1AqiiyKYaV?=
+ =?us-ascii?Q?9x92JyrHr7oOkMhq0Wy+gfrdOViQ5n9bsNx/Zht+OYjHFr/uP1NY0QglEy9w?=
+ =?us-ascii?Q?SN4Z7VpX7Oi4ezaStc+2CWX/89SHlUk5drcnqQz6UUCTz0J9j44Wnj7BBNFm?=
+ =?us-ascii?Q?l2WpZITb3EoUHMA33HzHl13mnAWc0iutysIfYGO9bADOTXGW5fc3NzMIRMcw?=
+ =?us-ascii?Q?Uv3p6ZtIwc9YQIzmQeR8XhsMQPp2ocrnbWoFSLxaS4E1FpCKGo/JCdfugKxG?=
+ =?us-ascii?Q?noLg5k+U3uE+kuupCvrqy7IDg49s3vFgscoFUN0MUy1yH2O2DWIc+9g5qYq0?=
+ =?us-ascii?Q?8yTb6Rm7M+BS6qDahxKfLeUnM61zC7FgFRqFpQUWBx6LBmCCUwTavRztvL0b?=
+ =?us-ascii?Q?om3DpF5/RNJbr27aL8CBPwrFJLbx6zxDzE8a88C5ZRx95KqA3pWsJiQZLqr2?=
+ =?us-ascii?Q?vX1QoXJgrJS2WCN1aELpX3gLiuTICIQA0FfyTzYxHYvJ0BIVHe/KvW/KIJPn?=
+ =?us-ascii?Q?IF+ngIgWy5hxnn4vPg59B1Yx3K+e0o9aeZo4gDKoSMu5Dd8Tg/wGFD7onfNm?=
+ =?us-ascii?Q?o30YwonS4UFLbvj+POc1JnyD6IsInz0CdZRFUSExjbPFsAD09XJJne7Fnw0V?=
+ =?us-ascii?Q?FS011LTgUw2q5r5K7Xq+rRDTIdLgrIAQYkTUrK51pIwvppt9sISaldzcpHVs?=
+ =?us-ascii?Q?0+1lw7DTUpqUYFT/OLPXpRYAEHQ+euCTdwDtYaZ46VQYoWc/DyOAz3bPuUQj?=
+ =?us-ascii?Q?8GXO2OSmk/G6pex+JqstqRqP0/DrdhN3BoExzRv57kPSLLG/QK4C8ogL5cko?=
+ =?us-ascii?Q?BmAGD3dkd3XV1N96r9WaHBzn2nybIjKmIvRQscyoKNC9P1aV3v0Evo+LhxOM?=
+ =?us-ascii?Q?QwOcmRe4+zrOGvofEiyTyKRP8BgnNQ32Q6IMMm01nPHEsTpCdQ1CgMaHMb1D?=
+ =?us-ascii?Q?7rcBftlyhhdV23CwtHkCN1qn7pRqx1H5Pc1CkKvMvuxAMrG05ieLkPGcy8Dx?=
+ =?us-ascii?Q?GRZ3Tqzqh3MBo8JtWdGBBsyCNPlOtl4OJiGaZ9BVRR+VRBviFMlTM/wfKKeh?=
+ =?us-ascii?Q?qLG9Ike5o8XPLWMMiAQ+eRrFb0EvjI5LYGYfAeUcHORmKv79hCKwzvX7uwU?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 897ad3e1-835f-4798-ba35-08dc862d2bac
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jun 2024 13:32:54.6993
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR0101MB4585
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240606_025215_213041_E7BBF5DE 
-X-CRM114-Status: UNSURE (   6.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240606_063314_268633_774EE1B2 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,15 +134,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdW4gNiwgMjAyNCBhdCAzOjEw4oCvUE0gQW5kcmVhcyBTY2h3YWIgPHNjaHdhYkBz
-dXNlLmRlPiB3cm90ZToKPgo+IE9uIEFwciAyMiAyMDI0LCBTaGVubGluIExpYW5nIHdyb3RlOgo+
-Cj4gPiBcIE5vIG5ld2xpbmUgYXQgZW5kIG9mIGZpbGUKPgo+IFBsZWFzZSBmaXggdGhhdC4KCkZp
-eGVkIGluIEtWTSBSSVNDLVYgcXVldWUuCgpUaGFua3MsCkFudXAKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Jun 05, 2024 at 06:54:17PM +0100, Conor Dooley wrote:
+> > > +  accumulation-period:
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > +    description: Accumulation period for a sample
+> > > +    oneOf:
+> > > +      - const: 0
+> > > +        description: 512 ticks
+> > > +      - const: 1
+> > > +        description: 1024 ticks
+> > > +      - const: 2
+> > > +        description: 2048 ticks
+> > > +      - const: 3
+> > > +        description: 4096 ticks
+> > > +    default: 2
+> > > +
+> > > +  chop-period:
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > +    description: ADC chop period
+> 
+> What's a "chop" and why is either this or the accumulation-period a
+> fixed property of the hardware? Shouldn't this choice really be up to
+> the user?
+
+The chop-period is an ADC parameter.
+
+Both accumulation-period and chop-period specify how the sensor
+measures temperature. Making these parameters up to end users brings
+extra unnecessary code complexity. Being configurable for each board
+should be enough and other thermal drivers have been doing things in
+this way.
+
+> 
+> > > +    oneOf:
+> > > +      - const: 0
+> > > +        description: 128 ticks
+> > > +      - const: 1
+> > > +        description: 256 ticks
+> > > +      - const: 2
+> > > +        description: 512 ticks
+> > > +      - const: 3
+> > > +        description: 1024 ticks
+> 
+> Can we just make the number of ticks the unit here, and above?
+> Also, a "oneOf: - const" structure is just an enum.
+
+I do not catch your idea. These values directly map to raw register
+configuration, which simplify the implementation a lot.
+
+> 
+> > > +    default: 3
+> > > +
+> > > +  sample-cycle-us:
+> > > +    description: Period between samples
+> > > +    default: 1000000
+> No constraints?
+
+Sample cycle is more flexible because of hardware designing.
+
+Best reguards,
+Haylen Chu
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
