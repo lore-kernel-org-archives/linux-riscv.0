@@ -4,95 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D40BC27C54
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2024 21:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79CBDC27C52
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2024 22:08:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nlvu8fwAXCsvBfUvJDmQDHPU+JG0nFCggWZjl2vh4sQ=; b=pG2BMwlNYAG0YM
-	KxY4AAStyKTtnfJdY3GQLFQiFSLx8y1pMwLK4rhyEtLSAu6+FlRKUrdrRr7FgQfZ0DijMfc6CZ6c7
-	JPplt+MtJy5AtOgkmQKH7B0TSK7rIF5bPVVXFqw+15hTE9Oly28oHx8zYW/qNawHdKVDFy+vIIuQH
-	gkxKwxZqkXDtunmDWJ7SLOmTS6d2QWf0JRqW0JH5TcM0PRn1KKZACivsG0akbMiU7D2MGchS92QZ/
-	WCjfE8EZpsm62aKrGJagqYFJ46pA1LeUeR/WZB4Zk2gId1Pri3/pThsmoZXHnzMeS7HFHslOz2KZn
-	OQjU1zKOwedx0oTWsiOg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=K+7JzFVsOEbUnaUQXENDd786J6Kwn0gwMFY0Qi28ZGo=; b=dhKc/6Y68jFWCr
+	hl7UflbgI1oQyA3rYkfyxQ161rY4jWOASVEn+F2EVmWIj/uNb8l14w0BFqPJe9QyZWkZyuNNltQrU
+	NNJqE21B+LBA41YlnMRvv0OsnfVOH+iSFIIfNrRlBWGdg2r9sfRGgCk8kjY9yz8h2W4OsyFtLJz/r
+	CplFhE/DEs8KO6PhA5cvuQ/lAuQcEV3ddWj7rYv7N1x3woYi8jjF9cH811QRYSHVsvUvGTG6BtkEb
+	ByAJt1ogyWHsEnpdLRmghYOVDhcSRl23lnPan0ECm1KKNGzRnhG/zpUWXnrlHHl75txyvi0HrD8Dq
+	m+8h3+8IiWf2as3GZMlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFL96-0000000BU9N-3GbY;
-	Thu, 06 Jun 2024 21:59:45 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1sFLGz-0000000BVIZ-0JGR;
+	Thu, 06 Jun 2024 22:07:53 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFL94-0000000BU8b-01iF
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jun 2024 21:59:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1717711182; x=1749247182;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+Gwn0DCpWggIO+/CSb7e0Je5msLNmTRhJebT8XHU8NU=;
-  b=VkLXBvEVqkh/AKyKcoVaujwY+bgomnWKtYxJgjkiL30i+Sfcz6o/vX3b
-   wQsnQG3RsJGqnPcqGG8XXOax9rQHPEVU/Uxrc0XW2o+FImOfbitfyqwXU
-   au5mj5SWq5rerdb7t19fRjI1eoRp4GuGtsl2R+++KD6xdByfUVEnlf6vo
-   csOsb+hdfQHUwsGpfXTquQyjYQX7cEUPFZep85ibtCLdpfmSEvriqwDIY
-   htZzmZjFH2nXuSxX49d7jchpFjtg4JFajiM81WOpMpkvpqU9a2glIHOaV
-   1JnEo69teq0stQlce7GJAY9K1b5EHZKzRh77gvxVdp6d+RSzHChHkZ1g1
-   A==;
-X-CSE-ConnectionGUID: MO96yEclQF+fdt91/vmrKA==
-X-CSE-MsgGUID: WMscKMbySSC8VrATgJ8OYw==
-X-IronPort-AV: E=McAfee;i="6600,9927,11095"; a="14367737"
-X-IronPort-AV: E=Sophos;i="6.08,219,1712646000"; 
-   d="scan'208";a="14367737"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jun 2024 14:59:39 -0700
-X-CSE-ConnectionGUID: xzoZxw0oQ8CbgKXPJQxYzw==
-X-CSE-MsgGUID: iGfO0fY6TamP4YqJsropYg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.08,219,1712646000"; 
-   d="scan'208";a="42545100"
-Received: from unknown (HELO 0610945e7d16) ([10.239.97.151])
-  by fmviesa005.fm.intel.com with ESMTP; 06 Jun 2024 14:59:32 -0700
-Received: from kbuild by 0610945e7d16 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1sFL8r-0003mC-2D;
-	Thu, 06 Jun 2024 21:59:29 +0000
-Date: Fri, 7 Jun 2024 05:58:56 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1sFLGu-0000000BVG6-1E5d;
+	Thu, 06 Jun 2024 22:07:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 34C43CE1C3D;
+	Thu,  6 Jun 2024 22:07:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 334C5C2BD10;
+	Thu,  6 Jun 2024 22:07:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717711665;
+	bh=lmfYmD8PocbYwBIvNsI0krEguZSlXT3D+X8GrfxCwsE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=sUByc/MSb83Ptm4NMe1WQeZUXt6PgScwLR/svMCB7dNs0qiSlijFVS7UO74+lbv03
+	 V/VgBISdxd7O7DLgDJRA0zJbKk2DMvzD9NAehnW/bCA5WwCkyICdD/ESZ0ydeJ9M+0
+	 DeTCL6fwp83ujDPM3nNFEX604YRGmERFIJbZg0AzU9ciGHhhJanRw1jnh7N55xCiUA
+	 7k0ej9Ih+hsP8hBcl8cwblI1ztzEl7jkQopNqW7yJ8ml3qYMKNSMqWZZR1iQEvin6U
+	 COmTqN/g03o5lQkqp79ziZnYsVODE9WCLQNg2L63OqLzhHsCKN3CtL7KDJknYwIv5X
+	 tMPxWpSwNx9fA==
+Date: Thu, 6 Jun 2024 17:07:43 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, acpica-devel@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Anup Patel <anup@brainfault.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Robert Moore <robert.moore@intel.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Evan Green <evan@rivosinc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
-	Jesse Taube <jesse@rivosinc.com>, Xiao Wang <xiao.w.wang@intel.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	Baoquan He <bhe@redhat.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Zong Li <zong.li@sifive.com>, Ben Dooks <ben.dooks@codethink.co.uk>,
-	Erick Archer <erick.archer@gmx.com>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Joel Granados <j.granados@samsung.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] RISC-V: Detect unaligned vector accesses supported.
-Message-ID: <202406070508.6UJUx2rO-lkp@intel.com>
-References: <20240606183215.416829-2-jesse@rivosinc.com>
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Haibo1 Xu <haibo1.xu@intel.com>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Subject: Re: [PATCH v6 10/17] ACPI: RISC-V: Implement function to reorder
+ irqchip probe entries
+Message-ID: <20240606220743.GA821335@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240606183215.416829-2-jesse@rivosinc.com>
+In-Reply-To: <20240601150411.1929783-11-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240606_145942_146719_B67EC020 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20240606_150748_711496_F640FE1F 
+X-CRM114-Status: GOOD (  25.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,158 +90,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jesse,
+On Sat, Jun 01, 2024 at 08:34:04PM +0530, Sunil V L wrote:
+> ACPI MADT entries for interrupt controllers don't have a way to describe
+> the hierarchy. However, the hierarchy is known to the architecture and
+> on RISC-V platforms, the MADT sub table types are ordered in the
+> incremental order from the root controller which is RINTC. So, add
+> architecture function for RISC-V to reorder the interrupt controller
+> probing as per the hierarchy as below.
 
-kernel test robot noticed the following build errors:
+Is this ordering requirement documented anywhere?  I don't see it in
+the RISC-V ECRs to the ACPI r6.5 spec.
 
-[auto build test ERROR on v6.9]
-[cannot apply to akpm-mm/mm-everything linus/master v6.10-rc2 v6.10-rc1 next-20240606]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+I guess the implication is that you need to process MADT structures in
+order of ascending acpi_madt_type:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jesse-Taube/RISC-V-Detect-unaligned-vector-accesses-supported/20240607-023434
-base:   v6.9
-patch link:    https://lore.kernel.org/r/20240606183215.416829-2-jesse%40rivosinc.com
-patch subject: [PATCH 2/3] RISC-V: Detect unaligned vector accesses supported.
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20240607/202406070508.6UJUx2rO-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 13.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240607/202406070508.6UJUx2rO-lkp@intel.com/reproduce)
+  ACPI_MADT_TYPE_RINTC = 24,
+  ACPI_MADT_TYPE_IMSIC = 25,
+  ACPI_MADT_TYPE_APLIC = 26,
+  ACPI_MADT_TYPE_PLIC = 27,
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202406070508.6UJUx2rO-lkp@intel.com/
+regardless of the order they appear in the MADT?  I.e., process all
+the RINTC structures (in order of appearance in MADT), followed by all
+the IMSIC structures, then all the APLIC structures, etc?
 
-All errors (new ones prefixed by >>):
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> ---
+>  drivers/acpi/riscv/Makefile |  2 +-
+>  drivers/acpi/riscv/irq.c    | 32 ++++++++++++++++++++++++++++++++
+>  2 files changed, 33 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/acpi/riscv/irq.c
+> 
+> diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
+> index 877de00d1b50..a96fdf1e2cb8 100644
+> --- a/drivers/acpi/riscv/Makefile
+> +++ b/drivers/acpi/riscv/Makefile
+> @@ -1,4 +1,4 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+> -obj-y					+= rhct.o init.o
+> +obj-y					+= rhct.o init.o irq.o
+>  obj-$(CONFIG_ACPI_PROCESSOR_IDLE)	+= cpuidle.o
+>  obj-$(CONFIG_ACPI_CPPC_LIB)		+= cppc.o
+> diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
+> new file mode 100644
+> index 000000000000..f56e103a501f
+> --- /dev/null
+> +++ b/drivers/acpi/riscv/irq.c
+> @@ -0,0 +1,32 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2023-2024, Ventana Micro Systems Inc
+> + *	Author: Sunil V L <sunilvl@ventanamicro.com>
+> + *
 
-   arch/riscv/kernel/traps_misaligned.c: In function 'handle_misaligned_load':
->> arch/riscv/kernel/traps_misaligned.c:427:13: error: implicit declaration of function 'insn_is_vector' [-Werror=implicit-function-declaration]
-     427 |         if (insn_is_vector(insn) &&
-         |             ^~~~~~~~~~~~~~
-   cc1: some warnings being treated as errors
+Spurious blank line.
 
+> + */
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/sort.h>
+> +
+> +static int irqchip_cmp_func(const void *in0, const void *in1)
+> +{
+> +	struct acpi_probe_entry *elem0 = (struct acpi_probe_entry *)in0;
+> +	struct acpi_probe_entry *elem1 = (struct acpi_probe_entry *)in1;
+> +
+> +	return (elem0->type > elem1->type) - (elem0->type < elem1->type);
+> +}
+> +
+> +/*
+> + * RISC-V irqchips in MADT of ACPI spec are defined in the same order how
+> + * they should be probed. Since IRQCHIP_ACPI_DECLARE doesn't define any
+> + * order, this arch function will reorder the probe functions as per the
+> + * required order for the architecture.
 
-vim +/insn_is_vector +427 arch/riscv/kernel/traps_misaligned.c
+But this comment seems to contradict the commit log.  This comment
+says you should process MADT structures in the order they appear in
+the MADT.  But if that were the case, you wouldn't need to sort
+anything.
 
-   406	
-   407	int handle_misaligned_load(struct pt_regs *regs)
-   408	{
-   409		union reg_data val;
-   410		unsigned long epc = regs->epc;
-   411		unsigned long insn;
-   412		unsigned long addr = regs->badaddr;
-   413		int i, fp = 0, shift = 0, len = 0;
-   414	
-   415		perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
-   416	
-   417		if (!unaligned_enabled)
-   418			return -1;
-   419	
-   420		if (user_mode(regs) && (current->thread.align_ctl & PR_UNALIGN_SIGBUS))
-   421			return -1;
-   422	
-   423		if (get_insn(regs, epc, &insn))
-   424			return -1;
-   425	
-   426	#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
- > 427		if (insn_is_vector(insn) &&
-   428		    *this_cpu_ptr(&vector_misaligned_access) == RISCV_HWPROBE_VEC_MISALIGNED_SUPPORTED) {
-   429			*this_cpu_ptr(&vector_misaligned_access) = RISCV_HWPROBE_VEC_MISALIGNED_UNSUPPORTED;
-   430			regs->epc = epc + INSN_LEN(insn);
-   431			return 0;
-   432		}
-   433	
-   434		*this_cpu_ptr(&misaligned_access_speed) = RISCV_HWPROBE_MISALIGNED_EMULATED;
-   435	#endif
-   436	
-   437		regs->epc = 0;
-   438	
-   439		if ((insn & INSN_MASK_LW) == INSN_MATCH_LW) {
-   440			len = 4;
-   441			shift = 8 * (sizeof(unsigned long) - len);
-   442	#if defined(CONFIG_64BIT)
-   443		} else if ((insn & INSN_MASK_LD) == INSN_MATCH_LD) {
-   444			len = 8;
-   445			shift = 8 * (sizeof(unsigned long) - len);
-   446		} else if ((insn & INSN_MASK_LWU) == INSN_MATCH_LWU) {
-   447			len = 4;
-   448	#endif
-   449		} else if ((insn & INSN_MASK_FLD) == INSN_MATCH_FLD) {
-   450			fp = 1;
-   451			len = 8;
-   452		} else if ((insn & INSN_MASK_FLW) == INSN_MATCH_FLW) {
-   453			fp = 1;
-   454			len = 4;
-   455		} else if ((insn & INSN_MASK_LH) == INSN_MATCH_LH) {
-   456			len = 2;
-   457			shift = 8 * (sizeof(unsigned long) - len);
-   458		} else if ((insn & INSN_MASK_LHU) == INSN_MATCH_LHU) {
-   459			len = 2;
-   460	#if defined(CONFIG_64BIT)
-   461		} else if ((insn & INSN_MASK_C_LD) == INSN_MATCH_C_LD) {
-   462			len = 8;
-   463			shift = 8 * (sizeof(unsigned long) - len);
-   464			insn = RVC_RS2S(insn) << SH_RD;
-   465		} else if ((insn & INSN_MASK_C_LDSP) == INSN_MATCH_C_LDSP &&
-   466			   ((insn >> SH_RD) & 0x1f)) {
-   467			len = 8;
-   468			shift = 8 * (sizeof(unsigned long) - len);
-   469	#endif
-   470		} else if ((insn & INSN_MASK_C_LW) == INSN_MATCH_C_LW) {
-   471			len = 4;
-   472			shift = 8 * (sizeof(unsigned long) - len);
-   473			insn = RVC_RS2S(insn) << SH_RD;
-   474		} else if ((insn & INSN_MASK_C_LWSP) == INSN_MATCH_C_LWSP &&
-   475			   ((insn >> SH_RD) & 0x1f)) {
-   476			len = 4;
-   477			shift = 8 * (sizeof(unsigned long) - len);
-   478		} else if ((insn & INSN_MASK_C_FLD) == INSN_MATCH_C_FLD) {
-   479			fp = 1;
-   480			len = 8;
-   481			insn = RVC_RS2S(insn) << SH_RD;
-   482		} else if ((insn & INSN_MASK_C_FLDSP) == INSN_MATCH_C_FLDSP) {
-   483			fp = 1;
-   484			len = 8;
-   485	#if defined(CONFIG_32BIT)
-   486		} else if ((insn & INSN_MASK_C_FLW) == INSN_MATCH_C_FLW) {
-   487			fp = 1;
-   488			len = 4;
-   489			insn = RVC_RS2S(insn) << SH_RD;
-   490		} else if ((insn & INSN_MASK_C_FLWSP) == INSN_MATCH_C_FLWSP) {
-   491			fp = 1;
-   492			len = 4;
-   493	#endif
-   494		} else {
-   495			regs->epc = epc;
-   496			return -1;
-   497		}
-   498	
-   499		if (!IS_ENABLED(CONFIG_FPU) && fp)
-   500			return -EOPNOTSUPP;
-   501	
-   502		val.data_u64 = 0;
-   503		for (i = 0; i < len; i++) {
-   504			if (load_u8(regs, (void *)(addr + i), &val.data_bytes[i]))
-   505				return -1;
-   506		}
-   507	
-   508		if (!fp)
-   509			SET_RD(insn, regs, val.data_ulong << shift >> shift);
-   510		else if (len == 8)
-   511			set_f64_rd(insn, regs, val.data_u64);
-   512		else
-   513			set_f32_rd(insn, regs, val.data_ulong);
-   514	
-   515		regs->epc = epc + INSN_LEN(insn);
-   516	
-   517		return 0;
-   518	}
-   519	
+Maybe "defined in the order they should be probed" means "in order of
+increasing Interrupt Controller structure type value"?
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> + */
+> +void arch_sort_irqchip_probe(struct acpi_probe_entry *ap_head, int nr)
+> +{
+> +	struct acpi_probe_entry *ape = ap_head;
+> +
+> +	if (nr == 1 || !ACPI_COMPARE_NAMESEG(ACPI_SIG_MADT, ape->id))
+> +		return;
+> +	sort(ape, nr, sizeof(*ape), irqchip_cmp_func, NULL);
+> +}
+> -- 
+> 2.40.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
