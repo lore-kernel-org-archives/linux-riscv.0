@@ -4,64 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5D1C27C52
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jun 2024 00:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4023C27C52
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jun 2024 00:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dSUh/arUPA2HaiJU3BVC7eYC2YJzuF47elcMeftG8dE=; b=Gn7Pkv6J6cei9D
-	iJe8usAm/kRfScfE4OTnmLxNioj6YdObtBQGQWb7MthPQmwDg2ygRA8vuPXgV5jQ3hbBecunLRjWz
-	aCbED07Lq75H9jpgT9wyi25NIRBSEoOF8lxYJdp/S83WFQXgi5g7M0x0mzHRMDVDFwxDannwK412C
-	MYXWQ/yB1ozyFxnTmYerER/wC6xnwlPR8GGWAHdlpLB2De+uATWVCTMCVFGnZfOqyPK3oIHvSIHgC
-	ymqUUo7oF3eqVutcDMGOg6zOsQ4/H2ElYx7F3nKBw9qdZak7ReC2N1d9sZaHwoP5OfKXCYlewdbJI
-	QFjiNjy8/CBnTq1GFOBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:From:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8QalvNoP8T3GTyZxygHGDY6N8wLu/32xLDZIIK1b3BI=; b=pAq0aGyM6DufXPd1NUXV+y4PfX
+	PO2LpzUBuGgXFiB1H95RwrLXfzS/1LP5V7KX77GwAPE2onUW5jdhTGVk0G/JxCjhIyPgVIE6FmBhA
+	LRmwiE9gi62GD0gyUetYOibfhOcSRDSFxMbmno08PwWVNpeLwzq49g0qpGEphfiLwEnK23joa1jcz
+	LsmVNqTWnnTZow7ZCAzA6qF8hcfQ57RUWv3foamZR3IypESYpKM9tF4CcLEN5IPjdxDR6Z57jX/tQ
+	sa5tai2Q9oKfP8DWtkLF5zUCMXZqTNeDvuQPkTYHG8EHGz5afs1MbucBDpADkdAz9o4ZrgZrKBKah
+	CU+4onbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFNSZ-0000000Bq9w-28Go;
-	Fri, 07 Jun 2024 00:27:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sFNka-0000000BrgL-01y9;
+	Fri, 07 Jun 2024 00:46:36 +0000
+Received: from mail-dm6nam04on20700.outbound.protection.outlook.com ([2a01:111:f403:2409::700] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFNSV-0000000Bq8r-265G;
-	Fri, 07 Jun 2024 00:27:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BFA5A61E79;
-	Fri,  7 Jun 2024 00:27:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9061C2BD10;
-	Fri,  7 Jun 2024 00:27:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1717720074;
-	bh=FQTqwYknv8JIZqJzJar6YMQ0/CLZjse4O5WXBBaPRL0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=A+r1MyX3DI9NOoncuFmLLFlvelMwJ4dRnFUGBcft7113VpTMnbRXrbRugLD+xjLoQ
-	 hVlly304fyXaMWlsk+r4AuIvuwNpnGDuB2cWQSLiQL1MvivwUEBKxN9lylgEB8j/U4
-	 PQOSnpZN+7+p/EB+SCem3gdr74mPo3NWVYi4/Jj9ooLP7jxdQ8K5sHPfULU41fG3cQ
-	 1u5yKMADsLAsBvb/oUdYBWAvsnolCGhhFqenE8o5ewWeTOv9QdbjoLtPv1V5K1jRUS
-	 s72yzQemjiN9VlcyrQgWsXRAhEdo8M+G1aHVz+LI1O/Q1l9S8P2KiAuyelH2UMnaTZ
-	 yzUr6Z3I7giKg==
-Date: Thu, 6 Jun 2024 17:27:52 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Shenlin Liang <liangshenlin@eswincomputing.com>
-Cc: anup@brainfault.org, atishp@atishpatra.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, peterz@infradead.org,
-	mingo@redhat.com, acme@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] perf kvm/riscv: Port perf kvm stat to RISC-V
-Message-ID: <ZmJUCJwavWXsesKn@google.com>
-References: <20240422080833.8745-1-liangshenlin@eswincomputing.com>
- <20240422080833.8745-3-liangshenlin@eswincomputing.com>
+	id 1sFNkV-0000000BreY-25lz;
+	Fri, 07 Jun 2024 00:46:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=GxUlKDQ21chwOMMtwAoCdqUDnCdlBvrIIF/95lMQSD5voSx8g8TcwiWU1FOW9uzu+Lhj2ID/HdxCv2x2660PR4bE5DfSaxP7vxpjtnY2Ir3O2EFPBWRa+hFyj0wrvniaZj+plXiV+YfCMsYJ0pR61q3VF8lDKTGk7KfsGFXo41zriYlsvsvfnJHmiyuwzgjQLzktBRkIeZpF4+bXTkOX1kJuVGZrL4Cxt8Z57Y05QFBJZ1waFkF7AiBaBjW3fxoCeriP55wNAdGc9N5sDKh7epPOfQQh2xsvz5UrYDTwEPPX0GgUbZ8pp0XdISS1afolzUDCHZhXEmGiwR0cQ7/99Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+c4NPeknrN2huAh8WNjJOicmesWq/xGWo+NXuaddLr0=;
+ b=OMlp+57Iy5F1w/WRfraim5A1IQnw+qENbJ76NLHM0fWoKaHgmMEmWfqJZMCpOgxdiPe2NdUsQ7UI5q0ATfvWMivl3mDSaA9P5sbWtG4M/+sFM17cvMBKXhuaPETW/VsWx9+VN3boOw8L9RP2L9qBMUssSYWwz8Tj6UB5VE1ZQUQsisJMNTMtv2heI7juHNHWv5ZWTlUTE4o92YPfxiScFT9cXtpSH/gKjaNXK8pZ1hYjzDSVZ8bVc8zEGa7E/7O+k+UnuYZhJGsx4jJy+nNK4GvpKwIAdJiTF7kN/IUTkmMFr0m/rG7SHCGb8KDk2Z9szEEZ6AOO1UjtGJFIzLGYZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+c4NPeknrN2huAh8WNjJOicmesWq/xGWo+NXuaddLr0=;
+ b=U6saFYOZEh7baQKvXuie1Mnr8oAy6LHNbd3ztQYU5XSv1ZpGMGjCUaIRLC9YvT9kkZWJ0aFa/tWpbnS/uVtJVwz89zZq9gM42AmRFB9ZVKUbrvJpaXSsVg9I+4IoB6W9z7G+CDgJ2TPr0IEvil2QvgwP1vYcsz8MwiOSeFh3D+o=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MN2PR01MB5902.prod.exchangelabs.com (2603:10b6:208:18e::20) by
+ LV2PR01MB7791.prod.exchangelabs.com (2603:10b6:408:170::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7633.21; Fri, 7 Jun 2024 00:46:21 +0000
+Received: from MN2PR01MB5902.prod.exchangelabs.com
+ ([fe80::1a99:8110:f593:d3f5]) by MN2PR01MB5902.prod.exchangelabs.com
+ ([fe80::1a99:8110:f593:d3f5%2]) with mapi id 15.20.7633.033; Fri, 7 Jun 2024
+ 00:46:21 +0000
+Date: Thu, 6 Jun 2024 17:46:16 -0700 (PDT)
+From: Shubhang Kaushik <shubhang@os.amperecomputing.com>
+To: ampere-linux-kernel@lists.amperecomputing.com
+cc: linux-arm-kernel@lists.infradead.org, cl@linux.com, corbet@lwn.net, 
+    akpm@linux-foundation.org, urezki@gmail.com, linux-mm@kvack.org, 
+    guoren@kernel.org, linux-doc@vger.kernel.org, xiongwei.song@windriver.com, 
+    linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, willy@infradead.org
+Subject: [PATCH v3] vmalloc: Modify the alloc_vmap_area() error message for
+ better diagnostics
+Message-ID: <8a4c62ea-f0be-1644-5c33-18072c1c82de@os.amperecomputing.com>
+X-ClientProxiedBy: CH5PR02CA0013.namprd02.prod.outlook.com
+ (2603:10b6:610:1ed::27) To MN2PR01MB5902.prod.exchangelabs.com
+ (2603:10b6:208:18e::20)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240422080833.8745-3-liangshenlin@eswincomputing.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR01MB5902:EE_|LV2PR01MB7791:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0d1a9c45-7ecd-4b0d-beef-08dc868b3fba
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230031|1800799015|7416005|376005|366007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?l1s5J75cs4gYncDi1/bzt0PWYudntMQmape9BpR3acyLuMVJa3cRcdq2Bkl/?=
+ =?us-ascii?Q?VEurZWYub2g/4XJH58oyLIqZjDiW1hTHwdI5tPOxLlhQfxk1c5lbMfPXJg+t?=
+ =?us-ascii?Q?vYojuAZ9HssIyTi/5174PDhVaurMYGbMj96+4WDuSHZZ/MqL6eaY8ABOuI0c?=
+ =?us-ascii?Q?U49W87jVwi3fWo9nBPlICnbBcZ8NwDItuvCdwY1NpaW94lXpiLfeVp7gS6NF?=
+ =?us-ascii?Q?bCz2mXearZyEkt32nA7gWhD7wmy2ZUZtu8Rl2mQ5MzCm32Ah5QGsGLyibfbw?=
+ =?us-ascii?Q?md2wKx2oqhsnIi0mr1D2XZ2BvhyEXIhqWhbnh+WCOKEFNW8hhw02Y2hO2NPr?=
+ =?us-ascii?Q?COHbzt4a2w2+++dXDKiJVptX6w5ySDp61PcQfkpLefq+BxOtvkskty4JU/7H?=
+ =?us-ascii?Q?vrYPJNmLF3FLbwloYyr72SXBQ3qfehIfUFchkcV/t5gC1E5/b81h5YtKHIpF?=
+ =?us-ascii?Q?eQ2PzD9j3Js2xzfSwawh678CW5+Rn6QfNs5dar8IED2NTq4vibv8LO4hRHaQ?=
+ =?us-ascii?Q?ljVaTf+ttRy1czc03C7Q2mMTPu7b9LLgPHCaKVDG38b/+1N0oLQx0HORpnxm?=
+ =?us-ascii?Q?/WYcSBpmaQ8PNszD+TdSdb7LxhPBrEO9+ufK/DLYLpI9314tvVrnbdTQ+8sB?=
+ =?us-ascii?Q?ZoPtPa/+3/QLUNDm6ctEeiOZB7wj7rmpcwVvg1Ia/2peu9NBUx9BNBxRNUJ+?=
+ =?us-ascii?Q?GpEPUN3NUlA0Uboyi2zmmBB1dMjU2J9l+vLl0Omih2wxcpY8Pk5tvwwAKjsM?=
+ =?us-ascii?Q?u0amYQ/puouLIOOGSO/EbTKv8bQvOV4fpe815AeaqUmTnng+/uaVKK/F//hH?=
+ =?us-ascii?Q?9UsFhp5c7MRYhLx1VVtWJ3ayMi1Dh7Z7zmLP7zy8fjIK4a5CXEb8av+aRvB6?=
+ =?us-ascii?Q?cFttrbInrg3fZOzusR0R/3GBGrOoXbwD+Jhb27eMbBCgwPGmGx1zOHkyOl7u?=
+ =?us-ascii?Q?iw6k3QHRKoTM5SCcqqgx9KMRWQKJhR5C8/TcoLXFse/z3oh3NWRUWPe4r0hI?=
+ =?us-ascii?Q?sir+69+8g7BqcEe2vQtJNdPp7KKVgN+4aXLAsYzgNjMPPD9c9X3td7TfLl9g?=
+ =?us-ascii?Q?NwjhQTCUH4eTDC+wnbUpuJJBEQMRuZ0CnxhNwHqnile0L5hhyLYdyM+Qgj+8?=
+ =?us-ascii?Q?kqAajGtDsykmN52u2h3fjzhRdao5rXBaXyZOjYZxN2ebsN/GLFJUQw8tvQ70?=
+ =?us-ascii?Q?gvPAaxUIyY4P5F9daOiX1eCSUgU6wpSCvYw0lLxJeqsZ7saZsjO35IiX9bbi?=
+ =?us-ascii?Q?gop3DetpNdd0xacz8tWoYyuqg5SIZeJBkk177OXhi1SMvgIJtk92U2SYDL8u?=
+ =?us-ascii?Q?WhjykQD6j/7nTKzCEI2zftok?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR01MB5902.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(7416005)(376005)(366007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?izkao55Uf7BQofY/BCUlM+6N5BbSpnumao5nWpxv1qqAvq46sdBmoZH06cSa?=
+ =?us-ascii?Q?5eQzxTm6Cg2ege9vMYPzJZOQKoy75hNK/HZ+Nw3zXeQ47C1AnWRZiKwxOY7O?=
+ =?us-ascii?Q?XijgXStc+I6BTA/FSx+1ZoPDMalRhgplbEnX3EdxaiOfr+6OZcACavDq+auH?=
+ =?us-ascii?Q?PXpzB5UIFh/k44itQJfI4Q+nOcBHDpgQ5NLEGp42q9m4Fzm7X1RA6o7EWNDp?=
+ =?us-ascii?Q?megI8YzFRt2r8ZtkIbS1JSrtU+WkvjQ79ahQfex4PXgqIIg5va7REWxnmkN8?=
+ =?us-ascii?Q?MipjWeuuohNYSxjweI8xsNBJ22L7OlQXzMLd5fqYBRskunE/FHp3ChgEnWBO?=
+ =?us-ascii?Q?6gDqBdZaKxHskxf/DH6r1DqLDTS13B0a8CyYbSPdMKKlEnXg5lvIUMnbd5Mi?=
+ =?us-ascii?Q?JDw9Z4c4vsAZCAK2E/Am0OaMSbaDxlOmVT2zjqkQ0OGMk4Grd84gaixSZL59?=
+ =?us-ascii?Q?tB4csqH2NoR6DXWvdvo45yGcKi3xo0LxOTqgJvnxRXl3FjSNbcOB2+NphaUm?=
+ =?us-ascii?Q?ltq8g5blWTx04W7h34iXuzzHSpXxpUF54nWSvKaVKSNF4fnMIC2VIg+CmFnV?=
+ =?us-ascii?Q?9/DiwIOfaHWsUPc4exHQhnLvsfEoDSCTTim33vSNrVrninGvTz5u7iOUYViN?=
+ =?us-ascii?Q?0aLZtnB9HCeAizgbcIqvWKhp300PvUqIdRXYjrk8IR2yrpn71QtBz/6B8e+U?=
+ =?us-ascii?Q?yU+rbXjetuN6lUkMFOBK2e+xlDYo4NLoEJ0JMmJ3LIDue1FrGIlQyeOncmP9?=
+ =?us-ascii?Q?Q9OfZWh+1DTK/I9zViVMy1z2TukrEGttrFgMhm3azSQk2VRtGL2uN6olPm3x?=
+ =?us-ascii?Q?cmXccxFdGMybuGlU3BQeGIfcH9pVJq6gmw7Nby7NkRZ2mrZrSa8S6rzyGa3x?=
+ =?us-ascii?Q?tSDsgw/YVMZP8qw8roz2omdu1TGXpZQxIPiV7wc/1o9tLhml/vNBbG9U6s4H?=
+ =?us-ascii?Q?OtU7uWwSntjGsl8c1NnMz4C4eHiGBrzh/eSycutYtpVMYEBurnwm5yRArcAl?=
+ =?us-ascii?Q?Zvz88iS02rGQm5Be1f3M6WJOj1tIrDZGdfv5UurrvsKbFsgYvSR5Zf8BdzRT?=
+ =?us-ascii?Q?Inr5gqlhpQhCmMfK6ZETsgIIhGcIA1If0mtJgCqB6RVoiIgIERg1NP/I/xi6?=
+ =?us-ascii?Q?/00MPhSXpv7MkD7wEQVgwNIzT6033edatPbJEggZYFMR/OeeS2+kE3cQ7vKp?=
+ =?us-ascii?Q?MweRCI3Mpz5kKo66EouwnAIESlyRltzVPJPKwT4fbX15jH9EubypzNBtwM3H?=
+ =?us-ascii?Q?A/79v9Ou/UfBItGiOKlN7miCXHLWcFoXkgiI+eDuDKMWKs3fRIbinYg/OxwO?=
+ =?us-ascii?Q?d5pEua9wSFR7Z0qqCP1FQtB+79V4yxmQBzTY8iiGfupIpjHrMIrGdEUgfsU4?=
+ =?us-ascii?Q?yedFvxYcEQxoesGHPPmSOj/JOieyr6iuhcLDCQzSVEGR8iWM5VYKQuJXnCkr?=
+ =?us-ascii?Q?2WQLrOpW4FH68M35yHfzYrrolWtP8RiTVn7O630DqAKTsI4H6VGDBqVZPL/X?=
+ =?us-ascii?Q?P+l+ddSK0Z163qHNYm9e1OgJZSrHKL/3WwwbwJvnTCzXadksHanYrBwhe+Rs?=
+ =?us-ascii?Q?hLvWBRllBXe03/8Ia6EbkV+tBt3E1q0JQlmoL9++Bg9UCOGH4C5u9wiJ8YM4?=
+ =?us-ascii?Q?++bDZDp+18q4AopEJdzXtzc=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d1a9c45-7ecd-4b0d-beef-08dc868b3fba
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR01MB5902.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jun 2024 00:46:20.8981
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Lj/cIcvztlQFZ3YVCAJMVR8nClPhNA4r7cFYIpjvjvldwsNSweIE+sKvIr0oI5TZltgx+PRw/MI2jxxeFEX1AJDBRaED6+PUzNj2Sydy9CFsAKb1wqqN5HOb3WIesEQK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR01MB7791
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240606_172755_698708_08176ADE 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20240606_174631_566553_AC0149E3 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,192 +151,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+'vmap allocation for size %lu failed: use vmalloc=<size> to increase size'
+The above warning is seen in the kernel functionality for allocation of
+the restricted virtual memory range till exhaustion.
 
-On Mon, Apr 22, 2024 at 08:08:33AM +0000, Shenlin Liang wrote:
-> 'perf kvm stat report/record' generates a statistical analysis of KVM
-> events and can be used to analyze guest exit reasons.
-> 
-> "report" reports statistical analysis of guest exit events.
-> 
-> To record kvm events on the host:
->  # perf kvm stat record -a
-> 
-> To report kvm VM EXIT events:
->  # perf kvm stat report --event=vmexit
-> 
-> Signed-off-by: Shenlin Liang <liangshenlin@eswincomputing.com>
-> ---
->  tools/perf/arch/riscv/Makefile                |  1 +
->  tools/perf/arch/riscv/util/Build              |  1 +
->  tools/perf/arch/riscv/util/kvm-stat.c         | 79 +++++++++++++++++++
->  .../arch/riscv/util/riscv_exception_types.h   | 35 ++++++++
->  4 files changed, 116 insertions(+)
->  create mode 100644 tools/perf/arch/riscv/util/kvm-stat.c
->  create mode 100644 tools/perf/arch/riscv/util/riscv_exception_types.h
-> 
-> diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-> index a8d25d005207..e1e445615536 100644
-> --- a/tools/perf/arch/riscv/Makefile
-> +++ b/tools/perf/arch/riscv/Makefile
-> @@ -3,3 +3,4 @@ PERF_HAVE_DWARF_REGS := 1
->  endif
->  PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
->  PERF_HAVE_JITDUMP := 1
-> +HAVE_KVM_STAT_SUPPORT := 1
-> \ No newline at end of file
-> diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-> index 603dbb5ae4dc..d72b04f8d32b 100644
-> --- a/tools/perf/arch/riscv/util/Build
-> +++ b/tools/perf/arch/riscv/util/Build
-> @@ -1,5 +1,6 @@
->  perf-y += perf_regs.o
->  perf-y += header.o
->  
-> +perf-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
->  perf-$(CONFIG_DWARF) += dwarf-regs.o
->  perf-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-> diff --git a/tools/perf/arch/riscv/util/kvm-stat.c b/tools/perf/arch/riscv/util/kvm-stat.c
-> new file mode 100644
-> index 000000000000..58813049fc45
-> --- /dev/null
-> +++ b/tools/perf/arch/riscv/util/kvm-stat.c
-> @@ -0,0 +1,79 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Arch specific functions for perf kvm stat.
-> + *
-> + * Copyright 2024 Beijing ESWIN Computing Technology Co., Ltd.
-> + *
-> + */
-> +#include <errno.h>
-> +#include <memory.h>
-> +#include "../../../util/evsel.h"
-> +#include "../../../util/kvm-stat.h"
-> +#include "riscv_exception_types.h"
-> +#include "debug.h"
-> +
-> +define_exit_reasons_table(riscv_exit_reasons, kvm_riscv_exception_class);
-> +
-> +const char *vcpu_id_str = "id";
-> +const char *kvm_exit_reason = "scause";
-> +const char *kvm_entry_trace = "kvm:kvm_entry";
-> +const char *kvm_exit_trace = "kvm:kvm_exit";
-> +
-> +const char *kvm_events_tp[] = {
-> +	"kvm:kvm_entry",
-> +	"kvm:kvm_exit",
-> +	NULL,
-> +};
-> +
-> +static void event_get_key(struct evsel *evsel,
-> +			  struct perf_sample *sample,
-> +			  struct event_key *key)
-> +{
-> +	key->info = 0;
-> +	key->key = evsel__intval(evsel, sample, kvm_exit_reason);
-> +	key->key = (int)key->key;
+This message is misleading because 'vmalloc=' is supported on arm32, x86 
+platforms and is not a valid kernel parameter on a number of other 
+platforms (in particular its not supported on arm64,alpha,loongarch,arc, 
+csky,hexagon,microblaze,mips,nios2,openrisc,parisc,m64k,powerpc,riscv,sh, 
+um,xtensa,s390,sparc). With the update, the output gets modified to
+include the function parameters along with the start and end of the 
+virtual memory range allowed.
 
-Looks unnecessary..
+The warning message after fix on kernel version 6.10.0-rc1+:
 
-Thanks,
-Namhyung
+vmalloc_node_range for size 33619968 failed: Address range restricted 
+between 0xffff800082640000 - 0xffff800084650000
 
+Backtrace with the misleading error message:
 
-> +	key->exit_reasons = riscv_exit_reasons;
-> +}
-> +
-> +static bool event_begin(struct evsel *evsel,
-> +			struct perf_sample *sample __maybe_unused,
-> +			struct event_key *key __maybe_unused)
-> +{
-> +	return evsel__name_is(evsel, kvm_entry_trace);
-> +}
-> +
-> +static bool event_end(struct evsel *evsel,
-> +		      struct perf_sample *sample,
-> +		      struct event_key *key)
-> +{
-> +	if (evsel__name_is(evsel, kvm_exit_trace)) {
-> +		event_get_key(evsel, sample, key);
-> +		return true;
-> +	}
-> +	return false;
-> +}
-> +
-> +static struct kvm_events_ops exit_events = {
-> +	.is_begin_event = event_begin,
-> +	.is_end_event	= event_end,
-> +	.decode_key	= exit_event_decode_key,
-> +	.name		= "VM-EXIT"
-> +};
-> +
-> +struct kvm_reg_events_ops kvm_reg_events_ops[] = {
-> +	{
-> +		.name	= "vmexit",
-> +		.ops	= &exit_events,
-> +	},
-> +	{ NULL, NULL },
-> +};
-> +
-> +const char * const kvm_skip_events[] = {
-> +	NULL,
-> +};
-> +
-> +int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid __maybe_unused)
-> +{
-> +	kvm->exit_reasons_isa = "riscv64";
-> +	return 0;
-> +}
-> diff --git a/tools/perf/arch/riscv/util/riscv_exception_types.h b/tools/perf/arch/riscv/util/riscv_exception_types.h
-> new file mode 100644
-> index 000000000000..c49b8fa5e847
-> --- /dev/null
-> +++ b/tools/perf/arch/riscv/util/riscv_exception_types.h
-> @@ -0,0 +1,35 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#ifndef ARCH_PERF_RISCV_EXCEPTION_TYPES_H
-> +#define ARCH_PERF_RISCV_EXCEPTION_TYPES_H
-> +
-> +#define EXC_INST_MISALIGNED 0
-> +#define EXC_INST_ACCESS 1
-> +#define EXC_INST_ILLEGAL 2
-> +#define EXC_BREAKPOINT 3
-> +#define EXC_LOAD_MISALIGNED 4
-> +#define EXC_LOAD_ACCESS 5
-> +#define EXC_STORE_MISALIGNED 6
-> +#define EXC_STORE_ACCESS 7
-> +#define EXC_SYSCALL 8
-> +#define EXC_HYPERVISOR_SYSCALL 9
-> +#define EXC_SUPERVISOR_SYSCALL 10
-> +#define EXC_INST_PAGE_FAULT 12
-> +#define EXC_LOAD_PAGE_FAULT 13
-> +#define EXC_STORE_PAGE_FAULT 15
-> +#define EXC_INST_GUEST_PAGE_FAULT 20
-> +#define EXC_LOAD_GUEST_PAGE_FAULT 21
-> +#define EXC_VIRTUAL_INST_FAULT 22
-> +#define EXC_STORE_GUEST_PAGE_FAULT 23
-> +
-> +#define EXC(x) {EXC_##x, #x }
-> +
-> +#define kvm_riscv_exception_class                                         \
-> +	EXC(INST_MISALIGNED), EXC(INST_ACCESS), EXC(INST_ILLEGAL),         \
-> +	EXC(BREAKPOINT), EXC(LOAD_MISALIGNED), EXC(LOAD_ACCESS),           \
-> +	EXC(STORE_MISALIGNED), EXC(STORE_ACCESS), EXC(SYSCALL),            \
-> +	EXC(HYPERVISOR_SYSCALL), EXC(SUPERVISOR_SYSCALL),                  \
-> +	EXC(INST_PAGE_FAULT), EXC(LOAD_PAGE_FAULT), EXC(STORE_PAGE_FAULT), \
-> +	EXC(INST_GUEST_PAGE_FAULT), EXC(LOAD_GUEST_PAGE_FAULT),            \
-> +	EXC(VIRTUAL_INST_FAULT), EXC(STORE_GUEST_PAGE_FAULT)
-> +
-> +#endif /* ARCH_PERF_RISCV_EXCEPTION_TYPES_H */
-> -- 
-> 2.37.2
-> 
+ 	vmap allocation for size 33619968 failed: use vmalloc=<size> to 
+increase size
+ 	insmod: vmalloc error: size 33554432, vm_struct allocation failed, 
+mode:0xcc0(GFP_KERNEL), nodemask=(null),cpuset=/,mems_allowed=0
+ 	CPU: 46 PID: 1977 Comm: insmod Tainted: G            E 
+6.10.0-rc1+ #79
+ 	Hardware name: INGRASYS Yushan Server iSystem 
+TEMP-S000141176+10/Yushan Motherboard, BIOS 2.10.20230517 (SCP: xxx) 
+yyyy/mm/dd
+ 	Call trace:
+ 		dump_backtrace+0xa0/0x128
+ 		show_stack+0x20/0x38
+ 		dump_stack_lvl+0x78/0x90
+ 		dump_stack+0x18/0x28
+ 		warn_alloc+0x12c/0x1b8
+ 		__vmalloc_node_range_noprof+0x28c/0x7e0
+ 		custom_init+0xb4/0xfff8 [test_driver]
+ 		do_one_initcall+0x60/0x290
+ 		do_init_module+0x68/0x250
+ 		load_module+0x236c/0x2428
+ 		init_module_from_file+0x8c/0xd8
+ 		__arm64_sys_finit_module+0x1b4/0x388
+ 		invoke_syscall+0x78/0x108
+ 		el0_svc_common.constprop.0+0x48/0xf0
+ 		do_el0_svc+0x24/0x38
+ 		el0_svc+0x3c/0x130
+ 		el0t_64_sync_handler+0x100/0x130
+ 		el0t_64_sync+0x190/0x198
+
+Reviewed-by: Christoph Lameter (Ampere) <cl@linux.com>
+Signed-off-by: Shubhang Kaushik <shubhang@os.amperecomputing.com>
+---
+  Documentation/admin-guide/kernel-parameters.txt | 9 ++++++---
+  mm/vmalloc.c                                    | 4 ++--
+  2 files changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/Documentation/admin-guide/kernel-parameters.txt 
+b/Documentation/admin-guide/kernel-parameters.txt
+index b600df82669d..d98df8f5c448 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -7245,9 +7245,12 @@
+
+  	vmalloc=nn[KMG]	[KNL,BOOT,EARLY] Forces the vmalloc area to have 
+an
+  			exact size of <nn>. This can be used to increase
+-			the minimum size (128MB on x86). It can also be
+-			used to decrease the size and leave more room
+-			for directly mapped kernel RAM.
++			the minimum size (128MB on x86,arm32 platforms).
++			It can also be used to decrease the size and leave 
+more room
++			for directly mapped kernel RAM. Note that this 
+parameter does
++			not exist on many other platforms (including 
+arm64,alpha,
++ 
+loongarch,arc,csky,hexagon,microblaze,mips,nios2,openrisc,
++ 
+parisc,m64k,powerpc,riscv,sh,um,xtensa,s390,sparc).
+
+  	vmcp_cma=nn[MG]	[KNL,S390,EARLY]
+  			Sets the memory size reserved for contiguous 
+memory
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index 5d3aa2dc88a8..75ad551e90ba 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -2055,8 +2055,8 @@ static struct vmap_area *alloc_vmap_area(unsigned 
+long size,
+  	}
+
+  	if (!(gfp_mask & __GFP_NOWARN) && printk_ratelimit())
+-		pr_warn("vmap allocation for size %lu failed: use 
+vmalloc=<size> to increase size\n",
+-			size);
++		pr_warn("vmalloc_node_range for size %lu failed: Address 
+range restricted to %#lx - %#lx\n",
++				size, addr, addr+size);
+
+  	kmem_cache_free(vmap_area_cachep, va);
+  	return ERR_PTR(-EBUSY);
+-- 
+2.39.2
 
 _______________________________________________
 linux-riscv mailing list
