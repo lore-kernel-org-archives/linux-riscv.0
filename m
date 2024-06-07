@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6084DC27C53
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jun 2024 20:22:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C932C27C55
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jun 2024 20:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+9YLO5Q0AAtYjhgI8SB6olIUTtSgAMq1ffq5qZYbbJM=; b=BAZ+5TbyQDmyEI
-	JnWc2GLPx/EenpMA+wDfMuC1CQRspXFBxUTvTlDiZz1rNSiRVUDyZIPaZ2Sj2Vm8DV6csmq8LzI9j
-	cV/n4+cLrvBst1zBNgXMLYqtWX80T74GNA6jhBobsp3jpBn26ZX5QZ7tEUadIk8smfiKlDLpvpp09
-	2lA9E0uOxHboS5FE8dtduOVrzoBC9O3KJv2a4FoCIvyZnWNa/gyNAm6FpiIgJoyreTKyFkh8iZ7/s
-	Je/wxeXVNvaby/hzbaw7mD1spTQcp9i/bEz7sC2DL2hHiFlLDDvpzBkFcCjA22veqf2EVaCg9aGZJ
-	JWPz8pMyQe56Y0WJ7ZEg==;
+	List-Owner; bh=VFOSJLkKZtIA2c3iuAWI2NmRYcgJ3lEzvZ9Wouy3Ans=; b=wrq25dxiXPep8o
+	h1snpCi4io9lfdoQdryUyrZUkYqu5QHNpLJf4Aq1fLJ0Z5BlEaxt/TiyUWZIFoZdbeI2EfOkVMKvf
+	niAMOrGA//ftSA5Hr9RVrMJC43KpC3/JImRKYt1IXliXUsHKOwy7GGI4VVlInmmrQQUTCxtmuw4Xd
+	kTrPWpIxNcxYIWhyUl/yJHrJJruhFQ6akDkBvU1uxu4IFoGDv8lXma6ZnXVqxNJxRzDG9IE03lAl2
+	ICNrw3cvfRmP7hkQKg0OFY7B56reozD9BT5snPgHf9QbEUqWv5hrAlSdpo1/v02w9OBU0L0vChHw5
+	ykUnxVjx6n9B1avLGYFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFg6d-0000000FVXh-0BOS;
-	Fri, 07 Jun 2024 20:22:35 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1sFg6f-0000000FVZs-2rsP;
+	Fri, 07 Jun 2024 20:22:37 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFg6Q-0000000FVRq-1amR
+	id 1sFg6Q-0000000FVRr-1ZcT
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Jun 2024 20:22:33 +0000
+	Fri, 07 Jun 2024 20:22:35 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1717791734;
@@ -34,36 +34,36 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=y4FmsaK4U8owu4NlSDzmS6G8DVihDPJxkQgSL8xnqno=;
-	b=jV4r27iONhJVERHB641eznAaftrwZ3nE682uV9gC1aGX3evxbgEtI3+I/GGIFZOgjpwiHX
-	jrivhNjIULLbcTEF1ebUWj0KfocGBOpUnJ089SgjLwdKHrT3YqY/Eg0SXgoahKrD73OQPD
-	GIPo3UKx7rqQ8OQfdvFUdf7X8OHayoEhJvPcmX6BDOlSxCWNVz6CkE8p3Fk92DtWshTiPF
-	dt03h8kY0i0/VeSoJX638ThLxRh0Z3R5ck0NRVVs8N5T4i5pkp03gk2RhX4GYCP2ODf4pk
-	b/rBf/p5UzcV/U6PLxXYHL0ZFnOUVb7oknY6vFnqE2fmMzHNT9Mjn98ZwcXy8Q==
+	bh=QlQGR+tGoioFd255pa4F2M3do0QPDjAAVJR0Ox/2Zbw=;
+	b=0npk3eVUOmUI1nJgJEXVN/ccbreM702IcCn9WYf4K/Oxj9tGeMxddKkJDGTLsUd6jU2Hld
+	86Xue89Ax+FDFdr9bi4qq0TZILDFEK4O0vrkSSqjw0jrpsUrochYd1ry6G8v8Lp3515Rpi
+	9Cn3A2N9JjNeldDor7FOPGDDYDVkBHeClap9PF2sTvYFqwn/F7PxWsn+/8ABx8JEdvzbGE
+	PX6YLMMZVGxgy+nAhy0qy6DK607Dm1xO0FXBnf5odNFkK+MwvNBSvHhaM36oP+IVSTu7R0
+	rgtqlU1JZaXDFC4dQJbF6bx8ZEJ21UxJuL5aMpyOjGfOAkB7alyW5ynRxbMVXQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1717791734;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=y4FmsaK4U8owu4NlSDzmS6G8DVihDPJxkQgSL8xnqno=;
-	b=qenheITowqvS4kQkmh3FtMet7WUSPFv4Sdzt965PbpQbng2mrMAKUNPxeXEZyrFEa0dnT6
-	byAMvr7yCjRM4vBg==
+	bh=QlQGR+tGoioFd255pa4F2M3do0QPDjAAVJR0Ox/2Zbw=;
+	b=pAOWJZp1PU/dlsrZNLVkbeFP89DsN/O4sOSeJ+S3UZsBgLwdnT58Oc5YLEFIvS5di+cZG4
+	vW6wJ5f0wxgfC1Cg==
 To: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 7/8] riscv: drop the use of XIP_OFFSET in create_kernel_page_table()
-Date: Fri,  7 Jun 2024 22:22:12 +0200
-Message-Id: <4ea3f222a7eb9f91c04b155ff2e4d3ef19158acc.1717789719.git.namcao@linutronix.de>
+Subject: [PATCH v2 8/8] riscv: remove limit on the size of read-only section for XIP kernel
+Date: Fri,  7 Jun 2024 22:22:13 +0200
+Message-Id: <3bf3a77be10ebb0d8086c028500baa16e7a8e648.1717789719.git.namcao@linutronix.de>
 In-Reply-To: <cover.1717789719.git.namcao@linutronix.de>
 References: <cover.1717789719.git.namcao@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240607_132222_779928_0F90F99F 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20240607_132222_865072_A1D964C4 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +84,77 @@ XIP_OFFSET is the hard-coded offset of writable data section within the
 kernel.
 
 By hard-coding this value, the read-only section of the kernel (which is
-placed before the writable data section) is restricted in size.
+placed before the writable data section) is restricted in size. This causes
+build failures if the kernel gets too big [1].
 
-As a preparation to remove this hard-coded value entirely, stop using
-XIP_OFFSET in create_kernel_page_table(). Instead use _sdata and _start to
-do the same thing.
+Remove this limit.
 
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202404211031.J6l2AfJk-lkp@intel.com [1]
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/mm/init.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/pgtable.h    | 7 -------
+ arch/riscv/include/asm/set_memory.h | 2 +-
+ arch/riscv/kernel/vmlinux-xip.lds.S | 5 +++--
+ 3 files changed, 4 insertions(+), 10 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 313459329d16..b7b6affd4b79 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -911,7 +911,7 @@ static void __init relocate_kernel(void)
- static void __init create_kernel_page_table(pgd_t *pgdir,
- 					    __always_unused bool early)
- {
--	uintptr_t va, end_va;
-+	uintptr_t va, start_va, end_va;
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 1bc103aa9b74..bf4afffe0c53 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -107,13 +107,6 @@
  
- 	/* Map the flash resident part */
- 	end_va = kernel_map.virt_addr + kernel_map.xiprom_sz;
-@@ -921,10 +921,11 @@ static void __init create_kernel_page_table(pgd_t *pgdir,
- 				   PMD_SIZE, PAGE_KERNEL_EXEC);
+ #endif
  
- 	/* Map the data in RAM */
-+	start_va = kernel_map.virt_addr + (uintptr_t)&_sdata - (uintptr_t)&_start;
- 	end_va = kernel_map.virt_addr + kernel_map.size;
--	for (va = kernel_map.virt_addr + XIP_OFFSET; va < end_va; va += PMD_SIZE)
-+	for (va = start_va; va < end_va; va += PMD_SIZE)
- 		create_pgd_mapping(pgdir, va,
--				   kernel_map.phys_addr + (va - (kernel_map.virt_addr + XIP_OFFSET)),
-+				   kernel_map.phys_addr + (va - start_va),
- 				   PMD_SIZE, PAGE_KERNEL);
- }
+-#ifdef CONFIG_XIP_KERNEL
+-#define XIP_OFFSET		SZ_32M
+-#define XIP_OFFSET_MASK		(SZ_32M - 1)
+-#else
+-#define XIP_OFFSET		0
+-#endif
+-
+ #ifndef __ASSEMBLY__
+ 
+ #include <asm/page.h>
+diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+index ec11001c3fe0..ab92fc84e1fc 100644
+--- a/arch/riscv/include/asm/set_memory.h
++++ b/arch/riscv/include/asm/set_memory.h
+@@ -46,7 +46,7 @@ bool kernel_page_present(struct page *page);
+ 
+ #endif /* __ASSEMBLY__ */
+ 
+-#ifdef CONFIG_STRICT_KERNEL_RWX
++#if defined(CONFIG_STRICT_KERNEL_RWX) || defined(CONFIG_XIP_KERNEL)
+ #ifdef CONFIG_64BIT
+ #define SECTION_ALIGN (1 << 21)
  #else
+diff --git a/arch/riscv/kernel/vmlinux-xip.lds.S b/arch/riscv/kernel/vmlinux-xip.lds.S
+index 8c3daa1b0531..a7611789bad5 100644
+--- a/arch/riscv/kernel/vmlinux-xip.lds.S
++++ b/arch/riscv/kernel/vmlinux-xip.lds.S
+@@ -14,6 +14,7 @@
+ #include <asm/page.h>
+ #include <asm/cache.h>
+ #include <asm/thread_info.h>
++#include <asm/set_memory.h>
+ 
+ OUTPUT_ARCH(riscv)
+ ENTRY(_start)
+@@ -65,10 +66,10 @@ SECTIONS
+  * From this point, stuff is considered writable and will be copied to RAM
+  */
+ 	__data_loc = ALIGN(PAGE_SIZE);		/* location in file */
+-	. = KERNEL_LINK_ADDR + XIP_OFFSET;	/* location in memory */
++	. = ALIGN(SECTION_ALIGN);		/* location in memory */
+ 
+ #undef LOAD_OFFSET
+-#define LOAD_OFFSET (KERNEL_LINK_ADDR + XIP_OFFSET - (__data_loc & XIP_OFFSET_MASK))
++#define LOAD_OFFSET (KERNEL_LINK_ADDR + _sdata - __data_loc)
+ 
+ 	_sdata = .;			/* Start of data section */
+ 	_data = .;
 -- 
 2.39.2
 
