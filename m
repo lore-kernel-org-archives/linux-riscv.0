@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC9BC27C65
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B37A7C27C55
 	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jun 2024 20:22:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,21 +12,21 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h1R0xqY4DsmiYFBSRkCTvLDU823hBlbwQiopSJ1q7aQ=; b=kiEuwcC6qxXzpY
-	kOEa2g5cvbWyqyRovcVXBiCRoeGwb0TBntaP3s7TaQNnQEUnbv3BoMWyKa0w9/xki48PbthmP6yzr
-	y3Djg0AKvYQBgW5RRFhRbueO8rsN7AqaejonJYYWG+/x3jv1rTJrLIxgP+jMqAt1TRbsOwPcIT/zm
-	qAL1/7x8kq2xFIiVtKoMGjCm+ayGMwDvy+cYoxuLD9llbkiuhyINy/HpyF26HPKqFMD44v0TL/92w
-	k/sLZjb3ZZ5KA7seUeQ2wfclkGlGeMZaN+lSqFXc4uZnsxf82p/oXP+ajVdwbKQJFvvYnA1L5Xm/L
-	48pbzLusxPwPxQcm2TYw==;
+	List-Owner; bh=yyeXJVk6oID6S+KeeOj92WERGyFN2ag9EBAJaj1eyWQ=; b=pE/lubV87V2JEF
+	ETn6hhxyUTEt2oQKcT2Gu8Huki+D/suTe65PXyIeKw/941TDyURee6i6+upjvsupNaYntYI/pjCIT
+	4lYUkiP5FDp7llDAr7Ex3pK+RUXZUaD/bCyTMOuTUvr8FKHrZPi8wPdARVjNzAwqGkld6Nquvh1VX
+	clZvXfcsbbMzGBnkwAOtZjjCWt8LaRMh+5F8hz0MIVHxgbzGD7rl+J7Ov1ij5H5IxLkr0MkU3YyvB
+	v2OkZhaLAO2F0fmfiAjkEkj9xPVNH202uqZGC9bhk8t/kXw3y7Ad+CdTzn8ot3HkBkNz3BFoZIqui
+	IfjCFgB0iEvj0g57q/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFg6W-0000000FVUf-2dHe;
-	Fri, 07 Jun 2024 20:22:29 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1sFg6Q-0000000FVRu-38vV;
+	Fri, 07 Jun 2024 20:22:22 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFg6M-0000000FVQ8-1xdy
+	id 1sFg6L-0000000FVQ3-2imk
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Jun 2024 20:22:26 +0000
+	Fri, 07 Jun 2024 20:22:20 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1717791734;
@@ -34,37 +34,36 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Cn6XVXZM59Nth6p5tsQDc4XnTOplZUQTrnvegHUFwrU=;
-	b=sD84pO/ZxF8vHvHfZgaOrW5D7kvyq5EI0jJbj4W+SN6ILAClGy5VssRHErCgGiHyp/NwXO
-	OZnpD5JzqSFGWBiat2vuhQB4gv+G0m1PrtfMfafLZDdtPvMeYzJc5IflhGoLSWb8nS8wjt
-	kJxyansVjaEjcaPglhJjXow7vTGq2KNE3FUU8PwsPnJsEz+U+lmyOVSXoaiSAlMvvII/6m
-	k7kxbe5pAKDnVaG9qF4tpQIuGjB6S0rlGDKPQN7uGHI2vG7cMEc4iE3ClM+DExPnVhM7iC
-	25S7NRNQBIZ7/1eQ8rI9/dWg7InxsXNoQPcxiQvp7GVnNOD1/0d5iPkEUqdbBw==
+	bh=xAfTfmpszFUN8R3pQgNHXaFB8SYv5tBzsg3wc1Daekc=;
+	b=gxJTMEjjVsWUXg8QWo8gxk6k6dsK1gOSK8tiVKXP5qTp34PYDSnja7IWgElhx75fYN8tr7
+	l602j9hesKQoFFE2N+sl62RFmCbIAC0er2w8jwhGeizfJq0wTou/jxVaJ1FadOiltK1VKX
+	mcw5Rniv4bObsJlZxU8kgMXDshp4S1YlKAr9hSGIYjtvYhtc0GdU02f39XNFsYilbM8wPw
+	8312nbySFzXFPtx2L5HiG5xwvnjOED8vhNJIuLQKM0leerlH6gIu/tvcYgkthd7LTenxky
+	hpaTZounjSwIpPUegA0PssykWkUF8peu71Z3b+LJhdcbDj53w6X7d92mtiyK2g==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1717791734;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Cn6XVXZM59Nth6p5tsQDc4XnTOplZUQTrnvegHUFwrU=;
-	b=3ojEtW3hB0mfLXr+O+vmKQZ403TBBNLnM77VmV5V/6nREtIuy9sp4RkPWThWftXATWKLaI
-	RaWPtBh1X93IkXBQ==
+	bh=xAfTfmpszFUN8R3pQgNHXaFB8SYv5tBzsg3wc1Daekc=;
+	b=nofRIHje+QL9kJv7xuUmmYgeTzznlDF8UquGUkvpWA1FtPDrwMFpZchdLaVXLfcVSs9T73
+	K/C9iB3wE69jeUCg==
 To: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/8] riscv: don't export va_kernel_pa_offset in vmcoreinfo for XIP kernel
-Date: Fri,  7 Jun 2024 22:22:07 +0200
-Message-Id: <8f8760d3f9a11af4ea0acbc247e4f49ff5d317e9.1717789719.git.namcao@linutronix.de>
+Subject: [PATCH v2 4/8] riscv: drop the use of XIP_OFFSET in XIP_FIXUP_OFFSET
+Date: Fri,  7 Jun 2024 22:22:09 +0200
+Message-Id: <dba0409518b14ee83b346e099b1f7f934daf7b74.1717789719.git.namcao@linutronix.de>
 In-Reply-To: <cover.1717789719.git.namcao@linutronix.de>
 References: <cover.1717789719.git.namcao@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240607_132218_692983_D87F6766 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240607_132217_870027_E89B052E 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +80,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The crash utility uses va_kernel_pa_offset to translate virtual addresses.
-This is incorrect in the case of XIP kernel, because va_kernel_pa_offset is
-not the virtual-physical address offset (yes, the name is misleading; this
-variable will be removed for XIP in a following commit).
+XIP_OFFSET is the hard-coded offset of writable data section within the
+kernel.
 
-Stop exporting this variable for XIP kernel. The replacement is to be
-determined, note it as a TODO for now.
+By hard-coding this value, the read-only section of the kernel (which is
+placed before the writable data section) is restricted in size.
+
+As a preparation to remove this hard-coded macro XIP_OFFSET entirely, stop
+using XIP_OFFSET in XIP_FIXUP_OFFSET. Instead, use CONFIG_PHYS_RAM_BASE and
+_sdata to do the same thing.
+
+While at it, also add a description for XIP_FIXUP_OFFSET.
 
 Signed-off-by: Nam Cao <namcao@linutronix.de>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/kernel/vmcore_info.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/riscv/include/asm/xip_fixup.h | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/vmcore_info.c b/arch/riscv/kernel/vmcore_info.c
-index 6d7a22522d63..d5e448aa90e7 100644
---- a/arch/riscv/kernel/vmcore_info.c
-+++ b/arch/riscv/kernel/vmcore_info.c
-@@ -19,6 +19,13 @@ void arch_crash_save_vmcoreinfo(void)
- #endif
- #endif
- 	vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
-+#ifdef CONFIG_XIP_KERNEL
-+	/* TODO: Communicate with crash-utility developers on the information to
-+	 * export. The XIP case is more complicated, because the virtual-physical
-+	 * address offset depends on whether the address is in ROM or in RAM.
+diff --git a/arch/riscv/include/asm/xip_fixup.h b/arch/riscv/include/asm/xip_fixup.h
+index b65bf6306f69..9ed2cfae09e0 100644
+--- a/arch/riscv/include/asm/xip_fixup.h
++++ b/arch/riscv/include/asm/xip_fixup.h
+@@ -9,8 +9,19 @@
+ 
+ #ifdef CONFIG_XIP_KERNEL
+ .macro XIP_FIXUP_OFFSET reg
+-        REG_L t0, _xip_fixup
++	/* Fix-up address in Flash into address in RAM early during boot before
++	 * MMU is up. Because generated code "thinks" data is in Flash, but it
++	 * is actually in RAM (actually data is also in Flash, but Flash is
++	 * read-only, thus we need to use the data residing in RAM).
++	 *
++	 * The start of data in Flash is _sdata and the start of data in RAM is
++	 * CONFIG_PHYS_RAM_BASE. So this fix-up essentially does this:
++	 * reg += CONFIG_PHYS_RAM_BASE - _start
 +	 */
-+#else
- 	vmcoreinfo_append_str("NUMBER(va_kernel_pa_offset)=0x%lx\n",
- 						kernel_map.va_kernel_pa_offset);
-+#endif
- }
++	li t0, CONFIG_PHYS_RAM_BASE
+         add \reg, \reg, t0
++	la t0, _sdata
++	sub \reg, \reg, t0
+ .endm
+ .macro XIP_FIXUP_FLASH_OFFSET reg
+ 	la t0, __data_loc
+@@ -19,7 +30,6 @@
+ 	add \reg, \reg, t0
+ .endm
+ 
+-_xip_fixup: .dword CONFIG_PHYS_RAM_BASE - CONFIG_XIP_PHYS_ADDR - XIP_OFFSET
+ _xip_phys_offset: .dword CONFIG_XIP_PHYS_ADDR + XIP_OFFSET
+ #else
+ .macro XIP_FIXUP_OFFSET reg
 -- 
 2.39.2
 
