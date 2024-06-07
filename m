@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F6AC27C53
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jun 2024 22:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F5DC27C65
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jun 2024 22:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dC9JbVEELZCxtc3MOoFOaJot6UGjXW3z8zBJvyc8Xe0=; b=krwFmtBmJ6KVAtmBGWTVHQKs8g
-	Oc9LrndC8iPL9teR1Sqhp1hth1F0AXigQyZhXpSqjxPiJRIZ3Pa/unwKpCnydUitCFRMI8fi5rGy7
-	w+mPGbTQbEm+B6YIG/ROpHerJL3vCRzh30UmZcVbLPKD1bgWT0yZbFoiUCh8ztzA7eQ+96Kx7USkn
-	DrHtexuZ8jIE/p1sS8yRV90x25+m6QFj5k1XAVqGWuaTC/gXAimELLvKqvEwU8kyIzSfzJbakKpbT
-	ycyXChsr4teArNy8XembU34WGVxUsbfpVqpWUkiNELQuGQ12Web3dzTVErhFL80nPQdQFe/Q+NzEt
-	2Ium8yjg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SWqmEhULLnddCqV4vr1KKkE9hoeUBNbEDk3HvFiFjK0=; b=bwRhI1cn8uIB1J
+	zj2ijntYXs1urZ1+QKCO00cxAfiwFu9LEy7WQwZT+ZaM28Dzn8zlWDurS/7+LWw11AhixPKA6FXw8
+	wLXgVO3i+++GJxYVtGAlbyEfNV5vIOwTY5pEULGFJZFiqtqqP8EQXbefmHYuXdFmSZPAJOOIrhac6
+	OCx2rvK06VUVihUzqX3y0zDhboF8/gpJW+HZ+SlBizwmJybobP+yw+Yflq58P75eQnJSojX2uH3p8
+	o8yfcppZdq2Oj11IY7iLmmhxIEZt1Jdkj3ohFSZhrKcwNGSVFT7wCodWfTBTuka5nwrpJdWmrvAzl
+	KYZUGWfFMwTGR5vjhj7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFhee-0000000Fn5Q-3oSl;
-	Fri, 07 Jun 2024 22:01:48 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1sFhkj-0000000FneD-0dt4;
+	Fri, 07 Jun 2024 22:08:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFhec-0000000Fn50-3tdn
+	id 1sFhkf-0000000FncQ-2liw
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Jun 2024 22:01:48 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7023b6d810bso2152406b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Jun 2024 15:01:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1717797706; x=1718402506; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=75kpnasqev5JD+W3tO0sE6ARWTXSJTS2/9u8O9IAZK8=;
-        b=PWPguE6kAq76UOPeBmEaQhgRhblhJFaMI7cNd4uYN3cHPufuO4rg8D+b0SUA8iz65w
-         D4Qcl2DEDpsaRj5Gj/z0rQPZULw4fWNdfJydDxEkI5uLjY64VYdTUsXXFvM7oR5xCXWU
-         C23rcIk0/2mZfvAeNWtCOVN1S9nz2uY3xcphdw9TtBpu43p8TMkMlnjR+WgW6U+Wu2i2
-         35TQaXkBgpU59fSdmsvJW2DG3QaXBOGoeVT+Q02ZTIqy3oT7Zj5YeqqrOcouVoh7USIh
-         lJiPpTEsBbXUQUgve84YxkYmtQTdUMUwDTKTa7tHmm4IpdB5NaviBA+cn4ONrx4qYo/Q
-         PFMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717797706; x=1718402506;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=75kpnasqev5JD+W3tO0sE6ARWTXSJTS2/9u8O9IAZK8=;
-        b=PE0oQERYexEWVK/tes0rmlUrpcxrSOg9zlriB5MPv0TP57sJK98qJUTf9AEFfwuScZ
-         VfrYLblIrIM0iKR5pCu6tXbjkIKivn0/Qn20IslODGNisTI9Fn/T6pVb+CQcFaJxBpts
-         ETC06hoq4wjpG5CDzuahUOYghmM3skX+HIBazl5/Rt6dzTawzTM8fF2ZkMduyxoP8Vk/
-         /e1w7XqtPAI705Ve+VZhit5zwYrCYjuPQVk3fC5UagsD/z0g+KmAbTprgySRBhjnASCy
-         zrS+NyhiGZun+AODFPNvHLx4eYjwoloGPo1yNwOsWuMnGWT0bGj+rr20tGylTs8mhzRg
-         W4Kg==
-X-Gm-Message-State: AOJu0YzK3ddg8mDq97qOUPp4yLXO1beGtPxUkI9k+KSdHTA1LjjQ/6NW
-	2y+uMkH155OztxMqXJT7i4K8K+bnxFcw7pHFioUzkosqcbuS6aPFYcAryViGdMk=
-X-Google-Smtp-Source: AGHT+IFChtu4tG/SxDzBPzFrzoSYJnwGMc+HGLFVJlSWYwIe/rm/MSoAbdLGq//B/YyTZI5ubiDiXA==
-X-Received: by 2002:a05:6a00:4649:b0:702:6f45:effc with SMTP id d2e1a72fcca58-7040c690d1emr4038399b3a.20.1717797705590;
-        Fri, 07 Jun 2024 15:01:45 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7041fef8548sm394640b3a.113.2024.06.07.15.01.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Jun 2024 15:01:45 -0700 (PDT)
-Date: Fri, 7 Jun 2024 15:01:43 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] riscv: Per-thread envcfg CSR support
-Message-ID: <ZmODR+EMn5zW2Iu1@debug.ba.rivosinc.com>
-References: <20240605205658.184399-1-samuel.holland@sifive.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240605205658.184399-1-samuel.holland@sifive.com>
+	Fri, 07 Jun 2024 22:08:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3757562078;
+	Fri,  7 Jun 2024 22:08:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E41DCC32781;
+	Fri,  7 Jun 2024 22:07:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1717798079;
+	bh=gFCX/2+fe+TC92v/LNNuECOPuo+VqmHtOgpUKdTkALg=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=eyEHQaJMuIZGvwJPSMOaGTa+dkZGRlZOp2XxEt1NPAB3A3yFvIfqEl/I7spf9NIn1
+	 RR8QLVKujjGyeXtDa34hHgfEL3fn7AIdgPH6cruhb4x52VJzf7TZx2+2AXFo23zoTz
+	 AaFPi0v/NdxyFnQxty+4YNMTEaLSY4GL9y4UFZIK9J0XEnaoswGxU4RJJY94m4e/Zs
+	 ny0CjxJ7WnHRtVmFX5Of2maocSX0QKb8BgjiA8pnIPl9CTG79Ac5cIPAcgfFYAO7CN
+	 W89lBb/TE2RhrpWASPF10lSo6hWa3gexdg6dc041YN21XFHVjjWwsYH33aWA6JpTEV
+	 LS4CA0om5bVIA==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D9396C43168;
+	Fri,  7 Jun 2024 22:07:59 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.10-rc3
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-1afb5c2b-25de-4eb4-a911-523495ad3939@palmer-ri-x1c9>
+References: <mhng-1afb5c2b-25de-4eb4-a911-523495ad3939@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-1afb5c2b-25de-4eb4-a911-523495ad3939@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.10-rc3
+X-PR-Tracked-Commit-Id: e2c79b4c5c4d83520abb570ca633ded09621c0a6
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 0a02756d9145725c1b9979f0486c268f91471a48
+Message-Id: <171779807988.32288.747862417457855949.pr-tracker-bot@kernel.org>
+Date: Fri, 07 Jun 2024 22:07:59 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240607_150146_996615_2F7176B2 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20240607_150801_784224_D00FA6A6 
+X-CRM114-Status: UNSURE (   2.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
+The pull request you sent on Fri, 07 Jun 2024 07:25:49 -0700 (PDT):
 
-Thanks for working on these.
-Patches looks good to me. I've given some suggestion for patch organization
-and squashing. You can take it or leave it.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.10-rc3
 
-Other than that.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/0a02756d9145725c1b9979f0486c268f91471a48
 
-Reviewed-By: Deepak Gupta <debug@rivosinc.com>
+Thank you!
 
-On Wed, Jun 05, 2024 at 01:56:44PM -0700, Samuel Holland wrote:
->This series (or equivalent) is a prerequisite for both user-mode pointer
->masking and CFI support, as those are per-thread features are controlled
->by fields in the envcfg CSR. These patches are based on v1 of the
->pointer masking series[1], with significant input from both Deepak and
->Andrew. By sending this as a separate series, hopefully we can converge
->on a single implementation of this functionality.
->
->[1]: https://lore.kernel.org/linux-riscv/20240319215915.832127-6-samuel.holland@sifive.com/
->
->
->Samuel Holland (3):
->  riscv: Enable cbo.zero only when all harts support Zicboz
->  riscv: Add support for per-thread envcfg CSR values
->  riscv: Call riscv_user_isa_enable() only on the boot hart
->
-> arch/riscv/include/asm/cpufeature.h |  2 +-
-> arch/riscv/include/asm/processor.h  |  1 +
-> arch/riscv/include/asm/switch_to.h  |  8 ++++++++
-> arch/riscv/kernel/cpufeature.c      | 13 +++++++++----
-> arch/riscv/kernel/smpboot.c         |  2 --
-> arch/riscv/kernel/suspend.c         |  4 ++--
-> 6 files changed, 21 insertions(+), 9 deletions(-)
->
->-- 
->2.44.1
->
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
