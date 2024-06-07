@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608E1C27C55
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jun 2024 06:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2963BC27C53
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jun 2024 06:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lYxqDVrbVk+6MJBagdyVrpo4CkfxS0pAQOhG+ybSCOI=; b=ljx3Rs/tCa01Aj
-	qbU12rhtdbmx5rFzB6rHQRjmgFK/yr28DT+3OJae0sxLaZiXetI3KkwzHogOJkIvktyZr618Px6fB
-	VvamQl2++rDj8E8X2duSNPvyCY9A9kbI+GbEyAhWOQkhr6mQBAvGxuaRvQO/51RJekcdEhFu75+AG
-	gf0f77w0ghRMOpvtFWdKc1BYfDabwVvVHTKP49U4eQZn5ISLnNwBfehH27E0xLLBvqeXae1CSifM/
-	BZn1SgMjzHGxZD3r7UEN2ORLvJh92slYzRV+TNgwl+uZX63236PzR6EB9X44VXreNIg+KTEGGIRoy
-	7wWRG6pb99IZe42cajCw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zo/JCgFT14WdH/5PuANBXEAA1mhL7nbRX1wixzBAtuM=; b=lmRmnRWx4lln62
+	/w8ZvwmXQcvsmhUb8zov3QaXzpgxl4zf4MYxIZQgj25DFNrS6qR7xo2Cx2bEzUOI+mVrSNDtYE1uN
+	tFB2aEwFR/I9Mwsy3ZU9IyNIbei2VCHu/wbgQs5SG6o9YZMAjt6ndzes8hHHscPKdkBzaBaEb5ulr
+	w2HNohFEqUCmNHXpajj7X+7Is/497n7EGdT1LOlEQcOafVE70ey+cYwm/eLw/7wnTpP83Goa1EcKW
+	eaZFHOFz0uAUddwfqaP7Y8zkBAN+pXtbp+e4yMo6dnzAx9saB8yBpfNERsjUwHAbu53vYPW6y7hdp
+	LwomMZcXrO1/Bns1XQDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFSrz-0000000Cdg5-2t7b;
-	Fri, 07 Jun 2024 06:14:35 +0000
-Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
+	id 1sFTQR-0000000ClCZ-3Lt5;
+	Fri, 07 Jun 2024 06:50:11 +0000
+Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sFSrs-0000000CdeL-3mEu
+	id 1sFTQO-0000000ClBY-1K3q
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Jun 2024 06:14:34 +0000
-Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-dfa76c9da2dso202514276.0
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Jun 2024 23:14:26 -0700 (PDT)
+	Fri, 07 Jun 2024 06:50:10 +0000
+Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-374528b81ddso7399635ab.2
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Jun 2024 23:50:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1717740865; x=1718345665; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7SBe0khJYPcKe88Z20mPvCwpcr89NxfQGoP3AH5L95A=;
-        b=S8Kn9xA42/gRHrVBl3xAVvUCMRZF0IsmMOEWQv2hvXN6oxNDzl+dXwi/oIXb8fmwu6
-         OHDGAeZ8WKekUGX1GTXdJZzQsqcjQFsGH3fXx3tFQ3T0Jt27V17AAGENcoSxs8Ju6izO
-         sHvDH3eXOyTbAZajbaVErgyT4TDHfx2QoS1uaqMminov/MEN+3XWOQgHLe9+tWj3AZBQ
-         miXNSJ55ZG3WXAarDNmP9WS0XFSvBgHObx4TFTVTOdbqLfFMX9fi5MS57LZoVnzNyY+j
-         FEkJC94jXyZIP4TnYUcus45YirIY25nOrWQuB4HaEQbD3wT58uUG/zpOQuL/uSSYFAIq
-         yArg==
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1717743006; x=1718347806; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=tMPl8897CpQSN9DJ/kDtQliKlOJSf3E1YJrCy5LiBYw=;
+        b=lijOaJch+9/dfNIIffl1NlHPZL4Qo9wtzMYdXt8rjzYDSj4VnHB8opQW6L6yLFM36L
+         7DDNIcs9dEm505Ua4cp2zEBjD1P8zb65R0EAvAVT6xkyQDnrCoaY3AAdCU/GukfjubVn
+         NB0DTGAzhqeFxrsHrsKaO9OlLFgl5j2kcxFkje8RoXB6N5gk+YhmFXpnZfaxNHWPqUa5
+         b8QVcbbCGtzaEEa0dUJpG3YLbecB2TDchje9kbxd8BPF7vXCpR0VHL8okd2wFZy4vgRA
+         M17Un1jgrZAb/rIGaYYqcHDY2fjZnkFF1P2W4BHGeY3ZNC45avUkNOtkRs5xaJ5X3eIo
+         soeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1717740865; x=1718345665;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7SBe0khJYPcKe88Z20mPvCwpcr89NxfQGoP3AH5L95A=;
-        b=jjLsMr0uP708T/3A6w7CZviOcg650isimD9KGjFracR9VEulAHfiubRJwYTMePYqd7
-         yre+oo3RKCIO5KWGrqGaOj9mz2MG286aNPG/gPUB1r/vxFPg0vIe+pEizWWfNQLNgUbK
-         oBVYDmK8vou3VnJCfXIk9Eh2mriXSdFqgXwYyBAMG5EvJf69514XR5jSW7xGphGixfxs
-         mteqv7r0srWAcpjtoseHzbWNAoIj5kBO50ZVOrKR+pppM4fgybheaTH8u9zjsbW4JhwB
-         CKtusTBVxJbgSdIVf9LTJ3jzDqHWDkizqEZskqDLIs9Xh4hSuyuTNC8T3Zx3QE5kt0b+
-         mNYQ==
-X-Gm-Message-State: AOJu0YxipeDWmaTyzQKKF6FR7q9l1qyi7bzmkk7jXpKZaop3APnkxGje
-	/lJkzbRZcX4xuokbyNhorXrrwrKsl+y3jlD+2FnCKRhZJOQJ16gFUuU1/2o3PA==
-X-Google-Smtp-Source: AGHT+IF+YQ5lJDKmqA+WH/WoIEvyjrQ78iQvA3dqU25oe5V7nAI6uAGAEswdWk6Jk9UqgkFGFGFpJQ==
-X-Received: by 2002:a81:8d0c:0:b0:61a:e298:54bd with SMTP id 00721157ae682-62cd56bb40amr12741747b3.5.1717740864945;
-        Thu, 06 Jun 2024 23:14:24 -0700 (PDT)
-Received: from sjc-lab-t7002.local.tenstorrent.com ([38.142.247.251])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6b04f9f5f36sm14009226d6.128.2024.06.06.23.14.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Jun 2024 23:14:24 -0700 (PDT)
-From: Cyril Bur <cyrilbur@tenstorrent.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	antonb@tenstorrent.com
-Subject: [PATCH v2] riscv: Improve exception and system call latency
-Date: Thu,  6 Jun 2024 23:13:35 -0700
-Message-Id: <20240607061335.2197383-1-cyrilbur@tenstorrent.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20231225040018.1660554-1-antonb@tenstorrent.com>
-References: <20231225040018.1660554-1-antonb@tenstorrent.com>
+        d=1e100.net; s=20230601; t=1717743006; x=1718347806;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tMPl8897CpQSN9DJ/kDtQliKlOJSf3E1YJrCy5LiBYw=;
+        b=Idro1hkY/uvCUtnAYFSVVTTlh384kUugT/Qa/VSiYRlC5RM3zw1F0AuAbRys1ERqCa
+         yYQkqXT9eA0Huboo+zTpqJrHVnyPmTLJHGPN3MY95ogo6h1XwTIjdu10UHHE6l6X3yRc
+         OHdr6RufcNeli7r44txSf6QZ9me54ASkaT04zKeDACCvMRQ5s5L8TL87lQBREYQHglx7
+         tGU7/PXRfKa+LLG1T94l1XQc61RqnF/3kRMIYANvQeai9Nb6i64tskrDXX7RbmoGvaQM
+         GsrF6KmWbk5WlRK/LKHgIhTvrqRS83FcHDVPSwjY7IuxOyknYq9Pcl3hbjacsXvCKvtw
+         bT1A==
+X-Forwarded-Encrypted: i=1; AJvYcCUdcbJQp0bh39OwwfoSLxpfnnyXqcgAC3ZOO9E6kOX+UhtIaQVbCBRus8qRGByjNiiY//fpk8yzOXjCPlK/gr+0Kl7IloxeIqdSOLpSxMxk
+X-Gm-Message-State: AOJu0Yz2GFx7+3fd8zCDS8uCpAfr3NU0Q4H/Nli5oQLTbwJ0vJmlRa5V
+	1hEPCbb8lUTcUYh5VGdXkBcJekwnH6sWTSX6ZmAwNC6u4TuUKPeCnHmcYy4C0Vnjd2XkAK7heNy
+	zf2LCMtNK7Kx133QfI5bwpDUnq22f7cQmtQs9Eg==
+X-Google-Smtp-Source: AGHT+IHOma9DkzEVCoXDhOEvw6bmcDS3u2Igp3nxn7YwC4sw4D1kHojmDWd7YU6Na89+glhPtzPdIpk8nv8N94+V80U=
+X-Received: by 2002:a05:6e02:12c2:b0:374:9c67:1df6 with SMTP id
+ e9e14a558f8ab-3758035fd9emr20660145ab.22.1717743006285; Thu, 06 Jun 2024
+ 23:50:06 -0700 (PDT)
 MIME-Version: 1.0
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 7 Jun 2024 12:19:55 +0530
+Message-ID: <CAAhSdy0wc=e5LW92Y7YdK6Bi0cxk6C1EhSyv5vMo1FxKMu_CpA@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv fixes for 6.10 take #2
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240606_231429_086713_343BCFAB 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20240606_235008_563124_F3B8744F 
+X-CRM114-Status: UNSURE (   5.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,112 +90,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Anton Blanchard <antonb@tenstorrent.com>
+Hi Paolo,
 
-Many CPUs implement return address branch prediction as a stack. The
-RISCV architecture refers to this as a return address stack (RAS). If
-this gets corrupted then the CPU will mispredict at least one but
-potentally many function returns.
+We have one additional fix for 6.10 to take care of
+the compilation issue in KVM selftests.
 
-There are two issues with the current RISCV exception code:
+Please pull.
 
-- We are using the alternate link stack (x5/t0) for the indirect branch
-  which makes the hardware think this is a function return. This will
-  corrupt the RAS.
+Regards,
+Anup
 
-- We modify the return address of handle_exception to point to
-  ret_from_exception. This will also corrupt the RAS.
+The following changes since commit c66f3b40b17d3dfc4b6abb5efde8e71c46971821:
 
-Testing the null system call latency before and after the patch:
+  RISC-V: KVM: Fix incorrect reg_subtype labels in
+kvm_riscv_vcpu_set_reg_isa_ext function (2024-05-31 10:40:39 +0530)
 
-Visionfive2 (StarFive JH7110 / U74)
-baseline: 189.87 ns
-patched:  176.76 ns
+are available in the Git repository at:
 
-Lichee pi 4a (T-Head TH1520 / C910)
-baseline: 666.58 ns
-patched:  636.90 ns
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-6.10-2
 
-Just over 7% on the U74 and just over 4% on the C910.
+for you to fetch changes up to 0fc670d07d5de36a54f061f457743c9cde1d8b46:
 
-Signed-off-by: Anton Blanchard <antonb@tenstorrent.com>
-Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
----
-v2:
-   Simplify jalr ra,t1 to jalr t1
-   Drop extra .globl from entry.S and use ra == handle_exception
----
- arch/riscv/kernel/entry.S      | 17 ++++++++++-------
- arch/riscv/kernel/stacktrace.c |  4 ++--
- 2 files changed, 12 insertions(+), 9 deletions(-)
+  KVM: selftests: Fix RISC-V compilation (2024-06-06 15:53:16 +0530)
 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 68a24cf9481a..c933460ed3e9 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -88,7 +88,6 @@ SYM_CODE_START(handle_exception)
- 	call riscv_v_context_nesting_start
- #endif
- 	move a0, sp /* pt_regs */
--	la ra, ret_from_exception
- 
- 	/*
- 	 * MSB of cause differentiates between
-@@ -97,7 +96,8 @@ SYM_CODE_START(handle_exception)
- 	bge s4, zero, 1f
- 
- 	/* Handle interrupts */
--	tail do_irq
-+	call do_irq
-+	j ret_from_exception
- 1:
- 	/* Handle other exceptions */
- 	slli t0, s4, RISCV_LGPTR
-@@ -105,11 +105,14 @@ SYM_CODE_START(handle_exception)
- 	la t2, excp_vect_table_end
- 	add t0, t1, t0
- 	/* Check if exception code lies within bounds */
--	bgeu t0, t2, 1f
--	REG_L t0, 0(t0)
--	jr t0
--1:
--	tail do_trap_unknown
-+	bgeu t0, t2, 3f
-+	REG_L t1, 0(t0)
-+2:	jalr t1
-+	j ret_from_exception
-+3:
-+
-+	la t1, do_trap_unknown
-+	j 2b
- SYM_CODE_END(handle_exception)
- ASM_NOKPROBE(handle_exception)
- 
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 528ec7cc9a62..5eb3d135b717 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -16,7 +16,7 @@
- 
- #ifdef CONFIG_FRAME_POINTER
- 
--extern asmlinkage void ret_from_exception(void);
-+extern asmlinkage void handle_exception(void);
- 
- static inline int fp_is_valid(unsigned long fp, unsigned long sp)
- {
-@@ -70,7 +70,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 			fp = frame->fp;
- 			pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
- 						   &frame->ra);
--			if (pc == (unsigned long)ret_from_exception) {
-+			if (pc == (unsigned long)handle_exception) {
- 				if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
- 					break;
- 
--- 
-2.25.1
+----------------------------------------------------------------
+KVM/riscv fixes for 6.10, take #2
 
+- Fix compilation for KVM selftests
+
+----------------------------------------------------------------
+Andrew Jones (1):
+      KVM: selftests: Fix RISC-V compilation
+
+ tools/testing/selftests/kvm/lib/riscv/ucall.c    | 1 +
+ tools/testing/selftests/kvm/riscv/ebreak_test.c  | 1 +
+ tools/testing/selftests/kvm/riscv/sbi_pmu_test.c | 1 +
+ 3 files changed, 3 insertions(+)
 
 _______________________________________________
 linux-riscv mailing list
