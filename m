@@ -4,84 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57204C27C55
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2024 11:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A59C27C5E
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2024 11:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9LlVaKZnfIYGzYQetShpwAtgyZopaouBSRVDzD7HhYk=; b=jFmJDW19Ahmmi6
-	lZ8BcuFptA4EYr2hPh2JQimJnsB0+MIervwUEOHJVcq2A90t6mV3TuX5xrsoKf1inKl0KSMBLrCvM
-	woCIsdsRBXy4/PA3Zv+UI7dbcGhaQgCSx2NxUwuPxUXFBuGNq8Hc2xUe6roUM5APbI5fs1BwdjeOu
-	s/gPf92S8ZoTg7pUn517Y6gEzKOlH4IZupu5sBckXK5w/ZULCHNXFsgZZAU5MJ/hfcZ5qO6Lf5UsW
-	JZdfTZk9QFAvXM4YzHJTiU0HPSaityGP+O3HI6BctKVaO+feKiUC+AFQhz2MYJ4mcZ7pEfcgZjWCI
-	aDAX3L9/qynSbv9JXHFg==;
+	List-Owner; bh=/1pLoPGgpi3hAHv0cUt2p4tMpVTqEI9+Efiq2NVaf/k=; b=pklOEzvZSPXH7l
+	hCtQRJWpmZj12tqG1i2DLZGw+jX6FbADSX966uce+lAa9imJotVDaqO37BfR/rd93hgVAzBXw0SjL
+	mufqH9zMaQiL3z/sXd4Ox3lv3WCJ4wfKJKgykFj9MUg6CI0cYo/lwnJgJZd2W7ZPdh1qSS4U97EQ4
+	AJh/Y6xQeS0V6wZ7pKsArGQ7sOmJ2ouDBM6PJzlYkswk7GYt61y11d/fOX+5TcOKyVlQvSeGaOgaJ
+	IvEJJe2LULOdTXpJ8ZNNZlD9YhV/KSKSSkdD5lDbpjWjPLUoHdLofGpIB9zOYi15T5RPxdZnS+2ER
+	1i2w9Tx3Vm9OG9S7sVHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGcue-00000004lmf-0SH8;
-	Mon, 10 Jun 2024 11:10:08 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1sGcup-00000004lqj-1PbU;
+	Mon, 10 Jun 2024 11:10:19 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGcub-00000004llf-13XE
+	id 1sGcuk-00000004lmj-2ymK
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jun 2024 11:10:07 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-42172ed3597so15973485e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Jun 2024 04:09:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1718017795; x=1718622595; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Prk73DnmPJ51cZiVZTBIXtupptZ0v+zxwxhwZVetsmM=;
-        b=AW+Ozvj0NfZH4mrPMhBBuKcMnHiVpkjgGLF3l9btpbdCPFkWz2GxXpk82f9Gu3cshs
-         UddXHn7A7ffm6Mc6LgG06r7YU5t8L69X+YTgiMe8gbTpBeQjmVED3fgFqmEW2VJiFKNX
-         6N79fqz7IV78joL8dCMs54t7bJDdLEM1YYkyAJiiI4rCMpTzK1QZDE3frzIio8oTPtG8
-         ZryfoCDeN9RGzC0aJMKXMlfExNP5rLcXZys9/spmROLYn6G6JkaQrIMJkS4L9exumVZg
-         /kmYfA8CyrTQf9uIqoKYAAT6JVtFlfymuehOPREu1QjXJrALdFL5MriYUIRxFqzVG0pT
-         gMzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718017795; x=1718622595;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Prk73DnmPJ51cZiVZTBIXtupptZ0v+zxwxhwZVetsmM=;
-        b=pg0kEL7ftkiHRnAc/u4HCCKXAzJZRPWMz3E0Ky2Z9U6J3Kj8YqfAqbmf4p3ClQnW4J
-         5w912hJtQcH1Zb+wmAb243LBDQX/m2e1wKyQMS6ZJfoz4HSirhgLp42qMi04tdpsd4+A
-         TtbtM8UyXWn0lz7dsQSCfs96/Wr/99/J3ocYAj8OvGSmKLvVgm7tSqtzm0HMeX8K5snJ
-         kZF/nV+wG09URctVVlDSFEzN+dbsJ7wP5If55TDMJ76Ge7aQQkPHC+qgMLFLjDjM0P+f
-         0PMo1sdlzOj56RjuE8WviE2mNY10iP3f5VoS7DroqJRfri0hrSlBFhbWqEbRrFXZnj1L
-         tu9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUdURbDVOtUxeZ2EpDyUUgYvfhCAwGhJoV8e78e+XiznYiWNF1ipyit+V6p0t7Ce9rmAnaX49dgVm0kWQzOPohwFHtMKEwEKfTW3ESBzfYn
-X-Gm-Message-State: AOJu0YzAEWPu3QdGmK3hVS3kOb/0OLoEPqRQQrBClGSG8f8OaZG59N5L
-	KY43XCBxOVwitjQY0FJOMluf11aT+/X/gO6vJsUtNx4CkEJ6xHo09iSudbV59TW5zo41Kzie6pl
-	wWBvcTZEzzVQALSVwAJ84eVSagt7Nd+oBFzVRrw==
-X-Google-Smtp-Source: AGHT+IHDrzvkYTQO7a1HswOxY54QWUnr1lL0+aFtNp8beJCPB7XJGXVKY971cEuujaGhdfBQBjgtOJxj99AGY9+QH2o=
-X-Received: by 2002:a05:600c:4f07:b0:421:661d:89d6 with SMTP id
- 5b1f17b1804b1-421661d8dacmr84761065e9.14.1718017795456; Mon, 10 Jun 2024
- 04:09:55 -0700 (PDT)
+	Mon, 10 Jun 2024 11:10:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1718017814; x=1749553814;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=KLTX+FrN+/X5Pjo7hasr1G+U/5MVxG90GAbohrK1Lcw=;
+  b=NvfjHK+Lxc2m4XQ1cfMJvGw0pJlc4iT9qmt7svuG7xL4U6jIRjrbGQo1
+   r18L0Oj6tFGJwL3RMiYakR06TJ30RmgQ4vhhVt+ge+xHUiE4u5OPdXkL8
+   Z8qGbeRACOHAPtuWg/IuIBlJAm4v1HC+zu43dv2RqJgs2I5zsUF02kFgC
+   GPIwneSeUzuQKA6ICqj9yknNhYxqYiXUa4osld0R08tl7/mQ7AjFjvEw4
+   9eoZsmuVddS/efEUO8fq1gtaHQzDDClh3pWu2fyXtkTxbRtxGZQpWpUZ0
+   Ph7mjIciWOWycBq0Hm59LHkwCyh94P0Nlbd46mrumXC1gYk6kQ38aN/qn
+   A==;
+X-CSE-ConnectionGUID: LxG2JZT/RDyTTRgbHxmFoA==
+X-CSE-MsgGUID: v1Ns5dfRR+6+wMyyTaxnhA==
+X-IronPort-AV: E=Sophos;i="6.08,227,1712646000"; 
+   d="scan'208";a="29623984"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Jun 2024 04:10:07 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 10 Jun 2024 04:09:43 -0700
+Received: from wendy.microchip.com (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Mon, 10 Jun 2024 04:09:41 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <linux-riscv@lists.infradead.org>
+CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Daire
+ McNamara" <daire.mcnamara@microchip.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Samuel Holland
+	<samuel.holland@sifive.com>, <devicetree@vger.kernel.org>
+Subject: [PATCH v1 4/5] riscv: dts: microchip: modify memory map & add dma-ranges for pcie on icicle
+Date: Mon, 10 Jun 2024 12:09:16 +0100
+Message-ID: <20240610-unhealthy-squeamish-db1039449a32@wendy>
+X-Mailer: git-send-email 2.43.2
+In-Reply-To: <20240610-vertical-frugally-a92a55427dd9@wendy>
+References: <20240610-vertical-frugally-a92a55427dd9@wendy>
 MIME-Version: 1.0
-References: <20240529185337.182722-1-rkanwal@rivosinc.com> <20240529185337.182722-3-rkanwal@rivosinc.com>
- <20240605-manila-exploit-d7191ec7a4bc@spud>
-In-Reply-To: <20240605-manila-exploit-d7191ec7a4bc@spud>
-From: Rajnesh Kanwal <rkanwal@rivosinc.com>
-Date: Mon, 10 Jun 2024 12:09:44 +0100
-Message-ID: <CAECbVCumdNKLqRO8yvgo7PWEmw7P1OvyX88cF5JdYefSQQY9tQ@mail.gmail.com>
-Subject: Re: [PATCH RFC 2/6] riscv: perf: Add Control transfer records CSR definations.
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, adrian.hunter@intel.com, 
-	alexander.shishkin@linux.intel.com, ajones@ventanamicro.com, 
-	anup@brainfault.org, acme@kernel.org, atishp@rivosinc.com, 
-	beeman@rivosinc.com, brauner@kernel.org, heiko@sntech.de, irogers@google.com, 
-	mingo@redhat.com, james.clark@arm.com, renyu.zj@linux.alibaba.com, 
-	jolsa@kernel.org, jisheng.teoh@starfivetech.com, palmer@dabbelt.com, 
-	tech-control-transfer-records@lists.riscv.org, will@kernel.org, 
-	kaiwenxue1@gmail.com
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6818; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=KLTX+FrN+/X5Pjo7hasr1G+U/5MVxG90GAbohrK1Lcw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGlp925Pi7651timSFPqf4/U7bYL+3zZkuuYzhz9s2Xmussh m2aldJSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAiZ9gY/nD/CV8a3LqWJTvgkcvL+n 0XnbySzC9crFMQ1HZ9d67t621Ghnm++wRuuEwS/djpdvFaXa3/nDvSukX2kt5Nf2cHzvppwAsA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240610_041005_452339_C50E4635 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20240610_041014_792836_716B8D79 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,101 +84,203 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdW4gNSwgMjAyNCBhdCA3OjAz4oCvUE0gQ29ub3IgRG9vbGV5IDxjb25vckBrZXJu
-ZWwub3JnPiB3cm90ZToKPgo+IE9uIFdlZCwgTWF5IDI5LCAyMDI0IGF0IDA3OjUzOjMzUE0gKzAx
-MDAsIFJham5lc2ggS2Fud2FsIHdyb3RlOgo+ID4gQWRkaW5nIENTUiBkZWZpbmVzIGZvciBSSVND
-ViBDb250cm9sIFRyYW5zZmVyIFJlY29yZHMgZXh0ZW5zaW9uIFswXQo+ID4gYWxvbmcgd2l0aCBi
-aXQtZmllbGQgbWFjcm9zIGZvciBlYWNoIENTUi4KPiA+Cj4gPiBbMF06IGh0dHBzOi8vZ2l0aHVi
-LmNvbS9yaXNjdi9yaXNjdi1jb250cm9sLXRyYW5zZmVyLXJlY29yZHMKPiA+Cj4gPiBTaWduZWQt
-b2ZmLWJ5OiBSYWpuZXNoIEthbndhbCA8cmthbndhbEByaXZvc2luYy5jb20+Cj4gPiAtLS0KPiA+
-ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oIHwgODMgKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrCj4KPiBUaGlzIHBhdGNoIGlzbid0IGZvciBwZXJmLCBzbyAkc3ViamVj
-dCBpcyBhIGJpdCBtaXNsZWFkaW5nLgo+Cj4gVGhhbmtzLAo+IENvbm9yLgoKU29ycnksIG15IGJh
-ZC4gSSB3aWxsIGZpeCB0aGlzIGluIHRoZSBuZXh0IHNlcmllcy4KCi0gUmFqbmVzaAoKPgo+ID4g
-IDEgZmlsZSBjaGFuZ2VkLCA4MyBpbnNlcnRpb25zKCspCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5o
-Cj4gPiBpbmRleCA3MDE5NjNiNjRmYzQuLmE4MGEyZWU5ZDQ0ZSAxMDA2NDQKPiA+IC0tLSBhL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vY3NyLmgKPiA+IEBAIC0zMDksNiArMzA5LDg1IEBACj4gPgo+ID4gICNkZWZpbmUgQ1NSX1NT
-Q09VTlRPVkYgICAgICAgICAgICAgICAweGRhMAo+ID4KPiA+ICsvKiBNLW1vZGUgQ29udHJvbCBU
-cmFuc2ZlciBSZWNvcmRzIENTUnMgKi8KPiA+ICsjZGVmaW5lIENTUl9NQ1RSQ1RMICAgICAgICAg
-IDB4MzRlCj4gPiArCj4gPiArLyogUy1tb2RlIENvbnRyb2wgVHJhbnNmZXIgUmVjb3JkcyBDU1Jz
-ICovCj4gPiArI2RlZmluZSBDU1JfU0NUUkNUTCAgICAgICAgICAweDE0ZQo+ID4gKyNkZWZpbmUg
-Q1NSX1NDVFJTVEFUVVMgICAgICAgICAgICAgICAweDE0Zgo+ID4gKyNkZWZpbmUgQ1NSX1NDVFJE
-RVBUSCAgICAgICAgICAgICAgICAweDE1Zgo+ID4gKwo+ID4gKy8qIFZTLW1vZGUgQ29udHJvbCBU
-cmFuc2ZlciBSZWNvcmRzIENTUnMgKi8KPiA+ICsjZGVmaW5lIENTUl9WU0NUUkNUTCAgICAgICAg
-IDB4MjRlCj4gPiArCj4gPiArLyogeGN0cnRsIENTUiBiaXRzLiAqLwo+ID4gKyNkZWZpbmUgQ1RS
-Q1RMX1VfRU5BQkxFICAgICAgICAgICAgICBfQUMoMHgxLCBVTCkKPiA+ICsjZGVmaW5lIENUUkNU
-TF9TX0VOQUJMRSAgICAgICAgICAgICAgX0FDKDB4MiwgVUwpCj4gPiArI2RlZmluZSBDVFJDVExf
-TV9FTkFCTEUgICAgICAgICAgICAgIF9BQygweDQsIFVMKQo+ID4gKyNkZWZpbmUgQ1RSQ1RMX1JB
-U0VNVSAgICAgICAgICAgICAgICBfQUMoMHg4MCwgVUwpCj4gPiArI2RlZmluZSBDVFJDVExfU1RF
-ICAgICAgICAgICBfQUMoMHgxMDAsIFVMKQo+ID4gKyNkZWZpbmUgQ1RSQ1RMX01URSAgICAgICAg
-ICAgX0FDKDB4MjAwLCBVTCkKPiA+ICsjZGVmaW5lIENUUkNUTF9CUEZSWiAgICAgICAgIF9BQygw
-eDgwMCwgVUwpCj4gPiArI2RlZmluZSBDVFJDVExfTENPRklGUlogICAgICAgICAgICAgIF9BQygw
-eDEwMDAsIFVMKQo+ID4gKyNkZWZpbmUgQ1RSQ1RMX0VYQ0lOSCAgICAgICAgICAgICAgICBfQUMo
-MHgyMDAwMDAwMDAsIFVMKQo+ID4gKyNkZWZpbmUgQ1RSQ1RMX0lOVFJJTkggICAgICAgICAgICAg
-ICBfQUMoMHg0MDAwMDAwMDAsIFVMKQo+ID4gKyNkZWZpbmUgQ1RSQ1RMX1RSRVRJTkggICAgICAg
-ICAgICAgICBfQUMoMHg4MDAwMDAwMDAsIFVMKQo+ID4gKyNkZWZpbmUgQ1RSQ1RMX05UQlJFTiAg
-ICAgICAgICAgICAgICBfQUMoMHgxMDAwMDAwMDAwLCBVTCkKPiA+ICsjZGVmaW5lIENUUkNUTF9U
-S0JSSU5IICAgICAgICAgICAgICAgX0FDKDB4MjAwMDAwMDAwMCwgVUwpCj4gPiArI2RlZmluZSBD
-VFJDVExfSU5EQ0FMTF9JTkggICBfQUMoMHgxMDAwMDAwMDAwMCwgVUwpCj4gPiArI2RlZmluZSBD
-VFJDVExfRElSQ0FMTF9JTkggICBfQUMoMHgyMDAwMDAwMDAwMCwgVUwpCj4gPiArI2RlZmluZSBD
-VFJDVExfSU5ESlVNUF9JTkggICBfQUMoMHg0MDAwMDAwMDAwMCwgVUwpCj4gPiArI2RlZmluZSBD
-VFJDVExfRElSSlVNUF9JTkggICBfQUMoMHg4MDAwMDAwMDAwMCwgVUwpCj4gPiArI2RlZmluZSBD
-VFJDVExfQ09SU1dBUF9JTkggICBfQUMoMHgxMDAwMDAwMDAwMDAsIFVMKQo+ID4gKyNkZWZpbmUg
-Q1RSQ1RMX1JFVF9JTkggICAgICAgICAgICAgICBfQUMoMHgyMDAwMDAwMDAwMDAsIFVMKQo+ID4g
-KyNkZWZpbmUgQ1RSQ1RMX0lORE9KVU1QX0lOSCAgX0FDKDB4NDAwMDAwMDAwMDAwLCBVTCkKPiA+
-ICsjZGVmaW5lIENUUkNUTF9ESVJPSlVNUF9JTkggIF9BQygweDgwMDAwMDAwMDAwMCwgVUwpCj4g
-PiArCj4gPiArLyogc2N0cnN0YXR1cyBDU1IgYml0cy4gKi8KPiA+ICsjZGVmaW5lIFNDVFJTVEFU
-VVNfV1JQVFJfTUFTSyAgICAgICAgMHhGRgo+ID4gKyNkZWZpbmUgU0NUUlNUQVRVU19GUk9aRU4g
-ICAgX0FDKDB4ODAwMDAwMDAsIFVMKQo+ID4gKwo+ID4gKyNpZmRlZiBDT05GSUdfUklTQ1ZfTV9N
-T0RFCj4gPiArI2RlZmluZSBDVFJDVExfS0VSTkVMX0VOQUJMRSBDVFJDVExfTV9FTkFCTEUKPiA+
-ICsjZWxzZQo+ID4gKyNkZWZpbmUgQ1RSQ1RMX0tFUk5FTF9FTkFCTEUgQ1RSQ1RMX1NfRU5BQkxF
-Cj4gPiArI2VuZGlmCj4gPiArCj4gPiArLyogc2N0cmRlcHRoIENTUiBiaXRzLiAqLwo+ID4gKyNk
-ZWZpbmUgU0NUUkRFUFRIX01BU0sgICAgICAgICAgICAgICAweDcKPiA+ICsKPiA+ICsjZGVmaW5l
-IFNDVFJERVBUSF9NSU4gICAgICAgICAgICAgICAgMHgwIC8qIDE2IEVudHJpZXMuICovCj4gPiAr
-I2RlZmluZSBTQ1RSREVQVEhfTUFYICAgICAgICAgICAgICAgIDB4NCAvKiAyNTYgRW50cmllcy4g
-Ki8KPiA+ICsKPiA+ICsvKiBjdHJzb3VyY2UsIGN0cnRhcmdldCBhbmQgY3RyZGF0YSBDU1IgYml0
-cy4gKi8KPiA+ICsjZGVmaW5lIENUUlNPVVJDRV9WQUxJRCAgICAgICAgICAgICAgMHgxVUxMCj4g
-PiArI2RlZmluZSBDVFJUQVJHRVRfTUlTUCAgICAgICAgICAgICAgIDB4MVVMTAo+ID4gKwo+ID4g
-KyNkZWZpbmUgQ1RSREFUQV9UWVBFX01BU0sgICAgMHhGCj4gPiArI2RlZmluZSBDVFJEQVRBX0ND
-ViAgICAgICAgICAweDgwMDAKPiA+ICsjZGVmaW5lIENUUkRBVEFfQ0NNX01BU0sgICAgIDB4RkZG
-MDAwMAo+ID4gKyNkZWZpbmUgQ1RSREFUQV9DQ0VfTUFTSyAgICAgMHhGMDAwMDAwMAo+ID4gKwo+
-ID4gKyNkZWZpbmUgQ1RSREFUQV9UWVBFX05PTkUgICAgICAgICAgICAgICAgICAgIDAKPiA+ICsj
-ZGVmaW5lIENUUkRBVEFfVFlQRV9FWENFUFRJT04gICAgICAgICAgICAgICAgICAgICAgIDEKPiA+
-ICsjZGVmaW5lIENUUkRBVEFfVFlQRV9JTlRFUlJVUFQgICAgICAgICAgICAgICAgICAgICAgIDIK
-PiA+ICsjZGVmaW5lIENUUkRBVEFfVFlQRV9UUkFQX1JFVCAgICAgICAgICAgICAgICAgICAgICAg
-IDMKPiA+ICsjZGVmaW5lIENUUkRBVEFfVFlQRV9OT05UQUtFTl9CUkFOQ0ggICAgICAgICA0Cj4g
-PiArI2RlZmluZSBDVFJEQVRBX1RZUEVfVEFLRU5fQlJBTkNIICAgICAgICAgICAgNQo+ID4gKyNk
-ZWZpbmUgQ1RSREFUQV9UWVBFX1JFU0VSVkVEXzYgICAgICAgICAgICAgICAgICAgICAgNgo+ID4g
-KyNkZWZpbmUgQ1RSREFUQV9UWVBFX1JFU0VSVkVEXzcgICAgICAgICAgICAgICAgICAgICAgNwo+
-ID4gKyNkZWZpbmUgQ1RSREFUQV9UWVBFX0lORElSRUNUX0NBTEwgICAgICAgICAgIDgKPiA+ICsj
-ZGVmaW5lIENUUkRBVEFfVFlQRV9ESVJFQ1RfQ0FMTCAgICAgICAgICAgICA5Cj4gPiArI2RlZmlu
-ZSBDVFJEQVRBX1RZUEVfSU5ESVJFQ1RfSlVNUCAgICAgICAgICAgMTAKPiA+ICsjZGVmaW5lIENU
-UkRBVEFfVFlQRV9ESVJFQ1RfSlVNUCAgICAgICAgICAgICAxMQo+ID4gKyNkZWZpbmUgQ1RSREFU
-QV9UWVBFX0NPX1JPVVRJTkVfU1dBUCAgICAgICAgIDEyCj4gPiArI2RlZmluZSBDVFJEQVRBX1RZ
-UEVfUkVUVVJOICAgICAgICAgICAgICAgICAgMTMKPiA+ICsjZGVmaW5lIENUUkRBVEFfVFlQRV9P
-VEhFUl9JTkRJUkVDVF9KVU1QICAgICAxNAo+ID4gKyNkZWZpbmUgQ1RSREFUQV9UWVBFX09USEVS
-X0RJUkVDVF9KVU1QICAgICAgICAgICAgICAgMTUKPiA+ICsKPiA+ICsjZGVmaW5lIENUUl9FTlRS
-SUVTX0ZJUlNUICAgIDB4MjAwCj4gPiArI2RlZmluZSBDVFJfRU5UUklFU19MQVNUICAgICAweDJm
-Zgo+ID4gKwo+ID4gICNkZWZpbmUgQ1NSX1NTVEFUVVMgICAgICAgICAgMHgxMDAKPiA+ICAjZGVm
-aW5lIENTUl9TSUUgICAgICAgICAgICAgICAgICAgICAgMHgxMDQKPiA+ICAjZGVmaW5lIENTUl9T
-VFZFQyAgICAgICAgICAgIDB4MTA1Cj4gPiBAQCAtNDkwLDYgKzU2OSw4IEBACj4gPiAgIyBkZWZp
-bmUgQ1NSX1RPUEVJICAgQ1NSX01UT1BFSQo+ID4gICMgZGVmaW5lIENTUl9UT1BJICAgIENTUl9N
-VE9QSQo+ID4KPiA+ICsjIGRlZmluZSBDU1JfQ1RSQ1RMICAgICBDU1JfTUNUUkNUTAo+ID4gKwo+
-ID4gICMgZGVmaW5lIFNSX0lFICAgICAgICAgICAgICAgU1JfTUlFCj4gPiAgIyBkZWZpbmUgU1Jf
-UElFICAgICAgICAgICAgICBTUl9NUElFCj4gPiAgIyBkZWZpbmUgU1JfUFAgICAgICAgICAgICAg
-ICBTUl9NUFAKPiA+IEBAIC01MjAsNiArNjAxLDggQEAKPiA+ICAjIGRlZmluZSBDU1JfVE9QRUkg
-ICBDU1JfU1RPUEVJCj4gPiAgIyBkZWZpbmUgQ1NSX1RPUEkgICAgQ1NSX1NUT1BJCj4gPgo+ID4g
-KyMgZGVmaW5lIENTUl9DVFJDVEwgICAgIENTUl9TQ1RSQ1RMCj4gPiArCj4gPiAgIyBkZWZpbmUg
-U1JfSUUgICAgICAgICAgICAgICBTUl9TSUUKPiA+ICAjIGRlZmluZSBTUl9QSUUgICAgICAgICAg
-ICAgIFNSX1NQSUUKPiA+ICAjIGRlZmluZSBTUl9QUCAgICAgICAgICAgICAgIFNSX1NQUAo+ID4g
-LS0KPiA+IDIuMzQuMQo+ID4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+Since 2022/02, the main reference design for the Icicle Kit uses a
+non-coherent memory configuration for PCIe, and a shim in the FPGA
+fabric, in response to customer requests. As a result, the PCIe root
+port has not been usable in mainline since that point in time.
+
+The memory apertures on the reference design have been configured so
+that the base of each aperture is mapped to 0x0 in physical memory, a
+completely "overlaid" approach. This enables the PCIe root port to
+operate in a non-coherent manner (the CPUs/harts use the cached variant
+of a particular actual DDR address, the PCIe root port uses the
+non-cached variant of the same address. As an example, to access DDR
+location 0, the FIC, to which the PCIe rootport is attached, would use
+14'0000'0000 and the CPUs would use 10'0000'0000. In this example, the
+FIC is responsible for the upper 32-bits of the AXI address and the
+root-port (as it is limited to 32-bits on the AXI-S interface) is
+responsible for the lower 32-bits of the AXI address. The FPGA designs
+utilizing this approach use a simple "shim" to statically set the upper
+32-bits of all AXI-S addresses to '000'0014'.
+
+Describe some regions of non-cached memory (and immediately reserve them,
+as PolarFire SoC does not support atomics in non-cached memory) so that
+we can configure dma-ranges and dma-pools to support a "shim" that will
+shift addresses in AXI transactions from the PCIe root port into the
+0x14_0000_0000 non-cached region of memory.
+
+The price paid for this is a reduction in the overall system memory.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../dts/microchip/mpfs-icicle-kit-fabric.dtsi | 75 ++++++++++++-------
+ .../boot/dts/microchip/mpfs-icicle-kit.dts    | 44 +++++++++--
+ 2 files changed, 84 insertions(+), 35 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
+index 1069134f2e12a..33e76db965bbc 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
+@@ -26,33 +26,54 @@ i2c2: i2c@40000200 {
+ 		status = "disabled";
+ 	};
+ 
+-	pcie: pcie@3000000000 {
+-		compatible = "microchip,pcie-host-1.0";
+-		#address-cells = <0x3>;
+-		#interrupt-cells = <0x1>;
+-		#size-cells = <0x2>;
+-		device_type = "pci";
+-		reg = <0x30 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
+-		reg-names = "cfg", "apb";
+-		bus-range = <0x0 0x7f>;
+-		interrupt-parent = <&plic>;
+-		interrupts = <119>;
+-		interrupt-map = <0 0 0 1 &pcie_intc 0>,
+-				<0 0 0 2 &pcie_intc 1>,
+-				<0 0 0 3 &pcie_intc 2>,
+-				<0 0 0 4 &pcie_intc 3>;
+-		interrupt-map-mask = <0 0 0 7>;
+-		clocks = <&ccc_nw CLK_CCC_PLL0_OUT1>, <&ccc_nw CLK_CCC_PLL0_OUT3>;
+-		clock-names = "fic1", "fic3";
+-		ranges = <0x3000000 0x0 0x8000000 0x30 0x8000000 0x0 0x80000000>;
+-		dma-ranges = <0x02000000 0x0 0x00000000 0x0 0x00000000 0x1 0x00000000>;
+-		msi-parent = <&pcie>;
+-		msi-controller;
+-		status = "disabled";
+-		pcie_intc: interrupt-controller {
+-			#address-cells = <0>;
+-			#interrupt-cells = <1>;
+-			interrupt-controller;
++	fabric-pcie-bus@3000000000 {
++		compatible = "simple-bus";
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges = <0x0 0x40000000 0x0 0x40000000 0x0 0x20000000>,
++			 <0x30 0x0 0x30 0x0 0x10 0x0>;
++		dma-ranges = <0x0 0x0 0x0 0x80000000 0x0 0x6000000>,
++			     <0x0 0x6000000 0x0 0xc6000000 0x0 0x4000000>,
++			     <0x0 0xa000000 0x0 0x8a000000 0x0 0x8000000>,
++			     <0x0 0x12000000 0x14 0x12000000 0x0 0x10000000>,
++			     <0x0 0x22000000 0x10 0x22000000 0x0 0x5e000000>;
++
++		pcie: pcie@3000000000 {
++			compatible = "microchip,pcie-host-1.0";
++			#address-cells = <0x3>;
++			#interrupt-cells = <0x1>;
++			#size-cells = <0x2>;
++			device_type = "pci";
++			dma-noncoherent;
++			reg = <0x30 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
++			reg-names = "cfg", "apb";
++			bus-range = <0x0 0x7f>;
++			interrupt-parent = <&plic>;
++			interrupts = <119>;
++			interrupt-map = <0 0 0 1 &pcie_intc 0>,
++					<0 0 0 2 &pcie_intc 1>,
++					<0 0 0 3 &pcie_intc 2>,
++					<0 0 0 4 &pcie_intc 3>;
++			interrupt-map-mask = <0 0 0 7>;
++			clocks = <&ccc_nw CLK_CCC_PLL0_OUT1>, <&ccc_nw CLK_CCC_PLL0_OUT3>;
++			clock-names = "fic1", "fic3";
++			ranges = <0x43000000 0x0 0x9000000 0x30 0x9000000 0x0 0xf000000>,
++				 <0x1000000 0x0 0x8000000 0x30 0x8000000 0x0 0x1000000>,
++				 <0x3000000 0x0 0x18000000 0x30 0x18000000 0x0 0x70000000>;
++			dma-ranges = <0x3000000 0x0 0x80000000 0x0 0x0 0x0 0x6000000>,
++				     <0x3000000 0x0 0x86000000 0x0 0x6000000 0x0 0x4000000>,
++				     <0x3000000 0x0 0x8a000000 0x0 0xa000000 0x0 0x8000000>,
++				     <0x3000000 0x0 0x92000000 0x0 0x12000000 0x0 0x10000000>,
++				     <0x3000000 0x0 0xa2000000 0x0 0x22000000 0x0 0x5e000000>;
++			msi-parent = <&pcie>;
++			msi-controller;
++			status = "disabled";
++
++			pcie_intc: interrupt-controller {
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
+ 		};
+ 	};
+ 
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
+index f80df225f72b4..6c9340992e9eb 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
+@@ -54,16 +54,29 @@ led-4 {
+ 		};
+ 	};
+ 
+-	ddrc_cache_lo: memory@80000000 {
++	memory@80000000 {
+ 		device_type = "memory";
+-		reg = <0x0 0x80000000 0x0 0x40000000>;
+-		status = "okay";
++		reg = <0x0 0x80000000 0x0 0x6000000>;
+ 	};
+ 
+-	ddrc_cache_hi: memory@1040000000 {
++	memory@8a000000 {
+ 		device_type = "memory";
+-		reg = <0x10 0x40000000 0x0 0x40000000>;
+-		status = "okay";
++		reg = <0x0 0x8a000000 0x0 0x8000000>;
++	};
++
++	memory@c4000000 {
++		device_type = "memory";
++		reg = <0x0 0xc6000000 0x0 0x4000000>;
++	};
++
++	memory@1022000000 {
++		device_type = "memory";
++		reg = <0x10 0x22000000 0x0 0x5e000000>;
++	};
++
++	memory@1412000000 {
++		device_type = "memory";
++		reg = <0x14 0x12000000 0x0 0x10000000>;
+ 	};
+ 
+ 	reserved-memory {
+@@ -71,10 +84,25 @@ reserved-memory {
+ 		#size-cells = <2>;
+ 		ranges;
+ 
+-		hss_payload: region@BFC00000 {
+-			reg = <0x0 0xBFC00000 0x0 0x400000>;
++		hss_payload: region@103fc00000 {
++			reg = <0x10 0x3fc00000 0x0 0x400000>;
+ 			no-map;
+ 		};
++
++		non-cached-low-buffer {
++			compatible = "shared-dma-pool";
++			size = <0x0 0x4000000>;
++			no-map;
++			alloc-ranges = <0x0 0xc6000000 0x0 0x4000000>;
++		};
++
++		non-cached-high-buffer {
++			compatible = "shared-dma-pool";
++			size = <0x0 0x10000000>;
++			no-map;
++			linux,dma-default;
++			alloc-ranges = <0x14 0x12000000 0x0 0x10000000>;
++		};
+ 	};
+ };
+ 
+-- 
+2.43.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
