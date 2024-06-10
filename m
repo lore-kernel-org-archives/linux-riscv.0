@@ -4,100 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023CCC27C55
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2024 17:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACCBC27C55
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2024 17:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Bvc19BRb6UJYFqpUhAg5VNE2jyQfRyAmM79lbw4DVc=; b=PsKEhCKBmFcK/V
-	gJppvshrxiNj68MDJYfFmAcvc/rPO05xBJPQUmZjxYN/cXUtIIoY5XfmNBag8J8AKVQMSKRYVzaFS
-	DtcpwsVZA6BtlUx4mo9xZ6VZsy+mvY479+nB5SuyEzcCscVTy6VKakEvyJG5zvSgFPokAe5Ut0/ip
-	UgJ5NET6Bc5BVZhAM33oifrWSqs1oIN2LDGyb8W3Cl6J5VwukSQLm4/Tic1m92k7E4XKG62huQYyZ
-	6r1xV11NYZVI74MgBw2GmP3CWcpyclRRjs8igtFx5XPFHuytkrmup4RX9HuhUioGOQZNr+055w3Tu
-	W9xkjQnSeq1t+wfwCkqg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=b+2P6crVE2rnxynrX+YINA+9z+g7AABgEcT3SwjbjEQ=; b=fDgQiCAsoQhdoM
+	vBy1wCx8ubmKgqYQZfrORTa1n5+FR8uRxdEP2qx931KIyIhWgQb6jp44NJx/xTXsMmyO9MA3Ju3k9
+	qrP0vztTnVVrdt7gzVlyiEFnSWSORgx9tUggaZHXWgvfUgoaqvgL/d3Nny0w3ZA1V1sa7xx38xkdz
+	Snbb5lg8QS6DdVrTwFonw0XrukHO+K1fTWFcBvFeOS+KEVSgrgeM/SD5XW+XhonEfdZWgiP3CQM5a
+	m4lqnZkibjN5MLes005toWvqXuXvSWWqpHmO6IK5BN2l9e5YVFUoCQjxhMgqNVYeh/1jeAYAVXuZb
+	hoKC+0AA5/o/peH3A5rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGj9S-0000000622b-3Seh;
-	Mon, 10 Jun 2024 17:49:50 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1sGjB5-000000062XO-3WfX;
+	Mon, 10 Jun 2024 17:51:31 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGj9O-0000000620K-3rkd
+	id 1sGjB2-000000062WE-3CGT
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jun 2024 17:49:49 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-421798185f0so21118815e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Jun 2024 10:49:44 -0700 (PDT)
+	Mon, 10 Jun 2024 17:51:30 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1f68834bfdfso34923175ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Jun 2024 10:51:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user; t=1718041783; x=1718646583; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2Zyb+ujtIGgfui3VzqiGKyVsxQvcv7H95kxqnj+CmxU=;
-        b=lyXHOXLZlXhCnEp/AqSNnoB66M4j41pkDxdxmOJa1sITEv4K2+RGDcYubkA0JH35ix
-         as54hlBLbp5BrALLG6FIAL8/fGuJ7GzfR8OIPg/yvLZVdpa44jPdN2Hn3IGKK5SSrqq/
-         O9lFVb9MOYxBy4J6jXTlVqEHsuyU3tTOqSsVHlOtBsjXqlHqA7QLD99511TuOcnPIZhq
-         0gV6Cc1xB69QEHV3reYZRn4T9fy56aZHa4D5FzJeR/tMfKCflSyDxLBHD6SKAzyAQiyx
-         ka/YiHM8iiPKfbjpwwpy0RjlLBOIB4cDwEnGQ6a4gW4k/kodpuGFcGCWnv1Jccw8PrLu
-         qeUQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1718041886; x=1718646686; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=XqAidOJkzifwbi0aDp05YiJHEtIMzMs4UmIa/z6sCUY=;
+        b=tQF90Lh9LDxVnCkK6tZ0cRtuEagw6poYiOEQ+0FfIukftqmYbu/w4O4ES1sH70LWwS
+         cR5ycuCg799DlRByOrq9Ad50s/Nsg1F4P0jREnOj6EhXOvNPr0/jcjZxJEwd/0JBL3FT
+         cVnahl8LiCF/3v+yDSPA3jyc0wtBZ5ON9RCvBj8Hg01yubwRm/TBrq5dJfYWJ/FYpp6M
+         XJq2qbHoX7efBF6F3+B5OtSnYOUEhAHRgEf9IJmLPgyxcIOOs4TFt7OtVlV4q5DST4wX
+         i0+L5if+GCLOxQyOVQwvqFQF6c++opAZKKHToecKDD5zBUYfLU3NFXBQ3TMUWSn6cbpt
+         qtug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718041783; x=1718646583;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2Zyb+ujtIGgfui3VzqiGKyVsxQvcv7H95kxqnj+CmxU=;
-        b=VVMATBqCSiJEuJDm5KIFeQzkqrpOvp90GjS33CpoSOCpvZG4TgMAhpFKb8a3NgwIyd
-         eR0ypcADA/aglIwJS5alMGWnBkpikZt6G+3lt37bNo6ZdE5yH/JbirX3yqeR+EInvVCy
-         82ABKwx127JCqCNUuVxlIH1vR7PDCz+qf+GpwIny54S79MTHEMKkKn+AUsn72tZZ0+cJ
-         D7K4WrCVKbub97VCGrpbmxd1WHOnhwF9of1UnzNBp8e53x+IwUGOPh4oTv39O4TvQixV
-         FrC6zf34aT+7HyuMgRmr1ogpuLU4XEgUTTd5cCculqaBkP3kkmlUL0rxsoqKFfPu9Nqj
-         0ZqA==
-X-Forwarded-Encrypted: i=1; AJvYcCUC1aYAKC1oGWtDABg2xiRVOjbhT5T+R1xyMSGxzMolvwR+2xzq0dVY9/sJ/7lOEO2XHTR/JKXR/6fDe8wAT18xDhlHnIFUTiMoJM2mCjR+
-X-Gm-Message-State: AOJu0Yx9x4LVLpsRs9bDyDCfY4tQgvqemTfEn9Z/SMCj3sgIj6JKBEuH
-	jfmYdpQ6thbBrVdo7g91jhuYURY6DEGZvh+QX2ZKnjXSJ3CCPcC3X0L7GunaXhI=
-X-Google-Smtp-Source: AGHT+IGOL4J84jhPB6MOYY7C/yQXa66itQV4TEzYbITX4tGHe/3k2ra5FCnezqsLOntd6VEWEWr5PA==
-X-Received: by 2002:a05:600c:1ca3:b0:421:6b79:8900 with SMTP id 5b1f17b1804b1-4216b798c9cmr55824915e9.41.1718041782597;
-        Mon, 10 Jun 2024 10:49:42 -0700 (PDT)
-Received: from smtpclient.apple ([131.111.5.201])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4215c19e97dsm149074925e9.5.2024.06.10.10.49.41
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 10 Jun 2024 10:49:42 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.500.171.1.1\))
+        d=1e100.net; s=20230601; t=1718041886; x=1718646686;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XqAidOJkzifwbi0aDp05YiJHEtIMzMs4UmIa/z6sCUY=;
+        b=EaT90+euq5m3C4yeuNxcdV/oDapt+6FyAJJZkrb80F4NrJ5ZlyvmXJgHrQXF4Bt3+g
+         KB03z10EZwjs15QjcN+9Xb2DQ3puiekCFSDIsYVfVxcnMcSzorB4hQVImGgHHMn2AZkR
+         txnoYLTtJNSPCUDey8Dvim+Klrler2ZB0CEXpEzFrv++uROL+xTKodhrh69iOj/DhjlV
+         5GVuhUFbBL7LBxbQvXPKc0JpBaqk91x3JO7+38C0nKSNv6iMAVhF6UDSCxsHDHGvSwaX
+         L1dWeD0oldz6wGd+TAi3FLNhCmbHXJzquPlnDjtBriq+uLN6ca8i4HH5Q8MeyAeCtL8i
+         CgeA==
+X-Forwarded-Encrypted: i=1; AJvYcCV3sjbRvVMy7LGJ9BWAGrO8g2sb7d2CrW1rzr2/Jk2jykGakI5tokTcWcb+PGrmDVvf0s5tNjDmZ+uw4Raxr9qcHtil5BXM1G8gA/nzEUTS
+X-Gm-Message-State: AOJu0YzELiZiJcE0wTNJoRoz2iMJDBUhh89afwjdcVQ6QC7jN9/dN9pN
+	EZ+HxL/IkMOUPdbVxGIfAL95MgMWjq5ob/0exfjdMV7A86DKSAnYvt4Spfi5lts=
+X-Google-Smtp-Source: AGHT+IGI7ZtC5yMFeVhgobcpC4ELjQ0rXq8graZvm2aNnJqlgdJJt9Tf50Z+1bVL5t64KhWiB1DChw==
+X-Received: by 2002:a17:902:cf04:b0:1f6:f5bc:51c5 with SMTP id d9443c01a7336-1f6f5bc5391mr72332595ad.47.1718041886043;
+        Mon, 10 Jun 2024 10:51:26 -0700 (PDT)
+Received: from ghost ([2601:647:5700:6860:129d:83bc:830b:8292])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f70eeaedf7sm27441255ad.84.2024.06.10.10.51.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Jun 2024 10:51:25 -0700 (PDT)
+Date: Mon, 10 Jun 2024 10:51:23 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Jessica Clarke <jrtc27@jrtc27.com>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>, linux-sunxi@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
 Subject: Re: [PATCH 03/13] riscv: dts: allwinner: Add xtheadvector to the
  D1/D1s devicetree
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <20240609-xtheadvector-v1-3-3fe591d7f109@rivosinc.com>
-Date: Mon, 10 Jun 2024 18:49:30 +0100
-Cc: Conor Dooley <conor@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Jisheng Zhang <jszhang@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <shuah@kernel.org>,
- Guo Ren <guoren@kernel.org>,
- Evan Green <evan@rivosinc.com>,
- Andy Chiu <andy.chiu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
- LKML <linux-kernel@vger.kernel.org>,
- linux-sunxi@lists.linux.dev,
- linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-Message-Id: <FD6771F5-5739-469A-9C0B-952AAC62AB68@jrtc27.com>
+Message-ID: <Zmc9G2syeLF2rBZM@ghost>
 References: <20240609-xtheadvector-v1-0-3fe591d7f109@rivosinc.com>
  <20240609-xtheadvector-v1-3-3fe591d7f109@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: Apple Mail (2.3774.500.171.1.1)
+ <FD6771F5-5739-469A-9C0B-952AAC62AB68@jrtc27.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <FD6771F5-5739-469A-9C0B-952AAC62AB68@jrtc27.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240610_104947_229057_DD7F0620 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20240610_105128_946488_4BCAA326 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,45 +108,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10 Jun 2024, at 05:45, Charlie Jenkins <charlie@rivosinc.com> wrote:
+On Mon, Jun 10, 2024 at 06:49:30PM +0100, Jessica Clarke wrote:
+> On 10 Jun 2024, at 05:45, Charlie Jenkins <charlie@rivosinc.com> wrote:
+> > 
+> > The D1/D1s SoCs support xtheadvector so it can be included in the
+> > devicetree. Also include vlenb for the cpu.
+> > 
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > ---
+> > arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 3 ++-
+> > 1 file changed, 2 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+> > index 64c3c2e6cbe0..50c9f4ec8a7f 100644
+> > --- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+> > +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+> > @@ -27,7 +27,8 @@ cpu0: cpu@0 {
+> > riscv,isa = "rv64imafdc";
+> > riscv,isa-base = "rv64i";
+> > riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+> > -       "zifencei", "zihpm";
+> > +       "zifencei", "zihpm", "xtheadvector";
+> > + riscv,vlenb = <128>;
 > 
-> The D1/D1s SoCs support xtheadvector so it can be included in the
-> devicetree. Also include vlenb for the cpu.
-> 
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
-> arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 3 ++-
-> 1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-> index 64c3c2e6cbe0..50c9f4ec8a7f 100644
-> --- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-> +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-> @@ -27,7 +27,8 @@ cpu0: cpu@0 {
-> riscv,isa = "rv64imafdc";
-> riscv,isa-base = "rv64i";
-> riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
-> -       "zifencei", "zihpm";
-> +       "zifencei", "zihpm", "xtheadvector";
-> + riscv,vlenb = <128>;
+> thread,vlenb
 
-thread,vlenb
+Oh right, thank you!
 
-Jess
+- Charlie
 
-> #cooling-cells = <2>;
 > 
-> cpu0_intc: interrupt-controller {
+> Jess
 > 
-> -- 
-> 2.44.0
+> > #cooling-cells = <2>;
+> > 
+> > cpu0_intc: interrupt-controller {
+> > 
+> > -- 
+> > 2.44.0
+> > 
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 > 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
 
 _______________________________________________
 linux-riscv mailing list
