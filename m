@@ -4,105 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD80EC27C55
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2024 13:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DFA3C27C65
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2024 15:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zTp45RPj3cj514E9l+Y0yz3vx09teTKypy3fWxPzXCQ=; b=vFmLUMKZiEBQa+
-	985rVRsu0aunr0AmREy62BwJY9tO4vndUFtLXdXgUwF+MPqV/ORnfxmWPinB2z2wlPZeAZltRaAD0
-	hC+gagt5/Ur0EqKNANlz+jwrVxnmb7LTZfzl2YFZLwOuUX99znFaF5AjpHbRtVpRFA5hl9uTzVoWs
-	mjMPuj/q58WPhM2g0dxFM4hrC4mCAZS3pcvt5DVOK+eetAp+KX7um9WWKRh7fTvLWgHVtQTl5ei3Q
-	Cxn24+kcMTtrSV3DO3uBmwgTnB5F2uZ6U+ynWS6LVkivD+LsGo/q82Th/W1he8E5bmsf4J+XZRibx
-	gSfvqzbPcC2LWYrTqluw==;
+	List-Owner; bh=u4U70rM+C+l0rzwehr15EmqGi/04pEJjegErAPfZ/xU=; b=yY58BFE7+lTrBR
+	r9uCtzZf/OyyLfabK+XwIqTLePRezy8+PpIxDIMXsyvuo1IbPDqER9sBIw/8KveNIdbEB8641YIvz
+	VYvihlyXd+uSJcPQscKxEUHD6L5Ez+2ttgL/BvK3Pn1N2UjH4diQ9YxkTK+/CLword6h9A7KjHzCg
+	Iont+tj+xjy8ZHvhMFKDX7L6tlMmcYoOpATnyvPqRc+ArXTwgMGFaG/xUbBU9O81BjnTLnyfPYqYQ
+	9kBfjCQh+NU7aYw3jY7655m3GlEV6k5EvXTyPb46TC3DXblTKADUQoRpZnzH7qqn3QPzYNZ7mrA8l
+	/6qZPSYHQQ4p2zwWGfvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGf1R-00000005AcY-2rKQ;
-	Mon, 10 Jun 2024 13:25:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sGgpY-00000005bXc-3EnJ;
+	Mon, 10 Jun 2024 15:21:08 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGf1O-00000005Ac4-2BmT
+	id 1sGgpV-00000005bW9-0rvG
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jun 2024 13:25:16 +0000
+	Mon, 10 Jun 2024 15:21:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 961EB6091A;
-	Mon, 10 Jun 2024 13:25:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B391FC2BBFC;
-	Mon, 10 Jun 2024 13:25:10 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id C4880CE157F;
+	Mon, 10 Jun 2024 15:21:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0ACC2C32786;
+	Mon, 10 Jun 2024 15:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718025913;
-	bh=liwsA1y2JkmJUr/DFB7s2hY7AppE4hxpOVGmtP0EbV0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IAxkOFAFzGelvEUtHIUUpQCLfq617N/F/YErTcoWdXcc7FeGP0DCUJO669XCIE9HW
-	 gQTAIkRc5Q5n0UNOasVxY/zUo58fQep/vcNNsBtqZd3UIQx9j21EbeDPAmemPg0CJP
-	 gHR/n57+/rQ6bo2F1V+uuDeJqzQM+51WcBSaEVMn3LR8pAH9JvnJyTA2HyWmLOhwC6
-	 mij8Dl55CcT9QObz2F0euQR9flGo4VPGnDif3iRdL+EgQVjEWguyfL51NfG2UP4ZE2
-	 ZQt8Awu3/7GYUohaSpd2PDggsXkDQi1puhE3/UEE2A6mzHxeblYibygnsFjxwbXfUp
-	 WIfFp6iLy/N4w==
-Message-ID: <bdea4e6c-eee5-4f4a-85b9-738d61b19800@kernel.org>
-Date: Mon, 10 Jun 2024 15:25:08 +0200
+	s=k20201202; t=1718032862;
+	bh=wrEyc/XOccK5lcvUAFHZMzKW2b4TGOK8NRquUO/ZqfQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=YF4agIZLqnty+hVCpPe+arb55voccu/wz5PLFlNZmY+GFV+SflhWRnHCJG2ZXHxzr
+	 2RPTZekLP0XqSVRu5Abbl9bPPzZLlSBtQm1sOAQttObYjIvHe4mFilJcxk/srfyuLW
+	 MTqX4YgK36BXSb5HawiX9+23BAF65cX5Ta4e3grtys+Oj9bY9E4pH3ffMFo/wsOCeD
+	 CCbJZFd9A91k1eGN08MtSCWbJTZAd6quINEi48uEGpB1kDVJyPJ3oAMwKdI1dM9XFQ
+	 niMlJEn4vZHY5l0+m2/p40JmciPmyb1HDmYHyWVqBJ2PBoeypPJ3NlrpVQ+xv6jYay
+	 U8iASVN5VEm0Q==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id F18CBE7C76F;
+	Mon, 10 Jun 2024 15:21:01 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] dt-bindings: PCI: microchip,pcie-host: allow
- dma-noncoherent
-To: daire.mcnamara@microchip.com, linux-pci@vger.kernel.org
-Cc: conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com,
- robh@kernel.org, bhelgaas@google.com, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20240610121822.2636971-1-daire.mcnamara@microchip.com>
- <20240610121822.2636971-4-daire.mcnamara@microchip.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20240610121822.2636971-4-daire.mcnamara@microchip.com>
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.10-rc3
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <171803286198.3082.7486991860696715697.git-patchwork-notify@kernel.org>
+Date: Mon, 10 Jun 2024 15:21:01 +0000
+References: <mhng-1afb5c2b-25de-4eb4-a911-523495ad3939@palmer-ri-x1c9>
+In-Reply-To: <mhng-1afb5c2b-25de-4eb4-a911-523495ad3939@palmer-ri-x1c9>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240610_062514_741646_C71E6786 
-X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-CacheID: sfid-20240610_082105_434747_690616DD 
+X-CRM114-Status: UNSURE (   7.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,39 +75,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2024 14:18, daire.mcnamara@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+Hello:
+
+This pull request was applied to riscv/linux.git (fixes)
+by Linus Torvalds <torvalds@linux-foundation.org>:
+
+On Fri, 07 Jun 2024 07:25:49 -0700 (PDT) you wrote:
+> The following changes since commit c3f38fa61af77b49866b006939479069cd451173:
 > 
-> PolarFire SoC may be configured in a way that requires non-coherent DMA
-> handling. On RISC-V, buses are coherent by default & the dma-noncoherent
-> property is required to denote buses or devices that are non-coherent.
+>   Linux 6.10-rc2 (2024-06-02 15:44:56 -0700)
 > 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.10-rc3
+> 
+> [...]
 
-Missing SoB
+Here is the summary with links:
+  - [GIT,PULL] RISC-V Fixes for 6.10-rc3
+    https://git.kernel.org/riscv/c/0a02756d9145
 
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline), work on fork of kernel
-(don't, instead use mainline) or you ignore some maintainers (really
-don't). Just use b4 and everything should be fine, although remember
-about `b4 prep --auto-to-cc` if you added new patches to the patchset.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
-
-Please kindly resend and include all necessary To/Cc entries.
-
-
-
-Best regards,
-Krzysztof
 
 
 _______________________________________________
