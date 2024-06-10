@@ -4,71 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D231C27C5E
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2024 12:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD80EC27C55
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2024 13:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u4qcYcRNgSkpjXx9Z0m7FGJW/OY+Lv1FfsvZpcrarnQ=; b=Nga+362a6m0ZRc
-	w01RkH4U0+urvpZGEL0uD0VWBZg4Sxlv0kF3yei/aNky9zpfnKRKTSioiDzprBEjGAEWjBRSGgIKf
-	BAT6Q6GtFmvH5n0WdN2V01XkfowCYKHz6MCOovzqvkb7R8j6cNOdPTIh5MHwYC3RyQeid7sQn89u0
-	BvEvEpKVzvpbf1wDAcUqJOKcJV9KfxI6tYIQGqBJOkHaEmzxo4Q0qiVclsnKC0Y8nVQzIbuPWZlaQ
-	bo+SS1xbcYZj/DXfcaHHsPPL2oT6z90IXdi7zyG8YAKcY3AGvM3lhIq0/MIFegi1V9Ycm1ifYaYSw
-	aPq+K1bsb0FpVc57I9wQ==;
+	List-Owner; bh=zTp45RPj3cj514E9l+Y0yz3vx09teTKypy3fWxPzXCQ=; b=vFmLUMKZiEBQa+
+	985rVRsu0aunr0AmREy62BwJY9tO4vndUFtLXdXgUwF+MPqV/ORnfxmWPinB2z2wlPZeAZltRaAD0
+	hC+gagt5/Ur0EqKNANlz+jwrVxnmb7LTZfzl2YFZLwOuUX99znFaF5AjpHbRtVpRFA5hl9uTzVoWs
+	mjMPuj/q58WPhM2g0dxFM4hrC4mCAZS3pcvt5DVOK+eetAp+KX7um9WWKRh7fTvLWgHVtQTl5ei3Q
+	Cxn24+kcMTtrSV3DO3uBmwgTnB5F2uZ6U+ynWS6LVkivD+LsGo/q82Th/W1he8E5bmsf4J+XZRibx
+	gSfvqzbPcC2LWYrTqluw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGdzu-00000004ycx-1MPq;
-	Mon, 10 Jun 2024 12:19:38 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1sGf1R-00000005AcY-2rKQ;
+	Mon, 10 Jun 2024 13:25:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGdzr-00000004ybC-1gcw
+	id 1sGf1O-00000005Ac4-2BmT
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jun 2024 12:19:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1718021976; x=1749557976;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=oFdeEmSZCx2CmTI24Mlau+qRlUsKvxGoVQk9WMKPt7Y=;
-  b=q9TxrXsdQS4wqgOG3lGZsV25Xxhx2HF7fs9eoJjrM1ehSoGF6zn0C9Il
-   jFEpSkDyn9grVxar/zSsMsXRSEWDgnvBWqWCBuEJTSd+nDJS756Ls/jR1
-   X7r+D6+0yWk6v/DZquGmnxh7153+CKH9EpBsNShiqjQgZQhNRzHl8etWY
-   Zv+gVMn1iSKkImLv4QvTXJef+5ocVjt5khT3Ubu2kzcCc9xHpyDDGTd1V
-   dGETWRZTiugGV0HH48u39b30IvfGdGzR+V/kR4CnnqPAV1YLKLxjBkW+6
-   /JTNbbumnXVskUC/6J9r5k80lcdfvAlvvGJCCEVaX2xlhbWggmt284TsB
-   Q==;
-X-CSE-ConnectionGUID: dqLk+HR7SaOyO/C4oxTk7g==
-X-CSE-MsgGUID: yGdRtAjnRVyfbWIIvRK/bg==
-X-IronPort-AV: E=Sophos;i="6.08,227,1712646000"; 
-   d="scan'208";a="27206508"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Jun 2024 05:19:34 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 10 Jun 2024 05:18:28 -0700
-Received: from daire-X570.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Mon, 10 Jun 2024 05:18:26 -0700
-From: <daire.mcnamara@microchip.com>
-To: <linux-pci@vger.kernel.org>
-CC: <conor.dooley@microchip.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
-	<robh@kernel.org>, <bhelgaas@google.com>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <daire.mcnamara@microchip.com>
-Subject: [PATCH v2 1/3] PCI: microchip: Fix outbound address translation tables
-Date: Mon, 10 Jun 2024 13:18:20 +0100
-Message-ID: <20240610121822.2636971-2-daire.mcnamara@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240610121822.2636971-1-daire.mcnamara@microchip.com>
-References: <20240610121822.2636971-1-daire.mcnamara@microchip.com>
+	Mon, 10 Jun 2024 13:25:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 961EB6091A;
+	Mon, 10 Jun 2024 13:25:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B391FC2BBFC;
+	Mon, 10 Jun 2024 13:25:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1718025913;
+	bh=liwsA1y2JkmJUr/DFB7s2hY7AppE4hxpOVGmtP0EbV0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IAxkOFAFzGelvEUtHIUUpQCLfq617N/F/YErTcoWdXcc7FeGP0DCUJO669XCIE9HW
+	 gQTAIkRc5Q5n0UNOasVxY/zUo58fQep/vcNNsBtqZd3UIQx9j21EbeDPAmemPg0CJP
+	 gHR/n57+/rQ6bo2F1V+uuDeJqzQM+51WcBSaEVMn3LR8pAH9JvnJyTA2HyWmLOhwC6
+	 mij8Dl55CcT9QObz2F0euQR9flGo4VPGnDif3iRdL+EgQVjEWguyfL51NfG2UP4ZE2
+	 ZQt8Awu3/7GYUohaSpd2PDggsXkDQi1puhE3/UEE2A6mzHxeblYibygnsFjxwbXfUp
+	 WIfFp6iLy/N4w==
+Message-ID: <bdea4e6c-eee5-4f4a-85b9-738d61b19800@kernel.org>
+Date: Mon, 10 Jun 2024 15:25:08 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] dt-bindings: PCI: microchip,pcie-host: allow
+ dma-noncoherent
+To: daire.mcnamara@microchip.com, linux-pci@vger.kernel.org
+Cc: conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com,
+ robh@kernel.org, bhelgaas@google.com, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20240610121822.2636971-1-daire.mcnamara@microchip.com>
+ <20240610121822.2636971-4-daire.mcnamara@microchip.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20240610121822.2636971-4-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240610_051935_490938_88FDE4A9 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20240610_062514_741646_C71E6786 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,63 +120,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Daire McNamara <daire.mcnamara@microchip.com>
+On 10/06/2024 14:18, daire.mcnamara@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> PolarFire SoC may be configured in a way that requires non-coherent DMA
+> handling. On RISC-V, buses are coherent by default & the dma-noncoherent
+> property is required to denote buses or devices that are non-coherent.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-On Microchip PolarFire SoC (MPFS) the PCIe Root Port can be behind one of
-three general-purpose Fabric Interface Controller (FIC) buses that
-encapsulate an AXI-M interface. That FIC is responsible for managing
-the translations of the upper 32-bits of the AXI-M address. On MPFS,
-the Root Port driver needs to take account of that outbound address
-translation done by the parent FIC bus before setting up its own
-outbound address translation tables.  In all cases on MPFS,
-the remaining outbound address translation tables are 32-bit only.
+Missing SoB
 
-Limit the outbound address translation tables to 32-bit only.
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
-Fixes: 6f15a9c9f941 ("PCI: microchip: Add Microchip Polarfire PCIe controller driver")
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline), work on fork of kernel
+(don't, instead use mainline) or you ignore some maintainers (really
+don't). Just use b4 and everything should be fine, although remember
+about `b4 prep --auto-to-cc` if you added new patches to the patchset.
 
-Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
----
- drivers/pci/controller/pcie-microchip-host.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
 
-diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-index 137fb8570ba2..853adce24492 100644
---- a/drivers/pci/controller/pcie-microchip-host.c
-+++ b/drivers/pci/controller/pcie-microchip-host.c
-@@ -933,7 +933,7 @@ static int mc_pcie_init_irq_domains(struct mc_pcie *port)
- 
- static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
- 				 phys_addr_t axi_addr, phys_addr_t pci_addr,
--				 size_t size)
-+				 u64 size)
- {
- 	u32 atr_sz = ilog2(size) - 1;
- 	u32 val;
-@@ -983,7 +983,8 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
- 		if (resource_type(entry->res) == IORESOURCE_MEM) {
- 			pci_addr = entry->res->start - entry->offset;
- 			mc_pcie_setup_window(bridge_base_addr, index,
--					     entry->res->start, pci_addr,
-+					     entry->res->start & 0xffffffff,
-+					     pci_addr,
- 					     resource_size(entry->res));
- 			index++;
- 		}
-@@ -1117,9 +1118,8 @@ static int mc_platform_init(struct pci_config_window *cfg)
- 	int ret;
- 
- 	/* Configure address translation table 0 for PCIe config space */
--	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
--			     cfg->res.start,
--			     resource_size(&cfg->res));
-+	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start & 0xffffffff,
-+			     0, resource_size(&cfg->res));
- 
- 	/* Need some fixups in config space */
- 	mc_pcie_enable_msi(port, cfg->win);
--- 
-2.34.1
+Please kindly resend and include all necessary To/Cc entries.
+
+
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
