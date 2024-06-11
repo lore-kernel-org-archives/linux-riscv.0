@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A229AC27C65
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 16:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 019CDC27C65
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 17:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SBrCFGrC0xrLBVIBq5Eh6lvYIIJVENRR0j6YAOauUH0=; b=mdFx3EIwSq1iJ/Osdmv+1gIre0
-	eGHTrIw4uUK4BJh4T9L2zZ7sOLEbkNWjfbo8bOQQB7ySUjg8jMRgYCYoIbd4Bdo8HI0OjKbCrmNfW
-	nXiHRdtut7VvpWjlZCNi/Pbt1B0FAwKfeTTlvP7tc6DDKyWbWLlnIf7GX1fW9SqG6asJd2+sbG9/7
-	scay2bSIRZwv2kZUtR12aS697Hty8ARxFJFp8EsgYkEG7BUDRM8o3h9B6k6dQ8LlnsmGd5VnjUOTX
-	3aKPRYccoL6yjQKGwjXoCyWZ/qbLdeu64JFQlbi/YFKMgsbaUmimTy7Qs29tfxCtdIMWO52mYrhUF
-	Pr6mD1qw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=slWrMb72FZhzqYKIjWzEZp+H77vDP6UctGM1sgGGink=; b=AYNFKX9SKuef8J
+	Zl1lku1SLszYb9Sy4/yTvpUwnP6rITXSJ2HkXieH8ofXL1em+x7PbzZr8ROuGonoMWbSOrdWOUFhR
+	gv9FOAD11qzdrLDO66UKMtoUE38ALMRW1px+XB76Y4c88zc3PzdyacMCs6IX1LWz40wtRYsAnwe5Y
+	ChlZQBwVkQo638M5kMIeLVgfH2fM5dqWzqwgf9LOBDHCIahupFbRlzhK4W3CTEhePnD+X17lOpb74
+	BpfZBucsWyjkFmPdYoo3eK1hZUv7UYph6lfD00DWTQh+QJ06x5CYr0UQ2mAc1bM5aWhxougZ46ng5
+	1LXaNzQS0ChgWzQgVUNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH4IN-00000009Udz-2PT8;
-	Tue, 11 Jun 2024 16:24:27 +0000
+	id 1sH51Q-00000009chs-1ETx;
+	Tue, 11 Jun 2024 17:11:00 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH4IJ-00000009Uc2-0kfm
+	id 1sH51O-00000009chH-10lQ
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jun 2024 16:24:25 +0000
+	Tue, 11 Jun 2024 17:10:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5EEEF60F2A;
-	Tue, 11 Jun 2024 16:24:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0867FC2BD10;
-	Tue, 11 Jun 2024 16:24:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9C24960F73;
+	Tue, 11 Jun 2024 17:10:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A9CBC2BD10;
+	Tue, 11 Jun 2024 17:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718123062;
-	bh=e2JRZAInX4VbpDRXbsbxfaga+F/z//woWGhb8XL6kFA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bo8W7+Nsmby3FBoOMRdMQxnBcT41xKkNNkijVXEx+MFxGy3lE1nIwiamipM48xVaO
-	 cxXeLblMLHoColDh6jSxBmQiTIet0GtPca+IGdMHHRxIUutbzqBf7S13DdBthpQ1wS
-	 Yfb6/5gNUi3jL90M9/7OOZ36wNDW9d8JaOywWjKT5R/4IZPIJGN0KwuATCptlowdhy
-	 AAALLHqCvERrV1gBKfKZMPfH1hQBcawKLvdXOgo6+aXZ8rH24VI4DdCNkaSlInMnBa
-	 OHdG4X0mmJjQ9XRETAvKy4QfIIPhvPLwKZY+Ce+KWtavaZzVjKoon5Hc2Dh5+HlXIo
-	 DOVW1zTBgzeFQ==
-Date: Tue, 11 Jun 2024 17:24:17 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Minda Chen <minda.chen@starfivetech.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	s=k20201202; t=1718125856;
+	bh=gFYHyJOp+GLvLO8caFrC+bAJxiiQYs3SDuhR95Pp0qo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=rrKsbTQu+g8sy3y1sNoL/1cLUJzwsI+jSnaeJF/MUDr9qBxDOXI6yVew9zke6UlYs
+	 Niwyn9lfbTuT9Cr+QujfSQQaieXHLWYZh8rj7ssbarEupC2Bv9YsZPcMBG8kEBJPd/
+	 rkjLST5yzg4X8QJWMXnjfCELmLrrgbuPsFerKYAYDP2FBD5vq9FJW4/rSVDGwLTN6x
+	 QzCcItvo6D4CYccoG8wXEpusNaq9STs0AOH6kH5KHTJm/5rmKxbH9ZN6UYu9MuQcMJ
+	 URp2sqtJbHh5fD7Xt5Ks4nOMQ7g3u4aGSYpsXvt5xO+iMbHTGBJDxXbI6vifW1gyAI
+	 U/Slc4E54/X0g==
+Date: Tue, 11 Jun 2024 12:10:54 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: conor@kernel.org, Daire McNamara <daire.mcnamara@microchip.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v1] riscv: dts: starfive: add PCIe dts configuration for
- JH7110
-Message-ID: <20240611-irk-hypocrite-a53e98e6c394@spud>
-References: <20240611015200.40996-1-minda.chen@starfivetech.com>
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 2/2] PCI: microchip: rework reg region handing
+Message-ID: <20240611171054.GA989979@bhelgaas>
 MIME-Version: 1.0
-In-Reply-To: <20240611015200.40996-1-minda.chen@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20240527-flint-whacky-4fb21c38476b@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240611_092423_336456_B920370C 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20240611_101058_351910_9636A4B7 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,85 +72,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4574425455995855823=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, May 27, 2024 at 10:37:17AM +0100, Conor Dooley wrote:
+> The PCI host controller on PolarFire SoC has multiple "instances", each
+> with their own bridge and ctrl address spaces. The original binding has
+> an "apb" register region, and it is expected to be set to the base
+> address of the host controllers register space. Defines in the driver
+> were used to compute the addresses of the bridge and ctrl address ranges
+> corresponding to instance1. Some customers want to use instance0 however
+> and that requires changing the defines in the driver, which is clearly
+> not a portable solution.
+> 
+> The binding has been changed from a single register region to a pair,
+> corresponding to the bridge and ctrl regions respectively, so modify the
+> driver to read these regions directly from the devicetree rather than
+> compute them from the base address of the abp region.
+> 
+> To maintain backwards compatibility with the existing binding, the
+> driver retains code to handle the "abp" reg and computes the base
+> address of the bridge and ctrl regions using the defines if it is
+> present. reg-names has always been a required property, so this is
+> safe to do.
 
---===============4574425455995855823==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="wzZC5MCZUi+ZMG8A"
-Content-Disposition: inline
+When you update this, can you add something about the objective to the
+subject line?  "rework reg region handling" just says "we did
+something", but not why or what the benefit is.
 
+The cover letter ("support using either instance 1 or 2") has good
+information that could be part of this.
 
---wzZC5MCZUi+ZMG8A
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jun 11, 2024 at 09:52:00AM +0800, Minda Chen wrote:
-> Add PCIe dts configuraion for JH7110 SoC platform.
->=20
-> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  .../boot/dts/starfive/jh7110-common.dtsi      | 64 ++++++++++++++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 86 +++++++++++++++++++
->  2 files changed, 150 insertions(+)
->=20
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv=
-/boot/dts/starfive/jh7110-common.dtsi
-> index 8ff6ea64f048..1da7379f4e08 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> @@ -294,6 +294,22 @@
->  	status =3D "okay";
->  };
-> =20
-> +&pcie0 {
-> +	perst-gpios =3D <&sysgpio 26 GPIO_ACTIVE_LOW>;
-> +	phys =3D <&pciephy0>;
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pcie0_pins>;
-> +	status =3D "okay";
-> +};
-> +
-> +&pcie1 {
-> +	perst-gpios =3D <&sysgpio 28 GPIO_ACTIVE_LOW>;
-> +	phys =3D <&pciephy1>;
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pcie1_pins>;
-> +	status =3D "okay";
-> +};
-
-Do all 3 of the mars, star64 and visionfive 2 have both PCIe ports
-exposed? I assume if one does, all does, since they're basically
-identical?
-
---wzZC5MCZUi+ZMG8A
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmh6MQAKCRB4tDGHoIJi
-0v1MAP9PTX9Hu0d+NafLeM2JG8n5oxSljJKr6Q/CDKPbUeaOcgEAxScFlExYbnQb
-F951+zWbwytmbr3baByHSjGl6D2Cigg=
-=ds5C
------END PGP SIGNATURE-----
-
---wzZC5MCZUi+ZMG8A--
-
-
---===============4574425455995855823==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4574425455995855823==--
-
