@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70558C27C5E
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 10:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DD5C25B76
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 12:07:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SK+lggY1mZPcVOdIu6PO6DpDLmgLxycin6cqWC170jE=; b=jyKnw2E+qNETw3
-	nZ/pCrMTSxYfDnw4ejo52ZVReEi/EhTfdSBXs+2Q/HNG4BYxOoGyZjTeP+kL3xxuzmGSUCiCS7zv5
-	/7U1N8mifCokOCVOfQGe+36avt46GGJ5zkG9MlGrlson1uSkI1+Kww3fVdzQXZyhSJyxO3dUwt0IJ
-	STOOKzuiHM2YQ37eiCSx6/2M1d5Q5mJBTzSFq0Dn7tnvebSiSNpNI+wNsOp+nDwQ+FybpwgOEY61C
-	s8Jfj9q54qVxz5fgHMmjSCe67vDXwaKPCjC8ZY+MkP8L21wzoqr6Lg/SlkiCnXB6jJxdIbKOlHOvp
-	UL1qlQJMr9UNOnof3wWw==;
+	List-Owner; bh=8q2dwQhQvGPEEGeauM3EaS+hHl/2tsd12kLN0jqqCz0=; b=SjM98eAK2nS+8b
+	wb9rBGkkeKRnMx7c0QQZ3NKQfCQKlcQXHtw6zgtoFz/R6W0WnIpa58UwsNXF5FXiWKr9MFkfvSUxp
+	vzbINk03CNB8jmB7WvUN5om2UQKhvCwo6wZ2Nalnuo+KPJKrgk7N36qbRLiDsyhbx5vkupC+wxgb5
+	6JlfyltXLpO0wME1V4KgAZ+hzDD2AFghF0PH01NAa1zpyWpF1jQKZpiu1dRjvXq9L89+O3LFk0qTS
+	gVzx4P9h1fvZU2FY/A40YVutdB6wFBUFdzpvSZIiu134oMj/XaKxyisyZ5g/DgSYdT5FJuM9QwQ+d
+	HHs7q4gUkSvHYn+z7S8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGyRG-00000008NyV-2oXl;
-	Tue, 11 Jun 2024 10:09:14 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1sH0HL-00000008mXg-4B0l;
+	Tue, 11 Jun 2024 12:07:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGyRC-00000008Nux-1oAl;
-	Tue, 11 Jun 2024 10:09:12 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2ebdfe261f9so35006221fa.1;
-        Tue, 11 Jun 2024 03:09:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1718100546; x=1718705346; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=SAheL3Pbpy7JA5UqcNyCOEP7IV/L7OYe1Dlbh7jegN0=;
-        b=Ka/oYYh1shzwGAOGDCoTt8CmQWly7sG0e4I5Tf7vRW+DIFekzvxIENs6PGFZqK9p1j
-         R077XtiarL0si7V+WQfFRQa7iVmwJnehshjdhFQrYGF2Eb0J3uGl5s9WVQf8yBLcgPGL
-         qtfa+TT1Qy4urKQbNFIla9bkC/1HPsCjWULYh3y61ixymVO/nDNkD842KxdUcW9lT5zK
-         y9c3DyWJJqAInQyTdU6kdfz4+3fKpYtw2LbfUzFWILrjVQoy3ZEjPZMl7/kpFQKm5iLF
-         a63W8cFOaaMpK8LFyLxMCFlV459ligKBCHBWomX2aJNd/stAOahdsPDzPn1nyyywFWxx
-         kqhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718100546; x=1718705346;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SAheL3Pbpy7JA5UqcNyCOEP7IV/L7OYe1Dlbh7jegN0=;
-        b=YkBspnpBeoPU1AeYzJhJZhBrPsxooAWTLw7m65FZn0NgcJuL02mX7vcn6J0ehxtxDp
-         8PAQAHZlrB9FpffM9q0/qtAXNKvtWg5nNMDXFGRUj3pF5qMpYfi+tHIjawM3wHYuidtd
-         ZiNtxqBGiegBBvPd5E5XMoLY/LIKcMSKW/RQqK0D3lZMxkIPfblqJcpadcNvS0lZQbrf
-         MLzWhXNKYEJZSE4Lj3fL68+OHuhis4jzo8ul5ICG4shhakD3Hg27jmvAyruYE2oJ6GwP
-         8KlhdEc+hWZOrcPPG1mNJLCUsbX4MOZGCj3at3HY/oYhoevYGnSuSW7GJ9cmR0C/3MLK
-         rzpg==
-X-Forwarded-Encrypted: i=1; AJvYcCXJfZu2rV1yj+k3PjI4sO9tOQfONoCUe9S/BvDYT8G5Cv9OD6Djsw7yCbzqUQZTH02wgqSFq+9ZHl9RGCLmTnxNBkhMj1Cou8MHfhOUFaj3Bg+FXC46eAd2G8tp3QPeEm8wuuPjJ2X1rLxSpe8uzJuJLaXSZjo=
-X-Gm-Message-State: AOJu0YwHCgG+pa04E0iFmjltVt2dOMpzo+vQTuqMzYNjNLdTHTypmchX
-	02XwiBww/gmNsYkkOjwUakQvg4O0pl2JvY/Dq4KQMxUC5o6iCT33
-X-Google-Smtp-Source: AGHT+IH0PjLhxIMcOmVEi1E/G0UDxaUaRfwrRjmV1duTjWtdEeQo18W5dDAK7YmkOyj35USGDzY0NA==
-X-Received: by 2002:a2e:9b57:0:b0:2eb:d963:d8cc with SMTP id 38308e7fff4ca-2ebd963dbffmr57469111fa.49.1718100545408;
-        Tue, 11 Jun 2024 03:09:05 -0700 (PDT)
-Received: from pc636 (host-90-233-193-23.mobileonline.telia.com. [90.233.193.23])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ead4131387sm21465021fa.51.2024.06.11.03.09.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Jun 2024 03:09:05 -0700 (PDT)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@pc636>
-Date: Tue, 11 Jun 2024 12:09:01 +0200
-To: Shubhang Kaushik OS <Shubhang@os.amperecomputing.com>
-Cc: "ampere-linux-kernel@lists.amperecomputing.com" <ampere-linux-kernel@lists.amperecomputing.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"cl@linux.com" <cl@linux.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"urezki@gmail.com" <urezki@gmail.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"guoren@kernel.org" <guoren@kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"xiongwei.song@windriver.com" <xiongwei.song@windriver.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	"willy@infradead.org" <willy@infradead.org>
-Subject: Re: [PATCH v4] vmalloc: Modify the alloc_vmap_area() error message
- for better diagnostics
-Message-ID: <ZmgiPTHGy-kHNe5x@pc636>
-References: <MN2PR01MB59025CC02D1D29516527A693F5C62@MN2PR01MB5902.prod.exchangelabs.com>
+	id 1sH0HD-00000008mTk-0AHu
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Jun 2024 12:07:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 742AE60E0B
+	for <linux-riscv@lists.infradead.org>; Tue, 11 Jun 2024 12:06:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 384F1C4AF48
+	for <linux-riscv@lists.infradead.org>; Tue, 11 Jun 2024 12:06:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1718107608;
+	bh=izbQACBXKg7/xAfr+T6NfWco5xbmu+bfnAsIHYpOdVw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=DeJj4q5++zj+R3KhmhuzK4d1y38/q9RlXNvB80U8sWohX93yRvAYBbRWeNJI+hEkm
+	 k+6zKhoYuXFyb07P2kL/gMmg/FK9/y7H81SPPXOQI54Ebtv+gaujOBYPQ2BRaVYtr9
+	 4lnDhr8IOcynWAd4LHkUKBtKY+YHivapA0KcI4qKSTAzc4SDzmPp4RqbTJTVrp/i06
+	 yeFezpNqoJVDv03VNIjOBZEqJZ7lwd6ZgUNgF0gsfzovWKsFQcHGsAyw1jhVsfafjZ
+	 Lbe7woGXDn9ZOOtxQ1qkBeigUZLfV/hyl1O4hYcRLn41/8zOCV4apxu/JPqpRIYjBJ
+	 hgZeTXX2xJnaA==
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-a6ef8e62935so116108166b.3
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Jun 2024 05:06:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXzgeGyZG9SJy7ihy9cLO/MKoX+p1PnnTGFduLcEJVGIWa/5aCi8l8JmyqoDiYFj89DfHOHqKKYXEjZ3jtvyhymahoUUQgAhqaoJKWPI/Kp
+X-Gm-Message-State: AOJu0Yw5o/W3w+bKiX08swvooh2jdB4Mmj/prNluaqJHAmQHYVCY0REm
+	OP/Z9bwzsp6jrw20tkIHj9PuJ7nbJ0c/pZvKiiKUT2s+64FrwNDC58kHKuTm/+sqmxG3Cv2B1zt
+	5rkM+IZ4qVMvtVQmJ91VSv0wyEW4=
+X-Google-Smtp-Source: AGHT+IFFPTTll7ACEEwwlIU5pUww8R0bMpeHE5EPA9sRicSO1H8r8Hj10JvtLT4RCL9oaDh0AQArdk5Tw1koxKQr8oM=
+X-Received: by 2002:a17:906:b810:b0:a6f:1f66:8335 with SMTP id
+ a640c23a62f3a-a6f1f66841fmr408155266b.4.1718107606517; Tue, 11 Jun 2024
+ 05:06:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <MN2PR01MB59025CC02D1D29516527A693F5C62@MN2PR01MB5902.prod.exchangelabs.com>
+References: <20240609-xtheadvector-v1-0-3fe591d7f109@rivosinc.com> <20240609-xtheadvector-v1-1-3fe591d7f109@rivosinc.com>
+In-Reply-To: <20240609-xtheadvector-v1-1-3fe591d7f109@rivosinc.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 11 Jun 2024 20:06:34 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTVu4ZQt+gK7pVYEDVG23Sic=jswkVvX4To=VAD0TMzxw@mail.gmail.com>
+Message-ID: <CAJF2gTTVu4ZQt+gK7pVYEDVG23Sic=jswkVvX4To=VAD0TMzxw@mail.gmail.com>
+Subject: Re: [PATCH 01/13] dt-bindings: riscv: Add xtheadvector ISA extension description
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Evan Green <evan@rivosinc.com>, 
+	Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240611_030910_504913_25A9571A 
-X-CRM114-Status: GOOD (  25.85  )
+X-CRM114-CacheID: sfid-20240611_050659_980511_33CE7075 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,99 +85,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 10, 2024 at 05:22:58PM +0000, Shubhang Kaushik OS wrote:
-> 'vmap allocation for size %lu failed: use vmalloc=<size> to increase size'
-> The above warning is seen in the kernel functionality for allocation of the restricted virtual memory range till exhaustion.
-> 
-> This message is misleading because 'vmalloc=' is supported on arm32, x86 platforms and is not a valid kernel parameter on a number of other platforms (in particular its not supported on arm64, alpha, loongarch, arc, csky, hexagon, microblaze, mips, nios2, openrisc, parisc, m64k, powerpc, riscv, sh, um, xtensa, s390, sparc). With the update, the output gets modified to include the function parameters along with the start and end of the virtual memory range allowed.
-> 
-> The warning message after fix on kernel version 6.10.0-rc1+:
-> 
-> vmalloc_node_range for size 33619968 failed: Address range restricted between 0xffff800082640000 - 0xffff800084650000
-> 
-> Backtrace with the misleading error message:
-> 
-> 	vmap allocation for size 33619968 failed: use vmalloc=<size> to increase size
-> 	insmod: vmalloc error: size 33554432, vm_struct allocation failed, mode:0xcc0(GFP_KERNEL), nodemask=(null),cpuset=/,mems_allowed=0
-> 	CPU: 46 PID: 1977 Comm: insmod Tainted: G            E      6.10.0-rc1+ #79
-> 	Hardware name: INGRASYS Yushan Server iSystem TEMP-S000141176+10/Yushan Motherboard, BIOS 2.10.20230517 (SCP: xxx) yyyy/mm/dd
-> 	Call trace:
-> 		dump_backtrace+0xa0/0x128
-> 		show_stack+0x20/0x38
-> 		dump_stack_lvl+0x78/0x90
-> 		dump_stack+0x18/0x28
-> 		warn_alloc+0x12c/0x1b8
-> 		__vmalloc_node_range_noprof+0x28c/0x7e0
-> 		custom_init+0xb4/0xfff8 [test_driver]
-> 		do_one_initcall+0x60/0x290
-> 		do_init_module+0x68/0x250
-> 		load_module+0x236c/0x2428
-> 		init_module_from_file+0x8c/0xd8
-> 		__arm64_sys_finit_module+0x1b4/0x388
-> 		invoke_syscall+0x78/0x108
-> 		el0_svc_common.constprop.0+0x48/0xf0
-> 		do_el0_svc+0x24/0x38
-> 		el0_svc+0x3c/0x130
-> 		el0t_64_sync_handler+0x100/0x130
-> 		el0t_64_sync+0x190/0x198
-> 
-> Reviewed-by: Christoph Lameter (Ampere) <cl@linux.com>
-> Signed-off-by: Shubhang Kaushik <shubhang@os.amperecomputing.com>
-> ---
->  Documentation/admin-guide/kernel-parameters.txt | 9 ++++++---
->  mm/vmalloc.c                                    | 4 ++--
->  2 files changed, 8 insertions(+), 5 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index b600df82669d..9b8f8ab90284 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -7245,9 +7245,12 @@
->  
->  	vmalloc=nn[KMG]	[KNL,BOOT,EARLY] Forces the vmalloc area to have an
->  			exact size of <nn>. This can be used to increase
-> -			the minimum size (128MB on x86). It can also be
-> -			used to decrease the size and leave more room
-> -			for directly mapped kernel RAM.
-> +			the minimum size (128MB on x86, arm32 platforms).
-> +			It can also be used to decrease the size and leave more room
-> +			for directly mapped kernel RAM. Note that this parameter does
-> +			not exist on many other platforms (including arm64, alpha,
-> +			loongarch, arc, csky, hexagon, microblaze, mips, nios2, openrisc,
-> +			parisc, m64k, powerpc, riscv, sh, um, xtensa, s390, sparc).
->  
->  	vmcp_cma=nn[MG]	[KNL,S390,EARLY]
->  			Sets the memory size reserved for contiguous memory
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 5d3aa2dc88a8..75ad551e90ba 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -2055,8 +2055,8 @@ static struct vmap_area *alloc_vmap_area(unsigned long size,
->  	}
->  
->  	if (!(gfp_mask & __GFP_NOWARN) && printk_ratelimit())
-> -		pr_warn("vmap allocation for size %lu failed: use vmalloc=<size> to increase size\n",
-> -			size);
-> +		pr_warn("vmalloc_node_range for size %lu failed: Address range restricted to %#lx - %#lx\n",
-> +				size, addr, addr+size);
->
-One question. I see that you would like to see the range, i.e. its "start"
-and "end" addresses for failure case. For such purpose, why do not you use
-"vstart" and "vend" variables which specify a range?
-
-An "addr" points here on "vend". Or is this intentional?
-
-Sorry for late looking at this. I was on a vacation last week.
-
---
-Uladzislau Rezki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdW4gMTAsIDIwMjQgYXQgMTI6NDXigK9QTSBDaGFybGllIEplbmtpbnMgPGNoYXJs
+aWVAcml2b3NpbmMuY29tPiB3cm90ZToKPgo+IFRoZSB4dGhlYWR2ZWN0b3IgSVNBIGV4dGVuc2lv
+biBpcyBkZXNjcmliZWQgb24gdGhlIFQtSGVhZCBleHRlbnNpb24gc3BlYwo+IEdpdGh1YiBwYWdl
+IFsxXSBhdCBjb21taXQgOTUzNThjYjJjY2E5Lgo+Cj4gTGluazogaHR0cHM6Ly9naXRodWIuY29t
+L1QtaGVhZC1TZW1pL3RoZWFkLWV4dGVuc2lvbi1zcGVjL2Jsb2IvOTUzNThjYjJjY2E5NDg5MzYx
+YzYxZDMzNWUwM2QzMTM0YjE0MTMzZi94dGhlYWR2ZWN0b3IuYWRvYyBbMV0KPgo+IFNpZ25lZC1v
+ZmYtYnk6IENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+Cj4gUmV2aWV3ZWQt
+Ynk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4gLS0tCj4gIERv
+Y3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwgfCAx
+MCArKysrKysrKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCAxMCBpbnNlcnRpb25zKCspCj4KPiBkaWZm
+IC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVuc2lv
+bnMueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNp
+b25zLnlhbWwKPiBpbmRleCA0NjhjNjQ2MjQ3YWEuLjk5ZDJhOWU4YzUyZCAxMDA2NDQKPiAtLS0g
+YS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvZXh0ZW5zaW9ucy55YW1s
+Cj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVuc2lv
+bnMueWFtbAo+IEBAIC00NzcsNiArNDc3LDEwIEBAIHByb3BlcnRpZXM6Cj4gICAgICAgICAgICAg
+IGxhdGVuY3ksIGFzIHJhdGlmaWVkIGluIGNvbW1pdCA1NmVkNzk1ICgiVXBkYXRlCj4gICAgICAg
+ICAgICAgIHJpc2N2LWNyeXB0by1zcGVjLXZlY3Rvci5hZG9jIikgb2YgcmlzY3YtY3J5cHRvLgo+
+Cj4gKyAgICAgICAgIyB2ZW5kb3IgZXh0ZW5zaW9ucywgZWFjaCBleHRlbnNpb24gc29ydGVkIGFs
+cGhhbnVtZXJpY2FsbHkgdW5kZXIgdGhlCj4gKyAgICAgICAgIyB2ZW5kb3IgdGhleSBiZWxvbmcg
+dG8uIFZlbmRvcnMgYXJlIHNvcnRlZCBhbHBoYW51bWVyaWNhbGx5IGFzIHdlbGwuCj4gKwo+ICsg
+ICAgICAgICMgQW5kZXMKPiAgICAgICAgICAtIGNvbnN0OiB4YW5kZXNwbXUKPiAgICAgICAgICAg
+IGRlc2NyaXB0aW9uOgo+ICAgICAgICAgICAgICBUaGUgQW5kZXMgVGVjaG5vbG9neSBwZXJmb3Jt
+YW5jZSBtb25pdG9yIGV4dGVuc2lvbiBmb3IgY291bnRlciBvdmVyZmxvdwo+IEBAIC00ODQsNSAr
+NDg4LDExIEBAIHByb3BlcnRpZXM6Cj4gICAgICAgICAgICAgIFJlZ2lzdGVycyBpbiB0aGUgQVg0
+NU1QIGRhdGFzaGVldC4KPiAgICAgICAgICAgICAgaHR0cHM6Ly93d3cuYW5kZXN0ZWNoLmNvbS93
+cC1jb250ZW50L3VwbG9hZHMvQVg0NU1QLTFDLVJldi4tNS4wLjAtRGF0YXNoZWV0LnBkZgo+Cj4g
+KyAgICAgICAgIyBULUhFQUQKPiArICAgICAgICAtIGNvbnN0OiB4dGhlYWR2ZWN0b3IKPiArICAg
+ICAgICAgIGRlc2NyaXB0aW9uOgo+ICsgICAgICAgICAgICBUaGUgVC1IRUFEIHNwZWNpZmljIDAu
+Ny4xIHZlY3RvciBpbXBsZW1lbnRhdGlvbiBhcyB3cml0dGVuIGluCj4gKyAgICAgICAgICAgIGh0
+dHBzOi8vZ2l0aHViLmNvbS9ULWhlYWQtU2VtaS90aGVhZC1leHRlbnNpb24tc3BlYy9ibG9iLzk1
+MzU4Y2IyY2NhOTQ4OTM2MWM2MWQzMzVlMDNkMzEzNGIxNDEzM2YveHRoZWFkdmVjdG9yLmFkb2Mu
+ClVSTCBjaGFuZ2VkCmh0dHBzOi8vZ2l0aHViLmNvbS9YVUFOVElFLVJWL3RoZWFkLWV4dGVuc2lv
+bi1zcGVjL2Jsb2IvOTUzNThjYjJjY2E5NDg5MzYxYzYxZDMzNWUwM2QzMTM0YjE0MTMzZi94dGhl
+YWR2ZWN0b3IuYWRvYwoKT3RoZXJzLCBMR1RNLgoKPiArCj4gIGFkZGl0aW9uYWxQcm9wZXJ0aWVz
+OiB0cnVlCj4gIC4uLgo+Cj4gLS0KPiAyLjQ0LjAKPgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBS
+ZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
