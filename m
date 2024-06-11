@@ -4,64 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BC7C27C5E
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 13:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF54C27C75
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 14:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FOqBWBoOH/7l0CSD/2RM9kS3qBjBhCQ+0pr7WhCWPGM=; b=I38JWJz7CBPPP8xP3X8SpLudLS
-	oHJ8haX8VRvIzalv+8ER9RT0N/QPZ7l/sWrlSn71crq9P7pjrnxaaNk/NHW33lT9i3zudLnJvfraz
-	Rp+Vhho8sfkWXsb95HUogJwxscGxtuCnlIozMMAEPJqHYiGu6tjQo4iia14vD0KMzs1Ktt5hvHq/P
-	xZo+AbCRsmAe7tlT4/jkWgSGU6PBxuF5x38KLFj5rneMaqNAybqT1p4cyg8koH/4CFX/7t9t5WDFn
-	fpXKgzQO/jlkV5rJVcEF1NK9wd7LwuPNiEmw2/TCHTEiibt+Rs4/Ap6KbcW4uUlJiC8+C34Nwyn3d
-	pBg3oEdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=e1LDMy20i02kpNIP0RtMaCnZbb5d0vMsOcMbd2dvX/w=; b=RT2qDxa0cYsTQB
+	fR/jjneWdJg74cpCE9ri6WDtR2qjvtFhEqoGSQpzZC8atJas5ESmoLW6GwBKe8qqpyXd96aTZCpkQ
+	jEwmb4ghFdUSITC2HmS7hJQEIhWSCTPDg0qsDraep+YFO1EeAewKVx5g0TCvVwQA02AXE8/z4tYgj
+	+Q+8hY36Ydo9Gy+IA7w42mjnDgfNIIJDVljg5xWesOOq0hhPvWPagUBVFGBUTdp6WS30LqY73xgB/
+	ypAkfhiD0+d0Am4jsQTOWBLpnAIXqTGS8kWc6CIIRa0mz+4iQo5GrqIm+EEKE8o3OSZ6Hj0187KW0
+	PCKL1GFSPGTgoBl58YjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH1J3-00000008vyr-3aZa;
-	Tue, 11 Jun 2024 13:12:57 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sH2w5-00000009DvO-3fWn;
+	Tue, 11 Jun 2024 14:57:21 +0000
+Received: from mail-os0jpn01olkn20827.outbound.protection.outlook.com ([2a01:111:f403:2815::827] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH1J0-00000008vxa-25U6
+	id 1sH2w2-00000009Duj-3ugj
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jun 2024 13:12:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id C28C6CE1AA7;
-	Tue, 11 Jun 2024 13:12:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A823CC2BD10;
-	Tue, 11 Jun 2024 13:12:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718111570;
-	bh=OGe3r2/6pOkH3bSOKeGtF6RD1v4JiSo+hRENqhCkqew=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dkfn9bGAJxiqPyULSPh28vzRbnNR6uLlnIrDo64O2djHmmF+9RmhcOl1CvS6RlPCw
-	 pEJ2EeFIlvJ2EkvwVCxHDm6slBdVLgQr4kN+c7fu1vggrJNAQ9FU4FVyenGIoeEKIZ
-	 GepRVPGZdqhokEa+3vxMyNcH4/J0S6sBObj0+l1nCYzNlO0dGTz9njTbNCnfqNnsSW
-	 k2nXmY37Jup2keBhBI+3nFdUIX9sYSAJ+XVaGfcfvON3MDtvtB3cBR5RM/GwnlHNj1
-	 +5k/Mos4HWpzcryvLv3rM0CC0LbLDh3IMsleknX2XOrTBCPVUhzp8aMzyluerjV77T
-	 PGUGdv3n3DVTA==
-Date: Tue, 11 Jun 2024 14:12:45 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Daire McNamara <daire.mcnamara@microchip.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 2/2] PCI: microchip: rework reg region handing
-Message-ID: <20240611-relapsing-hurt-3a5f37743784@spud>
-References: <20240527-slather-backfire-db4605ae7cd7@wendy>
- <20240527-flint-whacky-4fb21c38476b@wendy>
+	Tue, 11 Jun 2024 14:57:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=aJH+zAm/Ic7Ekd8jw4GeVdd/GS29za6PMSEcrsShtRwQ1tqGMO93uG1M6fSWJEkzfF9l9gkpgkWfvVU30yQBlMpHYLFzvcogqNPxI8Q9GCS2Xtu/j1hmp+HgzDoPfD3/bpgJ3OZakWATR5K0HedIEyZizg+/EtwvUPNBnk7GcQSjU0DGzC02ScpwFgw6MawG2DMbxCfXGhM0XF9DMxe0haNuS4bFrd0RDXyEeq+KPA+y2DPGX+5nFN1YS4I9ucsv6QiXRR9YXDAodlopJjh8uFTF3jMT8AJkoGj2Wti368fgUJNdqfvgUnPVEzTAeHEldpXjgp7ZoQfEU9qKa5p5oQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=coxgJywr2MkrvlAobPgWnvOAnhiJPEG3/m6SOlSXgVc=;
+ b=TeF9EAzpwRLkl/y3i+jigZuqKmLXmLZ/7ne0qp115bs1GkLBNKCH4lNZoblroZE2xH4XvyEqcK38E46gA3md+0M7mmwCSE0himcq7v0/pltKRffllgCbHrM16ngDLNjXrLyFVsGtt1loseJzGGNYjV01aeSeqzfQX71IzYKs3oAfZx9o94YAhMbwOyBBgDTEWPXRrlPcNV6o3MitZAomQSkRQ/acoH2e1oqqvDDhr+cgOOwKPLxjc5O8/4gXHvMlqi5jBwXK6HupIs6EVfphTCo4WiW6l4q1pmVXIAQu66kUS+vauHwA8v0yBaeRkvGNNj6y6YHxibIJHXfGqYEhvw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=coxgJywr2MkrvlAobPgWnvOAnhiJPEG3/m6SOlSXgVc=;
+ b=lw7YZfzo62Smx3RdrEopyitSrQlpozY/jGkIQnNe2uR6KRBe1zYU7f8VLIw9B6va3XIoOc4Ul0ePnXQ14IN3M1kZqQgFgwQitk0WNQQ5mQB+OkgWgy/RGVw2pR9b2Tms7I5IQt8pkWdSGnwhOIPv8YIr5ZggOqDoEeDjwAaLCd0AqQDlh+BLkbZ6J0vEdmp6F9gq+RP1/qozjV6d2QJ7uGwofjQ73FExrSUCECdQiTlcGWHYVq4SH9+fiTHcuuE4S0BPtxH1R6BAX1jeRzT4muFFwExZ9TdRnaiaVrIDh3CmUZ+KpC/PofXdZhX9O7w7cK6W5eTkNYR9lIr4UL1zKg==
+Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:23e::10)
+ by TYCP286MB3752.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:387::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7633.36; Tue, 11 Jun
+ 2024 14:57:11 +0000
+Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::85b8:3d49:3d3e:2b3]) by TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::85b8:3d49:3d3e:2b3%5]) with mapi id 15.20.7633.036; Tue, 11 Jun 2024
+ 14:57:11 +0000
+From: Shengyu Qu <wiagn233@outlook.com>
+To: kernel@esmil.dk,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	jszhang@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Shengyu Qu <wiagn233@outlook.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] riscv: dts: starfive: Set EMMC vqmmc maximum voltage to 3.3V on JH7110 boards
+Date: Tue, 11 Jun 2024 22:56:41 +0800
+Message-ID: <TY3P286MB2611936BD43C24D34B442E6D98C72@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+X-Mailer: git-send-email 2.34.1
+X-TMN: [j4G3/GfiQIV3MZJQ/VgtgGP0dqHSsC51B0/Oz8Idb0A=]
+X-ClientProxiedBy: SG2PR02CA0030.apcprd02.prod.outlook.com
+ (2603:1096:3:18::18) To TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:23e::10)
+X-Microsoft-Original-Message-ID: <20240611145641.24122-1-wiagn233@outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <20240527-flint-whacky-4fb21c38476b@wendy>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY3P286MB2611:EE_|TYCP286MB3752:EE_
+X-MS-Office365-Filtering-Correlation-Id: ca733a1a-a014-4d22-9f42-08dc8a26c5dc
+X-MS-Exchange-SLBlob-MailProps: 7J/vb0KDx3hhCrx2p8dqnD/jiLnr8VqFKXnECw0o42U6H3o/HKKWAmraMTajeYYTssLi+/r6xVvbUaEj1qDNaX+9dOyPMoPtPFP7GVFIZP+7HY9O7NpGifl3db+GUxJPC03gkRNUbgOl8h3y91WbdKzLpRhtnJmRpv4AoqWfzbJTvjX2W+wiEt36mivxRB09bnfIR1n0i+44zwRM7y7c2cHRBNHGZd1dFkWUfq1eEPp9Mz/t1gS7Z4VIKh+ML0TAbLcA1PDJqPuSWvJP4YeUR2gvQXt1Aw8Gjuprm+reemeCFCsOJZ352stonGFWoRisciBGGpcCzE6aUz5gMDMYriZ61O8v8YITyk+vyjicOisau8dmIlvQfaIZPUrBIiN4Vq6KcLYhxWJplVd2KBHej5awF1rO1kOSyY1veNWfKvD5EmJMG/FTWFsZe19Qi2rSRCQOXX4a5/tvyyeLh9MFHf3HetuxyqPSXHLuJO8CF9Njr8ImyuprROiHX21HEnEDRG2v8U1BBnq3N/4wFOwheW+Hjo6KX/sQRBlmCGpzdlFufgaPwMTv5EzcLtSM6X/g4v9HfFP57PBwRIn8/m0X8BfekYPcD34UvPvWffPVg7P9aOxpMhvYhRCRYb6BAA3vvFW698SVHKoGrN3PnDKjThy+Kk4XDTVfjzgis2T5UBQedAnnbVo+SsayKMUrlnPV7/9V7oKVVifxflhE5goCuHaMKijL2Pe4rrSiquDREQc1LeqemXLPtCTXbHZlqFQt/F55x527a23udrb9TGbIud2CjY6hDI7BOMQJeC9QUNg=
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199020|3412199017|440099020|1710799018;
+X-Microsoft-Antispam-Message-Info: ksSxYoeFzZLLJsnnsoQ6fNXm9AV0TIw7Fvzex0WzPYfQJUGVSQqdUmEb8x+JIH22J0r8jtwMTz/xsBsEL/uQsXAyt/Apxu0ImLTXt+ryvUFOXNGuiFz4UwuKinT8RXltTsiTGxbd1OBcQI8gfbWd0z8a7jAZMhHtK9lDAaqtGD4ygV/idPckeLOvehlspeTml2wLe946n4tAa9zy+6OMPw2oRE/QHvEdbSzkkjeUIkeXfK2KATz5wVAHn1JOSmfja46lSHqmSmRnEkM/LrQ9mIa+cQ8flrdeCVhVaDkxowPP2AKp+mfCgQbvTvX+3Kx6MWPMQYSdlNLmk9m8pcGqoOy/HDCEqTHWGFJeVwTq2t8AtFc90CFxpKeJcW1XkBthJbcLLcVpKJXpizpUzEO9poSloPwUytlK4W0yYqmgisdOXjrElOLBT8Pe97MrQpE/BPItDa3hq9XDocNpX42anLLFcEmfyPGJhBHk/DNN32dCZ2xpFTeenMqKj0gFZAnSfg6AgN5zwLdPtSOoOkdfrPIYU9HNq+J4P7ttgQItP99s9P4nTW8X75c70DDhQ3+qwZhiwe7ZMQJBhec35ekT4RpgZ5LrU2V9UFYeKEFhU72LLWoWhGhMouPTXA0zdmd3
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Cvw9M/qhW5HjMnmuvknkat8nLHOpGTt//dZOxHuMzWF0sxQqn5dqSH3M318J?=
+ =?us-ascii?Q?5P43rKf8RbLErIGC/VDPi49GIspEli21Cjx9gmIRX68IIqHc8b/YrjwEOUCU?=
+ =?us-ascii?Q?zU91EKyD96GGB0P097zCUrV6dnlYxBtikwo89oUhsvFaVBnDBP+HoCFwwBB3?=
+ =?us-ascii?Q?kDcsmJDSqVnHpsFoeiK/zxBGJMycpMQ9sR7I7Sh0de41YW7+b/nimFVLqhB1?=
+ =?us-ascii?Q?S+SNkGjT8KdNIykfU7Tjpxzp4E3rl53OsqpbL1qptq49kgBGbUKYcnA449c0?=
+ =?us-ascii?Q?5HWQ6NorEJ6i0pErVwVBHsJE0Z+N2gZA8P6iTjeZX8D7plaKC+5J8HrRRXbJ?=
+ =?us-ascii?Q?icS25XamYQhUXBZh0VZ/EPJ43Cfb2HmZjOasEuEaHo4vDP+B9cG+Ik9RA7ea?=
+ =?us-ascii?Q?DUAewKk7Dbu8eODvik1+WtALz4aBA46N+nFt1A0AAfNjLjLO0cgO9I3VNdUJ?=
+ =?us-ascii?Q?pU2IU0XdMoUCL3/3FXAhAg43YZ38VDE/xGLPsCC3lYb4jSKnv56kKz4TN0TK?=
+ =?us-ascii?Q?vhougb2D0+48shrWuFWffcSuJP+mBf7odh4la74+Sau8Yc8gUIksdQ/IBeyh?=
+ =?us-ascii?Q?GZd/DRtBU/sse5/LqNy4k//43sjEwQmHG5nWCnm98WPeeVzcGR7LZ12l30W6?=
+ =?us-ascii?Q?ecNYq33NadmZTMsfVbHpbakW6SGrMd2rdtr8wvKGShaZRA6lyCGEyLT+LH7/?=
+ =?us-ascii?Q?bULw3qcrFlDfUhcTL5WmKq1CMQcp932GT4e48BABJJxau/ZbSm2Rxm2LE81A?=
+ =?us-ascii?Q?TSFkPzBiScIXbxvGcXjOu2bIzC65QTHbwCTaYn2YlD4PXP2BdGjBOLiBQazT?=
+ =?us-ascii?Q?txADc9dImJXDsRXPhw067NR+wtBi4cxTb0UbsFER8DI6GDbebXE/OkBPiuMo?=
+ =?us-ascii?Q?RjpckFjRYVmdkjYp5B5vlfNSeHINB8NLr4fqXZDooaG1lO8JBsPrMdNf8EXF?=
+ =?us-ascii?Q?W2tOIGS3V0RM9YbxDE//ZAPjxaj1TthS4IhEwneK9F2an26+M3tndiKx8tUu?=
+ =?us-ascii?Q?xvIkG+4P57g2fMK/6XDJAXZzvd/L0Fqay663da8jHOerLh5tB+poinE/6Obw?=
+ =?us-ascii?Q?u4VXd2rukAnfI6/m3Zj3X+VRr3xtddb9RdVIf0HL+ZBLeu4IMOlPT3PRhgBO?=
+ =?us-ascii?Q?mbVswlAquujnJr9ufVH0mD06eTOZT0dQzp4RbWBJ8bxvVERpEqKmc6uitTny?=
+ =?us-ascii?Q?2gY0hgpBjsdHzzu+6PZv1jUwf+ob8F+ctZBnqLQF0rZAL21XaBPXKJESN4c?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ca733a1a-a014-4d22-9f42-08dc8a26c5dc
+X-MS-Exchange-CrossTenant-AuthSource: TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2024 14:57:11.5468
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCP286MB3752
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240611_061254_750372_66701B87 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20240611_075719_076422_5C6930CB 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,89 +129,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3641232819722388662=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Currently, for JH7110 boards with EMMC slot, vqmmc voltage for EMMC is
+fixed to 1.8V, while the spec needs it to be 3.3V on low speed mode and
+should support switching to 1.8V when using higher speed mode. Since
+there are no other peripherals using the same voltage source of EMMC's
+vqmmc(ALDO4) on every board currently supported by mainline kernel,
+regulator-max-microvolt of ALDO4 should be set to 3.3V.
 
---===============3641232819722388662==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="66+HdzG+IeYp/nLS"
-Content-Disposition: inline
+Cc: stable@vger.kernel.org
+Signed-off-by: Shengyu Qu <wiagn233@outlook.com>
+Fixes: ac9a37e2d6b6 ("riscv: dts: starfive: introduce a common board dtsi for jh7110 based boards")
+---
+ arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+index 37b4c294ffcc..c7a549ec7452 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+@@ -244,7 +244,7 @@ emmc_vdd: aldo4 {
+ 				regulator-boot-on;
+ 				regulator-always-on;
+ 				regulator-min-microvolt = <1800000>;
+-				regulator-max-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
+ 				regulator-name = "emmc_vdd";
+ 			};
+ 		};
+-- 
+2.34.1
 
---66+HdzG+IeYp/nLS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, May 27, 2024 at 10:37:17AM +0100, Conor Dooley wrote:
-> @@ -1150,28 +1129,44 @@ static int mc_host_probe(struct platform_device *=
-pdev)
-> =20
->  	port->dev =3D dev;
-> =20
-> -	port->axi_base_addr =3D devm_platform_ioremap_resource(pdev, 1);
-> -	if (IS_ERR(port->axi_base_addr))
-> -		return PTR_ERR(port->axi_base_addr);
-> +	/*
-> +	 * The original, incorrect, binding that lumped the control and
-> +	 * bridge addresses together still needs to be handled by the driver.
-> +	 */
-> +	axi_base_addr =3D devm_platform_ioremap_resource_byname(pdev, "apb");
-
-I noticed yesterday that this will print an error during boot, which I
-don't really want for the devices using the updated format. I'll send a
-v2 tomorrow with the reg region probing inverted.
-
-Thanks,
-Conor.
-
-> +	if (!IS_ERR(axi_base_addr)) {
-> +		port->bridge_base_addr =3D axi_base_addr + MC_PCIE1_BRIDGE_ADDR;
-> +		port->ctrl_base_addr =3D axi_base_addr + MC_PCIE1_CTRL_ADDR;
-> +		goto addrs_set;
-> +	}
-> =20
-> +	port->bridge_base_addr =3D devm_platform_ioremap_resource_byname(pdev, =
-"bridge");
-> +	if (IS_ERR(port->bridge_base_addr))
-> +		return dev_err_probe(dev, PTR_ERR(port->bridge_base_addr),
-> +				     "legacy apb register and bridge region missing");
-> +
-> +	port->ctrl_base_addr =3D devm_platform_ioremap_resource_byname(pdev, "c=
-trl");
-> +	if (IS_ERR(port->ctrl_base_addr))
-> +		return dev_err_probe(dev, PTR_ERR(port->ctrl_base_addr),
-> +				     "legacy apb register and ctrl region missing");
-> +
-> +addrs_set:
->
-
---66+HdzG+IeYp/nLS
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmhNTQAKCRB4tDGHoIJi
-0m6kAP9Yi9S7w0ZvHdiZWSo84UEHKpHj2Y1/n5bHC+FrPclaqgD8DZbVakSMXx/j
-Ui6ZHfzPJVENrprpWkS4r/azLfon1A4=
-=qPrU
------END PGP SIGNATURE-----
-
---66+HdzG+IeYp/nLS--
-
-
---===============3641232819722388662==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3641232819722388662==--
-
