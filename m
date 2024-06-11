@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B529C27C65
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 16:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A229AC27C65
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 16:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YQvueNN14vRxRlUlpgHEJE4K8v1f4dALcBBEjzjuzp4=; b=RgDsvZfSIBNfl/IkQ5fj0TkN3d
-	o4v+KGJFY5tA9Iw2CxKhYNfhJs07Lo0WLybGmQi/+FCs71gfEXxR5nWfN5M5cZ16+sJcilosLQqu+
-	ZsZdUMB/Npr4mNVnagZqfVrV6SKVGV+IyeySr4K8q0HMrRrxeEkWokAKhyx+ug/Zebza5Zi+Ko2eX
-	o4mAS278ranNzRWngw8dvvJarGMzsVvZFYE/1glh8vk1xYGBEnk22Tvlm+WJ4+epE6AOYmmY5tIte
-	YlIG/K2MNGiSkVtDtDMzHRMIh9127+upgYN5Cqx0vF46+FcvUE2mt4N0R2Jlb+b+blNMbKNIW8yW/
-	plp3oPOg==;
+	bh=SBrCFGrC0xrLBVIBq5Eh6lvYIIJVENRR0j6YAOauUH0=; b=mdFx3EIwSq1iJ/Osdmv+1gIre0
+	eGHTrIw4uUK4BJh4T9L2zZ7sOLEbkNWjfbo8bOQQB7ySUjg8jMRgYCYoIbd4Bdo8HI0OjKbCrmNfW
+	nXiHRdtut7VvpWjlZCNi/Pbt1B0FAwKfeTTlvP7tc6DDKyWbWLlnIf7GX1fW9SqG6asJd2+sbG9/7
+	scay2bSIRZwv2kZUtR12aS697Hty8ARxFJFp8EsgYkEG7BUDRM8o3h9B6k6dQ8LlnsmGd5VnjUOTX
+	3aKPRYccoL6yjQKGwjXoCyWZ/qbLdeu64JFQlbi/YFKMgsbaUmimTy7Qs29tfxCtdIMWO52mYrhUF
+	Pr6mD1qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH4HE-00000009UJe-3R6t;
-	Tue, 11 Jun 2024 16:23:16 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sH4IN-00000009Udz-2PT8;
+	Tue, 11 Jun 2024 16:24:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH4HB-00000009UI3-01nE
+	id 1sH4IJ-00000009Uc2-0kfm
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jun 2024 16:23:15 +0000
+	Tue, 11 Jun 2024 16:24:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 83898CE1C5C;
-	Tue, 11 Jun 2024 16:23:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55621C2BD10;
-	Tue, 11 Jun 2024 16:23:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5EEEF60F2A;
+	Tue, 11 Jun 2024 16:24:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0867FC2BD10;
+	Tue, 11 Jun 2024 16:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718122988;
-	bh=yEpTP94eDr5A3s9VgS5dBduy8ufIp19ilct/d2eDhsU=;
+	s=k20201202; t=1718123062;
+	bh=e2JRZAInX4VbpDRXbsbxfaga+F/z//woWGhb8XL6kFA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GAd5OW5HPNWu95j/Nh5a6vrZrlRAA4jImqvTUch1p5+DD8kOrtJHaHonbYOXoyqJG
-	 uat5emaBVryTRAqWHV9CDqTjgodJqo/gD+PL0AkQxTj8W1w8ZJsw7lvmTyElXICI/3
-	 MUlGVHy4YbkxHsU3TGNmQIEoIJttsxnk+P11wRUnGfqGno0g/44uzWMKflQRXudg2q
-	 A3H5P/GJSbNd/Ufj6BMgB4PlunQXccK0tzOz0BHVg46KQJJUQc89AQZty/tDjE1M/s
-	 qaXfei4mU3+FCTZeLBhbCwDIHdNCrg9r3YomMosOoK7a38ogkOx8GFqLGabTy51w2z
-	 r/WyyfsOBBXwQ==
-Date: Tue, 11 Jun 2024 17:23:04 +0100
+	b=bo8W7+Nsmby3FBoOMRdMQxnBcT41xKkNNkijVXEx+MFxGy3lE1nIwiamipM48xVaO
+	 cxXeLblMLHoColDh6jSxBmQiTIet0GtPca+IGdMHHRxIUutbzqBf7S13DdBthpQ1wS
+	 Yfb6/5gNUi3jL90M9/7OOZ36wNDW9d8JaOywWjKT5R/4IZPIJGN0KwuATCptlowdhy
+	 AAALLHqCvERrV1gBKfKZMPfH1hQBcawKLvdXOgo6+aXZ8rH24VI4DdCNkaSlInMnBa
+	 OHdG4X0mmJjQ9XRETAvKy4QfIIPhvPLwKZY+Ce+KWtavaZzVjKoon5Hc2Dh5+HlXIo
+	 DOVW1zTBgzeFQ==
+Date: Tue, 11 Jun 2024 17:24:17 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Shengyu Qu <wiagn233@outlook.com>
-Cc: kernel@esmil.dk, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, jszhang@kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: starfive: Set EMMC vqmmc maximum voltage to
- 3.3V on JH7110 boards
-Message-ID: <20240611-entourage-churn-8b69966848fc@spud>
-References: <TY3P286MB2611936BD43C24D34B442E6D98C72@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v1] riscv: dts: starfive: add PCIe dts configuration for
+ JH7110
+Message-ID: <20240611-irk-hypocrite-a53e98e6c394@spud>
+References: <20240611015200.40996-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <TY3P286MB2611936BD43C24D34B442E6D98C72@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+In-Reply-To: <20240611015200.40996-1-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240611_092313_269633_82E19EBE 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20240611_092423_336456_B920370C 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,79 +73,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0340467288461855329=="
+Content-Type: multipart/mixed; boundary="===============4574425455995855823=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0340467288461855329==
+--===============4574425455995855823==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5qjNIfeTE8upxu8l"
+	protocol="application/pgp-signature"; boundary="wzZC5MCZUi+ZMG8A"
 Content-Disposition: inline
 
 
---5qjNIfeTE8upxu8l
+--wzZC5MCZUi+ZMG8A
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jun 11, 2024 at 10:56:41PM +0800, Shengyu Qu wrote:
-> Currently, for JH7110 boards with EMMC slot, vqmmc voltage for EMMC is
-> fixed to 1.8V, while the spec needs it to be 3.3V on low speed mode and
-> should support switching to 1.8V when using higher speed mode. Since
-> there are no other peripherals using the same voltage source of EMMC's
-> vqmmc(ALDO4) on every board currently supported by mainline kernel,
-> regulator-max-microvolt of ALDO4 should be set to 3.3V.
+On Tue, Jun 11, 2024 at 09:52:00AM +0800, Minda Chen wrote:
+> Add PCIe dts configuraion for JH7110 SoC platform.
 >=20
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Shengyu Qu <wiagn233@outlook.com>
-> Fixes: ac9a37e2d6b6 ("riscv: dts: starfive: introduce a common board dtsi=
- for jh7110 based boards")
-
-I don't think this fixes tag is correct, it just moved in that commit.
-It has been there since commit 7dafcfa79cc9 ("riscv: dts: starfive: enable
-DCDC1&ALDO4 node in axp15060").
-
-Thanks,
-Conor.
-
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 > ---
->  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  .../boot/dts/starfive/jh7110-common.dtsi      | 64 ++++++++++++++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 86 +++++++++++++++++++
+>  2 files changed, 150 insertions(+)
 >=20
 > diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv=
 /boot/dts/starfive/jh7110-common.dtsi
-> index 37b4c294ffcc..c7a549ec7452 100644
+> index 8ff6ea64f048..1da7379f4e08 100644
 > --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
 > +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> @@ -244,7 +244,7 @@ emmc_vdd: aldo4 {
->  				regulator-boot-on;
->  				regulator-always-on;
->  				regulator-min-microvolt =3D <1800000>;
-> -				regulator-max-microvolt =3D <1800000>;
-> +				regulator-max-microvolt =3D <3300000>;
->  				regulator-name =3D "emmc_vdd";
->  			};
->  		};
-> --=20
-> 2.34.1
->=20
+> @@ -294,6 +294,22 @@
+>  	status =3D "okay";
+>  };
+> =20
+> +&pcie0 {
+> +	perst-gpios =3D <&sysgpio 26 GPIO_ACTIVE_LOW>;
+> +	phys =3D <&pciephy0>;
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&pcie0_pins>;
+> +	status =3D "okay";
+> +};
+> +
+> +&pcie1 {
+> +	perst-gpios =3D <&sysgpio 28 GPIO_ACTIVE_LOW>;
+> +	phys =3D <&pciephy1>;
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&pcie1_pins>;
+> +	status =3D "okay";
+> +};
 
---5qjNIfeTE8upxu8l
+Do all 3 of the mars, star64 and visionfive 2 have both PCIe ports
+exposed? I assume if one does, all does, since they're basically
+identical?
+
+--wzZC5MCZUi+ZMG8A
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmh56AAKCRB4tDGHoIJi
-0r8qAP4x+AYwI1YvlFyfOl2OTqSjrgW71fGQWfNwAfKUONuP3gEAxPVa2gMI5JtD
-zE/H/i7djgXlxQmv+nrgtuqcARn3Cww=
-=mz3Z
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmh6MQAKCRB4tDGHoIJi
+0v1MAP9PTX9Hu0d+NafLeM2JG8n5oxSljJKr6Q/CDKPbUeaOcgEAxScFlExYbnQb
+F951+zWbwytmbr3baByHSjGl6D2Cigg=
+=ds5C
 -----END PGP SIGNATURE-----
 
---5qjNIfeTE8upxu8l--
+--wzZC5MCZUi+ZMG8A--
 
 
---===============0340467288461855329==
+--===============4574425455995855823==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -153,5 +153,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0340467288461855329==--
+--===============4574425455995855823==--
 
