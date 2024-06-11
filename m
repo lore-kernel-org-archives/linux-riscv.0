@@ -4,157 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81579C27C65
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 17:45:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D623CC27C65
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 17:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ACE9/rNb1pr9QD0uTGhRf9AFGfZd/TkffSEGvLSZtD4=; b=2m92R6Vmav7ukp
-	ryYX87rxgDDB3xnoYSn38JUaXxPLESe9/1ZR+geZ55oHojcsTnQiJnZRbasdSpnvOq73A3AHKjZLl
-	/attXUaGVGo03xESV6PtaaQaVJ1/E1ZfM5mphkk2iNRN2cf98xLDhZdymMYXF25HuX6OEttM3JIWj
-	vlxH75HhUTbPBvBVH42q9D7mtkPTI/KI8DBXDpd8cbtWv8ytU5eEfGJFRujQLZOfuvU2GrVl37VAN
-	FLpyTe+t2dnHXfKh+TG/7DJjlOpNEg1qQ4/GBt5Zz57efOSwH/i/76azcGiPkZM3IR4rDh405zVxD
-	M2SGq7GC7DTprkiCzHwA==;
+	List-Owner; bh=icUh33hya8rO8cLc3v/yGD8t2JNcfVCiTaP7C3pmSFQ=; b=AH6WMPHKiitMsL
+	9GLXgX3cgdf/hjWvOm7zToqnfiAssJFoA9Bzj+CRJE9N7TuepD5AVaSRPiJQP8OryjO9EQ2J0WjMj
+	VHZ0T2Eaajl9vkKjwP6vzJPL0uiB4PEvaWUYTDlGRcn2pm/yqnPiv0tbxFJnCpl+ApltQwKYPoWX6
+	nzikQ2a0bvqBUMo/t8nODsuiU3FlzZh4b+LEcBcmO+uMP6mNW0Jy/Fgm2kPY3DWwEU4K11dszblAK
+	NAtq/gTyWe6FQPrHOY9jedHdbzGthcnyuXY25uL0Inp0Uz9oWSGSluGQnU7d/xWDaM8JbPol6kEBl
+	MKrWha/Y6DeH8R6EXCQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH5YY-00000009i1t-1bDf;
-	Tue, 11 Jun 2024 17:45:14 +0000
-Received: from mail-mw2nam10on20709.outbound.protection.outlook.com ([2a01:111:f403:2412::709] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1sH5fG-00000009jYo-2XB4;
+	Tue, 11 Jun 2024 17:52:10 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH5YT-00000009hzT-3vHf;
-	Tue, 11 Jun 2024 17:45:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=itoWIgSedjmUCYic/n7tDXK0uEp2Hv9yVI5oeEuN/L2GtQoa6bjFzXR+wxm9lXhLTDKRhwiwClCT7MXjzB2w6a1+6e4Y7RVajT5hU5DsYNXRjLKfviK5v7slqsRITJqDaxoNzUrEJ/gGsPPhKteNNuK+IXU/TtD0ZwblWKbX1beyOyupIThaXWuMg5KS+3ZpkAzBatxKQjtMoorwXeXQZ9y2tUAWS+7/QSM0HSGPlymzzhveFd43Z888o8Rt8Zlr+jXGGsc7TaPyWSegYqAo9CNbxCIiFwDSxXW+f8UJvFx9vHMiWdaQa4f7TfnBi52FQuU3RscpA0R5CVLeMj6RpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x3c4VJ2trXzoTisN7eDrEjsMbatJN8TWjC9p8SbZ0cU=;
- b=YjkTkdaTM2CIKsgPRLlmyAWtCUJsnR03mv/C0N5widHdYHee+tJGd9CYibZTKguSUJ0dIYXfx6jiQ3jQuhgkQygSDzdSeHLc9ezLPIqcInd0mihvbjUJKDEvpz/DJfiTRkItu3Utdyl9KgB/O6ADVlx3WDuzpPP724cpbnekzt0E4bYm+LcEMN3kZvTkbU8BN/l5MRdIfQjc5FUsj3raCiU5sz6GWJlmGeUYMOFR4qwKO7zUnwmVelmf3YXCaaR1c1lKUwsX40yuEeQkLEGSk7MazGSz/NlcnQrnua/ZUGfu6JqcbwTjmEoFeS6nkRLwip4rHE95rZVygwjhyDeO2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	id 1sH5fB-00000009jVw-0dYO
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Jun 2024 17:52:07 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-6818e31e5baso4877409a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Jun 2024 10:52:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x3c4VJ2trXzoTisN7eDrEjsMbatJN8TWjC9p8SbZ0cU=;
- b=NqPVNsr0osas3ZW/KH0x3YVFcf6G2TyM3RMhWE8IpDiHtbfebTEAHMfVDwRltTK9xICetie8510LPhV5oPyK6o0FtUdiN1VHIrTGYua2Z9iGegnX5lW7lYdewg8eiwD/rUPBYgzmxOWtstj4E4wtgPs/BbMaGgGSbLJskYWaUG4=
-Received: from CH2PR01MB5894.prod.exchangelabs.com (2603:10b6:610:45::11) by
- CYYPR01MB8611.prod.exchangelabs.com (2603:10b6:930:bc::20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7633.37; Tue, 11 Jun 2024 17:45:00 +0000
-Received: from CH2PR01MB5894.prod.exchangelabs.com
- ([fe80::b5cc:1692:8c7d:8beb]) by CH2PR01MB5894.prod.exchangelabs.com
- ([fe80::b5cc:1692:8c7d:8beb%5]) with mapi id 15.20.7633.036; Tue, 11 Jun 2024
- 17:44:59 +0000
-From: Shubhang Kaushik OS <Shubhang@os.amperecomputing.com>
-To: Uladzislau Rezki <urezki@gmail.com>
-CC: "ampere-linux-kernel@lists.amperecomputing.com"
-	<ampere-linux-kernel@lists.amperecomputing.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "cl@linux.com" <cl@linux.com>,
-	"corbet@lwn.net" <corbet@lwn.net>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"guoren@kernel.org" <guoren@kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "xiongwei.song@windriver.com"
-	<xiongwei.song@windriver.com>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-csky@vger.kernel.org"
-	<linux-csky@vger.kernel.org>, "willy@infradead.org" <willy@infradead.org>
-Subject: Re: [PATCH v4] vmalloc: Modify the alloc_vmap_area() error message
- for better diagnostics
-Thread-Topic: [PATCH v4] vmalloc: Modify the alloc_vmap_area() error message
- for better diagnostics
-Thread-Index: AQHau+dprF4b1k9RvEeooQHbFQHPMbHC07Wi
-Date: Tue, 11 Jun 2024 17:44:59 +0000
-Message-ID: <CH2PR01MB58942C3696E4FD0181782F4DF5C72@CH2PR01MB5894.prod.exchangelabs.com>
-References: <MN2PR01MB59025CC02D1D29516527A693F5C62@MN2PR01MB5902.prod.exchangelabs.com>
- <ZmgiPTHGy-kHNe5x@pc636>
-In-Reply-To: <ZmgiPTHGy-kHNe5x@pc636>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_5b82cb1d-c2e0-4643-920a-bbe7b2d7cc47_Enabled=True;MSIP_Label_5b82cb1d-c2e0-4643-920a-bbe7b2d7cc47_SiteId=3bc2b170-fd94-476d-b0ce-4229bdc904a7;MSIP_Label_5b82cb1d-c2e0-4643-920a-bbe7b2d7cc47_SetDate=2024-06-11T17:44:58.626Z;MSIP_Label_5b82cb1d-c2e0-4643-920a-bbe7b2d7cc47_Name=Confidential;MSIP_Label_5b82cb1d-c2e0-4643-920a-bbe7b2d7cc47_ContentBits=0;MSIP_Label_5b82cb1d-c2e0-4643-920a-bbe7b2d7cc47_Method=Standard;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CH2PR01MB5894:EE_|CYYPR01MB8611:EE_
-x-ms-office365-filtering-correlation-id: fb560eff-68de-48a8-df0d-08dc8a3e3710
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230032|376006|7416006|366008|1800799016|38070700010;
-x-microsoft-antispam-message-info: =?us-ascii?Q?sfJ3o1J4A0PRsOUXXvDz5Rlbjxg+wmAvQatdTx1RnjrWchZtr+OcXkyd6WYM?=
- =?us-ascii?Q?sQ9tcQQQNDswBHrpe4uv4/baoV8ghQRz0CNtaztJ11bCfpmFPDvn/hatZqsF?=
- =?us-ascii?Q?zKF4ane8623YGFCWxAYcf8q1ENTrmmkKo4hLvuRYZmwpzdoku0voN82KwPBz?=
- =?us-ascii?Q?lAQNaTLGGH00xflG9z6Tjaj0agMCt9wwa1gMaMw9NldhJ2eo/49s4zBy8shi?=
- =?us-ascii?Q?5ucWoldqiSwi4AJ38oeEHklx9/Nn4uTD9m43aQbC2+LH+I6H7htZCHlASqHD?=
- =?us-ascii?Q?uwlXLWvLAaxv8UHjFbWMqzpS/CWfQ5EkybjFfRtaxXtA7YYfCX+gxIpg1YB3?=
- =?us-ascii?Q?bBu3k/OwYyfZjFHxFFXxWAfs9dmIzXzKm3AWt8smAuP4SGgctWDMIRNod30j?=
- =?us-ascii?Q?XZNABgwJshAQu5fy0uxd4bB9G2NIMpb7cRxHmaYelfbQZRr+1j8vtdU2AYNg?=
- =?us-ascii?Q?ry8qMzKXIdJDNiaM6rZTPuKFcquP94CzMqyLNnSOwS1VzhiLzEg3Jufq8lKN?=
- =?us-ascii?Q?gW87D1Vj3D89MtWTN3cIJVbXsbT8LZ7Qw2W/Z026Dp0Z8zoMXd+2F8Ws8NqC?=
- =?us-ascii?Q?Vlacac0u/KKDb3TPPNnzMURgfB5U9fqtCnbet+/yOFpvnkPWYROkg1C+b/Kt?=
- =?us-ascii?Q?flYfnJByx4Hus7Gc+ZaiR17adZ6qlG0hkA57CEKJ0ptk21FuaHV8z2gCkT/Q?=
- =?us-ascii?Q?Aj6T7qnADqfLD+kvhjvJ7QmqySVJ6oWk8PZ8hwG021xzl4ZiT8bfddAUaGmw?=
- =?us-ascii?Q?IaISSTXmuhRqOF86Y2wzcHcsQiYA8e9DoOxNO7T26jQh5/XQflzwwbIGSkrc?=
- =?us-ascii?Q?uWgvHb1QQZSJLCBiQHTLQjJ10l7ttIpNwAchicS6oDfayUzfvJcdwgXHbnFn?=
- =?us-ascii?Q?O4vbC3xY4JQldnjHcULDlncoUyLTcoSjMnyZp/hz5LtR53YFT5jzWRW6IL6j?=
- =?us-ascii?Q?rfFt6z4lm9G/aIFIyJE1ivrNy1b3xpiTC/wcVWfcn7FzyQoaHhzoZpKEMkOs?=
- =?us-ascii?Q?LASyfu9RZSSue9YlOJRixj/KY3AvxIvEqVGbI3KS1Jhe/Vx9hIXLZrDA01Y4?=
- =?us-ascii?Q?GxOydsNior6P+yjOojEvLdccN5ut/KHgVuAImdT4G3MCkdInWdiDwVV5d/yf?=
- =?us-ascii?Q?Wt3xXBT6eoTNiqPL9rmGlQ13Bi85Q/if70zeOyvik8/XXUTz4cvBELe07DOk?=
- =?us-ascii?Q?1RI8qXpbQommGa3jDxEdbB6v1XFjv/bbvnRZEBX3R8VV0T4MxEgRMEtjmDBo?=
- =?us-ascii?Q?n9GZ3uA2xAkBkFJ0DsJ0FFJzakowGfmCoK4cRwpLvIN4VMXQdVbqiTGadcpq?=
- =?us-ascii?Q?miRaD2AY3pDXgIUVklo48Ay2eWwUc9tEw6fQ2JZHNrHJ2HFdLvNJ0WwWndJf?=
- =?us-ascii?Q?wXdhwuY=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR01MB5894.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230032)(376006)(7416006)(366008)(1800799016)(38070700010);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?t6IAmVxi4jRYptJK2FKn4Ks2cfx7Ji3Sh7p+aVSLNHGcfvZegpFzaD6DM12+?=
- =?us-ascii?Q?Q99vJhrKIZqFXaJFKR0kLKoOVFaAyZCao1c4NdLk4McPu8EhQyPE4ycuvgpA?=
- =?us-ascii?Q?IBZB0TkYcqG0PggMDESGbYKQJTnil777Z0BOP0pieUMJZGaXXPRHvuOPrzqx?=
- =?us-ascii?Q?MUr8eMEpEE62HO7USgOirWMht9zwbIAT5/wquJeOAhpboOh+eeDLiWFtrb7z?=
- =?us-ascii?Q?zTqRMmz7htmNf3Tr1SY4GqJAm6KcQl+FxTZer6bteZboUuSkzxst5sHwGw9v?=
- =?us-ascii?Q?7829CjWDj0OSAN2q3XTL8IiAluPdLZ6cNntD5mBQbaoY9VBK8UalF/M/oqBj?=
- =?us-ascii?Q?ZCGWC0THeB0OJEAVlloxPVFkMOTVt36SKtBkByI0huh5iI2qCO1jZWuMy+Ox?=
- =?us-ascii?Q?74sVYGMLGG21qQkDWjUQW5JdnvRzivOElbHYl3AuzsEC/dMn/kTbgiv6w2DE?=
- =?us-ascii?Q?586vlcxiMWT9Pm4LlwdJ8CU58jlWT0Bh4umuOMYFXfBviFpS4dLO8wgb4AEg?=
- =?us-ascii?Q?ZWE5r+/YwOAX3M3mxK+nNknsDzK+23aI8lgZV3HEH8eAj7XqBdcPICeOk1pZ?=
- =?us-ascii?Q?/cx0eeiUbsrcasaA9tZNfbJNcUGneefsWQor3IaFt4vXkgem8ZuB0otmL/9J?=
- =?us-ascii?Q?pjs7WeshuYFvsEKeokpHdMussnt8Yu0a8EjDxbWLUSEjPbILbkXuaGNQfVZT?=
- =?us-ascii?Q?XIkE+0qFmiyUHrLwV4VPR+/zgsjC2aqJHbJejBd2sqTluT2AusMBpPFt1Plm?=
- =?us-ascii?Q?oOoJlIg0BI1+yImREuDIgTl1yv4LHCKi7X+vKzJx9+YMTTeHRM/FItF79w7D?=
- =?us-ascii?Q?kUxqDZ518bYGUXLG9fsvk1wH9ccA/TAFiGE58f8VTbYmFTSWjur2HWoJqy9/?=
- =?us-ascii?Q?VyduUQvcaXuMVz4Md160rILTvQ2XUusKrrQa/mySfB7jCF88LPq6wBjvEwUU?=
- =?us-ascii?Q?pTsbjZ7C2a5onz/Ur2ga0o3nccW3w+8K8hEQ/SZ8f6GsXvSj0VsUJhnYskSg?=
- =?us-ascii?Q?C1Vc6EvACqjlQ9bRSvddTDpcU4o5fjb0dLhh/FdMxaZCBHfxnV+SQ1tDikwS?=
- =?us-ascii?Q?Kq9WyCNdb6dngsVDt/4IxwJb4BgIbpMU6K8aNq6YQF+qk6rZPTNIq62XH9Rv?=
- =?us-ascii?Q?rcN5SRqs2encNbbe52TsBWuLxovVEvK9NgofRbo7HUBGpPW0bi3xKPNEhvAG?=
- =?us-ascii?Q?IcXkIMU0qvWcjM7Lobyb8KXfI2et2+CRDiFIsf1iFPMBcZ+TXtH7D1d90Dmr?=
- =?us-ascii?Q?XdEdAoywuoC4vBr6XTZ3damermInGLtGU2Ig5KzM0KRZ9j5d3kg3RI9vsNZ6?=
- =?us-ascii?Q?ZxlqdS5w9WPeHgOE5ZU5XcBqkStf9/nIRXE7fhL8kjylP5d2Ilb1139GhpEr?=
- =?us-ascii?Q?fSqf4GSz/Fs8CsMALkD2YcfYjyy8S+v3LPvhK2A4KWxbebXY9mh3Qz7DD5v0?=
- =?us-ascii?Q?Ibq7OO5PjsxMql1Yn9z4wse7tyuADAIIvf1/ERoM82KpNYJfBPqwl/RuGPyo?=
- =?us-ascii?Q?eM3I/IQIPV3uN+JzSjFUV2bVd52YxkQUcca2ac8tDjdyW7WfvDpfXx41UBbe?=
- =?us-ascii?Q?DnIPd1j/IuMUQpWML5mogL7OR0IT8KGNTUnjefcWEUoaf52R/LjZZIBFGu6b?=
- =?us-ascii?Q?+g=3D=3D?=
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1718128322; x=1718733122; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=v+kzQ+TESmWH2rodDnJAJg+m005wAbuCyRq3fRyc+L4=;
+        b=qvtk8DN583F+eY/Z0pOlsqYLcJ2xGOH8Ic90jgBVk97L0B+KvlPQNcrzrvxFuZzLFp
+         u/2J2lRQaJodkLC6lAAVcD9SiiW8/k0WPBVlaBwM5se+ErMlIVUFuvdM1ZtzgQn0/xIu
+         KzI5SNpVXx9nK1V+4zEgWFne5JpCHEOBmC3WY8/u5TPdiBMQOXfDCoNBW+UXlFPS0MRE
+         FgNUAv2nhlwuDqQi6DVRYEsxz0j0/C1P1+fw71Y8rJ+Haq1cqKE81Os7EVihQ4NyB8mU
+         TZ1TVsjVYhky1y0eIeBOjszTcMSb8Lu89Gf+9ankhpSuXPGGhe6w55WneOyfmpd4P4j7
+         X1Nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718128322; x=1718733122;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=v+kzQ+TESmWH2rodDnJAJg+m005wAbuCyRq3fRyc+L4=;
+        b=tnPsXNMmEbRNpTYS3SbNv0kkbe5JviqsKmYPlvGQTHo1BS5+EIL0tT/Xg/i7wkLjYg
+         IaekUTWlI1WdZqY9Zz9yLOOeG+wKV75SNRgMtPB9QCSuUwgPgEg/1rFwrYvECZZ1t5qY
+         YKCLuFksF5CAyppkLAyI1ubZMhWUbiMfdgTt29g75szHYM2+1avS+9Up8k/QZUQB5rBx
+         9gk5h9zsM6h0KT4/u+UUhT/JO+VWoFY/6WD9RUhiIebhC9PoQeNa7D073W3Uc+i4H77C
+         z83SDRVoWxxHm0+hFHhREXceP47AdiCeuhDqYtmV9P9CkKEiDy2TQeZkojlCu/7lRxA8
+         7/0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWf+PDezxz2liDW1CCrShsO5IkxOPo3MjQ2CVlRDsTssqK3v27rF7Fq29cSSeN481dggs/a37P49z0VLoiANRXHiCX1fzOJa8Gigf6Hx3i6
+X-Gm-Message-State: AOJu0Yw2nyaoD5uwVvqv0IvUU+zXD8zCV3Iaoey+YNvZg39fV+n8T5Sq
+	ctCmQevw68xNkawDR1x8uMvmvXjgiRLTS1Nsq8/O+ZBcQdV6cX/OTprvq2nT0fw=
+X-Google-Smtp-Source: AGHT+IG0CXcMZTGrM4/Ht2qa5w3o4qJ6+EtsZ/LkU7bUGzv5nEqEbQ4X3YEnvEJE/XsG2nOTE7o+Wg==
+X-Received: by 2002:a17:902:e80a:b0:1f7:2490:cb69 with SMTP id d9443c01a7336-1f72490d4d6mr50156005ad.60.1718128321885;
+        Tue, 11 Jun 2024 10:52:01 -0700 (PDT)
+Received: from ghost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f6fadca2b0sm59819315ad.206.2024.06.11.10.51.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Jun 2024 10:52:00 -0700 (PDT)
+Date: Tue, 11 Jun 2024 10:51:58 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Guo Ren <guoren@kernel.org>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Evan Green <evan@rivosinc.com>, Andy Chiu <andy.chiu@sifive.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH 01/13] dt-bindings: riscv: Add xtheadvector ISA extension
+ description
+Message-ID: <ZmiOvgabh3Rd5Vad@ghost>
+References: <20240609-xtheadvector-v1-0-3fe591d7f109@rivosinc.com>
+ <20240609-xtheadvector-v1-1-3fe591d7f109@rivosinc.com>
+ <CAJF2gTTVu4ZQt+gK7pVYEDVG23Sic=jswkVvX4To=VAD0TMzxw@mail.gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR01MB5894.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fb560eff-68de-48a8-df0d-08dc8a3e3710
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Jun 2024 17:44:59.5857
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: E0+fL0GhKdEV0UsPG+wu/YQAAMglIGP/0om2D1Ks5Dr5D/Sw7mf3YJ8hVOGLwFr7wwt3nIwVU1R8/wx70yB44sMmaY9kucE/+Eh+82dimYozbnEozAZcRiktQ0qfH817
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR01MB8611
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTTVu4ZQt+gK7pVYEDVG23Sic=jswkVvX4To=VAD0TMzxw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240611_104510_092913_436493F1 
-X-CRM114-Status: GOOD (  26.12  )
+X-CRM114-CacheID: sfid-20240611_105205_960616_5F9399B6 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,110 +103,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is intentional.  When 'addr' equals 'vend' the overflow path is triggered, but then the 'vstart' and 'vend' values are not carried in the overflow path - making them point to no address. That is the reason 'addr' is used in the warning message to specify the restrictive range - that gets assigned to 'va_start' and 'va_end' in the ideal case.
-
-Shubhang Kaushik
-
-________________________________________
-From: Uladzislau Rezki <urezki@gmail.com>
-Sent: Tuesday, June 11, 2024 3:09 AM
-To: Shubhang Kaushik OS
-Cc: ampere-linux-kernel@lists.amperecomputing.com; linux-arm-kernel@lists.infradead.org; cl@linux.com; corbet@lwn.net; akpm@linux-foundation.org; urezki@gmail.com; linux-mm@kvack.org; guoren@kernel.org; linux-doc@vger.kernel.org; xiongwei.song@windriver.com; linux-riscv@lists.infradead.org; linux-csky@vger.kernel.org; willy@infradead.org
-Subject: Re: [PATCH v4] vmalloc: Modify the alloc_vmap_area() error message for better diagnostics
-
-On Mon, Jun 10, 2024 at 05:22:58PM +0000, Shubhang Kaushik OS wrote:
-> 'vmap allocation for size %lu failed: use vmalloc=<size> to increase size'
-> The above warning is seen in the kernel functionality for allocation of the restricted virtual memory range till exhaustion.
->
-> This message is misleading because 'vmalloc=' is supported on arm32, x86 platforms and is not a valid kernel parameter on a number of other platforms (in particular its not supported on arm64, alpha, loongarch, arc, csky, hexagon, microblaze, mips, nios2, openrisc, parisc, m64k, powerpc, riscv, sh, um, xtensa, s390, sparc). With the update, the output gets modified to include the function parameters along with the start and end of the virtual memory range allowed.
->
-> The warning message after fix on kernel version 6.10.0-rc1+:
->
-> vmalloc_node_range for size 33619968 failed: Address range restricted between 0xffff800082640000 - 0xffff800084650000
->
-> Backtrace with the misleading error message:
->
->       vmap allocation for size 33619968 failed: use vmalloc=<size> to increase size
->       insmod: vmalloc error: size 33554432, vm_struct allocation failed, mode:0xcc0(GFP_KERNEL), nodemask=(null),cpuset=/,mems_allowed=0
->       CPU: 46 PID: 1977 Comm: insmod Tainted: G            E      6.10.0-rc1+ #79
->       Hardware name: INGRASYS Yushan Server iSystem TEMP-S000141176+10/Yushan Motherboard, BIOS 2.10.20230517 (SCP: xxx) yyyy/mm/dd
->       Call trace:
->               dump_backtrace+0xa0/0x128
->               show_stack+0x20/0x38
->               dump_stack_lvl+0x78/0x90
->               dump_stack+0x18/0x28
->               warn_alloc+0x12c/0x1b8
->               __vmalloc_node_range_noprof+0x28c/0x7e0
->               custom_init+0xb4/0xfff8 [test_driver]
->               do_one_initcall+0x60/0x290
->               do_init_module+0x68/0x250
->               load_module+0x236c/0x2428
->               init_module_from_file+0x8c/0xd8
->               __arm64_sys_finit_module+0x1b4/0x388
->               invoke_syscall+0x78/0x108
->               el0_svc_common.constprop.0+0x48/0xf0
->               do_el0_svc+0x24/0x38
->               el0_svc+0x3c/0x130
->               el0t_64_sync_handler+0x100/0x130
->               el0t_64_sync+0x190/0x198
->
-> Reviewed-by: Christoph Lameter (Ampere) <cl@linux.com>
-> Signed-off-by: Shubhang Kaushik <shubhang@os.amperecomputing.com>
-> ---
->  Documentation/admin-guide/kernel-parameters.txt | 9 ++++++---
->  mm/vmalloc.c                                    | 4 ++--
->  2 files changed, 8 insertions(+), 5 deletions(-)
->
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index b600df82669d..9b8f8ab90284 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -7245,9 +7245,12 @@
->
->       vmalloc=nn[KMG] [KNL,BOOT,EARLY] Forces the vmalloc area to have an
->                       exact size of <nn>. This can be used to increase
-> -                     the minimum size (128MB on x86). It can also be
-> -                     used to decrease the size and leave more room
-> -                     for directly mapped kernel RAM.
-> +                     the minimum size (128MB on x86, arm32 platforms).
-> +                     It can also be used to decrease the size and leave more room
-> +                     for directly mapped kernel RAM. Note that this parameter does
-> +                     not exist on many other platforms (including arm64, alpha,
-> +                     loongarch, arc, csky, hexagon, microblaze, mips, nios2, openrisc,
-> +                     parisc, m64k, powerpc, riscv, sh, um, xtensa, s390, sparc).
->
->       vmcp_cma=nn[MG] [KNL,S390,EARLY]
->                       Sets the memory size reserved for contiguous memory
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 5d3aa2dc88a8..75ad551e90ba 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -2055,8 +2055,8 @@ static struct vmap_area *alloc_vmap_area(unsigned long size,
->       }
->
->       if (!(gfp_mask & __GFP_NOWARN) && printk_ratelimit())
-> -             pr_warn("vmap allocation for size %lu failed: use vmalloc=<size> to increase size\n",
-> -                     size);
-> +             pr_warn("vmalloc_node_range for size %lu failed: Address range restricted to %#lx - %#lx\n",
-> +                             size, addr, addr+size);
->
-One question. I see that you would like to see the range, i.e. its "start"
-and "end" addresses for failure case. For such purpose, why do not you use
-"vstart" and "vend" variables which specify a range?
-
-An "addr" points here on "vend". Or is this intentional?
-
-Sorry for late looking at this. I was on a vacation last week.
-
---
-Uladzislau Rezki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdW4gMTEsIDIwMjQgYXQgMDg6MDY6MzRQTSArMDgwMCwgR3VvIFJlbiB3cm90ZToK
+PiBPbiBNb24sIEp1biAxMCwgMjAyNCBhdCAxMjo0NeKAr1BNIENoYXJsaWUgSmVua2lucyA8Y2hh
+cmxpZUByaXZvc2luYy5jb20+IHdyb3RlOgo+ID4KPiA+IFRoZSB4dGhlYWR2ZWN0b3IgSVNBIGV4
+dGVuc2lvbiBpcyBkZXNjcmliZWQgb24gdGhlIFQtSGVhZCBleHRlbnNpb24gc3BlYwo+ID4gR2l0
+aHViIHBhZ2UgWzFdIGF0IGNvbW1pdCA5NTM1OGNiMmNjYTkuCj4gPgo+ID4gTGluazogaHR0cHM6
+Ly9naXRodWIuY29tL1QtaGVhZC1TZW1pL3RoZWFkLWV4dGVuc2lvbi1zcGVjL2Jsb2IvOTUzNThj
+YjJjY2E5NDg5MzYxYzYxZDMzNWUwM2QzMTM0YjE0MTMzZi94dGhlYWR2ZWN0b3IuYWRvYyBbMV0K
+PiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMu
+Y29tPgo+ID4gUmV2aWV3ZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hp
+cC5jb20+Cj4gPiAtLS0KPiA+ICBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvcmlz
+Y3YvZXh0ZW5zaW9ucy55YW1sIHwgMTAgKysrKysrKysrKwo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAx
+MCBpbnNlcnRpb25zKCspCj4gPgo+ID4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNl
+dHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2Rldmlj
+ZXRyZWUvYmluZGluZ3MvcmlzY3YvZXh0ZW5zaW9ucy55YW1sCj4gPiBpbmRleCA0NjhjNjQ2MjQ3
+YWEuLjk5ZDJhOWU4YzUyZCAxMDA2NDQKPiA+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJl
+ZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwKPiA+ICsrKyBiL0RvY3VtZW50YXRpb24v
+ZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwKPiA+IEBAIC00NzcsNiAr
+NDc3LDEwIEBAIHByb3BlcnRpZXM6Cj4gPiAgICAgICAgICAgICAgbGF0ZW5jeSwgYXMgcmF0aWZp
+ZWQgaW4gY29tbWl0IDU2ZWQ3OTUgKCJVcGRhdGUKPiA+ICAgICAgICAgICAgICByaXNjdi1jcnlw
+dG8tc3BlYy12ZWN0b3IuYWRvYyIpIG9mIHJpc2N2LWNyeXB0by4KPiA+Cj4gPiArICAgICAgICAj
+IHZlbmRvciBleHRlbnNpb25zLCBlYWNoIGV4dGVuc2lvbiBzb3J0ZWQgYWxwaGFudW1lcmljYWxs
+eSB1bmRlciB0aGUKPiA+ICsgICAgICAgICMgdmVuZG9yIHRoZXkgYmVsb25nIHRvLiBWZW5kb3Jz
+IGFyZSBzb3J0ZWQgYWxwaGFudW1lcmljYWxseSBhcyB3ZWxsLgo+ID4gKwo+ID4gKyAgICAgICAg
+IyBBbmRlcwo+ID4gICAgICAgICAgLSBjb25zdDogeGFuZGVzcG11Cj4gPiAgICAgICAgICAgIGRl
+c2NyaXB0aW9uOgo+ID4gICAgICAgICAgICAgIFRoZSBBbmRlcyBUZWNobm9sb2d5IHBlcmZvcm1h
+bmNlIG1vbml0b3IgZXh0ZW5zaW9uIGZvciBjb3VudGVyIG92ZXJmbG93Cj4gPiBAQCAtNDg0LDUg
+KzQ4OCwxMSBAQCBwcm9wZXJ0aWVzOgo+ID4gICAgICAgICAgICAgIFJlZ2lzdGVycyBpbiB0aGUg
+QVg0NU1QIGRhdGFzaGVldC4KPiA+ICAgICAgICAgICAgICBodHRwczovL3d3dy5hbmRlc3RlY2gu
+Y29tL3dwLWNvbnRlbnQvdXBsb2Fkcy9BWDQ1TVAtMUMtUmV2Li01LjAuMC1EYXRhc2hlZXQucGRm
+Cj4gPgo+ID4gKyAgICAgICAgIyBULUhFQUQKPiA+ICsgICAgICAgIC0gY29uc3Q6IHh0aGVhZHZl
+Y3Rvcgo+ID4gKyAgICAgICAgICBkZXNjcmlwdGlvbjoKPiA+ICsgICAgICAgICAgICBUaGUgVC1I
+RUFEIHNwZWNpZmljIDAuNy4xIHZlY3RvciBpbXBsZW1lbnRhdGlvbiBhcyB3cml0dGVuIGluCj4g
+PiArICAgICAgICAgICAgaHR0cHM6Ly9naXRodWIuY29tL1QtaGVhZC1TZW1pL3RoZWFkLWV4dGVu
+c2lvbi1zcGVjL2Jsb2IvOTUzNThjYjJjY2E5NDg5MzYxYzYxZDMzNWUwM2QzMTM0YjE0MTMzZi94
+dGhlYWR2ZWN0b3IuYWRvYy4KPiBVUkwgY2hhbmdlZAo+IGh0dHBzOi8vZ2l0aHViLmNvbS9YVUFO
+VElFLVJWL3RoZWFkLWV4dGVuc2lvbi1zcGVjL2Jsb2IvOTUzNThjYjJjY2E5NDg5MzYxYzYxZDMz
+NWUwM2QzMTM0YjE0MTMzZi94dGhlYWR2ZWN0b3IuYWRvYwoKT2ggb2theSBJIHdpbGwgY2hhbmdl
+LgoKRG8geW91IGtub3cgdGhlIGFuc3dlciB0byB0aGUgaXNzdWUgSSByYWlzZWQ/IGh0dHBzOi8v
+Z2l0aHViLmNvbS9YVUFOVElFLVJWL3RoZWFkLWV4dGVuc2lvbi1zcGVjL2lzc3Vlcy81MgoKLSBD
+aGFybGllCgo+IAo+IE90aGVycywgTEdUTS4KPiAKPiA+ICsKPiA+ICBhZGRpdGlvbmFsUHJvcGVy
+dGllczogdHJ1ZQo+ID4gIC4uLgo+ID4KPiA+IC0tCj4gPiAyLjQ0LjAKPiA+Cj4gCj4gCj4gLS0g
+Cj4gQmVzdCBSZWdhcmRzCj4gIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
