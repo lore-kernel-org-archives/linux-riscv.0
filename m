@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47484C27C4F
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 03:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52D8C27C55
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 03:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=rGpZ9hqybMr/gVjZh8V7W6/eMH1WBNTTJb4RPifsBuM=; b=Ayx7eZ2sUtrFm4
-	djguQHl1McNLuwZagazRXsPzd2kFQ4FApvHDR464GQhsZQMpZ5TtElG0ygvUCyH2WSmrkrlDsi8if
-	bxvqaGobr95xnQJy5GhoD6MUjokIPhgz7p/7FfgVy+YzLPGivUH5IR+CgcW7MDTLZpMx/WUcRSDqh
-	8uXRclviTjbRXUcNdx2JRBxHHxvFPrL84I6zZPAcG+4MRsj2bUaTuT4uUPDOzi4Bt7MjfXd0boewX
-	ljBkE6IpJOG001HC61+8bVxx9Y7LHT5um4gDc3G6zFKfJyctDcD6+xG/Ns2dIrvwvae0nGstIENuw
-	Axr5ikGNSpe0WT5p4FlA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=23ZtP2uYIPEdiGp24Qwb8qLzRyX7TYxvnWyWV0egMJE=; b=ILFqL4fysvTvaP
+	gcqy80nigaMwYGvBrxDaM80KkWXEHUG3nSzQTQ5DZz0q6qT7FnnKFn+GaMADvurr87R1S/9zqR+B9
+	ICLZ9tQggBS+cZkik3omjT1DCdfApoyHH90DfMEBoI7UCF6hXyGefYKVnLDo5jQWpCrfecbK31sjg
+	FlbGRnbkHbco8CjhRKV0goB/iN2HjdY6dYG2oZssq9Cbsm2P1A/zWcw9vIFdmOtiJ4/GZs3eEZMeY
+	AXNLXT4bdYvGHqDmC4mzPtOnaETnytYMVFZRyMT3dRZ8AFzdqpbKNkFvWyYtG4NdyrsRgWkz0svkg
+	SVAHy8m+sxzrxKCi4I2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGs0t-00000007Ezy-3kd7;
-	Tue, 11 Jun 2024 03:17:36 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sGs0r-00000007EyW-3FYa;
+	Tue, 11 Jun 2024 03:17:33 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sGs0l-00000007EuC-1eUI;
-	Tue, 11 Jun 2024 03:17:29 +0000
+	id 1sGs0k-00000007Etu-3pIm;
+	Tue, 11 Jun 2024 03:17:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 04C0ACE1905;
-	Tue, 11 Jun 2024 03:17:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C7E5C4AF1C;
+	by sin.source.kernel.org (Postfix) with ESMTP id C009FCE01BC;
+	Tue, 11 Jun 2024 03:17:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A354C4AF1A;
 	Tue, 11 Jun 2024 03:17:23 +0000 (UTC)
 Received: from rostedt by gandalf with local (Exim 4.97)
 	(envelope-from <rostedt@goodmis.org>)
-	id 1sGs0w-00000001JhD-0WrV;
-	Mon, 10 Jun 2024 23:17:38 -0400
-Message-ID: <20240611031737.982047614@goodmis.org>
+	id 1sGs0v-00000001JgD-3KfX;
+	Mon, 10 Jun 2024 23:17:37 -0400
+Message-ID: <20240611030934.162955582@goodmis.org>
 User-Agent: quilt/0.68
-Date: Mon, 10 Jun 2024 23:09:36 -0400
+Date: Mon, 10 Jun 2024 23:09:34 -0400
 From: Steven Rostedt <rostedt@goodmis.org>
 To: linux-kernel@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org,
@@ -75,13 +75,11 @@ Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Dave Hansen <dave.hansen@linux.intel.com>,
  x86@kernel.org,
  "H. Peter Anvin" <hpa@zytor.com>
-Subject: [PATCH 2/2] function_graph: Everyone uses HAVE_FUNCTION_GRAPH_RET_ADDR_PTR,
- remove it
-References: <20240611030934.162955582@goodmis.org>
-MIME-Version: 1.0
+Subject: [PATCH 0/2] function_graph: ftrace_graph_ret_addr(); there can be only one!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240610_201727_839253_E9AF0AAA 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20240610_201727_146666_D9044DA3 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,21 +91,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Steven Rostedt (Google)" <rostedt@goodmis.org>
 
-All architectures that implement function graph also implements
-HAVE_FUNCTION_GRAPH_RET_ADDR_PTR. Remove it, as it is no longer a
-differentiator.
+I noticed a slight bug in ftrace_graph_ret_addr() for when
+HAVE_FUNCTION_GRAPH_RET_ADDR_PTR was defined and fixed it up.
+I then noticed it was buggy when not defined. Looking for an
+architecture that did not have it defined, I couldn't find any.
+So I removed it.
 
-Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
----
- Documentation/trace/ftrace-design.rst | 12 ---------
- arch/arm64/include/asm/ftrace.h       | 11 ---------
+Steven Rostedt (Google) (2):
+      function_graph: Fix up ftrace_graph_ret_addr()
+      function_graph: Everyone uses HAVE_FUNCTION_GRAPH_RET_ADDR_PTR, remove it
+
+----
+ Documentation/trace/ftrace-design.rst | 12 -------
+ arch/arm64/include/asm/ftrace.h       | 11 -------
  arch/csky/include/asm/ftrace.h        |  2 --
  arch/loongarch/include/asm/ftrace.h   |  1 -
  arch/powerpc/include/asm/ftrace.h     |  2 --
@@ -115,209 +118,8 @@ Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
  arch/s390/include/asm/ftrace.h        |  1 -
  arch/x86/include/asm/ftrace.h         |  2 --
  include/linux/ftrace.h                |  2 --
- kernel/trace/fgraph.c                 | 35 +--------------------------
- 10 files changed, 1 insertion(+), 68 deletions(-)
-
-diff --git a/Documentation/trace/ftrace-design.rst b/Documentation/trace/ftrace-design.rst
-index 6893399157f0..dc82d64b3a44 100644
---- a/Documentation/trace/ftrace-design.rst
-+++ b/Documentation/trace/ftrace-design.rst
-@@ -217,18 +217,6 @@ along to ftrace_push_return_trace() instead of a stub value of 0.
- 
- Similarly, when you call ftrace_return_to_handler(), pass it the frame pointer.
- 
--HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
----------------------------------
--
--An arch may pass in a pointer to the return address on the stack.  This
--prevents potential stack unwinding issues where the unwinder gets out of
--sync with ret_stack and the wrong addresses are reported by
--ftrace_graph_ret_addr().
--
--Adding support for it is easy: just define the macro in asm/ftrace.h and
--pass the return address pointer as the 'retp' argument to
--ftrace_push_return_trace().
--
- HAVE_SYSCALL_TRACEPOINTS
- ------------------------
- 
-diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
-index ab158196480c..dc9cf0bd2a4c 100644
---- a/arch/arm64/include/asm/ftrace.h
-+++ b/arch/arm64/include/asm/ftrace.h
-@@ -12,17 +12,6 @@
- 
- #define HAVE_FUNCTION_GRAPH_FP_TEST
- 
--/*
-- * HAVE_FUNCTION_GRAPH_RET_ADDR_PTR means that the architecture can provide a
-- * "return address pointer" which can be used to uniquely identify a return
-- * address which has been overwritten.
-- *
-- * On arm64 we use the address of the caller's frame record, which remains the
-- * same for the lifetime of the instrumented function, unlike the return
-- * address in the LR.
-- */
--#define HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
--
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_ARGS
- #define ARCH_SUPPORTS_FTRACE_OPS 1
- #else
-diff --git a/arch/csky/include/asm/ftrace.h b/arch/csky/include/asm/ftrace.h
-index fd215c38ef27..00f9f7647e3f 100644
---- a/arch/csky/include/asm/ftrace.h
-+++ b/arch/csky/include/asm/ftrace.h
-@@ -7,8 +7,6 @@
- 
- #define HAVE_FUNCTION_GRAPH_FP_TEST
- 
--#define HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
--
- #define ARCH_SUPPORTS_FTRACE_OPS 1
- 
- #define MCOUNT_ADDR	((unsigned long)_mcount)
-diff --git a/arch/loongarch/include/asm/ftrace.h b/arch/loongarch/include/asm/ftrace.h
-index de891c2c83d4..c0a682808e07 100644
---- a/arch/loongarch/include/asm/ftrace.h
-+++ b/arch/loongarch/include/asm/ftrace.h
-@@ -28,7 +28,6 @@ struct dyn_ftrace;
- struct dyn_arch_ftrace { };
- 
- #define ARCH_SUPPORTS_FTRACE_OPS 1
--#define HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
- 
- #define ftrace_init_nop ftrace_init_nop
- int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
-diff --git a/arch/powerpc/include/asm/ftrace.h b/arch/powerpc/include/asm/ftrace.h
-index 107fc5a48456..559560286e6d 100644
---- a/arch/powerpc/include/asm/ftrace.h
-+++ b/arch/powerpc/include/asm/ftrace.h
-@@ -8,8 +8,6 @@
- #define MCOUNT_ADDR		((unsigned long)(_mcount))
- #define MCOUNT_INSN_SIZE	4 /* sizeof mcount call */
- 
--#define HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
--
- /* Ignore unused weak functions which will have larger offsets */
- #if defined(CONFIG_MPROFILE_KERNEL) || defined(CONFIG_ARCH_USING_PATCHABLE_FUNCTION_ENTRY)
- #define FTRACE_MCOUNT_MAX_OFFSET	16
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index 9eb31a7ea0aa..2cddd79ff21b 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -11,7 +11,6 @@
- #if defined(CONFIG_FUNCTION_GRAPH_TRACER) && defined(CONFIG_FRAME_POINTER)
- #define HAVE_FUNCTION_GRAPH_FP_TEST
- #endif
--#define HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
- 
- #define ARCH_SUPPORTS_FTRACE_OPS 1
- #ifndef __ASSEMBLY__
-diff --git a/arch/s390/include/asm/ftrace.h b/arch/s390/include/asm/ftrace.h
-index 77e479d44f1e..fbadca645af7 100644
---- a/arch/s390/include/asm/ftrace.h
-+++ b/arch/s390/include/asm/ftrace.h
-@@ -2,7 +2,6 @@
- #ifndef _ASM_S390_FTRACE_H
- #define _ASM_S390_FTRACE_H
- 
--#define HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
- #define ARCH_SUPPORTS_FTRACE_OPS 1
- #define MCOUNT_INSN_SIZE	6
- 
-diff --git a/arch/x86/include/asm/ftrace.h b/arch/x86/include/asm/ftrace.h
-index 897cf02c20b1..0152a81d9b4a 100644
---- a/arch/x86/include/asm/ftrace.h
-+++ b/arch/x86/include/asm/ftrace.h
-@@ -20,8 +20,6 @@
- #define ARCH_SUPPORTS_FTRACE_OPS 1
- #endif
- 
--#define HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
--
- #ifndef __ASSEMBLY__
- extern void __fentry__(void);
- 
-diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-index 4135dc171447..845c2ab0bc1c 100644
---- a/include/linux/ftrace.h
-+++ b/include/linux/ftrace.h
-@@ -1071,9 +1071,7 @@ struct ftrace_ret_stack {
- #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
- 	unsigned long fp;
- #endif
--#ifdef HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
- 	unsigned long *retp;
--#endif
- };
- 
- /*
-diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
-index 91f1eef256af..8317d1a7f43a 100644
---- a/kernel/trace/fgraph.c
-+++ b/kernel/trace/fgraph.c
-@@ -593,9 +593,7 @@ ftrace_push_return_trace(unsigned long ret, unsigned long func,
- #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
- 	ret_stack->fp = frame_pointer;
- #endif
--#ifdef HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
- 	ret_stack->retp = retp;
--#endif
- 	return offset;
- }
- 
-@@ -887,10 +885,8 @@ ftrace_graph_get_ret_stack(struct task_struct *task, int idx)
-  * will be assigned that location so that if called again, it will continue
-  * where it left off.
-  *
-- * @retp is a pointer to the return address on the stack.  It's ignored if
-- * the arch doesn't have HAVE_FUNCTION_GRAPH_RET_ADDR_PTR defined.
-+ * @retp is a pointer to the return address on the stack.
-  */
--#ifdef HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
- unsigned long ftrace_graph_ret_addr(struct task_struct *task, int *idx,
- 				    unsigned long ret, unsigned long *retp)
- {
-@@ -926,35 +922,6 @@ unsigned long ftrace_graph_ret_addr(struct task_struct *task, int *idx,
- 
- 	return ret;
- }
--#else /* !HAVE_FUNCTION_GRAPH_RET_ADDR_PTR */
--unsigned long ftrace_graph_ret_addr(struct task_struct *task, int *idx,
--				    unsigned long ret, unsigned long *retp)
--{
--	struct ftrace_ret_stack *ret_stack;
--	unsigned long return_handler = (unsigned long)dereference_kernel_function_descriptor(return_to_handler);
--	int offset = task->curr_ret_stack;
--	int i;
--
--	if (ret != return_handler)
--		return ret;
--
--	if (!idx)
--		return ret;
--
--	i = *idx;
--	do {
--		ret_stack = get_ret_stack(task, offset, &offset);
--		if (ret_stack && ret_stack->ret == return_handler)
--			continue;
--		i--;
--	} while (i >= 0 && ret_stack);
--
--	if (ret_stack)
--		return ret_stack->ret;
--
--	return ret;
--}
--#endif /* HAVE_FUNCTION_GRAPH_RET_ADDR_PTR */
- 
- static struct ftrace_ops graph_ops = {
- 	.func			= ftrace_graph_func,
--- 
-2.43.0
-
-
+ kernel/trace/fgraph.c                 | 61 ++++++++++++-----------------------
+ 10 files changed, 20 insertions(+), 75 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
