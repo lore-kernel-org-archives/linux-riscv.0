@@ -4,120 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF54C27C75
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 14:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A0A0C27C75
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 15:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=e1LDMy20i02kpNIP0RtMaCnZbb5d0vMsOcMbd2dvX/w=; b=RT2qDxa0cYsTQB
-	fR/jjneWdJg74cpCE9ri6WDtR2qjvtFhEqoGSQpzZC8atJas5ESmoLW6GwBKe8qqpyXd96aTZCpkQ
-	jEwmb4ghFdUSITC2HmS7hJQEIhWSCTPDg0qsDraep+YFO1EeAewKVx5g0TCvVwQA02AXE8/z4tYgj
-	+Q+8hY36Ydo9Gy+IA7w42mjnDgfNIIJDVljg5xWesOOq0hhPvWPagUBVFGBUTdp6WS30LqY73xgB/
-	ypAkfhiD0+d0Am4jsQTOWBLpnAIXqTGS8kWc6CIIRa0mz+4iQo5GrqIm+EEKE8o3OSZ6Hj0187KW0
-	PCKL1GFSPGTgoBl58YjA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BN8d24WBBnm2sfq8P5nTAp/o8lTLw78uwvQbocFb05M=; b=SznrC/mRPGwIrIKdOa4sHE5r3B
+	B4IRnX3GNd3mytIeJRWmMX7x1GAJRtimsI7ysL9wxW8aJZje4uMMZgU8y39OX/19xEplI5FKyTKSm
+	7FGFZ1iyoDQrFdYVdOWDGlDOucZ5DQZ4NHBrHOWicfmhMa2Dpfg5yX8gVUlyg1sV1wuIWqnhh7NGz
+	O2Z2VW+2Ugeo3LXSYTN53uMZHmABPIH4saQj+Rasr7jqDCiNACmEDY1TFqWCWc4N2RPUEaW/dWNS/
+	XnN3PAgNcmaPSmsahGwmAAffO98UyOZUfoxy4tI/9mtTsbXCEkI+1VCHXJOHB7meb02lftodqPm15
+	PJoy8htA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH2w5-00000009DvO-3fWn;
-	Tue, 11 Jun 2024 14:57:21 +0000
-Received: from mail-os0jpn01olkn20827.outbound.protection.outlook.com ([2a01:111:f403:2815::827] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1sH3Tx-00000009L1i-0bLg;
+	Tue, 11 Jun 2024 15:32:21 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH2w2-00000009Duj-3ugj
+	id 1sH3Tt-00000009L0k-23ws
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jun 2024 14:57:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=aJH+zAm/Ic7Ekd8jw4GeVdd/GS29za6PMSEcrsShtRwQ1tqGMO93uG1M6fSWJEkzfF9l9gkpgkWfvVU30yQBlMpHYLFzvcogqNPxI8Q9GCS2Xtu/j1hmp+HgzDoPfD3/bpgJ3OZakWATR5K0HedIEyZizg+/EtwvUPNBnk7GcQSjU0DGzC02ScpwFgw6MawG2DMbxCfXGhM0XF9DMxe0haNuS4bFrd0RDXyEeq+KPA+y2DPGX+5nFN1YS4I9ucsv6QiXRR9YXDAodlopJjh8uFTF3jMT8AJkoGj2Wti368fgUJNdqfvgUnPVEzTAeHEldpXjgp7ZoQfEU9qKa5p5oQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=coxgJywr2MkrvlAobPgWnvOAnhiJPEG3/m6SOlSXgVc=;
- b=TeF9EAzpwRLkl/y3i+jigZuqKmLXmLZ/7ne0qp115bs1GkLBNKCH4lNZoblroZE2xH4XvyEqcK38E46gA3md+0M7mmwCSE0himcq7v0/pltKRffllgCbHrM16ngDLNjXrLyFVsGtt1loseJzGGNYjV01aeSeqzfQX71IzYKs3oAfZx9o94YAhMbwOyBBgDTEWPXRrlPcNV6o3MitZAomQSkRQ/acoH2e1oqqvDDhr+cgOOwKPLxjc5O8/4gXHvMlqi5jBwXK6HupIs6EVfphTCo4WiW6l4q1pmVXIAQu66kUS+vauHwA8v0yBaeRkvGNNj6y6YHxibIJHXfGqYEhvw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=coxgJywr2MkrvlAobPgWnvOAnhiJPEG3/m6SOlSXgVc=;
- b=lw7YZfzo62Smx3RdrEopyitSrQlpozY/jGkIQnNe2uR6KRBe1zYU7f8VLIw9B6va3XIoOc4Ul0ePnXQ14IN3M1kZqQgFgwQitk0WNQQ5mQB+OkgWgy/RGVw2pR9b2Tms7I5IQt8pkWdSGnwhOIPv8YIr5ZggOqDoEeDjwAaLCd0AqQDlh+BLkbZ6J0vEdmp6F9gq+RP1/qozjV6d2QJ7uGwofjQ73FExrSUCECdQiTlcGWHYVq4SH9+fiTHcuuE4S0BPtxH1R6BAX1jeRzT4muFFwExZ9TdRnaiaVrIDh3CmUZ+KpC/PofXdZhX9O7w7cK6W5eTkNYR9lIr4UL1zKg==
-Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:23e::10)
- by TYCP286MB3752.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:387::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7633.36; Tue, 11 Jun
- 2024 14:57:11 +0000
-Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
- ([fe80::85b8:3d49:3d3e:2b3]) by TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
- ([fe80::85b8:3d49:3d3e:2b3%5]) with mapi id 15.20.7633.036; Tue, 11 Jun 2024
- 14:57:11 +0000
-From: Shengyu Qu <wiagn233@outlook.com>
-To: kernel@esmil.dk,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	jszhang@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Shengyu Qu <wiagn233@outlook.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] riscv: dts: starfive: Set EMMC vqmmc maximum voltage to 3.3V on JH7110 boards
-Date: Tue, 11 Jun 2024 22:56:41 +0800
-Message-ID: <TY3P286MB2611936BD43C24D34B442E6D98C72@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
-X-Mailer: git-send-email 2.34.1
-X-TMN: [j4G3/GfiQIV3MZJQ/VgtgGP0dqHSsC51B0/Oz8Idb0A=]
-X-ClientProxiedBy: SG2PR02CA0030.apcprd02.prod.outlook.com
- (2603:1096:3:18::18) To TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:23e::10)
-X-Microsoft-Original-Message-ID: <20240611145641.24122-1-wiagn233@outlook.com>
+	Tue, 11 Jun 2024 15:32:19 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7043102dcc1so2665980b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Jun 2024 08:32:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1718119933; x=1718724733; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Vn7Kc4x7zOZjOguyNFwvnJrV+uFfVWZrPr9+iUiJQvs=;
+        b=WkDr/CL0iv0LENBvm+FJEFzvZambwmNBdwDR2aSzi45Y/muyn0ZlFKQvmac/0GDZc0
+         lPTsUqQWrHrQeh0aei3KuiTVW0lh8p/OUyoanKAc1+kE0NbdRuk8SQYOKGhFKUFIsu8w
+         XSQayFtiHNUgr4+C4Fjpfgx4LdZby8ddTSAPW7V+F35BYyPBZgIB3ajq8uo2p3bxNECJ
+         Xevzn+ARrmzRyEPoLKuhFygPZaqbyLF6ynHsA2Dncaw2ccn758eWe5Ukr7jfKrlieK8J
+         m3T/WVN4HOGIuWLkfUb2K5DDBP24uNFzLwNsn0fSqf85FZ7tevz4JvdhA9VsrMK7yxDw
+         aqJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718119933; x=1718724733;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Vn7Kc4x7zOZjOguyNFwvnJrV+uFfVWZrPr9+iUiJQvs=;
+        b=QvaeL39Yz7lxAI2jRkw6oTjm35axwpHrwrE4MgI1B70DtRwmwfZhJQ40ydtYEyuL51
+         HGCYvJKBcCT89XCqP3wjMWzCCFWhShA/kujWQASRDq68KIoOqvWxCD3T7lZ30RvHpjO9
+         NP6OcajSNFNaa61X7VEF6dGhPBlxOJ+gS2iyC7tMq+j65OWYhy411V1RQvZdSLf+a1a9
+         SlNnct6UyRrcW8KO7QzS9PHZlf8NMW5MTU2UxhApynHUy1UYszFtpMDsY8m1XpZsIkk1
+         HbXsjOfiHBs9RV3c/Rq1fAkcNF4zYHyzeXgndJq3IqCQ5GfMUk/MC6T1L46onNwhqv9I
+         NfWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV/ZNDsBZSa3iuGSnc6ruIi+X9mlBjyHM/ipxxQ9aEcObQGgytw6pJzHAnCHJgPlK012nW+yKT9kSFlfKlfzUFPbjS9f2mN6p43jjZ/5lyw
+X-Gm-Message-State: AOJu0YzmJojsfGzMk3kBu5HTv9njftq5XTbBDLMg7tCOIS1eHhKygYBi
+	hkH/Zk8bSC6u9aWew5XPMwD94OCOFoJzXKmzb+Z5ehpwOTh8TqhWAxQFG8vfczdeczMi4e+wlFF
+	g
+X-Google-Smtp-Source: AGHT+IF8rG5/mjujMehriFq+KOF4rVuXuWFdDgw6V0TBjJ1ZIkoAFk5Q1ybFIIs3W8YsWs7KBpcR4g==
+X-Received: by 2002:a05:6a20:9190:b0:1b7:d72e:9e5e with SMTP id adf61e73a8af0-1b7d72ea074mr4679110637.37.1718119932775;
+        Tue, 11 Jun 2024 08:32:12 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-6e668a494c4sm4998087a12.22.2024.06.11.08.32.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Jun 2024 08:32:12 -0700 (PDT)
+Date: Tue, 11 Jun 2024 08:32:10 -0700
+From: Deepak Gupta <debug@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Jesse Taube <jesse@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH v0] RISC-V: Use Zkr to seed KASLR base address
+Message-ID: <Zmht+h75GgxP3ocz@debug.ba.rivosinc.com>
+References: <20240531162327.2436962-1-jesse@rivosinc.com>
+ <20240531-uselessly-spied-262ecf44e694@spud>
+ <b199fde6-c24e-4c18-9c38-fdc923294551@ghiti.fr>
+ <20240603-stinking-roster-cfad46696ae5@spud>
+ <ZmNWmxak9Rc80Kpb@debug.ba.rivosinc.com>
+ <c288f739-2a1a-4fd7-884b-12e360a33142@rivosinc.com>
+ <20240610-qualm-chalice-72d0cc743658@wendy>
+ <01547275-8c8c-43cf-9da0-64825c234707@rivosinc.com>
+ <Zmdq6kszPBxAvLdD@debug.ba.rivosinc.com>
+ <20240610-earplugs-anybody-ebd04a5fa777@spud>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY3P286MB2611:EE_|TYCP286MB3752:EE_
-X-MS-Office365-Filtering-Correlation-Id: ca733a1a-a014-4d22-9f42-08dc8a26c5dc
-X-MS-Exchange-SLBlob-MailProps: 7J/vb0KDx3hhCrx2p8dqnD/jiLnr8VqFKXnECw0o42U6H3o/HKKWAmraMTajeYYTssLi+/r6xVvbUaEj1qDNaX+9dOyPMoPtPFP7GVFIZP+7HY9O7NpGifl3db+GUxJPC03gkRNUbgOl8h3y91WbdKzLpRhtnJmRpv4AoqWfzbJTvjX2W+wiEt36mivxRB09bnfIR1n0i+44zwRM7y7c2cHRBNHGZd1dFkWUfq1eEPp9Mz/t1gS7Z4VIKh+ML0TAbLcA1PDJqPuSWvJP4YeUR2gvQXt1Aw8Gjuprm+reemeCFCsOJZ352stonGFWoRisciBGGpcCzE6aUz5gMDMYriZ61O8v8YITyk+vyjicOisau8dmIlvQfaIZPUrBIiN4Vq6KcLYhxWJplVd2KBHej5awF1rO1kOSyY1veNWfKvD5EmJMG/FTWFsZe19Qi2rSRCQOXX4a5/tvyyeLh9MFHf3HetuxyqPSXHLuJO8CF9Njr8ImyuprROiHX21HEnEDRG2v8U1BBnq3N/4wFOwheW+Hjo6KX/sQRBlmCGpzdlFufgaPwMTv5EzcLtSM6X/g4v9HfFP57PBwRIn8/m0X8BfekYPcD34UvPvWffPVg7P9aOxpMhvYhRCRYb6BAA3vvFW698SVHKoGrN3PnDKjThy+Kk4XDTVfjzgis2T5UBQedAnnbVo+SsayKMUrlnPV7/9V7oKVVifxflhE5goCuHaMKijL2Pe4rrSiquDREQc1LeqemXLPtCTXbHZlqFQt/F55x527a23udrb9TGbIud2CjY6hDI7BOMQJeC9QUNg=
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199020|3412199017|440099020|1710799018;
-X-Microsoft-Antispam-Message-Info: ksSxYoeFzZLLJsnnsoQ6fNXm9AV0TIw7Fvzex0WzPYfQJUGVSQqdUmEb8x+JIH22J0r8jtwMTz/xsBsEL/uQsXAyt/Apxu0ImLTXt+ryvUFOXNGuiFz4UwuKinT8RXltTsiTGxbd1OBcQI8gfbWd0z8a7jAZMhHtK9lDAaqtGD4ygV/idPckeLOvehlspeTml2wLe946n4tAa9zy+6OMPw2oRE/QHvEdbSzkkjeUIkeXfK2KATz5wVAHn1JOSmfja46lSHqmSmRnEkM/LrQ9mIa+cQ8flrdeCVhVaDkxowPP2AKp+mfCgQbvTvX+3Kx6MWPMQYSdlNLmk9m8pcGqoOy/HDCEqTHWGFJeVwTq2t8AtFc90CFxpKeJcW1XkBthJbcLLcVpKJXpizpUzEO9poSloPwUytlK4W0yYqmgisdOXjrElOLBT8Pe97MrQpE/BPItDa3hq9XDocNpX42anLLFcEmfyPGJhBHk/DNN32dCZ2xpFTeenMqKj0gFZAnSfg6AgN5zwLdPtSOoOkdfrPIYU9HNq+J4P7ttgQItP99s9P4nTW8X75c70DDhQ3+qwZhiwe7ZMQJBhec35ekT4RpgZ5LrU2V9UFYeKEFhU72LLWoWhGhMouPTXA0zdmd3
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Cvw9M/qhW5HjMnmuvknkat8nLHOpGTt//dZOxHuMzWF0sxQqn5dqSH3M318J?=
- =?us-ascii?Q?5P43rKf8RbLErIGC/VDPi49GIspEli21Cjx9gmIRX68IIqHc8b/YrjwEOUCU?=
- =?us-ascii?Q?zU91EKyD96GGB0P097zCUrV6dnlYxBtikwo89oUhsvFaVBnDBP+HoCFwwBB3?=
- =?us-ascii?Q?kDcsmJDSqVnHpsFoeiK/zxBGJMycpMQ9sR7I7Sh0de41YW7+b/nimFVLqhB1?=
- =?us-ascii?Q?S+SNkGjT8KdNIykfU7Tjpxzp4E3rl53OsqpbL1qptq49kgBGbUKYcnA449c0?=
- =?us-ascii?Q?5HWQ6NorEJ6i0pErVwVBHsJE0Z+N2gZA8P6iTjeZX8D7plaKC+5J8HrRRXbJ?=
- =?us-ascii?Q?icS25XamYQhUXBZh0VZ/EPJ43Cfb2HmZjOasEuEaHo4vDP+B9cG+Ik9RA7ea?=
- =?us-ascii?Q?DUAewKk7Dbu8eODvik1+WtALz4aBA46N+nFt1A0AAfNjLjLO0cgO9I3VNdUJ?=
- =?us-ascii?Q?pU2IU0XdMoUCL3/3FXAhAg43YZ38VDE/xGLPsCC3lYb4jSKnv56kKz4TN0TK?=
- =?us-ascii?Q?vhougb2D0+48shrWuFWffcSuJP+mBf7odh4la74+Sau8Yc8gUIksdQ/IBeyh?=
- =?us-ascii?Q?GZd/DRtBU/sse5/LqNy4k//43sjEwQmHG5nWCnm98WPeeVzcGR7LZ12l30W6?=
- =?us-ascii?Q?ecNYq33NadmZTMsfVbHpbakW6SGrMd2rdtr8wvKGShaZRA6lyCGEyLT+LH7/?=
- =?us-ascii?Q?bULw3qcrFlDfUhcTL5WmKq1CMQcp932GT4e48BABJJxau/ZbSm2Rxm2LE81A?=
- =?us-ascii?Q?TSFkPzBiScIXbxvGcXjOu2bIzC65QTHbwCTaYn2YlD4PXP2BdGjBOLiBQazT?=
- =?us-ascii?Q?txADc9dImJXDsRXPhw067NR+wtBi4cxTb0UbsFER8DI6GDbebXE/OkBPiuMo?=
- =?us-ascii?Q?RjpckFjRYVmdkjYp5B5vlfNSeHINB8NLr4fqXZDooaG1lO8JBsPrMdNf8EXF?=
- =?us-ascii?Q?W2tOIGS3V0RM9YbxDE//ZAPjxaj1TthS4IhEwneK9F2an26+M3tndiKx8tUu?=
- =?us-ascii?Q?xvIkG+4P57g2fMK/6XDJAXZzvd/L0Fqay663da8jHOerLh5tB+poinE/6Obw?=
- =?us-ascii?Q?u4VXd2rukAnfI6/m3Zj3X+VRr3xtddb9RdVIf0HL+ZBLeu4IMOlPT3PRhgBO?=
- =?us-ascii?Q?mbVswlAquujnJr9ufVH0mD06eTOZT0dQzp4RbWBJ8bxvVERpEqKmc6uitTny?=
- =?us-ascii?Q?2gY0hgpBjsdHzzu+6PZv1jUwf+ob8F+ctZBnqLQF0rZAL21XaBPXKJESN4c?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca733a1a-a014-4d22-9f42-08dc8a26c5dc
-X-MS-Exchange-CrossTenant-AuthSource: TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2024 14:57:11.5468
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCP286MB3752
+Content-Disposition: inline
+In-Reply-To: <20240610-earplugs-anybody-ebd04a5fa777@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240611_075719_076422_5C6930CB 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240611_083217_633005_3F63D9AE 
+X-CRM114-Status: GOOD (  32.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,41 +109,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, for JH7110 boards with EMMC slot, vqmmc voltage for EMMC is
-fixed to 1.8V, while the spec needs it to be 3.3V on low speed mode and
-should support switching to 1.8V when using higher speed mode. Since
-there are no other peripherals using the same voltage source of EMMC's
-vqmmc(ALDO4) on every board currently supported by mainline kernel,
-regulator-max-microvolt of ALDO4 should be set to 3.3V.
+On Mon, Jun 10, 2024 at 10:56:35PM +0100, Conor Dooley wrote:
+>On Mon, Jun 10, 2024 at 02:06:50PM -0700, Deepak Gupta wrote:
+>> On Mon, Jun 10, 2024 at 11:16:42AM +0200, Cl=E9ment L=E9ger wrote:
+>> > On 10/06/2024 11:02, Conor Dooley wrote:
+>> > > On Mon, Jun 10, 2024 at 10:33:34AM +0200, Cl=E9ment L=E9ger wrote:
+>> > > > On 07/06/2024 20:51, Deepak Gupta wrote:
+>> > > > > On Mon, Jun 03, 2024 at 01:47:40PM +0100, Conor Dooley wrote:
+>> > > > > > On Mon, Jun 03, 2024 at 11:14:49AM +0200, Alexandre Ghiti wrot=
+e:
+>> > > > > I don't know all the details but on first glance it seems like i=
+nstead
+>> > > > > of ACPI,
+>> > > > > may be FWFT is a better place for discovery ?
+>> > > > > https://lists.riscv.org/g/tech-prs/topic/patch_v12_add_firmware/=
+106479571
+>> > > >
+>> > > > IMHO, doing discovery in FWFT is not the goal of this extension. I=
+ think
+>> > > > the "real" solution would be to wait for the unified discovery task
+>> > > > group to come up with something for that (which is their goal I th=
+ink) [1]
+>>
+>> Yeah I understand the conundrum here.
+>>
+>> > >
+>> > > I'm curious to see how that works out. The proposal documents an m-m=
+ode
+>> > > csr, so we'd have to smuggle the information to s-mode somehow...
+>> >
+>> > Ahem, yeah, I spoke a bit too fast. Looked at the proposal and the
+>> > mconfigptr CSR will be accessible by M-mode only so I guess we will ha=
+ve
+>> > to find another way...
+>>
+>> That's not the only problem. Even if you get mconfigptr access, parsing =
+the format
+>> is another thing that has to be done. This is early in boot. Although it=
+s strictly (pun
+>> intended) not a firmware feature extension, I think it's much easier to =
+ask underlying
+>> firmware if platform is `Sstrict`. or may be expose something like below
+>>
+>> `ENABLE_SSTRICT`.
+>> Platforms which support `Sstrict` can return success for this while plat=
+forms which don't
+>> have `Sstrict` can return error code (not supported or not implemented).
+>> This way its not feature discovery.
+>
+>I mean, it's feature discovery in all but name. You're calling it
+>enable, but the behaviour you describe is feature discovery - not that I
+>am against this being feature discovery since it gets us out of an
+>annoying bind.
 
-Cc: stable@vger.kernel.org
-Signed-off-by: Shengyu Qu <wiagn233@outlook.com>
-Fixes: ac9a37e2d6b6 ("riscv: dts: starfive: introduce a common board dtsi for jh7110 based boards")
----
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Yes I know it's cheating but at least for this case, it seems like easy sol=
+ution which
+doesn't break anything. Neither I see it creating any future problems (exce=
+pt FWFT becoming
+to look like discovery mechanism :-) and Clement/Atish hating me for that)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-index 37b4c294ffcc..c7a549ec7452 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-@@ -244,7 +244,7 @@ emmc_vdd: aldo4 {
- 				regulator-boot-on;
- 				regulator-always-on;
- 				regulator-min-microvolt = <1800000>;
--				regulator-max-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
- 				regulator-name = "emmc_vdd";
- 			};
- 		};
--- 
-2.34.1
+Another solution to this could be introducing a riscv config `CONFIG_RISCV_=
+SSTRICT`.
+By default always select `CONFIG_RISCV_SSTRICT` and any platform owner who =
+are not
+sstrict, they can build their own.
+I expect distro (ubuntu, red hat, etc) would want by default `CONFIG_RISCV_=
+SSTRICT`.
 
+>
+>I forget which extension Alex and I discussed previously, but there's
+>some mm-related things that you're gonna have to probe super early and
+>we need to figure out if we can get that info from ACPI or not. I know
+>we discussed it w.r.t. one of the T-Head vendor extensions, but I think
+>another standard one got mentioned too.
+>
+>> It seems like arm64 parses fdt and it reads certain CSRs too
+>> (`arch/arm64/kernel/pi/kaslr_early.c`). Although it doesn't look like it=
+ has to do any
+>> discovery for them.
+>
+>A decree from the Palmer that we don't support things that do not conform
+>in this manner would allow us to do what arm64 does. I brought this up
+>originally because it's been discussed before that we cannot rely on
+>conformance because we want to support people's platforms, whether they
+>comply or not. I'd be wary of making this an exception now, and then
+>later on someone makes a platform we want to support that doesn't
+>conform and hey presto, we regress KASLR support - even if I think it is
+>pretty unlikely that someone is going to repurpose the Zkr CSRs.
+>
+>One of the problems with only supporting conforming platforms is that
+>the definition of conforming changes over time! This has happened with
+>the Andes PMU for example, which I believe uses an interrupt number that
+>was later co-opted by AIA spec. That conformed at the time, but doesn't
+>anymore - do they get to mark themselves as Sstrict?
+>
+>Maybe we can do this on a case-by-case basis, but it's up to Palmer
+>whether or not we can do that.
 
 _______________________________________________
 linux-riscv mailing list
