@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DD5C25B76
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 12:07:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55410C27C5E
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2024 12:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8q2dwQhQvGPEEGeauM3EaS+hHl/2tsd12kLN0jqqCz0=; b=SjM98eAK2nS+8b
-	wb9rBGkkeKRnMx7c0QQZ3NKQfCQKlcQXHtw6zgtoFz/R6W0WnIpa58UwsNXF5FXiWKr9MFkfvSUxp
-	vzbINk03CNB8jmB7WvUN5om2UQKhvCwo6wZ2Nalnuo+KPJKrgk7N36qbRLiDsyhbx5vkupC+wxgb5
-	6JlfyltXLpO0wME1V4KgAZ+hzDD2AFghF0PH01NAa1zpyWpF1jQKZpiu1dRjvXq9L89+O3LFk0qTS
-	gVzx4P9h1fvZU2FY/A40YVutdB6wFBUFdzpvSZIiu134oMj/XaKxyisyZ5g/DgSYdT5FJuM9QwQ+d
-	HHs7q4gUkSvHYn+z7S8Q==;
+	List-Owner; bh=b2QKocn9RC1xBbjcChHH9Fv7+9sUEXIaq1IXonNoxko=; b=v9j6uoWE0xBppC
+	Iq7pyHeyZ0ixE3VlzTkVRKth5nlWbMVLe2oJ+SUh85YWckyuOtT/PfrVnr8o2RHe/MWlctULR8szp
+	WUQ4TydhIgTXiLSOY/Awb5fw9GiiUWV2fkMYMaedQacTanm9AmLIY3OCrWl1sXB/RnWyETAYPy7cY
+	cBYcq8KiGsvPFf6H3U0x+r4/iU0L8MmZbDu6xjLmE4bZ/ghDIuddTYKZqkJa70UEe1RnBPH4g8I4w
+	Fgbkcahays2ZhobS6NvnPMKJ8ermYD9C9FC6WHY7Nb9f/5Wpqa2RZ6DxHMEzdf20d70gsiVWDAo/R
+	hwdXUGY7Es7jcBIkJEGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH0HL-00000008mXg-4B0l;
-	Tue, 11 Jun 2024 12:07:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sH0MY-00000008nRH-31G9;
+	Tue, 11 Jun 2024 12:12:30 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sH0HD-00000008mTk-0AHu
+	id 1sH0MV-00000008nOU-1oVH
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jun 2024 12:07:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 742AE60E0B
-	for <linux-riscv@lists.infradead.org>; Tue, 11 Jun 2024 12:06:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 384F1C4AF48
-	for <linux-riscv@lists.infradead.org>; Tue, 11 Jun 2024 12:06:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718107608;
-	bh=izbQACBXKg7/xAfr+T6NfWco5xbmu+bfnAsIHYpOdVw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=DeJj4q5++zj+R3KhmhuzK4d1y38/q9RlXNvB80U8sWohX93yRvAYBbRWeNJI+hEkm
-	 k+6zKhoYuXFyb07P2kL/gMmg/FK9/y7H81SPPXOQI54Ebtv+gaujOBYPQ2BRaVYtr9
-	 4lnDhr8IOcynWAd4LHkUKBtKY+YHivapA0KcI4qKSTAzc4SDzmPp4RqbTJTVrp/i06
-	 yeFezpNqoJVDv03VNIjOBZEqJZ7lwd6ZgUNgF0gsfzovWKsFQcHGsAyw1jhVsfafjZ
-	 Lbe7woGXDn9ZOOtxQ1qkBeigUZLfV/hyl1O4hYcRLn41/8zOCV4apxu/JPqpRIYjBJ
-	 hgZeTXX2xJnaA==
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-a6ef8e62935so116108166b.3
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jun 2024 05:06:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXzgeGyZG9SJy7ihy9cLO/MKoX+p1PnnTGFduLcEJVGIWa/5aCi8l8JmyqoDiYFj89DfHOHqKKYXEjZ3jtvyhymahoUUQgAhqaoJKWPI/Kp
-X-Gm-Message-State: AOJu0Yw5o/W3w+bKiX08swvooh2jdB4Mmj/prNluaqJHAmQHYVCY0REm
-	OP/Z9bwzsp6jrw20tkIHj9PuJ7nbJ0c/pZvKiiKUT2s+64FrwNDC58kHKuTm/+sqmxG3Cv2B1zt
-	5rkM+IZ4qVMvtVQmJ91VSv0wyEW4=
-X-Google-Smtp-Source: AGHT+IFFPTTll7ACEEwwlIU5pUww8R0bMpeHE5EPA9sRicSO1H8r8Hj10JvtLT4RCL9oaDh0AQArdk5Tw1koxKQr8oM=
-X-Received: by 2002:a17:906:b810:b0:a6f:1f66:8335 with SMTP id
- a640c23a62f3a-a6f1f66841fmr408155266b.4.1718107606517; Tue, 11 Jun 2024
- 05:06:46 -0700 (PDT)
+	Tue, 11 Jun 2024 12:12:29 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7955c585af0so64877285a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Jun 2024 05:12:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1718107941; x=1718712741; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=sIbNJUSxjDR6r4OKpjG9oJgb7z911EUrOwt9KL6BXgo=;
+        b=TioJILY8+htPr6mi0vwSNo5BjgKSrJ6SsL24M9ynC+fI3CRB6WvDd69+jHflT7GUb0
+         bWs6TEDnrLiPNWCCZhn9QZrWsLyonWocgtxZiouHNgkbEGqw4YNdt0PqX20Udiq986ZS
+         DPu0sHwYEJR06ZCcvsqtOgGmsVIMm0Fw5Wvh1DTGCCvUaG9F8LRuILzEL0N2bzPd2RIe
+         aGC7t3sjJYmbhFVjNcshkUP2U4a0oFZZOxE9WC5mbH5NihzKMy9TNnU6IHynfLQEKd4m
+         vY70qi2ZO0GarPIqfVDaA3o1V2Ar6YZru+menVcqPTUDxlhRUwp8766IoHu18tbJDdiu
+         cJEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718107941; x=1718712741;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sIbNJUSxjDR6r4OKpjG9oJgb7z911EUrOwt9KL6BXgo=;
+        b=m9pkakhgvQmaUY9qsiCQ7tIdExG6ypBmwPZFemR5zG73zS9C+Lsblz+lXg1oP6xcg7
+         8HRSRJX+dmpKEtJ7TxnhEJePA46r8cBPN8B0AGTuq++rIfAN8ZKKWgiokoNm4xVLLDu4
+         v+s1rNlPPYiVJ+S04X8tN0+gEPuUBWrZ6T859AWWpxw+ZRAu8d9uJNkQuMcr3CZKG8K/
+         yD0qI7oE76xdEYXq1tVN0EmGtRlIMRbSqhVoQyWZkVmGWdWR43ZT8L/r/Jcyv0gtNV2+
+         Uq/63wZyL0l4v7s1cj4DC2A1tkNSxuSe7PK2oXEezM0v/YKrbh2KGcRBVqFeOJj4k6KC
+         8QSw==
+X-Forwarded-Encrypted: i=1; AJvYcCUIeOifqGZSdAARXiRXi8IjhjYs1TzNn+jguRyB0N82bPFeEGDaRkeSSVeGXMZ6LssEtw+tqqWLbJSBMcqhoIUkSxinZCrnYNL5VyQ//Vj6
+X-Gm-Message-State: AOJu0YzhVH47z5GIWrfIbQQcAWqJErRplhc7bZTk//LfTs0kkn8pio6W
+	4cHuJy09XE1Wq/HKK1lOSrdlEXidyCbV0spfKTHI7p1NV62UfhBfEOfES4Cx3to=
+X-Google-Smtp-Source: AGHT+IGrA5stCDnRo1H5n9Y5w5ElO81oVmgd60ewDFQ3Fm5sCDbN4V5n/Tt2xc1pS6BW64I2SfmIhA==
+X-Received: by 2002:a05:620a:24cb:b0:795:4cde:3b1c with SMTP id af79cd13be357-7954cde3cf7mr1271288985a.6.1718107941369;
+        Tue, 11 Jun 2024 05:12:21 -0700 (PDT)
+Received: from ziepe.ca ([128.77.69.89])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-79556b3ac83sm292416485a.127.2024.06.11.05.12.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Jun 2024 05:12:20 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.95)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1sH0MN-001OhE-1j;
+	Tue, 11 Jun 2024 09:12:19 -0300
+Date: Tue, 11 Jun 2024 09:12:19 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Tomasz Jeznach <tjeznach@rivosinc.com>
+Subject: Re: [PATCH v6 5/7] iommu/riscv: Device directory management.
+Message-ID: <20240611121219.GP791043@ziepe.ca>
+References: <cover.1716578450.git.tjeznach@rivosinc.com>
+ <e18ec8ac169ae7f76e9044c26d0768e6469bad19.1716578450.git.tjeznach@rivosinc.com>
+ <CANXhq0p4gERQeROSCSKqxnRZq9-fGfmROGV8JZyqFaenNpnsLA@mail.gmail.com>
+ <20240610174934.GM791043@ziepe.ca>
+ <CAH2o1u4c6ttUWTb1zrc8DScDMuDJJYR-tTHCPYW_3FV4uuQDtA@mail.gmail.com>
+ <20240610222051.GO791043@ziepe.ca>
+ <CAH2o1u7X2zu42ZYA9wBe4bmCXN9v+d6j9vo5DMifJA3BUew91w@mail.gmail.com>
 MIME-Version: 1.0
-References: <20240609-xtheadvector-v1-0-3fe591d7f109@rivosinc.com> <20240609-xtheadvector-v1-1-3fe591d7f109@rivosinc.com>
-In-Reply-To: <20240609-xtheadvector-v1-1-3fe591d7f109@rivosinc.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 11 Jun 2024 20:06:34 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTVu4ZQt+gK7pVYEDVG23Sic=jswkVvX4To=VAD0TMzxw@mail.gmail.com>
-Message-ID: <CAJF2gTTVu4ZQt+gK7pVYEDVG23Sic=jswkVvX4To=VAD0TMzxw@mail.gmail.com>
-Subject: Re: [PATCH 01/13] dt-bindings: riscv: Add xtheadvector ISA extension description
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Evan Green <evan@rivosinc.com>, 
-	Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+Content-Disposition: inline
+In-Reply-To: <CAH2o1u7X2zu42ZYA9wBe4bmCXN9v+d6j9vo5DMifJA3BUew91w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240611_050659_980511_33CE7075 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20240611_051227_696611_F4B1815A 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,47 +96,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Zong Li <zong.li@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, Jim Shu <jim.shu@sifive.com>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <apatel@ventanamicro.com>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Vincent Chen <vincent.chen@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Lu Baolu <baolu.lu@linux.intel.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdW4gMTAsIDIwMjQgYXQgMTI6NDXigK9QTSBDaGFybGllIEplbmtpbnMgPGNoYXJs
-aWVAcml2b3NpbmMuY29tPiB3cm90ZToKPgo+IFRoZSB4dGhlYWR2ZWN0b3IgSVNBIGV4dGVuc2lv
-biBpcyBkZXNjcmliZWQgb24gdGhlIFQtSGVhZCBleHRlbnNpb24gc3BlYwo+IEdpdGh1YiBwYWdl
-IFsxXSBhdCBjb21taXQgOTUzNThjYjJjY2E5Lgo+Cj4gTGluazogaHR0cHM6Ly9naXRodWIuY29t
-L1QtaGVhZC1TZW1pL3RoZWFkLWV4dGVuc2lvbi1zcGVjL2Jsb2IvOTUzNThjYjJjY2E5NDg5MzYx
-YzYxZDMzNWUwM2QzMTM0YjE0MTMzZi94dGhlYWR2ZWN0b3IuYWRvYyBbMV0KPgo+IFNpZ25lZC1v
-ZmYtYnk6IENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+Cj4gUmV2aWV3ZWQt
-Ynk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4gLS0tCj4gIERv
-Y3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwgfCAx
-MCArKysrKysrKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCAxMCBpbnNlcnRpb25zKCspCj4KPiBkaWZm
-IC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVuc2lv
-bnMueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNp
-b25zLnlhbWwKPiBpbmRleCA0NjhjNjQ2MjQ3YWEuLjk5ZDJhOWU4YzUyZCAxMDA2NDQKPiAtLS0g
-YS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvZXh0ZW5zaW9ucy55YW1s
-Cj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVuc2lv
-bnMueWFtbAo+IEBAIC00NzcsNiArNDc3LDEwIEBAIHByb3BlcnRpZXM6Cj4gICAgICAgICAgICAg
-IGxhdGVuY3ksIGFzIHJhdGlmaWVkIGluIGNvbW1pdCA1NmVkNzk1ICgiVXBkYXRlCj4gICAgICAg
-ICAgICAgIHJpc2N2LWNyeXB0by1zcGVjLXZlY3Rvci5hZG9jIikgb2YgcmlzY3YtY3J5cHRvLgo+
-Cj4gKyAgICAgICAgIyB2ZW5kb3IgZXh0ZW5zaW9ucywgZWFjaCBleHRlbnNpb24gc29ydGVkIGFs
-cGhhbnVtZXJpY2FsbHkgdW5kZXIgdGhlCj4gKyAgICAgICAgIyB2ZW5kb3IgdGhleSBiZWxvbmcg
-dG8uIFZlbmRvcnMgYXJlIHNvcnRlZCBhbHBoYW51bWVyaWNhbGx5IGFzIHdlbGwuCj4gKwo+ICsg
-ICAgICAgICMgQW5kZXMKPiAgICAgICAgICAtIGNvbnN0OiB4YW5kZXNwbXUKPiAgICAgICAgICAg
-IGRlc2NyaXB0aW9uOgo+ICAgICAgICAgICAgICBUaGUgQW5kZXMgVGVjaG5vbG9neSBwZXJmb3Jt
-YW5jZSBtb25pdG9yIGV4dGVuc2lvbiBmb3IgY291bnRlciBvdmVyZmxvdwo+IEBAIC00ODQsNSAr
-NDg4LDExIEBAIHByb3BlcnRpZXM6Cj4gICAgICAgICAgICAgIFJlZ2lzdGVycyBpbiB0aGUgQVg0
-NU1QIGRhdGFzaGVldC4KPiAgICAgICAgICAgICAgaHR0cHM6Ly93d3cuYW5kZXN0ZWNoLmNvbS93
-cC1jb250ZW50L3VwbG9hZHMvQVg0NU1QLTFDLVJldi4tNS4wLjAtRGF0YXNoZWV0LnBkZgo+Cj4g
-KyAgICAgICAgIyBULUhFQUQKPiArICAgICAgICAtIGNvbnN0OiB4dGhlYWR2ZWN0b3IKPiArICAg
-ICAgICAgIGRlc2NyaXB0aW9uOgo+ICsgICAgICAgICAgICBUaGUgVC1IRUFEIHNwZWNpZmljIDAu
-Ny4xIHZlY3RvciBpbXBsZW1lbnRhdGlvbiBhcyB3cml0dGVuIGluCj4gKyAgICAgICAgICAgIGh0
-dHBzOi8vZ2l0aHViLmNvbS9ULWhlYWQtU2VtaS90aGVhZC1leHRlbnNpb24tc3BlYy9ibG9iLzk1
-MzU4Y2IyY2NhOTQ4OTM2MWM2MWQzMzVlMDNkMzEzNGIxNDEzM2YveHRoZWFkdmVjdG9yLmFkb2Mu
-ClVSTCBjaGFuZ2VkCmh0dHBzOi8vZ2l0aHViLmNvbS9YVUFOVElFLVJWL3RoZWFkLWV4dGVuc2lv
-bi1zcGVjL2Jsb2IvOTUzNThjYjJjY2E5NDg5MzYxYzYxZDMzNWUwM2QzMTM0YjE0MTMzZi94dGhl
-YWR2ZWN0b3IuYWRvYwoKT3RoZXJzLCBMR1RNLgoKPiArCj4gIGFkZGl0aW9uYWxQcm9wZXJ0aWVz
-OiB0cnVlCj4gIC4uLgo+Cj4gLS0KPiAyLjQ0LjAKPgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBS
-ZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Jun 10, 2024 at 07:00:34PM -0700, Tomasz Jeznach wrote:
+
+> For now, I'll change the implementation to assume negative caching for
+> DDTE and will follow up with device tree / driver updates to make the
+> invalidation optional when revised specifications will be available.
+
+Is there a reason to make it optional? It seems like it doesn't have
+any performance downside to just always invalidate, attachment is not
+a critical path operation.
+
+I could see making something like negative PTE invalidation optional
+as that is more performance path..
+
+Jason
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
