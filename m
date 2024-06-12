@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04060C27C53
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jun 2024 15:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1826AC27C53
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jun 2024 15:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7D189b5vEdTxRRsh77A4CWEWuAYksy5hCWxuUGdhK+M=; b=ECmW0IOOqMIRFf
-	KziXsAs/sa8Okmv+7FL2B4xiVa7aB+GULmQaVglmE8ZK7WE7Q46xP1wFDJ0Zn1msOjc6g6JzZ3aBe
-	UIj6uYGMXmWiA4n9hO8IzXwc7qjPQJUBUQRbEXd6iPEbVHIXNoV4Snh3HaGG1p5lt7P5jJx2c6QkL
-	2/3K4Qs8Vje5ozTXw5LidWFHCZncsSHBfI3xtt6iPilBXoBiE8C5G8JsN9F3v8iEN02skfYOJWeEw
-	2RmWXeFBKj3bw2lR0EV75bnStDFOOsXihzoZkJJ7S/fXfiexidAUVvCaRqkIsm7wLvmbEN8WHJjwo
-	NsxLu5CC/ggsXjIE7qDQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+5jRWSEWfK3B56TqklfvPxY6EKcsHckhB1h5PkzzMBo=; b=pOuM3N9mMVffbdwlFDKNUe+KsO
+	T0cTa8NveaCpiErTL35tUVKg/Ri+qJ9+p4fpI2AgNHtwSi5Sj75eIYrKBULSbhfdDcT2axERDtiVq
+	uIRIJzu++o+4j1Zi01F+MJD0EaqJNtrMmjwA1lvYhqRkeOQLogPhinxPlciNDsNATH5quOZN1YHgv
+	QWem/DnAll4vC0XSjd5u6STJpd5r8JSR3UxMUBh2azdN+FdNdVtdNvuWDbLF8KK3TVtCpoYMGdZ+K
+	+PfgFgOhWxyrfKapCLmR3orjFDsKuXdtDfRby0b8J7S6EsyXC7Uwjv5ptApT+sUo/QuY3DNm55OyV
+	6t9rvBjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHQDX-0000000DEV8-2stq;
-	Wed, 12 Jun 2024 15:48:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sHQIU-0000000DFjp-46Ew;
+	Wed, 12 Jun 2024 15:54:02 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHQDU-0000000DEUL-3ACe
+	id 1sHQIS-0000000DFij-1LTN
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jun 2024 15:48:54 +0000
+	Wed, 12 Jun 2024 15:54:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A7033614D1;
-	Wed, 12 Jun 2024 15:48:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E4F4C116B1;
-	Wed, 12 Jun 2024 15:48:49 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 4F1F3CE21CC;
+	Wed, 12 Jun 2024 15:53:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17E8CC116B1;
+	Wed, 12 Jun 2024 15:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718207331;
-	bh=Zv5RO+ev5GfuXBQM8OVvJacsGQmGXoAme99ziwuiEck=;
-	h=From:To:Cc:Subject:Date:From;
-	b=BX7YQziIjwMZfXU0YaZomh/upatYQYZUGXQ/gieuDsa9lHHH6IXuLe5CWwi8zvEiO
-	 4MVnoIG7zXqf/0d24cWmZHPf3kTevU7tUBOj26/3MnuklimKVGk5huSRgKYwztRmu/
-	 GgkcV19g3+RW982sqldDpHHAyHvbiGqO4/GwXUcplKhwhc1jhFSXMOFwjOAeS/uY2g
-	 UURuFkVVoi6LncNTPzj390R3bL4rqB7DQ5N9JiXHB2HBpnNkuAw2AP6yUK23Mddplw
-	 L+GDRo7hirnaWDCQs9G5tvMOJL78qu04pnRH/U7EWVNQWmfqsfvDi7Kk7dRbB9Dxri
-	 UMWjj3YilADrw==
+	s=k20201202; t=1718207637;
+	bh=A/q6m45sA8KG3xWSmANGingFfUIcNjjpTnH7bMJgRmI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mTy8Jw/jTcDpAnDYssZPlt8vz3bcbolI+P475PfDuR+fHaR5a09wgg6QBVQmg+owo
+	 PFKNFpynkSRKrTtBXBPy0ysbUUlHxeVjIjUdtXs96LdZ1ufRoZNg9rgwCa5eJvUXvB
+	 rCgM8wwfi+tDUSoLG4g6iuFsIYolucywbFU0XQtmCtG7Y9FvraSaYABDJTo0mMeKWw
+	 m9+vnDFnA0M5HoTXzHh49/T8BwrUh8ZGmJTUA4odCXPkzzhHrFgKwlHX+CGKglQIAV
+	 BhAfgE5r6q2Je+Tb9DPxuDgUdayvTqG0MbCQoqOnv0PXv3JsExXn/4BjdcAMmn8aTl
+	 yIYArnfRGivpg==
+Date: Wed, 12 Jun 2024 16:53:53 +0100
 From: Conor Dooley <conor@kernel.org>
-To: linux-mmc@vger.kernel.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	cyril.jean@microchip.com,
-	Mark Brown <broonie@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-spi@vger.kernel.org
-Subject: [RFC v1 0/3] mmc-spi - support controllers incapable of getting as low as 400KHz
-Date: Wed, 12 Jun 2024 16:48:30 +0100
-Message-ID: <20240612-brigade-shell-1f626e7e592f@spud>
-X-Mailer: git-send-email 2.43.0
+To: Jessica Clarke <jrtc27@jrtc27.com>
+Cc: Minda Chen <minda.chen@starfivetech.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v1] riscv: dts: starfive: add PCIe dts configuration for
+ JH7110
+Message-ID: <20240612-circling-hungry-29a993ca5fc5@spud>
+References: <20240611015200.40996-1-minda.chen@starfivetech.com>
+ <98031697-93AE-43AC-B192-44B12CB43EC5@jrtc27.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1827; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=jUBdCKFRhPbdoAZJHxpB1biK3nMfNT3Pp93RB7R03bE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGmZh31+Pm/g6ohf0duw6nVeD9Per0uMtwtxV56d+SrMv b92nZBlRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbytpbhr8Bf9Si3ZXVFdZVd x49dWL3xPsN13mz1GY8DrmmEx8WwlTL8L+kS/R9c+YftQeCvP85rHr7O8L3xseH8jP878tVe9mf sZAMA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <98031697-93AE-43AC-B192-44B12CB43EC5@jrtc27.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240612_084852_887349_218DB203 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20240612_085400_565540_350428B0 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,64 +76,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3229036108812238609=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-Yo,
+--===============3229036108812238609==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="o24WclyZlx9mMuRS"
+Content-Disposition: inline
 
-RFC for some stuff that I've got in-progress for a customer's board
-where they want to use mmc-spi-slot with a QSPI controller that is
-incapable of getting as low as 400KHz with the way clocks have been
-configured on the system. At the moment, if a controller cannot get that
-low, linux continuously reports that queuing a transfer fails. The first
-couple of transfers will complete on this system, until mmc_start_host()
-kicks in and clamps the frequency to the larger of host->f_min and 400
-KHz.
-Doing something like patch 1 of this set would allow the mmc-spi-slot to
-function for some sd cards, an improvement on the current none. I don't
-have any sd cards on hand that don't support the 5 MHz minimum frequency
-that this controller is limited to, so I amn't sure at what point this
-will blow up if such a card was used.
 
-Is this sort of change something that would fly?
+--o24WclyZlx9mMuRS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Patches 2 & 3 are just here b/c without #3 the qspi driver for this
-platform doesn't support anything other than mem ops and #2 is required
-to set the minimum frequency for mmc_spi to pick up.
+On Wed, Jun 12, 2024 at 04:24:44PM +0100, Jessica Clarke wrote:
+> On 11 Jun 2024, at 02:52, Minda Chen <minda.chen@starfivetech.com> wrote:
+> >=20
+> > Add PCIe dts configuraion for JH7110 SoC platform.
+> >=20
+> > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> > Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> > ---
+> > .../boot/dts/starfive/jh7110-common.dtsi      | 64 ++++++++++++++
+> > arch/riscv/boot/dts/starfive/jh7110.dtsi      | 86 +++++++++++++++++++
+> > 2 files changed, 150 insertions(+)
+>=20
+> Is there a corresponding YAML schema?
 
-Cheers,
-Conor.
+Yeah, it's in linux-next via the PCI tree:
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Do=
+cumentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
 
-CC: Ulf Hansson <ulf.hansson@linaro.org>
-CC: Conor Dooley <conor.dooley@microchip.com>
-CC: cyril.jean@microchip.com
-CC: Mark Brown <broonie@kernel.org>
-CC: linux-mmc@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
-CC: linux-riscv@lists.infradead.org
-CC: linux-spi@vger.kernel.org
+--o24WclyZlx9mMuRS
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Conor Dooley (2):
-  mmc: mmc_spi: allow for spi controllers incapable of getting as low as
-    400k
-  spi: microchip-core-qspi: set min_speed_hz during probe
+-----BEGIN PGP SIGNATURE-----
 
-Cyril Jean (1):
-  spi: microchip-core-qspi: Add regular transfers
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmnEkAAKCRB4tDGHoIJi
+0tEhAQDKDsuAnifw9l4RMxkk9gttAErd01F5deCxrozjvbw68gD/f4YR4jwR+HWo
+guuAKaN4L1wy1l8OHja7SG8tgk4Wsgo=
+=DpyI
+-----END PGP SIGNATURE-----
 
- drivers/mmc/host/mmc_spi.c            |   5 +-
- drivers/spi/spi-microchip-core-qspi.c | 224 +++++++++++++++++++++++++-
- 2 files changed, 226 insertions(+), 3 deletions(-)
+--o24WclyZlx9mMuRS--
 
--- 
-2.43.0
 
+--===============3229036108812238609==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3229036108812238609==--
+
