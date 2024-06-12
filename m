@@ -4,88 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6F3C27C53
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jun 2024 09:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B99C27C53
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jun 2024 10:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=+PBN1GX5qexXRH/T/hQ7isW94nyK4p8UdYOfAeA5GuM=; b=NQO7gTPrQoOhBYYfb+c2rZWDaf
-	YWh0gdVkpAKHVJ79VVrriFpK+FygT2r0Hb/KK8Ln8y3goAs44s0X6sK5Z/Cv7MK4ljLUOlr28DgFL
-	6/+NnPp8O8357ztcorgaz3RsAqw8t2VpZ8XgsXkf5alEXtse7rQVfkc9bqXjoXZh1HCT9yF9YcH4r
-	ZNt7EYUvn54lNGRh+Ws4tbRDgxlypPGiRhY3HkgbwH3GRoKKUoM/4Z4GX+Z+kQgB13lhXZCkCbQws
-	6NY+F6K1hUwQSCwJy+jSwnn/xOCf+hMG7byfQ3CzpHdM5JU50DOGfpQ92gvjuT6jjYhABBanydMKT
-	nEAQaaMQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=odBV0g1pCM1Th4NAZ7hwZdmy9YG+wB4llxMw3DNvLzE=; b=4MmXh5djxJgtM0
+	acoMLlVjpyivteRvOEJCbLg/KT0mvKAfdAjsakVzgSV5fK4B/YK/tIFMnqW6+kUZcbwKG8NtLn6J2
+	fzFrH9o5myDRpc3s7R4gP1/TSbbMHvcImMQz+dXe5ZgF55O+WAlwPL33voII4hY6BuQ9vQ62b21aG
+	dRuVmB76PXpDSHF0UAAYRFzwrp+d6x2PrlrHZEyEuUNvVGsbwFZAWxQJ/LQmGcYCBIY48eYg+0OVL
+	vAH7Z1gxJsUK9FsIcquumOrfYqTEJWRvoWqkxEWc/B0tYGZdAKW0r+xbEtigOwivCjscatOPS813a
+	38TPf7Yonh8puPVO5sQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHKIW-0000000Bzgb-2VSa;
-	Wed, 12 Jun 2024 09:29:40 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1sHLND-0000000CGnK-0gPm;
+	Wed, 12 Jun 2024 10:38:35 +0000
+Received: from mail-tycjpn01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2814::801] helo=JPN01-TYC-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHKIT-0000000Bzfx-2tqB
+	id 1sHLNA-0000000CGmR-290L
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jun 2024 09:29:39 +0000
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 4A0AB40C8C
-	for <linux-riscv@lists.infradead.org>; Wed, 12 Jun 2024 09:29:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1718184576;
-	bh=kUwA32L35nw4VQIIPpcQ67EWF3RQ5dZhklB3PwVT3Xo=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=kJlWyiwsTZ0S61XQMeYa0n7V13B5Sp53FvGYsadqgNHK5Ro1OhTV8OXA6oOjPBBH7
-	 hY0df4oBeGlWaMb0WqPeuZd4I/3B0/cL0RkCKabq3XeAlT7miC3FZQ62WnWpUZ4fCQ
-	 3ploLgvmFJXloZhB4OP11W+SHFef4OS5FvUCGGKxr69IwQfkUTM63uMVvM1ck1tw7d
-	 MqBwoI4Ds3F8CviJEQpfJAixNDtXl2cT9hb50adM0VrUsXo6owS9/lRaSxlwRsKqOz
-	 V0rkoVEqYdpOanim6W6PylcfAyuo/tEk2jz89TIfv8i/0xdq/v0fRxvRHno4Y4VJTR
-	 uowoiKYNUjWew==
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-43fd36ca920so67209701cf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jun 2024 02:29:36 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718184575; x=1718789375;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kUwA32L35nw4VQIIPpcQ67EWF3RQ5dZhklB3PwVT3Xo=;
-        b=JaWFHS7i2vC3BqNZrFbJUzFwGUepMpYr3y35suWO++I6NPI3caJdwTYfDFjqvpzrY8
-         e9Agb8iQXrNny4Vi1KAOCMAQNeCZU+ipy2RGewgEeBLfZPxySppF9+Lc6WvK0Tsxtz+h
-         NHI2EC1UwPDyL82vCrceYyGgtONEvNRF/kC35yJBxSAyuN8CeUzaYbnxqLiNorPPsWnI
-         QHlZCyraHvXfKyHDmAOQEU5Wq60SQIT0j3wIEnC7iEfm8wl/JQszT5/R7X/qBpHj3mIM
-         HEaIPq+Fqw2rBjyNlOXkx9+BjQvGP5XlgNKeiI9zik7+IHM7at0RvxTQkjMsvcYS3Q8B
-         f5wA==
-X-Forwarded-Encrypted: i=1; AJvYcCUWnqmi8MOizPsYu9mMpPLUf5IWUkNYNVs9KY/8DmM3GEFgyJSFjvtsvHOW1rqGcNjNIanDurrcYvdnK5ilgxqCgQZg3EheGqTZBlGbRmrJ
-X-Gm-Message-State: AOJu0YxYtvRCeNhvkzBHBFYr5Mqyv4IxsXTcOIitIjToE2kvmPXgrZei
-	K+N2RpxJf+zVCqqQjaRTjIr0MIZXQjXaM1HoQZnhCxqYE5KIjbbPZqyBTHXYrGuGlLSWiqjxMMX
-	djjwrrXYCEIubbKAWoH/s8weiJkz1wufJ6YdINZYKESq/YQSPWF/2TgVasVZnMYus/Pz7l4Oj5s
-	y8lM7olq1bhdifzZV1ORUnxSvk5fy6ECbvY4kiuHQO6hnF953P+iDmQ8wD
-X-Received: by 2002:ac8:7d16:0:b0:441:56cb:98e6 with SMTP id d75a77b69052e-4415abcbc24mr13974011cf.4.1718184575312;
-        Wed, 12 Jun 2024 02:29:35 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEyeSYlvQmdBPGei7wG+gbHZU+qCnBgf8EqYPmHBFL2wCKfa/pLQHu7jghaF0xyya5oj383e/rAxicZxFwepHM=
-X-Received: by 2002:ac8:7d16:0:b0:441:56cb:98e6 with SMTP id
- d75a77b69052e-4415abcbc24mr13973711cf.4.1718184574752; Wed, 12 Jun 2024
- 02:29:34 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 12 Jun 2024 02:29:34 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240610-crux-unloaded-93b701646454@wendy>
-References: <20240610-vertical-frugally-a92a55427dd9@wendy> <20240610-crux-unloaded-93b701646454@wendy>
-Mime-Version: 1.0
-Date: Wed, 12 Jun 2024 02:29:34 -0700
-Message-ID: <CAJM55Z-0f+SZpdZ_h=OZxEkXF-2RMXDoh4Qs+0SBe7opnWCJ2Q@mail.gmail.com>
-Subject: Re: [PATCH v1 3/5] RISC-V: Add an MPFS erratum for PCIe
-To: Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org
-Cc: conor@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Samuel Holland <samuel.holland@sifive.com>, devicetree@vger.kernel.org
+	Wed, 12 Jun 2024 10:38:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=XOMPYWp7M+OYAacCHnyNiDynkKzsCkAyEuvXR1rU2fLdSmEulD5m4VFRRs6kDNyRqzE0gwVInQwaR/KvPKMlhkjSBI6EKkKN+yiRajyCBxoglFHQXuQ4xp6PoJYtZlTinGAqoJ0Cu7M4AGzh5xY7Ra868EvgIRFHXXQrc68i6kq1qcNX8NVYyYJPz12FXfVqP5acglR4m5ll+guxiuKCJncbfdCXTD8Aa05aPRR3awOss/jgjajB0r5YlXaEzIUIwcHTGOll0PnroOQMYeLCdBr2aSkWMtk2ayluRIWZEHYkhwMcGOe9FyVLdljEerT+lLBKb68XD6+rP48FY17L/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BGVrSRCvjD5dJcnAsvpt9t9djgnirPYJ6kPJLhgjknY=;
+ b=IpIVKS21UkGSZVTlkSlf8+E4s1MFGG5WEOF5Xaf0/S/EiM/lflTW/IeIehUxibD/larcEH5DV3Af5xkJSmMuziLaO02X4jLwZKJILEkjpZqJLSMdTaY8TAX78osFaG7tjFqlJDsyiijhdTujgfFQ5F9RZ2RUQs1gBK9aWUVxfuCZzL2EjRbWZkjIAuxFcW8ciEZmMdohtkgEggGozRROq8CIYvqMrrBfXFnEY4QKNtBtLQP+Ij+msE2lYH1RUJ756HRy+wMYovzz7YCOGGbaVuo0ZAW2Fus6/3qdoqka3GpWcKdRqvGjocYNPbxdqfqN4FutS/3xbJLZ57eapgIAUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BGVrSRCvjD5dJcnAsvpt9t9djgnirPYJ6kPJLhgjknY=;
+ b=Z2gWX/CZv/Db8yhzIGwnMs/qGtksnyoAYCxRjsMESJIcS7dX07qeNiyesZwVIgcaJUCMjZHwtlKpZF07iXsBg7QlrvQMp2c4JHmxNQRRCaVwwiMkY75u6KxSIyt4wXsoH1hbXWBvrw7z1kJHT6EYVjExBwaudfniLS6fD6zY3tBlUtZpEQVbJ3hGfXVQN/GS2o8R49hLbF6WUjbJxRHnWVNrhxfNf8BciSH5jAGZoy5e3rMKaNuEb5QyTNXLv1pe8/BaZgiPA3yLqiWhbxPoNtCvNlpqGyF6puqfY4EIKawKgcrVMxXnyT8Rl4mP8fM7e2XARTj3HN+NcsQobF1ctQ==
+Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:23e::10)
+ by TYWP286MB3208.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:2d7::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7633.36; Wed, 12 Jun
+ 2024 10:38:16 +0000
+Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::85b8:3d49:3d3e:2b3]) by TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::85b8:3d49:3d3e:2b3%5]) with mapi id 15.20.7677.019; Wed, 12 Jun 2024
+ 10:38:16 +0000
+From: Shengyu Qu <wiagn233@outlook.com>
+To: kernel@esmil.dk,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	william.qiu@starfivetech.com,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Shengyu Qu <wiagn233@outlook.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] riscv: dts: starfive: Set EMMC vqmmc maximum voltage to 3.3V on JH7110 boards
+Date: Wed, 12 Jun 2024 18:33:31 +0800
+Message-ID: <TY3P286MB261189B5D946BDE69398EE3A98C02@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+X-Mailer: git-send-email 2.39.2
+X-TMN: [G87vWAOj5j+EnV6LHJTQcIMi3nWtEb0LNSHZCwZ0pFM=]
+X-ClientProxiedBy: SG2PR01CA0135.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:8f::15) To TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:23e::10)
+X-Microsoft-Original-Message-ID: <20240612103331.1475-1-wiagn233@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY3P286MB2611:EE_|TYWP286MB3208:EE_
+X-MS-Office365-Filtering-Correlation-Id: 93b217a6-a3dd-4ca0-2101-08dc8acbc4a6
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199020|440099020|3412199017|1710799020;
+X-Microsoft-Antispam-Message-Info: IOFDULolZfQjmEf6+rPOAZzBo5mx0jqHG0mOQ2pyo6QLORaO+A+tc2CHruNrxe1bDQMpGuS89bMmx4Wn3rHW85g5eBbeJaCbTDLwcgfbzNMBwqDNW8cefXXFsQHH0sB0hMUVaYW0/XuOxPQHg65HMFktPbFmRl/46TFRDvYxZRu4tAiJxsypN4dOkY1g1IrZ1+fkaIz9Z8EN3iJXa/grIyJh6EA+k5v34uNir1AaV+b0c1ZF7mJ6bqtHR3uubhF3phwB/uop0rORnuFVz0Lo8Tg/ELQQROgAee4ia9YOfOqJw+K3QZkfj+dvNhY5elkD7R5zeqK9jLQZJbhiy2FzJHWz8DpF6hSn0L6TZBJO+0gGeRBkthKz81Ga9ak4nBqJBS4ytwQCgqg7hOmk30e1a8Usfo8l69wNF2gCf6+/n6P+6DErdI+heU9ubWrpJXXMQ0vG6fI8jYfz8wfrh1q2r+w8MnggYAmwm+cQi7Y10ZsHgWgUOovXWeiJOBH84Ou4+lEQ6e6KJKmfrzBZH2P5m2iFPcfn4E0MnBStgfA8mDHCX+ImkdKvWJna0ZztOFeJvgAeY1emnYhca4+kPe+Wvm01Dk4r6wB4VQtrVIzErXSpyxQoxr8bDAd9/e++wBrp
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CM7Li2Z+dk+l04R4/ZCW+vHrsuJpcqOdL6EENMZslva7cFGxVR7xDpS+uy7A?=
+ =?us-ascii?Q?N/N/OdLuC768uYf0fIjXfLyX+vPEmQAUk+j9EOkqJW7cTUMgYeOa7jX/Il3J?=
+ =?us-ascii?Q?vEGCd9nFkiZs7IzGFHcqxxQmcmRcCAmItfkZzG/gbckH51aAFC51ViEPADP2?=
+ =?us-ascii?Q?nRhlPD3LfQHqVzWvaB65zCmk2YpmTf0+gbTG76n5faGeuOggWA4I+XXqsN4B?=
+ =?us-ascii?Q?ylZ5UyZUlN7N6gjkFe2GIHx6rHI4/5H/X9g4RIS9zw2XG3cAC/s4QKriS+DP?=
+ =?us-ascii?Q?DfqQrw8gR9lqYokDiiTpAi/6EtO3FOIyE6POjrpv9u/+gUCC81RtDCkBOWZg?=
+ =?us-ascii?Q?GnM5U0FzgTH0qwW+sHKukoU/B3NK55itHFSVcAucBYSRIN9q1nCe5HdK7KCd?=
+ =?us-ascii?Q?L9GC0s/x9jl4JXe50bQ9d7rp94bsbDFU7ixvCWLl8sWRpjSRJ+WR6EfGhjhI?=
+ =?us-ascii?Q?zodoV5lIPvNj7kRDYjgOUvlKD6NTydbnmAWB+R7xBTDmFa+X39xD6TWOGltz?=
+ =?us-ascii?Q?fg3HYKLuEbJYQ3JhbhYmL/kyCRJrMWdtkSxpRXiX0zw+1/RwDXENwiWY+Y+n?=
+ =?us-ascii?Q?0bgv1hKKB7YYa/d5w+OajaT4XLpQ7OfdycSEd/p+ScsYqVEeP5TEkqIc1G0O?=
+ =?us-ascii?Q?2H58ltv7JkKFoa/GiCbfsqQWuwwAkBdgM5E3WbVsB8BzlotSJxMRdLlT+yc5?=
+ =?us-ascii?Q?l0yySN88TfOsB+a199M4zKdh8F9ToHiel1ihAzrbolOWRg1fV0DUKDSl1ayo?=
+ =?us-ascii?Q?Na3VQ9Ii8oFYD8L+TR0iF9J/w+6pcV0UQbVRbGCICV9bDoiKutvlH0UL9jEd?=
+ =?us-ascii?Q?KpAc2wzEnIi5QvtQcB1vwBp+2DdUM+YwElkTgXZ5yoUqOLYDo8Jj2KkkUet6?=
+ =?us-ascii?Q?EuQuA6LbR8ezaPdFtDEOkOZZkfzvg53eD4wsGE2m3cLIBRSFwxJCkLMTX1To?=
+ =?us-ascii?Q?Wb3OfMxEy2xIcg7LPpWSOnHfH4hZ8uuMiZg218QlXkL9Ag/r+OHJKYgAqcqw?=
+ =?us-ascii?Q?8rl29l8Jh/bpoOmM6RNDnzNAb/DEv8poIEsOE5VnJGkaFQ2PArQhvhVscZDG?=
+ =?us-ascii?Q?8zEFyD/hQnsPwk2BOvTR2zvFAHIvbpEyOhfxRqr/Z1y81oRShc568jCYLjJq?=
+ =?us-ascii?Q?XrYce0aSzaE+Fek2EPNb1LwFskMu6WP1zPjwLbYcMqMEfI2dIFR7kPGScYI+?=
+ =?us-ascii?Q?wXR23d0cAAM4R8skezQWjlhYokHsuKV5yMXvcZdnWqMSrx5lWT7xrU4wv1A?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 93b217a6-a3dd-4ca0-2101-08dc8acbc4a6
+X-MS-Exchange-CrossTenant-AuthSource: TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2024 10:38:16.6270
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWP286MB3208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240612_022937_881135_EDCD31D3 
-X-CRM114-Status: GOOD (  30.40  )
+X-CRM114-CacheID: sfid-20240612_033832_561624_9CB67C43 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,90 +132,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Conor Dooley wrote:
-> On PolarFire SoC the PCIe root port is limited to 32-bit addressing
-> (both when acting as an AXI-Slave and as an AXI-Master) due to how it
-> is connected to the processor core complex via a Fabric Interface
-> Controller (FIC), rather than being part of the Microprocessor Subsystem
-> (MSS) like the other hard peripherals.
-> The AXI buses between the FIC and the MSS are true 64-bit buses, but the
-> PCIe root port is (effectively) only attached to the lower 32-bits of
-> each bus. As PolarFire SoC is an FPGA, several of Microchip's customers
-> that did not want to suffer the penalty of bounce buffering inserted a
-> "shim" in the FPGA fabric that would alter the address of the AXI-S
-> transaction on the return path to the MSS (conceptually moving the 4GiB
-> range that the root port can address via the AXI-S interface around
-> 64-bit space to better cover where those customers had placed their
-> DDR). PolarFire SoC has a memory map with various apertures into the
-> physical DDR, and depending on the MSS' configuration, the FPGA design
-> can control what physical memory addresses back each aperture.
->
-> The main apertures, which are cached memory, lie at 0x10_0000_0000 and
-> 0x8000_0000. There are also non-cached apertures at 0xC000_0000 and
-> 0x14_0000_0000. The "default" configuration is to have each of apertures
-> overlap.
->
-> Some use-cases add a shim to the FPGA fabric that will re-route
-> transactions from the 0x10_0000_0000 region to avoid bounce buffering
-> for 64-bit addresses or because the aperture at 0x8000_0000 does not
-> correspond to usable memory (perhaps an AMP context is using it or the
-> designer chose not to place memory at the aperture's physical address).
-> Other user-cases re-route them to the non-cached region at
-> 0x14_0000_0000. If the latter is done,
-> DMA for the PCIe root ports become non-coherent. Such a scheme is only
-> possible because the SiFive ccache on PolarFire SoC can perform flush
-> invalidation of the L1/L2 cache for these types of configuration.
->
-> Add an Erratum to support this second type of configuration. Like the JH7100's
-> non-coherent DMA option, this requires use of DMA_GLOBAL_POOL and is
-> therefore incompatible with Zicbom.
->
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Currently, for JH7110 boards with EMMC slot, vqmmc voltage for EMMC is
+fixed to 1.8V, while the spec needs it to be 3.3V on low speed mode and
+should support switching to 1.8V when using higher speed mode. Since
+there are no other peripherals using the same voltage source of EMMC's
+vqmmc(ALDO4) on every board currently supported by mainline kernel,
+regulator-max-microvolt of ALDO4 should be set to 3.3V.
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: stable@vger.kernel.org
+Signed-off-by: Shengyu Qu <wiagn233@outlook.com>
+Fixes: 7dafcfa79cc9 ("riscv: dts: starfive: enable DCDC1&ALDO4 node in axp15060")
+---
+ arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> ---
->  arch/riscv/Kconfig.errata | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
->
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index 2acc7d876e1fb..0a9e13efbe6b5 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -21,6 +21,25 @@ config ERRATA_ANDES_CMO
->
->  	  If you don't know what to do here, say "Y".
->
-> +config ERRATA_MICROCHIP
-> +	bool "Microchip errata"
-> +	depends on ARCH_MICROCHIP
-> +	help
-> +	  All Microchip errata Kconfig options depend on this option. Disabling
-> +	  this option will disable all Microchip errata.
-> +
-> +config ERRATA_POLARFIRE_SOC_DMA_NON_COHERENT
-> +	bool "Non-coherent DMA support for PolarFire SoC"
-> +	depends on NONPORTABLE
-> +	depends on ERRATA_MICROCHIP
-> +	select DMA_GLOBAL_POOL
-> +	select RISCV_NONSTANDARD_CACHE_OPS
-> +	help
-> +	  Enable support for non-coherent DMA on PolarFire SoC.
-> +	  This support is not required for any peripherals in the MSS, but may
-> +	  be required for peripherals in the FPGA fabric and is required for
-> +	  the PCI root port to operate correctly, due to addressing limitations.
-> +
->  config ERRATA_SIFIVE
->  	bool "SiFive errata"
->  	depends on RISCV_ALTERNATIVE
-> --
-> 2.43.2
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+index 37b4c294ffcc..c7a549ec7452 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+@@ -244,7 +244,7 @@ emmc_vdd: aldo4 {
+ 				regulator-boot-on;
+ 				regulator-always-on;
+ 				regulator-min-microvolt = <1800000>;
+-				regulator-max-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
+ 				regulator-name = "emmc_vdd";
+ 			};
+ 		};
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
