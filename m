@@ -4,86 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C3FC27C78
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jun 2024 01:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ABD7C27C78
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jun 2024 01:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=YVZCmYO7oIQ4H6sfjRTMYrynhj7nlqdzmj6KRB+53es=; b=fDcnTQsJec3I/9IvbFnANe2rs3
-	wIOxNsoUftOkYVJZIEsQaIdL55MxsIZOpoJrhG8PEIsXsEscTi/PC7azJ7hwnVk04hc3oJIx4HMI4
-	77EYWFgju08I6B2WfcALZMv9Wyw6tXzZ3SqrGpWn+1WLwJ1P/KJYqC47WbGWoisZ72b5Zp/W2rWp1
-	1oviIhPSSFLPdXFfKgVTErYwU8KVIT4Oj4qXPiEz7cHj5K2veM2yPH0vTV5mGxs+2LDLwDvS2IgAd
-	lCPyNF05crV8iV8hQl5MEF7qmvoJy8VlklmBy0AipbtPvbv8mcRUa0rUkUB8uX6WOK+SZ76Vp+b7U
-	qrPv4ucg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sitZtI5rsjSrSimV3YEMFLeN6hD+JBqyPps1A+7s3iE=; b=ql08syWfV3bndG
+	1QE1mSjLrN2EgiCwbOT5qE0yyprZukzwcH8mTbawncPxmQGG9xNpZojHGMctRcmvYrTdlz9FX8TZR
+	8GU0w/siKjIx4Y31r3wk6xkn2vP2N9l+48RdCJAZ6ReQ62P6XI+ispavy11Innae1QZ6y1jzfjQ9o
+	Y8v/gfNJKwYanQ+RpFSk6v4o9y4WRDYLs4Ug93vFvrZObakUuxMmx/TGRNHA7yYHbhAny69vHVt+4
+	G7kdeK5sGRJIcoZQeSIGWmPgTAG1xB8GbCKHfahc4lzm7B15CmhhLDBQ5c7XZQZhsHCuGDfhyoQxJ
+	2/dr2Xj//yPRL3JUxqDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHCdf-0000000AejM-1zaE;
-	Wed, 12 Jun 2024 01:18:59 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1sHD6t-0000000Aimx-1eiw;
+	Wed, 12 Jun 2024 01:49:11 +0000
+Received: from mail-bjschn02on20715.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::715] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHCdb-0000000Aegw-1zdC
+	id 1sHD6q-0000000Ail6-0Yzz
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jun 2024 01:18:58 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1f70c39d17fso2900925ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jun 2024 18:18:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1718155128; x=1718759928; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gH/VrRThVAqNqdnAJ8qqfFFTLj74e8FaAJgriK6mdbo=;
-        b=UqBJPSMw4xOgq48Lfm7bI5mVKc7JfFPs6S4QOKP5hWWILeyej+BSmRohCJOWOJu6Ib
-         RYEMWod0QGj3YFtMlzxFqNOOiKAqlj4KkJLwgIt6amFIp7aw5scZMQ0P7KO43Zwf80cK
-         5cGXNojI5UIrv5ApLWgU6JYNTD4Ml8yBr4Udg+EmNLeIaKcggcAL9/m9zUTeMGaex9yA
-         f3/Fi3xOdWRA9KFYl86emNor9K2yJZsSmJMG1wi06dIPpxQiLxGQ61lX80j1S7B1BAeJ
-         fPJ2qLfOKN3oJjN2JrK17IKaaDvBGUMIX8bCdFW+Y8T9dfngQ9iLRDn5SWQ3AbBJeg/8
-         qZPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718155128; x=1718759928;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gH/VrRThVAqNqdnAJ8qqfFFTLj74e8FaAJgriK6mdbo=;
-        b=PjfxpftoCpiGNQoSoIp29f3JxcKNEL/mQqJ1FqAPlVMWtvnb43/n1I1vgCEoxzRW/2
-         JQ2jvELUrdf2Xj/qvTiuaEB7QLnbLT4Ug5Gb61jYLdbWFPCOb48DuhqgK2vTXsZvTz4D
-         5aDttj5CtYGI4Ej8hxxkwfrw4WpPIjECMhsMmQlcbBjFkrmYQ7R3fM0DL6Izzd2V3GuU
-         btt5w1ihnAWIZor8P2EVxLqjvuTvdEduGeeT+y8hSiFSRsBcwp+kCSwz5GIpDVOOiSoS
-         YckVBRmSKmQ7tqgvM7sEe1rU9ronoTE+m8L3kNRQrziWp1ZbJ1nZfPITKIzAS4zaY5mi
-         AgyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUcr/d7idKSJCA5ezI7b21moFB0hRk7Jv1V8s4N9qn+EWXPN+Mqk2kW6a/A9ARzz3wEqCC11RclefsYESLCKNI/VqsaLzEBF+VbqiDgrjF6
-X-Gm-Message-State: AOJu0YyQor5Xydxf4fX06VK+A4PXDNVxEs39CAanFSNP11rgy2Nlra9C
-	sDhxwXCDU6gWSFTVTWw32ukK8ldG0gsnP1V2sx1reJBJaOTXSF7ukML6BcG+j8mYFMi/uL56mmK
-	pWw==
-X-Google-Smtp-Source: AGHT+IFA7Nf2gM73IakGhMLgjpKn7tnJ0y7JJoAyUgWaeTxteQw7ecnDkGCPi06xyYh6rqY8tUOLbz5+Rl4=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:ce82:b0:1f7:516:4235 with SMTP id
- d9443c01a7336-1f83b1af087mr431195ad.6.1718155127840; Tue, 11 Jun 2024
- 18:18:47 -0700 (PDT)
-Date: Tue, 11 Jun 2024 18:18:27 -0700
-In-Reply-To: <20240522014013.1672962-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20240522014013.1672962-1-seanjc@google.com>
-X-Mailer: git-send-email 2.45.2.505.gda0bf45e8d-goog
-Message-ID: <171813751765.307375.7908491276602596005.b4-ty@google.com>
-Subject: Re: [PATCH v2 0/6] KVM: Fold kvm_arch_sched_in() into kvm_arch_vcpu_load()
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	Wed, 12 Jun 2024 01:49:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=UN+WIZA4nHCXnvCFhZrjuwbMD93i7hz2oVTgBcKa6wuAc3WS9GbPQmaQVywJoIU7skIMrFFT4cOVrgPd1KRgw5c/qiQ66tH5YIkbFEeVQM6lGFgWTL6Sftuxs9IfMDX72LE7Wx7NkueWYKE5k5bxdv0FME8Sh4ZO3kDf5ssaJFmqsOVOIo0RAkX7Ls5KtT7tkhQarz10bVYQeGRuTBdws9t/KhXrLXk0epzNJLKhV3m5gcCYLlpdJzs7VI7Npq9vkq6lBKKpHq7JyDtg2CYpFJ6rSjCCeOzri2VvNgr7QZKKcDCGsKPY4Jsfp8Oy7wMQRngGuki23QQX1iLVCPlKEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uZOWGyYhl+Jp5HAj4A6YQPblAkBM6DKRwdTqd6roCwI=;
+ b=bLCO5FfAosCaUJvBVmVrhgHPz8CnMMCylO/z7cpfADWHW23TbOJfsp8GpwKycT+wUBg4TYzKjo2TgLvLRv8PPHGnV1Xx5i3NHJaE0UecVQplxDeZwh72pq5WODUrPiI/cBscOHxPgzPpLENqfJvMNnmvg8CglHhuI1trZeWxz/f3PSeBBXWxpnNmzfWb6jf6Zuk2aFBblDPJnpBfKO2UnC9awfUTbDpE7Sy6QIh7mbf2xCQZRqaGRcZz2MR+qXbRO1dYhmwy328xkQXHmrToq87LluJ061tivOnIuR25d3B+PYuClgUImoJZZP1qccXNIIWDvJY3OnUhr5RPiP6LcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) by SHXPR01MB0831.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7587.42; Wed, 12 Jun
+ 2024 01:48:55 +0000
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ ([fe80::358e:d57d:439f:4e8a]) by
+ SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::358e:d57d:439f:4e8a%7])
+ with mapi id 15.20.7611.039; Wed, 12 Jun 2024 01:48:55 +0000
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Rob Herring <robh+dt@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re : [PATCH v1] riscv: dts: starfive: add PCIe dts configuration for
+ JH7110
+Thread-Topic: [PATCH v1] riscv: dts: starfive: add PCIe dts configuration for
+ JH7110
+Thread-Index: AQHau6H4HWcv0PbsKE2MIzy9iFiWZbHCwFiAgACdwFA=
+Date: Wed, 12 Jun 2024 01:48:55 +0000
+Message-ID: <SHXPR01MB0863CFE4519C0D69E961620CE6C02@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+References: <20240611015200.40996-1-minda.chen@starfivetech.com>
+ <20240611-irk-hypocrite-a53e98e6c394@spud>
+In-Reply-To: <20240611-irk-hypocrite-a53e98e6c394@spud>
+Accept-Language: en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SHXPR01MB0863:EE_|SHXPR01MB0831:EE_
+x-ms-office365-filtering-correlation-id: b5943f68-2ab4-4e3b-e675-08dc8a81d18c
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230032|41320700005|7416006|366008|1800799016|38070700010;
+x-microsoft-antispam-message-info: REkP3XbPtL2E/iZ8LSMQ7A7ikRkOGvmrvl9wJK2QD9CLTuYRqUSojsszPhRrHwJdPlFEBc7pbKLsmpV8/46E5Q6sv3xcSr6xPPl+BEYOT6AtnuIN1cSWNZyq2DXCERaKpaOuVQG9S9okMeDGz/twtyThOoT1JKYxhBW3PEmosUhcvMYQQMnhLUdUh68HmSWMT+brd/OF0qfBMLUgvJBWVaQQwdjYZloQTuP1RTY/NON5ewSS2iBoi+1U//4HAo0D79T3xhg44tKucChQHr3jd+mTntBXJ+pTDzubfHgNy9Dxm3Nt6+pePd+JozpR5eEOpM86P3MHnSoH8lZszj/tZu0Ip9KEcSEjMIJ66YspSzBl8sizayvJQfRQgvOuUetfxOc3kMl7EcwoArsu+E/dMPb5U5FLHt1G6XWvDRNhmj4Gtz25UmtTHGaxNW49Z1wreFWea5WH7QMaSLDcM35WaWib/YHQh2IGe69twGphFVMg1Zkg+XXqVcuEjxgxqYGutkFdgdx5ZxnS5amlH4NEt+r0CmOQ/TsI3G8JoZ90FjkdZvSBX1U0jAYroJ++2ce9ePNeRegPd/efT1iQD/1h9XkUwQDn0B1DJe5Fhr8OPYF8UEUgM60VWQ5L8KuuFIC3
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230032)(41320700005)(7416006)(366008)(1800799016)(38070700010);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?uPTxhKZcb92yYp2X/PvHQg9a06W1gfTstFujzB/G7KcYM+ThmZ9eRIl37wNZ?=
+ =?us-ascii?Q?LiiOH3gU4i3IBgIv1BjWn/0QNdMPKXcz6gsll0z1Jd1LjIU7cmH3936jej7Q?=
+ =?us-ascii?Q?DJkKfPfe7bm9y9lU/5tPdMjKJignka+cZlWvJCdp/rLYWgOlVqGyBrMkHEnu?=
+ =?us-ascii?Q?At0zOUnVR1nCPzJvY4CDKUG/nlSBg8cwKkaXFtshbVo+74WRisLNJOOsuj0O?=
+ =?us-ascii?Q?vnT0mG9D1D1LmW1+3kR0TwYzHNftj/XxnVYbC4dCugvpmcdnKaLPnvEi2XHz?=
+ =?us-ascii?Q?dew7r5v6QiicTl3SCU9JomGd/0f5biXaFYFDTNm2Do9o7eAaZJKYygvOzT9G?=
+ =?us-ascii?Q?MNaSFtUcYFgPRNP8UBBqWXM3cGN/nluRPLphXN7hTyayVtZCjqamUYaLiDG2?=
+ =?us-ascii?Q?U0ZJ2kOrh4niUA5t/fSVMVd+ivsl9sSWXgtec/aMI7otU8e7Yh/v/pAHTKZE?=
+ =?us-ascii?Q?6i2PC9dTzsG+CZrpjVYoIf9kDy7lPwxY5DXt+jm0VAVTVHA69h0gGWPwYZFa?=
+ =?us-ascii?Q?wDf9+cnMowuDPIkGb9kcYA0XhjV4RHU2xVbbwPwar0edEJXceJ3pAwwb9/L6?=
+ =?us-ascii?Q?qLh3JaguuIsM8FlD657iPna2UNZWyUPZqSQBy/HAMUF3xse90MtlEII6wzRh?=
+ =?us-ascii?Q?CA9DOtXrKT74pN7vaIVakezdCq8coHxXJr50MocX6QF3wHGZsxr23a+pKEpv?=
+ =?us-ascii?Q?V4NVL+s4s/IBmZBEwha3R/koboIq2HbSONTDIu+maGkTkcEtNqdWofCwfQkL?=
+ =?us-ascii?Q?XFmIBzU82HupWOBkFmsx50Ko0bAom1QYb3moymxMYrXa2ieeoCPyzfEas4Yp?=
+ =?us-ascii?Q?pkNajMrFKU1zNFEiuSe+atfTPt1oWZQN3kvIzJQS6Tosw4nlZDaRbWI1pkR0?=
+ =?us-ascii?Q?IYwEi9BZa7gyr4vLqqLWGv/OI18Rf/HbZTwvqv5EKliHe891+KpCyj+yaac/?=
+ =?us-ascii?Q?g9jp2tBK5wO+6e0PAxqj3hplWp7N3nYCmAWtnACVJMAHbGyM/ZTb9JT86diw?=
+ =?us-ascii?Q?/VYrfgAuWkGpeJqRG6rmPFOV1QM7qooZgLLwN99fHqN6/j7TKjtJ4psNI5k9?=
+ =?us-ascii?Q?+C52PPb89E/tSKkp69rHnKiaFgyV08fii8eRghd0tNZI1Ueg6t30VG2le0LN?=
+ =?us-ascii?Q?W3wLGqc+W5XC1L/RiFO+NrCxLVZqBfT/4pm3TNE4lrSGUcXjYcVzphEOJDQW?=
+ =?us-ascii?Q?+vxNtIgndyRj+05hIRdC/BacZi6C3IGcQs9NiU93w38gJMHfXU8VAFcZb2Fj?=
+ =?us-ascii?Q?3KqB7zhOuxsfSLCylVfsNduLxXbGIgDnb8jLr8Mh173A5INz4wgKG8cYLu5H?=
+ =?us-ascii?Q?zmCgmK8YRsyqfTaW8cHkBjwKyFzJbNNgY/tHMLeOi+exEolXbkczsi/mvMoq?=
+ =?us-ascii?Q?PeFZ/x9o+epaprCUrySRMk2/ykJQmvjhewVlSc/Z3gWY8daOCB+KOJVpJDcy?=
+ =?us-ascii?Q?EOSQDEGCZ36ITnnIyg8nvQMlzLDzSLQaDhwmP6bsDyh+bKGkzL8s1wql4/D8?=
+ =?us-ascii?Q?aQm1wshAwXjwmMUg0iV045ucdHMYeQvPpHbpoLiLUJvyKOJyQ92/tWb0nLcC?=
+ =?us-ascii?Q?z2o9xP3/fLwhZU1l/88rjsL2odRF+aW6xQCYpbzv?=
+MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: b5943f68-2ab4-4e3b-e675-08dc8a81d18c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Jun 2024 01:48:55.0702
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Q57qnS4Gbh4lXzHTRoobpnCCGKxDl7DEzUIEzCQB+tJ2GwUWw5J9FfnX5NlyaxcPXOLxDpQfzk5BIYEBJLoZ4BduDUEXBBlOuHiEELCwyGc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0831
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240611_181855_576808_6D8D7AFD 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20240611_184908_207234_9565EF33 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,37 +137,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 May 2024 18:40:07 -0700, Sean Christopherson wrote:
-> Drop kvm_arch_sched_in() and instead add and use kvm_vcpu.scheduled_out
-> to communicate to kvm_arch_vcpu_load() that the vCPU is being scheduling
-> back in.
+
+
 > 
-> While fiddling with an idea for optimizing state management on AMD CPUs,
-> I wanted to skip re-saving certain host state when a vCPU is scheduled back
-> in, as the state (theoretically) shouldn't change for the task while it's
-> scheduled out.  Actually doing that was annoying and unnecessarily brittle
-> due to having a separate API for the kvm_sched_in() case (the state save
-> needed to be in kvm_arch_vcpu_load() for the common path).
+> On Tue, Jun 11, 2024 at 09:52:00AM +0800, Minda Chen wrote:
+> > Add PCIe dts configuraion for JH7110 SoC platform.
+> >
+> > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> > Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> > ---
+> >  .../boot/dts/starfive/jh7110-common.dtsi      | 64 ++++++++++++++
+> >  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 86 +++++++++++++++++++
+> >  2 files changed, 150 insertions(+)
+> >
+> > diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> > b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> > index 8ff6ea64f048..1da7379f4e08 100644
+> > --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> > +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> > @@ -294,6 +294,22 @@
+> >  	status = "okay";
+> >  };
+> >
+> > +&pcie0 {
+> > +	perst-gpios = <&sysgpio 26 GPIO_ACTIVE_LOW>;
+> > +	phys = <&pciephy0>;
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pcie0_pins>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&pcie1 {
+> > +	perst-gpios = <&sysgpio 28 GPIO_ACTIVE_LOW>;
+> > +	phys = <&pciephy1>;
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pcie1_pins>;
+> > +	status = "okay";
+> > +};
 > 
-> [...]
+> Do all 3 of the mars, star64 and visionfive 2 have both PCIe ports exposed? I
+> assume if one does, all does, since they're basically identical?
 
-Applied to kvm-x86 generic, thanks!
-
-[1/6] KVM: Add a flag to track if a loaded vCPU is scheduled out
-      https://github.com/kvm-x86/linux/commit/d1ae567fb8b5
-[2/6] KVM: VMX: Move PLE grow/shrink helpers above vmx_vcpu_load()
-      https://github.com/kvm-x86/linux/commit/5d9c07febb86
-[3/6] KVM: x86: Fold kvm_arch_sched_in() into kvm_arch_vcpu_load()
-      https://github.com/kvm-x86/linux/commit/8fbb696a8f53
-[4/6] KVM: Delete the now unused kvm_arch_sched_in()
-      https://github.com/kvm-x86/linux/commit/2a27c4314007
-[5/6] KVM: x86: Unconditionally set l1tf_flush_l1d during vCPU load
-      https://github.com/kvm-x86/linux/commit/ef2e18ef3750
-[6/6] KVM: x86: Drop now-superflous setting of l1tf_flush_l1d in vcpu_run()
-      https://github.com/kvm-x86/linux/commit/3dee3b187499
-
---
-https://github.com/kvm-x86/linux/tree/next
+Visionfive 2 and milkv mars are all the same. Star64 do NOT enable PCIe0, PCIe1 pins are the same.
 
 _______________________________________________
 linux-riscv mailing list
