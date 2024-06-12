@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF70C27C75
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jun 2024 09:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB34C27C53
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jun 2024 09:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,79 +13,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=YDpTtRsprF4ayeWe3JXNmmG+qv7J1tRABcvLYmkzKlE=; b=4bJwJAsefhIPTdG8MQetB1bcft
-	HUy+/9/2LgQ0SmDA0jjVQvP+ZhwZaMhsuX5y2WBZkHuYn6bEEmMwioEv6hunHZAH8ifcMPHue7fT9
-	ZceV/7QfG8f589jbr+APoEEWqla1cAEocF6IOXxH/6R+bkHF8oDpocWwPQOg6xHuT6kFNxBtvvtyF
-	2I9/UTnL7oV6scLT4jFyJbKLJGIQ0GwEx3Ay0pnDpFMbDotNyQHxzQuHaej64+AlBrA3JgwcBKzp4
-	5RCFHNLtxcB5VK1MbHH0TSblQX36HizmFotwmHEF7Qcc47EvWp8KhSfI+qqMUjbd5TXDro47ETA7w
-	xzwuiF+g==;
+	bh=Aa0UL1hJ6IQHeecPtmvHbVUUad5NT0s6MHNUdwyIeGM=; b=wkwBSQiSW9Z3+fLZcVezotnzqG
+	p7RUyJ36H1XQH4uHzd3udq2923IN3LQB1MT+0lftPUkNnOPWpy8F/l9SsTimzmDN2J4BwlnypnLx1
+	PLPxukGgw4GMY+Wg6moIkyU6Pagvs1u3CKpyridiA68vP+lgTXopoIwx0OpmJ9Qj490BRTRkGu/Dc
+	shGp6ceCA6PMy5VEvMkvXt9Bh8ZO9FzLItaNbMrmgcUfIqc8mS0gboZ1HrxyuyLqZpzxahkmOPyOs
+	6kUMfjMwrz8jZh7LnFYIl06BxIFEF1TjNXZxOsdDcnHeNI2RDVSp7DVkWTrccKbA/s0hCFe1KmBS8
+	EIt2Q1HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHKCY-0000000BxEl-3lH1;
-	Wed, 12 Jun 2024 09:23:30 +0000
+	id 1sHKCd-0000000BxHM-3yJ2;
+	Wed, 12 Jun 2024 09:23:35 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHKCW-0000000Bx8M-06fI
+	id 1sHKCb-0000000BxFd-0tHa
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jun 2024 09:23:30 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	Wed, 12 Jun 2024 09:23:35 +0000
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id B24FF3F63C
-	for <linux-riscv@lists.infradead.org>; Wed, 12 Jun 2024 09:23:10 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id F214741334
+	for <linux-riscv@lists.infradead.org>; Wed, 12 Jun 2024 09:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1718184190;
-	bh=kYhK3L+yW69WKhHxmlqNiCnuIy+fGgbMi5wRMPzQXug=;
+	s=20210705; t=1718184208;
+	bh=JIxr/ZZpdBfgox5qV/eIJHMIZ1MJnFcIJgd5fVOn7fw=;
 	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=elVGqmvHskX59F4vCEfo/vWB/kt2PNwUMVA6OCMMeV0Dg0j9xWvWwX5/Ctu7rnpRN
-	 GeKqyLE5vmz2szoAV3yLwY8IlkqYiUk0Ut54Gt4jr8e7ZvgO84/+3q4RPEszY+QyU8
-	 AtGVkbPTGVZDhGwJdbs6JSV2W9xIsmhQjpUCSX5RZPtNNe0RrA4cloT9WUVpmcXYHo
-	 +55f6e+r2VM7JHi+ZJh5aZIz/8JgLGFWamtTiNQohnmea71nuIbbeRO8ERsTLKfgS5
-	 toLDO8f125YnaKgBLkqoXIKAqjynqnZkQK/euP/Caz0vEZmALwIMlPHi+yhAQ2FaIg
-	 AIGykBD1tAn3g==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4409aa71ceaso18529151cf.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jun 2024 02:23:10 -0700 (PDT)
+	b=v6yfOjTOz4fRmXsZt8G4wNxPSN65zpYtU8RLoq6obIPtr9nKAXGkjDA5HCDjg0adF
+	 jcS3myoZ+fbfj+XPDheDlprt+kM0Jv9qPm0E3BJRhqzLjD99XQmkkjnwgY1jY2n/DP
+	 E9ROanTZMVS9edHxZDbLhVuypdskl7giPzP6yTAVOa5z/Kg6WvKkIOt79O2et9TVcC
+	 PKkiMvAebyaf/Dcw0hbBQysInjDPL6PAHcmM7tpW+awQDpTXyACzJVpuzqrnmf86q6
+	 HtG9tOw6rQmkJ1gexfWfK9DwJztLVSYLQftc5S02P0dYxhZr0nSBwtO5t9dlv/KTkG
+	 UEHPWrjObmsEg==
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4409aa71ceaso18533021cf.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jun 2024 02:23:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718184190; x=1718788990;
+        d=1e100.net; s=20230601; t=1718184206; x=1718789006;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kYhK3L+yW69WKhHxmlqNiCnuIy+fGgbMi5wRMPzQXug=;
-        b=O2PtQ6aGuwPpkzH6FvT3IPUKgFxXqUcJWwBttyYjlOg7mDAibakzJYwQ/jIx0cJU98
-         nNShTftDkoTjmmPZzatYdJtOlfZPBfOu7OqCzF9SJ/mAxhnKN1BjyGCLK7t4bY48Er2K
-         XsYo8nBDK09bSqx/VpQihIoVfmrMw4Lpj/4gVIASG2oOAm8sdE+a3zxrqW7xN8xDM8wT
-         ZSB2qPA9Ls5GE6kxgA7id6ICHDSKQZq8YuI13/jIquR9BmRpbpJ5PhTeyJ9JWrt6kZeR
-         gVFW53QMO4u0wT/9rnmIZ2u24EWMu+hiRZ3QfnN7gqCiixC924uLJORqqF//BmsZLMYo
-         EKIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXXl1lg8SgNChbwVmYrajUpp2OyX1PHG+Qywb7Vf7BljgacSLFN2WX6nxLReafvhWkmdqPGqcfbXjRO9n4xj2wl3SlUZVD8V2GcHGD0pzLt
-X-Gm-Message-State: AOJu0Ywy3sB1oiaHRL6js6v3e/m4q9jPIzBS2qEm7JmiJlfzcl8vJDai
-	qIc/QRuYdx5cSXv2TGn/Cx8UqdYUb3kDULsfg8Wf/mwwmRXlsdIvkaVzqEFRxllOecmuC8Wr7mC
-	U03512lLLrPUFef6mHkQihw7kdgf7f1dsClDaA9UKS0tI3lK27vRfDpPmahbK6IOhUPONdsATdd
-	UUOB5zJknj2UgGZZCCiRoxkRNA2iZ/bVKCnCR0M0SOskj3JuNAhbP7eZbE
-X-Received: by 2002:a05:622a:1815:b0:43f:f238:f7c7 with SMTP id d75a77b69052e-4415abace3cmr11487571cf.12.1718184189689;
-        Wed, 12 Jun 2024 02:23:09 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF5MG8uXfoyZDoO/xNYxFjzdF/0nSHHKgK9WtkhZcuD36BVQY5EY7BluQvhT1S9z0w+/882J6EZF0XWnjMUN8A=
-X-Received: by 2002:a05:622a:1815:b0:43f:f238:f7c7 with SMTP id
- d75a77b69052e-4415abace3cmr11487481cf.12.1718184189384; Wed, 12 Jun 2024
- 02:23:09 -0700 (PDT)
+        bh=JIxr/ZZpdBfgox5qV/eIJHMIZ1MJnFcIJgd5fVOn7fw=;
+        b=kNCESTHv+tfUDY5qHZVilTbWV3OqAt1mF0ISXVemtWZjyultUuuwEFyb8JjkBu+djW
+         I7ycRaK24V6B2oLhocsKKyY/d49yrqnY1wwhK+ExPOJ59NbiOd0RheDoRv6ZwRIDA77R
+         sKJRMf5jDza6jDWD/QN0G1y2cYEYCbwoPew5efzm+6K5u+pijNTcwC7Pc73FMU+AcWGR
+         zOp5A1cijelWfhR2L8eapP56cjA0LkolJ06SoKTK0dXfKd8VBwN5zPTEHyDQjdUNjk4u
+         x9Wth+uZrvs2w63Gv5b2y4VU61MpZos2w4oUV6LZlI9/h/of7N4OpTdxpLp8wBa9lJot
+         Co4w==
+X-Forwarded-Encrypted: i=1; AJvYcCUdxSRg8RI+COwvIAPaOJOUmDSTi19JUpAiuGrq47bSKpPdYAEMvYjIgs/0PHzLAffmzMnj2nYT4Qe1V1ZgkbRxYTgNFeHdPsGmMUpoDTck
+X-Gm-Message-State: AOJu0YyLaTCxO8Yr0hhTP0E37y8bIz1r+VbCj2ZHA1htzQa48NsZG1tl
+	ctnwNjpCzpOPEBGUin1iX78pRbFqHxlhU0t7GX2SjgX2ar/Og2jfWfc+9VyBi5x6jj+TDmHZxTS
+	5XlaldKKXSkiDlCpRlrLTIRBDo5pqmSGKdNpDmBOhrvVWySkEBOGEu7k68Jk85/pNccz1KU65Gl
+	iqkDUP7Eo+Dlf05wTzxNCT7+7hdqYnofApgKGIR2vzqueJ1+FMfb/39cD+UdALdFJz
+X-Received: by 2002:ac8:5981:0:b0:441:4a7d:4b9 with SMTP id d75a77b69052e-4415abd77e5mr18363161cf.15.1718184206034;
+        Wed, 12 Jun 2024 02:23:26 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGJjys1SrlEEOXzrogJ4mBiejM8H3xGLEYRak+OtJId/AecySqXJCViAxtmj2YQLsOj6rhO/lEl1VrhIpEHybc=
+X-Received: by 2002:ac8:5981:0:b0:441:4a7d:4b9 with SMTP id
+ d75a77b69052e-4415abd77e5mr18362891cf.15.1718184205625; Wed, 12 Jun 2024
+ 02:23:25 -0700 (PDT)
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 12 Jun 2024 04:23:08 -0500
+ HTTPREST; Wed, 12 Jun 2024 04:23:25 -0500
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240610-mocker-ankle-d3ee407bb352@wendy>
-References: <20240610-vertical-frugally-a92a55427dd9@wendy> <20240610-mocker-ankle-d3ee407bb352@wendy>
+In-Reply-To: <20240610-reenact-amicably-bd088724b3cb@wendy>
+References: <20240610-vertical-frugally-a92a55427dd9@wendy> <20240610-reenact-amicably-bd088724b3cb@wendy>
 Mime-Version: 1.0
-Date: Wed, 12 Jun 2024 04:23:08 -0500
-Message-ID: <CAJM55Z8YWBedhXVgJpGF0LrifXGEjJubPvnxqdboAeW8DCLs3w@mail.gmail.com>
-Subject: Re: [PATCH v1 1/5] cache: ccache: allow building for PolarFire
+Date: Wed, 12 Jun 2024 04:23:25 -0500
+Message-ID: <CAJM55Z8UH+pfOoObDvr40RAB-4th=n6Ma9de=Q6ghRw0GvhtFA@mail.gmail.com>
+Subject: Re: [PATCH v1 2/5] cache: ccache: add mpfs to nonstandard cache ops list
 To: Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org
 Cc: conor@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Samuel Holland <samuel.holland@sifive.com>, devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240612_022328_324311_C95A95DA 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20240612_022333_432274_DD4F092B 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +103,31 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Conor Dooley wrote:
-> There's a ccache on PolarFire SoC, so don't limit it to SIFIVE/STARFIVE
-> SoCs only.
+> On PolarFire SoC, for performance reasons, we want to use non-coherent
+> DMA. Add it to the match table with the non-standard non-coherent
+> cache ops requirement.
 >
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
 Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
 > ---
->  drivers/cache/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/cache/sifive_ccache.c | 2 ++
+>  1 file changed, 2 insertions(+)
 >
-> diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-> index 9345ce4976d76..b2d525e540212 100644
-> --- a/drivers/cache/Kconfig
-> +++ b/drivers/cache/Kconfig
-> @@ -10,7 +10,7 @@ config AX45MP_L2_CACHE
->
->  config SIFIVE_CCACHE
->  	bool "Sifive Composable Cache controller"
-> -	depends on ARCH_SIFIVE || ARCH_STARFIVE
-> +	depends on ARCH_MICROCHIP || ARCH_SIFIVE || ARCH_STARFIVE
->  	help
->  	  Support for the composable cache controller on SiFive platforms.
->
+> diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
+> index 6874b72ec59d8..277e66a61efdc 100644
+> --- a/drivers/cache/sifive_ccache.c
+> +++ b/drivers/cache/sifive_ccache.c
+> @@ -122,6 +122,8 @@ static const struct of_device_id sifive_ccache_ids[] = {
+>  	{ .compatible = "sifive,fu740-c000-ccache" },
+>  	{ .compatible = "starfive,jh7100-ccache",
+>  	  .data = (void *)(QUIRK_NONSTANDARD_CACHE_OPS | QUIRK_BROKEN_DATA_UNCORR) },
+> +	{ .compatible = "microchip,mpfs-ccache",
+> +	  .data = (void *)(QUIRK_NONSTANDARD_CACHE_OPS) },
+>  	{ .compatible = "sifive,ccache0" },
+>  	{ /* end of table */ }
+>  };
 > --
 > 2.43.2
 >
