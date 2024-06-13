@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708F7C27C53
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 01:42:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15D7C27C53
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 01:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k0wI+/oifSzEPbw22dQ5qjsAx8RJISj9IF5Jhq7riYA=; b=a/fRaTg7QRZ3zq
-	kmIKf/xGZgjGO9I9d8MlXeNVCC3aD+313bfS9vAMofKdK9MqRzrqqzaBjyh1Bj1sHgLIecfNB1yvU
-	x/gXfZcVpgg0+ncMHqS4Mu8oRZqVyMk9o/kpxC9gQhtJ10Gk64RhbB/XkexgbQp0VXsoKWcuBwKB0
-	qYKFu55VY1flmJxE1NobUzHy7rwhXMG7/LjRxSPjZK+8eGizzaN4mZTRdJC7fyUOiCeZMfqt7Pkw2
-	dzAVqRkMB3vClI8zzO/3pAw37CpPDKg05n58JztxALQxYfKb8dBo/xHnU4rkLd7Kf+RBNW7OLcWnn
-	H99u24He1cqjf5NemD1A==;
+	List-Owner; bh=KGYHbN/SywFcql7lCUZD1mXq5xqG+5cbig0HzeD3900=; b=VLJ5IxQwJfutaq
+	LD3w61w1cYVNZXnnj81Oo9bgWwov+VTuoAgdzaIG+yIhYOiPsJwGk13qBHv0xj2VshY181povvTvW
+	3W/Sl+9G17j8kIr9+TrupM3LYg/PPEDj9rVPwnO8vyrocJsBIDaWQlsiHUqAh+A20YLE7d5BrAYNv
+	e2n/qR60HYk+X/s4gRj1QfgTGQp69OzsQCmZq701pp6G3uPsOmPp/5Zb4z6iYQ0Z5tcO2LCv6Rv/2
+	ALmAnqOPMfVMZ2laoyIXzj31ls8wEptOWVafqm8Kdw+A+A3JWUS84FWfOo13qchU61REUa9U36OBJ
+	iqUw7mQdTqO4pZFsKkng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHZU7-0000000EkBe-0MBw;
-	Thu, 13 Jun 2024 01:42:39 +0000
-Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
+	id 1sHZUY-0000000EkIX-1LaI;
+	Thu, 13 Jun 2024 01:43:06 +0000
+Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHZU4-0000000EkAy-0EpV
+	id 1sHZUV-0000000EkH4-3HQp
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jun 2024 01:42:37 +0000
-Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-3d2220a11a8so246516b6e.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jun 2024 18:42:35 -0700 (PDT)
+	Thu, 13 Jun 2024 01:43:05 +0000
+Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-6f9fbec4fd9so283221a34.2
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jun 2024 18:43:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1718242954; x=1718847754; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1718242980; x=1718847780; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qlV+jmlvyicWU6t9hgzw9ghUfe9KqjZKCqvHTzsCeeQ=;
-        b=G/GQoiP13fNbWXxdvPXZBX+MNKn9p74BnRTHJO8yxvCuqRwGiLPzMHqP4gjekm1Z7Y
-         LP6HHS8Xm3iCislDHxa5U8zdQ0tfQ/sCt/S0HiQHTZtHuhylDBdt01y9+HAPpli3o4Ct
-         OfAzUWG+WW85wiGvnXOFLn5A2528MVybjtJErKVyV7hhoV6F33O/rGaH/GyHyJyC/L9N
-         SanGBw/2Cet1RJKYk6JZQaZZr7eTDfD4AbUk36yb4iczoKZcKQBQjJxV0YrRj+n0ztzS
-         YVmbbhksoKYCHRZdsbT5WtLbHH418uklSTFq9hBVu/LItZPEPCb+ryUB+UHFAjjfmUXf
-         bfIA==
+        bh=/mEnEjULKQXk4yYyl4mjE8uROEMCabgqsBL99/Efhs4=;
+        b=HzMbny7yDa2teSJt1DvvfieN2Q0k5WTH1gq2VIKITKtaRwz1psdLZ8N9H/vc/o4g4R
+         8x9SD1VHl9lU/uZYYUXLoiH+PLToZdp/mCs8Vnb3w/kcNx9/w94Qg59ViDoUotm5olK6
+         wmmqggv1e61t3RlB5UTQl6LigWCGaobzncOs6IwVSJURxAGBdRF/uC6VZmB+FvBafyNH
+         jfPWRcGtjMoHwSaYspDGFhLkEzAEAo06g9bc4jACMAJd/dd2AEZcY+GUC8694slNdDug
+         ++xaqJxqiU8fWa7BZZpFtD+yv5tJgXdK8EuGrpqixRSpLzKI9kIiZUY31Zy/D9rsziVD
+         VGUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718242954; x=1718847754;
+        d=1e100.net; s=20230601; t=1718242980; x=1718847780;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=qlV+jmlvyicWU6t9hgzw9ghUfe9KqjZKCqvHTzsCeeQ=;
-        b=ViVqVzUTTScDzYaNuWwfDsqWR3qQjVHcT6J0Pt3rTi+/Qg7fmY++or9pguUEKQ0+eC
-         uFvA8fDyxklnUc1yRnqB3oTWoiuEQYklaiA3BeWrkcDimLE/W9PFz0ypojd8emrrUjfN
-         gytTOEpYRRmAs2B7h6iD8CZM/KIxwRlPg34ELwPvkHhNCWeKvDGL7CEcseVL4ib3UiBC
-         a+pfmxeKrhEX4D4wgSE9ICni4jRMnU3SKG4LB+DoPKSLnjWCwEKa5nygQulkfSJZc8Af
-         7NG62Tybqdr0pcmNfH2E5rAaj7HnAH7EqjBQLEtbjyXXLHjMFV/GK7JpThECjDjtwX27
-         J4ng==
-X-Forwarded-Encrypted: i=1; AJvYcCVCizRNmRPtaNkiOQfulCm3c2VmDgE7BYWyrpO1UkdaBJ9zgePcO7XjQOUlnmPgZFYp2wYXrTGax1pEwEqmms4b3mfTkkRkotLZdZ2e+c3s
-X-Gm-Message-State: AOJu0Yz2cV3ZPPYoV5Nzsw0V3dyd/x3Pu9kw6QCS1gEsz4BZvKmOuiI/
-	ZO9y0zWdkHBSgpWUw6V0vGXvLhk4TaIo70+Augf9m6bmknDauJ8W
-X-Google-Smtp-Source: AGHT+IFSzepBg6/pUgNYtDyc6E3JgstuaT5hHnEQHOPNsry8OPTFbsNNvb+6S4DGGB6zA+Xi4sIVmw==
-X-Received: by 2002:a05:6808:1994:b0:3d2:1c4d:f0b9 with SMTP id 5614622812f47-3d23e11d1camr3409819b6e.53.1718242954055;
-        Wed, 12 Jun 2024 18:42:34 -0700 (PDT)
+        bh=/mEnEjULKQXk4yYyl4mjE8uROEMCabgqsBL99/Efhs4=;
+        b=Xg8u0vNeZBxlmWeisgHlG6hxNoL2h5otfygojFr3TowqPjhOHZl1WdJ7vnMbJ/6R+d
+         ilfexiJRl/BqOppLlX2dmPrjJ9gHOuwgL96+2hmHY91Td5fKe6pqXXCBbYFcZhwxrKkW
+         PCe3I4C6xpjPMbQdU+xBd2XjMb5N+M77qxTtQrNehTmpbQDMjkdxbru20+bCqGvh6RId
+         2KOEDg28p8h9rAjxlzSykZRIEVbk79C/4V3iSpsPK7KrXdAcxlPoji43kM2CiIDEMz4a
+         iBseZwV/PkklUCQ5Qln37algvmBQA6fF0BnPH94DcEpdXweu6dR3CxA1wgtpm3YOCcg9
+         jiyg==
+X-Forwarded-Encrypted: i=1; AJvYcCWSmZmkajuHHqYptZzNwmz/eetFA14ET7VgT6G2ID0xAP1e0+6vhWXB8OflqeBcW2Ph1EpwEEioR8FPyyTicU+J6K2KuMyvK8ApSWMJmZOK
+X-Gm-Message-State: AOJu0Yz2DoHri0Ug1UX03MSGpjve2luBRHhPdYsRqbbvOcc0N5I0auwd
+	Nkch7QTE2N2pdO9sKaudnzoSpDyWNCsyHkaj5axwtisU5Yb4/btx
+X-Google-Smtp-Source: AGHT+IH4rU9kj/OV/RIpQ8nZ2pKMrO1e3JSgSCb/lr/90ul/n7aHhOdX2QpKamzVPNeXcaH0mEH5EA==
+X-Received: by 2002:a05:6830:205a:b0:6f9:72ca:fdc8 with SMTP id 46e09a7af769-6fa1c43ba6amr3001227a34.37.1718242979977;
+        Wed, 12 Jun 2024 18:42:59 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3d2476bb5aesm48112b6e.38.2024.06.12.18.42.32
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5bd6292da28sm46575eaf.47.2024.06.12.18.42.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Jun 2024 18:42:33 -0700 (PDT)
+        Wed, 12 Jun 2024 18:42:59 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 To: adrian.hunter@intel.com,
 	aou@eecs.berkeley.edu,
@@ -84,16 +84,16 @@ To: adrian.hunter@intel.com,
 	xiaoguang.xing@sophgo.com,
 	tingzhu.wang@sophgo.com
 Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v3 1/4] mmc: sdhci-of-dwcmshc: adjust positions of helper routines
-Date: Thu, 13 Jun 2024 09:42:25 +0800
-Message-Id: <dec4798dc2728428e7468515cbf0bc87c6eff4a9.1718241495.git.unicorn_wang@outlook.com>
+Subject: [PATCH v3 2/4] mmc: sdhci-of-dwcmshc: unify the naming of soc helper functions
+Date: Thu, 13 Jun 2024 09:42:52 +0800
+Message-Id: <91adce8d020faa22a97719e8774dda01a58333e7.1718241495.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1718241495.git.unicorn_wang@outlook.com>
 References: <cover.1718241495.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240612_184236_139777_605CA139 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20240612_184303_853933_EAFA8993 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,483 +112,95 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-This patch does not change the logic of the code, but only adjusts
-the positions of some helper functions in the file according to
-categories to facilitate future function search and maintenance.
+Continue another patch: "mmc: sdhci-of-dwcmshc: adjust positions
+of helper routines".
 
-Category: helper functions (except for driver callback functions
-such as probe/remove/suspend/resume) are divided into two categories:
-
-- dwcmshc level helpers
-- soc level helpers
-
-After the adjustment, these functions will be put together according
-to category.
+The helper functions at the dwcmshc level are all prefixed with
+"dwcmshc_", which is easier to identify, while the functions at
+the soc level are more confusing. Now they are uniformly prefixed
+with the soc type string, such as "rk35xx_", "th1520_", etc.
 
 Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- drivers/mmc/host/sdhci-of-dwcmshc.c | 392 +++++++++++++++-------------
- 1 file changed, 204 insertions(+), 188 deletions(-)
+ drivers/mmc/host/sdhci-of-dwcmshc.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index e79aa4b3b6c3..a68818f53786 100644
+index a68818f53786..346d2d323a05 100644
 --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
 +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-@@ -216,6 +216,12 @@ struct dwcmshc_priv {
- 	u16 flags;
+@@ -193,7 +193,7 @@
+ 					 SDHCI_TRNS_BLK_CNT_EN | \
+ 					 SDHCI_TRNS_DMA)
+ 
+-enum dwcmshc_rk_type {
++enum rk35xx_type {
+ 	DWCMSHC_RK3568,
+ 	DWCMSHC_RK3588,
+ };
+@@ -202,7 +202,7 @@ struct rk35xx_priv {
+ 	/* Rockchip specified optional clocks */
+ 	struct clk_bulk_data rockchip_clks[RK35xx_MAX_CLKS];
+ 	struct reset_control *reset;
+-	enum dwcmshc_rk_type devtype;
++	enum rk35xx_type devtype;
+ 	u8 txclk_tapnum;
  };
  
-+/*******************************************************************************
-+ *
-+ * dwcmshc level helper routines begin
-+ *
-+ ******************************************************************************/
-+
- /*
-  * If DMA addr spans 128MB boundary, we split the DMA transfer into two
-  * so that each DMA transfer doesn't exceed the boundary.
-@@ -249,13 +255,6 @@ static unsigned int dwcmshc_get_max_clock(struct sdhci_host *host)
- 		return pltfm_host->clock;
+@@ -621,7 +621,7 @@ static unsigned int rk35xx_get_max_clock(struct sdhci_host *host)
+ 	return clk_round_rate(pltfm_host->clk, ULONG_MAX);
  }
  
--static unsigned int rk35xx_get_max_clock(struct sdhci_host *host)
--{
--	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
--
--	return clk_round_rate(pltfm_host->clk, ULONG_MAX);
--}
--
- static void dwcmshc_check_auto_cmd23(struct mmc_host *mmc,
- 				     struct mmc_request *mrq)
- {
-@@ -377,29 +376,6 @@ static void dwcmshc_phy_3_3v_init(struct sdhci_host *host)
- 	sdhci_writeb(host, PHY_DLL_CTRL_ENABLE, PHY_DLL_CTRL_R);
- }
- 
--static void th1520_sdhci_set_phy(struct sdhci_host *host)
--{
--	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
--	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
--	u32 emmc_caps = MMC_CAP2_NO_SD | MMC_CAP2_NO_SDIO;
--	u16 emmc_ctrl;
--
--	/* Before power on, set PHY configs */
--	if (priv->flags & FLAG_IO_FIXED_1V8)
--		dwcmshc_phy_1_8v_init(host);
--	else
--		dwcmshc_phy_3_3v_init(host);
--
--	if ((host->mmc->caps2 & emmc_caps) == emmc_caps) {
--		emmc_ctrl = sdhci_readw(host, priv->vendor_specific_area1 + DWCMSHC_EMMC_CONTROL);
--		emmc_ctrl |= DWCMSHC_CARD_IS_EMMC;
--		sdhci_writew(host, emmc_ctrl, priv->vendor_specific_area1 + DWCMSHC_EMMC_CONTROL);
--	}
--
--	sdhci_writeb(host, FIELD_PREP(PHY_DLL_CNFG1_SLVDLY_MASK, PHY_DLL_CNFG1_SLVDLY) |
--		     PHY_DLL_CNFG1_WAITCYCLE, PHY_DLL_CNFG1_R);
--}
--
- static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
- 				      unsigned int timing)
- {
-@@ -437,20 +413,6 @@ static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
- 	sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
- }
- 
--static void th1520_set_uhs_signaling(struct sdhci_host *host,
--				     unsigned int timing)
--{
--	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
--	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
--
--	dwcmshc_set_uhs_signaling(host, timing);
--	if (timing == MMC_TIMING_MMC_HS400)
--		priv->delay_line = PHY_SDCLKDL_DC_HS400;
--	else
--		sdhci_writeb(host, 0, PHY_DLLDL_CNFG_R);
--	th1520_sdhci_set_phy(host);
--}
--
- static void dwcmshc_hs400_enhanced_strobe(struct mmc_host *mmc,
- 					  struct mmc_ios *ios)
- {
-@@ -553,6 +515,112 @@ static void dwcmshc_cqhci_dumpregs(struct mmc_host *mmc)
- 	sdhci_dumpregs(mmc_priv(mmc));
- }
- 
-+static const struct cqhci_host_ops dwcmshc_cqhci_ops = {
-+	.enable		= dwcmshc_sdhci_cqe_enable,
-+	.disable	= sdhci_cqe_disable,
-+	.dumpregs	= dwcmshc_cqhci_dumpregs,
-+	.set_tran_desc	= dwcmshc_set_tran_desc,
-+};
-+
-+static void dwcmshc_cqhci_init(struct sdhci_host *host, struct platform_device *pdev)
-+{
-+	struct cqhci_host *cq_host;
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-+	bool dma64 = false;
-+	u16 clk;
-+	int err;
-+
-+	host->mmc->caps2 |= MMC_CAP2_CQE | MMC_CAP2_CQE_DCMD;
-+	cq_host = devm_kzalloc(&pdev->dev, sizeof(*cq_host), GFP_KERNEL);
-+	if (!cq_host) {
-+		dev_err(mmc_dev(host->mmc), "Unable to setup CQE: not enough memory\n");
-+		goto dsbl_cqe_caps;
-+	}
-+
-+	/*
-+	 * For dwcmshc host controller we have to enable internal clock
-+	 * before access to some registers from Vendor Specific Area 2.
-+	 */
-+	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-+	clk |= SDHCI_CLOCK_INT_EN;
-+	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-+	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-+	if (!(clk & SDHCI_CLOCK_INT_EN)) {
-+		dev_err(mmc_dev(host->mmc), "Unable to setup CQE: internal clock enable error\n");
-+		goto free_cq_host;
-+	}
-+
-+	cq_host->mmio = host->ioaddr + priv->vendor_specific_area2;
-+	cq_host->ops = &dwcmshc_cqhci_ops;
-+
-+	/* Enable using of 128-bit task descriptors */
-+	dma64 = host->flags & SDHCI_USE_64_BIT_DMA;
-+	if (dma64) {
-+		dev_dbg(mmc_dev(host->mmc), "128-bit task descriptors\n");
-+		cq_host->caps |= CQHCI_TASK_DESC_SZ_128;
-+	}
-+	err = cqhci_init(cq_host, host->mmc, dma64);
-+	if (err) {
-+		dev_err(mmc_dev(host->mmc), "Unable to setup CQE: error %d\n", err);
-+		goto int_clock_disable;
-+	}
-+
-+	dev_dbg(mmc_dev(host->mmc), "CQE init done\n");
-+
-+	return;
-+
-+int_clock_disable:
-+	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-+	clk &= ~SDHCI_CLOCK_INT_EN;
-+	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-+
-+free_cq_host:
-+	devm_kfree(&pdev->dev, cq_host);
-+
-+dsbl_cqe_caps:
-+	host->mmc->caps2 &= ~(MMC_CAP2_CQE | MMC_CAP2_CQE_DCMD);
-+}
-+
-+static void dwcmshc_disable_card_clk(struct sdhci_host *host)
-+{
-+	u16 ctrl;
-+
-+	ctrl = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-+	if (ctrl & SDHCI_CLOCK_CARD_EN) {
-+		ctrl &= ~SDHCI_CLOCK_CARD_EN;
-+		sdhci_writew(host, ctrl, SDHCI_CLOCK_CONTROL);
-+	}
-+}
-+
-+#ifdef CONFIG_PM
-+
-+static void dwcmshc_enable_card_clk(struct sdhci_host *host)
-+{
-+	u16 ctrl;
-+
-+	ctrl = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-+	if ((ctrl & SDHCI_CLOCK_INT_EN) && !(ctrl & SDHCI_CLOCK_CARD_EN)) {
-+		ctrl |= SDHCI_CLOCK_CARD_EN;
-+		sdhci_writew(host, ctrl, SDHCI_CLOCK_CONTROL);
-+	}
-+}
-+
-+#endif
-+
-+/*******************************************************************************
-+ *
-+ * SoC level helper routines begin
-+ *
-+ ******************************************************************************/
-+
-+static unsigned int rk35xx_get_max_clock(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+
-+	return clk_round_rate(pltfm_host->clk, ULONG_MAX);
-+}
-+
- static void dwcmshc_rk3568_set_clock(struct sdhci_host *host, unsigned int clock)
+-static void dwcmshc_rk3568_set_clock(struct sdhci_host *host, unsigned int clock)
++static void rk3568_set_clock(struct sdhci_host *host, unsigned int clock)
  {
  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-@@ -681,6 +749,98 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
+ 	struct dwcmshc_priv *dwc_priv = sdhci_pltfm_priv(pltfm_host);
+@@ -749,7 +749,7 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
  	sdhci_reset(host, mask);
  }
  
-+static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
-+{
-+	int err;
-+	struct rk35xx_priv *priv = dwc_priv->priv;
-+
-+	priv->reset = devm_reset_control_array_get_optional_exclusive(mmc_dev(host->mmc));
-+	if (IS_ERR(priv->reset)) {
-+		err = PTR_ERR(priv->reset);
-+		dev_err(mmc_dev(host->mmc), "failed to get reset control %d\n", err);
-+		return err;
-+	}
-+
-+	priv->rockchip_clks[0].id = "axi";
-+	priv->rockchip_clks[1].id = "block";
-+	priv->rockchip_clks[2].id = "timer";
-+	err = devm_clk_bulk_get_optional(mmc_dev(host->mmc), RK35xx_MAX_CLKS,
-+					 priv->rockchip_clks);
-+	if (err) {
-+		dev_err(mmc_dev(host->mmc), "failed to get clocks %d\n", err);
-+		return err;
-+	}
-+
-+	err = clk_bulk_prepare_enable(RK35xx_MAX_CLKS, priv->rockchip_clks);
-+	if (err) {
-+		dev_err(mmc_dev(host->mmc), "failed to enable clocks %d\n", err);
-+		return err;
-+	}
-+
-+	if (of_property_read_u8(mmc_dev(host->mmc)->of_node, "rockchip,txclk-tapnum",
-+				&priv->txclk_tapnum))
-+		priv->txclk_tapnum = DLL_TXCLK_TAPNUM_DEFAULT;
-+
-+	/* Disable cmd conflict check */
-+	sdhci_writel(host, 0x0, dwc_priv->vendor_specific_area1 + DWCMSHC_HOST_CTRL3);
-+	/* Reset previous settings */
-+	sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_TXCLK);
-+	sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_STRBIN);
-+
-+	return 0;
-+}
-+
-+static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
-+{
-+	/*
-+	 * Don't support highspeed bus mode with low clk speed as we
-+	 * cannot use DLL for this condition.
-+	 */
-+	if (host->mmc->f_max <= 52000000) {
-+		dev_info(mmc_dev(host->mmc), "Disabling HS200/HS400, frequency too low (%d)\n",
-+			 host->mmc->f_max);
-+		host->mmc->caps2 &= ~(MMC_CAP2_HS200 | MMC_CAP2_HS400);
-+		host->mmc->caps &= ~(MMC_CAP_3_3V_DDR | MMC_CAP_1_8V_DDR);
-+	}
-+}
-+
-+static void th1520_sdhci_set_phy(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-+	u32 emmc_caps = MMC_CAP2_NO_SD | MMC_CAP2_NO_SDIO;
-+	u16 emmc_ctrl;
-+
-+	/* Before power on, set PHY configs */
-+	if (priv->flags & FLAG_IO_FIXED_1V8)
-+		dwcmshc_phy_1_8v_init(host);
-+	else
-+		dwcmshc_phy_3_3v_init(host);
-+
-+	if ((host->mmc->caps2 & emmc_caps) == emmc_caps) {
-+		emmc_ctrl = sdhci_readw(host, priv->vendor_specific_area1 + DWCMSHC_EMMC_CONTROL);
-+		emmc_ctrl |= DWCMSHC_CARD_IS_EMMC;
-+		sdhci_writew(host, emmc_ctrl, priv->vendor_specific_area1 + DWCMSHC_EMMC_CONTROL);
-+	}
-+
-+	sdhci_writeb(host, FIELD_PREP(PHY_DLL_CNFG1_SLVDLY_MASK, PHY_DLL_CNFG1_SLVDLY) |
-+		     PHY_DLL_CNFG1_WAITCYCLE, PHY_DLL_CNFG1_R);
-+}
-+
-+static void th1520_set_uhs_signaling(struct sdhci_host *host,
-+				     unsigned int timing)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-+
-+	dwcmshc_set_uhs_signaling(host, timing);
-+	if (timing == MMC_TIMING_MMC_HS400)
-+		priv->delay_line = PHY_SDCLKDL_DC_HS400;
-+	else
-+		sdhci_writeb(host, 0, PHY_DLLDL_CNFG_R);
-+	th1520_sdhci_set_phy(host);
-+}
-+
- static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
- {
- 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-@@ -967,128 +1127,6 @@ static const struct sdhci_pltfm_data sdhci_dwcmshc_cv18xx_pdata = {
- 	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
- };
- 
--static const struct cqhci_host_ops dwcmshc_cqhci_ops = {
--	.enable		= dwcmshc_sdhci_cqe_enable,
--	.disable	= sdhci_cqe_disable,
--	.dumpregs	= dwcmshc_cqhci_dumpregs,
--	.set_tran_desc	= dwcmshc_set_tran_desc,
--};
--
--static void dwcmshc_cqhci_init(struct sdhci_host *host, struct platform_device *pdev)
--{
--	struct cqhci_host *cq_host;
--	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
--	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
--	bool dma64 = false;
--	u16 clk;
--	int err;
--
--	host->mmc->caps2 |= MMC_CAP2_CQE | MMC_CAP2_CQE_DCMD;
--	cq_host = devm_kzalloc(&pdev->dev, sizeof(*cq_host), GFP_KERNEL);
--	if (!cq_host) {
--		dev_err(mmc_dev(host->mmc), "Unable to setup CQE: not enough memory\n");
--		goto dsbl_cqe_caps;
--	}
--
--	/*
--	 * For dwcmshc host controller we have to enable internal clock
--	 * before access to some registers from Vendor Specific Area 2.
--	 */
--	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
--	clk |= SDHCI_CLOCK_INT_EN;
--	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
--	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
--	if (!(clk & SDHCI_CLOCK_INT_EN)) {
--		dev_err(mmc_dev(host->mmc), "Unable to setup CQE: internal clock enable error\n");
--		goto free_cq_host;
--	}
--
--	cq_host->mmio = host->ioaddr + priv->vendor_specific_area2;
--	cq_host->ops = &dwcmshc_cqhci_ops;
--
--	/* Enable using of 128-bit task descriptors */
--	dma64 = host->flags & SDHCI_USE_64_BIT_DMA;
--	if (dma64) {
--		dev_dbg(mmc_dev(host->mmc), "128-bit task descriptors\n");
--		cq_host->caps |= CQHCI_TASK_DESC_SZ_128;
--	}
--	err = cqhci_init(cq_host, host->mmc, dma64);
--	if (err) {
--		dev_err(mmc_dev(host->mmc), "Unable to setup CQE: error %d\n", err);
--		goto int_clock_disable;
--	}
--
--	dev_dbg(mmc_dev(host->mmc), "CQE init done\n");
--
--	return;
--
--int_clock_disable:
--	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
--	clk &= ~SDHCI_CLOCK_INT_EN;
--	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
--
--free_cq_host:
--	devm_kfree(&pdev->dev, cq_host);
--
--dsbl_cqe_caps:
--	host->mmc->caps2 &= ~(MMC_CAP2_CQE | MMC_CAP2_CQE_DCMD);
--}
--
 -static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
--{
--	int err;
--	struct rk35xx_priv *priv = dwc_priv->priv;
--
--	priv->reset = devm_reset_control_array_get_optional_exclusive(mmc_dev(host->mmc));
--	if (IS_ERR(priv->reset)) {
--		err = PTR_ERR(priv->reset);
--		dev_err(mmc_dev(host->mmc), "failed to get reset control %d\n", err);
--		return err;
--	}
--
--	priv->rockchip_clks[0].id = "axi";
--	priv->rockchip_clks[1].id = "block";
--	priv->rockchip_clks[2].id = "timer";
--	err = devm_clk_bulk_get_optional(mmc_dev(host->mmc), RK35xx_MAX_CLKS,
--					 priv->rockchip_clks);
--	if (err) {
--		dev_err(mmc_dev(host->mmc), "failed to get clocks %d\n", err);
--		return err;
--	}
--
--	err = clk_bulk_prepare_enable(RK35xx_MAX_CLKS, priv->rockchip_clks);
--	if (err) {
--		dev_err(mmc_dev(host->mmc), "failed to enable clocks %d\n", err);
--		return err;
--	}
--
--	if (of_property_read_u8(mmc_dev(host->mmc)->of_node, "rockchip,txclk-tapnum",
--				&priv->txclk_tapnum))
--		priv->txclk_tapnum = DLL_TXCLK_TAPNUM_DEFAULT;
--
--	/* Disable cmd conflict check */
--	sdhci_writel(host, 0x0, dwc_priv->vendor_specific_area1 + DWCMSHC_HOST_CTRL3);
--	/* Reset previous settings */
--	sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_TXCLK);
--	sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_STRBIN);
--
--	return 0;
--}
--
--static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
--{
--	/*
--	 * Don't support highspeed bus mode with low clk speed as we
--	 * cannot use DLL for this condition.
--	 */
--	if (host->mmc->f_max <= 52000000) {
--		dev_info(mmc_dev(host->mmc), "Disabling HS200/HS400, frequency too low (%d)\n",
--			 host->mmc->f_max);
--		host->mmc->caps2 &= ~(MMC_CAP2_HS200 | MMC_CAP2_HS400);
--		host->mmc->caps &= ~(MMC_CAP_3_3V_DDR | MMC_CAP_1_8V_DDR);
--	}
--}
--
- static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
- 	{
- 		.compatible = "rockchip,rk3588-dwcmshc",
-@@ -1288,17 +1326,6 @@ static int dwcmshc_probe(struct platform_device *pdev)
- 	return err;
++static int rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
+ {
+ 	int err;
+ 	struct rk35xx_priv *priv = dwc_priv->priv;
+@@ -790,7 +790,7 @@ static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc
+ 	return 0;
  }
  
--static void dwcmshc_disable_card_clk(struct sdhci_host *host)
--{
--	u16 ctrl;
--
--	ctrl = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
--	if (ctrl & SDHCI_CLOCK_CARD_EN) {
--		ctrl &= ~SDHCI_CLOCK_CARD_EN;
--		sdhci_writew(host, ctrl, SDHCI_CLOCK_CONTROL);
--	}
--}
--
- static void dwcmshc_remove(struct platform_device *pdev)
+-static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
++static void rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
  {
- 	struct sdhci_host *host = platform_get_drvdata(pdev);
-@@ -1406,17 +1433,6 @@ static int dwcmshc_resume(struct device *dev)
+ 	/*
+ 	 * Don't support highspeed bus mode with low clk speed as we
+@@ -1062,7 +1062,7 @@ static const struct sdhci_ops sdhci_dwcmshc_ops = {
+ };
  
- #ifdef CONFIG_PM
+ static const struct sdhci_ops sdhci_dwcmshc_rk35xx_ops = {
+-	.set_clock		= dwcmshc_rk3568_set_clock,
++	.set_clock		= rk3568_set_clock,
+ 	.set_bus_width		= sdhci_set_bus_width,
+ 	.set_uhs_signaling	= dwcmshc_set_uhs_signaling,
+ 	.get_max_clock		= rk35xx_get_max_clock,
+@@ -1243,7 +1243,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
  
--static void dwcmshc_enable_card_clk(struct sdhci_host *host)
--{
--	u16 ctrl;
--
--	ctrl = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
--	if ((ctrl & SDHCI_CLOCK_INT_EN) && !(ctrl & SDHCI_CLOCK_CARD_EN)) {
--		ctrl |= SDHCI_CLOCK_CARD_EN;
--		sdhci_writew(host, ctrl, SDHCI_CLOCK_CONTROL);
--	}
--}
--
- static int dwcmshc_runtime_suspend(struct device *dev)
- {
- 	struct sdhci_host *host = dev_get_drvdata(dev);
+ 		priv->priv = rk_priv;
+ 
+-		err = dwcmshc_rk35xx_init(host, priv);
++		err = rk35xx_init(host, priv);
+ 		if (err)
+ 			goto err_clk;
+ 	}
+@@ -1300,7 +1300,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	if (rk_priv)
+-		dwcmshc_rk35xx_postinit(host, priv);
++		rk35xx_postinit(host, priv);
+ 
+ 	err = __sdhci_add_host(host);
+ 	if (err)
 -- 
 2.25.1
 
