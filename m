@@ -4,67 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D482C27C53
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jun 2024 22:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E3BC27C6E
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 01:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gR43pi3hsImQAWYrhW9yFeEGWqoBPY5fxv7mJN645Pk=; b=LHhI3Ye/PW3+HU
-	YWmQupo5DcNAftnxZAB1fnsPkLQJg7Ovve6feSaWC8qOHMPxqMS2hL82566Yw9Ns40nrws3uWTgAa
-	ohMQ4K83qe5bZ6JN+54o6XRilSScJa9vhYz1byy0nfemoWVGUquOcSpxqkPTgjyBvaaIexYWY0nRB
-	l4WvU1QotJVkZ6rpGWCbE5PZTj/36CvWn30MQ807PLgYTFmsIO44fGP4w2Mhz0XSnoUcIlPbSoEGX
-	qm2FvQYNH+rqW+fKfwUpbSYDXtqIKM/SWGNV1xRbauGhe856jsnl8WhbKLTBU7jkonhiEfJggQJDI
-	QoOH+kSccPNhhzNFvUvw==;
+	List-Owner; bh=aafI9bK7wxMoP+RqLYh5M72ZqiJeymkQPMSGNRd+UPE=; b=ingatRfVLS2sN/
+	Rl5u2O8czD2BguzeVKiyLyvEQZ08lQ7UjkFGe9NnnzKEe6xHW37yyh1s/jg6sXSoPXXbGWbp/Zv41
+	DWCgNNQAs5StiUMs7vy4KpGLDSWT2nsuk5EAm1o7w4OgSN/tSosPIxlIHbJrE48bRlTTquJpUTG6V
+	bBVtmnfamaKeJkhPFaOAsTrlA6Z1PPcDjMYxKTRAJLJadLu1+AIljmf8Q2on1eaOL+EvSW1rUBRdm
+	gN7tjgzIu2Zm7/OAwaeoZCRhE/UOBVpvfuNiI94pt2Z+tpLSVI4tPA/VQSxHoBgXksrFbmhToK89l
+	kcfMj7tshH1e4zfeynsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHWHm-0000000EIxB-2sr1;
-	Wed, 12 Jun 2024 22:17:42 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sHYsF-0000000EevM-3gRT;
+	Thu, 13 Jun 2024 01:03:31 +0000
+Received: from mail-sh0chn02on2072a.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::72a] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHWHj-0000000EIwU-2gCz
+	id 1sHYsB-0000000EeuC-299Z
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jun 2024 22:17:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 145B061773;
-	Wed, 12 Jun 2024 22:17:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6B88C116B1;
-	Wed, 12 Jun 2024 22:17:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718230658;
-	bh=ab9gxDF+pv9y5GqIwIDOyA5hgnkyctwuFMMl8d05w5A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lcgjuefBzLb++dSDcsDU9ub+6kukg5XLcDffztcSjpoHnCT41FxoDk0tMt2cteF+/
-	 Nn5WWB87kF27fnqelYyzuccl9UvqQjmF5z5pf0ox6LAPlOF0lrkrdCpDK+ikBFNnmk
-	 YvdkUqQK7l6nFkyHvVw7QNPdQBrLp5z5YNxzpTvFjnl1WnrriVUQpxMgKsoPwrwOmI
-	 7uJCeHu0FRpSs2AlJgaTy2EXjFGbaEC58vN45EBzTLP837WesHhGVxmw24l+kkod+U
-	 BD0rkJkYrGs3L99xzsZ1ycHclZFnvCrDbZnUG/6/33l3kks3ehNqHCeKN9awRnxXRT
-	 p6rcAYI5Q95oA==
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Hal Feng <hal.feng@starfivetech.com>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: defconfig: Enable StarFive JH7110 drivers
-Date: Wed, 12 Jun 2024 23:17:30 +0100
-Message-ID: <20240612-starving-oak-e5c1139c95d6@spud>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240605071701.13737-1-hal.feng@starfivetech.com>
-References: <20240605071701.13737-1-hal.feng@starfivetech.com>
+	Thu, 13 Jun 2024 01:03:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Uu5nqCRTUUrRQno3Mt2g/SVpgDEvr0V7CEFBHAKAV/UetEgd/grehl9LzDOLl2aRLPOgF6a/Jf3zF10I4kRyjktfDvnSIEineazv2Xp4gXqKKyLhjuUe4EqhL/HaGb7by6Mz/rI7eKBKwWrpThcYUZtk9Nz47CJEV0JcGN3HwOP6hrOChM/nCY1YJc1KJ73UkHH1ef75epl3KPd6AZa+BWlLjk1mYFNFHM/uov0bkqPKPWjLo2bVcFUri8cFXv2uRk8ltB81zpaR7a9VpOml41Ntl1SfCAe7BVJ5y4bUnJdxoPTokQegQxlPq7L1S6T2LaR52vA64yuyNjkY7e+OzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=icxKrKaZHOI1tt6z74kHrgMC80WHoLmK3l2g8/UYFdg=;
+ b=G95FJJvvyNLHoSQJV8V0r3VfZOnG4K+uOx4yV/p99ucBca1gj5nH0SfzcI1UNOPa+an/ZW4eL/iBXeJ50jIsq6FSjH2yNRSUsqHlMrX2hkNoIWdofuO5SFXQ9FaagjBVMLH2i080Fp+F2D5SAy2da10154WeFRR61Ij9VYRTPEls/DGl0cKpBj3XVU2by2AIbrF1g20tinERBG6XovCAV+i/dWczw+vh+LpVnulpQalBbheLY/MI+l4fNrMuYT2XgrEXXIwniMYoDLhnA3oI/d2IqjguVR5pBHLWGOvZo97xKWqVxDWrdJCpZmdu6RU72QS0T0qrlsMG/zIToILA6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) by SHXPR01MB0496.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1f::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7611.39; Thu, 13 Jun
+ 2024 01:02:57 +0000
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ ([fe80::358e:d57d:439f:4e8a]) by
+ SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::358e:d57d:439f:4e8a%7])
+ with mapi id 15.20.7611.039; Thu, 13 Jun 2024 01:02:57 +0000
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Rob Herring <robh+dt@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Subject: =?gb2312?B?u9i4tDogUmUgOiBbUEFUQ0ggdjFdIHJpc2N2OiBkdHM6IHN0YXJmaXZlOiBh?=
+ =?gb2312?Q?dd_PCIe_dts_configuration_for_JH7110?=
+Thread-Topic: Re : [PATCH v1] riscv: dts: starfive: add PCIe dts configuration
+ for JH7110
+Thread-Index: AQHau6H4HWcv0PbsKE2MIzy9iFiWZbHCwFiAgACdwFCAAJ5jgIAA5udg
+Date: Thu, 13 Jun 2024 01:02:57 +0000
+Message-ID: <SHXPR01MB0863726042D8AABA83576C4DE6C12@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+References: <20240611015200.40996-1-minda.chen@starfivetech.com>
+ <20240611-irk-hypocrite-a53e98e6c394@spud>
+ <SHXPR01MB0863CFE4519C0D69E961620CE6C02@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+ <20240612-italicize-cultural-a10b8a387520@spud>
+In-Reply-To: <20240612-italicize-cultural-a10b8a387520@spud>
+Accept-Language: en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SHXPR01MB0863:EE_|SHXPR01MB0496:EE_
+x-ms-office365-filtering-correlation-id: 918ba0d1-69a3-4f7c-3b2d-08dc8b449042
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230034|1800799018|41320700007|366010|7416008|38070700012;
+x-microsoft-antispam-message-info: Xh9EB81nOauQx74tb01n/GbnwiwA7p3oS5ffNSJs3sh0rSjCAwOmXKk9cUO/xTXCy+uH9iozETZL1fZta4QZE4E8Wz4beBr4AYcFRIE5LW4VSZAJZODmDTTqGpDdKyQThgN3g419hCskS7uKi8oYy5pfsQhM7s6U8ZuwRzdW8JrdraYhB/Lg2gE+9TfmnzH39LHr3fUiGNzuNcM3BiOSpoxyz3nxiXVq9+zs89C8wnRXpMF7lKIXMOYTZh2yTdVjl9Es7FFUdDf17FddpijmMVTOWrlY1kuI8sbTSN2TWuvJs6G8s5T411L32pf/OLFgigkmppxH2C4Y/GB2wUUMTFyYS2V+DR3ZSIkCq7DuEX01SUfBVTMAf6VW3EvRw92OZjhPrwKqGEYud7cl+kC5c78GQsfUyxl1XYgqMDZ1Obx38pBGadXoHq4EVacU3pZjE13CRw18BlPbJa/9RXEf/MGRalEleRHwnbvNIaYRWdJ7ZxvNrsv7ztR0IMOg+1yKox7+siYmEnfK4DMcBy1f9qc6Oa5p2/1COwdPj+RVqa4+aS52obsJ9l75dF6do+0BPitm+c/aqK1gA7U5EjsIfEq1DbqldHjU7KHnXhFYrT2XPyNqdL5jJBFm/mpUtqXa
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230034)(1800799018)(41320700007)(366010)(7416008)(38070700012);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?TU5hcUJ4RjlhaE1IZyszQ0pIQkw3WldpdDhjbmYwVjVUb1RmWStLMjhQNmRu?=
+ =?gb2312?B?enhqM1RFeEN1YVBvc013bjFBNnRIamJEc0h0ZFlFYldFdlN5cVJsZXhOQzlM?=
+ =?gb2312?B?VDhWVzc5ODhxYnZpeHRzVUlCaTdzVHlEOWhlM2hqYnMyWTJTV1V6cmlXaGZ5?=
+ =?gb2312?B?ZUpmSFArYWxDcmcweGZqNnp5dUEwY2pJVzVDN3dyRXlBY0Y4Q0NLK0FZeGx5?=
+ =?gb2312?B?MHU3cFN0ZFZCSnlzUDEwTlBlVXJOWWRjQVlMSjlEOENNeWtYcTJIaWtjblpr?=
+ =?gb2312?B?R3VLRHF6YUVQYzgzc2VKdTVnaWpzR1hKL0tORG1EUW1BWmFKWURLRXJDVkls?=
+ =?gb2312?B?VzJrc3o3ME8zT2NDcWFlU1dQTnlKTzdVWWt2dnRQU1Q1Wk5JN0VsUU5zWnpp?=
+ =?gb2312?B?eUpGa2tHSThBRzg4bG91VFl0eHUyczhmNEhtWUNZdDU4RC8yNVRLNUF3clpC?=
+ =?gb2312?B?YUZudG9NUk1wKzJRbjN2a0RVMEtKcVcyVDJ3VzVpa2lQSDcyUDBKOTY1WVQw?=
+ =?gb2312?B?UGpEZmVnYk9aM3NSS3lVRnlWUlV5alB1cE1yempVZVRGYnB3Ry9QQnI1NG92?=
+ =?gb2312?B?UWFRc0VESmpHODRXSXB5RDhONWpXSjNoL1JISnFXNitaK29IOEZhWTVJNXV2?=
+ =?gb2312?B?RDNxZEdiRUgraXo2OVN4RjJkU3FGYXBKTVNZVjZNMlFtVGRzaXBpRUtaSVBN?=
+ =?gb2312?B?VXZKRzBlNEl5eDBQTlVPYzZXMlAxT0lUSXRibVpmU3JkKzlHZC95cGJyckNn?=
+ =?gb2312?B?VjhmTmY2M3FXbzFTdmdaSjI0NHNTR1ErMnlNVnNheW1DdTFFMWUxeUllK3Fz?=
+ =?gb2312?B?Q1RWT3FQaGVwSnpBTFFtMWZYYzd3MHZjVGtCRUY4QjlGNmxVNlg4NmFJS2cz?=
+ =?gb2312?B?QzBKK1BhcnlQT2hUUVFQMC9Kanl2d0NtaitHY3Z4aGhGbGpleHlxdnE2R0VW?=
+ =?gb2312?B?b21vVXdMYXZkMUFFcnFrTSt6L1VCb0tIMm9wSWFSc2VJNndMZ1NaRnNwOHdX?=
+ =?gb2312?B?RHZUQ3RUUkRWYngyTHczUEY4UlZJTWhPZDJkcDYrMG9VRVlWcUJaY0dpeHlK?=
+ =?gb2312?B?ekFpYjFaaHB5MTdGRVMzN1d5TTF0SXpaa1l4K01tcEcwcnI1YnAzcVhpc2lF?=
+ =?gb2312?B?WkxOU0JxU0luK09XQWJTRVMvc0NoazY1Mk5ubm0zSXRnT2IwdVhTc05SUkpt?=
+ =?gb2312?B?dUlWWmFkMTlUbW9XZW8xYk5wbUVEdzFlSUJhWS9rWkdnMXJPdVZsblNJUnpj?=
+ =?gb2312?B?ZjNlYlpqS1lVWC9reENIbUc4enNBbVljSzhIQkM2dExQSXZnbUFjZ3BLQVJq?=
+ =?gb2312?B?Uk5ueVFDcHp3TE1FcFg0a2k0TGgxMUQyY0RIckhhSVNvNVNIZXhmYkxZWWJL?=
+ =?gb2312?B?VlVRbG5QcmlMZ1NXMGNmZDI5S0gyZFhzcG02eGkxcWNLWi9UZWVEWTBOeGhs?=
+ =?gb2312?B?d000bjNMOWVOUVREcml2T2cwdHNKNTVkSFBaNFlFdGE0L1FLWmkrM294MWsv?=
+ =?gb2312?B?cENvYVlIaG1sOGYzNWUrMjJpZUVDUGo1NVQ3RjVURWJCdDZVOWwrOEVsMXVF?=
+ =?gb2312?B?R0J6K1Bic1p3czVLdXV4anprWllNemQ2eWtMNmtTeHlrbmJmcVFhbS9Kai9V?=
+ =?gb2312?B?VXZUdXJVVnUrSkM1RG1tNFZaaFlFMUphVWF1cWFKWGhVYnB4cTB2UHNaaExy?=
+ =?gb2312?B?VE1yYTJFV0xuT2RnZWtnRFppcXY4L3dsSHRhYXgwQ3BlaXNmSlhMbXNxdWlU?=
+ =?gb2312?B?RWF2Yk42UGtaVnFLYUVIYUtKQzR5SGFtdGdZWmlSRE5jRHlXMTVBVXB0SWJM?=
+ =?gb2312?B?NXpSem10T2JLL0JUYkNCUEtHM0c1ZGdwSW14aWp1UDNXUHBjZkJMbGJtQkNF?=
+ =?gb2312?B?OVdxdFJ0RVR2T3BmWnlINUFrUnJjT0RlWUU5T3VDSnBjZnZXa2t1Ri94eUl1?=
+ =?gb2312?B?amNZc20zS2Z3eTg5dWhKL3BmUGlOVWZ1bnFNditScVdHRzhsZjZFZDEvSUU4?=
+ =?gb2312?B?MXpSQVVuMjg2VGNYSE43Q1hKY0JHK0sxbkZ4NjdQZHBQa2ljaStRMDdPWTNj?=
+ =?gb2312?B?dDE3UWlReGZFbzE1VnM1VHRsNWpCSkFpS29jRmkvNWJwWDF6MFZGZ0FoK256?=
+ =?gb2312?Q?ZK7BZY8tL9AiEpsvz9PCgBxkI?=
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=562; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=kwvEV7h9fafWAM0Xgw52j8nyzhHS8hng0oyJZ2yOCpk=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGlZcpWqfi8fVskFiuWU7O0QmGT/ZtZrpSNapetjPtY3H 5Hmrd/bUcrCIMbBICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgImUVzAy/PpeoFt9UdRoSvZ0 o/Db5tpK1Ufnn55j61H7MFuiIrDYm5Hhc1T4/Odupp72zzb9nHNUcJbjfYUbzSI9X4WsdR5cubG FBwA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 918ba0d1-69a3-4f7c-3b2d-08dc8b449042
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jun 2024 01:02:57.3785
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: sNLqm0yuP4o5rYwYHrDvTH0PtOvgwp29ge3N+EuHYLm2OfZC1dMDuKvM+Yo9iU8/K3vGaEqf76mxdK33E1bRN0W+M+neqGDBmDaVDpgesYc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0496
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240612_151739_758836_B3E6AEF6 
-X-CRM114-Status: UNSURE (   5.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240612_180327_582969_2F92B55D 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +148,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-On Wed, 05 Jun 2024 15:17:01 +0800, Hal Feng wrote:
-> Add support for StarFive JH7110 SoC and VisionFive 2 board.
-> - Cache
-> - Temperature sensor
-> - PMIC (AXP15060)
-> - Ethernet PHY (YT8531)
-> - Restart GPIO
-> - RNG
-> - I2C
-> - SPI
-> - Quad SPI
-> - PCIe
-> - USB & USB 2.0 PHY & PCIe 2.0/USB 3.0 PHY
-> - Audio (I2S / TDM / PWM-DAC)
-> - MIPI-CSI2 RX & D-PHY RX
+
 > 
-> [...]
+> On Wed, Jun 12, 2024 at 01:48:55AM +0000, Minda Chen wrote:
+> >
+> >
+> > >
+> > > On Tue, Jun 11, 2024 at 09:52:00AM +0800, Minda Chen wrote:
+> > > > Add PCIe dts configuraion for JH7110 SoC platform.
+> > > >
+> > > > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> > > > Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> > > > ---
+> > > >  .../boot/dts/starfive/jh7110-common.dtsi      | 64 ++++++++++++++
+> > > >  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 86
+> +++++++++++++++++++
+> > > >  2 files changed, 150 insertions(+)
+> > > >
+> > > > diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> > > > b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> > > > index 8ff6ea64f048..1da7379f4e08 100644
+> > > > --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> > > > +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> > > > @@ -294,6 +294,22 @@
+> > > >  	status = "okay";
+> > > >  };
+> > > >
+> > > > +&pcie0 {
+> > > > +	perst-gpios = <&sysgpio 26 GPIO_ACTIVE_LOW>;
+> > > > +	phys = <&pciephy0>;
+> > > > +	pinctrl-names = "default";
+> > > > +	pinctrl-0 = <&pcie0_pins>;
+> > > > +	status = "okay";
+> > > > +};
+> > > > +
+> > > > +&pcie1 {
+> > > > +	perst-gpios = <&sysgpio 28 GPIO_ACTIVE_LOW>;
+> > > > +	phys = <&pciephy1>;
+> > > > +	pinctrl-names = "default";
+> > > > +	pinctrl-0 = <&pcie1_pins>;
+> > > > +	status = "okay";
+> > > > +};
+> > >
+> > > Do all 3 of the mars, star64 and visionfive 2 have both PCIe ports
+> > > exposed? I assume if one does, all does, since they're basically identical?
+> >
+> > Visionfive 2 and milkv mars are all the same. Star64 do NOT enable PCIe0,
+> PCIe1 pins are the same.
+> 
+> This patch adds both PCIe instances for the Star64 though, since that also
+> includes jh7110-common.dtsi. I think you need to enable these in the board dts
+> files instead?
 
-Applied to riscv-config-for-next, thanks!
-
-[1/1] riscv: defconfig: Enable StarFive JH7110 drivers
-      https://git.kernel.org/conor/c/d8a7d89abb09
-
-Thanks,
-Conor.
-
+OK. I will enable them in board dts file. Thanks.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
