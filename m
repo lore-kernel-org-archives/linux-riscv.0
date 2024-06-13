@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44618C27C4F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 14:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49BCC27C4F
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 15:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WeK794Iexsn2xEvwh4CK96OVIkXDXUVFfFP6lDmqEZ0=; b=Hv/0zBt8X+n9Tld/EX0yHrtWI/
-	QTFcIWr06L4xPZF/mHpibpLnmPit3470xF4+l3aufZfzTeBkNvHz9vtLX9w1z5L7wxiaSIAYXBhcG
-	q5y1U+XKYeK1BMgBs2pS36ge7qFDQMMjICFUI+fRJZn+ew/vwOfS0QNve9Wh1Qx8Mt2oEA9yI8F8z
-	D3YK4wzkmk/grj6WhrZBPWgrN04rMwjtxpECDNfd4rzMLRJ+NoYyR9vdVmH3WvAvOo4tOh2w/QkBw
-	wRS7/2FnDUTmnQN0Opf3bKmxnhMxvh9A8M3BnhsZDEZSqok2PcAfFmODPbrNZx1lL/+dhXuGwFtH6
-	buePOZ4g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UmpfX6IDAi+/aNZ46KCIbYxsAhg+U0JJ3M+z6ikX/M0=; b=u7bhrsws2PF114
+	LPrPFRpCyIfyLRDQq5fpBaKtSMaoQwx9AqNNLL+fIVcRwEYRrxZBAFL5DCDqbRpnei6Qdi5IdZup1
+	7Dg5iOs1COLdx/P8i6HA8ZitRlJrTm3jnrcY6PnKD6uw4XVIJZJERKlIJvOJih0i90TfvWgoe2zVp
+	l7/ls/tCAOUtBSCPPxAxV/o9RQgjB5VoKxwXmQRtmIKvkrpX/t8D4mcwEkPEl9l0806lSHdyaq0hj
+	vGHacoJX+G7jh8F9wvx8fwEB4f9lcmoxYxDvIm8CBNoDsKeVdt/fugsEtaxMwPxPtMflouhzJi9MA
+	ibYuWvYgTxZx37441BRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHlht-0000000H0uI-2j9U;
-	Thu, 13 Jun 2024 14:45:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHlhq-0000000H0tQ-3Um5
-	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jun 2024 14:45:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 26BB661B4D;
-	Thu, 13 Jun 2024 14:45:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA901C2BBFC;
-	Thu, 13 Jun 2024 14:45:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718289937;
-	bh=InMkkQqrp6LohnfMJCBwnWlQ6oAWATxmLwHmBrNPrGg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gTLGRq+msZPdiljWIIbChj7j0CTeKCfawgg6iDL6MqP+rFNN2aVjWpy0CmJVOAgKy
-	 g6Kxc2TC8WMraFODKBYKhl8xXxsYE0OPT4Tv3T6MMsHj4u1AsnXyrCTTIKsnJx/OCA
-	 EO/2gCT546u3YMbHbMIl8k4emxuNzqPS9oaOX8V47ftb7y4jMt3hmwV/9mupn94ozr
-	 23giyNwjsiASb5BhFIpfiyLCKc9dvUqATFYa7z1vKRiyIw2Bkee0Q8VKnOjUNQ5Dy/
-	 xRgPWZrxRYHts2EkCOyjvn+Zr827udCCaeOTbY9NLNEDlKAyJv2VkbfgJ8SVerevQO
-	 tSZKfByHAP+sQ==
-Date: Thu, 13 Jun 2024 15:45:33 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Evan Green <evan@rivosinc.com>, Andy Chiu <andy.chiu@sifive.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] riscv: Separate vendor extensions from standard
- extensions
-Message-ID: <20240613-deepness-refried-c6dea811f6f6@spud>
-References: <20240609-support_vendor_extensions-v2-0-9a43f1fdcbb9@rivosinc.com>
+	id 1sHm6I-0000000H6Ie-1Ebg;
+	Thu, 13 Jun 2024 15:10:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sHm6D-0000000H6FQ-1m0y;
+	Thu, 13 Jun 2024 15:10:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DB91FEC;
+	Thu, 13 Jun 2024 08:11:11 -0700 (PDT)
+Received: from [192.168.1.100] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3ADB23F73B;
+	Thu, 13 Jun 2024 08:10:41 -0700 (PDT)
+Message-ID: <9814866a-8f9d-4d82-ad2d-4b36203aa196@arm.com>
+Date: Thu, 13 Jun 2024 16:10:39 +0100
 MIME-Version: 1.0
-In-Reply-To: <20240609-support_vendor_extensions-v2-0-9a43f1fdcbb9@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/7] Refactor perf python module build
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
+ Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Yicong Yang <yangyicong@hisilicon.com>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
+ Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng
+ <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+ =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <benno.lossin@proton.me>,
+ Andreas Hindborg <a.hindborg@samsung.com>, Alice Ryhl
+ <aliceryhl@google.com>, Nick Terrell <terrelln@fb.com>,
+ Ravi Bangoria <ravi.bangoria@amd.com>, Kees Cook <keescook@chromium.org>,
+ Andrei Vagin <avagin@google.com>, Athira Jajeev
+ <atrajeev@linux.vnet.ibm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Ze Gao <zegao2021@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ coresight@lists.linaro.org, rust-for-linux@vger.kernel.org,
+ bpf@vger.kernel.org
+References: <20240612183205.3120248-1-irogers@google.com>
+ <bdf1ab6e-b887-4182-a0ae-7653bd835907@arm.com> <Zmr_CfhYsvKePZFt@x1>
+Content-Language: en-US
+From: James Clark <james.clark@arm.com>
+In-Reply-To: <Zmr_CfhYsvKePZFt@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240613_074538_943133_86A26C7A 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20240613_081049_663332_A08F064A 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,75 +85,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8967923809952177039=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8967923809952177039==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ICFdcertGdMCTx5g"
-Content-Disposition: inline
 
+On 13/06/2024 15:15, Arnaldo Carvalho de Melo wrote:
+> On Thu, Jun 13, 2024 at 10:27:15AM +0100, James Clark wrote:
+>> On 12/06/2024 19:31, Ian Rogers wrote:
+>>> Refactor the perf python module build to instead of building C files
+>>> it links libraries. To support this make static libraries for tests,
+>>> ui, util and pmu-events. Doing this allows fewer functions to be
+>>> stubbed out, importantly parse_events is no longer stubbed out which
+>>> will improve the ability to work with heterogeneous cores.
+>>>
+>>> Patches 1 to 5 add static libraries for existing parts of the perf
+>>> build.
+>>>
+>>> Patch 6 adds the python build using libraries rather than C source
+>>> files.
+>>>
+>>> Patch 7 cleans up the python dependencies and removes the no longer
+>>> needed python-ext-sources.
+>>>
+>>
+>> Reviewed-by: James Clark <james.clark@arm.com>
+>>
+>> It does require a clean build to avoid some -fPIC errors presumably
+>> because not everything that requires it gets rebuilt, for anyone who
+>> gets stuck on that.
+> 
+> We need to find a way to avoid requiring the 'make clean' :-/
+> 
+> - Arnaldo
+>  
 
---ICFdcertGdMCTx5g
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Do we need to make it so that if any of the Makefiles are touched it
+does a clean? I'm assuming that was the cause of the issue I experienced
+here and that the Makefile and/or Build files aren't mentioned as
+dependencies of any target.
 
-On Sun, Jun 09, 2024 at 09:34:13PM -0700, Charlie Jenkins wrote:
-> All extensions, both standard and vendor, live in one struct
-> "riscv_isa_ext". There is currently one vendor extension, xandespmu, but
-> it is likely that more vendor extensions will be added to the kernel in
-> the future. As more vendor extensions (and standard extensions) are
-> added, riscv_isa_ext will become more bloated with a mix of vendor and
-> standard extensions.
->=20
-> This also allows each vendor to be conditionally enabled through
-> Kconfig.
->=20
-> ---
-> This has been split out from the previous series that contained the
-> addition of xtheadvector due to lack of reviews. The xtheadvector
-> support will be posted again separately from this.
-
-I think that's a good call.
-
-> The reviewed-bys on "riscv: Extend cpufeature.c to detect vendor extensio=
-ns"
-> and "riscv: Introduce vendor variants of extension helpers" have been
-> dropped in this series. The majority of the code is the same in these
-> patches, but thead-specific code is swapped out with andes-specific
-> code. The changes are minimal, but I decided to drop the reviews in case
-> I inadvertently introduced issues.
-
-Actually, you only completely did that on the first of the two patches
-you mention, but I don't mind.
-
---ICFdcertGdMCTx5g
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmsGDQAKCRB4tDGHoIJi
-0pYSAP9rvZJvNB06EdO0fsFWf+ZcA3sSaIFnn6FuW9XS1h/5IgEAzSlVcU4SmJ4X
-iE60uHO4zub2um02J5KOxOg+yrHU8Q0=
-=sR76
------END PGP SIGNATURE-----
-
---ICFdcertGdMCTx5g--
-
-
---===============8967923809952177039==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>>> Ian Rogers (7):
+>>>   perf ui: Make ui its own library
+>>>   perf pmu-events: Make pmu-events a library
+>>>   perf test: Make tests its own library
+>>>   perf bench: Make bench its own library
+>>>   perf util: Make util its own library
+>>>   perf python: Switch module to linking libraries from building source
+>>>   perf python: Clean up build dependencies
+>>>
+>>>  tools/perf/Build                              |  14 +-
+>>>  tools/perf/Makefile.config                    |   5 +
+>>>  tools/perf/Makefile.perf                      |  66 ++-
+>>>  tools/perf/arch/Build                         |   4 +-
+>>>  tools/perf/arch/arm/Build                     |   4 +-
+>>>  tools/perf/arch/arm/tests/Build               |   8 +-
+>>>  tools/perf/arch/arm/util/Build                |  10 +-
+>>>  tools/perf/arch/arm64/Build                   |   4 +-
+>>>  tools/perf/arch/arm64/tests/Build             |   8 +-
+>>>  tools/perf/arch/arm64/util/Build              |  20 +-
+>>>  tools/perf/arch/csky/Build                    |   2 +-
+>>>  tools/perf/arch/csky/util/Build               |   6 +-
+>>>  tools/perf/arch/loongarch/Build               |   2 +-
+>>>  tools/perf/arch/loongarch/util/Build          |   8 +-
+>>>  tools/perf/arch/mips/Build                    |   2 +-
+>>>  tools/perf/arch/mips/util/Build               |   6 +-
+>>>  tools/perf/arch/powerpc/Build                 |   4 +-
+>>>  tools/perf/arch/powerpc/tests/Build           |   6 +-
+>>>  tools/perf/arch/powerpc/util/Build            |  24 +-
+>>>  tools/perf/arch/riscv/Build                   |   2 +-
+>>>  tools/perf/arch/riscv/util/Build              |   8 +-
+>>>  tools/perf/arch/s390/Build                    |   2 +-
+>>>  tools/perf/arch/s390/util/Build               |  16 +-
+>>>  tools/perf/arch/sh/Build                      |   2 +-
+>>>  tools/perf/arch/sh/util/Build                 |   2 +-
+>>>  tools/perf/arch/sparc/Build                   |   2 +-
+>>>  tools/perf/arch/sparc/util/Build              |   2 +-
+>>>  tools/perf/arch/x86/Build                     |   6 +-
+>>>  tools/perf/arch/x86/tests/Build               |  20 +-
+>>>  tools/perf/arch/x86/util/Build                |  42 +-
+>>>  tools/perf/bench/Build                        |  46 +-
+>>>  tools/perf/scripts/Build                      |   4 +-
+>>>  tools/perf/scripts/perl/Perf-Trace-Util/Build |   2 +-
+>>>  .../perf/scripts/python/Perf-Trace-Util/Build |   2 +-
+>>>  tools/perf/tests/Build                        | 140 +++----
+>>>  tools/perf/tests/workloads/Build              |  12 +-
+>>>  tools/perf/ui/Build                           |  18 +-
+>>>  tools/perf/ui/browsers/Build                  |  14 +-
+>>>  tools/perf/ui/tui/Build                       |   8 +-
+>>>  tools/perf/util/Build                         | 394 +++++++++---------
+>>>  tools/perf/util/arm-spe-decoder/Build         |   2 +-
+>>>  tools/perf/util/cs-etm-decoder/Build          |   2 +-
+>>>  tools/perf/util/hisi-ptt-decoder/Build        |   2 +-
+>>>  tools/perf/util/intel-pt-decoder/Build        |   2 +-
+>>>  tools/perf/util/perf-regs-arch/Build          |  18 +-
+>>>  tools/perf/util/python-ext-sources            |  53 ---
+>>>  tools/perf/util/python.c                      | 271 +++++-------
+>>>  tools/perf/util/scripting-engines/Build       |   4 +-
+>>>  tools/perf/util/setup.py                      |  33 +-
+>>>  49 files changed, 612 insertions(+), 722 deletions(-)
+>>>  delete mode 100644 tools/perf/util/python-ext-sources
+>>>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8967923809952177039==--
-
