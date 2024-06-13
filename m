@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC73C27C4F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 19:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9805FC27C75
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 19:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sadEjf4LeDQ+ZDVZ7s8xhNplZBUK5HggAK5Mmirx+HI=; b=zVgrtr+EKmweMP
-	dr6vzCmMwLDjGyjemOvaQNt8YL/tmOHCPjrKFiLbC+B6GpqajOU3r/QVRxDfO9UXo+IPqy8tXlRH7
-	71BV59tW9YGEOgahCNZ+mQL9CEQ9GCEgTcSfurQi4+SvZzHp9Fv98DsxA5pNigYSVqmD8rwQg4wwy
-	ibqkAMFAnRZnGq7vSsJi1Zqnba5C/pOWaU/yVKhkzPmrHHhN+3OXDslp9Onw5Sw34v3kdjFafjrfT
-	h9yCDBeHyzpcdofAz+UdiuKIFeABSNZjDeK7TGCTAn1bcy18Rwo6dpCtumYyehcnV4TcYWHMVpjSX
-	QiXJJjcN8bSsJvxBFQwg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WB9HboDUX+V5X14JNR95hCgLBsnhKtbP0C0d5GMuOx0=; b=ZB38fN6HNBnQmz
+	wmbXqitRx1WCOA8GTW+Q4i54pdYpjjvZOpFS7uTMkjfW9Tm5Q/CtAzKIFwJQwnMtLaktuetNReVYE
+	AkBgVdjONl49vm8IFREPGQtyzp47GaZAaVMzjAicdgEQhMP/8WcCB5KISSZahGINtaqZpL3M8Vq22
+	Ciq0nWKmqJKFlF01oHgvIXtTlr/hPuIF/WczyskOrr4bSw6jDv0D/sk+tgNBGawmT7d2/yLQNhkpt
+	iYjl7iu+lRcNdVqpxQnfN8qcUHos4ek0HBuQ6gWSjHUD6U8gjL0wfTcWBKktuFglWsorv6BML29ow
+	IV/TQBe6wxiEo/YciVdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHpw8-00000000E4X-2T3g;
-	Thu, 13 Jun 2024 19:16:40 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1sHpwM-00000000E9K-01Su;
+	Thu, 13 Jun 2024 19:16:54 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHpw6-00000000E3V-10sG
+	id 1sHpwJ-00000000E7d-1Vf2
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jun 2024 19:16:39 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-1f862f7c7edso1445395ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Jun 2024 12:16:36 -0700 (PDT)
+	Thu, 13 Jun 2024 19:16:53 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1f32a3b9491so13562505ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Jun 2024 12:16:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1718306195; x=1718910995; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hpOwinj0W1yetvQNtkELpr5Kiud2ruzeFCMoj01VdbY=;
-        b=Tn4kyIKoi3dIA2SPTvE/mQhwfvfrR/Kdph1Vv1VdhFAZkHITJuYT6LIF2nEb+JhpWC
-         EYEqLMdWV97hhRS60YL6HOUdK0rJWwTnU2FImlkVPIOT0v/lNm2enua9e6qJzmjtghi1
-         JpUFalh0uMQRIZnVNcKVHOTpcGX+qRLQP556JGk9KKrsA3R9aLAMzG4XP1WcCNOTj7Kt
-         QD38Dr8I53TbCpunwy5M15EPzFNTszpvS+/WyIGZXdaMMrDbulIgat3qtwsIWHOhLTZk
-         L+NZPSYuMhpMjbXmbD68yxiv04HdkXggka2Lx1MAGhGr5XE6Uo1j2B9REdPu6zxqPHjw
-         BTjw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1718306210; x=1718911010; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zG2srFmoIcbdvzr37LUHEYY5+MFhpHwRfzd3fbsl58g=;
+        b=xzN2/vfd5fg9ysbf2zf6tZyfbRyvTHUPwleZQE3Xqxkv9Myho9VVKFTM+yTpkvWKIV
+         wYuub2BcWpHl4HvJiFcaA8wimIPfbXQKmEV5K+CvwlOIeT0usYS8pnqAx/vxNDEnGl+R
+         YPjea7YkX7HobebazIHSyN8mYYGJFew9xVpWDYtbV/bL4vh9pzSjDbFCRJsR2vcCPUYr
+         9Q+QeMfEyeafnMjWAgk9EckxW9NZDqEgtnqN2/+yOoSzsdi0gr2wZQAOcjhDtQuikqbk
+         mopPXgB3hlSsNPr86hFe/QKkCzQ2n/A0yqDOPJCpCLC5Dki7hO4YgD7HvMfD6mucB9zY
+         oICA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718306195; x=1718910995;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hpOwinj0W1yetvQNtkELpr5Kiud2ruzeFCMoj01VdbY=;
-        b=K3fb9Wxg3hSu2CCcfyZm5xgkhCLi13Tn8v//mci7CbOzljsh6ckt9DeBjCyFRl0DlB
-         3VEZ9mRVTLEvvGeSamf6hf3eqV3Oif2RVnKbYmyJU7Xjtu9ZZ9+VkiLP+KvKcAO4uI1r
-         zHvKsy564hpDM9NQLLVYheB0cygobiZbEtLVA16wRJ7iNCLWFdjTrVNiKyE8ETSv3o9N
-         um7yuOe/L63fdbDf2O0ocDApAkQZ7rgF1/h1niBBdIvFWCGaNJSPeiO/P8lnJhLD6urP
-         o/xys+IKxFHgx9ajd8KCaJRn1qQ5WaopwSXBLXJOcVeaA54LUFZhyLd4/HwfeFEmwKV/
-         7xYQ==
-X-Gm-Message-State: AOJu0YxTLnaFwwOnm2WHZBlK8H+Nm8IGrrToXWTM5gLirAkwmZ/TF1HU
-	OpVhU8szNCxK5bT+hwajoutg85Oee1Ij5gxBMm0hdB/6pTIZzRoae8D8YapgOEWyFdUkfevLmpW
-	ySFo=
-X-Google-Smtp-Source: AGHT+IHHy8Y/gbuqVUoKIBAHl3Kik8dEPGS63zG9zTuBzI8FXFYH9pTlmfj7DD0pHAJEd7bxMGtqFw==
-X-Received: by 2002:a17:903:1249:b0:1f7:393c:fcdf with SMTP id d9443c01a7336-1f8625c0537mr7044225ad.6.1718306195179;
-        Thu, 13 Jun 2024 12:16:35 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1718306210; x=1718911010;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zG2srFmoIcbdvzr37LUHEYY5+MFhpHwRfzd3fbsl58g=;
+        b=FNxFDGIJodl1Jq5CHbWRIknvdoYIHdBvqtCkETlnwegVccKzVwlW4Doha6XH+dLso/
+         UMD3YwIMRxQSThp8Q9y8nukAHB2RsnXVWdof8SmqZnlqR4j316JfOkhd1kcb3xBaeudw
+         NNSg1P3okV7nKO5Kt9cYFhZaH3Hc7UOuf1Eh9NlKEz0SSM6+YpRIYrWAf9sU55Lbn6Kw
+         n5lBp2xHBszzoRC/yLWDqMeyBixAR2LrekLufvooCMoIl89RrH7Tho1mXcX4dSDOaVgH
+         og32lwwkjzOvLuZnxNwUrnWrnb852JK0NezQTwu1NNwfCyuAdYAqR6TkUDj65Miqn6RK
+         zRpg==
+X-Gm-Message-State: AOJu0Yw1MmDw/efxplLV2m7nMChzRpVetAfvTULOujSZ96hrIJ3B6//S
+	C84bGWdFNBDFYWjKjNT+RyT8mne5m4PsK+MbvtoTItRJOZBVClQTYjEf9MrVMsTIPnDbf0O3nxJ
+	Dzpo=
+X-Google-Smtp-Source: AGHT+IGuN/l/5zfVYi7tKtQXsElXN0btBKGS7+gTuf5SnTUGY1GzvbrK3u85QYPF+7gnQUxWOLcnuQ==
+X-Received: by 2002:a17:902:ea07:b0:1f3:266b:ea23 with SMTP id d9443c01a7336-1f8625c1641mr6730485ad.13.1718306209838;
+        Thu, 13 Jun 2024 12:16:49 -0700 (PDT)
 Received: from jesse-desktop.. (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f855e7ca78sm17471015ad.106.2024.06.13.12.16.21
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f855e7ca78sm17471015ad.106.2024.06.13.12.16.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Jun 2024 12:16:34 -0700 (PDT)
+        Thu, 13 Jun 2024 12:16:49 -0700 (PDT)
 From: Jesse Taube <jesse@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 Cc: Jonathan Corbet <corbet@lwn.net>,
@@ -96,14 +97,16 @@ Cc: Jonathan Corbet <corbet@lwn.net>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH v2 0/6] RISC-V: Detect and report speed of unaligned vector accesses
-Date: Thu, 13 Jun 2024 15:16:09 -0400
-Message-ID: <20240613191616.2101821-1-jesse@rivosinc.com>
+Subject: [PATCH v2 1/6] RISC-V: Add Zicclsm to cpufeature and hwprobe
+Date: Thu, 13 Jun 2024 15:16:10 -0400
+Message-ID: <20240613191616.2101821-2-jesse@rivosinc.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240613191616.2101821-1-jesse@rivosinc.com>
+References: <20240613191616.2101821-1-jesse@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240613_121638_413195_A8ADD3A3 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20240613_121651_487682_897B6F34 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,50 +123,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adds support for detecting and reporting the speed of unaligned vector
-accesses on RISC-V CPUs. Adds vec_misaligned_speed key to the hwprobe
-adds Zicclsm to cpufeature and fixes the check for scalar unaligned
-emulated all CPUs. The vec_misaligned_speed key keeps the same format
-as the scalar unaligned access speed key.
+> Zicclsm Misaligned loads and stores to main memory regions with both
+> the cacheability and coherence PMAs must be supported.
+> Note:
+> This introduces a new extension name for this feature.
+> This requires misaligned support for all regular load and store
+> instructions (including scalar and vector) but not AMOs or other
+> specialized forms of memory access. Even though mandated, misaligned
+> loads and stores might execute extremely slowly. Standard software
+> distributions should assume their existence only for correctness,
+> not for performance.
 
-This set does not emulate unaligned vector accesses on CPUs that do not
-support them. Only reports if userspace can run them and speed of
-unaligned vector accesses if supported.
+Detecing zicclsm allows the kernel to report if the
+hardware supports misaligned accesses even if support wasn't probed.
 
-If Zicclsm is present, the kernel will set both scalar and vector unaligned access speed to FAST.
+This is useful for usermode to know if vector misaligned accesses are
+supported.
 
-This patch requires the following patche to be applied first:
-RISC-V: fix vector insn load/store width mask
-https://lore.kernel.org/all/20240606182800.415831-1-jesse@rivosinc.com/
+Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+---
+V1 -> V2:
+ - Add documentation for Zicclsm
+ - Move Zicclsm to correct location
+---
+ Documentation/arch/riscv/hwprobe.rst  | 3 +++
+ arch/riscv/include/asm/hwcap.h        | 1 +
+ arch/riscv/include/uapi/asm/hwprobe.h | 1 +
+ arch/riscv/kernel/cpufeature.c        | 1 +
+ arch/riscv/kernel/sys_hwprobe.c       | 1 +
+ 5 files changed, 7 insertions(+)
 
-Jesse Taube (6):
-  RISC-V: Add Zicclsm to cpufeature and hwprobe
-  dt-bindings: riscv: Add Zicclsm ISA extension description.
-  RISC-V: Check scalar unaligned access on all CPUs
-  RISC-V: Detect unaligned vector accesses supported.
-  RISC-V: Report vector unaligned access speed hwprobe
-  RISC-V: hwprobe: Document unaligned vector perf key
-
- Documentation/arch/riscv/hwprobe.rst          |  19 +++
- .../devicetree/bindings/riscv/extensions.yaml |   7 +
- arch/riscv/Kconfig                            |  59 +++++++
- arch/riscv/include/asm/cpufeature.h           |   7 +-
- arch/riscv/include/asm/entry-common.h         |  11 --
- arch/riscv/include/asm/hwcap.h                |   1 +
- arch/riscv/include/asm/hwprobe.h              |   2 +-
- arch/riscv/include/asm/vector.h               |   1 +
- arch/riscv/include/uapi/asm/hwprobe.h         |   6 +
- arch/riscv/kernel/Makefile                    |   7 +-
- arch/riscv/kernel/copy-unaligned.h            |   5 +
- arch/riscv/kernel/cpufeature.c                |   1 +
- arch/riscv/kernel/sys_hwprobe.c               |  48 ++++++
- arch/riscv/kernel/traps_misaligned.c          | 142 +++++++++++++---
- arch/riscv/kernel/unaligned_access_speed.c    | 154 +++++++++++++++++-
- arch/riscv/kernel/vec-copy-unaligned.S        |  58 +++++++
- arch/riscv/kernel/vector.c                    |   2 +-
- 17 files changed, 484 insertions(+), 46 deletions(-)
- create mode 100644 arch/riscv/kernel/vec-copy-unaligned.S
-
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index df5045103e73..7085a694b801 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -207,6 +207,9 @@ The following keys are defined:
+   * :c:macro:`RISCV_HWPROBE_EXT_ZVE64D`: The Vector sub-extension Zve64d is
+     supported, as defined by version 1.0 of the RISC-V Vector extension manual.
+ 
++  * :c:macro:`RISCV_HWPROBE_EXT_ZICCLSM`: The Zicclsm extension is supported as
++       defined in the RISC-V RVA Profiles Specification.
++
+ * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated. Returns similar values to
+      :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`, but the key was mistakenly
+      classified as a bitmask rather than a value.
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index f64d4e98e67c..0b3bd8885a2b 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -86,6 +86,7 @@
+ #define RISCV_ISA_EXT_ZVE64X		77
+ #define RISCV_ISA_EXT_ZVE64F		78
+ #define RISCV_ISA_EXT_ZVE64D		79
++#define RISCV_ISA_EXT_ZICCLSM		80
+ 
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ 
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index 2fb8a8185e7a..023b7771d1b7 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -65,6 +65,7 @@ struct riscv_hwprobe {
+ #define		RISCV_HWPROBE_EXT_ZVE64X	(1ULL << 39)
+ #define		RISCV_HWPROBE_EXT_ZVE64F	(1ULL << 40)
+ #define		RISCV_HWPROBE_EXT_ZVE64D	(1ULL << 41)
++#define		RISCV_HWPROBE_EXT_ZICCLSM	(1ULL << 42)
+ #define RISCV_HWPROBE_KEY_CPUPERF_0	5
+ #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
+ #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 1d6e4fda00f8..83c5ae16ad5e 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -283,6 +283,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
+ 	__RISCV_ISA_EXT_SUPERSET(zicbom, RISCV_ISA_EXT_ZICBOM, riscv_xlinuxenvcfg_exts),
+ 	__RISCV_ISA_EXT_SUPERSET(zicboz, RISCV_ISA_EXT_ZICBOZ, riscv_xlinuxenvcfg_exts),
++	__RISCV_ISA_EXT_DATA(zicclsm, RISCV_ISA_EXT_ZICCLSM),
+ 	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
+ 	__RISCV_ISA_EXT_DATA(zicond, RISCV_ISA_EXT_ZICOND),
+ 	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index e4ec9166339f..e910e2971984 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -96,6 +96,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
+ 		EXT_KEY(ZBB);
+ 		EXT_KEY(ZBS);
+ 		EXT_KEY(ZICBOZ);
++		EXT_KEY(ZICCLSM);
+ 		EXT_KEY(ZBC);
+ 
+ 		EXT_KEY(ZBKB);
 -- 
 2.43.0
 
