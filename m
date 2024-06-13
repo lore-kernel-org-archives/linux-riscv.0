@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1517C27C4F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 08:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8C54C27C75
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 08:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uBLzKjKc8XH/Us9fl3QnxRusk5ZrpffPW3QqfOh5sD4=; b=eI2uYRbbiWeCMZ
-	vIj7TwARop4HpG+f4SvdemT67jOrt9b5LgL89kPo22rM7S0c0pz2gAniS5OZxWghGsQ5qFhL91pPr
-	AAe/18ZSNoyn2Tbf+sb4seZL6rZ6L6NbEqIZA3TLN2pNsDi+AIwrZCK8ZFzAF69DadUeeC9bHmMAJ
-	Jmti5z+lU3QOStNgBxqNOGSwPVHPNx4EqBmlcKj3qtZkdFrkQmUszWTOkkyCX3nqIK7QChNrraNzq
-	khTlC4HksdabwmKQZWHHDAUdqOC5X4N+P7/kzm6BhA4amy/21eFu7yBEcUN6J8XRRnEldbMDe1KJI
-	vE5mZ2ZZcgF2V4LbjRIQ==;
+	List-Owner; bh=Bz0eNhKraS1YHjTdxyAdGUDmLYFibVqUihb9qfNXrRU=; b=QwNnr7HkYYJfag
+	5bSRZENEhBjYeFVXt3qS+2bhSV/epYucYK5FY+ygN0XqStefrx2PYhjsOBx3vKEyPL74undHrVE1M
+	cjsJLWfU+PkfulVuclGkkLHAgn3EWtYyc/cAPW3UKoSMEfaCVdjFu0y9FFNJdk8L3o57ixDOmqW92
+	cH9NSID952eatiqA3w3ZyuN79UGmFQLzdhHqOnVkDJdRKcWG1Z7NY3dcWfYt/MQ35lCa6IoOAeFjN
+	IDlYiNZGvtKCJYV5zvQHVrQiqPTEjVXZ93jltNacyFoZkaUT2W9xAfuuIrIjDVgObJ0qU3dl9/D7R
+	bBVF5mb7upcN9MF0yaDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHfxW-0000000Fj6j-26g0;
-	Thu, 13 Jun 2024 08:37:26 +0000
+	id 1sHfxd-0000000FjBN-2vRg;
+	Thu, 13 Jun 2024 08:37:33 +0000
 Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHfxT-0000000Fj4N-1BAX;
-	Thu, 13 Jun 2024 08:37:25 +0000
+	id 1sHfxY-0000000Fj4N-3deS;
+	Thu, 13 Jun 2024 08:37:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1718267843; x=1749803843;
+  t=1718267849; x=1749803849;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=SaRkpFjoaclCx1YKomHNzFUcpLG013FKO00vTLvw6fg=;
-  b=UwqUJRPR4Mhj9h4ca+1W5+c09Pd+gEnoi4xQ90Qlz2qNQppaYMBYcMLA
-   mq56uodW2kMOvima5Z+TIkV8J1pAibo0+qr18Do3suS1LVgi9ql6z0Gc8
-   zBQWNedZSejvigIAqZsLD81CEr39wt6n6o2Q6u3jpDS7FDRKeh83M8bq3
-   QllMLLrvL2GrRq5dgHiwzEfvNII/97isvI6Uttfg89A6oDr7rT1zumMOA
-   jdSFOzJVlA+byMpeMk4pCdxV4nSZ11vwZeu/65PFHXShebs348o72D+mN
-   S899cO8h565cMM2lnqd9Css4HhLbXhRHUaC27yMoVHJLEwsFpTr65wjjO
+  bh=N5aRoQ5a+tTTGwEUeHzYzKK2fG6O4xqUyQUF3EVDF0I=;
+  b=XFvJjgQZEn0WAGQUZEl3wAWq19eZrw82Xeyco5Ko7Xmlgk/mziNma532
+   0lkDetP/MnCbo+EBsNSWHQ98OdRYYmZf3ew/TYqzcyFtqxkRjt4rIf870
+   rWOtCGTsisBLQnYme25uJTIPEMiO8GT1LOPvvjC3oJUY/SVKG6jfPp2O4
+   CzwhW5RVgLtLc3+RIwEAB3FCTAlK7Uk+22sjQ2+H8L8qWA3TAzTPZnFhG
+   VencKV9qyn7QapxGc6DXJN6B7EPw7JZQYMzGc1976freHR7vFGxG1Dy2t
+   /ohd0B2O5j/wY+JLZtDA4THiPlQvtJrWTaL+hcbJwTRQyk3Edn+qXuhek
    w==;
-X-CSE-ConnectionGUID: LTP3NtCpShSzzPl8K06KbQ==
-X-CSE-MsgGUID: pqoSfN6vSHCMkGyl727arQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11101"; a="25749157"
+X-CSE-ConnectionGUID: VcsSSECvTnais6xyIKE5xA==
+X-CSE-MsgGUID: KOXQBXPWSFqGZxZ/+vrqyw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11101"; a="25749238"
 X-IronPort-AV: E=Sophos;i="6.08,234,1712646000"; 
-   d="scan'208";a="25749157"
+   d="scan'208";a="25749238"
 Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2024 01:37:10 -0700
-X-CSE-ConnectionGUID: pGAZOKfuR1K929rsczf0QA==
-X-CSE-MsgGUID: wl+rYQFQQuqkHmvs9SoygA==
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2024 01:37:28 -0700
+X-CSE-ConnectionGUID: xEtIyw0CTh+EBzaSslP7dg==
+X-CSE-MsgGUID: puLY93RPS1CngwiVDwzSwA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.08,234,1712646000"; 
-   d="scan'208";a="40033730"
+   d="scan'208";a="40033803"
 Received: from unknown (HELO haibo-OptiPlex-7090.sh.intel.com) ([10.239.159.132])
-  by fmviesa008.fm.intel.com with ESMTP; 13 Jun 2024 01:36:59 -0700
+  by fmviesa008.fm.intel.com with ESMTP; 13 Jun 2024 01:37:19 -0700
 From: Haibo Xu <haibo1.xu@intel.com>
 To: sunilvl@ventanamicro.com,
 	arnd@arndb.de
@@ -71,26 +71,25 @@ Cc: xiaobo55x@gmail.com,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
-	Charlie Jenkins <charlie@rivosinc.com>,
 	Baoquan He <bhe@redhat.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
 	Sami Tolvanen <samitolvanen@google.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
 	Zong Li <zong.li@sifive.com>,
 	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Chen Jiahao <chenjiahao16@huawei.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
 	James Morse <james.morse@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
 	Zhao Ke <ke.zhao@shingroup.cn>,
 	Andy Chiu <andy.chiu@sifive.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Tony Luck <tony.luck@intel.com>,
 	Ard Biesheuvel <ardb@kernel.org>,
-	Alison Schofield <alison.schofield@intel.com>,
 	Dan Williams <dan.j.williams@intel.com>,
+	Alison Schofield <alison.schofield@intel.com>,
 	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
 	Robert Richter <rrichter@amd.com>,
 	Yuntao Wang <ytcoode@gmail.com>,
@@ -100,16 +99,16 @@ Cc: xiaobo55x@gmail.com,
 	loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-acpi@vger.kernel.org
-Subject: [PATCH v4 2/4] ACPI: NUMA: Add handler for SRAT RINTC affinity structure
-Date: Thu, 13 Jun 2024 16:54:34 +0800
-Message-Id: <e076514d78d92f104a5f2d8c82b8921f6aa26fdd.1718268003.git.haibo1.xu@intel.com>
+Subject: [PATCH v4 3/4] ACPI: NUMA: change the ACPI_NUMA to a hidden option
+Date: Thu, 13 Jun 2024 16:54:35 +0800
+Message-Id: <f1f96377b8ecd6e3183f28abf5c9ac21cb9855ea.1718268003.git.haibo1.xu@intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1718268003.git.haibo1.xu@intel.com>
 References: <cover.1718268003.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240613_013723_426140_A68E71D7 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20240613_013728_953142_50BEE13F 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,78 +125,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add RINTC affinity structure handler during parsing SRAT table.
+x86/arm64/loongarch would select ACPI_NUMA by default and riscv
+would do the same thing, so change it to a hidden option and the
+select statements except for the X86_64_ACPI_NUMA can also go away.
 
+Suggested-by: Arnd Bergmann <arnd@arndb.de>
+Suggested-by: Sunil V L <sunilvl@ventanamicro.com>
 Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/numa/srat.c | 32 +++++++++++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
+ arch/arm64/Kconfig        | 1 -
+ arch/loongarch/Kconfig    | 1 -
+ drivers/acpi/numa/Kconfig | 5 +----
+ 3 files changed, 1 insertion(+), 6 deletions(-)
 
-diff --git a/drivers/acpi/numa/srat.c b/drivers/acpi/numa/srat.c
-index e3f26e71637a..44f91f2c6c5d 100644
---- a/drivers/acpi/numa/srat.c
-+++ b/drivers/acpi/numa/srat.c
-@@ -167,6 +167,19 @@ acpi_table_print_srat_entry(struct acpi_subtable_header *header)
- 		}
- 	}
- 	break;
-+
-+	case ACPI_SRAT_TYPE_RINTC_AFFINITY:
-+		{
-+			struct acpi_srat_rintc_affinity *p =
-+			    (struct acpi_srat_rintc_affinity *)header;
-+			pr_debug("SRAT Processor (acpi id[0x%04x]) in proximity domain %d %s\n",
-+				 p->acpi_processor_uid,
-+				 p->proximity_domain,
-+				 (p->flags & ACPI_SRAT_RINTC_ENABLED) ?
-+				 "enabled" : "disabled");
-+		}
-+		break;
-+
- 	default:
- 		pr_warn("Found unsupported SRAT entry (type = 0x%x)\n",
- 			header->type);
-@@ -450,6 +463,21 @@ acpi_parse_gi_affinity(union acpi_subtable_headers *header,
- }
- #endif /* defined(CONFIG_X86) || defined (CONFIG_ARM64) */
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 5d91259ee7b5..5079ad4e21a5 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1484,7 +1484,6 @@ config HOTPLUG_CPU
+ config NUMA
+ 	bool "NUMA Memory Allocation and Scheduler Support"
+ 	select GENERIC_ARCH_NUMA
+-	select ACPI_NUMA if ACPI
+ 	select OF_NUMA
+ 	select HAVE_SETUP_PER_CPU_AREA
+ 	select NEED_PER_CPU_EMBED_FIRST_CHUNK
+diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
+index e38139c576ee..8d9e06e4ad84 100644
+--- a/arch/loongarch/Kconfig
++++ b/arch/loongarch/Kconfig
+@@ -470,7 +470,6 @@ config NR_CPUS
+ config NUMA
+ 	bool "NUMA Support"
+ 	select SMP
+-	select ACPI_NUMA if ACPI
+ 	help
+ 	  Say Y to compile the kernel with NUMA (Non-Uniform Memory Access)
+ 	  support.  This option improves performance on systems with more
+diff --git a/drivers/acpi/numa/Kconfig b/drivers/acpi/numa/Kconfig
+index 849c2bd820b9..f33194d1e43f 100644
+--- a/drivers/acpi/numa/Kconfig
++++ b/drivers/acpi/numa/Kconfig
+@@ -1,9 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ config ACPI_NUMA
+-	bool "NUMA support"
+-	depends on NUMA
+-	depends on (X86 || ARM64 || LOONGARCH)
+-	default y if ARM64
++	def_bool NUMA && !X86
  
-+static int __init
-+acpi_parse_rintc_affinity(union acpi_subtable_headers *header,
-+			  const unsigned long end)
-+{
-+	struct acpi_srat_rintc_affinity *rintc_affinity;
-+
-+	rintc_affinity = (struct acpi_srat_rintc_affinity *)header;
-+	acpi_table_print_srat_entry(&header->common);
-+
-+	/* let architecture-dependent part to do it */
-+	acpi_numa_rintc_affinity_init(rintc_affinity);
-+
-+	return 0;
-+}
-+
- static int __init acpi_parse_srat(struct acpi_table_header *table)
- {
- 	struct acpi_table_srat *srat = (struct acpi_table_srat *)table;
-@@ -485,7 +513,7 @@ int __init acpi_numa_init(void)
- 
- 	/* SRAT: System Resource Affinity Table */
- 	if (!acpi_table_parse(ACPI_SIG_SRAT, acpi_parse_srat)) {
--		struct acpi_subtable_proc srat_proc[4];
-+		struct acpi_subtable_proc srat_proc[5];
- 
- 		memset(srat_proc, 0, sizeof(srat_proc));
- 		srat_proc[0].id = ACPI_SRAT_TYPE_CPU_AFFINITY;
-@@ -496,6 +524,8 @@ int __init acpi_numa_init(void)
- 		srat_proc[2].handler = acpi_parse_gicc_affinity;
- 		srat_proc[3].id = ACPI_SRAT_TYPE_GENERIC_AFFINITY;
- 		srat_proc[3].handler = acpi_parse_gi_affinity;
-+		srat_proc[4].id = ACPI_SRAT_TYPE_RINTC_AFFINITY;
-+		srat_proc[4].handler = acpi_parse_rintc_affinity;
- 
- 		acpi_table_parse_entries_array(ACPI_SIG_SRAT,
- 					sizeof(struct acpi_table_srat),
+ config ACPI_HMAT
+ 	bool "ACPI Heterogeneous Memory Attribute Table Support"
 -- 
 2.34.1
 
