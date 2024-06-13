@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D752C27C75
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2F9C2BA15
 	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 18:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,61 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oLpMaZksARAhpFcS+lUhE3il9t9yj51yP4CfS5sz5/M=; b=doZjBQK/GzK0xX
-	I7WzT44BlsY5fEAM5iJ7VTKkkOR9WdtSd5T4ex9SC0a4Ot8RpbFL/+UuU+8/9KDNW5/IuXbIScrvc
-	aSAyihV5OrifVYuEFeTHKG1hx8Q3tkwFmN9uY1z4zVH1mVteDIDGnEZPweYa8ua5Bw/fo7MDmq+l+
-	i3WSVXjEy1TqV3J+RD5JP0dSpcc1mEjxyYdcfAo7bqfnJSIA5xpW78ZRLeL6JwJkDFLZFp5+BUN8D
-	hbDlCvRA5ZTU5mglf7e00kKGclI7GyXnx+d0XvQQe4/QoZ/3U+dFwrGkvGBChthl6NfQUsQwfkCIl
-	tkfCndaYAV4QGk3RVueQ==;
+	List-Owner; bh=RFFMZWmKlymYDO5A/b5mJ8qeCyNMh4RUSNt7e/tVCBQ=; b=IisKOsy3iB8UIK
+	JhGdEWW7fjKfKIOc6sX36st6t0f+TaYnyDP2eD9VNuvdzWTjPIJi/cZUf3xu8MtG6V93eamw8y7b2
+	p489Qsnbo4GGB63KHXs3zOGCXDgaVzoRZOph8ve7/koTPjKeq5svYE723vQKMloCrjljSG3O0vbi8
+	I0uFqnCQfZnK0JEY3vkZJ8fN2l9NReS98Cb5/biYyI7XsieEeG8YLVcBqZ86Y319+ymLw3m5dT4bj
+	VnK7GW0XOxqYR85K670AOhypopO4LURxlPy6nHJ2BTLtsecP7Y/hs3a6laXS6ufd0US9caHNNu3fV
+	9EMrq/nXpw7wvYRepClw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHpG8-000000006O2-0S4P;
-	Thu, 13 Jun 2024 18:33:16 +0000
+	id 1sHpGB-000000006RB-2VSc;
+	Thu, 13 Jun 2024 18:33:19 +0000
 Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHpFg-0000000061P-0kPV
+	id 1sHpFk-0000000064s-0hmG
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jun 2024 18:32:50 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-62fd1655e12so27177407b3.1
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Jun 2024 11:32:44 -0700 (PDT)
+	Thu, 13 Jun 2024 18:32:56 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6312dd49229so17834017b3.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Jun 2024 11:32:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1718303564; x=1718908364; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1718303568; x=1718908368; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=VsC80hpqUOVrh72YOJDioHn4WeJ5/uS/HucL7CDuoyM=;
-        b=Gw5XeWZOg7hPFHW2g5eTleCp1eQ6jhe3TSaM3DedUCJalzlmiUaJ+YVCBp3VZXU7+U
-         woWCDd8oXS4YoeVqAybibJI+2CTcLjNajyGFIy+depLxfIzjc/XQFksLZriWvjpk9HEu
-         10IfI26cNSjn/m0MHCPDsOhukAWvhlo70AZpvjplXe3zBOzl6vfrbu4N1gANJ9Tg2XGS
-         tfxL0nyARLVEirHM0bYEGwpCjcqF812o+5nIu7Aezq2W5dNdlmk+dUyBRB+X826ur0TK
-         tApUEBwy4pRvo0ql95/CrG0SO02xW0Wm3PiePmLpMrKWjKSTqllj3656IsrXdo1amsIY
-         ATHA==
+        bh=ypeRfrMxrBCZjC38pT/Y3lCrmNLlrnXhQoa5V7sluF8=;
+        b=QLLD1NfLcDYla9x0xio+a8FbPCTA7qclvFoyxLord+PUKhKM+Uj8pP09iZKqhvXlfz
+         rzaSGgzMs35aQDaHAiZDon6g/X1e2QDpmhxkZwiDU7vAyASn0+N9rebEXwf5/ox77Zp3
+         T6ODYIux+fIzrgdmPk8BOg2KPBgitRBB3IiCnavpe6DtPkZKVb3pf7Y8+43hT6DjX6tF
+         d8tlC7awy8+TbnKDcMxlmjsyW+owELyFDBPHy3SHYL/RGBE8kHam9t/ZSzZCrPDFxyKg
+         tF3YfwytUOlUZG//hzXjrZiZLMtKVBPl9yJz88lESpEW1Zzq3TjduJ5XIRuiWamTdyba
+         /dnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718303564; x=1718908364;
+        d=1e100.net; s=20230601; t=1718303568; x=1718908368;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VsC80hpqUOVrh72YOJDioHn4WeJ5/uS/HucL7CDuoyM=;
-        b=KsO71bDPgUUeFuwnEipzKQwBczUkHHJnjWi/kUMj1djUHwWb2rd33NOwE2cz+VjK0I
-         PRD8gknG2MNZUaQBl04mbxS9OK9lkmuXk72GsRR8c/7rSrj4I8npMx7SLezsCxjTugc5
-         Bi+DY+le0+wzjMHN4XTxk4ycpc7MHDt2B9F2oie2JaV+Sx5h29Gol5gMuxlUQN36TWX+
-         SASfeqF1qASuOroQMzfLhNe2c1tTOXa4hu5pNIc+l7Vpr68O1ZLnHk+llUVA2EOW4Xai
-         xplEYwfFuctqu41mptveQ8l89W83gyzVNhEgw1Jw3KHq8Q7TpXm0SyxMNSPwXeq3vHHP
-         fizw==
-X-Forwarded-Encrypted: i=1; AJvYcCXfwnz1cAM60uNB/hj5y3bW3NGiloi3uB//GDuDOu/248NqASZoAKU7XMUVIAZqj40RawhR+O8w41qE07SRDl3UkaEkwbFcMJWgfs+S3ed8
-X-Gm-Message-State: AOJu0YybjwcqJRFZp2t6GXL4N5a4dbQ6C59eHNw0ee+f/8Rqj5MKLW1/
-	TyH8a/YAmz3LdbfCAFJAb7StR/wAiLUTz13F3JzkpyeHGv5jWRmLhmQTZUp/1lFXZkoPPZVuucy
-	voxxbyg==
-X-Google-Smtp-Source: AGHT+IEdqa6Cq2DjAQ1hydcxNB6Fk+xXGdzWy6Gy93AqEv1pt5Ye/DroFSzoO6amfQnl0ylP95kficGysIqg
+        bh=ypeRfrMxrBCZjC38pT/Y3lCrmNLlrnXhQoa5V7sluF8=;
+        b=vr0ZcHS8rxkdVKNErI3TB3bnq9TBVz6YupfcgkgoWvKnpUygdDfn5sxHNKYRW3CUW+
+         30xUk/6dR55QxJIrOzkgHo4w/sQMIRoWipbcsUT6GiTzWavlrjcZs85ygStxJz4aF+8J
+         9DNXHvjoGRiFcB/eWPkJdrmI1D2m95l1B2Y7dOZ/drsIQSEkEXEbKujFRFes5ug/X/vN
+         MCk4c4fvjMOab3GiALnvhIbnL/SB8XxWwf2TJYc1ErcVRZjaqyFTNZhVlSo2cu5dDu04
+         Vzell8Cm5A71dm/f6V3IYNDoiVvi4xe7vKbYrTx09EITj/SBVZjJqMZxPXPMXNZXNVKH
+         p5SA==
+X-Forwarded-Encrypted: i=1; AJvYcCUkGN+ozek5UavGHWd/+M7HDSKy8H6c18HUNFm+kgHzJC0oIuut2YtPR59FkruqNF0AiBRjYIo0Qb9NT42EVVfJmlvE2i3khEiATvim0DYS
+X-Gm-Message-State: AOJu0YzBc78Xr0xVL9Rp2R7UI49swfF2t985BElVzmf7KXAZ8uORxoQp
+	M45UH8tJat1RqOm7AUgt2u73AYH0PJ39iE5rnqQFqlQvNECsNEWcS4MA+gp3wH5nqObkGey2qZ7
+	xu3yPcQ==
+X-Google-Smtp-Source: AGHT+IGlc1VucCCgy50miWVLZiut4arjTaID5BWG1ljKHjmf/rA+ONWHWFD8IyOXY8b5oXq3ivlu+bq34cZj
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:96dd:26a6:1493:53c8])
- (user=irogers job=sendgmr) by 2002:a05:690c:6ac8:b0:622:d1d3:124 with SMTP id
- 00721157ae682-632248126c8mr799617b3.10.1718303563655; Thu, 13 Jun 2024
- 11:32:43 -0700 (PDT)
-Date: Thu, 13 Jun 2024 11:32:21 -0700
+ (user=irogers job=sendgmr) by 2002:a05:690c:6503:b0:62c:fa1a:21d2 with SMTP
+ id 00721157ae682-6322206f2d0mr747867b3.1.1718303568410; Thu, 13 Jun 2024
+ 11:32:48 -0700 (PDT)
+Date: Thu, 13 Jun 2024 11:32:23 -0700
 In-Reply-To: <20240613183224.3399628-1-irogers@google.com>
-Message-Id: <20240613183224.3399628-6-irogers@google.com>
+Message-Id: <20240613183224.3399628-8-irogers@google.com>
 Mime-Version: 1.0
 References: <20240613183224.3399628-1-irogers@google.com>
 X-Mailer: git-send-email 2.45.2.627.g7a2c4fd464-goog
-Subject: [PATCH v2 5/8] perf bench: Make bench its own library
+Subject: [PATCH v2 7/8] perf python: Switch module to linking libraries from
+ building source
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -92,8 +93,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	coresight@lists.linaro.org, rust-for-linux@vger.kernel.org, 
 	bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240613_113248_401632_AFA4B0D9 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20240613_113252_511215_40FEA9A8 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,125 +111,426 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make the benchmark code into a library so it may be linked against
-things like the python module to avoid compiling code twice.
+setup.py was building most perf sources causing setup.py to mimic the
+Makefile logic as well as flex/bison code to be stubbed out, due to
+complexity building. By using libraries fewer functions are stubbed
+out, the build is faster and the Makefile logic is reused which should
+simplify updating. The libraries are passed through LDFLAGS to avoid
+complexity in python.
+
+Force the -fPIC flag for libbpf.a to ensure it is suitable for linking
+into the perf python module.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 Reviewed-by: James Clark <james.clark@arm.com>
 ---
- tools/perf/Build         |  4 ++--
- tools/perf/Makefile.perf | 11 +++++++++-
- tools/perf/bench/Build   | 46 ++++++++++++++++++++--------------------
- 3 files changed, 35 insertions(+), 26 deletions(-)
+ tools/perf/Makefile.config |   5 +
+ tools/perf/Makefile.perf   |   6 +-
+ tools/perf/util/python.c   | 271 ++++++++++++++-----------------------
+ tools/perf/util/setup.py   |  33 +----
+ 4 files changed, 110 insertions(+), 205 deletions(-)
 
-diff --git a/tools/perf/Build b/tools/perf/Build
-index fddd45ab35b4..2787f5630ff7 100644
---- a/tools/perf/Build
-+++ b/tools/perf/Build
-@@ -1,4 +1,4 @@
--perf-y += builtin-bench.o
-+perf-bench-y += builtin-bench.o
- perf-y += builtin-annotate.o
- perf-y += builtin-config.o
- perf-y += builtin-diff.o
-@@ -35,7 +35,7 @@ endif
- 
- perf-$(CONFIG_LIBELF) += builtin-probe.o
- 
--perf-y += bench/
-+perf-bench-y += bench/
- perf-test-y += tests/
- 
- perf-y += perf.o
+diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
+index 7f1e016a9253..639be696f597 100644
+--- a/tools/perf/Makefile.config
++++ b/tools/perf/Makefile.config
+@@ -910,6 +910,11 @@ else
+          endif
+          CFLAGS += -DHAVE_LIBPYTHON_SUPPORT
+          $(call detected,CONFIG_LIBPYTHON)
++	 ifeq ($(filter -fPIC,$(CFLAGS)),)
++           # Building a shared library requires position independent code.
++           CFLAGS += -fPIC
++           CXXFLAGS += -fPIC
++         endif
+       endif
+     endif
+   endif
 diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index 9fa69dd0b472..4a3c000b9845 100644
+index ff03f0431013..4a1a9f09fa09 100644
 --- a/tools/perf/Makefile.perf
 +++ b/tools/perf/Makefile.perf
-@@ -425,6 +425,9 @@ endif
+@@ -715,9 +715,9 @@ all: shell_compatibility_test $(ALL_PROGRAMS) $(LANG_BINDINGS) $(OTHER_PROGRAMS)
+ # Create python binding output directory if not already present
+ $(shell [ -d '$(OUTPUT)python' ] || mkdir -p '$(OUTPUT)python')
  
- export PERL_PATH
+-$(OUTPUT)python/perf$(PYTHON_EXTENSION_SUFFIX): $(PYTHON_EXT_SRCS) $(PYTHON_EXT_DEPS) $(LIBPERF) $(LIBSUBCMD)
++$(OUTPUT)python/perf$(PYTHON_EXTENSION_SUFFIX): $(PYTHON_EXT_SRCS) $(PYTHON_EXT_DEPS) $(PERFLIBS)
+ 	$(QUIET_GEN)LDSHARED="$(CC) -pthread -shared" \
+-        CFLAGS='$(CFLAGS)' LDFLAGS='$(LDFLAGS)' \
++        CFLAGS='$(CFLAGS)' LDFLAGS='$(LDFLAGS) $(LIBS)' \
+ 	  $(PYTHON_WORD) util/setup.py \
+ 	  --quiet build_ext; \
+ 	cp $(PYTHON_EXTBUILD_LIB)perf*.so $(OUTPUT)python/
+@@ -933,7 +933,7 @@ $(LIBAPI)-clean:
+ $(LIBBPF): FORCE | $(LIBBPF_OUTPUT)
+ 	$(Q)$(MAKE) -C $(LIBBPF_DIR) FEATURES_DUMP=$(FEATURE_DUMP_EXPORT) \
+ 		O= OUTPUT=$(LIBBPF_OUTPUT)/ DESTDIR=$(LIBBPF_DESTDIR) prefix= subdir= \
+-		$@ install_headers
++		EXTRA_CFLAGS="-fPIC" $@ install_headers
  
-+LIBPERF_BENCH_IN := $(OUTPUT)perf-bench-in.o
-+LIBPERF_BENCH := $(OUTPUT)libperf-bench.a
+ $(LIBBPF)-clean:
+ 	$(call QUIET_CLEAN, libbpf)
+diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
+index 0aeb97c11c03..3be882b2e845 100644
+--- a/tools/perf/util/python.c
++++ b/tools/perf/util/python.c
+@@ -10,21 +10,19 @@
+ #endif
+ #include <perf/mmap.h>
+ #include "evlist.h"
+-#include "callchain.h"
+ #include "evsel.h"
+ #include "event.h"
+ #include "print_binary.h"
+ #include "thread_map.h"
+ #include "trace-event.h"
+ #include "mmap.h"
+-#include "stat.h"
+-#include "metricgroup.h"
+ #include "util/bpf-filter.h"
+ #include "util/env.h"
+-#include "util/pmu.h"
+-#include "util/pmus.h"
++#include "util/kvm-stat.h"
++#include "util/kwork.h"
++#include "util/lock-contention.h"
+ #include <internal/lib.h>
+-#include "util.h"
++#include "../builtin.h"
+ 
+ #if PY_MAJOR_VERSION < 3
+ #define _PyUnicode_FromString(arg) \
+@@ -50,166 +48,6 @@
+ #define Py_TYPE(ob) (((PyObject*)(ob))->ob_type)
+ #endif
+ 
+-/*
+- * Avoid bringing in event parsing.
+- */
+-int parse_event(struct evlist *evlist __maybe_unused, const char *str __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-/*
+- * Provide these two so that we don't have to link against callchain.c and
+- * start dragging hist.c, etc.
+- */
+-struct callchain_param callchain_param;
+-
+-int parse_callchain_record(const char *arg __maybe_unused,
+-			   struct callchain_param *param __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-/*
+- * Add these not to drag util/env.c
+- */
+-struct perf_env perf_env;
+-
+-const char *perf_env__cpuid(struct perf_env *env __maybe_unused)
+-{
+-	return NULL;
+-}
+-
+-// This one is a bit easier, wouldn't drag too much, but leave it as a stub we need it here
+-const char *perf_env__arch(struct perf_env *env __maybe_unused)
+-{
+-	return NULL;
+-}
+-
+-/*
+- * These ones are needed not to drag the PMU bandwagon, jevents generated
+- * pmu_sys_event_tables, etc and evsel__find_pmu() is used so far just for
+- * doing per PMU perf_event_attr.exclude_guest handling, not really needed, so
+- * far, for the perf python binding known usecases, revisit if this become
+- * necessary.
+- */
+-struct perf_pmu *evsel__find_pmu(const struct evsel *evsel __maybe_unused)
+-{
+-	return NULL;
+-}
+-
+-int perf_pmu__scan_file(const struct perf_pmu *pmu, const char *name, const char *fmt, ...)
+-{
+-	return EOF;
+-}
+-
+-const char *perf_pmu__name_from_config(struct perf_pmu *pmu __maybe_unused, u64 config __maybe_unused)
+-{
+-	return NULL;
+-}
+-
+-struct perf_pmu *perf_pmus__find_by_type(unsigned int type __maybe_unused)
+-{
+-	return NULL;
+-}
+-
+-int perf_pmus__num_core_pmus(void)
+-{
+-	return 1;
+-}
+-
+-bool evsel__is_aux_event(const struct evsel *evsel __maybe_unused)
+-{
+-	return false;
+-}
+-
+-bool perf_pmus__supports_extended_type(void)
+-{
+-	return false;
+-}
+-
+-/*
+- * Add this one here not to drag util/metricgroup.c
+- */
+-int metricgroup__copy_metric_events(struct evlist *evlist, struct cgroup *cgrp,
+-				    struct rblist *new_metric_events,
+-				    struct rblist *old_metric_events)
+-{
+-	return 0;
+-}
+-
+-/*
+- * Add this one here not to drag util/trace-event-info.c
+- */
+-char *tracepoint_id_to_name(u64 config)
+-{
+-	return NULL;
+-}
+-
+-/*
+- * XXX: All these evsel destructors need some better mechanism, like a linked
+- * list of destructors registered when the relevant code indeed is used instead
+- * of having more and more calls in perf_evsel__delete(). -- acme
+- *
+- * For now, add some more:
+- *
+- * Not to drag the BPF bandwagon...
+- */
+-void bpf_counter__destroy(struct evsel *evsel);
+-int bpf_counter__install_pe(struct evsel *evsel, int cpu, int fd);
+-int bpf_counter__disable(struct evsel *evsel);
+-
+-void bpf_counter__destroy(struct evsel *evsel __maybe_unused)
+-{
+-}
+-
+-int bpf_counter__install_pe(struct evsel *evsel __maybe_unused, int cpu __maybe_unused, int fd __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-int bpf_counter__disable(struct evsel *evsel __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-// not to drag util/bpf-filter.c
+-#ifdef HAVE_BPF_SKEL
+-int perf_bpf_filter__prepare(struct evsel *evsel __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-int perf_bpf_filter__destroy(struct evsel *evsel __maybe_unused)
+-{
+-	return 0;
+-}
+-#endif
+-
+-/*
+- * Support debug printing even though util/debug.c is not linked.  That means
+- * implementing 'verbose' and 'eprintf'.
+- */
+-int verbose;
+-int debug_kmaps;
+-int debug_peo_args;
+-
+-int eprintf(int level, int var, const char *fmt, ...);
+-
+-int eprintf(int level, int var, const char *fmt, ...)
+-{
+-	va_list args;
+-	int ret = 0;
+-
+-	if (var >= level) {
+-		va_start(args, fmt);
+-		ret = vfprintf(stderr, fmt, args);
+-		va_end(args);
+-	}
+-
+-	return ret;
+-}
+-
+ /* Define PyVarObject_HEAD_INIT for python 2.5 */
+ #ifndef PyVarObject_HEAD_INIT
+ # define PyVarObject_HEAD_INIT(type, size) PyObject_HEAD_INIT(type) size,
+@@ -1510,15 +1348,102 @@ PyMODINIT_FUNC PyInit_perf(void)
+ #endif
+ }
+ 
+-/*
+- * Dummy, to avoid dragging all the test_attr infrastructure in the python
+- * binding.
+- */
+-void test_attr__open(struct perf_event_attr *attr, pid_t pid, struct perf_cpu cpu,
+-                     int fd, int group_fd, unsigned long flags)
 +
- LIBPERF_TEST_IN := $(OUTPUT)perf-test-in.o
- LIBPERF_TEST := $(OUTPUT)libperf-test.a
- 
-@@ -438,7 +441,7 @@ PERFLIBS = $(LIBAPI) $(LIBPERF) $(LIBSUBCMD) $(LIBSYMBOL)
- ifdef LIBBPF_STATIC
-   PERFLIBS += $(LIBBPF)
- endif
--PERFLIBS += $(LIBPERF_TEST) $(LIBPERF_UI) $(LIBPMU_EVENTS)
-+PERFLIBS += $(LIBPERF_BENCH) $(LIBPERF_TEST) $(LIBPERF_UI) $(LIBPMU_EVENTS)
- 
- # We choose to avoid "if .. else if .. else .. endif endif"
- # because maintaining the nesting to match is a pain.  If
-@@ -740,6 +743,12 @@ $(LIBPMU_EVENTS_IN): FORCE prepare
- $(LIBPMU_EVENTS): $(LIBPMU_EVENTS_IN)
- 	$(QUIET_AR)$(RM) $@ && $(AR) rcs $@ $<
- 
-+$(LIBPERF_BENCH_IN): FORCE prepare
-+	$(Q)$(MAKE) $(build)=perf-bench
++/* The following are stubs to avoid dragging in builtin-* objects. */
++/* TODO: move the code out of the builtin-* file into util. */
 +
-+$(LIBPERF_BENCH): $(LIBPERF_BENCH_IN)
-+	$(QUIET_AR)$(RM) $@ && $(AR) rcs $@ $<
++unsigned int scripting_max_stack = PERF_MAX_STACK_DEPTH;
 +
- $(LIBPERF_TEST_IN): FORCE prepare
- 	$(Q)$(MAKE) $(build)=perf-test
++bool kvm_entry_event(struct evsel *evsel __maybe_unused)
+ {
++	return false;
++}
++
++bool kvm_exit_event(struct evsel *evsel __maybe_unused)
++{
++	return false;
++}
++
++bool exit_event_begin(struct evsel *evsel __maybe_unused,
++		      struct perf_sample *sample  __maybe_unused,
++		      struct event_key *key  __maybe_unused)
++{
++	return false;
++}
++
++bool exit_event_end(struct evsel *evsel __maybe_unused,
++		    struct perf_sample *sample __maybe_unused,
++		    struct event_key *key __maybe_unused)
++{
++	return false;
++}
++
++void exit_event_decode_key(struct perf_kvm_stat *kvm __maybe_unused,
++			   struct event_key *key __maybe_unused,
++			   char *decode __maybe_unused)
++{
++}
++
++int find_scripts(char **scripts_array  __maybe_unused, char **scripts_path_array  __maybe_unused,
++		int num  __maybe_unused, int pathlen __maybe_unused)
++{
++	return -1;
++}
++
++void perf_stat__set_no_csv_summary(int set __maybe_unused)
++{
++}
++
++void perf_stat__set_big_num(int set __maybe_unused)
++{
++}
++
++int script_spec_register(const char *spec __maybe_unused, struct scripting_ops *ops __maybe_unused)
++{
++	return -1;
++}
++
++arch_syscalls__strerrno_t *arch_syscalls__strerrno_function(const char *arch __maybe_unused)
++{
++	return NULL;
++}
++
++struct kwork_work *perf_kwork_add_work(struct perf_kwork *kwork __maybe_unused,
++				       struct kwork_class *class __maybe_unused,
++				       struct kwork_work *key  __maybe_unused)
++{
++	return NULL;
++}
++
++void script_fetch_insn(struct perf_sample *sample __maybe_unused,
++		struct thread *thread __maybe_unused,
++		struct machine *machine __maybe_unused)
++{
++}
++
++int perf_sample__sprintf_flags(u32 flags __maybe_unused, char *str __maybe_unused,
++			size_t sz __maybe_unused)
++{
++	return -1;
++}
++
++bool match_callstack_filter(struct machine *machine __maybe_unused, u64 *callstack __maybe_unused)
++{
++	return false;
++}
++
++struct lock_stat *lock_stat_find(u64 addr __maybe_unused)
++{
++	return NULL;
++}
++
++struct lock_stat *lock_stat_findnew(u64 addr __maybe_unused, const char *name __maybe_unused,
++				int flags __maybe_unused)
++{
++	return NULL;
+ }
  
-diff --git a/tools/perf/bench/Build b/tools/perf/bench/Build
-index c2ab30907ae7..279ab2ab4abe 100644
---- a/tools/perf/bench/Build
-+++ b/tools/perf/bench/Build
-@@ -1,25 +1,25 @@
--perf-y += sched-messaging.o
--perf-y += sched-pipe.o
--perf-y += sched-seccomp-notify.o
--perf-y += syscall.o
--perf-y += mem-functions.o
--perf-y += futex-hash.o
--perf-y += futex-wake.o
--perf-y += futex-wake-parallel.o
--perf-y += futex-requeue.o
--perf-y += futex-lock-pi.o
--perf-y += epoll-wait.o
--perf-y += epoll-ctl.o
--perf-y += synthesize.o
--perf-y += kallsyms-parse.o
--perf-y += find-bit-bench.o
--perf-y += inject-buildid.o
--perf-y += evlist-open-close.o
--perf-y += breakpoint.o
--perf-y += pmu-scan.o
--perf-y += uprobe.o
-+perf-bench-y += sched-messaging.o
-+perf-bench-y += sched-pipe.o
-+perf-bench-y += sched-seccomp-notify.o
-+perf-bench-y += syscall.o
-+perf-bench-y += mem-functions.o
-+perf-bench-y += futex-hash.o
-+perf-bench-y += futex-wake.o
-+perf-bench-y += futex-wake-parallel.o
-+perf-bench-y += futex-requeue.o
-+perf-bench-y += futex-lock-pi.o
-+perf-bench-y += epoll-wait.o
-+perf-bench-y += epoll-ctl.o
-+perf-bench-y += synthesize.o
-+perf-bench-y += kallsyms-parse.o
-+perf-bench-y += find-bit-bench.o
-+perf-bench-y += inject-buildid.o
-+perf-bench-y += evlist-open-close.o
-+perf-bench-y += breakpoint.o
-+perf-bench-y += pmu-scan.o
-+perf-bench-y += uprobe.o
+-void evlist__free_stats(struct evlist *evlist)
++int cmd_inject(int argc __maybe_unused, const char *argv[] __maybe_unused)
+ {
++	return -1;
+ }
+diff --git a/tools/perf/util/setup.py b/tools/perf/util/setup.py
+index 3107f5aa8c9a..142e9d447ce7 100644
+--- a/tools/perf/util/setup.py
++++ b/tools/perf/util/setup.py
+@@ -60,7 +60,7 @@ class install_lib(_install_lib):
  
--perf-$(CONFIG_X86_64) += mem-memcpy-x86-64-asm.o
--perf-$(CONFIG_X86_64) += mem-memset-x86-64-asm.o
-+perf-bench-$(CONFIG_X86_64) += mem-memcpy-x86-64-asm.o
-+perf-bench-$(CONFIG_X86_64) += mem-memset-x86-64-asm.o
+ cflags = getenv('CFLAGS', '').split()
+ # switch off several checks (need to be at the end of cflags list)
+-cflags += ['-fno-strict-aliasing', '-Wno-write-strings', '-Wno-unused-parameter', '-Wno-redundant-decls', '-DPYTHON_PERF' ]
++cflags += ['-fno-strict-aliasing', '-Wno-write-strings', '-Wno-unused-parameter', '-Wno-redundant-decls' ]
+ if cc_is_clang:
+     cflags += ["-Wno-unused-command-line-argument" ]
+ else:
+@@ -72,36 +72,11 @@ cflags += [ "-Wno-declaration-after-statement" ]
+ src_perf  = getenv('srctree') + '/tools/perf'
+ build_lib = getenv('PYTHON_EXTBUILD_LIB')
+ build_tmp = getenv('PYTHON_EXTBUILD_TMP')
+-libtraceevent = getenv('LIBTRACEEVENT')
+-libapikfs = getenv('LIBAPI')
+-libperf = getenv('LIBPERF')
+-
+-ext_sources = [f.strip() for f in open('util/python-ext-sources')
+-				if len(f.strip()) > 0 and f[0] != '#']
+-
+-extra_libraries = []
+-
+-if '-DHAVE_LIBTRACEEVENT' in cflags:
+-    extra_libraries += [ 'traceevent' ]
+-else:
+-    ext_sources.remove('util/trace-event.c')
+-    ext_sources.remove('util/trace-event-parse.c')
+-
+-# use full paths with source files
+-ext_sources = list(map(lambda x: '%s/%s' % (src_perf, x) , ext_sources))
+-
+-if '-DHAVE_LIBNUMA_SUPPORT' in cflags:
+-    extra_libraries += [ 'numa' ]
+-if '-DHAVE_LIBCAP_SUPPORT' in cflags:
+-    extra_libraries += [ 'cap' ]
  
--perf-$(CONFIG_NUMA) += numa.o
-+perf-bench-$(CONFIG_NUMA) += numa.o
+ perf = Extension('perf',
+-		  sources = ext_sources,
+-		  include_dirs = ['util/include'],
+-		  libraries = extra_libraries,
+-		  extra_compile_args = cflags,
+-		  extra_objects = [ x for x in [libtraceevent, libapikfs, libperf]
+-                                    if x is not None],
++                 sources = [ src_perf + '/util/python.c' ],
++		         include_dirs = ['util/include'],
++		         extra_compile_args = cflags,
+                  )
+ 
+ setup(name='perf',
 -- 
 2.45.2.627.g7a2c4fd464-goog
 
