@@ -4,68 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2605C27C75
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 06:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CB9C27C4F
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 07:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=s/bPpdKG61tpVZsN60LQ4klUjrnrPVeVOC2O7vdJmZw=; b=rLPVMaF33pM0b3
-	FHTBR9l2i/s92+P3biFFZl/jqsETXW61kp08DKeBKrifeAXWCZSey4aBEWBcxYu6OgYTBal50ApAH
-	ThMaVVVU5JxfUjTHBzTjQvsMuu5h0xufZMpssdIgoaw639zBfX+SXf5piaXXgFItBVnD9VqcWUuJh
-	LLTOeolcWOxKTNAyCQm+7vNj1BcT9nIlV6YP+aKGumHbxmacGahpHshgOTLLJrtLalg4/QNCyhON/
-	VeKnmQG/TqwzjEBxlyIa9ADUb24XcspqAxl26NapBRMtkHtPQxoikJ//DR1MO4k+HWwG02icEC5Nd
-	cgvXmdbeWjWDbcpi0I0w==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YhBwCJHb1Au6Kyb9Vi5sbMHRnPgZWNulHhI+mlCwPsU=; b=bAnEv9eRu+7TW5
+	T/2C/JNPRQX58V0ZpfxU4LU0NqA5oIfTleJ2RBCYj4ZI6fm53ZPv41rjDVfCd3dl1RVHZ5bgJ2mSN
+	eqCzrM/it2JbdVQ6qPIANQSkoI3jygQg/PIaBoHSKaUoSHCOXqNiPr40+pI9tq5yICJijst7oYmbD
+	Irz6Dbr5V5D8kUTZgi71Som6DCeOyf1IqJQ5uMUpV+MUJsmOxquQO3dceLN9xrrZmsbvgBc+B6+SW
+	nrvjBe92ogyNIzPkTBkCW7yTJ/+jRCA35PQlumhmZPjXB8BC413vszIUldtPKPxDJKJyT6/dR0IAx
+	49pD/pR+Q1KnA5nMA7/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHe4p-0000000FKwi-2VQa;
-	Thu, 13 Jun 2024 06:36:51 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1sHeqb-0000000FT0K-0m58;
+	Thu, 13 Jun 2024 07:26:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHe4m-0000000FKvL-2ucb
+	id 1sHeqY-0000000FSyy-2yeV
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jun 2024 06:36:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1718260609; x=1749796609;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=eDdu2f2vHJxLbLwxDJ+vmJ3c8IHG3EBc5uQ2lTCDa7s=;
-  b=O2sEawNZRbxh0dIRyV96GyWSjBZ/Y6GWHM36/utFu71PoxaYV4I+V/y1
-   HcGDXW9SETQ4m1ARdSi7d3jvJbZmL2Tz6aG4icHohL0EPB+9X9fv0To3X
-   fYCjj12rSP8q+YzhkOolacqNdX+sefEcCdVz5FVqWwtkoX9bT4lcWaLbb
-   ZrbkMGof5+aGkyY3nqYf6p/ji7im5Jh6X3V/IdrEwcFA/21liS2PkeMcR
-   8nAqKfHD7ntfuS6Z8ONsL4JP9YN0E1C/MJuoYEXy3gBJ37OnEBNzscmGr
-   0BeOovsk0JY9Eu4rUwiTfl6/kIJu/0BJ1Ks/W3K1myl1EDAdLLhjfsKbW
-   Q==;
-X-CSE-ConnectionGUID: aX9SUvQzQke7JYyaW9nhhQ==
-X-CSE-MsgGUID: k/jDsEKsRN+UcBjk1tULKg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11101"; a="14780590"
-X-IronPort-AV: E=Sophos;i="6.08,234,1712646000"; 
-   d="scan'208";a="14780590"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2024 23:36:46 -0700
-X-CSE-ConnectionGUID: J12hYHyfTnGD4ai7Jeh/5A==
-X-CSE-MsgGUID: 9MGimWN5SvWDIfmjW64BAg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.08,234,1712646000"; 
-   d="scan'208";a="44939106"
-Received: from unknown (HELO haibo-OptiPlex-7090.sh.intel.com) ([10.239.159.132])
-  by orviesa003.jf.intel.com with ESMTP; 12 Jun 2024 23:36:43 -0700
-From: Haibo Xu <haibo1.xu@intel.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org
-Subject: [PATCH v3] riscv: dmi: Add SMBIOS/DMI support
-Date: Thu, 13 Jun 2024 14:55:07 +0800
-Message-Id: <20240613065507.287577-1-haibo1.xu@intel.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 13 Jun 2024 07:26:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3B616618A1;
+	Thu, 13 Jun 2024 07:26:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FEF4C4AF4D;
+	Thu, 13 Jun 2024 07:26:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1718263567;
+	bh=gV/qdXbaOqf2PQPwvCYczv35Ojx7UrKDymt28a6nXJo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RoBXj02m4dhJ2PDnunF0yRJxwWfrgqTvzqHm8CiKYGaGZhWJLN+XcJeI+xo8gRdWm
+	 Vl1izOSNDigeTYPR13ETLChcwJH7Qbs8dbOPSUQyxFcvSWYPAovelEBx5b2qhAl2Yc
+	 zJZHR0KpBAcke+qhEDaagpngApysK+XvMhBbFO0TbIwF3SAvBdWGjGAhUKeWxgCbRg
+	 YdOKW46XGMCaFCeOkL7zrBNwL15qBOZUTGjp3H+RtBnAegdiEqt1NmugpX/cV4MFaF
+	 d08gpagkN29VCKLDLZmBqyMGBGwfYGvq5059htu3RBpKhzL2VR0rfiuk22Oy41ABOE
+	 v9GhQ86K2NIog==
+Message-ID: <60b833ce-730f-466e-8d99-3941d85232ce@kernel.org>
+Date: Thu, 13 Jun 2024 09:26:01 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] dt-bindings: PCI: microchip,pcie-host: allow
+ dma-noncoherent
+To: daire.mcnamara@microchip.com, linux-pci@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com,
+ robh@kernel.org, bhelgaas@google.com, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, krzk+dt@kernel.org, conor+dt@kernel.org
+References: <20240612112213.2734748-1-daire.mcnamara@microchip.com>
+ <20240612112213.2734748-4-daire.mcnamara@microchip.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20240612112213.2734748-4-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240612_233648_765421_DF8F6F70 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20240613_002610_910158_A63692C0 
+X-CRM114-Status: UNSURE (   5.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,107 +116,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, Haibo Xu <haibo1.xu@intel.com>, Atish Patra <atishp@rivosinc.com>, palmer@dabbelt.com, paul.walmsley@sifive.com, xiaobo55x@gmail.com, ardb@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable the dmi driver for riscv which would allow access the
-SMBIOS info through some userspace file(/sys/firmware/dmi/*).
+On 12/06/2024 13:22, daire.mcnamara@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> PolarFire SoC may be configured in a way that requires non-coherent DMA
+> handling. On RISC-V, buses are coherent by default & the dma-noncoherent
+> property is required to denote buses or devices that are non-coherent.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> ---
 
-The change was based on that of arm64 and has been verified
-by dmidecode tool.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
----
- Changes since v2
-   - Rebase to Linux 6.10-rc3
-   - Add Reviewed-by tag
----
- arch/riscv/Kconfig                   | 11 +++++++++++
- arch/riscv/include/asm/dmi.h         | 24 ++++++++++++++++++++++++
- drivers/firmware/efi/riscv-runtime.c | 13 +++++++++++++
- 3 files changed, 48 insertions(+)
- create mode 100644 arch/riscv/include/asm/dmi.h
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 0525ee2d63c7..b1fc6db48e7a 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -967,6 +967,17 @@ config EFI
- 	  allow the kernel to be booted as an EFI application. This
- 	  is only useful on systems that have UEFI firmware.
- 
-+config DMI
-+	bool "Enable support for SMBIOS (DMI) tables"
-+	depends on EFI
-+	default y
-+	help
-+	  This enables SMBIOS/DMI feature for systems.
-+
-+	  This option is only useful on systems that have UEFI firmware.
-+	  However, even with this option, the resultant kernel should
-+	  continue to boot on existing non-UEFI platforms.
-+
- config CC_HAVE_STACKPROTECTOR_TLS
- 	def_bool $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=tp -mstack-protector-guard-offset=0)
- 
-diff --git a/arch/riscv/include/asm/dmi.h b/arch/riscv/include/asm/dmi.h
-new file mode 100644
-index 000000000000..ca7cce557ef7
---- /dev/null
-+++ b/arch/riscv/include/asm/dmi.h
-@@ -0,0 +1,24 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2024 Intel Corporation
-+ *
-+ * based on arch/arm64/include/asm/dmi.h
-+ *
-+ * This file is subject to the terms and conditions of the GNU General Public
-+ * License.  See the file "COPYING" in the main directory of this archive
-+ * for more details.
-+ */
-+
-+#ifndef __ASM_DMI_H
-+#define __ASM_DMI_H
-+
-+#include <linux/io.h>
-+#include <linux/slab.h>
-+
-+#define dmi_early_remap(x, l)		memremap(x, l, MEMREMAP_WB)
-+#define dmi_early_unmap(x, l)		memunmap(x)
-+#define dmi_remap(x, l)			memremap(x, l, MEMREMAP_WB)
-+#define dmi_unmap(x)			memunmap(x)
-+#define dmi_alloc(l)			kzalloc(l, GFP_KERNEL)
-+
-+#endif
-diff --git a/drivers/firmware/efi/riscv-runtime.c b/drivers/firmware/efi/riscv-runtime.c
-index 01f0f90ea418..fa71cd898120 100644
---- a/drivers/firmware/efi/riscv-runtime.c
-+++ b/drivers/firmware/efi/riscv-runtime.c
-@@ -152,3 +152,16 @@ void arch_efi_call_virt_teardown(void)
- {
- 	efi_virtmap_unload();
- }
-+
-+static int __init riscv_dmi_init(void)
-+{
-+	/*
-+	 * On riscv, DMI depends on UEFI, and dmi_setup() needs to
-+	 * be called early because dmi_id_init(), which is an arch_initcall
-+	 * itself, depends on dmi_scan_machine() having been called already.
-+	 */
-+	dmi_setup();
-+
-+	return 0;
-+}
-+core_initcall(riscv_dmi_init);
--- 
-2.34.1
+Best regards,
+Krzysztof
 
 
 _______________________________________________
