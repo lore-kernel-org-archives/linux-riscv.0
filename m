@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2F9C2BA15
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 18:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA581C27C75
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2024 19:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
-	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RFFMZWmKlymYDO5A/b5mJ8qeCyNMh4RUSNt7e/tVCBQ=; b=IisKOsy3iB8UIK
-	JhGdEWW7fjKfKIOc6sX36st6t0f+TaYnyDP2eD9VNuvdzWTjPIJi/cZUf3xu8MtG6V93eamw8y7b2
-	p489Qsnbo4GGB63KHXs3zOGCXDgaVzoRZOph8ve7/koTPjKeq5svYE723vQKMloCrjljSG3O0vbi8
-	I0uFqnCQfZnK0JEY3vkZJ8fN2l9NReS98Cb5/biYyI7XsieEeG8YLVcBqZ86Y319+ymLw3m5dT4bj
-	VnK7GW0XOxqYR85K670AOhypopO4LURxlPy6nHJ2BTLtsecP7Y/hs3a6laXS6ufd0US9caHNNu3fV
-	9EMrq/nXpw7wvYRepClw==;
+	List-Owner; bh=+ndTT/KY6cYUSAOHE/k8Z5leexjYnaT7b1i8v0qhX0c=; b=aCKa/fcNBu/B/J
+	dnG4Ro2zpZYqjnBern1aAfBeLUY+yT61D7YU4uYwJ0SyePVlm5tBCdUuTQl8PJ62BAPMUxHJh31EM
+	Cj6vMJrcX5XZ7jdthtHnmvkPA0iUs3dSehgiikBERMGUO8zy65cjMgWYxS51M2Z2TSbWOdFYLDRR6
+	nzUtbbzPkFINPgb+pejQWlIontYtvrinNZZZ2N86+TM3UL+CWGplwrn75i0O6gxxB2NEDpyAVpbxk
+	ENVfCDnkEI9PS3FpCEXfJhNSGdr/ogeB/77HoYNG/lxUHofzu4oye41HpdNprPsEYfDEFOhlZkhY2
+	Lz1SaXrLFvz1PZNNjXMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHpGB-000000006RB-2VSc;
-	Thu, 13 Jun 2024 18:33:19 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1sHppC-00000000DFY-2rZl;
+	Thu, 13 Jun 2024 19:09:30 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sHpFk-0000000064s-0hmG
+	id 1sHpp9-00000000DEW-0gZ7
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jun 2024 18:32:56 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6312dd49229so17834017b3.3
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Jun 2024 11:32:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1718303568; x=1718908368; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ypeRfrMxrBCZjC38pT/Y3lCrmNLlrnXhQoa5V7sluF8=;
-        b=QLLD1NfLcDYla9x0xio+a8FbPCTA7qclvFoyxLord+PUKhKM+Uj8pP09iZKqhvXlfz
-         rzaSGgzMs35aQDaHAiZDon6g/X1e2QDpmhxkZwiDU7vAyASn0+N9rebEXwf5/ox77Zp3
-         T6ODYIux+fIzrgdmPk8BOg2KPBgitRBB3IiCnavpe6DtPkZKVb3pf7Y8+43hT6DjX6tF
-         d8tlC7awy8+TbnKDcMxlmjsyW+owELyFDBPHy3SHYL/RGBE8kHam9t/ZSzZCrPDFxyKg
-         tF3YfwytUOlUZG//hzXjrZiZLMtKVBPl9yJz88lESpEW1Zzq3TjduJ5XIRuiWamTdyba
-         /dnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718303568; x=1718908368;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ypeRfrMxrBCZjC38pT/Y3lCrmNLlrnXhQoa5V7sluF8=;
-        b=vr0ZcHS8rxkdVKNErI3TB3bnq9TBVz6YupfcgkgoWvKnpUygdDfn5sxHNKYRW3CUW+
-         30xUk/6dR55QxJIrOzkgHo4w/sQMIRoWipbcsUT6GiTzWavlrjcZs85ygStxJz4aF+8J
-         9DNXHvjoGRiFcB/eWPkJdrmI1D2m95l1B2Y7dOZ/drsIQSEkEXEbKujFRFes5ug/X/vN
-         MCk4c4fvjMOab3GiALnvhIbnL/SB8XxWwf2TJYc1ErcVRZjaqyFTNZhVlSo2cu5dDu04
-         Vzell8Cm5A71dm/f6V3IYNDoiVvi4xe7vKbYrTx09EITj/SBVZjJqMZxPXPMXNZXNVKH
-         p5SA==
-X-Forwarded-Encrypted: i=1; AJvYcCUkGN+ozek5UavGHWd/+M7HDSKy8H6c18HUNFm+kgHzJC0oIuut2YtPR59FkruqNF0AiBRjYIo0Qb9NT42EVVfJmlvE2i3khEiATvim0DYS
-X-Gm-Message-State: AOJu0YzBc78Xr0xVL9Rp2R7UI49swfF2t985BElVzmf7KXAZ8uORxoQp
-	M45UH8tJat1RqOm7AUgt2u73AYH0PJ39iE5rnqQFqlQvNECsNEWcS4MA+gp3wH5nqObkGey2qZ7
-	xu3yPcQ==
-X-Google-Smtp-Source: AGHT+IGlc1VucCCgy50miWVLZiut4arjTaID5BWG1ljKHjmf/rA+ONWHWFD8IyOXY8b5oXq3ivlu+bq34cZj
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2a3:200:96dd:26a6:1493:53c8])
- (user=irogers job=sendgmr) by 2002:a05:690c:6503:b0:62c:fa1a:21d2 with SMTP
- id 00721157ae682-6322206f2d0mr747867b3.1.1718303568410; Thu, 13 Jun 2024
- 11:32:48 -0700 (PDT)
-Date: Thu, 13 Jun 2024 11:32:23 -0700
-In-Reply-To: <20240613183224.3399628-1-irogers@google.com>
-Message-Id: <20240613183224.3399628-8-irogers@google.com>
-Mime-Version: 1.0
-References: <20240613183224.3399628-1-irogers@google.com>
-X-Mailer: git-send-email 2.45.2.627.g7a2c4fd464-goog
-Subject: [PATCH v2 7/8] perf python: Switch module to linking libraries from
- building source
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, James Clark <james.clark@arm.com>, 
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Yicong Yang <yangyicong@hisilicon.com>, Jonathan Cameron <jonathan.cameron@huawei.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	"=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>, 
-	Andreas Hindborg <a.hindborg@samsung.com>, Alice Ryhl <aliceryhl@google.com>, 
-	Nick Terrell <terrelln@fb.com>, Ravi Bangoria <ravi.bangoria@amd.com>, 
-	Kees Cook <keescook@chromium.org>, Andrei Vagin <avagin@google.com>, 
-	Athira Jajeev <atrajeev@linux.vnet.ibm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Ze Gao <zegao2021@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	coresight@lists.linaro.org, rust-for-linux@vger.kernel.org, 
-	bpf@vger.kernel.org
+	Thu, 13 Jun 2024 19:09:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 2B43FCE2773;
+	Thu, 13 Jun 2024 19:09:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C484C2BBFC;
+	Thu, 13 Jun 2024 19:09:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1718305763;
+	bh=HFWyWh6KpryPRqXeZqS8bpwy4cpqT7565JH13UCYe8Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r15KrCdS9IdIHad1rdEnJ2d8ckWytMU6LKbZHtECfabZeOOL5NeBLIxxPBq3z0zys
+	 3slzhtA9cdHuWZnGZHDV5NLs2bTHbBZynuD7Q8DQOxVA09rVcITHteKZ+9+HgLXR5M
+	 HdoVCKVKrpzgEk2cSlL6jYQ71DUrUvpCH8y/LyXJsqZGTYjaU0YmUIsxGTKPGUwrAM
+	 uV1gBh1sR/ghA14TJc9M7AyHJIwf42TPHHmnNcaLCqawQObi8CV5wvWxi8CbRIG6cM
+	 TBm0dJY8W1NUsdLFkBf/mQlzHFacpAS20ZjS1cela3jB5ird9bozLTcvGNoQEx+Z3j
+	 J9N0ANl5gHr0g==
+Date: Thu, 13 Jun 2024 12:09:20 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Zong Li <zong.li@sifive.com>, Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	Evgenii Shatokhin <e.shatokhin@yadro.com>
+Subject: Re: [PATCH 4/8] riscv: ftrace: align patchable functions to 4 Byte
+ boundary
+Message-ID: <20240613190920.GB1272931@thelio-3990X>
+References: <20240613-dev-andyc-dyn-ftrace-v4-v1-0-1a538e12c01e@sifive.com>
+ <20240613-dev-andyc-dyn-ftrace-v4-v1-4-1a538e12c01e@sifive.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240613-dev-andyc-dyn-ftrace-v4-v1-4-1a538e12c01e@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240613_113252_511215_40FEA9A8 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20240613_120927_601114_C67BDD6B 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,429 +87,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-setup.py was building most perf sources causing setup.py to mimic the
-Makefile logic as well as flex/bison code to be stubbed out, due to
-complexity building. By using libraries fewer functions are stubbed
-out, the build is faster and the Makefile logic is reused which should
-simplify updating. The libraries are passed through LDFLAGS to avoid
-complexity in python.
+Hi Andy,
 
-Force the -fPIC flag for libbpf.a to ensure it is suitable for linking
-into the perf python module.
+On Thu, Jun 13, 2024 at 03:11:09PM +0800, Andy Chiu wrote:
+> We are changing ftrace code patching in order to remove dependency from
+> stop_machine() and enable kernel preemption. This requires us to align
+> functions entry at a 4-B align address.
+> 
+> However, -falign-functions on older versions of GCC alone was not strong
+> enoungh to align all functions. In fact, cold functions are not aligned
+> after turning on optimizations. We consider this is a bug in GCC and
+> turn off guess-branch-probility as a workaround to align all functions.
+> 
+> GCC bug id: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=88345
+> 
+> The option -fmin-function-alignment is able to align all functions
+> properly on newer versions of gcc. So, we add a cc-option to test if
+> the toolchain supports it.
+> 
+> Suggested-by: Evgenii Shatokhin <e.shatokhin@yadro.com>
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> ---
+>  arch/riscv/Kconfig  | 1 +
+>  arch/riscv/Makefile | 7 ++++++-
+>  2 files changed, 7 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index b94176e25be1..80b8d48e1e46 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -203,6 +203,7 @@ config CLANG_SUPPORTS_DYNAMIC_FTRACE
+>  config GCC_SUPPORTS_DYNAMIC_FTRACE
+>  	def_bool CC_IS_GCC
+>  	depends on $(cc-option,-fpatchable-function-entry=8)
+> +	depends on $(cc-option,-fmin-function-alignment=4) || !RISCV_ISA_C
 
-Signed-off-by: Ian Rogers <irogers@google.com>
-Reviewed-by: James Clark <james.clark@arm.com>
----
- tools/perf/Makefile.config |   5 +
- tools/perf/Makefile.perf   |   6 +-
- tools/perf/util/python.c   | 271 ++++++++++++++-----------------------
- tools/perf/util/setup.py   |  33 +----
- 4 files changed, 110 insertions(+), 205 deletions(-)
+Please use CC_HAS_MIN_FUNCTION_ALIGNMENT (from arch/Kconfig), which
+already checks for support for this option.
 
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 7f1e016a9253..639be696f597 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -910,6 +910,11 @@ else
-          endif
-          CFLAGS += -DHAVE_LIBPYTHON_SUPPORT
-          $(call detected,CONFIG_LIBPYTHON)
-+	 ifeq ($(filter -fPIC,$(CFLAGS)),)
-+           # Building a shared library requires position independent code.
-+           CFLAGS += -fPIC
-+           CXXFLAGS += -fPIC
-+         endif
-       endif
-     endif
-   endif
-diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index ff03f0431013..4a1a9f09fa09 100644
---- a/tools/perf/Makefile.perf
-+++ b/tools/perf/Makefile.perf
-@@ -715,9 +715,9 @@ all: shell_compatibility_test $(ALL_PROGRAMS) $(LANG_BINDINGS) $(OTHER_PROGRAMS)
- # Create python binding output directory if not already present
- $(shell [ -d '$(OUTPUT)python' ] || mkdir -p '$(OUTPUT)python')
- 
--$(OUTPUT)python/perf$(PYTHON_EXTENSION_SUFFIX): $(PYTHON_EXT_SRCS) $(PYTHON_EXT_DEPS) $(LIBPERF) $(LIBSUBCMD)
-+$(OUTPUT)python/perf$(PYTHON_EXTENSION_SUFFIX): $(PYTHON_EXT_SRCS) $(PYTHON_EXT_DEPS) $(PERFLIBS)
- 	$(QUIET_GEN)LDSHARED="$(CC) -pthread -shared" \
--        CFLAGS='$(CFLAGS)' LDFLAGS='$(LDFLAGS)' \
-+        CFLAGS='$(CFLAGS)' LDFLAGS='$(LDFLAGS) $(LIBS)' \
- 	  $(PYTHON_WORD) util/setup.py \
- 	  --quiet build_ext; \
- 	cp $(PYTHON_EXTBUILD_LIB)perf*.so $(OUTPUT)python/
-@@ -933,7 +933,7 @@ $(LIBAPI)-clean:
- $(LIBBPF): FORCE | $(LIBBPF_OUTPUT)
- 	$(Q)$(MAKE) -C $(LIBBPF_DIR) FEATURES_DUMP=$(FEATURE_DUMP_EXPORT) \
- 		O= OUTPUT=$(LIBBPF_OUTPUT)/ DESTDIR=$(LIBBPF_DESTDIR) prefix= subdir= \
--		$@ install_headers
-+		EXTRA_CFLAGS="-fPIC" $@ install_headers
- 
- $(LIBBPF)-clean:
- 	$(call QUIET_CLEAN, libbpf)
-diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
-index 0aeb97c11c03..3be882b2e845 100644
---- a/tools/perf/util/python.c
-+++ b/tools/perf/util/python.c
-@@ -10,21 +10,19 @@
- #endif
- #include <perf/mmap.h>
- #include "evlist.h"
--#include "callchain.h"
- #include "evsel.h"
- #include "event.h"
- #include "print_binary.h"
- #include "thread_map.h"
- #include "trace-event.h"
- #include "mmap.h"
--#include "stat.h"
--#include "metricgroup.h"
- #include "util/bpf-filter.h"
- #include "util/env.h"
--#include "util/pmu.h"
--#include "util/pmus.h"
-+#include "util/kvm-stat.h"
-+#include "util/kwork.h"
-+#include "util/lock-contention.h"
- #include <internal/lib.h>
--#include "util.h"
-+#include "../builtin.h"
- 
- #if PY_MAJOR_VERSION < 3
- #define _PyUnicode_FromString(arg) \
-@@ -50,166 +48,6 @@
- #define Py_TYPE(ob) (((PyObject*)(ob))->ob_type)
- #endif
- 
--/*
-- * Avoid bringing in event parsing.
-- */
--int parse_event(struct evlist *evlist __maybe_unused, const char *str __maybe_unused)
--{
--	return 0;
--}
--
--/*
-- * Provide these two so that we don't have to link against callchain.c and
-- * start dragging hist.c, etc.
-- */
--struct callchain_param callchain_param;
--
--int parse_callchain_record(const char *arg __maybe_unused,
--			   struct callchain_param *param __maybe_unused)
--{
--	return 0;
--}
--
--/*
-- * Add these not to drag util/env.c
-- */
--struct perf_env perf_env;
--
--const char *perf_env__cpuid(struct perf_env *env __maybe_unused)
--{
--	return NULL;
--}
--
--// This one is a bit easier, wouldn't drag too much, but leave it as a stub we need it here
--const char *perf_env__arch(struct perf_env *env __maybe_unused)
--{
--	return NULL;
--}
--
--/*
-- * These ones are needed not to drag the PMU bandwagon, jevents generated
-- * pmu_sys_event_tables, etc and evsel__find_pmu() is used so far just for
-- * doing per PMU perf_event_attr.exclude_guest handling, not really needed, so
-- * far, for the perf python binding known usecases, revisit if this become
-- * necessary.
-- */
--struct perf_pmu *evsel__find_pmu(const struct evsel *evsel __maybe_unused)
--{
--	return NULL;
--}
--
--int perf_pmu__scan_file(const struct perf_pmu *pmu, const char *name, const char *fmt, ...)
--{
--	return EOF;
--}
--
--const char *perf_pmu__name_from_config(struct perf_pmu *pmu __maybe_unused, u64 config __maybe_unused)
--{
--	return NULL;
--}
--
--struct perf_pmu *perf_pmus__find_by_type(unsigned int type __maybe_unused)
--{
--	return NULL;
--}
--
--int perf_pmus__num_core_pmus(void)
--{
--	return 1;
--}
--
--bool evsel__is_aux_event(const struct evsel *evsel __maybe_unused)
--{
--	return false;
--}
--
--bool perf_pmus__supports_extended_type(void)
--{
--	return false;
--}
--
--/*
-- * Add this one here not to drag util/metricgroup.c
-- */
--int metricgroup__copy_metric_events(struct evlist *evlist, struct cgroup *cgrp,
--				    struct rblist *new_metric_events,
--				    struct rblist *old_metric_events)
--{
--	return 0;
--}
--
--/*
-- * Add this one here not to drag util/trace-event-info.c
-- */
--char *tracepoint_id_to_name(u64 config)
--{
--	return NULL;
--}
--
--/*
-- * XXX: All these evsel destructors need some better mechanism, like a linked
-- * list of destructors registered when the relevant code indeed is used instead
-- * of having more and more calls in perf_evsel__delete(). -- acme
-- *
-- * For now, add some more:
-- *
-- * Not to drag the BPF bandwagon...
-- */
--void bpf_counter__destroy(struct evsel *evsel);
--int bpf_counter__install_pe(struct evsel *evsel, int cpu, int fd);
--int bpf_counter__disable(struct evsel *evsel);
--
--void bpf_counter__destroy(struct evsel *evsel __maybe_unused)
--{
--}
--
--int bpf_counter__install_pe(struct evsel *evsel __maybe_unused, int cpu __maybe_unused, int fd __maybe_unused)
--{
--	return 0;
--}
--
--int bpf_counter__disable(struct evsel *evsel __maybe_unused)
--{
--	return 0;
--}
--
--// not to drag util/bpf-filter.c
--#ifdef HAVE_BPF_SKEL
--int perf_bpf_filter__prepare(struct evsel *evsel __maybe_unused)
--{
--	return 0;
--}
--
--int perf_bpf_filter__destroy(struct evsel *evsel __maybe_unused)
--{
--	return 0;
--}
--#endif
--
--/*
-- * Support debug printing even though util/debug.c is not linked.  That means
-- * implementing 'verbose' and 'eprintf'.
-- */
--int verbose;
--int debug_kmaps;
--int debug_peo_args;
--
--int eprintf(int level, int var, const char *fmt, ...);
--
--int eprintf(int level, int var, const char *fmt, ...)
--{
--	va_list args;
--	int ret = 0;
--
--	if (var >= level) {
--		va_start(args, fmt);
--		ret = vfprintf(stderr, fmt, args);
--		va_end(args);
--	}
--
--	return ret;
--}
--
- /* Define PyVarObject_HEAD_INIT for python 2.5 */
- #ifndef PyVarObject_HEAD_INIT
- # define PyVarObject_HEAD_INIT(type, size) PyObject_HEAD_INIT(type) size,
-@@ -1510,15 +1348,102 @@ PyMODINIT_FUNC PyInit_perf(void)
- #endif
- }
- 
--/*
-- * Dummy, to avoid dragging all the test_attr infrastructure in the python
-- * binding.
-- */
--void test_attr__open(struct perf_event_attr *attr, pid_t pid, struct perf_cpu cpu,
--                     int fd, int group_fd, unsigned long flags)
-+
-+/* The following are stubs to avoid dragging in builtin-* objects. */
-+/* TODO: move the code out of the builtin-* file into util. */
-+
-+unsigned int scripting_max_stack = PERF_MAX_STACK_DEPTH;
-+
-+bool kvm_entry_event(struct evsel *evsel __maybe_unused)
- {
-+	return false;
-+}
-+
-+bool kvm_exit_event(struct evsel *evsel __maybe_unused)
-+{
-+	return false;
-+}
-+
-+bool exit_event_begin(struct evsel *evsel __maybe_unused,
-+		      struct perf_sample *sample  __maybe_unused,
-+		      struct event_key *key  __maybe_unused)
-+{
-+	return false;
-+}
-+
-+bool exit_event_end(struct evsel *evsel __maybe_unused,
-+		    struct perf_sample *sample __maybe_unused,
-+		    struct event_key *key __maybe_unused)
-+{
-+	return false;
-+}
-+
-+void exit_event_decode_key(struct perf_kvm_stat *kvm __maybe_unused,
-+			   struct event_key *key __maybe_unused,
-+			   char *decode __maybe_unused)
-+{
-+}
-+
-+int find_scripts(char **scripts_array  __maybe_unused, char **scripts_path_array  __maybe_unused,
-+		int num  __maybe_unused, int pathlen __maybe_unused)
-+{
-+	return -1;
-+}
-+
-+void perf_stat__set_no_csv_summary(int set __maybe_unused)
-+{
-+}
-+
-+void perf_stat__set_big_num(int set __maybe_unused)
-+{
-+}
-+
-+int script_spec_register(const char *spec __maybe_unused, struct scripting_ops *ops __maybe_unused)
-+{
-+	return -1;
-+}
-+
-+arch_syscalls__strerrno_t *arch_syscalls__strerrno_function(const char *arch __maybe_unused)
-+{
-+	return NULL;
-+}
-+
-+struct kwork_work *perf_kwork_add_work(struct perf_kwork *kwork __maybe_unused,
-+				       struct kwork_class *class __maybe_unused,
-+				       struct kwork_work *key  __maybe_unused)
-+{
-+	return NULL;
-+}
-+
-+void script_fetch_insn(struct perf_sample *sample __maybe_unused,
-+		struct thread *thread __maybe_unused,
-+		struct machine *machine __maybe_unused)
-+{
-+}
-+
-+int perf_sample__sprintf_flags(u32 flags __maybe_unused, char *str __maybe_unused,
-+			size_t sz __maybe_unused)
-+{
-+	return -1;
-+}
-+
-+bool match_callstack_filter(struct machine *machine __maybe_unused, u64 *callstack __maybe_unused)
-+{
-+	return false;
-+}
-+
-+struct lock_stat *lock_stat_find(u64 addr __maybe_unused)
-+{
-+	return NULL;
-+}
-+
-+struct lock_stat *lock_stat_findnew(u64 addr __maybe_unused, const char *name __maybe_unused,
-+				int flags __maybe_unused)
-+{
-+	return NULL;
- }
- 
--void evlist__free_stats(struct evlist *evlist)
-+int cmd_inject(int argc __maybe_unused, const char *argv[] __maybe_unused)
- {
-+	return -1;
- }
-diff --git a/tools/perf/util/setup.py b/tools/perf/util/setup.py
-index 3107f5aa8c9a..142e9d447ce7 100644
---- a/tools/perf/util/setup.py
-+++ b/tools/perf/util/setup.py
-@@ -60,7 +60,7 @@ class install_lib(_install_lib):
- 
- cflags = getenv('CFLAGS', '').split()
- # switch off several checks (need to be at the end of cflags list)
--cflags += ['-fno-strict-aliasing', '-Wno-write-strings', '-Wno-unused-parameter', '-Wno-redundant-decls', '-DPYTHON_PERF' ]
-+cflags += ['-fno-strict-aliasing', '-Wno-write-strings', '-Wno-unused-parameter', '-Wno-redundant-decls' ]
- if cc_is_clang:
-     cflags += ["-Wno-unused-command-line-argument" ]
- else:
-@@ -72,36 +72,11 @@ cflags += [ "-Wno-declaration-after-statement" ]
- src_perf  = getenv('srctree') + '/tools/perf'
- build_lib = getenv('PYTHON_EXTBUILD_LIB')
- build_tmp = getenv('PYTHON_EXTBUILD_TMP')
--libtraceevent = getenv('LIBTRACEEVENT')
--libapikfs = getenv('LIBAPI')
--libperf = getenv('LIBPERF')
--
--ext_sources = [f.strip() for f in open('util/python-ext-sources')
--				if len(f.strip()) > 0 and f[0] != '#']
--
--extra_libraries = []
--
--if '-DHAVE_LIBTRACEEVENT' in cflags:
--    extra_libraries += [ 'traceevent' ]
--else:
--    ext_sources.remove('util/trace-event.c')
--    ext_sources.remove('util/trace-event-parse.c')
--
--# use full paths with source files
--ext_sources = list(map(lambda x: '%s/%s' % (src_perf, x) , ext_sources))
--
--if '-DHAVE_LIBNUMA_SUPPORT' in cflags:
--    extra_libraries += [ 'numa' ]
--if '-DHAVE_LIBCAP_SUPPORT' in cflags:
--    extra_libraries += [ 'cap' ]
- 
- perf = Extension('perf',
--		  sources = ext_sources,
--		  include_dirs = ['util/include'],
--		  libraries = extra_libraries,
--		  extra_compile_args = cflags,
--		  extra_objects = [ x for x in [libtraceevent, libapikfs, libperf]
--                                    if x is not None],
-+                 sources = [ src_perf + '/util/python.c' ],
-+		         include_dirs = ['util/include'],
-+		         extra_compile_args = cflags,
-                  )
- 
- setup(name='perf',
--- 
-2.45.2.627.g7a2c4fd464-goog
+>  config HAVE_SHADOW_CALL_STACK
+>  	def_bool $(cc-option,-fsanitize=shadow-call-stack)
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 06de9d365088..74628ad8dcf8 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -14,8 +14,13 @@ endif
+>  ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
+>  	LDFLAGS_vmlinux += --no-relax
+>  	KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
+> +ifeq ($(CONFIG_CC_IS_CLANG),y)
 
+Same here, please invert this and use
+
+  ifdef CONFIG_CC_HAS_MIN_FUNCTION_ALIGNMENT
+
+like the main Makefile does.
+
+> +	cflags_ftrace_align := -falign-functions=4
+> +else
+> +	cflags_ftrace_align := -fmin-function-alignment=4
+> +endif
+>  ifeq ($(CONFIG_RISCV_ISA_C),y)
+> -	CC_FLAGS_FTRACE := -fpatchable-function-entry=4
+> +	CC_FLAGS_FTRACE := -fpatchable-function-entry=4 $(cflags_ftrace_align)
+>  else
+>  	CC_FLAGS_FTRACE := -fpatchable-function-entry=2
+>  endif
+> 
+> -- 
+> 2.43.0
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
