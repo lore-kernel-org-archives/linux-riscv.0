@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE636C27C75
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jun 2024 10:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC65C27C6E
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jun 2024 13:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AjxrR+7ccaE9eTBhArE6cOZTVp1/6LgTKT1d3kHGgTE=; b=3hPXcmG/YVlKX7
-	b62/gMV+dgmLcv9NSQyiD4jll1LKu+iepw5JFSTMNt2Cuwna5YSfN7TR70ODpyXVprwE9qXLvxt/b
-	bxCxcadBEkIotyOUJggl4ABKsFfwIEqbi1RTiwWoMXQlRN2GvCgttI53cd7J9XqI+puF0S6+qt+bg
-	K/wBXno9dSHJOV8rC6yT58frGv9pXwTKHoHNJKo/2rE25NQmpe3ZwnlqyYqkSGx4GRNEI+AMq7He+
-	M7BgtRjCorYQC1btAiiBSJS70qnH7ds7g7Jw5ti2ndnAoh2LVJoC7AJbeqNV6ZMaVi5fhoLdOBkto
-	J/nMkLt5Bfww+Zgro4Cw==;
+	List-Owner; bh=Be/ZIiRJrn96gh3vGJ3vFwgWddfTBWMKy2Ywap0VSzk=; b=1r8KQTkt8vKz4X
+	+Y+5BcSB26SwLpfYWr6vAPszVuPLSfh2tuSWNJZMZ64iHgHcgXsAQkbRoSIJ9Z8DaLENkyhuTG1wI
+	B7U+6lAk6NF0VJ3FRO9vJv387KksBlYt70bh4I/AVZDozvrvsupPi2wodm/a5x1exWd37cRCU5gmJ
+	i6B6qZOXgZFR7uhprULTz78RI822eRLL+wfMsrjkj54Oguk7mGPs/LV/hgaoAUH6Ox8k8op/XiHY3
+	+VQb0tClUXDSrUNZKdFtjg16tNAwieaxVJi/Q+cGLAfROWcJDjpxan7Oi9DZEcuujwt0WkmaG8Iot
+	0Ewi5zSV6Zn8BEFX23Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sI4Xx-00000002WQz-34Cj;
-	Fri, 14 Jun 2024 10:52:41 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1sI6of-00000002qlK-2CSI;
+	Fri, 14 Jun 2024 13:18:05 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sI4Xu-00000002WQ9-2a8r
+	id 1sI6ob-00000002qkM-1nCr
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jun 2024 10:52:40 +0000
+	Fri, 14 Jun 2024 13:18:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1718362359; x=1749898359;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=bjdAe8262D+RJHgD3sLoIDowspHJbi+XMGtijIFkaJs=;
-  b=EK2M9iN1LPIPUL+Q/rh3pXQ+kxH07b7ptgHO9TEICjbLQZm8HMwQd6XE
-   5/dWwzubKg4MUUq3puOVr7Hw7o9k1evaaodnrgrmiv993U53ZzvD6lwO+
-   zeoIkK5pKq/67n2u+ccPfjOnkf78UQFVsvmWU7qEcS1/zFp/9zuSBKfVt
-   np3tB2YBjzddYSVSDZEz8waQPv1eWrCLyrVceFMSKqQnumm3BZzqXAwHi
-   0Atu1ZysrhTDjfFNEawn10BVDCQ/vb9Ym9p9mXxIXaUsj0ik9iDrmrIwG
-   m2Y/LarUExvubzVR6e97FYQNLXfvgOqd24+dWtticw3xAb3WC5ZaQ7Jqt
-   w==;
-X-CSE-ConnectionGUID: VISorABMSuizuBrdUEYH2g==
-X-CSE-MsgGUID: 35lCft4mRpCcVJyBgMI/jg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11102"; a="15073015"
+  t=1718371082; x=1749907082;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=B/szTGuEIXbe/8epPrqiJ3Kbj5OfTgwv1AwgTjgi5WY=;
+  b=KIbnr90pXHH3k63WmBjPLa6N0+MSU+GtFkpqHeHX4TrO0lISO6188GH3
+   3MCVfrVqG6fM4acwFiTKKsfJw5Q1y7PWRXt3b2MGpAhZ1hbvuMhIPLw21
+   pHVKGJeH+Osby2C+YaRzuNTVNEnh8nmtEXZiOYWM9R2GdY8BiX038KkTR
+   wMs/ecJ3vqjqEFYjW0k079LQNX7Lk2cZ3B+1XyKKSRawEV0f5fZB47E2S
+   vxAYDYg2UeN8mqNKYuWqWeH8GW9wfOmQjoQ9J5vf6mbonlzYhBirSel8v
+   /2vhzrSeh+PvooBiNQodGB9pBIH+yenwG+gNeiyEDawUA+pde6sbM4jrl
+   g==;
+X-CSE-ConnectionGUID: bT5nHFmFTxm0tviSeTKRkw==
+X-CSE-MsgGUID: vOToDUKjQrmU+7f17UNaSQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11103"; a="15089935"
 X-IronPort-AV: E=Sophos;i="6.08,237,1712646000"; 
-   d="scan'208";a="15073015"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jun 2024 03:52:36 -0700
-X-CSE-ConnectionGUID: C8zURk45ToGR4ElJ0KUZug==
-X-CSE-MsgGUID: 5jx/nXZaQyaLXG7UOHdIwQ==
+   d="scan'208";a="15089935"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jun 2024 06:18:01 -0700
+X-CSE-ConnectionGUID: 2MiM/vp9TiOzq8Zrdxi7qQ==
+X-CSE-MsgGUID: R1elhJSqTf6qenCl6V9I7A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.08,237,1712646000"; 
-   d="scan'208";a="44836839"
-Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.94.248.10])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jun 2024 03:52:31 -0700
-Message-ID: <25910cae-b29e-49a5-86d2-6da571664b4a@intel.com>
-Date: Fri, 14 Jun 2024 13:52:26 +0300
+   d="scan'208";a="44911915"
+Received: from ijarvine-desk1.ger.corp.intel.com (HELO localhost) ([10.245.247.222])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jun 2024 06:17:56 -0700
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Fri, 14 Jun 2024 16:17:53 +0300 (EEST)
+To: daire.mcnamara@microchip.com
+cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+    conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com, 
+    robh@kernel.org, bhelgaas@google.com, LKML <linux-kernel@vger.kernel.org>, 
+    linux-riscv@lists.infradead.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Subject: Re: [PATCH v3 1/3] PCI: microchip: Fix outbound address translation
+ tables
+In-Reply-To: <20240612112213.2734748-2-daire.mcnamara@microchip.com>
+Message-ID: <77415307-f80c-a34b-b84f-a0febe6f2641@linux.intel.com>
+References: <20240612112213.2734748-1-daire.mcnamara@microchip.com> <20240612112213.2734748-2-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/4] mmc: sdhci-of-dwcmshc: add callback functions for
- dwcmshc
-To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
- conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com,
- jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
- chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
- tingzhu.wang@sophgo.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-References: <cover.1718241495.git.unicorn_wang@outlook.com>
- <2182f65bad83e394a7ffb9259b2c1aa130912961.1718241495.git.unicorn_wang@outlook.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
- Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-In-Reply-To: <2182f65bad83e394a7ffb9259b2c1aa130912961.1718241495.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240614_035238_860595_5520DFD4 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20240614_061801_533420_291F35A8 
+X-CRM114-Status: GOOD (  21.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,375 +86,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/06/24 04:43, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
+On Wed, 12 Jun 2024, daire.mcnamara@microchip.com wrote:
+
+> From: Daire McNamara <daire.mcnamara@microchip.com>
 > 
-> The current framework is not easily extended to support new SOCs.
-> For example, in the current code we see that the SOC-level
-> structure `rk35xx_priv` and related logic are distributed in
-> functions such as dwcmshc_probe/dwcmshc_remove/dwcmshc_suspend/......,
-> which is inappropriate.
+> On Microchip PolarFire SoC (MPFS) the PCIe Root Port can be behind one of
+> three general-purpose Fabric Interface Controller (FIC) buses that
+> encapsulate an AXI-M interface. That FIC is responsible for managing
+> the translations of the upper 32-bits of the AXI-M address. On MPFS,
+> the Root Port driver needs to take account of that outbound address
+> translation done by the parent FIC bus before setting up its own
+> outbound address translation tables.  In all cases on MPFS,
+> the remaining outbound address translation tables are 32-bit only.
 > 
-> The solution is to abstract some possible common operations of soc
-> as dwcmshc platform data. Each soc implements the corresponding callback
-> function according to its own needs.
-> dwcmshc framework is responsible for calling these callback functions
-> in those dwcmshc_xxx functions at proper positions.
+> Limit the outbound address translation tables to 32-bit only.
 > 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> Fixes: 6f15a9c9f941 ("PCI: microchip: Add Microchip Polarfire PCIe controller driver")
+> 
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+
+Don't leave spaces between tag lines.
+
 > ---
->  drivers/mmc/host/sdhci-of-dwcmshc.c | 143 +++++++++++++++++++---------
->  1 file changed, 99 insertions(+), 44 deletions(-)
+>  drivers/pci/controller/pcie-microchip-host.c | 10 +++++-----
+>  1 file changed, 5 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> index 38ab755aa044..ebae461019f9 100644
-> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> @@ -206,6 +206,7 @@ struct rk35xx_priv {
->  	u8 txclk_tapnum;
->  };
+> diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
+> index 137fb8570ba2..853adce24492 100644
+> --- a/drivers/pci/controller/pcie-microchip-host.c
+> +++ b/drivers/pci/controller/pcie-microchip-host.c
+> @@ -933,7 +933,7 @@ static int mc_pcie_init_irq_domains(struct mc_pcie *port)
 >  
-> +struct dwcmshc_ops;
->  struct dwcmshc_priv {
->  	struct clk	*bus_clk;
->  	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA1 reg */
-> @@ -214,6 +215,20 @@ struct dwcmshc_priv {
->  	void *priv; /* pointer to SoC private stuff */
->  	u16 delay_line;
->  	u16 flags;
-> +
-> +	const struct dwcmshc_ops *ops;
+>  static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+>  				 phys_addr_t axi_addr, phys_addr_t pci_addr,
+> -				 size_t size)
+> +				 u64 size)
 
-	const struct dwcmshc_data *data;
+I don't see how this is related to what is described by the commit 
+message.
 
-> +};
-> +
-> +struct dwcmshc_ops {
-> +	int (*init)(struct device *dev, struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
-> +	void (*postinit)(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
-> +	int  (*clks_enable)(struct dwcmshc_priv *dwc_priv);
-> +	void (*clks_disable)(struct dwcmshc_priv *dwc_priv);
-> +};
-> +
-> +struct dwcmshc_data {
-> +	const struct sdhci_pltfm_data *pdata;
-> +	const struct dwcmshc_ops *ops;
->  };
+If there's need for this change it should be justified properly and 
+it looks to me that resource_size_t would be more appropriate here given 
+the callers use resource_size() to determine this parameter?
 
-Currently, ops and pdata values are unique to an individual
-dwcmshc_data, so it is simpler to put it altogether i.e.
-
-struct dwcmshc_data {
-	const struct sdhci_pltfm_data pdata;
-	int (*init)(struct device *dev, struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
-	void (*postinit)(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
-	int  (*clks_enable)(struct dwcmshc_priv *dwc_priv);
-	void (*clks_disable)(struct dwcmshc_priv *dwc_priv);
-};
-
->  
->  /*******************************************************************************
-> @@ -815,6 +830,25 @@ static void rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_pr
->  	}
->  }
->  
-> +static int rk35xx_clks_enable(struct dwcmshc_priv *dwc_priv)
-> +{
-> +	struct rk35xx_priv *priv = dwc_priv->priv;
-> +	int ret = 0;
-> +
-> +	if (priv)
-> +		ret = clk_bulk_prepare_enable(RK35xx_MAX_CLKS, priv->rockchip_clks);
-> +	return ret;
-> +}
-> +
-> +static void rk35xx_clks_disable(struct dwcmshc_priv *dwc_priv)
-> +{
-> +	struct rk35xx_priv *priv = dwc_priv->priv;
-> +
-> +	if (priv)
-> +		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
-> +					   priv->rockchip_clks);
-> +}
-> +
->  static void th1520_sdhci_set_phy(struct sdhci_host *host)
 >  {
->  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> @@ -1167,30 +1201,65 @@ static const struct sdhci_pltfm_data sdhci_dwcmshc_cv18xx_pdata = {
->  	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
->  };
->  
-> +static const struct dwcmshc_ops dwcmshc_rk35xx_ops = {
-> +	.init = rk35xx_init,
-> +	.postinit = rk35xx_postinit,
-> +	.clks_enable = rk35xx_clks_enable,
-> +	.clks_disable = rk35xx_clks_disable,
-> +};
-
-So this becomes:
-
-static const struct dwcmshc_data sdhci_dwcmshc_rk35xx_pdata = {
-	.pdata = {
-		.ops = &sdhci_dwcmshc_rk35xx_ops,
-		.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-			  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
-		.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
-			   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
-	},
-	.init = rk35xx_init,
-	.postinit = rk35xx_postinit,
-	.clks_enable = rk35xx_clks_enable,
-	.clks_disable = rk35xx_clks_disable,
-};
-
-etc
-
-> +
-> +static const struct dwcmshc_ops dwcmshc_th1520_ops = {
-> +	.init = th1520_init,
-> +};
-> +
-> +static const struct dwcmshc_data dwcmshc_cv18xx_data = {
-> +	.pdata = &sdhci_dwcmshc_cv18xx_pdata,
-> +};
-> +
-> +static const struct dwcmshc_data dwcmshc_generic_data = {
-> +	.pdata = &sdhci_dwcmshc_pdata,
-> +};
-> +
-> +static const struct dwcmshc_data dwcmshc_rk35xx_data = {
-> +	.pdata = &sdhci_dwcmshc_rk35xx_pdata,
-> +	.ops = &dwcmshc_rk35xx_ops,
-> +};
-> +
-> +static const struct dwcmshc_data dwcmshc_th1520_data = {
-> +	.pdata = &sdhci_dwcmshc_th1520_pdata,
-> +	.ops = &dwcmshc_th1520_ops,
-> +};
-> +
-> +#ifdef CONFIG_ACPI
-> +static const struct dwcmshc_data dwcmshc_bf3_data = {
-> +	.pdata = &sdhci_dwcmshc_bf3_pdata,
-> +};
-> +#endif
-> +
->  static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
->  	{
->  		.compatible = "rockchip,rk3588-dwcmshc",
-> -		.data = &sdhci_dwcmshc_rk35xx_pdata,
-> +		.data = &dwcmshc_rk35xx_data,
->  	},
->  	{
->  		.compatible = "rockchip,rk3568-dwcmshc",
-> -		.data = &sdhci_dwcmshc_rk35xx_pdata,
-> +		.data = &dwcmshc_rk35xx_data,
->  	},
->  	{
->  		.compatible = "snps,dwcmshc-sdhci",
-> -		.data = &sdhci_dwcmshc_pdata,
-> +		.data = &dwcmshc_generic_data,
->  	},
->  	{
->  		.compatible = "sophgo,cv1800b-dwcmshc",
-> -		.data = &sdhci_dwcmshc_cv18xx_pdata,
-> +		.data = &dwcmshc_cv18xx_data,
->  	},
->  	{
->  		.compatible = "sophgo,sg2002-dwcmshc",
-> -		.data = &sdhci_dwcmshc_cv18xx_pdata,
-> +		.data = &dwcmshc_cv18xx_data,
->  	},
->  	{
->  		.compatible = "thead,th1520-dwcmshc",
-> -		.data = &sdhci_dwcmshc_th1520_pdata,
-> +		.data = &dwcmshc_th1520_data,
->  	},
->  	{},
->  };
-> @@ -1200,7 +1269,7 @@ MODULE_DEVICE_TABLE(of, sdhci_dwcmshc_dt_ids);
->  static const struct acpi_device_id sdhci_dwcmshc_acpi_ids[] = {
->  	{
->  		.id = "MLNXBF30",
-> -		.driver_data = (kernel_ulong_t)&sdhci_dwcmshc_bf3_pdata,
-> +		.driver_data = (kernel_ulong_t)&dwcmshc_bf3_data,
->  	},
->  	{}
->  };
-> @@ -1213,18 +1282,17 @@ static int dwcmshc_probe(struct platform_device *pdev)
->  	struct sdhci_pltfm_host *pltfm_host;
->  	struct sdhci_host *host;
->  	struct dwcmshc_priv *priv;
-> -	struct rk35xx_priv *rk_priv = NULL;
-> -	const struct sdhci_pltfm_data *pltfm_data;
-> +	const struct dwcmshc_data *data;
->  	int err;
->  	u32 extra, caps;
->  
-> -	pltfm_data = device_get_match_data(&pdev->dev);
-> -	if (!pltfm_data) {
-> +	data = device_get_match_data(&pdev->dev);
-> +	if (!data) {
->  		dev_err(&pdev->dev, "Error: No device match data found\n");
->  		return -ENODEV;
->  	}
->  
-> -	host = sdhci_pltfm_init(pdev, pltfm_data,
-> +	host = sdhci_pltfm_init(pdev, data->pdata,
->  				sizeof(struct dwcmshc_priv));
->  	if (IS_ERR(host))
->  		return PTR_ERR(host);
-> @@ -1239,6 +1307,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
->  
->  	pltfm_host = sdhci_priv(host);
->  	priv = sdhci_pltfm_priv(pltfm_host);
-> +	priv->ops = data->ops;
-
-Becomes:
-
-	priv->data = data;
-
->  
->  	if (dev->of_node) {
->  		pltfm_host->clk = devm_clk_get(dev, "core");
-> @@ -1269,20 +1338,14 @@ static int dwcmshc_probe(struct platform_device *pdev)
->  	host->mmc_host_ops.hs400_enhanced_strobe = dwcmshc_hs400_enhanced_strobe;
->  	host->mmc_host_ops.execute_tuning = dwcmshc_execute_tuning;
->  
-> -	if (pltfm_data == &sdhci_dwcmshc_rk35xx_pdata) {
-> -		err = rk35xx_init(&pdev->dev, host, priv);
-> -		if (err)
-> -			goto err_clk;
-> -	}
-> -
-> -	if (pltfm_data == &sdhci_dwcmshc_th1520_pdata) {
-> -		err = th1520_init(&pdev->dev, host, priv);
-> +	if (data->ops && data->ops->init) {
-
-Becomes:
-
-	if (data->init) {
-
-etc
-
-> +		err = data->ops->init(&pdev->dev, host, priv);
->  		if (err)
->  			goto err_clk;
->  	}
->  
->  #ifdef CONFIG_ACPI
-> -	if (pltfm_data == &sdhci_dwcmshc_bf3_pdata)
-> +	if (data == &dwcmshc_bf3_data)
->  		sdhci_enable_v4_mode(host);
->  #endif
->  
-> @@ -1308,8 +1371,8 @@ static int dwcmshc_probe(struct platform_device *pdev)
->  		dwcmshc_cqhci_init(host, pdev);
->  	}
->  
-> -	if (rk_priv)
-> -		rk35xx_postinit(host, priv);
-> +	if (data->ops && data->ops->postinit)
-> +		data->ops->postinit(host, priv);
->  
->  	err = __sdhci_add_host(host);
->  	if (err)
-> @@ -1327,9 +1390,8 @@ static int dwcmshc_probe(struct platform_device *pdev)
->  err_clk:
->  	clk_disable_unprepare(pltfm_host->clk);
->  	clk_disable_unprepare(priv->bus_clk);
-> -	if (rk_priv)
-> -		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
-> -					   rk_priv->rockchip_clks);
-> +	if (data->ops && data->ops->clks_disable)
-> +		data->ops->clks_disable(priv);
->  free_pltfm:
->  	sdhci_pltfm_free(pdev);
->  	return err;
-> @@ -1340,7 +1402,6 @@ static void dwcmshc_remove(struct platform_device *pdev)
->  	struct sdhci_host *host = platform_get_drvdata(pdev);
->  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
->  	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> -	struct rk35xx_priv *rk_priv = priv->priv;
->  
->  	pm_runtime_get_sync(&pdev->dev);
->  	pm_runtime_disable(&pdev->dev);
-> @@ -1352,9 +1413,8 @@ static void dwcmshc_remove(struct platform_device *pdev)
->  
->  	clk_disable_unprepare(pltfm_host->clk);
->  	clk_disable_unprepare(priv->bus_clk);
-> -	if (rk_priv)
-> -		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
-> -					   rk_priv->rockchip_clks);
-> +	if (priv->ops && priv->ops->clks_disable)
-> +		priv->ops->clks_disable(priv);
->  	sdhci_pltfm_free(pdev);
->  }
->  
-> @@ -1364,7 +1424,6 @@ static int dwcmshc_suspend(struct device *dev)
->  	struct sdhci_host *host = dev_get_drvdata(dev);
->  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
->  	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> -	struct rk35xx_priv *rk_priv = priv->priv;
+>  	u32 atr_sz = ilog2(size) - 1;
+>  	u32 val;
+> @@ -983,7 +983,8 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
+>  		if (resource_type(entry->res) == IORESOURCE_MEM) {
+>  			pci_addr = entry->res->start - entry->offset;
+>  			mc_pcie_setup_window(bridge_base_addr, index,
+> -					     entry->res->start, pci_addr,
+> +					     entry->res->start & 0xffffffff,
+> +					     pci_addr,
+>  					     resource_size(entry->res));
+>  			index++;
+>  		}
+> @@ -1117,9 +1118,8 @@ static int mc_platform_init(struct pci_config_window *cfg)
 >  	int ret;
 >  
->  	pm_runtime_resume(dev);
-> @@ -1383,9 +1442,8 @@ static int dwcmshc_suspend(struct device *dev)
->  	if (!IS_ERR(priv->bus_clk))
->  		clk_disable_unprepare(priv->bus_clk);
->  
-> -	if (rk_priv)
-> -		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
-> -					   rk_priv->rockchip_clks);
-> +	if (priv->ops && priv->ops->clks_disable)
-> +		priv->ops->clks_disable(priv);
->  
->  	return ret;
->  }
-> @@ -1395,7 +1453,6 @@ static int dwcmshc_resume(struct device *dev)
->  	struct sdhci_host *host = dev_get_drvdata(dev);
->  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
->  	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> -	struct rk35xx_priv *rk_priv = priv->priv;
->  	int ret;
->  
->  	ret = clk_prepare_enable(pltfm_host->clk);
-> @@ -1408,29 +1465,27 @@ static int dwcmshc_resume(struct device *dev)
->  			goto disable_clk;
->  	}
->  
-> -	if (rk_priv) {
-> -		ret = clk_bulk_prepare_enable(RK35xx_MAX_CLKS,
-> -					      rk_priv->rockchip_clks);
-> +	if (priv->ops && priv->ops->clks_enable) {
-> +		ret = priv->ops->clks_enable(priv);
->  		if (ret)
->  			goto disable_bus_clk;
->  	}
->  
->  	ret = sdhci_resume_host(host);
->  	if (ret)
-> -		goto disable_rockchip_clks;
-> +		goto disable_soc_clks;
->  
->  	if (host->mmc->caps2 & MMC_CAP2_CQE) {
->  		ret = cqhci_resume(host->mmc);
->  		if (ret)
-> -			goto disable_rockchip_clks;
-> +			goto disable_soc_clks;
->  	}
->  
->  	return 0;
->  
-> -disable_rockchip_clks:
-> -	if (rk_priv)
-> -		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
-> -					   rk_priv->rockchip_clks);
-> +disable_soc_clks:
-> +	if (priv->ops && priv->ops->clks_disable)
-> +		priv->ops->clks_disable(priv);
->  disable_bus_clk:
->  	if (!IS_ERR(priv->bus_clk))
->  		clk_disable_unprepare(priv->bus_clk);
+>  	/* Configure address translation table 0 for PCIe config space */
+> -	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
+> -			     cfg->res.start,
+> -			     resource_size(&cfg->res));
+> +	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start & 0xffffffff,
+> +			     0, resource_size(&cfg->res));
+
+Given your commit message, it would be more obvious to the code reader if 
+the literal is replaced with something like RP_OUTBOUND_TRANS_TBL_MASK 
+(that is GENMASK(31, 0)). Feel free to come up better name if I didn't 
+understand all the details right based on your commit message.
+
+-- 
+ i.
+
 
 
 _______________________________________________
