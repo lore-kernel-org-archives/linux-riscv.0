@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE65C27C75
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jun 2024 08:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91EB8C27C79
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jun 2024 09:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4G6a0hjmzhTsW0+GVeaLtoZKloMlrJjjXHfu6zn3vIw=; b=n18cMoRH7T2Mej6cvAcaG6noe3
-	qshYxHufp8eBJbR5sVDCa+D0+R/yMJ8apr/k/CnuODd5PV+MYy7TiJB4OKlXPLyxiLlBZf1kFsHC2
-	phhRWchKNvF9MRICl3Eo5z1JX20Wn4qJFcdSa275BhMR7YtC4y4SB4TomfJ/tDMSKny6zMeEgOGar
-	GzH3MF9Es1tL4WQXjUE2LLYT3P/9RST9s4ioMtLg1doRlmGF/5YVqHe3VfIrcESLw1bvE0m0B+qQs
-	rb/OuCra53UoEzIlCDl7qPVdIuOEN9UHEr0nBgrqE7SowEDrOf0kgq9SoYv++b17k+GDptadXTtdK
-	XVVj4Idg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Cc:References:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YrDcto0lI19hdrcOp5WfwJkIe8jsGb/JWOQ7Q8eCkG8=; b=X/fy7U+1jMLqR7
+	sGQc7aJeYu31XOorG9aLvS+0ujAexuOZfE8IR43KXNObV/MuhY14kGY8U2N3vnIYQTDmO6qhozAnL
+	vz8/zSqn2yd3tWqUmF82VwdvgTLe8IvYi/EX/BpACf0vbH7wVuKlpOEkwRBnb8iNIftcpR5+aEErh
+	K0j3YcIoyxI6V2k2LDpfArjiRmmDWIVMyDzBpFcl2eTZBqInTGVdJ64qChXpyKZmZRER+c477lcD2
+	ySZirqQge78szUeYz0jx91NXLQrKH1j3ZYTLEZu90AYOvAvkVobw9YryeOOOo6aofCVhVEdgCnebB
+	0R/jEeFah9oRJq5/xQxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sI2Un-000000023ZX-3mCs;
-	Fri, 14 Jun 2024 08:41:17 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sI2Uk-000000023Xw-13bu
-	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jun 2024 08:41:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1718354474; x=1749890474;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZDOfCAptFctnoa5A1SoVoCGucPsxFM9g5sCeJUxH9HE=;
-  b=ulel9lx9wnq5xL2xLIq/k/nJviVGsyRvZi0ToURNM/IKjr9ifOtqeTfE
-   XWWwIVzkBYMlQlzo8cxPU49PEvryaP44kxg6qwJPJjNYlu2RsvydKkguJ
-   YTcRCJAWWnc/jwG2F4orJk2E9a89MMl/+1cq5rnoCm4nf5FIlbLEefa4a
-   50RmUC3xeJhusZDrCFbdod6TQ81q7P0nEGwU4WI496jKO2SXreeem2WFZ
-   wdxlc3FpXNexDYz7yF0eQ87adtQAtjJ0vCg86N6DjmXjzIDqgoROvKQvi
-   Ja/1EM3ujQVyjNY5aYyrT+60E4YntBLGXEg0yU8j53Znx4vka6h+IGR4T
-   g==;
-X-CSE-ConnectionGUID: 4NPx0QlnRdWIkhBEFQ6o0w==
-X-CSE-MsgGUID: Ak2QJkQ1QT2Hb92DGF/MQA==
-X-IronPort-AV: E=Sophos;i="6.08,237,1712646000"; 
-   d="asc'?scan'208";a="28160744"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Jun 2024 01:41:13 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 14 Jun 2024 01:40:52 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Fri, 14 Jun 2024 01:40:46 -0700
-Date: Fri, 14 Jun 2024 09:40:29 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jesse Taube <jesse@rivosinc.com>
-CC: <linux-riscv@lists.infradead.org>, Jonathan Corbet <corbet@lwn.net>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, Evan Green
-	<evan@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>, Charlie Jenkins
-	<charlie@rivosinc.com>, Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu
-	<andy.chiu@sifive.com>, Eric Biggers <ebiggers@google.com>, Greentime Hu
-	<greentime.hu@sifive.com>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?=
-	<bjorn@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, Costa Shulyupin
-	<costa.shul@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, Baoquan
- He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>, Zong Li
-	<zong.li@sifive.com>, Sami Tolvanen <samitolvanen@google.com>, Ben Dooks
-	<ben.dooks@codethink.co.uk>, Alexandre Ghiti <alexghiti@rivosinc.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Erick Archer
-	<erick.archer@gmx.com>, Joel Granados <j.granados@samsung.com>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-Subject: Re: [PATCH v2 4/6] RISC-V: Detect unaligned vector accesses
- supported.
-Message-ID: <20240614-distaste-negligee-ba9216a8684e@wendy>
-References: <20240613191616.2101821-1-jesse@rivosinc.com>
- <20240613191616.2101821-5-jesse@rivosinc.com>
- <20240614-viral-dinghy-71d5f6585a55@wendy>
+	id 1sI3JI-00000002Cam-0aQi;
+	Fri, 14 Jun 2024 09:33:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sI3JD-00000002CYr-38sL;
+	Fri, 14 Jun 2024 09:33:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0C3AFEC;
+	Fri, 14 Jun 2024 02:33:44 -0700 (PDT)
+Received: from [192.168.1.100] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5CD0E3F5A1;
+	Fri, 14 Jun 2024 02:33:14 -0700 (PDT)
+Message-ID: <fedf6b3f-0338-4666-a7b6-4856ab626681@arm.com>
+Date: Fri, 14 Jun 2024 10:33:13 +0100
 MIME-Version: 1.0
-In-Reply-To: <20240614-viral-dinghy-71d5f6585a55@wendy>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/8] perf build: Add '*.a' to clean targets
+To: Ian Rogers <irogers@google.com>
+References: <20240613233122.3564730-1-irogers@google.com>
+ <20240613233122.3564730-2-irogers@google.com>
+Content-Language: en-US
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
+ Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Yicong Yang <yangyicong@hisilicon.com>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
+ Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng
+ <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+ =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <benno.lossin@proton.me>,
+ Andreas Hindborg <a.hindborg@samsung.com>, Alice Ryhl
+ <aliceryhl@google.com>, Nick Terrell <terrelln@fb.com>,
+ Ravi Bangoria <ravi.bangoria@amd.com>, Kees Cook <keescook@chromium.org>,
+ Andrei Vagin <avagin@google.com>, Athira Jajeev
+ <atrajeev@linux.vnet.ibm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Ze Gao <zegao2021@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ coresight@lists.linaro.org, rust-for-linux@vger.kernel.org,
+ bpf@vger.kernel.org
+From: James Clark <james.clark@arm.com>
+In-Reply-To: <20240613233122.3564730-2-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240614_014114_392134_0399C7C6 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20240614_023323_936588_7ABDC847 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,77 +85,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7796218897090840096=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7796218897090840096==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="2C5Ng6p8Cz1W0Nqu"
-Content-Disposition: inline
-
---2C5Ng6p8Cz1W0Nqu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jun 14, 2024 at 09:36:55AM +0100, Conor Dooley wrote:
-> On Thu, Jun 13, 2024 at 03:16:13PM -0400, Jesse Taube wrote:
-> > --- a/arch/riscv/kernel/unaligned_access_speed.c
-> > +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> > @@ -19,7 +19,8 @@
-> >  #define MISALIGNED_BUFFER_ORDER get_order(MISALIGNED_BUFFER_SIZE)
-> >  #define MISALIGNED_COPY_SIZE ((MISALIGNED_BUFFER_SIZE / 2) - 0x80)
-> > =20
-> > -DEFINE_PER_CPU(long, misaligned_access_speed);
-> > +DEFINE_PER_CPU(long, misaligned_access_speed) =3D RISCV_HWPROBE_MISALI=
-GNED_UNKNOWN;
-> > +DEFINE_PER_CPU(long, vector_misaligned_access) =3D RISCV_HWPROBE_VEC_M=
-ISALIGNED_UNSUPPORTED;
-> > =20
-> >  #ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
-> >  static cpumask_t fast_misaligned_access;
-> > @@ -268,12 +269,18 @@ static int check_unaligned_access_all_cpus(void)
-> > =20
-> >  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICCLSM)) {
-> >  		for_each_online_cpu(cpu) {
-> > +#ifdef CONFIG_RISCV_VECTOR_MISALIGNED
-> > +			per_cpu(vector_misaligned_access, cpu) =3D RISCV_HWPROBE_VEC_MISALI=
-GNED_FAST;
-> > +#endif
-> > +#ifdef CONFIG_RISCV_MISALIGNED
-> >  			per_cpu(misaligned_access_speed, cpu) =3D RISCV_HWPROBE_MISALIGNED_=
-FAST;
-> > +#endif
->=20
-> Can you IS_ENABLED()-ify these two as well please?
-
-Ah, you can't cos the variable doesn't exist in the other case.
-
---2C5Ng6p8Cz1W0Nqu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZmwB/QAKCRB4tDGHoIJi
-0lw0AP0dWhFA2S8cu1ZnOnJgSeMCQC978npy6RKjjZB2oEKb2wEAz/ZaOC0iE5/z
-bsJe/o/CJnvi7AXZcpQIaYdEDBNgIgs=
-=RIo5
------END PGP SIGNATURE-----
-
---2C5Ng6p8Cz1W0Nqu--
 
 
---===============7796218897090840096==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+On 14/06/2024 00:31, Ian Rogers wrote:
+> Fix some excessively long lines by deploying '\'.
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/Makefile.perf | 17 ++++++++++++-----
+>  1 file changed, 12 insertions(+), 5 deletions(-)
+> 
+
+Reviewed-by: James Clark <james.clark@arm.com>
+
+> diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+> index 5c35c0d89306..acc41a6717db 100644
+> --- a/tools/perf/Makefile.perf
+> +++ b/tools/perf/Makefile.perf
+> @@ -1201,12 +1201,19 @@ endif # CONFIG_PERF_BPF_SKEL
+>  bpf-skel-clean:
+>  	$(call QUIET_CLEAN, bpf-skel) $(RM) -r $(SKEL_TMP_OUT) $(SKELETONS) $(SKEL_OUT)/vmlinux.h
+>  
+> -clean:: $(LIBAPI)-clean $(LIBBPF)-clean $(LIBSUBCMD)-clean $(LIBSYMBOL)-clean $(LIBPERF)-clean arm64-sysreg-defs-clean fixdep-clean python-clean bpf-skel-clean tests-coresight-targets-clean
+> -	$(call QUIET_CLEAN, core-objs)  $(RM) $(LIBPERF_A) $(OUTPUT)perf-archive $(OUTPUT)perf-iostat $(LANG_BINDINGS)
+> -	$(Q)find $(or $(OUTPUT),.) -name '*.o' -delete -o -name '\.*.cmd' -delete -o -name '\.*.d' -delete -o -name '*.shellcheck_log' -delete
+> +clean:: $(LIBAPI)-clean $(LIBBPF)-clean $(LIBSUBCMD)-clean $(LIBSYMBOL)-clean $(LIBPERF)-clean \
+> +		arm64-sysreg-defs-clean fixdep-clean python-clean bpf-skel-clean \
+> +		tests-coresight-targets-clean
+> +	$(call QUIET_CLEAN, core-objs)  $(RM) $(LIBPERF_A) $(OUTPUT)perf-archive \
+> +		$(OUTPUT)perf-iostat $(LANG_BINDINGS)
+> +	$(Q)find $(or $(OUTPUT),.) -name '*.o' -delete -o -name '*.a' -delete -o \
+> +		-name '\.*.cmd' -delete -o -name '\.*.d' -delete -o -name '*.shellcheck_log' -delete
+>  	$(Q)$(RM) $(OUTPUT).config-detected
+> -	$(call QUIET_CLEAN, core-progs) $(RM) $(ALL_PROGRAMS) perf perf-read-vdso32 perf-read-vdsox32 $(OUTPUT)$(LIBJVMTI).so
+> -	$(call QUIET_CLEAN, core-gen)   $(RM)  *.spec *.pyc *.pyo */*.pyc */*.pyo $(OUTPUT)common-cmds.h TAGS tags cscope* $(OUTPUT)PERF-VERSION-FILE $(OUTPUT)FEATURE-DUMP $(OUTPUT)util/*-bison* $(OUTPUT)util/*-flex* \
+> +	$(call QUIET_CLEAN, core-progs) $(RM) $(ALL_PROGRAMS) perf perf-read-vdso32 \
+> +		perf-read-vdsox32 $(OUTPUT)$(LIBJVMTI).so
+> +	$(call QUIET_CLEAN, core-gen)   $(RM)  *.spec *.pyc *.pyo */*.pyc */*.pyo \
+> +		$(OUTPUT)common-cmds.h TAGS tags cscope* $(OUTPUT)PERF-VERSION-FILE \
+> +		$(OUTPUT)FEATURE-DUMP $(OUTPUT)util/*-bison* $(OUTPUT)util/*-flex* \
+>  		$(OUTPUT)util/intel-pt-decoder/inat-tables.c \
+>  		$(OUTPUT)tests/llvm-src-{base,kbuild,prologue,relocation}.c \
+>  		$(OUTPUT)pmu-events/pmu-events.c \
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7796218897090840096==--
-
