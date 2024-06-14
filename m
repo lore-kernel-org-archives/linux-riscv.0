@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 252A4C27C6E
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jun 2024 14:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE35C27C79
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jun 2024 14:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=my6AuU8ROLWm2/OD0WHVtkwCW52ZWD0MnRZcYiVzDFQ=; b=aJXqMtgmM7JRdE
-	5fFWhBRD2t8nY3STzCVJjRGGu2qds9506d4jQWjMVjQz2yRU7GVZmKg92zBb33qlRp0OT9OH8/bBm
-	QMvTGhQRv+X/cWdQchtpjc5bj9NQrQqXiEsUNX75tTKIkWpGkAGq+kYkBzz2SuoIA1AjHyVp38rZf
-	s83+EVOlhT0AEcblOJ7joHsLFF39KRJJ6VCT7wasIeOqayOPnK5SAfPJdJaftXqtcy84TRBjiLI9T
-	h46gziC+WWl7o1u7KjbC8j3+2UwKCR35tPjuhJRFVTvX9u27lSq0WumK0cgC8joxYmjhhgLVtajJJ
-	XLJ9JmeWXIsAbuClslWQ==;
+	List-Owner; bh=uD8puqJ0aB7gkNbxQQniBAb8KmBKchswtrLBEpxZ2h0=; b=mwhvO5By64nWbs
+	4GlvO9kfXeSNvF03j/5kvGnBCCcywUz2rDCdMuD1RUk2CbQwHPfaZBH8JhctcCd8fYE2q7T5oEDhb
+	0mN+zKgvHrX87D+UUKcotpLBmSn0QgaOn4faCE/Hy6wzM1lt1dQYZBQCymxkByjPrE43iU+UlgRUa
+	F/SvGema+v7OFipmA3kUvLjmBqQRsqgfh1vBAhBa+Kj4t3eNINklt04kgYZZ5jL7uHx0eVBfcWenx
+	DdJVmAd8FoHZp/SD6TqAzGkLo9OT/lo0ZcPMWvZ02j7A/FBmcYGkhgWNX2gzU0ftgSomRoaiu4ypj
+	gQWCDVyKlTrWNAhcsIcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sI7ow-00000002zz5-0RV9;
-	Fri, 14 Jun 2024 14:22:26 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1sI7oz-0000000301Q-1j6B;
+	Fri, 14 Jun 2024 14:22:29 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sI7os-00000002zvv-3lK2
+	id 1sI7ot-00000002zwn-3fqA
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jun 2024 14:22:24 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1f6559668e1so19741975ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Jun 2024 07:22:20 -0700 (PDT)
+	Fri, 14 Jun 2024 14:22:25 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1f44b45d6abso17889835ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Jun 2024 07:22:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1718374940; x=1718979740; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1718374942; x=1718979742; darn=lists.infradead.org;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=M7iZUV99NQN3RgJM91vO01sfzoKXhBrbq1qPqNaXoaI=;
-        b=SBIT4OnzMiuZXekFqsawXW4lQtKArVOWVWE5sbdpWphdb8NYkUsHGwdD/IbLWomqCu
-         7W/olX2QtopH4HBAjjOx8Rs+5pRkkhoPlMvWoiWYC7bbIM38q0yfuX4rr0R/qtALC55R
-         dHWCqDWUkTz2kQ6snFBH71dXu6NZ9vo2axtWpBSkT64nl64uOlZLfQgWHhy6+NX1xQGG
-         YH8P0F9FkiCV5Sxu1PaPrVs04UU22Knxg6JDnZ6vW8cxEtP3wPkx+gHNmBcIgyk1G+N0
-         Yce5Wci8EpGRj1W3tZGCQt3EZEJMe5rMqbxOxjDPLdcISNrYSBxcoIpG2NFJLKKSsxy3
-         lbSA==
+        bh=3Daef6kUbuf4+6WFIjDcTl7WQW1O4tQM7jDjBoLtjZ4=;
+        b=a+LtSVRFql0tZowRHa9yVVCxSGbIRhnxA97CTBJVFoJvzimEmhra2iymA+kugnIpXL
+         ZVBfu8I2aqMIYkQo7YnJJKXoA1OI0hsjT9/woyyq8jq0uG9KURpSAV7OXxLa6qO/IfQ3
+         hsXDY1T7isWfLfZRPsbzkEN/1Iq1PK0ht5LjVXlJRYkOgzxDeHJpqAaOTWM9octf8AEv
+         Jsl3pM83H14ysE8OdAuSdGeEIl+EW/5qOzR3+Rz+jCw3W6tgzNRNnIl8fV/SS0XEUrje
+         KD1C2wpKWo3NQeJW8bKjbLp3pKrv9WBQgEycbfkj9Nrs7GOwgmPQSju/94XpFo93qAaS
+         tAoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718374940; x=1718979740;
+        d=1e100.net; s=20230601; t=1718374942; x=1718979742;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=M7iZUV99NQN3RgJM91vO01sfzoKXhBrbq1qPqNaXoaI=;
-        b=VizgX66Wp7KojKP7Glfqj4XZvsjkFgnL1A/kMVWwopZDDIjIbn+vzgCViifMhCKoCY
-         wnuhJBuCtM8Fo81ZcgGT2ZTWIBtPHunUG2cfmqnPunXPjyKVOFknnZpgaGGDyc/+o2CI
-         GW1rTDtwbx1u+VWhFpdK3yiVUg9DnkDdjq7KWXcDneEIyZbsphRWF2xGEWjZbxIj99fi
-         mXDpYh1CqukvvUyBZoFi9T1b3Vq0Bj/m//oNeRy9izRIw0HVuplv+8IevKu+6R4eVKIK
-         UdUlHB5dozLeOZbCuIBgrMbibsJBg3Lm+M2I0RFBcWq40C4aTXQ09xCPfNg778cHfovX
-         OJ1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX4RjI4OevG/uC4FbY8uECJy/mz5BBAG/UsbDoP093OcahtUqx6CksTsEFr7eVikJ4056jD7maRmDGix+bGLrYZyEIb+mNdc+z3pFH1vorU
-X-Gm-Message-State: AOJu0YzJofvSNEnoLb/7rmbNo1q8SiWo9NGTlP4NeKoS/4RR0DZhpU1Z
-	TWPsag0DT9zD20PzfmwcKYwAuamXK9M6vbo/urpcGw++xXfuu9Tb2NoG2DT4Zw4=
-X-Google-Smtp-Source: AGHT+IGJERSTIzaOjggWWP0rQrcqidvG0Fn1shO0SdaiGkk+fF3agyv6rp5JLRqhxN5jNm2HLZv71g==
-X-Received: by 2002:a17:902:6906:b0:1f7:21fd:ab83 with SMTP id d9443c01a7336-1f8629feaeemr22250365ad.54.1718374940068;
-        Fri, 14 Jun 2024 07:22:20 -0700 (PDT)
+        bh=3Daef6kUbuf4+6WFIjDcTl7WQW1O4tQM7jDjBoLtjZ4=;
+        b=sxcactXg+qL4pvNz6qAm2VK8egrBb3p962TGy4Bk/mjCApiGVCCo03LZoORu9U9Xmm
+         9sZaRmB3Yrp8QYFfY3g0C/S0kYqQ8eS/C8asUb4zSpYgbEVYVK+04rs8apV/C9WvcK9s
+         G0zGmRMeOGOacXQSzb7vV69VbugRFgH3OamaOhIiXNXFsw2iP79T3mKz9EIRsoF8re4c
+         oE3zmyDTluunLUjkCRriH1PF4Z9Vpw85fEsOqBqI2k3NpOpOueNs5gcS0gXqyJ8b4gkN
+         gbuYDpeE0B9TrpaHUwJupEZbBunC4764Fs1t88TF5nIEjnfDR2ltf/M4BortQy1gyROE
+         hMEA==
+X-Forwarded-Encrypted: i=1; AJvYcCXiEBqNVnXg5AhssVCwptPcdBtNepBxl+/F83AidriXo0Qz/nPWxFhKuJFNUHgEb/YUqZy1IYxkEfkS9OpF9ufQHBCrGzvjGVcsE57EHPrD
+X-Gm-Message-State: AOJu0Yw4+pJEYkzxuFX9PIpi0NB07mM6VeXKH8rZzy1Z/l8qWgo7Vcif
+	QhhEuRpJaK6O9hOcR+dPEqJat+vUWPii7H6xAAs27pQtjyovlgUQBeZ2tKGqL7M=
+X-Google-Smtp-Source: AGHT+IFqgOZYvBJ4kxh5nI8iWhYcYwWgqXcjlHpYLYmYilMYTECy6aBNWzRZ7wIFJH/yInxDq6z0lg==
+X-Received: by 2002:a17:903:32ca:b0:1f7:c33:aa92 with SMTP id d9443c01a7336-1f8625c06f1mr32662045ad.9.1718374942583;
+        Fri, 14 Jun 2024 07:22:22 -0700 (PDT)
 Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f855e559d9sm32522005ad.35.2024.06.14.07.22.17
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f855e559d9sm32522005ad.35.2024.06.14.07.22.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Jun 2024 07:22:19 -0700 (PDT)
+        Fri, 14 Jun 2024 07:22:22 -0700 (PDT)
 From: Zong Li <zong.li@sifive.com>
 To: joro@8bytes.org,
 	will@kernel.org,
@@ -75,15 +75,15 @@ To: joro@8bytes.org,
 	iommu@lists.linux.dev,
 	linux-riscv@lists.infradead.org
 Cc: Zong Li <zong.li@sifive.com>
-Subject: [RFC PATCH v2 04/10] iommu/riscv: add iotlb_sync_map operation support
-Date: Fri, 14 Jun 2024 22:21:50 +0800
-Message-Id: <20240614142156.29420-5-zong.li@sifive.com>
+Subject: [RFC PATCH v2 05/10] iommu/riscv: support GSCID and GVMA invalidation command
+Date: Fri, 14 Jun 2024 22:21:51 +0800
+Message-Id: <20240614142156.29420-6-zong.li@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20240614142156.29420-1-zong.li@sifive.com>
 References: <20240614142156.29420-1-zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240614_072222_998019_E25E872F 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20240614_072223_965783_8DCAB6DD 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,52 +101,141 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add iotlb_sync_map operation for flush IOTLB. Software must
-flush the IOTLB after each page table.
+This patch adds a ID Allocator for GSCID and a wrap for setting up
+GSCID in IOTLB invalidation command.
+
+Set up iohgatp to enable second stage table and flush stage-2 table if
+the GSCID is set.
+
+The GSCID of domain should be freed when release domain. GSCID will be
+allocated for parent domain in nested IOMMU process.
 
 Signed-off-by: Zong Li <zong.li@sifive.com>
 ---
- drivers/iommu/riscv/Makefile |  1 +
- drivers/iommu/riscv/iommu.c  | 11 +++++++++++
- 2 files changed, 12 insertions(+)
+ drivers/iommu/riscv/iommu-bits.h |  7 ++++++
+ drivers/iommu/riscv/iommu.c      | 39 ++++++++++++++++++++++++++++----
+ 2 files changed, 41 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/iommu/riscv/Makefile b/drivers/iommu/riscv/Makefile
-index d36625a1fd08..f02ce6ebfbd0 100644
---- a/drivers/iommu/riscv/Makefile
-+++ b/drivers/iommu/riscv/Makefile
-@@ -1,3 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
- obj-$(CONFIG_RISCV_IOMMU) += iommu.o iommu-platform.o iommu-pmu.o
- obj-$(CONFIG_RISCV_IOMMU_PCI) += iommu-pci.o
-+obj-$(CONFIG_SIFIVE_IOMMU) += iommu-sifive.o
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 9aeb4b20c145..df7aeb2571ae 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1115,6 +1115,16 @@ static void riscv_iommu_iotlb_sync(struct iommu_domain *iommu_domain,
- 	riscv_iommu_iotlb_inval(domain, gather->start, gather->end);
+diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
+index 60523449f016..214735a335fd 100644
+--- a/drivers/iommu/riscv/iommu-bits.h
++++ b/drivers/iommu/riscv/iommu-bits.h
+@@ -731,6 +731,13 @@ static inline void riscv_iommu_cmd_inval_vma(struct riscv_iommu_command *cmd)
+ 	cmd->dword1 = 0;
  }
  
-+static int riscv_iommu_iotlb_sync_map(struct iommu_domain *iommu_domain,
-+				      unsigned long iova, size_t size)
++static inline void riscv_iommu_cmd_inval_gvma(struct riscv_iommu_command *cmd)
 +{
-+	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
-+
-+	riscv_iommu_iotlb_inval(domain, iova, iova + size - 1);
-+
-+	return 0;
++	cmd->dword0 = FIELD_PREP(RISCV_IOMMU_CMD_OPCODE, RISCV_IOMMU_CMD_IOTINVAL_OPCODE) |
++		      FIELD_PREP(RISCV_IOMMU_CMD_FUNC, RISCV_IOMMU_CMD_IOTINVAL_FUNC_GVMA);
++	cmd->dword1 = 0;
 +}
 +
- static inline size_t get_page_size(size_t size)
+ static inline void riscv_iommu_cmd_inval_set_addr(struct riscv_iommu_command *cmd,
+ 						  u64 addr)
  {
- 	if (size >= IOMMU_PAGE_SIZE_512G)
-@@ -1396,6 +1406,7 @@ static const struct iommu_domain_ops riscv_iommu_paging_domain_ops = {
- 	.unmap_pages = riscv_iommu_unmap_pages,
- 	.iova_to_phys = riscv_iommu_iova_to_phys,
- 	.iotlb_sync = riscv_iommu_iotlb_sync,
-+	.iotlb_sync_map = riscv_iommu_iotlb_sync_map,
- 	.flush_iotlb_all = riscv_iommu_iotlb_flush_all,
- };
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index df7aeb2571ae..45309bd096e5 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -45,6 +45,10 @@
+ static DEFINE_IDA(riscv_iommu_pscids);
+ #define RISCV_IOMMU_MAX_PSCID		(BIT(20) - 1)
+ 
++/* IOMMU GSCID allocation namespace. */
++static DEFINE_IDA(riscv_iommu_gscids);
++#define RISCV_IOMMU_MAX_GSCID		(BIT(16) - 1)
++
+ /* Device resource-managed allocations */
+ struct riscv_iommu_devres {
+ 	void *addr;
+@@ -845,6 +849,7 @@ struct riscv_iommu_domain {
+ 	struct list_head bonds;
+ 	spinlock_t lock;		/* protect bonds list updates. */
+ 	int pscid;
++	int gscid;
+ 	int amo_enabled:1;
+ 	int numa_node;
+ 	unsigned int pgd_mode;
+@@ -993,20 +998,33 @@ static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
+ 	rcu_read_lock();
+ 
+ 	prev = NULL;
++
+ 	list_for_each_entry_rcu(bond, &domain->bonds, list) {
+ 		iommu = dev_to_iommu(bond->dev);
+ 
+ 		/*
+ 		 * IOTLB invalidation request can be safely omitted if already sent
+-		 * to the IOMMU for the same PSCID, and with domain->bonds list
++		 * to the IOMMU for the same PSCID/GSCID, and with domain->bonds list
+ 		 * arranged based on the device's IOMMU, it's sufficient to check
+ 		 * last device the invalidation was sent to.
+ 		 */
+ 		if (iommu == prev)
+ 			continue;
+ 
+-		riscv_iommu_cmd_inval_vma(&cmd);
+-		riscv_iommu_cmd_inval_set_pscid(&cmd, domain->pscid);
++		/*
++		 * S2 domain needs to flush entries in stage-2 page table, its
++		 * bond list has host devices and pass-through devices, the GVMA
++		 * command is no effect on host devices, because there are no
++		 * mapping of host devices in stage-2 page table.
++		 */
++		if (domain->gscid) {
++			riscv_iommu_cmd_inval_gvma(&cmd);
++			riscv_iommu_cmd_inval_set_gscid(&cmd, domain->gscid);
++		} else {
++			riscv_iommu_cmd_inval_vma(&cmd);
++			riscv_iommu_cmd_inval_set_pscid(&cmd, domain->pscid);
++		}
++
+ 		if (len && len < RISCV_IOMMU_IOTLB_INVAL_LIMIT) {
+ 			for (iova = start; iova < end; iova += PAGE_SIZE) {
+ 				riscv_iommu_cmd_inval_set_addr(&cmd, iova);
+@@ -1015,6 +1033,7 @@ static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
+ 		} else {
+ 			riscv_iommu_cmd_send(iommu, &cmd);
+ 		}
++
+ 		prev = iommu;
+ 	}
+ 
+@@ -1083,6 +1102,7 @@ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+ 
+ 		WRITE_ONCE(dc->fsc, new_dc->fsc);
+ 		WRITE_ONCE(dc->ta, new_dc->ta & RISCV_IOMMU_PC_TA_PSCID);
++		WRITE_ONCE(dc->iohgatp, new_dc->iohgatp);
+ 		/* Update device context, write TC.V as the last step. */
+ 		dma_wmb();
+ 		WRITE_ONCE(dc->tc, tc);
+@@ -1354,6 +1374,9 @@ static void riscv_iommu_free_paging_domain(struct iommu_domain *iommu_domain)
+ 	if ((int)domain->pscid > 0)
+ 		ida_free(&riscv_iommu_pscids, domain->pscid);
+ 
++	if ((int)domain->gscid > 0)
++		ida_free(&riscv_iommu_gscids, domain->gscid);
++
+ 	riscv_iommu_pte_free(domain, _io_pte_entry(pfn, _PAGE_TABLE), NULL);
+ 	kfree(domain);
+ }
+@@ -1384,8 +1407,14 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+ 	if (!riscv_iommu_pt_supported(iommu, domain->pgd_mode))
+ 		return -ENODEV;
+ 
+-	dc.fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, domain->pgd_mode) |
+-		 FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, virt_to_pfn(domain->pgd_root));
++	if (domain->gscid)
++		dc.iohgatp = FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_MODE, domain->pgd_mode) |
++			     FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_GSCID, domain->gscid) |
++			     FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_PPN, virt_to_pfn(domain->pgd_root));
++	else
++		dc.fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, domain->pgd_mode) |
++			 FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, virt_to_pfn(domain->pgd_root));
++
+ 	dc.ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
+ 			   RISCV_IOMMU_PC_TA_V;
  
 -- 
 2.17.1
