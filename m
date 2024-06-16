@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B86C27C6E
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 672E1C27C53
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uOLOr0DiDSgalQtnFCQQf4Mtqe6LyugI4KElhDTGbec=; b=EewMHvOEgGOR0h
-	vzb1sETRjE5ppq8ZIVfARSOA79HNQFNjNdw42lryeuXzSIJxUizkZwfAU57HjdRAJrGbdF3PDZiUW
-	vN/IWBFlzLi9DmS2AIYngbGKHX1GIFM2JklzDu8OOKgiZuwc/a/8SBHqo3YNhsfz+mzncG+2rM6Dw
-	u1km5zZlUAzc71oR0UaPMwiSpMAScz4SUJ/ocbkPZotWRi95eHuU3AWJgKek6x0LyaHRV97DFBC0U
-	fRR9FyiqKXGsRg4fc3OGmfEy3SvR+nD1Ri6hTbfVyO7vsnFzj30jIQGU8GyZXBd1/ex+RMApkiOhe
-	lwaKbszIgubKBH1W3D3Q==;
+	List-Owner; bh=f6B8Hfsapkzuwqq+wrGxIGPqu0htX7K3tyWgBLkkcMo=; b=vtDJhFICY0LJ2Z
+	MXjyOBXvrSETR4li8J892Pi2j0ZpLCzA7eX2UPOKNcf0XIAzlCl2oF6GAviJRClwN2+cJOYi/uAr2
+	KmL0lyicPY76iLUJh9Tf+Pg5bGgiAO3W2twhwkoYn2oJnrYwQMfovxOSZ8lblfMhaH9W20L4vByZh
+	UmxC7Wuki54FrTnPkyOg37w66FURaXX40ghQZhuDC8ZU1+gtPEnsP0baesVCaMmU2GTcCOKAUfbJ5
+	kAEt1DAVGLb4B3fusVcoFBz83/6Z+Kak04cbCxvqyfeD6UMoz3x2hkepPhZtyKSZmz6KOcLc6U3S9
+	GSI8o+PO82Yk9Hgq3lEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sItZN-00000007y6o-1Qqo;
-	Sun, 16 Jun 2024 17:21:33 +0000
-Received: from out203-205-221-240.mail.qq.com ([203.205.221.240])
+	id 1sItZR-00000007yAH-1TOl;
+	Sun, 16 Jun 2024 17:21:37 +0000
+Received: from out203-205-221-153.mail.qq.com ([203.205.221.153])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sItZD-00000007xxy-2UKl
+	id 1sItZM-00000007y54-0nes
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jun 2024 17:21:25 +0000
+	Sun, 16 Jun 2024 17:21:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1718558481; bh=zeKC3Oe1sKju5vea7yzmfOgsaAN9lHVzkh8ycGLf/vo=;
+	t=1718558480; bh=4TsNRvdG1NQQAdbELi3/OvMmViVBRkNVoBLMMVaWK1Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HkzPbmD7s6YHL/D3EqqWpqvW4N61D1PBYyP21oFlaa0DangknigrWTxkmCaWoMqgd
-	 PhpImyg3uzn/A8fWUlQutPVsDfenHaE2HYrDpjZ9dF+1cnqqbLBE0t4JOc7hmd5Eyk
-	 viScshcInG6ZbLevh33OL7cFM0D59TuC1GnqrV9g=
+	b=rhv25WtyUpKbhPGwTOvBB68on6EsFbRmExJKlcOAI48LpWILVlBgEzS30ntlHhQpc
+	 ZTsxshFvGQMOLCfO9iR33PUM5G9mMbBRHm4ASB4Xp0wVc70+28TIuqvRTvFv2uJPGL
+	 fegiiSN20VBePGBLXpEmH7lqz32lz32fubcdq73g=
 Received: from cyy-pc.lan ([240e:379:2260:ed00:cd33:e8cf:d8f9:bed3])
 	by newxmesmtplogicsvrszb9-0.qq.com (NewEsmtp) with SMTP
 	id 5452D659; Mon, 17 Jun 2024 01:21:05 +0800
-X-QQ-mid: xmsmtpt1718558479t9pmmv511
-Message-ID: <tencent_CD84ADB1874F47D04EBBD51119173CC62405@qq.com>
-X-QQ-XMAILINFO: MziGzrjZeogZ27NrJX86U9jmp3/uR2WhQdNN59aMjNpQON5Q8za+/F7sLh1Hw3
-	 68tTGDI+4ujTQB04ciQCZIDqmk5l0FgIz7LbadCoXNVt4MbdGSzeVw5sw0p7+W9jP/tnOz1ijKX2
-	 yymOGrxBVmW++5Dlp4bpZOOpIboV3Te7DvvSydWKW5hdB+f6O9O7JLb0duDWH9IwUFe1ghXevd+E
-	 2p9dJzWImyecsjCIsgX3kkW14grbuplj7fdgkZuolIIpyKBbwEqG17ZFtSwGLFVkYyPe2QnUcReg
-	 Nhd7VbCnrgu2Q9RCdahd8qcNgj03uFRba26bDP09Olc0sR2eQYSYzytI01/Ns4mlPh5owihYJSL/
-	 G3ULFnShSV6ndFfa1lx74tipKESOiplwjU/ImPfilq2L1aeWFycQuUcio/lU3zz6eJriG9xt3yXd
-	 dvdTisTuLI7XTvONtGY1xY2ExXxplOVEJRs5ODMrsD5MCcbQypY+8eCuyQqs2lUIcVN7D6YuJrdz
-	 Vk0jxsvGtmNKfCmunBl6VSPgYGDPazV6MA80LcJqf/IGxD0PyOoUJeVNaFj3dq/AtpflQg5y47Ui
-	 YEwJpRllMYTo77HXltI7f+RsC4hSlhjzkvGRDATwKCX3WEay91kmQkEqv5QRdj2Eu65334LgXyN/
-	 6KmZP1k8Kc9+fNe4wpjR9XhqldEwx1dn0Fx3hegHJbOheC3UmJf83SIMIxX+PBMr0vp1BErH3RnD
-	 jfz/a9k34ylPB8U3O8eZC8fVssocE6wWsxVCBv91Q7VB3UdxJJnlVcDrbpgGO/rwKpmWUthdmnOc
-	 FUMgRcvOiTsPWQz2Klt9gl3e6Td1kmog0s5XTYzQ2dkTDFi9leD+p26OiKY+bKNqVKkNc7pcowCi
-	 iTqQv/zIAluRWXikuNSH5dLzkqEr1TppMuJ1ISsJWoO16rsZQq4d/o++9ULOQ+JfXcCFb6Cu6hq1
-	 TKXk8tVqLfxXv19rmC5A524t1CeqLW9xchlDewimwA+cK63EmfN3HP98gV7BMzX+MHp/1dKGOs6T
-	 CQmN2bCTO2XrP3ipdtdxmzN8cDo9AljyrAmES/ev8FXRPKSwia
-X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
+X-QQ-mid: xmsmtpt1718558477tyhsnv86d
+Message-ID: <tencent_904B1050FBC0B10A172C263924BD518F8F05@qq.com>
+X-QQ-XMAILINFO: NkHKfw09D6j8RA6sM/aK2Q+9dZcLaP+4NJQa9FQkX6htwVjNCVrAuZ5gfdMI56
+	 0aA8f9z8guNkaFGAs65Z/o2KgVEJYvcd/QY3iuRt0CW9VcRBXEAAKHD1Mvwzj5yv0iGpxDiftMD0
+	 IuxdwCbMTidsy/7axyyLf1wk6W5M9kD2n7R0ar6PU4rRWmTYt8rOWeNoMpKyadSzBmWKHM/JxZbZ
+	 r/cmk61LbXOTBOLXZlE3mZ6m51MVDkj6E/rv+pr55Z+z5vI2DjxZd5L1RzONPQihfDTQCJ9AldWy
+	 wQDXtCb5vs2TrVnpkzJB7kVJ+1ouniZy25DC0uvfNChmXJOqkKr/M8Qdp4auqXO+y6akZbSPnqd1
+	 OgVWlmJkZ/55zS7fUJs+rJPy8VoVzz1r6XQ77b0B9sDFS6ZHTKYapUX/n+k6D4kZDplYcEld51s0
+	 q9X9z6oB54QYdB6icx6bmV46Wl0E+11AnX1cQGSj6bGI3EHORbFd5mTflyggK1DgU8Z1wB243J7d
+	 9B6Sw161M0EYK8KH8t5LaQhpLXshVlx7ENsPz18qiP5wAY8DuOwNkfnkYSfja2qV/1hYKV9zuxC8
+	 3G0iZY9PzFureZxC/qW1m8MbFD5etIwn0P7FPOP7wMYv97Z8TTXuQOx0sFYwWDA9ZfmlvVSDKkTV
+	 8a5782w88sM0HuVlbd1yzKfao7fyNOkBPn37mahwfi7uOtWE8xxM6fGdmjaycoJVm+ZVB9Ty3Wm/
+	 EDzieAYZRfNc6YRFgEX8rUO91O8pvEPjc4YHWZlXTxNxpy1lq7S3npjl/zCHeQldfOjxOA3n+YJ0
+	 9j8w/fVoY8bpy8Cv3qxkyseSLhnBrvkxyUB9fwxnLqraM+BSJcUya9jp9IWJDOW4HxAjteAT7+ph
+	 An+i7qBhyDVcMS3gGnG3kpi7mHyCB13aBs9z2JWb4mbSVdbBxDD+fAC1zshse4wu8CehtiNYIO01
+	 m8Be11gHTz1xXuPndactt3OzVkZycHM6a8Z5WjQ+/0NgUstFIRyCe4KmGXFzUe5IkApHFJK+rTFv
+	 K87rDm4ZWrZVJQYFYilZhF0XqMNGlTpRZSihoK8LZrWjKe+hu75uwD8wNypnUd0dlHcSvxYQ==
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor+dt@kernel.org>,
@@ -66,17 +66,16 @@ Cc: Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH v1 9/9] riscv: defconfig: enable SpacemiT SoC
-Date: Mon, 17 Jun 2024 01:20:54 +0800
-X-OQ-MSGID: <20240616172054.3074948-9-cyy@cyyself.name>
+Subject: [PATCH v1 8/9] riscv: dts: spacemit: add Banana Pi BPI-F3 board device tree
+Date: Mon, 17 Jun 2024 01:20:53 +0800
+X-OQ-MSGID: <20240616172054.3074948-8-cyy@cyyself.name>
 X-Mailer: git-send-email 2.45.1
 In-Reply-To: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
 References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240616_102124_062302_A85C3B75 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240616_102132_612159_11E02539 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,26 +92,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable SpacemiT SoC config in defconfig to allow the default upstream
-kernel to boot on Banana Pi BPI-F3 board.
+Banana Pi BPI-F3 [1] is a industrial grade RISC-V development board, it
+design with SpacemiT K1 8 core RISC-V chip [2].
+
+Currently only support booting into console with only uart enabled,
+other features will be added soon later.
+
+[1] https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
+[2] https://www.spacemit.com/en/spacemit-key-stone-2/
 
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 ---
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/boot/dts/Makefile                 |  1 +
+ arch/riscv/boot/dts/spacemit/Makefile        |  2 ++
+ arch/riscv/boot/dts/spacemit/bananapi-f3.dts | 19 +++++++++++++++++++
+ 3 files changed, 22 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/spacemit/Makefile
+ create mode 100644 arch/riscv/boot/dts/spacemit/bananapi-f3.dts
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 12dc8c73a8ac..a33e8c463c8a 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -30,6 +30,7 @@ CONFIG_ARCH_RENESAS=y
- CONFIG_ARCH_SIFIVE=y
- CONFIG_ARCH_SOPHGO=y
- CONFIG_SOC_STARFIVE=y
-+CONFIG_SOC_SPACEMIT=y
- CONFIG_ARCH_SUNXI=y
- CONFIG_ARCH_THEAD=y
- CONFIG_ARCH_VIRT=y
+diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+index fdae05bbf556..bff887d38abe 100644
+--- a/arch/riscv/boot/dts/Makefile
++++ b/arch/riscv/boot/dts/Makefile
+@@ -5,6 +5,7 @@ subdir-y += microchip
+ subdir-y += renesas
+ subdir-y += sifive
+ subdir-y += sophgo
++subdir-y += spacemit
+ subdir-y += starfive
+ subdir-y += thead
+ 
+diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
+new file mode 100644
+index 000000000000..5c512f4e297d
+--- /dev/null
++++ b/arch/riscv/boot/dts/spacemit/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_ARCH_SPACEMIT) += bananapi-f3.dtb
+diff --git a/arch/riscv/boot/dts/spacemit/bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/bananapi-f3.dts
+new file mode 100644
+index 000000000000..023274189b49
+--- /dev/null
++++ b/arch/riscv/boot/dts/spacemit/bananapi-f3.dts
+@@ -0,0 +1,19 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
++ */
++
++#include "k1.dtsi"
++
++/ {
++	model = "Banana Pi BPI-F3";
++	compatible = "bananapi,bpi-f3", "spacemit,k1";
++
++	chosen {
++		stdout-path = "serial0";
++	};
++};
++
++&uart0 {
++	status = "okay";
++};
 -- 
 2.45.1
 
