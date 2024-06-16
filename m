@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271FEC27C53
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 18:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3D0C27C53
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 18:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJU18eJVXAygYLeRqJpstmiH3H/M9O+YOqu+vu5KNBo=; b=FEFm40JvkxDp6xOcZ1V4upJVSV
-	S2C5lPaqgLdFbskdr9ECERwk1s8eU1Sj8sPiLFYpKcQ075PAv9soWws8cKC7NascF0OY/+sPK2w2h
-	WXQCyA5Ti2xsFJKgMTOxNRS6gG/fJqbB5jT67XgXOjpUYqvwAKC54xGrd4NjzBPqWbzHbCHV5NnSj
-	S+DV6ArToXiycY8LPKJv/yNMTo+c5+lhhuM3lgmQTOulRFvykQ3vv2IOsZ7dlmemd7ZpyqARwfr9h
-	XkHj2mUZ+cGwCd4YMld2SDlPePQU+4GG9J4aCceKCHuQlleL7csUabDPzZuxEi6bXBFz9kIWdiYGg
-	lHcCbczg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=EYJ0SjjzSn5CsAVG1qZs7Y2CU4sMcjdW3we39ukIU38=; b=Ke2cEdX2TGrvolopHoB7DeHky3
+	EJw13xl2QW+IPpQJg93Jnd30qbPqa/QZUIusShXkKpL/N4ZXijmEMAlvC1pXVtHZ3nMZtD0690Ce6
+	GBum4oQhlRU/otVGroDA7R262zrcVw7HbOxDNBfI/U5catjdSN4VaaPHL6MYPidecUvxxm4nC/fK7
+	XrnFYhqGNZfeZByscpjLdWg9ZIIuvppexjb4oMjV9QtanvyXDnIBRPsBlzaQYLa6pWJIE0BopXXGR
+	bY0LceapLxxE1sp0cuLSvGc8NKUVX9NE9GVqvzzRb0FJNJvR8uDRtUPd6nUI/Gq75VL9wsPbA+JKB
+	CAdPrfog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sIuls-000000086vl-18pG;
-	Sun, 16 Jun 2024 18:38:32 +0000
+	id 1sIupL-000000087Iq-0msn;
+	Sun, 16 Jun 2024 18:42:07 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sIulo-000000086vI-2P4u
+	id 1sIupH-000000087Hn-46Y8
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jun 2024 18:38:30 +0000
+	Sun, 16 Jun 2024 18:42:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8FF5460DDA;
-	Sun, 16 Jun 2024 18:38:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7311C4AF1D;
-	Sun, 16 Jun 2024 18:38:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0D47A60F14;
+	Sun, 16 Jun 2024 18:42:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A42C2BBFC;
+	Sun, 16 Jun 2024 18:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718563107;
-	bh=mKljWFCEhr4ejc3sfHEzZLzWr53KPVcA5FfLGTbsJHY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S78wpN6SwSUeYKlNi+qGGtGDZ/DGfl5WZYihFc4RNV+iekIa+BqjXaPCP3s/r99cc
-	 SRcbh6rQgjTlxof1oFJa5cE1AQhwW2aJJG4SlA3cSICp1q7JbpKQK2DXmVx8LAPPG8
-	 KinUnF3HWCIRITCC9VYrofnnlC/3s7XaDUqqHUv5Apy1V3e65poWfeyg7qOePqxti3
-	 Vx4PFD9ampodJz7jEOgQzY9lFXuTo8ri4jkBr3f2cL5T1STHFa6Z7ovbkQaIl4c0KD
-	 +ikBGtl2nU1i0lCziGuYLFPjnRrx2+PuaYKOAc3NClRsOP980nJq47Ipr74dOdUsPl
-	 sS+TsW6pEK0iA==
-Date: Sun, 16 Jun 2024 19:38:21 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Drew Fustini <dfustini@tenstorrent.com>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Yangtao Li <frank.li@vivo.com>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/6] dt-bindings: clock: Document T-Head TH1520 AP_SUBSYS
- controller
-Message-ID: <20240616-reaffirm-thud-e3fb4de33d7f@spud>
-References: <20240615-th1520-clk-v1-0-3ba4978c4d6b@tenstorrent.com>
- <20240615-th1520-clk-v1-1-3ba4978c4d6b@tenstorrent.com>
+	s=k20201202; t=1718563321;
+	bh=CsM4DGKZqITnSBvF9KRlVOZ+BrnA9Rcyy2NY/zVK/6g=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=nfVi1Spq3O8TwowZ+vuXDDMSYKmcpzSwehCL6EsX5rme/5Rs0qC/j207G32eUK6+I
+	 Q5kPW2vCz4AbBp0dC1RE446//AmvLTnAKiw8UeFWUNR2lu/syMupXPeDQyXHztv9uO
+	 lEv7XmArJhFOd9KER6aJ8eVuPJcPKLWE7YPTFTdfro5F+bFwr8dt9GvGyXAc2RLl3H
+	 FYsx8nnS0mfExHNBr2V2uxZQ1ll7kwXBKyjfLku//pZXK7bBff7QR9n8G9k+/XGww6
+	 guhtUxmsX066+TSLbNhm9UEQ3jP4GZAhQfL73bnKxwF0l/Z3/sVB993oZljwrF1sP0
+	 p8EbJM/El1Y2g==
+Date: Sun, 16 Jun 2024 12:42:00 -0600
 MIME-Version: 1.0
-In-Reply-To: <20240615-th1520-clk-v1-1-3ba4978c4d6b@tenstorrent.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: devicetree@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, 
+ Anup Patel <anup.patel@wdc.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org
+In-Reply-To: <tencent_D3577BC67116D732862BE4A7B187EF4ED005@qq.com>
+References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
+ <tencent_D3577BC67116D732862BE4A7B187EF4ED005@qq.com>
+Message-Id: <171856332052.2487659.8752285245461346812.robh@kernel.org>
+Subject: Re: [PATCH v1 3/9] dt-bindings: riscv: add SpacemiT K1 bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240616_113828_701021_3C98583B 
-X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-CacheID: sfid-20240616_114204_103443_1CFEF40D 
+X-CRM114-Status: UNSURE (   9.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,67 +72,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7125247044632316438=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7125247044632316438==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="GV1+ODsExlaKnTkx"
-Content-Disposition: inline
+On Mon, 17 Jun 2024 01:20:48 +0800, Yangyu Chen wrote:
+> Add DT binding documentation for the SpacemiT K1 Soc[1] and the Banana
+> Pi BPi-F3 board[2] which used it.
+> 
+> [1] https://www.spacemit.com/en/spacemit-key-stone-2/
+> [2] https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
+> 
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> ---
+>  .../devicetree/bindings/riscv/spacemit.yaml   | 24 +++++++++++++++++++
+>  1 file changed, 24 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/spacemit.yaml
+> 
 
+My bot found errors running 'make dt_binding_check' on your patch:
 
---GV1+ODsExlaKnTkx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+yamllint warnings/errors:
 
-On Sat, Jun 15, 2024 at 06:54:30PM -0700, Drew Fustini wrote:
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-> +    soc {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      clock-controller@ffef010000 {
-> +        compatible = "thead,th1520-clk-ap";
-> +        reg = <0xff 0xef010000 0x0 0x1000>;
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/spacemit.yaml: 'maintainers' is a required property
+	hint: Metaschema for devicetree binding documentation
+	from schema $id: http://devicetree.org/meta-schemas/base.yaml#
 
-Drop the 2 cell stuff here, it's not needed in the example.
+doc reference errors (make refcheckdocs):
 
-Otherwise, looks okay to me.
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/tencent_D3577BC67116D732862BE4A7B187EF4ED005@qq.com
 
-> +        clocks = <&osc>;
-> +        #clock-cells = <1>;
-> +      };
-> +    };
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
---GV1+ODsExlaKnTkx
-Content-Type: application/pgp-signature; name="signature.asc"
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
------BEGIN PGP SIGNATURE-----
+pip3 install dtschema --upgrade
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZm8xHQAKCRB4tDGHoIJi
-0nakAQDI/dX7wq4wr9fhDskwIEdo5GYlExy1/hq7ZvnCAqI/sQD8DXYLfuYeZ3h5
-b137VHF34ez/lW6qbnhU7C8kg1Cl3wY=
-=2EDw
------END PGP SIGNATURE-----
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
---GV1+ODsExlaKnTkx--
-
-
---===============7125247044632316438==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7125247044632316438==--
-
