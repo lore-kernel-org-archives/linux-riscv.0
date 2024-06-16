@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A298BC27C53
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 22:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC38C27C53
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 23:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xBfMSfyjgbY7FZecRWp+DlDLTY0tm+CsG9NAsQ2uovA=; b=13MIGhp06cAcDb
-	fdTD/6Pu+2FmcF0AqVpd59IzmW5GAOVCYipd+ws1SkdKvjNh3J3RqyXctmHU/13vtxNCEuJ/pfI+u
-	C+SD1Cu6B3Sbwxb5XxjCGJPatWkydL8DSzmrAIrCneUpkMC9e7VD0tQjN12OnWMIPQJsseDv5o05K
-	6sTpZt0JwtYPRyKWpn/daYnrTa4gl/FCbfXpnKkZOmCRIVEL22aYIKi++IfO/eb6szhiKHUt8FfXG
-	5tioxfaoYcl2pz/Lm2bDgAfKjtMz9BGphtDKUNI9cDWvGvygZrn6ZyYZF6xnqEwoh3q6RgGV4IaKf
-	ZWZkQPOVVLN0eV2WXcMA==;
+	List-Owner; bh=RqVEMkayRzTUHE93rpNHDJWB1VgkSiGDiSzpdNM/g4c=; b=s0vrhL9RsKTWnY
+	Zea4UsQXjChAOOP5NT4vGd0LXHIksE6DtZrY2szT4kZt41baIjAYXw/fIxyNUtwJ3VOnAn+/Bnj5t
+	BSjF7j5/pwZnHOyQSmYAT96gY3MRCa6EfAa3iOhtu6p7Q8BfBZA9bpwU8klwLy1slLshBIN3hZNUo
+	Kokd4/qNqY+mdAAbedUJEglTyAtdfZkr4XM4ze48jdL1F9ZSsyNQBnNr2KCsmOvP++WFDSfna/GM8
+	bgHeitTR3UOwYMONoa4r2gXwzqt5fPJwphCgRkM8GFkhlyH6TXeuOhVCYvV00lDCDvm0C2XZCKpeq
+	JWEtYlI+7h2hYQ0eSeNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sIyki-00000008TaU-2wJ1;
-	Sun, 16 Jun 2024 22:53:36 +0000
-Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1sIyxU-00000008Um2-45xn;
+	Sun, 16 Jun 2024 23:06:48 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sIykf-00000008Ta2-3ReW
+	id 1sIyxR-00000008UlU-2FLI
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jun 2024 22:53:35 +0000
-Date: Sun, 16 Jun 2024 22:53:14 +0000
+	Sun, 16 Jun 2024 23:06:47 +0000
+Date: Sun, 16 Jun 2024 23:06:33 +0000
 From: Yixun Lan <dlan@gentoo.org>
 To: Yangyu Chen <cyy@cyyself.name>
 Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
@@ -37,18 +37,16 @@ Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
 	Anup Patel <anup.patel@wdc.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 7/9] riscv: dts: add initial SpacemiT K1 SoC device
- tree
-Message-ID: <20240616225314.GA3988639@ofsar>
+Subject: Re: [PATCH v1 6/9] riscv: add SpacemiT SOC family Kconfig support
+Message-ID: <20240616230633.GB3988639@ofsar>
 References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
- <tencent_701082E2DAE48E2FB857316321778D737C08@qq.com>
+ <tencent_D935633C42BE1A7BF8C80553B5571C737009@qq.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <tencent_701082E2DAE48E2FB857316321778D737C08@qq.com>
+In-Reply-To: <tencent_D935633C42BE1A7BF8C80553B5571C737009@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240616_155333_913124_BF911021 
-X-CRM114-Status: UNSURE (   6.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240616_160645_664513_CD5628E2 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,24 +64,38 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 01:20 Mon 17 Jun     , Yangyu Chen wrote:
-> Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
-> 
-.. snip
-> +		uart0: serial@d4017000 {
-> +			compatible = "intel,xscale-uart";
-are you sure the uart IP is fully compatible with xscale?
-otherwise I'd suggest to introduce a vendor specific one..
 
-> +			reg = <0x0 0xd4017000 0x0 0x100>;
-> +			interrupts = <42>;
-> +			clock-frequency = <14000000>;
-> +			reg-shift = <2>;
-> +			reg-io-width = <4>;
-> +			status = "disabled";
-> +		};
-> +	};
-> +};
-it's better to also add other uart nodes, I feel it's more complete
+> The first SoC in the SpacemiT series is K1, which contains 8 RISC-V
+> cores with RISC-V Vector v1.0 support.
+> 
+> Link: https://www.spacemit.com/en/spacemit-key-stone-2/
+> 
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> ---
+>  arch/riscv/Kconfig.socs | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index f51bb24bc84c..8a5775586845 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -24,6 +24,11 @@ config ARCH_SOPHGO
+>  	help
+>  	  This enables support for Sophgo SoC platform hardware.
+>  
+> +config ARCH_SPACEMIT
+
+should this be SOC_SPACEMIT? as it contradict with patch [9/9]
+> +	bool "Sophgo SoCs"
+> +	help
+> +	  This enables support for SpacemiT SoC platform hardware.
+> +
+>  config ARCH_STARFIVE
+>  	def_bool SOC_STARFIVE
+>  
+> -- 
+> 2.45.1
+> 
 
 -- 
 Yixun Lan (dlan)
