@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9958EC2BA15
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B86C27C6E
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9b0ylsaIKPXZ4D++7Kfc+jihFtOeks5phC8Ynf1b3rA=; b=Idbh0BSeoOxUvV
-	NqdFuCW91XhK+xhoXg6N+y7hTBfVKXCW1W46KeodWEMzeudpzCvSV3shwQFjQq3Ri1giCz8hfyj7m
-	IU7Jhu8xJ5Kj7s4Tos4X1Tfo3ZLYl25Tyfqzbs7fZZAa/GPzC4nlVaO9BfYvn2n0DOmjql0Ma0Twm
-	LErUSEefyPbC2uQjvm2ZAiHn8Oyf2u4dqRpq+w6W5R5wrh9iSzuIJw2Wmirg3vH8K2S6ulXzlOr8r
-	bEDR6hVVxxi3OpN8GXd6JuuNcEkp+O9mDsqYr5Qx9g+N6C2vfvbU/q5wZBWuGILAdt9m0xtuLhy9R
-	vkvxjNrcJhQVpmwwpIPA==;
+	List-Owner; bh=uOLOr0DiDSgalQtnFCQQf4Mtqe6LyugI4KElhDTGbec=; b=EewMHvOEgGOR0h
+	vzb1sETRjE5ppq8ZIVfARSOA79HNQFNjNdw42lryeuXzSIJxUizkZwfAU57HjdRAJrGbdF3PDZiUW
+	vN/IWBFlzLi9DmS2AIYngbGKHX1GIFM2JklzDu8OOKgiZuwc/a/8SBHqo3YNhsfz+mzncG+2rM6Dw
+	u1km5zZlUAzc71oR0UaPMwiSpMAScz4SUJ/ocbkPZotWRi95eHuU3AWJgKek6x0LyaHRV97DFBC0U
+	fRR9FyiqKXGsRg4fc3OGmfEy3SvR+nD1Ri6hTbfVyO7vsnFzj30jIQGU8GyZXBd1/ex+RMApkiOhe
+	lwaKbszIgubKBH1W3D3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sItZL-00000007y5E-1h9x;
-	Sun, 16 Jun 2024 17:21:31 +0000
+	id 1sItZN-00000007y6o-1Qqo;
+	Sun, 16 Jun 2024 17:21:33 +0000
 Received: from out203-205-221-240.mail.qq.com ([203.205.221.240])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sItZC-00000007xwy-2PHg
+	id 1sItZD-00000007xxy-2UKl
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jun 2024 17:21:24 +0000
+	Sun, 16 Jun 2024 17:21:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1718558475; bh=JKwEkli64nV+u6UbVuHjl1rryovcclGC4cUSLhcp14k=;
+	t=1718558481; bh=zeKC3Oe1sKju5vea7yzmfOgsaAN9lHVzkh8ycGLf/vo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fOx9DXUzRSKFB3VzlEM/jMlO1VRg8rsx13uXibzAGqP9ajpLRg6dE5zHAMGY1ju5a
-	 yMeGSyugu5WgVb0qIo3x/YnyKHd2NNaHh3I/eTDBUEmZJ8Vd0h2eTMRQo+PmrrwIFb
-	 0E/v9NC+ptCefdClylUJDVPlAZ9DMFWZsXzgyahA=
+	b=HkzPbmD7s6YHL/D3EqqWpqvW4N61D1PBYyP21oFlaa0DangknigrWTxkmCaWoMqgd
+	 PhpImyg3uzn/A8fWUlQutPVsDfenHaE2HYrDpjZ9dF+1cnqqbLBE0t4JOc7hmd5Eyk
+	 viScshcInG6ZbLevh33OL7cFM0D59TuC1GnqrV9g=
 Received: from cyy-pc.lan ([240e:379:2260:ed00:cd33:e8cf:d8f9:bed3])
 	by newxmesmtplogicsvrszb9-0.qq.com (NewEsmtp) with SMTP
 	id 5452D659; Mon, 17 Jun 2024 01:21:05 +0800
-X-QQ-mid: xmsmtpt1718558473tzxk4bd50
-Message-ID: <tencent_417C31822BDAD48EF8B84B312521318DBA08@qq.com>
-X-QQ-XMAILINFO: OKkKo7I1HxIe57aA5A2c3PUjTCRk8fYygcDw9FdDkbDlvTVj9MFZs4odlQdLBD
-	 YD/KHRA3SyQc53FC3gTWE7zU4iEZXY2rUPh3czyoAQBojOkU4fNo7/pYeokOCJrBF6xiB7X7o/Yh
-	 lX2OIHvyQ92ujGSwwrXtNQPxtmhGS33EECAbjvL5rRJkaFnJVqpiiCxylBpzZhYVvz0oBIU8QGh1
-	 Qs4ZR+WEH9fUdmBwBNWnJOP73Y8PQdeG2phEQI5UzKSqjPc/bQSgGeYibBLrqR3Qgs8Ft6RY+LxM
-	 8TTNpqhzKE4LUEVLko4rbvNAgNPFAcm+qQ5z8cRDJ1izWhFjcj/ygg081QhhL96fMZG8ccPzX611
-	 T6EYJ8gSVVUYcBl6RVQxv0n6e/TEwiEZcygN4c2nTgZE2wgIyPUa3Y2BFnndHjWU4X8og5C6SStq
-	 6jzyK8b34os81x99rcPcyB/4vBqomvDYU+i1FCpp9AUYeC9Nfn6+7fCRSvQ8X2YDjPYOxDQa1g9y
-	 qAk0sHK1u2231ZmuU1JYZpaQCaSyaokXzs/MgFT55LnKt5ZAr+QuWHVcc66gVWtTIN1y9dKShH2X
-	 fm6drPZRdJu4P2SScVouk6pc5zyzkP1rIcxFMcpvcCl+QeYWxa2iMqYo90lqhMo7ZFC6/H4zwfA+
-	 PWLs45zLuzIdkAxDvMxzPMSmGJ8UDM3chWrzWs0uiPP4eMaj4JIicLHm4Uk3M2VWQNsupzbX14Nm
-	 7SP69SO4y1VmgVZlO4l6L6LjTdcixX7+t5+G2sp9SB8dEEjipjJiHBTbQgEcw70CxZXgprtdkndU
-	 ELgAXBwwcRdLPH4/hIQvD8/kWvqR0BraENdNNjXMtsje4se4bCBafRzRMw5lg1mzph5aQnYtTXnp
-	 EsR5uOtG4hXaJtoCYmXHGHnrOQKm5LRdv99Br2svKakQTCnUADAhZIpwvZJwwwY8ch9Qtao/nQSp
-	 TLLLW1lrIy5IYynnuoC4G9D4O3Cr6DhckL96mS8VsRGzTs6L2mkItZHaUjBmLcsZGSMFvxNgKxVW
-	 O6U4S27vGC2i2Pa3naOQ6Udog83miNQ+eVWp0gOw==
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-mid: xmsmtpt1718558479t9pmmv511
+Message-ID: <tencent_CD84ADB1874F47D04EBBD51119173CC62405@qq.com>
+X-QQ-XMAILINFO: MziGzrjZeogZ27NrJX86U9jmp3/uR2WhQdNN59aMjNpQON5Q8za+/F7sLh1Hw3
+	 68tTGDI+4ujTQB04ciQCZIDqmk5l0FgIz7LbadCoXNVt4MbdGSzeVw5sw0p7+W9jP/tnOz1ijKX2
+	 yymOGrxBVmW++5Dlp4bpZOOpIboV3Te7DvvSydWKW5hdB+f6O9O7JLb0duDWH9IwUFe1ghXevd+E
+	 2p9dJzWImyecsjCIsgX3kkW14grbuplj7fdgkZuolIIpyKBbwEqG17ZFtSwGLFVkYyPe2QnUcReg
+	 Nhd7VbCnrgu2Q9RCdahd8qcNgj03uFRba26bDP09Olc0sR2eQYSYzytI01/Ns4mlPh5owihYJSL/
+	 G3ULFnShSV6ndFfa1lx74tipKESOiplwjU/ImPfilq2L1aeWFycQuUcio/lU3zz6eJriG9xt3yXd
+	 dvdTisTuLI7XTvONtGY1xY2ExXxplOVEJRs5ODMrsD5MCcbQypY+8eCuyQqs2lUIcVN7D6YuJrdz
+	 Vk0jxsvGtmNKfCmunBl6VSPgYGDPazV6MA80LcJqf/IGxD0PyOoUJeVNaFj3dq/AtpflQg5y47Ui
+	 YEwJpRllMYTo77HXltI7f+RsC4hSlhjzkvGRDATwKCX3WEay91kmQkEqv5QRdj2Eu65334LgXyN/
+	 6KmZP1k8Kc9+fNe4wpjR9XhqldEwx1dn0Fx3hegHJbOheC3UmJf83SIMIxX+PBMr0vp1BErH3RnD
+	 jfz/a9k34ylPB8U3O8eZC8fVssocE6wWsxVCBv91Q7VB3UdxJJnlVcDrbpgGO/rwKpmWUthdmnOc
+	 FUMgRcvOiTsPWQz2Klt9gl3e6Td1kmog0s5XTYzQ2dkTDFi9leD+p26OiKY+bKNqVKkNc7pcowCi
+	 iTqQv/zIAluRWXikuNSH5dLzkqEr1TppMuJ1ISsJWoO16rsZQq4d/o++9ULOQ+JfXcCFb6Cu6hq1
+	 TKXk8tVqLfxXv19rmC5A524t1CeqLW9xchlDewimwA+cK63EmfN3HP98gV7BMzX+MHp/1dKGOs6T
+	 CQmN2bCTO2XrP3ipdtdxmzN8cDo9AljyrAmES/ev8FXRPKSwia
+X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor+dt@kernel.org>,
@@ -66,16 +66,16 @@ Cc: Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH v1 5/9] dt-bindings: interrupt-controller: Add SpacemiT K1 PLIC
-Date: Mon, 17 Jun 2024 01:20:50 +0800
-X-OQ-MSGID: <20240616172054.3074948-5-cyy@cyyself.name>
+Subject: [PATCH v1 9/9] riscv: defconfig: enable SpacemiT SoC
+Date: Mon, 17 Jun 2024 01:20:54 +0800
+X-OQ-MSGID: <20240616172054.3074948-9-cyy@cyyself.name>
 X-Mailer: git-send-email 2.45.1
 In-Reply-To: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
 References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240616_102122_955790_F1D024B7 
-X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-CacheID: sfid-20240616_102124_062302_A85C3B75 
+X-CRM114-Status: UNSURE (   7.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,36 +93,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for SpacemiT K1 PLIC.
+Enable SpacemiT SoC config in defconfig to allow the default upstream
+kernel to boot on Banana Pi BPI-F3 board.
 
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 ---
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml     | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 709b2211276b..3d0426b56904 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -59,6 +59,7 @@ properties:
-           - enum:
-               - canaan,k210-plic
-               - sifive,fu540-c000-plic
-+              - spacemit,k1-plic
-               - starfive,jh7100-plic
-               - starfive,jh7110-plic
-           - const: sifive,plic-1.0.0
-@@ -71,7 +72,9 @@ properties:
-               - thead,th1520-plic
-           - const: thead,c900-plic
-       - items:
--          - const: sifive,plic-1.0.0
-+          - enum:
-+              - sifive,plic-1.0.0
-+              - spacemit,k1-plic
-           - const: riscv,plic0
-         deprecated: true
-         description: For the QEMU virt machine only
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 12dc8c73a8ac..a33e8c463c8a 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -30,6 +30,7 @@ CONFIG_ARCH_RENESAS=y
+ CONFIG_ARCH_SIFIVE=y
+ CONFIG_ARCH_SOPHGO=y
+ CONFIG_SOC_STARFIVE=y
++CONFIG_SOC_SPACEMIT=y
+ CONFIG_ARCH_SUNXI=y
+ CONFIG_ARCH_THEAD=y
+ CONFIG_ARCH_VIRT=y
 -- 
 2.45.1
 
