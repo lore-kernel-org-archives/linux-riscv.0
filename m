@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F1DC27C4F
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 02:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE84C27C53
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o02AZIgLoOVGVsHkXot07b96jky5CdXlOvArHR7rHJo=; b=43zBPOYfZrFgKX
-	+quuxoGKJq/7wsI6J7s4Jvm4vjdaF2reoFeCEcRO6fwRPWosx16E6lXyal3hzFnuBzmpvX23JvuEH
-	q72xEb8YnGxGX6iNZ91IqkZWoB4sVshE37RQw+s2nOvJDTSG+B3fqP+mtVLkn9phOIY1+Z86ANLrQ
-	3mt/9Ho9rV0h2tAGA/rhVVG4aEq4XBQwBazaFBi0R7vJZlSt8DNPoJA9Dh57V9jVmRrEKJR3scZSX
-	BrwUNuLxZNqFZd1UmYhOpMOpyLbMmcJ1eNwybqu81FGvyIrsqz8kHX2m/KjiSxoHjhFaSXkO/WsCU
-	WwBBXxVME+2boAA6dY7g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=l+OlEaACz8lhBnZciLjgMXcHDfbbAWpk1J5+q2vzS8Y=; b=AZvOYDymOBZMwq
+	j5ZeFYJF+0cD0NpP/XjMIUErwTcgPxL41Ps1f5JXR6AOEk5svalE812UjoxK1854CD9qRj/DEaLmG
+	Is1b5XdXP2qsnm4MWi52T18ReBequ+o3xW3S0xgDxfYtMGphu3Ork2yRNTvwDaRZ6yJNWsecsF21+
+	CoQWhhtpVcOJWhK5NNUeH9Qka4s4WeOk38tRPOSuCbFeZkisnVVT0q7F99NLp8wwRccXGmibxxER8
+	pemWwkDZHZ8ZQBTp3TIwABxyJ9b5BLmxG1iMd78fM58jO0givNVvLxQR2PMfgU/8omSZvoUym6f8O
+	rP2asGb1BwzOv1FB2uFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sIfff-00000006XL7-1fFa;
-	Sun, 16 Jun 2024 02:31:07 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1sItXH-00000007x8n-11Q2;
+	Sun, 16 Jun 2024 17:19:23 +0000
+Received: from out203-205-221-173.mail.qq.com ([203.205.221.173])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sIffZ-00000006XJu-1Zc1
+	id 1sItXD-00000007x77-2JOD
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jun 2024 02:31:06 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1f64ecb1766so24922625ad.1
-        for <linux-riscv@lists.infradead.org>; Sat, 15 Jun 2024 19:31:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1718505060; x=1719109860; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cVSak/2X/IwDlKdGQQzgvzyVeWSkvN8eQX8+7AouNcQ=;
-        b=HWoaf7Mrp2l3++G1WVJPiynRUg7wnTwrnsl2wxNHm1RYNVQ9OkrvIiuqcKrzyr7pL7
-         0VFH9jLPkGy2erLBM7eD2xw9SWxmxHEUn1u4ejr36WSjQ48YAR3QYQXwVB8Y8AAiYMBu
-         VNeDE7Hg1Z++zD/rQj68Yuj3zDENl7cvhhKIhkrmZivfUAhc+KDIp1K8VK7bBfP6ZhLE
-         eov9VYplv+/V5fYlmiXb2zVgBccQvBrKpfive4bfZkeOEnswIhApuUotAki3/9pMocFt
-         eiDiuB7gmpd0ZHmbqlJFryfkKhOND0j3xO/CEGgmQOlKHttvmcVzNiNJkIADCvAiZu5i
-         pyIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718505060; x=1719109860;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cVSak/2X/IwDlKdGQQzgvzyVeWSkvN8eQX8+7AouNcQ=;
-        b=C4lbMT2Ldo8FoMZGEJSA0CENvGvOZeOAx7OI3wh9JJc5qN9IZZ8efuyCDNlni7U8jR
-         EWFWDO8fcPP3pPXSmXE4BqPCLJPuQcdemhMzJpPDidkbboGDrTFdbkxdnRYRqOxnKQJO
-         NGC1SuJX0v+HUhsUA+W4h+7pjZ2T4o6T1Q3nNHUXHEC8NBQfhsbT5k8SJdBB2l0IxU1C
-         ryJ1mqqZsio4zheuIDJNeDlTxIUTFllZwsh0M8m+5kM0zbFUj1Ob64A7UudULHEMkyS5
-         t/Feo3+Vtl/i+A76L7lLOXCN5sAxRBNxpCuvWPHjjEHtBc5o0plcXnrnN87DSDjiWIZF
-         BurQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUbSlK/9Ey9o4qZb6zPeryOYMtLXw/61PTxDQh99vJxxeZftAJkjL9IJgq5b0qwdARD69TGcRPZJkkY9uOwzoupj+UpwwT5o8aO9e7v9kvL
-X-Gm-Message-State: AOJu0YwwZbD+MdCU62tnexCUFHFTGgagpP0LgdDYIv9v5rqoUbfQNZRo
-	Gs4lDyw+XpaLuBoP2LQKiqGTH9fB7cTy3lZZvDJ6ZffHhpzrgpANHWkZiex6Os0=
-X-Google-Smtp-Source: AGHT+IG8MRFHbtUBSzVWOgxiGuIFdTVlR9rAtbWbkR9X+BbLOkQa3sOeajP3P9i4kf5dBJcOkBplbA==
-X-Received: by 2002:a17:902:f683:b0:1f6:7f20:d988 with SMTP id d9443c01a7336-1f86280604cmr74376395ad.42.1718505059587;
-        Sat, 15 Jun 2024 19:30:59 -0700 (PDT)
-Received: from x1 ([2601:1c2:1802:170:f6d1:94e2:a616:9280])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f855e55e99sm56591445ad.4.2024.06.15.19.30.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Jun 2024 19:30:59 -0700 (PDT)
-Date: Sat, 15 Jun 2024 19:30:57 -0700
-From: Drew Fustini <dfustini@tenstorrent.com>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: adrian.hunter@intel.com, aou@eecs.berkeley.edu, conor+dt@kernel.org,
-	guoren@kernel.org, inochiama@outlook.com, jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com, haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com, tingzhu.wang@sophgo.com,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH v3 0/4] mmc: sdhci-of-dwcmshc: enhance framework
-Message-ID: <Zm5OYfzMSv6hnCdL@x1>
-References: <cover.1718241495.git.unicorn_wang@outlook.com>
+	Sun, 16 Jun 2024 17:19:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1718558344; bh=jJ9Igh0peCp3hD61YPVPtVN+YWS56XTwc+sXFzKDOKo=;
+	h=From:To:Cc:Subject:Date;
+	b=sW/I5ZkRAhhBdauS/bOYBU0VZFVKKOQ/29trNSJYsKa/Aooko8xc8bGuWA+OzD1qp
+	 lWh/GImpIPZPO3w+m5yEO0W2ruaOzrwdreZ0wnHQtHQgqlvt8CkHgV/0W7YV2baTCr
+	 ZrRXnwne88vm+TQjGaZHqqweVXs8UMLgKVaiHzJo=
+Received: from cyy-pc.lan ([240e:379:2260:ed00:cd33:e8cf:d8f9:bed3])
+	by newxmesmtplogicsvrsza10-0.qq.com (NewEsmtp) with SMTP
+	id 4C03E806; Mon, 17 Jun 2024 01:19:00 +0800
+X-QQ-mid: xmsmtpt1718558340ts5w4gw51
+Message-ID: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
+X-QQ-XMAILINFO: MSPab3JKqisNu/J589iYOw3sGBU5TouEdZaUsX9QtkV5yGQBb/Ox4LxkgOENk6
+	 oIindeAOoyurwVY774zMfvHVHOpgbcGHXtfQ4K5dJwNPaHmhqT2fWTYIn4CxswKGxDrx99dRkgRB
+	 CTXCaN2rwdoFiTMuPlI1jpUSWiZiBMd8g9GPthbS5RMpae8Jp59ghRrBz6LUy0Y9ZlXMq9bFsdnB
+	 nKODH5WP/nrq47fMfMsLx1mPR8lpbTo5QT/8Y4rx2c4n55a2tBk5XTjS1kYUxrPE7DjiM7Iyen4G
+	 BUzXn1IbGfqAP7wyHTcgJ5X8zQq+fCbjz0nOq5Yn4WMps4QEGAlOHtwYigOJio5V+Wa8BH51ZLIT
+	 /07YDz/pt1MhXXVNpjkKAp6lgLY0o/gBhzCDHbHPXm6PEP2pUvVJNs4SorrUEyvVdO9gx1MfXsXf
+	 w+yM0bWefvcZtv+bUSGaF0blDOPaj5i4HDoaQO2zrfjc5RfJMf9DYM41cASOA1UkCYjXKZZPPbhd
+	 8h9FBJ6lap2WjWAIVgJrDuOaeJv5ZEEI9bTxF9DZiPpijEV4Qi82NA7Hs8n1+fcaCq3hEfnKzjk8
+	 NkaMUrnZKl1EdvPwjrDOmjshOdfGdG/frJwH9f1alr3SJn8kPb8O3IY5Jfnc1JpH8L3JuoN4peSZ
+	 9maXCOu+bZ0hv4/XoZxSzYxiBtJ33xgmd2UQqzzRFx2wYZlTpwFEvj2bfSqQXAjI/6OqQezE4eGR
+	 54IFG3vHZqFPHfRz2+R6b0vzFFEKNIA7xd/2jTrEPogfRJlzysLfDZA9DNxH+ATzp23AojaDtmTB
+	 cgHqPX50Jz6UHt4DB9i2t5qy55yZEQOH3ekB+3xZZ5k8EQxEcujX0bl1ZuEGQJmeDZVeERQQ4wK4
+	 /6tuCNkkIhw1zvKR/PadnRcfBJyal+c2mYcV+3OFRQ2Ji3kCF6FlKEj3dxlbe9yCAH9CPTN+ltQu
+	 0g881itcy7jTYZt/m3okons20gmlUvsgBJQNXVOgODk7H3rJ2Cu/pjgmW1Dqx+gejaKGVeG/YyGs
+	 5An/V/eMKQxva58m9+DR+rm+ZNmscM0GPMVU5gMeRcHxI4g/Oa
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+From: Yangyu Chen <cyy@cyyself.name>
+To: linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup.patel@wdc.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH v1 0/9] riscv: add initial support for SpacemiT K1
+Date: Mon, 17 Jun 2024 01:18:52 +0800
+X-OQ-MSGID: <20240616171852.3074283-1-cyy@cyyself.name>
+X-Mailer: git-send-email 2.45.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1718241495.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240615_193101_540933_949A7F7D 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20240616_101920_197420_EDC2FB97 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,68 +90,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 13, 2024 at 09:42:03AM +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> When I tried to add a new soc to sdhci-of-dwcmshc, I found that the
-> existing driver code could be optimized to facilitate expansion for
-> the new soc. You can see another patch [sg2042-dwcmshc], which I am
-> working on to add SG2042 to sdhci-of-dwcmshc.
-> 
-> By the way, although I believe this patch only optimizes the framework
-> of the code and does not change the specific logic, simple verification
-> is certainly better. Since I don't have rk35xx/th1520 related hardware,
-> it would be greatly appreciated if someone could help verify it.
-> 
-> ---
-> 
-> Changes in v3:
->   
->   The patch series is based on latest 'next' branch of [mmc-git].
-> 
->   Improved the dirvier code as per comments from Adrian Hunter.
->   Define new structure for dwcmshc platform data/ops. In addition, I organized
->   the code and classified the helper functions.
-> 
->   Since the file changes were relatively large (though the functional logic did
->   not change much), I split the original patch into four for the convenience of
->   review.
-> 
-> Changes in v2:
-> 
->   Rebased on latest 'next' branch of [mmc-git]. You can simply review or test the
->   patches at the link [2].
-> 
-> Changes in v1:
-> 
->   The patch series is based on v6.9-rc1. You can simply review or test the
->   patches at the link [1].
-> 
-> Link: https://lore.kernel.org/linux-mmc/cover.1713258948.git.unicorn_wang@outlook.com/ [sg2042-dwcmshc]
-> Link: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/mmc.git [mmc-git]
-> Link: https://lore.kernel.org/linux-mmc/cover.1713257181.git.unicorn_wang@outlook.com/ [1]
-> Link: https://lore.kernel.org/linux-mmc/cover.1714270290.git.unicorn_wang@outlook.com/ [2]
-> 
-> ---
-> 
-> Chen Wang (4):
->   mmc: sdhci-of-dwcmshc: adjust positions of helper routines
->   mmc: sdhci-of-dwcmshc: unify the naming of soc helper functions
->   mmc: sdhci-of-dwcmshc: extract init function for rk35xx/th1520
->   mmc: sdhci-of-dwcmshc: add callback functions for dwcmshc
-> 
->  drivers/mmc/host/sdhci-of-dwcmshc.c | 598 ++++++++++++++++------------
->  1 file changed, 339 insertions(+), 259 deletions(-)
-> 
-> 
-> base-commit: d6cd1206ffaaa890e81f5d1134856d9edd406ec6
-> -- 
-> 2.25.1
-> 
+SpacemiT K1 is an ideal chip for some new extension such as RISC-V Vector
+1.0 and Zicond evaluation now. Add initial support for it to allow more
+people to participate in building drivers to mainline for it.
 
-I have tested successfully on top of 6.10-rc3 with the Lichee Pi 4a:
+This kernel has been tested upon Banana Pi BPI-F3 board on vendor U-Boot
+bootflow generated by Armbian SDK[1] and patched OpenSBI[2] to enable
+Zicboz, which does not in the vendor dts on its U-Boot. Then successfully
+booted to busybox on initrd with this log[3].
 
-Tested-by: Drew Fustini <dfustini@tenstorrent.com> # TH1520
+[1] https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30
+[2] https://gist.github.com/cyyself/a07096e6e99c949ed13f8fa16d884402
+[3] https://gist.github.com/cyyself/a2201c01f5c8955a119641f97b7d0280
+
+Yangyu Chen (9):
+  dt-bindings: vendor-prefixes: add spacemit
+  dt-bindings: riscv: Add SpacemiT X60 compatibles
+  dt-bindings: riscv: add SpacemiT K1 bindings
+  dt-bindings: timer: Add SpacemiT K1 CLINT
+  dt-bindings: interrupt-controller: Add SpacemiT K1 PLIC
+  riscv: add SpacemiT SOC family Kconfig support
+  riscv: dts: add initial SpacemiT K1 SoC device tree
+  riscv: dts: spacemit: add Banana Pi BPI-F3 board device tree
+  riscv: defconfig: enable SpacemiT SoC
+
+ .../sifive,plic-1.0.0.yaml                    |   5 +-
+ .../devicetree/bindings/riscv/cpus.yaml       |   1 +
+ .../devicetree/bindings/riscv/spacemit.yaml   |  24 ++
+ .../bindings/timer/sifive,clint.yaml          |   4 +-
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/riscv/Kconfig.socs                       |   5 +
+ arch/riscv/boot/dts/Makefile                  |   1 +
+ arch/riscv/boot/dts/spacemit/Makefile         |   2 +
+ arch/riscv/boot/dts/spacemit/bananapi-f3.dts  |  19 ++
+ arch/riscv/boot/dts/spacemit/k1.dtsi          | 281 ++++++++++++++++++
+ arch/riscv/configs/defconfig                  |   1 +
+ 11 files changed, 343 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/riscv/spacemit.yaml
+ create mode 100644 arch/riscv/boot/dts/spacemit/Makefile
+ create mode 100644 arch/riscv/boot/dts/spacemit/bananapi-f3.dts
+ create mode 100644 arch/riscv/boot/dts/spacemit/k1.dtsi
+
+-- 
+2.45.1
+
 
 _______________________________________________
 linux-riscv mailing list
