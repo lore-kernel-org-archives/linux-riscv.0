@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05724C27C53
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:20:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98900C27C6E
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cr+s8l1l6MQj9E6VhHRp0x28NCzIYnxsnMjeTMvofus=; b=id1IW3G9FMf+zr
-	84wuL5sE0P7y+4NtZgfbmG2TI5A3ikwd7dHOt2Fiatca9e/0KiMGpxRdoAHrct3rC4g5KNBbZQsLI
-	8/FPkO1ZNCcB2Gxce4sgFajLp1MUZIy9GnjjCXFfOq+HBc3OKbccNihOtHeyB+o4NoHsmDMZlH7Oa
-	EtQ9YHkrrTn6VmrqSC1OQ/uMzvoG6OZkMB6qhrtRyNgcUtMRxkPIkW0kER+UnsbloEYApH9g7UOeZ
-	ydCjZi1rc9l1lhOwIxiWOJnATiu7XzJiuT86/nWkQyw8RXjOoJCK/FxggsLxUDoumL3kTe2LKluif
-	Ul5W+KS2mKmnXJxlILQw==;
+	List-Owner; bh=THbnirKXtOG5SygOYYQgqGwwJ4nJqnf5IqVsUnd3YjQ=; b=poz2vyVACqlldw
+	n7DYQ8O8wLdnCS3EXIHR9o5F8Cfw2peBN4iPrAc5RemTD72dDtJiV2QgM16LPp9GS6/RKb9bAzt6h
+	2t/DviRZXvKPfIKSrjy26ibvIXUdkCmt9tm5IvXFRrIXvionXaVH03cwPl3e7DWnzUdxoFjc0Tr9f
+	IiEP7ah9wv6ym4xv+RsLK8UhQX2Co+45EqdFlznAHiVxl1weTgLJV7Rf7pdCh3i7RmdVNIk5P3oJG
+	a3R1ZqqCCxkkAk5DUii10lFyUdN0sv7ywZs0t7BiaGxpmDP6LuvewAlJ/wjGUtkIyWlbsKgX/o/cm
+	U/l+WEwtzmyH5pdaAKrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sItXp-00000007xEo-1Rv3;
-	Sun, 16 Jun 2024 17:19:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sItXr-00000007xGU-2Hot;
+	Sun, 16 Jun 2024 17:19:59 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sItXk-00000007xCK-1LME
+	id 1sItXn-00000007xD2-1qh0
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jun 2024 17:19:53 +0000
+	Sun, 16 Jun 2024 17:19:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8249560E9F;
+	by sin.source.kernel.org (Postfix) with ESMTP id 4B787CE0E24;
+	Sun, 16 Jun 2024 17:19:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6860C2BBFC;
 	Sun, 16 Jun 2024 17:19:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2520EC4AF49;
-	Sun, 16 Jun 2024 17:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718558391;
-	bh=4oPVcX+dnWixdoqxyDdXAghWvga3v3Kc2JLR+Blj82Y=;
+	s=k20201202; t=1718558392;
+	bh=GWMgLDQITN6G/SgojfiKfA5r96nCPGSRhztDXhr7EXg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CLiRO/PQh7a2ZWQyfdC4US0mVkLlJ6HO5eO2UarMxrnSElqTkb/0AS8JgQyaCPhsb
-	 f6Rnisd+06F259/wK4wls00MfcNsQl7NQV+Mhfnv88IgCcvrGU3EWPRqLTVQk7dVYB
-	 aSa1Ei/lYBm1EJcUUArXAUixCItAFX3YYfgToXU01t7FQ5c3d5eN5w5k0PhprfrDfz
-	 EtwdhL3f2ERamE7jYlaP9xncBE9/iJy0AMReS0P4PhkD7Tf12bJtFn1GRiJrMvsBcd
-	 78n1RdSgzcAUv2HGdJF9Lu3B/cxSeuKOnUwNtjb8Z0Wd/djOm7Effpd6bH3OtDgeL1
-	 peEGAE0Ub3qjQ==
+	b=pubyM0DIUZ2FCQSzmiNj1L8bu3Px5o4jQOjivg6VvzHYBLOBK+GAN+Y/OxViI9qb3
+	 eMmgyrw3DTZ+eAyvZDhDpXIt0M/y43/Vr7MmMJm3qlJuSkriq15i2r/AibavOeSCLs
+	 j1hXWIJgOU3Hn7ZY2d3Qa/vy0RZms6WZ80eVxn2JIkupnFFgWXVPPciVCLC9tJNuaF
+	 3gse+dPBzhMruTEiABitxR+vr/P1kPbfbV/14Wg8ep+oX5HAXFZ/mF8MwO858yZ1U1
+	 iKZhqNJXb1xuRDzL4e1EfLe2FhXv8WT4UnFqWWYTJfPxbdS/NbHniwDlIdYxvepvMd
+	 gazD/wXn3RCPg==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -49,17 +49,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Samuel Holland <samuel.holland@sifive.com>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/6] riscv: avoid corrupting the RAS
-Date: Mon, 17 Jun 2024 01:05:49 +0800
-Message-ID: <20240616170553.2832-3-jszhang@kernel.org>
+Subject: [PATCH 3/6] riscv: convert bottom half of exception handling to C
+Date: Mon, 17 Jun 2024 01:05:50 +0800
+Message-ID: <20240616170553.2832-4-jszhang@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240616170553.2832-1-jszhang@kernel.org>
 References: <20240616170553.2832-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240616_101952_439159_30614082 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240616_101955_936612_3B079064 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +75,275 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Inspired by[1], "modifying the return address of to point to
-ret_from_exception will corrupt the RAS", so modify the code
-to remove the code of modifying ra.
+For readability, maintainability and future scalability, convert the
+bottom half of the exception handling to C.
 
-Link: https://lore.kernel.org/linux-riscv/20240607061335.2197383-1-cyrilbur@tenstorrent.com/ [1]
+Mostly the assembly code is converted to C in a relatively
+straightforward manner.
+
+However, there are two modifications I need to mention:
+
+1. the CSR_CAUSE reg reading and saving is moved to the C code
+because we need the cause to dispatch the exception handling,
+if we keep the cause reading and saving, we either pass it to
+do_traps() via. 2nd param or get it from pt_regs which an extra
+memory load is needed, I don't like any of the two solutions becase
+the exception handling sits in hot code path, every instruction
+matters.
+
+2.To cope with SIFIVE_CIP_453 errata, it looks like we don't need
+alternative mechanism any more after the asm->c convertion. Just
+replace the excp_vect_table two entries.
+
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/kernel/entry.S | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/errata/sifive/errata.c       | 25 ++++++++---
+ arch/riscv/include/asm/asm-prototypes.h |  1 +
+ arch/riscv/include/asm/errata_list.h    |  5 +--
+ arch/riscv/kernel/entry.S               | 58 +------------------------
+ arch/riscv/kernel/traps.c               | 41 +++++++++++++++++
+ 5 files changed, 64 insertions(+), 66 deletions(-)
 
+diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+index 716cfedad3a2..bbba99f207ca 100644
+--- a/arch/riscv/errata/sifive/errata.c
++++ b/arch/riscv/errata/sifive/errata.c
+@@ -10,9 +10,14 @@
+ #include <linux/bug.h>
+ #include <asm/patch.h>
+ #include <asm/alternative.h>
++#include <asm/csr.h>
+ #include <asm/vendorid_list.h>
+ #include <asm/errata_list.h>
+ 
++extern void (*excp_vect_table[])(struct pt_regs *regs);
++extern void sifive_cip_453_insn_fault_trp(struct pt_regs *regs);
++extern void sifive_cip_453_page_fault_trp(struct pt_regs *regs);
++
+ struct errata_info_t {
+ 	char name[32];
+ 	bool (*check_func)(unsigned long  arch_id, unsigned long impid);
+@@ -20,6 +25,9 @@ struct errata_info_t {
+ 
+ static bool errata_cip_453_check_func(unsigned long  arch_id, unsigned long impid)
+ {
++	if (!IS_ENABLED(CONFIG_ERRATA_SIFIVE_CIP_453))
++		return false;
++
+ 	/*
+ 	 * Affected cores:
+ 	 * Architecture ID: 0x8000000000000007
+@@ -51,10 +59,6 @@ static bool errata_cip_1200_check_func(unsigned long  arch_id, unsigned long imp
+ }
+ 
+ static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
+-	{
+-		.name = "cip-453",
+-		.check_func = errata_cip_453_check_func
+-	},
+ 	{
+ 		.name = "cip-1200",
+ 		.check_func = errata_cip_1200_check_func
+@@ -62,11 +66,20 @@ static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
+ };
+ 
+ static u32 __init_or_module sifive_errata_probe(unsigned long archid,
+-						unsigned long impid)
++						unsigned long impid,
++						unsigned int stage)
+ {
+ 	int idx;
+ 	u32 cpu_req_errata = 0;
+ 
++	if (stage == RISCV_ALTERNATIVES_BOOT) {
++		if (IS_ENABLED(CONFIG_MMU) &&
++		    errata_cip_453_check_func(archid, impid)) {
++			excp_vect_table[EXC_INST_ACCESS] = sifive_cip_453_insn_fault_trp;
++			excp_vect_table[EXC_INST_PAGE_FAULT] = sifive_cip_453_page_fault_trp;
++		}
++	}
++
+ 	for (idx = 0; idx < ERRATA_SIFIVE_NUMBER; idx++)
+ 		if (errata_list[idx].check_func(archid, impid))
+ 			cpu_req_errata |= (1U << idx);
+@@ -99,7 +112,7 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+ 		return;
+ 
+-	cpu_req_errata = sifive_errata_probe(archid, impid);
++	cpu_req_errata = sifive_errata_probe(archid, impid, stage);
+ 
+ 	for (alt = begin; alt < end; alt++) {
+ 		if (alt->vendor_id != SIFIVE_VENDOR_ID)
+diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
+index cd627ec289f1..81a1f27fa54f 100644
+--- a/arch/riscv/include/asm/asm-prototypes.h
++++ b/arch/riscv/include/asm/asm-prototypes.h
+@@ -55,5 +55,6 @@ DECLARE_DO_ERROR_INFO(do_trap_break);
+ asmlinkage void handle_bad_stack(struct pt_regs *regs);
+ asmlinkage void do_page_fault(struct pt_regs *regs);
+ asmlinkage void do_irq(struct pt_regs *regs);
++asmlinkage void do_traps(struct pt_regs *regs);
+ 
+ #endif /* _ASM_RISCV_PROTOTYPES_H */
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 7c8a71a526a3..95b79afc4061 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -17,9 +17,8 @@
+ #endif
+ 
+ #ifdef CONFIG_ERRATA_SIFIVE
+-#define	ERRATA_SIFIVE_CIP_453 0
+-#define	ERRATA_SIFIVE_CIP_1200 1
+-#define	ERRATA_SIFIVE_NUMBER 2
++#define	ERRATA_SIFIVE_CIP_1200 0
++#define	ERRATA_SIFIVE_NUMBER 1
+ #endif
+ 
+ #ifdef CONFIG_ERRATA_THEAD
 diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index c933460ed3e9..81dec627a8d4 100644
+index 81dec627a8d4..401bfe85a098 100644
 --- a/arch/riscv/kernel/entry.S
 +++ b/arch/riscv/kernel/entry.S
-@@ -235,8 +235,8 @@ SYM_CODE_START(ret_from_fork)
- 	jalr s0
- 1:
- 	move a0, sp /* pt_regs */
--	la ra, ret_from_exception
--	tail syscall_exit_to_user_mode
-+	call syscall_exit_to_user_mode
-+	j ret_from_exception
- SYM_CODE_END(ret_from_fork)
+@@ -62,13 +62,11 @@ SYM_CODE_START(handle_exception)
+ 	csrrc s1, CSR_STATUS, t0
+ 	csrr s2, CSR_EPC
+ 	csrr s3, CSR_TVAL
+-	csrr s4, CSR_CAUSE
+ 	csrr s5, CSR_SCRATCH
+ 	REG_S s0, PT_SP(sp)
+ 	REG_S s1, PT_STATUS(sp)
+ 	REG_S s2, PT_EPC(sp)
+ 	REG_S s3, PT_BADADDR(sp)
+-	REG_S s4, PT_CAUSE(sp)
+ 	REG_S s5, PT_TP(sp)
  
- #ifdef CONFIG_IRQ_STACKS
+ 	/*
+@@ -83,36 +81,9 @@ SYM_CODE_START(handle_exception)
+ 	/* Load the kernel shadow call stack pointer if coming from userspace */
+ 	scs_load_current_if_task_changed s5
+ 
+-#ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
+-	move a0, sp
+-	call riscv_v_context_nesting_start
+-#endif
+ 	move a0, sp /* pt_regs */
+-
+-	/*
+-	 * MSB of cause differentiates between
+-	 * interrupts and exceptions
+-	 */
+-	bge s4, zero, 1f
+-
+-	/* Handle interrupts */
+-	call do_irq
+-	j ret_from_exception
+-1:
+-	/* Handle other exceptions */
+-	slli t0, s4, RISCV_LGPTR
+-	la t1, excp_vect_table
+-	la t2, excp_vect_table_end
+-	add t0, t1, t0
+-	/* Check if exception code lies within bounds */
+-	bgeu t0, t2, 3f
+-	REG_L t1, 0(t0)
+-2:	jalr t1
++	call do_traps
+ 	j ret_from_exception
+-3:
+-
+-	la t1, do_trap_unknown
+-	j 2b
+ SYM_CODE_END(handle_exception)
+ ASM_NOKPROBE(handle_exception)
+ 
+@@ -329,33 +300,6 @@ SYM_FUNC_START(__switch_to)
+ 	ret
+ SYM_FUNC_END(__switch_to)
+ 
+-#ifndef CONFIG_MMU
+-#define do_page_fault do_trap_unknown
+-#endif
+-
+-	.section ".rodata"
+-	.align LGREG
+-	/* Exception vector table */
+-SYM_DATA_START_LOCAL(excp_vect_table)
+-	RISCV_PTR do_trap_insn_misaligned
+-	ALT_INSN_FAULT(RISCV_PTR do_trap_insn_fault)
+-	RISCV_PTR do_trap_insn_illegal
+-	RISCV_PTR do_trap_break
+-	RISCV_PTR do_trap_load_misaligned
+-	RISCV_PTR do_trap_load_fault
+-	RISCV_PTR do_trap_store_misaligned
+-	RISCV_PTR do_trap_store_fault
+-	RISCV_PTR do_trap_ecall_u /* system call */
+-	RISCV_PTR do_trap_ecall_s
+-	RISCV_PTR do_trap_unknown
+-	RISCV_PTR do_trap_ecall_m
+-	/* instruciton page fault */
+-	ALT_PAGE_FAULT(RISCV_PTR do_page_fault)
+-	RISCV_PTR do_page_fault   /* load page fault */
+-	RISCV_PTR do_trap_unknown
+-	RISCV_PTR do_page_fault   /* store page fault */
+-SYM_DATA_END_LABEL(excp_vect_table, SYM_L_LOCAL, excp_vect_table_end)
+-
+ #ifndef CONFIG_MMU
+ SYM_DATA_START(__user_rt_sigreturn)
+ 	li a7, __NR_rt_sigreturn
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 05a16b1f0aee..b44d4a8d4083 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -390,6 +390,47 @@ asmlinkage void noinstr do_irq(struct pt_regs *regs)
+ 	irqentry_exit(regs, state);
+ }
+ 
++void (*excp_vect_table[])(struct pt_regs *regs) __ro_after_init = {
++	do_trap_insn_misaligned,	/*  0 Instruction address misaligned */
++	do_trap_insn_fault,		/*  1 Instruction access fault */
++	do_trap_insn_illegal,		/*  2 Illegal instruction */
++	do_trap_break,			/*  3 Breakpoint */
++	do_trap_load_misaligned,	/*  4 Load address misaligned */
++	do_trap_load_fault,		/*  5 Load access fault */
++	do_trap_store_misaligned,	/*  6 Store/AMO address misaligned */
++	do_trap_store_fault,		/*  7 Store/AMO access fault */
++	do_trap_ecall_u,		/*  8 Environment call from U-mode */
++	do_trap_ecall_s,		/*  9 Environment call from S-mode */
++	do_trap_unknown,		/* 10 Reserved */
++	do_trap_ecall_m,		/* 11 Environment call from M-mode */
++#ifdef CONFIG_MMU
++	do_page_fault,			/* 12 Instruciton page fault */
++	do_page_fault,			/* 13 Load page fault */
++	do_trap_unknown,		/* 14 Reserved */
++	do_page_fault,			/* 15 Store/AMO page fault */
++#endif
++};
++
++asmlinkage void noinstr do_traps(struct pt_regs *regs)
++{
++	unsigned long cause = csr_read(CSR_CAUSE);
++
++	regs->cause = cause;
++
++#ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
++	riscv_v_context_nesting_start(regs);
++#endif
++	if (cause & CAUSE_IRQ_FLAG) {
++		do_irq(regs);
++	} else {
++		if (cause >= ARRAY_SIZE(excp_vect_table)) {
++			do_trap_unknown(regs);
++			return;
++		}
++		excp_vect_table[cause](regs);
++	}
++}
++
+ #ifdef CONFIG_GENERIC_BUG
+ int is_valid_bugaddr(unsigned long pc)
+ {
 -- 
 2.43.0
 
