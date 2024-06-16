@@ -4,61 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B23CC27C6E
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CAC4C27C53
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KpNgiNP1Qolw3vkfePiaCgGvOIKTMIGC/jMs1xkVAjA=; b=KgD47LTdKJWoRg
-	y3qu+HGY1/naoUpInYX7IjKyt2YKPmrqZGMDo2h2kL7JW8+OJ0MmXb3i8+jFRz9yBH/H+gwnx6cqZ
-	fHY3phP4OcAuEFtGI+5dnkHZAieWJdfdwPeffEq4lZdQKw9Zwkse7kZirBDQAWekwI9gYAiEj+05G
-	i8hUf6JRD1h/XWKDAZE5qMJMdConLHqPzWaujn8z970oZLv5U5NZwwhlaIbVmRbphpR+djKM5voFm
-	pWuI/bSI+3wRqT8xzPnoMmY4tMiArOMaLDyAN97MUbGvhSDLTxR8nd0bkFLhvSSl2PwFb8HL/9byr
-	ek15CsmkGgPwzQrMpqQA==;
+	List-Owner; bh=T9Euy8u4rG1f7XYgNwBlROVBUaw8rrsWEl98aVxTkm8=; b=UVKcF12iKzJZJq
+	0XGQv4XemYdY4VB558nSHG+4gxLWBRA2LUekM51j2NdSRpZCnSUput6/07z6VS+XiawbeJl8TI4h3
+	mZXKRP+MbZJv/sD+6fBoaFY/Qc8i/scQW6fidcpPlKJCo5Wq9lJ84CEAPbmKJxYpIDeVm0omkLQCx
+	TbCnfBveQE4T2gUVydF6ExO/zS+ZE+ekcBOAp/AmxVVgaRvPLztGRUD3mYIsnuTPD1q2TdmspjJUi
+	Py+sxUodbtn3cy40AOOh/vPo1kTndVbB2KkeETBOfqwba2TeacH/8UipvpQG3M6Jwam++L2PILjLS
+	XKgBQCv2wYhvsllpxaHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sItXx-00000007xL7-1MZb;
-	Sun, 16 Jun 2024 17:20:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sItZ8-00000007xv5-1KtX;
+	Sun, 16 Jun 2024 17:21:18 +0000
+Received: from out203-205-221-155.mail.qq.com ([203.205.221.155])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sItXq-00000007xFa-31ow
+	id 1sItZ3-00000007xrC-2WHm
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jun 2024 17:20:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 065CF60EAA;
-	Sun, 16 Jun 2024 17:19:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81587C4AF4D;
-	Sun, 16 Jun 2024 17:19:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718558397;
-	bh=E3GXEIZD9yn8wjrqGOzrCdvgMio8fL8UM/D6vQXKlWo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qMToKE0fdCNS9u9oH3qr8ZrWlxfAlYo0h0NIawg2WKdqHq7P0ptMQCHq4PMX0+qnR
-	 A6hc2daFhj2lvMPafkx6EfsLRX6X4ycBeMofZ0Xyohq4lMTJp9T8yhT6JNN9b2Crlo
-	 0xcn7yW8+ApwXbnC42MxyfrXPbi9KZQ8e5T5sTotRSH9bnI6+8y1Sc4XsJZU9wZVed
-	 qLFJTr+mkMm9B1hYHu/eCZ5yEaS+msrYvc1XR3+TRaofVH7adIPR/+PxOIEO3xt1oL
-	 W3okdmcySYO/JjHSzgiit1EjiVBV5gyUwm711EXhnl040rKgqi26+Zzy9kf2Jf22s1
-	 Xqo0an8m8DQHw==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Sun, 16 Jun 2024 17:21:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1718558470; bh=ceOFvkqQuF3BJBqg7HHuf2dRny50kltfLRyQrgbV5Jk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=hwCv2avquEdaRvbANtDMgwr4yR/6LCfpP94zlfwxGBhohIy8yfpWgCClG8sqbcsZR
+	 xG1mUEr9BY3AmF9EgAQ5Kz1Uq26T94x3nA8/uLYknX+guNk9ks0oVvjedN+FNaABax
+	 OJEYPfaL4wn7b/wmTQOkV6KysRt2X2W+sQrNEQSY=
+Received: from cyy-pc.lan ([240e:379:2260:ed00:cd33:e8cf:d8f9:bed3])
+	by newxmesmtplogicsvrszb9-0.qq.com (NewEsmtp) with SMTP
+	id 5452D659; Mon, 17 Jun 2024 01:21:05 +0800
+X-QQ-mid: xmsmtpt1718558468tjw4ij1kg
+Message-ID: <tencent_947689E304AE5A4C7A48682311DF8920B106@qq.com>
+X-QQ-XMAILINFO: OKkKo7I1HxIeYsRDFAmm8SNIGgiuA3hspYtdkw9KJ2qpXlFjjasdXsdLmm6jdw
+	 7yZH96i2B+zl8HYU5ArYhmY9X8f5uqPhq8AvPl0ZhdVEoHRrW782bG1ktVuaLwhIVzxw5J6kWqf1
+	 HwSVYGE8RkY37yYhCbu8f7Ts6Fi/xvQSZ6XcnuPtLZ479UpvZVdmnlPT8N+TOU1p1OMe6kiOMH9Q
+	 nZQqOOVIXxtwxcieAbp1J5Codyp44S2o5q42SJKDE6MrtuKTjqslBzdeYsK+UHTk82vbpN63UlpP
+	 SO7So5P1OtvNcjJRyzFr5quXszph9bKkbum3vErCJInC+QvmPMzjAHZNDGKp8IICrfJBVm4kOAfX
+	 VzI/vvApkXmgmixDXEGaL5WlkKaVnV2ovu37sCxfoxclaRS2hMGlK7npKLJIF1p7Pw5MuogERWz5
+	 104DfLQrjqwwyYcSs2oR7m3UQ/FJA5nWTmqSUwvcjANSdP8gg4HgLm4fpSftzFvAsbn3Q4U89tEu
+	 Z4G/7hI3ExXZnQGBrOWzkgv/0ytot5QNkyWCc43k2WQHQvXdHsd07hEoE7SlJoLyw2AStsdvqWxC
+	 VLTPgR7UpNVuhO742Y6TNjltqwpK7l0dISX0Hausxkz7tsLzBpk1Y5+qyyOBHeT1PUlLY6GkGOoe
+	 NVCUaES04CO9x8fekVlPeqLBfcrtNMWxYc9ylmFwdbDMVEhvo33cbpe2M3E0PzRsf3J4PwK8cQYh
+	 z9vP//zBYvoCMjeQqAAlePXKPgW0oINy21J3QOgE4cUJ5i/XHRMktnsKpg/8X8sem5ui9WaTQqrI
+	 7EFZlUfgpL8OYI30VRU2Rud8apbsclePYfgQrTtJqXjyb7iObxwHHX8MPKHSD6B2B/720/tUiaHu
+	 hhcYW8Rrz3clx9WJutVKgKRzYVFz2eVpOEdbCzoooxDL9k3Rq7TgJMQGTDD8+b9vFGvcyUqPp6UG
+	 u5Rxe4SPv3aVw7N/ORRLksGgAAaV6zWjvw0LDHbeViwe08AhLU43gPPpB9qEuqiEi+rOYrrdmPEW
+	 UcuJQjh5dxumLtJBpyKoswi1xna/GIaiaTWlr5qw==
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+From: Yangyu Chen <cyy@cyyself.name>
+To: linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor+dt@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 6/6] riscv: remove asmlinkage from updated functions
-Date: Mon, 17 Jun 2024 01:05:53 +0800
-Message-ID: <20240616170553.2832-7-jszhang@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240616170553.2832-1-jszhang@kernel.org>
-References: <20240616170553.2832-1-jszhang@kernel.org>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup.patel@wdc.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH v1 2/9] dt-bindings: riscv: Add SpacemiT X60 compatibles
+Date: Mon, 17 Jun 2024 01:20:47 +0800
+X-OQ-MSGID: <20240616172054.3074948-2-cyy@cyyself.name>
+X-Mailer: git-send-email 2.45.1
+In-Reply-To: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
+References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240616_101958_967710_88275319 
-X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-CacheID: sfid-20240616_102114_061127_6FD18C9B 
+X-CRM114-Status: UNSURE (   6.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,117 +93,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the callers of these functions have moved into C, they no longer
-need the asmlinkage annotation. Remove it
+The X60 is RISC-V CPU cores from SpacemiT and currently used in their K1
+SoC.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Link: https://www.spacemit.com/en/spacemit-x60-core/
+
+Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 ---
- arch/riscv/include/asm/asm-prototypes.h |  6 +++---
- arch/riscv/kernel/traps.c               | 16 ++++++++--------
- 2 files changed, 11 insertions(+), 11 deletions(-)
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-index 81a1f27fa54f..70b86a825922 100644
---- a/arch/riscv/include/asm/asm-prototypes.h
-+++ b/arch/riscv/include/asm/asm-prototypes.h
-@@ -37,7 +37,7 @@ asmlinkage void riscv_v_context_nesting_end(struct pt_regs *regs);
- 
- #endif /* CONFIG_RISCV_ISA_V */
- 
--#define DECLARE_DO_ERROR_INFO(name)	asmlinkage void name(struct pt_regs *regs)
-+#define DECLARE_DO_ERROR_INFO(name)	void name(struct pt_regs *regs)
- 
- DECLARE_DO_ERROR_INFO(do_trap_unknown);
- DECLARE_DO_ERROR_INFO(do_trap_insn_misaligned);
-@@ -53,8 +53,8 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
- DECLARE_DO_ERROR_INFO(do_trap_break);
- 
- asmlinkage void handle_bad_stack(struct pt_regs *regs);
--asmlinkage void do_page_fault(struct pt_regs *regs);
--asmlinkage void do_irq(struct pt_regs *regs);
-+void do_page_fault(struct pt_regs *regs);
-+void do_irq(struct pt_regs *regs);
- asmlinkage void do_traps(struct pt_regs *regs);
- 
- #endif /* _ASM_RISCV_PROTOTYPES_H */
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index b44d4a8d4083..ddca8e74fb72 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -147,7 +147,7 @@ static void do_trap_error(struct pt_regs *regs, int signo, int code,
- #define __trap_section noinstr
- #endif
- #define DO_ERROR_INFO(name, signo, code, str)					\
--asmlinkage __visible __trap_section void name(struct pt_regs *regs)		\
-+__visible __trap_section void name(struct pt_regs *regs)			\
- {										\
- 	if (user_mode(regs)) {							\
- 		irqentry_enter_from_user_mode(regs);				\
-@@ -167,7 +167,7 @@ DO_ERROR_INFO(do_trap_insn_misaligned,
- DO_ERROR_INFO(do_trap_insn_fault,
- 	SIGSEGV, SEGV_ACCERR, "instruction access fault");
- 
--asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *regs)
-+__visible __trap_section void do_trap_insn_illegal(struct pt_regs *regs)
- {
- 	bool handled;
- 
-@@ -198,7 +198,7 @@ asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *re
- DO_ERROR_INFO(do_trap_load_fault,
- 	SIGSEGV, SEGV_ACCERR, "load access fault");
- 
--asmlinkage __visible __trap_section void do_trap_load_misaligned(struct pt_regs *regs)
-+__visible __trap_section void do_trap_load_misaligned(struct pt_regs *regs)
- {
- 	if (user_mode(regs)) {
- 		irqentry_enter_from_user_mode(regs);
-@@ -219,7 +219,7 @@ asmlinkage __visible __trap_section void do_trap_load_misaligned(struct pt_regs
- 	}
- }
- 
--asmlinkage __visible __trap_section void do_trap_store_misaligned(struct pt_regs *regs)
-+__visible __trap_section void do_trap_store_misaligned(struct pt_regs *regs)
- {
- 	if (user_mode(regs)) {
- 		irqentry_enter_from_user_mode(regs);
-@@ -294,7 +294,7 @@ void handle_break(struct pt_regs *regs)
- 		die(regs, "Kernel BUG");
- }
- 
--asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
-+__visible __trap_section void do_trap_break(struct pt_regs *regs)
- {
- 	if (user_mode(regs)) {
- 		irqentry_enter_from_user_mode(regs);
-@@ -311,7 +311,7 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
- 	}
- }
- 
--asmlinkage __visible __trap_section  __no_stack_protector
-+__visible __trap_section  __no_stack_protector
- void do_trap_ecall_u(struct pt_regs *regs)
- {
- 	if (user_mode(regs)) {
-@@ -355,7 +355,7 @@ void do_trap_ecall_u(struct pt_regs *regs)
- }
- 
- #ifdef CONFIG_MMU
--asmlinkage __visible noinstr void do_page_fault(struct pt_regs *regs)
-+__visible noinstr void do_page_fault(struct pt_regs *regs)
- {
- 	irqentry_state_t state = irqentry_enter(regs);
- 
-@@ -378,7 +378,7 @@ static void noinstr handle_riscv_irq(struct pt_regs *regs)
- 	irq_exit_rcu();
- }
- 
--asmlinkage void noinstr do_irq(struct pt_regs *regs)
-+void noinstr do_irq(struct pt_regs *regs)
- {
- 	irqentry_state_t state = irqentry_enter(regs);
- 
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index d87dd50f1a4b..5ad9cb410335 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -46,6 +46,7 @@ properties:
+               - sifive,u7
+               - sifive,u74
+               - sifive,u74-mc
++              - spacemit,x60
+               - thead,c906
+               - thead,c910
+               - thead,c920
 -- 
-2.43.0
+2.45.1
 
 
 _______________________________________________
