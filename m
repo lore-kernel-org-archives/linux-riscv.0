@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3522C27C53
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E62BC2BA15
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jun 2024 17:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qG1Ii86tafIxVDRFl3RyrzKIfwkGNbqncCE1lULWfA0=; b=MSBKIhrcAGsxhi
-	RzhTd4cDwea8AqX8+qHpkong26G8KwSqmQDux6BUKgns7mD3OFRkfWT1fPFznCIjA/kC/dNdw5I5m
-	JljHr3DH68ohMeV9nVQTY953SC+L2NrD10O50t6ZGIYKf2e/v8HtQAO/RiRisw2F8SohoPm/09XT/
-	tHVxd+5q+uG7APxrCfyd1dXXrdEmncNAcsBuuY404ckTw51bRGMgAEXjDy6ERw6wZMlH+cAxja+fY
-	zpHDDsjHcKNVWgnmzmtIyOtxu5DFc7DXhjaDYb/hjISa4pE2zaDPz5Q8gaszIN1BjF1LS9Oq0wnGF
-	RiWUVSPz5CQmhaIjpyGA==;
+	List-Owner; bh=BrtZyaaiZQdDgDPQ/1KAtJ8BULoSrVtVZAlUtuLG2qY=; b=mEYNOMiSl243co
+	Js11GNqniWzBHCU0GIBmLqyC9XXXM/B17sxJirrP0rRfZlEMD6ftb9Ov07tHjQpcc7WszElauIy4e
+	GJLo2v11hc73cbNztiTJUoSK6+1yDapFcXLO6bJHdfVQ1n/cBu1yacSMjKGcTPp3htoQjDP9SYgfi
+	+8rXKNKAw0oCPwVg9xKA/DquJUm+OUxHGZdW3Oa9GFS2E08988isWEBAp7eHwBQg+Rb+f/0iPSOBt
+	79Bbj4EPyIEQVgeUfTdAgY9DjG5157TaZ2J+AqYNWyTQNcm1E0QxKLZDcyz6aGB0oAbfXKJJIs4iu
+	spctxqLRauACNJRXeHeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sItZG-00000007y0p-0QJi;
-	Sun, 16 Jun 2024 17:21:26 +0000
-Received: from out203-205-221-240.mail.qq.com ([203.205.221.240])
+	id 1sItZH-00000007y2P-3OP1;
+	Sun, 16 Jun 2024 17:21:27 +0000
+Received: from out162-62-58-216.mail.qq.com ([162.62.58.216])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sItZB-00000007xvq-1T1V
+	id 1sItZA-00000007xtr-0cZc
 	for linux-riscv@lists.infradead.org;
 	Sun, 16 Jun 2024 17:21:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1718558473; bh=h/Z20p48DwZNDsPa9mj4N+VQ+bYpq+oeTefGgtOFXe0=;
+	t=1718558468; bh=rHBnmN7B3Rsy6U0sdX6GONr0sHeg0xxsndGVLxSaSz0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=xykLnlL0jWrga/A98t+1PB0gzWKBylzPqOV2TSX0wW4+Q1c5U+gbKW1fzRMyKw0yO
-	 U0t7NqgII8BnmwG3auCHYaeHuKvMm3p+ir9lajh8IfGhg8KX2hw0mMKqF2X1J1JGlh
-	 JSEvklVAMCKEA372a042Qm/djX1IzM0FjFgvkMjI=
+	b=reYC1Q4TxC+bMuVQwT2iJpnKQLRX15ozurPWqHGMXnXoZ5Jer6yf4fPe6wunhunhe
+	 8fDvSlAxkJH/HxaM5AK/6IBilPC7YAn6tTTShBiJTBftfFbA/wtEPap/Fct+VVS3+3
+	 12rcKDm67wUCLsbtVHAPvfa+QKv8v4hlGZqw7f1I=
 Received: from cyy-pc.lan ([240e:379:2260:ed00:cd33:e8cf:d8f9:bed3])
 	by newxmesmtplogicsvrszb9-0.qq.com (NewEsmtp) with SMTP
 	id 5452D659; Mon, 17 Jun 2024 01:21:05 +0800
-X-QQ-mid: xmsmtpt1718558471t1v0fym5a
-Message-ID: <tencent_2A51312A21F88DDB7C7D82A2DA8E8EE7B808@qq.com>
-X-QQ-XMAILINFO: N7h1OCCDntujnNRNhosd+oxF8Tfn/AXML0ORtRxyI7ZEAXUfM26vh8ag8gCooh
-	 rWa6l1LjZrVbdg/fCX2UsQIeUtAQNCVklDR3tjflLhf1pRXgMo8r7uFeVwHj5XYOS0t9ZVe0/CXl
-	 0tDMZ+35M2HsT1aVGzKfT/OCdwo0sgmDmZ3S7WbgiVaZ1pbp5Ny2OHHUungOjhj6B8OoiUciPoz6
-	 GxgRw4wn/JxB900WbKCFQsnMp+eRLBTchRSX1xnsDlhVw9ifu6436mP9/SjJO1w0lct4yd9KwfN7
-	 SRySjU4E139y3Ba6sgoA+yaoU29sqliO+lU2+6p0Er7RMevoQaLBDvWNDsA/43h5hgXhz7rWld+o
-	 YcYrUpLt7qzInthHD7KyOsBC5273ltwWA16781GrU1+haXF24jMxFjRAAjOuJ1iza0r12SR4jMBo
-	 BDtDIohbYRDKLDj/dbbnNbjbwesJO8hTwOVKemOzMh3ivPo61eT5rZwt3vXztth+BJM8HmmMe5Ql
-	 jLsEcky/pBZ2MWFfvaVs2jzGyRh5ocjvPgwalDB0XKKJ1lm6ohB5cjcB+OioskmNmAOzhCvcZ37p
-	 TIZA86YGb2axLzHmKLCuOtij9TIo/EEwBEn5h6V1kvR6kQbzVmJSzhiLmuscL0pYLT1Zx26kUjgD
-	 rNjYnMUu2yvp1sKZ62xOl119HhbwrpI6paKK5/iPT2eDJe1DYnWCPYCNDJ9Yoog9U5QnTB4fklYJ
-	 E/9bLZtQUWxqvntGIAeayKlNmkyLLJH1ZdHgG9d0IzolqW23WTUKcqYHPSJOda04P6idFo9IRjM4
-	 n+NHKG0G7A11MgAYAG5EcdQ1ieEfRnfIu/6eMzRLhbwVom/dXGU5LnTe8Xu28T1Lo6LQFuBYjxSM
-	 Tx+gycwKmjPu/aCjes1TecKROjaJfv3xOdygX1L5DUqrlk8YVpnRVaTyd2cuD6RClcRzoFHA7Qnb
-	 yMjAzT1c+OPQ7p6BwB/4LlJSkKZX6hm5abO9t4fn8fk7Ln1eLu42GdWVOo2syyz5lAUZZlmYrWoy
-	 MY14PVZUJzsrDtyb4o1C4SFSaF2ZcCWJytbYnxPQ==
+X-QQ-mid: xmsmtpt1718558465thebog8nn
+Message-ID: <tencent_24CA6BAF3BB2E3A6C490854834FAF2E1080A@qq.com>
+X-QQ-XMAILINFO: NMGzQWUSIfvTkApgb/ZmacDt+n2nnKZ5gONX++ZB/fMyIH4nOmO36lm9btTCFA
+	 +AP1KeGstFEFJptBLGJCqOWDHeHuRKMVyK2PfACMfb4o5X0hY6w0JENfj0SBjf8+loGngpmsRTIz
+	 X5lN3l/pxo4QsWsTW008mcyGhV4fNhRcCVRzNi22sKpceajR73nAEpR0kJJldJke+EtzVRvmbzAU
+	 0a+S8yqeIruRemjB5ahJFyfkGqSHTmLq/5ZAVJ2drS9WDRJDoxAaWUPBxwjcA8++MbLPg6yOU4F9
+	 oycOPMzsa0W0Yd/h47UlIw0NsdsNgi0t9ECZeH7NgVv/s1/VZadyZTbZbCaU4U96X6Js13AOgp0y
+	 mfuuV+fY9SGDP30Fae+SQSBdYhJLTAWlhglPgGRV2wLaPXLjULgNo/KLbCThT3Z1mDRNglnGljsa
+	 GcFkb9t7psh/4d/wjoeoRclrrlx4oqFpAsAs2XLB4tDdZM86BryxrkVEja/zWkMrS0bItg8kJEXg
+	 r7Ip3Mwjz1dcNeVH7jAl0zb1OhUCPWoxpl6uryn3x/NtZKRFqc/0LkHpADJOEmE50xHONxvd8ypT
+	 Z5+FvUuihJQCk5fLqt9HU4UmIVrKuGhDMEyq3oriKqaPk5g0jShbyPQ7JlnUgTu6U0GEurxCMzmf
+	 fl1ePeiTtiAYsCEyb/rdbz6baPvU8Y7+h4C3XQUlQ5WJI6fvH1SGzV97vYEWNkOj8x/3PXDxyabi
+	 bSfZQvwC9cNMl7rO5pZhvGDHHU9PzEXbX5dY99hXtXpANwY5I/i7srJv4GQDFRwdXEYTYpEwj0NL
+	 SAlfYIj2kTt9xKMZh1mThW5CntyNzHJPEbiPgQGnDLMnCkp3DEGl/BMaejt3y1DmeLFQk5JyexaH
+	 bXai4hocnVon6iwSgA7fq93ZBIJj+/DoWvn36W90PlEwnrV+T6knezK0Pnrl3JI+pZMHLaAfkphR
+	 ZHT2RwKNKIBax3q+ARP+jOOUY3BicMw8MiV/2S6HKTDsedzrlE0QK3GVG1+2BzWoLbSM8UYRVk9z
+	 rcBAO58Vp1HHE0Pci65CsqeEGtH6g=
 X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
@@ -66,16 +66,16 @@ Cc: Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH v1 4/9] dt-bindings: timer: Add SpacemiT K1 CLINT
-Date: Mon, 17 Jun 2024 01:20:49 +0800
-X-OQ-MSGID: <20240616172054.3074948-4-cyy@cyyself.name>
+Subject: [PATCH v1 1/9] dt-bindings: vendor-prefixes: add spacemit
+Date: Mon, 17 Jun 2024 01:20:46 +0800
+X-OQ-MSGID: <20240616172054.3074948-1-cyy@cyyself.name>
 X-Mailer: git-send-email 2.45.1
 In-Reply-To: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
 References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240616_102121_736895_5088BF70 
-X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-CacheID: sfid-20240616_102121_263457_5F32D5D6 
+X-CRM114-Status: UNSURE (   6.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,28 +93,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for SpacemiT K1 CLINT.
+Add new vendor strings to dt bindings for SpacemiT K1 SoC.
+
+Link: https://www.spacemit.com/en/spacemit-key-stone-2/
 
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 ---
- Documentation/devicetree/bindings/timer/sifive,clint.yaml | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index fced6f2d8ecb..860cf6a96b31 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -43,7 +43,9 @@ properties:
-               - thead,th1520-clint
-           - const: thead,c900-clint
-       - items:
--          - const: sifive,clint0
-+          - enum:
-+              - sifive,clint0
-+              - spacemit,k1-clint
-           - const: riscv,clint0
-         deprecated: true
-         description: For the QEMU virt machine only
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index fbf47f0bacf1..7ee6e4a89376 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1362,6 +1362,8 @@ patternProperties:
+     description: Sophgo Technology Inc.
+   "^sourceparts,.*":
+     description: Source Parts Inc.
++  "^spacemit,.*":
++    description: SpacemiT (Hangzhou) Technology Co. Ltd
+   "^spansion,.*":
+     description: Spansion Inc.
+   "^sparkfun,.*":
 -- 
 2.45.1
 
