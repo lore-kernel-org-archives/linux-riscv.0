@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465A4C27C53
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 02:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5252C27C77
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 02:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
+	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7Y8GN3z7woQo9PfAUylQprBiHSxlrqJNQCAVSN4jdJ4=; b=j8CyF7/pqbAz92
-	HQM5eNRblURy07lBu7T82ZF/D2W4maMLg+Y2dV08DoMZZVRPkQnAHdbAfTvap8AEpzAys1N4GDL/7
-	rvta9XH+f+j1bQRw9tUC99D1hTzqWWHoMlj1FmAjDlLmO73DZ5DFiVA47gjrPVAzbDeZtiyzzo69Y
-	9Ko3urGrv1+/NtzD8djhjlF4zobrF8UaTxmeI+hruovD/1m8WXxW0NZWah8n6p95xmHdcSExteiV0
-	ImUGBF9djZy03tnhTNCu/B4cPF7Q3hBeCrZCGITYqpd8KHYBycxHcfC15k1Wh4NYurZBLG1tBZpYW
-	0CaFWR/OatGAoxsFaeMw==;
+	List-Owner; bh=cRsxdR82nbJYN1qM7YIWA/Qrvzx4COT6KgieP+A5nUE=; b=FYH092QaVblOZi
+	N37rD+xJXRBu7Gb/dlyy9H9OfV6jOueunuHlEa1ac+06PmJBUNBJuPsKEGAyuRG0gGD1DfFPju5xI
+	hsAkHHFic7nOtgLBMICyWP4AJuEaRGZQD0LwDBcwoZs+fofYuC0cjO2PhbnErOCaSgHnkmY2uQC34
+	gqea168YJzEvTOQeNqpPnoAaFEPajvowHmbxfsdAdjKpJnGJajWZINwiydE3nmAltWQfItOa2OdYa
+	8caGO1MrKxg2zHflpn2VWFrxx+mb+GDC17tN/AwxNOntXijwVmJOjeEgnzPuaeocZaznKUvhdimHS
+	w1pV3U3CFWhSlgB4IFLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJ1pF-00000008o8K-33DB;
-	Mon, 17 Jun 2024 02:10:29 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1sJ1pp-00000008oFV-1XxR;
+	Mon, 17 Jun 2024 02:11:05 +0000
+Received: from out203-205-251-80.mail.qq.com ([203.205.251.80])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJ1pC-00000008o6f-06b2
+	id 1sJ1pl-00000008oEM-1cVi
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jun 2024 02:10:28 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-dfe41f7852cso3977142276.1
-        for <linux-riscv@lists.infradead.org>; Sun, 16 Jun 2024 19:10:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1718590221; x=1719195021; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xqCXTr60lfURDiU6o/ziPYUoB/pkh4/Y0UTODd/6hiA=;
-        b=NBNdCWuJvaTXXeadLJPjhn8urwxATDmAiN2NaAnk6QQV9q/TJU69H9RK9q0JUhp4VF
-         yObY/bEGEWMagD2xCw60oFaRa2NTrErfczmfU6HD3ngaMyBPfqbUQfldjx5Iyvu2RzJ8
-         wtylGZMC/PQu06FuuqP+aDw4p6MBfsnJk2HvH1mpowaYknV4vJqsyFMCH2NRyUftC/az
-         fH7wXAr01Jkkfs9YRRE4gvcZ1foTT0htxc+EuQiO+cX0HHEKXd22iiM3ngL+KokTZ4ob
-         btDu3plh8PYFIco97dCSfHYrbgiQZbcCVaVl6wKbXDpVDoIGeFIqNzcjGmKcKOJ7tAia
-         S/fg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718590221; x=1719195021;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xqCXTr60lfURDiU6o/ziPYUoB/pkh4/Y0UTODd/6hiA=;
-        b=j42JdS+496t4JUZ93HN6Vq2N8EswcqpU+pfXzpmVnofBZwZ1QLiMh10JYAm4KLMQ/i
-         qQL8mYg3UXZBAwCqn5C2IFE/YT4T4IceS34+NXFRtBA1g5l1pQbmneqJoC0MMNtcMPs3
-         OsZTOG9aK1QsGDoX2SSIfawplTjWJ3wvLEtrR7KZBSO3ybGaIKlIdIq5/g+KaU8VHBks
-         kIbjWg5PBZjLS5DonlZNVlj0frtrd7frRy7xCse8ZV5Y0eH/qW8Kw3y2Ig4bfu1sNhjY
-         UdC+FeHSXAJK0kfUVrm3+3PrJsJMwkp7OANISFmnG6SLWW0DpOr7Hq8Bh9JkLFJrMtTj
-         YeoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUyxKN3xm9wItw9mPdtXFrVA1srtlTJrfF7PjR68dQuKUJvMvPkROvDmRiZIXqAaNeB1aHDhSI+Yda+VDBNP7e6/IU0IA1ByVxARpapGoVP
-X-Gm-Message-State: AOJu0YyCEfhtC/Sv/ZVHMQI6bSLUvTviiVJ459FmYAstoqvxlSeZpLhX
-	eqCZL4Lk5gEo5a6ML9dMjhgjtgj3nGKIDNKzLjtitwXcEivU8CsZ0L2MgJ2OkfX4PgQL0S7b+z8
-	xxNsj7M20+1lGC++joZid3xBCnkQ8OzI+g9FASw==
-X-Google-Smtp-Source: AGHT+IHVdf4CeK9m5TY7u8n2i5EYX8aCm7rXG/PvOUZXj0qTxh3niUzEWChMP06D9pYzethEgSj8BqmnKZHhXWATYww=
-X-Received: by 2002:a25:6612:0:b0:dff:3b6a:6322 with SMTP id
- 3f1490d57ef6-dff3b6a64a9mr2668500276.34.1718590220902; Sun, 16 Jun 2024
- 19:10:20 -0700 (PDT)
-MIME-Version: 1.0
-References: <20240613-dev-andyc-dyn-ftrace-v4-v1-0-1a538e12c01e@sifive.com>
- <20240613-dev-andyc-dyn-ftrace-v4-v1-2-1a538e12c01e@sifive.com> <20240613093233.0b349ed0@rorschach.local.home>
-In-Reply-To: <20240613093233.0b349ed0@rorschach.local.home>
-From: Andy Chiu <andy.chiu@sifive.com>
-Date: Mon, 17 Jun 2024 10:10:09 +0800
-Message-ID: <CABgGipXB8uQ7XZbBFMZa8b7mymKAW7qOkKKaA8qVZ0hGXziSYA@mail.gmail.com>
-Subject: Re: [PATCH 2/8] tracing: do not trace kernel_text_address()
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Zong Li <zong.li@sifive.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev
+	Mon, 17 Jun 2024 02:11:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1718590247; bh=n/b25ufWw2FEN1PbS/h2Gmizcmt1dbuO+3UPvLJwndc=;
+	h=Subject:From:In-Reply-To:Date:Cc:References:To;
+	b=fP4MeZ97kB27xyqAj6GziWZOg6hlM/kgo+kbaaMEXYqBnrPJz/D3cp9gifzm6fpLl
+	 OIGJIoLtCqlT5NoyaNzAjG3Hva9tv17xb26TGwN6WbH2nGQBYh0XpU+A/pA6ySNwrh
+	 1PApu9/t0+s30SoxIefub+ZVYMRErmg1/lsmmG6M=
+Received: from smtpclient.apple ([2409:8929:843:88d1:dc81:b668:28ec:a360])
+	by newxmesmtplogicsvrszb9-1.qq.com (NewEsmtp) with SMTP
+	id 2AB86CF4; Mon, 17 Jun 2024 10:10:43 +0800
+X-QQ-mid: xmsmtpt1718590243t4q3vx31k
+Message-ID: <tencent_6863DCC298D59097467C3E0641106D0D4707@qq.com>
+X-QQ-XMAILINFO: NJ/+omVLhVgaGQOj3C9BAUFbWT0vbHZiwKhfTH3iTJpJF2/X0N+UqfrcazIqWQ
+	 rpkqCcxpvCdCT7+w3b/f43Jch3pKUm5k7IE4fT/0gSkBj6jAYhWMrNEaydu0YiFKYZ8bEHXNTAkv
+	 /iTyNOok9umfGcHP+8MLyVchbxR+jWfaS+pd3wcCuLgsS0joBrnWviJyMxP32H3vUVzFw4GX23+c
+	 dyR/BQ2/UrlBsihDcqSZjFRoB+cBikG39chYBL3+8vIRX7pU5B6bD5qnsuN9UlZo7HHzoQcq3dRl
+	 FBZ1j3zYotVTdc6t66MPzw01U8/pjMbwv1eQGS0vdE2WWKka9M7OGOKBhL3e1D9H2fisaBE81BAK
+	 gHmfmQ77eoQvb73FOwKvFhs9NwwdTbMIHjaKh7HEdmUTJ6PzXcQuf1erhT8lIuxnOyxhPkZSHq/r
+	 +/grkH90VGA/AumbnTndz55xDZyAjWpNtpH+aGJ3OTRXsP+z6N5am5Jz72ndPGGQGwpBT0sOfHJa
+	 9REY2W1eqxufLtlCllioejHoDyRAy+VrkFQ+cZw6judnHO56Zmc52EaFBoMXEY+l55nxxJixqN37
+	 3OIN6IBfySNrTn92rAUTgcQnUce5hSN/k628mPeyMHoAmcfSdV+TEjP/GzWtQ2un6wMdVZUknlGD
+	 gEvROFOVhK7QkvS9hNh9HoWHIAmSOdui9ntn+OeJgRsBBBSnpndJSLsIKjRfYb5E46ZZ9WavEUCR
+	 tEFO6Iw3oQ0nTup4W5sCGUiTCOWwR3tQaVCt2stVPVdlp/W3rtc4tBZ5ULCVNX6wOyM25Gi4Dyi5
+	 wRHH48MLb0+SUlwOf4ZWnavP3liYQ5GwaOm12JJTKstJogAvqgFMHGQWkMeTtslVzmh2/PAdE/Ik
+	 Y4O0Xgxw8NMuyPaBKdlzYDans9spx8jqVSMN4Ib8t8utqQIEX/PMcgxhyc6Tn5Bjl69VgxwW9ViJ
+	 uZpVk638x0bTHR5T2vYucE8UA768wAgPQs7iPdPGI=
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.600.62\))
+Subject: Re: [PATCH v1 7/9] riscv: dts: add initial SpacemiT K1 SoC device
+ tree
+From: Yangyu Chen <cyy@cyyself.name>
+In-Reply-To: <20240616225314.GA3988639@ofsar>
+Date: Mon, 17 Jun 2024 10:10:33 +0800
+Cc: linux-riscv@lists.infradead.org,
+ Conor Dooley <conor+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Anup Patel <anup.patel@wdc.com>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ devicetree@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+X-OQ-MSGID: <F59EA1B1-9DC3-40D5-AA9F-0AD72D31CC03@cyyself.name>
+References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
+ <tencent_701082E2DAE48E2FB857316321778D737C08@qq.com>
+ <20240616225314.GA3988639@ofsar>
+To: Yixun Lan <dlan@gentoo.org>
+X-Mailer: Apple Mail (2.3774.600.62)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240616_191026_551587_066F6320 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20240616_191101_785446_124FF789 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,27 +89,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdW4gMTMsIDIwMjQgYXQgOTozMuKAr1BNIFN0ZXZlbiBSb3N0ZWR0IDxyb3N0ZWR0
-QGdvb2RtaXMub3JnPiB3cm90ZToKPgo+IE9uIFRodSwgMTMgSnVuIDIwMjQgMTU6MTE6MDcgKzA4
-MDAKPiBBbmR5IENoaXUgPGFuZHkuY2hpdUBzaWZpdmUuY29tPiB3cm90ZToKPgo+ID4ga2VybmVs
-X3RleHRfYWRkcmVzcygpIGFuZCBfX2tlcm5lbF90ZXh0X2FkZHJlc3MoKSBhcmUgY2FsbGVkIGlu
-Cj4gPiBhcmNoX3N0YWNrX3dhbGsoKSBvZiByaXNjdi4gVGhpcyByZXN1bHRzIGluIGV4Y2VzcyBh
-bW91bnQgb2YgdW4tcmVsYXRlZAo+ID4gdHJhY2VzIHdoZW4gdGhlIGtlcm5lbCBpcyBjb21waWxl
-ZCB3aXRoIENPTkZJR19UUkFDRV9JUlFGTEFHUy4gVGhlCj4gPiBzaXR1YXRpb24gd29yc2VucyB3
-aGVuIGZ1bmN0aW9uX2dyYXBoIGlzIGFjdGl2ZSwgYXMgaXQgY2FsbHMKPiA+IGxvY2FsX2lycV9z
-YXZlL3Jlc3RvcmUgaW4gZWFjaCBmdW5jdGlvbidzIGVudHJ5L2V4aXQuIFRoaXMgcGF0Y2ggYWRk
-cwo+ID4gYm90aCBmdW5jdGlvbnMgdG8gbm90cmFjZSwgc28gdGhleSB3b24ndCBzaG93IHVwIG9u
-IHRoZSB0cmFjZSByZWNvcmRzLgo+Cj4gSSByYXRoZXIgbm90IGFkZCBub3RyYWNlIGp1c3QgYmVj
-YXVzZSBzb21ldGhpbmcgaXMgbm9pc3kuCj4KPiBZb3UgY2FuIGFsd2F5cyBqdXN0IGFkZDoKPgo+
-ICBlY2hvICcqa2VybmVsX3RleHRfYWRkcmVzcycgPiAvc3lzL2tlcm5lbC90cmFjaW5nL3NldF9m
-dHJhY2Vfbm90cmFjZQo+Cj4gYW5kIGFjaGlldmUgdGhlIHNhbWUgcmVzdWx0LgoKU291bmRzIGdv
-b2QsIEkgYW0gZ29pbmcgdG8gZHJvcCB0aGlzIHBhdGNoIGZvciB0aGUgbmV4dCByZXZpc2lvbgoK
-Pgo+IC0tIFN0ZXZlCgpUaGFua3MsCkFuZHkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+
+
+> On Jun 17, 2024, at 06:53, Yixun Lan <dlan@gentoo.org> wrote:
+> 
+> On 01:20 Mon 17 Jun     , Yangyu Chen wrote:
+>> Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
+>> 
+> .. snip
+>> + uart0: serial@d4017000 {
+>> + compatible = "intel,xscale-uart";
+> are you sure the uart IP is fully compatible with xscale?
+> otherwise I'd suggest to introduce a vendor specific one..
+> 
+
+Sounds like a good idea. I will add it soon.
+
+>> + reg = <0x0 0xd4017000 0x0 0x100>;
+>> + interrupts = <42>;
+>> + clock-frequency = <14000000>;
+>> + reg-shift = <2>;
+>> + reg-io-width = <4>;
+>> + status = "disabled";
+>> + };
+>> + };
+>> +};
+> it's better to also add other uart nodes, I feel it's more complete
+> 
+
+I should test it before adding them. However, if I remember correctly,
+there is only one UART on BPI-F3.
+
+> -- 
+> Yixun Lan (dlan)
+> Gentoo Linux Developer
+> GPG Key ID AABEFD55
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
