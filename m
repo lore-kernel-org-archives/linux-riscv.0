@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E531C27C79
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 16:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A47C2BA18
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 16:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
-	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u0MskFwJ9698+KEdyTE/MBs4JUCrzyAgLqEiXSuttg4=; b=yQyoLDeNpqous9
-	nqPVjc16BDxNhOEjOmuMjz0VzfQxwlUvkgurj44vgbezjwna4KJfdR1qT4Ewq7MLdDg6e1zYTUQdT
-	j20tTb+3cIzdfY+9EgZhUtbtuSUo0Pfr8DteD+75YjKpB3bSJOssvXCEP1hhzr5wXG62G+MBIYWQH
-	kVYgjom5P5pW5wjc/0laPo5Ceb8pX647uZ1JfrlSldAYbbbmn7EtSdV/T/AR+Y+hK7YTN1Ums29on
-	SW461v10q0ylo6NiarnmAvA/75GIaN9Q7O4f7xiTWGeSIkM9REpR/TMgBjd7O+xbIjA/eT3XhHRS2
-	I+fSFRbJHuHQ4v/IZWgQ==;
+	List-Owner; bh=Y2PvF56ZSgZBXyV3YqJN7IGgWzVSTT11YDwG6yAdmP4=; b=ssNuDnyjWK0KdC
+	1jBZMxfOO8sCQYCw/j2euzUuuiSzQBjHhuMVHII+2/3hBrOjZF43RQ+Xim2VXOTj++JH0oyin3iYX
+	Hi1L6tbiLN0BlV/AWGI+LAdoiIRi7qaa29ofpQhD7hKKvUafUydeUgKC55squhEpQl15H3e9D2Fwx
+	sIUROuU7UwiFdRNkjaPOe2toRGzNXV6BXB6ImpIvKSp78hPqS/5jT3pXuKGpixIrmj+Gr4EEad7PJ
+	HjPiqDPHbLCK6alJDEcZaoD2Pjh06WBZsZiVZwhxrC2m7qYHm74mN607bY/hOvwkq/mpnKnahR3US
+	nOdk5vwlOOblKj95r7YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJFOd-0000000BlxZ-3Qcn;
-	Mon, 17 Jun 2024 16:39:55 +0000
-Received: from out203-205-251-72.mail.qq.com ([203.205.251.72])
+	id 1sJFbH-0000000Bpvw-2R4f;
+	Mon, 17 Jun 2024 16:52:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJFOZ-0000000BltT-2sDd
+	id 1sJFbD-0000000Bpsu-4Aei
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jun 2024 16:39:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1718642387; bh=BebjWnIfbICzDDv9y7lrGwILWCLv2pqxrduvH9z3ffQ=;
-	h=Subject:From:In-Reply-To:Date:Cc:References:To;
-	b=NNOqrFRUTLwoMJjNpWfQdQROXWYNG7m4M1XE74I8ekkw/M3O1ZgCkS+nL74hJs421
-	 2rNKY+oLd4u7flDdqG4+OYImh4A2vIaF1oIldrw+dilHloftG7wwoI7LMWETE57tfq
-	 Q0PbIooch1TxmEeD9Le1WQMlDgpnbDTTviKLQ7vg=
-Received: from smtpclient.apple ([2408:8207:18a1:9700:9c85:7ae:3ee:45fe])
-	by newxmesmtplogicsvrszb9-1.qq.com (NewEsmtp) with SMTP
-	id 9EB21275; Tue, 18 Jun 2024 00:39:43 +0800
-X-QQ-mid: xmsmtpt1718642383toizuvsk4
-Message-ID: <tencent_26E7381EE1F6C5188428359AF3F908CA680A@qq.com>
-X-QQ-XMAILINFO: OaubouGXmhNz1eavt//OG67Ozorm+d9p6vpUKabw3YPJTuKPcNJ8Ij2qUZMBFa
-	 nVKydnjfymoPQ/5j+JNvKXHTDtEn27QluWmav9cFNNYIy8GxuEcsp5NA3ziH7FpT0SSVYGhGl/04
-	 KFpeXGdnURvFsGES0B7ETFALeC1Q8+tdXgtqNHDIDTXWCW02rMdXB4dsIVPSkubVSqqn6emNmjuO
-	 KJe8JXP14+HqHNStw+xT0oMUz/Wcw+HQmOTt1spd7p0pvR9EwyS9aQdP7bNC61tUYKJaV++UlMew
-	 4NrNR8o+3mAvTbQ7Chxp7a3OI+wdK3wY9fpKn2ANTzgA2HRySX5ApkMh+dFB/DqE43kq5tcDYd89
-	 8POo74IIMKVzWAb3O0BCiB18oUMPc0vob1EGCz7LzogyQSk+xDB0QdHCgMP/ffIKsMS5fo3flxX1
-	 X8CXctOKFk0N8EfKyXeWj3afsO3B0/oG1DvR4R0RcNEoBq0LBX7jNjazRNOFbFQ6WN7BgNsbLsS3
-	 7XXEPW3yR1vyJ8xJHG4L1am67XBlaZijzRSs8exUgRQSSxbbTXQG+BrNGe3XXR899VZkiougTPl3
-	 tlcLLEMSITBGknSqFUvAezFY7B0XQ4wi+zKVyNyhj++zliEAEvH0wozMMsKW9xRgYSns2E75wEkX
-	 MgOtkHHp1NQz+3hvgY3BJCYjIoK1MkMgpVFRSEK8PstUNGY8GLryRGcxIMuz/reZlg/zS3imjhZU
-	 1Gajcx55fnXhPmuPYewNRH48KGHa1oumc/eJYXkcqWTon3g6yzYWGZe9qFI2vast/hKnB5EGKfQX
-	 yKVzyaTE/+hUrJBH258DJkv6JfJHa057EnYgk8cl/bMLylXsQFnNIXJ4eTyHsvLYEbWXtBzrgNQj
-	 we/IiL38++khSKqFnTG9A4XRPqKUoslMFLXOqvKsMvAk8UydPq17phjMt/klF6HhPhhF63r5K1aA
-	 zNoeIhn7ok1ydM3AdGEhJ8HLdL8eFP7Eq2mLPZbSPPorB/IQFCoA==
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.600.62\))
-Subject: Re: [PATCH v1 0/9] riscv: add initial support for SpacemiT K1
-From: Yangyu Chen <cyy@cyyself.name>
-In-Reply-To: <20240617-synapse-carmaker-0a59c7c6edb7@spud>
-Date: Tue, 18 Jun 2024 00:39:30 +0800
-Cc: Jisheng Zhang <jszhang@kernel.org>,
- Yixun Lan <dlan@gentoo.org>,
- linux-riscv@lists.infradead.org,
- Conor Dooley <conor+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Anup Patel <anup.patel@wdc.com>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- devicetree@vger.kernel.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Jesse Taube <jesse@rivosinc.com>
-X-OQ-MSGID: <452EAAE8-594D-4265-8100-D95EAAA970A0@cyyself.name>
-References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
- <20240616-exorcism-computing-e11e26084a62@spud>
- <20240616224811.GC3983622@ofsar> <ZnBEBQjTQtFs-fXt@xhacker>
- <20240617-synapse-carmaker-0a59c7c6edb7@spud>
-To: Conor Dooley <conor@kernel.org>
-X-Mailer: Apple Mail (2.3774.600.62)
+	Mon, 17 Jun 2024 16:52:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A3D6E61335;
+	Mon, 17 Jun 2024 16:52:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 423E1C2BD10;
+	Mon, 17 Jun 2024 16:52:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1718643174;
+	bh=eSnhqAm2EceuPb7GR0p97myLZRdOU10MmclXVrykcQE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ju/Nio2ekUQo8b14RA4d5uLq/NEoJTbtrPRR3ycrp0W1iGLafnBwKjFA8qysevzDj
+	 x7qKSGBs7oZOc8NK6gLzhdGOzqjFfVQz3Y40KI0j1uBCDQaT3mQ0/9/xd8ICwa2pwQ
+	 LSofAHNWiaTakNfXTxUASBja6ZNvN7KkmhX6DC383eLoNUeYxbs4zITnUD+vUiO/72
+	 y3b0j9RHGovIx9OvW5LKQO1DsJNAmkmS9n9dcDrZHoQS71AmEDLI7gVeHZR8rNMsEq
+	 jMWLkftptNFsk8lWXU/2Xo7Tvp0wvcFXv3NKuJznlFkgIV5prc1Luup8xxx78FJ/i1
+	 Qra2f1kMDF83g==
+Date: Mon, 17 Jun 2024 09:52:51 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Zong Li <zong.li@sifive.com>, Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	Evgenii Shatokhin <e.shatokhin@yadro.com>
+Subject: Re: [PATCH 4/8] riscv: ftrace: align patchable functions to 4 Byte
+ boundary
+Message-ID: <20240617165251.GA550301@thelio-3990X>
+References: <20240613-dev-andyc-dyn-ftrace-v4-v1-0-1a538e12c01e@sifive.com>
+ <20240613-dev-andyc-dyn-ftrace-v4-v1-4-1a538e12c01e@sifive.com>
+ <20240613190920.GB1272931@thelio-3990X>
+ <CABgGipV_6sFx8TJNrHszGLk=V9X1PJAXuOmRDxnTHPrigqJL0A@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CABgGipV_6sFx8TJNrHszGLk=V9X1PJAXuOmRDxnTHPrigqJL0A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_093953_120941_4D682AEA 
-X-CRM114-Status: GOOD (  38.87  )
+X-CRM114-CacheID: sfid-20240617_095256_141957_036A6273 
+X-CRM114-Status: GOOD (  31.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,105 +84,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> On Jun 17, 2024, at 23:32, Conor Dooley <conor@kernel.org> wrote:
-> 
-> On Mon, Jun 17, 2024 at 10:11:17PM +0800, Jisheng Zhang wrote:
->> On Sun, Jun 16, 2024 at 10:48:11PM +0000, Yixun Lan wrote:
->>> Hi Conor
->>> Thanks for bringing this up
->>> 
->>> On 19:35 Sun 16 Jun     , Conor Dooley wrote:
->>>> On Mon, Jun 17, 2024 at 01:18:52AM +0800, Yangyu Chen wrote:
->>>> 
->>>> No MAINTAINERS update, so I figure that means you don't want to maintain
->>>> it going forwards? If there's someone out that that does care about the
->>>> spacemit k1 (Jesse maybe?), then I'd be more than happy to have them
->>>> look after it.
->>> Yangyu kind of has limited time, too many stuff for him..
->>> 
->>> I'd volunteered to help on this if it can fill the gap
->>> Also I'd be more than happy if anyone willing step forward to co-maintain..
->> 
->> Does maintainership work like this? Is willing to do enough?
->> FWICT, maintainership involves active patch contributing, reviewing and
->> maintaining the whole SoC. It is better to take over the maintainership
->> after showing enough patch contributions and understanding of the SoC.
-> 
-> I was going to reply to your other patch about providing more complete
-> "basic" support for the SoC, but I guess I'll reply here and address
-> both points. After the k230 and th1520, which were both merged with very
-> basic support and have made very little progress towards being a useful
-> platform, I'm pretty reluctant to merge another platform in a super
-> basic state. I was going to make this point before you brought it up,
-> but it's good to know I am not the only one with that view. To be clear,
-> I'm not pointing blame for those platforms, I'd just like to avoid a
-> repeat. If Yangyu doesn't have time to do any development work on the
-> platform, I'd like to see someone else (and as I mentioned Jesse is
-> interested) take on getting some of the basic driver patches written and
-> merge only when those are accepted. Having no in-tree clock and pinctrl
-> drivers is definitely a hindrance to other people doing parallel
-> development of drivers and I'd like to avoid that.
-> 
-
-That's also my concern for the first time when I submitted initial
-support for K230. However, for SpacemiT K1, things went differently
-for its UART, and the vendor patched OpenSBI with their NOC-based
-HSM. They didn't use CLINT-MSWI as SBI HSM driver.
-
-The vendor uses a special intel pxa uart driver, marked deprecated
-in the kernel and incompatible with ns16550. If we use ns16550 in
-the dt, the behavior of uart is like the uart has no interrupt and
-stops working permanently when fifo overruns, making many developers
-not know how to start unless they use the SBI HVC console, which
-needs to turn on CONFIG_NONPORTABLE.
-
-For the OpenSBI, the vendor does not provide enough ISA string,
-which their chip might support, such as Zicboz. Thus, the OpenSBI
-does not correctly set up the corresponding M-Mode CSR, making the
-kernel panic when the ISA string contains this extension.
-
-These two things takes me about one week to get the initial mainline
-kernel with full ISA extension and UART to work. Providing this
-information in the commit message helps attract more developers to
-start developing quickly.
-
-I don't mind whether this series patch will be merged or not. The
-meaning of this series is just providing these informations. However,
-I think some details about bringing up a very basic kernel are
-essential to attract more developers. If a platform has already
-attracted some developer's attention. Providing initial support
-with the commit message to show how to bring it up is not bad.
-
-The point is that if a developer like me has already done this but
-does not have much time to do further development, should the
-developer become the maintainer? If not, should a developer submit
-patches like this to the mailing list to provide this information
-in the commit message and make it easier for other developers to
-do further development?
-
-> Getting back to your point in this mail, whoever gets the platform to
-> that state is well suited to looking after it going forwards. Some other
-> interested parties could also join as reviewers. I don't want to see
-> people joining as maintainers that are not going to have an interest
-> in the platform going forward, as that'll just end up with me as the
-> defacto maintainer.
-> 
-
-I agree. I also have no confidence in joining as a maintainer.
-That's why I didn't change the MAINTAINERS for the first time.
-
-Thanks,
-Yangyu Chen
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdW4gMTcsIDIwMjQgYXQgMTA6Mzg6NTVBTSArMDgwMCwgQW5keSBDaGl1IHdyb3Rl
+Ogo+IE9uIEZyaSwgSnVuIDE0LCAyMDI0IGF0IDM6MDnigK9BTSBOYXRoYW4gQ2hhbmNlbGxvciA8
+bmF0aGFuQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IEhpIEFuZHksCj4gPgo+ID4gT24gVGh1
+LCBKdW4gMTMsIDIwMjQgYXQgMDM6MTE6MDlQTSArMDgwMCwgQW5keSBDaGl1IHdyb3RlOgo+ID4g
+PiBXZSBhcmUgY2hhbmdpbmcgZnRyYWNlIGNvZGUgcGF0Y2hpbmcgaW4gb3JkZXIgdG8gcmVtb3Zl
+IGRlcGVuZGVuY3kgZnJvbQo+ID4gPiBzdG9wX21hY2hpbmUoKSBhbmQgZW5hYmxlIGtlcm5lbCBw
+cmVlbXB0aW9uLiBUaGlzIHJlcXVpcmVzIHVzIHRvIGFsaWduCj4gPiA+IGZ1bmN0aW9ucyBlbnRy
+eSBhdCBhIDQtQiBhbGlnbiBhZGRyZXNzLgo+ID4gPgo+ID4gPiBIb3dldmVyLCAtZmFsaWduLWZ1
+bmN0aW9ucyBvbiBvbGRlciB2ZXJzaW9ucyBvZiBHQ0MgYWxvbmUgd2FzIG5vdCBzdHJvbmcKPiA+
+ID4gZW5vdW5naCB0byBhbGlnbiBhbGwgZnVuY3Rpb25zLiBJbiBmYWN0LCBjb2xkIGZ1bmN0aW9u
+cyBhcmUgbm90IGFsaWduZWQKPiA+ID4gYWZ0ZXIgdHVybmluZyBvbiBvcHRpbWl6YXRpb25zLiBX
+ZSBjb25zaWRlciB0aGlzIGlzIGEgYnVnIGluIEdDQyBhbmQKPiA+ID4gdHVybiBvZmYgZ3Vlc3Mt
+YnJhbmNoLXByb2JpbGl0eSBhcyBhIHdvcmthcm91bmQgdG8gYWxpZ24gYWxsIGZ1bmN0aW9ucy4K
+PiA+ID4KPiA+ID4gR0NDIGJ1ZyBpZDogaHR0cHM6Ly9nY2MuZ251Lm9yZy9idWd6aWxsYS9zaG93
+X2J1Zy5jZ2k/aWQ9ODgzNDUKPiA+ID4KPiA+ID4gVGhlIG9wdGlvbiAtZm1pbi1mdW5jdGlvbi1h
+bGlnbm1lbnQgaXMgYWJsZSB0byBhbGlnbiBhbGwgZnVuY3Rpb25zCj4gPiA+IHByb3Blcmx5IG9u
+IG5ld2VyIHZlcnNpb25zIG9mIGdjYy4gU28sIHdlIGFkZCBhIGNjLW9wdGlvbiB0byB0ZXN0IGlm
+Cj4gPiA+IHRoZSB0b29sY2hhaW4gc3VwcG9ydHMgaXQuCj4gPiA+Cj4gPiA+IFN1Z2dlc3RlZC1i
+eTogRXZnZW5paSBTaGF0b2toaW4gPGUuc2hhdG9raGluQHlhZHJvLmNvbT4KPiA+ID4gU2lnbmVk
+LW9mZi1ieTogQW5keSBDaGl1IDxhbmR5LmNoaXVAc2lmaXZlLmNvbT4KPiA+ID4gLS0tCj4gPiA+
+ICBhcmNoL3Jpc2N2L0tjb25maWcgIHwgMSArCj4gPiA+ICBhcmNoL3Jpc2N2L01ha2VmaWxlIHwg
+NyArKysrKystCj4gPiA+ICAyIGZpbGVzIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKSwgMSBkZWxl
+dGlvbigtKQo+ID4gPgo+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnIGIvYXJj
+aC9yaXNjdi9LY29uZmlnCj4gPiA+IGluZGV4IGI5NDE3NmUyNWJlMS4uODBiOGQ0OGUxZTQ2IDEw
+MDY0NAo+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiA+ID4gKysrIGIvYXJjaC9yaXNj
+di9LY29uZmlnCj4gPiA+IEBAIC0yMDMsNiArMjAzLDcgQEAgY29uZmlnIENMQU5HX1NVUFBPUlRT
+X0RZTkFNSUNfRlRSQUNFCj4gPiA+ICBjb25maWcgR0NDX1NVUFBPUlRTX0RZTkFNSUNfRlRSQUNF
+Cj4gPiA+ICAgICAgIGRlZl9ib29sIENDX0lTX0dDQwo+ID4gPiAgICAgICBkZXBlbmRzIG9uICQo
+Y2Mtb3B0aW9uLC1mcGF0Y2hhYmxlLWZ1bmN0aW9uLWVudHJ5PTgpCj4gPiA+ICsgICAgIGRlcGVu
+ZHMgb24gJChjYy1vcHRpb24sLWZtaW4tZnVuY3Rpb24tYWxpZ25tZW50PTQpIHx8ICFSSVNDVl9J
+U0FfQwo+ID4KPiA+IFBsZWFzZSB1c2UgQ0NfSEFTX01JTl9GVU5DVElPTl9BTElHTk1FTlQgKGZy
+b20gYXJjaC9LY29uZmlnKSwgd2hpY2gKPiA+IGFscmVhZHkgY2hlY2tzIGZvciBzdXBwb3J0IGZv
+ciB0aGlzIG9wdGlvbi4KPiAKPiBUaGFua3MgZm9yIHRoZSBzdWdnZXN0aW9uIQo+IAo+ID4KPiA+
+ID4gIGNvbmZpZyBIQVZFX1NIQURPV19DQUxMX1NUQUNLCj4gPiA+ICAgICAgIGRlZl9ib29sICQo
+Y2Mtb3B0aW9uLC1mc2FuaXRpemU9c2hhZG93LWNhbGwtc3RhY2spCj4gPiA+IGRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L01ha2VmaWxlIGIvYXJjaC9yaXNjdi9NYWtlZmlsZQo+ID4gPiBpbmRleCAw
+NmRlOWQzNjUwODguLjc0NjI4YWQ4ZGNmOCAxMDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9N
+YWtlZmlsZQo+ID4gPiArKysgYi9hcmNoL3Jpc2N2L01ha2VmaWxlCj4gPiA+IEBAIC0xNCw4ICsx
+NCwxMyBAQCBlbmRpZgo+ID4gPiAgaWZlcSAoJChDT05GSUdfRFlOQU1JQ19GVFJBQ0UpLHkpCj4g
+PiA+ICAgICAgIExERkxBR1Nfdm1saW51eCArPSAtLW5vLXJlbGF4Cj4gPiA+ICAgICAgIEtCVUlM
+RF9DUFBGTEFHUyArPSAtRENDX1VTSU5HX1BBVENIQUJMRV9GVU5DVElPTl9FTlRSWQo+ID4gPiAr
+aWZlcSAoJChDT05GSUdfQ0NfSVNfQ0xBTkcpLHkpCj4gPgo+ID4gU2FtZSBoZXJlLCBwbGVhc2Ug
+aW52ZXJ0IHRoaXMgYW5kIHVzZQo+ID4KPiA+ICAgaWZkZWYgQ09ORklHX0NDX0hBU19NSU5fRlVO
+Q1RJT05fQUxJR05NRU5UCj4gPgo+ID4gbGlrZSB0aGUgbWFpbiBNYWtlZmlsZSBkb2VzLgo+IAo+
+IEhvcGUgdGhpcyBtYWtlcyBzZW5zZSB0byB5b3UuIEkgYW0gZ29pbmcgdG8gYWRkIHRoZSBmb2xs
+b3dpbmcgaW4gcmlzY3YgS2NvbmlnOgo+IAo+IHNlbGVjdCBGVU5DVElPTl9BTElHTk1FTlRfNEIg
+aWYgRFlOQU1JQ19GVFJBQ0UgJiYgIVJJU0NWX0lTQV9DCj4gCj4gU28gd2Ugd2lsbCBub3QgbmVl
+ZCBhbnkgb2YgdGhlc2UKClllcywgdGhhdCBkZWZpbml0ZWx5IG1ha2VzIHNlbnNlLCBJIGZvcmdv
+dCB0aGF0IHRoaXMgaGFzIGJlZW4gYWJzdHJhY3RlZAphd2F5IHZpYSB0aGUgdXNlIG9mIHRob3Nl
+IGFsaWdubWVudCBLY29uZmlnIHN5bWJvbHMgdGhhdCBjYW4gYmUgc2VsZWN0ZWQKd2hlbiBuZWVk
+ZWQuIE11Y2ggYmV0dGVyIHRoYW4gbXkgc3VnZ2VzdGlvbnMsIHRoYW5rcyEKCj4gPgo+ID4gPiAr
+ICAgICBjZmxhZ3NfZnRyYWNlX2FsaWduIDo9IC1mYWxpZ24tZnVuY3Rpb25zPTQKPiA+ID4gK2Vs
+c2UKPiA+ID4gKyAgICAgY2ZsYWdzX2Z0cmFjZV9hbGlnbiA6PSAtZm1pbi1mdW5jdGlvbi1hbGln
+bm1lbnQ9NAo+ID4gPiArZW5kaWYKPiA+ID4gIGlmZXEgKCQoQ09ORklHX1JJU0NWX0lTQV9DKSx5
+KQo+ID4gPiAtICAgICBDQ19GTEFHU19GVFJBQ0UgOj0gLWZwYXRjaGFibGUtZnVuY3Rpb24tZW50
+cnk9NAo+ID4gPiArICAgICBDQ19GTEFHU19GVFJBQ0UgOj0gLWZwYXRjaGFibGUtZnVuY3Rpb24t
+ZW50cnk9NCAkKGNmbGFnc19mdHJhY2VfYWxpZ24pCj4gPiA+ICBlbHNlCj4gPiA+ICAgICAgIEND
+X0ZMQUdTX0ZUUkFDRSA6PSAtZnBhdGNoYWJsZS1mdW5jdGlvbi1lbnRyeT0yCj4gPiA+ICBlbmRp
+Zgo+ID4gPgo+ID4gPiAtLQo+ID4gPiAyLjQzLjAKPiA+ID4KPiA+ID4KPiAKPiBUaGFua3MsCj4g
+QW5keQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
