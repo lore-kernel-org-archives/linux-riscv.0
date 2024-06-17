@@ -4,54 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50511C2BA15
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 13:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C06EC27C79
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 13:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NNxFe96CHgDGMdz/xMc0R/djanqArnr+81NwBjEmG5Y=; b=vro0N0CepS4uFZ
-	243CW9keVl5yrhGLI2/1xepxiwTgIDz4QNiNEaoH0GQTaKtDue5/Trkt0s70FJDFFq7Nka2j8CY+1
-	easBADce4BCWND2NNicI39tEB+XgRfDCOS0EEMwmAUp2xfDDY7JG6xYmtAtnICKCXJiG1RnGMFat5
-	LgwzoroDATQmsiImXGKdxXUVvWUXbjw4X07M5D9/5UkFf7w5VWC7OQnTf+kpuhv7Bn/6u7GfVMAPZ
-	rEdXJ3bMPojI4LPMIZJkRKPJnWA2Y01/rG5zxzj8cooAKbWzR2fi1mPhPZjamwK70QLIFHE/+9Gmd
-	TlKsqZe7prrJiLViNQ3A==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mTff0O8IHT7Q+1m7GE2fYkWzKn0Jywc44auBo7OSwko=; b=qXdK1+Wo/kLr3NCLzA9bIkjHIn
+	7Y6JrObHfLTAslBI8N5Vu32RyB+gsAFEXAg6/QyQL3F8dCfWmsSiAlanGy4cAneg/AsPXHDHeX6/+
+	H2YqgSNSxSUKgWQU+SxiWjnyU3kEY5pb39hb0NQTaJLppUwSKnGIR/gxFuYEviPy2qPyavZP6Dxkx
+	gA3Xg4yCcwX9Oynz9dWWQEDJGW2rLYzOWhHS2VM/PnfDP4L5sL23mCz5uvum2ncceRc74sv+a7J3g
+	GOqQ7dKB9fkH9v6QrqZQ9a468imTlZD1ucM0gkL0aiPszX9VGbKRJG6hyz/tM95jcB5h8s6ceyHWT
+	mt2FDoXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJCKK-0000000ApAe-2CTq;
-	Mon, 17 Jun 2024 13:23:16 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1sJCR8-0000000ArLL-2IZS;
+	Mon, 17 Jun 2024 13:30:18 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJCKG-0000000Ap7g-3Ks2
+	id 1sJCR5-0000000ArKO-0nAV
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jun 2024 13:23:14 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1C1BD2000B;
-	Mon, 17 Jun 2024 13:23:04 +0000 (UTC)
-Message-ID: <a396c024-f1a8-4636-85ee-e36950a2dca0@ghiti.fr>
-Date: Mon, 17 Jun 2024 15:23:04 +0200
+	Mon, 17 Jun 2024 13:30:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1718631015; x=1750167015;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KSb3mRso17rcUhqb1Oro4xaRLDBSd9Y8je7X+EGQxKI=;
+  b=t23Aw6uoYYTtuCZ79T7xKJN8iX+j8wZbmR/UwxJjqXI0J+/P08pKzgAo
+   XNyC7mAveW8wemlXWB34HwZ+kTp/ZvGmPAlhkg1Sr1pImVjhgrL7WIyea
+   M4nsGPAKRfweEdYtyl20LWqYyI+mr/KHoE9Ca5NoZfFXQ946UrVM05RiR
+   o9XMWq6aCoZK8ots0UIwP/qu9awjTcmdeAB6AaJkiVG5cSgRnkAn61ohA
+   wLO5Xr9O+/Tc/AFIyslZDa5WzplhTHPudbJGsxAwvR6EyhO0G6mwLK3nH
+   w5qMbO7EcFUJDpSaAsP45dL/rbrLNiY6hhcGK6cuUnIyKbYVbQ8/0kfX+
+   g==;
+X-CSE-ConnectionGUID: vs/KqhXwTIKMnwb8mVJ4mg==
+X-CSE-MsgGUID: jnR8qmdfSTeSCRZB+zW6Sg==
+X-IronPort-AV: E=Sophos;i="6.08,244,1712646000"; 
+   d="asc'?scan'208";a="28519325"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Jun 2024 06:30:13 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 17 Jun 2024 06:30:06 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Mon, 17 Jun 2024 06:30:04 -0700
+Date: Mon, 17 Jun 2024 14:29:46 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+CC: Yangyu Chen <cyy@cyyself.name>, <linux-riscv@lists.infradead.org>, Conor
+ Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Samuel Holland
+	<samuel.holland@sifive.com>, Anup Patel <anup.patel@wdc.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 7/9] riscv: dts: add initial SpacemiT K1 SoC device
+ tree
+Message-ID: <20240617-carat-poise-ee63ed6a224e@wendy>
+References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
+ <tencent_701082E2DAE48E2FB857316321778D737C08@qq.com>
+ <ZnAw9QrSD-svYqQ5@xhacker>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Fix early ftrace nop patching
-To: Conor Dooley <conor.dooley@microchip.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Andrea Parri <parri.andrea@gmail.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-References: <20240523115134.70380-1-alexghiti@rivosinc.com>
- <20240613-lubricant-breath-061192a9489a@wendy>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240613-lubricant-breath-061192a9489a@wendy>
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <ZnAw9QrSD-svYqQ5@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_062312_990344_758D67D4 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20240617_063015_447773_602DADAB 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,60 +87,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============4609703327041219278=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ29ub3IsCgpTb3JyeSBmb3IgdGhlIGRlbGF5IGhlcmUuCgpPbiAxMy8wNi8yMDI0IDA5OjQ4
-LCBDb25vciBEb29sZXkgd3JvdGU6Cj4gT24gVGh1LCBNYXkgMjMsIDIwMjQgYXQgMDE6NTE6MzRQ
-TSArMDIwMCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+PiBDb21taXQgYzk3YmY2Mjk5NjNlICgi
-cmlzY3Y6IEZpeCB0ZXh0IHBhdGNoaW5nIHdoZW4gSVBJIGFyZSB1c2VkIikKPj4gY29udmVydGVk
-IGZ0cmFjZV9tYWtlX25vcCgpIHRvIHVzZSBwYXRjaF9pbnNuX3dyaXRlKCkgd2hpY2ggZG9lcyBu
-b3QKPj4gZW1pdCBhbnkgaWNhY2hlIGZsdXNoIHJlbHlpbmcgZW50aXJlbHkgb24gX19mdHJhY2Vf
-bW9kaWZ5X2NvZGUoKSB0byBkbwo+PiB0aGF0Lgo+Pgo+PiBCdXQgd2UgbWlzc2VkIHRoYXQgZnRy
-YWNlX21ha2Vfbm9wKCkgd2FzIGNhbGxlZCB2ZXJ5IGVhcmx5IGRpcmVjdGx5IHdoZW4KPj4gY29u
-dmVydGluZyBtY291bnQgY2FsbHMgaW50byBub3BzIChhY3R1YWxseSBvbiByaXNjdiBpdCBjb252
-ZXJ0cyAyQiBub3BzCj4+IGVtaXR0ZWQgYnkgdGhlIGNvbXBpbGVyIGludG8gNEIgbm9wcykuCj4+
-Cj4+IFRoaXMgY2F1c2VkIGNyYXNoZXMgb24gbXVsdGlwbGUgSFcgYXMgcmVwb3J0ZWQgYnkgQ29u
-b3IgYW5kIEJqw7ZybiBzaW5jZQo+PiB0aGUgYm9vdGluZyBjb3JlIGNvdWxkIGhhdmUgaGFsZi1w
-YXRjaGVkIGluc3RydWN0aW9ucyBpbiBpdHMgaWNhY2hlCj4+IHdoaWNoIHdvdWxkIHRyaWdnZXIg
-YW4gaWxsZWdhbCBpbnN0cnVjdGlvbiB0cmFwOiBmaXggdGhpcyBieSBlbWl0dGluZyBhCj4+IGxv
-Y2FsIGZsdXNoIGljYWNoZSB3aGVuIGVhcmx5IHBhdGNoaW5nIG5vcHMuCj4+Cj4+IEZpeGVzOiBj
-OTdiZjYyOTk2M2UgKCJyaXNjdjogRml4IHRleHQgcGF0Y2hpbmcgd2hlbiBJUEkgYXJlIHVzZWQi
-KQo+PiBTaWduZWQtb2ZmLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5j
-b20+Cj4+IC0tLQo+PiAgIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY2FjaGVmbHVzaC5oIHwgNiAr
-KysrKysKPj4gICBhcmNoL3Jpc2N2L2tlcm5lbC9mdHJhY2UuYyAgICAgICAgICB8IDMgKysrCj4+
-ICAgMiBmaWxlcyBjaGFuZ2VkLCA5IGluc2VydGlvbnMoKykKPj4KPj4gZGlmZiAtLWdpdCBhL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vY2FjaGVmbHVzaC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9jYWNoZWZsdXNoLmgKPj4gaW5kZXggZGQ4ZDA3MTQ2MTE2Li5jZTc5YzU1OGE0YzggMTAwNjQ0
-Cj4+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY2FjaGVmbHVzaC5oCj4+ICsrKyBiL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vY2FjaGVmbHVzaC5oCj4+IEBAIC0xMyw2ICsxMywxMiBAQCBz
-dGF0aWMgaW5saW5lIHZvaWQgbG9jYWxfZmx1c2hfaWNhY2hlX2FsbCh2b2lkKQo+PiAgIAlhc20g
-dm9sYXRpbGUgKCJmZW5jZS5pIiA6OjogIm1lbW9yeSIpOwo+PiAgIH0KPj4gICAKPj4gK3N0YXRp
-YyBpbmxpbmUgdm9pZCBsb2NhbF9mbHVzaF9pY2FjaGVfcmFuZ2UodW5zaWduZWQgbG9uZyBzdGFy
-dCwKPj4gKwkJCQkJICAgIHVuc2lnbmVkIGxvbmcgZW5kKQo+PiArewo+PiArCWxvY2FsX2ZsdXNo
-X2ljYWNoZV9hbGwoKTsKPj4gK30KPj4gKwo+PiAgICNkZWZpbmUgUEdfZGNhY2hlX2NsZWFuIFBH
-X2FyY2hfMQo+PiAgIAo+PiAgIHN0YXRpYyBpbmxpbmUgdm9pZCBmbHVzaF9kY2FjaGVfZm9saW8o
-c3RydWN0IGZvbGlvICpmb2xpbykKPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2Z0
-cmFjZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvZnRyYWNlLmMKPj4gaW5kZXggNGY0OTg3YTZkODNk
-Li4zMmU3YzQwMWRmYjQgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2Z0cmFjZS5j
-Cj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2Z0cmFjZS5jCj4+IEBAIC0xMjAsNiArMTIwLDkg
-QEAgaW50IGZ0cmFjZV9pbml0X25vcChzdHJ1Y3QgbW9kdWxlICptb2QsIHN0cnVjdCBkeW5fZnRy
-YWNlICpyZWMpCj4+ICAgCW91dCA9IGZ0cmFjZV9tYWtlX25vcChtb2QsIHJlYywgTUNPVU5UX0FE
-RFIpOwo+PiAgIAltdXRleF91bmxvY2soJnRleHRfbXV0ZXgpOwo+IFNvLCB0dXJucyBvdXQgdGhh
-dCB0aGlzIHBhdGNoIGlzIG5vdCBzdWZmaWNpZW50LiBJJ3ZlIHNlZW4gc29tZSBtb3JlCj4gY3Jh
-c2hlcywgc2VlbWluZ2x5IGR1ZSB0byBpbml0aWFsaXNpbmcgbm9wcyBvbiB0aGlzIG11dGV4X3Vu
-bG9jaygpLgo+IFBhbG1lciBzdWdnZXN0ZWQgbW92aW5nIHRoZSBpZiAoIW1vZCkgLi4uIGludG8g
-dGhlIGxvY2ssIHdoaWNoIGZpeGVkCj4gdGhlIHByb2JsZW0gZm9yIG1lLgoKCk9rLCBpdCBtYWtl
-cyBzZW5zZSwgSSBjb21wbGV0ZWx5IG1pc3NlZCB0aGF0LiBJJ2xsIHNlbmQgYSBmaXggZm9yIHRo
-YXQgCnNob3J0bHkgc28gdGhhdCBpdCBjYW4gYmUgbWVyZ2VkIGluIHJjNS4KClRoYW5rcywKCkFs
-ZXgKCgo+Cj4+ICAgCj4+ICsJaWYgKCFtb2QpCj4+ICsJCWxvY2FsX2ZsdXNoX2ljYWNoZV9yYW5n
-ZShyZWMtPmlwLCByZWMtPmlwICsgTUNPVU5UX0lOU05fU0laRSk7Cj4+ICsKPj4gICAJcmV0dXJu
-IG91dDsKPj4gICB9Cj4+ICAgCj4+IC0tIAo+PiAyLjM5LjIKPj4KPj4KPj4gX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4gbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0Cj4+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPj4gaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============4609703327041219278==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="oT9/HnCyP3m+8Cht"
+Content-Disposition: inline
+
+--oT9/HnCyP3m+8Cht
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Jun 17, 2024 at 08:49:57PM +0800, Jisheng Zhang wrote:
+> On Mon, Jun 17, 2024 at 01:20:52AM +0800, Yangyu Chen wrote:
+> > Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
+> >=20
+> > Key features:
+> > - 4 cores per cluster, 2 clusters on chip
+> > - UART IP is Intel XScale UART
+> >=20
+> > Some key considerations:
+> > - ISA string is inferred from vendor documentation[2]
+> > - Cluster topology is inferred from datasheet[1] and L2 in vendor dts[3]
+> > - No coherent DMA on this board
+> >     Inferred by taking vendor ethernet and MMC drivers to the mainline
+> >     kernel. Without dma-noncoherent in soc node, the driver fails.
+> > - No cache nodes now
+> >     The parameters from vendor dts are likely to be wrong. It has 512
+> >     sets for a 32KiB L1 Cache. In this case, each set is 64B in size.
+> >     When the size of the cache line is 64B, it is a directly mapped
+> >     cache rather than a set-associative cache, the latter is commonly
+> >     used. Thus, I didn't use the parameters from vendor dts.
+> >=20
+> > Currently only support booting into console with only uart, other
+> > features will be added soon later.
+>=20
+> Hi Yangyu,
+>=20
+> Per recent practice of cv1800b and th1520 upstream, I think a complete
+> initial support would include pinctrl, clk and reset, I have received
+> the complains from the community. So can you please bring the pinctrl
+> clk  and reset at the same time?
+
+What sort of complaints have you got? That the support is too minimal to
+be useful?
+
+--oT9/HnCyP3m+8Cht
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnA6SgAKCRB4tDGHoIJi
+0na7AP9um0KeWsttwnNSGE2JtwpFCri+BagSptLaplA4idDWBgD/a2Bs8pedwuex
+lnoPGQJ1Ty98RoIrkROV8cur2alHbQU=
+=LKni
+-----END PGP SIGNATURE-----
+
+--oT9/HnCyP3m+8Cht--
+
+
+--===============4609703327041219278==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4609703327041219278==--
+
