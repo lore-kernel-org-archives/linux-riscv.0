@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 672DBC27C79
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 17:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519DBC2BA1A
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 17:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=igGKf+YczZTqXg8V9CbYirdL2uB7bN1piuFgan4557s=; b=ROSKxSRBZBCPbz/Y7UHARHcZ7Q
-	dimjVA1QGrQpkTXaMJsPvccIFQdQeP8aF8u2N0mFe5o06qWJPc7iKwGd7F3Dg6wtT7COWjQgSVmWQ
-	j8+sQq+T+pB3+e2zPURzzq0890EW5ul1GyqZrkyM+VtUZLrLkgB4PBlgIvQkELNdr0vFkxsNhlSuk
-	CREhV3OKV1y/36gzoWCj8GYzoyovDAfi5FA7Y0rBCeoJV3qIJHoo6hKSMcQkzhTAywRFkaxOxB+UJ
-	9fCAs2kr4NU25VKy9c4xZZU3s3CU4tecamoG2b9+0qJ/LcjkyMHgF8dkxNt+ZzFGHqJ/XYAe8w0o/
-	ZgC1rgDQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
+	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6jIBFW5fjJvrvlNm2O9bJ2ZePuDTBb/+rKL5iTq/hwQ=; b=2yT7eqWwOPEF8Z
+	EezlZEmQScXX/El9gsU2OwBk9FpVgYUh8EHZ/h6TtI3n5sD7P09nrFqD26Oawg8pxy/iWcdEPY4g4
+	zMRYWzdHDMnIwTu0dpTRSzlL9B68LSsNQegRkOSGfh0dfPqyOXldqIVlzOsRbTiuCHmHxx3LldJbO
+	5vOGPUfr+ZZYn7rTvKNeKGy/70lzxJiC1vkYgrhXCLm6gkp7GF7zpZnLPTQ8kvBOV0T4l/z420aaM
+	GmgOgA8obXVEBKQgXmXqrQz0N2kwhoDWyHpYkkaFdwSlL7unFiSt97PeYLm0fic7Xygvn3G5tBvkF
+	qy9ZFf8nJrQ2jHljm1yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJFw5-0000000BtoA-2zRu;
-	Mon, 17 Jun 2024 17:14:29 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sJGNw-0000000BzeJ-2zbh;
+	Mon, 17 Jun 2024 17:43:16 +0000
+Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJFw2-0000000Btna-2hDc
+	id 1sJGNq-0000000Bzcu-0MhY
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jun 2024 17:14:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 9A13ECE049A;
-	Mon, 17 Jun 2024 17:14:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9538C2BD10;
-	Mon, 17 Jun 2024 17:14:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718644463;
-	bh=MmA+hwtBmtjHSiMtd3wx1Z1tyvk5MSxoK0Na7DKEAQw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oV1WSX39l0oXYDodwVcnNGu6g4yMk+A7cNev9LZ6awpIJ9xMX9gDzkjzVyiiA+9sg
-	 Vet+IFaG3NPnPFjcwM4+83gYFJemwOCgodSuD+cCV4Gtlh1C2lrz2ERg+1GtQJFFm0
-	 T3dacB3gT9y6Ose1tIMAGQ2DZaW6ul4KAem+/dbDAtXFnLFPGR7r+hWL59SPK7yAsn
-	 tqcTBN3yuhpVGuSn0OVOCEYJ/sMnJwZc7nDM/mUCrS3QmfPgXgkJA8/nUB28gCqmol
-	 XouT25EtxDkGVmoYLbZmYVA22YNeBpe+GzWI/aOyCW5l6wdCSBVkqfUjIDukQhrPFg
-	 05YaqubP+3MEg==
-Date: Mon, 17 Jun 2024 18:14:18 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	linux-riscv@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup.patel@wdc.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Jesse Taube <jesse@rivosinc.com>
+	Mon, 17 Jun 2024 17:43:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1718646170; bh=lSfFb7+k557rhRi20IR9VIL7t+SDEJaWgmE3dAg5WgI=;
+	h=Subject:From:In-Reply-To:Date:Cc:References:To;
+	b=SAhK5VBde2T64fNrLWvWccGoLTP5DjkcfUz0ZB/GrM3qrz4O5datINT8YmC+OUuH6
+	 k4UT3j/hqitidSNeSaqcIrvrlBLkgA6L0iMLmzk382HvTEuou+HiBMiAnZIKJxafTl
+	 Tfmi3lIlTXpdx1HEAP9iGyZpQ7PhWk6qiU29wEAg=
+Received: from smtpclient.apple ([2408:8207:18a1:9700:9c85:7ae:3ee:45fe])
+	by newxmesmtplogicsvrszb16-1.qq.com (NewEsmtp) with SMTP
+	id AAE8FC0D; Tue, 18 Jun 2024 01:42:46 +0800
+X-QQ-mid: xmsmtpt1718646166t17e0u07v
+Message-ID: <tencent_53226D39C76ADCAA1883109DC6213E5EC107@qq.com>
+X-QQ-XMAILINFO: OKKHiI6c9SH39YSGtA2DuQ1+IsvjerQWoRzDVzuacvLBMv26KpHergvu9Ti+QK
+	 /xNryMTLRsr8MZTplkDQJXfxq8QGCo8ChBXf9pacuNdnNyVHnUbSNdzDWvHBL7gyO9cDrAf9b3C+
+	 6T6VkSaIN6bsywuMTy/hVi3HP15/6mC6EK7en0iKYX8jD+bTYA1Fgg3aaBUIVqZmAoOj9II/vHHT
+	 4GlKtbgWE+EgBxPMJz6eSXSiTE67eItWvyUqLhmsV5FItVlhZrzP1LYHkR8J4qQCqWxeR6NIekfW
+	 o9gJNfmfeyLY6+qaHchOK9iOsqoTdv3CjeK2a5ibIenncxr/W1xBqas9nUomJ5u3GKe5OsMQK6wB
+	 9Wml9CYCTvUO5b89aVue/R/csfWfS1s5qkgZH9YOskAevqFkKnDrrzlcfFEDaQbdsUIWhKVM9iar
+	 QiQMb/PHK+1mWIRM6WBjQVNR7NunK+y0N5skHnJBKV1dapCuA0ckWctCMuwZAEpvrE6LcBMi3Mfh
+	 +MDl//+Lvazr71vT/Tmshup5BkGPIS//K43W9gG1W6JlfIf0ylof7Pbdr5FDNE++PJCeRGPihUOT
+	 Ak/cZd5ZjcYO3dq37EfkDPce8ANQITJb5UPsEvxJeRWhS1wl/6EeMRdX5v/8WGr9eyM3Ej06MCQO
+	 aw65nIBCfE8JW1Ho+SAmMoK48KG4KNu7zlZqtthvwGKmFTb9b3rvO6AB11LwmcXfbwNzkAYNwoko
+	 5BlHPs+P/Riv8eWtuITwmDDTbNrskgGMHGFzRFplLs+p6QuFOxOsLa4WOo8SoHvPwkRrcWIDyGM/
+	 x2EdqohEPCOf07CDnBGmpEvil6/gwwBj1T/52EFZGI33h9XF/sMHNoNSfR0q0JvP0JOFAAsFF8Hy
+	 gSuy5M3KOyZHWd2d01f659w5pDisw7yvgaVDQ7uqID/Xj70xCwEuQ/AkTloih4Vau0AtzVhGrqcJ
+	 EGV6P6W5HkzVuifQxtKL9+79zXfjAdo+ln+NRBSXbN1MA7kcUqBYipJa+jbAn8svfXwzIhp1U=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.600.62\))
 Subject: Re: [PATCH v1 0/9] riscv: add initial support for SpacemiT K1
-Message-ID: <20240617-connected-avoid-82f0bdc05cdf@spud>
+From: Yangyu Chen <cyy@cyyself.name>
+In-Reply-To: <20240617-connected-avoid-82f0bdc05cdf@spud>
+Date: Tue, 18 Jun 2024 01:42:34 +0800
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+ Yixun Lan <dlan@gentoo.org>,
+ linux-riscv@lists.infradead.org,
+ Conor Dooley <conor+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Anup Patel <anup.patel@wdc.com>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ devicetree@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Jesse Taube <jesse@rivosinc.com>
+X-OQ-MSGID: <99CEE9EB-EEC2-4538-9378-D9AAD8CD240B@cyyself.name>
 References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
  <20240616-exorcism-computing-e11e26084a62@spud>
- <20240616224811.GC3983622@ofsar>
- <ZnBEBQjTQtFs-fXt@xhacker>
+ <20240616224811.GC3983622@ofsar> <ZnBEBQjTQtFs-fXt@xhacker>
  <20240617-synapse-carmaker-0a59c7c6edb7@spud>
  <tencent_26E7381EE1F6C5188428359AF3F908CA680A@qq.com>
-MIME-Version: 1.0
-In-Reply-To: <tencent_26E7381EE1F6C5188428359AF3F908CA680A@qq.com>
+ <20240617-connected-avoid-82f0bdc05cdf@spud>
+To: Conor Dooley <conor@kernel.org>
+X-Mailer: Apple Mail (2.3774.600.62)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_101427_185587_D79BE2A2 
-X-CRM114-Status: GOOD (  53.33  )
+X-CRM114-CacheID: sfid-20240617_104310_615674_2008A4E3 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,155 +94,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8425354397736403459=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8425354397736403459==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Jrl5+92C90Kbr+Af"
-Content-Disposition: inline
 
+> On Jun 18, 2024, at 01:14, Conor Dooley <conor@kernel.org> wrote:
+> 
+> On Tue, Jun 18, 2024 at 12:39:30AM +0800, Yangyu Chen wrote:
+>> 
+>> The vendor uses a special intel pxa uart driver, marked deprecated
+>> in the kernel and incompatible with ns16550. If we use ns16550 in
+>> the dt, the behavior of uart is like the uart has no interrupt and
+>> stops working permanently when fifo overruns, making many developers
+>> not know how to start unless they use the SBI HVC console, which
+>> needs to turn on CONFIG_NONPORTABLE.
+> 
+> This I just do not understand. Why did they use this IP? Is it free?
+> Did they use it before for something else? It's a rather strange design
+> choice to me.
 
---Jrl5+92C90Kbr+Af
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I don't know either. However, PXA is a subfamily of XScale. The
+kernel also probed the UART as an XScale. So, using XScale compatible
+string is OK.
 
-On Tue, Jun 18, 2024 at 12:39:30AM +0800, Yangyu Chen wrote:
->=20
->=20
-> > On Jun 17, 2024, at 23:32, Conor Dooley <conor@kernel.org> wrote:
-> >=20
-> > On Mon, Jun 17, 2024 at 10:11:17PM +0800, Jisheng Zhang wrote:
-> >> On Sun, Jun 16, 2024 at 10:48:11PM +0000, Yixun Lan wrote:
-> >>> Hi Conor
-> >>> Thanks for bringing this up
-> >>>=20
-> >>> On 19:35 Sun 16 Jun     , Conor Dooley wrote:
-> >>>> On Mon, Jun 17, 2024 at 01:18:52AM +0800, Yangyu Chen wrote:
-> >>>>=20
-> >>>> No MAINTAINERS update, so I figure that means you don't want to main=
-tain
-> >>>> it going forwards? If there's someone out that that does care about =
-the
-> >>>> spacemit k1 (Jesse maybe?), then I'd be more than happy to have them
-> >>>> look after it.
-> >>> Yangyu kind of has limited time, too many stuff for him..
-> >>>=20
-> >>> I'd volunteered to help on this if it can fill the gap
-> >>> Also I'd be more than happy if anyone willing step forward to co-main=
-tain..
-> >>=20
-> >> Does maintainership work like this? Is willing to do enough?
-> >> FWICT, maintainership involves active patch contributing, reviewing and
-> >> maintaining the whole SoC. It is better to take over the maintainership
-> >> after showing enough patch contributions and understanding of the SoC.
-> >=20
-> > I was going to reply to your other patch about providing more complete
-> > "basic" support for the SoC, but I guess I'll reply here and address
-> > both points. After the k230 and th1520, which were both merged with very
-> > basic support and have made very little progress towards being a useful
-> > platform, I'm pretty reluctant to merge another platform in a super
-> > basic state. I was going to make this point before you brought it up,
-> > but it's good to know I am not the only one with that view. To be clear,
-> > I'm not pointing blame for those platforms, I'd just like to avoid a
-> > repeat. If Yangyu doesn't have time to do any development work on the
-> > platform, I'd like to see someone else (and as I mentioned Jesse is
-> > interested) take on getting some of the basic driver patches written and
-> > merge only when those are accepted. Having no in-tree clock and pinctrl
-> > drivers is definitely a hindrance to other people doing parallel
-> > development of drivers and I'd like to avoid that.
-> >=20
->=20
-> That's also my concern for the first time when I submitted initial
-> support for K230. However, for SpacemiT K1, things went differently
-> for its UART, and the vendor patched OpenSBI with their NOC-based
-> HSM. They didn't use CLINT-MSWI as SBI HSM driver.
->=20
-> The vendor uses a special intel pxa uart driver, marked deprecated
-> in the kernel and incompatible with ns16550. If we use ns16550 in
-> the dt, the behavior of uart is like the uart has no interrupt and
-> stops working permanently when fifo overruns, making many developers
-> not know how to start unless they use the SBI HVC console, which
-> needs to turn on CONFIG_NONPORTABLE.
-
-This I just do not understand. Why did they use this IP? Is it free?
-Did they use it before for something else? It's a rather strange design
-choice to me.
-
-> For the OpenSBI, the vendor does not provide enough ISA string,
-> which their chip might support, such as Zicboz. Thus, the OpenSBI
-> does not correctly set up the corresponding M-Mode CSR, making the
-> kernel panic when the ISA string contains this extension.
->=20
-> These two things takes me about one week to get the initial mainline
-> kernel with full ISA extension and UART to work. Providing this
-> information in the commit message helps attract more developers to
-> start developing quickly.
->=20
-> I don't mind whether this series patch will be merged or not. The
-> meaning of this series is just providing these informations. However,
-> I think some details about bringing up a very basic kernel are
-> essential to attract more developers. If a platform has already
-> attracted some developer's attention. Providing initial support
-> with the commit message to show how to bring it up is not bad.
->=20
-
-> The point is that if a developer like me has already done this but
-> does not have much time to do further development, should the
-> developer become the maintainer? If not, should a developer submit
-> patches like this to the mailing list to provide this information
-> in the commit message and make it easier for other developers to
-> do further development?
-
-I think, as you did, sending patches for this state is very valuable.
-I'd just like to see someone expand on it before it gets applied, so
-that the initial platform support in the kernel is in a better state.
-
-> > Getting back to your point in this mail, whoever gets the platform to
-> > that state is well suited to looking after it going forwards. Some other
-> > interested parties could also join as reviewers. I don't want to see
-> > people joining as maintainers that are not going to have an interest
-> > in the platform going forward, as that'll just end up with me as the
-> > defacto maintainer.
-> >=20
->=20
-> I agree. I also have no confidence in joining as a maintainer.
-> That's why I didn't change the MAINTAINERS for the first time.
-
-Yeah, that's fine. Consider this part of the thread my attempt to
-solicit people to maintain the platform, rather than bashing you. I
-appreciate the work you've done :)
-
-Thanks,
-Conor.
-
---Jrl5+92C90Kbr+Af
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnBu6gAKCRB4tDGHoIJi
-0uZNAP9ElcW1Moz3oegHyyj66hfSZofUB2/kWuP+yKNFSIUIBQD/SuEPeV1sBsSV
-lRZoUY0kp5uFGyWIOuzqEQgBdKSxLAo=
-=3m3H
------END PGP SIGNATURE-----
-
---Jrl5+92C90Kbr+Af--
-
-
---===============8425354397736403459==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8425354397736403459==--
-
