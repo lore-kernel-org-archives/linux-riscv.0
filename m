@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44039C27C79
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 14:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C858DC2BA15
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 14:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7octCbZLsuXHSz7iJ5E1w3edv8tAQgPq3RjkUbC/sN0=; b=33Fp2+AAtVAopn
-	3VOJ63yAzjd9Mh5l7q1i5h+wmCvROhL5BXoxMKeODlGdPpj4emTojHztcz4ePu0atf1IrK21/1pc5
-	xKQFRSEX4EvuAkZ9W7sFQbeKMnnZYR6eMKK1P0++95D6rEwQkOMAoIrLB/VPpiBMjLoZWbYVbSQAU
-	B4zK27wcYuSuCkK6P09xqUOZhc8ILV0KxlGNIP5f+xQc7VKUHRinlY2ARvhUasLct9KTYOWnThyjI
-	vUn+zmCHlSjxAScq4bHg8LTWaUGNtPXXC/N989EZaTBMsJzpUr6ZLgz5PqGaYa3fmAkUGARIiuKoL
-	m6OAhnSgdag4ukVaiQaw==;
+	List-Owner; bh=NX6eqdttA++Kpj7ShD2HBoTokVeq++sDBT8t16JCdgE=; b=PVgQ85ognMRjem
+	dzuH3a1JnlItPS85I+SFvsTeSjenxfUIPmbmMDSIj4DpKjY9ztj0qvbWZHhzSI2j++JfnQa5Cz1VM
+	K5hpY4WVpU6CxeofsaXcLNU16zKzFzn+SHiO8oHt7LpeWK1p1vH0XtP8yAloVHyotSqLa3emeAboL
+	ddwN7nlwAfFDY5RYUCOaXMkEQzvDQObp5wNk7qyYM5AT4btsK5oYJYljHLqAk6dO3e9hOPlhSxH+X
+	NZtIK0x+hYzV9CLzuAOL4+rTzwb7R1nfUG7vxfcDySamZX0qxmIZ21sKjhnwFNqLJxvmpm0AJrAIS
+	MPFAilZbl+kGudfN4oNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJDW4-0000000BE0w-3OrK;
-	Mon, 17 Jun 2024 14:39:28 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+	id 1sJDlW-0000000BIaJ-0xir;
+	Mon, 17 Jun 2024 14:55:26 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJDW0-0000000BDzE-49qq
+	id 1sJDlT-0000000BIZP-1H8Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jun 2024 14:39:27 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-6fa0d077694so1947547a34.0
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Jun 2024 07:39:22 -0700 (PDT)
+	Mon, 17 Jun 2024 14:55:24 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-440609dd118so21266601cf.1
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Jun 2024 07:55:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1718635162; x=1719239962; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1718636122; x=1719240922; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=V0ydNrFGcnxQcEaU5sMS6EBIm5WNR4Oj0pZJxqEWp7E=;
-        b=XhW5zzsLMZfRAWEKqnsa3mZSrGYvdyOA9MAADew/CB7kLNCKrJpMa9fY1MqifiD3z3
-         cgveim+5tanKvJSs0ReWB0Ene38Q+S6SK91Qt8KLlgnvSaMEehKa31cYoFSVm1oguvUj
-         7zAgW98r3+EOqKyDmmnNwL00uCuw0hZXts6lzlFHWqwjgsLNE05CAvCoBNGKsx75p0HC
-         +A7gV5+t2pbWW/Y5XQF36EM4HkA0CyYRW4PuQa6yjqx5NCxVqZYBhrlBr5yG3l02rrUF
-         JDgCOa7R7AWU+4Lj6HKxBBAShOZraA2URVjkNaroKQDy7DPuWSjeviEc3ziHcW25fHtw
-         5CtQ==
+        bh=8gljeJeGxAWnVOsW2sid+gU59meZd1BiHrYVsIx/obU=;
+        b=SITvfwJ6FlXXhEAgErq8LpHxkfXTv3yRIbpTd8u4Ehh4zpem2Awt/GZpGyJd5GMNR9
+         tLNj/kicOlNwgWsrSAKG9KG5pyUmGf44vK6jiugEck8UlzAiNiKdG1yLdSWwaA5EY6PA
+         CeNQiHQO6SB2aeSIliv1xddgc0EtcYL5U71g1NHn7ssi+iTNvDuhL3U6B1wx5ZOTMVbS
+         sNG/2EHdDP9J5BajTn94YlZrsboKxOOHue43zfZpbig8aE9RlK8vqXmSy1d5XmO1G0Du
+         3Pexon6tUPlFHriwnvXhJCjWui6dCCo8a6Db6QguULQ7EW1FXLnIAVAhrnq2tUSbY2Ti
+         l4Wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718635162; x=1719239962;
+        d=1e100.net; s=20230601; t=1718636122; x=1719240922;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=V0ydNrFGcnxQcEaU5sMS6EBIm5WNR4Oj0pZJxqEWp7E=;
-        b=KZSnpXcN0CKvaJMVwuWMuao8Y9zxc0UVXqPwlPEFQbPAdZ8PvWyqBc/xs/klouVm9f
-         P0XPv4TsvMTI9UOa8j7Op6QAa0vFzsX/HZBOcASQpHoROrmgpp27UVtuXRfsNd9MQTJ3
-         BwlMcLZguU5s5GKjPYDWHuEDL4ARXxlMgS9w8YkjnsRqBvheDuzkQWWQpyTLNYOD4vYL
-         fWOiKvsAPLYNzPLpGyLaNg5R58FdOKu6dxZNYhepicmx0cGD0ISt9ab2zr/2DMzRa8s7
-         fdgAnoDJVeSJFAd7ars1ftu5ts66o+jpKJyHpNQ4EBVnyXqyoSVJmRK8dWoqwiSCy0C5
-         AL0A==
-X-Forwarded-Encrypted: i=1; AJvYcCXa094ON/sF0SjHMFqg5fciU1R8fUs+v/q5cHCHBbZygADUCgwE5pE62qmbyxZGAaqZC8ovckIKG+P58etlnkxe5y52FCw/AgRSd+IYEczQ
-X-Gm-Message-State: AOJu0YzBTdmiiapgDiK+HfcRrX7wsXUbOb8h06UlMUVe9UWlDKtyyNbe
-	lW8wS0GwgbCwsZUzrpya2Yd+A7EAUrIpiKcfThlLWy+4lxM/f6sZYKgx0TRUwnc=
-X-Google-Smtp-Source: AGHT+IET1ur2Hbq+9cJMAg5HnRNV4tbPcm/2Ccc2KuGpX71T8/mhLJfk7K1KJMmzd/D0+4LvUiLm7Q==
-X-Received: by 2002:a9d:7388:0:b0:6f9:cf25:d6fe with SMTP id 46e09a7af769-6fb939fbe5emr11889679a34.24.1718635161757;
-        Mon, 17 Jun 2024 07:39:21 -0700 (PDT)
+        bh=8gljeJeGxAWnVOsW2sid+gU59meZd1BiHrYVsIx/obU=;
+        b=esZ3gxDC6uK1jKPkxIIXxqf2PQyvI8wDftcVFVjXrkU0l+LiOwtUXjVqwdYx2c5ivv
+         EskBdnw620HqKB2NQ55hS8q3+ELAFwISCdOqZlvTtPUOB5kDwT+iCpbVTLr9xNMB0AUQ
+         pG/6noBhRWMj4tD8L09s6d4lHuhaoOYC/nrPCtfWbQLEjMkOsrSCtxdQtsnEJ6XOsYlc
+         Sda4YUopT5mEXpM2BZxttRFjSlHKmSE9qklW5ZOVsE8NDN55F4wHwc/EquRek/Muyesv
+         si7Hi3UcSUORGmtCrToY8CiK5ro5+DIPnBkcHKMYZ4wF0Z/EyLIaXot4aFCTXZaBfOw2
+         Ek2w==
+X-Forwarded-Encrypted: i=1; AJvYcCWsd1ApJBHyQoDiOcoLfzU2SqPKWWz7PPwZa7BXcBdCenXefrV4bdeQqY3EbaXkEDemT18kLosVt5qm/hOJ7FsadfwZwQKlv1P4X0WTOmLK
+X-Gm-Message-State: AOJu0Yzud+99pKXhKf9EjHuZ8xGjuKWES4V05KL5VBA+Tse8pP11VC4T
+	Zh0aaGRZOBnY63NNXgJgQIoDRN9d6zyhdDF2oMl0J2JKT1zrxQgDhmkJIX9kVfI=
+X-Google-Smtp-Source: AGHT+IF2uoGlG3xSUI65+NQXmHPaCbaCWcT/PreTgaYbScCBfAppudiPPRnsNM5lnQZNDfID8Cr2aw==
+X-Received: by 2002:ac8:5e07:0:b0:440:5434:d59e with SMTP id d75a77b69052e-442168aae16mr119117071cf.26.1718636121932;
+        Mon, 17 Jun 2024 07:55:21 -0700 (PDT)
 Received: from ziepe.ca (hlfxns017vw-142-68-80-239.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.80.239])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6b2a5c58e31sm56074816d6.72.2024.06.17.07.39.21
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-441ef3d89ddsm46912991cf.15.2024.06.17.07.55.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Jun 2024 07:39:21 -0700 (PDT)
+        Mon, 17 Jun 2024 07:55:21 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.95)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1sJDVw-008kP7-Ol;
-	Mon, 17 Jun 2024 11:39:20 -0300
-Date: Mon, 17 Jun 2024 11:39:20 -0300
+	id 1sJDlR-008oz2-1P;
+	Mon, 17 Jun 2024 11:55:21 -0300
+Date: Mon, 17 Jun 2024 11:55:21 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Zong Li <zong.li@sifive.com>
-Cc: Baolu Lu <baolu.lu@linux.intel.com>, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, tjeznach@rivosinc.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	kevin.tian@intel.com, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH v2 04/10] iommu/riscv: add iotlb_sync_map operation
- support
-Message-ID: <20240617143920.GD791043@ziepe.ca>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+	tjeznach@rivosinc.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, kevin.tian@intel.com,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: Re: [RFC PATCH v2 01/10] iommu/riscv: add RISC-V IOMMU PMU support
+Message-ID: <20240617145521.GE791043@ziepe.ca>
 References: <20240614142156.29420-1-zong.li@sifive.com>
- <20240614142156.29420-5-zong.li@sifive.com>
- <a1a99374-dc40-4d57-9773-e660dc33beb2@linux.intel.com>
- <CANXhq0pQuoriKfHF51fXUtrZLkJBNOCe6M8Z6JbDjoRvbe1nWg@mail.gmail.com>
+ <20240614142156.29420-2-zong.li@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CANXhq0pQuoriKfHF51fXUtrZLkJBNOCe6M8Z6JbDjoRvbe1nWg@mail.gmail.com>
+In-Reply-To: <20240614142156.29420-2-zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_073925_052983_B7136B60 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20240617_075523_403973_B8265E6D 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,23 +101,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 17, 2024 at 09:43:35PM +0800, Zong Li wrote:
+On Fri, Jun 14, 2024 at 10:21:47PM +0800, Zong Li wrote:
+> This patch implements the RISC-V IOMMU hardware performance monitor, it
+> includes the counting ans sampling mode.
+> 
+> Specification doesn't define the event ID for counting the number of
+> clock cycles, there is no associated iohpmevt0. But we need an event for
+> counting cycle in perf, reserve the maximum number of event ID for it now.
 
-> I added it for updating the MSI mapping when we change the irq
-> affinity of a pass-through device to another vCPU. The RISC-V IOMMU
-> spec allows MSI translation to go through the MSI flat table, MRIF, or
-> the normal page table. In the case of the normal page table, the MSI
-> mapping is created in the second-stage page table, mapping the GPA of
-> the guest's supervisor interrupt file to the HPA of host's guest
-> interrupt file. This MSI mapping needs to be updated when the HPA of
-> host's guest interrupt file is changed.
-
-It sounds like more thought is needed for the MSI architecture, having
-the host read the guest page table to mirror weird MSI stuff seems
-kind of wrong..
-
-The S2 really needs to have the correct physical MSI pages statically
-at boot time.
+Why is this part of the nesting series?
 
 Jason
 
