@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C06EC27C79
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 13:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CAE0C27C79
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 13:30:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mTff0O8IHT7Q+1m7GE2fYkWzKn0Jywc44auBo7OSwko=; b=qXdK1+Wo/kLr3NCLzA9bIkjHIn
-	7Y6JrObHfLTAslBI8N5Vu32RyB+gsAFEXAg6/QyQL3F8dCfWmsSiAlanGy4cAneg/AsPXHDHeX6/+
-	H2YqgSNSxSUKgWQU+SxiWjnyU3kEY5pb39hb0NQTaJLppUwSKnGIR/gxFuYEviPy2qPyavZP6Dxkx
-	gA3Xg4yCcwX9Oynz9dWWQEDJGW2rLYzOWhHS2VM/PnfDP4L5sL23mCz5uvum2ncceRc74sv+a7J3g
-	GOqQ7dKB9fkH9v6QrqZQ9a468imTlZD1ucM0gkL0aiPszX9VGbKRJG6hyz/tM95jcB5h8s6ceyHWT
-	mt2FDoXA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=T01tEYzzv6s5qaMKHFUkkn5aJO4Lg/e+hThtFWCeBek=; b=13k3X2mGwt4Cpw
+	qwbeNQOL+tSOmZvYqZksCmRP4PjKyXiqiXTTiDqcBpIH/NtAL8HhbR3NMUwOyfTN/GNvN+YEsFndS
+	iVU8uIy7Yi2RM+f3poSY6zDXvEo5sM/UbnmPhRDGtNfSE5ZM+mGKl1EMwhhhTnfazMcY5+dQb4ztT
+	dNA94+8sgrWX5vbyA+yc7WY8k7PqbaO/2JYWmPzHhcj9vuBTyU79BtaFKxrjESZw1vYu7LoYgUURI
+	XcANy+nJCQ5EECHiz7KjTBF6aDPb60mFTyosiu9QBGPf6Tl2GTEF1Jbvy2gIeOtGOzZQAyFYYc6Hv
+	ld6wucbxNsreO8uc7LoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJCR8-0000000ArLL-2IZS;
-	Mon, 17 Jun 2024 13:30:18 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1sJCRX-0000000ArQr-45ZS;
+	Mon, 17 Jun 2024 13:30:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJCR5-0000000ArKO-0nAV
+	id 1sJCRV-0000000ArQH-2vpw
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jun 2024 13:30:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1718631015; x=1750167015;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=KSb3mRso17rcUhqb1Oro4xaRLDBSd9Y8je7X+EGQxKI=;
-  b=t23Aw6uoYYTtuCZ79T7xKJN8iX+j8wZbmR/UwxJjqXI0J+/P08pKzgAo
-   XNyC7mAveW8wemlXWB34HwZ+kTp/ZvGmPAlhkg1Sr1pImVjhgrL7WIyea
-   M4nsGPAKRfweEdYtyl20LWqYyI+mr/KHoE9Ca5NoZfFXQ946UrVM05RiR
-   o9XMWq6aCoZK8ots0UIwP/qu9awjTcmdeAB6AaJkiVG5cSgRnkAn61ohA
-   wLO5Xr9O+/Tc/AFIyslZDa5WzplhTHPudbJGsxAwvR6EyhO0G6mwLK3nH
-   w5qMbO7EcFUJDpSaAsP45dL/rbrLNiY6hhcGK6cuUnIyKbYVbQ8/0kfX+
-   g==;
-X-CSE-ConnectionGUID: vs/KqhXwTIKMnwb8mVJ4mg==
-X-CSE-MsgGUID: jnR8qmdfSTeSCRZB+zW6Sg==
-X-IronPort-AV: E=Sophos;i="6.08,244,1712646000"; 
-   d="asc'?scan'208";a="28519325"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Jun 2024 06:30:13 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 17 Jun 2024 06:30:06 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Mon, 17 Jun 2024 06:30:04 -0700
-Date: Mon, 17 Jun 2024 14:29:46 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-CC: Yangyu Chen <cyy@cyyself.name>, <linux-riscv@lists.infradead.org>, Conor
- Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Samuel Holland
-	<samuel.holland@sifive.com>, Anup Patel <anup.patel@wdc.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 7/9] riscv: dts: add initial SpacemiT K1 SoC device
- tree
-Message-ID: <20240617-carat-poise-ee63ed6a224e@wendy>
-References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
- <tencent_701082E2DAE48E2FB857316321778D737C08@qq.com>
- <ZnAw9QrSD-svYqQ5@xhacker>
+	Mon, 17 Jun 2024 13:30:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CD34160DDB;
+	Mon, 17 Jun 2024 13:30:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D209EC2BD10;
+	Mon, 17 Jun 2024 13:30:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1718631040;
+	bh=K1d1FkkEzlQ/UT9ihqbOKIjtW36wnnFLcT/ZvMOVYFM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hhTGVFmwyz+fliyEfsQwaIqR+ib5wkuWod8Xw3Xd/q/GBJP141ALpYUx3SINa51Sj
+	 fogpyLoW6Mi5ApaXiy6PxD5l4ilE7gQ46/LwMOO/4sxJnrAsOnBRcZF6xEYFNr5mVi
+	 DIVXZkX8BYLy8ikwhnkKsXFH8VteP+w/QZlyFN6XjzktWaT29cfOUoPewHiSfHgdlX
+	 w+N29UD7JhPaXjW8lmBpIRsYlzfyeQV85MizgwCneZIgUtURBMmUYPW5JUdBnBpDUi
+	 wnzapWZrPwOUszAFMV4zm8tL3FUcPJBCljoHV5+me/19eQw+vLWS7SjwREOgYujxaY
+	 sWoEv1U4NZp9A==
+Date: Mon, 17 Jun 2024 21:16:43 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@outlook.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Chao Wei <chao.wei@sophgo.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/6] riscv: dts: sophgo: Put sdhci compatible in dt of
+ specific SoC
+Message-ID: <ZnA3O14HOiV1SBPV@xhacker>
+References: <20240612-sg2002-v2-0-19a585af6846@bootlin.com>
+ <20240612-sg2002-v2-1-19a585af6846@bootlin.com>
+ <IA1PR20MB49534C9E29E86B478205E4B3BBC02@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20240616235829.GA4000183@ofsar>
+ <c75601a1-1389-400e-90b9-99c1e775a866@bootlin.com>
 MIME-Version: 1.0
-In-Reply-To: <ZnAw9QrSD-svYqQ5@xhacker>
+Content-Disposition: inline
+In-Reply-To: <c75601a1-1389-400e-90b9-99c1e775a866@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_063015_447773_602DADAB 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20240617_063041_894490_C8E9B19E 
+X-CRM114-Status: GOOD (  39.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,78 +85,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4609703327041219278=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4609703327041219278==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="oT9/HnCyP3m+8Cht"
-Content-Disposition: inline
+On Mon, Jun 17, 2024 at 11:16:32AM +0200, Thomas Bonnefille wrote:
+> 
+> 
+> On 6/17/24 1:58 AM, Yixun Lan wrote:
+> > Hi
+> > 
+> > On 18:47 Wed 12 Jun     , Inochi Amaoto wrote:
+> > > On Wed, Jun 12, 2024 at 10:02:31AM GMT, Thomas Bonnefille wrote:
+> > > > Remove SDHCI compatible for CV1800b from common dtsi file to put it in
+> > > > the specific dtsi file of the CV1800b.
+> > > > This commits aims at following the same guidelines as in the other nodes
+> > > > of the CV18XX family.
+> > is there any URL of guideline? or did I miss anything
+> > couldn't find any discussion about this in v1
+> > 
+> 
+> Not explicitly, the fact is that I had to use a specific compatible on
+> SG2002 for the sdhci (it is already defined mainline), I had to choose
+> between :
+> 
+> 1. cv18xx.dtsi : compatible cv1800b-dwcmshc
+>    cv1800b.dtsi : no redefined compatible
+>    sg2002.dtsi : overwrite the previous compatible to use sg2002-dwcmshc
+> 
+> 2. cv18xx.dtsi : no compatible
+>    cv1800b.dtsi : compatible for cv1800b-dwcmshc
+>    sg2002.dtsi : compatible for sg2002-dwcmshc
+> 
+> As in the plic and clint controllers, the second option was chosen I
+> consider this as a "guideline" and reformat the dtsis accordingly.
+> 
+> > > > 
+> > > > Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> > > > ---
+> > > >   arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 4 ++++
+> > > >   arch/riscv/boot/dts/sophgo/cv18xx.dtsi  | 1 -
+> > > >   2 files changed, 4 insertions(+), 1 deletion(-)
+> > > > 
+> > > > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > > > index ec9530972ae2..b9cd51457b4c 100644
+> > > > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > > > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > > > @@ -25,3 +25,7 @@ &clint {
+> > > >   &clk {
+> > > >   	compatible = "sophgo,cv1800-clk";
+> > > >   };
+> > > > +
+> > > > +&sdhci0 {
+> > > > +	compatible = "sophgo,cv1800b-dwcmshc";
+> > > > +};
+> > > > diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> > > > index 891932ae470f..7247c7c3013c 100644
+> > > > --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> > > > +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> > > > @@ -288,7 +288,6 @@ uart4: serial@41c0000 {
+> > > >   		};
+> > > >   		sdhci0: mmc@4310000 {
+> > > > -			compatible = "sophgo,cv1800b-dwcmshc";
+> > > >   			reg = <0x4310000 0x1000>;
+> > > >   			interrupts = <36 IRQ_TYPE_LEVEL_HIGH>;
+> > > >   			clocks = <&clk CLK_AXI4_SD0>,
+> > > > 
+> > > > -- 
+> > > > 2.45.2
+> > > > 
+> > > 
+> > > Hi, Jisheng,
+> > > 
+> > > Is this change necessary? IIRC, the sdhci is the same across
+> > > the whole series.
 
---oT9/HnCyP3m+8Cht
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi,
 
-On Mon, Jun 17, 2024 at 08:49:57PM +0800, Jisheng Zhang wrote:
-> On Mon, Jun 17, 2024 at 01:20:52AM +0800, Yangyu Chen wrote:
-> > Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
-> >=20
-> > Key features:
-> > - 4 cores per cluster, 2 clusters on chip
-> > - UART IP is Intel XScale UART
-> >=20
-> > Some key considerations:
-> > - ISA string is inferred from vendor documentation[2]
-> > - Cluster topology is inferred from datasheet[1] and L2 in vendor dts[3]
-> > - No coherent DMA on this board
-> >     Inferred by taking vendor ethernet and MMC drivers to the mainline
-> >     kernel. Without dma-noncoherent in soc node, the driver fails.
-> > - No cache nodes now
-> >     The parameters from vendor dts are likely to be wrong. It has 512
-> >     sets for a 32KiB L1 Cache. In this case, each set is 64B in size.
-> >     When the size of the cache line is 64B, it is a directly mapped
-> >     cache rather than a set-associative cache, the latter is commonly
-> >     used. Thus, I didn't use the parameters from vendor dts.
-> >=20
-> > Currently only support booting into console with only uart, other
-> > features will be added soon later.
->=20
-> Hi Yangyu,
->=20
-> Per recent practice of cv1800b and th1520 upstream, I think a complete
-> initial support would include pinctrl, clk and reset, I have received
-> the complains from the community. So can you please bring the pinctrl
-> clk  and reset at the same time?
+sorry for being late, I was busy in the past 2.5 month. Per my
+understanding, the sdhci in cv1800b is the same as the one in
+sg200x. Maybe I'm wrong, but this was my impression when I cooked
+the sdhci driver patch for these SoCs.
 
-What sort of complaints have you got? That the support is too minimal to
-be useful?
+> > I tend to agree with Inochi here, if it's same across all SoC, then no bother to
+> > split, it will cause more trouble to maintain..
+> > 
+> 
+> To be honest, I agree with this to, but as a specific compatible for the
+> SG2002 was created in commit 849e81817b9b, I thought that the best practice
+> was to use it.
 
---oT9/HnCyP3m+8Cht
-Content-Type: application/pgp-signature; name="signature.asc"
+I'd like to take this chance to query DT maintainers: FWICT, in the past
+even if the PLIC is the same between SoCs, adding a new compatible for
+them seems a must. So when time goes on, the compatbile list would be
+longer and longer, is it really necessary? Can we just use the existing
+compatible string?
+DT maintainers may answered the query in the past, if so, sorry for
+querying again.
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnA6SgAKCRB4tDGHoIJi
-0na7AP9um0KeWsttwnNSGE2JtwpFCri+BagSptLaplA4idDWBgD/a2Bs8pedwuex
-lnoPGQJ1Ty98RoIrkROV8cur2alHbQU=
-=LKni
------END PGP SIGNATURE-----
-
---oT9/HnCyP3m+8Cht--
-
-
---===============4609703327041219278==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> 
+> > > 
+> > > Regards,
+> > > Inochi
+> > 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4609703327041219278==--
-
