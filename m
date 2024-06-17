@@ -4,82 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1479AC2BB85
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 17:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 672DBC27C79
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 17:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
-	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SjnnFDOW7qoiQi4CqfgCD0nCRWjMOy7PVXm/xX537z0=; b=gRIAVtElTSnJgs
-	Bl3M0r6xrad3paiaGHEDTzF7qZNBDGqzpLvXXlkeeMoxHhZl57FfPtUjeF0JIhxz8cj3F6Mn5sSQ6
-	TfFPSjqr4i7uOul8Z9Yfsdosh1KqQPS2y3NwqoOemKcnEjmbOBhsBvgdPi42LrUajH53ilFznNI7a
-	Lw+KA8eJOrQI0CHSph6tiN1vwXHmeaY1WqAGl7z1yak9YazyP02ZguwaILAju/jpYHKy4BolHPjlo
-	UsBEmkAwPN5/cE1lExV15/wjn96gZbnGBlkBQ9ko8OR4rau8hqgMdeSGgGOb/Ewii4Q8ZVUjO3v+B
-	wzUnsx7ks+7/g8rNseSw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=igGKf+YczZTqXg8V9CbYirdL2uB7bN1piuFgan4557s=; b=ROSKxSRBZBCPbz/Y7UHARHcZ7Q
+	dimjVA1QGrQpkTXaMJsPvccIFQdQeP8aF8u2N0mFe5o06qWJPc7iKwGd7F3Dg6wtT7COWjQgSVmWQ
+	j8+sQq+T+pB3+e2zPURzzq0890EW5ul1GyqZrkyM+VtUZLrLkgB4PBlgIvQkELNdr0vFkxsNhlSuk
+	CREhV3OKV1y/36gzoWCj8GYzoyovDAfi5FA7Y0rBCeoJV3qIJHoo6hKSMcQkzhTAywRFkaxOxB+UJ
+	9fCAs2kr4NU25VKy9c4xZZU3s3CU4tecamoG2b9+0qJ/LcjkyMHgF8dkxNt+ZzFGHqJ/XYAe8w0o/
+	ZgC1rgDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJFjx-0000000BrXt-2aPz;
-	Mon, 17 Jun 2024 17:01:57 +0000
-Received: from out203-205-221-205.mail.qq.com ([203.205.221.205])
+	id 1sJFw5-0000000BtoA-2zRu;
+	Mon, 17 Jun 2024 17:14:29 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJFju-0000000BrWW-0Adx
+	id 1sJFw2-0000000Btna-2hDc
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jun 2024 17:01:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1718643708; bh=ptOjrwdiruXfiPRbkPbyESZEkYeF5JqwOz+w8fsnr24=;
-	h=Subject:From:In-Reply-To:Date:Cc:References:To;
-	b=KM4OWEYXz2pBIQ0/Jx6HuePCjow4lZ4OFfv106kYW+ESlxRbiMlsMkaQ/NFnjA4CS
-	 iV2gIx3qJXvdKlQACJu32IHCV5bpZskrDzoASv4zaQ0uB7vsHYYvUqPVVWWdq/s944
-	 licaDwYHex6zsB1bGRw9vpu3KPe8R1iai6JUtg5U=
-Received: from smtpclient.apple ([2408:8207:18a1:9700:9c85:7ae:3ee:45fe])
-	by newxmesmtplogicsvrszc19-0.qq.com (NewEsmtp) with SMTP
-	id 6DA4896; Tue, 18 Jun 2024 01:01:45 +0800
-X-QQ-mid: xmsmtpt1718643705t949zch05
-Message-ID: <tencent_296E424C52C850A3095F8CA0B07698E30D06@qq.com>
-X-QQ-XMAILINFO: MziGzrjZeogZA2yb15PwWH+GJ01zzp4/qBKBYADeYSFB8UC7ogZnJZFUk1XMIj
-	 fih8FkF7TT7M+PokWHjQ+iIhxR/+qoTffjDIEMjMoEzqo7jGzuqdabu0VDlSAPnGqhHExikl/WJm
-	 RHdW9NR2HI89ird6Ekd9TDkVw5zR4OptUmXIG0PJ9lBT2OcVnLKVYRMbapT3rvkR2jhGDCWn7cnf
-	 ooZX4xHSJP9fNRxJ/hE9ya7YZD+U4oz6MR1H1juPcqubzrqfTUMdaWHSuh+nkmShdxmtxDtkDSSw
-	 si5vSgZMtHK/DhN3fbDzD4eG/mj0f53Xq2phMP7KJXTQnXa/rl15fXH/lvPmagjfuqRVXfRwl/Ok
-	 +VDn/ISoVl04oW6uawIujzNLWptS1tIjchCy7d5su8KCUnPAofKUw3AdHfXZMINibQiWSFm7BVjx
-	 qXQj09HHv4FNFcZTRzfce0FWsawWaz7KQEpVrNpESJDk9nLCIVvbMxu7Cl6IutueRxoJls1thVqw
-	 lF9gyHeP6qFZzFzkEACeVDtP4KEu//50fhpDEDrw8Q/BM9C4N/d0tTJTiYCgGSUfasR2zBR/Gm6d
-	 hWAKZpJfSTCc5XqWjTctvYXLwOv18ZUQou2WOEZ99BZhaKEcPtimU67T1B0rW7BJUayuG/tbN/3u
-	 mrz7OZdG94YDFlTbJ8+EQG5zOW/EDwaHlO5u9SIo3d0134R+sZkh3FyhhwCFo1dpBeOYnBXu5ood
-	 G6F3xy4GLIyzFTawgNCm7Rm7axjRGjodn3ZdZyMEuvn7nRGhvQ/ewQnkvPe53rVRs1WVnY20w0NP
-	 oqautRdBiA5t0kxF++fr2XyfLLn6MKdhuyNkMh6W7dLb7lO0+deYAQCqOGWFg9avHVOHCt8d808s
-	 n6bBVtLtTsl6lVuSt+ty/TJ4vXve1BHiMaYWqr3xmWDaacT9od3aNfizhr5koBU7CamalxoMmnwN
-	 aArNIcH6DDhWDYMNzIFu2ZdODtE72Ed8N+7b5sCjpuAm+P3RHwPetpK7WwDqzWqy4Bxs0gPgo=
-X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.600.62\))
-Subject: Re: [PATCH v1 7/9] riscv: dts: add initial SpacemiT K1 SoC device
- tree
-From: Yangyu Chen <cyy@cyyself.name>
-In-Reply-To: <ZnA6pZLkI2StP8Hh@xhacker>
-Date: Tue, 18 Jun 2024 01:01:32 +0800
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- linux-riscv@lists.infradead.org,
- Conor Dooley <conor+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Anup Patel <anup.patel@wdc.com>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- devicetree@vger.kernel.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-X-OQ-MSGID: <BD2E7EB4-6525-4274-88D0-35005AFB32B1@cyyself.name>
+	Mon, 17 Jun 2024 17:14:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 9A13ECE049A;
+	Mon, 17 Jun 2024 17:14:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9538C2BD10;
+	Mon, 17 Jun 2024 17:14:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1718644463;
+	bh=MmA+hwtBmtjHSiMtd3wx1Z1tyvk5MSxoK0Na7DKEAQw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oV1WSX39l0oXYDodwVcnNGu6g4yMk+A7cNev9LZ6awpIJ9xMX9gDzkjzVyiiA+9sg
+	 Vet+IFaG3NPnPFjcwM4+83gYFJemwOCgodSuD+cCV4Gtlh1C2lrz2ERg+1GtQJFFm0
+	 T3dacB3gT9y6Ose1tIMAGQ2DZaW6ul4KAem+/dbDAtXFnLFPGR7r+hWL59SPK7yAsn
+	 tqcTBN3yuhpVGuSn0OVOCEYJ/sMnJwZc7nDM/mUCrS3QmfPgXgkJA8/nUB28gCqmol
+	 XouT25EtxDkGVmoYLbZmYVA22YNeBpe+GzWI/aOyCW5l6wdCSBVkqfUjIDukQhrPFg
+	 05YaqubP+3MEg==
+Date: Mon, 17 Jun 2024 18:14:18 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	linux-riscv@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup.patel@wdc.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Jesse Taube <jesse@rivosinc.com>
+Subject: Re: [PATCH v1 0/9] riscv: add initial support for SpacemiT K1
+Message-ID: <20240617-connected-avoid-82f0bdc05cdf@spud>
 References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
- <tencent_701082E2DAE48E2FB857316321778D737C08@qq.com>
- <ZnAw9QrSD-svYqQ5@xhacker> <20240617-carat-poise-ee63ed6a224e@wendy>
- <ZnA6pZLkI2StP8Hh@xhacker>
-To: Jisheng Zhang <jszhang@kernel.org>
-X-Mailer: Apple Mail (2.3774.600.62)
+ <20240616-exorcism-computing-e11e26084a62@spud>
+ <20240616224811.GC3983622@ofsar>
+ <ZnBEBQjTQtFs-fXt@xhacker>
+ <20240617-synapse-carmaker-0a59c7c6edb7@spud>
+ <tencent_26E7381EE1F6C5188428359AF3F908CA680A@qq.com>
+MIME-Version: 1.0
+In-Reply-To: <tencent_26E7381EE1F6C5188428359AF3F908CA680A@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_100154_498791_5E2A194F 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20240617_101427_185587_D79BE2A2 
+X-CRM114-Status: GOOD (  53.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +79,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8425354397736403459=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============8425354397736403459==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Jrl5+92C90Kbr+Af"
+Content-Disposition: inline
 
-> On Jun 17, 2024, at 21:31, Jisheng Zhang <jszhang@kernel.org> wrote:
-> 
-> On Mon, Jun 17, 2024 at 02:29:46PM +0100, Conor Dooley wrote:
->> On Mon, Jun 17, 2024 at 08:49:57PM +0800, Jisheng Zhang wrote:
->>> On Mon, Jun 17, 2024 at 01:20:52AM +0800, Yangyu Chen wrote:
->>>> Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
->>>> 
->>>> Key features:
->>>> - 4 cores per cluster, 2 clusters on chip
->>>> - UART IP is Intel XScale UART
->>>> 
->>>> Some key considerations:
->>>> - ISA string is inferred from vendor documentation[2]
->>>> - Cluster topology is inferred from datasheet[1] and L2 in vendor dts[3]
->>>> - No coherent DMA on this board
->>>>    Inferred by taking vendor ethernet and MMC drivers to the mainline
->>>>    kernel. Without dma-noncoherent in soc node, the driver fails.
->>>> - No cache nodes now
->>>>    The parameters from vendor dts are likely to be wrong. It has 512
->>>>    sets for a 32KiB L1 Cache. In this case, each set is 64B in size.
->>>>    When the size of the cache line is 64B, it is a directly mapped
->>>>    cache rather than a set-associative cache, the latter is commonly
->>>>    used. Thus, I didn't use the parameters from vendor dts.
->>>> 
->>>> Currently only support booting into console with only uart, other
->>>> features will be added soon later.
->>> 
->>> Hi Yangyu,
->>> 
->>> Per recent practice of cv1800b and th1520 upstream, I think a complete
->>> initial support would include pinctrl, clk and reset, I have received
->>> the complains from the community. So can you please bring the pinctrl
->>> clk  and reset at the same time?
->> 
->> What sort of complaints have you got? That the support is too minimal to
->> be useful?
-> 
-> For example https://lore.kernel.org/linux-riscv/95c20c6c-66cd-4f87-920b-5da766317e19@sifive.com/
-> 
-> Now, I think it's better to "model the clocks/resets/other dependencies"
-> in the initial support. So lacking of pinctrl, clk and reset doesn't
-> fully describe the hardware.
 
-Sound like a good idea. In this case, we don't need to change the
-dts repeatedly after a new soc driver is supported.
+--Jrl5+92C90Kbr+Af
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jun 18, 2024 at 12:39:30AM +0800, Yangyu Chen wrote:
+>=20
+>=20
+> > On Jun 17, 2024, at 23:32, Conor Dooley <conor@kernel.org> wrote:
+> >=20
+> > On Mon, Jun 17, 2024 at 10:11:17PM +0800, Jisheng Zhang wrote:
+> >> On Sun, Jun 16, 2024 at 10:48:11PM +0000, Yixun Lan wrote:
+> >>> Hi Conor
+> >>> Thanks for bringing this up
+> >>>=20
+> >>> On 19:35 Sun 16 Jun     , Conor Dooley wrote:
+> >>>> On Mon, Jun 17, 2024 at 01:18:52AM +0800, Yangyu Chen wrote:
+> >>>>=20
+> >>>> No MAINTAINERS update, so I figure that means you don't want to main=
+tain
+> >>>> it going forwards? If there's someone out that that does care about =
+the
+> >>>> spacemit k1 (Jesse maybe?), then I'd be more than happy to have them
+> >>>> look after it.
+> >>> Yangyu kind of has limited time, too many stuff for him..
+> >>>=20
+> >>> I'd volunteered to help on this if it can fill the gap
+> >>> Also I'd be more than happy if anyone willing step forward to co-main=
+tain..
+> >>=20
+> >> Does maintainership work like this? Is willing to do enough?
+> >> FWICT, maintainership involves active patch contributing, reviewing and
+> >> maintaining the whole SoC. It is better to take over the maintainership
+> >> after showing enough patch contributions and understanding of the SoC.
+> >=20
+> > I was going to reply to your other patch about providing more complete
+> > "basic" support for the SoC, but I guess I'll reply here and address
+> > both points. After the k230 and th1520, which were both merged with very
+> > basic support and have made very little progress towards being a useful
+> > platform, I'm pretty reluctant to merge another platform in a super
+> > basic state. I was going to make this point before you brought it up,
+> > but it's good to know I am not the only one with that view. To be clear,
+> > I'm not pointing blame for those platforms, I'd just like to avoid a
+> > repeat. If Yangyu doesn't have time to do any development work on the
+> > platform, I'd like to see someone else (and as I mentioned Jesse is
+> > interested) take on getting some of the basic driver patches written and
+> > merge only when those are accepted. Having no in-tree clock and pinctrl
+> > drivers is definitely a hindrance to other people doing parallel
+> > development of drivers and I'd like to avoid that.
+> >=20
+>=20
+> That's also my concern for the first time when I submitted initial
+> support for K230. However, for SpacemiT K1, things went differently
+> for its UART, and the vendor patched OpenSBI with their NOC-based
+> HSM. They didn't use CLINT-MSWI as SBI HSM driver.
+>=20
+> The vendor uses a special intel pxa uart driver, marked deprecated
+> in the kernel and incompatible with ns16550. If we use ns16550 in
+> the dt, the behavior of uart is like the uart has no interrupt and
+> stops working permanently when fifo overruns, making many developers
+> not know how to start unless they use the SBI HVC console, which
+> needs to turn on CONFIG_NONPORTABLE.
+
+This I just do not understand. Why did they use this IP? Is it free?
+Did they use it before for something else? It's a rather strange design
+choice to me.
+
+> For the OpenSBI, the vendor does not provide enough ISA string,
+> which their chip might support, such as Zicboz. Thus, the OpenSBI
+> does not correctly set up the corresponding M-Mode CSR, making the
+> kernel panic when the ISA string contains this extension.
+>=20
+> These two things takes me about one week to get the initial mainline
+> kernel with full ISA extension and UART to work. Providing this
+> information in the commit message helps attract more developers to
+> start developing quickly.
+>=20
+> I don't mind whether this series patch will be merged or not. The
+> meaning of this series is just providing these informations. However,
+> I think some details about bringing up a very basic kernel are
+> essential to attract more developers. If a platform has already
+> attracted some developer's attention. Providing initial support
+> with the commit message to show how to bring it up is not bad.
+>=20
+
+> The point is that if a developer like me has already done this but
+> does not have much time to do further development, should the
+> developer become the maintainer? If not, should a developer submit
+> patches like this to the mailing list to provide this information
+> in the commit message and make it easier for other developers to
+> do further development?
+
+I think, as you did, sending patches for this state is very valuable.
+I'd just like to see someone expand on it before it gets applied, so
+that the initial platform support in the kernel is in a better state.
+
+> > Getting back to your point in this mail, whoever gets the platform to
+> > that state is well suited to looking after it going forwards. Some other
+> > interested parties could also join as reviewers. I don't want to see
+> > people joining as maintainers that are not going to have an interest
+> > in the platform going forward, as that'll just end up with me as the
+> > defacto maintainer.
+> >=20
+>=20
+> I agree. I also have no confidence in joining as a maintainer.
+> That's why I didn't change the MAINTAINERS for the first time.
+
+Yeah, that's fine. Consider this part of the thread my attempt to
+solicit people to maintain the platform, rather than bashing you. I
+appreciate the work you've done :)
+
+Thanks,
+Conor.
+
+--Jrl5+92C90Kbr+Af
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnBu6gAKCRB4tDGHoIJi
+0uZNAP9ElcW1Moz3oegHyyj66hfSZofUB2/kWuP+yKNFSIUIBQD/SuEPeV1sBsSV
+lRZoUY0kp5uFGyWIOuzqEQgBdKSxLAo=
+=3m3H
+-----END PGP SIGNATURE-----
+
+--Jrl5+92C90Kbr+Af--
+
+
+--===============8425354397736403459==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8425354397736403459==--
+
