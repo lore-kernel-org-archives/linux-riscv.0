@@ -4,67 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4040C27C79
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 15:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D2EC27C79
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2024 15:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i24B36ZZRGXbZRLjrNQElTTJMjLZHeFCzvwZhOoy808=; b=UFLFfl9OD6VS6VVFGVxyv/kBfo
-	8USTPr4Y1CuXzxjsZYeg3CYW+JiOfNESQTse89LXzDCLHuVzEPwKWYhQkBzHCFGPfCtJhS7FECdMq
-	fJPJPJgjr+FXDbqGLkIX29sDaHU/Wez6Xrccc1PuaLUFjwz2vj7+lCaYTnN7+bn39u7yKuU0wc7xe
-	E/9WU7vnqEJE/xfTPNHCKRcJQqzYT/dzqQIBFDzrbsco/4pk2SG4X3Zj/6h7qPmQU9RRdvG/xojkE
-	yx1//E3sxpRg1Zxzuf/BGqxruCYRtrhMLF+7dl/FJpR8xccHm/tDtMgndjt9GUl779HioNjs+AAdA
-	WaoQcu0w==;
+	bh=HqpK8gBnTrKZhG2MQUn3cNaiy8WxRE/YQgmRHNaEf2g=; b=HGS42rZ1TeSUkwXolkHFjsLZ5I
+	jgCI+sUhOevXrkAOaoFOZx81HWIQUHk1DoJdwYciU8pwaUAzm5s7faz/GcuOsEIKkvukulU7cX0Hf
+	O1u11bTiQhZ6XEd+7DLikxOa7IYVjUtEt+r0yy97SPz/4urrNp4i/Aadnkcv3sKe0wql8uNBSWpus
+	twEUJBsZO4ngNawKRafnaswDHTGRlIk1sPqhsdOK8gnSJgpTexbwx7mXvonYNmHUMeBcQpfTHpKzq
+	+5lzj3CGvK3lqO3A4NRBt/dBJ7hKrsM8hGeiL2nKH96pWoMXjHPThsoiiwY1AOxNMDYFjJnOvTalD
+	rQbEVBPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJEM1-0000000BUHa-37fu;
-	Mon, 17 Jun 2024 15:33:09 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sJETb-0000000BWhl-3ZSo;
+	Mon, 17 Jun 2024 15:40:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJELy-0000000BUG3-1rQK
+	id 1sJETZ-0000000BWgf-0Sj4
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jun 2024 15:33:08 +0000
+	Mon, 17 Jun 2024 15:40:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id AC1CECE118C;
-	Mon, 17 Jun 2024 15:33:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33F8FC4AF1C;
-	Mon, 17 Jun 2024 15:33:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2F45B61314;
+	Mon, 17 Jun 2024 15:40:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B63FBC2BD10;
+	Mon, 17 Jun 2024 15:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718638384;
-	bh=HxCgZ9RRehmuaY6O4D/DkqsCxzUh2/Ih2ogkzpYGqys=;
+	s=k20201202; t=1718638854;
+	bh=42hDqBHzInQELIWlWJ6Z/FBQrQe2GH5qVRKdgXovl2k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Cq5T+6Ci5gl+/lsjeByOrNUYs1W4yi2O0xOuvt3SOBaQpxoiuXxIozmJ9BktASDdb
-	 IiegacTovdT5OMiyAfbHHRzCj40MJJWSlgbI+mkP0McRnkIvtbu0aLBShEVreEABgU
-	 WZoyO+ShWJKDCgXfYoDB4Z3Pg/DhgJWsQkeRhyXxjkTBkvNXyFczzUQQSiUXC2C6t7
-	 zdRv5nuvylPllepQjfdauJMZjzLn9Z66qDwNpfaQL6u8gLq38HTURc58lVN/qXoVgn
-	 kumsZhxSvo0yLZe0FSWn2xAxJt93rlpLEiQqtWQvRb2QLhwjamvBelDSOyTYUk2J3p
-	 jAgEr4evAWABw==
-Date: Mon, 17 Jun 2024 16:32:59 +0100
+	b=BXPal40qQwXg9yBesIIsPIrSQU6dPocxlDznXC5WIw+h/lK+NrfL/Y+5UEDM6sf4z
+	 ne0VGv/pBIe8ridyIR95LpL8M8owUAc2lWmfBTi1BrkwNFRSb8ZMbzmf9cKTvOXe+h
+	 hwJzj8ASQlc7i64FQwbsp9VqoQ6lDzC/dINSIz5YyD/+Lf1HEWsgYycmT7zDGymzwV
+	 xV0GHRKUNoscXTlOEfFA8dH4db8ETiJFWpK7cl0Z8ijIUm4a/RidmdcKSbv75xQp+B
+	 FMWstlfXlxvBqpQflidLqtuIutF3KQbqhiYV+ZyrEuivPiMzcQu2wF9bKrW9Ka/jn+
+	 AaC4WTDm+0xOQ==
+Date: Mon, 17 Jun 2024 16:40:48 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Yixun Lan <dlan@gentoo.org>, Yangyu Chen <cyy@cyyself.name>,
-	linux-riscv@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup.patel@wdc.com>, Rob Herring <robh@kernel.org>,
+Cc: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@outlook.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Jesse Taube <jesse@rivosinc.com>
-Subject: Re: [PATCH v1 0/9] riscv: add initial support for SpacemiT K1
-Message-ID: <20240617-synapse-carmaker-0a59c7c6edb7@spud>
-References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
- <20240616-exorcism-computing-e11e26084a62@spud>
- <20240616224811.GC3983622@ofsar>
- <ZnBEBQjTQtFs-fXt@xhacker>
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Chao Wei <chao.wei@sophgo.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?iso-8859-1?Q?Miqu=E8l?= Raynal <miquel.raynal@bootlin.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/6] riscv: dts: sophgo: Put sdhci compatible in dt of
+ specific SoC
+Message-ID: <20240617-exuberant-protegee-f7d414f0976d@spud>
+References: <20240612-sg2002-v2-0-19a585af6846@bootlin.com>
+ <20240612-sg2002-v2-1-19a585af6846@bootlin.com>
+ <IA1PR20MB49534C9E29E86B478205E4B3BBC02@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20240616235829.GA4000183@ofsar>
+ <c75601a1-1389-400e-90b9-99c1e775a866@bootlin.com>
+ <ZnA3O14HOiV1SBPV@xhacker>
 MIME-Version: 1.0
-In-Reply-To: <ZnBEBQjTQtFs-fXt@xhacker>
+In-Reply-To: <ZnA3O14HOiV1SBPV@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_083306_972190_D98B82F9 
-X-CRM114-Status: GOOD (  26.25  )
+X-CRM114-CacheID: sfid-20240617_084057_321609_3803920E 
+X-CRM114-Status: GOOD (  27.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,87 +86,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2157801178435973667=="
+Content-Type: multipart/mixed; boundary="===============6214217610641383423=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2157801178435973667==
+--===============6214217610641383423==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="AaEPeEN+LnYVG4mh"
+	protocol="application/pgp-signature"; boundary="6tC78+3mmqFBDz9z"
 Content-Disposition: inline
 
 
---AaEPeEN+LnYVG4mh
+--6tC78+3mmqFBDz9z
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jun 17, 2024 at 10:11:17PM +0800, Jisheng Zhang wrote:
-> On Sun, Jun 16, 2024 at 10:48:11PM +0000, Yixun Lan wrote:
-> > Hi Conor
-> >  Thanks for bringing this up
-> >=20
-> > On 19:35 Sun 16 Jun     , Conor Dooley wrote:
-> > > On Mon, Jun 17, 2024 at 01:18:52AM +0800, Yangyu Chen wrote:
-> > >=20
-> > > No MAINTAINERS update, so I figure that means you don't want to maint=
-ain
-> > > it going forwards? If there's someone out that that does care about t=
-he
-> > > spacemit k1 (Jesse maybe?), then I'd be more than happy to have them
-> > > look after it.
-> > Yangyu kind of has limited time, too many stuff for him..
-> >=20
-> > I'd volunteered to help on this if it can fill the gap
-> > Also I'd be more than happy if anyone willing step forward to co-mainta=
-in..
+On Mon, Jun 17, 2024 at 09:16:43PM +0800, Jisheng Zhang wrote:
+> On Mon, Jun 17, 2024 at 11:16:32AM +0200, Thomas Bonnefille wrote:
+> > On 6/17/24 1:58 AM, Yixun Lan wrote:
+> > > On 18:47 Wed 12 Jun     , Inochi Amaoto wrote:
+
+> > > > Is this change necessary? IIRC, the sdhci is the same across
+> > > > the whole series.
+
+> sorry for being late, I was busy in the past 2.5 month. Per my
+> understanding, the sdhci in cv1800b is the same as the one in
+> sg200x. Maybe I'm wrong, but this was my impression when I cooked
+> the sdhci driver patch for these SoCs.
 >=20
-> Does maintainership work like this? Is willing to do enough?
-> FWICT, maintainership involves active patch contributing, reviewing and
-> maintaining the whole SoC. It is better to take over the maintainership
-> after showing enough patch contributions and understanding of the SoC.
+> > > I tend to agree with Inochi here, if it's same across all SoC, then n=
+o bother to
+> > > split, it will cause more trouble to maintain..
+> > >=20
+> >=20
+> > To be honest, I agree with this to, but as a specific compatible for the
+> > SG2002 was created in commit 849e81817b9b, I thought that the best prac=
+tice
+> > was to use it.
+>=20
+> I'd like to take this chance to query DT maintainers: FWICT, in the past
+> even if the PLIC is the same between SoCs, adding a new compatible for
+> them seems a must. So when time goes on, the compatbile list would be
+> longer and longer, is it really necessary? Can we just use the existing
+> compatible string?
+> DT maintainers may answered the query in the past, if so, sorry for
+> querying again.
 
-I was going to reply to your other patch about providing more complete
-"basic" support for the SoC, but I guess I'll reply here and address
-both points. After the k230 and th1520, which were both merged with very
-basic support and have made very little progress towards being a useful
-platform, I'm pretty reluctant to merge another platform in a super
-basic state. I was going to make this point before you brought it up,
-but it's good to know I am not the only one with that view. To be clear,
-I'm not pointing blame for those platforms, I'd just like to avoid a
-repeat. If Yangyu doesn't have time to do any development work on the
-platform, I'd like to see someone else (and as I mentioned Jesse is
-interested) take on getting some of the basic driver patches written and
-merge only when those are accepted. Having no in-tree clock and pinctrl
-drivers is definitely a hindrance to other people doing parallel
-development of drivers and I'd like to avoid that.
+For new integrations of an IP, yes, new specific compatibles please. New
+integrations may have different bugs etc, even if the IP itself is the
+same. If there's different SoCs that are the same die, but with elements
+fused off, then sure, use the same compatible.
 
-Getting back to your point in this mail, whoever gets the platform to
-that state is well suited to looking after it going forwards. Some other
-interested parties could also join as reviewers. I don't want to see
-people joining as maintainers that are not going to have an interest
-in the platform going forward, as that'll just end up with me as the
-defacto maintainer.
+I expect the list of compatibles in the binding to grow rather large, but
+that is fine. No one SoC is going to do anything other than something like
+compatible =3D "renesas,$soc-plic", "andestech,corecomplex-plic", "riscv,pl=
+ic";
+which I think is perfectly fine.
 
-Thanks,
-Conor.
 
---AaEPeEN+LnYVG4mh
+--6tC78+3mmqFBDz9z
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnBXKgAKCRB4tDGHoIJi
-0v20AQCpR2ZQ2v2NRkN0DYxAd/yPPIfKqlUlrmJB2U/evik29gD9FRxjtuXoD1XB
-QPAeBrDfwe+kvuWdHG1CeRwlLMpItAA=
-=xn4V
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnBZAAAKCRB4tDGHoIJi
+0l7HAP47j2HyEc+VKIMCrgYDBYv2vBXJXmUQgX5EoSTWn2eiggD9HUVWmEdowlqP
+9Cn3abEuvtkfKb4yr9voKsKLFHWBsQM=
+=hwsr
 -----END PGP SIGNATURE-----
 
---AaEPeEN+LnYVG4mh--
+--6tC78+3mmqFBDz9z--
 
 
---===============2157801178435973667==
+--===============6214217610641383423==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -167,5 +170,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2157801178435973667==--
+--===============6214217610641383423==--
 
