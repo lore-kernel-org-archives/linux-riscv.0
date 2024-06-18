@@ -4,167 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36594C2BA18
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 14:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B032C27C4F
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 14:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=WZNHW+SKDqv30lkSQ6eryMOzpxovGQVXsp5LkWQNI1Y=; b=X3TXT7oOsYcDzon4FRVgdKzAR/
-	JHo2d+g2PpsAd/AEgIOr8bpyyPmQbWPRPPdwEGyPm3LDDPfGnuitMPZZ9nd8yyV3BBGcVKWG/WNlQ
-	vvxOGlPXYJeXlLJIjZhdCZmpPW7+X72n/LVOUShVdWKMslZs80P9lzgyKZkdO+4rWCyNGuKhSsP0h
-	zv7UpdT0/oWz56icSB/iaR1nKJD3DU406MHknIFbzDtkwDUXhCl3bRr+l10FuM1k1NiC4NPGpnjHR
-	clIyGgPScu4csU51XjKvSCvJA6vvjLxJ/gakOwMzOFS8KeUVEtNYu9y5lKKtJeNYqc9oBslxLE9Iq
-	xRdUZOSg==;
+	bh=UeYBaWDrgF7u+4sTbNlQwagx3ezZtzrLNF7hY+ckjzU=; b=VaKLVj9E0rerN0nxRoAbaak57m
+	4zEdyLfauXRV424Q/dc+tfSuBFxtLCJ8MPoP16pa7AADetk0YT7XPY2CFfSEpr16OrQ/tkCqAdXOy
+	XGSsNZglfuhtJMbIPNxjWfHhsuZ1nBcuCtMZPwNrhf00eNGW5AMrAsgIdz4eqtCqDDFyAG+OdAWB+
+	OaX/AUCxV81B9uf9261x56WjEb5AFECoVx9b/XM5c/sOxKwio2QcvVsG+AJA+VB4oj3yc3sBZRYrN
+	CAJPHuZrH7TcfOKNM1Rgy1WqHeMxqZAF/NhU4h8SqrmK+7KIYwtRFG0NF73mVO/j/T8IfoLFOl++j
+	+3JdqRrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJZlF-0000000FMBx-1z2Q;
-	Tue, 18 Jun 2024 14:24:37 +0000
-Received: from mail-sn1nam02on2062a.outbound.protection.outlook.com ([2a01:111:f400:7ea9::62a] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1sJZs1-0000000FO7Z-3nUI;
+	Tue, 18 Jun 2024 14:31:37 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJZl0-0000000FM65-3yAM
+	id 1sJYuq-0000000F8c6-2BWR
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jun 2024 14:24:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ez3t3Lp4a699lwZBnaRUzCnauhbvRAsn4M0j0Bzq3X056CkVJZo9Wgs5R+r6jHnk15mT3MiyEOyB4wAcFbZKQi7P2NX938qZNuKo0QUZB0W7ly3GwaIRmKO03qFa2zIQX/Q+JqVcmgE+yZ5P5HvWEbrbOMeRht7+EY8WxrsBdi5K+8mOeyKia5b8DqZXgTLG/o/sifc+XPCXt+7T5mLeJwayKZ8mdf9Kp0K4GUcALv1q7p8xm+NhiINSFuLbOICwO0JbUUaM6Zx38aO8AY19sujQQf5CbXQxldDvfl83PdDSg6UIPYNHaKtnJals8ksnDrQGcV7hFNGTGkhv/ewB/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O24RGwbG2nA8T3APyP2V8XPYCrVLrczVJWyV+N4qRLg=;
- b=n1Ze7DrTuvFvBQ+u2QNawNzeQmMeDX6mXgncbO20dt20gPV12qDhwXplgZoDFqrSMO3ceES/6g1vKXOBB1DkfbZIlFM+73hiQpTVn+Q4bmB+W6xoyVAHJ56+r/INE41AjMnTRnD0TytgqyvhgNdTAZykNMCMoOqd384K+gcA47OOpxFzLpzHu7ledbrLc5ATzf7q7DEkDN8zYfw/I6Cr93ZISHuGEqkDPyXdXHZw1jbAnFXVJZYtOx5ctJOjpRMC28lkBi9k8j2imiIH/wtngpZ0ZFHUd2xMCWne/owV2cIlxuRdfmkaXLj7iBG8ICHj/TOJIUG7mwNIere3/2Vp0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O24RGwbG2nA8T3APyP2V8XPYCrVLrczVJWyV+N4qRLg=;
- b=yg/D+mfvtcM4tOW0SZe2Xp1RamtqB+u0xWlInm+BtyJo4LTjX2j/HuVOg6LKEo2VUWn9RHYs6k11APn+mm0Iuhw3v4i1unaUChf9Iw17Sn+00o4rq5oWuNgpnuPoSmfk2kKx/S1lch98TYp0ly//lGze8PLmEVd6qD7XN2DUGRw=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CO6PR12MB5427.namprd12.prod.outlook.com (2603:10b6:5:358::13)
- by MN2PR12MB4303.namprd12.prod.outlook.com (2603:10b6:208:198::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.31; Tue, 18 Jun
- 2024 14:08:26 +0000
-Received: from CO6PR12MB5427.namprd12.prod.outlook.com
- ([fe80::1c2f:5c82:2d9c:6062]) by CO6PR12MB5427.namprd12.prod.outlook.com
- ([fe80::1c2f:5c82:2d9c:6062%7]) with mapi id 15.20.7677.030; Tue, 18 Jun 2024
- 14:08:26 +0000
-Message-ID: <58253c2e-25a2-48c6-bcd4-5bc3bbe03296@amd.com>
-Date: Tue, 18 Jun 2024 10:08:19 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/amd/display: Disable CONFIG_DRM_AMD_DC_FP for RISC-V
- with clang
-To: Nathan Chancellor <nathan@kernel.org>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Xinhui Pan <Xinhui.Pan@amd.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
- patches@lists.linux.dev, Palmer Dabbelt <palmer@rivosinc.com>
-References: <20240614-amdgpu-disable-drm-amd-dc-fp-riscv-clang-v1-1-a6d40617dc9b@kernel.org>
-Content-Language: en-US
-From: Harry Wentland <harry.wentland@amd.com>
-In-Reply-To: <20240614-amdgpu-disable-drm-amd-dc-fp-riscv-clang-v1-1-a6d40617dc9b@kernel.org>
-X-ClientProxiedBy: YT3PR01CA0117.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:85::35) To CO6PR12MB5427.namprd12.prod.outlook.com
- (2603:10b6:5:358::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR12MB5427:EE_|MN2PR12MB4303:EE_
-X-MS-Office365-Filtering-Correlation-Id: ef973d11-36c0-4ac6-609b-08dc8fa01eec
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230037|376011|7416011|1800799021|366013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NFNsdDRsY2kybEFrSEFoM2RtZ0F3K1pDYzlHaDRiL3A4N2UzdXdnNlJ5YXBj?=
- =?utf-8?B?UzQrOXVzTzNES3FWUWRGQmJYNWdIZ1d5Si9VbmpobGp4ZkYwZzltVzE3dS9V?=
- =?utf-8?B?QzNqMlFBVit0VUJBVnJVdUZuZ2VvbTgvNzVIL3NEazhwRkpDcElvbjFRYjdG?=
- =?utf-8?B?SURhYTFqTkJNTmVnektTbHBnUHpEcjBRTFd1L2ZpRXFzTHVqYnpoZHFIbXpv?=
- =?utf-8?B?ZDF0NG9acmlBVi9qdmhFZGJOSnlPYU41eElBakU2d015MHNoTVJsbEVhNkVx?=
- =?utf-8?B?eWpJcUE5a1Ivd3ExZWswaEFEeXpublJzQ282WXRFQ0Q0UDgzMkZmWWFScHpM?=
- =?utf-8?B?MmpBV0FsUkZNYTVkWkQ1TUpBSTZaekNYR3FNQWNXTmpJNXk3b2lHNUVCNzla?=
- =?utf-8?B?eTJPNkNoaHh5UE9lTUl3ZHdWcGRPdEk4elRycnV4VElZWE1hQmgrWmRoOVR5?=
- =?utf-8?B?WFo2a2EwZ21WSHVrNE9ESk9RazFHc2tkaGpWU0lUZ3B3ZEV2NnBvNXFjdVM5?=
- =?utf-8?B?YjNweEduTU83TTJRYXpsVDhsbjJPTHRqK0tObk9VcERuaDNGOG9vQklibU5m?=
- =?utf-8?B?dHRBcS84RStyTHVrcVhkZmhnYTZMa2R6UlhLR3dxaDhHK3dxekFFUldiNTZz?=
- =?utf-8?B?aUNQQlVrOUNERzNKWE9NQXFtR0dCdkdYMFRQSTRoZURRQjgzVllSTlBJVE55?=
- =?utf-8?B?RlFBK2pWSlk3cVU4QlhGR0NyQjJXMnR4dUtkOVVUTkpJUlJ2WUk0Wm9VTkpI?=
- =?utf-8?B?MStEYUZOVXRrZnM3VW1GcVJxRGw3V0hpT3ZidU5zSnJXUjZHalpsV2Y2TnVC?=
- =?utf-8?B?dW5zNUFDQ1B5ekEzR0s1dnVXK1k4THlyUCtsS1p5WWZnMy9Wa0lXdFRSQXFS?=
- =?utf-8?B?dEVQTy9uN1g5R0hwV3ViNU9UOWNMdDl0Nng1ZFRLQWpFTW9GZ2xzdncyRnZM?=
- =?utf-8?B?NFRwaGFrMHhKMGc5dU4yTlRvNmYrZmlTTDdhbHhWZUErVHpoSDVOeXJNRjdJ?=
- =?utf-8?B?ZEV3RmpYREFNdGNXdFJwTkFZUWlrZ1VjdERTRnU3SDdpZlFxQTRETWtJcG44?=
- =?utf-8?B?VHN5QXZRKzh2RzA3OVN5TEQ5bklHYmtJL05ocDNydjdSRjJyWGM3ZEFMRHlF?=
- =?utf-8?B?WUhJR25BS0dmeHF4K0lCYkdDdm9sRTZoVkNJKzJmOTVaZVF3YlhlTFZpNkMv?=
- =?utf-8?B?ekVvNWZRSzAyR2s1TDF0R0dydDV2eTZLMXF2M29HY0l3K0x0cE1yc01XQlRL?=
- =?utf-8?B?dXJIakp3YmFGOUFRZ0Y1azlFVTF1by9GMElRVys2SlhGR2I3VTBUN2pUNGJk?=
- =?utf-8?B?azlGWWNTR2FiOTVnT3FRaGdXak9EZ3Z1NFdSSkl4WHVacytoRGxXY1orV0Fk?=
- =?utf-8?B?cm1zMWMxMWt6Zkpqb08wOFZZaGliTXN4TFpBMUhEcHB3c2U1Yk16SnY0TUk1?=
- =?utf-8?B?aWpOSTFzL05zbjNpT01DUzJIVU9XNDJGRnUxWXFZd3ZrSUJla2VFcjRiOTlD?=
- =?utf-8?B?eklLd241MTM1Z3RlejdlQmp4K0cyOVJoS0pzTEJrMFI4aGsrelpRSzVhQjFz?=
- =?utf-8?B?aGQvUU1qdmtkSlMxK3lVNkp5Y1FJZExJZTY1Y2U2V3F6RlZyZ0ZzdnphSzV4?=
- =?utf-8?B?bGlLU3M1ZEdFeWRtL3ovay84dElHYUhlb3RYLy9EMEF6d1lodDFEVzJ0M1VQ?=
- =?utf-8?B?OGxQVlpKVVdHUjhra05XUTlUa0FWckVXUTczQmdlVWNQYjRBZUNNc2d3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR12MB5427.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230037)(376011)(7416011)(1800799021)(366013);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ajBZYmpBYUxPRWJJVXFxWlFaTnBPR0RKeWRLTDF6Skh6clFzTkJmd2lrMC9y?=
- =?utf-8?B?M2RDMm9SK0pVTlh1T0dDK2xTV0t6YTdYTTl5SzRjNUdRaEJsTWEzd0tPUVNw?=
- =?utf-8?B?MVAxVmVWVkdCaHRjWnc0OXp5SUxwemxPYXhvNlp5TFJpRnhudEFnVEdMbXd6?=
- =?utf-8?B?V0QrclQybzRRN2ltUnFnVFZSNGQxaVVUZTNZTlgzVnlocHo5Qnk4NjBUL1JT?=
- =?utf-8?B?MGxDRk9Md3E1VkZaV0tGOFJoZnU4SkU1M3Q4ZzlPNXdGSjNRTmdyOEpTUm9Y?=
- =?utf-8?B?VDYxV3ZOa1RPQVphWlZrMjVQWmFlODhGZG9XTzgvWEo3UU5kaGo3TUxNSVMy?=
- =?utf-8?B?ODJyTkRPNlZBTzRqaXg2dFJiSm41aTFSeVV0QWlBYktEOEpCdm5Ga2lrODVJ?=
- =?utf-8?B?Rk00SWYxM2FzWWFFbHdNMmtiN2FDQzlDZ3hvR0lCRkFXdnN1NXRWMlF2aHU4?=
- =?utf-8?B?MkFlWmRNNDYxNEdJMThxS2xIU0daWUZ2ekN6d2tJVzYyNURyOW1IWURXSW9K?=
- =?utf-8?B?UzZTU1BtYUY5S2hjc1BYZndaR0g5NDI1YXA4WjVZcGduN1ZQek03QWJWTjBZ?=
- =?utf-8?B?aE5BNm85U2hzUlh4a0lCYkNjM1N6RnI1bW9NNEY1WkhZTTIyWTdPTHhnMTVV?=
- =?utf-8?B?ZENxY0haL21QUC9qY1RiMHNMaHJrYjkrL0VFdDVjUFlmK3RSZkh5WWgvb25F?=
- =?utf-8?B?RXovalV1cWtsdWp6eWNWbWR1OGFrNEszRmtSWXZXRXlCa09qdUErK2pNV1FB?=
- =?utf-8?B?cytRSEZ4NCtteVBVdXFaRU16a2I2MDJ0RUNWa0lTQzE3N1JUNzZWVFpDVWhD?=
- =?utf-8?B?T1NXcDhQbWxTeUNQajY2WEx6d0ZSQy9DRXRzMTJiT3BrKzl3YmRvMFg1TW13?=
- =?utf-8?B?cXJyTm1jN1NRbnRlc2dtVU1wcWdTODhMSFdSSFgwRGRsRHpHMFRPV1BmS0R5?=
- =?utf-8?B?ZXIzVnVVWHptSlllUnVOdFFWODRjYXArWkhUUXM3TFdxNWJmM3hCbU9aR3dN?=
- =?utf-8?B?emZQMWp1ZzNEbGc1K1E3SUdzRUU4WGNoYStJVUhvQjdIblhhbHZOQzBrb2FG?=
- =?utf-8?B?UDVXVEVYQTA2YjNjTktjL0VMbzl2eTRqcEM2cTk3bk1reHFQTWNrQ20vaitv?=
- =?utf-8?B?UHNjd2dxWGFzaG9ENElBNndNeE1Gd3ZMOHkxMXVsT0xJdy9ibVU1eGxta1ph?=
- =?utf-8?B?V1h5aVBxVVNTWW1sQlF6WER6R2VVNEpZd0d2bXQwR1JtM01oV0tMV0MxRytq?=
- =?utf-8?B?d0xSZ2c1RS9SNjVBblZLalJLZmQ2Nkt0T1ZmRjg0QVpESGQ0SHlxa25Fa2ZD?=
- =?utf-8?B?N2xUWVIreGNWckFyVzhYQnZzdEJYelhFUUJsRytwSSthditCQ0dsVGVzSEpD?=
- =?utf-8?B?ekxuczVnTTRNU2p0cFFObVJPRGVzSUNGQ0Z0elQzMlAxTkVRZUFhZHBKb3JO?=
- =?utf-8?B?TEZhNDVSRFBtdnRDN3hjdzhNa2FuWnNoMnplN2JGWnc2N0lWV3JxMUtzdjdi?=
- =?utf-8?B?ejIvSUxEbGpYcHZvaUxEN25mU0RBQ0U0cllpaTVTNkRJZ0FYTGpsVDZKWUFN?=
- =?utf-8?B?c3VJRTVmSWJOZCtLbitnWEROdWM3RUQ3c2dEWTl5Q1UxQ21JRmlJd1V4SGlP?=
- =?utf-8?B?bTVKRkZqZlQxNWFueXdWcklGanRaM3dtbW1DMXg1SjlYTFlyT1FLSGJGbFov?=
- =?utf-8?B?bGJUeFdDdkVVSnRsSXZqcHVrdjA0ZTZlanpJcEFoMk0vYjg2b09tQnFxenA4?=
- =?utf-8?B?Q0NZL3Z2QlVrSElsWWNYcWRTOHZGYitEYzhKY0h2SlJlazhCQWt1bVFVNTZi?=
- =?utf-8?B?elZMazY5ZFVzTnBlaDNSWEFvVEl3OXRwTjZsU1BtQjJuVjB1MVBUeXVwTnBN?=
- =?utf-8?B?V096c2FXZFBBN3phb2RoellCcXZlZWx5WWJCUUxubEJwOHdtQklwb1Bxbk91?=
- =?utf-8?B?STZUMk92U3NjMFo4OGw3ZzZNVjlST3NySzBRSktZUzJ4UjUzdS9Lb2lsQUZ2?=
- =?utf-8?B?MXVyWDN1RGFXMEh3QWVEU1ZnMGVSVm4zZE5EOWNUM1dPSnZBbTdpNTY4SWNG?=
- =?utf-8?B?RDA1UXpmKzlrd0xjWVZjc1JrbFgyL0JWSGQ1b243emlDalFMeGdYeFhJWEcr?=
- =?utf-8?Q?21wlaZFmGCd1hQ8cainj9Whp6?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ef973d11-36c0-4ac6-609b-08dc8fa01eec
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR12MB5427.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2024 14:08:25.9675
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UfMyWaFDJYmPKDOEE906ixE2MFQWHunaM8k8PSB7IVsdMh17p7umOY7A2tBRf1dJ45Xr0eH7J1bs7DXnwSW0sA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4303
+	Tue, 18 Jun 2024 13:30:31 +0000
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 4D24E3F67A
+	for <linux-riscv@lists.infradead.org>; Tue, 18 Jun 2024 13:30:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1718717422;
+	bh=UfYUpHbPqFcu0UCjRRx628bbJJmPPda02ds2dKR0ulg=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=C9Jh6/MmOVqFDN9TAHMPy0RaBP5xSKNfQOOxZwZOH5H5fuzTo+5/WFyigKitzqse4
+	 hfTKmuj63+jrF+qg3gnFLgdztJDh5FXO6Eq7FCTKsftRPKM98aOtxb79ycsnvx53RN
+	 ZcWzyvvKe2n6g0kLlMh6JKrqeX+HeqVWETz9n5rSeoCCLcyzznARxKTPz1eeRYHEM9
+	 veOSN1pdeDEH4wxKH08zPYE/wc2+tktxJiCZKmOacSwxNeZXe0P1tAfc1xFztS45hC
+	 3JKi/0EgHKTPtve8f5wXPMr1A0s8ZYagCmNrow5jeyHY7Oyye3YTAJTUK0E0x6VOtR
+	 GZ3ncQ9KTzG6Q==
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-44061ceb150so64000841cf.3
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jun 2024 06:30:22 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718717421; x=1719322221;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UfYUpHbPqFcu0UCjRRx628bbJJmPPda02ds2dKR0ulg=;
+        b=Kxzn7vYluOFkEXcxAhMbFINLuWXwHO219yG7vlrF54reAfC2ZmaZULQFubXe3Q9IQ9
+         sGSBn2udwkCdIcGi5m4UU6XcWCVUDyO0zuKoK+AoZgNZuMgOgOiqTpq57RmgaNXFFjbB
+         irIdCyyEAxLJq9hZYd+n7ivXD0rj7ZM+YFmynP7R/2yS/iT7jePQvb2b0H1Le1iOEWbQ
+         EHvUoeLlzqx8qvdMFf+w64Pn/GMl3C/UiE8Q5jCLmrJHz5Fr44fFH95I9XTYNsq5Hm+U
+         FGhO/LoIma94760hIeTF/354axRLZuGltVaQu/wWOGiPHJnOQllqO1S1HVFUvheUZygh
+         SiuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU++qhoKDiNfuFrxxyMCZ5PqhdK3fSAQbumz15eAL6KgtxylJO6JE7lcZuyoNHQPBRAjEn2YKZIMYsj2y8lINAWM1O8wfI1Ztohmy1+f810
+X-Gm-Message-State: AOJu0YwceJrvA266ugFsB3EuzG+Tj26tNHheEJolBGjYhKOFmew/8tfH
+	sCzT2Fd5wvMuOrWp2R4fjdkuEoAFZzyM6M6NsbbzS54hWpIeKo+E05+MZ4Vllt0s/ZZrZbJXmNC
+	0/odF4QLM5HRqnXVMzS80bPW0tyjrRLtK8ZaHWjWFd8xxjjbPwd/l0fasEX8o4KD3FfShg8uevo
+	x0Y2fKsiS+CUAvOf5asyNytQYioe3GRvIyzKWKGTW116jwnC56cjH2OMob
+X-Received: by 2002:ac8:5889:0:b0:440:bf37:9007 with SMTP id d75a77b69052e-4421685e9e1mr161696711cf.8.1718717421096;
+        Tue, 18 Jun 2024 06:30:21 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHUEZOZK+nvGqCai2GCOShHEu62ZKZfIicwdKAchRFLUWD5elNWBjF9IVRKayp3TCWv9lyKfPRk5axmMs6MwvE=
+X-Received: by 2002:ac8:5889:0:b0:440:bf37:9007 with SMTP id
+ d75a77b69052e-4421685e9e1mr161696391cf.8.1718717420696; Tue, 18 Jun 2024
+ 06:30:20 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 18 Jun 2024 09:30:20 -0400
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20240222094006.1030709-2-apatel@ventanamicro.com>
+References: <20240222094006.1030709-1-apatel@ventanamicro.com> <20240222094006.1030709-2-apatel@ventanamicro.com>
+Mime-Version: 1.0
+Date: Tue, 18 Jun 2024 09:30:20 -0400
+Message-ID: <CAJM55Z9hGKo4784N3s3DhWw=nMRKZKcmvZ58x7uVBghExhoc9A@mail.gmail.com>
+Subject: Re: [PATCH v14 01/18] irqchip/sifive-plic: Convert PLIC driver into a
+ platform driver
+To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Frank Rowand <frowand.list@gmail.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, 
+	Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240618_072423_829894_86A44474 
-X-CRM114-Status: GOOD (  26.51  )
+X-CRM114-CacheID: sfid-20240618_063029_742722_6B33F0A0 
+X-CRM114-Status: GOOD (  28.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,74 +108,229 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Anup Patel wrote:
+> The PLIC driver does not require very early initialization so convert
+> it into a platform driver.
+>
+> After conversion, the PLIC driver is probed after CPUs are brought-up
+> so setup cpuhp state after context handler of all online CPUs are
+> initialized otherwise PLIC driver crashes for platforms with multiple
+> PLIC instances.
+>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 
+Hi Anup,
 
-On 2024-06-14 15:54, Nathan Chancellor wrote:
-> Commit 77acc6b55ae4 ("riscv: add support for kernel-mode FPU") and
-> commit a28e4b672f04 ("drm/amd/display: use ARCH_HAS_KERNEL_FPU_SUPPORT")
-> enabled support for CONFIG_DRM_AMD_DC_FP with RISC-V. Unfortunately,
-> this exposed -Wframe-larger-than warnings (which become fatal with
-> CONFIG_WERROR=y) when building ARCH=riscv allmodconfig with clang:
-> 
->   drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn32/display_mode_vba_32.c:58:13: error: stack frame size (2448) exceeds limit (2048) in 'DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-Werror,-Wframe-larger-than]
->      58 | static void DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation(
->         |             ^
->   1 error generated.
-> 
-> Many functions in this file use a large number of parameters, which must
-> be passed on the stack at a certain pointer due to register exhaustion,
-> which can cause high stack usage when inlining and issues with stack
-> slot analysis get involved. While the compiler can and should do better
-> (as GCC uses less than half the amount of stack space for the same
-> function), it is not as simple as a fix as adjusting the functions not
-> to take a large number of parameters.
-> 
-> Unfortunately, modifying these files to avoid the problem is a difficult
-> to justify approach because any revisions to the files in the kernel
-> tree never make it back to the original source (so copies of the code
-> for newer hardware revisions just reintroduce the issue) and the files
-> are hard to read/modify due to being "gcc-parsable HW gospel, coming
-> straight from HW engineers".
-> 
-> Avoid building the problematic code for RISC-V by modifying the existing
-> condition for arm64 that exists for the same reason. Factor out the
-> logical not to make the condition a little more readable naturally.
-> 
-> Fixes: a28e4b672f04 ("drm/amd/display: use ARCH_HAS_KERNEL_FPU_SUPPORT")
-> Reported-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Closes: https://lore.kernel.org/20240530145741.7506-2-palmer@rivosinc.com/
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Sorry for the late reply to the mailing list, but ever since 6.9 where this was
+applied my Allwinner D1 based boards no longer boot. This is the log of my
+LicheeRV Dock booting plain 6.10-rc4, locking up and then rebooting due to the
+the watchdog timing out:
+
+https://pastebin.com/raw/nsbzgEKW
+
+On 6.10-rc4 I can bring the same board to boot by reverting this patch and all
+patches building on it. Eg.:
+
+  git revert e306a894bd51 a7fb69ffd7ce abb720579490 \
+             956521064780 a15587277a24 6c725f33d67b \
+	     b68d0ff529a9 25d862e183d4 8ec99b033147
+
+After that it boots but run into this separate issue:
+https://lore.kernel.org/all/DM6PR01MB58047C810DDD5D0AE397CADFF7C22@DM6PR01MB5804.prod.exchangelabs.com/
+
+Samuel: After the reverts above applying this also prevents my board from
+booting:
+https://lore.kernel.org/all/20240312192519.1602493-1-samuel.holland@sifive.com/
+
+/Emil
+
 > ---
->  drivers/gpu/drm/amd/display/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/amd/display/Kconfig b/drivers/gpu/drm/amd/display/Kconfig
-> index 5fcd4f778dc3..47b8b49da8a7 100644
-> --- a/drivers/gpu/drm/amd/display/Kconfig
-> +++ b/drivers/gpu/drm/amd/display/Kconfig
-> @@ -8,7 +8,7 @@ config DRM_AMD_DC
->  	depends on BROKEN || !CC_IS_CLANG || ARM64 || RISCV || SPARC64 || X86_64
->  	select SND_HDA_COMPONENT if SND_HDA_CORE
->  	# !CC_IS_CLANG: https://github.com/ClangBuiltLinux/linux/issues/1752
-> -	select DRM_AMD_DC_FP if ARCH_HAS_KERNEL_FPU_SUPPORT && (!ARM64 || !CC_IS_CLANG)
-> +	select DRM_AMD_DC_FP if ARCH_HAS_KERNEL_FPU_SUPPORT && !(CC_IS_CLANG && (ARM64 || RISCV))
-
-Thanks for also making the logic easier to parse.
-
-Reviewed-by: Harry Wentland <harry.wentland@amd.com>
-
-Harry
-
->  	help
->  	  Choose this option if you want to use the new display engine
->  	  support for AMDGPU. This adds required support for Vega and
-> 
-> ---
-> base-commit: c6c4dd54012551cce5cde408b35468f2c62b0cce
-> change-id: 20240614-amdgpu-disable-drm-amd-dc-fp-riscv-clang-31c84f6b990d
-> 
-> Best regards,
-
+>  drivers/irqchip/irq-sifive-plic.c | 101 ++++++++++++++++++------------
+>  1 file changed, 61 insertions(+), 40 deletions(-)
+>
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index 5b7bc4fd9517..7400a07fc479 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -64,6 +64,7 @@
+>  #define PLIC_QUIRK_EDGE_INTERRUPT	0
+>
+>  struct plic_priv {
+> +	struct device *dev;
+>  	struct cpumask lmask;
+>  	struct irq_domain *irqdomain;
+>  	void __iomem *regs;
+> @@ -406,30 +407,50 @@ static int plic_starting_cpu(unsigned int cpu)
+>  	return 0;
+>  }
+>
+> -static int __init __plic_init(struct device_node *node,
+> -			      struct device_node *parent,
+> -			      unsigned long plic_quirks)
+> +static const struct of_device_id plic_match[] = {
+> +	{ .compatible = "sifive,plic-1.0.0" },
+> +	{ .compatible = "riscv,plic0" },
+> +	{ .compatible = "andestech,nceplic100",
+> +	  .data = (const void *)BIT(PLIC_QUIRK_EDGE_INTERRUPT) },
+> +	{ .compatible = "thead,c900-plic",
+> +	  .data = (const void *)BIT(PLIC_QUIRK_EDGE_INTERRUPT) },
+> +	{}
+> +};
+> +
+> +static int plic_probe(struct platform_device *pdev)
+>  {
+>  	int error = 0, nr_contexts, nr_handlers = 0, i;
+> -	u32 nr_irqs;
+> -	struct plic_priv *priv;
+> +	struct device *dev = &pdev->dev;
+> +	unsigned long plic_quirks = 0;
+>  	struct plic_handler *handler;
+> +	struct plic_priv *priv;
+> +	bool cpuhp_setup;
+>  	unsigned int cpu;
+> +	u32 nr_irqs;
+> +
+> +	if (is_of_node(dev->fwnode)) {
+> +		const struct of_device_id *id;
+> +
+> +		id = of_match_node(plic_match, to_of_node(dev->fwnode));
+> +		if (id)
+> +			plic_quirks = (unsigned long)id->data;
+> +	}
+>
+>  	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+>  	if (!priv)
+>  		return -ENOMEM;
+>
+> +	priv->dev = dev;
+>  	priv->plic_quirks = plic_quirks;
+>
+> -	priv->regs = of_iomap(node, 0);
+> +	priv->regs = of_iomap(to_of_node(dev->fwnode), 0);
+>  	if (WARN_ON(!priv->regs)) {
+>  		error = -EIO;
+>  		goto out_free_priv;
+>  	}
+>
+>  	error = -EINVAL;
+> -	of_property_read_u32(node, "riscv,ndev", &nr_irqs);
+> +	of_property_read_u32(to_of_node(dev->fwnode), "riscv,ndev", &nr_irqs);
+>  	if (WARN_ON(!nr_irqs))
+>  		goto out_iounmap;
+>
+> @@ -439,13 +460,13 @@ static int __init __plic_init(struct device_node *node,
+>  	if (!priv->prio_save)
+>  		goto out_free_priority_reg;
+>
+> -	nr_contexts = of_irq_count(node);
+> +	nr_contexts = of_irq_count(to_of_node(dev->fwnode));
+>  	if (WARN_ON(!nr_contexts))
+>  		goto out_free_priority_reg;
+>
+>  	error = -ENOMEM;
+> -	priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
+> -			&plic_irqdomain_ops, priv);
+> +	priv->irqdomain = irq_domain_add_linear(to_of_node(dev->fwnode), nr_irqs + 1,
+> +						&plic_irqdomain_ops, priv);
+>  	if (WARN_ON(!priv->irqdomain))
+>  		goto out_free_priority_reg;
+>
+> @@ -455,7 +476,7 @@ static int __init __plic_init(struct device_node *node,
+>  		int cpu;
+>  		unsigned long hartid;
+>
+> -		if (of_irq_parse_one(node, i, &parent)) {
+> +		if (of_irq_parse_one(to_of_node(dev->fwnode), i, &parent)) {
+>  			pr_err("failed to parse parent for context %d.\n", i);
+>  			continue;
+>  		}
+> @@ -491,7 +512,7 @@ static int __init __plic_init(struct device_node *node,
+>
+>  		/* Find parent domain and register chained handler */
+>  		if (!plic_parent_irq && irq_find_host(parent.np)) {
+> -			plic_parent_irq = irq_of_parse_and_map(node, i);
+> +			plic_parent_irq = irq_of_parse_and_map(to_of_node(dev->fwnode), i);
+>  			if (plic_parent_irq)
+>  				irq_set_chained_handler(plic_parent_irq,
+>  							plic_handle_irq);
+> @@ -533,20 +554,29 @@ static int __init __plic_init(struct device_node *node,
+>
+>  	/*
+>  	 * We can have multiple PLIC instances so setup cpuhp state
+> -	 * and register syscore operations only when context handler
+> -	 * for current/boot CPU is present.
+> +	 * and register syscore operations only once after context
+> +	 * handlers of all online CPUs are initialized.
+>  	 */
+> -	handler = this_cpu_ptr(&plic_handlers);
+> -	if (handler->present && !plic_cpuhp_setup_done) {
+> -		cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
+> -				  "irqchip/sifive/plic:starting",
+> -				  plic_starting_cpu, plic_dying_cpu);
+> -		register_syscore_ops(&plic_irq_syscore_ops);
+> -		plic_cpuhp_setup_done = true;
+> +	if (!plic_cpuhp_setup_done) {
+> +		cpuhp_setup = true;
+> +		for_each_online_cpu(cpu) {
+> +			handler = per_cpu_ptr(&plic_handlers, cpu);
+> +			if (!handler->present) {
+> +				cpuhp_setup = false;
+> +				break;
+> +			}
+> +		}
+> +		if (cpuhp_setup) {
+> +			cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
+> +					  "irqchip/sifive/plic:starting",
+> +					  plic_starting_cpu, plic_dying_cpu);
+> +			register_syscore_ops(&plic_irq_syscore_ops);
+> +			plic_cpuhp_setup_done = true;
+> +		}
+>  	}
+>
+> -	pr_info("%pOFP: mapped %d interrupts with %d handlers for"
+> -		" %d contexts.\n", node, nr_irqs, nr_handlers, nr_contexts);
+> +	pr_info("%pOFP: mapped %d interrupts with %d handlers for %d contexts.\n",
+> +		to_of_node(dev->fwnode), nr_irqs, nr_handlers, nr_contexts);
+>  	return 0;
+>
+>  out_free_enable_reg:
+> @@ -563,20 +593,11 @@ static int __init __plic_init(struct device_node *node,
+>  	return error;
+>  }
+>
+> -static int __init plic_init(struct device_node *node,
+> -			    struct device_node *parent)
+> -{
+> -	return __plic_init(node, parent, 0);
+> -}
+> -
+> -IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
+> -IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
+> -
+> -static int __init plic_edge_init(struct device_node *node,
+> -				 struct device_node *parent)
+> -{
+> -	return __plic_init(node, parent, BIT(PLIC_QUIRK_EDGE_INTERRUPT));
+> -}
+> -
+> -IRQCHIP_DECLARE(andestech_nceplic100, "andestech,nceplic100", plic_edge_init);
+> -IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_edge_init);
+> +static struct platform_driver plic_driver = {
+> +	.driver = {
+> +		.name		= "riscv-plic",
+> +		.of_match_table	= plic_match,
+> +	},
+> +	.probe = plic_probe,
+> +};
+> +builtin_platform_driver(plic_driver);
+> --
+> 2.34.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
