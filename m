@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7BD9C27C4F
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 09:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B06A2C27C4F
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 09:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pWrY2fn9pzSGst4AF6HaLnQT0vIKPFxzAzyy6QLU6IU=; b=s3ThCddSgTVpfW
-	2F0+XetA2VuixGoM/USNn/8828dfPWGE5DkdhEM57oKfzWnfm5dtrr7KbMpeg5jpqsCGuCYL9Be8z
-	k15i2giDrS/pN3U8N/MBN0TnqmBc8yqk/bYzZKCxfwCh/0grTM4wWf6aOoh0haq9SHWBqB2wHLVKp
-	H433XKYJxT9SAe3U9Zj7BhfMoVCQXXwxpE4BLwE+ehEMhYeluK12icsTmh8TSbGWkl+I5tc+CucwG
-	/DgzOWtOT8btX4xv1UDjDGwXnahng83W9cujpS/VtT4RsLVlSKffKimDznj0oz7bVu9636YWDSbcx
-	XoCTrAbuNeaEenh3DujA==;
+	List-Owner; bh=2Zyr7JTU4UuRo6QDebb2aOFZEkwwOhiKysUgt84qT1k=; b=kt/FXnFFmxA+J2
+	ZGMcoYJpwsjLHjZipCoFJt5v1TW0nWvzPi3eBBwJUwiiS38P+pYp4vVAAfRk+Kir2CYDA4QVg0hyV
+	PDcMnogMTqnMmIQKOfBKcnQCzUJPSTXjjaaMRgLvxPopmW2B5uOyqqeXZtTdH2hhT72ut6rFM27No
+	3tBrmVJSIUZmG+2P86o1kXd9vOqIGGwCjMESD9nkxucwUiqf2R2g64xdQh3XcOXu3y4VDxKVDk98I
+	KcBB9elftiGomaCOY/0ymGqSz0svzLVGvwVxz4wHGr6UfZiWP/Qk9V79zGxnfH9KdYElivQHxe31+
+	g/iedv5LweeE03wyRCJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJVJu-0000000ECfS-3qJE;
-	Tue, 18 Jun 2024 09:40:06 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1sJVKj-0000000ECnB-0VcC;
+	Tue, 18 Jun 2024 09:40:57 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJVJj-0000000ECdb-1cw5
+	id 1sJVKh-0000000ECmU-0VgM
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jun 2024 09:40:05 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-421820fc26dso41377575e9.2
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jun 2024 02:39:50 -0700 (PDT)
+	Tue, 18 Jun 2024 09:40:56 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-52c7f7fdd24so6531669e87.1
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jun 2024 02:40:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1718703589; x=1719308389; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1718703653; x=1719308453; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ogriNGL3I569ecmDfsnIo+MYh0IZdFTbiFXWHmgjV4k=;
-        b=NZ0PZjONEIKvwRQ5vpCohEh4jjZj8t4I+bPw2PgQJeDnYVH+ePT5nQQoEJz75d7jcx
-         s5kTIMclNlQNfCJRYS8fwxI+EjffPEs+FNqpw+2tEIu2d05vuetGjDVJfaz+GuvoZX4j
-         gieB/0Wzrvi87VWYd8/xtrw1wPozh6sggSO99/X68YDb6VgpQJhpFW295SZ0CTSE5dZa
-         +9sjJ1s24roAqxnoPh8mPQYmUdh6sC326NvjS942AeImVU/arZaRYccXbYAoTjnVK0Fr
-         1zwC+VyW/EajJXrfMwMQk8bfW8ikj5igJ3aor2HnxFj5/eWuu0m511JoU/LfxwVD/Kq+
-         RiLA==
+        bh=Q1dUAwLlzqf/kLhtXAP0bzcDfhg1+v3m5zpzjEvnZvI=;
+        b=HenXnXiviQKB1JIEr94imNwjhSCklW5x1sq0/uVg9JQzEyJiqPUEsz1H1S1z9jjTHR
+         ZAqK3uhrZSSEAFWdamDgE8nwCIhPuGh5et7pW/6+uKbtqw1nWOPAx4piK9nhEUT1AhHV
+         yxD27UjoIlIiGdVmZn+BGouPHkPiiuMNLDse98sMGSfIiQWXyiKeyOmAXquG69VAGJzL
+         /5FvTPv1kKY0xfUutYpyxsEWyeOYr3zx/be0vON+JiS+1EpgySxyTXOJWveJFQO8zrnZ
+         9BMGlHtf/zXwMbJAqROyZmEqc5791+q359dJY3SAt9780zF5URBJmWKGTb5cvUvOc2oa
+         h2xQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718703589; x=1719308389;
+        d=1e100.net; s=20230601; t=1718703653; x=1719308453;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ogriNGL3I569ecmDfsnIo+MYh0IZdFTbiFXWHmgjV4k=;
-        b=RaoAX3OdGnWgFaxQwDbnKbO/Ji1KRksr6wtTkc4JJfF2A4WlV5yFVfLovmov6MohFm
-         3HHXT421KXGms/41+vl9G1+2k8Ss/21szxBzfs2+6RJa5+QQtM0uc7ho9vP+IqDfFMmR
-         Ofdp3oGOucPvHa08VJ92MVt15tmJKKi0WdFvhyEmV4Km+m9WGLN0sjYuZKgfxrz3X3TA
-         h3VyjKsXXlrGeSpHUm2CGqylxIcJlhX+2UH8zHiuAkxibBLdAnfkhE66hjzd7Tp4mz1N
-         ECghHs6/cjFOEivO9putbUO07sBSwM2SeG6Fbg+UYVuK7MzsEPNTa1DgVIfOXSOpmCTV
-         4XGw==
-X-Forwarded-Encrypted: i=1; AJvYcCVTmE7QgP3PeOdZytuM2N+ZK+VuKYD+RIACZ3qx2X29rPAnPzKGSj6A/k/jnMbuAuOgQCAi7yi8M4VydRuXAauikvFpLJV30eFhV7Z6SAf2
-X-Gm-Message-State: AOJu0YzRXjUS0DjhxggQIrNulpSaLtxuXE3raL/BuW+kEgbiKVdjSiFc
-	bI3eiROUQd8Eax3mnZ1rVUQfdftSbKNFGGeVHDz9OCGRfGBBnsSPweW9dEqYcN0=
-X-Google-Smtp-Source: AGHT+IEIN6tp7RT4XFF4v3F4al0ZGpML4l/gRVmowPIaegfQ/SdPPLlcj0SnPLkBHuNsyN/gwFkSkg==
-X-Received: by 2002:a05:600c:510e:b0:423:b672:9d64 with SMTP id 5b1f17b1804b1-423b6729f5cmr56726995e9.18.1718703588911;
-        Tue, 18 Jun 2024 02:39:48 -0700 (PDT)
+        bh=Q1dUAwLlzqf/kLhtXAP0bzcDfhg1+v3m5zpzjEvnZvI=;
+        b=Z9b+k16BwlgYJm3afHRCXDYwmmQJfyL0gIZwSWn5XHmyCgMFgfhydybkATl832Mhfn
+         AStWAVHmb4JEqsyJuvM7A6EalHHxfVyjiDhulul+i38OD25Rj5fJbvJphy6dC/mgAoqc
+         Nfz5CNb5d5uPZHtuhUgj9QrmCWB76vrNamZHiY7ChoIfZdFrpD0dZBN3TcUrY/64J+TS
+         K323/mAcPe+6n7rT9QlFg8FzSbglaVjH8ZVMn04oKiCgubPD5St5T1Vdx+bZJvWVmvtL
+         JD/fxgS7/JR0pSgon2T1hYAS1VLSScjftjuUEbyL83/DbcNZQvVmv/2pWuo/DmCX6rvv
+         M1vg==
+X-Forwarded-Encrypted: i=1; AJvYcCWHzTMxySolf9rSaZDVXQZ8yO15IFrkZudWllIRfeOnVGrHK1lyDIiK3Gzjef3q28SAt2ZElWDtT0DAPxMnVNMfyHKJZIlj1O1muLsnJ+8r
+X-Gm-Message-State: AOJu0Ywd2YpKrSH2KqhxCu2qS4sP/DLW5jTefUbRFx5SB955eFaKremf
+	R+zJJ7lUWFrA0KhVQ+k+8XM4H5i51u91vuAfnnzLKoIpGmubQAfqKgxcpXHlj9Q=
+X-Google-Smtp-Source: AGHT+IFW4Mx2N85kJ7p6HdOoFLfWozgy2f4xtgZ+uqGFT3wZK0oboBOmMnX4YcNUGqA3hYiDQhDaZg==
+X-Received: by 2002:a19:2d1c:0:b0:52c:a5d6:2f27 with SMTP id 2adb3069b0e04-52ca6e9035emr6828300e87.50.1718703653227;
+        Tue, 18 Jun 2024 02:40:53 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.219.137])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-36075104954sm13703780f8f.99.2024.06.18.02.39.46
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-422f602f620sm182613095e9.19.2024.06.18.02.40.50
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Jun 2024 02:39:48 -0700 (PDT)
-Message-ID: <6e5ad808-f4ee-45c3-a1cc-009f2f1010b9@linaro.org>
-Date: Tue, 18 Jun 2024 11:39:45 +0200
+        Tue, 18 Jun 2024 02:40:52 -0700 (PDT)
+Message-ID: <bb6036e2-613c-4d36-bcbc-3a407e3c727b@linaro.org>
+Date: Tue, 18 Jun 2024 11:40:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] dt-bindings: mmc: sdhci-of-dwcmhsc: Add Sophgo
- SG2042 support
+Subject: Re: [PATCH v4 4/4] riscv: dts: add mmc controllers for Sophgo SG2042
+ SoC
 To: Chen Wang <unicornxw@gmail.com>, adrian.hunter@intel.com,
  aou@eecs.berkeley.edu, conor+dt@kernel.org, guoren@kernel.org,
  inochiama@outlook.com, jszhang@kernel.org,
@@ -81,7 +81,7 @@ To: Chen Wang <unicornxw@gmail.com>, adrian.hunter@intel.com,
  tingzhu.wang@sophgo.com
 Cc: Chen Wang <unicorn_wang@outlook.com>
 References: <cover.1718697954.git.unicorn_wang@outlook.com>
- <dcc060c3ada7a56eda02b586c16c47f0a0905c61.1718697954.git.unicorn_wang@outlook.com>
+ <e2d3b19e06fa29116b8032addc70c8dc1ec3866e.1718697954.git.unicorn_wang@outlook.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -128,10 +128,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <dcc060c3ada7a56eda02b586c16c47f0a0905c61.1718697954.git.unicorn_wang@outlook.com>
+In-Reply-To: <e2d3b19e06fa29116b8032addc70c8dc1ec3866e.1718697954.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240618_024004_168917_815E42ED 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20240618_024055_267132_D0307CD2 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,143 +148,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/06/2024 10:38, Chen Wang wrote:
+On 18/06/2024 10:39, Chen Wang wrote:
 > From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> SG2042 use Synopsys dwcnshc IP for SD/eMMC controllers.
-> 
-> SG2042 defines 3 clocks for SD/eMMC controllers.
-> - AXI_EMMC/AXI_SD for aclk/hclk(Bus interface clocks in DWC_mshc)
->   and blck(Core Base Clock in DWC_mshc), these 3 clocks share one
->   source, so reuse existing "core".
-> - 100K_EMMC/100K_SD for cqetmclk(Timer clocks in DWC_mshc), so reuse
->   existing "timer" which was added for rockchip specified.
-> - EMMC_100M/SD_100M for cclk(Card clocks in DWC_mshc), add new "card".
-> 
-> Adding example for sg2042.
+> SG2042 has two MMC controller, one for emmc, another for sd-card.
 > 
 > Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 > ---
->  .../bindings/mmc/snps,dwcmshc-sdhci.yaml      | 69 +++++++++++++------
->  1 file changed, 49 insertions(+), 20 deletions(-)
+>  .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  | 17 ++++++++++
+>  arch/riscv/boot/dts/sophgo/sg2042.dtsi        | 32 +++++++++++++++++++
+>  2 files changed, 49 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> index 4d3031d9965f..b53f20733f79 100644
-> --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> @@ -21,6 +21,7 @@ properties:
->        - snps,dwcmshc-sdhci
->        - sophgo,cv1800b-dwcmshc
->        - sophgo,sg2002-dwcmshc
-> +      - sophgo,sg2042-dwcmshc
->        - thead,th1520-dwcmshc
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> index 49b4b9c2c101..164db23586e0 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> @@ -14,6 +14,23 @@ chosen {
+>  	};
+>  };
 >  
->    reg:
-> @@ -29,25 +30,6 @@ properties:
->    interrupts:
->      maxItems: 1
->  
-> -  clocks:
-
-Widest constraints stay here.
-
-> -    minItems: 1
-> -    items:
-> -      - description: core clock
-> -      - description: bus clock for optional
-> -      - description: axi clock for rockchip specified
-> -      - description: block clock for rockchip specified
-> -      - description: timer clock for rockchip specified
-> -
-> -
-> -  clock-names:
-> -    minItems: 1
-
-Widest constraints stay here.
-
-> -    items:
-> -      - const: core
-> -      - const: bus
-> -      - const: axi
-> -      - const: block
-> -      - const: timer
-> -
->    resets:
->      maxItems: 5
->  
-> @@ -63,6 +45,43 @@ properties:
->      description: Specify the number of delay for tx sampling.
->      $ref: /schemas/types.yaml#/definitions/uint8
->  
-> +if:
-
-This should be under allOf block and move the allOf to expected place
-like in example schema. So after required: block.
-
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: sophgo,sg2042-dwcmshc
-> +then:
-> +  properties:
-> +    clocks:
-> +      items:
-> +        - description: core clock
-> +        - description: timer clock
-> +        - description: card clock
-
-What is the card clock? It's suspicious to see new clock not matching
-anything from previous ones.
-
+> +&emmc {
+> +	bus-width = <4>;
+> +	no-sdio;
+> +	no-sd;
+> +	non-removable;
+> +	wp-inverted;
+> +	status = "okay";
+> +};
 > +
-> +    clock-names:
-> +      items:
-> +        - const: core
-> +        - const: timer
-> +        - const: card
-> +else:
-> +  properties:
-> +    clocks:
-> +      minItems: 1
-> +      items:
-> +        - description: core clock
-> +        - description: bus clock for optional
-> +        - description: axi clock for rockchip specified
-> +        - description: block clock for rockchip specified
-> +        - description: timer clock for rockchip specified
+> +&sd {
+> +	bus-width = <4>;
+> +	no-sdio;
+> +	no-mmc;
+> +	wp-inverted;
+> +	status = "okay";
+> +};
 > +
-> +    clock-names:
-> +      minItems: 1
-> +      items:
-> +        - const: core
-> +        - const: bus
-> +        - const: axi
-> +        - const: block
-> +        - const: timer
->  
->  required:
->    - compatible
-> @@ -96,5 +115,15 @@ examples:
->        #address-cells = <1>;
->        #size-cells = <0>;
->      };
-> -
-> +  - |
-> +    mmc@bb0000 {
-> +      compatible = "sophgo,sg2042-dwcmshc";
-> +      reg = <0xcc000 0x1000>;
-> +      interrupts = <0 25 0x4>;
+>  &uart0 {
+>  	status = "okay";
+>  };
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> index 81fda312f988..bfdfd6f32912 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> @@ -346,5 +346,37 @@ uart0: serial@7040000000 {
+>  			resets = <&rstgen RST_UART0>;
+>  			status = "disabled";
+>  		};
+> +
+> +		emmc: mmc@704002a000 {
+> +			compatible = "sophgo,sg2042-dwcmshc";
+> +			reg = <0x70 0x4002A000 0x0 0x1000>;
 
-Use defines... or actually drop entire example, no point to keep growing
-them.
+Lowercase hex.
 
-> +      clocks = <&cru 17>, <&cru 18>, <&cru 19>;
-> +      clock-names = "core", "timer", "card";
-> +      bus-width = <8>;
-> +      #address-cells = <1>;
-> +      #size-cells = <0>;
-> +    };
->  ...
+> +			interrupt-parent = <&intc>;
+> +			interrupts = <134 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks =
+
+Odd wrapping. Don't. See DTS coding style.
+
+> +				<&clkgen GATE_CLK_AXI_EMMC>,
+> +				<&clkgen GATE_CLK_100K_EMMC>,
+> +				<&clkgen GATE_CLK_EMMC_100M>;
+> +			clock-names =
+
+Ditto
+
+> +				"core",
+> +				"timer",
+> +				"card";
+> +			status = "disabled";
+
 
 Best regards,
 Krzysztof
