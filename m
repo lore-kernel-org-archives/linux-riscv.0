@@ -4,104 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E081CC27C79
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 02:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF7EC2BB85
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 03:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gh4eG054ZBHJ+9NE/GaiBZ2DxLQ4wsJAWLIXgVczBaw=; b=D3PTeNwV+f79Zo
-	spZQSV8jMcTAxZVqyyLTsdBoYzFSj9lHr9i4+ABlrIrXv+M6lf2kaEglu7uOQs+CawmrQr9Yw7IMw
-	ZRhc/j6ZfO21lhzHP5RbAZ3/sRv9BeFEi47W6nHuAaIDe26Bg5LkNPXH/fyss70ZG/C+2Q90Z66UE
-	GVKd6bhuBoBrk61I/NctQYKybl2TiLkrptYd+mEpHoGRImRCRwzMkfQSIgO1QUvaKZqaa1RZOPHiQ
-	+dxwLNp4/xYzQftuo9QBL0c7VNctLhaOOGeCzn4MjtlUdJGglGuo2/bK3dP/+q5CuvEwk7BUaH2jy
-	5q6Rqnu8bR7F5Co8Co4A==;
+	List-Owner; bh=QnktQbNBHisbc1WiJ9gaLtYCNAqL+U9Ljaqec6Wr3XE=; b=x4lKzFk84nkjgZ
+	xETAXj1tz2TfrlXMXReD1So8oiwtSayN7EM7126wi1oGITiM/IrcwNolQMyT2xm2WGt/iy0Li4SPI
+	9vzpTNU3bftQImdSWp2Kdt1v3/9DHE/uL/2pmbH62BUyeuRpmMHnR69Nt4CqmA+DETmSPhISZG6eD
+	UA7LpERnEbIyLA9D4hCRW7tKyufV8l6ApsFeY6iIJaknkT6Y6BqTFTCsDCo7pH9NWoArVG5TQ+zzw
+	MylNOTNP0lMY3PATB9vNFKwMmP8BBxP13WonrexQU4SJlV5DoNPGDFHaskraWloS3VRCwU0HrP8Wa
+	ZFvKQn/Z8bk0DeROR3ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJOIS-0000000DGeX-1Jjv;
-	Tue, 18 Jun 2024 02:10:08 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1sJP6n-0000000DNE6-2Ddn;
+	Tue, 18 Jun 2024 03:02:09 +0000
+Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJOIP-0000000DGe8-1B8N
+	id 1sJP6h-0000000DN81-0kAH
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jun 2024 02:10:07 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1f44b45d6abso37455445ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Jun 2024 19:10:04 -0700 (PDT)
+	Tue, 18 Jun 2024 03:02:05 +0000
+Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-7eb895539e3so210363039f.2
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Jun 2024 20:02:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1718676604; x=1719281404; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5Xndy+93L0PvbblGx5ld+C08G6bhKG5gHb40mzbcxRA=;
-        b=iDTCZc+NQ2j2jIMpjhXEPPOzl4ddMkUha5i2nga4ocV63BAEc4b9rT/eyaz4jiSk3Z
-         1pCPkl6J6acNA0NCRPHp5uypTcKGtcY+mL7R3rC00148zaRS/Jupb2tKfm0HldkbfGYY
-         Dsd+k7VWt0/Ky7DJRHUHT3IELTv5yzXDFmeY0gr9QhlXFSfAN/8tTgpPZM4oGXjcPAJg
-         d2fNLzJzH0aBdT5CHDEBxQXBjvPFKQhY2XUtnK2TxCtS4NaAVDGldBkPj/5Hr8gMPDT8
-         RsUmKIadPTPDXOkW4Bt92oOe/p2419iD5o955gdNgmOtCWKC5r0MM8G6aYtRynU2I/Jz
-         BPNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718676604; x=1719281404;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=sifive.com; s=google; t=1718679720; x=1719284520; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5Xndy+93L0PvbblGx5ld+C08G6bhKG5gHb40mzbcxRA=;
-        b=dSNtzRxPT+VhKUxkBx1lyi2Dv/6TjmYN8IE6ESBG925yTjdj7HzRDV2/yDI1KfiKXu
-         eDQpYTFbKJ/fV8wLNC4dwLXpo3ghO/YEXvts9mBFC+R4PNEGrkH7oZstBSkCnTknWQIi
-         oaMiKcWe9T2nxURcCJg0NUy1eSwVCZXORecuJjZB/4uKfQROZ3fdFl5Ti3PS+JWs6qDT
-         DQJyat0QyJ1QaHF8xGbaIf8gskmeNzLvIBWsz3JEjO76zTUeb+U+yJ2EOL44nxGy8iXH
-         tk011TB21uyGau/2ZwC/DovUfk3sKS14Y1YsQFdEz+D0UuKWGdPFVEGv3FptxFuM8b7/
-         8t5Q==
-X-Gm-Message-State: AOJu0YweIvcpTA7mAlQ+/6wOmSkB0FEKDeYwFb73r82Z5HxQZGnt9zox
-	ePijo0vPQhWNvs9qWFvyEXnWC+fvis5QM4YhOgc86wj83rQewtH7sKT/x1GOB2p+M3pEhqttlgU
-	j
-X-Google-Smtp-Source: AGHT+IEvMO4X4bVjGUZOb1RkdreP0PVhXHDgaQz4UqdogUXbWL7BKr7Z34uF5iwaC8AAhgklCafAVQ==
-X-Received: by 2002:a17:902:cec1:b0:1f6:8235:dba7 with SMTP id d9443c01a7336-1f862a0cdedmr121557695ad.69.1718676603896;
-        Mon, 17 Jun 2024 19:10:03 -0700 (PDT)
-Received: from ghost ([2601:647:5700:6860:3b3e:f51e:252a:6811])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f855e73c3csm85770655ad.102.2024.06.17.19.10.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Jun 2024 19:10:02 -0700 (PDT)
-Date: Mon, 17 Jun 2024 19:09:59 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Jesse Taube <jesse@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>,
-	Zong Li <zong.li@sifive.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Erick Archer <erick.archer@gmx.com>,
-	Joel Granados <j.granados@samsung.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 4/6] RISC-V: Detect unaligned vector accesses
- supported.
-Message-ID: <ZnDsdzv4o/Xz9kWm@ghost>
-References: <20240613191616.2101821-1-jesse@rivosinc.com>
- <20240613191616.2101821-5-jesse@rivosinc.com>
- <ZnDmRK0ZtKzmWN5S@ghost>
+        bh=voa0fe3SjpggwiHBh/MwhciBY6+FADQBkwBOF/PUA44=;
+        b=Ue1PxY3UijZPj4Y7igmNDf3j9aejel838USl5+oXYupR7382vI9P77pyv6B0Y4mUB8
+         9ilxp1+8d+vlAWq4teRkRoPvuJeaRJ2jcmeA6HEyN3pdEMH10Jt9yCR+SwgdSjKgFkTU
+         b6Vk/Qix68yNf32vkSb+9ArlzAFOhBCQ+NUy1ERiSWzH0J+Bd9ocYLfGeQbCA06KNTJR
+         BlmmDwVt0DaRK53htdGuAiodLA2hJtOUDdioccbvm0z0QsREgSZ5doWOXhT15rdZK/mp
+         uv044uimdiCIHl8BV7S5SN17ej4rA24YcRK6aDIax5ni87OKnmyp6/vuBILiMRD1QHco
+         zxeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718679720; x=1719284520;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=voa0fe3SjpggwiHBh/MwhciBY6+FADQBkwBOF/PUA44=;
+        b=oCyOYKpwMsVMCFY6yZCT6okYYCEWl+dZGwKtJ4jJZVBkgHWFDbT7l0tGKe6Vus51t9
+         3+OQsaRcUrZuIgPF3PVPkUL7fq+Y5Wsu+zEv5UKYkl1x8uukH+A3gCXmcgwUE996hzF4
+         dCHy6rFMPKeFck6nRFNRjRm6kgDEWRtcDfs2tbLTb+3irVSjslQaH/ePYBixOkd40z5t
+         Zm2Og/pwghfHpBEyJDUAReTmd5ZOnM1EhHUzUft7yOwHyY69qkXO8atKjCEt1HiXTa3U
+         ShV+JUFeOSfWWY/F/nmnYXigWbiK9IvhUS+H4GMSeEqa+oBrrOx4IOlk6/EYR/CF+aBX
+         4CkA==
+X-Forwarded-Encrypted: i=1; AJvYcCVCBITF6BAv0IECsXEpLf3rKr0DD77/FDWGwXW2hel5JJZxEgW4D6uUrxST4A/85TRxoaoy/kM5L1Y4mRJuXwe8btaUPwK8RpI8hb0ql6RY
+X-Gm-Message-State: AOJu0Yxb714g/uuMFIqyNKuDGCG+kwSUh6Y/1k+JJb84deen00xEjs20
+	S/mbGUGAWFEy3ieyzefmyqv51vrP43L6PrXGVUWKRm2FWVCTPCkXqy0Hsir3pnAW37xFhMCQRCU
+	LVoqoR97SMEnsJ4Be6Nq4jKp/FeAFgIN1glYBvg==
+X-Google-Smtp-Source: AGHT+IHWhSE+k8nI3ATV790kVcdaJx+X2XhzCDCnnNK4GDf4nHYtKrtEPv0N7J1xr51nXArplHNL9b+pWM9XSl88A3Y=
+X-Received: by 2002:a05:6602:3f8a:b0:7eb:b93d:4101 with SMTP id
+ ca18e2360f4ac-7ebeb4c0558mr1289632439f.9.1718679719882; Mon, 17 Jun 2024
+ 20:01:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZnDmRK0ZtKzmWN5S@ghost>
+References: <20240614142156.29420-1-zong.li@sifive.com> <20240614142156.29420-5-zong.li@sifive.com>
+ <a1a99374-dc40-4d57-9773-e660dc33beb2@linux.intel.com> <CANXhq0pQuoriKfHF51fXUtrZLkJBNOCe6M8Z6JbDjoRvbe1nWg@mail.gmail.com>
+ <20240617143920.GD791043@ziepe.ca>
+In-Reply-To: <20240617143920.GD791043@ziepe.ca>
+From: Zong Li <zong.li@sifive.com>
+Date: Tue, 18 Jun 2024 11:01:48 +0800
+Message-ID: <CANXhq0pXYoeiVMFSGAijo-QHTVoZyM8M_uU4HWsbCwDg2oFPYg@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 04/10] iommu/riscv: add iotlb_sync_map operation support
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Baolu Lu <baolu.lu@linux.intel.com>, joro@8bytes.org, will@kernel.org, 
+	robin.murphy@arm.com, tjeznach@rivosinc.com, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, kevin.tian@intel.com, 
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_191005_431939_F82D5044 
-X-CRM114-Status: GOOD (  45.00  )
+X-CRM114-CacheID: sfid-20240617_200203_381137_E9189489 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,519 +90,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 17, 2024 at 06:43:32PM -0700, Charlie Jenkins wrote:
-> On Thu, Jun 13, 2024 at 03:16:13PM -0400, Jesse Taube wrote:
-> > Run a unaligned vector access to test if the system supports
-> > vector unaligned access. Add the result to a new key in hwprobe.
-> > This is useful for usermode to know if vector misaligned accesses are
-> > supported and if they are faster or slower than equivalent byte accesses.
-> > 
-> > Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-> > ---
-> > V1 -> V2:
-> >  - Add Kconfig options
-> >  - Add insn_is_vector
-> >  - Add handle_vector_misaligned_load
-> >  - Fix build
-> >  - Seperate vector from scalar misaligned access
-> >  - This patch was almost completely rewritten
-> > ---
-> >  arch/riscv/Kconfig                         |  41 +++++++
-> >  arch/riscv/include/asm/cpufeature.h        |   7 +-
-> >  arch/riscv/include/asm/entry-common.h      |  11 --
-> >  arch/riscv/include/asm/hwprobe.h           |   2 +-
-> >  arch/riscv/include/asm/vector.h            |   1 +
-> >  arch/riscv/include/uapi/asm/hwprobe.h      |   5 +
-> >  arch/riscv/kernel/Makefile                 |   4 +-
-> >  arch/riscv/kernel/sys_hwprobe.c            |  41 +++++++
-> >  arch/riscv/kernel/traps_misaligned.c       | 119 ++++++++++++++++++++-
-> >  arch/riscv/kernel/unaligned_access_speed.c |   9 +-
-> >  arch/riscv/kernel/vector.c                 |   2 +-
-> >  11 files changed, 221 insertions(+), 21 deletions(-)
-> > 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index b94176e25be1..f12df0ca6c18 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -723,6 +723,12 @@ config RISCV_MISALIGNED
-> >  	help
-> >  	  Embed support for emulating misaligned loads and stores.
-> >  
-> > +config RISCV_VECTOR_MISALIGNED
-> > +	bool
-> > +	depends on RISCV_ISA_V
-> > +	help
-> > +	  Enable detecting support for vector misaligned loads and stores.
-> > +
-> >  choice
-> >  	prompt "Unaligned Accesses Support"
-> >  	default RISCV_PROBE_UNALIGNED_ACCESS
-> > @@ -774,6 +780,41 @@ config RISCV_EFFICIENT_UNALIGNED_ACCESS
-> >  
-> >  endchoice
-> >  
-> > +choice
-> > +	prompt "Vector unaligned Accesses Support"
-> > +	depends on RISCV_ISA_V
-> > +	default RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
-> > +	help
-> > +	  This determines the level of support for vector unaligned accesses. This
-> > +	  information is used by the kernel to perform optimizations. It is also
-> > +	  exposed to user space via the hwprobe syscall. The hardware will be
-> > +	  probed at boot by default.
-> > +
-> > +config RISCV_DETECT_VECTOR_UNALIGNED_ACCESS
-> 
-> This is not used anywhere, what is the reason for including it?
-> 
-> > +	bool "Detect support for vector unaligned accesses"
-> > +	select RISCV_VECTOR_MISALIGNED
-> > +	help
-> > +	  During boot, the kernel will detect if the system supports vector
-> > +	  unaligned accesses.
-> > +
-> > +config RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
-> > +	bool "Probe speed of vector unaligned accesses"
-> > +	select RISCV_VECTOR_MISALIGNED
-> > +	help
-> > +	  During boot, the kernel will run a series of tests to determine the
-> > +	  speed of vector unaligned accesses if they are supported. This probing
-> > +	  will dynamically determine the speed of vector unaligned accesses on
-> > +	  the underlying system if they are supported.
-> > +
-> > +config CONFIG_RISCV_UNALIGNED_ACCESS_UNSUPPORTED
-> 
-> This should not be prefixed with CONFIG and does not include VECTOR in
-> the name. I assume you meant to put
-> "RISCV_VEC_UNALIGNED_ACCESS_UNSUPPORTED" here?
-> 
-> This was also intentionally left out on the scalar side [1]. The
-> implication here is that having this config will cause people to compile
-> kernels without unaligned access support which really shouldn't be
-> something we are explicitly supporting.
-> 
-> If somebody does want to support hardware that does not handle vector
-> unaligned accesses, the solution should be to add emulation support to
-> the kernel.
-> 
-> Link: https://lore.kernel.org/all/Zd4y5llkvTfKHf6b@ghost/ [1]
-> 
-> - Charlie
-> 
-> > +	bool "Assume the system does not support vector unaligned memory accesses"
-> > +	help
-> > +	  Assume that the system does not support vector unaligned memory accesses.
-> > +	  The kernel and userspace programs may run them successfully on systems
-> > +	  that do support vector unaligned memory accesses.
-> > +
-> > +endchoice
-> > +
-> >  endmenu # "Platform type"
-> >  
-> >  menu "Kernel features"
-> > diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-> > index 347805446151..d0ea5921ab20 100644
-> > --- a/arch/riscv/include/asm/cpufeature.h
-> > +++ b/arch/riscv/include/asm/cpufeature.h
-> > @@ -33,8 +33,8 @@ extern struct riscv_isainfo hart_isa[NR_CPUS];
-> >  
-> >  void riscv_user_isa_enable(void);
-> >  
-> > -#if defined(CONFIG_RISCV_MISALIGNED)
-> >  bool check_unaligned_access_emulated_all_cpus(void);
-> > +#if defined(CONFIG_RISCV_MISALIGNED)
-> >  void unaligned_emulation_finish(void);
-> >  bool unaligned_ctl_available(void);
-> >  DECLARE_PER_CPU(long, misaligned_access_speed);
-> > @@ -45,6 +45,11 @@ static inline bool unaligned_ctl_available(void)
-> >  }
-> >  #endif
-> >  
-> > +bool check_vector_unaligned_access_emulated_all_cpus(void);
-> > +#if defined(CONFIG_RISCV_VECTOR_MISALIGNED)
-> > +DECLARE_PER_CPU(long, vector_misaligned_access);
-> > +#endif
-> > +
-> >  #if defined(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)
-> >  DECLARE_STATIC_KEY_FALSE(fast_unaligned_access_speed_key);
-> >  
-> > diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
-> > index 2293e535f865..7b32d2b08bb6 100644
-> > --- a/arch/riscv/include/asm/entry-common.h
-> > +++ b/arch/riscv/include/asm/entry-common.h
-> > @@ -25,18 +25,7 @@ static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
-> >  void handle_page_fault(struct pt_regs *regs);
-> >  void handle_break(struct pt_regs *regs);
-> >  
-> > -#ifdef CONFIG_RISCV_MISALIGNED
-> >  int handle_misaligned_load(struct pt_regs *regs);
-> >  int handle_misaligned_store(struct pt_regs *regs);
-> > -#else
-> > -static inline int handle_misaligned_load(struct pt_regs *regs)
-> > -{
-> > -	return -1;
-> > -}
-> > -static inline int handle_misaligned_store(struct pt_regs *regs)
-> > -{
-> > -	return -1;
-> > -}
-> > -#endif
-> >  
-> >  #endif /* _ASM_RISCV_ENTRY_COMMON_H */
-> > diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-> > index 150a9877b0af..ef01c182af2b 100644
-> > --- a/arch/riscv/include/asm/hwprobe.h
-> > +++ b/arch/riscv/include/asm/hwprobe.h
-> > @@ -8,7 +8,7 @@
-> >  
-> >  #include <uapi/asm/hwprobe.h>
-> >  
-> > -#define RISCV_HWPROBE_MAX_KEY 7
-> > +#define RISCV_HWPROBE_MAX_KEY 8
-> >  
-> >  static inline bool riscv_hwprobe_key_is_valid(__s64 key)
-> >  {
-> > diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-> > index be7d309cca8a..99b0f91db9ee 100644
-> > --- a/arch/riscv/include/asm/vector.h
-> > +++ b/arch/riscv/include/asm/vector.h
-> > @@ -21,6 +21,7 @@
-> >  
-> >  extern unsigned long riscv_v_vsize;
-> >  int riscv_v_setup_vsize(void);
-> > +bool insn_is_vector(u32 insn_buf);
-> >  bool riscv_v_first_use_handler(struct pt_regs *regs);
-> >  void kernel_vector_begin(void);
-> >  void kernel_vector_end(void);
-> > diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-> > index 023b7771d1b7..2fee870e41bb 100644
-> > --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> > +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> > @@ -75,6 +75,11 @@ struct riscv_hwprobe {
-> >  #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
-> >  #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
-> >  #define RISCV_HWPROBE_KEY_MISALIGNED_PERF	7
-> > +#define RISCV_HWPROBE_KEY_VEC_MISALIGNED_PERF	8
-> > +#define		RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN		0
-> 
-> I appreciate you leaving the key for EMULATED open!
-> 
-> > +#define		RISCV_HWPROBE_VEC_MISALIGNED_SLOW		2
-> > +#define		RISCV_HWPROBE_VEC_MISALIGNED_FAST		3
-> > +#define		RISCV_HWPROBE_VEC_MISALIGNED_UNSUPPORTED	4
-> >  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
-> >  
-> >  /* Flags */
-> > diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> > index 5b243d46f4b1..62ac19c029f1 100644
-> > --- a/arch/riscv/kernel/Makefile
-> > +++ b/arch/riscv/kernel/Makefile
-> > @@ -62,8 +62,8 @@ obj-y	+= probes/
-> >  obj-y	+= tests/
-> >  obj-$(CONFIG_MMU) += vdso.o vdso/
-> >  
-> > -obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
-> > -obj-$(CONFIG_RISCV_MISALIGNED)	+= unaligned_access_speed.o
-> > +obj-y	+= traps_misaligned.o
-> > +obj-y	+= unaligned_access_speed.o
-> >  obj-$(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)	+= copy-unaligned.o
-> >  
-> >  obj-$(CONFIG_FPU)		+= fpu.o
-> > diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> > index e910e2971984..c40df314058b 100644
-> > --- a/arch/riscv/kernel/sys_hwprobe.c
-> > +++ b/arch/riscv/kernel/sys_hwprobe.c
-> > @@ -194,6 +194,43 @@ static u64 hwprobe_misaligned(const struct cpumask *cpus)
-> >  }
-> >  #endif
-> >  
-> > +#ifdef CONFIG_RISCV_VECTOR_MISALIGNED
-> > +static u64 hwprobe_vec_misaligned(const struct cpumask *cpus)
-> > +{
-> > +	int cpu;
-> > +	u64 perf = -1ULL;
-> > +
-> > +	if (IS_ENABLED(CONFIG_RISCV_UNALIGNED_ACCESS_UNSUPPORTED))
-> > +		return RISCV_HWPROBE_VEC_MISALIGNED_UNSUPPORTED;
-> > +
-> > +	/* Return if supported or not even if speed wasn't probed */
-> > +	for_each_cpu(cpu, cpus) {
-> > +		int this_perf = per_cpu(vector_misaligned_access, cpu);
-> > +
-> > +		if (perf == -1ULL)
-> > +			perf = this_perf;
-> > +
-> > +		if (perf != this_perf) {
-> > +			perf = RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN;
-> > +			break;
-> > +		}
-> > +	}
-> > +
-> > +	if (perf == -1ULL)
-> > +		return RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN;
-> > +
-> > +	return perf;
-> > +}
-> > +#else
-> > +static u64 hwprobe_vec_misaligned(const struct cpumask *cpus)
-> > +{
-> > +	if (IS_ENABLED(CONFIG_RISCV_UNALIGNED_ACCESS_UNSUPPORTED))
-> > +		return RISCV_HWPROBE_VEC_MISALIGNED_UNSUPPORTED;
-> > +
-> > +	return RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN;
-> > +}
-> > +#endif
-> > +
-> >  static void hwprobe_one_pair(struct riscv_hwprobe *pair,
-> >  			     const struct cpumask *cpus)
-> >  {
-> > @@ -222,6 +259,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
-> >  		pair->value = hwprobe_misaligned(cpus);
-> >  		break;
-> >  
-> > +	case RISCV_HWPROBE_KEY_VEC_MISALIGNED_PERF:
-> > +		pair->value = hwprobe_vec_misaligned(cpus);
-> > +		break;
-> > +
-> >  	case RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE:
-> >  		pair->value = 0;
-> >  		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
-> > diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
-> > index 8fadbe00dd62..6f0264a8c9de 100644
-> > --- a/arch/riscv/kernel/traps_misaligned.c
-> > +++ b/arch/riscv/kernel/traps_misaligned.c
-> > @@ -16,6 +16,7 @@
-> >  #include <asm/entry-common.h>
-> >  #include <asm/hwprobe.h>
-> >  #include <asm/cpufeature.h>
-> > +#include <asm/vector.h>
-> >  
-> >  #define INSN_MATCH_LB			0x3
-> >  #define INSN_MASK_LB			0x707f
-> > @@ -322,12 +323,37 @@ union reg_data {
-> >  	u64 data_u64;
-> >  };
-> >  
-> > -static bool unaligned_ctl __read_mostly;
-> > -
-> >  /* sysctl hooks */
-> >  int unaligned_enabled __read_mostly = 1;	/* Enabled by default */
-> >  
-> > -int handle_misaligned_load(struct pt_regs *regs)
-> > +#ifdef CONFIG_RISCV_VECTOR_MISALIGNED
-> > +static int handle_vector_misaligned_load(struct pt_regs *regs)
-> > +{
-> > +	unsigned long epc = regs->epc;
-> > +	unsigned long insn;
-> > +
-> > +	if (get_insn(regs, epc, &insn))
-> > +		return -1;
-> > +
-> > +	/* Only return 0 when in check_vector_unaligned_access_emulated */
-> > +	if (*this_cpu_ptr(&vector_misaligned_access) == RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN) {
-> > +		*this_cpu_ptr(&vector_misaligned_access) = RISCV_HWPROBE_VEC_MISALIGNED_UNSUPPORTED;
-> > +		regs->epc = epc + INSN_LEN(insn);
-> > +		return 0;
-> > +	}
-> > +
-> > +	/* If vector instruction we don't emulate it yet */
-> > +	regs->epc = epc;
-> > +	return -1;
-> > +}
-> > +#else
-> > +static int handle_vector_misaligned_load(struct pt_regs *regs)
-> > +{
-> > +	return -1;
-> > +}
-> > +#endif
-> > +
-> > +static int handle_scalar_misaligned_load(struct pt_regs *regs)
-> >  {
-> >  	union reg_data val;
-> >  	unsigned long epc = regs->epc;
-> > @@ -435,7 +461,7 @@ int handle_misaligned_load(struct pt_regs *regs)
-> >  	return 0;
-> >  }
-> >  
-> > -int handle_misaligned_store(struct pt_regs *regs)
-> > +static int handle_scalar_misaligned_store(struct pt_regs *regs)
-> >  {
-> >  	union reg_data val;
-> >  	unsigned long epc = regs->epc;
-> > @@ -526,6 +552,85 @@ int handle_misaligned_store(struct pt_regs *regs)
-> >  	return 0;
-> >  }
-> >  
-> > +int handle_misaligned_load(struct pt_regs *regs)
-> > +{
-> > +	unsigned long epc = regs->epc;
-> > +	unsigned long insn;
-> > +
-> > +	if (IS_ENABLED(CONFIG_RISCV_VECTOR_MISALIGNED)) {
-> > +		if (get_insn(regs, epc, &insn))
-> > +			return -1;
-> > +
-> > +		if (insn_is_vector(insn))
-> > +			return handle_vector_misaligned_load(regs);
-> > +	}
-> > +
-> > +	if (IS_ENABLED(CONFIG_RISCV_MISALIGNED))
-> > +		return handle_scalar_misaligned_load(regs);
-> > +
-> > +	return -1;
-> > +}
-> > +
-> > +int handle_misaligned_store(struct pt_regs *regs)
-> > +{
-> > +	if (IS_ENABLED(CONFIG_RISCV_MISALIGNED))
-> > +		return handle_scalar_misaligned_store(regs);
-> > +
-> > +	return -1;
-> > +}
-> > +
-> > +#ifdef CONFIG_RISCV_VECTOR_MISALIGNED
-> > +static void check_vector_unaligned_access_emulated(struct work_struct *unused)
-> > +{
-> > +	long *mas_ptr = this_cpu_ptr(&vector_misaligned_access);
-> > +	unsigned long tmp_var;
-> > +
-> > +	*mas_ptr = RISCV_HWPROBE_VEC_MISALIGNED_UNKNOWN;
-> > +
-> > +	local_irq_enable();
-> > +	kernel_vector_begin();
-> > +	__asm__ __volatile__ (
-> > +		".balign 4\n\t"
-> > +		".option push\n\t"
-> > +		".option arch, +zve32x\n\t"
-> > +		"       vsetivli zero, 1, e16, m1, ta, ma\n\t"	// Vectors of 16b
-> > +		"       vle16.v v0, (%[ptr])\n\t"		// Load bytes
-> > +		".option pop\n\t"
-> > +		: : [ptr] "r" ((u8 *)&tmp_var + 1) : "v0");
-> > +	kernel_vector_end();
-> > +}
-> > +
-> > +bool check_vector_unaligned_access_emulated_all_cpus(void)
-
-Hopefully I catch the final things I want to say in this email ;)
-
-> > +{
-> > +	int cpu;
-> > +	bool ret = true;
-> > +
-> > +	if (!has_vector()) {
-> > +		for_each_online_cpu(cpu)
-> > +			per_cpu(vector_misaligned_access, cpu) = RISCV_HWPROBE_VEC_MISALIGNED_UNSUPPORTED;
-> > +		return false;
-> > +	}
-> > +
-> > +	schedule_on_each_cpu(check_vector_unaligned_access_emulated);
-> > +
-> > +	for_each_online_cpu(cpu)
-> > +		if (per_cpu(vector_misaligned_access, cpu)
-> > +		    != RISCV_HWPROBE_VEC_MISALIGNED_SLOW)
-> > +			return false;
-
-The default value of vector_misaligned_access is
-RISCV_HWPROBE_VEC_MISALIGNED_UNSUPPORTED so when the hardware supports
-unaligned accesses this will return false. If the hardware doesn't
-support unaligned accesses, then the trap will happen and the kernel
-will set this variable to UNSUPPORTED, causing this function to again
-return false.
-
-Having the default value be UNKNOWN and checking for UNKNOWN here and in
-check_vector_unaligned_access() can remedy this issue.
-
-- Charlie
-
-> > +
-> > +	return ret;
-> > +}
-> > +#else
-> > +bool check_vector_unaligned_access_emulated_all_cpus(void)
-> > +{
-> > +	return false;
-> > +}
-> > +#endif
-> > +
-> > +#ifdef CONFIG_RISCV_MISALIGNED
-> > +
-> > +static bool unaligned_ctl __read_mostly;
-> > +
-> >  static void check_unaligned_access_emulated(struct work_struct *unused)
-> >  {
-> >  	int cpu = smp_processor_id();
-> > @@ -563,3 +668,9 @@ bool unaligned_ctl_available(void)
-> >  {
-> >  	return unaligned_ctl;
-> >  }
-> > +#else
-> > +bool check_unaligned_access_emulated_all_cpus(void)
-> > +{
-> > +	return false;
-> > +}
-> > +#endif
-> > diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> > index 70c1588fc353..c6106bd4a25a 100644
-> > --- a/arch/riscv/kernel/unaligned_access_speed.c
-> > +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> > @@ -19,7 +19,8 @@
-> >  #define MISALIGNED_BUFFER_ORDER get_order(MISALIGNED_BUFFER_SIZE)
-> >  #define MISALIGNED_COPY_SIZE ((MISALIGNED_BUFFER_SIZE / 2) - 0x80)
-> >  
-> > -DEFINE_PER_CPU(long, misaligned_access_speed);
-> > +DEFINE_PER_CPU(long, misaligned_access_speed) = RISCV_HWPROBE_MISALIGNED_UNKNOWN;
-> > +DEFINE_PER_CPU(long, vector_misaligned_access) = RISCV_HWPROBE_VEC_MISALIGNED_UNSUPPORTED;
-> >  
-> >  #ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
-> >  static cpumask_t fast_misaligned_access;
-> > @@ -268,12 +269,18 @@ static int check_unaligned_access_all_cpus(void)
-> >  
-> >  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICCLSM)) {
-> >  		for_each_online_cpu(cpu) {
-> > +#ifdef CONFIG_RISCV_VECTOR_MISALIGNED
-> > +			per_cpu(vector_misaligned_access, cpu) = RISCV_HWPROBE_VEC_MISALIGNED_FAST;
-> > +#endif
-> > +#ifdef CONFIG_RISCV_MISALIGNED
-> >  			per_cpu(misaligned_access_speed, cpu) = RISCV_HWPROBE_MISALIGNED_FAST;
-> > +#endif
-> >  		}
-> >  		return 0;
-> 
-> Since this function returns 0 in both cases, can you wrap the rest of
-> the function with an else and remove this early return?
-> 
-> - Charlie
-> 
-> >  	}
-> >  
-> >  	all_cpus_emulated = check_unaligned_access_emulated_all_cpus();
-> > +	check_vector_unaligned_access_emulated_all_cpus();
-> >  
-> >  #ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
-> >  	if (!all_cpus_emulated)
-> > diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-> > index 682b3feee451..821818886fab 100644
-> > --- a/arch/riscv/kernel/vector.c
-> > +++ b/arch/riscv/kernel/vector.c
-> > @@ -66,7 +66,7 @@ void __init riscv_v_setup_ctx_cache(void)
-> >  #endif
-> >  }
-> >  
-> > -static bool insn_is_vector(u32 insn_buf)
-> > +bool insn_is_vector(u32 insn_buf)
-> >  {
-> >  	u32 opcode = insn_buf & __INSN_OPCODE_MASK;
-> >  	u32 width, csr;
-> > -- 
-> > 2.43.0
-> > 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdW4gMTcsIDIwMjQgYXQgMTA6MznigK9QTSBKYXNvbiBHdW50aG9ycGUgPGpnZ0B6
+aWVwZS5jYT4gd3JvdGU6Cj4KPiBPbiBNb24sIEp1biAxNywgMjAyNCBhdCAwOTo0MzozNVBNICsw
+ODAwLCBab25nIExpIHdyb3RlOgo+Cj4gPiBJIGFkZGVkIGl0IGZvciB1cGRhdGluZyB0aGUgTVNJ
+IG1hcHBpbmcgd2hlbiB3ZSBjaGFuZ2UgdGhlIGlycQo+ID4gYWZmaW5pdHkgb2YgYSBwYXNzLXRo
+cm91Z2ggZGV2aWNlIHRvIGFub3RoZXIgdkNQVS4gVGhlIFJJU0MtViBJT01NVQo+ID4gc3BlYyBh
+bGxvd3MgTVNJIHRyYW5zbGF0aW9uIHRvIGdvIHRocm91Z2ggdGhlIE1TSSBmbGF0IHRhYmxlLCBN
+UklGLCBvcgo+ID4gdGhlIG5vcm1hbCBwYWdlIHRhYmxlLiBJbiB0aGUgY2FzZSBvZiB0aGUgbm9y
+bWFsIHBhZ2UgdGFibGUsIHRoZSBNU0kKPiA+IG1hcHBpbmcgaXMgY3JlYXRlZCBpbiB0aGUgc2Vj
+b25kLXN0YWdlIHBhZ2UgdGFibGUsIG1hcHBpbmcgdGhlIEdQQSBvZgo+ID4gdGhlIGd1ZXN0J3Mg
+c3VwZXJ2aXNvciBpbnRlcnJ1cHQgZmlsZSB0byB0aGUgSFBBIG9mIGhvc3QncyBndWVzdAo+ID4g
+aW50ZXJydXB0IGZpbGUuIFRoaXMgTVNJIG1hcHBpbmcgbmVlZHMgdG8gYmUgdXBkYXRlZCB3aGVu
+IHRoZSBIUEEgb2YKPiA+IGhvc3QncyBndWVzdCBpbnRlcnJ1cHQgZmlsZSBpcyBjaGFuZ2VkLgo+
+Cj4gSXQgc291bmRzIGxpa2UgbW9yZSB0aG91Z2h0IGlzIG5lZWRlZCBmb3IgdGhlIE1TSSBhcmNo
+aXRlY3R1cmUsIGhhdmluZwo+IHRoZSBob3N0IHJlYWQgdGhlIGd1ZXN0IHBhZ2UgdGFibGUgdG8g
+bWlycm9yIHdlaXJkIE1TSSBzdHVmZiBzZWVtcwo+IGtpbmQgb2Ygd3JvbmcuLgo+CgpQZXJoYXBz
+IEkgc2hvdWxkIHJlcGhyYXNlIGl0LiBIb3N0IGRvZXNuJ3QgcmVhZCB0aGUgZ3Vlc3QgcGFnZSB0
+YWJsZS4KSW4gYSBSSVNDLVYgc3lzdGVtLCBNU0lzIGFyZSBkaXJlY3RlZCB0byBhIHNwZWNpZmlj
+IHByaXZpbGVnZSBsZXZlbCBvZgphIHNwZWNpZmljIGhhcnQsIGluY2x1ZGluZyBhIHNwZWNpZmlj
+IHZpcnR1YWwgaGFydC4gSW4gYSBoYXJ0J3MgSU1TSUMKKEluY29taW5nIE1TSSBDb250cm9sbGVy
+KSwgaXQgY29udGFpbnMgc29tZSAnaW50ZXJydXB0IGZpbGVzJyBmb3IKdGhlc2Ugc3BlY2lmaWMg
+cHJpdmlsZWdlIGxldmVsIGhhcnRzLiBGb3IgaW5zdGFuY2UsIGlmIHRoZSB0YXJnZXQKYWRkcmVz
+cyBvZiBNU0kgaXMgdGhlIGFkZHJlc3Mgb2YgdGhlIGludGVycnVwdCBmaWxlIHdoaWNoIGlzIGZv
+ciBhCnNwZWNpZmljIHN1cGVydmlzb3IgbGV2ZWwgaGFydCwgdGhlbiB0aGF0IGhhcnQncyBzdXBl
+cnZpc29yIG1vZGUgd2lsbApyZWNlaXZlIHRoaXMgTVNJLiBGdXJ0aGVybW9yZSwgd2hlbiBhIGhh
+cnQgaW1wbGVtZW50cyB0aGUgaHlwZXJ2aXNvcgpleHRlbnNpb24sIGl0cyBJTVNJQyB3aWxsIGhh
+dmUgaW50ZXJydXB0IGZpbGVzIGZvciB2aXJ0dWFsIGhhcnRzLApjYWxsZWQgJ2d1ZXN0IGludGVy
+cnVwdCBmaWxlcycuCldlIHdpbGwgY3JlYXRlIHRoZSBNU0kgbWFwcGluZyBpbiBTMiBwYWdlIHRh
+YmxlIGF0IGJvb3QgdGltZSBmaXJzdGx5LAp0aGUgbWFwcGluZyB3b3VsZCBiZSBHUEEgb2YgdGhl
+IGludGVycnVwdCBmaWxlIGZvciBzdXBlcnZpc29yIGxldmVsCihpbiBndWVzdCB2aWV3LCBpdCB0
+aGlua3MgaXQgdXNlIGEgc3VwZXJ2aXNvciBsZXZlbCBpbnRlcnJ1cHQgZmlsZSkgdG8KSFBBIG9m
+IHRoZSAnZ3Vlc3QgaW50ZXJydXB0IGZpbGUnIChpbiBob3N0IHZpZXcsIHRoZSBkZXZpY2Ugc2hv
+dWxkCmFjdHVhbGx5IHVzZSBhIGd1ZXN0IGludGVycnVwdCBmaWxlKS4gV2hlbiB0aGUgdkNQVSBp
+cyBtaWdyYXRlZCB0bwphbm90aGVyIHBoeXNpY2FsIGhhcnQsIHRoZSAnZ3Vlc3QgaW50ZXJydXB0
+IGZpbGVzJyBzaG91bGQgYmUgc3dpdGNoZWQKdG8gYW5vdGhlciBwaHlzaWNhbCBoYXJ0J3MgSU1T
+SUMncyAnZ3Vlc3QgaW50ZXJydXB0IGZpbGUnLCBpdCBtZWFucwp0aGF0IHRoZSBIUEEgb2YgdGhp
+cyBNU0kgbWFwcGluZyBpbiBTMiBwYWdlIHRhYmxlIG5lZWRzIHRvIGJlIHVwZGF0ZWQuCgo+IFRo
+ZSBTMiByZWFsbHkgbmVlZHMgdG8gaGF2ZSB0aGUgY29ycmVjdCBwaHlzaWNhbCBNU0kgcGFnZXMg
+c3RhdGljYWxseQo+IGF0IGJvb3QgdGltZS4KPgo+IEphc29uCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
