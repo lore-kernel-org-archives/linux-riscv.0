@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AECEDC27C4F
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 04:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA52C2BB85
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 04:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hF6C6av/M5X5On5sBjMcrSim4AdHe2f8uRUIeKsGLuE=; b=WnzlbQT6YK/y0e
-	36cqcEU9zRhEbsU4er7hcoRHtK33+AwBkJyvdeMXni/5sUFttGQjtDbMBIsdpi26vjpbVsweqaDUf
-	4EMx8Ly6feY/j7dxhFyOzz70WNuxYuF6pFSVVISJ373r0SA0IzhqLJxV7jFbOO7Zb8JMZ8OEA7VtG
-	Dz7piZuZ1PYXKhuCtXp/z7MFCeEmRi6sBtSPgTquKNVQ6enTup+HW2KhvZiQaE1jTRTcyS5Ngj+Ix
-	YN8DOCram8phd59YXoaceqyKdU9pHAbdVFleg9GBlbwhikDy9nqd7gkr3ev5Sx0nJFCXXuY7H3VoM
-	NkuMOVksz9hCgXd9P1zg==;
+	List-Owner; bh=QJH7uHrt1kV2prGHF9aTaM3a+bzU+qhdxRovtVL8RMU=; b=iUthzaEgPRYyPv
+	vzm5gO6MASg6K2DHzitY9xgA15GrtkVqdJoPTo/U09H65qathKVeIGgTrHFDPHYCrgbH7HOPGVchS
+	UYZ86krUrOYD3+8wxPtapZKwLfFb55V2xsnAHXGI6hH9nrMP/lUlffd5O00nN/17YgT7UAAQy5b2Y
+	1mFnCQkoX9nTHpqu8OfZdqxEi0t323BWX2t0DIC93la9ppD8RWkusAXLNd2MLerY7EA4dQvfuXOtd
+	5/bwrptit5fRIf+ab5x88p4J9Xzw6hRstM//NjN5odvx/ah1UZX8vEyE+bv6ooDpEn757tCeKs/m+
+	OF7chwWqbQ7SVNdUpTPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJQY0-0000000DZCK-1b48;
-	Tue, 18 Jun 2024 04:34:20 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sJQlm-0000000Daql-3AzD;
+	Tue, 18 Jun 2024 04:48:34 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJQXx-0000000DZAr-05XR
+	id 1sJQli-0000000Danq-2vbu
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jun 2024 04:34:18 +0000
+	Tue, 18 Jun 2024 04:48:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9F77D6144B;
-	Tue, 18 Jun 2024 04:34:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812B6C3277B;
-	Tue, 18 Jun 2024 04:34:11 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id B58BFCE13A5;
+	Tue, 18 Jun 2024 04:48:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92685C3277B;
+	Tue, 18 Jun 2024 04:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718685255;
-	bh=cVWaqdmlVB3MhB8ZS2KfEGlzyVZFQobqyrEiIiYPoSA=;
+	s=k20201202; t=1718686107;
+	bh=uQRT705hswxV4eHkecwYH5nnl/fTVa9ZyWh6LbZP3oM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gTi7MVJlvd3DqJpnKOKwG1xNN9+M3Gsd6MebltbzdgYOGnNyiv6Qeq+xhqfRbROut
-	 SMeCl95OGHDBKyeXsKqzjZiu8nRdzT8VF3nwmPVGyANifUQ4IVXBEyLiZbRBuA+r0p
-	 kkJXl0ojinTkXRpSpsx3wYcxcPeHcuHbPZKbHXToNiDVwXn/Rz1XfUQPLNhFqQRota
-	 Ji/Wh9lpLMGRuNhNmj0DSutuZbOngGorasQOGUjC3tgjSPUjrrJ+nW6aPnlpo7rFMl
-	 BobHJwR5iAtT1Vvtyk20SeGII31d7mB1TqYIv6xVcD0QEwS+Lp2lQuDtie5Zzz8Zc+
-	 WZdChbx6OiHBA==
-Date: Tue, 18 Jun 2024 12:20:13 +0800
+	b=bh6Na5MHc3JrAvMbsJpyCpZKvDy2XEoJrEmyR5EvCKzupYOrvNfZogz7BJtaibGlm
+	 fYBMJkQONTPddF47mFqhUbUTi/T832VplagecpzuDma3vWQnxjImCiAxuk4n516Zfx
+	 ueMvb1lpkIBFBTmtdXj8CSo1lf9btx8mnO4JDrofcdsCyUJN/KG9ohJ5Wa6qc3mdx7
+	 8FhaxrQz87M3Vh+dRwj6vVA/3vmqFvZkovmoqYNCrUJYpChnLGj3fWI4g2nnqdfWtH
+	 V1FhxpfJT5gGQ4nwmXEzFsg++64f6qdQSzLAqyE9PylKgo9sAlYumN4wghb2pk6MCU
+	 LMG/+hx82la7w==
+Date: Tue, 18 Jun 2024 12:34:27 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@outlook.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Chao Wei <chao.wei@sophgo.com>, Albert Ou <aou@eecs.berkeley.edu>,
+To: Conor Dooley <conor@kernel.org>
+Cc: Yixun Lan <dlan@gentoo.org>, Yangyu Chen <cyy@cyyself.name>,
+	linux-riscv@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	=?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v2 1/6] riscv: dts: sophgo: Put sdhci compatible in dt of
- specific SoC
-Message-ID: <ZnEK_cg1xLbKOUAD@xhacker>
-References: <20240612-sg2002-v2-0-19a585af6846@bootlin.com>
- <20240612-sg2002-v2-1-19a585af6846@bootlin.com>
- <IA1PR20MB49534C9E29E86B478205E4B3BBC02@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240616235829.GA4000183@ofsar>
- <c75601a1-1389-400e-90b9-99c1e775a866@bootlin.com>
- <ZnA3O14HOiV1SBPV@xhacker>
- <20240617-exuberant-protegee-f7d414f0976d@spud>
- <6a993b58-3d9e-4f92-bf47-7692c9639314@sifive.com>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup.patel@wdc.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Jesse Taube <jesse@rivosinc.com>
+Subject: Re: [PATCH v1 0/9] riscv: add initial support for SpacemiT K1
+Message-ID: <ZnEOU7D00J8Jzy-1@xhacker>
+References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
+ <20240616-exorcism-computing-e11e26084a62@spud>
+ <20240616224811.GC3983622@ofsar>
+ <ZnBEBQjTQtFs-fXt@xhacker>
+ <20240617-synapse-carmaker-0a59c7c6edb7@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <6a993b58-3d9e-4f92-bf47-7692c9639314@sifive.com>
+In-Reply-To: <20240617-synapse-carmaker-0a59c7c6edb7@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_213417_211320_EA2BA7E2 
-X-CRM114-Status: GOOD (  36.16  )
+X-CRM114-CacheID: sfid-20240617_214831_176131_15193F36 
+X-CRM114-Status: GOOD (  36.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +83,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 17, 2024 at 10:57:54AM -0500, Samuel Holland wrote:
-> Hi Jisheng, Thomas,
+On Mon, Jun 17, 2024 at 04:32:59PM +0100, Conor Dooley wrote:
+> On Mon, Jun 17, 2024 at 10:11:17PM +0800, Jisheng Zhang wrote:
+> > On Sun, Jun 16, 2024 at 10:48:11PM +0000, Yixun Lan wrote:
+> > > Hi Conor
+> > >  Thanks for bringing this up
+> > > 
+> > > On 19:35 Sun 16 Jun     , Conor Dooley wrote:
+> > > > On Mon, Jun 17, 2024 at 01:18:52AM +0800, Yangyu Chen wrote:
+> > > > 
+> > > > No MAINTAINERS update, so I figure that means you don't want to maintain
+> > > > it going forwards? If there's someone out that that does care about the
+> > > > spacemit k1 (Jesse maybe?), then I'd be more than happy to have them
+> > > > look after it.
+> > > Yangyu kind of has limited time, too many stuff for him..
+> > > 
+> > > I'd volunteered to help on this if it can fill the gap
+> > > Also I'd be more than happy if anyone willing step forward to co-maintain..
+> > 
+> > Does maintainership work like this? Is willing to do enough?
+> > FWICT, maintainership involves active patch contributing, reviewing and
+> > maintaining the whole SoC. It is better to take over the maintainership
+> > after showing enough patch contributions and understanding of the SoC.
 > 
-> On 2024-06-17 10:40 AM, Conor Dooley wrote:
-> > On Mon, Jun 17, 2024 at 09:16:43PM +0800, Jisheng Zhang wrote:
-> >> On Mon, Jun 17, 2024 at 11:16:32AM +0200, Thomas Bonnefille wrote:
-> >>> On 6/17/24 1:58 AM, Yixun Lan wrote:
-> >>>> On 18:47 Wed 12 Jun     , Inochi Amaoto wrote:
-> > 
-> >>>>> Is this change necessary? IIRC, the sdhci is the same across
-> >>>>> the whole series.
-> > 
-> >> sorry for being late, I was busy in the past 2.5 month. Per my
-> >> understanding, the sdhci in cv1800b is the same as the one in
-> >> sg200x. Maybe I'm wrong, but this was my impression when I cooked
-> >> the sdhci driver patch for these SoCs.
-> >>
-> >>>> I tend to agree with Inochi here, if it's same across all SoC, then no bother to
-> >>>> split, it will cause more trouble to maintain..
-> >>>>
-> >>>
-> >>> To be honest, I agree with this to, but as a specific compatible for the
-> >>> SG2002 was created in commit 849e81817b9b, I thought that the best practice
-> >>> was to use it.
-> >>
-> >> I'd like to take this chance to query DT maintainers: FWICT, in the past
-> >> even if the PLIC is the same between SoCs, adding a new compatible for
-> >> them seems a must. So when time goes on, the compatbile list would be
-> >> longer and longer, is it really necessary? Can we just use the existing
-> >> compatible string?
-> >> DT maintainers may answered the query in the past, if so, sorry for
-> >> querying again.
-> > 
-> > For new integrations of an IP, yes, new specific compatibles please. New
-> > integrations may have different bugs etc, even if the IP itself is the
-> > same. If there's different SoCs that are the same die, but with elements
-> > fused off, then sure, use the same compatible.
-> > 
-> > I expect the list of compatibles in the binding to grow rather large, but
-> > that is fine. No one SoC is going to do anything other than something like
-> > compatible = "renesas,$soc-plic", "andestech,corecomplex-plic", "riscv,plic";
-> > which I think is perfectly fine.
-> 
-> And you can do the same thing here for the SDHCI controller: if you think sg200x
-> has the same controller (and integration! e.g. number of clocks/resets) as
-> cv1800b, then you should keep sophgo,cv1800b-dwcmshc as a fallback compatible
-> string. Then the driver doesn't need any changes until/unless you eventually
-> find some reason they are not compatible.
-> 
-> It's better to have a SoC-specific compatible string in the DT and not need it,
-> than find out later you need one and not have it. :)
+> I was going to reply to your other patch about providing more complete
+> "basic" support for the SoC, but I guess I'll reply here and address
+> both points. After the k230 and th1520, which were both merged with very
 
-Good idea, this solution looks better! Thanks for the suggestion
+When I saw k230 a few minutes ago, I assumed you mean k210 since I
+didn't found k230 support in linus tree now. After searching the
+maillist, I found oh there is a k230 series which is similar to this
+series, no pinctrl, no clk, no reset. Since the incomplete K230 initial
+series hasn't been merged into Linus tree now, is it possible to drop
+it so that we can avoid the same mistake for k230.
+
+> basic support and have made very little progress towards being a useful
+> platform, I'm pretty reluctant to merge another platform in a super
+> basic state. I was going to make this point before you brought it up,
+> but it's good to know I am not the only one with that view. To be clear,
+> I'm not pointing blame for those platforms, I'd just like to avoid a
+
+Yep previously I thought it was fine to use a fixed clock or dummy clock
+during the initial patches, but I changed my mind now, especially after
+Samuel complained the cv1800b reset dt changes.
+
+> repeat. If Yangyu doesn't have time to do any development work on the
+> platform, I'd like to see someone else (and as I mentioned Jesse is
+> interested) take on getting some of the basic driver patches written and
+> merge only when those are accepted. Having no in-tree clock and pinctrl
+> drivers is definitely a hindrance to other people doing parallel
+> development of drivers and I'd like to avoid that.
+> 
+> Getting back to your point in this mail, whoever gets the platform to
+> that state is well suited to looking after it going forwards. Some other
+
+The person who can bring the platfrom support to a well-moduled state,
+IE, proper clk, pinctrl, reset drivers shows the passion, the code
+contribution and solid understanding of the SoC, sure he/she is
+definitely suited to maintain the SoC. I just don't think it's 
+a good practice a person can became maintainer even w/o one LoC
+contrubition to the SoC, because IMHO code contribution matters
+for maintainership.
+
+> interested parties could also join as reviewers. I don't want to see
+> people joining as maintainers that are not going to have an interest
+> in the platform going forward, as that'll just end up with me as the
+> defacto maintainer.
 
 > 
-> Regards,
-> Samuel
-> 
+> Thanks,
+> Conor.
+
+
 
 _______________________________________________
 linux-riscv mailing list
