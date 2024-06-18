@@ -4,71 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A035C27C4F
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 04:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB7B2C27C4F
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 06:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0Khz+v1cF8yyUtl+UAi0kbA/O/p71CileLwJVL80eO0=; b=k1VQEDCakdOuMt
-	vG42DXFCcHjHrNvNjvh2EoDNt8bv4aaxfuXNLZsqZZ86toqqAvOExqlo/uHzKkuwDKSL+bdCJ+buF
-	2GoZWgkPc7I3G87fSlFShUYLoXAu1o6/5VQem4Z1nj6QwOw78F7HBecEEs6I96n2+U0Jq8zTI2U4U
-	/W5gZI4E6COg0ATBDyQ1Aj26W/nHjm326AbAO6JTo9sCKSdQHv8q3dJM1+Zr9/REjPF1IZvFzGhK4
-	rpNhdjedY3cFLvh5S9p63h/DyHxBpq4Upf6yAdf6PcU8yRMYHhIwoJKnOIA8V5DFDYbotDtoVAh9N
-	RKtEJ/ZslM5CHKJ0U8Zw==;
+	List-Owner; bh=WbJTw3jVQwNYCCNkf2U5rcz8YRPHc1fcXn0K3OBHF2w=; b=kVB/Kh0dxCd1G6
+	8XqP9YMeRMHQFJqvwpmR+yd7QQc/h1I2gVihp6Ik/4Fm3+X4GGRx2E6p17Lgbd1Lrz33kt8QSZeLV
+	jL899TUZLREgPT8Q7Q59p/sI89ItMAX/gGgmymoWiIYktM/0nlojDf7BylkqPrfIZKJa66yaegutJ
+	OGtUgGQ7nCorXIKC3ed4WWCYKtNv8qBOeXR3ZIoXczp2jpdiSMRMXWUpMHl5tv2PlVbt3rY266kpt
+	IG997ZbxiEGRHoT/17pHyWJkxEyliJJYvXpZqf97mOHWoETqlggQp0AGRBRy/ub860Mbm7bRzisUd
+	7iU839jW3psW8i3UHRYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJQqG-0000000DbX2-1Nia;
-	Tue, 18 Jun 2024 04:53:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sJSSe-0000000DpMP-2BGe;
+	Tue, 18 Jun 2024 06:36:56 +0000
+Received: from mail-dm6nam12olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c17::800] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJQqD-0000000DbWD-0mp3
+	id 1sJSSb-0000000DpLl-1l8O
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jun 2024 04:53:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5D3A4616E0;
-	Tue, 18 Jun 2024 04:53:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19D13C4AF1D;
-	Tue, 18 Jun 2024 04:53:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718686388;
-	bh=nQG2ozuXtUOSTdqSimyv9RBGDU0XpREHXYREIy934Io=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DAZqtMEo/sxEOB9MdPzkbnTvxBvBj0ED1AWxDTDTLtkU8ntdbvWYnSm0weVWZarhw
-	 xFjasAxhVqTZGI49eA1mb08R48nbYnbEjuMkIQiLXZhghvqLxYsFQXeJvWRsxzYHKi
-	 9n/eKdoLVoMayqZo7Iiv593iikHKn7fdmMESxdduTFH1GrdaC7P4pm/mSCy570Ny3w
-	 oi6usvZZmhHFOmVDcT1yxS2Iwj8CpKY8qk8SSnNKe9kz9uj6tzhB8zNwX9Kag5Us6K
-	 WRLfGdf2XcwZaXogN6HDD/lGSdDoNuaatD0pJCHN1tVww6VMwkCS72fIextCNPpsxd
-	 cXubB6VFol2sQ==
-Date: Tue, 18 Jun 2024 12:39:10 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: Conor Dooley <conor@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	linux-riscv@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup.patel@wdc.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Jesse Taube <jesse@rivosinc.com>
-Subject: Re: [PATCH v1 0/9] riscv: add initial support for SpacemiT K1
-Message-ID: <ZnEPbtbLhwZIHUJI@xhacker>
-References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
- <20240616-exorcism-computing-e11e26084a62@spud>
- <20240616224811.GC3983622@ofsar>
- <ZnBEBQjTQtFs-fXt@xhacker>
- <20240617-synapse-carmaker-0a59c7c6edb7@spud>
- <tencent_26E7381EE1F6C5188428359AF3F908CA680A@qq.com>
-MIME-Version: 1.0
+	Tue, 18 Jun 2024 06:36:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=DIB5eAxeqPKXpV5NoiMiRBmrDApZzJQ1oBdCwUmVTfTh9gxJibaPjlV5Zf/t9xuCH0NIaThIyo5vxMlArRmOPzM/4igSdzim/p4ehBVQcERz1AbPddK2XKenMzbdonSLLN/c8POTWSeThnIpH0jHX/fxn7383QKd4pUJESo6LWRrTLg0c4W/Yd1WCAK9x1bxcqiu5Gg+f/IEIn1ReiOwr9wY0pHQtxCZQ5qqJY8IYxYJk0SiiY3pMdae9dEABncseC8A5H/teFlSJvWj65LCdRXN8Mg4w/hV5t1ZM0RNqgMWbdkr2MouS84TiMA9+MYb5ccYWFRHS7TT2KBEjc1XeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CkU90nQc6HucD2odw/Ijiop1X7T1oUi7sRcoPmEOKHc=;
+ b=Xvwq81AgLxvZMz7lMrTvikrhpxLCzw81RfnNBOsrRRMR/9ORZNBSijZeIwLny3M/gC5lce7NJaDYHP5J8KTKhVO6FVTUfa5yDlhSAhXxZeK09EMhGFwHYSqKz476nSTK/wDVmusrKznbRhJZWStCo3bPlRd1qu3A8CuoZoaIYZU/uIAo+JP6Z83/Fv8+DpG5qOhZ/gv0RcrL7Wnc7OZ9/hCfwMh9E2dJNbaXrd0O0NCt3Pu5PN/2lEiFGAWS4vGFxhgMH1DdUy4fQS2J2Dcr3yqi3thvphf04+uQPddF7lVBzgBrsF6buF+yRdlfunct6MjkB5DLBpON2PYcBOSWeg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CkU90nQc6HucD2odw/Ijiop1X7T1oUi7sRcoPmEOKHc=;
+ b=gDj3iDqMagdaQHHYYE5tWa/GxYXYWJWrRUx2GDMyu4RJCGBRtGLyjaxDHBYhz6YweMfAikxFBySmzkudZbDvRh7OjlruMezPSCMql3u2X3z5nhEGOq7/K079eXBLqCZbWh0Ugu606TUpkmF4DRuTM4tjpL7Imwl4Glj48g2F0joEBhoSZpLEhokKYhIIaw9XWi44AspLgQnJlg7VIr7GyQVXm2uTeN61uGFjo6OgtcFpDUttYinDt7+0U+4suUxffcxPn+VcDlOVj9tlSMHZQGzX6/xsECkKVNjAhRQKhD7SeWeTHTfnR1h426pVdVMFDXtn/whG+rca4YrrdN/BnA==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SN7PR20MB5958.namprd20.prod.outlook.com (2603:10b6:806:34b::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.30; Tue, 18 Jun
+ 2024 06:36:48 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::ab0b:c0d3:1f91:d149%6]) with mapi id 15.20.7677.030; Tue, 18 Jun 2024
+ 06:36:48 +0000
+Date: Tue, 18 Jun 2024 14:36:30 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Samuel Holland <samuel.holland@sifive.com>, 
+	Jisheng Zhang <jszhang@kernel.org>, Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@outlook.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Chen Wang <unicorn_wang@outlook.com>, Chao Wei <chao.wei@sophgo.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, =?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v2 1/6] riscv: dts: sophgo: Put sdhci compatible in dt of
+ specific SoC
+Message-ID: <IA1PR20MB495388209FC7DCFF78FDD545BBCE2@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <20240612-sg2002-v2-0-19a585af6846@bootlin.com>
+ <20240612-sg2002-v2-1-19a585af6846@bootlin.com>
+ <IA1PR20MB49534C9E29E86B478205E4B3BBC02@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20240616235829.GA4000183@ofsar>
+ <c75601a1-1389-400e-90b9-99c1e775a866@bootlin.com>
+ <ZnA3O14HOiV1SBPV@xhacker>
+ <20240617-exuberant-protegee-f7d414f0976d@spud>
+ <6a993b58-3d9e-4f92-bf47-7692c9639314@sifive.com>
 Content-Disposition: inline
-In-Reply-To: <tencent_26E7381EE1F6C5188428359AF3F908CA680A@qq.com>
+In-Reply-To: <6a993b58-3d9e-4f92-bf47-7692c9639314@sifive.com>
+X-TMN: [GHCQjbzMTH8GUkDmGJ3CA1YZdmlbBT8P/cIv7+BYm9Q=]
+X-ClientProxiedBy: OS3P301CA0043.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:604:21e::11) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <bbteyk6qqdlqboufd2rnzjktr33kmmgsjrf2auotgoxsqagzvz@ujbc7uydizp2>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SN7PR20MB5958:EE_
+X-MS-Office365-Filtering-Correlation-Id: 580b976a-ba1d-41f3-dab1-08dc8f610757
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199025|3412199022|440099025|1710799023;
+X-Microsoft-Antispam-Message-Info: QMw0wekZwQ/i5RsdxRrDK3zmtZKJwSSut1b8JNWmZH501ETBExGG+/pd8CoEF2Xr6GzRH1WBdf+ldbxeTFFwQjpT+I7qZQbF7ryYvT8f/zyJTUeuFpGeLioDEMDnU4dnfC9/ziJak9iL9yh82BkXFeuirULaOgbW2HMm2ZVJuGvAaIMLzKcKq9m6dM5gad/mk+vWTBHu9Jmn9SG5TODWWfhQ+cBy90qTMlCj8ndtAUDWJ1cvtV0wP1JnObDcgXLfIwQedXzyThp4kYmMJLyAoPQ3Dy+LPo8dnUynu7rIMarn+50RBmUgV5ULvIz7+WD+AFFNrSj7iMInsSc1IEtan59HqpnEqz9qDWB4NzGBxH0qWZjYPfG721AWQBv8eLvNkjCdusKQNDJuwuL98YR8vBJkGjJiAWxvO9GKYU3kyGdKSya+T8DiCvzDnHPFRgMtQg3UEwnXZkJP9MzHLxN5yK+tU1KLU3/TcfdepHyW0Xe6wIv/HDWt4PQ6+mCS69wRZRqML6bqu4cuebFuH5Vi9JOjjYdk7ojvVncs7UI4Nl5jBfFZ76LIBLRJd/oASRMn6ScfOJcn9VysEoFAtRwOJBMC2RxG/pkssumLb34pPhPJahbVHIessPWAT6C2VLVb
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nID416C/N8BbZAhVZqMU0A1PinZapmzyEqvUsmKhE3PKR36omijIhzePurrG?=
+ =?us-ascii?Q?RHBy6Oz8Gk5LAT/NxxlhIWyT+9/6CBHzO87MIKu9rhwpNIVeQPyFGVfhhtPV?=
+ =?us-ascii?Q?WQQhYMILXeBUw43KPLV+DKjN/NoclRDXWOStLbhz4W460rxHs3pPy0r3knUW?=
+ =?us-ascii?Q?OXRJlGFHmvq8TZBYzG0mzfhBpxJvmFVrAk1cdkfI/8XzOPqKvRfkT5AZ2BEG?=
+ =?us-ascii?Q?PMB00Yjp3ABStpO7a3uIvQ62yJMatjosDzFnNCb64NDxhhBW1cTXgvjjbZ07?=
+ =?us-ascii?Q?+5RmtlezcaUGMiBaOsM5Vo3pXb8zT7k33J5tecH/auwmiINhbkahDfwVy2b9?=
+ =?us-ascii?Q?DEBbvwy+ZWSf2lm2vMNMpNVUIub2oXcLWAvb6xrr7+aaXqgqLc1JBLQM+TcY?=
+ =?us-ascii?Q?yo98ruiozLs/tx2YrAFpLbb8PcMU7wkPge6tnlixziJfOBxil53ou4GW/WMK?=
+ =?us-ascii?Q?ny804+e2OeDlJCly5rFsVc2N5r8O6CaAuhXgJsEvofgzexMrriAVRGFeI+l7?=
+ =?us-ascii?Q?Ke+Mz5Ed+ooQpnM93d1kS9B6rWatucuPP6Fm3yoMKQSgQaitUtH+fNz6Bz4q?=
+ =?us-ascii?Q?7oLTTWCUeCNiNgZpWrxdjpX+LK6EKkkwHHIQhVCsAOHItko0SgeRAo/9GzLq?=
+ =?us-ascii?Q?Ncq7+3yVj5NZjh8mZoyB8aoFJ3lNEtkTUL+ZhOQeDK3RlyauZQVsyoV7PiwS?=
+ =?us-ascii?Q?s8VBk5gTsNMFvWW8bsmhYO0d3x5Ox47h2iaWeV8GD/xLgK3dHuy8dWqDv5lu?=
+ =?us-ascii?Q?thF+a+UOiLGxVi5+Edf8BL3JU4XZ3y/BfZQ6HDimUIRkhDsOG1CQT5f20Vnu?=
+ =?us-ascii?Q?vQxR60FVvJUV8vognIHRk4IZ8kK5mh6T0nE4uS0nFdIt6WpklmZMIBXR+HAF?=
+ =?us-ascii?Q?YQ6yYhA24GczGERBRfZiUbHlxdp/F4VbE42paYNl6FdXhlJSTjJjyRKV/Uiu?=
+ =?us-ascii?Q?aerkPgKbtUFAEtB/0wcxZUst2UqYuuuPrbdtFwcM5nTNpWu3FA9KiF8hyqW8?=
+ =?us-ascii?Q?nSaIyx7rJgJyFg5ddrGjyfrN7k+JzHSwC86NlQyGySkfjENDJRt7I+fD8GuM?=
+ =?us-ascii?Q?NEOr0GGTxJ9Bx/XqrpP1EZrUAr5Ci/SCUgm8//npqhCodBIf31V/iEcX+HwO?=
+ =?us-ascii?Q?pNKzsynNeIYTtHfC1R5vw+ilG6CQa/VJeoZNhrAxnmdZ2T31qN5wpij0mVy0?=
+ =?us-ascii?Q?IQ/iU0girJEMfUpBzOhRVZJVhR7tjn5hbHxuCmKwwI/BCVEIIzy2R738qV1m?=
+ =?us-ascii?Q?cSptFYHBpI0BCBXvadbN?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 580b976a-ba1d-41f3-dab1-08dc8f610757
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2024 06:36:47.9856
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR20MB5958
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_215309_779115_1ED518A1 
-X-CRM114-Status: GOOD (  50.41  )
+X-CRM114-CacheID: sfid-20240617_233653_503472_8EB35EDA 
+X-CRM114-Status: GOOD (  40.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,104 +140,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 18, 2024 at 12:39:30AM +0800, Yangyu Chen wrote:
+On Mon, Jun 17, 2024 at 10:57:54AM GMT, Samuel Holland wrote:
+> Hi Jisheng, Thomas,
 > 
-> 
-> > On Jun 17, 2024, at 23:32, Conor Dooley <conor@kernel.org> wrote:
+> On 2024-06-17 10:40 AM, Conor Dooley wrote:
+> > On Mon, Jun 17, 2024 at 09:16:43PM +0800, Jisheng Zhang wrote:
+> >> On Mon, Jun 17, 2024 at 11:16:32AM +0200, Thomas Bonnefille wrote:
+> >>> On 6/17/24 1:58 AM, Yixun Lan wrote:
+> >>>> On 18:47 Wed 12 Jun     , Inochi Amaoto wrote:
 > > 
-> > On Mon, Jun 17, 2024 at 10:11:17PM +0800, Jisheng Zhang wrote:
-> >> On Sun, Jun 16, 2024 at 10:48:11PM +0000, Yixun Lan wrote:
-> >>> Hi Conor
-> >>> Thanks for bringing this up
-> >>> 
-> >>> On 19:35 Sun 16 Jun     , Conor Dooley wrote:
-> >>>> On Mon, Jun 17, 2024 at 01:18:52AM +0800, Yangyu Chen wrote:
-> >>>> 
-> >>>> No MAINTAINERS update, so I figure that means you don't want to maintain
-> >>>> it going forwards? If there's someone out that that does care about the
-> >>>> spacemit k1 (Jesse maybe?), then I'd be more than happy to have them
-> >>>> look after it.
-> >>> Yangyu kind of has limited time, too many stuff for him..
-> >>> 
-> >>> I'd volunteered to help on this if it can fill the gap
-> >>> Also I'd be more than happy if anyone willing step forward to co-maintain..
-> >> 
-> >> Does maintainership work like this? Is willing to do enough?
-> >> FWICT, maintainership involves active patch contributing, reviewing and
-> >> maintaining the whole SoC. It is better to take over the maintainership
-> >> after showing enough patch contributions and understanding of the SoC.
+> >>>>> Is this change necessary? IIRC, the sdhci is the same across
+> >>>>> the whole series.
 > > 
-> > I was going to reply to your other patch about providing more complete
-> > "basic" support for the SoC, but I guess I'll reply here and address
-> > both points. After the k230 and th1520, which were both merged with very
-> > basic support and have made very little progress towards being a useful
-> > platform, I'm pretty reluctant to merge another platform in a super
-> > basic state. I was going to make this point before you brought it up,
-> > but it's good to know I am not the only one with that view. To be clear,
-> > I'm not pointing blame for those platforms, I'd just like to avoid a
-> > repeat. If Yangyu doesn't have time to do any development work on the
-> > platform, I'd like to see someone else (and as I mentioned Jesse is
-> > interested) take on getting some of the basic driver patches written and
-> > merge only when those are accepted. Having no in-tree clock and pinctrl
-> > drivers is definitely a hindrance to other people doing parallel
-> > development of drivers and I'd like to avoid that.
+> >> sorry for being late, I was busy in the past 2.5 month. Per my
+> >> understanding, the sdhci in cv1800b is the same as the one in
+> >> sg200x. Maybe I'm wrong, but this was my impression when I cooked
+> >> the sdhci driver patch for these SoCs.
+> >>
+> >>>> I tend to agree with Inochi here, if it's same across all SoC, then no bother to
+> >>>> split, it will cause more trouble to maintain..
+> >>>>
+> >>>
+> >>> To be honest, I agree with this to, but as a specific compatible for the
+> >>> SG2002 was created in commit 849e81817b9b, I thought that the best practice
+> >>> was to use it.
+> >>
+> >> I'd like to take this chance to query DT maintainers: FWICT, in the past
+> >> even if the PLIC is the same between SoCs, adding a new compatible for
+> >> them seems a must. So when time goes on, the compatbile list would be
+> >> longer and longer, is it really necessary? Can we just use the existing
+> >> compatible string?
+> >> DT maintainers may answered the query in the past, if so, sorry for
+> >> querying again.
 > > 
+> > For new integrations of an IP, yes, new specific compatibles please. New
+> > integrations may have different bugs etc, even if the IP itself is the
+> > same. If there's different SoCs that are the same die, but with elements
+> > fused off, then sure, use the same compatible.
+> > 
+> > I expect the list of compatibles in the binding to grow rather large, but
+> > that is fine. No one SoC is going to do anything other than something like
+> > compatible = "renesas,$soc-plic", "andestech,corecomplex-plic", "riscv,plic";
+> > which I think is perfectly fine.
 > 
-> That's also my concern for the first time when I submitted initial
-> support for K230. However, for SpacemiT K1, things went differently
-> for its UART, and the vendor patched OpenSBI with their NOC-based
-> HSM. They didn't use CLINT-MSWI as SBI HSM driver.
+> And you can do the same thing here for the SDHCI controller: if you think sg200x
+> has the same controller (and integration! e.g. number of clocks/resets) as
+> cv1800b, then you should keep sophgo,cv1800b-dwcmshc as a fallback compatible
+> string. Then the driver doesn't need any changes until/unless you eventually
+> find some reason they are not compatible.
 > 
-> The vendor uses a special intel pxa uart driver, marked deprecated
-> in the kernel and incompatible with ns16550. If we use ns16550 in
-> the dt, the behavior of uart is like the uart has no interrupt and
-> stops working permanently when fifo overruns, making many developers
-> not know how to start unless they use the SBI HVC console, which
-> needs to turn on CONFIG_NONPORTABLE.
+> It's better to have a SoC-specific compatible string in the DT and not need it,
+> than find out later you need one and not have it. :)
 > 
-> For the OpenSBI, the vendor does not provide enough ISA string,
-> which their chip might support, such as Zicboz. Thus, the OpenSBI
-> does not correctly set up the corresponding M-Mode CSR, making the
-> kernel panic when the ISA string contains this extension.
+> Regards,
+> Samuel
 > 
-> These two things takes me about one week to get the initial mainline
-> kernel with full ISA extension and UART to work. Providing this
-> information in the commit message helps attract more developers to
-> start developing quickly.
-> 
-> I don't mind whether this series patch will be merged or not. The
-> meaning of this series is just providing these informations. However,
-> I think some details about bringing up a very basic kernel are
-> essential to attract more developers. If a platform has already
-> attracted some developer's attention. Providing initial support
-> with the commit message to show how to bring it up is not bad.
-> 
-> The point is that if a developer like me has already done this but
-> does not have much time to do further development, should the
-> developer become the maintainer? If not, should a developer submit
-> patches like this to the mailing list to provide this information
-> in the commit message and make it easier for other developers to
-> do further development?
 
-This patch series is valueable, especially for the person who
-has passion, time to expand the series to get pinctrl, reset and clk
-ready so that the SoC is properly modeled even in the initial stage.
+This is excellect and reasonable. I will take your advice for the DT
+change. With your suggetion, I think it may be acceptable to mark the
+low-profile SoC as the default value and let other override it.
 
-> 
-> > Getting back to your point in this mail, whoever gets the platform to
-> > that state is well suited to looking after it going forwards. Some other
-> > interested parties could also join as reviewers. I don't want to see
-> > people joining as maintainers that are not going to have an interest
-> > in the platform going forward, as that'll just end up with me as the
-> > defacto maintainer.
-> > 
-> 
-> I agree. I also have no confidence in joining as a maintainer.
-> That's why I didn't change the MAINTAINERS for the first time.
-> 
-> Thanks,
-> Yangyu Chen
-> 
+Let take the clk as the example:
+
+// in the base file cv18xx.dtsi
+clk: clock-controller@3002000 {
+	// set the "sophgo,cv1800-clk" as the fallback.
+	compatible = "sophgo,cv1800-clk";
+	[...]
+};
+
+// in the cv1800b.dtsi
+// now no need for the clk override since we have the compatible
+// default.
+
+// in the cv1812h.dtsi
+// we still need this override as it is not compatible
+&clk {
+	compatible = "sophgo,cv1810-clk";
+};
+
+// in the sg2002.dtsi of the patch
+// we need this override as it is also not compatible
+&clk {
+	compatible = "sophgo,sg2000-clk";
+};
+
+Do I understand correctly? Or we still need to duplicate these node
+for SoCs with different profiles.
+
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
