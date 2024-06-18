@@ -4,126 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB7B2C27C4F
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 06:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B254FC27C4F
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 06:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WbJTw3jVQwNYCCNkf2U5rcz8YRPHc1fcXn0K3OBHF2w=; b=kVB/Kh0dxCd1G6
-	8XqP9YMeRMHQFJqvwpmR+yd7QQc/h1I2gVihp6Ik/4Fm3+X4GGRx2E6p17Lgbd1Lrz33kt8QSZeLV
-	jL899TUZLREgPT8Q7Q59p/sI89ItMAX/gGgmymoWiIYktM/0nlojDf7BylkqPrfIZKJa66yaegutJ
-	OGtUgGQ7nCorXIKC3ed4WWCYKtNv8qBOeXR3ZIoXczp2jpdiSMRMXWUpMHl5tv2PlVbt3rY266kpt
-	IG997ZbxiEGRHoT/17pHyWJkxEyliJJYvXpZqf97mOHWoETqlggQp0AGRBRy/ub860Mbm7bRzisUd
-	7iU839jW3psW8i3UHRYw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uZ0wQPUZggCvwupze/PblGRR/zyg9dRttZ9EkV7c3SQ=; b=qMhzrZGGGELeOD+Md6wmPwNJGA
+	JZbKheR51iIc6SobL6btF2p2Hp8tbryqFAxS+guJG1WHt4O+I8QXY6eWT6hIo0nJZz1x8WoMbxOMS
+	uBoP12fLZOkEwIMFvr7tMe3IPa0yZaIMZ/QdLavg1wh8oPikimdU4qRZIWaUOD2lGtyspyZG74A0s
+	ElZeCl7MoSB2C6Mx8B4MqFmfCR9fFDlxWGQjqqIjPe81o8CgjydPa1nfxJ02JGvdFQm2yHJPFP6Ca
+	qzFmaYrwno/TlMqoPVGV1wo3aHNE3e/X0TJvun0ay0IfMScIsk+OCpRy8GfCCjLolMutl1j1iGqeQ
+	bOpAUtlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJSSe-0000000DpMP-2BGe;
-	Tue, 18 Jun 2024 06:36:56 +0000
-Received: from mail-dm6nam12olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c17::800] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1sJSoV-0000000Dtdc-22aQ;
+	Tue, 18 Jun 2024 06:59:31 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJSSb-0000000DpLl-1l8O
+	id 1sJSoS-0000000DtcX-0XzA
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jun 2024 06:36:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=DIB5eAxeqPKXpV5NoiMiRBmrDApZzJQ1oBdCwUmVTfTh9gxJibaPjlV5Zf/t9xuCH0NIaThIyo5vxMlArRmOPzM/4igSdzim/p4ehBVQcERz1AbPddK2XKenMzbdonSLLN/c8POTWSeThnIpH0jHX/fxn7383QKd4pUJESo6LWRrTLg0c4W/Yd1WCAK9x1bxcqiu5Gg+f/IEIn1ReiOwr9wY0pHQtxCZQ5qqJY8IYxYJk0SiiY3pMdae9dEABncseC8A5H/teFlSJvWj65LCdRXN8Mg4w/hV5t1ZM0RNqgMWbdkr2MouS84TiMA9+MYb5ccYWFRHS7TT2KBEjc1XeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CkU90nQc6HucD2odw/Ijiop1X7T1oUi7sRcoPmEOKHc=;
- b=Xvwq81AgLxvZMz7lMrTvikrhpxLCzw81RfnNBOsrRRMR/9ORZNBSijZeIwLny3M/gC5lce7NJaDYHP5J8KTKhVO6FVTUfa5yDlhSAhXxZeK09EMhGFwHYSqKz476nSTK/wDVmusrKznbRhJZWStCo3bPlRd1qu3A8CuoZoaIYZU/uIAo+JP6Z83/Fv8+DpG5qOhZ/gv0RcrL7Wnc7OZ9/hCfwMh9E2dJNbaXrd0O0NCt3Pu5PN/2lEiFGAWS4vGFxhgMH1DdUy4fQS2J2Dcr3yqi3thvphf04+uQPddF7lVBzgBrsF6buF+yRdlfunct6MjkB5DLBpON2PYcBOSWeg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CkU90nQc6HucD2odw/Ijiop1X7T1oUi7sRcoPmEOKHc=;
- b=gDj3iDqMagdaQHHYYE5tWa/GxYXYWJWrRUx2GDMyu4RJCGBRtGLyjaxDHBYhz6YweMfAikxFBySmzkudZbDvRh7OjlruMezPSCMql3u2X3z5nhEGOq7/K079eXBLqCZbWh0Ugu606TUpkmF4DRuTM4tjpL7Imwl4Glj48g2F0joEBhoSZpLEhokKYhIIaw9XWi44AspLgQnJlg7VIr7GyQVXm2uTeN61uGFjo6OgtcFpDUttYinDt7+0U+4suUxffcxPn+VcDlOVj9tlSMHZQGzX6/xsECkKVNjAhRQKhD7SeWeTHTfnR1h426pVdVMFDXtn/whG+rca4YrrdN/BnA==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SN7PR20MB5958.namprd20.prod.outlook.com (2603:10b6:806:34b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.30; Tue, 18 Jun
- 2024 06:36:48 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%6]) with mapi id 15.20.7677.030; Tue, 18 Jun 2024
- 06:36:48 +0000
-Date: Tue, 18 Jun 2024 14:36:30 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Samuel Holland <samuel.holland@sifive.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Cc: Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@outlook.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Chen Wang <unicorn_wang@outlook.com>, Chao Wei <chao.wei@sophgo.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, =?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v2 1/6] riscv: dts: sophgo: Put sdhci compatible in dt of
- specific SoC
-Message-ID: <IA1PR20MB495388209FC7DCFF78FDD545BBCE2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <20240612-sg2002-v2-0-19a585af6846@bootlin.com>
- <20240612-sg2002-v2-1-19a585af6846@bootlin.com>
- <IA1PR20MB49534C9E29E86B478205E4B3BBC02@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240616235829.GA4000183@ofsar>
- <c75601a1-1389-400e-90b9-99c1e775a866@bootlin.com>
- <ZnA3O14HOiV1SBPV@xhacker>
- <20240617-exuberant-protegee-f7d414f0976d@spud>
- <6a993b58-3d9e-4f92-bf47-7692c9639314@sifive.com>
-Content-Disposition: inline
-In-Reply-To: <6a993b58-3d9e-4f92-bf47-7692c9639314@sifive.com>
-X-TMN: [GHCQjbzMTH8GUkDmGJ3CA1YZdmlbBT8P/cIv7+BYm9Q=]
-X-ClientProxiedBy: OS3P301CA0043.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:604:21e::11) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <bbteyk6qqdlqboufd2rnzjktr33kmmgsjrf2auotgoxsqagzvz@ujbc7uydizp2>
+	Tue, 18 Jun 2024 06:59:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1718693968; x=1750229968;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3mK4TsHTIPeZapcY9c5aW4prx8bcHLdsxmGHIyRcCK0=;
+  b=Ep3qBnGwPoRIRJ598MMMct6h5+ODSQKusDiOh2UsXViWC7p8dMie3ZNg
+   xIyv8hRXjx8iIH0Nr1vTEWZRcMPm50O4G9C6E1ELeg2DhAg6kHbieyD7v
+   32JCV7gm9AHjBYEDRk1tLOk69xRMrMvcerr0ScS+WwbkLRUF25KMVi2qN
+   maX0g1sstduflno0rlaIYEB17ZNSZGJEqu7UQoaYxwV2ps+UPkYLy4JxG
+   WVEHe0XUWIwHuzNHj29RIteezwRQJz5O/P6AmwPZ0l053s9yLxNclIBtR
+   2lc1Gjo6okHAOFIV3U6JlNudUStjDlNcl5V8Y2MjHc+gMvxEm3UL25Dqx
+   g==;
+X-CSE-ConnectionGUID: z9K4V9M6RvG3elklgVnlnw==
+X-CSE-MsgGUID: /nE/O9yjS8y1iiBhZ+9ZHA==
+X-IronPort-AV: E=Sophos;i="6.08,247,1712646000"; 
+   d="asc'?scan'208";a="258886760"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Jun 2024 23:59:26 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 17 Jun 2024 23:59:10 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Mon, 17 Jun 2024 23:59:07 -0700
+Date: Tue, 18 Jun 2024 07:58:49 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Yangyu Chen <cyy@cyyself.name>
+CC: Conor Dooley <conor@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Yixun
+ Lan <dlan@gentoo.org>, <linux-riscv@lists.infradead.org>, Conor Dooley
+	<conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, Anup
+ Patel <anup.patel@wdc.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, <devicetree@vger.kernel.org>, Linux Kernel
+ Mailing List <linux-kernel@vger.kernel.org>, Jesse Taube <jesse@rivosinc.com>
+Subject: Re: [PATCH v1 0/9] riscv: add initial support for SpacemiT K1
+Message-ID: <20240618-pacifism-defendant-2a042a7fe1b9@wendy>
+References: <tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com>
+ <20240616-exorcism-computing-e11e26084a62@spud>
+ <20240616224811.GC3983622@ofsar>
+ <ZnBEBQjTQtFs-fXt@xhacker>
+ <20240617-synapse-carmaker-0a59c7c6edb7@spud>
+ <tencent_26E7381EE1F6C5188428359AF3F908CA680A@qq.com>
+ <20240617-connected-avoid-82f0bdc05cdf@spud>
+ <tencent_53226D39C76ADCAA1883109DC6213E5EC107@qq.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SN7PR20MB5958:EE_
-X-MS-Office365-Filtering-Correlation-Id: 580b976a-ba1d-41f3-dab1-08dc8f610757
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199025|3412199022|440099025|1710799023;
-X-Microsoft-Antispam-Message-Info: QMw0wekZwQ/i5RsdxRrDK3zmtZKJwSSut1b8JNWmZH501ETBExGG+/pd8CoEF2Xr6GzRH1WBdf+ldbxeTFFwQjpT+I7qZQbF7ryYvT8f/zyJTUeuFpGeLioDEMDnU4dnfC9/ziJak9iL9yh82BkXFeuirULaOgbW2HMm2ZVJuGvAaIMLzKcKq9m6dM5gad/mk+vWTBHu9Jmn9SG5TODWWfhQ+cBy90qTMlCj8ndtAUDWJ1cvtV0wP1JnObDcgXLfIwQedXzyThp4kYmMJLyAoPQ3Dy+LPo8dnUynu7rIMarn+50RBmUgV5ULvIz7+WD+AFFNrSj7iMInsSc1IEtan59HqpnEqz9qDWB4NzGBxH0qWZjYPfG721AWQBv8eLvNkjCdusKQNDJuwuL98YR8vBJkGjJiAWxvO9GKYU3kyGdKSya+T8DiCvzDnHPFRgMtQg3UEwnXZkJP9MzHLxN5yK+tU1KLU3/TcfdepHyW0Xe6wIv/HDWt4PQ6+mCS69wRZRqML6bqu4cuebFuH5Vi9JOjjYdk7ojvVncs7UI4Nl5jBfFZ76LIBLRJd/oASRMn6ScfOJcn9VysEoFAtRwOJBMC2RxG/pkssumLb34pPhPJahbVHIessPWAT6C2VLVb
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nID416C/N8BbZAhVZqMU0A1PinZapmzyEqvUsmKhE3PKR36omijIhzePurrG?=
- =?us-ascii?Q?RHBy6Oz8Gk5LAT/NxxlhIWyT+9/6CBHzO87MIKu9rhwpNIVeQPyFGVfhhtPV?=
- =?us-ascii?Q?WQQhYMILXeBUw43KPLV+DKjN/NoclRDXWOStLbhz4W460rxHs3pPy0r3knUW?=
- =?us-ascii?Q?OXRJlGFHmvq8TZBYzG0mzfhBpxJvmFVrAk1cdkfI/8XzOPqKvRfkT5AZ2BEG?=
- =?us-ascii?Q?PMB00Yjp3ABStpO7a3uIvQ62yJMatjosDzFnNCb64NDxhhBW1cTXgvjjbZ07?=
- =?us-ascii?Q?+5RmtlezcaUGMiBaOsM5Vo3pXb8zT7k33J5tecH/auwmiINhbkahDfwVy2b9?=
- =?us-ascii?Q?DEBbvwy+ZWSf2lm2vMNMpNVUIub2oXcLWAvb6xrr7+aaXqgqLc1JBLQM+TcY?=
- =?us-ascii?Q?yo98ruiozLs/tx2YrAFpLbb8PcMU7wkPge6tnlixziJfOBxil53ou4GW/WMK?=
- =?us-ascii?Q?ny804+e2OeDlJCly5rFsVc2N5r8O6CaAuhXgJsEvofgzexMrriAVRGFeI+l7?=
- =?us-ascii?Q?Ke+Mz5Ed+ooQpnM93d1kS9B6rWatucuPP6Fm3yoMKQSgQaitUtH+fNz6Bz4q?=
- =?us-ascii?Q?7oLTTWCUeCNiNgZpWrxdjpX+LK6EKkkwHHIQhVCsAOHItko0SgeRAo/9GzLq?=
- =?us-ascii?Q?Ncq7+3yVj5NZjh8mZoyB8aoFJ3lNEtkTUL+ZhOQeDK3RlyauZQVsyoV7PiwS?=
- =?us-ascii?Q?s8VBk5gTsNMFvWW8bsmhYO0d3x5Ox47h2iaWeV8GD/xLgK3dHuy8dWqDv5lu?=
- =?us-ascii?Q?thF+a+UOiLGxVi5+Edf8BL3JU4XZ3y/BfZQ6HDimUIRkhDsOG1CQT5f20Vnu?=
- =?us-ascii?Q?vQxR60FVvJUV8vognIHRk4IZ8kK5mh6T0nE4uS0nFdIt6WpklmZMIBXR+HAF?=
- =?us-ascii?Q?YQ6yYhA24GczGERBRfZiUbHlxdp/F4VbE42paYNl6FdXhlJSTjJjyRKV/Uiu?=
- =?us-ascii?Q?aerkPgKbtUFAEtB/0wcxZUst2UqYuuuPrbdtFwcM5nTNpWu3FA9KiF8hyqW8?=
- =?us-ascii?Q?nSaIyx7rJgJyFg5ddrGjyfrN7k+JzHSwC86NlQyGySkfjENDJRt7I+fD8GuM?=
- =?us-ascii?Q?NEOr0GGTxJ9Bx/XqrpP1EZrUAr5Ci/SCUgm8//npqhCodBIf31V/iEcX+HwO?=
- =?us-ascii?Q?pNKzsynNeIYTtHfC1R5vw+ilG6CQa/VJeoZNhrAxnmdZ2T31qN5wpij0mVy0?=
- =?us-ascii?Q?IQ/iU0girJEMfUpBzOhRVZJVhR7tjn5hbHxuCmKwwI/BCVEIIzy2R738qV1m?=
- =?us-ascii?Q?cSptFYHBpI0BCBXvadbN?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 580b976a-ba1d-41f3-dab1-08dc8f610757
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2024 06:36:47.9856
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR20MB5958
+In-Reply-To: <tencent_53226D39C76ADCAA1883109DC6213E5EC107@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240617_233653_503472_8EB35EDA 
-X-CRM114-Status: GOOD (  40.22  )
+X-CRM114-CacheID: sfid-20240617_235928_467431_F0481171 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,103 +92,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1455655632133212392=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 17, 2024 at 10:57:54AM GMT, Samuel Holland wrote:
-> Hi Jisheng, Thomas,
-> 
-> On 2024-06-17 10:40 AM, Conor Dooley wrote:
-> > On Mon, Jun 17, 2024 at 09:16:43PM +0800, Jisheng Zhang wrote:
-> >> On Mon, Jun 17, 2024 at 11:16:32AM +0200, Thomas Bonnefille wrote:
-> >>> On 6/17/24 1:58 AM, Yixun Lan wrote:
-> >>>> On 18:47 Wed 12 Jun     , Inochi Amaoto wrote:
-> > 
-> >>>>> Is this change necessary? IIRC, the sdhci is the same across
-> >>>>> the whole series.
-> > 
-> >> sorry for being late, I was busy in the past 2.5 month. Per my
-> >> understanding, the sdhci in cv1800b is the same as the one in
-> >> sg200x. Maybe I'm wrong, but this was my impression when I cooked
-> >> the sdhci driver patch for these SoCs.
-> >>
-> >>>> I tend to agree with Inochi here, if it's same across all SoC, then no bother to
-> >>>> split, it will cause more trouble to maintain..
-> >>>>
-> >>>
-> >>> To be honest, I agree with this to, but as a specific compatible for the
-> >>> SG2002 was created in commit 849e81817b9b, I thought that the best practice
-> >>> was to use it.
-> >>
-> >> I'd like to take this chance to query DT maintainers: FWICT, in the past
-> >> even if the PLIC is the same between SoCs, adding a new compatible for
-> >> them seems a must. So when time goes on, the compatbile list would be
-> >> longer and longer, is it really necessary? Can we just use the existing
-> >> compatible string?
-> >> DT maintainers may answered the query in the past, if so, sorry for
-> >> querying again.
-> > 
-> > For new integrations of an IP, yes, new specific compatibles please. New
-> > integrations may have different bugs etc, even if the IP itself is the
-> > same. If there's different SoCs that are the same die, but with elements
-> > fused off, then sure, use the same compatible.
-> > 
-> > I expect the list of compatibles in the binding to grow rather large, but
-> > that is fine. No one SoC is going to do anything other than something like
-> > compatible = "renesas,$soc-plic", "andestech,corecomplex-plic", "riscv,plic";
-> > which I think is perfectly fine.
-> 
-> And you can do the same thing here for the SDHCI controller: if you think sg200x
-> has the same controller (and integration! e.g. number of clocks/resets) as
-> cv1800b, then you should keep sophgo,cv1800b-dwcmshc as a fallback compatible
-> string. Then the driver doesn't need any changes until/unless you eventually
-> find some reason they are not compatible.
-> 
-> It's better to have a SoC-specific compatible string in the DT and not need it,
-> than find out later you need one and not have it. :)
-> 
-> Regards,
-> Samuel
-> 
+--===============1455655632133212392==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="YwBUjE9FTTi9maDS"
+Content-Disposition: inline
 
-This is excellect and reasonable. I will take your advice for the DT
-change. With your suggetion, I think it may be acceptable to mark the
-low-profile SoC as the default value and let other override it.
+--YwBUjE9FTTi9maDS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Let take the clk as the example:
+On Tue, Jun 18, 2024 at 01:42:34AM +0800, Yangyu Chen wrote:
+>=20
+>=20
+> > On Jun 18, 2024, at 01:14, Conor Dooley <conor@kernel.org> wrote:
+> >=20
+> > On Tue, Jun 18, 2024 at 12:39:30AM +0800, Yangyu Chen wrote:
+> >>=20
+> >> The vendor uses a special intel pxa uart driver, marked deprecated
+> >> in the kernel and incompatible with ns16550. If we use ns16550 in
+> >> the dt, the behavior of uart is like the uart has no interrupt and
+> >> stops working permanently when fifo overruns, making many developers
+> >> not know how to start unless they use the SBI HVC console, which
+> >> needs to turn on CONFIG_NONPORTABLE.
+> >=20
+> > This I just do not understand. Why did they use this IP? Is it free?
+> > Did they use it before for something else? It's a rather strange design
+> > choice to me.
+>=20
+> I don't know either. However, PXA is a subfamily of XScale. The
+> kernel also probed the UART as an XScale. So, using XScale compatible
+> string is OK.
 
-// in the base file cv18xx.dtsi
-clk: clock-controller@3002000 {
-	// set the "sophgo,cv1800-clk" as the fallback.
-	compatible = "sophgo,cv1800-clk";
-	[...]
-};
+Using a fallback to an Xscale compatible is okay, FTFY ;)
 
-// in the cv1800b.dtsi
-// now no need for the clk override since we have the compatible
-// default.
+--YwBUjE9FTTi9maDS
+Content-Type: application/pgp-signature; name="signature.asc"
 
-// in the cv1812h.dtsi
-// we still need this override as it is not compatible
-&clk {
-	compatible = "sophgo,cv1810-clk";
-};
+-----BEGIN PGP SIGNATURE-----
 
-// in the sg2002.dtsi of the patch
-// we need this override as it is also not compatible
-&clk {
-	compatible = "sophgo,sg2000-clk";
-};
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnEwHAAKCRB4tDGHoIJi
+0to+AP9w3gnQ362y8MnFZcbfQCKFvkpQBLoqodJyHtdQJpq/GAEA0V0/yvJzPuS8
+8hGxhLKG89Dg+3IulVD5SK6iFT5/EAU=
+=QSkx
+-----END PGP SIGNATURE-----
 
-Do I understand correctly? Or we still need to duplicate these node
-for SoCs with different profiles.
+--YwBUjE9FTTi9maDS--
 
-Regards,
-Inochi
+
+--===============1455655632133212392==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1455655632133212392==--
+
