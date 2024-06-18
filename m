@@ -4,128 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31553C27C4F
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 07:57:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984B0C27C4F
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2024 08:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tjvltoLIIMNcm6b0fOWdeTDDYVjJ0SvdvwhW0kNDQ7k=; b=ryCdUBl1vyZnkG
-	oVTKOQKDMmkwpW+epirVdteaMIt+pFYSHwdoRiVCF2CzotHOhqgcrR+7tMQrW28Okv2SEXZVkLyDQ
-	+VbT1FBp+wO4k6A8eBwVvYxpwQCRCzLttd/Dm+WEL47zzcVNYVaI+qbGLHuOoNefpFUjR/ppHBl2X
-	BUnL8CaRZaNu1E3W/Kqex0pZmvtQHV7BZhOCiNAFeMVQFoOovcEnoPIFJXPVFieuYRkxHtzl57cz3
-	U2zdEi/Z7jLqz3jh/utlS24COfSKxe/dedSMY5FYyAfm5ck1WDIBZH8EBxM0AuG0GWrGx6rXFzUFs
-	6rmxdyYpF19Xbpqh9Pew==;
+	List-Owner; bh=THjk8Bcfs6jfLgTBuk87+ljAIK7E0AOvVLSh6D1e9kI=; b=3EhzuAEppBX7ex
+	kc8z+5v+6aA0shZe7RHjZAfmB/0h9e3+7wsa6flBrQguEmJRVo/M7ueCM2uueaaY8XGnK/2urrnTZ
+	JleLVBhzk5OQ8S2MAqTfPLskmafPgvEZNb9XyJO3xuYLsJrFy5L9TJM8hDZ1fLreFXKNyjJG0zbNY
+	MDtgdMVfZFf+L1CE6sMUT7xboW3/Gwj2ZUoemCeTjzmFB5mSJRcN5dyoyZskMjpsQLVCZbkn7vlXd
+	3pOmsz4bnnbUO0so8aqlKWWEutln3+boAyHt1qu3U34ExOYZGo3n4MA7EJpKwFBazLwhYXCVlZ4T7
+	EUJKM0loRCpjqrCsPEeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJTiE-0000000E1tP-2asL;
-	Tue, 18 Jun 2024 07:57:06 +0000
-Received: from mail-sgaapc01olkn20829.outbound.protection.outlook.com ([2a01:111:f400:feab::829] helo=APC01-SG2-obe.outbound.protection.outlook.com)
+	id 1sJTlf-0000000E2Fy-2HzH;
+	Tue, 18 Jun 2024 08:00:39 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJTiA-0000000E1rh-48nY
+	id 1sJTlc-0000000E2F9-1VVW
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jun 2024 07:57:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ahcdyYxo4PMVCP3XNu1c9o+fzOg6lPZgtx8BXtr4Y4WjczP4KMiyYjYV8AkuG00S6xxO+LqOozDUnzka/Zu5TLBGJZqW1n9ny35zyWzSI3Uuy7SugXeCqwDpN+gq5uIRi+ZQIpHA18G08tUqq2feUYpBQOZeGefSDiLf3d1UvrJ4/FkWWYLMuKNTt0PR/k3vgRphPIvg4KYMukWIXOVxuDiqXLDGnch/6zTtBhNkLLkAQxPU763kOlLbzn58h/Y4VVU8KOB4gIO7Xu/s5NtXn6d6Mbt1KfftCtV0D1pQMzYoHTEfLrZ59VX6ngP/U7i6DrC0MD01+612v0ZIClKnJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bwfPlO/5RrSfM7eMyDj1n12oEj1ui5VmVU5X++uh9MU=;
- b=JLkYR0jdLJR/ejPMy0x8jmlNhC3mptSS7q9v/5APKE0hwCwP2HEN6HVyhRBfBypqvyZsqNGcGo0cPMtCwPBhGnzcgurJqbNCOfxc9u7GH7WIA/aE2XBMcG8uLOCTpmt6VgFTR2RxSTZiMHthqHVK0zY/4rgtb67QmBeHukKLy4J1moq5Teva+LTmKrn8UOsHKS0fYaGK34d4CT3dC8hl2YFNuLwkYJ68ZX2BVlYgA8177kK+naQCOngOiqLwpogSxTAzkJDRCq7Sk3sTtrmVuJH9i6f4muVZIdzhk1OJrJ1MJXkQXEaw4yozUXPv1FRX2DoD2WEiJO137r/ds3IIzw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bwfPlO/5RrSfM7eMyDj1n12oEj1ui5VmVU5X++uh9MU=;
- b=pXDgWWGXc5Sti9T1yrHdKV29+FRYjHZ1A5pqi7h/aucIjsmXJqmmtLyQg17SiMQMJt6uyR4gM7DlAk/TKuCOsI9qNgkdgleI9lLHdDrpgitL0ShK/H82osjXpqtvrUWeVO0FfeYrUg7woTZ+fKmo57nOaRF4EApiOdLt5QUyO9C0eY+ucvbyyLNw/hRVjoGOomAMPXFaeCWF3z1YjgQR4m9T9gr9l0WuEKYKiM29drvkZdyZGnzszz587p89ekd1fkh4vbUwVq2zJtIO7G6VCv4ne0e6U8h5T33HB8yrFqAFbxlW6l95p0stjehTKvqGpAnwWSNh7L+XsdRDybzKPg==
-Received: from SEYPR01MB4221.apcprd01.prod.exchangelabs.com
- (2603:1096:101:56::12) by TYSPR01MB5963.apcprd01.prod.exchangelabs.com
- (2603:1096:400:46f::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.31; Tue, 18 Jun
- 2024 07:56:52 +0000
-Received: from SEYPR01MB4221.apcprd01.prod.exchangelabs.com
- ([fe80::b674:8f70:6e29:3756]) by SEYPR01MB4221.apcprd01.prod.exchangelabs.com
- ([fe80::b674:8f70:6e29:3756%4]) with mapi id 15.20.7677.030; Tue, 18 Jun 2024
- 07:56:52 +0000
-Date: Tue, 18 Jun 2024 07:56:43 +0000
-From: Haylen Chu <heylenay@outlook.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: thermal: sophgo,cv180x-thermal: Add
- Sophgo CV180x thermal
-Message-ID: <SEYPR01MB4221A739D0645EF0255336EBD7CE2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
-References: <SG2PR01MB4218013241B3EED779D3BAE8D7F82@SG2PR01MB4218.apcprd01.prod.exchangelabs.com>
- <SG2PR01MB42189977B4172405F5704CC4D7F82@SG2PR01MB4218.apcprd01.prod.exchangelabs.com>
- <IA1PR20MB49531F55C8D7DC5D0050CAF9BBF92@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240605-tightwad-janitor-82cfceb1469d@spud>
- <SEYPR01MB4221F0E46F600E013974F21BD7FA2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <20240606-reaction-thirsting-8c22d1b5ab72@spud>
-Content-Disposition: inline
-In-Reply-To: <20240606-reaction-thirsting-8c22d1b5ab72@spud>
-X-TMN: [gdQ1kSMIlPm8UBCT49aEkLCr7+eUGyRb]
-X-ClientProxiedBy: SI1PR02CA0013.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::7) To SEYPR01MB4221.apcprd01.prod.exchangelabs.com
- (2603:1096:101:56::12)
-X-Microsoft-Original-Message-ID: <ZnE9u9we3i9rTkZl@ketchup>
+	Tue, 18 Jun 2024 08:00:38 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 64594C0003;
+	Tue, 18 Jun 2024 08:00:32 +0000 (UTC)
+Message-ID: <e803ce2a-d76a-46da-92a4-11edf1e8ca7a@ghiti.fr>
+Date: Tue, 18 Jun 2024 10:00:32 +0200
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEYPR01MB4221:EE_|TYSPR01MB5963:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1ab71bdc-a61b-407d-8827-08dc8f6c3706
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199025|440099025|3412199022;
-X-Microsoft-Antispam-Message-Info: 5+hCHJ3lJhbQiRpIKNkL3KjvU7upZDz+PlFnAcXg2FdctlYvgaWDUHNzv8TE4k+xo5Uwvy9iNLf4XOUtkdBNP2uKbVHZPLh/zQUhm22+0thp0QJaUWZicMYeEzGmbWXg20ofqKKsUlXDYoB2hgGNgtQPDFaTpszq2iyCEjIoUsIg95H67dZR8RK6lHS+B+nJ3W6f0yu7+OAD4OY0sSOf+yUiChx7c9DUvi69XCLKZMtBTyY49tObnFyTt1mejcgUyM881dW1p9YLU+1qiKM+NOiyk/2YIjeYwiwrv4wQGwj0xulxfmF1CslwjxJqFLFTIjoDZI1eYQpIyqkEmB1WDyN7Xmgq+NlFhK0Pb5nO8YNOawjXqZhRt5ya0oGdUdYIcNRjQq97G9zgY1z73fdPiyTtgGvHO5lcYjjxLyXy4xyZ45V2jJPSouZm1CTyrQwhXgbFBObvd/YJv6hui8KwwZHO8BLTuWpG0sbnQjYW9lSccjCW7gaMEH9a1gT0YUH18vFVQHuIyUDA4bH8IGZnZVsoZ4jutI4ZHec/GffWI62W83dObN7Kdp5SqixsJR6j
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/AZqUNs/k+h+wXjkftpffgM/+UsZjjlF3KC/Rnm83Y6NFCDYyr0TQKhum5TD?=
- =?us-ascii?Q?FqrQsu3riM9mXW4nPaKB3Je2fBYXTVlh/zlS85HAtlRgtAni/tNIt9HbOiIO?=
- =?us-ascii?Q?vIxlJcbbN71iQO2x2v1XAY0nQ5VsXxDcKL3wTNprxrhwmEFyPoFhldmG5Iqm?=
- =?us-ascii?Q?Uqndgv8YC2mkeWDzEjO5zrNZI2mqYEDIiCVeg3s+RRe3glqh6wm0IuavEBXe?=
- =?us-ascii?Q?LzE9OvgRXRQx+shDbS085FLpj80tAhc1e6nd8kcT0YI009l40IJREVCfoSMJ?=
- =?us-ascii?Q?pIkkCQUczxhzDT+7f88YqNY9TIFXS6LEoSB8szBYSMCHig2ZfeUwdcavpIxJ?=
- =?us-ascii?Q?c6U33TFHLMWhN7BpsyPIaxn4w8M5eGf6eMG1h3JfUu35H2xjENsV8qUWLT4L?=
- =?us-ascii?Q?FRRoOuQRLg0wxTSb7yE/96ALWXfCFXpvtNbKbcD9vyb3Crpovv+L5LdkkO7c?=
- =?us-ascii?Q?H0qqWWSKx7TNnBS0W/lsNWXZ7eviA6/tqqDfrRQ6UxW6cYXvTx8lsOz/DDRH?=
- =?us-ascii?Q?yiEMCAQna6Xt4zH8GPKO8M+ShCyofgr25XCGpzvxF6nPV6ITNsY/NXo+gbtc?=
- =?us-ascii?Q?/tZ9+uBiHoHwxf1C5H6H995JGwYoScLEh8r1sPOPvUoUswutokCK2iQg+qLc?=
- =?us-ascii?Q?n8o2Ue01KQp5Dnsw44u6h5qByIRDIyo00HBD4YacwXdGZ3zopYFvcrnC3Y8+?=
- =?us-ascii?Q?mkQviPkqYm2BiiBVg35H3cOFBJ+dchXpcIH/dvAhHLxwzWG7glMQyvWxWYLj?=
- =?us-ascii?Q?ixcbB1AJoS9663IPyYLdrdmH0pJyCqY1BhVRLIKgpDVas9fJTGrZjhAdcBZ6?=
- =?us-ascii?Q?ofNTKD8X4bVzDoWlN8EMjkTqyAGRMJG46syPcYZI+zTvB7Ba9GZcVzAJUo1A?=
- =?us-ascii?Q?Ru8bLzHfNRabjcYH8HQJCXnURtdoKYZicODnKzachP7oZph3jlElrg2ewk9r?=
- =?us-ascii?Q?/NfJPltUiMyLN+4s8cT7GQ6G31br8idgjpSb1NWkMXugjV4kw/wj8JKDn57r?=
- =?us-ascii?Q?KDJJkHf/XEURK3RqU6lPM6dQoTlI7Oc3LhW6WtF8uBkGvRKVrdhOglb788L4?=
- =?us-ascii?Q?5749uVLLio+cxLTfQ7cHAxXE4Fwc4GfbFUK8nQznC0eczYVp4/dJSvWoPAeV?=
- =?us-ascii?Q?KbMntzZRjubIOUVG6Yds1BpUlpKEFoNXOQf1s9bskwUMmVSuyX6Sa2nYadis?=
- =?us-ascii?Q?S8l0tQ5UcbyhLqmqAQOqDnL90P3BG5MW8zZKMl8imjN5CxaFa604S3WnO40?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1ab71bdc-a61b-407d-8827-08dc8f6c3706
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR01MB4221.apcprd01.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2024 07:56:52.4647
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR01MB5963
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] RISC-V: hwprobe: Add MISALIGNED_PERF key
+Content-Language: en-US
+To: Palmer Dabbelt <palmer@dabbelt.com>, jesse@rivosinc.com
+Cc: cyy@cyyself.name, Evan Green <evan@rivosinc.com>, aou@eecs.berkeley.edu,
+ ajones@ventanamicro.com, andy.chiu@sifive.com, cleger@rivosinc.com,
+ Conor Dooley <conor.dooley@microchip.com>, costa.shul@redhat.com,
+ corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
+ samitolvanen@google.com, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <mhng-16df84df-80ef-44a9-8f04-18d81b914b24@palmer-ri-x1c9>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <mhng-16df84df-80ef-44a9-8f04-18d81b914b24@palmer-ri-x1c9>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240618_005703_069388_BA6FCECB 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20240618_010036_727566_7D46CF3F 
+X-CRM114-Status: GOOD (  39.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,59 +60,203 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 06, 2024 at 06:05:30PM +0100, Conor Dooley wrote:
-> On Thu, Jun 06, 2024 at 01:32:46PM +0000, Haylen Chu wrote:
-> > Both accumulation-period and chop-period specify how the sensor
-> > measures temperature. Making these parameters up to end users brings
-> > extra unnecessary code complexity. Being configurable for each board
-> > should be enough and other thermal drivers have been doing things in
-> > this way.
-> 
-> Other systems may well have properties for this, but something being
-> done in the past doesn't mean it might be the right thing to do now.
-> I don't really buy that this is something you set to a fixed value per
-> board, but rather the use case of a particular board would factor into
-> whether or not you would want to use a shorter or longer accumulation
-> period.
+On 03/06/2024 20:05, Palmer Dabbelt wrote:
+> On Mon, 03 Jun 2024 10:57:21 PDT (-0700), Palmer Dabbelt wrote:
+>> On Wed, 29 May 2024 20:36:45 PDT (-0700), cyy@cyyself.name wrote:
+>>> On 2024/5/30 02:26, Evan Green wrote:
+>>>> RISCV_HWPROBE_KEY_CPUPERF_0 was mistakenly flagged as a bitmask in
+>>>> hwprobe_key_is_bitmask(), when in reality it was an enum value. This
+>>>> causes problems when used in conjunction with RISCV_HWPROBE_WHICH_CPUS,
+>>>> since SLOW, FAST, and EMULATED have values whose bits overlap with
+>>>> each other. If the caller asked for the set of CPUs that was SLOW or
+>>>> EMULATED, the returned set would also include CPUs that were FAST.
+>>>>
+>>>> Introduce a new hwprobe key, RISCV_HWPROBE_KEY_MISALIGNED_PERF, which
+>>>> returns the same values in response to a direct query (with no flags),
+>>>> but is properly handled as an enumerated value. As a result, SLOW,
+>>>> FAST, and EMULATED are all correctly treated as distinct values under
+>>>> the new key when queried with the WHICH_CPUS flag.
+>>>>
+>>>> Leave the old key in place to avoid disturbing applications which may
+>>>> have already come to rely on the broken behavior.
+>>>>
+>>>> Fixes: e178bf146e4b ("RISC-V: hwprobe: Introduce which-cpus flag")
+>>>> Signed-off-by: Evan Green <evan@rivosinc.com>
+>>>>
+>>>> ---
+>>>>
+>>>>
+>>>> Note: Yangyu also has a fix out for this issue at [1]. That fix is much
+>>>> tidier, but comes with the slight risk that some very broken userspace
+>>>> application may break now that FAST cpus are not included for the query
+>>>> of which cpus are SLOW or EMULATED.
+>>> Indeed. Since the value of FAST is 0b11, the SLOW and EMULATED are 0b10 and
+>>> 0b01 respectively.
+>>>
+>>> When this key is treated as a bitmask and query with
+>>> RISCV_HWPROBE_WHICH_CPUS if a CPU has a superset bitmask of the requested
+>>> value on the requested key, it will remain in the CPU mask. Otherwise, the
+>>> CPU will be clear in the CPU mask. But when a key is treated as a value, we
+>>> will just do a comparison. if it is not equal, then the CPU will be clear
+>>> in the CPU. That's why FAST cpus are included when querying with SLOW or
+>>> EMULATED with RISCV_HWPROBE_KEY_CPUPERF_0 key now.
+>>>
+>>> For me, deprecating the original hwprobe key and introducing a new key
+>>> would be a better solution than changing the behavior as my patch did.
+>> OK.  I don't have a strong feeling either way: if someone has code that
+>> tries to read this as a btimask then it'd be broken, but it would
+>> technically be following the docs.
+>>
+>> That said, we're relying on this as a pretty core userspace portability
+>> construct.  So maybe the right answer here is to just be really strict
+>> about compatibility and eat the pain when we make a mistake, just to
+>> make sure we set the right example about not breaking stuff.
+>>
+>> So unless anyone's opposed, I'll pick this up for 6.11.
+> Though a few of us were talking and it looks like it's probably best to
+> just make this extensible and put the vector stuff in here too.  So
+> something like
+>
+> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+> index df5045103e73..e74727e1b7c0 100644
+> --- a/Documentation/arch/riscv/hwprobe.rst
+> +++ b/Documentation/arch/riscv/hwprobe.rst
+> @@ -211,25 +211,30 @@ The following keys are defined:
+>        :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`, but the key was mistakenly
+>        classified as a bitmask rather than a value.
+>
+> -* :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`: An enum value describing the
+> -  performance of misaligned scalar accesses on the selected set of processors.
+> +* :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`: An set of enum values describing the
+> +  performance of misaligned accesses on the selected set of processors.
+>
+> -  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
+> +  * :c:macro: `RISCV_HWPROBE_SCALAR_MISALIGNED_MASK`: Describes the performance
+> +    of scalar misaligned accesses.
+> +
+> +  * :c:macro:`RISCV_HWPROBE_SCALAR_MISALIGNED_UNKNOWN`: The performance of misaligned
+>       accesses is unknown.
+>
+> -  * :c:macro:`RISCV_HWPROBE_MISALIGNED_EMULATED`: Misaligned accesses are
+> +  * :c:macro:`RISCV_HWPROBE_SCALAR_MISALIGNED_EMULATED`: Misaligned accesses are
+>       emulated via software, either in or below the kernel.  These accesses are
+>       always extremely slow.
+>
+> -  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned accesses are slower
+> +  * :c:macro:`RISCV_HWPROBE_SCALAR_MISALIGNED_SLOW`: Misaligned accesses are slower
+>       than equivalent byte accesses.  Misaligned accesses may be supported
+>       directly in hardware, or trapped and emulated by software.
+>
+> -  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned accesses are faster
+> +  * :c:macro:`RISCV_HWPROBE_SCALAR_MISALIGNED_FAST`: Misaligned accesses are faster
+>       than equivalent byte accesses.
+>
+> -  * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
+> +  * :c:macro:`RISCV_HWPROBE_SCALAR_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
+>       not supported at all and will generate a misaligned address fault.
+>
+> +  * :c:macro: `RISCV_HWPROBE_VECTOR_MISALIGNED_MASK`: ... vector ...
+> +
+>   * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
+>     represents the size of the Zicboz block in bytes.
+>
+> Jesse is looking at the vector misaligned stuff that's showing up on the
+> hardware, so I'll just hold off on this for a bit -- that way we can get
+> the vector stuff sorted out at the same time.
 
-Accumulation period and chop period do only affect the accuracy of its
-result, in a range about 1 Celsius degree. Changing these parameters
-does not mean much to end users, as this is only a thermal sensor and
-1 Celsius is quite good for its usage. And users could always switch to
-another configuration with a dt-overlay.
 
-> > I do not catch your idea. These values directly map to raw register
-> > configuration, which simplify the implementation a lot.
-> 
-> It should be trivial to convert them to register values in your driver.
+Can we merge this fix in 6.10-rcX? And add Jesse's patches on top of that?
 
-Okay, I will do this.
+This sounds like something we want to get fixed asap.
 
-> > > > > +    default: 3
-> > > > > +
-> > > > > +  sample-cycle-us:
-> > > > > +    description: Period between samples
-> > > > > +    default: 1000000
-> > > No constraints?
-> > 
-> > Sample cycle is more flexible because of hardware designing.
-> 
-> It quite likely has constraints, flexible or not. Is the hardware
-> capable of both 1 us and uint32_max us?
+Thanks,
 
-It should be a value between 524 and 2^24 - 1. Will document this in
-next revision.
+Alex
 
-> Thanks,
-> Conor.
 
-Best regards,
-Haylen Chu
+>>>> I wanted to get this fix out so that
+>>>> we have both as options, and can discuss. These fixes are mutually
+>>>> exclusive, don't take both.
+>>> It's better to note this strange behavior on
+>>> Documentation/arch/riscv/hwprobe.rst so users can quickly understand the
+>>> differences on the behavior of these two keys.
+>>>
+>>> The C code part looks good to me.
+>>>
+>>>> [1] https://lore.kernel.org/linux-riscv/tencent_01F8E0050FB4B11CC170C3639E43F41A1709@qq.com/
+>>>>
+>>>> ---
+>>>> Documentation/arch/riscv/hwprobe.rst | 8 ++++++--
+>>>> arch/riscv/include/asm/hwprobe.h | 2 +-
+>>>> arch/riscv/include/uapi/asm/hwprobe.h | 1 +
+>>>> arch/riscv/kernel/sys_hwprobe.c | 1 +
+>>>> 4 files changed, 9 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+>>>> index 204cd4433af5..616ee372adaf 100644
+>>>> --- a/Documentation/arch/riscv/hwprobe.rst
+>>>> +++ b/Documentation/arch/riscv/hwprobe.rst
+>>>> @@ -192,8 +192,12 @@ The following keys are defined:
+>>>> supported as defined in the RISC-V ISA manual starting from commit
+>>>> d8ab5c78c207 ("Zihintpause is ratified").
+>>>>
+>>>> -* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
+>>>> - information about the selected set of processors.
+>>>> +* :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated. Returns similar values to
+>>>> + :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`, but the key was mistakenly
+>>>> + classified as a bitmask rather than a value.
+>>>> +
+>>>> +* :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_PERF`: An enum value describing the
+>>>> + performance of misaligned scalar accesses on the selected set of processors.
+>>>>
+>>>> * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNKNOWN`: The performance of misaligned
+>>>> accesses is unknown.
+>>>> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+>>>> index 630507dff5ea..150a9877b0af 100644
+>>>> --- a/arch/riscv/include/asm/hwprobe.h
+>>>> +++ b/arch/riscv/include/asm/hwprobe.h
+>>>> @@ -8,7 +8,7 @@
+>>>>
+>>>> #include <uapi/asm/hwprobe.h>
+>>>>
+>>>> -#define RISCV_HWPROBE_MAX_KEY 6
+>>>> +#define RISCV_HWPROBE_MAX_KEY 7
+>>>>
+>>>> static inline bool riscv_hwprobe_key_is_valid(__s64 key)
+>>>> {
+>>>> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+>>>> index dda76a05420b..bc34e33fef23 100644
+>>>> --- a/arch/riscv/include/uapi/asm/hwprobe.h
+>>>> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
+>>>> @@ -68,6 +68,7 @@ struct riscv_hwprobe {
+>>>> #define RISCV_HWPROBE_MISALIGNED_UNSUPPORTED (4 << 0)
+>>>> #define RISCV_HWPROBE_MISALIGNED_MASK (7 << 0)
+>>>> #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE 6
+>>>> +#define RISCV_HWPROBE_KEY_MISALIGNED_PERF 7
+>>>> /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+>>>>
+>>>> /* Flags */
+>>>> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+>>>> index 969ef3d59dbe..c8b7d57eb55e 100644
+>>>> --- a/arch/riscv/kernel/sys_hwprobe.c
+>>>> +++ b/arch/riscv/kernel/sys_hwprobe.c
+>>>> @@ -208,6 +208,7 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+>>>> break;
+>>>>
+>>>> case RISCV_HWPROBE_KEY_CPUPERF_0:
+>>>> + case RISCV_HWPROBE_KEY_MISALIGNED_PERF:
+>>>> pair->value = hwprobe_misaligned(cpus);
+>>>> break;
+>>>>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
