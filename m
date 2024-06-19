@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B4F9C27C4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jun 2024 02:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE338C27C4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jun 2024 02:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rz4GWa8z9lmHMYZR0cqLSyEzwvt32cfF+LAMSlaIZmc=; b=FS0C8uDPuPBYoG
-	cJJEqg+nOB20zx/2qqKFR0QvxNGHWvMDlLuH8xolM+Tmf7ahXun15MJpJp8E9FsEvENEKobEfzi3y
-	t+NhwqMXBHd/EO93R6TlpZJo5p5FHsdhMfZ7kEN7SqVkcUakggZJTeZfGuQRHbm7U3TBCORja7F8m
-	ND92AWeYE35jUBGV/WfRNRXzu2/SaP7zSA4dOfRd88Z4eS2rl5iD8JpBRzoufuEckwatqIkLQVk82
-	13yHNFym9obKnD/ZWvRRp3lOdovTPxx/XWZtwWZsaChnrnq7ta0dnPccfMBQFT1MPLo4yzqxJz2/Q
-	XkWSTcR7dwj/2iEVQMyA==;
+	List-Owner; bh=47V/nMZPwhgMX1lE8sfVC5Lde7fxC85ZLdRPmPOT8ZY=; b=uxVMhcKgTvpou0
+	mwJ4inLEUyeb5MUCxt573PWRda0iVYWLoIYLc5mrKbR7RHd3ehLlYVsaXxMsiPKQ46bNgJnZkrV8T
+	Sg9kbFmFGOca9Zkfhu/3FCfuCv02LUJt/NZvqKg/KVsxDlLrI5pADdZVKQdraLyAXxW0Q5HzBCCf/
+	GWorCTmlzuzLMhvkyzfKMOMWFdjHWjp5GjN9j77+IsG57Z6uEXnaFo3tpl+jJuh9Fr3ZfkbeBpKER
+	/e3ja03o2EqPI52EfD7uzsgbeeVH7n2vJeVNb2v1FmkgUFWKhh6lVStoooPrLVAbSpUCBguFPVBF0
+	vOgeXPeV3S+oyVak3O4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJkdl-0000000H9sn-2bAq;
-	Wed, 19 Jun 2024 02:01:37 +0000
+	id 1sJke6-0000000H9yd-3TX0;
+	Wed, 19 Jun 2024 02:01:58 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJkdj-0000000H9ra-1Ndj
+	id 1sJke3-0000000H9wc-3ATC
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jun 2024 02:01:36 +0000
+	Wed, 19 Jun 2024 02:01:57 +0000
 Received: from ThinkPad-T480s.. (unknown [121.237.44.152])
-	by APP-05 (Coremail) with SMTP id zQCowACHjeX3O3JmKoWbEQ--.13480S2;
-	Wed, 19 Jun 2024 10:01:27 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowABXXwMLPHJmQYebEQ--.49976S2;
+	Wed, 19 Jun 2024 10:01:48 +0800 (CST)
 From: zhouquan@iscas.ac.cn
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -42,35 +42,35 @@ Cc: oleg@redhat.com,
 	shuah@kernel.org,
 	charlie@rivosinc.com,
 	zhouquan@iscas.ac.cn
-Subject: [RFC PATCH 1/2] riscv: Expose orig_a0 in the user_regs_struct structure
-Date: Wed, 19 Jun 2024 10:01:27 +0800
-Message-Id: <d4c7da80b72375c75836303bc744e4db9eeec218.1718693532.git.zhouquan@iscas.ac.cn>
+Subject: [RFC PATCH 2/2] riscv: selftests: Add a ptrace test to check a0 of restarted syscall
+Date: Wed, 19 Jun 2024 10:01:47 +0800
+Message-Id: <b5fbdd3417e925dbe5db4716e51ce49d21d27f2f.1718693532.git.zhouquan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1718693532.git.zhouquan@iscas.ac.cn>
 References: <cover.1718693532.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowACHjeX3O3JmKoWbEQ--.13480S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ZrW7WF4rXr4fJF4kKrWfXwb_yoW8Xw1DpF
-	Zakwn7KFWrurWvkry7ZF4DWr4UJwn8K343KrWIy34Yv3WUtF45ZrZ3Gw1qyr1fJayvqFyx
-	uFySkr98A3WDZ3JanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: zQCowABXXwMLPHJmQYebEQ--.49976S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3GrWUKryDXr1kCw45XF1DWrg_yoWxWr1Dp3
+	yfCr1kKrWxJF47ta1xur4jqF48Jws3uFW2kw10qrW5Z3yUtryaqrs2qFWDtFy7J39Fg39x
+	uFn2yay3Cr4DX3DanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUU9C14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
 	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
 	4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2Wl
-	Yx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbV
+	Yx0E2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbV
 	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7Cj
 	xVA2Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkIecxEwVAFwVW8JwCF04k20xvY0x0EwIxGrw
 	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
 	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
 	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
 	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
-	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JU6MKtUUUUU=
+	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUhXocUUUUU=
 X-Originating-IP: [121.237.44.152]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBwwNBmZyBf6gSQAAsG
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAYNBmZyGD9zLwABsv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240618_190135_796564_FF4B55CA 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20240618_190156_335572_0D7EEE5F 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,50 +89,218 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-Expose orig_a0 to userspace to ensure that users can modify
-the actual value of `a0` in the traced process through the
-ptrace(PTRACE_SETREGSET, ...) path. Since user_regs_struct is
-a subset of pt_regs, we also need to adjust the position of
-the orig_a0 field in pt_regs to achieve the correct copy.
+This test creates two processes: a tracer and a tracee. The tracer actively
+sends a SIGUSR1 signal in user mode to interrupt the read syscall being
+executed by the tracee. We will reset a0/orig_a0 and then observe the value
+of a0 held by the restarted read syscall.
+
+Compared to the test program, a more common scenario is the use of the
+exece syscall, which sends a signal in the kernel path to restart
+the syscall.
 
 Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
 ---
- arch/riscv/include/asm/ptrace.h      | 4 ++--
- arch/riscv/include/uapi/asm/ptrace.h | 2 ++
- 2 files changed, 4 insertions(+), 2 deletions(-)
+ tools/testing/selftests/riscv/Makefile        |   2 +-
+ tools/testing/selftests/riscv/abi/.gitignore  |   1 +
+ tools/testing/selftests/riscv/abi/Makefile    |  12 ++
+ .../riscv/abi/ptrace_restart_syscall.c        | 148 ++++++++++++++++++
+ 4 files changed, 162 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/riscv/abi/.gitignore
+ create mode 100644 tools/testing/selftests/riscv/abi/Makefile
+ create mode 100644 tools/testing/selftests/riscv/abi/ptrace_restart_syscall.c
 
-diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
-index b5b0adcc85c1..37f48d40ae46 100644
---- a/arch/riscv/include/asm/ptrace.h
-+++ b/arch/riscv/include/asm/ptrace.h
-@@ -45,12 +45,12 @@ struct pt_regs {
- 	unsigned long t4;
- 	unsigned long t5;
- 	unsigned long t6;
-+	/* a0 value before the syscall */
-+	unsigned long orig_a0;
- 	/* Supervisor/Machine CSRs */
- 	unsigned long status;
- 	unsigned long badaddr;
- 	unsigned long cause;
--	/* a0 value before the syscall */
--	unsigned long orig_a0;
- };
+diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
+index 7ce03d832b64..98541dc2f164 100644
+--- a/tools/testing/selftests/riscv/Makefile
++++ b/tools/testing/selftests/riscv/Makefile
+@@ -5,7 +5,7 @@
+ ARCH ?= $(shell uname -m 2>/dev/null || echo not)
  
- #define PTRACE_SYSEMU			0x1f
-diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
-index a38268b19c3d..3e37f80cb3e8 100644
---- a/arch/riscv/include/uapi/asm/ptrace.h
-+++ b/arch/riscv/include/uapi/asm/ptrace.h
-@@ -54,6 +54,8 @@ struct user_regs_struct {
- 	unsigned long t4;
- 	unsigned long t5;
- 	unsigned long t6;
-+	/* a0 value before the syscall */
-+	unsigned long orig_a0;
- };
- 
- struct __riscv_f_ext_state {
+ ifneq (,$(filter $(ARCH),riscv))
+-RISCV_SUBTARGETS ?= hwprobe vector mm sigreturn
++RISCV_SUBTARGETS ?= hwprobe vector mm sigreturn abi
+ else
+ RISCV_SUBTARGETS :=
+ endif
+diff --git a/tools/testing/selftests/riscv/abi/.gitignore b/tools/testing/selftests/riscv/abi/.gitignore
+new file mode 100644
+index 000000000000..e1e00ffb9db9
+--- /dev/null
++++ b/tools/testing/selftests/riscv/abi/.gitignore
+@@ -0,0 +1 @@
++abi
+diff --git a/tools/testing/selftests/riscv/abi/Makefile b/tools/testing/selftests/riscv/abi/Makefile
+new file mode 100644
+index 000000000000..634fa7de74e6
+--- /dev/null
++++ b/tools/testing/selftests/riscv/abi/Makefile
+@@ -0,0 +1,12 @@
++# SPDX-License-Identifier: GPL-2.0
++# Copyright (C) 2021 ARM Limited
++# Originally tools/testing/arm64/abi/Makefile
++
++CFLAGS += -I$(top_srcdir)/tools/include
++
++TEST_GEN_PROGS := ptrace_restart_syscall
++
++include ../../lib.mk
++
++$(OUTPUT)/ptrace_restart_syscall: ptrace_restart_syscall.c
++	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/abi/ptrace_restart_syscall.c b/tools/testing/selftests/riscv/abi/ptrace_restart_syscall.c
+new file mode 100644
+index 000000000000..3e25548cb95e
+--- /dev/null
++++ b/tools/testing/selftests/riscv/abi/ptrace_restart_syscall.c
+@@ -0,0 +1,148 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
++#include <fcntl.h>
++#include <signal.h>
++#include <errno.h>
++#include <sys/types.h>
++#include <sys/ptrace.h>
++#include <sys/stat.h>
++#include <sys/user.h>
++#include <sys/wait.h>
++#include <sys/uio.h>
++#include <linux/elf.h>
++#include <linux/unistd.h>
++#include <asm/ptrace.h>
++
++#include "../../kselftest_harness.h"
++
++#define ORIG_A0_AFTER_MODIFIED  0x5
++#define MODIFY_A0               0x01
++#define MODIFY_ORIG_A0          0x02
++
++#define perr_and_exit(fmt, ...) do {			\
++	char buf[256];					\
++	snprintf(buf, sizeof(buf), "%s:%d: " fmt ": %m\n",	\
++			__func__, __LINE__, ##__VA_ARGS__);	\
++	perror(buf);						\
++	exit(-1);						\
++} while (0)
++
++static inline void resume_and_wait_tracee(pid_t pid, int flag)
++{
++	int status;
++
++	if (ptrace(flag, pid, 0, 0))
++		perr_and_exit("failed to resume the tracee %d", pid);
++
++	if (waitpid(pid, &status, 0) != pid)
++		perr_and_exit("failed to wait for the tracee %d", pid);
++}
++
++static void ptrace_restart_syscall(int opt, int *result)
++{
++	int status;
++	int p[2], fd_zero;
++	pid_t pid;
++
++	struct user_regs_struct regs;
++	struct iovec iov = {
++		.iov_base = &regs,
++		.iov_len = sizeof(regs),
++	};
++
++	if (pipe(p))
++		perr_and_exit("failed to create a pipe");
++
++	fd_zero = open("/dev/zero", O_RDONLY);
++	if (fd_zero < 0)
++		perr_and_exit("failed to open /dev/zero");
++
++	pid = fork();
++	if (pid == 0) {
++		char c;
++
++		/* Mark oneself being traced */
++		if (ptrace(PTRACE_TRACEME, 0, 0, 0))
++			perr_and_exit("failed to request for tracer to trace me");
++
++		kill(getpid(), SIGSTOP);
++
++		if (read(p[0], &c, 1) != 1)
++			exit(1);
++
++		exit(0);
++	} else if (pid < 0)
++		exit(1);
++
++	if (waitpid(pid, &status, 0) != pid)
++		perr_and_exit("failed to wait for the tracee %d\n", pid);
++
++	/* Resume the tracee until the next syscall */
++	resume_and_wait_tracee(pid, PTRACE_SYSCALL);
++
++	/* Deliver a signal to interrupt the syscall */
++	kill(pid, SIGUSR1);
++
++	/* The tracee stops at syscall exit */
++	resume_and_wait_tracee(pid, PTRACE_SYSCALL);
++
++	/* Check tracee orig_a0 before syscall restart */
++	if (ptrace(PTRACE_GETREGSET, pid, NT_PRSTATUS, &iov))
++		perr_and_exit("failed to get tracee registers");
++	if (regs.orig_a0 != p[0])
++		perr_and_exit("unexpected a0");
++
++	/* Modify a0/orig_a0 for the restarted syscall */
++	switch (opt) {
++	case MODIFY_A0:
++		regs.a0 = fd_zero;
++		break;
++	case MODIFY_ORIG_A0:
++		regs.orig_a0 = fd_zero;
++		break;
++	}
++
++	if (ptrace(PTRACE_SETREGSET, pid, NT_PRSTATUS, &iov))
++		perr_and_exit("failed to set tracee registers");
++
++	/* Ignore SIGUSR1 signal */
++	resume_and_wait_tracee(pid, PTRACE_SYSCALL);
++
++	/* Stop at the entry point of the restarted syscall */
++	resume_and_wait_tracee(pid, PTRACE_SYSCALL);
++
++	/* Now, check regs.a0 of the restarted syscall */
++	if (ptrace(PTRACE_GETREGSET, pid, NT_PRSTATUS, &iov))
++		perr_and_exit("failed to get tracee registers");
++	*result = regs.a0;
++
++	/* Resume the tracee */
++	ptrace(PTRACE_CONT, pid, 0, 0);
++	if (waitpid(pid, &status, 0) != pid)
++		perr_and_exit("failed to wait for the tracee");
++}
++
++TEST(ptrace_modify_a0)
++{
++	int result;
++
++	ptrace_restart_syscall(MODIFY_A0, &result);
++
++	/* The tracer's modification of a0 cannot affect the restarted tracee */
++	EXPECT_NE(ORIG_A0_AFTER_MODIFIED, result);
++}
++
++TEST(ptrace_modify_orig_a0)
++{
++	int result;
++
++	ptrace_restart_syscall(MODIFY_ORIG_A0, &result);
++
++	/* The tracer must modify orig_a0 to actually change the tracee's a0 */
++	EXPECT_EQ(ORIG_A0_AFTER_MODIFIED, result);
++}
++
++TEST_HARNESS_MAIN
 -- 
 2.34.1
 
