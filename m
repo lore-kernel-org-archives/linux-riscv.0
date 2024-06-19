@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE338C27C4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jun 2024 02:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 084AAC27C4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jun 2024 02:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=47V/nMZPwhgMX1lE8sfVC5Lde7fxC85ZLdRPmPOT8ZY=; b=uxVMhcKgTvpou0
-	mwJ4inLEUyeb5MUCxt573PWRda0iVYWLoIYLc5mrKbR7RHd3ehLlYVsaXxMsiPKQ46bNgJnZkrV8T
-	Sg9kbFmFGOca9Zkfhu/3FCfuCv02LUJt/NZvqKg/KVsxDlLrI5pADdZVKQdraLyAXxW0Q5HzBCCf/
-	GWorCTmlzuzLMhvkyzfKMOMWFdjHWjp5GjN9j77+IsG57Z6uEXnaFo3tpl+jJuh9Fr3ZfkbeBpKER
-	/e3ja03o2EqPI52EfD7uzsgbeeVH7n2vJeVNb2v1FmkgUFWKhh6lVStoooPrLVAbSpUCBguFPVBF0
-	vOgeXPeV3S+oyVak3O4A==;
+	List-Owner; bh=uK0N//7If3E4Yt6i2bWdWguhR6a/Das8hw1/k3holgM=; b=DWZWK97WX64RPm
+	M8XN0C+5mLLaTu+X4kgAXTIHvxiXNykLZ98XjVYYWAlDXAb7uNNOcZ6DG+JiQqYsCFZoA75toDf37
+	GXwgtcinvbVj2xd1NAyG+JIMAqXPXG5CHixa54NeVsklCgO/8QiyndfTAPEjdi7KiHCvW9SFSK4u2
+	JA66u1xnwoFA0l/7BM2ReYsPxHZx1GZqMeYp/w0PUvz7XEF5tktSTPw7o9tLBcB8esojCW3ncWkjY
+	Rp0uDFXqnncDeG9+uG5d28Zmk3mY094l8ErlUOPtLG7VK4bngTYVv1fdTHAz99gb3Zkik0ORMh1OU
+	Xc0epHqbdyvD479I5OWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJke6-0000000H9yd-3TX0;
-	Wed, 19 Jun 2024 02:01:58 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1sJl08-0000000HBrU-194y;
+	Wed, 19 Jun 2024 02:24:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJke3-0000000H9wc-3ATC
-	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jun 2024 02:01:57 +0000
-Received: from ThinkPad-T480s.. (unknown [121.237.44.152])
-	by APP-05 (Coremail) with SMTP id zQCowABXXwMLPHJmQYebEQ--.49976S2;
-	Wed, 19 Jun 2024 10:01:48 +0800 (CST)
-From: zhouquan@iscas.ac.cn
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Cc: oleg@redhat.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	andy.chiu@sifive.com,
-	shuah@kernel.org,
-	charlie@rivosinc.com,
-	zhouquan@iscas.ac.cn
-Subject: [RFC PATCH 2/2] riscv: selftests: Add a ptrace test to check a0 of restarted syscall
-Date: Wed, 19 Jun 2024 10:01:47 +0800
-Message-Id: <b5fbdd3417e925dbe5db4716e51ce49d21d27f2f.1718693532.git.zhouquan@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1718693532.git.zhouquan@iscas.ac.cn>
-References: <cover.1718693532.git.zhouquan@iscas.ac.cn>
+	id 1sJl05-0000000HBqu-1rJF;
+	Wed, 19 Jun 2024 02:24:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CB3D9619FE;
+	Wed, 19 Jun 2024 02:24:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FB2BC4AF1D;
+	Wed, 19 Jun 2024 02:24:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1718763879;
+	bh=YdTiG/CZB3kW5hJZRirxPSwhHLjUr7Zwx1Rs51gKz1Q=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=OvluqBkJzPPPIIgHv9DmTCULgSEsCFZT9e/9wAJkmufU1GmWwfkHPkwQLGl43GwKV
+	 C3f4gs+NOOoJGVKBXbcZXqC1HzpCD3KgotUGAvKTQ9umefwIxKlWksRiV4dDV4mlPY
+	 SRlhqWB/XOrzZoqeOoeFJxTDuv1ID+QP3cuV2Tg0dpD/1/YNKOPIfmAos0yE7BPXJ5
+	 18RyX9IWhRn8BZHlodnqVgcOy3soSjA4ZfYk90hfFJWaiAG9zdXxtekvFWy+qe/IIE
+	 61HJR6kXnwFcEigJQIjp/rlUsHwKR8SEcmXyre65taJwys5gIxSSaxRfbMmnbFffSG
+	 UrN3xGe8GuMNg==
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-363826fbcdeso112709f8f.0;
+        Tue, 18 Jun 2024 19:24:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWIOYThII7NxoLPrPMCgvlt7vOEr8uAAcFFWT/Xv6T/ogYnNUzGbUNlRobml5gG/1NNezKf7CDtefKKxSPrYBlKUx8hAsH/Vhlto7UdX3kIq1aZVPFe0bIdXgqKE6/DwUpFdi8Fxyv1PxEla5aciyV9+TEwEpQ=
+X-Gm-Message-State: AOJu0YzzOPaRgC8CrpNVOhh4vOwISh8GMoE0PKpxPrNrjyvgEbQY7S80
+	xYawUQIq3fgVC2ALebdPkSIrZVtPir/okhraPYCTTuoY0hfVQvhtELDF9Kh9G+T8xwp9Zwb7BZx
+	e8F1ieYjwO8X7LMNAKPVrM8TWM5E=
+X-Google-Smtp-Source: AGHT+IEQ6lBqSF/SAuTEXT3/C0b8JrIn+1+eVBZa2U4YKfxPYRohzHDTALEnDx9kkLU3Jijf3mBE/Na4m9dHAT/8Vqo=
+X-Received: by 2002:a50:c35a:0:b0:57c:4db6:c0fc with SMTP id
+ 4fb4d7f45d1cf-57d07e7acdbmr508589a12.10.1718763857174; Tue, 18 Jun 2024
+ 19:24:17 -0700 (PDT)
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowABXXwMLPHJmQYebEQ--.49976S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3GrWUKryDXr1kCw45XF1DWrg_yoWxWr1Dp3
-	yfCr1kKrWxJF47ta1xur4jqF48Jws3uFW2kw10qrW5Z3yUtryaqrs2qFWDtFy7J39Fg39x
-	uFn2yay3Cr4DX3DanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9C14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
-	4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2Wl
-	Yx0E2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbV
-	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7Cj
-	xVA2Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkIecxEwVAFwVW8JwCF04k20xvY0x0EwIxGrw
-	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
-	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
-	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
-	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
-	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUhXocUUUUU=
-X-Originating-IP: [121.237.44.152]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAYNBmZyGD9zLwABsv
+References: <cover.1718268003.git.haibo1.xu@intel.com> <f1f96377b8ecd6e3183f28abf5c9ac21cb9855ea.1718268003.git.haibo1.xu@intel.com>
+ <CAJve8o=8thBhU3NyTaS6sE9rQ1VR_Qf4O8FkAxpmp1q8P-6VaQ@mail.gmail.com>
+ <20240618151820.GA2354@willie-the-truck> <CAJve8o=-bZhQS289jwxG=Aq2BOXk5OzdgPKT=nFE9yw_HYYnQQ@mail.gmail.com>
+In-Reply-To: <CAJve8o=-bZhQS289jwxG=Aq2BOXk5OzdgPKT=nFE9yw_HYYnQQ@mail.gmail.com>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Wed, 19 Jun 2024 10:24:05 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H6qLrQMVEtGgy7VM_cOh+2HytQEZ-9aZc4Gist-rhNZ0Q@mail.gmail.com>
+Message-ID: <CAAhV-H6qLrQMVEtGgy7VM_cOh+2HytQEZ-9aZc4Gist-rhNZ0Q@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] ACPI: NUMA: change the ACPI_NUMA to a hidden option
+To: Haibo Xu <xiaobo55x@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240618_190156_335572_0D7EEE5F 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20240618_192441_706220_BC6635AC 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,230 +76,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Alison Schofield <alison.schofield@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Jonathan Cameron <Jonathan.Cameron@huawei.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Zong Li <zong.li@sifive.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Dave Jiang <dave.jiang@intel.com>, Haibo Xu <haibo1.xu@intel.com>, Baoquan He <bhe@redhat.com>, Marc Zyngier <maz@kernel.org>, linux-riscv@lists.infradead.org, Robert Richter <rrichter@amd.com>, linux-acpi@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>, James Morse <james.morse@arm.com>, Dan Williams <dan.j.williams@intel.com>, Len Brown <lenb@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, arnd@arndb.de, Charlie Jenkins <charlie@rivosinc.com>, Chen Jiahao <chenjiahao16@huawei.com>, Yuntao Wang <ytcoode@gmail.com>, loongarch@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org, Tony Luck <tony.luck@intel.com>, Zhao Ke <ke.zhao@shingroup.cn>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Russell King \(Oracle\)" <rmk+kernel@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Andy Chiu <andy.chiu@sifive.com>, Andrew Morton <akpm@linux-foundation.org>, ajones@ventanamicro.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Quan Zhou <zhouquan@iscas.ac.cn>
-
-This test creates two processes: a tracer and a tracee. The tracer actively
-sends a SIGUSR1 signal in user mode to interrupt the read syscall being
-executed by the tracee. We will reset a0/orig_a0 and then observe the value
-of a0 held by the restarted read syscall.
-
-Compared to the test program, a more common scenario is the use of the
-exece syscall, which sends a signal in the kernel path to restart
-the syscall.
-
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
----
- tools/testing/selftests/riscv/Makefile        |   2 +-
- tools/testing/selftests/riscv/abi/.gitignore  |   1 +
- tools/testing/selftests/riscv/abi/Makefile    |  12 ++
- .../riscv/abi/ptrace_restart_syscall.c        | 148 ++++++++++++++++++
- 4 files changed, 162 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/riscv/abi/.gitignore
- create mode 100644 tools/testing/selftests/riscv/abi/Makefile
- create mode 100644 tools/testing/selftests/riscv/abi/ptrace_restart_syscall.c
-
-diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
-index 7ce03d832b64..98541dc2f164 100644
---- a/tools/testing/selftests/riscv/Makefile
-+++ b/tools/testing/selftests/riscv/Makefile
-@@ -5,7 +5,7 @@
- ARCH ?= $(shell uname -m 2>/dev/null || echo not)
- 
- ifneq (,$(filter $(ARCH),riscv))
--RISCV_SUBTARGETS ?= hwprobe vector mm sigreturn
-+RISCV_SUBTARGETS ?= hwprobe vector mm sigreturn abi
- else
- RISCV_SUBTARGETS :=
- endif
-diff --git a/tools/testing/selftests/riscv/abi/.gitignore b/tools/testing/selftests/riscv/abi/.gitignore
-new file mode 100644
-index 000000000000..e1e00ffb9db9
---- /dev/null
-+++ b/tools/testing/selftests/riscv/abi/.gitignore
-@@ -0,0 +1 @@
-+abi
-diff --git a/tools/testing/selftests/riscv/abi/Makefile b/tools/testing/selftests/riscv/abi/Makefile
-new file mode 100644
-index 000000000000..634fa7de74e6
---- /dev/null
-+++ b/tools/testing/selftests/riscv/abi/Makefile
-@@ -0,0 +1,12 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# Copyright (C) 2021 ARM Limited
-+# Originally tools/testing/arm64/abi/Makefile
-+
-+CFLAGS += -I$(top_srcdir)/tools/include
-+
-+TEST_GEN_PROGS := ptrace_restart_syscall
-+
-+include ../../lib.mk
-+
-+$(OUTPUT)/ptrace_restart_syscall: ptrace_restart_syscall.c
-+	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-diff --git a/tools/testing/selftests/riscv/abi/ptrace_restart_syscall.c b/tools/testing/selftests/riscv/abi/ptrace_restart_syscall.c
-new file mode 100644
-index 000000000000..3e25548cb95e
---- /dev/null
-+++ b/tools/testing/selftests/riscv/abi/ptrace_restart_syscall.c
-@@ -0,0 +1,148 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <unistd.h>
-+#include <fcntl.h>
-+#include <signal.h>
-+#include <errno.h>
-+#include <sys/types.h>
-+#include <sys/ptrace.h>
-+#include <sys/stat.h>
-+#include <sys/user.h>
-+#include <sys/wait.h>
-+#include <sys/uio.h>
-+#include <linux/elf.h>
-+#include <linux/unistd.h>
-+#include <asm/ptrace.h>
-+
-+#include "../../kselftest_harness.h"
-+
-+#define ORIG_A0_AFTER_MODIFIED  0x5
-+#define MODIFY_A0               0x01
-+#define MODIFY_ORIG_A0          0x02
-+
-+#define perr_and_exit(fmt, ...) do {			\
-+	char buf[256];					\
-+	snprintf(buf, sizeof(buf), "%s:%d: " fmt ": %m\n",	\
-+			__func__, __LINE__, ##__VA_ARGS__);	\
-+	perror(buf);						\
-+	exit(-1);						\
-+} while (0)
-+
-+static inline void resume_and_wait_tracee(pid_t pid, int flag)
-+{
-+	int status;
-+
-+	if (ptrace(flag, pid, 0, 0))
-+		perr_and_exit("failed to resume the tracee %d", pid);
-+
-+	if (waitpid(pid, &status, 0) != pid)
-+		perr_and_exit("failed to wait for the tracee %d", pid);
-+}
-+
-+static void ptrace_restart_syscall(int opt, int *result)
-+{
-+	int status;
-+	int p[2], fd_zero;
-+	pid_t pid;
-+
-+	struct user_regs_struct regs;
-+	struct iovec iov = {
-+		.iov_base = &regs,
-+		.iov_len = sizeof(regs),
-+	};
-+
-+	if (pipe(p))
-+		perr_and_exit("failed to create a pipe");
-+
-+	fd_zero = open("/dev/zero", O_RDONLY);
-+	if (fd_zero < 0)
-+		perr_and_exit("failed to open /dev/zero");
-+
-+	pid = fork();
-+	if (pid == 0) {
-+		char c;
-+
-+		/* Mark oneself being traced */
-+		if (ptrace(PTRACE_TRACEME, 0, 0, 0))
-+			perr_and_exit("failed to request for tracer to trace me");
-+
-+		kill(getpid(), SIGSTOP);
-+
-+		if (read(p[0], &c, 1) != 1)
-+			exit(1);
-+
-+		exit(0);
-+	} else if (pid < 0)
-+		exit(1);
-+
-+	if (waitpid(pid, &status, 0) != pid)
-+		perr_and_exit("failed to wait for the tracee %d\n", pid);
-+
-+	/* Resume the tracee until the next syscall */
-+	resume_and_wait_tracee(pid, PTRACE_SYSCALL);
-+
-+	/* Deliver a signal to interrupt the syscall */
-+	kill(pid, SIGUSR1);
-+
-+	/* The tracee stops at syscall exit */
-+	resume_and_wait_tracee(pid, PTRACE_SYSCALL);
-+
-+	/* Check tracee orig_a0 before syscall restart */
-+	if (ptrace(PTRACE_GETREGSET, pid, NT_PRSTATUS, &iov))
-+		perr_and_exit("failed to get tracee registers");
-+	if (regs.orig_a0 != p[0])
-+		perr_and_exit("unexpected a0");
-+
-+	/* Modify a0/orig_a0 for the restarted syscall */
-+	switch (opt) {
-+	case MODIFY_A0:
-+		regs.a0 = fd_zero;
-+		break;
-+	case MODIFY_ORIG_A0:
-+		regs.orig_a0 = fd_zero;
-+		break;
-+	}
-+
-+	if (ptrace(PTRACE_SETREGSET, pid, NT_PRSTATUS, &iov))
-+		perr_and_exit("failed to set tracee registers");
-+
-+	/* Ignore SIGUSR1 signal */
-+	resume_and_wait_tracee(pid, PTRACE_SYSCALL);
-+
-+	/* Stop at the entry point of the restarted syscall */
-+	resume_and_wait_tracee(pid, PTRACE_SYSCALL);
-+
-+	/* Now, check regs.a0 of the restarted syscall */
-+	if (ptrace(PTRACE_GETREGSET, pid, NT_PRSTATUS, &iov))
-+		perr_and_exit("failed to get tracee registers");
-+	*result = regs.a0;
-+
-+	/* Resume the tracee */
-+	ptrace(PTRACE_CONT, pid, 0, 0);
-+	if (waitpid(pid, &status, 0) != pid)
-+		perr_and_exit("failed to wait for the tracee");
-+}
-+
-+TEST(ptrace_modify_a0)
-+{
-+	int result;
-+
-+	ptrace_restart_syscall(MODIFY_A0, &result);
-+
-+	/* The tracer's modification of a0 cannot affect the restarted tracee */
-+	EXPECT_NE(ORIG_A0_AFTER_MODIFIED, result);
-+}
-+
-+TEST(ptrace_modify_orig_a0)
-+{
-+	int result;
-+
-+	ptrace_restart_syscall(MODIFY_ORIG_A0, &result);
-+
-+	/* The tracer must modify orig_a0 to actually change the tracee's a0 */
-+	EXPECT_EQ(ORIG_A0_AFTER_MODIFIED, result);
-+}
-+
-+TEST_HARNESS_MAIN
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdW4gMTksIDIwMjQgYXQgOToxOOKAr0FNIEhhaWJvIFh1IDx4aWFvYm81NXhAZ21h
+aWwuY29tPiB3cm90ZToKPgo+IE9uIFR1ZSwgSnVuIDE4LCAyMDI0IGF0IDExOjE44oCvUE0gV2ls
+bCBEZWFjb24gPHdpbGxAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gT24gTW9uLCBKdW4gMTcs
+IDIwMjQgYXQgMDk6MzQ6MThQTSArMDgwMCwgSGFpYm8gWHUgd3JvdGU6Cj4gPiA+IEBDYXRhbGlu
+IE1hcmluYXMgQEh1YWNhaSBDaGVuCj4gPiA+Cj4gPiA+IENvdWxkIHlvdSBwbGVhc2UgaGF2ZSBh
+IGxvb2sgYXQgdGhpcyBwYXRjaCBmb3IgdGhlIEFDUElfTlVNQSBjb25maWcgb24KPiA+ID4gQVJN
+NjQgYW5kIExPT05HQVJDSCByZXNwZWN0aXZlbHkuCj4gPiA+Cj4gPiA+IFRoYW5rcyEKPiA+ID4K
+PiA+ID4gT24gVGh1LCBKdW4gMTMsIDIwMjQgYXQgNDozN+KAr1BNIEhhaWJvIFh1IDxoYWlibzEu
+eHVAaW50ZWwuY29tPiB3cm90ZToKPiA+ID4gPgo+ID4gPiA+IHg4Ni9hcm02NC9sb29uZ2FyY2gg
+d291bGQgc2VsZWN0IEFDUElfTlVNQSBieSBkZWZhdWx0IGFuZCByaXNjdgo+ID4gPiA+IHdvdWxk
+IGRvIHRoZSBzYW1lIHRoaW5nLCBzbyBjaGFuZ2UgaXQgdG8gYSBoaWRkZW4gb3B0aW9uIGFuZCB0
+aGUKPiA+ID4gPiBzZWxlY3Qgc3RhdGVtZW50cyBleGNlcHQgZm9yIHRoZSBYODZfNjRfQUNQSV9O
+VU1BIGNhbiBhbHNvIGdvIGF3YXkuCj4gPiA+ID4KPiA+ID4gPiBTdWdnZXN0ZWQtYnk6IEFybmQg
+QmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+Cj4gPiA+ID4gU3VnZ2VzdGVkLWJ5OiBTdW5pbCBWIEwg
+PHN1bmlsdmxAdmVudGFuYW1pY3JvLmNvbT4KPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBIYWlibyBY
+dSA8aGFpYm8xLnh1QGludGVsLmNvbT4KPiA+ID4gPiBSZXZpZXdlZC1ieTogU3VuaWwgViBMIDxz
+dW5pbHZsQHZlbnRhbmFtaWNyby5jb20+Cj4gPiA+ID4gLS0tCj4gPiA+ID4gIGFyY2gvYXJtNjQv
+S2NvbmZpZyAgICAgICAgfCAxIC0KPiA+ID4gPiAgYXJjaC9sb29uZ2FyY2gvS2NvbmZpZyAgICB8
+IDEgLQo+ID4gPiA+ICBkcml2ZXJzL2FjcGkvbnVtYS9LY29uZmlnIHwgNSArLS0tLQo+ID4gPiA+
+ICAzIGZpbGVzIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCA2IGRlbGV0aW9ucygtKQo+ID4KPiA+
+IFRoaXMgbG9va3MgZmluZSBmcm9tIGFuIGFybTY0IHBlcnNwZWN0aXZlOgo+ID4KPiA+IEFja2Vk
+LWJ5OiBXaWxsIERlYWNvbiA8d2lsbEBrZXJuZWwub3JnPgpMb29rcyBmaW5lIGZvciBMb29uZ0Fy
+Y2g6CgpBY2tlZC1ieTogSHVhY2FpIENoZW4gPGNoZW5odWFjYWlAbG9vbmdzb24uY24+Cj4gPgo+
+Cj4gVGhhbmsgeW91LCBXaWxsIQo+Cj4gPiBXaWxsCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
