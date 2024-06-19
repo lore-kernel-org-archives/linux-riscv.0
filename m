@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19269C2BA1A
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jun 2024 21:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97874C27C53
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jun 2024 23:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1Vj/g6zfiSPNDgW+N1VCo3HuRqYiU5+104qZ3WEsaHk=; b=ogddSGG40fU+GJ
-	IyvyktA31CrMmvjafY5xufIjE+t3IremGHllendceriVJvh1uP89XNBAzNq7CboaumUJ/StidjrcO
-	aJJsovpNyN6eoDR7m2IESE1Sahqi6vDDBYrEd1qU5/pWe/wtqzY9D5vwXI0rQhZd4iBXcWKjHC/wP
-	ziN/sKRohfw/uANK0DCYOz6AjdM21//JMr1xn3TOJQMD6F681xz/faqxb7hqCKNE7L9qYqcr/pJXB
-	h1DtMg7xt6z3H3y+/2rVfaRPBeRFyzzfy2JxxS/1dVZqOjeOp0RlkPdhp17WpuqWMGKd/gcLL72rJ
-	+loOUZ32Fn+TPlob89Qg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NDfqk7w19CzlRs8e0sA8x2YA/panRvjIGznoKs3OAag=; b=lKs8LfUp2K8O4V
+	+oWBc8BBOaetBLQ+/+If4S97ZzFxoHiVj8B3Djk5+PVSQ3ZbriGVwO7saE3LO8PKXbWOI1WHm1ueJ
+	t14osgGIA61WULxdls4TAbZsJdOcPHJzUaj9uPhTBFDbkqSSC2uClU0YOI51KQNmmCikbv7ElgjE3
+	8PY2cpWAtGoEzXHOqMLS1bF/zEkHNCBX6PiCsdyRiaNhX1yUH/xvymeZIhuI/oekIPgK+yKoQpV0E
+	ncF1TgMtZJdAhetLoE176wmysQfL/Xl0T/HCZ6tj42YLmYd6B7qE+q/YcOROHpjGQ2wkfFF0n+EO5
+	Vnb1LztsIXH+UPlnAmCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sK39I-00000002o8C-0AZ2;
-	Wed, 19 Jun 2024 21:47:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sK4KF-00000002yBu-37Gt;
+	Wed, 19 Jun 2024 23:02:47 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sK39E-00000002o6c-1Dv2;
-	Wed, 19 Jun 2024 21:47:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 56C3C61FFF;
-	Wed, 19 Jun 2024 21:47:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECD0BC2BBFC;
-	Wed, 19 Jun 2024 21:47:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718833639;
-	bh=3fzkEaKVOM0rPfJQM/UHilxDpBmn0DVx7ju0tzyEiz8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=LXuPV0mIsBj2qUfpSxvieqd06Fz6R5VdBEik7h7WormVirKGrCPB2ZUVJZNgKOXZA
-	 WTcfhM3u2a3vjFG6BmIZTXy9j7E25BAIAvkt80G6FC+wu7cAhi8ltsLTAl1Bmi0NJt
-	 CQ9NNWHxXODJsY9JrLmUmdJSpPHPgiLPMB42YvNFrzGVS8cHVSGAoIhfGwMlO4tf4a
-	 YO3aKsG5EFsGmqB4QVPVdD09eSEErHDASmB2N1CtgIO3JhDBgy+M/gWrLmA3q6rv0N
-	 eByLm+/iLxS6CsbuPHP0NcCRlAc4avSe05qczj4RiEOYtG/YNEd7WVJZ1A+quYOUTx
-	 yYoPy/jOLBfMw==
-From: Kees Cook <kees@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Kees Cook <kees@kernel.org>,
-	Yuntao Liu <liuyuntao12@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Leonardo Bras <leobras@redhat.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
-	linux-kernel@vger.kernel.org,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] randomize_kstack: Remove non-functional per-arch entropy filtering
-Date: Wed, 19 Jun 2024 14:47:15 -0700
-Message-Id: <20240619214711.work.953-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	id 1sK4K6-00000002y6Z-35RX
+	for linux-riscv@lists.infradead.org;
+	Wed, 19 Jun 2024 23:02:45 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2c7cd2f077fso54728a91.2
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Jun 2024 16:02:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1718838153; x=1719442953; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0dWkQUm9OfoeajTLTENIn0KJlC31Px5cJJWI4W24MQ0=;
+        b=RUuEw66iH1o91t2FVdnhamiFYoamOdhux39zo5ACWLCOlvFD5r+bBMxNvLrr6zAR0B
+         LXKXfnfCuJrqSqP7t04EpnPTvTEY5yCxRtWstOUMe/8LM5j90g9FOP6AOQWhLi2mf4dr
+         6jUz3JKRWwYyinXZDBfhokPqg31j5D/hSnSpRtOrzsZcNOCYrJ5Zk51fJWEwnWxy/TDY
+         XMrblNyGb4wHSH3QvNh5sHVLMdOIDw560g8OYXPX1HVhMRFFSyG45CRJx+qwpS2eptwY
+         wPF1bsNQ2Djlv1F6HNTQRZZzcUlKQB++SlSxcMb07dvGdpy1NKMDyrGFp9wnlOeF8LUa
+         svkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718838153; x=1719442953;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0dWkQUm9OfoeajTLTENIn0KJlC31Px5cJJWI4W24MQ0=;
+        b=dZq2kvufI/72grPoghQ8btH7o5L1qyxOeYdcTXaewzUu8vryxPdkaPwqH7tGKfaDtd
+         c21WnsEECwQpiuGkHcNgbSl1p6kyCmgiJRm7e5502wvomFEZy2R4tobfP2FrqwBfTQfx
+         cFagKOrAB44GUfNb8pKo9itzbq337Hb9/vCFyC5WR9iqYxOEw/XhBQKw4M0l1LAnJzRG
+         IBSWHuR/7TgapCj8wOyw021r4E3QNPTlE56qjOHgooVQHFEls65aSdlKEq0wcdLf0VfP
+         xDTQq3H80PYqoN/dVw6zFKWH04VLl92SYCrRt5JFoqeDQEAAAjYwQ0p41I9j6hBR7eY1
+         cXow==
+X-Forwarded-Encrypted: i=1; AJvYcCVFXQ0JP6KhzqFslfKazhSX3Dtq4yoQd8k0VE5kKrr0fE0sr2/SS46zp2nfc1QAoq03wlvoLRQqg4/UNdsNv5Ph9OAwMHs6euE+cxU3CWa5
+X-Gm-Message-State: AOJu0YyzMBD9NlUKxbUeUtKStvhRpcvwm9mklcZ/U0f1ZY9pIKj5geQF
+	3lhnp2RcI3+FtRGTZuGnrmUBfFHhHNXYcozb8RwM79pRYT3kBi8ekeHt1+ajq0n1SvYUY96w8rS
+	6Byf9zq9TQzX2hyhz3Qp6flObFerrUN1FEbOR
+X-Google-Smtp-Source: AGHT+IFp9XjlaNwKpDcHheqgWJaXZAWTOxzQ7d7NnVWmLR8GKXgj3RDZPizKzrUy0sHdB8foZjeJ62eKyxCGWbss+Ro=
+X-Received: by 2002:a17:90b:3113:b0:2c4:cd15:3e4b with SMTP id
+ 98e67ed59e1d1-2c7b5db2a79mr3640661a91.4.1718838152744; Wed, 19 Jun 2024
+ 16:02:32 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5074; i=kees@kernel.org; h=from:subject:message-id; bh=3fzkEaKVOM0rPfJQM/UHilxDpBmn0DVx7ju0tzyEiz8=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBmc1HjQzLtUraLFY0fw8Lpwy7N4xRnsdRhxQd/8 4zvmodGt6aJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCZnNR4wAKCRCJcvTf3G3A JqdID/4gaYRTL6XxwSJgN0Ke28oaRPsAsFVq9Qopz5AkOGog7U02ED6us24dYtFeDM1Jd3D2YRG Xm5Mw6A+GTYv9xIie6yTzBrhFPaDd2iTQlo7LUmvfBBHbWtHZwg+3+aVFuGkzl+y6FXeyPhrEuL VJt8i+n5Jik8P6oDknx/GvrASYcgFi4oQbocJz4GeLwU5r1nykAzm0HNLnOIoW6cFDYXDYDqZYN OA99ZSEo37ZzyDVXRJM8T3AK5gzROfH+iLIu4S9EzmRTGZURfexwO8l+tPmLpUOqDs34c3NswTC NsHeJeZkWxGjZ8YCQXczZvgpQNOfCX7WSGWGqu9u0g5RiSKc14TMWVwa1eE3LATdIpTQqaLWXvu v6XKuf4EIxC81nbImXRM9AasBVWbSnOEGTz2MOgSukBvnwZSw1PNL0+wz7iT8vm8Qn8uwVkGtIc E1UNMIZYfmTdEe1oy58MUbpsl/kt2LoMw/zRX4iPgAwrdCIXBHWeutPbGyomypJAglLjv8hezmR 9sfkf+C4MrIqKpPYoEK82uhMsMZvT9jrL9UaUMgTQgC1hMKcs5xe5g0av7lc9Bnrs6eB0GWCAaL kEiDuXB19XmIj6NHXMaPErMRZFetU9cbFWU0qvguvN3e7xJ3nqM8DUBXqIGb4q5IxLMnUZjFbAP YBeQwwWVgzlfJ
- +A==
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+References: <20240616170553.2832-1-jszhang@kernel.org> <20240616170553.2832-3-jszhang@kernel.org>
+In-Reply-To: <20240616170553.2832-3-jszhang@kernel.org>
+From: Cyril Bur <cyrilbur@tenstorrent.com>
+Date: Thu, 20 Jun 2024 09:02:20 +1000
+Message-ID: <CANtDSirgLW2_QCOO7kLLotONcgnYC_mHOxW3=-2d+FJ3FfBduQ@mail.gmail.com>
+Subject: Re: [PATCH 2/6] riscv: avoid corrupting the RAS
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel.holland@sifive.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240619_144720_690515_7950B89C 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20240619_160238_983712_8D86B45B 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,123 +86,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-An unintended consequence of commit 9c573cd31343 ("randomize_kstack:
-Improve entropy diffusion") was that the per-architecture entropy size
-filtering reduced how many bits were being added to the mix, rather than
-how many bits were being used during the offsetting. All architectures
-fell back to the existing default of 0x3FF (10 bits), which will consume
-at most 1KiB of stack space. It seems that this is working just fine,
-so let's avoid the confusion and update everything to use the default.
-
-The prior intent of the per-architecture limits were:
-
-  arm64: capped at 0x1FF (9 bits), 5 bits effective
-  powerpc: uncapped (10 bits), 6 or 7 bits effective
-  riscv: uncapped (10 bits), 6 bits effective
-  x86: capped at 0xFF (8 bits), 5 (x86_64) or 6 (ia32) bits effective
-  s390: capped at 0xFF (8 bits), undocumented effective entropy
-
-Current discussion has led to just dropping the original per-architecture
-filters. The additional entropy appears to be safe for arm64, x86,
-and s390. Quoting Arnd, "There is no point pretending that 15.75KB is
-somehow safe to use while 15.00KB is not."
-
-Co-developed-by: Yuntao Liu <liuyuntao12@huawei.com>
-Signed-off-by: Yuntao Liu <liuyuntao12@huawei.com>
-Fixes: 9c573cd31343 ("randomize_kstack: Improve entropy diffusion")
-Link: https://lore.kernel.org/r/20240617133721.377540-1-liuyuntao12@huawei.com
-Signed-off-by: Kees Cook <kees@kernel.org>
----
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Mark Rutland <mark.rutland@arm.com>
----
- arch/arm64/kernel/syscall.c          | 16 +++++++---------
- arch/s390/include/asm/entry-common.h |  2 +-
- arch/x86/include/asm/entry-common.h  | 15 ++++++---------
- 3 files changed, 14 insertions(+), 19 deletions(-)
-
-diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
-index ad198262b981..7230f6e20ab8 100644
---- a/arch/arm64/kernel/syscall.c
-+++ b/arch/arm64/kernel/syscall.c
-@@ -53,17 +53,15 @@ static void invoke_syscall(struct pt_regs *regs, unsigned int scno,
- 	syscall_set_return_value(current, regs, 0, ret);
- 
- 	/*
--	 * Ultimately, this value will get limited by KSTACK_OFFSET_MAX(),
--	 * but not enough for arm64 stack utilization comfort. To keep
--	 * reasonable stack head room, reduce the maximum offset to 9 bits.
-+	 * This value will get limited by KSTACK_OFFSET_MAX(), which is 10
-+	 * bits. The actual entropy will be further reduced by the compiler
-+	 * when applying stack alignment constraints: the AAPCS mandates a
-+	 * 16-byte aligned SP at function boundaries, which will remove the
-+	 * 4 low bits from any entropy chosen here.
- 	 *
--	 * The actual entropy will be further reduced by the compiler when
--	 * applying stack alignment constraints: the AAPCS mandates a
--	 * 16-byte (i.e. 4-bit) aligned SP at function boundaries.
--	 *
--	 * The resulting 5 bits of entropy is seen in SP[8:4].
-+	 * The resulting 6 bits of entropy is seen in SP[9:4].
- 	 */
--	choose_random_kstack_offset(get_random_u16() & 0x1FF);
-+	choose_random_kstack_offset(get_random_u16());
- }
- 
- static inline bool has_syscall_work(unsigned long flags)
-diff --git a/arch/s390/include/asm/entry-common.h b/arch/s390/include/asm/entry-common.h
-index 7f5004065e8a..35555c944630 100644
---- a/arch/s390/include/asm/entry-common.h
-+++ b/arch/s390/include/asm/entry-common.h
-@@ -54,7 +54,7 @@ static __always_inline void arch_exit_to_user_mode(void)
- static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
- 						  unsigned long ti_work)
- {
--	choose_random_kstack_offset(get_tod_clock_fast() & 0xff);
-+	choose_random_kstack_offset(get_tod_clock_fast());
- }
- 
- #define arch_exit_to_user_mode_prepare arch_exit_to_user_mode_prepare
-diff --git a/arch/x86/include/asm/entry-common.h b/arch/x86/include/asm/entry-common.h
-index 7e523bb3d2d3..fb2809b20b0a 100644
---- a/arch/x86/include/asm/entry-common.h
-+++ b/arch/x86/include/asm/entry-common.h
-@@ -73,19 +73,16 @@ static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
- #endif
- 
- 	/*
--	 * Ultimately, this value will get limited by KSTACK_OFFSET_MAX(),
--	 * but not enough for x86 stack utilization comfort. To keep
--	 * reasonable stack head room, reduce the maximum offset to 8 bits.
--	 *
--	 * The actual entropy will be further reduced by the compiler when
--	 * applying stack alignment constraints (see cc_stack_align4/8 in
-+	 * This value will get limited by KSTACK_OFFSET_MAX(), which is 10
-+	 * bits. The actual entropy will be further reduced by the compiler
-+	 * when applying stack alignment constraints (see cc_stack_align4/8 in
- 	 * arch/x86/Makefile), which will remove the 3 (x86_64) or 2 (ia32)
- 	 * low bits from any entropy chosen here.
- 	 *
--	 * Therefore, final stack offset entropy will be 5 (x86_64) or
--	 * 6 (ia32) bits.
-+	 * Therefore, final stack offset entropy will be 7 (x86_64) or
-+	 * 8 (ia32) bits.
- 	 */
--	choose_random_kstack_offset(rdtsc() & 0xFF);
-+	choose_random_kstack_offset(rdtsc());
- }
- #define arch_exit_to_user_mode_prepare arch_exit_to_user_mode_prepare
- 
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdW4gMTcsIDIwMjQgYXQgMzoyMeKAr0FNIEppc2hlbmcgWmhhbmcgPGpzemhhbmdA
+a2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBJbnNwaXJlZCBieVsxXSwgIm1vZGlmeWluZyB0aGUgcmV0
+dXJuIGFkZHJlc3Mgb2YgdG8gcG9pbnQgdG8KPiByZXRfZnJvbV9leGNlcHRpb24gd2lsbCBjb3Jy
+dXB0IHRoZSBSQVMiLCBzbyBtb2RpZnkgdGhlIGNvZGUKPiB0byByZW1vdmUgdGhlIGNvZGUgb2Yg
+bW9kaWZ5aW5nIHJhLgo+Cj4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlz
+Y3YvMjAyNDA2MDcwNjEzMzUuMjE5NzM4My0xLWN5cmlsYnVyQHRlbnN0b3JyZW50LmNvbS8gWzFd
+Cj4gU2lnbmVkLW9mZi1ieTogSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgoKSSd2
+ZSBydW4gdGhpcyBhbmQgaXQgaXMgdGhlIHNhbWUgaWRlYSB0aGF0IEFudG9uIHVzZWQgaW4gdGhl
+IHByZXZpb3VzIHBhdGNoClJldmlld2VkLWJ5OiBDeXJpbCBCdXIgPGN5cmlsYnVyQHRlbnN0b3Jy
+ZW50LmNvbT4KCj4gLS0tCj4gIGFyY2gvcmlzY3Yva2VybmVsL2VudHJ5LlMgfCA0ICsrLS0KPiAg
+MSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYg
+LS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TIGIvYXJjaC9yaXNjdi9rZXJuZWwvZW50
+cnkuUwo+IGluZGV4IGM5MzM0NjBlZDNlOS4uODFkZWM2MjdhOGQ0IDEwMDY0NAo+IC0tLSBhL2Fy
+Y2gvcmlzY3Yva2VybmVsL2VudHJ5LlMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5T
+Cj4gQEAgLTIzNSw4ICsyMzUsOCBAQCBTWU1fQ09ERV9TVEFSVChyZXRfZnJvbV9mb3JrKQo+ICAg
+ICAgICAgamFsciBzMAo+ICAxOgo+ICAgICAgICAgbW92ZSBhMCwgc3AgLyogcHRfcmVncyAqLwo+
+IC0gICAgICAgbGEgcmEsIHJldF9mcm9tX2V4Y2VwdGlvbgo+IC0gICAgICAgdGFpbCBzeXNjYWxs
+X2V4aXRfdG9fdXNlcl9tb2RlCj4gKyAgICAgICBjYWxsIHN5c2NhbGxfZXhpdF90b191c2VyX21v
+ZGUKPiArICAgICAgIGogcmV0X2Zyb21fZXhjZXB0aW9uCj4gIFNZTV9DT0RFX0VORChyZXRfZnJv
+bV9mb3JrKQo+Cj4gICNpZmRlZiBDT05GSUdfSVJRX1NUQUNLUwo+IC0tCj4gMi40My4wCj4KPgo+
+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
