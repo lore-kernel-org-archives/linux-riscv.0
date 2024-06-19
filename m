@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EEDC27C4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jun 2024 01:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C130C27C4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jun 2024 02:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=moFKOjIW9biQioPEeSv7FlzBwZEy+7C48+OkHjRsJCM=; b=tZobeV5F7wk67M
-	CmQQfbpaP77LmUZxohb4n8tW78YBIsFNaTUjm5yjJBgevPtOfu4FRvy3aWe4djf4aBgYZsNp5Pume
-	WPUZx0LTjqGJ8po8URpMlKaLiB7qmeLr9tCyWEYIHrqU3HbFkVKyQ0VBes2f4xFLBUAUhG2mzrefx
-	7UcfbDcScO2T8H7qxLjc3lZq6qtPoe9pd6iWrc3QbEcC26tY1Wrwt/y4KgBvhh9jfdO+rOyZeEMSR
-	8ysY8MeIhc7+GrzbSLvBlmp1Uzhq0hvqd3bST/nyL1AZt/A6U7JIplOj7TS+WmukMal5R/qQf+qnu
-	cpVNWi1YScdhfjlXn5mw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nv7d6qFud7JzH9KzFYdK2BwEuTOFbneWawDe9PFz+yM=; b=JhaXYa4JOLmtnM
+	lY9caRsEyq+7ebzmho610THlWRVWAU9mP2z1+JlfQwXuC7H/wXLBXWQWbO5wfLbhTVkiKTeLAN9wY
+	tu3hxgr7WCCYlerIxqb66ZFXaHIMaYoS14LAK+WfqR9jatrreWbt/Z2OwMrdKA/yUQPU5ofW3wdAW
+	Wt/WXdErVO9MXlYfbZ/cMFDfCZKQARljv9O7bVrp3qdPx62clYuVjIYfrdA8bSUxEAQ0UeHkwsUqy
+	hXLyAkcO233p+V7elpBl2S8GC9hYo3RkuaA1PKvN2MtUgTMdNL8/kl+vR7PfxZGt7uf33gVbwcBw2
+	s1Be0XdlRZSdsw1KHF3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJjxo-0000000H5vN-18r5;
-	Wed, 19 Jun 2024 01:18:16 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1sJkdB-0000000H9oH-0UWy;
+	Wed, 19 Jun 2024 02:01:01 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJjxi-0000000H5uQ-11ZO;
-	Wed, 19 Jun 2024 01:18:13 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-2eaae2a6dc1so105592431fa.0;
-        Tue, 18 Jun 2024 18:18:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1718759887; x=1719364687; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ey5yiVQA8LBP/6zYkNpIcrvI4fFdl2/Q3IQajczTvLM=;
-        b=jrQ8KBw6iR555mdoCAdEkS2FybW9kjBwBXEkIgAoeGJHTceB0/lD0AcYLweSsBoxHx
-         Fkd1Iwv3WLxq5y8aPxBhyG4sJw9uThwkT/0Y5h/FlG9+TooQ3lK8UpbwD4Ec9Mz+yRoC
-         upO8GorHJMEbC4cxiNhHSpVSuR04QcJT4PDEwYgbL4VsmBNBz681A0kS31EIkrnwotOP
-         SAjE58YFbmFk0R//SGH+uWDKhVXGNlH1yZFN1vYtOV2ECTHWVw174p+yOCbP6Iy/zs3d
-         BQ7ASEwuDcoBG1BzO98p9meuFmTjq0bz42cCLGpXRlHGu4vbE82wTczy412rlZOmgAu2
-         sGaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718759887; x=1719364687;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ey5yiVQA8LBP/6zYkNpIcrvI4fFdl2/Q3IQajczTvLM=;
-        b=MKddbzcy6Gs+voFAolxABp6pdfYk0M+PzS5iuEAHCaOaTZPB7edkmryHwP7aORPPi0
-         TBE0VBdkb4lruw16Z0NXVHzdBcJmg26XNOeMIvujJWlvz6vteff/2Eu8sYHpE+D+2Ra+
-         1FPXXqbSxN4/84tcNbBXV7eiWQm/8HrzDCZvMTeBm2lliX0oqBt+T/qsP/eLkjQoKBEO
-         C+32wcGcFOLx3V/K3Y+Pq2JENY6FwBZam4oiG9eBA0yEyrDmuujtoVT8cE9Wjj1bYHv+
-         GbRMIQ8cNwH4nrmK9rRPv8YyPlrqpZYVgfwRBv16y2UbCoclGbfrrGQG+3iyU0Ia82M1
-         4S7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVPbBY6WqYcQcYyNjJa0f106DduoapxekWvxxdO3bPfaGQdD6gBKzYw08fadDcgwCdgvFzANFIp0slpaqU7COz7CDKBgDDXOU6NxFrKDnkbpncNpHDx1XdiyWCOJk9gqt7NKvhc35J3Sa4qVaIX9gm3XuANJeM=
-X-Gm-Message-State: AOJu0YzndZOP9n//y4TV+tbps08eqU5q1vk5SzrVwXt3UISXOZu+2tG8
-	ZNI02OOPbXWLoMZDvLTh7HS9Vi8qLEwXjZFssYGZTNTTvxAFaQOcPQI1TW7fu6Ly116BXn/jyLl
-	fKHFAqMelYAHHw1mURU7pTQdig9E=
-X-Google-Smtp-Source: AGHT+IFiTPEbVFgx6S7H+uJNwNOLjAFLVL5/Vnh5jjNpcZV25rpymoEhI57ECx4iXoR1vGPAbIVLdQm2Xan1iCOIji0=
-X-Received: by 2002:a2e:9f02:0:b0:2ea:ec52:f594 with SMTP id
- 38308e7fff4ca-2ec3ced1896mr8494161fa.29.1718759886352; Tue, 18 Jun 2024
- 18:18:06 -0700 (PDT)
+	id 1sJkd5-0000000H9nF-3pD8
+	for linux-riscv@lists.infradead.org;
+	Wed, 19 Jun 2024 02:00:59 +0000
+Received: from ThinkPad-T480s.. (unknown [121.237.44.152])
+	by APP-05 (Coremail) with SMTP id zQCowACnr+fFO3Jmjn6bEQ--.46102S2;
+	Wed, 19 Jun 2024 10:00:38 +0800 (CST)
+From: zhouquan@iscas.ac.cn
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Cc: oleg@redhat.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	andy.chiu@sifive.com,
+	shuah@kernel.org,
+	charlie@rivosinc.com,
+	zhouquan@iscas.ac.cn
+Subject: [RFC PATCH 0/2] riscv: Expose orig_a0 to userspace for ptrace to set the actual a0
+Date: Wed, 19 Jun 2024 10:00:37 +0800
+Message-Id: <cover.1718693532.git.zhouquan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <cover.1718268003.git.haibo1.xu@intel.com> <f1f96377b8ecd6e3183f28abf5c9ac21cb9855ea.1718268003.git.haibo1.xu@intel.com>
- <CAJve8o=8thBhU3NyTaS6sE9rQ1VR_Qf4O8FkAxpmp1q8P-6VaQ@mail.gmail.com> <20240618151820.GA2354@willie-the-truck>
-In-Reply-To: <20240618151820.GA2354@willie-the-truck>
-From: Haibo Xu <xiaobo55x@gmail.com>
-Date: Wed, 19 Jun 2024 09:17:54 +0800
-Message-ID: <CAJve8o=-bZhQS289jwxG=Aq2BOXk5OzdgPKT=nFE9yw_HYYnQQ@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] ACPI: NUMA: change the ACPI_NUMA to a hidden option
-To: Will Deacon <will@kernel.org>
+X-CM-TRANSID: zQCowACnr+fFO3Jmjn6bEQ--.46102S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tF43Ar1fXryUtFW7Zw4rGrg_yoW8Cw4rpa
+	95KwnYk3W8JFy2ya1xXw4UXr4rAa4fWrW3G3WxZry3ZrW8tryvqr4xKa1Yqr93CayxWryf
+	ZF1Ikr15C3WUZa7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9G14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r
+	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
+	628vn2kIc2xKxwAKzVCY07xG64k0F24lc2xSY4AK67AK6r4UMxAIw28IcxkI7VAKI48JMx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
+	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v2
+	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
+	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjRpBDUUUUU==
+X-Originating-IP: [121.237.44.152]
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiCRANBmZyBxOZHgAAsV
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240618_181810_337630_8B64E7BA 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20240618_190056_472308_8EFEF6C1 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +81,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alison Schofield <alison.schofield@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Jonathan Cameron <Jonathan.Cameron@huawei.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Zong Li <zong.li@sifive.com>, WANG Xuerui <kernel@xen0n.name>, Ard Biesheuvel <ardb@kernel.org>, Dave Jiang <dave.jiang@intel.com>, Haibo Xu <haibo1.xu@intel.com>, Baoquan He <bhe@redhat.com>, Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, Robert Richter <rrichter@amd.com>, linux-acpi@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>, James Morse <james.morse@arm.com>, Dan Williams <dan.j.williams@intel.com>, Len Brown <lenb@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, arnd@arndb.de, Charlie Jenkins <charlie@rivosinc.com>, Chen Jiahao <chenjiahao16@huawei.com>, Yuntao Wang <ytcoode@gmail.com>, loongarch@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org, Tony Luck <tony.luck@intel.com>, Zhao Ke <ke.zhao@shingroup.cn>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Russell King \(Oracle\)" <rmk+kernel@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Andy Chiu <andy.chiu@sifive.com>, Andrew Morton <akpm@linux-foundation.org>, ajones@ventanamicro.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdW4gMTgsIDIwMjQgYXQgMTE6MTjigK9QTSBXaWxsIERlYWNvbiA8d2lsbEBrZXJu
-ZWwub3JnPiB3cm90ZToKPgo+IE9uIE1vbiwgSnVuIDE3LCAyMDI0IGF0IDA5OjM0OjE4UE0gKzA4
-MDAsIEhhaWJvIFh1IHdyb3RlOgo+ID4gQENhdGFsaW4gTWFyaW5hcyBASHVhY2FpIENoZW4KPiA+
-Cj4gPiBDb3VsZCB5b3UgcGxlYXNlIGhhdmUgYSBsb29rIGF0IHRoaXMgcGF0Y2ggZm9yIHRoZSBB
-Q1BJX05VTUEgY29uZmlnIG9uCj4gPiBBUk02NCBhbmQgTE9PTkdBUkNIIHJlc3BlY3RpdmVseS4K
-PiA+Cj4gPiBUaGFua3MhCj4gPgo+ID4gT24gVGh1LCBKdW4gMTMsIDIwMjQgYXQgNDozN+KAr1BN
-IEhhaWJvIFh1IDxoYWlibzEueHVAaW50ZWwuY29tPiB3cm90ZToKPiA+ID4KPiA+ID4geDg2L2Fy
-bTY0L2xvb25nYXJjaCB3b3VsZCBzZWxlY3QgQUNQSV9OVU1BIGJ5IGRlZmF1bHQgYW5kIHJpc2N2
-Cj4gPiA+IHdvdWxkIGRvIHRoZSBzYW1lIHRoaW5nLCBzbyBjaGFuZ2UgaXQgdG8gYSBoaWRkZW4g
-b3B0aW9uIGFuZCB0aGUKPiA+ID4gc2VsZWN0IHN0YXRlbWVudHMgZXhjZXB0IGZvciB0aGUgWDg2
-XzY0X0FDUElfTlVNQSBjYW4gYWxzbyBnbyBhd2F5Lgo+ID4gPgo+ID4gPiBTdWdnZXN0ZWQtYnk6
-IEFybmQgQmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+Cj4gPiA+IFN1Z2dlc3RlZC1ieTogU3VuaWwg
-ViBMIDxzdW5pbHZsQHZlbnRhbmFtaWNyby5jb20+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6IEhhaWJv
-IFh1IDxoYWlibzEueHVAaW50ZWwuY29tPgo+ID4gPiBSZXZpZXdlZC1ieTogU3VuaWwgViBMIDxz
-dW5pbHZsQHZlbnRhbmFtaWNyby5jb20+Cj4gPiA+IC0tLQo+ID4gPiAgYXJjaC9hcm02NC9LY29u
-ZmlnICAgICAgICB8IDEgLQo+ID4gPiAgYXJjaC9sb29uZ2FyY2gvS2NvbmZpZyAgICB8IDEgLQo+
-ID4gPiAgZHJpdmVycy9hY3BpL251bWEvS2NvbmZpZyB8IDUgKy0tLS0KPiA+ID4gIDMgZmlsZXMg
-Y2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDYgZGVsZXRpb25zKC0pCj4KPiBUaGlzIGxvb2tzIGZp
-bmUgZnJvbSBhbiBhcm02NCBwZXJzcGVjdGl2ZToKPgo+IEFja2VkLWJ5OiBXaWxsIERlYWNvbiA8
-d2lsbEBrZXJuZWwub3JnPgo+CgpUaGFuayB5b3UsIFdpbGwhCgo+IFdpbGwKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Quan Zhou <zhouquan@iscas.ac.cn>
+
+Due to the path that modifies a0 in syscall_enter_from_user_mode before the
+actual execution of syscall_handler [1], the kernel currently saves a0 to
+orig_a0 at the entry point of do_trap_ecall_u as an original copy of a0.
+Once the syscall is interrupted and later resumed, the restarted syscall
+will use orig_a0 to continue execution.
+
+The above rules generally apply except for ptrace(PTRACE_SETREGSET,),
+where the kernel will ignore the tracer's setting of tracee/a0 and
+will restart with the tracee's original a0 value. For the current
+kernel implementation of ptrace, projects like CRIU/Proot will
+encounter issues where the a0 setting becomes ineffective when
+performing ptrace(PTRACE_{SET/GET}REGSET,).
+
+Here is a suggested solution, expose orig_a0 to userspace so that ptrace
+can choose whether to set orig_a0 based on the actual scenario. In fact,
+x86/orig_eax and loongArch/orig_a0 have adopted similar solutions.
+
+[1] link: https://lore.kernel.org/lkml/20230403-crisping-animosity-04ed8a45c625@spud/T/
+
+Quan Zhou (2):
+  riscv: Expose orig_a0 in the user_regs_struct structure
+  riscv: selftests: Add a ptrace test to check a0 of restarted syscall
+
+ arch/riscv/include/asm/ptrace.h               |   4 +-
+ arch/riscv/include/uapi/asm/ptrace.h          |   2 +
+ tools/testing/selftests/riscv/Makefile        |   2 +-
+ tools/testing/selftests/riscv/abi/.gitignore  |   1 +
+ tools/testing/selftests/riscv/abi/Makefile    |  12 ++
+ .../riscv/abi/ptrace_restart_syscall.c        | 148 ++++++++++++++++++
+ 6 files changed, 166 insertions(+), 3 deletions(-)
+ create mode 100644 tools/testing/selftests/riscv/abi/.gitignore
+ create mode 100644 tools/testing/selftests/riscv/abi/Makefile
+ create mode 100644 tools/testing/selftests/riscv/abi/ptrace_restart_syscall.c
+
+
+base-commit: 6ba59ff4227927d3a8530fc2973b80e94b54d58f
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
