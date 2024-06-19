@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE2ADC27C53
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jun 2024 18:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F09C27C53
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jun 2024 18:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o9/X7sET9LPcXP5ypS9cZBelghMbN6CDz76/YBLI1Ls=; b=p6uVe5HUXpGBDy1XSjkREtZHL6
-	z5lqEVw+co1ibN4fG3FLOaPO+dx+lNHJZBEAKmLHszacsvsGiH1HJk7nmug9szRhyZFmTfuZyXYWq
-	LIOeF464JsaosihycqQ4gbHl35tO/16wk/7Cg19r77q8wPbot2oElbqSyrzqCWWLtApbjkeiTr1Gm
-	KY55h11Ic6CT/VxNekc0hjqE/jnoJLttTlRwN4obat0fEHWC6ZbegNcszNqSLmeyUsWxPIBMyWsn+
-	bzNKmC5hgjOWoegHMMrsankKyUMf1C89uKVbN5lvxzxFNhsOgRkcVj/iTGMU2TggoIU7G9097Zt8b
-	f8JyrYuQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q+GLBYgntdvgxLSw/sVg2BNw1pcShE4LiLuz3mwyXbI=; b=UM9FXiac+j+f5c
+	ubIhWgx47PKZcuZvmxM/6Fclqq6GkEav3PSb70YwbuhMRdrzyL87D8QXRN/hYhM4La97JvgvmwTiP
+	cLKtxQjt72tlA1J0O6qgWIkSUC+JCQrTqt93iaRON/2xNvTAc5RSZN6ZPbLCR72+RGC0dLMRoulRV
+	omT9fHbXztY/oeQi0NsZXT1A+ntwMKII2T3H4EUEBON7he2skWN+RU+HQWN8USWps8Om+VZksQ+uh
+	U12OWdcaMonjcQHEC+Mw8OUqIuMGhF0iDrjkJmi8TXnlJk1JrhdJkv7dhYalx9oaVxGjWyRR5VBFz
+	cnESUgA/MCiX4QA4m7dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJzmJ-00000002KKT-2mR3;
-	Wed, 19 Jun 2024 18:11:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sJzpy-00000002Ksg-1dR1;
+	Wed, 19 Jun 2024 18:15:14 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sJzmE-00000002KJA-3tSn;
-	Wed, 19 Jun 2024 18:11:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 306A761F48;
-	Wed, 19 Jun 2024 18:11:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAF04C2BBFC;
-	Wed, 19 Jun 2024 18:11:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718820681;
-	bh=eM8ZHNqn3zhJka/utQcQ6YZwZ1lRkZvcoh73c33nV2g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VubqIGNKPYexo5EaGDBeMUN4CkvxOkC+s04Qt73Usm5DYSq63iX1xyNuKpMpjDQ2L
-	 hPSwvzqKYSi53jf/HZ6AxEuVA5ECX9DChgbV8B0EXCBGvENYuyptuDwlA3qKRMDAud
-	 oIEG/qzT29LhIjfxmoEoiXHIlOQa/OJo2ma/576AMUAlO0Iij13wjqS7SGH6wZL9it
-	 ooJQAspgbYNYHdYpE33I57PqYaC1UjV/EZmiyFjf3sWQ+epyqwL2NwZOaM6HnLho4c
-	 5fDyBfkqEbpPL+Z1TcjKwFJLWDyZjAU9b4t6jO5pTW+jVrQJ1x63N4UyOLAvuTSlWg
-	 Ge2emRBkit5sA==
-Date: Wed, 19 Jun 2024 19:11:16 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	apatel@ventanamicro.com, alex@ghiti.fr, ajones@ventanamicro.com,
-	greentime.hu@sifive.com, vincent.chen@sifive.com,
-	Rob Herring <robh@kernel.org>,
+	id 1sJzpu-00000002Krs-3EPE
+	for linux-riscv@lists.infradead.org;
+	Wed, 19 Jun 2024 18:15:12 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-706264e1692so108440b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Jun 2024 11:15:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1718820908; x=1719425708; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ObNK4nw+goLT3sduvlOOitPrsfAxlE+HFMLfQaVSTdo=;
+        b=g6ndK0gdYCyTBB3O8oH0C0/kvZeYKY+McnwvVGD3N8msDFbs64tpHssu5zddvJioiJ
+         8h6ZD7ODU/9EfoxV0xNOdeENkIgZrDRKHcRzblQjLeGAztkraxvAa/QQdVmtbO6HWhsc
+         fTyuvqDignXXtnou0FRiwJFP/W5pegyEdejus5PjKk6XXBJ3GhueRu2QqkeO0r/pwUdE
+         ECAAwWkAesLEXYmCLvIZs5hnbscX0Y9Jh942dlBq3rSAQ4h5SjkVm6JdXiNfSHQ+GJcE
+         4yHSQr3hGooyxlsUcDr7OKetVK/CsFZrBK2YwIXR84CA++4iCZqZKqP/S+7RnKt/hzPM
+         qZGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718820908; x=1719425708;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ObNK4nw+goLT3sduvlOOitPrsfAxlE+HFMLfQaVSTdo=;
+        b=DVG6wnwj7Fp1yvt/Hbo8jODgyvqH374+5pWiUQmGzVpQ6iqtZuATmSiha/ymYWdTGm
+         rwKH4FD+qxrfK1L5MmlbbhdNy+O7USSO0MALxLuV7FHUwBWTHtWkGBYJI1X+3TT07zrC
+         f7lJADS+tg9UFApszT/3LWOcq9KX/WtFtvlWdFnKduvrQQ4NtimlusX39+MOQHDScaKT
+         RyvE1Lw7dwlJy4zCSvoEXnEZMH5ZpNrdPQoVHbp830NdAwH/G7FwFoK1r205QJhKAM+X
+         8oMMOrN53unyr+V9qBxaxuU4kEr0wynKwvkf/pmLzXbD631jPNCsZy6pFT8ccQqAavk7
+         jOcA==
+X-Forwarded-Encrypted: i=1; AJvYcCXP6FrGoaU5ZbFWfy1+zUhM/mNRep7MgrEYaYve29iczaH845VxK4p6Oon64BrAtBnjdawF3dcLfq0wfLAIPWXhVAlRLJCQgyn3ohYeQfpB
+X-Gm-Message-State: AOJu0YzwjVvTuWeldQs/yY4TEpzjuhaM43cLzihl4HgcNmEnHSlenVGd
+	LuHr73qmElhw/muP5Jjw2Dor8/Foc9jOdf5uNwIITxvd8uVOdqKHYXXjwatq9CM=
+X-Google-Smtp-Source: AGHT+IGj5wpO/mjLKZrOGKZvpPOXW2hKDnc/Jp/UqhQuyCI6Q1OQJ7aj2Y4azc+GePSR7cngyftNOw==
+X-Received: by 2002:aa7:9e90:0:b0:706:29f0:33fa with SMTP id d2e1a72fcca58-70629f038d4mr3002643b3a.6.1718820908271;
+        Wed, 19 Jun 2024 11:15:08 -0700 (PDT)
+Received: from x1 ([2601:1c2:1802:170:7627:e2a7:42c9:f02c])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-705cc967334sm10993307b3a.57.2024.06.19.11.15.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Jun 2024 11:15:08 -0700 (PDT)
+Date: Wed, 19 Jun 2024 11:15:06 -0700
+From: Drew Fustini <dfustini@tenstorrent.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Yangtao Li <frank.li@vivo.com>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org
-Subject: Re: [PATCH v5 2/4] dt-bindings: riscv: Add Svade and Svadu Entries
-Message-ID: <20240619-shabby-smother-c482e771632a@spud>
-References: <20240605121512.32083-1-yongxuan.wang@sifive.com>
- <20240605121512.32083-3-yongxuan.wang@sifive.com>
- <20240605-atrium-neuron-c2512b34d3da@spud>
- <CAMWQL2gQpHPD=bPenjD+=NP47k8n26+6KP05zogxUtsD6zY6GQ@mail.gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/6] clk: thead: Add support for TH1520 AP_SUBSYS clock
+ controller
+Message-ID: <ZnMgKs/dUcYXiisk@x1>
+References: <20240615-th1520-clk-v1-0-3ba4978c4d6b@tenstorrent.com>
+ <20240619-tapping-jaundice-471811929d96@spud>
 MIME-Version: 1.0
-In-Reply-To: <CAMWQL2gQpHPD=bPenjD+=NP47k8n26+6KP05zogxUtsD6zY6GQ@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20240619-tapping-jaundice-471811929d96@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240619_111123_161148_5A5DC8F3 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20240619_111510_855831_99C0E428 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,155 +100,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5761399220911815717=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 19, 2024 at 12:12:30PM +0100, Conor Dooley wrote:
+> On Sat, Jun 15, 2024 at 06:54:29PM -0700, Drew Fustini wrote:
+> > This series adds support for the AP sub-system clock controller in the
+> > T-Head TH1520 [1]. Yangtao Li originally submitted this series in May
+> > 2023 [2]. Jisheng made additional improvements and then passed on the
+> > work in progress to me.
+> 
+> One thing I noticed on the dts side is that the GPIO controllers have no
+> clocks provided. Does the AP sub-system clock controller provide their
+> clocks too?
 
---===============5761399220911815717==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5sQpHeJmYMJW0CIa"
-Content-Disposition: inline
+Good question. I see that dwapb_get_clks() in drivers/gpio/gpio-dwapb.c
+does call devm_clk_bulk_get_optional() for "bus" and "db". There doesn't
+seem to be to many in-tree examples of clocks being defined for gpio
+controllers with compatible "snps,dw-apb-gpio", but I do see that
+k210.dtsi defines K210_CLK_APB0 for "bus" and K210_CLK_GPIO for "db".
 
+From the TH1520 System User Manual, I do see the gpio related clocks in
+Section 4.4.2.2 AP_SUBSYS. The peripheral clock gate control register
+(PERI_CLK_CFG) has:
 
---5sQpHeJmYMJW0CIa
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Bit 20: GPIO3_CLK_EN
+Bit  8: GPIO0_CLK_EN
+Bit  7: GPIO1_CLK_EN
+Bit  6: GPIO2_CLK_EN
 
-Anup, Drew, Alex,
+I will add these gates to the clk-th1520-ap.c and reference them from
+the gpio controller nodes.
 
-On Tue, Jun 18, 2024 at 06:38:13PM +0800, Yong-Xuan Wang wrote:
-> On Thu, Jun 6, 2024 at 12:55=E2=80=AFAM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Wed, Jun 05, 2024 at 08:15:08PM +0800, Yong-Xuan Wang wrote:
-> > > Add entries for the Svade and Svadu extensions to the riscv,isa-exten=
-sions
-> > > property.
-> > >
-> > > Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-> > > ---
-> > >  .../devicetree/bindings/riscv/extensions.yaml | 30 +++++++++++++++++=
-++
-> > >  1 file changed, 30 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml =
-b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > index 468c646247aa..1e30988826b9 100644
-> > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > > @@ -153,6 +153,36 @@ properties:
-> > >              ratified at commit 3f9ed34 ("Add ability to manually tri=
-gger
-> > >              workflow. (#2)") of riscv-time-compare.
-> > >
-> > > +        - const: svade
-> > > +          description: |
-> > > +            The standard Svade supervisor-level extension for raisin=
-g page-fault
-> > > +            exceptions when PTE A/D bits need be set as ratified in =
-the 20240213
-> > > +            version of the privileged ISA specification.
-> > > +
-> > > +            Both Svade and Svadu extensions control the hardware beh=
-avior when
-> > > +            the PTE A/D bits need to be set. The default behavior fo=
-r the four
-> > > +            possible combinations of these extensions in the device =
-tree are:
-> > > +            1. Neither svade nor svadu in DT: default to svade.
-> >
-> > I think this needs to be expanded on, as to why nothing means svade.
-> >
-> > > +            2. Only svade in DT: use svade.
-> >
-> > That's a statement of the obvious, right?
-> >
-> > > +            3. Only svadu in DT: use svadu.
-> >
-> > This is not relevant for Svade.
-> >
-> > > +            4. Both svade and svadu in DT: default to svade (Linux c=
-an switch to
-> > > +               svadu once the SBI FWFT extension is available).
-> >
-> > "The privilege level to which this devicetree has been provided can swi=
-tch to
-> > Svadu if the SBI FWFT extension is available".
-> >
-> > > +        - const: svadu
-> > > +          description: |
-> > > +            The standard Svadu supervisor-level extension for hardwa=
-re updating
-> > > +            of PTE A/D bits as ratified at commit c1abccf ("Merge pu=
-ll request
-> > > +            #25 from ved-rivos/ratified") of riscv-svadu.
-> > > +
-> > > +            Both Svade and Svadu extensions control the hardware beh=
-avior when
-> > > +            the PTE A/D bits need to be set. The default behavior fo=
-r the four
-> > > +            possible combinations of these extensions in the device =
-tree are:
-> >
-> > @Anup/Drew/Alex, are we missing some wording in here about it only being
-> > valid to have Svadu in isolation if the provider of the devicetree has
-> > actually turned on Svadu? The binding says "the default behaviour", but
-> > it is not the "default" behaviour, the behaviour is a must AFAICT. If
-> > you set Svadu in isolation, you /must/ have turned it on. If you set
-> > Svadu and Svade, you must have Svadu turned off?
-> >
-> > > +            1. Neither svade nor svadu in DT: default to svade.
-> > > +            2. Only svade in DT: use svade.
-> >
-> > These two are not relevant to Svadu, I'd leave them out.
-> >
-> > > +            3. Only svadu in DT: use svadu.
-> >
-> > Again, statement of the obvious?
-> >
-> > > +            4. Both svade and svadu in DT: default to svade (Linux c=
-an switch to
-> > > +               svadu once the SBI FWFT extension is available).
-> >
-> > Same here as in the Svade entry.
-
-> I will update the description. Thank you!
-
-Before you do, I'd love if Anup, Drew or Alex could comment on my
-question about default behaviours. They're the ones with Strong Opinions
-here about how the SBI implementation should behave, and I want to make
-sure it is correctly documented.
+Since each gpio controller will only have one clock, do you think I can
+omit the clock-names property?
 
 Thanks,
-Conor.
+Drew
 
-
---5sQpHeJmYMJW0CIa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnMfRAAKCRB4tDGHoIJi
-0mxsAP9/HYbRT+IODW/JeWgB3oihF9tatXMsLPSv5zh01Chn2AD+MWUlW7+bWwkL
-TcfQ9tn4kkqaW1w3XdBd3pZdG+9wBgQ=
-=sFa3
------END PGP SIGNATURE-----
-
---5sQpHeJmYMJW0CIa--
-
-
---===============5761399220911815717==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Link: https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main/docs
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5761399220911815717==--
-
