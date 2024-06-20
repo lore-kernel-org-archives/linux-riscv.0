@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A12AC27C79
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jun 2024 16:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E50EC27C79
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jun 2024 16:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e2zaNeA5z8+cCB8fKdaafsExqDIOVT3yNz35fzg6C/s=; b=4qhvR5Js/XMGr0
-	iw0j8flhx55B1UJmnxsgV8mtJU3EgskPmdBDZbQeJ1ycEUyTmG7er68DY+sgyJLUQ/guF3oow7X9x
-	Fur21MsBbBpWeLLisV2AvB1HWMTba9mfDjYXyrRZ/yCV5RDcs0Nr9EHYttjWYbPfyKym0oPnWFCyg
-	oYIXAw1z59A51D8OZE9cGz6DQlLx7TZjGcx2fJ4IBpWKOAptnODasKoIF01p5C+V2S5fdQ4gqLNlc
-	EmJ+7nHvdyXkVcJ2Kiaun9wtZXet7pIMx1i5HVghwhO1P5jz4Hi2rXf+xC+83/UBD/WAY6/T+95jz
-	1SMPoEQuzIp1KQgS4fjw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RysommrDKYSHkhzc9SPUoSMQ2PEb2UOIvZUDYhDRNfA=; b=BFvwiigWw+wjsqkNZEXK2OZUAr
+	GEvkUoYVKsX0o16D8u5MaMZzYV3rp67nsNjSrp/H0x3q8GSkqoxmCcrv5AQJq0v478gJapAcl6dQm
+	9Ejv8qOrKzclv2YIKFRNRFGgjl6WgDIkxfZAyfVJU1u2zal6TqLTyLXvuliidFS9EbITCdjh/eIPW
+	5SDZsfOWAvwNBCP0b0jx44V8FeTPHAuQ/beYAEQhSYU1HjDSwUSAPtQ/YmHlgkux5fKQjlowmBtAA
+	/PbImPZ4cH2ai6/LZWyqec+fiL63KEAuRLBYrS9dQegHieMd5jc3agcyJYX7BoDu3cza2fmLmzM7v
+	zH78NUCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKKf3-00000005rHc-35z0;
-	Thu, 20 Jun 2024 16:29:21 +0000
+	id 1sKKg3-00000005rcw-0FBr;
+	Thu, 20 Jun 2024 16:30:23 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKKf0-00000005rFv-1lBi
+	id 1sKKfz-00000005rat-196z
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jun 2024 16:29:19 +0000
+	Thu, 20 Jun 2024 16:30:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0D589621F4;
-	Thu, 20 Jun 2024 16:29:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16970C2BD10;
-	Thu, 20 Jun 2024 16:29:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 87FEB621F2;
+	Thu, 20 Jun 2024 16:30:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A75CCC2BD10;
+	Thu, 20 Jun 2024 16:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1718900956;
-	bh=BrICMMZrS8m6MYe0kQ4cVRc55ARLzaghyayTnAQ5YTM=;
+	s=k20201202; t=1718901018;
+	bh=2nApdRW4uFWIFKAeWO48GxrtOn9CEoIKmUrYIKGLbhc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tfRWGxIYwv7J5fGI6mps0kORlWb0ron2PdO3PjRczD4G/Y4pAX+qMDDlzHuead6Rf
-	 5jAD0/cIlrJEByacZSSW93LFqUBkoDOjBef0kR0hKHegJcoEREXpWDfrik5/EuvrSn
-	 A7zH4b572BPnpHCutK77CIgPTNSyRv7nDlEiH3jshxrlZyfz4MjKDkJiy/pOkFNwYm
-	 QCNf0IMYU70IXg8D6ABA3AApRAgichtlf817CcTHMEK4DWew6s1cOGmDlHnZxTHah+
-	 7BBA+bGOoJYioXZwVoofX8K7N4RxxewpcxU3LhG5yPloMJNDK8UTCOWm75uMINa8Cq
-	 5Hsiul3plJ+Wg==
-Date: Fri, 21 Jun 2024 00:15:12 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: adrian.hunter@intel.com, aou@eecs.berkeley.edu, conor+dt@kernel.org,
-	guoren@kernel.org, inochiama@outlook.com,
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com, haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com, tingzhu.wang@sophgo.com,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH v4 2/4] dt-bindings: mmc: sdhci-of-dwcmhsc: Add Sophgo
- SG2042 support
-Message-ID: <ZnRVkPy5akurmi_D@xhacker>
-References: <cover.1718697954.git.unicorn_wang@outlook.com>
- <dcc060c3ada7a56eda02b586c16c47f0a0905c61.1718697954.git.unicorn_wang@outlook.com>
+	b=J2ERoqHjMVj7J7iiKKY7CLQUQBWT2OD0KPDkExlb1q0FDGvMI83NKfoiUqNPrmfX0
+	 mEH4QJ1t9ti1FWWszJppGi3GHjWQq+47H+ZIBffNIHvtZJYWEUV+KLcSbWjUTMKR6f
+	 16lRiHf9HH3RbI+dskTpxeHYV+JWqU4VXvy/r5ReRto5xqMW7VRF3V0XYU5QzgoMHA
+	 kv0eeU1THmYjLlrIPAd95+WwPAkKfdYl9bypTX+2j7Qiwkk2xQqarsV+Jl8qHF45xy
+	 6u/Hpbes8H4kqOXj6LuNSUpsV56jF/modm9ZJ+zB0w0cTAF/QLIseVigYVpT2zVkJ/
+	 0V1a6nNYDRC0Q==
+Date: Thu, 20 Jun 2024 17:30:12 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Drew Fustini <dfustini@tenstorrent.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Yangtao Li <frank.li@vivo.com>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/6] clk: thead: Add support for TH1520 AP_SUBSYS clock
+ controller
+Message-ID: <20240620-pregame-statute-2b43c0547064@spud>
+References: <20240615-th1520-clk-v1-0-3ba4978c4d6b@tenstorrent.com>
+ <20240619-tapping-jaundice-471811929d96@spud>
+ <ZnMgKs/dUcYXiisk@x1>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <dcc060c3ada7a56eda02b586c16c47f0a0905c61.1718697954.git.unicorn_wang@outlook.com>
+In-Reply-To: <ZnMgKs/dUcYXiisk@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240620_092918_613139_07E93E9C 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20240620_093019_462885_01279FB5 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,144 +80,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2663110144148936098=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 18, 2024 at 04:38:30PM +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> SG2042 use Synopsys dwcnshc IP for SD/eMMC controllers.
-> 
-> SG2042 defines 3 clocks for SD/eMMC controllers.
-> - AXI_EMMC/AXI_SD for aclk/hclk(Bus interface clocks in DWC_mshc)
->   and blck(Core Base Clock in DWC_mshc), these 3 clocks share one
->   source, so reuse existing "core".
 
-No, this seems not correct. This should be the "bus" clk, and your above
-sentence "aclk/hclk(Bus interface clocks in DWC_mshc)" implies this clk is
-for bus
+--===============2663110144148936098==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="HSewvxSgds9cd/HB"
+Content-Disposition: inline
 
-> - 100K_EMMC/100K_SD for cqetmclk(Timer clocks in DWC_mshc), so reuse
->   existing "timer" which was added for rockchip specified.
-> - EMMC_100M/SD_100M for cclk(Card clocks in DWC_mshc), add new "card".
 
-I think this is "core" clk, no? Plz check which internal clks' clock
-source is the so called EMMC_100M/SD_100M.
+--HSewvxSgds9cd/HB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> Adding example for sg2042.
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> ---
->  .../bindings/mmc/snps,dwcmshc-sdhci.yaml      | 69 +++++++++++++------
->  1 file changed, 49 insertions(+), 20 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> index 4d3031d9965f..b53f20733f79 100644
-> --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> @@ -21,6 +21,7 @@ properties:
->        - snps,dwcmshc-sdhci
->        - sophgo,cv1800b-dwcmshc
->        - sophgo,sg2002-dwcmshc
-> +      - sophgo,sg2042-dwcmshc
->        - thead,th1520-dwcmshc
->  
->    reg:
-> @@ -29,25 +30,6 @@ properties:
->    interrupts:
->      maxItems: 1
->  
-> -  clocks:
-> -    minItems: 1
-> -    items:
-> -      - description: core clock
-> -      - description: bus clock for optional
-> -      - description: axi clock for rockchip specified
-> -      - description: block clock for rockchip specified
-> -      - description: timer clock for rockchip specified
-> -
-> -
-> -  clock-names:
-> -    minItems: 1
-> -    items:
-> -      - const: core
-> -      - const: bus
-> -      - const: axi
-> -      - const: block
-> -      - const: timer
-> -
->    resets:
->      maxItems: 5
->  
-> @@ -63,6 +45,43 @@ properties:
->      description: Specify the number of delay for tx sampling.
->      $ref: /schemas/types.yaml#/definitions/uint8
->  
-> +if:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: sophgo,sg2042-dwcmshc
-> +then:
-> +  properties:
-> +    clocks:
-> +      items:
-> +        - description: core clock
-> +        - description: timer clock
-> +        - description: card clock
-> +
-> +    clock-names:
-> +      items:
-> +        - const: core
-> +        - const: timer
-> +        - const: card
-> +else:
-> +  properties:
-> +    clocks:
-> +      minItems: 1
-> +      items:
-> +        - description: core clock
-> +        - description: bus clock for optional
-> +        - description: axi clock for rockchip specified
-> +        - description: block clock for rockchip specified
-> +        - description: timer clock for rockchip specified
-> +
-> +    clock-names:
-> +      minItems: 1
-> +      items:
-> +        - const: core
-> +        - const: bus
-> +        - const: axi
-> +        - const: block
-> +        - const: timer
->  
->  required:
->    - compatible
-> @@ -96,5 +115,15 @@ examples:
->        #address-cells = <1>;
->        #size-cells = <0>;
->      };
-> -
-> +  - |
-> +    mmc@bb0000 {
-> +      compatible = "sophgo,sg2042-dwcmshc";
-> +      reg = <0xcc000 0x1000>;
-> +      interrupts = <0 25 0x4>;
-> +      clocks = <&cru 17>, <&cru 18>, <&cru 19>;
-> +      clock-names = "core", "timer", "card";
-> +      bus-width = <8>;
-> +      #address-cells = <1>;
-> +      #size-cells = <0>;
-> +    };
->  ...
-> -- 
-> 2.25.1
-> 
+On Wed, Jun 19, 2024 at 11:15:06AM -0700, Drew Fustini wrote:
+> On Wed, Jun 19, 2024 at 12:12:30PM +0100, Conor Dooley wrote:
+> > On Sat, Jun 15, 2024 at 06:54:29PM -0700, Drew Fustini wrote:
+> > > This series adds support for the AP sub-system clock controller in the
+> > > T-Head TH1520 [1]. Yangtao Li originally submitted this series in May
+> > > 2023 [2]. Jisheng made additional improvements and then passed on the
+> > > work in progress to me.
+> >=20
+> > One thing I noticed on the dts side is that the GPIO controllers have no
+> > clocks provided. Does the AP sub-system clock controller provide their
+> > clocks too?
+>=20
+> Good question. I see that dwapb_get_clks() in drivers/gpio/gpio-dwapb.c
+> does call devm_clk_bulk_get_optional() for "bus" and "db". There doesn't
+> seem to be to many in-tree examples of clocks being defined for gpio
+> controllers with compatible "snps,dw-apb-gpio", but I do see that
+> k210.dtsi defines K210_CLK_APB0 for "bus" and K210_CLK_GPIO for "db".
+>=20
+> From the TH1520 System User Manual, I do see the gpio related clocks in
+> Section 4.4.2.2 AP_SUBSYS. The peripheral clock gate control register
+> (PERI_CLK_CFG) has:
+>=20
+> Bit 20: GPIO3_CLK_EN
+> Bit  8: GPIO0_CLK_EN
+> Bit  7: GPIO1_CLK_EN
+> Bit  6: GPIO2_CLK_EN
+>=20
+> I will add these gates to the clk-th1520-ap.c and reference them from
+> the gpio controller nodes.
+>=20
+> Since each gpio controller will only have one clock, do you think I can
+> omit the clock-names property?
+
+Sure, thanks for looking into this.
+
+>=20
+> Thanks,
+> Drew
+>=20
+> Link: https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main=
+/docs
+
+--HSewvxSgds9cd/HB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnRZFAAKCRB4tDGHoIJi
+0jhfAPsFxSm+IHVQdarF1A8PQAiZE2P45kwvHpTzuUOpbO41gwEA3g6fNgbFnrZT
+cPWAqmEQpUXzmehcdcTKzTlP4ETGrwQ=
+=Y3Yf
+-----END PGP SIGNATURE-----
+
+--HSewvxSgds9cd/HB--
+
+
+--===============2663110144148936098==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2663110144148936098==--
+
