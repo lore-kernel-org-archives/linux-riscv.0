@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA66C27C79
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jun 2024 17:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF0AC27C79
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jun 2024 18:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F84va0WjcZfGVE3SAAMCkFKvOx+YqqsYgG3Gmj1lC5s=; b=TAuuitFbTHBv1v
-	WP0CuoAaq6uFqiSHmuDr/OOo/r++thTs/n1FqTXP6SKSf1FDVZEugVwr+ynnbkP7it/VxBBSR6N3p
-	BxwWwVpqM+APOXbJ92Ln4Kd+MncJ+3LLmZjDPqPaf/b176NIgk2rJgPi5PFEDTAmRe2OCNI8OfvtT
-	cAU07x6t7feZsNeVSwcXUNpLbeBjfOOct+nZ2QpiQe5/ZiNRt+DpfUKDifpxd6YDnlM8wAVKzYTuE
-	UENSRPJlK2OUqUREa+7yYw5yf0S9diAmXah8XRsQvYZBi5Zm8rx3iFGj/HQeOaxZH8RuTqIxlqEwE
-	i65A8aIXW89pu8fYPOgw==;
+	List-Owner; bh=qPl5mZ+zHYorbvLpkeoSpg9aXObA7jjf4AVZAVLFVCA=; b=X36oKGzac3dLOi
+	OqMeqA10Wqayg3IUXWgbXJApErdznGKFYara3zOhxjPwDtsmXOMwfLZeERV0kmznjmU4KisNhveKc
+	u4A3S8RqoDNtwvugMviFVh5UvDoPHbF3QajBYTnYzU2tfc0SyooYqLFKJdXstD/yTpO5fdjcG7t19
+	iJaLvFBXDjqOUzGno24kJqLezKVDJ0JpgNFbB4E7KdGM1gjQfQ8EPr6ImCwgbhQbp1f/6Pg9sRm+p
+	iG8AIqUbdoF2H/BjkLL+qpbwqprjcHFSI26WQLc2zoVXTdg/oEZU3PJF2ROeYc2hc/tJtfk2juBeH
+	Qo75dYxH8+DAVZA5Mv7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKLDz-00000005zSs-1lsg;
-	Thu, 20 Jun 2024 17:05:27 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1sKMc8-00000006Jxy-08MJ;
+	Thu, 20 Jun 2024 18:34:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKLDw-00000005zSD-2NX8
-	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jun 2024 17:05:25 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1f9b52ef481so10456685ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Jun 2024 10:05:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1718903124; x=1719507924; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4E89UTgs/5r5atSnFCInRbSVBNWxc0zHVVFCoSblkK4=;
-        b=WPDUfKQYekSpToHS9fbaF/9JBkrL+RX7WQsCM61qldk2dlpRzeE0l+y/SSt9CqlGdD
-         HiFXfr7aF3fJRSOTKvdLKp5mltMmgGsuT3nh9NUshOuITQ7dqZHiVTaLVoOhosN6uBKY
-         A3VoK4Y9jWyoQ2YzH2Ito64i+XQz/JtChsaiQvIjnakzJLlNWBsYzRrKJejkfTtQMNAe
-         CBdsOQN9Q8vp9w+goRUr9kB99nuUGbH2rS5ldzj9q5+n4Z8MmHLq3DUPeTJOh5olI8/T
-         Acyh+TfYtPJdEbyd2Fx3Cz8u9ZQhkOEGf9AHN6blOGpuYZsxpa1L0uyD1Ftja7kEjV1h
-         arfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718903124; x=1719507924;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4E89UTgs/5r5atSnFCInRbSVBNWxc0zHVVFCoSblkK4=;
-        b=k5hTgArLRdpPCzWOvZBeXodWuy4eln8leLtnlvabbm0g05QrC3V544q37uGDWY7DlU
-         oN5rTzlL7rYGC9CzR03fDLMENYotaqwnsS/52rauufAAJEaKr92L3DrNYfQA+VgXtCdb
-         MvEu/QQF8WIcaJIWDepjtFdanFSLxOQvaCHxHU1mdZDWLM+QKMhLEpA5oFSR6dIrGgka
-         lFG8yn3VNH1Fl6CKu+3+volWgfkRpWwDrC+6Y8hcOfj9DHrILlm6hLvp9KZntknyCF6a
-         7isybLhQJv8pvzbljzuI9/3j+hIF8It+zL9QyAekIhzT3u4svDDiNrMUwYUYIP+XOIcd
-         oZLw==
-X-Forwarded-Encrypted: i=1; AJvYcCUKuDNsQ7Excs502mInV3ptydgZfg7voQirW2Qmyidfimtv0XCxaWoqTbXD/SOvmg2lzKZ1acpkz/EcWSfYoSv4zDH6H3Y61D0egWDMLGV2
-X-Gm-Message-State: AOJu0YxIseLBtvHWX0jF5yS/n1uG3hpRkofk3ZXkd8MyctWzY1+yj5fJ
-	4507IgH8iwTC/R5t7gB4KAfMoEWHOHM/+IgJ6bOIvVz6hqm2oE57cYgL0w4K2+4=
-X-Google-Smtp-Source: AGHT+IHnO0PhojcD/q5JTTxQb+zxwVYaNBwpbOMTUxU2qhG2GuUiEPiNiJ0WLvWdxuAzdO/MlAP2Kg==
-X-Received: by 2002:a17:902:d4c7:b0:1f7:17c2:118b with SMTP id d9443c01a7336-1f9aa3e9e49mr59538365ad.27.1718903123621;
-        Thu, 20 Jun 2024 10:05:23 -0700 (PDT)
-Received: from x1 ([2601:1c2:1802:170:4a35:79ce:6499:e43c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f9acc04adcsm39635605ad.204.2024.06.20.10.05.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Jun 2024 10:05:23 -0700 (PDT)
-Date: Thu, 20 Jun 2024 10:05:20 -0700
-From: Drew Fustini <drew@pdp7.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Drew Fustini <dfustini@tenstorrent.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] MAINTAINERS: thead: update Maintainer
-Message-ID: <ZnRhUOSB+/hMSs2x@x1>
-References: <20240620162522.386-1-jszhang@kernel.org>
+	id 1sKMc4-00000006Jx3-2JoC;
+	Thu, 20 Jun 2024 18:34:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C3F9A62278;
+	Thu, 20 Jun 2024 18:34:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78444C4AF16;
+	Thu, 20 Jun 2024 18:34:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1718908463;
+	bh=X8RvfZsDwX1HuokLfVZANOU/YZgt7uFrJznkcLH5SG4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GQghWg9qBgi4835TbD+dPoOdmgJcCwq9mlXvsmUA5UqG5jEoEuaxyHuX9X2YcRouC
+	 A1Nv9w5Rl2T/rNm14ozxUBc5HEkT3vHZtpk43c5gEDldDEstHPZb61w9H5czlvEyTD
+	 bDCooPk7HICkrbcdtJ3uNbfyoUw3LCrUAwjPDLOkM4pgbe7y38CgotR9e4Z4c0ZWwE
+	 VBuJar8XPjHFYFcmhXr17Sv64Hps4i0NIjiDJahymIKgcpuM/LBkPzHZ/w+opZY+JG
+	 rZBzohwRkUmMAnkTypKTuwVJM1flNglFcrWA53kdh4PjqTK5SiIfiPh9Y4PE6GqMGe
+	 VijAp1Lor/9vA==
+Date: Thu, 20 Jun 2024 11:34:22 -0700
+From: Kees Cook <kees@kernel.org>
+To: "liuyuntao (F)" <liuyuntao12@huawei.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Leonardo Bras <leobras@redhat.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+	linux-kernel@vger.kernel.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] randomize_kstack: Remove non-functional per-arch entropy
+ filtering
+Message-ID: <202406201127.17CE526F0@keescook>
+References: <20240619214711.work.953-kees@kernel.org>
+ <98381dbf-f14e-4b6c-8c96-fb6b97ed46e1@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240620162522.386-1-jszhang@kernel.org>
+In-Reply-To: <98381dbf-f14e-4b6c-8c96-fb6b97ed46e1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240620_100524_629693_8B186466 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20240620_113424_751093_6FB4DF53 
+X-CRM114-Status: GOOD (  22.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,39 +92,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 21, 2024 at 12:25:22AM +0800, Jisheng Zhang wrote:
-> Due to personal reasons, I can't maintain T-Head SoCs any more. At the
-> same time, I would nominate Drew Fustini as Maintainer. Drew contributed
-> the sdhci support of TH1520 in the past, and is working on the clk
-> parts. I believe he will look after T-Head SoCs.
+On Thu, Jun 20, 2024 at 11:47:58AM +0800, liuyuntao (F) wrote:
 > 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  MAINTAINERS | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index aacccb376c28..b5f5506815d6 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19315,7 +19315,7 @@ F:	drivers/perf/riscv_pmu_legacy.c
->  F:	drivers/perf/riscv_pmu_sbi.c
->  
->  RISC-V THEAD SoC SUPPORT
-> -M:	Jisheng Zhang <jszhang@kernel.org>
-> +M:	Drew Fustini <drew@pdp7.com>
->  M:	Guo Ren <guoren@kernel.org>
->  M:	Fu Wei <wefu@redhat.com>
->  L:	linux-riscv@lists.infradead.org
-> -- 
-> 2.43.0
+> On 2024/6/20 5:47, Kees Cook wrote:
+> > An unintended consequence of commit 9c573cd31343 ("randomize_kstack:
+> > Improve entropy diffusion") was that the per-architecture entropy size
+> > filtering reduced how many bits were being added to the mix, rather than
+> > how many bits were being used during the offsetting. All architectures
+> > fell back to the existing default of 0x3FF (10 bits), which will consume
+> > at most 1KiB of stack space. It seems that this is working just fine,
+> > so let's avoid the confusion and update everything to use the default.
+> > 
 > 
+> My original intent was indeed to do this, but I regret that not being more
+> explicit in the commit log..
+> 
+> Additionally, I've tested the stack entropy by applying the following patch,
+> the result was `Bits of stack entropy: 7` on arm64, too. It does not seem to
+> affect the entropy value, maybe removing it is OK, or there may be some
+> nuances of your intentions that I've overlooked.
+> 
+> --- a/include/linux/randomize_kstack.h
+> +++ b/include/linux/randomize_kstack.h
+> @@ -79,9 +79,7 @@ DECLARE_PER_CPU(u32, kstack_offset);
+>  #define choose_random_kstack_offset(rand) do {                         \
+>         if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT, \
+>                                 &randomize_kstack_offset)) {            \
+> -               u32 offset = raw_cpu_read(kstack_offset);               \
+> -               offset = ror32(offset, 5) ^ (rand);                     \
+> -               raw_cpu_write(kstack_offset, offset);                   \
+> +               raw_cpu_write(kstack_offset, rand);                     \
+>         }                                                               \
+>  } while (0)
+>  #else /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
 
-Acked-by: Drew Fustini <drew@pdp7.com>
+I blame the multiple applications of the word "entropy" in this feature. :)
 
-Jisheng - thanks for your efforts thus far and I'm happy to take over.
+So, there's both:
 
-Drew
+- "how many bits CAN be randomized?" (i.e. within what range can all
+  possible stack offsets be?)
+
+and
+
+- "is the randomization predictable?" (i.e. is the distribution of
+  selected positions with the above range evenly distributed?)
+
+Commit 9c573cd31343 ("randomize_kstack: Improve entropy diffusion") was
+trying to improve the latter, but accidentally also grew the former.
+This patch is just trying to clean all this up now.
+
+Thanks for testing! And I'm curious as to why arm64's stack offset
+entropy is 7 for you when we're expecting it to be 6. Anyway, that's not
+a problem I don't think. Just a greater offset range than expected.
+
+-Kees
+
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
