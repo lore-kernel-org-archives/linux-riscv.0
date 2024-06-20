@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA03BC27C79
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jun 2024 03:35:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D238C27C79
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jun 2024 03:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pVSQKIWaJWymyraHy+ijWRlFj/K6T+r9mw0Fa8fu3RI=; b=O9aFN1RlSKuig5
-	Gmbqf7b1zry2hkI4jWvNgzBNcC7Jbvio8aKJg2EWl05m8JpnhAitrI6u+yhm1mkr9Ikuc5EC/mOVJ
-	N81ScUAZTsWl8z66gkGv/TAi3TfZWO3E8HgaMs2ybQX1GZufCi4VY90N7YNsSv+r6zZc25oOMY4qn
-	cyBIfXZPRp6SFuY8dSFEIYjCnVfuJWuW+RtmjoZYYAL/2GFgL1pstNnwZMgKtjipgUej0YurFCqsF
-	tuCG9Th1uG0mzczJpvifDl2RyTpeAEOXTYJLdNBUPobzKU92H5xEOR/Sl/zFQhKiZOInQOf58Eeaj
-	L4FBE6IdI8lMY/u1JVWg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VbKR+exzIFyz8uBQI739k2m+XEp0Bs0SRQxHAVlbWE4=; b=Rc/1F5evWNpt+c
+	Wmy9aftCB8TKmGTBZld4HRKCkqobEbJJljdKPa3T3Z0QpZA9fhcp+jUvajteRtq0KFzF4eRGLZy9I
+	4V4yEylabcUgRrQP1T6aT4gwCUO+vG0PukX0+csiOOrLeUl/SkXZsBz3L+JStvb5TTYTkbtjI2/Yw
+	iyW5DTEjTQ2X8eyhhaAX9Sq2ClEqknmG90KXKF/Nbx1EeaUipiBxY1Xr8tijJD6NJG0EKnTPwedCX
+	o822t4/wT2GHQxfyd0aguBoF6OBrvaEjTXnRCfl+TFOoaFM9Kvh6SbV9vmHJlMdM7s9hFWk5O80Qz
+	jMZFrK3NgudX3ugLWo5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sK8Zw-00000003TqY-2POP;
-	Thu, 20 Jun 2024 03:35:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1sK8mR-00000003V9Z-1q29;
+	Thu, 20 Jun 2024 03:48:11 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sK8Zs-00000003Tpa-15xI
-	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jun 2024 03:35:14 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 45JEw7Da025146;
-	Thu, 20 Jun 2024 03:34:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=/8F1oqaHP7W8dzdNx4W8F2
-	ghTuXXnl53DkuSaN9iNVo=; b=YTm9juk53ITPUX4Twa7CGMgzmDel8/dF2w0bWV
-	3LrHg7sSjTH2fyGJA94aWtcuV1TLMaACXwuTLVpyUUuFSiDlwjo08EZHPZKQrA0d
-	KWh/DuCZ8qJQ9zzfTaAwj7OeUOml+N4B8E9URyVvI0Ag+h/5znk/lhgA2YhlCoVy
-	cSEo6Ys2barVGyWtnPnChK62iLJAXnQ8OSLCciIiU0YCVTMqwlC5mowdQinGhKXu
-	OOQGAWaHsxNvM3IE4oYp5k0QkTorEn/1pfjvl/v7EIgEL26jYV2mfdYnizU5edwZ
-	1FlVh4JAOS2mtdeEJQ5js0X/1/hGumiZmOPuWweDSNkfHU4A==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 3yv1j91a05-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Jun 2024 03:34:54 +0000 (GMT)
-Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
-	by NASANPPMTA01.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 45K3Yq7K002169
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Jun 2024 03:34:52 GMT
-Received: from zhonhan-gv.qualcomm.com (10.80.80.8) by
- nasanex01c.na.qualcomm.com (10.45.79.139) with Microsoft SMTP Server
+	id 1sK8mM-00000003V81-3kG1;
+	Thu, 20 Jun 2024 03:48:10 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4W4RCW52rKznWnC;
+	Thu, 20 Jun 2024 11:43:03 +0800 (CST)
+Received: from dggpemd100004.china.huawei.com (unknown [7.185.36.20])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3FF5618007A;
+	Thu, 20 Jun 2024 11:47:59 +0800 (CST)
+Received: from [10.67.109.211] (10.67.109.211) by
+ dggpemd100004.china.huawei.com (7.185.36.20) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 19 Jun 2024 20:34:49 -0700
-From: Zhongqiu Han <quic_zhonhan@quicinc.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <andy.chiu@sifive.com>, <conor.dooley@microchip.com>,
-        <ancientmodern4@gmail.com>, <ben.dooks@codethink.co.uk>,
-        <bjorn@rivosinc.com>
-CC: <quic_bjorande@quicinc.com>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <quic_zhonhan@quicinc.com>
-Subject: [PATCH] riscv: signal: Remove unlikely() from WARN_ON() condition
-Date: Thu, 20 Jun 2024 11:34:34 +0800
-Message-ID: <20240620033434.3778156-1-quic_zhonhan@quicinc.com>
-X-Mailer: git-send-email 2.25.1
+ 15.2.1258.34; Thu, 20 Jun 2024 11:47:58 +0800
+Message-ID: <98381dbf-f14e-4b6c-8c96-fb6b97ed46e1@huawei.com>
+Date: Thu, 20 Jun 2024 11:47:58 +0800
 MIME-Version: 1.0
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01c.na.qualcomm.com (10.45.79.139)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 4w2VTZiM0lcOsouI3XGulbIfQtvP8HMm
-X-Proofpoint-GUID: 4w2VTZiM0lcOsouI3XGulbIfQtvP8HMm
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
- definitions=2024-06-20_01,2024-06-19_01,2024-05-17_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
- impostorscore=0 bulkscore=0 suspectscore=0 mlxlogscore=999
- lowpriorityscore=0 priorityscore=1501 phishscore=0 mlxscore=0 adultscore=0
- clxscore=1011 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2405170001 definitions=main-2406200024
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] randomize_kstack: Remove non-functional per-arch entropy
+ filtering
+Content-Language: en-US
+To: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+CC: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Heiko Carstens
+	<hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+	<agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, "Gustavo A.
+ R. Silva" <gustavoars@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Leonardo Bras <leobras@redhat.com>, Claudio Imbrenda
+	<imbrenda@linux.ibm.com>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+	<linux-kernel@vger.kernel.org>, <x86@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+	<linux-hardening@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20240619214711.work.953-kees@kernel.org>
+From: "liuyuntao (F)" <liuyuntao12@huawei.com>
+In-Reply-To: <20240619214711.work.953-kees@kernel.org>
+X-Originating-IP: [10.67.109.211]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ dggpemd100004.china.huawei.com (7.185.36.20)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240619_203512_582304_23709D8F 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20240619_204807_338775_1E00F196 
+X-CRM114-Status: GOOD (  28.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,36 +78,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-"WARN_ON(unlikely(x))" is excessive. WARN_ON() already uses unlikely()
-internally.
 
-Signed-off-by: Zhongqiu Han <quic_zhonhan@quicinc.com>
-Reviewed-by: Bjorn Andersson <quic_bjorande@quicinc.com>
----
- arch/riscv/kernel/signal.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 5a2edd7f027e..dcd282419456 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -84,7 +84,7 @@ static long save_v_state(struct pt_regs *regs, void __user **sc_vec)
- 	datap = state + 1;
- 
- 	/* datap is designed to be 16 byte aligned for better performance */
--	WARN_ON(unlikely(!IS_ALIGNED((unsigned long)datap, 16)));
-+	WARN_ON(!IS_ALIGNED((unsigned long)datap, 16));
- 
- 	get_cpu_vector_context();
- 	riscv_v_vstate_save(&current->thread.vstate, regs);
--- 
-2.25.1
+On 2024/6/20 5:47, Kees Cook wrote:
+> An unintended consequence of commit 9c573cd31343 ("randomize_kstack:
+> Improve entropy diffusion") was that the per-architecture entropy size
+> filtering reduced how many bits were being added to the mix, rather than
+> how many bits were being used during the offsetting. All architectures
+> fell back to the existing default of 0x3FF (10 bits), which will consume
+> at most 1KiB of stack space. It seems that this is working just fine,
+> so let's avoid the confusion and update everything to use the default.
+>
 
+My original intent was indeed to do this, but I regret that not being 
+more explicit in the commit log..
+
+Additionally, I've tested the stack entropy by applying the following 
+patch, the result was `Bits of stack entropy: 7` on arm64, too. It does 
+not seem to affect the entropy value, maybe removing it is OK, or there 
+may be some nuances of your intentions that I've overlooked.
+
+--- a/include/linux/randomize_kstack.h
++++ b/include/linux/randomize_kstack.h
+@@ -79,9 +79,7 @@ DECLARE_PER_CPU(u32, kstack_offset);
+  #define choose_random_kstack_offset(rand) do {                         \
+         if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT, \
+                                 &randomize_kstack_offset)) {            \
+-               u32 offset = raw_cpu_read(kstack_offset);               \
+-               offset = ror32(offset, 5) ^ (rand);                     \
+-               raw_cpu_write(kstack_offset, offset);                   \
++               raw_cpu_write(kstack_offset, rand);                     \
+         }                                                               \
+  } while (0)
+  #else /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
+
+> The prior intent of the per-architecture limits were:
+> 
+>    arm64: capped at 0x1FF (9 bits), 5 bits effective
+>    powerpc: uncapped (10 bits), 6 or 7 bits effective
+>    riscv: uncapped (10 bits), 6 bits effective
+>    x86: capped at 0xFF (8 bits), 5 (x86_64) or 6 (ia32) bits effective
+>    s390: capped at 0xFF (8 bits), undocumented effective entropy
+> 
+> Current discussion has led to just dropping the original per-architecture
+> filters. The additional entropy appears to be safe for arm64, x86,
+> and s390. Quoting Arnd, "There is no point pretending that 15.75KB is
+> somehow safe to use while 15.00KB is not."
+> 
+> Co-developed-by: Yuntao Liu <liuyuntao12@huawei.com>
+> Signed-off-by: Yuntao Liu <liuyuntao12@huawei.com>
+> Fixes: 9c573cd31343 ("randomize_kstack: Improve entropy diffusion")
+> Link: https://lore.kernel.org/r/20240617133721.377540-1-liuyuntao12@huawei.com
+> Signed-off-by: Kees Cook <kees@kernel.org>
+> ---
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> ---
+>   arch/arm64/kernel/syscall.c          | 16 +++++++---------
+>   arch/s390/include/asm/entry-common.h |  2 +-
+>   arch/x86/include/asm/entry-common.h  | 15 ++++++---------
+>   3 files changed, 14 insertions(+), 19 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
+> index ad198262b981..7230f6e20ab8 100644
+> --- a/arch/arm64/kernel/syscall.c
+> +++ b/arch/arm64/kernel/syscall.c
+> @@ -53,17 +53,15 @@ static void invoke_syscall(struct pt_regs *regs, unsigned int scno,
+>   	syscall_set_return_value(current, regs, 0, ret);
+>   
+>   	/*
+> -	 * Ultimately, this value will get limited by KSTACK_OFFSET_MAX(),
+> -	 * but not enough for arm64 stack utilization comfort. To keep
+> -	 * reasonable stack head room, reduce the maximum offset to 9 bits.
+> +	 * This value will get limited by KSTACK_OFFSET_MAX(), which is 10
+> +	 * bits. The actual entropy will be further reduced by the compiler
+> +	 * when applying stack alignment constraints: the AAPCS mandates a
+> +	 * 16-byte aligned SP at function boundaries, which will remove the
+> +	 * 4 low bits from any entropy chosen here.
+>   	 *
+> -	 * The actual entropy will be further reduced by the compiler when
+> -	 * applying stack alignment constraints: the AAPCS mandates a
+> -	 * 16-byte (i.e. 4-bit) aligned SP at function boundaries.
+> -	 *
+> -	 * The resulting 5 bits of entropy is seen in SP[8:4].
+> +	 * The resulting 6 bits of entropy is seen in SP[9:4].
+>   	 */
+> -	choose_random_kstack_offset(get_random_u16() & 0x1FF);
+> +	choose_random_kstack_offset(get_random_u16());
+>   }
+>   
+>   static inline bool has_syscall_work(unsigned long flags)
+> diff --git a/arch/s390/include/asm/entry-common.h b/arch/s390/include/asm/entry-common.h
+> index 7f5004065e8a..35555c944630 100644
+> --- a/arch/s390/include/asm/entry-common.h
+> +++ b/arch/s390/include/asm/entry-common.h
+> @@ -54,7 +54,7 @@ static __always_inline void arch_exit_to_user_mode(void)
+>   static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
+>   						  unsigned long ti_work)
+>   {
+> -	choose_random_kstack_offset(get_tod_clock_fast() & 0xff);
+> +	choose_random_kstack_offset(get_tod_clock_fast());
+>   }
+>   
+>   #define arch_exit_to_user_mode_prepare arch_exit_to_user_mode_prepare
+> diff --git a/arch/x86/include/asm/entry-common.h b/arch/x86/include/asm/entry-common.h
+> index 7e523bb3d2d3..fb2809b20b0a 100644
+> --- a/arch/x86/include/asm/entry-common.h
+> +++ b/arch/x86/include/asm/entry-common.h
+> @@ -73,19 +73,16 @@ static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
+>   #endif
+>   
+>   	/*
+> -	 * Ultimately, this value will get limited by KSTACK_OFFSET_MAX(),
+> -	 * but not enough for x86 stack utilization comfort. To keep
+> -	 * reasonable stack head room, reduce the maximum offset to 8 bits.
+> -	 *
+> -	 * The actual entropy will be further reduced by the compiler when
+> -	 * applying stack alignment constraints (see cc_stack_align4/8 in
+> +	 * This value will get limited by KSTACK_OFFSET_MAX(), which is 10
+> +	 * bits. The actual entropy will be further reduced by the compiler
+> +	 * when applying stack alignment constraints (see cc_stack_align4/8 in
+>   	 * arch/x86/Makefile), which will remove the 3 (x86_64) or 2 (ia32)
+>   	 * low bits from any entropy chosen here.
+>   	 *
+> -	 * Therefore, final stack offset entropy will be 5 (x86_64) or
+> -	 * 6 (ia32) bits.
+> +	 * Therefore, final stack offset entropy will be 7 (x86_64) or
+> +	 * 8 (ia32) bits.
+>   	 */
+> -	choose_random_kstack_offset(rdtsc() & 0xFF);
+> +	choose_random_kstack_offset(rdtsc());
+>   }
+>   #define arch_exit_to_user_mode_prepare arch_exit_to_user_mode_prepare
+>   
 
 _______________________________________________
 linux-riscv mailing list
