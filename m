@@ -4,95 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A0BC2BBCA
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 12:07:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B532EC27C4F
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 12:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5DMSaVfDpOAQNw/uktTh2Z5dPcpH0Tqny7YfbofCeEw=; b=mmgM1R/TqC/8kU
-	3j/eEzEk0DLUTUskyizlvlpqQ4FOEQr8c0EQ4B/8MNlPrVPZQ+CpPWnnHGfcb1dxnNYYPH8rvcX9k
-	rDPvsMOpqu0VDPNc/Ch8B/PBnevWILCZym4ZhJ+BdWkHMqstDbe87TrQD1zlAJradUqKJJpREZ4cn
-	UaqvJ/tgrmq3EY/dY/iUFkeZZGs2B69I7tueOWmd9uuHk0d9/tixet+WR6qnUUq6aY2gyGwUau2d8
-	oUcoqJk9cQ5VBuEK9DX/m8+bohDBxwPx4x8cp0dUg46Z4KpZQcFLrqq3ZPPhx/oQtcOL2BO05ZT/h
-	FcAFplaWjut6OKtuKDUA==;
+	List-Owner; bh=NddWnHRdGxv0xnZxoCmJzAHC5jdCKPH0o3J2NMAfFng=; b=z2/yo1u6lVSGPV
+	uqgN6lZ+YmRQmoaWNsFhgV3d4iwhtNu4lPj8ey2oLMRyWTGJAXtexWkig076QmRstteU/UP6w3IEl
+	1Mt1OkqgUrX7IwIIfVGuTfUQfZK2pSrncCdRG9VncosYF4Fog3zAM/yy/bkAcWT6KP5g2QvMpX8Q9
+	P5LWQBuhZWndHnEcS1GwjJXv5ioQFHQb+ct+wqpPpS1f9FN6vX4dUb5JTrA+JnCsMu6qnT51idSrb
+	NPapq1okDkWuieVzZ2euDC0Pwa4txaKNz3tm9Sn5fx4m1wHffW2x6XYQInsfUsZW8sfWbGU1CN/n6
+	oF7oWfptD05+wpxgMR8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKd2k-000000093Pe-2QBv;
-	Fri, 21 Jun 2024 12:07:02 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1sKd54-0000000940x-0xGo;
+	Fri, 21 Jun 2024 12:09:26 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKd2h-000000093Oc-3rZ2
+	id 1sKd50-000000093zN-2MY8
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jun 2024 12:07:01 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-a6fd513f18bso50384766b.3
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jun 2024 05:06:59 -0700 (PDT)
+	Fri, 21 Jun 2024 12:09:24 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1f9885d5c04so17319345ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Jun 2024 05:09:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1718971618; x=1719576418; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VHJrI7Vqw3c5XD9sXg5PVJnoydMCRn6WSSge8PKtjyc=;
-        b=ck/PRbWpfeojU3MEs4EAgljlZpLiM9MB4pgrbXy+zO+93G5lvNL+daLk3M726w6i22
-         xhfK9E0qc4nJfZEJIg39QZytBLq6++RmIRTSlpzl4RRLIobvTE8rPZrUF+LGlsIgHbSg
-         e9cxadg2oK4RfYehpzEHKudQmjv2MDdiktcy3w3KF7yZeFlk4L5S8K1Se/J4Z+krJ0Qx
-         gJT34aKL4NvzMn/REiQvSNSB3YLdStSH+Iaw0n2MPQgd2705uA8cSeT0QENgcNQe3BlM
-         26hOGZekjNfz2BTYYzCyZRWgZCS2HVrGKSE5k6cj9GpSVIfKFguDZ4ij9N1loLEX7ZAF
-         d8WA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718971618; x=1719576418;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1718971761; x=1719576561; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VHJrI7Vqw3c5XD9sXg5PVJnoydMCRn6WSSge8PKtjyc=;
-        b=ZYJkvgoKjZZbnXVbMG5aWsaHIOpKSknKURbTC4UgfSH/TjZHFLZ4RH7+Jp+KFzplcl
-         E7HqSVWPty3wqZcMOy2Td6O1aOy6iiUKQkY7OOklUQ3NlwybzPhkCV4QPLzRmTPmrAV4
-         g0Atpt+TjhRRoax8rF5w70J67sdREvbqXg+HF6/PMPLvExmsrMR5J7lh/OkiPz2jzF2X
-         1KR1pY2/x+lWHuoxvK09rC70Cvw+fPD8vd5NFekUw/bE4QQVyyIhztL72As2Bu9wlcTe
-         QxLFi0JAGGNJNqARL0fHQHRqn+Xchwg1UgayGon8LvqDCj6r2JVoJbwF0LR8Y2Pti8Ra
-         luvw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJbRP0vRUVyzMY2qrXV0YWALb2/Q7WQy9aai+nk7uKbFjXUop8+yNri08nuJGAQYc6nfmDzNlBS5eZn2MSb9SpGdb/9P8xyFZZrtfflKRd
-X-Gm-Message-State: AOJu0YzU2Rzo6UBemPBDkMfz0FTAD47KnD2ukTPSiRZ497sxz1ST4eKb
-	8dXlB5L60qbWEh0Om4R08i7d5kSlU/+cMwA/EVG7Qkj83mb16pjpZqbbHUt1350=
-X-Google-Smtp-Source: AGHT+IF2EHP5Y+0/X+QcGd8dEyDcv5ub1PMssgA7iavpB36MSQ3omIYrrSlu92gh8QjYHzsmEitT+g==
-X-Received: by 2002:a17:907:a0d2:b0:a6f:b5dd:1a49 with SMTP id a640c23a62f3a-a6fb5dd1b35mr532165866b.3.1718971617469;
-        Fri, 21 Jun 2024 05:06:57 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a6fcf5490d9sm76845966b.115.2024.06.21.05.06.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Jun 2024 05:06:57 -0700 (PDT)
-Date: Fri, 21 Jun 2024 14:06:51 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Yong-Xuan Wang <yongxuan.wang@sifive.com>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, apatel@ventanamicro.com, alex@ghiti.fr, greentime.hu@sifive.com, 
-	vincent.chen@sifive.com, Jinyu Tang <tjytimi@163.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>, wchen <waylingii@gmail.com>, 
-	Samuel Ortiz <sameo@rivosinc.com>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
-	Evan Green <evan@rivosinc.com>, Xiao Wang <xiao.w.wang@intel.com>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Mike Rapoport (IBM)" <rppt@kernel.org>, Kemeng Shi <shikemeng@huaweicloud.com>, 
-	Samuel Holland <samuel.holland@sifive.com>, Jisheng Zhang <jszhang@kernel.org>, 
-	Charlie Jenkins <charlie@rivosinc.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Leonardo Bras <leobras@redhat.com>
-Subject: Re: [PATCH v5 1/4] RISC-V: Add Svade and Svadu Extensions Support
-Message-ID: <20240621-a69c8f97e566ebd3a82654c1@orel>
-References: <20240605121512.32083-1-yongxuan.wang@sifive.com>
- <20240605121512.32083-2-yongxuan.wang@sifive.com>
- <20240621-d1b77d43adacaa34337238c2@orel>
- <20240621-nutty-penknife-ca541ee5108d@wendy>
- <20240621-b22a7c677a8d61c26feaa75b@orel>
- <20240621-pushpin-exclude-1b4f38ae7e8d@wendy>
+        bh=N3bpiTUuQIwX4Xfzvkw+JGfc81Y8IZVkUoMFi4AzcE0=;
+        b=QAKa2P84XeuKtmYKXyvffo3cI+6hupFJsfqo2alhZ3YK349jolK05SRRJv32S/79cW
+         fKfNTVCRi2s4biE035+ZsxR+Nm1YUCoM6g+paqkQ4jDUiQy9ZB8NEQyOQ7WAlDWiqzYP
+         BtIkAtkjMkoZXpd99oQc8ZSyQT7SePx7HYvGqn44pw52hnNCKmTja19g4xzbKU1MXwlf
+         rD/NFxIc2JORC37FFf87RKLzZvlrdsY741wYCBK37NZ8Kw3NXeojkdmGiH6711HvKgRP
+         WFK/KNLjAFrfHK8jeQcGtaOcbosJQLfsBaMB2eu64Bynv0VujKX25c59CFVjLTgD8tgM
+         l6Uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718971761; x=1719576561;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=N3bpiTUuQIwX4Xfzvkw+JGfc81Y8IZVkUoMFi4AzcE0=;
+        b=MGUu5oc5YLNuX723JypcO1YqQLOIGL1o/L9cuZSGdgYN0cqEErA+PLaWcY3za0yJiC
+         gE5xWRi1kzp5JaTnEfviFYlVkuYubBpwgysZnzbKZhAV8wIY//kfw7VG+ivQZs6AtiD+
+         fTNy6cgv7FW1HLmrsDiXMtTq9LQ52h5BQzZR4g3nmK7PtuJQsrCl7t/fnydas8IVdLs/
+         dheZIdpt+Pl2KaogNJfvR/CNmmcmkwRnjgvSb5hQ1S8MvERbuPWSyKwHtJTD/NVsDwXY
+         6egNtdkEElHKGFv9wmLnZBZR/9ey2mMtu+yEieUXUItptg1GYk2PhoaetdD3ZGyRSjuB
+         jECw==
+X-Gm-Message-State: AOJu0Yw4gCFluUtOa01ypTtij+yQhTnK5fJ5DmhdpjA+R87TWQwg0puZ
+	6cfV+ezSPx0ZZ1oe5u3nhCUmxVDA6Nh8bYhuNLSgM7efkTRQureqiXixRS3k93GI5zHZKl7zQtK
+	vwUR3pLb5+tn+qdPbG4AzUKm+Dop2xWc+CCURYQ==
+X-Google-Smtp-Source: AGHT+IE1eWisatE54yPyogUi1nCzHuRa+Ft1MLTrDQNKgWeQZYGbOjZEa5IllYpCxPNjLDMbi3chxWaGYYUSUrI2DBM=
+X-Received: by 2002:a17:90a:3044:b0:2c4:fc64:6b81 with SMTP id
+ 98e67ed59e1d1-2c7b5d52cb7mr8337358a91.31.1718971760877; Fri, 21 Jun 2024
+ 05:09:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240621-pushpin-exclude-1b4f38ae7e8d@wendy>
+References: <20240621093223.37893-1-luxu.kernel@bytedance.com> <ZnVhIi0Jre77i3RN@andrea>
+In-Reply-To: <ZnVhIi0Jre77i3RN@andrea>
+From: Xu Lu <luxu.kernel@bytedance.com>
+Date: Fri, 21 Jun 2024 20:09:10 +0800
+Message-ID: <CAPYmKFuS-wJTfZBeVo_AS9PscLC7zSiEDZnRU9NDB5+LYxjNSw@mail.gmail.com>
+Subject: Re: [External] Re: [RFC v2 0/2] riscv: Idle thread using Zawrs extension
+To: Andrea Parri <parri.andrea@gmail.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, conor.dooley@microchip.com, anup@brainfault.org, 
+	atishp@atishpatra.org, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
+	conor+dt@kernel.org, christoph.muellner@vrull.eu, heiko@sntech.de, 
+	charlie@rivosinc.com, David.Laight@aculab.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240621_050700_012862_A0231425 
-X-CRM114-Status: GOOD (  40.76  )
+X-CRM114-CacheID: sfid-20240621_050922_630735_E922E422 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,89 +88,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 21, 2024 at 12:00:32PM GMT, Conor Dooley wrote:
-> On Fri, Jun 21, 2024 at 12:42:32PM +0200, Andrew Jones wrote:
-> > On Fri, Jun 21, 2024 at 11:24:19AM GMT, Conor Dooley wrote:
-> > > On Fri, Jun 21, 2024 at 10:43:58AM +0200, Andrew Jones wrote:
-...
-> > > > It's hard to guess what is, or will be, more likely to be the correct
-> > > > choice of call between the _unlikely and _likely variants. But, while we
-> > > > assume svade is most prevalent right now, it's actually quite unlikely
-> > > > that 'svade' will be in the DT, since DTs haven't been putting it there
-> > > > yet. Anyway, it doesn't really matter much and maybe the _unlikely vs.
-> > > > _likely variants are better for documenting expectations than for
-> > > > performance.
-> > > 
-> > > binding hat off, and kernel hat on, what do we actually do if there's
-> > > neither Svadu or Svade in the firmware's description of the hardware?
-> > > Do we just arbitrarily turn on Svade, like we already do for some
-> > > extensions:
-> > > 	/*
-> > > 	 * These ones were as they were part of the base ISA when the
-> > > 	 * port & dt-bindings were upstreamed, and so can be set
-> > > 	 * unconditionally where `i` is in riscv,isa on DT systems.
-> > > 	 */
-> > > 	if (acpi_disabled) {
-> > > 		set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
-> > > 		set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
-> > > 		set_bit(RISCV_ISA_EXT_ZICNTR, isainfo->isa);
-> > > 		set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
-> > > 	}
-> > >
-> > 
-> > Yes, I think that's reasonable, assuming we do it in the final "pass",
-> > where we're sure svadu isn't present.
-> 
-> I haven't thought about specifically when to do it, but does it need to
-> be in the final pass? If we were to, on each CPU, enable it if Svadu
-> isn't there, we'd either end up with a system that I suspect we're not
-> going to be supporting or the correct result. Or am I misunderstanding,
-> and it will be valid to have a subset of CPUs that have Svadu enabled
-> from the bootloader?
-> 
-> Note that it would not be problematic to have 3 CPUs with Svade + Svadu
-> and a 4th with only Svade in the DT because we would just not use the
-> FWFT mechanism to enable Svadu. It's just the Svadu in isolation case
-> that I'm asking about.
-
-I wasn't thinking about the potential of mixmatched A/D udpating. I'm
-pretty sure this will be one of those things that is all or none. I
-was more concerned with getting the result right and I had just been
-too lazy to double check that the block of code you pointed out is
-in the right place to be sure there's no svadu. Now that I look, I
-believe it is.
-
-> 
-> > Doing this is a good idea since
-> > we'll be able to simplify conditions, as we can just use 'if (svade)'
-> > since !svade would imply svadu. With FWFT and both, we'll want to remove
-> > svade from the isa bitmap when enabling svadu.
-> 
-> Right I would like to move the various extension stuff in this
-> direction, where they have a bit more intelligence to them, and don't
-> just reflect the state in DT/ACPI directly.
-> I've got some patches in mind once Clement's Zca etc patchset
-> is merged, think I posted one or two as replies to conversations on
-> the list already. An example would be disabling the vector crypto
-> extensions if we've had to disable vector, or as you suggest here,
-> dropping Svade if we have turned on Svadu using FWFT. I think that makes
-> the APIs more understandable to developers and more useful than they are
-> at the moment, where to use vector crypto you also need to check vector
-> itself for the code to be correct. If I call
-> riscv_isa_extension_available(), and it returns true, the extension
-> should be usable IMO.
-
-Sounds good to me.
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKdW4gMjEsIDIwMjQgYXQgNzoxN+KAr1BNIEFuZHJlYSBQYXJyaSA8cGFycmkuYW5k
+cmVhQGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiA+IFRoaXMgaXMgdGhlIHNlY29uZCB2ZXJzaW9uIG9m
+IGlkbGUgdGhyZWFkIGJhc2VkIG9uIFphd3JzIGV4dGVuc2lvbi4gV2UKPiA+IHJlYmFzZWQgb3Vy
+IGNvZGUgb24gQW5kcmV3J3MgcGF0Y2ggc2VyaWVzWzFdIHdoaWNoIHByb3ZpZGVzIGJhc2ljCj4g
+PiBzdXBwb3J0IGZvciBaYXdycyBhcyB3ZWxsIGFzIG9wdGltaXphdGlvbiBmb3Igc3BpbmxvY2su
+Cj4KPiBUaGVyZSdzIHNvbWUgZmVlZGJhY2sgb24gQW5kcmV3J3MgdjIgWzFdIHdoaWNoIHNlZW1z
+IHRvIGVxdWFsbHkgYXBwbHkKPiB0byB0aGUgbGF0ZXIsIG1lbnRpb25lZCBzZXJpZXMvc3VibWlz
+c2lvbiwgYW5kIGhlbmNlIHRvIHRoZSBzZXJpZXMgaW4KPiBxdWVzdGlvbiAoYWx0aG91Z2ggb25s
+eSBpbmRpcmVjdGx5IGFkbWl0dGVkbHkpLgo+Cj4gQXMgYW4gYWRkaXRpb25hbCBjb21tZW50LCBw
+bGVhc2UgZG8gYWRkICBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnCj4gKHRoZSBMS01MKSB0
+byB5b3VyIENjOiAgbGlzdCBvbiBwYXRjaCBzdWJtaXNzaW9uIChhZ2FpbiwgdGhpcyBhcHBsaWVz
+Cj4gdG8gYm90aCBBbmRyZXcncyBhbmQgdGhlIHByZXNlbnQgc3VibWlzc2lvbnMpLgo+Cj4gICBB
+bmRyZWEKPgo+IFsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi9aaVdDUDZm
+NnpaM2RLWGZOQGFuZHJlYS8KSGkgQW5kcmVhLAoKVGhhbmtzIGEgbG90IGZvciB5b3VyIHJlbWlu
+ZGVyLiBJIHdpbGwgY2hlY2sgdGhlIGZlZWRiYWNrIGFuZCBhZGQgdGhpcwplbWFpbCBpbiB0aGUg
+bmV4dCBwYXRjaCBzZXJpZXMhCgpYdSBMdQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
