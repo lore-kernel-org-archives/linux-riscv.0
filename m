@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9058C27C4F
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 09:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F40C2BA1A
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 10:07:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6dzAOkNoUEigwVP1EW52Wx73jyTktxB9Yhf4rS6TAw4=; b=bblWufNMNoKVjL
-	YDodqPacw+WPhKQv6IpuouPhbkQaevBxv9K/eFdRYK3Ac5TA2LYzxkT9kinn949eNrzWiC75EoBRu
-	FR81kG8U2gz/7cv05h1YECwv7E0KZxkjY5Mj0ZWQP9ku0JGzoydcAXAcVRM3hLeQivZ4hh3XK3nFr
-	hJilSJ1um6F7axjiJP2rXR1SuiJ2pSR4Z0bbDa5P+w9Xsp+5TFoNw73hDz+z7ot9WW4a63y1nfM2g
-	ntGLkrRNF/IXp9ZporLPk0nfX6HhhDv5H8WDwm2Gf1vUfflLNL51Wzx2VI28vlUBxVD2GlSFiwjus
-	YHnm0NmTQ8pm335g62Vw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SpAwd4ZF5M6NYmXFzwyHcylLR1yzXZbz7nRT+R/K5Pg=; b=Glk6UNMZrkl/I9K4i+JNVt+fzS
+	A5gm9QWChCOqsnW6iToqXCl9FajqhBdtABsfnAzVcP6OA745qFavW3zNEjPz9DuCEem9S9fIUemog
+	WR7aNxzAeo31RJQ0mjMVbYHDAyV2IEeG3DSSksuq3BgrsXriSIXwDO6FV6twyXAk5GrdXZ+eHYWD6
+	osu4gcC7T6BOAb4amhp0vB5dXSfDnv5D3ltlAnHgcC9qenU1nGkjvAe5ZBbl6fWJCZN7XnWFIiByF
+	FzqOhryiwT+RwTbMgIj+KB2lX9Yw9PuzfDJXm3PKwA2hR8xQl35IlL4a5js7zA3eLIyKCE8HvOrkM
+	oLhYnBiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKadY-00000008Z7Y-1WJt;
-	Fri, 21 Jun 2024 09:32:52 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1sKbAw-00000008fzi-2vmU;
+	Fri, 21 Jun 2024 10:07:22 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKadT-00000008Z3k-2XSm
+	id 1sKbAt-00000008fxZ-1Jkx
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jun 2024 09:32:49 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-705bf368037so1578361b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jun 2024 02:32:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1718962366; x=1719567166; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QDWjjiZAxDspGubAmoMMssYoq1McfQ9VRFvCIu5o/uE=;
-        b=RUfqjf6Tp5y3g0rjmb7/hGgdstMy3QJMOwI2ewLOkbBQ+60XGOi2ypHdnsrRpgCiVZ
-         bnNkji5GgTEgiqxHZj+AvatBOZDdO7ib7QPxJoUTEicDKUHldZNMZnoktlDGNypMk1Qi
-         AdCDh2hN6yOXPuyU3lUvi/JkehIH7HDfonjCImQZu5Eoeib4n/pewmKurCVWgySMR34l
-         AtmmRTfxU/daLLKXeY7tqMYSnd/Z3eRR/GCC1zrQf0GzE0lOYI1iPzskqXpguRPlblA2
-         1GzBNmafujjOzGCovfdHOqgA360o2K5jhjdK+g0rI5VskXbODktp42b2dfyi9k4VwXC5
-         VFXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718962366; x=1719567166;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QDWjjiZAxDspGubAmoMMssYoq1McfQ9VRFvCIu5o/uE=;
-        b=p2if8nT2QU0KSh8Y/iKs8S+5IU82wC7EJvWRfx7cWA8UD1XDEzh7XQhDTEbb6xWrf/
-         CCyYoiuriDmRz84b7cvnY7aO+HhMD/naHpn8K20zLw31foaZi7t0v/7Ctdi64ioSefov
-         iLgUJt66r9EU3w4GDOt1+AtB9NfGSo4ECDTIx9ndGIei5CYO6A0Eh4JuoqjAA0yz2/tV
-         Idl9nlK4AbaVzQij3KWPziAUZ40CKPKNdym+Tkr7BMaBLujkleFp770bkD0qjXKagfIm
-         hdnbLQuuTQkC8tWh+0K5vQNzNL3m4L99brLIoi43pb3oPqJ/tS2rxcBuUmQIYX9cRxnA
-         EPQQ==
-X-Gm-Message-State: AOJu0YxjOYcdH9gchB+kfjQq3RCRBZwU56KVkHz6X+pnX9QLaPrzRAp/
-	bwgS2o2QI53RyJkHM0I2J8ysN0cP/MaI1YMerLuIo07mLImbTQFtCY2a+hP8aOLZbm+ikpqgKtL
-	nzGg=
-X-Google-Smtp-Source: AGHT+IHhJmxHFdSSR4W2LuRda6UNPDko8PXJxoSzJ/rR5MLs1oJV1snZK/jHei68R7odnLFMe42AoA==
-X-Received: by 2002:a05:6a20:2d88:b0:1b8:498e:4e34 with SMTP id adf61e73a8af0-1bcbb560c9dmr7600232637.34.1718962366161;
-        Fri, 21 Jun 2024 02:32:46 -0700 (PDT)
-Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7065124dd26sm968415b3a.127.2024.06.21.02.32.40
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 21 Jun 2024 02:32:45 -0700 (PDT)
-From: Xu Lu <luxu.kernel@bytedance.com>
-To: linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	conor.dooley@microchip.com,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	robh@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org,
-	christoph.muellner@vrull.eu,
-	heiko@sntech.de,
-	charlie@rivosinc.com,
-	David.Laight@aculab.com,
-	parri.andrea@gmail.com,
-	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [RFC v2 2/2] riscv: Use Zawrs to accelerate IPI to idle cpu
-Date: Fri, 21 Jun 2024 17:32:23 +0800
-Message-Id: <20240621093223.37893-3-luxu.kernel@bytedance.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20240621093223.37893-1-luxu.kernel@bytedance.com>
-References: <20240621093223.37893-1-luxu.kernel@bytedance.com>
+	Fri, 21 Jun 2024 10:07:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1718964439; x=1750500439;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9Mj5A9F9aX0M1Sv5c3xhao2Mzlr3mL7kZ+ELIe6yfU4=;
+  b=XbipVtQmGiagvAMVHCn53qZX6MAtZOO9O9TN9xHinFr3wSeI6Ml0ymQW
+   Yc65N8l5mB0v99PtxMwO9CJLa5/23LbCpPo48uRZOM5M4zbZOqe0UimN0
+   XT07L2YwwaqWUEyIbJCimqSOhi/Uyz7W4Go0knKfBYbrPBXyN2AL4quv6
+   haTnMaF0y7tta5+VyOm17VqjwUOk2GuziNPDMgwXcVjaudMJRMCOH1qQV
+   chJrcOU9cnPvvZhwU6prqQd2kT3UhhjjOsCEuer00KiRW6lC0rV179gmZ
+   6fwKp0dMINPl6csgbHnRrVHvkUDrdZszCcYRUn/RCEox+iQ7+el+jCCo+
+   w==;
+X-CSE-ConnectionGUID: yH9lxABoTZGknLEBPBJV2w==
+X-CSE-MsgGUID: 2yopCvb3SVSuE7sfObazNA==
+X-IronPort-AV: E=Sophos;i="6.08,254,1712646000"; 
+   d="asc'?scan'208";a="28314974"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 21 Jun 2024 03:07:15 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 21 Jun 2024 03:06:55 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Fri, 21 Jun 2024 03:06:50 -0700
+Date: Fri, 21 Jun 2024 11:06:31 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+CC: Jesse Taube <jesse@rivosinc.com>, <linux-riscv@lists.infradead.org>,
+	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Conor
+ Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?=
+	<cleger@rivosinc.com>, Evan Green <evan@rivosinc.com>, Andrew Jones
+	<ajones@ventanamicro.com>, Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu
+	<andy.chiu@sifive.com>, Eric Biggers <ebiggers@google.com>, Greentime Hu
+	<greentime.hu@sifive.com>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?=
+	<bjorn@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, Costa Shulyupin
+	<costa.shul@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, Baoquan
+ He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>, Zong Li
+	<zong.li@sifive.com>, Sami Tolvanen <samitolvanen@google.com>, Ben Dooks
+	<ben.dooks@codethink.co.uk>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Erick Archer
+	<erick.archer@gmx.com>, Joel Granados <j.granados@samsung.com>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>
+Subject: Re: [PATCH v2 4/6] RISC-V: Detect unaligned vector accesses
+ supported.
+Message-ID: <20240621-reveler-underfed-37600a9f16d5@wendy>
+References: <20240613191616.2101821-1-jesse@rivosinc.com>
+ <20240613191616.2101821-5-jesse@rivosinc.com>
+ <ZnDmRK0ZtKzmWN5S@ghost>
+ <ZnDsdzv4o/Xz9kWm@ghost>
+ <e6f7a061-50f0-4a6a-a09b-468502703c20@rivosinc.com>
+ <ZnSptpobfqjik3RM@ghost>
 MIME-Version: 1.0
+In-Reply-To: <ZnSptpobfqjik3RM@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240621_023247_669722_020F5B33 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20240621_030719_834509_3CB1F9E5 
+X-CRM114-Status: GOOD (  57.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,276 +102,225 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3287224635058451385=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When sending IPI to a cpu which has entered idle state using Zawrs
-extension, there is no need to send a physical software interrupt.
-Instead, we can write the IPI information to the address reserved by
-target cpu, which will wake it from WRS.NTO. Then the target cpu can
-handle the IPI directly without falling into traditional interrupt
-handling routine.
+--===============3287224635058451385==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="+rvukaB0Gwx7tZ+V"
+Content-Disposition: inline
 
-Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
----
- arch/riscv/include/asm/processor.h | 14 +++++++
- arch/riscv/include/asm/smp.h       | 14 +++++++
- arch/riscv/kernel/process.c        | 65 +++++++++++++++++++++++++++++-
- arch/riscv/kernel/smp.c            | 39 ++++++++++++------
- 4 files changed, 118 insertions(+), 14 deletions(-)
+--+rvukaB0Gwx7tZ+V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 5ad572645bee..45e060831313 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -173,6 +173,20 @@ static inline void wrs_nto(unsigned long *addr)
- 			: : "memory");
- }
- 
-+static inline void wrs_nto_if(int *addr, int val)
-+{
-+	int prev;
-+
-+	__asm__ __volatile__(
-+			"lr.w %[p], %[a]\n\t"
-+			"bne %[p], %[v], 1f\n\t"
-+			ZAWRS_WRS_NTO "\n\t"
-+			"1:\n\t"
-+			: [p] "=&r" (prev), [a] "+A" (*addr)
-+			: [v] "r" (val)
-+			: "memory");
-+}
-+
- extern phys_addr_t dma32_phys_limit;
- 
- struct device_node;
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index 0d555847cde6..2f27fd743092 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -19,6 +19,20 @@ extern unsigned long boot_cpu_hartid;
- 
- #include <linux/jump_label.h>
- 
-+enum ipi_message_type {
-+	IPI_RESCHEDULE,
-+	IPI_CALL_FUNC,
-+	IPI_CPU_STOP,
-+	IPI_CPU_CRASH_STOP,
-+	IPI_IRQ_WORK,
-+	IPI_TIMER,
-+	IPI_MAX
-+};
-+
-+int ipi_virq_base_get(void);
-+
-+irqreturn_t handle_IPI(int irq, void *data);
-+
- /*
-  * Mapping between linux logical cpu index and hartid.
-  */
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 9f0f7b888bc1..7d6bf780d334 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -16,6 +16,7 @@
- #include <linux/ptrace.h>
- #include <linux/uaccess.h>
- #include <linux/static_call.h>
-+#include <linux/hardirq.h>
- 
- #include <asm/unistd.h>
- #include <asm/processor.h>
-@@ -27,6 +28,7 @@
- #include <asm/cpuidle.h>
- #include <asm/vector.h>
- #include <asm/cpufeature.h>
-+#include <asm/smp.h>
- 
- register unsigned long gp_in_global __asm__("gp");
- 
-@@ -38,6 +40,8 @@ EXPORT_SYMBOL(__stack_chk_guard);
- 
- extern asmlinkage void ret_from_fork(void);
- 
-+DEFINE_PER_CPU(atomic_t, idle_ipi_mask);
-+
- static __cpuidle void default_idle(void)
- {
- 	/*
-@@ -49,6 +53,16 @@ static __cpuidle void default_idle(void)
- 	wait_for_interrupt();
- }
- 
-+static __cpuidle void default_idle_enter(void)
-+{
-+	/* Do nothing */
-+}
-+
-+static __cpuidle void default_idle_exit(void)
-+{
-+	/* Do nothing */
-+}
-+
- static __cpuidle void wrs_idle(void)
- {
- 	/*
-@@ -57,10 +71,42 @@ static __cpuidle void wrs_idle(void)
- 	 * to entering WRS.NTO.
- 	 */
- 	mb();
-+#ifdef CONFIG_SMP
-+	wrs_nto_if(&this_cpu_ptr(&idle_ipi_mask)->counter, BIT(IPI_MAX));
-+#else
- 	wrs_nto(&current_thread_info()->flags);
-+#endif
-+}
-+
-+static __cpuidle void wrs_idle_enter(void)
-+{
-+#ifdef CONFIG_SMP
-+	atomic_set(this_cpu_ptr(&idle_ipi_mask), BIT(IPI_MAX));
-+#endif
-+}
-+
-+static __cpuidle void wrs_idle_exit(void)
-+{
-+#ifdef CONFIG_SMP
-+	int pending;
-+	unsigned long flags;
-+	enum ipi_message_type ipi;
-+
-+	local_irq_save(flags);
-+	pending = atomic_xchg_relaxed(this_cpu_ptr(&idle_ipi_mask), 0);
-+	for (ipi = IPI_RESCHEDULE; ipi < IPI_MAX; ipi++)
-+		if (pending & BIT(ipi)) {
-+			irq_enter();
-+			handle_IPI(ipi_virq_base_get() + ipi, NULL);
-+			irq_exit();
-+		}
-+	local_irq_restore(flags);
-+#endif
- }
- 
- DEFINE_STATIC_CALL_NULL(riscv_idle, default_idle);
-+DEFINE_STATIC_CALL_NULL(riscv_idle_enter, default_idle_enter);
-+DEFINE_STATIC_CALL_NULL(riscv_idle_exit, default_idle_exit);
- 
- void __cpuidle cpu_do_idle(void)
- {
-@@ -72,13 +118,28 @@ void __cpuidle arch_cpu_idle(void)
- 	cpu_do_idle();
- }
- 
-+void __cpuidle arch_cpu_idle_enter(void)
-+{
-+	static_call(riscv_idle_enter)();
-+}
-+
-+void __cpuidle arch_cpu_idle_exit(void)
-+{
-+	static_call(riscv_idle_exit)();
-+}
-+
- void __init select_idle_routine(void)
- {
- 	if (IS_ENABLED(CONFIG_RISCV_ZAWRS_IDLE) &&
--			riscv_has_extension_likely(RISCV_ISA_EXT_ZAWRS))
-+			riscv_has_extension_likely(RISCV_ISA_EXT_ZAWRS)) {
- 		static_call_update(riscv_idle, wrs_idle);
--	else
-+		static_call_update(riscv_idle_enter, wrs_idle_enter);
-+		static_call_update(riscv_idle_exit, wrs_idle_exit);
-+	} else {
- 		static_call_update(riscv_idle, default_idle);
-+		static_call_update(riscv_idle_enter, default_idle_enter);
-+		static_call_update(riscv_idle_exit, default_idle_exit);
-+	}
- }
- 
- int set_unalign_ctl(struct task_struct *tsk, unsigned int val)
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 45dd4035416e..b5416ee41967 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -26,16 +26,6 @@
- #include <asm/cacheflush.h>
- #include <asm/cpu_ops.h>
- 
--enum ipi_message_type {
--	IPI_RESCHEDULE,
--	IPI_CALL_FUNC,
--	IPI_CPU_STOP,
--	IPI_CPU_CRASH_STOP,
--	IPI_IRQ_WORK,
--	IPI_TIMER,
--	IPI_MAX
--};
--
- unsigned long __cpuid_to_hartid_map[NR_CPUS] __ro_after_init = {
- 	[0 ... NR_CPUS-1] = INVALID_HARTID
- };
-@@ -94,14 +84,34 @@ static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
- }
- #endif
- 
-+#if defined(CONFIG_RISCV_ZAWRS_IDLE) && defined(CONFIG_SMP)
-+DECLARE_PER_CPU(atomic_t, idle_ipi_mask);
-+#endif
-+
- static void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op)
- {
-+#if defined(CONFIG_RISCV_ZAWRS_IDLE) && defined(CONFIG_SMP)
-+	int cpu, val;
-+
-+	for_each_cpu(cpu, mask) {
-+		val = atomic_fetch_or_relaxed(BIT(op), per_cpu_ptr(&idle_ipi_mask, cpu));
-+		if (likely(!(val & BIT(IPI_MAX))))
-+			__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
-+	}
-+#else
- 	__ipi_send_mask(ipi_desc[op], mask);
-+#endif
- }
- 
- static void send_ipi_single(int cpu, enum ipi_message_type op)
- {
--	__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
-+#if defined(CONFIG_RISCV_ZAWRS_IDLE) && defined(CONFIG_SMP)
-+	int val;
-+
-+	val = atomic_fetch_or_relaxed(BIT(op), per_cpu_ptr(&idle_ipi_mask, cpu));
-+	if (likely(!(val & BIT(IPI_MAX))))
-+#endif
-+		__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
- }
- 
- #ifdef CONFIG_IRQ_WORK
-@@ -111,7 +121,7 @@ void arch_irq_work_raise(void)
- }
- #endif
- 
--static irqreturn_t handle_IPI(int irq, void *data)
-+irqreturn_t handle_IPI(int irq, void *data)
- {
- 	int ipi = irq - ipi_virq_base;
- 
-@@ -332,3 +342,8 @@ void arch_smp_send_reschedule(int cpu)
- 	send_ipi_single(cpu, IPI_RESCHEDULE);
- }
- EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
-+
-+int ipi_virq_base_get(void)
-+{
-+	return ipi_virq_base;
-+}
--- 
-2.20.1
+On Thu, Jun 20, 2024 at 03:14:14PM -0700, Charlie Jenkins wrote:
+> On Thu, Jun 20, 2024 at 05:31:28PM -0400, Jesse Taube wrote:
+> >=20
+> >=20
+> > On 6/17/24 22:09, Charlie Jenkins wrote:
+> > > On Mon, Jun 17, 2024 at 06:43:32PM -0700, Charlie Jenkins wrote:
+> > > > On Thu, Jun 13, 2024 at 03:16:13PM -0400, Jesse Taube wrote:
+> > > > > Run a unaligned vector access to test if the system supports
+> > > > > vector unaligned access. Add the result to a new key in hwprobe.
+> > > > > This is useful for usermode to know if vector misaligned accesses=
+ are
+> > > > > supported and if they are faster or slower than equivalent byte a=
+ccesses.
+> > > > >=20
+> > > > > Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+> > > > > ---
+> > > > > V1 -> V2:
+> > > > >   - Add Kconfig options
+> > > > >   - Add insn_is_vector
+> > > > >   - Add handle_vector_misaligned_load
+> > > > >   - Fix build
+> > > > >   - Seperate vector from scalar misaligned access
+> > > > >   - This patch was almost completely rewritten
+> > > > > ---
+> > > > >   arch/riscv/Kconfig                         |  41 +++++++
+> > > > >   arch/riscv/include/asm/cpufeature.h        |   7 +-
+> > > > >   arch/riscv/include/asm/entry-common.h      |  11 --
+> > > > >   arch/riscv/include/asm/hwprobe.h           |   2 +-
+> > > > >   arch/riscv/include/asm/vector.h            |   1 +
+> > > > >   arch/riscv/include/uapi/asm/hwprobe.h      |   5 +
+> > > > >   arch/riscv/kernel/Makefile                 |   4 +-
+> > > > >   arch/riscv/kernel/sys_hwprobe.c            |  41 +++++++
+> > > > >   arch/riscv/kernel/traps_misaligned.c       | 119 ++++++++++++++=
+++++++-
+> > > > >   arch/riscv/kernel/unaligned_access_speed.c |   9 +-
+> > > > >   arch/riscv/kernel/vector.c                 |   2 +-
+> > > > >   11 files changed, 221 insertions(+), 21 deletions(-)
+> > > > >=20
+> > > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > > > index b94176e25be1..f12df0ca6c18 100644
+> > > > > --- a/arch/riscv/Kconfig
+> > > > > +++ b/arch/riscv/Kconfig
+> > > > > @@ -723,6 +723,12 @@ config RISCV_MISALIGNED
+> > > > >   	help
+> > > > >   	  Embed support for emulating misaligned loads and stores.
+> > > > > +config RISCV_VECTOR_MISALIGNED
+> > > > > +	bool
+> > > > > +	depends on RISCV_ISA_V
+> > > > > +	help
+> > > > > +	  Enable detecting support for vector misaligned loads and stor=
+es.
+> > > > > +
+> > > > >   choice
+> > > > >   	prompt "Unaligned Accesses Support"
+> > > > >   	default RISCV_PROBE_UNALIGNED_ACCESS
+> > > > > @@ -774,6 +780,41 @@ config RISCV_EFFICIENT_UNALIGNED_ACCESS
+> > > > >   endchoice
+> > > > > +choice
+> > > > > +	prompt "Vector unaligned Accesses Support"
+> > > > > +	depends on RISCV_ISA_V
+> > > > > +	default RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
+> > > > > +	help
+> > > > > +	  This determines the level of support for vector unaligned acc=
+esses. This
+> > > > > +	  information is used by the kernel to perform optimizations.
 
+I haven't actually checked the patchset, but is it actually used by the
+kernel to perform optimisations?
+
+> > > > > It is also
+> > > > > +	  exposed to user space via the hwprobe syscall. The hardware w=
+ill be
+> > > > > +	  probed at boot by default.
+> > > > > +
+> > > > > +config RISCV_DETECT_VECTOR_UNALIGNED_ACCESS
+> > > >=20
+> > > > This is not used anywhere, what is the reason for including it?
+> >=20
+> > This is so that we can check if they are supported or not, but not chec=
+k the
+> > speed of them. Similar to RISCV_EMULATED_UNALIGNED_ACCESS.
+>=20
+> What do you mean? It isn't used anywhere so this "check if they are
+> supported or not" is not guarded by this config.
+>=20
+> >=20
+> > > >=20
+> > > > > +	bool "Detect support for vector unaligned accesses"
+> > > > > +	select RISCV_VECTOR_MISALIGNED
+> > > > > +	help
+> > > > > +	  During boot, the kernel will detect if the system supports ve=
+ctor
+> > > > > +	  unaligned accesses.
+> > > > > +
+> > > > > +config RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
+> > > > > +	bool "Probe speed of vector unaligned accesses"
+> > > > > +	select RISCV_VECTOR_MISALIGNED
+> > > > > +	help
+> > > > > +	  During boot, the kernel will run a series of tests to determi=
+ne the
+> > > > > +	  speed of vector unaligned accesses if they are supported. Thi=
+s probing
+> > > > > +	  will dynamically determine the speed of vector unaligned acce=
+sses on
+> > > > > +	  the underlying system if they are supported.
+> > > > > +
+> > > > > +config CONFIG_RISCV_UNALIGNED_ACCESS_UNSUPPORTED
+> > > >=20
+> > > > This should not be prefixed with CONFIG and does not include VECTOR=
+ in
+> > > > the name.
+> >=20
+> > Huh thought it would warn fixed though
+>=20
+> What do you mean by "warn fixed"?
+>=20
+> >=20
+> > > I assume you meant to put
+> > > > "RISCV_VEC_UNALIGNED_ACCESS_UNSUPPORTED" here?
+> >=20
+> > This is to leave a faster path like SLOW or FAST to say that unaligned
+> > access arent suported.
+>=20
+> I am not sure what you are responding to. This comment seems to be
+> responding to my correction of
+> CONFIG_RISCV_UNALIGNED_ACCESS_UNSUPPORTED->RISCV_VEC_UNALIGNED_ACCESS_UNS=
+UPPORTED
+> so I don't see how that ties into SLOW/FAST.
+>=20
+> >=20
+> > > >=20
+> > > > This was also intentionally left out on the scalar side [1]. The
+> > > > implication here is that having this config will cause people to co=
+mpile
+> > > > kernels without unaligned access support which really shouldn't be
+> > > > something we are explicitly supporting.
+> > > >=20
+> > > > If somebody does want to support hardware that does not handle vect=
+or
+> > > > unaligned accesses, the solution should be to add emulation support=
+ to
+> > > > the kernel.
+> >=20
+> > Yes but we dont have emulation support yet so I do think its a good ide=
+a.
+>=20
+> I am hesitant because it is very likely that somebody will add support
+> for unaligned vector emulation. When there is emulation support, this
+> config option should not exist to be consistent with scalar. However if
+> we add this option in now, we must expect a user to enable this config,
+> and then=20
+
+I dunno, I think there could be value in having the option here. For
+scalar, we couldn't have an option that would break the uABI, so the
+unsupported option wasn't okay. That's not a constraint that we have for
+vector.
+
+For vector, if you have a system that doesn't support misaligned access,
+you probably don't want to emulate the accesses either, since that's
+likely remove any performance gains you get from using vector in the
+first place, so I can see benefit in the option.
+Enabling the probing is going to end up with same outcome for userspace
+as having this option on such a system, so it comes down to whether you
+want to allow people to skip the probing if they know their system has
+this problem.
+
+> we will have to get rid of it later. Users are not always happy
+> when config options are removed.
+
+I dunno, I don't think that adding emulation requires that we remove
+this unsupported option.
+
+Additionally, what are we doing in the kernel if we detect that
+misaligned stuff isn't supported? Are we going to mandate that kernel
+code is aligned only, disable in-kernel vector or some other mechanism
+to make sure that things like crypto code don't have/introduce code
+that'll not run on these systems?
+
+Cheers,
+Conor.
+
+--+rvukaB0Gwx7tZ+V
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnVQpwAKCRB4tDGHoIJi
+0pXZAQD9cjwE3+HhR1BPGTVexyDMeNXhGnxoQU2WPZIkQff5PAEAmEWvP/j3OqO3
+Dh9OTffECs5ihlGfcsGsZqFA/aAANAQ=
+=b750
+-----END PGP SIGNATURE-----
+
+--+rvukaB0Gwx7tZ+V--
+
+
+--===============3287224635058451385==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3287224635058451385==--
+
