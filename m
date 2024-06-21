@@ -4,86 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E036C27C4F
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 08:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726CFC27C4F
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 09:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a7qv6Xl8HaCYgKVfQo3dvhA0IOoVvRxKRbSLc1WSJLA=; b=xr8KJ8JXEztOvN
-	IA78NX9dPrqGtLbbuKGWXLKxJIm71iPpxyq3nI7EwLoZ+XVWYIhbfKRJ879cWtlAX3py3I5w3pwLU
-	WYi5ekQxsDWB4gkCULff0ZZjW3kPKA1VmMz48qArJ2l/dawfhiIe6inCtZrt9A1tWiL1Ja9IX5OdX
-	jK4fOtpKwTVam2xK/cPoXgf8K0wmp7/d9rLzYBQRHj3umS5po5TZg4h1nW24n24Mm5G7BSsmv8XKh
-	lVQ7NyJ94leaBfzCCBYtWcy9Pdu91hlNJtZCROvzcZlD03vz0mI8q5IEH0uD8Pm4fL0MN9HkbBltv
-	DGj+ypOLWvT8AckwYPkw==;
+	List-Owner; bh=b7m+dRIuVAtgCLeadUGhf6idPlwj/uwyOj6XruAOko4=; b=jBYqJa1Fkwy+Ud
+	gTmO33c6jmKxkGGoSOj9GePfBn+9kg7AjD/MxOFTebprxZFiPDOpSO+vjnWZOiNkHVVDbwX5Jaao/
+	GSKAUrJxQBBOfBsiUJzxf61CqeDSSR/yCk5uaSJdBVT6EqyprbtUAy6CmgPAvS1Vb0j5V9wMEsqHs
+	bRVgKq1sI3MgGppw1j2TtbL3NHa8ALK2R1KEES9yQYEuPPVTsgOgYNOUU9gMgKItqPSQRN27Rprh9
+	/nUM7Ha74QBZf0AdcG3xjaLKsUgvTE0jP9KSrGwtgJjdCymq4SUhqXyuCeZeMELfhD8gheq08ng4c
+	0DpKZcv83ATR6Yyeiz4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKa1Z-00000008Qi7-2RaA;
-	Fri, 21 Jun 2024 08:53:37 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1sKaND-00000008VWS-2Faa;
+	Fri, 21 Jun 2024 09:15:59 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKa1X-00000008Qgt-2WgS
+	id 1sKaNA-00000008VVe-2LEJ
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jun 2024 08:53:36 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-57d0eca877cso1994405a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jun 2024 01:53:35 -0700 (PDT)
+	Fri, 21 Jun 2024 09:15:57 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-52cc9b887f1so2107778e87.3
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Jun 2024 02:15:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1718960013; x=1719564813; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1718961354; x=1719566154; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wHbob/VjuwQy7mgeQNSOdhI4orkGQDAEUkxEcv4Rw3I=;
-        b=CWbDcmdsjDerKc09L805ckXzRwNUi14qdFQiAKFCgK+PNZrvRVKC5ImGF4agRAc22Q
-         lhXcFjPK+627K2jm6GngxsYbkkm/8UuE4tHa+9yqsHCQM5YUHtHYyvp9RwazD69wg68N
-         gr+raxoPLGFYOoQzlDWJss71noo2GhmUXFiaMn6cvMI5hQmx0OYQha9cak9T7XXEOfcU
-         RaI1MS0VCigReIeHmUcgiq+lcTl/D514eiBKcH7WVqag/bx/wcBfiv7jLrBosaiPie77
-         f6Xs6b5fvuueOMkEcHjL3gTtGr7SbvE4o0YyIMa5afrbaan4hV3RQa3PUktaLUaqbd85
-         aw9Q==
+        bh=G2jvjig3AYIEyRn3flEvgDjFbBS4OpGQwrJnUvDqBBI=;
+        b=eCrSUG2Ve6JTPrjEvkCu9YISPVaxqHI+/+5IUZPDRxYTFk6dZhEzTfvlPKsF1adjot
+         S+nW6pTPjzFE2NHfHAuphaPmBwAPYHyxVfANwiJfeBg9qj2F0Lq4vztvkICQgRlCMgog
+         zTx77WSUnWy5qFUTTbS1Rhk1xuI7/mV749O6nshuxplQYxw3/ESXp8GvzYyRSZ5Mu9kz
+         m+I4eft+yR66uQIiluBD+YVqKKb4T2o4Ao2pOkXg+XLungP3qE+GDPHunH3jolqYQ4IZ
+         YzMSS9eqBMayQ17f4ZM0oRvHmdgsGxb7gDpNyZmZsvpicQ/Ko2pZ21yAs+EJFr66P3W1
+         ZmTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718960013; x=1719564813;
+        d=1e100.net; s=20230601; t=1718961354; x=1719566154;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wHbob/VjuwQy7mgeQNSOdhI4orkGQDAEUkxEcv4Rw3I=;
-        b=uTkl90LROh0y4Bmo5h6clNxVtwi+mxNO3KY/sy1Hggf3l3mQLkm6MlvSewDlkkpKMk
-         UB5UMngpjsr3UEyR27HNxNxcQYURdtXhboJVjjA/2XJBKEAtfPbaJCYuT6NCpE4VHVro
-         qGjxf2cw+g/dwHgJo1b+35sHy7XspZVjMw6VcQlzWsPeXUh605GSeUIeyls0NgzuS9o1
-         yX5F4ni5un9F5ZRZXv3IUarhC+jVw67LGVvMGu/r/zboFtc21Y57OeYWPZC6N0Ya3gmD
-         +rUkTmJfxYMKHH4gDvPSIqG/CkehLnIQ5d9tdCYUhG/jFsqzQ36+PCxMXIWDv7HD7Liu
-         a4ng==
-X-Forwarded-Encrypted: i=1; AJvYcCWvMA3IvCX85cSiS/7yirb0TEqbSh5KhyLpMcSsfsGszz1j8npW2/JWRebgynLWxTyzeTSbYhbmHAYAkZFQDDKJheYZiczcLafnFm/aOKMF
-X-Gm-Message-State: AOJu0YwPCyz7ASn/1PE8v1utP32OKLZ1yiEabcY1ALQX1JdBGNYGFk76
-	wuGJPaz5cqdPeUs4fBN0VnwPq8bPR+ARMqvc/S+UVyx59IlvKOGTyRrZ0wp++hGAk1tadePrRCV
-	WJwA=
-X-Google-Smtp-Source: AGHT+IHkm/oNBDIDLkuaQ777H0KNvj0PKQQ8b7Mc9eNVWoGzQpZxRs7ccJxtYM++XnYbEFlLwFFDDA==
-X-Received: by 2002:a17:907:1b0b:b0:a6a:ab5:6f2a with SMTP id a640c23a62f3a-a6fab60a12fmr716591066b.11.1718960013134;
-        Fri, 21 Jun 2024 01:53:33 -0700 (PDT)
+        bh=G2jvjig3AYIEyRn3flEvgDjFbBS4OpGQwrJnUvDqBBI=;
+        b=tsgFG7qMJ/EEM8W3jW0XlVX/rfvOyFWAZeQB5ew0OcqG1q1Xc01cALseIZjB68zTmq
+         NeQNvVfNxTkJl6KZZprAc0b6UEkXEOwEEEZ8tYt4FuNwOkbxmJA7/427/L5f2xSY7JXH
+         pX5RybHL3r7q0rkds0cMgt7oV4oDNbdcyxarcxiJaLCGWcRVOz2CR/7YvgCKQaPxhqsK
+         G7nA/IKPiBfPXXddZ5uwjPa1XhZV0MbZASmyrDKpp9h+y2bAimbVJjTzgxammP9y/wMg
+         g8/2POuSdvlEpWa2Xwd11KpV+FbWyEcsapnvCKUZuayhWts3T10Xiw+0BncW/Vz6X+NA
+         rldQ==
+X-Gm-Message-State: AOJu0Yyy/t8oeeapVrxoaTQTpZ/3sEgTY4oF2B2qk6LqEzfX7rv1vzQ/
+	+KVUXUVqGH9YwxDidfRIKA77ZdHy4gq5P3MQb2JJ/OKb1V6z8ZfDk0/I0sGvOTM=
+X-Google-Smtp-Source: AGHT+IFKJNicO3uhmDyrJLucOIHE0vfinnnmMr9OxG7eOes5d7m8ZFjdrD3XNJP1E8qkltVhFzuPCQ==
+X-Received: by 2002:ac2:597a:0:b0:52c:7f25:dbac with SMTP id 2adb3069b0e04-52ccaa5d210mr3865442e87.20.1718961353465;
+        Fri, 21 Jun 2024 02:15:53 -0700 (PDT)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a6fcf48b4ddsm59093666b.67.2024.06.21.01.53.32
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a6fcf56e9f3sm60866566b.215.2024.06.21.02.15.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Jun 2024 01:53:32 -0700 (PDT)
-Date: Fri, 21 Jun 2024 10:53:31 +0200
+        Fri, 21 Jun 2024 02:15:53 -0700 (PDT)
+Date: Fri, 21 Jun 2024 11:15:52 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, apatel@ventanamicro.com, alex@ghiti.fr, 
-	greentime.hu@sifive.com, vincent.chen@sifive.com, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v5 4/4] KVM: riscv: selftests: Add Svade and Svadu
- Extension to get-reg-list test
-Message-ID: <20240621-f02c058395f929dfac9f3883@orel>
-References: <20240605121512.32083-1-yongxuan.wang@sifive.com>
- <20240605121512.32083-5-yongxuan.wang@sifive.com>
+To: Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH v6 1/1] riscv: mm: Add support for Svinval extension
+Message-ID: <20240621-469a3d5eb7bb2c0cc8ae0611@orel>
+References: <20240609112103.285190-1-mchitale@ventanamicro.com>
+ <20240609112103.285190-2-mchitale@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240605121512.32083-5-yongxuan.wang@sifive.com>
+In-Reply-To: <20240609112103.285190-2-mchitale@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240621_015335_647872_9B4DFFB1 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20240621_021556_629554_F9A6B224 
+X-CRM114-Status: GOOD (  26.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,60 +94,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 05, 2024 at 08:15:10PM GMT, Yong-Xuan Wang wrote:
-> Update the get-reg-list test to test the Svade and Svadu Extensions are
-> available for guest OS.
+On Sun, Jun 09, 2024 at 04:51:03PM GMT, Mayuresh Chitale wrote:
+> The Svinval extension splits SFENCE.VMA instruction into finer-grained
+> invalidation and ordering operations and is mandatory for RVA23S64 profile.
+> When Svinval is enabled the local_flush_tlb_range_threshold_asid function
+> should use the following sequence to optimize the tlb flushes instead of
+> a simple sfence.vma:
 > 
-> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+> sfence.w.inval
+> svinval.vma
+>   .
+>   .
+> svinval.vma
+> sfence.inval.ir
+> 
+> The maximum number of consecutive svinval.vma instructions that
+> can be executed in local_flush_tlb_range_threshold_asid function
+> is limited to 64. This is required to avoid soft lockups and the
+> approach is similar to that used in arm64.
+> 
+> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 > ---
->  tools/testing/selftests/kvm/riscv/get-reg-list.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
+>  arch/riscv/mm/tlbflush.c | 58 ++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 58 insertions(+)
 > 
-> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> index 222198dd6d04..1d32351ad55e 100644
-> --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -45,6 +45,8 @@ bool filter_reg(__u64 reg)
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSAIA:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSCOFPMF:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSTC:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVADE:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVADU:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVINVAL:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVNAPOT:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVPBMT:
-> @@ -411,6 +413,8 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
->  		KVM_ISA_EXT_ARR(SSAIA),
->  		KVM_ISA_EXT_ARR(SSCOFPMF),
->  		KVM_ISA_EXT_ARR(SSTC),
-> +		KVM_ISA_EXT_ARR(SVADE),
-> +		KVM_ISA_EXT_ARR(SVADU),
->  		KVM_ISA_EXT_ARR(SVINVAL),
->  		KVM_ISA_EXT_ARR(SVNAPOT),
->  		KVM_ISA_EXT_ARR(SVPBMT),
-> @@ -935,6 +939,8 @@ KVM_ISA_EXT_SIMPLE_CONFIG(h, H);
->  KVM_ISA_EXT_SUBLIST_CONFIG(smstateen, SMSTATEEN);
->  KVM_ISA_EXT_SIMPLE_CONFIG(sscofpmf, SSCOFPMF);
->  KVM_ISA_EXT_SIMPLE_CONFIG(sstc, SSTC);
-> +KVM_ISA_EXT_SIMPLE_CONFIG(svade, SVADE);
-> +KVM_ISA_EXT_SIMPLE_CONFIG(svadu, SVADU);
->  KVM_ISA_EXT_SIMPLE_CONFIG(svinval, SVINVAL);
->  KVM_ISA_EXT_SIMPLE_CONFIG(svnapot, SVNAPOT);
->  KVM_ISA_EXT_SIMPLE_CONFIG(svpbmt, SVPBMT);
-> @@ -991,6 +997,8 @@ struct vcpu_reg_list *vcpu_configs[] = {
->  	&config_smstateen,
->  	&config_sscofpmf,
->  	&config_sstc,
-> +	&config_svade,
-> +	&config_svadu,
->  	&config_svinval,
->  	&config_svnapot,
->  	&config_svpbmt,
+> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+> index 9b6e86ce3867..49d7978ac8d3 100644
+> --- a/arch/riscv/mm/tlbflush.c
+> +++ b/arch/riscv/mm/tlbflush.c
+> @@ -6,6 +6,54 @@
+>  #include <linux/hugetlb.h>
+>  #include <asm/sbi.h>
+>  #include <asm/mmu_context.h>
+> +#include <asm/cpufeature.h>
+> +
+> +#define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
+> +
+> +static inline void local_sfence_inval_ir(void)
+> +{
+> +	/*
+> +	 * SFENCE.INVAL.IR
+> +	 * 0001100 00001 00000 000 00000 1110011
+> +	 */
+> +	__asm__ __volatile__ (".word 0x18100073" ::: "memory");
+> +}
+> +
+> +static inline void local_sfence_w_inval(void)
+> +{
+> +	/*
+> +	 * SFENCE.W.INVAL
+> +	 * 0001100 00000 00000 000 00000 1110011
+> +	 */
+> +	__asm__ __volatile__ (".word 0x18000073" ::: "memory");
+> +}
+> +
+> +static inline void local_sinval_vma_asid(unsigned long vma, unsigned long asid)
+
+Please name this to
+
+  void local_sinval_vma(unsigned long vaddr, unsigned long asid)
+
+to match the spec's naming. But, if we want the arguments in the name,
+then it should be something like
+
+  void local_sinval_vma_addr_asid(unsigned long vaddr, unsigned long asid)
+
+but I think that's unnecessary.
+
+> +{
+> +	if (asid != FLUSH_TLB_NO_ASID) {
+> +		/*
+> +		 * rs1 = a0 (VMA)
+> +		 * rs2 = a1 (asid)
+> +		 * SINVAL.VMA a0, a1
+> +		 * 0001011 01011 01010 000 00000 1110011
+> +		 */
+> +		__asm__ __volatile__ ("add a0, %0, zero\n"
+> +					"add a1, %1, zero\n"
+> +					".word 0x16B50073\n"
+> +					:: "r" (vma), "r" (asid)
+> +					: "a0", "a1", "memory");
+> +	} else {
+> +		/*
+> +		 * rs1 = a0 (VMA)
+> +		 * rs2 = 0
+> +		 * SINVAL.VMA a0
+> +		 * 0001011 00000 01010 000 00000 1110011
+> +		 */
+> +		__asm__ __volatile__ ("add a0, %0, zero\n"
+> +					".word 0x16050073\n"
+> +					:: "r" (vma) : "a0", "memory");
+> +	}
+
+Please create an SINVAL_VMA instruction in insn-def.h to allow the
+compiler to choose which registers will be used for asid and vaddr. And,
+since SINVAL_VMA will be in insn-def.h, then we might as well add
+SFENCE_INVAL_IR and SFENCE_W_INVAL there too for consistency, even though
+they don't have operands. We should still create the three static inline
+wrapper functions here though.
+
+> +}
+>  
+>  /*
+>   * Flush entire TLB if number of entries to be flushed is greater
+> @@ -26,6 +74,16 @@ static void local_flush_tlb_range_threshold_asid(unsigned long start,
+>  		return;
+>  	}
+>  
+> +	if (has_svinval()) {
+> +		local_sfence_w_inval();
+> +		for (i = 0; i < nr_ptes_in_range; ++i) {
+
+Where do we limit this to 64 as the commit message states it does?
+
+> +			local_sinval_vma_asid(start, asid);
+> +			start += stride;
+> +		}
+> +		local_sfence_inval_ir();
+> +		return;
+> +	}
+> +
+>  	for (i = 0; i < nr_ptes_in_range; ++i) {
+>  		local_flush_tlb_page_asid(start, asid);
+>  		start += stride;
 > -- 
-> 2.17.1
+> 2.34.1
 >
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
