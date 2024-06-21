@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5012CC27C4F
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 11:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA453C27C4F
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 11:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vFr2VfuQlyRXK+J08YWDMeEZMvMKI8y8r2kVlpdSgaA=; b=qspqN9hqiBCcQ1
-	xr5sQxViQlF8yZESlcYPrnxVFLW/GxWxcBRQYLEfnUjMJIDnuzC833vL9CTssjP8K2e0PeTHsCEzd
-	JMHxicnu1jaoqs4CumohhcOHfDww8jm0YEbRU6GjlNLAMuEsU7JQgeQljimPxN/ZrX2xSPRug+lQh
-	NrEfrB+8T+cyUchuHZUHh6fvLD+G6fCGnHuRkyWBHVIoj78uDuu//YHQSGcjqtyqlJ/kcgnAwIiYt
-	C4+GjjV/M97DDRSI0kE8LEzGFii06QTaO7/bZoDQi5M4IbTNuHx50mYtsLiv53qpxmEnKfbuwThIO
-	4SF6br8xUhMUzB4EVhtQ==;
+	List-Owner; bh=41kl0JgQZ6pBhjnOnAPU+IwE2uc6jpY3Bjlw5D3k8wU=; b=gErrkTbwaIIe2f
+	uhdjEdvb9fKxA5liGZ9BNrgWnBqgzAVQgg/LwEvM1bKbw56E/cxGF5Avq53XKOaeI8kOKd00/lX+S
+	A4n/90+t5Apafu2zOPE7mcR+aoiQZM3n8dRgTDaGr3ThmLDKGu9SLFUMkAmWkQZfSiYmUvKa3y55Q
+	YSI380/sntNEMGupTaF1wXwwg51R7DOlStmYIBHNAyDX3EwnB5/qtJw/2il/ecq6LswnCAmQij/br
+	CWOHq5+pgDLyU7nNeLuaHTK9WuOFd6Jrv5RvFiOHjJ3Ns/CQrcpjMJAqq78DaeM6wTSwz0K+E/2tS
+	FN8nKcmgsdwm7+m6ZT4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKc8V-00000008sSn-1AgL;
-	Fri, 21 Jun 2024 11:08:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKc8Q-00000008sS1-3fIY;
-	Fri, 21 Jun 2024 11:08:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 11B64DA7;
-	Fri, 21 Jun 2024 04:09:14 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 73E0B3F6A8;
-	Fri, 21 Jun 2024 04:08:45 -0700 (PDT)
-Date: Fri, 21 Jun 2024 12:08:42 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Kees Cook <kees@kernel.org>
-Cc: "liuyuntao (F)" <liuyuntao12@huawei.com>, Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Leonardo Bras <leobras@redhat.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
-	linux-kernel@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] randomize_kstack: Remove non-functional per-arch entropy
- filtering
-Message-ID: <ZnVfOnIuFl2kNWkT@J2N7QTR9R3>
-References: <20240619214711.work.953-kees@kernel.org>
- <98381dbf-f14e-4b6c-8c96-fb6b97ed46e1@huawei.com>
- <202406201127.17CE526F0@keescook>
+	id 1sKcGN-00000008tep-2JAh;
+	Fri, 21 Jun 2024 11:17:03 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sKcGJ-00000008tbw-0KDD;
+	Fri, 21 Jun 2024 11:17:01 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a6f04afcce1so221143366b.2;
+        Fri, 21 Jun 2024 04:16:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1718968615; x=1719573415; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=08k9pna/opWaEBAg76zcgK1RSow47jGdPu4ejDMD8xg=;
+        b=MlamOlfkK5OeEgL9FdQejWdQBHcOkTCFRUJLXJE5YKrPnptzOElWSL+XP2VbJLELwy
+         +cZmXoCnfHDQSrr1KicIQjuE1pXz+aVRvaUPRYXsf/yCy1MOETpNG4FRrpaTk7S4513g
+         vGr4bFX8ao+bcIA6dPRN0Cm/qAbLsZh+8mTNiClw/gcdUhRL9zdNtvEVGmIwKjrclgDy
+         mOC6aX7jPSpDxckmsXGPBZogIKi/K/o2Zv07V4Rv6CIJS7f4d/UFX90DaB1HvR3giEN0
+         i1XTiXfq8Ar8Jfl25+jZGhISUmjqVZfQJP1EygIvZWq4/W4IDC4oOM3BWM+QXqVEuCtu
+         GkXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718968615; x=1719573415;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=08k9pna/opWaEBAg76zcgK1RSow47jGdPu4ejDMD8xg=;
+        b=SQ3GUXs08cjBBnxYJ0Xxwun7FepxW2ixwKaOQ97Gca1Lv3yV2sptWyvjNr7RsTFWhc
+         BTFkumooCq3jL4YBt3BZRqBacqukAq3BJU55QaHenyWOMa3VxAyGCgaCsJIuBR8dSqhO
+         S7M+CbTlpW+WqSvItMjMTAxYY0h0ZQCTif3pPmaaunfmhvRd2GrSeBn7GxnymmcTGrxN
+         kEOUTjynhIy+nvDD+Lb7kalA5fij7ZhH79/wYcFzrsES/WkX/UPZbR1ig8nuxOBmFjik
+         BO1sEXPFH1zpAzT76su8oplk5539f4PX0aK64qmrm7amh/JyG8w3s9RLj0HzdseeswtQ
+         vyjw==
+X-Forwarded-Encrypted: i=1; AJvYcCXWFNIdIjCA+vVlisRM9mqbDdlxZkZcdUBzkP4VQ39trvQ9znXFqujULDJgkvVMAR4aBRNJTqmGPSLw8ZMO/2r1m5MY4dqk9YA84KFDkw==
+X-Gm-Message-State: AOJu0YwbVnjoyjxlIzHgZH6mgdvQGcLnq9OmNjJ4wI4jJpaEO4VKwSFb
+	rHocCjO679t+RVZlZg0FK+us9QzpfQmLZQM44H5UzX8yPWMfu0YlgsEVTv3m
+X-Google-Smtp-Source: AGHT+IEQA9JTSUlACGJxZV6P42mF5Qfs1km1bZk9sSrb3zLaZehHEY4QKzeHjWVfBYdo4222YzZQ1A==
+X-Received: by 2002:a17:907:7625:b0:a6f:53f9:7974 with SMTP id a640c23a62f3a-a6fab7791a4mr539231866b.52.1718968614880;
+        Fri, 21 Jun 2024 04:16:54 -0700 (PDT)
+Received: from andrea (host-82-50-195-19.retail.telecomitalia.it. [82.50.195.19])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a6fcf48b7desm73263366b.90.2024.06.21.04.16.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Jun 2024 04:16:54 -0700 (PDT)
+Date: Fri, 21 Jun 2024 13:16:50 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Xu Lu <luxu.kernel@bytedance.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com, anup@brainfault.org,
+	atishp@atishpatra.org, robh@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+	christoph.muellner@vrull.eu, heiko@sntech.de, charlie@rivosinc.com,
+	David.Laight@aculab.com
+Subject: Re: [RFC v2 0/2] riscv: Idle thread using Zawrs extension
+Message-ID: <ZnVhIi0Jre77i3RN@andrea>
+References: <20240621093223.37893-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <202406201127.17CE526F0@keescook>
+In-Reply-To: <20240621093223.37893-1-luxu.kernel@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240621_040851_025593_BCDC8C15 
-X-CRM114-Status: GOOD (  32.10  )
+X-CRM114-CacheID: sfid-20240621_041659_368740_5008F6BF 
+X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,115 +98,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 20, 2024 at 11:34:22AM -0700, Kees Cook wrote:
-> On Thu, Jun 20, 2024 at 11:47:58AM +0800, liuyuntao (F) wrote:
-> > 
-> > 
-> > On 2024/6/20 5:47, Kees Cook wrote:
-> > > An unintended consequence of commit 9c573cd31343 ("randomize_kstack:
-> > > Improve entropy diffusion") was that the per-architecture entropy size
-> > > filtering reduced how many bits were being added to the mix, rather than
-> > > how many bits were being used during the offsetting. All architectures
-> > > fell back to the existing default of 0x3FF (10 bits), which will consume
-> > > at most 1KiB of stack space. It seems that this is working just fine,
-> > > so let's avoid the confusion and update everything to use the default.
-> > > 
-> > 
-> > My original intent was indeed to do this, but I regret that not being more
-> > explicit in the commit log..
-> > 
-> > Additionally, I've tested the stack entropy by applying the following patch,
-> > the result was `Bits of stack entropy: 7` on arm64, too. It does not seem to
-> > affect the entropy value, maybe removing it is OK, or there may be some
-> > nuances of your intentions that I've overlooked.
-> > 
-> > --- a/include/linux/randomize_kstack.h
-> > +++ b/include/linux/randomize_kstack.h
-> > @@ -79,9 +79,7 @@ DECLARE_PER_CPU(u32, kstack_offset);
-> >  #define choose_random_kstack_offset(rand) do {                         \
-> >         if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT, \
-> >                                 &randomize_kstack_offset)) {            \
-> > -               u32 offset = raw_cpu_read(kstack_offset);               \
-> > -               offset = ror32(offset, 5) ^ (rand);                     \
-> > -               raw_cpu_write(kstack_offset, offset);                   \
-> > +               raw_cpu_write(kstack_offset, rand);                     \
-> >         }                                                               \
-> >  } while (0)
-> >  #else /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
-> 
-> I blame the multiple applications of the word "entropy" in this feature. :)
-> 
-> So, there's both:
-> 
-> - "how many bits CAN be randomized?" (i.e. within what range can all
->   possible stack offsets be?)
-> 
-> and
-> 
-> - "is the randomization predictable?" (i.e. is the distribution of
->   selected positions with the above range evenly distributed?)
-> 
-> Commit 9c573cd31343 ("randomize_kstack: Improve entropy diffusion") was
-> trying to improve the latter, but accidentally also grew the former.
-> This patch is just trying to clean all this up now.
-> 
-> Thanks for testing! And I'm curious as to why arm64's stack offset
-> entropy is 7 for you when we're expecting it to be 6. Anyway, that's not
-> a problem I don't think. Just a greater offset range than expected.
+> This is the second version of idle thread based on Zawrs extension. We
+> rebased our code on Andrew's patch series[1] which provides basic
+> support for Zawrs as well as optimization for spinlock.
 
-Hmm....
+There's some feedback on Andrew's v2 [1] which seems to equally apply
+to the later, mentioned series/submission, and hence to the series in
+question (although only indirectly admittedly).
 
-I think this is due to the way the compiler aligns the stack in alloca(); it
-rounds up the value of KSTACK_OFFSET_MAX(offset) and ends up spilling over an
-additional bit (e.g. 0x3f1 to 0x3ff round up to 0x400).
+As an additional comment, please do add  linux-kernel@vger.kernel.org 
+(the LKML) to your Cc:  list on patch submission (again, this applies
+to both Andrew's and the present submissions).
 
-Looking at v6.10-rc4 defconfig + CONFIG_RANDOMIZE_STACKOFFSET=y, the
-disassembly for arm64's invoke_syscall() looks like:
+  Andrea
 
-	// offset = raw_cpu_read(kstack_offset)
-	mov     x4, sp
-	adrp    x0, kstack_offset
-	mrs     x5, tpidr_el1
-	add     x0, x0, #:lo12:kstack_offset
-	ldr     w0, [x0, x5]
-
-	// offset = KSTACK_OFFSET_MAX(offset)
-	and     x0, x0, #0x3ff
-
-	// alloca(offset)
-	add     x0, x0, #0xf
-	and     x0, x0, #0x7f0
-	sub     sp, x4, x0
-
-... which in C would be:
-
-	offset = raw_cpu_read(kstack_offset)
-	offset &= 0x3ff;			// [0x0, 0x3ff]
-	offset += 0xf;				// [0xf, 0x40e]
-	offset &= 0x7f0;			// [0x0,
-
-... so when *all* bits [3:0] are 0, they'll have no impact, and when *any* of
-bits [3:0] are 1 they'll trigger a carry into bit 4, which could ripple all the
-way up and spill into bit 10.
-
-I have no idea whether that's important. Kees, does that introduce a bias, and
-if so do we need to care?
-
-If I change the mask to discard the low bits:
-
-	#define KSTACK_OFFSET_MAX(x)   ((x) & 0x3F0)
-
-... then the assembly avoids the rounding:
-
-	mov     x4, sp
-	adrp    x0, 0 <kstack_offset>
-	mrs     x5, tpidr_el1
-	add     x0, x0, #:lo12:kstack_offset
-	ldr     w0, [x0, x5]
-	and     x0, x0, #0x3f0
-	sub     sp, x4, x0
-
-Mark.
+[1] https://lore.kernel.org/linux-riscv/ZiWCP6f6zZ3dKXfN@andrea/
 
 _______________________________________________
 linux-riscv mailing list
