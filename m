@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA48C2BBCA
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 09:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9058C27C4F
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 09:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t8zKtvqCRN+8ROz+JTynrAfEwmHdebjIVSAL3Htp+Hc=; b=jq/njDxkmfnH7r
-	ToOBxIgc18iqoyELvKe5Z5/gcU+NMOunXS7bwuU/dauOyyBRDbYgR2tNSgF1tQ4lI6xaiXUJUotxK
-	nFaJOc7maaPOLTzjvHNTPXQr487dIuvPbEDtvbvmELA6aDQ5Ry4JoLsP55jkutHTmaXyJUQYmjDPw
-	nWcMekAgnARcvpieu/sJObuiyOhIfI0WkFhxM3mcHyI9BsI3hQAgA4NdbT5hLoLvoOOhxLTMljHR8
-	ueGpei/ANKSFyvOP0x+Omox7xSkwkS9nQQI4w9TpEhdBD1QtlT5svOdLJm4R5l8ses000kMgt8k/G
-	FnB/SQz2BhpJw0ZrJRsg==;
+	List-Owner; bh=6dzAOkNoUEigwVP1EW52Wx73jyTktxB9Yhf4rS6TAw4=; b=bblWufNMNoKVjL
+	YDodqPacw+WPhKQv6IpuouPhbkQaevBxv9K/eFdRYK3Ac5TA2LYzxkT9kinn949eNrzWiC75EoBRu
+	FR81kG8U2gz/7cv05h1YECwv7E0KZxkjY5Mj0ZWQP9ku0JGzoydcAXAcVRM3hLeQivZ4hh3XK3nFr
+	hJilSJ1um6F7axjiJP2rXR1SuiJ2pSR4Z0bbDa5P+w9Xsp+5TFoNw73hDz+z7ot9WW4a63y1nfM2g
+	ntGLkrRNF/IXp9ZporLPk0nfX6HhhDv5H8WDwm2Gf1vUfflLNL51Wzx2VI28vlUBxVD2GlSFiwjus
+	YHnm0NmTQ8pm335g62Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKadS-00000008Z3d-3Q3P;
-	Fri, 21 Jun 2024 09:32:46 +0000
-Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
+	id 1sKadY-00000008Z7Y-1WJt;
+	Fri, 21 Jun 2024 09:32:52 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKadO-00000008Z0g-0w62
+	id 1sKadT-00000008Z3k-2XSm
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jun 2024 09:32:45 +0000
-Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-3d23a0a32afso879315b6e.3
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jun 2024 02:32:41 -0700 (PDT)
+	Fri, 21 Jun 2024 09:32:49 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-705bf368037so1578361b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Jun 2024 02:32:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1718962360; x=1719567160; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1718962366; x=1719567166; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fGIGu1QUhBsktwpUPOKpE8P34T3ApzsbK5/ENNJ+dHs=;
-        b=k/Za88dZLe78SDOjjHHAtv5nd5XtqsIkoFM1zXOkxJAvtpO0cQbJdAvI50izqcPhdO
-         BCySMFD/mIIpMz0velZydmmj34AQZIaxhF3AEB1LpEhZlQsIyTUrpckGnPL5q/JxXx+2
-         ko2ke8r9MzxJW7NXEWxslAwrKzAqwc6ugmjZbkISNdO3rq2onGXtXkpKPzdCiMdlc5Ij
-         K53yL+6EPVKz5o5wVOEtd78K1a5xQ6nyqqeEDhTfmi86IHYOwoKyBUbei1uPLTzVgzU1
-         FPn3eEv3Ol0m8u59m+vXZU5Ube9P+ar/nDUqcY3cutLHTzkW/WnBOZR9yGT5Y0RioSa4
-         LXRg==
+        bh=QDWjjiZAxDspGubAmoMMssYoq1McfQ9VRFvCIu5o/uE=;
+        b=RUfqjf6Tp5y3g0rjmb7/hGgdstMy3QJMOwI2ewLOkbBQ+60XGOi2ypHdnsrRpgCiVZ
+         bnNkji5GgTEgiqxHZj+AvatBOZDdO7ib7QPxJoUTEicDKUHldZNMZnoktlDGNypMk1Qi
+         AdCDh2hN6yOXPuyU3lUvi/JkehIH7HDfonjCImQZu5Eoeib4n/pewmKurCVWgySMR34l
+         AtmmRTfxU/daLLKXeY7tqMYSnd/Z3eRR/GCC1zrQf0GzE0lOYI1iPzskqXpguRPlblA2
+         1GzBNmafujjOzGCovfdHOqgA360o2K5jhjdK+g0rI5VskXbODktp42b2dfyi9k4VwXC5
+         VFXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718962360; x=1719567160;
+        d=1e100.net; s=20230601; t=1718962366; x=1719567166;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fGIGu1QUhBsktwpUPOKpE8P34T3ApzsbK5/ENNJ+dHs=;
-        b=GnHyJt1cuGayOb9NnZkLsQkU7VaFqncpSp7hCBT0wThfDjjKRor/sgFE7PXdEJvRSI
-         o5S1E8WJ4q8Ty7xWjgm1pvyxS3NWuqBRz5zn/JG3bgFQnSGnsaARo7n/ZPXPSMBRfHNJ
-         atmwth41MW0TL0pKXgHFqCUoiRXlRFwalHBEdqPxhL+KpuhzCkAOcxFgmwbygl2gbofn
-         XQp196737aGVymtg36guaK35WjAO8yy79gfIpiyPFDmybGGmKfR/7H5XUCu1mfJoPnFb
-         eifCWIjhhpy/QlilSc3PH2bVfZmKI4w2kI1EjYS0MaLYiqx0S4gkt6RnXIcdU53aqsLV
-         VnzA==
-X-Gm-Message-State: AOJu0YwQ5jiN4Ie+hNUsuLxdbCh6AryN1WyytSEUqsGWe2+X8w4lj0v0
-	AzKzlr2Ig8//dAUx0/dFaxFDCNe21IS2LVnberw2PXAZKw+lv7Bl2Vhn7Ouh7zA893uZP9pnWdg
-	gsBU=
-X-Google-Smtp-Source: AGHT+IFNK1H6Yqd1iJz0ZbHduOnD+WCNo9reooO6aMGXLiN3SjbCwLwX3YRBxhOXjm0hDh01lxikQQ==
-X-Received: by 2002:a05:6808:1782:b0:3d5:1bd8:ab1f with SMTP id 5614622812f47-3d51bd8ac9amr9439532b6e.17.1718962360548;
-        Fri, 21 Jun 2024 02:32:40 -0700 (PDT)
+        bh=QDWjjiZAxDspGubAmoMMssYoq1McfQ9VRFvCIu5o/uE=;
+        b=p2if8nT2QU0KSh8Y/iKs8S+5IU82wC7EJvWRfx7cWA8UD1XDEzh7XQhDTEbb6xWrf/
+         CCyYoiuriDmRz84b7cvnY7aO+HhMD/naHpn8K20zLw31foaZi7t0v/7Ctdi64ioSefov
+         iLgUJt66r9EU3w4GDOt1+AtB9NfGSo4ECDTIx9ndGIei5CYO6A0Eh4JuoqjAA0yz2/tV
+         Idl9nlK4AbaVzQij3KWPziAUZ40CKPKNdym+Tkr7BMaBLujkleFp770bkD0qjXKagfIm
+         hdnbLQuuTQkC8tWh+0K5vQNzNL3m4L99brLIoi43pb3oPqJ/tS2rxcBuUmQIYX9cRxnA
+         EPQQ==
+X-Gm-Message-State: AOJu0YxjOYcdH9gchB+kfjQq3RCRBZwU56KVkHz6X+pnX9QLaPrzRAp/
+	bwgS2o2QI53RyJkHM0I2J8ysN0cP/MaI1YMerLuIo07mLImbTQFtCY2a+hP8aOLZbm+ikpqgKtL
+	nzGg=
+X-Google-Smtp-Source: AGHT+IHhJmxHFdSSR4W2LuRda6UNPDko8PXJxoSzJ/rR5MLs1oJV1snZK/jHei68R7odnLFMe42AoA==
+X-Received: by 2002:a05:6a20:2d88:b0:1b8:498e:4e34 with SMTP id adf61e73a8af0-1bcbb560c9dmr7600232637.34.1718962366161;
+        Fri, 21 Jun 2024 02:32:46 -0700 (PDT)
 Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7065124dd26sm968415b3a.127.2024.06.21.02.32.34
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7065124dd26sm968415b3a.127.2024.06.21.02.32.40
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 21 Jun 2024 02:32:40 -0700 (PDT)
+        Fri, 21 Jun 2024 02:32:45 -0700 (PDT)
 From: Xu Lu <luxu.kernel@bytedance.com>
 To: linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org,
@@ -81,20 +81,17 @@ Cc: paul.walmsley@sifive.com,
 	charlie@rivosinc.com,
 	David.Laight@aculab.com,
 	parri.andrea@gmail.com,
-	Xu Lu <luxu.kernel@bytedance.com>,
-	Hangjing Li <lihangjing@bytedance.com>,
-	Liang Deng <dengliang.1214@bytedance.com>,
-	Wen Chai <chaiwen.cc@bytedance.com>
-Subject: [RFC v2 1/2] riscv: process: Introduce idle thread using Zawrs extension
-Date: Fri, 21 Jun 2024 17:32:22 +0800
-Message-Id: <20240621093223.37893-2-luxu.kernel@bytedance.com>
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [RFC v2 2/2] riscv: Use Zawrs to accelerate IPI to idle cpu
+Date: Fri, 21 Jun 2024 17:32:23 +0800
+Message-Id: <20240621093223.37893-3-luxu.kernel@bytedance.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20240621093223.37893-1-luxu.kernel@bytedance.com>
 References: <20240621093223.37893-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240621_023242_352100_E1F3B8F5 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20240621_023247_669722_020F5B33 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,197 +108,266 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Zawrs extension introduces a new instruction WRS.NTO, which will
-register a reservation set and causes the hart to temporarily stall
-execution in a low-power state until a store occurs to the reservation
-set or an interrupt is observed.
-
-This commit implements new version of idle thread for RISC-V via Zawrs
-extension.
+When sending IPI to a cpu which has entered idle state using Zawrs
+extension, there is no need to send a physical software interrupt.
+Instead, we can write the IPI information to the address reserved by
+target cpu, which will wake it from WRS.NTO. Then the target cpu can
+handle the IPI directly without falling into traditional interrupt
+handling routine.
 
 Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
-Reviewed-by: Hangjing Li <lihangjing@bytedance.com>
-Reviewed-by: Liang Deng <dengliang.1214@bytedance.com>
-Reviewed-by: Wen Chai <chaiwen.cc@bytedance.com>
 ---
- arch/riscv/Kconfig                 | 10 ++++++++
- arch/riscv/include/asm/cpuidle.h   | 11 +-------
- arch/riscv/include/asm/processor.h | 18 +++++++++++++
- arch/riscv/kernel/cpu.c            |  5 ++++
- arch/riscv/kernel/process.c        | 41 +++++++++++++++++++++++++++++-
- 5 files changed, 74 insertions(+), 11 deletions(-)
+ arch/riscv/include/asm/processor.h | 14 +++++++
+ arch/riscv/include/asm/smp.h       | 14 +++++++
+ arch/riscv/kernel/process.c        | 65 +++++++++++++++++++++++++++++-
+ arch/riscv/kernel/smp.c            | 39 ++++++++++++------
+ 4 files changed, 118 insertions(+), 14 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 34bbe6b70546..898e61bbb328 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -19,6 +19,7 @@ config RISCV
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
- 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
- 	select ARCH_HAS_BINFMT_FLAT
-+	select ARCH_HAS_CPU_FINALIZE_INIT
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
-@@ -1081,6 +1082,15 @@ endmenu # "Power management options"
- 
- menu "CPU Power Management"
- 
-+config RISCV_ZAWRS_IDLE
-+	bool "Idle thread using ZAWRS extensions"
-+	depends on RISCV_ISA_ZAWRS
-+	default y
-+	help
-+		Adds support to implement idle thread using ZAWRS extension.
-+
-+		If you don't know what to do here, say Y.
-+
- source "drivers/cpuidle/Kconfig"
- 
- source "drivers/cpufreq/Kconfig"
-diff --git a/arch/riscv/include/asm/cpuidle.h b/arch/riscv/include/asm/cpuidle.h
-index 71fdc607d4bc..94c9ecb46571 100644
---- a/arch/riscv/include/asm/cpuidle.h
-+++ b/arch/riscv/include/asm/cpuidle.h
-@@ -10,15 +10,6 @@
- #include <asm/barrier.h>
- #include <asm/processor.h>
- 
--static inline void cpu_do_idle(void)
--{
--	/*
--	 * Add mb() here to ensure that all
--	 * IO/MEM accesses are completed prior
--	 * to entering WFI.
--	 */
--	mb();
--	wait_for_interrupt();
--}
-+void cpu_do_idle(void);
- 
- #endif
 diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 0faf5f161f1e..5ad572645bee 100644
+index 5ad572645bee..45e060831313 100644
 --- a/arch/riscv/include/asm/processor.h
 +++ b/arch/riscv/include/asm/processor.h
-@@ -12,6 +12,7 @@
- 
- #include <vdso/processor.h>
- 
-+#include <asm/insn-def.h>
- #include <asm/ptrace.h>
- 
- /*
-@@ -157,6 +158,21 @@ static inline void wait_for_interrupt(void)
- 	__asm__ __volatile__ ("wfi");
+@@ -173,6 +173,20 @@ static inline void wrs_nto(unsigned long *addr)
+ 			: : "memory");
  }
  
-+static inline void wrs_nto(unsigned long *addr)
++static inline void wrs_nto_if(int *addr, int val)
 +{
-+	int val;
++	int prev;
 +
 +	__asm__ __volatile__(
-+#ifdef CONFIG_64BIT
-+			"lr.d %[p], %[v]\n\t"
-+#else
-+			"lr.w %[p], %[v]\n\t"
-+#endif
++			"lr.w %[p], %[a]\n\t"
++			"bne %[p], %[v], 1f\n\t"
 +			ZAWRS_WRS_NTO "\n\t"
-+			: [p] "=&r" (val), [v] "+A" (*addr)
-+			: : "memory");
++			"1:\n\t"
++			: [p] "=&r" (prev), [a] "+A" (*addr)
++			: [v] "r" (val)
++			: "memory");
 +}
 +
  extern phys_addr_t dma32_phys_limit;
  
  struct device_node;
-@@ -183,6 +199,8 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
- #define GET_UNALIGN_CTL(tsk, addr)	get_unalign_ctl((tsk), (addr))
- #define SET_UNALIGN_CTL(tsk, val)	set_unalign_ctl((tsk), (val))
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index 0d555847cde6..2f27fd743092 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -19,6 +19,20 @@ extern unsigned long boot_cpu_hartid;
  
-+extern void select_idle_routine(void);
+ #include <linux/jump_label.h>
+ 
++enum ipi_message_type {
++	IPI_RESCHEDULE,
++	IPI_CALL_FUNC,
++	IPI_CPU_STOP,
++	IPI_CPU_CRASH_STOP,
++	IPI_IRQ_WORK,
++	IPI_TIMER,
++	IPI_MAX
++};
 +
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _ASM_RISCV_PROCESSOR_H */
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index d11d6320fb0d..69cebd41f5f3 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -22,6 +22,11 @@ bool arch_match_cpu_phys_id(int cpu, u64 phys_id)
- 	return phys_id == cpuid_to_hartid_map(cpu);
- }
- 
-+void __init arch_cpu_finalize_init(void)
-+{
-+	select_idle_routine();
-+}
++int ipi_virq_base_get(void);
++
++irqreturn_t handle_IPI(int irq, void *data);
 +
  /*
-  * Returns the hart ID of the given device tree node, or -ENODEV if the node
-  * isn't an enabled and valid RISC-V hart node.
+  * Mapping between linux logical cpu index and hartid.
+  */
 diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 92922dbd5b5c..9f0f7b888bc1 100644
+index 9f0f7b888bc1..7d6bf780d334 100644
 --- a/arch/riscv/kernel/process.c
 +++ b/arch/riscv/kernel/process.c
-@@ -15,6 +15,7 @@
- #include <linux/tick.h>
+@@ -16,6 +16,7 @@
  #include <linux/ptrace.h>
  #include <linux/uaccess.h>
-+#include <linux/static_call.h>
+ #include <linux/static_call.h>
++#include <linux/hardirq.h>
  
  #include <asm/unistd.h>
  #include <asm/processor.h>
-@@ -37,11 +38,49 @@ EXPORT_SYMBOL(__stack_chk_guard);
+@@ -27,6 +28,7 @@
+ #include <asm/cpuidle.h>
+ #include <asm/vector.h>
+ #include <asm/cpufeature.h>
++#include <asm/smp.h>
+ 
+ register unsigned long gp_in_global __asm__("gp");
+ 
+@@ -38,6 +40,8 @@ EXPORT_SYMBOL(__stack_chk_guard);
  
  extern asmlinkage void ret_from_fork(void);
  
--void arch_cpu_idle(void)
-+static __cpuidle void default_idle(void)
-+{
-+	/*
-+	 * Add mb() here to ensure that all
-+	 * IO/MEM accesses are completed prior
-+	 * to entering WFI.
-+	 */
-+	mb();
-+	wait_for_interrupt();
-+}
++DEFINE_PER_CPU(atomic_t, idle_ipi_mask);
 +
-+static __cpuidle void wrs_idle(void)
-+{
-+	/*
-+	 * Add mb() here to ensure that all
-+	 * IO/MEM accesses are completed prior
-+	 * to entering WRS.NTO.
-+	 */
-+	mb();
-+	wrs_nto(&current_thread_info()->flags);
-+}
-+
-+DEFINE_STATIC_CALL_NULL(riscv_idle, default_idle);
-+
-+void __cpuidle cpu_do_idle(void)
-+{
-+	static_call(riscv_idle)();
-+}
-+
-+void __cpuidle arch_cpu_idle(void)
+ static __cpuidle void default_idle(void)
  {
+ 	/*
+@@ -49,6 +53,16 @@ static __cpuidle void default_idle(void)
+ 	wait_for_interrupt();
+ }
+ 
++static __cpuidle void default_idle_enter(void)
++{
++	/* Do nothing */
++}
++
++static __cpuidle void default_idle_exit(void)
++{
++	/* Do nothing */
++}
++
+ static __cpuidle void wrs_idle(void)
+ {
+ 	/*
+@@ -57,10 +71,42 @@ static __cpuidle void wrs_idle(void)
+ 	 * to entering WRS.NTO.
+ 	 */
+ 	mb();
++#ifdef CONFIG_SMP
++	wrs_nto_if(&this_cpu_ptr(&idle_ipi_mask)->counter, BIT(IPI_MAX));
++#else
+ 	wrs_nto(&current_thread_info()->flags);
++#endif
++}
++
++static __cpuidle void wrs_idle_enter(void)
++{
++#ifdef CONFIG_SMP
++	atomic_set(this_cpu_ptr(&idle_ipi_mask), BIT(IPI_MAX));
++#endif
++}
++
++static __cpuidle void wrs_idle_exit(void)
++{
++#ifdef CONFIG_SMP
++	int pending;
++	unsigned long flags;
++	enum ipi_message_type ipi;
++
++	local_irq_save(flags);
++	pending = atomic_xchg_relaxed(this_cpu_ptr(&idle_ipi_mask), 0);
++	for (ipi = IPI_RESCHEDULE; ipi < IPI_MAX; ipi++)
++		if (pending & BIT(ipi)) {
++			irq_enter();
++			handle_IPI(ipi_virq_base_get() + ipi, NULL);
++			irq_exit();
++		}
++	local_irq_restore(flags);
++#endif
+ }
+ 
+ DEFINE_STATIC_CALL_NULL(riscv_idle, default_idle);
++DEFINE_STATIC_CALL_NULL(riscv_idle_enter, default_idle_enter);
++DEFINE_STATIC_CALL_NULL(riscv_idle_exit, default_idle_exit);
+ 
+ void __cpuidle cpu_do_idle(void)
+ {
+@@ -72,13 +118,28 @@ void __cpuidle arch_cpu_idle(void)
  	cpu_do_idle();
  }
  
-+void __init select_idle_routine(void)
++void __cpuidle arch_cpu_idle_enter(void)
 +{
-+	if (IS_ENABLED(CONFIG_RISCV_ZAWRS_IDLE) &&
-+			riscv_has_extension_likely(RISCV_ISA_EXT_ZAWRS))
-+		static_call_update(riscv_idle, wrs_idle);
-+	else
-+		static_call_update(riscv_idle, default_idle);
++	static_call(riscv_idle_enter)();
 +}
 +
- int set_unalign_ctl(struct task_struct *tsk, unsigned int val)
++void __cpuidle arch_cpu_idle_exit(void)
++{
++	static_call(riscv_idle_exit)();
++}
++
+ void __init select_idle_routine(void)
  {
- 	if (!unaligned_ctl_available())
+ 	if (IS_ENABLED(CONFIG_RISCV_ZAWRS_IDLE) &&
+-			riscv_has_extension_likely(RISCV_ISA_EXT_ZAWRS))
++			riscv_has_extension_likely(RISCV_ISA_EXT_ZAWRS)) {
+ 		static_call_update(riscv_idle, wrs_idle);
+-	else
++		static_call_update(riscv_idle_enter, wrs_idle_enter);
++		static_call_update(riscv_idle_exit, wrs_idle_exit);
++	} else {
+ 		static_call_update(riscv_idle, default_idle);
++		static_call_update(riscv_idle_enter, default_idle_enter);
++		static_call_update(riscv_idle_exit, default_idle_exit);
++	}
+ }
+ 
+ int set_unalign_ctl(struct task_struct *tsk, unsigned int val)
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 45dd4035416e..b5416ee41967 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -26,16 +26,6 @@
+ #include <asm/cacheflush.h>
+ #include <asm/cpu_ops.h>
+ 
+-enum ipi_message_type {
+-	IPI_RESCHEDULE,
+-	IPI_CALL_FUNC,
+-	IPI_CPU_STOP,
+-	IPI_CPU_CRASH_STOP,
+-	IPI_IRQ_WORK,
+-	IPI_TIMER,
+-	IPI_MAX
+-};
+-
+ unsigned long __cpuid_to_hartid_map[NR_CPUS] __ro_after_init = {
+ 	[0 ... NR_CPUS-1] = INVALID_HARTID
+ };
+@@ -94,14 +84,34 @@ static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
+ }
+ #endif
+ 
++#if defined(CONFIG_RISCV_ZAWRS_IDLE) && defined(CONFIG_SMP)
++DECLARE_PER_CPU(atomic_t, idle_ipi_mask);
++#endif
++
+ static void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op)
+ {
++#if defined(CONFIG_RISCV_ZAWRS_IDLE) && defined(CONFIG_SMP)
++	int cpu, val;
++
++	for_each_cpu(cpu, mask) {
++		val = atomic_fetch_or_relaxed(BIT(op), per_cpu_ptr(&idle_ipi_mask, cpu));
++		if (likely(!(val & BIT(IPI_MAX))))
++			__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
++	}
++#else
+ 	__ipi_send_mask(ipi_desc[op], mask);
++#endif
+ }
+ 
+ static void send_ipi_single(int cpu, enum ipi_message_type op)
+ {
+-	__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
++#if defined(CONFIG_RISCV_ZAWRS_IDLE) && defined(CONFIG_SMP)
++	int val;
++
++	val = atomic_fetch_or_relaxed(BIT(op), per_cpu_ptr(&idle_ipi_mask, cpu));
++	if (likely(!(val & BIT(IPI_MAX))))
++#endif
++		__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
+ }
+ 
+ #ifdef CONFIG_IRQ_WORK
+@@ -111,7 +121,7 @@ void arch_irq_work_raise(void)
+ }
+ #endif
+ 
+-static irqreturn_t handle_IPI(int irq, void *data)
++irqreturn_t handle_IPI(int irq, void *data)
+ {
+ 	int ipi = irq - ipi_virq_base;
+ 
+@@ -332,3 +342,8 @@ void arch_smp_send_reschedule(int cpu)
+ 	send_ipi_single(cpu, IPI_RESCHEDULE);
+ }
+ EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
++
++int ipi_virq_base_get(void)
++{
++	return ipi_virq_base;
++}
 -- 
 2.20.1
 
