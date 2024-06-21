@@ -4,50 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45296C27C4F
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 10:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA084C27C4F
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jun 2024 10:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AvdybwsJNWLvQRNsNpkp6oHFM9XijUcBAeTCNDz+cEE=; b=w7mpN7JHUfDnI1jdx608Rug7B9
-	eR7Ai5jaLdipyNSNxAimfdOnfYgTFREJhR6ssfwO/n1Oz+xsgf4PL8dygPrf1TL+C60c0P5GNcBhU
-	FDvcRCiISO9JXQipXbfSdUi+1YIEoLmZdbAygsTzbEx2mTZ7NKOdbUXxJXRJbtSL/CmEaOlqLuDcB
-	+nXqyO/2Uzljlnwg22Y1gSSyFN4BMUjh5MikLaJYwP+k75lyqVzHOiticqX6rVdobLw0D2FOoSur2
-	5WPsE7cMfXH3Mo58F1VPW6cL4tqGQJldKYYh0z6V4ysS4qVUCLVcz+0eqOWuHNWqTzTaHuNnzsKGK
-	3dAUlIGg==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TCQrM1HIV9Fy1KxvEnPnwtgsPzd7wrKPfRQqdhLRE9k=; b=q7YXVa3Xl/MGGi
+	ws3f9bKlHC9IxH9ajac+HQTyg40iBAvPRYWZqKzQWvDJZOMF67j4ZTl/I/CUZz1ksur5eTrvdCoNt
+	lTQ8EIKaej3oviYdvkThR2hCPowRdcfxaeM79SMOdnKtnJJ7RA5lcrnyoTaz+miQXuxLrlyAK/+pV
+	EfTIVsdtZGrBRCPE518hC0EOHXHAImQBqu5B30to93UzKJzkTxNXXc20XKAdEqhdhUv65nOvu9Qyt
+	dOcdjHiUP6uGQzkibLm2Cl5MMG+7PztlcUEk0u37qCyM52bBF68bD6wd+7Z5obDjgQnPD1fLI13mh
+	ZEjnMutzSzMFuen3TQqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKbUu-00000008m2F-2UZO;
-	Fri, 21 Jun 2024 10:28:00 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1sKbYu-00000008mxo-3Db6;
+	Fri, 21 Jun 2024 10:32:08 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKbUp-00000008m0b-3nno
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jun 2024 10:27:58 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 65CC61C000E;
-	Fri, 21 Jun 2024 10:27:45 +0000 (UTC)
-Message-ID: <825ab2df-c040-4454-9db6-8d08bc3df592@ghiti.fr>
-Date: Fri, 21 Jun 2024 12:27:43 +0200
+	id 1sKbYo-00000008muU-3PCz;
+	Fri, 21 Jun 2024 10:32:06 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4FE4A240005;
+	Fri, 21 Jun 2024 10:31:50 +0000 (UTC)
+Message-ID: <d8055c61-1e01-4fec-99e5-b866d7aed4a1@ghiti.fr>
+Date: Fri, 21 Jun 2024 12:31:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/8] riscv: don't export va_kernel_pa_offset in
- vmcoreinfo for XIP kernel
+Subject: Re: [PATCH v5 1/4] RISC-V: Add Svade and Svadu Extensions Support
 Content-Language: en-US
-To: Nam Cao <namcao@linutronix.de>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+To: Conor Dooley <conor.dooley@microchip.com>,
+ Andrew Jones <ajones@ventanamicro.com>
+Cc: Yong-Xuan Wang <yongxuan.wang@sifive.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, apatel@ventanamicro.com, greentime.hu@sifive.com,
+ vincent.chen@sifive.com, Jinyu Tang <tjytimi@163.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1717789719.git.namcao@linutronix.de>
- <8f8760d3f9a11af4ea0acbc247e4f49ff5d317e9.1717789719.git.namcao@linutronix.de>
+ Anup Patel <anup@brainfault.org>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>,
+ Atish Patra <atishp@rivosinc.com>, wchen <waylingii@gmail.com>,
+ Samuel Ortiz <sameo@rivosinc.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?=
+ <cleger@rivosinc.com>, Evan Green <evan@rivosinc.com>,
+ Xiao Wang <xiao.w.wang@intel.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>,
+ Kemeng Shi <shikemeng@huaweicloud.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Jisheng Zhang <jszhang@kernel.org>, Charlie Jenkins <charlie@rivosinc.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Leonardo Bras <leobras@redhat.com>
+References: <20240605121512.32083-1-yongxuan.wang@sifive.com>
+ <20240605121512.32083-2-yongxuan.wang@sifive.com>
+ <20240621-d1b77d43adacaa34337238c2@orel>
+ <20240621-nutty-penknife-ca541ee5108d@wendy>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <8f8760d3f9a11af4ea0acbc247e4f49ff5d317e9.1717789719.git.namcao@linutronix.de>
+In-Reply-To: <20240621-nutty-penknife-ca541ee5108d@wendy>
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240621_032756_616949_FD7B0F36 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20240621_033204_592494_4C392574 
+X-CRM114-Status: GOOD (  24.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,54 +81,143 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nam,
 
-On 07/06/2024 22:22, Nam Cao wrote:
-> The crash utility uses va_kernel_pa_offset to translate virtual addresses.
-> This is incorrect in the case of XIP kernel, because va_kernel_pa_offset is
-> not the virtual-physical address offset (yes, the name is misleading; this
-> variable will be removed for XIP in a following commit).
+On 21/06/2024 12:24, Conor Dooley wrote:
+> On Fri, Jun 21, 2024 at 10:43:58AM +0200, Andrew Jones wrote:
+>> On Wed, Jun 05, 2024 at 08:15:07PM GMT, Yong-Xuan Wang wrote:
+>>> Svade and Svadu extensions represent two schemes for managing the PTE A/D
+>>> bits. When the PTE A/D bits need to be set, Svade extension intdicates
+>>> that a related page fault will be raised. In contrast, the Svadu extension
+>>> supports hardware updating of PTE A/D bits. Since the Svade extension is
+>>> mandatory and the Svadu extension is optional in RVA23 profile, by default
+>>> the M-mode firmware will enable the Svadu extension in the menvcfg CSR
+>>> when only Svadu is present in DT.
+>>>
+>>> This patch detects Svade and Svadu extensions from DT and adds
+>>> arch_has_hw_pte_young() to enable optimization in MGLRU and
+>>> __wp_page_copy_user() when we have the PTE A/D bits hardware updating
+>>> support.
+>>>
+>>> Co-developed-by: Jinyu Tang <tjytimi@163.com>
+>>> Signed-off-by: Jinyu Tang <tjytimi@163.com>
+>>> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+>>> ---
+>>>   arch/riscv/Kconfig               |  1 +
+>>>   arch/riscv/include/asm/csr.h     |  1 +
+>>>   arch/riscv/include/asm/hwcap.h   |  2 ++
+>>>   arch/riscv/include/asm/pgtable.h | 14 +++++++++++++-
+>>>   arch/riscv/kernel/cpufeature.c   |  2 ++
+>>>   5 files changed, 19 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>>> index b94176e25be1..dbfe2be99bf9 100644
+>>> --- a/arch/riscv/Kconfig
+>>> +++ b/arch/riscv/Kconfig
+>>> @@ -36,6 +36,7 @@ config RISCV
+>>>   	select ARCH_HAS_PMEM_API
+>>>   	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
+>>>   	select ARCH_HAS_PTE_SPECIAL
+>>> +	select ARCH_HAS_HW_PTE_YOUNG
+>>>   	select ARCH_HAS_SET_DIRECT_MAP if MMU
+>>>   	select ARCH_HAS_SET_MEMORY if MMU
+>>>   	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
+>>> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+>>> index 25966995da04..524cd4131c71 100644
+>>> --- a/arch/riscv/include/asm/csr.h
+>>> +++ b/arch/riscv/include/asm/csr.h
+>>> @@ -195,6 +195,7 @@
+>>>   /* xENVCFG flags */
+>>>   #define ENVCFG_STCE			(_AC(1, ULL) << 63)
+>>>   #define ENVCFG_PBMTE			(_AC(1, ULL) << 62)
+>>> +#define ENVCFG_ADUE			(_AC(1, ULL) << 61)
+>>>   #define ENVCFG_CBZE			(_AC(1, UL) << 7)
+>>>   #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
+>>>   #define ENVCFG_CBIE_SHIFT		4
+>>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+>>> index e17d0078a651..35d7aa49785d 100644
+>>> --- a/arch/riscv/include/asm/hwcap.h
+>>> +++ b/arch/riscv/include/asm/hwcap.h
+>>> @@ -81,6 +81,8 @@
+>>>   #define RISCV_ISA_EXT_ZTSO		72
+>>>   #define RISCV_ISA_EXT_ZACAS		73
+>>>   #define RISCV_ISA_EXT_XANDESPMU		74
+>>> +#define RISCV_ISA_EXT_SVADE             75
+>>> +#define RISCV_ISA_EXT_SVADU		76
+>>>   
+>>>   #define RISCV_ISA_EXT_XLINUXENVCFG	127
+>>>   
+>>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+>>> index aad8b8ca51f1..7287ea4a6160 100644
+>>> --- a/arch/riscv/include/asm/pgtable.h
+>>> +++ b/arch/riscv/include/asm/pgtable.h
+>>> @@ -120,6 +120,7 @@
+>>>   #include <asm/tlbflush.h>
+>>>   #include <linux/mm_types.h>
+>>>   #include <asm/compat.h>
+>>> +#include <asm/cpufeature.h>
+>>>   
+>>>   #define __page_val_to_pfn(_val)  (((_val) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT)
+>>>   
+>>> @@ -288,7 +289,6 @@ static inline pte_t pud_pte(pud_t pud)
+>>>   }
+>>>   
+>>>   #ifdef CONFIG_RISCV_ISA_SVNAPOT
+>>> -#include <asm/cpufeature.h>
+>>>   
+>>>   static __always_inline bool has_svnapot(void)
+>>>   {
+>>> @@ -624,6 +624,18 @@ static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
+>>>   	return __pgprot(prot);
+>>>   }
+>>>   
+>>> +/*
+>>> + * Both Svade and Svadu control the hardware behavior when the PTE A/D bits need to be set. By
+>>> + * default the M-mode firmware enables the hardware updating scheme when only Svadu is present in
+>>> + * DT.
+>>> + */
+>>> +#define arch_has_hw_pte_young arch_has_hw_pte_young
+>>> +static inline bool arch_has_hw_pte_young(void)
+>>> +{
+>>> +	return riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU) &&
+>>> +	       !riscv_has_extension_likely(RISCV_ISA_EXT_SVADE);
+>> It's hard to guess what is, or will be, more likely to be the correct
+>> choice of call between the _unlikely and _likely variants. But, while we
+>> assume svade is most prevalent right now, it's actually quite unlikely
+>> that 'svade' will be in the DT, since DTs haven't been putting it there
+>> yet. Anyway, it doesn't really matter much and maybe the _unlikely vs.
+>> _likely variants are better for documenting expectations than for
+>> performance.
+> binding hat off, and kernel hat on, what do we actually do if there's
+> neither Svadu or Svade in the firmware's description of the hardware?
+> Do we just arbitrarily turn on Svade, like we already do for some
+> extensions:
+> 	/*
+> 	 * These ones were as they were part of the base ISA when the
+> 	 * port & dt-bindings were upstreamed, and so can be set
+> 	 * unconditionally where `i` is in riscv,isa on DT systems.
+> 	 */
+> 	if (acpi_disabled) {
+> 		set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
+> 		set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
+> 		set_bit(RISCV_ISA_EXT_ZICNTR, isainfo->isa);
+> 		set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
+> 	}
+
+
+I'd say yes, svade just put a name on a HW mechanism that is required to 
+make an OS work properly (if Svadu is not present). So if a platform 
+only supports Svadu and it's not in the device tree, that's a bug on 
+their hand.
+
+So if neither Svadu nor Svade are present in the device tree, we can 
+legitimately assume that Svade is enabled.
+
+
 >
-> Stop exporting this variable for XIP kernel. The replacement is to be
-> determined, note it as a TODO for now.
->
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-> ---
->   arch/riscv/kernel/vmcore_info.c | 7 +++++++
->   1 file changed, 7 insertions(+)
->
-> diff --git a/arch/riscv/kernel/vmcore_info.c b/arch/riscv/kernel/vmcore_info.c
-> index 6d7a22522d63..d5e448aa90e7 100644
-> --- a/arch/riscv/kernel/vmcore_info.c
-> +++ b/arch/riscv/kernel/vmcore_info.c
-> @@ -19,6 +19,13 @@ void arch_crash_save_vmcoreinfo(void)
->   #endif
->   #endif
->   	vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
-> +#ifdef CONFIG_XIP_KERNEL
-> +	/* TODO: Communicate with crash-utility developers on the information to
-> +	 * export. The XIP case is more complicated, because the virtual-physical
-> +	 * address offset depends on whether the address is in ROM or in RAM.
-> +	 */
-> +#else
->   	vmcoreinfo_append_str("NUMBER(va_kernel_pa_offset)=0x%lx\n",
->   						kernel_map.va_kernel_pa_offset);
-> +#endif
->   }
-
-
-So that will regress crash on XIP kernels, but on the other hand this 
-was wrong in the first place. And not sure anyone ever used crash on a 
-XIP platform.
-
-At least people will know that using va_kernel_pa_offset was wrong, so:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks for all your changes in v2,
-
-Alex
-
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
