@@ -4,91 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB05CC27C4F
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jun 2024 02:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2897C27C4F
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jun 2024 03:03:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7VJj4SeZkLDvQURXcsDYvSn7uP8jOAEdJuuF1ug0vBY=; b=wrc409yO7TW6mX
-	k/c1zfk1vA6mws+VgwH+LtCDbmQ08fj3JOARGaD2xsWbjx81KPdjSyxdzTRqmaf3tVcIdLVNj/EkD
-	BFqiIoBHgMrjl5bvKOMs2KwpKYUuLGgula8U+5i+GrSOx1Sgo4unkU5LgbpR4CFAkBeyyfZr9uegW
-	5cny7iEeO8Y/NvAl/xymPv+ttjrTI3ltRvezxboYEPKx/8xdMevyvjJh1TuiKpHeSU3Kz1OUvYrwb
-	LugV1mNu/WF/090DEoCnKtVdQCqtKCqXd8pbj836EASZXlQVBFXeGFreePEKSC6sI9U91OkIkH5JW
-	O/oY/Nlq0kHiYK3F5b2Q==;
+	List-Owner; bh=4qJ0zHNO0LaWU1LoXzdRSQzSVrSkmgchi3KCgmWMKuY=; b=FQmsxOsrx50a3Z
+	4un85U4Gzs6oOZOmnU2Ndhj9aAqn048aDl146I3dfmugowrjl3gktcijBKNkYg8Hxg5/vI22a2kfL
+	rDoOd5dzcAeXUmKOxb4r3DakwkycN4Si5j8Xi94O1jO2Wp8UNt4hK9kBWXhl48F/JxDrWaac1jg9Z
+	chh3yKlpZ4v0xLxOUjmn0Yk0HvBmAEo96r6AsN5OKn37nVYRXpK9+TecIJaaZQTfk3V7ON7n/PAab
+	UufOK+hv4BvKVmQBhW61fVrR2B8Ismq0J3cZytRwAzmLm4FVL1eKwfRdEAGO5EZfpGPThktx7PhNa
+	pLwBjZIsJAksami7Gcdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKquj-0000000BEaX-2wFE;
-	Sat, 22 Jun 2024 02:55:41 +0000
-Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
+	id 1sKr24-0000000BFCW-0arx;
+	Sat, 22 Jun 2024 03:03:16 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKqug-0000000BEZO-03Iy
+	id 1sKr1z-0000000BFA2-1oRE
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Jun 2024 02:55:40 +0000
-Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-36dd56cf5f5so9426215ab.3
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jun 2024 19:55:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1719024935; x=1719629735; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5if2KmJRWjBL76ROZgI/17GyYKcY5wCvGdrrlEk4u0Q=;
-        b=XsoxBW011gMGFGrI/GRiJKefhYhWV7RYmnWDw8k+/PYj3bLskApZFeobqs/Ak+CihJ
-         xb8YPQTr/x2pPJhhFR3tlUQ2Ewx9eVDRe+h0Jx1HsxWEGspbvt871FH4au153GZJCb0U
-         r5R89axVMcWO00za4f3HpBrrBMFnJIBF7Mqb6B8v2EHlhMrIet7bldFXzxmZ2LW6WKrJ
-         tdj3AY0bYVr6qtpbAsrMFa9FjNBLsLfOtJqol1nyivPxQfFtFu47SBz2uJj6l8Lqe05I
-         IXVxTX0HSfGb032DNd9hDWmhh2CoKKK6ZuAa/0D8SvB7RUr+6uQ5ynbvQn6zVAn0J1ka
-         cEKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719024935; x=1719629735;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5if2KmJRWjBL76ROZgI/17GyYKcY5wCvGdrrlEk4u0Q=;
-        b=iIB/zCHL8269G0s8G/m1N0FJuv6WW6AvJDHWWaIXlpfMHsbwUUYUmkL69F1YPvDgH7
-         EOPNVgrM+FeV0cdu0Nr6YWZwyx1bdkxGnjKqUmrGL9z7ttI4xj3Eikkby0m2yesY0X/X
-         X6nyfwbyygT3HC1fmma9VprrAJqdMw0cDZrom4hStamLb15MJnguhdB/yrhors8v4DUf
-         vS1IGkldfl05qP6MgsT3djBGocd7THR7uQA18yt6l7wjocLIKGjoqcMOFkYW2rhPJ/PF
-         CBjKL9CaNiyCLDFy78LmXZcx7XzNpuWhnT5G0NS+RChAfVmtF9icsngJl1nvFgXc21fC
-         wJSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXQm5oPHXtchM/YI75qUqP+AfHr894o1c13ocaBe2hplwe82LSwFY2lt7Fewne60vEbg7DxulacM24n5vahmOKRYnsT6y4Ddckd6LgZtTn7
-X-Gm-Message-State: AOJu0Yya9QVJfS6AZ8usKcM75+oApDMCfFsVR0bCC72ho2OJfKlhCFQI
-	ui4NUc7i6nbuNtjTiUKOMqdDqMAHOu4nbmdV+HMK4mwuuoi37ospyQQ8sCxyBuk=
-X-Google-Smtp-Source: AGHT+IEDqRRjk5TKBUDCMz6j3upGcBor/M5o4HP05d0yYUEeFU9td2Hhs5KyDe0neUdvKGxG88q+Sg==
-X-Received: by 2002:a05:6e02:1808:b0:375:8a71:4cbf with SMTP id e9e14a558f8ab-3761d708893mr106035865ab.23.1719024935423;
-        Fri, 21 Jun 2024 19:55:35 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.253])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-716ba7a0699sm1776286a12.67.2024.06.21.19.55.30
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 21 Jun 2024 19:55:35 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: jesse@rivosinc.com,
-	jrtc27@jrtc27.com,
-	corbet@lwn.net,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	cleger@rivosinc.com,
-	evan@rivosinc.com,
-	conor.dooley@microchip.com,
-	cuiyunhui@bytedance.com,
-	costa.shul@redhat.com,
-	andy.chiu@sifive.com,
-	samitolvanen@google.com,
-	linux-doc@vger.kernel.org,
+	Sat, 22 Jun 2024 03:03:13 +0000
+Received: from mail.maildlp.com (unknown [172.19.93.142])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4W5fDJ1Jgkz4f3jLc
+	for <linux-riscv@lists.infradead.org>; Sat, 22 Jun 2024 11:02:56 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 216CB1A0181
+	for <linux-riscv@lists.infradead.org>; Sat, 22 Jun 2024 11:03:03 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP1 (Coremail) with SMTP id cCh0CgDXa63kPnZmMh5lAg--.15052S2;
+	Sat, 22 Jun 2024 11:03:01 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>
-Subject: [PATCH v3] RISC-V: Provide the frequency of time CSR via hwprobe
-Date: Sat, 22 Jun 2024 10:55:14 +0800
-Message-Id: <20240622025514.66537-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	netdev@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Pu Lehui <pulehui@huawei.com>
+Subject: [PATCH RESEND bpf-next v2 0/3] Use bpf_prog_pack for RV64 bpf trampoline
+Date: Sat, 22 Jun 2024 03:04:34 +0000
+Message-Id: <20240622030437.3973492-1-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-CM-TRANSID: cCh0CgDXa63kPnZmMh5lAg--.15052S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kr43KF1rCFy8Ww4xtw1DZFb_yoW8GFy3pF
+	43Ww13Cw1UXr9rWws3W3yUZF1Sqw48X347GrnrJ34rCF4YvFW8urnY9FWFvFyrWF95C3W0
+	yr1j9Fy5u3WUZ37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUk2b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l42xK82IY
+	c2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s
+	026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF
+	0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0x
+	vE42xK8VAvwI8IcIk0rVWrJr0_WFyUJwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E
+	87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUFDGOUUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240621_195538_363092_39A236E8 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20240621_200311_956519_034A72E0 
+X-CRM114-Status: UNSURE (   7.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,82 +98,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
+We used bpf_prog_pack to aggregate bpf programs into huge page to
+relieve the iTLB pressure on the system. We can apply it to bpf
+trampoline, as Song had been implemented it in core and x86 [0]. This
+patch is going to use bpf_prog_pack to RV64 bpf trampoline. Since Song
+and Puranjay have done a lot of work for bpf_prog_pack on RV64,
+implementing this function will be easy. But one thing to mention is
+that emit_call in RV64 will generate the maximum number of instructions
+during dry run, but during real patching it may be optimized to 1
+instruction due to distance. This is no problem as it does not overflow
+the allocated RO image.
 
-A handful of user-visible behavior is based on the frequency of the
-time CSR.
+Tests about regular trampoline and struct_ops trampoline have passed, as
+well as "test_verifier" with no failure cases.
 
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-Reviewed-by: Evan Green <evan@rivosinc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
- Documentation/arch/riscv/hwprobe.rst  | 2 ++
- arch/riscv/include/asm/hwprobe.h      | 2 +-
- arch/riscv/include/uapi/asm/hwprobe.h | 1 +
- arch/riscv/kernel/sys_hwprobe.c       | 5 +++++
- 4 files changed, 9 insertions(+), 1 deletion(-)
+Link: https://lore.kernel.org/all/20231206224054.492250-1-song@kernel.org [0]
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index df5045103e73..ec3c99474ed7 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -233,3 +233,5 @@ The following keys are defined:
- 
- * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
-   represents the size of the Zicboz block in bytes.
-+
-+* :c:macro:`RISCV_HWPROBE_KEY_TIME_CSR_FREQ`: Frequency (in Hz) of `time CSR`.
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 150a9877b0af..ef01c182af2b 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -8,7 +8,7 @@
- 
- #include <uapi/asm/hwprobe.h>
- 
--#define RISCV_HWPROBE_MAX_KEY 7
-+#define RISCV_HWPROBE_MAX_KEY 8
- 
- static inline bool riscv_hwprobe_key_is_valid(__s64 key)
- {
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 2fb8a8185e7a..5053a9b18710 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -74,6 +74,7 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
- #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
- #define RISCV_HWPROBE_KEY_MISALIGNED_PERF	7
-+#define RISCV_HWPROBE_KEY_TIME_CSR_FREQ	8
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
- 
- /* Flags */
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index e4ec9166339f..3d47edc04a3f 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -8,6 +8,7 @@
- #include <asm/cacheflush.h>
- #include <asm/cpufeature.h>
- #include <asm/hwprobe.h>
-+#include <asm/delay.h>
- #include <asm/sbi.h>
- #include <asm/switch_to.h>
- #include <asm/uaccess.h>
-@@ -227,6 +228,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 			pair->value = riscv_cboz_block_size;
- 		break;
- 
-+	case RISCV_HWPROBE_KEY_TIME_CSR_FREQ:
-+		pair->value = riscv_timebase;
-+		break;
-+
- 	/*
- 	 * For forward compatibility, unknown keys don't fail the whole
- 	 * call, but get their element key set to -1 and value set to 0
+v2:
+- Emit max number of insns for the "im" addr during dry run to solve OOB issue. (Song)
+
+v1: https://lore.kernel.org/all/20240123103241.2282122-1-pulehui@huaweicloud.com/
+
+Pu Lehui (3):
+  bpf: Use precise image size for struct_ops trampoline
+  riscv, bpf: Fix out-of-bounds issue when preparing trampoline image
+  riscv, bpf: Use bpf_prog_pack for RV64 bpf trampoline
+
+ arch/riscv/net/bpf_jit_comp64.c | 57 +++++++++++++++++++++++----------
+ kernel/bpf/bpf_struct_ops.c     |  2 +-
+ 2 files changed, 41 insertions(+), 18 deletions(-)
+
 -- 
-2.20.1
+2.34.1
 
 
 _______________________________________________
