@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CE9C27C53
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jun 2024 12:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B61C27C53
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jun 2024 15:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=puYDMI3WG0/RxTMwr/1xWAAyYZz/DwGgOIWY2ePJpvI=; b=PwBdoboxX377HxidOCR9oZx72E
-	y0QL7vmpfhtELvi0BMSleOfqwD1qzOioYNVpePR5aotELHHjtqNWMi5H0OqPD1AmvD4isFri3n2ic
-	cBMq1C1snimgmj9kz7Dla01dn2TJtK1oQ/RzRjvQSdAuFrIUrP0Fr6mTVWKhusIW2v5C35OTGqWsA
-	IAiv9UpOPZb7Vo2hsmQCZR9h3QmWNdidKyr1Asr+8LiZCqnWbQK2FzF3gNkULUjtdDyg40NiftKMI
-	XKshvvqJPz/n8v5rHYa/H03i25XzPi3j7fydyZkOLHUl5jTjndNHJeTKz3fceztJjrdvRmxEg6Mmk
-	agM8ZTSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Zzeu8tc6nDmAAmqRfkYZB1nAZfaNjnh58aa2x4K/IE8=; b=F8YzpndSViuW+K
+	N7rnuGQGcplWtUyiyHdemwG7wXMouIjBSKaAVn1I/RvDySqVnUx3BcMuZ01sk8WC0f5NBm9wtXBny
+	z6CAyKuAU8cxRE86KnutvMwBX6wfkoEsJWU0V1X1DQKLTCWLALUsYF/yGsLg4vX/6X220uYX7f1jt
+	1JeXq6f1EJOSIRkx6Vnqf9AwlWPRqHiqnnwnRqvqoJiWHqydzZ6ZZXAhcAJon45Q9JLG9adEm/s9v
+	mHxaLX4xU5jmhO0I+VNGkvalEKO/W3cx4t54XRp533Uv2bqMJELlwB6ByFOgWcRaFqaSSzxUJEoTq
+	XTkKEjRG76IUTmp4DyJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKzXa-0000000C2Ig-3v4Y;
-	Sat, 22 Jun 2024 12:08:22 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sL2LA-0000000CIAJ-1iER;
+	Sat, 22 Jun 2024 15:07:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKzXX-0000000C2Hv-3WHF
-	for linux-riscv@lists.infradead.org;
-	Sat, 22 Jun 2024 12:08:21 +0000
+	id 1sL2L2-0000000CI6z-2qDP;
+	Sat, 22 Jun 2024 15:07:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id BF801CE09B9;
-	Sat, 22 Jun 2024 12:08:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1641AC4AF0E;
-	Sat, 22 Jun 2024 12:08:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3251561196;
+	Sat, 22 Jun 2024 15:07:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEA65C3277B;
+	Sat, 22 Jun 2024 15:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719058096;
-	bh=P5rl5XL//kPYoCDJGhwLXcIJSGKKj9bYJFvBdl/QjCs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ibFVfroqoB8D6H0Lo5nDAIaTtI3NC6LugLPmnQ8l1l4Ftf8zT8d91wsY98A+CAUpy
-	 76Scgo82vEiM+HPdwUiQcM8avNN8NMUXpaEPwbCujVB18CNQ/XKHO/8CjL+/bMNYWx
-	 S6kttX4ge3KL0O+dUAd9v14i3tqLWQHAsaC8DzgZsr+VfP6ZaOk9fcbJr4M5BK6VrB
-	 52xcCWMsJyRe9cAJwIu1PiH1kEr5VDHGx/yKeqb4iOgHMk7VBHlE+Yg/MS0L20GcYJ
-	 mbne6Xno8KbHvaF7qjrclHluFnfUVEJT8mOi+v1tk7LxkEANp1wHeBpdF0nW/15LwD
-	 HZFhBT4O9TmFg==
-Date: Sat, 22 Jun 2024 13:08:11 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Minda Chen <minda.chen@starfivetech.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
+	s=k20201202; t=1719068854;
+	bh=FWOQ6uEddi1Oy8wHfoQsKuHKsTCcCzZHsfD/pnViTac=;
+	h=From:To:Cc:Subject:Date:From;
+	b=TS0DvQamfYX/dVr7XVqUP1xp2TZ7oUbIjoyz1KkXX5zA3GTrNPy3MjJJAC0A+Pcsy
+	 2Ar3B+E2rQ2/PPirQA9SLDc44epwaN5CP0OQTMk/p5LP4toltVBnn4qM6u6M2gJbRL
+	 2mrWfewcBFV9frySlAwT1iZM03K53ujSdMkGAALtVprN5SY4vZ99pp61wGb/SyoqKJ
+	 qdfCN4RGE3nXZpgrXHghPE2AOmBNOrhRw/84E+Act8DJsODy8PqXzkAJdyI4bo8tjO
+	 SqOr5vry5S0Ei9iHK4qRyKbmTtc1h/G4Ue7D8c2ctBCtv4MJqK9oWq5UqgOcTzBdKB
+	 u/SkcRY1Xc+Qw==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 9A9065FFA4; Sat, 22 Jun 2024 23:07:32 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v2 1/1] riscv: dts: starfive: add PCIe dts configuration
- for JH7110
-Message-ID: <20240622-festivity-salon-bbad348a12c8@spud>
-References: <20240621082231.92896-1-minda.chen@starfivetech.com>
- <20240621082231.92896-2-minda.chen@starfivetech.com>
+Cc: Chen-Yu Tsai <wens@csie.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] riscv: allwinner: ClockworkPi and DevTerm devicetrees
+Date: Sat, 22 Jun 2024 23:07:28 +0800
+Message-Id: <20240622150731.1105901-1-wens@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-In-Reply-To: <20240621082231.92896-2-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240622_050820_274515_43BBA3F9 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20240622_080736_802397_627EA1D9 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,291 +74,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2711407946816752188=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Chen-Yu Tsai <wens@csie.org>
 
---===============2711407946816752188==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9MzUggWp64cOatqb"
-Content-Disposition: inline
+Hi folks,
 
+Here are a couple patches that were originally sent by Samuel, but later
+dropped due to the system LDO regulator bindings not getting merged. The
+regulator bindings were recently resent and landed [1], so now is the time
+to get the rest of the stragglers in.
 
---9MzUggWp64cOatqb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Patch 1 and 3 were originally part of Samuel's D1 device tree submission [2].
 
-On Fri, Jun 21, 2024 at 04:22:31PM +0800, Minda Chen wrote:
-> Add PCIe dts configuraion for JH7110 SoC platform.
+Patch 2 was part of the system LDO series [3].
 
-I think the commit message should mention that the star64 doesn't have a
-pci port exposed. If nothing else crops up, I'll edit it myself if
-that's okay?
+These have been rebased onto v6.10-rc1 and have been compile tested
+only.
 
-Thanks,
-Conor.
-
->=20
-> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  .../boot/dts/starfive/jh7110-common.dtsi      | 62 +++++++++++++
->  .../boot/dts/starfive/jh7110-milkv-mars.dts   |  7 ++
->  .../jh7110-starfive-visionfive-2.dtsi         |  8 ++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 86 +++++++++++++++++++
->  4 files changed, 163 insertions(+)
->=20
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv=
-/boot/dts/starfive/jh7110-common.dtsi
-> index 8ff6ea64f048..f91abc660ae8 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> @@ -294,6 +294,20 @@
->  	status =3D "okay";
->  };
-> =20
-> +&pcie0 {
-> +	perst-gpios =3D <&sysgpio 26 GPIO_ACTIVE_LOW>;
-> +	phys =3D <&pciephy0>;
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pcie0_pins>;
-> +};
-> +
-> +&pcie1 {
-> +	perst-gpios =3D <&sysgpio 28 GPIO_ACTIVE_LOW>;
-> +	phys =3D <&pciephy1>;
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pcie1_pins>;
-> +};
-> +
->  &pwmdac {
->  	pinctrl-names =3D "default";
->  	pinctrl-0 =3D <&pwmdac_pins>;
-> @@ -476,6 +490,54 @@
->  		};
->  	};
-> =20
-> +	pcie0_pins: pcie0-0 {
-> +		clkreq-pins {
-> +			pinmux =3D <GPIOMUX(27, GPOUT_LOW,
-> +					      GPOEN_DISABLE,
-> +					      GPI_NONE)>;
-> +			bias-pull-down;
-> +			drive-strength =3D <2>;
-> +			input-enable;
-> +			input-schmitt-disable;
-> +			slew-rate =3D <0>;
-> +		};
-> +
-> +		wake-pins {
-> +			pinmux =3D <GPIOMUX(32, GPOUT_LOW,
-> +					      GPOEN_DISABLE,
-> +					      GPI_NONE)>;
-> +			bias-pull-up;
-> +			drive-strength =3D <2>;
-> +			input-enable;
-> +			input-schmitt-disable;
-> +			slew-rate =3D <0>;
-> +		};
-> +	};
-> +
-> +	pcie1_pins: pcie1-0 {
-> +		clkreq-pins {
-> +			pinmux =3D <GPIOMUX(29, GPOUT_LOW,
-> +					      GPOEN_DISABLE,
-> +					      GPI_NONE)>;
-> +			bias-pull-down;
-> +			drive-strength =3D <2>;
-> +			input-enable;
-> +			input-schmitt-disable;
-> +			slew-rate =3D <0>;
-> +		};
-> +
-> +		wake-pins {
-> +			pinmux =3D <GPIOMUX(21, GPOUT_LOW,
-> +				      GPOEN_DISABLE,
-> +					      GPI_NONE)>;
-> +			bias-pull-up;
-> +			drive-strength =3D <2>;
-> +			input-enable;
-> +			input-schmitt-disable;
-> +			slew-rate =3D <0>;
-> +		};
-> +	};
-> +
->  	pwmdac_pins: pwmdac-0 {
->  		pwmdac-pins {
->  			pinmux =3D <GPIOMUX(33, GPOUT_SYS_PWMDAC_LEFT,
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts b/arch/ri=
-scv/boot/dts/starfive/jh7110-milkv-mars.dts
-> index fa0eac78e0ba..5cb9e99e1dac 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
-> @@ -17,6 +17,13 @@
->  	assigned-clock-parents =3D <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
->  };
-> =20
-> +&pcie0 {
-> +	status =3D "okay";
-> +};
-> +
-> +&pcie1 {
-> +	status =3D "okay";
-> +};
-> =20
->  &phy0 {
->  	motorcomm,tx-clk-adj-enabled;
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dt=
-si b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index 9d70f21c86fc..18f38fc790a4 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -32,3 +32,11 @@
->  &mmc0 {
->  	non-removable;
->  };
-> +
-> +&pcie0 {
-> +	status =3D "okay";
-> +};
-> +
-> +&pcie1 {
-> +	status =3D "okay";
-> +};
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/d=
-ts/starfive/jh7110.dtsi
-> index 18047195c600..5ac70759e0ab 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -1214,5 +1214,91 @@
->  			#reset-cells =3D <1>;
->  			power-domains =3D <&pwrc JH7110_PD_VOUT>;
->  		};
-> +
-> +		pcie0: pcie@940000000 {
-> +			compatible =3D "starfive,jh7110-pcie";
-> +			reg =3D <0x9 0x40000000 0x0 0x1000000>,
-> +			      <0x0 0x2b000000 0x0 0x100000>;
-> +			reg-names =3D "cfg", "apb";
-> +			linux,pci-domain =3D <0>;
-> +			#address-cells =3D <3>;
-> +			#size-cells =3D <2>;
-> +			#interrupt-cells =3D <1>;
-> +			ranges =3D <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000=
->,
-> +				 <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
-> +			interrupts =3D <56>;
-> +			interrupt-map-mask =3D <0x0 0x0 0x0 0x7>;
-> +			interrupt-map =3D <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
-> +					<0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
-> +					<0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
-> +					<0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
-> +			msi-controller;
-> +			device_type =3D "pci";
-> +			starfive,stg-syscon =3D <&stg_syscon>;
-> +			bus-range =3D <0x0 0xff>;
-> +			clocks =3D <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
-> +				 <&stgcrg JH7110_STGCLK_PCIE0_TL>,
-> +				 <&stgcrg JH7110_STGCLK_PCIE0_AXI_MST0>,
-> +				 <&stgcrg JH7110_STGCLK_PCIE0_APB>;
-> +			clock-names =3D "noc", "tl", "axi_mst0", "apb";
-> +			resets =3D <&stgcrg JH7110_STGRST_PCIE0_AXI_MST0>,
-> +				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV0>,
-> +				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV>,
-> +				 <&stgcrg JH7110_STGRST_PCIE0_BRG>,
-> +				 <&stgcrg JH7110_STGRST_PCIE0_CORE>,
-> +				 <&stgcrg JH7110_STGRST_PCIE0_APB>;
-> +			reset-names =3D "mst0", "slv0", "slv", "brg",
-> +				      "core", "apb";
-> +			status =3D "disabled";
-> +
-> +			pcie_intc0: interrupt-controller {
-> +				#address-cells =3D <0>;
-> +				#interrupt-cells =3D <1>;
-> +				interrupt-controller;
-> +			};
-> +		};
-> +
-> +		pcie1: pcie@9c0000000 {
-> +			compatible =3D "starfive,jh7110-pcie";
-> +			reg =3D <0x9 0xc0000000 0x0 0x1000000>,
-> +			      <0x0 0x2c000000 0x0 0x100000>;
-> +			reg-names =3D "cfg", "apb";
-> +			linux,pci-domain =3D <1>;
-> +			#address-cells =3D <3>;
-> +			#size-cells =3D <2>;
-> +			#interrupt-cells =3D <1>;
-> +			ranges =3D <0x82000000  0x0 0x38000000  0x0 0x38000000 0x0 0x08000000=
->,
-> +				 <0xc3000000  0x9 0x80000000  0x9 0x80000000 0x0 0x40000000>;
-> +			interrupts =3D <57>;
-> +			interrupt-map-mask =3D <0x0 0x0 0x0 0x7>;
-> +			interrupt-map =3D <0x0 0x0 0x0 0x1 &pcie_intc1 0x1>,
-> +					<0x0 0x0 0x0 0x2 &pcie_intc1 0x2>,
-> +					<0x0 0x0 0x0 0x3 &pcie_intc1 0x3>,
-> +					<0x0 0x0 0x0 0x4 &pcie_intc1 0x4>;
-> +			msi-controller;
-> +			device_type =3D "pci";
-> +			starfive,stg-syscon =3D <&stg_syscon>;
-> +			bus-range =3D <0x0 0xff>;
-> +			clocks =3D <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
-> +				 <&stgcrg JH7110_STGCLK_PCIE1_TL>,
-> +				 <&stgcrg JH7110_STGCLK_PCIE1_AXI_MST0>,
-> +				 <&stgcrg JH7110_STGCLK_PCIE1_APB>;
-> +			clock-names =3D "noc", "tl", "axi_mst0", "apb";
-> +			resets =3D <&stgcrg JH7110_STGRST_PCIE1_AXI_MST0>,
-> +				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV0>,
-> +				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV>,
-> +				 <&stgcrg JH7110_STGRST_PCIE1_BRG>,
-> +				 <&stgcrg JH7110_STGRST_PCIE1_CORE>,
-> +				 <&stgcrg JH7110_STGRST_PCIE1_APB>;
-> +			reset-names =3D "mst0", "slv0", "slv", "brg",
-> +				      "core", "apb";
-> +			status =3D "disabled";
-> +
-> +			pcie_intc1: interrupt-controller {
-> +				#address-cells =3D <0>;
-> +				#interrupt-cells =3D <1>;
-> +				interrupt-controller;
-> +			};
-> +		};
->  	};
->  };
-> --=20
-> 2.17.1
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---9MzUggWp64cOatqb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZna+qwAKCRB4tDGHoIJi
-0oidAP9mkLa2XKoOd6q13Ys5GhzVvznTCLxoSUGlfDWAVZWYLwEAifgAdRavHbVl
-GlceghM7sKepZHxV7C4OLuI+XypsFwc=
-=NabL
------END PGP SIGNATURE-----
-
---9MzUggWp64cOatqb--
+I plan to land these in the coming week for 6.11.
 
 
---===============2711407946816752188==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Regards
+ChenYu
+
+
+[1] https://lore.kernel.org/linux-sunxi/171532213496.2045034.2645456500780291742.b4-ty@kernel.org/
+[2] https://lore.kernel.org/linux-sunxi/20221231233851.24923-1-samuel@sholland.org/
+[3] https://lore.kernel.org/linux-sunxi/20221208084127.17443-1-samuel@sholland.org/
+
+Chen-Yu Tsai (1):
+  riscv: dts: allwinner: d1s-t113: Add system LDOs
+
+Samuel Holland (2):
+  dt-bindings: sram: sunxi-sram: Add regulators child
+  riscv: dts: allwinner: Add ClockworkPi and DevTerm devicetrees
+
+ .../allwinner,sun4i-a10-system-control.yaml   |  28 ++
+ arch/riscv/boot/dts/allwinner/Makefile        |   2 +
+ .../allwinner/sun20i-d1-clockworkpi-v3.14.dts | 252 ++++++++++++++++++
+ .../dts/allwinner/sun20i-d1-devterm-v3.14.dts |  36 +++
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  11 +
+ 5 files changed, 329 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-clockworkpi-v3.14.dts
+ create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dts
+
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2711407946816752188==--
-
