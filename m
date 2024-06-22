@@ -4,119 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3ABC27C4F
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jun 2024 00:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 443F1C27C4F
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jun 2024 00:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yeRq9/xsqvq3vbdS2zrB2fhCBskZ/db63rFGQXg3E70=; b=Q4gu525nbefIIg
-	cMv+jH2wiCqRQ08S50N4UYCQ3wKrKt+ayEzmc8hAKhBQiRoQAN3hEaVV5SYSzz9GXmuRh0YZvd68t
-	VWzxdupjzp1MAXQIpz986mb12dc3LloT1fiA75vNeSh9XWogH1uv2aM5Ajpx1kooVQ78nzlbfKD5B
-	cujQ+uw0tZWGx8afqpXhfzeHsNHkYOkm6gvDcTh4baauIRv9Ym3mM+z9Dn5IzCefY0RyO4qPFmvj/
-	F6jisn2imy0ob1RxjzrJu+zA3nz39fym7LtFBrFOx7uFHqdHw1g4fT1G1ciqYBJ5+j+6GnfE0pPi1
-	reUAo1TqJoV7S/lPwWKg==;
+	List-Owner; bh=NQ8s3DogiLzIa6XlH/qMVg6/zEIevXgI8mRLhmZtYnc=; b=iocI4g/Oub+r/1
+	FCwfQl3nq2sAqde1nZHp9za4/we3XWQCJyWRu5IfZP10/VOtsbBK7d3NTjiBolu5/eK+ndHHpsx/n
+	hdepnu7io/qzoWxALKKlDSxdKwPYmje5VkppgZ07PiMH4PxC6vLhLe/jntC32daWaPjzjj5WDaT4g
+	GumV0zLO+xdOUWYXVSv9oBIv40a2NyHOgIuUYegMoDigGKNj/AaWaJsY8rPi5f0WbjElGPv8ngf7x
+	JgDm+JxOmOORSnL+y7XYBWVLbs6SispPtR+CgwjXRYqSpSofLhI8HCbhbDRZmWdYr5VbaXXzFwr73
+	75q3oYiN85ZA10NH3n5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKoGP-0000000Axad-1n5O;
-	Sat, 22 Jun 2024 00:05:53 +0000
-Received: from mail-mw2nam10olkn2080a.outbound.protection.outlook.com ([2a01:111:f403:2c12::80a] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1sKoPr-0000000AzB5-2Awp;
+	Sat, 22 Jun 2024 00:15:39 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sKoGN-0000000AxZm-0pEY
+	id 1sKoPn-0000000AzAC-3GHv
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Jun 2024 00:05:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Ldz1ebcgRQcKOFyUW204yqGXEmlCWLYps4E7rkJ7mfTXPT2MuYB6rMwlgX3VkB6HELEri31Y9PYV6ph7YGqKrBIeqJ+V8lVxANYAh8NuzL2RC7RhFSejzqRHjjZsrMOEm8jYjRp6UHAgwIm+7qZNS8m7u3m7CRGTI9DEmf2ZgIkTcN3kdV7O/tWU3Wg5aakVdfpbEPVCickSnDMTKX3XyDOjlH0rjhpBsP6g2VvaTH1P7piA8AS9N5uSyr2XSMdM+MTXj9oGFu7kTdP4AgN0wL5QubbZPozy3H+aholnva2+9R8ljcls5X5GmjuA0NKW9AagSslwhmHouxMq0iGJJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5wsAhskoIskrgJHAWUSq/8gtjkfAAVEOC7NsvfTsU3w=;
- b=Zr1UQODyTgzqkmhGh5u64uYq2nd3ZOqH0A5yWIlCaK8/ZMwhSrnbTq/c8Uel2QcwdQpPn28p0WG8K6M1LaJZbzzA7gq91I6xNuGAOVPFVioG7I2BWUOvuT9E6uz+ZQ1T5x3DWhzgagxmbX8qMPsHqsqIEk1QfyRi/GEimhWfGma1dpaN8kmiC3YnPsUjTypRMfzXPrLW9TzmzUj/7xD38pUW4S2BnGeEPwrM3qInDDI+piVm5woo5rx6a4rpTFD4FcBTeC3+G2LfxqOp6/JSkSeJZsIjkE0FLsMLZ0Fw7xX67FLyhxFDxY4vKuZ/iSKHsQJ/SnWdH8ZpOseW83nLUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5wsAhskoIskrgJHAWUSq/8gtjkfAAVEOC7NsvfTsU3w=;
- b=cvg8GTYy8cvolEz9JuerMjZOLAL8iBJ7oF0LhlZFaPeR9CZ9iwtUp/qXR97Y2Tsl/betWY9Rjp7XwQMLR/S9ASy+Qfzl0+UlOTXm0wReg9bHD2mY0OAqb4WEjyyRgQO4VoI60IJDBPHZm3OUCEfm//1MqjZWmtIUuAuDuDCrR0EySQ8srJmc1z6dJOEBVx3fKU/gbOe3z9mx1f9dp+66XmqMMcNe0L8ES+9XOHwhvtlEjX1r3qXbWvSNv9wrh5WhYVuAn2TGmWneDJsRh3mVySykqT8BA5a85ha5C38RkURaUCHkorVLLGI5PI3vVr/v+9xLM4TXfvnB04e4cpTTtA==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by CY8PR20MB5667.namprd20.prod.outlook.com (2603:10b6:930:9a::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.31; Sat, 22 Jun
- 2024 00:05:37 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%6]) with mapi id 15.20.7698.017; Sat, 22 Jun 2024
- 00:05:37 +0000
-Date: Sat, 22 Jun 2024 08:05:17 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Guenter Roeck <linux@roeck-us.net>, 
-	Inochi Amaoto <inochiama@outlook.com>
-Cc: Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-hwmon@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 2/2] drivers: hwmon: sophgo: Add SG2042 external
- hardware monitor support
-Message-ID: <IA1PR20MB49531390EF0D8A9EE5C53F24BBCA2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <PH7PR20MB4962C6D8FD6989BC79F9483FBB1D2@PH7PR20MB4962.namprd20.prod.outlook.com>
- <PH7PR20MB49622B0A6E9169B04211C7AFBB1D2@PH7PR20MB4962.namprd20.prod.outlook.com>
- <df0f11cb-3b44-4869-bfd6-6e5d01e6debd@roeck-us.net>
- <IA1PR20MB495341CA5F2148902B198EA2BBC92@IA1PR20MB4953.namprd20.prod.outlook.com>
- <52d97ca1-b9a3-4a50-8a74-6d56984791c8@roeck-us.net>
-Content-Disposition: inline
-In-Reply-To: <52d97ca1-b9a3-4a50-8a74-6d56984791c8@roeck-us.net>
-X-TMN: [KEqNXVwmO2XzhOSKdlosibsVfOBVpJVh2CZYGDM025U=]
-X-ClientProxiedBy: TYBP286CA0025.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:404:10a::13) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <t25lrekbdmfmyyymlx3leiymwv5obn6we3dw3sblk2yoo36kpm@wzifhyjxbn6g>
+	Sat, 22 Jun 2024 00:15:38 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-79baa4e8531so245693385a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Jun 2024 17:15:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719015334; x=1719620134; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=fZHfc77+AsBI7ZIvrtDn0Ug3Hq+I59HmK7jqskjzb04=;
+        b=MrxbFR0+BhBzcvR3FieNyWgnW3dNYMJOT7kysfJn9W1oKR8U/T2x2V+e0ivx4IccEH
+         OnIQfqmxxJtjgvZ/rypeyGM66MS0MUzY8JrKjll/jpuRbjuf1slkWnFNtZ3Vt5QUORJ1
+         V2l0NV/fPH286BQSI3eBr+kPBB0/Oz1PM3XAotaX3b64fegnuzDi8e9hadrg606H/g93
+         KrukFoU4t+fvHXklLAkyOia1PW8wdHfpYvXQURAdIePMYFaOxLEYfQIJdsf2w1SUIWqJ
+         VnF57U532kHfA1x/13jOBuLWbWDSd7FgaYVIGXXCaaIEleQcRCcAz5kWBA1h+iRzl3m7
+         uYKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719015334; x=1719620134;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fZHfc77+AsBI7ZIvrtDn0Ug3Hq+I59HmK7jqskjzb04=;
+        b=xKGCsxAKMLtdHKNG2XKJ4ROKcTCU1aUhVo9JJqaPWtHNnH2HlLu55eI7XIlv7mgdiz
+         Ax9lxBBPXBayuFW3zDhGVpPZ0s1ORTzaN2laN37bOiBMgbrxv1VFjfAxqwo9Fag1+Qlw
+         RbBp0ko1yTYrMgyMSOgeXghRR6nl7lg668q9Bun2Vz1DiBX9NKooTurZREy52eJFHUX7
+         UlwwntP5q6GP7CW3pLPD2LkBc91R++OGpCOQbY9d08Plfd7Is3OfXj69CiiWb9bGPODu
+         7DR6q20rAbnIqmCm0PghGcB6y5TUK3H4u69MYp6RuKJegZtz/EZJkDR082BuvP/xTRgO
+         RYLw==
+X-Forwarded-Encrypted: i=1; AJvYcCU9QGDCcn/dICqq2KudHbrPSWv99Df2uk5ryFOpa0q6PkWjeVx9ZW4q2SW/gNUUgUeYEmrnhgeBDhPNXoCxub7dlnAUrg+7IFYG+5l+eiaL
+X-Gm-Message-State: AOJu0Yxy2xyfBivl2lxeQvnoHX+ckDgIgCUORkpuhuP4iEFOp33Jmd2R
+	eWR2LSlqxvF0wBt8YzfZCxyXk9OabbMPD/LDkuyyGSxUVyGrJzh4Y6Kea9qqMp8=
+X-Google-Smtp-Source: AGHT+IEtfCy5irRgq406mdhqbxVK6tZ1eMVhw9yVZQWpU9YbH61bgxHPSLSuJD0F7ka6qLXmDGQySQ==
+X-Received: by 2002:ad4:4dce:0:b0:6b4:fbec:952f with SMTP id 6a1803df08f44-6b501e45db7mr110916156d6.25.1719015334476;
+        Fri, 21 Jun 2024 17:15:34 -0700 (PDT)
+Received: from ghost ([50.236.12.33])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6b51ed181fcsm13145516d6.39.2024.06.21.17.15.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Jun 2024 17:15:34 -0700 (PDT)
+Date: Fri, 21 Jun 2024 17:15:29 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Anton Blanchard <antonb@tenstorrent.com>,
+	Cyril Bur <cyrilbur@tenstorrent.com>
+Subject: Re: [PATCH 1/6] riscv: Improve exception and system call latency
+Message-ID: <ZnYXoSDCeQK0Lcz8@ghost>
+References: <20240616170553.2832-1-jszhang@kernel.org>
+ <20240616170553.2832-2-jszhang@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CY8PR20MB5667:EE_
-X-MS-Office365-Filtering-Correlation-Id: 822b6a07-4b96-44c6-3b07-08dc924f0b2c
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199025|3412199022|440099025|1710799023;
-X-Microsoft-Antispam-Message-Info: J/j16gRHg7+4TR85czbqaNgYUy9M2JGHmK3xoUaMyGfQjChoLKCZdgi4s0IzV9ykdkaa3zcR5lPodYDOMEd3ZQnppnhUTVXdUDKTnV5pMa2973ooUZXeE6Ec9pHw0sl9dFodk0eUAVifMCAQWuq3QkwspmUPP8T1PwUqp2LtFmjKJ9doGJtLcidAUQWP3DcUHxDF2PvP6zQdvtcpiodaXntcznNzXjyWS+2aPawhN/uJQXIN1O1/+jHa9CwGkdvtTOTh2UUBMKmu5ZWz/Y+EA/cd6z/T3++WnDuyikD62e9EndUatS8GaE+3tQkd3TiIGVLv2UJn47FZNwT6tdFZYZ72lnLydRsoOvJMqmooSHGlvfZkFQ6z+PpG7XDNwWnm8i6GcfpWghl9j2eNFp6jxhwcIchdOTioafBISfS4NQZU9HZlwleiYCy0HaH9oo1K7494DcojOZEfoxdq4TtPzVnTXxKpLSJVVaJ1eF6P0wTe16K3lFDLiH9nnBB/vMPqVyPl8FEO+4OHVgGj5rfSBjBgnLoIVbOyUpLe6apvOJONFYunou6fFflIh4RMDJgdl9LcLqPustyIfOa5nx88Mw04f/vqV8eulfsKrAnoyQ6xx4OG9sCys09nAYvaT6ZL
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9LVmWybRsQP8KXpvhHoRTCPOc3LGwSE7Z9BSIrYRAiYjuH1G5MkF2DccbZqw?=
- =?us-ascii?Q?yULMCi8Z/MIkEhr72LBkp4Yc4/b8eWnWo3kTgEErfl71vZhNH5BmAcfbF2oM?=
- =?us-ascii?Q?1BQNXpD23aFNcpokGTCOiZZ4NXjSiorqKO8u3XkJzGTDU0Fzm4qNUwFg/rSK?=
- =?us-ascii?Q?ErkLPuFi86lTq0azF40DN75yzxHbUp/7RwNtA3GYci1WiF6ccOT6TLW41SX1?=
- =?us-ascii?Q?wKLUeedlWYKlz1ECJjtG2sx2GALESiGWIhhku00BVIyWYDpOk95eqhBTWp7I?=
- =?us-ascii?Q?fqQKsc3U9hrB2DzUDw7mb17xdX0LxvFWR64nnJ1p79kAKB003uTCeVVudixX?=
- =?us-ascii?Q?5na5X5C4uZJ3wXvcl5vfnNjPPpI3KHsg2Mwgc8Ceij+DIgDuT8CNenvT9z8t?=
- =?us-ascii?Q?6Syz0xCRFwPYI9ybz4vT0IN+DTfNASgVCoueVujllw3iT3uwBfCKhBcmPO2Q?=
- =?us-ascii?Q?4R3/xudKAPLrbix2h1Jha8tU/BVAj1rqiReHbVZ9dDt3P+O1S0/eWHf0a0fe?=
- =?us-ascii?Q?p275y3NoebWGhTtznK/jfMCV0F1jIbMDf6tSLtcTcx3OTL9m/+n6UUS+8P+7?=
- =?us-ascii?Q?7myxWjQFtX3tdx/kpinyE1JWmVV7pCcbW+B2rTA3rXeq78Vtcik//vWaLJM1?=
- =?us-ascii?Q?mk+q1JVx9ZD5ZxUa1McZkTfNUGF4oEz4ZP7YjJOs2CPd5kNrY7VPvgH7gDMl?=
- =?us-ascii?Q?SZc3EIOIGPpORItNTPJm3lf5rZbP+CY7XKbJd8bNu6VsA0C4Kuiufwtwtsvq?=
- =?us-ascii?Q?3pySFYnXvH/8NEgeQVACE/pfZvQulHvIPfgGxo066sDGeN6GrFbcNXEmUthz?=
- =?us-ascii?Q?RTeIvoui5A5KUxtPawWRqWvhicOhkdH7G8n6g/mjtDNXoXiDOxqVKP7RJ8CD?=
- =?us-ascii?Q?LCx2UqmmESsBAAHYnxMg+dGNNmDzkp6Re2NPGTAI3uLrfMYKs68Z3mP4Oz34?=
- =?us-ascii?Q?njNfW32XFlth4Mtmityrds1LtyldOCpbh72b0EskMLNGl2qFqPd+mN3drYyU?=
- =?us-ascii?Q?OtGUCW2qRGVcs7s+8V4q9ofH13DP56/6u84Hd63o6fpIPDlxouyPHKUfqvb7?=
- =?us-ascii?Q?Gy0duMKbzSyaeyl64b7zg3X1vWOeu95bY8JlVSfa8ENZlPFXC2FIT473igaB?=
- =?us-ascii?Q?D3M+IWpSUbiYCycFK++A06EFhQwLIyWqnlw4IpVGzlC0wbFPAf0cgnDoe73A?=
- =?us-ascii?Q?zI50iBDIkCNjRTEmLNwIXYz/OQmzv5eUPpCAf/Kv7vICsAbzzajYIDlBoav9?=
- =?us-ascii?Q?aYNAlr3lDG8/PNvcwu82?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 822b6a07-4b96-44c6-3b07-08dc924f0b2c
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2024 00:05:37.0914
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR20MB5667
+Content-Disposition: inline
+In-Reply-To: <20240616170553.2832-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240621_170551_279105_CC912B65 
-X-CRM114-Status: GOOD (  25.10  )
+X-CRM114-CacheID: sfid-20240621_171535_945064_13C510E4 
+X-CRM114-Status: GOOD (  25.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,76 +98,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 21, 2024 at 04:05:46PM GMT, Guenter Roeck wrote:
-> On 6/21/24 15:45, Inochi Amaoto wrote:
-> > On Fri, Jun 21, 2024 at 08:19:10AM GMT, Guenter Roeck wrote:
-> > > On Sun, May 05, 2024 at 09:18:53AM +0800, Inochi Amaoto wrote:
-> > > > SG2042 use an external MCU to provide basic hardware information
-> > > > and thermal sensors.
-> > > > 
-> > > > Add driver support for the onboard MCU of SG2042.
-> > > > 
-> > > > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> > > > ---
-> > > >   drivers/hwmon/Kconfig            |  11 +
-> > > >   drivers/hwmon/Makefile           |   1 +
-> > > >   drivers/hwmon/sg2042-hwmon-mcu.c | 531 +++++++++++++++++++++++++++++++
-> > > 
-> > > Documentation missing.
-> > > 
-> > > > +config SENSORS_SG2042_HWMON_MCU
-> > > 
-> > > "SENSORS" and "HWMON" is redundant. Yes, I know, others do it
-> > > as well, but that doesn't make it less redundant.
-> > > 
-> > 
-> > OK, I will short it.
-> > 
-> > > > +static DEVICE_ATTR_RO(board_type);
-> > > > +static DEVICE_ATTR_RO(firmware_version);
-> > > > +static DEVICE_ATTR_RO(pcb_version);
-> > > > +static DEVICE_ATTR_RO(reset_count);
-> > > > +static DEVICE_ATTR_RO(uptime);
-> > > > +static DEVICE_ATTR_RO(reset_reason);
-> > > > +static DEVICE_ATTR_RO(mcu_type);
-> > > > +static DEVICE_ATTR_RW(critical_action);
-> > > 
-> > > None of the above are hardware monitoring attributes. They are not
-> > > acceptable as sysfs attributes. Some of them might be acceptable
-> > > as debugfs attributes.
-> > > 
-> > 
-> > It are reasonable, I will move the hardware info to debugfs.
-> > 
-> > > > +static DEVICE_ATTR_RW(repower_temp);
-> > > > +
-> > > 
-> > > For this one, I don't know what it is. If it is a temperature
-> > > limit, it should be implemented as one (for example as _emergency
-> > > limit).
-> > > 
-> > > Guenter
-> > 
-> > "repower_temp" is the highest temperature for SG2042 to perform
-> > repower operation. It is not the emergency limit, but a recovery
-> > limit when the emergency limit is reached.
-> > 
-> > For example, when emergency temperature is set to 95 and repower
-> > temperature is set to 80. The board is off-power when it reachs
-> > 95 degree, and it will power on when the temperature is lower
-> > than 80 degree.
-> > 
+On Mon, Jun 17, 2024 at 01:05:48AM +0800, Jisheng Zhang wrote:
+> From: Anton Blanchard <antonb@tenstorrent.com>
 > 
-> That would then be the matching _hyst temperature. There is no need
-> to invent a non-standard attribute for it.
+> Many CPUs implement return address branch prediction as a stack. The
+> RISCV architecture refers to this as a return address stack (RAS). If
+> this gets corrupted then the CPU will mispredict at least one but
+> potentally many function returns.
 > 
-> Guenter
+> There are two issues with the current RISCV exception code:
 > 
+> - We are using the alternate link stack (x5/t0) for the indirect branch
+>   which makes the hardware think this is a function return. This will
+>   corrupt the RAS.
+> 
+> - We modify the return address of handle_exception to point to
+>   ret_from_exception. This will also corrupt the RAS.
+> 
+> Testing the null system call latency before and after the patch:
+> 
+> Visionfive2 (StarFive JH7110 / U74)
+> baseline: 189.87 ns
+> patched:  176.76 ns
+> 
+> Lichee pi 4a (T-Head TH1520 / C910)
+> baseline: 666.58 ns
+> patched:  636.90 ns
+> 
+> Just over 7% on the U74 and just over 4% on the C910.
+> 
+> Signed-off-by: Anton Blanchard <antonb@tenstorrent.com>
+> Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
 
-Thanks for the reminder. I will move to the standard attribute.
+Do you need to sign this off since you're sending this Jisheng?
 
-Regards,
-Inochi
+> ---
+>  arch/riscv/kernel/entry.S      | 17 ++++++++++-------
+>  arch/riscv/kernel/stacktrace.c |  4 ++--
+>  2 files changed, 12 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 68a24cf9481a..c933460ed3e9 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -88,7 +88,6 @@ SYM_CODE_START(handle_exception)
+>  	call riscv_v_context_nesting_start
+>  #endif
+>  	move a0, sp /* pt_regs */
+> -	la ra, ret_from_exception
+>  
+>  	/*
+>  	 * MSB of cause differentiates between
+> @@ -97,7 +96,8 @@ SYM_CODE_START(handle_exception)
+>  	bge s4, zero, 1f
+>  
+>  	/* Handle interrupts */
+> -	tail do_irq
+> +	call do_irq
+> +	j ret_from_exception
+>  1:
+>  	/* Handle other exceptions */
+>  	slli t0, s4, RISCV_LGPTR
+> @@ -105,11 +105,14 @@ SYM_CODE_START(handle_exception)
+>  	la t2, excp_vect_table_end
+>  	add t0, t1, t0
+>  	/* Check if exception code lies within bounds */
+> -	bgeu t0, t2, 1f
+> -	REG_L t0, 0(t0)
+> -	jr t0
+> -1:
+> -	tail do_trap_unknown
+> +	bgeu t0, t2, 3f
+> +	REG_L t1, 0(t0)
+> +2:	jalr t1
+> +	j ret_from_exception
+> +3:
+> +
+
+The whitespace is odd here, but nonetheless:
+
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+
+> +	la t1, do_trap_unknown
+> +	j 2b
+>  SYM_CODE_END(handle_exception)
+>  ASM_NOKPROBE(handle_exception)
+>  
+> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+> index 528ec7cc9a62..5eb3d135b717 100644
+> --- a/arch/riscv/kernel/stacktrace.c
+> +++ b/arch/riscv/kernel/stacktrace.c
+> @@ -16,7 +16,7 @@
+>  
+>  #ifdef CONFIG_FRAME_POINTER
+>  
+> -extern asmlinkage void ret_from_exception(void);
+> +extern asmlinkage void handle_exception(void);
+>  
+>  static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+>  {
+> @@ -70,7 +70,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+>  			fp = frame->fp;
+>  			pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
+>  						   &frame->ra);
+> -			if (pc == (unsigned long)ret_from_exception) {
+> +			if (pc == (unsigned long)handle_exception) {
+>  				if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
+>  					break;
+>  
+> -- 
+> 2.43.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
