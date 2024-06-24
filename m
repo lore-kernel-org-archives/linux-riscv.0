@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B71DC2BD09
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 23:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE75C30653
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 23:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,62 +13,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=r7pDDki6/m4JpPNbr8oZADkHpTuF7N5dhgXW74EcnI4=; b=KOBn9RSWNYRx/lB2KKvNBV2+C/
-	jxcMRdzwyzAs/mXaqyvlans4AZcAtQKRSDRQqi2P7ITOj+LWC/5tudUeueQjLQexPaRFLtCJK6Z5M
-	OjMd8xVMhKcXEOHwClDBtjJN6ImCoaCzz52dTyo4wKeb3fjyNByWJQz3orBNMUQ2FAF57aI6Bgofo
-	B6T/N8nS6hIZJRrx/cXC/54D+AjMsf/TbwXzsnSbkDFZ5NJ/mCr7FVUJDUkcP50hrHorMnm2TSgQ+
-	IXVu1+EvwqCy8o7V7HB38wO4XeY5DqoaZBG3JVuzKIRaARfev1yN4Iw/JSo2jvHMr6BLO3lDgDk8j
-	KVeM8c5Q==;
+	bh=zCxvSPZGtoXCqapPzz3K/80skozKvKDQVbcjeZg+SgY=; b=Ezcv8fJzlVDnC/uA3pR40WehKy
+	F0ZYd49jFccQQbPPVJd0XgyV5Zhan55LbFgBE16lJS4n+iCfpoqvXyt8qyGG2kxLCmPDMUSrHaJaJ
+	q/dzCQncdXLuVQVvg75cIOLFpM8eVB0dlNVApjsFfHqLIEjpaX8cjbnp8+PC+R6QbZ6sQnj7EL9DW
+	mzHjwPG47D6youRQDQl2GmKhMtYKHQ2BpijUqaB3E9iLO1cfd4C0gWwLDSXTQDj3mrvQTNIsV75tK
+	eJ49MNKGpu/G9uSqUFvJIsrghWvYcJfL5Fu0mg4DOKEsciDAMfretQKuHgOkmFkmBSOHG0A0cZu0M
+	vcK2jSbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLt7o-00000000y9u-3w7h;
-	Mon, 24 Jun 2024 23:29:28 +0000
+	id 1sLt7t-00000000yDs-1lMH;
+	Mon, 24 Jun 2024 23:29:33 +0000
 Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLt7l-00000000y6M-12Ib
+	id 1sLt7r-00000000yAb-0EYW
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jun 2024 23:29:26 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-7065df788f6so4801343b3a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Jun 2024 16:29:24 -0700 (PDT)
+	Mon, 24 Jun 2024 23:29:32 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-706819a8390so1202013b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Jun 2024 16:29:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1719271763; x=1719876563; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1719271769; x=1719876569; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fldosNIASu5foth+y++2astaddaovQjRCjbJvozT8Ew=;
-        b=ug2qVxYhBrYUf86btlBpRZEKU4z6yLTHrH0RJw0WiUm0/4CoZDU1vmGlcL+AYS3CoC
-         jUdQCw/kBkxcf821nhimf/YRlPYBiGpsekLmh4pKxv30a6Y+nmRyU2kKQLUKVBVwvmdB
-         flJMJTkngNU6Lzn3wiCHY2fjFpA9MDUutsJawev1IvMQ5Ja4tHs9LQX9lQ84vf+RLkOK
-         XHwNIcQhlSMi3X5BalwbCRMR1/Z0e21FtKCic1pXuyoOCc/UnwDXO1Wf0b1hl5UBLIoU
-         fPb4oLsTOx5yuCne+QhWHM3RIwRJXmyabnZvQdbeFyDku5omaVH/S0xKoMfakBHuTqcl
-         2Y8g==
+        bh=0Ifr8Ya8A/Lifd4HdrItZMFbfd7FCXsltsIVIxxyLaY=;
+        b=2BgsXz/7oOxCzGBOst9Su+vQpexzKGs0P/69uIj2v/q5r3k4eSGVDxqnmHCrN/pWdp
+         7uoXuCM0X9fCVl33zLMk+YVUuCfJDStuK7QePn1Xjv31/qFnXWRtGOvNVUAlna5UpGJ9
+         BRT40uNz9oKpH76B9Vmi3RzcAaMREwvfXDapQiu0d+6C8gCD8+cIufMquWCqu8sTjFQB
+         AcH9qaX621GiX238cHL2tzSzGn2tDhPKt+Osx5PprSaTQ1KakBU5EQcHW4CzW6JuJ90s
+         ID834I6jxQw54fFDDRcPjdcuYXDBnrXheLyou9qohQC/9tilc69YYUQz1x69510yWkrl
+         AAng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719271763; x=1719876563;
+        d=1e100.net; s=20230601; t=1719271769; x=1719876569;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fldosNIASu5foth+y++2astaddaovQjRCjbJvozT8Ew=;
-        b=FNDwIsUkTQg+clewdCgrJtc4/MZ9z+XNwPhxzSkzqRPStxbJ4o7piaeKz9MKSKfda/
-         jzcWl9ZLkxeSq6lZ9ZyUgezjaqFBSE165/t+GlwsnkOY6DDQW4xydgAtcPeg/DW6XEED
-         fKItmUNsV6JcCYpiWywz183ygRFTlCGp+vug9JHcEZnFdiE/PQDVGZiUOMQsxCMarcQN
-         wcZdG9XhDFqmYW6NoEpSInnvQTWVAOuOmAVrDxwVcDzr5B+9/nvJyfMCruogmMBSoZzG
-         VMepxx3n89pBYSk9+UnS25V9jEoNa3rH/isnLnBgao/9ZKV4TLrYxViolToLrlWHd6n0
-         +PoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVgR4QrIopBSnr4ewYngx/jgQKAvrUtj7LF9+yT//CEfPqj4f0CKwb6FdDg05qbiGytsR4P1A0D9bR6YUsHTCmKcvnQGcU9si9csv6L4iMv
-X-Gm-Message-State: AOJu0YypPie2zsSb70P6Yym4frGfRe9O1KQEOncNY+6NNMcwb7FBwU4g
-	O2HaKgne1UZv2ugeSefa7FGbmQ+ZwF0vd9g9wprn4YJVW+M0CLfLvdpFh7AO5e9ZTVHEEBCILVD
-	fRQ==
-X-Google-Smtp-Source: AGHT+IHgIjs0ZNjmgMymaYfJ8/9bZ93vYmLowFGFa4rCwsJRE0/Jc/du7SfPX0zd6RD0YkkBKKfvO6Hly8E=
+        bh=0Ifr8Ya8A/Lifd4HdrItZMFbfd7FCXsltsIVIxxyLaY=;
+        b=qQGw/or1uSNnyAY72/chd5nrDyaeWwRHb8pzfF5atRCss7hCZYiBYzl5HxQ+0RWJF/
+         7ORIHLzYOaKO2tOaF4ICMcsNDAOa5SQFzLApiFERtVrrhlgb9TB0wRB5ZKsH2c3rGg2E
+         MSb0/EKI17pJIfuut7KcUtttsMP2YJIdmMVkwifr685LnNknNJ7VzROsW2ad2raf3E0v
+         joFhwdofxBucBSK753EsZt7DX1eF0SrG9URpWh3vf16J9IxlEre2ddWOIICOi5mwB/I1
+         n1DVwNJxG17nJIdSzMuLxYQYEUOxss00ndeUHERYt9Np9pin9b7pdeYlqnza/q6ZbIbh
+         yydw==
+X-Forwarded-Encrypted: i=1; AJvYcCVBUO3gALyACz/2mZOr5BkcRS5+H5C9SLWy7DK3pB4QtICGrWej3Uw46LF9TJvtshyyQCoO1z1mxMdKCF0QYjZUBz1uWqWKUUnLTqP0w5SC
+X-Gm-Message-State: AOJu0YzYiLi/blRbXm27dCnJm6YzqXvWb0ylhMLlITjIECzmaw7me3al
+	+CznUdYC7BBJmIEYMuYK/947XRRDDOnK9PNui/9id9xbUoivyFLPb/anYAgMZA9a81GH/0juU4i
+	Ikg==
+X-Google-Smtp-Source: AGHT+IGfwxTfgoKpQbwyVdHdeu4Fayfp12bseSCI+21TX1FuKt23v8wGVL/xanJWyhgjJiFfoB7TugWlGLo=
 X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a05:6a00:908c:b0:706:3421:7406 with SMTP id
- d2e1a72fcca58-7067454bf95mr299109b3a.1.1719271763360; Mon, 24 Jun 2024
- 16:29:23 -0700 (PDT)
-Date: Mon, 24 Jun 2024 23:26:14 +0000
+ (user=edliaw job=sendgmr) by 2002:a05:6a00:898e:b0:706:3433:bf21 with SMTP id
+ d2e1a72fcca58-70669dfcfdamr31477b3a.3.1719271768844; Mon, 24 Jun 2024
+ 16:29:28 -0700 (PDT)
+Date: Mon, 24 Jun 2024 23:26:15 +0000
 In-Reply-To: <20240624232718.1154427-1-edliaw@google.com>
 Mime-Version: 1.0
 References: <20240624232718.1154427-1-edliaw@google.com>
 X-Mailer: git-send-email 2.45.2.741.gdbec12cfda-goog
-Message-ID: <20240624232718.1154427-6-edliaw@google.com>
-Subject: [PATCH v6 05/13] selftests/futex: Drop redundant -D_GNU_SOURCE CFLAGS
- in Makefile
+Message-ID: <20240624232718.1154427-7-edliaw@google.com>
+Subject: [PATCH v6 06/13] selftests/intel_pstate: Drop redundant -D_GNU_SOURCE
+ CFLAGS in Makefile
 From: Edward Liaw <edliaw@google.com>
 To: linux-kselftest@vger.kernel.org, Eric Biederman <ebiederm@xmission.com>, 
 	Kees Cook <kees@kernel.org>, Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -87,8 +87,8 @@ Cc: linux-kernel@vger.kernel.org, usama.anjum@collabora.com, seanjc@google.com,
 	linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	linux-sgx@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240624_162925_376827_F9CE380C 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20240624_162931_169148_E6E94F52 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,21 +110,20 @@ should be dropped to prevent redefinition warnings.
 
 Signed-off-by: Edward Liaw <edliaw@google.com>
 ---
- tools/testing/selftests/futex/functional/Makefile | 2 +-
+ tools/testing/selftests/intel_pstate/Makefile | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/futex/functional/Makefile b/tools/testing/selftests/futex/functional/Makefile
-index 994fa3468f17..f79f9bac7918 100644
---- a/tools/testing/selftests/futex/functional/Makefile
-+++ b/tools/testing/selftests/futex/functional/Makefile
-@@ -1,6 +1,6 @@
+diff --git a/tools/testing/selftests/intel_pstate/Makefile b/tools/testing/selftests/intel_pstate/Makefile
+index 05d66ef50c97..f45372cb00fe 100644
+--- a/tools/testing/selftests/intel_pstate/Makefile
++++ b/tools/testing/selftests/intel_pstate/Makefile
+@@ -1,5 +1,5 @@
  # SPDX-License-Identifier: GPL-2.0
- INCLUDES := -I../include -I../../ $(KHDR_INCLUDES)
--CFLAGS := $(CFLAGS) -g -O2 -Wall -D_GNU_SOURCE= -pthread $(INCLUDES) $(KHDR_INCLUDES)
-+CFLAGS := $(CFLAGS) -g -O2 -Wall -pthread $(INCLUDES) $(KHDR_INCLUDES)
- LDLIBS := -lpthread -lrt
+-CFLAGS := $(CFLAGS) -Wall -D_GNU_SOURCE
++CFLAGS := $(CFLAGS) -Wall
+ LDLIBS += -lm
  
- LOCAL_HDRS := \
+ ARCH ?= $(shell uname -m 2>/dev/null || echo not)
 -- 
 2.45.2.741.gdbec12cfda-goog
 
