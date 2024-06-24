@@ -4,53 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE7FC2BD09
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 08:55:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29551C2BD09
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 09:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=u5nOQ4oEJW/rVtiOuUmYzi1UrWvDvaPGm3xWkiPj0i0=; b=X5t5ruPzkV8F5Z
-	AB+WiZLzb1RJzqLWtf3dQ+NAGEEIuBtd/w48yMLeaskIEFl07/w79YDshpq4w42VogdGCf3fg2xHR
-	ccV5rFESrXURKhPG/b1ZF/QvuxQd/epSycrYwa4lvFd76GYssqOR0HYrqBPdczy2PD+ZNmDRTKeq3
-	TGkd1JpdoGmIV7MEyxAs+oiXZPRphT/sjx92AIXSws/xhCqggqGkJv+Ot5jGTUZjs2X8ByF4cGU9X
-	aFqz3HQY4Rm29O0kncEsQo1onVeO3FlqISr6DmD1qWgbqwY5muun74vaLn84Hi2cfKY7gLc00jdIw
-	YKJC5gHgMuViEN526xxA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=i/s4VZsj8C1LTogllhTa/8lfIB99lPhlPcc5v1NhetI=; b=y7Jrx6rDYhcyFA
+	vy4AiOWHv3TuIKcg055Gsy542C5+oci4Z+KzXHOcsxTDOqBbCI/r9P10OhC0EoyGbulBbFkjimN3Y
+	5VthyUvBJGWpgh+S3IuMT9OJOZ4mxsrdrbmkPsvjKwMzB4qE3dJQbsAiPHOWLGBrvc+Nj0VR93cag
+	JZKjCnC3NFN1hNzJ81syEaR3iV8NZkJItgF7LqqdH93QIpsILjiPOOW+UmlKZs94nePKKEplQ7OON
+	7I/3Ulfn8znpbZTzu5DhnZXfDPQME65nXqB1fxQLEBABYBM1jjsRj5tVBem3Hqif0sVZMBGGCfJuR
+	d+kZIrCHW8mxLwTxz2UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLfTV-0000000G8rZ-43yZ;
-	Mon, 24 Jun 2024 08:54:57 +0000
-Received: from asrmicro.com ([210.13.118.86] helo=spam.asrmicro.com)
+	id 1sLg3R-0000000GGim-021s;
+	Mon, 24 Jun 2024 09:32:05 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLfTR-0000000G8p5-3fgx
+	id 1sLg3N-0000000GGi8-2GlJ
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jun 2024 08:54:56 +0000
-Received: from exch03.asrmicro.com (exch03.asrmicro.com [10.1.24.118])
-	by spam.asrmicro.com with ESMTPS id 45O8s6oF053124
-	(version=TLSv1 cipher=ECDHE-RSA-AES256-SHA bits=256 verify=FAIL);
-	Mon, 24 Jun 2024 16:54:06 +0800 (GMT-8)
-	(envelope-from zhengyan@asrmicro.com)
-Received: from localhost (10.1.170.252) by exch03.asrmicro.com (10.1.24.118)
- with Microsoft SMTP Server (TLS) id 15.0.847.32; Mon, 24 Jun 2024 16:54:09
- +0800
-From: zhengyan <zhengyan@asrmicro.com>
-To: <tglx@linutronix.de>, <maz@kernel.org>, <linux-kernel@vger.kernel.org>,
-        <paul.walmsley@sifive.com>, <samuel.holland@sifive.com>,
-        <linux-riscv@lists.infradead.org>
-CC: <qiaozhou@asrmicro.com>, zhengyan <zhengyan@asrmicro.com>
-Subject: [PATCH] irqchip/sifive-plic: ensure interrupt is enable before EOI
-Date: Mon, 24 Jun 2024 08:53:41 +0000
-Message-ID: <20240624085341.3935-1-zhengyan@asrmicro.com>
-X-Mailer: git-send-email 2.17.1
+	Mon, 24 Jun 2024 09:32:04 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a724b3a32d2so110859566b.2
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Jun 2024 02:32:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719221520; x=1719826320; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GtSoSxfjq8aHhF6gq2sk0dwqY29zGCyMkL+T3Rh2MIE=;
+        b=e0WVfMUzSu3qDKHz6JfvOByO3Tik1RA1CynZeS/RXaJEGQ3ByhoFjCgHMD4CiosT8R
+         8fj+VbspB6f8GE5cj6qXL/WUCq9irs89FQP8hwR1JPiwLEFuz8PXzh/aetj8DIoUstXJ
+         ZZZZIoKYtaATMBiKFm+kwtBg8Dr2/GNmgVJXd5hbz7ECTCTnOu1397TbZ3jY6SiTcB8N
+         WiWqSvbd64vrpNizv7due5jCpX1S3jnQBe4hJku1UkkpT4xIb7i8/MEhWCeZPhbWq0IU
+         qQ4I5po0UYZ20PXL584nn+n/iYtum2f8wG8nxXGJMjbzLZxIVogb/7RlidTYm8PJJdl8
+         gzGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719221520; x=1719826320;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GtSoSxfjq8aHhF6gq2sk0dwqY29zGCyMkL+T3Rh2MIE=;
+        b=VUFfSXgbMVBSd6u4H/6mqvbkKlADpF/Om8npGY7qv163iyMeSQ2sP1wTvs2M145wru
+         lA9wX1ENdZl590WKH427LKAYjbiNCWv2MtOuRQcF1MRbjYUl8UQzJzmHoJ9wMK0bB+6o
+         9BNkyev2k2SwQDFmVP5WF0rJRgNvSnN/k/3riqiWr+AxDk6Uyk9ZKEgANtxJJUWOJTn+
+         BKL32yEVmFZZxN4+soJ9EVVhTYf3w2jb2Sz67xwBfSt5iv7pjTd/HJitd7b1BaKBrUFu
+         o9p5XLX0Yp9Md2hEIBzoyXopOojmdZs+0nl7R/pVgVfnKm+KcRUF5Z7cPfyMXRR2rNZr
+         9PyA==
+X-Forwarded-Encrypted: i=1; AJvYcCXJnOiwnyLd3zlAUGdZQWTRGFloUWsPtvDi77IWnf/w1ENRkTho0DaysE5PJH1ypO/YUQnu5E/eO4mgC8hngO1YrHfsFbg+tmPfMEOetLF6
+X-Gm-Message-State: AOJu0YyCfBU59VFVQv1N3Ryos2uBjbfmgqSc+DpgU/e2mFAKKoFX8/ov
+	PdPC13fJig+WxXQOLw1LZ6LMT8aeC/dckr3oFypL4py4YXQTbkfynhq1bi8YsGEf+4AqqLS3WAH
+	YH7mJED60DmnERdPNvPJTXy5RuwKruK/RD/IQxw==
+X-Google-Smtp-Source: AGHT+IFVeOm41TPJdia3V+ypKDs5ua30MsXI4dF3qYEF70GUNjAd+SwTuXPVZZMhmO/B5Tw3/mwInQAqPilUcV0OMrk=
+X-Received: by 2002:a17:906:7c2:b0:a71:94ce:9b03 with SMTP id
+ a640c23a62f3a-a7245b6251amr241286166b.20.1719221519773; Mon, 24 Jun 2024
+ 02:31:59 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.1.170.252]
-X-DNSRBL: 
-X-MAIL: spam.asrmicro.com 45O8s6oF053124
+References: <20240605114100.315918-1-bjorn@kernel.org> <20240605114100.315918-6-bjorn@kernel.org>
+In-Reply-To: <20240605114100.315918-6-bjorn@kernel.org>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Mon, 24 Jun 2024 11:31:48 +0200
+Message-ID: <CAHVXubhx6VxB3JCXQo_eo-6J27i620ALTBHCnnVif6RG7hpXww@mail.gmail.com>
+Subject: Re: [PATCH v4 05/11] riscv: mm: Add pfn_to_kaddr() implementation
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240624_015454_568119_52901372 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20240624_023201_892381_0678C27B 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,66 +83,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Lorenzo Stoakes <lstoakes@gmail.com>, Chethan Seshadri <Chethan.Seshadri@catalinasystems.io>, David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org, Andrew Bresticker <abrestic@rivosinc.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, Santosh Mamila <santosh.mamila@catalinasystems.io>, linux-mm@kvack.org, Sivakumar Munnangi <siva.munnangi@catalinasystems.io>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, virtualization@lists.linux-foundation.org, Oscar Salvador <osalvador@suse.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V PLIC cannot "end-of-interrupt" (EOI) disabled interrupts, as
-explained in the description of Interrupt Completion in the PLIC spec:
-"The PLIC signals it has completed executing an interrupt handler by
-writing the interrupt ID it received from the claim to the claim/complete
-register. The PLIC does not check whether the completion ID is the same
-as the last claim ID for that target. If the completion ID does not match
-an interrupt source that *is currently enabled* for the target, the
-completion is silently ignored."
-
-Commit 9c92006b896c ("irqchip/sifive-plic: Enable interrupt if needed
-before EOI")
-ensured that EOI is enable when irqd IRQD_IRQ_DISABLED is set, before
-EOI
-
-Commit 69ea463021be ("irqchip/sifive-plic: Fixup EOI failed when masked")
-ensured that EOI is successful by enabling interrupt first, before EOI.
-
-Commit a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask
-operations") removed the interrupt enabling code from the previous
-commit, because it assumes that interrupt should already be enabled at the
-point of EOI.
-
-However, here still miss a corner case that if SMP is enabled. When
-someone need to set affinity from a cpu to another (Maybe like
-boardcast-tick) the original cpu when handle the EOI meanwhile the IE is
-disabled by plic_set_affinity
-
-So this patch ensure that won't happened
-
-Signed-off-by: zhengyan <zhengyan@asrmicro.com>
----
- drivers/irqchip/irq-sifive-plic.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 9e22f7e378f5..e6acd134a691 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -149,8 +149,10 @@ static void plic_irq_mask(struct irq_data *d)
- static void plic_irq_eoi(struct irq_data *d)
- {
- 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-+	void __iomem *reg = handler->enable_base + (d->hwirq / 32) * sizeof(u32);
-+	u32 hwirq_mask = 1 << (d->hwirq % 32);
- 
--	if (unlikely(irqd_irq_disabled(d))) {
-+	if (unlikely(irqd_irq_disabled(d)) || (readl(reg) & hwirq_mask) == 0) {
- 		plic_toggle(handler, d->hwirq, 1);
- 		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
- 		plic_toggle(handler, d->hwirq, 0);
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+KHJlc2VuZGluZyBhcyBnbWFpbCBjbGllbnQgdHVybmVkIHRvIGh0bWwpCgoKT24gV2VkLCBKdW4g
+NSwgMjAyNCBhdCAxOjQx4oCvUE0gQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4gd3Jv
+dGU6Cj4KPiBGcm9tOiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4KPiBUaGUg
+cGZuX3RvX2thZGRyKCkgZnVuY3Rpb24gaXMgdXNlZCBieSBLQVNBTidzIG1lbW9yeSBob3RwbHVn
+Z2luZwo+IHBhdGguIEFkZCB0aGUgbWlzc2luZyBmdW5jdGlvbiB0byB0aGUgUklTQy1WIHBvcnQs
+IHNvIHRoYXQgaXQgY2FuIGJlCj4gYnVpbHQgd2l0aCBNSFAgYW5kIENPTkZJR19LQVNBTi4KPgo+
+IFNpZ25lZC1vZmYtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KPiAtLS0K
+PiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmggfCA1ICsrKysrCj4gIDEgZmlsZSBjaGFu
+Z2VkLCA1IGluc2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL3BhZ2UuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGFnZS5oCj4gaW5kZXggMTE1YWM5
+OGI4ZDcyLi4yMzVmZDQ1ZDk5OGQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9wYWdlLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaAo+IEBAIC0xODgs
+NiArMTg4LDExIEBAIGV4dGVybiBwaHlzX2FkZHJfdCBfX3BoeXNfYWRkcl9zeW1ib2wodW5zaWdu
+ZWQgbG9uZyB4KTsKPgo+ICB1bnNpZ25lZCBsb25nIGthc2xyX29mZnNldCh2b2lkKTsKPgo+ICtz
+dGF0aWMgX19hbHdheXNfaW5saW5lIHZvaWQgKnBmbl90b19rYWRkcih1bnNpZ25lZCBsb25nIHBm
+bikKPiArewo+ICsgICAgICAgcmV0dXJuIF9fdmEocGZuIDw8IFBBR0VfU0hJRlQpOwo+ICt9Cj4g
+Kwo+ICAjZW5kaWYgLyogX19BU1NFTUJMWV9fICovCj4KPiAgI2RlZmluZSB2aXJ0X2FkZHJfdmFs
+aWQodmFkZHIpICh7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IFwKPiAtLQo+IDIuNDMuMAo+CgpSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hp
+dGlAcml2b3NpbmMuY29tPgoKVGhhbmtzLAoKQWxleAoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
