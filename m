@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A3AC2BD09
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 00:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3C0C2BD09
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 00:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,62 +13,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=aX6SdTtPoFlihOBItcvBHDnHenXXweLpRhHrCUpdQIA=; b=bvZ12CPRNsW5RbtlmjIVLX7eT0
-	a8+SIYQzZEMiwt+ICbTj/G4VSOAVZY0Xr9e0TiQ4nNXc6FPqa8GCTRrz+tW8f/cC8wKluJp0Knb+1
-	ujdcueyrLJ8PLcwEOX28uVkLYYrcT+KMlTJWNu5ESAS4GUArIP/jayFwvRsorODukI3qbCU/3HLpj
-	gY4p7dAs5TBVbR8CDdcYI6gvgrO6nhdz+0Vt91Fl7RVRHi9zY13vDIlsyaGPNSp5ZYyAiKkOI6MBR
-	hj7D+I/x4Q8DasmwIrbbS4/8mZHpIjHmRZ/VvVOtaM4fC0RSEMOgh6nlwEqHiCqpIX0sPpbx/mrmx
-	BHud7uKw==;
+	bh=hTPs3rPHo+NnpVrMufhNOfcardxSH3A2IEGwg60ZbNE=; b=mI+CwcV+FBD20fKxQq/+BhkY9V
+	9zp6yGzxOqP8dgIAHncJIWaWf7dGSzINqfaNuAhAMc2FpfkohaamBF0zT+agiSTBRCukyuaGXAR1Q
+	SWygv7QjlPRWPGgS/TTKOX+FMJDAHLlPunBClKH+VLZFc1sTqcjVUBZGDqU1EpUw+kDlE7vEWclVh
+	NqkdLkCtjzQXFDUKTbDFF6o0zLMYldRnRFw7izW1X2LPKBZBceHmBzW0WC5wYWXByjno9AAnEQD+m
+	CGqBBXpIT4Ih7TiUaFdqzzrefvPd+OH3gRYxDhnE9Jm9BZLIv/2tfn4VjL5vtQyyDtyrGn2CgPCwj
+	d1rZUviw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLu50-000000016ET-06iA;
+	id 1sLu50-000000016Ed-2s9o;
 	Tue, 25 Jun 2024 00:30:38 +0000
-Received: from mail-pg1-f201.google.com ([209.85.215.201])
+Received: from mail-pg1-f202.google.com ([209.85.215.202])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLt8P-00000000yel-0E5N
+	id 1sLt8U-00000000yk2-3ERl
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jun 2024 23:30:17 +0000
-Received: by mail-pg1-f201.google.com with SMTP id 41be03b00d2f7-70ac9630e3aso5433004a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Jun 2024 16:30:03 -0700 (PDT)
+	Mon, 24 Jun 2024 23:30:22 +0000
+Received: by mail-pg1-f202.google.com with SMTP id 41be03b00d2f7-717b045b0a1so3866266a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Jun 2024 16:30:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1719271802; x=1719876602; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1719271808; x=1719876608; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/ZG4i3dx3G3awn1LpAYu9cuCTYByH4EPhFHcmFTw+5I=;
-        b=oCzRbL9ivwgeaS2GJ0Lu+eEXst5n7yaQwuwaPwnJFbwPRYv8t6vcr7e3TW1bYmNrHR
-         X7qZNRBQCM8UnC6wMvHKzB/Y8bSrXrL3MqrtSP7VvioLIq7cAcVIFkVd6PeHJVr9jAMb
-         jQj5vt/iTMUV8Z6NhUr8jCYwn46M0PlZuOKoLHi6AqlUjhtw2EYcmkDZmr+JbQLy4KZb
-         66wHoQXlb+idXA1Fz0ZwpN2gfs8q4ca96YCM/IpPLMPlwGZFgKJMp+TKR0C6jM7hjooV
-         /hWiA7wm+XxVE3ZD6x82TynLbPLdu0EjviVpdjrOOAFn5RI84Ix6MPm9aqPt87C585He
-         8Elw==
+        bh=HmF+q3rwrhR8UU+6OXTpwv5GaDaD/Y47DiJtkxDn41A=;
+        b=Rm2GQn3H+mgFNnt6NWZUKWGhivSLH0d9IR+mMNHGyfs7M8vZxXVM1jBBq8+5HiAWim
+         PPqIVYm65q/BNNdPZQReNh8b0ar+SCV1N+EyMPnHyRyyJOav3prVqQculCbthHTi9gew
+         XdOKkw9GAai2PXw5mbHTR+nZMjNORRwH1vP4KyJMVna9iB2ZmAW76cb/tPm3I2NmWU80
+         2pY5zqF5kRrNcreFLtmyVL4Cm97/8sOhXqa+89sJi+Efd5dK1R1TogK45km1X4tWDDn8
+         YYvQoJz3juZGYHKkI5yqgb8EY4fqVjdNWwUfbS70ubKsjx8HpCfbq6WvmUy5N19coVM+
+         AE7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719271802; x=1719876602;
+        d=1e100.net; s=20230601; t=1719271808; x=1719876608;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/ZG4i3dx3G3awn1LpAYu9cuCTYByH4EPhFHcmFTw+5I=;
-        b=b4Z0GD5+yHY7YI6Y4KbgJig/Eim8fgiOrhEVaMiMzSZB07W9QS4lIaGv5rW7GYol4B
-         zJh8LZl38OjVHfKh1kdXxx8k4gE+XGsDQUSY5fyI8rD+dHzcqf0fkP4n3PTf0/IkJjpC
-         1vr2nwGMVoo0YGz4gzEEJasZNSvg0nat1VOHaCRI5woxzDda9AOpC3sKyLeEIh2E+9bH
-         U3RZlHCo+BdfhO9vyo5bDYLyRpxaTCn8WWB1DmTRX2XUBUdsIRIf4xEWRzyG623eyuFT
-         bGPxznIVrvM8d2GcggAeWJ76uYDpTSsW6O4r1ILKDkjQos+qb83a+a50eNAqtG3WgdTo
-         lOwA==
-X-Forwarded-Encrypted: i=1; AJvYcCXjk3ZItVM6CjPi+tPoO8MFD/oLBw7aJqSSRNYiQVW7XNP9sYug6D/JDvx5n0mtyyvDAm+co3mKYPZKahqAM4b/e7Rr2UiwMZPTTJHJ64Oj
-X-Gm-Message-State: AOJu0Yy4DgrdJm64yqZOpXRAncWvpMdbxa02rN4VkeXn5drtA36D8fw3
-	TCgy9rBwoJK1w/3Cemndpmk6ZMtFKZJDqbtu5yGXjcMLIMPGQ4hqdJ0503OKuje2fCl15ce6HnK
-	vjw==
-X-Google-Smtp-Source: AGHT+IEfb9KUh1OpOD8DwIk/54klv7dSo/nLX1YPQZQ44FjQ7tb2FCGqwu/ay8BBa1IDIHl2DafOvSF/pwc=
+        bh=HmF+q3rwrhR8UU+6OXTpwv5GaDaD/Y47DiJtkxDn41A=;
+        b=JM8dpfQks/v4sdih4hQ6HgZVgD99CGPXragsSc1AeTvx2ZRUCuedE5Nim9DZm0yExP
+         YVN8iQJIj3m/+D9+I3yaf7in7knC1FGtVcMcK/5AvO8Sdw+mkAu+jfPz+1qZUNOClV+j
+         e8jL4Qx2gL4PKtzu6sIY1v4a1qBigTRDp7dnRD6A1n6LDK/LMXTxPFTbokfE1HxToEeH
+         q24objlJrWue121lkGU2SwuQmOeU6dDjMYpRlHzF64Q+i/epEhfx2gGzWgCdfuIvk7fW
+         S/Aj2CpOY8N914GXcgb+b8ajQ1O3pBwCQula/LNU9OfjTySgYJEjC/uaKMU0h7PPaC64
+         nOfw==
+X-Forwarded-Encrypted: i=1; AJvYcCVD57nJcaJG9aIuTpGp93r9v365wDUJrDsXsgZoLLT1yUIpIKYydceXnPADetcd+c8LiN67CiFd6L05NThhlGTSkc9R8Od+6eCxOvsb2unU
+X-Gm-Message-State: AOJu0YxHZC4vOyoxvNVFtAHuST/EZ1aZH8U9jBY7lDv7+dcOymx/n4QI
+	f575Q7oRE1Ny8jq27UHytiL4Dj1euhCMlN3Huo4lqn3k69Kmv4J0w8MXtnbKj3GDj4JEa80PzbU
+	Utw==
+X-Google-Smtp-Source: AGHT+IHcaOj/Ro9h0704QE00MFW9hpEi3kDY+mehE3/RAXufwF49RwalyubuviiuKxGcrX2qWa70mRNXqFw=
 X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a65:654f:0:b0:6e9:6c12:3523 with SMTP id
- 41be03b00d2f7-71acda64918mr19622a12.10.1719271802360; Mon, 24 Jun 2024
- 16:30:02 -0700 (PDT)
-Date: Mon, 24 Jun 2024 23:26:21 +0000
+ (user=edliaw job=sendgmr) by 2002:a63:9d83:0:b0:6e9:8a61:b8aa with SMTP id
+ 41be03b00d2f7-71ac38a3772mr20790a12.0.1719271808040; Mon, 24 Jun 2024
+ 16:30:08 -0700 (PDT)
+Date: Mon, 24 Jun 2024 23:26:22 +0000
 In-Reply-To: <20240624232718.1154427-1-edliaw@google.com>
 Mime-Version: 1.0
 References: <20240624232718.1154427-1-edliaw@google.com>
 X-Mailer: git-send-email 2.45.2.741.gdbec12cfda-goog
-Message-ID: <20240624232718.1154427-13-edliaw@google.com>
-Subject: [PATCH v6 12/13] selftests/riscv: Drop redundant -D_GNU_SOURCE CFLAGS
- in Makefile
+Message-ID: <20240624232718.1154427-14-edliaw@google.com>
+Subject: [PATCH v6 13/13] selftests/sgx: Append CFLAGS from lib.mk to HOST_CFLAGS
 From: Edward Liaw <edliaw@google.com>
 To: linux-kselftest@vger.kernel.org, Eric Biederman <ebiederm@xmission.com>, 
 	Kees Cook <kees@kernel.org>, Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -87,8 +86,8 @@ Cc: linux-kernel@vger.kernel.org, usama.anjum@collabora.com, seanjc@google.com,
 	linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	linux-sgx@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240624_163005_760743_A4D7C735 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20240624_163011_024310_518A38B7 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,27 +104,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
--D_GNU_SOURCE= will be provided by lib.mk CFLAGS, so -D_GNU_SOURCE
-should be dropped to prevent redefinition warnings.
+lib.mk CFLAGS provides -D_GNU_SOURCE= which is needed to compile the
+host files.
 
 Signed-off-by: Edward Liaw <edliaw@google.com>
 ---
- tools/testing/selftests/riscv/mm/Makefile | 2 +-
+ tools/testing/selftests/sgx/Makefile | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
-index c333263f2b27..4664ed79e20b 100644
---- a/tools/testing/selftests/riscv/mm/Makefile
-+++ b/tools/testing/selftests/riscv/mm/Makefile
-@@ -3,7 +3,7 @@
- # Originally tools/testing/arm64/abi/Makefile
+diff --git a/tools/testing/selftests/sgx/Makefile b/tools/testing/selftests/sgx/Makefile
+index 867f88ce2570..03b5e13b872b 100644
+--- a/tools/testing/selftests/sgx/Makefile
++++ b/tools/testing/selftests/sgx/Makefile
+@@ -12,7 +12,7 @@ OBJCOPY := $(CROSS_COMPILE)objcopy
+ endif
  
- # Additional include paths needed by kselftest.h and local headers
--CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
-+CFLAGS += -std=gnu99 -I.
- 
- TEST_GEN_FILES := mmap_default mmap_bottomup
- 
+ INCLUDES := -I$(top_srcdir)/tools/include
+-HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC
++HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC $(CFLAGS)
+ HOST_LDFLAGS := -z noexecstack -lcrypto
+ ENCL_CFLAGS += -Wall -Werror -static-pie -nostdlib -ffreestanding -fPIE \
+ 	       -fno-stack-protector -mrdrnd $(INCLUDES)
 -- 
 2.45.2.741.gdbec12cfda-goog
 
