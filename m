@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDDDC2BD09
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 23:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5342C30653
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 23:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1oSUHdkMBhj01cVyAUw5Pm4WCNV7/jNlYYYf7p/thWc=; b=eW7KA9S5ouSPb3
-	Kr+cowlPISHjdwSCu5mD4VltejWTfBq6K8uDPov/sAwF0SATuVRYYL6QAbGKWZGrrB+J+NAEx+er+
-	vvxtC/oN1hl+1TS2vgEP1n94daLThJHA2IwGDvElwCdtKOAJihKcC9jLF1tsw65mxWDo2A5yMZSii
-	hgrYFlVM+xxSNrfBwUu9oWY7ObwWSWya5VcJ5dfovlztQS66XUld50hCXQcZVHUObVxwqAPS07G3h
-	B7tQY7/ygUC1iiZ8paxDt4lDIzbWgJBX6ZioV85eNGoEoBd/QsmOstarevMoTVw+e+s/D+FB0W6JQ
-	igtjGK/JkVudD1CmTqFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=v3Kn8wjCWyheZpLRc6iMze1LuZ8lz46pDwgBOXu9Jqc=; b=Aa8
+	zUrrl84y3KZSBTk4wfpPCm39iUCbgfIXm85buDJsz7c7V7FN9LZxbzm1VsMM0wiRfytkLPWNyo2wR
+	FrezKnOFM/MpY9JeNIvdEVdy/0hwTaFFES5NhW+L1sJip8bzGP/zBmQiijYTyagopJS34lBu1cVy7
+	4fSoPmUycO+N8Mx43cRstwkRBOIGGvU4QbBFK8gqhAhWENiUm3J+RPi7CYovxSSJH3/X4RZebqPdX
+	S0J2itT7v7vhkvUBz8fKuD1z0+MK9gEsJVnGk5/Q7VAc5P6Gj4PmVfh7UyMD1hO4uytEHZzuH+lA1
+	/HD/qVWiEzZMLa7u2KLIPA5VjbK/gtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLspA-00000000vfF-3SDG;
-	Mon, 24 Jun 2024 23:10:13 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1sLt7M-00000000xq1-3VFe;
+	Mon, 24 Jun 2024 23:29:00 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLsp7-00000000veg-25V6
+	id 1sLt7J-00000000xoj-2vwc
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jun 2024 23:10:11 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2c8000cac03so740192a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Jun 2024 16:10:08 -0700 (PDT)
+	Mon, 24 Jun 2024 23:28:59 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-dfa73db88dcso9779358276.0
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Jun 2024 16:28:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1719270608; x=1719875408; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Z12W7bYjq/I0j7BT73TFDTeojIsVunyLNslVLjDM0nw=;
-        b=WPaPsQfK2SAr0pOGwFFxIxmFILF0EpTpYYIlPnZ4nGb6gyd7MOJlg8H7rVlqbgrh07
-         SYS34zA5IBdJeeW+M/86Wawps+gXeH4dUxqzDMxmAlJlQ8kc5ujETHyfb7pkHdf+XdkB
-         2i0Ek3VPIHLmyEoqO1xhBczMxPTjzxMQCugPk/6+s6OJH5xQp5KBYX5V0IjftZhNg7Iq
-         TdvwgGGP4baS+ybQ/FhxlfbPE/kTrypB5ZcP0r6aQ+B3uU+dLbZoZfVpLWwt6yDRAko/
-         srsPmiCh6B3B44GqY2iR8cehdM2raeY0ranCweSAK6U/qekaZbToa902+gj1TNuqvnvp
-         0lEQ==
+        d=google.com; s=20230601; t=1719271735; x=1719876535; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=FEnvDY+YQtOlDLldfWY9bO5cHBXotclBQZRJTAhLrGQ=;
+        b=ZZJx5xSAABC8eJ1hNu6PRV7NZo2aUsmHfzzM+8Cvce9+HxE5Vd/pxdctEjEunBfgnn
+         NDAS3kNXve3WbnnGEM77p+tYp7wb82vQKDvDFo1EG+B1IENAi+Kz8XqtqVS4+bTB7wz2
+         Yutg5rKawIwiGe8FW7gI36JUfE/6N3/HG1rEdxIMEaI2ZGrgUrXH2/i5uLlEGlvhR03h
+         AgRbxCisURItym0sSXNkd9zJdfZqZDJHipWdXQU3gpjKfUrXDpAls+8Qe3ZPBOYOykzN
+         C+aZc/8i1SBMW/KtvcktRAk4R6GrFUUyHSN7w8BJaks/uy4/7hxAJidYK1xL+FZ0OZTc
+         8duw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719270608; x=1719875408;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z12W7bYjq/I0j7BT73TFDTeojIsVunyLNslVLjDM0nw=;
-        b=f9FeJRbwETygONx0uSQTTnzs/BVS3JVMBjE4m7tlajnx7aBNUgDDYX1409zZEom6Go
-         /RWp2r4QoIcyh8aVleRT8BU5eJAIcJe7axkiEgI4xZ7QVUxyVHcwnIDNqBaZiPB3D6//
-         QtQi6IZboLSd4WSQpJY+heDBQQunkY0HscjpTPojBvp8N2sjEOMCUpuw6jbBKk+d8gBZ
-         VxmnKJtwZmcdDeaJLQ5wcaE73/P7jf6odRqDFIpOeHysG8lAEJSQqiAzxgEYzDe7Dofu
-         Ou9RL5L9H7noRctIUFOha9FsQ2At4ojmcl8pz7YBFL9sYvUIlEmPXxiErZd6/vvU5P14
-         C2Dw==
-X-Forwarded-Encrypted: i=1; AJvYcCVH/XbkX/dZcnNKXKGgEoczqf6RHMc3WQrGQEKOOflHAiSlAC+ZfdjaAerloN8FJ0Dx/ujciUE1GuV9oXewRrtk1OlmSZZbJvczVZmd1jcJ
-X-Gm-Message-State: AOJu0YwslmrVGeu080QJA8WPEaNoaUiVfGasX3p6ClInuN6RgCTcglMD
-	u2pAyDA+ZzNVoM59Bi4a7zyKZZFHJV4My8awCHNKB/uDqTcKrBwYt4P8iEYf2Q==
-X-Google-Smtp-Source: AGHT+IE4RDeRw39GrmtYqnBgQqmFU1GizvUrLUHe33nwfuuqCM1ccLL3aLdqG/VUUFV3ux4YtCIMeQ==
-X-Received: by 2002:a05:6a20:9483:b0:1b5:6b5e:c100 with SMTP id adf61e73a8af0-1bcea5f5f95mr7003728637.5.1719270607557;
-        Mon, 24 Jun 2024 16:10:07 -0700 (PDT)
-Received: from [192.168.50.113] ([27.96.222.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7065124e1b8sm6731363b3a.106.2024.06.24.16.10.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Jun 2024 16:10:07 -0700 (PDT)
-Message-ID: <7a64739d-f580-4155-b2c0-c04b260d71cb@tenstorrent.com>
-Date: Tue, 25 Jun 2024 09:10:01 +1000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/6] riscv: convert bottom half of exception handling to C
-To: Charlie Jenkins <charlie@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Samuel Holland <samuel.holland@sifive.com>,
- Anton Blanchard <antonb@tenstorrent.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20240616170553.2832-1-jszhang@kernel.org>
- <20240616170553.2832-4-jszhang@kernel.org> <Znm/p4yw49e8ydW7@ghost>
-Content-Language: en-US
-From: Cyril Bur <cyrilbur@tenstorrent.com>
-In-Reply-To: <Znm/p4yw49e8ydW7@ghost>
+        d=1e100.net; s=20230601; t=1719271735; x=1719876535;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FEnvDY+YQtOlDLldfWY9bO5cHBXotclBQZRJTAhLrGQ=;
+        b=f7IX/1u8B5qWkFjKk6QuSPG3297a7plRcEUUEyPj/vwtkRpqMIc8PO3Ch7vd52baey
+         r7x3483DUa9En6UW5uu5zNssoffoIuseB5FuOgC4+t5x5w4oNkAvqUXiEJwYp4hvbNLv
+         rM6ILzTwn95zpLeMVQYMRDT3r2mShYM89rKGJt4CsQZeq+aGgC0JnTSLFapr9dgMdVmk
+         HulsXMwjJvY6RX8z/rYqCLGMzZvaaju2o+RZB3zBCNYXwEC9bxz1P0j67iiUA/2opopO
+         bLgHFSryE7YguCjI/9qIM/bKsKQaMN4R1OtRHOYPj1a48S//K897VdEBJXGHMBTa0ZFO
+         N97g==
+X-Forwarded-Encrypted: i=1; AJvYcCWxjK6BneMivgFrhCKg+MbjObzy9cEU3luqV/jfOOxmrKppwu0wej/w4QwSbzk0vbF4LeD+w02anDaFJWry3bZvcIK6sZs//4RnsH0XMzVS
+X-Gm-Message-State: AOJu0YzOWfWqkaGe+R1tXCBFYHVVigt75CrN9RejVAGTxVt1RL8eIG38
+	GhGnpCNOMSEpuSCwq34seebRF5L2U0X2A708Zt95jxFpxq48T7H1U2OdJaLNEW7vCxHU3BTKKFB
+	DXw==
+X-Google-Smtp-Source: AGHT+IGo0nBr4OMWeDQdXO7gLmA8943vaa7AUjGpvpzDg1f7Z8BrI79oFtF9sCT7oXO1KDCB6pUDmCcxQng=
+X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
+ (user=edliaw job=sendgmr) by 2002:a05:6902:1081:b0:dff:4788:ea88 with SMTP id
+ 3f1490d57ef6-e0303d692f7mr20462276.0.1719271735356; Mon, 24 Jun 2024 16:28:55
+ -0700 (PDT)
+Date: Mon, 24 Jun 2024 23:26:09 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.45.2.741.gdbec12cfda-goog
+Message-ID: <20240624232718.1154427-1-edliaw@google.com>
+Subject: [PATCH v6 00/13] Centralize _GNU_SOURCE definition into lib.mk
+From: Edward Liaw <edliaw@google.com>
+To: linux-kselftest@vger.kernel.org, Eric Biederman <ebiederm@xmission.com>, 
+	Kees Cook <kees@kernel.org>, Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
+	"=?UTF-8?q?Andr=C3=A9=20Almeida?=" <andrealmeid@igalia.com>, Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Fenghua Yu <fenghua.yu@intel.com>, 
+	Reinette Chatre <reinette.chatre@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org, usama.anjum@collabora.com, seanjc@google.com, 
+	kernel-team@android.com, Edward Liaw <edliaw@google.com>, linux-mm@kvack.org, 
+	iommu@lists.linux.dev, kvm@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-sgx@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240624_161009_591484_E565D6C1 
-X-CRM114-Status: GOOD (  30.44  )
+X-CRM114-CacheID: sfid-20240624_162857_808934_E0F10BE5 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,310 +96,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Centralizes the definition of _GNU_SOURCE into lib.mk and addresses all
+resulting macro redefinition warnings.
+
+These patches will need to be merged in one shot to avoid redefinition
+warnings.
+
+The initial attempt at this patch was abandoned because it affected
+lines in many source files and caused a large amount of churn. However,
+from earlier discussions, centralizing _GNU_SOURCE is still desireable.
+This attempt limits the changes to 1 source file and 12 Makefiles.
+
+v1: https://lore.kernel.org/linux-kselftest/20240430235057.1351993-1-edliaw@google.com/
+v2: https://lore.kernel.org/linux-kselftest/20240507214254.2787305-1-edliaw@google.com/
+ - Add -D_GNU_SOURCE to KHDR_INCLUDES so that it is in a single
+   location.
+ - Remove #define _GNU_SOURCE from source code to resolve redefinition
+   warnings.
+v3: https://lore.kernel.org/linux-kselftest/20240509200022.253089-1-edliaw@google.com/
+ - Rebase onto linux-next 20240508.
+ - Split patches by directory.
+ - Add -D_GNU_SOURCE directly to CFLAGS in lib.mk.
+ - Delete additional _GNU_SOURCE definitions from source code in
+   linux-next.
+ - Delete additional -D_GNU_SOURCE flags from Makefiles.
+v4: https://lore.kernel.org/linux-kselftest/20240510000842.410729-1-edliaw@google.com/
+ - Rebase onto linux-next 20240509.
+ - Remove Fixes tag from patches that drop _GNU_SOURCE definition.
+ - Restore space between comment and includes for selftests/damon.
+v5: https://lore.kernel.org/linux-kselftest/20240522005913.3540131-1-edliaw@google.com/
+ - Rebase onto linux-next 20240521
+ - Drop initial patches that modify KHDR_INCLUDES.
+ - Incorporate Mark Brown's patch to replace static_assert with warning.
+ - Don't drop #define _GNU_SOURCE from nolibc and wireguard.
+ - Change Makefiles for x86 and vDSO to append to CFLAGS.
+v6:
+ - Rewrite patch to use -D_GNU_SOURCE= form in lib.mk.
+ - Reduce the amount of churn significantly by allowing definition to
+   coexist with source code macro defines.
 
 
-On 25/6/2024 4:49 am, Charlie Jenkins wrote:
-> On Mon, Jun 17, 2024 at 01:05:50AM +0800, Jisheng Zhang wrote:
->> For readability, maintainability and future scalability, convert the
->> bottom half of the exception handling to C.
-> 
-> I would be interested to see the performance impact of this, since this
-> mostly eliminates the code from patch 1 and replaces it in C.
-> Anton/Cyril can you share the test case you used so that these changes
-> can also be benchmarked?
+Edward Liaw (13):
+  selftests/mm: Define _GNU_SOURCE to an empty string
+  selftests: Add -D_GNU_SOURCE= to CFLAGS in lib.mk
+  selftests/net: Append to lib.mk CFLAGS in Makefile
+  selftests/exec: Drop redundant -D_GNU_SOURCE CFLAGS in Makefile
+  selftests/futex: Drop redundant -D_GNU_SOURCE CFLAGS in Makefile
+  selftests/intel_pstate: Drop redundant -D_GNU_SOURCE CFLAGS in
+    Makefile
+  selftests/iommu: Drop redundant -D_GNU_SOURCE CFLAGS in Makefile
+  selftests/kvm: Drop redundant -D_GNU_SOURCE CFLAGS in Makefile
+  selftests/proc: Drop redundant -D_GNU_SOURCE CFLAGS in Makefile
+  selftests/resctrl: Drop redundant -D_GNU_SOURCE CFLAGS in Makefile
+  selftests/ring-buffer: Drop redundant -D_GNU_SOURCE CFLAGS in Makefile
+  selftests/riscv: Drop redundant -D_GNU_SOURCE CFLAGS in Makefile
+  selftests/sgx: Append CFLAGS from lib.mk to HOST_CFLAGS
 
-I ran the series as a whole and it keeps the performance improvement. I 
-think that makes sense because C shouldn't be modifying return addresses.
+ tools/testing/selftests/exec/Makefile             | 1 -
+ tools/testing/selftests/futex/functional/Makefile | 2 +-
+ tools/testing/selftests/intel_pstate/Makefile     | 2 +-
+ tools/testing/selftests/iommu/Makefile            | 2 --
+ tools/testing/selftests/kvm/Makefile              | 2 +-
+ tools/testing/selftests/lib.mk                    | 3 +++
+ tools/testing/selftests/mm/thuge-gen.c            | 2 +-
+ tools/testing/selftests/net/Makefile              | 2 +-
+ tools/testing/selftests/net/tcp_ao/Makefile       | 2 +-
+ tools/testing/selftests/proc/Makefile             | 1 -
+ tools/testing/selftests/resctrl/Makefile          | 2 +-
+ tools/testing/selftests/ring-buffer/Makefile      | 1 -
+ tools/testing/selftests/riscv/mm/Makefile         | 2 +-
+ tools/testing/selftests/sgx/Makefile              | 2 +-
+ 14 files changed, 12 insertions(+), 14 deletions(-)
 
-The benchmark is a tweaked (for obvious reasons) of 
-tools/testing/selftests/powerpc/benchmarks/null_syscall.c.
+--
+2.45.2.741.gdbec12cfda-goog
 
-> 
->>
->> Mostly the assembly code is converted to C in a relatively
->> straightforward manner.
->>
->> However, there are two modifications I need to mention:
->>
->> 1. the CSR_CAUSE reg reading and saving is moved to the C code
->> because we need the cause to dispatch the exception handling,
->> if we keep the cause reading and saving, we either pass it to
->> do_traps() via. 2nd param or get it from pt_regs which an extra
->> memory load is needed, I don't like any of the two solutions becase
->> the exception handling sits in hot code path, every instruction
->> matters.
->>
->> 2.To cope with SIFIVE_CIP_453 errata, it looks like we don't need
->> alternative mechanism any more after the asm->c convertion. Just
->> replace the excp_vect_table two entries.
->>
->> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
->> ---
->>   arch/riscv/errata/sifive/errata.c       | 25 ++++++++---
->>   arch/riscv/include/asm/asm-prototypes.h |  1 +
->>   arch/riscv/include/asm/errata_list.h    |  5 +--
->>   arch/riscv/kernel/entry.S               | 58 +------------------------
->>   arch/riscv/kernel/traps.c               | 41 +++++++++++++++++
->>   5 files changed, 64 insertions(+), 66 deletions(-)
->>
->> diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
->> index 716cfedad3a2..bbba99f207ca 100644
->> --- a/arch/riscv/errata/sifive/errata.c
->> +++ b/arch/riscv/errata/sifive/errata.c
->> @@ -10,9 +10,14 @@
->>   #include <linux/bug.h>
->>   #include <asm/patch.h>
->>   #include <asm/alternative.h>
->> +#include <asm/csr.h>
->>   #include <asm/vendorid_list.h>
->>   #include <asm/errata_list.h>
->>   
->> +extern void (*excp_vect_table[])(struct pt_regs *regs);
->> +extern void sifive_cip_453_insn_fault_trp(struct pt_regs *regs);
->> +extern void sifive_cip_453_page_fault_trp(struct pt_regs *regs);
->> +
->>   struct errata_info_t {
->>   	char name[32];
->>   	bool (*check_func)(unsigned long  arch_id, unsigned long impid);
->> @@ -20,6 +25,9 @@ struct errata_info_t {
->>   
->>   static bool errata_cip_453_check_func(unsigned long  arch_id, unsigned long impid)
->>   {
->> +	if (!IS_ENABLED(CONFIG_ERRATA_SIFIVE_CIP_453))
->> +		return false;
->> +
->>   	/*
->>   	 * Affected cores:
->>   	 * Architecture ID: 0x8000000000000007
->> @@ -51,10 +59,6 @@ static bool errata_cip_1200_check_func(unsigned long  arch_id, unsigned long imp
->>   }
->>   
->>   static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
->> -	{
->> -		.name = "cip-453",
->> -		.check_func = errata_cip_453_check_func
->> -	},
->>   	{
->>   		.name = "cip-1200",
->>   		.check_func = errata_cip_1200_check_func
->> @@ -62,11 +66,20 @@ static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
->>   };
->>   
->>   static u32 __init_or_module sifive_errata_probe(unsigned long archid,
->> -						unsigned long impid)
->> +						unsigned long impid,
->> +						unsigned int stage)
->>   {
->>   	int idx;
->>   	u32 cpu_req_errata = 0;
->>   
->> +	if (stage == RISCV_ALTERNATIVES_BOOT) {
->> +		if (IS_ENABLED(CONFIG_MMU) &&
->> +		    errata_cip_453_check_func(archid, impid)) {
->> +			excp_vect_table[EXC_INST_ACCESS] = sifive_cip_453_insn_fault_trp;
->> +			excp_vect_table[EXC_INST_PAGE_FAULT] = sifive_cip_453_page_fault_trp;
->> +		}
->> +	}
->> +
->>   	for (idx = 0; idx < ERRATA_SIFIVE_NUMBER; idx++)
->>   		if (errata_list[idx].check_func(archid, impid))
->>   			cpu_req_errata |= (1U << idx);
->> @@ -99,7 +112,7 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
->>   	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
->>   		return;
->>   
->> -	cpu_req_errata = sifive_errata_probe(archid, impid);
->> +	cpu_req_errata = sifive_errata_probe(archid, impid, stage);
->>   
->>   	for (alt = begin; alt < end; alt++) {
->>   		if (alt->vendor_id != SIFIVE_VENDOR_ID)
->> diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
->> index cd627ec289f1..81a1f27fa54f 100644
->> --- a/arch/riscv/include/asm/asm-prototypes.h
->> +++ b/arch/riscv/include/asm/asm-prototypes.h
->> @@ -55,5 +55,6 @@ DECLARE_DO_ERROR_INFO(do_trap_break);
->>   asmlinkage void handle_bad_stack(struct pt_regs *regs);
->>   asmlinkage void do_page_fault(struct pt_regs *regs);
->>   asmlinkage void do_irq(struct pt_regs *regs);
->> +asmlinkage void do_traps(struct pt_regs *regs);
->>   
->>   #endif /* _ASM_RISCV_PROTOTYPES_H */
->> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
->> index 7c8a71a526a3..95b79afc4061 100644
->> --- a/arch/riscv/include/asm/errata_list.h
->> +++ b/arch/riscv/include/asm/errata_list.h
->> @@ -17,9 +17,8 @@
->>   #endif
->>   
->>   #ifdef CONFIG_ERRATA_SIFIVE
->> -#define	ERRATA_SIFIVE_CIP_453 0
->> -#define	ERRATA_SIFIVE_CIP_1200 1
->> -#define	ERRATA_SIFIVE_NUMBER 2
->> +#define	ERRATA_SIFIVE_CIP_1200 0
->> +#define	ERRATA_SIFIVE_NUMBER 1
->>   #endif
->>   
->>   #ifdef CONFIG_ERRATA_THEAD
->> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
->> index 81dec627a8d4..401bfe85a098 100644
->> --- a/arch/riscv/kernel/entry.S
->> +++ b/arch/riscv/kernel/entry.S
->> @@ -62,13 +62,11 @@ SYM_CODE_START(handle_exception)
->>   	csrrc s1, CSR_STATUS, t0
->>   	csrr s2, CSR_EPC
->>   	csrr s3, CSR_TVAL
->> -	csrr s4, CSR_CAUSE
->>   	csrr s5, CSR_SCRATCH
->>   	REG_S s0, PT_SP(sp)
->>   	REG_S s1, PT_STATUS(sp)
->>   	REG_S s2, PT_EPC(sp)
->>   	REG_S s3, PT_BADADDR(sp)
->> -	REG_S s4, PT_CAUSE(sp)
->>   	REG_S s5, PT_TP(sp)
->>   
->>   	/*
->> @@ -83,36 +81,9 @@ SYM_CODE_START(handle_exception)
->>   	/* Load the kernel shadow call stack pointer if coming from userspace */
->>   	scs_load_current_if_task_changed s5
->>   
->> -#ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
->> -	move a0, sp
->> -	call riscv_v_context_nesting_start
->> -#endif
->>   	move a0, sp /* pt_regs */
->> -
->> -	/*
->> -	 * MSB of cause differentiates between
->> -	 * interrupts and exceptions
->> -	 */
->> -	bge s4, zero, 1f
->> -
->> -	/* Handle interrupts */
->> -	call do_irq
->> -	j ret_from_exception
->> -1:
->> -	/* Handle other exceptions */
->> -	slli t0, s4, RISCV_LGPTR
->> -	la t1, excp_vect_table
->> -	la t2, excp_vect_table_end
->> -	add t0, t1, t0
->> -	/* Check if exception code lies within bounds */
->> -	bgeu t0, t2, 3f
->> -	REG_L t1, 0(t0)
->> -2:	jalr t1
->> +	call do_traps
->>   	j ret_from_exception
->> -3:
->> -
->> -	la t1, do_trap_unknown
->> -	j 2b
->>   SYM_CODE_END(handle_exception)
->>   ASM_NOKPROBE(handle_exception)
->>   
->> @@ -329,33 +300,6 @@ SYM_FUNC_START(__switch_to)
->>   	ret
->>   SYM_FUNC_END(__switch_to)
->>   
->> -#ifndef CONFIG_MMU
->> -#define do_page_fault do_trap_unknown
->> -#endif
->> -
->> -	.section ".rodata"
->> -	.align LGREG
->> -	/* Exception vector table */
->> -SYM_DATA_START_LOCAL(excp_vect_table)
->> -	RISCV_PTR do_trap_insn_misaligned
->> -	ALT_INSN_FAULT(RISCV_PTR do_trap_insn_fault)
->> -	RISCV_PTR do_trap_insn_illegal
->> -	RISCV_PTR do_trap_break
->> -	RISCV_PTR do_trap_load_misaligned
->> -	RISCV_PTR do_trap_load_fault
->> -	RISCV_PTR do_trap_store_misaligned
->> -	RISCV_PTR do_trap_store_fault
->> -	RISCV_PTR do_trap_ecall_u /* system call */
->> -	RISCV_PTR do_trap_ecall_s
->> -	RISCV_PTR do_trap_unknown
->> -	RISCV_PTR do_trap_ecall_m
->> -	/* instruciton page fault */
->> -	ALT_PAGE_FAULT(RISCV_PTR do_page_fault)
->> -	RISCV_PTR do_page_fault   /* load page fault */
->> -	RISCV_PTR do_trap_unknown
->> -	RISCV_PTR do_page_fault   /* store page fault */
->> -SYM_DATA_END_LABEL(excp_vect_table, SYM_L_LOCAL, excp_vect_table_end)
->> -
->>   #ifndef CONFIG_MMU
->>   SYM_DATA_START(__user_rt_sigreturn)
->>   	li a7, __NR_rt_sigreturn
->> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
->> index 05a16b1f0aee..b44d4a8d4083 100644
->> --- a/arch/riscv/kernel/traps.c
->> +++ b/arch/riscv/kernel/traps.c
->> @@ -390,6 +390,47 @@ asmlinkage void noinstr do_irq(struct pt_regs *regs)
->>   	irqentry_exit(regs, state);
->>   }
->>   
->> +void (*excp_vect_table[])(struct pt_regs *regs) __ro_after_init = {
->> +	do_trap_insn_misaligned,	/*  0 Instruction address misaligned */
->> +	do_trap_insn_fault,		/*  1 Instruction access fault */
->> +	do_trap_insn_illegal,		/*  2 Illegal instruction */
->> +	do_trap_break,			/*  3 Breakpoint */
->> +	do_trap_load_misaligned,	/*  4 Load address misaligned */
->> +	do_trap_load_fault,		/*  5 Load access fault */
->> +	do_trap_store_misaligned,	/*  6 Store/AMO address misaligned */
->> +	do_trap_store_fault,		/*  7 Store/AMO access fault */
->> +	do_trap_ecall_u,		/*  8 Environment call from U-mode */
->> +	do_trap_ecall_s,		/*  9 Environment call from S-mode */
->> +	do_trap_unknown,		/* 10 Reserved */
->> +	do_trap_ecall_m,		/* 11 Environment call from M-mode */
->> +#ifdef CONFIG_MMU
->> +	do_page_fault,			/* 12 Instruciton page fault */
->> +	do_page_fault,			/* 13 Load page fault */
->> +	do_trap_unknown,		/* 14 Reserved */
->> +	do_page_fault,			/* 15 Store/AMO page fault */
->> +#endif
->> +};
->> +
->> +asmlinkage void noinstr do_traps(struct pt_regs *regs)
->> +{
->> +	unsigned long cause = csr_read(CSR_CAUSE);
->> +
->> +	regs->cause = cause;
->> +
->> +#ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
->> +	riscv_v_context_nesting_start(regs);
->> +#endif
->> +	if (cause & CAUSE_IRQ_FLAG) {
->> +		do_irq(regs);
->> +	} else {
->> +		if (cause >= ARRAY_SIZE(excp_vect_table)) {
-> 
-> Using unlikely here may optimize the hotpath here slightly.
-> 
-> - Charlie
-> 
->> +			do_trap_unknown(regs);
->> +			return;
->> +		}
->> +		excp_vect_table[cause](regs);
->> +	}
->> +}
->> +
->>   #ifdef CONFIG_GENERIC_BUG
->>   int is_valid_bugaddr(unsigned long pc)
->>   {
->> -- 
->> 2.43.0
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
