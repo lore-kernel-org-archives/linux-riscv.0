@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E68EC2BD09
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 18:53:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF906C30653
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 18:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4suAoXCK6dhvHnf0AoWMpzXMhNZd9j7qSeImK4Gnmac=; b=QlXUyZBrwIkq0X
-	jjHhb0gPJ7N4HiVzXM8YBXUHBWZPq67cXdI8RO3XREjHxFTMzBxaZW9fhoIGZAtcfpq0YKae4l9Fn
-	5dBKgghc6ezsNS1mOK6qqwNGeM3Aoilgz1inR04PFUkK59vpoVArgmJDfmIKncwgeZxFME0iOCkbM
-	qvJFQNM6iYDDaufpEEvTFdrSAYM1c+/6zkPcDi7GVpnd+pm9sYscfODW4IiTE4/a0QPQhAdknC8y1
-	zXhH5rz13mz7jErMMBcHGZcpRl8T04kuWMQfO6Mg/j6cbL8QCDNkbgLoJsWi4z1tTzEgoeho7GXmc
-	60jPVYX884WoOSQiGA+A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=52fxl9O/QKT0z3Se6YV7+BFg+27uOhRTrIrwQvNHJ+Q=; b=ebC0vmH1dh2j01
+	O77kok93IvZyN6wZrj9wyNzmpE8sFWeNpWLrSEWe9guS37hyzFFbcDBRjioeAyaDkxOu1/IAWiSOh
+	pMkSY96kFHj6Z92i/UU+KQziK4IOQraZEeKNEqBWXHBzvr+oNvj62gMs5M++Aji1HT0Y2U3YtVo3w
+	Wb99Ha9LybUNSHH1w3iRSPFBDg0vb5sQlqeGlJLJ+5gPPFqlxV4cdIaIimodpGWUvnFS7MRae2D7F
+	N4Oj4Xt8RYu69hHLmF0BikqlH0Kqvc+qQxCRW0cImDjbip6t0PvQflEC3s/3JRC8bgCuh1f0ELmaa
+	OsVxh81iRETYVTI94u+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLood-00000000KOy-3VUe;
-	Mon, 24 Jun 2024 18:53:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sLoog-00000000KPu-2Lfy;
+	Mon, 24 Jun 2024 18:53:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLoob-00000000KOC-1B5w
+	id 1sLooc-00000000KOY-2R4i
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jun 2024 18:53:22 +0000
+	Mon, 24 Jun 2024 18:53:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AA4FE60F80;
-	Mon, 24 Jun 2024 18:53:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C84DEC2BBFC;
-	Mon, 24 Jun 2024 18:53:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7D159610D5;
+	Mon, 24 Jun 2024 18:53:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D914C4AF09;
+	Mon, 24 Jun 2024 18:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719255199;
-	bh=5SQ6k8ql2FtQ24ggunQpn42cMs/9ehVKj7ffUjrSWaY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=VXtXonHvyo+lWD0+pd+wr848CsLJDdbee4dVtqEC+taFZleV+/ScGSS1Uh5KTQv5a
-	 QnFj79HuE41StMAO09LmxsiUmLstImWmWCDWn9q/8trkmxUYT8DvzromPaS2Qg6S+c
-	 yV+9dimLGjxNQQ9lyL5Leh41aBeHHK3yr2nSTCCobOdAmIQfQluJ2yGek/SeYlcNbS
-	 NwEYmE70UeDPIsdiuGmk/c3RnO+nRiAyMNO1/lHiMhtxOY+SkmgIYqN7gcT3Z1UQaq
-	 +sF+wjYNdfcq3fyuNJpJ+OypNUfBlIgqoSAUVIEwvBslVQ4xxkIFgnhj+a4ejS3oRM
-	 Svk9o0CE5wYNw==
+	s=k20201202; t=1719255200;
+	bh=U72EtpzbiKzdfZYMZqZ6j+rqYebEL67up9pZVkZeQk0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FD81BvqyDxLnI+QMw8K7UgCl8zk+gDT9s53JPO30trVFzpSzBqsL9hlbS5j16TCLO
+	 uytKpn3jyxu4bq7olou7jE/b2omJkbSMRSgymBTyVO4s6tJPNTkOY7pumlRxha/+aY
+	 GKCuDRC589DCAKtEAhc7UFwscsavFdnLzTy6OkKSuPLYQgG/Iq2V37JDIser9Aaj4I
+	 fXRzTVfmmMMZUtrcVu0Bfmaq8r11D3bdPKFGfxMccrmkS9KE2lz/kqWU7v+4O6Ou++
+	 J5zsWIlu7hp+eP6lYmUYWW76NxWtWWFSXeoex6eD6aCtwoDPOLfZjEzJ4nlf3lemKh
+	 uRQ2w6VlP/ljQ==
 From: SeongJae Park <sj@kernel.org>
-To: Jonathan Corbet <corbet@lwn.net>
-Cc: SeongJae Park <sj@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alex Shi <alexs@kernel.org>,
-	Avadhut Naik <avadhut.naik@amd.com>,
-	Bill Wendling <morbo@google.com>,
-	Carlos Bilbao <carlos.bilbao.osdev@gmail.com>,
-	Federico Vaga <federico.vaga@vaga.pv.it>,
-	Hu Haowen <2023002089@link.tyut.edu.cn>,
-	Justin Stitt <justinstitt@google.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+To: Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Yanteng Si <siyanteng@loongson.cn>,
-	linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: SeongJae Park <sj@kernel.org>,
 	workflows@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/7] minor document fixups
-Date: Mon, 24 Jun 2024 11:53:05 -0700
-Message-Id: <20240624185312.94537-1-sj@kernel.org>
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 2/7] Docs/process/index: Remove riscv/patch-acceptance from 'Other material' section
+Date: Mon, 24 Jun 2024 11:53:07 -0700
+Message-Id: <20240624185312.94537-3-sj@kernel.org>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240624185312.94537-1-sj@kernel.org>
+References: <20240624185312.94537-1-sj@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240624_115321_443824_2F0D0E91 
-X-CRM114-Status: UNSURE (   6.46  )
+X-CRM114-CacheID: sfid-20240624_115322_710126_DD0836F1 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,50 +79,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series is for minor document fixups.  First five patches
-clean up and remove 'Other material' section of process/index in favor
-of 'staging/' and better place for docs on the section.  A patch for
-adding DAMON maintainer-profile reference on maintainers' handbook
-follows.  And then the last patch adds 'hkml' as one of available email
-tools on email-clients document.
+'patch-acceptance' on 'Other material' section of 'process/index', which
+is for unsorted documents, is actually well organized under
+'arch/riscv/' directory, and linked on the index document of the
+directory.  Remove it from the 'Other material' section.
 
-SeongJae Park (7):
-  Docs/process/index: Remove unaligned-memory-access from 'Other
-    material'
-  Docs/process/index: Remove riscv/patch-acceptance from 'Other
-    material' section
-  Docs: Move magic-number from process to staging
-  Docs: Move clang-format from process/ to dev-tools/
-  Docs/process/index: Remove unsorted docs section
-  Docs/maintainer/maintainer-entry-profile: add DAMON maintainer profile
-  Docs/process/email-clients: Document HacKerMaiL
+Signed-off-by: SeongJae Park <sj@kernel.org>
+---
+ Documentation/process/index.rst | 1 -
+ 1 file changed, 1 deletion(-)
 
- .clang-format                                         |  2 +-
- Documentation/{process => dev-tools}/clang-format.rst |  0
- Documentation/dev-tools/index.rst                     |  1 +
- Documentation/maintainer/maintainer-entry-profile.rst |  1 +
- Documentation/process/4.Coding.rst                    |  2 +-
- Documentation/process/coding-style.rst                |  2 +-
- Documentation/process/email-clients.rst               |  9 +++++++++
- Documentation/process/index.rst                       | 11 -----------
- Documentation/staging/index.rst                       |  1 +
- Documentation/{process => staging}/magic-number.rst   |  0
- .../translations/it_IT/process/clang-format.rst       |  2 +-
- .../translations/it_IT/process/magic-number.rst       |  2 +-
- .../translations/sp_SP/process/coding-style.rst       |  2 +-
- .../translations/sp_SP/process/magic-number.rst       |  2 +-
- Documentation/translations/zh_CN/process/4.Coding.rst |  2 +-
- .../translations/zh_CN/process/coding-style.rst       |  2 +-
- .../translations/zh_CN/process/magic-number.rst       |  2 +-
- Documentation/translations/zh_TW/process/4.Coding.rst |  2 +-
- .../translations/zh_TW/process/coding-style.rst       |  2 +-
- .../translations/zh_TW/process/magic-number.rst       |  2 +-
- 20 files changed, 25 insertions(+), 24 deletions(-)
- rename Documentation/{process => dev-tools}/clang-format.rst (100%)
- rename Documentation/{process => staging}/magic-number.rst (100%)
-
-
-base-commit: 88407e61007a3d3ebb62fc65479cc58d891ef74e
+diff --git a/Documentation/process/index.rst b/Documentation/process/index.rst
+index f66f9cbd0300..08b4eb1e9118 100644
+--- a/Documentation/process/index.rst
++++ b/Documentation/process/index.rst
+@@ -115,7 +115,6 @@ lack of a better place.
+ 
+    magic-number
+    clang-format
+-   ../arch/riscv/patch-acceptance
+ 
+ .. only::  subproject and html
+ 
 -- 
 2.39.2
 
