@@ -4,82 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D43C2BD09
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 07:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383C7C2BD05
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 07:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UEUUsunIngfMxAoXmGhyXAYRWu4LCvBxHbQxsyiA07E=; b=40dzKl0G5enpET
-	Kto2/UpG512n49RiaPPeb8nweAY1a1HI31f0Qp8hllukJf49ME5dnppYpnqALf++DegoV9DrvOjL+
-	0Pbly+gJd2XnOMu84MRp3SkqNl0/hVU2m/loAID3D5N1eshaN/OhQotaT4kXI1F5w4lgiq2cFeMZs
-	vVlWWkUEiGvuNHDjFZgLG6lH7lKhwKWSl0PMGUT8PWbGFXqplDWwI2PQnhCJgnPaWlV1B5KXrjbcy
-	DDEt9ikruYIXKnmm5bW88cxZBEflnJN+a2WPP8cqMlghHUxaVx/SESR/xkFWMmpHPESwbinZsF0eo
-	3yZAcz2/y5Jw3sTS7iZw==;
+	List-Owner; bh=6DexFr6TzO6aXk3R1iYIFNM+KED0uxw1sr/nQl2j2To=; b=yQTQMczcSrW/zP
+	gtbUGDWhJb8JdxAubz20C+ufQeSwlg1yPV98BE25BLDZ5cyKEaRAnh9G3l39hJ/SXwL4jbx853j+T
+	RObNI3cfWmqpShIE2natrxB31oiLDe2b8iZDuutsw8g8OnQPfmAHM4BeJF6d12YQELro0bbtNNFPz
+	iglP8nmxHf7MimQ/O3P8Vxbv3aDfXey5XXE6uCe/YCSBlDX2yEJljmWqGzXDzoMOVixO3Hqa5j7o/
+	LTQ5SXmpu+6Kr5CyvRxLMnOldwmi6SzpUCtBUyKWUr4/05molCU95f1W4zOlgXePBRPjSCUOXw4oN
+	qXoB94hMeVYkA3x1lKUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLdjX-0000000FoJQ-1rgY;
-	Mon, 24 Jun 2024 07:03:23 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1sLe9B-0000000FtUE-0L03;
+	Mon, 24 Jun 2024 07:29:53 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLdjU-0000000FoID-1wBf
+	id 1sLe98-0000000FtSm-1LQg
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jun 2024 07:03:22 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7008acebf3fso1752032a34.2
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Jun 2024 00:03:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1719212593; x=1719817393; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hus/Z8kWfB3zHpzLYZI2dy5Pgo4m4TR8rM+wRIiJmBY=;
-        b=P7mFnDjnxtAdmPznCMEmDw6V0dwxtLuF5ugjJ8VC84+Kh3sg5tbTXX2GxJKHZMN8aq
-         E/8TQZR8IIXrpNSbuSxVc5bSx+xjtrsGAQAiSF4Nz1kR4/va+5XGeBkQR3+itxIZ1oKz
-         w8U7gp8oiXHk8FCYSd4bC7VY7Z6ycdxlgiO4v28ECrEWGOaV3sffzP21vLGbIxYI2vO4
-         8N2SYEJY1IUGR0vBoOuoJZEgxgDhy57jj36OdZ9QdHiuOAHh4ZNwaWJhil/FgIrjMu4b
-         cXkgF45f2Iw5lCit7td3yAFW5juCmI2FXnUhWqSkAZg+F/l2BS93vyPBpvF60NFdu0ol
-         65vA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719212593; x=1719817393;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hus/Z8kWfB3zHpzLYZI2dy5Pgo4m4TR8rM+wRIiJmBY=;
-        b=QYZNePd8rHivSHZYTV8gpYo3O6q8Jv78ldcttoGo+0crFr5cIW5gbSnQM6+UHsdIrg
-         HwZA/iqc4kV/o1Pj76RvGzMjOKBqicsB/wsIW5urOe+AQiUFs+uHCeORi0ScAzUdimQL
-         zA3VG/lv8aKM+PJJJE5US/HMd9eONKkfuP077Zmn+OnmGVj9glwBcAolMpXJs4gqBDZr
-         3gmNoYVBggOQXsBRPrtgranZPa+DtbOWMGWmMFSQL2omohP7a+zeZQygRafZuwco+liq
-         AMvxDsDKJlSOBRN5hXZJsypVCSpZj9+kVXjv4bjpD08GHKkdXoRbNfjmoaB2FKaMwxH9
-         0Dog==
-X-Forwarded-Encrypted: i=1; AJvYcCWTFC9mpqCu75lgn5L1okzCnz+j2rJe5glu+4AS5WLH9UUt0hYZJLJKNcf6lQX/dqJ/bl3YoksQYhkQSOM+ynBQaoTGmT9wgRsqck9hLTzU
-X-Gm-Message-State: AOJu0YwNEZqKS6exkfmjnHROfvW3Sh2c8Cg0uVTeU7llHdllJPrctSyx
-	zNRT5yVlzCxHZ3CTZc4jVQfRt4WiaPCpf1PdqowLWpHEbiL+RUd0KI+3JmIpM4yY3EyTzHdJKM/
-	8kiXl9awNTvX7HlPFi6IqNFwKOyMhkk/aUKVgZw==
-X-Google-Smtp-Source: AGHT+IE1ORNwhEJz9xcQatVNoa2I81qe/opkAq14DSskHVsG4ALLMZ8WWonbxzoRgSdJ/Sj4jh6h/2w3Ymhhfh56Nec=
-X-Received: by 2002:a05:6870:7b4c:b0:258:42be:ce5e with SMTP id
- 586e51a60fabf-25d016c196emr4851607fac.16.1719212593253; Mon, 24 Jun 2024
- 00:03:13 -0700 (PDT)
+	Mon, 24 Jun 2024 07:29:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DCE1C1C0009;
+	Mon, 24 Jun 2024 07:29:42 +0000 (UTC)
+Message-ID: <bdfbed9b-ea04-4415-8416-d6e9d0a643a3@ghiti.fr>
+Date: Mon, 24 Jun 2024 09:29:39 +0200
 MIME-Version: 1.0
-References: <20240618120842.15159-1-cuiyunhui@bytedance.com>
- <ZnTRbptoowL+1GOP@ghost> <CAEEQ3wnNZJviirqWCAG7mXsbynC+=Gq5q4jh6b4yamm8cnzMAw@mail.gmail.com>
- <ZnTvArAQpfCm10tc@ghost> <CAEEQ3w=6EZMFsH2y7efZsX00CzytyMu+Be_RT8CicejMB6qAJA@mail.gmail.com>
- <ZnUgLZow2ODPH7vp@ghost> <Znfl8NDWmL1NFANn@kernel.org>
-In-Reply-To: <Znfl8NDWmL1NFANn@kernel.org>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Mon, 24 Jun 2024 15:03:02 +0800
-Message-ID: <CAEEQ3w=YYyUdR3CRMv6+nURv3_kMf+dC3UGqv-UNsmxpVzmoWw@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH] RISC-V: cmdline: Add support for 'memmap' parameter
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Charlie Jenkins <charlie@rivosinc.com>, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alexghiti@rivosinc.com, akpm@linux-foundation.org, 
-	bhe@redhat.com, dawei.li@shingroup.cn, jszhang@kernel.org, 
-	namcao@linutronix.de, bjorn@rivosinc.com, vishal.moola@gmail.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: Fix linear mapping checks for non-contiguous
+ memory regions
+Content-Language: en-US
+To: Stuart Menefy <stuart.menefy@codasip.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: David McKay <david.mckay@codasip.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20240622114217.2158495-1-stuart.menefy@codasip.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240622114217.2158495-1-stuart.menefy@codasip.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240624_000320_855247_1F561B88 
-X-CRM114-Status: GOOD (  54.87  )
+X-CRM114-CacheID: sfid-20240624_002950_686855_B7A7DE2E 
+X-CRM114-Status: GOOD (  37.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,119 +60,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTWlrZSwKCk9uIFN1biwgSnVuIDIzLCAyMDI0IGF0IDU6MTDigK9QTSBNaWtlIFJhcG9wb3J0
-IDxycHB0QGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVGh1LCBKdW4gMjAsIDIwMjQgYXQgMTE6
-Mzk6NDFQTSAtMDcwMCwgQ2hhcmxpZSBKZW5raW5zIHdyb3RlOgo+ID4gT24gRnJpLCBKdW4gMjEs
-IDIwMjQgYXQgMDI6MDI6MThQTSArMDgwMCwgeXVuaHVpIGN1aSB3cm90ZToKPiA+ID4gSGkgQ2hh
-cmxpZe+8jAo+ID4gPgo+ID4gPiBPbiBGcmksIEp1biAyMSwgMjAyNCBhdCAxMToxMOKAr0FNIENo
-YXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+IHdyb3RlOgo+ID4gPiA+Cj4gPiA+
-ID4gT24gRnJpLCBKdW4gMjEsIDIwMjQgYXQgMTA6MDg6MzlBTSArMDgwMCwgeXVuaHVpIGN1aSB3
-cm90ZToKPiA+ID4gPiA+IEhpIENoYXJsaWUsCj4gPiA+ID4gPgo+ID4gPiA+ID4gT24gRnJpLCBK
-dW4gMjEsIDIwMjQgYXQgOTowM+KAr0FNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2lu
-Yy5jb20+IHdyb3RlOgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBPbiBUdWUsIEp1biAxOCwgMjAy
-NCBhdCAwODowODo0MlBNICswODAwLCBZdW5odWkgQ3VpIHdyb3RlOgo+ID4gPiA+ID4gPiA+IElt
-cGxlbWVudCBzdXBwb3J0IGZvciBwYXJzaW5nICdtZW1tYXAnIGtlcm5lbCBjb21tYW5kIGxpbmUg
-cGFyYW1ldGVyLgo+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gVGhpcyBwYXRjaCBjb3ZlcnMg
-cGFyc2luZyBvZiB0aGUgZm9sbG93aW5nIHR3byBmb3JtYXRzIGZvciAnbWVtbWFwJwo+ID4gPiA+
-ID4gPiA+IHBhcmFtZXRlciB2YWx1ZXM6Cj4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiAtIG5u
-W0tNR11Ac3NbS01HXQo+ID4gPiA+ID4gPiA+IC0gbm5bS01HXSRzc1tLTUddCj4gPiA+ID4gPiA+
-ID4KPiA+ID4gPiA+ID4gPiAoW0tNR10gPSBLIE0gb3IgRyAoa2lsbywgbWVnYSwgZ2lnYSkpCj4g
-PiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiBUaGVzZSB0d28gYWxsb3dlZCBmb3JtYXRzIGZvciBw
-YXJhbWV0ZXIgdmFsdWUgYXJlIGFscmVhZHkgZG9jdW1lbnRlZAo+ID4gPiA+ID4gPiA+IGluIGZp
-bGUga2VybmVsLXBhcmFtZXRlcnMudHh0IGluIERvY3VtZW50YXRpb24vYWRtaW4tZ3VpZGUgZm9s
-ZGVyLgo+ID4gPiA+ID4gPiA+IFNvbWUgYXJjaGl0ZWN0dXJlcyBhbHJlYWR5IHN1cHBvcnQgdGhl
-bSwgYnV0IE1pcHMgZGlkIG5vdCBwcmlvciB0bwo+Cj4gSSBiZWxpZXZlIHlvdSBzaG91bGQgYWRk
-IFJJU0NWIHRvIHRoZSBsaXN0IG9mIHN1cHBvcnRlZCBhcmNoaXRlY3R1cmVzIGZvcgo+IHRoZXNl
-IG9wdGlvbnMuCgpPa2F5LCBJIHdpbGwgdXBkYXRlIGl0IG9uIHYyLgoKPgo+ID4gPiA+ID4gPiBD
-b3B5LXBhc3RlIGZyb20gYSBNaXBzIHBhdGNoPyBTaG91bGQgc2F5IHJpc2N2IDopCj4gPiA+ID4g
-PiA+Cj4gPiA+ID4gPiA+IEl0IGxvb2tzIGxpa2UgdGhpcyBjb2RlIGlzIGR1cGxpY2F0ZWQgZnJv
-bSB4dGVuc2EgYW5kIGlzIGVmZmVjdGl2ZWx5IHRoZQo+ID4gPiA+ID4gPiBzYW1lIGFzIG1pcHMu
-IENhbiB0aGlzIGNvZGUgYmUgcGxhY2VkIGluIGEgZ2VuZXJpYyBmaWxlIHNvIHRoYXQgdGhlIGNv
-ZGUKPiA+ID4gPiA+ID4gY2FuIGJlIHNoYXJlZCBiZXR3ZWVuIG1pcHMsIHJpc2N2LCBhbmQgeHRl
-bnNhIC0tIG1heWJlIGEgbmV3IGNvbmZpZyB0aGF0Cj4gPiA+ID4gPiA+IGdldHMgc2VsZWN0ZWQg
-YnkgbWlwcy9yaXNjdi94dGVuc2E/Cj4gPiA+ID4gPgo+ID4gPiA+ID4gWWVhaCwgdGhhdCdzIGFj
-dHVhbGx5IHdoYXQgSSB3YXMgdGhpbmtpbmcuIFdoaWNoIGdlbmVyYWwgZmlsZSBkbyB5b3UKPiA+
-ID4gPiA+IHRoaW5rIHdvdWxkIGJlIG1vcmUgc3VpdGFibGUgdG8gcHV0IGl0IGluPwo+ID4gPiA+
-Cj4gPiA+ID4gSSBhbSBub3Qgc3VyZSB0aGUgYmVzdCBwbGFjZSB0byBwdXQgaXQuIFdoYXQgZG8g
-eW91IHRoaW5rIGFib3V0Cj4gPiA+ID4gbW0vbWVtYmxvY2suYyBuZXh0IHRvIHRoZSAibWVtYmxv
-Y2siIGVhcmx5IHBhcmFtPwo+ID4gPgo+ID4gPiBJcyBpdCBpbmFwcHJvcHJpYXRlIHRvIHB1dCBp
-dCBpbiBtZW1ibG9jaz8gVGhlIGltcGxlbWVudGF0aW9uIG9mIG1pcHMKPiA+ID4gaXMgZGlmZmVy
-ZW50IGZyb20gdGhhdCBvZiB4dGVuc2EsIGFuZCBlYXJseV9tZW0gaXMgYWxzbyBkaXN0cmlidXRl
-ZCBpbgo+ID4gPiB2YXJpb3VzIGFyY2hzLCBzbyB3ZSBzdGlsbCBwdXQgbWVtbWFwIGluIHJpc2N2
-LywgYW5kIHRoZW4gSSB3aWxsCj4gPiA+IG1vZGlmeSB0aGUgY29tbWl0IGxvZy4KPiA+ID4gV2hh
-dCBkbyB5b3UgdGhpbms/Cj4gPgo+ID4gVGhlIG1pcHMgaW1wbGVtZW50YXRpb24gaXMgdmVyeSBj
-bG9zZSB0byBiZWluZyB0aGUgc2FtZSwgYnV0IEkgYW0gbm90Cj4gPiBzdXJlIGlmIHRoZSBkaWZm
-ZXJlbmNlcyB3b3VsZCBwcmV2ZW50IHN0YW5kYXJkaXphdGlvbi4geHRlbnNhIGFuZCBub3cKPiA+
-IHJpc2N2IHdvdWxkIGhhdmUgaWRlbnRpY2FsIGltcGxlbWVudGF0aW9ucyB0aG91Z2ggc28gYSBn
-ZW5lcmljIG1lbW1hcAo+ID4gaW1wbGVtZW50YXRpb24gY291bGQgYmUgb25seSBhcHBsaWVkIHRv
-IHRob3NlIHR3byBhcmNocy4KPgo+IFRoZSBtZW1tYXA9IGlzIGdlbmVyYWxseSBhIGhhY2sgdG8g
-d29ya2Fyb3VuZCBpc3N1ZXMgd2l0aCBob3cgZmlybXdhcmUKPiBkZXNjcmliZXMgbWVtb3J5IHRv
-IHRoZSBrZXJuZWwgc28gaW4gYSB3YXkgaXQgYmVsb25ncyB0byBhcmNoLyBjb2RlLgo+Cj4gbWlw
-cyBhbmQgeHRlbnNhIGFscmVhZHkgaGF2ZSBkaWZmZXJlbnQgdmlld3Mgb24gaG93IHRoaXMgc2hv
-dWxkIGJlIHRyZWF0ZWQsCj4gbm90IG1lbnRpb25pbmcgeDg2IHRoYXQgaGFuZGxlcyBtZW1tYXA9
-IG9uIGU4MjAgbGV2ZWwgcmF0aGVyIHRoYW4gd2l0aAo+IG1lbWJsb2NrLgoKT0ssIGxldCdzIGNv
-bnRpbnVlIHRvIHB1dCBpdCBpbiBhcmNoLy4KCj4KPiA+ID4gPiA+ID4gPiBkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9tbS9pbml0LmMgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+ID4gPiA+ID4gPiA+
-IGluZGV4IGUzNDA1ZTRiOTlhZi4uN2JlN2VjMzA5MmFkIDEwMDY0NAo+ID4gPiA+ID4gPiA+IC0t
-LSBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gPiA+ID4gPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9t
-bS9pbml0LmMKPiA+ID4gPiA+ID4gPiBAQCAtMjA4LDYgKzIwOCw1NiBAQCBzdGF0aWMgaW50IF9f
-aW5pdCBlYXJseV9tZW0oY2hhciAqcCkKPiA+ID4gPiA+ID4gPiAgfQo+ID4gPiA+ID4gPiA+ICBl
-YXJseV9wYXJhbSgibWVtIiwgZWFybHlfbWVtKTsKPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+
-ICtzdGF0aWMgdm9pZCBfX2luaXQgcGFyc2VfbWVtbWFwX29uZShjaGFyICpwKQo+ID4gPiA+ID4g
-PiA+ICt7Cj4gPiA+ID4gPiA+ID4gKyAgICAgY2hhciAqb2xkcDsKPiA+ID4gPiA+ID4gPiArICAg
-ICB1bnNpZ25lZCBsb25nIHN0YXJ0X2F0LCBtZW1fc2l6ZTsKPiA+ID4gPiA+ID4gPiArCj4gPiA+
-ID4gPiA+ID4gKyAgICAgaWYgKCFwKQo+ID4gPiA+ID4gPiA+ICsgICAgICAgICAgICAgcmV0dXJu
-Owo+ID4gPiA+ID4gPiA+ICsKPiA+ID4gPiA+ID4gPiArICAgICBvbGRwID0gcDsKPiA+ID4gPiA+
-ID4gPiArICAgICBtZW1fc2l6ZSA9IG1lbXBhcnNlKHAsICZwKTsKPiA+ID4gPiA+ID4gPiArICAg
-ICBpZiAocCA9PSBvbGRwKQo+ID4gPiA+ID4gPiA+ICsgICAgICAgICAgICAgcmV0dXJuOwo+ID4g
-PiA+ID4gPiA+ICsKPiA+ID4gPiA+ID4gPiArICAgICBzd2l0Y2ggKCpwKSB7Cj4gPiA+ID4gPiA+
-ID4gKyAgICAgY2FzZSAnQCc6Cj4gPiA+ID4gPiA+ID4gKyAgICAgICAgICAgICBzdGFydF9hdCA9
-IG1lbXBhcnNlKHAgKyAxLCAmcCk7Cj4gPiA+ID4gPiA+ID4gKyAgICAgICAgICAgICBtZW1ibG9j
-a19hZGQoc3RhcnRfYXQsIG1lbV9zaXplKTsKPiA+ID4gPiA+ID4gPiArICAgICAgICAgICAgIGJy
-ZWFrOwo+ID4gPiA+ID4gPiA+ICsKPiA+ID4gPiA+ID4gPiArICAgICBjYXNlICckJzoKPiA+ID4g
-PiA+ID4gPiArICAgICAgICAgICAgIHN0YXJ0X2F0ID0gbWVtcGFyc2UocCArIDEsICZwKTsKPiA+
-ID4gPiA+ID4gPiArICAgICAgICAgICAgIG1lbWJsb2NrX3Jlc2VydmUoc3RhcnRfYXQsIG1lbV9z
-aXplKTsKPgo+IFRoaXMgd2lsbCBhZGQgYSByZWdpb24gdG8gbWVtYmxvY2sucmVzZXJ2ZWQsIGJ1
-dCBpZiB0aGVyZSBpcyBubyBtZW1vcnkKPiB0aGVyZSB0aGlzIGluZm9ybWF0aW9uIHdvbid0IGJl
-IGF2YWlsYWJsZSBhZnRlciBib290LCBlLmcuIHRoZXJlIHdvbid0IGJlCj4gc3RydWN0IHBhZ2Vz
-IHdpdGggUEdfUmVzZXJ2ZWQgZm9yIHRoaXMgcmVnaW9uLgo+IElzIHRoaXMgeW91ciBpbnRlbnRp
-b24/CgpZZWFoLCB3ZSBzaG91bGQgdXNlIG1lbW1hcCB0byByZXNlcnZlIGluIHRoZSBrbm93biBt
-ZW1vcnkgcmFuZ2UuCgo+Cj4gPiA+ID4gPiA+ID4gKyAgICAgICAgICAgICBicmVhazsKPiA+ID4g
-PiA+ID4gPiArCj4gPiA+ID4gPiA+ID4gKyAgICAgY2FzZSAwOgo+ID4gPiA+ID4gPiA+ICsgICAg
-ICAgICAgICAgbWVtYmxvY2tfcmVzZXJ2ZShtZW1fc2l6ZSwgLW1lbV9zaXplKTsKPgo+IFRoaXMg
-Y29ycmVzcG9uZHMgdG8gdGhlIGNhc2UgbWVtbWFwPW5uW0tNR10gYW5kIGl0IGlzIG5vdCBkb2N1
-bWVudGVkIGluCj4ga2VybmVsLXBhcmFtZXRlcnMudHh0Lgo+Cj4gTm90IHN1cmUgaXQncyBuZWVk
-ZWQgYXQgYWxsIGFzIHRoZSBzYW1lIHJlc3VsdCBjYW4gYmUgYWNoaWV2ZWQgd2l0aAo+IG1lbW1h
-cD1ubltLTUddJDAuCgpPSywganVzdCB1c2UgY2FzZSAnJCcsIGJlY2F1c2UgbWVtYmxvY2tfcmVz
-ZXJ2ZSgpIGNvbnZlcnRzIHNpemUgdG8gdW5zaWduZWQuCgo+Cj4gPiA+ID4gPiA+ID4gKyAgICAg
-ICAgICAgICBicmVhazsKPiA+ID4gPiA+ID4gPiArCj4gPiA+ID4gPiA+ID4gKyAgICAgZGVmYXVs
-dDoKPiA+ID4gPiA+ID4gPiArICAgICAgICAgICAgIHByX3dhcm4oIlVucmVjb2duaXplZCBtZW1t
-YXAgc3ludGF4OiAlc1xuIiwgcCk7Cj4gPiA+ID4gPiA+ID4gKyAgICAgICAgICAgICBicmVhazsK
-PiA+ID4gPiA+ID4gPiArICAgICB9Cj4gPiA+ID4gPiA+ID4gK30KPiA+ID4gPiA+ID4gPiArCj4g
-PiA+ID4gPiA+ID4gK3N0YXRpYyBpbnQgX19pbml0IHBhcnNlX21lbW1hcF9vcHQoY2hhciAqc3Ry
-KQo+ID4gPiA+ID4gPiA+ICt7Cj4gPiA+ID4gPiA+ID4gKyAgICAgd2hpbGUgKHN0cikgewo+ID4g
-PiA+ID4gPiA+ICsgICAgICAgICAgICAgY2hhciAqayA9IHN0cmNocihzdHIsICcsJyk7Cj4gPiA+
-ID4gPiA+ID4gKwo+ID4gPiA+ID4gPiA+ICsgICAgICAgICAgICAgaWYgKGspCj4gPiA+ID4gPiA+
-ID4gKyAgICAgICAgICAgICAgICAgICAgICprKysgPSAwOwo+ID4gPiA+ID4gPiA+ICsKPiA+ID4g
-PiA+ID4gPiArICAgICAgICAgICAgIHBhcnNlX21lbW1hcF9vbmUoc3RyKTsKPiA+ID4gPiA+ID4g
-PiArICAgICAgICAgICAgIHN0ciA9IGs7Cj4gPiA+ID4gPiA+ID4gKyAgICAgfQo+ID4gPiA+ID4g
-PiA+ICsKPiA+ID4gPiA+ID4gPiArICAgICByZXR1cm4gMDsKPiA+ID4gPiA+ID4gPiArfQo+ID4g
-PiA+ID4gPiA+ICtlYXJseV9wYXJhbSgibWVtbWFwIiwgcGFyc2VfbWVtbWFwX29wdCk7Cj4gPiA+
-ID4gPiA+ID4gKwo+ID4gPiA+ID4gPiA+ICBzdGF0aWMgdm9pZCBfX2luaXQgc2V0dXBfYm9vdG1l
-bSh2b2lkKQo+ID4gPiA+ID4gPiA+ICB7Cj4gPiA+ID4gPiA+ID4gICAgICAgcGh5c19hZGRyX3Qg
-dm1saW51eF9lbmQgPSBfX3BhX3N5bWJvbCgmX2VuZCk7Cj4gPiA+ID4gPiA+ID4gLS0KPiA+ID4g
-PiA+ID4gPiAyLjIwLjEKPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4g
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiA+ID4gPiA+
-ID4gPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiA+ID4gPiA+ID4gPiBsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCj4gPiA+ID4gPiA+ID4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo+ID4gPiA+ID4KPiA+ID4gPiA+IFRoYW5r
-cywKPiA+ID4gPiA+IFl1bmh1aQo+ID4gPgo+ID4gPiBUaGFua3MsCj4gPiA+IFl1bmh1aQo+Cj4g
-LS0KPiBTaW5jZXJlbHkgeW91cnMsCj4gTWlrZS4KClRoYW5rcywKWXVuaHVpCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+On 22/06/2024 13:42, Stuart Menefy wrote:
+> The RISC-V kernel already has checks to ensure that memory which would
+> lie outside of the linear mapping is not used. However those checks
+> use memory_limit, which is used to implement the mem= kernel command
+> line option (to limit the total amount of memory, not its address
+> range). When memory is made up of two or more non-contiguous memory
+> banks this check is incorrect.
+>
+> Two changes are made here:
+>   - add a call in setup_bootmem() to memblock_cap_memory_range() which
+>     will cause any memory which falls outside the linear mapping to be
+>     removed from the memory regions.
+>   - remove the check in create_linear_mapping_page_table() which was
+>     intended to remove memory which is outside the liner mapping based
+>     on memory_limit, as it is no longer needed. Note a check for
+>     mapping more memory than memory_limit (to implement mem=) is
+>     unnecessary because of the existing call to
+>     memblock_enforce_memory_limit().
+>
+> This issue was seen when booting on a SV39 platform with two memory
+> banks:
+>    0x00,80000000 1GiB
+>    0x20,00000000 32GiB
+> This memory range is 158GiB from top to bottom, but the linear mapping
+> is limited to 128GiB, so the lower block of RAM will be mapped at
+> PAGE_OFFSET, and the upper block straddles the top of the linear
+> mapping.
+>
+> This causes the following Oops:
+> [    0.000000] Linux version 6.10.0-rc2-gd3b8dd5b51dd-dirty (stuart.menefy@codasip.com) (riscv64-codasip-linux-gcc (GCC) 13.2.0, GNU ld (GNU Binutils) 2.41.0.20231213) #20 SMP Sat Jun 22 11:34:22 BST 2024
+> [    0.000000] memblock_add: [0x0000000080000000-0x00000000bfffffff] early_init_dt_add_memory_arch+0x4a/0x52
+> [    0.000000] memblock_add: [0x0000002000000000-0x00000027ffffffff] early_init_dt_add_memory_arch+0x4a/0x52
+> ...
+> [    0.000000] memblock_alloc_try_nid: 23724 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x1e/0x48
+> [    0.000000] memblock_reserve: [0x00000027ffff5350-0x00000027ffffaffb] memblock_alloc_range_nid+0xb8/0x132
+> [    0.000000] Unable to handle kernel paging request at virtual address fffffffe7fff5350
+> [    0.000000] Oops [#1]
+> [    0.000000] Modules linked in:
+> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.10.0-rc2-gd3b8dd5b51dd-dirty #20
+> [    0.000000] Hardware name: codasip,a70x (DT)
+> [    0.000000] epc : __memset+0x8c/0x104
+> [    0.000000]  ra : memblock_alloc_try_nid+0x74/0x84
+> [    0.000000] epc : ffffffff805e88c8 ra : ffffffff806148f6 sp : ffffffff80e03d50
+> [    0.000000]  gp : ffffffff80ec4158 tp : ffffffff80e0bec0 t0 : fffffffe7fff52f8
+> [    0.000000]  t1 : 00000027ffffb000 t2 : 5f6b636f6c626d65 s0 : ffffffff80e03d90
+> [    0.000000]  s1 : 0000000000005cac a0 : fffffffe7fff5350 a1 : 0000000000000000
+> [    0.000000]  a2 : 0000000000005cac a3 : fffffffe7fffaff8 a4 : 000000000000002c
+> [    0.000000]  a5 : ffffffff805e88c8 a6 : 0000000000005cac a7 : 0000000000000030
+> [    0.000000]  s2 : fffffffe7fff5350 s3 : ffffffffffffffff s4 : 0000000000000000
+> [    0.000000]  s5 : ffffffff8062347e s6 : 0000000000000000 s7 : 0000000000000001
+> [    0.000000]  s8 : 0000000000002000 s9 : 00000000800226d0 s10: 0000000000000000
+> [    0.000000]  s11: 0000000000000000 t3 : ffffffff8080a928 t4 : ffffffff8080a928
+> [    0.000000]  t5 : ffffffff8080a928 t6 : ffffffff8080a940
+> [    0.000000] status: 0000000200000100 badaddr: fffffffe7fff5350 cause: 000000000000000f
+> [    0.000000] [<ffffffff805e88c8>] __memset+0x8c/0x104
+> [    0.000000] [<ffffffff8062349c>] early_init_dt_alloc_memory_arch+0x1e/0x48
+> [    0.000000] [<ffffffff8043e892>] __unflatten_device_tree+0x52/0x114
+> [    0.000000] [<ffffffff8062441e>] unflatten_device_tree+0x9e/0xb8
+> [    0.000000] [<ffffffff806046fe>] setup_arch+0xd4/0x5bc
+> [    0.000000] [<ffffffff806007aa>] start_kernel+0x76/0x81a
+> [    0.000000] Code: b823 02b2 bc23 02b2 b023 04b2 b423 04b2 b823 04b2 (bc23) 04b2
+> [    0.000000] ---[ end trace 0000000000000000 ]---
+> [    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+> [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+>
+> The problem is that memblock (unaware that some physical memory cannot
+> be used) has allocated memory from the top of memory but which is
+> outside the linear mapping region.
+>
+> Signed-off-by: Stuart Menefy <stuart.menefy@codasip.com>
+> Fixes: c99127c45248 ("riscv: Make sure the linear mapping does not use the kernel mapping")
+> Reviewed-by: David McKay <david.mckay@codasip.com>
+>
+> ---
+>   arch/riscv/mm/init.c | 15 +++++++++++----
+>   1 file changed, 11 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index e3405e4b99af..7e25606f858a 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -233,8 +233,6 @@ static void __init setup_bootmem(void)
+>   	 */
+>   	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
+>   
+> -	phys_ram_end = memblock_end_of_DRAM();
+> -
+>   	/*
+>   	 * Make sure we align the start of the memory on a PMD boundary so that
+>   	 * at worst, we map the linear mapping with PMD mappings.
+> @@ -249,6 +247,16 @@ static void __init setup_bootmem(void)
+>   	if (IS_ENABLED(CONFIG_64BIT) && IS_ENABLED(CONFIG_MMU))
+>   		kernel_map.va_pa_offset = PAGE_OFFSET - phys_ram_base;
+>   
+> +	/*
+> +	 * The size of the linear page mapping may restrict the amount of
+> +	 * usable RAM.
+> +	 */
+> +	if (IS_ENABLED(CONFIG_64BIT)) {
+> +		max_mapped_addr = __pa(PAGE_OFFSET) + KERN_VIRT_SIZE;
+
+
+This is only true for sv39 once the following patch lands 
+https://lore.kernel.org/linux-riscv/20240514133614.87813-1-alexghiti@rivosinc.com/
+
+Otherwise, sv39 is "weirdly" restricted to 124GB. You mention in the 
+changelog that the linear mapping size is limited to 128GB, does that 
+mean you tested your patch on top this one ^? If so, would you mind 
+adding a Tested-by to it? Otherwise, would you mind testing on top of it 
+:) ?
+
+I'll see with Palmer, but maybe we can't take both patches to -fixes.
+
+You can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
+
+
+> +		memblock_cap_memory_range(phys_ram_base,
+> +					  max_mapped_addr - phys_ram_base);
+> +	}
+> +
+>   	/*
+>   	 * Reserve physical address space that would be mapped to virtual
+>   	 * addresses greater than (void *)(-PAGE_SIZE) because:
+> @@ -265,6 +273,7 @@ static void __init setup_bootmem(void)
+>   		memblock_reserve(max_mapped_addr, (phys_addr_t)-max_mapped_addr);
+>   	}
+>   
+> +	phys_ram_end = memblock_end_of_DRAM();
+>   	min_low_pfn = PFN_UP(phys_ram_base);
+>   	max_low_pfn = max_pfn = PFN_DOWN(phys_ram_end);
+>   	high_memory = (void *)(__va(PFN_PHYS(max_low_pfn)));
+> @@ -1289,8 +1298,6 @@ static void __init create_linear_mapping_page_table(void)
+>   		if (start <= __pa(PAGE_OFFSET) &&
+>   		    __pa(PAGE_OFFSET) < end)
+>   			start = __pa(PAGE_OFFSET);
+> -		if (end >= __pa(PAGE_OFFSET) + memory_limit)
+> -			end = __pa(PAGE_OFFSET) + memory_limit;
+>   
+>   		create_linear_mapping_range(start, end, 0);
+>   	}
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
