@@ -4,53 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C592BC2BD05
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 11:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C00C2BD05
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2024 11:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xUg5g9qZJXWhzeRMoWcRu6aWsYr3sAZwJumEWQji7iM=; b=O9oCIdH5nkU60X
-	mmC/lWnSjbw02/9d80A6i5XvO1mFEXaQFs/ODpU/eHsiUA2dYFK4dKgXRx4vTiJRW0/RZkP/XtTvJ
-	vJUAd88At1JMUG6lKAXtwvkSqWhnDPSlGbdoT0wgh5g1tb5mgljr1AFemOmq5lUs1lKt4yfriTpf4
-	uORQuk/iW0Rgry/TeLM879aSGXSSCjr2dTcrRpZI+Hd7191pvZ0XHW4M+LHsyOAfAbZv71uzaADj2
-	r3dY54bb4rFkLEymae/C1BsoB2u7GBUAkdhUSqCOiJmiIR1mTolxb991OQ6h+asVQf0r6o+RiZhYA
-	LvqSZT3Gn4mhesoe/IzQ==;
+	List-Owner; bh=ScoMvpB+VNq/2HWqBc13+hmSnYHzoBBX86CEUemIz44=; b=NH6okVjhMPuKZU
+	dm23Rn7S1M3SDizfXChFra8mzbtJG1bQKzkldIbXMybB6KF6G97e4Vruow++4aqCjR0HDelzKSDFr
+	Gwqm0epzDz9/Sr6NOjwzrfgmO0Y3n0X6+B67AupS44C5rXET1CrVcxpZPN10RRarfre1e0tQV3j1W
+	hMUED4eBd/0u0eJKG8nIBx30dVG9XqV8PNaKrrtPD9EF48wi4pm1F20J9FeDqfIX2hE+rVnxY9mAI
+	QULs2rPH5T7AN5b+5EBdSeBssoJS5R7T4z5IRn5sayXUyoeoBL76cZc7KsQcRgeI1z3N17JQoLqrM
+	h6liVSZ5lrFWtowv2rmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLhwg-0000000GcYI-3l1w;
-	Mon, 24 Jun 2024 11:33:15 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1sLhz1-0000000GdDg-2ukL;
+	Mon, 24 Jun 2024 11:35:39 +0000
+Received: from asrmicro.com ([210.13.118.86] helo=spam.asrmicro.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLhwd-0000000GcWv-2IZo
+	id 1sLhyy-0000000GdCr-0tDH
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jun 2024 11:33:13 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E1C4CC0005;
-	Mon, 24 Jun 2024 11:33:01 +0000 (UTC)
-Message-ID: <9bd955f3-7dbf-4d2a-8d05-82eb41083371@ghiti.fr>
-Date: Mon, 24 Jun 2024 13:32:54 +0200
+	Mon, 24 Jun 2024 11:35:38 +0000
+Received: from exch01.asrmicro.com (exch01.asrmicro.com [10.1.24.121])
+	by spam.asrmicro.com with ESMTPS id 45OBZQ5d092315
+	(version=TLSv1 cipher=ECDHE-RSA-AES256-SHA bits=256 verify=FAIL);
+	Mon, 24 Jun 2024 19:35:26 +0800 (GMT-8)
+	(envelope-from zhengyan@asrmicro.com)
+Received: from localhost (10.1.170.252) by exch01.asrmicro.com (10.1.24.121)
+ with Microsoft SMTP Server (TLS) id 15.0.847.32; Mon, 24 Jun 2024 19:35:29
+ +0800
+From: zhengyan <zhengyan@asrmicro.com>
+To: <zhengyan@asrmicro.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <maz@kernel.org>, <namcao@linutronix.de>, <paul.walmsley@sifive.com>,
+        <qiaozhou@asrmicro.com>, <samuel.holland@sifive.com>,
+        <tglx@linutronix.de>
+Subject: [PATCH v2] irqchip/sifive-plic: ensure interrupt is enable before EOI
+Date: Mon, 24 Jun 2024 11:35:23 +0000
+Message-ID: <20240624113523.23-1-zhengyan@asrmicro.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <69174a28eff44ad1b069887aa514971e@exch03.asrmicro.com>
+References: <69174a28eff44ad1b069887aa514971e@exch03.asrmicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Fix linear mapping checks for non-contiguous
- memory regions
-Content-Language: en-US
-To: Stuart Menefy <stuart.menefy@codasip.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- David McKay <david.mckay@codasip.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20240622114217.2158495-1-stuart.menefy@codasip.com>
- <bdfbed9b-ea04-4415-8416-d6e9d0a643a3@ghiti.fr>
- <CALEZRWE4PD2zADF1sVj++XkUan14SfDdugjse695gPqSorLgag@mail.gmail.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CALEZRWE4PD2zADF1sVj++XkUan14SfDdugjse695gPqSorLgag@mail.gmail.com>
-X-GND-Sasl: alex@ghiti.fr
+X-Originating-IP: [10.1.170.252]
+X-DNSRBL: 
+X-MAIL: spam.asrmicro.com 45OBZQ5d092315
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240624_043311_873404_C9F1E65C 
-X-CRM114-Status: GOOD (  39.66  )
+X-CRM114-CacheID: sfid-20240624_043537_024542_95EEFF98 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,163 +65,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjQvMDYvMjAyNCAxMzoyMCwgU3R1YXJ0IE1lbmVmeSB3cm90ZToKPiBPbiBNb24sIEp1biAy
-NCwgMjAyNCBhdCA4OjI54oCvQU0gQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cm90
-ZToKPj4KPj4gT24gMjIvMDYvMjAyNCAxMzo0MiwgU3R1YXJ0IE1lbmVmeSB3cm90ZToKPj4+IFRo
-ZSBSSVNDLVYga2VybmVsIGFscmVhZHkgaGFzIGNoZWNrcyB0byBlbnN1cmUgdGhhdCBtZW1vcnkg
-d2hpY2ggd291bGQKPj4+IGxpZSBvdXRzaWRlIG9mIHRoZSBsaW5lYXIgbWFwcGluZyBpcyBub3Qg
-dXNlZC4gSG93ZXZlciB0aG9zZSBjaGVja3MKPj4+IHVzZSBtZW1vcnlfbGltaXQsIHdoaWNoIGlz
-IHVzZWQgdG8gaW1wbGVtZW50IHRoZSBtZW09IGtlcm5lbCBjb21tYW5kCj4+PiBsaW5lIG9wdGlv
-biAodG8gbGltaXQgdGhlIHRvdGFsIGFtb3VudCBvZiBtZW1vcnksIG5vdCBpdHMgYWRkcmVzcwo+
-Pj4gcmFuZ2UpLiBXaGVuIG1lbW9yeSBpcyBtYWRlIHVwIG9mIHR3byBvciBtb3JlIG5vbi1jb250
-aWd1b3VzIG1lbW9yeQo+Pj4gYmFua3MgdGhpcyBjaGVjayBpcyBpbmNvcnJlY3QuCj4+Pgo+Pj4g
-VHdvIGNoYW5nZXMgYXJlIG1hZGUgaGVyZToKPj4+ICAgIC0gYWRkIGEgY2FsbCBpbiBzZXR1cF9i
-b290bWVtKCkgdG8gbWVtYmxvY2tfY2FwX21lbW9yeV9yYW5nZSgpIHdoaWNoCj4+PiAgICAgIHdp
-bGwgY2F1c2UgYW55IG1lbW9yeSB3aGljaCBmYWxscyBvdXRzaWRlIHRoZSBsaW5lYXIgbWFwcGlu
-ZyB0byBiZQo+Pj4gICAgICByZW1vdmVkIGZyb20gdGhlIG1lbW9yeSByZWdpb25zLgo+Pj4gICAg
-LSByZW1vdmUgdGhlIGNoZWNrIGluIGNyZWF0ZV9saW5lYXJfbWFwcGluZ19wYWdlX3RhYmxlKCkg
-d2hpY2ggd2FzCj4+PiAgICAgIGludGVuZGVkIHRvIHJlbW92ZSBtZW1vcnkgd2hpY2ggaXMgb3V0
-c2lkZSB0aGUgbGluZXIgbWFwcGluZyBiYXNlZAo+Pj4gICAgICBvbiBtZW1vcnlfbGltaXQsIGFz
-IGl0IGlzIG5vIGxvbmdlciBuZWVkZWQuIE5vdGUgYSBjaGVjayBmb3IKPj4+ICAgICAgbWFwcGlu
-ZyBtb3JlIG1lbW9yeSB0aGFuIG1lbW9yeV9saW1pdCAodG8gaW1wbGVtZW50IG1lbT0pIGlzCj4+
-PiAgICAgIHVubmVjZXNzYXJ5IGJlY2F1c2Ugb2YgdGhlIGV4aXN0aW5nIGNhbGwgdG8KPj4+ICAg
-ICAgbWVtYmxvY2tfZW5mb3JjZV9tZW1vcnlfbGltaXQoKS4KPj4+Cj4+PiBUaGlzIGlzc3VlIHdh
-cyBzZWVuIHdoZW4gYm9vdGluZyBvbiBhIFNWMzkgcGxhdGZvcm0gd2l0aCB0d28gbWVtb3J5Cj4+
-PiBiYW5rczoKPj4+ICAgICAweDAwLDgwMDAwMDAwIDFHaUIKPj4+ICAgICAweDIwLDAwMDAwMDAw
-IDMyR2lCCj4+PiBUaGlzIG1lbW9yeSByYW5nZSBpcyAxNThHaUIgZnJvbSB0b3AgdG8gYm90dG9t
-LCBidXQgdGhlIGxpbmVhciBtYXBwaW5nCj4+PiBpcyBsaW1pdGVkIHRvIDEyOEdpQiwgc28gdGhl
-IGxvd2VyIGJsb2NrIG9mIFJBTSB3aWxsIGJlIG1hcHBlZCBhdAo+Pj4gUEFHRV9PRkZTRVQsIGFu
-ZCB0aGUgdXBwZXIgYmxvY2sgc3RyYWRkbGVzIHRoZSB0b3Agb2YgdGhlIGxpbmVhcgo+Pj4gbWFw
-cGluZy4KPj4+Cj4+PiBUaGlzIGNhdXNlcyB0aGUgZm9sbG93aW5nIE9vcHM6Cj4+PiBbICAgIDAu
-MDAwMDAwXSBMaW51eCB2ZXJzaW9uIDYuMTAuMC1yYzItZ2QzYjhkZDViNTFkZC1kaXJ0eSAoc3R1
-YXJ0Lm1lbmVmeUBjb2Rhc2lwLmNvbSkgKHJpc2N2NjQtY29kYXNpcC1saW51eC1nY2MgKEdDQykg
-MTMuMi4wLCBHTlUgbGQgKEdOVSBCaW51dGlscykgMi40MS4wLjIwMjMxMjEzKSAjMjAgU01QIFNh
-dCBKdW4gMjIgMTE6MzQ6MjIgQlNUIDIwMjQKPj4+IFsgICAgMC4wMDAwMDBdIG1lbWJsb2NrX2Fk
-ZDogWzB4MDAwMDAwMDA4MDAwMDAwMC0weDAwMDAwMDAwYmZmZmZmZmZdIGVhcmx5X2luaXRfZHRf
-YWRkX21lbW9yeV9hcmNoKzB4NGEvMHg1Mgo+Pj4gWyAgICAwLjAwMDAwMF0gbWVtYmxvY2tfYWRk
-OiBbMHgwMDAwMDAyMDAwMDAwMDAwLTB4MDAwMDAwMjdmZmZmZmZmZl0gZWFybHlfaW5pdF9kdF9h
-ZGRfbWVtb3J5X2FyY2grMHg0YS8weDUyCj4+PiAuLi4KPj4+IFsgICAgMC4wMDAwMDBdIG1lbWJs
-b2NrX2FsbG9jX3RyeV9uaWQ6IDIzNzI0IGJ5dGVzIGFsaWduPTB4OCBuaWQ9LTEgZnJvbT0weDAw
-MDAwMDAwMDAwMDAwMDAgbWF4X2FkZHI9MHgwMDAwMDAwMDAwMDAwMDAwIGVhcmx5X2luaXRfZHRf
-YWxsb2NfbWVtb3J5X2FyY2grMHgxZS8weDQ4Cj4+PiBbICAgIDAuMDAwMDAwXSBtZW1ibG9ja19y
-ZXNlcnZlOiBbMHgwMDAwMDAyN2ZmZmY1MzUwLTB4MDAwMDAwMjdmZmZmYWZmYl0gbWVtYmxvY2tf
-YWxsb2NfcmFuZ2VfbmlkKzB4YjgvMHgxMzIKPj4+IFsgICAgMC4wMDAwMDBdIFVuYWJsZSB0byBo
-YW5kbGUga2VybmVsIHBhZ2luZyByZXF1ZXN0IGF0IHZpcnR1YWwgYWRkcmVzcyBmZmZmZmZmZTdm
-ZmY1MzUwCj4+PiBbICAgIDAuMDAwMDAwXSBPb3BzIFsjMV0KPj4+IFsgICAgMC4wMDAwMDBdIE1v
-ZHVsZXMgbGlua2VkIGluOgo+Pj4gWyAgICAwLjAwMDAwMF0gQ1BVOiAwIFBJRDogMCBDb21tOiBz
-d2FwcGVyIE5vdCB0YWludGVkIDYuMTAuMC1yYzItZ2QzYjhkZDViNTFkZC1kaXJ0eSAjMjAKPj4+
-IFsgICAgMC4wMDAwMDBdIEhhcmR3YXJlIG5hbWU6IGNvZGFzaXAsYTcweCAoRFQpCj4+PiBbICAg
-IDAuMDAwMDAwXSBlcGMgOiBfX21lbXNldCsweDhjLzB4MTA0Cj4+PiBbICAgIDAuMDAwMDAwXSAg
-cmEgOiBtZW1ibG9ja19hbGxvY190cnlfbmlkKzB4NzQvMHg4NAo+Pj4gWyAgICAwLjAwMDAwMF0g
-ZXBjIDogZmZmZmZmZmY4MDVlODhjOCByYSA6IGZmZmZmZmZmODA2MTQ4ZjYgc3AgOiBmZmZmZmZm
-ZjgwZTAzZDUwCj4+PiBbICAgIDAuMDAwMDAwXSAgZ3AgOiBmZmZmZmZmZjgwZWM0MTU4IHRwIDog
-ZmZmZmZmZmY4MGUwYmVjMCB0MCA6IGZmZmZmZmZlN2ZmZjUyZjgKPj4+IFsgICAgMC4wMDAwMDBd
-ICB0MSA6IDAwMDAwMDI3ZmZmZmIwMDAgdDIgOiA1ZjZiNjM2ZjZjNjI2ZDY1IHMwIDogZmZmZmZm
-ZmY4MGUwM2Q5MAo+Pj4gWyAgICAwLjAwMDAwMF0gIHMxIDogMDAwMDAwMDAwMDAwNWNhYyBhMCA6
-IGZmZmZmZmZlN2ZmZjUzNTAgYTEgOiAwMDAwMDAwMDAwMDAwMDAwCj4+PiBbICAgIDAuMDAwMDAw
-XSAgYTIgOiAwMDAwMDAwMDAwMDA1Y2FjIGEzIDogZmZmZmZmZmU3ZmZmYWZmOCBhNCA6IDAwMDAw
-MDAwMDAwMDAwMmMKPj4+IFsgICAgMC4wMDAwMDBdICBhNSA6IGZmZmZmZmZmODA1ZTg4YzggYTYg
-OiAwMDAwMDAwMDAwMDA1Y2FjIGE3IDogMDAwMDAwMDAwMDAwMDAzMAo+Pj4gWyAgICAwLjAwMDAw
-MF0gIHMyIDogZmZmZmZmZmU3ZmZmNTM1MCBzMyA6IGZmZmZmZmZmZmZmZmZmZmYgczQgOiAwMDAw
-MDAwMDAwMDAwMDAwCj4+PiBbICAgIDAuMDAwMDAwXSAgczUgOiBmZmZmZmZmZjgwNjIzNDdlIHM2
-IDogMDAwMDAwMDAwMDAwMDAwMCBzNyA6IDAwMDAwMDAwMDAwMDAwMDEKPj4+IFsgICAgMC4wMDAw
-MDBdICBzOCA6IDAwMDAwMDAwMDAwMDIwMDAgczkgOiAwMDAwMDAwMDgwMDIyNmQwIHMxMDogMDAw
-MDAwMDAwMDAwMDAwMAo+Pj4gWyAgICAwLjAwMDAwMF0gIHMxMTogMDAwMDAwMDAwMDAwMDAwMCB0
-MyA6IGZmZmZmZmZmODA4MGE5MjggdDQgOiBmZmZmZmZmZjgwODBhOTI4Cj4+PiBbICAgIDAuMDAw
-MDAwXSAgdDUgOiBmZmZmZmZmZjgwODBhOTI4IHQ2IDogZmZmZmZmZmY4MDgwYTk0MAo+Pj4gWyAg
-ICAwLjAwMDAwMF0gc3RhdHVzOiAwMDAwMDAwMjAwMDAwMTAwIGJhZGFkZHI6IGZmZmZmZmZlN2Zm
-ZjUzNTAgY2F1c2U6IDAwMDAwMDAwMDAwMDAwMGYKPj4+IFsgICAgMC4wMDAwMDBdIFs8ZmZmZmZm
-ZmY4MDVlODhjOD5dIF9fbWVtc2V0KzB4OGMvMHgxMDQKPj4+IFsgICAgMC4wMDAwMDBdIFs8ZmZm
-ZmZmZmY4MDYyMzQ5Yz5dIGVhcmx5X2luaXRfZHRfYWxsb2NfbWVtb3J5X2FyY2grMHgxZS8weDQ4
-Cj4+PiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODA0M2U4OTI+XSBfX3VuZmxhdHRlbl9kZXZp
-Y2VfdHJlZSsweDUyLzB4MTE0Cj4+PiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODA2MjQ0MWU+
-XSB1bmZsYXR0ZW5fZGV2aWNlX3RyZWUrMHg5ZS8weGI4Cj4+PiBbICAgIDAuMDAwMDAwXSBbPGZm
-ZmZmZmZmODA2MDQ2ZmU+XSBzZXR1cF9hcmNoKzB4ZDQvMHg1YmMKPj4+IFsgICAgMC4wMDAwMDBd
-IFs8ZmZmZmZmZmY4MDYwMDdhYT5dIHN0YXJ0X2tlcm5lbCsweDc2LzB4ODFhCj4+PiBbICAgIDAu
-MDAwMDAwXSBDb2RlOiBiODIzIDAyYjIgYmMyMyAwMmIyIGIwMjMgMDRiMiBiNDIzIDA0YjIgYjgy
-MyAwNGIyIChiYzIzKSAwNGIyCj4+PiBbICAgIDAuMDAwMDAwXSAtLS1bIGVuZCB0cmFjZSAwMDAw
-MDAwMDAwMDAwMDAwIF0tLS0KPj4+IFsgICAgMC4wMDAwMDBdIEtlcm5lbCBwYW5pYyAtIG5vdCBz
-eW5jaW5nOiBBdHRlbXB0ZWQgdG8ga2lsbCB0aGUgaWRsZSB0YXNrIQo+Pj4gWyAgICAwLjAwMDAw
-MF0gLS0tWyBlbmQgS2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6IEF0dGVtcHRlZCB0byBraWxs
-IHRoZSBpZGxlIHRhc2shIF0tLS0KPj4+Cj4+PiBUaGUgcHJvYmxlbSBpcyB0aGF0IG1lbWJsb2Nr
-ICh1bmF3YXJlIHRoYXQgc29tZSBwaHlzaWNhbCBtZW1vcnkgY2Fubm90Cj4+PiBiZSB1c2VkKSBo
-YXMgYWxsb2NhdGVkIG1lbW9yeSBmcm9tIHRoZSB0b3Agb2YgbWVtb3J5IGJ1dCB3aGljaCBpcwo+
-Pj4gb3V0c2lkZSB0aGUgbGluZWFyIG1hcHBpbmcgcmVnaW9uLgo+Pj4KPj4+IFNpZ25lZC1vZmYt
-Ynk6IFN0dWFydCBNZW5lZnkgPHN0dWFydC5tZW5lZnlAY29kYXNpcC5jb20+Cj4+PiBGaXhlczog
-Yzk5MTI3YzQ1MjQ4ICgicmlzY3Y6IE1ha2Ugc3VyZSB0aGUgbGluZWFyIG1hcHBpbmcgZG9lcyBu
-b3QgdXNlIHRoZSBrZXJuZWwgbWFwcGluZyIpCj4+PiBSZXZpZXdlZC1ieTogRGF2aWQgTWNLYXkg
-PGRhdmlkLm1ja2F5QGNvZGFzaXAuY29tPgo+Pj4KPj4+IC0tLQo+Pj4gICAgYXJjaC9yaXNjdi9t
-bS9pbml0LmMgfCAxNSArKysrKysrKysrKy0tLS0KPj4+ICAgIDEgZmlsZSBjaGFuZ2VkLCAxMSBp
-bnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L21tL2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4+PiBpbmRleCBlMzQwNWU0Yjk5
-YWYuLjdlMjU2MDZmODU4YSAxMDA2NDQKPj4+IC0tLSBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4+
-PiArKysgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+Pj4gQEAgLTIzMyw4ICsyMzMsNiBAQCBzdGF0
-aWMgdm9pZCBfX2luaXQgc2V0dXBfYm9vdG1lbSh2b2lkKQo+Pj4gICAgICAgICAqLwo+Pj4gICAg
-ICAgIG1lbWJsb2NrX3Jlc2VydmUodm1saW51eF9zdGFydCwgdm1saW51eF9lbmQgLSB2bWxpbnV4
-X3N0YXJ0KTsKPj4+Cj4+PiAtICAgICBwaHlzX3JhbV9lbmQgPSBtZW1ibG9ja19lbmRfb2ZfRFJB
-TSgpOwo+Pj4gLQo+Pj4gICAgICAgIC8qCj4+PiAgICAgICAgICogTWFrZSBzdXJlIHdlIGFsaWdu
-IHRoZSBzdGFydCBvZiB0aGUgbWVtb3J5IG9uIGEgUE1EIGJvdW5kYXJ5IHNvIHRoYXQKPj4+ICAg
-ICAgICAgKiBhdCB3b3JzdCwgd2UgbWFwIHRoZSBsaW5lYXIgbWFwcGluZyB3aXRoIFBNRCBtYXBw
-aW5ncy4KPj4+IEBAIC0yNDksNiArMjQ3LDE2IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBzZXR1cF9i
-b290bWVtKHZvaWQpCj4+PiAgICAgICAgaWYgKElTX0VOQUJMRUQoQ09ORklHXzY0QklUKSAmJiBJ
-U19FTkFCTEVEKENPTkZJR19NTVUpKQo+Pj4gICAgICAgICAgICAgICAga2VybmVsX21hcC52YV9w
-YV9vZmZzZXQgPSBQQUdFX09GRlNFVCAtIHBoeXNfcmFtX2Jhc2U7Cj4+Pgo+Pj4gKyAgICAgLyoK
-Pj4+ICsgICAgICAqIFRoZSBzaXplIG9mIHRoZSBsaW5lYXIgcGFnZSBtYXBwaW5nIG1heSByZXN0
-cmljdCB0aGUgYW1vdW50IG9mCj4+PiArICAgICAgKiB1c2FibGUgUkFNLgo+Pj4gKyAgICAgICov
-Cj4+PiArICAgICBpZiAoSVNfRU5BQkxFRChDT05GSUdfNjRCSVQpKSB7Cj4+PiArICAgICAgICAg
-ICAgIG1heF9tYXBwZWRfYWRkciA9IF9fcGEoUEFHRV9PRkZTRVQpICsgS0VSTl9WSVJUX1NJWkU7
-Cj4+Cj4+IFRoaXMgaXMgb25seSB0cnVlIGZvciBzdjM5IG9uY2UgdGhlIGZvbGxvd2luZyBwYXRj
-aCBsYW5kcwo+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI0MDUxNDEz
-MzYxNC44NzgxMy0xLWFsZXhnaGl0aUByaXZvc2luYy5jb20vCj4gSGkgQWxleAo+Cj4gSSd2ZSBz
-ZWVuIHRoaXMgcHJvYmxlbSB3aGV0aGVyIHlvdXIgcGF0Y2ggaGFzIGJlZW4gYXBwbGllZCBvciBu
-b3QuCgoKU3VyZSwgSSBqdXN0IG1lYW50IHRoZSB1c2Ugb2YgS0VSTl9WSVJUX1NJWkUgYWJvdmUs
-IHNvcnJ5IGl0IHdhcyBub3QgY2xlYXIuCgoKPgo+PiBPdGhlcndpc2UsIHN2MzkgaXMgIndlaXJk
-bHkiIHJlc3RyaWN0ZWQgdG8gMTI0R0IuIFlvdSBtZW50aW9uIGluIHRoZQo+PiBjaGFuZ2Vsb2cg
-dGhhdCB0aGUgbGluZWFyIG1hcHBpbmcgc2l6ZSBpcyBsaW1pdGVkIHRvIDEyOEdCLCBkb2VzIHRo
-YXQKPj4gbWVhbiB5b3UgdGVzdGVkIHlvdXIgcGF0Y2ggb24gdG9wIHRoaXMgb25lIF4/IElmIHNv
-LCB3b3VsZCB5b3UgbWluZAo+PiBhZGRpbmcgYSBUZXN0ZWQtYnkgdG8gaXQ/IE90aGVyd2lzZSwg
-d291bGQgeW91IG1pbmQgdGVzdGluZyBvbiB0b3Agb2YgaXQKPj4gOikgPwo+IEkndmUgdGVzdGVk
-IGluIGJvdGggY2FzZXMsIHNvIEknbGwgYWRkIGEgVGVzdGVkLWJ5LgoKClRoYW5rcyEKCgo+Cj4g
-Tm90ZSB0aGF0IHRvIGFjdHVhbGx5IHVzZSAxMjhHaUIgb24gU3YzOSBzeXN0ZW1zIHlldCBhbm90
-aGVyIHBhdGNoIGlzCj4gbmVlZGVkIHdoaWNoIEknbGwgYWxzbyBwb3N0LgoKCk9rLCBJJ20gY3Vy
-aW91cyEgQnV0IGlmIGluZGVlZCBhbm90aGVyIHBhdGNoIGlzIG5lZWRlZCwgdGhlbiB3ZSBuZWVk
-IHRvIAptZXJnZSB0aGUgMyBhdCB0aGUgc2FtZSB0aW1lLiBJJ2xsIGFkZCB0aGlzIG90aGVyIHBh
-dGNoIHRvIG15IGZpeGVzIGJyYW5jaC4KClRoYW5rcywKCkFsZXgKCgo+Cj4+IEknbGwgc2VlIHdp
-dGggUGFsbWVyLCBidXQgbWF5YmUgd2UgY2FuJ3QgdGFrZSBib3RoIHBhdGNoZXMgdG8gLWZpeGVz
-Lgo+IEFsbCB0aHJlZSBwYXRjaGVzIGFkZHJlc3MgZGlmZmVyZW50IGlzc3Vlcywgc28gSSB0aGlu
-ayBpdCB3b3VsZCBiZSBzYWZlIHRvCj4gdGFrZSB0aGVtIGluIGFueSBjb21iaW5hdGlvbi4gSG93
-ZXZlciBJIHVuZGVyc3RhbmQgdGhlIHJlbHVjdGFuY2UKPiB3aGVuIG1ha2luZyBjaGFuZ2VzIGlu
-IHRoaXMgYXJlYS4KPgo+IFRoYW5rcwo+Cj4gU3R1YXJ0Cj4KPgo+PiBZb3UgY2FuIGFkZDoKPj4K
-Pj4gUmV2aWV3ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4K
-Pj4KPj4gVGhhbmtzLAo+Pgo+PiBBbGV4Cj4+Cj4+Cj4+PiArICAgICAgICAgICAgIG1lbWJsb2Nr
-X2NhcF9tZW1vcnlfcmFuZ2UocGh5c19yYW1fYmFzZSwKPj4+ICsgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICBtYXhfbWFwcGVkX2FkZHIgLSBwaHlzX3JhbV9iYXNlKTsKPj4+
-ICsgICAgIH0KPj4+ICsKPj4+ICAgICAgICAvKgo+Pj4gICAgICAgICAqIFJlc2VydmUgcGh5c2lj
-YWwgYWRkcmVzcyBzcGFjZSB0aGF0IHdvdWxkIGJlIG1hcHBlZCB0byB2aXJ0dWFsCj4+PiAgICAg
-ICAgICogYWRkcmVzc2VzIGdyZWF0ZXIgdGhhbiAodm9pZCAqKSgtUEFHRV9TSVpFKSBiZWNhdXNl
-Ogo+Pj4gQEAgLTI2NSw2ICsyNzMsNyBAQCBzdGF0aWMgdm9pZCBfX2luaXQgc2V0dXBfYm9vdG1l
-bSh2b2lkKQo+Pj4gICAgICAgICAgICAgICAgbWVtYmxvY2tfcmVzZXJ2ZShtYXhfbWFwcGVkX2Fk
-ZHIsIChwaHlzX2FkZHJfdCktbWF4X21hcHBlZF9hZGRyKTsKPj4+ICAgICAgICB9Cj4+Pgo+Pj4g
-KyAgICAgcGh5c19yYW1fZW5kID0gbWVtYmxvY2tfZW5kX29mX0RSQU0oKTsKPj4+ICAgICAgICBt
-aW5fbG93X3BmbiA9IFBGTl9VUChwaHlzX3JhbV9iYXNlKTsKPj4+ICAgICAgICBtYXhfbG93X3Bm
-biA9IG1heF9wZm4gPSBQRk5fRE9XTihwaHlzX3JhbV9lbmQpOwo+Pj4gICAgICAgIGhpZ2hfbWVt
-b3J5ID0gKHZvaWQgKikoX192YShQRk5fUEhZUyhtYXhfbG93X3BmbikpKTsKPj4+IEBAIC0xMjg5
-LDggKzEyOTgsNiBAQCBzdGF0aWMgdm9pZCBfX2luaXQgY3JlYXRlX2xpbmVhcl9tYXBwaW5nX3Bh
-Z2VfdGFibGUodm9pZCkKPj4+ICAgICAgICAgICAgICAgIGlmIChzdGFydCA8PSBfX3BhKFBBR0Vf
-T0ZGU0VUKSAmJgo+Pj4gICAgICAgICAgICAgICAgICAgIF9fcGEoUEFHRV9PRkZTRVQpIDwgZW5k
-KQo+Pj4gICAgICAgICAgICAgICAgICAgICAgICBzdGFydCA9IF9fcGEoUEFHRV9PRkZTRVQpOwo+
-Pj4gLSAgICAgICAgICAgICBpZiAoZW5kID49IF9fcGEoUEFHRV9PRkZTRVQpICsgbWVtb3J5X2xp
-bWl0KQo+Pj4gLSAgICAgICAgICAgICAgICAgICAgIGVuZCA9IF9fcGEoUEFHRV9PRkZTRVQpICsg
-bWVtb3J5X2xpbWl0Owo+Pj4KPj4+ICAgICAgICAgICAgICAgIGNyZWF0ZV9saW5lYXJfbWFwcGlu
-Z19yYW5nZShzdGFydCwgZW5kLCAwKTsKPj4+ICAgICAgICB9Cj4gX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-PiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+RISC-V PLIC cannot "end-of-interrupt" (EOI) disabled interrupts, as
+explained in the description of Interrupt Completion in the PLIC spec:
+"The PLIC signals it has completed executing an interrupt handler by
+ writing the interrupt ID it received from the claim to the claim/complete
+ register. The PLIC does not check whether the completion ID is the same
+ as the last claim ID for that target. If the completion ID does not match
+ an interrupt source that *is currently enabled* for the target, the
+ completion is silently ignored."
+
+ Commit 9c92006b896c ("irqchip/sifive-plic: Enable interrupt if needed
+ before EOI")
+ ensured that EOI is enable when irqd IRQD_IRQ_DISABLED is set, before
+ EOI
+
+ Commit 69ea463021be ("irqchip/sifive-plic: Fixup EOI failed when masked")
+ ensured that EOI is successful by enabling interrupt first, before EOI.
+
+ Commit a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask
+ operations") removed the interrupt enabling code from the previous
+ commit, because it assumes that interrupt should already be enabled at the
+ point of EOI.
+
+However, here still miss a corner case that if SMP is enabled. When
+someone needs to set affinity from a cpu to another the original cpu
+when handle the EOI meanwhile the IE is disabled by plic_set_affinity
+
+For example, broadcast tick is working,
+cpu0 is about to response, cpu1 is the next.
+1. cpu0 responses the timer irq, read the claim REG, do timer isr event.
+2. during the timer isr it will set next event
+tick_broadcast_set_event -> irq_set_affinity->xxx->
+plic_set_affinity -> plic_irq_enable
+3. in plic_set_affinity disable cpu0's IE and enable cpu1'IE
+4. cpu0 do the write claim to finish this irq, while cpu0's IE is disabled,
+left an active state in plic.
+
+So this patch ensure that won't happened
+
+Signed-off-by: zhengyan <zhengyan@asrmicro.com>
+---
+ drivers/irqchip/irq-sifive-plic.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 9e22f7e378f5..815ce8aa28f1 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -149,8 +149,10 @@ static void plic_irq_mask(struct irq_data *d)
+ static void plic_irq_eoi(struct irq_data *d)
+ {
+ 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
++	void __iomem *reg = handler->enable_base + (d->hwirq / 32) * sizeof(u32);
++	u32 hwirq_mask = 1 << (d->hwirq % 32);
+ 
+-	if (unlikely(irqd_irq_disabled(d))) {
++	if (unlikely((readl(reg) & hwirq_mask) == 0)) {
+ 		plic_toggle(handler, d->hwirq, 1);
+ 		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+ 		plic_toggle(handler, d->hwirq, 0);
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
