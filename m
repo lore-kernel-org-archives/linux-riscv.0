@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF83C3064D
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 15:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDB7C2BBCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 15:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gjtIofID9DOf3XTd/JPyAKtzX+lJ/rknjUCQGUxI/CM=; b=BafzcqYap7+c2R
-	DOSLgjSjnqydQKhT0HXwDZgGpjzvq6+coqyveXxIFwqKUxUkeUqo0vJf98qzfnJiURoYxSAJ+Jf+7
-	cExGbYTMajYuvyGRsOUdJTLfSOtIWXJFgNce5tp7ZyrtYAb9QVqxWqv1HkmPOzFegDzKorQPiMV9l
-	U304+I/93GGaGFS5BlixF1n4/DLpQdmc1dhtupYdn7bUFH2lj5zjsI/Zc8G65mQ8cvU9ZIvI17Kbg
-	tLGwf4qarMLCYFmqjBjT85DepGY9OHMJbNeVVebY4GTsow6DwFh3yocqKOA5+QmW7V6vlYC3WgBDu
-	h/wIf0SzuL6mMH1TK5Rg==;
+	List-Owner; bh=ZFeluifzBZWrv10MIimjo0049veFh42MupCG/gyoJh0=; b=Gq8Ci4znIH2a7T
+	AUwWul7YFHn3YGTZUKhhXWkOVDZT7ugUhLDWM/t2z+lBVEfo2qFvnd4EDLEWFA2TiTzJl4SwaRgNZ
+	DWNw+4AiKmvHIPvsjpQ0XslrEAjMsusWWn1eL9Fv18vIRnxjhOUbZHPMDsv/Ji07sBvduhzalEA3K
+	Sxi47mgDKakh/B15q0IUaE3Tq5PMgMBD2cVEgUiVPOevPBuUQK/hEOvJ2PpCo9diRBEtAj/CtuflA
+	AEGGmJxwk5h2rNAEns5PsKe+LKMUTKToSbKDICNqh4VgiJATRsbNs4vzty3fRkn3HYwIC37HPll0N
+	sQ4UjgMzbi2ksDMdhLPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM7mq-00000003PCb-2eLr;
-	Tue, 25 Jun 2024 15:08:48 +0000
+	id 1sM7n0-00000003PJp-46Kr;
+	Tue, 25 Jun 2024 15:08:58 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM7hu-00000003LUv-1fmb;
-	Tue, 25 Jun 2024 15:03:45 +0000
+	id 1sM7i1-00000003LZX-1gGS;
+	Tue, 25 Jun 2024 15:03:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 6A1EECE01CE;
-	Tue, 25 Jun 2024 15:03:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29B1CC4AF0E;
-	Tue, 25 Jun 2024 15:03:32 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 76A6ECE1B7C;
+	Tue, 25 Jun 2024 15:03:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F6C7C4AF0A;
+	Tue, 25 Jun 2024 15:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719327819;
-	bh=qLuXO3WTZsbuYPpzI7zPKGWHTzDvnQwqGL+bk49RD84=;
+	s=k20201202; t=1719327826;
+	bh=fjC2QiGsrbMcCkXrGFM5RiSenF/23moS6IQnQJ7tLdI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hkDTstIokDbII+NgDXV9ygGKcAbZfi8xcMVYYBinLFGzUbWA3/1aC/jkLX9TnILxY
-	 CEketVMlSoxdyZPQm6qRfTzTiYkPed/+304fFSUpPpj1120NlP7ix/o2Z/nkWcoRfu
-	 gJmZwP/Kc885SgOeQkoIhj+q8he90o8ZC8GY6VtWUJgCdsfuk6WoiTiSgs01UoVtu5
-	 W6X+h6T77fpf98Hd+jPAuXX4SS2uNEXCOOkhhYZgfeqW7dKQTy7zQAa8kI5Ehz1OE/
-	 t/WFvdAS6r389/Xi4ws2uXHHfq0b+wuu58cA7xdK0rm+qyV2+vu4ltK5osvm0by8SB
-	 cHhG49/bgy6Sw==
+	b=l2xsFbIETEPKGbR69SWsfYufg6rpbRn4aaptp5DtVcbSm+gRqRmpD2995e2y8WGim
+	 eCRcbHiIQJ9pqY5hWpsMfCcDmmgdUqN5aJjCIFdPU70s2FqZgkpUwl0vGFg4JvUhqM
+	 4R47oEbqzTI/WIzPgeKJ8EyaVVlcSIGP6vCKjtr9UfEomWTHc7ivJggF+Wsk89OTlh
+	 wFjrot6UoGGCjUc+BQcPE4Hcrd/4lr2FjzLykKDT4Ars+AhqTtk0YUxWBXmBDuNa20
+	 LK4zLQdD2O4gn8+MU+yZ3cskmZeebN965PyinB6Im0jRSXCXTS6IHMl5u/aRBwe8kH
+	 3kXJHBn/ECzmQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 25 Jun 2024 15:57:53 +0100
-Subject: [PATCH v9 25/39] arm64/ptrace: Expose GCS via ptrace and core
- files
+Date: Tue, 25 Jun 2024 15:57:54 +0100
+Subject: [PATCH v9 26/39] arm64: Add Kconfig for Guarded Control Stack
+ (GCS)
 MIME-Version: 1.0
-Message-Id: <20240625-arm64-gcs-v9-25-0f634469b8f0@kernel.org>
+Message-Id: <20240625-arm64-gcs-v9-26-0f634469b8f0@kernel.org>
 References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
 In-Reply-To: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -71,20 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.14-dev-d4707
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4329; i=broonie@kernel.org;
- h=from:subject:message-id; bh=qLuXO3WTZsbuYPpzI7zPKGWHTzDvnQwqGL+bk49RD84=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmetuGTfR0xNzu1+84q9CMfy/yxjpeiuKLfYT2znrk
- GoY1/N+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZnrbhgAKCRAk1otyXVSH0G+jB/
- sG6g96RCMiqgpbeydGZ6sxqiXuFMRbeInyskwKusJZFWMvPLBsIZX8FlYwjIxI2gTyJlNcNnGQmE5R
- NY2i8h4sxZMNgre4QDrQ6wdkv2cwZ9bO0hWIFqTFjNqSN9iUX6ZIKMwgvbZsHGR4zvGmhMqMY9i1ck
- HKr4syx2DDMAIUdAZlQkdkekG8w/X5QwNY9ueCZdNRgywiImEMQSOKZPA4QU7fu2W+SHjDD/0V5DF3
- 54Z7V9ECYDcOIrBX/dnHAADN3GLG3H8zwa8K0RfcXl1SBbW9voHlHgTqubiMscyG6ZDHLdrktic433
- MSUgxVm08hXgJhgbB89Ac4XSk5AZQr
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1438; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=fjC2QiGsrbMcCkXrGFM5RiSenF/23moS6IQnQJ7tLdI=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmetuGg1xlcnXPlN04dXEBbnUnfgQS+G3jS350+dWn
+ /izc6wKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZnrbhgAKCRAk1otyXVSH0KfjB/
+ 9KWonE6xeKtgOTtQX2JO7awYH9lQ6LkvpJLYKruT/tw3b5S8asSEMPcfTcPyEneVXId/HNouOKa9RN
+ wGGAWeR7McyjYD95XpmwDqTx4zPmmme9t2V0A6LxKTGf8/Zw3LuK9L9WP/4FiItiDYbKXFHHbR1MmS
+ YrBnyYjZm0vjLZMMdI2vobtYQ2xicVgK00Qyr/80i1MP6FhmpFoNNYpYplfFJ9JcDJTl6SKx0ZVoTu
+ +skJQfsafa6R60XpkYGtVyB3Och3vSkyNhNc/dLNxh/JH/oW7Sp0pYRTESkaxSdnQLoMFTzY5D5H+a
+ 7eWD6b20Ne30nkS0CHcIRuEvSi2DB8
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240625_080343_246024_9C9C5B0C 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20240625_080349_946736_E4305A6E 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,141 +101,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a new register type NT_ARM_GCS reporting the current GCS mode
-and pointer for EL0.  Due to the interactions with allocation and
-deallocation of Guarded Control Stacks we do not permit any changes to
-the GCS mode via ptrace, only GCSPR_EL0 may be changed.
+Provide a Kconfig option allowing the user to select if GCS support is
+built into the kernel.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/uapi/asm/ptrace.h |  8 +++++
- arch/arm64/kernel/ptrace.c           | 59 ++++++++++++++++++++++++++++++++++++
- include/uapi/linux/elf.h             |  1 +
- 3 files changed, 68 insertions(+)
+ arch/arm64/Kconfig | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
-index 7fa2f7036aa7..0f39ba4f3efd 100644
---- a/arch/arm64/include/uapi/asm/ptrace.h
-+++ b/arch/arm64/include/uapi/asm/ptrace.h
-@@ -324,6 +324,14 @@ struct user_za_header {
- #define ZA_PT_SIZE(vq)						\
- 	(ZA_PT_ZA_OFFSET + ZA_PT_ZA_SIZE(vq))
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 5d91259ee7b5..248697a29d78 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2140,6 +2140,26 @@ config ARM64_EPAN
+ 	  if the cpu does not implement the feature.
+ endmenu # "ARMv8.7 architectural features"
  
-+/* GCS state (NT_ARM_GCS) */
++menu "v9.4 architectural features"
 +
-+struct user_gcs {
-+	__u64 features_enabled;
-+	__u64 features_locked;
-+	__u64 gcspr_el0;
-+};
++config ARM64_GCS
++	bool "Enable support for Guarded Control Stack (GCS)"
++	default y
++	select ARCH_HAS_USER_SHADOW_STACK
++	select ARCH_USES_HIGH_VMA_FLAGS
++	help
++	  Guarded Control Stack (GCS) provides support for a separate
++	  stack with restricted access which contains only return
++	  addresses.  This can be used to harden against some attacks
++	  by comparing return address used by the program with what is
++	  stored in the GCS, and may also be used to efficiently obtain
++	  the call stack for applications such as profiling.
 +
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _UAPI__ASM_PTRACE_H */
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 0d022599eb61..9db0b669fee3 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -34,6 +34,7 @@
- #include <asm/cpufeature.h>
- #include <asm/debug-monitors.h>
- #include <asm/fpsimd.h>
-+#include <asm/gcs.h>
- #include <asm/mte.h>
- #include <asm/pointer_auth.h>
- #include <asm/stacktrace.h>
-@@ -1440,6 +1441,51 @@ static int tagged_addr_ctrl_set(struct task_struct *target, const struct
- }
- #endif
- 
-+#ifdef CONFIG_ARM64_GCS
-+static int gcs_get(struct task_struct *target,
-+		   const struct user_regset *regset,
-+		   struct membuf to)
-+{
-+	struct user_gcs user_gcs;
++	  The feature is detected at runtime, and will remain disabled
++	  if the system does not implement the feature.
 +
-+	if (target == current)
-+		gcs_preserve_current_state();
++endmenu # "v9.4 architectural features"
 +
-+	user_gcs.features_enabled = target->thread.gcs_el0_mode;
-+	user_gcs.features_locked = target->thread.gcs_el0_locked;
-+	user_gcs.gcspr_el0 = target->thread.gcspr_el0;
-+
-+	return membuf_write(&to, &user_gcs, sizeof(user_gcs));
-+}
-+
-+static int gcs_set(struct task_struct *target, const struct
-+		   user_regset *regset, unsigned int pos,
-+		   unsigned int count, const void *kbuf, const
-+		   void __user *ubuf)
-+{
-+	int ret;
-+	struct user_gcs user_gcs;
-+
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &user_gcs, 0, -1);
-+	if (ret)
-+		return ret;
-+
-+	if (user_gcs.features_enabled & ~PR_SHADOW_STACK_SUPPORTED_STATUS_MASK)
-+		return -EINVAL;
-+
-+	/* Do not allow enable via ptrace */
-+	if ((user_gcs.features_enabled & PR_SHADOW_STACK_ENABLE) &&
-+	    !(target->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE))
-+		return -EBUSY;
-+
-+	target->thread.gcs_el0_mode = user_gcs.features_enabled;
-+	target->thread.gcs_el0_locked = user_gcs.features_locked;
-+	target->thread.gcspr_el0 = user_gcs.gcspr_el0;
-+
-+	return 0;
-+}
-+#endif
-+
- enum aarch64_regset {
- 	REGSET_GPR,
- 	REGSET_FPR,
-@@ -1469,6 +1515,9 @@ enum aarch64_regset {
- #ifdef CONFIG_ARM64_TAGGED_ADDR_ABI
- 	REGSET_TAGGED_ADDR_CTRL,
- #endif
-+#ifdef CONFIG_ARM64_GCS
-+	REGSET_GCS,
-+#endif
- };
- 
- static const struct user_regset aarch64_regsets[] = {
-@@ -1628,6 +1677,16 @@ static const struct user_regset aarch64_regsets[] = {
- 		.set = tagged_addr_ctrl_set,
- 	},
- #endif
-+#ifdef CONFIG_ARM64_GCS
-+	[REGSET_GCS] = {
-+		.core_note_type = NT_ARM_GCS,
-+		.n = sizeof(struct user_gcs) / sizeof(u64),
-+		.size = sizeof(u64),
-+		.align = sizeof(u64),
-+		.regset_get = gcs_get,
-+		.set = gcs_set,
-+	},
-+#endif
- };
- 
- static const struct user_regset_view user_aarch64_view = {
-diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-index b54b313bcf07..77d4910bbb9d 100644
---- a/include/uapi/linux/elf.h
-+++ b/include/uapi/linux/elf.h
-@@ -441,6 +441,7 @@ typedef struct elf64_shdr {
- #define NT_ARM_ZA	0x40c		/* ARM SME ZA registers */
- #define NT_ARM_ZT	0x40d		/* ARM SME ZT registers */
- #define NT_ARM_FPMR	0x40e		/* ARM floating point mode register */
-+#define NT_ARM_GCS	0x40f		/* ARM GCS state */
- #define NT_ARC_V2	0x600		/* ARCv2 accumulator/extra registers */
- #define NT_VMCOREDD	0x700		/* Vmcore Device Dump Note */
- #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
+ config ARM64_SVE
+ 	bool "ARM Scalable Vector Extension support"
+ 	default y
 
 -- 
 2.39.2
