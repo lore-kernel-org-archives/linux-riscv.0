@@ -4,90 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D3EC30659
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 22:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA74C2BBCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 22:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Vi2CEPzveqWho6CFq3eLdHnocpmbALS+cPOh/VW09pc=; b=zWH+gW5hpQvAR7dUy1ZV1Z9Pav
-	aqYcsZ/J5hO82KGrV7w8PGuo3LqXyOriBGaNWBgDkqHpbO6WzLLgzG0FcD/E1bRfRfL8ld1Llnq0i
-	k85ZeH0GZL2Vs42Z26biu15Fr6NY6rCbiPYzEo8wmUSvJKsz1ebpkxeAVGQs8swJ5ncwZboMGKEie
-	eUHx7bYYWqunOCTiVwWNjc3pDbPa/TgUOwsnyeCPsp+amoUAZHTLOYh2sS9zkhzy2NBa0P6XtJCf5
-	+6mBF0Tt7MblS3kzqMNMcYIbZsEBo9m0jK2hXJHnFQiD4BH6nXYy9/AX19tssQlew54JbZE1sjbQl
-	/DTceLUw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5FsaLRAYYWFmBzyYwLajLU5xpEO6fJxoRTN5DKPH3UM=; b=Wf45lbxWsjG4cw
+	zoGlB7VQCgRMceYIPvpyKFA4hC64Qx5Lppn9Tlvp8JYuwC4R/r7Y2fXSLa7lVMmaLjcDqQF7TPC78
+	j4DL08lvo5YfQbakLAPrDfgWtVSrrbn1tn4yBmaFTP/xeHQxl09NlQnrqiUqQIuRWm7xTtYJ2Ybcy
+	L3q7hh1VoYAssYW/LQKyz727VSoW2r7BliYOrRmfTaKbigHTmKb5smcqerbtgODcp509n8OM+btSp
+	SLf2UDmkCOOrTUyhJx3q5VZQ+pVKXXFV9gq8DllOobP9kmCBPP3QvmX9IwlstfCC5VQ0ncbei7EEU
+	3BoJPj091u3RbqqHkb2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMEko-00000004hmc-01uo;
-	Tue, 25 Jun 2024 22:35:10 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMEkk-00000004hkA-1wql
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jun 2024 22:35:08 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6438cfe5af9so79720707b3.0
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Jun 2024 15:35:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1719354905; x=1719959705; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=87Jin1neXman428FZaPVpz5vAZT4i6hdnDg6P39Dvmk=;
-        b=gviJzNi72Ue2arOvBXncsqbANRrX2ILIKE6cMO+wpL28yx/Xo5MfSmCLrBbzdeG/3J
-         ebxfzhZWlVs0yBwSxrCA2YMS7z244xvjzPR2lfG/vgJXQzhBCNcyDLZSe+0MZhPZhAr4
-         RprsnPU0U6U8l9JQGr2D56OqtYEhMGoRtyYvxUbo5jEVTjCKCtLbzE8dH0gobpbpCoxP
-         SebNeVqaQcG+udUHh8TZ3ALZmpc5p+sm3FImpmETGnzHLlA9b5J/MwlKlz6jsYfFr0PC
-         x6fJwY50X9KIvodH9bi1ajsCQw1Bfc3n4H05SEpt6stB17qZ9wZN0gRQrTqVuApHO33Q
-         4chQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719354905; x=1719959705;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=87Jin1neXman428FZaPVpz5vAZT4i6hdnDg6P39Dvmk=;
-        b=Nd+CraTDMFgSTjKTuUTf2DdlWeXgRT2bL6hI6QWebMlS/LuT25CdHERcwRWbjKgatI
-         hVSM5QzRQ2aoiTQDGX9TqTSUeHfJWYVqhC7SiOQbgXabpyZvbcHYI/vbI46bryiEdBRq
-         WZDJ5MKO+uReCLGRhC7a33ub7mX+g3FD4/7HFM2iRr+YR8lhbt6mb49J8AsQyaOTR5Dt
-         wvW0vLqzYr1tufSg4uv8LEiG6CRDqr/6751jGAB/nO8c+V6mY1n9iXdNrbsCdY+gdSv4
-         q4O1LaV24L7BYoDmOAkmJAIlzj2a7T4StQ5iWgf6gPPwIL/GgO9oek+/OGmE/ntcUQfT
-         z16g==
-X-Forwarded-Encrypted: i=1; AJvYcCWG3q+CkomtlvzM00d6lATIEYidRlcj2NPt1xYVosGQAiuXK1DQceDD8AzVcsIosNOBvDexG1CqIyyiahzwxYUhGCgypxiKCWm3qbAYJBYz
-X-Gm-Message-State: AOJu0Yzoap/o+WRS67GUfl9jfTfy7CxuypndYVTMlELtEXGOOhsBU3mz
-	sISPfuF9OkCjA/KJmK7QjLD08t7lVqvQc+zIIg+UpmFWBbQoBTgUvZMECw3l0Iup3bF/aNE0gd6
-	1VA==
-X-Google-Smtp-Source: AGHT+IEGuPw81A+vd3VK4UXWXuPsSlJshJybw2PugwKr4mE141Kgqb4D3k0bZmkq8unTm2UAe55tWdXFj6o=
-X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
- (user=edliaw job=sendgmr) by 2002:a05:690c:6112:b0:61c:89a4:dd5f with SMTP id
- 00721157ae682-643a76e6dd7mr1219237b3.0.1719354904824; Tue, 25 Jun 2024
- 15:35:04 -0700 (PDT)
-Date: Tue, 25 Jun 2024 22:34:45 +0000
-In-Reply-To: <20240625223454.1586259-1-edliaw@google.com>
-Mime-Version: 1.0
-References: <20240625223454.1586259-1-edliaw@google.com>
-X-Mailer: git-send-email 2.45.2.803.g4e1b14247a-goog
-Message-ID: <20240625223454.1586259-2-edliaw@google.com>
-Subject: [PATCH v7 1/1] selftests: Centralize -D_GNU_SOURCE= to CFLAGS in lib.mk
-From: Edward Liaw <edliaw@google.com>
-To: linux-kselftest@vger.kernel.org, Eric Biederman <ebiederm@xmission.com>, 
-	Kees Cook <kees@kernel.org>, Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
-	"=?UTF-8?q?Andr=C3=A9=20Almeida?=" <andrealmeid@igalia.com>, Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Fenghua Yu <fenghua.yu@intel.com>, 
-	Reinette Chatre <reinette.chatre@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, usama.anjum@collabora.com, seanjc@google.com, 
-	kernel-team@android.com, Edward Liaw <edliaw@google.com>, linux-mm@kvack.org, 
-	iommu@lists.linux.dev, kvm@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-sgx@vger.kernel.org, John Hubbard <jhubbard@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240625_153506_585906_453B94C9 
-X-CRM114-Status: GOOD (  13.45  )
+	id 1sMF0S-00000004jJv-20E9;
+	Tue, 25 Jun 2024 22:51:20 +0000
+Received: from [50.53.4.147] (helo=[192.168.254.15])
+	by bombadil.infradead.org with esmtpsa (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sMF0J-00000004jIo-2S55;
+	Tue, 25 Jun 2024 22:51:11 +0000
+Message-ID: <4cefa456-63a0-4e16-97bb-022c72c128c6@infradead.org>
+Date: Tue, 25 Jun 2024 15:51:09 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 05/39] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+To: Mark Brown <broonie@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Andrew Morton <akpm@linux-foundation.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ James Morse <james.morse@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+ Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>,
+ Shuah Khan <shuah@kernel.org>, "Rick P. Edgecombe"
+ <rick.p.edgecombe@intel.com>, Deepak Gupta <debug@rivosinc.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+ Kees Cook <kees@kernel.org>
+Cc: "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Florian Weimer <fweimer@redhat.com>,
+ Christian Brauner <brauner@kernel.org>,
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+ Ross Burton <ross.burton@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
+ <20240625-arm64-gcs-v9-5-0f634469b8f0@kernel.org>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20240625-arm64-gcs-v9-5-0f634469b8f0@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,226 +74,306 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Centralize the _GNU_SOURCE definition to CFLAGS in lib.mk.  Remove
-redundant defines from Makefiles that import lib.mk.  Convert any usage
-of "#define _GNU_SOURCE 1" to "#define _GNU_SOURCE".
 
-This uses the form "-D_GNU_SOURCE=", which is equivalent to
-"#define _GNU_SOURCE".
 
-Otherwise using "-D_GNU_SOURCE" is equivalent to "-D_GNU_SOURCE=1" and
-"#define _GNU_SOURCE 1", which is less commonly seen in source code and
-would require many changes in selftests to avoid redefinition warnings.
+On 6/25/24 7:57 AM, Mark Brown wrote:
+> Add some documentation of the userspace ABI for Guarded Control Stacks.
+> 
+> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  Documentation/arch/arm64/gcs.rst   | 233 +++++++++++++++++++++++++++++++++++++
+>  Documentation/arch/arm64/index.rst |   1 +
+>  2 files changed, 234 insertions(+)
+> 
+> diff --git a/Documentation/arch/arm64/gcs.rst b/Documentation/arch/arm64/gcs.rst
+> new file mode 100644
+> index 000000000000..c45c0326836a
+> --- /dev/null
+> +++ b/Documentation/arch/arm64/gcs.rst
+> @@ -0,0 +1,233 @@
+> +===============================================
+> +Guarded Control Stack support for AArch64 Linux
+> +===============================================
+> +
+> +This document outlines briefly the interface provided to userspace by Linux in
+> +order to support use of the ARM Guarded Control Stack (GCS) feature.
+> +
+> +This is an outline of the most important features and issues only and not
+> +intended to be exhaustive.
+> +
+> +
+> +
+> +1.  General
+> +-----------
+> +
+> +* GCS is an architecture feature intended to provide greater protection
+> +  against return oriented programming (ROP) attacks and to simplify the
+> +  implementation of features that need to collect stack traces such as
+> +  profiling.
+> +
+> +* When GCS is enabled a separate guarded control stack is maintained by the
+> +  PE which is writeable only through specific GCS operations.  This
+> +  stores the call stack only, when a procedure call instruction is
 
-Suggested-by: John Hubbard <jhubbard@nvidia.com>
-Signed-off-by: Edward Liaw <edliaw@google.com>
----
- tools/testing/selftests/exec/Makefile             | 1 -
- tools/testing/selftests/futex/functional/Makefile | 2 +-
- tools/testing/selftests/intel_pstate/Makefile     | 2 +-
- tools/testing/selftests/iommu/Makefile            | 2 --
- tools/testing/selftests/kvm/Makefile              | 2 +-
- tools/testing/selftests/lib.mk                    | 3 +++
- tools/testing/selftests/mm/thuge-gen.c            | 2 +-
- tools/testing/selftests/net/Makefile              | 2 +-
- tools/testing/selftests/net/tcp_ao/Makefile       | 2 +-
- tools/testing/selftests/proc/Makefile             | 1 -
- tools/testing/selftests/resctrl/Makefile          | 2 +-
- tools/testing/selftests/ring-buffer/Makefile      | 1 -
- tools/testing/selftests/riscv/mm/Makefile         | 2 +-
- tools/testing/selftests/sgx/Makefile              | 2 +-
- tools/testing/selftests/tmpfs/Makefile            | 1 -
- 15 files changed, 12 insertions(+), 15 deletions(-)
+                           only. When
 
-diff --git a/tools/testing/selftests/exec/Makefile b/tools/testing/selftests/exec/Makefile
-index ab67d58cfab7..ba012bc5aab9 100644
---- a/tools/testing/selftests/exec/Makefile
-+++ b/tools/testing/selftests/exec/Makefile
-@@ -1,7 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- CFLAGS = -Wall
- CFLAGS += -Wno-nonnull
--CFLAGS += -D_GNU_SOURCE
- 
- ALIGNS := 0x1000 0x200000 0x1000000
- ALIGN_PIES        := $(patsubst %,load_address.%,$(ALIGNS))
-diff --git a/tools/testing/selftests/futex/functional/Makefile b/tools/testing/selftests/futex/functional/Makefile
-index 994fa3468f17..f79f9bac7918 100644
---- a/tools/testing/selftests/futex/functional/Makefile
-+++ b/tools/testing/selftests/futex/functional/Makefile
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- INCLUDES := -I../include -I../../ $(KHDR_INCLUDES)
--CFLAGS := $(CFLAGS) -g -O2 -Wall -D_GNU_SOURCE= -pthread $(INCLUDES) $(KHDR_INCLUDES)
-+CFLAGS := $(CFLAGS) -g -O2 -Wall -pthread $(INCLUDES) $(KHDR_INCLUDES)
- LDLIBS := -lpthread -lrt
- 
- LOCAL_HDRS := \
-diff --git a/tools/testing/selftests/intel_pstate/Makefile b/tools/testing/selftests/intel_pstate/Makefile
-index 05d66ef50c97..f45372cb00fe 100644
---- a/tools/testing/selftests/intel_pstate/Makefile
-+++ b/tools/testing/selftests/intel_pstate/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
--CFLAGS := $(CFLAGS) -Wall -D_GNU_SOURCE
-+CFLAGS := $(CFLAGS) -Wall
- LDLIBS += -lm
- 
- ARCH ?= $(shell uname -m 2>/dev/null || echo not)
-diff --git a/tools/testing/selftests/iommu/Makefile b/tools/testing/selftests/iommu/Makefile
-index 32c5fdfd0eef..fd6477911f24 100644
---- a/tools/testing/selftests/iommu/Makefile
-+++ b/tools/testing/selftests/iommu/Makefile
-@@ -2,8 +2,6 @@
- CFLAGS += -Wall -O2 -Wno-unused-function
- CFLAGS += $(KHDR_INCLUDES)
- 
--CFLAGS += -D_GNU_SOURCE
--
- TEST_GEN_PROGS :=
- TEST_GEN_PROGS += iommufd
- TEST_GEN_PROGS += iommufd_fail_nth
-diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-index ac280dcba996..4ee37abf70ff 100644
---- a/tools/testing/selftests/kvm/Makefile
-+++ b/tools/testing/selftests/kvm/Makefile
-@@ -231,7 +231,7 @@ LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH)/include
- endif
- CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
- 	-Wno-gnu-variable-sized-type-not-at-end -MD -MP -DCONFIG_64BIT \
--	-D_GNU_SOURCE -fno-builtin-memcmp -fno-builtin-memcpy \
-+	-fno-builtin-memcmp -fno-builtin-memcpy \
- 	-fno-builtin-memset -fno-builtin-strnlen \
- 	-fno-stack-protector -fno-PIE -I$(LINUX_TOOL_INCLUDE) \
- 	-I$(LINUX_TOOL_ARCH_INCLUDE) -I$(LINUX_HDR_PATH) -Iinclude \
-diff --git a/tools/testing/selftests/lib.mk b/tools/testing/selftests/lib.mk
-index 7b299ed5ff45..d6edcfcb5be8 100644
---- a/tools/testing/selftests/lib.mk
-+++ b/tools/testing/selftests/lib.mk
-@@ -196,6 +196,9 @@ endef
- clean: $(if $(TEST_GEN_MODS_DIR),clean_mods_dir)
- 	$(CLEAN)
- 
-+# Build with _GNU_SOURCE by default
-+CFLAGS += -D_GNU_SOURCE=
-+
- # Enables to extend CFLAGS and LDFLAGS from command line, e.g.
- # make USERCFLAGS=-Werror USERLDFLAGS=-static
- CFLAGS += $(USERCFLAGS)
-diff --git a/tools/testing/selftests/mm/thuge-gen.c b/tools/testing/selftests/mm/thuge-gen.c
-index d50dc71cac32..e4370b79b62f 100644
---- a/tools/testing/selftests/mm/thuge-gen.c
-+++ b/tools/testing/selftests/mm/thuge-gen.c
-@@ -13,7 +13,7 @@
-    sudo ipcs | awk '$1 == "0x00000000" {print $2}' | xargs -n1 sudo ipcrm -m
-    (warning this will remove all if someone else uses them) */
- 
--#define _GNU_SOURCE 1
-+#define _GNU_SOURCE
- #include <sys/mman.h>
- #include <linux/mman.h>
- #include <stdlib.h>
-diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
-index bc3925200637..8eaffd7a641c 100644
---- a/tools/testing/selftests/net/Makefile
-+++ b/tools/testing/selftests/net/Makefile
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- # Makefile for net selftests
- 
--CFLAGS =  -Wall -Wl,--no-as-needed -O2 -g
-+CFLAGS +=  -Wall -Wl,--no-as-needed -O2 -g
- CFLAGS += -I../../../../usr/include/ $(KHDR_INCLUDES)
- # Additional include paths needed by kselftest.h
- CFLAGS += -I../
-diff --git a/tools/testing/selftests/net/tcp_ao/Makefile b/tools/testing/selftests/net/tcp_ao/Makefile
-index 522d991e310e..bd88b90b902b 100644
---- a/tools/testing/selftests/net/tcp_ao/Makefile
-+++ b/tools/testing/selftests/net/tcp_ao/Makefile
-@@ -26,7 +26,7 @@ LIB	:= $(LIBDIR)/libaotst.a
- LDLIBS	+= $(LIB) -pthread
- LIBDEPS	:= lib/aolib.h Makefile
- 
--CFLAGS	:= -Wall -O2 -g -D_GNU_SOURCE -fno-strict-aliasing
-+CFLAGS	+= -Wall -O2 -g -fno-strict-aliasing
- CFLAGS	+= $(KHDR_INCLUDES)
- CFLAGS	+= -iquote ./lib/ -I ../../../../include/
- 
-diff --git a/tools/testing/selftests/proc/Makefile b/tools/testing/selftests/proc/Makefile
-index 6066f607f758..ee424a9f075f 100644
---- a/tools/testing/selftests/proc/Makefile
-+++ b/tools/testing/selftests/proc/Makefile
-@@ -1,6 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0-only
- CFLAGS += -Wall -O2 -Wno-unused-function
--CFLAGS += -D_GNU_SOURCE
- LDFLAGS += -pthread
- 
- TEST_GEN_PROGS :=
-diff --git a/tools/testing/selftests/resctrl/Makefile b/tools/testing/selftests/resctrl/Makefile
-index 021863f86053..f408bd6bfc3d 100644
---- a/tools/testing/selftests/resctrl/Makefile
-+++ b/tools/testing/selftests/resctrl/Makefile
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--CFLAGS = -g -Wall -O2 -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE
-+CFLAGS = -g -Wall -O2 -D_FORTIFY_SOURCE=2
- CFLAGS += $(KHDR_INCLUDES)
- 
- TEST_GEN_PROGS := resctrl_tests
-diff --git a/tools/testing/selftests/ring-buffer/Makefile b/tools/testing/selftests/ring-buffer/Makefile
-index 627c5fa6d1ab..23605782639e 100644
---- a/tools/testing/selftests/ring-buffer/Makefile
-+++ b/tools/testing/selftests/ring-buffer/Makefile
-@@ -1,7 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- CFLAGS += -Wl,-no-as-needed -Wall
- CFLAGS += $(KHDR_INCLUDES)
--CFLAGS += -D_GNU_SOURCE
- 
- TEST_GEN_PROGS = map_test
- 
-diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
-index c333263f2b27..4664ed79e20b 100644
---- a/tools/testing/selftests/riscv/mm/Makefile
-+++ b/tools/testing/selftests/riscv/mm/Makefile
-@@ -3,7 +3,7 @@
- # Originally tools/testing/arm64/abi/Makefile
- 
- # Additional include paths needed by kselftest.h and local headers
--CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
-+CFLAGS += -std=gnu99 -I.
- 
- TEST_GEN_FILES := mmap_default mmap_bottomup
- 
-diff --git a/tools/testing/selftests/sgx/Makefile b/tools/testing/selftests/sgx/Makefile
-index 867f88ce2570..03b5e13b872b 100644
---- a/tools/testing/selftests/sgx/Makefile
-+++ b/tools/testing/selftests/sgx/Makefile
-@@ -12,7 +12,7 @@ OBJCOPY := $(CROSS_COMPILE)objcopy
- endif
- 
- INCLUDES := -I$(top_srcdir)/tools/include
--HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC
-+HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC $(CFLAGS)
- HOST_LDFLAGS := -z noexecstack -lcrypto
- ENCL_CFLAGS += -Wall -Werror -static-pie -nostdlib -ffreestanding -fPIE \
- 	       -fno-stack-protector -mrdrnd $(INCLUDES)
-diff --git a/tools/testing/selftests/tmpfs/Makefile b/tools/testing/selftests/tmpfs/Makefile
-index aa11ccc92e5b..3be931e1193f 100644
---- a/tools/testing/selftests/tmpfs/Makefile
-+++ b/tools/testing/selftests/tmpfs/Makefile
-@@ -1,6 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0-only
- CFLAGS += -Wall -O2
--CFLAGS += -D_GNU_SOURCE
- 
- TEST_GEN_PROGS :=
- TEST_GEN_PROGS += bug-link-o-tmpfile
+> +  performed the current PC is pushed onto the GCS and on RET the
+> +  address in the LR is verified against that on the top of the GCS.
+> +
+> +* When active current GCS pointer is stored in the system register
+
+     Cannot parse this incomplete sentence...
+
+> +  GCSPR_EL0.  This is readable by userspace but can only be updated
+> +  via specific GCS instructions.
+> +
+> +* The architecture provides instructions for switching between guarded
+> +  control stacks with checks to ensure that the new stack is a valid
+> +  target for switching.
+> +
+> +* The functionality of GCS is similar to that provided by the x86 Shadow
+> +  Stack feature, due to sharing of userspace interfaces the ABI refers to
+
+           feature. Due to
+
+> +  shadow stacks rather than GCS.
+> +
+> +* Support for GCS is reported to userspace via HWCAP2_GCS in the aux vector
+> +  AT_HWCAP2 entry.
+> +
+> +* GCS is enabled per thread.  While there is support for disabling GCS
+> +  at runtime this should be done with great care.
+> +
+> +* GCS memory access faults are reported as normal memory access faults.
+> +
+> +* GCS specific errors (those reported with EC 0x2d) will be reported as
+> +  SIGSEGV with a si_code of SEGV_CPERR (control protection error).
+> +
+> +* GCS is supported only for AArch64.
+> +
+> +* On systems where GCS is supported GCSPR_EL0 is always readable by EL0
+> +  regardless of the GCS configuration for the thread.
+> +
+> +* The architecture supports enabling GCS without verifying that return values
+> +  in LR match those in the GCS, the LR will be ignored.  This is not supported
+
+                              GCS; the LR
+
+> +  by Linux.
+> +
+> +* EL0 GCS entries with bit 63 set are reserved for use, one such use is defined
+
+                                                  for use. One such
+
+> +  below for signals and should be ignored when parsing the stack if not
+> +  understood.
+> +
+> +
+> +2.  Enabling and disabling Guarded Control Stacks
+> +-------------------------------------------------
+> +
+> +* GCS is enabled and disabled for a thread via the PR_SET_SHADOW_STACK_STATUS
+> +  prctl(), this takes a single flags argument specifying which GCS features
+
+     prctl(). This takes
+
+> +  should be used.
+> +
+> +* When set PR_SHADOW_STACK_ENABLE flag allocates a Guarded Control Stack
+> +  and enables GCS for the thread, enabling the functionality controlled by
+> +  GCSCRE0_EL1.{nTR, RVCHKEN, PCRSEL}.
+> +
+> +* When set the PR_SHADOW_STACK_PUSH flag enables the functionality controlled
+> +  by GCSCRE0_EL1.PUSHMEn, allowing explicit GCS pushes.
+> +
+> +* When set the PR_SHADOW_STACK_WRITE flag enables the functionality controlled
+> +  by GCSCRE0_EL1.STREn, allowing explicit stores to the Guarded Control Stack.
+> +
+> +* Any unknown flags will cause PR_SET_SHADOW_STACK_STATUS to return -EINVAL.
+> +
+> +* PR_LOCK_SHADOW_STACK_STATUS is passed a bitmask of features with the same
+> +  values as used for PR_SET_SHADOW_STACK_STATUS.  Any future changes to the
+> +  status of the specified GCS mode bits will be rejected.
+> +
+> +* PR_LOCK_SHADOW_STACK_STATUS allows any bit to be locked, this allows
+
+                                                      locked; this allows
+
+> +  userspace to prevent changes to any future features.
+> +
+> +* There is no support for a process to remove a lock that has been set for
+> +  it.
+> +
+> +* PR_SET_SHADOW_STACK_STATUS and PR_LOCK_SHADOW_STACK_STATUS affect only the
+> +  thread that called them, any other running threads will be unaffected.
+
+                        them; any other
+
+> +
+> +* New threads inherit the GCS configuration of the thread that created them.
+> +
+> +* GCS is disabled on exec().
+> +
+> +* The current GCS configuration for a thread may be read with the
+> +  PR_GET_SHADOW_STACK_STATUS prctl(), this returns the same flags that
+
+                                prctl(). This
+
+> +  are passed to PR_SET_SHADOW_STACK_STATUS.
+> +
+> +* If GCS is disabled for a thread after having previously been enabled then
+> +  the stack will remain allocated for the lifetime of the thread.  At present
+> +  any attempt to reenable GCS for the thread will be rejected, this may be
+
+                                                        rejected; this
+
+> +  revisited in future.
+> +
+> +* It should be noted that since enabling GCS will result in GCS becoming
+> +  active immediately it is not normally possible to return from the function
+> +  that invoked the prctl() that enabled GCS.  It is expected that the normal
+> +  usage will be that GCS is enabled very early in execution of a program.
+> +
+> +
+> +
+> +3.  Allocation of Guarded Control Stacks
+> +----------------------------------------
+> +
+> +* When GCS is enabled for a thread a new Guarded Control Stack will be
+> +  allocated for it of size RLIMIT_STACK or 4 gigabytes, whichever is
+> +  smaller.
+> +
+> +* When a new thread is created by a thread which has GCS enabled then a
+> +  new Guarded Control Stack will be allocated for the new thread with
+> +  half the size of the standard stack.
+> +
+> +* When a stack is allocated by enabling GCS or during thread creation then
+> +  the top 8 bytes of the stack will be initialised to 0 and GCSPR_EL0 will
+> +  be set to point to the address of this 0 value, this can be used to
+
+                                              value. This can be
+
+> +  detect the top of the stack.
+> +
+> +* Additional Guarded Control Stacks can be allocated using the
+> +  map_shadow_stack() system call.
+> +
+> +* Stacks allocated using map_shadow_stack() can optionally have an end of
+> +  stack marker and cap placed at the top of the stack.  If the flag
+> +  SHADOW_STACK_SET_TOKEN is specified a cap will be placed on the stack,
+
+                                                                     stack;
+
+> +  if SHADOW_STACK_SET_MARKER is not specified the cap will be the top 8
+> +  bytes of the stack and if it is specified then the cap will be the next
+> +  8 bytes.  While specifying just SHADOW_STACK_SET_MARKER by itself is
+> +  valid since the marker is all bits 0 it has no observable effect.
+> +
+> +* Stacks allocated using map_shadow_stack() must have a size which is a
+> +  multiple of 8 bytes larger than 8 bytes and must be 8 bytes aligned.
+> +
+> +* An address can be specified to map_shadow_stack(), if one is provided then
+
+                                    map_shadow_stack(). If one
+
+> +  it must be aligned to a page boundary.
+> +
+> +* When a thread is freed the Guarded Control Stack initially allocated for
+> +  that thread will be freed.  Note carefully that if the stack has been
+> +  switched this may not be the stack currently in use by the thread.
+> +
+> +
+> +4.  Signal handling
+> +--------------------
+> +
+> +* A new signal frame record gcs_context encodes the current GCS mode and
+> +  pointer for the interrupted context on signal delivery.  This will always
+> +  be present on systems that support GCS.
+> +
+> +* The record contains a flag field which reports the current GCS configuration
+> +  for the interrupted context as PR_GET_SHADOW_STACK_STATUS would.
+> +
+> +* The signal handler is run with the same GCS configuration as the interrupted
+> +  context.
+> +
+> +* When GCS is enabled for the interrupted thread a signal handling specific
+> +  GCS cap token will be written to the GCS, this is an architectural GCS cap
+
+                                          GCS. This is
+
+> +  token with bit 63 set and the token type (bits 0..11) all clear.  The
+> +  GCSPR_EL0 reported in the signal frame will point to this cap token.
+> +
+> +* The signal handler will use the same GCS as the interrupted context.
+> +
+> +* When GCS is enabled on signal entry a frame with the address of the signal
+> +  return handler will be pushed onto the GCS, allowing return from the signal
+> +  handler via RET as normal.  This will not be reported in the gcs_context in
+> +  the signal frame.
+> +
+> +
+> +5.  Signal return
+> +-----------------
+> +
+> +When returning from a signal handler:
+> +
+> +* If there is a gcs_context record in the signal frame then the GCS flags
+> +  and GCSPR_EL0 will be restored from that context prior to further
+> +  validation.
+> +
+> +* If there is no gcs_context record in the signal frame then the GCS
+> +  configuration will be unchanged.
+> +
+> +* If GCS is enabled on return from a signal handler then GCSPR_EL0 must
+> +  point to a valid GCS signal cap record, this will be popped from the
+
+                                     record; this will be
+
+> +  GCS prior to signal return.
+> +
+> +* If the GCS configuration is locked when returning from a signal then any
+> +  attempt to change the GCS configuration will be treated as an error.  This
+> +  is true even if GCS was not enabled prior to signal entry.
+> +
+> +* GCS may be disabled via signal return but any attempt to enable GCS via
+> +  signal return will be rejected.
+> +
+> +
+> +6.  ptrace extensions
+> +---------------------
+> +
+> +* A new regset NT_ARM_GCS is defined for use with PTRACE_GETREGSET and
+> +  PTRACE_SETREGSET.
+> +
+> +* Due to the complexity surrounding allocation and deallocation of stacks and
+> +  lack of practical application it is not possible to enable GCS via ptrace.
+> +  GCS may be disabled via the ptrace interface.
+> +
+> +* Other GCS modes may be configured via ptrace.
+> +
+> +* Configuration via ptrace ignores locking of GCS mode bits.
+> +
+> +
+> +7.  ELF coredump extensions
+> +---------------------------
+> +
+> +* NT_ARM_GCS notes will be added to each coredump for each thread of the
+> +  dumped process.  The contents will be equivalent to the data that would
+> +  have been read if a PTRACE_GETREGSET of the corresponding type were
+> +  executed for each thread when the coredump was generated.
+> +
+> +
+> +
+> +8.  /proc extensions
+> +--------------------
+> +
+> +* Guarded Control Stack pages will include "ss" in their VmFlags in
+> +  /proc/<pid>/smaps.
+
+
 -- 
-2.45.2.803.g4e1b14247a-goog
-
+~Randy
 
 _______________________________________________
 linux-riscv mailing list
