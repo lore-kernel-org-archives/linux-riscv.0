@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5A0C2BBCA
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 04:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64EA9C30659
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 04:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3EHZPR/7+qm9eX24Gm28dM+7ZtQK55vlICOUsfWScps=; b=RUsL+nu4AB3MTF
-	Gwlc2HDB2Bvev/N2pfHiT9S5Su8cSouJrrqlEIc4dSk8tmpWsGMqRxAfbKlkBjHuBW6NvAcnf7SWc
-	gIBSFAklOwV0hmhTrXOnMP7Sxn++lzZtMk4fVOLdtKieobrzmB/Uij7i7lXqzsm/rlNnBaidQJuoz
-	rwmNR37ZIEEaV4ORUA9R8fzjiOCVDIqNKYTdXrLiquDO0sbjNaoB71fCoGZo0XInyfUsyJGK50JvU
-	8+Syw7fMiwXAHUYxf+vA9EjX8VOYd3R0wudIJt8NUBMzA6HgGwYeOALJfrZsmS5y/Ba41lm53p2im
-	RhDgoZLJOP5fYQSG+VUA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YZcQUuXXkiDQ2KFK/Dn0DgdBBvpolUeb0PbKERo/vfA=; b=OQM7N/b3lSI4eC
+	4xtLDKIl9WR9H8eoDHX05GWSAbPRqo3QF3oVYQMcr6M3FYfh5qkTlTqLUZne3N4yLwxl1TDhOsgu3
+	OiiMcoxE+ZPd4ujGzIBZCYPDrvi5GldNBwEDTumbcMuYq14Y1WKz1QLyjU7OCy1OKmnCLTciv5vGn
+	CTyi6IeDW9wWHM+ki7ktXdsMEd1hTG9gRiUUy+/BiFb3kbhz1/HD9szc7TlDSg1nlrbrsS6UTY3v0
+	mYaYR8Mzt0BIG3x4ZiMY/ttoRncmrjyzHQV5N2Ia8gmGVb6ztJqq2+VRc7wtkf4rVknC6pgQZb4jh
+	swxrY8FI7cJ4E06INEiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLxe9-00000001XNq-2uZM;
-	Tue, 25 Jun 2024 04:19:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sLxeC-00000001XOp-2ccz;
+	Tue, 25 Jun 2024 04:19:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLxe6-00000001XMh-1ylr
+	id 1sLxe8-00000001XN7-332s
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jun 2024 04:19:08 +0000
+	Tue, 25 Jun 2024 04:19:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 260636110F;
-	Tue, 25 Jun 2024 04:19:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF558C32782;
-	Tue, 25 Jun 2024 04:19:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ECEE2611DA;
+	Tue, 25 Jun 2024 04:19:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7CA0C32782;
+	Tue, 25 Jun 2024 04:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719289144;
-	bh=GrEKh3PyvywkkJCCh0CV+o3/R9l1xc2hMRsBib/V7hc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=PfWDKXZ19DFkqKQAgl0JsO0UW8gw1L/cwoYdGwWjnSkaxuc668olCccWsqbQ3K7Db
-	 /HCua12lXUZtN50DKmm43lplZ0vISoBLbxM514jSz7KhC0mV6Vj5+D4mpoKMoOrs5R
-	 Tp8/JCHcqNNu95S7A+rVzGwc22AP5K1Rp9Aob82hqOAiH26A4DaSpPW5Xnc3Gqz0NB
-	 u/7IgJbcdhY7ZT+DB8W7Spv3KVkBi6JKw3dtcnjpIMgQ0P2X44wWXkjjoMUNHvQ6xR
-	 PQKa7fOZn7+QWY2Hp3sg4rMzH/GAJx4XE2YD1Jul4YtgAmA5BxfeyNPlJHQAhJypQt
-	 LIuEp+c2Gi6Iw==
+	s=k20201202; t=1719289147;
+	bh=5yvcxNr6EfINb4k2kkXt3e0AscGuviAUNxRV+wtNX/w=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Eu6Sm5jN/GREE9cN89U6psq/7I6UTjd+7K5yuIXCah5xsRCY4Jzc1sgpuy+gZg/Tl
+	 D0Fg4puDPNIvbaxKpBL7P2kZiY8DzFjkoORnOG0bu2aM7SYN1JN8pt7C0bVIbMyln9
+	 Nk4ne511q7i2gFgMk1P6oWyYE5V4irQ0y5Oo+YEdRESU0a332PRtOxAyisQCUlEcpF
+	 fZvP9vUyacrjE+JMbkNURcLS2nywajgO+0G8Mrz83J2AnRH2yvLnJXBN/H3wJywTGR
+	 I7aJ7npC+h7vEDo6/X25OXD4Qpu8ylwbhel0ynvjMHcC2BUbv2Qqn5S/Etl/wA/k+b
+	 QKfb8pDED4tLw==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/4] riscv: uaccess: optimizations
-Date: Tue, 25 Jun 2024 12:04:56 +0800
-Message-ID: <20240625040500.1788-1-jszhang@kernel.org>
+Subject: [PATCH 2/4] riscv: uaccess: use input constraints for ptr of __put_user
+Date: Tue, 25 Jun 2024 12:04:58 +0800
+Message-ID: <20240625040500.1788-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240625040500.1788-1-jszhang@kernel.org>
+References: <20240625040500.1788-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240624_211906_621557_2E22C1FD 
-X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-CacheID: sfid-20240624_211908_839399_D8709647 
+X-CRM114-Status: UNSURE (   9.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,34 +75,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series tries to optimize riscv uaccess in the following way:
+I believe the output constraints "=m" is not necessary, because
+the instruction itself is "write", we don't need the compiler
+to "write" for us. So tell compiler we read from memory instead
+of writing.
 
-patch1 implement the user_access_begin and families, I.E the unsafe
-accessors. when a function like strncpy_from_user() is called,
-the userspace access protection is disabled and enabled for every
-word read. After patch1, the protection is disabled at the beginning
-of the copy and enabled at the end.
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/include/asm/uaccess.h | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-patch2 is a simple clean up
-
-patch3 uses 'asm goto' for put_user()
-patch4 uses 'asm goto output' for get_user()
-
-Both patch3 and patch4 are based on the fact -- 'asm goto' and
-'asm goto output'generates noticeably better code since we don't need
-to test the error etc, the exception just jumps to the error handling
-directly.
-
-
-Jisheng Zhang (4):
-  riscv: implement user_access_begin and families
-  riscv: uaccess: use input constraints for ptr of __put_user
-  riscv: uaccess: use 'asm goto' for put_user()
-  riscv: uaccess: use 'asm goto output' for get_user
-
- arch/riscv/include/asm/uaccess.h | 201 +++++++++++++++++++++++--------
- 1 file changed, 149 insertions(+), 52 deletions(-)
-
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index 09d4ca37522c..84b084e388a7 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -186,11 +186,11 @@ do {								\
+ 	__typeof__(*(ptr)) __x = x;				\
+ 	__asm__ __volatile__ (					\
+ 		"1:\n"						\
+-		"	" insn " %z2, %1\n"			\
++		"	" insn " %z1, %2\n"			\
+ 		"2:\n"						\
+ 		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %0)		\
+-		: "+r" (err), "=m" (*(ptr))			\
+-		: "rJ" (__x));					\
++		: "+r" (err)			\
++		: "rJ" (__x), "m"(*(ptr)));					\
+ } while (0)
+ 
+ #ifdef CONFIG_64BIT
+@@ -203,16 +203,16 @@ do {								\
+ 	u64 __x = (__typeof__((x)-(x)))(x);			\
+ 	__asm__ __volatile__ (					\
+ 		"1:\n"						\
+-		"	sw %z3, %1\n"				\
++		"	sw %z1, %3\n"				\
+ 		"2:\n"						\
+-		"	sw %z4, %2\n"				\
++		"	sw %z2, %4\n"				\
+ 		"3:\n"						\
+ 		_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %0)		\
+ 		_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %0)		\
+-		: "+r" (err),					\
+-			"=m" (__ptr[__LSW]),			\
+-			"=m" (__ptr[__MSW])			\
+-		: "rJ" (__x), "rJ" (__x >> 32));		\
++		: "+r" (err)					\
++		: "rJ" (__x), "rJ" (__x >> 32),			\
++			"m" (__ptr[__LSW]),			\
++			"m" (__ptr[__MSW]));			\
+ } while (0)
+ #endif /* CONFIG_64BIT */
+ 
 -- 
 2.43.0
 
