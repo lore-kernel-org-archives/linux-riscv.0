@@ -4,59 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EACC30653
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 11:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F034C2BBCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 11:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v4baIimF8VkCGnxByngX6wmLTSoksvw7x5Hr3j7lmVc=; b=xjelOO3ozReRB7
-	MlmehHGmz7lNlbAIaTQdifvIqFZAXpkNhIGyVG8wzCrdeTasMP3SwpLfYUW5DelWHClYr+r4gD1Z7
-	NGXhWLQwjZbNeOhi8HDHDXL+UOtvZ6GJB75ytWu17HxxCPjfzQrq9iSlfxRRVFW3FIy77Mnj2mRFr
-	NrTDoKJDKrJxiazLcoEJaim4pFkHrvauirbRDQYxZ9QTlBVqL4voNcp3fB+e4XcGE8q8JAeA+mW0a
-	34oS/5nmMAAz0QMv8j4wr1/lMWaATTxLy1OyplN/ZPxDAeSk9C1g/i50nsf98ShAtFrmCPJIRPAzF
-	vnexp/hCns5eDRRP7Daw==;
+	List-Owner; bh=9n01wyG5NbEH6BG6mRlQ98u1KdQYPHh/6NeVovFRuY4=; b=12/wDO+BRwzgU2
+	q1udtieYQ68LNizxpuwafCUgoUMG1FBKR8+mcjdsdyrXEZGiFxOGILKlz8iqyYlOYPqD/y4ZaEpMQ
+	UXlDNeEN4glGvSjiOVIyYcuiBvOmYZ1RUq4McKl05TS80nE1k0igwUZxd7XIjxoEdm807EXrmox/a
+	a3BQlprkakStCG/BYUHSAHWjXVZ4j5vDFfX0zc2V7xwtaq5VpxUSXypm+0IxKR1Hy89sGBOkfIoOx
+	gwHNUIaRL0WOcnI6SZVmP9QrkRYxN0/qL56p4MU1IRdwPIIUtKG0EoP4XBuAwPo7eDpjEApbjlQxN
+	vIcEQFijhifRtAK74OYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM4b5-00000002aPJ-2eKQ;
-	Tue, 25 Jun 2024 11:44:27 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1sM4c3-00000002arh-1ljA;
+	Tue, 25 Jun 2024 11:45:27 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM4b2-00000002aN1-2TFJ
+	id 1sM4c0-00000002aoc-164M
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jun 2024 11:44:26 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4W7jYJ3z5XzxSv5;
-	Tue, 25 Jun 2024 19:39:48 +0800 (CST)
-Received: from dggpemd100004.china.huawei.com (unknown [7.185.36.20])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4F72E140415;
-	Tue, 25 Jun 2024 19:44:07 +0800 (CST)
-Received: from [10.67.109.211] (10.67.109.211) by
- dggpemd100004.china.huawei.com (7.185.36.20) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 25 Jun 2024 19:44:07 +0800
-Message-ID: <8841edbc-dd65-452c-a459-b5ce42e289d9@huawei.com>
-Date: Tue, 25 Jun 2024 19:44:06 +0800
+	Tue, 25 Jun 2024 11:45:26 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-a725ea1a385so200281666b.3
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Jun 2024 04:45:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719315922; x=1719920722; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DMUhzznUZed7QosruqCaiTofY87z0Rh5ZDjCpva9+sA=;
+        b=kmhXmNuwXzRQ5Mn1vvj3v9AhebOPhCwHjQLIpLNy1XwgZLLKCRyr4QxM7Yk65AvKar
+         rQb8+wvIQ/4TcbZH2I4BEPe/0/a690iuqbPjBE2Yw+15ngx8y7xX8J7qo8rhp1H3Xhzy
+         51GML0oLAWZ7Ku9CKKPX+wEcc+eYPd/D7Pg/KkLBytSkl+nqrFTTfQeaP4+PEEcDEmXU
+         0hiYb2kQe5zfmtBx/5A/EZwTD5Hvo/Jdc6UzIDu2xAgXEFuZoAJmaGhbbnvqnLXZ82Hp
+         lQmqTbGyy6PYzS/BeT37vMhVA9WH7MKkCkdhtdkZlrl3CrdlH+VVjmbJ7kLCVMRETrVx
+         V/UA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719315922; x=1719920722;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DMUhzznUZed7QosruqCaiTofY87z0Rh5ZDjCpva9+sA=;
+        b=u+7CrjiuR2TMrs5NrTWnw4gzlE8k3AA3e17+SD1AGCw3y1o4gjY6HEgi9KeM/p4q+A
+         KDwLNM99cgADmtat+S1KEY02kXalH9ZnTphLf+zfClLMww+AHCgXaGD9CjSG2qAIb/q2
+         Hu12dmV0FH+srN1KXTZk1jufTgtOLTqI0vbZJXwMZ7rjWKWu+c/U+7iqv1Q17R/KRsHB
+         iwPlytJ10+Uc9KXR/D/yFnL9s/L6hhYe8Q9a+ljvCh4Dpw6dTxnxq4TmreRsOmPVUEzp
+         r9s4HC3Gq52weVNSmREQFBRtf/rthTW7PSYzPWV+MR4hA5WPmwEy2qSKh0nTZfZidUFh
+         rHxw==
+X-Forwarded-Encrypted: i=1; AJvYcCWfPkpxj//eP3/XRA0dmipSIQjk3A4M+pXv5WbvwoZH0FT8FJX638bEh6mUGSH/2V0Uu8TqLStZl5joQCeCKTEW2/apXAqgpF53fiOpuqJX
+X-Gm-Message-State: AOJu0YzDu3JX+5tkWP8kL+JmP+lBlXHu4s8etr86FK6h2d4UwMBH8YgL
+	m74VcYFDntpE0Tb0dPmAA+RKQhe2bi72fk0i3ZuaDp3vXpUUmJmpNvxOFU2ewO1NM+Rkb1ld1ik
+	GRX3+V0rdkGIH8/aGKesgExvAo2+YagiMXKwyB19bk++p2T2ewBI=
+X-Google-Smtp-Source: AGHT+IH9oE5avAcWE1dPfuPWXIMdR/bUBTzCledqBKIgAA1sscmeeXwl9hobU0kHO9Oj+2sOIr59kjUvaPz1Cy6Hh38=
+X-Received: by 2002:a17:907:c78e:b0:a6f:bc02:a008 with SMTP id
+ a640c23a62f3a-a7242c4de49mr533457666b.4.1719315921872; Tue, 25 Jun 2024
+ 04:45:21 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] RISC-V: Dynamically allocate cpumasks and further
- increase range and default value of NR_CPUS
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
-References: <20240614075306.357861-1-liuyuntao12@huawei.com>
- <20240625-c1c3b9fcb6ee148294d4ceb4@orel>
-From: "liuyuntao (F)" <liuyuntao12@huawei.com>
-In-Reply-To: <20240625-c1c3b9fcb6ee148294d4ceb4@orel>
-X-Originating-IP: [10.67.109.211]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemd100004.china.huawei.com (7.185.36.20)
+References: <tencent_7721F6B72F58AA6154DFBDFF@qq.com>
+In-Reply-To: <tencent_7721F6B72F58AA6154DFBDFF@qq.com>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Tue, 25 Jun 2024 13:45:10 +0200
+Message-ID: <CAHVXubhkrDv3Fx1KH-jjjWjo-LGKBMabvafAPsDZeSpGMEt-gg@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Only flush the mm icache when setting an exec pte
+To: =?UTF-8?B?5qGC5YW1?= <guibing@nucleisys.com>
+Cc: aou <aou@eecs.berkeley.edu>, linux-kernel <linux-kernel@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, palmer <palmer@dabbelt.com>, 
+	"paul.walmsley" <paul.walmsley@sifive.com>, =?UTF-8?B?5pa55Y2O5ZCv?= <hqfang@nucleisys.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240625_044424_989425_7A250CEE 
-X-CRM114-Status: GOOD (  24.78  )
+X-CRM114-CacheID: sfid-20240625_044524_455916_5550F12A 
+X-CRM114-Status: GOOD (  22.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,105 +86,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2024/6/25 19:11, Andrew Jones wrote:
-> On Fri, Jun 14, 2024 at 07:53:06AM GMT, Yuntao Liu wrote:
->> Currently default NR_CPUS is 64 for riscv64, since the latest QEMU virt
->> machine supports up to 512 CPUS, so set default NR_CPUS 512 for riscv64.
->>
->> Under the promotion of RISC-V International and related chip
->> manufacturers, RISC-V has also begun to enter the server market, which
->> demands higher performance. Other major architectures (such as ARM64,
->> x86_64, MIPS, etc) already have a higher range, so further increase
->> this range up to 4096 for riscv64.
->>
->> Due to the fact that increasing NR_CPUS enlarges the size of cpumasks,
->> there is a concern that this could significantly impact stack usage,
->> especially for code that allocates cpumasks on the stack. To address
->> this, we have the option to enable CPUMASK_OFFSTACK, which prevents
->> cpumasks from being allocated on the stack. we choose to enable this
->> feature only when NR_CPUS is greater than 512, why 512, since then
->> the kernel size with offstack is smaller.
-> 
-> This isn't the reason why Arm decided to start at 512, afaict. The reason
-> for Arm was because hackbench did better with onstack for 256. What are
-> the hackbench results for riscv?
-
-Okay, I will add the test results of hacktest soon.
-
-> 
->>
->> vmlinux size comparison(difference to vmlinux_onstack_NR_CPUS baseline):
->>
->> NR_CPUS     256         512         1024        2048        4096
->> onstack     19814536    19840760    19880584    19969672    20141704
->> offstack    19819144    19840936    19880480    19968544    20135456
->> difference  +0.023%     +0.001%     -0.001%     -0.001      -0.031%
->> is_smaller  n           n           y           y           y
-> 
-> Since the savings are almost nothing we must not have too many global
-> cpumasks. But I'm in favor of ensuring stack depths stay under control,
-> so turning on CPUMASK_OFFSTACK sounds good to me in general.
-> 
->>
->> Signed-off-by: Yuntao Liu <liuyuntao12@huawei.com>
->> ---
->>   arch/riscv/Kconfig | 5 +++--
->>   1 file changed, 3 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 0525ee2d63c7..5960713b3bf9 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -77,6 +77,7 @@ config RISCV
->>   	select CLINT_TIMER if RISCV_M_MODE
->>   	select CLONE_BACKWARDS
->>   	select COMMON_CLK
->> +	select CPUMASK_OFFSTACK if NR_CPUS > 512
->>   	select CPU_PM if CPU_IDLE || HIBERNATION || SUSPEND
->>   	select EDAC_SUPPORT
->>   	select FRAME_POINTER if PERF_EVENTS || (FUNCTION_TRACER && !DYNAMIC_FTRACE)
->> @@ -428,11 +429,11 @@ config SCHED_MC
->>   config NR_CPUS
->>   	int "Maximum number of CPUs (2-512)"
->>   	depends on SMP
->> -	range 2 512 if !RISCV_SBI_V01
->> +	range 2 4096 if !RISCV_SBI_V01
->>   	range 2 32 if RISCV_SBI_V01 && 32BIT
->>   	range 2 64 if RISCV_SBI_V01 && 64BIT
->>   	default "32" if 32BIT
->> -	default "64" if 64BIT
->> +	default "512" if 64BIT
-> 
-> This is somewhat reasonable, even if nothing is going to use this for
-> quite a while, since it'll help avoid bugs popping up when NR_CPUS gets
-> bumped later, but it feels excessive right now for riscv, so I'm a bit
-> on the fence about it. Maybe if hackbench doesn't show any issues we
-> could turn CPUMASK_OFFSTACK on for a smaller NR_CPUS and also select
-> a smaller default?
-> 
-> Thanks,
-> drew
-> 
->>   
->>   config HOTPLUG_CPU
->>   	bool "Support for hot-pluggable CPUs"
->> -- 
->> 2.34.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgR3VpYmluZywKCllvdSBzZW50IHlvdXIgZW1haWwgaW4gaHRtbCwgc28gaXQgZ290IHJlamVj
+dGVkIGJ5IHRoZSBNTCwgbWFrZSBzdXJlCnlvdSByZXBseSBpbiBwbGFpbiB0ZXh0IG1vZGUgOikK
+Ck9uIFR1ZSwgSnVuIDI1LCAyMDI0IGF0IDEwOjQ14oCvQU0g5qGC5YW1IDxndWliaW5nQG51Y2xl
+aXN5cy5jb20+IHdyb3RlOgo+Cj4gSGkgYWxleO+8jAo+Cj4gV2UgaGF2ZSBlbmNvdW50ZXJlZCBh
+IHByb2JsZW0gcmVsYXRlZCB0byB0aGlzIHBhdGNoIGFuZCB3b3VsZCBsaWtlIHRvIGFzayBmb3Ig
+eW91ciBhZHZpY2UsIHRoYW5rIHlvdSBpbiBhZHZhbmNlIQo+Cj4gUHJvYmxlbSBkZXNjcmlwdGlv
+bjoKPiBXaGVuIHdlIHVzZSB0aGUgdjYuOSBrZXJuZWwsIHRoZXJlIGlzIGFuIGlsbGVnYWwgaW5z
+dHJ1Y3Rpb24gcHJvYmxlbSB3aGVuIGV4ZWN1dGluZyBhIHN0YXRpY2FsbHkgbGlua2VkIGFwcGxp
+Y2F0aW9uIG9uIGFuIFNEIGNhcmQsIGFuZCB0aGlzIHByb2JsZW0gaXMgbm90IHJlcHJvZHVjZWQg
+aW4gdjYuNi92Ni4xIGtlcm5lbC4KPiBTRCBjYXJkIGRyaXZlciB1c2VzIFBJTyBtb2RlLCBhbmQg
+dGhlIFNEIGNhcmQgaW50ZXJydXB0IGlzIGJvdW5kIHRvIGNvcmUwLiBJZiB0aGUgc3lzdGVtIHNj
+aGVkdWxlIHRoZSBhcGxsaWNhdGlvbiB0byBleGVjdXRlIG9uIGNvcmUxLCBjb3JlMiwgb3IgY29y
+ZTMsIGl0IHdpbGwgcmVwb3J0IGFuIGlsbGVnYWwgaW5zdHJ1Y3Rpb24sIGFuZCBpZiBzY2hlZHVs
+ZWQgdG8gZXhlY3V0ZSBvbiBjb3JlMCwgaXQgd2lsbCBiZSBleGVjdXRlZCBzdWNjZXNzZnVsbHku
+CgpJcyBpdCBhIG11bHRpdGhyZWFkZWQgYXBwbGljYXRpb24/IFlvdSBtZWFuIHRoYXQgaWYgdGhl
+IGFwcGxpY2F0aW9uCmFsd2F5cyBydW5zIG9uIGNvcmUxLzIvMywgeW91IGdldCBhbiBpbGxlZ2Fs
+IGluc3RydWN0aW9uLCBidXQgdGhhdApkb2VzIG5vdCBoYXBwZW4gd2hlbiBydW4gb24gY29yZTA/
+Cgo+Cj4gV2UgdHJhY2sgdGhlIHNvdXJjZSBjb2RlLCBmbHVzaF9pY2FjaGVfcHRlIGZ1bmN0aW9u
+IHBhdGNoIGxlYWRzIHRvIHRoaXMgaXNzdWUgb24gb3VyIHJpc2N2IGhhcmR3YXJlLgo+IElmIHlv
+dSBtZXJnZSB0aGlzIHBhdGNoIGludG8gdGhlIHY2LjEga2VybmVsLCB0aGUgc2FtZSBwcm9ibGVt
+IGNhbiBiZSByZXByb2R1Y2VkIGluIHY2LjEga2VybmVsLgo+IElmIHVzaW5nIGZsdXNoX2ljYWNo
+ZV9hbGwoKSBub3QgZmx1c2hfaWNhY2hlX21tIGluIHY2Ljkga2VybmVsIDsgdGhpcyBpc3N1ZSBj
+YW4gbm90IGJlIHJlcHJvZHVjZWQgaW4gdjYuOSBrZXJuZWwuCj4KPiArdm9pZCBmbHVzaF9pY2Fj
+aGVfcHRlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCBwdGVfdCBwdGUpCj4gIHsKPiAgc3RydWN0IGZv
+bGlvICpmb2xpbyA9IHBhZ2VfZm9saW8ocHRlX3BhZ2UocHRlKSk7Cj4KPiAgaWYgKCF0ZXN0X2Jp
+dChQR19kY2FjaGVfY2xlYW4sICZmb2xpby0+ZmxhZ3MpKSB7Cj4gLeKAguKAguKAguKAguKAguKA
+guKAguKAguKAguKAguKAgmZsdXNoX2ljYWNoZV9hbGwoKTsKPiAr4oCC4oCC4oCC4oCC4oCC4oCC
+4oCC4oCC4oCC4oCC4oCCZmx1c2hfaWNhY2hlX21tKG1tLCBmYWxzZSk7Cj4gIHNldF9iaXQoUEdf
+ZGNhY2hlX2NsZWFuLCAmZm9saW8tPmZsYWdzKTsKPiAgfQo+ICB9CgpEaWQgeW91IGNoZWNrIGlm
+IHRoZSBpbnN0cnVjdGlvbiBpbiBiYWRhZGRyIGlzIGRpZmZlcmVudCBmcm9tIHRoZQpleHBlY3Rl
+ZCBpbnN0cnVjdGlvbj8gVGhlIGltYWdlIHlvdSBwcm92aWRlZCBpcyBub3QgYXZhaWxhYmxlIGhl
+cmUsCmJ1dCBpdCBpbmRpY2F0ZWQgMHhmNDg2IHdoaWNoIGNvcnJlc3BvbmRzIHRvICJjLnNkc3Ag
+IHJhLCAxMDQoc3ApIiwgaXMKdGhhdCBjb3JyZWN0PwoKPgo+Cj4gT3VyIHJpc2N2IGNwdSBJUCBz
+dXBwb3J0cyBtdWx0aS1jb3JlIEwxIGRjYWNoZSBzeW5jaHJvbml6YXRpb24sIGJ1dCBkb2VzIG5v
+dCBzdXBwb3J0IG11bHRpLWNvcmUgTDEgaWNhY2hlIHN5bmNocm9uaXphdGlvbi4gaUNhY2hlIHN5
+bmNocm9uaXphdGlvbiByZXF1aXJlcyBzb2Z0d2FyZSBtYWludGVuYW5jZS4KPiBEb2VzIHRoZSBS
+SVNDViBhcmNoaXRlY3R1cmUga2VybmVsIGluIGZ1dHVyZSBoYXZlIG1hbmRhdG9yeSByZXF1aXJl
+bWVudHMgZm9yIG11bHRpLWNvcmUgaUNhY2hlIGhhcmR3YXJlIGNvbnNpc3RlbmN5PwoKTm8gbm8s
+IHdlIHRyeSB0byBpbnRyb2R1Y2UgaWNhY2hlIGZsdXNoZXMgd2hlbmV2ZXIgaXQgaXMgbmVlZGVk
+IGZvciBzdWNoIHVhcmNoLgoKPgo+IFRoYW5rIHlvdSBmb3IgeW91ciByZXBseSEKPgo+Cj4gTGlu
+a++8mltQQVRDSF0gcmlzY3Y6IE9ubHkgZmx1c2ggdGhlIG1tIGljYWNoZSB3aGVuIHNldHRpbmcg
+YW4gZXhlYyBwdGUgLSBBbGV4YW5kcmUgR2hpdGkgKGtlcm5lbC5vcmcpCj4KPiBfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwo+IOWPkeiHquaIkeeahOS8geS4muW+ruS/oQo+Cj4KClRo
+YW5rcyBmb3IgdGhlIHJlcG9ydCwKCkFsZXgKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
