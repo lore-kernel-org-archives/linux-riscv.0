@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82020C2BBCA
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 15:11:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2A6C2BBCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 15:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8UbjVkZ7xtwTxu28kegMlOdoEH28TErLJgQf/ss3m8c=; b=Br8RhR6WqyGvM5
-	BqQfFOPADHGTXITECf2ZqVNFCxVkVk84cto7/GJY0KYH82DOvWNg7ljZkYJxHnEqqqQg+zx49zygn
-	DlMwUM65GsxlRJ0ZsgyadYujjDtdlIN21VAc4MUrTMA40kQxcGr+0HruwLhQubA0IsO+K81HolT/c
-	6JLozaC2e/0OSOVhZgkdVEd5Fxudyl0DlF4S9/idWJm3EAKozcZn2hFHnSm5BbNNLz7tWXIQZkutD
-	vMjz2SPaFnGQN4N+vPWh34fNg60r/jTREaNbe1CSe5PRhxaTnQ+5TPTPygnzothiRiCFPC0V0TAGl
-	aSraPHXEBroAF9+Lf+tA==;
+	List-Owner; bh=2bjVtqCVpLhwd0327kf8cP1qNInijjIDb8udJEidB5E=; b=uYVZIhXCJfD5s7
+	S2hAx0plzbWlMQ1O26hav7AaK7fKq8yoW6ybVX96y8wBjxE1ePAh3p49NPjIulvsK2HMqID/Fw+M2
+	TD6P9Wi2mcVZTwxG3N0RL9n2wpVI8upZ7m+M2eUSbNj2kozzqH1jaP85U6hk4oE6fK+bjHmFWGP++
+	PyTb6anTASm9aWSrWbqi0dmCHU/sy5b8H1vXHV249PuxeYzWcTkfTTGTwDvbDqgbHFfONQTR84Ehv
+	vD7NITnkTAJ53ibikFBPho+fhYNQRsBOf9GhfVg3VN9aIf122tgATkRnOHHTb2VrYugK3fARTtSlW
+	0DzLZjWtEYsscOH43dRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM7ox-00000003QcR-0iBx;
-	Tue, 25 Jun 2024 15:10:59 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sM7p7-00000003QkM-2yma;
+	Tue, 25 Jun 2024 15:11:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM7j1-00000003MIm-0bho;
-	Tue, 25 Jun 2024 15:05:12 +0000
+	id 1sM7jD-00000003MRo-27TK;
+	Tue, 25 Jun 2024 15:05:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id CDC6BCE1AD3;
-	Tue, 25 Jun 2024 15:04:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 424F7C32781;
-	Tue, 25 Jun 2024 15:04:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DA0E76148F;
+	Tue, 25 Jun 2024 15:05:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1B34C32781;
+	Tue, 25 Jun 2024 15:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719327888;
-	bh=uHJiYcvljzUX8f4hJI4pgvGmhWWcFPMp0a5s58eHg1Q=;
+	s=k20201202; t=1719327902;
+	bh=/b4fLgBxrOG/LTGvqBDUXcUFQWiOWxSYArOHQoaOV+E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=B9/+eD8H/b4txlwb0fKoLsaf1vEzp0vHCKL3eP5ZYdl5m3fIQnZe4kprD4iN5GUOP
-	 uHWFJ7DM+IO8qM0oWr6Ny6cRoGFWyq9OzMN2uKIzhI2F8LrNBNCOHB3BMSz8Xrd64S
-	 4cNYJyEFXuKSIzvZqolFq/lqY7J+Vg0Y010/1wCs29imOkytDf7VIDSBu3W3yCQnMU
-	 5DpKRXwbihbnYXOAjmjoR6hD0cTneP/t5M1OTLbTFcJKPMTdgq6wnZ8fbWoSAYEgg3
-	 udfC5wXImn8NqBNI2qMKhDMOu0VioWY10by7w2PBQ26+hxjh43zWDRgYi/MMRWqu0D
-	 +mXWQfOdpnjuw==
+	b=LScJejdD0HsZ3gyagi0rdW5pplz2PKWUJe8IoFvycuuSj/u3cFyDLfPdQcf4w5Mqe
+	 xMchm+nA0c9Hmjw0cv5xcufOcwq8JmOTLGQ1lXNBFRcr7p2xHoQ1GRXrySBCYGIhA2
+	 T7noj+uLdOOmmr5sThHzXr47H4CSzQb6NgS7IDMuWnhYwi9m95QA900m2yBpVACnfI
+	 3GQ6h0HEJMfWStlzDzpr7XjONMjBvcfg4E3N1/slYYIPFAXpfHcpt534ymmVH5j5cG
+	 KFtuW0qou0XRhW9nea+YWGxrbueheQfTboHq2B8+IUsQLroPpJl74JHh9WEuqyRe86
+	 NJcUOmfT8I77A==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 25 Jun 2024 15:58:02 +0100
-Subject: [PATCH v9 34/39] kselftest/arm64: Add very basic GCS test program
+Date: Tue, 25 Jun 2024 15:58:04 +0100
+Subject: [PATCH v9 36/39] kselftest/arm64: Add test coverage for GCS mode
+ locking
 MIME-Version: 1.0
-Message-Id: <20240625-arm64-gcs-v9-34-0f634469b8f0@kernel.org>
+Message-Id: <20240625-arm64-gcs-v9-36-0f634469b8f0@kernel.org>
 References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
 In-Reply-To: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.14-dev-d4707
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13330; i=broonie@kernel.org;
- h=from:subject:message-id; bh=uHJiYcvljzUX8f4hJI4pgvGmhWWcFPMp0a5s58eHg1Q=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmetuNgEZntme6jAr9UtH0VfGfGf/1dLXYaQNm0rST
- 31Q8lLWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZnrbjQAKCRAk1otyXVSH0O/TB/
- 9PIUSIFlzJOt7RtwV6XRF+NWmZqUEZqn9f2taXUenbTzGZDCjjCb09wh6bZi0bGTcVo5It0KLkMTLT
- vLYhVUHHI6FTJY/x0yc1+rjXjcK2IJNKMw6DqU7tJTrcNRUTSanUB+s5hj+OiRfLMQ88aC4i9S21BI
- M89wFfmGQ0w1px6MVrX+0dU7vBIYZ2Eb7gzu/+OO0D0S9HTe00gbCkjAY03lcjVKrTtURecyIGizcP
- vdqLeHVFJEaAs41vEVEJnCZxj19A38n5g2VsMi3Y+DtXXclKPxDE2EWzl6uNRFFyHoaGK/rxXaa5uj
- HYTMdEeSw/7i/GpphaAIkCdoSQXEEx
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7382; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=/b4fLgBxrOG/LTGvqBDUXcUFQWiOWxSYArOHQoaOV+E=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmetuOwdGPwVGSgR7/GFysax2XSd4oP4cz4jyzMVOP
+ q7a8LN+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZnrbjgAKCRAk1otyXVSH0NZNB/
+ wNusK30jfSyo+Ir8/SJNPOAXC/+46V8h9+O1cMCaLRq8wlD993ZX9/fPX5gTEn3cE355CTBHcrqkyk
+ nDIpqx5lFgJNyhvm6uwlLVCRwTq6cD1VjktVqQZ96Oj6aUd/IzJGM2WNA7oOwENMLf3Wk7tSf3FEOW
+ tDJHCw1FyhkcllPEx1DndTFFdxltVCvohXS6iHoK0OXQUV5/Y/LSO+kdWN331YgDKYonyN1nrmjDNa
+ xRxn7uT6JUoE3p0xgIC1zQ6mdo1Fg9sGv7KyakStN1KEb7bHbyh/c9mCLwII095y0KFTehAzZ/Nu19
+ t202vqXMVu+OWT7r07rREuZLfyEABp
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240625_080451_887309_2AA3C99D 
-X-CRM114-Status: GOOD (  28.54  )
+X-CRM114-CacheID: sfid-20240625_080503_958523_77095EDF 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,522 +101,255 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This test program just covers the basic GCS ABI, covering aspects of the
-ABI as standalone features without attempting to integrate things.
+Verify that we can lock individual GCS mode bits, that other modes
+aren't affected and as a side effect also that every combination of
+modes can be enabled.
+
+Normally the inability to reenable GCS after disabling it would be an
+issue with testing but fortunately the kselftest_harness runs each test
+within a fork()ed child.  This can be inconvenient for some kinds of
+testing but here it means that each test is in a separate thread and
+therefore won't be affected by other tests in the suite.
+
+Once we get toolchains with support for enabling GCS by default we will
+need to take care to not do that in the build system but there are no
+such toolchains yet so it is not yet an issue.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/Makefile        |   2 +-
- tools/testing/selftests/arm64/gcs/.gitignore  |   1 +
- tools/testing/selftests/arm64/gcs/Makefile    |  18 ++
- tools/testing/selftests/arm64/gcs/basic-gcs.c | 357 ++++++++++++++++++++++++++
- tools/testing/selftests/arm64/gcs/gcs-util.h  |  90 +++++++
- 5 files changed, 467 insertions(+), 1 deletion(-)
+ tools/testing/selftests/arm64/gcs/.gitignore    |   1 +
+ tools/testing/selftests/arm64/gcs/Makefile      |   2 +-
+ tools/testing/selftests/arm64/gcs/gcs-locking.c | 200 ++++++++++++++++++++++++
+ 3 files changed, 202 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/arm64/Makefile b/tools/testing/selftests/arm64/Makefile
-index 28b93cab8c0d..22029e60eff3 100644
---- a/tools/testing/selftests/arm64/Makefile
-+++ b/tools/testing/selftests/arm64/Makefile
-@@ -4,7 +4,7 @@
- ARCH ?= $(shell uname -m 2>/dev/null || echo not)
- 
- ifneq (,$(filter $(ARCH),aarch64 arm64))
--ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi
-+ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs
- else
- ARM64_SUBTARGETS :=
- endif
 diff --git a/tools/testing/selftests/arm64/gcs/.gitignore b/tools/testing/selftests/arm64/gcs/.gitignore
-new file mode 100644
-index 000000000000..0e5e695ecba5
---- /dev/null
+index 5810c4a163d4..0c86f53f68ad 100644
+--- a/tools/testing/selftests/arm64/gcs/.gitignore
 +++ b/tools/testing/selftests/arm64/gcs/.gitignore
-@@ -0,0 +1 @@
-+basic-gcs
+@@ -1,2 +1,3 @@
+ basic-gcs
+ libc-gcs
++gcs-locking
 diff --git a/tools/testing/selftests/arm64/gcs/Makefile b/tools/testing/selftests/arm64/gcs/Makefile
-new file mode 100644
-index 000000000000..61a30f483429
---- /dev/null
+index a8fdf21e9a47..2173d6275956 100644
+--- a/tools/testing/selftests/arm64/gcs/Makefile
 +++ b/tools/testing/selftests/arm64/gcs/Makefile
-@@ -0,0 +1,18 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# Copyright (C) 2023 ARM Limited
-+#
-+# In order to avoid interaction with the toolchain and dynamic linker the
-+# portions of these tests that interact with the GCS are implemented using
-+# nolibc.
-+#
-+
-+TEST_GEN_PROGS := basic-gcs
-+
-+include ../../lib.mk
-+
-+$(OUTPUT)/basic-gcs: basic-gcs.c
-+	$(CC) -g -fno-asynchronous-unwind-tables -fno-ident -s -Os -nostdlib \
-+		-static -include ../../../../include/nolibc/nolibc.h \
-+		-I../../../../../usr/include \
-+		-std=gnu99 -I../.. -g \
-+		-ffreestanding -Wall $^ -o $@ -lgcc
-diff --git a/tools/testing/selftests/arm64/gcs/basic-gcs.c b/tools/testing/selftests/arm64/gcs/basic-gcs.c
+@@ -6,7 +6,7 @@
+ # nolibc.
+ #
+ 
+-TEST_GEN_PROGS := basic-gcs libc-gcs
++TEST_GEN_PROGS := basic-gcs libc-gcs gcs-locking
+ 
+ LDLIBS+=-lpthread
+ 
+diff --git a/tools/testing/selftests/arm64/gcs/gcs-locking.c b/tools/testing/selftests/arm64/gcs/gcs-locking.c
 new file mode 100644
-index 000000000000..3fb9742342a3
+index 000000000000..f6a73254317e
 --- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/basic-gcs.c
-@@ -0,0 +1,357 @@
++++ b/tools/testing/selftests/arm64/gcs/gcs-locking.c
+@@ -0,0 +1,200 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (C) 2023 ARM Limited.
++ *
++ * Tests for GCS mode locking.  These tests rely on both having GCS
++ * unconfigured on entry and on the kselftest harness running each
++ * test in a fork()ed process which will have it's own mode.
 + */
 +
 +#include <limits.h>
-+#include <stdbool.h>
 +
-+#include <linux/prctl.h>
++#include <sys/auxv.h>
++#include <sys/prctl.h>
 +
-+#include <sys/mman.h>
-+#include <asm/mman.h>
-+#include <linux/sched.h>
++#include <asm/hwcap.h>
 +
-+#include "kselftest.h"
++#include "kselftest_harness.h"
++
 +#include "gcs-util.h"
 +
-+/* nolibc doesn't have sysconf(), just hard code the maximum */
-+static size_t page_size = 65536;
++#define my_syscall2(num, arg1, arg2)                                          \
++({                                                                            \
++	register long _num  __asm__ ("x8") = (num);                           \
++	register long _arg1 __asm__ ("x0") = (long)(arg1);                    \
++	register long _arg2 __asm__ ("x1") = (long)(arg2);                    \
++	register long _arg3 __asm__ ("x2") = 0;                               \
++	register long _arg4 __asm__ ("x3") = 0;                               \
++	register long _arg5 __asm__ ("x4") = 0;                               \
++	                                                                      \
++	__asm__  volatile (                                                   \
++		"svc #0\n"                                                    \
++		: "=r"(_arg1)                                                 \
++		: "r"(_arg1), "r"(_arg2),                                     \
++		  "r"(_arg3), "r"(_arg4),                                     \
++		  "r"(_arg5), "r"(_num)					      \
++		: "memory", "cc"                                              \
++	);                                                                    \
++	_arg1;                                                                \
++})
 +
-+static  __attribute__((noinline)) void valid_gcs_function(void)
-+{
-+	/* Do something the compiler can't optimise out */
-+	my_syscall1(__NR_prctl, PR_SVE_GET_VL);
-+}
-+
-+static inline int gcs_set_status(unsigned long mode)
-+{
-+	bool enabling = mode & PR_SHADOW_STACK_ENABLE;
-+	int ret;
-+	unsigned long new_mode;
-+
-+	/*
-+	 * The prctl takes 1 argument but we need to ensure that the
-+	 * other 3 values passed in registers to the syscall are zero
-+	 * since the kernel validates them.
-+	 */
-+	ret = my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, mode,
-+			  0, 0, 0);
-+
-+	if (ret == 0) {
-+		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-+				  &new_mode, 0, 0, 0);
-+		if (ret == 0) {
-+			if (new_mode != mode) {
-+				ksft_print_msg("Mode set to %lx not %lx\n",
-+					       new_mode, mode);
-+				ret = -EINVAL;
-+			}
-+		} else {
-+			ksft_print_msg("Failed to validate mode: %d\n", ret);
-+		}
-+
-+		if (enabling != chkfeat_gcs()) {
-+			ksft_print_msg("%senabled by prctl but %senabled in CHKFEAT\n",
-+				       enabling ? "" : "not ",
-+				       chkfeat_gcs() ? "" : "not ");
-+			ret = -EINVAL;
-+		}
-+	}
-+
-+	return ret;
-+}
-+
-+/* Try to read the status */
-+static bool read_status(void)
-+{
-+	unsigned long state;
-+	int ret;
-+
-+	ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-+			  &state, 0, 0, 0);
-+	if (ret != 0) {
-+		ksft_print_msg("Failed to read state: %d\n", ret);
-+		return false;
-+	}
-+
-+	return state & PR_SHADOW_STACK_ENABLE;
-+}
-+
-+/* Just a straight enable */
-+static bool base_enable(void)
++/* No mode bits are rejected for locking */
++TEST(lock_all_modes)
 +{
 +	int ret;
 +
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE);
-+	if (ret) {
-+		ksft_print_msg("PR_SHADOW_STACK_ENABLE failed %d\n", ret);
-+		return false;
-+	}
-+
-+	return true;
++	ret = prctl(PR_LOCK_SHADOW_STACK_STATUS, ULONG_MAX, 0, 0, 0);
++	ASSERT_EQ(ret, 0);
 +}
 +
-+/* Check we can read GCSPR_EL0 when GCS is enabled */
-+static bool read_gcspr_el0(void)
++FIXTURE(valid_modes)
 +{
-+	unsigned long *gcspr_el0;
-+
-+	ksft_print_msg("GET GCSPR\n");
-+	gcspr_el0 = get_gcspr();
-+	ksft_print_msg("GCSPR_EL0 is %p\n", gcspr_el0);
-+
-+	return true;
-+}
-+
-+/* Also allow writes to stack */
-+static bool enable_writeable(void)
-+{
-+	int ret;
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE);
-+	if (ret) {
-+		ksft_print_msg("PR_SHADOW_STACK_ENABLE writeable failed: %d\n", ret);
-+		return false;
-+	}
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE);
-+	if (ret) {
-+		ksft_print_msg("failed to restore plain enable %d\n", ret);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/* Also allow writes to stack */
-+static bool enable_push_pop(void)
-+{
-+	int ret;
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_PUSH);
-+	if (ret) {
-+		ksft_print_msg("PR_SHADOW_STACK_ENABLE with push failed: %d\n",
-+			       ret);
-+		return false;
-+	}
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE);
-+	if (ret) {
-+		ksft_print_msg("failed to restore plain enable %d\n", ret);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/* Enable GCS and allow everything */
-+static bool enable_all(void)
-+{
-+	int ret;
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_PUSH |
-+			     PR_SHADOW_STACK_WRITE);
-+	if (ret) {
-+		ksft_print_msg("PR_SHADOW_STACK_ENABLE with everything failed: %d\n",
-+			       ret);
-+		return false;
-+	}
-+
-+	ret = gcs_set_status(PR_SHADOW_STACK_ENABLE);
-+	if (ret) {
-+		ksft_print_msg("failed to restore plain enable %d\n", ret);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+static bool enable_invalid(void)
-+{
-+	int ret = gcs_set_status(ULONG_MAX);
-+	if (ret == 0) {
-+		ksft_print_msg("GCS_SET_STATUS %lx succeeded\n", ULONG_MAX);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/* Map a GCS */
-+static bool map_guarded_stack(void)
-+{
-+	int ret;
-+	uint64_t *buf;
-+	uint64_t expected_cap;
-+	int elem;
-+	bool pass = true;
-+
-+	buf = (void *)my_syscall3(__NR_map_shadow_stack, 0, page_size,
-+				  SHADOW_STACK_SET_MARKER |
-+				  SHADOW_STACK_SET_TOKEN);
-+	if (buf == MAP_FAILED) {
-+		ksft_print_msg("Failed to map %lu byte GCS: %d\n",
-+			       page_size, errno);
-+		return false;
-+	}
-+	ksft_print_msg("Mapped GCS at %p-%p\n", buf,
-+		       (void *)((uint64_t)buf + page_size));
-+
-+	/* The top of the newly allocated region should be 0 */
-+	elem = (page_size / sizeof(uint64_t)) - 1;
-+	if (buf[elem]) {
-+		ksft_print_msg("Last entry is 0x%llx not 0x0\n", buf[elem]);
-+		pass = false;
-+	}
-+
-+	/* Then a valid cap token */
-+	elem--;
-+	expected_cap = ((uint64_t)buf + page_size - 16);
-+	expected_cap &= GCS_CAP_ADDR_MASK;
-+	expected_cap |= GCS_CAP_VALID_TOKEN;
-+	if (buf[elem] != expected_cap) {
-+		ksft_print_msg("Cap entry is 0x%llx not 0x%llx\n",
-+			       buf[elem], expected_cap);
-+		pass = false;
-+	}
-+	ksft_print_msg("cap token is 0x%llx\n", buf[elem]);
-+
-+	/* The rest should be zeros */
-+	for (elem = 0; elem < page_size / sizeof(uint64_t) - 2; elem++) {
-+		if (!buf[elem])
-+			continue;
-+		ksft_print_msg("GCS slot %d is 0x%llx not 0x0\n",
-+			       elem, buf[elem]);
-+		pass = false;
-+	}
-+
-+	ret = munmap(buf, page_size);
-+	if (ret != 0) {
-+		ksft_print_msg("Failed to unmap %ld byte GCS: %d\n",
-+			       page_size, errno);
-+		pass = false;
-+	}
-+
-+	return pass;
-+}
-+
-+/* A fork()ed process can run */
-+static bool test_fork(void)
-+{
-+	unsigned long child_mode;
-+	int ret, status;
-+	pid_t pid;
-+	bool pass = true;
-+
-+	pid = fork();
-+	if (pid == -1) {
-+		ksft_print_msg("fork() failed: %d\n", errno);
-+		pass = false;
-+		goto out;
-+	}
-+	if (pid == 0) {
-+		/* In child, make sure we can call a function, read
-+		 * the GCS pointer and status and then exit */
-+		valid_gcs_function();
-+		get_gcspr();
-+
-+		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-+				  &child_mode, 0, 0, 0);
-+		if (ret == 0 && !(child_mode & PR_SHADOW_STACK_ENABLE)) {
-+			ksft_print_msg("GCS not enabled in child\n");
-+			ret = -EINVAL;
-+		}
-+
-+		exit(ret);
-+	}
-+
-+	/*
-+	 * In parent, check we can still do function calls then block
-+	 * for the child.
-+	 */
-+	valid_gcs_function();
-+
-+	ksft_print_msg("Waiting for child %d\n", pid);
-+
-+	ret = waitpid(pid, &status, 0);
-+	if (ret == -1) {
-+		ksft_print_msg("Failed to wait for child: %d\n",
-+			       errno);
-+		return false;
-+	}
-+
-+	if (!WIFEXITED(status)) {
-+		ksft_print_msg("Child exited due to signal %d\n",
-+			       WTERMSIG(status));
-+		pass = false;
-+	} else {
-+		if (WEXITSTATUS(status)) {
-+			ksft_print_msg("Child exited with status %d\n",
-+				       WEXITSTATUS(status));
-+			pass = false;
-+		}
-+	}
-+
-+out:
-+
-+	return pass;
-+}
-+
-+typedef bool (*gcs_test)(void);
-+
-+static struct {
-+	char *name;
-+	gcs_test test;
-+	bool needs_enable;
-+} tests[] = {
-+	{ "read_status", read_status },
-+	{ "base_enable", base_enable, true },
-+	{ "read_gcspr_el0", read_gcspr_el0 },
-+	{ "enable_writeable", enable_writeable, true },
-+	{ "enable_push_pop", enable_push_pop, true },
-+	{ "enable_all", enable_all, true },
-+	{ "enable_invalid", enable_invalid, true },
-+	{ "map_guarded_stack", map_guarded_stack },
-+	{ "fork", test_fork },
 +};
 +
-+int main(void)
++FIXTURE_VARIANT(valid_modes)
 +{
-+	int i, ret;
-+	unsigned long gcs_mode;
++	unsigned long mode;
++};
 +
-+	ksft_print_header();
++FIXTURE_VARIANT_ADD(valid_modes, enable)
++{
++	.mode = PR_SHADOW_STACK_ENABLE,
++};
 +
-+	/*
-+	 * We don't have getauxval() with nolibc so treat a failure to
-+	 * read GCS state as a lack of support and skip.
-+	 */
-+	ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-+			  &gcs_mode, 0, 0, 0);
-+	if (ret != 0)
-+		ksft_exit_skip("Failed to read GCS state: %d\n", ret);
++FIXTURE_VARIANT_ADD(valid_modes, enable_write)
++{
++	.mode = PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE,
++};
 +
-+	if (!(gcs_mode & PR_SHADOW_STACK_ENABLE)) {
-+		gcs_mode = PR_SHADOW_STACK_ENABLE;
-+		ret = my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
-+				  gcs_mode, 0, 0, 0);
-+		if (ret != 0)
-+			ksft_exit_fail_msg("Failed to enable GCS: %d\n", ret);
++FIXTURE_VARIANT_ADD(valid_modes, enable_push)
++{
++	.mode = PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_PUSH,
++};
++
++FIXTURE_VARIANT_ADD(valid_modes, enable_write_push)
++{
++	.mode = PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE |
++		PR_SHADOW_STACK_PUSH,
++};
++
++FIXTURE_SETUP(valid_modes)
++{
++}
++
++FIXTURE_TEARDOWN(valid_modes)
++{
++}
++
++/* We can set the mode at all */
++TEST_F(valid_modes, set)
++{
++	int ret;
++
++	ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
++			  variant->mode);
++	ASSERT_EQ(ret, 0);
++
++	_exit(0);
++}
++
++/* Enabling, locking then disabling is rejected */
++TEST_F(valid_modes, enable_lock_disable)
++{
++	unsigned long mode;
++	int ret;
++
++	ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
++			  variant->mode);
++	ASSERT_EQ(ret, 0);
++
++	ret = prctl(PR_GET_SHADOW_STACK_STATUS, &mode, 0, 0, 0);
++	ASSERT_EQ(ret, 0);
++	ASSERT_EQ(mode, variant->mode);
++
++	ret = prctl(PR_LOCK_SHADOW_STACK_STATUS, variant->mode, 0, 0, 0);
++	ASSERT_EQ(ret, 0);
++
++	ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, 0);
++	ASSERT_EQ(ret, -EBUSY);
++
++	_exit(0);
++}
++
++/* Locking then enabling is rejected */
++TEST_F(valid_modes, lock_enable)
++{
++	unsigned long mode;
++	int ret;
++
++	ret = prctl(PR_LOCK_SHADOW_STACK_STATUS, variant->mode, 0, 0, 0);
++	ASSERT_EQ(ret, 0);
++
++	ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
++			  variant->mode);
++	ASSERT_EQ(ret, -EBUSY);
++
++	ret = prctl(PR_GET_SHADOW_STACK_STATUS, &mode, 0, 0, 0);
++	ASSERT_EQ(ret, 0);
++	ASSERT_EQ(mode, 0);
++
++	_exit(0);
++}
++
++/* Locking then changing other modes is fine */
++TEST_F(valid_modes, lock_enable_disable_others)
++{
++	unsigned long mode;
++	int ret;
++
++	ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
++			  variant->mode);
++	ASSERT_EQ(ret, 0);
++
++	ret = prctl(PR_GET_SHADOW_STACK_STATUS, &mode, 0, 0, 0);
++	ASSERT_EQ(ret, 0);
++	ASSERT_EQ(mode, variant->mode);
++
++	ret = prctl(PR_LOCK_SHADOW_STACK_STATUS, variant->mode, 0, 0, 0);
++	ASSERT_EQ(ret, 0);
++
++	ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
++			  PR_SHADOW_STACK_ALL_MODES);
++	ASSERT_EQ(ret, 0);
++
++	ret = prctl(PR_GET_SHADOW_STACK_STATUS, &mode, 0, 0, 0);
++	ASSERT_EQ(ret, 0);
++	ASSERT_EQ(mode, PR_SHADOW_STACK_ALL_MODES);
++
++
++	ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
++			  variant->mode);
++	ASSERT_EQ(ret, 0);
++
++	ret = prctl(PR_GET_SHADOW_STACK_STATUS, &mode, 0, 0, 0);
++	ASSERT_EQ(ret, 0);
++	ASSERT_EQ(mode, variant->mode);
++
++	_exit(0);
++}
++
++int main(int argc, char **argv)
++{
++	unsigned long mode;
++	int ret;
++
++	if (!(getauxval(AT_HWCAP2) & HWCAP2_GCS))
++		ksft_exit_skip("SKIP GCS not supported\n");
++
++	ret = prctl(PR_GET_SHADOW_STACK_STATUS, &mode, 0, 0, 0);
++	if (ret) {
++		ksft_print_msg("Failed to read GCS state: %d\n", ret);
++		return EXIT_FAILURE;
 +	}
 +
-+	ksft_set_plan(ARRAY_SIZE(tests));
-+
-+	for (i = 0; i < ARRAY_SIZE(tests); i++) {
-+		ksft_test_result((*tests[i].test)(), "%s\n", tests[i].name);
++	if (mode & PR_SHADOW_STACK_ENABLE) {
++		ksft_print_msg("GCS was enabled, test unsupported\n");
++		return KSFT_SKIP;
 +	}
 +
-+	/* One last test: disable GCS, we can do this one time */
-+	my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, 0, 0, 0, 0);
-+	if (ret != 0)
-+		ksft_print_msg("Failed to disable GCS: %d\n", ret);
-+
-+	ksft_finished();
-+
-+	return 0;
++	return test_harness_run(argc, argv);
 +}
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-util.h b/tools/testing/selftests/arm64/gcs/gcs-util.h
-new file mode 100644
-index 000000000000..1ae6864d3f86
---- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/gcs-util.h
-@@ -0,0 +1,90 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2023 ARM Limited.
-+ */
-+
-+#ifndef GCS_UTIL_H
-+#define GCS_UTIL_H
-+
-+#include <stdbool.h>
-+
-+#ifndef __NR_map_shadow_stack
-+#define __NR_map_shadow_stack 453
-+#endif
-+
-+#ifndef __NR_prctl
-+#define __NR_prctl 167
-+#endif
-+
-+/* Shadow Stack/Guarded Control Stack interface */
-+#define PR_GET_SHADOW_STACK_STATUS	74
-+#define PR_SET_SHADOW_STACK_STATUS      75
-+#define PR_LOCK_SHADOW_STACK_STATUS     76
-+
-+# define PR_SHADOW_STACK_ENABLE         (1UL << 0)
-+# define PR_SHADOW_STACK_WRITE		(1UL << 1)
-+# define PR_SHADOW_STACK_PUSH		(1UL << 2)
-+
-+#define PR_SHADOW_STACK_ALL_MODES \
-+	PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE | PR_SHADOW_STACK_PUSH
-+
-+#define SHADOW_STACK_SET_TOKEN (1ULL << 0)     /* Set up a restore token in the shadow stack */
-+#define SHADOW_STACK_SET_MARKER (1ULL << 1)     /* Set up a top of stack merker in the shadow stack */
-+
-+#define GCS_CAP_ADDR_MASK		(0xfffffffffffff000UL)
-+#define GCS_CAP_TOKEN_MASK		(0x0000000000000fffUL)
-+#define GCS_CAP_VALID_TOKEN		1
-+#define GCS_CAP_IN_PROGRESS_TOKEN	5
-+
-+#define GCS_CAP(x) (((unsigned long)(x) & GCS_CAP_ADDR_MASK) | \
-+		    GCS_CAP_VALID_TOKEN)
-+
-+static inline unsigned long *get_gcspr(void)
-+{
-+	unsigned long *gcspr;
-+
-+	asm volatile(
-+		"mrs	%0, S3_3_C2_C5_1"
-+	: "=r" (gcspr)
-+	:
-+	: "cc");
-+
-+	return gcspr;
-+}
-+
-+static inline void __attribute__((always_inline)) gcsss1(unsigned long *Xt)
-+{
-+	asm volatile (
-+		"sys #3, C7, C7, #2, %0\n"
-+		:
-+		: "rZ" (Xt)
-+		: "memory");
-+}
-+
-+static inline unsigned long __attribute__((always_inline)) *gcsss2(void)
-+{
-+	unsigned long *Xt;
-+
-+	asm volatile(
-+		"SYSL %0, #3, C7, C7, #3\n"
-+		: "=r" (Xt)
-+		:
-+		: "memory");
-+
-+	return Xt;
-+}
-+
-+static inline bool chkfeat_gcs(void)
-+{
-+	register long val __asm__ ("x16") = 1;
-+
-+	/* CHKFEAT x16 */
-+	asm volatile(
-+		"hint #0x28\n"
-+		: "=r" (val)
-+		: "r" (val));
-+
-+	return val != 1;
-+}
-+
-+#endif
 
 -- 
 2.39.2
