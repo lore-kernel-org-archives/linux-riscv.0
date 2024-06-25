@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA13C2BBCA
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 16:15:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98255C2BBCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 16:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GrEyKKDrDJAXMMt/W1vlvp0ikzDpiS881rv4nk28Ack=; b=YFaQIyudQCF7WB
-	oamj5WL/HES5gwasAjwB/7cxH+ImrXkNDj5nPD3RStrqMpMpJ/87kvM0DXG/7bVTlNXQMhAP6Zg/f
-	frrXIEVBXY9b04GugqXOBK2usIWR1lMpTBdlCf6c5E/6KWSX5HrRZQSBIY7XVTpNL58+unfjuf79b
-	pVe6QNH1COCEnmwteQLo77HoCYc4J8d0dskYuc3TjCRLiQHKLtsirxincteUS3w2/tHI+dvuqD414
-	RikKqdkDL/K1r5pg0eZjv3TxO/XJ6x7kjm5P0jYOGUA84Q5yKbg39UpcNJ7rVlIFWl+zxHHCBzhhJ
-	A/SFekV9Y2+woCisvOTQ==;
+	List-Owner; bh=d3gauTvBMeotE0RM0dhpfutCY29Z01MUlv7xn4IyTjw=; b=iKeGK9axugyAEm
+	Il/46zs+65ztmso3sjuimW6pH/pFWjr+wzjoSLBfmPBALt3cJQoUgYyzJ3J3ZQymm8/Uc2A6Zn4XW
+	Vq4v1DRRl7U4hA7hgy/mAYOXo3YV1MNu2MhUz6S2tBt+IEtVWPnfPbjJldkUJcrNSV72JNbPOCTyO
+	SH0Pg4Ed7X9f1mMNaBaaY0aKqxh5pRb8Ud/T5H6NHEPWmjI7ppfazR0XEEpS5D2IGMxQrX4phZtXj
+	Wpt6OyMgTJiDBCQBkHJ4WidyDt/QxOwbnPfyPHqSd2S6UH1sPj84AaqyiRqJoo+1zruBSjlxnCvI0
+	jgupIjHhNeU1zaBn91yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM8pf-00000003eur-16fe;
-	Tue, 25 Jun 2024 16:15:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sM8pg-00000003euz-10qA;
+	Tue, 25 Jun 2024 16:15:48 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM7fv-00000003JnJ-0XbJ;
-	Tue, 25 Jun 2024 15:01:43 +0000
+	id 1sM7gj-00000003KV0-2qKX;
+	Tue, 25 Jun 2024 15:02:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 52A246149C;
-	Tue, 25 Jun 2024 15:01:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75909C32786;
-	Tue, 25 Jun 2024 15:01:31 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 6EB0ACE1B7F;
+	Tue, 25 Jun 2024 15:02:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C4C9C32781;
+	Tue, 25 Jun 2024 15:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719327698;
-	bh=SpxTDPkJgZRI3y2Hq1n9QzpjFWZ3Gxi3l59ZtBf4jLI=;
+	s=k20201202; t=1719327746;
+	bh=TArF8eu7bR+kdEQcw0PtiH938ElhCp6XbYhZJoxTCrM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=LCKBRIM7P1X1xpvsS4XEya+CU9QncvalN8/HgV0jOcZrtdPH96iZ79e/FfldlYcyQ
-	 KG4D/US9JjKXYl6B32tA/WiIsea5bmSRxlZ8rD+s9jRPHVCl2dfCCaNrSUGkPvyfTj
-	 f1I5FPA1gSm4owfH/cYTM//+93y5ac9PdpqIsqUC5aI5zL3mgYULmUS10eqDN02DIq
-	 s/+fZZEtRgCN8Yu91NoAulTdaszPk2cIrUC+Vub4cZGRGySZQD7qaEf30fZXBDXLWg
-	 apjmyGRWF49cRMCO2zvSf9I8skh6/KYYKTNe/c1B4e8lNgRIB89TjkLsb8q6EKyBRI
-	 v632mqX63KxEw==
+	b=T1tf4EPZxQepBQJZ+2P0ysocX15TlkKsctCglrLlJlpjTmopmLVcDgRZfo2fIdmZD
+	 Lv/NFHftNTdwBf3DqfZoSYfV6WuoyPIQEs2TNGXOriUMN11am9Hf5vq5ldwCQf9dmn
+	 0E6qSnfvlSNhImxN7J/5Esjy55MKMRoTeQxGdu/7rc+s6RaBqycPQCbJ1TvVIWnutd
+	 b0q5gHzn3xZPm6Kw8+HEdwKQCSqhFutpjECRBpgQ1baiTggkrS2AIXDeYXF3KKOsEf
+	 YDaxMulmfJyDO7V7EcDfLhjZVhoJxdoOD6NAE0/79RPpuNfB41K0JcAzwYXIXZ95se
+	 U9cnQ8VrLX3Iw==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 25 Jun 2024 15:57:36 +0100
-Subject: [PATCH v9 08/39] arm64/gcs: Provide put_user_gcs()
+Date: Tue, 25 Jun 2024 15:57:43 +0100
+Subject: [PATCH v9 15/39] arm64/idreg: Add overrride for GCS
 MIME-Version: 1.0
-Message-Id: <20240625-arm64-gcs-v9-8-0f634469b8f0@kernel.org>
+Message-Id: <20240625-arm64-gcs-v9-15-0f634469b8f0@kernel.org>
 References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
 In-Reply-To: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +70,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.14-dev-d4707
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1103; i=broonie@kernel.org;
- h=from:subject:message-id; bh=SpxTDPkJgZRI3y2Hq1n9QzpjFWZ3Gxi3l59ZtBf4jLI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmett4CKl1cP0GjqsEsHZQn+ZUgv8UOnY1gwbJGEPy
- 0nF1gWuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZnrbeAAKCRAk1otyXVSH0GTvB/
- 4rzP26uQ2jw9FuRsJAqw1gE2ydgI2bc/iKdMxs34w3uUiteyu1KQntu5r5O6S/pDWsDvBv9DBJSjbX
- C3BsRvj08B3YrbhlpjJ8tIwJrzT0vK8lfVijApbbnDEGHfkQ+ktEFeGlNYYxlpcM0Dua+4CplUqp5v
- URfmO1+u9hbBub4a7rjyBrKim/HyioooMWWoj15ZNBrNVzgiZwuDPsq+EFXJ4OTwDXDflKXC4mpytk
- yRKGcwTpLlL/Y5xmDIsOW81n+j6uhypg+JIlOx/pXvC2LYHCcqFjuGdcEZetVcrga5Km8RdHiVztO4
- fEt0Wr4EPbNTgi0mUCzBzWL4XUs9a/
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2079; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=TArF8eu7bR+kdEQcw0PtiH938ElhCp6XbYhZJoxTCrM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmett9kBlIGznTOvZYNu30sR1HSi39oURagt2PuqvD
+ Y/xML0+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZnrbfQAKCRAk1otyXVSH0KppB/
+ 9h/NsU5ZbvEakpJLVgdEkxvY5UpqOW1ugkUmSI7i1GKJvwyAjnAS2GjipTcPYY971hQbCdfHwZcLlW
+ cGE4g62zQz3KJInv2E7a5LvVkEoEx9xQoaz4HTnvgXRkvw7mt57wnleIJzA434vuYSF783mIrrb/33
+ UM4KkpS3btWvRrCRi2VY8VDuFhRhvl/BAYFalo/nvTDQt/Bivon71MD9KXQCaREWjPFWn45DqF5xqc
+ fgB9TM3IcC9LyqQXwPr+ng36ckx4ht13tLxNrKJmclwsKt2v/DvuX9vgsKXW5FMhSnNTPvaVjaVXuC
+ UWd9Pvf2d8i4vTpWJR3H1tCTBLdgiV
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240625_080141_033896_65E2FFDA 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20240625_080230_624263_F6932327 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,44 +100,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In order for EL1 to write to an EL0 GCS it must use the GCSSTTR instruction
-rather than a normal STTR. Provide a put_user_gcs() which does this.
+Hook up an override for GCS, allowing it to be disabled from the command
+line by specifying arm64.nogcs in case there are problems.
 
 Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/uaccess.h | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ Documentation/admin-guide/kernel-parameters.txt | 6 ++++++
+ arch/arm64/kernel/pi/idreg-override.c           | 2 ++
+ 2 files changed, 8 insertions(+)
 
-diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
-index 22e10e79f56a..e118c3d772c8 100644
---- a/arch/arm64/include/asm/uaccess.h
-+++ b/arch/arm64/include/asm/uaccess.h
-@@ -445,6 +445,24 @@ static inline int gcssttr(unsigned long __user *addr, unsigned long val)
- 	return err;
- }
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index b600df82669d..c1151d547b81 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -437,9 +437,15 @@
+ 	arm64.nobti	[ARM64] Unconditionally disable Branch Target
+ 			Identification support
  
-+static inline void put_user_gcs(unsigned long val, unsigned long __user *addr,
-+				int *err)
-+{
-+	int ret;
++	arm64.nogcs	[ARM64] Unconditionally disable Guarded Control Stack
++			support
 +
-+	if (!access_ok((char __user *)addr, sizeof(u64))) {
-+		*err = -EFAULT;
-+		return;
-+	}
-+
-+	uaccess_ttbr0_enable();
-+	ret = gcssttr(addr, val);
-+	if (ret != 0)
-+		*err = ret;
-+	uaccess_ttbr0_disable();
-+}
-+
-+
- #endif /* CONFIG_ARM64_GCS */
+ 	arm64.nomops	[ARM64] Unconditionally disable Memory Copy and Memory
+ 			Set instructions support
  
- #endif /* __ASM_UACCESS_H */
++	arm64.nopauth	[ARM64] Unconditionally disable Pointer Authentication
++			support
++
+ 	arm64.nomte	[ARM64] Unconditionally disable Memory Tagging Extension
+ 			support
+ 
+diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+index 29d4b6244a6f..2bb709d78405 100644
+--- a/arch/arm64/kernel/pi/idreg-override.c
++++ b/arch/arm64/kernel/pi/idreg-override.c
+@@ -133,6 +133,7 @@ static const struct ftr_set_desc pfr1 __prel64_initconst = {
+ 	.override	= &id_aa64pfr1_override,
+ 	.fields		= {
+ 		FIELD("bt", ID_AA64PFR1_EL1_BT_SHIFT, NULL ),
++		FIELD("gcs", ID_AA64PFR1_EL1_GCS_SHIFT, NULL),
+ 		FIELD("mte", ID_AA64PFR1_EL1_MTE_SHIFT, NULL),
+ 		FIELD("sme", ID_AA64PFR1_EL1_SME_SHIFT, pfr1_sme_filter),
+ 		{}
+@@ -215,6 +216,7 @@ static const struct {
+ 	{ "arm64.nosve",		"id_aa64pfr0.sve=0" },
+ 	{ "arm64.nosme",		"id_aa64pfr1.sme=0" },
+ 	{ "arm64.nobti",		"id_aa64pfr1.bt=0" },
++	{ "arm64.nogcs",		"id_aa64pfr1.gcs=0" },
+ 	{ "arm64.nopauth",
+ 	  "id_aa64isar1.gpi=0 id_aa64isar1.gpa=0 "
+ 	  "id_aa64isar1.api=0 id_aa64isar1.apa=0 "
 
 -- 
 2.39.2
