@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFC2C30653
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 21:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16694C2BBCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 21:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=72rArpNILmPkUEeerv8i3A8Nve4tdmH4nDRFa6e8pbM=; b=KeQU5uiAbsZN2y
-	eV9Ls69PDyZLVIiky74b1fhGHJwwdL/fSEBR70/4L5ERIXbDqFK386Pr8fdmnM78kDrLg8m4V4ctJ
-	boUhImMuloKLWVcZ46O+8okiGo0Zd9bYlb7XcWBGWlt4z1c4x8lma8CtpuAMmlBE1sLtpS4CXDwRs
-	+9NQxY+YRd384FSTHS/tCpWLM8EFNS3YqezT7Q/3e1NfLHkS38OYk/0CUo3HKRROhf/TDA95u+7of
-	1O1YQR4bdoLKm58v8k73wbIOuL3eyHKaxT6O28Ex7oTokW5GRrC+aA8wFAvLGwPtJMA8uXNHK30XP
-	p9x17NiZoUqO/td5ewHA==;
+	List-Owner; bh=CcHTUmNzz7Yz5Z8Asc8QoQONZF+lHDJZizrE+nhMo/s=; b=HLPOFUqifyGKlt
+	l57bNRbp3Tdzt8VfxIIsiWQcloWk7iD1HunPav6TBcwjXc9ZxTtkx0kybBvySuX0bRK2Y2nOTou28
+	a2BBSlSpLpGfDCFFnWwRnT9OoxX5R/pbkjU6S59sCeCUjGR5fObggGUzoddwbwsuIYc3V9TsplD4L
+	nW0ZyG397i+7Bs85Xy2Ruz3m50uq2t4wEPVlScWWOeUgHCJ35OwBLmHje2qyRtETuvtHKXTNJbP6I
+	+6ltSFfE20f5dtPpQsh8HJsyr8qhTZ7MlyUd/HJAu42dwoK/STaLqxOjb3Dta/O23RuzfiqCrFoGa
+	W4SygxjQjPjX7N94MiCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMDQS-00000004VJF-0FMH;
-	Tue, 25 Jun 2024 21:10:04 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1sMDQ6-00000004V4W-2AWH;
+	Tue, 25 Jun 2024 21:09:42 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMDQE-00000004V8i-26zE
+	id 1sMDQ3-00000004V2J-0h1l
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jun 2024 21:09:53 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1fa07e4f44eso31658855ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Jun 2024 14:09:50 -0700 (PDT)
+	Tue, 25 Jun 2024 21:09:40 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1f9b52ef481so48999045ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Jun 2024 14:09:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1719349790; x=1719954590; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1719349777; x=1719954577; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XfPM04Pyb/lGY9Q7saAL52HDlLyxzOizf7aq1c4K5eE=;
-        b=c+mA4me4o5o0cjBcEem5AssuZcD13UgspKIIS4ZEZl3vHPZIz+wLD0xc1HdOSX6Hrv
-         O1sWA31vSycUREZHNaB8d82UMnKKOi+eeJ4IlxbKQgkiyx+nQJxuHnRkI8qIkI9eZHZ+
-         gZSnnkn+Y84lFysM1FS68sctI0aruBQ4khw7/XDmtOLPXUwnTrKpX36E5gLjb7QmIY2r
-         fgXPck1sOxUNlTnbF7PmdY6vws94tCjKG4bUR9hf2EgeyV0PqaG825CTc4Uc8iX79yYe
-         olBJKxATodGF9URFR68cZgZr9xiyumr/SA1z5zB+gHcgM+E3JZCKprGeQ7pOLniwLkt6
-         f9Gw==
+        bh=RApDUBWnH8dOo11vUms6fSIyGurtiCmTLAn99yajCOk=;
+        b=DjzE/LijlkPXd2oa6vuSXpi5Yaf+sBAKuiRLWHIk8lZRAEIF8/J0KuGwcrHfjEts0o
+         qXHBPPOtV0Rpfix8GjiQ2F1AbWzNhv1j0w4h4VGr2GIcbc9EPfEjkzR1DNKmuuL2I/Nc
+         M7vihOfS4lY6Ip9NGt6P9LOdtEfpQbGmBIhaGFKIZEMIw+729PtjfDmXEYY8BqDiXXIh
+         5ZtzMTg48Fi6/tXxcQa1d6gWcZnGMBzUN1Ko7fvKVpr+ptAPeZeg/2Q65GLY0dzrHZkA
+         uhK5Ur/wDebKnh2NukNorazKzbrgeECYkGI4lTMrGbUBWl/1T1hi9QdTSU6MJsiX7Lub
+         LKlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719349790; x=1719954590;
+        d=1e100.net; s=20230601; t=1719349777; x=1719954577;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=XfPM04Pyb/lGY9Q7saAL52HDlLyxzOizf7aq1c4K5eE=;
-        b=VkQ3cT4v4Xotj0GSx3PYmYFS+dYeRzg4VmfhzLU10eaaDoMo/sXrwnqDJvyXAejHCp
-         v5s9RSRw+Aqr10XDpPM50kOMcwBsm2rUYJAjn/BxBcxGTZBxLkwf1uuaBUNKItJ3KQF+
-         zUOx3E6vEMvci4ep0MZu0DDatNBH77OTNgzYwIAdU/oFIDOnsWroMreOVVvcfQcaeuIv
-         fqbbu5P9pAsqsMHm8eVTuNo3uPERXrHpuLY4CH86EQLLLiGSsf8oXNqycXQFbrdZZvt5
-         +PDsBsPqPn14iHuwgDUjhcLfMUI/SdRC1ED2cFdFfqCJjHr7OUR8BIOVWLcDDPMBgr3Y
-         Q8qw==
-X-Forwarded-Encrypted: i=1; AJvYcCUyxKnjinjC4NNaHoa+/ythqtEy5WcKvQi0AzXinFEZXoBmIDdmeOQb/u+O333ehKdwbUGt4LphsRY6XsCt3/r9zNzszlsiuv0iXIChoF7x
-X-Gm-Message-State: AOJu0Yw6hCTMNaihOrjJlX1sy5PCRIqEOJdRruWBG5qyr9tatONDuv5e
-	JAKjyXeFK+9+NFyfP7IAAGQVdIIMx6UvnfYT8xJvxGFkrdB8d4N/Ln0ADU3pGA4=
-X-Google-Smtp-Source: AGHT+IGeWKqd97hO0c2XIDZhD2hlaWhB/xhaoVBtqBOKtiSu9iE5NhFqVkg/azBhVzCaS3o6lABNTw==
-X-Received: by 2002:a17:902:e5d2:b0:1f9:c8cc:9df4 with SMTP id d9443c01a7336-1fa23ef7f7emr98497255ad.45.1719349789879;
-        Tue, 25 Jun 2024 14:09:49 -0700 (PDT)
+        bh=RApDUBWnH8dOo11vUms6fSIyGurtiCmTLAn99yajCOk=;
+        b=a7zqELew2to5rn7ucKu7ZTGJnXZiGncbTa8Ei0nk5pZQA+5P9PuyuGFHgYdslQW/Br
+         A+d1AOHqJqM+ah4UqBssBuq5ALycaOl3MYlIUaIcaFl3jWpHEia7fuGUmQQ23i8UXZdT
+         lEfkgKCroyNQFPqda8uWd5keo37OQee+gEIZeLud458fcHrnQJMjRFvB5dKz/7Ql8yd1
+         ApnvGMkPMOJXscDHPUok6hWNPmYXI1EeGqWeWglT+6V6rt2NV9aonKKllhyG5XyK4h6j
+         70qGrr54H7bGcPON4egEc9PmCVYI5Hmh8ChptFppY7Z5IzM7Mu7vnckLYapLvMFjDmQw
+         f+jQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUwyGAc1dXCrw5n3V7CNrjTYwGcexhRQAJAY1Fx5z7n+6DeET3AXstq4siioAex3tsHKwzhrqyBDCLVGd8XdkLmIWi+qN4MvgH3pttAg0WJ
+X-Gm-Message-State: AOJu0YzksJj26xdxtYkBcTJyjNYpCwTSdGywE2sXClP7cM35U2OJWJS/
+	9EYVQhIGdpuV40BtUcTz040aT7bBXyRWH7+wzmnrmLYIJD8ppGtQumetZofjBUg=
+X-Google-Smtp-Source: AGHT+IEeTn6riobaHMOyEcGvzSEs8JEyz1MxFY6peHqzdzbBPKE7rdm0nA1jgpjPUCoTtFM7TxnQ4w==
+X-Received: by 2002:a17:903:230e:b0:1f9:c3a1:4b65 with SMTP id d9443c01a7336-1fa23f1d44bmr113141665ad.47.1719349777431;
+        Tue, 25 Jun 2024 14:09:37 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f9eb328f57sm85873455ad.110.2024.06.25.14.09.48
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f9eb328f57sm85873455ad.110.2024.06.25.14.09.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Jun 2024 14:09:49 -0700 (PDT)
+        Tue, 25 Jun 2024 14:09:37 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
@@ -78,16 +78,17 @@ Cc: devicetree@vger.kernel.org,
 	Rob Herring <robh+dt@kernel.org>,
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v2 08/10] riscv: hwprobe: Export the Supm ISA extension
-Date: Tue, 25 Jun 2024 14:09:19 -0700
-Message-ID: <20240625210933.1620802-9-samuel.holland@sifive.com>
+Subject: [PATCH v2 01/10] dt-bindings: riscv: Add pointer masking ISA extensions
+Date: Tue, 25 Jun 2024 14:09:12 -0700
+Message-ID: <20240625210933.1620802-2-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.44.1
 In-Reply-To: <20240625210933.1620802-1-samuel.holland@sifive.com>
 References: <20240625210933.1620802-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240625_140950_656992_023CAC59 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20240625_140939_436922_B0419D2D 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,66 +105,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Supm is a virtual ISA extension defined in the RISC-V Pointer Masking
-specification, which indicates that pointer masking is available in
-U-mode. It can be provided by either Smnpm or Ssnpm, depending on which
-mode the kernel runs in. Userspace should not care about this
-distinction, so export Supm instead of either underlying extension.
-
-Hide the extension if the kernel was compiled without support for
-pointer masking.
+The RISC-V Pointer Masking specification defines three extensions:
+Smmpm, Smnpm, and Ssnpm. Document the behavior of these extensions as
+following the current draft of the specification, which is 1.0.0-rc2.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
 Changes in v2:
- - New patch for v2
+ - Update pointer masking specification version reference
 
- Documentation/arch/riscv/hwprobe.rst  | 3 +++
- arch/riscv/include/uapi/asm/hwprobe.h | 1 +
- arch/riscv/kernel/sys_hwprobe.c       | 3 +++
- 3 files changed, 7 insertions(+)
+ .../devicetree/bindings/riscv/extensions.yaml  | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index fc015b452ebf..75fbefa0af26 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -207,6 +207,9 @@ The following keys are defined:
-   * :c:macro:`RISCV_HWPROBE_EXT_ZVE64D`: The Vector sub-extension Zve64d is
-     supported, as defined by version 1.0 of the RISC-V Vector extension manual.
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index cfed80ad5540..b6aeedc53676 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -128,6 +128,18 @@ properties:
+             changes to interrupts as frozen at commit ccbddab ("Merge pull
+             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
  
-+  * :c:macro:`RISCV_HWPROBE_EXT_SUPM`: The Supm extension is supported as
-+       defined in version 1.0.0-rc2 of the RISC-V Pointer Masking manual.
++        - const: smmpm
++          description: |
++            The standard Smmpm extension for M-mode pointer masking as defined
++            at commit 654a5c4a7725 ("Update PDF and version number.") of
++            riscv-j-extension.
 +
- * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
-   information about the selected set of processors.
- 
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 7b95fadbea2a..abb7725fd71b 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -65,6 +65,7 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_EXT_ZVE64X	(1ULL << 39)
- #define		RISCV_HWPROBE_EXT_ZVE64F	(1ULL << 40)
- #define		RISCV_HWPROBE_EXT_ZVE64D	(1ULL << 41)
-+#define		RISCV_HWPROBE_EXT_SUPM		(1ULL << 42)
- #define RISCV_HWPROBE_KEY_CPUPERF_0	5
- #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index 83fcc939df67..b4f4b6d93c00 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -142,6 +142,9 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 			EXT_KEY(ZFHMIN);
- 			EXT_KEY(ZFA);
- 		}
++        - const: smnpm
++          description: |
++            The standard Smnpm extension for next-mode pointer masking as defined
++            at commit 654a5c4a7725 ("Update PDF and version number.") of
++            riscv-j-extension.
 +
-+		if (IS_ENABLED(CONFIG_RISCV_ISA_POINTER_MASKING))
-+			EXT_KEY(SUPM);
- #undef EXT_KEY
- 	}
+         - const: smstateen
+           description: |
+             The standard Smstateen extension for controlling access to CSRs
+@@ -147,6 +159,12 @@ properties:
+             and mode-based filtering as ratified at commit 01d1df0 ("Add ability
+             to manually trigger workflow. (#2)") of riscv-count-overflow.
  
++        - const: ssnpm
++          description: |
++            The standard Ssnpm extension for next-mode pointer masking as defined
++            at commit 654a5c4a7725 ("Update PDF and version number.") of
++            riscv-j-extension.
++
+         - const: sstc
+           description: |
+             The standard Sstc supervisor-level extension for time compare as
 -- 
 2.44.1
 
