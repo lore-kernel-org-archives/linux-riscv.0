@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55997C2BBCA
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 15:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9994C3064D
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 15:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZqpnWAig2upYsGaA7ZQk/YP6p/BSNBHtzql0Tt9SXUs=; b=0e3EZn6SWfYr7F
-	OfA7fwG8gPxkfAHpvkl0R90a6lWVd4/jVrNMqBhaqigvAfHhbpyqOA9OLKZvTvx3dN5Em8JI43a6W
-	iDaxgeeYY1RC2Ux4pMrCyZr1R0PUkIzLLI/rcPss9jO389Fb9+iEVCDZ+ikLmF6gNUOvrp4LaZE2T
-	UeUxPaHYVzQkMTMmLEh2Wt1HzvbQzpONPBxBuS35lJaiO36+il/1vEcPCtpWW4O5u6M1E3ISpRhx5
-	GDVVeC7FBoR0ThWo9ZsBWRlHIK1BerjQX2DmKE2mKLSohAECK0qC8nMDiDZjzqV6AHKCzQ3Kw2TBd
-	ilKZ/FQ7Pr4/oz81lvsg==;
+	List-Owner; bh=l8AHkOAWdUIrrKOWBw5Ig0QCKR8E/7o+e/TjIx33qUI=; b=kcP7OVnZGWROdI
+	S26/hYZhYIZuJF6GvajZzrvjQNVHX+vjtfNOxJuiZv/q6KOzxKAk3I2lwQggbMRrF5ZAPfu67tXsH
+	1kcSrpBkQkw1XXV5IqUdGLOTY+k3aZ/6qp7jOx61Jdl1iUFJN9jhqjm+FAlf6GGFDcLgmpKhTdfUV
+	gQAKV2lg6l6grLue4y1A2W78iJUZrTzbKjdQg2l3V1zq0UutwrEvOJinrObnqjomqSX/v/BrWkFrh
+	YfPU0VfEBUjWhiuF1+2JFTdSEbQ4WZ58OiF1w5LoGjy+9rQFLw8zCkKeqiTfsf8z6H2e9tJO8cU2e
+	gFIhKVvPXPatt6znADLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM7n7-00000003PPq-2JJO;
-	Tue, 25 Jun 2024 15:09:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sM7nv-00000003Q3M-2xCn;
+	Tue, 25 Jun 2024 15:09:55 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM7i7-00000003Led-0g2r;
-	Tue, 25 Jun 2024 15:03:56 +0000
+	id 1sM7iO-00000003Lr3-0eub;
+	Tue, 25 Jun 2024 15:04:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7380660BAF;
-	Tue, 25 Jun 2024 15:03:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D40BC4AF0B;
-	Tue, 25 Jun 2024 15:03:47 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 25913CE1B7D;
+	Tue, 25 Jun 2024 15:04:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1362BC32781;
+	Tue, 25 Jun 2024 15:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719327834;
-	bh=oHs0edHK2ZH//P9wlXUiorha791DOO+hA3lq1vKIHRU=;
+	s=k20201202; t=1719327849;
+	bh=b9Gx7QUiEPIAdR9RNFo057BasR3/TeEIE9B40jmDJ/c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RVcHIs3e0+1BTODXPOdXj48xTE6Ig2X77qbNnTIQRIsQ1F/J+hGQH3DoCpTsV74KQ
-	 LP4Qq7EwvxhXEaHHjIjrYyUvTxzK77ehOh//lQv8X7OkWgdjstOMorkAbbx+KHNX8q
-	 ROWqziyU952y0sO0yHkuO3MMdFFLczKsxuLA84f3p5kl05IXBvb14Owt3bAZqhg5ca
-	 dmGd1AnNLQrvvSqMYd/hpvNjgpq3P6QwCOEIgl3e5F7U6Sgudc33b1GrSWb3pdJmGz
-	 I2NzxVo+oIdHLb9gxBTnyjAvtRXZA9Ft3ss+7ArRfSNZRQDRf0jpb8Y1uP2KVUxvDI
-	 epU+0l3m7Vx5w==
+	b=tavxR+nKLIiH02ssJeoEROBXmOsCstTILDhWkKXxGu60OsgiMLuDIKVo0pL6GtCmE
+	 igPSP6RIQSQWfikzRMGnE1Kg/67CHxNork4mRYKI3D96sfMbYWvsSFQl3IOmRa/Sf4
+	 mRBbETLNbBhApzSodjPWF64W2dhM+zeIMkgpyuJ/OGB/QVYcC8rdr+Gm2ZH2a9dTQO
+	 +ie8cUyHrEBDEw9rUgJ52SuTROV/Atv37rarClR6qcQhAf0oPjoMDxiJZAhnY63WRF
+	 10koRgwnGojMJHrP7lJKHTgsKkLjfX59wpBQd7C+FiFvMud/7otZgv4IbZEzQvVpJG
+	 zIHRIuySEFbYA==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 25 Jun 2024 15:57:55 +0100
-Subject: [PATCH v9 27/39] kselftest/arm64: Verify the GCS hwcap
+Date: Tue, 25 Jun 2024 15:57:57 +0100
+Subject: [PATCH v9 29/39] selftests/clone3: Enable arm64 shadow stack
+ testing
 MIME-Version: 1.0
-Message-Id: <20240625-arm64-gcs-v9-27-0f634469b8f0@kernel.org>
+Message-Id: <20240625-arm64-gcs-v9-29-0f634469b8f0@kernel.org>
 References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
 In-Reply-To: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.14-dev-d4707
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1288; i=broonie@kernel.org;
- h=from:subject:message-id; bh=oHs0edHK2ZH//P9wlXUiorha791DOO+hA3lq1vKIHRU=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmetuHDmIv/1BR7AmyIP7TdZpBb0DyVJraa/k+giyf
- IMNNkZeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZnrbhwAKCRAk1otyXVSH0GErB/
- 9P0d2K2QWmEiq6MtR98YyQMB73y0NDVSTD0oL7snO1bVGdOgv3ptXZGHFRdCTsQEa39LCg09KHmEfQ
- uaxKzfCQgFpTtBTQ/V7TBQNmyNgv15eCxTBzb+bcJWTbQ69u7FmV9LUqaXf46j7gsK1RTSQPijNICB
- 43+McjEr3BipgL91KboTE8OffZ1hik0Lp3s5RXWvYgyHnYuwzaYNfGWKaFHiNm+XhLMBsFUJFBBODe
- S6XKVjZpD6+x8cR3DNl+jf0H/VUNt9Mv+ekTdgAOwCMdnCWAN9wXJ2khka98U9PvPIJEglltn1BqE3
- D5k/13JN4yj/0zmk0jjehdcje46viA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1471; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=b9Gx7QUiEPIAdR9RNFo057BasR3/TeEIE9B40jmDJ/c=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBmetuJPYum8zU2drU0QkG0Oevd9R7hfLQlztVXJmOP
+ AMNcKOSJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZnrbiQAKCRAk1otyXVSH0BxTB/
+ 9RAJG8vNMCnKeW0ZaJ2eAuj74/NV9s5bUsk5CVhSS9OmMa/aJ+gGWY94HaF0LO0M1jlnry4Je6LXUz
+ N04y86o4L+9c3XkvE+GTl1jJ/1Gkna5RVE2LXbIbT8mRZiwGQSJdDveYSoa2Bj37DHov5V1RP25uMZ
+ wGWAuPensfQp/ZFhSyZUpW4mSTgmdApUyOm6005OB6HsSqlcTKdRwjD6o7DEhh+iNAcTBm4+UR8ROm
+ 936rXsxL2yXXYX24fQXH0f8hiOJNgnDfmeHYMdbPZxh/xgFapx45UVH2J4t9am/rGr4blvsGhgPbUV
+ BEAqQPu/bmkwHrSC+EwrYkGwBWaNjY
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240625_080355_377317_98E3CBBF 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20240625_080412_820656_74863039 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,52 +101,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add coverage of the GCS hwcap to the hwcap selftest, using a read of
-GCSPR_EL0 to generate SIGILL without having to worry about enabling GCS.
+In order to test shadow stack support in clone3() the clone3() selftests
+need to have a fully inline clone3() call, provide one for arm64.
 
-Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/abi/hwcap.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ tools/testing/selftests/clone3/clone3_selftests.h | 26 +++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
-index d8909b2b535a..dc54ae894fe5 100644
---- a/tools/testing/selftests/arm64/abi/hwcap.c
-+++ b/tools/testing/selftests/arm64/abi/hwcap.c
-@@ -98,6 +98,17 @@ static void fpmr_sigill(void)
- 	asm volatile("mrs x0, S3_3_C4_C4_2" : : : "x0");
- }
+diff --git a/tools/testing/selftests/clone3/clone3_selftests.h b/tools/testing/selftests/clone3/clone3_selftests.h
+index 38d82934668a..e32915085333 100644
+--- a/tools/testing/selftests/clone3/clone3_selftests.h
++++ b/tools/testing/selftests/clone3/clone3_selftests.h
+@@ -69,6 +69,32 @@ static pid_t __always_inline sys_clone3(struct __clone_args *args, size_t size)
  
-+static void gcs_sigill(void)
+ 	return ret;
+ }
++#elif defined(__aarch64__)
++static pid_t __always_inline sys_clone3(struct __clone_args *args, size_t size)
 +{
-+	unsigned long *gcspr;
++	register long _num  __asm__ ("x8") = __NR_clone3;
++	register long _args __asm__ ("x0") = (long)(args);
++	register long _size __asm__ ("x1") = (long)(size);
++	register long arg2 __asm__ ("x2") = 0;
++	register long arg3 __asm__ ("x3") = 0;
++	register long arg4 __asm__ ("x4") = 0;
 +
-+	asm volatile(
-+		"mrs	%0, S3_3_C2_C5_1"
-+	: "=r" (gcspr)
-+	:
-+	: "cc");
++	__asm__ volatile (
++		"svc #0\n"
++		: "=r"(_args)
++		: "r"(_args), "r"(_size),
++		  "r"(_num), "r"(arg2),
++		  "r"(arg3), "r"(arg4)
++		: "memory", "cc"
++	);
++
++	if ((int)_args < 0) {
++		errno = -((int)_args);
++		return -1;
++	}
++
++	return _args;
 +}
-+
- static void ilrcpc_sigill(void)
+ #else
+ static pid_t sys_clone3(struct __clone_args *args, size_t size)
  {
- 	/* LDAPUR W0, [SP, #8] */
-@@ -528,6 +539,14 @@ static const struct hwcap_data {
- 		.sigill_fn = fpmr_sigill,
- 		.sigill_reliable = true,
- 	},
-+	{
-+		.name = "GCS",
-+		.at_hwcap = AT_HWCAP2,
-+		.hwcap_bit = HWCAP2_GCS,
-+		.cpuinfo = "gcs",
-+		.sigill_fn = gcs_sigill,
-+		.sigill_reliable = true,
-+	},
- 	{
- 		.name = "JSCVT",
- 		.at_hwcap = AT_HWCAP,
 
 -- 
 2.39.2
