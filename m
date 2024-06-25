@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9ABC41513
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 15:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4173AC2BBCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 15:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jrHQb1IM7d6XAdoeUqemVss6gSQ4JKLn3CpzfUGxil8=; b=CEUerb3hp1PDeq
-	ZfwNbCJkwrrZUtHucUJr/6sVFHnQkbe6mEzPbbaYpFFzaQMbS7Mb8UzkdPspYyb+3mq/MLtG90LEA
-	Aa5iGWCyJrUAYLZSOCmEXYPlg1cZcZHjLUpUvpnN7fU3+pKLWPwLyDoz4t29tRYvOrmOgZgVsDbi6
-	tW5CFnlaWvqGj8nI5ZbbXtQkKk/rZJROyXx73kkkQqcFM5tDxyxDZOPcKZLrUPVDNIOHi0fMtOuL8
-	/kWJiMfaaEEBJhZlCvv6ZECRObFiKffuMV7TYwr3P+jUvMFLJNAzGiznreKUkGv3ISGlA+DVTLt8V
-	pwPWKiaAXFQ2GHfD41wQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=apKfT2sWXFKIpMbHtKdXzw6WXS+pKnhCBTSm2DhLr1A=; b=eseoyH9An6RYXw2cb8qcnsjr/T
+	7JIIQs+1sf5X+3oxwyeQl8/879n/J/V5xomAuNlAOAeV9i29CqzOpq1ub/miJwk3eWuP+Z/usJi7u
+	psiTfb2cIrHEdHJP8oqnjyhDV5n8NazPoat4ZcPFX1ADZYONvaDfq0ST16FUPihZfj9+WjATT875M
+	sDgF+8SjnBYTfuDG9PlhVr11H+O5ttUuMtVMUic4SwhMbvGtm1waTajdMhdn2MS2lnzlGiRhBJ4SV
+	fmUHRq1tJG96TKFq53UsCdmJ4YDGHxnADGHJwpk8xvOLGxQTgmiL3d6jOwZ1vlW/VXyLFSZFlBbzq
+	vsrV74Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM7po-00000003RFb-0PT6;
-	Tue, 25 Jun 2024 15:11:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sM8DV-00000003ZBy-48k7;
+	Tue, 25 Jun 2024 15:36:22 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sM7iE-00000003LkE-2e8W;
-	Tue, 25 Jun 2024 15:04:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DAF0C614A2;
-	Tue, 25 Jun 2024 15:04:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 952C8C32786;
-	Tue, 25 Jun 2024 15:03:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719327841;
-	bh=18sWPiMz/2PRxXCIvtfcK7spgh5pr5ZrfaiB3z+47E4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=L/22fLgnVrCDuOa9AvI6QdbD1mU2fPLWMyOny0LJICnsPQ+OE/mai2HAC7OkLXWrJ
-	 pcjmdvOHUArp132IpQ/J7Z21Sv/jOjoC6HDAqdUKWzSDHPvfBs0pcnv8FRQWxrb3Sr
-	 FraOwe39xbpr7uXa7BJ61D/F5eof33J8kY9ZTgInPA47/sgIlBPg/f8C2pZayWI2YR
-	 nrWC+5A2Hs6TAQQZSCany+TRS3b/filwuFp/OmO63FLC5Pow0ctynPP+i3tlzxgMWn
-	 ycNQHDCO02rxEI6Wbb971VZMdfryYPFOk1DSQOosLTixKz+ahicdLElvrOaKYhN9HJ
-	 TYvGOxzLrD3vA==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 25 Jun 2024 15:57:56 +0100
-Subject: [PATCH v9 28/39] kselftest: Provide shadow stack enable helpers
- for arm64
-MIME-Version: 1.0
-Message-Id: <20240625-arm64-gcs-v9-28-0f634469b8f0@kernel.org>
-References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
-In-Reply-To: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Andrew Morton <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
- Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, 
- Shuah Khan <shuah@kernel.org>, 
- "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>, 
- Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, 
- Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Kees Cook <kees@kernel.org>
-Cc: "H.J. Lu" <hjl.tools@gmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Florian Weimer <fweimer@redhat.com>, Christian Brauner <brauner@kernel.org>, 
- Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
- Ross Burton <ross.burton@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, 
- linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org, 
- linux-mm@kvack.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.14-dev-d4707
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2438; i=broonie@kernel.org;
- h=from:subject:message-id; bh=18sWPiMz/2PRxXCIvtfcK7spgh5pr5ZrfaiB3z+47E4=;
- b=owGbwMvMwMWocq27KDak/QLjabUkhrSq2x0KqV3vs2a/V1Pb7Be8+t4u7WmabwqCORe9/xTgHr+8
- zNa2k9GYhYGRi0FWTJFl7bOMVenhElvnP5r/CmYQKxPIFAYuTgGYiHcj+292TZ+CQLdbi9mYW8zEN2
- X1LjihftFL8fvMrGl2EZzskwXMdeZ+eBMrWuqa2borvMb24hZlk386KTFbd8ltvyeVsXVOUuDr1asv
- 5ZQFu/QfNL7cmbnl1obSPh5WI7muxXX+i5PSXV4x/kwPf7jnbGuQWhhDb1TwV5+nwho3/2t21fw80T
- +/J3pniDibQTHbr237989ZsoBNX6Ly+1zl60weQQfadrmbdbHmndF47pjSx75Xe2qA22mzq809x4pu
- SvLH7TaZ1mPz6YWxRt70D7HrehQD3Njlrr2cmpYzdT2bxNJMr5m6ejY8x25oC3rm7/86pfBzBmdA0f
- namwlBHDZhJpa9tqHSxU6cK8oB
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+	id 1sM8DR-00000003ZBT-3mxC
+	for linux-riscv@lists.infradead.org;
+	Tue, 25 Jun 2024 15:36:19 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1f9c6e59d34so47155555ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Jun 2024 08:36:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1719329776; x=1719934576; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cEraVljjtG6yZ3F7hZuYF2rXzKtHxlFX+R3/h/MRFAM=;
+        b=SHsyGaoK2blC1zhZWJtoZP8PEMKEGi8X325WpJ6QGeSo2Lr85lH6D8GfaW5YMrMdgp
+         Zz1L4TBhAEdZ7jY/4Xr32EABkx+pglH4Q2W5tS7SFd3PlYszs1ntFcAEEZG63XWjRkOt
+         pFlCRT25XWD3wg6zWPq0a2qFMCILNaLeqAppwpr/LBd59bZYTY7uB7sgz285TqKoN9Ze
+         LFPTkRgoWF96JkoagvfiImLVmyRA/+c72fvTX1sN30NtFI6ISbkACmBTfIpUVQEPECQr
+         tf7BR91V8btHNa6jmtXF63H9tRkzAmJ/vJWmnII946yE2Gem1s0Si6mYGjYz1Zw5PUco
+         SDQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719329776; x=1719934576;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cEraVljjtG6yZ3F7hZuYF2rXzKtHxlFX+R3/h/MRFAM=;
+        b=gC3at1LE9r0s9U7USaaE4uQGBDvTw9sBKrdo1fVg1sj4pv9oVyAMvFgQlQWg5+7NqC
+         LNgi53t4lqQUtu/eHuOeW7JWq3SB56IinbWnG85biVukaXFYDgKpsGWTIkNqm5ItXpQE
+         wS0ycFmM/if/LkmLopxzY8e6twJWJiaJNvo+EE/jSc9k0rEVGnJYZHRgrUgkW2iDVa9o
+         mH5MjOpcTyQ3o0hh6FcVYDQtXBdyBm65SQGLDoW1dsrmcw+Y8AYuhecrbZ2AZgDeU/gx
+         UhFTTmDGODEVcYhHPLMX22TeOz1ycjQtSf76QbxaIy5wZv16wqeWGfyxJZBptCVz13pM
+         rRbg==
+X-Forwarded-Encrypted: i=1; AJvYcCWXXqn2ReUV5JgNuHLQj/Cq+AGjtk4XFZfzeAJAURKmV34CgVQZFX3HIt8iqm6WntR3s3pd7+eX6JMAXLLg2diiMCbzkC7f5FBPxfQOw1fy
+X-Gm-Message-State: AOJu0YydvVmHF+VGyUpApcTi4onkjdK1ovQFP+TI/MdDqyTD9IZoCAGP
+	qGCsH197YFrNlFrKNrxarO/p8ELnKy80XbEt5/ShnRNdFdgzBta9hIHuN08Yb2M=
+X-Google-Smtp-Source: AGHT+IEVO2RloeRFS7aruFEhKi3Dam9+w8kNJr0NKAJEy2z+RvgfGkDPX/JEBDXkFZBWZxQs9gGhyA==
+X-Received: by 2002:a17:902:da81:b0:1fa:2b1f:6762 with SMTP id d9443c01a7336-1fa2b1f68eamr88102695ad.45.1719329775863;
+        Tue, 25 Jun 2024 08:36:15 -0700 (PDT)
+Received: from localhost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fa0bf76ca7sm63983305ad.277.2024.06.25.08.36.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Jun 2024 08:36:15 -0700 (PDT)
+Date: Tue, 25 Jun 2024 08:36:15 -0700 (PDT)
+X-Google-Original-Date: Tue, 25 Jun 2024 08:36:13 PDT (-0700)
+Subject: Re: [-fixes] riscv: kexec: Avoid deadlock in kexec crash path
+In-Reply-To: <20240609141802.6976-1-takakura@valinux.co.jp>
+CC: alex@ghiti.fr, songshuaishuai@tinylab.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, guoren@kernel.org, xianting.tian@linux.alibaba.com,
+  takahiro.akashi@linaro.org, takakura@valinux.co.jp, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: takakura@valinux.co.jp
+Message-ID: <mhng-cd9af4c1-3eb8-4053-8d59-e59c12c14166@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240625_080403_029472_7B991F2C 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20240625_083618_067236_E0681DCE 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,71 +89,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allow test programs to use the shadow stack helpers on arm64.
+On Sun, 09 Jun 2024 07:18:02 PDT (-0700), takakura@valinux.co.jp wrote:
+> Hi Alex, Song,
+>
+> On Fri, 24 May 2024, Alexandre Ghiti wrote:
+>>Hi Song, Ryo,
+>>
+>>On 06/05/2024 07:10, takakura@valinux.co.jp wrote:
+>>> Hi Song and Paul!
+>>>
+>>>>> To avoid the deadlock, this patch directly EOI the irq regardless of
+>>>>> the active status of irqchip.
+>>>> Taking a quick look at the other architectures, looks like no one else is
+>>>> doing this.  Is this addressing a RISC-V-only problem?
+>>>>
+>>>>> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+>>>>> index f6c7135b00d7..d7ddf4d2b243 100644
+>>>>> --- a/arch/riscv/kernel/machine_kexec.c
+>>>>> +++ b/arch/riscv/kernel/machine_kexec.c
+>>>>> @@ -149,20 +149,12 @@ static void machine_kexec_mask_interrupts(void)
+>>>>>
+>>>>>   	for_each_irq_desc(i, desc) {
+>>>>>   		struct irq_chip *chip;
+>>>>> -		int ret;
+>>>>>
+>>>>>   		chip = irq_desc_get_chip(desc);
+>>>>>   		if (!chip)
+>>>>>   			continue;
+>>>>>
+>>>>> -		/*
+>>>>> -		 * First try to remove the active state. If this
+>>>>> -		 * fails, try to EOI the interrupt.
+>>>>> -		 */
+>>>>> -		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
+>>>>> -
+>>>>> -		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
+>>>>> -		    chip->irq_eoi)
+>>>>> +		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+>>>>>   			chip->irq_eoi(&desc->irq_data);
+>>> I think this deadlock is relevant to riscv and arm64 as they both
+>>> acquire irqdesc spinlock by calling irq_set_irqchip_state() during their
+>>> machine_kexec_mask_interrupts().
+>>>
+>>> However, I think calling irq_set_irqchip_state() during
+>>> machine_kexec_mask_interrupts() is arm64 specific way of handling EOI
+>>> which is not necessary for riscv.
+>>> For arm64, its interrupt controller(gic) seems to have two ways of EOIing
+>>> an interrupt depending on the mode which gic is configured. One of them
+>>> treats EOI as two step procedure, priority drop and deactivation. I think
+>>> irq_set_irqchip_state() is there to handle the deactivation part of
+>>> the procedure.
+>>> For riscv, EOI only requires irq_eoi handler to complete EOI and I think
+>>> keeping irq_set_irqchip_state() will only leave this possible deadlock
+>>> without any use.
+>>> So I think it's best we simply remove irq_set_irqchip_state() as Song did.
+>>
+>>
+>>I think this ^ is relevant and should be added to the commit log. @Song
+>>can you respin another version with the updated commit log? @Ryo can you
+>>add your Reviewed-by when it's done?
+>
+> Sure!
 
-Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/ksft_shstk.h | 37 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
+Just checking up on this one, I don't see a v2 on the lists.
 
-diff --git a/tools/testing/selftests/ksft_shstk.h b/tools/testing/selftests/ksft_shstk.h
-index 85d0747c1802..302957a0bbd5 100644
---- a/tools/testing/selftests/ksft_shstk.h
-+++ b/tools/testing/selftests/ksft_shstk.h
-@@ -50,6 +50,43 @@ static inline __attribute__((always_inline)) void enable_shadow_stack(void)
- 
- #endif
- 
-+#ifdef __aarch64__
-+#define PR_SET_SHADOW_STACK_STATUS      75
-+# define PR_SHADOW_STACK_ENABLE         (1UL << 0)
-+
-+#define my_syscall2(num, arg1, arg2)                                          \
-+({                                                                            \
-+	register long _num  __asm__ ("x8") = (num);                           \
-+	register long _arg1 __asm__ ("x0") = (long)(arg1);                    \
-+	register long _arg2 __asm__ ("x1") = (long)(arg2);                    \
-+	register long _arg3 __asm__ ("x2") = 0;                               \
-+	register long _arg4 __asm__ ("x3") = 0;                               \
-+	register long _arg5 __asm__ ("x4") = 0;                               \
-+	                                                                      \
-+	__asm__  volatile (                                                   \
-+		"svc #0\n"                                                    \
-+		: "=r"(_arg1)                                                 \
-+		: "r"(_arg1), "r"(_arg2),                                     \
-+		  "r"(_arg3), "r"(_arg4),                                     \
-+		  "r"(_arg5), "r"(_num)					      \
-+		: "memory", "cc"                                              \
-+	);                                                                    \
-+	_arg1;                                                                \
-+})
-+
-+#define ENABLE_SHADOW_STACK
-+static inline __attribute__((always_inline))  void enable_shadow_stack(void)
-+{
-+	int ret;
-+
-+	ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
-+			  PR_SHADOW_STACK_ENABLE);
-+	if (ret == 0)
-+		shadow_stack_enabled = true;
-+}
-+
-+#endif
-+
- #ifndef __NR_map_shadow_stack
- #define __NR_map_shadow_stack 453
- #endif
-
--- 
-2.39.2
-
+>
+>>This fix has been lagging behind for quite some time, it would be nice
+>>to merge this in 6.10 and backport to stable.
+>
+> Sincerely,
+>
+> Ryo Takakura
+>
+>>Thanks,
+>>
+>>Alex
 
 _______________________________________________
 linux-riscv mailing list
