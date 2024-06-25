@@ -4,92 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F6AEC2BBCA
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 21:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E05DC2BBCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 22:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XZAEUCcZdAYqJe8HWlAwISE3Cm/Gg4U5ciP12ps7oMg=; b=JPaX5Pq9nP/mQf
-	sNsDUf7AaPlSQnNVJ6jhn701YHKQWukvCt8VWEQKU4xDrVmYu5GhhNfQbTIhnqX7Sppqse8eBdT0D
-	ptih6NAyY5brhmf39KnTejR/S+alFxRF8812COpox6OEaHBtYvAZrUn+AWoutPYhpfJ0wW3T5U/5q
-	0cNYlSDakCNSp0GuHcaal/MqJfgUAgs0mtEr6Hf7+mqNNQUrvOZuYISQhkPIeo/koDf/wMJ5t5at8
-	j9fp4tczIoyvKXo8qELiNloatJIplGQmMDGKA5mVukCvX49EZ2llZ3MVg0U77VhkqIhDonUclO7Yh
-	E1XxVoE+rbLHpMHe82NA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=6cHhgFw6tQ7vT74uzaRUWFD2z5LfujlLXpwrELGizjc=; b=bo2
+	QcqdI/EAawelZV3qhyg0EJ+gkb0rWSbCIfsejmSeuoM199wKJP970cHB0F/f13LqfKl6XEJuXYQMZ
+	FGgOaXOmAihOjQTmziSXCPxsofyYW9a76WFenPDlKhRFAWBwLpZGgOPHdMj49tKeeyUaQnPbE4cku
+	z5JspAGF1oCy5UwLzoNGUqX/oU+Igg3xvfoxsVtpVypJQAmisiUMYS9KKDHtoRJFaGbYuq0uI9DdQ
+	PFPudm6nsC40hx0YJruDlWoyJISzTcFmrilOrHraNSvbMx6GRU3ewyHT6adyJkbbuVdBoDvbU6DGn
+	z598BEfEkh4gnILdLd7s4fSmDKKh5NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMDkh-00000004Zqi-0fVW;
-	Tue, 25 Jun 2024 21:30:59 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1sMEkj-00000004hk0-0UHC;
+	Tue, 25 Jun 2024 22:35:05 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMDke-00000004Zq6-3QFx
+	id 1sMEkf-00000004hic-17fK
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jun 2024 21:30:58 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1f9cd92b146so47109045ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Jun 2024 14:30:56 -0700 (PDT)
+	Tue, 25 Jun 2024 22:35:03 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-7065df788f6so6695012b3a.3
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Jun 2024 15:35:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1719351056; x=1719955856; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=B2W8rgNXG1QVMuA1bBYIoQVqie0Y2SU5GMCzLUNZnjw=;
-        b=RU4Y7bV3BH7cvrEliirGxx/M8ZKzMYjK2j9pCOJvv1Eb39Rv+CkG/xE9bs57xd5vM9
-         Wdnb2ZYfSfHWvfOY29iwKkBPluFjVAa+ltY9yooEykvBlTPVvVllDAxCpXcEZ6KpTlIj
-         wRTt8HiKlVjiWjBzJi+aAIaWTU29a3Fb6SQM5i3zbQ4e1HvznnU90dFyBviKw594MWNa
-         so+GAbfUq3Ttn1/XCSBWVStu0JCHNZ5HWsaAh3GlDJihMubS1hvW5AxwXc4lj6DCYcu5
-         eJPlKx7kiFHM68d+oLnhmsPspx5Ft12gE1LIFwZ4kVBTnxeJs0HOI/l5M10kPzl0kl6j
-         yoog==
+        d=google.com; s=20230601; t=1719354900; x=1719959700; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=KACPm6o1sF6MfYdPebomXscoE9qCB1ha0g1j4OaH67g=;
+        b=RieJV7A2R6d4BzR/BwZX4A7ttU0qiJ8/mEmcDjBvORR/KqoEjm/OYoSwnWil5D4SVb
+         vT911nnEgpA0TdO7lJN3W61LByu8G2Cz1Kb5zz/wjTIu9QwH4pCXy+Ozq04cpQNEBKxl
+         KoyHKTdiUyBqlsWPk6frw7sIpXDt5J+KHNpBa8D0w5Jky6iTv9comNIxYtHw6ozB3T2U
+         vieMHRKrN5pJRL1DATsIhXfwAkGppdODjDjFsHpHMRAcy1ZSKiAiw0DVyWTI+k3zPcI6
+         hjhYiTM5C2mMkMMo9IUhj7tEg1wmIoAGFReelqar+0HmwqJRVwEQ9cffo7G7Qw3+BcJN
+         BEOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719351056; x=1719955856;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B2W8rgNXG1QVMuA1bBYIoQVqie0Y2SU5GMCzLUNZnjw=;
-        b=H2QCIkI/UkgabgI5xMoSPJ3OCKa+hFCb52bnKsxL1t+T/gCRa3P89GSy02DboCpTfR
-         a1FvFG7iCUr33LNxS/x9aSKbmqlDblLINzTWtxmAjskCSTaIZjJZcbm++IPlIAPZ8Dir
-         Q1kTj7new2li/zQB1bRD16lE+YzQ8edQeqBXDabkAJw/nIvQqRvSlawyf5fqsQBzA0Jy
-         2rpiWbrRZxpCE3in8+55fwHponWlEB7r4TkvQvkW61QvITWWH0TMMl0w1Xix8Vb+09oJ
-         HNR0d8t+o7b6CuH5RPi2+xjjE2HidKnXCY21CeZRiydfprwl299IKqA3cR+8SwtZhkSS
-         wxdg==
-X-Forwarded-Encrypted: i=1; AJvYcCWElu5NocaxaIWzFab9OhCdf0QVx9JgY0fHNgIFYikBoatEzCPjZ6Pfb/sLBn7pvPcOnhU5FGVEDKPZZER+e5bezyztlop3K83WwBOEXT9C
-X-Gm-Message-State: AOJu0YxqVHR3Vlw7jK4wwWPrqqAdNVpK//CoOkopMUgusDOt7PtDcILd
-	VeNpjEUvB7c1++dYReF68qa291UtkWrjAvM5ZKkZIrkpnMgvmVBXjnDSAdGj7fY=
-X-Google-Smtp-Source: AGHT+IHLYzhYJqgZIhjVBl957rNEit7/68mjSYfy0ZR3K9f3qNxYJuPCUrQQrG4u1+TQDgmb+OtrJg==
-X-Received: by 2002:a17:902:d4cd:b0:1fa:18c3:2788 with SMTP id d9443c01a7336-1fa1d51c210mr95820215ad.24.1719351049966;
-        Tue, 25 Jun 2024 14:30:49 -0700 (PDT)
-Received: from x1 ([2601:1c2:1802:170:efe7:d185:104e:b7b])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1f9eb7d245asm86453135ad.232.2024.06.25.14.30.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Jun 2024 14:30:49 -0700 (PDT)
-Date: Tue, 25 Jun 2024 14:30:47 -0700
-From: Drew Fustini <dfustini@tenstorrent.com>
-To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Conor Dooley <conor@kernel.org>,
-	Jarkko Nikula <jarkko.nikula@linux.intel.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	=?iso-8859-1?Q?Miqu=E8l?= Raynal <miquel.raynal@bootlin.com>,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 3/3] riscv: dts: thead: Enable I2C on the BeagleV-Ahead
-Message-ID: <Zns3B/eJUUqFL6XE@x1>
-References: <20240618-i2c-th1520-v3-0-3042590a16b1@bootlin.com>
- <20240618-i2c-th1520-v3-3-3042590a16b1@bootlin.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240618-i2c-th1520-v3-3-3042590a16b1@bootlin.com>
+        d=1e100.net; s=20230601; t=1719354900; x=1719959700;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KACPm6o1sF6MfYdPebomXscoE9qCB1ha0g1j4OaH67g=;
+        b=FvFe9HOKKckEFi43v/dcidzw3bJnfFy4DBzRa4HSQse7QzJBAgikTUnIlX3Z8OG7iN
+         ZPuC4zKY1uBCZAchIa3HfBiHekvIy7AmYR/Q5ITEE1sy7DdgnjPYONDaZUg+qUNUtXxW
+         xMJzbmsmSMvr3jjRvGhGPGKDyRWQCHmD0k6raZJpQILab6qhSeE3f2XsrEKgdZ8iW5Sb
+         4cQI44ttU2T9HAueB/jC9g6tXqi4aOpMWH/ph8wJlqfHzQ8qREOyLLDEdS9Zjq/Ad/LH
+         7EV0GDpbfA0mv3igb6c3RrYYXiuqt5BzBLiPIhbu/1ghGsh/ciwTP12zKS8rl4B6lAxc
+         +mRA==
+X-Forwarded-Encrypted: i=1; AJvYcCUczuLHL0n+31Ym85hXmQnT/2oiwsukqjl/5Nrv3yePpN7sSeezT94d7fvICjcQe8NyHaToteHCv4PVlQiS9NZzogMZcJUWuFLcLTZs9rQD
+X-Gm-Message-State: AOJu0YzJT2slpXbUFuQO2v/nsEKzNHSPB9umy3sz49NY1xoapIL8vd/k
+	e3wfmH+hQYfw4/jZUfTGqinpXJDIg3NsTTEJCMeooWn2H2ShL+YZBMC8O1/UXpgGZmR2OA/BgaL
+	eDw==
+X-Google-Smtp-Source: AGHT+IFpOX5CcrzFldMsRz/JodHWPPYjtr1mfNvHUywvuU1/bJCVZhZ6TnspYz+fdShAF0CdfuxKj2ZiUg4=
+X-Received: from edliaw.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:305d])
+ (user=edliaw job=sendgmr) by 2002:a05:6a00:3698:b0:706:3f17:ca6 with SMTP id
+ d2e1a72fcca58-706746c2606mr330723b3a.3.1719354899705; Tue, 25 Jun 2024
+ 15:34:59 -0700 (PDT)
+Date: Tue, 25 Jun 2024 22:34:44 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.45.2.803.g4e1b14247a-goog
+Message-ID: <20240625223454.1586259-1-edliaw@google.com>
+Subject: [PATCH v7 0/1] Centralize _GNU_SOURCE definition into lib.mk
+From: Edward Liaw <edliaw@google.com>
+To: linux-kselftest@vger.kernel.org, Eric Biederman <ebiederm@xmission.com>, 
+	Kees Cook <kees@kernel.org>, Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
+	"=?UTF-8?q?Andr=C3=A9=20Almeida?=" <andrealmeid@igalia.com>, Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Fenghua Yu <fenghua.yu@intel.com>, 
+	Reinette Chatre <reinette.chatre@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org, usama.anjum@collabora.com, seanjc@google.com, 
+	kernel-team@android.com, Edward Liaw <edliaw@google.com>, linux-mm@kvack.org, 
+	iommu@lists.linux.dev, kvm@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-sgx@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240625_143056_893698_FC8EE2C6 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20240625_153501_346229_C3EA9B83 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,129 +101,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 18, 2024 at 09:42:40AM +0200, Thomas Bonnefille wrote:
-> This commit enables the I2C0 controller of the TH1520, together with
-> the FT24C32A EEPROM that is connected to it.
-> In addition, this commit also enables the I2C controllers I2C2, I2C4
-> and I2C5 as they are all three exposed on headers (P9 19 and 20 for I2C2,
-> P9 17 and 18 for I2C5 and MikroBus 7 and 5 for I2C4).
-> It also defined the required pinctrl nodes.
-> 
-> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-> ---
->  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 84 ++++++++++++++++++++++
->  1 file changed, 84 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> index 57a2578123eb..b5c4f1811955 100644
-> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> @@ -122,6 +122,19 @@ led-pins {
->  };
->  
->  &padctrl0_apsys {
-> +	i2c2_pins: i2c2-0 {
-> +		i2c-pins {
-> +			pins = "I2C2_SDA",
-> +			       "I2C2_SCL";
-> +			function = "i2c";
-> +			bias-pull-up = <48000>;
-> +			drive-strength = <7>;
-> +			input-enable;
-> +			input-schmitt-enable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +
->  	uart0_pins: uart0-0 {
->  		tx-pins {
->  			pins = "UART0_TXD";
-> @@ -145,8 +158,79 @@ rx-pins {
->  	};
->  };
->  
-> +&padctrl1_apsys {
-> +	i2c0_pins: i2c0-0 {
-> +		i2c-pins {
-> +			pins = "I2C0_SDA",
-> +			       "I2C0_SCL";
-> +			function = "i2c";
-> +			bias-pull-up = <48000>;
-> +			drive-strength = <7>;
-> +			input-enable;
-> +			input-schmitt-enable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +
-> +	i2c4_pins: i2c4-0 {
-> +		i2c-pins {
-> +			pins = "GPIO0_19", /* I2C4_SDA */
-> +			       "GPIO0_18"; /* I2C4_SCL */
-> +			function = "i2c";
-> +			bias-pull-up = <48000>;
-> +			drive-strength = <7>;
-> +			input-enable;
-> +			input-schmitt-enable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +
-> +	i2c5_pins: i2c5-0 {
-> +		i2c-pins {
-> +			pins = "QSPI1_D0_MOSI", /* I2C5_SDA */
-> +			       "QSPI1_CSN0";    /* I2C5_SCL */
-> +			function = "i2c";
-> +			bias-pull-up = <48000>;
-> +			drive-strength = <7>;
-> +			input-enable;
-> +			input-schmitt-enable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +};
-> +
->  &uart0 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&uart0_pins>;
->  	status = "okay";
->  };
-> +
-> +&i2c0 {
-> +	clock-frequency = <100000>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c0_pins>;
-> +	status = "okay";
-> +
-> +	eeprom@50 {
-> +		compatible = "atmel,24c32";
-> +		reg = <0x50>;
-> +	};
-> +};
-> +
-> +&i2c2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c2_pins>;
-> +	status = "okay";
-> +};
-> +
-> +&i2c4 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c4_pins>;
-> +	status = "okay";
-> +};
-> +
-> +&i2c5 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c5_pins>;
-> +	status = "okay";
-> +};
-> 
-> -- 
-> 2.45.2
->
+Centralizes the definition of _GNU_SOURCE into lib.mk and addresses all
+resulting macro redefinition warnings.
 
-Reviewed-by: Drew Fustini <dfustini@tenstorrent.com>
+The initial attempt at this patch was abandoned because it affected
+lines in many source files and caused a large amount of churn. However,
+from earlier discussions, centralizing _GNU_SOURCE is still desireable.
+This attempt limits the changes to 1 source file and 14 Makefiles.
+
+This is condensed into a single commit to avoid redefinition warnings
+from partial merges.
+
+v1: https://lore.kernel.org/linux-kselftest/20240430235057.1351993-1-edliaw@google.com/
+v2: https://lore.kernel.org/linux-kselftest/20240507214254.2787305-1-edliaw@google.com/
+ - Add -D_GNU_SOURCE to KHDR_INCLUDES so that it is in a single
+   location.
+ - Remove #define _GNU_SOURCE from source code to resolve redefinition
+   warnings.
+v3: https://lore.kernel.org/linux-kselftest/20240509200022.253089-1-edliaw@google.com/
+ - Rebase onto linux-next 20240508.
+ - Split patches by directory.
+ - Add -D_GNU_SOURCE directly to CFLAGS in lib.mk.
+ - Delete additional _GNU_SOURCE definitions from source code in
+   linux-next.
+ - Delete additional -D_GNU_SOURCE flags from Makefiles.
+v4: https://lore.kernel.org/linux-kselftest/20240510000842.410729-1-edliaw@google.com/
+ - Rebase onto linux-next 20240509.
+ - Remove Fixes tag from patches that drop _GNU_SOURCE definition.
+ - Restore space between comment and includes for selftests/damon.
+v5: https://lore.kernel.org/linux-kselftest/20240522005913.3540131-1-edliaw@google.com/
+ - Rebase onto linux-next 20240521
+ - Drop initial patches that modify KHDR_INCLUDES.
+ - Incorporate Mark Brown's patch to replace static_assert with warning.
+ - Don't drop #define _GNU_SOURCE from nolibc and wireguard.
+ - Change Makefiles for x86 and vDSO to append to CFLAGS.
+v6: https://lore.kernel.org/linux-kselftest/20240624232718.1154427-1-edliaw@google.com/
+ - Rewrite patch to use -D_GNU_SOURCE= form in lib.mk.
+ - Reduce the amount of churn significantly by allowing definition to
+   coexist with source code macro defines.
+v7:
+ - Squash patch into a single commit.
+
+Edward Liaw (1):
+  selftests: Centralize -D_GNU_SOURCE= to CFLAGS in lib.mk
+
+ tools/testing/selftests/exec/Makefile             | 1 -
+ tools/testing/selftests/futex/functional/Makefile | 2 +-
+ tools/testing/selftests/intel_pstate/Makefile     | 2 +-
+ tools/testing/selftests/iommu/Makefile            | 2 --
+ tools/testing/selftests/kvm/Makefile              | 2 +-
+ tools/testing/selftests/lib.mk                    | 3 +++
+ tools/testing/selftests/mm/thuge-gen.c            | 2 +-
+ tools/testing/selftests/net/Makefile              | 2 +-
+ tools/testing/selftests/net/tcp_ao/Makefile       | 2 +-
+ tools/testing/selftests/proc/Makefile             | 1 -
+ tools/testing/selftests/resctrl/Makefile          | 2 +-
+ tools/testing/selftests/ring-buffer/Makefile      | 1 -
+ tools/testing/selftests/riscv/mm/Makefile         | 2 +-
+ tools/testing/selftests/sgx/Makefile              | 2 +-
+ tools/testing/selftests/tmpfs/Makefile            | 1 -
+ 15 files changed, 12 insertions(+), 15 deletions(-)
+
+--
+2.45.2.803.g4e1b14247a-goog
+
 
 _______________________________________________
 linux-riscv mailing list
