@@ -4,57 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DBBC2BBCA
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 06:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C78C2BBCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 07:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DdtMBZJ1AD250k02X6JZIjZApJUqwhlYE5zSDRYpHaU=; b=bgXpNbMzm19SwF
-	ttghuRTgvxSB+mtm6WeyGDiEUybvz/yEKSHnXiHHzWRt3pM18Sj7sC9xMynidbMRYE3Pogr8196GS
-	4bZN001q41BcGa55rSEJyYYXYcAfp2rWa2njpsp+o7YfMRD3+czVhYLgwVgWJou8I9O3B4jpqxiS6
-	YID9m6gc5wWIPSoT/eKMdqkL+fEm9Cs4gwTaLeZeAWs3yXQTK634kTnidNbYG6//JPsg0vRyXuVvo
-	0+y5zlaOt8llWtvqoOZcAepIMCr8sitn8Oa4dOmlv/X1ntcqm7rqgHSLLs6vFkBcFeJpnpdPlqwf/
-	j3iKA5Hb5ZJ2DWWD5Xrg==;
+	List-Owner; bh=37I+bCdMWAAr5kbsYGKu1DJnFB4JvwmEUHvRUsK83Dg=; b=HvLffGHvtyVHIr
+	+MCiFhsrvf+ld7s4ISCHslzPnDu3t3+P/F4SNfFV4rwHrN4nAnBUYjO0j+xPKd4f1h5b2DO7/JgoY
+	VjLeX6jVaFUZP/0HYJJxewOwvZHyT2i2oP7PpZl98BbFFXsHqNtOBrBkUQoP9dqfXpT/j0exIeAVW
+	jzYagZpxZqEfuWv5szldYdpjrS2jF6xDallPgO0fWvLthT3qah7oAcczYNf7wS31KZeaPP42l30nU
+	txpb9zjVzxA6dslPBIOzWWIurVrotu2RNNMEoUExriQz4dpad+24eKJPmWw8PBL4zUmrC8vlOm0Pm
+	CW5cfG2VKmajMGKsJA2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLzoD-00000001or0-0hqh;
-	Tue, 25 Jun 2024 06:37:41 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1sM0VR-00000001wXG-220s;
+	Tue, 25 Jun 2024 07:22:21 +0000
+Received: from fout6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sLzo9-00000001ooC-28yD
+	id 1sM0VO-00000001wWg-3f4Q
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jun 2024 06:37:39 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4W7ZrJ1BjYznXkm;
-	Tue, 25 Jun 2024 14:37:20 +0800 (CST)
-Received: from dggpemd100004.china.huawei.com (unknown [7.185.36.20])
-	by mail.maildlp.com (Postfix) with ESMTPS id 92F3C180064;
-	Tue, 25 Jun 2024 14:37:24 +0800 (CST)
-Received: from [10.67.109.211] (10.67.109.211) by
- dggpemd100004.china.huawei.com (7.185.36.20) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 25 Jun 2024 14:37:24 +0800
-Message-ID: <cf29a1aa-add7-4a39-a9c6-f9bcc24d99f0@huawei.com>
-Date: Tue, 25 Jun 2024 14:37:24 +0800
+	Tue, 25 Jun 2024 07:22:20 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailfout.nyi.internal (Postfix) with ESMTP id B2AAC1380260;
+	Tue, 25 Jun 2024 03:22:17 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute5.internal (MEProxy); Tue, 25 Jun 2024 03:22:17 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1719300137; x=1719386537; bh=kqD1JVVmb6
+	5kM+8TRypaMtMSw95vRHKsvANGjybyrPs=; b=JI2NnhbDiRz+XtaZOE/bmBmcC9
+	y0EyY2llyKi6gdvjKx1r1hA/Sp+YxYTsh5R4n17kBIqknSQAROV1too416xz/ax7
+	DnnBJG1hO25/CV60G8SSL08IsslBBeMnfT9net4th4Zh9mhvhU/DJsMRuhBNgS3E
+	0VPlxU/h2WIqd5/h+xqpcLNb3FylkO5VgnBAm9vqbLiTkbPF6CfJ5etKz1Kdlz6g
+	XsaFDZtzr86kr8O4geYi5FetIADdYnaQpvDBu55+vHHcrV8TKcnZhnAv95+sSFqZ
+	lVTTKSD6ezB96+es6B2qbjQ1P3PHFwXreqGZJng2oKC/W4s7uWUK5KrDjiQw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1719300137; x=1719386537; bh=kqD1JVVmb65kM+8TRypaMtMSw95v
+	RHKsvANGjybyrPs=; b=nii1oWgI7WMslQkPVOju+ij36Es5RtXqNHA9yKqnjG8A
+	/6sHxHue9WXJ+9DOxwSzTPko23n5KXsoa6MuswLmoNWzrkp/0wwWs+HckTmyWvnS
+	vFd+qTvwAua8fFc1olEPYCCyGr7lvmWs7tgKITHfwgjPqGBDu3kq+6GaGAcfil+N
+	LRpbttIg9XP1FXvMTRN2LfjT0zLxGzwXnUv8OSFvGh//b/sWkrmRAPEmhfciYZHu
+	OISRx6Ws2r+o/pMUq1MEsjtRh0KiuVyyZCKVUE51CtS/Shyj+r2yibWJVJFKZA/0
+	2X2NzkLianjEFBwYul+W+025Fgof0A5Fm0c5c6mwnQ==
+X-ME-Sender: <xms:KHB6ZgBifU8qyh7Hen9xqhrQWMmo0RsmL9eotuAMGFs1onD0HXFfEA>
+    <xme:KHB6ZijWZB5iEGbnIvaynzSW5-TMdpen-UsUCXR4BLvZG7I2RjTuG-0dTnY3Vz_wd
+    ErlBUsr4Fx9T_EaFcE>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvledrfeegvddguddvudcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
+    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
+    htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
+    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    grrhhnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:KXB6Zjl3l50wSTwqFG8ioukc-g61PgCzgX01VcseaGpdWq4vmYO7FA>
+    <xmx:KXB6ZmxlCsqMlCZDJLqUVWfn8MZ7ECDbrhSeaDpY3p-VHvVyycCVaw>
+    <xmx:KXB6ZlT7X8HJgRHGH0q78K3BWOn3L8jDW0VFQpTffwcl_djQXWLfew>
+    <xmx:KXB6ZhYXApxt0XgYZhF8A9lmJpDbOUWPdh0naveFocTcpqd6K7sm1Q>
+    <xmx:KXB6ZmQ60H2urzdeAAEbeBLfc362BpSQsmD9KzkcaS9n3A-vmDQqIAh3>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id DADC6B60092; Tue, 25 Jun 2024 03:22:16 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.11.0-alpha0-538-g1508afaa2-fm-20240616.001-g1508afaa
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] RISC-V: Dynamically allocate cpumasks and further
- increase range and default value of NR_CPUS
-Content-Language: en-US
-To: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
-References: <20240614075306.357861-1-liuyuntao12@huawei.com>
-From: "liuyuntao (F)" <liuyuntao12@huawei.com>
-In-Reply-To: <20240614075306.357861-1-liuyuntao12@huawei.com>
-X-Originating-IP: [10.67.109.211]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- dggpemd100004.china.huawei.com (7.185.36.20)
+Message-Id: <4d8e0883-6a8c-4eb5-bf61-604e2b98356a@app.fastmail.com>
+In-Reply-To: <20240625040500.1788-1-jszhang@kernel.org>
+References: <20240625040500.1788-1-jszhang@kernel.org>
+Date: Tue, 25 Jun 2024 09:21:50 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jisheng Zhang" <jszhang@kernel.org>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ Linux-Arch <linux-arch@vger.kernel.org>,
+ "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/4] riscv: uaccess: optimizations
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240624_233737_766269_3613F863 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20240625_002219_276628_743549A7 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,70 +102,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Gentle ping
+On Tue, Jun 25, 2024, at 06:04, Jisheng Zhang wrote:
+> This series tries to optimize riscv uaccess in the following way:
+>
+> patch1 implement the user_access_begin and families, I.E the unsafe
+> accessors. when a function like strncpy_from_user() is called,
+> the userspace access protection is disabled and enabled for every
+> word read. After patch1, the protection is disabled at the beginning
+> of the copy and enabled at the end.
+>
+> patch2 is a simple clean up
+>
+> patch3 uses 'asm goto' for put_user()
+> patch4 uses 'asm goto output' for get_user()
+>
+> Both patch3 and patch4 are based on the fact -- 'asm goto' and
+> 'asm goto output'generates noticeably better code since we don't need
+> to test the error etc, the exception just jumps to the error handling
+> directly.
 
-On 2024/6/14 15:53, Yuntao Liu wrote:
-> Currently default NR_CPUS is 64 for riscv64, since the latest QEMU virt
-> machine supports up to 512 CPUS, so set default NR_CPUS 512 for riscv64.
-> 
-> Under the promotion of RISC-V International and related chip
-> manufacturers, RISC-V has also begun to enter the server market, which
-> demands higher performance. Other major architectures (such as ARM64,
-> x86_64, MIPS, etc) already have a higher range, so further increase
-> this range up to 4096 for riscv64.
-> 
-> Due to the fact that increasing NR_CPUS enlarges the size of cpumasks,
-> there is a concern that this could significantly impact stack usage,
-> especially for code that allocates cpumasks on the stack. To address
-> this, we have the option to enable CPUMASK_OFFSTACK, which prevents
-> cpumasks from being allocated on the stack. we choose to enable this
-> feature only when NR_CPUS is greater than 512, why 512, since then
-> the kernel size with offstack is smaller.
-> 
-> vmlinux size comparison(difference to vmlinux_onstack_NR_CPUS baseline):
-> 
-> NR_CPUS     256         512         1024        2048        4096
-> onstack     19814536    19840760    19880584    19969672    20141704
-> offstack    19819144    19840936    19880480    19968544    20135456
-> difference  +0.023%     +0.001%     -0.001%     -0.001      -0.031%
-> is_smaller  n           n           y           y           y
-> 
-> Signed-off-by: Yuntao Liu <liuyuntao12@huawei.com>
-> ---
->   arch/riscv/Kconfig | 5 +++--
->   1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 0525ee2d63c7..5960713b3bf9 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -77,6 +77,7 @@ config RISCV
->   	select CLINT_TIMER if RISCV_M_MODE
->   	select CLONE_BACKWARDS
->   	select COMMON_CLK
-> +	select CPUMASK_OFFSTACK if NR_CPUS > 512
->   	select CPU_PM if CPU_IDLE || HIBERNATION || SUSPEND
->   	select EDAC_SUPPORT
->   	select FRAME_POINTER if PERF_EVENTS || (FUNCTION_TRACER && !DYNAMIC_FTRACE)
-> @@ -428,11 +429,11 @@ config SCHED_MC
->   config NR_CPUS
->   	int "Maximum number of CPUs (2-512)"
->   	depends on SMP
-> -	range 2 512 if !RISCV_SBI_V01
-> +	range 2 4096 if !RISCV_SBI_V01
->   	range 2 32 if RISCV_SBI_V01 && 32BIT
->   	range 2 64 if RISCV_SBI_V01 && 64BIT
->   	default "32" if 32BIT
-> -	default "64" if 64BIT
-> +	default "512" if 64BIT
->   
->   config HOTPLUG_CPU
->   	bool "Support for hot-pluggable CPUs"
+Nice!
+
+I hope that we can one day make this more straightforward
+and share more of the implementation across architectures,
+in particular the bits that are just wrappers around
+the low-level asm.
+
+We have something like this already on powerpc and x86,
+and Linus just did the version for arm64, which I assume
+you are using as a template for this. Four architectures
+is probably the point at which we should try to consolidate
+the code again and move as much as we can into asm-generic.
+
+I think the only bets we really need from an architecture
+here are:
+
+- __enable_user_access()/__disable_user_access() in
+   the label version
+- __raw_get_mem_{1,2,4,8}() and __raw_put_mem_{1,2,4,8}()
+
+and then we can build all the normal interface functions
+on those in a way that assumes we have as goto available,
+with the appropriate fallback in __raw_get_mem_*() as
+long as we need to support gcc-10 and older.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
