@@ -4,60 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA74C2BBCA
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 22:51:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008D0C30653
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2024 23:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5FsaLRAYYWFmBzyYwLajLU5xpEO6fJxoRTN5DKPH3UM=; b=Wf45lbxWsjG4cw
-	zoGlB7VQCgRMceYIPvpyKFA4hC64Qx5Lppn9Tlvp8JYuwC4R/r7Y2fXSLa7lVMmaLjcDqQF7TPC78
-	j4DL08lvo5YfQbakLAPrDfgWtVSrrbn1tn4yBmaFTP/xeHQxl09NlQnrqiUqQIuRWm7xTtYJ2Ybcy
-	L3q7hh1VoYAssYW/LQKyz727VSoW2r7BliYOrRmfTaKbigHTmKb5smcqerbtgODcp509n8OM+btSp
-	SLf2UDmkCOOrTUyhJx3q5VZQ+pVKXXFV9gq8DllOobP9kmCBPP3QvmX9IwlstfCC5VQ0ncbei7EEU
-	3BoJPj091u3RbqqHkb2w==;
+	List-Owner; bh=BSShydA/TxkyXUY9wFx3TD5iV0kiJeeIEDEW0jN7neE=; b=kuf30KrQiXx3pn
+	9E+ywfDD/1AEGnvplBY8NymMA4w1R67nCZ/ZJZEPFtpTuCdcTNLYdf6fFi5weN7L9KMGpEpNi6GQ9
+	EKQ6GDtljmVFIBtpX9kHMILEAGNO1EbwMClRUXMaVs+yCTh3HY4tpv04Ni6ilod22T6ZNtPYigehK
+	ZfoINnbyxvzCrF8M6S0xQjGo9rNC7PVucCgObTXYOfiIIBvMxSgHFUqeVkI+92Aj3ZM9p3L5BoHER
+	dFR7/1C8X5LMtj9H9kIIWy8Onh9lz17Ompsw42NGzkKPDFYUs3bLyu1aJuY0WtWORBrdjtRy13yEu
+	xlabPXNltkV7eiIvfNLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMF0S-00000004jJv-20E9;
-	Tue, 25 Jun 2024 22:51:20 +0000
-Received: from [50.53.4.147] (helo=[192.168.254.15])
-	by bombadil.infradead.org with esmtpsa (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMF0J-00000004jIo-2S55;
-	Tue, 25 Jun 2024 22:51:11 +0000
-Message-ID: <4cefa456-63a0-4e16-97bb-022c72c128c6@infradead.org>
-Date: Tue, 25 Jun 2024 15:51:09 -0700
+	id 1sMFg3-00000004nbz-2V60;
+	Tue, 25 Jun 2024 23:34:19 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sMFg0-00000004nak-3GHZ
+	for linux-riscv@lists.infradead.org;
+	Tue, 25 Jun 2024 23:34:18 +0000
+Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-36dd6cbad62so3325645ab.3
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Jun 2024 16:34:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linuxfoundation.org; s=google; t=1719358455; x=1719963255; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fLoxHe91BqYGbErrOqOVZAihyCRQ1/q/QL1BRJCrC+o=;
+        b=GxqL7LtBbo3R3s5ZLD2F7setYb1KF4qFCTTit/Tuqx3/mo+7mxlbLJaJihd5upBaig
+         Rzx+WwEX3VoJGL5pV+APtOrEsel1i7PqzMHwIIfMyCvQj2vR/U4YQBtQqtYYAxxea+ns
+         nNe7mds9fTzJ2W9lreduE3lBpzLmDTEUKFfq0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719358455; x=1719963255;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fLoxHe91BqYGbErrOqOVZAihyCRQ1/q/QL1BRJCrC+o=;
+        b=AMMKZ3ZEm+RNfFLBVFU62sTUbo9b5xHUi+WTgckq3E8kZ1byltPgyLpSaL9UI9eqQi
+         RpMVetcLy7F2+wSX5f4NZdjhC0OVjaEWos2lpA3eqnwSJ2wERyk6RbtOZTNbhE+XiUid
+         XUZ3ZP9bUK//i0sKHEFKGfRSYjZZLltUc6mx1c3/Lp4aRFhArFYtakGbCYPnvQ/7EKfe
+         eiJ5ouI9R0j5dx8iyoGXZyRKkEtJN9zkiGXvgNFKSMFqBb1opjB2sqHn0TH4O35adxgo
+         Mp2OgjsRi0vOPC8Iok4siYO7bmQ2WS5rmdfsw5OdeqiaH2AuTE1HXUW9gmPZEI2cSeBL
+         KM4w==
+X-Forwarded-Encrypted: i=1; AJvYcCWF0Wn0ZSReyWeRlkuX7cG5BwXgTxG8d/C57CKPwybcNNODhxar+f85UWb5XaGfAw9FggycgdI2M03KfoRqUz2Js5lJn1bK4+SJ7LvXe7mZ
+X-Gm-Message-State: AOJu0Yz4VvTssKR4n2j2g8t/W3v61Iy1PhCwm69PMSLF9jUV8Zx8wleo
+	wZgGSDg3Q5vVVWY2hbCgkzpxaI2mhwOvueNcDGNwMMd0OLge2v+YDdnKpFCB43E=
+X-Google-Smtp-Source: AGHT+IHFxsdnrHHCJW39/Lbu9cUGENC+vnEtRYVDBjLq63CwNtPtBkCUmNgYxOl/tyW+mRbcBoYz8w==
+X-Received: by 2002:a05:6602:3148:b0:7f3:9ef8:30a4 with SMTP id ca18e2360f4ac-7f39ef8334dmr991110139f.1.1719358455001;
+        Tue, 25 Jun 2024 16:34:15 -0700 (PDT)
+Received: from [192.168.1.128] ([38.175.170.29])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4bb458ba8efsm645345173.8.2024.06.25.16.34.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Jun 2024 16:34:14 -0700 (PDT)
+Message-ID: <f975fe76-92f4-4af0-a91d-0f3d8938f6b2@linuxfoundation.org>
+Date: Tue, 25 Jun 2024 17:34:13 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 05/39] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-To: Mark Brown <broonie@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Andrew Morton <akpm@linux-foundation.org>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- James Morse <james.morse@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>,
- Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>,
- Shuah Khan <shuah@kernel.org>, "Rick P. Edgecombe"
- <rick.p.edgecombe@intel.com>, Deepak Gupta <debug@rivosinc.com>,
- Ard Biesheuvel <ardb@kernel.org>, Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
- Kees Cook <kees@kernel.org>
-Cc: "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Florian Weimer <fweimer@redhat.com>,
- Christian Brauner <brauner@kernel.org>,
- Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
- Ross Burton <ross.burton@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
- <20240625-arm64-gcs-v9-5-0f634469b8f0@kernel.org>
+Subject: Re: [PATCH v6 00/13] Centralize _GNU_SOURCE definition into lib.mk
+To: Andrew Morton <akpm@linux-foundation.org>, Edward Liaw <edliaw@google.com>
+Cc: linux-kselftest@vger.kernel.org, Eric Biederman <ebiederm@xmission.com>,
+ Kees Cook <kees@kernel.org>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
+ <andrealmeid@igalia.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Kevin Tian <kevin.tian@intel.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Fenghua Yu <fenghua.yu@intel.com>,
+ Reinette Chatre <reinette.chatre@intel.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jarkko Sakkinen <jarkko@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-kernel@vger.kernel.org,
+ usama.anjum@collabora.com, seanjc@google.com, kernel-team@android.com,
+ linux-mm@kvack.org, iommu@lists.linux.dev, kvm@vger.kernel.org,
+ netdev@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-sgx@vger.kernel.org,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20240624232718.1154427-1-edliaw@google.com>
+ <20240625135234.d52ef77c0d84cb19d37dc44f@linux-foundation.org>
 Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20240625-arm64-gcs-v9-5-0f634469b8f0@kernel.org>
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <20240625135234.d52ef77c0d84cb19d37dc44f@linux-foundation.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20240625_163417_094295_EEC7E5D7 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,311 +105,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/25/24 7:57 AM, Mark Brown wrote:
-> Add some documentation of the userspace ABI for Guarded Control Stacks.
+On 6/25/24 14:52, Andrew Morton wrote:
+> On Mon, 24 Jun 2024 23:26:09 +0000 Edward Liaw <edliaw@google.com> wrote:
 > 
-> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  Documentation/arch/arm64/gcs.rst   | 233 +++++++++++++++++++++++++++++++++++++
->  Documentation/arch/arm64/index.rst |   1 +
->  2 files changed, 234 insertions(+)
+>> Centralizes the definition of _GNU_SOURCE into lib.mk and addresses all
+>> resulting macro redefinition warnings.
+>>
+>> These patches will need to be merged in one shot to avoid redefinition
+>> warnings.
 > 
-> diff --git a/Documentation/arch/arm64/gcs.rst b/Documentation/arch/arm64/gcs.rst
-> new file mode 100644
-> index 000000000000..c45c0326836a
-> --- /dev/null
-> +++ b/Documentation/arch/arm64/gcs.rst
-> @@ -0,0 +1,233 @@
-> +===============================================
-> +Guarded Control Stack support for AArch64 Linux
-> +===============================================
-> +
-> +This document outlines briefly the interface provided to userspace by Linux in
-> +order to support use of the ARM Guarded Control Stack (GCS) feature.
-> +
-> +This is an outline of the most important features and issues only and not
-> +intended to be exhaustive.
-> +
-> +
-> +
-> +1.  General
-> +-----------
-> +
-> +* GCS is an architecture feature intended to provide greater protection
-> +  against return oriented programming (ROP) attacks and to simplify the
-> +  implementation of features that need to collect stack traces such as
-> +  profiling.
-> +
-> +* When GCS is enabled a separate guarded control stack is maintained by the
-> +  PE which is writeable only through specific GCS operations.  This
-> +  stores the call stack only, when a procedure call instruction is
+> Yes, please do this as a single patch and resend?
 
-                           only. When
+Since the change is limited to makefiles and one source file
+we can manage it with one patch.
 
-> +  performed the current PC is pushed onto the GCS and on RET the
-> +  address in the LR is verified against that on the top of the GCS.
-> +
-> +* When active current GCS pointer is stored in the system register
+Please send single patch and I will apply to next and we can resolve
+conflicts if any before the merge window rolls around.
 
-     Cannot parse this incomplete sentence...
-
-> +  GCSPR_EL0.  This is readable by userspace but can only be updated
-> +  via specific GCS instructions.
-> +
-> +* The architecture provides instructions for switching between guarded
-> +  control stacks with checks to ensure that the new stack is a valid
-> +  target for switching.
-> +
-> +* The functionality of GCS is similar to that provided by the x86 Shadow
-> +  Stack feature, due to sharing of userspace interfaces the ABI refers to
-
-           feature. Due to
-
-> +  shadow stacks rather than GCS.
-> +
-> +* Support for GCS is reported to userspace via HWCAP2_GCS in the aux vector
-> +  AT_HWCAP2 entry.
-> +
-> +* GCS is enabled per thread.  While there is support for disabling GCS
-> +  at runtime this should be done with great care.
-> +
-> +* GCS memory access faults are reported as normal memory access faults.
-> +
-> +* GCS specific errors (those reported with EC 0x2d) will be reported as
-> +  SIGSEGV with a si_code of SEGV_CPERR (control protection error).
-> +
-> +* GCS is supported only for AArch64.
-> +
-> +* On systems where GCS is supported GCSPR_EL0 is always readable by EL0
-> +  regardless of the GCS configuration for the thread.
-> +
-> +* The architecture supports enabling GCS without verifying that return values
-> +  in LR match those in the GCS, the LR will be ignored.  This is not supported
-
-                              GCS; the LR
-
-> +  by Linux.
-> +
-> +* EL0 GCS entries with bit 63 set are reserved for use, one such use is defined
-
-                                                  for use. One such
-
-> +  below for signals and should be ignored when parsing the stack if not
-> +  understood.
-> +
-> +
-> +2.  Enabling and disabling Guarded Control Stacks
-> +-------------------------------------------------
-> +
-> +* GCS is enabled and disabled for a thread via the PR_SET_SHADOW_STACK_STATUS
-> +  prctl(), this takes a single flags argument specifying which GCS features
-
-     prctl(). This takes
-
-> +  should be used.
-> +
-> +* When set PR_SHADOW_STACK_ENABLE flag allocates a Guarded Control Stack
-> +  and enables GCS for the thread, enabling the functionality controlled by
-> +  GCSCRE0_EL1.{nTR, RVCHKEN, PCRSEL}.
-> +
-> +* When set the PR_SHADOW_STACK_PUSH flag enables the functionality controlled
-> +  by GCSCRE0_EL1.PUSHMEn, allowing explicit GCS pushes.
-> +
-> +* When set the PR_SHADOW_STACK_WRITE flag enables the functionality controlled
-> +  by GCSCRE0_EL1.STREn, allowing explicit stores to the Guarded Control Stack.
-> +
-> +* Any unknown flags will cause PR_SET_SHADOW_STACK_STATUS to return -EINVAL.
-> +
-> +* PR_LOCK_SHADOW_STACK_STATUS is passed a bitmask of features with the same
-> +  values as used for PR_SET_SHADOW_STACK_STATUS.  Any future changes to the
-> +  status of the specified GCS mode bits will be rejected.
-> +
-> +* PR_LOCK_SHADOW_STACK_STATUS allows any bit to be locked, this allows
-
-                                                      locked; this allows
-
-> +  userspace to prevent changes to any future features.
-> +
-> +* There is no support for a process to remove a lock that has been set for
-> +  it.
-> +
-> +* PR_SET_SHADOW_STACK_STATUS and PR_LOCK_SHADOW_STACK_STATUS affect only the
-> +  thread that called them, any other running threads will be unaffected.
-
-                        them; any other
-
-> +
-> +* New threads inherit the GCS configuration of the thread that created them.
-> +
-> +* GCS is disabled on exec().
-> +
-> +* The current GCS configuration for a thread may be read with the
-> +  PR_GET_SHADOW_STACK_STATUS prctl(), this returns the same flags that
-
-                                prctl(). This
-
-> +  are passed to PR_SET_SHADOW_STACK_STATUS.
-> +
-> +* If GCS is disabled for a thread after having previously been enabled then
-> +  the stack will remain allocated for the lifetime of the thread.  At present
-> +  any attempt to reenable GCS for the thread will be rejected, this may be
-
-                                                        rejected; this
-
-> +  revisited in future.
-> +
-> +* It should be noted that since enabling GCS will result in GCS becoming
-> +  active immediately it is not normally possible to return from the function
-> +  that invoked the prctl() that enabled GCS.  It is expected that the normal
-> +  usage will be that GCS is enabled very early in execution of a program.
-> +
-> +
-> +
-> +3.  Allocation of Guarded Control Stacks
-> +----------------------------------------
-> +
-> +* When GCS is enabled for a thread a new Guarded Control Stack will be
-> +  allocated for it of size RLIMIT_STACK or 4 gigabytes, whichever is
-> +  smaller.
-> +
-> +* When a new thread is created by a thread which has GCS enabled then a
-> +  new Guarded Control Stack will be allocated for the new thread with
-> +  half the size of the standard stack.
-> +
-> +* When a stack is allocated by enabling GCS or during thread creation then
-> +  the top 8 bytes of the stack will be initialised to 0 and GCSPR_EL0 will
-> +  be set to point to the address of this 0 value, this can be used to
-
-                                              value. This can be
-
-> +  detect the top of the stack.
-> +
-> +* Additional Guarded Control Stacks can be allocated using the
-> +  map_shadow_stack() system call.
-> +
-> +* Stacks allocated using map_shadow_stack() can optionally have an end of
-> +  stack marker and cap placed at the top of the stack.  If the flag
-> +  SHADOW_STACK_SET_TOKEN is specified a cap will be placed on the stack,
-
-                                                                     stack;
-
-> +  if SHADOW_STACK_SET_MARKER is not specified the cap will be the top 8
-> +  bytes of the stack and if it is specified then the cap will be the next
-> +  8 bytes.  While specifying just SHADOW_STACK_SET_MARKER by itself is
-> +  valid since the marker is all bits 0 it has no observable effect.
-> +
-> +* Stacks allocated using map_shadow_stack() must have a size which is a
-> +  multiple of 8 bytes larger than 8 bytes and must be 8 bytes aligned.
-> +
-> +* An address can be specified to map_shadow_stack(), if one is provided then
-
-                                    map_shadow_stack(). If one
-
-> +  it must be aligned to a page boundary.
-> +
-> +* When a thread is freed the Guarded Control Stack initially allocated for
-> +  that thread will be freed.  Note carefully that if the stack has been
-> +  switched this may not be the stack currently in use by the thread.
-> +
-> +
-> +4.  Signal handling
-> +--------------------
-> +
-> +* A new signal frame record gcs_context encodes the current GCS mode and
-> +  pointer for the interrupted context on signal delivery.  This will always
-> +  be present on systems that support GCS.
-> +
-> +* The record contains a flag field which reports the current GCS configuration
-> +  for the interrupted context as PR_GET_SHADOW_STACK_STATUS would.
-> +
-> +* The signal handler is run with the same GCS configuration as the interrupted
-> +  context.
-> +
-> +* When GCS is enabled for the interrupted thread a signal handling specific
-> +  GCS cap token will be written to the GCS, this is an architectural GCS cap
-
-                                          GCS. This is
-
-> +  token with bit 63 set and the token type (bits 0..11) all clear.  The
-> +  GCSPR_EL0 reported in the signal frame will point to this cap token.
-> +
-> +* The signal handler will use the same GCS as the interrupted context.
-> +
-> +* When GCS is enabled on signal entry a frame with the address of the signal
-> +  return handler will be pushed onto the GCS, allowing return from the signal
-> +  handler via RET as normal.  This will not be reported in the gcs_context in
-> +  the signal frame.
-> +
-> +
-> +5.  Signal return
-> +-----------------
-> +
-> +When returning from a signal handler:
-> +
-> +* If there is a gcs_context record in the signal frame then the GCS flags
-> +  and GCSPR_EL0 will be restored from that context prior to further
-> +  validation.
-> +
-> +* If there is no gcs_context record in the signal frame then the GCS
-> +  configuration will be unchanged.
-> +
-> +* If GCS is enabled on return from a signal handler then GCSPR_EL0 must
-> +  point to a valid GCS signal cap record, this will be popped from the
-
-                                     record; this will be
-
-> +  GCS prior to signal return.
-> +
-> +* If the GCS configuration is locked when returning from a signal then any
-> +  attempt to change the GCS configuration will be treated as an error.  This
-> +  is true even if GCS was not enabled prior to signal entry.
-> +
-> +* GCS may be disabled via signal return but any attempt to enable GCS via
-> +  signal return will be rejected.
-> +
-> +
-> +6.  ptrace extensions
-> +---------------------
-> +
-> +* A new regset NT_ARM_GCS is defined for use with PTRACE_GETREGSET and
-> +  PTRACE_SETREGSET.
-> +
-> +* Due to the complexity surrounding allocation and deallocation of stacks and
-> +  lack of practical application it is not possible to enable GCS via ptrace.
-> +  GCS may be disabled via the ptrace interface.
-> +
-> +* Other GCS modes may be configured via ptrace.
-> +
-> +* Configuration via ptrace ignores locking of GCS mode bits.
-> +
-> +
-> +7.  ELF coredump extensions
-> +---------------------------
-> +
-> +* NT_ARM_GCS notes will be added to each coredump for each thread of the
-> +  dumped process.  The contents will be equivalent to the data that would
-> +  have been read if a PTRACE_GETREGSET of the corresponding type were
-> +  executed for each thread when the coredump was generated.
-> +
-> +
-> +
-> +8.  /proc extensions
-> +--------------------
-> +
-> +* Guarded Control Stack pages will include "ss" in their VmFlags in
-> +  /proc/<pid>/smaps.
-
-
--- 
-~Randy
+thanks,
+-- Shuah
 
 _______________________________________________
 linux-riscv mailing list
