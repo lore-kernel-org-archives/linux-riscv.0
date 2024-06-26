@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FD6C27C4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 22:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C8EC27C4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 22:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZANMyN5LS52mr2hP/2LFRvXY3t5Aj3qdP3u3dpjjMWI=; b=3eBs8uFuwkTd3x
-	PteKfpINnYz1N7reONaqWEu0hwbhfjOC/8ADQ1cm5ZHegGRP3XfARhJORGajR3b59asHHejtICkMX
-	t/QwFds/tAG/23/zoWErGJkLiZ3WvQdeYzEF99IGhkEFdz6hD/6poYIexhb1MRBn/zqidAvW9/8E/
-	2SXdFewmdw0lOJ+mjmw0Wi4T0+8Rr5ifY8awzro2s0e119+VtzRBF6mJgiaFVxtIJi8477cT9xltB
-	Y0Jw6WO/oAIjFRtjaH3Nn0QygfXk6od2qoSMbLzgWlOaa3uoQ3t1fA/epyWxt92OpfyW7zHi2Wqaq
-	V8sbKJtcwpAy7IEsATXQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=er9NM34qM1BP2NLqxm1nhtUBB1q1mY14ySaZm4OP0/8=; b=EC8DNX0F8vSxaCr0FYzWzs1755
+	PxrLBcuUjO1Eb+HWfPVSGxLbY+zTwMhnoLAXnbV7m40dHsTiPJ4kJKL98/1dIFKjNFFOO9IZMPVw6
+	Q79Y3RewV8AzwNGsalBFeBpDajTkK+RcC2VIYul9yv/BUjltsK/dMHRGSzFrTgBpA8Ipz2QzA4iBO
+	UuaReQFgP1qU7VtkvGk0VMPS7hklmbNanmVOadKsYOg5kMpVngZfHZqExKwtrDrfo3euEE4zLaPBo
+	u3VNsslaBmzsT75UE2AW2vZlRxM0vvxkLt3ykYzi6e2JpfRBa9Yg3WdcqOJMigLDh8pzMG3Mqc4rR
+	xOg7Howg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMaqP-00000008SsE-0Dd9;
-	Wed, 26 Jun 2024 22:10:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sMasC-00000008T8Y-0G9p;
+	Wed, 26 Jun 2024 22:12:16 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMaqF-00000008SqG-031u;
-	Wed, 26 Jun 2024 22:10:18 +0000
+	id 1sMary-00000008T53-3c3a;
+	Wed, 26 Jun 2024 22:12:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C515561D47;
-	Wed, 26 Jun 2024 22:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53F9BC116B1;
-	Wed, 26 Jun 2024 22:10:13 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 7FE97CE2CCB;
+	Wed, 26 Jun 2024 22:12:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90A02C116B1;
+	Wed, 26 Jun 2024 22:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719439813;
-	bh=FoMa2hdhI1oPIQ40kb5ipFDpW8RBfUV8Ix2rN3TmQ1E=;
+	s=k20201202; t=1719439919;
+	bh=hpQdIVXXgJ8IuDlSJFC93BuJvLDRkunHWFns0BW8VHU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aR90lTVgPYndoXHzrWf6IcHoE7CXVXu38jggpET05UGSL10FBFk/QMweV08LZKhlM
-	 s4biMs8rWeMfR9jte3XfSgdFtKbX0wj4DAuAsf9bc3UKH8INFKqZPcirIMkYbHsOaG
-	 Y3lUCQJnL5J9xHGC3fDsBCk2E8MrCYFABjV1q+vKyzV6jWS85k6y3LplDIDV64Tcw6
-	 oSi0z4N3LbeMh2AlkhSxE7VBIqus2h6fyEr4IYaaHi8TsaYnvEQ2cVHz0Nr6IMvFzu
-	 hsnsYhMaPLgVafOvDQlsVIVcs2Hd0/c9oIrcFRd+/yo83VjQUkplV0H25JZYmh1Fus
-	 2rmGkTio9J8Cw==
-Date: Wed, 26 Jun 2024 15:10:12 -0700
-From: Kees Cook <kees@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: "liuyuntao (F)" <liuyuntao12@huawei.com>, Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	b=NftDNO2yLuZesOV4fuw7HaphDFd3R1jqrmBELfKDVHpmS3AicuoQr7Khztp9tHq1V
+	 DKDR6Qa4k7n9nHovDaVcQbceZDGq+mccl9vDe7nAVuUZXNU8xA49F6ioAv3kqYKx/M
+	 ZMRq3VPtdVzUft0nWQ6HGgEmbPasr2iIdK9TP2TspmMnS9/9Mpm7n9MqRZsM7gie1y
+	 3eC5iaQiA+dJFce3DULYRMgwWFxUzczuFD9O5jD2sUflhr3CIfFdXZ9nJnA4iEISZF
+	 QW9ohg1ayRBBz3X6aCnjhuElpCF7vcS+lLQFJWM5BFLLYgy45eaArm8fDg8UJ5g9zV
+	 UgkvQilcgMujw==
+Date: Wed, 26 Jun 2024 23:11:54 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Atish Kumar Patra <atishp@rivosinc.com>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Leonardo Bras <leobras@redhat.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
-	linux-kernel@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] randomize_kstack: Remove non-functional per-arch entropy
- filtering
-Message-ID: <202406261506.1516191F72@keescook>
-References: <20240619214711.work.953-kees@kernel.org>
- <98381dbf-f14e-4b6c-8c96-fb6b97ed46e1@huawei.com>
- <202406201127.17CE526F0@keescook>
- <ZnVfOnIuFl2kNWkT@J2N7QTR9R3>
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] drivers/perf: riscv: Reset the counter to
+ hpmevent mapping while starting cpus
+Message-ID: <20240626-pedigree-retype-dd7f1e54ac2b@spud>
+References: <20240626-misc_perf_fixes-v3-0-de3f8ed88dab@rivosinc.com>
+ <20240626-misc_perf_fixes-v3-2-de3f8ed88dab@rivosinc.com>
+ <96ff4dd2-db66-4653-80e9-97d4f1381581@sifive.com>
+ <CAHBxVyHx9hTRPosizV_yn6DUZi-MTNTrAbJdkV3049D-qsDHcw@mail.gmail.com>
+ <20240626-eraser-unselect-99e68a1f5a3e@spud>
+ <20240626-spyglass-clutter-4ff4d7b26dd4@spud>
+ <CAHBxVyEg2uKKdikXib77JDmCKs8qDGJHvj3stsFgCgO0U9omRg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZnVfOnIuFl2kNWkT@J2N7QTR9R3>
+In-Reply-To: <CAHBxVyEg2uKKdikXib77JDmCKs8qDGJHvj3stsFgCgO0U9omRg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240626_151015_447527_AA607232 
-X-CRM114-Status: GOOD (  45.00  )
+X-CRM114-CacheID: sfid-20240626_151203_124248_C6EC0089 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,160 +83,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1649035297530537352=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 21, 2024 at 12:08:42PM +0100, Mark Rutland wrote:
-> On Thu, Jun 20, 2024 at 11:34:22AM -0700, Kees Cook wrote:
-> > On Thu, Jun 20, 2024 at 11:47:58AM +0800, liuyuntao (F) wrote:
-> > > 
-> > > 
-> > > On 2024/6/20 5:47, Kees Cook wrote:
-> > > > An unintended consequence of commit 9c573cd31343 ("randomize_kstack:
-> > > > Improve entropy diffusion") was that the per-architecture entropy size
-> > > > filtering reduced how many bits were being added to the mix, rather than
-> > > > how many bits were being used during the offsetting. All architectures
-> > > > fell back to the existing default of 0x3FF (10 bits), which will consume
-> > > > at most 1KiB of stack space. It seems that this is working just fine,
-> > > > so let's avoid the confusion and update everything to use the default.
-> > > > 
-> > > 
-> > > My original intent was indeed to do this, but I regret that not being more
-> > > explicit in the commit log..
-> > > 
-> > > Additionally, I've tested the stack entropy by applying the following patch,
-> > > the result was `Bits of stack entropy: 7` on arm64, too. It does not seem to
-> > > affect the entropy value, maybe removing it is OK, or there may be some
-> > > nuances of your intentions that I've overlooked.
-> > > 
-> > > --- a/include/linux/randomize_kstack.h
-> > > +++ b/include/linux/randomize_kstack.h
-> > > @@ -79,9 +79,7 @@ DECLARE_PER_CPU(u32, kstack_offset);
-> > >  #define choose_random_kstack_offset(rand) do {                         \
-> > >         if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT, \
-> > >                                 &randomize_kstack_offset)) {            \
-> > > -               u32 offset = raw_cpu_read(kstack_offset);               \
-> > > -               offset = ror32(offset, 5) ^ (rand);                     \
-> > > -               raw_cpu_write(kstack_offset, offset);                   \
-> > > +               raw_cpu_write(kstack_offset, rand);                     \
-> > >         }                                                               \
-> > >  } while (0)
-> > >  #else /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
-> > 
-> > I blame the multiple applications of the word "entropy" in this feature. :)
-> > 
-> > So, there's both:
-> > 
-> > - "how many bits CAN be randomized?" (i.e. within what range can all
-> >   possible stack offsets be?)
-> > 
-> > and
-> > 
-> > - "is the randomization predictable?" (i.e. is the distribution of
-> >   selected positions with the above range evenly distributed?)
-> > 
-> > Commit 9c573cd31343 ("randomize_kstack: Improve entropy diffusion") was
-> > trying to improve the latter, but accidentally also grew the former.
-> > This patch is just trying to clean all this up now.
-> > 
-> > Thanks for testing! And I'm curious as to why arm64's stack offset
-> > entropy is 7 for you when we're expecting it to be 6. Anyway, that's not
-> > a problem I don't think. Just a greater offset range than expected.
-> 
-> Hmm....
-> 
-> I think this is due to the way the compiler aligns the stack in alloca(); it
-> rounds up the value of KSTACK_OFFSET_MAX(offset) and ends up spilling over an
-> additional bit (e.g. 0x3f1 to 0x3ff round up to 0x400).
-> 
-> Looking at v6.10-rc4 defconfig + CONFIG_RANDOMIZE_STACKOFFSET=y, the
-> disassembly for arm64's invoke_syscall() looks like:
-> 
-> 	// offset = raw_cpu_read(kstack_offset)
-> 	mov     x4, sp
-> 	adrp    x0, kstack_offset
-> 	mrs     x5, tpidr_el1
-> 	add     x0, x0, #:lo12:kstack_offset
-> 	ldr     w0, [x0, x5]
-> 
-> 	// offset = KSTACK_OFFSET_MAX(offset)
-> 	and     x0, x0, #0x3ff
-> 
-> 	// alloca(offset)
-> 	add     x0, x0, #0xf
-> 	and     x0, x0, #0x7f0
-> 	sub     sp, x4, x0
-> 
-> ... which in C would be:
-> 
-> 	offset = raw_cpu_read(kstack_offset)
-> 	offset &= 0x3ff;			// [0x0, 0x3ff]
-> 	offset += 0xf;				// [0xf, 0x40e]
-> 	offset &= 0x7f0;			// [0x0,
-> 
-> ... so when *all* bits [3:0] are 0, they'll have no impact, and when *any* of
-> bits [3:0] are 1 they'll trigger a carry into bit 4, which could ripple all the
-> way up and spill into bit 10.
-> 
-> I have no idea whether that's important. Kees, does that introduce a bias, and
-> if so do we need to care?
-> 
-> If I change the mask to discard the low bits:
-> 
-> 	#define KSTACK_OFFSET_MAX(x)   ((x) & 0x3F0)
-> 
-> ... then the assembly avoids the rounding:
-> 
-> 	mov     x4, sp
-> 	adrp    x0, 0 <kstack_offset>
-> 	mrs     x5, tpidr_el1
-> 	add     x0, x0, #:lo12:kstack_offset
-> 	ldr     w0, [x0, x5]
-> 	and     x0, x0, #0x3f0
-> 	sub     sp, x4, x0
 
-Ah, interesting! I'd prefer to avoid the bias (or at least, the
-weirdness). How about this as a solution?
+--===============1649035297530537352==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Qn8GLMXXMKWShJFF"
+Content-Disposition: inline
 
 
-diff --git a/include/linux/randomize_kstack.h b/include/linux/randomize_kstack.h
-index 6d92b68efbf6..1d982dbdd0d0 100644
---- a/include/linux/randomize_kstack.h
-+++ b/include/linux/randomize_kstack.h
-@@ -32,13 +32,19 @@ DECLARE_PER_CPU(u32, kstack_offset);
- #endif
- 
- /*
-- * Use, at most, 10 bits of entropy. We explicitly cap this to keep the
-- * "VLA" from being unbounded (see above). 10 bits leaves enough room for
-- * per-arch offset masks to reduce entropy (by removing higher bits, since
-- * high entropy may overly constrain usable stack space), and for
-- * compiler/arch-specific stack alignment to remove the lower bits.
-+ * Use, at most, 6 bits of entropy (on 64-bit; 8 on 32-bit). This cap is
-+ * to keep the "VLA" from being unbounded (see above). Additionally clear
-+ * the bottom 4 bits (on 64-bit systems, 2 for 32-bit), since stack
-+ * alignment will always be at least word size. This makes the compiler
-+ * code gen better when it is applying the actual per-arch alignment to
-+ * the final offset. The resulting randomness is reasonable without overly
-+ * constraining usable stack space.
-  */
--#define KSTACK_OFFSET_MAX(x)	((x) & 0x3FF)
-+#ifdef CONFIG_64BIT
-+#define KSTACK_OFFSET_MAX(x)	((x) & 0b1111110000)
-+#else
-+#define KSTACK_OFFSET_MAX(x)	((x) & 0b1111111100)
-+#endif
- 
- /**
-  * add_random_kstack_offset - Increase stack utilization by previously
+--Qn8GLMXXMKWShJFF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Jun 26, 2024 at 01:40:52PM -0700, Atish Kumar Patra wrote:
+
+> > > > @Palmer Dabbelt : Can you add that while picking up
+> > > > the patch or should I respin a v4 ?
+> > >
+> > > b4 should pick the signoff up though. "perf: RISC-V: Check standard
+> > > event availability" seems to be missing your signoff though...
+> >
+> > Huh, this doesn't really make sense. I meant:
+> >         b4 should pick the signoff up, though "perf: RISC-V: Check stan=
+dard
+> >         event availability" seems to be missing your signoff...
+>=20
+> Strange. I modified and sent the patch using b4 as well. It's missing
+> my sign off too.
+
+`b4 shazam` should pick up trailers provided on the list, signoffs
+included. `b4 shazam -s` will add yours. TBH, I am not sure why that is
+not the default behaviour.
+
+Cheers,
+Conor.
+
+--Qn8GLMXXMKWShJFF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnySKgAKCRB4tDGHoIJi
+0ggpAQDI5svZclXsiiw/tBho5jBjNBUOz2wHe+OAFRr/Tp5zRgEA0WA8ZFlqoud+
+fKQ/MbZq8OBTmsy2Kb9vdKxThGGg8QA=
+=D/2H
+-----END PGP SIGNATURE-----
+
+--Qn8GLMXXMKWShJFF--
 
 
--- 
-Kees Cook
+--===============1649035297530537352==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1649035297530537352==--
+
