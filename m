@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 205E5C30653
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 12:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0362DC30653
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 12:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9VSQf7msodL8I4H83nQ1UYszafMCB2U51vA9gIJRTF8=; b=gT7WR1elf2sFau
-	KNcZ/JH/CZ0YIKrdNRAbUtvSm+i8UP5kJ1myXZx0Be1eQZDZ6kKjoOAXEI93YU0JaDsmL1mUw9/Rs
-	61r6Nriz+22T1eHaNqAxT6s9nTOCE7pE65u8ruo8rfGyMWVh+lJA7ryaBlWyux3OGQkPPkto9Yio1
-	txz3R9aGm8KC01HtmHnN3++1sXHb9rGXwPdybbMupR0r9fq1dd20liRjFoYMQt8TZ1DLMEdc7qreJ
-	vPBJ25c03Ik077ZswYYgwFtpxJ2iLrQwqwTFvc4+pN2NSGgfikCBowK5PMN9wgGhSGxasDinNQ+Kh
-	uDjeh9exc3mko5CKWciQ==;
+	List-Owner; bh=jDnSUGcBYP60U/fV7GFUgX/PPhMHp5qpnHLlLWxbWNA=; b=QGamAzv8dAd1Xo
+	Ck9HoOmkca2YMbQ2c7wURflZIb7yLtuLjcxa3WbOXUfdLXY9aO7H92Iurl+4NPlOXZEJbcSacDa5E
+	0Rpm2M03/7lB0K22Uj2bopRcnhLPjb0JJleNc76uFFap/yrZQ+sdcLykWTBImeU75tgAMGeNujj1p
+	sLsR7x3znrCfaQnwWNogDMnKwXEOtP5beyKs84w0YXfGYKFdfplvL+EZXXK5MDkdTbrOPraDJ6akD
+	oFYgguVJwrtdUNEncD0DXf6dy/b3g8EJ+VWUcML1gGPBnnjIQD0qeDcHreMGPxqlaXNBJGMNw9al7
+	a0Vgyra+3V9WVOABY36A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMRxz-00000006mNO-0N1W;
-	Wed, 26 Jun 2024 12:41:39 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1sMS2p-00000006nZI-1tX9;
+	Wed, 26 Jun 2024 12:46:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMRxv-00000006mKd-1lJS
+	id 1sMS2m-00000006nY8-45dw
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jun 2024 12:41:37 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4W8Lml0TYCzZg1b;
-	Wed, 26 Jun 2024 20:36:55 +0800 (CST)
-Received: from dggpemd100004.china.huawei.com (unknown [7.185.36.20])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7068F18006C;
-	Wed, 26 Jun 2024 20:41:19 +0800 (CST)
-Received: from [10.67.109.211] (10.67.109.211) by
- dggpemd100004.china.huawei.com (7.185.36.20) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Wed, 26 Jun 2024 20:41:19 +0800
-Message-ID: <5693310f-8706-42e3-89e5-af512a24ff99@huawei.com>
-Date: Wed, 26 Jun 2024 20:41:19 +0800
+	Wed, 26 Jun 2024 12:46:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BFCE6619EE;
+	Wed, 26 Jun 2024 12:46:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2260AC2BD10;
+	Wed, 26 Jun 2024 12:46:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1719405995;
+	bh=yBRxGCyHhvuJu8ZihGw7xHj2l5Wg5TZnqQXWyklINCg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bk9zdNnisf8YhqaofsuWXspKWLaZ42QsKYZZ399+nxPkeJCsGr8BRFYjxT3MRweEb
+	 a4ckROL2LUpSOkH+ZD7F5ffOLulmU9d3rNcDOS4a7rOsq9MNCrclCoq0kMB8o+oJJB
+	 v/K0r6sn7s8UtlKpro3KPQIkW+mlvbxxxH9N9Bs92m9oDtoJqsPb8mfddtxRdbgmUF
+	 vqGTGcN+21rps4Z4r8/yTr4+KmEbwwBxc96hJ/oKV8+q4RsCncR5T5z/zap78sHPss
+	 uFf/CMztZJZC1Ce+SY5DWxqR5IrsDVLCzQ4vDAbpHDaUZdVqxIKhi6FhjF3cqBMCWP
+	 dWJU1RGH5XIXA==
+Date: Wed, 26 Jun 2024 20:32:29 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] riscv: uaccess: use input constraints for ptr of
+ __put_user
+Message-ID: <ZnwKXWzRz9B5FbLM@xhacker>
+References: <20240625040500.1788-1-jszhang@kernel.org>
+ <20240625040500.1788-3-jszhang@kernel.org>
+ <acd2e53f-b5c1-49c5-86e2-bc09eb917163@app.fastmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] RISC-V: Dynamically allocate cpumasks and further
- increase range and default value of NR_CPUS
-Content-Language: en-US
-From: "liuyuntao (F)" <liuyuntao12@huawei.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<liuyuntao12@huawei.com>
-References: <20240614075306.357861-1-liuyuntao12@huawei.com>
- <20240625-c1c3b9fcb6ee148294d4ceb4@orel>
- <8841edbc-dd65-452c-a459-b5ce42e289d9@huawei.com>
-In-Reply-To: <8841edbc-dd65-452c-a459-b5ce42e289d9@huawei.com>
-X-Originating-IP: [10.67.109.211]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- dggpemd100004.china.huawei.com (7.185.36.20)
+Content-Disposition: inline
+In-Reply-To: <acd2e53f-b5c1-49c5-86e2-bc09eb917163@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240626_054135_815008_01484411 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20240626_054637_191987_E6415E0F 
+X-CRM114-Status: GOOD (  29.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,96 +72,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDI0LzYvMjUgMTk6NDQsIGxpdXl1bnRhbyAoRikgd3JvdGU6Cj4gCj4gCj4gT24gMjAy
-NC82LzI1IDE5OjExLCBBbmRyZXcgSm9uZXMgd3JvdGU6Cj4+IE9uIEZyaSwgSnVuIDE0LCAyMDI0
-IGF0IDA3OjUzOjA2QU0gR01ULCBZdW50YW8gTGl1IHdyb3RlOgo+Pj4gQ3VycmVudGx5IGRlZmF1
-bHQgTlJfQ1BVUyBpcyA2NCBmb3IgcmlzY3Y2NCwgc2luY2UgdGhlIGxhdGVzdCBRRU1VIHZpcnQK
-Pj4+IG1hY2hpbmUgc3VwcG9ydHMgdXAgdG8gNTEyIENQVVMsIHNvIHNldCBkZWZhdWx0IE5SX0NQ
-VVMgNTEyIGZvciByaXNjdjY0Lgo+Pj4KPj4+IFVuZGVyIHRoZSBwcm9tb3Rpb24gb2YgUklTQy1W
-IEludGVybmF0aW9uYWwgYW5kIHJlbGF0ZWQgY2hpcAo+Pj4gbWFudWZhY3R1cmVycywgUklTQy1W
-IGhhcyBhbHNvIGJlZ3VuIHRvIGVudGVyIHRoZSBzZXJ2ZXIgbWFya2V0LCB3aGljaAo+Pj4gZGVt
-YW5kcyBoaWdoZXIgcGVyZm9ybWFuY2UuIE90aGVyIG1ham9yIGFyY2hpdGVjdHVyZXMgKHN1Y2gg
-YXMgQVJNNjQsCj4+PiB4ODZfNjQsIE1JUFMsIGV0YykgYWxyZWFkeSBoYXZlIGEgaGlnaGVyIHJh
-bmdlLCBzbyBmdXJ0aGVyIGluY3JlYXNlCj4+PiB0aGlzIHJhbmdlIHVwIHRvIDQwOTYgZm9yIHJp
-c2N2NjQuCj4+Pgo+Pj4gRHVlIHRvIHRoZSBmYWN0IHRoYXQgaW5jcmVhc2luZyBOUl9DUFVTIGVu
-bGFyZ2VzIHRoZSBzaXplIG9mIGNwdW1hc2tzLAo+Pj4gdGhlcmUgaXMgYSBjb25jZXJuIHRoYXQg
-dGhpcyBjb3VsZCBzaWduaWZpY2FudGx5IGltcGFjdCBzdGFjayB1c2FnZSwKPj4+IGVzcGVjaWFs
-bHkgZm9yIGNvZGUgdGhhdCBhbGxvY2F0ZXMgY3B1bWFza3Mgb24gdGhlIHN0YWNrLiBUbyBhZGRy
-ZXNzCj4+PiB0aGlzLCB3ZSBoYXZlIHRoZSBvcHRpb24gdG8gZW5hYmxlIENQVU1BU0tfT0ZGU1RB
-Q0ssIHdoaWNoIHByZXZlbnRzCj4+PiBjcHVtYXNrcyBmcm9tIGJlaW5nIGFsbG9jYXRlZCBvbiB0
-aGUgc3RhY2suIHdlIGNob29zZSB0byBlbmFibGUgdGhpcwo+Pj4gZmVhdHVyZSBvbmx5IHdoZW4g
-TlJfQ1BVUyBpcyBncmVhdGVyIHRoYW4gNTEyLCB3aHkgNTEyLCBzaW5jZSB0aGVuCj4+PiB0aGUg
-a2VybmVsIHNpemUgd2l0aCBvZmZzdGFjayBpcyBzbWFsbGVyLgo+Pgo+PiBUaGlzIGlzbid0IHRo
-ZSByZWFzb24gd2h5IEFybSBkZWNpZGVkIHRvIHN0YXJ0IGF0IDUxMiwgYWZhaWN0LiBUaGUgcmVh
-c29uCj4+IGZvciBBcm0gd2FzIGJlY2F1c2UgaGFja2JlbmNoIGRpZCBiZXR0ZXIgd2l0aCBvbnN0
-YWNrIGZvciAyNTYuIFdoYXQgYXJlCj4+IHRoZSBoYWNrYmVuY2ggcmVzdWx0cyBmb3IgcmlzY3Y/
-Cj4gCj4gT2theSwgSSB3aWxsIGFkZCB0aGUgdGVzdCByZXN1bHRzIG9mIGhhY2t0ZXN0IHNvb24u
-CgpCZW5jaG1hcmsgcmVzdWx0cyB1c2luZyBoYWNrYmVuY2ggYXZlcmFnZSBvdmVyIDUgcnVucyBv
-ZgouL2hhY2tiZW5jaCAtcyA1MTIgLWwgMjAgLWcgMTAgLWYgNTAgLVAKb24gUWVtdS4KCk5SX0NQ
-VVMgICAgIDY0ICAgICAgMTI4ICAgICAyNTYgICAgIDUxMiAgICAgMTAyNCAgICAyMDQ4Cm9uc3Rh
-Y2svcyAgIDYuOTk5MiAgNi42MTEyICA2Ljc4MzQgIDYuNjU3OCAgNi42NjQ2ICA2Ljg2OTIKb2Zm
-c3RhY2svcyAgNi41NjE2ICA2Ljk1ICAgIDYuNTY5OCAgNi45MSAgICA2LjY2MyAgIDYuODIwMgpk
-aWZmZXJlbmNlICAtNi4yNSUgICs1LjEyJSAgLTMuMTUlICArMy43OSUgIC0wLjAyJSAgLTAuNzEl
-CgpXaGVuIHRoZXJlIGFyZSBtb3JlIGNvcmVzLCB0aGUgZmx1Y3R1YXRpb24gaXMgbWluaW1hbCwg
-bGVhZGluZyB0byB0aGUgCnNwZWN1bGF0aW9uIHRoYXQgdGhlIHBlcmZvcm1hbmNlIGdhcCB3b3Vs
-ZCBiZSBzbWFsbGVyIHdpdGggYSBoaWdoZXIgCm51bWJlciBvZiBOUl9DUFVTLgpTaW5jZSBJIGRv
-bid0IGhhdmUgYSBSSVNDViBzaW5nbGUtYm9hcmQgY29tcHV0ZXIsIHRoZXNlIGFyZSB0aGUgcmVz
-dWx0cyAKSSBvYnRhaW5lZCBmcm9tIHRlc3RpbmcgaW4gUUVNVSwgd2hpY2ggbWF5IGRpZmZlciBm
-cm9tIHRoZSBhY3R1YWwgCnNpdHVhdGlvbi4gUGVyaGFwcyBzb21lb25lIGNvdWxkIGhlbHAgd2l0
-aCB0aGUgdGVzdGluZy4KClRoYW5rcywKWXVudGFvCgo+IAo+Pgo+Pj4KPj4+IHZtbGludXggc2l6
-ZSBjb21wYXJpc29uKGRpZmZlcmVuY2UgdG8gdm1saW51eF9vbnN0YWNrX05SX0NQVVMgYmFzZWxp
-bmUpOgo+Pj4KPj4+IE5SX0NQVVPCoMKgwqDCoCAyNTbCoMKgwqDCoMKgwqDCoMKgIDUxMsKgwqDC
-oMKgwqDCoMKgwqAgMTAyNMKgwqDCoMKgwqDCoMKgIDIwNDjCoMKgwqDCoMKgwqDCoCA0MDk2Cj4+
-PiBvbnN0YWNrwqDCoMKgwqAgMTk4MTQ1MzbCoMKgwqAgMTk4NDA3NjDCoMKgwqAgMTk4ODA1ODTC
-oMKgwqAgMTk5Njk2NzLCoMKgwqAgMjAxNDE3MDQKPj4+IG9mZnN0YWNrwqDCoMKgIDE5ODE5MTQ0
-wqDCoMKgIDE5ODQwOTM2wqDCoMKgIDE5ODgwNDgwwqDCoMKgIDE5OTY4NTQ0wqDCoMKgIDIwMTM1
-NDU2Cj4+PiBkaWZmZXJlbmNlwqAgKzAuMDIzJcKgwqDCoMKgICswLjAwMSXCoMKgwqDCoCAtMC4w
-MDElwqDCoMKgwqAgLTAuMDAxwqDCoMKgwqDCoCAtMC4wMzElCj4+PiBpc19zbWFsbGVywqAgbsKg
-wqDCoMKgwqDCoMKgwqDCoMKgIG7CoMKgwqDCoMKgwqDCoMKgwqDCoCB5wqDCoMKgwqDCoMKgwqDC
-oMKgwqAgecKgwqDCoMKgwqDCoMKgwqDCoMKgIHkKPj4KPj4gU2luY2UgdGhlIHNhdmluZ3MgYXJl
-IGFsbW9zdCBub3RoaW5nIHdlIG11c3Qgbm90IGhhdmUgdG9vIG1hbnkgZ2xvYmFsCj4+IGNwdW1h
-c2tzLiBCdXQgSSdtIGluIGZhdm9yIG9mIGVuc3VyaW5nIHN0YWNrIGRlcHRocyBzdGF5IHVuZGVy
-IGNvbnRyb2wsCj4+IHNvIHR1cm5pbmcgb24gQ1BVTUFTS19PRkZTVEFDSyBzb3VuZHMgZ29vZCB0
-byBtZSBpbiBnZW5lcmFsLgo+Pgo+Pj4KPj4+IFNpZ25lZC1vZmYtYnk6IFl1bnRhbyBMaXUgPGxp
-dXl1bnRhbzEyQGh1YXdlaS5jb20+Cj4+PiAtLS0KPj4+IMKgIGFyY2gvcmlzY3YvS2NvbmZpZyB8
-IDUgKysrLS0KPj4+IMKgIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDIgZGVsZXRp
-b25zKC0pCj4+Pgo+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlz
-Y3YvS2NvbmZpZwo+Pj4gaW5kZXggMDUyNWVlMmQ2M2M3Li41OTYwNzEzYjNiZjkgMTAwNjQ0Cj4+
-PiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPj4+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+
-Pj4gQEAgLTc3LDYgKzc3LDcgQEAgY29uZmlnIFJJU0NWCj4+PiDCoMKgwqDCoMKgIHNlbGVjdCBD
-TElOVF9USU1FUiBpZiBSSVNDVl9NX01PREUKPj4+IMKgwqDCoMKgwqAgc2VsZWN0IENMT05FX0JB
-Q0tXQVJEUwo+Pj4gwqDCoMKgwqDCoCBzZWxlY3QgQ09NTU9OX0NMSwo+Pj4gK8KgwqDCoCBzZWxl
-Y3QgQ1BVTUFTS19PRkZTVEFDSyBpZiBOUl9DUFVTID4gNTEyCj4+PiDCoMKgwqDCoMKgIHNlbGVj
-dCBDUFVfUE0gaWYgQ1BVX0lETEUgfHwgSElCRVJOQVRJT04gfHwgU1VTUEVORAo+Pj4gwqDCoMKg
-wqDCoCBzZWxlY3QgRURBQ19TVVBQT1JUCj4+PiDCoMKgwqDCoMKgIHNlbGVjdCBGUkFNRV9QT0lO
-VEVSIGlmIFBFUkZfRVZFTlRTIHx8IChGVU5DVElPTl9UUkFDRVIgJiYgCj4+PiAhRFlOQU1JQ19G
-VFJBQ0UpCj4+PiBAQCAtNDI4LDExICs0MjksMTEgQEAgY29uZmlnIFNDSEVEX01DCj4+PiDCoCBj
-b25maWcgTlJfQ1BVUwo+Pj4gwqDCoMKgwqDCoCBpbnQgIk1heGltdW0gbnVtYmVyIG9mIENQVXMg
-KDItNTEyKSIKPj4+IMKgwqDCoMKgwqAgZGVwZW5kcyBvbiBTTVAKPj4+IC3CoMKgwqAgcmFuZ2Ug
-MiA1MTIgaWYgIVJJU0NWX1NCSV9WMDEKPj4+ICvCoMKgwqAgcmFuZ2UgMiA0MDk2IGlmICFSSVND
-Vl9TQklfVjAxCj4+PiDCoMKgwqDCoMKgIHJhbmdlIDIgMzIgaWYgUklTQ1ZfU0JJX1YwMSAmJiAz
-MkJJVAo+Pj4gwqDCoMKgwqDCoCByYW5nZSAyIDY0IGlmIFJJU0NWX1NCSV9WMDEgJiYgNjRCSVQK
-Pj4+IMKgwqDCoMKgwqAgZGVmYXVsdCAiMzIiIGlmIDMyQklUCj4+PiAtwqDCoMKgIGRlZmF1bHQg
-IjY0IiBpZiA2NEJJVAo+Pj4gK8KgwqDCoCBkZWZhdWx0ICI1MTIiIGlmIDY0QklUCj4+Cj4+IFRo
-aXMgaXMgc29tZXdoYXQgcmVhc29uYWJsZSwgZXZlbiBpZiBub3RoaW5nIGlzIGdvaW5nIHRvIHVz
-ZSB0aGlzIGZvcgo+PiBxdWl0ZSBhIHdoaWxlLCBzaW5jZSBpdCdsbCBoZWxwIGF2b2lkIGJ1Z3Mg
-cG9wcGluZyB1cCB3aGVuIE5SX0NQVVMgZ2V0cwo+PiBidW1wZWQgbGF0ZXIsIGJ1dCBpdCBmZWVs
-cyBleGNlc3NpdmUgcmlnaHQgbm93IGZvciByaXNjdiwgc28gSSdtIGEgYml0Cj4+IG9uIHRoZSBm
-ZW5jZSBhYm91dCBpdC4gTWF5YmUgaWYgaGFja2JlbmNoIGRvZXNuJ3Qgc2hvdyBhbnkgaXNzdWVz
-IHdlCj4+IGNvdWxkIHR1cm4gQ1BVTUFTS19PRkZTVEFDSyBvbiBmb3IgYSBzbWFsbGVyIE5SX0NQ
-VVMgYW5kIGFsc28gc2VsZWN0Cj4+IGEgc21hbGxlciBkZWZhdWx0Pwo+PgoKSXQgc2VlbXMgdGhh
-dCB3aGVuIE5SX0NQVVMgaXMgbGFyZ2VyLCBoYWNrYmVuY2ggcGVyZm9ybXMgYmV0dGVyLCBhbmQg
-CndoaWNoIE5SX0NQVVMgZG8geW91IGhhdmUgYSBwcmVmZXJlbmNlIGZvcj8KCj4+IFRoYW5rcywK
-Pj4gZHJldwo+Pgo+Pj4gwqAgY29uZmlnIEhPVFBMVUdfQ1BVCj4+PiDCoMKgwqDCoMKgIGJvb2wg
-IlN1cHBvcnQgZm9yIGhvdC1wbHVnZ2FibGUgQ1BVcyIKPj4+IC0tIAo+Pj4gMi4zNC4xCj4+Pgo+
-Pj4KPj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+
-PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPj4+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKPj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Jun 25, 2024 at 07:54:30AM +0200, Arnd Bergmann wrote:
+> On Tue, Jun 25, 2024, at 06:04, Jisheng Zhang wrote:
+> > I believe the output constraints "=m" is not necessary, because
+> > the instruction itself is "write", we don't need the compiler
+> > to "write" for us. So tell compiler we read from memory instead
+> > of writing.
+> >
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> 
+> I think this is a bit too confusing: clearly there is no
+> read access from the __user pointer, so what you add in here
+> is not correct. There also needs to be a code comment about
+
+Here is my understanding: the __put_user is implemented with
+sd(or its less wider variant, sw etc.), w/o considering the
+ex_table, the previous code can be simplified as below:
+
+__asm__ __volatile__ (
+	"sw	%z2, %1\n"
+	: "+r" (err), "=m" (*(ptr))
+	: "rJ" (__x));
+
+Here ptr is really an input, just tells gcc where to store,
+And the "store" action is from the "sw" instruction, I don't
+need the gcc generates "store" instruction for me. so IMHO,
+there's no need to use output constraints here. so I changed
+it to
+
+__asm__ __volatile__ (
+	"sw	%z1, %2\n"
+	: "+r" (err)
+	: "rJ" (__x), "m"(*(ptr)));
+
+The key here: is this correct?
+
+
+Here is the put_user piece code and comments from x86
+
+/*
+ * Tell gcc we read from memory instead of writing: this is because
+ * we do not write to any memory gcc knows about, so there are no
+ * aliasing issues.
+ */
+#define __put_user_goto(x, addr, itype, ltype, label)                   \
+        asm goto("\n"                                                   \
+                "1:     mov"itype" %0,%1\n"                             \
+                _ASM_EXTABLE_UA(1b, %l2)                                \
+                : : ltype(x), "m" (__m(addr))                           \
+                : : label)
+
+
+As can be seen, x86 also doesn't put the (addr) in output constraints,
+I think x86 version did similar modification in history, but when I tried
+to searh the git history, the comment is there from the git first day.
+
+Any hint or suggestion is appreciated!
+
+> why you do it this way, as it's not clear that this is
+> a workaround for old compilers without
+> CONFIG_CC_HAS_ASM_GOTO_OUTPUT.
+> 
+> > index 09d4ca37522c..84b084e388a7 100644
+> > --- a/arch/riscv/include/asm/uaccess.h
+> > +++ b/arch/riscv/include/asm/uaccess.h
+> > @@ -186,11 +186,11 @@ do {								\
+> >  	__typeof__(*(ptr)) __x = x;				\
+> >  	__asm__ __volatile__ (					\
+> >  		"1:\n"						\
+> > -		"	" insn " %z2, %1\n"			\
+> > +		"	" insn " %z1, %2\n"			\
+> >  		"2:\n"						\
+> >  		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %0)		\
+> > -		: "+r" (err), "=m" (*(ptr))			\
+> > -		: "rJ" (__x));					\
+> > +		: "+r" (err)			\
+> > +		: "rJ" (__x), "m"(*(ptr)));					\
+> >  } while (0)
+> > 
+> 
+> I suspect this could just be a "r" constraint instead of
+> "m", treating the __user pointer as a plain integer.
+
+I tried "r", the generated code is not as good as "m"
+
+for example
+__put_user(0x12, &frame->uc.uc_flags);
+
+with "m", the generated code will be
+
+...
+csrs    sstatus,a5
+li      a4,18
+sd      a4,128(s1)
+csrc    sstatus,a5
+...
+
+
+with "r", the generated code will be
+
+...
+csrs    sstatus,a5
+li      a4,18
+addi    s1,s1,128
+sd      a4,0(s1)
+csrc    sstatus,a5
+...
+
+As can be seen, "m" can make use of the 'offset' of
+sd, so save one instruction.
+
+> 
+> For kernel pointers, using "m" and "=m" constraints
+> correctly is necessary since gcc will often access the
+> same data from C code as well. For __user pointers, we
+> can probably get away without it since no C code is
+> ever allowed to just dereference them. If you do that,
+> you may want to have the same thing in the __get_user
+> side.
+> 
+>       Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
