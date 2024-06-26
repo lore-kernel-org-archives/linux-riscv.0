@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0362DC30653
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 12:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B436C27C4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 12:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jDnSUGcBYP60U/fV7GFUgX/PPhMHp5qpnHLlLWxbWNA=; b=QGamAzv8dAd1Xo
-	Ck9HoOmkca2YMbQ2c7wURflZIb7yLtuLjcxa3WbOXUfdLXY9aO7H92Iurl+4NPlOXZEJbcSacDa5E
-	0Rpm2M03/7lB0K22Uj2bopRcnhLPjb0JJleNc76uFFap/yrZQ+sdcLykWTBImeU75tgAMGeNujj1p
-	sLsR7x3znrCfaQnwWNogDMnKwXEOtP5beyKs84w0YXfGYKFdfplvL+EZXXK5MDkdTbrOPraDJ6akD
-	oFYgguVJwrtdUNEncD0DXf6dy/b3g8EJ+VWUcML1gGPBnnjIQD0qeDcHreMGPxqlaXNBJGMNw9al7
-	a0Vgyra+3V9WVOABY36A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gwfQ7wiyXTKgiOcWen/6FKraERvyUyNJquslWkZ6mes=; b=gXcy5UGQxDtYfviWBQfcwsTTP3
+	+tJvTl2OCWjQeuS4bJCENehdzqjkQp7WFGxHrY+i634SxR3v4EVcIVig/ajSAMG5COFVNuBPumBvB
+	7mt18huE1F/Sx891yeWbbZ1us8pwbOap0tyC7dZyR9KRJBivriZzpfpLRFvfiBGrc5W8JMaZxjGNu
+	0GrylbT/w9UuJd84gI0R0J9ulc/UrhHbwmtxWFPMuXTuCt5Eo1neCCZSR4JmDPuACnCekEmZ2YITv
+	RiU16DDuFSS21j230ADh5rvmkwbUm4QIera/zHcMCN12b09gu/71QX5B3oSwDFykat+7bjZUQntyH
+	vSAroZqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMS2p-00000006nZI-1tX9;
-	Wed, 26 Jun 2024 12:46:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sMSFG-00000006pcz-357y;
+	Wed, 26 Jun 2024 12:59:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMS2m-00000006nY8-45dw
+	id 1sMSFD-00000006pc1-3I0D
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jun 2024 12:46:38 +0000
+	Wed, 26 Jun 2024 12:59:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BFCE6619EE;
-	Wed, 26 Jun 2024 12:46:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2260AC2BD10;
-	Wed, 26 Jun 2024 12:46:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5B894619F7;
+	Wed, 26 Jun 2024 12:59:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DB7DC2BD10;
+	Wed, 26 Jun 2024 12:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719405995;
-	bh=yBRxGCyHhvuJu8ZihGw7xHj2l5Wg5TZnqQXWyklINCg=;
+	s=k20201202; t=1719406765;
+	bh=9TrlOyltmZ/QX4Ys9Bg7ZXIQUZ0PLaKMhQFyJgcNcTo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bk9zdNnisf8YhqaofsuWXspKWLaZ42QsKYZZ399+nxPkeJCsGr8BRFYjxT3MRweEb
-	 a4ckROL2LUpSOkH+ZD7F5ffOLulmU9d3rNcDOS4a7rOsq9MNCrclCoq0kMB8o+oJJB
-	 v/K0r6sn7s8UtlKpro3KPQIkW+mlvbxxxH9N9Bs92m9oDtoJqsPb8mfddtxRdbgmUF
-	 vqGTGcN+21rps4Z4r8/yTr4+KmEbwwBxc96hJ/oKV8+q4RsCncR5T5z/zap78sHPss
-	 uFf/CMztZJZC1Ce+SY5DWxqR5IrsDVLCzQ4vDAbpHDaUZdVqxIKhi6FhjF3cqBMCWP
-	 dWJU1RGH5XIXA==
-Date: Wed, 26 Jun 2024 20:32:29 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	b=Vcn3/n4HyNJrzHq67QHZQ57mfSDQ9/5xlPXsLqLL/JbJEkVTOMWM6FMCE/9swgyaw
+	 t26oBubZBy2xvQ2x49nwiOJXd3h4B/aSu929r8w2ryOz5ptVk7k1yq7SxOr3TGktuA
+	 c1GKOQpcPZ69tq4muyjIa0PqKLxqxVZf9S0hfsTVBaqgyNiU3AR9O1FCY7vPrtqiBx
+	 LzlyLe5KGFZWRsYoZOY4lxbt3q3VvneIx20mM3nK026K/S53QSQoX0X7CStbs3LjvO
+	 OFoMPyFmgEuwsM3NHJXw2wi0I0Nv19+1kQnazttixLmJEaCTiJiGXTDQO+zp1sQjSr
+	 QoxA0GHHNdz9w==
+Date: Wed, 26 Jun 2024 13:59:20 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] riscv: uaccess: use input constraints for ptr of
- __put_user
-Message-ID: <ZnwKXWzRz9B5FbLM@xhacker>
-References: <20240625040500.1788-1-jszhang@kernel.org>
- <20240625040500.1788-3-jszhang@kernel.org>
- <acd2e53f-b5c1-49c5-86e2-bc09eb917163@app.fastmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Puranjay Mohan <puranjay12@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH -fixes] riscv: patch: Flush the icache right after
+ patching to avoid illegal insns
+Message-ID: <20240626-astrology-fructose-275fb799ebce@spud>
+References: <20240624082141.153871-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <acd2e53f-b5c1-49c5-86e2-bc09eb917163@app.fastmail.com>
+In-Reply-To: <20240624082141.153871-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240626_054637_191987_E6415E0F 
-X-CRM114-Status: GOOD (  29.60  )
+X-CRM114-CacheID: sfid-20240626_055927_894449_16EE95F1 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,133 +76,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5307077492989084635=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 25, 2024 at 07:54:30AM +0200, Arnd Bergmann wrote:
-> On Tue, Jun 25, 2024, at 06:04, Jisheng Zhang wrote:
-> > I believe the output constraints "=m" is not necessary, because
-> > the instruction itself is "write", we don't need the compiler
-> > to "write" for us. So tell compiler we read from memory instead
-> > of writing.
-> >
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> 
-> I think this is a bit too confusing: clearly there is no
-> read access from the __user pointer, so what you add in here
-> is not correct. There also needs to be a code comment about
 
-Here is my understanding: the __put_user is implemented with
-sd(or its less wider variant, sw etc.), w/o considering the
-ex_table, the previous code can be simplified as below:
-
-__asm__ __volatile__ (
-	"sw	%z2, %1\n"
-	: "+r" (err), "=m" (*(ptr))
-	: "rJ" (__x));
-
-Here ptr is really an input, just tells gcc where to store,
-And the "store" action is from the "sw" instruction, I don't
-need the gcc generates "store" instruction for me. so IMHO,
-there's no need to use output constraints here. so I changed
-it to
-
-__asm__ __volatile__ (
-	"sw	%z1, %2\n"
-	: "+r" (err)
-	: "rJ" (__x), "m"(*(ptr)));
-
-The key here: is this correct?
+--===============5307077492989084635==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="n6A0djetNF9SaJ8G"
+Content-Disposition: inline
 
 
-Here is the put_user piece code and comments from x86
+--n6A0djetNF9SaJ8G
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-/*
- * Tell gcc we read from memory instead of writing: this is because
- * we do not write to any memory gcc knows about, so there are no
- * aliasing issues.
- */
-#define __put_user_goto(x, addr, itype, ltype, label)                   \
-        asm goto("\n"                                                   \
-                "1:     mov"itype" %0,%1\n"                             \
-                _ASM_EXTABLE_UA(1b, %l2)                                \
-                : : ltype(x), "m" (__m(addr))                           \
-                : : label)
+On Mon, Jun 24, 2024 at 10:21:41AM +0200, Alexandre Ghiti wrote:
+> We cannot delay the icache flush after patching some functions as we may
+> have patched a function that will get called before the icache flush.
+>=20
+> The only way to completely avoid such scenario is by flushing the icache
+> as soon as we patch a function. This will probably be costly as we don't
+> batch the icache maintenance anymore.
+>=20
+> Fixes: 6ca445d8af0e ("riscv: Fix early ftrace nop patching")
+> Reported-by: Conor Dooley <conor.dooley@microchip.com>
+> Closes: https://lore.kernel.org/linux-riscv/20240613-lubricant-breath-061=
+192a9489a@wendy/
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
+So, I can't even test this right now :/ The issue is annoying enough to
+reproduce that same config + compiler + commit isn't enough.
 
-As can be seen, x86 also doesn't put the (addr) in output constraints,
-I think x86 version did similar modification in history, but when I tried
-to searh the git history, the comment is there from the git first day.
+--n6A0djetNF9SaJ8G
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Any hint or suggestion is appreciated!
+-----BEGIN PGP SIGNATURE-----
 
-> why you do it this way, as it's not clear that this is
-> a workaround for old compilers without
-> CONFIG_CC_HAS_ASM_GOTO_OUTPUT.
-> 
-> > index 09d4ca37522c..84b084e388a7 100644
-> > --- a/arch/riscv/include/asm/uaccess.h
-> > +++ b/arch/riscv/include/asm/uaccess.h
-> > @@ -186,11 +186,11 @@ do {								\
-> >  	__typeof__(*(ptr)) __x = x;				\
-> >  	__asm__ __volatile__ (					\
-> >  		"1:\n"						\
-> > -		"	" insn " %z2, %1\n"			\
-> > +		"	" insn " %z1, %2\n"			\
-> >  		"2:\n"						\
-> >  		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %0)		\
-> > -		: "+r" (err), "=m" (*(ptr))			\
-> > -		: "rJ" (__x));					\
-> > +		: "+r" (err)			\
-> > +		: "rJ" (__x), "m"(*(ptr)));					\
-> >  } while (0)
-> > 
-> 
-> I suspect this could just be a "r" constraint instead of
-> "m", treating the __user pointer as a plain integer.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZnwQqAAKCRB4tDGHoIJi
+0iSqAP486M4V8TRvY4pTcu95fzUWRuzRV0oH+MPkmoNcTZXfzAD/XOaCqK/Aynb0
+LKzQVLCv7/qhMQgD7WB2oSCZZV1YFgA=
+=z8Xv
+-----END PGP SIGNATURE-----
 
-I tried "r", the generated code is not as good as "m"
-
-for example
-__put_user(0x12, &frame->uc.uc_flags);
-
-with "m", the generated code will be
-
-...
-csrs    sstatus,a5
-li      a4,18
-sd      a4,128(s1)
-csrc    sstatus,a5
-...
+--n6A0djetNF9SaJ8G--
 
 
-with "r", the generated code will be
-
-...
-csrs    sstatus,a5
-li      a4,18
-addi    s1,s1,128
-sd      a4,0(s1)
-csrc    sstatus,a5
-...
-
-As can be seen, "m" can make use of the 'offset' of
-sd, so save one instruction.
-
-> 
-> For kernel pointers, using "m" and "=m" constraints
-> correctly is necessary since gcc will often access the
-> same data from C code as well. For __user pointers, we
-> can probably get away without it since no C code is
-> ever allowed to just dereference them. If you do that,
-> you may want to have the same thing in the __get_user
-> side.
-> 
->       Arnd
+--===============5307077492989084635==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5307077492989084635==--
+
