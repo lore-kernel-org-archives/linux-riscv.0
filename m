@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E4A1C30659
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 13:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E7DC27C4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 13:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dhDIA1WxETRL+evcu+EK/AjWgJCc0+62VKWKWcSBZEQ=; b=NA38CuXoJ+xVYz
-	5fuVxlt6fMWY1srLnEY45wE75UAhCBv2uMN1sHQANKaElcFvwGTI5L/qmCOP+vxkvAx7ELWPEuVoH
-	/dyqdBiUDDFBf6fOgr+2rLidPnUuJI0qqazQs+0AUKGQvRmuV55iRj/w7YVtuY5fqFpWeF6ww0OCp
-	+dObFnjbnV3EBnDojimtpv8J5MLiRq/GQEdvEEnrKQyWzwdTA5LST0IpbbrqigOC1To1UaK5yweEQ
-	SD3T2C+CQ5ucBC+0MG9zNW0B4GRY1Qj9JXuha8yjl8wKcmjyxzOzNvYR4Dr43zq9GmKgf7huevYvb
-	Wl5E0Khaw8cfK393IahA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M8LY7goC1COuKrz5TRr7ERv67T5rGsq+z8cV7YoEPRo=; b=hRqGPCsSewPd2w
+	4h7N3Nf/GfQJO+JQXDgYOqNpvks/0vOUtc4FzmSqOGb08WzE9+3uR8QYkJRiyYvAqIvtoNPOodMi/
+	6Lf7LnGKcRVVcWO9L1tUjl2hrUbYz28bevBJbSqEwyM7IER0RuQyvJ5UAgBF+P5IACbt2lk2Eh7Ai
+	8avIf2zFzjQboaJvdQBCIEt7IFJLVxQswELPgsqhIb+mIKMWbtcAz0hTiomcRj9Gqb8p+Z3efobuj
+	PN46pbw7NJ8TGt6tiwthfhSm96t4pda+4XfI/3HM6TN/vIEM7CO2hqg0UQip8be9SRxIq6FuKRvBC
+	m2Llxu+gV4lHQmJG1O2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMSJj-00000006qMr-2D30;
-	Wed, 26 Jun 2024 13:04:07 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1sMSKa-00000006qcO-0LmJ;
+	Wed, 26 Jun 2024 13:05:00 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMSJc-00000006qIo-3iPQ
+	id 1sMSKV-00000006qaV-03n4
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jun 2024 13:04:04 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-424a2dabfefso18569935e9.3
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Jun 2024 06:03:53 -0700 (PDT)
+	Wed, 26 Jun 2024 13:04:57 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2ec61eeed8eso38253821fa.0
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Jun 2024 06:04:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719407032; x=1720011832; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oqhKGXxgVQtpDeDxTmBY0GRGK3b9WQJ4D/NdPeAScP8=;
-        b=x/SR7jGvL4NewIygy7BiE5wW159YssmZFdmm7E6Fay0YFf7Plk9shiMrDBNpX34/sd
-         l+Nbp5wi6rGtZWr9Sx8/mUbftfFHoUDzL+KjV4Hs/m2yDu3dd8hogjzOC/e0b5Q1Jr8K
-         RttaksyLyiBT9IJ0eP3vpkDuTkOo40EjXSa9lkg59aGub7JtthpZOw/DL7QTUBUTdRcL
-         wD/4MytT7hNkkqbA5WgPg+93zhiHyu2h8mBcbz/c0JfeE3KGVSGRWPo1hmDKC+riD9BN
-         taEiHYixTh2dfCWdQk90nPmXx9ndXqyLt/MmVSSo2YePzwbUfwv5pBan1IkVUNNLL3zI
-         csqA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719407093; x=1720011893; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WhXCNVmR8P99l/LeuRhjy5KBZNQ4/EvtQCsDBcea+Tc=;
+        b=e/1Vlx6rDHU1uKr3PDNUgAdLqkV5dtLkTfQ7AXc6XDAa/BIEPRrxGGG5yaE6J01x0F
+         Pjck6l8FgxcRy4MocjAGBx+udaipGnK2xYGc7gecYxWtDLoTD3DneWxKfCPvJkNljC2b
+         lS0GsCOZA2WuBd68D7WhA47Vmeq33j/EC1KmIyyXuYuqGaVv5aPq375DkhjA4q4tv54u
+         zAjUwIeQd451fj3Z34JX/f2usEF+uBsGguMjGn2khrrv+UM+xaXae2ph5BMrlhbD11uB
+         8Aq5RWTm71kyLIIWFENsffe/OLtQWAghDvcvxmrQKwcDcNoNDw9d5CzjNjQpWx0U4A8P
+         qqMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719407032; x=1720011832;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oqhKGXxgVQtpDeDxTmBY0GRGK3b9WQJ4D/NdPeAScP8=;
-        b=HyjJhMP/ojPla6EQHKUhf7Vguw+Xue0cFs81UmMkQ0vLfKMhttiW2RtDP5ScxbnJch
-         0sPR46V6S/I7o38V9U+B22zKrqKFln99m7DUU7jdGmrb+3wvIGW83p2JF1vn4gSFZagH
-         c3kbI4/2a4lHnmhMEILA+3e8O3YrG3uNjHpFfzfiv2JLgl+r3j6hahzJyeFu1q5qsvjl
-         hQK3DnLNaa340A4Y/3M6ZOAswuePCeS+nqGfaUw09SVXZuNq/SQzN2m5iEHjHAKY4CVm
-         uOMhGAEHWY+JZbwtobZWsXw4BfavAMQ6e0EIb6/GPrvBVzBTk0XdmM8B8B3r0GTId2Gm
-         dujQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW8WrCfeDJLawRQHwXcj5AvJOQa3E7nboXX/akAN/bMJneVNXUcqYLv/wrDTDH0S5rdJcchHT7zh1ZiU/W+p2VJc5DwUVOZUfg1dPyf/L6d
-X-Gm-Message-State: AOJu0Yxhj+fF10oPlspALDlIo0999FYAtjkxZ/HRkU3eCF4Hg4dYjunV
-	qj/RYEKxj8Tuuui+8g5qcxA/U1PN6oIr63YCLc49kUAY9ajCLkXkZwBGz1Vp8fQ=
-X-Google-Smtp-Source: AGHT+IFiGsTX5vLxkPVO8Non2VspNfMgpq8c+JsPLrp7qPkiUj2K82s1dz1d1WmsbRzVRpIzAgp9+g==
-X-Received: by 2002:a05:6000:174a:b0:364:29ce:b14e with SMTP id ffacd0b85a97d-366e96777a8mr7130622f8f.69.1719407031793;
-        Wed, 26 Jun 2024 06:03:51 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1719407093; x=1720011893;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WhXCNVmR8P99l/LeuRhjy5KBZNQ4/EvtQCsDBcea+Tc=;
+        b=RzBQVUexpBDMCZa44MSdigy7+f6ZMx96mOX0RaGvk5Qua+oD0kSPXZeyqPE1Jx+34H
+         5W27mFgnsbiJCsRixDkolp08UUVb+/jUVZAA91qDWhJxiobUPVnt7QrSq5cpcaShJQ3X
+         BxASFxJP2Sn5M1Q5JJA/STYIEKrFCXpqQKAT8wGIPlvDOxrseErdaBIE1meEpoWuLLtS
+         IGM8LrshvwKZmZrMYR2+0pCahCKEXOI9ivUw/J9NvFcXWk69Jm31gh+PHjxBHu3COSZK
+         IhJ7Lu6Br6Uw8RHGNEXP3uP1hae/47kcK7QkjeEWudihvMQvD0csW/jN5Wo7TtOqRL/2
+         cihQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW5EzQwWjoGAZcibb718V24OHXeSH5vKl7YF9WV6eB6by/fmVq0v0gvloul23r/HgyojEheyv2Q9Ul6J6BH3f+HRUYq6c3x7/mukTusaXcL
+X-Gm-Message-State: AOJu0YzkjcXRsR6dsX3t6eN8PWe8C0JtWPTckoNmALBp0FvSU9n0/6tB
+	4toWbXyeNJSun8HrVwmNg1sILyg9dSz3UxWwXN9tlFW3vGAt4QPUCfNztlGulHU=
+X-Google-Smtp-Source: AGHT+IGXVzg0cT42nAZtoqYsiJZ5s31h9gkqhz8eo+Ns1Bzdpb6n1iQQeyrD5Jr8Y6qR9urf80as6w==
+X-Received: by 2002:ac2:596e:0:b0:52c:db7b:b463 with SMTP id 2adb3069b0e04-52ce186459cmr6385178e87.61.1719407093047;
+        Wed, 26 Jun 2024 06:04:53 -0700 (PDT)
 Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3663ada0bdesm15693877f8f.113.2024.06.26.06.03.51
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-424c842468dsm25643865e9.36.2024.06.26.06.04.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Jun 2024 06:03:51 -0700 (PDT)
+        Wed, 26 Jun 2024 06:04:52 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -82,14 +83,16 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-riscv@lists.infradead.org,
 	linux-arch@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2 00/10] Zacas/Zabha support and qspinlocks
-Date: Wed, 26 Jun 2024 15:03:37 +0200
-Message-Id: <20240626130347.520750-1-alexghiti@rivosinc.com>
+Subject: [PATCH v2 01/10] riscv: Implement cmpxchg32/64() using Zacas
+Date: Wed, 26 Jun 2024 15:03:38 +0200
+Message-Id: <20240626130347.520750-2-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240626130347.520750-1-alexghiti@rivosinc.com>
+References: <20240626130347.520750-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240626_060401_524194_F07FAFAC 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20240626_060455_068511_D76E86F1 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,65 +109,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This implements [cmp]xchgXX() macros using Zacas and Zabha extensions
-and finally uses those newly introduced macros to add support for
-qspinlocks: note that this implementation of qspinlocks satisfies the
-forward progress guarantee.
+This adds runtime support for Zacas in cmpxchg operations.
 
-Thanks to Guo and Leonardo for their work!
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/Kconfig               | 17 +++++++++++++++++
+ arch/riscv/Makefile              |  3 +++
+ arch/riscv/include/asm/cmpxchg.h | 27 ++++++++++++++++++++++++---
+ 3 files changed, 44 insertions(+), 3 deletions(-)
 
-Changes in v2:
-- Add patch for Zabha dtbinding (Conor)
-- Fix cmpxchg128() build warnings missed in v1
-- Make arch_cmpxchg128() fully ordered
-- Improve Kconfig help texts for both extensions (Conor)
-- Fix Makefile dependencies by requiring TOOLCHAIN_HAS_XXX (Nathan)
-- Fix compilation errors when the toolchain does not support the
-  extensions (Nathan)
-- Fix C23 warnings about label at the end of coumpound statements (Nathan)
-- Fix Zabha and !Zacas configurations (Andrea)
-- Add COMBO spinlocks (Guo)
-- Improve amocas fully ordered operations by using .aqrl semantics and
-  removing the fence rw, rw (Andrea)
-- Rebase on top "riscv: Fix fully ordered LR/SC xchg[8|16]() implementations"
-- Add ARCH_WEAK_RELEASE_ACQUIRE (Andrea)
-- Remove the extension version in march for LLVM since it is only required
-  for experimental extensions (Nathan)
-- Fix cmpxchg128() implementation by adding both registers of a pair
-  in the list of input/output operands
-
-Alexandre Ghiti (8):
-  riscv: Implement cmpxchg32/64() using Zacas
-  dt-bindings: riscv: Add Zabha ISA extension description
-  riscv: Implement cmpxchg8/16() using Zabha
-  riscv: Improve amocas.X use in cmpxchg()
-  riscv: Implement arch_cmpxchg128() using Zacas
-  riscv: Implement xchg8/16() using Zabha
-  riscv: Improve amoswap.X use in xchg()
-  riscv: Add qspinlock support based on Zabha extension
-
-Guo Ren (2):
-  asm-generic: ticket-lock: Reuse arch_spinlock_t of qspinlock
-  asm-generic: ticket-lock: Add separate ticket-lock.h
-
- .../devicetree/bindings/riscv/extensions.yaml |   6 +
- .../locking/queued-spinlocks/arch-support.txt |   2 +-
- arch/riscv/Kconfig                            |  45 +++++
- arch/riscv/Makefile                           |   6 +
- arch/riscv/include/asm/Kbuild                 |   4 +-
- arch/riscv/include/asm/cmpxchg.h              | 188 ++++++++++++++----
- arch/riscv/include/asm/hwcap.h                |   1 +
- arch/riscv/include/asm/spinlock.h             |  39 ++++
- arch/riscv/kernel/cpufeature.c                |   1 +
- arch/riscv/kernel/setup.c                     |  21 ++
- include/asm-generic/qspinlock.h               |   2 +
- include/asm-generic/spinlock.h                |  87 +-------
- include/asm-generic/spinlock_types.h          |  12 +-
- include/asm-generic/ticket_spinlock.h         | 105 ++++++++++
- 14 files changed, 385 insertions(+), 134 deletions(-)
- create mode 100644 arch/riscv/include/asm/spinlock.h
- create mode 100644 include/asm-generic/ticket_spinlock.h
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 05ccba8ca33a..1caaedec88c7 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -596,6 +596,23 @@ config RISCV_ISA_V_PREEMPTIVE
+ 	  preemption. Enabling this config will result in higher memory
+ 	  consumption due to the allocation of per-task's kernel Vector context.
+ 
++config TOOLCHAIN_HAS_ZACAS
++	bool
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zacas)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zacas)
++	depends on AS_HAS_OPTION_ARCH
++
++config RISCV_ISA_ZACAS
++	bool "Zacas extension support for atomic CAS"
++	depends on TOOLCHAIN_HAS_ZACAS
++	default y
++	help
++	  Enable the use of the Zacas ISA-extension to implement kernel atomic
++	  cmpxchg operations when it is detected at boot.
++
++	  If you don't know what to do here, say Y.
++
+ config TOOLCHAIN_HAS_ZBB
+ 	bool
+ 	default y
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 06de9d365088..9fd13d7a9cc6 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -85,6 +85,9 @@ endif
+ # Check if the toolchain supports Zihintpause extension
+ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) := $(riscv-march-y)_zihintpause
+ 
++# Check if the toolchain supports Zacas
++riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZACAS) := $(riscv-march-y)_zacas
++
+ # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
+ # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
+ KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 808b4c78462e..a58a2141c6d3 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -9,6 +9,7 @@
+ #include <linux/bug.h>
+ 
+ #include <asm/fence.h>
++#include <asm/alternative.h>
+ 
+ #define __arch_xchg_masked(sc_sfx, prepend, append, r, p, n)		\
+ ({									\
+@@ -134,21 +135,41 @@
+ 	r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
+ })
+ 
+-#define __arch_cmpxchg(lr_sfx, sc_sfx, prepend, append, r, p, co, o, n)	\
++#define __arch_cmpxchg(lr_sfx, sc_cas_sfx, prepend, append, r, p, co, o, n)	\
+ ({									\
++	__label__ zacas, end;						\
+ 	register unsigned int __rc;					\
+ 									\
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZACAS)) {			\
++		asm goto(ALTERNATIVE("nop", "j %[zacas]", 0,		\
++				     RISCV_ISA_EXT_ZACAS, 1)		\
++			 : : : : zacas);				\
++	}								\
++									\
+ 	__asm__ __volatile__ (						\
+ 		prepend							\
+ 		"0:	lr" lr_sfx " %0, %2\n"				\
+ 		"	bne  %0, %z3, 1f\n"				\
+-		"	sc" sc_sfx " %1, %z4, %2\n"			\
++		"	sc" sc_cas_sfx " %1, %z4, %2\n"			\
+ 		"	bnez %1, 0b\n"					\
+ 		append							\
+ 		"1:\n"							\
+ 		: "=&r" (r), "=&r" (__rc), "+A" (*(p))			\
+ 		: "rJ" (co o), "rJ" (n)					\
+ 		: "memory");						\
++	goto end;							\
++									\
++zacas:									\
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZACAS)) {			\
++		__asm__ __volatile__ (					\
++			prepend						\
++			"	amocas" sc_cas_sfx " %0, %z2, %1\n"	\
++			append						\
++			: "+&r" (r), "+A" (*(p))			\
++			: "rJ" (n)					\
++			: "memory");					\
++	}								\
++end:;									\
+ })
+ 
+ #define _arch_cmpxchg(ptr, old, new, sc_sfx, prepend, append)		\
+@@ -156,7 +177,7 @@
+ 	__typeof__(ptr) __ptr = (ptr);					\
+ 	__typeof__(*(__ptr)) __old = (old);				\
+ 	__typeof__(*(__ptr)) __new = (new);				\
+-	__typeof__(*(__ptr)) __ret;					\
++	__typeof__(*(__ptr)) __ret = (old);				\
+ 									\
+ 	switch (sizeof(*__ptr)) {					\
+ 	case 1:								\
 -- 
 2.39.2
 
