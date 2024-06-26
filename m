@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A33BC27C4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 16:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355FEC27C4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 16:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KX9lHwR6Nadhc16A8jMmQyc8HwjIiR5zMvXSAaxu5iw=; b=UHWs2+PVKrrTe/
-	e65yMpKYzAmBIrSt9PqJqh+F00YKRKOv3KMCuF/Kjc8lXZAOZZ4J3O7SO1yWHFc3CFFzETNXWV8OT
-	bZ1qmsNILsmUxCmnLtzxHrgu1efWt7ftreUy8Kys9CffQ1C2kTbCjLHaOw7h7f6kcd/FJOKs5cO+H
-	dofGd+gKHWgrwmQDrXCLv9JON11t1N2BsLgX4E01703lrAV1OsqAEkR5VAMqsb8Y183ShopbkGCXL
-	IaDilS6ihstw5oz90QNACa9mucnI3n3JtkvZAJsAE2tdT4LF77B0hhrJq8fSRBpZdIUxBKP9Gh48P
-	PQW1pOcfsZHAt6KGoUHg==;
+	List-Owner; bh=dNI4SX1b+A8PV/gtnT9ViYsDMZucu9OjYL0LeHBWpaQ=; b=CXvhoMyntEXWuj
+	OmGK78O7IZYD17dxYHmYZSBBeGUDneBPsrUnJV5Hq5vigybS51IFy/FbZ6VSyF574px3BSR+oOIWn
+	BGtS9/hjlAlWEZ4nJHm7ebYHEOxZ6I4LYYWij4jwRnCt15DJm9+aJE0ZEBPRpIwz/bnWexY7nYKXK
+	ZSgiSLRaq9I9oKpLr+1mrqo2pxgZwFEGLK8dzdivdPq+h/hsUMJu3XM3LHzmRKl2DQKHzIh+Yb2RQ
+	FhoAAezRBHs7LFT/KFyw7aSirbH4XazkP1DmFVw24nnlj4RYxkZz+BDr3EG0JY/T4XuryLG6STOUu
+	1m4LSTt2rii/GmZVNI4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMVJg-00000007Ykv-0iKu;
-	Wed, 26 Jun 2024 16:16:16 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sMVMV-00000007ZV4-2Ujt;
+	Wed, 26 Jun 2024 16:19:11 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMVJa-00000007Yk7-3pnA
+	id 1sMVMJ-00000007ZPJ-2Cwt
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jun 2024 16:16:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id F1C44CE2099;
-	Wed, 26 Jun 2024 16:16:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBC9CC116B1;
-	Wed, 26 Jun 2024 16:16:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719418568;
-	bh=Mg1bPnbPD363GuddJswMdK7zDdLLbDjY3zLFI0ddO+c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TkNlVpreFP/iP0k/bpL5R2bY28xwLcbl/ldpo8GOeHzUxxJLpqMxp2Iij4Npe3hH5
-	 6wu8s9zHVxRONqzwE9FklCg7XawsbzXa47o8i5qGraIPAmqQz9TW53i1DNdI/mbLxO
-	 IZuUjBFXvfwpG3h0baArjNRuTO3c3JzqMWTIlHJfVN4ZuB/nkUdoeeH2xEBHLePv+q
-	 SoqNQxjU3gqNFGNU5Hdu+6fbwwbgOU1M4ynM4/KuZmX1b5q5/Klf9D0Sc2UEZWl8CT
-	 9AXtiXRxWeN67jRTeFt8TEmOVLhQ27m4SpTaGDW4K9vJVSE1y+N/+a/EQvCYP+frTl
-	 BVv+gXQ3w+xxg==
-Date: Thu, 27 Jun 2024 00:02:02 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Andreas Schwab <schwab@suse.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] riscv: uaccess: use input constraints for ptr of
- __put_user
-Message-ID: <Znw7engdDiMldJp2@xhacker>
-References: <20240625040500.1788-1-jszhang@kernel.org>
- <20240625040500.1788-3-jszhang@kernel.org>
- <mvmikxvonjh.fsf@suse.de>
- <ZnwTwnSsnZ8Td9GZ@xhacker>
- <dcf9574a-0f1b-4131-befd-39f47d4f9002@app.fastmail.com>
+	Wed, 26 Jun 2024 16:19:09 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-52cdea1387eso4645639e87.0
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Jun 2024 09:18:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719418736; x=1720023536; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JOXAoPOZbipJ93XdyhTiv94Fgw7fYvC41s+vnDXKabQ=;
+        b=zU8gpvV4GRStvQ+b5eU3qDJBwka7A6AcAh797idZW80IiyPHf80Fr2xcqwXlp8mW5F
+         vyJurOxs1Iqpa992T993PLLO4LHWJPzi4mCZUzABffyNZWB1kgmiuTbh29uLsFiHGy7Y
+         tHIRzA+o4vtHncKLpcy6W1UqahyU7exjwozJp5dglf6Fx6uj1uyq/Ripd0A036KTzc9a
+         jJjS9E09jyuiYyvz8aMzJKtHevJcpzUgV4wI9rouNAoKtBYp758rXlvTyUwJs/Vz+kW5
+         Il3CM5uuOxXEdsuZSCzlfOGIIQQt4bMY/D9cQnzj+eprBP0h8yNHw/6KSlv+JtGHpyO7
+         4iCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719418736; x=1720023536;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JOXAoPOZbipJ93XdyhTiv94Fgw7fYvC41s+vnDXKabQ=;
+        b=EOzdI8od8hL80FXmWxE/gDsWpfKkKbfufzrT4d3xbp1tPmKmwXHoPooFZAgYKpJUjs
+         i3yhPpDAkVhM+Q6c7q6OycCuFTOVE2yhZ1tOvg/561keWtW1hqGotOZ/TQXqe6LGFKH3
+         BNqU4HQYUfGsfz8vggKJk/7/TaPoYPntXd8FFKTNcouw3DgPvF+gFixo711fHyfCRU3J
+         bdHhBCH9zL6dz2oo8ny6KIBwzyKaWq1zU8FtFC6BF0cOhSqF0NMQe+LHCw5zpQmjGPDM
+         PUkXyb5ETMMZF3g3dpvp1gg7zgvYiMVFtQz39WxUzAaoORQTwEtjVc5WSX/mP4uchL6Z
+         eNIQ==
+X-Gm-Message-State: AOJu0YxL+OcvUWHUAZPhiZ/QPEWNp8zNWuuuqXGYVudm1DUHbbIUATLF
+	Qy0czTW6w7+i4PWODd/XiXCPtMNkvwyCLYgJSVf2YCBVAnAblFGcaxVf6Csi8FYhWpUX4oB0fsp
+	uG8jslL5NIjczn3f1NoO6Ry1r7ONSxspIxDl71w==
+X-Google-Smtp-Source: AGHT+IHNMa1ftMAu8i49jJuPkee7HG52HPPQSvV++KhF04KmDg7GQRHQsI3P2aVaZhduWTy7dwIB7UF0h0Ip+fgNqPY=
+X-Received: by 2002:a05:6512:2111:b0:52c:7fe8:6489 with SMTP id
+ 2adb3069b0e04-52cf5110982mr2440255e87.63.1719418736102; Wed, 26 Jun 2024
+ 09:18:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <dcf9574a-0f1b-4131-befd-39f47d4f9002@app.fastmail.com>
+References: <20240626-misc_perf_fixes-v3-0-de3f8ed88dab@rivosinc.com>
+ <20240626-misc_perf_fixes-v3-2-de3f8ed88dab@rivosinc.com> <96ff4dd2-db66-4653-80e9-97d4f1381581@sifive.com>
+In-Reply-To: <96ff4dd2-db66-4653-80e9-97d4f1381581@sifive.com>
+From: Atish Kumar Patra <atishp@rivosinc.com>
+Date: Wed, 26 Jun 2024 09:18:46 -0700
+Message-ID: <CAHBxVyHx9hTRPosizV_yn6DUZi-MTNTrAbJdkV3049D-qsDHcw@mail.gmail.com>
+Subject: Re: [PATCH v3 2/3] drivers/perf: riscv: Reset the counter to hpmevent
+ mapping while starting cpus
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
+	Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240626_091611_913946_805702DB 
-X-CRM114-Status: GOOD (  36.43  )
+X-CRM114-CacheID: sfid-20240626_091906_506182_BFEFEFF0 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,105 +92,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 26, 2024 at 04:25:26PM +0200, Arnd Bergmann wrote:
-> On Wed, Jun 26, 2024, at 15:12, Jisheng Zhang wrote:
-> > On Wed, Jun 26, 2024 at 03:12:50PM +0200, Andreas Schwab wrote:
-> >> On Jun 25 2024, Jisheng Zhang wrote:
-> >> 
-> >> > I believe the output constraints "=m" is not necessary, because
-> >> > the instruction itself is "write", we don't need the compiler
-> >> > to "write" for us.
-> >> 
-> >> No, this is backwards.  Being an output operand means that the *asm* is
-> >> writing to it, and the compiler can read the value from there afterwards
-> >> (and the previous value is dead before the asm).
-> >
-> > Hi Andreas,
-> >
-> > I compared tens of __put_user() caller's generated code between orig
-> > version and patched version, they are the same. Sure maybe this is
-> > not enough. 
-> >
-> > But your explanation can be applied to x86 and arm64 __put_user()
-> > implementations, asm is also writing, then why there's no output
-> > constraints there?(see the other two emails)? Could you please help
-> > me to understand the tricky points?
-> 
-> I think part of the reason for the specific way the x86
-> user access is written is to work around bugs in old
-> compiler versions, as well as to take advantage of the
-> complex addressing modes in x86 assembler, see this bit
-> that dates back to the earliest version of the x86_64
-> codebase and is still left in place:
-> 
-> /* FIXME: this hack is definitely wrong -AK */
-> struct __large_struct { unsigned long buf[100]; };
-> #define __m(x) (*(struct __large_struct __user *)(x))
-> 
-> Using the memory input constraint means that x86 can use
-> a load from a pointer plus offset, but riscv doesn't
-> actually do this. The __large_struct I think was needed
-> either to prevent the compiler from reading the data
-> outside of the assembly, or to tell the compiler about
-> the fact that there is an actual memory access if
-> __put_user() was pointed at kernel memory.
-
-Thank you so much, Arnd!
-
-> 
-> If you just copy from the arm64 version that uses an
-> "r"(address) constraint instead of the "m"(*address)
-
-"m" version is better than "r", usually can save one
-instruction.
-I will try to combine other constraints with "r" to
-see whether we can still generate the sd with offset
-instruction. If can't, seems sticking with "m" and keeping
-output constraints is better
-
-> version, it should be fine for any user space access.
-
-You only mention "user space access", so just curious, does
-arm64 version still correctly work with below __put_kernel_nofault()
-example?
-
-> 
-> The output constraint is technically still be needed
-> if we have code like this one where we actually write to
-> something in kernel space:
-> 
-> int f(void)
-> {
->      int a = 1;
->      int b = 2;
->      __put_kernel_nofault(&a, &b, int, error);
->      return a;
-> error:
->      return -EFAULT;
-> }
-> 
-> In this case, __put_kernel_nofault() writes the value
-> of b into a, but the compiler can safely assume that
-> a is not changed by the assembly because there is no
-> memory output, and would likely just return a constant '1'. 
-> 
-> For put_user(), this cannot happen because the compiler
-> doesn't know anything about the contents of the __user
-> pointer. For __put_kernel_nofault(), we rely on the
-> callers never using it on pointers they access, which
-> is probably a reasonable assumption, but not entirely
-> correct.
-> 
->      Arnd
-
-Well explained! Thanks a lot.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdW4gMjYsIDIwMjQgYXQgNjoyNOKAr0FNIFNhbXVlbCBIb2xsYW5kCjxzYW11ZWwu
+aG9sbGFuZEBzaWZpdmUuY29tPiB3cm90ZToKPgo+IE9uIDIwMjQtMDYtMjYgMjoyMyBBTSwgQXRp
+c2ggUGF0cmEgd3JvdGU6Cj4gPiBGcm9tOiBTYW11ZWwgSG9sbGFuZCA8c2FtdWVsLmhvbGxhbmRA
+c2lmaXZlLmNvbT4KPiA+Cj4gPiBDdXJyZW50bHksIHdlIHN0b3AgYWxsIHRoZSBjb3VudGVycyB3
+aGlsZSBhIG5ldyBjcHUgaXMgYnJvdWdodCBvbmxpbmUuCj4gPiBIb3dldmVyLCB0aGUgaHBtZXZl
+bnQgdG8gY291bnRlciBtYXBwaW5ncyBhcmUgbm90IHJlc2V0LiBUaGUgZmlybXdhcmUgbWF5Cj4g
+PiBoYXZlIHNvbWUgc3RhbGUgZW5jb2RpbmcgaW4gdGhlaXIgbWFwcGluZyBzdHJ1Y3R1cmUgd2hp
+Y2ggbWF5IGxlYWQgdG8KPiA+IHVuZGVzaXJhYmxlIHJlc3VsdHMuIFdlIGhhdmUgbm90IGVuY291
+bnRlcmVkIHN1Y2ggc2NlbmFyaW8gdGhvdWdoLgo+ID4KPgo+IFRoaXMgbmVlZHM6Cj4KPiBTaWdu
+ZWQtb2ZmLWJ5OiBTYW11ZWwgSG9sbGFuZCA8c2FtdWVsLmhvbGxhbmRAc2lmaXZlLmNvbT4KPgoK
+T29wcy4gU29ycnkgSSBtaXNzZWQgdGhhdC4KCkBBbGV4YW5kcmUgR2hpdGkgQFBhbG1lciBEYWJi
+ZWx0IDogQ2FuIHlvdSBhZGQgdGhhdCB3aGlsZSBwaWNraW5nIHVwCnRoZSBwYXRjaCBvciBzaG91
+bGQgSSByZXNwaW4gYSB2NCA/Cgo+IG90aGVyd2lzZSB5b3VyIGNvbW1pdCBtZXNzYWdlIGxvb2tz
+IGZpbmUgdG8gbWUuCj4KPiA+IFNpZ25lZC1vZmYtYnk6IEF0aXNoIFBhdHJhIDxhdGlzaHBAcml2
+b3NpbmMuY29tPgo+ID4gLS0tCj4gPiAgZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYyB8IDIg
+Ky0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPiA+
+Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYyBiL2RyaXZlcnMv
+cGVyZi9yaXNjdl9wbXVfc2JpLmMKPiA+IGluZGV4IGEyZTQwMDVlMWZkMC4uOTRiYzM2OWEzNDU0
+IDEwMDY0NAo+ID4gLS0tIGEvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYwo+ID4gKysrIGIv
+ZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYwo+ID4gQEAgLTc2Miw3ICs3NjIsNyBAQCBzdGF0
+aWMgaW5saW5lIHZvaWQgcG11X3NiaV9zdG9wX2FsbChzdHJ1Y3QgcmlzY3ZfcG11ICpwbXUpCj4g
+PiAgICAgICAgKiB3aGljaCBtYXkgaW5jbHVkZSBjb3VudGVycyB0aGF0IGFyZSBub3QgZW5hYmxl
+ZCB5ZXQuCj4gPiAgICAgICAgKi8KPiA+ICAgICAgIHNiaV9lY2FsbChTQklfRVhUX1BNVSwgU0JJ
+X0VYVF9QTVVfQ09VTlRFUl9TVE9QLAo+ID4gLSAgICAgICAgICAgICAgIDAsIHBtdS0+Y21hc2ss
+IDAsIDAsIDAsIDApOwo+ID4gKyAgICAgICAgICAgICAgIDAsIHBtdS0+Y21hc2ssIFNCSV9QTVVf
+U1RPUF9GTEFHX1JFU0VULCAwLCAwLCAwKTsKPiA+ICB9Cj4gPgo+ID4gIHN0YXRpYyBpbmxpbmUg
+dm9pZCBwbXVfc2JpX3N0b3BfaHdfY3RycyhzdHJ1Y3QgcmlzY3ZfcG11ICpwbXUpCj4gPgo+Cgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
