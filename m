@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC813C27C4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 16:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A33BC27C4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 16:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vITEQUEVaTlHEpTDC8g5EXYWpoGpYc8aOdKnRAsRp9I=; b=zJFAT1sCnYJULy
-	E0KZqQVNKxmIxdNDsxY2W+5TFcRKhPxzHXfHi5kptOUxnFGkST67GKDpHk11uHxI4GvqWGW2V1HDU
-	8ILe2z+l0nTSbLv/UsuNSeNCNXX7xBXloGxPrdHIb81VE+W1RbuCkRfHj71sWG9Jxd41ErPHNeTgp
-	lTxkEZ3/D83UL8Ucj7uUlYvATmXqNQZHrb4PngKljNF/HMDLHlNcS2ixm9z0dbboT1D0DZU/pW3RC
-	g9Qked7KCUi5mYUbTfI/lzN//ufIt3gz1q7PEFkr4iuoP4IR1tk5OAYHrOvyFGp+wDW5JUlMo3pPY
-	LmwBH6iDOv6XjrEtAaIA==;
+	List-Owner; bh=KX9lHwR6Nadhc16A8jMmQyc8HwjIiR5zMvXSAaxu5iw=; b=UHWs2+PVKrrTe/
+	e65yMpKYzAmBIrSt9PqJqh+F00YKRKOv3KMCuF/Kjc8lXZAOZZ4J3O7SO1yWHFc3CFFzETNXWV8OT
+	bZ1qmsNILsmUxCmnLtzxHrgu1efWt7ftreUy8Kys9CffQ1C2kTbCjLHaOw7h7f6kcd/FJOKs5cO+H
+	dofGd+gKHWgrwmQDrXCLv9JON11t1N2BsLgX4E01703lrAV1OsqAEkR5VAMqsb8Y183ShopbkGCXL
+	IaDilS6ihstw5oz90QNACa9mucnI3n3JtkvZAJsAE2tdT4LF77B0hhrJq8fSRBpZdIUxBKP9Gh48P
+	PQW1pOcfsZHAt6KGoUHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMVI2-00000007YN6-2x1v;
-	Wed, 26 Jun 2024 16:14:34 +0000
-Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
+	id 1sMVJg-00000007Ykv-0iKu;
+	Wed, 26 Jun 2024 16:16:16 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMVHy-00000007YLD-2sYE
+	id 1sMVJa-00000007Yk7-3pnA
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jun 2024 16:14:32 +0000
-Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-376069031c7so26377435ab.0
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Jun 2024 09:14:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1719418470; x=1720023270; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kDDEvuft6YUbchcNAvdNgKui7TGEyIpJ9wmKFGBqMjA=;
-        b=HimKOHkSWZHl56GXP11ymcuhUXS6NyGtU4QSJI3yF4lTNCZXRki5/v4363HTX+jyAf
-         wywoWQxW2sqxdvzOXjIFSpbN+bpbTFPW2TtOAhPYECiBeSXOheYHGyLWdOMuzwZHwXbD
-         BGFaL9z7IWt6UImXKx28//W6RvHmbHvpGLhrbWgbVZSnibMX+Zz2d0ozoH+mljxjPTqW
-         S6v8U8sRXc+0MvclFPLw6Zs/kJHbutK4FtMCE/L2iHqtbcP4tWPyzdHW4uSe2dEr+mr/
-         +mSJWliZNMSONx8R+kn0M2qvfxoFo1zu9CS0h/JGUwMvMgz7k0QikF/CTES0FjOqq73I
-         Pq2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719418470; x=1720023270;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kDDEvuft6YUbchcNAvdNgKui7TGEyIpJ9wmKFGBqMjA=;
-        b=Y0x4ZhQBseoDB5pKWJymoCbNdB+oYolf6OcaHL2b6Yyn/kE0o263V7CLEYc8tGrpSx
-         83olMp+qMKFTJKIK7PgtBhYvPFLne6W6Nbo8HirQdxsGtGNtD7yaL/bsMVaZ2t3sxHOc
-         WtyxHQa2EJ2iS4TuqaU5HcVdDJWn0HixUxc2dzfeKetVvW7r9eyDH7neAZP9smK3tBAs
-         V3VExIz8G0+KiNgeghWoNv5cSaYzyfpkQnN9C2+KGwDT+FcCv/whRFCq5IfWNOQHqQDR
-         8cfH4X8l/1a4plCQqSb68UsZM8tNi5mmW3+FVTI40Bttf6fgwCRtbeJjNXTVNtyiWmHh
-         qqgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVDwnuJCDGUu8e+d/RmQTmtkq9ZgpNuPmNQd0jHutScISibRp1+RkWxxhKYkBXXhYwqGMivMagRW8iVwJr9cejvKTurPbjoqcHzDG+Lq7h8
-X-Gm-Message-State: AOJu0YzEAPpUrwnuE1mW6nURxbiDfhp9sKKwJgUCKtkgA5yOuWMtsv/H
-	pD8gWQZqLt0VWDaJ9BFnotUuL9oNTT4igeZ7Jpo0wnB7LLP25vVRpLD8eBsTtwc=
-X-Google-Smtp-Source: AGHT+IELKQLJZTF+x62RjW2AmmDAddWE/zXZ9jt/OXnsyiCchr7jyoc/sCxp83/vqAiFW8alxf17RA==
-X-Received: by 2002:a92:c569:0:b0:375:c473:4a8c with SMTP id e9e14a558f8ab-3763e166c2dmr137718185ab.32.1719418469797;
-        Wed, 26 Jun 2024 09:14:29 -0700 (PDT)
-Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3772b4c8b06sm5483315ab.53.2024.06.26.09.14.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Jun 2024 09:14:29 -0700 (PDT)
-Message-ID: <acd4c562-1f4f-4cd0-8ff8-e24e3e70d25e@sifive.com>
-Date: Wed, 26 Jun 2024 11:14:27 -0500
+	Wed, 26 Jun 2024 16:16:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id F1C44CE2099;
+	Wed, 26 Jun 2024 16:16:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBC9CC116B1;
+	Wed, 26 Jun 2024 16:16:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1719418568;
+	bh=Mg1bPnbPD363GuddJswMdK7zDdLLbDjY3zLFI0ddO+c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TkNlVpreFP/iP0k/bpL5R2bY28xwLcbl/ldpo8GOeHzUxxJLpqMxp2Iij4Npe3hH5
+	 6wu8s9zHVxRONqzwE9FklCg7XawsbzXa47o8i5qGraIPAmqQz9TW53i1DNdI/mbLxO
+	 IZuUjBFXvfwpG3h0baArjNRuTO3c3JzqMWTIlHJfVN4ZuB/nkUdoeeH2xEBHLePv+q
+	 SoqNQxjU3gqNFGNU5Hdu+6fbwwbgOU1M4ynM4/KuZmX1b5q5/Klf9D0Sc2UEZWl8CT
+	 9AXtiXRxWeN67jRTeFt8TEmOVLhQ27m4SpTaGDW4K9vJVSE1y+N/+a/EQvCYP+frTl
+	 BVv+gXQ3w+xxg==
+Date: Thu, 27 Jun 2024 00:02:02 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Andreas Schwab <schwab@suse.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] riscv: uaccess: use input constraints for ptr of
+ __put_user
+Message-ID: <Znw7engdDiMldJp2@xhacker>
+References: <20240625040500.1788-1-jszhang@kernel.org>
+ <20240625040500.1788-3-jszhang@kernel.org>
+ <mvmikxvonjh.fsf@suse.de>
+ <ZnwTwnSsnZ8Td9GZ@xhacker>
+ <dcf9574a-0f1b-4131-befd-39f47d4f9002@app.fastmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/10] dt-bindings: riscv: Add pointer masking ISA
- extensions
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>,
- kasan-dev@googlegroups.com, Atish Patra <atishp@atishpatra.org>,
- Evgenii Stepanov <eugenis@google.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Rob Herring <robh+dt@kernel.org>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20240625210933.1620802-1-samuel.holland@sifive.com>
- <20240625210933.1620802-2-samuel.holland@sifive.com>
- <20240626-refined-cadmium-d850b9e15230@spud>
-Content-Language: en-US
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20240626-refined-cadmium-d850b9e15230@spud>
+Content-Disposition: inline
+In-Reply-To: <dcf9574a-0f1b-4131-befd-39f47d4f9002@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240626_091430_786346_F75CC813 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20240626_091611_913946_805702DB 
+X-CRM114-Status: GOOD (  36.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,75 +80,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On 2024-06-26 11:01 AM, Conor Dooley wrote:
-> On Tue, Jun 25, 2024 at 02:09:12PM -0700, Samuel Holland wrote:
->> The RISC-V Pointer Masking specification defines three extensions:
->> Smmpm, Smnpm, and Ssnpm. Document the behavior of these extensions as
->> following the current draft of the specification, which is 1.0.0-rc2.
+On Wed, Jun 26, 2024 at 04:25:26PM +0200, Arnd Bergmann wrote:
+> On Wed, Jun 26, 2024, at 15:12, Jisheng Zhang wrote:
+> > On Wed, Jun 26, 2024 at 03:12:50PM +0200, Andreas Schwab wrote:
+> >> On Jun 25 2024, Jisheng Zhang wrote:
+> >> 
+> >> > I believe the output constraints "=m" is not necessary, because
+> >> > the instruction itself is "write", we don't need the compiler
+> >> > to "write" for us.
+> >> 
+> >> No, this is backwards.  Being an output operand means that the *asm* is
+> >> writing to it, and the compiler can read the value from there afterwards
+> >> (and the previous value is dead before the asm).
+> >
+> > Hi Andreas,
+> >
+> > I compared tens of __put_user() caller's generated code between orig
+> > version and patched version, they are the same. Sure maybe this is
+> > not enough. 
+> >
+> > But your explanation can be applied to x86 and arm64 __put_user()
+> > implementations, asm is also writing, then why there's no output
+> > constraints there?(see the other two emails)? Could you please help
+> > me to understand the tricky points?
 > 
-> You say draft, but the actual extension has already completed public
-> review, right?
+> I think part of the reason for the specific way the x86
+> user access is written is to work around bugs in old
+> compiler versions, as well as to take advantage of the
+> complex addressing modes in x86 assembler, see this bit
+> that dates back to the earliest version of the x86_64
+> codebase and is still left in place:
+> 
+> /* FIXME: this hack is definitely wrong -AK */
+> struct __large_struct { unsigned long buf[100]; };
+> #define __m(x) (*(struct __large_struct __user *)(x))
+> 
+> Using the memory input constraint means that x86 can use
+> a load from a pointer plus offset, but riscv doesn't
+> actually do this. The __large_struct I think was needed
+> either to prevent the compiler from reading the data
+> outside of the assembly, or to tell the compiler about
+> the fact that there is an actual memory access if
+> __put_user() was pointed at kernel memory.
 
-Correct. The spec is frozen, and public review is complete. Here's the tracking
-ticket for details: https://jira.riscv.org/browse/RVS-1111
+Thank you so much, Arnd!
 
-I use the word draft because it is still an -rc version, but I can reword this
-if you prefer.
+> 
+> If you just copy from the arm64 version that uses an
+> "r"(address) constraint instead of the "m"(*address)
 
-Regards,
-Samuel
+"m" version is better than "r", usually can save one
+instruction.
+I will try to combine other constraints with "r" to
+see whether we can still generate the sd with offset
+instruction. If can't, seems sticking with "m" and keeping
+output constraints is better
 
->> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
->> ---
->>
->> Changes in v2:
->>  - Update pointer masking specification version reference
->>
->>  .../devicetree/bindings/riscv/extensions.yaml  | 18 ++++++++++++++++++
->>  1 file changed, 18 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
->> index cfed80ad5540..b6aeedc53676 100644
->> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
->> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
->> @@ -128,6 +128,18 @@ properties:
->>              changes to interrupts as frozen at commit ccbddab ("Merge pull
->>              request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
->>  
->> +        - const: smmpm
->> +          description: |
->> +            The standard Smmpm extension for M-mode pointer masking as defined
->> +            at commit 654a5c4a7725 ("Update PDF and version number.") of
->> +            riscv-j-extension.
->> +
->> +        - const: smnpm
->> +          description: |
->> +            The standard Smnpm extension for next-mode pointer masking as defined
->> +            at commit 654a5c4a7725 ("Update PDF and version number.") of
->> +            riscv-j-extension.
->> +
->>          - const: smstateen
->>            description: |
->>              The standard Smstateen extension for controlling access to CSRs
->> @@ -147,6 +159,12 @@ properties:
->>              and mode-based filtering as ratified at commit 01d1df0 ("Add ability
->>              to manually trigger workflow. (#2)") of riscv-count-overflow.
->>  
->> +        - const: ssnpm
->> +          description: |
->> +            The standard Ssnpm extension for next-mode pointer masking as defined
->> +            at commit 654a5c4a7725 ("Update PDF and version number.") of
->> +            riscv-j-extension.
->> +
->>          - const: sstc
->>            description: |
->>              The standard Sstc supervisor-level extension for time compare as
->> -- 
->> 2.44.1
->>
+> version, it should be fine for any user space access.
 
+You only mention "user space access", so just curious, does
+arm64 version still correctly work with below __put_kernel_nofault()
+example?
+
+> 
+> The output constraint is technically still be needed
+> if we have code like this one where we actually write to
+> something in kernel space:
+> 
+> int f(void)
+> {
+>      int a = 1;
+>      int b = 2;
+>      __put_kernel_nofault(&a, &b, int, error);
+>      return a;
+> error:
+>      return -EFAULT;
+> }
+> 
+> In this case, __put_kernel_nofault() writes the value
+> of b into a, but the compiler can safely assume that
+> a is not changed by the assembly because there is no
+> memory output, and would likely just return a constant '1'. 
+> 
+> For put_user(), this cannot happen because the compiler
+> doesn't know anything about the contents of the __user
+> pointer. For __put_kernel_nofault(), we rely on the
+> callers never using it on pointers they access, which
+> is probably a reasonable assumption, but not entirely
+> correct.
+> 
+>      Arnd
+
+Well explained! Thanks a lot.
 
 _______________________________________________
 linux-riscv mailing list
