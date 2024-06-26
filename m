@@ -4,88 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E315DC27C4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 13:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A814C27C4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 13:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uis6O1YUmsNDbiJWdtQKLs3pE9ahCfslXI1nzHJkCn0=; b=HP363Cc6uO8prj
-	yqLvEcTqpKALrcJystAnhSIEqP32cZfpQ7htn+DfjoBH/93xYQTSpkj1KAa0P0xGB0vgzgnuXmrtk
-	y2oRDi+1cyDRdRnbLFVAu61l0RQyQL+Q9/qihLrl52cn1gX0rUnEUTw7lWc/Aa1dHTJDipQi8nz/M
-	8bz5NrSJixlaZpSXQmL+F2z918o0tD0OaxUNIbl2NW02KPY00JeteU+HCUBMK6Hzdh3Wcpnx7v5YR
-	nWXM+kPyXWOv3oumrysF5ppkyWSnrrcoOKgtdXrCs//xibqAkokqdeQ9XDioBEI+goGomrqS/21wN
-	9CIV8u54GPcHsq7OxLqw==;
+	List-Owner; bh=QBjcVA6BS1/Pbjb8BHPPISR7hOxaqaa6zds+89MMBNU=; b=GpeBl8jOY7YJYW
+	1auXdXUFIhBh98e4Nzv9mF0a+xN/kQ5zCe+r9HzoJKdWkaRuun6u2N04bdw3/iaGbqTThpa8u7pZR
+	Y6HVh95Da6dUgp0mzX7x6LtDpJxGeqlL8S+dkYClGsZWRM6db+jiZ2WZv3b5kgcypUaCoOqgaeqhT
+	6KarNSOgaY3DIqXiN2wf/TETIemKoKxmKmTY2wyinLaTCMlZEqDNHibHZOtmpIx0ANP/fC7jxz2Yn
+	hndqsWIKwrLxotT/jGBN1XVpvD9+AzJXWS6Dz7ppayZcSngPo6rbpKUIKmK2+4XwS5Y94qHwgTLaw
+	puvL2pqjMuZxEj1zgAGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMSjt-00000006yEo-2vv0;
-	Wed, 26 Jun 2024 13:31:09 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1sMSlf-00000006ymM-09fq;
+	Wed, 26 Jun 2024 13:32:59 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMSjp-00000006yDd-35Zd
+	id 1sMSlZ-00000006yiQ-2o37
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jun 2024 13:31:07 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7955c585af0so360075385a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Jun 2024 06:31:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1719408664; x=1720013464; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=31CtUhxAl/Gr01Cj/jne/zVewsAXqFP8hO2/EQIAniM=;
-        b=MNEe+COhS2ocbIJbrQytYHRhajCvfAOc4u5izAF+UoA5l3+lpAwlCgdCISPs6tiWw5
-         vABtsEeM1VqTD9c7G299St2JbR0knObyNKYihVDSdfRBUVwxowvJhyfQHB3GikYKgpHM
-         bgCvwanNHMD3uBHD2hgl6Yglrcq4xpVeY/6+wbALHtsUvosuUwzxBc9OMiIT6zAGRCif
-         fuUi/StFofUtfXAABdZloDyQ/aZUpdqGgWS/XF7ocX2aBPKSLgQ5ymK70iExAgRXw/Hj
-         B2USyghozaaZ1m4WcP7xyu96VtEAC3/JUTPfwNMXKSBpLqNDthH30qd5H0g05KBgI+6B
-         bz4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719408664; x=1720013464;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=31CtUhxAl/Gr01Cj/jne/zVewsAXqFP8hO2/EQIAniM=;
-        b=ewjIwUGRyXVr8K7X+Daz4zygEVn4vb7VSuENt0zlRTGSBYA+dL/+V1P1abN+n0LJra
-         X1DXJxqPA1IvFOFNl1pnfIKLE4lPX8FXO5ylS0QZTsFo0lY1FS/l8NpMcUBty6pW/SlE
-         0VWLXQ9DBJ+OsSKe/O/n69mJpC21X+h+ReqzkFPOwhXdBtqJFc4AwxTnv8QCgZDX+fzM
-         Lt584bS2VZGqkECe24QbkpTPBfIhm4yDYJrferzOYG/E01W72A4ra/8JkP8nnFxpNSPd
-         f3Y4G9b1YDAw89ZliCHfmggXSwV+tImyAF8lpj9m8XvhzcaaF/RgbHv9gHN/bl6XjVVg
-         +vyg==
-X-Forwarded-Encrypted: i=1; AJvYcCUV6mPLvwa+Ti4ABV6fTCJcS2QK+1UTV7qWcmy4K+Lw5+2FDfE01Pz1L66pNA+khWnPza4LQlrza+l0IRFOvJEbOtX9S/D6OObTFUVf0vn6
-X-Gm-Message-State: AOJu0YxRufCi5VgNQ6toMNed2K6V12tj2tzh/LzXQEQIShlyp7tZZpza
-	a0Ac/+WmdAk5tYDsJaRS7H/Bn8DesUY74/QIpPn/pn/zh0oByk67cc9DFCUgCg4=
-X-Google-Smtp-Source: AGHT+IFgp9Jeg188P/jxp6SHl3VB59LvoFKORF1/KDDSv5eD1wGOmlU336p5Rxs4YfGjVL1AtWV2gg==
-X-Received: by 2002:a05:620a:44c2:b0:795:5440:f872 with SMTP id af79cd13be357-79be6d4fea3mr1104570685a.28.1719408664408;
-        Wed, 26 Jun 2024 06:31:04 -0700 (PDT)
-Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-79bce89a369sm502329085a.20.2024.06.26.06.31.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Jun 2024 06:31:04 -0700 (PDT)
-Message-ID: <50c85e1a-c2ea-4c9f-b91b-97040665c40e@sifive.com>
-Date: Wed, 26 Jun 2024 08:31:01 -0500
+	Wed, 26 Jun 2024 13:32:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id E6CA1CE21B8;
+	Wed, 26 Jun 2024 13:32:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AA85C2BD10;
+	Wed, 26 Jun 2024 13:32:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1719408760;
+	bh=BpC4jkRO/Y4dva9jy2LNSSoyaFURbYQjZeqc2cVtz0E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f4fRYrbwf1JT5YZst1PiAi4aFzq22Q10NLheMwylJUhz8LLva7P4Bpi+kywhJYXEt
+	 RNLKDvyL1TZTvSIsQLImQo1uEkeHfZHbiLKYXYL1BcZ/phfTW2Wa/cPeJG/qI2BwSM
+	 UtDfChLs+W09T/UjLqPD2xIZamMQy8JNF5c2szq9PfN433dsIGAOOsrulb+GPIPhmW
+	 gseBbYOQ2uFIGizssSl38u7UCrGhVKB7Bd1FEGA/mC3j/bFwcJEho0QaXYIy3AGVKu
+	 nf6Sna6aiAlnUZm6Si+We7A3BbVPN5ThytXCD0+2v+QtCbdRrRzyowKZp3igLB2lJJ
+	 p6tgEk9LWOI/Q==
+Date: Wed, 26 Jun 2024 21:18:34 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] riscv: uaccess: use input constraints for ptr of
+ __put_user
+Message-ID: <ZnwVKs3vI9Zrtvb-@xhacker>
+References: <20240625040500.1788-1-jszhang@kernel.org>
+ <20240625040500.1788-3-jszhang@kernel.org>
+ <acd2e53f-b5c1-49c5-86e2-bc09eb917163@app.fastmail.com>
+ <ZnwKXWzRz9B5FbLM@xhacker>
+ <ZnwObmA70Bfx9yCn@xhacker>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/3] Assorted fixes in RISC-V PMU driver
-To: Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org,
- kvm-riscv@lists.infradead.org
-Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Andrew Jones <ajones@ventanamicro.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Palmer Dabbelt <palmer@rivosinc.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- kvm@vger.kernel.org, garthlei@pku.edu.cn
-References: <20240626-misc_perf_fixes-v3-0-de3f8ed88dab@rivosinc.com>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-In-Reply-To: <20240626-misc_perf_fixes-v3-0-de3f8ed88dab@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <ZnwObmA70Bfx9yCn@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240626_063105_829534_9BA14CD8 
-X-CRM114-Status: GOOD (  22.67  )
+X-CRM114-CacheID: sfid-20240626_063254_561701_5FCF1529 
+X-CRM114-Status: GOOD (  42.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,149 +79,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
+On Wed, Jun 26, 2024 at 08:49:59PM +0800, Jisheng Zhang wrote:
+> On Wed, Jun 26, 2024 at 08:32:38PM +0800, Jisheng Zhang wrote:
+> > On Tue, Jun 25, 2024 at 07:54:30AM +0200, Arnd Bergmann wrote:
+> > > On Tue, Jun 25, 2024, at 06:04, Jisheng Zhang wrote:
+> > > > I believe the output constraints "=m" is not necessary, because
+> > > > the instruction itself is "write", we don't need the compiler
+> > > > to "write" for us. So tell compiler we read from memory instead
+> > > > of writing.
+> > > >
+> > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > 
+> > > I think this is a bit too confusing: clearly there is no
+> > > read access from the __user pointer, so what you add in here
+> > > is not correct. There also needs to be a code comment about
+> > 
+> > Here is my understanding: the __put_user is implemented with
+> > sd(or its less wider variant, sw etc.), w/o considering the
+> > ex_table, the previous code can be simplified as below:
+> > 
+> > __asm__ __volatile__ (
+> > 	"sw	%z2, %1\n"
+> > 	: "+r" (err), "=m" (*(ptr))
+> > 	: "rJ" (__x));
+> > 
+> > Here ptr is really an input, just tells gcc where to store,
+> > And the "store" action is from the "sw" instruction, I don't
+> > need the gcc generates "store" instruction for me. so IMHO,
+> > there's no need to use output constraints here. so I changed
+> > it to
+> > 
+> > __asm__ __volatile__ (
+> > 	"sw	%z1, %2\n"
+> > 	: "+r" (err)
+> > 	: "rJ" (__x), "m"(*(ptr)));
+> > 
+> > The key here: is this correct?
+> > 
+> > 
+> > Here is the put_user piece code and comments from x86
+> > 
+> > /*
+> >  * Tell gcc we read from memory instead of writing: this is because
+> >  * we do not write to any memory gcc knows about, so there are no
+> >  * aliasing issues.
+> >  */
+> > #define __put_user_goto(x, addr, itype, ltype, label)                   \
+> >         asm goto("\n"                                                   \
+> >                 "1:     mov"itype" %0,%1\n"                             \
+> >                 _ASM_EXTABLE_UA(1b, %l2)                                \
+> >                 : : ltype(x), "m" (__m(addr))                           \
+> >                 : : label)
+> 
+> Here is the simplified put_user piece code of arm64:
+> 
+> #define __put_mem_asm(store, reg, x, addr, err, type)                   \
+>         asm volatile(                                                   \
+>         "1:     " store "       " reg "1, [%2]\n"                       \
+>         "2:\n"                                                          \
+>         _ASM_EXTABLE_##type##ACCESS_ERR(1b, 2b, %w0)                    \
+>         : "+r" (err)                                                    \
+>         : "rZ" (x), "r" (addr))
+> 
+> no output constraints either. It just uses "r" input constraints to tell
 
-On 2024-06-26 2:23 AM, Atish Patra wrote:
-> This series contains 3 fixes out of which the first one is a new fix
-> for invalid event data reported in lkml[2]. The last two are v3 of Samuel's
-> patch[1]. I added the RB/TB/Fixes tag and moved 1 unrelated change
-> to its own patch. I also changed a error message in kvm vcpu_pmu from
-> pr_err to pr_debug to avoid redundant failure error messages generated
-> due to the boot time quering of events implemented in the patch[1]
+make it accurate: by this I mean the "addr" of __put_user() isn't
+in the output constraints.
 
-Thanks for picking this up! The change in patch 2 isn't quite unrelated.
-pmu_sbi_check_std_events() depends on pmu_sbi_stop_all() to ensure all counters
-are free at the beginning of the function. Compare v1 of the patch where the
-function contains an additional call to SBI_EXT_PMU_COUNTER_STOP. With the
-current patch ordering, everything works out, so it all looks good to me.
-
-Regards,
-Samuel
-
-> Here is the original cover letter for the patch[1]
+> gcc to read the store address into one proper GP reg.
 > 
-> Before this patch:
-> $ perf list hw
-> 
-> List of pre-defined events (to be used in -e or -M):
-> 
->   branch-instructions OR branches                    [Hardware event]
->   branch-misses                                      [Hardware event]
->   bus-cycles                                         [Hardware event]
->   cache-misses                                       [Hardware event]
->   cache-references                                   [Hardware event]
->   cpu-cycles OR cycles                               [Hardware event]
->   instructions                                       [Hardware event]
->   ref-cycles                                         [Hardware event]
->   stalled-cycles-backend OR idle-cycles-backend      [Hardware event]
->   stalled-cycles-frontend OR idle-cycles-frontend    [Hardware event]
-> 
-> $ perf stat -ddd true
-> 
->  Performance counter stats for 'true':
-> 
->               4.36 msec task-clock                       #    0.744 CPUs utilized
->                  1      context-switches                 #  229.325 /sec
->                  0      cpu-migrations                   #    0.000 /sec
->                 38      page-faults                      #    8.714 K/sec
->          4,375,694      cycles                           #    1.003 GHz                         (60.64%)
->            728,945      instructions                     #    0.17  insn per cycle
->             79,199      branches                         #   18.162 M/sec
->             17,709      branch-misses                    #   22.36% of all branches
->            181,734      L1-dcache-loads                  #   41.676 M/sec
->              5,547      L1-dcache-load-misses            #    3.05% of all L1-dcache accesses
->      <not counted>      LLC-loads                                                               (0.00%)
->      <not counted>      LLC-load-misses                                                         (0.00%)
->      <not counted>      L1-icache-loads                                                         (0.00%)
->      <not counted>      L1-icache-load-misses                                                   (0.00%)
->      <not counted>      dTLB-loads                                                              (0.00%)
->      <not counted>      dTLB-load-misses                                                        (0.00%)
->      <not counted>      iTLB-loads                                                              (0.00%)
->      <not counted>      iTLB-load-misses                                                        (0.00%)
->      <not counted>      L1-dcache-prefetches                                                    (0.00%)
->      <not counted>      L1-dcache-prefetch-misses                                               (0.00%)
-> 
->        0.005860375 seconds time elapsed
-> 
->        0.000000000 seconds user
->        0.010383000 seconds sys
-> 
-> After this patch:
-> $ perf list hw
-> 
-> List of pre-defined events (to be used in -e or -M):
-> 
->   branch-instructions OR branches                    [Hardware event]
->   branch-misses                                      [Hardware event]
->   cache-misses                                       [Hardware event]
->   cache-references                                   [Hardware event]
->   cpu-cycles OR cycles                               [Hardware event]
->   instructions                                       [Hardware event]
-> 
-> $ perf stat -ddd true
-> 
->  Performance counter stats for 'true':
-> 
->               5.16 msec task-clock                       #    0.848 CPUs utilized
->                  1      context-switches                 #  193.817 /sec
->                  0      cpu-migrations                   #    0.000 /sec
->                 37      page-faults                      #    7.171 K/sec
->          5,183,625      cycles                           #    1.005 GHz
->            961,696      instructions                     #    0.19  insn per cycle
->             85,853      branches                         #   16.640 M/sec
->             20,462      branch-misses                    #   23.83% of all branches
->            243,545      L1-dcache-loads                  #   47.203 M/sec
->              5,974      L1-dcache-load-misses            #    2.45% of all L1-dcache accesses
->    <not supported>      LLC-loads
->    <not supported>      LLC-load-misses
->    <not supported>      L1-icache-loads
->    <not supported>      L1-icache-load-misses
->    <not supported>      dTLB-loads
->             19,619      dTLB-load-misses
->    <not supported>      iTLB-loads
->              6,831      iTLB-load-misses
->    <not supported>      L1-dcache-prefetches
->    <not supported>      L1-dcache-prefetch-misses
-> 
->        0.006085625 seconds time elapsed
-> 
->        0.000000000 seconds user
->        0.013022000 seconds sys
-> 
-> Changes in v3:
->  - Added one more fix
->  - Separated an unrelated change to its own patch.
->  - Rebase and Added RB/TB/Fixes tag.
->  - Changed a error message in kvm code to avoid unnecessary failures
->    at guest booting.
-> Changes in v2:
->  - Move the event checking to a workqueue to make it asynchronous
->  - Add more details to the commit message based on the v1 discussion
-> 
-> [1] https://lore.kernel.org/linux-riscv/20240418014652.1143466-1-samuel.holland@sifive.com/
-> [2] https://lore.kernel.org/all/CC51D53B-846C-4D81-86FC-FBF969D0A0D6@pku.edu.cn/
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
-> Atish Patra (1):
->       drivers/perf: riscv: Do not update the event data if uptodate
-> 
-> Samuel Holland (2):
->       drivers/perf: riscv: Reset the counter to hpmevent mapping while starting cpus
->       perf: RISC-V: Check standard event availability
-> 
->  arch/riscv/kvm/vcpu_pmu.c    |  2 +-
->  drivers/perf/riscv_pmu.c     |  2 +-
->  drivers/perf/riscv_pmu_sbi.c | 44 +++++++++++++++++++++++++++++++++++++++++---
->  3 files changed, 43 insertions(+), 5 deletions(-)
-> ---
-> base-commit: 55027e689933ba2e64f3d245fb1ff185b3e7fc81
-> change-id: 20240625-misc_perf_fixes-5c57f555d828
-> --
-> Regards,
-> Atish patra
-> 
-
+> > 
+> > 
+> > As can be seen, x86 also doesn't put the (addr) in output constraints,
+> > I think x86 version did similar modification in history, but when I tried
+> > to searh the git history, the comment is there from the git first day.
+> > 
+> > Any hint or suggestion is appreciated!
+> > 
+> > > why you do it this way, as it's not clear that this is
+> > > a workaround for old compilers without
+> > > CONFIG_CC_HAS_ASM_GOTO_OUTPUT.
+> > > 
+> > > > index 09d4ca37522c..84b084e388a7 100644
+> > > > --- a/arch/riscv/include/asm/uaccess.h
+> > > > +++ b/arch/riscv/include/asm/uaccess.h
+> > > > @@ -186,11 +186,11 @@ do {								\
+> > > >  	__typeof__(*(ptr)) __x = x;				\
+> > > >  	__asm__ __volatile__ (					\
+> > > >  		"1:\n"						\
+> > > > -		"	" insn " %z2, %1\n"			\
+> > > > +		"	" insn " %z1, %2\n"			\
+> > > >  		"2:\n"						\
+> > > >  		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %0)		\
+> > > > -		: "+r" (err), "=m" (*(ptr))			\
+> > > > -		: "rJ" (__x));					\
+> > > > +		: "+r" (err)			\
+> > > > +		: "rJ" (__x), "m"(*(ptr)));					\
+> > > >  } while (0)
+> > > > 
+> > > 
+> > > I suspect this could just be a "r" constraint instead of
+> > > "m", treating the __user pointer as a plain integer.
+> > 
+> > I tried "r", the generated code is not as good as "m"
+> > 
+> > for example
+> > __put_user(0x12, &frame->uc.uc_flags);
+> > 
+> > with "m", the generated code will be
+> > 
+> > ...
+> > csrs    sstatus,a5
+> > li      a4,18
+> > sd      a4,128(s1)
+> > csrc    sstatus,a5
+> > ...
+> > 
+> > 
+> > with "r", the generated code will be
+> > 
+> > ...
+> > csrs    sstatus,a5
+> > li      a4,18
+> > addi    s1,s1,128
+> > sd      a4,0(s1)
+> > csrc    sstatus,a5
+> > ...
+> > 
+> > As can be seen, "m" can make use of the 'offset' of
+> > sd, so save one instruction.
+> > 
+> > > 
+> > > For kernel pointers, using "m" and "=m" constraints
+> > > correctly is necessary since gcc will often access the
+> > > same data from C code as well. For __user pointers, we
+> > > can probably get away without it since no C code is
+> > > ever allowed to just dereference them. If you do that,
+> > > you may want to have the same thing in the __get_user
+> > > side.
+> > > 
+> > >       Arnd
 
 _______________________________________________
 linux-riscv mailing list
