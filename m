@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A9DC27C4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 17:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F66C3064D
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 17:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Kbn1y8Z8bpwJK9IZAnyvS+tu/PdBVjhChVSR5HDZh0o=; b=g+naGKCCuonpgV
-	iJvtaSYeIfOWoOxc4302l/vvZEyzb5etivQSihhGgUCMuXF0i+lvpFpJJHz3ugc09d1qrUKhiZFn8
-	I3ikiKNQLEkFgVR7foNRA+ZvG483e4X9cPLuwYPsYnodhhchHRXVteZhh7HNEY0w23jUThz6yzgV9
-	DmO2SqQso1YrWyd8wCAjEulMIEvIUsqS6TqJYR/N8FG6JzYpaBS6STzkTOcpnbjkwA8pBLNkyywsa
-	3aG6F7ktiKbQGgarRN/W5i8bWePCv6chvkJwFOU5kYfkpsbEgJBYVOH1P+LT4+VrQDCtExdfcPqhM
-	wOdeCrcXeAEVeogmgZ0A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=j3KAu5yuCH6TYgvyZu9l1KYxhUrjlYqVCCn3czikbL0=; b=GHceb/UXW1QAIL
+	xOIoJQrBU86+eDaZQu2EdG47yORzDtIVYxe04Ibld4bE8l8a3NerFcdJNpQBdezoDakFxv2bX+ScH
+	Ka256SMSS368eQaWyXZKrpg5jx6NTbLkmD6Ch0QfvqDAbYvsmswgcwMS389wdmLF/V6z7O9fQsBfH
+	i0ZWvLzEh00xnmKYSeoIR+T50LASmvv0HoKs9nH0sBkiDUuark3M0aSe6+Y/lN20VYkbA2Yj4o/ba
+	K0ziCoTUb9SCLSF6isTtlpTdVYLOj0hYXleY+AHbjGypyNT6SZv0tOXyW4CgIy37t4tOkIn5JkGCA
+	gheuLeeSkIzFeMmapjEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMWGe-00000007jKH-1S4E;
-	Wed, 26 Jun 2024 17:17:12 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1sMWGo-00000007jMk-10ut;
+	Wed, 26 Jun 2024 17:17:22 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMWGc-00000007jJp-01Vx
+	id 1sMWGl-00000007jLA-3220
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jun 2024 17:17:11 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-713fa1aea36so3453789a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Jun 2024 10:17:08 -0700 (PDT)
+	Wed, 26 Jun 2024 17:17:21 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-681bc7f50d0so671719a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Jun 2024 10:17:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719422228; x=1720027028; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=sfc+bItioWOLi2TuWFqieQ4WdP0MPgrB+J5zxVf671w=;
-        b=1d0JvubzGSVr/NOiBrLHIzzmlQPS8GYiCQMq/cUhYr/NsAhD3QL2DJ7/iNztji4ywf
-         EEH8drHgRbtgdYyKVKM8bgjcH6VkOW8wExsa92Bx3TUTkEq6+iqiDI/yEJALxao9skke
-         KjOneVhnXwQBovqu/fXTNAyWYQuYJSH3gWiyAHOFMIUg5Yn/c9qjLBjSKZm/2PQblO5t
-         t98YkbGJ6QcJG/zYtMwH8rR8mMkBz93p/PCs3DXgAUf3wCRhkuLkaqyFl3cgM6Efp8Bf
-         l1RIGahACbQHNuch64j2TXsiAYJb7PcHw9Qj+jfDYbgctgeAoT8ac0M2Mbh5f2usfwlV
-         5ztA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719422239; x=1720027039; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2+lAD5jtfoEc4FrM9h7co7KfTqJwWQk8uXEwNnDDNnA=;
+        b=cd6lpDYh9z026hTum4tdF9OIah+0OxNe4kHhBN4h2LdlHQiwMc1MCZkLA4bYjA5rnR
+         3xjmJYRyhVPFDizowGSgIdL7RSq2f7xwLjf3ykDln65iCer/mePQoHT+nunRKvc84pdX
+         K6RbVCAlBH7kjh1osjKQ1DSSTuwnSRiOMCkCg2lGuINmYCFHRpCmlyVu+/UmN2XbqjQh
+         b+BZPWwlRaeVJCc2dpaCUd3C3QgfSWRFaJ3x3VXNOK89ivdiJu2tceEI5kQxGEbbBEPt
+         AymxqyUJ6eP3wamIQDIRfW/fzhi2PSHz06+m4Ny7MGJbzz0PvShhSx2WKrkQBcXECWsl
+         kTMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719422228; x=1720027028;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sfc+bItioWOLi2TuWFqieQ4WdP0MPgrB+J5zxVf671w=;
-        b=srmY3RCUEy4QqZot9vmjLtda1rmXp5XVF4hGKYM9cymbiFja6vaBaRyLyowT97u6o0
-         alsoowQhI2Y7SxUsHxsmdmRsvEn0AWYVlmP7GZdPtcofOQgT9CCqKIocej/x9rJMt1qg
-         kUDwNuuRO2Hw+jXpLlZgjoMrX4yw5QbfrgzNM3bIE5nbUsoDf8pWKOqJoo0qF1/ZwSN7
-         bk/5hyeLugWlK2zE6mTyHUlw3E+SsEAmLjNEaEnRiJpLsateD3ifyn3S8gWUEmf8gAcO
-         W7G20C9RjXwO7HcAmBORrTr27bYpE1OV/HDoRD+VAeam7hn8RGAPx21bQKXosYifsvAG
-         6rrg==
-X-Gm-Message-State: AOJu0YzbktEI8m9o6QKCbnp40Zxmv+Bc4ECMOvorugCi+I/qHrUeESs2
-	KgQLFtZeO3ftA0BppwYBP/P9NPdC4Zm3VTt/JEfrvgu9U9XvAUcLd5Z5KFiGazGTSFRhtTlFUxp
-	c
-X-Google-Smtp-Source: AGHT+IFRRYAJqPRgI7bs8MXpEZG6vyONCJH7c7jAbKBR0F7SXl7y1eqCXlLYI6Wy4OsF9R8wyxyQng==
-X-Received: by 2002:a17:90b:b0b:b0:2c8:53be:fa21 with SMTP id 98e67ed59e1d1-2c853befb16mr11452942a91.34.1719422227952;
-        Wed, 26 Jun 2024 10:17:07 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1719422239; x=1720027039;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2+lAD5jtfoEc4FrM9h7co7KfTqJwWQk8uXEwNnDDNnA=;
+        b=suU+G84RA/OqbgP3MKFPxMEl3+XGLJX5KnxeBF34eYEOUEuecCQWdo2omfA6y1q46C
+         ixiUDUXpALF7ohi4Q6J6hsaXyu46rJ+9oA8GatyBvylFkWYo0mqoWLttqeUA3TBoxEyg
+         YEbiYpimJ54hgexqxmFr41PasVoCaG7qiHF6hrsdcZJIaRmcaoVDgm8QfED+nUE9uPgw
+         MT3rHDlNZDprkcPu6Hv92igyn2DlT5LrvwOiKFzqiG/Yir1UIjuwbaolKGG1hGedi5lw
+         02Aaua21YBKE4weX1ZO1+qCgsgxDEY8s1thn5IwqQSAJxQ+7RWsXE5ZvnQ0ciVYcuygI
+         xCXw==
+X-Gm-Message-State: AOJu0Yy8IGwRQbS7Wgp6+duwDADJMDFXGHoiahfAjsaaSJdbcH9DYi4q
+	nKIKjQfeRcJ381vn8b5Ucb1ifQBFyYM/JPFMvDR2aHGRErZl0AzTGhQgTtWnPEU3q35d13RZYyP
+	W
+X-Google-Smtp-Source: AGHT+IGG7s6Oe33J/XmHTMtV5FMqVvWxCk+2M3wpvCrsMnzNwrLwsfiUejeLhxTVumdEvPHZXZpSuQ==
+X-Received: by 2002:a17:90a:4094:b0:2c8:2236:e2c3 with SMTP id 98e67ed59e1d1-2c848a4399bmr15456635a91.17.1719422238599;
+        Wed, 26 Jun 2024 10:17:18 -0700 (PDT)
 Received: from jesse-desktop.. (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2c8f3b5ad36sm83217a91.26.2024.06.26.10.16.57
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2c8f3b5ad36sm83217a91.26.2024.06.26.10.17.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Jun 2024 10:17:07 -0700 (PDT)
+        Wed, 26 Jun 2024 10:17:18 -0700 (PDT)
 From: Jesse Taube <jesse@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 Cc: Ard Biesheuvel <ardb@kernel.org>,
@@ -86,15 +87,16 @@ Cc: Ard Biesheuvel <ardb@kernel.org>,
 	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v2 1/3] RISC-V: pi: Force hidden visibility for all symbol references
-Date: Wed, 26 Jun 2024 13:16:50 -0400
-Message-ID: <20240626171652.366415-1-jesse@rivosinc.com>
+Subject: [PATCH v2 2/3] RISC-V: pi: Add kernel/pi/pi.h
+Date: Wed, 26 Jun 2024 13:16:51 -0400
+Message-ID: <20240626171652.366415-2-jesse@rivosinc.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20240626171652.366415-1-jesse@rivosinc.com>
+References: <20240626171652.366415-1-jesse@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240626_101710_090254_BB0EA3FB 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240626_101719_784786_E37CEC75 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,31 +113,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Eliminate all GOT entries in the .pi section, by forcing hidden
-visibility for all symbol references, which informs the compiler that
-such references will be resolved at link time without the need for
-allocating GOT entries.
-
-Include linux/hidden.h in Makefile, like arm64, for the
-hidden visibility attribute.
+Add pi.h header for declarations of the kernel/pi prefixed functions
+and any other related declarations.
 
 Signed-off-by: Jesse Taube <jesse@rivosinc.com>
 ---
- arch/riscv/kernel/pi/Makefile | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/kernel/pi/cmdline_early.c | 10 ++--------
+ arch/riscv/kernel/pi/fdt_early.c     |  7 +------
+ arch/riscv/kernel/pi/pi.h            | 17 +++++++++++++++++
+ 3 files changed, 20 insertions(+), 14 deletions(-)
+ create mode 100644 arch/riscv/kernel/pi/pi.h
 
-diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
-index 50bc5ef7dd2f..1ef7584be0c3 100644
---- a/arch/riscv/kernel/pi/Makefile
-+++ b/arch/riscv/kernel/pi/Makefile
-@@ -5,6 +5,7 @@ KBUILD_CFLAGS	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) -fpie \
- 		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK_PLUGIN) \
- 		   $(call cc-option,-mbranch-protection=none) \
- 		   -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
-+		   -include $(srctree)/include/linux/hidden.h \
- 		   -D__DISABLE_EXPORTS -ffreestanding \
- 		   -fno-asynchronous-unwind-tables -fno-unwind-tables \
- 		   $(call cc-option,-fno-addrsig)
+diff --git a/arch/riscv/kernel/pi/cmdline_early.c b/arch/riscv/kernel/pi/cmdline_early.c
+index f6d4dedffb84..fbcdc9e4e143 100644
+--- a/arch/riscv/kernel/pi/cmdline_early.c
++++ b/arch/riscv/kernel/pi/cmdline_early.c
+@@ -6,15 +6,9 @@
+ #include <asm/pgtable.h>
+ #include <asm/setup.h>
+ 
+-static char early_cmdline[COMMAND_LINE_SIZE];
++#include "pi.h"
+ 
+-/*
+- * Declare the functions that are exported (but prefixed) here so that LLVM
+- * does not complain it lacks the 'static' keyword (which, if added, makes
+- * LLVM complain because the function is actually unused in this file).
+- */
+-u64 set_satp_mode_from_cmdline(uintptr_t dtb_pa);
+-bool set_nokaslr_from_cmdline(uintptr_t dtb_pa);
++static char early_cmdline[COMMAND_LINE_SIZE];
+ 
+ static char *get_early_cmdline(uintptr_t dtb_pa)
+ {
+diff --git a/arch/riscv/kernel/pi/fdt_early.c b/arch/riscv/kernel/pi/fdt_early.c
+index 899610e042ab..40ee299702bf 100644
+--- a/arch/riscv/kernel/pi/fdt_early.c
++++ b/arch/riscv/kernel/pi/fdt_early.c
+@@ -3,12 +3,7 @@
+ #include <linux/init.h>
+ #include <linux/libfdt.h>
+ 
+-/*
+- * Declare the functions that are exported (but prefixed) here so that LLVM
+- * does not complain it lacks the 'static' keyword (which, if added, makes
+- * LLVM complain because the function is actually unused in this file).
+- */
+-u64 get_kaslr_seed(uintptr_t dtb_pa);
++#include "pi.h"
+ 
+ u64 get_kaslr_seed(uintptr_t dtb_pa)
+ {
+diff --git a/arch/riscv/kernel/pi/pi.h b/arch/riscv/kernel/pi/pi.h
+new file mode 100644
+index 000000000000..65da99466baf
+--- /dev/null
++++ b/arch/riscv/kernel/pi/pi.h
+@@ -0,0 +1,17 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _RISCV_PI_H_
++#define _RISCV_PI_H_
++
++#include <linux/types.h>
++
++/*
++ * The folowing functions are exported (but prefixed) declare them here so
++ * that LLVM does not complain it lacks the 'static' keyword (which, if
++ * added, makes LLVM complain because the function is unused).
++ */
++
++u64 get_kaslr_seed(uintptr_t dtb_pa);
++bool set_nokaslr_from_cmdline(uintptr_t dtb_pa);
++u64 set_satp_mode_from_cmdline(uintptr_t dtb_pa);
++
++#endif /* _RISCV_PI_H_ */
 -- 
 2.45.2
 
