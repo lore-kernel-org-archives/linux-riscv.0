@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07382C3064D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1480DC41513
 	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jun 2024 07:24:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=24kkdLlviqd6Q9EIhjeJSJxllAJgCmwLUEKBgSv7gUg=; b=VWREkssduUz8jV
-	pBOoz/vKGPdwFzWXhxtVjZ4w3nXVVFqSGelDglUuQQW9qTD+9D0PJD+WpEwuCS+bxDZohBPCOyg32
-	Fe7AMDPTmY+VkGEdId0XLTgzl7UjWsaJ+xONTjiPL8WnjH8oY9ITC33tidt28d7Ud9GSW2bNJwlO5
-	HlZ9HGKejz8N1sBQzzR9jB1uvZhRCyDCHQGq9V0aA+bR/iF8Ue0VDX5KmZT8s7eJC4+vXX3F0RSUJ
-	Iae2EAqH0oHchHckMwg5VUwcp60ej8C2tyJlwEQugFQSY3AMSFBJR6TzS8iURuVSirr0/QonM8vKd
-	/OwQCLzRy2S/FQ/PQwHQ==;
+	List-Owner; bh=mB9nUpf9jrQgnWYHwYh6l98kyrCpvU0+WVX9hzDLmcM=; b=agbKJ5gF8Pn8pP
+	UZr2swa0t0NQTPhVCl1DbkyRMzSctTtQksZoJbsXTW3nSZpnvkjRjlJhyN1Ng2ptdXuNmZK1EHQPL
+	1w2AHY5LmV+fwRL1gz2EfyWHq2A+cAgi2pPojzZS3Ez6x5tgpo5lBWgZPt6UaE/SV4JlcjtYzpx6W
+	gA6xYCPbD2ZBAFiGxXH1gy7m4/srmEwfmhjdVqBS4zG4TxT+CWXYRapG3nFNJDa66ReUgBBP8R4kJ
+	+LXxH/rfi2X/05Ih8J6+iqIikbAs/2g3zE1FbXg7GVYuuS2HzJf6THkWVQpnnicxvvNVoOO/putI9
+	uoijAo4xah/58Ash8hxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMN17-00000005ic9-0IeR;
-	Wed, 26 Jun 2024 07:24:33 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1sMN18-00000005idW-2mhi;
+	Wed, 26 Jun 2024 07:24:34 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMN0s-00000005iUo-2hac
+	id 1sMN0u-00000005iWD-30QL
 	for linux-riscv@lists.infradead.org;
 	Wed, 26 Jun 2024 07:24:22 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-706683e5249so3130264b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Jun 2024 00:24:18 -0700 (PDT)
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-70679845d69so2425700b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Jun 2024 00:24:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719386657; x=1719991457; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719386659; x=1719991459; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8anUdf9RYagj+8dVpBIC/eX2xYMTPOXrNSg/TEplCt8=;
-        b=Nnx+9rPZ4vToOcxPwqdKlqBM6Q0TfJeRMNJTc880EwG5HnAEqQ8VlrVyvSD4Axi9EE
-         iNn+iot7iE9LrGcEKBkC1IHxVehxd814sQ8xuVWBdBI9PYUbliPw9o2IWq/VYYor9zGX
-         yLOAneFKkCOH+hHiaTF2nsyHUybPYgAn+EOz/Viz912ZwQKox0skooTyh26yppb3knEm
-         XIFHcxJPEOLQkz5QJMSam0Li/Y6PWDFW658wb+YrE5GtxCfnfyvIc3igwrKMtLXpemFh
-         XVFd2YgKeaxTBHAj7GZwQxczFkLnRgqSK7vhlRf7lzNFvZNt98x45u2WmskUUeS9yJdU
-         ETrA==
+        bh=njNBT7xpsrpGcVD9LgzuKuD8VWJ85LTW2hNYGRcpIO8=;
+        b=RzaGhjaKYrZbVTzTVhUNxnkrKMTYo8CLtjljAiO5ni9VqpDdf/0ofGxHy/CuCuS2Gu
+         vGqWNKyn8Q5p45Wr97mVwsgbhPWmY83Re5bAoEtFcDdHmbxutMXPlglInC9Nbwmod+Q8
+         hCUeZGe3VnXKCPSxZXrlQ6dHOjtV33mxN7pGooHknC/UAQ4kP+lfkzCn3T2Pgo20/Hgq
+         lYGrP2SqvH4mHLf17YX3tE0Fejdu9RnOf4Hc7ocONmkCcfM0q/7zpGpwyFaH5BDl2bDK
+         v64r3OEb3zj0Yx0JFkgCRgue5sQd5+OUmLF0gcksXdZ+Z/ceUAxNP9JfPd4RxktwWQx/
+         9fHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719386657; x=1719991457;
+        d=1e100.net; s=20230601; t=1719386659; x=1719991459;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8anUdf9RYagj+8dVpBIC/eX2xYMTPOXrNSg/TEplCt8=;
-        b=uR+2s2rJKroPqDRS8Ri/b/BMru0WSTSf/zQY68AjwY3NAMkSB9e/zWFYhYlMxmqkx4
-         0BgvQeqK9McotM1LtjdeWd0SZFydp3rE8V79qZGphia0K9NULZfFWIhCP4Ny/0zznPKF
-         V2eMGMenHlsNxTRhC0JUNzIFZblR5Qdg+mxRTtBXj1eLPMqTN5pPX8V7qo3og+lF/Ymq
-         vwwWo7v5TfeWlES+1B4UREYgZyPpACb+Fqr+UxRZMN+KcErawHDiY5PNrloC74ci64Q9
-         Rsbd5SK17BxeVabUP5rdWjkYvwy0GTqHGKY4GUJiN7AQ3gYsP+wS54edV3bpkfjR2C66
-         N44w==
-X-Gm-Message-State: AOJu0YzyzRMgy8oGErs72JlJ7HNsKdZ7NumNQw+xd4k0IEConvgJdklb
-	67SlicaFoI0YDnn2GlrRNqTj/pyOrMUoNLqSq6g0wyfrtT94DJYdFNRImILtnzs=
-X-Google-Smtp-Source: AGHT+IG/ltx0PscjisU5QEngpWeqUQrsUK17QM5DEDcSKzn36CUqRKBVIIjNHW6RZ5CQaoW0qeXI4Q==
-X-Received: by 2002:a05:6a00:bf0:b0:705:9aac:ffb8 with SMTP id d2e1a72fcca58-70674582b1bmr8915411b3a.9.1719386657496;
-        Wed, 26 Jun 2024 00:24:17 -0700 (PDT)
+        bh=njNBT7xpsrpGcVD9LgzuKuD8VWJ85LTW2hNYGRcpIO8=;
+        b=cZjwc0d317X0DGJeHfuY3aaODBGGAQqPaC3vk2+kwtMoAPwrxKiRtZbpsqaXOv+s2Y
+         Jj4ewGha0oZyXwTFmikyoUwsxssVuB3cyg1iN/MAU0973D2qk/85D2KxhWBZcSswLPiG
+         O4IOVeJh15/R3k/cu1eUQHy0XIsQB3lwkEnLSoSGPoZzIlGjzX72YJ6dLOppChVrEG/h
+         4u83AXnV57F8gXcQU8FUxMW0BThI6lVlxUBKvcbL2cEkL4RlOhG2D1T0um44+s5nXEW3
+         ivu4Ws85NO2p0XZo9o++fAGZ8I16KUDsdQJISYqQ9zzHoHnbwkMOKBTB+dY/FuKnDE6n
+         v3kg==
+X-Gm-Message-State: AOJu0YzIc8PBA83FXgLAnTmiepAQFM7zOECdlDv0dDrq2kKiDOsotXuo
+	VaSvVnuZh2PRMd+jIC+33DJQiM/XzAGHQkNeqrWVvGoILz4LSiIvRxx+HAcpzNE=
+X-Google-Smtp-Source: AGHT+IFjsQF5e7oc0NKST2xoCih6SJziqYjY4xf7uMtfC2cP8xPNNQr3F5oh1Cg01FunjCN8iViJ7Q==
+X-Received: by 2002:aa7:8ecb:0:b0:706:57ce:f042 with SMTP id d2e1a72fcca58-7067455bfd2mr9223061b3a.7.1719386659342;
+        Wed, 26 Jun 2024 00:24:19 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-706984a721csm2692218b3a.37.2024.06.26.00.24.15
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-706984a721csm2692218b3a.37.2024.06.26.00.24.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Jun 2024 00:24:17 -0700 (PDT)
+        Wed, 26 Jun 2024 00:24:18 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
-Date: Wed, 26 Jun 2024 00:23:01 -0700
-Subject: [PATCH v3 1/3] drivers/perf: riscv: Do not update the event data
- if uptodate
+Date: Wed, 26 Jun 2024 00:23:02 -0700
+Subject: [PATCH v3 2/3] drivers/perf: riscv: Reset the counter to hpmevent
+ mapping while starting cpus
 MIME-Version: 1.0
-Message-Id: <20240626-misc_perf_fixes-v3-1-de3f8ed88dab@rivosinc.com>
+Message-Id: <20240626-misc_perf_fixes-v3-2-de3f8ed88dab@rivosinc.com>
 References: <20240626-misc_perf_fixes-v3-0-de3f8ed88dab@rivosinc.com>
 In-Reply-To: <20240626-misc_perf_fixes-v3-0-de3f8ed88dab@rivosinc.com>
 To: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org
@@ -80,11 +80,11 @@ Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
  Palmer Dabbelt <palmer@rivosinc.com>, 
  Alexandre Ghiti <alexghiti@rivosinc.com>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kvm@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, garthlei@pku.edu.cn
+ kvm@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
 X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240626_002418_891645_8090C896 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20240626_002420_974242_3904D55F 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +101,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In case of an counter overflow, the event data may get corrupted
-if called from an external overflow handler. This happens because
-we can't update the counter without starting it when SBI PMU
-extension is in use. However, the prev_count has been already
-updated at the first pass while the counter value is still the
-old one.
+From: Samuel Holland <samuel.holland@sifive.com>
 
-The solution is simple where we don't need to update it again
-if it is already updated which can be detected using hwc state.
+Currently, we stop all the counters while a new cpu is brought online.
+However, the hpmevent to counter mappings are not reset. The firmware may
+have some stale encoding in their mapping structure which may lead to
+undesirable results. We have not encountered such scenario though.
 
-Fixes: a8625217a054 ("drivers/perf: riscv: Implement SBI PMU snapshot function")
-
-Reported-by: garthlei@pku.edu.cn
-Closes:https://lore.kernel.org/all/CC51D53B-846C-4D81-86FC-FBF969D0A0D6@pku.edu.cn/
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- drivers/perf/riscv_pmu.c | 2 +-
+ drivers/perf/riscv_pmu_sbi.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-index 78c490e0505a..0a02e85a8951 100644
---- a/drivers/perf/riscv_pmu.c
-+++ b/drivers/perf/riscv_pmu.c
-@@ -167,7 +167,7 @@ u64 riscv_pmu_event_update(struct perf_event *event)
- 	unsigned long cmask;
- 	u64 oldval, delta;
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index a2e4005e1fd0..94bc369a3454 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -762,7 +762,7 @@ static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
+ 	 * which may include counters that are not enabled yet.
+ 	 */
+ 	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
+-		  0, pmu->cmask, 0, 0, 0, 0);
++		  0, pmu->cmask, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
+ }
  
--	if (!rvpmu->ctr_read)
-+	if (!rvpmu->ctr_read || (hwc->state & PERF_HES_UPTODATE))
- 		return 0;
- 
- 	cmask = riscv_pmu_ctr_get_width_mask(event);
+ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
 
 -- 
 2.34.1
