@@ -4,34 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8A3C3064D
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 15:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF316C2BD09
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 15:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CY4ZSX7HttaLXKRKDZ0nfbmHpxsYn51AvCO1E6UXql0=; b=peWrPpDNACa6x6
-	Tg3IoU6IHGm5etYkUtUO55VDqXGMpkPK+7ZiIzX7vrRWMbOsdUzW5QwjP7MjYt+SjRvJQOAc1p/Ha
-	V0V49YggmsrCiIeslDd5qgGHhk3TBKAms3mdnDPj+oYHhooT8uLgcveiqYH5LgNpb1+4DePFyCTp7
-	EgZVSOtycki4YBDmvfX2mytyAdQ5sYTrL4gdtPy4D2W8k/LZMU4mj4w7KO2DpCdMIqvm/sr0JI5fg
-	GsPstzjWrApIs8P2cvNn5Z6g/QcQqDP3S9XaPqJneYgDScoSJyoYaitatT/49oJ/iI9evACgjrh8K
-	M/g7g3kRdAif42Vnb6qg==;
+	List-Owner; bh=KEpIQg5KBSVQiNNvXey4u3kz/3gQKLXqQRfMz1TCMjc=; b=grUGEtbufsjoPq
+	Se2HJ588IyF73l2npUzuOatMikUBn91JsGvZ7xI43Bfdqyn+pylbzOZTF4bhaWTIiTwIeFBdRLwJ/
+	eMsIErP4jJyo04EtIf0wS0Sppu7+hD3clXVuOXOiQroJp9fbrDS9+LsqmuivtktzGbt04ilype5eb
+	dZBGYIT+IFklCH5wY2eZjJcKvIqYZoMrRqWj2HyaZIQa1+WyzneAZCeWreIt3uyT6gliHIGSmK61W
+	FlCQzkf9Ced4qmjnnznNgAsQ1zVHb7/NiKuNvWgbtOyi6wfxxsmIrN9y4kjRzCgY71269VXP88EIR
+	3DM9GCtQq3+8ccAgcPrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMr7J-0000000Asf2-0JIZ;
-	Thu, 27 Jun 2024 15:32:57 +0000
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1sMr7P-0000000Ashe-0iAD;
+	Thu, 27 Jun 2024 15:33:03 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMr7F-0000000Asd0-0bKV
+	id 1sMr7M-0000000AsgK-0Mcx
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jun 2024 15:32:54 +0000
+	Thu, 27 Jun 2024 15:33:01 +0000
 From: Yixun Lan <dlan@gentoo.org>
-Date: Thu, 27 Jun 2024 15:31:18 +0000
-Subject: [PATCH v2 04/10] dt-bindings: timer: Add SpacemiT K1 CLINT
+Date: Thu, 27 Jun 2024 15:31:19 +0000
+Subject: [PATCH v2 05/10] dt-bindings: interrupt-controller: Add SpacemiT
+ K1 PLIC
 MIME-Version: 1.0
-Message-Id: <20240627-k1-01-basic-dt-v2-4-cc06c7555f07@gentoo.org>
+Message-Id: <20240627-k1-01-basic-dt-v2-5-cc06c7555f07@gentoo.org>
 References: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
 In-Reply-To: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -50,26 +51,26 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Meng Zhang <zhangmeng.kevin@spacemit.com>, Yangyu Chen <cyy@cyyself.name>, 
  Yixun Lan <dlan@gentoo.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=974; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=jlJAxtgKZpcQOsCvH4z2K1QJ+1Ic6ECnm70OutsapPk=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBmfYXpKAR/bCQvjdy9lSXYBFTh1lzfuFwG3ENLm
- sU1PZ2NnVGJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZn2F6V8UgAAAAAAuAChp
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1319; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=Sd2cefvtLvue4VbNU8TlhgwBKtDTSAfC6Dit7xBpOS8=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBmfYXtHABiNrlEMZ8H8PALGClDGbpzYcf5kjII5
+ gjtZqMg91GJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZn2F7V8UgAAAAAAuAChp
  c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277RIbD/0Ypzru6itSvvzThA
- fWnHbEAURPxmubhKUNVrGutgsOcGFV0xKw8OnXD10MizThQVF7Q5oGNR98sxYvaZW9EpGTDJBr/
- uBoLaZCeRoRxQykUGlvr73BGDwxEkcwbPWcF/nbncR06D1OMCohfmFRIESVb/K+a2bRtbLkZGPn
- vXljDi9wqbyAD8BkzM4chLs0BhntIGF2SzUJjddJ1fQm+Z5c4nUqECALKbNKVoko4jkF1Ih8z9v
- WDEswiKS8J0oLHbf1U8w2ZoLYgO66BejC2/RhxwHI2MNAhWex+n2MHAi0GCbX1FHAOU39uotMtD
- YPLB3fzd/lpdA9D+hypeEaQWf7hM41+qHrMYwaJtbK45nMzlHSPkmNA4LGHVc4+HGNcydwRK4+g
- SbC4e3e9Pihj3ZqtKGu1WWs6Qme7g1QM7y0k0hAlfIxl8dk1oFcpmVQkZoajzHHAZI9aEsPVoPQ
- szwRMfWh7e02hhbp+R8BjKivsq1Fm9JmYGZnRRnBoogsZRqdQiSdMVdmfsdSqZJtWVEk0ixexfg
- Q6YoaeiVnGNKQykAANUgx4gaqhVKRrLGJkVq3OlTPRgN0jB2WPyBd7nGcJLWYHkNhioLz53vbjW
- kPZA00kuCTmPa6s5B0BlYO/x5oHSfGOXNIyQAVRBm8V/5iG7IeLEUZf+gTa8NvUyHxeA==
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277cTRD/wL9cUA+WtRnqxAtx
+ pPkcr0X7+bD8Vm/RB6GWmre4+/fQQjJvnxmwXjgIdPdMZmbY6ZmvXZxX93QiuOp2prCvNZkn7T8
+ nZaDWvscXO0pjnGTWOeDpIWx0PZA5ZEkgBP5NW/PL9TVPvFydVF8kQ52Y4Xpm/sp3mEvNWhg7id
+ uaXN+sdt7FTL57nEpx79gqWh1N951Mn7q7YsV/Y+f0pOdhrO/AJCnqU60+z6eYyiTbRWA8weq58
+ 1hduSuS3p6I6RxhjL1WSW1NPkhGhOQyUQhw/5ZbfCdfA2BBfHv4txaXerbZu1qev1E8fiyHMqN0
+ aR5iGUUaNhhNJEAeiRmhmIIBtBBvVBuQHpbD+Z8T49ljE76LPsg+BwSyPLgoI94zLuyOLdTXtV/
+ uoyYgFTRXvCXo2WxTtXEHDEssgbLdlpZOszXc+lLcvwb2nc0jeuFYUe9cH+3pYg6fwRRsn7fSrt
+ pKKIDtgUe0BG3y4BYINqUziWdt72MWRJZoRszv9ozTmA3wBnS8Szeg3IxgO9dXRH4YS6RL8I32T
+ KRh90JCOmJakUjp7KFf+pKACEPjyWiHEEw3BK5NHUgqLkDe4lrdlfXWy/45rTYarHbjaP8ThlY1
+ p7ymVah3Qz5a27uqqA7h0ysWeGcq2ysI8NpsIfDBEvA5nmLX/r08zQDpg6xVtfVjE8hg==
 X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240627_083253_250787_58E41E26 
-X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-CacheID: sfid-20240627_083300_190874_31BA1F26 
+X-CRM114-Status: UNSURE (   8.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,26 +90,37 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Yangyu Chen <cyy@cyyself.name>
 
-Add compatible string for SpacemiT K1 CLINT.
+Add compatible string for SpacemiT K1 PLIC.
 
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
- Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ .../devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml  | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index fced6f2d8ecbb..c2e68587a806a 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -31,6 +31,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index 709b2211276bd..3d0426b569042 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+@@ -59,6 +59,7 @@ properties:
            - enum:
-               - canaan,k210-clint       # Canaan Kendryte K210
-               - sifive,fu540-c000-clint # SiFive FU540
-+              - spacemit,k1-clint       # SpacemiT K1
-               - starfive,jh7100-clint   # StarFive JH7100
-               - starfive,jh7110-clint   # StarFive JH7110
-               - starfive,jh8100-clint   # StarFive JH8100
+               - canaan,k210-plic
+               - sifive,fu540-c000-plic
++              - spacemit,k1-plic
+               - starfive,jh7100-plic
+               - starfive,jh7110-plic
+           - const: sifive,plic-1.0.0
+@@ -71,7 +72,9 @@ properties:
+               - thead,th1520-plic
+           - const: thead,c900-plic
+       - items:
+-          - const: sifive,plic-1.0.0
++          - enum:
++              - sifive,plic-1.0.0
++              - spacemit,k1-plic
+           - const: riscv,plic0
+         deprecated: true
+         description: For the QEMU virt machine only
 
 -- 
 2.45.2
