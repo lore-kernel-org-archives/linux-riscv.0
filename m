@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60719C2BD09
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 11:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE34C3064D
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 11:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MH8ljmSuOmPCz6+FrdXmUqWPJw36nAD7EZOlvHv8YDo=; b=wy4hxMEH8NoTd/z1Gbp8kAZtfD
-	W01wQj0K6BKW1YHQ7NuknJwAs7T+ZdUUfhJy+3QrIusHKJKC+muvsl+ApQOidC5NguIf8L8iqXZvk
-	nJX7W0F/SHJ7q47EIWMYz3b5n1kkUDvGzmgg16Yn7l/0q+z+OiP7IM4QHxRQkgKPt+lzIzZ1YqdLN
-	igaPC9YBgyYE6+eBtAKWvwd3jRAgajIvSi1PkXv1q0hTH+7p0GFY74Ln8HltOiVu9AeJDN2qHRd31
-	ZlIfTLmjsj6HwMdNNfuCzQmA3Q0sw2PWc/YPJyIYjkseMQwVj4OCNMFHPDH4xkwuhFJgCEvRmQ0Zv
-	5x9RFRqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iCv0oGGm4uYIfB/fS/6dGoXpvQZeYhH3DkTOYW7FJJU=; b=bIYqRaegvYYBRg
+	sgzp+e82BZVvpxO3kV9Zn0lYLVwXN9YfyrqheFxIMJoXJdetargW++2wR+Hd6p0H8aNAFSrPAiUqb
+	noyPzwFDWUOceLAd2jC5zdVAbpDvO7r/z6ta67eZeXgrpWemK2IOiFn0cUYeoD0SxRdwtisPr8OYk
+	G8gRH5u7Kg0jIEsfcuAXsPzVNS+2gedMrIvdwinBmu9evhbbPV1ABs0uqeD58ewFy7nDxG8Own9d6
+	BBCAP9UqHkApS/DAkaRWTRyE3VbuJu6ZSBvvwhPIQ9UL8y2/Eg1X3p2EWXke1G4upaEP25v/FV/pv
+	GRbAT0sHEX6VHYLHdwdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMnaM-0000000ACrd-3gzH;
-	Thu, 27 Jun 2024 11:46:42 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1sMnhV-0000000AE4H-3JP5;
+	Thu, 27 Jun 2024 11:54:06 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMnaJ-0000000ACr4-18sD
+	id 1sMnh0-0000000ADyv-2fxc
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jun 2024 11:46:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1719488799; x=1751024799;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SzFrq0TILRDjzQBuO6AJ7xTCKlWy20Ur3k+v2OyMFhY=;
-  b=nfhQuxTCBlh20eXluX9zx/EobYnmVBnFwqSR3jkT4HBDc3/TWOsLviL3
-   WvmMXhBuEYJp0HYQf37+gq5UrSEBC8g7At0nCQR9Bcf9ViZjEV8VUPItp
-   N07R/o104WrP93SIWp+qQn3zK9LWMCQyz5G0uBS3WR88psHsr9qSBWrz+
-   5sCgLhN9roer4SIg3jJNr8iKB4PmgM1a6fWGa7reXrgjG0wUjlbDqoPbK
-   Roo2s9XzM49kM1daZIlsBxRyt+v4jy8j3Hxdx9+FV7XOUGhzQvwnLRInb
-   ncyofjkEthZ6rXkmHBheS1x1qx+tLUMdoCRU1TZVyxhDEvdwT5s+h50R6
-   Q==;
-X-CSE-ConnectionGUID: 7WmYFEtPTdmoTmTpDnD+YQ==
-X-CSE-MsgGUID: 64FhoZUlSbe1YgKQdzsXqQ==
-X-IronPort-AV: E=Sophos;i="6.09,270,1716274800"; 
-   d="asc'?scan'208";a="259450703"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Jun 2024 04:46:37 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 27 Jun 2024 04:46:02 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Thu, 27 Jun 2024 04:45:58 -0700
-Date: Thu, 27 Jun 2024 12:45:42 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jesse Taube <jesse@rivosinc.com>
-CC: <linux-riscv@lists.infradead.org>, Ard Biesheuvel <ardb@kernel.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, Alexandre Ghiti
-	<alexghiti@rivosinc.com>, Masahiro Yamada <masahiroy@kernel.org>, Wende Tan
-	<twd2.me@gmail.com>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, Sami
- Tolvanen <samitolvanen@google.com>, Andrew Morton
-	<akpm@linux-foundation.org>, Baoquan He <bhe@redhat.com>, Chen Jiahao
-	<chenjiahao16@huawei.com>, "Mike Rapoport (IBM)" <rppt@kernel.org>, "Vishal
- Moola (Oracle)" <vishal.moola@gmail.com>, <linux-kernel@vger.kernel.org>,
-	<llvm@lists.linux.dev>
-Subject: Re: [PATCH v2 3/3] RISC-V: Use Zkr to seed KASLR base address
-Message-ID: <20240627-proven-irritably-33594282739f@wendy>
-References: <20240626171652.366415-1-jesse@rivosinc.com>
- <20240626171652.366415-3-jesse@rivosinc.com>
+	Thu, 27 Jun 2024 11:53:57 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-57d1679ee83so1675417a12.2
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Jun 2024 04:53:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1719489213; x=1720094013; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jcNyZGznc5fPRIAycn+yX2TaeomztoG0VIVAkH7fqvg=;
+        b=hizI1/rP07zwslwg3y/5Xow7ZES3uWjw2a+FFETd0BKZT42YJEXg5ig6NR9h6otXD/
+         1QQyXWKW7xmEpPcuY/tf6CmJAf8/DwAbIxarRG2viCFdXvrVMqKr4GFMeYLeXdyT2ML0
+         bGAFF41LVIcNLKsH610y3r/Re3G3eYMIFyuYdoZ7LCMo6km8sIU09TFKBO7Dqh/AE/sW
+         js0tclls74AHhRboH2BvTDonnthLT5h2e8Mol5sYEhKZsMdSJTs7JrCGZz0QkMVc0co+
+         z3tKzjwlSl/25u7KZSacDztYh4m8cfC6pcOTUQR/GSJXrTRs1UnafV/uV04hQwvjYtRj
+         VlIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719489213; x=1720094013;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jcNyZGznc5fPRIAycn+yX2TaeomztoG0VIVAkH7fqvg=;
+        b=RPy3nZUjTLQ2KTTWRjc4t4Umf+5pHDG5TkeTfFiOoRMDwcijfMACams6kmuSadFfR4
+         N3aH7gPjmi8ASRjNPE8+G0uMYhLV6G6yffL7/ciQuMe5X4hQdYVBOrANBA0qC0RHUHBs
+         xlWZvfN3k/8x6aqA26ZBXo4d1XVFnEM0/7kQ+LUG+Xs7rDLvC7veUxDEGDFM7i4KQPG/
+         ILwluwTvLm/49XAOOf0A6/f74pG6pxzMgUPddnOEgvMBWM29TmpguATyNQUZYmOiOUU3
+         eIvDjsxmnavqzD5JYNrbJW2SdZgdiytvZUrZPZrmkgjjUbjomL+lsUCkfaQPgY++ji+X
+         skPw==
+X-Forwarded-Encrypted: i=1; AJvYcCXlOD277mInQg9pgGM8ssa8tXdG/qVIeoMVZ1ueDKi0FUniXG97nWlKhA+SQ3X71fZGE1NY2ghaL1qtE+RCNRnujXs5YpdXsRkJ8o3VnjlL
+X-Gm-Message-State: AOJu0YxDfvTeylbx60uT3CwwdgALg1omtWossQw02luHG0BSJb0fQAXC
+	S8hcdzcSCAO/8FdJlmS0bixFHDo931K4d+iKs7ME4N1yZSn3l6zM
+X-Google-Smtp-Source: AGHT+IGLItRQBo55yU3VI7Wivwhx6v+M1XTrEZj2isMxyFDWUA2A65q19H3IxMSRCHBj2w2WgDoQVA==
+X-Received: by 2002:a17:906:230d:b0:a6f:50ae:e0a with SMTP id a640c23a62f3a-a715f978a7amr818590366b.37.1719489212385;
+        Thu, 27 Jun 2024 04:53:32 -0700 (PDT)
+Received: from andrea ([217.201.220.159])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a729d71f1cfsm52522666b.72.2024.06.27.04.53.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Jun 2024 04:53:31 -0700 (PDT)
+Date: Thu, 27 Jun 2024 13:53:25 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
+	Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org
+Subject: Re: [PATCH v2 03/10] riscv: Implement cmpxchg8/16() using Zabha
+Message-ID: <Zn1StcN3H0r/eHjh@andrea>
+References: <20240626130347.520750-1-alexghiti@rivosinc.com>
+ <20240626130347.520750-4-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240626171652.366415-3-jesse@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20240626130347.520750-4-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240627_044639_502775_F26A20E1 
-X-CRM114-Status: GOOD (  44.09  )
+X-CRM114-CacheID: sfid-20240627_045336_130880_5148A350 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,321 +98,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8656501627563109699=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8656501627563109699==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qEqL5X6qBo6BAuYb"
-Content-Disposition: inline
+> -#define __arch_cmpxchg_masked(sc_sfx, prepend, append, r, p, o, n)	\
+> +#define __arch_cmpxchg_masked(sc_sfx, cas_sfx, prepend, append, r, p, o, n)	\
+>  ({									\
+> +	__label__ no_zacas, zabha, end;					\
+> +									\
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA)) {			\
+> +		asm goto(ALTERNATIVE("j %[no_zacas]", "nop", 0,		\
+> +				     RISCV_ISA_EXT_ZACAS, 1)		\
+> +			 : : : : no_zacas);				\
+> +		asm goto(ALTERNATIVE("nop", "j %[zabha]", 0,		\
+> +				     RISCV_ISA_EXT_ZABHA, 1)		\
+> +			 : : : : zabha);				\
+> +	}								\
+> +									\
+> +no_zacas:;								\
+>  	u32 *__ptr32b = (u32 *)((ulong)(p) & ~0x3);			\
+>  	ulong __s = ((ulong)(p) & (0x4 - sizeof(*p))) * BITS_PER_BYTE;	\
+>  	ulong __mask = GENMASK(((sizeof(*p)) * BITS_PER_BYTE) - 1, 0)	\
+> @@ -133,6 +145,19 @@
+>  		: "memory");						\
+>  									\
+>  	r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
+> +	goto end;							\
+> +									\
+> +zabha:									\
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA)) {			\
+> +		__asm__ __volatile__ (					\
+> +			prepend						\
+> +			"	amocas" cas_sfx " %0, %z2, %1\n"	\
+> +			append						\
+> +			: "+&r" (r), "+A" (*(p))			\
+> +			: "rJ" (n)					\
+> +			: "memory");					\
+> +	}								\
+> +end:;									\
+>  })
 
---qEqL5X6qBo6BAuYb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I admit that I found this all quite difficult to read; IIUC, this is
+missing an IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) check.  How about adding
+such a check under the zabha: label (replacing/in place of the second
+IS_ENABLED(CONFIG_RISCV_ISA_ZABHA) check) and moving the corresponding
+asm goto statement there, perhaps as follows? (on top of this patch)
 
-Hey Jesse,
+Also, the patch presents the first occurrence of RISCV_ISA_EXT_ZABHA;
+perhaps worth moving the hwcap/cpufeature changes from patch #6 here?
 
-On Wed, Jun 26, 2024 at 01:16:52PM -0400, Jesse Taube wrote:
-> Parse the device tree for Zkr in isa string.
-> If Zkr is present, use it to seed the kernel base address.
->=20
-> Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-> ---
->  arch/riscv/kernel/pi/Makefile           |  2 +-
->  arch/riscv/kernel/pi/archrandom_early.c | 30 ++++++++
->  arch/riscv/kernel/pi/fdt_early.c        | 94 +++++++++++++++++++++++++
->  arch/riscv/kernel/pi/pi.h               |  3 +
->  arch/riscv/mm/init.c                    |  5 +-
->  5 files changed, 132 insertions(+), 2 deletions(-)
->  create mode 100644 arch/riscv/kernel/pi/archrandom_early.c
->=20
-> diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
-> index 1ef7584be0c3..dba902f2a538 100644
-> --- a/arch/riscv/kernel/pi/Makefile
-> +++ b/arch/riscv/kernel/pi/Makefile
-> @@ -33,5 +33,5 @@ $(obj)/string.o: $(srctree)/lib/string.c FORCE
->  $(obj)/ctype.o: $(srctree)/lib/ctype.c FORCE
->  	$(call if_changed_rule,cc_o_c)
-> =20
-> -obj-y		:=3D cmdline_early.pi.o fdt_early.pi.o string.pi.o ctype.pi.o lib=
--fdt.pi.o lib-fdt_ro.pi.o
-> +obj-y		:=3D cmdline_early.pi.o fdt_early.pi.o string.pi.o ctype.pi.o lib=
--fdt.pi.o lib-fdt_ro.pi.o archrandom_early.pi.o
->  extra-y		:=3D $(patsubst %.pi.o,%.o,$(obj-y))
-> diff --git a/arch/riscv/kernel/pi/archrandom_early.c b/arch/riscv/kernel/=
-pi/archrandom_early.c
-> new file mode 100644
-> index 000000000000..c6261165e8a6
-> --- /dev/null
-> +++ b/arch/riscv/kernel/pi/archrandom_early.c
-> @@ -0,0 +1,30 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +
-> +#include <asm/csr.h>
-> +#include <linux/processor.h>
-> +
-> +#include "pi.h"
-> +
-> +/*
-> + * To avoid rewriting code include asm/archrandom.h and create macros
-> + * for the functions that won't be included.
-> + */
-> +#undef riscv_has_extension_unlikely
-> +#define riscv_has_extension_likely(...) false
-> +#undef pr_err_once
-> +#define pr_err_once(...)
-> +
-> +#include <asm/archrandom.h>
-> +
-> +u64 get_kaslr_seed_zkr(const uintptr_t dtb_pa)
-> +{
-> +	unsigned long seed =3D 0;
-> +
-> +	if (!early_isa_str((const void *)dtb_pa, "zkr"))
-> +		return 0;
-> +
-> +	if (!csr_seed_long(&seed))
-> +		return 0;
-> +
-> +	return seed;
-> +}
-> diff --git a/arch/riscv/kernel/pi/fdt_early.c b/arch/riscv/kernel/pi/fdt_=
-early.c
-> index 40ee299702bf..ba76197b44d1 100644
-> --- a/arch/riscv/kernel/pi/fdt_early.c
-> +++ b/arch/riscv/kernel/pi/fdt_early.c
-> @@ -23,3 +23,97 @@ u64 get_kaslr_seed(uintptr_t dtb_pa)
->  	*prop =3D 0;
->  	return ret;
->  }
-> +
-> +/* Based off of fdt_stringlist_contains */
-> +static int isa_string_contains(const char *strlist, int listlen, const c=
-har *str)
+  Andrea
 
-The variable names here are needlessly confusing IMO. The function also
-returns a bool, not an int.
-
-> +{
-> +	int len =3D strlen(str);
-> +	const char *p;
-> +
-> +	while (listlen >=3D len) {
-> +		if (strncasecmp(str, strlist, len) =3D=3D 0)
-> +			return 1;
-
-How does this handle searching a devicetree containing "rv64ima_zksed_zkr"
-for the extension zks? Hint: https://godbolt.org/z/YfhTqe54e
-I think this works for fdt_stringlist_contains() because it also
-compares the null chars - which you're not doing so I think this also
-brakes for something like riscv,isa-extensions =3D "rv64ima\0zksed\0zkr"
-while searching for zks.
-
-> +		p =3D memchr(strlist, '_', listlen);
-
-Or how does this handle searching "rv64imafdczkr" for zkr? It's gonna
-run right off the end of the string without finding anything, right?
-
-Handling "riscv,isa" is not trivial, but at least the search for extension
-approach here skips dealing with some of what has to be done in the "real"
-parser with the version numbers...
-
-Maybe we just say screw "riscv,isa", as it's deprecated anyway, and only
-add this new feature for "riscv,isa-extensions" which is far simpler to
-parse and can be done using off-the-shelf fdt functions?
-
-If not, then I think we should use fdt_stringlist_contains verbatim for
-"riscv,isa-extensions" and introduce a custom function for "riscv,isa"
-only.
-
-> +		if (!p)
-> +			p =3D memchr(strlist, '\0', listlen);
-> +		if (!p)
-> +			return 0; /* malformed strlist.. */
-> +		listlen -=3D (p - strlist) + 1;
-> +		strlist =3D p + 1;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/* Based off of fdt_nodename_eq_ */
-
-Why can't we just use fdt_nodename_eq?
-
-> +static int fdt_node_name_eq(const void *fdt, int offset,
-> +			    const char *s)
-> +{
-> +	int olen;
-> +	int len =3D strlen(s);
-> +	const char *p =3D fdt_get_name(fdt, offset, &olen);
-> +
-> +	if (!p || olen < len)
-> +		/* short match */
-> +		return 0;
-> +
-> +	if (memcmp(p, s, len) !=3D 0)
-> +		return 0;
-> +
-> +	if (p[len] =3D=3D '\0')
-> +		return 1;
-> +	else if (!memchr(s, '@', len) && (p[len] =3D=3D '@'))
-> +		return 1;
-> +	else
-> +		return 0;
-> +}
-> +
-> +/*
-> + * Returns true if the extension is in the isa string
-> + * Returns false if the extension is not found
-> + */
-> +static bool get_ext_named(const void *fdt, int node, const char *name)
-
-Could you rename this function please? Having something named "get" that
-returns a bool, and not an "ext_named" is odd - and it'd be self
-explanatory in that case. Maybe it can just be moved into the sole caller
-and isn't needed?
-
-> +{
-> +	const void *prop;
-> +	int len;
-> +
-> +	prop =3D fdt_getprop(fdt, node, "riscv,isa-base", &len);
-> +	if (prop && isa_string_contains(prop, len, name))
-> +		return true;
-
-This shouldn't be here, there'll not be an extension in this property.
-
-> +	prop =3D fdt_getprop(fdt, node, "riscv,isa-extensions", &len);
-> +	if (prop && isa_string_contains(prop, len, name))
-> +		return true;
-> +
-> +	prop =3D fdt_getprop(fdt, node, "riscv,isa", &len);
-> +	if (prop && isa_string_contains(prop, len, name))
-> +		return true;
-> +
-> +	return false;
-> +}
-> +
-> +/*
-> + * Returns true if the extension is in the isa string on all cpus
-
-Shouldn't we only be checking CPUs that are not disabled or reserved,
-rather than all CPUs? To use Zkr for KASLR this is kinda irrelevant
-since really we only care about whether or not the boot CPU has Zkr,
-but in general we only want to consider CPUs that we can actually use.
-For example, if you did this for FPU support with mpfs.dtsi, you'd get
-told that the F/D extensions were not present cos hart 0 doesn't have
-them, even though it's disabled and will not be used by Linux.
-
-> + * Returns false if the extension is not found
-> + */
-> +bool early_isa_str(const void *fdt, const char *ext_name)
-
-Could you try to match the naming of the stuff used outside of pi?
-Maybe early_isa_ext_available()?
-
-Thanks for the update,
-Conor.
-
-> +{
-> +	int node, parent;
-> +	bool ret =3D false;
-> +
-> +	parent =3D fdt_path_offset(fdt, "/cpus");
-> +	if (parent < 0)
-> +		return false;
-> +
-> +	fdt_for_each_subnode(node, fdt, parent) {
-> +		if (!fdt_node_name_eq(fdt, node, "cpu"))
-> +			continue;
-> +
-> +		if (!get_ext_named(fdt, node, ext_name))
-> +			return false;
-> +
-> +		ret =3D true;
-> +	}
-> +
-> +	return ret;
-> +}
-> diff --git a/arch/riscv/kernel/pi/pi.h b/arch/riscv/kernel/pi/pi.h
-> index 65da99466baf..26e7e5f84a30 100644
-> --- a/arch/riscv/kernel/pi/pi.h
-> +++ b/arch/riscv/kernel/pi/pi.h
-> @@ -4,6 +4,8 @@
-> =20
->  #include <linux/types.h>
-> =20
-> +bool early_isa_str(const void *fdt, const char *ext_name);
-> +
->  /*
->   * The folowing functions are exported (but prefixed) declare them here =
-so
->   * that LLVM does not complain it lacks the 'static' keyword (which, if
-> @@ -11,6 +13,7 @@
->   */
-> =20
->  u64 get_kaslr_seed(uintptr_t dtb_pa);
-> +u64 get_kaslr_seed_zkr(const uintptr_t dtb_pa);
->  bool set_nokaslr_from_cmdline(uintptr_t dtb_pa);
->  u64 set_satp_mode_from_cmdline(uintptr_t dtb_pa);
-> =20
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 9940171c79f0..bfb068dc4a64 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -1025,6 +1025,7 @@ static void __init pt_ops_set_late(void)
->  #ifdef CONFIG_RANDOMIZE_BASE
->  extern bool __init __pi_set_nokaslr_from_cmdline(uintptr_t dtb_pa);
->  extern u64 __init __pi_get_kaslr_seed(uintptr_t dtb_pa);
-> +extern u64 __init __pi_get_kaslr_seed_zkr(const uintptr_t dtb_pa);
-> =20
->  static int __init print_nokaslr(char *p)
->  {
-> @@ -1045,10 +1046,12 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> =20
->  #ifdef CONFIG_RANDOMIZE_BASE
->  	if (!__pi_set_nokaslr_from_cmdline(dtb_pa)) {
-> -		u64 kaslr_seed =3D __pi_get_kaslr_seed(dtb_pa);
-> +		u64 kaslr_seed =3D __pi_get_kaslr_seed_zkr(dtb_pa);
->  		u32 kernel_size =3D (uintptr_t)(&_end) - (uintptr_t)(&_start);
->  		u32 nr_pos;
-> =20
-> +		if (kaslr_seed =3D=3D 0)
-> +			kaslr_seed =3D __pi_get_kaslr_seed(dtb_pa);
->  		/*
->  		 * Compute the number of positions available: we are limited
->  		 * by the early page table that only has one PUD and we must
-> --=20
-> 2.45.2
->=20
-
---qEqL5X6qBo6BAuYb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZn1Q5gAKCRB4tDGHoIJi
-0iBVAP0TyL9i1EkBYAZn7jPR7ReYfKTLUdUezvtjJ2hrWWLyNgD8D4R2MvTObyUL
-wirRhv4Tb2aN8Ty7B3OXIijP09EVRAo=
-=oHGR
------END PGP SIGNATURE-----
-
---qEqL5X6qBo6BAuYb--
-
-
---===============8656501627563109699==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index b9a3fdcec919..3c913afec150 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -110,15 +110,12 @@
+ 	__label__ no_zacas, zabha, end;					\
+ 									\
+ 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA)) {			\
+-		asm goto(ALTERNATIVE("j %[no_zacas]", "nop", 0,		\
+-				     RISCV_ISA_EXT_ZACAS, 1)		\
+-			 : : : : no_zacas);				\
+ 		asm goto(ALTERNATIVE("nop", "j %[zabha]", 0,		\
+ 				     RISCV_ISA_EXT_ZABHA, 1)		\
+ 			 : : : : zabha);				\
+ 	}								\
+ 									\
+-no_zacas:;								\
++no_zacas:								\
+ 	u32 *__ptr32b = (u32 *)((ulong)(p) & ~0x3);			\
+ 	ulong __s = ((ulong)(p) & (0x4 - sizeof(*p))) * BITS_PER_BYTE;	\
+ 	ulong __mask = GENMASK(((sizeof(*p)) * BITS_PER_BYTE) - 1, 0)	\
+@@ -148,16 +145,20 @@ no_zacas:;								\
+ 	goto end;							\
+ 									\
+ zabha:									\
+-	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA)) {			\
+-		__asm__ __volatile__ (					\
+-			prepend						\
+-			"	amocas" cas_sfx " %0, %z2, %1\n"	\
+-			append						\
+-			: "+&r" (r), "+A" (*(p))			\
+-			: "rJ" (n)					\
+-			: "memory");					\
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZAZAS)) {			\
++		asm goto(ALTERNATIVE("j %[no_zacas]", "nop", 0,		\
++				     RISCV_ISA_EXT_ZACAS, 1)		\
++			 : : : : no_zacas);				\
+ 	}								\
+-end:;									\
++									\
++	__asm__ __volatile__ (						\
++		prepend							\
++		"	amocas" cas_sfx " %0, %z2, %1\n"		\
++		append							\
++		: "+&r" (r), "+A" (*(p))				\
++		: "rJ" (n)						\
++		: "memory");						\
++end:									\
+ })
+ 
+ #define __arch_cmpxchg(lr_sfx, sc_cas_sfx, prepend, append, r, p, co, o, n)	\
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8656501627563109699==--
-
