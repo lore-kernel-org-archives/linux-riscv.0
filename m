@@ -4,54 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BAF9C3064D
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 13:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC1EC3064D
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 13:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=qXu2+CdJkpvFj+zUXLxWZGeAT3pbbbGLELX5XutPNFw=; b=EPx
-	FK4WoZOgR8jOkllRZkR4t5ftclajeMQFP1NSshcZH6OwcluNN6a4avzE0nC9N39DmG+Im8EMWEP4F
-	o+q+nhcKyozXPfLQi4OsmuRBM0sRTqFy7tWBmptv8UoXlI3Yr8iat6KyjV0AlcNjt0Ssy1M/CiJyO
-	d0vLmMn2ip/AazaBueItcD4HXwiFhTvsyH4YZ7u11ZjvJq2b/lqv4bWeNaG2fXOT7RVRg0Tn97Wqi
-	OjEh9aTU/TuAPOKjDsKPyBWlsQwpj/hyhfJp/qAW+TIezwPtHDfT4OkTjK2eY10ua7zdYQIXqFnID
-	wNANBwyNswBph22Nnr6LIEr/RCFpCmA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N2wn7HfFqPOSXiYs/MGqbDqZ6ytmTbbwG4UsT7YcJHI=; b=3URIoyad0hyVBx
+	2hmdgNB/OQQlIZGBfbj6LdmC2O4sKH0PLYoVW2pXRTDJXceDoVPfzTmsac62JI/XVeip5vlM2IIaE
+	Nv7qIaIIMhLX2NqBaAV022hCSTRg370bv9ldNN33370u+O/TeRmG66b9ikQ7T0xG4Vk9PiSMeo5re
+	vHYEp0oBt/GqRV57lIlZDJwyJSO1dhzIYqDDmpnWBVNMSG6k6Y6QC/w2brRoMUkwpvj4zurZS2naU
+	jSR8fLlunNpAl8l56h/DjncaPP2tBS4FfF1bdK+5uVfphaT6Tzds73kCHHlHjgxRB55cXka1nY0LO
+	ie2ik782SibZn0cnyxtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMpUX-0000000AWRR-1pTQ;
-	Thu, 27 Jun 2024 13:48:49 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sMpeM-0000000AY7V-2zR8;
+	Thu, 27 Jun 2024 13:58:58 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMpUT-0000000AWQM-2Etw
+	id 1sMpe6-0000000AY54-48WT
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jun 2024 13:48:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 3DE7DCE2EED
-	for <linux-riscv@lists.infradead.org>; Thu, 27 Jun 2024 13:48:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B001CC2BBFC;
-	Thu, 27 Jun 2024 13:48:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719496121;
-	bh=K2j/+/Sf7zUX1DZVItPygh5PE8I2FDnvrkXpOJeHqzI=;
-	h=Date:From:List-Id:To:Cc:Subject:From;
-	b=RybuiydqPX+IR2mNC8AovTDdp4m1D4t0xQtbER/clx/cLANba45LmfsVrb/GnmGBq
-	 KvggKxbvrVJx+XUW9Ns/Z3EIwSJTxEyX4Gd8uh787Jn6WvLqHrvYEHi+Odh+o76w0s
-	 mlva+kB7Z0orNoVlqarvn8LckuW3HmiESMe1Di5QI0xGRkv3YkokXlgxnpOzeF6qx8
-	 SyWeLfv8GIGm8zaFdldKmxKKy3yN+rzcoyqvIElk0n0HBNGK+RFDDM4znbIVZA03Dr
-	 1sJ+8RSG//2GHdWp5W6XLOMclXs4dKscTB+IdfpNXQIY2xbF5zzbT/t0mcXmCDc2cA
-	 dQ6QAj0d0ocJw==
-Date: Thu, 27 Jun 2024 14:48:38 +0100
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V Devicetree fixes for v6.10-rc5+ attempt 2
-Message-ID: <20240627-wobbly-custody-5df564133088@spud>
+	Thu, 27 Jun 2024 13:58:51 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-57d07464aa9so1838180a12.2
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Jun 2024 06:58:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1719496721; x=1720101521; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Kq5kitpL+DNnXu/D9/hs8Bp0/3waJ/uTRKdNkzKgHOY=;
+        b=VCHUq8ca2MvJY9ytN/rA/MUNHSgaYmYEWeV5ZpBonugyhYsfN5CMLTU8yhCfzXB+z/
+         4wLFlrxQXXOHlPJ1J2k1G7v+6gyH6xVrrAn1yzNdcwa7e16DnTorcnkZIe7karaj5erJ
+         5kVhy+jHK3d9Jq+7UnUtX6bPqjI9in4D1vUC2EHQYSdcqgbtMJvhbHaGGvJmaybiSdvO
+         vI+Aiyf5m2Z4VFVvZBCrKfDgquWKIHsZBuypIoQry+N9t1IRv5MuOK4nfZIP/dqsyifH
+         TxXe6MLXWX/s7PPr0CI+3PvqE5FOitV2W/dpYCEUQUIuM4IB0RQy+nSQVOyJCevTygUB
+         l16Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719496721; x=1720101521;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Kq5kitpL+DNnXu/D9/hs8Bp0/3waJ/uTRKdNkzKgHOY=;
+        b=W1G0wJdtQOikCCQzkMf6OnQrEy7BuchblCtkfS770zcsfXeEGFi7FUYf+/ncteYA4P
+         ajUtHi3IHCUqtqInkty2cCjZo1nvL6FE5mTMbPiE46w20qNNSqERYBZHh7EOnTgOj/cD
+         D3Qz/ggbQ3kuq/sRnkQ5WPaW0pltPhXP8Nd+p746IA7h8sUXwx7kwDpI6ELHY5A3I1To
+         z3LP/cfcG05i1/mvg5rd39n65fBjx7WQz0Z7sh1ver5fo51dkfmVWBaL+QGs8fr5Cnil
+         YhBi7s0iSzrD38iIlPQcrVBPNi/qJ3TKabe8CAoZ18WQGkRpnHhi7fq3nJUZFTIMXPC+
+         lUjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVPzN6RyL6RbaKFfp3kqvjYsXke3INsKL2DGY3297e22kZVzeHXYDBohr+qazi1SENbPjvC9KHclOX7mkfZJmlTlE/caAVccLj5C90n7Cg6
+X-Gm-Message-State: AOJu0YwebrjUA9FnAsYCNxSnWdcx2UIVxq9FRMokO5+VJPm3znEGOAdQ
+	SsmXE5TveQBYjnPyotI+dczTRXVnP3dDNq/XtVfb/gCB/2CyoF7e
+X-Google-Smtp-Source: AGHT+IHvyluvD0SP5UIJpy0mzv9Rb/yj78D4vKm/kObn4l7XWRh5tCnb+ua1oj/MkdIB7mBGiA7dTQ==
+X-Received: by 2002:a17:906:48d0:b0:a69:13a2:4f6e with SMTP id a640c23a62f3a-a7245c70519mr687906566b.74.1719496720885;
+        Thu, 27 Jun 2024 06:58:40 -0700 (PDT)
+Received: from andrea ([217.201.220.159])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a729d7c9628sm61491866b.202.2024.06.27.06.58.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Jun 2024 06:58:40 -0700 (PDT)
+Date: Thu, 27 Jun 2024 15:58:36 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
+	Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, Andrea Parri <andrea@rivosinc.com>
+Subject: Re: [PATCH v2 07/10] riscv: Improve amoswap.X use in xchg()
+Message-ID: <Zn1wDAXjBdJu48Oi@andrea>
+References: <20240626130347.520750-1-alexghiti@rivosinc.com>
+ <20240626130347.520750-8-alexghiti@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240626130347.520750-8-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240627_064846_925430_D1DA3B42 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20240627_065845_518655_FFE814CA 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,105 +98,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2628972672049130763=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 26, 2024 at 03:03:44PM +0200, Alexandre Ghiti wrote:
+> xchg() uses amoswap.X instructions from Zabha but still uses
+> the LR/SC acquire/release semantics which require barriers.
+> 
+> Let's improve that by using proper amoswap acquire/release semantics in
+> order to avoid any of those barriers.
+> 
+> Suggested-by: Andrea Parri <andrea@rivosinc.com>
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/cmpxchg.h | 35 +++++++++++++-------------------
+>  1 file changed, 14 insertions(+), 21 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+> index eb35e2d30a97..0e57d5fbf227 100644
+> --- a/arch/riscv/include/asm/cmpxchg.h
+> +++ b/arch/riscv/include/asm/cmpxchg.h
+> @@ -11,8 +11,8 @@
+>  #include <asm/fence.h>
+>  #include <asm/alternative.h>
+>  
+> -#define __arch_xchg_masked(sc_sfx, swap_sfx, prepend, sc_append,	\
+> -			   swap_append, r, p, n)			\
+> +#define __arch_xchg_masked(sc_sfx, swap_sfx, sc_prepend, sc_append,	\
+> +			   r, p, n)					\
+>  ({									\
+>  	__label__ zabha, end;						\
+>  									\
+> @@ -31,7 +31,7 @@
+>  	ulong __rc;							\
+>  									\
+>  	__asm__ __volatile__ (						\
+> -	       prepend							\
+> +	       sc_prepend							\
+>  	       "0:	lr.w %0, %2\n"					\
+>  	       "	and  %1, %0, %z4\n"				\
+>  	       "	or   %1, %1, %z3\n"				\
+> @@ -48,9 +48,7 @@
+>  zabha:									\
+>  	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA)) {			\
+>  		__asm__ __volatile__ (					\
+> -			prepend						\
+>  			"	amoswap" swap_sfx " %0, %z2, %1\n"	\
+> -			swap_append						\
+>  			: "=&r" (r), "+A" (*(p))			\
+>  			: "rJ" (n)					\
+>  			: "memory");					\
+> @@ -58,19 +56,17 @@ zabha:									\
+>  end:;									\
+>  })
+>  
+> -#define __arch_xchg(sfx, prepend, append, r, p, n)			\
+> +#define __arch_xchg(sfx, r, p, n)					\
+>  ({									\
+>  	__asm__ __volatile__ (						\
+> -		prepend							\
+>  		"	amoswap" sfx " %0, %2, %1\n"			\
+> -		append							\
+>  		: "=r" (r), "+A" (*(p))					\
+>  		: "r" (n)						\
+>  		: "memory");						\
+>  })
+>  
+> -#define _arch_xchg(ptr, new, sc_sfx, swap_sfx, prepend,			\
+> -		   sc_append, swap_append)				\
+> +#define _arch_xchg(ptr, new, sc_sfx, swap_sfx,				\
+> +		   sc_prepend, sc_append)				\
+>  ({									\
+>  	__typeof__(ptr) __ptr = (ptr);					\
+>  	__typeof__(*(__ptr)) __new = (new);				\
+> @@ -79,21 +75,19 @@ end:;									\
+>  	switch (sizeof(*__ptr)) {					\
+>  	case 1:								\
+>  		__arch_xchg_masked(sc_sfx, ".b" swap_sfx,		\
+> -				   prepend, sc_append, swap_append,	\
+> +				   sc_prepend, sc_append,		\
+>  				   __ret, __ptr, __new);		\
+>  		break;							\
+>  	case 2:								\
+>  		__arch_xchg_masked(sc_sfx, ".h" swap_sfx,		\
+> -				   prepend, sc_append, swap_append,	\
+> +				   sc_prepend, sc_append,		\
+>  				   __ret, __ptr, __new);		\
+>  		break;							\
+>  	case 4:								\
+> -		__arch_xchg(".w" swap_sfx, prepend, swap_append,	\
+> -			      __ret, __ptr, __new);			\
+> +		__arch_xchg(".w" swap_sfx,  __ret, __ptr, __new);	\
+>  		break;							\
+>  	case 8:								\
+> -		__arch_xchg(".d" swap_sfx, prepend, swap_append,	\
+> -			      __ret, __ptr, __new);			\
+> +		__arch_xchg(".d" swap_sfx,  __ret, __ptr, __new);	\
+>  		break;							\
+>  	default:							\
+>  		BUILD_BUG();						\
+> @@ -102,17 +96,16 @@ end:;									\
+>  })
+>  
+>  #define arch_xchg_relaxed(ptr, x)					\
+> -	_arch_xchg(ptr, x, "", "", "", "", "")
+> +	_arch_xchg(ptr, x, "", "", "", "")
+>  
+>  #define arch_xchg_acquire(ptr, x)					\
+> -	_arch_xchg(ptr, x, "", "", "",					\
+> -		   RISCV_ACQUIRE_BARRIER, RISCV_ACQUIRE_BARRIER)
+> +	_arch_xchg(ptr, x, "", ".aq", "", RISCV_ACQUIRE_BARRIER)
+>  
+>  #define arch_xchg_release(ptr, x)					\
+> -	_arch_xchg(ptr, x, "", "", RISCV_RELEASE_BARRIER, "", "")
+> +	_arch_xchg(ptr, x, "", ".rl", RISCV_RELEASE_BARRIER, "")
+>  
+>  #define arch_xchg(ptr, x)						\
+> -	_arch_xchg(ptr, x, ".rl", ".aqrl", "", RISCV_FULL_BARRIER, "")
+> +	_arch_xchg(ptr, x, ".rl", ".aqrl", "", RISCV_FULL_BARRIER)
 
---===============2628972672049130763==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="sH3ohF1cHr9HQSmN"
-Content-Disposition: inline
+I actually see no reason for this patch, please see also my remarks
+/question on patch #4.
 
-
---sH3ohF1cHr9HQSmN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-Hey Arnd,
-
-Please pull a small set of fixes for the various platforms I'm
-taking care of.
-
-Thanks,
-Conor.
-
-The following changes since commit 1613e604df0cd359cf2a7fbd9be7a0bcfacfabd0:
-
-  Linux 6.10-rc1 (2024-05-26 15:20:12 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-fixes-for-v6.10-rc5+
-
-for you to fetch changes up to e21de658f8e808551c2f9702727442980bdc0ad7:
-
-  MAINTAINERS: thead: update Maintainer (2024-06-20 21:53:01 +0100)
-
-----------------------------------------------------------------
-RISC-V Devicetree fixes for v6.10-rc5+
-
-T-Head:
-Jisheng hasn't got enough time to look after the platform, so Drew
-Fustini is going to take over.
-
-StarFive:
-A fix for a regulator voltage range that prevented using low performance
-SD cards.
-
-Canaan:
-Cleanup for some "over eager" aliases for serial ports that did not
-exist on some boards and I/O devices disabled on boards where they were
-not actually in use.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Geert Uytterhoeven (2):
-      riscv: dts: canaan: Clean up serial aliases
-      riscv: dts: canaan: Disable I/O devices unless used
-
-Jisheng Zhang (1):
-      MAINTAINERS: thead: update Maintainer
-
-Shengyu Qu (1):
-      riscv: dts: starfive: Set EMMC vqmmc maximum voltage to 3.3V on JH7110 boards
-
- MAINTAINERS                                     |  2 +-
- arch/riscv/boot/dts/canaan/canaan_kd233.dts     |  7 ++++++-
- arch/riscv/boot/dts/canaan/k210.dtsi            | 23 ++++++++++++++++-------
- arch/riscv/boot/dts/canaan/k210_generic.dts     |  5 ++++-
- arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts  |  9 ++++++++-
- arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts |  7 ++++++-
- arch/riscv/boot/dts/canaan/sipeed_maix_go.dts   |  9 ++++++++-
- arch/riscv/boot/dts/canaan/sipeed_maixduino.dts | 10 ++++++++--
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi |  2 +-
- 9 files changed, 58 insertions(+), 16 deletions(-)
-
---sH3ohF1cHr9HQSmN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZn1tswAKCRB4tDGHoIJi
-0it2AQDkEwnWXUoHSTgyf8qKJjet3/lFpaQohPHDOjpOqoRzWwD/V3gHDvQP6EXi
-2GWRK8uMsE+ShjWLFUnTkpoGeRaZtA0=
-=rHUT
------END PGP SIGNATURE-----
-
---sH3ohF1cHr9HQSmN--
-
-
---===============2628972672049130763==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+  Andrea
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2628972672049130763==--
-
