@@ -4,106 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D123C2BD09
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 10:35:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59194C3064D
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 10:36:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uJYjyxTAvsf7OawtAYH3k7bOjwBBhRN6sTjQhoI2NoU=; b=BsybUzYh56Q7eI
-	/KunVIQ9MUQWUB+hTSYw+ye81q1GyZRWlQcnPnx1nEOy8FNHguXiacWDb7yDePviko7T+hIH+pnSp
-	BFnX/9fL+Qzg/8Vg1roKvoVgTFQOqhw7x0ahYyl4Ddl9bXT7jEvu7ZB52uveXM3c8tYKdfpNl+dCd
-	ekM4Lux26oxHksY+xEdwYZRU04JmvH8EVwOwoTs6PpnVmUwtsLAlHbDKtNYMtlNwSj2jj41Y/h9aY
-	MAtInlA0uVvJfgT8OvT88QkJn1/MbJbyaSPTVG/tWF2hJFbkEeqiJ4PaNAbOgeTV7+TYkz9pbRmGh
-	VeJaQEuCEc8gLCqjwpig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2JQNbL1bhphBoKPRWEbKyWbMFsUTLELzhijrRIsk/Lo=; b=nGIluUvKgq0Xr8YapMOvFUoeEv
+	LdbkdwCijYaJWx77HVee86vZ2IQJe3GId/h6L5VpDyt2lqGVNunTXjaBssLTRUoyiERGHRd4gRky6
+	KdEEwlSJ2xcsgyy+Tqb4ZKqPVk31XZnsR4sWk5nh0VWDZEw4FYXUKZPlKkSZVRoyy7BifP6Ikk9S8
+	Gw0i6O/azpXR5+UmuPQRYs/DqitQ62RlmgwHXqtVaFyG/xpRGy9BmLmgxnBdq/sP2OssrpqIXkdni
+	IDXUBU0yDAs1y+r6B5Ly0dqUh/t/jtQE8y/3lNKg264QAtyBDLmC1x7v5ar2RK1yQatqekzVgXV37
+	jgCNcdkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMmTH-00000009yLU-0brb;
-	Thu, 27 Jun 2024 10:35:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1sMmUm-00000009z4V-0BIv;
+	Thu, 27 Jun 2024 10:36:52 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMmRG-00000009xQI-3QVr
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 27 Jun 2024 10:33:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:Message-ID:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=fXlkJ4byuNhY1OxdtQQCWbR2oVqHbP/kpXhyEnlbP48=; b=PM77Sqmu2/50Ubr+u8m3TM08+4
-	rFkzIiSzWF54c7AAehnTTQX+sZsvZehoZEiX422jh+wU00KXEQEWe/i9Me1vjGC656ld3MBGTT+4Q
-	gD+KLxYD0FoLEFMwcWu5HhQv/KZgQbTzwLrKebMHTDgXDC1Ya6pBSXL1V0TsX3SHn36VCaH0A3zjO
-	g1Mfkd44FENYepFKvAqsB7LWeK7tvKidJxl+Ly8LIG6zX9AVF3grQs0h8cy6NdSl6QI00uvla8m/h
-	4ael6tuf33gFATlDiA0JoxF6wFxJQUQGoJ6D4SrTMkqZ5AuaUSxT91WHBL/ZKc827H0tHuxXQhl0J
-	Xo5sbojg==;
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMlXe-00000008oG2-2BQt
+	id 1sMmTm-00000009ydV-3oVP
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jun 2024 09:36:13 +0000
-Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-1faad409ca7so2557805ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Jun 2024 02:35:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1719480940; x=1720085740; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fXlkJ4byuNhY1OxdtQQCWbR2oVqHbP/kpXhyEnlbP48=;
-        b=AMzYwj9PPcL18iAdFKMP2sxyKn9mL6irzsmzkz8OshmRti32eJIqfGtsnfiCGtTnBY
-         Fntjqal2Zf7e34vvWT0qWmjEswA2suqC0fZFOxliVpVoaBVDPgQk9l6jRsOtKKSqOmrj
-         98ziKzZO93pyHl4SVPOiwhPMo9ZUAChs0gKeiuIfuFuRyf9Me8wgO2F/8wUw3d8U/ANt
-         DzAn0fNvucYFZHq5ew+AhqkrtQy425K9K5mpkpVdygTsqYpAtiO4fQue1TX4H01yfRtp
-         mxXM/y8CNp1llO3UTZRTmLmws2GAPPzIAiqmAnWN12Wp56h8Tkmbbv6SRYCeVd4QxSua
-         rPeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719480940; x=1720085740;
-        h=content-transfer-encoding:in-reply-to:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fXlkJ4byuNhY1OxdtQQCWbR2oVqHbP/kpXhyEnlbP48=;
-        b=Efg5jlhayZ81MwMR/TU3wTBi/Rrg4IOodSrhfelU3csT8rOAmxIepm44UVyDSc77zX
-         HlxC/QMSNk/9PUzjbE64xI9/UF/5XRKSn3VlxtHrb6htd8Z2q6MgeJIOPGdEfK9MmlHU
-         r16RXXO4KJSvJxVZo7Xq0buGvkStDA8t36Qrb4wBMO9MxVXk8rkC+pAZk4ExMhkX3lNZ
-         anCc145iHhrYLr6ze0Z5TxOgN3Tau7tMheBy/yf0o+8bMXpK/0ECi4FFs7ny6vqh5NQ4
-         9yKo7hEjws93BO0dW316XCimCRqOfTA3NMCTt5Eqd0EBr3zyqraj//c5GOt0TvD+ri1A
-         USjA==
-X-Forwarded-Encrypted: i=1; AJvYcCUs9ZnObJRiYxrAGMy2QIwvFCej9IsY7ODIzM4VpkxvRGWcO+ebXGwICa7RQQAWVRcpHKzjm4F2ivbBbInC1MFbLXVpot44dlDhUAxiRA+h
-X-Gm-Message-State: AOJu0YwvHm2usiDh6qxbsomzFcB22rEPNd+RyEGnb6GlfcQwof4mGsJY
-	DtLwanZRxTlPnTWV3kEcZ2ChXHFA8w5pVA/cTeuN7011IMmeJfHw
-X-Google-Smtp-Source: AGHT+IFLVCNKAo3CIqvXHbk62t3KgTprcj8Cnnpwdw3N22YyO1klv1GgNefbpUPx/KlnWsY2bqhTvQ==
-X-Received: by 2002:a17:902:e889:b0:1fa:918e:ec4 with SMTP id d9443c01a7336-1fa918e1130mr51805505ad.59.1719480940219;
-        Thu, 27 Jun 2024 02:35:40 -0700 (PDT)
-Received: from [127.0.0.1] ([212.107.28.57])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1faac979f54sm9033675ad.153.2024.06.27.02.35.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Jun 2024 02:35:39 -0700 (PDT)
-From: Celeste Liu <coelacanthushex@gmail.com>
-X-Google-Original-From: Celeste Liu <CoelacanthusHex@gmail.com>
-Message-ID: <8fb8d780-9e42-438d-88d5-8fe1495cf4d2@gmail.com>
-Date: Thu, 27 Jun 2024 17:35:34 +0800
+	Thu, 27 Jun 2024 10:36:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1719484551; x=1751020551;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=PT0DemCx5L/ZcJvMGNX3zxbnwOgua37LhSOsc+eGUas=;
+  b=rzkICiPL81hyRX2uxT/Kq9h4H3ruOlkyQO9hmd5WAN9yvZbUSWo38ll8
+   ms1je4SvJ3o0xEoatIiIfpwPL3Zw7YxcPjZlmTgDKTh/f4MU9AyAPUUOg
+   +3J5CqwN0sUGO66L1sm7twUgXxML+c1d9F1x4pPzKgmj+ZZmf0lLu93VW
+   oh9QZ/m8AjN9U4D5UwXiYOOvqZVG2IRUIH4z5z86QFLu1sFT7GvfSLhbt
+   9AzfXm8IVXj5HtnEyqbzHwbAmNWuQjpNaz4FuVkCLL8rdzpYclem/AcM3
+   fOzwWBa5yXQN96oSXoaa/Kqc1oSrj8gPIPlDIaeMarClA+cXa8mZNh6H1
+   Q==;
+X-CSE-ConnectionGUID: +0US9/oBS+uQ72sgXKrlTQ==
+X-CSE-MsgGUID: 3UJBguS/R3mlbAbhaHQ3dw==
+X-IronPort-AV: E=Sophos;i="6.08,269,1712646000"; 
+   d="asc'?scan'208";a="259448239"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Jun 2024 03:35:46 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 27 Jun 2024 03:35:13 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Thu, 27 Jun 2024 03:35:09 -0700
+Date: Thu, 27 Jun 2024 11:34:53 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Jesse Taube <jesse@rivosinc.com>
+CC: <linux-riscv@lists.infradead.org>, Ard Biesheuvel <ardb@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, Alexandre Ghiti
+	<alexghiti@rivosinc.com>, Masahiro Yamada <masahiroy@kernel.org>, Wende Tan
+	<twd2.me@gmail.com>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, Sami
+ Tolvanen <samitolvanen@google.com>, Andrew Morton
+	<akpm@linux-foundation.org>, Baoquan He <bhe@redhat.com>, Chen Jiahao
+	<chenjiahao16@huawei.com>, "Mike Rapoport (IBM)" <rppt@kernel.org>, "Vishal
+ Moola (Oracle)" <vishal.moola@gmail.com>, <linux-kernel@vger.kernel.org>,
+	<llvm@lists.linux.dev>
+Subject: Re: [PATCH v2 1/3] RISC-V: pi: Force hidden visibility for all
+ symbol references
+Message-ID: <20240627-boring-handgun-40ae5bf2651e@wendy>
+References: <20240626171652.366415-1-jesse@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] riscv: entry: set a0 = -ENOSYS only when syscall != -1
-Content-Language: en-GB-large
-To: Andreas Schwab <schwab@suse.de>
-Cc: "Dmitry V. Levin" <ldv@strace.io>, Palmer Dabbelt <palmer@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- David Laight <David.Laight@ACULAB.COM>, Felix Yan
- <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>,
- Shiqi Zhang <shiqi@isrc.iscas.ac.cn>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- "Ivan A. Melnikov" <iv@altlinux.org>
-References: <20230801141607.435192-1-CoelacanthusHex@gmail.com>
- <20240627071422.GA2626@altlinux.org>
- <9c102328-6bb3-46b6-bc2f-d011a284d5b0@gmail.com> <mvmr0cin6vc.fsf@suse.de>
-In-Reply-To: <mvmr0cin6vc.fsf@suse.de>
+In-Reply-To: <20240626171652.366415-1-jesse@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240627_103559_734651_0DC00D09 
-X-CRM114-Status: UNSURE (   6.48  )
+X-CRM114-CacheID: sfid-20240627_033559_282581_5F616F44 
+X-CRM114-Status: UNSURE (   9.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,25 +92,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0000359711562705053=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-06-27 16:10, Andreas Schwab wrote:
+--===============0000359711562705053==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="vKFCYLL3R2eTISok"
+Content-Disposition: inline
 
-> On Jun 27 2024, Celeste Liu wrote:
-> 
->> suggestion and we found cast long to ulong is implementation-defined
->> behavior in C
-> 
-> There is nothing implementaton-defined in a long to ulong conversion.
-> 
+--vKFCYLL3R2eTISok
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Ok, I misremembered. long to ulong is modulo arithmetic but ulong to long
-is implementation-defined behavior. There is no type cast issue.
+On Wed, Jun 26, 2024 at 01:16:50PM -0400, Jesse Taube wrote:
+> Eliminate all GOT entries in the .pi section, by forcing hidden
+> visibility for all symbol references, which informs the compiler that
+> such references will be resolved at link time without the need for
+> allocating GOT entries.
+>=20
+> Include linux/hidden.h in Makefile, like arm64, for the
+> hidden visibility attribute.
+>=20
+> Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+
+Did you forget to add --cover-letter to your format-patch incantation?
+
+--vKFCYLL3R2eTISok
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZn1ATQAKCRB4tDGHoIJi
+0ro5AQDUTIQAFPaxq8FMvwx+tMjLHvhpLVDKFrBTkl0J4RVnQAD+JyHcenavbWL3
+JE+a1l9TQCnI/BGKBArtQn7zTJ0dMQ0=
+=n7mi
+-----END PGP SIGNATURE-----
+
+--vKFCYLL3R2eTISok--
+
+
+--===============0000359711562705053==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0000359711562705053==--
+
