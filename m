@@ -4,99 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F8C7C30653
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 18:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA66C2BD09
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 21:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JHF7QK44vStRy/9aHax8UnewN9xru5N6vygL7v3+5/4=; b=VqZTzvQCHJC5b0
-	dDxJhLz4UGrqBnxMDV/7KgYzla20CCO9wXKGkB2drdxUDm0y56P+qytOkftsIjENsOO1ORZlPxHc6
-	B/PAgcCzXNVSvbRATJk8S1jf9gQu+Ba/HfyTPkJwv79VgxkRKP+AhZNiC8kSRCyqgTX0r/Eb5kPlG
-	Ehif2bGkOSAzsjdmw0me+ipNQJuHTU03IR95X84DZASxme2ZAWEkbVMwULUzqklWWcZ9ZCxJoAdq6
-	4Q2AwSaVEW7CF3mTtunjTQgtfKt9bFqgDyXenPplGUflvvgDm4gccWp2C7x4Xv+5ShaOU1EUKEAmx
-	4XwQakL8I+Gl52uHl1OA==;
+	List-Owner; bh=LRH3BUKRjLy4T+rvP8ZwNc4FoU5cfFnuKo0894ait9I=; b=4dxX6xW8oerFJK
+	Al2A0p4WBFBhxMgp7I/eJ3Bq2xxo4xQC94pkNHPqegCuM3ezuqUqQh6e01zh/0IHrAoV84Cm7ZXkl
+	G/+SHaa8ONcRQspNGa6xDRnAVhLcGoe9f9x93NQXnWIz0I01HaR196o5GN84RzDBk9LhkmNrE/wHJ
+	egc60aNsoYeojvtNM5ihaXXNY/yJIZQHseOz6Xcr0xxdM48Xqb/rghT8t7y2rgjsG4Q1GOxWA8H1Q
+	2vmisoREIOADoUQwm0FylWBA1whR99zXkYYCC/OXRV9+J4z1fyUZl/4FFeWZixdpGZgJ0fDDMJRP+
+	YZl2zrohBA0X4GPUOW5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMtdy-0000000BMMV-3OOu;
-	Thu, 27 Jun 2024 18:14:50 +0000
-Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
+	id 1sMwY0-0000000BkvR-2rSI;
+	Thu, 27 Jun 2024 21:20:52 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMtdv-0000000BMKl-0ky5
+	id 1sMwXx-0000000BkuW-3nbz
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jun 2024 18:14:49 +0000
-Received: by mail-io1-xd33.google.com with SMTP id ca18e2360f4ac-7f59854ace1so4009239f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Jun 2024 11:14:46 -0700 (PDT)
+	Thu, 27 Jun 2024 21:20:51 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1f6a837e9a3so52570465ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Jun 2024 14:20:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1719512085; x=1720116885; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oMHKqtsViAFQ8XOx3exriIx8afAjHEvNWX9sCBFwKMs=;
-        b=AFxG7Km/9tHUeldd/Ek6+PJgMuzfBra7wSYlRozir6H4rmbstfgsMD9/UXwwyQ68x5
-         T8watB/WVvqaooQ7pGKpYTu0ZLXdK+LqEpRWfXq4sB1wflR8OY1p4SBWLkbguo4B6yCH
-         ZGQv4qRHNle77uqEQP5Mk7b/k7gRMCFQs3HIM=
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719523248; x=1720128048; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=exJx7MLHmhBfufwvX1HMSMkLUGzkmkvSDGWi4KvWQsU=;
+        b=jdkr09IptJGkq2+XUdX4K0eORtHts6yzuqFqtKNhG+nOctfGGCPxoPXK6iE4RHcjJv
+         mlai96WERKRWUWiSE/47Smx0TAVXWOtpRGFDk3CmoBbzMnK8C/eUpPN4+FuqWbSJLITM
+         AhVt2YQ1yeTKk0aMeXjODA0KEVHyCGRsFjWwApqCYZ/KtkxHc2LDUzDMkTDg5AOB2mcA
+         C31iKnispNqrRkrtt7w7Yd5aSLGm4L/A0Z8KDDkrtG7DEr8JyRBEeqj9xG42IVEwT+HT
+         Qq7jxfhPKhls8mglxSZDCB+nRFJR+6eiLrNGRcUOZ5Z7vJoyg0PBDVERflNoT8gzy+Ku
+         Cb0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719512085; x=1720116885;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oMHKqtsViAFQ8XOx3exriIx8afAjHEvNWX9sCBFwKMs=;
-        b=p4qe2igqRUoSzfx30w+OnemOhaExau0G3KtFXH/I5VEzyjW+77DpAfpTRe6G3CGTEf
-         K81NLwiEVqMFwpNs8280CHavvHE16UnzORp6K6n8WIadDhMTEcmsQrpqm1mzBM6hsvrx
-         NY7D2D/p8Z/5f92IAJ4m8ComUc61ePpQuasN2Cf6kk2tzKqhXIgyW89aIgoRza3V9Yqx
-         XbnT6KIUjh+8hBvOyCB6Q/uC+Y0BrFBEaNoNsv7Wd5w3IIIGddo2RY9hoKjeY83qCjmU
-         9x76/0xMlb0ky/EmRN9ctrYWemJGpXujHMNWWYfd9JSRltWJGokydkoAdkrlyjcN45Bq
-         WYhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUD9jfASMGXAgxfaIi3z4KDy0HYiAy8hS2brY5V7fPzLuorIpiEFJ/VtYdD2jH/XK8M9y873DFFjwP9PPcX6HjYobSNtNHd6qTKuYRocw+T
-X-Gm-Message-State: AOJu0YxCzWlJJTUFtbV85U0pKwuvVTaToDbYpoRn39d3wU2uxDvWC4v6
-	4CDIVYDIOLmphAEOak4UpGQN8B9iN2eE2vfCwQDH7J/kSrCsp0OSPagbkGKh6Gw=
-X-Google-Smtp-Source: AGHT+IFUG5O1SrOnPJRNTLD5kODnctBl78frxmuDBYLRyoOk4cGdplKcVn3bQ6BYVahLxGENnJxatg==
-X-Received: by 2002:a5d:984e:0:b0:7f3:9dd3:15bf with SMTP id ca18e2360f4ac-7f39dd317famr1350449739f.0.1719512085576;
-        Thu, 27 Jun 2024 11:14:45 -0700 (PDT)
-Received: from [192.168.1.128] ([38.175.170.29])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-7f61ce9d654sm2994739f.13.2024.06.27.11.14.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Jun 2024 11:14:45 -0700 (PDT)
-Message-ID: <af55d4ae-fefb-4235-a175-83e947ec4c25@linuxfoundation.org>
-Date: Thu, 27 Jun 2024 12:14:43 -0600
+        d=1e100.net; s=20230601; t=1719523248; x=1720128048;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=exJx7MLHmhBfufwvX1HMSMkLUGzkmkvSDGWi4KvWQsU=;
+        b=r0I+ej7c27WPbob3DD/0bdFvCliRhShDuGwlCMeBpKuGLoN12JO+nMiOYwg7kdu9z3
+         JdiEMjQCFvP9+xLb7rBv8aCUVjydK5SPk2ExLXgfE0o++wnvTy6CYonatJH67lWAt5mA
+         NCAxQK9FFesmFKkYYHNfJ89va1d9lRiWQQ1xlXUZ3tBwATV+1sBTD2uT0HT+jOk7t+Ad
+         j5+td++5f9GjTTg8tVTIH4RiPCBHCwWPDXGZ+sycob/H+WDGtJVcv4S+FBjfLvf4o66B
+         iAuznaVMzpBceGXquiiTzSElHXljsqG4GdpI0LhiSWM3wCIu19Ivs5zshDTTGNGPyCE1
+         USow==
+X-Forwarded-Encrypted: i=1; AJvYcCWpNVc+q1IRk3VrvTOfhhMe0y3RcB/dYTErVUgEyM7O6tijH574Z+ROdJDXy345l1CkZJBmJ9/4rd9QfSvxKjmoXIeGDiZ910JgeN1xWaBU
+X-Gm-Message-State: AOJu0YyLj/S09MAxTiGvXsh1lTGP/1jh45QOIzVEksnOyyfEZDcs/+aA
+	cgbpvM3Ak41cu6nIKfhyCw5fgTtNuGOwQ+N1N1KQj3Lot3//sDq1FJxMsm6j+lI=
+X-Google-Smtp-Source: AGHT+IGz34zuJdkPHa55bzUnF3pVUAjXlKAg/ZK+Xx4lnJseZeESVd/0JFLcbe/sbMFtYV8yKgFslQ==
+X-Received: by 2002:a17:902:d50b:b0:1f9:d982:5f23 with SMTP id d9443c01a7336-1fa23f073e3mr162626865ad.12.1719523248499;
+        Thu, 27 Jun 2024 14:20:48 -0700 (PDT)
+Received: from ghost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fac159d32csm2113575ad.291.2024.06.27.14.20.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Jun 2024 14:20:47 -0700 (PDT)
+Date: Thu, 27 Jun 2024 14:20:44 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
+	Eric Biggers <ebiggers@google.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Costa Shulyupin <costa.shul@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>,
+	Zong Li <zong.li@sifive.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Ben Dooks <ben.dooks@codethink.co.uk>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Erick Archer <erick.archer@gmx.com>,
+	Joel Granados <j.granados@samsung.com>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 4/8] RISC-V: Check Zicclsm to set unaligned access
+ speed
+Message-ID: <Zn3XrLRl/yazsoZe@ghost>
+References: <20240625005001.37901-1-jesse@rivosinc.com>
+ <20240625005001.37901-5-jesse@rivosinc.com>
+ <20240626-march-abreast-83414e844250@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/1] selftests: Centralize -D_GNU_SOURCE= to CFLAGS in
- lib.mk
-To: Edward Liaw <edliaw@google.com>, linux-kselftest@vger.kernel.org,
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
- Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
- Paolo Bonzini <pbonzini@redhat.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Fenghua Yu <fenghua.yu@intel.com>,
- Reinette Chatre <reinette.chatre@intel.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jarkko Sakkinen <jarkko@kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, usama.anjum@collabora.com,
- seanjc@google.com, kernel-team@android.com, linux-mm@kvack.org,
- iommu@lists.linux.dev, kvm@vger.kernel.org, netdev@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-sgx@vger.kernel.org, John Hubbard <jhubbard@nvidia.com>,
- Shuah Khan <skhan@linuxfoundation.org>
-References: <20240625223454.1586259-1-edliaw@google.com>
- <20240625223454.1586259-2-edliaw@google.com>
-Content-Language: en-US
-From: Shuah Khan <skhan@linuxfoundation.org>
-In-Reply-To: <20240625223454.1586259-2-edliaw@google.com>
+Content-Disposition: inline
+In-Reply-To: <20240626-march-abreast-83414e844250@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240627_111447_295097_5F514765 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20240627_142050_281063_7E106C5E 
+X-CRM114-Status: GOOD (  27.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,53 +113,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/25/24 16:34, Edward Liaw wrote:
-> Centralize the _GNU_SOURCE definition to CFLAGS in lib.mk.  Remove
-> redundant defines from Makefiles that import lib.mk.  Convert any usage
-> of "#define _GNU_SOURCE 1" to "#define _GNU_SOURCE".
+On Wed, Jun 26, 2024 at 03:39:14PM +0100, Conor Dooley wrote:
+> On Mon, Jun 24, 2024 at 08:49:57PM -0400, Jesse Taube wrote:
+> > Check for Zicclsm before checking for unaligned access speed. This will
+> > greatly reduce the boot up time as finding the access speed is no longer
+> > necessary.
+> > 
+> > Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+> > ---
+> > V2 -> V3:
+> >  - New patch split from previous patch
+> > ---
+> >  arch/riscv/kernel/unaligned_access_speed.c | 26 ++++++++++++++--------
+> >  1 file changed, 17 insertions(+), 9 deletions(-)
+> > 
+> > diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+> > index a9a6bcb02acf..329fd289b5c8 100644
+> > --- a/arch/riscv/kernel/unaligned_access_speed.c
+> > +++ b/arch/riscv/kernel/unaligned_access_speed.c
+> > @@ -259,23 +259,31 @@ static int check_unaligned_access_speed_all_cpus(void)
+> >  	kfree(bufs);
+> >  	return 0;
+> >  }
+> > +#else /* CONFIG_RISCV_PROBE_UNALIGNED_ACCESS */
+> > +static int check_unaligned_access_speed_all_cpus(void)
+> > +{
+> > +	return 0;
+> > +}
+> > +#endif
+> >  
+> >  static int check_unaligned_access_all_cpus(void)
+> >  {
+> > -	bool all_cpus_emulated = check_unaligned_access_emulated_all_cpus();
+> > +	bool all_cpus_emulated;
+> > +	int cpu;
+> > +
+> > +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICCLSM)) {
+> > +		for_each_online_cpu(cpu) {
+> > +			per_cpu(misaligned_access_speed, cpu) = RISCV_HWPROBE_MISALIGNED_FAST;
 > 
-> This uses the form "-D_GNU_SOURCE=", which is equivalent to
-> "#define _GNU_SOURCE".
+> - const: zicclsm
+>   description:
+>     The standard Zicclsm extension for misaligned support for all regular
+>     load and store instructions (including scalar and vector) but not AMOs
+>     or other specialized forms of memory access. Defined in the
+>     RISC-V RVA Profiles Specification. 
 > 
-> Otherwise using "-D_GNU_SOURCE" is equivalent to "-D_GNU_SOURCE=1" and
-> "#define _GNU_SOURCE 1", which is less commonly seen in source code and
-> would require many changes in selftests to avoid redefinition warnings.
+> Doesn't, unfortunately, say anywhere there that they're actually fast :(
+
+Oh no! That is unfortunate that the ISA does not explicitly call that
+out, but I think that acceptable.
+
+If a vendor puts Zicclsm in their isa string, they should expect
+software to take advantage of misaligned accesses. FAST is our signal to
+tell software that they should emit misaligned accesses.
+
+This allows for a generic kernel, like the one a distro would compile, to
+skip the probing when booting on a system that explicitly called out
+that the hardware supports misaligned accesses.
+
+- Charlie
+
 > 
-> Suggested-by: John Hubbard <jhubbard@nvidia.com>
-> Signed-off-by: Edward Liaw <edliaw@google.com>
-> ---
->   tools/testing/selftests/exec/Makefile             | 1 -
->   tools/testing/selftests/futex/functional/Makefile | 2 +-
->   tools/testing/selftests/intel_pstate/Makefile     | 2 +-
->   tools/testing/selftests/iommu/Makefile            | 2 --
->   tools/testing/selftests/kvm/Makefile              | 2 +-
->   tools/testing/selftests/lib.mk                    | 3 +++
->   tools/testing/selftests/mm/thuge-gen.c            | 2 +-
->   tools/testing/selftests/net/Makefile              | 2 +-
->   tools/testing/selftests/net/tcp_ao/Makefile       | 2 +-
->   tools/testing/selftests/proc/Makefile             | 1 -
->   tools/testing/selftests/resctrl/Makefile          | 2 +-
->   tools/testing/selftests/ring-buffer/Makefile      | 1 -
->   tools/testing/selftests/riscv/mm/Makefile         | 2 +-
->   tools/testing/selftests/sgx/Makefile              | 2 +-
->   tools/testing/selftests/tmpfs/Makefile            | 1 -
->   15 files changed, 12 insertions(+), 15 deletions(-)
+> Thanks,
+> Conor.
 > 
+> > +		}
+> > +		return 0;
+> > +	}
+> > +
+> > +	all_cpus_emulated = check_unaligned_access_emulated_all_cpus();
+> >  
+> >  	if (!all_cpus_emulated)
+> >  		return check_unaligned_access_speed_all_cpus();
+> >  
+> >  	return 0;
+> >  }
+> > -#else /* CONFIG_RISCV_PROBE_UNALIGNED_ACCESS */
+> > -static int check_unaligned_access_all_cpus(void)
+> > -{
+> > -	check_unaligned_access_emulated_all_cpus();
+> > -
+> > -	return 0;
+> > -}
+> > -#endif
+> >  
+> >  arch_initcall(check_unaligned_access_all_cpus);
+> > -- 
+> > 2.45.2
+> > 
 
-Andrew,
-
-I am seeing merge conflicts with mm and exec tests. Might be
-better to have you take this through your tree?
-
-Acked-by: Shuah Khan <skhan@linuxfoundation.org>
-
-thanks,
--- Shuah
 
 
 _______________________________________________
