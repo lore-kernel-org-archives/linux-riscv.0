@@ -4,82 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590F4C2BBCA
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 10:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34089C2BD09
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 11:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YA6eAms5lZhh42ldncOPR7xOkrVfSSTQ06KPX7JWXPs=; b=g4ZbzKLVMDaMk1fxriWmOufXgV
-	0/x0DISlu16Q7pwrM8Hv7ufdlxUHLKgz6DUtcclljoGyDKybxWkV6Ljpe/8kDAxubwid7cR/GBPjC
-	4vtYzphmO+kbu8UvfdsLxkTi8Q1mn7DODIsfVCsEDlnPTDBoXJSEs6bp+7PXgsoFL1ayAkQzNEnqm
-	YxiuPXsLp7e2X8taepboznTiq2YlMEDaYupzPgZoexNtgQh2/TIy78NnX9QQhCbTNde0z+GSbrXib
-	CbbmHBZd+Gs397q2YRu76daJzbTVD0v/TdGyo6MQkR0jrK+6BzSZap3+p4Fqi+O3m0v4VMMMRA+iT
-	0jejXl2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uIV8/bmlPoKOMxNKESVyZG1bu406BTCKcuGogtbkIJE=; b=xmBnA8qpB6d/TV
+	X58N2AIpDpGUNTGfdjx4AkHG9YxmghyM/yoEgo2TMtNLW/rDbkSY0oXdwh0+a31z6CiNR6ViWDFUg
+	TG4NkPHssceK2Y1/deaQj/BPrU/f2f9GFRhdEgq29affC2HI7AwaBdxccLhxvD0OIEM2IyRbLr67y
+	RNwAVHjRR4fZRgwho+LMpcN9TK7dtFj/5P4eiks1K5ICPd+4fLDPXu+lccUpBj2DQ/NSUQt87RaZs
+	wK1tVT6O+1s7ViHSwYqZ7Mp395L+W5FUXk/0mM5trR0baG5Jy/qthT759T83DMaGeJiqbdPeQEelX
+	a/9oqcjyym/tKqRlhCVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN9BP-0000000DSsj-11pL;
-	Fri, 28 Jun 2024 10:50:23 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1sNA5R-0000000DZt9-1ReK;
+	Fri, 28 Jun 2024 11:48:17 +0000
+Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN9BM-0000000DSrP-3B9Y
+	id 1sNA5O-0000000DZs8-1rpc
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 10:50:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1719571820; x=1751107820;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ewJYo5B5Gn5p+bUGXnTqJoyHMt2jjLTs26XZMLBY5ts=;
-  b=DV0gp+l193R/VRKyLMsU932IDv3W1/6glLhKCL5oBQDNpWFoOF39JIWv
-   d7s1eRcL3wj6M7mu82ZalC5ExSWJsYxjB7ZeGoZI6LOwh5AKOMCA1BerS
-   xVGxIx0snFLZ+onX2PUKQkh4UMKgSnDmqLpSuXSxLBFA4ZVbMayUqCfzc
-   YEfruaJb3ax9PxHTGhQjfTIn5fYfw241F3fEqDfHsU1x127wvJo1rL4vB
-   bmoTvSBfCOalNwxICFdfH8Ry+cYkiDvLfO+4O3VrvxyN84bwk6UPDiM75
-   OQiT0EoX0iYJGAJntc/WcBAPM8uaMhwc1YmPQK/+F4VzJ7N1UxIMaZZ7X
-   g==;
-X-CSE-ConnectionGUID: 1fcM70mTSxeGp3bdmK8x+A==
-X-CSE-MsgGUID: 6jb0hYoOSIuLQoRgVTRgyQ==
-X-IronPort-AV: E=Sophos;i="6.09,168,1716274800"; 
-   d="asc'?scan'208";a="196017444"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Jun 2024 03:50:16 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 28 Jun 2024 03:49:43 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Fri, 28 Jun 2024 03:49:39 -0700
-Date: Fri, 28 Jun 2024 11:49:23 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-CC: Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Guo Ren
-	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Drew Fustini
-	<dfustini@tenstorrent.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Conor Dooley <conor@kernel.org>, Jarkko
- Nikula <jarkko.nikula@linux.intel.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, =?iso-8859-1?Q?Miqu=E8l?=
- Raynal <miquel.raynal@bootlin.com>, <linux-i2c@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v3 0/3] Add I2C support on TH1520
-Message-ID: <20240628-joining-blooming-64aefbfd9897@wendy>
-References: <20240618-i2c-th1520-v3-0-3042590a16b1@bootlin.com>
- <xkdmrmtiizoqo6mpc7i6iyhilxlw57nawn6ogv6dryaveyqddc@ach3rwy4abpe>
+	Fri, 28 Jun 2024 11:48:16 +0000
+Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-5b970a97e8eso240178eaf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 04:48:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1719575293; x=1720180093; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3Go8tsPI3JHaqc+IarHpTHOFjcdklbUr4X/cGV00jz4=;
+        b=JOa3SBjm1rUPTnUAi3xTOPyXYlAwi8GVUHQ7Qvlcg836Kfh+3w3S2PSIrqkTHVt2S5
+         BdR2ut2qWZLqalBM2O6uS+YraKL5Kf4p1ASpPZKhxzRJC+WJj8E9qwXrIVyfCf2SyiPv
+         y9Grr3EcEiAMwF2bfDL/JGmn8aK6Rqjo2JDGL28oFVWd0I2OORYBeeM4hzBJXEuQsedf
+         ZEXbAt+6OmuzHvYkPmoWbk7ufNiadgdMHytRalc9eWjhxo4Z6jY7Gzd9oI2sD4FPKjTz
+         6BGJ+Eb0UctXR6RSnyFyo0eiJOfsPo1eSpPu+gxlPfkkfGwyJFmCu85Pvhvpud6fTxKp
+         473Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719575293; x=1720180093;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3Go8tsPI3JHaqc+IarHpTHOFjcdklbUr4X/cGV00jz4=;
+        b=pcuiyiZScllXKRhzuuQ4MI4+yrUihFjkPc3WcLR5lBj2E5spLPxfffcZ6lX+6tmOFc
+         I9IHxkH+oieFGofRbY5a+1gLFTaSUfwjxQsvHjRJTFhESM3ILwleIotwcIauVMYK61/l
+         mXSaR5+hIReGKOCAADFQyDZC+Hhf1UI9Zp2/HbJ+sLo3p3OE9ZtQp9lxDTKJBfmm8HIr
+         gpN3SiId92cSZCdWFkYlQxG5+SwouDuFBBn/wHjJU4gVQ4bfAStYJ6I1YvOgnb1Il7jW
+         gegPUXV7Z/DlYw6WX0L2QeY9NuKne1AOiNytKrHcC3TLA2v7jGtXrYiGzekxIzCnDK/f
+         u0LA==
+X-Forwarded-Encrypted: i=1; AJvYcCVCERwfCkS4G9tNKCkOecG8vQBHQ1C6VAOWs97koGAyXf+qh5x9v7HRg11yJarTuN++IJAs37FhcATpTDUBmFOqaOis25pjetynaai+WLga
+X-Gm-Message-State: AOJu0YyyJUiNnNPcZS2H3YssclQw3+sFIW84kWeCjUzPaig6wx3vhlt2
+	0Yp065tptBmhncVD1RE5xR82yCaPEFoFj9YkJvmITZwCHjVnLL45+8ZYO8yY1h4=
+X-Google-Smtp-Source: AGHT+IGxaDreBVCsSLdh9PoJI0Hihs2g42vWKzBlr7lrYPNGCbC+Og4f9H83lvBVMVl6OYqO7WNyog==
+X-Received: by 2002:a05:6870:d891:b0:254:7348:9071 with SMTP id 586e51a60fabf-25d0170cec9mr17765030fac.26.1719575292823;
+        Fri, 28 Jun 2024 04:48:12 -0700 (PDT)
+Received: from [127.0.1.1] (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70803ecfb90sm1377775b3a.139.2024.06.28.04.48.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Jun 2024 04:48:12 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+Subject: [PATCH v2 0/6] riscv: ftrace: atmoic patching and preempt
+ improvements
+Date: Fri, 28 Jun 2024 19:47:43 +0800
+Message-Id: <20240628-dev-andyc-dyn-ftrace-v4-v2-0-1e5f4cb1f049@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <xkdmrmtiizoqo6mpc7i6iyhilxlw57nawn6ogv6dryaveyqddc@ach3rwy4abpe>
+X-B4-Tracking: v=1; b=H4sIAN+ifmYC/4WNQQ7CIBBFr9LM2jEMRWNd9R6mCwJTOwvBQEMkT
+ e8u9gIu30v++xtkTsIZ7t0GiYtkiaGBPnXgFhuejOIbg1baqCv16LmgDb469DXgvCbrGIvBwZA
+ 3Vim2NEBbvxPP8jnKj6nxInmNqR5HhX72f7MQKiR76W9M2iniMcsshc8uvmDa9/0L/OJ01L8AA
+ AA=
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alexghiti@rivosinc.com>, Zong Li <zong.li@sifive.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Puranjay Mohan <puranjay@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, Evgenii Shatokhin <e.shatokhin@yadro.com>, 
+ Andy Chiu <andy.chiu@sifive.com>
+X-Mailer: b4 0.12.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_035021_008430_0D4D6A67 
-X-CRM114-Status: GOOD (  26.03  )
+X-CRM114-CacheID: sfid-20240628_044814_681731_4191846B 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,101 +100,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5339835625246651178=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5339835625246651178==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TjGWQMt2mYPYXnt4"
-Content-Disposition: inline
+This series makes atmoic code patching possible in riscv ftrace. A
+direct benefit of this is that we can get rid of stop_machine() when
+patching function entries. This also makes it possible to run ftrace
+with full kernel preemption. Before this series, the kernel initializes
+patchable function entries to NOP4 + NOP4. To start tracing, it updates
+entries to AUIPC + JALR while holding other cores in stop_machine.
+stop_machine() is required because it is impossible to update 2
+instructions, and be seen atomically. And preemption must have to be
+prevented, as kernel preemption allows process to be scheduled out while
+executing on one of these instruction pairs.
 
---TjGWQMt2mYPYXnt4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This series addresses the problem by initializing the first NOP4 to
+AUIPC. So, atmoic patching is possible because the kernel only has to
+update one instruction. As long as the instruction is naturally aligned,
+then it is expected to be updated atomically.
 
-On Fri, Jun 28, 2024 at 11:30:28AM +0200, Andi Shyti wrote:
-> Hi,
->=20
-> On Tue, Jun 18, 2024 at 09:42:37AM GMT, Thomas Bonnefille wrote:
-> > This adds I2C support in the device tree of the T-Head TH1520 RISCV-SoC
-> > and a default configuration for the BeagleV-Ahead. It appears that the
-> > TH1520 I2C is already supported in the upstream kernel through the
-> > Synopsis Designware I2C adapter driver.
-> >=20
-> > This patch depends on the clock patch from Drew Fustini
-> > Link: https://lore.kernel.org/linux-riscv/20240615-th1520-clk-v1-0-3ba4=
-978c4d6b@tenstorrent.com
-> > and the pinctrl patch from Emil Renner Berthing
-> > Link: https://lore.kernel.org/linux-riscv/20240103132852.298964-1-emil.=
-renner.berthing@canonical.com
->=20
-> I think after these two go in...
->=20
-> > Changed from v1:
-> > 1. Remove redundant example for Synopsis DesignWare-I2C bindings
-> > 2. Remove Node Ordering commit as it has already been taken
-> > 3. Remove EEPROM label
-> > 4. Rebase on pinctrl and clock driver patches
-> > 5. Add pinctrl configuration
-> > 6. Replaced the fixed-clock with a correct configuration
-> >=20
-> > Changed from v2:
-> > 1. Reorder nodes to conserve ascending register node ordering
-> > 2. Add support for I2C2 as it probably use the same controller
-> > 3. Format comments to match kernel coding style
-> > 4. Reorder nodes to conserve alphabetical node ordering
-> > 6. Declare I2C2
-> > 6. Set pinctrl pull-up resistor to the highest value
-> >=20
-> > Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-> > ---
-> > Thomas Bonnefille (3):
-> >       dt-bindings: i2c: dw: Document compatible thead,th1520-i2c
->=20
-> ... this goes throught i2c...
->=20
-> >       riscv: dts: thead: Add TH1520 I2C nodes
-> >       riscv: dts: thead: Enable I2C on the BeagleV-Ahead
->=20
-> ... and these two go thrhough Conor's branches.
->=20
-> Do you mind sending a ping when Drew's patches are included in
-> the merge window? I can put the first patch on a special branch
-> to keep it under my watch.
+However, the address range of the ftrace trampoline is limited to +-2K
+from ftrace_caller after appplying this series. This issue is expected
+to be solved by Puranjay's CALL_OPS, where it adds 8B naturally align
+data in front of pacthable functions and can  use it to direct execution
+out to any custom trampolines.
 
-I think you can apply the binding whenever you want actually, there's no
-need for the i2c binding (or driver changes, were there to be any) to
-be held until the clock binding/driver is accepted.
+The series is composed by three parts. The first part cleans up the
+existing issues when the kernel is compiled with clang.The second part
+modifies the ftrace code patching mechanism (2-4) as mentioned above.
+Then prepare ftrace to be able to run with kernel preemption (5,6)
 
-Thanks,
-Conor.
+This series is tested after applying the following ftrace/patching in
+the fixes branch:
 
---TjGWQMt2mYPYXnt4
-Content-Type: application/pgp-signature; name="signature.asc"
+- commit 57a369b6f2ee ("riscv: patch: Flush the icache right after
+                        patching to avoid illegal insns")
+- commit a2bd3a5b4b63 ("riscv: stacktrace: convert arch_stack_walk() to
+                        noinstr")
 
------BEGIN PGP SIGNATURE-----
+Changes in v2:
+- Drop patch 1 as it is merged through fixes.
+- Drop patch 2, which converts kernel_text_address into notrace. As
+  users can prevent tracing it by configuring the tracefs.
+- Use a more generic way in kconfig to align functions.
+- Link to v1: https://lore.kernel.org/r/20240613-dev-andyc-dyn-ftrace-v4-v1-0-1a538e12c01e@sifive.com
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZn6VMwAKCRB4tDGHoIJi
-0jNHAP4m1oXXhAI8AJklzSf40W3ivqUXLHUeMZ8nHNOHB8i0pQD8CfKBFliZjMqv
-1e2iWkfTxBaM5iXO5IGnLhbQWp5W1gw=
-=AKI+
------END PGP SIGNATURE-----
+---
+Andy Chiu (6):
+      riscv: ftrace: support fastcc in Clang for WITH_ARGS
+      riscv: ftrace: align patchable functions to 4 Byte boundary
+      riscv: ftrace: prepare ftrace for atomic code patching
+      riscv: ftrace: do not use stop_machine to update code
+      riscv: vector: Support calling schedule() for preemptible Vector
+      riscv: ftrace: support PREEMPT
 
---TjGWQMt2mYPYXnt4--
+ arch/riscv/Kconfig                 |   4 +-
+ arch/riscv/include/asm/ftrace.h    |  11 +++
+ arch/riscv/include/asm/processor.h |   5 ++
+ arch/riscv/include/asm/vector.h    |  22 +++++-
+ arch/riscv/kernel/asm-offsets.c    |   7 ++
+ arch/riscv/kernel/ftrace.c         | 133 ++++++++++++++++---------------------
+ arch/riscv/kernel/mcount-dyn.S     |  25 +++++--
+ 7 files changed, 121 insertions(+), 86 deletions(-)
+---
+base-commit: a2bd3a5b4b63b95aea7dbf61d9395cd6696a2bc0
+change-id: 20240613-dev-andyc-dyn-ftrace-v4-941d4a00ea19
 
+Best regards,
+-- 
+Andy Chiu <andy.chiu@sifive.com>
 
---===============5339835625246651178==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5339835625246651178==--
-
