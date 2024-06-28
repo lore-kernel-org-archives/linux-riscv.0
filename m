@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3683C3064D
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 13:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6068EC3065B
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 13:24:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=TSghs6l0mJoDNgfH1L1d/uMvHcL8saKgddbNQYAEvXI=; b=dvG
-	R3d9OPRkAipSxt0t51+8vlaXL9uah+gOjXZJ66k0ENnccrx1Dt56TCOSiLk9igyziYglGfXrdpq6d
-	3+gDZaduj5a8oihwjikN2zyPwD8eKzjcwiOLEOvfx/evJ3reOvgGknztaqYoXMedLGC7twVQfpAlA
-	b2fyoWDxjdFThYrZLV8NxL0fvS1UmK2kZ+VmTiyug+3Wb4XnSgXcwponqEEv3CTUV2TCPyl0PuvkD
-	CgH+QqMHHcQj9WTCWu4u+lwzdlBugTWmDanP0gEaed11BYkiX2O51Rn+Frooj3pklTl6cBDzGGq8z
-	XDt8OfDVjq2e8hc/2L52E3mm7mDgcDA==;
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=GyBWTrmuIigZeDwciNH+DfgBR5tDRsf2t/yJ8TZxxFc=; b=gCAOwY5ee2JPN7GQaEkkXGgIMD
+	htcBHgDO8Stxh9bRRtu9JpxcJUgC7/pHsrBVEmW68tXssiXz5FKBzse1GgHxBEFHlk63FTzMvTbtu
+	Bqej59Lcy4mRHoHS3K6sYW/4T0Q3ZWo+6qAuPtK/Iwztbpx7BGUPx37BJxBVPK+odCHB+S68Kf80p
+	EMYYL7MSd20JgezY/Hen9ThJntRubwOuys+7FOp+DtsaN4ptHSqYkzglLyEElGpt2RIo+ux6vdJdd
+	7BySXCFMhGKv8eIiMFxNQXwqv0+m73Ihejq7chgkKGv110H9N7fT94lSGsxF2rhzYufumQRP01p56
+	NnmnKQ7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNBaF-0000000Do6K-3q4y;
-	Fri, 28 Jun 2024 13:24:11 +0000
-Received: from mail-lf1-x14a.google.com ([2a00:1450:4864:20::14a])
+	id 1sNBaL-0000000Do9g-3GEY;
+	Fri, 28 Jun 2024 13:24:17 +0000
+Received: from mail-lf1-x149.google.com ([2a00:1450:4864:20::149])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNBaB-0000000Do4V-3GIc
+	id 1sNBaH-0000000Do6F-461t
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 13:24:09 +0000
-Received: by mail-lf1-x14a.google.com with SMTP id 2adb3069b0e04-52cdcd4c07cso522177e87.2
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 06:24:06 -0700 (PDT)
+	Fri, 28 Jun 2024 13:24:15 +0000
+Received: by mail-lf1-x149.google.com with SMTP id 2adb3069b0e04-52cd90d8da1so699416e87.0
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 06:24:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1719581045; x=1720185845; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=XZuc0ScsA+/koJOZcfg/TO9U75OyrluCKQ0mW+6QsHY=;
-        b=ESQe3Ou1DxURkqS3IjsgHMO5Iqg0hcDbnjXZgrRTbWL1OpThrdwReKBAVJgjGlDe5y
-         fr3tUBGwcUC7IRT0Sav2gOwfR+qnnhaYwr4hpwzNcWq6Hqzctk2hmUUKC5V94+1VTrnC
-         rvIzCCNGbFGlHFcAKTUTL663GmnxKOSFHa7hxRa6b4ODYjg8cD1mv6iIXZCvNP+Mvpc3
-         7rEwDl7BPbAzOp5UaaYaV+MyCP2y+2zUjrNYrOycVNZSB4gzngw5b8trxxdao5KXiPvz
-         ZuuqPsdsH0FvOUT19FF+uK3lHtn1XAtTMyUJ8NkxdUVvjhKQhlxzTR9i4Qnf8+WPS+5t
-         7Ocw==
+        d=google.com; s=20230601; t=1719581051; x=1720185851; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=969O3CWF12Jm+ipcoNEWf7U/TfwGyBpHNp6wtcZC710=;
+        b=KAktD8q50xXy7EIay7bPzsfex4mDJ107zI77eM4Eb3h0uPpoMqPl6eTzTC/GcQPMFo
+         /+GYEgSjbaT4oQqJfttIMLqxbSuyUGYqdCNls3iIAgMs5RsI0QhtgqFrTVVv7U3vmDnA
+         mMBZq+KswB3XL+crcIa66WmY85d2vjFWe1v43mAdZGjMN8vAgM5jlhrTDDh455A+f06m
+         GTNyHrCF/jBHVCvE6lLpbJmIInaYRKoUVrW0uPwfp10PuLXJJ7TtdzQocAtg1w2EM0gY
+         GX837H1VPIumwknfPB9ET2jpVP2efFiubTuA0l1O7rf6MN0d1oW3+tlHyvvjHUIcoV9G
+         Kphg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719581045; x=1720185845;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XZuc0ScsA+/koJOZcfg/TO9U75OyrluCKQ0mW+6QsHY=;
-        b=O46swzVY1U6nW0mxDmWR6XVc3+CUWJ2HP3gh9LwYX4MorlK9HJR9IcQnXZzCTY5BVb
-         sKjScTqwE/EiMMY4oCRJkUR/xHGbS4tKwDRUkhtmtif3TxYJbXpGTI8h5XTGpqOt3gAx
-         e/FhX2SEafmJcW39NVJn4IsLJ5c3fdhLfNP3IFcS3ntjXegcltR0yeHAZElEpsKT/dEs
-         N8ZB57UP40LJt5O67EfFoSC+nFdkrHIbWPdEBnh4e28T+zrQBWqzkRWT+e7sRCAsv7Xk
-         mqGsR7+nEVFqcDHE69ogxXeq7pTlXC0fk0ICXWbJVEUEvu94FkCTAu3NCYrqqSrK4XPn
-         Nrhg==
-X-Forwarded-Encrypted: i=1; AJvYcCUu4zq0yic3AGVq/6+sblzmBwbX6C4XWNt5l/xkrYF9CqL8zwQcFjBPdOnBAzCs+UI7srIdXr99kw7Ps01OuZW0hGgvh8q9rU/UWPX1ku7z
-X-Gm-Message-State: AOJu0Yx8b1XEqIWkek29IUkJbhW4UyhikYg76ODAFvhYCDPDr1GXG2YM
-	fvq3duUo0dbXF3pC6Wt5tleLJMOp40Z9LnMPYtAXRqaHCxfxHuskc4Klbd58nIxI1DHGf2p3hvK
-	pJraAoePDy/sBhQ==
-X-Google-Smtp-Source: AGHT+IE3s//RYh2BQPLm30cB/Ms2Ha0xC/ghnkwEKFAjhQY+6EEvGjCjw7x+BTYon4IlDQWqeM7sWCMGUVZNEmI=
+        d=1e100.net; s=20230601; t=1719581051; x=1720185851;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=969O3CWF12Jm+ipcoNEWf7U/TfwGyBpHNp6wtcZC710=;
+        b=C1pxYcYu6Mz92ySSOpeesUPy+lGZa99wxg/eE8D8oVg4DsR7mnYSKMjVaUG6a6vGWJ
+         xqUkZ+CccgO+wqZs/gmEB4n1/qCduP7BzCFZREt2Jic9nKzZQIWjjqrEGGws7Z4XyhYq
+         6fLm3BpgMJXyayqHSv5jybgHyR4c2V0kCn4fGteH/UK5FvonyL+LzBT6xl7Ngmf5sYiw
+         ZO6E+LKe8QBqPtxbeWPqInCuUu/bM2sDaRR3fIggUrNVE/8xhv4nOcqtOqEnYz8ZT7aE
+         Y9pKlPdyGYTvL/Wfu5X8TB5WWYwg5upIwaKSPxqi8DM9lnhyb1rHAR2lqgpdY5wWQEg0
+         tK1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWhZVq6shXSHFavgrS+qT3My+kvT1Rui/e01DVYN3bPvwjvkdScTTH9vnTjoUbsPXIKwZLfJZnPCXWF76/gKVcj/hHU+t9OS4+TE82AFPG7
+X-Gm-Message-State: AOJu0YwdpdwOpzQdyhetN9We7TOhoaQLuv+HLfu4715wael34gyE7Qa2
+	Qg9fg1ZaQ2xHO9vkkbnwnlkR85nCAeoL8z9/lSSBSO2k/GLEheBU7w1+sYNPUJC0wd76wehx3NT
+	/eeMzHBp7S+GpoQ==
+X-Google-Smtp-Source: AGHT+IHOuhMH8lCZyqgPZo0IUCZguSKcNbXCdaWjj3cdEvBVq1Q+0LN7WSNqoq7E7NvkH+V+nQUqXL0VRBCHifE=
 X-Received: from aliceryhl2.c.googlers.com ([fda3:e722:ac3:cc00:68:949d:c0a8:572])
- (user=aliceryhl job=sendgmr) by 2002:a05:6512:334d:b0:52e:7030:fc6c with SMTP
- id 2adb3069b0e04-52e7030fe47mr5341e87.7.1719581044824; Fri, 28 Jun 2024
- 06:24:04 -0700 (PDT)
-Date: Fri, 28 Jun 2024 13:23:30 +0000
+ (user=aliceryhl job=sendgmr) by 2002:a05:6512:3e28:b0:52c:7f96:81d1 with SMTP
+ id 2adb3069b0e04-52ce061ab41mr20614e87.6.1719581050857; Fri, 28 Jun 2024
+ 06:24:10 -0700 (PDT)
+Date: Fri, 28 Jun 2024 13:23:32 +0000
+In-Reply-To: <20240628-tracepoint-v4-0-353d523a9c15@google.com>
 Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAFO5fmYC/23MSw6CMBSF4a2Qjq3p7Qt05D6MgxYu0EQpaUmjI
- ezdwgiiw3OS759JxOAwkmsxk4DJReeHPOSpIHVvhg6pa/ImnHHJNNN0CqbG0bthogIQlL0wlCW
- QDMaArXtvsfsj797FyYfP1k6wvn8zCSijWinQvLStAnvrvO+eeK79i6ydxHcW2MHybFuD1jQVW KHUjxU7y+FgRbYXlBIRDbfV0S7L8gWd4iEZHQEAAA==
+References: <20240628-tracepoint-v4-0-353d523a9c15@google.com>
 X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4798; i=aliceryhl@google.com;
- h=from:subject:message-id; bh=hzMKCUkrpzkRAGO9VQJLlq3A2y9r17X3xIBP4Vh3xGY=;
- b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBmfrlotXVffeRQRKmrpCRkQR9ZrzcTwpekmobmU
- hNI4tnCMOmJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCZn65aAAKCRAEWL7uWMY5
- RsFBD/9DKLutdOjG7/ZJI58IPTulEbu48TdU6ZyV/vYvd8zD8bbqyQNkfDF1tzG6cHhCWq5YL8D
- kowOvXjKKQdJtflNTYxJANR3G1aae/i87+LlNcZNZO3byBu38FT0TNoxhHFRIIW80ucAuqQxwlA
- nrMmUqAyOWlkOLxmPN3WexWqQyaQAVuBSe3kzxEXSLwYM8INtmrPVLfQrowQi3D6AIJT6WpDl2n
- jY+eCHzQKAH0Aj7xy3EY5c1D4gM0qrhDoEhmy6TI12aFUddDtj371ObSa7HgXNBzl5cTFNS8FzF
- jZuCIVsIHyCv2kPeIl4y9wZS1jlNagSdu1i1ldGstuNWjbJsQ6FCsZX9IdR4vNSaJS8pSHD1q7D
- pOrakf6f5CqbjFbGcXXaNL4siCs/M94wYjmcPLto9pkJSPeDuCnrIpm+7rvUFG0Ev2F6lSVazAP
- OPAfx8p6Z2lYOerI8jdVDaA7uPl75817hzdbSJSg2Q/Z5j+ZjfY0/w7hxjvoFmYAel6Xbu9Wj+I
- kkX6m6xwDYo5JqRT7E6pmia7xUvFw/NLfrV4qpESjb8fAdShSQsUoi0OpICpS4FsO5lqvNIfS6+
- 5GNs7DNrSlY+EgemU91Ph8ODIzA+MnA8k+wgkZkkmgkpuuLgodqR2E2WBoi9Iv9OBlHsm8PivKf g8A4yhIBuRyXNig==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5954; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=v/CwpANb/enEE59VpWuqO+vG2Bs6iq8UapwpRJZ9hQA=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBmfrlxFoRsS4nKuM5f791HMS0zaizWUN/GuWPSF
+ 5DmAsQIie+JAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCZn65cQAKCRAEWL7uWMY5
+ Rnn4D/9tLGOpO3gm1Mdg7+V3aBKPndVvoDIfPVKiSkD+ATgpOSjsralpHwXujxhx1IqP3lYgOdz
+ F4tE/qK42GPiG2qOTjpSpJDaMSQfw1d9ndqFJp3KG71VnpHJGL3k4nwnKr4SGu5BoznL6eyv+wX
+ GMjXIqpL1Aml+w5cF+MMfEs4FjjCVM/HRlpM4z5A/gCBUEAQqixk+LexC5R/qvVJJYOxiqTALFu
+ idNa0gDOJwenzkvtOUM8hu1iBrNFC9/7BtwnCQ6dY14wy+j1zXRNORSmO4KK7TqxLuqtVRpBRm+
+ +ZFo3ePJ2Cv3ppirCqmoxPx2ntkTkPSMtU32nFAWBumNIIUDyH+gG/XFzLYK3nFLghDsB8WjPpZ
+ FpJDBtbmHzuGz4yQU3sNeN6piB8QumLbHKi3cHoLdujMGDkno25gVUSRCXe7h70q0g1x2RlEmjg
+ sFElazH5qpsztWiLuPlFMNPJo7W6iijAV0RGTCLtTYg+NNrInG+xze+KV4I/vuK6GiZkTbR4X21
+ YDrhSxVEt4S5Kv0bycWgW7FOOGIlWo7tDcn61JvMW8f9acRFHeVsKElIdbwzOnt1ThoUpvUbw7I
+ HwsSEBS9BKACnoLcUCP1aDFTlZqDkmUTMcefFdHWM/6jPz92m7LbDPq2vWSCFmM2u/rum1QCrjY 6gmxPd34WQQHtZA==
 X-Mailer: b4 0.13-dev-26615
-Message-ID: <20240628-tracepoint-v4-0-353d523a9c15@google.com>
-Subject: [PATCH v4 0/2] Tracepoints and static branch in Rust
+Message-ID: <20240628-tracepoint-v4-2-353d523a9c15@google.com>
+Subject: [PATCH v4 2/2] rust: add tracepoint support
 From: Alice Ryhl <aliceryhl@google.com>
 To: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
 	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Peter Zijlstra <peterz@infradead.org>, 
@@ -110,8 +110,8 @@ Cc: linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev, 
 	Alice Ryhl <aliceryhl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_062407_922739_14E7E546 
-X-CRM114-Status: GOOD (  24.29  )
+X-CRM114-CacheID: sfid-20240628_062414_027991_9A0B8CB7 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,127 +128,172 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-An important part of a production ready Linux kernel driver is
-tracepoints. So to write production ready Linux kernel drivers in Rust,
-we must be able to call tracepoints from Rust code. This patch series
-adds support for calling tracepoints declared in C from Rust.
+Make it possible to have Rust code call into tracepoints defined by C
+code. It is still required that the tracepoint is declared in a C
+header, and that this header is included in the input to bindgen.
 
-To use the tracepoint support, you must:
-
-1. Declare the tracepoint in a C header file as usual.
-
-2. Add #define CREATE_RUST_TRACE_POINTS next to your
-   #define CREATE_TRACE_POINTS.
-
-2. Make sure that the header file is visible to bindgen.
-
-3. Use the declare_trace! macro in your Rust code to generate Rust
-   functions that call into the tracepoint.
-
-For example, the kernel has a tracepoint called `sched_kthread_stop`. It
-is declared like this:
-
-	TRACE_EVENT(sched_kthread_stop,
-		TP_PROTO(struct task_struct *t),
-		TP_ARGS(t),
-		TP_STRUCT__entry(
-			__array(	char,	comm,	TASK_COMM_LEN	)
-			__field(	pid_t,	pid			)
-		),
-		TP_fast_assign(
-			memcpy(__entry->comm, t->comm, TASK_COMM_LEN);
-			__entry->pid	= t->pid;
-		),
-		TP_printk("comm=%s pid=%d", __entry->comm, __entry->pid)
-	);
-
-To call the above tracepoint from Rust code, you must first ensure that
-the Rust helper for the tracepoint is generated. To do this, you would
-modify kernel/sched/core.c by adding #define CREATE_RUST_TRACE_POINTS.
-
-Next, you would include include/trace/events/sched.h in
-rust/bindings/bindings_helper.h so that the exported C functions are
-visible to Rust, and then you would declare the tracepoint in Rust:
-
-	declare_trace! {
-	    fn sched_kthread_stop(task: *mut task_struct);
-	}
-
-This will define an inline Rust function that checks the static key,
-calling into rust_do_trace_##name if the tracepoint is active. Since
-these tracepoints often take raw pointers as arguments, it may be
-convenient to wrap it in a safe wrapper:
-
-	mod raw {
-	    declare_trace! {
-	        fn sched_kthread_stop(task: *mut task_struct);
-	    }
-	}
-	
-	#[inline]
-	pub fn trace_sched_kthread_stop(task: &Task) {
-	    // SAFETY: The pointer to `task` is valid.
-	    unsafe { raw::sched_kthread_stop(task.as_raw()) }
-	}
-
-A future expansion of the tracepoint support could generate these safe
-versions automatically, but that is left as future work for now.
-
-This is intended for use in the Rust Binder driver, which was originally
-sent as an RFC [1]. The RFC did not include tracepoint support, but you
-can see how it will be used in Rust Binder at [2]. The author has
-verified that the tracepoint support works on Android devices.
-
-This implementation implements support for static keys in Rust so that
-the actual static branch happens in the Rust object file. However, the
-__DO_TRACE body remains in C code. See v1 for an implementation where
-__DO_TRACE is also implemented in Rust.
-
-Link: https://lore.kernel.org/rust-for-linux/20231101-rust-binder-v1-0-08ba9197f637@google.com/ [1]
-Link: https://r.android.com/3119993 [2]
 Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
-Changes in v4:
-- Move arch-specific code into rust/kernel/arch.
-- Restore DEFINE_RUST_DO_TRACE at end of define_trace.h
-- Link to v3: https://lore.kernel.org/r/20240621-tracepoint-v3-0-9e44eeea2b85@google.com
+ include/linux/tracepoint.h      | 18 +++++++++++++++-
+ include/trace/define_trace.h    | 12 +++++++++++
+ rust/bindings/bindings_helper.h |  1 +
+ rust/kernel/lib.rs              |  1 +
+ rust/kernel/tracepoint.rs       | 47 +++++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 78 insertions(+), 1 deletion(-)
 
-Changes in v3:
-- Support for Rust static_key on loongarch64 and riscv64.
-- Avoid failing compilation on architectures that are missing Rust
-  static_key support when the archtectures does not actually use it.
-- Link to v2: https://lore.kernel.org/r/20240610-tracepoint-v2-0-faebad81b355@google.com
+diff --git a/include/linux/tracepoint.h b/include/linux/tracepoint.h
+index 689b6d71590e..d82af4d77c9f 100644
+--- a/include/linux/tracepoint.h
++++ b/include/linux/tracepoint.h
+@@ -238,6 +238,20 @@ static inline struct tracepoint *tracepoint_ptr_deref(tracepoint_ptr_t *p)
+ #define __DECLARE_TRACE_RCU(name, proto, args, cond)
+ #endif
+ 
++/*
++ * Declare an exported function that Rust code can call to trigger this
++ * tracepoint. This function does not include the static branch; that is done
++ * in Rust to avoid a function call when the tracepoint is disabled.
++ */
++#define DEFINE_RUST_DO_TRACE(name, proto, args)
++#define DEFINE_RUST_DO_TRACE_REAL(name, proto, args)			\
++	notrace void rust_do_trace_##name(proto)			\
++	{								\
++		__DO_TRACE(name,					\
++			TP_ARGS(args),					\
++			cpu_online(raw_smp_processor_id()), 0);		\
++	}
++
+ /*
+  * Make sure the alignment of the structure in the __tracepoints section will
+  * not add unwanted padding between the beginning of the section and the
+@@ -253,6 +267,7 @@ static inline struct tracepoint *tracepoint_ptr_deref(tracepoint_ptr_t *p)
+ 	extern int __traceiter_##name(data_proto);			\
+ 	DECLARE_STATIC_CALL(tp_func_##name, __traceiter_##name);	\
+ 	extern struct tracepoint __tracepoint_##name;			\
++	extern void rust_do_trace_##name(proto);			\
+ 	static inline void trace_##name(proto)				\
+ 	{								\
+ 		if (static_key_false(&__tracepoint_##name.key))		\
+@@ -337,7 +352,8 @@ static inline struct tracepoint *tracepoint_ptr_deref(tracepoint_ptr_t *p)
+ 	void __probestub_##_name(void *__data, proto)			\
+ 	{								\
+ 	}								\
+-	DEFINE_STATIC_CALL(tp_func_##_name, __traceiter_##_name);
++	DEFINE_STATIC_CALL(tp_func_##_name, __traceiter_##_name);	\
++	DEFINE_RUST_DO_TRACE(_name, TP_PROTO(proto), TP_ARGS(args))
+ 
+ #define DEFINE_TRACE(name, proto, args)		\
+ 	DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+diff --git a/include/trace/define_trace.h b/include/trace/define_trace.h
+index 00723935dcc7..08ed5ce63a96 100644
+--- a/include/trace/define_trace.h
++++ b/include/trace/define_trace.h
+@@ -72,6 +72,13 @@
+ #define DECLARE_TRACE(name, proto, args)	\
+ 	DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+ 
++/* If requested, create helpers for calling these tracepoints from Rust. */
++#ifdef CREATE_RUST_TRACE_POINTS
++#undef DEFINE_RUST_DO_TRACE
++#define DEFINE_RUST_DO_TRACE(name, proto, args)	\
++	DEFINE_RUST_DO_TRACE_REAL(name, PARAMS(proto), PARAMS(args))
++#endif
++
+ #undef TRACE_INCLUDE
+ #undef __TRACE_INCLUDE
+ 
+@@ -129,6 +136,11 @@
+ # undef UNDEF_TRACE_INCLUDE_PATH
+ #endif
+ 
++#ifdef CREATE_RUST_TRACE_POINTS
++# undef DEFINE_RUST_DO_TRACE
++# define DEFINE_RUST_DO_TRACE(name, proto, args)
++#endif
++
+ /* We may be processing more files */
+ #define CREATE_TRACE_POINTS
+ 
+diff --git a/rust/bindings/bindings_helper.h b/rust/bindings/bindings_helper.h
+index ddb5644d4fd9..d442f9ccfc2c 100644
+--- a/rust/bindings/bindings_helper.h
++++ b/rust/bindings/bindings_helper.h
+@@ -15,6 +15,7 @@
+ #include <linux/refcount.h>
+ #include <linux/sched.h>
+ #include <linux/slab.h>
++#include <linux/tracepoint.h>
+ #include <linux/wait.h>
+ #include <linux/workqueue.h>
+ 
+diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
+index fffd4e1dd1c1..9ae90eb69020 100644
+--- a/rust/kernel/lib.rs
++++ b/rust/kernel/lib.rs
+@@ -46,6 +46,7 @@
+ pub mod sync;
+ pub mod task;
+ pub mod time;
++pub mod tracepoint;
+ pub mod types;
+ pub mod workqueue;
+ 
+diff --git a/rust/kernel/tracepoint.rs b/rust/kernel/tracepoint.rs
+new file mode 100644
+index 000000000000..1005f09e0330
+--- /dev/null
++++ b/rust/kernel/tracepoint.rs
+@@ -0,0 +1,47 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! Logic for tracepoints.
++
++/// Declare the Rust entry point for a tracepoint.
++#[macro_export]
++macro_rules! declare_trace {
++    ($($(#[$attr:meta])* $pub:vis fn $name:ident($($argname:ident : $argtyp:ty),* $(,)?);)*) => {$(
++        $( #[$attr] )*
++        #[inline(always)]
++        $pub unsafe fn $name($($argname : $argtyp),*) {
++            #[cfg(CONFIG_TRACEPOINTS)]
++            {
++                use $crate::bindings::*;
++
++                // SAFETY: It's always okay to query the static key for a tracepoint.
++                let should_trace = unsafe {
++                    $crate::macros::paste! {
++                        $crate::static_key::static_key_false!(
++                            [< __tracepoint_ $name >],
++                            $crate::bindings::tracepoint,
++                            key
++                        )
++                    }
++                };
++
++                if should_trace {
++                    $crate::macros::paste! {
++                        // SAFETY: The caller guarantees that it is okay to call this tracepoint.
++                        unsafe { [< rust_do_trace_ $name >]($($argname),*) };
++                    }
++                }
++            }
++
++            #[cfg(not(CONFIG_TRACEPOINTS))]
++            {
++                // If tracepoints are disabled, insert a trivial use of each argument
++                // to avoid unused argument warnings.
++                $( let _unused = $argname; )*
++            }
++        }
++    )*}
++}
++
++pub use declare_trace;
 
-Changes in v2:
-- Call into C code for __DO_TRACE.
-- Drop static_call patch, as it is no longer needed.
-- Link to v1: https://lore.kernel.org/r/20240606-tracepoint-v1-0-6551627bf51b@google.com
-
----
-Alice Ryhl (2):
-      rust: add static_key_false
-      rust: add tracepoint support
-
- include/linux/tracepoint.h               | 18 +++++++++++-
- include/trace/define_trace.h             | 12 ++++++++
- rust/bindings/bindings_helper.h          |  1 +
- rust/kernel/arch/arm64/jump_label.rs     | 34 +++++++++++++++++++++++
- rust/kernel/arch/loongarch/jump_label.rs | 35 ++++++++++++++++++++++++
- rust/kernel/arch/mod.rs                  | 24 ++++++++++++++++
- rust/kernel/arch/riscv/jump_label.rs     | 38 ++++++++++++++++++++++++++
- rust/kernel/arch/x86/jump_label.rs       | 35 ++++++++++++++++++++++++
- rust/kernel/lib.rs                       |  3 ++
- rust/kernel/static_key.rs                | 32 ++++++++++++++++++++++
- rust/kernel/tracepoint.rs                | 47 ++++++++++++++++++++++++++++++++
- scripts/Makefile.build                   |  2 +-
- 12 files changed, 279 insertions(+), 2 deletions(-)
----
-base-commit: 1613e604df0cd359cf2a7fbd9be7a0bcfacfabd0
-change-id: 20240606-tracepoint-31e15b90e471
-
-Best regards,
 -- 
-Alice Ryhl <aliceryhl@google.com>
+2.45.2.803.g4e1b14247a-goog
 
 
 _______________________________________________
