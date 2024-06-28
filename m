@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FBFC2BD09
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 11:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52350C2BD09
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 12:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Q/VRN9mHu8tkezjDxSB6V5YhSDRS901PaSF/C9DeXQU=; b=pYfynfcffQ7w16
-	ePhQQCPWOXsNjpptVRAAmgt5yp6MoQ8FsVOhGYpt+PhsUReXJCYUfXrUEMfzj6ZOGVIFTmK5V2iA1
-	4F7/8ij/kIjYrdvTymNfUtY8jE0f8XVAhbLMhAgyCQcuPJDBMv0nUNX54PvrE19EAsyo3Yp5FwOUS
-	Jq64PhzZrTvTGKQA30L/haVHV2rXWlCQFPwkEZW2FzVgV3YwHNtGpfWLe7jp5sTiBm1TFY02RSNpd
-	zf7y3QGMeFN34wIdX1DBzUH7i7+9ioC4AlZvkXY1UbihtkEgGWQ2Jez3EamRrGPH4U/jo9gzTkBq5
-	/hPMgxUGvQ1a/Vu61wTQ==;
+	List-Owner; bh=aJgBu0rirv+jgKFp5OIXXNVwOQu9aC+gTUpsOWFSmog=; b=AdCzecyLwpOZej
+	yNSSWwNWjYPSt2/3AvMMo7XpTzv/sxPGvDoTpY0hxZHJfAEJD/pjGX20u0ElqIuk4TbtGFJJb8l4E
+	k1xafPBkDF4gtbxsXlNTp1IhPD8dpn92Ob533GktVw6pescgP0kF3B1obOuuFKcHnetETc0B5QAod
+	UnjcTaDKlpGYm67omxyOUrwVrCZs/ZLaAmK26QWo8qFXFuvgqjyDZHdbz8ADxyIf/JKTKCytFYsYI
+	0x44/mS867QXm/FEafkUiazTae4EqfGTQl3tLUGi0fwPIxPPnUlfNTWfnCFtw4eQbQXQMNxtnF3PB
+	+mSE6l4TtXlcg8G1pVEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNA7T-0000000Db4C-2ACd;
-	Fri, 28 Jun 2024 11:50:23 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1sNAGq-0000000Dc9v-3JJV;
+	Fri, 28 Jun 2024 12:00:04 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNA7Q-0000000Db2b-2e09
+	id 1sNAGn-0000000Dc8e-1NTs
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 11:50:22 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1fa07e4f44eso2763545ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 04:50:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1719575420; x=1720180220; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jDkERiCQ0W+JOyjAnotwTfkJvLnFYyeR6Qb1524j9kg=;
-        b=XPvneu1hz2PY95dkmaroeIC/imda8gxZdx9slWPqhG1041rIVtz5sUoBJs26ALjfTn
-         H9cdQb0OkmG/onzXxD1zMnczyxmPx96G+JppK9LTOufrkGXOih2XwsmlJrDGBA+lnQ9x
-         ssKb5cJBIfsTI6AxMEcinv/KPXr1/JijrCRzfVHhrKHuedetQQbJ5CzXTv5T0l34IKWR
-         YVAkq6+Z9EH6AodT7/BOk2a69oYqkutCUnxJOOoKSZeRJG7iGtz+xBd1M1dMAzG+cQvY
-         eNjTv2ujWXQ9Rm8kZ2QWtmtaT2XI+GsqsHad9X4dkzzknm6HoliulX/rDlTZIZEG3tGL
-         fmlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719575420; x=1720180220;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jDkERiCQ0W+JOyjAnotwTfkJvLnFYyeR6Qb1524j9kg=;
-        b=SNQ7h040gmf1wUd/AhgVzQI1dQ0f0qBROZCzdq6pnDjXF6USV5JJx76IsOMEp0w6ew
-         hG1fFB/wXjqsSQ0qUy74PId4B+nUtfSdTkE40jGd+YSbdkRKBsJH2obOBG/PL6Fq2/L+
-         SW9y4oZnFIinZrrlRPd2Y7MH+OjK5opWaUx0Pn5gvfAOJPVsProxH3WLDQIQsFNHLz5l
-         yMPqfX38bHD1LsYOD3lmP6CwhGXNCNe8vcRUnXjxWiHGWNRiMYBhmOMLvN7bKDBATJqI
-         rcilMd2sSbcP9UYKHTpCwL9lY93PzCNl8SWD11mGPwtXlf7+irRJ16mYeevd717RFGO9
-         nSZw==
-X-Gm-Message-State: AOJu0Yw6fKSFO74H7dkpWL1OtxbL8eXNwgNGDMXqSlgC3z4gjt9uQ4nh
-	iD/2tNuX77meV9qtS+JpoHgTb17+2eLy/M7R2avORofYoNI9C0qTobvrctuGtO0=
-X-Google-Smtp-Source: AGHT+IFmQ94BPvo45dLsSc/fXtrlVJyxIjuxBvy9HErlZWIz0JMBJ76CrcDuItu29//kRb0mvech0A==
-X-Received: by 2002:a17:903:2290:b0:1f9:fb39:2fb5 with SMTP id d9443c01a7336-1fa23bd1987mr168448695ad.21.1719575419755;
-        Fri, 28 Jun 2024 04:50:19 -0700 (PDT)
-Received: from [127.0.1.1] (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fac155c382sm13519285ad.189.2024.06.28.04.50.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Jun 2024 04:50:19 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-Date: Fri, 28 Jun 2024 19:50:13 +0800
-Subject: [PATCH] riscv: signal: abstract header saving for setup_sigcontext
+	Fri, 28 Jun 2024 12:00:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1719576001; x=1751112001;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=sf6fbq4Th6RnCsXrNzNrN/n+89ot45o4S3y89hVBu/U=;
+  b=S0hGeg1vLRJATXN3isG5nGusAT0btJXFWajdxVIdQw7vRQ7TdtuvGSLu
+   mW0+Rb3bYyY8Kqqrh6+yCfFRDeSprcgXyfPl/gZw1nJZ59Yn38ybL8XOw
+   0UBJLuzah/IykPu92LyzJiWipoSmZIlHp/6SAMOhIjZXNViS7ak06j4qs
+   AWnAftsfZCGCH4oKMmvpjcLl4Lc42y34feEUhcbcSr7xOubfT4/fCnIpv
+   2nmkae81QrlBo+px+i6n6auULBkpw4oWVG6/UYoMcZVBzSHcDTrvY9dQh
+   f9z+wZO4YS1WCrnKL/VNHFtBM4wPFi3uWl1XeS0ZdV7kPWW9NbQkU3tcB
+   A==;
+X-CSE-ConnectionGUID: fhzcQ281QiKf1QfzQI0hzg==
+X-CSE-MsgGUID: Ac/yOfHzTam/pke6/HYVlQ==
+X-IronPort-AV: E=Sophos;i="6.09,169,1716274800"; 
+   d="scan'208";a="259502555"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Jun 2024 04:59:59 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 28 Jun 2024 04:59:24 -0700
+Received: from daire-X570.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Fri, 28 Jun 2024 04:59:22 -0700
+From: <daire.mcnamara@microchip.com>
+To: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>
+CC: <conor.dooley@microchip.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
+	<robh@kernel.org>, <bhelgaas@google.com>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <daire.mcnamara@microchip.com>,
+	<ilpo.jarvinen@linux.intel.com>
+Subject: [PATCH v6 0/3] Fix address translations on MPFS PCIe controller
+Date: Fri, 28 Jun 2024 12:59:20 +0100
+Message-ID: <20240628115923.4133286-1-daire.mcnamara@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Message-Id: <20240628-dev-signal-refactor-v1-1-0c391b260261@sifive.com>
-X-B4-Tracking: v=1; b=H4sIAHSjfmYC/x2MQQqAMAzAvjJ6tqBV1PkV8VBm1YJM2WQI4t8dH
- kNIHogSVCIM5oEgSaMePkNVGHAb+1VQ58xAJTVlSz3OkjDq6nnHIAu76wjoaisVd2SJW8jlmY3
- e/3Wc3vcDKPhkBGUAAAA=
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Andy Chiu <andy.chiu@sifive.com>
-X-Mailer: b4 0.13-dev-a684c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_045020_772697_0056FE64 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20240628_050001_476188_E0CD724D 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,132 +85,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The function save_v_state() served two purposes. First, it saved
-extension context into the signal stack. Then, it constructed the
-extension header if there was no fault. The second part is independent
-of the extension itself. As a result, we can pull that part out, so
-future extensions may reuse it. This patch adds arch_ext_list and makes
-setup_sigcontext() go through all possible extensions' save() callback.
-The callback returns a positive value indicating the size of the
-successfully saved extension. Then the kernel proceeds to construct the
-header for that extension. The kernel skips an extension if it does
-not exist, or if the saving fails for some reasons. The error code is
-propagated out on the later case.
+From: Daire McNamara <daire.mcnamara@microchip.com>
 
-This patch does not introduce any functional changes.
+Hi all,
 
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
----
- arch/riscv/kernel/signal.c | 53 +++++++++++++++++++++++++++++++++-------------
- 1 file changed, 38 insertions(+), 15 deletions(-)
+On Microchip PolarFire SoC (MPFS), the PCIe controller is connected to the
+CPU via one of three Fabric Interface Connectors (FICs).  Each FIC present
+to the CPU complex as 64-bit AXI-M and 64-bit AXI-S.  To preserve
+compatibility with other PolarFire family members, the PCIe controller is
+connected to its encapsulating FIC via a 32-bit AXI-M and 32-bit AXI-S
+interface.
 
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 5a2edd7f027e..eb16742ed106 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -70,16 +70,17 @@ static long save_fp_state(struct pt_regs *regs,
- 
- #ifdef CONFIG_RISCV_ISA_V
- 
--static long save_v_state(struct pt_regs *regs, void __user **sc_vec)
-+static long save_v_state(struct pt_regs *regs, void __user *sc_vec)
- {
--	struct __riscv_ctx_hdr __user *hdr;
- 	struct __sc_riscv_v_state __user *state;
- 	void __user *datap;
- 	long err;
- 
--	hdr = *sc_vec;
--	/* Place state to the user's signal context space after the hdr */
--	state = (struct __sc_riscv_v_state __user *)(hdr + 1);
-+	if (!(has_vector() && riscv_v_vstate_query(regs)))
-+		return 0;
-+
-+	/* Place state to the user's signal context spac */
-+	state = (struct __sc_riscv_v_state __user *)sc_vec;
- 	/* Point datap right after the end of __sc_riscv_v_state */
- 	datap = state + 1;
- 
-@@ -97,15 +98,11 @@ static long save_v_state(struct pt_regs *regs, void __user **sc_vec)
- 	err |= __put_user((__force void *)datap, &state->v_state.datap);
- 	/* Copy the whole vector content to user space datap. */
- 	err |= __copy_to_user(datap, current->thread.vstate.datap, riscv_v_vsize);
--	/* Copy magic to the user space after saving  all vector conetext */
--	err |= __put_user(RISCV_V_MAGIC, &hdr->magic);
--	err |= __put_user(riscv_v_sc_size, &hdr->size);
- 	if (unlikely(err))
--		return err;
-+		return -EFAULT;
- 
--	/* Only progress the sv_vec if everything has done successfully  */
--	*sc_vec += riscv_v_sc_size;
--	return 0;
-+	/* Only return the size if everything has done successfully  */
-+	return riscv_v_sc_size;
- }
- 
- /*
-@@ -147,6 +144,19 @@ static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
- #define __restore_v_state(task, regs) (0)
- #endif
- 
-+struct arch_ext_priv {
-+	__u32 magic;
-+	long (*save)(struct pt_regs *regs, void __user *sc_vec);
-+};
-+
-+struct arch_ext_priv arch_ext_list[] = {
-+	{
-+		.magic = RISCV_V_MAGIC,
-+		.save = &save_v_state,
-+	},
-+};
-+const size_t nr_arch_exts = ARRAY_SIZE(arch_ext_list);
-+
- static long restore_sigcontext(struct pt_regs *regs,
- 	struct sigcontext __user *sc)
- {
-@@ -276,7 +286,8 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
- {
- 	struct sigcontext __user *sc = &frame->uc.uc_mcontext;
- 	struct __riscv_ctx_hdr __user *sc_ext_ptr = &sc->sc_extdesc.hdr;
--	long err;
-+	struct arch_ext_priv *arch_ext;
-+	long err, i, ext_size;
- 
- 	/* sc_regs is structured the same as the start of pt_regs */
- 	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
-@@ -284,8 +295,20 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
- 	if (has_fpu())
- 		err |= save_fp_state(regs, &sc->sc_fpregs);
- 	/* Save the vector state. */
--	if (has_vector() && riscv_v_vstate_query(regs))
--		err |= save_v_state(regs, (void __user **)&sc_ext_ptr);
-+	for (i = 0; i < nr_arch_exts; i++) {
-+		arch_ext = &arch_ext_list[i];
-+		if (!arch_ext->save)
-+			continue;
-+
-+		ext_size = arch_ext->save(regs, sc_ext_ptr + 1);
-+		if (ext_size <= 0) {
-+			err |= ext_size;
-+		} else {
-+			err |= __put_user(arch_ext->magic, &sc_ext_ptr->magic);
-+			err |= __put_user(ext_size, &sc_ext_ptr->size);
-+			sc_ext_ptr = (void *)sc_ext_ptr + ext_size;
-+		}
-+	}
- 	/* Write zero to fp-reserved space and check it on restore_sigcontext */
- 	err |= __put_user(0, &sc->sc_extdesc.reserved);
- 	/* And put END __riscv_ctx_hdr at the end. */
+Each FIC is implemented in FPGA logic and can incorporate logic along its 64-bit
+AXI-M to 32-bit AXI-M chain (including address translation) and, likewise, along
+its 32-bit AXI-S to 64-bit AXI-S chain (again including address translation).
 
----
-base-commit: 60a6707f582ebbdfb6b378f45d7bf929106a1cd5
-change-id: 20240628-dev-signal-refactor-c39e1a7292a6
+In order to reduce the potential support space for the PCIe controller in
+this environment, MPFS supports certain reference designs for these address
+translations: reference designs for cache-coherent memory accesses
+and reference designs for non-cache-coherent memory accesses. The precise
+details of these reference designs and associated customer guidelines
+recommending that customers adhere to the addressing schemes used in those
+reference designs are available from Microchip, but the implication for the
+PCIe controller address translation between CPU-space and PCIe-space are:
 
-Best regards,
+For outbound address translation, the PCIe controller address translation tables
+are treated as if they are 32-bit only.  Any further address translation must
+be done in FPGA fabric.
+
+For inbound address translation, the PCIe controller is configurable for two
+cases:
+* In the case of cache-coherent designs, the base of the AXI-S side of the
+  address translation must be set to 0 and the size should be 4 GiB wide. The
+  FPGA fabric must complete any address translations based on that 0-based
+  address translation.
+* In the case of non-cache coherent designs, the base of AXI-S side of the
+  address translation must be set to 0x8000'0000 and the size shall be 2 GiB
+  wide.  The FPGA fabric must complete any address translation based on that
+  0x80000000 base.
+
+So, for example, in the non-cache-coherent case, with a device tree property
+that maps an inbound range from 0x10'0000'0000 in PCIe space to 0x10'0000'0000
+in CPU space, the PCIe rootport will translate a PCIe address of 0x10'0000'0000
+to an intermediate 32-bit AXI-S address of 0x8000'0000 and the FIC is
+responsible for translating that intermediate 32-bit AXI-S address of
+0x8000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
+
+And similarly, for example, in the cache-coherent case, with a device tree
+property that maps an inbound range from 0x10'0000'0000 in PCIe space to
+0x10'0000'0000 in CPU space, the PCIe rootport will translate a PCIe address
+of 0x10'0000'0000 to an intermediate 32-bit AXI-S address of 0x0000'0000 and
+the FIC is responsible for translating that intermediate 32-bit AXI-S address
+of 0x0000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
+
+See https://lore.kernel.org/all/20220902142202.2437658-1-daire.mcnamara@microchip.com/T/
+for backstory.
+
+Changes since v5:
+- Reverted setup_inbound_atr size parameter to u64 as ci system reported
+  SZ_4G getting truncated to 0 on mips when I try to use size_t or resource_size_t.
+  Added Acked-by tags
+
+Changes since v4:
+- Added more cleanups suggested by Ilpo Jarvinen
+  Added cleanups for inbound v4 and outbound v3.
+
+Changes since v3:
+- Added nice cleanups suggested by Ilpo Jarvinen
+
+Changes since v2:
+- Added <Signed-off-by: tag>
+
+Changes since v1:
+- added bindings patch to allow dma-noncoherent
+- changed a size_t to u64 to pass 32-bit compile tests
+- allowed 64-bit outbound pcie translations
+- tied PCIe side of eCAM translation table to 0
+
+Conor Dooley (1):
+  dt-bindings: PCI: microchip,pcie-host: allow dma-noncoherent
+
+Daire McNamara (2):
+  PCI: microchip: Fix outbound address translation tables
+  PCI: microchip: Fix inbound address translation tables
+
+ .../bindings/pci/microchip,pcie-host.yaml     |   2 +
+ drivers/pci/controller/pcie-microchip-host.c  | 118 +++++++++++++++---
+ 2 files changed, 106 insertions(+), 14 deletions(-)
+
+
+base-commit: a38297e3fb012ddfa7ce0321a7e5a8daeb1872b6
 -- 
-Andy Chiu <andy.chiu@sifive.com>
+2.34.1
 
 
 _______________________________________________
