@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7018C3064D
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 15:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9803AC2BD09
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 15:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rMI0aYBF0P+Nik6mNz/0AToVcF5CyKzPQGXvQJetSRQ=; b=fs5gRZpK2fZqvI
-	6QqRxEARnLcd+qXC3hoJT1hVvHwXjb6GFIImKinNBz5HgNoFXQjR8ESWED54IM23ST1C/1W5Xjo9p
-	Tbo/tJLwD/szDNCuD1hUuOXIo4rALN2VciWnFMLgJZCWeWONJ6xzw/0w3TTxzhkfebHZ+uYgt7z8z
-	VOMVo55skrDvh3g3id5kCTACsGoBYRhYOZIuyrPm7azGX7lRbxTON/Oo0rn0SOvy0wYr0JAYhlXSH
-	DW84MmGIPdA5h6V/a7dDjLVRgFFPZtXEInOTdvgYciF0v/IwA04n138H0nXySAVGaC+4F2QOgbXUK
-	d2/7SmLUNAGrA8SfMzuQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=AOBBu5NEK7CmMfvD1MxmxwRQBhEzfcAmVsvrQSK7HBQ=; b=qEJhr3FmmtTn7mpSES9QfoXYt1
+	Ml+I9LbPPX1o8CDDuje4HuiUva9m2J71yL8Bxw67+CYZzRceOpj+IbMFk+9MS22VGejdZYSAl8vhg
+	OO3LSAwjWm8Ex09vhR7wU8uBgGB0eHNrF2NBhQ88YlogJgZ9bRt+8EuMzWYZCehY2rf8cSjFS9jxm
+	CLVjrlK7b3lfcNBFf7MMsyQZPrWEy+NOE2aa8WeQII/wjwMSxACqvYOl7NrDwhZOAmOxAbPfShQLX
+	QdWYNPu31MdqdCZK32+816mFMgQbCGiS3CervfsiU/54n4NVqURb7ygzsQ3lCsX6Rva+xfFMvVB+4
+	zmpkXaeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNDf2-0000000EEQM-0qyx;
-	Fri, 28 Jun 2024 15:37:16 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1sNDjb-0000000EEuI-3FpZ;
+	Fri, 28 Jun 2024 15:41:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNDey-0000000EELw-1MTZ
+	id 1sNDjY-0000000EEtR-0CrV
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 15:37:14 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-310-OFRDPytDPtSGaHTmtLLdBQ-1; Fri, 28 Jun 2024 16:36:54 +0100
-X-MC-Unique: OFRDPytDPtSGaHTmtLLdBQ-1
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 28 Jun
- 2024 16:36:18 +0100
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Fri, 28 Jun 2024 16:36:17 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Arnd Bergmann' <arnd@arndb.de>, Jisheng Zhang <jszhang@kernel.org>,
-	Andreas Schwab <schwab@suse.de>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH 2/4] riscv: uaccess: use input constraints for ptr of
- __put_user
-Thread-Topic: [PATCH 2/4] riscv: uaccess: use input constraints for ptr of
- __put_user
-Thread-Index: AQHax9S0vgwFN0Wui0OMQ/evgIcCmrHdT9IA
-Date: Fri, 28 Jun 2024 15:36:17 +0000
-Message-ID: <b4d15c17ed684f5ab3cf89fda9f73618@AcuMS.aculab.com>
-References: <20240625040500.1788-1-jszhang@kernel.org>
- <20240625040500.1788-3-jszhang@kernel.org> <mvmikxvonjh.fsf@suse.de>
- <ZnwTwnSsnZ8Td9GZ@xhacker>
- <dcf9574a-0f1b-4131-befd-39f47d4f9002@app.fastmail.com>
-In-Reply-To: <dcf9574a-0f1b-4131-befd-39f47d4f9002@app.fastmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Fri, 28 Jun 2024 15:41:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E1A0B621EB;
+	Fri, 28 Jun 2024 15:41:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 828FBC4AF0A;
+	Fri, 28 Jun 2024 15:41:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1719589314;
+	bh=5eJ3BgrKvSan+/npP2zjtmTwPRpcjFq0OpLHgdmwxRc=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=YgkK9Hj/qYNdIiZND9M/4dz262Z0+r7B+CemMAgyAYgVbwWu14I5T1vL4+1LJlJ0l
+	 MN/RNRAG5khbB7IoVCjyL0op/aNUfpjk/1H/cuiifsNeQeyUVEJprvfX3xfl5j/O5Z
+	 bQPfihvyUgYM+vjVyRfNx33FxK3T/weA+sNsDG9du9zjZyESNOv0OxnrT9x6oqwEcx
+	 QDijVFGFp6qMx4UNWTi1lLJN6/EbpKDNLRf5cEkb/HqPRjlBucGXx4RxuvjL1z4PN1
+	 4DjWPfTcEhGm1kzmvtef4YQvdh116eF2sV5JMX0afbMP8dwqPsTMMHBH4mGt0VUkou
+	 xEV39J/ES+dag==
+Date: Fri, 28 Jun 2024 09:41:53 -0600
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Meng Zhang <zhangmeng.kevin@spacemit.com>, linux-kernel@vger.kernel.org, 
+ Yangyu Chen <cyy@cyyself.name>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org, 
+ Thomas Gleixner <tglx@linutronix.de>, Conor Dooley <conor@kernel.org>, 
+ linux-serial@vger.kernel.org, Lubomir Rintel <lkundrak@v3.sk>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Jiri Slaby <jirislaby@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+In-Reply-To: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
+References: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
+Message-Id: <171958904483.3122797.18431731519773107175.robh@kernel.org>
+Subject: Re: [PATCH v2 00/10] riscv: add initial support for SpacemiT K1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_083712_634909_03E8EDEC 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240628_084156_491331_C7AA666E 
+X-CRM114-Status: GOOD (  24.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +82,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann
-> Sent: 26 June 2024 15:25
-...
-> If you just copy from the arm64 version that uses an
-> "r"(address) constraint instead of the "m"(*address)
-> version, it should be fine for any user space access.
 
-Arm certainly has 'reg+offset' addressing and I'd have thought
-the RISC-V would have it as well.
+On Thu, 27 Jun 2024 15:31:14 +0000, Yixun Lan wrote:
+> SpacemiT K1 is an ideal chip for some new extension such as RISC-V Vector
+> 1.0 and Zicond evaluation now. Add initial support for it to allow more
+> people to participate in building drivers to mainline for it.
+> 
+> This kernel has been tested upon Banana Pi BPI-F3 board on vendor U-Boot
+> bootflow generated by Armbian SDK[1] and patched OpenSBI[2] to enable
+> Zicboz, which does not in the vendor dts on its U-Boot. Then successfully
+> booted to busybox on initrd with this log[3].
+> 
+> As previous discussion in patch v1[4], maintainer expect more basic drivers
+> ready before really merging it, which would be fine. For other follow-up patches,
+> that are clk, pinctrl/gpio, reset.. My current goal would target at a headless
+> system including SD card, emmc, and ethernet.
+> 
+> P.S: talked to Yangyu, I will help and take care of this patch series, thanks
+> ---
+> Changes in v2:
+>  - fix timebase-frequency according to current setting
+>  - add other uart dt nodes, fix input frequency
+>  - introduce new uart compatible for K1 SoC
+>  - add 'k1' prefix to bananapi-f3.dts
+>  - fix k1-clint compatible
+>  - fix some typos
+>  - Link to v1: https://lore.kernel.org/r/tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com
+> 
+> Link: https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30 [1]
+> Link: https://gist.github.com/cyyself/a07096e6e99c949ed13f8fa16d884402 [2]
+> Link: https://gist.github.com/cyyself/a2201c01f5c8955a119641f97b7d0280 [3]
+> Link: https://lore.kernel.org/r/20240618-hardwood-footrest-ab5ec5bce3cf@wendy [4]
+> 
+> To: Rob Herring <robh@kernel.org>
+> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> To: Conor Dooley <conor+dt@kernel.org>
+> To: Conor Dooley <conor@kernel.org>
+> To: Paul Walmsley <paul.walmsley@sifive.com>
+> To: Palmer Dabbelt <palmer@dabbelt.com>
+> To: Albert Ou <aou@eecs.berkeley.edu>
+> To: Daniel Lezcano <daniel.lezcano@linaro.org>
+> To: Thomas Gleixner <tglx@linutronix.de>
+> To: Samuel Holland <samuel.holland@sifive.com>
+> To: Anup Patel <anup@brainfault.org>
+> To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> To: Jiri Slaby <jirislaby@kernel.org>
+> To: Lubomir Rintel <lkundrak@v3.sk>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: Palmer Dabbelt <palmer@sifive.com>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-serial@vger.kernel.org
+> Cc: Inochi Amaoto <inochiama@outlook.com>
+> Cc: Meng Zhang <zhangmeng.kevin@spacemit.com>
+> 
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> 
+> ---
+> Yangyu Chen (9):
+>       dt-bindings: vendor-prefixes: add spacemit
+>       dt-bindings: riscv: Add SpacemiT X60 compatibles
+>       dt-bindings: riscv: add SpacemiT K1 bindings
+>       dt-bindings: timer: Add SpacemiT K1 CLINT
+>       dt-bindings: interrupt-controller: Add SpacemiT K1 PLIC
+>       riscv: add SpacemiT SOC family Kconfig support
+>       riscv: dts: add initial SpacemiT K1 SoC device tree
+>       riscv: dts: spacemit: add Banana Pi BPI-F3 board device tree
+>       riscv: defconfig: enable SpacemiT SoC
+> 
+> Yixun Lan (1):
+>       dt-bindings: serial: 8250: Add SpacemiT K1 uart compatible
+> 
+>  .../interrupt-controller/sifive,plic-1.0.0.yaml    |   5 +-
+>  Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
+>  .../devicetree/bindings/riscv/spacemit.yaml        |  24 ++
+>  Documentation/devicetree/bindings/serial/8250.yaml |   4 +-
+>  .../devicetree/bindings/timer/sifive,clint.yaml    |   1 +
+>  .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+>  arch/riscv/Kconfig.socs                            |   5 +
+>  arch/riscv/boot/dts/Makefile                       |   1 +
+>  arch/riscv/boot/dts/spacemit/Makefile              |   2 +
+>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |  19 ++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi               | 378 +++++++++++++++++++++
+>  arch/riscv/configs/defconfig                       |   1 +
+>  12 files changed, 441 insertions(+), 2 deletions(-)
+> ---
+> base-commit: f2661062f16b2de5d7b6a5c42a9a5c96326b8454
+> change-id: 20240626-k1-01-basic-dt-1aa31eeebcd2
+> 
+> Best regards,
+> --
+> Yixun Lan <dlan@gentoo.org>
+> 
+> 
+> 
 
-I'd guess that the compiler also knows when the offset is too big.
 
-Probably noticeable when code is accessing structures in user memory.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-OTOH I can't remember if "m" implies a memory clobber?
-For user copies the memory clobber isn't needed and not having it
-may well allow better instruction scheduling.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-	David
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y spacemit/k1-bananapi-f3.dtb' for 20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org:
+
+arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017100: $nodename:0: 'uart@d4017100' does not match '^serial(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
+arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017200: $nodename:0: 'uart@d4017200' does not match '^serial(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
+arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017300: $nodename:0: 'uart@d4017300' does not match '^serial(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
+arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017400: $nodename:0: 'uart@d4017400' does not match '^serial(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
+arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017500: $nodename:0: 'uart@d4017500' does not match '^serial(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
+arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017600: $nodename:0: 'uart@d4017600' does not match '^serial(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
+arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017700: $nodename:0: 'uart@d4017700' does not match '^serial(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
+arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017800: $nodename:0: 'uart@d4017800' does not match '^serial(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
+
+
+
+
 
 
 _______________________________________________
