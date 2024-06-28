@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE12C3064D
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 07:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E67F5C2BBCA
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 07:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PWQjtQ1cO5Qsa2YAmqVNcZO1IaAK8PS1GTg4TCzdwNY=; b=4r8H/ctHxC6PIS
-	sjTf69tD4reaAP2SZmj2pmEy9/ZJ5lR2tZmpJPeaigU7U6ulE9/249SC/PcruNWCHkQDCFQ1snSJL
-	WYaP4ip3v3nwM2y/RN2mpBVQFa80W/ujcrxGxbolLXTEYVNl8UgI4QxsDFggbasFufKEbE3rN0Ntj
-	4Kpn5WxG/zJ6Tp+A4/EF1q9jrX6kTCm1MH3fb3kXRxUqNv1FheLPOp1nuvZ2ZcKSUOjAWMzZWKc43
-	LxaNFmVBDQ1fUyfCmJIcL2uwKJWD9LXJaOELpRnSYLwJwrjC1mZvqhEgTUrw35gFP29n44kVM1ci/
-	r9QMEIB1/oDXMfEmIxPA==;
+	List-Owner; bh=3sssZSGX65ElQQbdUSEUtD1uCaus4ubG1x4uUhl4nmE=; b=mhS0lsG7Vvi2Qz
+	4Ra95/X2lWUfSVr2URM8qbDWkwWYiYazV9DxiKBLNX9zMjs5G6Oed3Xn40BECyIWiCAaDsV3P5+Tm
+	xYCrItxy7u/3Tr/CpIYz2l/9ZOlmmILW9bt6vcPzGnVeJf1J9VdqSRvsyXy7qsmVjKQ8qepf3m0eE
+	1U2Q6dvCgE0U+61kW4hs4CvZZJKVM1p2KEAIxYlLv7n2p0JzFjXqEbn6V0ATMZmvJ0N42HfbpiqTO
+	qRK0MeZMRGyrQKBYriWhZrkc+iinAsoaceUnxZaZi27e1rxITtttrql6MMyakZeqMEGN5YAZDn+xH
+	VJh3Fj0KlAhbnGIsNmLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN66a-0000000CuDH-0gPj;
-	Fri, 28 Jun 2024 07:33:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sN682-0000000CuWa-1M9f;
+	Fri, 28 Jun 2024 07:34:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN66S-0000000CuC3-0b0h
+	id 1sN67y-0000000CuVr-16yX
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 07:33:10 +0000
+	Fri, 28 Jun 2024 07:34:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1FEB361D42;
-	Fri, 28 Jun 2024 07:33:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 604D7C2BD10;
-	Fri, 28 Jun 2024 07:32:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5DCF162071;
+	Fri, 28 Jun 2024 07:34:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88F9CC116B1;
+	Fri, 28 Jun 2024 07:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719559982;
-	bh=atYDRZGv2wPyuhFP2xfANv9df+nkmPvlsRewheA6zC4=;
+	s=k20201202; t=1719560077;
+	bh=aCLzZojIDeS8ELo7rpyMosGMNLUgbYoSbezhTpQBEDQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nwpElAs8hqVGc4pKp4mceW9qTGTlWDzBJwqULG6JLPFBqAX4YZCiv8FDgZtmczKt2
-	 Cjst1hw70MVOUaFS1MRNCj8nMQ8+KzzUq4CA8F/6wmzvxK3ouhESnmpI1fLhiyB07r
-	 OLTDhh2ECnODreRJ0UsegykCiq8QxzfPNGqRhzIpzyq6l/dyvjNoZuRSCmisIfkePs
-	 sF3C0i1aE/+HDibCoFVQ3+pXAqKlRYMzrA5zrm2F96XmarA1jvoY0n9nhIONRBTkV3
-	 EryhsUT8lswcBzALkRtVkweuzPYo3YLu4v5sjSIBefLoo1VwXWojHjpLRK9vegXp5y
-	 GrOn/LNgxXnaQ==
-Message-ID: <9e0ea356-7bed-4516-9e1f-739190d63be4@kernel.org>
-Date: Fri, 28 Jun 2024 09:32:53 +0200
+	b=sIofh/+WJrYZstxvVpHtsHm50FqW5sL/7pOXERIVc8ZjjB+Aru5P+tafpiZFkjyMN
+	 0sP1WUsrksUptI/nfVPnJkuRjMraOr8gvm9Wl1W0K+p/CMBz4oAPQvJ398tasYVhR7
+	 nakRnRZYh7Ujb3vSvhjOaOQI0Sw2U4gJkJj4awCLXgG2/qkgXxB301d5JGABF7LwyO
+	 BGcqdt8Qotf7ztJHVHBAYVBQMgiIU9GK5whB/ZkfkLaaVYKAIy6OO3+pW5YlrgVLSA
+	 +gGAvFFTSlpTB2VDqAED5wHW1A3O2MB+zhp3iVFu0YiKL/IBAfouUSJ0V4Qv0bLprp
+	 K34vNyljWyoNw==
+Message-ID: <eb05af3d-85b8-4068-961e-20f2f7d7d0c2@kernel.org>
+Date: Fri, 28 Jun 2024 09:34:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/10] dt-bindings: vendor-prefixes: add spacemit
+Subject: Re: [PATCH v2 03/10] dt-bindings: riscv: add SpacemiT K1 bindings
 To: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
@@ -62,7 +62,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-serial@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>,
  Meng Zhang <zhangmeng.kevin@spacemit.com>, Yangyu Chen <cyy@cyyself.name>
 References: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
- <20240627-k1-01-basic-dt-v2-1-cc06c7555f07@gentoo.org>
+ <20240627-k1-01-basic-dt-v2-3-cc06c7555f07@gentoo.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,10 +108,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20240627-k1-01-basic-dt-v2-1-cc06c7555f07@gentoo.org>
+In-Reply-To: <20240627-k1-01-basic-dt-v2-3-cc06c7555f07@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_003309_487007_0F4EEA68 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20240628_003438_477144_D81C0C63 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,32 +132,19 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 27/06/2024 17:31, Yixun Lan wrote:
 > From: Yangyu Chen <cyy@cyyself.name>
 > 
-> Add new vendor strings to dt bindings for SpacemiT K1 SoC.
+> Add DT binding documentation for the SpacemiT K1 Soc[1] and the Banana
+> Pi BPi-F3 board[2] which used it.
 > 
-> Link: https://www.spacemit.com/en/spacemit-key-stone-2/
-> 
-> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> [1] https://www.spacemit.com/en/spacemit-key-stone-2/
+> [2] https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
 
-So you just ignored all feedback and tags?
+You got a bug reported by tool and you send the same version again,
+producing the same bug.
 
-<form letter>
-This is a friendly reminder during the review process.
+In case it is not clear:
 
-It looks like you received a tag and forgot to add it.
-
-If you do not know the process, here is a short explanation:
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions, under or above your Signed-off-by tag. Tag is "received", when
-provided in a message replied to you on the mailing list. Tools like b4
-can help here. However, there's no need to repost patches *only* to add
-the tags. The upstream maintainer will do that for tags received on the
-version they apply.
-
-https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
-
-If a tag was not added on purpose, please state why and what changed.
-</form letter>
+*You cannot ignore* bug reports, comments, reviewer requests or any
+other reply to your patchset. Each one must be addressed one way or another.
 
 Best regards,
 Krzysztof
