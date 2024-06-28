@@ -4,104 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA66C2BD09
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2024 21:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE12C3064D
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 07:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LRH3BUKRjLy4T+rvP8ZwNc4FoU5cfFnuKo0894ait9I=; b=4dxX6xW8oerFJK
-	Al2A0p4WBFBhxMgp7I/eJ3Bq2xxo4xQC94pkNHPqegCuM3ezuqUqQh6e01zh/0IHrAoV84Cm7ZXkl
-	G/+SHaa8ONcRQspNGa6xDRnAVhLcGoe9f9x93NQXnWIz0I01HaR196o5GN84RzDBk9LhkmNrE/wHJ
-	egc60aNsoYeojvtNM5ihaXXNY/yJIZQHseOz6Xcr0xxdM48Xqb/rghT8t7y2rgjsG4Q1GOxWA8H1Q
-	2vmisoREIOADoUQwm0FylWBA1whR99zXkYYCC/OXRV9+J4z1fyUZl/4FFeWZixdpGZgJ0fDDMJRP+
-	YZl2zrohBA0X4GPUOW5w==;
+	List-Owner; bh=PWQjtQ1cO5Qsa2YAmqVNcZO1IaAK8PS1GTg4TCzdwNY=; b=4r8H/ctHxC6PIS
+	sjTf69tD4reaAP2SZmj2pmEy9/ZJ5lR2tZmpJPeaigU7U6ulE9/249SC/PcruNWCHkQDCFQ1snSJL
+	WYaP4ip3v3nwM2y/RN2mpBVQFa80W/ujcrxGxbolLXTEYVNl8UgI4QxsDFggbasFufKEbE3rN0Ntj
+	4Kpn5WxG/zJ6Tp+A4/EF1q9jrX6kTCm1MH3fb3kXRxUqNv1FheLPOp1nuvZ2ZcKSUOjAWMzZWKc43
+	LxaNFmVBDQ1fUyfCmJIcL2uwKJWD9LXJaOELpRnSYLwJwrjC1mZvqhEgTUrw35gFP29n44kVM1ci/
+	r9QMEIB1/oDXMfEmIxPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMwY0-0000000BkvR-2rSI;
-	Thu, 27 Jun 2024 21:20:52 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1sN66a-0000000CuDH-0gPj;
+	Fri, 28 Jun 2024 07:33:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sMwXx-0000000BkuW-3nbz
+	id 1sN66S-0000000CuC3-0b0h
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jun 2024 21:20:51 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1f6a837e9a3so52570465ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Jun 2024 14:20:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719523248; x=1720128048; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=exJx7MLHmhBfufwvX1HMSMkLUGzkmkvSDGWi4KvWQsU=;
-        b=jdkr09IptJGkq2+XUdX4K0eORtHts6yzuqFqtKNhG+nOctfGGCPxoPXK6iE4RHcjJv
-         mlai96WERKRWUWiSE/47Smx0TAVXWOtpRGFDk3CmoBbzMnK8C/eUpPN4+FuqWbSJLITM
-         AhVt2YQ1yeTKk0aMeXjODA0KEVHyCGRsFjWwApqCYZ/KtkxHc2LDUzDMkTDg5AOB2mcA
-         C31iKnispNqrRkrtt7w7Yd5aSLGm4L/A0Z8KDDkrtG7DEr8JyRBEeqj9xG42IVEwT+HT
-         Qq7jxfhPKhls8mglxSZDCB+nRFJR+6eiLrNGRcUOZ5Z7vJoyg0PBDVERflNoT8gzy+Ku
-         Cb0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719523248; x=1720128048;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=exJx7MLHmhBfufwvX1HMSMkLUGzkmkvSDGWi4KvWQsU=;
-        b=r0I+ej7c27WPbob3DD/0bdFvCliRhShDuGwlCMeBpKuGLoN12JO+nMiOYwg7kdu9z3
-         JdiEMjQCFvP9+xLb7rBv8aCUVjydK5SPk2ExLXgfE0o++wnvTy6CYonatJH67lWAt5mA
-         NCAxQK9FFesmFKkYYHNfJ89va1d9lRiWQQ1xlXUZ3tBwATV+1sBTD2uT0HT+jOk7t+Ad
-         j5+td++5f9GjTTg8tVTIH4RiPCBHCwWPDXGZ+sycob/H+WDGtJVcv4S+FBjfLvf4o66B
-         iAuznaVMzpBceGXquiiTzSElHXljsqG4GdpI0LhiSWM3wCIu19Ivs5zshDTTGNGPyCE1
-         USow==
-X-Forwarded-Encrypted: i=1; AJvYcCWpNVc+q1IRk3VrvTOfhhMe0y3RcB/dYTErVUgEyM7O6tijH574Z+ROdJDXy345l1CkZJBmJ9/4rd9QfSvxKjmoXIeGDiZ910JgeN1xWaBU
-X-Gm-Message-State: AOJu0YyLj/S09MAxTiGvXsh1lTGP/1jh45QOIzVEksnOyyfEZDcs/+aA
-	cgbpvM3Ak41cu6nIKfhyCw5fgTtNuGOwQ+N1N1KQj3Lot3//sDq1FJxMsm6j+lI=
-X-Google-Smtp-Source: AGHT+IGz34zuJdkPHa55bzUnF3pVUAjXlKAg/ZK+Xx4lnJseZeESVd/0JFLcbe/sbMFtYV8yKgFslQ==
-X-Received: by 2002:a17:902:d50b:b0:1f9:d982:5f23 with SMTP id d9443c01a7336-1fa23f073e3mr162626865ad.12.1719523248499;
-        Thu, 27 Jun 2024 14:20:48 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fac159d32csm2113575ad.291.2024.06.27.14.20.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Jun 2024 14:20:47 -0700 (PDT)
-Date: Thu, 27 Jun 2024 14:20:44 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>,
-	Zong Li <zong.li@sifive.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Erick Archer <erick.archer@gmx.com>,
-	Joel Granados <j.granados@samsung.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 4/8] RISC-V: Check Zicclsm to set unaligned access
- speed
-Message-ID: <Zn3XrLRl/yazsoZe@ghost>
-References: <20240625005001.37901-1-jesse@rivosinc.com>
- <20240625005001.37901-5-jesse@rivosinc.com>
- <20240626-march-abreast-83414e844250@spud>
+	Fri, 28 Jun 2024 07:33:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1FEB361D42;
+	Fri, 28 Jun 2024 07:33:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 604D7C2BD10;
+	Fri, 28 Jun 2024 07:32:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1719559982;
+	bh=atYDRZGv2wPyuhFP2xfANv9df+nkmPvlsRewheA6zC4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nwpElAs8hqVGc4pKp4mceW9qTGTlWDzBJwqULG6JLPFBqAX4YZCiv8FDgZtmczKt2
+	 Cjst1hw70MVOUaFS1MRNCj8nMQ8+KzzUq4CA8F/6wmzvxK3ouhESnmpI1fLhiyB07r
+	 OLTDhh2ECnODreRJ0UsegykCiq8QxzfPNGqRhzIpzyq6l/dyvjNoZuRSCmisIfkePs
+	 sF3C0i1aE/+HDibCoFVQ3+pXAqKlRYMzrA5zrm2F96XmarA1jvoY0n9nhIONRBTkV3
+	 EryhsUT8lswcBzALkRtVkweuzPYo3YLu4v5sjSIBefLoo1VwXWojHjpLRK9vegXp5y
+	 GrOn/LNgxXnaQ==
+Message-ID: <9e0ea356-7bed-4516-9e1f-739190d63be4@kernel.org>
+Date: Fri, 28 Jun 2024 09:32:53 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240626-march-abreast-83414e844250@spud>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/10] dt-bindings: vendor-prefixes: add spacemit
+To: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Samuel Holland <samuel.holland@sifive.com>, Anup Patel
+ <anup@brainfault.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org,
+ linux-serial@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>,
+ Meng Zhang <zhangmeng.kevin@spacemit.com>, Yangyu Chen <cyy@cyyself.name>
+References: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
+ <20240627-k1-01-basic-dt-v2-1-cc06c7555f07@gentoo.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20240627-k1-01-basic-dt-v2-1-cc06c7555f07@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240627_142050_281063_7E106C5E 
-X-CRM114-Status: GOOD (  27.03  )
+X-CRM114-CacheID: sfid-20240628_003309_487007_0F4EEA68 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,96 +128,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 26, 2024 at 03:39:14PM +0100, Conor Dooley wrote:
-> On Mon, Jun 24, 2024 at 08:49:57PM -0400, Jesse Taube wrote:
-> > Check for Zicclsm before checking for unaligned access speed. This will
-> > greatly reduce the boot up time as finding the access speed is no longer
-> > necessary.
-> > 
-> > Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-> > ---
-> > V2 -> V3:
-> >  - New patch split from previous patch
-> > ---
-> >  arch/riscv/kernel/unaligned_access_speed.c | 26 ++++++++++++++--------
-> >  1 file changed, 17 insertions(+), 9 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> > index a9a6bcb02acf..329fd289b5c8 100644
-> > --- a/arch/riscv/kernel/unaligned_access_speed.c
-> > +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> > @@ -259,23 +259,31 @@ static int check_unaligned_access_speed_all_cpus(void)
-> >  	kfree(bufs);
-> >  	return 0;
-> >  }
-> > +#else /* CONFIG_RISCV_PROBE_UNALIGNED_ACCESS */
-> > +static int check_unaligned_access_speed_all_cpus(void)
-> > +{
-> > +	return 0;
-> > +}
-> > +#endif
-> >  
-> >  static int check_unaligned_access_all_cpus(void)
-> >  {
-> > -	bool all_cpus_emulated = check_unaligned_access_emulated_all_cpus();
-> > +	bool all_cpus_emulated;
-> > +	int cpu;
-> > +
-> > +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICCLSM)) {
-> > +		for_each_online_cpu(cpu) {
-> > +			per_cpu(misaligned_access_speed, cpu) = RISCV_HWPROBE_MISALIGNED_FAST;
+On 27/06/2024 17:31, Yixun Lan wrote:
+> From: Yangyu Chen <cyy@cyyself.name>
 > 
-> - const: zicclsm
->   description:
->     The standard Zicclsm extension for misaligned support for all regular
->     load and store instructions (including scalar and vector) but not AMOs
->     or other specialized forms of memory access. Defined in the
->     RISC-V RVA Profiles Specification. 
+> Add new vendor strings to dt bindings for SpacemiT K1 SoC.
 > 
-> Doesn't, unfortunately, say anywhere there that they're actually fast :(
-
-Oh no! That is unfortunate that the ISA does not explicitly call that
-out, but I think that acceptable.
-
-If a vendor puts Zicclsm in their isa string, they should expect
-software to take advantage of misaligned accesses. FAST is our signal to
-tell software that they should emit misaligned accesses.
-
-This allows for a generic kernel, like the one a distro would compile, to
-skip the probing when booting on a system that explicitly called out
-that the hardware supports misaligned accesses.
-
-- Charlie
-
+> Link: https://www.spacemit.com/en/spacemit-key-stone-2/
 > 
-> Thanks,
-> Conor.
-> 
-> > +		}
-> > +		return 0;
-> > +	}
-> > +
-> > +	all_cpus_emulated = check_unaligned_access_emulated_all_cpus();
-> >  
-> >  	if (!all_cpus_emulated)
-> >  		return check_unaligned_access_speed_all_cpus();
-> >  
-> >  	return 0;
-> >  }
-> > -#else /* CONFIG_RISCV_PROBE_UNALIGNED_ACCESS */
-> > -static int check_unaligned_access_all_cpus(void)
-> > -{
-> > -	check_unaligned_access_emulated_all_cpus();
-> > -
-> > -	return 0;
-> > -}
-> > -#endif
-> >  
-> >  arch_initcall(check_unaligned_access_all_cpus);
-> > -- 
-> > 2.45.2
-> > 
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
 
+So you just ignored all feedback and tags?
+
+<form letter>
+This is a friendly reminder during the review process.
+
+It looks like you received a tag and forgot to add it.
+
+If you do not know the process, here is a short explanation:
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+versions, under or above your Signed-off-by tag. Tag is "received", when
+provided in a message replied to you on the mailing list. Tools like b4
+can help here. However, there's no need to repost patches *only* to add
+the tags. The upstream maintainer will do that for tags received on the
+version they apply.
+
+https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+If a tag was not added on purpose, please state why and what changed.
+</form letter>
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
