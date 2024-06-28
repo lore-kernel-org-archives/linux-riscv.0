@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C58C2BBCA
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 07:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D0FC2BBCA
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 07:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2JZLsG+BoR9Hb3MwCECGw3lEl7eNfpCFeI9fDc30vqc=; b=giNiHTNEahMqGc
-	k0gFlu0bclNlffMurLlerCxJAxCfhnislxhxV0fkcI1zg+elh67o850pkIijcMOyHqFKmHn/7jT2V
-	GNPskKjooJFhXc/iAZfd2WsWITz7+Phffx2qrcuhEYVIw7GjepE3480G/oBtAsftj26uzIgdiU/bw
-	OP7iQRtwoU7kvIQLEJ1inflaGdW8ZN1sO6WWVGMtAznj7CkfPrIyvyrKzJDX/1C3ZoW+eA0Z3+mAX
-	QySopuPfPcHXp2JGedmWUA1L2uDhEYWbgCBZDcY5wV+LQabEgtMDjHJNPLqWJseNrYM6gVBt4urXZ
-	bOuoawSdfA/URD7/Fopg==;
+	List-Owner; bh=MkNj8g6PrW6VFqa/zoqrlYs/5pJ/hC+lEP6NkLQ9lls=; b=OrYcq1BL2vkoiZ
+	VYYUKaV96r6l8KNXf4eZfz9X+MyRUrlFWaOE/rORWA72PlxPYQRJ4eHCATnLWY7cFi5zUsu5S0nY7
+	Bkaf8UFaWri22Bh/aobxakRod6pQZ4H05kDYB66B6SFFkoNh2GgJNYhisJ2VCrwPQTh9Je7lt7vBf
+	XcfSJ66eh3imR4X/y8Wi0qydAEI06+ufswXvXxafmKBI8NQByUbtv5NAUO18DzvsOsqOscK4zyS69
+	+lC1tAh16CYIx1OyJqu8HuBMGDxYaoU5/dF9FrM30blcvTmFIWIuca+03QwygQ91Gzwt/rGNBNIWV
+	rch9KKvKJuaV0B93JjVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN6P9-0000000CxXc-376C;
-	Fri, 28 Jun 2024 07:52:23 +0000
-Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
+	id 1sN6PL-0000000Cxgg-1KDq;
+	Fri, 28 Jun 2024 07:52:35 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN6Ov-0000000CxNy-2h3d
+	id 1sN6Ow-0000000CxOS-0OTi
 	for linux-riscv@lists.infradead.org;
 	Fri, 28 Jun 2024 07:52:11 +0000
-Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-700cd43564eso168082a34.1
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 00:52:07 -0700 (PDT)
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7067435d376so243226b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 00:52:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719561127; x=1720165927; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719561129; x=1720165929; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8QTaOQgSJlRgxGe2DAtbRN63Xb4cFygQnCpr3YrplOU=;
-        b=UK23aNaBN+oa+nnJfKxTjjOJIRLl6/0yNTtsJ1XT7t1aLdwbspjCWF/A2Sf4ZEDFeG
-         eLkkgTiWn7pap2luVDyY98KCeNOrdUn/Bm5BoJVKEZt4id1Qkjj2TWWhCOw0WvjffDyW
-         DgDPptIiOeVgrG36B3/HbViw3IIWDBlv7sNMbEBaENmYkK5dIhMgwdxvR+1uBT+L1iNz
-         kjfk8hXj082SC+4oOrZKSCso8yBKTSwfSh2CvkQr94pT3cVBOO455GkHl+bX6O7mkUjY
-         JCBz691UclQb/EO3/hCTLMuxVJkKBGJ4PbsEjuicaroAEQ4QVWxn5GAy2pdbkps/FrvC
-         r2sQ==
+        bh=6fc3IuO6YmBNA8s0mWpyu1I7/gJNRg54J9fB76y1B8s=;
+        b=Qkemds4v5TheORjCjp38+KXL1kinkNiuACNEBVOKhb2PCmJVwvDIGkI8WVI10Bf06x
+         MGrcefQDf0pIbkVRTQCZV2mIlG6NPdlUPv3GM8LZrQfR/1Q5JgnmzCjyr2/JKdplgzV+
+         9yjVH/uj3Jzbt54I24Y+GKJ3mWvxh0U0mo+YT5/NKEChDbc10BsuTWCN1slF4vCrwYf8
+         mLd6UqFCD+bfgaiLgPNv/oAcVDQCV3pkvci7o1cClhODAskoRuWNoIBPOzrh36fTMkbG
+         grVW2K448WfWfOY4DKDY6gvocdO/27aqoe/s4pK03o9VfbQwuuSX+UvzWc5jiI9rcsjB
+         qNfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719561127; x=1720165927;
+        d=1e100.net; s=20230601; t=1719561129; x=1720165929;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8QTaOQgSJlRgxGe2DAtbRN63Xb4cFygQnCpr3YrplOU=;
-        b=FG/lf1JhBO7JrFaOBCFPdmyAA9sP8I99wkeYqXj1OL+JEqCOHVzdqHtN1ClsOCXu5w
-         sURmewpk5ZcCOUbLxOgFMU/t2XNN/dTV+z0IIlWOfUXmXF0bJlsT5G2rcgWIvi10GXUs
-         QfCdGLt/FzxtjZ9xo5P4it4Nof6T0Lbt11+0HSQWVISvRpRozzeq5bTLG/OZdBWoLKZS
-         nCVKYBVChG++lG5DqzonPUCZoMqhH/f59Y8VQlnwbXWZUq0Wu4KPqyE6n5YTRr38wY7v
-         HK+Ck9ooKOWVklnvyV6g53ugDROe+Sad0B0PYMr1D0FPp8OzMihzbF7v64keYNw4hbPJ
-         xydQ==
-X-Gm-Message-State: AOJu0Yx/miyBt4a0TayIre8Sc+YO4JVAG286JckAhdFE44GJUY+U3zHA
-	fhiX1ULnKFrx3IIYVQDNHK313sk14DzYtlQDP+XL1Nw4oidT0tRtrKIUsIrYiNYiWZh98Iyoep9
-	t
-X-Google-Smtp-Source: AGHT+IE5FpdJsgBgjR00qw7HsO4MmvDOUqzWFrZg+uaxB1OldOrplMNqpPJ7b0OBtuxblj+ltyW8xw==
-X-Received: by 2002:a9d:7495:0:b0:701:f1cd:350a with SMTP id 46e09a7af769-701f5874810mr3112027a34.11.1719561126989;
-        Fri, 28 Jun 2024 00:52:06 -0700 (PDT)
+        bh=6fc3IuO6YmBNA8s0mWpyu1I7/gJNRg54J9fB76y1B8s=;
+        b=GNZoluvQmmXHWwQ3fQ/EDKwAaid6hfISFTUAMlQfk7uXMnPS9xC+vbkk4mPozk130H
+         gFfj0gMIU5ZGj5IbcYrJZrUvxHaZiaPh3OAp2IyZbLpEykEZNYKTCo9fULHHKSe2uMXB
+         6jtuz/+v5q5M1DbufSdOKcVXINf43VOTHVS9YZPuWDjaDbRWBPktmTi9+ZOIjy21wDby
+         tPNSdleIKaWPRtj2xhU01OwfWFhzcZeJuyPOk3/sBbtu/81QRkm+ENXmgrHntzgVJxmL
+         ObsyiqvhYI7TC8azAXwnUlG+uO8cg8VBVr69ZQ/so3b9I+nV9noLedBG/YsG9YBxruLY
+         Z0/w==
+X-Gm-Message-State: AOJu0YwPjkiHIXL8sdE4T1NpyhmAMLKL+CcSkTwWkKFmyZkq7NQTKIjb
+	ONq7hvZJqPj05UJpYfYvE1Aescu4ZQRSvSL7TayOPs8xJRwKwCkLVFPzCDCjWXE=
+X-Google-Smtp-Source: AGHT+IF3KuUY30k6Fxmt5zQarV5j2YsUdQtDIpW2glwEhLDfVpSu4XavuBx9WBfU01ZxprM4j4Fscw==
+X-Received: by 2002:a05:6a00:2e96:b0:708:41c4:8849 with SMTP id d2e1a72fcca58-7085223cda8mr1543391b3a.9.1719561128579;
+        Fri, 28 Jun 2024 00:52:08 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-72c69b53bf2sm685068a12.2.2024.06.28.00.52.05
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-72c69b53bf2sm685068a12.2.2024.06.28.00.52.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Jun 2024 00:52:06 -0700 (PDT)
+        Fri, 28 Jun 2024 00:52:08 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
-Date: Fri, 28 Jun 2024 00:51:42 -0700
-Subject: [PATCH v4 2/3] drivers/perf: riscv: Reset the counter to hpmevent
- mapping while starting cpus
+Date: Fri, 28 Jun 2024 00:51:43 -0700
+Subject: [PATCH v4 3/3] perf: RISC-V: Check standard event availability
 MIME-Version: 1.0
-Message-Id: <20240628-misc_perf_fixes-v4-2-e01cfddcf035@rivosinc.com>
+Message-Id: <20240628-misc_perf_fixes-v4-3-e01cfddcf035@rivosinc.com>
 References: <20240628-misc_perf_fixes-v4-0-e01cfddcf035@rivosinc.com>
 In-Reply-To: <20240628-misc_perf_fixes-v4-0-e01cfddcf035@rivosinc.com>
 To: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org
@@ -84,8 +82,8 @@ Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
  kvm@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
 X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_005209_743775_B334A1E5 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20240628_005210_218929_0EFE5772 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,30 +102,133 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Samuel Holland <samuel.holland@sifive.com>
 
-Currently, we stop all the counters while a new cpu is brought online.
-However, the hpmevent to counter mappings are not reset. The firmware may
-have some stale encoding in their mapping structure which may lead to
-undesirable results. We have not encountered such scenario though.
+The RISC-V SBI PMU specification defines several standard hardware and
+cache events. Currently, all of these events are exposed to userspace,
+even when not actually implemented. They appear in the `perf list`
+output, and commands like `perf stat` try to use them.
+
+This is more than just a cosmetic issue, because the PMU driver's .add
+function fails for these events, which causes pmu_groups_sched_in() to
+prematurely stop scheduling in other (possibly valid) hardware events.
+
+Add logic to check which events are supported by the hardware (i.e. can
+be mapped to some counter), so only usable events are reported to
+userspace. Since the kernel does not know the mapping between events and
+possible counters, this check must happen during boot, when no counters
+are in use. Make the check asynchronous to minimize impact on boot time.
+
+Fixes: e9991434596f ("RISC-V: Add perf platform driver based on SBI PMU extension")
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+Tested-by: Atish Patra <atishp@rivosinc.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- drivers/perf/riscv_pmu_sbi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/kvm/vcpu_pmu.c    |  2 +-
+ drivers/perf/riscv_pmu_sbi.c | 42 ++++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 41 insertions(+), 3 deletions(-)
 
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index 04db1f993c47..bcf41d6e0df0 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -327,7 +327,7 @@ static long kvm_pmu_create_perf_event(struct kvm_pmc *pmc, struct perf_event_att
+ 
+ 	event = perf_event_create_kernel_counter(attr, -1, current, kvm_riscv_pmu_overflow, pmc);
+ 	if (IS_ERR(event)) {
+-		pr_err("kvm pmu event creation failed for eidx %lx: %ld\n", eidx, PTR_ERR(event));
++		pr_debug("kvm pmu event creation failed for eidx %lx: %ld\n", eidx, PTR_ERR(event));
+ 		return PTR_ERR(event);
+ 	}
+ 
 diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index a2e4005e1fd0..94bc369a3454 100644
+index 94bc369a3454..4e842dcedfba 100644
 --- a/drivers/perf/riscv_pmu_sbi.c
 +++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -762,7 +762,7 @@ static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
- 	 * which may include counters that are not enabled yet.
- 	 */
- 	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
--		  0, pmu->cmask, 0, 0, 0, 0);
-+		  0, pmu->cmask, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
- }
+@@ -20,6 +20,7 @@
+ #include <linux/cpu_pm.h>
+ #include <linux/sched/clock.h>
+ #include <linux/soc/andes/irq.h>
++#include <linux/workqueue.h>
  
- static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
+ #include <asm/errata_list.h>
+ #include <asm/sbi.h>
+@@ -114,7 +115,7 @@ struct sbi_pmu_event_data {
+ 	};
+ };
+ 
+-static const struct sbi_pmu_event_data pmu_hw_event_map[] = {
++static struct sbi_pmu_event_data pmu_hw_event_map[] = {
+ 	[PERF_COUNT_HW_CPU_CYCLES]		= {.hw_gen_event = {
+ 							SBI_PMU_HW_CPU_CYCLES,
+ 							SBI_PMU_EVENT_TYPE_HW, 0}},
+@@ -148,7 +149,7 @@ static const struct sbi_pmu_event_data pmu_hw_event_map[] = {
+ };
+ 
+ #define C(x) PERF_COUNT_HW_CACHE_##x
+-static const struct sbi_pmu_event_data pmu_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
++static struct sbi_pmu_event_data pmu_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
+ [PERF_COUNT_HW_CACHE_OP_MAX]
+ [PERF_COUNT_HW_CACHE_RESULT_MAX] = {
+ 	[C(L1D)] = {
+@@ -293,6 +294,34 @@ static const struct sbi_pmu_event_data pmu_cache_event_map[PERF_COUNT_HW_CACHE_M
+ 	},
+ };
+ 
++static void pmu_sbi_check_event(struct sbi_pmu_event_data *edata)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH,
++			0, cmask, 0, edata->event_idx, 0, 0);
++	if (!ret.error) {
++		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
++			  ret.value, 0x1, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
++	} else if (ret.error == SBI_ERR_NOT_SUPPORTED) {
++		/* This event cannot be monitored by any counter */
++		edata->event_idx = -EINVAL;
++	}
++}
++
++static void pmu_sbi_check_std_events(struct work_struct *work)
++{
++	for (int i = 0; i < ARRAY_SIZE(pmu_hw_event_map); i++)
++		pmu_sbi_check_event(&pmu_hw_event_map[i]);
++
++	for (int i = 0; i < ARRAY_SIZE(pmu_cache_event_map); i++)
++		for (int j = 0; j < ARRAY_SIZE(pmu_cache_event_map[i]); j++)
++			for (int k = 0; k < ARRAY_SIZE(pmu_cache_event_map[i][j]); k++)
++				pmu_sbi_check_event(&pmu_cache_event_map[i][j][k]);
++}
++
++static DECLARE_WORK(check_std_events_work, pmu_sbi_check_std_events);
++
+ static int pmu_sbi_ctr_get_width(int idx)
+ {
+ 	return pmu_ctr_list[idx].width;
+@@ -478,6 +507,12 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
+ 	u64 raw_config_val;
+ 	int ret;
+ 
++	/*
++	 * Ensure we are finished checking standard hardware events for
++	 * validity before allowing userspace to configure any events.
++	 */
++	flush_work(&check_std_events_work);
++
+ 	switch (type) {
+ 	case PERF_TYPE_HARDWARE:
+ 		if (config >= PERF_COUNT_HW_MAX)
+@@ -1359,6 +1394,9 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto out_unregister;
+ 
++	/* Asynchronously check which standard events are available */
++	schedule_work(&check_std_events_work);
++
+ 	return 0;
+ 
+ out_unregister:
 
 -- 
 2.34.1
