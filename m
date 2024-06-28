@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271A8C2BD09
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 14:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7018C3064D
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 15:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ezcYYivSv1KX38SfxVF/XlCJPnFR2etSVoJAWYviPPE=; b=OC8Da9C4x5zSUm
-	MLk6qsIq3Z9NjHo6jkl4RfwJKOd0ZwXEuN3nZ/gjmrE0JIVJQcY7JcKCSEMfiW2fxXaJ1qhKm5g02
-	qwDczhOsdDbeuxYF9N4LFymBp38sLjVu0bZXeBiDHxTRxxWYtdhxtOXkUCyW95x8NLbD7gBXDkCUr
-	Vysr4jyyfO7owXqZrl9U6OfJ02q8BaD+1fReNP1XO2IuGquEM4oHG+GJT+9ttqWv195FEY8+AeE7+
-	6JULLXHcUtlO1d9pP4Izr4u7SxcyYyoFbt9OeKFdRhbe9vE3Jh1DiM7/eH41CZWlF8clQw/LmsemV
-	qil5aJuoSqqbWvVTkGgw==;
+	List-Owner; bh=rMI0aYBF0P+Nik6mNz/0AToVcF5CyKzPQGXvQJetSRQ=; b=fs5gRZpK2fZqvI
+	6QqRxEARnLcd+qXC3hoJT1hVvHwXjb6GFIImKinNBz5HgNoFXQjR8ESWED54IM23ST1C/1W5Xjo9p
+	Tbo/tJLwD/szDNCuD1hUuOXIo4rALN2VciWnFMLgJZCWeWONJ6xzw/0w3TTxzhkfebHZ+uYgt7z8z
+	VOMVo55skrDvh3g3id5kCTACsGoBYRhYOZIuyrPm7azGX7lRbxTON/Oo0rn0SOvy0wYr0JAYhlXSH
+	DW84MmGIPdA5h6V/a7dDjLVRgFFPZtXEInOTdvgYciF0v/IwA04n138H0nXySAVGaC+4F2QOgbXUK
+	d2/7SmLUNAGrA8SfMzuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNCbq-0000000E16y-4AoT;
-	Fri, 28 Jun 2024 14:29:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sNDf2-0000000EEQM-0qyx;
+	Fri, 28 Jun 2024 15:37:16 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNCbf-0000000E121-2Qlc;
-	Fri, 28 Jun 2024 14:29:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3C4FB6219F;
-	Fri, 28 Jun 2024 14:29:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB426C116B1;
-	Fri, 28 Jun 2024 14:29:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1719584981;
-	bh=kL2tETLKqVwjJYlaNcjDteqOWD5Jwtaof/gDNuH6kGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a2QxQOJQyiXjljP25DKWOu9KP3a0BdNyi92/nJyUyCRfueo0an168oQTibnWq74EJ
-	 EABYn40fg1u0GnZ9Z7I7m7bRuxFhQGNhX9alAZesPa0UCBglnQU5bXtBgcHrtjniCP
-	 qGxFYZ7lfkh6BQO74YXihP6Aa0PQaxMN83Mu6LoI=
-Date: Fri, 28 Jun 2024 10:29:37 -0400
-From: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Atish Kumar Patra <atishp@rivosinc.com>, 
-	Samuel Holland <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
-	Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] drivers/perf: riscv: Reset the counter to
- hpmevent mapping while starting cpus
-Message-ID: <20240628-quantum-sophisticated-ferret-5eaec4@lemur>
-References: <20240626-misc_perf_fixes-v3-0-de3f8ed88dab@rivosinc.com>
- <20240626-misc_perf_fixes-v3-2-de3f8ed88dab@rivosinc.com>
- <96ff4dd2-db66-4653-80e9-97d4f1381581@sifive.com>
- <CAHBxVyHx9hTRPosizV_yn6DUZi-MTNTrAbJdkV3049D-qsDHcw@mail.gmail.com>
- <20240626-eraser-unselect-99e68a1f5a3e@spud>
- <20240626-spyglass-clutter-4ff4d7b26dd4@spud>
- <CAHBxVyEg2uKKdikXib77JDmCKs8qDGJHvj3stsFgCgO0U9omRg@mail.gmail.com>
- <20240626-pedigree-retype-dd7f1e54ac2b@spud>
+	id 1sNDey-0000000EELw-1MTZ
+	for linux-riscv@lists.infradead.org;
+	Fri, 28 Jun 2024 15:37:14 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-310-OFRDPytDPtSGaHTmtLLdBQ-1; Fri, 28 Jun 2024 16:36:54 +0100
+X-MC-Unique: OFRDPytDPtSGaHTmtLLdBQ-1
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 28 Jun
+ 2024 16:36:18 +0100
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Fri, 28 Jun 2024 16:36:17 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Arnd Bergmann' <arnd@arndb.de>, Jisheng Zhang <jszhang@kernel.org>,
+	Andreas Schwab <schwab@suse.de>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH 2/4] riscv: uaccess: use input constraints for ptr of
+ __put_user
+Thread-Topic: [PATCH 2/4] riscv: uaccess: use input constraints for ptr of
+ __put_user
+Thread-Index: AQHax9S0vgwFN0Wui0OMQ/evgIcCmrHdT9IA
+Date: Fri, 28 Jun 2024 15:36:17 +0000
+Message-ID: <b4d15c17ed684f5ab3cf89fda9f73618@AcuMS.aculab.com>
+References: <20240625040500.1788-1-jszhang@kernel.org>
+ <20240625040500.1788-3-jszhang@kernel.org> <mvmikxvonjh.fsf@suse.de>
+ <ZnwTwnSsnZ8Td9GZ@xhacker>
+ <dcf9574a-0f1b-4131-befd-39f47d4f9002@app.fastmail.com>
+In-Reply-To: <dcf9574a-0f1b-4131-befd-39f47d4f9002@app.fastmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240626-pedigree-retype-dd7f1e54ac2b@spud>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_072943_730868_3340383C 
-X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-CacheID: sfid-20240628_083712_634909_03E8EDEC 
+X-CRM114-Status: UNSURE (   8.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,18 +85,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 26, 2024 at 11:11:54PM GMT, Conor Dooley wrote:
-> > Strange. I modified and sent the patch using b4 as well. It's missing
-> > my sign off too.
-> 
-> `b4 shazam` should pick up trailers provided on the list, signoffs
-> included. `b4 shazam -s` will add yours. TBH, I am not sure why that is
-> not the default behaviour.
+From: Arnd Bergmann
+> Sent: 26 June 2024 15:25
+...
+> If you just copy from the arm64 version that uses an
+> "r"(address) constraint instead of the "m"(*address)
+> version, it should be fine for any user space access.
 
-Some projects don't use the DCO model, so they don't require Signed-off-by
-trailers.
+Arm certainly has 'reg+offset' addressing and I'd have thought
+the RISC-V would have it as well.
 
--K
+I'd guess that the compiler also knows when the offset is too big.
+
+Probably noticeable when code is accessing structures in user memory.
+
+OTOH I can't remember if "m" implies a memory clobber?
+For user copies the memory clobber isn't needed and not having it
+may well allow better instruction scheduling.
+
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
+
 
 _______________________________________________
 linux-riscv mailing list
