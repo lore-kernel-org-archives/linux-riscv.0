@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F05DAC30658
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 11:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACC6C2BD09
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 11:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7fIg6fVGe80hTAuvlu3gCHaQqyC/WCzJ+ApXCHU7bro=; b=jvk60xRP/gh06H
-	D9SnWIhU47rqpoSxeJNFa+vcknltM7KwxxguJ4DlO3WTXA9FXyJXHux0i6ghG7PRyLDu7YfPIKhKr
-	sgWwpuPar5ybnJ9/5yFCg+WR1CMi3FbVRiIIHqtJOxtd40VlDGZnmXrz1N/e+sjUgKmapnB4JMmfi
-	OibIkocvimJlXpGPaLvRuZuutGQZVq1LPMDRjuiSVYVRmqnCx/GkJ3v7uSNiPiO+5oqJ5IN9H5K8E
-	j4xZ2HUNqpcYsYsaul8DdKuPUg6Az4LtUQb0eeopelS/Kd1/8bthpYnVEwiZx8VWSPFNkpSDn4ENw
-	7LBXU9zk807iO8Epjzgw==;
+	List-Owner; bh=7htSwF/bns+rgaRgwC9Tge4SDd9tduCehAnkpgbOCXY=; b=xbHTnVKELyCk38
+	JN6A4bIfMqx3WXNWJuXxpBC/YBkyJV6v5XNNEkStxgIMtG3tDD0zvk69Xk3Pdc6u1GpH2HiUm/Pgr
+	XT8KOwftO11JbWxqws6mZvwMs1arOXoWFlWWY8QiLE+dt3iLtoJRzysVoekufSbvgnUSmApTdg9x/
+	O/AHdIjQZIBvoTtLRRMIHfwwj2Rke1IM/h2dGI9QlWPHvSnupcSDrKPNx3EhOLAQyhVqOgsNRENKl
+	raR1E94MmU+bSRyGyWtxQ1Cd+CpA95cRHhNKGnTC7rPeTkx4wFIiuIAdsS8IIrgOCGWt8tQaZ0sc7
+	0HyP25EdYtV8tKprUMfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNA5V-0000000DZuL-1QAv;
-	Fri, 28 Jun 2024 11:48:21 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1sNA5Z-0000000DZwd-0tsL;
+	Fri, 28 Jun 2024 11:48:25 +0000
+Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNA5S-0000000DZtM-1pcH
+	id 1sNA5W-0000000DZur-41aT
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 11:48:20 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7066c9741b7so378784b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 04:48:18 -0700 (PDT)
+	Fri, 28 Jun 2024 11:48:24 +0000
+Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3d5666a4860so291298b6e.2
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 04:48:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1719575298; x=1720180098; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1719575302; x=1720180102; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=yBxLbBg2C0mDR/P/oLexeudRwTh8PG2S5E6XUY0XYj8=;
-        b=Ww2qO3ek/J6zzZhlUt2wdP0h9qrlwE7CAXzBJWhsAgYwS3aZeFFnqdtqpQBcdOPiF9
-         4fjjpc+nnJ+s2aH0Hnse1ZoKZ76pN3n8F++jvAz7iqovYs6hkuE9WuPFjXz/0xfbWwVl
-         +y6V3knj1oKe9e9fMJ8h/ciUVaVisab3s/iTgkhtgohLjBDEx0cPQZHpVamRDX50gIjN
-         4dHZm7Uh5lcyYGP7kSvbGu7H8DNH21wVJKocfX1xCefd3eS/DS442dTckQDHbEwDABqT
-         C7Tnk8LKwa1EhekhfLljDP8G0jWRhU84fy36BOyvhmjK1/v12i3zs0y8IfCHMd5lAD/D
-         fJ8g==
+        bh=0R4ThAGGzyxzKL16VZ/3SLSpBqDh/fGCMoUEXeAx/HQ=;
+        b=W/RwbQHtB81aR7yiLjD1/ASQRlh5S/Q3FfXbAy7YwQon0HNgHq69wbhiGQMKnUVEkD
+         mQ6H387j4ZEIIudRP6zmQXDkFwWpxVjjr4v8JDJEQdwGJ1S0yFMs0HFpoi0T+n7hFMGw
+         DM/Cj3NO8Jr40KCliMCiuE+VNh/umAhY5lgIJ9Xb11rwq5QJCE19pq1GfNqv81ywBHhc
+         viYg0mmBdCe8Lmnk1PnrSFCYbg03Gsb1tNBtEMcMukiJ84ha+fpIPI7Kh58lKbX0sGYc
+         ra/GydgInWddRXn00jA0g+wY5kMZ1ajYTZXrD77L7pkiEMOpVvLM+xAyCaCZ+U0psdb0
+         PRxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719575298; x=1720180098;
+        d=1e100.net; s=20230601; t=1719575302; x=1720180102;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yBxLbBg2C0mDR/P/oLexeudRwTh8PG2S5E6XUY0XYj8=;
-        b=SQbD5Q7MNQ2jWvDCyEpc2KM3aXFRQ00Qh0wGzfJuDhdBbMtVuAwejr3qv4IqmR1oO8
-         toHttX9ona/vHtom9spS6qizTAr04xyyEwPeOxZeRR81hba6RCgVivgaSczrgMNaJpLO
-         evUJq94ATOuE4U0Vc4eAi0bZYRAXWaLYYZj1ZiELgX6H3HY/ijnuRSmEUDIYagSkaK6f
-         1zDotC0s4t8IxPXOFstHWdNqilCmYKfGuYB305ePlFxu6rRtbEcLztqRMcmLbzPs8A2S
-         McgZ3SGcotIPy/iq7NOz/pw0Hq4wjMTo/25jA8jo6wbqFOAPRNygq4rdxp+2WfbaHEnM
-         65hw==
-X-Forwarded-Encrypted: i=1; AJvYcCWt47jmwTLfv8DFJX+ZjRrWlfsuSYjwT6E85fWBrY4ygOxd7kjZcxL4SRbsPNFFVE4mlAlCcOAR5dDoEYGUnI2ZuoRIBBdd9khqr4x19nZE
-X-Gm-Message-State: AOJu0Yza2UvHygJNLhTzl6cQ/Z+zIYpAt9HDIbwrlWayRZ+WUIHRSUVA
-	qoco68bMf8uVw2mCWg5Ow+XQyTr3OXxtjou2Bzuyjh0TVIx1YHTzNZByrX7xEWs=
-X-Google-Smtp-Source: AGHT+IECg5NMB5OG9EYHIh91F3Lk8CJ30f0YqfGF81UIYveQZi0LXlob9MKuuQ4bFTTbGJMqs4SwPA==
-X-Received: by 2002:a05:6a00:1796:b0:705:c0a1:61c5 with SMTP id d2e1a72fcca58-706745ab97cmr20272333b3a.20.1719575297284;
-        Fri, 28 Jun 2024 04:48:17 -0700 (PDT)
+        bh=0R4ThAGGzyxzKL16VZ/3SLSpBqDh/fGCMoUEXeAx/HQ=;
+        b=B+FoAPg8euIxX3ixT24AKl8zkv7/bysWm9ZAS7oGkppGtQQoA3tPJEM44f4XH6LXvl
+         lfkn+vqdtibs+XZvV8xue8zi/buYjD7LEsaGw5GKdGF6UPoo8OPFJGmQ/zuCxOVDx0Nl
+         lq8FfaNnwONHk0nIJaMNs9Pm1T2kq3QOsGbhi2aq2Hnz37ThNEK5VecA9XiKmLdkLL6k
+         ZBEYSsf/dfz8ucCAIJu++n9J/130Uczw6xGy/HMhY9oDx6o4D3duBCPXBmXTCU/fQOnW
+         rXkzMNb/U8XiJkMdjRs4ptSbwDc5moj69eWV3EsknTxsFtLcRulVjTQJaIGHQ4mLWXqj
+         xVvA==
+X-Forwarded-Encrypted: i=1; AJvYcCWFnjro2iqW98vZpF2pv6TqQ7cX99R3/NpEew1ub1KE+oxMSjMvVhN8/7FQmxirEa0YqVSjsoJQ2Wxd9ArhkUEB3ny53I1yFJ/g+oQbPhJr
+X-Gm-Message-State: AOJu0Yxf58GSWICjALcTUkBWmdGkNnKF/rQlKa1n1kTiODO33QEGHn42
+	IUfITvflaGyGVtFAvNOjIzcsV0CT/Ek0GGRhdLdqf0lvEVjgtbGfHFaRQKg/0F8=
+X-Google-Smtp-Source: AGHT+IG4h5F6VzLgJwsJVSFf3Gl7LvgvGwcibgWFpRNTrZUraOpcCSEmqXroyM6n2QyUfXey/pxfEQ==
+X-Received: by 2002:a05:6808:16a8:b0:3d2:1a21:782 with SMTP id 5614622812f47-3d541d46720mr17312078b6e.56.1719575301977;
+        Fri, 28 Jun 2024 04:48:21 -0700 (PDT)
 Received: from [127.0.1.1] (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70803ecfb90sm1377775b3a.139.2024.06.28.04.48.13
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70803ecfb90sm1377775b3a.139.2024.06.28.04.48.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Jun 2024 04:48:17 -0700 (PDT)
+        Fri, 28 Jun 2024 04:48:21 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
-Date: Fri, 28 Jun 2024 19:47:44 +0800
-Subject: [PATCH v2 1/6] riscv: ftrace: support fastcc in Clang for
- WITH_ARGS
+Date: Fri, 28 Jun 2024 19:47:45 +0800
+Subject: [PATCH v2 2/6] riscv: ftrace: align patchable functions to 4 Byte
+ boundary
 MIME-Version: 1.0
-Message-Id: <20240628-dev-andyc-dyn-ftrace-v4-v2-1-1e5f4cb1f049@sifive.com>
+Message-Id: <20240628-dev-andyc-dyn-ftrace-v4-v2-2-1e5f4cb1f049@sifive.com>
 References: <20240628-dev-andyc-dyn-ftrace-v4-v2-0-1e5f4cb1f049@sifive.com>
 In-Reply-To: <20240628-dev-andyc-dyn-ftrace-v4-v2-0-1e5f4cb1f049@sifive.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -86,8 +86,8 @@ Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
  Andy Chiu <andy.chiu@sifive.com>
 X-Mailer: b4 0.12.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_044818_521179_6F9F1346 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20240628_044823_039098_6B0F2F98 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,93 +104,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some caller-saved registers which are not defined as function arguments
-in the ABI can still be passed as arguments when the kernel is compiled
-with Clang. As a result, we must save and restore those registers to
-prevent ftrace from clobbering them.
+We are changing ftrace code patching in order to remove dependency from
+stop_machine() and enable kernel preemption. This requires us to align
+functions entry at a 4-B align address.
 
-- [1]: https://reviews.llvm.org/D68559
+However, -falign-functions on older versions of GCC alone was not strong
+enoungh to align all functions. In fact, cold functions are not aligned
+after turning on optimizations. We consider this is a bug in GCC and
+turn off guess-branch-probility as a workaround to align all functions.
 
-Reported-by: Evgenii Shatokhin <e.shatokhin@yadro.com>
-Closes: https://lore.kernel.org/linux-riscv/7e7c7914-445d-426d-89a0-59a9199c45b1@yadro.com/
-Acked-by: Nathan Chancellor <nathan@kernel.org>
+GCC bug id: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=88345
+
+The option -fmin-function-alignment is able to align all functions
+properly on newer versions of gcc. So, we add a cc-option to test if
+the toolchain supports it.
+
+Suggested-by: Evgenii Shatokhin <e.shatokhin@yadro.com>
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
----
- arch/riscv/include/asm/ftrace.h |  7 +++++++
- arch/riscv/kernel/asm-offsets.c |  7 +++++++
- arch/riscv/kernel/mcount-dyn.S  | 16 ++++++++++++++--
- 3 files changed, 28 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index 9eb31a7ea0aa..5f81c53dbfd9 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -144,6 +144,13 @@ struct ftrace_regs {
- 			unsigned long a5;
- 			unsigned long a6;
- 			unsigned long a7;
-+#ifdef CONFIG_CC_IS_CLANG
-+			unsigned long t2;
-+			unsigned long t3;
-+			unsigned long t4;
-+			unsigned long t5;
-+			unsigned long t6;
-+#endif
- 		};
- 	};
- };
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index b09ca5f944f7..db5a26fcc9ae 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -497,6 +497,13 @@ void asm_offsets(void)
- 	DEFINE(FREGS_SP,	    offsetof(struct ftrace_regs, sp));
- 	DEFINE(FREGS_S0,	    offsetof(struct ftrace_regs, s0));
- 	DEFINE(FREGS_T1,	    offsetof(struct ftrace_regs, t1));
-+#ifdef CONFIG_CC_IS_CLANG
-+	DEFINE(FREGS_T2,	    offsetof(struct ftrace_regs, t2));
-+	DEFINE(FREGS_T3,	    offsetof(struct ftrace_regs, t3));
-+	DEFINE(FREGS_T4,	    offsetof(struct ftrace_regs, t4));
-+	DEFINE(FREGS_T5,	    offsetof(struct ftrace_regs, t5));
-+	DEFINE(FREGS_T6,	    offsetof(struct ftrace_regs, t6));
-+#endif
- 	DEFINE(FREGS_A0,	    offsetof(struct ftrace_regs, a0));
- 	DEFINE(FREGS_A1,	    offsetof(struct ftrace_regs, a1));
- 	DEFINE(FREGS_A2,	    offsetof(struct ftrace_regs, a2));
-diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index 745dd4c4a69c..e988bd26b28b 100644
---- a/arch/riscv/kernel/mcount-dyn.S
-+++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -96,7 +96,13 @@
- 	REG_S	x8,  FREGS_S0(sp)
- #endif
- 	REG_S	x6,  FREGS_T1(sp)
--
-+#ifdef CONFIG_CC_IS_CLANG
-+	REG_S	x7,  FREGS_T2(sp)
-+	REG_S	x28, FREGS_T3(sp)
-+	REG_S	x29, FREGS_T4(sp)
-+	REG_S	x30, FREGS_T5(sp)
-+	REG_S	x31, FREGS_T6(sp)
-+#endif
- 	// save the arguments
- 	REG_S	x10, FREGS_A0(sp)
- 	REG_S	x11, FREGS_A1(sp)
-@@ -115,7 +121,13 @@
- 	REG_L	x8, FREGS_S0(sp)
- #endif
- 	REG_L	x6,  FREGS_T1(sp)
--
-+#ifdef CONFIG_CC_IS_CLANG
-+	REG_L	x7,  FREGS_T2(sp)
-+	REG_L	x28, FREGS_T3(sp)
-+	REG_L	x29, FREGS_T4(sp)
-+	REG_L	x30, FREGS_T5(sp)
-+	REG_L	x31, FREGS_T6(sp)
-+#endif
- 	// restore the arguments
- 	REG_L	x10, FREGS_A0(sp)
- 	REG_L	x11, FREGS_A1(sp)
+---
+Changelog v2:
+ - Use CC_HAS_MIN_FUNCTION_ALIGNMENT and it friends to prevent reinventing
+    wheels (Nathan)
+---
+ arch/riscv/Kconfig | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 704d4683bcfa..55c70efbad0a 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -133,6 +133,7 @@ config RISCV
+ 	select HAVE_DEBUG_KMEMLEAK
+ 	select HAVE_DMA_CONTIGUOUS if MMU
+ 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
++	select FUNCTION_ALIGNMENT_4B if HAVE_DYNAMIC_FTRACE && RISCV_ISA_C
+ 	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+ 	select HAVE_DYNAMIC_FTRACE_WITH_ARGS if HAVE_DYNAMIC_FTRACE
+ 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+@@ -208,6 +209,7 @@ config CLANG_SUPPORTS_DYNAMIC_FTRACE
+ config GCC_SUPPORTS_DYNAMIC_FTRACE
+ 	def_bool CC_IS_GCC
+ 	depends on $(cc-option,-fpatchable-function-entry=8)
++	depends on CC_HAS_MIN_FUNCTION_ALIGNMENT || !RISCV_ISA_C
+ 
+ config HAVE_SHADOW_CALL_STACK
+ 	def_bool $(cc-option,-fsanitize=shadow-call-stack)
 
 -- 
 2.43.0
