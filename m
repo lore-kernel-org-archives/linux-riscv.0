@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3062C3064D
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 09:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590F4C2BBCA
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 10:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3YanSgV4tAc4FW6GqzY5egKo6656djGFHYueCZsgkKo=; b=lYLHhkL8/a+3J9
-	7umSERp/vtDJGeSOJoHsQFgxb3VvMwSrEuLdupM4Hs9WeY8mLAsxCPejwrpRK9FXaXg4YIWyck8zq
-	EQRpHSB4PoSjkVq2L/+eaf4io1MN0drEfO8KuZ2IKR78qDLBGVpS+dMJ9Nb+u6+auQDqV9ktaJjCm
-	bbCPhtOttTcQPNQ18HemCBvCL+6DbxdulPn5tjZzljTUfwe2ohwwQTrLnCFDmqtcXk484UPPUB1qr
-	mpv9i0Mg9qhMtxQW8vUzCo1Ur3edKfCf9LDc3vAifaSeEt4u77uhZErBg4V4it1xf9MIlmF7/WGZj
-	gNHYgh7LZjGHrLUQGi1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YA6eAms5lZhh42ldncOPR7xOkrVfSSTQ06KPX7JWXPs=; b=g4ZbzKLVMDaMk1fxriWmOufXgV
+	0/x0DISlu16Q7pwrM8Hv7ufdlxUHLKgz6DUtcclljoGyDKybxWkV6Ljpe/8kDAxubwid7cR/GBPjC
+	4vtYzphmO+kbu8UvfdsLxkTi8Q1mn7DODIsfVCsEDlnPTDBoXJSEs6bp+7PXgsoFL1ayAkQzNEnqm
+	YxiuPXsLp7e2X8taepboznTiq2YlMEDaYupzPgZoexNtgQh2/TIy78NnX9QQhCbTNde0z+GSbrXib
+	CbbmHBZd+Gs397q2YRu76daJzbTVD0v/TdGyo6MQkR0jrK+6BzSZap3+p4Fqi+O3m0v4VMMMRA+iT
+	0jejXl2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN841-0000000DHqP-1Pjy;
-	Fri, 28 Jun 2024 09:38:41 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1sN9BP-0000000DSsj-11pL;
+	Fri, 28 Jun 2024 10:50:23 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN83c-0000000DHZK-2K5d
+	id 1sN9BM-0000000DSrP-3B9Y
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 09:38:18 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-6bce380eb96so272908a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 02:38:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1719567496; x=1720172296; darn=lists.infradead.org;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=PpDCA7CnSWtIO6seFJ4J0hDKtH06inwXMPU5CaySLhw=;
-        b=NKrGUI1SyFpAgDrOzgTUxjOAAg7Dt+LwqoHCNLFPGGQJaBG6jShB2swkSRyw5Sor8M
-         TXMYvs/CH/J3sYzh827Oz+ZHM9Nomm0yFCeITyxjv/dH2AimXGJHlF92Ys1TKwagyfpK
-         TbYNSaHNF1W3ZVGP0my6wywtt7/XadYmFUm6yY4qjFrbscp9g0QZvAXX5YIxKxX7kCIA
-         B5PSm9hU31HVbwa7bw+97T2iVDLmwOqifzcBRDCUUqheQpbb6o51ujrkdA528EzVR6xb
-         GG/K4MIFUoPib8tYLjYNynxSXrIr6plsOLZrK7PCk0TagSZzrJPmXXsnVSAccELx+WQ+
-         JYYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719567496; x=1720172296;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PpDCA7CnSWtIO6seFJ4J0hDKtH06inwXMPU5CaySLhw=;
-        b=Azw/3hVHXfJdFKrVgKz2lE1q3zN1AoOiS3NwUZwhHWvXLES4g03C8aBuBdoOx7kMt/
-         rV9ZX/8F2SeaVjmLCgLkOGzrMPwLxlxlclQ1n5E5dTJdkOyan4/7wTGd7rREUlDuMkHJ
-         UmHzAfrH1Z+ojwjLWEuFZZ7K7OjsHzOe3U/8WZaHwhtfIow8Z3nt7a5Hu5GYlYk/dB+G
-         G8qxayVeXiGTFwCmuNhvPX1WgnQVparpn50n2YnwCc4r6mfr7i+U7Cl+LsuDukzltNri
-         nQTxi+PBUHsJR2lqFxZAe019DxHqh99wvqsxNN0fHdpBEe9NdrERTVtnaXk1HwQ7pwEa
-         pfTA==
-X-Forwarded-Encrypted: i=1; AJvYcCWLkkQYbnUJ6ySmmWq7br8BIp1S7NCHYWBCFfxIoH1qPXg4ZTvmyw7ndpRsIjSHJmuydlXnNktBI60+qEu8uE0h/4aD+c/r+aa8JQtyvfPw
-X-Gm-Message-State: AOJu0Yyi79YhDUoeU6UvdcIEEv8E6b1KQujr6YZ4bKoK+AT6fVdh65eX
-	NffDkMGyl03/nUJtHxu3+8NCoS5ILis2DHyDCwffGGUZ24KHAx+94EhfCvCe4DE=
-X-Google-Smtp-Source: AGHT+IG3L14BlCwHPiIKSplLpOkLLGSwZSlMj6M+WV18XsZAbw/WIXgi64YPVTn0Axv2MFnAlS9dBg==
-X-Received: by 2002:a05:6a20:45b:b0:1bd:2703:840 with SMTP id adf61e73a8af0-1bd270308damr8420473637.33.1719567495751;
-        Fri, 28 Jun 2024 02:38:15 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fac10c6c8dsm11087155ad.26.2024.06.28.02.38.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Jun 2024 02:38:15 -0700 (PDT)
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: greentime.hu@sifive.com,
-	vincent.chen@sifive.com,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH v6 4/4] KVM: riscv: selftests: Add Svade and Svadu Extension to get-reg-list test
-Date: Fri, 28 Jun 2024 17:37:08 +0800
-Message-Id: <20240628093711.11716-5-yongxuan.wang@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20240628093711.11716-1-yongxuan.wang@sifive.com>
-References: <20240628093711.11716-1-yongxuan.wang@sifive.com>
+	Fri, 28 Jun 2024 10:50:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1719571820; x=1751107820;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ewJYo5B5Gn5p+bUGXnTqJoyHMt2jjLTs26XZMLBY5ts=;
+  b=DV0gp+l193R/VRKyLMsU932IDv3W1/6glLhKCL5oBQDNpWFoOF39JIWv
+   d7s1eRcL3wj6M7mu82ZalC5ExSWJsYxjB7ZeGoZI6LOwh5AKOMCA1BerS
+   xVGxIx0snFLZ+onX2PUKQkh4UMKgSnDmqLpSuXSxLBFA4ZVbMayUqCfzc
+   YEfruaJb3ax9PxHTGhQjfTIn5fYfw241F3fEqDfHsU1x127wvJo1rL4vB
+   bmoTvSBfCOalNwxICFdfH8Ry+cYkiDvLfO+4O3VrvxyN84bwk6UPDiM75
+   OQiT0EoX0iYJGAJntc/WcBAPM8uaMhwc1YmPQK/+F4VzJ7N1UxIMaZZ7X
+   g==;
+X-CSE-ConnectionGUID: 1fcM70mTSxeGp3bdmK8x+A==
+X-CSE-MsgGUID: 6jb0hYoOSIuLQoRgVTRgyQ==
+X-IronPort-AV: E=Sophos;i="6.09,168,1716274800"; 
+   d="asc'?scan'208";a="196017444"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Jun 2024 03:50:16 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 28 Jun 2024 03:49:43 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Fri, 28 Jun 2024 03:49:39 -0700
+Date: Fri, 28 Jun 2024 11:49:23 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andi Shyti <andi.shyti@kernel.org>
+CC: Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Guo Ren
+	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Drew Fustini
+	<dfustini@tenstorrent.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Conor Dooley <conor@kernel.org>, Jarkko
+ Nikula <jarkko.nikula@linux.intel.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, =?iso-8859-1?Q?Miqu=E8l?=
+ Raynal <miquel.raynal@bootlin.com>, <linux-i2c@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v3 0/3] Add I2C support on TH1520
+Message-ID: <20240628-joining-blooming-64aefbfd9897@wendy>
+References: <20240618-i2c-th1520-v3-0-3042590a16b1@bootlin.com>
+ <xkdmrmtiizoqo6mpc7i6iyhilxlw57nawn6ogv6dryaveyqddc@ach3rwy4abpe>
+MIME-Version: 1.0
+In-Reply-To: <xkdmrmtiizoqo6mpc7i6iyhilxlw57nawn6ogv6dryaveyqddc@ach3rwy4abpe>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_023816_629335_75492306 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240628_035021_008430_0D4D6A67 
+X-CRM114-Status: GOOD (  26.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,66 +91,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5339835625246651178=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update the get-reg-list test to test the Svade and Svadu Extensions are
-available for guest OS.
+--===============5339835625246651178==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="TjGWQMt2mYPYXnt4"
+Content-Disposition: inline
 
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
----
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+--TjGWQMt2mYPYXnt4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index 222198dd6d04..1d32351ad55e 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -45,6 +45,8 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSAIA:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSCOFPMF:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSTC:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVADE:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVADU:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVINVAL:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVNAPOT:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVPBMT:
-@@ -411,6 +413,8 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
- 		KVM_ISA_EXT_ARR(SSAIA),
- 		KVM_ISA_EXT_ARR(SSCOFPMF),
- 		KVM_ISA_EXT_ARR(SSTC),
-+		KVM_ISA_EXT_ARR(SVADE),
-+		KVM_ISA_EXT_ARR(SVADU),
- 		KVM_ISA_EXT_ARR(SVINVAL),
- 		KVM_ISA_EXT_ARR(SVNAPOT),
- 		KVM_ISA_EXT_ARR(SVPBMT),
-@@ -935,6 +939,8 @@ KVM_ISA_EXT_SIMPLE_CONFIG(h, H);
- KVM_ISA_EXT_SUBLIST_CONFIG(smstateen, SMSTATEEN);
- KVM_ISA_EXT_SIMPLE_CONFIG(sscofpmf, SSCOFPMF);
- KVM_ISA_EXT_SIMPLE_CONFIG(sstc, SSTC);
-+KVM_ISA_EXT_SIMPLE_CONFIG(svade, SVADE);
-+KVM_ISA_EXT_SIMPLE_CONFIG(svadu, SVADU);
- KVM_ISA_EXT_SIMPLE_CONFIG(svinval, SVINVAL);
- KVM_ISA_EXT_SIMPLE_CONFIG(svnapot, SVNAPOT);
- KVM_ISA_EXT_SIMPLE_CONFIG(svpbmt, SVPBMT);
-@@ -991,6 +997,8 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_smstateen,
- 	&config_sscofpmf,
- 	&config_sstc,
-+	&config_svade,
-+	&config_svadu,
- 	&config_svinval,
- 	&config_svnapot,
- 	&config_svpbmt,
--- 
-2.17.1
+On Fri, Jun 28, 2024 at 11:30:28AM +0200, Andi Shyti wrote:
+> Hi,
+>=20
+> On Tue, Jun 18, 2024 at 09:42:37AM GMT, Thomas Bonnefille wrote:
+> > This adds I2C support in the device tree of the T-Head TH1520 RISCV-SoC
+> > and a default configuration for the BeagleV-Ahead. It appears that the
+> > TH1520 I2C is already supported in the upstream kernel through the
+> > Synopsis Designware I2C adapter driver.
+> >=20
+> > This patch depends on the clock patch from Drew Fustini
+> > Link: https://lore.kernel.org/linux-riscv/20240615-th1520-clk-v1-0-3ba4=
+978c4d6b@tenstorrent.com
+> > and the pinctrl patch from Emil Renner Berthing
+> > Link: https://lore.kernel.org/linux-riscv/20240103132852.298964-1-emil.=
+renner.berthing@canonical.com
+>=20
+> I think after these two go in...
+>=20
+> > Changed from v1:
+> > 1. Remove redundant example for Synopsis DesignWare-I2C bindings
+> > 2. Remove Node Ordering commit as it has already been taken
+> > 3. Remove EEPROM label
+> > 4. Rebase on pinctrl and clock driver patches
+> > 5. Add pinctrl configuration
+> > 6. Replaced the fixed-clock with a correct configuration
+> >=20
+> > Changed from v2:
+> > 1. Reorder nodes to conserve ascending register node ordering
+> > 2. Add support for I2C2 as it probably use the same controller
+> > 3. Format comments to match kernel coding style
+> > 4. Reorder nodes to conserve alphabetical node ordering
+> > 6. Declare I2C2
+> > 6. Set pinctrl pull-up resistor to the highest value
+> >=20
+> > Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> > ---
+> > Thomas Bonnefille (3):
+> >       dt-bindings: i2c: dw: Document compatible thead,th1520-i2c
+>=20
+> ... this goes throught i2c...
+>=20
+> >       riscv: dts: thead: Add TH1520 I2C nodes
+> >       riscv: dts: thead: Enable I2C on the BeagleV-Ahead
+>=20
+> ... and these two go thrhough Conor's branches.
+>=20
+> Do you mind sending a ping when Drew's patches are included in
+> the merge window? I can put the first patch on a special branch
+> to keep it under my watch.
 
+I think you can apply the binding whenever you want actually, there's no
+need for the i2c binding (or driver changes, were there to be any) to
+be held until the clock binding/driver is accepted.
+
+Thanks,
+Conor.
+
+--TjGWQMt2mYPYXnt4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZn6VMwAKCRB4tDGHoIJi
+0jNHAP4m1oXXhAI8AJklzSf40W3ivqUXLHUeMZ8nHNOHB8i0pQD8CfKBFliZjMqv
+1e2iWkfTxBaM5iXO5IGnLhbQWp5W1gw=
+=AKI+
+-----END PGP SIGNATURE-----
+
+--TjGWQMt2mYPYXnt4--
+
+
+--===============5339835625246651178==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5339835625246651178==--
+
