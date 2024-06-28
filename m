@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E2E5C3064D
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 09:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93D1BC3064D
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 09:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yuC/l34ZCga9eXAdovNN1rta+L1oabdvL+goQBY9TvM=; b=HAP8QzMsulMhWu
-	BdTK/0CrM06eKcAXG9XcezGzmXhrMCwg6XZai5W6ITKwbNpfsV3esmyXBFKvuQcmKmNK8zRYvBY/y
-	LoWN2fOcuMBN37EVDpseFaNOlc6GCkndDe/igSvlLIvYKg1S7Mtkum+DWwNza9AU7KLmdf3GvFkyr
-	eChddw4MkahAgpIm7BxCgDkxsug+f6exiaryZwMKSrrbfAk8HrxvDWPcwSAsQcrnsrJZeWPCWyGwj
-	C6EEyCnmR+LkRiDjMMxP1dVnMmerm82wtt72VMf7bBGq3sS2z4N6Dg69paeK+ioW7HUqS/Darp5F6
-	c0gn+14ehk/cP7b7l3xw==;
+	List-Owner; bh=REskQVUSQGmDp24yktOYTNw6pkWyHMDtbc7mvWJ1PmA=; b=gjwjWuCaEJ5GRa
+	ZCwjUu4eFBaWHKm473AOkAZSWaUYWWaGW/d3BA5+FpJzhM6Z1VSlMEhPWhis50ZVV9bJG4VNkZUYf
+	Sy1H8TXjknkgijqDWDlXf9A7eONrrR/32gfoWyyEdPycP2P2f0eODlCOL7FfvZ3BOD5tdLqmpzdJe
+	zgk9ESB9Ng9gm2joxApYCENA3szT03XBXg1PHDlOWq2Bs9ymaN6vI2W67HRMUPSt52UY3g2N9Kb/I
+	GTHiy5v7cnBjkE0USmFg6JC1Vok46OoTM5563Tb63qlicmAPfpoD+lSX89hvVIhsurnRBE+bEfxty
+	n8kBgO84deHUEaBgI5zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN7VJ-0000000DAmt-25Eg;
-	Fri, 28 Jun 2024 09:02:49 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1sN7WO-0000000DB1u-3jgZ;
+	Fri, 28 Jun 2024 09:03:56 +0000
+Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN7VF-0000000DAm4-15O7
+	id 1sN7WL-0000000DB12-3oAl
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 09:02:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1719565365; x=1751101365;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=FUhhtjNvd39H0qszCPwWg98edh0J+IcA25QnDlOSLFI=;
-  b=zgU/Vzl2AqOy5G2fn6aXmigBLDcbzc2lDKEEftf+vqt+XuGZebSidUwe
-   tXLrl0E9OunSSVU8WVxXH+SJE2RpcWIAyiodigOVc5s40mxm9wrBXhs/T
-   7/AaaYJSEvbvpsw6plQ3R2pKoVDOst4+yYGVU4dSJCelVjUE2/xqHkrSX
-   Gr5vSoUzMQu3bZkKQkAzBFLFJSlhg+b8f4hmxt+fwT1FLHY3kYB1/i81a
-   p+Qt9nQLXtZ1rQrhiOdoI0He8nhHaJtHxv3yQUgWFguXn5fTNLotLwOUs
-   wSBwhdbkrgar2zh786VOhFYkan7nBPNJlp+UCOh7PoPX4KxjOkhF4WCcA
-   g==;
-X-CSE-ConnectionGUID: pFoatw1sR6GIZPQruNtuPw==
-X-CSE-MsgGUID: f1IcGz2VSnKHnAf6EtabfA==
-X-IronPort-AV: E=Sophos;i="6.09,168,1716274800"; 
-   d="scan'208";a="196014013"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Jun 2024 02:02:43 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 28 Jun 2024 02:02:33 -0700
-Received: from daire-X570 (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Fri, 28 Jun 2024 02:02:31 -0700
-Date: Fri, 28 Jun 2024 10:02:31 +0100
-From: Daire McNamara <daire.mcnamara@microchip.com>
-To: Conor Dooley <conor@kernel.org>
-CC: <linux-pci@vger.kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof
- =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v2 2/2] PCI: microchip: rework reg region handing to
- support using either instance 1 or 2
-Message-ID: <Zn57sVccaBog2KeV@daire-X570>
-References: <20240612-outfield-gummy-388a36d95100@spud>
- <20240612-outweigh-headphone-740a7c59f3c9@spud>
+	Fri, 28 Jun 2024 09:03:55 +0000
+Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-7f3d4788eeeso6746239f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 02:03:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1719565433; x=1720170233; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N/za7LeSnjhTm+OzP17ugGn+HzGEABfvFxH0U517Gjo=;
+        b=QZWNkIDTusfzQmojNO9nvqiyrFoORc1LUGPmMR7VqlVjnJdsWt+kp7kFyBYKbbyXOx
+         sAXClWClslRxCXJYHFlBPQr1Yyof/BCYkhwVXCylqI1wL/U+w2QJhRMbd8yIGe1qSxop
+         qKjUmq1nfe7MWbL8K3KK3uyOYv3xhQ8B/zTc9D3VSAQ3SIp4Aqmxd/V905f4AWi4x+B+
+         5hP9ch9Vvi1ZEPIQnhpiFPkykVLLLJCRWgTMWb0KmiY6hF6ilI9y5gYXNmUGCKVY5Xg5
+         e7Fobxji+BDFxxSKk9iViOoVb2HkhJmZajmvmpkghDzJiE2671anMhp3DnL0k4hSer/8
+         NLVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719565433; x=1720170233;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=N/za7LeSnjhTm+OzP17ugGn+HzGEABfvFxH0U517Gjo=;
+        b=tSxFFuroeUbFflNUlMfa7fwJiYFQTPlW32ApQpjXOT2CGYAhSw4bJ3lrSUoWdc8+6r
+         DBL/YpIEuwF8vARNu43bWIx8Lc296/d4dP+DutJ8loKG7v1Rj0jnvQ50GxxQY6846EFh
+         2VFveiKjy3euSRVhY03mqoYfVeF1Lqz3dC2KdbhyAZjgphRkD7MFz7fc/kvJIRLn5hky
+         Kz3EGkjJrJOIeizK3QQi0adkgh5qzNYmm95u/VdP8qUEjWKyEWGOxAO1RAvH6y44zItW
+         OAYbgqdOUr9HMUsAaL9+P5vznhmvCjE0wVVlANtgHwznSkqrkpRYxUfPFOcR5HVEfwge
+         2SAg==
+X-Forwarded-Encrypted: i=1; AJvYcCX4b8yF1r6gUIL3FTAPSnnJuI6oqmg3+vItlUfpNPeRCsaIgnUkzTZ8bg4QWpD3CpyRGNRowbIMMLq0YBAnJ9tiKtq12DynRsscd+5Pbt+/
+X-Gm-Message-State: AOJu0YzuSKVe0atNcdqZDOihihcX9mKprlCy/05AvlkO+bf3AcEv1P9w
+	+ACuOuVewc3uq87hY4XMTeTDVbvfrIHU6qCY7XKo0JHV6ZfMkZeJM/oarbDt25fX8cyViA0nAS4
+	Ik6EZjKuP70b5vJ090h7qdtXS5n4VrVrwZtJ6JQ==
+X-Google-Smtp-Source: AGHT+IGX0ZfX8BF54cMVKU/lpSgCRYHg2pyXsO/XvGxQj5HZhaNwfUPkpzzcQOULoy+umEF984ed0IL7WJjrmM9MD3k=
+X-Received: by 2002:a05:6602:160a:b0:7f3:d326:1fa4 with SMTP id
+ ca18e2360f4ac-7f3d3262347mr951857739f.18.1719565432871; Fri, 28 Jun 2024
+ 02:03:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240612-outweigh-headphone-740a7c59f3c9@spud>
+References: <20240614142156.29420-1-zong.li@sifive.com> <20240614142156.29420-8-zong.li@sifive.com>
+ <20240619160211.GO1091770@ziepe.ca>
+In-Reply-To: <20240619160211.GO1091770@ziepe.ca>
+From: Zong Li <zong.li@sifive.com>
+Date: Fri, 28 Jun 2024 17:03:41 +0800
+Message-ID: <CANXhq0qqrU8xbTecFOcRNLqm2=DbTYsN2YBX5K_O1ha530bu_A@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 07/10] iommu/riscv: support nested iommu for
+ creating domains owned by userspace
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, 
+	tjeznach@rivosinc.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, kevin.tian@intel.com, linux-kernel@vger.kernel.org, 
+	iommu@lists.linux.dev, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_020245_434947_1078208E 
-X-CRM114-Status: GOOD (  32.75  )
+X-CRM114-CacheID: sfid-20240628_020353_993400_D10E5561 
+X-CRM114-Status: GOOD (  55.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,465 +89,244 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 12, 2024 at 11:57:56AM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> The PCI host controller on PolarFire SoC has multiple "instances", each
-> with their own bridge and ctrl address spaces. The original binding has
-> an "apb" register region, and it is expected to be set to the base
-> address of the host controllers register space. Defines in the driver
-> were used to compute the addresses of the bridge and ctrl address ranges
-> corresponding to instance1. Some customers want to use instance0 however
-> and that requires changing the defines in the driver, which is clearly
-> not a portable solution.
-> 
-> The binding has been changed from a single register region to a pair,
-> corresponding to the bridge and ctrl regions respectively, so modify the
-> driver to read these regions directly from the devicetree rather than
-> compute them from the base address of the abp region.
-> 
-> To maintain backwards compatibility with the existing binding, the
-> driver retains code to handle the "abp" reg and computes the base
-> address of the bridge and ctrl regions using the defines if it is
-> present. reg-names has always been a required property, so this is
-> safe to do.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  drivers/pci/controller/pcie-microchip-host.c | 155 +++++++++----------
->  1 file changed, 73 insertions(+), 82 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-> index 137fb8570ba2..2580a5bd2743 100644
-> --- a/drivers/pci/controller/pcie-microchip-host.c
-> +++ b/drivers/pci/controller/pcie-microchip-host.c
-> @@ -27,9 +27,6 @@
->  #define MC_PCIE1_BRIDGE_ADDR			0x00008000u
->  #define MC_PCIE1_CTRL_ADDR			0x0000a000u
->  
-> -#define MC_PCIE_BRIDGE_ADDR			(MC_PCIE1_BRIDGE_ADDR)
-> -#define MC_PCIE_CTRL_ADDR			(MC_PCIE1_CTRL_ADDR)
-> -
->  /* PCIe Bridge Phy Regs */
->  #define PCIE_PCI_IRQ_DW0			0xa8
->  #define  MSIX_CAP_MASK				BIT(31)
-> @@ -207,7 +204,6 @@
->  	[EVENT_LOCAL_ ## x] = { __stringify(x), s }
->  
->  #define PCIE_EVENT(x) \
-> -	.base = MC_PCIE_CTRL_ADDR, \
->  	.offset = PCIE_EVENT_INT, \
->  	.mask_offset = PCIE_EVENT_INT, \
->  	.mask_high = 1, \
-> @@ -215,7 +211,6 @@
->  	.enb_mask = PCIE_EVENT_INT_ENB_MASK
->  
->  #define SEC_EVENT(x) \
-> -	.base = MC_PCIE_CTRL_ADDR, \
->  	.offset = SEC_ERROR_INT, \
->  	.mask_offset = SEC_ERROR_INT_MASK, \
->  	.mask = SEC_ERROR_INT_ ## x ## _INT, \
-> @@ -223,7 +218,6 @@
->  	.enb_mask = 0
->  
->  #define DED_EVENT(x) \
-> -	.base = MC_PCIE_CTRL_ADDR, \
->  	.offset = DED_ERROR_INT, \
->  	.mask_offset = DED_ERROR_INT_MASK, \
->  	.mask_high = 1, \
-> @@ -231,7 +225,6 @@
->  	.enb_mask = 0
->  
->  #define LOCAL_EVENT(x) \
-> -	.base = MC_PCIE_BRIDGE_ADDR, \
->  	.offset = ISTATUS_LOCAL, \
->  	.mask_offset = IMASK_LOCAL, \
->  	.mask_high = 0, \
-> @@ -265,7 +258,8 @@ struct mc_msi {
->  };
->  
->  struct mc_pcie {
-> -	void __iomem *axi_base_addr;
-> +	void __iomem *bridge_base_addr;
-> +	void __iomem *ctrl_base_addr;
->  	struct device *dev;
->  	struct irq_domain *intx_domain;
->  	struct irq_domain *event_domain;
-> @@ -344,7 +338,6 @@ static struct event_map local_status_to_event[] = {
->  };
->  
->  static struct {
-> -	u32 base;
->  	u32 offset;
->  	u32 mask;
->  	u32 shift;
-> @@ -415,18 +408,17 @@ static void mc_handle_msi(struct irq_desc *desc)
->  	struct irq_chip *chip = irq_desc_get_chip(desc);
->  	struct device *dev = port->dev;
->  	struct mc_msi *msi = &port->msi;
-> -	void __iomem *bridge_base_addr =
-> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
->  	unsigned long status;
->  	u32 bit;
->  	int ret;
->  
->  	chained_irq_enter(chip, desc);
->  
-> -	status = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
-> +	status = readl_relaxed(port->bridge_base_addr + ISTATUS_LOCAL);
->  	if (status & PM_MSI_INT_MSI_MASK) {
-> -		writel_relaxed(status & PM_MSI_INT_MSI_MASK, bridge_base_addr + ISTATUS_LOCAL);
-> -		status = readl_relaxed(bridge_base_addr + ISTATUS_MSI);
-> +		writel_relaxed(status & PM_MSI_INT_MSI_MASK,
-> +			       port->bridge_base_addr + ISTATUS_LOCAL);
-> +		status = readl_relaxed(port->bridge_base_addr + ISTATUS_MSI);
->  		for_each_set_bit(bit, &status, msi->num_vectors) {
->  			ret = generic_handle_domain_irq(msi->dev_domain, bit);
->  			if (ret)
-> @@ -441,11 +433,9 @@ static void mc_handle_msi(struct irq_desc *desc)
->  static void mc_msi_bottom_irq_ack(struct irq_data *data)
->  {
->  	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> -	void __iomem *bridge_base_addr =
-> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
->  	u32 bitpos = data->hwirq;
->  
-> -	writel_relaxed(BIT(bitpos), bridge_base_addr + ISTATUS_MSI);
-> +	writel_relaxed(BIT(bitpos), port->bridge_base_addr + ISTATUS_MSI);
->  }
->  
->  static void mc_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
-> @@ -564,15 +554,13 @@ static void mc_handle_intx(struct irq_desc *desc)
->  	struct mc_pcie *port = irq_desc_get_handler_data(desc);
->  	struct irq_chip *chip = irq_desc_get_chip(desc);
->  	struct device *dev = port->dev;
-> -	void __iomem *bridge_base_addr =
-> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
->  	unsigned long status;
->  	u32 bit;
->  	int ret;
->  
->  	chained_irq_enter(chip, desc);
->  
-> -	status = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
-> +	status = readl_relaxed(port->bridge_base_addr + ISTATUS_LOCAL);
->  	if (status & PM_MSI_INT_INTX_MASK) {
->  		status &= PM_MSI_INT_INTX_MASK;
->  		status >>= PM_MSI_INT_INTX_SHIFT;
-> @@ -590,42 +578,36 @@ static void mc_handle_intx(struct irq_desc *desc)
->  static void mc_ack_intx_irq(struct irq_data *data)
->  {
->  	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> -	void __iomem *bridge_base_addr =
-> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
->  	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
->  
-> -	writel_relaxed(mask, bridge_base_addr + ISTATUS_LOCAL);
-> +	writel_relaxed(mask, port->bridge_base_addr + ISTATUS_LOCAL);
->  }
->  
->  static void mc_mask_intx_irq(struct irq_data *data)
->  {
->  	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> -	void __iomem *bridge_base_addr =
-> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
->  	unsigned long flags;
->  	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
->  	u32 val;
->  
->  	raw_spin_lock_irqsave(&port->lock, flags);
-> -	val = readl_relaxed(bridge_base_addr + IMASK_LOCAL);
-> +	val = readl_relaxed(port->bridge_base_addr + IMASK_LOCAL);
->  	val &= ~mask;
-> -	writel_relaxed(val, bridge_base_addr + IMASK_LOCAL);
-> +	writel_relaxed(val, port->bridge_base_addr + IMASK_LOCAL);
->  	raw_spin_unlock_irqrestore(&port->lock, flags);
->  }
->  
->  static void mc_unmask_intx_irq(struct irq_data *data)
->  {
->  	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> -	void __iomem *bridge_base_addr =
-> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
->  	unsigned long flags;
->  	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
->  	u32 val;
->  
->  	raw_spin_lock_irqsave(&port->lock, flags);
-> -	val = readl_relaxed(bridge_base_addr + IMASK_LOCAL);
-> +	val = readl_relaxed(port->bridge_base_addr + IMASK_LOCAL);
->  	val |= mask;
-> -	writel_relaxed(val, bridge_base_addr + IMASK_LOCAL);
-> +	writel_relaxed(val, port->bridge_base_addr + IMASK_LOCAL);
->  	raw_spin_unlock_irqrestore(&port->lock, flags);
->  }
->  
-> @@ -656,8 +638,7 @@ static inline u32 reg_to_event(u32 reg, struct event_map field)
->  
->  static u32 pcie_events(struct mc_pcie *port)
->  {
-> -	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-> -	u32 reg = readl_relaxed(ctrl_base_addr + PCIE_EVENT_INT);
-> +	u32 reg = readl_relaxed(port->ctrl_base_addr + PCIE_EVENT_INT);
->  	u32 val = 0;
->  	int i;
->  
-> @@ -669,8 +650,7 @@ static u32 pcie_events(struct mc_pcie *port)
->  
->  static u32 sec_errors(struct mc_pcie *port)
->  {
-> -	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-> -	u32 reg = readl_relaxed(ctrl_base_addr + SEC_ERROR_INT);
-> +	u32 reg = readl_relaxed(port->ctrl_base_addr + SEC_ERROR_INT);
->  	u32 val = 0;
->  	int i;
->  
-> @@ -682,8 +662,7 @@ static u32 sec_errors(struct mc_pcie *port)
->  
->  static u32 ded_errors(struct mc_pcie *port)
->  {
-> -	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-> -	u32 reg = readl_relaxed(ctrl_base_addr + DED_ERROR_INT);
-> +	u32 reg = readl_relaxed(port->ctrl_base_addr + DED_ERROR_INT);
->  	u32 val = 0;
->  	int i;
->  
-> @@ -695,8 +674,7 @@ static u32 ded_errors(struct mc_pcie *port)
->  
->  static u32 local_events(struct mc_pcie *port)
->  {
-> -	void __iomem *bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-> -	u32 reg = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
-> +	u32 reg = readl_relaxed(port->bridge_base_addr + ISTATUS_LOCAL);
->  	u32 val = 0;
->  	int i;
->  
-> @@ -758,8 +736,12 @@ static void mc_ack_event_irq(struct irq_data *data)
->  	void __iomem *addr;
->  	u32 mask;
->  
-> -	addr = port->axi_base_addr + event_descs[event].base +
-> -		event_descs[event].offset;
-> +	if (event_descs[event].offset == ISTATUS_LOCAL)
-> +		addr = port->bridge_base_addr;
-> +	else
-> +		addr = port->ctrl_base_addr;
-> +
-> +	addr += event_descs[event].offset;
->  	mask = event_descs[event].mask;
->  	mask |= event_descs[event].enb_mask;
->  
-> @@ -774,8 +756,12 @@ static void mc_mask_event_irq(struct irq_data *data)
->  	u32 mask;
->  	u32 val;
->  
-> -	addr = port->axi_base_addr + event_descs[event].base +
-> -		event_descs[event].mask_offset;
-> +	if (event_descs[event].offset == ISTATUS_LOCAL)
-> +		addr = port->bridge_base_addr;
-> +	else
-> +		addr = port->ctrl_base_addr;
-> +
-> +	addr += event_descs[event].mask_offset;
->  	mask = event_descs[event].mask;
->  	if (event_descs[event].enb_mask) {
->  		mask <<= PCIE_EVENT_INT_ENB_SHIFT;
-> @@ -804,8 +790,12 @@ static void mc_unmask_event_irq(struct irq_data *data)
->  	u32 mask;
->  	u32 val;
->  
-> -	addr = port->axi_base_addr + event_descs[event].base +
-> -		event_descs[event].mask_offset;
-> +	if (event_descs[event].offset == ISTATUS_LOCAL)
-> +		addr = port->bridge_base_addr;
-> +	else
-> +		addr = port->ctrl_base_addr;
-> +
-> +	addr += event_descs[event].mask_offset;
->  	mask = event_descs[event].mask;
->  
->  	if (event_descs[event].enb_mask)
-> @@ -972,8 +962,6 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
->  static int mc_pcie_setup_windows(struct platform_device *pdev,
->  				 struct mc_pcie *port)
->  {
-> -	void __iomem *bridge_base_addr =
-> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
->  	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
->  	struct resource_entry *entry;
->  	u64 pci_addr;
-> @@ -982,7 +970,7 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
->  	resource_list_for_each_entry(entry, &bridge->windows) {
->  		if (resource_type(entry->res) == IORESOURCE_MEM) {
->  			pci_addr = entry->res->start - entry->offset;
-> -			mc_pcie_setup_window(bridge_base_addr, index,
-> +			mc_pcie_setup_window(port->bridge_base_addr, index,
->  					     entry->res->start, pci_addr,
->  					     resource_size(entry->res));
->  			index++;
-> @@ -994,26 +982,20 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
->  
->  static inline void mc_clear_secs(struct mc_pcie *port)
->  {
-> -	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-> -
-> -	writel_relaxed(SEC_ERROR_INT_ALL_RAM_SEC_ERR_INT, ctrl_base_addr +
-> +	writel_relaxed(SEC_ERROR_INT_ALL_RAM_SEC_ERR_INT, port->ctrl_base_addr +
->  		       SEC_ERROR_INT);
-> -	writel_relaxed(0, ctrl_base_addr + SEC_ERROR_EVENT_CNT);
-> +	writel_relaxed(0, port->ctrl_base_addr + SEC_ERROR_EVENT_CNT);
->  }
->  
->  static inline void mc_clear_deds(struct mc_pcie *port)
->  {
-> -	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-> -
-> -	writel_relaxed(DED_ERROR_INT_ALL_RAM_DED_ERR_INT, ctrl_base_addr +
-> +	writel_relaxed(DED_ERROR_INT_ALL_RAM_DED_ERR_INT, port->ctrl_base_addr +
->  		       DED_ERROR_INT);
-> -	writel_relaxed(0, ctrl_base_addr + DED_ERROR_EVENT_CNT);
-> +	writel_relaxed(0, port->ctrl_base_addr + DED_ERROR_EVENT_CNT);
->  }
->  
->  static void mc_disable_interrupts(struct mc_pcie *port)
->  {
-> -	void __iomem *bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-> -	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
->  	u32 val;
->  
->  	/* Ensure ECC bypass is enabled */
-> @@ -1021,22 +1003,22 @@ static void mc_disable_interrupts(struct mc_pcie *port)
->  	      ECC_CONTROL_RX_RAM_ECC_BYPASS |
->  	      ECC_CONTROL_PCIE2AXI_RAM_ECC_BYPASS |
->  	      ECC_CONTROL_AXI2PCIE_RAM_ECC_BYPASS;
-> -	writel_relaxed(val, ctrl_base_addr + ECC_CONTROL);
-> +	writel_relaxed(val, port->ctrl_base_addr + ECC_CONTROL);
->  
->  	/* Disable SEC errors and clear any outstanding */
-> -	writel_relaxed(SEC_ERROR_INT_ALL_RAM_SEC_ERR_INT, ctrl_base_addr +
-> +	writel_relaxed(SEC_ERROR_INT_ALL_RAM_SEC_ERR_INT, port->ctrl_base_addr +
->  		       SEC_ERROR_INT_MASK);
->  	mc_clear_secs(port);
->  
->  	/* Disable DED errors and clear any outstanding */
-> -	writel_relaxed(DED_ERROR_INT_ALL_RAM_DED_ERR_INT, ctrl_base_addr +
-> +	writel_relaxed(DED_ERROR_INT_ALL_RAM_DED_ERR_INT, port->ctrl_base_addr +
->  		       DED_ERROR_INT_MASK);
->  	mc_clear_deds(port);
->  
->  	/* Disable local interrupts and clear any outstanding */
-> -	writel_relaxed(0, bridge_base_addr + IMASK_LOCAL);
-> -	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_LOCAL);
-> -	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_MSI);
-> +	writel_relaxed(0, port->bridge_base_addr + IMASK_LOCAL);
-> +	writel_relaxed(GENMASK(31, 0), port->bridge_base_addr + ISTATUS_LOCAL);
-> +	writel_relaxed(GENMASK(31, 0), port->bridge_base_addr + ISTATUS_MSI);
->  
->  	/* Disable PCIe events and clear any outstanding */
->  	val = PCIE_EVENT_INT_L2_EXIT_INT |
-> @@ -1045,11 +1027,11 @@ static void mc_disable_interrupts(struct mc_pcie *port)
->  	      PCIE_EVENT_INT_L2_EXIT_INT_MASK |
->  	      PCIE_EVENT_INT_HOTRST_EXIT_INT_MASK |
->  	      PCIE_EVENT_INT_DLUP_EXIT_INT_MASK;
-> -	writel_relaxed(val, ctrl_base_addr + PCIE_EVENT_INT);
-> +	writel_relaxed(val, port->ctrl_base_addr + PCIE_EVENT_INT);
->  
->  	/* Disable host interrupts and clear any outstanding */
-> -	writel_relaxed(0, bridge_base_addr + IMASK_HOST);
-> -	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
-> +	writel_relaxed(0, port->bridge_base_addr + IMASK_HOST);
-> +	writel_relaxed(GENMASK(31, 0), port->bridge_base_addr + ISTATUS_HOST);
->  }
->  
->  static int mc_init_interrupts(struct platform_device *pdev, struct mc_pcie *port)
-> @@ -1112,14 +1094,11 @@ static int mc_platform_init(struct pci_config_window *cfg)
->  {
->  	struct device *dev = cfg->parent;
->  	struct platform_device *pdev = to_platform_device(dev);
-> -	void __iomem *bridge_base_addr =
-> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
->  	int ret;
->  
->  	/* Configure address translation table 0 for PCIe config space */
-> -	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
-> -			     cfg->res.start,
-> -			     resource_size(&cfg->res));
-> +	mc_pcie_setup_window(port->bridge_base_addr, 0, cfg->res.start,
-> +			     cfg->res.start, resource_size(&cfg->res));
->  
->  	/* Need some fixups in config space */
->  	mc_pcie_enable_msi(port, cfg->win);
-> @@ -1140,7 +1119,7 @@ static int mc_platform_init(struct pci_config_window *cfg)
->  static int mc_host_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
-> -	void __iomem *bridge_base_addr;
-> +	void __iomem *axi_base_addr;
-This is an apb bus. The variable name should be apb_base_addr, not axi_base_addr
->  	int ret;
->  	u32 val;
->  
-> @@ -1150,28 +1129,40 @@ static int mc_host_probe(struct platform_device *pdev)
->  
->  	port->dev = dev;
->  
-> -	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
-> -	if (IS_ERR(port->axi_base_addr))
-> -		return PTR_ERR(port->axi_base_addr);
-> +	port->bridge_base_addr = devm_platform_ioremap_resource_byname(pdev, "bridge");
-> +	port->ctrl_base_addr = devm_platform_ioremap_resource_byname(pdev, "ctrl");
-> +	if(!IS_ERR(port->bridge_base_addr) && !IS_ERR(port->ctrl_base_addr))
-> +		goto addrs_set;
->  
-> +	/*
-> +	 * The original, incorrect, binding that lumped the control and
-> +	 * bridge addresses together still needs to be handled by the driver.
-> +	 */
-> +	axi_base_addr = devm_platform_ioremap_resource_byname(pdev, "apb");
-> +	if (IS_ERR(axi_base_addr))
-> +		return dev_err_probe(dev, PTR_ERR(port->bridge_base_addr),
-> +				     "both legacy apb register and ctrl/bridge regions missing");
-> +
-> +	port->bridge_base_addr = axi_base_addr + MC_PCIE1_BRIDGE_ADDR;
-> +	port->ctrl_base_addr = axi_base_addr + MC_PCIE1_CTRL_ADDR;
-> +
-> +addrs_set:
->  	mc_disable_interrupts(port);
->  
-> -	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-> -
->  	/* Allow enabling MSI by disabling MSI-X */
-> -	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
-> +	val = readl(port->bridge_base_addr + PCIE_PCI_IRQ_DW0);
->  	val &= ~MSIX_CAP_MASK;
-> -	writel(val, bridge_base_addr + PCIE_PCI_IRQ_DW0);
-> +	writel(val, port->bridge_base_addr + PCIE_PCI_IRQ_DW0);
->  
->  	/* Pick num vectors from bitfile programmed onto FPGA fabric */
-> -	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
-> +	val = readl(port->bridge_base_addr + PCIE_PCI_IRQ_DW0);
->  	val &= NUM_MSI_MSGS_MASK;
->  	val >>= NUM_MSI_MSGS_SHIFT;
->  
->  	port->msi.num_vectors = 1 << val;
->  
->  	/* Pick vector address from design */
-> -	port->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
-> +	port->msi.vector_phy = readl_relaxed(port->bridge_base_addr + IMSI_ADDR);
->  
->  	ret = mc_pcie_init_clks(dev);
->  	if (ret) {
-> -- 
-> 2.43.0
-> 
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdW4gMjAsIDIwMjQgYXQgMTI6MDLigK9BTSBKYXNvbiBHdW50aG9ycGUgPGpnZ0B6
+aWVwZS5jYT4gd3JvdGU6Cj4KPiBPbiBGcmksIEp1biAxNCwgMjAyNCBhdCAxMDoyMTo1M1BNICsw
+ODAwLCBab25nIExpIHdyb3RlOgo+ID4gVGhpcyBwYXRjaCBpbXBsZW1lbnRzIC5kb21haW5fYWxs
+b2NfdXNlciBvcGVyYXRpb24gZm9yIGNyZWF0aW5nIGRvbWFpbnMKPiA+IG93ZW5kIGJ5IHVzZXJz
+cGFjZSwgZS5nLiB0aHJvdWdoIElPTU1VRkQuIEFkZCBzMiBkb21haW4gZm9yIHBhcmVudAo+ID4g
+ZG9tYWluIGZvciBzZWNvbmQgc3RhZ2UsIHMxIGRvbWFpbiB3aWxsIGJlIHRoZSBmaXJzdCBzdGFn
+ZS4KPiA+Cj4gPiBEb24ndCByZW1vdmUgSU9NTVUgcHJpdmF0ZSBkYXRhIG9mIGRldiBpbiBibG9j
+a2VkIGRvbWFpbiwgYmVjYXVzZSBpdAo+ID4gaG9sZHMgdGhlIHVzZXIgZGF0YSBvZiBkZXZpY2Us
+IHdoaWNoIGlzIHVzZWQgd2hlbiBhdHRhY2hpbmcgZGV2aWNlIGludG8KPiA+IHMxIGRvbWFpbi4K
+PiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gPiAt
+LS0KPiA+ICBkcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMgIHwgMjM2ICsrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKystCj4gPiAgaW5jbHVkZS91YXBpL2xpbnV4L2lvbW11ZmQuaCB8
+ICAxNyArKysKPiA+ICAyIGZpbGVzIGNoYW5nZWQsIDI1MiBpbnNlcnRpb25zKCspLCAxIGRlbGV0
+aW9uKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYyBi
+L2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYwo+ID4gaW5kZXggMjEzMDEwNmU0MjFmLi40MTBi
+MjM2ZTliMjQgMTAwNjQ0Cj4gPiAtLS0gYS9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMKPiA+
+ICsrKyBiL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYwo+ID4gQEAgLTg0Niw2ICs4NDYsOCBA
+QCBzdGF0aWMgaW50IHJpc2N2X2lvbW11X2lvZGlyX3NldF9tb2RlKHN0cnVjdCByaXNjdl9pb21t
+dV9kZXZpY2UgKmlvbW11LAo+ID4KPiA+ICAvKiBUaGlzIHN0cnVjdCBjb250YWlucyBwcm90ZWN0
+aW9uIGRvbWFpbiBzcGVjaWZpYyBJT01NVSBkcml2ZXIgZGF0YS4gKi8KPiA+ICBzdHJ1Y3Qgcmlz
+Y3ZfaW9tbXVfZG9tYWluIHsKPiA+ICsgICAgIHN0cnVjdCByaXNjdl9pb21tdV9kb21haW4gKnMy
+Owo+ID4gKyAgICAgc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXU7Cj4KPiBJTUhPIHlv
+dSBzaG91bGQgY3JlYXRlIGEgcmlzY3ZfaW9tbXVfZG9tYWluX25lc3RlZCBhbmQgbm90IHB1dCB0
+aGVzZQo+IGhlcmUsIGxpa2UgQVJNIGRpZC4KPgo+IFRoZSBrZXJuZWwgY2FuJ3QgY2hhbmdlIHRo
+ZSBuZXN0ZWQgZG9tYWluIHNvIGl0IGNhbid0IHJlY2lldmUgYW5kCj4gZGlzdHJpYnV0ZSBpbnZh
+bGlkYXRpb25zLgoKT2ssIGFzIHlvdSBtZW50aW9uZWQsIHRoZXJlIGFyZSBtYW55IGRhdGEgZWxl
+bWVudHMgaW4gdGhhdCBkYXRhCnN0cnVjdHVyZSB3b24ndCBiZSB1c2VkIGluIHMxIGRvbWFpbi4K
+Cj4KPiA+ICsvKioKPiA+ICsgKiBOZXN0ZWQgSU9NTVUgb3BlcmF0aW9ucwo+ID4gKyAqLwo+ID4g
+Kwo+ID4gK3N0YXRpYyBpbnQgcmlzY3ZfaW9tbXVfYXR0YWNoX2Rldl9uZXN0ZWQoc3RydWN0IGlv
+bW11X2RvbWFpbiAqZG9tYWluLCBzdHJ1Y3QgZGV2aWNlICpkZXYpCj4gPiArewo+ID4gKyAgICAg
+c3RydWN0IHJpc2N2X2lvbW11X2RvbWFpbiAqcmlzY3ZfZG9tYWluID0gaW9tbXVfZG9tYWluX3Rv
+X3Jpc2N2KGRvbWFpbik7Cj4gPiArICAgICBzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21t
+dSA9IGRldl90b19pb21tdShkZXYpOwo+ID4gKyAgICAgc3RydWN0IHJpc2N2X2lvbW11X2luZm8g
+KmluZm8gPSBkZXZfaW9tbXVfcHJpdl9nZXQoZGV2KTsKPiA+ICsKPiA+ICsgICAgIC8qCj4gPiAr
+ICAgICAgKiBBZGQgYm9uZCB0byB0aGUgbmV3IGRvbWFpbidzIGxpc3QsIGJ1dCBkb24ndCB1bmxp
+bmsgaW4gY3VycmVudCBkb21haW4uCj4gPiArICAgICAgKiBXZSBuZWVkIHRvIGZsdXNoIGVudHJp
+ZXMgaW4gc3RhZ2UtMiBwYWdlIHRhYmxlIGJ5IGl0ZXJhdGluZyB0aGUgbGlzdC4KPiA+ICsgICAg
+ICAqLwo+ID4gKyAgICAgaWYgKHJpc2N2X2lvbW11X2JvbmRfbGluayhyaXNjdl9kb21haW4sIGRl
+dikpCj4gPiArICAgICAgICAgICAgIHJldHVybiAtRU5PTUVNOwo+ID4gKwo+ID4gKyAgICAgcmlz
+Y3ZfaW9tbXVfaW90bGJfaW52YWwocmlzY3ZfZG9tYWluLCAwLCBVTE9OR19NQVgpOwo+ID4gKyAg
+ICAgaW5mby0+ZGNfdXNlci50YSB8PSBSSVNDVl9JT01NVV9QQ19UQV9WOwo+Cj4gU2VlbXMgb2Rk
+Pz8KPgo+ID4gKyAgICAgcmlzY3ZfaW9tbXVfaW9kaXJfdXBkYXRlKGlvbW11LCBkZXYsICZpbmZv
+LT5kY191c2VyKTsKPgo+IFRoaXMgd2lsbCBiZSBuZWVkIHNvbWUgdXBkYXRpbmcgdG8gYWxsb3cg
+Y2hhbmdlcyB0aGF0IGRvbid0IHRvZ2dsZQo+IFY9MCwgbGlrZSBpbiBhcm0uCgpJIHRoaW5rIHRo
+ZSByaWdodCBjb2RlIHNuaXBwZXQgaXMgcHV0IGluIDh0aCBwYXRjaCBhcyB5b3UgcG9pbnRlZCBp
+bgo4dGggcGF0Y2guIEkgd2lsbCBjb3JyZWN0IGl0IGluIG5leHQgdmVyc2lvbi4KCj4KPiA+ICsg
+ICAgIGluZm8tPmRvbWFpbiA9IHJpc2N2X2RvbWFpbjsKPiA+ICsKPiA+ICsgICAgIHJldHVybiAw
+Owo+ID4gK30KPiA+ICsKPiA+ICtzdGF0aWMgdm9pZCByaXNjdl9pb21tdV9kb21haW5fZnJlZV9u
+ZXN0ZWQoc3RydWN0IGlvbW11X2RvbWFpbiAqZG9tYWluKQo+ID4gK3sKPiA+ICsgICAgIHN0cnVj
+dCByaXNjdl9pb21tdV9kb21haW4gKnJpc2N2X2RvbWFpbiA9IGlvbW11X2RvbWFpbl90b19yaXNj
+dihkb21haW4pOwo+ID4gKyAgICAgc3RydWN0IHJpc2N2X2lvbW11X2JvbmQgKmJvbmQ7Cj4gPiAr
+Cj4gPiArICAgICAvKiBVbmxpbmsgYm9uZCBpbiBzMiBkb21haW4sIGJlY2F1c2Ugd2UgbGluayBi
+b25kIGJvdGggb24gczEgYW5kIHMyIGRvbWFpbiAqLwo+ID4gKyAgICAgbGlzdF9mb3JfZWFjaF9l
+bnRyeV9yY3UoYm9uZCwgJnJpc2N2X2RvbWFpbi0+czItPmJvbmRzLCBsaXN0KQo+ID4gKyAgICAg
+ICAgICAgICByaXNjdl9pb21tdV9ib25kX3VubGluayhyaXNjdl9kb21haW4tPnMyLCBib25kLT5k
+ZXYpOwo+ID4gKwo+ID4gKyAgICAgaWYgKChpbnQpcmlzY3ZfZG9tYWluLT5wc2NpZCA+IDApCj4g
+PiArICAgICAgICAgICAgIGlkYV9mcmVlKCZyaXNjdl9pb21tdV9wc2NpZHMsIHJpc2N2X2RvbWFp
+bi0+cHNjaWQpOwo+ID4gKwo+ID4gKyAgICAga2ZyZWUocmlzY3ZfZG9tYWluKTsKPiA+ICt9Cj4g
+PiArCj4gPiArc3RhdGljIGNvbnN0IHN0cnVjdCBpb21tdV9kb21haW5fb3BzIHJpc2N2X2lvbW11
+X25lc3RlZF9kb21haW5fb3BzID0gewo+ID4gKyAgICAgLmF0dGFjaF9kZXYgICAgID0gcmlzY3Zf
+aW9tbXVfYXR0YWNoX2Rldl9uZXN0ZWQsCj4gPiArICAgICAuZnJlZSAgICAgICAgICAgPSByaXNj
+dl9pb21tdV9kb21haW5fZnJlZV9uZXN0ZWQsCj4gPiArfTsKPiA+ICsKPiA+ICtzdGF0aWMgaW50
+Cj4gPiArcmlzY3ZfaW9tbXVfZ2V0X2RjX3VzZXIoc3RydWN0IGRldmljZSAqZGV2LCBzdHJ1Y3Qg
+aW9tbXVfaHdwdF9yaXNjdl9pb21tdSAqdXNlcl9hcmcpCj4gPiArewo+ID4gKyAgICAgc3RydWN0
+IGlvbW11X2Z3c3BlYyAqZndzcGVjID0gZGV2X2lvbW11X2Z3c3BlY19nZXQoZGV2KTsKPiA+ICsg
+ICAgIHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgKmlvbW11ID0gZGV2X3RvX2lvbW11KGRldik7
+Cj4gPiArICAgICBzdHJ1Y3QgcmlzY3ZfaW9tbXVfaW5mbyAqaW5mbyA9IGRldl9pb21tdV9wcml2
+X2dldChkZXYpOwo+ID4gKyAgICAgc3RydWN0IHJpc2N2X2lvbW11X2RjIGRjOwo+ID4gKyAgICAg
+c3RydWN0IHJpc2N2X2lvbW11X2ZxX3JlY29yZCBldmVudDsKPiA+ICsgICAgIHU2NCBkY19sZW4g
+PSBzaXplb2Yoc3RydWN0IHJpc2N2X2lvbW11X2RjKSA+Pgo+ID4gKyAgICAgICAgICAgICAgICAg
+ICghKGlvbW11LT5jYXBzICYgUklTQ1ZfSU9NTVVfQ0FQQUJJTElUSUVTX01TSV9GTEFUKSk7Cj4g
+PiArICAgICB1NjQgZXZlbnRfbGVuID0gc2l6ZW9mKHN0cnVjdCByaXNjdl9pb21tdV9mcV9yZWNv
+cmQpOwo+ID4gKyAgICAgdm9pZCBfX3VzZXIgKmV2ZW50X3VzZXIgPSBOVUxMOwo+ID4gKwo+ID4g
+KyAgICAgZm9yIChpbnQgaSA9IDA7IGkgPCBmd3NwZWMtPm51bV9pZHM7IGkrKykgewo+ID4gKyAg
+ICAgICAgICAgICBldmVudC5oZHIgPQo+ID4gKyAgICAgICAgICAgICAgICAgICAgIEZJRUxEX1BS
+RVAoUklTQ1ZfSU9NTVVfRlFfSERSX0NBVVNFLCBSSVNDVl9JT01NVV9GUV9DQVVTRV9ERFRfSU5W
+QUxJRCkgfAo+ID4gKyAgICAgICAgICAgICAgICAgICAgIEZJRUxEX1BSRVAoUklTQ1ZfSU9NTVVf
+RlFfSERSX0RJRCwgZndzcGVjLT5pZHNbaV0pOwo+ID4gKwo+ID4gKyAgICAgICAgICAgICAvKiBT
+YW5pdHkgY2hlY2sgREMgb2Ygc3RhZ2UtMSBmcm9tIHVzZXIgZGF0YSAqLwo+ID4gKyAgICAgICAg
+ICAgICBpZiAoIXVzZXJfYXJnLT5vdXRfZXZlbnRfdXB0ciB8fCB1c2VyX2FyZy0+ZXZlbnRfbGVu
+ICE9IGV2ZW50X2xlbikKPiA+ICsgICAgICAgICAgICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsK
+Pgo+IFRoaXMgaXMgbm90IGV4dGVuc2libGUsIHNlZSBiZWxvdyBhYm91dCBqdXN0IGlubGluaW5n
+IGl0Lgo+Cj4gPiArICAgICAgICAgICAgIGV2ZW50X3VzZXIgPSB1NjRfdG9fdXNlcl9wdHIodXNl
+cl9hcmctPm91dF9ldmVudF91cHRyKTsKPiA+ICsKPiA+ICsgICAgICAgICAgICAgaWYgKCF1c2Vy
+X2FyZy0+ZGNfdXB0ciB8fCB1c2VyX2FyZy0+ZGNfbGVuICE9IGRjX2xlbikKPiA+ICsgICAgICAg
+ICAgICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsKPiA+ICsKPiA+ICsgICAgICAgICAgICAgaWYg
+KGNvcHlfZnJvbV91c2VyKCZkYywgdTY0X3RvX3VzZXJfcHRyKHVzZXJfYXJnLT5kY191cHRyKSwg
+ZGNfbGVuKSkKPiA+ICsgICAgICAgICAgICAgICAgICAgICByZXR1cm4gLUVGQVVMVDsKPiA+ICsK
+PiA+ICsgICAgICAgICAgICAgaWYgKCEoZGMudGMgJiBSSVNDVl9JT01NVV9ERFRFX1YpKSB7Cj4g
+PiArICAgICAgICAgICAgICAgICAgICAgZGV2X2RiZyhkZXYsICJJbnZhbGlkIEREVCBmcm9tIHVz
+ZXIgZGF0YVxuIik7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgaWYgKGNvcHlfdG9fdXNlcihl
+dmVudF91c2VyLCAmZXZlbnQsIGV2ZW50X2xlbikpCj4gPiArICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICByZXR1cm4gLUVGQVVMVDsKPiA+ICsgICAgICAgICAgICAgfQo+Cj4gT24gQVJNIHdl
+IGFyZSBnb2luZyB0byBzdXBwb3J0IG5vbi12YWxpZCBTVEVzLiBJdCBzaG91bGQgcHV0IHRoZSB0
+aGUKPiB0cmFuc2xhdGlvbiBpbnRvIGJsb2NraW5nIGFuZCBpZGVhbGx5IGVtdWxhdGUgdHJhbnNs
+YXRpb24gZmFpbHVyZQo+IGV2ZW50cy4KCk9rLCBsZXQgbWUgY29uc2lkZXIgdGhpcyBzaXR1YXRp
+b24gaW4gbmV4dCB2ZXJzaW9uLgoKPgo+ID4gKwo+ID4gKyAgICAgICAgICAgICBpZiAoIWRjLmZz
+YyB8fCBkYy5pb2hnYXRwKSB7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgZGV2X2RiZyhkZXYs
+ICJXcm9uZyBwYWdlIHRhYmxlIGZyb20gdXNlciBkYXRhXG4iKTsKPiA+ICsgICAgICAgICAgICAg
+ICAgICAgICBpZiAoY29weV90b191c2VyKGV2ZW50X3VzZXIsICZldmVudCwgZXZlbnRfbGVuKSkK
+PiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAtRUZBVUxUOwo+ID4gKyAg
+ICAgICAgICAgICB9Cj4gPiArCj4gPiArICAgICAgICAgICAgIC8qIFNhdmUgREMgb2Ygc3RhZ2Ut
+MSBmcm9tIHVzZXIgZGF0YSAqLwo+ID4gKyAgICAgICAgICAgICBtZW1jcHkoJmluZm8tPmRjX3Vz
+ZXIsCj4gPiArICAgICAgICAgICAgICAgICAgICByaXNjdl9pb21tdV9nZXRfZGMoaW9tbXUsIGZ3
+c3BlYy0+aWRzW2ldKSwKPgo+IFRoaXMgZG9lcyBub3Qgc2VlbSByaWdodCwgdGhlIGZ3c3BlYyBz
+aG91bGRuJ3QgYmUgcGFydCBvZiBkb21haW4KPiBhbGxvY2F0aW9uLCBldmVuIGFyZ3VhYmx5IGZv
+ciBuZXN0aW5nLiBUaGUgbmVzdGluZyBkb21haW4gc2hvdWxkCj4gcmVwcmVzZW50IHRoZSB1c2Vy
+X2RjIG9ubHkuIEFueSBjdXN0b21pemF0aW9uIG9mIGtlcm5lbCBjb250cm9sbGVkIGJpdHMKPiBz
+aG91bGQgYmUgZG9uZSBkdXJpbmcgYXR0YWNoIG9ubHksIG5vciBkbyBJIHJlYWxseSB1bmRlcnN0
+YW5kIHdoeSB0aGlzCj4gaXMgbG9vcGluZyBvdmVyIGFsbCB0aGUgZndzcGVjcyBidXQgb25seSBt
+ZW1jcHlpbmcgdGhlIGxhc3Qgb25lLi4KPgoKVGhlIGZ3c3BlYyBpcyB1c2VkIHRvIGdldCB0aGUg
+dmFsdWUgb2YgY3VycmVudCBkYywgYmVjYXVzZSB3ZSB3YW50IHRvCmFsc28gYmFjayB1cCB0aGUg
+YWRkcmVzcyBvZiBzZWNvbmQgc3RhZ2UgdGFibGUgKGkuZS4gaW9oZ2F0cCksIFRoZQpyZWFzb24g
+aXMgdGhhdCB0aGlzIHZhbHVlIHdpbGwgYmUgY2xlYW5lZCB3aGVuIGRldmljZSBpcyBhdHRhY2hl
+ZCB0bwp0aGUgYmxvY2tpbmcgZG9tYWluLCBiZWZvcmUgdGhlIGRldmljZSBhdHRhY2hlcyB0byBz
+MSBkb21haW4sIHdlIGNhbid0CmdldCB0aGUgb3JpZ2luYWwgdmFsdWUgb2YgaW9oZ2F0cCBhbnlt
+b3JlIHdoZW4gYXR0YWNoIGRldmljZSB0byBzMQpkb21haW4uCkZvciB0aGUgaXNzdWUgZm9yIG9u
+bHkgbWVtY3B5aW5nIHRoZSBsYXN0IG9uZSwgSSBzaG91bGQgZml4IGl0IGluIG5leHQKdmVyc2lv
+biwgd2UgbWlnaHQgbmVlZCB0byBhbGxvY2F0ZSB0aGUgbXVsdGlwbGUgdXNlcl9kYyBhdCBydW50
+aW1lLApiZWNhdXNlIHdlIGRvbid0IHN0YXRpY2FsbHkga25vdyBob3cgbWFueSBpZCB3aWxsIGJl
+IHVzZWQgaW4gb25lCnBsYXRmb3JtIGRldmljZS4gZG9lcyBpdCBtYWtlIHNlbnNlIHRvIHlvdT8K
+Cj4gPiArICAgICAgICAgICAgICAgICAgICBzaXplb2Yoc3RydWN0IHJpc2N2X2lvbW11X2RjKSk7
+Cj4gPiArICAgICAgICAgICAgIGluZm8tPmRjX3VzZXIuZnNjID0gZGMuZnNjOwo+ID4gKyAgICAg
+fQo+ID4gKwo+ID4gKyAgICAgcmV0dXJuIDA7Cj4gPiArfQo+ID4gKwo+ID4gK3N0YXRpYyBzdHJ1
+Y3QgaW9tbXVfZG9tYWluICoKPiA+ICtyaXNjdl9pb21tdV9kb21haW5fYWxsb2NfbmVzdGVkKHN0
+cnVjdCBkZXZpY2UgKmRldiwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVj
+dCBpb21tdV9kb21haW4gKnBhcmVudCwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IGNvbnN0IHN0cnVjdCBpb21tdV91c2VyX2RhdGEgKnVzZXJfZGF0YSkKPiA+ICt7Cj4gPiArICAg
+ICBzdHJ1Y3QgcmlzY3ZfaW9tbXVfZG9tYWluICpzMl9kb21haW4gPSBpb21tdV9kb21haW5fdG9f
+cmlzY3YocGFyZW50KTsKPiA+ICsgICAgIHN0cnVjdCByaXNjdl9pb21tdV9kb21haW4gKnMxX2Rv
+bWFpbjsKPiA+ICsgICAgIHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgKmlvbW11ID0gZGV2X3Rv
+X2lvbW11KGRldik7Cj4gPiArICAgICBzdHJ1Y3QgaW9tbXVfaHdwdF9yaXNjdl9pb21tdSBhcmc7
+Cj4gPiArICAgICBpbnQgcmV0LCB2YV9iaXRzOwo+ID4gKwo+ID4gKyAgICAgaWYgKHVzZXJfZGF0
+YS0+dHlwZSAhPSBJT01NVV9IV1BUX0RBVEFfUklTQ1ZfSU9NTVUpCj4gPiArICAgICAgICAgICAg
+IHJldHVybiBFUlJfUFRSKC1FT1BOT1RTVVBQKTsKPiA+ICsKPiA+ICsgICAgIGlmIChwYXJlbnQt
+PnR5cGUgIT0gSU9NTVVfRE9NQUlOX1VOTUFOQUdFRCkKPiA+ICsgICAgICAgICAgICAgcmV0dXJu
+IEVSUl9QVFIoLUVJTlZBTCk7Cj4gPiArCj4gPiArICAgICByZXQgPSBpb21tdV9jb3B5X3N0cnVj
+dF9mcm9tX3VzZXIoJmFyZywKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB1c2VyX2RhdGEsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgSU9NTVVfSFdQVF9EQVRBX1JJU0NWX0lPTU1VLAo+ID4gKyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIG91dF9ldmVudF91cHRyKTsKPiA+ICsgICAgIGlmIChyZXQpCj4g
+PiArICAgICAgICAgICAgIHJldHVybiBFUlJfUFRSKHJldCk7Cj4gPiArCj4gPiArICAgICBzMV9k
+b21haW4gPSBremFsbG9jKHNpemVvZigqczFfZG9tYWluKSwgR0ZQX0tFUk5FTCk7Cj4gPiArICAg
+ICBpZiAoIXMxX2RvbWFpbikKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIEVSUl9QVFIoLUVOT01F
+TSk7Cj4gPiArCj4gPiArICAgICBzcGluX2xvY2tfaW5pdCgmczFfZG9tYWluLT5sb2NrKTsKPiA+
+ICsgICAgIElOSVRfTElTVF9IRUFEX1JDVSgmczFfZG9tYWluLT5ib25kcyk7Cj4gPiArCj4gPiAr
+ICAgICBzMV9kb21haW4tPnBzY2lkID0gaWRhX2FsbG9jX3JhbmdlKCZyaXNjdl9pb21tdV9wc2Np
+ZHMsIDEsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFJJU0NW
+X0lPTU1VX01BWF9QU0NJRCwgR0ZQX0tFUk5FTCk7Cj4gPiArICAgICBpZiAoczFfZG9tYWluLT5w
+c2NpZCA8IDApIHsKPiA+ICsgICAgICAgICAgICAgaW9tbXVfZnJlZV9wYWdlKHMxX2RvbWFpbi0+
+cGdkX3Jvb3QpOwo+ID4gKyAgICAgICAgICAgICBrZnJlZShzMV9kb21haW4pOwo+ID4gKyAgICAg
+ICAgICAgICByZXR1cm4gRVJSX1BUUigtRU5PTUVNKTsKPiA+ICsgICAgIH0KPiA+ICsKPiA+ICsg
+ICAgIC8qIEdldCBkZXZpY2UgY29udGV4dCBvZiBzdGFnZS0xIGZyb20gdXNlciovCj4gPiArICAg
+ICByZXQgPSByaXNjdl9pb21tdV9nZXRfZGNfdXNlcihkZXYsICZhcmcpOwo+ID4gKyAgICAgaWYg
+KHJldCkgewo+ID4gKyAgICAgICAgICAgICBrZnJlZShzMV9kb21haW4pOwo+ID4gKyAgICAgICAg
+ICAgICByZXR1cm4gRVJSX1BUUigtRUlOVkFMKTsKPiA+ICsgICAgIH0KPiA+ICsKPiA+ICsgICAg
+IGlmICghaW9tbXUpIHsKPiA+ICsgICAgICAgICAgICAgdmFfYml0cyA9IFZBX0JJVFM7Cj4gPiAr
+ICAgICB9IGVsc2UgaWYgKGlvbW11LT5jYXBzICYgUklTQ1ZfSU9NTVVfQ0FQQUJJTElUSUVTX1NW
+NTcpIHsKPiA+ICsgICAgICAgICAgICAgdmFfYml0cyA9IDU3Owo+ID4gKyAgICAgfSBlbHNlIGlm
+IChpb21tdS0+Y2FwcyAmIFJJU0NWX0lPTU1VX0NBUEFCSUxJVElFU19TVjQ4KSB7Cj4gPiArICAg
+ICAgICAgICAgIHZhX2JpdHMgPSA0ODsKPiA+ICsgICAgIH0gZWxzZSBpZiAoaW9tbXUtPmNhcHMg
+JiBSSVNDVl9JT01NVV9DQVBBQklMSVRJRVNfU1YzOSkgewo+ID4gKyAgICAgICAgICAgICB2YV9i
+aXRzID0gMzk7Cj4gPiArICAgICB9IGVsc2Ugewo+ID4gKyAgICAgICAgICAgICBkZXZfZXJyKGRl
+diwgImNhbm5vdCBmaW5kIHN1cHBvcnRlZCBwYWdlIHRhYmxlIG1vZGVcbiIpOwo+ID4gKyAgICAg
+ICAgICAgICByZXR1cm4gRVJSX1BUUigtRU5PREVWKTsKPiA+ICsgICAgIH0KPiA+ICsKPiA+ICsg
+ICAgIC8qCj4gPiArICAgICAgKiBUaGUgb3BzLT5kb21haW5fYWxsb2NfdXNlciBjb3VsZCBiZSBk
+aXJlY3RseSBjYWxsZWQgYnkgdGhlIGlvbW11ZmQgY29yZSwKPiA+ICsgICAgICAqIGluc3RlYWQg
+b2YgaW9tbXUgY29yZS4gU28sIHRoaXMgZnVuY3Rpb24gbmVlZCB0byBzZXQgdGhlIGRlZmF1bHQg
+dmFsdWUgb2YKPiA+ICsgICAgICAqIGZvbGxvd2luZyBkYXRhIG1lbWJlcjoKPiA+ICsgICAgICAq
+ICAtIGRvbWFpbi0+cGdzaXplX2JpdG1hcAo+ID4gKyAgICAgICogIC0gZG9tYWluLT5nZW9tZXRy
+eQo+ID4gKyAgICAgICogIC0gZG9tYWluLT50eXBlCj4gPiArICAgICAgKiAgLSBkb21haW4tPm9w
+cwo+ID4gKyAgICAgICovCj4gPiArICAgICBzMV9kb21haW4tPnMyID0gczJfZG9tYWluOwo+ID4g
+KyAgICAgczFfZG9tYWluLT5pb21tdSA9IGlvbW11Owo+ID4gKyAgICAgczFfZG9tYWluLT5kb21h
+aW4udHlwZSA9IElPTU1VX0RPTUFJTl9ORVNURUQ7Cj4gPiArICAgICBzMV9kb21haW4tPmRvbWFp
+bi5vcHMgPSAmcmlzY3ZfaW9tbXVfbmVzdGVkX2RvbWFpbl9vcHM7Cj4gPiArICAgICBzMV9kb21h
+aW4tPmRvbWFpbi5wZ3NpemVfYml0bWFwID0gU1pfNEs7Cj4gPiArICAgICBzMV9kb21haW4tPmRv
+bWFpbi5nZW9tZXRyeS5hcGVydHVyZV9zdGFydCA9IDA7Cj4gPiArICAgICBzMV9kb21haW4tPmRv
+bWFpbi5nZW9tZXRyeS5hcGVydHVyZV9lbmQgPSBETUFfQklUX01BU0sodmFfYml0cyAtIDEpOwo+
+ID4gKyAgICAgczFfZG9tYWluLT5kb21haW4uZ2VvbWV0cnkuZm9yY2VfYXBlcnR1cmUgPSB0cnVl
+Owo+Cj4gVGhlcmUgaXMgbm8gZ2VvbWV0cnkgb3IgcGFnZSBzaXplIG9mIG5lc3RpbmcgZG9tYWlu
+cy4KPgoKVGhhbmtzIGZvciBwb2ludGluZyBpdCBvdXQuIEkgd2lsbCBmaXggaXQgaW4gdGhlIG5l
+eHQgdmVyc2lvbi4KCj4gPiArCj4gPiArICAgICByZXR1cm4gJnMxX2RvbWFpbi0+ZG9tYWluOwo+
+ID4gK30KPiA+ICsKPiA+ICtzdGF0aWMgc3RydWN0IGlvbW11X2RvbWFpbiAqCj4gPiArcmlzY3Zf
+aW9tbXVfZG9tYWluX2FsbG9jX3VzZXIoc3RydWN0IGRldmljZSAqZGV2LCB1MzIgZmxhZ3MsCj4g
+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IGlvbW11X2RvbWFpbiAqcGFyZW50
+LAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnN0IHN0cnVjdCBpb21tdV91c2Vy
+X2RhdGEgKnVzZXJfZGF0YSkKPiA+ICt7Cj4gPiArICAgICBzdHJ1Y3QgaW9tbXVfZG9tYWluICpk
+b21haW47Cj4gPiArICAgICBzdHJ1Y3QgcmlzY3ZfaW9tbXVfZG9tYWluICpyaXNjdl9kb21haW47
+Cj4gPiArCj4gPiArICAgICAvKiBBbGxvY2F0ZSBzdGFnZS0xIGRvbWFpbiBpZiBpdCBoYXMgc3Rh
+Z2UtMiBwYXJlbnQgZG9tYWluICovCj4gPiArICAgICBpZiAocGFyZW50KQo+ID4gKyAgICAgICAg
+ICAgICByZXR1cm4gcmlzY3ZfaW9tbXVfZG9tYWluX2FsbG9jX25lc3RlZChkZXYsIHBhcmVudCwg
+dXNlcl9kYXRhKTsKPiA+ICsKPiA+ICsgICAgIGlmIChmbGFncyAmIH4oKElPTU1VX0hXUFRfQUxM
+T0NfTkVTVF9QQVJFTlQgfCBJT01NVV9IV1BUX0FMTE9DX0RJUlRZX1RSQUNLSU5HKSkpCj4gPiAr
+ICAgICAgICAgICAgIHJldHVybiBFUlJfUFRSKC1FT1BOT1RTVVBQKTsKPiA+ICsKPiA+ICsgICAg
+IGlmICh1c2VyX2RhdGEpCj4gPiArICAgICAgICAgICAgIHJldHVybiBFUlJfUFRSKC1FSU5WQUwp
+Owo+ID4gKwo+ID4gKyAgICAgLyogZG9tYWluX2FsbG9jX3VzZXIgb3AgbmVlZHMgdG8gYmUgZnVs
+bHkgaW5pdGlhbGl6ZWQgKi8KPiA+ICsgICAgIGRvbWFpbiA9IGlvbW11X2RvbWFpbl9hbGxvYyhk
+ZXYtPmJ1cyk7Cj4KPiBQbGVhc2Ugb3JnYW5pemUgeW91ciBkcml2ZXIgdG8gYXZvaWQgY2FsbGlu
+ZyB0aGlzIGNvcmUgZnVuY3Rpb24KPiB0aHJvdWdoIGEgcG9pbnRlciBhbmQgcmV0dXJuIHRoZSBj
+b3JyZWN0IHR5cGUgZnJvbSB0aGUgc3RhcnQgc28geW91Cj4gZG9uJ3QgaGF2ZSB0byBjYXN0LgoK
+T2ssIGxldCBtZSBtb2RpZnkgdGhpcyBwYXJ0LiBUaGFua3MgLgoKPgo+ID4gKyAgICAgaWYgKCFk
+b21haW4pCj4gPiArICAgICAgICAgICAgIHJldHVybiBFUlJfUFRSKC1FTk9NRU0pOwo+ID4gKwo+
+ID4gKyAgICAgLyoKPiA+ICsgICAgICAqIFdlIGFzc3VtZSB0aGF0IG5lc3QtcGFyZW50IG9yIGct
+c3RhZ2Ugb25seSB3aWxsIGNvbWUgaGVyZQo+ID4gKyAgICAgICogVE9ETzogU2hhZG93IHBhZ2Ug
+dGFibGUgZG9lc24ndCBiZSBzdXBwb3J0ZWQgbm93Lgo+ID4gKyAgICAgICogICAgICAgV2UgY3Vy
+cmVudGx5IGNhbid0IGRpc3Rpbmd1aXNoIGctc3RhZ2UgYW5kIHNoYWRvdwo+ID4gKyAgICAgICog
+ICAgICAgcGFnZSB0YWJsZSBoZXJlLiBTaGFkb3cgcGFnZSB0YWJsZSBzaG91bGRuJ3QgYmUKPiA+
+ICsgICAgICAqICAgICAgIHB1dCBhdCBzdGFnZS0yLgo+ID4gKyAgICAgICovCj4gPiArICAgICBy
+aXNjdl9kb21haW4gPSBpb21tdV9kb21haW5fdG9fcmlzY3YoZG9tYWluKTsKPiA+ICsKPiA+ICsg
+ICAgIC8qIHBnZF9yb290IG1heSBiZSBhbGxvY2F0ZWQgaW4gLmRvbWFpbl9hbGxvY19wYWdpbmcg
+Ki8KPiA+ICsgICAgIGlmIChyaXNjdl9kb21haW4tPnBnZF9yb290KQo+ID4gKyAgICAgICAgICAg
+ICBpb21tdV9mcmVlX3BhZ2UocmlzY3ZfZG9tYWluLT5wZ2Rfcm9vdCk7Cj4KPiBBbmQgZG9uJ3Qg
+ZG8gc3R1ZmYgbGlrZSB0aGlzLCBpZiBkb21haW5fYWxsb2MgZGlkbid0IGRvIHRoZSByaWdodAo+
+IHN0dWZmIHRoZW4gcmVvcmdhbml6ZSBpdCBzbyB0aGF0IGl0IGRvZXMuIE1vc3QgbGlrZWx5IHBh
+c3MgaW4gYSBmbGFnCj4gdGhhdCB5b3UgYXJlIGFsbG9jYXRpbmcgdGhlIG5lc3Qgc28gaXQgY2Fu
+IHNldHVwIHByb3Blcmx5IGlmIGl0IGlzCj4gb25seSBhIHNtYWxsIGNoYW5nZSBsaWtlIHRoaXMu
+CgpZZXMsIGlmIHdlIGRvbid0IHJlbHkgb24gdGhlIG9yaWdpbmFsIGRvbWFpbiBhbGxvY2F0aW9u
+LCBpdCB3b24ndCBiZQp3ZWlyZCBhcyBpdCBpcyBub3cuCgo+Cj4gPiArLyoqCj4gPiArICogc3Ry
+dWN0IGlvbW11X2h3cHRfcmlzY3ZfaW9tbXUgLSBSSVNDViBJT01NVSBzdGFnZS0xIGRldmljZSBj
+b250ZXh0IHRhYmxlCj4gPiArICogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpbmZv
+IChJT01NVV9IV1BUX1RZUEVfUklTQ1ZfSU9NTVUpCj4gPiArICogQGRjX2xlbjogTGVuZ3RoIG9m
+IGRldmljZSBjb250ZXh0Cj4gPiArICogQGRjX3VwdHI6IFVzZXIgcG9pbnRlciB0byB0aGUgYWRk
+cmVzcyBvZiBkZXZpY2UgY29udGV4dAo+ID4gKyAqIEBldmVudF9sZW46IExlbmd0aCBvZiBhbiBl
+dmVudCByZWNvcmQKPiA+ICsgKiBAb3V0X2V2ZW50X3VwdHI6IFVzZXIgcG9pbnRlciB0byB0aGUg
+YWRkcmVzcyBvZiBldmVudCByZWNvcmQKPiA+ICsgKi8KPiA+ICtzdHJ1Y3QgaW9tbXVfaHdwdF9y
+aXNjdl9pb21tdSB7Cj4gPiArICAgICBfX2FsaWduZWRfdTY0IGRjX2xlbjsKPiA+ICsgICAgIF9f
+YWxpZ25lZF91NjQgZGNfdXB0cjsKPgo+IERvIHdlIHJlYWxseSB3YW50IHRoaXMgdG8gYmUgYSBw
+b2ludGVyPyBBUk0ganVzdCBpbmxpbmVkIGl0IGluIHRoZQo+IHN0cnVjdCwgd2h5IG5vdCBkbyB0
+aGF0Pwo+Cj4gPiArICAgICBfX2FsaWduZWRfdTY0IGV2ZW50X2xlbjsKPiA+ICsgICAgIF9fYWxp
+Z25lZF91NjQgb3V0X2V2ZW50X3VwdHI7Cj4gPiArfTsKPgo+IFNpbWlsYXIgaGVyZSB0b28sIHdo
+eSBub3QganVzdCBpbmxpbmUgdGhlIHJlc3BvbnNlIG1lbW9yeT8KCkkgdGhpbmsgd2UgY2FuIGp1
+c3QgaW5saW5lIHRoZW0sIGp1c3QgbGlrZSB3aGF0IHdlIGRvIGluIHRoZQonaW9tbXVfaHdwdF9y
+aXNjdl9pb21tdV9pbnZhbGlkYXRlJy4gZG9lcyBJIHVuZGVyc3RhbmQgY29ycmVjdGx5PwoKPgo+
+IEphc29uCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
