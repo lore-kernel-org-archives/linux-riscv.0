@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CCBAC3064D
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 09:21:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DFBC3064D
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 09:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4mbGpCf9fIdzwPd4yMdzhjgRvD/W9t7EAHIZZhVooKM=; b=PKt85cjjyDBuWH
-	n+EgDuGChkAzgzXy2qX3C0S6pEnQmJwjvscKlWJe/JpCt4/PpvEsqprpFt7Ftdfqyjerb6gKvsAIJ
-	TwvqwH16OjcFDZlNpevijMP3fG1h5hnF+eaHATlmwTlifTE2rcOa5lGfqC2D81/XN4nTUtKAP9rjf
-	STI40uyOh7Pn+C+/j+lHEJbJwNhWINYUFC/vvYymRCzpPly+NchBYnRAC1KTWbGbIy4k9SBRWKS1/
-	CX/38KCYsViUG+WgtPfg35M5YyO447wIY05WtJxGbdu4yxURat1/fK1jb9DiFhR+7Hyv07auMrC9n
-	d9xFKT0ePnPd79+YsFSA==;
+	List-Owner; bh=HjhyKHd/q9OcCbYfnozYRNhDNdUDqDFtkdkjbsljiGk=; b=XpA6Xk5Q8RxMi4
+	9x29fjgsBFbEjUfXoYv+maniE5k5A9qw6ff3ymJ4QRvygoO/jlIPawoCSerBUEsJq6pVm1ZLR292S
+	3HlmQqVJqdxCPnILz3ajMcnO07Is1FuH0Jwe1Vp7ylN6yr7WVQ2aJ/U5n6L67KaZIBVJTI5ZL24ra
+	tG7XF34h2hCu4dT+0nK6TVuZrNW1CZJFSXtbl8bDIQhzUvPQJNLum7Tya5boW8nQDps4GnGcZ/ygT
+	iDC2/vwJkNUJV7Opevti2recXwiJKeWaAfZQl2/e6DX2yEnM8sRGMqhvFp+O4f1Xu7UcW12mjo42v
+	ojWGT9TLHRt6Ian0UXmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN7nf-0000000DEy4-3ReH;
-	Fri, 28 Jun 2024 09:21:47 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1sN7wC-0000000DGCt-47Wn;
+	Fri, 28 Jun 2024 09:30:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sN7nd-0000000DExN-1o15
+	id 1sN7w9-0000000DGCC-45ub
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 09:21:46 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-a724958f118so49507966b.0
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 02:21:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719566504; x=1720171304; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GUUeOl5OTYU1P+SJ7athIDCY6ruVMMiJN7zw6ctaH28=;
-        b=FdQB5BMo8n1tNhEvkr1r288/zFCf2vSYhbW5viSLR4DFPH2fJ+Xqsboi1XioOyuDtN
-         YoVWez3h070lsqWJBumiIaAZp1h/MEkZI7zcRj61m2Yohdy4Xkj+Uu1tlHLVVWTw6MzX
-         QZ629UMinAZy3l7R1wweCZTsjo0dlzSi/sH3F9xgRbYg9JObRmbdFlWnz80/M8VAtHbl
-         NI23l7RdbFPi2Smw75UJst358Pef1e5IIYNo8CcPTHi7498EKBntKeBUkoHiUDcI8joj
-         /t5k729l6JBA0o540rxKycnMWUPUpY9U4iA2I8q/GqcdL4ofqjItVNKWuGVmJa2rnjJx
-         ANow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719566504; x=1720171304;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GUUeOl5OTYU1P+SJ7athIDCY6ruVMMiJN7zw6ctaH28=;
-        b=PSUf/mRBv1AT658PnSvhWeofyv5NvFTQiYCgW3YbD6U3oR92S1PS4OiKFZm6Kmah+Y
-         pNjJjh5uylFFIkymn+2GR7OkdvnVcnrfmfnTZK8zsP1KvCpQiY0jS5Yae5hs/P1w6uea
-         8M4v/vibfX/bbv48a4hDcqUStnKIoyRyjADv2xW6XmBXJhAP/ov5K7ECHnDuYYANyy6F
-         sPwevARQfNQv6OPHOBrLdXxl6o0QXKXjgXtQhckT55ydJsgrLwQvwaGM5OS2zUDFHx/Q
-         +RZ8A2D8EpdMgePqN96bpKbJTJh+dZ9vHvY12sng3Xe2wYpsjM7yQpXbvTRwWmpXLVy2
-         CRog==
-X-Forwarded-Encrypted: i=1; AJvYcCWqD455jBJ1132AnVn4/49SF1ZxNoZf54QlhEMM/iefgcTGAWhzFWXWktiT0c5UlCmXD77vP01vfAjZAIsTHXL2yDGVyVy3ZJbt2yTDqfAn
-X-Gm-Message-State: AOJu0YwCyQFR4gfWHfhPm/tQps/g/LF9VRWGC2fWQaHHwjQ9x0F/xD2Q
-	JHgsxAknmP7Yig6jttCA4zHD0wOiFOAK3xso3fvxQH7tfYnGSAyCWpNapEUr0JjXrehoT5G5BGF
-	k7OwSalPQ/9mBidejpyNP2XzaO1ENFUIIQhAJ6vuwDpYh99Tj
-X-Google-Smtp-Source: AGHT+IF7NFei1EQBJfySUv3C79EdZFXolxqVCoTcA7eZAbhURusjPaToikXelhSoNh/rrjdKoBeJoJz3xOL6E3X1Vt4=
-X-Received: by 2002:a17:906:c44d:b0:a72:548a:6f42 with SMTP id
- a640c23a62f3a-a72548a702emr1002466966b.18.1719566503875; Fri, 28 Jun 2024
- 02:21:43 -0700 (PDT)
-MIME-Version: 1.0
-References: <20240626171652.366415-1-jesse@rivosinc.com> <20240627-boring-handgun-40ae5bf2651e@wendy>
-In-Reply-To: <20240627-boring-handgun-40ae5bf2651e@wendy>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Fri, 28 Jun 2024 11:21:33 +0200
-Message-ID: <CAHVXubik-T=dv3hds4VuJFFxen1CRhfintGdOu3JsdAeouuOtg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] RISC-V: pi: Force hidden visibility for all symbol references
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org, 
-	Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Fri, 28 Jun 2024 09:30:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 44BE6620AA;
+	Fri, 28 Jun 2024 09:30:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A45BC2BD10;
+	Fri, 28 Jun 2024 09:30:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1719567032;
+	bh=VmYjwKp6mlAJ1kzDY8yon8mWRyRJ52jWM6niGqaHDo8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aXKyTlJvGFF4l0YoEAgw1mg6eLOctUu4JfxelD5BGvoLP4KW1ofc+zd9L+DopGwYT
+	 2vYCSXxt1UOqrggvJ5hVYtje9EoUIcHFCrOnXQ4I3St7MyeeWSyGpmDTyvsmS2Q8kf
+	 zIzEMELR+jo0Ab2N5U4McKq+O0jkamZ9i/FbS/jQ/9S4uT/w5+tAA9Sr0UFx8Jq81Z
+	 c7T7JOdphvQiPlparHZOn7FEBI4l+Gb7e9pGnSf9lHI926SwTLJZGVltvjEMyzcf61
+	 2lQalOEORVTJi8qVuebUSf2KNJhlS1qsKqSIsJvmRu4qq0U4QBQWBoZNT31QrpQlIn
+	 oWwgCQ1sFA1VQ==
+Date: Fri, 28 Jun 2024 11:30:28 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Drew Fustini <dfustini@tenstorrent.com>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Conor Dooley <conor@kernel.org>, Jarkko Nikula <jarkko.nikula@linux.intel.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Wende Tan <twd2.me@gmail.com>, 
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>, Sami Tolvanen <samitolvanen@google.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Baoquan He <bhe@redhat.com>, 
-	Chen Jiahao <chenjiahao16@huawei.com>, "Mike Rapoport (IBM)" <rppt@kernel.org>, 
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>, linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+	Paul Walmsley <paul.walmsley@sifive.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	=?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v3 0/3] Add I2C support on TH1520
+Message-ID: <xkdmrmtiizoqo6mpc7i6iyhilxlw57nawn6ogv6dryaveyqddc@ach3rwy4abpe>
+References: <20240618-i2c-th1520-v3-0-3042590a16b1@bootlin.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240618-i2c-th1520-v3-0-3042590a16b1@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_022145_490424_5253DBD8 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20240628_023034_078594_3ECA3055 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,26 +75,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSmVzc2UsCgpPbiBUaHUsIEp1biAyNywgMjAyNCBhdCAxMjozNeKAr1BNIENvbm9yIERvb2xl
-eQo8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+Cj4gT24gV2VkLCBKdW4gMjYs
-IDIwMjQgYXQgMDE6MTY6NTBQTSAtMDQwMCwgSmVzc2UgVGF1YmUgd3JvdGU6Cj4gPiBFbGltaW5h
-dGUgYWxsIEdPVCBlbnRyaWVzIGluIHRoZSAucGkgc2VjdGlvbiwgYnkgZm9yY2luZyBoaWRkZW4K
-PiA+IHZpc2liaWxpdHkgZm9yIGFsbCBzeW1ib2wgcmVmZXJlbmNlcywgd2hpY2ggaW5mb3JtcyB0
-aGUgY29tcGlsZXIgdGhhdAo+ID4gc3VjaCByZWZlcmVuY2VzIHdpbGwgYmUgcmVzb2x2ZWQgYXQg
-bGluayB0aW1lIHdpdGhvdXQgdGhlIG5lZWQgZm9yCj4gPiBhbGxvY2F0aW5nIEdPVCBlbnRyaWVz
-Lgo+ID4KPiA+IEluY2x1ZGUgbGludXgvaGlkZGVuLmggaW4gTWFrZWZpbGUsIGxpa2UgYXJtNjQs
-IGZvciB0aGUKPiA+IGhpZGRlbiB2aXNpYmlsaXR5IGF0dHJpYnV0ZS4KPiA+Cj4gPiBTaWduZWQt
-b2ZmLWJ5OiBKZXNzZSBUYXViZSA8amVzc2VAcml2b3NpbmMuY29tPgo+Cj4gRGlkIHlvdSBmb3Jn
-ZXQgdG8gYWRkIC0tY292ZXItbGV0dGVyIHRvIHlvdXIgZm9ybWF0LXBhdGNoIGluY2FudGF0aW9u
-PwoKSSBhZG1pdHRlZGx5IGRvbid0IHVuZGVyc3RhbmQgYWxsIHRoZSBkZXRhaWxzIGJ1dCBpdCBt
-YWtlcyB0aGUgR09UCmVudHJ5IGRpc2FwcGVhciBhbmQgYXJtNjQgdXNlcyBpdCB0b28sIHNvOgoK
-UmV2aWV3ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KClRo
-YW5rcywKCkFsZXgKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+Hi,
+
+On Tue, Jun 18, 2024 at 09:42:37AM GMT, Thomas Bonnefille wrote:
+> This adds I2C support in the device tree of the T-Head TH1520 RISCV-SoC
+> and a default configuration for the BeagleV-Ahead. It appears that the
+> TH1520 I2C is already supported in the upstream kernel through the
+> Synopsis Designware I2C adapter driver.
+> 
+> This patch depends on the clock patch from Drew Fustini
+> Link: https://lore.kernel.org/linux-riscv/20240615-th1520-clk-v1-0-3ba4978c4d6b@tenstorrent.com
+> and the pinctrl patch from Emil Renner Berthing
+> Link: https://lore.kernel.org/linux-riscv/20240103132852.298964-1-emil.renner.berthing@canonical.com
+
+I think after these two go in...
+
+> Changed from v1:
+> 1. Remove redundant example for Synopsis DesignWare-I2C bindings
+> 2. Remove Node Ordering commit as it has already been taken
+> 3. Remove EEPROM label
+> 4. Rebase on pinctrl and clock driver patches
+> 5. Add pinctrl configuration
+> 6. Replaced the fixed-clock with a correct configuration
+> 
+> Changed from v2:
+> 1. Reorder nodes to conserve ascending register node ordering
+> 2. Add support for I2C2 as it probably use the same controller
+> 3. Format comments to match kernel coding style
+> 4. Reorder nodes to conserve alphabetical node ordering
+> 6. Declare I2C2
+> 6. Set pinctrl pull-up resistor to the highest value
+> 
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+> Thomas Bonnefille (3):
+>       dt-bindings: i2c: dw: Document compatible thead,th1520-i2c
+
+... this goes throught i2c...
+
+>       riscv: dts: thead: Add TH1520 I2C nodes
+>       riscv: dts: thead: Enable I2C on the BeagleV-Ahead
+
+... and these two go thrhough Conor's branches.
+
+Do you mind sending a ping when Drew's patches are included in
+the merge window? I can put the first patch on a special branch
+to keep it under my watch.
+
+Andi
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
