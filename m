@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9803AC2BD09
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 15:42:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76790C2BD09
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 16:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=AOBBu5NEK7CmMfvD1MxmxwRQBhEzfcAmVsvrQSK7HBQ=; b=qEJhr3FmmtTn7mpSES9QfoXYt1
-	Ml+I9LbPPX1o8CDDuje4HuiUva9m2J71yL8Bxw67+CYZzRceOpj+IbMFk+9MS22VGejdZYSAl8vhg
-	OO3LSAwjWm8Ex09vhR7wU8uBgGB0eHNrF2NBhQ88YlogJgZ9bRt+8EuMzWYZCehY2rf8cSjFS9jxm
-	CLVjrlK7b3lfcNBFf7MMsyQZPrWEy+NOE2aa8WeQII/wjwMSxACqvYOl7NrDwhZOAmOxAbPfShQLX
-	QdWYNPu31MdqdCZK32+816mFMgQbCGiS3CervfsiU/54n4NVqURb7ygzsQ3lCsX6Rva+xfFMvVB+4
-	zmpkXaeA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3AHdJ9G+O04hBNz/PMtosH7gWLOTp2f7yePy/Pa+aiI=; b=Mu4g55DaKXt1VcieJVOJ6Pq6cJ
+	Zop8UY5cSFQL16By9LfSXevuFTbhP7gCddhPR4zvOGgyHvnDiPRzGNI9IQZAgUNTFZvQ1yjZDn9KN
+	aVDr7Lzz5oCQnJsvEIG2FZzanOnlC/+N7Vg5KzjiUpw7whdijCmb4Fk2Qj/oH3nlOx9rI0Ue03tUg
+	PB51v+KKhZ4bwOX1AfoGC5WatJsmtV+RVzAC0jNCVFtzysHOwduEUledK+xuIKq8zzwZzr6XkhPWI
+	5DP/C0OpMHTsyPPMOZlt9CCN0nUhs6PGLdPp7RC/VC4K5x8kraSMMkuZ6uFauHsLD5YBEQUgV2JyE
+	iyeEwtOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNDjb-0000000EEuI-3FpZ;
-	Fri, 28 Jun 2024 15:41:59 +0000
+	id 1sNEKJ-0000000EKtv-3A6l;
+	Fri, 28 Jun 2024 16:19:55 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNDjY-0000000EEtR-0CrV
-	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 15:41:58 +0000
+	id 1sNEKG-0000000EKtD-1Wov;
+	Fri, 28 Jun 2024 16:19:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E1A0B621EB;
-	Fri, 28 Jun 2024 15:41:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 828FBC4AF0A;
-	Fri, 28 Jun 2024 15:41:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1AF43621E7;
+	Fri, 28 Jun 2024 16:19:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EAF5C116B1;
+	Fri, 28 Jun 2024 16:19:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719589314;
-	bh=5eJ3BgrKvSan+/npP2zjtmTwPRpcjFq0OpLHgdmwxRc=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=YgkK9Hj/qYNdIiZND9M/4dz262Z0+r7B+CemMAgyAYgVbwWu14I5T1vL4+1LJlJ0l
-	 MN/RNRAG5khbB7IoVCjyL0op/aNUfpjk/1H/cuiifsNeQeyUVEJprvfX3xfl5j/O5Z
-	 bQPfihvyUgYM+vjVyRfNx33FxK3T/weA+sNsDG9du9zjZyESNOv0OxnrT9x6oqwEcx
-	 QDijVFGFp6qMx4UNWTi1lLJN6/EbpKDNLRf5cEkb/HqPRjlBucGXx4RxuvjL1z4PN1
-	 4DjWPfTcEhGm1kzmvtef4YQvdh116eF2sV5JMX0afbMP8dwqPsTMMHBH4mGt0VUkou
-	 xEV39J/ES+dag==
-Date: Fri, 28 Jun 2024 09:41:53 -0600
+	s=k20201202; t=1719591590;
+	bh=LTxkkD/nY6lAd8Hm4iCQkiN/eHwDOA5Fki8VgmfgnRc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MX7Mj5hUhLiE91UIq2inljrT60PLH9e8l6QTgC6ZQNvAMBidqlAsUFcUWgh37xNtR
+	 hYDylhmsqCO1JbsewHKDHXasQRX+xLjibcRc7V3aV9D/23ehealjzGCzLAVTdkVLs+
+	 Qgmr2AIxylzGm8Vnz+W8zUvWobyOtbCGH3ImingcbS9miMBh7ILHe0QHegrE5SlZdD
+	 K3KFM2wBj4ib6ehtDKUtfgNuCw2TQRbDywW1I+NIhYzzbYvRBf3Sy7sL8/WaYVsgAD
+	 0V9b/A9JonF9gwm94KX6WWQwbU8dIQea/cXq/isAShfpX/FTIhMdkyb4uH/IWyJRZl
+	 j1Piq1IPNhbwg==
+Date: Fri, 28 Jun 2024 17:19:46 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	greentime.hu@sifive.com, vincent.chen@sifive.com,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org
+Subject: Re: [PATCH v6 2/4] dt-bindings: riscv: Add Svade and Svadu Entries
+Message-ID: <20240628-clamp-vineyard-c7cdd40a6d50@spud>
+References: <20240628093711.11716-1-yongxuan.wang@sifive.com>
+ <20240628093711.11716-3-yongxuan.wang@sifive.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Meng Zhang <zhangmeng.kevin@spacemit.com>, linux-kernel@vger.kernel.org, 
- Yangyu Chen <cyy@cyyself.name>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor+dt@kernel.org>, 
- Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org, 
- Thomas Gleixner <tglx@linutronix.de>, Conor Dooley <conor@kernel.org>, 
- linux-serial@vger.kernel.org, Lubomir Rintel <lkundrak@v3.sk>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Jiri Slaby <jirislaby@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-In-Reply-To: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
-References: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
-Message-Id: <171958904483.3122797.18431731519773107175.robh@kernel.org>
-Subject: Re: [PATCH v2 00/10] riscv: add initial support for SpacemiT K1
+In-Reply-To: <20240628093711.11716-3-yongxuan.wang@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_084156_491331_C7AA666E 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20240628_091952_558412_1DCA572E 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,147 +72,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3288946943361762716=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 27 Jun 2024 15:31:14 +0000, Yixun Lan wrote:
-> SpacemiT K1 is an ideal chip for some new extension such as RISC-V Vector
-> 1.0 and Zicond evaluation now. Add initial support for it to allow more
-> people to participate in building drivers to mainline for it.
-> 
-> This kernel has been tested upon Banana Pi BPI-F3 board on vendor U-Boot
-> bootflow generated by Armbian SDK[1] and patched OpenSBI[2] to enable
-> Zicboz, which does not in the vendor dts on its U-Boot. Then successfully
-> booted to busybox on initrd with this log[3].
-> 
-> As previous discussion in patch v1[4], maintainer expect more basic drivers
-> ready before really merging it, which would be fine. For other follow-up patches,
-> that are clk, pinctrl/gpio, reset.. My current goal would target at a headless
-> system including SD card, emmc, and ethernet.
-> 
-> P.S: talked to Yangyu, I will help and take care of this patch series, thanks
+--===============3288946943361762716==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="zVY6bc51HzyyBUYM"
+Content-Disposition: inline
+
+
+--zVY6bc51HzyyBUYM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Jun 28, 2024 at 05:37:06PM +0800, Yong-Xuan Wang wrote:
+> Add entries for the Svade and Svadu extensions to the riscv,isa-extensions
+> property.
+>=20
+> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
 > ---
-> Changes in v2:
->  - fix timebase-frequency according to current setting
->  - add other uart dt nodes, fix input frequency
->  - introduce new uart compatible for K1 SoC
->  - add 'k1' prefix to bananapi-f3.dts
->  - fix k1-clint compatible
->  - fix some typos
->  - Link to v1: https://lore.kernel.org/r/tencent_BC64B7B1876F5D10479BD19112F73F262505@qq.com
-> 
-> Link: https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30 [1]
-> Link: https://gist.github.com/cyyself/a07096e6e99c949ed13f8fa16d884402 [2]
-> Link: https://gist.github.com/cyyself/a2201c01f5c8955a119641f97b7d0280 [3]
-> Link: https://lore.kernel.org/r/20240618-hardwood-footrest-ab5ec5bce3cf@wendy [4]
-> 
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Conor Dooley <conor@kernel.org>
-> To: Paul Walmsley <paul.walmsley@sifive.com>
-> To: Palmer Dabbelt <palmer@dabbelt.com>
-> To: Albert Ou <aou@eecs.berkeley.edu>
-> To: Daniel Lezcano <daniel.lezcano@linaro.org>
-> To: Thomas Gleixner <tglx@linutronix.de>
-> To: Samuel Holland <samuel.holland@sifive.com>
-> To: Anup Patel <anup@brainfault.org>
-> To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> To: Jiri Slaby <jirislaby@kernel.org>
-> To: Lubomir Rintel <lkundrak@v3.sk>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: Palmer Dabbelt <palmer@sifive.com>
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-serial@vger.kernel.org
-> Cc: Inochi Amaoto <inochiama@outlook.com>
-> Cc: Meng Zhang <zhangmeng.kevin@spacemit.com>
-> 
-> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> 
-> ---
-> Yangyu Chen (9):
->       dt-bindings: vendor-prefixes: add spacemit
->       dt-bindings: riscv: Add SpacemiT X60 compatibles
->       dt-bindings: riscv: add SpacemiT K1 bindings
->       dt-bindings: timer: Add SpacemiT K1 CLINT
->       dt-bindings: interrupt-controller: Add SpacemiT K1 PLIC
->       riscv: add SpacemiT SOC family Kconfig support
->       riscv: dts: add initial SpacemiT K1 SoC device tree
->       riscv: dts: spacemit: add Banana Pi BPI-F3 board device tree
->       riscv: defconfig: enable SpacemiT SoC
-> 
-> Yixun Lan (1):
->       dt-bindings: serial: 8250: Add SpacemiT K1 uart compatible
-> 
->  .../interrupt-controller/sifive,plic-1.0.0.yaml    |   5 +-
->  Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
->  .../devicetree/bindings/riscv/spacemit.yaml        |  24 ++
->  Documentation/devicetree/bindings/serial/8250.yaml |   4 +-
->  .../devicetree/bindings/timer/sifive,clint.yaml    |   1 +
->  .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
->  arch/riscv/Kconfig.socs                            |   5 +
->  arch/riscv/boot/dts/Makefile                       |   1 +
->  arch/riscv/boot/dts/spacemit/Makefile              |   2 +
->  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |  19 ++
->  arch/riscv/boot/dts/spacemit/k1.dtsi               | 378 +++++++++++++++++++++
->  arch/riscv/configs/defconfig                       |   1 +
->  12 files changed, 441 insertions(+), 2 deletions(-)
-> ---
-> base-commit: f2661062f16b2de5d7b6a5c42a9a5c96326b8454
-> change-id: 20240626-k1-01-basic-dt-1aa31eeebcd2
-> 
-> Best regards,
-> --
-> Yixun Lan <dlan@gentoo.org>
-> 
-> 
-> 
+>  .../devicetree/bindings/riscv/extensions.yaml | 28 +++++++++++++++++++
+>  1 file changed, 28 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index 468c646247aa..c3d053ce7783 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -153,6 +153,34 @@ properties:
+>              ratified at commit 3f9ed34 ("Add ability to manually trigger
+>              workflow. (#2)") of riscv-time-compare.
+> =20
+> +        - const: svade
+> +          description: |
+> +            The standard Svade supervisor-level extension for SW-managed=
+ PTE A/D
+> +            bit updates as ratified in the 20240213 version of the privi=
+leged
+> +            ISA specification.
+> +
+> +            Both Svade and Svadu extensions control the hardware behavio=
+r when
+> +            the PTE A/D bits need to be set. The default behavior for th=
+e four
+> +            possible combinations of these extensions in the device tree=
+ are:
+> +            1) Neither Svade nor Svadu present in DT =3D>
+
+>                 It is technically
+> +               unknown whether the platform uses Svade or Svadu. Supervi=
+sor may
+> +               assume Svade to be present and enabled or it can discover=
+ based
+> +               on mvendorid, marchid, and mimpid.
+
+I would just write "for backwards compatibility, if neither Svade nor
+Svadu appear in the devicetree the supervisor may assume Svade to be
+present and enabled". If there are systems that this behaviour causes
+problems for, we can deal with them iff they appear. I don't think
+looking at m*id would be sufficient here anyway, since the firmware can
+have an impact. I'd just drop that part entirely.
+
+> +            2) Only Svade present in DT =3D> Supervisor must assume Svad=
+e to be
+> +               always enabled. (Obvious)
+
+nit: I'd drop the "(Obvious)" comments from here.
+
+Cheers,
+Conor.
+
+> +            3) Only Svadu present in DT =3D> Supervisor must assume Svad=
+u to be
+> +               always enabled. (Obvious)
+> +            4) Both Svade and Svadu present in DT =3D> Supervisor must a=
+ssume
+> +               Svadu turned-off at boot time. To use Svadu, supervisor m=
+ust
+> +               explicitly enable it using the SBI FWFT extension.
+> +
+> +        - const: svadu
+> +          description: |
+> +            The standard Svadu supervisor-level extension for hardware u=
+pdating
+> +            of PTE A/D bits as ratified at commit c1abccf ("Merge pull r=
+equest
+> +            #25 from ved-rivos/ratified") of riscv-svadu. Please refer t=
+o Svade
+> +            dt-binding description for more details.
+> +
+>          - const: svinval
+>            description:
+>              The standard Svinval supervisor-level extension for fine-gra=
+ined
+> --=20
+> 2.17.1
+>=20
+
+--zVY6bc51HzyyBUYM
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZn7ioQAKCRB4tDGHoIJi
+0mVMAQCK/SejlGwyghvHwynQhnjL6X2rPW6tv4CtsmOgM3pYaAD+L/W8OKitFsGd
+/L1I8rbFj1EVzu2iWs17GMSaDJIGZgU=
+=ykY3
+-----END PGP SIGNATURE-----
+
+--zVY6bc51HzyyBUYM--
 
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y spacemit/k1-bananapi-f3.dtb' for 20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org:
-
-arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017100: $nodename:0: 'uart@d4017100' does not match '^serial(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
-arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017200: $nodename:0: 'uart@d4017200' does not match '^serial(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
-arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017300: $nodename:0: 'uart@d4017300' does not match '^serial(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
-arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017400: $nodename:0: 'uart@d4017400' does not match '^serial(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
-arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017500: $nodename:0: 'uart@d4017500' does not match '^serial(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
-arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017600: $nodename:0: 'uart@d4017600' does not match '^serial(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
-arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017700: $nodename:0: 'uart@d4017700' does not match '^serial(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
-arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: uart@d4017800: $nodename:0: 'uart@d4017800' does not match '^serial(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/serial/8250.yaml#
-
-
-
-
-
+--===============3288946943361762716==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3288946943361762716==--
+
