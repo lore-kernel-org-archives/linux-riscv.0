@@ -4,73 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 322E9C3065B
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 12:00:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7C6C2BD09
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jun 2024 13:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IxQvpadQ+CGFims6nigriCyrzJGScxsqJB62mAbm6/s=; b=sbXREbRsaE2gs3
-	oeTHG1MKaQ2o4tVjuiT7wmELxeZtlI10WqFQsKRvhLXgyEJiiWLXZBBov9B8aLC5kHT2MYywoervs
-	bqFTEpQVZCUoYhnB2ZJ7Hy5BNeFkxgeJItWjgPhnlZFK7/RXJV5Rw6OAbb9FrtxJDtR3RZqpS2Jn5
-	ZTlKz0/amQym+4GYKfbD/DV5N5YaQkkvHdtWYFvVUyG4WE4ZyryAyNMFswWRj5W8IYY85whC4Vh6c
-	2hT8j4JUv1qGYIyiS2T6SeSPWjmY6l9zjCEhDyQBrBSBQa41yRnNQYHrIkaDSN1OqzsqZKyz3gIn0
-	lwCwU9EKOiCxpAVLiFlg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=26ziV7mwqqrOd+sZrI+gBQNWeY+uQlvlfpFnksVFoAc=; b=KFv6jnQb9TvA4DXf7wZUAnoqQv
+	CSe96D7pGwW+jzzm5+AK/qWmjm6qVkDWhfLK+PEc+3cwh99nANVlwdLFGIlOspmmpjFB/YsZlmDDs
+	tLm1jbOccYDXUSkrGdL7oMyqcGx4kUgC9e+6XDrvzPpIsz5P9wtK4jYZVYkz2NGkVxS2VqdMkJkul
+	8AeC4nTSpDYQUO1AL27a5B9k8QIrauFwfQnf0j45152Z1OEWZNyrB4fuVHjt137Sh1Wt3ytv0UX1c
+	gOKEu9dPfvh74luq7lFFWoSBTHoxAtytebVFzZUTMlnb2wEd3QW69d6c2zyBALgv+2ZiYmRifsmcI
+	YBvcH5aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNAGu-0000000DcBb-2OJK;
-	Fri, 28 Jun 2024 12:00:08 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1sNBaI-0000000Do8D-21hd;
+	Fri, 28 Jun 2024 13:24:14 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNAGp-0000000Dc9G-2F7u
+	id 1sNBaE-0000000Do5E-06gc
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jun 2024 12:00:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1719576003; x=1751112003;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=2LGfejxUQh2ogeG58xChGdC3cor015XXbvEcy1WCcwc=;
-  b=a7aXF6b3b6nlqIGHQHZ9TWE9qVlGb87vUTRZNc5T8CtGbqJbnPUi/icE
-   coztY8Nd1S6IsxCRO3bk6hVFqssL3oHmpxhE6sVGZSwEyikwWuZEKo9vE
-   YEbRfQFRi2UFghpRyzZOjirCIbHMsl95XpVQkcdnyLBMUlyHH8TW3povW
-   zx591cxCBbaeSS+gLTFdxaLWMT6oBaav8dtS6olgVRQLfMSuR5Dt2ooJq
-   VdtYEgDK9Px9Y8ckiYOk2ObxZcpzmHbSZhq6BycBOexuck8IqqMo08v0V
-   J0bGV40nTkcCGxkmZQ7rH3sHxrLF/YS/LsVdEJ0Tclmks9ziJ6FKB61dd
-   Q==;
-X-CSE-ConnectionGUID: fhzcQ281QiKf1QfzQI0hzg==
-X-CSE-MsgGUID: Ye5I7pgLSbGEftYhiCzhBw==
-X-IronPort-AV: E=Sophos;i="6.09,169,1716274800"; 
-   d="scan'208";a="259502561"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Jun 2024 05:00:00 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 28 Jun 2024 04:59:30 -0700
-Received: from daire-X570.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Fri, 28 Jun 2024 04:59:27 -0700
-From: <daire.mcnamara@microchip.com>
-To: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>
-CC: <conor.dooley@microchip.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
-	<robh@kernel.org>, <bhelgaas@google.com>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <daire.mcnamara@microchip.com>,
-	<ilpo.jarvinen@linux.intel.com>
-Subject: [PATCH v6 2/3] PCI: microchip: Fix inbound address translation tables
-Date: Fri, 28 Jun 2024 12:59:22 +0100
-Message-ID: <20240628115923.4133286-3-daire.mcnamara@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240628115923.4133286-1-daire.mcnamara@microchip.com>
-References: <20240628115923.4133286-1-daire.mcnamara@microchip.com>
-MIME-Version: 1.0
+	Fri, 28 Jun 2024 13:24:11 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-dfdff0a9f26so1131965276.1
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 06:24:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1719581048; x=1720185848; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/a2ZCUdqZnx3gcLssluxRqmW7oZjQjPUNJsEztKYUiU=;
+        b=WshEx9akVPcc7cvw/itB4HN6xwOxKZ1LPo/Hrc4QkZqmLuT8RcBvuTV/2TV1BRxUwG
+         0IUkIW3hYBaBm5r/68yNyFawyp/lCmBShvWxEpcqd/UDKu7P/hayAB8Y7Ss/xQMFdB66
+         F+D54Z4XzKx6wD2qaaCbh3PhrLVJkaAEhWJ6yxaLBBlBAuPCnqQD97+6RsXmkHMclwKH
+         QHH/3Nu8SsXmmJqu5bhf/8Ae8fYXHHneZuKqQoUas1wDGqdTRImMqApNpJvvGr6gp3cJ
+         f9Pf7CDgaDnhdHk0uzJ0pDy01eVp2NU8F1h7Um8p/Khk5w5oXIrT4oIGbj/2CaIxJyiY
+         Kjbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719581048; x=1720185848;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/a2ZCUdqZnx3gcLssluxRqmW7oZjQjPUNJsEztKYUiU=;
+        b=Eo3UJSmid3MfI4usRubP/5G2+XFjAs83/CgqKiuahagDtOl/lhVQNFnW8caUIcpotU
+         fvW4afKimm+00ORL0BeHaV9bRZiDTZMtVZUpeR2yEBv50zIbqrn9Dtgcw/d85EvhWhRc
+         Z/BnnTdg2ISLYHH3PH7S/IWeMSbKMQfT+GXDIw/Ex8VXxpF4Ex84LaVoUydtL5anuYOM
+         zWXDdheffvP7q7jJ16BJhs9rjTPbWVbCGHV4VxyLieSX5vnuBoCAWZmmlvCtsTLvslxm
+         b/l4vwqENEF/BLFp/hJ+OjUufLjkEdEI6iDirIbngYo98d6f/G+KQkYLJT/mWSjGWhBO
+         /B5A==
+X-Forwarded-Encrypted: i=1; AJvYcCXTZlGzBX9kMEIhDVnDDPa0LMOILyMHpO+fVgo2UMC8chBvXl66dh0KIrL4X9z1feeKA/ASDl24NpKWekBkBBKdKJpv8swLobHG7ZUROUFv
+X-Gm-Message-State: AOJu0YyCLFLwAiW7rYxm8FzjzOJOOoXzSfrnBvzo0b06y7XoCvHK8Yh2
+	yvSijrpSlGUg/l1Whr4kbXYTAUEWnfbQbf4UAGeyy/Q+XwwabmDkYSx1rRQ8wrx53qotBLfPoQu
+	oTMtAF1h7B3W9YQ==
+X-Google-Smtp-Source: AGHT+IGK2JbrDPOIj4UtdPPGCRvHLr6NwiAv2YDbVcCcknMSROVSjrnV3BiQa7tDUYtaKr8A5oiO1msI8gMbuL0=
+X-Received: from aliceryhl2.c.googlers.com ([fda3:e722:ac3:cc00:68:949d:c0a8:572])
+ (user=aliceryhl job=sendgmr) by 2002:a05:6902:1009:b0:e03:252a:f931 with SMTP
+ id 3f1490d57ef6-e03252afca1mr21180276.1.1719581048085; Fri, 28 Jun 2024
+ 06:24:08 -0700 (PDT)
+Date: Fri, 28 Jun 2024 13:23:31 +0000
+In-Reply-To: <20240628-tracepoint-v4-0-353d523a9c15@google.com>
+Mime-Version: 1.0
+References: <20240628-tracepoint-v4-0-353d523a9c15@google.com>
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9288; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=smlzFG650Bjyj/G17d9Nx6uQENcjy/0hVqprbqaAZSk=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBmfrlw3bHKyORe0dE0EbrR0xejztmzSskCkdb1q
+ 8YpniSF/amJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCZn65cAAKCRAEWL7uWMY5
+ RmF6D/4s+/xnuVSiUlgtEsduacVpUm4pE1jcx/Do8fGJ9OQfkiODdmUNe7KHShGgcJff1bKG5jr
+ J0ZxJr/GVN2vslbojoTLkBHwhCEfY/aXJcT6/dmCWylHIKd1Z8xSA4Uf0fVDCph0gmr0+3fDl+3
+ ND1WW57X9ZfVHYrNw53br5PavOcA/zTYzyyqoXKzUwHYXuRfPlWF+KGCAh5vHSPp+xJMUNJ9/rd
+ xe6DRQ2I6mNjE14bZDgjixPJMnYetZDsn7OHtfGhTcxWNCeOCO+AtkETX+DPb1YywcwJQkbpBSC
+ HT0GMYoa4klrOEj/1IL5aAtIQJjaWuqgOHYOS9+TvHqhfxBq8Zx6n4zibWP23zxPcTOyJect/An
+ uVR+SRz9sbdH0HI2vVszXlm51cx5gNGxIFRYc81pbGbPGO6jLOvkEqPEeYUCCY5nnguSgWDqpjA
+ 9TYpro/ubpYC45Ry9XzS2m2iHQPBaaj4QPYiKO86g1vpdUlp0+FLAoJqyu1WZNk08i8+smeXe7U
+ 3mLF114P0UL1tpd1dwL8eOsFkoHg02AAy6IvTvcCxOR/fDqaT0blCbsr7FFTCyhuuF9EkQrNCW7
+ xzvTGAOLliUGNSDFfoW/wnVuxKy4GxlwizdVQnlf3CvIZug0MGICixjVL8aALVEQDDweYf5BJGG DAULc4DNwd64I9Q==
+X-Mailer: b4 0.13-dev-26615
+Message-ID: <20240628-tracepoint-v4-1-353d523a9c15@google.com>
+Subject: [PATCH v4 1/2] rust: add static_key_false
+From: Alice Ryhl <aliceryhl@google.com>
+To: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>, 
+	Andreas Hindborg <a.hindborg@samsung.com>
+Cc: linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, "Peter Zijlstra (Intel)" <peterz@infradaed.org>, 
+	Sean Christopherson <seanjc@google.com>, Uros Bizjak <ubizjak@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Mark Rutland <mark.rutland@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <tabba@google.com>, 
+	linux-arm-kernel@lists.infradead.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	linux-riscv@lists.infradead.org, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Bibo Mao <maobibo@loongson.cn>, 
+	Tiezhu Yang <yangtiezhu@loongson.cn>, Andrew Morton <akpm@linux-foundation.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, loongarch@lists.linux.dev, 
+	Alice Ryhl <aliceryhl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_050003_639431_F120732E 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20240628_062410_249711_E0C20A48 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,210 +128,298 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Daire McNamara <daire.mcnamara@microchip.com>
+Add just enough support for static key so that we can use it from
+tracepoints. Tracepoints rely on `static_key_false` even though it is
+deprecated, so we add the same functionality to Rust.
 
-On Microchip PolarFire SoC the PCIe Root Port can be behind one of three
-general purpose Fabric Interface Controller (FIC) buses that encapsulates
-an AXI-S bus. Depending on which FIC(s) the Root Port is connected
-through to CPU space, and what address translation is done by that FIC,
-the Root Port driver's inbound address translation may vary.
+It is not possible to use the existing C implementation of
+arch_static_branch because it passes the argument `key` to inline
+assembly as an 'i' parameter, so any attempt to add a C helper for this
+function will fail to compile because the value of `key` must be known
+at compile-time.
 
-For all current supported designs and all future expected designs,
-inbound address translation done by a FIC on PolarFire SoC varies
-depending on whether PolarFire SoC in operating in dma-coherent mode or
-dma-noncoherent mode.
-
-The setup of the outbound address translation tables in the root port
-driver only needs to handle these two cases.
-
-Setup the inbound address translation tables to one of two address
-translations, depending on whether the rootport is marked as dma-coherent or
-dma-noncoherent.
-
-Fixes: 6f15a9c9f941 ("PCI: microchip: Add Microchip Polarfire PCIe controller driver")
-Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
- drivers/pci/controller/pcie-microchip-host.c | 106 +++++++++++++++++--
- 1 file changed, 97 insertions(+), 9 deletions(-)
+ rust/kernel/arch/arm64/jump_label.rs     | 34 ++++++++++++++++++++++++++++
+ rust/kernel/arch/loongarch/jump_label.rs | 35 +++++++++++++++++++++++++++++
+ rust/kernel/arch/mod.rs                  | 24 ++++++++++++++++++++
+ rust/kernel/arch/riscv/jump_label.rs     | 38 ++++++++++++++++++++++++++++++++
+ rust/kernel/arch/x86/jump_label.rs       | 35 +++++++++++++++++++++++++++++
+ rust/kernel/lib.rs                       |  2 ++
+ rust/kernel/static_key.rs                | 32 +++++++++++++++++++++++++++
+ scripts/Makefile.build                   |  2 +-
+ 8 files changed, 201 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-index 47c397ae515a..27bfa3b7a187 100644
---- a/drivers/pci/controller/pcie-microchip-host.c
-+++ b/drivers/pci/controller/pcie-microchip-host.c
-@@ -7,16 +7,20 @@
-  * Author: Daire McNamara <daire.mcnamara@microchip.com>
-  */
- 
-+#include <linux/align.h>
- #include <linux/bitfield.h>
-+#include <linux/bits.h>
- #include <linux/clk.h>
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqdomain.h>
-+#include <linux/log2.h>
- #include <linux/module.h>
- #include <linux/msi.h>
- #include <linux/of_address.h>
- #include <linux/of_pci.h>
- #include <linux/pci-ecam.h>
- #include <linux/platform_device.h>
-+#include <linux/wordpart.h>
- 
- #include "../pci.h"
- 
-@@ -32,6 +36,9 @@
- #define MC_PCIE_BRIDGE_ADDR			(MC_PCIE1_BRIDGE_ADDR)
- #define MC_PCIE_CTRL_ADDR			(MC_PCIE1_CTRL_ADDR)
- 
-+#define MC_MAX_NUM_INBOUND_WINDOWS		8
-+#define MPFS_NC_BOUNCE_ADDR			0x80000000
+diff --git a/rust/kernel/arch/arm64/jump_label.rs b/rust/kernel/arch/arm64/jump_label.rs
+new file mode 100644
+index 000000000000..5eede2245718
+--- /dev/null
++++ b/rust/kernel/arch/arm64/jump_label.rs
+@@ -0,0 +1,34 @@
++// SPDX-License-Identifier: GPL-2.0
 +
- /* PCIe Bridge Phy Regs */
- #define PCIE_PCI_IRQ_DW0			0xa8
- #define  MSIX_CAP_MASK				BIT(31)
-@@ -99,14 +106,15 @@
- 
- /* PCIe AXI slave table init defines */
- #define ATR0_AXI4_SLV0_SRCADDR_PARAM		0x800u
--#define  ATR_SIZE_SHIFT				1
--#define  ATR_IMPL_ENABLE			1
-+#define  ATR_SIZE_MASK				GENMASK(6, 1)
-+#define  ATR_IMPL_ENABLE			BIT(0)
- #define ATR0_AXI4_SLV0_SRC_ADDR			0x804u
- #define ATR0_AXI4_SLV0_TRSL_ADDR_LSB		0x808u
- #define ATR0_AXI4_SLV0_TRSL_ADDR_UDW		0x80cu
- #define ATR0_AXI4_SLV0_TRSL_PARAM		0x810u
- #define  PCIE_TX_RX_INTERFACE			0x00000000u
- #define  PCIE_CONFIG_INTERFACE			0x00000001u
-+#define  TRSL_ID_AXI4_MASTER_0			0x00000004u
- 
- #define ATR_ENTRY_SIZE				32
- 
-@@ -933,6 +941,86 @@ static int mc_pcie_init_irq_domains(struct mc_pcie *port)
- 	return mc_allocate_msi_domains(port);
- }
- 
-+static void mc_pcie_setup_inbound_atr(int window_index, u64 axi_addr, u64 pcie_addr, u64 size)
-+{
-+	void __iomem *bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-+	u32 table_offset = window_index * ATR_ENTRY_SIZE;
-+	void __iomem *table_addr = bridge_base_addr + table_offset;
-+	u32 atr_sz;
-+	u32 val;
++// Copyright (C) 2024 Google LLC.
 +
-+	atr_sz = ilog2(size) - 1;
++//! Arm64 Rust implementation of jump_label.h
 +
-+	val = ALIGN_DOWN(lower_32_bits(pcie_addr), SZ_4K);
-+	val |= FIELD_PREP(ATR_SIZE_MASK, atr_sz);
-+	val |= ATR_IMPL_ENABLE;
++/// arm64 implementation of arch_static_branch
++#[macro_export]
++#[cfg(target_arch = "aarch64")]
++macro_rules! arch_static_branch {
++    ($key:path, $keytyp:ty, $field:ident, $branch:expr) => {'my_label: {
++        core::arch::asm!(
++            r#"
++            1: nop
 +
-+	writel(val, table_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
++            .pushsection __jump_table,  "aw"
++            .align 3
++            .long 1b - ., {0} - .
++            .quad {1} + {2} + {3} - .
++            .popsection
++            "#,
++            label {
++                break 'my_label true;
++            },
++            sym $key,
++            const ::core::mem::offset_of!($keytyp, $field),
++            const $crate::arch::bool_to_int($branch),
++        );
 +
-+	writel(upper_32_bits(pcie_addr), table_addr + ATR0_PCIE_WIN0_SRC_ADDR);
-+
-+	writel(lower_32_bits(axi_addr), table_addr + ATR0_PCIE_WIN0_TRSL_ADDR_LSB);
-+	writel(upper_32_bits(axi_addr), table_addr + ATR0_PCIE_WIN0_TRSL_ADDR_UDW);
-+
-+	writel(TRSL_ID_AXI4_MASTER_0, table_addr + ATR0_PCIE_WIN0_TRSL_PARAM);
++        break 'my_label false;
++    }};
 +}
 +
-+static int mc_pcie_setup_inbound_ranges(struct platform_device *pdev, struct mc_pcie *port)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *dn = dev->of_node;
-+	struct of_range_parser parser;
-+	struct of_range range;
-+	int atr_index = 0;
++pub use arch_static_branch;
+diff --git a/rust/kernel/arch/loongarch/jump_label.rs b/rust/kernel/arch/loongarch/jump_label.rs
+new file mode 100644
+index 000000000000..8d31318aeb11
+--- /dev/null
++++ b/rust/kernel/arch/loongarch/jump_label.rs
+@@ -0,0 +1,35 @@
++// SPDX-License-Identifier: GPL-2.0
 +
-+	/*
-+	 * MPFS PCIe root port is 32-bit only, behind a Fabric Interface
-+	 * Controller FPGA logic block which contains the AXI-S interface.
-+	 *
-+	 * From the point of view of the PCIe root port, There are only
-+	 * two supported Root Port configurations
-+	 *
-+	 * Configuration 1: for use with fully coherent designs; supports a
-+	 * window from 0x0 (CPU space) to specified PCIe space.
-+	 *
-+	 * Configuration 2: for use with non-coherent designs; supports two
-+	 * 1 Gb wide windows to CPU space; one mapping cpu space 0 to pcie
-+	 * space 0x80000000 and mapping cpu space 0x40000000 to pcie
-+	 * space 0xc0000000. This cfg needs two windows because of how
-+	 * the MSI space is allocated in the AXI-S range on MPFS.
-+	 *
-+	 * The FIC interface outside the PCIe block *must* complete the inbound
-+	 * address translation as per MCHP MPFS FPGA design guidelines.
-+	 */
-+	if (device_property_read_bool(dev, "dma-noncoherent")) {
-+		/*
-+		 * Always need same two tables in this case.  Need two tables
-+		 * due to hardware interactions between address and size.
-+		 */
-+		mc_pcie_setup_inbound_atr(0, 0, MPFS_NC_BOUNCE_ADDR, SZ_1G);
-+		mc_pcie_setup_inbound_atr(1, SZ_1G, MPFS_NC_BOUNCE_ADDR + SZ_1G, SZ_1G);
-+	} else {
-+		/* Find any dma-ranges */
-+		if (of_pci_dma_range_parser_init(&parser, dn)) {
-+			/* No dma-range property - setup default */
-+			mc_pcie_setup_inbound_atr(0, 0, 0, SZ_4G);
-+			return 0;
-+		}
++// Copyright (C) 2024 Google LLC.
 +
-+		for_each_of_range(&parser, &range) {
-+			if (atr_index >= MC_MAX_NUM_INBOUND_WINDOWS) {
-+				dev_err(dev, "too many inbound ranges; %d available tables\n",
-+					MC_MAX_NUM_INBOUND_WINDOWS);
-+				return -EINVAL;
-+			}
-+			mc_pcie_setup_inbound_atr(atr_index, 0, range.pci_addr, range.size);
-+			atr_index++;
-+		}
-+	}
++//! Loongarch Rust implementation of jump_label.h
 +
-+	return 0;
++/// loongarch implementation of arch_static_branch
++#[doc(hidden)]
++#[macro_export]
++#[cfg(target_arch = "loongarch64")]
++macro_rules! arch_static_branch {
++    ($key:path, $keytyp:ty, $field:ident, $branch:expr) => {'my_label: {
++        core::arch::asm!(
++            r#"
++            1: nop
++
++            .pushsection __jump_table,  "aw"
++            .align 3
++            .long 1b - ., {0} - .
++            .quad {1} + {2} + {3} - .
++            .popsection
++            "#,
++            label {
++                break 'my_label true;
++            },
++            sym $key,
++            const ::core::mem::offset_of!($keytyp, $field),
++            const $crate::arch::bool_to_int($branch),
++        );
++
++        break 'my_label false;
++    }};
 +}
 +
- static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
- 				 phys_addr_t axi_addr, phys_addr_t pci_addr,
- 				 resource_size_t size)
-@@ -948,8 +1036,9 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
- 	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
- 	       ATR0_AXI4_SLV0_TRSL_PARAM);
- 
--	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
--			    ATR_IMPL_ENABLE;
-+	val = ALIGN_DOWN(lower_32_bits(axi_addr), SZ_4K);
-+	val |= FIELD_PREP(ATR_SIZE_MASK, atr_sz);
-+	val |= ATR_IMPL_ENABLE;
- 	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
- 	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
- 
-@@ -964,11 +1053,6 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
- 	val = upper_32_bits(pci_addr);
- 	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
- 	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
--
--	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
--	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
--	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
--	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
- }
- 
- static int mc_pcie_setup_windows(struct platform_device *pdev,
-@@ -1131,6 +1215,10 @@ static int mc_platform_init(struct pci_config_window *cfg)
- 	if (ret)
- 		return ret;
- 
-+	ret = mc_pcie_setup_inbound_ranges(pdev, port);
-+	if (ret)
-+		return ret;
++pub use arch_static_branch;
+diff --git a/rust/kernel/arch/mod.rs b/rust/kernel/arch/mod.rs
+new file mode 100644
+index 000000000000..14271d2530e9
+--- /dev/null
++++ b/rust/kernel/arch/mod.rs
+@@ -0,0 +1,24 @@
++// SPDX-License-Identifier: GPL-2.0
 +
- 	/* Address translation is up; safe to enable interrupts */
- 	ret = mc_init_interrupts(pdev, port);
- 	if (ret)
++// Copyright (C) 2024 Google LLC.
++
++//! Architecture specific code.
++
++#[cfg_attr(target_arch = "aarch64", path = "arm64")]
++#[cfg_attr(target_arch = "x86_64", path = "x86")]
++#[cfg_attr(target_arch = "loongarch64", path = "loongarch")]
++#[cfg_attr(target_arch = "riscv64", path = "riscv")]
++mod inner {
++    pub mod jump_label;
++}
++
++pub use self::inner::*;
++
++/// A helper used by inline assembly to pass a boolean to as a `const` parameter.
++///
++/// Using this function instead of a cast lets you assert that the input is a boolean, rather than
++/// some other type that can be cast to an integer.
++#[doc(hidden)]
++pub const fn bool_to_int(b: bool) -> i32 {
++    b as i32
++}
+diff --git a/rust/kernel/arch/riscv/jump_label.rs b/rust/kernel/arch/riscv/jump_label.rs
+new file mode 100644
+index 000000000000..2672e0c6f033
+--- /dev/null
++++ b/rust/kernel/arch/riscv/jump_label.rs
+@@ -0,0 +1,38 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! RiscV Rust implementation of jump_label.h
++
++/// riscv implementation of arch_static_branch
++#[macro_export]
++#[cfg(target_arch = "riscv64")]
++macro_rules! arch_static_branch {
++    ($key:path, $keytyp:ty, $field:ident, $branch:expr) => {'my_label: {
++        core::arch::asm!(
++            r#"
++            .align  2
++            .option push
++            .option norelax
++            .option norvc
++            1: nop
++            .option pop
++            .pushsection __jump_table,  "aw"
++            .align 3
++            .long 1b - ., {0} - .
++            .dword {1} + {2} + {3} - .
++            .popsection
++            "#,
++            label {
++                break 'my_label true;
++            },
++            sym $key,
++            const ::core::mem::offset_of!($keytyp, $field),
++            const $crate::arch::bool_to_int($branch),
++        );
++
++        break 'my_label false;
++    }};
++}
++
++pub use arch_static_branch;
+diff --git a/rust/kernel/arch/x86/jump_label.rs b/rust/kernel/arch/x86/jump_label.rs
+new file mode 100644
+index 000000000000..383bed273c50
+--- /dev/null
++++ b/rust/kernel/arch/x86/jump_label.rs
+@@ -0,0 +1,35 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! X86 Rust implementation of jump_label.h
++
++/// x86 implementation of arch_static_branch
++#[macro_export]
++#[cfg(target_arch = "x86_64")]
++macro_rules! arch_static_branch {
++    ($key:path, $keytyp:ty, $field:ident, $branch:expr) => {'my_label: {
++        core::arch::asm!(
++            r#"
++            1: .byte 0x0f,0x1f,0x44,0x00,0x00
++
++            .pushsection __jump_table,  "aw"
++            .balign 8
++            .long 1b - .
++            .long {0} - .
++            .quad {1} + {2} + {3} - .
++            .popsection
++            "#,
++            label {
++                break 'my_label true;
++            },
++            sym $key,
++            const ::core::mem::offset_of!($keytyp, $field),
++            const $crate::arch::bool_to_int($branch),
++        );
++
++        break 'my_label false;
++    }};
++}
++
++pub use arch_static_branch;
+diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
+index fbd91a48ff8b..fffd4e1dd1c1 100644
+--- a/rust/kernel/lib.rs
++++ b/rust/kernel/lib.rs
+@@ -27,6 +27,7 @@
+ extern crate self as kernel;
+ 
+ pub mod alloc;
++pub mod arch;
+ mod build_assert;
+ pub mod error;
+ pub mod init;
+@@ -38,6 +39,7 @@
+ pub mod prelude;
+ pub mod print;
+ mod static_assert;
++pub mod static_key;
+ #[doc(hidden)]
+ pub mod std_vendor;
+ pub mod str;
+diff --git a/rust/kernel/static_key.rs b/rust/kernel/static_key.rs
+new file mode 100644
+index 000000000000..32cf027ef091
+--- /dev/null
++++ b/rust/kernel/static_key.rs
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: GPL-2.0
++
++// Copyright (C) 2024 Google LLC.
++
++//! Logic for static keys.
++
++use crate::bindings::*;
++
++/// Branch based on a static key.
++///
++/// Takes three arguments:
++///
++/// * `key` - the path to the static variable containing the `static_key`.
++/// * `keytyp` - the type of `key`.
++/// * `field` - the name of the field of `key` that contains the `static_key`.
++#[macro_export]
++macro_rules! static_key_false {
++    ($key:path, $keytyp:ty, $field:ident) => {{
++        // Assert that `$key` has type `$keytyp` and that `$key.$field` has type `static_key`.
++        //
++        // SAFETY: We know that `$key` is a static because otherwise the inline assembly will not
++        // compile. The raw pointers created in this block are in-bounds of `$key`.
++        static _TY_ASSERT: () = unsafe {
++            let key: *const $keytyp = ::core::ptr::addr_of!($key);
++            let _: *const $crate::bindings::static_key = ::core::ptr::addr_of!((*key).$field);
++        };
++
++        $crate::arch::jump_label::arch_static_branch! { $key, $keytyp, $field, false }
++    }};
++}
++
++pub use static_key_false;
+diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+index efacca63c897..60197c1c063f 100644
+--- a/scripts/Makefile.build
++++ b/scripts/Makefile.build
+@@ -263,7 +263,7 @@ $(obj)/%.lst: $(obj)/%.c FORCE
+ # Compile Rust sources (.rs)
+ # ---------------------------------------------------------------------------
+ 
+-rust_allowed_features := new_uninit
++rust_allowed_features := asm_const,asm_goto,new_uninit
+ 
+ # `--out-dir` is required to avoid temporaries being created by `rustc` in the
+ # current working directory, which may be not accessible in the out-of-tree
+
 -- 
-2.34.1
+2.45.2.803.g4e1b14247a-goog
 
 
 _______________________________________________
