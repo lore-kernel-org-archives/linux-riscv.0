@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD1AC2BD09
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jun 2024 02:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7C4C27C4F
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jun 2024 13:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Qlcuj2VP5u58Dz6BAQvprxuMiV6O6FjSleAfR9rOLE=; b=GjfqVcWyBvE+RK
-	nQ7z1jY5UP8KCEtouSE995DKmk8DWcxIoU5WlNNFVegilvx4prFnIv+i2lIA9letpsRXrVuI5AqBq
-	azQQY8A8b5VvpsV4BpSpO5xt1AcDgdN/xm6EZi7zh7KNyn3IALIgM/wzXkAqHblon54RTK1WPNzBY
-	LY3vq8xCHurG5dodJw5eeSU3qNjiGlcb1EIOj48qVE+AOaxcwR5gK/15stMKobNW59DMsCmsKMgf4
-	o5GEMZXbFmwEuFq0xSVdFW2PbaC4lBeojMI2FYBcr9QPVv4YCu6tLWfSIhWwrQ0EP7pVnKwNkW229
-	U3+KIExk18+OMYGDpq/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oN44kJf6XSn2aDRGL14L0UKCGSY+/nwPRUI29Dp6QKo=; b=wz0B2bmYMHoU2v
+	cNODexy4BffRozGFE5nNk+Za2FkLdIuPwl4XH/MG/fpfY21FO19SY5D6Ma/Od7kv1w6vcGhy87fT5
+	96fXdi8+rY2oYvfrw9ginZlcDJx6p6ooifZu7TjJ38TAE1gfzU1CQeyDp228zoHaNpTN5IM2sAX6G
+	BoAF6xu3ylnI3bi38U6jutSJMmrOsywY5iM/dtUe9WDJTyQE+bJRdrT8T5XTgIdjwTdgmhRYRzaQv
+	rx0MaEngBzO3ZpSVUf7Db9B+EEreHCbS71WErseNqLc8rrzEfDbIQLvO+ZZ4m9eNgdozq1iOUh7S9
+	Mv2IfTuemH0+FqxaaPqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNNOT-0000000Ff90-2EuL;
-	Sat, 29 Jun 2024 02:00:49 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1sNXpv-0000000GQrP-2h0N;
+	Sat, 29 Jun 2024 13:09:51 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNNOQ-0000000Ff8F-04Hp
+	id 1sNXps-0000000GQqU-0z6U
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Jun 2024 02:00:48 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4W9wQr3nqszMrH7;
-	Sat, 29 Jun 2024 09:56:52 +0800 (CST)
-Received: from kwepemf500004.china.huawei.com (unknown [7.202.181.242])
-	by mail.maildlp.com (Postfix) with ESMTPS id D6E0E18006F;
-	Sat, 29 Jun 2024 10:00:35 +0800 (CST)
-Received: from [10.67.121.175] (10.67.121.175) by
- kwepemf500004.china.huawei.com (7.202.181.242) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 29 Jun 2024 10:00:35 +0800
-Message-ID: <3a09fcf9-b60b-571d-3ec5-e0f7c02cd72f@huawei.com>
-Date: Sat, 29 Jun 2024 10:00:34 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-Subject: Re: [PATCH v2] dmaegine: virt-dma : Fix multi-user with vchan
-To: Frank Li <Frank.li@nxp.com>
-CC: <vkoul@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Samuel
- Holland <samuel.holland@sifive.com>, Li Zetao <lizetao1@huawei.com>, Guanhua
- Gao <guanhua.gao@nxp.com>, "open list:DMA GENERIC OFFLOAD ENGINE SUBSYSTEM"
-	<dmaengine@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, "open
- list:FREESCALE eDMA DRIVER" <imx@lists.linux.dev>, "open list:SIFIVE DRIVERS"
-	<linux-riscv@lists.infradead.org>
-References: <20230720114212.51224-1-haijie1@huawei.com>
- <20240620025400.3300641-1-haijie1@huawei.com>
- <ZnQ/AyffdW+u9C8P@lizhi-Precision-Tower-5810>
-From: Jie Hai <haijie1@huawei.com>
-In-Reply-To: <ZnQ/AyffdW+u9C8P@lizhi-Precision-Tower-5810>
-X-Originating-IP: [10.67.121.175]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemf500004.china.huawei.com (7.202.181.242)
+	Sat, 29 Jun 2024 13:09:50 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4255fc43f1cso10795925e9.0
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Jun 2024 06:09:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=jrtc27.com; s=gmail.jrtc27.user; t=1719666586; x=1720271386; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pBPHRag8qAvETotyyrYSH4FuLSJO/hkfmF+D7/kiato=;
+        b=jbUwgTcJRNA31dbhiDggZtiseMyhVEHs05LcGu2OcEkZTNpOMiEB4PLIxEjH2w8rZ1
+         lvXV0ZayeMuGTlGRlT292mn5SJPZCPGe3BpN4HtfUPD2uqfIacvQbj+kW5uAXlw/dtHQ
+         cDDnw8bZvA4Bguv1VMe5UPoNqKQTqJrs0VQRMpGIz8h1Eh9xAwSc5dzTXrCCSLIpDiT6
+         VGIGAIufj3qStE9F7m9OxU7N5TiP6ftPuUlPuc27Ev2z39GrTlCX0D7iq5/+f4r4L6G9
+         UQmKmhG5qCtOw1SPSUiwTkrqHECHxrVIgmELrWxmf5+JE/SIDMm1MzCmKL1s+AdVuxyJ
+         xvOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719666586; x=1720271386;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pBPHRag8qAvETotyyrYSH4FuLSJO/hkfmF+D7/kiato=;
+        b=vN6GJuMtx8qAXXRYXPXNmyJotvRfa7eFrXC8wWHOQWHjLbJZwmrbPjBhmv5xznBFge
+         j0N3iUuakdomzcGtT9jqDocnl+hC7/5qYnddt9PgNC+fSrgCkHmnZoR/P9XqgB9xp3QZ
+         juCUEIidD4n5B46kxA9nG0nPnaZy0fDZPcimqvKF3IyFNmCYaF9oqhsXqFY3oQwCeIlo
+         oRcqh8+5QFEUaipQ/CoatTsAYew+vWAlKgnB1kvnssbz7MZY9SjByIORbQPNtryr/QLr
+         jXtQzToW3jhAdvygNuUsPHAGDBNKK6HI+TELnfhyX7bKfGotMe+9DSKBY0eYxS78P6qK
+         CR0g==
+X-Forwarded-Encrypted: i=1; AJvYcCVig5GGYbmkRN0uRmxhnik9WHZ38AUL3kxGAP6wVDDBqP5TNRqc3zjfK3/js1X9SkGkl7rmR2XnRaOlCruQDw1NtElsmcDDg1r50Xy/2XNS
+X-Gm-Message-State: AOJu0Yx4i0zDd/XqHksNEtBgQkShfTnSz5ITVNhtl0O6tntMRbtNCk2O
+	IBpVbKajs/p3zAbXt5CouatxmAthCV65V1Ws4RtB1EvEyqv5G8RWp2DQUGzhzTc=
+X-Google-Smtp-Source: AGHT+IEKNKvTpdSb4CrQTKZ+nBdE/Hft6em8KkuURlNseRT5rthITeiMfEC+Py4YC1wcYfQMxgbr6w==
+X-Received: by 2002:a05:600c:3595:b0:425:5e8b:679f with SMTP id 5b1f17b1804b1-4257a02d4ddmr7277755e9.6.1719666585438;
+        Sat, 29 Jun 2024 06:09:45 -0700 (PDT)
+Received: from smtpclient.apple ([84.207.206.90])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4256b0cee27sm76231655e9.48.2024.06.29.06.09.44
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 29 Jun 2024 06:09:44 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.600.62\))
+Subject: Re: [PATCH v6 2/4] dt-bindings: riscv: Add Svade and Svadu Entries
+From: Jessica Clarke <jrtc27@jrtc27.com>
+In-Reply-To: <20240628-clamp-vineyard-c7cdd40a6d50@spud>
+Date: Sat, 29 Jun 2024 14:09:34 +0100
+Cc: Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+ LKML <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ kvm-riscv@lists.infradead.org,
+ kvm@vger.kernel.org,
+ Greentime Hu <greentime.hu@sifive.com>,
+ Vincent Chen <vincent.chen@sifive.com>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>
+Message-Id: <402C3422-0248-4C0F-991E-C0C4BBB0FA72@jrtc27.com>
+References: <20240628093711.11716-1-yongxuan.wang@sifive.com>
+ <20240628093711.11716-3-yongxuan.wang@sifive.com>
+ <20240628-clamp-vineyard-c7cdd40a6d50@spud>
+To: Conor Dooley <conor@kernel.org>
+X-Mailer: Apple Mail (2.3774.600.62)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_190046_489591_AFBBAB13 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20240629_060948_332612_BF38D242 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,162 +101,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024/6/20 22:38, Frank Li wrote:
-> On Thu, Jun 20, 2024 at 10:53:53AM +0800, Jie Hai wrote:
->> List desc_allocated was introduced for the case of a transfer
->> submitted multiple times. But elegating descriptors on the list
->> causes other problems.
->>
->> For example, in the multi-thread scenario, which tasks are
->> continuously created and submitted by each thread. If one of
->> the threads calls dmaengine_terminate_all, for dirvers using
->> vchan_get_all_descriptors, all descriptors will be freed. If
->> there's another thread submitting a transfer A by
->> vchan_tx_submit, the following results may be generated:
->> 1. desc A is freeing -> visit wrong address of node prep/next.
->> 2. desc A is freed -> visit invalid address of A.
->>
->> In the above case, calltrace is generated and the system is
->> suspended. This can be tested by dmatest.
-> 
-> What's test steps to reproduce this problem?
-> 
-> Frank
-Thanks for your review.
-The operations are as follows:
-   modprobe hisi_dma
-   modprobe dmatest
-   echo 0 > /sys/module/dmatest/parameters/iterations
-   echo "dma0chan0" > /sys/module/dmatest/parameters/channel
-   echo 20 > /sys/module/dmatest/parameters/threads_per_chan
-   echo 1 > /sys/module/dmatest/parameters/run
-wait for a while and stop the test by:
-   echo 0 > /sys/module/dmatest/parameters/run
->>
->> This patch removes desc_allocated from vchan_get_all_descriptors,
->> and add new function 'vchan_get_all_allocated_descs' to get all
->> descriptors ever allocated.
->>
->> And apply vchan_get_all_allocated_descs to free chan resource and
->> vchan_get_all_descriptors to terminate all transfers, respectively.
->> This avoids freeing up descriptors in use by other threads.
->>
->> Signed-off-by: Jie Hai <haijie1@huawei.com>
->> ---
->>   drivers/dma/fsl-dpaa2-qdma/dpaa2-qdma.c |  2 +-
->>   drivers/dma/fsl-edma-common.c           |  2 +-
->>   drivers/dma/fsl-qdma.c                  |  2 +-
->>   drivers/dma/sf-pdma/sf-pdma.c           |  2 +-
->>   drivers/dma/virt-dma.h                  | 20 ++++++++++++++++++--
->>   5 files changed, 22 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/dma/fsl-dpaa2-qdma/dpaa2-qdma.c b/drivers/dma/fsl-dpaa2-qdma/dpaa2-qdma.c
->> index 36384d019263..efdecf15e1b3 100644
->> --- a/drivers/dma/fsl-dpaa2-qdma/dpaa2-qdma.c
->> +++ b/drivers/dma/fsl-dpaa2-qdma/dpaa2-qdma.c
->> @@ -71,7 +71,7 @@ static void dpaa2_qdma_free_chan_resources(struct dma_chan *chan)
->>   	LIST_HEAD(head);
->>   
->>   	spin_lock_irqsave(&dpaa2_chan->vchan.lock, flags);
->> -	vchan_get_all_descriptors(&dpaa2_chan->vchan, &head);
->> +	vchan_get_all_allocated_descs(&dpaa2_chan->vchan, &head);
->>   	spin_unlock_irqrestore(&dpaa2_chan->vchan.lock, flags);
->>   
->>   	vchan_dma_desc_free_list(&dpaa2_chan->vchan, &head);
->> diff --git a/drivers/dma/fsl-edma-common.c b/drivers/dma/fsl-edma-common.c
->> index 3af430787315..1e0ad87eb7fa 100644
->> --- a/drivers/dma/fsl-edma-common.c
->> +++ b/drivers/dma/fsl-edma-common.c
->> @@ -828,7 +828,7 @@ void fsl_edma_free_chan_resources(struct dma_chan *chan)
->>   	if (edma->drvdata->dmamuxs)
->>   		fsl_edma_chan_mux(fsl_chan, 0, false);
->>   	fsl_chan->edesc = NULL;
->> -	vchan_get_all_descriptors(&fsl_chan->vchan, &head);
->> +	vchan_get_all_allocated_descs(&fsl_chan->vchan, &head);
->>   	fsl_edma_unprep_slave_dma(fsl_chan);
->>   	spin_unlock_irqrestore(&fsl_chan->vchan.lock, flags);
->>   
->> diff --git a/drivers/dma/fsl-qdma.c b/drivers/dma/fsl-qdma.c
->> index 5005e138fc23..7af428db404e 100644
->> --- a/drivers/dma/fsl-qdma.c
->> +++ b/drivers/dma/fsl-qdma.c
->> @@ -316,7 +316,7 @@ static void fsl_qdma_free_chan_resources(struct dma_chan *chan)
->>   	LIST_HEAD(head);
->>   
->>   	spin_lock_irqsave(&fsl_chan->vchan.lock, flags);
->> -	vchan_get_all_descriptors(&fsl_chan->vchan, &head);
->> +	vchan_get_all_allocated_descs(&fsl_chan->vchan, &head);
->>   	spin_unlock_irqrestore(&fsl_chan->vchan.lock, flags);
->>   
->>   	vchan_dma_desc_free_list(&fsl_chan->vchan, &head);
->> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
->> index 428473611115..4dc8a8c8ad80 100644
->> --- a/drivers/dma/sf-pdma/sf-pdma.c
->> +++ b/drivers/dma/sf-pdma/sf-pdma.c
->> @@ -147,7 +147,7 @@ static void sf_pdma_free_chan_resources(struct dma_chan *dchan)
->>   	sf_pdma_disable_request(chan);
->>   	kfree(chan->desc);
->>   	chan->desc = NULL;
->> -	vchan_get_all_descriptors(&chan->vchan, &head);
->> +	vchan_get_all_allocated_descs(&chan->vchan, &head);
->>   	sf_pdma_disclaim_chan(chan);
->>   	spin_unlock_irqrestore(&chan->vchan.lock, flags);
->>   	vchan_dma_desc_free_list(&chan->vchan, &head);
->> diff --git a/drivers/dma/virt-dma.h b/drivers/dma/virt-dma.h
->> index 59d9eabc8b67..4492641b79f6 100644
->> --- a/drivers/dma/virt-dma.h
->> +++ b/drivers/dma/virt-dma.h
->> @@ -187,13 +187,29 @@ static inline void vchan_get_all_descriptors(struct virt_dma_chan *vc,
->>   {
->>   	lockdep_assert_held(&vc->lock);
->>   
->> -	list_splice_tail_init(&vc->desc_allocated, head);
->>   	list_splice_tail_init(&vc->desc_submitted, head);
->>   	list_splice_tail_init(&vc->desc_issued, head);
->>   	list_splice_tail_init(&vc->desc_completed, head);
->>   	list_splice_tail_init(&vc->desc_terminated, head);
->>   }
->>   
->> +/**
->> + * vchan_get_all_allocated_descs - obtain all descriptors
->> + * @vc: virtual channel to get descriptors from
->> + * @head: list of descriptors found
->> + *
->> + * vc.lock must be held by caller
->> + *
->> + * Removes all descriptors from internal lists, and provides a list of all
->> + * descriptors found
->> + */
->> +static inline void vchan_get_all_allocated_descs(struct virt_dma_chan *vc,
->> +	struct list_head *head)
->> +{
->> +	list_splice_tail_init(&vc->desc_allocated, head);
->> +	vchan_get_all_descriptors(vc, head);
->> +}
->> +
->>   static inline void vchan_free_chan_resources(struct virt_dma_chan *vc)
->>   {
->>   	struct virt_dma_desc *vd;
->> @@ -201,7 +217,7 @@ static inline void vchan_free_chan_resources(struct virt_dma_chan *vc)
->>   	LIST_HEAD(head);
->>   
->>   	spin_lock_irqsave(&vc->lock, flags);
->> -	vchan_get_all_descriptors(vc, &head);
->> +	vchan_get_all_allocated_descs(vc, &head);
->>   	list_for_each_entry(vd, &head, node)
->>   		dmaengine_desc_clear_reuse(&vd->tx);
->>   	spin_unlock_irqrestore(&vc->lock, flags);
->> -- 
->> 2.33.0
->>
-> .
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjggSnVuIDIwMjQsIGF0IDE3OjE5LCBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+
+IHdyb3RlOgo+IAo+IE9uIEZyaSwgSnVuIDI4LCAyMDI0IGF0IDA1OjM3OjA2UE0gKzA4MDAsIFlv
+bmctWHVhbiBXYW5nIHdyb3RlOgo+PiBBZGQgZW50cmllcyBmb3IgdGhlIFN2YWRlIGFuZCBTdmFk
+dSBleHRlbnNpb25zIHRvIHRoZSByaXNjdixpc2EtZXh0ZW5zaW9ucwo+PiBwcm9wZXJ0eS4KPj4g
+Cj4+IFNpZ25lZC1vZmYtYnk6IFlvbmctWHVhbiBXYW5nIDx5b25neHVhbi53YW5nQHNpZml2ZS5j
+b20+Cj4+IC0tLQo+PiAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlh
+bWwgfCAyOCArKysrKysrKysrKysrKysrKysrCj4+IDEgZmlsZSBjaGFuZ2VkLCAyOCBpbnNlcnRp
+b25zKCspCj4+IAo+PiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRp
+bmdzL3Jpc2N2L2V4dGVuc2lvbnMueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5k
+aW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwKPj4gaW5kZXggNDY4YzY0NjI0N2FhLi5jM2QwNTNj
+ZTc3ODMgMTAwNjQ0Cj4+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9y
+aXNjdi9leHRlbnNpb25zLnlhbWwKPj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
+bmRpbmdzL3Jpc2N2L2V4dGVuc2lvbnMueWFtbAo+PiBAQCAtMTUzLDYgKzE1MywzNCBAQCBwcm9w
+ZXJ0aWVzOgo+PiAgICAgICAgICAgICByYXRpZmllZCBhdCBjb21taXQgM2Y5ZWQzNCAoIkFkZCBh
+YmlsaXR5IHRvIG1hbnVhbGx5IHRyaWdnZXIKPj4gICAgICAgICAgICAgd29ya2Zsb3cuICgjMiki
+KSBvZiByaXNjdi10aW1lLWNvbXBhcmUuCj4+IAo+PiArICAgICAgICAtIGNvbnN0OiBzdmFkZQo+
+PiArICAgICAgICAgIGRlc2NyaXB0aW9uOiB8Cj4+ICsgICAgICAgICAgICBUaGUgc3RhbmRhcmQg
+U3ZhZGUgc3VwZXJ2aXNvci1sZXZlbCBleHRlbnNpb24gZm9yIFNXLW1hbmFnZWQgUFRFIEEvRAo+
+PiArICAgICAgICAgICAgYml0IHVwZGF0ZXMgYXMgcmF0aWZpZWQgaW4gdGhlIDIwMjQwMjEzIHZl
+cnNpb24gb2YgdGhlIHByaXZpbGVnZWQKPj4gKyAgICAgICAgICAgIElTQSBzcGVjaWZpY2F0aW9u
+Lgo+PiArCj4+ICsgICAgICAgICAgICBCb3RoIFN2YWRlIGFuZCBTdmFkdSBleHRlbnNpb25zIGNv
+bnRyb2wgdGhlIGhhcmR3YXJlIGJlaGF2aW9yIHdoZW4KPj4gKyAgICAgICAgICAgIHRoZSBQVEUg
+QS9EIGJpdHMgbmVlZCB0byBiZSBzZXQuIFRoZSBkZWZhdWx0IGJlaGF2aW9yIGZvciB0aGUgZm91
+cgo+PiArICAgICAgICAgICAgcG9zc2libGUgY29tYmluYXRpb25zIG9mIHRoZXNlIGV4dGVuc2lv
+bnMgaW4gdGhlIGRldmljZSB0cmVlIGFyZToKPj4gKyAgICAgICAgICAgIDEpIE5laXRoZXIgU3Zh
+ZGUgbm9yIFN2YWR1IHByZXNlbnQgaW4gRFQgPT4KPiAKPj4gICAgICAgICAgICAgICAgSXQgaXMg
+dGVjaG5pY2FsbHkKPj4gKyAgICAgICAgICAgICAgIHVua25vd24gd2hldGhlciB0aGUgcGxhdGZv
+cm0gdXNlcyBTdmFkZSBvciBTdmFkdS4gU3VwZXJ2aXNvciBtYXkKPj4gKyAgICAgICAgICAgICAg
+IGFzc3VtZSBTdmFkZSB0byBiZSBwcmVzZW50IGFuZCBlbmFibGVkIG9yIGl0IGNhbiBkaXNjb3Zl
+ciBiYXNlZAo+PiArICAgICAgICAgICAgICAgb24gbXZlbmRvcmlkLCBtYXJjaGlkLCBhbmQgbWlt
+cGlkLgo+IAo+IEkgd291bGQganVzdCB3cml0ZSAiZm9yIGJhY2t3YXJkcyBjb21wYXRpYmlsaXR5
+LCBpZiBuZWl0aGVyIFN2YWRlIG5vcgo+IFN2YWR1IGFwcGVhciBpbiB0aGUgZGV2aWNldHJlZSB0
+aGUgc3VwZXJ2aXNvciBtYXkgYXNzdW1lIFN2YWRlIHRvIGJlCj4gcHJlc2VudCBhbmQgZW5hYmxl
+ZCIuIElmIHRoZXJlIGFyZSBzeXN0ZW1zIHRoYXQgdGhpcyBiZWhhdmlvdXIgY2F1c2VzCj4gcHJv
+YmxlbXMgZm9yLCB3ZSBjYW4gZGVhbCB3aXRoIHRoZW0gaWZmIHRoZXkgYXBwZWFyLiBJIGRvbid0
+IHRoaW5rCj4gbG9va2luZyBhdCBtKmlkIHdvdWxkIGJlIHN1ZmZpY2llbnQgaGVyZSBhbnl3YXks
+IHNpbmNlIHRoZSBmaXJtd2FyZSBjYW4KPiBoYXZlIGFuIGltcGFjdC4gSSdkIGp1c3QgZHJvcCB0
+aGF0IHBhcnQgZW50aXJlbHkuCgpPbGRlciBRRU1VIGZhbGxzIGludG8gdGhhdCBjYXRlZ29yeSwg
+YXMgZG8gQmx1ZXNwZWPigJlzIHNvZnQtY29yZXMgKHdoaWNoCm91cnMgYXJlIGRlcml2ZWQgZnJv
+bSBhdCBDYW1icmlkZ2UpLiBJIGZlZWwgdGhhdCwgaW4gcmVhbGl0eSwgb25lCnNob3VsZCBiZSBw
+cmVwYXJlZCB0byBoYW5kbGUgYm90aCB0cmFwcGluZyBhbmQgYXRvbWljIHVwZGF0ZXMgaWYKd3Jp
+dGluZyBhbiBPUyB0aGF0IGFpbXMgdG8gc3VwcG9ydCBjYXNlIDEuCgpKZXNzCgoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
