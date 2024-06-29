@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 479E5C3064D
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jun 2024 01:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD1AC2BD09
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jun 2024 02:00:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fpreElghTsVOmCT7D4Ct2JyFagpiqYSS6kA/Fx+6wW4=; b=eOn/tTby28V7oz
-	ODeEPxpUphwD/pSXrUfUKjaMU+AhPEwzX1Xcp7xsd3P2wh8iNrTCq9NufQIELoYpn6HH329blGeOz
-	tPwGSoW3//Km5YKr2IJzt3odEST5g64HXKcvtIzxKf4UMc1nthFHMHYXqs0HC/9NxOEvEqlc7KCP/
-	z4CgaBhtDvJ1VEdC2o3qQm7NiYT5GJrA37gUYM7QE4b8Q3cioqM3RpYWlLLSrZQRCxyrop9aFu3Er
-	/b1UVFiB0W4Za10TCzlj2sH9pPChRYhIeCAY9RJo8qrlCR9w/GF7cUVQRnaCkBiLtSL90GmdNtPys
-	NtJpH7fk/nDrbt+68WFg==;
+	List-Owner; bh=9Qlcuj2VP5u58Dz6BAQvprxuMiV6O6FjSleAfR9rOLE=; b=GjfqVcWyBvE+RK
+	nQ7z1jY5UP8KCEtouSE995DKmk8DWcxIoU5WlNNFVegilvx4prFnIv+i2lIA9letpsRXrVuI5AqBq
+	azQQY8A8b5VvpsV4BpSpO5xt1AcDgdN/xm6EZi7zh7KNyn3IALIgM/wzXkAqHblon54RTK1WPNzBY
+	LY3vq8xCHurG5dodJw5eeSU3qNjiGlcb1EIOj48qVE+AOaxcwR5gK/15stMKobNW59DMsCmsKMgf4
+	o5GEMZXbFmwEuFq0xSVdFW2PbaC4lBeojMI2FYBcr9QPVv4YCu6tLWfSIhWwrQ0EP7pVnKwNkW229
+	U3+KIExk18+OMYGDpq/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNMd3-0000000FZT3-1Sdz;
-	Sat, 29 Jun 2024 01:11:49 +0000
-Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
+	id 1sNNOT-0000000Ff90-2EuL;
+	Sat, 29 Jun 2024 02:00:49 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNMd0-0000000FZRE-05DI
+	id 1sNNOQ-0000000Ff8F-04Hp
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Jun 2024 01:11:47 +0000
-Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-25da8a19acaso186203fac.2
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jun 2024 18:11:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1719623504; x=1720228304; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=18khvwf4h1DwFim0s+8NOwCXvsGKrMBWRxVL6/hqfpk=;
-        b=gD34QDFRyQ0DFvK4ApaGuTJ6u0es5IWi/OpQ6un3iHzyEBmqaJ9Owg1avTBoyR7qj+
-         v21XMWyrpT57AYawjfDPmgGbN9VA2d5GdyOvXEOmsBbVXrhDJ+bIxH/11lPBMPmz7Tdi
-         3D5Cv0WwSvqxjC5fwy2687hMzVeeWpvT+QfAUJUeDV1klVxWdop1gx+5zZG4SHy47t7z
-         83naaPKVt3vOKI9quyj7A8MQcJ8KpQqPgE/xilxuDdGQNWTj7irq1rp72HHYLQU8vtC6
-         ucTP4iXJXue0mUrVSRsNjELVgSGBQ76U8w7fIAwLqrXiErSEKqyineQZxsckdF5n+w1Q
-         Zhqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719623504; x=1720228304;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=18khvwf4h1DwFim0s+8NOwCXvsGKrMBWRxVL6/hqfpk=;
-        b=cKeyTqnGe/nXRfj4nSBs/1doNuGZF22R2f9vu/oo8x4ORgu8K+xg8526UBUaJLcReP
-         hTiyGdXEpI8u5wmIAGfzqugLrQl/fDJz8uEWZSCefT3/pyJhV8ej76JmmVmJQzRrihtl
-         LSrPisWDJldiL90qEHoM5DSP/3AJ+Al5AiMdQ6Y+9DtACnR6igA4I7eujuEWUWj3JmtT
-         oyjDTRyDUFsT74XDn3qYjp9Tx7CbUBJrGqe2nRBF5W22Ros94iEHovgY2g2vHokDk17a
-         6sii5c3ogVSqQBAonjMNjrnHOUZXhRJ+LwlrCCseNzT3F7LCv1tyIkfs1dECb4n7+MyY
-         qx/g==
-X-Forwarded-Encrypted: i=1; AJvYcCWYPzZNWxpaO1+Pv0IJAF3OdWR8o0ZKRZQJ8A4Zt1Ugo3m3u2zjmwT8FuooLP88Iy2oXxCYgror5C4TxMjAXoz6NdfLN4D4/l/svPvKAiy2
-X-Gm-Message-State: AOJu0Yw56Y5uNW41yGcj3EkV0nz+a81LCKFUoKOZzfTCF0rZojKa3hnj
-	dQ5wfQsU53CFHUJo41VPmjkfuVUlmqZ1EHRAG2KRdEg1o8WBjI7uITrbujH7rpLagfzyp61kp90
-	D
-X-Google-Smtp-Source: AGHT+IGyyW5KndiFNz+epN7jJRTXH3ZBYGRiXtHZ+r8Fe0tboO3Y2/PcZ2TNfI9i03f3ztbYgwYyLg==
-X-Received: by 2002:a05:6870:3294:b0:24f:cd06:c811 with SMTP id 586e51a60fabf-25d06eddeebmr18624565fac.54.1719623504024;
-        Fri, 28 Jun 2024 18:11:44 -0700 (PDT)
-Received: from ziepe.ca ([24.114.37.55])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-72c69b53be5sm1784142a12.16.2024.06.28.18.11.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Jun 2024 18:11:43 -0700 (PDT)
-Received: from jgg by jggl with local (Exim 4.95)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1sNK8e-0004rF-Jn;
-	Fri, 28 Jun 2024 19:32:16 -0300
-Date: Fri, 28 Jun 2024 19:32:16 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Zong Li <zong.li@sifive.com>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
-	tjeznach@rivosinc.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, kevin.tian@intel.com,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH v2 07/10] iommu/riscv: support nested iommu for
- creating domains owned by userspace
-Message-ID: <Zn858MB9/t1qltV2@ziepe.ca>
-References: <20240614142156.29420-1-zong.li@sifive.com>
- <20240614142156.29420-8-zong.li@sifive.com>
- <20240619160211.GO1091770@ziepe.ca>
- <CANXhq0qqrU8xbTecFOcRNLqm2=DbTYsN2YBX5K_O1ha530bu_A@mail.gmail.com>
+	Sat, 29 Jun 2024 02:00:48 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4W9wQr3nqszMrH7;
+	Sat, 29 Jun 2024 09:56:52 +0800 (CST)
+Received: from kwepemf500004.china.huawei.com (unknown [7.202.181.242])
+	by mail.maildlp.com (Postfix) with ESMTPS id D6E0E18006F;
+	Sat, 29 Jun 2024 10:00:35 +0800 (CST)
+Received: from [10.67.121.175] (10.67.121.175) by
+ kwepemf500004.china.huawei.com (7.202.181.242) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 29 Jun 2024 10:00:35 +0800
+Message-ID: <3a09fcf9-b60b-571d-3ec5-e0f7c02cd72f@huawei.com>
+Date: Sat, 29 Jun 2024 10:00:34 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CANXhq0qqrU8xbTecFOcRNLqm2=DbTYsN2YBX5K_O1ha530bu_A@mail.gmail.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [PATCH v2] dmaegine: virt-dma : Fix multi-user with vchan
+To: Frank Li <Frank.li@nxp.com>
+CC: <vkoul@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Samuel
+ Holland <samuel.holland@sifive.com>, Li Zetao <lizetao1@huawei.com>, Guanhua
+ Gao <guanhua.gao@nxp.com>, "open list:DMA GENERIC OFFLOAD ENGINE SUBSYSTEM"
+	<dmaengine@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, "open
+ list:FREESCALE eDMA DRIVER" <imx@lists.linux.dev>, "open list:SIFIVE DRIVERS"
+	<linux-riscv@lists.infradead.org>
+References: <20230720114212.51224-1-haijie1@huawei.com>
+ <20240620025400.3300641-1-haijie1@huawei.com>
+ <ZnQ/AyffdW+u9C8P@lizhi-Precision-Tower-5810>
+From: Jie Hai <haijie1@huawei.com>
+In-Reply-To: <ZnQ/AyffdW+u9C8P@lizhi-Precision-Tower-5810>
+X-Originating-IP: [10.67.121.175]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemf500004.china.huawei.com (7.202.181.242)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240628_181146_181435_54AE9776 
-X-CRM114-Status: GOOD (  27.45  )
+X-CRM114-CacheID: sfid-20240628_190046_489591_AFBBAB13 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,77 +72,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 28, 2024 at 05:03:41PM +0800, Zong Li wrote:
-> > > +
-> > > +             if (!dc.fsc || dc.iohgatp) {
-> > > +                     dev_dbg(dev, "Wrong page table from user data\n");
-> > > +                     if (copy_to_user(event_user, &event, event_len))
-> > > +                             return -EFAULT;
-> > > +             }
-> > > +
-> > > +             /* Save DC of stage-1 from user data */
-> > > +             memcpy(&info->dc_user,
-> > > +                    riscv_iommu_get_dc(iommu, fwspec->ids[i]),
-> >
-> > This does not seem right, the fwspec shouldn't be part of domain
-> > allocation, even arguably for nesting. The nesting domain should
-> > represent the user_dc only. Any customization of kernel controlled bits
-> > should be done during attach only, nor do I really understand why this
-> > is looping over all the fwspecs but only memcpying the last one..
-> >
+On 2024/6/20 22:38, Frank Li wrote:
+> On Thu, Jun 20, 2024 at 10:53:53AM +0800, Jie Hai wrote:
+>> List desc_allocated was introduced for the case of a transfer
+>> submitted multiple times. But elegating descriptors on the list
+>> causes other problems.
+>>
+>> For example, in the multi-thread scenario, which tasks are
+>> continuously created and submitted by each thread. If one of
+>> the threads calls dmaengine_terminate_all, for dirvers using
+>> vchan_get_all_descriptors, all descriptors will be freed. If
+>> there's another thread submitting a transfer A by
+>> vchan_tx_submit, the following results may be generated:
+>> 1. desc A is freeing -> visit wrong address of node prep/next.
+>> 2. desc A is freed -> visit invalid address of A.
+>>
+>> In the above case, calltrace is generated and the system is
+>> suspended. This can be tested by dmatest.
 > 
-> The fwspec is used to get the value of current dc, because we want to
-> also back up the address of second stage table (i.e. iohgatp), The
-> reason is that this value will be cleaned when device is attached to
-> the blocking domain, before the device attaches to s1 domain, we can't
-> get the original value of iohgatp anymore when attach device to s1
-> domain.
-
-This is wrong, you get the value of iohgatp from the S2 domain the
-nest knows directly. You must never make assumptions about domain
-attach order or rely on the current value of the HW tables to
-construct any attachment.
-
-Follow the design like ARM has now where the value of the device table
-entry is computed wholly from scratch using only the contents of the
-domain pointer, including combining the S1 and S2 domain information.
-
-And then you need to refactor and use the programmer I wrote for ARM
-to be able to do the correct hitless transitions without a V=0
-step. It is not too hard but will clean this all up.
-
-> > > +/**
-> > > + * struct iommu_hwpt_riscv_iommu - RISCV IOMMU stage-1 device context table
-> > > + *                                 info (IOMMU_HWPT_TYPE_RISCV_IOMMU)
-> > > + * @dc_len: Length of device context
-> > > + * @dc_uptr: User pointer to the address of device context
-> > > + * @event_len: Length of an event record
-> > > + * @out_event_uptr: User pointer to the address of event record
-> > > + */
-> > > +struct iommu_hwpt_riscv_iommu {
-> > > +     __aligned_u64 dc_len;
-> > > +     __aligned_u64 dc_uptr;
-> >
-> > Do we really want this to be a pointer? ARM just inlined it in the
-> > struct, why not do that?
-> >
-> > > +     __aligned_u64 event_len;
-> > > +     __aligned_u64 out_event_uptr;
-> > > +};
-> >
-> > Similar here too, why not just inline the response memory?
+> What's test steps to reproduce this problem?
 > 
-> I think we can just inline them, just like what we do in the
-> 'iommu_hwpt_riscv_iommu_invalidate'. does I understand correctly?
-
-Yeah I think so
-
-Jason
+> Frank
+Thanks for your review.
+The operations are as follows:
+   modprobe hisi_dma
+   modprobe dmatest
+   echo 0 > /sys/module/dmatest/parameters/iterations
+   echo "dma0chan0" > /sys/module/dmatest/parameters/channel
+   echo 20 > /sys/module/dmatest/parameters/threads_per_chan
+   echo 1 > /sys/module/dmatest/parameters/run
+wait for a while and stop the test by:
+   echo 0 > /sys/module/dmatest/parameters/run
+>>
+>> This patch removes desc_allocated from vchan_get_all_descriptors,
+>> and add new function 'vchan_get_all_allocated_descs' to get all
+>> descriptors ever allocated.
+>>
+>> And apply vchan_get_all_allocated_descs to free chan resource and
+>> vchan_get_all_descriptors to terminate all transfers, respectively.
+>> This avoids freeing up descriptors in use by other threads.
+>>
+>> Signed-off-by: Jie Hai <haijie1@huawei.com>
+>> ---
+>>   drivers/dma/fsl-dpaa2-qdma/dpaa2-qdma.c |  2 +-
+>>   drivers/dma/fsl-edma-common.c           |  2 +-
+>>   drivers/dma/fsl-qdma.c                  |  2 +-
+>>   drivers/dma/sf-pdma/sf-pdma.c           |  2 +-
+>>   drivers/dma/virt-dma.h                  | 20 ++++++++++++++++++--
+>>   5 files changed, 22 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/dma/fsl-dpaa2-qdma/dpaa2-qdma.c b/drivers/dma/fsl-dpaa2-qdma/dpaa2-qdma.c
+>> index 36384d019263..efdecf15e1b3 100644
+>> --- a/drivers/dma/fsl-dpaa2-qdma/dpaa2-qdma.c
+>> +++ b/drivers/dma/fsl-dpaa2-qdma/dpaa2-qdma.c
+>> @@ -71,7 +71,7 @@ static void dpaa2_qdma_free_chan_resources(struct dma_chan *chan)
+>>   	LIST_HEAD(head);
+>>   
+>>   	spin_lock_irqsave(&dpaa2_chan->vchan.lock, flags);
+>> -	vchan_get_all_descriptors(&dpaa2_chan->vchan, &head);
+>> +	vchan_get_all_allocated_descs(&dpaa2_chan->vchan, &head);
+>>   	spin_unlock_irqrestore(&dpaa2_chan->vchan.lock, flags);
+>>   
+>>   	vchan_dma_desc_free_list(&dpaa2_chan->vchan, &head);
+>> diff --git a/drivers/dma/fsl-edma-common.c b/drivers/dma/fsl-edma-common.c
+>> index 3af430787315..1e0ad87eb7fa 100644
+>> --- a/drivers/dma/fsl-edma-common.c
+>> +++ b/drivers/dma/fsl-edma-common.c
+>> @@ -828,7 +828,7 @@ void fsl_edma_free_chan_resources(struct dma_chan *chan)
+>>   	if (edma->drvdata->dmamuxs)
+>>   		fsl_edma_chan_mux(fsl_chan, 0, false);
+>>   	fsl_chan->edesc = NULL;
+>> -	vchan_get_all_descriptors(&fsl_chan->vchan, &head);
+>> +	vchan_get_all_allocated_descs(&fsl_chan->vchan, &head);
+>>   	fsl_edma_unprep_slave_dma(fsl_chan);
+>>   	spin_unlock_irqrestore(&fsl_chan->vchan.lock, flags);
+>>   
+>> diff --git a/drivers/dma/fsl-qdma.c b/drivers/dma/fsl-qdma.c
+>> index 5005e138fc23..7af428db404e 100644
+>> --- a/drivers/dma/fsl-qdma.c
+>> +++ b/drivers/dma/fsl-qdma.c
+>> @@ -316,7 +316,7 @@ static void fsl_qdma_free_chan_resources(struct dma_chan *chan)
+>>   	LIST_HEAD(head);
+>>   
+>>   	spin_lock_irqsave(&fsl_chan->vchan.lock, flags);
+>> -	vchan_get_all_descriptors(&fsl_chan->vchan, &head);
+>> +	vchan_get_all_allocated_descs(&fsl_chan->vchan, &head);
+>>   	spin_unlock_irqrestore(&fsl_chan->vchan.lock, flags);
+>>   
+>>   	vchan_dma_desc_free_list(&fsl_chan->vchan, &head);
+>> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
+>> index 428473611115..4dc8a8c8ad80 100644
+>> --- a/drivers/dma/sf-pdma/sf-pdma.c
+>> +++ b/drivers/dma/sf-pdma/sf-pdma.c
+>> @@ -147,7 +147,7 @@ static void sf_pdma_free_chan_resources(struct dma_chan *dchan)
+>>   	sf_pdma_disable_request(chan);
+>>   	kfree(chan->desc);
+>>   	chan->desc = NULL;
+>> -	vchan_get_all_descriptors(&chan->vchan, &head);
+>> +	vchan_get_all_allocated_descs(&chan->vchan, &head);
+>>   	sf_pdma_disclaim_chan(chan);
+>>   	spin_unlock_irqrestore(&chan->vchan.lock, flags);
+>>   	vchan_dma_desc_free_list(&chan->vchan, &head);
+>> diff --git a/drivers/dma/virt-dma.h b/drivers/dma/virt-dma.h
+>> index 59d9eabc8b67..4492641b79f6 100644
+>> --- a/drivers/dma/virt-dma.h
+>> +++ b/drivers/dma/virt-dma.h
+>> @@ -187,13 +187,29 @@ static inline void vchan_get_all_descriptors(struct virt_dma_chan *vc,
+>>   {
+>>   	lockdep_assert_held(&vc->lock);
+>>   
+>> -	list_splice_tail_init(&vc->desc_allocated, head);
+>>   	list_splice_tail_init(&vc->desc_submitted, head);
+>>   	list_splice_tail_init(&vc->desc_issued, head);
+>>   	list_splice_tail_init(&vc->desc_completed, head);
+>>   	list_splice_tail_init(&vc->desc_terminated, head);
+>>   }
+>>   
+>> +/**
+>> + * vchan_get_all_allocated_descs - obtain all descriptors
+>> + * @vc: virtual channel to get descriptors from
+>> + * @head: list of descriptors found
+>> + *
+>> + * vc.lock must be held by caller
+>> + *
+>> + * Removes all descriptors from internal lists, and provides a list of all
+>> + * descriptors found
+>> + */
+>> +static inline void vchan_get_all_allocated_descs(struct virt_dma_chan *vc,
+>> +	struct list_head *head)
+>> +{
+>> +	list_splice_tail_init(&vc->desc_allocated, head);
+>> +	vchan_get_all_descriptors(vc, head);
+>> +}
+>> +
+>>   static inline void vchan_free_chan_resources(struct virt_dma_chan *vc)
+>>   {
+>>   	struct virt_dma_desc *vd;
+>> @@ -201,7 +217,7 @@ static inline void vchan_free_chan_resources(struct virt_dma_chan *vc)
+>>   	LIST_HEAD(head);
+>>   
+>>   	spin_lock_irqsave(&vc->lock, flags);
+>> -	vchan_get_all_descriptors(vc, &head);
+>> +	vchan_get_all_allocated_descs(vc, &head);
+>>   	list_for_each_entry(vd, &head, node)
+>>   		dmaengine_desc_clear_reuse(&vd->tx);
+>>   	spin_unlock_irqrestore(&vc->lock, flags);
+>> -- 
+>> 2.33.0
+>>
+> .
 
 _______________________________________________
 linux-riscv mailing list
