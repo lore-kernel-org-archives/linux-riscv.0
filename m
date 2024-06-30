@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A65C27C4F
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jun 2024 15:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D714AC27C4F
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jun 2024 15:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cvfio5ZzIthaTDBCJ78pUoeg0PBsgWPHzDn+o/lbsNk=; b=cUYVaGKvKBUKZB
-	or17cSNqKkjm/KYozGt/4J96DNknFVPaiWhCBC8nt0wqd/m63rFkxR3MAYRWADQOix3Qsk5Lhm2la
-	r6V6AvYxNIbFO/GtHCFndP8Hym7g0rR47WsHSGpB32K1QZEXjuYiu0lkn5Ekw2+4aCeaLZ1ceyyN3
-	UZFcU57ae9grdj1yWXiGRc53JW9kW+csrC9hK/6q7np/ChWr3oi9TWVG7AbCOvzD3ozRBUEj8QKTB
-	/LWjkLOXam0GRdKAlb64VuystVnLdpUQ/lfGwceD1UqdiY2dVRvlULZAlgDtKyp5hot/RnH9+r4o9
-	+HGLlRHpJeGFf9hxlcrg==;
+	List-Owner; bh=5FkHbGppE2IKTenAlVJPDXW92boyqZiNK243ZPs5pUA=; b=Tpozl1yG1nPXb1
+	sfmIvAeo72j2IIFJObp6SI+kKeEMFb23ShBIg/Y3zGKRMn08SYQA7HaSvGPEIdJPrtka2hO03JG+2
+	iKrJQTRKP1Ht3LZmvfZaYgLvBPkFr3MY61qunYRZlH0v/P7CLNJn/Xn1dOah1HuKqj35kK6Kkz1bb
+	J1iDaX/Gvk0JlXhKCWLDHhaPwOntII/IX01Xd9ZEVu1+tE+haagkQfUDrLAbiPFQ59Fr7zx1fNrns
+	o9x+N0/piiLlxpTtWvjaBHbtMh9DCjUp92DAtMvgZce5mLkXini3IanK8t7kwJiW0LbMDJile7qif
+	ZqzXyIVD/fMwJ6R+5XiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNw8a-00000000ZlV-2BaN;
-	Sun, 30 Jun 2024 15:06:44 +0000
+	id 1sNwBa-00000000aBz-2t9U;
+	Sun, 30 Jun 2024 15:09:50 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sNw8P-00000000Zip-1QKK;
-	Sun, 30 Jun 2024 15:06:34 +0000
+	id 1sNwBO-00000000a8n-0jfQ;
+	Sun, 30 Jun 2024 15:09:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E7F1B60E2C;
-	Sun, 30 Jun 2024 15:06:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70A87C2BD10;
-	Sun, 30 Jun 2024 15:06:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719759990;
-	bh=c+JK2VSNQ31PnD2iQNuRuQbry+DoqeD124arYuJ+Juw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bEV6mBHYlCdS2EsLB3+1Z+jegmRJYISn1E6aJWP8DJf7/ZDu7B9YbhsWuL4L04Tki
-	 rDIus2kqQ9Vzk6hQASgX42OhzRpJIa/jkeF3GPzgwTVdVrWtFuMXKCCITnd89CetSz
-	 bx8lLyu32y9LigNdM5B71TKlRPHfGEKpwJDDqIf5ofQ06fprpfoQUtdLnusKwOkLR4
-	 T99F4w6aSaZl6oXo3CVPuMbmouJvyDoFpYZPRCE78XL/W4KcURso2ThVuP9TsupsV6
-	 T0XhcUN6IC8azj9sFxEhrjg4H0FdeUrKDZySdOOeX3L708xEwYCARQpOVaPCKGALel
-	 t7JWg5vj6ugXA==
-Received: by wens.tw (Postfix, from userid 1000)
-	id B90A05FD47; Sun, 30 Jun 2024 23:06:27 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Chen-Yu Tsai <wens@kernel.org>
-Cc: Chen-Yu Tsai <wens@csie.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/3] riscv: allwinner: ClockworkPi and DevTerm devicetrees
-Date: Sun, 30 Jun 2024 23:06:15 +0800
-Message-Id: <171975990845.1182816.12708794418763846620.b4-ty@csie.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20240622150731.1105901-1-wens@kernel.org>
-References: <20240622150731.1105901-1-wens@kernel.org>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3601960E2C;
+	Sun, 30 Jun 2024 15:09:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1C6CC32786;
+	Sun, 30 Jun 2024 15:09:36 +0000 (UTC)
+Received: from wens.tw (localhost [127.0.0.1])
+	by wens.tw (Postfix) with ESMTP id 6D2055FADF;
+	Sun, 30 Jun 2024 23:09:34 +0800 (CST)
+From: Chen-Yu Tsai <wens@csie.org>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>, linux-sunxi@lists.linux.dev, 
+ Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
+ Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Andre Przywara <andre.przywara@arm.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org, 
+ Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@rivosinc.com>
+In-Reply-To: <20221231233851.24923-11-samuel@sholland.org>
+References: <20221231233851.24923-1-samuel@sholland.org>
+ <20221231233851.24923-11-samuel@sholland.org>
+Subject: Re: (subset) [PATCH v4 10/12] riscv: dts: allwinner: Add
+ ClockworkPi and DevTerm devicetrees
+Message-Id: <171976017441.1183261.11626776990169196800.b4-ty@csie.org>
+Date: Sun, 30 Jun 2024 23:09:34 +0800
 MIME-Version: 1.0
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240630_080633_498550_A0B47E1B 
-X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-CacheID: sfid-20240630_080938_329373_42ED33AF 
+X-CRM114-Status: UNSURE (   6.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,28 +74,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
-
-On Sat, 22 Jun 2024 23:07:28 +0800, Chen-Yu Tsai wrote:
-> From: Chen-Yu Tsai <wens@csie.org>
+On Sat, 31 Dec 2022 17:38:49 -0600, Samuel Holland wrote:
+> Clockwork Tech manufactures several SoMs for their RasPi CM3-compatible
+> "ClockworkPi" mainboard. Their R-01 SoM features the Allwinner D1 SoC.
+> The R-01 contains only the CPU, DRAM, and always-on voltage regulation;
+> it does not merit a separate devicetree.
 > 
-> Hi folks,
-> 
-> Here are a couple patches that were originally sent by Samuel, but later
-> dropped due to the system LDO regulator bindings not getting merged. The
-> regulator bindings were recently resent and landed [1], so now is the time
-> to get the rest of the stragglers in.
+> The ClockworkPi mainboard features analog audio, a MIPI-DSI panel, USB
+> host and peripheral ports, an Ampak AP6256 WiFi/Bluetooth module, and an
+> X-Powers AXP228 PMIC for managing a Li-ion battery.
 > 
 > [...]
 
-Applied to sunxi/drivers-for-6.11 in sunxi/linux.git, thanks!
+Applied to sunxi/dt-for-6.11 in sunxi/linux.git, thanks!
 
-[1/3] dt-bindings: sram: sunxi-sram: Add regulators child
-      https://git.kernel.org/sunxi/linux/c/3a6fb9025cdf
+[10/12] riscv: dts: allwinner: Add ClockworkPi and DevTerm devicetrees
+        https://git.kernel.org/sunxi/linux/c/0ce1d34678e5
 
 Best regards,
 -- 
 Chen-Yu Tsai <wens@csie.org>
+
 
 _______________________________________________
 linux-riscv mailing list
