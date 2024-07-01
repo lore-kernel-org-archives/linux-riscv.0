@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F9CC2BD09
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 18:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A76C2BD09
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 18:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=IBVIjFyeJROjDJvUfCBCiizQJeiasWdz6KCluaWwzFQ=; b=qOvmBwP3A+cFSv
-	HthUWZFsxdWsCTc7lis7suBqze4LSvDXU9f70wf/5cZCK6NPcSLzLwvgB9+ilBNKdn5qk9VBIOnsl
-	X+j0l6Jj5pYTVxRzBi8mV/sGz0h1r1PuFbG8SQkk4ZStBv/okwwIrEM6BZGSmigkqJsduu9BY33ZM
-	GNr4vY6qjA+Ork0tpcS6GyqCUPCdCRBH1RZJj+eMNiitpEy/qFrvPnrtPBmwjdGFF9Dnb860Lq9aC
-	c7ghRrp3OebHIIVJJwZ2SYSZkK1E2cYNG1AXMtyj+utHeZwwjLK9B973euk+vN7MI/RxSq04+z5ck
-	zLlZ5kH6jhlOTQ5qEyJg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UgUEeQ1Uc4077ZxJbR5uHAQ52NnHDmEesNwXi/23SOk=; b=236KrojQul46PU
+	PasJMNhW2PcLUH60F4PjaN8S6cyMxWckfny3WJShszbGUVTRVZYtm6ZpInY5zBYI1Gew5ziUJ5GsR
+	WlH81TN8uOZe/J1DVpPwh874q/1fBomkhzeFeTunO5MEx5SWxJeP7UIzoIdyCWYjzjHh36+yGj0zJ
+	4YvOGL9DKcfOBlcqewfRswHVVlBQjPAWCk5VAR3fP4wqXP9//UcxvLKCosY/MkjO/RA6H+kT8eWke
+	FYT5cwLcZ4UaNKnJ4IChC0Ew9Jp+Kb1HZeiBywslDWwXtKmsV/yJ4DroRsWkSUJBxHHxToMDZ9Y8A
+	XTIHMCiqhpW/1bnSjG7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOM80-00000004WTL-33nU;
-	Mon, 01 Jul 2024 18:51:52 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1sOM89-00000004WVh-25VB;
+	Mon, 01 Jul 2024 18:52:01 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOM7y-00000004WSh-0Vby
+	id 1sOM86-00000004WUX-3WoB
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jul 2024 18:51:51 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1f9b364faddso19275415ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Jul 2024 11:51:48 -0700 (PDT)
+	Mon, 01 Jul 2024 18:52:00 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1f4a5344ec7so23981585ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Jul 2024 11:51:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719859907; x=1720464707; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9BR+n8cp6lBjZjGDk+mYOf3wt+diD2m02XG7xJApEuY=;
-        b=yxEYMEZmsUBDoQ/db1bxEE2gbs1veMp9JoISoc0hwqw5anPLKxjHKtpaMsBXxZVN6K
-         7lE5jwMJglyzXHm5iUEjNToAvNoinJHj/7L/8tPTqdNfJ0ZUBaQeDhgP1L+qRYY02bPr
-         hGEE5xwPYFdAu4XKeiOvGKSaMTtkpGZz4KQakxaFrUbLVJRFfipYxeVBUB4mhXoSu6EY
-         Hs4qvRcsvuW2mQOCEIRsQJMySZd6C25qE9H94W2lihrX1Lg+ALUjWEslP4/Je+ETi1dB
-         DowquIY8ngqSTuEjdNJK2uxOhkEeiyrQ8AqCV+pGCenxzH4LbMpssbVG3xgpEa03yYAo
-         8bNg==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719859918; x=1720464718; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=anHX1DM3URGCkXrGn4JIrBeC+s/73VzKMiEIav89N4M=;
+        b=0D73/lJSfSOH6c2pmJmx20z68jN5ysisuUzTrRh0oLQFT8bnvSrOTZ0149K25U0Dkm
+         zxyqGuoCWqK4OZH5tVlxlFnkzSf78Cfc9dqW4zh8X7dVu/SU2uxhBhXptPBmR9kBDpPf
+         VFFHr28S/Xes6zuU6qzz/etDS6rZP+hNIKaUOc3xRsuNkXzxkt/AIhAHTehI93TSSLbW
+         p5d77SWlf4gRdRZoiYSCsJYVYVBB5P34RHqgrNvJdLbxYRLHK2aGxV17MWA5qoQZMUMr
+         EWJNTSXvMkLaHooXz7l5i5M3OsMP824zS51tnoZWMCTRcxlxG+udhoedNdhSbCfmFs2A
+         PPNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719859907; x=1720464707;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9BR+n8cp6lBjZjGDk+mYOf3wt+diD2m02XG7xJApEuY=;
-        b=VTnzn9pikjF6Kq8XW4moKYCPgHSLTYDWr2939i0RxfcL145uJDceetL36HTWo/z0TY
-         SqUGm1z5x3zIW16cAFOjHEub4T/vK6dm5LuZJTOroH3e8Tk5W0Fgff750lDawJ6Tz1bt
-         TGFSrAAUCXOSwInadX/wdLzpmtLIU84MZdkMGrFWdRHZWl4d2LhkExmotn8+EarJc23y
-         iORpVs4Gm22ZUoN8i6K0KqSJsVIK9uZKNgYjNB3XAeOHw2bjrOE8/vKu2N8dUAdiicoC
-         ldNZff6dP56hxyBQvp5k3CGNUz3lHte2Cl1GlI80Xa3Acm+cS4hJHo4z3AoiljDuNIin
-         Y58g==
-X-Gm-Message-State: AOJu0YyleXQ4LWsjUcYxDyLqTnlNV0IWVFJzra7WzUTTHk1MaK7Utvq1
-	WLJoB8LuuQLl0BrfZ6JiAIpevafa0ggthUgpOO+jmaX9Z+gOnnK613G4EBi9K/JjnALhqMoFyu5
-	G
-X-Google-Smtp-Source: AGHT+IGIhR4q2ffdDOA70LUc/qAQrNnvQG1rQn60lll7aXKMs5f7a9ja1/d5Jnpik/LL3vg+/X9cqg==
-X-Received: by 2002:a17:902:ccd2:b0:1f6:1780:f7b1 with SMTP id d9443c01a7336-1fadbc73cdfmr44672915ad.17.1719859907340;
-        Mon, 01 Jul 2024 11:51:47 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1719859918; x=1720464718;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=anHX1DM3URGCkXrGn4JIrBeC+s/73VzKMiEIav89N4M=;
+        b=bp+FoufCsI6j/Q5pYdOtyFoAAv5FM1GZA9ZjUfAwY1SZDreZt8FPvlqbWx1k+FLQJs
+         XbO3zYvpcScOS2kU6AnPUrVHopAAnDIIygntLG1TWN5nc1qhfHRjJ5jIOO0/ZlGRyHL1
+         LvsC57cJ443eSBC7kxKbI/n1iV5nUuDnlV0/Gs6zAiJWhbyy9v8TAdsCM0Zm3L9Bx/rl
+         8VlJXDGmND5XVyaR2NqGhN6BN3BOI2t5Q+xwVnRVqwQG99GO3ASXbbifFF0/V4VQCVYD
+         ynqq5GARgkn0zEcXtkp9T3tQOf2jeu5u5D28v1ngPFTCsel07/85QQ5LZju78Dtxs2FW
+         +Baw==
+X-Gm-Message-State: AOJu0Yxqz7AetU/LlA2scY2kcKaa2u9mq+fmiyxKCPWXyO+wpSMWcohi
+	2wW66eo4hye+MKON3OLQXJPsnnV3dZ62jqMVsaLgTI3ugT0x5YjGIH+flMCT+CydsktZV88JUvB
+	Z
+X-Google-Smtp-Source: AGHT+IENBUzEg6ya4sq7aW1QaFBBcsao6oM/eWof/SzwO+QqO8+WPKu4MnxkOTanbSTh10xlJQnXDA==
+X-Received: by 2002:a17:902:d4cd:b0:1f7:1d71:25aa with SMTP id d9443c01a7336-1fadb42d78bmr110124205ad.6.1719859917674;
+        Mon, 01 Jul 2024 11:51:57 -0700 (PDT)
 Received: from jesse-desktop.. (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fac10d1ccesm69883375ad.20.2024.07.01.11.51.37
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fac10d1ccesm69883375ad.20.2024.07.01.11.51.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jul 2024 11:51:47 -0700 (PDT)
+        Mon, 01 Jul 2024 11:51:57 -0700 (PDT)
 From: Jesse Taube <jesse@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 Cc: Ard Biesheuvel <ardb@kernel.org>,
@@ -85,14 +86,17 @@ Cc: Ard Biesheuvel <ardb@kernel.org>,
 	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v3 0/4] RISC-V: Parse DT for Zkr to seed KASLR
-Date: Mon,  1 Jul 2024 14:51:28 -0400
-Message-ID: <20240701185132.319995-1-jesse@rivosinc.com>
+Subject: [PATCH v3 1/4] RISC-V: pi: Force hidden visibility for all symbol references
+Date: Mon,  1 Jul 2024 14:51:29 -0400
+Message-ID: <20240701185132.319995-2-jesse@rivosinc.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20240701185132.319995-1-jesse@rivosinc.com>
+References: <20240701185132.319995-1-jesse@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240701_115150_183255_DEC5A94B 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20240701_115158_907904_01E7A3BF 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +113,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add functions to pi/fdt_early.c to help parse the FDT to check if
-the isa string has the Zkr extension. Then use the Zkr extension to
-seed the KASLR base address.
+Eliminate all GOT entries in the .pi section, by forcing hidden
+visibility for all symbol references, which informs the compiler that
+such references will be resolved at link time without the need for
+allocating GOT entries.
 
-The first two patches fix the visibility of symbols.
+Include linux/hidden.h in Makefile, like arm64, for the
+hidden visibility attribute.
 
+Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
 V1 -> V2:
- - Add RISC-V: pi: Force hidden visibility for all symbol references
- - Add RISC-V: pi: Add kernel/pi/pi.h
- - Rewrite archrandom_early.c to parse DT over checking the csr
+ - New patch
 V2 -> V3:
- - Add RISC-V: lib: Add pi aliases for string functions
- - Rewrite isa_string_contains in third patch
+ - No changes
+---
+ arch/riscv/kernel/pi/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
 
-Jesse Taube (4):
-  RISC-V: pi: Force hidden visibility for all symbol references
-  RISC-V: lib: Add pi aliases for string functions
-  RISC-V: pi: Add kernel/pi/pi.h
-  RISC-V: Use Zkr to seed KASLR base address
-
- arch/riscv/kernel/pi/Makefile           |   3 +-
- arch/riscv/kernel/pi/archrandom_early.c |  30 +++++
- arch/riscv/kernel/pi/cmdline_early.c    |  10 +-
- arch/riscv/kernel/pi/fdt_early.c        | 167 +++++++++++++++++++++++-
- arch/riscv/kernel/pi/pi.h               |  20 +++
- arch/riscv/lib/memset.S                 |   2 +
- arch/riscv/lib/strcmp.S                 |   1 +
- arch/riscv/lib/strncmp.S                |   1 +
- arch/riscv/mm/init.c                    |   5 +-
- 9 files changed, 223 insertions(+), 16 deletions(-)
- create mode 100644 arch/riscv/kernel/pi/archrandom_early.c
- create mode 100644 arch/riscv/kernel/pi/pi.h
-
+diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
+index 50bc5ef7dd2f..1ef7584be0c3 100644
+--- a/arch/riscv/kernel/pi/Makefile
++++ b/arch/riscv/kernel/pi/Makefile
+@@ -5,6 +5,7 @@ KBUILD_CFLAGS	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) -fpie \
+ 		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK_PLUGIN) \
+ 		   $(call cc-option,-mbranch-protection=none) \
+ 		   -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
++		   -include $(srctree)/include/linux/hidden.h \
+ 		   -D__DISABLE_EXPORTS -ffreestanding \
+ 		   -fno-asynchronous-unwind-tables -fno-unwind-tables \
+ 		   $(call cc-option,-fno-addrsig)
 -- 
 2.45.2
 
