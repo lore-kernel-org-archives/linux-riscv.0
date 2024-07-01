@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A50C2BD09
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 12:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC38C2BD09
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 12:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjUWKuTaOospk69Rf5t3XBW8J7mr0DcGfzGE51dVemo=; b=q7KIoogMtMTDMUMCr5G9AFnd81
-	rsdyEtZbn4WKxdiWFkaMHIlhpxcqyAp6NTEYVNdDHwLs9uz8YXMBK6SAS3CG2MOMc5TzC4SaskHDk
-	/gDFnYnnxM/tcxaLF46ZuK9RAClgtZTLxyB15KtZvy4d7VadeTtxxCWwarZl4xijfdV4fIrQ3D99V
-	HIvZMav/HHNaqm83iZ9I6715GNB3SZlKFOvsi/88WeRLQAonBdhOm3xlHtvk148J47M8S/WPTH3I5
-	+h7pjri+RU69fc8t5HlChqfw7b9lj/YJ0JD2K2GhvKwNViXsKcB1klFASZAy7PDW75ZY1j8hgJ1ag
-	sYxjZEug==;
+	bh=33lqKx2kGTHQ/mKLGo/iiLIKyqNGuPplGrrMW9pxIrk=; b=XlC/kTWVJxRlfgMLOkgm1Fq6cO
+	kzUQYJYcTT+TGXIQGvTkvTmXmGgdw99A25BKJG3SL1l3WyTy9dNwGDPrpoDwXHlD48DXNz2Fcx5Fa
+	fg1wG+o0xSXlsxfwvZO5RZbrMQ0CHobznpn64F9jw7yMNbgqFG9Caa4ZQVLMw4NQhyXmzzfYUqNE+
+	U/VpaVwpXCMI53q6dnbK1udy+WvtdR+pk+CpotDFUUCdf5dLHKeLyRYu+Z9tYAgzAb20eXLD06aeS
+	9+v4a2E4TyyJ81g2XLKUC3RxWfhvldrBWlRPXSg4Sr8ASl6FXYo0qlUZI6wsmHMOZJLYT9Gd2jBes
+	+9gmAKvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOGHe-00000003GuI-1wKh;
-	Mon, 01 Jul 2024 12:37:27 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sOGHj-00000003Gxn-2Ynp;
+	Mon, 01 Jul 2024 12:37:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOG57-00000003AOL-1PTT
+	id 1sOG5p-00000003AoD-11w6
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jul 2024 12:24:31 +0000
+	Mon, 01 Jul 2024 12:25:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7420ACE01B7;
-	Mon,  1 Jul 2024 12:24:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B969C116B1;
-	Mon,  1 Jul 2024 12:24:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7CF3E612A8;
+	Mon,  1 Jul 2024 12:25:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D900C116B1;
+	Mon,  1 Jul 2024 12:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719836666;
-	bh=7Gs9Q7JZEYXal3PZNj/A/6mBzMzEEW3iLGgskmEVdN4=;
+	s=k20201202; t=1719836712;
+	bh=uokN+LJdC2agYZtYBp+On9i8Y82wyfHM+k2m2SnHmzQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gWEFcQdDR4hftb+ry0Tgx1mGlhZFYsNKzqKUFT9A9QyVM9/qAGMMvgQJD2941bVGv
-	 Vj7qlgbYNOAoDu5SCWg02dEz0J6Qsjp8GHByQR7HK/0aayKb3OX0RPTZfrOLnT3jqH
-	 t4NLEnjyQJllrhIfP942niZV1US2XWcD5CkCVfbboazshZawudVAd7eFE0yTUse3p9
-	 q2LZsfzTu4N4lz5VGpfzODy9KXJ5j8/uAcy2JR6eB8jMY2ibv/9Pmur373UNK0NNtS
-	 ZDh9V6JvkQSXxTh4R1cHPBcnicJlHVdVYhWVG68Mwvo8qElcmJmJea/VcacR/wCtMC
-	 5C9+pY2Fx2PJQ==
-Date: Mon, 1 Jul 2024 13:24:20 +0100
+	b=Aw3qbpaNOKzKEX9V22J42eKeD9U+duvt0ZcmJLREv44nL7mgiCiai5VS5gMKfbhGf
+	 8eADDaVgaaDebfN5zntfFD5tvh4Tz2ej+OyO1a+1cuAeEQI8VB9yETyR18HD29aKAf
+	 6PSCpC5MK/Se4wgQCv6P/jk2jC9Tryh0aybbFxUspS3dw1DakEEV3Q9GlatJG6/e7d
+	 VeWGz73fgNcVVxqC1mV+sEaWqpplpG0jCsgCDfu9EaALRHfpHx/ZoE2ZxBlKb0ehnC
+	 vChlSi4KlSobeZSzS5y0IeKak/r+ccH+hnXryASQ3/UiNOWbU0cppcljYyO+k2PZcD
+	 9EkJlTqpc6inw==
+Date: Mon, 1 Jul 2024 13:25:06 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Yixun Lan <dlan@gentoo.org>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -61,15 +61,15 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-serial@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>,
 	Meng Zhang <zhangmeng.kevin@spacemit.com>,
 	Yangyu Chen <cyy@cyyself.name>
-Subject: Re: [PATCH v2 03/10] dt-bindings: riscv: add SpacemiT K1 bindings
-Message-ID: <20240701-undercook-flatterer-7f18f7420a6d@spud>
+Subject: Re: [PATCH v2 02/10] dt-bindings: riscv: Add SpacemiT X60 compatibles
+Message-ID: <20240701-line-congress-f838a8b6b1e7@spud>
 References: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
- <20240627-k1-01-basic-dt-v2-3-cc06c7555f07@gentoo.org>
+ <20240627-k1-01-basic-dt-v2-2-cc06c7555f07@gentoo.org>
 MIME-Version: 1.0
-In-Reply-To: <20240627-k1-01-basic-dt-v2-3-cc06c7555f07@gentoo.org>
+In-Reply-To: <20240627-k1-01-basic-dt-v2-2-cc06c7555f07@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240701_052429_758922_A9C155EB 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20240701_052513_372767_29BAF211 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,103 +81,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2228269202758898318=="
+Content-Type: multipart/mixed; boundary="===============0020693555631543896=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2228269202758898318==
+--===============0020693555631543896==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zGw7lplsaqNbmjY2"
+	protocol="application/pgp-signature"; boundary="eU5rt2wxl2jPuf8p"
 Content-Disposition: inline
 
 
---zGw7lplsaqNbmjY2
+--eU5rt2wxl2jPuf8p
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Jun 27, 2024 at 03:31:17PM +0000, Yixun Lan wrote:
+On Thu, Jun 27, 2024 at 03:31:16PM +0000, Yixun Lan wrote:
 > From: Yangyu Chen <cyy@cyyself.name>
 >=20
-> Add DT binding documentation for the SpacemiT K1 Soc[1] and the Banana
-> Pi BPi-F3 board[2] which used it.
+> The X60 is RISC-V CPU cores from SpacemiT and currently used in their K1
+> SoC.
 >=20
-> [1] https://www.spacemit.com/en/spacemit-key-stone-2/
-> [2] https://docs.banana-pi.org/en/BPI-F3/BananaPi_BPI-F3
+> Link: https://www.spacemit.com/en/spacemit-x60-core/
 >=20
 
-Please make these link tags when you resend, like
+Same comment as v1 here :) With that addressed,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Link: https://foo [1]
-
-and don't leave blank lines between them and the signoff.
+Thanks,
+Conor.
 
 > Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 > Signed-off-by: Yixun Lan <dlan@gentoo.org>
 > ---
->  .../devicetree/bindings/riscv/spacemit.yaml        | 24 ++++++++++++++++=
-++++++
->  1 file changed, 24 insertions(+)
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Docu=
-mentation/devicetree/bindings/riscv/spacemit.yaml
-> new file mode 100644
-> index 0000000000000..3b151fd02473e
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-> @@ -0,0 +1,24 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/spacemit.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SpacemiT SoC-based boards
-> +
-> +description:
-> +  SpacemiT SoC-based boards
-
-Please work out who is gonna maintain these SoCs and add that here to
-resolve the bot's report.
-
-Thanls,
-Conor.
-
-> +
-> +properties:
-> +  $nodename:
-> +    const: '/'
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - bananapi,bpi-f3
-> +          - const: spacemit,k1
-> +
-> +additionalProperties: true
-> +
-> +...
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Document=
+ation/devicetree/bindings/riscv/cpus.yaml
+> index d87dd50f1a4b5..5ad9cb4103356 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> @@ -46,6 +46,7 @@ properties:
+>                - sifive,u7
+>                - sifive,u74
+>                - sifive,u74-mc
+> +              - spacemit,x60
+>                - thead,c906
+>                - thead,c910
+>                - thead,c920
 >=20
 > --=20
 > 2.45.2
 >=20
 
---zGw7lplsaqNbmjY2
+--eU5rt2wxl2jPuf8p
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZoKf9AAKCRB4tDGHoIJi
-0saUAP9HO8UZAlDq+B2KUs5Nm5I8paGb5pgWiWUGC4za85sbzgD+JyyFMlmU7Ro0
-5EhR2LrpaRqLEwpuHlgevpF+NWOgugU=
-=+Mjf
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZoKgIQAKCRB4tDGHoIJi
+0t8pAQDtH2/PmqMu6iMWlqBobOPH26sE744GEAMmDDby/tabTAD/QqARpMzY6jQa
+0Qi3mmRENPebG4X8D2w6sYdF8Fms3wU=
+=rmPZ
 -----END PGP SIGNATURE-----
 
---zGw7lplsaqNbmjY2--
+--eU5rt2wxl2jPuf8p--
 
 
---===============2228269202758898318==
+--===============0020693555631543896==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -188,5 +161,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2228269202758898318==--
+--===============0020693555631543896==--
 
