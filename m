@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AABBC2BD09
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 06:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA327C3065B
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 06:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Hwt7JUYvA5au8oYYmc7HLsuOKTeO9oFMnofOYCV08A=; b=eNyncWgbg3tlz/
-	041oEfZF14hw3Dee8YZ99YIyFqcSPmIap4xaqKEKa14v4wJ9dOVdoPbQ/SH4/dxGqUhoU+M7iODGc
-	myeGMONyeP0Wliqc0hkivkYR9BzT73YbTchKWiIMNUiZvna9mw1TqbCUxzpC5HHW5IaQ6otYQQRxM
-	UTEbTQWr5IRJur553XKIq6sZmpiOMShaUHsVYq8Iadpi8Oir/HNQ79b8JKpzlCJvVd9Xoa5BHvYoj
-	qHY+gYc1k5d8JcSzcnNy10I9qmfjyVXMfpKarjk46SvzFaHjx0DSnLTKnOVl3ZKk5GBcqMJLtUSMG
-	wby4isy7JezEP2/k4+UQ==;
+	List-Owner; bh=MGc0bFfoj+xg2OoaCGsgjSuBjj1hsNxpJCUjKkJAFHU=; b=wE9cDAKYDfBj+T
+	N0u2/IZQbZt8fujIb8pAAqBTaAFaNfr95abe/YW2Hn8t7VrfcgfpIAUZWTLJ/ypvZkMjsLmteVWC+
+	B33HrW71bnBDniIYMz2rraoDuUa0PLc1bd7zo1HJWL02oKqp44k9VW4nwPf02+HEXKlCAGTfrrzW0
+	Zy/LdHar7nOefC2E/6czAseDM/VHM+L0/3RVJvU/obm0+c/0mIKyMwwZd4aJCINAtBh6r6jZQE76Q
+	+sDFYAjlHalXkM+5siWyhNpSg8fciwJAllHYKZVuIlD7t/x9r0uf8OLYV1gUN62frl+IQGVH642cT
+	42VYblYQE9QG5SnQCdYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOAKB-00000001qRp-4BVF;
-	Mon, 01 Jul 2024 06:15:40 +0000
-Received: from madrid.collaboradmins.com ([2a00:1098:ed:100::25])
+	id 1sOAsF-00000001uxX-3djk;
+	Mon, 01 Jul 2024 06:50:51 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOAK9-00000001qQN-1Ri2
+	id 1sOAs1-00000001uuW-0YGZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jul 2024 06:15:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1719814532;
-	bh=WmI09JaExLOgwIiAfkIPKvdePbKWzCZg6yL6VDCaUN4=;
-	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=RP6AD1v+j6bPzkD4Qfi/D0Q58GhtnnMPgGqhmQ9YGJX9Jc/5j84eJ7xUBdHZJRzFx
-	 aXPXn39mJWbIX+hF2Rx6HPtqgMK4vfUXHqti+IbFCO5Q8bGEOYciAZVbAvxI1kGzeR
-	 g0TD5c0QDnRR5cYZ0bk02V6Iz6eS/b5EgMh95woV6SkktOdHJgXgDkEDcqIbeyMewD
-	 TfpEAsVSV82X6VPFFcT0pA4AfIytfyCqe6TFWaYlNmT4kY7j1t72YZQc6kzGiHWxze
-	 VlPaDaj3j6O+JFwu31mdPgmr5u8MzDcUXIrceg69E0CyvjyMCcC0aTq021O4QEtL3Z
-	 exwCDx8GCLtyg==
-Received: from [100.113.15.66] (ec2-34-240-57-77.eu-west-1.compute.amazonaws.com [34.240.57.77])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: usama.anjum)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id AA10E3782065;
-	Mon,  1 Jul 2024 06:15:00 +0000 (UTC)
-Message-ID: <221495d5-1be2-4c71-ab2f-eb145257737a@collabora.com>
-Date: Mon, 1 Jul 2024 11:14:54 +0500
+	Mon, 01 Jul 2024 06:50:39 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-36733f09305so1462113f8f.3
+        for <linux-riscv@lists.infradead.org>; Sun, 30 Jun 2024 23:50:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1719816635; x=1720421435; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+82xXOObJXSSEXX4f5vUKX0gC2e+jrB9oaTEOo05T28=;
+        b=CfJt3NUkpJLQzl/UCwse7IzGmBfnGm4+kpWXlkV0ENlahcsuojvQAKZQrcVXJ4Ei3A
+         CpegKtdl6RQzmYpKQa2QbyL+BoZX8TDunVW8d1Yf1lIKZ/NbZHjyF9tyVHGN6Bim29jE
+         Rnu1+W/+GLxQYfah+1bWW5NlQCD7JEq5ivIox3nJ13sRnQP+H1GKV+boniLuzkX3VARG
+         oV+LFY8Rgg6zsBSWWkman0faHyu6yN6ndYUWfdeMkqJb0yyKcuoWOl6EpCBwNhQeTSeq
+         54uHAIo3+bI0lM4n8g+pL/KJB+QLJG63rQKAjMwc47p1s6lW/fJCile3oTXUSAqYtXC/
+         tldw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719816635; x=1720421435;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+82xXOObJXSSEXX4f5vUKX0gC2e+jrB9oaTEOo05T28=;
+        b=UfDQZVWs3D1CM+qiHYqrMN2YKFpyt3mRjGeWoL/Ch7iB9LkpgINtSeaFxoZ7BbJXLB
+         vpJA8ImylqAc1J/sBHm8kUPimp5Dd3Qc7S0iVCTlKkJ2npic77altg8xkxc+20qEg8FS
+         R8O9LdumaYrhY27mpqkGvkXFgmeb/GwqgxaOYJYN9x0leqmvb8t/soCwNJ+v2pvqwU/d
+         T0I9LO2O7NWZ6U1iU+mdhPn7xN1HURPLv40QoRKIKyfNZw9sCPt7IGus/xXlXkiUfBFI
+         9XAq0eqDp9lEzW1tGskkAImamxNeDCnCYD0VJfBiBjGDz02TDLbR1T3yszYsNypbiRZV
+         MsUA==
+X-Gm-Message-State: AOJu0YyXZ4l7tz9DbwykPbzjENsrGhjo/BSrTUZk8YcoJCfD7tv4eVJm
+	qIbr9Ka32OVlxMtrV4L4N19VCGHZ92Yxq970ZtSYiPzd5xXaIlW5k9Yu/MtbRAE=
+X-Google-Smtp-Source: AGHT+IGht03/zPzx2c8cKSAQtR+IcFVIo76qxL/DRVmO6lA7XA4iaFCK3fDNblnfvw0NkXXmzNb00Q==
+X-Received: by 2002:a05:6000:1b09:b0:354:fc65:39d6 with SMTP id ffacd0b85a97d-367756a9d37mr2820526f8f.26.1719816634538;
+        Sun, 30 Jun 2024 23:50:34 -0700 (PDT)
+Received: from localhost (cst2-173-13.cust.vodafone.cz. [31.30.173.13])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-42577a0dda2sm55934635e9.0.2024.06.30.23.50.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 30 Jun 2024 23:50:34 -0700 (PDT)
+Date: Mon, 1 Jul 2024 08:50:33 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH v7] riscv: mm: Add support for Svinval extension
+Message-ID: <20240701-5ea27de0b3592ecf9d9564e8@orel>
+References: <20240627165327.7685-1-mchitale@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: Muhammad Usama Anjum <usama.anjum@collabora.com>,
- linux-kernel@vger.kernel.org, seanjc@google.com, kernel-team@android.com,
- linux-mm@kvack.org, iommu@lists.linux.dev, kvm@vger.kernel.org,
- netdev@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-sgx@vger.kernel.org,
- John Hubbard <jhubbard@nvidia.com>
-Subject: Re: [PATCH v7 1/1] selftests: Centralize -D_GNU_SOURCE= to CFLAGS in
- lib.mk
-To: Edward Liaw <edliaw@google.com>, linux-kselftest@vger.kernel.org,
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
- Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
- Paolo Bonzini <pbonzini@redhat.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Fenghua Yu <fenghua.yu@intel.com>,
- Reinette Chatre <reinette.chatre@intel.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jarkko Sakkinen <jarkko@kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>
-References: <20240625223454.1586259-1-edliaw@google.com>
- <20240625223454.1586259-2-edliaw@google.com>
-Content-Language: en-US
-From: Muhammad Usama Anjum <usama.anjum@collabora.com>
-In-Reply-To: <20240625223454.1586259-2-edliaw@google.com>
+Content-Disposition: inline
+In-Reply-To: <20240627165327.7685-1-mchitale@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240630_231537_633885_037F4A9A 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20240630_235037_200638_07728E14 
+X-CRM114-Status: GOOD (  27.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,230 +93,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/26/24 3:34 AM, Edward Liaw wrote:
-> Centralize the _GNU_SOURCE definition to CFLAGS in lib.mk.  Remove
-> redundant defines from Makefiles that import lib.mk.  Convert any usage
-> of "#define _GNU_SOURCE 1" to "#define _GNU_SOURCE".
+On Thu, Jun 27, 2024 at 10:23:27PM GMT, Mayuresh Chitale wrote:
+> The Svinval extension splits SFENCE.VMA instruction into finer-grained
+> invalidation and ordering operations and is mandatory for RVA23S64 profile.
+> When Svinval is enabled the local_flush_tlb_range_threshold_asid function
+> should use the following sequence to optimize the tlb flushes instead of
+> a simple sfence.vma:
 > 
-> This uses the form "-D_GNU_SOURCE=", which is equivalent to
-> "#define _GNU_SOURCE".
+> sfence.w.inval
+> svinval.vma
+>   .
+>   .
+> svinval.vma
+> sfence.inval.ir
 > 
-> Otherwise using "-D_GNU_SOURCE" is equivalent to "-D_GNU_SOURCE=1" and
-> "#define _GNU_SOURCE 1", which is less commonly seen in source code and
-> would require many changes in selftests to avoid redefinition warnings.
+> The maximum number of consecutive svinval.vma instructions that
+> can be executed in local_flush_tlb_range_threshold_asid function
+> is limited to 64. This is required to avoid soft lockups and the
+> approach is similar to that used in arm64.
 > 
-> Suggested-by: John Hubbard <jhubbard@nvidia.com>
-> Signed-off-by: Edward Liaw <edliaw@google.com>
-Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
-
+> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 > ---
->  tools/testing/selftests/exec/Makefile             | 1 -
->  tools/testing/selftests/futex/functional/Makefile | 2 +-
->  tools/testing/selftests/intel_pstate/Makefile     | 2 +-
->  tools/testing/selftests/iommu/Makefile            | 2 --
->  tools/testing/selftests/kvm/Makefile              | 2 +-
->  tools/testing/selftests/lib.mk                    | 3 +++
->  tools/testing/selftests/mm/thuge-gen.c            | 2 +-
->  tools/testing/selftests/net/Makefile              | 2 +-
->  tools/testing/selftests/net/tcp_ao/Makefile       | 2 +-
->  tools/testing/selftests/proc/Makefile             | 1 -
->  tools/testing/selftests/resctrl/Makefile          | 2 +-
->  tools/testing/selftests/ring-buffer/Makefile      | 1 -
->  tools/testing/selftests/riscv/mm/Makefile         | 2 +-
->  tools/testing/selftests/sgx/Makefile              | 2 +-
->  tools/testing/selftests/tmpfs/Makefile            | 1 -
->  15 files changed, 12 insertions(+), 15 deletions(-)
+> Changes in v7:
+> - Use existing svinval macros in the insn-def.h
+> - Rename local_sinval_vma_asid to local_sinval_vma
 > 
-> diff --git a/tools/testing/selftests/exec/Makefile b/tools/testing/selftests/exec/Makefile
-> index ab67d58cfab7..ba012bc5aab9 100644
-> --- a/tools/testing/selftests/exec/Makefile
-> +++ b/tools/testing/selftests/exec/Makefile
-> @@ -1,7 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  CFLAGS = -Wall
->  CFLAGS += -Wno-nonnull
-> -CFLAGS += -D_GNU_SOURCE
->  
->  ALIGNS := 0x1000 0x200000 0x1000000
->  ALIGN_PIES        := $(patsubst %,load_address.%,$(ALIGNS))
-> diff --git a/tools/testing/selftests/futex/functional/Makefile b/tools/testing/selftests/futex/functional/Makefile
-> index 994fa3468f17..f79f9bac7918 100644
-> --- a/tools/testing/selftests/futex/functional/Makefile
-> +++ b/tools/testing/selftests/futex/functional/Makefile
-> @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  INCLUDES := -I../include -I../../ $(KHDR_INCLUDES)
-> -CFLAGS := $(CFLAGS) -g -O2 -Wall -D_GNU_SOURCE= -pthread $(INCLUDES) $(KHDR_INCLUDES)
-> +CFLAGS := $(CFLAGS) -g -O2 -Wall -pthread $(INCLUDES) $(KHDR_INCLUDES)
->  LDLIBS := -lpthread -lrt
->  
->  LOCAL_HDRS := \
-> diff --git a/tools/testing/selftests/intel_pstate/Makefile b/tools/testing/selftests/intel_pstate/Makefile
-> index 05d66ef50c97..f45372cb00fe 100644
-> --- a/tools/testing/selftests/intel_pstate/Makefile
-> +++ b/tools/testing/selftests/intel_pstate/Makefile
-> @@ -1,5 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0
-> -CFLAGS := $(CFLAGS) -Wall -D_GNU_SOURCE
-> +CFLAGS := $(CFLAGS) -Wall
->  LDLIBS += -lm
->  
->  ARCH ?= $(shell uname -m 2>/dev/null || echo not)
-> diff --git a/tools/testing/selftests/iommu/Makefile b/tools/testing/selftests/iommu/Makefile
-> index 32c5fdfd0eef..fd6477911f24 100644
-> --- a/tools/testing/selftests/iommu/Makefile
-> +++ b/tools/testing/selftests/iommu/Makefile
-> @@ -2,8 +2,6 @@
->  CFLAGS += -Wall -O2 -Wno-unused-function
->  CFLAGS += $(KHDR_INCLUDES)
->  
-> -CFLAGS += -D_GNU_SOURCE
-> -
->  TEST_GEN_PROGS :=
->  TEST_GEN_PROGS += iommufd
->  TEST_GEN_PROGS += iommufd_fail_nth
-> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-> index ac280dcba996..4ee37abf70ff 100644
-> --- a/tools/testing/selftests/kvm/Makefile
-> +++ b/tools/testing/selftests/kvm/Makefile
-> @@ -231,7 +231,7 @@ LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH)/include
->  endif
->  CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
->  	-Wno-gnu-variable-sized-type-not-at-end -MD -MP -DCONFIG_64BIT \
-> -	-D_GNU_SOURCE -fno-builtin-memcmp -fno-builtin-memcpy \
-> +	-fno-builtin-memcmp -fno-builtin-memcpy \
->  	-fno-builtin-memset -fno-builtin-strnlen \
->  	-fno-stack-protector -fno-PIE -I$(LINUX_TOOL_INCLUDE) \
->  	-I$(LINUX_TOOL_ARCH_INCLUDE) -I$(LINUX_HDR_PATH) -Iinclude \
-> diff --git a/tools/testing/selftests/lib.mk b/tools/testing/selftests/lib.mk
-> index 7b299ed5ff45..d6edcfcb5be8 100644
-> --- a/tools/testing/selftests/lib.mk
-> +++ b/tools/testing/selftests/lib.mk
-> @@ -196,6 +196,9 @@ endef
->  clean: $(if $(TEST_GEN_MODS_DIR),clean_mods_dir)
->  	$(CLEAN)
->  
-> +# Build with _GNU_SOURCE by default
-> +CFLAGS += -D_GNU_SOURCE=
+> Changes in v6:
+> - Rebase on latest torvalds/master
+> 
+> Changes in v5:
+> - Reduce tlb flush threshold to 64
+> - Improve implementation of local_flush_tlb* functions
+> 
+> Changes in v4:
+> - Rebase and refactor as per latest changes on torvalds/master
+> - Drop patch 1 in the series
+> 
+> Changes in v3:
+> - Fix incorrect vma used for sinval instructions
+> - Use unified static key mechanism for svinval
+> - Rebased on torvalds/master
+> 
+> Changes in v2:
+> - Rebased on 5.18-rc3
+> - update riscv_fill_hwcap to probe Svinval extension
+> 
+>  arch/riscv/mm/tlbflush.c | 32 ++++++++++++++++++++++++++++++++
+>  1 file changed, 32 insertions(+)
+> 
+> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+> index 9b6e86ce3867..d3396619d8c4 100644
+> --- a/arch/riscv/mm/tlbflush.c
+> +++ b/arch/riscv/mm/tlbflush.c
+> @@ -6,6 +6,28 @@
+>  #include <linux/hugetlb.h>
+>  #include <asm/sbi.h>
+>  #include <asm/mmu_context.h>
+> +#include <asm/cpufeature.h>
 > +
->  # Enables to extend CFLAGS and LDFLAGS from command line, e.g.
->  # make USERCFLAGS=-Werror USERLDFLAGS=-static
->  CFLAGS += $(USERCFLAGS)
-> diff --git a/tools/testing/selftests/mm/thuge-gen.c b/tools/testing/selftests/mm/thuge-gen.c
-> index d50dc71cac32..e4370b79b62f 100644
-> --- a/tools/testing/selftests/mm/thuge-gen.c
-> +++ b/tools/testing/selftests/mm/thuge-gen.c
-> @@ -13,7 +13,7 @@
->     sudo ipcs | awk '$1 == "0x00000000" {print $2}' | xargs -n1 sudo ipcrm -m
->     (warning this will remove all if someone else uses them) */
->  
-> -#define _GNU_SOURCE 1
-> +#define _GNU_SOURCE
->  #include <sys/mman.h>
->  #include <linux/mman.h>
->  #include <stdlib.h>
-> diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
-> index bc3925200637..8eaffd7a641c 100644
-> --- a/tools/testing/selftests/net/Makefile
-> +++ b/tools/testing/selftests/net/Makefile
-> @@ -1,7 +1,7 @@
->  # SPDX-License-Identifier: GPL-2.0
->  # Makefile for net selftests
->  
-> -CFLAGS =  -Wall -Wl,--no-as-needed -O2 -g
-> +CFLAGS +=  -Wall -Wl,--no-as-needed -O2 -g
->  CFLAGS += -I../../../../usr/include/ $(KHDR_INCLUDES)
->  # Additional include paths needed by kselftest.h
->  CFLAGS += -I../
-> diff --git a/tools/testing/selftests/net/tcp_ao/Makefile b/tools/testing/selftests/net/tcp_ao/Makefile
-> index 522d991e310e..bd88b90b902b 100644
-> --- a/tools/testing/selftests/net/tcp_ao/Makefile
-> +++ b/tools/testing/selftests/net/tcp_ao/Makefile
-> @@ -26,7 +26,7 @@ LIB	:= $(LIBDIR)/libaotst.a
->  LDLIBS	+= $(LIB) -pthread
->  LIBDEPS	:= lib/aolib.h Makefile
->  
-> -CFLAGS	:= -Wall -O2 -g -D_GNU_SOURCE -fno-strict-aliasing
-> +CFLAGS	+= -Wall -O2 -g -fno-strict-aliasing
->  CFLAGS	+= $(KHDR_INCLUDES)
->  CFLAGS	+= -iquote ./lib/ -I ../../../../include/
->  
-> diff --git a/tools/testing/selftests/proc/Makefile b/tools/testing/selftests/proc/Makefile
-> index 6066f607f758..ee424a9f075f 100644
-> --- a/tools/testing/selftests/proc/Makefile
-> +++ b/tools/testing/selftests/proc/Makefile
-> @@ -1,6 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  CFLAGS += -Wall -O2 -Wno-unused-function
-> -CFLAGS += -D_GNU_SOURCE
->  LDFLAGS += -pthread
->  
->  TEST_GEN_PROGS :=
-> diff --git a/tools/testing/selftests/resctrl/Makefile b/tools/testing/selftests/resctrl/Makefile
-> index 021863f86053..f408bd6bfc3d 100644
-> --- a/tools/testing/selftests/resctrl/Makefile
-> +++ b/tools/testing/selftests/resctrl/Makefile
-> @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  
-> -CFLAGS = -g -Wall -O2 -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE
-> +CFLAGS = -g -Wall -O2 -D_FORTIFY_SOURCE=2
->  CFLAGS += $(KHDR_INCLUDES)
->  
->  TEST_GEN_PROGS := resctrl_tests
-> diff --git a/tools/testing/selftests/ring-buffer/Makefile b/tools/testing/selftests/ring-buffer/Makefile
-> index 627c5fa6d1ab..23605782639e 100644
-> --- a/tools/testing/selftests/ring-buffer/Makefile
-> +++ b/tools/testing/selftests/ring-buffer/Makefile
-> @@ -1,7 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  CFLAGS += -Wl,-no-as-needed -Wall
->  CFLAGS += $(KHDR_INCLUDES)
-> -CFLAGS += -D_GNU_SOURCE
->  
->  TEST_GEN_PROGS = map_test
->  
-> diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
-> index c333263f2b27..4664ed79e20b 100644
-> --- a/tools/testing/selftests/riscv/mm/Makefile
-> +++ b/tools/testing/selftests/riscv/mm/Makefile
-> @@ -3,7 +3,7 @@
->  # Originally tools/testing/arm64/abi/Makefile
->  
->  # Additional include paths needed by kselftest.h and local headers
-> -CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
-> +CFLAGS += -std=gnu99 -I.
->  
->  TEST_GEN_FILES := mmap_default mmap_bottomup
->  
-> diff --git a/tools/testing/selftests/sgx/Makefile b/tools/testing/selftests/sgx/Makefile
-> index 867f88ce2570..03b5e13b872b 100644
-> --- a/tools/testing/selftests/sgx/Makefile
-> +++ b/tools/testing/selftests/sgx/Makefile
-> @@ -12,7 +12,7 @@ OBJCOPY := $(CROSS_COMPILE)objcopy
->  endif
->  
->  INCLUDES := -I$(top_srcdir)/tools/include
-> -HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC
-> +HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC $(CFLAGS)
->  HOST_LDFLAGS := -z noexecstack -lcrypto
->  ENCL_CFLAGS += -Wall -Werror -static-pie -nostdlib -ffreestanding -fPIE \
->  	       -fno-stack-protector -mrdrnd $(INCLUDES)
-> diff --git a/tools/testing/selftests/tmpfs/Makefile b/tools/testing/selftests/tmpfs/Makefile
-> index aa11ccc92e5b..3be931e1193f 100644
-> --- a/tools/testing/selftests/tmpfs/Makefile
-> +++ b/tools/testing/selftests/tmpfs/Makefile
-> @@ -1,6 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  CFLAGS += -Wall -O2
-> -CFLAGS += -D_GNU_SOURCE
->  
->  TEST_GEN_PROGS :=
->  TEST_GEN_PROGS += bug-link-o-tmpfile
+> +#define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
+> +
+> +static inline void local_sfence_inval_ir(void)
+> +{
+> +	asm volatile(SFENCE_INVAL_IR() ::: "memory");
+> +}
+> +
+> +static inline void local_sfence_w_inval(void)
+> +{
+> +	asm volatile(SFENCE_W_INVAL() ::: "memory");
+> +}
+> +
+> +static inline void local_sinval_vma(unsigned long vma, unsigned long asid)
+> +{
+> +	if (asid != FLUSH_TLB_NO_ASID)
+> +		asm volatile(SINVAL_VMA(%0, %1) : : "r" (vma), "r" (asid) :
+> +			     "memory");
 
--- 
-BR,
-Muhammad Usama Anjum
+nit: no need to wrap this line, we can go to 100 chars.
+
+> +	else
+> +		asm volatile(SINVAL_VMA(%0, zero) : : "r" (vma) : "memory");
+> +}
+>  
+>  /*
+>   * Flush entire TLB if number of entries to be flushed is greater
+> @@ -26,6 +48,16 @@ static void local_flush_tlb_range_threshold_asid(unsigned long start,
+>  		return;
+>  	}
+>  
+> +	if (has_svinval()) {
+> +		local_sfence_w_inval();
+> +		for (i = 0; i < nr_ptes_in_range; ++i) {
+> +			local_sinval_vma(start, asid);
+> +			start += stride;
+> +		}
+> +		local_sfence_inval_ir();
+> +		return;
+> +	}
+> +
+>  	for (i = 0; i < nr_ptes_in_range; ++i) {
+>  		local_flush_tlb_page_asid(start, asid);
+>  		start += stride;
+> -- 
+> 2.34.1
+>
+
+Otherwise,
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
