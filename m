@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 159DCC30659
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 12:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12B04C2BD09
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 12:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/qdBgHFBvSKeAAY+SgjDgvjJQw3rfpXbO5oi72azspY=; b=fE+cyEbvyzmIxp
-	AjuK4Xv2IrkExaR9y/s+bUUfj7Jk9O/FiRUvDiq1AWi2gs0zUGPkriqTnwc6u3gllxYxjShMtyQsN
-	eiZ5QCQxAgCQeixMnLwyAxfvHHM7CEuR8lFUR/0vNpIotT4ysZgUYR8Zk/I9hMArnstLTL/Jof4Ei
-	KD/3rz501igdss/WvOYW0dywZ2Myj8LRCcAEM/OwlwhWPCBoArnOemPuLV8Ngyeyr405ge8knssX+
-	+aYZwl++uvo0GPRMYJSiZvsQPFPppqAAuEutldFNuJ013fc6p/HO4O/wV+MvQL4uJAdIz86VP26+A
-	gz5BF6Su8aZuoFYu4wiA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fUpXhqEVLoEnNGqgqUwxPHMf98N/B5XcT+XScQUwWLA=; b=zgZBJFy6aYm4s3
+	7QWlXs/jyRv9YZ7gtthq+CQN7s+i1L+HI3Krgbm2zZxTy/u/Wd9G8C3GVU1VlLmOshGhAe6Dg8PXG
+	D/Cj1QMMdEvlgTV8Rhz6UgWmBpHVDNmYD44UEa3Q+LIOHQs+Q3HopmNV3u9INNpD/5O8cw1cXoF+W
+	m943k5CspqOgTqeYg0ipq/TMYlTNpkY5FfC4YbnLfKrGSZ/YTo4i8nf0/XtKaMLDUEt/TM7O2hWz/
+	gnBoQWlHOUVz3mNwE1arqZs3pN/5AV95/9oJdDjQGClYXWsLKgHoICjtfs7ci4MYfFII6c9nPE4WK
+	KeKfoiHJCxdK6B5Q8wvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOGGM-00000003Ftg-3rDp;
-	Mon, 01 Jul 2024 12:36:06 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1sOGGQ-00000003FxB-2Mfb;
+	Mon, 01 Jul 2024 12:36:10 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOFvB-000000035WA-0jdK
+	id 1sOFve-000000035nq-1cic
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jul 2024 12:14:15 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2c70c08d98fso2116434a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Jul 2024 05:14:12 -0700 (PDT)
+	Mon, 01 Jul 2024 12:14:44 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-7276c331f78so2582990a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Jul 2024 05:14:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1719836052; x=1720440852; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Il8RvAivystWZIG0DojBlqOoWjix3gP4iIZXLpKwVH4=;
-        b=PIPzQCKRJ23RqV75IK6+mFAaFm+wosN5/xkUFvLDLswQE/ry8IDZSvyVkx6tWIwLE5
-         Rp5cIp5J2c96dhkDufEijAHnlkh/mrq3aI9UsCiZgWt1HEjeKmevpuG+yK1c5BxB0eOi
-         gr8k2drd8az4Fvtqp1bdx8qPDRqmdbPxzMySObNkN+l6claBkUFolvht2JhsO4EGvqE9
-         iH7/65qoKHtz6wrQL8wjPesIcoWD7sn/IjmkmaDvc9D37DRYjK2NJRC7JxefX7sN5iiC
-         PKn7R30e91EFzQiQpLpXv8rdpgddR/eVOPLRi/yIheyhrydHEc7W3htdAbF4WMIw/YIU
-         rjpA==
+        d=gmail.com; s=20230601; t=1719836081; x=1720440881; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=x2JlVyvdXaf8wO0NkeSTlMZDCp7W3gnVU01+vdeONI4=;
+        b=L3VqPq0VMHsstA9IFRwwex+ZgbFvRDhHP+5F39rCTm5HDzEYTfipcVSUi7lxWV4wn1
+         xSHROEQXvI35pYxnQvcffjN2w2y64RqQrmUZqe/A+AMeTOCy3dx76bja6LKCQCSsMDUT
+         06+7g98aPjLkKOUc8S+F5v4DcNfyFkNTc7oaZskI1FdBvXYmHlAFJomVRRFF4PQahaZv
+         AA40h+ki44ucy3G9DPakj4xzmlaQ+Gip7Oc0MJcBWkBC7rziXZm9hbQIYO1Ug67t0nwt
+         bhjBZ79Vzd3dd3FMGbGPVbv1+1Pd0ejLM4nb2+jn2R1PFeVka4J1I5vXnRIym0FquOoD
+         AvCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719836052; x=1720440852;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Il8RvAivystWZIG0DojBlqOoWjix3gP4iIZXLpKwVH4=;
-        b=DtBKMY6dLUpmOC8RvfKS9PryY+T8WTM3NPI9+jiqtuwwE5vnqzzUxydmEATYlnKaql
-         ymcM1rTLd2AdgyrxEfvmhdJ1KvWPu/43L3nLxuBhu6qPm28UfoCWCHryiLShMxJhN76k
-         r0ccr7a5rEBZ8gJjw8OKHqbb1Js978FRtaiRMkjfnhcai0QFIegnaS3pG5t2iDRbgepf
-         WmsbLIA2fkAjihVgF31/z5rVksQgGoQPga4OfD3IlKBdEwJ71OygsJRFjLKLZwq1FnGm
-         m7+jOyIWPRgxgefnBWfFaPSuqDlAAd+k1XKD5cSXW5hALHNqPriDSPe5pd/QV/WCTbGB
-         Fz/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWdWalzuTIf/NT95b/+98YiGRGIQqnOb7Wed9flCwHswcBGrXz6uGAPn/ipMWaYAes1mp9txUbWUPDrUTqMMKyO5N3q7fVobFL1bC6uVFfT
-X-Gm-Message-State: AOJu0YwFM70O1nt1CKr+okpGBiDvO8XwXasQ2L/1bPCfux7eGiWXX0gQ
-	skMv/I10okKWmCIl9WOgPR1uAByrgdVCt8GZ1RFujybHj7fAdG/Y
-X-Google-Smtp-Source: AGHT+IHs8mCU7JTsODYLCtCH8cGJqwnp47JeXfiA6d2spp0vsMSWOcIJ61nbGfWMfVqbr1aqe1wgnw==
-X-Received: by 2002:a17:90b:19d4:b0:2c8:5bd3:551a with SMTP id 98e67ed59e1d1-2c93d76512emr4212533a91.35.1719836052174;
-        Mon, 01 Jul 2024 05:14:12 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1719836081; x=1720440881;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=x2JlVyvdXaf8wO0NkeSTlMZDCp7W3gnVU01+vdeONI4=;
+        b=IS8WPS+14M/Wzo9Gr6oEgGdU5FUh5i9xz+tOqCCM1mgiS7bAZlQZvaHqdtXlG1e3J2
+         8kZe7HpUtqbyJqLBdE7f1gWe+lhWX7EZqwv6HHQ8KPV17CuJNsoZDgl/1K+V2e+orjHB
+         kIL77vk3RynHdjKuYOKSYooo7tI7lZQ3L/5NjbWlDHFsf1kfZBAolLf+bWiRQHk8/3tX
+         pwvo3Q8q8V8PHJIQifxcj+KnFCITpl5Ll2Qa++yVE4QiP6peiCOrhw+VOTOSXIA7/jjE
+         hSS2j3Gx1R9Hf+rZsJODIlUdvBJZqOvtw2g26mrxlRNJ2tUBFRx/cVslxgeWC6ERTsq2
+         OBtw==
+X-Forwarded-Encrypted: i=1; AJvYcCVlsgkxLK1SUkowsryFxWpUBGtTrFJqo7/vo4gTz/wxTHSM3bLUE8aEfp5Y+iVLz3pGDChLOJ5JanzNkbwjqYegGEuAVwkcEQFOGoTWkNjz
+X-Gm-Message-State: AOJu0YxnyDLFk3XVCMYwfCoTzlyPT1PVhnsl1LDdhYB4ZriEWbaNkg7S
+	AFYqcj4B7GZoEtcjywNixHAPdC8Oylv273rRayJiIU+gboZMeyjv
+X-Google-Smtp-Source: AGHT+IH5fZqGsM7fv4aL4Hf2OsbfmuWDVI3xrdjeGta3W/nTcuTAQXHLXW/5GIXbOraLNdXwplsgNQ==
+X-Received: by 2002:a17:90a:c090:b0:2c6:f5bf:5175 with SMTP id 98e67ed59e1d1-2c93d1b99b3mr8969180a91.10.1719836081239;
+        Mon, 01 Jul 2024 05:14:41 -0700 (PDT)
 Received: from ga401ii.. ([223.178.83.109])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2c91ce17a77sm6613098a91.6.2024.07.01.05.14.07
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2c91ce17a77sm6613098a91.6.2024.07.01.05.14.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jul 2024 05:14:11 -0700 (PDT)
+        Mon, 01 Jul 2024 05:14:40 -0700 (PDT)
 From: Kanak Shilledar <kanakshilledar@gmail.com>
 To: 
 Cc: Kanak Shilledar <kanakshilledar@gmail.com>,
@@ -80,14 +81,17 @@ Cc: Kanak Shilledar <kanakshilledar@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 0/3] Add basic SPI support on TH1520
-Date: Mon,  1 Jul 2024 17:43:51 +0530
-Message-ID: <20240701121355.262259-2-kanakshilledar@gmail.com>
+Subject: [PATCH v2 1/3] dt-bindings: spi: snps,dw-apb-ssi.yaml: update compatible property
+Date: Mon,  1 Jul 2024 17:43:52 +0530
+Message-ID: <20240701121355.262259-3-kanakshilledar@gmail.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20240701121355.262259-2-kanakshilledar@gmail.com>
+References: <20240701121355.262259-2-kanakshilledar@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240701_051413_237726_141F379B 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20240701_051442_450969_63A79FF7 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,36 +108,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implemented basic SPI support for TH1520 SoC. There are two SPIs reserved
-on the LicheePi4A, one on the SPI Flash pads that are blanked out on the
-back, and one on the pins. I implemented the one connected to the pad.
+updated compatible property to include "thead,th1520-spi" for the
+TH1520 SoC SPI Controller.
 
-It is using a fixed clock of 396MHz. The address and clock frequency was
-referenced from the TH1520 System Reference Manual [1].
+Signed-off-by: Kanak Shilledar <kanakshilledar@gmail.com>
+---
+Changes in v2:
+- Separated from a single patch file
+---
+ Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-I have tested this on the LicheePi4A.
-
-Changes made in v2:
-- Changed from single patch file to a patchset by splitting the single
-commit into dt-bindings, driver and the devicetree.
-
-[1] https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-
-Kanak Shilledar (3):
-  dt-bindings: spi: snps,dw-apb-ssi.yaml: update compatible property
-  spi: dw-mmio: update dw_spi_mmio_of_match struct with thead
-  riscv: dts: thead: add basic spi node
-
- .../devicetree/bindings/spi/snps,dw-apb-ssi.yaml |  4 ++++
- .../boot/dts/thead/th1520-beaglev-ahead.dts      |  9 +++++++++
- .../boot/dts/thead/th1520-lichee-module-4a.dtsi  |  4 ++++
- .../riscv/boot/dts/thead/th1520-lichee-pi-4a.dts |  5 +++++
- arch/riscv/boot/dts/thead/th1520.dtsi            | 16 ++++++++++++++++
- drivers/spi/spi-dw-mmio.c                        |  1 +
- 6 files changed, 39 insertions(+)
-
-
-base-commit: 6ba59ff4227927d3a8530fc2973b80e94b54d58f
+diff --git a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+index fde3776a558b..bccd00a1ddd0 100644
+--- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
++++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+@@ -88,6 +88,10 @@ properties:
+               - renesas,r9a06g032-spi # RZ/N1D
+               - renesas,r9a06g033-spi # RZ/N1S
+           - const: renesas,rzn1-spi   # RZ/N1
++      - description: T-HEAD TH1520 SoC SPI Controller
++        items:
++          - const: thead,th1520-spi
++          - const: snps,dw-apb-ssi
+ 
+   reg:
+     minItems: 1
 -- 
 2.45.2
 
