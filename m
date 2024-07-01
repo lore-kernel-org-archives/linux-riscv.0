@@ -4,88 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A693C2BD09
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 05:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77801C2BD09
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 05:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sMBCsc8LSnHkyV/PMVO8jn4WAJO7jaF3+wz8aiGu94o=; b=kMRoPQvwUzGtNy
-	/Z7IhE4toSZZZJXiCB+P/0p+dWEv700ae9NCdKDng5e63U5B3A2eitYqHfRAlbBV5OPQqfqTBy44x
-	KDY87HSqNyz4AEUTiGpxtQDYtsl/UYE4ir7nr463F9uMugoPVHiodrVR9+QNvbxscPKQbwDMt+fZQ
-	goOoNcR8hyi5HpargMWSRTECy2n4bHDunlrNS/KbA5Juv33jhXRvVAboIiEcOVTquMzYj3GhhySa7
-	fzKMBlolNnRvxPRWTQI+EVhxTZUeJ57OaTjWgrhaqXvvd3qqiAqX+gi94JUtkGPGGTKYBNYV2gTQV
-	50MJkn64nrBOQLAIwjbg==;
+	List-Owner; bh=rFPpEF6xukwV5DrMBUG7lPlgrIoUVLiptb7hyWU4Occ=; b=Z9EhOFqDoFtbbz
+	YarlWMZkUSYW9qs3q1AcWFTJ79aYbthvuMbH/8WvJwYnnZmdYs6RfpgXmlT3lPtwsfYsxn9dSB6Cd
+	75pX2mKrSHb44U/xIRANYSgjDVecghDelJulKa9lohvp1Li1qY9K0fh9cqwCP/6DOt0/TgcRrz/uQ
+	OJTzXB2e8IX9Sp5+gBRMpDNh3DefG/PL0sfY9kitXAu6dZL3zrkFCT5j5g0HdAiSP+Z+9VN+Tf4+c
+	gXkffAtd4PtiBNLy2XU0O2wV4A/6Fb5s/QbAoru4BrssbHNrxUKqxTwHUxtkGZD6DqAbHshqYN/jt
+	1FZ8dAw1TWGdakDVO0vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sO9vC-00000001mah-2Jhx;
-	Mon, 01 Jul 2024 05:49:50 +0000
-Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
+	id 1sO9xi-00000001n2a-2qn6;
+	Mon, 01 Jul 2024 05:52:26 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sO9v9-00000001mZc-0zYx
+	id 1sO9xe-00000001n1m-381f
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jul 2024 05:49:48 +0000
-Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-3d55e2e032dso1641086b6e.3
-        for <linux-riscv@lists.infradead.org>; Sun, 30 Jun 2024 22:49:46 -0700 (PDT)
+	Mon, 01 Jul 2024 05:52:24 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-6f8edde24b3so1743902a34.2
+        for <linux-riscv@lists.infradead.org>; Sun, 30 Jun 2024 22:52:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1719812986; x=1720417786; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=4s/WBvVl/dst1lHjWFZpMEMdrWEWEKJym4uGaWtNax0=;
-        b=E6gQMdWAUHS81Tzi5xj1Wt73Eyp6qbOvLLMzb6qKqWe1hXF4ZMV7nquXay1iqfafgF
-         pB+e5e6VLL6yAsrp/OsAeJYZAnNfgsLKiyuZlH3BmqEuIb9Hanpf9AOEdRASvNFf371H
-         VQgAN5Z7f9ZG/YKKjAAsL7fKyhpMTbGV4LHEyPhh2GpC6FHJgeWuuAKdG9jEgLkA5gCX
-         0OxYrWfEK5L+axL81/jinZu1tmET1xPTwY3HLDjL71KOwJeHDZC6dk84KEI9zPAP7KPk
-         HMC8/DFV5TXlYUFsPgN+IOHhGVRuVMoL9tRR81fUFq7Gn3Wwa8RrdCeqLKzmSPPFw6yp
-         u1eQ==
+        d=ventanamicro.com; s=google; t=1719813141; x=1720417941; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=aKMU8DKIWEClgPDBnmDjtT7Ao2B1dNYMjzwF2iFrrjI=;
+        b=Ujfi2jRtoSC0T6ghNWD7e6F5t6T5JCKrvYCVO+qFzTWSjjqFjK5pIIgt2d9nrFc0kj
+         q9I5Mhv1wKk568huWrBnYEZOnv8D7abxldAUNeXP9ntyDi1Cray7CHLM318Ndtwx+pOA
+         qdYzbxfIUDLlEqD9nndyZH3nTti0TRd/rmyuODROyAyT+fxzbUV9GfO421JDWCWZxzAf
+         H5uMSHx1kA2deYy0PHWa3NR/tC28VcRh/t2oKxX/LvKiSUHTMYcLgdjxVccO/g+KeB2X
+         nKpLJiugJglN+QDj0YRapFNGpVH7xLI6mjrFvVnA7K8nZ9RLlWOR8PuinOQ5Vh1rgbgn
+         D3HQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719812986; x=1720417786;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4s/WBvVl/dst1lHjWFZpMEMdrWEWEKJym4uGaWtNax0=;
-        b=XpnpeY+wPzNm8znP7q6tfcpbKwfo/uEQ521cmmAG/0GVlANcUmHzZsJRSlE+Fo5pti
-         twns93MZbY+kC7MXUS/6UjS9BVST9DHjj5n/elFy4+f8G+4J8ftSSDnw2r4SmKrw5z7D
-         WTx6Tz9SfZqTkhFtdrMylXYyZNtCJhaoYYvDmp2zSba38i1BVtO8U3T0q17A6Fo9W+T+
-         mtklxD7thXBx7ab5Nu6ulj6MZF+Egybc0eavHtKRPg2c/mpWP0eNFeGDLeTbHwmmWNHR
-         NlXDCF9Rhd7h4DXMw7oL1PkL6lyOD5P/HFnTygpX6fjcz+GAKw5HCDfjgtAJOA8F/tU6
-         AZtg==
-X-Forwarded-Encrypted: i=1; AJvYcCWrlyCJBMafRxZuABiVr1c6TgbCliv4Rav/2HW8ZWushgB9ZnbyZvZXwYWb3oqf4f4BldVi0bfOb+Y2t3R1rDDX8nrhWS6bxAzgr+tQKRD7
-X-Gm-Message-State: AOJu0YwIL7Ig27OYhjDdv4Ui6zr2L2WC6SFa6wBgdsixzQ3/nSQO4S7O
-	RiJCUHpOKDjuppV95ZqE4+qSGkwHoJbQ6xRcr1uDFOTZ+JyMiqauLdeFQd4OBLE=
-X-Google-Smtp-Source: AGHT+IFkbfzSyeGbbMoYBWXleU/NPIjZpuMJZvhBR4F8gn5oN8vBjv/YM3Be+WxqxSc8Jn7yn+W2+w==
-X-Received: by 2002:a05:6808:1706:b0:3d6:32d2:2c15 with SMTP id 5614622812f47-3d6b5686a2dmr6011108b6e.59.1719812985837;
-        Sun, 30 Jun 2024 22:49:45 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1719813141; x=1720417941;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aKMU8DKIWEClgPDBnmDjtT7Ao2B1dNYMjzwF2iFrrjI=;
+        b=FYrPuGIVkrOGdGMOgCOLyDDmKCEEwYKkZrd4I6gRekSHDQviWpUt561tIbnzHzdaWm
+         tbzHvW35yTtrmkoG5ARuHFFhSEZ4qYvtNdow/2YSUHNXRwsUm1t86NNyeRvuH9gwXMj3
+         meG7r4ZVY5toCdZOI4Ww14ZXpAHNQ0BfJYf+xUQF/ikjSYsoh2vAKNbCkY1NzKfJWRs4
+         CeEkl06yGisJ2PZWP2dT+xNNEIQp4ZtU5tvrUuKjTLEenREMO+/qHVBoEKy6pm1ae3Hb
+         SIkZUDYh728GCr94buh1pmlrJiXY+JFKweO8DAx9KHMtj/TSkjZ5H7SPMNZjZW6kfPy8
+         eLJw==
+X-Forwarded-Encrypted: i=1; AJvYcCVEYZihnKQSpth3Wtn2bhW95mYet2JiOmum6cDe0Jz6KRJ3+hsnIUacph5W+ZaD5Y0bkFH5LB5jPGRn68O7+v8BQcE+eGNlOEN/I0T9Ofir
+X-Gm-Message-State: AOJu0YwU91LYTh1MNzUigVO3RJ/mKqP5okO9SaQUim3ehDFxBZIN5wu0
+	z0pzbWgXwie5ZXz96zaEl0m3Yt4lKCoU14NkTe5OVgNblOGagBbpysIwFItlXXs=
+X-Google-Smtp-Source: AGHT+IGm7YJAgZMyphMx4GQMzsUKLII+YHeZwD23+Ey+akRFhATjAn/ybArgYnMmQp/igw9JEjVJmw==
+X-Received: by 2002:a05:6830:903:b0:702:1d8:4d08 with SMTP id 46e09a7af769-702076a4d47mr8000813a34.35.1719813141012;
+        Sun, 30 Jun 2024 22:52:21 -0700 (PDT)
 Received: from sunil-laptop ([106.51.187.237])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3d62fb48ab1sm1228661b6e.54.2024.06.30.22.49.39
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-701f7a9b2d9sm1167621a34.6.2024.06.30.22.52.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Jun 2024 22:49:45 -0700 (PDT)
-Date: Mon, 1 Jul 2024 11:19:35 +0530
+        Sun, 30 Jun 2024 22:52:20 -0700 (PDT)
+Date: Mon, 1 Jul 2024 11:22:03 +0530
 From: Sunil V L <sunilvl@ventanamicro.com>
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: rafael@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org, bhelgaas@google.com,
-	james.morse@arm.com, jeremy.linton@arm.com,
-	Jonathan.Cameron@huawei.com, pierre.gondois@arm.com,
-	sudeep.holla@arm.com, tiantao6@huawei.com
-Subject: Re: [External] Re: [PATCH v6 3/3] RISC-V: Select ACPI PPTT drivers
-Message-ID: <ZoJDb9PQX2oEISrI@sunil-laptop>
-References: <20240617131425.7526-1-cuiyunhui@bytedance.com>
- <20240617131425.7526-3-cuiyunhui@bytedance.com>
- <CAEEQ3wnkQsfmLbyMrG_YBvWvhHJdSTg7dG5W_mxv_wxCjatgCA@mail.gmail.com>
- <ZnLY3mNxyv9QOmGn@sunil-laptop>
- <CAEEQ3wmarOoWWYrdpf7YNQdZG4rf_O4dHkeiO3W1cuavVh8TMQ@mail.gmail.com>
+To: Haibo Xu <haibo1.xu@intel.com>, Palmer Dabbelt <palmer@dabbelt.com>
+Cc: arnd@arndb.de, xiaobo55x@gmail.com, ajones@ventanamicro.com,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Charlie Jenkins <charlie@rivosinc.com>, Baoquan He <bhe@redhat.com>,
+	Evan Green <evan@rivosinc.com>,
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+	Zong Li <zong.li@sifive.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Chen Jiahao <chenjiahao16@huawei.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	James Morse <james.morse@arm.com>, Andy Chiu <andy.chiu@sifive.com>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Tony Luck <tony.luck@intel.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Alison Schofield <alison.schofield@intel.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Robert Richter <rrichter@amd.com>, Yuntao Wang <ytcoode@gmail.com>,
+	Dave Jiang <dave.jiang@intel.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org
+Subject: Re: [PATCH v4 0/4] Add ACPI NUMA support for RISC-V
+Message-ID: <ZoJEA85utEK6u36t@sunil-laptop>
+References: <cover.1718268003.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAEEQ3wmarOoWWYrdpf7YNQdZG4rf_O4dHkeiO3W1cuavVh8TMQ@mail.gmail.com>
+In-Reply-To: <cover.1718268003.git.haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240630_224947_301277_950618BE 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20240630_225222_813987_A9490538 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,43 +117,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdW4gMjAsIDIwMjQgYXQgMDk6Mjg6MThBTSArMDgwMCwgeXVuaHVpIGN1aSB3cm90
-ZToKPiBIaSBTdW5pbCwKPiAKPiBPbiBXZWQsIEp1biAxOSwgMjAyNCBhdCA5OjEx4oCvUE0gU3Vu
-aWwgViBMIDxzdW5pbHZsQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+ID4KPiA+IE9uIFdlZCwg
-SnVuIDE5LCAyMDI0IGF0IDA3OjMyOjE4UE0gKzA4MDAsIHl1bmh1aSBjdWkgd3JvdGU6Cj4gPiA+
-IEhpIFN1bmlsLAo+ID4gPgo+ID4gPiBPbiBNb24sIEp1biAxNywgMjAyNCBhdCA5OjE04oCvUE0g
-WXVuaHVpIEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+IHdyb3RlOgo+ID4gPiA+Cj4gPiA+
-ID4gQWZ0ZXIgYWRkaW5nIEFDUEkgc3VwcG9ydCB0byBwb3B1bGF0ZV9jYWNoZV9sZWF2ZXMoKSwg
-UklTQy1WIGNhbiBidWlsZAo+ID4gPiA+IGNhY2hlaW5mbyB0aHJvdWdoIHRoZSBBQ1BJIFBQVFQg
-dGFibGUsIHRodXMgZW5hYmxpbmcgdGhlIEFDUElfUFBUVAo+ID4gPiA+IGNvbmZpZ3VyYXRpb24u
-Cj4gPiA+ID4KPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBZdW5odWkgQ3VpIDxjdWl5dW5odWlAYnl0
-ZWRhbmNlLmNvbT4KPiA+ID4gPiBSZXZpZXdlZC1ieTogSmVyZW15IExpbnRvbiA8amVyZW15Lmxp
-bnRvbkBhcm0uY29tPgo+ID4gPiA+IFJldmlld2VkLWJ5OiBTdWRlZXAgSG9sbGEgPHN1ZGVlcC5o
-b2xsYUBhcm0uY29tPgo+ID4gPiA+IFJldmlld2VkLWJ5OiBTdW5pbCBWIEwgPHN1bmlsdmxAdmVu
-dGFuYW1pY3JvLmNvbT4KPiA+ID4gPiAtLS0KPiA+ID4gPiAgYXJjaC9yaXNjdi9LY29uZmlnIHwg
-MSArCj4gPiA+ID4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKQo+ID4gPiA+Cj4gPiA+
-ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+
-ID4gPiA+IGluZGV4IDlmMzhhNWVjYmVlMy4uMWI0YzMxMGE1OWZiIDEwMDY0NAo+ID4gPiA+IC0t
-LSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+
-ID4gPiA+IEBAIC0xMyw2ICsxMyw3IEBAIGNvbmZpZyAzMkJJVAo+ID4gPiA+ICBjb25maWcgUklT
-Q1YKPiA+ID4gPiAgICAgICAgIGRlZl9ib29sIHkKPiA+ID4gPiAgICAgICAgIHNlbGVjdCBBQ1BJ
-X0dFTkVSSUNfR1NJIGlmIEFDUEkKPiA+ID4gPiArICAgICAgIHNlbGVjdCBBQ1BJX1BQVFQgaWYg
-QUNQSQo+ID4gPiA+ICAgICAgICAgc2VsZWN0IEFDUElfUkVEVUNFRF9IQVJEV0FSRV9PTkxZIGlm
-IEFDUEkKPiA+ID4gPiAgICAgICAgIHNlbGVjdCBBUkNIX0RNQV9ERUZBVUxUX0NPSEVSRU5UCj4g
-PiA+ID4gICAgICAgICBzZWxlY3QgQVJDSF9FTkFCTEVfSFVHRVBBR0VfTUlHUkFUSU9OIGlmIEhV
-R0VUTEJfUEFHRSAmJiBNSUdSQVRJT04KPiA+ID4gPiAtLQo+ID4gPiA+IDIuMjAuMQo+ID4gPiA+
-Cj4gPiA+Cj4gPiA+IEdlbnRsZSBwaW5nLgo+ID4gPgo+ID4gQWN0dWFsbHksIG15IFJCIGlzIHN0
-aWxsIHZhbGlkLiBBbnl3YXksIGhlcmUgYWdhaW4uCj4gPgo+ID4gUmV2aWV3ZWQtYnk6IFN1bmls
-IFYgTCA8c3VuaWx2bEB2ZW50YW5hbWljcm8uY29tPgo+ID4KPiA+IFRoYW5rcywKPiA+IFN1bmls
-Cj4gCj4gT2theSwgdGhhbmsgeW91LiBCVFcsIHdoZW4gd2lsbCB0aGlzIHBhdGNoc2V0IGJlIHBp
-Y2tlZCB1cCB0byBsaW51eC1uZXh0Pwo+IApIaSBQYWxtZXIsCgpDYW4gdGhpcyBzZXJpZXMgYmUg
-cGlja2VkIHVwIGZvciAtbmV4dD8gTG9va3MgbGlrZSBpdCBoYXMgZ290IHN1ZmZpY2llbnQKcmV2
-aWV3cy4KClRoYW5rcywKU3VuaWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+On Thu, Jun 13, 2024 at 04:54:32PM +0800, Haibo Xu wrote:
+> This patch series enable RISC-V ACPI NUMA support which was based on
+> the recently approved ACPI ECR[1].
+> 
+> Patch 1/4 add RISC-V specific acpi_numa.c file to parse NUMA information
+> from SRAT and SLIT ACPI tables.
+> Patch 2/4 add the common SRAT RINTC affinity structure handler.
+> Patch 3/4 change the ACPI_NUMA to a hidden option since it would be selected
+> by default on all supported platform.
+> Patch 4/4 replace pr_info with pr_debug in arch_acpi_numa_init() to avoid
+> potential boot noise on ACPI platforms that are not NUMA.
+> 
+> Based-on: https://github.com/linux-riscv/linux-riscv/tree/for-next
+> 
+> [1] https://drive.google.com/file/d/1YTdDx2IPm5IeZjAW932EYU-tUtgS08tX/view?usp=sharing
+
+Hi Palmer,
+
+Can this series be taken for -next?
+
+Thanks,
+Sunil
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
