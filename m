@@ -4,108 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77801C2BD09
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 05:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AABBC2BD09
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2024 06:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rFPpEF6xukwV5DrMBUG7lPlgrIoUVLiptb7hyWU4Occ=; b=Z9EhOFqDoFtbbz
-	YarlWMZkUSYW9qs3q1AcWFTJ79aYbthvuMbH/8WvJwYnnZmdYs6RfpgXmlT3lPtwsfYsxn9dSB6Cd
-	75pX2mKrSHb44U/xIRANYSgjDVecghDelJulKa9lohvp1Li1qY9K0fh9cqwCP/6DOt0/TgcRrz/uQ
-	OJTzXB2e8IX9Sp5+gBRMpDNh3DefG/PL0sfY9kitXAu6dZL3zrkFCT5j5g0HdAiSP+Z+9VN+Tf4+c
-	gXkffAtd4PtiBNLy2XU0O2wV4A/6Fb5s/QbAoru4BrssbHNrxUKqxTwHUxtkGZD6DqAbHshqYN/jt
-	1FZ8dAw1TWGdakDVO0vw==;
+	List-Owner; bh=9Hwt7JUYvA5au8oYYmc7HLsuOKTeO9oFMnofOYCV08A=; b=eNyncWgbg3tlz/
+	041oEfZF14hw3Dee8YZ99YIyFqcSPmIap4xaqKEKa14v4wJ9dOVdoPbQ/SH4/dxGqUhoU+M7iODGc
+	myeGMONyeP0Wliqc0hkivkYR9BzT73YbTchKWiIMNUiZvna9mw1TqbCUxzpC5HHW5IaQ6otYQQRxM
+	UTEbTQWr5IRJur553XKIq6sZmpiOMShaUHsVYq8Iadpi8Oir/HNQ79b8JKpzlCJvVd9Xoa5BHvYoj
+	qHY+gYc1k5d8JcSzcnNy10I9qmfjyVXMfpKarjk46SvzFaHjx0DSnLTKnOVl3ZKk5GBcqMJLtUSMG
+	wby4isy7JezEP2/k4+UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sO9xi-00000001n2a-2qn6;
-	Mon, 01 Jul 2024 05:52:26 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1sOAKB-00000001qRp-4BVF;
+	Mon, 01 Jul 2024 06:15:40 +0000
+Received: from madrid.collaboradmins.com ([2a00:1098:ed:100::25])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sO9xe-00000001n1m-381f
+	id 1sOAK9-00000001qQN-1Ri2
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Jul 2024 05:52:24 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-6f8edde24b3so1743902a34.2
-        for <linux-riscv@lists.infradead.org>; Sun, 30 Jun 2024 22:52:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1719813141; x=1720417941; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aKMU8DKIWEClgPDBnmDjtT7Ao2B1dNYMjzwF2iFrrjI=;
-        b=Ujfi2jRtoSC0T6ghNWD7e6F5t6T5JCKrvYCVO+qFzTWSjjqFjK5pIIgt2d9nrFc0kj
-         q9I5Mhv1wKk568huWrBnYEZOnv8D7abxldAUNeXP9ntyDi1Cray7CHLM318Ndtwx+pOA
-         qdYzbxfIUDLlEqD9nndyZH3nTti0TRd/rmyuODROyAyT+fxzbUV9GfO421JDWCWZxzAf
-         H5uMSHx1kA2deYy0PHWa3NR/tC28VcRh/t2oKxX/LvKiSUHTMYcLgdjxVccO/g+KeB2X
-         nKpLJiugJglN+QDj0YRapFNGpVH7xLI6mjrFvVnA7K8nZ9RLlWOR8PuinOQ5Vh1rgbgn
-         D3HQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719813141; x=1720417941;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aKMU8DKIWEClgPDBnmDjtT7Ao2B1dNYMjzwF2iFrrjI=;
-        b=FYrPuGIVkrOGdGMOgCOLyDDmKCEEwYKkZrd4I6gRekSHDQviWpUt561tIbnzHzdaWm
-         tbzHvW35yTtrmkoG5ARuHFFhSEZ4qYvtNdow/2YSUHNXRwsUm1t86NNyeRvuH9gwXMj3
-         meG7r4ZVY5toCdZOI4Ww14ZXpAHNQ0BfJYf+xUQF/ikjSYsoh2vAKNbCkY1NzKfJWRs4
-         CeEkl06yGisJ2PZWP2dT+xNNEIQp4ZtU5tvrUuKjTLEenREMO+/qHVBoEKy6pm1ae3Hb
-         SIkZUDYh728GCr94buh1pmlrJiXY+JFKweO8DAx9KHMtj/TSkjZ5H7SPMNZjZW6kfPy8
-         eLJw==
-X-Forwarded-Encrypted: i=1; AJvYcCVEYZihnKQSpth3Wtn2bhW95mYet2JiOmum6cDe0Jz6KRJ3+hsnIUacph5W+ZaD5Y0bkFH5LB5jPGRn68O7+v8BQcE+eGNlOEN/I0T9Ofir
-X-Gm-Message-State: AOJu0YwU91LYTh1MNzUigVO3RJ/mKqP5okO9SaQUim3ehDFxBZIN5wu0
-	z0pzbWgXwie5ZXz96zaEl0m3Yt4lKCoU14NkTe5OVgNblOGagBbpysIwFItlXXs=
-X-Google-Smtp-Source: AGHT+IGm7YJAgZMyphMx4GQMzsUKLII+YHeZwD23+Ey+akRFhATjAn/ybArgYnMmQp/igw9JEjVJmw==
-X-Received: by 2002:a05:6830:903:b0:702:1d8:4d08 with SMTP id 46e09a7af769-702076a4d47mr8000813a34.35.1719813141012;
-        Sun, 30 Jun 2024 22:52:21 -0700 (PDT)
-Received: from sunil-laptop ([106.51.187.237])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-701f7a9b2d9sm1167621a34.6.2024.06.30.22.52.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Jun 2024 22:52:20 -0700 (PDT)
-Date: Mon, 1 Jul 2024 11:22:03 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Haibo Xu <haibo1.xu@intel.com>, Palmer Dabbelt <palmer@dabbelt.com>
-Cc: arnd@arndb.de, xiaobo55x@gmail.com, ajones@ventanamicro.com,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Charlie Jenkins <charlie@rivosinc.com>, Baoquan He <bhe@redhat.com>,
-	Evan Green <evan@rivosinc.com>,
-	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
-	Zong Li <zong.li@sifive.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Chen Jiahao <chenjiahao16@huawei.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	James Morse <james.morse@arm.com>, Andy Chiu <andy.chiu@sifive.com>,
-	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Tony Luck <tony.luck@intel.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Alison Schofield <alison.schofield@intel.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Robert Richter <rrichter@amd.com>, Yuntao Wang <ytcoode@gmail.com>,
-	Dave Jiang <dave.jiang@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-acpi@vger.kernel.org
-Subject: Re: [PATCH v4 0/4] Add ACPI NUMA support for RISC-V
-Message-ID: <ZoJEA85utEK6u36t@sunil-laptop>
-References: <cover.1718268003.git.haibo1.xu@intel.com>
+	Mon, 01 Jul 2024 06:15:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1719814532;
+	bh=WmI09JaExLOgwIiAfkIPKvdePbKWzCZg6yL6VDCaUN4=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=RP6AD1v+j6bPzkD4Qfi/D0Q58GhtnnMPgGqhmQ9YGJX9Jc/5j84eJ7xUBdHZJRzFx
+	 aXPXn39mJWbIX+hF2Rx6HPtqgMK4vfUXHqti+IbFCO5Q8bGEOYciAZVbAvxI1kGzeR
+	 g0TD5c0QDnRR5cYZ0bk02V6Iz6eS/b5EgMh95woV6SkktOdHJgXgDkEDcqIbeyMewD
+	 TfpEAsVSV82X6VPFFcT0pA4AfIytfyCqe6TFWaYlNmT4kY7j1t72YZQc6kzGiHWxze
+	 VlPaDaj3j6O+JFwu31mdPgmr5u8MzDcUXIrceg69E0CyvjyMCcC0aTq021O4QEtL3Z
+	 exwCDx8GCLtyg==
+Received: from [100.113.15.66] (ec2-34-240-57-77.eu-west-1.compute.amazonaws.com [34.240.57.77])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: usama.anjum)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id AA10E3782065;
+	Mon,  1 Jul 2024 06:15:00 +0000 (UTC)
+Message-ID: <221495d5-1be2-4c71-ab2f-eb145257737a@collabora.com>
+Date: Mon, 1 Jul 2024 11:14:54 +0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1718268003.git.haibo1.xu@intel.com>
+User-Agent: Mozilla Thunderbird
+Cc: Muhammad Usama Anjum <usama.anjum@collabora.com>,
+ linux-kernel@vger.kernel.org, seanjc@google.com, kernel-team@android.com,
+ linux-mm@kvack.org, iommu@lists.linux.dev, kvm@vger.kernel.org,
+ netdev@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-sgx@vger.kernel.org,
+ John Hubbard <jhubbard@nvidia.com>
+Subject: Re: [PATCH v7 1/1] selftests: Centralize -D_GNU_SOURCE= to CFLAGS in
+ lib.mk
+To: Edward Liaw <edliaw@google.com>, linux-kselftest@vger.kernel.org,
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
+ Paolo Bonzini <pbonzini@redhat.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Fenghua Yu <fenghua.yu@intel.com>,
+ Reinette Chatre <reinette.chatre@intel.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jarkko Sakkinen <jarkko@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>
+References: <20240625223454.1586259-1-edliaw@google.com>
+ <20240625223454.1586259-2-edliaw@google.com>
+Content-Language: en-US
+From: Muhammad Usama Anjum <usama.anjum@collabora.com>
+In-Reply-To: <20240625223454.1586259-2-edliaw@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240630_225222_813987_A9490538 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20240630_231537_633885_037F4A9A 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,28 +97,230 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 13, 2024 at 04:54:32PM +0800, Haibo Xu wrote:
-> This patch series enable RISC-V ACPI NUMA support which was based on
-> the recently approved ACPI ECR[1].
+On 6/26/24 3:34 AM, Edward Liaw wrote:
+> Centralize the _GNU_SOURCE definition to CFLAGS in lib.mk.  Remove
+> redundant defines from Makefiles that import lib.mk.  Convert any usage
+> of "#define _GNU_SOURCE 1" to "#define _GNU_SOURCE".
 > 
-> Patch 1/4 add RISC-V specific acpi_numa.c file to parse NUMA information
-> from SRAT and SLIT ACPI tables.
-> Patch 2/4 add the common SRAT RINTC affinity structure handler.
-> Patch 3/4 change the ACPI_NUMA to a hidden option since it would be selected
-> by default on all supported platform.
-> Patch 4/4 replace pr_info with pr_debug in arch_acpi_numa_init() to avoid
-> potential boot noise on ACPI platforms that are not NUMA.
+> This uses the form "-D_GNU_SOURCE=", which is equivalent to
+> "#define _GNU_SOURCE".
 > 
-> Based-on: https://github.com/linux-riscv/linux-riscv/tree/for-next
+> Otherwise using "-D_GNU_SOURCE" is equivalent to "-D_GNU_SOURCE=1" and
+> "#define _GNU_SOURCE 1", which is less commonly seen in source code and
+> would require many changes in selftests to avoid redefinition warnings.
 > 
-> [1] https://drive.google.com/file/d/1YTdDx2IPm5IeZjAW932EYU-tUtgS08tX/view?usp=sharing
+> Suggested-by: John Hubbard <jhubbard@nvidia.com>
+> Signed-off-by: Edward Liaw <edliaw@google.com>
+Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
 
-Hi Palmer,
+> ---
+>  tools/testing/selftests/exec/Makefile             | 1 -
+>  tools/testing/selftests/futex/functional/Makefile | 2 +-
+>  tools/testing/selftests/intel_pstate/Makefile     | 2 +-
+>  tools/testing/selftests/iommu/Makefile            | 2 --
+>  tools/testing/selftests/kvm/Makefile              | 2 +-
+>  tools/testing/selftests/lib.mk                    | 3 +++
+>  tools/testing/selftests/mm/thuge-gen.c            | 2 +-
+>  tools/testing/selftests/net/Makefile              | 2 +-
+>  tools/testing/selftests/net/tcp_ao/Makefile       | 2 +-
+>  tools/testing/selftests/proc/Makefile             | 1 -
+>  tools/testing/selftests/resctrl/Makefile          | 2 +-
+>  tools/testing/selftests/ring-buffer/Makefile      | 1 -
+>  tools/testing/selftests/riscv/mm/Makefile         | 2 +-
+>  tools/testing/selftests/sgx/Makefile              | 2 +-
+>  tools/testing/selftests/tmpfs/Makefile            | 1 -
+>  15 files changed, 12 insertions(+), 15 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/exec/Makefile b/tools/testing/selftests/exec/Makefile
+> index ab67d58cfab7..ba012bc5aab9 100644
+> --- a/tools/testing/selftests/exec/Makefile
+> +++ b/tools/testing/selftests/exec/Makefile
+> @@ -1,7 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  CFLAGS = -Wall
+>  CFLAGS += -Wno-nonnull
+> -CFLAGS += -D_GNU_SOURCE
+>  
+>  ALIGNS := 0x1000 0x200000 0x1000000
+>  ALIGN_PIES        := $(patsubst %,load_address.%,$(ALIGNS))
+> diff --git a/tools/testing/selftests/futex/functional/Makefile b/tools/testing/selftests/futex/functional/Makefile
+> index 994fa3468f17..f79f9bac7918 100644
+> --- a/tools/testing/selftests/futex/functional/Makefile
+> +++ b/tools/testing/selftests/futex/functional/Makefile
+> @@ -1,6 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  INCLUDES := -I../include -I../../ $(KHDR_INCLUDES)
+> -CFLAGS := $(CFLAGS) -g -O2 -Wall -D_GNU_SOURCE= -pthread $(INCLUDES) $(KHDR_INCLUDES)
+> +CFLAGS := $(CFLAGS) -g -O2 -Wall -pthread $(INCLUDES) $(KHDR_INCLUDES)
+>  LDLIBS := -lpthread -lrt
+>  
+>  LOCAL_HDRS := \
+> diff --git a/tools/testing/selftests/intel_pstate/Makefile b/tools/testing/selftests/intel_pstate/Makefile
+> index 05d66ef50c97..f45372cb00fe 100644
+> --- a/tools/testing/selftests/intel_pstate/Makefile
+> +++ b/tools/testing/selftests/intel_pstate/Makefile
+> @@ -1,5 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> -CFLAGS := $(CFLAGS) -Wall -D_GNU_SOURCE
+> +CFLAGS := $(CFLAGS) -Wall
+>  LDLIBS += -lm
+>  
+>  ARCH ?= $(shell uname -m 2>/dev/null || echo not)
+> diff --git a/tools/testing/selftests/iommu/Makefile b/tools/testing/selftests/iommu/Makefile
+> index 32c5fdfd0eef..fd6477911f24 100644
+> --- a/tools/testing/selftests/iommu/Makefile
+> +++ b/tools/testing/selftests/iommu/Makefile
+> @@ -2,8 +2,6 @@
+>  CFLAGS += -Wall -O2 -Wno-unused-function
+>  CFLAGS += $(KHDR_INCLUDES)
+>  
+> -CFLAGS += -D_GNU_SOURCE
+> -
+>  TEST_GEN_PROGS :=
+>  TEST_GEN_PROGS += iommufd
+>  TEST_GEN_PROGS += iommufd_fail_nth
+> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+> index ac280dcba996..4ee37abf70ff 100644
+> --- a/tools/testing/selftests/kvm/Makefile
+> +++ b/tools/testing/selftests/kvm/Makefile
+> @@ -231,7 +231,7 @@ LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH)/include
+>  endif
+>  CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
+>  	-Wno-gnu-variable-sized-type-not-at-end -MD -MP -DCONFIG_64BIT \
+> -	-D_GNU_SOURCE -fno-builtin-memcmp -fno-builtin-memcpy \
+> +	-fno-builtin-memcmp -fno-builtin-memcpy \
+>  	-fno-builtin-memset -fno-builtin-strnlen \
+>  	-fno-stack-protector -fno-PIE -I$(LINUX_TOOL_INCLUDE) \
+>  	-I$(LINUX_TOOL_ARCH_INCLUDE) -I$(LINUX_HDR_PATH) -Iinclude \
+> diff --git a/tools/testing/selftests/lib.mk b/tools/testing/selftests/lib.mk
+> index 7b299ed5ff45..d6edcfcb5be8 100644
+> --- a/tools/testing/selftests/lib.mk
+> +++ b/tools/testing/selftests/lib.mk
+> @@ -196,6 +196,9 @@ endef
+>  clean: $(if $(TEST_GEN_MODS_DIR),clean_mods_dir)
+>  	$(CLEAN)
+>  
+> +# Build with _GNU_SOURCE by default
+> +CFLAGS += -D_GNU_SOURCE=
+> +
+>  # Enables to extend CFLAGS and LDFLAGS from command line, e.g.
+>  # make USERCFLAGS=-Werror USERLDFLAGS=-static
+>  CFLAGS += $(USERCFLAGS)
+> diff --git a/tools/testing/selftests/mm/thuge-gen.c b/tools/testing/selftests/mm/thuge-gen.c
+> index d50dc71cac32..e4370b79b62f 100644
+> --- a/tools/testing/selftests/mm/thuge-gen.c
+> +++ b/tools/testing/selftests/mm/thuge-gen.c
+> @@ -13,7 +13,7 @@
+>     sudo ipcs | awk '$1 == "0x00000000" {print $2}' | xargs -n1 sudo ipcrm -m
+>     (warning this will remove all if someone else uses them) */
+>  
+> -#define _GNU_SOURCE 1
+> +#define _GNU_SOURCE
+>  #include <sys/mman.h>
+>  #include <linux/mman.h>
+>  #include <stdlib.h>
+> diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
+> index bc3925200637..8eaffd7a641c 100644
+> --- a/tools/testing/selftests/net/Makefile
+> +++ b/tools/testing/selftests/net/Makefile
+> @@ -1,7 +1,7 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  # Makefile for net selftests
+>  
+> -CFLAGS =  -Wall -Wl,--no-as-needed -O2 -g
+> +CFLAGS +=  -Wall -Wl,--no-as-needed -O2 -g
+>  CFLAGS += -I../../../../usr/include/ $(KHDR_INCLUDES)
+>  # Additional include paths needed by kselftest.h
+>  CFLAGS += -I../
+> diff --git a/tools/testing/selftests/net/tcp_ao/Makefile b/tools/testing/selftests/net/tcp_ao/Makefile
+> index 522d991e310e..bd88b90b902b 100644
+> --- a/tools/testing/selftests/net/tcp_ao/Makefile
+> +++ b/tools/testing/selftests/net/tcp_ao/Makefile
+> @@ -26,7 +26,7 @@ LIB	:= $(LIBDIR)/libaotst.a
+>  LDLIBS	+= $(LIB) -pthread
+>  LIBDEPS	:= lib/aolib.h Makefile
+>  
+> -CFLAGS	:= -Wall -O2 -g -D_GNU_SOURCE -fno-strict-aliasing
+> +CFLAGS	+= -Wall -O2 -g -fno-strict-aliasing
+>  CFLAGS	+= $(KHDR_INCLUDES)
+>  CFLAGS	+= -iquote ./lib/ -I ../../../../include/
+>  
+> diff --git a/tools/testing/selftests/proc/Makefile b/tools/testing/selftests/proc/Makefile
+> index 6066f607f758..ee424a9f075f 100644
+> --- a/tools/testing/selftests/proc/Makefile
+> +++ b/tools/testing/selftests/proc/Makefile
+> @@ -1,6 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  CFLAGS += -Wall -O2 -Wno-unused-function
+> -CFLAGS += -D_GNU_SOURCE
+>  LDFLAGS += -pthread
+>  
+>  TEST_GEN_PROGS :=
+> diff --git a/tools/testing/selftests/resctrl/Makefile b/tools/testing/selftests/resctrl/Makefile
+> index 021863f86053..f408bd6bfc3d 100644
+> --- a/tools/testing/selftests/resctrl/Makefile
+> +++ b/tools/testing/selftests/resctrl/Makefile
+> @@ -1,6 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  
+> -CFLAGS = -g -Wall -O2 -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE
+> +CFLAGS = -g -Wall -O2 -D_FORTIFY_SOURCE=2
+>  CFLAGS += $(KHDR_INCLUDES)
+>  
+>  TEST_GEN_PROGS := resctrl_tests
+> diff --git a/tools/testing/selftests/ring-buffer/Makefile b/tools/testing/selftests/ring-buffer/Makefile
+> index 627c5fa6d1ab..23605782639e 100644
+> --- a/tools/testing/selftests/ring-buffer/Makefile
+> +++ b/tools/testing/selftests/ring-buffer/Makefile
+> @@ -1,7 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  CFLAGS += -Wl,-no-as-needed -Wall
+>  CFLAGS += $(KHDR_INCLUDES)
+> -CFLAGS += -D_GNU_SOURCE
+>  
+>  TEST_GEN_PROGS = map_test
+>  
+> diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
+> index c333263f2b27..4664ed79e20b 100644
+> --- a/tools/testing/selftests/riscv/mm/Makefile
+> +++ b/tools/testing/selftests/riscv/mm/Makefile
+> @@ -3,7 +3,7 @@
+>  # Originally tools/testing/arm64/abi/Makefile
+>  
+>  # Additional include paths needed by kselftest.h and local headers
+> -CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
+> +CFLAGS += -std=gnu99 -I.
+>  
+>  TEST_GEN_FILES := mmap_default mmap_bottomup
+>  
+> diff --git a/tools/testing/selftests/sgx/Makefile b/tools/testing/selftests/sgx/Makefile
+> index 867f88ce2570..03b5e13b872b 100644
+> --- a/tools/testing/selftests/sgx/Makefile
+> +++ b/tools/testing/selftests/sgx/Makefile
+> @@ -12,7 +12,7 @@ OBJCOPY := $(CROSS_COMPILE)objcopy
+>  endif
+>  
+>  INCLUDES := -I$(top_srcdir)/tools/include
+> -HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC
+> +HOST_CFLAGS := -Wall -Werror -g $(INCLUDES) -fPIC $(CFLAGS)
+>  HOST_LDFLAGS := -z noexecstack -lcrypto
+>  ENCL_CFLAGS += -Wall -Werror -static-pie -nostdlib -ffreestanding -fPIE \
+>  	       -fno-stack-protector -mrdrnd $(INCLUDES)
+> diff --git a/tools/testing/selftests/tmpfs/Makefile b/tools/testing/selftests/tmpfs/Makefile
+> index aa11ccc92e5b..3be931e1193f 100644
+> --- a/tools/testing/selftests/tmpfs/Makefile
+> +++ b/tools/testing/selftests/tmpfs/Makefile
+> @@ -1,6 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  CFLAGS += -Wall -O2
+> -CFLAGS += -D_GNU_SOURCE
+>  
+>  TEST_GEN_PROGS :=
+>  TEST_GEN_PROGS += bug-link-o-tmpfile
 
-Can this series be taken for -next?
-
-Thanks,
-Sunil
+-- 
+BR,
+Muhammad Usama Anjum
 
 _______________________________________________
 linux-riscv mailing list
