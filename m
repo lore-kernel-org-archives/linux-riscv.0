@@ -4,93 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1FCC3064D
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 05:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F2CBC3064D
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 06:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+xPJPyZLaE2X8yVuJIIOyl8qBwPy4uEqDy+CUD+uvnI=; b=e2V61GAiaMxDn9
-	D//Ban3XRskNfn3E0+TkpajS2NnT7p00i4P+kZ14aIp0n4AYXBC2faaNtwpZrG535JJj2n2fBkuko
-	tLlsbIlGUniySS2wn8ZvrSboh6wJudEVSsBaSNf7z5P1HTX1X8/8+uPGBUIAqenCWoDRC7Du/nROf
-	ZSWG7Tq8DOhUF3hLJ8V4uKY702NLeyl1lqN4VuXEKdUtHoxeayfHVcl4G/i7Lh4EHWU3ZS86DEkOB
-	kmCdOOkVmEJXIsT62rx278EtLW5URXhrckVL2hffRtq1Ufy2GwAGhTzTdAd6+VzJx7nX8W5zX1bdK
-	as6KLiRF2Gd9IS8huHiQ==;
+	List-Owner; bh=yCbd22Rxj0XqVgYS5wzBtVhPi20BW/QrJvQWM5ER2yc=; b=h9SrfsvImAw7By
+	WeugcG43Q65eB5ltxetFinbG9rWjYLGePsMif5SuJitrglVqB7HhJ4xxCHwWmUaTu53NxZ+Ra/sGQ
+	Vwa2irR1Ub0dm0/lxT4c5a/wIn+461U5h6in1cskMQQCxz/POFqqESpnlzYWGBTszQStJ2+QkjK8W
+	r36LsNS5AU1XtyZ2Vs95KdCvqSeGDkWzUQfq7e+foeOEq4zHzvsYksOUfQFXpayrZhGqJYxr5Pcgi
+	01+eMiQwP0oFQkHWKWwCgdl06l6GcI584eHfIUXdNcoSPIqSCo3sYQQ7MC0jd+HucoS8RnuXbNW50
+	uVZldjZWNKsQoPEAgOBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOWQA-00000005dNZ-0pYP;
-	Tue, 02 Jul 2024 05:51:18 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1sOXH7-00000005lBs-3kwo;
+	Tue, 02 Jul 2024 06:46:01 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOWQ5-00000005dMr-41jK
+	id 1sOXH4-00000005lBJ-2KJg
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 05:51:16 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-70670188420so2487660b3a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Jul 2024 22:51:13 -0700 (PDT)
+	Tue, 02 Jul 2024 06:46:00 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-57d044aa5beso1348951a12.2
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Jul 2024 23:45:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719899473; x=1720504273; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pb7CkJpuNNXMkliIVX0CGzZEQ2k/xjIs5z0U5UpJyC4=;
-        b=Pf5PZhdC/lgMSwmNBnlYzyF2ROB+Sxly+7xZGckk9OTbLTl/auu2KNd/Zq4h7Ol39k
-         /fyDvtCAhiZYL2ez8Kt8CaBvJuDLDvjqE7mrjhVMDa8IbEMaE/4JxnJMY7E34ffK4BJI
-         fRBdxCqwz59CCMNyLFUWXhwPRVVcCWd4PDRtKOhlHwxJT2rPd/NnvtqSbupYWoUTMhb7
-         GlhoovHyzLRl5DMtyeE5CbpJvTd7KQJ2Fp7Jopvv5hWhmhGXa11o8Z2lyzcAzYhBpxEL
-         TGF6YRXql+V1hm0UahVA/h5gQnxUwI0d8ffvPSSVxm9MkCaduZ52ojK6XTT3LrGAzebs
-         HuLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719899473; x=1720504273;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719902756; x=1720507556; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Pb7CkJpuNNXMkliIVX0CGzZEQ2k/xjIs5z0U5UpJyC4=;
-        b=q4l3xyCENEbLQcNZ+VRsq4r9qfYk68wb1BMCVHyS7C9i1yxYw+iEdNOTVbEQW5vBiv
-         cYvIM2wTZFnxf1ND8qYOxo7veSBxcTEgQU3aVNbB2W40h6gG2dYzVPe2h1yy95lOVpaX
-         X5s52Q/dvYlCKHpdVBSs0caPI3HCOH9/3Gm9aJo4NUZZVAVPTqzwWH/R14JuqWD2OTkB
-         uptmug/5Ck/ZwzCryLURbkKZ/q5eDAYizIoBFrCQ/sxeykEKMLiKkwGvBkAY3ksmE+6x
-         GIdr3T38D+zfOmmU4GNIp/9wqovBNXRkTXpr2W/WJdoIGaSZauTgOIpPx07iTluPbC/g
-         7+xg==
-X-Gm-Message-State: AOJu0Yy6HN3iXOCWQ16nrc4G/geVrFneJjCsIVuyb8hz1Hok8htefJIX
-	TVmgA+DpcKzMnBjcEaVJ+kIa7WRJr3cOeGQuodSSdCk/W4WohiCa1vbU2POkQEc=
-X-Google-Smtp-Source: AGHT+IEkBMlUapIWyjryZj8i4PHItT+grMuJOUd01nmfHInhPxCc1nVKxLdWDgPrT1kee19dPIY9RQ==
-X-Received: by 2002:a05:6a20:c4a7:b0:1bd:2d0b:e143 with SMTP id adf61e73a8af0-1bef626e94dmr5507606637.52.1719899472778;
-        Mon, 01 Jul 2024 22:51:12 -0700 (PDT)
-Received: from ghost ([2601:647:5700:6860:a569:328b:99ad:ce17])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fac15693e8sm74671455ad.217.2024.07.01.22.51.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Jul 2024 22:51:12 -0700 (PDT)
-Date: Mon, 1 Jul 2024 22:51:09 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>
-Subject: Re: [PATCH v3 09/13] riscv: vector: Support xtheadvector save/restore
-Message-ID: <ZoOVTUzyFBz/1R2m@ghost>
-References: <20240619-xtheadvector-v3-0-bff39eb9668e@rivosinc.com>
- <20240619-xtheadvector-v3-9-bff39eb9668e@rivosinc.com>
- <68f0c506-8b1f-4de7-a92e-fbc6bce0919b@sifive.com>
+        bh=dKewnqnxY7aoOaplH+nWasS/+enKSoZGeGRwd3eNINU=;
+        b=QoB5WWQGsnHsy0oNE0fK3zr65n/wetRiYgO4jTfFgXRM3CIQF5Ch4J7xwhHD4iXekK
+         Q9l2QVbjw23jtZFY+DJ9bjaaoKhjQ5NHN/126xy7V65A0DP+WgrX2FAZHEO5zNU3GL7x
+         I+1cyoXSpHk5YTFL8Rxrhoskm5ATpgG/QKU57O8GsIhJkl5LDeFMdNIwSDOMRu2qoqjS
+         4ycnYcco/gWvQ5GywveJy0Yg63p/fu1U8V7VGK9wuc4/QOazBfw8z9jwK61T12pKidVQ
+         XwsjoqpmzsgJgFx9ExoHIDf7mc0Y7aEgshOegbYEGao3cqbDQayAJ7GqmoR9twlLjxg2
+         iIMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719902756; x=1720507556;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dKewnqnxY7aoOaplH+nWasS/+enKSoZGeGRwd3eNINU=;
+        b=TRdjjlWgPUHxTFnem9soSMoOgA3hPuOoiEbyMszQJkuaYlcYiIqHyJJZTJ3DikjlGE
+         ei6ZW/JUkhYy67wW/0K44+Qf/qtTGDFdoGgrDcgDT8RWK9lTNUf0ELm8rVnuy3NDnxgX
+         e9AvrzFBFcwCHG0G6K2Jz2KPfFmHg08Osjzn3ci34B+YPt5VJiIJ+wGWJpB0lOBQ31tl
+         FIQ5rXkNxPnx6c6rPXuQa0wa+Zs80C5s/N0p19i2seZgRDwGXWAFYKaA5ORFnIPK53Jl
+         EpD+8zLf3FYDEhdqwvra974XMjdRPwvQrwXPBRd5icbQuYu6RoNGIXbHS1yI6E4YEGXW
+         O5xA==
+X-Forwarded-Encrypted: i=1; AJvYcCWQh95NhnnVSCcMuT+i6nl0Ej4p96HWQK2yZ4CMbGLnzGxkt78QGBoyBwSFHIjrCTuqw0j3wfZOlectOmDVn2OGkVWQznLvq5nWzUXDw7F5
+X-Gm-Message-State: AOJu0YwY/0UkmeVkBQdC5TodsAmnETUkjSI44qryu6VRJ77yBOmkD40b
+	c3Mc/gu9+coBF8uhL+laWHeRpVx3aBwM7keKpTOh0irJ0DsWORUytZgP7U33kieVi1hP8/o7cvz
+	hbHPs3vg2U0dD7nB0OLvn6SnLvFkqk6flNEoKyQ==
+X-Google-Smtp-Source: AGHT+IEascvF38kAc4A+0pgwsaI6bdj7gAzwlhgZ0bZsErX4s5vHfwB6qWm2BdLiPXiqmgERgyG68icI94K30vY6Hxg=
+X-Received: by 2002:a17:906:2dcf:b0:a72:995d:d09e with SMTP id
+ a640c23a62f3a-a75144a9179mr453646366b.57.1719902756328; Mon, 01 Jul 2024
+ 23:45:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <68f0c506-8b1f-4de7-a92e-fbc6bce0919b@sifive.com>
+References: <20240701185132.319995-1-jesse@rivosinc.com> <20240701185132.319995-5-jesse@rivosinc.com>
+ <ZoOCeMUTIgnA72xj@ghost>
+In-Reply-To: <ZoOCeMUTIgnA72xj@ghost>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Tue, 2 Jul 2024 08:45:44 +0200
+Message-ID: <CAHVXubiikxy6r2On_+zUfcqyXcBUG6rfHCUZoAVxDk6S2VG5vg@mail.gmail.com>
+Subject: Re: [PATCH v3 4/4] RISC-V: Use Zkr to seed KASLR base address
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org, 
+	Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Wende Tan <twd2.me@gmail.com>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
+	Sami Tolvanen <samitolvanen@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Baoquan He <bhe@redhat.com>, "Mike Rapoport (IBM)" <rppt@kernel.org>, 
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>, linux-kernel@vger.kernel.org, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240701_225114_046207_A7B20A90 
-X-CRM114-Status: GOOD (  36.76  )
+X-CRM114-CacheID: sfid-20240701_234558_862355_F1752B77 
+X-CRM114-Status: GOOD (  43.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,637 +94,216 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 01, 2024 at 11:20:24AM -0500, Samuel Holland wrote:
-> Hi Charlie,
-> 
-> A couple of suggestions for simplification below.
-> 
-> On 2024-06-19 6:57 PM, Charlie Jenkins wrote:
-> > Use alternatives to add support for xtheadvector vector save/restore
-> > routines.
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  arch/riscv/include/asm/csr.h           |   6 +
-> >  arch/riscv/include/asm/switch_to.h     |   2 +-
-> >  arch/riscv/include/asm/vector.h        | 249 ++++++++++++++++++++++++++-------
-> >  arch/riscv/kernel/cpufeature.c         |   2 +-
-> >  arch/riscv/kernel/kernel_mode_vector.c |   8 +-
-> >  arch/riscv/kernel/process.c            |   4 +-
-> >  arch/riscv/kernel/signal.c             |   6 +-
-> >  arch/riscv/kernel/vector.c             |  13 +-
-> >  8 files changed, 222 insertions(+), 68 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> > index 9086639a3dde..407d4a5687f5 100644
-> > --- a/arch/riscv/include/asm/csr.h
-> > +++ b/arch/riscv/include/asm/csr.h
-> > @@ -30,6 +30,12 @@
-> >  #define SR_VS_CLEAN	_AC(0x00000400, UL)
-> >  #define SR_VS_DIRTY	_AC(0x00000600, UL)
-> >  
-> > +#define SR_VS_THEAD		_AC(0x01800000, UL) /* xtheadvector Status */
-> > +#define SR_VS_OFF_THEAD		_AC(0x00000000, UL)
-> > +#define SR_VS_INITIAL_THEAD	_AC(0x00800000, UL)
-> > +#define SR_VS_CLEAN_THEAD	_AC(0x01000000, UL)
-> > +#define SR_VS_DIRTY_THEAD	_AC(0x01800000, UL)
-> > +
-> >  #define SR_XS		_AC(0x00018000, UL) /* Extension Status */
-> >  #define SR_XS_OFF	_AC(0x00000000, UL)
-> >  #define SR_XS_INITIAL	_AC(0x00008000, UL)
-> > diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-> > index 7594df37cc9f..f9cbebe372b8 100644
-> > --- a/arch/riscv/include/asm/switch_to.h
-> > +++ b/arch/riscv/include/asm/switch_to.h
-> > @@ -99,7 +99,7 @@ do {							\
-> >  	__set_prev_cpu(__prev->thread);			\
-> >  	if (has_fpu())					\
-> >  		__switch_to_fpu(__prev, __next);	\
-> > -	if (has_vector())					\
-> > +	if (has_vector() || has_xtheadvector())		\
-> >  		__switch_to_vector(__prev, __next);	\
-> >  	if (switch_to_should_flush_icache(__next))	\
-> >  		local_flush_icache_all();		\
-> > diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-> > index 731dcd0ed4de..6294dcaabc6a 100644
-> > --- a/arch/riscv/include/asm/vector.h
-> > +++ b/arch/riscv/include/asm/vector.h
-> > @@ -18,6 +18,27 @@
-> >  #include <asm/cpufeature.h>
-> >  #include <asm/csr.h>
-> >  #include <asm/asm.h>
-> > +#include <asm/vendorid_list.h>
-> > +#include <asm/vendor_extensions.h>
-> > +#include <asm/vendor_extensions/thead.h>
-> > +
-> > +#define __riscv_v_vstate_or(_val, TYPE) ({				\
-> > +	typeof(_val) _res = _val;					\
-> > +	if (has_xtheadvector()) \
-> > +		_res = (_res & ~SR_VS_THEAD) | SR_VS_##TYPE##_THEAD;	\
-> > +	else								\
-> > +		_res = (_res & ~SR_VS) | SR_VS_##TYPE;			\
-> > +	_res;								\
-> > +})
-> > +
-> > +#define __riscv_v_vstate_check(_val, TYPE) ({				\
-> > +	bool _res;							\
-> > +	if (has_xtheadvector()) \
-> > +		_res = ((_val) & SR_VS_THEAD) == SR_VS_##TYPE##_THEAD;	\
-> > +	else								\
-> > +		_res = ((_val) & SR_VS) == SR_VS_##TYPE;		\
-> > +	_res;								\
-> > +})
-> >  
-> >  extern unsigned long riscv_v_vsize;
-> >  int riscv_v_setup_vsize(void);
-> > @@ -40,39 +61,62 @@ static __always_inline bool has_vector(void)
-> >  	return riscv_has_extension_unlikely(RISCV_ISA_EXT_v);
-> >  }
-> >  
-> > +static __always_inline bool has_xtheadvector_no_alternatives(void)
-> > +{
-> > +	if (IS_ENABLED(CONFIG_RISCV_ISA_XTHEADVECTOR))
-> > +		return riscv_isa_vendor_extension_available(THEAD_VENDOR_ID, XTHEADVECTOR);
-> > +	else
-> > +		return false;
-> > +}
-> > +
-> > +static __always_inline bool has_xtheadvector(void)
-> > +{
-> > +	if (IS_ENABLED(CONFIG_RISCV_ISA_XTHEADVECTOR))
-> > +		return riscv_has_vendor_extension_unlikely(THEAD_VENDOR_ID,
-> > +							   RISCV_ISA_VENDOR_EXT_XTHEADVECTOR);
-> > +	else
-> > +		return false;
-> > +}
-> > +
-> >  static inline void __riscv_v_vstate_clean(struct pt_regs *regs)
-> >  {
-> > -	regs->status = (regs->status & ~SR_VS) | SR_VS_CLEAN;
-> > +	regs->status = __riscv_v_vstate_or(regs->status, CLEAN);
-> >  }
-> >  
-> >  static inline void __riscv_v_vstate_dirty(struct pt_regs *regs)
-> >  {
-> > -	regs->status = (regs->status & ~SR_VS) | SR_VS_DIRTY;
-> > +	regs->status = __riscv_v_vstate_or(regs->status, DIRTY);
-> >  }
-> >  
-> >  static inline void riscv_v_vstate_off(struct pt_regs *regs)
-> >  {
-> > -	regs->status = (regs->status & ~SR_VS) | SR_VS_OFF;
-> > +	regs->status = __riscv_v_vstate_or(regs->status, OFF);
-> >  }
-> >  
-> >  static inline void riscv_v_vstate_on(struct pt_regs *regs)
-> >  {
-> > -	regs->status = (regs->status & ~SR_VS) | SR_VS_INITIAL;
-> > +	regs->status = __riscv_v_vstate_or(regs->status, INITIAL);
-> >  }
-> >  
-> >  static inline bool riscv_v_vstate_query(struct pt_regs *regs)
-> >  {
-> > -	return (regs->status & SR_VS) != 0;
-> > +	return !__riscv_v_vstate_check(regs->status, OFF);
-> >  }
-> >  
-> >  static __always_inline void riscv_v_enable(void)
-> >  {
-> > -	csr_set(CSR_SSTATUS, SR_VS);
-> > +	if (has_xtheadvector())
-> > +		csr_set(CSR_SSTATUS, SR_VS_THEAD);
-> > +	else
-> > +		csr_set(CSR_SSTATUS, SR_VS);
-> >  }
-> >  
-> >  static __always_inline void riscv_v_disable(void)
-> >  {
-> > -	csr_clear(CSR_SSTATUS, SR_VS);
-> > +	if (has_xtheadvector())
-> > +		csr_clear(CSR_SSTATUS, SR_VS_THEAD);
-> > +	else
-> > +		csr_clear(CSR_SSTATUS, SR_VS);
-> >  }
-> >  
-> >  static __always_inline void __vstate_csr_save(struct __riscv_v_ext_state *dest)
-> > @@ -81,10 +125,49 @@ static __always_inline void __vstate_csr_save(struct __riscv_v_ext_state *dest)
-> >  		"csrr	%0, " __stringify(CSR_VSTART) "\n\t"
-> >  		"csrr	%1, " __stringify(CSR_VTYPE) "\n\t"
-> >  		"csrr	%2, " __stringify(CSR_VL) "\n\t"
-> > -		"csrr	%3, " __stringify(CSR_VCSR) "\n\t"
-> > -		"csrr	%4, " __stringify(CSR_VLENB) "\n\t"
-> >  		: "=r" (dest->vstart), "=r" (dest->vtype), "=r" (dest->vl),
-> > -		  "=r" (dest->vcsr), "=r" (dest->vlenb) : :);
-> > +		"=r" (dest->vcsr) : :);
-> > +
-> > +	if (has_xtheadvector()) {
-> > +		u32 tmp_vcsr;
-> > +		bool restore_fpu = false;
-> > +		unsigned long status = csr_read(CSR_SSTATUS);
-> > +
-> > +		/*
-> > +		 * CSR_VCSR is defined as
-> > +		 * [2:1] - vxrm[1:0]
-> > +		 * [0] - vxsat
-> > +		 * The earlier vector spec implemented by T-Head uses separate
-> > +		 * registers for the same bit-elements, so just combine those
-> > +		 * into the existing output field.
-> > +		 *
-> > +		 * Additionally T-Head cores need FS to be enabled when accessing
-> > +		 * the VXRM and VXSAT CSRs, otherwise ending in illegal instructions.
-> > +		 * Though the cores do not implement the VXRM and VXSAT fields in the
-> > +		 * FCSR CSR that vector-0.7.1 specifies.
-> > +		 */
-> > +		if ((status & SR_FS) == SR_FS_OFF) {
-> > +			csr_set(CSR_SSTATUS, (status & ~SR_FS) | SR_FS_CLEAN);
-> > +			restore_fpu = true;
-> > +		}
-> 
-> This simplifies to:
-> 
-> 	unsigned long status = csr_read_set(CSR_STATUS, SR_FS_DIRTY);
-> 
-> and then below:
-> 
-> 	if ((status & SR_FS) != SR_FS_DIRTY)
-> 		csr_write(CSR_STATUS, status);
-> 
-
-Great suggestions, thank you!
-
-> > +
-> > +		asm volatile (
-> > +			"csrr	%[tmp_vcsr], " __stringify(VCSR_VXRM) "\n\t"
-> > +			"slliw	%[vcsr], %[tmp_vcsr], " __stringify(VCSR_VXRM_SHIFT) "\n\t"
-> > +			"csrr	%[tmp_vcsr], " __stringify(VCSR_VXSAT) "\n\t"
-> > +			"or	%[vcsr], %[vcsr], %[tmp_vcsr]\n\t"
-> > +			: [vcsr] "=r" (dest->vcsr), [tmp_vcsr] "=&r" (tmp_vcsr));
-> 
-> None of this needs to be inline assembly. I think the only reason that
-> __vstate_csr_save() uses inline assembly is to match __vstate_csr_restore(),
-> which needs it to execute a vsetvl instruction. This would be easier to parse if
-> it used csr_read().
-
-You are totally right! Converting this to C will make the code much easier to follow.
-
-> 
-> > +
-> > +		dest->vlenb = riscv_v_vsize / 32;
-> 
-> This value can't change at runtime (for either standard V or Xtheadvector), so
-> we don't need to save it every time. So (possibly as a future optimization) this
-> could be saved only once when the context is first initialized.
-
-Yes that is something that should be optimized. I can optimize this in a
-follow up patch so this series doesn't grow any more.
-
-> 
-> > +
-> > +		if (restore_fpu)
-> > +			csr_set(CSR_SSTATUS, status);
-> > +	} else {
-> > +		asm volatile (
-> > +			"csrr	%[vcsr], " __stringify(CSR_VCSR) "\n\t"
-> > +			"csrr	%[vlenb], " __stringify(CSR_VLENB) "\n\t"
-> > +			: [vcsr] "=r" (dest->vcsr), [vlenb] "=r" (dest->vlenb));
-> > +	}
-> >  }
-> >  
-> >  static __always_inline void __vstate_csr_restore(struct __riscv_v_ext_state *src)
-> > @@ -95,9 +178,37 @@ static __always_inline void __vstate_csr_restore(struct __riscv_v_ext_state *src
-> >  		"vsetvl	 x0, %2, %1\n\t"
-> >  		".option pop\n\t"
-> >  		"csrw	" __stringify(CSR_VSTART) ", %0\n\t"
-> > -		"csrw	" __stringify(CSR_VCSR) ", %3\n\t"
-> > -		: : "r" (src->vstart), "r" (src->vtype), "r" (src->vl),
-> > -		    "r" (src->vcsr) :);
-> > +		: : "r" (src->vstart), "r" (src->vtype), "r" (src->vl));
-> > +
-> > +	if (has_xtheadvector()) {
-> > +		u32 tmp_vcsr;
-> > +		bool restore_fpu = false;
-> > +		unsigned long status = csr_read(CSR_SSTATUS);
-> > +
-> > +		/*
-> > +		 * Similar to __vstate_csr_save above, restore values for the
-> > +		 * separate VXRM and VXSAT CSRs from the vcsr variable.
-> > +		 */
-> > +		if ((status & SR_FS) == SR_FS_OFF) {
-> > +			csr_set(CSR_SSTATUS, (status & ~SR_FS) | SR_FS_CLEAN);
-> > +			restore_fpu = true;
-> > +		}
-> > +
-> > +		asm volatile (
-> > +			"srliw	%[tmp_vcsr], %[vcsr], " __stringify(VCSR_VXRM_SHIFT) "\n\t"
-> > +			"andi	%[tmp_vcsr], %[tmp_vcsr], " __stringify(VCSR_VXRM_MASK) "\n\t"
-> > +			"csrw	" __stringify(VCSR_VXRM) ", %[tmp_vcsr]\n\t"
-> > +			"andi	%[tmp_vcsr], %[vcsr], " __stringify(VCSR_VXSAT_MASK) "\n\t"
-> > +			"csrw	" __stringify(VCSR_VXSAT) ", %[tmp_vcsr]\n\t"
-> > +			: [tmp_vcsr] "=&r" (tmp_vcsr) : [vcsr] "r" (src->vcsr));
-> 
-> Similarly, this would be a lot easier to parse with csr_write() instead of
-> inline assembly.
-
-Will do, thank you!
-
-- Charlie
-
-> 
-> Regards,
-> Samuel
-> 
-> > +
-> > +		if (restore_fpu)
-> > +			csr_set(CSR_SSTATUS, status);
-> > +	} else {
-> > +		asm volatile (
-> > +			"csrw	" __stringify(CSR_VCSR) ", %[vcsr]\n\t"
-> > +			: : [vcsr] "r" (src->vcsr));
-> > +	}
-> >  }
-> >  
-> >  static inline void __riscv_v_vstate_save(struct __riscv_v_ext_state *save_to,
-> > @@ -107,19 +218,33 @@ static inline void __riscv_v_vstate_save(struct __riscv_v_ext_state *save_to,
-> >  
-> >  	riscv_v_enable();
-> >  	__vstate_csr_save(save_to);
-> > -	asm volatile (
-> > -		".option push\n\t"
-> > -		".option arch, +v\n\t"
-> > -		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
-> > -		"vse8.v		v0, (%1)\n\t"
-> > -		"add		%1, %1, %0\n\t"
-> > -		"vse8.v		v8, (%1)\n\t"
-> > -		"add		%1, %1, %0\n\t"
-> > -		"vse8.v		v16, (%1)\n\t"
-> > -		"add		%1, %1, %0\n\t"
-> > -		"vse8.v		v24, (%1)\n\t"
-> > -		".option pop\n\t"
-> > -		: "=&r" (vl) : "r" (datap) : "memory");
-> > +	if (has_xtheadvector()) {
-> > +		asm volatile (
-> > +			"mv t0, %0\n\t"
-> > +			THEAD_VSETVLI_T4X0E8M8D1
-> > +			THEAD_VSB_V_V0T0
-> > +			"add		t0, t0, t4\n\t"
-> > +			THEAD_VSB_V_V0T0
-> > +			"add		t0, t0, t4\n\t"
-> > +			THEAD_VSB_V_V0T0
-> > +			"add		t0, t0, t4\n\t"
-> > +			THEAD_VSB_V_V0T0
-> > +			: : "r" (datap) : "memory", "t0", "t4");
-> > +	} else {
-> > +		asm volatile (
-> > +			".option push\n\t"
-> > +			".option arch, +v\n\t"
-> > +			"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
-> > +			"vse8.v		v0, (%1)\n\t"
-> > +			"add		%1, %1, %0\n\t"
-> > +			"vse8.v		v8, (%1)\n\t"
-> > +			"add		%1, %1, %0\n\t"
-> > +			"vse8.v		v16, (%1)\n\t"
-> > +			"add		%1, %1, %0\n\t"
-> > +			"vse8.v		v24, (%1)\n\t"
-> > +			".option pop\n\t"
-> > +			: "=&r" (vl) : "r" (datap) : "memory");
-> > +	}
-> >  	riscv_v_disable();
-> >  }
-> >  
-> > @@ -129,55 +254,77 @@ static inline void __riscv_v_vstate_restore(struct __riscv_v_ext_state *restore_
-> >  	unsigned long vl;
-> >  
-> >  	riscv_v_enable();
-> > -	asm volatile (
-> > -		".option push\n\t"
-> > -		".option arch, +v\n\t"
-> > -		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
-> > -		"vle8.v		v0, (%1)\n\t"
-> > -		"add		%1, %1, %0\n\t"
-> > -		"vle8.v		v8, (%1)\n\t"
-> > -		"add		%1, %1, %0\n\t"
-> > -		"vle8.v		v16, (%1)\n\t"
-> > -		"add		%1, %1, %0\n\t"
-> > -		"vle8.v		v24, (%1)\n\t"
-> > -		".option pop\n\t"
-> > -		: "=&r" (vl) : "r" (datap) : "memory");
-> > +	if (has_xtheadvector()) {
-> > +		asm volatile (
-> > +			"mv t0, %0\n\t"
-> > +			THEAD_VSETVLI_T4X0E8M8D1
-> > +			THEAD_VLB_V_V0T0
-> > +			"add		t0, t0, t4\n\t"
-> > +			THEAD_VLB_V_V0T0
-> > +			"add		t0, t0, t4\n\t"
-> > +			THEAD_VLB_V_V0T0
-> > +			"add		t0, t0, t4\n\t"
-> > +			THEAD_VLB_V_V0T0
-> > +			: : "r" (datap) : "memory", "t0", "t4");
-> > +	} else {
-> > +		asm volatile (
-> > +			".option push\n\t"
-> > +			".option arch, +v\n\t"
-> > +			"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
-> > +			"vle8.v		v0, (%1)\n\t"
-> > +			"add		%1, %1, %0\n\t"
-> > +			"vle8.v		v8, (%1)\n\t"
-> > +			"add		%1, %1, %0\n\t"
-> > +			"vle8.v		v16, (%1)\n\t"
-> > +			"add		%1, %1, %0\n\t"
-> > +			"vle8.v		v24, (%1)\n\t"
-> > +			".option pop\n\t"
-> > +			: "=&r" (vl) : "r" (datap) : "memory");
-> > +	}
-> >  	__vstate_csr_restore(restore_from);
-> >  	riscv_v_disable();
-> >  }
-> >  
-> >  static inline void __riscv_v_vstate_discard(void)
-> >  {
-> > -	unsigned long vl, vtype_inval = 1UL << (BITS_PER_LONG - 1);
-> > +	unsigned long vtype_inval = 1UL << (BITS_PER_LONG - 1);
-> >  
-> >  	riscv_v_enable();
-> > +	if (has_xtheadvector())
-> > +		asm volatile (THEAD_VSETVLI_X0X0E8M8D1);
-> > +	else
-> > +		asm volatile (
-> > +			".option push\n\t"
-> > +			".option arch, +v\n\t"
-> > +			"vsetvli	x0, x0, e8, m8, ta, ma\n\t"
-> > +			".option pop\n\t");
-> > +
-> >  	asm volatile (
-> >  		".option push\n\t"
-> >  		".option arch, +v\n\t"
-> > -		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
-> >  		"vmv.v.i	v0, -1\n\t"
-> >  		"vmv.v.i	v8, -1\n\t"
-> >  		"vmv.v.i	v16, -1\n\t"
-> >  		"vmv.v.i	v24, -1\n\t"
-> > -		"vsetvl		%0, x0, %1\n\t"
-> > +		"vsetvl		x0, x0, %0\n\t"
-> >  		".option pop\n\t"
-> > -		: "=&r" (vl) : "r" (vtype_inval) : "memory");
-> > +		: : "r" (vtype_inval));
-> > +
-> >  	riscv_v_disable();
-> >  }
-> >  
-> >  static inline void riscv_v_vstate_discard(struct pt_regs *regs)
-> >  {
-> > -	if ((regs->status & SR_VS) == SR_VS_OFF)
-> > -		return;
-> > -
-> > -	__riscv_v_vstate_discard();
-> > -	__riscv_v_vstate_dirty(regs);
-> > +	if (riscv_v_vstate_query(regs)) {
-> > +		__riscv_v_vstate_discard();
-> > +		__riscv_v_vstate_dirty(regs);
-> > +	}
-> >  }
-> >  
-> >  static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
-> >  				       struct pt_regs *regs)
-> >  {
-> > -	if ((regs->status & SR_VS) == SR_VS_DIRTY) {
-> > +	if (__riscv_v_vstate_check(regs->status, DIRTY)) {
-> >  		__riscv_v_vstate_save(vstate, vstate->datap);
-> >  		__riscv_v_vstate_clean(regs);
-> >  	}
-> > @@ -186,7 +333,7 @@ static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
-> >  static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
-> >  					  struct pt_regs *regs)
-> >  {
-> > -	if ((regs->status & SR_VS) != SR_VS_OFF) {
-> > +	if (riscv_v_vstate_query(regs)) {
-> >  		__riscv_v_vstate_restore(vstate, vstate->datap);
-> >  		__riscv_v_vstate_clean(regs);
-> >  	}
-> > @@ -195,7 +342,7 @@ static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
-> >  static inline void riscv_v_vstate_set_restore(struct task_struct *task,
-> >  					      struct pt_regs *regs)
-> >  {
-> > -	if ((regs->status & SR_VS) != SR_VS_OFF) {
-> > +	if (riscv_v_vstate_query(regs)) {
-> >  		set_tsk_thread_flag(task, TIF_RISCV_V_DEFER_RESTORE);
-> >  		riscv_v_vstate_on(regs);
-> >  	}
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > index 077be4ab1f9a..180f7eae9086 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -789,7 +789,7 @@ void __init riscv_fill_hwcap(void)
-> >  		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
-> >  	}
-> >  
-> > -	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
-> > +	if (elf_hwcap & COMPAT_HWCAP_ISA_V || has_xtheadvector_no_alternatives()) {
-> >  		riscv_v_setup_vsize();
-> >  		/*
-> >  		 * ISA string in device tree might have 'v' flag, but
-> > diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
-> > index 6afe80c7f03a..99972a48e86b 100644
-> > --- a/arch/riscv/kernel/kernel_mode_vector.c
-> > +++ b/arch/riscv/kernel/kernel_mode_vector.c
-> > @@ -143,7 +143,7 @@ static int riscv_v_start_kernel_context(bool *is_nested)
-> >  
-> >  	/* Transfer the ownership of V from user to kernel, then save */
-> >  	riscv_v_start(RISCV_PREEMPT_V | RISCV_PREEMPT_V_DIRTY);
-> > -	if ((task_pt_regs(current)->status & SR_VS) == SR_VS_DIRTY) {
-> > +	if (__riscv_v_vstate_check(task_pt_regs(current)->status, DIRTY)) {
-> >  		uvstate = &current->thread.vstate;
-> >  		__riscv_v_vstate_save(uvstate, uvstate->datap);
-> >  	}
-> > @@ -160,7 +160,7 @@ asmlinkage void riscv_v_context_nesting_start(struct pt_regs *regs)
-> >  		return;
-> >  
-> >  	depth = riscv_v_ctx_get_depth();
-> > -	if (depth == 0 && (regs->status & SR_VS) == SR_VS_DIRTY)
-> > +	if (depth == 0 && __riscv_v_vstate_check(regs->status, DIRTY))
-> >  		riscv_preempt_v_set_dirty();
-> >  
-> >  	riscv_v_ctx_depth_inc();
-> > @@ -208,7 +208,7 @@ void kernel_vector_begin(void)
-> >  {
-> >  	bool nested = false;
-> >  
-> > -	if (WARN_ON(!has_vector()))
-> > +	if (WARN_ON(!(has_vector() || has_xtheadvector())))
-> >  		return;
-> >  
-> >  	BUG_ON(!may_use_simd());
-> > @@ -236,7 +236,7 @@ EXPORT_SYMBOL_GPL(kernel_vector_begin);
-> >   */
-> >  void kernel_vector_end(void)
-> >  {
-> > -	if (WARN_ON(!has_vector()))
-> > +	if (WARN_ON(!(has_vector() || has_xtheadvector())))
-> >  		return;
-> >  
-> >  	riscv_v_disable();
-> > diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> > index e4bc61c4e58a..191023decd16 100644
-> > --- a/arch/riscv/kernel/process.c
-> > +++ b/arch/riscv/kernel/process.c
-> > @@ -176,7 +176,7 @@ void flush_thread(void)
-> >  void arch_release_task_struct(struct task_struct *tsk)
-> >  {
-> >  	/* Free the vector context of datap. */
-> > -	if (has_vector())
-> > +	if (has_vector() || has_xtheadvector())
-> >  		riscv_v_thread_free(tsk);
-> >  }
-> >  
-> > @@ -222,7 +222,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
-> >  		p->thread.s[0] = 0;
-> >  	}
-> >  	p->thread.riscv_v_flags = 0;
-> > -	if (has_vector())
-> > +	if (has_vector() || has_xtheadvector())
-> >  		riscv_v_thread_alloc(p);
-> >  	p->thread.ra = (unsigned long)ret_from_fork;
-> >  	p->thread.sp = (unsigned long)childregs; /* kernel sp */
-> > diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-> > index 5a2edd7f027e..1d5e4b3ca9e1 100644
-> > --- a/arch/riscv/kernel/signal.c
-> > +++ b/arch/riscv/kernel/signal.c
-> > @@ -189,7 +189,7 @@ static long restore_sigcontext(struct pt_regs *regs,
-> >  
-> >  			return 0;
-> >  		case RISCV_V_MAGIC:
-> > -			if (!has_vector() || !riscv_v_vstate_query(regs) ||
-> > +			if (!(has_vector() || has_xtheadvector()) || !riscv_v_vstate_query(regs) ||
-> >  			    size != riscv_v_sc_size)
-> >  				return -EINVAL;
-> >  
-> > @@ -211,7 +211,7 @@ static size_t get_rt_frame_size(bool cal_all)
-> >  
-> >  	frame_size = sizeof(*frame);
-> >  
-> > -	if (has_vector()) {
-> > +	if (has_vector() || has_xtheadvector()) {
-> >  		if (cal_all || riscv_v_vstate_query(task_pt_regs(current)))
-> >  			total_context_size += riscv_v_sc_size;
-> >  	}
-> > @@ -284,7 +284,7 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
-> >  	if (has_fpu())
-> >  		err |= save_fp_state(regs, &sc->sc_fpregs);
-> >  	/* Save the vector state. */
-> > -	if (has_vector() && riscv_v_vstate_query(regs))
-> > +	if ((has_vector() || has_xtheadvector()) && riscv_v_vstate_query(regs))
-> >  		err |= save_v_state(regs, (void __user **)&sc_ext_ptr);
-> >  	/* Write zero to fp-reserved space and check it on restore_sigcontext */
-> >  	err |= __put_user(0, &sc->sc_extdesc.reserved);
-> > diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-> > index 3ba2f2432483..83126995f61a 100644
-> > --- a/arch/riscv/kernel/vector.c
-> > +++ b/arch/riscv/kernel/vector.c
-> > @@ -63,7 +63,7 @@ int riscv_v_setup_vsize(void)
-> >  
-> >  void __init riscv_v_setup_ctx_cache(void)
-> >  {
-> > -	if (!has_vector())
-> > +	if (!(has_vector() || has_xtheadvector()))
-> >  		return;
-> >  
-> >  	riscv_v_user_cachep = kmem_cache_create_usercopy("riscv_vector_ctx",
-> > @@ -184,7 +184,8 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
-> >  	u32 insn = (u32)regs->badaddr;
-> >  
-> >  	/* Do not handle if V is not supported, or disabled */
-> > -	if (!(ELF_HWCAP & COMPAT_HWCAP_ISA_V))
-> > +	if (!(ELF_HWCAP & COMPAT_HWCAP_ISA_V) &&
-> > +	    !(has_xtheadvector() && riscv_v_vstate_ctrl_user_allowed()))
-> >  		return false;
-> >  
-> >  	/* If V has been enabled then it is not the first-use trap */
-> > @@ -223,7 +224,7 @@ void riscv_v_vstate_ctrl_init(struct task_struct *tsk)
-> >  	bool inherit;
-> >  	int cur, next;
-> >  
-> > -	if (!has_vector())
-> > +	if (!(has_vector() || has_xtheadvector()))
-> >  		return;
-> >  
-> >  	next = riscv_v_ctrl_get_next(tsk);
-> > @@ -245,7 +246,7 @@ void riscv_v_vstate_ctrl_init(struct task_struct *tsk)
-> >  
-> >  long riscv_v_vstate_ctrl_get_current(void)
-> >  {
-> > -	if (!has_vector())
-> > +	if (!(has_vector() || has_xtheadvector()))
-> >  		return -EINVAL;
-> >  
-> >  	return current->thread.vstate_ctrl & PR_RISCV_V_VSTATE_CTRL_MASK;
-> > @@ -256,7 +257,7 @@ long riscv_v_vstate_ctrl_set_current(unsigned long arg)
-> >  	bool inherit;
-> >  	int cur, next;
-> >  
-> > -	if (!has_vector())
-> > +	if (!(has_vector() || has_xtheadvector()))
-> >  		return -EINVAL;
-> >  
-> >  	if (arg & ~PR_RISCV_V_VSTATE_CTRL_MASK)
-> > @@ -306,7 +307,7 @@ static struct ctl_table riscv_v_default_vstate_table[] = {
-> >  
-> >  static int __init riscv_v_sysctl_init(void)
-> >  {
-> > -	if (has_vector())
-> > +	if (has_vector() || has_xtheadvector())
-> >  		if (!register_sysctl("abi", riscv_v_default_vstate_table))
-> >  			return -EINVAL;
-> >  	return 0;
-> > 
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSmVzc2UsCgpPbiBUdWUsIEp1bCAyLCAyMDI0IGF0IDY6MzDigK9BTSBDaGFybGllIEplbmtp
+bnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPiB3cm90ZToKPgo+IE9uIE1vbiwgSnVsIDAxLCAyMDI0
+IGF0IDAyOjUxOjMyUE0gLTA0MDAsIEplc3NlIFRhdWJlIHdyb3RlOgo+ID4gUGFyc2UgdGhlIGRl
+dmljZSB0cmVlIGZvciBaa3IgaW4gdGhlIGlzYSBzdHJpbmcuCj4gPiBJZiBaa3IgaXMgcHJlc2Vu
+dCwgdXNlIGl0IHRvIHNlZWQgdGhlIGtlcm5lbCBiYXNlIGFkZHJlc3MuCj4gPgo+ID4gT24gYW4g
+QUNQSSBzeXN0ZW0sIGFzIG9mIHRoaXMgY29tbWl0LCB0aGVyZSBpcyBubyBlYXN5IHdheSB0byBj
+aGVjayBpZgo+ID4gWmtyIGlzIHByZXNlbnQuIEJsaW5kbHkgcnVubmluZyB0aGUgaW5zdHJ1Y3Rp
+b24gaXNuJ3QgYW4gb3B0aW9uIGFzOwo+ID4gd2UgaGF2ZSB0byBiZSBhYmxlIHRvIHRydXN0IHRo
+ZSBmaXJtd2FyZS4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBKZXNzZSBUYXViZSA8amVzc2VAcml2
+b3NpbmMuY29tPgo+ID4gLS0tCj4gPiBWMSAtPiBWMjoKPiA+ICAtIEFsbW9zdCBlbnRpcmUgcmV3
+cml0ZQo+ID4gVjIgLT4gVjM6Cj4gPiAgLSBEb250IHBhcnNlIGlzY3YsaXNhLWJhc2UKPiA+ICAt
+IE1vdmUgZmR0X2Vhcmx5X21hdGNoX2V4dGVuc2lvbl9pc2EgaW4gcGkuaCB1bmRlciBjb21tZW50
+Cj4gPiAgLSBPbmx5IGNoZWNrIGVuYWJsZWQgY3B1cwo+ID4gIC0gUmVuYW1lIGVhcmx5X2lzYV9z
+dHIgdG8gZmR0X2Vhcmx5X21hdGNoX2V4dGVuc2lvbl9pc2EKPiA+ICAtIFJlbmFtZSBnZXRfZXh0
+X25hbWVkIHRvIGVhcmx5X2NwdV9pc2FfZXh0X2F2YWlsYWJsZQo+ID4gIC0gUmV3cml0ZSBpc2Ff
+c3RyaW5nX2NvbnRhaW5zCj4gPiAgLSBVcGRhdGUgY29tbWl0IGRlc2NyaXB0aW9uCj4gPiAgLSBV
+c2UgZmR0X3N0cmluZ2xpc3RfY29udGFpbnMgZm9yIHJpc2N2LGlzYS1leHRlbnNpb25zCj4gPiAt
+LS0KPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9waS9NYWtlZmlsZSAgICAgICAgICAgfCAgIDIgKy0K
+PiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9waS9hcmNocmFuZG9tX2Vhcmx5LmMgfCAgMzAgKysrKysK
+PiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9waS9mZHRfZWFybHkuYyAgICAgICAgfCAxNjAgKysrKysr
+KysrKysrKysrKysrKysrKysrCj4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvcGkvcGkuaCAgICAgICAg
+ICAgICAgIHwgICAzICsKPiA+ICBhcmNoL3Jpc2N2L21tL2luaXQuYyAgICAgICAgICAgICAgICAg
+ICAgfCAgIDUgKy0KPiA+ICA1IGZpbGVzIGNoYW5nZWQsIDE5OCBpbnNlcnRpb25zKCspLCAyIGRl
+bGV0aW9ucygtKQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9waS9h
+cmNocmFuZG9tX2Vhcmx5LmMKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
+cGkvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2tlcm5lbC9waS9NYWtlZmlsZQo+ID4gaW5kZXggMWVm
+NzU4NGJlMGMzLi5kYmE5MDJmMmE1MzggMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9waS9NYWtlZmlsZQo+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcGkvTWFrZWZpbGUKPiA+
+IEBAIC0zMyw1ICszMyw1IEBAICQob2JqKS9zdHJpbmcubzogJChzcmN0cmVlKS9saWIvc3RyaW5n
+LmMgRk9SQ0UKPiA+ICAkKG9iaikvY3R5cGUubzogJChzcmN0cmVlKS9saWIvY3R5cGUuYyBGT1JD
+RQo+ID4gICAgICAgJChjYWxsIGlmX2NoYW5nZWRfcnVsZSxjY19vX2MpCj4gPgo+ID4gLW9iai15
+ICAgICAgICAgICAgICAgIDo9IGNtZGxpbmVfZWFybHkucGkubyBmZHRfZWFybHkucGkubyBzdHJp
+bmcucGkubyBjdHlwZS5waS5vIGxpYi1mZHQucGkubyBsaWItZmR0X3JvLnBpLm8KPiA+ICtvYmot
+eSAgICAgICAgICAgICAgICA6PSBjbWRsaW5lX2Vhcmx5LnBpLm8gZmR0X2Vhcmx5LnBpLm8gc3Ry
+aW5nLnBpLm8gY3R5cGUucGkubyBsaWItZmR0LnBpLm8gbGliLWZkdF9yby5waS5vIGFyY2hyYW5k
+b21fZWFybHkucGkubwo+Cj4gV2hlbiBDT05GSUdfRk9SVElGWV9TT1VSQ0UgaXMgZW5hYmxlZCwg
+dGhlIHN0cmluZyBmdW5jdGlvbnMgdHJ5IHRvCj4gcmVmZXJlbmNlIGBfX2ZvcnRpZnlfcGFuaWNg
+IHdoaWNoIGdldHMgYWxpYXNlZCB0byBgX19waV9fX2ZvcnRpZnlfcGFuaWNgCj4gYW5kIGNhdXNl
+cyBsbGQgdG8gZmFpbDoKPgo+IGxkLmxsZDogZXJyb3I6IHVuZGVmaW5lZCBoaWRkZW4gc3ltYm9s
+OiBfX3BpX19fZm9ydGlmeV9wYW5pYwo+ID4+PiByZWZlcmVuY2VkIGJ5IGZkdF9lYXJseS5jOjI0
+IChhcmNoL3Jpc2N2L2tlcm5lbC9waS9mZHRfZWFybHkuYzoyNCkKPiA+Pj4gICAgICAgICAgICAg
+ICBhcmNoL3Jpc2N2L2tlcm5lbC9waS9mZHRfZWFybHkucGkubzooX19waV9mZHRfZWFybHlfbWF0
+Y2hfZXh0ZW5zaW9uX2lzYSkgaW4gYXJjaGl2ZSB2bWxpbnV4LmEKPgo+IFRoaXMgZWFybHkgaW4g
+Ym9vdCBfX2ZvcnRpZnlfcGFuaWMgaXNuJ3Qgc3VwcG9ydGVkLiBDYW4geW91IGFkZAo+IGBDRkxB
+R1NfZmR0X2Vhcmx5Lm8gKz0gLURfX05PX0ZPUlRJRllgIG5leHQgdG8gdGhlIHNhbWUgYWRkaXRp
+b24gZm9yCj4gY21kbGluZV9lYXJseSBhbmQgZmR0X2Vhcmx5PwoKV2l0aCB0aGlzIF4gZml4ZWQs
+IHlvdSBjYW4gYWRkOgoKUmV2aWV3ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJp
+dm9zaW5jLmNvbT4KClRoYW5rcywKCkFsZXgKCj4KPiBUaGUgcmVzdCBvZiB0aGlzIGxvb2tzIGdv
+IHRvIG1lIChqdXN0IHNlbmQgYSBuZXcgdmVyc2lvbiB3aXRoIHRoaXMgc2ltcGxlIGZpeCkuCj4K
+PiBSZXZpZXdlZC1ieTogQ2hhcmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4KPgo+
+ID4gIGV4dHJhLXkgICAgICAgICAgICAgIDo9ICQocGF0c3Vic3QgJS5waS5vLCUubywkKG9iai15
+KSkKPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9waS9hcmNocmFuZG9tX2Vhcmx5
+LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9waS9hcmNocmFuZG9tX2Vhcmx5LmMKPiA+IG5ldyBmaWxl
+IG1vZGUgMTAwNjQ0Cj4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLjNmMDVkM2NmM2I3Ygo+ID4gLS0t
+IC9kZXYvbnVsbAo+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcGkvYXJjaHJhbmRvbV9lYXJs
+eS5jCj4gPiBAQCAtMCwwICsxLDMwIEBACj4gPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6
+IEdQTC0yLjAtb25seQo+ID4gKwo+ID4gKyNpbmNsdWRlIDxhc20vY3NyLmg+Cj4gPiArI2luY2x1
+ZGUgPGxpbnV4L3Byb2Nlc3Nvci5oPgo+ID4gKwo+ID4gKyNpbmNsdWRlICJwaS5oIgo+ID4gKwo+
+ID4gKy8qCj4gPiArICogVG8gYXZvaWQgcmV3cml0aW5nIGNvZGUgaW5jbHVkZSBhc20vYXJjaHJh
+bmRvbS5oIGFuZCBjcmVhdGUgbWFjcm9zCj4gPiArICogZm9yIHRoZSBmdW5jdGlvbnMgdGhhdCB3
+b24ndCBiZSBpbmNsdWRlZC4KPiA+ICsgKi8KPiA+ICsjdW5kZWYgcmlzY3ZfaGFzX2V4dGVuc2lv
+bl91bmxpa2VseQo+ID4gKyNkZWZpbmUgcmlzY3ZfaGFzX2V4dGVuc2lvbl9saWtlbHkoLi4uKSBm
+YWxzZQo+ID4gKyN1bmRlZiBwcl9lcnJfb25jZQo+ID4gKyNkZWZpbmUgcHJfZXJyX29uY2UoLi4u
+KQo+ID4gKwo+ID4gKyNpbmNsdWRlIDxhc20vYXJjaHJhbmRvbS5oPgo+ID4gKwo+ID4gK3U2NCBn
+ZXRfa2FzbHJfc2VlZF96a3IoY29uc3QgdWludHB0cl90IGR0Yl9wYSkKPiA+ICt7Cj4gPiArICAg
+ICB1bnNpZ25lZCBsb25nIHNlZWQgPSAwOwo+ID4gKwo+ID4gKyAgICAgaWYgKCFmZHRfZWFybHlf
+bWF0Y2hfZXh0ZW5zaW9uX2lzYSgoY29uc3Qgdm9pZCAqKWR0Yl9wYSwgInprciIpKQo+ID4gKyAg
+ICAgICAgICAgICByZXR1cm4gMDsKPiA+ICsKPiA+ICsgICAgIGlmICghY3NyX3NlZWRfbG9uZygm
+c2VlZCkpCj4gPiArICAgICAgICAgICAgIHJldHVybiAwOwo+ID4gKwo+ID4gKyAgICAgcmV0dXJu
+IHNlZWQ7Cj4gPiArfQo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3BpL2ZkdF9l
+YXJseS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvcGkvZmR0X2Vhcmx5LmMKPiA+IGluZGV4IDQwZWUy
+OTk3MDJiZi4uNDlmZjUzNjBiZjg3IDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwv
+cGkvZmR0X2Vhcmx5LmMKPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3BpL2ZkdF9lYXJseS5j
+Cj4gPiBAQCAtMiw2ICsyLDcgQEAKPiA+ICAjaW5jbHVkZSA8bGludXgvdHlwZXMuaD4KPiA+ICAj
+aW5jbHVkZSA8bGludXgvaW5pdC5oPgo+ID4gICNpbmNsdWRlIDxsaW51eC9saWJmZHQuaD4KPiA+
+ICsjaW5jbHVkZSA8bGludXgvY3R5cGUuaD4KPiA+Cj4gPiAgI2luY2x1ZGUgInBpLmgiCj4gPgo+
+ID4gQEAgLTIzLDMgKzI0LDE2MiBAQCB1NjQgZ2V0X2thc2xyX3NlZWQodWludHB0cl90IGR0Yl9w
+YSkKPiA+ICAgICAgICpwcm9wID0gMDsKPiA+ICAgICAgIHJldHVybiByZXQ7Cj4gPiAgfQo+ID4g
+Kwo+ID4gKy8qKgo+ID4gKyAqICBmZHRfZGV2aWNlX2lzX2F2YWlsYWJsZSAtIGNoZWNrIGlmIGEg
+ZGV2aWNlIGlzIGF2YWlsYWJsZSBmb3IgdXNlCj4gPiArICoKPiA+ICsgKiBAZmR0OiBwb2ludGVy
+IHRvIHRoZSBkZXZpY2UgdHJlZSBibG9iCj4gPiArICogQG5vZGU6IG9mZnNldCBvZiB0aGUgbm9k
+ZSB3aG9zZSBwcm9wZXJ0eSB0byBmaW5kCj4gPiArICoKPiA+ICsgKiAgUmV0dXJucyB0cnVlIGlm
+IHRoZSBzdGF0dXMgcHJvcGVydHkgaXMgYWJzZW50IG9yIHNldCB0byAib2theSIgb3IgIm9rIiwK
+PiA+ICsgKiAgZmFsc2Ugb3RoZXJ3aXNlCj4gPiArICovCj4gPiArc3RhdGljIGJvb2wgZmR0X2Rl
+dmljZV9pc19hdmFpbGFibGUoY29uc3Qgdm9pZCAqZmR0LCBpbnQgbm9kZSkKPiA+ICt7Cj4gPiAr
+ICAgICBjb25zdCBjaGFyICpzdGF0dXM7Cj4gPiArICAgICBpbnQgc3RhdGxlbjsKPiA+ICsKPiA+
+ICsgICAgIHN0YXR1cyA9IGZkdF9nZXRwcm9wKGZkdCwgbm9kZSwgInN0YXR1cyIsICZzdGF0bGVu
+KTsKPiA+ICsgICAgIGlmICghc3RhdHVzKQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gdHJ1ZTsK
+PiA+ICsKPiA+ICsgICAgIGlmIChzdGF0bGVuID4gMCkgewo+ID4gKyAgICAgICAgICAgICBpZiAo
+IXN0cmNtcChzdGF0dXMsICJva2F5IikgfHwgIXN0cmNtcChzdGF0dXMsICJvayIpKQo+ID4gKyAg
+ICAgICAgICAgICAgICAgICAgIHJldHVybiB0cnVlOwo+ID4gKyAgICAgfQo+ID4gKwo+ID4gKyAg
+ICAgcmV0dXJuIGZhbHNlOwo+ID4gK30KPiA+ICsKPiA+ICsvKiBDb3B5IG9mIGZkdF9ub2RlbmFt
+ZV9lcV8gKi8KPiA+ICtzdGF0aWMgaW50IGZkdF9ub2RlX25hbWVfZXEoY29uc3Qgdm9pZCAqZmR0
+LCBpbnQgb2Zmc2V0LAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBjaGFyICpz
+KQo+ID4gK3sKPiA+ICsgICAgIGludCBvbGVuOwo+ID4gKyAgICAgaW50IGxlbiA9IHN0cmxlbihz
+KTsKPiA+ICsgICAgIGNvbnN0IGNoYXIgKnAgPSBmZHRfZ2V0X25hbWUoZmR0LCBvZmZzZXQsICZv
+bGVuKTsKPiA+ICsKPiA+ICsgICAgIGlmICghcCB8fCBvbGVuIDwgbGVuKQo+ID4gKyAgICAgICAg
+ICAgICAvKiBzaG9ydCBtYXRjaCAqLwo+ID4gKyAgICAgICAgICAgICByZXR1cm4gMDsKPiA+ICsK
+PiA+ICsgICAgIGlmIChtZW1jbXAocCwgcywgbGVuKSAhPSAwKQo+ID4gKyAgICAgICAgICAgICBy
+ZXR1cm4gMDsKPiA+ICsKPiA+ICsgICAgIGlmIChwW2xlbl0gPT0gJ1wwJykKPiA+ICsgICAgICAg
+ICAgICAgcmV0dXJuIDE7Cj4gPiArICAgICBlbHNlIGlmICghbWVtY2hyKHMsICdAJywgbGVuKSAm
+JiAocFtsZW5dID09ICdAJykpCj4gPiArICAgICAgICAgICAgIHJldHVybiAxOwo+ID4gKyAgICAg
+ZWxzZQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gMDsKPiA+ICt9Cj4gPiArCj4gPiArLyoqCj4g
+PiArICogIGlzYV9zdHJpbmdfY29udGFpbnMgLSBjaGVjayBpZiBpc2Egc3RyaW5nIGNvbnRhaW5z
+IGFuIGV4dGVuc2lvbgo+ID4gKyAqCj4gPiArICogQGlzYV9zdHI6IGlzYSBzdHJpbmcgdG8gc2Vh
+cmNoCj4gPiArICogQGV4dF9uYW1lOiB0aGUgZXh0ZW5zaW9uIHRvIHNlYXJjaCBmb3IKPiA+ICsg
+Kgo+ID4gKyAqICBSZXR1cm5zIHRydWUgaWYgdGhlIGV4dGVuc2lvbiBpcyBpbiB0aGUgZ2l2ZW4g
+aXNhIHN0cmluZywKPiA+ICsgKiAgZmFsc2Ugb3RoZXJ3aXNlCj4gPiArICovCj4gPiArc3RhdGlj
+IGJvb2wgaXNhX3N0cmluZ19jb250YWlucyhjb25zdCBjaGFyICppc2Ffc3RyLCBjb25zdCBjaGFy
+ICpleHRfbmFtZSkKPiA+ICt7Cj4gPiArICAgICBzaXplX3QgaSwgc2luZ2xlX2VuZCwgbGVuID0g
+c3RybGVuKGV4dF9uYW1lKTsKPiA+ICsgICAgIGNoYXIgZXh0X2VuZDsKPiA+ICsKPiA+ICsgICAg
+IC8qIEVycm9yIG11c3QgY29udGFpbiBydjMyLzY0ICovCj4gPiArICAgICBpZiAoc3RybGVuKGlz
+YV9zdHIpIDwgNCkKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwo+ID4gKwo+ID4gKyAg
+ICAgaWYgKGxlbiA9PSAxKSB7Cj4gPiArICAgICAgICAgICAgIHNpbmdsZV9lbmQgPSBzdHJjc3Bu
+KGlzYV9zdHIsICJzU3hYeloiKTsKPiA+ICsgICAgICAgICAgICAgLyogU2VhcmNoIGZvciBzaW5n
+bGUgY2hhcnMgYmV0d2VlbiBydjMyLzY0IGFuZCBtdWx0aS1sZXR0ZXIgZXh0ZW5zaW9ucyAqLwo+
+ID4gKyAgICAgICAgICAgICBmb3IgKGkgPSA0OyBpIDwgc2luZ2xlX2VuZDsgaSsrKSB7Cj4gPiAr
+ICAgICAgICAgICAgICAgICAgICAgaWYgKHRvbG93ZXIoaXNhX3N0cltpXSkgPT0gZXh0X25hbWVb
+MF0pCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gdHJ1ZTsKPiA+ICsg
+ICAgICAgICAgICAgfQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gZmFsc2U7Cj4gPiArICAgICB9
+Cj4gPiArCj4gPiArICAgICAvKiBTa2lwIHRvIHN0YXJ0IG9mIG11bHRpLWxldHRlciBleHRlbnNp
+b25zICovCj4gPiArICAgICBpc2Ffc3RyID0gc3RycGJyayhpc2Ffc3RyLCAic1N4WHpaIik7Cj4g
+PiArICAgICB3aGlsZSAoaXNhX3N0cikgewo+ID4gKyAgICAgICAgICAgICBpZiAoc3RybmNhc2Vj
+bXAoaXNhX3N0ciwgZXh0X25hbWUsIGxlbikgPT0gMCkgewo+ID4gKyAgICAgICAgICAgICAgICAg
+ICAgIGV4dF9lbmQgPSBpc2Ffc3RyW2xlbl07Cj4gPiArICAgICAgICAgICAgICAgICAgICAgLyog
+Q2hlY2sgaWYgbWF0Y2hlcyB0aGUgd2hvbGUgZXh0ZW5zaW9uIGV4Y2x1ZGluZyB2ZXJzaW9uLiAq
+Lwo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGlmIChleHRfZW5kID09ICdcMCcgfHwgZXh0X2Vu
+ZCA9PSAnXycgfHwgaXNkaWdpdChleHRfZW5kKSkKPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIHJldHVybiB0cnVlOwo+ID4gKyAgICAgICAgICAgICB9Cj4gPiArICAgICAgICAgICAg
+IC8qIE11bHRpLWxldHRlciBleHRlbnNpb25zIG11c3QgYmUgc3BsaXQgZnJvbSBvdGhlciBtdWx0
+aS1sZXR0ZXIKPiA+ICsgICAgICAgICAgICAgICogZXh0ZW5zaW9ucyB3aXRoIGFuICJfIiwgdGhl
+IGVuZCBvZiBhIG11bHRpLWxldHRlciBleHRlbnNpb24gd2lsbAo+ID4gKyAgICAgICAgICAgICAg
+KiBlaXRoZXIgYmUgdGhlIG51bGwgY2hhcmFjdGVyIG9yIHRoZSAiXyIgYXQgdGhlIHN0YXJ0IG9m
+IHRoZSBuZXh0Cj4gPiArICAgICAgICAgICAgICAqIG11bHRpLWxldHRlciBleHRlbnNpb24uCj4g
+PiArICAgICAgICAgICAgICAqLwo+ID4gKyAgICAgICAgICAgICBpc2Ffc3RyID0gc3RyY2hyKGlz
+YV9zdHIsICdfJyk7Cj4gPiArICAgICAgICAgICAgIGlmIChpc2Ffc3RyKQo+ID4gKyAgICAgICAg
+ICAgICAgICAgICAgIGlzYV9zdHIrKzsKPiA+ICsgICAgIH0KPiA+ICsKPiA+ICsgICAgIHJldHVy
+biBmYWxzZTsKPiA+ICt9Cj4gPiArCj4gPiArLyoqCj4gPiArICogIGVhcmx5X2NwdV9pc2FfZXh0
+X2F2YWlsYWJsZSAtIGNoZWNrIGlmIGNwdSBub2RlIGhhcyBhbiBleHRlbnNpb24KPiA+ICsgKgo+
+ID4gKyAqIEBmZHQ6IHBvaW50ZXIgdG8gdGhlIGRldmljZSB0cmVlIGJsb2IKPiA+ICsgKiBAbm9k
+ZTogb2Zmc2V0IG9mIHRoZSBjcHUgbm9kZQo+ID4gKyAqIEBleHRfbmFtZTogdGhlIGV4dGVuc2lv
+biB0byBzZWFyY2ggZm9yCj4gPiArICoKPiA+ICsgKiAgUmV0dXJucyB0cnVlIGlmIHRoZSBjcHUg
+bm9kZSBoYXMgdGhlIGV4dGVuc2lvbiwKPiA+ICsgKiAgZmFsc2Ugb3RoZXJ3aXNlCj4gPiArICov
+Cj4gPiArc3RhdGljIGJvb2wgZWFybHlfY3B1X2lzYV9leHRfYXZhaWxhYmxlKGNvbnN0IHZvaWQg
+KmZkdCwgaW50IG5vZGUsIGNvbnN0IGNoYXIgKmV4dF9uYW1lKQo+ID4gK3sKPiA+ICsgICAgIGNv
+bnN0IHZvaWQgKnByb3A7Cj4gPiArICAgICBpbnQgbGVuOwo+ID4gKwo+ID4gKyAgICAgcHJvcCA9
+IGZkdF9nZXRwcm9wKGZkdCwgbm9kZSwgInJpc2N2LGlzYS1leHRlbnNpb25zIiwgJmxlbik7Cj4g
+PiArICAgICBpZiAocHJvcCAmJiBmZHRfc3RyaW5nbGlzdF9jb250YWlucyhwcm9wLCBsZW4sIGV4
+dF9uYW1lKSkKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIHRydWU7Cj4gPiArCj4gPiArICAgICBw
+cm9wID0gZmR0X2dldHByb3AoZmR0LCBub2RlLCAicmlzY3YsaXNhIiwgJmxlbik7Cj4gPiArICAg
+ICBpZiAocHJvcCAmJiBpc2Ffc3RyaW5nX2NvbnRhaW5zKHByb3AsIGV4dF9uYW1lKSkKPiA+ICsg
+ICAgICAgICAgICAgcmV0dXJuIHRydWU7Cj4gPiArCj4gPiArICAgICByZXR1cm4gZmFsc2U7Cj4g
+PiArfQo+ID4gKwo+ID4gKy8qKgo+ID4gKyAqICBmZHRfZWFybHlfbWF0Y2hfZXh0ZW5zaW9uX2lz
+YSAtIGNoZWNrIGlmIGFsbCBjcHUgbm9kZXMgaGF2ZSBhbiBleHRlbnNpb24KPiA+ICsgKgo+ID4g
+KyAqIEBmZHQ6IHBvaW50ZXIgdG8gdGhlIGRldmljZSB0cmVlIGJsb2IKPiA+ICsgKiBAZXh0X25h
+bWU6IHRoZSBleHRlbnNpb24gdG8gc2VhcmNoIGZvcgo+ID4gKyAqCj4gPiArICogIFJldHVybnMg
+dHJ1ZSBpZiB0aGUgYWxsIGF2YWlsYWJsZSB0aGUgY3B1IG5vZGVzIGhhdmUgdGhlIGV4dGVuc2lv
+biwKPiA+ICsgKiAgZmFsc2Ugb3RoZXJ3aXNlCj4gPiArICovCj4gPiArYm9vbCBmZHRfZWFybHlf
+bWF0Y2hfZXh0ZW5zaW9uX2lzYShjb25zdCB2b2lkICpmZHQsIGNvbnN0IGNoYXIgKmV4dF9uYW1l
+KQo+ID4gK3sKPiA+ICsgICAgIGludCBub2RlLCBwYXJlbnQ7Cj4gPiArICAgICBib29sIHJldCA9
+IGZhbHNlOwo+ID4gKwo+ID4gKyAgICAgcGFyZW50ID0gZmR0X3BhdGhfb2Zmc2V0KGZkdCwgIi9j
+cHVzIik7Cj4gPiArICAgICBpZiAocGFyZW50IDwgMCkKPiA+ICsgICAgICAgICAgICAgcmV0dXJu
+IGZhbHNlOwo+ID4gKwo+ID4gKyAgICAgZmR0X2Zvcl9lYWNoX3N1Ym5vZGUobm9kZSwgZmR0LCBw
+YXJlbnQpIHsKPiA+ICsgICAgICAgICAgICAgaWYgKCFmZHRfbm9kZV9uYW1lX2VxKGZkdCwgbm9k
+ZSwgImNwdSIpKQo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGNvbnRpbnVlOwo+ID4gKwo+ID4g
+KyAgICAgICAgICAgICBpZiAoIWZkdF9kZXZpY2VfaXNfYXZhaWxhYmxlKGZkdCwgbm9kZSkpCj4g
+PiArICAgICAgICAgICAgICAgICAgICAgY29udGludWU7Cj4gPiArCj4gPiArICAgICAgICAgICAg
+IGlmICghZWFybHlfY3B1X2lzYV9leHRfYXZhaWxhYmxlKGZkdCwgbm9kZSwgZXh0X25hbWUpKQo+
+ID4gKyAgICAgICAgICAgICAgICAgICAgIHJldHVybiBmYWxzZTsKPiA+ICsKPiA+ICsgICAgICAg
+ICAgICAgcmV0ID0gdHJ1ZTsKPiA+ICsgICAgIH0KPiA+ICsKPiA+ICsgICAgIHJldHVybiByZXQ7
+Cj4gPiArfQo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3BpL3BpLmggYi9hcmNo
+L3Jpc2N2L2tlcm5lbC9waS9waS5oCj4gPiBpbmRleCA0OTNjOGNiN2MwZTYuLjIxMTQxZDg0ZmVh
+NiAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3BpL3BpLmgKPiA+ICsrKyBiL2Fy
+Y2gvcmlzY3Yva2VybmVsL3BpL3BpLmgKPiA+IEBAIC0xMSw3ICsxMSwxMCBAQAo+ID4gICAqLwo+
+ID4KPiA+ICB1NjQgZ2V0X2thc2xyX3NlZWQodWludHB0cl90IGR0Yl9wYSk7Cj4gPiArdTY0IGdl
+dF9rYXNscl9zZWVkX3prcihjb25zdCB1aW50cHRyX3QgZHRiX3BhKTsKPiA+ICBib29sIHNldF9u
+b2thc2xyX2Zyb21fY21kbGluZSh1aW50cHRyX3QgZHRiX3BhKTsKPiA+ICB1NjQgc2V0X3NhdHBf
+bW9kZV9mcm9tX2NtZGxpbmUodWludHB0cl90IGR0Yl9wYSk7Cj4gPgo+ID4gK2Jvb2wgZmR0X2Vh
+cmx5X21hdGNoX2V4dGVuc2lvbl9pc2EoY29uc3Qgdm9pZCAqZmR0LCBjb25zdCBjaGFyICpleHRf
+bmFtZSk7Cj4gPiArCj4gPiAgI2VuZGlmIC8qIF9SSVNDVl9QSV9IXyAqLwo+ID4gZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiA+IGluZGV4
+IDk5NDAxNzFjNzlmMC4uYmZiMDY4ZGM0YTY0IDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9t
+bS9pbml0LmMKPiA+ICsrKyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gPiBAQCAtMTAyNSw2ICsx
+MDI1LDcgQEAgc3RhdGljIHZvaWQgX19pbml0IHB0X29wc19zZXRfbGF0ZSh2b2lkKQo+ID4gICNp
+ZmRlZiBDT05GSUdfUkFORE9NSVpFX0JBU0UKPiA+ICBleHRlcm4gYm9vbCBfX2luaXQgX19waV9z
+ZXRfbm9rYXNscl9mcm9tX2NtZGxpbmUodWludHB0cl90IGR0Yl9wYSk7Cj4gPiAgZXh0ZXJuIHU2
+NCBfX2luaXQgX19waV9nZXRfa2FzbHJfc2VlZCh1aW50cHRyX3QgZHRiX3BhKTsKPiA+ICtleHRl
+cm4gdTY0IF9faW5pdCBfX3BpX2dldF9rYXNscl9zZWVkX3prcihjb25zdCB1aW50cHRyX3QgZHRi
+X3BhKTsKPiA+Cj4gPiAgc3RhdGljIGludCBfX2luaXQgcHJpbnRfbm9rYXNscihjaGFyICpwKQo+
+ID4gIHsKPiA+IEBAIC0xMDQ1LDEwICsxMDQ2LDEyIEBAIGFzbWxpbmthZ2Ugdm9pZCBfX2luaXQg
+c2V0dXBfdm0odWludHB0cl90IGR0Yl9wYSkKPiA+Cj4gPiAgI2lmZGVmIENPTkZJR19SQU5ET01J
+WkVfQkFTRQo+ID4gICAgICAgaWYgKCFfX3BpX3NldF9ub2thc2xyX2Zyb21fY21kbGluZShkdGJf
+cGEpKSB7Cj4gPiAtICAgICAgICAgICAgIHU2NCBrYXNscl9zZWVkID0gX19waV9nZXRfa2FzbHJf
+c2VlZChkdGJfcGEpOwo+ID4gKyAgICAgICAgICAgICB1NjQga2FzbHJfc2VlZCA9IF9fcGlfZ2V0
+X2thc2xyX3NlZWRfemtyKGR0Yl9wYSk7Cj4gPiAgICAgICAgICAgICAgIHUzMiBrZXJuZWxfc2l6
+ZSA9ICh1aW50cHRyX3QpKCZfZW5kKSAtICh1aW50cHRyX3QpKCZfc3RhcnQpOwo+ID4gICAgICAg
+ICAgICAgICB1MzIgbnJfcG9zOwo+ID4KPiA+ICsgICAgICAgICAgICAgaWYgKGthc2xyX3NlZWQg
+PT0gMCkKPiA+ICsgICAgICAgICAgICAgICAgICAgICBrYXNscl9zZWVkID0gX19waV9nZXRfa2Fz
+bHJfc2VlZChkdGJfcGEpOwo+ID4gICAgICAgICAgICAgICAvKgo+ID4gICAgICAgICAgICAgICAg
+KiBDb21wdXRlIHRoZSBudW1iZXIgb2YgcG9zaXRpb25zIGF2YWlsYWJsZTogd2UgYXJlIGxpbWl0
+ZWQKPiA+ICAgICAgICAgICAgICAgICogYnkgdGhlIGVhcmx5IHBhZ2UgdGFibGUgdGhhdCBvbmx5
+IGhhcyBvbmUgUFVEIGFuZCB3ZSBtdXN0Cj4gPiAtLQo+ID4gMi40NS4yCj4gPgo+ID4KPiA+IF9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gPiBsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKPiA+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiA+
+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
