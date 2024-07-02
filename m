@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3114C3064D
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 15:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F23DC30658
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 17:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Wo/Ugn39giA9z4OJq0ki8u1afTvlOg/Y5fo6zG6vGc=; b=hWBQqwK3CDzMZtsC4gXhuWoKVT
-	62SMfWUjmgqGfrEqu5CCm3z172fA4kDLyyVvk2TmYJ0Qsa5AYT8vpZht+MfTRigft2emqNSVZp/e2
-	ZZq2IJH/62QmAbX1QBMUehs01tuoe+hExahRQMo62cn8aXC47oEcqse28Nyf0RIpbEFSuaWtXNoHW
-	7/f7Zg1p+SZH5xdNPDZ2rLXvhrQ77WTsWvxhiMtn2C880a97X1Nhb/0kHY1wdf2VoIRqxpixnf8kE
-	u+8Vpos/jM8glKndbbbaiSxhmmZAV+o6tGaB+9oe9yLLLFZFCJybORXu8Szx/NhPFL/n5VZ+gctn2
-	ykyv6iqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eIS4re1T7zmHONZgUBELxmnCcgJTu8gFAvcBa4JS6N0=; b=PFziZtd76xWNmf
+	ecASBWd38N9ALQGRqLPgQ2g7KSBc8lQAZ6/tyWeC3QxAZBkFBXq3W9VPuddI4jNLMrZabGIiBdhG/
+	ZVSs7Ht4QDZ75Y2/bcYg/pQchylMmtFCnq7hLpbrUxdAXLJ0o/l1lG9aAmhClynHyUHOdbTggc5lX
+	YP4jOF9511/6XwiUYLtmikyNi+wNkLSxN/t+fhhbYRlIaRnSET19eCwQrOIYMNezMHu91kHxXZ60X
+	+ZHecsbv8cvVD8b0DZ/vvBJa6IP5ONlPCbZ8qHqPfZfaYCUEOAiW5cpJ5l2XnEuKsKAiorQEWAD8z
+	EJWSA8ktVUsT9t6hezEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOfbW-00000007EXr-2wxJ;
-	Tue, 02 Jul 2024 15:39:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sOgsW-00000007SNw-0Q4p;
+	Tue, 02 Jul 2024 17:01:16 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOfbT-00000007EWx-1FrR
+	id 1sOgsQ-00000007SL2-3cQ6
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 15:39:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2CDB361E10;
-	Tue,  2 Jul 2024 15:39:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A64C5C4AF0C;
-	Tue,  2 Jul 2024 15:39:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719934773;
-	bh=g+sRA4FxF0h1IXfXKKTkTHt+QuvIbChKxddB8lzK4EU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h2rFR4+1H8QAjHvU9Nz3JkKytSJuyGXKQhLFL1bLBu4/dRgrX3qdt0w6Xq/S6XkFZ
-	 ZlB8VolHFV5FXsu4clie838j9pElkHVJKrVH2pYsB34+zZPYXftXRi0jLjnmKosCF+
-	 XRqvP4pTy97ke6vL8nabJ3odm4GxIbubsDZztRCtBQhRkPTZeOcs6LUWEU8C684usv
-	 5ZbydD7hBTg+SJjg+VwMNbV0djJTy9wrTgEA/3DLdINP+ZmnGY9KmI+sMgil7QiQMZ
-	 t9VU8adMQ/COk9f2GOfv1+DkuhttuUaaPgJg/2LUPc3gtKxmh4MJHSExYyjk3CSlLz
-	 jq57ItKWe1/vg==
-Date: Tue, 2 Jul 2024 16:39:26 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yu-Chien Peter Lin <peterlin@andestech.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>, tim609@andestech.com,
-	dminus@andestech.com, ycliang@andestech.com
-Subject: Re: [PATCH v3 03/13] riscv: dts: allwinner: Add xtheadvector to the
- D1/D1s devicetree
-Message-ID: <20240702-protegee-exploring-49c0dbd831e5@spud>
-References: <20240619-xtheadvector-v3-0-bff39eb9668e@rivosinc.com>
- <20240619-xtheadvector-v3-3-bff39eb9668e@rivosinc.com>
- <0cc13581-5cc4-4a25-a943-7a896f42da4c@sifive.com>
- <20240701-prancing-outpost-3cbce791c554@spud>
- <7ab7d629-6993-4cad-b5b7-62bddfc74a49@sifive.com>
- <20240701-pyromania-spinster-709a6c8cc460@spud>
- <ZoPMEaq8wKzXhFuA@APC323>
+	Tue, 02 Jul 2024 17:01:12 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WD8L16KJDz6JBcC;
+	Wed,  3 Jul 2024 01:00:25 +0800 (CST)
+Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
+	by mail.maildlp.com (Postfix) with ESMTPS id 148D8140A08;
+	Wed,  3 Jul 2024 01:01:02 +0800 (CST)
+Received: from localhost (10.203.174.77) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 2 Jul
+ 2024 18:01:01 +0100
+Date: Tue, 2 Jul 2024 18:01:00 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+CC: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>, "Paul Walmsley"
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?ISO-8859-1?Q?Miqu=E8l?= Raynal <miquel.raynal@bootlin.com>,
+	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 2/3] iio: adc: sophgo-saradc: Add driver for Sophgo
+ SARADC
+Message-ID: <20240702180100.00000096@Huawei.com>
+In-Reply-To: <20240702-sg2002-adc-v1-2-ac66e076a756@bootlin.com>
+References: <20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com>
+	<20240702-sg2002-adc-v1-2-ac66e076a756@bootlin.com>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-In-Reply-To: <ZoPMEaq8wKzXhFuA@APC323>
+X-Originating-IP: [10.203.174.77]
+X-ClientProxiedBy: lhrpeml100001.china.huawei.com (7.191.160.183) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_083935_491712_4B63C9C1 
-X-CRM114-Status: GOOD (  41.99  )
+X-CRM114-CacheID: sfid-20240702_100111_233871_3628578B 
+X-CRM114-Status: GOOD (  31.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,138 +75,332 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2684194992434962611=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, 02 Jul 2024 13:52:22 +0200
+Thomas Bonnefille <thomas.bonnefille@bootlin.com> wrote:
 
---===============2684194992434962611==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="hXUitlnmUnc9XLtm"
-Content-Disposition: inline
+> This adds a driver for the common Sophgo SARADC.
+> 
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 
+Hi Thomas,
 
---hXUitlnmUnc9XLtm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Welcome to IIO.
 
-On Tue, Jul 02, 2024 at 05:46:42PM +0800, Yu-Chien Peter Lin wrote:
-> On Mon, Jul 01, 2024 at 05:31:01PM +0100, Conor Dooley wrote:
-> > On Mon, Jul 01, 2024 at 11:11:55AM -0500, Samuel Holland wrote:
-> > > Hi Conor, Charlie,
-> > >=20
-> > > On 2024-07-01 11:07 AM, Conor Dooley wrote:
-> > > > On Mon, Jul 01, 2024 at 10:27:01AM -0500, Samuel Holland wrote:
-> > > >> On 2024-06-19 6:57 PM, Charlie Jenkins wrote:
-> > > >>> diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch=
-/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-> > > >>> index 64c3c2e6cbe0..6367112e614a 100644
-> > > >>> --- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-> > > >>> +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-> > > >>> @@ -27,7 +27,8 @@ cpu0: cpu@0 {
-> > > >>>  			riscv,isa =3D "rv64imafdc";
-> > > >>
-> > > >> The ISA string should be updated to keep it in sync with riscv,isa=
--extensions.
-> > > >=20
-> > > > This probably looks like this cos I said that the kernel shouldn't =
-parse
-> > > > vendor extensions from "riscv,isa". My rationale was that we have
-> > > > basically no control of what a vendor extension means in riscv,isa =
-so=20
-> > > > we shouldn't parse them from it (so marginally worse than standard
-> > > > extensions, where it means what the spec says except when it doesn'=
-t).
-> > > >=20
-> > > > Given how we implement the parsing, it also meant we weren't implyi=
-ng
-> > > > meanings for vendor extensions ACPI-land, where we also can't ensur=
-e the
-> > > > meanings or that they remain stable. That change is in a different
-> > > > series:
-> > > > https://patchwork.kernel.org/project/linux-riscv/patch/20240609-sup=
-port_vendor_extensions-v2-1-9a43f1fdcbb9@rivosinc.com/
-> > > >=20
-> > > > Although now that I think about it, this might break xandespmu... I
-> > > > dunno if the Andes guys switched over to using the new property out=
-side
-> > > > of the single dts in the kernel tree using their SoC. We could
-> > > > potentially special-case that extension if they haven't - but my
-> > > > position on this mostly is that if you want to use vendor extension=
-s you
-> > > > should not be using riscv,isa (even if the regex doesn't complain i=
-f you
-> > > > add them). I'd like to leave the code in the other patch as-is if w=
-e can
-> > > > help it.
-> > > >=20
-> > > > I added Yu Chien Peter Lin here, maybe they can let us know what th=
-ey're
-> > > > doing.
-> > >=20
-> > > OK, that makes sense to me. Then please ignore my original comment.
-> >=20
-> > Should the xandespmu thing be an issue, I'd suggest we just do something
-> > like the following, in place of the new switch arm added by Charlie:
-> >=20
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeat=
-ure.c
-> > index ec4bff7a827c..bb99b4055ec2 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -628,6 +628,17 @@ static void __init riscv_parse_isa_string(const ch=
-ar *isa, unsigned long *bitmap
-> >  		if (unlikely(ext_err))
-> >  			continue;
-> > =20
-> > +		if (*ext =3D=3D 'x' && acpi_disabled) {
-> > +			/*
-> > +			 * xandespmu predates this "rule", so special case it for
-> > +			 * hysterical raisins
-> > +			 */
-> > +			if (strncasecmp(ext, "xandespmu", ext_end - ext)) {
-> > +				pr_warn_once("Vendor extensions are ignored in riscv,isa. Use risc=
-v,isa-extensions instead.");
-> > +				break;
-> > +			}
-> > +		}
-> > +
-> >  		match_isa_ext(ext, ext_end, bitmap);
-> >  	}
-> >  }
-> >=20
->=20
-> Thanks for the hands-up!
-> We don't use the deprecated riscv,isa to specify xandespmu, so no
-> need to address this special case.
+Various comments inline
 
-Great, that's good to know - thanks!
+Thanks,
 
---hXUitlnmUnc9XLtm
-Content-Type: application/pgp-signature; name="signature.asc"
+Jonathan
+> diff --git a/drivers/iio/adc/sophgo-adc.c b/drivers/iio/adc/sophgo-adc.c
+> new file mode 100644
+> index 000000000000..a94d839d40ec
+> --- /dev/null
+> +++ b/drivers/iio/adc/sophgo-adc.c
+> @@ -0,0 +1,223 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + *  Sophgo SARADC Driver
+> + *
+> + *  Copyright (C) Bootlin 2024
+> + *  Author: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/completion.h>
+> +#include <linux/dev_printk.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/iio/iio.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/of.h>
+probably want mod_devicetable.h instead.
 
------BEGIN PGP SIGNATURE-----
+> +#include <linux/platform_device.h>
+> +
+> +#define SOPHGO_SARADC_CTRL_REG			0x04
+> +#define		SOPHGO_SARADC_EN		BIT(0)
+> +#define		SOPHGO_SARADC_SEL(x)		BIT((x)+4)
+> +#define SOPHGO_SARADC_STATUS_REG		0x08
+> +#define		SOPHGO_SARADC_BUSY		BIT(0)
+> +#define SOPHGO_SARADC_CYC_SET_REG		0x0C
+> +#define		SOPHGO_SARADC_DEF_CYC_SETTINGS	0xF1F0F
+> +#define SOPHGO_SARADC_CH_RESULT_REG(x)		(0x10+4*(x))
+> +#define		SARADC_CH_RESULT(x)		((x) & 0xfff)
+> +#define		SARADC_CH_VALID(x)		((x) & BIT(15))
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZoQfLgAKCRB4tDGHoIJi
-0hXfAQCCxZXEBqT4cPTHb0LGQh6uikBkC+CR23ztTmUdfDTFHgD+LGxDU34bLk9W
-K+AGaZjFkN9dMlpWdebZ/9qZ/D4iqAY=
-=KERh
------END PGP SIGNATURE-----
-
---hXUitlnmUnc9XLtm--
+Prefer defined masks and FIELD_GET() to actually get the values.
+Also use consistent prefix for defines.
 
 
---===============2684194992434962611==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +#define SOPHGO_SARADC_INTR_EN_REG		0x20
+> +#define SOPHGO_SARADC_INTR_CLR_REG		0x24
+> +
+> +#define SOPHGO_SARADC_CHANNEL(index)					\
+> +	{								\
+> +		.type = IIO_VOLTAGE,					\
+> +		.indexed = 1,						\
+> +		.channel = index,					\
+> +		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
+> +		.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),	\
+> +		.scan_index = index,					\
+> +		.scan_type = {						\
+> +			.sign = 'u',					\
+> +			.realbits = 12,					\
+
+No need to define these if not providing buffered capture.
+
+
+> +		},							\
+> +	}
+> +
+> +struct sophgo_saradc {
+> +	struct completion completion;
+> +	struct iio_info info;
+> +	void __iomem *regs;
+> +	struct mutex lock;
+
+Add a comment on what data this lock protects.  
+
+> +	struct clk *clk;
+After changes below, probably don't need to hang on to the clk.
+> +	int irq;
+Rarely need to keep hold of the irq after probe. Use a local variable for
+it in instead.
+
+> +};
+> +
+> +static const struct iio_chan_spec sophgo_channels[] = {
+> +	SOPHGO_SARADC_CHANNEL(1),
+> +	SOPHGO_SARADC_CHANNEL(2),
+> +	SOPHGO_SARADC_CHANNEL(3),
+> +};
+> +
+> +static void sophgo_saradc_start_measurement(struct sophgo_saradc *saradc,
+> +					    int channel)
+> +{
+> +	writel(0, saradc->regs + SOPHGO_SARADC_CTRL_REG);
+> +	writel(SOPHGO_SARADC_SEL(channel) | SOPHGO_SARADC_EN,
+> +	       saradc->regs + SOPHGO_SARADC_CTRL_REG);
+> +}
+> +
+> +static int sophgo_saradc_wait(struct sophgo_saradc *saradc)
+> +{
+> +	if (saradc->irq < 0) {
+> +		u32 reg;
+> +
+> +		return readl_poll_timeout(saradc->regs + SOPHGO_SARADC_STATUS_REG,
+> +					  reg, !(reg & SOPHGO_SARADC_BUSY),
+> +					  500, 1000000);
+> +	} else {
+
+Returned above, so no need for else which helps with indent.
+
+
+> +		int ret;
+> +
+> +		ret = wait_for_completion_timeout(&saradc->completion,
+> +						  msecs_to_jiffies(1000)) > 0
+> +						  ? 0 : -ETIMEDOUT;
+> +		return ret;
+return wait_for_completion.
+> +	}
+> +}
+> +
+> +static int sophgo_saradc_read_raw(struct iio_dev *indio_dev,
+> +				  struct iio_chan_spec const *chan,
+> +				  int *val, int *val2, long mask)
+> +{
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +		struct sophgo_saradc *saradc = iio_priv(indio_dev);
+> +		u32 sample;
+> +		int ret;
+> +
+> +		mutex_lock(&saradc->lock);
+
+Use scoped_guard() here so you can return directly on error.
+
+> +		sophgo_saradc_start_measurement(saradc, chan->scan_index);
+> +		ret = sophgo_saradc_wait(saradc);
+> +		if (ret < 0) {
+> +			mutex_unlock(&saradc->lock);
+> +			return ret;
+> +		}
+> +
+> +		sample = readl(saradc->regs + SOPHGO_SARADC_CH_RESULT_REG(chan->scan_index));
+> +		mutex_unlock(&saradc->lock);
+> +
+> +		if (SARADC_CH_VALID(sample)) {
+> +			*val = SARADC_CH_RESULT(sample);
+> +			return IIO_VAL_INT;
+> +		}
+errors out of line preferred.
+		if (!SARADC_CH_VALID(sample))
+			return -ENODATA;
+
+		*val...
+
+> +		return -ENODATA;
+> +	case IIO_CHAN_INFO_SCALE:
+> +		*val = 3300;
+> +		*val2 = 12;
+> +		return IIO_VAL_FRACTIONAL_LOG2;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static irqreturn_t sophgo_saradc_interrupt_handler(int irq, void *dev_id)
+> +{
+> +	struct sophgo_saradc *saradc = dev_id;
+
+dev_id is an odd name for something that isn't an id.
+
+No register to confirm the interupt status?  Fine if not, but relatively
+unusual.
+
+> +
+> +	writel(1, saradc->regs + SOPHGO_SARADC_INTR_CLR_REG);
+> +	complete(&saradc->completion);
+> +	return IRQ_HANDLED;
+> +}
+> +
+
+Single blank line
+
+> +
+> +static const struct of_device_id sophgo_saradc_match[] = {
+> +	{ .compatible = "sophgo,cv18xx-saradc", },
+> +	{ },
+No comma needed on 'null' terminators like this as we won't
+ever add anything after them.
+
+> +};
+> +MODULE_DEVICE_TABLE(of, sophgo_saradc_match);
+> +
+> +static int sophgo_saradc_probe(struct platform_device *pdev)
+> +{
+> +	struct sophgo_saradc *saradc;
+> +	struct iio_dev *indio_dev;
+> +	int ret;
+> +
+> +	indio_dev = devm_iio_device_alloc(&pdev->dev, sizeof(*saradc));
+> +	if (!indio_dev)
+> +		return -ENOMEM;
+> +
+> +	saradc = iio_priv(indio_dev);
+> +	indio_dev->name = "Sophgo SARADC";
+
+Hmm. Whilst the ABI docs don't say it, I don't think we have names with
+either capitals or spaces.  sophgo-saradc or similar preferred.
+
+> +	indio_dev->info = &saradc->info;
+
+This is making some static const data dynamic. I can't see why you'd do this
+
+> +	indio_dev->modes = INDIO_DIRECT_MODE;
+> +	indio_dev->num_channels = 3;
+
+ARRAY_SIZE(sophgo_channels)
+
+> +	indio_dev->channels = sophgo_channels;
+> +
+> +	saradc->clk = devm_clk_get(&pdev->dev, NULL);
+
+If it's optional, then use dev_clk_get_optional()
+
+> +	if (IS_ERR(saradc->clk)) {
+> +		dev_dbg(&pdev->dev, "Can't get clock from device tree, using No-Die domain");
+> +	} else {
+> +		ret = clk_prepare_enable(saradc->clk);
+
+Perhaps devm_clk_get_optional_enabled() is appropriate, then
+you can use null return to detect that it wasn't present - vs an ERR_PTR() for
+it was but didn't enable.
+
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	saradc->regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(saradc->regs)) {
+> +		ret = PTR_ERR(saradc->regs);
+> +		goto error_disable_clock;
+> +	}
+> +
+> +	saradc->irq = platform_get_irq_optional(pdev, 0);
+> +	if (saradc->irq >= 0) {
+> +		ret = devm_request_irq(&pdev->dev, saradc->irq,
+> +				sophgo_saradc_interrupt_handler, 0,
+> +				dev_name(&pdev->dev), saradc);
+> +		if (ret)
+> +			goto error_disable_clock;
+> +
+> +		writel(1, saradc->regs + SOPHGO_SARADC_INTR_EN_REG);
+> +
+> +		init_completion(&saradc->completion);
+Usually best to init a completion that is irq related before requesting
+the irq. Avoids any possible races.
+
+> +	}
+> +
+> +	saradc->info.read_raw = &sophgo_saradc_read_raw;
+Why?  
+> +
+> +	mutex_init(&saradc->lock);
+> +	platform_set_drvdata(pdev, indio_dev);
+> +	writel(SOPHGO_SARADC_DEF_CYC_SETTINGS, saradc->regs + SOPHGO_SARADC_CYC_SET_REG);
+> +	ret = devm_iio_device_register(&pdev->dev, indio_dev);
+> +	if (ret)
+> +		goto error_disable_clock;
+> +
+> +	return 0;
+> +
+> +error_disable_clock:
+> +	if (!IS_ERR(saradc->clk))
+Don't mix and match devm and non devm management.
+As above, I think you can just use devm_clk_get_optional_enabled()
+
+> +		clk_disable_unprepare(saradc->clk);
+> +	return ret;
+> +}
+> +
+> +static void sophgo_saradc_remove(struct platform_device *pdev)
+> +{
+> +	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
+> +	struct sophgo_saradc *saradc = iio_priv(indio_dev);
+> +
+> +	if (!IS_ERR(saradc->clk))
+> +		clk_disable_unprepare(saradc->clk);
+> +}
+> +
+
+Single blank line is enough.
+
+> +
+> +static struct platform_driver sophgo_saradc_driver = {
+> +	.driver	= {
+> +		.name		= "sophgo-saradc",
+> +		.of_match_table	= sophgo_saradc_match,
+> +	},
+> +	.probe = sophgo_saradc_probe,
+> +	.remove_new = sophgo_saradc_remove,
+> +};
+> +module_platform_driver(sophgo_saradc_driver);
+> +
+> +MODULE_AUTHOR("Thomas Bonnefille <thomas.bonnefille@bootlin.com>");
+> +MODULE_DESCRIPTION("Sophgo SARADC driver");
+> +MODULE_LICENSE("GPL");
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2684194992434962611==--
-
