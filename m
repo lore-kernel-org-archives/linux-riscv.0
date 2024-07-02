@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29107C3064D
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 15:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3114C3064D
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 15:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z+f3bLAEoLIYfCV8uDnth4QGofwx56jAC4pEkZ9tPKU=; b=3H1evw3jB71ycLlTriP1PVWbme
-	H00ogHiuFL6Ih4vgjjSotMj+HeRObt+1pfI1rRZ9yhFxxch3TndqlEp38l2M6Ax81V2IVM+KfxLSt
-	GJJohtPAzcsrTB1AQpUdKexAbCbXE2VqbiP/evQje7xfg6K5/gicBPCt7UvOeTdWW414w5DIueaZJ
-	aZAxLfiG46ofBn89JNF4zIAbAwyqTM9ne7qmg2QqLnRaQR7WASEUiBbrmKb0gs6lzsxxEjZxaknc0
-	b6eDc8LAbYOevJwrEXmlfTLV9brsmAEfBMFAUzVNYHnk3N8kyxXID4A8xpypSymsrGHQzJIpMS8VK
-	SRvGBe5A==;
+	bh=3Wo/Ugn39giA9z4OJq0ki8u1afTvlOg/Y5fo6zG6vGc=; b=hWBQqwK3CDzMZtsC4gXhuWoKVT
+	62SMfWUjmgqGfrEqu5CCm3z172fA4kDLyyVvk2TmYJ0Qsa5AYT8vpZht+MfTRigft2emqNSVZp/e2
+	ZZq2IJH/62QmAbX1QBMUehs01tuoe+hExahRQMo62cn8aXC47oEcqse28Nyf0RIpbEFSuaWtXNoHW
+	7/f7Zg1p+SZH5xdNPDZ2rLXvhrQ77WTsWvxhiMtn2C880a97X1Nhb/0kHY1wdf2VoIRqxpixnf8kE
+	u+8Vpos/jM8glKndbbbaiSxhmmZAV+o6tGaB+9oe9yLLLFZFCJybORXu8Szx/NhPFL/n5VZ+gctn2
+	ykyv6iqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOfNc-00000007CDT-1qAz;
-	Tue, 02 Jul 2024 15:25:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sOfbW-00000007EXr-2wxJ;
+	Tue, 02 Jul 2024 15:39:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOfNZ-00000007CCt-2RFD
+	id 1sOfbT-00000007EWx-1FrR
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 15:25:15 +0000
+	Tue, 02 Jul 2024 15:39:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DE54D61E09;
-	Tue,  2 Jul 2024 15:25:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 523A0C116B1;
-	Tue,  2 Jul 2024 15:25:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2CDB361E10;
+	Tue,  2 Jul 2024 15:39:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A64C5C4AF0C;
+	Tue,  2 Jul 2024 15:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719933912;
-	bh=cc7nvHqqj6c3V+LFIi1X86+pPFAUbngIvHertngi76w=;
+	s=k20201202; t=1719934773;
+	bh=g+sRA4FxF0h1IXfXKKTkTHt+QuvIbChKxddB8lzK4EU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OhK+QYhE7XaL488ISYDfSItk/bnFEpOvq9q6T8ma2uPOF1C2yzK2VHrRMvApxk+yi
-	 l9CfI7GmUe2VQKzm/CJbV7E+Drx5kPrTL+YH5sNAbp/CgVgHrf5naOTT11Dj8fgy5m
-	 3HJ6rwcgKb+swO0wtLyfIVWndxnTo287pRy7YYlRVh6kiZ1NDkEMe4bnah5/teQwsL
-	 PexfjxVWll9z7nCb06g6s4wZ77uCimP5ayt2mmwxDLMxMyxaCrkQyx6rA0FbOncQKB
-	 lGhQQJu22xAdPvM9YPx9cDG1LZejEOIulj0QmT15yu71eH9GOEtLqTMpK2KFlLSUkc
-	 0YUj40EpeB3Pw==
-Date: Tue, 2 Jul 2024 16:25:06 +0100
+	b=h2rFR4+1H8QAjHvU9Nz3JkKytSJuyGXKQhLFL1bLBu4/dRgrX3qdt0w6Xq/S6XkFZ
+	 ZlB8VolHFV5FXsu4clie838j9pElkHVJKrVH2pYsB34+zZPYXftXRi0jLjnmKosCF+
+	 XRqvP4pTy97ke6vL8nabJ3odm4GxIbubsDZztRCtBQhRkPTZeOcs6LUWEU8C684usv
+	 5ZbydD7hBTg+SJjg+VwMNbV0djJTy9wrTgEA/3DLdINP+ZmnGY9KmI+sMgil7QiQMZ
+	 t9VU8adMQ/COk9f2GOfv1+DkuhttuUaaPgJg/2LUPc3gtKxmh4MJHSExYyjk3CSlLz
+	 jq57ItKWe1/vg==
+Date: Tue, 2 Jul 2024 16:39:26 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Yixun Lan <dlan@gentoo.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+To: Yu-Chien Peter Lin <peterlin@andestech.com>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org,
-	Meng Zhang <zhangmeng.kevin@spacemit.com>,
-	Yangyu Chen <cyy@cyyself.name>
-Subject: Re: [PATCH v2 08/10] riscv: dts: add initial SpacemiT K1 SoC device
- tree
-Message-ID: <20240702-appease-attire-6afbe758bf0f@spud>
-References: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
- <20240627-k1-01-basic-dt-v2-8-cc06c7555f07@gentoo.org>
- <CAJM55Z9jeAQTsVjRiLeofDm1RyMWCuHXC0a-pdKtpUiTkSjJCA@mail.gmail.com>
- <20240702012847.GA2447193@ofsar>
- <IA1PR20MB4953C031CB453AA0E51657B3BBDC2@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Jessica Clarke <jrtc27@jrtc27.com>, tim609@andestech.com,
+	dminus@andestech.com, ycliang@andestech.com
+Subject: Re: [PATCH v3 03/13] riscv: dts: allwinner: Add xtheadvector to the
+ D1/D1s devicetree
+Message-ID: <20240702-protegee-exploring-49c0dbd831e5@spud>
+References: <20240619-xtheadvector-v3-0-bff39eb9668e@rivosinc.com>
+ <20240619-xtheadvector-v3-3-bff39eb9668e@rivosinc.com>
+ <0cc13581-5cc4-4a25-a943-7a896f42da4c@sifive.com>
+ <20240701-prancing-outpost-3cbce791c554@spud>
+ <7ab7d629-6993-4cad-b5b7-62bddfc74a49@sifive.com>
+ <20240701-pyromania-spinster-709a6c8cc460@spud>
+ <ZoPMEaq8wKzXhFuA@APC323>
 MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB4953C031CB453AA0E51657B3BBDC2@IA1PR20MB4953.namprd20.prod.outlook.com>
+In-Reply-To: <ZoPMEaq8wKzXhFuA@APC323>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_082513_731085_C1FB2C01 
-X-CRM114-Status: GOOD (  30.83  )
+X-CRM114-CacheID: sfid-20240702_083935_491712_4B63C9C1 
+X-CRM114-Status: GOOD (  41.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,124 +90,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1468994220082178594=="
+Content-Type: multipart/mixed; boundary="===============2684194992434962611=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1468994220082178594==
+--===============2684194992434962611==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="8t7ClsDF1V/WRNDh"
+	protocol="application/pgp-signature"; boundary="hXUitlnmUnc9XLtm"
 Content-Disposition: inline
 
 
---8t7ClsDF1V/WRNDh
-Content-Type: text/plain; charset=iso-8859-1
+--hXUitlnmUnc9XLtm
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jul 02, 2024 at 09:35:45AM +0800, Inochi Amaoto wrote:
-> On Tue, Jul 02, 2024 at 01:28:47AM GMT, Yixun Lan wrote:
-> > On 12:49 Mon 01 Jul     , Emil Renner Berthing wrote:
-> > > Yixun Lan wrote:
-> > > > From: Yangyu Chen <cyy@cyyself.name>
-> > > >
-> > > > Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
-> > > >
-> > > > Key features:
-> > > > - 4 cores per cluster, 2 clusters on chip
-> > > > - UART IP is Intel XScale UART
-> > > >
-> > > > Some key considerations:
-> > > > - ISA string is inferred from vendor documentation[2]
-> > > > - Cluster topology is inferred from datasheet[1] and L2 in vendor d=
-ts[3]
-> > > > - No coherent DMA on this board
-> > > >     Inferred by taking vendor ethernet and MMC drivers to the mainl=
-ine
-> > > >     kernel. Without dma-noncoherent in soc node, the driver fails.
-> > > > - No cache nodes now
-> > > >     The parameters from vendor dts are likely to be wrong. It has 5=
-12
-> > > >     sets for a 32KiB L1 Cache. In this case, each set is 64B in siz=
-e.
-> > > >     When the size of the cache line is 64B, it is a directly mapped
-> > > >     cache rather than a set-associative cache, the latter is common=
-ly
-> > > >     used. Thus, I didn't use the parameters from vendor dts.
-> > > >
-> > > > Currently only support booting into console with only uart, other
-> > > > features will be added soon later.
-> > > >
-> > ...
-> >=20
-> > > > +		clint: timer@e4000000 {
-> > > > +			compatible =3D "spacemit,k1-clint", "sifive,clint0";
-> > > > +			reg =3D <0x0 0xe4000000 0x0 0x10000>;
-> > > > +			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>,
-> > > > +					      <&cpu1_intc 3>, <&cpu1_intc 7>,
-> > > > +					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-> > > > +					      <&cpu3_intc 3>, <&cpu3_intc 7>,
-> > > > +					      <&cpu4_intc 3>, <&cpu4_intc 7>,
-> > > > +					      <&cpu5_intc 3>, <&cpu5_intc 7>,
-> > > > +					      <&cpu6_intc 3>, <&cpu6_intc 7>,
-> > > > +					      <&cpu7_intc 3>, <&cpu7_intc 7>;
-> > > > +		};
-> > > > +
-> > > > +		uart0: serial@d4017000 {
-> > > > +			compatible =3D "spacemit,k1-uart", "intel,xscale-uart";
-> > > > +			reg =3D <0x0 0xd4017000 0x0 0x100>;
-> > > > +			interrupts =3D <42>;
-> > > > +			clock-frequency =3D <14857000>;
-> > > > +			reg-shift =3D <2>;
-> > > > +			reg-io-width =3D <4>;
-> > > > +			status =3D "disabled";
-> > > > +		};
-> > > > +
-> > > > +		/* note: uart1 skipped */
+On Tue, Jul 02, 2024 at 05:46:42PM +0800, Yu-Chien Peter Lin wrote:
+> On Mon, Jul 01, 2024 at 05:31:01PM +0100, Conor Dooley wrote:
+> > On Mon, Jul 01, 2024 at 11:11:55AM -0500, Samuel Holland wrote:
+> > > Hi Conor, Charlie,
 > > >=20
-> > > The datasheet page you link to above says "-UART (=D710)", but here y=
-ou're
-> > > skipping one of them. Why? I can see the vendor tree does the same, b=
-ut it
-> > > would be nice with an explanation of what's going on.
+> > > On 2024-07-01 11:07 AM, Conor Dooley wrote:
+> > > > On Mon, Jul 01, 2024 at 10:27:01AM -0500, Samuel Holland wrote:
+> > > >> On 2024-06-19 6:57 PM, Charlie Jenkins wrote:
+> > > >>> diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch=
+/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+> > > >>> index 64c3c2e6cbe0..6367112e614a 100644
+> > > >>> --- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+> > > >>> +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+> > > >>> @@ -27,7 +27,8 @@ cpu0: cpu@0 {
+> > > >>>  			riscv,isa =3D "rv64imafdc";
+> > > >>
+> > > >> The ISA string should be updated to keep it in sync with riscv,isa=
+-extensions.
+> > > >=20
+> > > > This probably looks like this cos I said that the kernel shouldn't =
+parse
+> > > > vendor extensions from "riscv,isa". My rationale was that we have
+> > > > basically no control of what a vendor extension means in riscv,isa =
+so=20
+> > > > we shouldn't parse them from it (so marginally worse than standard
+> > > > extensions, where it means what the spec says except when it doesn'=
+t).
+> > > >=20
+> > > > Given how we implement the parsing, it also meant we weren't implyi=
+ng
+> > > > meanings for vendor extensions ACPI-land, where we also can't ensur=
+e the
+> > > > meanings or that they remain stable. That change is in a different
+> > > > series:
+> > > > https://patchwork.kernel.org/project/linux-riscv/patch/20240609-sup=
+port_vendor_extensions-v2-1-9a43f1fdcbb9@rivosinc.com/
+> > > >=20
+> > > > Although now that I think about it, this might break xandespmu... I
+> > > > dunno if the Andes guys switched over to using the new property out=
+side
+> > > > of the single dts in the kernel tree using their SoC. We could
+> > > > potentially special-case that extension if they haven't - but my
+> > > > position on this mostly is that if you want to use vendor extension=
+s you
+> > > > should not be using riscv,isa (even if the regex doesn't complain i=
+f you
+> > > > add them). I'd like to leave the code in the other patch as-is if w=
+e can
+> > > > help it.
+> > > >=20
+> > > > I added Yu Chien Peter Lin here, maybe they can let us know what th=
+ey're
+> > > > doing.
 > > >=20
-> > /* note: uart1 in 0xf0612000, reserved for TEE usage */
-> > I would put something like this, does this sound ok to you?
+> > > OK, that makes sense to me. Then please ignore my original comment.
 > >=20
-> > more detail, iomem range from 0xf000,0000 - 0xf080,0000 are dedicated f=
-or TEE purpose,
-> > It won't be exposed to Linux once TEE feature is enabled..
+> > Should the xandespmu thing be an issue, I'd suggest we just do something
+> > like the following, in place of the new switch arm added by Charlie:
 > >=20
-> > skipping uart1 may make people confused but we are trying to follow dat=
-asheet..
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeat=
+ure.c
+> > index ec4bff7a827c..bb99b4055ec2 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -628,6 +628,17 @@ static void __init riscv_parse_isa_string(const ch=
+ar *isa, unsigned long *bitmap
+> >  		if (unlikely(ext_err))
+> >  			continue;
+> > =20
+> > +		if (*ext =3D=3D 'x' && acpi_disabled) {
+> > +			/*
+> > +			 * xandespmu predates this "rule", so special case it for
+> > +			 * hysterical raisins
+> > +			 */
+> > +			if (strncasecmp(ext, "xandespmu", ext_end - ext)) {
+> > +				pr_warn_once("Vendor extensions are ignored in riscv,isa. Use risc=
+v,isa-extensions instead.");
+> > +				break;
+> > +			}
+> > +		}
+> > +
+> >  		match_isa_ext(ext, ext_end, bitmap);
+> >  	}
+> >  }
+> >=20
 >=20
-> Instead of skipping it, I suggest adding this to reserved-memory area,=20
-> which make all node visible and avoid uart1 being touched by mistake.
+> Thanks for the hands-up!
+> We don't use the deprecated riscv,isa to specify xandespmu, so no
+> need to address this special case.
 
-No, don't make it reserved-memory - instead add it as
-status =3D "reserved"; /* explanation for why */
-Also, I'd appreciate if the nodes were sorted by unit address in the
-dtsi.
+Great, that's good to know - thanks!
 
-Thanks,
-Conor.
-
---8t7ClsDF1V/WRNDh
+--hXUitlnmUnc9XLtm
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZoQb0gAKCRB4tDGHoIJi
-0tEwAQDbZqSQrUgTmMpfdmDuQPr0P0SBOkFpJs0/aPbXIvDa3AEAltJ5Hgikal1T
-3Be6wU3wIZBpw+4BQ/NmiOt4fe2a7AA=
-=zeit
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZoQfLgAKCRB4tDGHoIJi
+0hXfAQCCxZXEBqT4cPTHb0LGQh6uikBkC+CR23ztTmUdfDTFHgD+LGxDU34bLk9W
+K+AGaZjFkN9dMlpWdebZ/9qZ/D4iqAY=
+=KERh
 -----END PGP SIGNATURE-----
 
---8t7ClsDF1V/WRNDh--
+--hXUitlnmUnc9XLtm--
 
 
---===============1468994220082178594==
+--===============2684194992434962611==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -216,5 +223,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1468994220082178594==--
+--===============2684194992434962611==--
 
