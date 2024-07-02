@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98DFC3065C
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 01:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973E6C30653
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 01:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=izU1ssG+DDoszTffxUPNTyKPt+AXBiZ9D2UCbB+jEtI=; b=jTet+INuS3u7A/
-	w5NuzEtWRErGBHInaTtKTBY2QVRpHQ0RMrocKOK/cN43SB2FxUy5pz5JN2yKY7odwmRH7gdzwwMEU
-	vyN5WXuIgiyWU7BWOUhBpYyjXxE+f0qZ3SnfWCN152a0Q2JOweluxY24JRexJDmPIe8zrB950oADW
-	2yvwjJH5pKtjY4yjATetfSM/NIts8mGiQJnXWE/qKiztatviKzU9Ob747R4iCsykXfj57bi/KwCW9
-	EZMmo/3e1Rk2bG+3DSj0ds84oyuxNnUJxRYorNFcAXzCpk1QzVMO/smZL3thl3oDw9UrLpcg/1mus
-	AiBFdE+7mDoN0C/5Yx0A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+pObjLpi0jvpXYn04HCUgf1VwyuTNgp6QYSIfV9sHDE=; b=wOd6PI7wkofty8
+	xwqwsZ9RjqqcKUl3oEIpTBhtXa+GZKU3164NU1ul2CYyEbtZzjnBv1qNmu24t95sfxhitvGbI9lI7
+	Efnb3ab/3LHn3HvzAXp/ARE2npCPaPWWRC+OKL1gcrlTOpBF9j65n6KxA4RB85UCr1B6577zuOG9b
+	we/e+gyvhyGGtVq13Ikrx5Y93H55MfdWwCV1SGp2JutRtxF1cTiih+MHSmKV+Au7z3Xq+1X4t6hzc
+	P/5vFtdAnL280im+UziQ0HNjLCRVEqZkNPhiKNQf/hQt8X0442bDkOZN7p+48gDz5zy0Qj/+LEivq
+	fP1QT677JHzZQfd24FCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOSRC-00000005HSr-1ZtY;
-	Tue, 02 Jul 2024 01:36:06 +0000
+	id 1sOSRB-00000005HSV-33PO;
+	Tue, 02 Jul 2024 01:36:05 +0000
 Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOSR8-00000005HPo-3ScP
+	id 1sOSR6-00000005HPs-3djK
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 01:36:04 +0000
-Received: from mail.maildlp.com (unknown [172.19.93.142])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4WClq062yVz4f3jYg
-	for <linux-riscv@lists.infradead.org>; Tue,  2 Jul 2024 09:35:40 +0800 (CST)
+	Tue, 02 Jul 2024 01:36:02 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4WClpv3YHMz4f3kvJ
+	for <linux-riscv@lists.infradead.org>; Tue,  2 Jul 2024 09:35:35 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 2604B1A0185
-	for <linux-riscv@lists.infradead.org>; Tue,  2 Jul 2024 09:35:48 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTP id E863E1A058E
+	for <linux-riscv@lists.infradead.org>; Tue,  2 Jul 2024 09:35:47 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP1 (Coremail) with SMTP id cCh0CgCXwX1vWYNm+0GRAw--.62272S4;
-	Tue, 02 Jul 2024 09:35:47 +0800 (CST)
+	by APP1 (Coremail) with SMTP id cCh0CgCXwX1vWYNm+0GRAw--.62272S2;
+	Tue, 02 Jul 2024 09:35:45 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -56,34 +56,32 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Puranjay Mohan <puranjay@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v5 2/3] selftests/bpf: Factor out many args tests from tracing_struct
-Date: Tue,  2 Jul 2024 01:37:29 +0000
-Message-Id: <20240702013730.1082285-3-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next v5 0/3] Add 12-argument support for RV64 bpf trampoline
+Date: Tue,  2 Jul 2024 01:37:27 +0000
+Message-Id: <20240702013730.1082285-1-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240702013730.1082285-1-pulehui@huaweicloud.com>
-References: <20240702013730.1082285-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: cCh0CgCXwX1vWYNm+0GRAw--.62272S4
-X-Coremail-Antispam: 1UD129KBjvJXoW3Wry7Gr13JFWxKrWDAr4kXrb_yoWxWr4fpa
-	409w1UtF48Jr48Wry8Aa1UZr4Sgrs3ZF1jyry7J3sYvFyxt3sFqF1kKa4jy3Z8G3y5uwnx
-	AFWqyFs8Ar4UZF7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBYb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUXw
-	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
-	Ij6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
-	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l42xK82IYc2Ij64
-	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
-	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2I
-	x0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAI
-	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
-	0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU1sa9DUUUUU==
+X-CM-TRANSID: cCh0CgCXwX1vWYNm+0GRAw--.62272S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF45WF13tr4kGFW5tF13Jwb_yoW5JF17pa
+	1Ig3W3u3WFgr4Iq34xJa1Uuryrtr4rXw15Cr4xJ34F9ayDtryYyr1I9w4Yv345Wr93W3yS
+	y3sIvF98W3WDZ3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUk2b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28I
+	cxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2
+	IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI
+	42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42
+	IY6xAIw20EY4v20xvaj40_WFyUJVCq3wCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E
+	87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUFDGOUUUUU
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240701_183603_215827_D5B40C6D 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20240701_183601_256383_3067C885 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,233 +93,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
-
-Factor out many args tests from tracing_struct and rename some function
-names to make more sense.
-
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- .../selftests/bpf/prog_tests/tracing_struct.c | 32 ++++++++--
- .../selftests/bpf/progs/tracing_struct.c      | 54 -----------------
- .../bpf/progs/tracing_struct_many_args.c      | 60 +++++++++++++++++++
- 3 files changed, 88 insertions(+), 58 deletions(-)
- create mode 100644 tools/testing/selftests/bpf/progs/tracing_struct_many_args.c
-
-diff --git a/tools/testing/selftests/bpf/prog_tests/tracing_struct.c b/tools/testing/selftests/bpf/prog_tests/tracing_struct.c
-index fe0fb0c9849a..2820fd912f2f 100644
---- a/tools/testing/selftests/bpf/prog_tests/tracing_struct.c
-+++ b/tools/testing/selftests/bpf/prog_tests/tracing_struct.c
-@@ -3,8 +3,9 @@
- 
- #include <test_progs.h>
- #include "tracing_struct.skel.h"
-+#include "tracing_struct_many_args.skel.h"
- 
--static void test_fentry(void)
-+static void test_struct_args(void)
- {
- 	struct tracing_struct *skel;
- 	int err;
-@@ -55,6 +56,26 @@ static void test_fentry(void)
- 
- 	ASSERT_EQ(skel->bss->t6, 1, "t6 ret");
- 
-+	tracing_struct__detach(skel);
-+destroy_skel:
-+	tracing_struct__destroy(skel);
-+}
-+
-+static void test_struct_many_args(void)
-+{
-+	struct tracing_struct_many_args *skel;
-+	int err;
-+
-+	skel = tracing_struct_many_args__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "tracing_struct_many_args__open_and_load"))
-+		return;
-+
-+	err = tracing_struct_many_args__attach(skel);
-+	if (!ASSERT_OK(err, "tracing_struct_many_args__attach"))
-+		goto destroy_skel;
-+
-+	ASSERT_OK(trigger_module_test_read(256), "trigger_read");
-+
- 	ASSERT_EQ(skel->bss->t7_a, 16, "t7:a");
- 	ASSERT_EQ(skel->bss->t7_b, 17, "t7:b");
- 	ASSERT_EQ(skel->bss->t7_c, 18, "t7:c");
-@@ -74,12 +95,15 @@ static void test_fentry(void)
- 	ASSERT_EQ(skel->bss->t8_g, 23, "t8:g");
- 	ASSERT_EQ(skel->bss->t8_ret, 156, "t8 ret");
- 
--	tracing_struct__detach(skel);
-+	tracing_struct_many_args__detach(skel);
- destroy_skel:
--	tracing_struct__destroy(skel);
-+	tracing_struct_many_args__destroy(skel);
- }
- 
- void test_tracing_struct(void)
- {
--	test_fentry();
-+	if (test__start_subtest("struct_args"))
-+		test_struct_args();
-+	if (test__start_subtest("struct_many_args"))
-+		test_struct_many_args();
- }
-diff --git a/tools/testing/selftests/bpf/progs/tracing_struct.c b/tools/testing/selftests/bpf/progs/tracing_struct.c
-index 515daef3c84b..c435a3a8328a 100644
---- a/tools/testing/selftests/bpf/progs/tracing_struct.c
-+++ b/tools/testing/selftests/bpf/progs/tracing_struct.c
-@@ -18,11 +18,6 @@ struct bpf_testmod_struct_arg_3 {
- 	int b[];
- };
- 
--struct bpf_testmod_struct_arg_4 {
--	u64 a;
--	int b;
--};
--
- long t1_a_a, t1_a_b, t1_b, t1_c, t1_ret, t1_nregs;
- __u64 t1_reg0, t1_reg1, t1_reg2, t1_reg3;
- long t2_a, t2_b_a, t2_b_b, t2_c, t2_ret;
-@@ -30,9 +25,6 @@ long t3_a, t3_b, t3_c_a, t3_c_b, t3_ret;
- long t4_a_a, t4_b, t4_c, t4_d, t4_e_a, t4_e_b, t4_ret;
- long t5_ret;
- int t6;
--long t7_a, t7_b, t7_c, t7_d, t7_e, t7_f_a, t7_f_b, t7_ret;
--long t8_a, t8_b, t8_c, t8_d, t8_e, t8_f_a, t8_f_b, t8_g, t8_ret;
--
- 
- SEC("fentry/bpf_testmod_test_struct_arg_1")
- int BPF_PROG2(test_struct_arg_1, struct bpf_testmod_struct_arg_2, a, int, b, int, c)
-@@ -138,50 +130,4 @@ int BPF_PROG2(test_struct_arg_11, struct bpf_testmod_struct_arg_3 *, a)
- 	return 0;
- }
- 
--SEC("fentry/bpf_testmod_test_struct_arg_7")
--int BPF_PROG2(test_struct_arg_12, __u64, a, void *, b, short, c, int, d,
--	      void *, e, struct bpf_testmod_struct_arg_4, f)
--{
--	t7_a = a;
--	t7_b = (long)b;
--	t7_c = c;
--	t7_d = d;
--	t7_e = (long)e;
--	t7_f_a = f.a;
--	t7_f_b = f.b;
--	return 0;
--}
--
--SEC("fexit/bpf_testmod_test_struct_arg_7")
--int BPF_PROG2(test_struct_arg_13, __u64, a, void *, b, short, c, int, d,
--	      void *, e, struct bpf_testmod_struct_arg_4, f, int, ret)
--{
--	t7_ret = ret;
--	return 0;
--}
--
--SEC("fentry/bpf_testmod_test_struct_arg_8")
--int BPF_PROG2(test_struct_arg_14, __u64, a, void *, b, short, c, int, d,
--	      void *, e, struct bpf_testmod_struct_arg_4, f, int, g)
--{
--	t8_a = a;
--	t8_b = (long)b;
--	t8_c = c;
--	t8_d = d;
--	t8_e = (long)e;
--	t8_f_a = f.a;
--	t8_f_b = f.b;
--	t8_g = g;
--	return 0;
--}
--
--SEC("fexit/bpf_testmod_test_struct_arg_8")
--int BPF_PROG2(test_struct_arg_15, __u64, a, void *, b, short, c, int, d,
--	      void *, e, struct bpf_testmod_struct_arg_4, f, int, g,
--	      int, ret)
--{
--	t8_ret = ret;
--	return 0;
--}
--
- char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/progs/tracing_struct_many_args.c b/tools/testing/selftests/bpf/progs/tracing_struct_many_args.c
-new file mode 100644
-index 000000000000..3de4bb918178
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/tracing_struct_many_args.c
-@@ -0,0 +1,60 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <vmlinux.h>
-+#include <bpf/bpf_tracing.h>
-+#include <bpf/bpf_helpers.h>
-+
-+struct bpf_testmod_struct_arg_4 {
-+	u64 a;
-+	int b;
-+};
-+
-+long t7_a, t7_b, t7_c, t7_d, t7_e, t7_f_a, t7_f_b, t7_ret;
-+long t8_a, t8_b, t8_c, t8_d, t8_e, t8_f_a, t8_f_b, t8_g, t8_ret;
-+
-+SEC("fentry/bpf_testmod_test_struct_arg_7")
-+int BPF_PROG2(test_struct_many_args_1, __u64, a, void *, b, short, c, int, d,
-+	      void *, e, struct bpf_testmod_struct_arg_4, f)
-+{
-+	t7_a = a;
-+	t7_b = (long)b;
-+	t7_c = c;
-+	t7_d = d;
-+	t7_e = (long)e;
-+	t7_f_a = f.a;
-+	t7_f_b = f.b;
-+	return 0;
-+}
-+
-+SEC("fexit/bpf_testmod_test_struct_arg_7")
-+int BPF_PROG2(test_struct_many_args_2, __u64, a, void *, b, short, c, int, d,
-+	      void *, e, struct bpf_testmod_struct_arg_4, f, int, ret)
-+{
-+	t7_ret = ret;
-+	return 0;
-+}
-+
-+SEC("fentry/bpf_testmod_test_struct_arg_8")
-+int BPF_PROG2(test_struct_many_args_3, __u64, a, void *, b, short, c, int, d,
-+	      void *, e, struct bpf_testmod_struct_arg_4, f, int, g)
-+{
-+	t8_a = a;
-+	t8_b = (long)b;
-+	t8_c = c;
-+	t8_d = d;
-+	t8_e = (long)e;
-+	t8_f_a = f.a;
-+	t8_f_b = f.b;
-+	t8_g = g;
-+	return 0;
-+}
-+
-+SEC("fexit/bpf_testmod_test_struct_arg_8")
-+int BPF_PROG2(test_struct_many_args_4, __u64, a, void *, b, short, c, int, d,
-+	      void *, e, struct bpf_testmod_struct_arg_4, f, int, g,
-+	      int, ret)
-+{
-+	t8_ret = ret;
-+	return 0;
-+}
-+
-+char _license[] SEC("license") = "GPL";
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KClRoaXMgcGF0Y2ggYWRkcyAxMiBm
+dW5jdGlvbiBhcmd1bWVudHMgc3VwcG9ydCBmb3IgcmlzY3Y2NCBicGYKdHJhbXBvbGluZS4gVGhl
+IGN1cnJlbnQgYnBmIHRyYW1wb2xpbmUgc3VwcG9ydHMgPD0gc2l6ZW9mKHU2NCkgYnl0ZXMKc2Nh
+bGFyIGFyZ3VtZW50cyBbMF0gYW5kIDw9IDE2IGJ5dGVzIHN0cnVjdCBhcmd1bWVudHMgWzFdLiBU
+aGVyZWZvcmUsIHdlCmZvY3VzIG9uIHRoZSBzaXR1YXRpb24gd2hlcmUgc2NhbGFycyBhcmUgYXQg
+bW9zdCBYTEVOIGJpdHMgYW5kCmFnZ3JlZ2F0ZXMgd2hvc2UgdG90YWwgc2l6ZSBkb2VzIG5vdCBl
+eGNlZWQgMsOXWExFTiBiaXRzIGluIHRoZSByaXNjdgpjYWxsaW5nIGNvbnZlbnRpb24gWzJdLgoK
+TGluazogaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGludXgvdjYuOC9zb3VyY2Uva2VybmVs
+L2JwZi9idGYuYyNMNjE4NCBbMF0KTGluazogaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGlu
+dXgvdjYuOC9zb3VyY2Uva2VybmVsL2JwZi9idGYuYyNMNjc2OSBbMV0KTGluazogaHR0cHM6Ly9n
+aXRodWIuY29tL3Jpc2N2LW5vbi1pc2EvcmlzY3YtZWxmLXBzYWJpLWRvYy9yZWxlYXNlcy9kb3du
+bG9hZC9kcmFmdC0yMDIzMDkyOS1lNWM4MDBlNjYxYTUzZWZlM2MyNjc4ZDcxYTMwNjMyM2I2MGVi
+MTNiL3Jpc2N2LWFiaS5wZGYgWzJdCgp2NToKLSBSZW1vdmUgdW5uZWNlc3NhcnkgY29weXJpZ2h0
+LgoKdjQ6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI0MDYyMjAyMjEyOS4zODQ0NDcz
+LTEtcHVsZWh1aUBodWF3ZWljbG91ZC5jb20vCi0gU2VwYXJhdGUgbWFueSBhcmdzIHRlc3QgbG9n
+aWMgZnJvbSB0cmFjaW5nX3N0cnVjdC4gKERhbmllbCkKCnYzOiBodHRwczovL2xvcmUua2VybmVs
+Lm9yZy9hbGwvMjAyNDA0MDMwNzI4MTguMTQ2MjgxMS0xLXB1bGVodWlAaHVhd2VpY2xvdWQuY29t
+LwotIFZhcmlhYmxlIGFuZCBtYWNybyBuYW1lIGFsaWdubWVudDoKICBucl9yZWdfYXJnczogbnVt
+YmVyIG9mIGFyZ3MgaW4gcmVnCiAgbnJfc3RhY2tfYXJnczogbnVtYmVyIG9mIGFyZ3Mgb24gc3Rh
+Y2sKICBSVl9NQVhfUkVHX0FSR1M6IG1hY3JvIGZvciByaXNjdiBtYXggYXJncyBpbiByZWcKCnYy
+OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNDA0MDMwNDE3MTAuMTQxNjM2OS0xLXB1
+bGVodWlAaHVhd2VpY2xvdWQuY29tLwotIEFkZCB0cmFjaW5nX3N0cnVjdCB0byBERU5ZTElTVC5h
+YXJjaDY0IHdoaWxlIGFhcmNoNjQgZG9lcyBub3QgeWV0IHN1cHBvcnQKICBicGYgdHJhbXBvbGlu
+ZSB3aXRoIG1vcmUgdGhhbiA4IGFyZ3MuCi0gQ2hhbmdlIHRoZSBtYWNybyBSVl9NQVhfQVJHX1JF
+R1MgdG8gUlZfTUFYX0FSR1NfUkVHIHRvIHN5bmNocm9uaXplIHdpdGgKICB0aGUgdmFyaWFibGUg
+ZGVmaW5pdGlvbiBiZWxvdy4KLSBBZGQgc29tZSBjb21tZW50cyBmb3Igc3RrX2FyZ19vZmYgYW5k
+IG1hZ2ljIG51bWJlciBvZiBza2lwIHNsb3RzIGZvciBsb2FkaW5nCiAgYXJncyBvbiBzdGFjay4K
+CnYxOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNDAzMzEwOTI0MDUuODIyNTcxLTEt
+cHVsZWh1aUBodWF3ZWljbG91ZC5jb20vCgpQdSBMZWh1aSAoMyk6CiAgcmlzY3YsIGJwZjogQWRk
+IDEyLWFyZ3VtZW50IHN1cHBvcnQgZm9yIFJWNjQgYnBmIHRyYW1wb2xpbmUKICBzZWxmdGVzdHMv
+YnBmOiBGYWN0b3Igb3V0IG1hbnkgYXJncyB0ZXN0cyBmcm9tIHRyYWNpbmdfc3RydWN0CiAgc2Vs
+ZnRlc3RzL2JwZjogQWRkIHRlc3RjYXNlIHdoZXJlIDd0aCBhcmdtZW50IGlzIHN0cnVjdAoKIGFy
+Y2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgICAgICAgICAgICAgICB8IDY2ICsrKysrKysr
+Ky0tLS0KIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9ERU5ZTElTVC5hYXJjaDY0ICB8ICAx
+ICsKIC4uLi9zZWxmdGVzdHMvYnBmL2JwZl90ZXN0bW9kL2JwZl90ZXN0bW9kLmMgICB8IDE5ICsr
+KysKIC4uLi9zZWxmdGVzdHMvYnBmL3Byb2dfdGVzdHMvdHJhY2luZ19zdHJ1Y3QuYyB8IDQ2ICsr
+KysrKysrLQogLi4uL3NlbGZ0ZXN0cy9icGYvcHJvZ3MvdHJhY2luZ19zdHJ1Y3QuYyAgICAgIHwg
+NTQgLS0tLS0tLS0tLS0KIC4uLi9icGYvcHJvZ3MvdHJhY2luZ19zdHJ1Y3RfbWFueV9hcmdzLmMg
+ICAgICB8IDk1ICsrKysrKysrKysrKysrKysrKysKIDYgZmlsZXMgY2hhbmdlZCwgMjA0IGluc2Vy
+dGlvbnMoKyksIDc3IGRlbGV0aW9ucygtKQogY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3Rlc3Rp
+bmcvc2VsZnRlc3RzL2JwZi9wcm9ncy90cmFjaW5nX3N0cnVjdF9tYW55X2FyZ3MuYwoKLS0gCjIu
+MzQuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
