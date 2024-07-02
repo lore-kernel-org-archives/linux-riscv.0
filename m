@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A33C2BD09
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 01:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55692C2BD09
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 01:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rqZdisUaPDR8OFS8qaeyieSfr/MzgpVJr7iwD2o5PiA=; b=ONch1KjUGOHiIJ
-	Vv1txYp1mySAXBeYpvSC4D7jXYIxoS5K3VmoTy7m17Higrl1/zFceVQUMnfEFqDFIIwrMIj6VOMmT
-	ymtOnglHomBuM+1RVSBwEm6ETp4vLtLp0HwvetdVfOawmdlM4tCxs8VJ1JtH3v9fC+G3P1TJFFIwX
-	jY+mAZA58L2/h+dscBmJPWTZimXch/x23DcCJQWdaOVAHADy8XFmAAKHQKuQH2YAJ2bJN42Xiwcgh
-	4bfaVNko+3qlyXKApZ54u08T1KtRYpl1/YsC60X4IRv90ij369YYsHdDtYeo/Zo1+MAQpcoewyEZu
-	HvTh+7VL6xYY78d3/lVw==;
+	List-Owner; bh=untJZtgZZrVtWo+RtnwIX/zQel/OV1WBIFI/Bs7XkbY=; b=AzUDzfadgJPOAZ
+	D5mhl1W9wLfxSEkBy975h+seMOIDEk8wWkIDz9GBdXUIt2kgwO9Eg6F1dWk/sXWjUrgnzXnnbV/6h
+	BzmHtlKLjJs7+N8j7AC4go9PHf73+y8wPo/cWGBMn+kO88CkEQwbiZdoAiyniWmO1uZtByr6PhQfy
+	MuqVZmKwAy022kRpNASJ7wRcnxz1CUyWWVOtgOpBMzsH4COvZE7PF4mm6I4c3xsw4AfzPG07NDrlC
+	uWDILpVc4eOE927gKfBF6X0ZNeI2UgGYStERnOqoamKUwpZQvrrqu/iFPRKJCZJH6osr9hz9DIewf
+	GJUrFWX6jIGWmYJHTNww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOSGD-00000005Gbk-47fH;
-	Tue, 02 Jul 2024 01:24:45 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1sOSKI-00000005Gra-2JRV;
+	Tue, 02 Jul 2024 01:28:58 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOSGA-00000005GZI-0526
+	id 1sOSKG-00000005GrA-318b
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 01:24:43 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WClYp1bLZznXv7;
-	Tue,  2 Jul 2024 09:24:14 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id EF311180A9C;
-	Tue,  2 Jul 2024 09:24:28 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 2 Jul 2024 09:24:28 +0800
-Message-ID: <f0e18f46-96f9-4f89-802a-4cba349b1db1@huawei.com>
-Date: Tue, 2 Jul 2024 09:24:27 +0800
+	Tue, 02 Jul 2024 01:28:58 +0000
+Date: Tue, 2 Jul 2024 01:28:47 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org,
+	linux-serial@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>,
+	Meng Zhang <zhangmeng.kevin@spacemit.com>,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: Re: [PATCH v2 08/10] riscv: dts: add initial SpacemiT K1 SoC device
+ tree
+Message-ID: <20240702012847.GA2447193@ofsar>
+References: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
+ <20240627-k1-01-basic-dt-v2-8-cc06c7555f07@gentoo.org>
+ <CAJM55Z9jeAQTsVjRiLeofDm1RyMWCuHXC0a-pdKtpUiTkSjJCA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND bpf-next v4 2/3] selftests/bpf: Factor out many
- args tests from tracing_struct
-Content-Language: en-US
-To: Daniel Borkmann <daniel@iogearbox.net>, Pu Lehui
-	<pulehui@huaweicloud.com>, <bpf@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>
-CC: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Alexei Starovoitov
-	<ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
-	<martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu
-	<song@kernel.org>, Yonghong Song <yhs@fb.com>, John Fastabend
-	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev
-	<sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
-References: <20240622022129.3844473-1-pulehui@huaweicloud.com>
- <20240622022129.3844473-3-pulehui@huaweicloud.com>
- <2bbced4a-1022-aace-52b4-e0abe426347b@iogearbox.net>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <2bbced4a-1022-aace-52b4-e0abe426347b@iogearbox.net>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemf100007.china.huawei.com (7.202.181.221)
+Content-Disposition: inline
+In-Reply-To: <CAJM55Z9jeAQTsVjRiLeofDm1RyMWCuHXC0a-pdKtpUiTkSjJCA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240701_182442_256126_E913D9EF 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240701_182856_812283_B25CF151 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +69,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024/7/2 0:12, Daniel Borkmann wrote:
-> On 6/22/24 4:21 AM, Pu Lehui wrote:
->> From: Pu Lehui <pulehui@huawei.com>
->>
->> Factor out many args tests from tracing_struct and rename some function
->> names to make more sense.
->>
->> Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> [...]
->> diff --git 
->> a/tools/testing/selftests/bpf/progs/tracing_struct_many_args.c 
->> b/tools/testing/selftests/bpf/progs/tracing_struct_many_args.c
->> new file mode 100644
->> index 000000000000..8bd696dc81d9
->> --- /dev/null
->> +++ b/tools/testing/selftests/bpf/progs/tracing_struct_many_args.c
->> @@ -0,0 +1,62 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/* Copyright (C) 2024. Huawei Technologies Co., Ltd */
-> 
-> Overall looks good and ready to land, one small request: lets drop the 
-> copyright
+On 12:49 Mon 01 Jul     , Emil Renner Berthing wrote:
+> Yixun Lan wrote:
+> > From: Yangyu Chen <cyy@cyyself.name>
+> >
+> > Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
+> >
+> > Key features:
+> > - 4 cores per cluster, 2 clusters on chip
+> > - UART IP is Intel XScale UART
+> >
+> > Some key considerations:
+> > - ISA string is inferred from vendor documentation[2]
+> > - Cluster topology is inferred from datasheet[1] and L2 in vendor dts[3]
+> > - No coherent DMA on this board
+> >     Inferred by taking vendor ethernet and MMC drivers to the mainline
+> >     kernel. Without dma-noncoherent in soc node, the driver fails.
+> > - No cache nodes now
+> >     The parameters from vendor dts are likely to be wrong. It has 512
+> >     sets for a 32KiB L1 Cache. In this case, each set is 64B in size.
+> >     When the size of the cache line is 64B, it is a directly mapped
+> >     cache rather than a set-associative cache, the latter is commonly
+> >     used. Thus, I didn't use the parameters from vendor dts.
+> >
+> > Currently only support booting into console with only uart, other
+> > features will be added soon later.
+> >
+...
 
-Sure, will drop it in next version.
+> > +		clint: timer@e4000000 {
+> > +			compatible =3D "spacemit,k1-clint", "sifive,clint0";
+> > +			reg =3D <0x0 0xe4000000 0x0 0x10000>;
+> > +			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>,
+> > +					      <&cpu1_intc 3>, <&cpu1_intc 7>,
+> > +					      <&cpu2_intc 3>, <&cpu2_intc 7>,
+> > +					      <&cpu3_intc 3>, <&cpu3_intc 7>,
+> > +					      <&cpu4_intc 3>, <&cpu4_intc 7>,
+> > +					      <&cpu5_intc 3>, <&cpu5_intc 7>,
+> > +					      <&cpu6_intc 3>, <&cpu6_intc 7>,
+> > +					      <&cpu7_intc 3>, <&cpu7_intc 7>;
+> > +		};
+> > +
+> > +		uart0: serial@d4017000 {
+> > +			compatible =3D "spacemit,k1-uart", "intel,xscale-uart";
+> > +			reg =3D <0x0 0xd4017000 0x0 0x100>;
+> > +			interrupts =3D <42>;
+> > +			clock-frequency =3D <14857000>;
+> > +			reg-shift =3D <2>;
+> > +			reg-io-width =3D <4>;
+> > +			status =3D "disabled";
+> > +		};
+> > +
+> > +		/* note: uart1 skipped */
+> =
 
-> comment here since this commit is only moving the existing tests out to 
-> its own
-> file which have been added originally via 5e9cf77d81f9 ("selftests/bpf: 
-> add testcase
-> for TRACING with 6+ arguments").
-> 
-> Thanks,
-> Daniel
-> 
+> The datasheet page you link to above says "-UART (=D710)", but here you're
+> skipping one of them. Why? I can see the vendor tree does the same, but it
+> would be nice with an explanation of what's going on.
+> =
+
+/* note: uart1 in 0xf0612000, reserved for TEE usage */
+I would put something like this, does this sound ok to you?
+
+more detail, iomem range from 0xf000,0000 - 0xf080,0000 are dedicated for T=
+EE purpose,
+It won't be exposed to Linux once TEE feature is enabled..
+
+skipping uart1 may make people confused but we are trying to follow datashe=
+et..
+
+
+-- =
+
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
