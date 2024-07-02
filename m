@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E897CC3065C
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 14:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB17C3064D
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 14:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HO6+Nz6f+JnJr7Ro3CasEZv2AfwqIzcV7Be/IzWkLv4=; b=z3C3bMNbtZIIhDHZ08AvinIdfb
-	PD+IVFx2XVw1m8I12+2EG8MT0tUZ5CrfbtaaIRwtgfz9bAwAv3gprhr6wclxnKSLBYtrpiTjf917u
-	OlRFV5IUr3Wad3qhn8Ju9r0OWXLI3umbwdE4oFn6LTEy6Zt0Q8xfuO6O9iG1WTDJKzHSEjj8dk/VA
-	IeV7RgKPBhiA2Jqj0n7IrNIQ5euPoZQBeDm6jXs+hXh8EDg8AzqsLljsmqxIwH9+aTwsThP4DsrcT
-	8T05liy5AF/hcd0T2k5DMTcDd62xSb8PyKArdepT8Ed03Jd3qul9sTCsrUgKBAuqaGeODIk6aKfKA
-	qpzzY0ug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vS8C9BQu32R9nrkrnB9ZEg9ukdtstflLUqihEFcNFM4=; b=oiZSMjQKmze7e7
+	oAY67pUzyGOxAx6PV82iFCKjbTeFqgZZGUZ95SCzBfPU7MyeS6NTBbHEi+TKgYyc1o0LNJOpRC/ep
+	qsTpoxKn0958xRGRT17IfoviukH91h9Ss53WNFI23/MbN0Rqkpys5EhSOY+VGR9O2J2cELOJ7IIEM
+	HYNnGI3q4lbD1owP3sYg9Q1+7PtG6bpPDcrFPwjplS4EKbgFdxt4IudV8IuLykMqMM2qKLWrI/Q6B
+	i01eirSXcb5VKYhwLYcVuKlSC2soJvALCkcOGv4aCqM8oc6LxIOhSyAmUtvdzXZcYndBFU8uc3N7R
+	5PQDg9lF5BL/XskE1VTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOeBE-00000006yY9-3Bga;
-	Tue, 02 Jul 2024 14:08:24 +0000
+	id 1sOeDN-00000006ytM-3khZ;
+	Tue, 02 Jul 2024 14:10:38 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOeB4-00000006yVa-465s
+	id 1sOeDI-00000006ys3-395u
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 14:08:23 +0000
+	Tue, 02 Jul 2024 14:10:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id B3C4BCE1DC0;
-	Tue,  2 Jul 2024 14:08:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4831C2BD10;
-	Tue,  2 Jul 2024 14:08:07 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 15714CE1E01;
+	Tue,  2 Jul 2024 14:10:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4A8A9C2BD10;
+	Tue,  2 Jul 2024 14:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719929291;
-	bh=FczaPhMPNC2StePC+oGnLGpU1tRFqdJWKJZyTLhC67U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pd1kgJmjphvQZpFYPGN5fWrwFeCN4vdbE37IPda6u/ZDAXOjwNht89sKsRynFIoO5
-	 ZN5AATxpTwAdDCt7Yi+IndVIPBtE4s+XjYj+x7ByM74y3HqRiXjZPvXS51qOLCC2lM
-	 j17ah0qHZX3Bq3UW5yCU8RuIsteqSG03qgqseXAnspD7LiR+3egEEC0PBoj2jDXKT+
-	 6ASk2Ke2SMX9WaI3K94tVueVY/ntVogA1vjm49Hty59Kja+OKIo94w5aNkf5kLTFDC
-	 DaPq6hsfupejni532Qx7Ndp4hOvLcVctRKu1jSBihfHGR10tktG3plBWTMCUB0ZO6/
-	 G28xOD4jn4paQ==
-Date: Tue, 2 Jul 2024 15:08:05 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jesse Taube <jesse@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Wende Tan <twd2.me@gmail.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v3 4/4] RISC-V: Use Zkr to seed KASLR base address
-Message-ID: <20240702-unissued-dreamlike-badd0fb75ab0@spud>
-References: <20240701185132.319995-1-jesse@rivosinc.com>
- <20240701185132.319995-5-jesse@rivosinc.com>
+	s=k20201202; t=1719929430;
+	bh=Hq/HJfHRr/8W72EqDAYRS9KUhjRi1sXTi3WnkwLCKRk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Zs0cKKTIcSl5MVvzU1Gfbq1dsrCbl080cBjBnQA//Q1VlWTCmlQulm6UtU7kRZl1p
+	 v3MRXFxbB4GZeGlscjJwpQdTPmWVp85fkfdZIFNLTtooCz4ZCBRGFa2rnt9ksOFyb7
+	 adQyCd7Ys5TFANxNXhjNtTeszJwPifQP0X1sIs3w1b5fhAhBY5PRasYpH3txilFpnp
+	 eYJhjRIy5bHKUYTMGh2W/AItfHR6/UzaX76Domt2zKrcNHe5TbS1QUeMeMx7QDQaLj
+	 SI5Rp6r+XBViuBBMH4Xu6W8QFtIe54eXL7b/QIkcb1Yj7MFjORrOQ3nHO8O28XgLWl
+	 VXIfwwLITkGTQ==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2BFB4D2D0E2;
+	Tue,  2 Jul 2024 14:10:30 +0000 (UTC)
 MIME-Version: 1.0
-In-Reply-To: <20240701185132.319995-5-jesse@rivosinc.com>
+Subject: Re: [PATCH bpf-next v6 0/3] Add 12-argument support for RV64 bpf
+ trampoline
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <171992943017.14973.8310193579957590981.git-patchwork-notify@kernel.org>
+Date: Tue, 02 Jul 2024 14:10:30 +0000
+References: <20240702121944.1091530-1-pulehui@huaweicloud.com>
+In-Reply-To: <20240702121944.1091530-1-pulehui@huaweicloud.com>
+To: Pu Lehui <pulehui@huaweicloud.com>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ netdev@vger.kernel.org, bjorn@kernel.org, ast@kernel.org,
+ daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
+ eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
+ john.fastabend@gmail.com, kpsingh@kernel.org, sdf@google.com,
+ haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org, palmer@dabbelt.com,
+ pulehui@huawei.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_070815_408396_00EA49FA 
-X-CRM114-Status: GOOD (  21.85  )
+X-CRM114-CacheID: sfid-20240702_071032_985267_7C9FAD45 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,118 +76,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7393519211602037876=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7393519211602037876==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="x34tUiPHU+DtDFfq"
-Content-Disposition: inline
-
-
---x34tUiPHU+DtDFfq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Mon, Jul 01, 2024 at 02:51:32PM -0400, Jesse Taube wrote:
-
-> +/**
-> + *  isa_string_contains - check if isa string contains an extension
-> + *
-> + * @isa_str: isa string to search
-> + * @ext_name: the extension to search for
-> + *
-> + *  Returns true if the extension is in the given isa string,
-> + *  false otherwise
-> + */
-> +static bool isa_string_contains(const char *isa_str, const char *ext_name)
-> +{
-> +	size_t i, single_end, len = strlen(ext_name);
-> +	char ext_end;
-> +
-> +	/* Error must contain rv32/64 */
-> +	if (strlen(isa_str) < 4)
-> +		return false;
-> +
-> +	if (len == 1) {
-> +		single_end = strcspn(isa_str, "sSxXzZ");
-> +		/* Search for single chars between rv32/64 and multi-letter extensions */
-> +		for (i = 4; i < single_end; i++) {
-> +			if (tolower(isa_str[i]) == ext_name[0])
-> +				return true;
-> +		}
-> +		return false;
-> +	}
-> +
-> +	/* Skip to start of multi-letter extensions */
-> +	isa_str = strpbrk(isa_str, "sSxXzZ");
-
-Technically this could break with the old QEMUs that had "su" in the
-single letter part, but at this point I think enough time has passed
-that it does not matter.
-
-> +	while (isa_str) {
-> +		if (strncasecmp(isa_str, ext_name, len) == 0) {
-> +			ext_end = isa_str[len];
-> +			/* Check if matches the whole extension excluding version. */
-> +			if (ext_end == '\0' || ext_end == '_' || isdigit(ext_end))
-
-I'm also not entirely sure about the final clause here. If you have an
-extension "foo" and "foo32b", you'd match on the latter, right? I don't
-think any extensions like that at the minute (foo32b type stuff does,
-but the "root" alphabetical part for a foo32b doesn't), but I also don't
-wanna have to chase down bugs in a parser this early in the future! The
-devicetree binding doesn't actually allow anyone to put version
-information in the isa string, so maybe the thing to do is just drop the
-isdigit() check, given we only support devicetree right now for this early
-probing?
-
-> +				return true;
-> +		}
-> +		/* Multi-letter extensions must be split from other multi-letter
-> +		 * extensions with an "_", the end of a multi-letter extension will
-> +		 * either be the null character or the "_" at the start of the next
-> +		 * multi-letter extension.
-> +		 */
-> +		isa_str = strchr(isa_str, '_');
-> +		if (isa_str)
-> +			isa_str++;
-> +	}
-> +
-> +	return false;
-> +}
-
-Otherwise, I think this is fine now. Thanks for the updates.
-
-Cheers,
-Conor.
-
---x34tUiPHU+DtDFfq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZoQJxQAKCRB4tDGHoIJi
-0k6uAP4h26hzrqUn8SQOtea5MoE7pVfXu05eNbYHvp84e0SVewEAtZqV1yZzenjn
-RAoQXWnUc4/VGcwTElosMZrjivWItQY=
-=D3gK
------END PGP SIGNATURE-----
-
---x34tUiPHU+DtDFfq--
-
-
---===============7393519211602037876==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7393519211602037876==--
-
+SGVsbG86CgpUaGlzIHNlcmllcyB3YXMgYXBwbGllZCB0byBicGYvYnBmLW5leHQuZ2l0IChtYXN0
+ZXIpCmJ5IERhbmllbCBCb3JrbWFubiA8ZGFuaWVsQGlvZ2VhcmJveC5uZXQ+OgoKT24gVHVlLCAg
+MiBKdWwgMjAyNCAxMjoxOTo0MSArMDAwMCB5b3Ugd3JvdGU6Cj4gVGhpcyBwYXRjaCBhZGRzIDEy
+IGZ1bmN0aW9uIGFyZ3VtZW50cyBzdXBwb3J0IGZvciByaXNjdjY0IGJwZgo+IHRyYW1wb2xpbmUu
+IFRoZSBjdXJyZW50IGJwZiB0cmFtcG9saW5lIHN1cHBvcnRzIDw9IHNpemVvZih1NjQpIGJ5dGVz
+Cj4gc2NhbGFyIGFyZ3VtZW50cyBbMF0gYW5kIDw9IDE2IGJ5dGVzIHN0cnVjdCBhcmd1bWVudHMg
+WzFdLiBUaGVyZWZvcmUsIHdlCj4gZm9jdXMgb24gdGhlIHNpdHVhdGlvbiB3aGVyZSBzY2FsYXJz
+IGFyZSBhdCBtb3N0IFhMRU4gYml0cyBhbmQKPiBhZ2dyZWdhdGVzIHdob3NlIHRvdGFsIHNpemUg
+ZG9lcyBub3QgZXhjZWVkIDLDl1hMRU4gYml0cyBpbiB0aGUgcmlzY3YKPiBjYWxsaW5nIGNvbnZl
+bnRpb24gWzJdLgo+IAo+IFsuLi5dCgpIZXJlIGlzIHRoZSBzdW1tYXJ5IHdpdGggbGlua3M6CiAg
+LSBbYnBmLW5leHQsdjYsMS8zXSByaXNjdiwgYnBmOiBBZGQgMTItYXJndW1lbnQgc3VwcG9ydCBm
+b3IgUlY2NCBicGYgdHJhbXBvbGluZQogICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9icGYvYnBm
+LW5leHQvYy82ODAxYjBhZWY3OWQKICAtIFticGYtbmV4dCx2NiwyLzNdIHNlbGZ0ZXN0cy9icGY6
+IEZhY3RvciBvdXQgbWFueSBhcmdzIHRlc3RzIGZyb20gdHJhY2luZ19zdHJ1Y3QKICAgIGh0dHBz
+Oi8vZ2l0Lmtlcm5lbC5vcmcvYnBmL2JwZi1uZXh0L2MvNWQ1MmFkMzY2ODNhCiAgLSBbYnBmLW5l
+eHQsdjYsMy8zXSBzZWxmdGVzdHMvYnBmOiBBZGQgdGVzdGNhc2Ugd2hlcmUgN3RoIGFyZ21lbnQg
+aXMgc3RydWN0CiAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL2JwZi9icGYtbmV4dC9jLzk0NzRm
+NzJjZDY1NwoKWW91IGFyZSBhd2Vzb21lLCB0aGFuayB5b3UhCi0tIApEZWV0LWRvb3QtZG90LCBJ
+IGFtIGEgYm90LgpodHRwczovL2tvcmcuZG9jcy5rZXJuZWwub3JnL3BhdGNod29yay9wd2JvdC5o
+dG1sCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
