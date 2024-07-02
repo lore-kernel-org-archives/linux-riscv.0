@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBFFC3064D
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 12:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2223FC3064D
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 12:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u7wSbIne4WKv2DTfZ4dl7m9kBrAuW3O+ucEy20IBzs4=; b=NBfsxla0iJ+KtQ
-	wsVdkSniWzVqA/qCL+NIuKelCoIGA6l1cvvqnXxhFm8TjGolXsXes+jcpaOuDdvMqNP45K0A3a5Ck
-	S+UUoKPthJZEltQ2ouW+9vnztKHfwbJ8WgORvyGJ57F01tb4Kw7hClgHzPQoIt5hEmc8e3RPkv3S3
-	erZZzXHzLpm05CHwRWWJTTt6BzXm8dc4ULGR64GEldmDnBPwgZB2Uep9ZP0ZKI1qnr0E0c3K1K4y6
-	QAv9Z1dqoDlhf/6axr82Fl0XM7M8dKaiRHtT2QXB2DUupPIZoD5ec+m82W1DyFKYA/d44IVQYpPrV
-	8JPp3vwsEl7gaQ1M6+BQ==;
+	List-Owner; bh=d5TMsMfXfpJaRX0J2FqGc//psiYHr6VNVJeN6nakmPE=; b=v4OBAUfQx4JEnv
+	dFhnf5nmZ8d8sW+3RGx2BMxxIL7e4LgKxMrfTw8T3Ku+C1P0lfLUlATUNxHRniCmnru80AR+O2zM7
+	9u/5TDkyCp8gupZ86M3AwtpWTk79LLp0MuXCx0qqkPxLrHy5cZeakD6BlAwftK3FxqA4gupRiiM69
+	iB2GSWLfLML6zuncw2ECqSOCcMQLrzo09OG9qUE6HCRFkwHjeqtJtjXiKsh+8TPbJbGaA4BRWkXU8
+	KsJbMeE9gKe/fRxqedMB8swVhKzdYsvH50IK80SN8Tjp8byQI162lVrbsNyutwJFA96tzaVyrjXzX
+	ThfUu0+Mur+re1jfl9dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOcSd-00000006e6n-445Y;
-	Tue, 02 Jul 2024 12:18:15 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1sOcgT-00000006hHl-1IJI;
+	Tue, 02 Jul 2024 12:32:33 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOcSX-00000006e35-453s
+	id 1sOcgN-00000006hFZ-0rdm
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 12:18:14 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4WD23x735Wz4f3kFN
-	for <linux-riscv@lists.infradead.org>; Tue,  2 Jul 2024 20:17:49 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 2CA0E1A0170
-	for <linux-riscv@lists.infradead.org>; Tue,  2 Jul 2024 20:18:01 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP1 (Coremail) with SMTP id cCh0CgBHvnr174NmXMK6Aw--.13394S4;
-	Tue, 02 Jul 2024 20:18:00 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v6 2/3] selftests/bpf: Factor out many args tests from tracing_struct
-Date: Tue,  2 Jul 2024 12:19:43 +0000
-Message-Id: <20240702121944.1091530-3-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240702121944.1091530-1-pulehui@huaweicloud.com>
-References: <20240702121944.1091530-1-pulehui@huaweicloud.com>
+	Tue, 02 Jul 2024 12:32:32 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-52cecba8d11so4994448e87.1
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Jul 2024 05:32:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719923545; x=1720528345; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=A/EMsHPmSnth6woXBxvP2VppNfrx4K00pLmSD+g9HAg=;
+        b=P6gXy24mRNYkQn9oxbjEQfZHOuLwxGnEIMa06UtxRICndDGZ93xW4oPnsE2wdADUcP
+         WYqXbdNCl0lb2EVWt0vqzGHUqP8bj04EfxYdSwe69eYrmJV0E3zfDdESZ4oi7Yk1DPtP
+         K24uJIfOLc0hrS6jwvwpeqQ5jk3V1jtlmG21y0rqGPDGEhvOqr8IVbF86xIAGKaTRIjC
+         KNRVPGhhQeXJjEpGlw2KeVQv4ciU4XZu20tQMxw/2JpNIiYJ6wW5H4HNG8hyJDIUzzo6
+         4fl4lLG1cBKsDtwhzUqkGF5Gru3vLK8piYXeAW6zIUAVROL8MEqcDynceSnS8t46nmRQ
+         aWVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719923545; x=1720528345;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=A/EMsHPmSnth6woXBxvP2VppNfrx4K00pLmSD+g9HAg=;
+        b=w/umLVBKQ3ohgCaKhz1Mkl56sY9EwE7hy2yDaGOd3QlLY3nnLcg7zwPb5qnCX8CwK1
+         Tohn2AvR2ZKxulD9hftkw6Rs2MGaDnz4WRFy/InbIYJwQ/TcUipuDHTfLVybLyPL5B38
+         CIrODx8RnD3BffDYlz4Ol37Y3V9YY5OanV7jRfelbpaxebaQyVVrCK4DFEK6vNbXuzfI
+         O2Wkw9qXwPLJdonXm+4K++kkkAkaM13/VEfDn8R/XZo2BI7/xWJkMq9BZsIwBdUL8nJJ
+         A48RzOQXE8vYMS/7lNxR5VSJOF2fScF/Qb6ajacx9TkHgTu3Xum7kRTQRWfoItAQsVuP
+         WY8A==
+X-Gm-Message-State: AOJu0YytEcLQKiYvrqUeedjTlhHpcmiJsDj/g6OAnQEpYLKGvmnKC8JD
+	fmCGR2FH1ilIDHBLg4GuJjfWFB2+j85L6P0tMrlaDZqHqBib5vzY94DDk7E/V0OYKzUG8OkbOVF
+	TrDFmtGgX9HYl104P3xUQetkJNsNL01zYqsOzIQ==
+X-Google-Smtp-Source: AGHT+IH/wq6oLQq9gHpx4/LxIpvCVyvhR97jieeJFeavDaFmUvfj5G+7Q1SeDu8eeD2sFxyTgA6yN6ypQP7I6t+1h0A=
+X-Received: by 2002:a05:6512:33cd:b0:52c:ddce:4fda with SMTP id
+ 2adb3069b0e04-52e82646d35mr6262218e87.2.1719923544623; Tue, 02 Jul 2024
+ 05:32:24 -0700 (PDT)
 MIME-Version: 1.0
-X-CM-TRANSID: cCh0CgBHvnr174NmXMK6Aw--.13394S4
-X-Coremail-Antispam: 1UD129KBjvJXoW3Wry7Gr47Jry8ZF18JrW3trb_yoWxWF18pa
-	409w1UKFW8Jr48Wry8Aa1UZr4S9rs3ZF1jyry7J3sYvFyxt3sFqF1kKa4jyas8G3y5uwnx
-	AayqyFs8Ar4UXF7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUXw
-	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
-	Ij6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
-	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l42xK82IYc2Ij64
-	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
-	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2I
-	x0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAI
-	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
-	0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07UC9aPUUUUU=
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+References: <20240702102637.9074-1-mchitale@ventanamicro.com>
+In-Reply-To: <20240702102637.9074-1-mchitale@ventanamicro.com>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Tue, 2 Jul 2024 14:32:09 +0200
+Message-ID: <CAHVXubg1h3EUvVUaQduUqJ6v1zfM1Z_hPAEviutkt_Ys1A4TXw@mail.gmail.com>
+Subject: Re: [PATCH v8] riscv: mm: Add support for Svinval extension
+To: Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel.holland@sifive.com>, 
+	Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_051810_412523_555012EF 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20240702_053227_494474_24185EAA 
+X-CRM114-Status: GOOD (  27.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,232 +86,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
-
-Factor out many args tests from tracing_struct and rename some function
-names to make more sense. Meanwhile, remove unnecessary skeleton detach
-operation as it will be covered by skeleton destroy operation.
-
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- .../selftests/bpf/prog_tests/tracing_struct.c | 30 ++++++++--
- .../selftests/bpf/progs/tracing_struct.c      | 54 -----------------
- .../bpf/progs/tracing_struct_many_args.c      | 60 +++++++++++++++++++
- 3 files changed, 86 insertions(+), 58 deletions(-)
- create mode 100644 tools/testing/selftests/bpf/progs/tracing_struct_many_args.c
-
-diff --git a/tools/testing/selftests/bpf/prog_tests/tracing_struct.c b/tools/testing/selftests/bpf/prog_tests/tracing_struct.c
-index fe0fb0c9849a..cb2a95da2617 100644
---- a/tools/testing/selftests/bpf/prog_tests/tracing_struct.c
-+++ b/tools/testing/selftests/bpf/prog_tests/tracing_struct.c
-@@ -3,8 +3,9 @@
- 
- #include <test_progs.h>
- #include "tracing_struct.skel.h"
-+#include "tracing_struct_many_args.skel.h"
- 
--static void test_fentry(void)
-+static void test_struct_args(void)
- {
- 	struct tracing_struct *skel;
- 	int err;
-@@ -55,6 +56,25 @@ static void test_fentry(void)
- 
- 	ASSERT_EQ(skel->bss->t6, 1, "t6 ret");
- 
-+destroy_skel:
-+	tracing_struct__destroy(skel);
-+}
-+
-+static void test_struct_many_args(void)
-+{
-+	struct tracing_struct_many_args *skel;
-+	int err;
-+
-+	skel = tracing_struct_many_args__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "tracing_struct_many_args__open_and_load"))
-+		return;
-+
-+	err = tracing_struct_many_args__attach(skel);
-+	if (!ASSERT_OK(err, "tracing_struct_many_args__attach"))
-+		goto destroy_skel;
-+
-+	ASSERT_OK(trigger_module_test_read(256), "trigger_read");
-+
- 	ASSERT_EQ(skel->bss->t7_a, 16, "t7:a");
- 	ASSERT_EQ(skel->bss->t7_b, 17, "t7:b");
- 	ASSERT_EQ(skel->bss->t7_c, 18, "t7:c");
-@@ -74,12 +94,14 @@ static void test_fentry(void)
- 	ASSERT_EQ(skel->bss->t8_g, 23, "t8:g");
- 	ASSERT_EQ(skel->bss->t8_ret, 156, "t8 ret");
- 
--	tracing_struct__detach(skel);
- destroy_skel:
--	tracing_struct__destroy(skel);
-+	tracing_struct_many_args__destroy(skel);
- }
- 
- void test_tracing_struct(void)
- {
--	test_fentry();
-+	if (test__start_subtest("struct_args"))
-+		test_struct_args();
-+	if (test__start_subtest("struct_many_args"))
-+		test_struct_many_args();
- }
-diff --git a/tools/testing/selftests/bpf/progs/tracing_struct.c b/tools/testing/selftests/bpf/progs/tracing_struct.c
-index 515daef3c84b..c435a3a8328a 100644
---- a/tools/testing/selftests/bpf/progs/tracing_struct.c
-+++ b/tools/testing/selftests/bpf/progs/tracing_struct.c
-@@ -18,11 +18,6 @@ struct bpf_testmod_struct_arg_3 {
- 	int b[];
- };
- 
--struct bpf_testmod_struct_arg_4 {
--	u64 a;
--	int b;
--};
--
- long t1_a_a, t1_a_b, t1_b, t1_c, t1_ret, t1_nregs;
- __u64 t1_reg0, t1_reg1, t1_reg2, t1_reg3;
- long t2_a, t2_b_a, t2_b_b, t2_c, t2_ret;
-@@ -30,9 +25,6 @@ long t3_a, t3_b, t3_c_a, t3_c_b, t3_ret;
- long t4_a_a, t4_b, t4_c, t4_d, t4_e_a, t4_e_b, t4_ret;
- long t5_ret;
- int t6;
--long t7_a, t7_b, t7_c, t7_d, t7_e, t7_f_a, t7_f_b, t7_ret;
--long t8_a, t8_b, t8_c, t8_d, t8_e, t8_f_a, t8_f_b, t8_g, t8_ret;
--
- 
- SEC("fentry/bpf_testmod_test_struct_arg_1")
- int BPF_PROG2(test_struct_arg_1, struct bpf_testmod_struct_arg_2, a, int, b, int, c)
-@@ -138,50 +130,4 @@ int BPF_PROG2(test_struct_arg_11, struct bpf_testmod_struct_arg_3 *, a)
- 	return 0;
- }
- 
--SEC("fentry/bpf_testmod_test_struct_arg_7")
--int BPF_PROG2(test_struct_arg_12, __u64, a, void *, b, short, c, int, d,
--	      void *, e, struct bpf_testmod_struct_arg_4, f)
--{
--	t7_a = a;
--	t7_b = (long)b;
--	t7_c = c;
--	t7_d = d;
--	t7_e = (long)e;
--	t7_f_a = f.a;
--	t7_f_b = f.b;
--	return 0;
--}
--
--SEC("fexit/bpf_testmod_test_struct_arg_7")
--int BPF_PROG2(test_struct_arg_13, __u64, a, void *, b, short, c, int, d,
--	      void *, e, struct bpf_testmod_struct_arg_4, f, int, ret)
--{
--	t7_ret = ret;
--	return 0;
--}
--
--SEC("fentry/bpf_testmod_test_struct_arg_8")
--int BPF_PROG2(test_struct_arg_14, __u64, a, void *, b, short, c, int, d,
--	      void *, e, struct bpf_testmod_struct_arg_4, f, int, g)
--{
--	t8_a = a;
--	t8_b = (long)b;
--	t8_c = c;
--	t8_d = d;
--	t8_e = (long)e;
--	t8_f_a = f.a;
--	t8_f_b = f.b;
--	t8_g = g;
--	return 0;
--}
--
--SEC("fexit/bpf_testmod_test_struct_arg_8")
--int BPF_PROG2(test_struct_arg_15, __u64, a, void *, b, short, c, int, d,
--	      void *, e, struct bpf_testmod_struct_arg_4, f, int, g,
--	      int, ret)
--{
--	t8_ret = ret;
--	return 0;
--}
--
- char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/progs/tracing_struct_many_args.c b/tools/testing/selftests/bpf/progs/tracing_struct_many_args.c
-new file mode 100644
-index 000000000000..3de4bb918178
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/tracing_struct_many_args.c
-@@ -0,0 +1,60 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <vmlinux.h>
-+#include <bpf/bpf_tracing.h>
-+#include <bpf/bpf_helpers.h>
-+
-+struct bpf_testmod_struct_arg_4 {
-+	u64 a;
-+	int b;
-+};
-+
-+long t7_a, t7_b, t7_c, t7_d, t7_e, t7_f_a, t7_f_b, t7_ret;
-+long t8_a, t8_b, t8_c, t8_d, t8_e, t8_f_a, t8_f_b, t8_g, t8_ret;
-+
-+SEC("fentry/bpf_testmod_test_struct_arg_7")
-+int BPF_PROG2(test_struct_many_args_1, __u64, a, void *, b, short, c, int, d,
-+	      void *, e, struct bpf_testmod_struct_arg_4, f)
-+{
-+	t7_a = a;
-+	t7_b = (long)b;
-+	t7_c = c;
-+	t7_d = d;
-+	t7_e = (long)e;
-+	t7_f_a = f.a;
-+	t7_f_b = f.b;
-+	return 0;
-+}
-+
-+SEC("fexit/bpf_testmod_test_struct_arg_7")
-+int BPF_PROG2(test_struct_many_args_2, __u64, a, void *, b, short, c, int, d,
-+	      void *, e, struct bpf_testmod_struct_arg_4, f, int, ret)
-+{
-+	t7_ret = ret;
-+	return 0;
-+}
-+
-+SEC("fentry/bpf_testmod_test_struct_arg_8")
-+int BPF_PROG2(test_struct_many_args_3, __u64, a, void *, b, short, c, int, d,
-+	      void *, e, struct bpf_testmod_struct_arg_4, f, int, g)
-+{
-+	t8_a = a;
-+	t8_b = (long)b;
-+	t8_c = c;
-+	t8_d = d;
-+	t8_e = (long)e;
-+	t8_f_a = f.a;
-+	t8_f_b = f.b;
-+	t8_g = g;
-+	return 0;
-+}
-+
-+SEC("fexit/bpf_testmod_test_struct_arg_8")
-+int BPF_PROG2(test_struct_many_args_4, __u64, a, void *, b, short, c, int, d,
-+	      void *, e, struct bpf_testmod_struct_arg_4, f, int, g,
-+	      int, ret)
-+{
-+	t8_ret = ret;
-+	return 0;
-+}
-+
-+char _license[] SEC("license") = "GPL";
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTWF5dXJlc2gsCgpPbiBUdWUsIEp1bCAyLCAyMDI0IGF0IDEyOjI24oCvUE0gTWF5dXJlc2gg
+Q2hpdGFsZQo8bWNoaXRhbGVAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4KPiBUaGUgU3ZpbnZh
+bCBleHRlbnNpb24gc3BsaXRzIFNGRU5DRS5WTUEgaW5zdHJ1Y3Rpb24gaW50byBmaW5lci1ncmFp
+bmVkCj4gaW52YWxpZGF0aW9uIGFuZCBvcmRlcmluZyBvcGVyYXRpb25zIGFuZCBpcyBtYW5kYXRv
+cnkgZm9yIFJWQTIzUzY0IHByb2ZpbGUuCj4gV2hlbiBTdmludmFsIGlzIGVuYWJsZWQgdGhlIGxv
+Y2FsX2ZsdXNoX3RsYl9yYW5nZV90aHJlc2hvbGRfYXNpZCBmdW5jdGlvbgo+IHNob3VsZCB1c2Ug
+dGhlIGZvbGxvd2luZyBzZXF1ZW5jZSB0byBvcHRpbWl6ZSB0aGUgdGxiIGZsdXNoZXMgaW5zdGVh
+ZCBvZgo+IGEgc2ltcGxlIHNmZW5jZS52bWE6Cj4KPiBzZmVuY2Uudy5pbnZhbAo+IHN2aW52YWwu
+dm1hCj4gICAuCj4gICAuCj4gc3ZpbnZhbC52bWEKPiBzZmVuY2UuaW52YWwuaXIKPgo+IFRoZSBt
+YXhpbXVtIG51bWJlciBvZiBjb25zZWN1dGl2ZSBzdmludmFsLnZtYSBpbnN0cnVjdGlvbnMgdGhh
+dAo+IGNhbiBiZSBleGVjdXRlZCBpbiBsb2NhbF9mbHVzaF90bGJfcmFuZ2VfdGhyZXNob2xkX2Fz
+aWQgZnVuY3Rpb24KPiBpcyBsaW1pdGVkIHRvIDY0LiBUaGlzIGlzIHJlcXVpcmVkIHRvIGF2b2lk
+IHNvZnQgbG9ja3VwcyBhbmQgdGhlCj4gYXBwcm9hY2ggaXMgc2ltaWxhciB0byB0aGF0IHVzZWQg
+aW4gYXJtNjQuCj4KPiBTaWduZWQtb2ZmLWJ5OiBNYXl1cmVzaCBDaGl0YWxlIDxtY2hpdGFsZUB2
+ZW50YW5hbWljcm8uY29tPgo+IFJldmlld2VkLWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50
+YW5hbWljcm8uY29tPgo+IC0tLQo+IENoYW5nZXMgaW4gdjg6Cj4gLSBGaXggbGluZSB3cmFwCj4g
+LSBBZGQgUkIgdGFnCj4KPiBDaGFuZ2VzIGluIHY3Ogo+IC0gVXNlIGV4aXN0aW5nIHN2aW52YWwg
+bWFjcm9zIGluIHRoZSBpbnNuLWRlZi5oCj4gLSBSZW5hbWUgbG9jYWxfc2ludmFsX3ZtYV9hc2lk
+IHRvIGxvY2FsX3NpbnZhbF92bWEKPgo+IENoYW5nZXMgaW4gdjY6Cj4gLSBSZWJhc2Ugb24gbGF0
+ZXN0IHRvcnZhbGRzL21hc3Rlcgo+Cj4gQ2hhbmdlcyBpbiB2NToKPiAtIFJlZHVjZSB0bGIgZmx1
+c2ggdGhyZXNob2xkIHRvIDY0Cj4gLSBJbXByb3ZlIGltcGxlbWVudGF0aW9uIG9mIGxvY2FsX2Zs
+dXNoX3RsYiogZnVuY3Rpb25zCj4KPiBDaGFuZ2VzIGluIHY0Ogo+IC0gUmViYXNlIGFuZCByZWZh
+Y3RvciBhcyBwZXIgbGF0ZXN0IGNoYW5nZXMgb24gdG9ydmFsZHMvbWFzdGVyCj4gLSBEcm9wIHBh
+dGNoIDEgaW4gdGhlIHNlcmllcwo+Cj4gQ2hhbmdlcyBpbiB2MzoKPiAtIEZpeCBpbmNvcnJlY3Qg
+dm1hIHVzZWQgZm9yIHNpbnZhbCBpbnN0cnVjdGlvbnMKPiAtIFVzZSB1bmlmaWVkIHN0YXRpYyBr
+ZXkgbWVjaGFuaXNtIGZvciBzdmludmFsCj4gLSBSZWJhc2VkIG9uIHRvcnZhbGRzL21hc3Rlcgo+
+Cj4gQ2hhbmdlcyBpbiB2MjoKPiAtIFJlYmFzZWQgb24gNS4xOC1yYzMKPiAtIHVwZGF0ZSByaXNj
+dl9maWxsX2h3Y2FwIHRvIHByb2JlIFN2aW52YWwgZXh0ZW5zaW9uCj4KPiAgYXJjaC9yaXNjdi9t
+bS90bGJmbHVzaC5jIHwgMzIgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKPiAgMSBm
+aWxlIGNoYW5nZWQsIDMyIGluc2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L21tL3RsYmZsdXNoLmMgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPiBpbmRleCA5YjZlODZj
+ZTM4NjcuLjc4MjE0N2E2M2YzYiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L21tL3RsYmZsdXNo
+LmMKPiArKysgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPiBAQCAtNiw2ICs2LDI3IEBACj4g
+ICNpbmNsdWRlIDxsaW51eC9odWdldGxiLmg+Cj4gICNpbmNsdWRlIDxhc20vc2JpLmg+Cj4gICNp
+bmNsdWRlIDxhc20vbW11X2NvbnRleHQuaD4KPiArI2luY2x1ZGUgPGFzbS9jcHVmZWF0dXJlLmg+
+Cj4gKwo+ICsjZGVmaW5lIGhhc19zdmludmFsKCkgIHJpc2N2X2hhc19leHRlbnNpb25fdW5saWtl
+bHkoUklTQ1ZfSVNBX0VYVF9TVklOVkFMKQo+ICsKPiArc3RhdGljIGlubGluZSB2b2lkIGxvY2Fs
+X3NmZW5jZV9pbnZhbF9pcih2b2lkKQo+ICt7Cj4gKyAgICAgICBhc20gdm9sYXRpbGUoU0ZFTkNF
+X0lOVkFMX0lSKCkgOjo6ICJtZW1vcnkiKTsKPiArfQo+ICsKPiArc3RhdGljIGlubGluZSB2b2lk
+IGxvY2FsX3NmZW5jZV93X2ludmFsKHZvaWQpCj4gK3sKPiArICAgICAgIGFzbSB2b2xhdGlsZShT
+RkVOQ0VfV19JTlZBTCgpIDo6OiAibWVtb3J5Iik7Cj4gK30KPiArCj4gK3N0YXRpYyBpbmxpbmUg
+dm9pZCBsb2NhbF9zaW52YWxfdm1hKHVuc2lnbmVkIGxvbmcgdm1hLCB1bnNpZ25lZCBsb25nIGFz
+aWQpCj4gK3sKPiArICAgICAgIGlmIChhc2lkICE9IEZMVVNIX1RMQl9OT19BU0lEKQo+ICsgICAg
+ICAgICAgICAgICBhc20gdm9sYXRpbGUoU0lOVkFMX1ZNQSglMCwgJTEpIDogOiAiciIgKHZtYSks
+ICJyIiAoYXNpZCkgOiAibWVtb3J5Iik7Cj4gKyAgICAgICBlbHNlCj4gKyAgICAgICAgICAgICAg
+IGFzbSB2b2xhdGlsZShTSU5WQUxfVk1BKCUwLCB6ZXJvKSA6IDogInIiICh2bWEpIDogIm1lbW9y
+eSIpOwo+ICt9Cj4KPiAgLyoKPiAgICogRmx1c2ggZW50aXJlIFRMQiBpZiBudW1iZXIgb2YgZW50
+cmllcyB0byBiZSBmbHVzaGVkIGlzIGdyZWF0ZXIKPiBAQCAtMjYsNiArNDcsMTYgQEAgc3RhdGlj
+IHZvaWQgbG9jYWxfZmx1c2hfdGxiX3JhbmdlX3RocmVzaG9sZF9hc2lkKHVuc2lnbmVkIGxvbmcg
+c3RhcnQsCj4gICAgICAgICAgICAgICAgIHJldHVybjsKPiAgICAgICAgIH0KPgo+ICsgICAgICAg
+aWYgKGhhc19zdmludmFsKCkpIHsKPiArICAgICAgICAgICAgICAgbG9jYWxfc2ZlbmNlX3dfaW52
+YWwoKTsKPiArICAgICAgICAgICAgICAgZm9yIChpID0gMDsgaSA8IG5yX3B0ZXNfaW5fcmFuZ2U7
+ICsraSkgewo+ICsgICAgICAgICAgICAgICAgICAgICAgIGxvY2FsX3NpbnZhbF92bWEoc3RhcnQs
+IGFzaWQpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgIHN0YXJ0ICs9IHN0cmlkZTsKPiArICAg
+ICAgICAgICAgICAgfQo+ICsgICAgICAgICAgICAgICBsb2NhbF9zZmVuY2VfaW52YWxfaXIoKTsK
+PiArICAgICAgICAgICAgICAgcmV0dXJuOwo+ICsgICAgICAgfQo+ICsKPiAgICAgICAgIGZvciAo
+aSA9IDA7IGkgPCBucl9wdGVzX2luX3JhbmdlOyArK2kpIHsKPiAgICAgICAgICAgICAgICAgbG9j
+YWxfZmx1c2hfdGxiX3BhZ2VfYXNpZChzdGFydCwgYXNpZCk7Cj4gICAgICAgICAgICAgICAgIHN0
+YXJ0ICs9IHN0cmlkZTsKPiAtLQo+IDIuMzQuMQo+CgpHcmVhdCwgdGhhbmtzIGFnYWluIGZvciBy
+ZXdvcmtpbmcgdGhpcyBwYXRjaHNldCEKClJldmlld2VkLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFs
+ZXhnaGl0aUByaXZvc2luYy5jb20+CgpUaGFua3MsCgpBbGV4CgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
