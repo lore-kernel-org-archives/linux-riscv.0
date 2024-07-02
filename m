@@ -4,66 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F23DC30658
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 17:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A636AC30658
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 22:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eIS4re1T7zmHONZgUBELxmnCcgJTu8gFAvcBa4JS6N0=; b=PFziZtd76xWNmf
-	ecASBWd38N9ALQGRqLPgQ2g7KSBc8lQAZ6/tyWeC3QxAZBkFBXq3W9VPuddI4jNLMrZabGIiBdhG/
-	ZVSs7Ht4QDZ75Y2/bcYg/pQchylMmtFCnq7hLpbrUxdAXLJ0o/l1lG9aAmhClynHyUHOdbTggc5lX
-	YP4jOF9511/6XwiUYLtmikyNi+wNkLSxN/t+fhhbYRlIaRnSET19eCwQrOIYMNezMHu91kHxXZ60X
-	+ZHecsbv8cvVD8b0DZ/vvBJa6IP5ONlPCbZ8qHqPfZfaYCUEOAiW5cpJ5l2XnEuKsKAiorQEWAD8z
-	EJWSA8ktVUsT9t6hezEQ==;
+	List-Owner; bh=kscscUkrFLkqzqCxXGFT56uCTMXngjmnJarUw8O0mCM=; b=s0JFd6widskNAd
+	Tum/PCsfapens0RH3k3DoFTgpRu12aKjcssADIU9ljxp8xjAEgVDPGQQ7FxpNQkb086yCHFnAyV+H
+	oVOoBP0hJWuRVX4qV6wkD+SQJ0nUZDzmltblbeKKlyIWT0YPP0SzFiePptGu95Ak3mUcx0JmzBPSK
+	LdnJwtl9UHdK1LviccAOgMudCT8rFOIGCA+y9hjaYO82xGiUW/7FDP+JfAQfCH1jREt8fKf7N8IAu
+	p/C0DuvxIY3WxQ4kaIbcLPlsqHkTCp4xCJ19AksW4vG3aRaNmHV67gRzRKmbRqCF/DgXwFjEoprOZ
+	mMC88jYYhwcmXYv96LlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOgsW-00000007SNw-0Q4p;
-	Tue, 02 Jul 2024 17:01:16 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1sOltj-00000008CBd-0va4;
+	Tue, 02 Jul 2024 22:22:51 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOgsQ-00000007SL2-3cQ6
+	id 1sOltg-00000008CAR-1iLe
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 17:01:12 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4WD8L16KJDz6JBcC;
-	Wed,  3 Jul 2024 01:00:25 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 148D8140A08;
-	Wed,  3 Jul 2024 01:01:02 +0800 (CST)
-Received: from localhost (10.203.174.77) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 2 Jul
- 2024 18:01:01 +0100
-Date: Tue, 2 Jul 2024 18:01:00 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-CC: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>, "Paul Walmsley"
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	=?ISO-8859-1?Q?Miqu=E8l?= Raynal <miquel.raynal@bootlin.com>,
-	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 2/3] iio: adc: sophgo-saradc: Add driver for Sophgo
- SARADC
-Message-ID: <20240702180100.00000096@Huawei.com>
-In-Reply-To: <20240702-sg2002-adc-v1-2-ac66e076a756@bootlin.com>
-References: <20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com>
-	<20240702-sg2002-adc-v1-2-ac66e076a756@bootlin.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	Tue, 02 Jul 2024 22:22:50 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7065a2f4573so3291832b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Jul 2024 15:22:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719958967; x=1720563767; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=2HAreNgSKd2flbDmhZ9kzCgXWhr/5FjsTCmFlTvboqE=;
+        b=VuBv0b6XL2CiyrxkO2gWTXUTZiLMYJ0RTRnaYM4SsuPKglUIFwiBvPm9CbUzGppRT3
+         0Nc4OEKDvxvwATYU/wDN8SmTlv48S/zg7XVoLgvGgtCReh8XEDq7ZqvHr+CntvF5n3x0
+         A440lOb93A+2jGb/Db2XQJd5j8hxR9IMlbL/tWIES/dMzmV7eDNV8peplFBwmzfj7Emh
+         RlVGqiFwWci33WqbWU+PHvS0axzj8sIHBXY5o7c9AYMGEpfkL23DDDMe5Pw3yurw6FQo
+         /uWDuvO6fpXvf/+vLACQnljtrzRQjqgYMZUrloFSixHBeXi1p6LtEKXvMjVk0NhxHMmI
+         2nzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719958967; x=1720563767;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2HAreNgSKd2flbDmhZ9kzCgXWhr/5FjsTCmFlTvboqE=;
+        b=uAgdnZynap8nB/bT9pNJeAhWN4YcGmyfZRIR5dWuX5azF/ZdYF8A/CIxdsGHH92db0
+         U10GB/F5ccfsgOYHCDLiyNJ4ktIovzyWNBFB6q9O0LQkqYZ6ON+Dgco11jOoR5Gpqx92
+         GUTTwTs26uuc7whBtrcm64lNczGOxXL+Kj6xH1GrR+YWWWRRXb3iPkutcNq3pwmmhmuE
+         EE3ZeccwFnpe+gBVRR3/l9NRXgIt8TKTYe7mHpT/Ku4IGBzPRWT5fPFVUS5VVrcYfBw3
+         0p2zN8v2OswYdnf5iAixj3dMek1/tqcd3AHzRMdEfGFgZuiTt3IQfsYqwHCz4eBo0/jX
+         2CWw==
+X-Forwarded-Encrypted: i=1; AJvYcCUKvHOG20cjH4NS/i4V5m58h3WWfpWnFcPrJzRWPJq36GPC0rqGa9wZJSv/Dbu3b2PGJxSFQkWpHSEp3sxR7OvSyC3qd0TX72sIx1PDblzv
+X-Gm-Message-State: AOJu0YyChURFez9s0KjcfON9r+EQxAJu6+AExX7rioNnxRT0pPYohYZW
+	KN0GHilcqcAgRpqpXOdwk9oksV5fALrLVArw1qZHotyMs/4l9+seWQAkn409zMk=
+X-Google-Smtp-Source: AGHT+IFv/UktdfqfVi4xgaaycbPb7pdL54C2mZHYwO0zrmNP80hR83Y1Fy2VM2Z6FDn1I046+MIzxQ==
+X-Received: by 2002:a05:6a20:1586:b0:1be:cb97:a918 with SMTP id adf61e73a8af0-1bef610bf3dmr9638155637.29.1719958967187;
+        Tue, 02 Jul 2024 15:22:47 -0700 (PDT)
+Received: from ghost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70803ecf97csm9053071b3a.127.2024.07.02.15.22.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jul 2024 15:22:46 -0700 (PDT)
+Date: Tue, 2 Jul 2024 15:22:43 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Conor Dooley <conor@kernel.org>, Jesse Taube <jesse@rivosinc.com>,
+	linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Evan Green <evan@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
+	Eric Biggers <ebiggers@google.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Costa Shulyupin <costa.shul@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>,
+	Zong Li <zong.li@sifive.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Ben Dooks <ben.dooks@codethink.co.uk>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Erick Archer <erick.archer@gmx.com>,
+	Joel Granados <j.granados@samsung.com>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 4/8] RISC-V: Check Zicclsm to set unaligned access
+ speed
+Message-ID: <ZoR9swwgsGuGbsTG@ghost>
+References: <20240625005001.37901-1-jesse@rivosinc.com>
+ <20240625005001.37901-5-jesse@rivosinc.com>
+ <20240626-march-abreast-83414e844250@spud>
+ <Zn3XrLRl/yazsoZe@ghost>
+ <43941f48-9905-4b25-89ef-6ad75bf1a123@rivosinc.com>
+ <20240701-ajar-italicize-9e3d9b8a0264@spud>
+ <ef639748-3979-4236-b48d-c0c44e2d5ad2@rivosinc.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.203.174.77]
-X-ClientProxiedBy: lhrpeml100001.china.huawei.com (7.191.160.183) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
+Content-Disposition: inline
+In-Reply-To: <ef639748-3979-4236-b48d-c0c44e2d5ad2@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_100111_233871_3628578B 
-X-CRM114-Status: GOOD (  31.08  )
+X-CRM114-CacheID: sfid-20240702_152248_826473_8C53B941 
+X-CRM114-Status: GOOD (  42.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,330 +117,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 02 Jul 2024 13:52:22 +0200
-Thomas Bonnefille <thomas.bonnefille@bootlin.com> wrote:
+On Mon, Jul 01, 2024 at 04:20:15PM +0200, Cl=E9ment L=E9ger wrote:
+> =
 
-> This adds a driver for the common Sophgo SARADC.
-> 
-> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> =
 
-Hi Thomas,
+> On 01/07/2024 15:58, Conor Dooley wrote:
+> > On Mon, Jul 01, 2024 at 09:15:09AM +0200, Cl=E9ment L=E9ger wrote:
+> >>
+> >>
+> >> On 27/06/2024 23:20, Charlie Jenkins wrote:
+> >>> On Wed, Jun 26, 2024 at 03:39:14PM +0100, Conor Dooley wrote:
+> >>>> On Mon, Jun 24, 2024 at 08:49:57PM -0400, Jesse Taube wrote:
+> >>>>> Check for Zicclsm before checking for unaligned access speed. This =
+will
+> >>>>> greatly reduce the boot up time as finding the access speed is no l=
+onger
+> >>>>> necessary.
+> >>>>>
+> >>>>> Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+> >>>>> ---
+> >>>>> V2 -> V3:
+> >>>>>  - New patch split from previous patch
+> >>>>> ---
+> >>>>>  arch/riscv/kernel/unaligned_access_speed.c | 26 ++++++++++++++----=
+----
+> >>>>>  1 file changed, 17 insertions(+), 9 deletions(-)
+> >>>>>
+> >>>>> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/risc=
+v/kernel/unaligned_access_speed.c
+> >>>>> index a9a6bcb02acf..329fd289b5c8 100644
+> >>>>> --- a/arch/riscv/kernel/unaligned_access_speed.c
+> >>>>> +++ b/arch/riscv/kernel/unaligned_access_speed.c
+> >>>>> @@ -259,23 +259,31 @@ static int check_unaligned_access_speed_all_c=
+pus(void)
+> >>>>>  	kfree(bufs);
+> >>>>>  	return 0;
+> >>>>>  }
+> >>>>> +#else /* CONFIG_RISCV_PROBE_UNALIGNED_ACCESS */
+> >>>>> +static int check_unaligned_access_speed_all_cpus(void)
+> >>>>> +{
+> >>>>> +	return 0;
+> >>>>> +}
+> >>>>> +#endif
+> >>>>>  =
 
-Welcome to IIO.
+> >>>>>  static int check_unaligned_access_all_cpus(void)
+> >>>>>  {
+> >>>>> -	bool all_cpus_emulated =3D check_unaligned_access_emulated_all_cp=
+us();
+> >>>>> +	bool all_cpus_emulated;
+> >>>>> +	int cpu;
+> >>>>> +
+> >>>>> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICCLSM)) {
+> >>>>> +		for_each_online_cpu(cpu) {
+> >>>>> +			per_cpu(misaligned_access_speed, cpu) =3D RISCV_HWPROBE_MISALIG=
+NED_FAST;
+> >>>>
+> >>>> - const: zicclsm
+> >>>>   description:
+> >>>>     The standard Zicclsm extension for misaligned support for all re=
+gular
+> >>>>     load and store instructions (including scalar and vector) but no=
+t AMOs
+> >>>>     or other specialized forms of memory access. Defined in the
+> >>>>     RISC-V RVA Profiles Specification. =
 
-Various comments inline
+> >>>>
+> >>>> Doesn't, unfortunately, say anywhere there that they're actually fas=
+t :(
+> >>>
+> >>> Oh no! That is unfortunate that the ISA does not explicitly call that
+> >>> out, but I think that acceptable.
+> >>>
+> >>> If a vendor puts Zicclsm in their isa string, they should expect
+> >>> software to take advantage of misaligned accesses. FAST is our signal=
+ to
+> >>> tell software that they should emit misaligned accesses.
+> >>
+> >> AFAIK, Zicclsm is not even an ISA extension, simply a profile
+> >> specification which means that only the execution environment which
+> >> provides the profile support misaligned accesses (cf
+> >> https://lists.riscv.org/g/tech-profiles/message/56).
+> > =
 
-Thanks,
+> > I dunno, the specification status page used to describe it as an
+> > extension:
+> > https://wiki.riscv.org/display/HOME/Specification+Status+-+Historical
+> > My understanding was that these could be considered extensions, just
+> > like we are considering svade to be one.
+> > =
 
-Jonathan
-> diff --git a/drivers/iio/adc/sophgo-adc.c b/drivers/iio/adc/sophgo-adc.c
-> new file mode 100644
-> index 000000000000..a94d839d40ec
-> --- /dev/null
-> +++ b/drivers/iio/adc/sophgo-adc.c
-> @@ -0,0 +1,223 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + *  Sophgo SARADC Driver
-> + *
-> + *  Copyright (C) Bootlin 2024
-> + *  Author: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/completion.h>
-> +#include <linux/dev_printk.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/iio/iio.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/of.h>
-probably want mod_devicetable.h instead.
+> >> . I don't think we
+> >> can extrapolate that the misaligned accesses will be fast at all.
+> > =
 
-> +#include <linux/platform_device.h>
-> +
-> +#define SOPHGO_SARADC_CTRL_REG			0x04
-> +#define		SOPHGO_SARADC_EN		BIT(0)
-> +#define		SOPHGO_SARADC_SEL(x)		BIT((x)+4)
-> +#define SOPHGO_SARADC_STATUS_REG		0x08
-> +#define		SOPHGO_SARADC_BUSY		BIT(0)
-> +#define SOPHGO_SARADC_CYC_SET_REG		0x0C
-> +#define		SOPHGO_SARADC_DEF_CYC_SETTINGS	0xF1F0F
-> +#define SOPHGO_SARADC_CH_RESULT_REG(x)		(0x10+4*(x))
-> +#define		SARADC_CH_RESULT(x)		((x) & 0xfff)
-> +#define		SARADC_CH_VALID(x)		((x) & BIT(15))
+> > That is my opinion on it too. If it doesn't say "fast" and give a
+> > definition for what that means in the binding, then we can't assume that
+> > it is fast. I'm also wary of extending definitions of extensions in the
+> > binding, because a) I am 90% sure that people writing devicetrees don't
+> > care and b) it'd be a potential difference between DT and ACPI without a
+> > real justification (unlike the zkr or svade/svadu situations).
+> =
 
-Prefer defined masks and FIELD_GET() to actually get the values.
-Also use consistent prefix for defines.
+> BTW, the profile spec [1] has a note that states the following for Ziccls=
+m:
+> =
 
+> "Even though mandated, misaligned loads and stores might execute
+> extremely slowly. Standard software distributions should assume their
+> existence only for correctness, not for performance."
+> =
 
-> +#define SOPHGO_SARADC_INTR_EN_REG		0x20
-> +#define SOPHGO_SARADC_INTR_CLR_REG		0x24
-> +
-> +#define SOPHGO_SARADC_CHANNEL(index)					\
-> +	{								\
-> +		.type = IIO_VOLTAGE,					\
-> +		.indexed = 1,						\
-> +		.channel = index,					\
-> +		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
-> +		.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),	\
-> +		.scan_index = index,					\
-> +		.scan_type = {						\
-> +			.sign = 'u',					\
-> +			.realbits = 12,					\
+> Which was also quoted in patch 1, so I guess that settles it.
 
-No need to define these if not providing buffered capture.
+The intention here was to allow vendors to configure an option to skip
+the probing. This extension does not seem useful as it is written! A way
+around this would be to add a kernel arg to set the access speed but
+maybe it doesn't matter. For the sake of this patch, it looks like we
+should get rid of this Zicclsm check.
 
+- Charlie
 
-> +		},							\
-> +	}
-> +
-> +struct sophgo_saradc {
-> +	struct completion completion;
-> +	struct iio_info info;
-> +	void __iomem *regs;
-> +	struct mutex lock;
+> =
 
-Add a comment on what data this lock protects.  
+> Thanks,
+> =
 
-> +	struct clk *clk;
-After changes below, probably don't need to hang on to the clk.
-> +	int irq;
-Rarely need to keep hold of the irq after probe. Use a local variable for
-it in instead.
+> Cl=E9ment
+> =
 
-> +};
-> +
-> +static const struct iio_chan_spec sophgo_channels[] = {
-> +	SOPHGO_SARADC_CHANNEL(1),
-> +	SOPHGO_SARADC_CHANNEL(2),
-> +	SOPHGO_SARADC_CHANNEL(3),
-> +};
-> +
-> +static void sophgo_saradc_start_measurement(struct sophgo_saradc *saradc,
-> +					    int channel)
-> +{
-> +	writel(0, saradc->regs + SOPHGO_SARADC_CTRL_REG);
-> +	writel(SOPHGO_SARADC_SEL(channel) | SOPHGO_SARADC_EN,
-> +	       saradc->regs + SOPHGO_SARADC_CTRL_REG);
-> +}
-> +
-> +static int sophgo_saradc_wait(struct sophgo_saradc *saradc)
-> +{
-> +	if (saradc->irq < 0) {
-> +		u32 reg;
-> +
-> +		return readl_poll_timeout(saradc->regs + SOPHGO_SARADC_STATUS_REG,
-> +					  reg, !(reg & SOPHGO_SARADC_BUSY),
-> +					  500, 1000000);
-> +	} else {
+> Link:
+> https://github.com/riscv/riscv-profiles/blob/main/src/profiles.adoc?plain=
+=3D1#L524
+> [1]
+> =
 
-Returned above, so no need for else which helps with indent.
+> > =
 
-
-> +		int ret;
-> +
-> +		ret = wait_for_completion_timeout(&saradc->completion,
-> +						  msecs_to_jiffies(1000)) > 0
-> +						  ? 0 : -ETIMEDOUT;
-> +		return ret;
-return wait_for_completion.
-> +	}
-> +}
-> +
-> +static int sophgo_saradc_read_raw(struct iio_dev *indio_dev,
-> +				  struct iio_chan_spec const *chan,
-> +				  int *val, int *val2, long mask)
-> +{
-> +	switch (mask) {
-> +	case IIO_CHAN_INFO_RAW:
-> +		struct sophgo_saradc *saradc = iio_priv(indio_dev);
-> +		u32 sample;
-> +		int ret;
-> +
-> +		mutex_lock(&saradc->lock);
-
-Use scoped_guard() here so you can return directly on error.
-
-> +		sophgo_saradc_start_measurement(saradc, chan->scan_index);
-> +		ret = sophgo_saradc_wait(saradc);
-> +		if (ret < 0) {
-> +			mutex_unlock(&saradc->lock);
-> +			return ret;
-> +		}
-> +
-> +		sample = readl(saradc->regs + SOPHGO_SARADC_CH_RESULT_REG(chan->scan_index));
-> +		mutex_unlock(&saradc->lock);
-> +
-> +		if (SARADC_CH_VALID(sample)) {
-> +			*val = SARADC_CH_RESULT(sample);
-> +			return IIO_VAL_INT;
-> +		}
-errors out of line preferred.
-		if (!SARADC_CH_VALID(sample))
-			return -ENODATA;
-
-		*val...
-
-> +		return -ENODATA;
-> +	case IIO_CHAN_INFO_SCALE:
-> +		*val = 3300;
-> +		*val2 = 12;
-> +		return IIO_VAL_FRACTIONAL_LOG2;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-> +
-> +static irqreturn_t sophgo_saradc_interrupt_handler(int irq, void *dev_id)
-> +{
-> +	struct sophgo_saradc *saradc = dev_id;
-
-dev_id is an odd name for something that isn't an id.
-
-No register to confirm the interupt status?  Fine if not, but relatively
-unusual.
-
-> +
-> +	writel(1, saradc->regs + SOPHGO_SARADC_INTR_CLR_REG);
-> +	complete(&saradc->completion);
-> +	return IRQ_HANDLED;
-> +}
-> +
-
-Single blank line
-
-> +
-> +static const struct of_device_id sophgo_saradc_match[] = {
-> +	{ .compatible = "sophgo,cv18xx-saradc", },
-> +	{ },
-No comma needed on 'null' terminators like this as we won't
-ever add anything after them.
-
-> +};
-> +MODULE_DEVICE_TABLE(of, sophgo_saradc_match);
-> +
-> +static int sophgo_saradc_probe(struct platform_device *pdev)
-> +{
-> +	struct sophgo_saradc *saradc;
-> +	struct iio_dev *indio_dev;
-> +	int ret;
-> +
-> +	indio_dev = devm_iio_device_alloc(&pdev->dev, sizeof(*saradc));
-> +	if (!indio_dev)
-> +		return -ENOMEM;
-> +
-> +	saradc = iio_priv(indio_dev);
-> +	indio_dev->name = "Sophgo SARADC";
-
-Hmm. Whilst the ABI docs don't say it, I don't think we have names with
-either capitals or spaces.  sophgo-saradc or similar preferred.
-
-> +	indio_dev->info = &saradc->info;
-
-This is making some static const data dynamic. I can't see why you'd do this
-
-> +	indio_dev->modes = INDIO_DIRECT_MODE;
-> +	indio_dev->num_channels = 3;
-
-ARRAY_SIZE(sophgo_channels)
-
-> +	indio_dev->channels = sophgo_channels;
-> +
-> +	saradc->clk = devm_clk_get(&pdev->dev, NULL);
-
-If it's optional, then use dev_clk_get_optional()
-
-> +	if (IS_ERR(saradc->clk)) {
-> +		dev_dbg(&pdev->dev, "Can't get clock from device tree, using No-Die domain");
-> +	} else {
-> +		ret = clk_prepare_enable(saradc->clk);
-
-Perhaps devm_clk_get_optional_enabled() is appropriate, then
-you can use null return to detect that it wasn't present - vs an ERR_PTR() for
-it was but didn't enable.
-
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	saradc->regs = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(saradc->regs)) {
-> +		ret = PTR_ERR(saradc->regs);
-> +		goto error_disable_clock;
-> +	}
-> +
-> +	saradc->irq = platform_get_irq_optional(pdev, 0);
-> +	if (saradc->irq >= 0) {
-> +		ret = devm_request_irq(&pdev->dev, saradc->irq,
-> +				sophgo_saradc_interrupt_handler, 0,
-> +				dev_name(&pdev->dev), saradc);
-> +		if (ret)
-> +			goto error_disable_clock;
-> +
-> +		writel(1, saradc->regs + SOPHGO_SARADC_INTR_EN_REG);
-> +
-> +		init_completion(&saradc->completion);
-Usually best to init a completion that is irq related before requesting
-the irq. Avoids any possible races.
-
-> +	}
-> +
-> +	saradc->info.read_raw = &sophgo_saradc_read_raw;
-Why?  
-> +
-> +	mutex_init(&saradc->lock);
-> +	platform_set_drvdata(pdev, indio_dev);
-> +	writel(SOPHGO_SARADC_DEF_CYC_SETTINGS, saradc->regs + SOPHGO_SARADC_CYC_SET_REG);
-> +	ret = devm_iio_device_register(&pdev->dev, indio_dev);
-> +	if (ret)
-> +		goto error_disable_clock;
-> +
-> +	return 0;
-> +
-> +error_disable_clock:
-> +	if (!IS_ERR(saradc->clk))
-Don't mix and match devm and non devm management.
-As above, I think you can just use devm_clk_get_optional_enabled()
-
-> +		clk_disable_unprepare(saradc->clk);
-> +	return ret;
-> +}
-> +
-> +static void sophgo_saradc_remove(struct platform_device *pdev)
-> +{
-> +	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
-> +	struct sophgo_saradc *saradc = iio_priv(indio_dev);
-> +
-> +	if (!IS_ERR(saradc->clk))
-> +		clk_disable_unprepare(saradc->clk);
-> +}
-> +
-
-Single blank line is enough.
-
-> +
-> +static struct platform_driver sophgo_saradc_driver = {
-> +	.driver	= {
-> +		.name		= "sophgo-saradc",
-> +		.of_match_table	= sophgo_saradc_match,
-> +	},
-> +	.probe = sophgo_saradc_probe,
-> +	.remove_new = sophgo_saradc_remove,
-> +};
-> +module_platform_driver(sophgo_saradc_driver);
-> +
-> +MODULE_AUTHOR("Thomas Bonnefille <thomas.bonnefille@bootlin.com>");
-> +MODULE_DESCRIPTION("Sophgo SARADC driver");
-> +MODULE_LICENSE("GPL");
-> 
-
+> >>> This allows for a generic kernel, like the one a distro would compile=
+, to
+> >>> skip the probing when booting on a system that explicitly called out
+> >>> that the hardware supports misaligned accesses.
 
 _______________________________________________
 linux-riscv mailing list
