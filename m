@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE81C3064D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C29A9C3065D
 	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 11:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=l8Kwlfw9hoVPLZMPgNWplNbY8YR12I6IRFE3a0NqYBU=; b=fuxEpz8Sm2sjMk
-	qus8wq5hCMbd/MRvlY9bDWwUOvcgbjb+e4AgxUmRqa0Qn7GIDsx9PM7bugNPB8bJCgofpZrXAuvSj
-	pfgTPMQg91KjQZQTBbyKWdT88fRkI2mrIl9Jlwww5ct7Bi2lCs30gqM+COCrBR/vIpzLmukgqc8O1
-	hJyUeUXOzX+PBlMOgolQew1jcxuvJsFogX0ZN7GKcxl5DCoBcsMcDbilu9Ozqmu8gV7fRbDh6YrEE
-	xxXNPPuOjpZSWVf1YST7KjaueBfLpxAV9vEOvBJvn6AdNJh5OtC2WnL2Z6c0ONA2e/ALzGbeRXr4o
-	F91mtE5zeR8uXef/aBWA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ssd7C7UkafGdd0KUj5E1Nx1SMTBtEehZwwBjO48qOK4=; b=nfgt1Isim8gQt7
+	k1j5HHXqCB5XAqkPzPYRYIPv0XVHyaCdcvwUYDZacTvuvOFSioVNUbOxAi+aUPtAT+SF/zPJ5d8Vi
+	5eWUmP28x1+SWU4hxSPccqIEB5aIzgoi0utxkMw+jtXV1xkfIt/DVHhEOhg6kTbCUy8xPnRt5Zw1G
+	TyBORw2piONtcDV/rVZ24eICd+JUIEcXTWwPiukPORzUcarZUqYy/Yi96pbbPXeIe4bcRr2UPylX4
+	Hv1pKlxT4+m0c08A7EEBBMbxtbTaWjpbvbZd3cwyy5LHDnq/nGsP5BQCaAyJ+nHUI0M7qZAt4Ri2B
+	XjvPYiVK7l8S6KKso5+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOc4X-00000006ZVx-22BD;
-	Tue, 02 Jul 2024 11:53:21 +0000
+	id 1sOc4a-00000006ZXC-1sfq;
+	Tue, 02 Jul 2024 11:53:24 +0000
 Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOc4U-00000006ZTs-0hBr
+	id 1sOc4V-00000006ZU1-27OV
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 11:53:19 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 13B4E1BF207;
-	Tue,  2 Jul 2024 11:53:12 +0000 (UTC)
+	Tue, 02 Jul 2024 11:53:21 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B7D1E1BF20C;
+	Tue,  2 Jul 2024 11:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1719921193;
+	t=1719921196;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=g0xw6PXJD/+VJObPpeeMreW5bakIQ/1Rdvob+72LtCc=;
-	b=nhr3SnwuX1kCJUXH05YboKYnDNmWl8wwWmlaiSorc2ntHVq6NoXsja3zz9wgCB64zhDbxE
-	2K3NBgoVv65iCITj6rj4RZYEfU+xrYhpOi9rQ4Ae0gslIjTn4YkYApFyQnfrinXstou1Ba
-	vYlDpI6soPRD0B8TUtgxmRxVp2vm8T5nJet3l7C7DrCcpLxjkRXQDFbjuHgD2PlfU0GqiE
-	vwhPKRJkmZTSCY7mrkkXFT4ZOs/GUhJjSCSkwPdsBMJKel32+TfZLGq/5CzL+lVxcOu6g/
-	RQcIJrcG8CUYNd01FGPEp/bMkDDYpzQC78t0hKXqwRxb9aOwFkq4o+lWPu+hZQ==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2HvfbFLoLElmyEB196KhuxtSYeLMdyA9ytyFqCVntKA=;
+	b=g0vqKHeGUFZHTGvhJ5s1w9/pEwrBqpADrH/Kz2VFtD3suvNGRgGQNUQgXcteSVxFJL3Dtp
+	nPJVcmeGHyikdyPGe74xSw29JGyCYK05/QjZc+Hw6J9CgW9c0FzgGOrlMSgNqKz/HfmnEx
+	jMR16g+Q6vXvZnd0PJGoiUaSoLWzKiAvOB+ylzIUxJ2nJCHncINM3TLaAmrmCr8lwllF6O
+	mIoxAimPNIA5qvwzJXe74tEUeTt+CrxyPYHy/HpaW/QCf1hl0v4iCVK5r4w4autQsUKJvB
+	vR+i3/382LkbhYT4cRqWZtOk1lFzmqPGP4C/FVKE81M3mu0V9MJQ8/onJvFcuw==
 From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Subject: [PATCH 0/3] Add SARADC support on Sophgo SoC
-Date: Tue, 02 Jul 2024 13:52:20 +0200
-Message-Id: <20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com>
+Date: Tue, 02 Jul 2024 13:52:23 +0200
+Subject: [PATCH 3/3] riscv: dts: sophgo: Add SARADC configuration
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAPTpg2YC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxMDUyNz3eJ0IwMDI93ElGRdSyOTJAszo+QU4zQjJaCGgqLUtMwKsGHRsbW
- 1ANr/7VNcAAAA
+Message-Id: <20240702-sg2002-adc-v1-3-ac66e076a756@bootlin.com>
+References: <20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com>
+In-Reply-To: <20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com>
 To: Jonathan Cameron <jic23@kernel.org>, 
  Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,8 +63,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.0
 X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_045318_380918_7CE242E9 
-X-CRM114-Status: UNSURE (   6.31  )
+X-CRM114-CacheID: sfid-20240702_045319_709055_F1E9C0C7 
+X-CRM114-Status: UNSURE (   8.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,33 +82,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds initial ADC support for Sophgo SoC. This driver can
-work with or without interrupt and in "Active" and "No-Die" domains
-depending on if a clock is provided.
-
-Link: https://github.com/sophgo/sophgo-doc/releases/download/sg2002-trm-v1.0/sg2002_trm_en.pdf
+Adds SARADC nodes for the common Successive Approximation Analog to
+Digital Converter used in Sophgo SoC.
+This patch adds nodes for the two SARADCs presents on the board, one in
+the Active domain and the other in the No-Die domain.
 
 Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 ---
-Thomas Bonnefille (3):
-      dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml: Add Sophgo SARADC binding documentation
-      iio: adc: sophgo-saradc: Add driver for Sophgo SARADC
-      riscv: dts: sophgo: Add SARADC configuration
+ arch/riscv/boot/dts/sophgo/cv18xx.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
- .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     |  51 +++++
- MAINTAINERS                                        |   6 +
- arch/riscv/boot/dts/sophgo/cv18xx.dtsi             |  14 ++
- drivers/iio/adc/Kconfig                            |   9 +
- drivers/iio/adc/Makefile                           |   1 +
- drivers/iio/adc/sophgo-adc.c                       | 223 +++++++++++++++++++++
- 6 files changed, 304 insertions(+)
----
-base-commit: be18997d95c888e7a432d46045644f396286775b
-change-id: 20240527-sg2002-adc-924b862cd3f2
+diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+index 7247c7c3013c..0b996aa7fa31 100644
+--- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+@@ -309,5 +309,19 @@ clint: timer@74000000 {
+ 			reg = <0x74000000 0x10000>;
+ 			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+ 		};
++
++		saradc_active: adc@30f0000 {
++			compatible = "sophgo,cv18xx-saradc";
++			clocks = <&clk CLK_SARADC>;
++			interrupts = <100 IRQ_TYPE_LEVEL_HIGH>;
++			reg = <0x030F0000 0x1000>;
++			status = "disabled";
++		};
++
++		saradc_nodie: adc@502c000 {
++			compatible = "sophgo,cv18xx-saradc";
++			reg = <0x0502C000 0x1000>;
++			status = "disabled";
++		};
+ 	};
+ };
 
-Best regards,
 -- 
-Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+2.45.2
 
 
 _______________________________________________
