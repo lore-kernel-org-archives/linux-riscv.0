@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14365C3064D
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 09:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B98C30658
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 10:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7trBGYdJ1nHzH8glrXdjAlBkbIB+vi3fV2Q6y0WhY2o=; b=CfWu+orPra9Uqk
-	MYMMspR7cZDaZR8kvAxZI9F9H3ZWOb8mXjX9NxfwDKQkuMFFObV594gN2RH9GOlp9B+CJt00W6GvP
-	+omadiWm7g8oQoEnweL34m/HsjEHdwZ8IjLk4UhYnHbdhYtYlR9e5VrYVAWLy0NsNW3YUFG+WKXiN
-	ah8pCvlFGkwWHHKPmUhc5sQ9VFXIwAD/RIEkwpzbanrxx7vZVamOo5JV2lDg908xvSt5cxRstKfIj
-	+AKoJi+AWUJv9SDCWtWg+k1hhN852d8sr5X1YtWVnsoVUZzIaytimkVgGNjDiFKNVueVYklP6ua48
-	b0y2GcdLnoiOYGI8zXAg==;
+	List-Owner; bh=+XV36UvIx5wL3EWFSZ6UwPaLWywWU3obJqv7hbW1YnY=; b=1c4xACs7rVw5pA
+	ufJVI2fXihFCUoKiZwPakMrlNKI7f5w9RDzq4L4iaTUxcK9NK4j1sAy/gMV7AfCJitTgpi6RnvtFE
+	HLxMRpmAxcdHfpp8rbP5v3oOxLZqJWYa1NzrUEL5KVbicWj2Giggdn85GKpkvQB+6oocBi0ug7iRQ
+	RRQxmVkQXeQIjp/YaAaiCIO0jJ4jcHv553nDbQ7OD2prmjbBn0bxBZCvnepnbU41ltXwTqV/cO628
+	Rdbwuj0hsv3obnkKsxEXsqwW9jJ+sUXvwq4CNSXwcvsAkH0d1spOMLBqIl3EIY2lPgZwQo0OZWmGf
+	H1l9A+m7QzmIt3W2FPwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOaDt-00000006FnD-0BiS;
-	Tue, 02 Jul 2024 09:54:53 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1sOaVd-00000006ItG-0a1D;
+	Tue, 02 Jul 2024 10:13:13 +0000
+Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOaDp-00000006Fld-0Ksy
+	id 1sOaVZ-00000006Ist-0vXi
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 09:54:51 +0000
-Received: from mail.andestech.com (ATCPCS34.andestech.com [10.0.1.134])
-	by Atcsqr.andestech.com with ESMTPS id 4629sYbu058389
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=OK);
-	Tue, 2 Jul 2024 17:54:34 +0800 (+08)
-	(envelope-from peterlin@andestech.com)
-Received: from APC323 (10.0.12.98) by ATCPCS34.andestech.com (10.0.1.134) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 2 Jul
- 2024 17:54:35 +0800
-Date: Tue, 2 Jul 2024 17:54:30 +0800
-From: Yu-Chien Peter Lin <peterlin@andestech.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt
-	<palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Conor Dooley
-	<conor.dooley@microchip.com>,
-        Evan Green <evan@rivosinc.com>, Andy Chiu
-	<andy.chiu@sifive.com>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <tim609@andestech.com>, <dminus@andestech.com>,
-        <ycliang@andestech.com>
-Subject: Re: [PATCH v2 1/4] riscv: Extend cpufeature.c to detect vendor
- extensions
-Message-ID: <ZoPOVpuSOBac_PzS@APC323>
-References: <20240609-support_vendor_extensions-v2-0-9a43f1fdcbb9@rivosinc.com>
- <20240609-support_vendor_extensions-v2-1-9a43f1fdcbb9@rivosinc.com>
+	Tue, 02 Jul 2024 10:13:11 +0000
+Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3788bf2584aso10774475ab.0
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Jul 2024 03:13:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1719915188; x=1720519988; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=a/sfLp11hmW8XmCatXqx8ssHvyyK3qsyCd37VaEVAL8=;
+        b=JPbZU+ol+2ANRaPMSXvhUttuf2UP/sUzWAv7MokUzQAOTiJ8eBhdlpjpbMgNNoStQa
+         anpSF+Y7e8hO4ddW25bhWJb7Tykh0OeR/MpHU0okB6DE0iS8+7UpUWZCet2Gr9+pV+oQ
+         S6B9Bc7ePq7rVWYETZc2hDP/3ar+vzarLuevzAPKfjCQml9qcTYBJGU5ukMR6++0LOF6
+         HImzhXxSHkcMSdNXqO1pJremfPCh3VptMrQ3HguOYyLomsYQEM1cRXbsBh5AO2uKRvin
+         2KIpjAv0Cgg17vf+pYQxOphaIZcb3GxbvSAaOWxml5ZBt9HuMymmVsIXCc//CmYNjwfQ
+         YeDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719915188; x=1720519988;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=a/sfLp11hmW8XmCatXqx8ssHvyyK3qsyCd37VaEVAL8=;
+        b=GnlRXKCtBRgw7N/izM7VAwhaq596WggvKEBsubn6Ij21CtKLUEc3kK9MecHxw+hOqP
+         5jlV8e+mfPgWDCvZZLqVWryMsNlNL1y0si2yFbVeCy3k/nt9eBAYByLgden3W+rGHEJB
+         E3OF2frHbo8uEsDDhWHGJXhggnQpBh4+N2Ossa308e6r6etSZMXJRucMYKaZMvif8AiQ
+         eCx8bN0ShPGzHaVGT9GEYh02pFg5tzISoUJVCsTnkIexRQgSxj+/r10+nmt2dbljj7A+
+         kyKyfiUkEdm1rxKaLstHv/V9PHt9KIiVJFCd7U2b2nZzGpGZV6hT70HKGYrYrIlwVIxr
+         E8IQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVd9XvnMaaqJ+gUdghT9IRZ9B3vsV6Z+yv1ieEZdOPa73aX8tfgz83yIoxzK9WaGvF66HB+EitI/4ipGRQzmJDgNgNQfx5YtLCK9IySgpYe
+X-Gm-Message-State: AOJu0YxHyyLafX/YLFxKh9CQO59G3g3AQ41ZDSxGEyxigaMBe64mPNJd
+	cCqGCP2p7R+/qyrffszK6QW3Ux1yOtDwQy/PFOaoquGiZujlH4lb2sopQg+zxzX1oTdCivt/NUs
+	7hb6x1fBocD93clBB6939ToSpaIBgmlo9UdMhqg==
+X-Google-Smtp-Source: AGHT+IGoEgVDZjPWAam4RvZu0N/hvH3TdQfOxT1+hDZWpA6VO+SGZ99U6V5aJh8q7Z9zzeuPqfSR+JhreaWsEEhEJpU=
+X-Received: by 2002:a05:6e02:164c:b0:381:17b4:763 with SMTP id
+ e9e14a558f8ab-38117b40a2fmr2935795ab.9.1719915187606; Tue, 02 Jul 2024
+ 03:13:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240609-support_vendor_extensions-v2-1-9a43f1fdcbb9@rivosinc.com>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Originating-IP: [10.0.12.98]
-X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
- ATCPCS34.andestech.com (10.0.1.134)
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 4629sYbu058389
+References: <20240702085034.48395-1-alexghiti@rivosinc.com> <20240702085034.48395-4-alexghiti@rivosinc.com>
+In-Reply-To: <20240702085034.48395-4-alexghiti@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 2 Jul 2024 15:42:55 +0530
+Message-ID: <CAAhSdy3_N7nubTwaR15WNeiysDDQ5BkB5qCq-6Fh2ZwDbV-6qw@mail.gmail.com>
+Subject: Re: [PATCH v3 3/4] riscv: Stop emitting preventive sfence.vma for new
+ vmalloc mappings
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Ved Shanbhogue <ved@rivosinc.com>, Matt Evans <mev@rivosinc.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_025449_565733_2C05DDDF 
-X-CRM114-Status: GOOD (  36.46  )
+X-CRM114-CacheID: sfid-20240702_031309_518733_F966CDD5 
+X-CRM114-Status: GOOD (  36.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,640 +89,173 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Charlie,
-
-On Sun, Jun 09, 2024 at 09:34:14PM -0700, Charlie Jenkins wrote:
-> Instead of grouping all vendor extensions into the same riscv_isa_ext
-> that standard instructions use, create a struct
-> "riscv_isa_vendor_ext_data_list" that allows each vendor to maintain
-> their vendor extensions independently of the standard extensions.
-> xandespmu is currently the only vendor extension so that is the only
-> extension that is affected by this change.
-> 
-> An additional benefit of this is that the extensions of each vendor can
-> be conditionally enabled. A config RISCV_ISA_VENDOR_EXT_ANDES has been
-> added to allow for that.
-> 
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Andy Chiu <andy.chiu@sifive.com>
-
-Andes PMU works as expected. Thanks for taking care of this.
-
-Tested-by: Yu Chien Peter Lin <peterlin@andestech.com>
-Reviewed-by: Yu Chien Peter Lin <peterlin@andestech.com>
-
-> ---
->  arch/riscv/Kconfig                               |   2 +
->  arch/riscv/Kconfig.vendor                        |  19 ++++
->  arch/riscv/errata/andes/errata.c                 |   3 +
->  arch/riscv/errata/sifive/errata.c                |   3 +
->  arch/riscv/errata/thead/errata.c                 |   3 +
->  arch/riscv/include/asm/cpufeature.h              |  18 +++
->  arch/riscv/include/asm/hwcap.h                   |   1 -
->  arch/riscv/include/asm/vendor_extensions.h       |  49 ++++++++
->  arch/riscv/include/asm/vendor_extensions/andes.h |  19 ++++
->  arch/riscv/kernel/Makefile                       |   2 +
->  arch/riscv/kernel/cpufeature.c                   | 137 +++++++++++++++++------
->  arch/riscv/kernel/vendor_extensions.c            |  56 +++++++++
->  arch/riscv/kernel/vendor_extensions/Makefile     |   3 +
->  arch/riscv/kernel/vendor_extensions/andes.c      |  18 +++
->  drivers/perf/riscv_pmu_sbi.c                     |  10 +-
->  15 files changed, 306 insertions(+), 37 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 0525ee2d63c7..4ae2bf4dd497 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -774,6 +774,8 @@ config RISCV_EFFICIENT_UNALIGNED_ACCESS
->  
->  endchoice
->  
-> +source "arch/riscv/Kconfig.vendor"
-> +
->  endmenu # "Platform type"
->  
->  menu "Kernel features"
-> diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
-> new file mode 100644
-> index 000000000000..6f1cdd32ed29
-> --- /dev/null
-> +++ b/arch/riscv/Kconfig.vendor
-> @@ -0,0 +1,19 @@
-> +menu "Vendor extensions"
-> +
-> +config RISCV_ISA_VENDOR_EXT
-> +	bool
-> +
-> +menu "Andes"
-> +config RISCV_ISA_VENDOR_EXT_ANDES
-> +	bool "Andes vendor extension support"
-> +	select RISCV_ISA_VENDOR_EXT
-> +	default y
-> +	help
-> +	  Say N here if you want to disable all Andes vendor extension
-> +	  support. This will cause any Andes vendor extensions that are
-> +	  requested by hardware probing to be ignored.
-> +
-> +	  If you don't know what to do here, say Y.
-> +endmenu
-> +
-> +endmenu
-> diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/errata.c
-> index f2708a9494a1..fc1a34faa5f3 100644
-> --- a/arch/riscv/errata/andes/errata.c
-> +++ b/arch/riscv/errata/andes/errata.c
-> @@ -17,6 +17,7 @@
->  #include <asm/processor.h>
->  #include <asm/sbi.h>
->  #include <asm/vendorid_list.h>
-> +#include <asm/vendor_extensions.h>
->  
->  #define ANDES_AX45MP_MARCHID		0x8000000000008a45UL
->  #define ANDES_AX45MP_MIMPID		0x500UL
-> @@ -65,6 +66,8 @@ void __init_or_module andes_errata_patch_func(struct alt_entry *begin, struct al
->  					      unsigned long archid, unsigned long impid,
->  					      unsigned int stage)
->  {
-> +	BUILD_BUG_ON(ERRATA_ANDES_NUMBER >= RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
-> +
->  	if (stage == RISCV_ALTERNATIVES_BOOT)
->  		errata_probe_iocp(stage, archid, impid);
->  
-> diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-> index 716cfedad3a2..cea3b96ade11 100644
-> --- a/arch/riscv/errata/sifive/errata.c
-> +++ b/arch/riscv/errata/sifive/errata.c
-> @@ -12,6 +12,7 @@
->  #include <asm/alternative.h>
->  #include <asm/vendorid_list.h>
->  #include <asm/errata_list.h>
-> +#include <asm/vendor_extensions.h>
->  
->  struct errata_info_t {
->  	char name[32];
-> @@ -96,6 +97,8 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
->  	u32 cpu_apply_errata = 0;
->  	u32 tmp;
->  
-> +	BUILD_BUG_ON(ERRATA_SIFIVE_NUMBER >= RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
-> +
->  	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
->  		return;
->  
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-> index bf6a0a6318ee..f5120e07c318 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -18,6 +18,7 @@
->  #include <asm/io.h>
->  #include <asm/patch.h>
->  #include <asm/vendorid_list.h>
-> +#include <asm/vendor_extensions.h>
->  
->  #define CSR_TH_SXSTATUS		0x5c0
->  #define SXSTATUS_MAEE		_AC(0x200000, UL)
-> @@ -166,6 +167,8 @@ void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
->  	u32 tmp;
->  	void *oldptr, *altptr;
->  
-> +	BUILD_BUG_ON(ERRATA_THEAD_NUMBER >= RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
-> +
->  	for (alt = begin; alt < end; alt++) {
->  		if (alt->vendor_id != THEAD_VENDOR_ID)
->  			continue;
-> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-> index 347805446151..550d661dc78d 100644
-> --- a/arch/riscv/include/asm/cpufeature.h
-> +++ b/arch/riscv/include/asm/cpufeature.h
-> @@ -33,6 +33,24 @@ extern struct riscv_isainfo hart_isa[NR_CPUS];
->  
->  void riscv_user_isa_enable(void);
->  
-> +#define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_size) {	\
-> +	.name = #_name,								\
-> +	.property = #_name,							\
-> +	.id = _id,								\
-> +	.subset_ext_ids = _subset_exts,						\
-> +	.subset_ext_size = _subset_exts_size					\
-> +}
-> +
-> +#define __RISCV_ISA_EXT_DATA(_name, _id) _RISCV_ISA_EXT_DATA(_name, _id, NULL, 0)
-> +
-> +/* Used to declare pure "lasso" extension (Zk for instance) */
-> +#define __RISCV_ISA_EXT_BUNDLE(_name, _bundled_exts) \
-> +	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, _bundled_exts, ARRAY_SIZE(_bundled_exts))
-> +
-> +/* Used to declare extensions that are a superset of other extensions (Zvbb for instance) */
-> +#define __RISCV_ISA_EXT_SUPERSET(_name, _id, _sub_exts) \
-> +	_RISCV_ISA_EXT_DATA(_name, _id, _sub_exts, ARRAY_SIZE(_sub_exts))
-> +
->  #if defined(CONFIG_RISCV_MISALIGNED)
->  bool check_unaligned_access_emulated_all_cpus(void);
->  void unaligned_emulation_finish(void);
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index e17d0078a651..1f2d2599c655 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -80,7 +80,6 @@
->  #define RISCV_ISA_EXT_ZFA		71
->  #define RISCV_ISA_EXT_ZTSO		72
->  #define RISCV_ISA_EXT_ZACAS		73
-> -#define RISCV_ISA_EXT_XANDESPMU		74
->  
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
->  
-> diff --git a/arch/riscv/include/asm/vendor_extensions.h b/arch/riscv/include/asm/vendor_extensions.h
-> new file mode 100644
-> index 000000000000..5fca550fc1f6
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/vendor_extensions.h
-> @@ -0,0 +1,49 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright 2024 Rivos, Inc
-> + */
-> +
-> +#ifndef _ASM_VENDOR_EXTENSIONS_H
-> +#define _ASM_VENDOR_EXTENSIONS_H
-> +
-> +#include <asm/cpufeature.h>
-> +
-> +#include <linux/array_size.h>
-> +#include <linux/types.h>
-> +
-> +/*
-> + * The extension keys of each vendor must be strictly less than this value.
-> + */
-> +#define RISCV_ISA_VENDOR_EXT_MAX 32
-> +
-> +struct riscv_isavendorinfo {
-> +	DECLARE_BITMAP(isa, RISCV_ISA_VENDOR_EXT_MAX);
-> +};
-> +
-> +struct riscv_isa_vendor_ext_data_list {
-> +	bool is_initialized;
-> +	const size_t ext_data_count;
-> +	const struct riscv_isa_ext_data *ext_data;
-> +	struct riscv_isavendorinfo per_hart_isa_bitmap[NR_CPUS];
-> +	struct riscv_isavendorinfo all_harts_isa_bitmap;
-> +};
-> +
-> +extern struct riscv_isa_vendor_ext_data_list *riscv_isa_vendor_ext_list[];
-> +
-> +extern const size_t riscv_isa_vendor_ext_list_size;
-> +
-> +/*
-> + * The alternatives need some way of distinguishing between vendor extensions
-> + * and errata. Incrementing all of the vendor extension keys so they are at
-> + * least 0x8000 accomplishes that.
-> + */
-> +#define RISCV_VENDOR_EXT_ALTERNATIVES_BASE	0x8000
-> +
-> +#define VENDOR_EXT_ALL_CPUS			-1
-> +
-> +bool __riscv_isa_vendor_extension_available(int cpu, unsigned long vendor, unsigned int bit);
-> +#define riscv_isa_vendor_extension_available(vendor, ext)	\
-> +	__riscv_isa_vendor_extension_available(VENDOR_EXT_ALL_CPUS, vendor, \
-> +					       RISCV_ISA_VENDOR_EXT_##ext)
-> +
-> +#endif /* _ASM_VENDOR_EXTENSIONS_H */
-> diff --git a/arch/riscv/include/asm/vendor_extensions/andes.h b/arch/riscv/include/asm/vendor_extensions/andes.h
-> new file mode 100644
-> index 000000000000..7bb2fc43438f
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/vendor_extensions/andes.h
-> @@ -0,0 +1,19 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_RISCV_VENDOR_EXTENSIONS_ANDES_H
-> +#define _ASM_RISCV_VENDOR_EXTENSIONS_ANDES_H
-> +
-> +#include <asm/vendor_extensions.h>
-> +
-> +#include <linux/types.h>
-> +
-> +#define RISCV_ISA_VENDOR_EXT_XANDESPMU		0
-> +
-> +/*
-> + * Extension keys should be strictly less than max.
-> + * It is safe to increment this when necessary.
-> + */
-> +#define RISCV_ISA_VENDOR_EXT_MAX_ANDES			32
-> +
-> +extern struct riscv_isa_vendor_ext_data_list riscv_isa_vendor_ext_list_andes;
-> +
-> +#endif
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index 5b243d46f4b1..b0aea202273d 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -58,6 +58,8 @@ obj-y	+= riscv_ksyms.o
->  obj-y	+= stacktrace.o
->  obj-y	+= cacheinfo.o
->  obj-y	+= patch.o
-> +obj-y	+= vendor_extensions.o
-> +obj-y	+= vendor_extensions/
->  obj-y	+= probes/
->  obj-y	+= tests/
->  obj-$(CONFIG_MMU) += vdso.o vdso/
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 5ef48cb20ee1..f2c24820700b 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -24,6 +24,7 @@
->  #include <asm/processor.h>
->  #include <asm/sbi.h>
->  #include <asm/vector.h>
-> +#include <asm/vendor_extensions.h>
->  
->  #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
->  
-> @@ -100,24 +101,6 @@ static bool riscv_isa_extension_check(int id)
->  	return true;
->  }
->  
-> -#define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_size) {	\
-> -	.name = #_name,								\
-> -	.property = #_name,							\
-> -	.id = _id,								\
-> -	.subset_ext_ids = _subset_exts,						\
-> -	.subset_ext_size = _subset_exts_size					\
-> -}
-> -
-> -#define __RISCV_ISA_EXT_DATA(_name, _id) _RISCV_ISA_EXT_DATA(_name, _id, NULL, 0)
-> -
-> -/* Used to declare pure "lasso" extension (Zk for instance) */
-> -#define __RISCV_ISA_EXT_BUNDLE(_name, _bundled_exts) \
-> -	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, _bundled_exts, ARRAY_SIZE(_bundled_exts))
-> -
-> -/* Used to declare extensions that are a superset of other extensions (Zvbb for instance) */
-> -#define __RISCV_ISA_EXT_SUPERSET(_name, _id, _sub_exts) \
-> -	_RISCV_ISA_EXT_DATA(_name, _id, _sub_exts, ARRAY_SIZE(_sub_exts))
-> -
->  static const unsigned int riscv_zk_bundled_exts[] = {
->  	RISCV_ISA_EXT_ZBKB,
->  	RISCV_ISA_EXT_ZBKC,
-> @@ -304,7 +287,6 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
->  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
->  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
->  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> -	__RISCV_ISA_EXT_DATA(xandespmu, RISCV_ISA_EXT_XANDESPMU),
->  };
->  
->  const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
-> @@ -351,6 +333,21 @@ static void __init riscv_parse_isa_string(unsigned long *this_hwcap, struct risc
->  		bool ext_long = false, ext_err = false;
->  
->  		switch (*ext) {
-> +		case 'x':
-> +		case 'X':
-> +			if (acpi_disabled)
-> +				pr_warn_once("Vendor extensions are ignored in riscv,isa. Use riscv,isa-extensions instead.");
-> +			/*
-> +			 * To skip an extension, we find its end.
-> +			 * As multi-letter extensions must be split from other multi-letter
-> +			 * extensions with an "_", the end of a multi-letter extension will
-> +			 * either be the null character or the "_" at the start of the next
-> +			 * multi-letter extension.
-> +			 */
-> +			for (; *isa && *isa != '_'; ++isa)
-> +				;
-> +			ext_err = true;
-> +			break;
->  		case 's':
->  			/*
->  			 * Workaround for invalid single-letter 's' & 'u' (QEMU).
-> @@ -366,8 +363,6 @@ static void __init riscv_parse_isa_string(unsigned long *this_hwcap, struct risc
->  			}
->  			fallthrough;
->  		case 'S':
-> -		case 'x':
-> -		case 'X':
->  		case 'z':
->  		case 'Z':
->  			/*
-> @@ -574,6 +569,61 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
->  		acpi_put_table((struct acpi_table_header *)rhct);
->  }
->  
-> +static void __init riscv_fill_cpu_vendor_ext(struct device_node *cpu_node, int cpu)
-> +{
-> +	if (!IS_ENABLED(CONFIG_RISCV_ISA_VENDOR_EXT))
-> +		return;
-> +
-> +	for (int i = 0; i < riscv_isa_vendor_ext_list_size; i++) {
-> +		struct riscv_isa_vendor_ext_data_list *ext_list = riscv_isa_vendor_ext_list[i];
-> +
-> +		for (int j = 0; j < ext_list->ext_data_count; j++) {
-> +			const struct riscv_isa_ext_data ext = ext_list->ext_data[j];
-> +			struct riscv_isavendorinfo *isavendorinfo = &ext_list->per_hart_isa_bitmap[cpu];
-> +
-> +			if (of_property_match_string(cpu_node, "riscv,isa-extensions",
-> +						     ext.property) < 0)
-> +				continue;
-> +
-> +			/*
-> +			 * Assume that subset extensions are all members of the
-> +			 * same vendor.
-> +			 */
-> +			if (ext.subset_ext_size)
-> +				for (int k = 0; k < ext.subset_ext_size; k++)
-> +					set_bit(ext.subset_ext_ids[k], isavendorinfo->isa);
-> +
-> +			set_bit(ext.id, isavendorinfo->isa);
-> +		}
-> +	}
-> +}
-> +
-> +/*
-> + * Populate all_harts_isa_bitmap for each vendor with all of the extensions that
-> + * are shared across CPUs for that vendor.
-> + */
-> +static void __init riscv_fill_vendor_ext_list(int cpu)
-> +{
-> +	if (!IS_ENABLED(CONFIG_RISCV_ISA_VENDOR_EXT))
-> +		return;
-> +
-> +	for (int i = 0; i < riscv_isa_vendor_ext_list_size; i++) {
-> +		struct riscv_isa_vendor_ext_data_list *ext_list = riscv_isa_vendor_ext_list[i];
-> +
-> +		if (!ext_list->is_initialized) {
-> +			bitmap_copy(ext_list->all_harts_isa_bitmap.isa,
-> +				    ext_list->per_hart_isa_bitmap[cpu].isa,
-> +				    RISCV_ISA_VENDOR_EXT_MAX);
-> +			ext_list->is_initialized = true;
-> +		} else {
-> +			bitmap_and(ext_list->all_harts_isa_bitmap.isa,
-> +				   ext_list->all_harts_isa_bitmap.isa,
-> +				   ext_list->per_hart_isa_bitmap[cpu].isa,
-> +				   RISCV_ISA_VENDOR_EXT_MAX);
-> +		}
-> +	}
-> +}
-> +
->  static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwcap)
->  {
->  	unsigned int cpu;
-> @@ -617,6 +667,8 @@ static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwcap)
->  			}
->  		}
->  
-> +		riscv_fill_cpu_vendor_ext(cpu_node, cpu);
-> +
->  		of_node_put(cpu_node);
->  
->  		/*
-> @@ -632,6 +684,8 @@ static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwcap)
->  			bitmap_copy(riscv_isa, isainfo->isa, RISCV_ISA_EXT_MAX);
->  		else
->  			bitmap_and(riscv_isa, riscv_isa, isainfo->isa, RISCV_ISA_EXT_MAX);
-> +
-> +		riscv_fill_vendor_ext_list(cpu);
->  	}
->  
->  	if (bitmap_empty(riscv_isa, RISCV_ISA_EXT_MAX))
-> @@ -768,28 +822,45 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
->  {
->  	struct alt_entry *alt;
->  	void *oldptr, *altptr;
-> -	u16 id, value;
-> +	u16 id, value, vendor;
->  
->  	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
->  		return;
->  
->  	for (alt = begin; alt < end; alt++) {
-> -		if (alt->vendor_id != 0)
-> -			continue;
-> -
->  		id = PATCH_ID_CPUFEATURE_ID(alt->patch_id);
-> +		vendor = PATCH_ID_CPUFEATURE_ID(alt->vendor_id);
->  
-> -		if (id >= RISCV_ISA_EXT_MAX) {
-> -			WARN(1, "This extension id:%d is not in ISA extension list", id);
-> -			continue;
-> -		}
-> +		/*
-> +		 * Any alternative with a patch_id that is less than
-> +		 * RISCV_ISA_EXT_MAX is interpreted as a standard extension.
-> +		 *
-> +		 * Any alternative with patch_id that is greater than or equal
-> +		 * to RISCV_VENDOR_EXT_ALTERNATIVES_BASE is interpreted as a
-> +		 * vendor extension.
-> +		 */
-> +		if (id < RISCV_ISA_EXT_MAX) {
-> +			/*
-> +			 * This patch should be treated as errata so skip
-> +			 * processing here.
-> +			 */
-> +			if (alt->vendor_id != 0)
-> +				continue;
->  
-> -		if (!__riscv_isa_extension_available(NULL, id))
-> -			continue;
-> +			if (!__riscv_isa_extension_available(NULL, id))
-> +				continue;
->  
-> -		value = PATCH_ID_CPUFEATURE_VALUE(alt->patch_id);
-> -		if (!riscv_cpufeature_patch_check(id, value))
-> +			value = PATCH_ID_CPUFEATURE_VALUE(alt->patch_id);
-> +			if (!riscv_cpufeature_patch_check(id, value))
-> +				continue;
-> +		} else if (id >= RISCV_VENDOR_EXT_ALTERNATIVES_BASE) {
-> +			if (!__riscv_isa_vendor_extension_available(VENDOR_EXT_ALL_CPUS, vendor,
-> +								    id - RISCV_VENDOR_EXT_ALTERNATIVES_BASE))
-> +				continue;
-> +		} else {
-> +			WARN(1, "This extension id:%d is not in ISA extension list", id);
->  			continue;
-> +		}
->  
->  		oldptr = ALT_OLD_PTR(alt);
->  		altptr = ALT_ALT_PTR(alt);
-> diff --git a/arch/riscv/kernel/vendor_extensions.c b/arch/riscv/kernel/vendor_extensions.c
-> new file mode 100644
-> index 000000000000..b6c1e7b5d34b
-> --- /dev/null
-> +++ b/arch/riscv/kernel/vendor_extensions.c
-> @@ -0,0 +1,56 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright 2024 Rivos, Inc
-> + */
-> +
-> +#include <asm/vendorid_list.h>
-> +#include <asm/vendor_extensions.h>
-> +#include <asm/vendor_extensions/andes.h>
-> +
-> +#include <linux/array_size.h>
-> +#include <linux/types.h>
-> +
-> +struct riscv_isa_vendor_ext_data_list *riscv_isa_vendor_ext_list[] = {
-> +#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_ANDES
-> +	&riscv_isa_vendor_ext_list_andes,
-> +#endif
-> +};
-> +
-> +const size_t riscv_isa_vendor_ext_list_size = ARRAY_SIZE(riscv_isa_vendor_ext_list);
-> +
-> +/**
-> + * __riscv_isa_vendor_extension_available() - Check whether given vendor
-> + * extension is available or not.
-> + *
-> + * @cpu: check if extension is available on this cpu
-> + * @vendor: vendor that the extension is a member of
-> + * @bit: bit position of the desired extension
-> + * Return: true or false
-> + *
-> + * NOTE: When cpu is -1, will check if extension is available on all cpus
-> + */
-> +bool __riscv_isa_vendor_extension_available(int cpu, unsigned long vendor, unsigned int bit)
-> +{
-> +	struct riscv_isavendorinfo *bmap;
-> +	struct riscv_isavendorinfo *cpu_bmap;
-> +
-> +	switch (vendor) {
-> +	#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_ANDES
-> +	case ANDES_VENDOR_ID:
-> +		bmap = &riscv_isa_vendor_ext_list_andes.all_harts_isa_bitmap;
-> +		cpu_bmap = &riscv_isa_vendor_ext_list_andes.per_hart_isa_bitmap[cpu];
-> +		break;
-> +	#endif
-> +	default:
-> +		return false;
-> +	}
-> +
-> +	if (cpu != -1)
-> +		bmap = &cpu_bmap[cpu];
-> +
-> +	if (bit >= RISCV_ISA_VENDOR_EXT_MAX)
-> +		return false;
-> +
-> +	return test_bit(bit, bmap->isa) ? true : false;
-> +}
-> +EXPORT_SYMBOL_GPL(__riscv_isa_vendor_extension_available);
-> diff --git a/arch/riscv/kernel/vendor_extensions/Makefile b/arch/riscv/kernel/vendor_extensions/Makefile
-> new file mode 100644
-> index 000000000000..6a61aed944f1
-> --- /dev/null
-> +++ b/arch/riscv/kernel/vendor_extensions/Makefile
-> @@ -0,0 +1,3 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_ANDES)	+= andes.o
-> diff --git a/arch/riscv/kernel/vendor_extensions/andes.c b/arch/riscv/kernel/vendor_extensions/andes.c
-> new file mode 100644
-> index 000000000000..ec688c88456a
-> --- /dev/null
-> +++ b/arch/riscv/kernel/vendor_extensions/andes.c
-> @@ -0,0 +1,18 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +
-> +#include <asm/cpufeature.h>
-> +#include <asm/vendor_extensions.h>
-> +#include <asm/vendor_extensions/andes.h>
-> +
-> +#include <linux/array_size.h>
-> +#include <linux/types.h>
-> +
-> +/* All Andes vendor extensions supported in Linux */
-> +const struct riscv_isa_ext_data riscv_isa_vendor_ext_andes[] = {
-> +	__RISCV_ISA_EXT_DATA(xandespmu, RISCV_ISA_VENDOR_EXT_XANDESPMU),
-> +};
-> +
-> +struct riscv_isa_vendor_ext_data_list riscv_isa_vendor_ext_list_andes = {
-> +	.ext_data_count = ARRAY_SIZE(riscv_isa_vendor_ext_andes),
-> +	.ext_data = riscv_isa_vendor_ext_andes,
-> +};
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index a2e4005e1fd0..02719e0c6368 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -24,6 +24,8 @@
->  #include <asm/errata_list.h>
->  #include <asm/sbi.h>
->  #include <asm/cpufeature.h>
-> +#include <asm/vendor_extensions.h>
-> +#include <asm/vendor_extensions/andes.h>
->  
->  #define ALT_SBI_PMU_OVERFLOW(__ovl)					\
->  asm volatile(ALTERNATIVE_2(						\
-> @@ -32,7 +34,8 @@ asm volatile(ALTERNATIVE_2(						\
->  		THEAD_VENDOR_ID, ERRATA_THEAD_PMU,			\
->  		CONFIG_ERRATA_THEAD_PMU,				\
->  	"csrr %0, " __stringify(ANDES_CSR_SCOUNTEROF),			\
-> -		0, RISCV_ISA_EXT_XANDESPMU,				\
-> +		ANDES_VENDOR_ID,					\
-> +		RISCV_ISA_VENDOR_EXT_XANDESPMU + RISCV_VENDOR_EXT_ALTERNATIVES_BASE, \
->  		CONFIG_ANDES_CUSTOM_PMU)				\
->  	: "=r" (__ovl) :						\
->  	: "memory")
-> @@ -41,7 +44,8 @@ asm volatile(ALTERNATIVE_2(						\
->  asm volatile(ALTERNATIVE(						\
->  	"csrc " __stringify(CSR_IP) ", %0\n\t",				\
->  	"csrc " __stringify(ANDES_CSR_SLIP) ", %0\n\t",			\
-> -		0, RISCV_ISA_EXT_XANDESPMU,				\
-> +		ANDES_VENDOR_ID,					\
-> +		RISCV_ISA_VENDOR_EXT_XANDESPMU + RISCV_VENDOR_EXT_ALTERNATIVES_BASE, \
->  		CONFIG_ANDES_CUSTOM_PMU)				\
->  	: : "r"(__irq_mask)						\
->  	: "memory")
-> @@ -1060,7 +1064,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
->  		   riscv_cached_mimpid(0) == 0) {
->  		riscv_pmu_irq_num = THEAD_C9XX_RV_IRQ_PMU;
->  		riscv_pmu_use_irq = true;
-> -	} else if (riscv_isa_extension_available(NULL, XANDESPMU) &&
-> +	} else if (riscv_isa_vendor_extension_available(ANDES_VENDOR_ID, XANDESPMU) &&
->  		   IS_ENABLED(CONFIG_ANDES_CUSTOM_PMU)) {
->  		riscv_pmu_irq_num = ANDES_SLI_CAUSE_BASE + ANDES_RV_IRQ_PMOVI;
->  		riscv_pmu_use_irq = true;
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdWwgMiwgMjAyNCBhdCAyOjI04oCvUE0gQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hp
+dGlAcml2b3NpbmMuY29tPiB3cm90ZToKPgo+IEluIDYuNSwgd2UgcmVtb3ZlZCB0aGUgdm1hbGxv
+YyBmYXVsdCBwYXRoIGJlY2F1c2UgdGhhdCBjYW4ndCB3b3JrIChzZWUKPiBbMV0gWzJdKS4gVGhl
+biBpbiBvcmRlciB0byBtYWtlIHN1cmUgdGhhdCBuZXcgcGFnZSB0YWJsZSBlbnRyaWVzIHdlcmUK
+PiBzZWVuIGJ5IHRoZSBwYWdlIHRhYmxlIHdhbGtlciwgd2UgaGFkIHRvIHByZXZlbnRpdmVseSBl
+bWl0IGEgc2ZlbmNlLnZtYQo+IG9uIGFsbCBoYXJ0cyBbM10gYnV0IHRoaXMgc29sdXRpb24gaXMg
+dmVyeSBjb3N0bHkgc2luY2UgaXQgcmVsaWVzIG9uIElQSS4KPgo+IEFuZCBldmVuIHRoZXJlLCB3
+ZSBjb3VsZCBlbmQgdXAgaW4gYSBsb29wIG9mIHZtYWxsb2MgZmF1bHRzIGlmIGEgdm1hbGxvYwo+
+IGFsbG9jYXRpb24gaXMgZG9uZSBpbiB0aGUgSVBJIHBhdGggKGZvciBleGFtcGxlIGlmIGl0IGlz
+IHRyYWNlZCwgc2VlCj4gWzRdKSwgd2hpY2ggY291bGQgcmVzdWx0IGluIGEga2VybmVsIHN0YWNr
+IG92ZXJmbG93Lgo+Cj4gVGhvc2UgcHJldmVudGl2ZSBzZmVuY2Uudm1hIG5lZWRlZCB0byBiZSBl
+bWl0dGVkIGJlY2F1c2U6Cj4KPiAtIGlmIHRoZSB1YXJjaCBjYWNoZXMgaW52YWxpZCBlbnRyaWVz
+LCB0aGUgbmV3IG1hcHBpbmcgbWF5IG5vdCBiZQo+ICAgb2JzZXJ2ZWQgYnkgdGhlIHBhZ2UgdGFi
+bGUgd2Fsa2VyIGFuZCBhbiBpbnZhbGlkYXRpb24gbWF5IGJlIG5lZWRlZC4KPiAtIGlmIHRoZSB1
+YXJjaCBkb2VzIG5vdCBjYWNoZSBpbnZhbGlkIGVudHJpZXMsIGEgcmVvcmRlcmVkIGFjY2Vzcwo+
+ICAgY291bGQgIm1pc3MiIHRoZSBuZXcgbWFwcGluZyBhbmQgdHJhcHM6IGluIHRoYXQgY2FzZSwg
+d2Ugd291bGQgYWN0dWFsbHkKPiAgIG9ubHkgbmVlZCB0byByZXRyeSB0aGUgYWNjZXNzLCBubyBz
+ZmVuY2Uudm1hIGlzIHJlcXVpcmVkLgo+Cj4gU28gdGhpcyBwYXRjaCByZW1vdmVzIHRob3NlIHBy
+ZXZlbnRpdmUgc2ZlbmNlLnZtYSBhbmQgYWN0dWFsbHkgaGFuZGxlcwo+IHRoZSBwb3NzaWJsZSAo
+YW5kIHVubGlrZWx5KSBleGNlcHRpb25zLiBBbmQgc2luY2UgdGhlIGtlcm5lbCBzdGFja3MKPiBt
+YXBwaW5ncyBsaWUgaW4gdGhlIHZtYWxsb2MgYXJlYSwgdGhpcyBoYW5kbGluZyBtdXN0IGJlIGRv
+bmUgdmVyeSBlYXJseQo+IHdoZW4gdGhlIHRyYXAgaXMgdGFrZW4sIGF0IHRoZSB2ZXJ5IGJlZ2lu
+bmluZyBvZiBoYW5kbGVfZXhjZXB0aW9uOiB0aGlzCj4gYWxzbyBydWxlcyBvdXQgdGhlIHZtYWxs
+b2MgYWxsb2NhdGlvbnMgaW4gdGhlIGZhdWx0IHBhdGguCj4KPiBMaW5rOiBodHRwczovL2xvcmUu
+a2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIzMDUzMTA5MzgxNy42NjU3OTktMS1iam9ybkBrZXJu
+ZWwub3JnLyBbMV0KPiBMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8y
+MDIzMDgwMTA5MDkyNy4yMDE4NjUzLTEtZHlsYW5AYW5kZXN0ZWNoLmNvbSBbMl0KPiBMaW5rOiBo
+dHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIzMDcyNTEzMjI0Ni44MTc3MjYt
+MS1hbGV4Z2hpdGlAcml2b3NpbmMuY29tLyBbM10KPiBMaW5rOiBodHRwczovL2xvcmUua2VybmVs
+Lm9yZy9sa21sLzIwMjAwNTA4MTQ0MDQzLjEzODkzLTEtam9yb0A4Ynl0ZXMub3JnLyBbNF0KPiBT
+aWduZWQtb2ZmLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4g
+LS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY2FjaGVmbHVzaC5oICB8IDE4ICsrKysrLQo+
+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3RocmVhZF9pbmZvLmggfCAgNSArKwo+ICBhcmNoL3Jp
+c2N2L2tlcm5lbC9hc20tb2Zmc2V0cy5jICAgICAgfCAgNSArKwo+ICBhcmNoL3Jpc2N2L2tlcm5l
+bC9lbnRyeS5TICAgICAgICAgICAgfCA4NCArKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4g
+IGFyY2gvcmlzY3YvbW0vaW5pdC5jICAgICAgICAgICAgICAgICB8ICAyICsKPiAgNSBmaWxlcyBj
+aGFuZ2VkLCAxMTMgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY2FjaGVmbHVzaC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9jYWNoZWZsdXNoLmgKPiBpbmRleCBjZTc5YzU1OGE0YzguLjhkZTczZjkxYmZhMyAxMDA2
+NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaAo+ICsrKyBiL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vY2FjaGVmbHVzaC5oCj4gQEAgLTQ2LDcgKzQ2LDIzIEBAIGRv
+IHsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICB9
+IHdoaWxlICgwKQo+Cj4gICNpZmRlZiBDT05GSUdfNjRCSVQKPiAtI2RlZmluZSBmbHVzaF9jYWNo
+ZV92bWFwKHN0YXJ0LCBlbmQpICAgICAgICAgICBmbHVzaF90bGJfa2VybmVsX3JhbmdlKHN0YXJ0
+LCBlbmQpCj4gK2V4dGVybiB1NjQgbmV3X3ZtYWxsb2NbTlJfQ1BVUyAvIHNpemVvZih1NjQpICsg
+MV07CgpXaHkgaXMgdGhpcyB1NjQgYW5kIG5vdCAidW5zaWduZWQgbG9uZyIgPwoKV2FzIHRoaXMg
+dGVzdGVkIG9uIHJ2MzIgPwoKPiArZXh0ZXJuIGNoYXIgX2VuZFtdOwo+ICsjZGVmaW5lIGZsdXNo
+X2NhY2hlX3ZtYXAgZmx1c2hfY2FjaGVfdm1hcAo+ICtzdGF0aWMgaW5saW5lIHZvaWQgZmx1c2hf
+Y2FjaGVfdm1hcCh1bnNpZ25lZCBsb25nIHN0YXJ0LCB1bnNpZ25lZCBsb25nIGVuZCkKPiArewo+
+ICsgICAgICAgaWYgKGlzX3ZtYWxsb2Nfb3JfbW9kdWxlX2FkZHIoKHZvaWQgKilzdGFydCkpIHsK
+PiArICAgICAgICAgICAgICAgaW50IGk7Cj4gKwo+ICsgICAgICAgICAgICAgICAvKgo+ICsgICAg
+ICAgICAgICAgICAgKiBXZSBkb24ndCBjYXJlIGlmIGNvbmN1cnJlbnRseSBhIGNwdSByZXNldHMg
+dGhpcyB2YWx1ZSBzaW5jZQo+ICsgICAgICAgICAgICAgICAgKiB0aGUgb25seSBwbGFjZSB0aGlz
+IGNhbiBoYXBwZW4gaXMgaW4gaGFuZGxlX2V4Y2VwdGlvbigpIHdoZXJlCj4gKyAgICAgICAgICAg
+ICAgICAqIGFuIHNmZW5jZS52bWEgaXMgZW1pdHRlZC4KPiArICAgICAgICAgICAgICAgICovCj4g
+KyAgICAgICAgICAgICAgIGZvciAoaSA9IDA7IGkgPCBBUlJBWV9TSVpFKG5ld192bWFsbG9jKTsg
+KytpKQo+ICsgICAgICAgICAgICAgICAgICAgICAgIG5ld192bWFsbG9jW2ldID0gLTFVTEw7Cj4g
+KyAgICAgICB9Cj4gK30KPiAgI2RlZmluZSBmbHVzaF9jYWNoZV92bWFwX2Vhcmx5KHN0YXJ0LCBl
+bmQpICAgICBsb2NhbF9mbHVzaF90bGJfa2VybmVsX3JhbmdlKHN0YXJ0LCBlbmQpCj4gICNlbmRp
+Zgo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaCBi
+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaAo+IGluZGV4IDVkNDczMzQzNjM0
+Yi4uMzI2MzFhY2RjZGQ0IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhy
+ZWFkX2luZm8uaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaAo+
+IEBAIC02MCw2ICs2MCwxMSBAQCBzdHJ1Y3QgdGhyZWFkX2luZm8gewo+ICAgICAgICAgdm9pZCAg
+ICAgICAgICAgICAgICAgICAgKnNjc19iYXNlOwo+ICAgICAgICAgdm9pZCAgICAgICAgICAgICAg
+ICAgICAgKnNjc19zcDsKPiAgI2VuZGlmCj4gKyAgICAgICAvKgo+ICsgICAgICAgICogVXNlZCBp
+biBoYW5kbGVfZXhjZXB0aW9uKCkgdG8gc2F2ZSBhMCwgYTEgYW5kIGEyIGJlZm9yZSBrbm93aW5n
+IGlmIHdlCj4gKyAgICAgICAgKiBjYW4gYWNjZXNzIHRoZSBrZXJuZWwgc3RhY2suCj4gKyAgICAg
+ICAgKi8KPiArICAgICAgIHVuc2lnbmVkIGxvbmcgICAgICAgICAgIGEwLCBhMSwgYTI7Cj4gIH07
+Cj4KPiAgI2lmZGVmIENPTkZJR19TSEFET1dfQ0FMTF9TVEFDSwo+IGRpZmYgLS1naXQgYS9hcmNo
+L3Jpc2N2L2tlcm5lbC9hc20tb2Zmc2V0cy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9mZnNl
+dHMuYwo+IGluZGV4IGIwOWNhNWY5NDRmNy4uMjljMDczNGYyOTcyIDEwMDY0NAo+IC0tLSBhL2Fy
+Y2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRzLmMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9h
+c20tb2Zmc2V0cy5jCj4gQEAgLTM2LDYgKzM2LDggQEAgdm9pZCBhc21fb2Zmc2V0cyh2b2lkKQo+
+ICAgICAgICAgT0ZGU0VUKFRBU0tfVEhSRUFEX1M5LCB0YXNrX3N0cnVjdCwgdGhyZWFkLnNbOV0p
+Owo+ICAgICAgICAgT0ZGU0VUKFRBU0tfVEhSRUFEX1MxMCwgdGFza19zdHJ1Y3QsIHRocmVhZC5z
+WzEwXSk7Cj4gICAgICAgICBPRkZTRVQoVEFTS19USFJFQURfUzExLCB0YXNrX3N0cnVjdCwgdGhy
+ZWFkLnNbMTFdKTsKPiArCj4gKyAgICAgICBPRkZTRVQoVEFTS19USV9DUFUsIHRhc2tfc3RydWN0
+LCB0aHJlYWRfaW5mby5jcHUpOwo+ICAgICAgICAgT0ZGU0VUKFRBU0tfVElfRkxBR1MsIHRhc2tf
+c3RydWN0LCB0aHJlYWRfaW5mby5mbGFncyk7Cj4gICAgICAgICBPRkZTRVQoVEFTS19USV9QUkVF
+TVBUX0NPVU5ULCB0YXNrX3N0cnVjdCwgdGhyZWFkX2luZm8ucHJlZW1wdF9jb3VudCk7Cj4gICAg
+ICAgICBPRkZTRVQoVEFTS19USV9LRVJORUxfU1AsIHRhc2tfc3RydWN0LCB0aHJlYWRfaW5mby5r
+ZXJuZWxfc3ApOwo+IEBAIC00Myw2ICs0NSw5IEBAIHZvaWQgYXNtX29mZnNldHModm9pZCkKPiAg
+I2lmZGVmIENPTkZJR19TSEFET1dfQ0FMTF9TVEFDSwo+ICAgICAgICAgT0ZGU0VUKFRBU0tfVElf
+U0NTX1NQLCB0YXNrX3N0cnVjdCwgdGhyZWFkX2luZm8uc2NzX3NwKTsKPiAgI2VuZGlmCj4gKyAg
+ICAgICBPRkZTRVQoVEFTS19USV9BMCwgdGFza19zdHJ1Y3QsIHRocmVhZF9pbmZvLmEwKTsKPiAr
+ICAgICAgIE9GRlNFVChUQVNLX1RJX0ExLCB0YXNrX3N0cnVjdCwgdGhyZWFkX2luZm8uYTEpOwo+
+ICsgICAgICAgT0ZGU0VUKFRBU0tfVElfQTIsIHRhc2tfc3RydWN0LCB0aHJlYWRfaW5mby5hMik7
+Cj4KPiAgICAgICAgIE9GRlNFVChUQVNLX1RJX0NQVV9OVU0sIHRhc2tfc3RydWN0LCB0aHJlYWRf
+aW5mby5jcHUpOwo+ICAgICAgICAgT0ZGU0VUKFRBU0tfVEhSRUFEX0YwLCAgdGFza19zdHJ1Y3Qs
+IHRocmVhZC5mc3RhdGUuZlswXSk7Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2Vu
+dHJ5LlMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TCj4gaW5kZXggNjhhMjRjZjk0ODFhLi44
+MjIzMTEyNjZhMTIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvZW50cnkuUwo+ICsr
+KyBiL2FyY2gvcmlzY3Yva2VybmVsL2VudHJ5LlMKPiBAQCAtMTksNiArMTksNzggQEAKPgo+ICAg
+ICAgICAgLnNlY3Rpb24gLmlycWVudHJ5LnRleHQsICJheCIKPgo+ICsubWFjcm8gbmV3X3ZtYWxs
+b2NfY2hlY2sKPiArICAgICAgIFJFR19TICAgYTAsIFRBU0tfVElfQTAodHApCj4gKyAgICAgICBS
+RUdfUyAgIGExLCBUQVNLX1RJX0ExKHRwKQo+ICsgICAgICAgUkVHX1MgICBhMiwgVEFTS19USV9B
+Mih0cCkKPiArCj4gKyAgICAgICBjc3JyICAgIGEwLCBDU1JfQ0FVU0UKPiArICAgICAgIC8qIEV4
+Y2x1ZGUgSVJRcyAqLwo+ICsgICAgICAgYmx0ICAgICBhMCwgemVybywgX25ld192bWFsbG9jX3Jl
+c3RvcmVfY29udGV4dAo+ICsgICAgICAgLyogT25seSBjaGVjayBuZXdfdm1hbGxvYyBpZiB3ZSBh
+cmUgaW4gcGFnZS9wcm90ZWN0aW9uIGZhdWx0ICovCj4gKyAgICAgICBsaSAgICAgIGExLCBFWENf
+TE9BRF9QQUdFX0ZBVUxUCj4gKyAgICAgICBiZXEgICAgIGEwLCBhMSwgX25ld192bWFsbG9jX2tl
+cm5lbF9hZGRyZXNzCj4gKyAgICAgICBsaSAgICAgIGExLCBFWENfU1RPUkVfUEFHRV9GQVVMVAo+
+ICsgICAgICAgYmVxICAgICBhMCwgYTEsIF9uZXdfdm1hbGxvY19rZXJuZWxfYWRkcmVzcwo+ICsg
+ICAgICAgbGkgICAgICBhMSwgRVhDX0lOU1RfUEFHRV9GQVVMVAo+ICsgICAgICAgYm5lICAgICBh
+MCwgYTEsIF9uZXdfdm1hbGxvY19yZXN0b3JlX2NvbnRleHQKPiArCj4gK19uZXdfdm1hbGxvY19r
+ZXJuZWxfYWRkcmVzczoKPiArICAgICAgIC8qIElzIGl0IGEga2VybmVsIGFkZHJlc3M/ICovCj4g
+KyAgICAgICBjc3JyICAgIGEwLCBDU1JfVFZBTAo+ICsgICAgICAgYmdlICAgICBhMCwgemVybywg
+X25ld192bWFsbG9jX3Jlc3RvcmVfY29udGV4dAo+ICsKPiArICAgICAgIC8qIENoZWNrIGlmIGEg
+bmV3IHZtYWxsb2MgbWFwcGluZyBhcHBlYXJlZCB0aGF0IGNvdWxkIGV4cGxhaW4gdGhlIHRyYXAg
+Ki8KPiArCj4gKyAgICAgICAvKgo+ICsgICAgICAgICogQ29tcHV0ZXM6Cj4gKyAgICAgICAgKiBh
+MCA9ICZuZXdfdm1hbGxvY1tCSVRfV09SRChjcHUpXQo+ICsgICAgICAgICogYTEgPSBCSVRfTUFT
+SyhjcHUpCj4gKyAgICAgICAgKi8KPiArICAgICAgIFJFR19MICAgYTIsIFRBU0tfVElfQ1BVKHRw
+KQo+ICsgICAgICAgLyoKPiArICAgICAgICAqIENvbXB1dGUgdGhlIG5ld192bWFsbG9jIGVsZW1l
+bnQgcG9zaXRpb246Cj4gKyAgICAgICAgKiAoY3B1IC8gNjQpICogOCA9IChjcHUgPj4gNikgPDwg
+Mwo+ICsgICAgICAgICovCj4gKyAgICAgICBzcmxpICAgIGExLCBhMiwgNgo+ICsgICAgICAgc2xs
+aSAgICBhMSwgYTEsIDMKPiArICAgICAgIGxhICAgICAgYTAsIG5ld192bWFsbG9jCj4gKyAgICAg
+ICBhZGQgICAgIGEwLCBhMCwgYTEKPiArICAgICAgIC8qCj4gKyAgICAgICAgKiBDb21wdXRlIHRo
+ZSBiaXQgcG9zaXRpb24gaW4gdGhlIG5ld192bWFsbG9jIGVsZW1lbnQ6Cj4gKyAgICAgICAgKiBi
+aXRfcG9zID0gY3B1ICUgNjQgPSBjcHUgLSAoY3B1IC8gNjQpICogNjQgPSBjcHUgLSAoY3B1ID4+
+IDYpIDw8IDYKPiArICAgICAgICAqICAgICAgICAgPSBjcHUgLSAoKGNwdSA+PiA2KSA8PCAzKSA8
+PCAzCj4gKyAgICAgICAgKi8KPiArICAgICAgIHNsbGkgICAgYTEsIGExLCAzCj4gKyAgICAgICBz
+dWIgICAgIGExLCBhMiwgYTEKPiArICAgICAgIC8qIENvbXB1dGUgdGhlICJnZXQgbWFzayI6IDEg
+PDwgYml0X3BvcyAqLwo+ICsgICAgICAgbGkgICAgICBhMiwgMQo+ICsgICAgICAgc2xsICAgICBh
+MSwgYTIsIGExCj4gKwo+ICsgICAgICAgLyogQ2hlY2sgdGhlIHZhbHVlIG9mIG5ld192bWFsbG9j
+IGZvciB0aGlzIGNwdSAqLwo+ICsgICAgICAgUkVHX0wgICBhMiwgMChhMCkKPiArICAgICAgIGFu
+ZCAgICAgYTIsIGEyLCBhMQo+ICsgICAgICAgYmVxICAgICBhMiwgemVybywgX25ld192bWFsbG9j
+X3Jlc3RvcmVfY29udGV4dAo+ICsKPiArICAgICAgIC8qIEF0b21pY2FsbHkgcmVzZXQgdGhlIGN1
+cnJlbnQgY3B1IGJpdCBpbiBuZXdfdm1hbGxvYyAqLwo+ICsgICAgICAgYW1veG9yLncgICAgICAg
+IGEwLCBhMSwgKGEwKQoKRG9pbmcgb25seSAzMmJpdCBhdG9taWMgaGVyZSwgaXMgdGhpcyBpbnRl
+bnRpb25hbCA/Cgo+ICsKPiArICAgICAgIC8qIE9ubHkgZW1pdCBhIHNmZW5jZS52bWEgaWYgdGhl
+IHVhcmNoIGNhY2hlcyBpbnZhbGlkIGVudHJpZXMgKi8KPiArICAgICAgIEFMVEVSTkFUSVZFKCJz
+ZmVuY2Uudm1hIiwgIm5vcCIsIDAsIFJJU0NWX0lTQV9FWFRfU1ZWUFRDLCAxKQo+ICsKPiArICAg
+ICAgIFJFR19MICAgYTAsIFRBU0tfVElfQTAodHApCj4gKyAgICAgICBSRUdfTCAgIGExLCBUQVNL
+X1RJX0ExKHRwKQo+ICsgICAgICAgUkVHX0wgICBhMiwgVEFTS19USV9BMih0cCkKPiArICAgICAg
+IGNzcncgICAgQ1NSX1NDUkFUQ0gsIHgwCj4gKyAgICAgICBzcmV0Cj4gKwo+ICtfbmV3X3ZtYWxs
+b2NfcmVzdG9yZV9jb250ZXh0Ogo+ICsgICAgICAgUkVHX0wgICBhMCwgVEFTS19USV9BMCh0cCkK
+PiArICAgICAgIFJFR19MICAgYTEsIFRBU0tfVElfQTEodHApCj4gKyAgICAgICBSRUdfTCAgIGEy
+LCBUQVNLX1RJX0EyKHRwKQo+ICsuZW5kbQo+ICsKPiArCj4gIFNZTV9DT0RFX1NUQVJUKGhhbmRs
+ZV9leGNlcHRpb24pCj4gICAgICAgICAvKgo+ICAgICAgICAgICogSWYgY29taW5nIGZyb20gdXNl
+cnNwYWNlLCBwcmVzZXJ2ZSB0aGUgdXNlciB0aHJlYWQgcG9pbnRlciBhbmQgbG9hZAo+IEBAIC0z
+MCw2ICsxMDIsMTggQEAgU1lNX0NPREVfU1RBUlQoaGFuZGxlX2V4Y2VwdGlvbikKPgo+ICAuTHJl
+c3RvcmVfa2VybmVsX3Rwc3A6Cj4gICAgICAgICBjc3JyIHRwLCBDU1JfU0NSQVRDSAo+ICsKPiAr
+ICAgICAgIC8qCj4gKyAgICAgICAgKiBUaGUgUklTQy1WIGtlcm5lbCBkb2VzIG5vdCBlYWdlcmx5
+IGVtaXQgYSBzZmVuY2Uudm1hIGFmdGVyIGVhY2gKPiArICAgICAgICAqIG5ldyB2bWFsbG9jIG1h
+cHBpbmcsIHdoaWNoIG1heSByZXN1bHQgaW4gZXhjZXB0aW9uczoKPiArICAgICAgICAqIC0gaWYg
+dGhlIHVhcmNoIGNhY2hlcyBpbnZhbGlkIGVudHJpZXMsIHRoZSBuZXcgbWFwcGluZyB3b3VsZCBu
+b3QgYmUKPiArICAgICAgICAqICAgb2JzZXJ2ZWQgYnkgdGhlIHBhZ2UgdGFibGUgd2Fsa2VyIGFu
+ZCBhbiBpbnZhbGlkYXRpb24gaXMgbmVlZGVkLgo+ICsgICAgICAgICogLSBpZiB0aGUgdWFyY2gg
+ZG9lcyBub3QgY2FjaGUgaW52YWxpZCBlbnRyaWVzLCBhIHJlb3JkZXJlZCBhY2Nlc3MKPiArICAg
+ICAgICAqICAgY291bGQgIm1pc3MiIHRoZSBuZXcgbWFwcGluZyBhbmQgdHJhcHM6IGluIHRoYXQg
+Y2FzZSwgd2Ugb25seSBuZWVkCj4gKyAgICAgICAgKiAgIHRvIHJldHJ5IHRoZSBhY2Nlc3MsIG5v
+IHNmZW5jZS52bWEgaXMgcmVxdWlyZWQuCj4gKyAgICAgICAgKi8KPiArICAgICAgIG5ld192bWFs
+bG9jX2NoZWNrCj4gKwo+ICAgICAgICAgUkVHX1Mgc3AsIFRBU0tfVElfS0VSTkVMX1NQKHRwKQo+
+Cj4gICNpZmRlZiBDT05GSUdfVk1BUF9TVEFDSwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21t
+L2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gaW5kZXggZTM0MDVlNGI5OWFmLi4yMzY3
+YTE1NmMzM2IgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiArKysgYi9hcmNo
+L3Jpc2N2L21tL2luaXQuYwo+IEBAIC0zNiw2ICszNiw4IEBACj4KPiAgI2luY2x1ZGUgIi4uL2tl
+cm5lbC9oZWFkLmgiCj4KPiArdTY0IG5ld192bWFsbG9jW05SX0NQVVMgLyBzaXplb2YodTY0KSAr
+IDFdOwo+ICsKPiAgc3RydWN0IGtlcm5lbF9tYXBwaW5nIGtlcm5lbF9tYXAgX19yb19hZnRlcl9p
+bml0Owo+ICBFWFBPUlRfU1lNQk9MKGtlcm5lbF9tYXApOwo+ICAjaWZkZWYgQ09ORklHX1hJUF9L
+RVJORUwKPiAtLQo+IDIuMzkuMgo+Cj4KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
