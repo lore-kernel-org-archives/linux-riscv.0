@@ -4,123 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F96C30658
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 02:31:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DD3C3065C
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 03:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KcR0z0xII2usgYNpR1LuHaLt+Nw9lzHkD56dft065gY=; b=4ci6oKURX9jHid
-	BgMsWwQpgUB2WrECYeeVKCspeikCjDzJSxl0adjG2y2acrLfBYV3VNOGWX4xGA/wpStO3xYPCNFRQ
-	+09sCy3o3Ng+uhiVfTc1v+UrdgJ+d6X4L8vfx7qJFO9h7gRgRZAsl5TOkjT9vkWWclo2VXwrCQ4CB
-	sgvW+G/7g159nOJB+GgwwtHZDLZGH8vfK7sVjKlm+WD2m7ukn8CDe7eJpmGM/43sJxyVUW9HS6mOI
-	rcNOnN/pzkzU0iG3wA8NZg6Rid5ZDJ/mIlKaqFjwrSBTd7upTzAYlmgjN+I1PUJN4+EJb2b8mUdKc
-	5pIxBIvCiWwdD7zmRp1w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bTc6iHrIPxtKj0tiN9eR3aMgjt1aT+8udKu1NIBPphU=; b=GmND1o0+iGmvhK
+	iqZVQeymbCILTW8apmOlHw7MTgD2sZo74XwcrkDvCv3fN/Cir+9ibRttYXdBagZQ7iCdJDrPN67ak
+	fOXChRuuZy5hrzfidVlM737fjzGC/QZuJNxifWbPfny7kWjTWjeXSmIdmx+8itfvQNG9CsCfr29nS
+	03eBkTtpmshmwaKH0Edrjye1xrff+Gz2wd7iMOn4oPjgXqFl/OTyn/03P0IWetMmVP+SoZjI0f/Gs
+	Hrwtq0MzewxmqWofaa5hlmDj2HggzRpF5Sk9D04kBYVAAOT0jJEtI+zNRMyJD6+4Ng/ioP6YVKEBF
+	Qa0CHMeIes2Zg2d5ZGRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOpmI-00000008auc-3pkX;
-	Wed, 03 Jul 2024 02:31:26 +0000
-Received: from mail-mw2nam10olkn20819.outbound.protection.outlook.com ([2a01:111:f403:2c12::819] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1sOqEN-00000008d8t-2Lnj;
+	Wed, 03 Jul 2024 03:00:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOpmF-00000008asf-1Yoy
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jul 2024 02:31:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=O+Or0qZm00z2EjZ2RCQgiYr55YMgTjwBtzY/Inwy15jBHZXjBxeGlyUoYcORRD/OIT2Hk0hT5V7Yhflnr6+1SbieW26WdhxAbadVPw5dZVxYY7h2Gf2N5uX8saWZXh9VjxERaZhA2jZ1XXR9ec85Pg2XbFTRjiJfvQd+2Eu4J14c8J1e18Nte+0zd6z+1NqjfKPkm+4eaPQRmFMhw8xVZMOAtwPzeJo+zJ3OKdrmIEpIERwHa//S6elgpXHmkZLHqCW8qytX9mMcxItZ7tp7VYW/esfZg47OtLXqHjJ13yc50R1wT3fEt0fMQ1imLkhM/xni6R5WKlke0bf1e6iSPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nLjGvo/32zR8CVerQOeeFaC2hAi+BM2tszg+x5LJ860=;
- b=D1fJE+U1gdBru3NxXSQ8acHjpI1g2jaB9dO37QUTln2RQnMG03gyWSQCd6v1O46jrFsovWCJZiD9q4DxN1KcUaZAwubo50+AI7gcc7LdiBDSdJrxYtrhuMEdVy3ElkoxAo5o2iCF/krp/5CJiQgS0+qt70OqZasl3lQGz1O+KhNufk2BDoqvBncuLueopeKtsKGbQw0juSNuUjmT4+e+CHT17iCBgbfQsnESpZJKqDMUPCIaPbTKHhs9VEvnuaoWCkl+/A/W3EkvR0S4O95w0eEzSRLbLjgcjk+rsumD4bYDMeJK/TA5oyjkjTEZBxsGzrZ3ec+OS39drfjRQdDLKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nLjGvo/32zR8CVerQOeeFaC2hAi+BM2tszg+x5LJ860=;
- b=RnOz68jd0Q9RnftbMJCx8wP5LDHuIcp+hjWLQaogxv2P90awxMmWOjpTGrITQ1WNL9z9zIttPzQbytx5P5wIs6Hs4zCW4Kj/hrUWOKGMLuID6+2bs5BDvXrw914OIcK+KRDxFLfBWZz7uRzPCfuH6a5X/P/szx+zE94EqZP2P37QlR2CLvG5SHqf8okspBKp8pPAjSOi0h3xIrFS3hJODgr7KD4ZNQnvfZ/CbERt9Cz5HIf+ExBDfCTWJKoylRnZBs0d1s0uIHtUr2bRqLcw5rOcon1mTwmwQcpe8AATKk4JKnQLxFRapqD9LLGnelK5EuLWbZ4I0dRndlV+4pPXfg==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SN7PR20MB5580.namprd20.prod.outlook.com (2603:10b6:806:29b::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7719.28; Wed, 3 Jul
- 2024 02:31:20 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%6]) with mapi id 15.20.7719.028; Wed, 3 Jul 2024
- 02:31:20 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v6 2/2] drivers: hwmon: sophgo: Add SG2042 external hardware monitor support
-Date: Wed,  3 Jul 2024 10:30:44 +0800
-Message-ID: <IA1PR20MB4953EC4C486B8D4B186BB848BBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <IA1PR20MB4953967EA6AF3A6EFAE6AB10BBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953967EA6AF3A6EFAE6AB10BBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [+Yz/mSkqmkT4atH5y40PDw5vqt1NoYvtpgLFtUMXn1Q=]
-X-ClientProxiedBy: TYAPR01CA0086.jpnprd01.prod.outlook.com
- (2603:1096:404:2c::26) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20240703023045.272744-2-inochiama@outlook.com>
+	id 1sOqEK-00000008d8M-2908;
+	Wed, 03 Jul 2024 03:00:26 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462NWM6Z005551;
+	Wed, 3 Jul 2024 02:59:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=O92o6x8MI3tbjaQRL6XDQc
+	qlyifVOQWVm1bVLaysjDA=; b=HfM1dZTmf7tb9EZO24dvevJ/BlvIGhoMHHst1h
+	1yEBtWLq8P4Ww3YBdpS9Uml6IFGuW6kz98HkOT+BgKpyTqLUJf3ESgGSbx4lZ5Di
+	4VNoRSMPOnYpfHH5K+/7N4K+FoKZYD+GlEW5VPB9DhmXGaKwSBdgXG2Qd+Qhwqj7
+	pcmSnDPQAQp5RgFYHCIe1vEKniI6L2BfGRc+Hbws4Yo1qCGwLp5T57sOUx5cmZ2N
+	7oHTktQbjiop6It20JR29smXpRnstNNGMs5c5HE1WmN965sxt1URjIK6+j5mVdhb
+	QIh2C/387pO1P2G9SjvQ09uk2nS3SAixOHGseeHlyDvz3YZA==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4027yfah86-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 03 Jul 2024 02:59:35 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA04.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 4632xYXk013518
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 3 Jul 2024 02:59:34 GMT
+Received: from tengfan-gv.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Tue, 2 Jul 2024 19:59:11 -0700
+From: Tengfei Fan <quic_tengfan@quicinc.com>
+To: <andersson@kernel.org>, <konrad.dybcio@linaro.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <djakov@kernel.org>,
+        <mturquette@baylibre.com>, <sboyd@kernel.org>,
+        <jassisinghbrar@gmail.com>, <herbert@gondor.apana.org.au>,
+        <davem@davemloft.net>, <manivannan.sadhasivam@linaro.org>,
+        <will@kernel.org>, <joro@8bytes.org>, <conor@kernel.org>,
+        <tglx@linutronix.de>, <amitk@kernel.org>, <thara.gopinath@gmail.com>,
+        <linus.walleij@linaro.org>, <wim@linux-watchdog.org>,
+        <linux@roeck-us.net>, <rafael@kernel.org>, <viresh.kumar@linaro.org>,
+        <vkoul@kernel.org>, <edumazet@google.com>, <kuba@kernel.org>,
+        <pabeni@redhat.com>, <mcoquelin.stm32@gmail.com>
+CC: <robimarko@gmail.com>, <quic_gurus@quicinc.com>,
+        <bartosz.golaszewski@linaro.org>, <kishon@kernel.org>,
+        <quic_wcheng@quicinc.com>, <alim.akhtar@samsung.com>,
+        <avri.altman@wdc.com>, <bvanassche@acm.org>, <agross@kernel.org>,
+        <gregkh@linuxfoundation.org>, <quic_tdas@quicinc.com>,
+        <robin.murphy@arm.com>, <daniel.lezcano@linaro.org>,
+        <rui.zhang@intel.com>, <lukasz.luba@arm.com>,
+        <quic_rjendra@quicinc.com>, <ulf.hansson@linaro.org>,
+        <quic_sibis@quicinc.com>, <otto.pflueger@abscue.de>,
+        <quic_rohiagar@quicinc.com>, <luca@z3ntu.xyz>,
+        <neil.armstrong@linaro.org>, <abel.vesa@linaro.org>,
+        <bhupesh.sharma@linaro.org>, <alexandre.torgue@foss.st.com>,
+        <peppe.cavallaro@st.com>, <joabreu@synopsys.com>,
+        <netdev@vger.kernel.org>, <lpieralisi@kernel.org>, <kw@linux.com>,
+        <bhelgaas@google.com>, <ahalaney@redhat.com>,
+        <krzysztof.kozlowski@linaro.org>, <u.kleine-koenig@pengutronix.de>,
+        <dmitry.baryshkov@linaro.org>, <quic_cang@quicinc.com>,
+        <danila@jiaxyga.com>, <quic_nitirawa@quicinc.com>,
+        <mantas@8devices.com>, <athierry@redhat.com>,
+        <quic_kbajaj@quicinc.com>, <quic_bjorande@quicinc.com>,
+        <quic_msarkar@quicinc.com>, <quic_devipriy@quicinc.com>,
+        <quic_tsoni@quicinc.com>, <quic_rgottimu@quicinc.com>,
+        <quic_shashim@quicinc.com>, <quic_kaushalk@quicinc.com>,
+        <quic_tingweiz@quicinc.com>, <quic_aiquny@quicinc.com>,
+        <srinivas.kandagatla@linaro.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-pm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-phy@lists.infradead.org>, <linux-crypto@vger.kernel.org>,
+        <linux-scsi@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+        <linux-riscv@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
+        <linux-watchdog@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>, <kernel@quicinc.com>,
+        Tengfei Fan <quic_tengfan@quicinc.com>
+Subject: [PATCH 00/47] arm64: qcom: dts: add QCS9100 support
+Date: Wed, 3 Jul 2024 10:58:03 +0800
+Message-ID: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SN7PR20MB5580:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5f5a23d-224a-4ee7-fc50-08dc9b0838f1
-X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|461199028|3412199025|440099028|1710799026;
-X-Microsoft-Antispam-Message-Info: G/SLnqF5czCmFGD4ygNC6IwdOKv+taKQ+7/os/8Y/PYEhCgdMgYgpvxu9X2qRR4U2jPPBFnFuGcoXXLHlc99nPRLN7lb8iL3/2Kpgc+di/Tk+V6E4Av4A65a2HOMHSGDMFh368G8uYseCC9nvio5QpP7oQB1HD+Ua2kjZAYLXOKJe6assZoFzSEqsuUCjYQRrq9yO4PE/NRgEOkZGfHYq6ylzhFVVU8vJSlp1SdgZq4T29eFB9IRtFdPcwJKIJ+MKCiTjx/Vypq4nG7toCB355j0btT8BwdM7TstUXpRU6Nj5O90S7VmXyGl+KqFtpQn/iJc84CA+DdGkRGpaE1ZQU7NHvqAxMykVWAWinIKbuW+GKkQHRn0aHXjpzxb6m5Jt/7r2SHQF0t5K8G160LRtbDuZ49chcXIo4FEg5H7hb2IF34JlMu6ErNZH4VaPCPHLpUmUOZ6BzeIQRJj9+PpEu9eakGsFN9Lbp//iXgTx+mSDbIFABT8d/rKjuYweF4jWzBXfdQWLGGS2D40kxeuxwbv+NssBRrHBREE4iDZi6a2E2IDa4YvwaZajR96roDfuHVCjTjWJZgWeL1lOa7cdhseOHx4pk/5362RU6273l3tzZVos4BOAQSXbJncGapK2SopX2eXQ0Oo2350iNONWA==
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2L/tZfQBnQbu/r7xHwVdNDh+PqS6gdCbqZtQG7494N14/nBh1Rd/vRSWSs8n?=
- =?us-ascii?Q?+UmJJDxH0EB8zX6Z2oDvDSj341pzoAhPqGAJ9Cuc7NzK8gELIeXf2EcL+qbW?=
- =?us-ascii?Q?zZdj0veaR9paLGMmoWgzipP/UfEuEfLtPEyMDmaWjQfrei8UwmtN91HZw3X0?=
- =?us-ascii?Q?M0Is8u7H9IRtVcfQyGvT61wOuoM83weTgSdDLxUwhZKX5QD+VYZbRM95NZJm?=
- =?us-ascii?Q?QK8ulBvyFRvr+nhOiZND6PUzjKg/+GHZoTPXO/G3f8dG1+/E+YT5XDEzwg1Q?=
- =?us-ascii?Q?rNbdBaJur4CI3M4fRnx/dWZ4QKx5449n8DjKnGMZw6FUn/3IGcqHpbUUc8Qm?=
- =?us-ascii?Q?GLaO2xmOLD/ltmtSAAdN5XwoMR18qqqynLdU2nfV1r9N3npBtiYw/jvzdYJF?=
- =?us-ascii?Q?wF978AmeajY4wHV3wEb+WJxCrWu9bsVKhytGAVOUAU6+ekDN5VLCeE+xRJ43?=
- =?us-ascii?Q?Py/qClPDzUaWhMHQfOPIismp8i/av+du9WjOa2TgPffNAzRB/BASQBA59ari?=
- =?us-ascii?Q?foAVOs5DBFOje6WTYmKwydfj72tLQBXnoX8U48JVvZczOWGdIqBaMpp/IWrj?=
- =?us-ascii?Q?Wbza/r95LEcXLswD/D8VJkVz7oT6t5NPrQHWExofKEEcsEKenTVrdpdHDU2Q?=
- =?us-ascii?Q?rjR/kYi/lk1zKyJraBwfIw7pnmaiznkvxWIchkT7XNJ5FuwTL4/qhfP5gRTm?=
- =?us-ascii?Q?C9lq9ox3javPihoC1Lfs3zQe+aYtpMMXyUDJdI3GqB1qfBimfWE1TiBZy1bs?=
- =?us-ascii?Q?FfipKIe48EWmXz3LNEMDdSgXySlB8ymVjbR1EriColRUkmzOhQ0pWFc7dQ/W?=
- =?us-ascii?Q?zQO+A+1C2RNcgxoebh4+GNmJs6+Sqoz47F/OeEcTEOnUQmaCl6sXa8y/AbwN?=
- =?us-ascii?Q?a+I5f/n9QbfMbrBRNc1bVok4o+7+d6R7G8214uuLCGttxW7PsgWGygF7wruE?=
- =?us-ascii?Q?lyAXGb3aRN0SpT1iLbmA2uVfdOohCyRu9YHpBOWpRwP1OlJR4VxanooBfR5I?=
- =?us-ascii?Q?4cfUseaPlsLCHwwLzZf8+XvmYZasXETxs0f3ApmleNlYOyY3Yw20UMpsU4CW?=
- =?us-ascii?Q?CWaUn6g1Qd5iWWWRKsSx2AkswqlHvH9Ei++Ea7tpuYYsVDNwtW2OuMYqWmc7?=
- =?us-ascii?Q?hkp007lHJFLaxk0FQk4Q9Sa6bcblh96w3L3RUjV1cTwe1JOHW8u7CimmLEQL?=
- =?us-ascii?Q?NgVrLm2lvvwI1ZHY2xHFGM0v//N790BiUXYOOfCcIjkFWLAcQvIIy6DiIEAm?=
- =?us-ascii?Q?51BGchCfeYPG+aMzXV9G?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5f5a23d-224a-4ee7-fc50-08dc9b0838f1
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2024 02:31:20.0691
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR20MB5580
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: vlpWLipQCruqIxkQ0Vv5rOzN-wZRA5Do
+X-Proofpoint-ORIG-GUID: vlpWLipQCruqIxkQ0Vv5rOzN-wZRA5Do
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
+ definitions=2024-07-02_18,2024-07-02_02,2024-05-17_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 spamscore=0
+ mlxscore=0 lowpriorityscore=0 mlxlogscore=999 phishscore=0 impostorscore=0
+ clxscore=1011 malwarescore=0 suspectscore=0 adultscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2406140001 definitions=main-2407030021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_193123_599983_34B06D98 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20240702_200024_666694_D512E46E 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,719 +130,246 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SG2042 use an external MCU to provide basic hardware information
-and thermal sensors.
-
-Add driver support for the onboard MCU of SG2042.
-
-Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
----
- Documentation/hwmon/index.rst |   1 +
- Documentation/hwmon/sgmcu.rst |  44 +++
- drivers/hwmon/Kconfig         |  11 +
- drivers/hwmon/Makefile        |   1 +
- drivers/hwmon/sgmcu.c         | 585 ++++++++++++++++++++++++++++++++++
- 5 files changed, 642 insertions(+)
- create mode 100644 Documentation/hwmon/sgmcu.rst
- create mode 100644 drivers/hwmon/sgmcu.c
-
-diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
-index 03d313af469a..189626b3a055 100644
---- a/Documentation/hwmon/index.rst
-+++ b/Documentation/hwmon/index.rst
-@@ -203,6 +203,7 @@ Hardware Monitoring Kernel Drivers
-    sch5636
-    scpi-hwmon
-    sfctemp
-+   sgmcu
-    sht15
-    sht21
-    sht3x
-diff --git a/Documentation/hwmon/sgmcu.rst b/Documentation/hwmon/sgmcu.rst
-new file mode 100644
-index 000000000000..5669dcfb2a33
---- /dev/null
-+++ b/Documentation/hwmon/sgmcu.rst
-@@ -0,0 +1,44 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+Kernel driver sgmcu
-+=====================
-+
-+Supported chips:
-+
-+  * Onboard MCU for sg2042
-+
-+    Addresses scanned: -
-+
-+    Prefix: 'sgmcu'
-+
-+Authors:
-+
-+  - Inochi Amaoto <inochiama@outlook.com>
-+
-+Description
-+-----------
-+
-+This driver supprts hardware monitoring for onboard MCU with
-+PMBus interface.
-+
-+Usage Notes
-+-----------
-+
-+This driver does not auto-detect devices. You will have to instantiate
-+the devices explicitly.
-+Please see Documentation/i2c/instantiating-devices.rst for details.
-+
-+Platform data support
-+---------------------
-+
-+The driver supports standard PMBus driver platform data.
-+
-+Sysfs Attributes
-+----------------
-+
-+================= =============================================
-+temp1_input       Measured temperature of SoC
-+temp1_crit        Critical high temperature
-+temp1_crit_hyst   hysteresis temperature restore from Critical
-+temp2_input       Measured temperature of the base board
-+================= =============================================
-diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
-index e14ae18a973b..1100dd11f7f5 100644
---- a/drivers/hwmon/Kconfig
-+++ b/drivers/hwmon/Kconfig
-@@ -2079,6 +2079,17 @@ config SENSORS_SFCTEMP
- 	  This driver can also be built as a module.  If so, the module
- 	  will be called sfctemp.
-
-+config SENSORS_SGMCU
-+	tristate "Sophgo onboard MCU support"
-+	depends on I2C
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	help
-+	  Support for onboard MCU of Sophgo SoCs. This mcu provides power
-+	  control and some basic information.
-+
-+	  This driver can be built as a module. If so, the module
-+	  will be called sgmcu.
-+
- config SENSORS_SURFACE_FAN
- 	tristate "Surface Fan Driver"
- 	depends on SURFACE_AGGREGATOR
-diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
-index e3f25475d1f0..e9b78ff8338e 100644
---- a/drivers/hwmon/Makefile
-+++ b/drivers/hwmon/Makefile
-@@ -195,6 +195,7 @@ obj-$(CONFIG_SENSORS_SCH56XX_COMMON)+= sch56xx-common.o
- obj-$(CONFIG_SENSORS_SCH5627)	+= sch5627.o
- obj-$(CONFIG_SENSORS_SCH5636)	+= sch5636.o
- obj-$(CONFIG_SENSORS_SFCTEMP)	+= sfctemp.o
-+obj-$(CONFIG_SENSORS_SGMCU)	+= sgmcu.o
- obj-$(CONFIG_SENSORS_SL28CPLD)	+= sl28cpld-hwmon.o
- obj-$(CONFIG_SENSORS_SHT15)	+= sht15.o
- obj-$(CONFIG_SENSORS_SHT21)	+= sht21.o
-diff --git a/drivers/hwmon/sgmcu.c b/drivers/hwmon/sgmcu.c
-new file mode 100644
-index 000000000000..d941d6fe741f
---- /dev/null
-+++ b/drivers/hwmon/sgmcu.c
-@@ -0,0 +1,585 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2024 Inochi Amaoto <inochiama@outlook.com>
-+ *
-+ * Sophgo power control mcu for SG2042
-+ */
-+
-+#include <linux/debugfs.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/i2c.h>
-+#include <linux/err.h>
-+#include <linux/hwmon.h>
-+
-+/* fixed MCU registers */
-+#define REG_BOARD_TYPE				0x00
-+#define REG_MCU_FIRMWARE_VERSION		0x01
-+#define REG_PCB_VERSION				0x02
-+#define REG_PWR_CTRL				0x03
-+#define REG_SOC_TEMP				0x04
-+#define REG_BOARD_TEMP				0x05
-+#define REG_RST_COUNT				0x0a
-+#define REG_UPTIME				0x0b
-+#define REG_RESET_REASON			0x0d
-+#define REG_MCU_TYPE				0x18
-+#define REG_CRITICAL_ACTIONS			0x65
-+#define REG_CRITICAL_TEMP			0x66
-+#define REG_REPOWER_TEMP			0x67
-+
-+#define CRITICAL_ACTION_REBOOT			0x1
-+#define CRITICAL_ACTION_POWEROFF		0x2
-+
-+#define DEFAULT_REPOWER_TEMP			60
-+#define MAX_REPOWER_TEMP			100
-+
-+#define sg2042_mcu_read_byte(client, reg)			\
-+	i2c_smbus_read_byte_data(client, reg)
-+#define sg2042_mcu_write_byte(client, reg, value)		\
-+	i2c_smbus_write_byte_data(client, reg, value)
-+#define sg2042_mcu_read_block(client, reg, array)		\
-+	i2c_smbus_read_i2c_block_data(client, reg, sizeof(array), array)
-+
-+#define DEFINE_MCU_ATTR_READ_FUNC(_name, _type, _format)		\
-+	static ssize_t _name##_show(struct device *dev,			\
-+				    struct device_attribute *attr,	\
-+				    char *buf)				\
-+	{								\
-+		struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);	\
-+		_type ret;						\
-+		ret = sg2042_mcu_get_##_name(mcu->client);		\
-+		if (ret < 0)						\
-+			return ret;					\
-+		return sprintf(buf, _format "\n", ret);			\
-+	}
-+
-+#define DEFINE_MCU_DEBUG_ATTR_READ_FUNC(_name, _type, _format)		\
-+	static int _name##_show(struct seq_file *seqf,			\
-+				    void *unused)			\
-+	{								\
-+		struct sg2042_mcu_data *mcu = seqf->private;		\
-+		_type ret;						\
-+		ret = sg2042_mcu_get_##_name(mcu->client);		\
-+		if (ret < 0)						\
-+			return ret;					\
-+		seq_printf(seqf, _format "\n", ret);			\
-+		return 0;						\
-+	}
-+
-+#define _CREATE_DEBUG_ENTRY(name, perm, d, data)			\
-+	debugfs_create_file(#name, perm, d, data, &name##_fops)
-+
-+struct sg2042_mcu_board_data {
-+	u8		id;
-+	const char	*name;
-+};
-+
-+struct sg2042_mcu_data {
-+	struct i2c_client			*client;
-+	const struct sg2042_mcu_board_data	*board_info;
-+	struct dentry				*debugfs;
-+};
-+
-+static const struct sg2042_mcu_board_data sg2042_boards_data[] = {
-+	{
-+		.id = 0x80,
-+		.name = "SG2042 evb x8",
-+	},
-+	{
-+		.id = 0x81,
-+		.name = "SG2042R evb",
-+	},
-+	{
-+		.id = 0x83,
-+		.name = "SG2042 evb x4",
-+	},
-+	{
-+		.id = 0x90,
-+		.name = "Milk-V Pioneer",
-+	},
-+};
-+
-+static const char *sg2042_mcu_reset_reason[8] = {
-+	"Power supply overheat",
-+	"Power supply failure",
-+	"12V power supply failure",
-+	"Reset commant",
-+	"Unknown",
-+	"Unknown",
-+	"Unknown",
-+	"SoC overheat",
-+};
-+
-+static struct dentry *sgmcu_debugfs;
-+
-+static int sg2042_mcu_get_board_type(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_BOARD_TYPE);
-+}
-+
-+static int sg2042_mcu_get_firmware_version(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_MCU_FIRMWARE_VERSION);
-+}
-+
-+static int sg2042_mcu_get_pcb_version(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_PCB_VERSION);
-+}
-+
-+static int sg2042_mcu_get_soc_temp(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_SOC_TEMP);
-+}
-+
-+static int sg2042_mcu_get_board_temp(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_BOARD_TEMP);
-+}
-+
-+static int sg2042_mcu_get_reset_count(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_RST_COUNT);
-+}
-+
-+static s32 sg2042_mcu_get_uptime(struct i2c_client *client)
-+{
-+	int ret;
-+	u8 time_val[2];
-+
-+	ret = sg2042_mcu_read_block(client, REG_UPTIME, time_val);
-+	if (ret < 0)
-+		return ret;
-+
-+	return (s32)(time_val[0]) + ((s32)(time_val[1]) << 8);
-+}
-+
-+static int sg2042_mcu_get_reset_reason(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_RESET_REASON);
-+}
-+
-+static int sg2042_mcu_get_mcu_type(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_MCU_TYPE);
-+}
-+
-+static int sg2042_mcu_get_soc_crit_action(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_CRITICAL_ACTIONS);
-+}
-+
-+static int sg2042_mcu_get_soc_crit_temp(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_CRITICAL_TEMP);
-+}
-+
-+static int sg2042_mcu_get_soc_hyst_temp(struct i2c_client *client)
-+{
-+	return sg2042_mcu_read_byte(client, REG_REPOWER_TEMP);
-+}
-+
-+static int sg2042_mcu_set_soc_crit_action(struct i2c_client *client,
-+					  u8 value)
-+{
-+	return sg2042_mcu_write_byte(client, REG_CRITICAL_ACTIONS, value);
-+}
-+
-+static int sg2042_mcu_set_soc_crit_temp(struct i2c_client *client,
-+					u8 value)
-+{
-+	return sg2042_mcu_write_byte(client, REG_CRITICAL_TEMP, value);
-+}
-+
-+static int sg2042_mcu_set_soc_hyst_temp(struct i2c_client *client,
-+					u8 value)
-+{
-+	return sg2042_mcu_write_byte(client, REG_REPOWER_TEMP, value);
-+}
-+
-+DEFINE_MCU_ATTR_READ_FUNC(reset_count, int, "%d");
-+DEFINE_MCU_ATTR_READ_FUNC(uptime, s32, "%d");
-+
-+static ssize_t reset_reason_show(struct device *dev,
-+				 struct device_attribute *attr,
-+				 char *buf)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	int ret, val, i;
-+
-+	val = sg2042_mcu_get_reset_reason(mcu->client);
-+	if (val < 0)
-+		return val;
-+
-+	ret = sprintf(buf, "Reason: 0x%02x\n", val);
-+
-+	for (i = 0; i < ARRAY_SIZE(sg2042_mcu_reset_reason); i++) {
-+		if (val & BIT(i))
-+			ret += sprintf(buf + ret, "bit %d: %s\n", i,
-+						  sg2042_mcu_reset_reason[i]);
-+	}
-+
-+	return ret;
-+}
-+
-+static ssize_t critical_action_show(struct device *dev,
-+				    struct device_attribute *attr,
-+				    char *buf)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	int ret;
-+	const char *action;
-+
-+	ret = sg2042_mcu_get_soc_crit_action(mcu->client);
-+	if (ret < 0)
-+		return ret;
-+
-+	if (ret == CRITICAL_ACTION_REBOOT)
-+		action = "reboot";
-+	else if (ret == CRITICAL_ACTION_POWEROFF)
-+		action = "poweroff";
-+	else
-+		action = "unknown";
-+
-+	return sprintf(buf, "%s\n", action);
-+}
-+
-+static ssize_t critical_action_store(struct device *dev,
-+				     struct device_attribute *attr,
-+				     const char *buf, size_t count)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	int value;
-+
-+	if (sysfs_streq("reboot", buf))
-+		value = CRITICAL_ACTION_REBOOT;
-+	else if (sysfs_streq("poweroff", buf))
-+		value = CRITICAL_ACTION_POWEROFF;
-+	else
-+		return -EINVAL;
-+
-+	return sg2042_mcu_set_soc_crit_action(mcu->client, value);
-+}
-+
-+static DEVICE_ATTR_RO(reset_count);
-+static DEVICE_ATTR_RO(uptime);
-+static DEVICE_ATTR_RO(reset_reason);
-+static DEVICE_ATTR_RW(critical_action);
-+
-+DEFINE_MCU_DEBUG_ATTR_READ_FUNC(firmware_version, int, "0x%02x");
-+DEFINE_MCU_DEBUG_ATTR_READ_FUNC(pcb_version, int, "0x%02x");
-+
-+static int board_type_show(struct seq_file *seqf, void *unused)
-+{
-+	struct sg2042_mcu_data *mcu = seqf->private;
-+
-+	seq_printf(seqf, "%s\n", mcu->board_info->name ?: "Unknown");
-+
-+	return 0;
-+}
-+
-+static int mcu_type_show(struct seq_file *seqf, void *unused)
-+{
-+	struct sg2042_mcu_data *mcu = seqf->private;
-+	int ret;
-+
-+	ret = sg2042_mcu_get_mcu_type(mcu->client);
-+	if (ret < 0)
-+		return ret;
-+
-+	seq_puts(seqf, ret ? "GD32\n" : "STM32\n");
-+
-+	return 0;
-+}
-+
-+DEFINE_SHOW_ATTRIBUTE(firmware_version);
-+DEFINE_SHOW_ATTRIBUTE(pcb_version);
-+DEFINE_SHOW_ATTRIBUTE(mcu_type);
-+DEFINE_SHOW_ATTRIBUTE(board_type);
-+
-+// TODO: to debugfs
-+
-+static struct attribute *sg2042_mcu_attrs[] = {
-+	&dev_attr_reset_count.attr,
-+	&dev_attr_uptime.attr,
-+	&dev_attr_reset_reason.attr,
-+	&dev_attr_critical_action.attr,
-+	NULL
-+};
-+
-+static const struct attribute_group sg2042_mcu_attr_group = {
-+	.attrs	= sg2042_mcu_attrs,
-+};
-+
-+static const struct hwmon_channel_info * const sg2042_mcu_info[] = {
-+	HWMON_CHANNEL_INFO(chip, HWMON_C_REGISTER_TZ | HWMON_C_UPDATE_INTERVAL),
-+	HWMON_CHANNEL_INFO(temp, HWMON_T_INPUT | HWMON_T_CRIT |
-+					HWMON_T_CRIT_HYST,
-+				 HWMON_T_INPUT),
-+	NULL
-+};
-+
-+static int sg2042_mcu_read_temp(struct device *dev,
-+				u32 attr, int channel,
-+				long *val)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	long tmp;
-+
-+	switch (attr) {
-+	case hwmon_temp_input:
-+		switch (channel) {
-+		case 0:
-+			tmp = sg2042_mcu_get_soc_temp(mcu->client);
-+			if (tmp < 0)
-+				return tmp;
-+			*val = tmp * 1000;
-+			break;
-+		case 1:
-+			tmp = sg2042_mcu_get_board_temp(mcu->client);
-+			if (tmp < 0)
-+				return tmp;
-+			*val = tmp * 1000;
-+			break;
-+		default:
-+			return -EOPNOTSUPP;
-+		}
-+		break;
-+	case hwmon_temp_crit:
-+		if (channel)
-+			return -EOPNOTSUPP;
-+
-+		tmp = sg2042_mcu_get_soc_crit_temp(mcu->client);
-+		if (tmp < 0)
-+			return tmp;
-+		*val = tmp * 1000;
-+		break;
-+	case hwmon_temp_crit_hyst:
-+		if (channel)
-+			return -EOPNOTSUPP;
-+
-+		tmp = sg2042_mcu_get_soc_hyst_temp(mcu->client);
-+		if (tmp < 0)
-+			return tmp;
-+		*val = tmp * 1000;
-+		break;
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+	return 0;
-+}
-+
-+static int sg2042_mcu_read(struct device *dev,
-+			   enum hwmon_sensor_types type,
-+			   u32 attr, int channel, long *val)
-+{
-+	switch (type) {
-+	case hwmon_chip:
-+		if (attr != hwmon_chip_update_interval)
-+			return -EOPNOTSUPP;
-+		*val = 1000;
-+		break;
-+	case hwmon_temp:
-+		return sg2042_mcu_read_temp(dev, attr, channel, val);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+	return 0;
-+}
-+
-+static int sg2042_mcu_write(struct device *dev,
-+			    enum hwmon_sensor_types type,
-+			    u32 attr, int channel, long val)
-+{
-+	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
-+	u8 down_temp, repower_temp;
-+	int ret;
-+
-+	if (type != hwmon_temp || attr != hwmon_temp_crit || !channel)
-+		return -EOPNOTSUPP;
-+
-+	switch (attr) {
-+	case hwmon_temp_crit:
-+		ret = sg2042_mcu_get_soc_hyst_temp(mcu->client);
-+		if (ret < 0)
-+			repower_temp = DEFAULT_REPOWER_TEMP;
-+		else
-+			repower_temp = ret;
-+
-+		down_temp = val / 1000;
-+		if (down_temp < repower_temp)
-+			return -EINVAL;
-+
-+		return sg2042_mcu_set_soc_crit_temp(mcu->client,
-+						    (u8)(val / 1000));
-+	case hwmon_temp_crit_hyst:
-+		ret = sg2042_mcu_get_soc_crit_temp(mcu->client);
-+		if (ret < 0)
-+			return -ENODEV;
-+
-+		down_temp = ret;
-+		repower_temp = val / 1000;
-+		if (down_temp < repower_temp)
-+			return -EINVAL;
-+
-+		return sg2042_mcu_set_soc_hyst_temp(mcu->client,
-+						    (u8)(val / 1000));
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static umode_t sg2042_mcu_is_visible(const void *_data,
-+				     enum hwmon_sensor_types type,
-+				     u32 attr, int channel)
-+{
-+	switch (type) {
-+	case hwmon_chip:
-+		if (attr == hwmon_chip_update_interval)
-+			return 0444;
-+		break;
-+	case hwmon_temp:
-+		switch (attr) {
-+		case hwmon_temp_input:
-+			if (channel < 2)
-+				return 0444;
-+			break;
-+		case hwmon_temp_crit:
-+		case hwmon_temp_crit_hyst:
-+			if (channel == 0)
-+				return 0664;
-+			break;
-+		default:
-+			return 0;
-+		}
-+		break;
-+	default:
-+		return 0;
-+	}
-+	return 0;
-+}
-+
-+static const struct hwmon_ops sg2042_mcu_ops = {
-+	.is_visible = sg2042_mcu_is_visible,
-+	.read = sg2042_mcu_read,
-+	.write = sg2042_mcu_write,
-+};
-+
-+static const struct hwmon_chip_info sg2042_mcu_chip_info = {
-+	.ops = &sg2042_mcu_ops,
-+	.info = sg2042_mcu_info,
-+};
-+
-+static void sg2042_mcu_debugfs_init(struct sg2042_mcu_data *mcu,
-+				    struct device *dev)
-+{
-+	mcu->debugfs = debugfs_create_dir(dev_name(dev), sgmcu_debugfs);
-+	if (mcu->debugfs) {
-+		_CREATE_DEBUG_ENTRY(firmware_version, 0444, mcu->debugfs, mcu);
-+		_CREATE_DEBUG_ENTRY(pcb_version, 0444, mcu->debugfs, mcu);
-+		_CREATE_DEBUG_ENTRY(mcu_type, 0444, mcu->debugfs, mcu);
-+		_CREATE_DEBUG_ENTRY(board_type, 0444, mcu->debugfs, mcu);
-+	}
-+}
-+
-+static int sg2042_mcu_check_board(u8 id)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(sg2042_boards_data); i++) {
-+		if (sg2042_boards_data[i].id == id)
-+			return i;
-+	}
-+
-+	return -ENODEV;
-+}
-+
-+static int sg2042_mcu_i2c_probe(struct i2c_client *client)
-+{
-+	int ret;
-+	struct device *dev = &client->dev;
-+	struct sg2042_mcu_data *mcu;
-+	struct device *hwmon_dev;
-+
-+	if (!i2c_check_functionality(client->adapter, I2C_FUNC_SMBUS_BYTE_DATA |
-+						I2C_FUNC_SMBUS_BLOCK_DATA))
-+		return -EIO;
-+
-+	ret = sg2042_mcu_get_board_type(client);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = sg2042_mcu_check_board(ret);
-+	if (ret < 0)
-+		return ret;
-+
-+	mcu = devm_kmalloc(dev, sizeof(*mcu), GFP_KERNEL);
-+	if (!mcu)
-+		return -ENOMEM;
-+
-+	mcu->client = client;
-+	mcu->board_info = &sg2042_boards_data[ret];
-+
-+	ret = sysfs_create_group(&dev->kobj, &sg2042_mcu_attr_group);
-+	if (ret < 0)
-+		return ret;
-+
-+	i2c_set_clientdata(client, mcu);
-+
-+	hwmon_dev = devm_hwmon_device_register_with_info(dev, client->name,
-+							 mcu,
-+							 &sg2042_mcu_chip_info,
-+							 NULL);
-+
-+	sg2042_mcu_debugfs_init(mcu, dev);
-+
-+	return PTR_ERR_OR_ZERO(hwmon_dev);
-+}
-+
-+static void sg2042_mcu_i2c_remove(struct i2c_client *client)
-+{
-+	struct device *dev = &client->dev;
-+
-+	sysfs_remove_group(&dev->kobj, &sg2042_mcu_attr_group);
-+}
-+
-+static const struct i2c_device_id sg2042_mcu_id[] = {
-+	{ "sg2042_hwmon_mcu", 0 },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(i2c, sg2042_mcu_id);
-+
-+static const struct of_device_id sg2042_mcu_of_id[] = {
-+	{ .compatible = "sophgo,sg2042-hwmon-mcu" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, sg2042_mcu_of_id);
-+
-+static struct i2c_driver sg2042_mcu_driver = {
-+	.driver = {
-+		.name = "sg2042-mcu",
-+		.of_match_table = sg2042_mcu_of_id,
-+	},
-+	.probe = sg2042_mcu_i2c_probe,
-+	.remove = sg2042_mcu_i2c_remove,
-+	.id_table = sg2042_mcu_id,
-+};
-+
-+static int __init sg2042_mcu_init(void)
-+{
-+	sgmcu_debugfs = debugfs_create_dir("sgmcu", NULL);
-+	return i2c_add_driver(&sg2042_mcu_driver);
-+}
-+
-+static void __exit sg2042_mcu_exit(void)
-+{
-+	debugfs_remove_recursive(sgmcu_debugfs);
-+	i2c_del_driver(&sg2042_mcu_driver);
-+}
-+
-+module_init(sg2042_mcu_init);
-+module_exit(sg2042_mcu_exit);
-+
-+MODULE_AUTHOR("Inochi Amaoto <inochiama@outlook.com>");
-+MODULE_DESCRIPTION("MCU I2C driver for SG2042 soc platform");
-+MODULE_LICENSE("GPL");
---
-2.45.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SW50cm9kdWNlIHN1cHBvcnQgZm9yIHRoZSBRQ1M5MTAwIFNvQyBkZXZpY2UgdHJlZSAoRFRTSSkg
+YW5kIHRoZQpRQ1M5MTAwIFJJREUgYm9hcmQgRFRTLiBUaGUgUUNTOTEwMCBpcyBhIHZhcmlhbnQg
+b2YgdGhlIFNBODc3NXAuCldoaWxlIHRoZSBRQ1M5MTAwIHBsYXRmb3JtIGlzIHN0aWxsIGluIHRo
+ZSBlYXJseSBkZXNpZ24gc3RhZ2UsIHRoZQpRQ1M5MTAwIFJJREUgYm9hcmQgaXMgaWRlbnRpY2Fs
+IHRvIHRoZSBTQTg3NzVwIFJJREUgYm9hcmQsIGV4Y2VwdCBpdAptb3VudHMgdGhlIFFDUzkxMDAg
+U29DIGluc3RlYWQgb2YgdGhlIFNBODc3NXAgU29DLgoKVGhlIFFDUzkxMDAgU29DIERUU0kgd2Fz
+IGRpcmVjdGx5IHJlbmFtZWQgZnJvbSB0aGUgU0E4Nzc1cCBTb0MgRFRTSS4gSW4KdGhlIHVwY29t
+aW5nIHdlZWtzLCBOaWt1bmogS2VsYSB3aWxsIGRldmVsb3AgYSBuZXcgZGV2aWNlIHRyZWUgcmVs
+YXRlZAp0byBTQTg3NzVwLCBzcGVjaWZpY2FsbHkgc3VwcG9ydGluZyB0aGUgU0NNSSByZXNvdXJj
+ZSBmaXJtd2FyZSBzb2x1dGlvbgpmb3IgdGhlIFNBODc3NXAgcGxhdGZvcm0uIElmIHlvdSdyZSBh
+bHJlYWR5IGZhbWlsaWFyIHdpdGggdGhlCmJhY2tncm91bmQsIGZlZWwgZnJlZSB0byBza2lwIHBh
+cnRbMl0sIHdoaWNoIHByb3ZpZGVzIGEgZGV0YWlsZWQKZXhwbGFuYXRpb24uCgpBbGwgY29tcGF0
+aWJsZSBzdHJpbmdzIGhhdmUgYmVlbiB1cGRhdGVkIGZyb20g4oCcU0E4Nzc1UOKAnSB0byDigJxR
+Q1M5MTAwLuKAnQpJZiB5b3XigJlyZSBhbHJlYWR5IGF3YXJlIG9mIHRoZSBjb250ZXh0LCBmZWVs
+IGZyZWUgdG8gc2tpcCBwYXJ0WzNdLCB3aGljaApwcm92aWRlcyBhIGRldGFpbGVkIGV4cGxhbmF0
+aW9uIG9mIHZhcmlvdXMgb3RoZXIgb3B0aW9ucy4KCkhlcmXigJlzIHRoZSByZWFzb24gYW5kIGJh
+Y2tncm91bmQ6IEJqb3JuIEFuZGVyc3NvbiwgTmlrdW5qIEtlbGEsClNyaW5pdmFzIEthbmRhZ2F0
+bGEsIGFuZCBvdGhlciBRdWFsY29tbSBlbmdpbmVlcnMgY29udHJpYnV0ZWQgdG8gdGhlCmN1cnJl
+bnQgZGVzaWduLCBhbmQgd2XigJl2ZSBmaW5hbGl6ZWQgdGhpcyBzZXJpZXMgZm9yIGJyb2FkZXIg
+YXVkaWVuY2UKcmV2aWV3LgoKKlRoaXMgcGF0Y2ggc2VyaWVzIGFsaWducyB3aXRoIHVwc3RyZWFt
+IGVmZm9ydHMgdG93YXJkIGEgbmV3IGRlc2lnbgpzb2x1dGlvbjog4oCcVXNpbmcgbG9naWNhbCBw
+ZXJmb3JtYW5jZSBhbmQgcG93ZXIgZG9tYWlucyB0byBhY2hpZXZlCnJlc291cmNlIGFic3RyYWN0
+aW9uIG92ZXIgU0NNSS7igJ0gRm9yIG1vcmUgZGV0YWlscywgcmVmZXIgdG8gWzFdOgpbMV1odHRw
+czovL3Jlc291cmNlcy5saW5hcm8ub3JnL2VuL3Jlc291cmNlL3dmbmZFd0JoUmpMVjFQRUFKb0RE
+dGUKCipUaGUgU0E4Nzc1cC1SSURFIHdpbGwgdHJhbnNpdGlvbiB0byB1c2luZyBTQ01JIHJlc291
+cmNlcy4gVGhpcyBpbnZvbHZlcwptaWdyYXRpbmcgdG8gU0NNSSBwb3dlciBhbmQgcGVyZm9ybWFu
+Y2UgcHJvdG9jb2xzIGZvciByZXF1ZXN0aW5nIGFuZApjb25maWd1cmluZyBwZXJpcGhlcmFsIHJl
+c291cmNlcyBzdWNoIGFzIGNsb2NrcywgcmVndWxhdG9ycywKaW50ZXJjb25uZWN0cywgYW5kIFBI
+WXMuIENvbnNlcXVlbnRseSwgbW9zdCBkZXZpY2VzIGluIHRoZSBTQTg3NzVwLVJJREUKd2lsbCBy
+ZXF1aXJlIHVwZGF0ZXMgdG8gZHJpdmVycywgYmluZGluZ3MsIGFuZCBkZXZpY2UgdHJlZXMuCgoq
+VGhlIFFDUzkxMDAtUklERSBwcm9qZWN0IHdpbGwgY29udGludWUgdXNpbmcgdGhlIGV4aXN0aW5n
+IHJlc291cmNlcy4KSXQgd2lsbCByZWx5IG9uIHRoZSBjdXJyZW50IGtlcm5lbCBpbmZyYXN0cnVj
+dHVyZSBmb3IgY2xvY2tzLCByZWd1bGF0b3JzLAppbnRlcmNvbm5lY3RzLCBQSFlzLCBhbmQgQVBJ
+cy4KClsyXSBUaGUgcmVhc29uIG9mIHFjczkxMDAuZHRzaSByZW5hbWVkIGZyb20gc2E4Nzc1LmR0
+c2k6ClRoZSBwcm9wb3NhbCBpcyB0byBtYWludGFpbiB0d28gc2VwYXJhdGUgcGxhdGZvcm0uZHRz
+aSBmaWxlcy4KcWNzOTEwMC5kdHNpIGZvciBub24tc2NtaSByZXNvdXJjZXMgYW5kIHNhODc3NXAu
+ZHRzaSBmb3IgU0NNSSByZXNvdXJjZXMuCkN1cnJlbnRseSwgdGhlIHVwc3RyZWFtIHNhODc3NXAu
+ZHRzaSBjb250YWlucyAxNzYgbm9kZXMgd2l0aCBzcGVjaWZpZWQK4oCcY29tcGF0aWJsZeKAnSBz
+dHJpbmdzLiBBbW9uZyB0aGVzZSwgMTQyIG5vZGVzIHJlcXVpcmUgZGlzdGluY3QgcHJvcGVydGll
+cwpmb3IgU0NNSSBhbmQgbm9uLVNDTUkuIEFzIHRoZSBJb1QgdGFyZ2V0IGlzIGJlaW5nIHVwc3Ry
+ZWFtZWQsIGJvdGggbm9kZQpjb3VudHMgYXJlIGV4cGVjdGVkIHRvIGluY3JlYXNlIGZvciB0aGUg
+SW9UL1FDUyBwbGF0Zm9ybS4KCklmIHdlIGRvIG5vdCBpbXBsZW1lbnQgcGxhdGZvcm0gc2VwYXJh
+dGlvbiwgYW55IG1vZGlmaWNhdGlvbnMgdG8gdGhlCmJhc2Ugc2E4Nzc1cC5kdHNpLXdoZXRoZXIg
+Zm9yIGF1dG9tb3RpdmUgb3IgSW9UIHB1cnBvc2VzLW11c3QgY29uc2lkZXIKdGhlIG90aGVyIHBs
+YXRmb3JtLiBFYWNoIG5vZGUoZS5nLiwgcmVtb3RlcHJvYywgbXVsdGltZWRpYSkgYWRkZWQgc2hv
+dWxkCmJlIGNvdW50ZXJlZCB3aXRoIGFuIG92ZXJsYXkgdGhhdCBkaXNhYmxlcyBpdCBpbiB0aGUg
+YXV0b21vdGl2ZSBjb250ZXh0LgpDYXJlIG11c3QgYmUgdGFrZW4gdG8gYXZvaWQgaW50cm9kdWNp
+bmcgY2hhbmdlcyB0aGF0IGluZmVyZmVyZSB3aXRoIHRoZQphdXRvbW90aXZlIHN5c3RlbSBkZXNp
+Z24sIFRoaXMgc3RydWN0dXJlIHBvc2VzIGNoYWxsZW5nZXMgZm9yIGh1bWFuCnJlYXNpb25pbmcs
+IGxlYWRpbmcgdG8gaXNzdWVzIGR1cmluZyBkZXZlbG9wbWVudCwgY29kZSByZXZpZXcsIGFuZApt
+YWludGVuYW5jZS4KCkZ1cnRoZXJtb3JlLCB3ZSBhcmUgYWRkcmVzc2luZyB0aGUgY29tcGxleGl0
+eSBvZiByZXN1aW5nIG1hcmtldGluZyBuYW1lcwphY2Nyb3NzIGJvdGggdGhlIElvVChRQ1M5MTAw
+KSBhbmQgYXV0b21vdGl2ZShTQTg3NzVwKSBwbGF0Zm9ybXMuIFRoaXMKZGVjaXNpb24gaGFzIHNp
+Z25pZmljYXRpb25zIHRocm91Z2hvdXQgRGV2aWNlVHJlZSBhbmQgdGhlIGtlcm5lbC4KQ29uc2Vx
+dWVudGx5LCByZW5hbWVpbmcgdGhlIFFDUzkxMDAgZGV2aWNlIHRyZWUgZmlsZXMgZnJvbSB0aGUg
+U0E4Nzc1cApkZXZpY2UgZmlsZXMgaXMgb3VyIGRlZmluaXRpdmUgY2hvaWNlLgoKWzNdIFRoZSBy
+ZWFzb24gb2YgQWxsIENvbXBhdGlibGUgU3RyaW5ncyBDaGFuZ2VkIGZyb20g4oCcU0E4Nzc1UOKA
+nSB0bwrigJxRQ1M5MTAw4oCdOgpEdXJpbmcgZGlzY3Vzc2lvbnMsIHRocmVlIG9wdGlvbnMgd2Vy
+ZSBjb25zaWRlcmVkLiBVbHRpbWF0ZWx5LCBPcHRpb24KQiB3YXMgY2hvc2VuIGFzIHRoZSBiZXN0
+IGFwcHJvYWNoIGZvciBzZXBhcmF0aW5nIFFDUyBwcm9qZWN0cyBmcm9tIFNBCnByb2plY3RzLiBU
+aGlzIGRlY2lzaW9uIHNpbXBsaWZpZXMgdGhlIHJldmlld2Vy4oCZcyB0YXNrIGJ5IGZvY3VzaW5n
+IG9uCmVhY2ggcGxhdGZvcm0gaW5kZXBlbmRlbnRseS4gRGV2ZWxvcGVycyBvbmx5IG5lZWQgdG8g
+dmVyaWZ5IHRoZQphZmZlY3RlZCBwbGF0Zm9ybS4KCipPcHRpb24gQTog4oCcQW5k4oCdIChxY3M5
+MTAwK3NhODc3NSk6CgpBZGQgYWxsIHFjczkxMDAtY29tcGF0aWJsZSBzdHJpbmdzIGFsb25nc2lk
+ZSB0aGUgY3VycmVudApzYTg3NzVwLWNvbXBhdGlibGUgc3RyaW5ncyBpbiBlYWNoIGJpbmRpbmcg
+ZmlsZS4gRm9yIGV4YW1wbGU6CmFnZ3JlMV9ub2M6IGludGVyY29ubmVjdC1hZ2dyZTEtbm9jIHsK
+LSAgICBjb21wYXRpYmxlID0gInFjb20sc2E4Nzc1cC1hZ2dyZTEtbm9jIjsKKyAgICBjb21wYXRp
+YmxlID0gInFjb20scWNzOTEwMC1hZ2dyZTEtbm9jIiwgInFjb20sc2E4Nzc1cC1hZ2dyZTEtbm9j
+IjsKICAgICNpbnRlcmNvbm5lY3QtY2VsbHMgPSA8Mj47CiAgICBxY29tLGJjbS12b3RlcnMgPSA8
+JmFwcHNfYmNtX3ZvdGVyPjsgfTsKClNvbWUgZGV2aWNlIHRyZWUgKERUKSBub2RlcyBtYXkgc2hh
+cmUgY29tbW9uIGNvbXBhdGlibGVzLiBGb3IgaW5zdGFuY2U6CmZpcm13YXJlIHsKICAgIHNjbSB7
+Ci0gICAgICAgIGNvbXBhdGlibGUgPSAicWNvbSxzY20tc2E4Nzc1cCIsICJxY29tLHNjbSI7Cisg
+ICAgICAgIGNvbXBhdGlibGUgPSAicWNvbSxzY20tcWNzOTEwMCIsICJxY29tLHNjbSI7CiAgICB9
+Owp9OwoKQXBwcm94aW1hdGVseSA1MCsgc2E4Nzc1cC1yZWxhdGVkIGNvbXBhdGlibGUgbmFtZXMg
+bmVlZCB0byBiZSBjaGFuZ2VkCnRvIHFjczkxMDAtY29tcGF0aWJsZSBuYW1lcyBpbiB0aGUgYmlu
+ZGluZyBmaWxlcyBhbmQgRFQgbm9kZXMuCldoZW4gdGhlIFNDTUkgcmVzb3VyY2UgZHJpdmVyIG93
+bmVyIGFkZHMgU0NNSSBzdXBwb3J0LCB0aGV5IG5lZWQgdG8KdXBkYXRlIGJvdGggdGhlIHFjczkx
+MDAgRFQgKG5vbi1TQ01JIHJlc291cmNlKSBhbmQgdGhlIHNhODc3NSBEVCAoU0NNSQpyZXNvdXJj
+ZSkgc2ltdWx0YW5lb3VzbHkuCkZvciB0aGlzIG9wdGlvbjoKCkRUIGFuZCBiaW5kaW5nIGNoYW5n
+ZXMgYXJlIG5lZWRlZC4KTm8gZHJpdmVyIEMgZmlsZSBjaGFuZ2VzIGFyZSByZXF1aXJlZCBhdCB0
+aGlzIHRpbWUuClRlY2huaWNhbCBkcml2ZXIgb3duZXJzIG11c3QgaGFuZGxlIGJvdGggdGhlIHFj
+cyBEVCBhbmQgc2EgRFQuCgoqT3B0aW9uIEI6IOKAnE9y4oCdIChxY3M5MTAwIG9yIHNhODc3NSk6
+CgpSZXBsYWNlIGFsbCBxY3M5MTAwLWNvbXBhdGlibGUgc3RyaW5ncyB3aXRoIHRoZSBjdXJyZW50
+CnNhODc3NXAtY29tcGF0aWJsZSBzdHJpbmdzIGluIHRoZSBxY3M5MTAwIERULiBGb3IgZXhhbXBs
+ZToKYWdncmUxX25vYzogaW50ZXJjb25uZWN0LWFnZ3JlMS1ub2MgewotICAgIGNvbXBhdGlibGUg
+PSAicWNvbSxzYTg3NzVwLWFnZ3JlMS1ub2MiOworICAgIGNvbXBhdGlibGUgPSAicWNvbSxxY3M5
+MTAwLWFnZ3JlMS1ub2MiOwogICAgI2ludGVyY29ubmVjdC1jZWxscyA9IDwyPjsKICAgIHFjb20s
+YmNtLXZvdGVycyA9IDwmYXBwc19iY21fdm90ZXI+OyB9OwoKQWRkIHRoZSBuZWNlc3Nhcnkg4oCc
+cWNzOTEwMOKAnSBjb21wYXRpYmxlIHN0cmluZ3MgdG8gdGhlIEMgZHJpdmVyLiBJbgpkcml2ZXJz
+L2ludGVyY29ubmVjdC9xY29tL3NhODc3NXAuYzoKc3RhdGljIGNvbnN0IHN0cnVjdCBvZl9kZXZp
+Y2VfaWQgcW5vY19vZl9tYXRjaFtdID0gewogICAgeyAuY29tcGF0aWJsZSA9ICJxY29tLHNhODc3
+NXAtYWdncmUxLW5vYyIsIC5kYXRhID0gJnNhODc3NXBfYWdncmUxX25vYyB9LAorICAgeyAuY29t
+cGF0aWJsZSA9ICJxY29tLHFjczkxMDAtYWdncmUxLW5vYyIsIC5kYXRhID0KJnNhODc3NXBfYWdn
+cmUxX25vYyB9LAogICAgeyAuY29tcGF0aWJsZSA9ICJxY29tLHNhODc3NXAtYWdncmUyLW5vYyIs
+IC5kYXRhID0gJnNhODc3NXBfYWdncmUyX25vYyB9LAorICAgeyAuY29tcGF0aWJsZSA9ICJxY29t
+LHFjczkxMDAtYWdncmUyLW5vYyIsIC5kYXRhID0KJnNhODc3NXBfYWdncmUyX25vYyB9LAogICAg
+Ly8gLi4uCn07CgpTb21lIERUIG5vZGVzIG1heSBzaGFyZSBjb21tb24gY29tcGF0aWJsZXMsIHNp
+bWlsYXIgdG8gdGhlIGV4YW1wbGUgYWJvdmUuCkFwcHJveGltYXRlbHkgNTArIHNhODc3NXAtcmVs
+YXRlZCBjb21wYXRpYmxlIG5hbWVzIG5lZWQgdG8gYmUgY2hhbmdlZCB0bwpxY3M5MTAwLWNvbXBh
+dGlibGUgbmFtZXMgaW4gdGhlIGJpbmRpbmcgZmlsZXMgYW5kIERUIG5vZGVzLgpXaGVuIHRoZSBT
+Q01JIHJlc291cmNlIGRyaXZlciBvd25lciBhZGRzIFNDTUkgc3VwcG9ydCwgdGhleSBvbmx5IG5l
+ZWQgdG8KdXBkYXRlIHRoZSBzYTg3NzUgRFQgKFNDTUkgcmVzb3VyY2UpLgpGb3IgdGhpcyBvcHRp
+b246CkRULCBiaW5kaW5nLCBhbmQgQyBkcml2ZXIgY2hhbmdlcyBhcmUgbmVlZGVkLgpUZWNobmlj
+YWwgZHJpdmVyIG93bmVycyBvbmx5IG5lZWQgdG8gaGFuZGxlIHRoZSBzYSBEVC4KCipPcHRpb24g
+Qzog4oCcRGVwZW5kc+KAnSAoc2E4Nzc1IGluIHFjczkxMDAsIGRlcGVuZHMgb24gZHJpdmVyIHRv
+IGNoYW5nZQpuZWNlc3NhcnkgZHJpdmVyICsgRFQgbGF0ZXIpOgpUaGlzIG9wdGlvbiBkZXBlbmRz
+IG9uIHRoZSBTQ01JIHJlc291cmNlIHNvbHV0aW9uIGFuZCByZXF1aXJlcyBtaW5pbWFsCmRyaXZl
+ciBjaGFuZ2VzLgoKQ2hhbmdlIGNvbW1vbiBjb21wYXRpYmxlcyB0byDigJxxY3M5MTAwLOKAnSBh
+cyBzaG93biBpbiB0aGUgZXhhbXBsZToKZmlybXdhcmUgewogICAgc2NtIHsKLSAgICAgICAgY29t
+cGF0aWJsZSA9ICJxY29tLHNjbS1zYTg3NzVwIiwgInFjb20sc2NtIjsKKyAgICAgICAgY29tcGF0
+aWJsZSA9ICJxY29tLHNjbS1xY3M5MTAwIiwgInFjb20sc2NtIjsKICAgIH07Cn07CgpBcHByb3hp
+bWF0ZWx5IDMwKyBzYTg3NzVwLXJlbGF0ZWQgY29tcGF0aWJsZSBuYW1lcyBuZWVkIHRvIGJlIGNo
+YW5nZWQKdG8gcWNzOTEwMC1jb21wYXRpYmxlIG5hbWVzIGluIHRoZSBiaW5kaW5nIGZpbGVzIGFu
+ZCBEVCBub2Rlcy4KV2hlbiB0aGUgU0NNSSByZXNvdXJjZSBkcml2ZXIgb3duZXIgYWRkcyBTQ01J
+IHN1cHBvcnQsIHRoZXkgbXVzdAp1cGRhdGUgYm90aCB0aGUgcWNzOTEwMCBEVCBhbmQgdGhlIHNh
+ODc3NSBEVCAoU0NNSSByZXNvdXJjZSkKc2ltdWx0YW5lb3VzbHkuCkZvciBleGFtcGxlOgoKeyAu
+Y29tcGF0aWJsZSA9ICJxY29tLHNhODc3NXAtYWdncmUxLW5vYyIsIC5kYXRhID0gJnNhODc3NXBf
+YWdncmUxX25vYyB9LAorIHsgLmNvbXBhdGlibGUgPSAicWNvbSxxY3M5MTAwLWFnZ3JlMS1ub2Mi
+LCAuZGF0YSA9ICZxY3M5MTAwX2FnZ3JlMV9ub2MKKyB9LAp7IC5jb21wYXRpYmxlID0gInFjb20s
+c2E4Nzc1cC1hZ2dyZTItbm9jIiwgLmRhdGEgPSAmc2E4Nzc1cF9hZ2dyZTJfbm9jIH0sCisgeyAu
+Y29tcGF0aWJsZSA9ICJxY29tLHFjczkxMDAtYWdncmUyLW5vYyIsIC5kYXRhID0gJnFjczkxMDBf
+YWdncmUyX25vYworIH0sCi8vIC4uLgoKRm9yIHRoaXMgb3B0aW9uOgpEVCBjaGFuZ2VzIGFyZSBu
+ZWVkZWQuClRlY2huaWNhbCBkcml2ZXIgb3duZXJzIGFyZSByZXNwb25zaWJsZSBmb3IgbWFraW5n
+IHRoZSBmaW5hbCBkaWZmZXJlbnQKZHJpdmVyIGNoYW5nZXMgYW5kIGVuc3VyaW5nIHRoZSBleGFj
+dCBiaW5kaW5nIG9mIHFjczkxMDAgYW5kIHNhODc3NQp3aXRoIGRpZmZlcmVudCBjb21wYXRpYmxl
+cy4KCkluIHN1bW1hcnksIHRoZSBjdXJyZW50IHNvbHV0aW9uIHByaW1hcmlseSB0YXJnZXRzIFND
+TUktYmFzZWQgcmVzb3VyY2UKdHJhbnNhY3Rpb25zLiBIb3dldmVyLCBib3RoIHRoZSBxY3MgcHJv
+amVjdCBhbmQgdGhlIFNBIHByb2plY3QsIHdoaWNoCmFyZSBpbiB0aGUgZGV2ZWxvcG1lbnQgc3Rh
+Z2UsIHJlcXVpcmUgaW5kZXBlbmRlbnQgZGV2ZWxvcG1lbnQgcHJvY2Vzc2VzLgoKQ28tZGV2ZWxv
+cGVkLWJ5OiBNYXJpYSBZdSA8cXVpY19haXF1bnlAcXVpY2luYy5jb20+ClNpZ25lZC1vZmYtYnk6
+IE1hcmlhIFl1IDxxdWljX2FpcXVueUBxdWljaW5jLmNvbT4KU2lnbmVkLW9mZi1ieTogVGVuZ2Zl
+aSBGYW4gPHF1aWNfdGVuZ2ZhbkBxdWljaW5jLmNvbT4KLS0tCgpUZW5nZmVpIEZhbiAoNDcpOgog
+IGR0LWJpbmRpbmdzOiBhcm06IHFjb206IERvY3VtZW50IFFDUzkxMDAgU29DIGFuZCBSSURFIGJv
+YXJkCiAgYXJtNjQ6IGR0czogcWNvbTogcWNzOTEwMDogSW50cm9kdWNlIFFDUzkxMDAgU29DIGR0
+c2kKICBhcm02NDogZHRzOiBxY29tOiBxY3M5MTAwOiBJbnRyb2R1Y2UgUUNTOTEwMCBQTUlDIGR0
+c2kKICBhcm02NDogZHRzOiBxY29tOiBxY3M5MTAwOiBBZGQgUUNTOTEwMCBSSURFIGJvYXJkIGR0
+cwogIGR0LWJpbmRpbmdzOiBmaXJtd2FyZTogcWNvbSxzY206IGRvY3VtZW50IFNDTSBvbiBRQ1M5
+MTAwIFNvQwogIGR0LWJpbmRpbmdzOiBpbnRlcmNvbm5lY3Q6IHFjb206IGRvY3VtZW50IHRoZSBp
+bnRlcmNvbm5lY3QgY29tcGF0aWJsZXMKICAgIGZvciBRQ1M5MTAwCiAgZHQtYmluZGluZ3M6IGNs
+b2NrOiBkb2N1bWVudCBRQ1M5MTAwIEdDQyBjb21wYXRpYmxlCiAgZHQtYmluZGluZ3M6IG1haWxi
+b3g6IHFjb20taXBjYzogRG9jdW1lbnQgdGhlIFFDUzkxMDAgSVBDQwogIGR0LWJpbmRpbmdzOiBw
+aHk6IEFkZCBRTVAgVUZTIFBIWSBjb21wdGlibGUgZm9yIFFDUzkxMDAKICBkdC1iaW5kaW5nczog
+Y3J5cHRvOiBpY2U6IERvY3VtZW50IFFDUzkxMDAgaW5saW5lIGNyeXB0byBlbmdpbmUKICBkdC1i
+aW5kaW5nczogY3J5cHRvOiBxY29tLHBybmc6IGRvY3VtZW50IFFDUzkxMDAKICBkdC1iaW5kaW5n
+czogcGh5OiBxY29tLHVzYi1zbnBzLWZlbXRvLXYyOiBBZGQgYmluZGluZ3MgZm9yIFFDUzkxMDAK
+ICBkdC1iaW5kaW5nczogdWZzOiBxY29tOiBkb2N1bWVudCBRQ1M5MTAwIFVGUwogIGR0LWJpbmRp
+bmdzOiBwaHk6IHFjb20scW1wLXVzYjogQWRkIFFDUzkxMDAgVVNCMyBQSFkKICBkdC1iaW5kaW5n
+czogdXNiOiBkd2MzOiBBZGQgUUNTOTEwMCBjb21wYXRpYmxlCiAgZHQtYmluZGluZ3M6IGNsb2Nr
+OiBxY29tOiBkZXNjcmliZSB0aGUgR1BVQ0MgY2xvY2sgZm9yIFFDUzkxMDAKICBkdC1iaW5kaW5n
+czogYXJtLXNtbXU6IERvY3VtZW50IFFDUzkxMDAgR1BVIFNNTVUKICBkdC1iaW5kaW5nczogcGh5
+OiBkZXNjcmliZSB0aGUgUXVhbGNvbW0gU0dNSUkgUEhZIGZvciBRQ1M5MTAwCiAgZHQtYmluZGlu
+Z3M6IGNhY2hlOiBxY29tLGxsY2M6IEFkZCBRQ1M5MTAwIGRlc2NyaXB0aW9uCiAgZHQtYmluZGlu
+Z3M6IGludGVycnVwdC1jb250cm9sbGVyOiBxY29tLHBkYzogZG9jdW1lbnQgcGRjIG9uIFFDUzkx
+MDAKICBkdC1iaW5kaW5nczogdGhlcm1hbDogcWNvbS10c2VuczogZG9jdW1lbnQgdGhlIFFDUzkx
+MDAgVGVtcGVyYXR1cmUKICAgIFNlbnNvcgogIGR0LWJpbmRpbmdzOiBzb2M6IHFjb20sYW9zcy1x
+bXA6IERvY3VtZW50IHRoZSBRQ1M5MTAwIEFPU1MgY2hhbm5lbAogIGR0LWJpbmRpbmdzOiBwaW5j
+dHJsOiBhZGQgcWNzOTEwMC10bG1tIGNvbXBhdGlibGUKICBkdC1iaW5kaW5nczogc29jOiBxY29t
+OiBhZGQgcWNvbSxxY3M5MTAwLWltZW0gY29tcGF0aWJsZQogIGR0LWJpbmRpbmdzOiB3YXRjaGRv
+ZzogcWNvbS13ZHQ6IGRvY3VtZW50IFFDUzkxMDAKICBkdC1iaW5kaW5nczogY2xvY2s6IHFjb20t
+cnBtaGNjOiBBZGQgUlBNSENDIGJpbmRpbmdzIGZvciBRQ1M5MTAwCiAgZHQtYmluZGluZ3M6IGNw
+dWZyZXE6IGNwdWZyZXEtcWNvbS1odzogQWRkIFFDUzkxMDAgY29tcGF0aWJsZXMKICBkdC1iaW5k
+aW5nczogcG93ZXI6IHFjb20scnBtcGQ6IGRvY3VtZW50IHRoZSBRQ1M5MTAwIFJQTWggUG93ZXIK
+ICAgIERvbWFpbnMKICBkdC1iaW5kaW5nczogbmV0OiBxY29tLGV0aHFvczogYWRkIGRlc2NyaXB0
+aW9uIGZvciBxY3M5MTAwCiAgZHQtYmluZGluZ3M6IFBDSTogRG9jdW1lbnQgY29tcGF0aWJsZSBm
+b3IgUUNTOTEwMAogIGR0LWJpbmRpbmdzOiBQQ0k6IHFjb20tZXA6IEFkZCBzdXBwb3J0IGZvciBR
+Q1M5MTAwIFNvQwogIGR0LWJpbmRpbmdzOiBwaHk6IHFjb20scW1wOiBBZGQgcWNzOTEwMCBRTVAg
+UENJZSBQSFkKICBpbnRlcmNvbm5lY3Q6IHFjb206IGFkZCBkcml2ZXIgc3VwcG9ydCBmb3IgcWNz
+OTEwMAogIGNsazogcWNvbTogYWRkIHRoZSBHQ0MgZHJpdmVyIHN1cHBvcnQgZm9yIFFDUzkxMDAK
+ICBwaHk6IHFjb20tcW1wLXVmczogQWRkIFFDUzkxMDAgc3VwcG9ydAogIHBoeTogcWNwbS1xbXAt
+dXNiOiBBZGQgc3VwcG9ydCBmb3IgUUNTOTEwMAogIGNsazogcWNvbTogYWRkIHRoZSBHUFVDQyBk
+cml2ZXIgc3VwcG9ydCBmb3IgUUNTOTEwMAogIHBoeTogcWNvbTogYWRkIHRoZSBTR01JSSBTZXJE
+ZXMgUEhZIGRyaXZlciBzdXBwb3J0CiAgc29jOiBxY29tOiBsbGNjOiBBZGQgbGxjYyBjb25maWd1
+cmF0aW9uIHN1cHBvcnQgZm9yIHRoZSBRQ1M5MTAwCiAgICBwbGF0Zm9ybQogIHBpbmN0cmw6IHFj
+b206IGFkZCB0aGUgdGxtbSBkcml2ZXIgc3VwcG9ydCBmb3IgcWNzOTEwMCBwbGF0Zm9ybQogIGNs
+azogcWNvbTogcnBtaDogQWRkIHN1cHBvcnQgZm9yIFFDUzkxMDAgcnBtaCBjbG9ja3MKICBzb2M6
+IHFjb206IHJtcGhwZDogYWRkIHBvd2VyIGRvbWFpbnMgZm9yIFFDUzkxMDAKICBuZXQ6IHN0bW1h
+YzogZHdtYWMtcWNvbS1ldGhxb3M6IGFkZCBzdXBwb3J0IGZvciBlbWFjNCBvbiBxY3M5MTAwCiAg
+ICBwbGF0Zm9ybXMKICBQQ0k6IHFjb206IEFkZCBzdXBwb3J0IGZvciBRQ1M5MTAwIFNvQwogIFBD
+STogcWNvbS1lcDogQWRkIEhETUEgc3VwcG9ydCBmb3IgUUNTOTEwMCBTb0MKICBjcHVmcmVxOiBx
+Y29tLW52bWVtOiBhZGQgc3VwcG9ydCBmb3IgUUNTOTEwMAogIHBoeTogcWNvbS1xbXAtcGNpZTog
+YWRkIHg0IGxhbmUgRVAgc3VwcG9ydCBmb3IgUUNTOTEwMAoKIC4uLi9kZXZpY2V0cmVlL2JpbmRp
+bmdzL2FybS9xY29tLnlhbWwgICAgICAgICB8ICAgMyArCiAuLi4vZGV2aWNldHJlZS9iaW5kaW5n
+cy9jYWNoZS9xY29tLGxsY2MueWFtbCAgfCAgIDIgKwogLi4uL2RldmljZXRyZWUvYmluZGluZ3Mv
+Y2xvY2svcWNvbSxncHVjYy55YW1sIHwgICAxICsKIC4uLi9iaW5kaW5ncy9jbG9jay9xY29tLHJw
+bWhjYy55YW1sICAgICAgICAgICB8ICAgMSArCiAuLi4vYmluZGluZ3MvY2xvY2svcWNvbSxzYTg3
+NzVwLWdjYy55YW1sICAgICAgfCAgIDUgKy0KIC4uLi9iaW5kaW5ncy9jcHVmcmVxL2NwdWZyZXEt
+cWNvbS1ody55YW1sICAgICB8ICAgMSArCiAuLi4vY3J5cHRvL3Fjb20saW5saW5lLWNyeXB0by1l
+bmdpbmUueWFtbCAgICAgfCAgIDEgKwogLi4uL2RldmljZXRyZWUvYmluZGluZ3MvY3J5cHRvL3Fj
+b20scHJuZy55YW1sIHwgICAxICsKIC4uLi9iaW5kaW5ncy9maXJtd2FyZS9xY29tLHNjbS55YW1s
+ICAgICAgICAgICB8ICAgMSArCiAuLi4vaW50ZXJjb25uZWN0L3Fjb20sc2E4Nzc1cC1ycG1oLnlh
+bWwgICAgICAgfCAgMTQgKysrCiAuLi4vaW50ZXJydXB0LWNvbnRyb2xsZXIvcWNvbSxwZGMueWFt
+bCAgICAgICAgfCAgIDEgKwogLi4uL2RldmljZXRyZWUvYmluZGluZ3MvaW9tbXUvYXJtLHNtbXUu
+eWFtbCAgIHwgICAzICsKIC4uLi9iaW5kaW5ncy9tYWlsYm94L3Fjb20taXBjYy55YW1sICAgICAg
+ICAgICB8ICAgMSArCiAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9uZXQvcWNvbSxldGhxb3MueWFt
+bCAgfCAgIDEgKwogLi4uL2RldmljZXRyZWUvYmluZGluZ3MvbmV0L3NucHMsZHdtYWMueWFtbCAg
+IHwgICAzICsKIC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BjaS9xY29tLHBjaWUtZXAueWFtbCB8
+ICAgMiArCiAuLi4vYmluZGluZ3MvcGNpL3Fjb20scGNpZS1zYTg3NzVwLnlhbWwgICAgICAgfCAg
+IDUgKy0KIC4uLi9waHkvcWNvbSxzYTg3NzVwLWR3bWFjLXNnbWlpLXBoeS55YW1sICAgICB8ICAg
+NSArLQogLi4uL3BoeS9xY29tLHNjODI4MHhwLXFtcC1wY2llLXBoeS55YW1sICAgICAgIHwgICA0
+ICsKIC4uLi9waHkvcWNvbSxzYzgyODB4cC1xbXAtdWZzLXBoeS55YW1sICAgICAgICB8ICAgMiAr
+CiAuLi4vcGh5L3Fjb20sc2M4MjgweHAtcW1wLXVzYjMtdW5pLXBoeS55YW1sICAgfCAgIDMgKwog
+Li4uL2JpbmRpbmdzL3BoeS9xY29tLHVzYi1zbnBzLWZlbXRvLXYyLnlhbWwgIHwgICAxICsKIC4u
+Li9iaW5kaW5ncy9waW5jdHJsL3Fjb20sc2E4Nzc1cC10bG1tLnlhbWwgICB8ICAgNSArLQogLi4u
+L2RldmljZXRyZWUvYmluZGluZ3MvcG93ZXIvcWNvbSxycG1wZC55YW1sIHwgICAxICsKIC4uLi9i
+aW5kaW5ncy9zb2MvcWNvbS9xY29tLGFvc3MtcW1wLnlhbWwgICAgICB8ICAgMSArCiAuLi4vZGV2
+aWNldHJlZS9iaW5kaW5ncy9zcmFtL3Fjb20saW1lbS55YW1sICAgfCAgIDEgKwogLi4uL2JpbmRp
+bmdzL3RoZXJtYWwvcWNvbS10c2Vucy55YW1sICAgICAgICAgIHwgICAxICsKIC4uLi9kZXZpY2V0
+cmVlL2JpbmRpbmdzL3Vmcy9xY29tLHVmcy55YW1sICAgICB8ICAgMiArCiAuLi4vZGV2aWNldHJl
+ZS9iaW5kaW5ncy91c2IvcWNvbSxkd2MzLnlhbWwgICAgfCAgIDMgKwogLi4uL2JpbmRpbmdzL3dh
+dGNoZG9nL3Fjb20td2R0LnlhbWwgICAgICAgICAgIHwgICAxICsKIGFyY2gvYXJtNjQvYm9vdC9k
+dHMvcWNvbS9NYWtlZmlsZSAgICAgICAgICAgICB8ICAgMiArLQogLi4ue3NhODc3NXAtcG1pY3Mu
+ZHRzaSA9PiBxY3M5MTAwLXBtaWNzLmR0c2l9IHwgICAwCiAuLi4ve3NhODc3NXAtcmlkZS5kdHMg
+PT4gcWNzOTEwMC1yaWRlLmR0c30gICAgfCAgIDggKy0KIC4uLi9kdHMvcWNvbS97c2E4Nzc1cC5k
+dHNpID0+IHFjczkxMDAuZHRzaX0gICB8IDExMiArKysrKysrKystLS0tLS0tLS0KIGRyaXZlcnMv
+Y2xrL3Fjb20vY2xrLXJwbWguYyAgICAgICAgICAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL2Ns
+ay9xY29tL2djYy1zYTg3NzVwLmMgICAgICAgICAgICAgICAgfCAgIDEgKwogZHJpdmVycy9jbGsv
+cWNvbS9ncHVjYy1zYTg3NzVwLmMgICAgICAgICAgICAgIHwgICAxICsKIGRyaXZlcnMvY3B1ZnJl
+cS9jcHVmcmVxLWR0LXBsYXRkZXYuYyAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL2ludGVyY29u
+bmVjdC9xY29tL3NhODc3NXAuYyAgICAgICAgICAgfCAgMTQgKysrCiAuLi4vc3RtaWNyby9zdG1t
+YWMvZHdtYWMtcWNvbS1ldGhxb3MuYyAgICAgICAgfCAgIDEgKwogZHJpdmVycy9wY2kvY29udHJv
+bGxlci9kd2MvcGNpZS1xY29tLWVwLmMgICAgIHwgICAxICsKIGRyaXZlcnMvcGNpL2NvbnRyb2xs
+ZXIvZHdjL3BjaWUtcWNvbS5jICAgICAgICB8ICAgMSArCiBkcml2ZXJzL3BoeS9xdWFsY29tbS9w
+aHktcWNvbS1xbXAtcGNpZS5jICAgICAgfCAgIDYgKwogZHJpdmVycy9waHkvcXVhbGNvbW0vcGh5
+LXFjb20tcW1wLXVmcy5jICAgICAgIHwgICAzICsKIGRyaXZlcnMvcGh5L3F1YWxjb21tL3BoeS1x
+Y29tLXFtcC11c2IuYyAgICAgICB8ICAgMyArCiBkcml2ZXJzL3BoeS9xdWFsY29tbS9waHktcWNv
+bS1zZ21paS1ldGguYyAgICAgfCAgIDEgKwogZHJpdmVycy9waW5jdHJsL3Fjb20vcGluY3RybC1z
+YTg3NzVwLmMgICAgICAgIHwgICAxICsKIGRyaXZlcnMvcG1kb21haW4vcWNvbS9ycG1ocGQuYyAg
+ICAgICAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL3NvYy9xY29tL2xsY2MtcWNvbS5jICAgICAg
+ICAgICAgICAgICAgfCAgIDEgKwogNDkgZmlsZXMgY2hhbmdlZCwgMTcwIGluc2VydGlvbnMoKyks
+IDY1IGRlbGV0aW9ucygtKQogcmVuYW1lIGFyY2gvYXJtNjQvYm9vdC9kdHMvcWNvbS97c2E4Nzc1
+cC1wbWljcy5kdHNpID0+IHFjczkxMDAtcG1pY3MuZHRzaX0gKDEwMCUpCiByZW5hbWUgYXJjaC9h
+cm02NC9ib290L2R0cy9xY29tL3tzYTg3NzVwLXJpZGUuZHRzID0+IHFjczkxMDAtcmlkZS5kdHN9
+ICg5OSUpCiByZW5hbWUgYXJjaC9hcm02NC9ib290L2R0cy9xY29tL3tzYTg3NzVwLmR0c2kgPT4g
+cWNzOTEwMC5kdHNpfSAoOTclKQoKCmJhc2UtY29tbWl0OiA4MmU0MjU1MzA1YzU1NGIwYmIxOGI3
+Y2NmMmRiODYwNDFiNGM4YjZlCi0tIAoyLjI1LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
