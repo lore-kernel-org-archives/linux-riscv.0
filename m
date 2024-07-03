@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1113C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F6CC2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gGFagEZapD3SlonrBzQlJtBYtZnzTI0hWR+rOud5XW4=; b=FTlLqz04su2u5h
-	f9jLfXQgJboUjGESrI7yvc90aSBeMMbtPzEYP6PpeeSauKX0w/YAcyVLpWuxte9W2kkIVtIBjehV0
-	bLWRkeM+Z5ekuV4yRcjIKs1tTXe3+NXymSacN/oBlMokXU0ucpOSYmmdn9rWvacTj+bmVHjJBjeqo
-	VGqzRhaEZZ9qiq57+CTqQUh1QPZU0lX3wWDrFQmTFFJ6w3sXCrvHBsrVuhOPNirtL10MhAr//bSSh
-	pUQi5PKMQ8BzZ9EgjxaW5la2ftipri4mk7IHyfuGQYF7uRjyqB9c5g4CiaNxYbmFQTl8ZyvcC7+aO
-	3fpuxXq3qj1NnN2qArvg==;
+	List-Owner; bh=rtMmZz7dmwmR2mTTKHu7pdz5/ly1QVWBOLomgyMj+84=; b=t77LfGEnqSnN30
+	uBIE/yyTHaJQ4DkrEV5jIGgrVIO8TbHq6rrx7oFSeQUs7xsDqMKhrekEtfTUgjzYgaKDtNniQFwl3
+	jNzDMhh4TB8Uag/U1v4ETac9tFB+R8LeUFFMiw0IyTPcO37aj8mjDXDgvYOTZaIfY/V8oacQOvJkl
+	Z1d+trtqObiQ+oOlRR+o0GJss5Y3RbwXssg717HoK8oevgi+uQp/hNV/6u5TniFyzF6mxkUemhrzz
+	Wr5LjQmKP+8qqSibTq+6Swfg1Nq1fJmJwnXbYnT/Ffx0vYiU95lCLaLHE5/IinacDLqGSky5U/jUK
+	ai+JAx6wRH53YJpig4zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrJ5-00000008sXT-1ggV;
-	Wed, 03 Jul 2024 04:09:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1sOrJL-00000008sde-1sdJ;
+	Wed, 03 Jul 2024 04:09:39 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrJ2-00000008sWO-3mKw;
-	Wed, 03 Jul 2024 04:09:22 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462JEOse030437;
-	Wed, 3 Jul 2024 04:07:52 GMT
+	id 1sOrJI-00000008sbY-1fIS;
+	Wed, 03 Jul 2024 04:09:37 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462HEOJI004030;
+	Wed, 3 Jul 2024 04:08:12 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	n+7KkyP8p7ebCgU4HcV4M9wI8I89s4Mc9YI3BIw5wQI=; b=in55VlNOi/bqyhU4
-	Rd9PJgXT+uG7O7sUWFAC02V6LoI30ce8TguTt16InbskHg8vPZOBhdqejVUI3AqT
-	MgBb5LSue2d/8j+a3e1uGkt6YhgfBkB3aq+o/UpvZvooMW9RynW7BV2TNa91xVfZ
-	KCtvg7oxEJcJonPZD22lqJBN0UVaMgHD//SlaTVSrwktcks6T+oF/tdua+kUNQnZ
-	GpbR5MtHKcqzK+ncYhqE1iw6WjJE9wcGDzEr6Mp95DqwZMZA7DbAcA0B9wWfmezN
-	p4wLHKzKLNFaJEXCDrbn7C7FoXdGcOuqJpqGykh1NysGbNkJuLNs3UzXP4Lafoqi
-	aPvsaw==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 402bejsy8u-1
+	/oSxM1GRn7V3lrTwxdGth+tnKwY/ctZ54CPcSpojck8=; b=oqC6jzwjiQxhjD9/
+	JB6YioUUwIcTzPTq3F5lP9AR0VAhnA0stNxwa7WPqDuk8Az4xRNmQw7KbQeRleAo
+	agJvfQ9Th6iRZtgtTL2zWq0h7THBixekczGGgWa1maMPE9sObYJuVlsxpqCmZNUM
+	M+HZxtVLqJpsRC6tIke7ry4xbFhLOyZ+LYXHZbmQI+qkUfPZCBHUIEgbKb8aUgDe
+	u1oO3tyMQ26Kywjf1+vN0e/sxmv0JVLvhUeVL0Bf8qFiNuH/UnMhQI/8RbMcTCv+
+	URfOZ9JbZVx19XYUVR6QIzkSEN3DT4atwZqjk2tKUBOP0lXMM8wFB/aKT9GwJMnp
+	C8e0fQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4029uxfkyn-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Jul 2024 04:07:52 +0000 (GMT)
+	Wed, 03 Jul 2024 04:08:11 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 46347pMT010271
+	by NALASPPMTA03.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 46348AEO031141
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 3 Jul 2024 04:07:51 GMT
+	Wed, 3 Jul 2024 04:08:10 GMT
 Received: from tengfan-gv.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 2 Jul 2024 21:07:29 -0700
+ 15.2.1544.9; Tue, 2 Jul 2024 21:07:48 -0700
 From: Tengfei Fan <quic_tengfan@quicinc.com>
 To: <andersson@kernel.org>, <konrad.dybcio@linaro.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <djakov@kernel.org>,
@@ -97,9 +97,9 @@ CC: <robimarko@gmail.com>, <quic_gurus@quicinc.com>,
         <linux-watchdog@vger.kernel.org>, <linux-pci@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>, <kernel@quicinc.com>,
         Tengfei Fan <quic_tengfan@quicinc.com>
-Subject: [PATCH 28/47] dt-bindings: power: qcom,rpmpd: document the QCS9100 RPMh Power Domains
-Date: Wed, 3 Jul 2024 11:57:16 +0800
-Message-ID: <20240703035735.2182165-29-quic_tengfan@quicinc.com>
+Subject: [PATCH 29/47] dt-bindings: net: qcom,ethqos: add description for qcs9100
+Date: Wed, 3 Jul 2024 11:57:17 +0800
+Message-ID: <20240703035735.2182165-30-quic_tengfan@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20240703035735.2182165-1-quic_tengfan@quicinc.com>
 References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
@@ -110,20 +110,19 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: xCwslo7TorCoCjejMORzGmT4AWxP0Pti
-X-Proofpoint-ORIG-GUID: xCwslo7TorCoCjejMORzGmT4AWxP0Pti
+X-Proofpoint-GUID: ueGZ7X8pqFhe_-hOlUnvRwXOqryMqAYr
+X-Proofpoint-ORIG-GUID: ueGZ7X8pqFhe_-hOlUnvRwXOqryMqAYr
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
  definitions=2024-07-02_18,2024-07-02_02,2024-05-17_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=999
- impostorscore=0 spamscore=0 clxscore=1015 mlxscore=0 suspectscore=0
- bulkscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=666
+ priorityscore=1501 impostorscore=0 bulkscore=0 spamscore=0 mlxscore=0
+ clxscore=1015 phishscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2406140001 definitions=main-2407030028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_210920_955207_9AB74A3D 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240702_210936_590635_D80D8A49 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,25 +139,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the RPMh Power Domains on the QCS9100 Platform.
+Add the compatible for the MAC controller on qcs9100 platforms. This MAC
+works with a single interrupt so add minItems to the interrupts property.
+The fourth clock's name is different here so change it. Enable relevant
+PHY properties. Add the relevant compatibles to the binding document for
+snps,dwmac as well.
 
 Signed-off-by: Tengfei Fan <quic_tengfan@quicinc.com>
 ---
- Documentation/devicetree/bindings/power/qcom,rpmpd.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/net/qcom,ethqos.yaml | 1 +
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml  | 3 +++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml b/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml
-index 929b7ef9c1bc..0e5aaca38994 100644
---- a/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml
-+++ b/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml
-@@ -32,6 +32,7 @@ properties:
-           - qcom,msm8998-rpmpd
-           - qcom,qcm2290-rpmpd
-           - qcom,qcs404-rpmpd
-+          - qcom,qcs9100-rpmhpd
-           - qcom,qdu1000-rpmhpd
-           - qcom,qm215-rpmpd
-           - qcom,sa8155p-rpmhpd
+diff --git a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+index 6672327358bc..8ab11e00668c 100644
+--- a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
++++ b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+@@ -20,6 +20,7 @@ properties:
+   compatible:
+     enum:
+       - qcom,qcs404-ethqos
++      - qcom,qcs9100-ethqos
+       - qcom,sa8775p-ethqos
+       - qcom,sc8280xp-ethqos
+       - qcom,sm8150-ethqos
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 3bab4e1f3fbf..269c21779396 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -67,6 +67,7 @@ properties:
+         - loongson,ls2k-dwmac
+         - loongson,ls7a-dwmac
+         - qcom,qcs404-ethqos
++        - qcom,qcs9100-ethqos
+         - qcom,sa8775p-ethqos
+         - qcom,sc8280xp-ethqos
+         - qcom,sm8150-ethqos
+@@ -582,6 +583,7 @@ allOf:
+               - ingenic,x1600-mac
+               - ingenic,x1830-mac
+               - ingenic,x2000-mac
++              - qcom,qcs9100-ethqos
+               - qcom,sa8775p-ethqos
+               - qcom,sc8280xp-ethqos
+               - snps,dwmac-3.50a
+@@ -639,6 +641,7 @@ allOf:
+               - ingenic,x1830-mac
+               - ingenic,x2000-mac
+               - qcom,qcs404-ethqos
++              - qcom,qcs9100-ethqos
+               - qcom,sa8775p-ethqos
+               - qcom,sc8280xp-ethqos
+               - qcom,sm8150-ethqos
 -- 
 2.25.1
 
