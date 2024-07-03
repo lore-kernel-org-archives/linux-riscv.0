@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40EE3C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 05:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 813C5C2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 05:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c2XsqA5y5vW9YC6/VYuW0Yt5ijaNZjFwGuA6a29YexE=; b=0X6LU8rosZvNmr
-	LwRJu6qRJAaTtA/+rPYuwJJxn9daj3HoRfCgpmVl5dOt8wNty+t4kwF02uCSMgzfZszDCWZIHXXRE
-	nAlofMQbk6S3GnDlMWvpYwe3sJ5/uzUja/ir+euBBQGGqv3eFcL+UUx/oVwOlo+rGXvQWPzQGAaZ7
-	VTgvhd9ro3kWr3Fp/toeYGQ1F20Ogne1k7+66WCZ11ILLZrgER/+KvKs2Vp1+HpSHHJkF3/IDIwYd
-	HSMIbRtiFsiRtqJNh6qtZxopYfNuedAFwXtFHuNRA4tktPzp5nRTVPr04xDEyGe2vqMGxW1inUZzu
-	O3wvh08ZU/cS+Dez5B0Q==;
+	List-Owner; bh=+GREr4gNnEsNGfD1ac/phheAIUyswawkeM3ysE+2U5Q=; b=MlQw/KK3BU60RL
+	XD1kKfobxg7lTnYKNhHUz4VtwbBoDxTU5KliQTqAW2nM+4z3nSqdzmxR68uK1RjKdz5GYt2F3sryc
+	yHS2d3zTH7v1NlqMzU34Z0NLiJn5QzOjMHFj9fTU46WB7E67uBPFHrTX6k8Pw4Zb6JqHNXp+KTRYs
+	4pzAlCt4rQGFctZPLt4Ql0YymQgHp+5WpChgFRtW5s7lHoDLv6y0O3eGSFdMOMK/GcKnKG5m6yNrz
+	MH25hea1aP7Brus+7SsFA7N0zTucbWi/YQGTtfO7pSF6pjmeEQm4da4QqZNs+h8Vfo33FuCL4rkJA
+	73xS47hF0gnhEQQJkndw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOsEZ-000000091C9-33nT;
-	Wed, 03 Jul 2024 05:08:47 +0000
+	id 1sOsFW-000000091KJ-3Gqv;
+	Wed, 03 Jul 2024 05:09:46 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOsEV-000000091Bg-2xBk
+	id 1sOsFT-000000091Jf-0Ugl
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jul 2024 05:08:45 +0000
+	Wed, 03 Jul 2024 05:09:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D0572620E1;
-	Wed,  3 Jul 2024 05:08:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD2EAC32781;
-	Wed,  3 Jul 2024 05:08:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6A1B5620D4;
+	Wed,  3 Jul 2024 05:09:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB859C32781;
+	Wed,  3 Jul 2024 05:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719983322;
-	bh=XefBknMFIJLDjQLfaJ73QCMCDn+sNuH9vbmvQVVNObc=;
+	s=k20201202; t=1719983382;
+	bh=odBiv7p0O/AJAHhx1d3JGm7CaJRThHpAErFBEGjOuAQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jNvXLzURsY8IJZs32ZeiWKvAPjTT3d94QV4PTXMycjWWV0jbJWSC3FZP45iVc3ura
-	 oKp+BinWWYEMS5tRjiQHiPgZ8DlmS44mvtrbjRcW4bdjZIMv3yrOQoxGWdnkgldH3J
-	 FflqxlIgpruiS8RSkzjTPbml7O2wXy9BzqYewU3KNB1o8HXR2gSz+Dh2b5BaCKELmN
-	 JUP6ajJD3PfL/yFVO+g+oO1P3Z4y1yzVE6X1Pq6S/IGsqSFYySufdSXpMIVOFdHNkJ
-	 zPHPZU7dxIL+4RXRnGcEcTPuyP8pdMZfIfJ7SKjfvE+gN9ERiFnygoO6xGAyk8153+
-	 B9ajVuwAcWzjQ==
-Message-ID: <b7913f90-7405-4a77-9c57-97ef124de6e1@kernel.org>
-Date: Wed, 3 Jul 2024 07:08:34 +0200
+	b=qOxVeq6P7fWl1ZF5AWn0C1IPET9AoWHFv4m1IPadTVPBdzOGsvHGtYhkhyDxJpiR2
+	 4+e7LUeCdbUX7DJTlKrfV+SoKvMGL0m81Zfti41Xj9UpIYTMZter7AwZC8qLHsqrrh
+	 BSsdV4B1vqEg0FFK8wE2yOVKp4AEcuoGIg5FaWs1In2LYqYvehjQq97psI0IuesBYv
+	 itM3yLnDffwEuTf009xHYFll9i2cVKKL33NXzjpgA9ptoOOng4LnzGvJxi9eheeu+l
+	 7fMvFOgNNL6QhTbxGh0s1dYUNTUjxdhDtu6gdowCP3WtcK6r1naAGUqbldjXpzRq/v
+	 XLMjhSgMpRm6A==
+Message-ID: <daa482a5-ced2-48f1-b47b-fcefca127648@kernel.org>
+Date: Wed, 3 Jul 2024 07:09:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml: Add
- Sophgo SARADC binding documentation
+Subject: Re: [PATCH 3/3] riscv: dts: sophgo: Add SARADC configuration
 To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
  Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -60,7 +59,7 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com>
- <20240702-sg2002-adc-v1-1-ac66e076a756@bootlin.com>
+ <20240702-sg2002-adc-v1-3-ac66e076a756@bootlin.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,10 +105,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20240702-sg2002-adc-v1-1-ac66e076a756@bootlin.com>
+In-Reply-To: <20240702-sg2002-adc-v1-3-ac66e076a756@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_220843_911588_764C0823 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20240702_220943_326683_B16DF310 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,40 +126,31 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 02/07/2024 13:52, Thomas Bonnefille wrote:
-> The Sophgo SARADC is a Successive Approximation ADC that can be found in
-> the Sophgo SoC.
+> Adds SARADC nodes for the common Successive Approximation Analog to
+> Digital Converter used in Sophgo SoC.
+> This patch adds nodes for the two SARADCs presents on the board, one in
+> the Active domain and the other in the No-Die domain.
+
+You are duplicating the first sentence or this does not make sense...
+
 > 
 > Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
 > ---
->  .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     | 51 ++++++++++++++++++++++
->  MAINTAINERS                                        |  5 +++
->  2 files changed, 56 insertions(+)
+>  arch/riscv/boot/dts/sophgo/cv18xx.dtsi | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
-> new file mode 100644
-> index 000000000000..21fd5dc8e24e
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
-> @@ -0,0 +1,51 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/iio/adc/sophgo,cv18xx-adc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> index 7247c7c3013c..0b996aa7fa31 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> @@ -309,5 +309,19 @@ clint: timer@74000000 {
+>  			reg = <0x74000000 0x10000>;
+>  			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+>  		};
 > +
-> +title: Sophgo 3 channels Successive Approximation Analog to Digital Converters
-> +
-> +maintainers:
-> +  - Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-> +
-> +description:
-> +  Datasheet at https://github.com/sophgo/sophgo-doc/releases
-> +
-> +properties:
-> +  compatible:
-> +    const: sophgo,cv18xx-saradc
+> +		saradc_active: adc@30f0000 {
 
-Except that this was never tested... wild-cards are generally not allowed.
+Please look at DTS coding style about ordering of nodes.
 
 Best regards,
 Krzysztof
