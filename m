@@ -4,125 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3552C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 09:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 771C3C30653
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 09:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iWXpTygBQt7n8Te+ohEhkwuOEY4p6kGnOO/jFK22kzg=; b=x6kRYGG2usNwu7
-	EG0ohjCC9WfTRQCS6UX3nD591B1VPUGG+df5op7+WJZmVUtz22U0nAe5iOdLvyIuo/k8qmzqmgqqt
-	0VNddad066St8oDQ6s/Y2KNtW6j5Dj8m0t6jl2i2GeZcCyHyA1k1iG98Xd1dyQ8By24LOnZ2GvNGd
-	9Us2sm9o1gSuAxwqH+6Cqx953t+mv2QL/RiEJJC86LIkxOGspXUqkYtlPRWU6Lwq2kwLwkOawY9bw
-	ImfmEHqsDZ1muuu0ZIsCQ7/BUu2gA9RSdLRYECiHLHzKk5dyuTJdNMD0UgEJ7dgFDSTo25nNfG4vl
-	xDmpDgi+ZixqKjwkbN+A==;
+	List-Owner; bh=LI3sTx4nHwCkNTNXT3p2eN7fA/5PrLmlyzO5ZBjK0kM=; b=ZJBhUOplSDod7P
+	cucW1F1mMQUfnFBfMrspL22EouTUYsJ9YrE2B5CFZz0ngAUfZMJKHHo0j1wIWScEMuPoXrC1C+lPR
+	YCUUG4apN6oeJkIfamkhVbP/8J2gt8sYjU9eI/hO7w8XwtnmYpywUQ587yZ+NWg7a/NbxNEeUMmW1
+	dHEfS8F4fP8ouZEvARf0Rh8K/xc10kWfHkLsUOUEGeEEvR4dXiuYdYQOiX/b8zYlHlDtOEuNIL+ql
+	tXTQixg7FNdXrOHJESsikk/SWlTeAOdPmtx3loeKQgXvL7LhKntlrynZuj1uTMde/AV0vbOaA4qj2
+	BLEM9vCgB8YbFCyG7KWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOwTi-00000009acG-2y53;
-	Wed, 03 Jul 2024 09:40:42 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1sOwTz-00000009agp-1NSp;
+	Wed, 03 Jul 2024 09:40:59 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOwTg-00000009aat-00W8;
-	Wed, 03 Jul 2024 09:40:41 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462NWMm4005551;
-	Wed, 3 Jul 2024 09:40:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	TMN22tJYs4aAZjuMNYZk5hWvC0MHLAbXmOFNPbB+8cE=; b=j3Ehs6ApzFhR+TWK
-	TyI+iTHF2SDxZXMzIkZP4hhe9cIOpc3TijwW24NKNOPUlhO9wXa/0PcKMf3uPEuW
-	7wRdbghFPiOnKi5WHpXAFijUmJpGnpUGB0ZiO0HAKwiZUOay6zguV3zO2cdZmYCm
-	+sLdGJi/UnwTU/IE96aO3Ie7ugQRsGW31saJv1SE1nRM7zbfztI+mc4M7phh4J3n
-	yM4DvlO7sM2jLqKLkRhetVWPhy/P1zV93AYxkBT/BK6HZ715PhzDW1153dj6Fx9s
-	XqQkvAyKoJgyiIlAs1kTF3sdmZS3oyAUsrGyeh53Sb5k8ehXyDz5ojVWcnakE+ih
-	WhFhiA==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4027yfbcv6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Jul 2024 09:40:07 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 4639e6gL020230
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 3 Jul 2024 09:40:06 GMT
-Received: from [10.239.132.204] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 3 Jul 2024
- 02:39:43 -0700
-Message-ID: <64934d64-3922-4cc1-a01d-6dcd773bc466@quicinc.com>
-Date: Wed, 3 Jul 2024 17:39:41 +0800
+	id 1sOwTv-00000009ag4-3SaP
+	for linux-riscv@lists.infradead.org;
+	Wed, 03 Jul 2024 09:40:57 +0000
+Date: Wed, 3 Jul 2024 09:40:49 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org,
+	Meng Zhang <zhangmeng.kevin@spacemit.com>,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: Re: [PATCH v2 08/10] riscv: dts: add initial SpacemiT K1 SoC device
+ tree
+Message-ID: <20240703094049.GB2676251@ofsar>
+References: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
+ <20240627-k1-01-basic-dt-v2-8-cc06c7555f07@gentoo.org>
+ <CAJM55Z9jeAQTsVjRiLeofDm1RyMWCuHXC0a-pdKtpUiTkSjJCA@mail.gmail.com>
+ <20240702012847.GA2447193@ofsar>
+ <IA1PR20MB4953C031CB453AA0E51657B3BBDC2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20240702-appease-attire-6afbe758bf0f@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/47] arm64: qcom: dts: add QCS9100 support
-To: Krzysztof Kozlowski <krzk@kernel.org>, <andersson@kernel.org>,
-        <konrad.dybcio@linaro.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <djakov@kernel.org>, <mturquette@baylibre.com>,
-        <sboyd@kernel.org>, <jassisinghbrar@gmail.com>,
-        <herbert@gondor.apana.org.au>, <davem@davemloft.net>,
-        <manivannan.sadhasivam@linaro.org>, <will@kernel.org>,
-        <joro@8bytes.org>, <conor@kernel.org>, <tglx@linutronix.de>,
-        <amitk@kernel.org>, <thara.gopinath@gmail.com>,
-        <linus.walleij@linaro.org>, <wim@linux-watchdog.org>,
-        <linux@roeck-us.net>, <rafael@kernel.org>, <viresh.kumar@linaro.org>,
-        <vkoul@kernel.org>, <edumazet@google.com>, <kuba@kernel.org>,
-        <pabeni@redhat.com>, <mcoquelin.stm32@gmail.com>
-CC: <robimarko@gmail.com>, <bartosz.golaszewski@linaro.org>,
-        <kishon@kernel.org>, <quic_wcheng@quicinc.com>,
-        <alim.akhtar@samsung.com>, <avri.altman@wdc.com>, <bvanassche@acm.org>,
-        <agross@kernel.org>, <gregkh@linuxfoundation.org>,
-        <quic_tdas@quicinc.com>, <robin.murphy@arm.com>,
-        <daniel.lezcano@linaro.org>, <rui.zhang@intel.com>,
-        <lukasz.luba@arm.com>, <quic_rjendra@quicinc.com>,
-        <ulf.hansson@linaro.org>, <quic_sibis@quicinc.com>,
-        <otto.pflueger@abscue.de>, <luca@z3ntu.xyz>,
-        <neil.armstrong@linaro.org>, <abel.vesa@linaro.org>,
-        <bhupesh.sharma@linaro.org>, <alexandre.torgue@foss.st.com>,
-        <peppe.cavallaro@st.com>, <joabreu@synopsys.com>,
-        <netdev@vger.kernel.org>, <lpieralisi@kernel.org>, <kw@linux.com>,
-        <bhelgaas@google.com>, <ahalaney@redhat.com>,
-        <krzysztof.kozlowski@linaro.org>, <u.kleine-koenig@pengutronix.de>,
-        <dmitry.baryshkov@linaro.org>, <quic_cang@quicinc.com>,
-        <danila@jiaxyga.com>, <quic_nitirawa@quicinc.com>,
-        <mantas@8devices.com>, <athierry@redhat.com>,
-        <quic_kbajaj@quicinc.com>, <quic_bjorande@quicinc.com>,
-        <quic_msarkar@quicinc.com>, <quic_devipriy@quicinc.com>,
-        <quic_tsoni@quicinc.com>, <quic_rgottimu@quicinc.com>,
-        <quic_shashim@quicinc.com>, <quic_kaushalk@quicinc.com>,
-        <quic_tingweiz@quicinc.com>, <quic_aiquny@quicinc.com>,
-        <srinivas.kandagatla@linaro.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-pm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-phy@lists.infradead.org>, <linux-crypto@vger.kernel.org>,
-        <linux-scsi@vger.kernel.org>, <linux-usb@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-        <linux-riscv@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-        <linux-watchdog@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>, <kernel@quicinc.com>
-References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
- <20240703035735.2182165-1-quic_tengfan@quicinc.com>
- <7417fd8c-e852-45ee-bac9-d92921036e2f@kernel.org>
-From: Tengfei Fan <quic_tengfan@quicinc.com>
-In-Reply-To: <7417fd8c-e852-45ee-bac9-d92921036e2f@kernel.org>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: kiiVH7Fe3W0fNlX1fdY9JogHsKzjFhan
-X-Proofpoint-ORIG-GUID: kiiVH7Fe3W0fNlX1fdY9JogHsKzjFhan
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
- definitions=2024-07-03_06,2024-07-02_02,2024-05-17_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 spamscore=0
- mlxscore=0 lowpriorityscore=0 mlxlogscore=999 phishscore=0 impostorscore=0
- clxscore=1015 malwarescore=0 suspectscore=0 adultscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2406140001 definitions=main-2407030071
+Content-Disposition: inline
+In-Reply-To: <20240702-appease-attire-6afbe758bf0f@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_024040_087762_3E6621DA 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20240703_024055_913535_A5081B49 
+X-CRM114-Status: GOOD (  31.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,99 +74,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Conor:
 
+On 16:25 Tue 02 Jul     , Conor Dooley wrote:
+> On Tue, Jul 02, 2024 at 09:35:45AM +0800, Inochi Amaoto wrote:
+> > On Tue, Jul 02, 2024 at 01:28:47AM GMT, Yixun Lan wrote:
+> > > On 12:49 Mon 01 Jul     , Emil Renner Berthing wrote:
+> > > > Yixun Lan wrote:
+> > > > > From: Yangyu Chen <cyy@cyyself.name>
+> > > > >
+> > > > > Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
+> > > > >
+> > > > > Key features:
+> > > > > - 4 cores per cluster, 2 clusters on chip
+> > > > > - UART IP is Intel XScale UART
+> > > > >
+> > > > > Some key considerations:
+> > > > > - ISA string is inferred from vendor documentation[2]
+> > > > > - Cluster topology is inferred from datasheet[1] and L2 in vendor=
+ dts[3]
+> > > > > - No coherent DMA on this board
+> > > > >     Inferred by taking vendor ethernet and MMC drivers to the mai=
+nline
+> > > > >     kernel. Without dma-noncoherent in soc node, the driver fails.
+> > > > > - No cache nodes now
+> > > > >     The parameters from vendor dts are likely to be wrong. It has=
+ 512
+> > > > >     sets for a 32KiB L1 Cache. In this case, each set is 64B in s=
+ize.
+> > > > >     When the size of the cache line is 64B, it is a directly mapp=
+ed
+> > > > >     cache rather than a set-associative cache, the latter is comm=
+only
+> > > > >     used. Thus, I didn't use the parameters from vendor dts.
+> > > > >
+> > > > > Currently only support booting into console with only uart, other
+> > > > > features will be added soon later.
+> > > > >
+> > > ...
+> > > =
 
-On 7/3/2024 12:45 PM, Krzysztof Kozlowski wrote:
-> On 03/07/2024 05:56, Tengfei Fan wrote:
->> Introduce support for the QCS9100 SoC device tree (DTSI) and the
->> QCS9100 RIDE board DTS. The QCS9100 is a variant of the SA8775p.
->> While the QCS9100 platform is still in the early design stage, the
->> QCS9100 RIDE board is identical to the SA8775p RIDE board, except it
->> mounts the QCS9100 SoC instead of the SA8775p SoC.
-> 
-> The same huge patchset, to huge number of recipients was sent twice.
-> First, sorry, this is way too big. Second, it has way too many
-> recipients, but this is partially a result of first point. Only
-> partially because you put here dozen of totally unrelated emails. Sorry,
-> that does not make even sense. See form letter at the end how this
-> works. Third, sending it to everyone twice is a way to annoy them off
-> twice... Fourth,
-> 
-> Please split your work and do not cc dozen of unrelated folks.
+> > > > > +		clint: timer@e4000000 {
+> > > > > +			compatible =3D "spacemit,k1-clint", "sifive,clint0";
+> > > > > +			reg =3D <0x0 0xe4000000 0x0 0x10000>;
+> > > > > +			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>,
+> > > > > +					      <&cpu1_intc 3>, <&cpu1_intc 7>,
+> > > > > +					      <&cpu2_intc 3>, <&cpu2_intc 7>,
+> > > > > +					      <&cpu3_intc 3>, <&cpu3_intc 7>,
+> > > > > +					      <&cpu4_intc 3>, <&cpu4_intc 7>,
+> > > > > +					      <&cpu5_intc 3>, <&cpu5_intc 7>,
+> > > > > +					      <&cpu6_intc 3>, <&cpu6_intc 7>,
+> > > > > +					      <&cpu7_intc 3>, <&cpu7_intc 7>;
+> > > > > +		};
+> > > > > +
+> > > > > +		uart0: serial@d4017000 {
+> > > > > +			compatible =3D "spacemit,k1-uart", "intel,xscale-uart";
+> > > > > +			reg =3D <0x0 0xd4017000 0x0 0x100>;
+> > > > > +			interrupts =3D <42>;
+> > > > > +			clock-frequency =3D <14857000>;
+> > > > > +			reg-shift =3D <2>;
+> > > > > +			reg-io-width =3D <4>;
+> > > > > +			status =3D "disabled";
+> > > > > +		};
+> > > > > +
+> > > > > +		/* note: uart1 skipped */
+> > > > =
 
-I can split this patch series, there are two options for splitting:
-Option A:
-   1. Initial qcs9100.dtsi, qcs9100-pmics.dtsi, qcs9100-ride.dts renamed 
-from sa8775p with existing compatible.
+> > > > The datasheet page you link to above says "-UART (=D710)", but here=
+ you're
+> > > > skipping one of them. Why? I can see the vendor tree does the same,=
+ but it
+> > > > would be nice with an explanation of what's going on.
+> > > > =
 
-   2. Each subsystem have single patch series to each limited driver 
-maintainers.
+> > > /* note: uart1 in 0xf0612000, reserved for TEE usage */
+> > > I would put something like this, does this sound ok to you?
+> > > =
 
-      - About 15 series need to update related drivers, so each series 
-will have 3 patches (bindings, drivers, the compatible names in 
-subsystem-related parts of dtsi/dts).
+> > > more detail, iomem range from 0xf000,0000 - 0xf080,0000 are dedicated=
+ for TEE purpose,
+> > > It won't be exposed to Linux once TEE feature is enabled..
+> > > =
 
-      - About 14 series only need to add qcs9100 compatible in 
-bindings., so each series will have 2 patches (bindings, the compatible 
-names in subsystem-related parts of dtsi/dts).
+> > > skipping uart1 may make people confused but we are trying to follow d=
+atasheet..
+> > =
 
-Option B:
+> > Instead of skipping it, I suggest adding this to reserved-memory area, =
 
-   1. Each subsystem have single patch series to each limited driver 
-maintainers. Each patch series only update bindings, drivers, but no 
-compatible names change in dts.
+> > which make all node visible and avoid uart1 being touched by mistake.
+> =
 
-      - About 15 series in total and each series will have 2 patches 
-(bindings, drivers).
+> No, don't make it reserved-memory - instead add it as
+> status =3D "reserved"; /* explanation for why */
+Ok, got
 
-      - About 14 series only need to add qcs9100 compatible in bindings, 
-so each series will have 1 patches (bindings).
+> Also, I'd appreciate if the nodes were sorted by unit address in the
+> dtsi.
+so I would move "plic, clint" after node of uart9 as this suggestion
 
-   2. Squash current qcs9100.dtsi, qcs9100-pmics.dtsi, qcs9100-ride.dts 
-with compatible changed to qcs9100 dt files.
+for uart1, its unit-address is 0xf0610000, it should be moved to after clint
+(once unit-address sorted), if we follow this rule strictly.
+but it occur to me this is not very intuitive, if no objection, I would put
+it between uart0 and uart2 (thus slightly break the rule..)
 
-We tend to use Option A.
+P.S: I can cook a separated patch for adding uart1 node, should better for =
+review
 
-Welcome to other ideas ideas for splitting the huge numbers of patches 
-as well.
+-- =
 
-Another, each splited series will also have cover letter contain the 
-whole story like this cover letter.
-
-> 
-> <form letter>
-> Please use scripts/get_maintainers.pl to get a list of necessary people
-> and lists to CC (and consider --no-git-fallback argument). It might
-> happen, that command when run on an older kernel, gives you outdated
-> entries. Therefore please be sure you base your patches on recent Linux
-> kernel.
-> 
-> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-> people, so fix your workflow. Tools might also fail if you work on some
-> ancient tree (don't, instead use mainline), work on fork of kernel
-> (don't, instead use mainline) or you ignore some maintainers (really
-> don't). Just use b4 and everything should be fine, although remember
-> about `b4 prep --auto-to-cc` if you added new patches to the patchset.
-> </form letter>
-> 
-> Best regards,
-> Krzysztof
-> 
-
-Previously, I've been using scripts/get_maintainers.pl to obtain a list 
-of recipients and manually removing duplicate email addresses(although I 
-noticed you have two different email addresses, so I included both).
-I'll follow your advice and use b4 to submit a new version patch series 
-to upstream, confident that similar issues won't arise again.
-
--- 
-Thx and BRs,
-Tengfei Fan
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
