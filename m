@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEAA4C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FB7C2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fdgDtf9w7CMR3E9IJyVlSSsJH4PC83ZQj1iebS3f/nY=; b=A6dwj7aGQYi1aY
-	SafC4CDnC8yRBETtaCpczRyYLj6+8vzUAYSBlTMu6CQDjGzDmPc6BXm5jwriIX4Y3QBo0islUtSM5
-	LZymirDTnumRPMAkIMtcsXx3F/ANp+dOsWtIOxJA/bXTe9S522xgBY1uvgRs6LRgs5YLo+1LMkC5x
-	TYEV+fghSROB3lvegNbmu3SmPPwtCr9GxGxAteMDJRr2ZqJdgH4NOja25SGgO88SHH+5FeirG4AH6
-	KMyUULg1pPcWGtPnCWMXneYS50ZjlyJiNHv9i5kmJJ4myIVHQ3FgTrjHY6V4xocpnRJxOncevUnwB
-	lXYF4/RZPywJafpK+Tvg==;
+	List-Owner; bh=DZ/eWIV7GLVbCU9SazC7onKPNU1BHVyuuVdoDc0HNaA=; b=bP6RTtA/ZUowcm
+	flnYweua1ofB3IW+QwYvx2TUheb1VnjWYqRxHM8MJsbCEwNCtZrDT/USltD4Ps/YUXgikRBMCrK9S
+	gsACzZwp2/SY1AenBkx1iiURdAPi9py7zir0/AkTwKp04+LLJSKVeC6CVmnHZaXzkHLrGznQF55Ug
+	F4FbPz/5SONSlWkJlbQmKO2NEOxbG68IPRs9MAMo+iZnHQbZMCsx6OxXJrbatbYU3yZ8HazEagT02
+	nOpSLomvLR4t1Swq5kclI/ila9HCWJpXOluqwvph4FECQ0HE2tv29rUyDCM06VOcXHuT2ZiMXzwQW
+	+CqLY7zJKLB+T3F9HRyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxNQ-00000009obN-1uRB;
-	Wed, 03 Jul 2024 10:38:16 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1sOxNV-00000009ofc-0fDv;
+	Wed, 03 Jul 2024 10:38:21 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxN9-00000009oNJ-2Hqn;
-	Wed, 03 Jul 2024 10:38:04 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 8268640007;
-	Wed,  3 Jul 2024 10:37:53 +0000 (UTC)
+	id 1sOxND-00000009oRD-1iRb;
+	Wed, 03 Jul 2024 10:38:06 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B050440008;
+	Wed,  3 Jul 2024 10:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1720003077;
+	t=1720003081;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ObZqIn61RNEy1X0aCEEJcJ3TWqr0KXyZ0h8jl51/dRQ=;
-	b=M1vtRZ/IwZA73ShP/81Am2+1HF7s4FmiDSV9DEbuggRaHcKQERp7OSPzywsZUadCPqsxaR
-	RZ7oCjkG0C8ViUS6anX2ndvvJHX2z7DdcITxSZ12zgS3G5KqbQAXHCT4KkxX9nIVquZUy5
-	15LLa5bd5PLS4v07vuIgeRs4STDPZtGPsgXPh06/GA6Qudtdx0Fny6/LYyK5olTsct1HMA
-	CU4vip10scfCAV+QM/o2bhZlf4YgKbKpZ2BH1KagdlEV/37l3LzbomatP49hAXtTXvQgU2
-	EKMDSO4JJomZuAYfInK+g5FgIWtvH9+N8OhUTELm/RUseTXOmmYBYbCHO97pNg==
+	bh=8VfUyDEnUBHMYjfO4mnvOnujVbzdny+Xmf64Qw4TtE0=;
+	b=PXSKTR7G+vhp1MMTIX4fVICs2eEattO3+fekPacJce4Q3BwGaDyX9bly0M5x71zeAYENq3
+	L+POg1T5oDgJ4hjGA1TfmlgtRH6J5muhqFmouMew+3B3PVI/kLqFjUiQKFWpabiv6tYatP
+	v13RUSFpPI3eDcNeXOmLySxD2K7vRVyninm9hhPO/ZBUNHKJIgss785QRGfdw8AothmYH9
+	pA6ARdXWf+WrxVGQR6omvR1D3LW5TRKisC7GFZfe5Wb2Fj5idDzXZ5dzslvY1pKt2PJuEm
+	PgJRmL+vSfc7mtPsMGz+qHi/1PgiwBVfhsgcDcBw5DwdPBozOdPur1QtHlbTCg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 03 Jul 2024 12:36:52 +0200
-Subject: [PATCH 08/20] lk: clk-conf: convert to
+Date: Wed, 03 Jul 2024 12:36:53 +0200
+Subject: [PATCH 09/20] gpio: brcmstb: convert to
  of_property_for_each_u32_new()
 MIME-Version: 1.0
-Message-Id: <20240703-of_property_for_each_u32-v1-8-42c1fc0b82aa@bootlin.com>
+Message-Id: <20240703-of_property_for_each_u32-v1-9-42c1fc0b82aa@bootlin.com>
 References: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 In-Reply-To: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 To: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -89,8 +89,8 @@ Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
 X-Mailer: b4 0.14.0
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_033800_252706_AB9FCC49 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20240703_033804_004316_AA92F73E 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,28 +112,32 @@ parameters in of_property_for_each_u32() are not used here.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/clk/clk-conf.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ drivers/gpio/gpio-brcmstb.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/drivers/clk/clk-conf.c b/drivers/clk/clk-conf.c
-index 1a4e6340f95c..290dd1230bad 100644
---- a/drivers/clk/clk-conf.c
-+++ b/drivers/clk/clk-conf.c
-@@ -81,13 +81,11 @@ static int __set_clk_parents(struct device_node *node, bool clk_supplier)
- static int __set_clk_rates(struct device_node *node, bool clk_supplier)
- {
- 	struct of_phandle_args clkspec;
--	struct property	*prop;
--	const __be32 *cur;
- 	int rc, index = 0;
- 	struct clk *clk;
- 	u32 rate;
+diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
+index 8dce78ea7139..77557bc596cd 100644
+--- a/drivers/gpio/gpio-brcmstb.c
++++ b/drivers/gpio/gpio-brcmstb.c
+@@ -591,8 +591,6 @@ static int brcmstb_gpio_probe(struct platform_device *pdev)
+ 	void __iomem *reg_base;
+ 	struct brcmstb_gpio_priv *priv;
+ 	struct resource *res;
+-	struct property *prop;
+-	const __be32 *p;
+ 	u32 bank_width;
+ 	int num_banks = 0;
+ 	int num_gpios = 0;
+@@ -636,8 +634,7 @@ static int brcmstb_gpio_probe(struct platform_device *pdev)
+ 	flags = BGPIOF_BIG_ENDIAN_BYTE_ORDER;
+ #endif
  
--	of_property_for_each_u32(node, "assigned-clock-rates", prop, cur, rate) {
-+	of_property_for_each_u32_new(node, "assigned-clock-rates", rate) {
- 		if (rate) {
- 			rc = of_parse_phandle_with_args(node, "assigned-clocks",
- 					"#clock-cells",	index, &clkspec);
+-	of_property_for_each_u32(np, "brcm,gpio-bank-widths", prop, p,
+-			bank_width) {
++	of_property_for_each_u32_new(np, "brcm,gpio-bank-widths", bank_width) {
+ 		struct brcmstb_gpio_bank *bank;
+ 		struct gpio_chip *gc;
+ 
 
 -- 
 2.34.1
