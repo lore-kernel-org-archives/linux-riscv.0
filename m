@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F20C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1113C2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ambLGe0oDf5v/C3rdubXNsW2C7SNC5NXV6qhIACoGHQ=; b=PU+pKmunTB3ByQ
-	cMsKRaJsak5nhtKClqGuPo+sZ8rcQNaZdgDClpxCYYClQMj5o5aImal7/uifv4KhNtol+hXIMjv+r
-	Eu6baDOgF7E3OHV0ihEq4gOF8Vx7r/xgxxbtHSaVRUjWIf5yN0QwEREyBVaqUQ//VwtvFMT4d2d4R
-	V6Mxbjm/XWq1UMDdybEKZdZvdgSZm8dPcx0Kql44oZiOzIGL+JJJo9WOQ70rT2Yd8GjClI/CtP2sJ
-	n8JSUf9+IS+msRa8sHzeDzsRzUuvqaQ5aO9wpPICT3N11EV66vjkRHpURBYvwl3EwlagETepw+Xok
-	MzbKUcsVILYGlxtizkjg==;
+	List-Owner; bh=gGFagEZapD3SlonrBzQlJtBYtZnzTI0hWR+rOud5XW4=; b=FTlLqz04su2u5h
+	f9jLfXQgJboUjGESrI7yvc90aSBeMMbtPzEYP6PpeeSauKX0w/YAcyVLpWuxte9W2kkIVtIBjehV0
+	bLWRkeM+Z5ekuV4yRcjIKs1tTXe3+NXymSacN/oBlMokXU0ucpOSYmmdn9rWvacTj+bmVHjJBjeqo
+	VGqzRhaEZZ9qiq57+CTqQUh1QPZU0lX3wWDrFQmTFFJ6w3sXCrvHBsrVuhOPNirtL10MhAr//bSSh
+	pUQi5PKMQ8BzZ9EgjxaW5la2ftipri4mk7IHyfuGQYF7uRjyqB9c5g4CiaNxYbmFQTl8ZyvcC7+aO
+	3fpuxXq3qj1NnN2qArvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrI4-00000008sCu-2jXI;
-	Wed, 03 Jul 2024 04:08:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1sOrJ5-00000008sXT-1ggV;
+	Wed, 03 Jul 2024 04:09:23 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrI1-00000008sBF-0qgF;
-	Wed, 03 Jul 2024 04:08:18 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462HEjf8000337;
-	Wed, 3 Jul 2024 04:06:52 GMT
+	id 1sOrJ2-00000008sWO-3mKw;
+	Wed, 03 Jul 2024 04:09:22 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462JEOse030437;
+	Wed, 3 Jul 2024 04:07:52 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	yJVVFUcIjEdbxSRxf0U9oDwOwU+5xU2bKJI4N8zeH4E=; b=jvFDjwdVvqjFYiBw
-	spEKOnSns/F6xIwG/6s+GKYdqNRWCwhSW492fBcyYPMN1L+ON9FFznbxYnmVqB7U
-	tvksx4pDqER9XFTMe0whobMi2+DTWPVYrsNU/sHOQcttNXxys3fPAuWPtlZks9Cu
-	j8MexEb/lMK8428Ik0O1EKrvHqqR2o2gWTMsQTD53WKaNafwPuL6BgMscgtITc2c
-	QEeeJ21ttqoQHjFFQ/4gyk9OgtSj1JB6s5x/5ZQPGPqTwAj196IEn0BbTByJ365j
-	4mOqxEc6sMP4iLYKBdqVdbBs5dUjihY1he9zyn2QcE60UO7vQOwPVAvk5kaDDjsS
-	E0yzPA==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 402abtqm5x-1
+	n+7KkyP8p7ebCgU4HcV4M9wI8I89s4Mc9YI3BIw5wQI=; b=in55VlNOi/bqyhU4
+	Rd9PJgXT+uG7O7sUWFAC02V6LoI30ce8TguTt16InbskHg8vPZOBhdqejVUI3AqT
+	MgBb5LSue2d/8j+a3e1uGkt6YhgfBkB3aq+o/UpvZvooMW9RynW7BV2TNa91xVfZ
+	KCtvg7oxEJcJonPZD22lqJBN0UVaMgHD//SlaTVSrwktcks6T+oF/tdua+kUNQnZ
+	GpbR5MtHKcqzK+ncYhqE1iw6WjJE9wcGDzEr6Mp95DqwZMZA7DbAcA0B9wWfmezN
+	p4wLHKzKLNFaJEXCDrbn7C7FoXdGcOuqJpqGykh1NysGbNkJuLNs3UzXP4Lafoqi
+	aPvsaw==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 402bejsy8u-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Jul 2024 04:06:52 +0000 (GMT)
+	Wed, 03 Jul 2024 04:07:52 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 46346pCe004862
+	by NALASPPMTA02.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 46347pMT010271
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 3 Jul 2024 04:06:51 GMT
+	Wed, 3 Jul 2024 04:07:51 GMT
 Received: from tengfan-gv.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 2 Jul 2024 21:06:29 -0700
+ 15.2.1544.9; Tue, 2 Jul 2024 21:07:29 -0700
 From: Tengfei Fan <quic_tengfan@quicinc.com>
 To: <andersson@kernel.org>, <konrad.dybcio@linaro.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <djakov@kernel.org>,
@@ -97,9 +97,9 @@ CC: <robimarko@gmail.com>, <quic_gurus@quicinc.com>,
         <linux-watchdog@vger.kernel.org>, <linux-pci@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>, <kernel@quicinc.com>,
         Tengfei Fan <quic_tengfan@quicinc.com>
-Subject: [PATCH 25/47] dt-bindings: watchdog: qcom-wdt: document QCS9100
-Date: Wed, 3 Jul 2024 11:57:13 +0800
-Message-ID: <20240703035735.2182165-26-quic_tengfan@quicinc.com>
+Subject: [PATCH 28/47] dt-bindings: power: qcom,rpmpd: document the QCS9100 RPMh Power Domains
+Date: Wed, 3 Jul 2024 11:57:16 +0800
+Message-ID: <20240703035735.2182165-29-quic_tengfan@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20240703035735.2182165-1-quic_tengfan@quicinc.com>
 References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
@@ -110,19 +110,19 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: i28Gii0ml-zleHEWym_FmyJiDkcrPKIZ
-X-Proofpoint-ORIG-GUID: i28Gii0ml-zleHEWym_FmyJiDkcrPKIZ
+X-Proofpoint-GUID: xCwslo7TorCoCjejMORzGmT4AWxP0Pti
+X-Proofpoint-ORIG-GUID: xCwslo7TorCoCjejMORzGmT4AWxP0Pti
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
  definitions=2024-07-02_18,2024-07-02_02,2024-05-17_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
- priorityscore=1501 mlxscore=0 clxscore=1015 suspectscore=0 malwarescore=0
- lowpriorityscore=0 phishscore=0 adultscore=0 spamscore=0 impostorscore=0
- mlxlogscore=999 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=999
+ impostorscore=0 spamscore=0 clxscore=1015 mlxscore=0 suspectscore=0
+ bulkscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2406140001 definitions=main-2407030028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_210817_364376_850C8BEF 
-X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-CacheID: sfid-20240702_210920_955207_9AB74A3D 
+X-CRM114-Status: UNSURE (   8.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -140,25 +140,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the QCS9100 watchdog compatible.
+Document the RPMh Power Domains on the QCS9100 Platform.
 
 Signed-off-by: Tengfei Fan <quic_tengfan@quicinc.com>
 ---
- Documentation/devicetree/bindings/watchdog/qcom-wdt.yaml | 1 +
+ Documentation/devicetree/bindings/power/qcom,rpmpd.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/watchdog/qcom-wdt.yaml b/Documentation/devicetree/bindings/watchdog/qcom-wdt.yaml
-index 47587971fb0b..5a78816aeece 100644
---- a/Documentation/devicetree/bindings/watchdog/qcom-wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/qcom-wdt.yaml
-@@ -26,6 +26,7 @@ properties:
-               - qcom,apss-wdt-msm8994
-               - qcom,apss-wdt-qcm2290
-               - qcom,apss-wdt-qcs404
-+              - qcom,apss-wdt-qcs9100
-               - qcom,apss-wdt-sa8775p
-               - qcom,apss-wdt-sc7180
-               - qcom,apss-wdt-sc7280
+diff --git a/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml b/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml
+index 929b7ef9c1bc..0e5aaca38994 100644
+--- a/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml
++++ b/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml
+@@ -32,6 +32,7 @@ properties:
+           - qcom,msm8998-rpmpd
+           - qcom,qcm2290-rpmpd
+           - qcom,qcs404-rpmpd
++          - qcom,qcs9100-rpmhpd
+           - qcom,qdu1000-rpmhpd
+           - qcom,qm215-rpmpd
+           - qcom,sa8155p-rpmhpd
 -- 
 2.25.1
 
