@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51589C30653
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C643C2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yZw+BQKm5ThMsOe2aNnqTq3MblXozZqBckT/eNBIMGw=; b=FBFCLj6Wuilhsl
-	ByVSMa+juqBoAnZKXV9UMwGoPh36SFFrvBkUvWr/6SIfNjEZSPXI3q+PQInRVV/EbrHNUWjm+b8r0
-	0DWHc0Z6VJC20pRXeVfz+sHaGysC2sP6ZCGfBQ+a0uZ8XNkCMNLmXTAx97IpmFHlRSxGzo1B9np1U
-	WlZ0x8TSfxf+zthIytYsK5/FzbRVTWhoKFS4+gr+5UHQy+49ww3cla9a7yQpRSCsyBzY9JTsRfkYZ
-	vRk1zaCBpBZmD0vlho5Sh0kCmmLIJlsbYIh5LV8/ak20spj+7Xyjp8sJvXDOMBmrtO5L7hTY6+7kx
-	Zxf3rmu6iEaEPiLhxqFQ==;
+	List-Owner; bh=CUj1lVYa4/8V2X850NNqWAKvnbqmkeBFZmMjasUVna4=; b=TI8V8aMZRBtDe8
+	zsBPVmCGg/lT3Xey+pAY4G6/dMvZooXweEl5iynW7ItteeTEwH53xaUeU3OCLeYYiAt5gmgWXcd/T
+	fWOTVLG8LkTnr7FhppURUHeboi0IJozNTmilMylbITA+Vkrok3HgA+j0mzPk6qBZ9OKOvDSMybWtD
+	dmnjqSDIFnyZKCEBsR9dzYWBpo4zEz9xztcHZeb2M6vmL93GSW6GQsTwjpW1jg0R2erDVDUtAQkZ2
+	lkXrnaxaYlWmAlEENBSftqeqVUrwrMCKxPuSnwAveaHQICEBYoUHS664DDCVJDL352qX9JDiUqed1
+	7PMzBSXz+8KPOiWQm+dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxNB-00000009oQG-1TN2;
-	Wed, 03 Jul 2024 10:38:01 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1sOxNI-00000009oVx-2RCA;
+	Wed, 03 Jul 2024 10:38:08 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxN1-00000009oFb-171S;
-	Wed, 03 Jul 2024 10:37:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 676D540002;
-	Wed,  3 Jul 2024 10:37:45 +0000 (UTC)
+	id 1sOxN5-00000009oJQ-0Rr0;
+	Wed, 03 Jul 2024 10:37:58 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7254D40004;
+	Wed,  3 Jul 2024 10:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1720003069;
+	t=1720003073;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=1zHG+kgTAxY6YXuOFQtSuqWr0U2+nyHWGxYZLheatik=;
-	b=lvyFr1KgdlM8fWsBIY5v+NGg/+DCXDRInTjVtnh9n/uT3o0w5TGRzUlsY+e8XghtNV52SL
-	YOQTrE08/uiOUXBQYrDFIL0l6w3tNcK3tXJ6bt6MYni27LjOpYaHsifXseDH2vd+CfNJCF
-	UXSdsCrp/wRv2O1iE6G7+kHhKtpCtkl2vnOOboOh4EAVw5k3osBbyvlh4xD8xAJIxInA+5
-	YGzXuZHzfxIBDVgarTXjYDUz0mBx18c3Qs69P0XUklXAOpiVJREwZeMhQMMbVcO6VsOMFF
-	5jIQz1najcx5oDNnP5ihqZI7kny1OxYyxyvNWyNMgEBS+yMKLxQYoLwUkJZe/g==
+	bh=eb/MG1X9ZyCPKkfMiLJRzBYl1psyg/JqqItzDc7u8oM=;
+	b=mKr+b4HoPQo1Bbt3MDOJiBq9QDRNlzbhJzVl4AeA0Bf+v1zIO3zjJ/lkkLWUl9vVQjJwMj
+	GttRzJh2ll37uZc3T9+da0g8WgP0WK4eBV3Vh0zxip1Vyrqw9JcBUeUdIOgoHNg3KBvJnT
+	+8ed+7bmTxXLLfO8t+hFeawDez5BRpjqW2qGF4j8JnxhgjW/jZ7ECR4H1QVqTgA6x9xaSf
+	mBsmesIOt9vICeLPBULX+Ry1Hki1Qv3FUm4I418GCg27OH8dyMjyOfFD63735uKDyNeZQ2
+	A1FFEdDsCYFcBwTrZOYROGc6Z8mRxdAtz9zOk9dgBIRpvPyxCrCsgAvEr2f/4A==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 03 Jul 2024 12:36:50 +0200
-Subject: [PATCH 06/20] clocksource/drivers/samsung_pwm: convert to
+Date: Wed, 03 Jul 2024 12:36:51 +0200
+Subject: [PATCH 07/20] bus: ti-sysc: convert to
  of_property_for_each_u32_new()
 MIME-Version: 1.0
-Message-Id: <20240703-of_property_for_each_u32-v1-6-42c1fc0b82aa@bootlin.com>
+Message-Id: <20240703-of_property_for_each_u32-v1-7-42c1fc0b82aa@bootlin.com>
 References: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 In-Reply-To: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 To: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -89,8 +89,8 @@ Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
 X-Mailer: b4 0.14.0
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_033751_745551_169FA541 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20240703_033755_756624_4A42644B 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,31 +112,26 @@ parameters in of_property_for_each_u32() are not used here.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/clocksource/samsung_pwm_timer.c | 4 +---
+ drivers/bus/ti-sysc.c | 4 +---
  1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/clocksource/samsung_pwm_timer.c b/drivers/clocksource/samsung_pwm_timer.c
-index 6e46781bc9ac..b5ae411bc077 100644
---- a/drivers/clocksource/samsung_pwm_timer.c
-+++ b/drivers/clocksource/samsung_pwm_timer.c
-@@ -418,8 +418,6 @@ void __init samsung_pwm_clocksource_init(void __iomem *base,
- static int __init samsung_pwm_alloc(struct device_node *np,
- 				    const struct samsung_pwm_variant *variant)
+diff --git a/drivers/bus/ti-sysc.c b/drivers/bus/ti-sysc.c
+index 8767e04d6c89..3d19777f1e31 100644
+--- a/drivers/bus/ti-sysc.c
++++ b/drivers/bus/ti-sysc.c
+@@ -2291,11 +2291,9 @@ static int sysc_init_idlemode(struct sysc *ddata, u8 *idlemodes,
+ 			      const char *name)
  {
+ 	struct device_node *np = ddata->dev->of_node;
 -	struct property *prop;
--	const __be32 *cur;
+-	const __be32 *p;
  	u32 val;
- 	int i, ret;
  
-@@ -427,7 +425,7 @@ static int __init samsung_pwm_alloc(struct device_node *np,
- 	for (i = 0; i < SAMSUNG_PWM_NUM; ++i)
- 		pwm.irq[i] = irq_of_parse_and_map(np, i);
- 
--	of_property_for_each_u32(np, "samsung,pwm-outputs", prop, cur, val) {
-+	of_property_for_each_u32_new(np, "samsung,pwm-outputs", val) {
- 		if (val >= SAMSUNG_PWM_NUM) {
- 			pr_warn("%s: invalid channel index in samsung,pwm-outputs property\n", __func__);
- 			continue;
+-	of_property_for_each_u32(np, name, prop, p, val) {
++	of_property_for_each_u32_new(np, name, val) {
+ 		if (val >= SYSC_NR_IDLEMODES) {
+ 			dev_err(ddata->dev, "invalid idlemode: %i\n", val);
+ 			return -EINVAL;
 
 -- 
 2.34.1
