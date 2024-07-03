@@ -4,61 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED113C30653
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 20:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29523C2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 21:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DkAugHmZ614VHDsyWZYNbWYCJUJ95QwyFcoL4KhTQOo=; b=BqcTnTn/oUQop152T1hBY2lWf+
-	JwIErGQc30RKdMW5thoLn4Pprn8GkdGQEWmIxr56hxjGYozVkn9euAXwjQ+bgnvU2JfhTgMW3orL6
-	QjaVMh3fRGlIiH/tLmYXi0/QK+W/gG3Vj/To04oaFfrg2seB3I2cKmeBVS+R6x7AI7GwURLSHz823
-	lZyv4UzK7RIPRO4bQJ29S6m164yZZC98JaA/O3RLgSr2ny6n2qAUoKsAz/HSe0GL3AAwbUbil/8ju
-	Gw75dgE6dc3GK3QEp4f+xHUIOYPPut7wYljMO0wk6fnguGlWYNPddEwtA+wDtLHYg7tESB071NjXn
-	/goBhUiA==;
+	bh=PGOFqyYi2fLn15m4aIJH21qmG1hpKRPUcgwv4ROvG2s=; b=Vr9N9hBlM1UhdEj/GVXBq3txWn
+	Zd5gTCkKFG05lBF2u4gxxpiHZ2YaxbeibjVMyTPRQkCqHNWDfRwLQMPBXgyI2kW6DXlFZsTL7nTON
+	3e/rTbYvxYp/dJRBqJNljONL125EyX3R25Haw86C3HZ/o/uEU1ExBmecCvqQKPvSSThX97Hkp0iI1
+	B30V+YJIO9oYHhxi2GIA59w34EXlLmqitNpzdjnGk6SWha1KpLYl3yHN7KVWYDfv58hX5FO3UA1em
+	sKh4zt5rdyHKSIbq43D2VDXdxBMM5qBaDE9pbsBWlQomCuZWleocTGOWhDvNF/RV6Xy4m1ZPAFfLC
+	3VYKmsQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sP6YY-0000000BNRU-0yhd;
-	Wed, 03 Jul 2024 20:26:22 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sP7Rs-0000000BU36-0JOF;
+	Wed, 03 Jul 2024 21:23:32 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sP6YU-0000000BNQr-1e5c
+	id 1sP7Rm-0000000BU0y-2feQ
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jul 2024 20:26:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id AED61CE2DCF;
-	Wed,  3 Jul 2024 20:26:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0E84C2BD10;
-	Wed,  3 Jul 2024 20:26:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720038376;
-	bh=PuJTsJ5Q9IQPnrr72LDQoTyI9+vaIDnVrcxQJPos7rM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XBC0X38aRaNf1SA8fi9KIRo//mPaGdsf+T863MJB7hGFVwj4Ots/YoW9Mh9FR2LkJ
-	 h81NYeDRa+SmQ2CRL0g2YSw5TPNWd3NyF2aE0zBcIqbLYgRm8fujnyA46C5H3sukhe
-	 ZECMzHzGig056SZge7wZioBeAC+QNbDI+sAs+CqBID4Ex3iX8zGK9Ma/Qk73kPw9bU
-	 JUgquK7Wecg51e7qCGJBrZUFJM2tv0FWsUbr/lILSAd6KnnreI2ZdeSTNpHll88Gun
-	 EEo8wAmnPjvH7TCpxyGAiFQClPhbNQu0SpntzkXrayKV9ZsPgjCvkJ3IcZ9guXHEZq
-	 omuK7YCb1mnOQ==
-Date: Wed, 3 Jul 2024 21:26:12 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: linux-riscv@lists.infradead.org, Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH] riscv: defconfig: enable drivers for Starfive
- VisionFive2 board
-Message-ID: <20240703-overdue-lazily-a80b3c11f936@spud>
-References: <CGME20240425101017eucas1p10f79f6e47e4c0a8e8083607a075767e0@eucas1p1.samsung.com>
- <20240425101003.1149068-1-m.szyprowski@samsung.com>
+	Wed, 03 Jul 2024 21:23:29 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a7541fad560so291512666b.0
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jul 2024 14:23:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1720041805; x=1720646605; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rmKjZalCS3qgqBNUJ2X1ny0z1S/+Ouz6++2zspqi0Zc=;
+        b=pepewS1cRxP8LD5/olaWfObWRYx5guRkOjEJI5ItFqvOxgG3GeGFWaD0CNAeOSYaHJ
+         ygkMJwcjk5LtBdGa9Q1mQmgpCUKa1wO948AbYxvUJsKaXAIBknCn3tncgoRJm6OguvzS
+         qniXv6UcJfdNFxn690Kd/DXdvTkQxBmv44l40ugV1Is3hgXGeL/gkh/0ae5u7/8jt2LO
+         6MqPg3/NTEzhyfdf3O5oqOSZ5gAmJauALZRs0PslqpRP6FWMh1MGBeyDZip8sed9c782
+         XCzss8kww3MPzDVVCxxBNBbEjWCVBHO7TZvDyEZ83DRKui0F7NiDq05a0815bGhCsXBA
+         AM7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1720041805; x=1720646605;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rmKjZalCS3qgqBNUJ2X1ny0z1S/+Ouz6++2zspqi0Zc=;
+        b=VtPYODJhqv272wQJhuY0s4kJk+bcT0uYWy/RtFyoAuy9cu6giCl1o0ET5MqC2XrdDN
+         23wtdyESUTtEcl178IURh4U60Ius2TJuN6XgoZ5/HwYzC+egccGvyLtzGjn5e7pjvIJw
+         4GRmk5/V2bJrtBAMWaR3I1MfjtQcBgzJqk4KGwZYh8hd8RCHRyga0vOXLlnBSelKkkoC
+         wAm7D4v5DJc6JsfVVbz5r/8p7llQ1fQKOY6CTR0menG6PDgf0ePj4QWpO9fL6secrbPn
+         rnCgThYDfBUc7BYF4aBqbWtWuEyPzhEoBS4CTO6XqIcnVjn62AAnPtNEGWHsqmDY8CEW
+         jSwQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV3MSDoc4ejSU4SyYupJFBKpHVt5aUM54N+zfies4NhG+sCCSWOK3o7/lf3T/og9MpSXtF/iyFd0ySDn7no+bzoBfPVgfjfF4kgiay9oo6a
+X-Gm-Message-State: AOJu0YxbcqYlZ2+9I6eBtk21nBUdQ062pewrTrPMjpZqnFJf/WPGhzjC
+	NtDUBVBUwqS0bSWcprK/S04lraWe3ai/N1Lndn0H8UUZgepLDGMe7ZPrJdgoK7o=
+X-Google-Smtp-Source: AGHT+IEiDeirJZbiRR9WOgvKVRp5lPoOHJBTmQD67pQvhrzI/8nB0fQNgTn38F10sD2qUfAawYddVg==
+X-Received: by 2002:a17:907:1c15:b0:a72:883f:f3dd with SMTP id a640c23a62f3a-a75144a8a02mr1042146966b.56.1720041804879;
+        Wed, 03 Jul 2024 14:23:24 -0700 (PDT)
+Received: from localhost ([2a02:8071:b783:6940:5696:f293:6e5e:98bf])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a72ab0651c0sm541105666b.123.2024.07.03.14.23.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jul 2024 14:23:24 -0700 (PDT)
+Date: Wed, 3 Jul 2024 23:23:22 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Tony Lindgren <tony@atomide.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Emilio =?utf-8?B?TMOzcGV6?= <emilio@elopez.com.ar>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Jonathan Cameron <jic23@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Richard Leitner <richard.leitner@linux.dev>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, 
+	Damien Le Moal <dlemoal@kernel.org>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	llvm@lists.linux.dev, linux-clk@vger.kernel.org, linux-omap@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org, linux-serial@vger.kernel.org, 
+	linux-usb@vger.kernel.org, patches@opensource.cirrus.com, linux-sound@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 13/20] pwm: samsung: convert to
+ of_property_for_each_u32_new()
+Message-ID: <l2xret6kx4qwee3c3abmmhz5uop7zuobxath2eou2utklztkgl@c7lskt3xk3wj>
+References: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
+ <20240703-of_property_for_each_u32-v1-13-42c1fc0b82aa@bootlin.com>
 MIME-Version: 1.0
-In-Reply-To: <20240425101003.1149068-1-m.szyprowski@samsung.com>
+In-Reply-To: <20240703-of_property_for_each_u32-v1-13-42c1fc0b82aa@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_132618_802435_2E04F96F 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20240703_142326_697549_121DB2AF 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,188 +110,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5302168462234059579=="
+Content-Type: multipart/mixed; boundary="===============8070913621747508184=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5302168462234059579==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="B0tQfoD9wq2M8Zxs"
+--===============8070913621747508184==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3uu6b6ybcnfri4lk"
 Content-Disposition: inline
 
 
---B0tQfoD9wq2M8Zxs
-Content-Type: text/plain; charset=us-ascii
+--3uu6b6ybcnfri4lk
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Apr 25, 2024 at 12:10:03PM +0200, Marek Szyprowski wrote:
-> Enable all drivers needed for Starfive VisionFive2 board to increase
-> build and test coverage. Most drivers can be enabled as modules to avoid
-> bloating the main kernel image.
+Hello,
+
+On Wed, Jul 03, 2024 at 12:36:57PM +0200, Luca Ceresoli wrote:
+> Simplify code using of_property_for_each_u32_new() as the two additional
+> parameters in of_property_for_each_u32() are not used here.
 >=20
-> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
-
-I know this patch has been sitting around for ages, but would you mind
-rebasing it on top of linux-next and resending? I think most of this
-covered by:
-https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=
-=3Driscv-config-for-next&id=3Dd8a7d89abb091fe4c1744241c7a40dbad570fd9e
-which I think was in-flight at the same time as your patch, but didn't
-get applied for quite a while till I bothered Palmer into letting me
-take these config updates. There are some things in here though that are
-not in the applied patch (or have different values). And SPIDEV, which I
-resent because I don't think these boards have anything that that driver
-binds to...
-
-
-Thanks,
-Conor.
-
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 > ---
->  arch/riscv/configs/defconfig | 34 ++++++++++++++++++++++++++++++++++
->  1 file changed, 34 insertions(+)
+>  drivers/pwm/pwm-samsung.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
 >=20
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index 3cae018f9315..effa22bc2884 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -146,6 +146,8 @@ CONFIG_MICROSEMI_PHY=3Dy
->  CONFIG_CAN_RCAR_CANFD=3Dm
->  CONFIG_INPUT_MOUSEDEV=3Dy
->  CONFIG_KEYBOARD_SUN4I_LRADC=3Dm
-> +CONFIG_INPUT_MISC=3Dy
-> +CONFIG_INPUT_AXP20X_PEK=3Dm
->  CONFIG_SERIAL_8250=3Dy
->  CONFIG_SERIAL_8250_CONSOLE=3Dy
->  CONFIG_SERIAL_8250_DW=3Dy
-> @@ -157,21 +159,31 @@ CONFIG_HW_RANDOM=3Dy
->  CONFIG_HW_RANDOM_VIRTIO=3Dy
->  CONFIG_I2C_CHARDEV=3Dm
->  CONFIG_I2C_MV64XXX=3Dm
-> +CONFIG_I2C=3Dy
->  CONFIG_I2C_RIIC=3Dy
-> +CONFIG_I2C_CHARDEV=3Dy
-> +CONFIG_I2C_DESIGNWARE_PLATFORM=3Dy
->  CONFIG_SPI=3Dy
-> +CONFIG_SPI_PL022=3Dy
->  CONFIG_SPI_RSPI=3Dm
->  CONFIG_SPI_SIFIVE=3Dy
->  CONFIG_SPI_SUN6I=3Dy
-> +CONFIG_SPI_SPIDEV=3Dm
->  # CONFIG_PTP_1588_CLOCK is not set
->  CONFIG_GPIO_SIFIVE=3Dy
-> +CONFIG_CHARGER_AXP20X=3Dm
-> +CONFIG_BATTERY_AXP20X=3Dm
-> +CONFIG_AXP20X_POWER=3Dm
->  CONFIG_CPU_THERMAL=3Dy
->  CONFIG_DEVFREQ_THERMAL=3Dy
->  CONFIG_RZG2L_THERMAL=3Dy
->  CONFIG_WATCHDOG=3Dy
->  CONFIG_SUNXI_WATCHDOG=3Dy
-> +CONFIG_MFD_AXP20X_I2C=3Dy
->  CONFIG_RENESAS_RZG2LWDT=3Dy
->  CONFIG_REGULATOR=3Dy
->  CONFIG_REGULATOR_FIXED_VOLTAGE=3Dy
-> +CONFIG_REGULATOR_AXP20X=3Dy
->  CONFIG_REGULATOR_GPIO=3Dy
->  CONFIG_DRM=3Dm
->  CONFIG_DRM_RADEON=3Dm
-> @@ -185,7 +197,13 @@ CONFIG_SND=3Dy
->  CONFIG_SND_SOC=3Dy
->  CONFIG_SND_SOC_RZ=3Dm
->  CONFIG_SND_SOC_WM8978=3Dm
-> +CONFIG_SND_SOC_STARFIVE=3Dm
-> +CONFIG_SND_SOC_JH7110_PWMDAC=3Dm
-> +CONFIG_SND_SOC_JH7110_TDM=3Dm
->  CONFIG_SND_SIMPLE_CARD=3Dm
-> +CONFIG_SND_AUDIO_GRAPH_CARD=3Dm
-> +CONFIG_SND_AUDIO_GRAPH_CARD2=3Dm
-> +CONFIG_I2C_HID=3Dm
->  CONFIG_USB=3Dy
->  CONFIG_USB_OTG=3Dy
->  CONFIG_USB_XHCI_HCD=3Dy
-> @@ -199,10 +217,16 @@ CONFIG_USB_STORAGE=3Dy
->  CONFIG_USB_UAS=3Dy
->  CONFIG_USB_MUSB_HDRC=3Dm
->  CONFIG_USB_MUSB_SUNXI=3Dm
-> +CONFIG_USB_CDNS_SUPPORT=3Dm
-> +CONFIG_USB_CDNS3=3Dm
-> +CONFIG_USB_CDNS3_GADGET=3Dy
-> +CONFIG_USB_CDNS3_STARFIVE=3Dm
->  CONFIG_NOP_USB_XCEIV=3Dm
->  CONFIG_USB_GADGET=3Dy
->  CONFIG_USB_RENESAS_USBHS_UDC=3Dm
->  CONFIG_USB_CONFIGFS=3Dm
-> +CONFIG_USB_CDNS2_UDC=3Dm
-> +CONFIG_USB_ETH=3Dm
->  CONFIG_USB_CONFIGFS_SERIAL=3Dy
->  CONFIG_USB_CONFIGFS_ACM=3Dy
->  CONFIG_USB_CONFIGFS_OBEX=3Dy
-> @@ -223,18 +247,24 @@ CONFIG_MMC_DW=3Dy
->  CONFIG_MMC_DW_STARFIVE=3Dy
->  CONFIG_MMC_SDHI=3Dy
->  CONFIG_MMC_SUNXI=3Dy
-> +CONFIG_MMC_DW=3Dy
-> +CONFIG_MMC_DW_STARFIVE=3Dy
->  CONFIG_RTC_CLASS=3Dy
->  CONFIG_RTC_DRV_SUN6I=3Dy
->  CONFIG_DMADEVICES=3Dy
->  CONFIG_DMA_SUN6I=3Dm
->  CONFIG_DW_AXI_DMAC=3Dy
->  CONFIG_RZ_DMAC=3Dy
-> +CONFIG_DW_AXI_DMAC=3Dy
->  CONFIG_VIRTIO_PCI=3Dy
->  CONFIG_VIRTIO_BALLOON=3Dy
->  CONFIG_VIRTIO_INPUT=3Dy
->  CONFIG_VIRTIO_MMIO=3Dy
->  CONFIG_RENESAS_OSTM=3Dy
->  CONFIG_SUN8I_DE2_CCU=3Dm
-> +CONFIG_CLK_STARFIVE_JH7100_AUDIO=3Dy
-> +CONFIG_CLK_STARFIVE_JH7110_AON=3Dy
-> +CONFIG_CLK_STARFIVE_JH7110_STG=3Dy
->  CONFIG_SUN50I_IOMMU=3Dy
->  CONFIG_RPMSG_CHAR=3Dy
->  CONFIG_RPMSG_CTRL=3Dy
-> @@ -242,9 +272,13 @@ CONFIG_RPMSG_VIRTIO=3Dy
->  CONFIG_ARCH_R9A07G043=3Dy
->  CONFIG_IIO=3Dy
->  CONFIG_RZG2L_ADC=3Dm
-> +CONFIG_AXP20X_ADC=3Dm
->  CONFIG_RESET_RZG2L_USBPHY_CTRL=3Dy
->  CONFIG_PHY_SUN4I_USB=3Dm
->  CONFIG_PHY_RCAR_GEN3_USB2=3Dy
-> +CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=3Dm
-> +CONFIG_PHY_STARFIVE_JH7110_PCIE=3Dm
-> +CONFIG_PHY_STARFIVE_JH7110_USB=3Dm
->  CONFIG_LIBNVDIMM=3Dy
->  CONFIG_NVMEM_SUNXI_SID=3Dy
->  CONFIG_EXT4_FS=3Dy
-> --=20
-> 2.34.1
+> diff --git a/drivers/pwm/pwm-samsung.c b/drivers/pwm/pwm-samsung.c
+> index efb60c9f0cb3..fef02a0b023e 100644
+> --- a/drivers/pwm/pwm-samsung.c
+> +++ b/drivers/pwm/pwm-samsung.c
+> @@ -510,8 +510,6 @@ static int pwm_samsung_parse_dt(struct pwm_chip *chip)
+>  	struct samsung_pwm_chip *our_chip =3D to_samsung_pwm_chip(chip);
+>  	struct device_node *np =3D pwmchip_parent(chip)->of_node;
+>  	const struct of_device_id *match;
+> -	struct property *prop;
+> -	const __be32 *cur;
+>  	u32 val;
+> =20
+>  	match =3D of_match_node(samsung_pwm_matches, np);
+> @@ -520,7 +518,7 @@ static int pwm_samsung_parse_dt(struct pwm_chip *chip)
+> =20
+>  	memcpy(&our_chip->variant, match->data, sizeof(our_chip->variant));
+> =20
+> -	of_property_for_each_u32(np, "samsung,pwm-outputs", prop, cur, val) {
+> +	of_property_for_each_u32_new(np, "samsung,pwm-outputs", val) {
+>  		if (val >=3D SAMSUNG_PWM_NUM) {
+>  			dev_err(pwmchip_parent(chip),
+>  				"%s: invalid channel index in samsung,pwm-outputs property\n",
 >=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---B0tQfoD9wq2M8Zxs
+Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+
+Feel free to merge this together with the change from the first patch.
+
+Best regards
+Uwe
+
+--3uu6b6ybcnfri4lk
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZoWz5AAKCRB4tDGHoIJi
-0rs6AP0Q9WzUNm6WDQh6WVm6hOFXP/UeBzWFI0JdqbcDirGsSQEAiHNWFiihifDJ
-FgKH0Px90qgey5KiknZYc6/hYrndJAg=
-=NVHk
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmaFwUcACgkQj4D7WH0S
+/k6PuggAu8WCVFGH6QIMKU3X2rf+i2w61Hm9yGoz/E1JXjYYwhvN07D9QQrg3lFk
+uuvOlwgkdfuIHAsZupm4B503z6Cr+9e1c0yd2UsXZkR+Y5e5uAcWpFrqQPpsUjg6
+K4y5iO46KFiNdoyIw5vaEqa9r+2MGaV/6utEBzK71uNVzWWnYAxGJSrp9BXXUlRN
+ZUz4u7b3Yp+kmsIoFWF2SYjPB08bXS+XlNegSLFuhFLAklD1WtMgdfiyFyqVm20f
+wxAtUX4pOe9E7HV+9qcyWKkbxhOVOOD6iG1CnatgtZoAeRfvmcNx+o2M4x8H0qXK
+hetCnR7IsLL80SX5lvKiYYw2At4OEA==
+=UQNH
 -----END PGP SIGNATURE-----
 
---B0tQfoD9wq2M8Zxs--
+--3uu6b6ybcnfri4lk--
 
 
---===============5302168462234059579==
+--===============8070913621747508184==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -262,5 +197,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5302168462234059579==--
+--===============8070913621747508184==--
 
