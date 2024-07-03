@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C643C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEAA4C2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CUj1lVYa4/8V2X850NNqWAKvnbqmkeBFZmMjasUVna4=; b=TI8V8aMZRBtDe8
-	zsBPVmCGg/lT3Xey+pAY4G6/dMvZooXweEl5iynW7ItteeTEwH53xaUeU3OCLeYYiAt5gmgWXcd/T
-	fWOTVLG8LkTnr7FhppURUHeboi0IJozNTmilMylbITA+Vkrok3HgA+j0mzPk6qBZ9OKOvDSMybWtD
-	dmnjqSDIFnyZKCEBsR9dzYWBpo4zEz9xztcHZeb2M6vmL93GSW6GQsTwjpW1jg0R2erDVDUtAQkZ2
-	lkXrnaxaYlWmAlEENBSftqeqVUrwrMCKxPuSnwAveaHQICEBYoUHS664DDCVJDL352qX9JDiUqed1
-	7PMzBSXz+8KPOiWQm+dA==;
+	List-Owner; bh=fdgDtf9w7CMR3E9IJyVlSSsJH4PC83ZQj1iebS3f/nY=; b=A6dwj7aGQYi1aY
+	SafC4CDnC8yRBETtaCpczRyYLj6+8vzUAYSBlTMu6CQDjGzDmPc6BXm5jwriIX4Y3QBo0islUtSM5
+	LZymirDTnumRPMAkIMtcsXx3F/ANp+dOsWtIOxJA/bXTe9S522xgBY1uvgRs6LRgs5YLo+1LMkC5x
+	TYEV+fghSROB3lvegNbmu3SmPPwtCr9GxGxAteMDJRr2ZqJdgH4NOja25SGgO88SHH+5FeirG4AH6
+	KMyUULg1pPcWGtPnCWMXneYS50ZjlyJiNHv9i5kmJJ4myIVHQ3FgTrjHY6V4xocpnRJxOncevUnwB
+	lXYF4/RZPywJafpK+Tvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxNI-00000009oVx-2RCA;
-	Wed, 03 Jul 2024 10:38:08 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1sOxNQ-00000009obN-1uRB;
+	Wed, 03 Jul 2024 10:38:16 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxN5-00000009oJQ-0Rr0;
-	Wed, 03 Jul 2024 10:37:58 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7254D40004;
-	Wed,  3 Jul 2024 10:37:49 +0000 (UTC)
+	id 1sOxN9-00000009oNJ-2Hqn;
+	Wed, 03 Jul 2024 10:38:04 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8268640007;
+	Wed,  3 Jul 2024 10:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1720003073;
+	t=1720003077;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=eb/MG1X9ZyCPKkfMiLJRzBYl1psyg/JqqItzDc7u8oM=;
-	b=mKr+b4HoPQo1Bbt3MDOJiBq9QDRNlzbhJzVl4AeA0Bf+v1zIO3zjJ/lkkLWUl9vVQjJwMj
-	GttRzJh2ll37uZc3T9+da0g8WgP0WK4eBV3Vh0zxip1Vyrqw9JcBUeUdIOgoHNg3KBvJnT
-	+8ed+7bmTxXLLfO8t+hFeawDez5BRpjqW2qGF4j8JnxhgjW/jZ7ECR4H1QVqTgA6x9xaSf
-	mBsmesIOt9vICeLPBULX+Ry1Hki1Qv3FUm4I418GCg27OH8dyMjyOfFD63735uKDyNeZQ2
-	A1FFEdDsCYFcBwTrZOYROGc6Z8mRxdAtz9zOk9dgBIRpvPyxCrCsgAvEr2f/4A==
+	bh=ObZqIn61RNEy1X0aCEEJcJ3TWqr0KXyZ0h8jl51/dRQ=;
+	b=M1vtRZ/IwZA73ShP/81Am2+1HF7s4FmiDSV9DEbuggRaHcKQERp7OSPzywsZUadCPqsxaR
+	RZ7oCjkG0C8ViUS6anX2ndvvJHX2z7DdcITxSZ12zgS3G5KqbQAXHCT4KkxX9nIVquZUy5
+	15LLa5bd5PLS4v07vuIgeRs4STDPZtGPsgXPh06/GA6Qudtdx0Fny6/LYyK5olTsct1HMA
+	CU4vip10scfCAV+QM/o2bhZlf4YgKbKpZ2BH1KagdlEV/37l3LzbomatP49hAXtTXvQgU2
+	EKMDSO4JJomZuAYfInK+g5FgIWtvH9+N8OhUTELm/RUseTXOmmYBYbCHO97pNg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 03 Jul 2024 12:36:51 +0200
-Subject: [PATCH 07/20] bus: ti-sysc: convert to
+Date: Wed, 03 Jul 2024 12:36:52 +0200
+Subject: [PATCH 08/20] lk: clk-conf: convert to
  of_property_for_each_u32_new()
 MIME-Version: 1.0
-Message-Id: <20240703-of_property_for_each_u32-v1-7-42c1fc0b82aa@bootlin.com>
+Message-Id: <20240703-of_property_for_each_u32-v1-8-42c1fc0b82aa@bootlin.com>
 References: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 In-Reply-To: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 To: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -89,8 +89,8 @@ Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
 X-Mailer: b4 0.14.0
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_033755_756624_4A42644B 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20240703_033800_252706_AB9FCC49 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,26 +112,28 @@ parameters in of_property_for_each_u32() are not used here.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/bus/ti-sysc.c | 4 +---
+ drivers/clk/clk-conf.c | 4 +---
  1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/bus/ti-sysc.c b/drivers/bus/ti-sysc.c
-index 8767e04d6c89..3d19777f1e31 100644
---- a/drivers/bus/ti-sysc.c
-+++ b/drivers/bus/ti-sysc.c
-@@ -2291,11 +2291,9 @@ static int sysc_init_idlemode(struct sysc *ddata, u8 *idlemodes,
- 			      const char *name)
+diff --git a/drivers/clk/clk-conf.c b/drivers/clk/clk-conf.c
+index 1a4e6340f95c..290dd1230bad 100644
+--- a/drivers/clk/clk-conf.c
++++ b/drivers/clk/clk-conf.c
+@@ -81,13 +81,11 @@ static int __set_clk_parents(struct device_node *node, bool clk_supplier)
+ static int __set_clk_rates(struct device_node *node, bool clk_supplier)
  {
- 	struct device_node *np = ddata->dev->of_node;
--	struct property *prop;
--	const __be32 *p;
- 	u32 val;
+ 	struct of_phandle_args clkspec;
+-	struct property	*prop;
+-	const __be32 *cur;
+ 	int rc, index = 0;
+ 	struct clk *clk;
+ 	u32 rate;
  
--	of_property_for_each_u32(np, name, prop, p, val) {
-+	of_property_for_each_u32_new(np, name, val) {
- 		if (val >= SYSC_NR_IDLEMODES) {
- 			dev_err(ddata->dev, "invalid idlemode: %i\n", val);
- 			return -EINVAL;
+-	of_property_for_each_u32(node, "assigned-clock-rates", prop, cur, rate) {
++	of_property_for_each_u32_new(node, "assigned-clock-rates", rate) {
+ 		if (rate) {
+ 			rc = of_parse_phandle_with_args(node, "assigned-clocks",
+ 					"#clock-cells",	index, &clkspec);
 
 -- 
 2.34.1
