@@ -4,107 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FBF4C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 544F2C31D97
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4hHb9P5XNz6g9PEt3maa91JMEajFuRPEcubIZhAiYjk=; b=fEZXWMizT48gg8
-	TXA2dnlt7vCRcleLF6ZOxZU+6RLPEDidsWXQF1KLGp5CASbx8ypRv6M2P6ylW4AuIgY1y7ZKWkNE6
-	rWKrOJEHPzhlDAErkFh7aN8XDXlURmpMeDLbGy+LgMI8kNy8uoNbhtUIQ6fA6mRYWofC7p3009CHu
-	yWoVzkBT1ujZbPcKAVubjtJFUg9hi3YpgjUwAwrNYN/glcIPFn9FBmZsPtN0GahK4brgzgfHSdSuy
-	bMaUgKLbuT+J4R+WDC+ekqsbpgV4+gP7BtT7ZaxAQDAE6nd5ROhjvWcrItnxqOJAhjlJ70a3sYQoJ
-	Sr0wBsIaPrz31LRbWRNw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=N3xPN6KxpXuk2d2KxmNxbhOeErtNGSAvDwsgpriajow=; b=hm7G8ONjPE4RgO
+	zDajQEOTqkbNbJ6VZXVVMBxVdMDoox7OXo36KcQJWDTWUcSW2p1NzRezPFrH3RNfExcWRgsCaYKp1
+	pNDD/f5mqOp9MouqJ9gpH2L5DAKLuDe7T6oIJGFHVNNzt9yR8V4v3f7bl+C/HM1+e2zf5V/JkNjjh
+	h8I0kn8A8iQ1FGY6pZgM0a+sGN9d9JxsjRBHAFwigx/fLU1OWI1HhSafko8U5GR0EXPGUAfgRm7MA
+	nHdOdPCTgYt/fJfEn9QzDq0hcuznbbmFAJ4vrgX3TexC6F+eMrR3ewlGDC98hUBHJH9ryZjYC9TaU
+	Bk1KrEqL0Qk+7lYSH6MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxIe-00000009nFx-2eNd;
-	Wed, 03 Jul 2024 10:33:31 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1sOxMk-00000009o5I-3z7Z;
+	Wed, 03 Jul 2024 10:37:34 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxIY-00000009nD9-48G5
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jul 2024 10:33:18 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2ec4eefbaf1so55409701fa.1
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jul 2024 03:33:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1720002793; x=1720607593; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TrB2TnPNBgt+WbBBIM4+5QWbIuhtFAqbg6qcHUZxaco=;
-        b=PAUDuQGNDwJ8ZeKKVNhngqyRJB3uD1QGGW9GGUQviAnVKLWOEEcV6k0LES21qiWHbm
-         rsaTIk07/ghr6qvl+dVZU4eAnp+Yh1fZ2qVKs0z/pNPlkg2dtiW50xPqRAZLTNkIZKQL
-         Hn//o+h/HJOfaVN7Z5gvscY14liX7EIZQq/CmB555xi1C4xHDR3Lm8x4imuDs1F+hHu5
-         D671Hasy8+2icHYHSdnwPvrcl02Tk1WEMbfQXV+OFmIl8AoKtdIlNiO37B3BFjds/DYl
-         0oEkh/de21AfCSDuu/3AKnLPCryZwjfv9rWIs6SYVg/k0sq+U1ZZQ0pYxtUfjEuX7nEK
-         3vmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720002793; x=1720607593;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TrB2TnPNBgt+WbBBIM4+5QWbIuhtFAqbg6qcHUZxaco=;
-        b=ijfCcna6QkkrAa5Q2Kwm9bLWK+70fu0enIigoLrOLAK1h4KmLPKg8mjc4Ask+/sfqp
-         Q6T+aNBszKpTBQHH7skmTMIVwmMWD07XBb29Y9M8SkfZLUz7zJDWD51J8iTq8lBIPgVW
-         ocLZsXwclOytmhvcKCnLX85O1PdaHqtf8ypvoz4eUTyPsIG+QTTmVEtPukNOgcQPRoMH
-         I1CQjgEjS9GpM8IfR3b7hMGBDDBFyhLafCPyfOsxjxvYU0kX6Rv+701++Ct9EbD8idqK
-         17R5rprdA1PoaqcOBZrXR9fDwYEJTgWFzYyKO2HAGCyU9y+lDo61F1e55TskDXf2UqsD
-         jnpw==
-X-Forwarded-Encrypted: i=1; AJvYcCUGMzY2tIiqidcHjlaGD2cUqH25+q4lAvB9WjeDD8h0VGXYugJ/BbLJGPHzkRKEQ7IwkT1HKX2BycxV1US/+FjSjNUzlksxH5qPpeZ14Jd2
-X-Gm-Message-State: AOJu0Yy7bKv4IH3CFrwWQZ+jpi0mHlKASAu+TEvDK+yG7ya+KZxmFvDu
-	MXBL/BjrzwbfMlrltyqsGH2UOTkKrxdHQe8XKyN3Z3cmIiNXJf/SSSecKLYd2GQ=
-X-Google-Smtp-Source: AGHT+IEgLYgf/SDysaV48RHAuwJ+VgK2M5e2XinMD5byEgw07GiQwTlTQD6QPmY0VgdHWS5AezImMg==
-X-Received: by 2002:a05:651c:49b:b0:2eb:d9a3:2071 with SMTP id 38308e7fff4ca-2ee5e6c9cd8mr61398201fa.50.1720002792033;
-        Wed, 03 Jul 2024 03:33:12 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (dzdbxzyyyyyyyyyyybrhy-3.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ee51696991sm18684511fa.136.2024.07.03.03.33.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jul 2024 03:33:11 -0700 (PDT)
-Date: Wed, 3 Jul 2024 13:33:09 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Tengfei Fan <quic_tengfan@quicinc.com>
-Cc: andersson@kernel.org, konrad.dybcio@linaro.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, djakov@kernel.org, mturquette@baylibre.com, 
-	sboyd@kernel.org, jassisinghbrar@gmail.com, herbert@gondor.apana.org.au, 
-	davem@davemloft.net, manivannan.sadhasivam@linaro.org, will@kernel.org, 
-	joro@8bytes.org, conor@kernel.org, tglx@linutronix.de, amitk@kernel.org, 
-	thara.gopinath@gmail.com, linus.walleij@linaro.org, wim@linux-watchdog.org, 
-	linux@roeck-us.net, rafael@kernel.org, viresh.kumar@linaro.org, vkoul@kernel.org, 
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com, 
-	robimarko@gmail.com, quic_gurus@quicinc.com, bartosz.golaszewski@linaro.org, 
-	kishon@kernel.org, quic_wcheng@quicinc.com, alim.akhtar@samsung.com, 
-	avri.altman@wdc.com, bvanassche@acm.org, agross@kernel.org, 
-	gregkh@linuxfoundation.org, quic_tdas@quicinc.com, robin.murphy@arm.com, 
-	daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com, 
-	quic_rjendra@quicinc.com, ulf.hansson@linaro.org, quic_sibis@quicinc.com, 
-	otto.pflueger@abscue.de, quic_rohiagar@quicinc.com, luca@z3ntu.xyz, 
-	neil.armstrong@linaro.org, abel.vesa@linaro.org, bhupesh.sharma@linaro.org, 
-	alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, joabreu@synopsys.com, 
-	netdev@vger.kernel.org, lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com, 
-	ahalaney@redhat.com, krzysztof.kozlowski@linaro.org, u.kleine-koenig@pengutronix.de, 
-	quic_cang@quicinc.com, danila@jiaxyga.com, quic_nitirawa@quicinc.com, 
-	mantas@8devices.com, athierry@redhat.com, quic_kbajaj@quicinc.com, 
-	quic_bjorande@quicinc.com, quic_msarkar@quicinc.com, quic_devipriy@quicinc.com, 
-	quic_tsoni@quicinc.com, quic_rgottimu@quicinc.com, quic_shashim@quicinc.com, 
-	quic_kaushalk@quicinc.com, quic_tingweiz@quicinc.com, quic_aiquny@quicinc.com, 
-	srinivas.kandagatla@linaro.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-crypto@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, linux-watchdog@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, kernel@quicinc.com
-Subject: Re: [PATCH 00/47] arm64: qcom: dts: add QCS9100 support
-Message-ID: <43nktnqp6mthafojiph7ouzfchmudtht634gtxwg7gmutb5l7y@a5j27mpl7d23>
-References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
- <20240703035735.2182165-1-quic_tengfan@quicinc.com>
+	id 1sOxMf-00000009o1H-2XYa;
+	Wed, 03 Jul 2024 10:37:31 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3ECA340002;
+	Wed,  3 Jul 2024 10:37:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1720003045;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Y9dKIY8UF+nReYR3bpF9Pb7TJp7WLPLWK/B5oYjjbq8=;
+	b=foJzSM9RuZQOf/VPApRW0lmUGrQblXobu0gWcMfK3rdR7fFeSllw9HZtvDHamCZSnVeAQd
+	xl3StvV0X9RM6zrGGH8rKfTVgGj2rxAQ/FXj4AoPA7jwEAAykHOnYYQdsWoKj0Z5qT9EbI
+	NJSgM2y4fGFlocfqLTtmMbWZcFSesBLFVfvUvMOxSvZzRHYiHre2aVkplOJXZ8APv8zjRO
+	yRmCwXsRILqubrSOViPCck2qs6VXTOpPU1Zh2pkMz/CDpauRr4KYDvJCL2P3T9WnVnXRPw
+	Yp49tSFnocZKud9kw1tjEbXpKeoo3s6qbV/lMc9MWdp1PkDr10Ce8YagcplEvA==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH 00/20] Simplify of_property_for_each_u32()
+Date: Wed, 03 Jul 2024 12:36:44 +0200
+Message-Id: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240703035735.2182165-1-quic_tengfan@quicinc.com>
+X-B4-Tracking: v=1; b=H4sIALwphWYC/x3MTQqEMAxA4atI1lOI9Q+8igyltKlmY0uqw4j07
+ haX3+K9GzIJU4a5uUHox5njXtF+GnCb3VdS7KtBo+5xwlbFYJLERHJcJkQxZN1mzk6rfsTgUdv
+ Bo4OaJ6HA/3e9fEt5ALUFP0BqAAAA
+To: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Saravana Kannan <saravanak@google.com>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Tony Lindgren <tony@atomide.com>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ =?utf-8?q?Emilio_L=C3=B3pez?= <emilio@elopez.com.ar>, 
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Jonathan Cameron <jic23@kernel.org>, 
+ Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Richard Leitner <richard.leitner@linux.dev>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, 
+ Damien Le Moal <dlemoal@kernel.org>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ llvm@lists.linux.dev, linux-clk@vger.kernel.org, linux-omap@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, 
+ linux-pwm@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-usb@vger.kernel.org, patches@opensource.cirrus.com, 
+ linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.14.0
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_033315_068164_F921D1EB 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20240703_033730_132392_B16083C1 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,25 +106,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 03, 2024 at 11:56:48AM GMT, Tengfei Fan wrote:
-> Introduce support for the QCS9100 SoC device tree (DTSI) and the
-> QCS9100 RIDE board DTS. The QCS9100 is a variant of the SA8775p.
-> While the QCS9100 platform is still in the early design stage, the
-> QCS9100 RIDE board is identical to the SA8775p RIDE board, except it
-> mounts the QCS9100 SoC instead of the SA8775p SoC.
+[Note: to reduce the noise I have trimmed the get_maintainers list
+manually. Should you want to be removed, or someone else added, to future
+versions, just tell me. Sorry for the noise.]
 
-Your patch series includes a second copy of your patches, wich have
-different Message-IDs:
+This series aims at simplifying of_property_for_each_u32() as well as
+making it more difficult to misuse it in the future.
 
-20240703035735.2182165-1-quic_tengfan@quicinc.com vs
-20240703025850.2172008-1-quic_tengfan@quicinc.com
+The long-term goal is changing this pattern:
 
-Please consider switching to the b4 tool or just
-checking what is being sent.
+  struct property *prop;
+  const __be32 *p;
+  u32 val;
+ 
+  of_property_for_each_u32(np, "xyz", prop, p, val) { ... }
 
+to this:
+
+  u32 val;
+
+  of_property_for_each_u32(np, "xyz", val) { ... }
+
+So, removing the 3rd and 4th arguments which are typically meant to be
+internal. Those two parameters used to be unavoidable until the kernel
+moved to building with the C11 standard unconditionally. Since then, it is
+now possible to get rid of them. However a few users of
+of_property_for_each_u32() do actually use those arguments, which
+complicates the transition. For this reason this series does the following:
+
+ * Add of_property_for_each_u32_new(), which does not have those two
+   arguments (patch 1)
+ * Convert _almost_ every usage to of_property_for_each_u32_new()
+ * Rename of_property_for_each_u32() to of_property_for_each_u32_old() and
+   deprecate it, as a incentive to code not (yet) in mainline to upgrade
+   to the *_new() version (last patch)
+
+The plan for the next series is to additionally:
+
+ * Convert the few remaining of_property_for_each_u32_old() instantes to
+   of_property_for_each_u32_new()
+ * Remove of_property_for_each_u32_old()
+ * Rename of_property_for_each_u32_new() to of_property_for_each_u32()
+
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+Luca Ceresoli (20):
+      of: add of_property_for_each_u32_new()
+      clk: convert to of_property_for_each_u32_new()
+      clk: qcom: convert to of_property_for_each_u32_new()
+      clk: sunxi: clk-simple-gates: convert to of_property_for_each_u32_new()
+      clk: sunxi:  clk-sun8i-bus-gates: convert to of_property_for_each_u32_new()
+      clocksource/drivers/samsung_pwm: convert to of_property_for_each_u32_new()
+      bus: ti-sysc: convert to of_property_for_each_u32_new()
+      lk: clk-conf: convert to of_property_for_each_u32_new()
+      gpio: brcmstb: convert to of_property_for_each_u32_new()
+      pinctrl: s32cc: convert to of_property_for_each_u32_new()
+      irqchip/atmel-aic: convert to of_property_for_each_u32_new()
+      iio: adc: ti_am335x_adc: convert to of_property_for_each_u32_new()
+      pwm: samsung: convert to of_property_for_each_u32_new()
+      tty: sysrq: convert to of_property_for_each_u32_new()
+      usb: usb251xb: convert to of_property_for_each_u32_new()
+      mfd: ti_am335x_tscadc: convert to of_property_for_each_u32_new()
+      ASoC: arizona: convert to of_property_for_each_u32_new()
+      powerpc/xive: convert to of_property_for_each_u32_new()
+      powerpc/xive: convert to of_property_for_each_u32_new()
+      of: deprecate and rename of_property_for_each_u32()
+
+ .clang-format                           |  3 ++-
+ arch/powerpc/sysdev/xive/native.c       |  4 +---
+ arch/powerpc/sysdev/xive/spapr.c        |  3 +--
+ drivers/bus/ti-sysc.c                   |  4 +---
+ drivers/clk/clk-conf.c                  |  4 +---
+ drivers/clk/clk-si5351.c                |  4 ++--
+ drivers/clk/clk.c                       |  6 ++----
+ drivers/clk/qcom/common.c               |  4 +---
+ drivers/clk/sunxi/clk-simple-gates.c    |  4 +---
+ drivers/clk/sunxi/clk-sun8i-bus-gates.c |  4 +---
+ drivers/clocksource/samsung_pwm_timer.c |  4 +---
+ drivers/gpio/gpio-brcmstb.c             |  5 +----
+ drivers/iio/adc/ti_am335x_adc.c         |  4 +---
+ drivers/irqchip/irq-atmel-aic-common.c  |  4 +---
+ drivers/irqchip/irq-pic32-evic.c        |  2 +-
+ drivers/mfd/ti_am335x_tscadc.c          |  4 +---
+ drivers/pinctrl/nxp/pinctrl-s32cc.c     |  4 +---
+ drivers/pinctrl/pinctrl-k210.c          |  2 +-
+ drivers/pwm/pwm-samsung.c               |  4 +---
+ drivers/tty/sysrq.c                     |  4 +---
+ drivers/usb/misc/usb251xb.c             |  4 +---
+ include/linux/of.h                      | 14 ++++++++++----
+ sound/soc/codecs/arizona.c              | 12 +++++-------
+ 23 files changed, 39 insertions(+), 68 deletions(-)
+---
+base-commit: e937d48ed96381e9620d9c81fbc1ce666f5b7358
+change-id: 20240701-of_property_for_each_u32-460fd02a5d0c
+
+Best regards,
 -- 
-With best wishes
-Dmitry
+Luca Ceresoli <luca.ceresoli@bootlin.com>
+
 
 _______________________________________________
 linux-riscv mailing list
