@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED954C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 15:30:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F9D6C3271F
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 15:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ufypK5Z0DQjphn83IxAoqc0ZYsdAud/DwRzXoMimfQ8=; b=ORTviXjefUSC+i
-	ZUwnzd//wFQ9hiCHN1r1sFdFTWMpGKOyYe/LwN2Ia7XexHJWXLHF+2T056XwnFFrR1Mxx4x6tWfpg
-	bLjZg16f/8VSQfMinIbegUDvZX1NWTzfI70vfFxnbrRmd6eK+eLGvy6p0cmUa4EJ26RZIEGvBIAZE
-	OkTwnpxBYopqIJwv55UJCsdcNG3cTsWLx3OPpFMxwt0bAKIP7WikZkCLtawkhzM+k9sKyd4RduYF3
-	Vxa9ubEW75JIKUyXPjLH2KovffqvhLS6v1aagk4N/qOWMgAeFQjlLGgw6lqhY19Mjt4mxEJixpLFP
-	Q0cOUC+26muksGlr5vbQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DdqfG/kNuukfQvThN3xGMcJ7AoBrsUjSny+bYqWcwbM=; b=ar8tVfhGnRZCl3j3BpQLF2Uku4
+	euB0m6QxykIy/Kj06q8vnnMtAq2195dOXmEEpm3TRe0+n+SW0GmiuaBhd4QfX9rmDtcpLBtA4r/AB
+	6QjQBJTsTi/ciz5nCmUydZbES41tF+CGSSsYQh74Jz6sAZ4kC948SzkWMOL9Nwy9SjTamPw0TEaN1
+	4oY+dwBAxDLZfmV00DAYbFK91/mpE4FjmC9KlKqgpA6H16cNOELbUyiyrwZGZIp04ThsgVovj7WQp
+	vkRRkDyBpV60sLyWX+lb971aDmYRR+CyOqNMT0JfqO8eYhbSMc1JywQGDdShmjTxA8gOWsOPRR221
+	3TFrBsyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sP1wb-0000000AgRm-1hbt;
-	Wed, 03 Jul 2024 15:30:53 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1sP1we-0000000AgTZ-0dOC;
+	Wed, 03 Jul 2024 15:30:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sP0sF-0000000ASU1-2DXv
+	id 1sP0xM-0000000ATI5-419H
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jul 2024 14:22:21 +0000
-Date: Wed, 3 Jul 2024 14:22:13 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
+	Wed, 03 Jul 2024 14:27:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EA3456224C;
+	Wed,  3 Jul 2024 14:27:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AA07C2BD10;
+	Wed,  3 Jul 2024 14:27:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1720016854;
+	bh=Da1k3PzkF/P5dn5NS/xK2QBdWh+CFa21+xo9GpsOR+w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fJOH6QUmjO2LsNelMSZ+fnHF1f7/M+RKugp5XZ5EYXrb0irw/Jgp1XnzcB8Ljvn60
+	 eQ6CRgc26FeOct0mthjYpIlquau2mntGA0odmjnXdDzQgHxbh4l11sWLps3mqTKo6v
+	 EWHfFVxJ4fQqRDFh3i8RsE1FyN3Mu4qozprPv99vLwntD91XOQEqWUcJqON6bW1orl
+	 X3Lmx7MlFEU+G291Fjh9fhY24NrTXCb8wO2tgDmL5YE6eUfxl5CKX7v43z2NLUMe3e
+	 O4Yb0qhseyhtonjoUHWMsIdv9lQn6pX+8bskOE9QFNo7RISn4WMpUuIdzwXgomQIKW
+	 gyT0ey+gkzH8w==
+Date: Wed, 3 Jul 2024 15:27:28 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Kanak Shilledar <kanakshilledar@gmail.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-spi@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org,
-	Meng Zhang <zhangmeng.kevin@spacemit.com>,
-	Yangyu Chen <cyy@cyyself.name>
-Subject: Re: [PATCH v2 08/10] riscv: dts: add initial SpacemiT K1 SoC device
- tree
-Message-ID: <20240703142213.GA2734247@ofsar>
-References: <20240627-k1-01-basic-dt-v2-0-cc06c7555f07@gentoo.org>
- <20240627-k1-01-basic-dt-v2-8-cc06c7555f07@gentoo.org>
- <CAJM55Z9jeAQTsVjRiLeofDm1RyMWCuHXC0a-pdKtpUiTkSjJCA@mail.gmail.com>
- <20240702012847.GA2447193@ofsar>
- <IA1PR20MB4953C031CB453AA0E51657B3BBDC2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240702-appease-attire-6afbe758bf0f@spud>
- <20240703094049.GB2676251@ofsar>
- <CAJM55Z9AdOq_yd7sK_VhkutokK+-QKscdq9i759H3N1UKVwJkQ@mail.gmail.com>
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] spi: dw-mmio: update dw_spi_mmio_of_match struct
+ with thead
+Message-ID: <20240703-postage-absence-15fdac24421c@spud>
+References: <20240701121355.262259-2-kanakshilledar@gmail.com>
+ <20240701121355.262259-4-kanakshilledar@gmail.com>
+ <f8604c68-8866-447b-a874-562bdad1df79@sifive.com>
+ <23gvjkszxvf6zehiqetjfmtf67nlpnnfmhgx234jnxwrtmbdpr@4yv64sz2kpcs>
+ <20240703-garbage-explicit-bd95f8deb716@wendy>
+ <CAGLn_=tieSCGWix-0mGC7n8MnD46WPxuWh9xhtB6r+YZry463g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJM55Z9AdOq_yd7sK_VhkutokK+-QKscdq9i759H3N1UKVwJkQ@mail.gmail.com>
+In-Reply-To: <CAGLn_=tieSCGWix-0mGC7n8MnD46WPxuWh9xhtB6r+YZry463g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_072219_623423_420F402E 
-X-CRM114-Status: GOOD (  34.50  )
+X-CRM114-CacheID: sfid-20240703_072737_133687_7FAF42F3 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,141 +83,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============7193546219297681175=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 04:22 Wed 03 Jul     , Emil Renner Berthing wrote:
-> Yixun Lan wrote:
-> > Hi Conor:
-> >
-> > On 16:25 Tue 02 Jul     , Conor Dooley wrote:
-> > > On Tue, Jul 02, 2024 at 09:35:45AM +0800, Inochi Amaoto wrote:
-> > > > On Tue, Jul 02, 2024 at 01:28:47AM GMT, Yixun Lan wrote:
-> > > > > On 12:49 Mon 01 Jul     , Emil Renner Berthing wrote:
-> > > > > > Yixun Lan wrote:
-> > > > > > > From: Yangyu Chen <cyy@cyyself.name>
-> > > > > > >
-> > > > > > > Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
-> > > > > > >
-> > > > > > > Key features:
-> > > > > > > - 4 cores per cluster, 2 clusters on chip
-> > > > > > > - UART IP is Intel XScale UART
-> > > > > > >
-> > > > > > > Some key considerations:
-> > > > > > > - ISA string is inferred from vendor documentation[2]
-> > > > > > > - Cluster topology is inferred from datasheet[1] and L2 in ve=
-ndor dts[3]
-> > > > > > > - No coherent DMA on this board
-> > > > > > >     Inferred by taking vendor ethernet and MMC drivers to the=
- mainline
-> > > > > > >     kernel. Without dma-noncoherent in soc node, the driver f=
-ails.
-> > > > > > > - No cache nodes now
-> > > > > > >     The parameters from vendor dts are likely to be wrong. It=
- has 512
-> > > > > > >     sets for a 32KiB L1 Cache. In this case, each set is 64B =
-in size.
-> > > > > > >     When the size of the cache line is 64B, it is a directly =
-mapped
-> > > > > > >     cache rather than a set-associative cache, the latter is =
-commonly
-> > > > > > >     used. Thus, I didn't use the parameters from vendor dts.
-> > > > > > >
-> > > > > > > Currently only support booting into console with only uart, o=
-ther
-> > > > > > > features will be added soon later.
-> > > > > > >
-> > > > > ...
-> > > > >
-> > > > > > > +		clint: timer@e4000000 {
-> > > > > > > +			compatible =3D "spacemit,k1-clint", "sifive,clint0";
-> > > > > > > +			reg =3D <0x0 0xe4000000 0x0 0x10000>;
-> > > > > > > +			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>,
-> > > > > > > +					      <&cpu1_intc 3>, <&cpu1_intc 7>,
-> > > > > > > +					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-> > > > > > > +					      <&cpu3_intc 3>, <&cpu3_intc 7>,
-> > > > > > > +					      <&cpu4_intc 3>, <&cpu4_intc 7>,
-> > > > > > > +					      <&cpu5_intc 3>, <&cpu5_intc 7>,
-> > > > > > > +					      <&cpu6_intc 3>, <&cpu6_intc 7>,
-> > > > > > > +					      <&cpu7_intc 3>, <&cpu7_intc 7>;
-> > > > > > > +		};
-> > > > > > > +
-> > > > > > > +		uart0: serial@d4017000 {
-> > > > > > > +			compatible =3D "spacemit,k1-uart", "intel,xscale-uart";
-> > > > > > > +			reg =3D <0x0 0xd4017000 0x0 0x100>;
-> > > > > > > +			interrupts =3D <42>;
-> > > > > > > +			clock-frequency =3D <14857000>;
-> > > > > > > +			reg-shift =3D <2>;
-> > > > > > > +			reg-io-width =3D <4>;
-> > > > > > > +			status =3D "disabled";
-> > > > > > > +		};
-> > > > > > > +
-> > > > > > > +		/* note: uart1 skipped */
-> > > > > >
-> > > > > > The datasheet page you link to above says "-UART (=D710)", but =
-here you're
-> > > > > > skipping one of them. Why? I can see the vendor tree does the s=
-ame, but it
-> > > > > > would be nice with an explanation of what's going on.
-> > > > > >
-> > > > > /* note: uart1 in 0xf0612000, reserved for TEE usage */
-> > > > > I would put something like this, does this sound ok to you?
-> > > > >
-> > > > > more detail, iomem range from 0xf000,0000 - 0xf080,0000 are dedic=
-ated for TEE purpose,
-> > > > > It won't be exposed to Linux once TEE feature is enabled..
-> > > > >
-> > > > > skipping uart1 may make people confused but we are trying to foll=
-ow datasheet..
-> > > >
-> > > > Instead of skipping it, I suggest adding this to reserved-memory ar=
-ea,
-> > > > which make all node visible and avoid uart1 being touched by mistak=
-e.
-> > >
-> > > No, don't make it reserved-memory - instead add it as
-> > > status =3D "reserved"; /* explanation for why */
-> > Ok, got
-> >
-> > > Also, I'd appreciate if the nodes were sorted by unit address in the
-> > > dtsi.
-> > so I would move "plic, clint" after node of uart9 as this suggestion
-> >
-> > for uart1, its unit-address is 0xf0610000, it should be moved to after =
-clint
-> > (once unit-address sorted), if we follow this rule strictly.
-> > but it occur to me this is not very intuitive, if no objection, I would=
- put
-> > it between uart0 and uart2 (thus slightly break the rule..)
-> =
 
-> No, please order nodes by their address as Conor said. It actually says s=
-o in
-> the DTS coding style:
-> =
+--===============7193546219297681175==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="EU9d+cHRPc5+PaU0"
+Content-Disposition: inline
 
-> https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
-> =
 
-I was thinking about grouping all same type devices (uart here) together
-according to "1. Order of Nodes", but after reconsideration, I'd just follow
-yours and Conor's suggestion, thus it will be more straightforward, also ma=
-tch
-more well with datasheet[1] if we have to add more "reserved" nodes in the =
-future.
+--EU9d+cHRPc5+PaU0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Link: https://developer.spacemit.com/#/documentation?token=3DLzJyw97BCipK1d=
-kUygrcbT0NnMg [1]
+On Wed, Jul 03, 2024 at 06:42:46PM +0530, Kanak Shilledar wrote:
+> Hi,
+> So, I will drop this patch.
+> In the next version (i.e. v2) of this patchset, do I need to include
+> the dt-binding patch as it is already in for-next.
 
--- =
+No, you do not need to include the binding.
 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+> I am waiting for comments on the devicetree files before sending the
+> v2 (if required).
+
+I'll try to look at that today, not super sure if I wanna pick up more
+patches for that platform with "fixed-clock"s, but I'll comment that on
+the dts patch itself.
+
+Cheers,
+Conor.
+
+--EU9d+cHRPc5+PaU0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZoVf0AAKCRB4tDGHoIJi
+0s9SAQDaGbCpTI/xVyruCRzKJDgDQCVBVSQiPmkMWHtXReHTKAEA8COn47c8JK1n
+nsX3uDFUqFEofK0Lenk0GQcCDuQpkgk=
+=DN86
+-----END PGP SIGNATURE-----
+
+--EU9d+cHRPc5+PaU0--
+
+
+--===============7193546219297681175==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7193546219297681175==--
+
