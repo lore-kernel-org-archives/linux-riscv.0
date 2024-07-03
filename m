@@ -4,48 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F05C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9173C30653
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FZc8t6gApxge/NyF/GFte67hBf/LRE9bLurHRfqJsNA=; b=kl1RXhl5Mb75kj
-	JE+bOhLpiIoOzWW7801I2l6AImcP0WctVTvxC9fktF6ZmQdauk47p7PLIqr534w+ycNTQShbfEyi8
-	X9XnmhLglzLfqK2qvigCBWyfvyzq5bwX92NmXF9ZfkHGJqRjkPcr1xwqaNmt35FjaG65kWcZ3VzYy
-	McJlxpJDPEE0daPnyWlHsrG4hpm4xLJl1J9eJw8lJSL8NC1khOwujTNxxTnfWhfQ/zdbzz70gFBGF
-	+kQrMX0u+VDW4ehWbCS1p2F3r92S4FKNz3oOX6/cwYqICfEJi53L5kYSsTK3GJ0ppPzFR4Z48wV8C
-	OQiQNIgT7l3u1g366O5Q==;
+	List-Owner; bh=H/hmcplfWQO26X2qv4BM558PnQgUixBQh4ZuWFVSETY=; b=cprjY8/dukQRXJ
+	LHkkK4qjrE/AykUnbh5evLC9W0f3akCY+1Lg3F21zt0m70ibNrWB3xdnq8Hr7CRo0XkyJ4rAGe9Wa
+	M7aVQ1ohvl89efuAVoQnbzB0wX6Ke3Z1OrpL7pwRKsLdyTwBo4I1QwlZBbrJ0pTGVeiQKlUael3FB
+	V6CZDiDkjn/qHCbzH3Wub4dUJK910h1v7UdwJXvOQ8sOMq+7gbzaqIHS/ZyvqECcS3Q6eM9WtmCge
+	afYo/AEmofQcYLhNbBuXvJVfEZJjP1uQ9zwts0SIjpmeQcgp7iJe1DG3i4zRQ+/eXHU4RPdS03qFE
+	XilXPGR4iZH0wclaAN0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxOR-00000009pPp-3bgx;
-	Wed, 03 Jul 2024 10:39:19 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1sOxPF-00000009q0E-3uRb;
+	Wed, 03 Jul 2024 10:40:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxNj-00000009orn-2zGH;
-	Wed, 03 Jul 2024 10:38:58 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1B34140007;
-	Wed,  3 Jul 2024 10:38:30 +0000 (UTC)
+	id 1sOxPC-00000009pyV-0sJa;
+	Wed, 03 Jul 2024 10:40:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=1Bx2CQCZLnvl2mGaHzoLhHeTCe30chHxVgbi6fu5d+s=; b=dpbuIEewclt9oZ34TjujGzbmx6
+	7vmsasZmxGUKBDHlPTwvUySoWO2zg1YOqlY7NCeaJPJyqt2uBvk2tgmNJaFl6svHfYyBejMiSpjoO
+	cY/+tIR/CE01mzITK4Zt+sj9XLjbAGe255syfSERi1DsjU5HwvbAfdgP+5nbxFKWrmUA4oNB1Pa+T
+	UsqF4F2tKHewvWbF4U+aKtx7WZ4KKR4IM+B9LLfr6NMjtLV8o+rkTo5pMHJR5eYng+N44e5qjckAq
+	fsO1szbNrhyghy97ZzswLdxSThWEfscP6DOF2/eEOXvajMxBw75jfWS98GaHbX8ztZUJ99xQpz9lh
+	RIVnw2yw==;
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sOxNx-00000009xZ4-2R9Y;
+	Wed, 03 Jul 2024 10:40:04 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 42E2C40006;
+	Wed,  3 Jul 2024 10:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1720003113;
+	t=1720003126;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=RU3pzYG6bF53Hk2/xb6Gkld3bSr1k5kQ8wZC1imwq1g=;
-	b=cPZSrbgY1uyHHUyxN4ire6Mmb4TO2Vu4T16Cw0ijX9WtOdQxRVHvR8xZ+jgMpz5IE44inL
-	vII6SqG0BXZ0XbJVzXjYjxMz8zquGtkc7ojMGbf+/xzpe9vPjARGlOsl4Kt/bELXixFXbH
-	5T4k5i2pHjA7qYSjwFIN2biRcDna40ZV3h1eAQappwyEIKEtCUiI5XdvuyfwdrmtIeJjgC
-	EmXxc3JWVdEIgSVbA2I6p8eyD4T5kYYxryDYm4ngJCNcK71xw65khBJRmgNBswdV/gvQA8
-	WY/WU4scw62nCs+t+3Qq4YDu8vQayuKSd07TBXf+564kOUKkT1WLhWlM6A8vaQ==
+	bh=1Bx2CQCZLnvl2mGaHzoLhHeTCe30chHxVgbi6fu5d+s=;
+	b=aLctC95xt2Q6rMLnoKMX3FJ/PPaRdMHQEBg8Yh4ab3FSY9cbwu/dUFTyd2apLZ20deWbHL
+	p+IzkHN10jVZ1AG9Zn60wT53j8GY4YjZh45RcrSYSRiZO/UmHE3QPIVv0XvnhM2mXl2hWz
+	VOJOVdL5ZPhpZJKh1jWQ96KV9qbUgn5W/5TTMt7H+C2eSDixGWwEKYYBbQX1xXqSkyGHz5
+	91ju+rAKcnrwNcrolgluBFlh3QFO+/DQF5Wl+7Xbh+KtpnaGIUDYbYcsxewuu+9dpHQeok
+	x6ehLSPvrF/uwBxNqrMB68JqQwCZNKNJ8SkpeUBfTvTBYcpghA0kpCr+80jVbg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 03 Jul 2024 12:37:01 +0200
-Subject: [PATCH 17/20] ASoC: arizona: convert to
- of_property_for_each_u32_new()
+Date: Wed, 03 Jul 2024 12:37:04 +0200
+Subject: [PATCH 20/20] of: deprecate and rename of_property_for_each_u32()
 MIME-Version: 1.0
-Message-Id: <20240703-of_property_for_each_u32-v1-17-42c1fc0b82aa@bootlin.com>
+Message-Id: <20240703-of_property_for_each_u32-v1-20-42c1fc0b82aa@bootlin.com>
 References: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 In-Reply-To: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 To: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -89,8 +102,8 @@ Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
 X-Mailer: b4 0.14.0
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_033836_411856_CC91999F 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20240703_113958_496730_980F7203 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,71 +120,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Simplify code using of_property_for_each_u32_new() as the two additional
-parameters in of_property_for_each_u32() are not used here.
+of_property_for_each_u32() is meant to disappear. All the call sites not
+using the 3rd and 4th arguments have already been replaced by
+of_property_for_each_u32_new().
+
+Deprecate the old macro. Also rename it to minimize the number of new
+usages and encourage conversion to the of_property_for_each_u32_new() macro
+in not(-yet)-upstream code.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
----
- sound/soc/codecs/arizona.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
 
-diff --git a/sound/soc/codecs/arizona.c b/sound/soc/codecs/arizona.c
-index 7434aeeda292..1a64b9815809 100644
---- a/sound/soc/codecs/arizona.c
-+++ b/sound/soc/codecs/arizona.c
-@@ -2786,15 +2786,13 @@ int arizona_of_get_audio_pdata(struct arizona *arizona)
- {
- 	struct arizona_pdata *pdata = &arizona->pdata;
- 	struct device_node *np = arizona->dev->of_node;
--	struct property *prop;
--	const __be32 *cur;
- 	u32 val;
- 	u32 pdm_val[ARIZONA_MAX_PDM_SPK];
- 	int ret;
- 	int count = 0;
+---
+
+Notes:
+
+ * The following files have not been build-tested simply because I haven't
+   managed to have a config that enables them so far:
+
+     drivers/irqchip/irq-pic32-evic.c
+     drivers/pinctrl/pinctrl-k210.c
+
+ * These have not been converted yet as they are not trivial, and they will
+   need to use a more specific function that does the lookup they need and
+   returns the result:
+
+     drivers/clk/clk-si5351.c
+     drivers/clk/clk.c
+---
+ .clang-format                    | 2 +-
+ drivers/clk/clk-si5351.c         | 4 ++--
+ drivers/clk/clk.c                | 2 +-
+ drivers/irqchip/irq-pic32-evic.c | 2 +-
+ drivers/pinctrl/pinctrl-k210.c   | 2 +-
+ include/linux/of.h               | 3 ++-
+ 6 files changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/.clang-format b/.clang-format
+index db25cde2651a..a91b9bb39d9b 100644
+--- a/.clang-format
++++ b/.clang-format
+@@ -569,8 +569,8 @@ ForEachMacros:
+   - 'nr_node_for_each_safe'
+   - 'of_for_each_phandle'
+   - 'of_property_for_each_string'
+-  - 'of_property_for_each_u32'
+   - 'of_property_for_each_u32_new'
++  - 'of_property_for_each_u32_old'
+   - 'pci_bus_for_each_resource'
+   - 'pci_dev_for_each_resource'
+   - 'pcl_for_each_chunk'
+diff --git a/drivers/clk/clk-si5351.c b/drivers/clk/clk-si5351.c
+index 4ce83c5265b8..ff990b15d616 100644
+--- a/drivers/clk/clk-si5351.c
++++ b/drivers/clk/clk-si5351.c
+@@ -1191,7 +1191,7 @@ static int si5351_dt_parse(struct i2c_client *client,
+ 	 * property silabs,pll-source : <num src>, [<..>]
+ 	 * allow to selectively set pll source
+ 	 */
+-	of_property_for_each_u32(np, "silabs,pll-source", prop, p, num) {
++	of_property_for_each_u32_old(np, "silabs,pll-source", prop, p, num) {
+ 		if (num >= 2) {
+ 			dev_err(&client->dev,
+ 				"invalid pll %d on pll-source prop\n", num);
+@@ -1232,7 +1232,7 @@ static int si5351_dt_parse(struct i2c_client *client,
+ 	pdata->pll_reset[0] = true;
+ 	pdata->pll_reset[1] = true;
  
- 	count = 0;
--	of_property_for_each_u32(np, "wlf,inmode", prop, cur, val) {
-+	of_property_for_each_u32_new(np, "wlf,inmode", val) {
- 		if (count == ARRAY_SIZE(pdata->inmode))
+-	of_property_for_each_u32(np, "silabs,pll-reset-mode", prop, p, num) {
++	of_property_for_each_u32_old(np, "silabs,pll-reset-mode", prop, p, num) {
+ 		if (num >= 2) {
+ 			dev_err(&client->dev,
+ 				"invalid pll %d on pll-reset-mode prop\n", num);
+diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+index 8ea168c00997..aae940c18459 100644
+--- a/drivers/clk/clk.c
++++ b/drivers/clk/clk.c
+@@ -5383,7 +5383,7 @@ const char *of_clk_get_parent_name(const struct device_node *np, int index)
+ 	/* if there is an indices property, use it to transfer the index
+ 	 * specified into an array offset for the clock-output-names property.
+ 	 */
+-	of_property_for_each_u32(clkspec.np, "clock-indices", prop, vp, pv) {
++	of_property_for_each_u32_old(clkspec.np, "clock-indices", prop, vp, pv) {
+ 		if (index == pv) {
+ 			index = count;
  			break;
+diff --git a/drivers/irqchip/irq-pic32-evic.c b/drivers/irqchip/irq-pic32-evic.c
+index 1d9bb28d13e5..d9aec87f8b59 100644
+--- a/drivers/irqchip/irq-pic32-evic.c
++++ b/drivers/irqchip/irq-pic32-evic.c
+@@ -196,7 +196,7 @@ static void __init pic32_ext_irq_of_init(struct irq_domain *domain)
+ 	int i = 0;
+ 	const char *pname = "microchip,external-irqs";
  
-@@ -2803,7 +2801,7 @@ int arizona_of_get_audio_pdata(struct arizona *arizona)
- 	}
+-	of_property_for_each_u32(node, pname, prop, p, hwirq) {
++	of_property_for_each_u32_old(node, pname, prop, p, hwirq) {
+ 		if (i >= ARRAY_SIZE(priv->ext_irqs)) {
+ 			pr_warn("More than %d external irq, skip rest\n",
+ 				ARRAY_SIZE(priv->ext_irqs));
+diff --git a/drivers/pinctrl/pinctrl-k210.c b/drivers/pinctrl/pinctrl-k210.c
+index b6d1ed9ec9a3..03acca8b01ef 100644
+--- a/drivers/pinctrl/pinctrl-k210.c
++++ b/drivers/pinctrl/pinctrl-k210.c
+@@ -797,7 +797,7 @@ static int k210_pinctrl_dt_subnode_to_map(struct pinctrl_dev *pctldev,
+ 	if (ret < 0)
+ 		goto exit;
  
- 	count = 0;
--	of_property_for_each_u32(np, "wlf,dmic-ref", prop, cur, val) {
-+	of_property_for_each_u32_new(np, "wlf,dmic-ref", val) {
- 		if (count == ARRAY_SIZE(pdata->dmic_ref))
- 			break;
+-	of_property_for_each_u32(np, "pinmux", prop, p, pinmux_group) {
++	of_property_for_each_u32_old(np, "pinmux", prop, p, pinmux_group) {
+ 		const char *group_name, *func_name;
+ 		u32 pin = FIELD_GET(K210_PG_PIN, pinmux_group);
+ 		u32 func = FIELD_GET(K210_PG_FUNC, pinmux_group);
+diff --git a/include/linux/of.h b/include/linux/of.h
+index 756847539384..15c291ab6e71 100644
+--- a/include/linux/of.h
++++ b/include/linux/of.h
+@@ -1429,7 +1429,8 @@ static inline int of_property_read_s32(const struct device_node *np,
+ 	     err == 0;							\
+ 	     err = of_phandle_iterator_next(it))
  
-@@ -2812,7 +2810,7 @@ int arizona_of_get_audio_pdata(struct arizona *arizona)
- 	}
- 
- 	count = 0;
--	of_property_for_each_u32(np, "wlf,out-mono", prop, cur, val) {
-+	of_property_for_each_u32_new(np, "wlf,out-mono", val) {
- 		if (count == ARRAY_SIZE(pdata->out_mono))
- 			break;
- 
-@@ -2821,7 +2819,7 @@ int arizona_of_get_audio_pdata(struct arizona *arizona)
- 	}
- 
- 	count = 0;
--	of_property_for_each_u32(np, "wlf,max-channels-clocked", prop, cur, val) {
-+	of_property_for_each_u32_new(np, "wlf,max-channels-clocked", val) {
- 		if (count == ARRAY_SIZE(pdata->max_channels_clocked))
- 			break;
- 
-@@ -2830,7 +2828,7 @@ int arizona_of_get_audio_pdata(struct arizona *arizona)
- 	}
- 
- 	count = 0;
--	of_property_for_each_u32(np, "wlf,out-volume-limit", prop, cur, val) {
-+	of_property_for_each_u32_new(np, "wlf,out-volume-limit", val) {
- 		if (count == ARRAY_SIZE(pdata->out_vol_limit))
- 			break;
- 
+-#define of_property_for_each_u32(np, propname, prop, p, u)	\
++/* deprecated - will be removed */
++#define of_property_for_each_u32_old(np, propname, prop, p, u)	\
+ 	for (prop = of_find_property(np, propname, NULL),	\
+ 		p = of_prop_next_u32(prop, NULL, &u);		\
+ 		p;						\
 
 -- 
 2.34.1
