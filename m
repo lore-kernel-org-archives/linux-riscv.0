@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF87DC31D97
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 03:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66750C30653
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 03:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BGmbJFvTKAIx7JMzqp4d9K5vKDlsbsfsATuehp9SGpk=; b=28m6X8VT1x2fjZ
-	vEhtSKD1s4QnPLuI+6YpKVq0NO8q5eZYNgiY5qUHByYALFvwanm398qIWd/MsEEJrv+ryuy17U5mB
-	LnUlGNwNSPGlqiNmyCBJxfaBQDfQAwGXRkHU5X9QViV3pqDtwqUYvPKV/kL6q5of6GwwxpZeeC1L3
-	FoGXiq4oltq3t59wbA7AJztWYwI7uLlh5VroQ20xWeLwLO6lfsNoOTCYYDHXF+voI8VpHH2qLc78Q
-	+LoJHZcQxcEa2+cU2+XE29KOlewicSDiIoRgjvvjPcLFZ8BjwKKs9rzOT3owhC/ASlNFzSV9mhUa8
-	L3hl+Bfr0DFU7okYEuSA==;
+	List-Owner; bh=IiWIvXly4pgtF7AE9LWrmFNIt8Ycxd4EoeISBB6UPQk=; b=igESF9j9GnK32T
+	jYq++zqwg+AAAiAAvSb4r98nH2o4Z0TZ5YMx2AlkFQqprOY55NPpYQuj0GmqFnaL86kVnmrXavrll
+	9UPF2fqlT/0mSFQu+312HE8T5PEWV4bfr12OvBiZfZxF/IrmzrxdSe0uHvAQDeQ2Q/VrvzPs/0iK7
+	DuwLx2n0pD5hhHDGWDz60ZfEoCiimZA0HPH1fVat5Ck3Xo/4Eli0AfDCNCcRnCby4PthGOUxvEiU3
+	Wd9T7m9cdNcF57vnYI1BEagHLVyJvtzFaWdEsmoXUPhAoDqWRW+GjFT+X0s7fUA1dwr03Vnk7aSKj
+	1V6K++Lcg3kmAb+5+TwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOr6k-00000008o03-1V1G;
-	Wed, 03 Jul 2024 03:56:38 +0000
+	id 1sOr76-00000008o8U-3Vho;
+	Wed, 03 Jul 2024 03:57:00 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOr6h-00000008nz0-2lys;
-	Wed, 03 Jul 2024 03:56:37 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462HE2dw013551;
-	Wed, 3 Jul 2024 03:56:09 GMT
+	id 1sOr74-00000008o6l-0t4a;
+	Wed, 03 Jul 2024 03:56:59 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462HEAmY003186;
+	Wed, 3 Jul 2024 03:56:29 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Jf9Ii4eaknNcA9Ciu0sD0Xkr8UhaDliE4QG2+psEASo=; b=gXx1eDQ91i37oPuV
-	NVe/Qc4pr2SJAuX5MeJpntzUor2zZHn81e9LzzQSujvDyc6GKIQ1t+SYBdbxhVKf
-	gxudZW2V+SRiTq7gHgkL5Lt5D1ZVum5NHFLQNcQMI8vM7XSvLZ5ICY6RNkbWnEta
-	LfC66Vft/t3Uv5vlTVnqF8sIq6f1fhwgnWbjBWw/Braf8/v00ojx2te/krjGp/eJ
-	jvhhHMblcoaJeOMaN5PKSDRxpD+kcgTrPjYOsUCfDsxsRpJzTrbyK2VZWY5DQVA6
-	E2/aCdfKpeQFMx+Dz/gXE26uJ2kxBrnY5gKjUMLz1RpzP+jDcJ204CVX4yq6RKKw
-	pqxf0Q==
+	aWbXDQ0z51NJlpbaR6TDPClyJuMEKzHXrggMb49gqKg=; b=lnoewkviYLBFAluy
+	P5kwCmRDWSUG62sDYH08Hkjqqg2YuI3Mexbh4B87ruvXTuvnCTjKwdKT8tdIcPFl
+	lYP7OqjhUa5hWkx3da0WfCs/16YrPy83t5YKKi3HQ4OYpkPhlU6TvL7TyoV6yzx3
+	bjEFWfQCsYSCx8feldhM6UoTs7vglKXK8vragqQV+B6pan5GMNKxQ7GyIq1TXaS5
+	bMufhQslBYEVi5FMfjdMoSs24IQVj9xu3/Cgekqz9Dzp4bBm1zXJ55EtyZc4lpOH
+	uoMehX5mqiJJZX6H1RzRaYOmE2gLAqmZyKhKwackFTI1MBTUY0GHr620W8nJoGRi
+	xvjTHA==
 Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 402996qn0d-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4029uxfk33-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Jul 2024 03:56:08 +0000 (GMT)
+	Wed, 03 Jul 2024 03:56:28 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 4633u7nM009938
+	by NALASPPMTA03.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 4633uRFa012180
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 3 Jul 2024 03:56:07 GMT
+	Wed, 3 Jul 2024 03:56:27 GMT
 Received: from tengfan-gv.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 2 Jul 2024 20:55:45 -0700
+ 15.2.1544.9; Tue, 2 Jul 2024 20:56:04 -0700
 From: Tengfei Fan <quic_tengfan@quicinc.com>
 To: <andersson@kernel.org>, <konrad.dybcio@linaro.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <djakov@kernel.org>,
@@ -97,9 +97,9 @@ CC: <robimarko@gmail.com>, <quic_gurus@quicinc.com>,
         <linux-watchdog@vger.kernel.org>, <linux-pci@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>, <kernel@quicinc.com>,
         Tengfei Fan <quic_tengfan@quicinc.com>
-Subject: [PATCH 40/47] pinctrl: qcom: add the tlmm driver support for qcs9100 platform
-Date: Wed, 3 Jul 2024 11:51:47 +0800
-Message-ID: <20240703035154.2182083-11-quic_tengfan@quicinc.com>
+Subject: [PATCH 41/47] clk: qcom: rpmh: Add support for QCS9100 rpmh clocks
+Date: Wed, 3 Jul 2024 11:51:48 +0800
+Message-ID: <20240703035154.2182083-12-quic_tengfan@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20240703035154.2182083-1-quic_tengfan@quicinc.com>
 References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
@@ -110,19 +110,19 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: oTaqILfpg-HDHCdWq_s9Dzds9uyJ8TeB
-X-Proofpoint-ORIG-GUID: oTaqILfpg-HDHCdWq_s9Dzds9uyJ8TeB
+X-Proofpoint-GUID: pqSOMNMhPw0wqh6ImDsDUgq0vhUw9eWK
+X-Proofpoint-ORIG-GUID: pqSOMNMhPw0wqh6ImDsDUgq0vhUw9eWK
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
  definitions=2024-07-02_18,2024-07-02_02,2024-05-17_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 adultscore=0
- priorityscore=1501 bulkscore=0 phishscore=0 spamscore=0 lowpriorityscore=0
- impostorscore=0 mlxscore=0 malwarescore=0 clxscore=1015 mlxlogscore=999
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2406140001
- definitions=main-2407030027
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
+ priorityscore=1501 impostorscore=0 bulkscore=0 spamscore=0 mlxscore=0
+ clxscore=1015 phishscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2406140001 definitions=main-2407030027
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_205635_836033_2194C778 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20240702_205658_409856_57EDB068 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,25 +139,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the tlmm driver support for QCS9100 platform.
+Adds the RPMH clocks present in QCS9100 SoC.
 
 Signed-off-by: Tengfei Fan <quic_tengfan@quicinc.com>
 ---
- drivers/pinctrl/qcom/pinctrl-sa8775p.c | 1 +
+ drivers/clk/qcom/clk-rpmh.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pinctrl/qcom/pinctrl-sa8775p.c b/drivers/pinctrl/qcom/pinctrl-sa8775p.c
-index 5459c0c681a2..4687e11dfe75 100644
---- a/drivers/pinctrl/qcom/pinctrl-sa8775p.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sa8775p.c
-@@ -1519,6 +1519,7 @@ static int sa8775p_pinctrl_probe(struct platform_device *pdev)
+diff --git a/drivers/clk/qcom/clk-rpmh.c b/drivers/clk/qcom/clk-rpmh.c
+index bb82abeed88f..8131afba85d6 100644
+--- a/drivers/clk/qcom/clk-rpmh.c
++++ b/drivers/clk/qcom/clk-rpmh.c
+@@ -876,6 +876,7 @@ static int clk_rpmh_probe(struct platform_device *pdev)
  }
  
- static const struct of_device_id sa8775p_pinctrl_of_match[] = {
-+	{ .compatible = "qcom,qcs9100-tlmm", },
- 	{ .compatible = "qcom,sa8775p-tlmm", },
- 	{ },
- };
+ static const struct of_device_id clk_rpmh_match_table[] = {
++	{ .compatible = "qcom,qcs9100-rpmh-clk", .data = &clk_rpmh_sa8775p},
+ 	{ .compatible = "qcom,qdu1000-rpmh-clk", .data = &clk_rpmh_qdu1000},
+ 	{ .compatible = "qcom,sa8775p-rpmh-clk", .data = &clk_rpmh_sa8775p},
+ 	{ .compatible = "qcom,sc7180-rpmh-clk", .data = &clk_rpmh_sc7180},
 -- 
 2.25.1
 
