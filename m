@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92062C31D97
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 03:55:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EBA6C30653
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 03:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eVNT8R12JHp3hDD98XbhFMKxQAx3F4S3wS92zYNgk/M=; b=SFtseoRyNq7FEj
-	sz43VVLRwgcF2nDDiJ0S3zumKr3M+maChhQWLv1KYjDIJPmO/soex/2bz8BsA0vwSEH55nZAL5g/u
-	8XBgiu0H2HAevIHyLpIfpvrRUdAZBoIQppnR7g4tDs7qaN2MZyC/rxLolQWbr3fPm7s6qqFO/r773
-	bQ9KaEZxBSAfAe3xQ/iMwQAJyB/DJy9RYO3Pcr4VKl3HcHuCl+vyVMQQn0gKAmhO3zlKzHHLorzTI
-	GXgdFhn9AQNl1jxLU4e7xqRaBAdEawx9tvsVZsDrvfn6Yflxe3TntL0fqg9+fLq3+QrTEjhc7G1NQ
-	fAff1+WzdI1AJwt3ywcQ==;
+	List-Owner; bh=L3IwH/iKwZ7R/MQwdUYXcoYy4/Rm8OLbWwbpZQb1WO8=; b=4t8O5NMUe60Jcr
+	R+q3RE/s4wLRGGwurwWhV6JMbSqtoSJFB20VhWbPuMz0ZU+pgOQiw0liT5wIIcAM8BrKmfP7iNARc
+	7iaQnMuBI6MAhQq+GFDHIQKmmEbnOr9NHIatgFDunNJ+RrUSqDU6oMt/sDrvG2ltp7XMWfu6LU9Zp
+	KY0gK9FyYSPzIQ88r6vRLBRXSXamn6q1gufRcV2Pm5mhTPBlRAZ8OeYDqTy+LVj042v5T/bkIR6qd
+	9EWcD6HMPoiSZXcbGvhfk7J6VGFS8PtKEwfUIMRYSXuPsnSg2k5IgcAJFs0FzK/p2xWWn9aDefgn9
+	97HHiuWK60+yE5aSCadA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOr5E-00000008nEj-0y6m;
-	Wed, 03 Jul 2024 03:55:04 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1sOr5X-00000008nOX-2IIP;
+	Wed, 03 Jul 2024 03:55:23 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOr5A-00000008nBb-06pj;
-	Wed, 03 Jul 2024 03:55:02 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462HA2Zv007719;
-	Wed, 3 Jul 2024 03:53:36 GMT
+	id 1sOr5U-00000008nMh-3c6K;
+	Wed, 03 Jul 2024 03:55:22 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462J4ZTL001587;
+	Wed, 3 Jul 2024 03:54:52 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	AvQN8on+eNZwStqL4hoS6mOtS/1y7P1jp5CtW6tlqjQ=; b=lrsYmQ6xRinfWovk
-	0KxaiZjPZX22suReuhaBgtHZuc2c0sdyHokazmQjv/xzDQhzPEB6o6sRj2+294m8
-	MEYjvBbCujJSuHOVR1QzkODgywW9y9TTyHTcLDe0DSV9VcTSEZOX6HHQEmYLgRNc
-	dIdJN469IJzlERiKHz4PkAH0JZrwHf+MdhYqvw2hhLf4Q3lzBpd+gTqs9A1sxshb
-	djs60KPRY4Dm2NcGsMVadJRv5MT11225ABNPHo1EJmkp4Mc5v7hgl77nTvQHCq7o
-	elf1garojUnszi5Vfe6b+qXoqozpNL+TBNK+1A7fG3iiV4gL1TE1IE18NLZrOes4
-	oyphsA==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 402996qmtn-1
+	Bw1lldG5cUI7X0q2aRZKfZOUeGXk1bvPHXsR0eZOPUM=; b=D/WvMM2Jg6l/DjYT
+	1Ug9hUmdZYGhTGPnhYCmbOlUQwr7Uz8LGk9GI4in5UC12L+PsS0y75NfFrWhm3Yv
+	YlqBNig/ep06UB3pwElwPHCTfREvfGtDRwGgb34eOLiVfTHptv0X6LN6BOBAImnE
+	G9+Zu0jJD3e/rJdtoaxf9AfAKz/Tb8i9MNAXGUswX++r59k4vtCdXqYelcz1q1nf
+	gyzQF/Z7yqxQVX4vYcQsQBpoCRJHGZlbahnHpqsxzKGIdIe4QkURPSmQjdlAiPos
+	mKBVb6yLUUCHJgQkbBnlfkGNM1ZnCBgIGTp8qDZvD8HR5rAQ0fOEADDFGuciWi6F
+	KrlZlA==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 402bejsxbe-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Jul 2024 03:53:36 +0000 (GMT)
+	Wed, 03 Jul 2024 03:54:52 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 4633rYu0031241
+	by NALASPPMTA04.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 4633spl4032535
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 3 Jul 2024 03:53:34 GMT
+	Wed, 3 Jul 2024 03:54:51 GMT
 Received: from tengfan-gv.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 2 Jul 2024 20:53:12 -0700
+ 15.2.1544.9; Tue, 2 Jul 2024 20:54:29 -0700
 From: Tengfei Fan <quic_tengfan@quicinc.com>
 To: <andersson@kernel.org>, <konrad.dybcio@linaro.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <djakov@kernel.org>,
@@ -97,9 +97,9 @@ CC: <robimarko@gmail.com>, <quic_gurus@quicinc.com>,
         <linux-watchdog@vger.kernel.org>, <linux-pci@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>, <kernel@quicinc.com>,
         Tengfei Fan <quic_tengfan@quicinc.com>
-Subject: [PATCH 32/47] dt-bindings: phy: qcom,qmp: Add qcs9100 QMP PCIe PHY
-Date: Wed, 3 Jul 2024 11:51:39 +0800
-Message-ID: <20240703035154.2182083-3-quic_tengfan@quicinc.com>
+Subject: [PATCH 36/47] phy: qcpm-qmp-usb: Add support for QCS9100
+Date: Wed, 3 Jul 2024 11:51:43 +0800
+Message-ID: <20240703035154.2182083-7-quic_tengfan@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20240703035154.2182083-1-quic_tengfan@quicinc.com>
 References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
@@ -110,20 +110,19 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: CczZf1AdsL4QgKNAXR7kek7qYT_HkWqD
-X-Proofpoint-ORIG-GUID: CczZf1AdsL4QgKNAXR7kek7qYT_HkWqD
+X-Proofpoint-GUID: PU8lvHGwG68RiW3wbDbnUQSvMksUq8d-
+X-Proofpoint-ORIG-GUID: PU8lvHGwG68RiW3wbDbnUQSvMksUq8d-
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
  definitions=2024-07-02_18,2024-07-02_02,2024-05-17_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 adultscore=0
- priorityscore=1501 bulkscore=0 phishscore=0 spamscore=0 lowpriorityscore=0
- impostorscore=0 mlxscore=0 malwarescore=0 clxscore=1015 mlxlogscore=999
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2406140001
- definitions=main-2407030027
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=978
+ impostorscore=0 spamscore=0 clxscore=1015 mlxscore=0 suspectscore=0
+ bulkscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2406140001 definitions=main-2407030027
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_205500_211400_5B156CC7 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240702_205520_930992_1D27038B 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,36 +139,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add devicetree YAML binding for Qualcomm QMP PCIe PHY
-for QCS9100 platform.
+Add support for QCS9100 USB3 PHY.
 
 Signed-off-by: Tengfei Fan <quic_tengfan@quicinc.com>
 ---
- .../devicetree/bindings/phy/qcom,sc8280xp-qmp-pcie-phy.yaml   | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/phy/qualcomm/phy-qcom-qmp-usb.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/qcom,sc8280xp-qmp-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/qcom,sc8280xp-qmp-pcie-phy.yaml
-index 03dbd02cf9e7..d128ac8cb583 100644
---- a/Documentation/devicetree/bindings/phy/qcom,sc8280xp-qmp-pcie-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/qcom,sc8280xp-qmp-pcie-phy.yaml
-@@ -16,6 +16,8 @@ description:
- properties:
-   compatible:
-     enum:
-+      - qcom,qcs9100-qmp-gen4x2-pcie-phy
-+      - qcom,qcs9100-qmp-gen4x4-pcie-phy
-       - qcom,sa8775p-qmp-gen4x2-pcie-phy
-       - qcom,sa8775p-qmp-gen4x4-pcie-phy
-       - qcom,sc8180x-qmp-pcie-phy
-@@ -181,6 +183,8 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - qcom,qcs9100-qmp-gen4x2-pcie-phy
-+              - qcom,qcs9100-qmp-gen4x4-pcie-phy
-               - qcom,sa8775p-qmp-gen4x2-pcie-phy
-               - qcom,sa8775p-qmp-gen4x4-pcie-phy
-     then:
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-usb.c b/drivers/phy/qualcomm/phy-qcom-qmp-usb.c
+index 9b0eb87b1680..4ebfac113d86 100644
+--- a/drivers/phy/qualcomm/phy-qcom-qmp-usb.c
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-usb.c
+@@ -2246,6 +2246,9 @@ static const struct of_device_id qmp_usb_of_match_table[] = {
+ 	}, {
+ 		.compatible = "qcom,msm8996-qmp-usb3-phy",
+ 		.data = &msm8996_usb3phy_cfg,
++	}, {
++		.compatible = "qcom,qcs9100-qmp-usb3-uni-phy",
++		.data = &sa8775p_usb3_uniphy_cfg,
+ 	}, {
+ 		.compatible = "qcom,qdu1000-qmp-usb3-uni-phy",
+ 		.data = &qdu1000_usb3_uniphy_cfg,
 -- 
 2.25.1
 
