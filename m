@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2A45C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 12:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE84C30653
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 12:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PVKnCxO2O3+t3qBHi2Oc1isKrptFyGCOR10EwkfcYLo=; b=iKcAZNbSTQmj2n
-	jUlpA+m+X+pujPlOuoUHbJdCBtoLzdptgl00pbTvsee7siKEnUYGEE7jOK43/HI4/3xb9jXEAUTiA
-	+PmrhjkM6FPy0CKJyDcrCWJdRbTxqrelDPNrFezRIHar5EksKQq9dyJB41+9hAggYTNIeysXJTGr2
-	aBpndpxpbq5BhiHPo7iDEtq0D9dpLPhRG9YM5XPJC1gMM0sqL6LNC80QcKYOD4BHeo+tUz6gwZ5CH
-	72rJU/AdgXg5oCBKQWMXBVIAvsLJjKKThvHHvJdzw9VHpOpcwuGFFztyZPp9lW8JgaI2FspAv05TV
-	J9nQvSuYQpqBlquc8fyA==;
+	List-Owner; bh=RzjrEiazlccNSstXGUbw8V6puRsl//Cb/qUutEl8XDM=; b=5GA6Q4I/ftgLN5
+	8P/3yPw557PIUboHbhjtO1jz/qHrSs3dRBrrX6EzbkUyqcymvrrdU/mLeocg9150d3oetIF2+OE49
+	rO1Qhl83xTLBrqG5/UHob5RtHfLytPNVtraqsnGJ4kTUuDL05e0bLp86RBeCACp74CHaEWVRy8wXo
+	UIeZHpWCLxs6zzAJXXKe3ILRRxu7rfZKIcYwK9yRB/EQZZCJIkxZkmoyVPUhDB7NKX1YcGhUrSWpH
+	hy6XTeeNEloG2jKEPxjoEzkgE8QeZMWEyOlVsgIy7vWk56ic6wIDQ28Drlzs3tYHzfy1bt62B76wx
+	pmALfFlwMioszXgFo96w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOyxs-0000000A8Sk-3K1d;
-	Wed, 03 Jul 2024 12:20:00 +0000
+	id 1sOyzw-0000000A8l1-1qOv;
+	Wed, 03 Jul 2024 12:22:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOyxm-0000000A8Rd-3Nwi;
-	Wed, 03 Jul 2024 12:19:56 +0000
+	id 1sOyzs-0000000A8kI-3keG;
+	Wed, 03 Jul 2024 12:22:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9443367;
-	Wed,  3 Jul 2024 05:20:16 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0FA3367;
+	Wed,  3 Jul 2024 05:22:27 -0700 (PDT)
 Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE8AA3F766;
-	Wed,  3 Jul 2024 05:19:44 -0700 (PDT)
-Date: Wed, 3 Jul 2024 13:19:42 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 079283F766;
+	Wed,  3 Jul 2024 05:21:54 -0700 (PDT)
+Date: Wed, 3 Jul 2024 13:21:52 +0100
 From: Andre Przywara <andre.przywara@arm.com>
 To: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Cc: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, Saravana
@@ -68,18 +68,18 @@ Cc: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, Saravana
  linux-usb@vger.kernel.org, patches@opensource.cirrus.com,
  linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
  linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 05/20] clk: sunxi: clk-sun8i-bus-gates: convert to
+Subject: Re: [PATCH 04/20] clk: sunxi: clk-simple-gates: convert to
  of_property_for_each_u32_new()
-Message-ID: <20240703131942.1fc653fa@donnerap.manchester.arm.com>
-In-Reply-To: <20240703-of_property_for_each_u32-v1-5-42c1fc0b82aa@bootlin.com>
+Message-ID: <20240703132152.6c306a48@donnerap.manchester.arm.com>
+In-Reply-To: <20240703-of_property_for_each_u32-v1-4-42c1fc0b82aa@bootlin.com>
 References: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
-	<20240703-of_property_for_each_u32-v1-5-42c1fc0b82aa@bootlin.com>
+	<20240703-of_property_for_each_u32-v1-4-42c1fc0b82aa@bootlin.com>
 Organization: ARM
 X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_051954_965719_EE0203AE 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20240703_052205_052083_8DEB0EE7 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,7 +96,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 03 Jul 2024 12:36:49 +0200
+On Wed, 03 Jul 2024 12:36:48 +0200
 Luca Ceresoli <luca.ceresoli@bootlin.com> wrote:
 
 > Simplify code using of_property_for_each_u32_new() as the two additional
@@ -110,29 +110,29 @@ Cheers,
 Andre
 
 > ---
->  drivers/clk/sunxi/clk-sun8i-bus-gates.c | 4 +---
+>  drivers/clk/sunxi/clk-simple-gates.c | 4 +---
 >  1 file changed, 1 insertion(+), 3 deletions(-)
 > 
-> diff --git a/drivers/clk/sunxi/clk-sun8i-bus-gates.c b/drivers/clk/sunxi/clk-sun8i-bus-gates.c
-> index b87f331f63c9..21f036457a86 100644
-> --- a/drivers/clk/sunxi/clk-sun8i-bus-gates.c
-> +++ b/drivers/clk/sunxi/clk-sun8i-bus-gates.c
-> @@ -24,11 +24,9 @@ static void __init sun8i_h3_bus_gates_init(struct device_node *node)
->  	const char *parents[PARENT_MAX];
+> diff --git a/drivers/clk/sunxi/clk-simple-gates.c b/drivers/clk/sunxi/clk-simple-gates.c
+> index 0399627c226a..a30d14937e0b 100644
+> --- a/drivers/clk/sunxi/clk-simple-gates.c
+> +++ b/drivers/clk/sunxi/clk-simple-gates.c
+> @@ -21,11 +21,9 @@ static void __init sunxi_simple_gates_setup(struct device_node *node,
+>  {
 >  	struct clk_onecell_data *clk_data;
->  	const char *clk_name;
+>  	const char *clk_parent, *clk_name;
 > -	struct property *prop;
 >  	struct resource res;
 >  	void __iomem *clk_reg;
 >  	void __iomem *reg;
 > -	const __be32 *p;
->  	int number, i;
+>  	int number, i = 0, j;
 >  	u8 clk_bit;
->  	int index;
-> @@ -58,7 +56,7 @@ static void __init sun8i_h3_bus_gates_init(struct device_node *node)
+>  	u32 index;
+> @@ -47,7 +45,7 @@ static void __init sunxi_simple_gates_setup(struct device_node *node,
+>  	if (!clk_data->clks)
 >  		goto err_free_data;
 >  
->  	i = 0;
 > -	of_property_for_each_u32(node, "clock-indices", prop, p, index) {
 > +	of_property_for_each_u32_new(node, "clock-indices", index) {
 >  		of_property_read_string_index(node, "clock-output-names",
