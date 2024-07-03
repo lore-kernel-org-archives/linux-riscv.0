@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4307DC2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35031C30653
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yi7i1XWlN7k7v5sCJsNklQuFh6CXDioJzroN/auFIDY=; b=bkb+S/ahGdKv1j
-	qi0Gdu14WYvz3o5AQeMrebQQWCIpeIEZ18lx9gnWl5nIUd5id7RBUR4F6XCijalwXZc7TTY7m6grZ
-	aqjaduQyTnKFFqES7WL+KP1Iaru9zYXOc1OcaZlmOgkhuiJJ1aWmcZGD0h8oB3l9OclYdcvzOfS0N
-	Dkfe/V+5+06htk1gUlNYedXNNJtt/MCsogdi8LG/GAGTBhRVyJz9+dA+tRR5FqQvwf9nrEtgkzQID
-	ezHGbgS/ji/JQpnW3YJoQhQ79EP6W8GeHrC1ikSqsWwLJLf9Y7fXX/rNKxnkUocZcc4q5wehNuDA6
-	ZE2fkm97Fq2MCzpAhzjQ==;
+	List-Owner; bh=v6Q7IehbvLqs2gIxjsDlW9m+mCRxAdsc+SOS0bGf8aU=; b=uhykE3v4xMZz/9
+	eIVYsnhL+H65Ks/Bc/zqud02c7K/W34yezoblD1HjfHp+SYdaNFUYT8C9NJ78quCY6GnfH72jH28T
+	1D5FbiAxFymU1wB6IZvjB0CMBZsXwHmn0QQIEbtNuiSeId+tCNWoWrxzFeh81zJaOwyilEYFiFVCu
+	LPkPYbbSl8N3bWhB0sbWyOVf9CMVJmbeHNNio9Hfejk7i3RTh2utZNlDgXPkkhISGQ7Qrz/G7nooe
+	XzlL9ZW0DWgxeytrYzQhTuvFwsPeikoWK0jYGRkFlLqi40FfxHvWiioK4mvgIBeA+rDjowwey6Ceu
+	EzzLmWWwcWeiKOr3TPYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrFo-00000008rGk-25zI;
-	Wed, 03 Jul 2024 04:06:00 +0000
+	id 1sOrGD-00000008rPu-13uH;
+	Wed, 03 Jul 2024 04:06:25 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrFl-00000008rEz-0LZa;
-	Wed, 03 Jul 2024 04:05:58 +0000
+	id 1sOrG9-00000008rOg-40VY;
+	Wed, 03 Jul 2024 04:06:23 +0000
 Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462JHdKu031391;
-	Wed, 3 Jul 2024 04:05:34 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4632xsFj017255;
+	Wed, 3 Jul 2024 04:05:52 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	46FSWg2EBe0pNYLln3JIr8810qYx1ezSaVoefu802/I=; b=Ve1qSrKvHU5NVAce
-	zQllj7M+84p2NyAWdxVRGkqQ9x/2Gbot6y2SeQqR/rE+SQinGuPGh4RqTk9Gfh10
-	SpvXoBeUuqBdk4g80XxI9Gk83h120MIpBXw/0enGHzmuYpbXfnKuZNWg+wV0oZ9k
-	c8IfB9vPZhU5ouxkGN0aB9eRea1aceLKSP/1m2v1KCSEjIPBEeYylcm4ivhWMqvR
-	O6RzZAdWJfDXSPsfmBSHaJq35AlDEc8GzxCmvFNA1/jarwrOSQZNm0yXrPsQnSHq
-	klGmkrzgxF+B376HkEiXjQLMdYhOssRZeox/czx6q7PXPpu7YpFi5wVPg+QJAYSR
-	VbL6MQ==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 402bj8a66u-1
+	6CWU8hI/J85Qs27AYPggDsT7uo9YGq0F6cToE3gFMcI=; b=fYz7EUikTbVi/6Dq
+	xENYMjt9PMweKSA5/AmxzQ/v1UOrjpXOKmZIarm1Jpemz8igtmwIAqZmaZTnr8by
+	vyRQVG4hHjrfgklFr+wyLM6P4lwuIJ8gX8WPag4GUXkPYdilQgNIvwIePmJyttjC
+	5QmVB5j/Kjv0UY0dRStgVFPU7gEe79dqktnRMiOkui50V6hsnkwDpwJQDrINOhpO
+	CeIvhBqru+pA8vB7ZtKIhF21reURfkhsRYvw320GC7sIRAb99LPuadxIspzHtzQo
+	x0sLsPEdX7kCXSZNco688H1Y+12LJajESQDE5iQxz8r1pvRMVeCDnwGEwLRBN5kH
+	AK0+NQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 402bj8a67g-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Jul 2024 04:05:33 +0000 (GMT)
+	Wed, 03 Jul 2024 04:05:52 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 46345XND031804
+	by NALASPPMTA01.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 46345pqn011080
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 3 Jul 2024 04:05:33 GMT
+	Wed, 3 Jul 2024 04:05:51 GMT
 Received: from tengfan-gv.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 2 Jul 2024 21:05:10 -0700
+ 15.2.1544.9; Tue, 2 Jul 2024 21:05:30 -0700
 From: Tengfei Fan <quic_tengfan@quicinc.com>
 To: <andersson@kernel.org>, <konrad.dybcio@linaro.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <djakov@kernel.org>,
@@ -97,9 +97,9 @@ CC: <robimarko@gmail.com>, <quic_gurus@quicinc.com>,
         <linux-watchdog@vger.kernel.org>, <linux-pci@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>, <kernel@quicinc.com>,
         Tengfei Fan <quic_tengfan@quicinc.com>
-Subject: [PATCH 21/47] dt-bindings: thermal: qcom-tsens: document the QCS9100 Temperature Sensor
-Date: Wed, 3 Jul 2024 11:57:09 +0800
-Message-ID: <20240703035735.2182165-22-quic_tengfan@quicinc.com>
+Subject: [PATCH 22/47] dt-bindings: soc: qcom,aoss-qmp: Document the QCS9100 AOSS channel
+Date: Wed, 3 Jul 2024 11:57:10 +0800
+Message-ID: <20240703035735.2182165-23-quic_tengfan@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20240703035735.2182165-1-quic_tengfan@quicinc.com>
 References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
@@ -110,8 +110,8 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: TurF8nxbNgeNPInCVcIzOiw1NQ5PcYCV
-X-Proofpoint-GUID: TurF8nxbNgeNPInCVcIzOiw1NQ5PcYCV
+X-Proofpoint-ORIG-GUID: 2IjKZEk0EIrOClCv8Wxwwv8Q2ZSh6Z4q
+X-Proofpoint-GUID: 2IjKZEk0EIrOClCv8Wxwwv8Q2ZSh6Z4q
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
  definitions=2024-07-02_18,2024-07-02_02,2024-05-17_01
@@ -121,8 +121,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscor
  classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2406140001
  definitions=main-2407030028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_210557_137820_6BAFFC4A 
-X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-CacheID: sfid-20240702_210622_009590_D345882F 
+X-CRM114-Status: UNSURE (   8.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -140,25 +140,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the Temperature Sensor (TSENS) on the QCS9100 Platform.
+Document the Always-On Subsystem side channel on the QCS9100 Platform.
 
 Signed-off-by: Tengfei Fan <quic_tengfan@quicinc.com>
 ---
- Documentation/devicetree/bindings/thermal/qcom-tsens.yaml | 1 +
+ Documentation/devicetree/bindings/soc/qcom/qcom,aoss-qmp.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/thermal/qcom-tsens.yaml b/Documentation/devicetree/bindings/thermal/qcom-tsens.yaml
-index 99d9c526c0b6..ace2cf1975c4 100644
---- a/Documentation/devicetree/bindings/thermal/qcom-tsens.yaml
-+++ b/Documentation/devicetree/bindings/thermal/qcom-tsens.yaml
-@@ -51,6 +51,7 @@ properties:
-               - qcom,msm8996-tsens
-               - qcom,msm8998-tsens
-               - qcom,qcm2290-tsens
-+              - qcom,qcs9100-tsens
-               - qcom,sa8775p-tsens
-               - qcom,sc7180-tsens
-               - qcom,sc7280-tsens
+diff --git a/Documentation/devicetree/bindings/soc/qcom/qcom,aoss-qmp.yaml b/Documentation/devicetree/bindings/soc/qcom/qcom,aoss-qmp.yaml
+index 7afdb60edb22..80e1a8b43586 100644
+--- a/Documentation/devicetree/bindings/soc/qcom/qcom,aoss-qmp.yaml
++++ b/Documentation/devicetree/bindings/soc/qcom/qcom,aoss-qmp.yaml
+@@ -25,6 +25,7 @@ properties:
+   compatible:
+     items:
+       - enum:
++          - qcom,qcs9100-aoss-qmp
+           - qcom,qdu1000-aoss-qmp
+           - qcom,sa8775p-aoss-qmp
+           - qcom,sc7180-aoss-qmp
 -- 
 2.25.1
 
