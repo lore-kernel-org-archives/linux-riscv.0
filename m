@@ -4,108 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A636AC30658
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2024 22:22:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9ABC3065C
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 00:04:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kscscUkrFLkqzqCxXGFT56uCTMXngjmnJarUw8O0mCM=; b=s0JFd6widskNAd
-	Tum/PCsfapens0RH3k3DoFTgpRu12aKjcssADIU9ljxp8xjAEgVDPGQQ7FxpNQkb086yCHFnAyV+H
-	oVOoBP0hJWuRVX4qV6wkD+SQJ0nUZDzmltblbeKKlyIWT0YPP0SzFiePptGu95Ak3mUcx0JmzBPSK
-	LdnJwtl9UHdK1LviccAOgMudCT8rFOIGCA+y9hjaYO82xGiUW/7FDP+JfAQfCH1jREt8fKf7N8IAu
-	p/C0DuvxIY3WxQ4kaIbcLPlsqHkTCp4xCJ19AksW4vG3aRaNmHV67gRzRKmbRqCF/DgXwFjEoprOZ
-	mMC88jYYhwcmXYv96LlQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eDVjLIrGFlv469d2Baxrj+MgbPgqgO2Jws9WJ2DSrNQ=; b=RBF+77/lC/j8hkxADUnxPfLSYl
+	wROSLaeoFEv5X+k2yr23H3EdjN5x9G6oxAuf0VN15bE5zghewSY07Q2OthpNNLKB/nyibQDAr2L3a
+	cWIMPdh6KM940Jk24aelr//c6xUST3jvpPhEk4loWBO7tzWHgEj9+lL5tkKd8OhiUNaGFkMwBUfF0
+	jSopiYc5zodi+V4h7c+KuxoTdNosZ7p5E4HDeOGXoGUaJ7FzeuswvJMef354rrnjRSeJ+YvjCFJN0
+	e9+3eczMbitokT2xwYSBMiRwggHH5i3Tg2razEBSeKoOHq3wCIsS5jDLURXO12Jm+YQFniYdzDLhC
+	5Y3LPU3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOltj-00000008CBd-0va4;
-	Tue, 02 Jul 2024 22:22:51 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1sOnU9-00000008MUK-464l;
+	Wed, 03 Jul 2024 00:04:33 +0000
+Received: from mail-bmxind01olkn20820.outbound.protection.outlook.com ([2a01:111:f403:281c::820] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOltg-00000008CAR-1iLe
+	id 1sOnU6-00000008MSM-0OWG
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jul 2024 22:22:50 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7065a2f4573so3291832b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Jul 2024 15:22:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719958967; x=1720563767; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=2HAreNgSKd2flbDmhZ9kzCgXWhr/5FjsTCmFlTvboqE=;
-        b=VuBv0b6XL2CiyrxkO2gWTXUTZiLMYJ0RTRnaYM4SsuPKglUIFwiBvPm9CbUzGppRT3
-         0Nc4OEKDvxvwATYU/wDN8SmTlv48S/zg7XVoLgvGgtCReh8XEDq7ZqvHr+CntvF5n3x0
-         A440lOb93A+2jGb/Db2XQJd5j8hxR9IMlbL/tWIES/dMzmV7eDNV8peplFBwmzfj7Emh
-         RlVGqiFwWci33WqbWU+PHvS0axzj8sIHBXY5o7c9AYMGEpfkL23DDDMe5Pw3yurw6FQo
-         /uWDuvO6fpXvf/+vLACQnljtrzRQjqgYMZUrloFSixHBeXi1p6LtEKXvMjVk0NhxHMmI
-         2nzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1719958967; x=1720563767;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2HAreNgSKd2flbDmhZ9kzCgXWhr/5FjsTCmFlTvboqE=;
-        b=uAgdnZynap8nB/bT9pNJeAhWN4YcGmyfZRIR5dWuX5azF/ZdYF8A/CIxdsGHH92db0
-         U10GB/F5ccfsgOYHCDLiyNJ4ktIovzyWNBFB6q9O0LQkqYZ6ON+Dgco11jOoR5Gpqx92
-         GUTTwTs26uuc7whBtrcm64lNczGOxXL+Kj6xH1GrR+YWWWRRXb3iPkutcNq3pwmmhmuE
-         EE3ZeccwFnpe+gBVRR3/l9NRXgIt8TKTYe7mHpT/Ku4IGBzPRWT5fPFVUS5VVrcYfBw3
-         0p2zN8v2OswYdnf5iAixj3dMek1/tqcd3AHzRMdEfGFgZuiTt3IQfsYqwHCz4eBo0/jX
-         2CWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUKvHOG20cjH4NS/i4V5m58h3WWfpWnFcPrJzRWPJq36GPC0rqGa9wZJSv/Dbu3b2PGJxSFQkWpHSEp3sxR7OvSyC3qd0TX72sIx1PDblzv
-X-Gm-Message-State: AOJu0YyChURFez9s0KjcfON9r+EQxAJu6+AExX7rioNnxRT0pPYohYZW
-	KN0GHilcqcAgRpqpXOdwk9oksV5fALrLVArw1qZHotyMs/4l9+seWQAkn409zMk=
-X-Google-Smtp-Source: AGHT+IFv/UktdfqfVi4xgaaycbPb7pdL54C2mZHYwO0zrmNP80hR83Y1Fy2VM2Z6FDn1I046+MIzxQ==
-X-Received: by 2002:a05:6a20:1586:b0:1be:cb97:a918 with SMTP id adf61e73a8af0-1bef610bf3dmr9638155637.29.1719958967187;
-        Tue, 02 Jul 2024 15:22:47 -0700 (PDT)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70803ecf97csm9053071b3a.127.2024.07.02.15.22.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jul 2024 15:22:46 -0700 (PDT)
-Date: Tue, 2 Jul 2024 15:22:43 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Conor Dooley <conor@kernel.org>, Jesse Taube <jesse@rivosinc.com>,
-	linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Evan Green <evan@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Xiao Wang <xiao.w.wang@intel.com>, Andy Chiu <andy.chiu@sifive.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Costa Shulyupin <costa.shul@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>, Anup Patel <apatel@ventanamicro.com>,
-	Zong Li <zong.li@sifive.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Erick Archer <erick.archer@gmx.com>,
-	Joel Granados <j.granados@samsung.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 4/8] RISC-V: Check Zicclsm to set unaligned access
- speed
-Message-ID: <ZoR9swwgsGuGbsTG@ghost>
-References: <20240625005001.37901-1-jesse@rivosinc.com>
- <20240625005001.37901-5-jesse@rivosinc.com>
- <20240626-march-abreast-83414e844250@spud>
- <Zn3XrLRl/yazsoZe@ghost>
- <43941f48-9905-4b25-89ef-6ad75bf1a123@rivosinc.com>
- <20240701-ajar-italicize-9e3d9b8a0264@spud>
- <ef639748-3979-4236-b48d-c0c44e2d5ad2@rivosinc.com>
+	Wed, 03 Jul 2024 00:04:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=HYtM/RAIm+3ww3QDyCZOndiCyTIHClumV4xDspR8r5ztjr9R4GQJuehdaZLnm9WkK9RC998SJ65HP9M05FIAw79sJoG3uikSMk6HPGek3ZID5b81p4p/7zchBajdeDpi2NFT6no+nm/Hy3Vj4uzi/rZ927piMjDmaZo5c+4ORvTToubit/nUSSsrwbHdRtD7yO+ua7YpHoAVQcuC99OuAop7aXwK7aOgCGHJ/v4z0DUUykoO9wBtbdP3+k6GJdJK6Z+Cpm2umLshMqRv+psdBPrSqm+gdn3iL9UgeuQ5+5TGo29S6+Auo6cPtqZrJ9sz8BGUIHSIIaLiUeG4tadd/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0/DbTocQ75WCUUKUpBfrv17VAn7B4PfqdRmWujIq+XE=;
+ b=jy/6d6cqbnxX0Nue6BVFKnXQ3d6F5VLBWf86028d7Cf4lt2YK39mD+eD/ohs4BTZ4BZAezm49dpHSpP+SEqdrZ/ZrW0u1PCOcjEOqYiiU8ro5g9l7la9FOsySisQ11TOw4EyKfNotgPUx4oLzRMLKLpjxhF2QALP9WMLAUWu8LbDKYeIrESTtTjU97rx/Yy45geLOq7k3PGGpqeWf1Pd4NcDhWKBGmFxj7M3rqoD0KDTXIcw7mO8HOsSxcn6sZxCrFYkW1TVJfjFuZ832cMkUwn3GcVLBj35btLTwq8OWEXtFSzZDxaD4hrmMI0g/FrYNMxaiddceK9Psh+OFkY5bA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0/DbTocQ75WCUUKUpBfrv17VAn7B4PfqdRmWujIq+XE=;
+ b=GEAzyVWzozpqebop0ydZ/O++NNn9RxKpL3dggvxGfhw/BrxhuIoIH74N+dzW8jtN0/JSHxuNLDKyEgK+y6XoaQywcpgdt2WqQkW7BwVZMLYdbzT5+8Q/wpNILWV6/tuEORsYzto5pta2st3FA2/J13JyNmt4tXETCXRAlM0O4avwc7O2L4E5W/GNrPOf4IiXcc8ecRJ8pa9pGZmzTtX1kepT0SmshBnFs4dK6BQV+NTp3mO78m0/n5dLzFwlxqhzCe/y5Mc5Nz6J3ImMNj/Y9ug8cZSYOH/sZxmPJPeFy8Sk2NR+Q5FAJ1uiAIkx0n3aYjvheVn9Z+gX5+bOfBT5nw==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by PN3P287MB1019.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:177::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7719.34; Wed, 3 Jul
+ 2024 00:04:09 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c%3]) with mapi id 15.20.7741.017; Wed, 3 Jul 2024
+ 00:04:09 +0000
+Message-ID: <MA0P287MB282237CAF989A9D9BBEED139FEDD2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Wed, 3 Jul 2024 08:04:01 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml: Add
+ Sophgo SARADC binding documentation
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com>
+ <20240702-sg2002-adc-v1-1-ac66e076a756@bootlin.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20240702-sg2002-adc-v1-1-ac66e076a756@bootlin.com>
+X-TMN: [Q1riURWJwe7hMgFdG+J4BGz+0LDamAwp]
+X-ClientProxiedBy: SG2PR01CA0153.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:8f::33) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <7c90678d-a3a8-4c24-93c8-b07cd54dc85e@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ef639748-3979-4236-b48d-c0c44e2d5ad2@rivosinc.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN3P287MB1019:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4a1cca14-a5fa-4f7e-c84c-08dc9af3a8b0
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|8060799006|4302099013|440099028|3412199025|1602099012;
+X-Microsoft-Antispam-Message-Info: 8qsUi2CWx2n+Won1KyL5zPhRGrCK6RC/Jyp5s7k0sWcQ7Gts8Feh3GsJMZM7jLiE4H5NZMc+zeldgcglBLY/zvoNltEtr0UtZKmn3oad2Absk1bHAakWz6lSIaZvC2QYva2RvDcUBcHbuhuVx2H8dhlUvoE3Yq3Q2kZNwAa6pgvJhN6hva86rsvrZi8Jx2oIWkx29f8X8LqH1HhnmdM3wh/DzKEVZst6+Fj9d7E1007pHvCCZD1V7f0FSLyOohwoKcw7KPgEajpR25lRgbNaQiN+orUG4KMoikWumbTgLUfV+oM+KI9mZs9f4c1UH+Vrb3RbhflOgEMCgePNpc2MmlvTsoLAGz1+YSS20Zwx6KAI6uk96QCCVAr+ans60GMrjb1mk5JL3Nmzrz8dODXhXfJ1pRhkvImuPUry2CHsj3mW5SPGj7uB4EE3Ch5POyw2WW5xuvLuXNOZD6kshyOFJqxd22z6+ySoSjpuL8zVO5V3v6++Hbfnit8NbnQnnexdXcAgkV0ZWUXEaXe2EDIpxW7MhUg57CWOiumQixfo78h4g1jjymJ+NwM2fFbDoOyKCEf3ob5b3KnIXM7mzaxS+xhsaNFLSU+aRe0f+8WmeIpSZ4SvJalgOiEYuoZBvtgWH24hrU2Hkd2sP7UBSjFLQOhcpah4TEjC+7IJ0jqUNxABFxxvHWjF5iOGA39Uz6dOkUcNiaBhmYt9fa+Cb/VlKsUnUKRFtQZ85iSRFtOBU2o=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VERNR2xnbDZMYU1vY2Jrb1I3YTBrVzBkRkFoa2oza0xscEhYMEw5OFpMVFFS?=
+ =?utf-8?B?WGVZK3QwRkI2bzJObEZFd0xHeUV5Zkc1eDYwc0FwVHl0VW43b1A4QjdXdjZu?=
+ =?utf-8?B?RkRyWkhaUkZCcGtpckdxd0E4UjgzclBndGhCQmJKaGM5ZFY4ZzJ1ZzFydDBt?=
+ =?utf-8?B?MDRpNFhFOEhpWUhFc0Y1VUlXWlJqQm1scHlFRjVHbEJoR2NQSzFsNTV3KzdH?=
+ =?utf-8?B?UWx4OURITDU1OElYS2o3T0pYN1RqdDc4SWlPaGlselJMc0czbklITGk3dElp?=
+ =?utf-8?B?U2hSNUNyZWo3SjlhS0ZrdmtGMXZqb0JGYUsvRDZSbjZuWDFoQ205d1A0WkxO?=
+ =?utf-8?B?N3htYjhtU0xRY01NeHQ3UmpvWmNVRGh6akR3WjVKbktkdjY3MU9JUkVXVUph?=
+ =?utf-8?B?VkRnR25Ea0MvQ3VOODBZU0Irek4wOVBtUmNsRHJoalJIaTZsZ0xaTkh0L05k?=
+ =?utf-8?B?OTNvR1o3MUppRlR3MGdPbUpxekNuY1Z1TktQWHd5ai9SbGllcmlTTFg1cFgy?=
+ =?utf-8?B?KzdIc1FFd09GQ0xhM3ZuU2V2NzBZWlJEZnVGRHgwZDQxSmlwTFZUOWNaWmc4?=
+ =?utf-8?B?NzBJNHRNeEZPRHZhUitxb0cvRk55OWZqRE51VkRhVHhWL2pkTU9RbUcwc1h2?=
+ =?utf-8?B?a1gzWXNtQ24rR05lYkxUaG5DdlZDWlNobEFIWnBKSkkyK29GSzlXd3lEZGhE?=
+ =?utf-8?B?aFZpZTV2M0VGWHF4dWpIQ0dNZGtJanBjbUFuZmhXRld2MzAxQjR6MVFiTG94?=
+ =?utf-8?B?a3hPVVppdHY1VEp2RHVaM0dxODBLRksxcXBuaUNwS1NTWXhVdXlyMmtGQ1cy?=
+ =?utf-8?B?VWNTVkVDa091TkxzbVNrSjQ4bDBwQUc5T3lKSG9FUG1zUDRXdjhFeTZEbVhS?=
+ =?utf-8?B?K3pIQTBERnpEUXpKaDVjQ0UvdWhPazRHbzAremdYZ2h6cUNTbDE4TUk2aUJz?=
+ =?utf-8?B?VE1HK1d4SDFWTE5YeXdnWXFRYkF5WFh6VVp1TSt0UzM5eU8wNlpLMUhRU0wy?=
+ =?utf-8?B?UWRtcmpsUVkyam1vbEhLcHN1UDBlc0ZDYnUvcG5UZjVaUFc4VFExbHRVTzhI?=
+ =?utf-8?B?eVViYnRLOGNuME9tWS91U1VYRFZEbStRT2M1VCtUTENxQVpBai8xNlIxZTFU?=
+ =?utf-8?B?d1N6bFJnd1R2K0t2bURjVDBhbFF4NmxqSHZZNnB6elBLZUdJdWI0NUZSQVVK?=
+ =?utf-8?B?cGJNaFhCN2dQbXFJRXRZN0pyRXZ6ajREMlFnTVRQK1Bkek1hcTBqaW1PRnQw?=
+ =?utf-8?B?MWsrSWRWMnZDQVlJM1RhREQvRjdXY2Z1dDhZZExSU0hHb1Y4aDVZang3RjNS?=
+ =?utf-8?B?SE82QTlVZzhVTzBLanlTVy95NktIMkYxc1QyK1BqVjJEMUhuUWxRZWxlRWFs?=
+ =?utf-8?B?Z3hSS05DMHM4UVV0TTdtN3RVT2ZHZkk4N0c0dUJyVlZZVS96d0RSZkE4S2VB?=
+ =?utf-8?B?dTN5ank3Z3lubXZYU2luOGgyQ0hsOHlXdW1FZ3FKZkY5Q2RmWWNNOVRDSXBh?=
+ =?utf-8?B?U1cwcVZBSUI3TkVCcTJLcWgza3poblIzcUZkVkRaYWd2dVlIcFhxNDJlbUpJ?=
+ =?utf-8?B?c3Y0MWQvSHhpVG8wTUg0K2o5L1VqcDlKVWw0dlhnQlNHdVh2OHRjdi9YTHE3?=
+ =?utf-8?B?anQxcnJ3RmNmSG81Ym5OZ2FPWCtsTGpHMWRla3pDWkk5V2ozM1E1RnJMdFpO?=
+ =?utf-8?Q?ET0DL/vT79Y9bOx+3foY?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a1cca14-a5fa-4f7e-c84c-08dc9af3a8b0
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2024 00:04:09.7591
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3P287MB1019
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_152248_826473_8C53B941 
-X-CRM114-Status: GOOD (  42.01  )
+X-CRM114-CacheID: sfid-20240702_170430_162917_F0C20AD9 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,153 +135,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 01, 2024 at 04:20:15PM +0200, Cl=E9ment L=E9ger wrote:
-> =
 
-> =
-
-> On 01/07/2024 15:58, Conor Dooley wrote:
-> > On Mon, Jul 01, 2024 at 09:15:09AM +0200, Cl=E9ment L=E9ger wrote:
-> >>
-> >>
-> >> On 27/06/2024 23:20, Charlie Jenkins wrote:
-> >>> On Wed, Jun 26, 2024 at 03:39:14PM +0100, Conor Dooley wrote:
-> >>>> On Mon, Jun 24, 2024 at 08:49:57PM -0400, Jesse Taube wrote:
-> >>>>> Check for Zicclsm before checking for unaligned access speed. This =
-will
-> >>>>> greatly reduce the boot up time as finding the access speed is no l=
-onger
-> >>>>> necessary.
-> >>>>>
-> >>>>> Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-> >>>>> ---
-> >>>>> V2 -> V3:
-> >>>>>  - New patch split from previous patch
-> >>>>> ---
-> >>>>>  arch/riscv/kernel/unaligned_access_speed.c | 26 ++++++++++++++----=
-----
-> >>>>>  1 file changed, 17 insertions(+), 9 deletions(-)
-> >>>>>
-> >>>>> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/risc=
-v/kernel/unaligned_access_speed.c
-> >>>>> index a9a6bcb02acf..329fd289b5c8 100644
-> >>>>> --- a/arch/riscv/kernel/unaligned_access_speed.c
-> >>>>> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> >>>>> @@ -259,23 +259,31 @@ static int check_unaligned_access_speed_all_c=
-pus(void)
-> >>>>>  	kfree(bufs);
-> >>>>>  	return 0;
-> >>>>>  }
-> >>>>> +#else /* CONFIG_RISCV_PROBE_UNALIGNED_ACCESS */
-> >>>>> +static int check_unaligned_access_speed_all_cpus(void)
-> >>>>> +{
-> >>>>> +	return 0;
-> >>>>> +}
-> >>>>> +#endif
-> >>>>>  =
-
-> >>>>>  static int check_unaligned_access_all_cpus(void)
-> >>>>>  {
-> >>>>> -	bool all_cpus_emulated =3D check_unaligned_access_emulated_all_cp=
-us();
-> >>>>> +	bool all_cpus_emulated;
-> >>>>> +	int cpu;
-> >>>>> +
-> >>>>> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICCLSM)) {
-> >>>>> +		for_each_online_cpu(cpu) {
-> >>>>> +			per_cpu(misaligned_access_speed, cpu) =3D RISCV_HWPROBE_MISALIG=
-NED_FAST;
-> >>>>
-> >>>> - const: zicclsm
-> >>>>   description:
-> >>>>     The standard Zicclsm extension for misaligned support for all re=
-gular
-> >>>>     load and store instructions (including scalar and vector) but no=
-t AMOs
-> >>>>     or other specialized forms of memory access. Defined in the
-> >>>>     RISC-V RVA Profiles Specification. =
-
-> >>>>
-> >>>> Doesn't, unfortunately, say anywhere there that they're actually fas=
-t :(
-> >>>
-> >>> Oh no! That is unfortunate that the ISA does not explicitly call that
-> >>> out, but I think that acceptable.
-> >>>
-> >>> If a vendor puts Zicclsm in their isa string, they should expect
-> >>> software to take advantage of misaligned accesses. FAST is our signal=
- to
-> >>> tell software that they should emit misaligned accesses.
-> >>
-> >> AFAIK, Zicclsm is not even an ISA extension, simply a profile
-> >> specification which means that only the execution environment which
-> >> provides the profile support misaligned accesses (cf
-> >> https://lists.riscv.org/g/tech-profiles/message/56).
-> > =
-
-> > I dunno, the specification status page used to describe it as an
-> > extension:
-> > https://wiki.riscv.org/display/HOME/Specification+Status+-+Historical
-> > My understanding was that these could be considered extensions, just
-> > like we are considering svade to be one.
-> > =
-
-> >> . I don't think we
-> >> can extrapolate that the misaligned accesses will be fast at all.
-> > =
-
-> > That is my opinion on it too. If it doesn't say "fast" and give a
-> > definition for what that means in the binding, then we can't assume that
-> > it is fast. I'm also wary of extending definitions of extensions in the
-> > binding, because a) I am 90% sure that people writing devicetrees don't
-> > care and b) it'd be a potential difference between DT and ACPI without a
-> > real justification (unlike the zkr or svade/svadu situations).
-> =
-
-> BTW, the profile spec [1] has a note that states the following for Ziccls=
-m:
-> =
-
-> "Even though mandated, misaligned loads and stores might execute
-> extremely slowly. Standard software distributions should assume their
-> existence only for correctness, not for performance."
-> =
-
-> Which was also quoted in patch 1, so I guess that settles it.
-
-The intention here was to allow vendors to configure an option to skip
-the probing. This extension does not seem useful as it is written! A way
-around this would be to add a kernel arg to set the access speed but
-maybe it doesn't matter. For the sake of this patch, it looks like we
-should get rid of this Zicclsm check.
-
-- Charlie
-
-> =
-
-> Thanks,
-> =
-
-> Cl=E9ment
-> =
-
-> Link:
-> https://github.com/riscv/riscv-profiles/blob/main/src/profiles.adoc?plain=
-=3D1#L524
-> [1]
-> =
-
-> > =
-
-> >>> This allows for a generic kernel, like the one a distro would compile=
-, to
-> >>> skip the probing when booting on a system that explicitly called out
-> >>> that the hardware supports misaligned accesses.
+On 2024/7/2 19:52, Thomas Bonnefille wrote:
+> The Sophgo SARADC is a Successive Approximation ADC that can be found in
+> the Sophgo SoC.
+>
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+>   .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     | 51 ++++++++++++++++++++++
+>   MAINTAINERS                                        |  5 +++
+>   2 files changed, 56 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+> new file mode 100644
+> index 000000000000..21fd5dc8e24e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+> @@ -0,0 +1,51 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/iio/adc/sophgo,cv18xx-adc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo 3 channels Successive Approximation Analog to Digital Converters
+> +
+> +maintainers:
+> +  - Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> +
+> +description:
+> +  Datasheet at https://github.com/sophgo/sophgo-doc/releases
+> +
+> +properties:
+> +  compatible:
+> +    const: sophgo,cv18xx-saradc
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    description:
+> +      SARADC will use the presence of this clock to determine if the controller
+> +      needs to be explicitly clocked by it (Active domain) or if it is part of
+> +      the No-Die Domain, along with the RTC, which does not require explicit
+> +      clocking.
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +examples:
+> +  - |
+> +    # ADC in the Active domain
+> +    adc@30f0000 {
+> +      compatible = "sophgo,cv18xx-saradc";
+> +      clocks = <&clk CLK_SARADC>;
+> +      interrupts = <100 IRQ_TYPE_LEVEL_HIGH>;
+> +      reg = <0x030F0000 0x1000>;
+> +    };
+> +  - |
+> +    # ADC in the No-Die domain
+> +    adc@502c000 {
+> +      compatible = "sophgo,cv18xx-saradc";
+> +      reg = <0x0502C000 0x1000>;
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index aacccb376c28..dc87898c518c 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -20901,6 +20901,11 @@ S:	Maintained
+>   N:	sophgo
+>   K:	sophgo
+>   
+> +SOPHGO SARADC DEVICE DRIVER
+> +M:	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+> +
+Drop this please, you have mentioned your maintainers info in the 
+binding yaml.
+>   SOUND
+>   M:	Jaroslav Kysela <perex@perex.cz>
+>   M:	Takashi Iwai <tiwai@suse.com>
+>
 
 _______________________________________________
 linux-riscv mailing list
