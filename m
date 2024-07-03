@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DD3C3065C
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 03:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 044FEC31D97
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 03:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bTc6iHrIPxtKj0tiN9eR3aMgjt1aT+8udKu1NIBPphU=; b=GmND1o0+iGmvhK
-	iqZVQeymbCILTW8apmOlHw7MTgD2sZo74XwcrkDvCv3fN/Cir+9ibRttYXdBagZQ7iCdJDrPN67ak
-	fOXChRuuZy5hrzfidVlM737fjzGC/QZuJNxifWbPfny7kWjTWjeXSmIdmx+8itfvQNG9CsCfr29nS
-	03eBkTtpmshmwaKH0Edrjye1xrff+Gz2wd7iMOn4oPjgXqFl/OTyn/03P0IWetMmVP+SoZjI0f/Gs
-	Hrwtq0MzewxmqWofaa5hlmDj2HggzRpF5Sk9D04kBYVAAOT0jJEtI+zNRMyJD6+4Ng/ioP6YVKEBF
-	Qa0CHMeIes2Zg2d5ZGRQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=J2sSQiy/rsN7B7r6mWSYUd/m4y1/S62Nuqfr3Z+m8mU=; b=RsI2jPBYrqmAyB
+	5bhp3ECuqZjgw2f4MBHBD4cnnubUl4rZq/Aa+VE3IaSnOtCOCMQLWpgvCFalDnLwO4lyIBNh7hREZ
+	Rnrubu0r/zHCUi/P3bkRGMop7hHiCiUDpXgPadxyNekInYR248Qvmq0sEh9MorOVj1fypgaM4TdxW
+	LWAGU+tZ176U43a6YtQA9nQM+/bC90bAzQAFYtE3U+cU/Ff2m8FM7EcblVez4A2qE0Fg2ZeKeQ1CX
+	GxcLW3rjrRtlJ7XFBY9Se6ZyKlQaxbDdjVJ9yAbQgoK/xghOTmDf1agnaCluja7wtEaYaOOnvjF7D
+	yJHwn39gqgQFS9e2R0sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOqEN-00000008d8t-2Lnj;
-	Wed, 03 Jul 2024 03:00:27 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1sOqEq-00000008dEM-200G;
+	Wed, 03 Jul 2024 03:00:56 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOqEK-00000008d8M-2908;
-	Wed, 03 Jul 2024 03:00:26 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462NWM6Z005551;
-	Wed, 3 Jul 2024 02:59:36 GMT
+	id 1sOqEm-00000008dDK-2PqA;
+	Wed, 03 Jul 2024 03:00:54 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462HA2Yn030501;
+	Wed, 3 Jul 2024 03:00:16 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=O92o6x8MI3tbjaQRL6XDQc
-	qlyifVOQWVm1bVLaysjDA=; b=HfM1dZTmf7tb9EZO24dvevJ/BlvIGhoMHHst1h
-	1yEBtWLq8P4Ww3YBdpS9Uml6IFGuW6kz98HkOT+BgKpyTqLUJf3ESgGSbx4lZ5Di
-	4VNoRSMPOnYpfHH5K+/7N4K+FoKZYD+GlEW5VPB9DhmXGaKwSBdgXG2Qd+Qhwqj7
-	pcmSnDPQAQp5RgFYHCIe1vEKniI6L2BfGRc+Hbws4Yo1qCGwLp5T57sOUx5cmZ2N
-	7oHTktQbjiop6It20JR29smXpRnstNNGMs5c5HE1WmN965sxt1URjIK6+j5mVdhb
-	QIh2C/387pO1P2G9SjvQ09uk2nS3SAixOHGseeHlyDvz3YZA==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4027yfah86-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	kZVxsCU22bRw6LnhoMywcvJcevbJPBGciG7zvdQOJuc=; b=Vt2muhpoafzgVDpp
+	c9lMPLgNoJhD75x/0Ul8umGI8RDJfsrs9wZgx14+QOS4hF2iblytmaw71hu3Nfch
+	kILpS4T3ljBYqOVFIA7pw4Re1E4yCFt1eeGGtDodN1IKNAfFp58bWezM1f69YBxW
+	W5w5UTzJmm9JiiYcz+ZGh2tZNEgZxFVAXk7g6tfrEwN4IsA7PKvLoN+TYr/oLURt
+	bAiaCEjxctSD4O8yvnh4rJrNiZSVq8cYqIc5mGjPDouqgUApPfP9RhDMKFrxiVSA
+	LqQ/g6Tgy72EHPsi308mBMagXnDb1UzIxJxkbnV9ImVgfntZfJYi0DMCvUCPsNVp
+	xUlFzQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4029uxfg07-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Jul 2024 02:59:35 +0000 (GMT)
+	Wed, 03 Jul 2024 03:00:15 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA04.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 4632xYXk013518
+	by NALASPPMTA01.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 46330DXJ016792
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 3 Jul 2024 02:59:34 GMT
+	Wed, 3 Jul 2024 03:00:13 GMT
 Received: from tengfan-gv.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 2 Jul 2024 19:59:11 -0700
+ 15.2.1544.9; Tue, 2 Jul 2024 19:59:50 -0700
 From: Tengfei Fan <quic_tengfan@quicinc.com>
 To: <andersson@kernel.org>, <konrad.dybcio@linaro.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <djakov@kernel.org>,
@@ -96,29 +97,31 @@ CC: <robimarko@gmail.com>, <quic_gurus@quicinc.com>,
         <linux-watchdog@vger.kernel.org>, <linux-pci@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>, <kernel@quicinc.com>,
         Tengfei Fan <quic_tengfan@quicinc.com>
-Subject: [PATCH 00/47] arm64: qcom: dts: add QCS9100 support
-Date: Wed, 3 Jul 2024 10:58:03 +0800
-Message-ID: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
+Subject: [PATCH 02/47] arm64: dts: qcom: qcs9100: Introduce QCS9100 SoC dtsi
+Date: Wed, 3 Jul 2024 10:58:05 +0800
+Message-ID: <20240703025850.2172008-3-quic_tengfan@quicinc.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
+References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.80.80.8]
 X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: vlpWLipQCruqIxkQ0Vv5rOzN-wZRA5Do
-X-Proofpoint-ORIG-GUID: vlpWLipQCruqIxkQ0Vv5rOzN-wZRA5Do
+X-Proofpoint-GUID: 8pfBHCKK8j0m2rGHcShDIKolxk-vgJZV
+X-Proofpoint-ORIG-GUID: 8pfBHCKK8j0m2rGHcShDIKolxk-vgJZV
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
  definitions=2024-07-02_18,2024-07-02_02,2024-05-17_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 spamscore=0
- mlxscore=0 lowpriorityscore=0 mlxlogscore=999 phishscore=0 impostorscore=0
- clxscore=1011 malwarescore=0 suspectscore=0 adultscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
+ priorityscore=1501 impostorscore=0 bulkscore=0 spamscore=0 mlxscore=0
+ clxscore=1015 phishscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2406140001 definitions=main-2407030021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_200024_666694_D512E46E 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20240702_200052_768272_9E103E92 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,246 +133,562 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SW50cm9kdWNlIHN1cHBvcnQgZm9yIHRoZSBRQ1M5MTAwIFNvQyBkZXZpY2UgdHJlZSAoRFRTSSkg
-YW5kIHRoZQpRQ1M5MTAwIFJJREUgYm9hcmQgRFRTLiBUaGUgUUNTOTEwMCBpcyBhIHZhcmlhbnQg
-b2YgdGhlIFNBODc3NXAuCldoaWxlIHRoZSBRQ1M5MTAwIHBsYXRmb3JtIGlzIHN0aWxsIGluIHRo
-ZSBlYXJseSBkZXNpZ24gc3RhZ2UsIHRoZQpRQ1M5MTAwIFJJREUgYm9hcmQgaXMgaWRlbnRpY2Fs
-IHRvIHRoZSBTQTg3NzVwIFJJREUgYm9hcmQsIGV4Y2VwdCBpdAptb3VudHMgdGhlIFFDUzkxMDAg
-U29DIGluc3RlYWQgb2YgdGhlIFNBODc3NXAgU29DLgoKVGhlIFFDUzkxMDAgU29DIERUU0kgd2Fz
-IGRpcmVjdGx5IHJlbmFtZWQgZnJvbSB0aGUgU0E4Nzc1cCBTb0MgRFRTSS4gSW4KdGhlIHVwY29t
-aW5nIHdlZWtzLCBOaWt1bmogS2VsYSB3aWxsIGRldmVsb3AgYSBuZXcgZGV2aWNlIHRyZWUgcmVs
-YXRlZAp0byBTQTg3NzVwLCBzcGVjaWZpY2FsbHkgc3VwcG9ydGluZyB0aGUgU0NNSSByZXNvdXJj
-ZSBmaXJtd2FyZSBzb2x1dGlvbgpmb3IgdGhlIFNBODc3NXAgcGxhdGZvcm0uIElmIHlvdSdyZSBh
-bHJlYWR5IGZhbWlsaWFyIHdpdGggdGhlCmJhY2tncm91bmQsIGZlZWwgZnJlZSB0byBza2lwIHBh
-cnRbMl0sIHdoaWNoIHByb3ZpZGVzIGEgZGV0YWlsZWQKZXhwbGFuYXRpb24uCgpBbGwgY29tcGF0
-aWJsZSBzdHJpbmdzIGhhdmUgYmVlbiB1cGRhdGVkIGZyb20g4oCcU0E4Nzc1UOKAnSB0byDigJxR
-Q1M5MTAwLuKAnQpJZiB5b3XigJlyZSBhbHJlYWR5IGF3YXJlIG9mIHRoZSBjb250ZXh0LCBmZWVs
-IGZyZWUgdG8gc2tpcCBwYXJ0WzNdLCB3aGljaApwcm92aWRlcyBhIGRldGFpbGVkIGV4cGxhbmF0
-aW9uIG9mIHZhcmlvdXMgb3RoZXIgb3B0aW9ucy4KCkhlcmXigJlzIHRoZSByZWFzb24gYW5kIGJh
-Y2tncm91bmQ6IEJqb3JuIEFuZGVyc3NvbiwgTmlrdW5qIEtlbGEsClNyaW5pdmFzIEthbmRhZ2F0
-bGEsIGFuZCBvdGhlciBRdWFsY29tbSBlbmdpbmVlcnMgY29udHJpYnV0ZWQgdG8gdGhlCmN1cnJl
-bnQgZGVzaWduLCBhbmQgd2XigJl2ZSBmaW5hbGl6ZWQgdGhpcyBzZXJpZXMgZm9yIGJyb2FkZXIg
-YXVkaWVuY2UKcmV2aWV3LgoKKlRoaXMgcGF0Y2ggc2VyaWVzIGFsaWducyB3aXRoIHVwc3RyZWFt
-IGVmZm9ydHMgdG93YXJkIGEgbmV3IGRlc2lnbgpzb2x1dGlvbjog4oCcVXNpbmcgbG9naWNhbCBw
-ZXJmb3JtYW5jZSBhbmQgcG93ZXIgZG9tYWlucyB0byBhY2hpZXZlCnJlc291cmNlIGFic3RyYWN0
-aW9uIG92ZXIgU0NNSS7igJ0gRm9yIG1vcmUgZGV0YWlscywgcmVmZXIgdG8gWzFdOgpbMV1odHRw
-czovL3Jlc291cmNlcy5saW5hcm8ub3JnL2VuL3Jlc291cmNlL3dmbmZFd0JoUmpMVjFQRUFKb0RE
-dGUKCipUaGUgU0E4Nzc1cC1SSURFIHdpbGwgdHJhbnNpdGlvbiB0byB1c2luZyBTQ01JIHJlc291
-cmNlcy4gVGhpcyBpbnZvbHZlcwptaWdyYXRpbmcgdG8gU0NNSSBwb3dlciBhbmQgcGVyZm9ybWFu
-Y2UgcHJvdG9jb2xzIGZvciByZXF1ZXN0aW5nIGFuZApjb25maWd1cmluZyBwZXJpcGhlcmFsIHJl
-c291cmNlcyBzdWNoIGFzIGNsb2NrcywgcmVndWxhdG9ycywKaW50ZXJjb25uZWN0cywgYW5kIFBI
-WXMuIENvbnNlcXVlbnRseSwgbW9zdCBkZXZpY2VzIGluIHRoZSBTQTg3NzVwLVJJREUKd2lsbCBy
-ZXF1aXJlIHVwZGF0ZXMgdG8gZHJpdmVycywgYmluZGluZ3MsIGFuZCBkZXZpY2UgdHJlZXMuCgoq
-VGhlIFFDUzkxMDAtUklERSBwcm9qZWN0IHdpbGwgY29udGludWUgdXNpbmcgdGhlIGV4aXN0aW5n
-IHJlc291cmNlcy4KSXQgd2lsbCByZWx5IG9uIHRoZSBjdXJyZW50IGtlcm5lbCBpbmZyYXN0cnVj
-dHVyZSBmb3IgY2xvY2tzLCByZWd1bGF0b3JzLAppbnRlcmNvbm5lY3RzLCBQSFlzLCBhbmQgQVBJ
-cy4KClsyXSBUaGUgcmVhc29uIG9mIHFjczkxMDAuZHRzaSByZW5hbWVkIGZyb20gc2E4Nzc1LmR0
-c2k6ClRoZSBwcm9wb3NhbCBpcyB0byBtYWludGFpbiB0d28gc2VwYXJhdGUgcGxhdGZvcm0uZHRz
-aSBmaWxlcy4KcWNzOTEwMC5kdHNpIGZvciBub24tc2NtaSByZXNvdXJjZXMgYW5kIHNhODc3NXAu
-ZHRzaSBmb3IgU0NNSSByZXNvdXJjZXMuCkN1cnJlbnRseSwgdGhlIHVwc3RyZWFtIHNhODc3NXAu
-ZHRzaSBjb250YWlucyAxNzYgbm9kZXMgd2l0aCBzcGVjaWZpZWQK4oCcY29tcGF0aWJsZeKAnSBz
-dHJpbmdzLiBBbW9uZyB0aGVzZSwgMTQyIG5vZGVzIHJlcXVpcmUgZGlzdGluY3QgcHJvcGVydGll
-cwpmb3IgU0NNSSBhbmQgbm9uLVNDTUkuIEFzIHRoZSBJb1QgdGFyZ2V0IGlzIGJlaW5nIHVwc3Ry
-ZWFtZWQsIGJvdGggbm9kZQpjb3VudHMgYXJlIGV4cGVjdGVkIHRvIGluY3JlYXNlIGZvciB0aGUg
-SW9UL1FDUyBwbGF0Zm9ybS4KCklmIHdlIGRvIG5vdCBpbXBsZW1lbnQgcGxhdGZvcm0gc2VwYXJh
-dGlvbiwgYW55IG1vZGlmaWNhdGlvbnMgdG8gdGhlCmJhc2Ugc2E4Nzc1cC5kdHNpLXdoZXRoZXIg
-Zm9yIGF1dG9tb3RpdmUgb3IgSW9UIHB1cnBvc2VzLW11c3QgY29uc2lkZXIKdGhlIG90aGVyIHBs
-YXRmb3JtLiBFYWNoIG5vZGUoZS5nLiwgcmVtb3RlcHJvYywgbXVsdGltZWRpYSkgYWRkZWQgc2hv
-dWxkCmJlIGNvdW50ZXJlZCB3aXRoIGFuIG92ZXJsYXkgdGhhdCBkaXNhYmxlcyBpdCBpbiB0aGUg
-YXV0b21vdGl2ZSBjb250ZXh0LgpDYXJlIG11c3QgYmUgdGFrZW4gdG8gYXZvaWQgaW50cm9kdWNp
-bmcgY2hhbmdlcyB0aGF0IGluZmVyZmVyZSB3aXRoIHRoZQphdXRvbW90aXZlIHN5c3RlbSBkZXNp
-Z24sIFRoaXMgc3RydWN0dXJlIHBvc2VzIGNoYWxsZW5nZXMgZm9yIGh1bWFuCnJlYXNpb25pbmcs
-IGxlYWRpbmcgdG8gaXNzdWVzIGR1cmluZyBkZXZlbG9wbWVudCwgY29kZSByZXZpZXcsIGFuZApt
-YWludGVuYW5jZS4KCkZ1cnRoZXJtb3JlLCB3ZSBhcmUgYWRkcmVzc2luZyB0aGUgY29tcGxleGl0
-eSBvZiByZXN1aW5nIG1hcmtldGluZyBuYW1lcwphY2Nyb3NzIGJvdGggdGhlIElvVChRQ1M5MTAw
-KSBhbmQgYXV0b21vdGl2ZShTQTg3NzVwKSBwbGF0Zm9ybXMuIFRoaXMKZGVjaXNpb24gaGFzIHNp
-Z25pZmljYXRpb25zIHRocm91Z2hvdXQgRGV2aWNlVHJlZSBhbmQgdGhlIGtlcm5lbC4KQ29uc2Vx
-dWVudGx5LCByZW5hbWVpbmcgdGhlIFFDUzkxMDAgZGV2aWNlIHRyZWUgZmlsZXMgZnJvbSB0aGUg
-U0E4Nzc1cApkZXZpY2UgZmlsZXMgaXMgb3VyIGRlZmluaXRpdmUgY2hvaWNlLgoKWzNdIFRoZSBy
-ZWFzb24gb2YgQWxsIENvbXBhdGlibGUgU3RyaW5ncyBDaGFuZ2VkIGZyb20g4oCcU0E4Nzc1UOKA
-nSB0bwrigJxRQ1M5MTAw4oCdOgpEdXJpbmcgZGlzY3Vzc2lvbnMsIHRocmVlIG9wdGlvbnMgd2Vy
-ZSBjb25zaWRlcmVkLiBVbHRpbWF0ZWx5LCBPcHRpb24KQiB3YXMgY2hvc2VuIGFzIHRoZSBiZXN0
-IGFwcHJvYWNoIGZvciBzZXBhcmF0aW5nIFFDUyBwcm9qZWN0cyBmcm9tIFNBCnByb2plY3RzLiBU
-aGlzIGRlY2lzaW9uIHNpbXBsaWZpZXMgdGhlIHJldmlld2Vy4oCZcyB0YXNrIGJ5IGZvY3VzaW5n
-IG9uCmVhY2ggcGxhdGZvcm0gaW5kZXBlbmRlbnRseS4gRGV2ZWxvcGVycyBvbmx5IG5lZWQgdG8g
-dmVyaWZ5IHRoZQphZmZlY3RlZCBwbGF0Zm9ybS4KCipPcHRpb24gQTog4oCcQW5k4oCdIChxY3M5
-MTAwK3NhODc3NSk6CgpBZGQgYWxsIHFjczkxMDAtY29tcGF0aWJsZSBzdHJpbmdzIGFsb25nc2lk
-ZSB0aGUgY3VycmVudApzYTg3NzVwLWNvbXBhdGlibGUgc3RyaW5ncyBpbiBlYWNoIGJpbmRpbmcg
-ZmlsZS4gRm9yIGV4YW1wbGU6CmFnZ3JlMV9ub2M6IGludGVyY29ubmVjdC1hZ2dyZTEtbm9jIHsK
-LSAgICBjb21wYXRpYmxlID0gInFjb20sc2E4Nzc1cC1hZ2dyZTEtbm9jIjsKKyAgICBjb21wYXRp
-YmxlID0gInFjb20scWNzOTEwMC1hZ2dyZTEtbm9jIiwgInFjb20sc2E4Nzc1cC1hZ2dyZTEtbm9j
-IjsKICAgICNpbnRlcmNvbm5lY3QtY2VsbHMgPSA8Mj47CiAgICBxY29tLGJjbS12b3RlcnMgPSA8
-JmFwcHNfYmNtX3ZvdGVyPjsgfTsKClNvbWUgZGV2aWNlIHRyZWUgKERUKSBub2RlcyBtYXkgc2hh
-cmUgY29tbW9uIGNvbXBhdGlibGVzLiBGb3IgaW5zdGFuY2U6CmZpcm13YXJlIHsKICAgIHNjbSB7
-Ci0gICAgICAgIGNvbXBhdGlibGUgPSAicWNvbSxzY20tc2E4Nzc1cCIsICJxY29tLHNjbSI7Cisg
-ICAgICAgIGNvbXBhdGlibGUgPSAicWNvbSxzY20tcWNzOTEwMCIsICJxY29tLHNjbSI7CiAgICB9
-Owp9OwoKQXBwcm94aW1hdGVseSA1MCsgc2E4Nzc1cC1yZWxhdGVkIGNvbXBhdGlibGUgbmFtZXMg
-bmVlZCB0byBiZSBjaGFuZ2VkCnRvIHFjczkxMDAtY29tcGF0aWJsZSBuYW1lcyBpbiB0aGUgYmlu
-ZGluZyBmaWxlcyBhbmQgRFQgbm9kZXMuCldoZW4gdGhlIFNDTUkgcmVzb3VyY2UgZHJpdmVyIG93
-bmVyIGFkZHMgU0NNSSBzdXBwb3J0LCB0aGV5IG5lZWQgdG8KdXBkYXRlIGJvdGggdGhlIHFjczkx
-MDAgRFQgKG5vbi1TQ01JIHJlc291cmNlKSBhbmQgdGhlIHNhODc3NSBEVCAoU0NNSQpyZXNvdXJj
-ZSkgc2ltdWx0YW5lb3VzbHkuCkZvciB0aGlzIG9wdGlvbjoKCkRUIGFuZCBiaW5kaW5nIGNoYW5n
-ZXMgYXJlIG5lZWRlZC4KTm8gZHJpdmVyIEMgZmlsZSBjaGFuZ2VzIGFyZSByZXF1aXJlZCBhdCB0
-aGlzIHRpbWUuClRlY2huaWNhbCBkcml2ZXIgb3duZXJzIG11c3QgaGFuZGxlIGJvdGggdGhlIHFj
-cyBEVCBhbmQgc2EgRFQuCgoqT3B0aW9uIEI6IOKAnE9y4oCdIChxY3M5MTAwIG9yIHNhODc3NSk6
-CgpSZXBsYWNlIGFsbCBxY3M5MTAwLWNvbXBhdGlibGUgc3RyaW5ncyB3aXRoIHRoZSBjdXJyZW50
-CnNhODc3NXAtY29tcGF0aWJsZSBzdHJpbmdzIGluIHRoZSBxY3M5MTAwIERULiBGb3IgZXhhbXBs
-ZToKYWdncmUxX25vYzogaW50ZXJjb25uZWN0LWFnZ3JlMS1ub2MgewotICAgIGNvbXBhdGlibGUg
-PSAicWNvbSxzYTg3NzVwLWFnZ3JlMS1ub2MiOworICAgIGNvbXBhdGlibGUgPSAicWNvbSxxY3M5
-MTAwLWFnZ3JlMS1ub2MiOwogICAgI2ludGVyY29ubmVjdC1jZWxscyA9IDwyPjsKICAgIHFjb20s
-YmNtLXZvdGVycyA9IDwmYXBwc19iY21fdm90ZXI+OyB9OwoKQWRkIHRoZSBuZWNlc3Nhcnkg4oCc
-cWNzOTEwMOKAnSBjb21wYXRpYmxlIHN0cmluZ3MgdG8gdGhlIEMgZHJpdmVyLiBJbgpkcml2ZXJz
-L2ludGVyY29ubmVjdC9xY29tL3NhODc3NXAuYzoKc3RhdGljIGNvbnN0IHN0cnVjdCBvZl9kZXZp
-Y2VfaWQgcW5vY19vZl9tYXRjaFtdID0gewogICAgeyAuY29tcGF0aWJsZSA9ICJxY29tLHNhODc3
-NXAtYWdncmUxLW5vYyIsIC5kYXRhID0gJnNhODc3NXBfYWdncmUxX25vYyB9LAorICAgeyAuY29t
-cGF0aWJsZSA9ICJxY29tLHFjczkxMDAtYWdncmUxLW5vYyIsIC5kYXRhID0KJnNhODc3NXBfYWdn
-cmUxX25vYyB9LAogICAgeyAuY29tcGF0aWJsZSA9ICJxY29tLHNhODc3NXAtYWdncmUyLW5vYyIs
-IC5kYXRhID0gJnNhODc3NXBfYWdncmUyX25vYyB9LAorICAgeyAuY29tcGF0aWJsZSA9ICJxY29t
-LHFjczkxMDAtYWdncmUyLW5vYyIsIC5kYXRhID0KJnNhODc3NXBfYWdncmUyX25vYyB9LAogICAg
-Ly8gLi4uCn07CgpTb21lIERUIG5vZGVzIG1heSBzaGFyZSBjb21tb24gY29tcGF0aWJsZXMsIHNp
-bWlsYXIgdG8gdGhlIGV4YW1wbGUgYWJvdmUuCkFwcHJveGltYXRlbHkgNTArIHNhODc3NXAtcmVs
-YXRlZCBjb21wYXRpYmxlIG5hbWVzIG5lZWQgdG8gYmUgY2hhbmdlZCB0bwpxY3M5MTAwLWNvbXBh
-dGlibGUgbmFtZXMgaW4gdGhlIGJpbmRpbmcgZmlsZXMgYW5kIERUIG5vZGVzLgpXaGVuIHRoZSBT
-Q01JIHJlc291cmNlIGRyaXZlciBvd25lciBhZGRzIFNDTUkgc3VwcG9ydCwgdGhleSBvbmx5IG5l
-ZWQgdG8KdXBkYXRlIHRoZSBzYTg3NzUgRFQgKFNDTUkgcmVzb3VyY2UpLgpGb3IgdGhpcyBvcHRp
-b246CkRULCBiaW5kaW5nLCBhbmQgQyBkcml2ZXIgY2hhbmdlcyBhcmUgbmVlZGVkLgpUZWNobmlj
-YWwgZHJpdmVyIG93bmVycyBvbmx5IG5lZWQgdG8gaGFuZGxlIHRoZSBzYSBEVC4KCipPcHRpb24g
-Qzog4oCcRGVwZW5kc+KAnSAoc2E4Nzc1IGluIHFjczkxMDAsIGRlcGVuZHMgb24gZHJpdmVyIHRv
-IGNoYW5nZQpuZWNlc3NhcnkgZHJpdmVyICsgRFQgbGF0ZXIpOgpUaGlzIG9wdGlvbiBkZXBlbmRz
-IG9uIHRoZSBTQ01JIHJlc291cmNlIHNvbHV0aW9uIGFuZCByZXF1aXJlcyBtaW5pbWFsCmRyaXZl
-ciBjaGFuZ2VzLgoKQ2hhbmdlIGNvbW1vbiBjb21wYXRpYmxlcyB0byDigJxxY3M5MTAwLOKAnSBh
-cyBzaG93biBpbiB0aGUgZXhhbXBsZToKZmlybXdhcmUgewogICAgc2NtIHsKLSAgICAgICAgY29t
-cGF0aWJsZSA9ICJxY29tLHNjbS1zYTg3NzVwIiwgInFjb20sc2NtIjsKKyAgICAgICAgY29tcGF0
-aWJsZSA9ICJxY29tLHNjbS1xY3M5MTAwIiwgInFjb20sc2NtIjsKICAgIH07Cn07CgpBcHByb3hp
-bWF0ZWx5IDMwKyBzYTg3NzVwLXJlbGF0ZWQgY29tcGF0aWJsZSBuYW1lcyBuZWVkIHRvIGJlIGNo
-YW5nZWQKdG8gcWNzOTEwMC1jb21wYXRpYmxlIG5hbWVzIGluIHRoZSBiaW5kaW5nIGZpbGVzIGFu
-ZCBEVCBub2Rlcy4KV2hlbiB0aGUgU0NNSSByZXNvdXJjZSBkcml2ZXIgb3duZXIgYWRkcyBTQ01J
-IHN1cHBvcnQsIHRoZXkgbXVzdAp1cGRhdGUgYm90aCB0aGUgcWNzOTEwMCBEVCBhbmQgdGhlIHNh
-ODc3NSBEVCAoU0NNSSByZXNvdXJjZSkKc2ltdWx0YW5lb3VzbHkuCkZvciBleGFtcGxlOgoKeyAu
-Y29tcGF0aWJsZSA9ICJxY29tLHNhODc3NXAtYWdncmUxLW5vYyIsIC5kYXRhID0gJnNhODc3NXBf
-YWdncmUxX25vYyB9LAorIHsgLmNvbXBhdGlibGUgPSAicWNvbSxxY3M5MTAwLWFnZ3JlMS1ub2Mi
-LCAuZGF0YSA9ICZxY3M5MTAwX2FnZ3JlMV9ub2MKKyB9LAp7IC5jb21wYXRpYmxlID0gInFjb20s
-c2E4Nzc1cC1hZ2dyZTItbm9jIiwgLmRhdGEgPSAmc2E4Nzc1cF9hZ2dyZTJfbm9jIH0sCisgeyAu
-Y29tcGF0aWJsZSA9ICJxY29tLHFjczkxMDAtYWdncmUyLW5vYyIsIC5kYXRhID0gJnFjczkxMDBf
-YWdncmUyX25vYworIH0sCi8vIC4uLgoKRm9yIHRoaXMgb3B0aW9uOgpEVCBjaGFuZ2VzIGFyZSBu
-ZWVkZWQuClRlY2huaWNhbCBkcml2ZXIgb3duZXJzIGFyZSByZXNwb25zaWJsZSBmb3IgbWFraW5n
-IHRoZSBmaW5hbCBkaWZmZXJlbnQKZHJpdmVyIGNoYW5nZXMgYW5kIGVuc3VyaW5nIHRoZSBleGFj
-dCBiaW5kaW5nIG9mIHFjczkxMDAgYW5kIHNhODc3NQp3aXRoIGRpZmZlcmVudCBjb21wYXRpYmxl
-cy4KCkluIHN1bW1hcnksIHRoZSBjdXJyZW50IHNvbHV0aW9uIHByaW1hcmlseSB0YXJnZXRzIFND
-TUktYmFzZWQgcmVzb3VyY2UKdHJhbnNhY3Rpb25zLiBIb3dldmVyLCBib3RoIHRoZSBxY3MgcHJv
-amVjdCBhbmQgdGhlIFNBIHByb2plY3QsIHdoaWNoCmFyZSBpbiB0aGUgZGV2ZWxvcG1lbnQgc3Rh
-Z2UsIHJlcXVpcmUgaW5kZXBlbmRlbnQgZGV2ZWxvcG1lbnQgcHJvY2Vzc2VzLgoKQ28tZGV2ZWxv
-cGVkLWJ5OiBNYXJpYSBZdSA8cXVpY19haXF1bnlAcXVpY2luYy5jb20+ClNpZ25lZC1vZmYtYnk6
-IE1hcmlhIFl1IDxxdWljX2FpcXVueUBxdWljaW5jLmNvbT4KU2lnbmVkLW9mZi1ieTogVGVuZ2Zl
-aSBGYW4gPHF1aWNfdGVuZ2ZhbkBxdWljaW5jLmNvbT4KLS0tCgpUZW5nZmVpIEZhbiAoNDcpOgog
-IGR0LWJpbmRpbmdzOiBhcm06IHFjb206IERvY3VtZW50IFFDUzkxMDAgU29DIGFuZCBSSURFIGJv
-YXJkCiAgYXJtNjQ6IGR0czogcWNvbTogcWNzOTEwMDogSW50cm9kdWNlIFFDUzkxMDAgU29DIGR0
-c2kKICBhcm02NDogZHRzOiBxY29tOiBxY3M5MTAwOiBJbnRyb2R1Y2UgUUNTOTEwMCBQTUlDIGR0
-c2kKICBhcm02NDogZHRzOiBxY29tOiBxY3M5MTAwOiBBZGQgUUNTOTEwMCBSSURFIGJvYXJkIGR0
-cwogIGR0LWJpbmRpbmdzOiBmaXJtd2FyZTogcWNvbSxzY206IGRvY3VtZW50IFNDTSBvbiBRQ1M5
-MTAwIFNvQwogIGR0LWJpbmRpbmdzOiBpbnRlcmNvbm5lY3Q6IHFjb206IGRvY3VtZW50IHRoZSBp
-bnRlcmNvbm5lY3QgY29tcGF0aWJsZXMKICAgIGZvciBRQ1M5MTAwCiAgZHQtYmluZGluZ3M6IGNs
-b2NrOiBkb2N1bWVudCBRQ1M5MTAwIEdDQyBjb21wYXRpYmxlCiAgZHQtYmluZGluZ3M6IG1haWxi
-b3g6IHFjb20taXBjYzogRG9jdW1lbnQgdGhlIFFDUzkxMDAgSVBDQwogIGR0LWJpbmRpbmdzOiBw
-aHk6IEFkZCBRTVAgVUZTIFBIWSBjb21wdGlibGUgZm9yIFFDUzkxMDAKICBkdC1iaW5kaW5nczog
-Y3J5cHRvOiBpY2U6IERvY3VtZW50IFFDUzkxMDAgaW5saW5lIGNyeXB0byBlbmdpbmUKICBkdC1i
-aW5kaW5nczogY3J5cHRvOiBxY29tLHBybmc6IGRvY3VtZW50IFFDUzkxMDAKICBkdC1iaW5kaW5n
-czogcGh5OiBxY29tLHVzYi1zbnBzLWZlbXRvLXYyOiBBZGQgYmluZGluZ3MgZm9yIFFDUzkxMDAK
-ICBkdC1iaW5kaW5nczogdWZzOiBxY29tOiBkb2N1bWVudCBRQ1M5MTAwIFVGUwogIGR0LWJpbmRp
-bmdzOiBwaHk6IHFjb20scW1wLXVzYjogQWRkIFFDUzkxMDAgVVNCMyBQSFkKICBkdC1iaW5kaW5n
-czogdXNiOiBkd2MzOiBBZGQgUUNTOTEwMCBjb21wYXRpYmxlCiAgZHQtYmluZGluZ3M6IGNsb2Nr
-OiBxY29tOiBkZXNjcmliZSB0aGUgR1BVQ0MgY2xvY2sgZm9yIFFDUzkxMDAKICBkdC1iaW5kaW5n
-czogYXJtLXNtbXU6IERvY3VtZW50IFFDUzkxMDAgR1BVIFNNTVUKICBkdC1iaW5kaW5nczogcGh5
-OiBkZXNjcmliZSB0aGUgUXVhbGNvbW0gU0dNSUkgUEhZIGZvciBRQ1M5MTAwCiAgZHQtYmluZGlu
-Z3M6IGNhY2hlOiBxY29tLGxsY2M6IEFkZCBRQ1M5MTAwIGRlc2NyaXB0aW9uCiAgZHQtYmluZGlu
-Z3M6IGludGVycnVwdC1jb250cm9sbGVyOiBxY29tLHBkYzogZG9jdW1lbnQgcGRjIG9uIFFDUzkx
-MDAKICBkdC1iaW5kaW5nczogdGhlcm1hbDogcWNvbS10c2VuczogZG9jdW1lbnQgdGhlIFFDUzkx
-MDAgVGVtcGVyYXR1cmUKICAgIFNlbnNvcgogIGR0LWJpbmRpbmdzOiBzb2M6IHFjb20sYW9zcy1x
-bXA6IERvY3VtZW50IHRoZSBRQ1M5MTAwIEFPU1MgY2hhbm5lbAogIGR0LWJpbmRpbmdzOiBwaW5j
-dHJsOiBhZGQgcWNzOTEwMC10bG1tIGNvbXBhdGlibGUKICBkdC1iaW5kaW5nczogc29jOiBxY29t
-OiBhZGQgcWNvbSxxY3M5MTAwLWltZW0gY29tcGF0aWJsZQogIGR0LWJpbmRpbmdzOiB3YXRjaGRv
-ZzogcWNvbS13ZHQ6IGRvY3VtZW50IFFDUzkxMDAKICBkdC1iaW5kaW5nczogY2xvY2s6IHFjb20t
-cnBtaGNjOiBBZGQgUlBNSENDIGJpbmRpbmdzIGZvciBRQ1M5MTAwCiAgZHQtYmluZGluZ3M6IGNw
-dWZyZXE6IGNwdWZyZXEtcWNvbS1odzogQWRkIFFDUzkxMDAgY29tcGF0aWJsZXMKICBkdC1iaW5k
-aW5nczogcG93ZXI6IHFjb20scnBtcGQ6IGRvY3VtZW50IHRoZSBRQ1M5MTAwIFJQTWggUG93ZXIK
-ICAgIERvbWFpbnMKICBkdC1iaW5kaW5nczogbmV0OiBxY29tLGV0aHFvczogYWRkIGRlc2NyaXB0
-aW9uIGZvciBxY3M5MTAwCiAgZHQtYmluZGluZ3M6IFBDSTogRG9jdW1lbnQgY29tcGF0aWJsZSBm
-b3IgUUNTOTEwMAogIGR0LWJpbmRpbmdzOiBQQ0k6IHFjb20tZXA6IEFkZCBzdXBwb3J0IGZvciBR
-Q1M5MTAwIFNvQwogIGR0LWJpbmRpbmdzOiBwaHk6IHFjb20scW1wOiBBZGQgcWNzOTEwMCBRTVAg
-UENJZSBQSFkKICBpbnRlcmNvbm5lY3Q6IHFjb206IGFkZCBkcml2ZXIgc3VwcG9ydCBmb3IgcWNz
-OTEwMAogIGNsazogcWNvbTogYWRkIHRoZSBHQ0MgZHJpdmVyIHN1cHBvcnQgZm9yIFFDUzkxMDAK
-ICBwaHk6IHFjb20tcW1wLXVmczogQWRkIFFDUzkxMDAgc3VwcG9ydAogIHBoeTogcWNwbS1xbXAt
-dXNiOiBBZGQgc3VwcG9ydCBmb3IgUUNTOTEwMAogIGNsazogcWNvbTogYWRkIHRoZSBHUFVDQyBk
-cml2ZXIgc3VwcG9ydCBmb3IgUUNTOTEwMAogIHBoeTogcWNvbTogYWRkIHRoZSBTR01JSSBTZXJE
-ZXMgUEhZIGRyaXZlciBzdXBwb3J0CiAgc29jOiBxY29tOiBsbGNjOiBBZGQgbGxjYyBjb25maWd1
-cmF0aW9uIHN1cHBvcnQgZm9yIHRoZSBRQ1M5MTAwCiAgICBwbGF0Zm9ybQogIHBpbmN0cmw6IHFj
-b206IGFkZCB0aGUgdGxtbSBkcml2ZXIgc3VwcG9ydCBmb3IgcWNzOTEwMCBwbGF0Zm9ybQogIGNs
-azogcWNvbTogcnBtaDogQWRkIHN1cHBvcnQgZm9yIFFDUzkxMDAgcnBtaCBjbG9ja3MKICBzb2M6
-IHFjb206IHJtcGhwZDogYWRkIHBvd2VyIGRvbWFpbnMgZm9yIFFDUzkxMDAKICBuZXQ6IHN0bW1h
-YzogZHdtYWMtcWNvbS1ldGhxb3M6IGFkZCBzdXBwb3J0IGZvciBlbWFjNCBvbiBxY3M5MTAwCiAg
-ICBwbGF0Zm9ybXMKICBQQ0k6IHFjb206IEFkZCBzdXBwb3J0IGZvciBRQ1M5MTAwIFNvQwogIFBD
-STogcWNvbS1lcDogQWRkIEhETUEgc3VwcG9ydCBmb3IgUUNTOTEwMCBTb0MKICBjcHVmcmVxOiBx
-Y29tLW52bWVtOiBhZGQgc3VwcG9ydCBmb3IgUUNTOTEwMAogIHBoeTogcWNvbS1xbXAtcGNpZTog
-YWRkIHg0IGxhbmUgRVAgc3VwcG9ydCBmb3IgUUNTOTEwMAoKIC4uLi9kZXZpY2V0cmVlL2JpbmRp
-bmdzL2FybS9xY29tLnlhbWwgICAgICAgICB8ICAgMyArCiAuLi4vZGV2aWNldHJlZS9iaW5kaW5n
-cy9jYWNoZS9xY29tLGxsY2MueWFtbCAgfCAgIDIgKwogLi4uL2RldmljZXRyZWUvYmluZGluZ3Mv
-Y2xvY2svcWNvbSxncHVjYy55YW1sIHwgICAxICsKIC4uLi9iaW5kaW5ncy9jbG9jay9xY29tLHJw
-bWhjYy55YW1sICAgICAgICAgICB8ICAgMSArCiAuLi4vYmluZGluZ3MvY2xvY2svcWNvbSxzYTg3
-NzVwLWdjYy55YW1sICAgICAgfCAgIDUgKy0KIC4uLi9iaW5kaW5ncy9jcHVmcmVxL2NwdWZyZXEt
-cWNvbS1ody55YW1sICAgICB8ICAgMSArCiAuLi4vY3J5cHRvL3Fjb20saW5saW5lLWNyeXB0by1l
-bmdpbmUueWFtbCAgICAgfCAgIDEgKwogLi4uL2RldmljZXRyZWUvYmluZGluZ3MvY3J5cHRvL3Fj
-b20scHJuZy55YW1sIHwgICAxICsKIC4uLi9iaW5kaW5ncy9maXJtd2FyZS9xY29tLHNjbS55YW1s
-ICAgICAgICAgICB8ICAgMSArCiAuLi4vaW50ZXJjb25uZWN0L3Fjb20sc2E4Nzc1cC1ycG1oLnlh
-bWwgICAgICAgfCAgMTQgKysrCiAuLi4vaW50ZXJydXB0LWNvbnRyb2xsZXIvcWNvbSxwZGMueWFt
-bCAgICAgICAgfCAgIDEgKwogLi4uL2RldmljZXRyZWUvYmluZGluZ3MvaW9tbXUvYXJtLHNtbXUu
-eWFtbCAgIHwgICAzICsKIC4uLi9iaW5kaW5ncy9tYWlsYm94L3Fjb20taXBjYy55YW1sICAgICAg
-ICAgICB8ICAgMSArCiAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9uZXQvcWNvbSxldGhxb3MueWFt
-bCAgfCAgIDEgKwogLi4uL2RldmljZXRyZWUvYmluZGluZ3MvbmV0L3NucHMsZHdtYWMueWFtbCAg
-IHwgICAzICsKIC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BjaS9xY29tLHBjaWUtZXAueWFtbCB8
-ICAgMiArCiAuLi4vYmluZGluZ3MvcGNpL3Fjb20scGNpZS1zYTg3NzVwLnlhbWwgICAgICAgfCAg
-IDUgKy0KIC4uLi9waHkvcWNvbSxzYTg3NzVwLWR3bWFjLXNnbWlpLXBoeS55YW1sICAgICB8ICAg
-NSArLQogLi4uL3BoeS9xY29tLHNjODI4MHhwLXFtcC1wY2llLXBoeS55YW1sICAgICAgIHwgICA0
-ICsKIC4uLi9waHkvcWNvbSxzYzgyODB4cC1xbXAtdWZzLXBoeS55YW1sICAgICAgICB8ICAgMiAr
-CiAuLi4vcGh5L3Fjb20sc2M4MjgweHAtcW1wLXVzYjMtdW5pLXBoeS55YW1sICAgfCAgIDMgKwog
-Li4uL2JpbmRpbmdzL3BoeS9xY29tLHVzYi1zbnBzLWZlbXRvLXYyLnlhbWwgIHwgICAxICsKIC4u
-Li9iaW5kaW5ncy9waW5jdHJsL3Fjb20sc2E4Nzc1cC10bG1tLnlhbWwgICB8ICAgNSArLQogLi4u
-L2RldmljZXRyZWUvYmluZGluZ3MvcG93ZXIvcWNvbSxycG1wZC55YW1sIHwgICAxICsKIC4uLi9i
-aW5kaW5ncy9zb2MvcWNvbS9xY29tLGFvc3MtcW1wLnlhbWwgICAgICB8ICAgMSArCiAuLi4vZGV2
-aWNldHJlZS9iaW5kaW5ncy9zcmFtL3Fjb20saW1lbS55YW1sICAgfCAgIDEgKwogLi4uL2JpbmRp
-bmdzL3RoZXJtYWwvcWNvbS10c2Vucy55YW1sICAgICAgICAgIHwgICAxICsKIC4uLi9kZXZpY2V0
-cmVlL2JpbmRpbmdzL3Vmcy9xY29tLHVmcy55YW1sICAgICB8ICAgMiArCiAuLi4vZGV2aWNldHJl
-ZS9iaW5kaW5ncy91c2IvcWNvbSxkd2MzLnlhbWwgICAgfCAgIDMgKwogLi4uL2JpbmRpbmdzL3dh
-dGNoZG9nL3Fjb20td2R0LnlhbWwgICAgICAgICAgIHwgICAxICsKIGFyY2gvYXJtNjQvYm9vdC9k
-dHMvcWNvbS9NYWtlZmlsZSAgICAgICAgICAgICB8ICAgMiArLQogLi4ue3NhODc3NXAtcG1pY3Mu
-ZHRzaSA9PiBxY3M5MTAwLXBtaWNzLmR0c2l9IHwgICAwCiAuLi4ve3NhODc3NXAtcmlkZS5kdHMg
-PT4gcWNzOTEwMC1yaWRlLmR0c30gICAgfCAgIDggKy0KIC4uLi9kdHMvcWNvbS97c2E4Nzc1cC5k
-dHNpID0+IHFjczkxMDAuZHRzaX0gICB8IDExMiArKysrKysrKystLS0tLS0tLS0KIGRyaXZlcnMv
-Y2xrL3Fjb20vY2xrLXJwbWguYyAgICAgICAgICAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL2Ns
-ay9xY29tL2djYy1zYTg3NzVwLmMgICAgICAgICAgICAgICAgfCAgIDEgKwogZHJpdmVycy9jbGsv
-cWNvbS9ncHVjYy1zYTg3NzVwLmMgICAgICAgICAgICAgIHwgICAxICsKIGRyaXZlcnMvY3B1ZnJl
-cS9jcHVmcmVxLWR0LXBsYXRkZXYuYyAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL2ludGVyY29u
-bmVjdC9xY29tL3NhODc3NXAuYyAgICAgICAgICAgfCAgMTQgKysrCiAuLi4vc3RtaWNyby9zdG1t
-YWMvZHdtYWMtcWNvbS1ldGhxb3MuYyAgICAgICAgfCAgIDEgKwogZHJpdmVycy9wY2kvY29udHJv
-bGxlci9kd2MvcGNpZS1xY29tLWVwLmMgICAgIHwgICAxICsKIGRyaXZlcnMvcGNpL2NvbnRyb2xs
-ZXIvZHdjL3BjaWUtcWNvbS5jICAgICAgICB8ICAgMSArCiBkcml2ZXJzL3BoeS9xdWFsY29tbS9w
-aHktcWNvbS1xbXAtcGNpZS5jICAgICAgfCAgIDYgKwogZHJpdmVycy9waHkvcXVhbGNvbW0vcGh5
-LXFjb20tcW1wLXVmcy5jICAgICAgIHwgICAzICsKIGRyaXZlcnMvcGh5L3F1YWxjb21tL3BoeS1x
-Y29tLXFtcC11c2IuYyAgICAgICB8ICAgMyArCiBkcml2ZXJzL3BoeS9xdWFsY29tbS9waHktcWNv
-bS1zZ21paS1ldGguYyAgICAgfCAgIDEgKwogZHJpdmVycy9waW5jdHJsL3Fjb20vcGluY3RybC1z
-YTg3NzVwLmMgICAgICAgIHwgICAxICsKIGRyaXZlcnMvcG1kb21haW4vcWNvbS9ycG1ocGQuYyAg
-ICAgICAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL3NvYy9xY29tL2xsY2MtcWNvbS5jICAgICAg
-ICAgICAgICAgICAgfCAgIDEgKwogNDkgZmlsZXMgY2hhbmdlZCwgMTcwIGluc2VydGlvbnMoKyks
-IDY1IGRlbGV0aW9ucygtKQogcmVuYW1lIGFyY2gvYXJtNjQvYm9vdC9kdHMvcWNvbS97c2E4Nzc1
-cC1wbWljcy5kdHNpID0+IHFjczkxMDAtcG1pY3MuZHRzaX0gKDEwMCUpCiByZW5hbWUgYXJjaC9h
-cm02NC9ib290L2R0cy9xY29tL3tzYTg3NzVwLXJpZGUuZHRzID0+IHFjczkxMDAtcmlkZS5kdHN9
-ICg5OSUpCiByZW5hbWUgYXJjaC9hcm02NC9ib290L2R0cy9xY29tL3tzYTg3NzVwLmR0c2kgPT4g
-cWNzOTEwMC5kdHNpfSAoOTclKQoKCmJhc2UtY29tbWl0OiA4MmU0MjU1MzA1YzU1NGIwYmIxOGI3
-Y2NmMmRiODYwNDFiNGM4YjZlCi0tIAoyLjI1LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Introduce QCS9100 SoC dtsi, QCS9100 is mainly used in IoT products.
+QCS9100 is drived from SA8775p.
+The current QCS9100 SoC dtsi is directly renamed from the SA8775p SoC
+dtsi.
+The QCS9100 platform is currently in the early design stage. Currently,
+Both the QCS9100 platform and SA8775p platform use non-SCMI resources,
+In the future, the SA8775p platform will transition to using SCMI
+resources and it will have new sa8775p-related device tree.
+This QCS9100 SoC dtsi remains consistent with the current SA8775p SoC
+dtsi, except for updating the following sa8775p-related compatible names
+to the qcs9100-related compatible name:
+  - qcom,sa8775p-clk-virt
+  - qcom,sa8775p-mc-virt
+  - qcom,sa8775p-adsp-pas
+  - qcom,sa8775p-cdsp-pas
+  - qcom,sa8775p-cdsp1-pas
+  - qcom,sa8775p-gpdsp0-pas
+  - qcom,sa8775p-gpdsp1-pas
+  - qcom,sa8775p-gcc
+  - qcom,sa8775p-ipcc
+  - qcom,sa8775p-config-noc
+  - qcom,sa8775p-system-noc
+  - qcom,sa8775p-aggre1-noc
+  - qcom,sa8775p-aggre2-noc
+  - qcom,sa8775p-pcie-anoc
+  - qcom,sa8775p-gpdsp-anoc
+  - qcom,sa8775p-mmss-noc
+  - qcom,sa8775p-trng
+  - qcom,sa8775p-ufshc
+  - qcom,sa8775p-qmp-ufs-phy
+  - qcom,sa8775p-qce
+  - qcom,sa8775p-lpass-ag-noc
+  - qcom,sa8775p-usb-hs-phy
+  - qcom,sa8775p-dc-noc
+  - qcom,sa8775p-gem-noc
+  - qcom,sa8775p-dwc3
+  - qcom,sa8775p-qmp-usb3-uni-phy
+  - qcom,sa8775p-gpucc
+  - qcom,sa8775p-smmu-500
+  - qcom,sa8775p-dwmac-sgmii-phy
+  - qcom,sa8775p-llcc-bwmon
+  - qcom,sa8775p-cpu-bwmon
+  - qcom,sa8775p-llcc
+  - qcom,sa8775p-videocc
+  - qcom,sa8775p-camcc
+  - qcom,sa8775p-dispcc0
+  - qcom,sa8775p-pdc
+  - qcom,sa8775p-aoss-qmp
+  - qcom,sa8775p-tlmm
+  - qcom,sa8775p-imem
+  - qcom,sa8775p-smmu-500
+  - qcom,sa8775p-rpmh-clk
+  - qcom,sa8775p-rpmhpd
+  - qcom,sa8775p-cpufreq-epss
+  - qcom,sa8775p-dispcc1
+  - qcom,sa8775p-ethqos
+  - qcom,sa8775p-nspa-noc
+  - qcom,sa8775p-nspb-noc
+  - qcom,sa8775p-qmp-gen4x2-pcie-phy
+  - qcom,sa8775p-qmp-gen4x4-pcie-phy
+
+Signed-off-by: Tengfei Fan <quic_tengfan@quicinc.com>
+---
+ .../dts/qcom/{sa8775p.dtsi => qcs9100.dtsi}   | 112 +++++++++---------
+ 1 file changed, 56 insertions(+), 56 deletions(-)
+ rename arch/arm64/boot/dts/qcom/{sa8775p.dtsi => qcs9100.dtsi} (97%)
+
+diff --git a/arch/arm64/boot/dts/qcom/sa8775p.dtsi b/arch/arm64/boot/dts/qcom/qcs9100.dtsi
+similarity index 97%
+rename from arch/arm64/boot/dts/qcom/sa8775p.dtsi
+rename to arch/arm64/boot/dts/qcom/qcs9100.dtsi
+index 23f1b2e5e624..1c257287af0c 100644
+--- a/arch/arm64/boot/dts/qcom/sa8775p.dtsi
++++ b/arch/arm64/boot/dts/qcom/qcs9100.dtsi
+@@ -220,91 +220,91 @@ eud_in: endpoint {
+ 
+ 	firmware {
+ 		scm {
+-			compatible = "qcom,scm-sa8775p", "qcom,scm";
++			compatible = "qcom,scm-qcs9100", "qcom,scm";
+ 			memory-region = <&tz_ffi_mem>;
+ 		};
+ 	};
+ 
+ 	aggre1_noc: interconnect-aggre1-noc {
+-		compatible = "qcom,sa8775p-aggre1-noc";
++		compatible = "qcom,qcs9100-aggre1-noc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	aggre2_noc: interconnect-aggre2-noc {
+-		compatible = "qcom,sa8775p-aggre2-noc";
++		compatible = "qcom,qcs9100-aggre2-noc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	clk_virt: interconnect-clk-virt {
+-		compatible = "qcom,sa8775p-clk-virt";
++		compatible = "qcom,qcs9100-clk-virt";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	config_noc: interconnect-config-noc {
+-		compatible = "qcom,sa8775p-config-noc";
++		compatible = "qcom,qcs9100-config-noc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	dc_noc: interconnect-dc-noc {
+-		compatible = "qcom,sa8775p-dc-noc";
++		compatible = "qcom,qcs9100-dc-noc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	gem_noc: interconnect-gem-noc {
+-		compatible = "qcom,sa8775p-gem-noc";
++		compatible = "qcom,qcs9100-gem-noc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	gpdsp_anoc: interconnect-gpdsp-anoc {
+-		compatible = "qcom,sa8775p-gpdsp-anoc";
++		compatible = "qcom,qcs9100-gpdsp-anoc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	lpass_ag_noc: interconnect-lpass-ag-noc {
+-		compatible = "qcom,sa8775p-lpass-ag-noc";
++		compatible = "qcom,qcs9100-lpass-ag-noc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	mc_virt: interconnect-mc-virt {
+-		compatible = "qcom,sa8775p-mc-virt";
++		compatible = "qcom,qcs9100-mc-virt";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	mmss_noc: interconnect-mmss-noc {
+-		compatible = "qcom,sa8775p-mmss-noc";
++		compatible = "qcom,qcs9100-mmss-noc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	nspa_noc: interconnect-nspa-noc {
+-		compatible = "qcom,sa8775p-nspa-noc";
++		compatible = "qcom,qcs9100-nspa-noc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	nspb_noc: interconnect-nspb-noc {
+-		compatible = "qcom,sa8775p-nspb-noc";
++		compatible = "qcom,qcs9100-nspb-noc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	pcie_anoc: interconnect-pcie-anoc {
+-		compatible = "qcom,sa8775p-pcie-anoc";
++		compatible = "qcom,qcs9100-pcie-anoc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+ 
+ 	system_noc: interconnect-system-noc {
+-		compatible = "qcom,sa8775p-system-noc";
++		compatible = "qcom,qcs9100-system-noc";
+ 		#interconnect-cells = <2>;
+ 		qcom,bcm-voters = <&apps_bcm_voter>;
+ 	};
+@@ -571,7 +571,7 @@ soc: soc@0 {
+ 		ranges = <0 0 0 0 0x10 0>;
+ 
+ 		gcc: clock-controller@100000 {
+-			compatible = "qcom,sa8775p-gcc";
++			compatible = "qcom,qcs9100-gcc";
+ 			reg = <0x0 0x00100000 0x0 0xc7018>;
+ 			#clock-cells = <1>;
+ 			#reset-cells = <1>;
+@@ -595,7 +595,7 @@ gcc: clock-controller@100000 {
+ 		};
+ 
+ 		ipcc: mailbox@408000 {
+-			compatible = "qcom,sa8775p-ipcc", "qcom,ipcc";
++			compatible = "qcom,qcs9100-ipcc", "qcom,ipcc";
+ 			reg = <0x0 0x00408000 0x0 0x1000>;
+ 			interrupts = <GIC_SPI 229 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-controller;
+@@ -1593,12 +1593,12 @@ &config_noc SLAVE_QUP_3 QCOM_ICC_TAG_ALWAYS>,
+ 		};
+ 
+ 		rng: rng@10d2000 {
+-			compatible = "qcom,sa8775p-trng", "qcom,trng";
++			compatible = "qcom,qcs9100-trng", "qcom,trng";
+ 			reg = <0 0x010d2000 0 0x1000>;
+ 		};
+ 
+ 		ufs_mem_hc: ufs@1d84000 {
+-			compatible = "qcom,sa8775p-ufshc", "qcom,ufshc", "jedec,ufs-2.0";
++			compatible = "qcom,qcs9100-ufshc", "qcom,ufshc", "jedec,ufs-2.0";
+ 			reg = <0x0 0x01d84000 0x0 0x3000>;
+ 			interrupts = <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>;
+ 			phys = <&ufs_mem_phy>;
+@@ -1640,7 +1640,7 @@ ufs_mem_hc: ufs@1d84000 {
+ 		};
+ 
+ 		ufs_mem_phy: phy@1d87000 {
+-			compatible = "qcom,sa8775p-qmp-ufs-phy";
++			compatible = "qcom,qcs9100-qmp-ufs-phy";
+ 			reg = <0x0 0x01d87000 0x0 0xe10>;
+ 			/*
+ 			 * Yes, GCC_EDP_REF_CLKREF_EN is correct in qref. It
+@@ -1658,7 +1658,7 @@ ufs_mem_phy: phy@1d87000 {
+ 		};
+ 
+ 		ice: crypto@1d88000 {
+-			compatible = "qcom,sa8775p-inline-crypto-engine",
++			compatible = "qcom,qcs9100-inline-crypto-engine",
+ 				     "qcom,inline-crypto-engine";
+ 			reg = <0x0 0x01d88000 0x0 0x8000>;
+ 			clocks = <&gcc GCC_UFS_PHY_ICE_CORE_CLK>;
+@@ -2578,7 +2578,7 @@ apss_tpdm2_out: endpoint {
+ 		};
+ 
+ 		usb_0_hsphy: phy@88e4000 {
+-			compatible = "qcom,sa8775p-usb-hs-phy",
++			compatible = "qcom,qcs9100-usb-hs-phy",
+ 				     "qcom,usb-snps-hs-5nm-phy";
+ 			reg = <0 0x088e4000 0 0x120>;
+ 			clocks = <&rpmhcc RPMH_CXO_CLK>;
+@@ -2591,7 +2591,7 @@ usb_0_hsphy: phy@88e4000 {
+ 		};
+ 
+ 		usb_0_qmpphy: phy@88e8000 {
+-			compatible = "qcom,sa8775p-qmp-usb3-uni-phy";
++			compatible = "qcom,qcs9100-qmp-usb3-uni-phy";
+ 			reg = <0 0x088e8000 0 0x2000>;
+ 
+ 			clocks = <&gcc GCC_USB3_PRIM_PHY_AUX_CLK>,
+@@ -2615,7 +2615,7 @@ usb_0_qmpphy: phy@88e8000 {
+ 		};
+ 
+ 		usb_0: usb@a6f8800 {
+-			compatible = "qcom,sa8775p-dwc3", "qcom,dwc3";
++			compatible = "qcom,qcs9100-dwc3", "qcom,dwc3";
+ 			reg = <0 0x0a6f8800 0 0x400>;
+ 			#address-cells = <2>;
+ 			#size-cells = <2>;
+@@ -2667,7 +2667,7 @@ usb_0_dwc3: usb@a600000 {
+ 		};
+ 
+ 		usb_1_hsphy: phy@88e6000 {
+-			compatible = "qcom,sa8775p-usb-hs-phy",
++			compatible = "qcom,qcs9100-usb-hs-phy",
+ 				     "qcom,usb-snps-hs-5nm-phy";
+ 			reg = <0 0x088e6000 0 0x120>;
+ 			clocks = <&gcc GCC_USB_CLKREF_EN>;
+@@ -2680,7 +2680,7 @@ usb_1_hsphy: phy@88e6000 {
+ 		};
+ 
+ 		usb_1_qmpphy: phy@88ea000 {
+-			compatible = "qcom,sa8775p-qmp-usb3-uni-phy";
++			compatible = "qcom,qcs9100-qmp-usb3-uni-phy";
+ 			reg = <0 0x088ea000 0 0x2000>;
+ 
+ 			clocks = <&gcc GCC_USB3_SEC_PHY_AUX_CLK>,
+@@ -2704,7 +2704,7 @@ usb_1_qmpphy: phy@88ea000 {
+ 		};
+ 
+ 		usb_1: usb@a8f8800 {
+-			compatible = "qcom,sa8775p-dwc3", "qcom,dwc3";
++			compatible = "qcom,qcs9100-dwc3", "qcom,dwc3";
+ 			reg = <0 0x0a8f8800 0 0x400>;
+ 			#address-cells = <2>;
+ 			#size-cells = <2>;
+@@ -2756,7 +2756,7 @@ usb_1_dwc3: usb@a800000 {
+ 		};
+ 
+ 		usb_2_hsphy: phy@88e7000 {
+-			compatible = "qcom,sa8775p-usb-hs-phy",
++			compatible = "qcom,qcs9100-usb-hs-phy",
+ 				     "qcom,usb-snps-hs-5nm-phy";
+ 			reg = <0 0x088e7000 0 0x120>;
+ 			clocks = <&gcc GCC_USB_CLKREF_EN>;
+@@ -2769,7 +2769,7 @@ usb_2_hsphy: phy@88e7000 {
+ 		};
+ 
+ 		usb_2: usb@a4f8800 {
+-			compatible = "qcom,sa8775p-dwc3", "qcom,dwc3";
++			compatible = "qcom,qcs9100-dwc3", "qcom,dwc3";
+ 			reg = <0 0x0a4f8800 0 0x400>;
+ 			#address-cells = <2>;
+ 			#size-cells = <2>;
+@@ -2825,7 +2825,7 @@ tcsr_mutex: hwlock@1f40000 {
+ 		};
+ 
+ 		gpucc: clock-controller@3d90000 {
+-			compatible = "qcom,sa8775p-gpucc";
++			compatible = "qcom,qcs9100-gpucc";
+ 			reg = <0x0 0x03d90000 0x0 0xa000>;
+ 			clocks = <&rpmhcc RPMH_CXO_CLK>,
+ 				 <&gcc GCC_GPU_GPLL0_CLK_SRC>,
+@@ -2839,7 +2839,7 @@ gpucc: clock-controller@3d90000 {
+ 		};
+ 
+ 		adreno_smmu: iommu@3da0000 {
+-			compatible = "qcom,sa8775p-smmu-500", "qcom,adreno-smmu",
++			compatible = "qcom,qcs9100-smmu-500", "qcom,adreno-smmu",
+ 				     "qcom,smmu-500", "arm,mmu-500";
+ 			reg = <0x0 0x03da0000 0x0 0x20000>;
+ 			#iommu-cells = <2>;
+@@ -2875,7 +2875,7 @@ adreno_smmu: iommu@3da0000 {
+ 		};
+ 
+ 		serdes0: phy@8901000 {
+-			compatible = "qcom,sa8775p-dwmac-sgmii-phy";
++			compatible = "qcom,qcs9100-dwmac-sgmii-phy";
+ 			reg = <0x0 0x08901000 0x0 0xe10>;
+ 			clocks = <&gcc GCC_SGMI_CLKREF_EN>;
+ 			clock-names = "sgmi_ref";
+@@ -2884,7 +2884,7 @@ serdes0: phy@8901000 {
+ 		};
+ 
+ 		serdes1: phy@8902000 {
+-			compatible = "qcom,sa8775p-dwmac-sgmii-phy";
++			compatible = "qcom,qcs9100-dwmac-sgmii-phy";
+ 			reg = <0x0 0x08902000 0x0 0xe10>;
+ 			clocks = <&gcc GCC_SGMI_CLKREF_EN>;
+ 			clock-names = "sgmi_ref";
+@@ -2893,7 +2893,7 @@ serdes1: phy@8902000 {
+ 		};
+ 
+ 		llcc: system-cache-controller@9200000 {
+-			compatible = "qcom,sa8775p-llcc";
++			compatible = "qcom,qcs9100-llcc";
+ 			reg = <0x0 0x09200000 0x0 0x80000>,
+ 			      <0x0 0x09300000 0x0 0x80000>,
+ 			      <0x0 0x09400000 0x0 0x80000>,
+@@ -2912,7 +2912,7 @@ llcc: system-cache-controller@9200000 {
+ 		};
+ 
+ 		pdc: interrupt-controller@b220000 {
+-			compatible = "qcom,sa8775p-pdc", "qcom,pdc";
++			compatible = "qcom,qcs9100-pdc", "qcom,pdc";
+ 			reg = <0x0 0x0b220000 0x0 0x30000>,
+ 			      <0x0 0x17c000f0 0x0 0x64>;
+ 			qcom,pdc-ranges = <0 480 40>,
+@@ -2959,7 +2959,7 @@ pdc: interrupt-controller@b220000 {
+ 		};
+ 
+ 		tsens2: thermal-sensor@c251000 {
+-			compatible = "qcom,sa8775p-tsens", "qcom,tsens-v2";
++			compatible = "qcom,qcs9100-tsens", "qcom,tsens-v2";
+ 			reg = <0x0 0x0c251000 0x0 0x1ff>,
+ 			      <0x0 0x0c224000 0x0 0x8>;
+ 			interrupts = <GIC_SPI 572 IRQ_TYPE_LEVEL_HIGH>,
+@@ -2970,7 +2970,7 @@ tsens2: thermal-sensor@c251000 {
+ 		};
+ 
+ 		tsens3: thermal-sensor@c252000 {
+-			compatible = "qcom,sa8775p-tsens", "qcom,tsens-v2";
++			compatible = "qcom,qcs9100-tsens", "qcom,tsens-v2";
+ 			reg = <0x0 0x0c252000 0x0 0x1ff>,
+ 			      <0x0 0x0c225000 0x0 0x8>;
+ 			interrupts = <GIC_SPI 573 IRQ_TYPE_LEVEL_HIGH>,
+@@ -2981,7 +2981,7 @@ tsens3: thermal-sensor@c252000 {
+ 		};
+ 
+ 		tsens0: thermal-sensor@c263000 {
+-			compatible = "qcom,sa8775p-tsens", "qcom,tsens-v2";
++			compatible = "qcom,qcs9100-tsens", "qcom,tsens-v2";
+ 			reg = <0x0 0x0c263000 0x0 0x1ff>,
+ 			      <0x0 0x0c222000 0x0 0x8>;
+ 			interrupts = <GIC_SPI 506 IRQ_TYPE_LEVEL_HIGH>,
+@@ -2992,7 +2992,7 @@ tsens0: thermal-sensor@c263000 {
+ 		};
+ 
+ 		tsens1: thermal-sensor@c265000 {
+-			compatible = "qcom,sa8775p-tsens", "qcom,tsens-v2";
++			compatible = "qcom,qcs9100-tsens", "qcom,tsens-v2";
+ 			reg = <0x0 0x0c265000 0x0 0x1ff>,
+ 			      <0x0 0x0c223000 0x0 0x8>;
+ 			interrupts = <GIC_SPI 507 IRQ_TYPE_LEVEL_HIGH>,
+@@ -3003,7 +3003,7 @@ tsens1: thermal-sensor@c265000 {
+ 		};
+ 
+ 		aoss_qmp: power-management@c300000 {
+-			compatible = "qcom,sa8775p-aoss-qmp", "qcom,aoss-qmp";
++			compatible = "qcom,qcs9100-aoss-qmp", "qcom,aoss-qmp";
+ 			reg = <0x0 0x0c300000 0x0 0x400>;
+ 			interrupts-extended = <&ipcc IPCC_CLIENT_AOP
+ 					       IPCC_MPROC_SIGNAL_GLINK_QMP
+@@ -3040,7 +3040,7 @@ spmi_bus: spmi@c440000 {
+ 		};
+ 
+ 		tlmm: pinctrl@f000000 {
+-			compatible = "qcom,sa8775p-tlmm";
++			compatible = "qcom,qcs9100-tlmm";
+ 			reg = <0x0 0x0f000000 0x0 0x1000000>;
+ 			interrupts = <GIC_SPI 208 IRQ_TYPE_LEVEL_HIGH>;
+ 			gpio-controller;
+@@ -3052,7 +3052,7 @@ tlmm: pinctrl@f000000 {
+ 		};
+ 
+ 		sram: sram@146d8000 {
+-			compatible = "qcom,sa8775p-imem", "syscon", "simple-mfd";
++			compatible = "qcom,qcs9100-imem", "syscon", "simple-mfd";
+ 			reg = <0x0 0x146d8000 0x0 0x1000>;
+ 			ranges = <0x0 0x0 0x146d8000 0x1000>;
+ 
+@@ -3066,7 +3066,7 @@ pil-reloc@94c {
+ 		};
+ 
+ 		apps_smmu: iommu@15000000 {
+-			compatible = "qcom,sa8775p-smmu-500", "qcom,smmu-500", "arm,mmu-500";
++			compatible = "qcom,qcs9100-smmu-500", "qcom,smmu-500", "arm,mmu-500";
+ 			reg = <0x0 0x15000000 0x0 0x100000>;
+ 			#iommu-cells = <2>;
+ 			#global-interrupts = <2>;
+@@ -3204,7 +3204,7 @@ apps_smmu: iommu@15000000 {
+ 		};
+ 
+ 		pcie_smmu: iommu@15200000 {
+-			compatible = "qcom,sa8775p-smmu-500", "qcom,smmu-500", "arm,mmu-500";
++			compatible = "qcom,qcs9100-smmu-500", "qcom,smmu-500", "arm,mmu-500";
+ 			reg = <0x0 0x15200000 0x0 0x80000>;
+ 			#iommu-cells = <2>;
+ 			#global-interrupts = <2>;
+@@ -3289,7 +3289,7 @@ intc: interrupt-controller@17a00000 {
+ 		};
+ 
+ 		watchdog@17c10000 {
+-			compatible = "qcom,apss-wdt-sa8775p", "qcom,kpss-wdt";
++			compatible = "qcom,apss-wdt-qcs9100", "qcom,kpss-wdt";
+ 			reg = <0x0 0x17c10000 0x0 0x1000>;
+ 			clocks = <&sleep_clk>;
+ 			interrupts = <GIC_SPI 0 IRQ_TYPE_EDGE_RISING>;
+@@ -3375,14 +3375,14 @@ apps_bcm_voter: bcm-voter {
+ 			};
+ 
+ 			rpmhcc: clock-controller {
+-				compatible = "qcom,sa8775p-rpmh-clk";
++				compatible = "qcom,qcs9100-rpmh-clk";
+ 				#clock-cells = <1>;
+ 				clock-names = "xo";
+ 				clocks = <&xo_board_clk>;
+ 			};
+ 
+ 			rpmhpd: power-controller {
+-				compatible = "qcom,sa8775p-rpmhpd";
++				compatible = "qcom,qcs9100-rpmhpd";
+ 				#power-domain-cells = <1>;
+ 				operating-points-v2 = <&rpmhpd_opp_table>;
+ 
+@@ -3433,7 +3433,7 @@ rpmhpd_opp_turbo_l1: opp-9 {
+ 		};
+ 
+ 		cpufreq_hw: cpufreq@18591000 {
+-			compatible = "qcom,sa8775p-cpufreq-epss",
++			compatible = "qcom,qcs9100-cpufreq-epss",
+ 				     "qcom,cpufreq-epss";
+ 			reg = <0x0 0x18591000 0x0 0x1000>,
+ 			      <0x0 0x18593000 0x0 0x1000>;
+@@ -3446,7 +3446,7 @@ cpufreq_hw: cpufreq@18591000 {
+ 		};
+ 
+ 		ethernet1: ethernet@23000000 {
+-			compatible = "qcom,sa8775p-ethqos";
++			compatible = "qcom,qcs9100-ethqos";
+ 			reg = <0x0 0x23000000 0x0 0x10000>,
+ 			      <0x0 0x23016000 0x0 0x100>;
+ 			reg-names = "stmmaceth", "rgmii";
+@@ -3481,7 +3481,7 @@ ethernet1: ethernet@23000000 {
+ 		};
+ 
+ 		ethernet0: ethernet@23040000 {
+-			compatible = "qcom,sa8775p-ethqos";
++			compatible = "qcom,qcs9100-ethqos";
+ 			reg = <0x0 0x23040000 0x0 0x10000>,
+ 			      <0x0 0x23056000 0x0 0x100>;
+ 			reg-names = "stmmaceth", "rgmii";
+@@ -4495,7 +4495,7 @@ arch_timer: timer {
+ 	};
+ 
+ 	pcie0: pcie@1c00000 {
+-		compatible = "qcom,pcie-sa8775p";
++		compatible = "qcom,pcie-qcs9100";
+ 		reg = <0x0 0x01c00000 0x0 0x3000>,
+ 		      <0x0 0x40000000 0x0 0xf20>,
+ 		      <0x0 0x40000f20 0x0 0xa8>,
+@@ -4576,7 +4576,7 @@ pcie@0 {
+ 	};
+ 
+ 	pcie0_ep: pcie-ep@1c00000 {
+-		compatible = "qcom,sa8775p-pcie-ep";
++		compatible = "qcom,qcs9100-pcie-ep";
+ 		reg = <0x0 0x01c00000 0x0 0x3000>,
+ 		      <0x0 0x40000000 0x0 0xf20>,
+ 		      <0x0 0x40000f20 0x0 0xa8>,
+@@ -4623,7 +4623,7 @@ pcie0_ep: pcie-ep@1c00000 {
+ 	};
+ 
+ 	pcie0_phy: phy@1c04000 {
+-		compatible = "qcom,sa8775p-qmp-gen4x2-pcie-phy";
++		compatible = "qcom,qcs9100-qmp-gen4x2-pcie-phy";
+ 		reg = <0x0 0x1c04000 0x0 0x2000>;
+ 
+ 		clocks = <&gcc GCC_PCIE_0_AUX_CLK>,
+@@ -4652,7 +4652,7 @@ pcie0_phy: phy@1c04000 {
+ 	};
+ 
+ 	pcie1: pcie@1c10000 {
+-		compatible = "qcom,pcie-sa8775p";
++		compatible = "qcom,pcie-qcs9100";
+ 		reg = <0x0 0x01c10000 0x0 0x3000>,
+ 		      <0x0 0x60000000 0x0 0xf20>,
+ 		      <0x0 0x60000f20 0x0 0xa8>,
+@@ -4733,7 +4733,7 @@ pcie@0 {
+ 	};
+ 
+ 	pcie1_ep: pcie-ep@1c10000 {
+-		compatible = "qcom,sa8775p-pcie-ep";
++		compatible = "qcom,qcs9100-pcie-ep";
+ 		reg = <0x0 0x01c10000 0x0 0x3000>,
+ 		      <0x0 0x60000000 0x0 0xf20>,
+ 		      <0x0 0x60000f20 0x0 0xa8>,
+@@ -4780,7 +4780,7 @@ pcie1_ep: pcie-ep@1c10000 {
+ 	};
+ 
+ 	pcie1_phy: phy@1c14000 {
+-		compatible = "qcom,sa8775p-qmp-gen4x4-pcie-phy";
++		compatible = "qcom,qcs9100-qmp-gen4x4-pcie-phy";
+ 		reg = <0x0 0x1c14000 0x0 0x4000>;
+ 
+ 		clocks = <&gcc GCC_PCIE_1_AUX_CLK>,
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
