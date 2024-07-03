@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F2AFC30653
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F55DC30653
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fGrUCZINKJChk/9GKthae+cqNzLA9mGXUg1oB3DFRac=; b=BNvrlnwIuEsYLV
-	QVtnCXB/1TZTAAuVmFOlmdaRaV4Izcctkexv3xS5EQGx22R49vGHofA/uHqRpjWmfJieQeZoLYwO9
-	v1cCFp2NPiQEeAhUGZhjBWyqYL7GTWGuw+34jJGvjXnmd7yJPTwCuqyFtQwz46EOPBpMFeUBoEDmX
-	+XVFc+LOd3kS+pn4rSJ+ZqnTj+q3OxUGaSDZ27XR4I1qlmdMNVgFQvCKxRC2Vpaz9AyvQEWVSvbno
-	KhpFnoqYtjZGgs+H1U59upqTQg7kJ5Br8k2+BZoPRIkLjgCTrWeqJugAijyNGtVNPPXwBflC0AbFh
-	xCTtQPvfX7XAddwzqBVw==;
+	List-Owner; bh=CwCK1Sp/a6qm+Ir+gehk1x12bUl6FNJcCeflZ3i39mk=; b=G7ei0H6fH/Slpr
+	5dHF/nXv2J8K3E0L1yA27Rn3qPZv4DS6MteoIr58rZFqo9+PeWlbnMhmgT0B2NlLW2nvjPVqoY6lM
+	odq/USLvaiXg3j4yRtDyqGzgsIfAg3Jn4DPkhiKFZaYb8xbkOW2vsos5IPciRwKI0SjiJWAhyTB6U
+	YnSCWE9cQyQYVuHZ50seyWIaAres3IsGVzxDC0OiZllqLr/ZfFHouM8shM9NE53BDsJ3pF4E1mjVp
+	dnum/ve+QidBr5sIUgvfjxyb84jp5rhapE7gS3r7wfNEceTnBmDGAoWigDfHolHcjxNS9JkzsQJRP
+	gVeyODe/iAFKIx/15ofQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrB6-00000008pGH-2x8C;
-	Wed, 03 Jul 2024 04:01:08 +0000
+	id 1sOrBQ-00000008pRy-3TNc;
+	Wed, 03 Jul 2024 04:01:28 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrB3-00000008pE9-07QE;
-	Wed, 03 Jul 2024 04:01:07 +0000
+	id 1sOrBN-00000008pPJ-2WCJ;
+	Wed, 03 Jul 2024 04:01:26 +0000
 Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462HA2HU030481;
-	Wed, 3 Jul 2024 04:00:36 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 462HE8aY003180;
+	Wed, 3 Jul 2024 03:59:57 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	SqMuxo7DXOl5Wb3u2xqOvUs4r4UIoA7ZVWvuG1u0gAw=; b=UtYX322iSO2arTih
-	kC10nKTrvBJ8p1q5878295/Yg+1DktmloLkE+9ste25bjavc5oyWtYLQdsLA7wxq
-	Uqf8xaCXWUgC+itP6ixG0YTAg7ZDhSYZz/YUPqzYHEtXk/GlJJNjL4pFjfcExqGw
-	0Tywg7b/BM8Y9QiERyOsF5zjT0dqelIFIDgya1ilcIV+xTeYBIci04JJlqya8PrZ
-	SwOYxpsYFHD+lG11BCcufQof97ZdMj6wskrPF32lAOjCWx/k/x/RPby5qeuwM6A5
-	GfH75xbtO62AHk5qc6fKmbagcvpejZcAbsg1r7Y2JpZtx8ZvP44xeYfaiiRcuFLV
-	6bQs5w==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4029uxfkd5-1
+	bEKbNVfup3BpRmVtqOfZwmdPKNA/94dCDdPvl7O48u4=; b=WTWjmdUXhTRHPoN1
+	YOXbZk6AR6AkOmYI6sC1QsSyHk4oV+owOGvS7FeB5+fIZ4lpYluQ3OSGdlyKOz4H
+	dymvm59ljfPNxm3NiEpfw1GpZt+UKvk1sfdh1v3QRd4c6Ju9vAlp2Xy8tr4hf2eI
+	TVNxWlRMXguZQkU7apH6X5xejyM0LBgBEgi1zPIm54ozOjWI0LN2V9ScYvcsJ/88
+	mhP6SGgx7pQD+34U2mpzbDzQuilsnIfnXbXGp9LJ1lN9wQYL2AEBxhik1LhZvPdq
+	f5sNKQumvTi0L3SQ3jmTUNcGlT3n5F2h90/1o+KUC9ZyWNpcTyc3CQqWYg3INIFJ
+	W5iTrQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4029uxfkbt-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Jul 2024 04:00:36 +0000 (GMT)
+	Wed, 03 Jul 2024 03:59:57 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 46340ZDj026047
+	by NALASPPMTA03.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 4633xuRa029349
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 3 Jul 2024 04:00:35 GMT
+	Wed, 3 Jul 2024 03:59:56 GMT
 Received: from tengfan-gv.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 2 Jul 2024 21:00:13 -0700
+ 15.2.1544.9; Tue, 2 Jul 2024 20:59:32 -0700
 From: Tengfei Fan <quic_tengfan@quicinc.com>
 To: <andersson@kernel.org>, <konrad.dybcio@linaro.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <djakov@kernel.org>,
@@ -97,9 +97,9 @@ CC: <robimarko@gmail.com>, <quic_gurus@quicinc.com>,
         <linux-watchdog@vger.kernel.org>, <linux-pci@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>, <kernel@quicinc.com>,
         Tengfei Fan <quic_tengfan@quicinc.com>
-Subject: [PATCH 06/47] dt-bindings: interconnect: qcom: document the interconnect compatibles for QCS9100
-Date: Wed, 3 Jul 2024 11:56:54 +0800
-Message-ID: <20240703035735.2182165-7-quic_tengfan@quicinc.com>
+Subject: [PATCH 04/47] arm64: dts: qcom: qcs9100: Add QCS9100 RIDE board dts
+Date: Wed, 3 Jul 2024 11:56:52 +0800
+Message-ID: <20240703035735.2182165-5-quic_tengfan@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20240703035735.2182165-1-quic_tengfan@quicinc.com>
 References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
@@ -110,8 +110,8 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: y10rF1_13dg4NEU4jxYv2P6IE8XcslZ3
-X-Proofpoint-ORIG-GUID: y10rF1_13dg4NEU4jxYv2P6IE8XcslZ3
+X-Proofpoint-GUID: 8iZrOHvPGxATC45IwqyADW71lv5yylXQ
+X-Proofpoint-ORIG-GUID: 8iZrOHvPGxATC45IwqyADW71lv5yylXQ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
  definitions=2024-07-02_18,2024-07-02_02,2024-05-17_01
@@ -119,11 +119,10 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogs
  priorityscore=1501 impostorscore=0 bulkscore=0 spamscore=0 mlxscore=0
  clxscore=1015 phishscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0
  suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2406140001 definitions=main-2407030028
+ engine=8.19.0-2406140001 definitions=main-2407030027
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_210105_214262_782977A1 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240702_210125_769320_A2D10A0F 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,39 +139,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document for the RPMh interconnect compatibles on Qualcomm QCS9100
-platform.
+Add support for the QCS9100 RIDE board dts. The current QCS9100 RIDE
+board dts is directly renamed from the SA8775p RIDE board dts.
+The difference between the current QCS9100 RIDE board and the SA8775p
+RIDE board lies solely in the replacement of the SA8775p SoC with the
+QCS9100 SoC, all other board resources remain the same.
+The following items have been updated:
+  - use QCS9100-related compatible names for this board dts.
+  - replace the inclusion of sa8775p.dtsi with qcs9100.dtsi.
+  - replace the inclusion of sa8775p-pmics.dtsi with qcs9100-pmics.dtsi
 
 Signed-off-by: Tengfei Fan <quic_tengfan@quicinc.com>
 ---
- .../bindings/interconnect/qcom,sa8775p-rpmh.yaml   | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ arch/arm64/boot/dts/qcom/Makefile                         | 2 +-
+ .../boot/dts/qcom/{sa8775p-ride.dts => qcs9100-ride.dts}  | 8 ++++----
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+ rename arch/arm64/boot/dts/qcom/{sa8775p-ride.dts => qcs9100-ride.dts} (99%)
 
-diff --git a/Documentation/devicetree/bindings/interconnect/qcom,sa8775p-rpmh.yaml b/Documentation/devicetree/bindings/interconnect/qcom,sa8775p-rpmh.yaml
-index 2e0c0bc7a376..748fe2084ad8 100644
---- a/Documentation/devicetree/bindings/interconnect/qcom,sa8775p-rpmh.yaml
-+++ b/Documentation/devicetree/bindings/interconnect/qcom,sa8775p-rpmh.yaml
-@@ -18,6 +18,20 @@ description: |
- properties:
-   compatible:
-     enum:
-+      - qcom,qcs9100-aggre1-noc
-+      - qcom,qcs9100-aggre2-noc
-+      - qcom,qcs9100-clk-virt
-+      - qcom,qcs9100-config-noc
-+      - qcom,qcs9100-dc-noc
-+      - qcom,qcs9100-gem-noc
-+      - qcom,qcs9100-gpdsp-anoc
-+      - qcom,qcs9100-lpass-ag-noc
-+      - qcom,qcs9100-mc-virt
-+      - qcom,qcs9100-mmss-noc
-+      - qcom,qcs9100-nspa-noc
-+      - qcom,qcs9100-nspb-noc
-+      - qcom,qcs9100-pcie-anoc
-+      - qcom,qcs9100-system-noc
-       - qcom,sa8775p-aggre1-noc
-       - qcom,sa8775p-aggre2-noc
-       - qcom,sa8775p-clk-virt
+diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+index 5576c7d6ea06..a7a3792b0691 100644
+--- a/arch/arm64/boot/dts/qcom/Makefile
++++ b/arch/arm64/boot/dts/qcom/Makefile
+@@ -103,6 +103,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
++dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qdu1000-idp.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qrb2210-rb1.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qrb4210-rb2.dtb
+@@ -112,7 +113,6 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qru1000-idp.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sa8155p-adp.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sa8295p-adp.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sa8540p-ride.dtb
+-dtb-$(CONFIG_ARCH_QCOM)	+= sa8775p-ride.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sc7180-acer-aspire1.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sc7180-idp.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sc7180-trogdor-coachz-r1.dtb
+diff --git a/arch/arm64/boot/dts/qcom/sa8775p-ride.dts b/arch/arm64/boot/dts/qcom/qcs9100-ride.dts
+similarity index 99%
+rename from arch/arm64/boot/dts/qcom/sa8775p-ride.dts
+rename to arch/arm64/boot/dts/qcom/qcs9100-ride.dts
+index 26ad05bd3b3f..2415d34b8aa5 100644
+--- a/arch/arm64/boot/dts/qcom/sa8775p-ride.dts
++++ b/arch/arm64/boot/dts/qcom/qcs9100-ride.dts
+@@ -8,12 +8,12 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+ 
+-#include "sa8775p.dtsi"
+-#include "sa8775p-pmics.dtsi"
++#include "qcs9100.dtsi"
++#include "qcs9100-pmics.dtsi"
+ 
+ / {
+-	model = "Qualcomm SA8775P Ride";
+-	compatible = "qcom,sa8775p-ride", "qcom,sa8775p";
++	model = "Qualcomm QCS9100 Ride";
++	compatible = "qcom,qcs9100-ride", "qcom,qcs9100";
+ 
+ 	aliases {
+ 		ethernet0 = &ethernet0;
 -- 
 2.25.1
 
