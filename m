@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F115C30653
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4CEC2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 10:39:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1HOSx5k+naIlQWkXfdJXG04y7VOAfaLcjkw30w4DFnM=; b=WzDQrpLM7l1g1K
-	t9xOg04sNRO6sX6ZVFQWGpfrCQjsr1etvs8v1YT9ABdE92FKP0CIQrza9IMBST0gOJ3p4takiynoR
-	P+5npCKNb0adpoO9LTM3nrb9hyUIgxsH1M6I+5ToL0IFiimOClMu21y+DXlGHWertzR3YhJUOPcHJ
-	qo2Z2JPpqAkCFAaN9WUe+AP5tgxDZaXqJbHvL38tUMocs607aC804SpZVxSZQjx117JovevG5Al1O
-	toCW+XpACHNfrt/RnJu9p8mRxsjX9dsOCGlMTJMeXYzH962ezERFDdGXL+oDc2UAc+ABwUmcWEbz1
-	obdjqT6cTfcKaGLcIidA==;
+	List-Owner; bh=OIiDyBWdlpR1A9e9wnvsK5KcTbL4yNJdS0T83d6oq9M=; b=YVn81V/C8BmilU
+	rUn8gQpZUpJlQ6rrqiUUa7beuzMvc1v7939IAsZ38G1vbkMv78SRdrWayVydz8VVuEFFAjfur2XkJ
+	kC6BHJ6zOfVe6OBcy8YeoWdzCJDXdbg2MN5nBuqKVLFbzgveBCOFJ0LZhVYIBn+KGS2G2cJHtQs61
+	VfNpj+eeiBzBi+gY4t1de10RRUYdjIx66XfB+5I0jhVTCU96qtMY/5Q5ULQp99inPyKWRo3Wq0M+3
+	aLrPPRV8lECgbJ02d50jt5oj6XXqEcaIofKyo8gloJV0n6qcjVKC3H66DqeRMPPZWyhtTs+ZAtoNn
+	nvabVL2umXjo/csFVBhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxOE-00000009pFA-08VQ;
-	Wed, 03 Jul 2024 10:39:06 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1sOxOJ-00000009pIn-1PDZ;
+	Wed, 03 Jul 2024 10:39:11 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOxNb-00000009okM-2B5u;
-	Wed, 03 Jul 2024 10:38:38 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E0AC74000A;
-	Wed,  3 Jul 2024 10:38:21 +0000 (UTC)
+	id 1sOxNf-00000009ooe-3Icr;
+	Wed, 03 Jul 2024 10:38:55 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E4CB84000B;
+	Wed,  3 Jul 2024 10:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1720003105;
+	t=1720003109;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=rOJ5i98/CQuCItGEeFqAsSQmPhPnVLAmT8q3wQ8pUDQ=;
-	b=e+Mq4EaGPKsQtOaL/hcb7BkqlwBkygWkVPvMMP/nz0ny1E/R0XNQ1uuwq/INfgIMdOaiom
-	QMws49a+H6qJRb6Vhxkc4mthDjhkYUZKYLhjkFy8W9llpAdF6qzI3TgpElExLZy1lO7Pg4
-	Kka5f9FcGAJwuwOWt7NM0RXmmtdmtV1vBE8iQiURX7V73plKan8Vo+gah25l/b9tjEfBo5
-	ZyvmSpG2FkKKsVRNCIL0rylj+MWjLBdAJ/+gyrPTR7UHN0lp4PHU8yEa/5+Cfm6snx1rY/
-	wUF6j1XVT2DZvBgXst9mgSHbJZviXQ7n17OPQDV/ocXZWzap2y2no/0H+BuH4w==
+	bh=imP4H/ERPSE6KZ0W7q22wukZU6P/ZNa1h2LRRg5LPSE=;
+	b=QHZuw6OixcFOf1fmX7hr0vv6C5X6qtVBD6nwyc/mtaoJV27PNoTaRYDMr1H7OzlZvi4/bT
+	2YGle6Qhcx2ekS2M2kUmkbY0YflInP7/4aNiheGiNRTI+kIj4ZyHOjuT/iuTTvGttyFTx1
+	mZHEZour3jCbqjqEbH0udwlKJ7YcYpKFsxC1x6/Ze7kdpU8CZ7qKJxBxWkszlyEzzb6j4u
+	TDWInmuOi4dYzH/pOWH5Nb7Zq+N9j0N0VkB88X9GYj6xQIDu5zvSqSLb0dXuBDfyBQLOey
+	Yp9zkmm43vokpDk/jIF2hByFQDKg4eXCJ84Gqy+i39DwtK9oDiqQ5v8gutjCrg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 03 Jul 2024 12:36:59 +0200
-Subject: [PATCH 15/20] usb: usb251xb: convert to
+Date: Wed, 03 Jul 2024 12:37:00 +0200
+Subject: [PATCH 16/20] mfd: ti_am335x_tscadc: convert to
  of_property_for_each_u32_new()
 MIME-Version: 1.0
-Message-Id: <20240703-of_property_for_each_u32-v1-15-42c1fc0b82aa@bootlin.com>
+Message-Id: <20240703-of_property_for_each_u32-v1-16-42c1fc0b82aa@bootlin.com>
 References: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 In-Reply-To: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
 To: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -89,8 +89,8 @@ Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
 X-Mailer: b4 0.14.0
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_033828_230455_DE67D919 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20240703_033832_526718_54C80081 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,26 +112,31 @@ parameters in of_property_for_each_u32() are not used here.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/usb/misc/usb251xb.c | 4 +---
+ drivers/mfd/ti_am335x_tscadc.c | 4 +---
  1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/usb/misc/usb251xb.c b/drivers/usb/misc/usb251xb.c
-index 7da404f55a6d..490004dbb9d8 100644
---- a/drivers/usb/misc/usb251xb.c
-+++ b/drivers/usb/misc/usb251xb.c
-@@ -382,11 +382,9 @@ static void usb251xb_get_ports_field(struct usb251xb *hub,
- 				    bool ds_only, u8 *fld)
- {
- 	struct device *dev = hub->dev;
+diff --git a/drivers/mfd/ti_am335x_tscadc.c b/drivers/mfd/ti_am335x_tscadc.c
+index 4bbd542d753e..a2e6112f885f 100644
+--- a/drivers/mfd/ti_am335x_tscadc.c
++++ b/drivers/mfd/ti_am335x_tscadc.c
+@@ -119,8 +119,6 @@ static	int ti_tscadc_probe(struct platform_device *pdev)
+ 	struct clk *clk;
+ 	struct device_node *node;
+ 	struct mfd_cell *cell;
 -	struct property *prop;
--	const __be32 *p;
- 	u32 port;
+-	const __be32 *cur;
+ 	bool use_tsc = false, use_mag = false;
+ 	u32 val;
+ 	int err;
+@@ -167,7 +165,7 @@ static	int ti_tscadc_probe(struct platform_device *pdev)
+ 	}
  
--	of_property_for_each_u32(dev->of_node, prop_name, prop, p, port) {
-+	of_property_for_each_u32_new(dev->of_node, prop_name, port) {
- 		if ((port >= ds_only ? 1 : 0) && (port <= port_cnt))
- 			*fld |= BIT(port);
- 		else
+ 	node = of_get_child_by_name(pdev->dev.of_node, "adc");
+-	of_property_for_each_u32(node, "ti,adc-channels", prop, cur, val) {
++	of_property_for_each_u32_new(node, "ti,adc-channels", val) {
+ 		adc_channels++;
+ 		if (val > 7) {
+ 			dev_err(&pdev->dev, " PIN numbers are 0..7 (not %d)\n",
 
 -- 
 2.34.1
