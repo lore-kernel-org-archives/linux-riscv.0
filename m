@@ -4,111 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B051C30653
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 06:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8948BC2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 07:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LTv50tfDRqJXj1jfuF4ecObHvOjrjsmkSnlKTGSJx7k=; b=sxe29xTRnGVbfsk32wCJbj+q/h
-	amXYngVJ1XO89WH9ahrVwXr0BlFJoINkqkHyR4PUSrwyLCEnJSVgE0L/UnhdkkXjISGZBrbVP7cua
-	S8THaWf0ROAuC3Ust/m6JY2xxk9W4ko3YV4OfjUYRjaKV88w0N3bg39jj/j+xtB4kwsxXlqST8vfm
-	FudQO3TLuAQAxv4tyxFHfqq4BWs+uphdjugN5tcVgwlXf1LjrsEo2RWZ1OoYdV7/UtIndZv1vPtWG
-	BTQfHKFjbt83iHJMYni83JGOz3JOmbnfUWhPcd62CnZE2KJRcsQpBB47TGszGqtoUwT+KQmRhbCEg
-	jWdWAgkA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OrX3iw9wCe9T9126A5f4RagapNMjtk7ke0IYAlc5E7Y=; b=zGHsly12wHhKmU
+	wjVK0r1P/1D/zgx1OYJqmbEXWzss8dTlhmtRxRbo678w3/NuF5HbeEpACRM6Wq9ZSHgoeTlhG6MQR
+	NnsNxPZd1UmcJ+mAcj4ofYi9JkbFZC7F6be+8qjG82iud+HDI+wgeT53Gm0vmupurhcsqZE5Js/M1
+	oU6YMIUI9kI4IExBOHZTvva9KSgjRf9ucj6k9jL9nBOosULhghlmS9D79eyl4TThNtUCFvgT9o6/k
+	Z/HxFW+RpdQpYl346Ck6fAooLllF6CwrP76+nbj4klpjS64TgPAo68gkAjLkNxsWVeWIAKtaXqWut
+	iJNK8rjyv+8BokSPSZcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOtVA-00000009Dcd-1UJ5;
-	Wed, 03 Jul 2024 06:30:00 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1sOtyo-00000009H8B-2ySi;
+	Wed, 03 Jul 2024 07:00:38 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOtV6-00000009Dc3-37q5;
-	Wed, 03 Jul 2024 06:29:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1719988196; x=1751524196;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=uNhuDjLWZorDbXDOWnVhHDPlY99NnQewwMxhnvVsgtQ=;
-  b=Gxsoe0HDr1vqSeikiipVO5TI/gFLTolVGrIn0jHuD0KYVjfCBy1UEBSZ
-   BpRYiUfnCkff/9qnCQ/66s7om2eDgQhzRramGfsq0ofYBKt6ovGOuxD4p
-   L3rqkMjoVJq1x3N9qU7Ad23WyCHMDsySnLd7M+kdKfVHRgXYZ55Lrbkvt
-   bWW+7NYk6yDaSSaPabbtDt/H1D3dqxqPp2abyJm0KRvzmRlmtXOSMW9v1
-   Gj6syKdrKT8gsFo5Q3dlaBpwOUYypWKzlaa+f3iV4/Im69c5JdnNLkZ4d
-   04MEJkypyA8ZfmuQN9+0piLgjC2U7qdhCBpqQm0e+oXr9xYQ9mm5UaUTh
-   A==;
-X-CSE-ConnectionGUID: uIiTarkbQoeuHwrRiGsmdg==
-X-CSE-MsgGUID: 7MEjGxCjQO6357/Nmml1zg==
-X-IronPort-AV: E=Sophos;i="6.09,181,1716274800"; 
-   d="asc'?scan'208";a="31406626"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Jul 2024 23:29:52 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 2 Jul 2024 23:29:26 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Tue, 2 Jul 2024 23:29:12 -0700
-Date: Wed, 3 Jul 2024 07:28:53 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Tengfei Fan <quic_tengfan@quicinc.com>, <andersson@kernel.org>,
-	<konrad.dybcio@linaro.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <djakov@kernel.org>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <jassisinghbrar@gmail.com>,
-	<herbert@gondor.apana.org.au>, <davem@davemloft.net>,
-	<manivannan.sadhasivam@linaro.org>, <will@kernel.org>, <joro@8bytes.org>,
-	<conor@kernel.org>, <tglx@linutronix.de>, <amitk@kernel.org>,
-	<thara.gopinath@gmail.com>, <linus.walleij@linaro.org>,
-	<wim@linux-watchdog.org>, <linux@roeck-us.net>, <rafael@kernel.org>,
-	<viresh.kumar@linaro.org>, <vkoul@kernel.org>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <mcoquelin.stm32@gmail.com>,
-	<robimarko@gmail.com>, <quic_gurus@quicinc.com>,
-	<bartosz.golaszewski@linaro.org>, <kishon@kernel.org>,
-	<quic_wcheng@quicinc.com>, <alim.akhtar@samsung.com>, <avri.altman@wdc.com>,
-	<bvanassche@acm.org>, <agross@kernel.org>, <gregkh@linuxfoundation.org>,
-	<quic_tdas@quicinc.com>, <robin.murphy@arm.com>, <daniel.lezcano@linaro.org>,
-	<rui.zhang@intel.com>, <lukasz.luba@arm.com>, <quic_rjendra@quicinc.com>,
-	<ulf.hansson@linaro.org>, <quic_sibis@quicinc.com>,
-	<otto.pflueger@abscue.de>, <quic_rohiagar@quicinc.com>, <luca@z3ntu.xyz>,
-	<neil.armstrong@linaro.org>, <abel.vesa@linaro.org>,
-	<bhupesh.sharma@linaro.org>, <alexandre.torgue@foss.st.com>,
-	<peppe.cavallaro@st.com>, <joabreu@synopsys.com>, <netdev@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <kw@linux.com>, <bhelgaas@google.com>,
-	<ahalaney@redhat.com>, <krzysztof.kozlowski@linaro.org>,
-	<u.kleine-koenig@pengutronix.de>, <dmitry.baryshkov@linaro.org>,
-	<quic_cang@quicinc.com>, <danila@jiaxyga.com>, <quic_nitirawa@quicinc.com>,
-	<mantas@8devices.com>, <athierry@redhat.com>, <quic_kbajaj@quicinc.com>,
-	<quic_bjorande@quicinc.com>, <quic_msarkar@quicinc.com>,
-	<quic_devipriy@quicinc.com>, <quic_tsoni@quicinc.com>,
-	<quic_rgottimu@quicinc.com>, <quic_shashim@quicinc.com>,
-	<quic_kaushalk@quicinc.com>, <quic_tingweiz@quicinc.com>,
-	<quic_aiquny@quicinc.com>, <srinivas.kandagatla@linaro.org>,
-	<linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, <linux-phy@lists.infradead.org>,
-	<linux-crypto@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
-	<linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
-	<linux-gpio@vger.kernel.org>, <linux-watchdog@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<kernel@quicinc.com>
-Subject: Re: [PATCH 00/47] arm64: qcom: dts: add QCS9100 support
-Message-ID: <20240703-manager-armless-b13b18c79192@wendy>
-References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
- <20240703035735.2182165-1-quic_tengfan@quicinc.com>
- <7417fd8c-e852-45ee-bac9-d92921036e2f@kernel.org>
+	id 1sOszL-000000097cm-1JDX
+	for linux-riscv@lists.infradead.org;
+	Wed, 03 Jul 2024 05:57:08 +0000
+Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-3c9cc66c649so2862172b6e.1
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Jul 2024 22:57:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1719986226; x=1720591026; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1hKZBwoa/ZhGAOn3+PKoGXePaNEuxNFmpKlJEl+lb+8=;
+        b=XElbePz2ke2oKBNeiiFPlg70e05z6ID4DhEJczD4ke5XLtlTN03/s11EslulkIXlrk
+         6nv5gigM3CyU2W1rI46g0Xh3I0Iws186Bb4Q9HXTL7fR8rbHk8o5p/ExNJFa+ERax1pv
+         sKFFIKlvSqppjSQcz/iaFRsKWvvq3J1l3fIpNBwa2zNijfZtsYOOYfD2bFRcC4h2DMnz
+         lMkJ+tes/fsc48RT77dOUULe5hgCLoH1o6QeaXUUp07b00uDf7J3FqTg8Wxcm2EyVHY4
+         yck1GgfZ8gjoNGwRZzDkU7loe3yjh7nJm6c2Bg+K3kwpYPtgHVGltwazcGpvUp3e2TRR
+         Zd7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719986226; x=1720591026;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1hKZBwoa/ZhGAOn3+PKoGXePaNEuxNFmpKlJEl+lb+8=;
+        b=JfPSXId2vzZr3rhv6gjYHYtzy5vu42V5Z6ARGvVSjid9lf1ZmsX4fS+MzyxY4YLIY7
+         vORfMa/IHmeyH22kWM61SPKqXZT53dFrmuCyf9uePgHukphoZzGd8p6W+WVDpKdRlSWP
+         sBCdSo+EKLh9F2fvB4yrVnQn4XsXr7HNxebniM2PBeBu1CQORuzW/X73hEcKR5ehl0Wx
+         EQLyMVg7xXBb6+I3D02opQcXhjKm+4xlEsE71t0Nlkb5LSeKf5qzn1LQZ7U5N+FA4HSq
+         ++7YdYCwoFqoOaVI7sT0iaLG/cgERCI2TTDUBi2PbLfzRlIODdtTdBroR8KkYQ8jAFL2
+         agrA==
+X-Gm-Message-State: AOJu0YwRxQ2K4LnDyQcdjysvJfnlIaiRYFTR0+hJR4Wy0Vh0ok9i07gI
+	HitulaXEV1Lmp/SUNjXFf8FyWo1wyEBBkcAY3dLecPezH4pdq/kHdzYmYW1mueA=
+X-Google-Smtp-Source: AGHT+IGtuD2WtM3ugNnlpNYdTnFxwUUaQrWbWtfzZzjXfMr/HiWi9C7su/eIwKLxQlm8MJMtElcPwg==
+X-Received: by 2002:a05:6808:2390:b0:3d5:802c:9056 with SMTP id 5614622812f47-3d6b30f4714mr14377943b6e.2.1719986225968;
+        Tue, 02 Jul 2024 22:57:05 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70804a89fc9sm9514103b3a.212.2024.07.02.22.57.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jul 2024 22:57:05 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Tue, 02 Jul 2024 22:56:25 -0700
+Subject: [PATCH v4 05/13] riscv: vector: Use vlenb from DT for thead
 MIME-Version: 1.0
-In-Reply-To: <7417fd8c-e852-45ee-bac9-d92921036e2f@kernel.org>
+Message-Id: <20240702-xtheadvector-v4-5-2bad6820db11@rivosinc.com>
+References: <20240702-xtheadvector-v4-0-2bad6820db11@rivosinc.com>
+In-Reply-To: <20240702-xtheadvector-v4-0-2bad6820db11@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>, 
+ Andy Chiu <andy.chiu@sifive.com>, Jessica Clarke <jrtc27@jrtc27.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Charlie Jenkins <charlie@rivosinc.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1719986213; l=4530;
+ i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
+ bh=9JxKVIeBKPpFCzeC0ygRGzv+4oJFLNI2pa5+5fgwSOc=;
+ b=5foRkFpT5unMzlQDSzQLocN1oepVB/OlQ47wpP0mXx2gXCo7jtgISMuKMi8JLtEoGALw9yx0F
+ gSwLlfPmnkACXLeYUtweTJMuPK+Ol277qzfP24V8mKhVwuWf7Gw44p+
+X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
+ pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_232956_865756_D5341720 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20240702_225707_395595_BF6B806F 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,70 +107,162 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6979864301584913198=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6979864301584913198==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5oSvLfaqEVebv1DP"
-Content-Disposition: inline
+If thead,vlenb is provided in the device tree, prefer that over reading
+the vlenb csr.
 
---5oSvLfaqEVebv1DP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/Kconfig.vendor           | 13 ++++++++++
+ arch/riscv/include/asm/cpufeature.h |  2 ++
+ arch/riscv/kernel/cpufeature.c      | 48 +++++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/vector.c          | 12 +++++++++-
+ 4 files changed, 74 insertions(+), 1 deletion(-)
 
-On Wed, Jul 03, 2024 at 06:45:00AM +0200, Krzysztof Kozlowski wrote:
-> On 03/07/2024 05:56, Tengfei Fan wrote:
-> > Introduce support for the QCS9100 SoC device tree (DTSI) and the
-> > QCS9100 RIDE board DTS. The QCS9100 is a variant of the SA8775p.
-> > While the QCS9100 platform is still in the early design stage, the
-> > QCS9100 RIDE board is identical to the SA8775p RIDE board, except it
-> > mounts the QCS9100 SoC instead of the SA8775p SoC.
->=20
-> The same huge patchset, to huge number of recipients was sent twice.
-> First, sorry, this is way too big. Second, it has way too many
-> recipients, but this is partially a result of first point. Only
-> partially because you put here dozen of totally unrelated emails. Sorry,
-> that does not make even sense. See form letter at the end how this
-> works. Third, sending it to everyone twice is a way to annoy them off
-> twice... Fourth,
->=20
-> Please split your work and do not cc dozen of unrelated folks.
+diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
+index 9897442bd44f..b096548fe0ff 100644
+--- a/arch/riscv/Kconfig.vendor
++++ b/arch/riscv/Kconfig.vendor
+@@ -26,6 +26,19 @@ config RISCV_ISA_VENDOR_EXT_THEAD
+ 	  extensions. Without this option enabled, T-Head vendor extensions will
+ 	  not be detected at boot and their presence not reported to userspace.
+ 
++	  If you don't know what to do here, say Y.
++
++config RISCV_ISA_XTHEADVECTOR
++	bool "xtheadvector extension support"
++	depends on RISCV_ISA_VENDOR_EXT_THEAD
++	depends on RISCV_ISA_V
++	depends on FPU
++	default y
++	help
++	  Say N here if you want to disable all xtheadvector related procedures
++	  in the kernel. This will disable vector for any T-Head board that
++	  contains xtheadvector rather than the standard vector.
++
+ 	  If you don't know what to do here, say Y.
+ endmenu
+ 
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index b029ca72cebc..e0a3164c7a06 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -31,6 +31,8 @@ DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+ /* Per-cpu ISA extensions. */
+ extern struct riscv_isainfo hart_isa[NR_CPUS];
+ 
++extern u32 thead_vlenb_of;
++
+ void riscv_user_isa_enable(void);
+ 
+ #define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_size) {	\
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 2107c59575dd..077be4ab1f9a 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -37,6 +37,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+ /* Per-cpu ISA extensions. */
+ struct riscv_isainfo hart_isa[NR_CPUS];
+ 
++u32 thead_vlenb_of;
++
+ /**
+  * riscv_isa_extension_base() - Get base extension word
+  *
+@@ -625,6 +627,46 @@ static void __init riscv_fill_vendor_ext_list(int cpu)
+ 	}
+ }
+ 
++static int has_thead_homogeneous_vlenb(void)
++{
++	int cpu;
++	u32 prev_vlenb = 0;
++	u32 vlenb;
++
++	/* Ignore thead,vlenb property if xtheavector is not enabled in the kernel */
++	if (!IS_ENABLED(CONFIG_RISCV_ISA_XTHEADVECTOR))
++		return 0;
++
++	for_each_possible_cpu(cpu) {
++		struct device_node *cpu_node;
++
++		cpu_node = of_cpu_device_node_get(cpu);
++		if (!cpu_node) {
++			pr_warn("Unable to find cpu node\n");
++			return -ENOENT;
++		}
++
++		if (of_property_read_u32(cpu_node, "thead,vlenb", &vlenb)) {
++			of_node_put(cpu_node);
++
++			if (prev_vlenb)
++				return -ENOENT;
++			continue;
++		}
++
++		if (prev_vlenb && vlenb != prev_vlenb) {
++			of_node_put(cpu_node);
++			return -ENOENT;
++		}
++
++		prev_vlenb = vlenb;
++		of_node_put(cpu_node);
++	}
++
++	thead_vlenb_of = vlenb;
++	return 0;
++}
++
+ static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwcap)
+ {
+ 	unsigned int cpu;
+@@ -689,6 +731,12 @@ static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwcap)
+ 		riscv_fill_vendor_ext_list(cpu);
+ 	}
+ 
++	if (riscv_isa_vendor_extension_available(THEAD_VENDOR_ID, XTHEADVECTOR) &&
++	    has_thead_homogeneous_vlenb() < 0) {
++		pr_warn("Unsupported heterogeneous vlenb detected, vector extension disabled.\n");
++		elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
++	}
++
+ 	if (bitmap_empty(riscv_isa, RISCV_ISA_EXT_MAX))
+ 		return -ENOENT;
+ 
+diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+index 6727d1d3b8f2..3ba2f2432483 100644
+--- a/arch/riscv/kernel/vector.c
++++ b/arch/riscv/kernel/vector.c
+@@ -33,7 +33,17 @@ int riscv_v_setup_vsize(void)
+ {
+ 	unsigned long this_vsize;
+ 
+-	/* There are 32 vector registers with vlenb length. */
++	/*
++	 * There are 32 vector registers with vlenb length.
++	 *
++	 * If the thead,vlenb property was provided by the firmware, use that
++	 * instead of probing the CSRs.
++	 */
++	if (thead_vlenb_of) {
++		this_vsize = thead_vlenb_of * 32;
++		return 0;
++	}
++
+ 	riscv_v_enable();
+ 	this_vsize = csr_read(CSR_VLENB) * 32;
+ 	riscv_v_disable();
 
-One of the extra recipients is cos that of that patch I sent adding the
-cache bindings to the cache entry, forgetting that that would CC the
-riscv list on all cache bindings. I modified that patch to drop the riscv
-list from the entry.
+-- 
+2.44.0
 
-Cheers,
-Conor.
-
---5oSvLfaqEVebv1DP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZoTvpQAKCRB4tDGHoIJi
-0iuiAP9Wgtx8LiFpImc+BXo3h8CTF/4nY5kHoihO91fC51FsogEAnEhd56PAeLdE
-Uxg8sGMCKh5qjR+u3kQIZlblyU1rmwA=
-=Khim
------END PGP SIGNATURE-----
-
---5oSvLfaqEVebv1DP--
-
-
---===============6979864301584913198==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6979864301584913198==--
-
