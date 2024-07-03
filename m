@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19599C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749A3C2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sCnQPRWEWlduV/ijPvjFeQjzvNdBDl9Z235hRKGVKKI=; b=MYlx7qZqRNydVX
-	kyNbMUun1IwuR7TYxhKFPMnh7rhQMw8ZIa+8zc/5yMCZwPeY5oOwO8XogRzBGe/nWIEkQohuQifMO
-	sRb1ePhI/iwmjKP5SqqKIB6gg94LWISxrySHoYbIj2kOpoc9M8E58O8KhDD1jLjyiv09CjPzhndND
-	mStQJBOFqQy3/ChsZyuEHoHE6c7GcSmcFEmKOx4SI2Zuqp4oRI5vEnNM0pvyx9+0LpqS7KiXv9DiC
-	bXcRSn7E5+OBH6ZRRO9Zarnu8I51LUGaG4I+l4mA1Vx9fryC+DAlMvepg4krbgy47JX76Y0kc+9Rh
-	cL9qvE/wKg1qYTdh0xRA==;
+	List-Owner; bh=rTFJzX9cRw6vA6jUYocZzQBPD34VAj9NotAJ81s7dgE=; b=FLcVkIdXKkxLQY
+	ClfoCzWJZ8vBp1/icG5j0TFuGXn1fuy9Qt7vRaPTnnl3ctiBOYdkVkWbeSTIiqJGAqVL7GbM3uq1w
+	n0RRMbxbrRIaM2AC1nS0vGPhxVYdlcKG6eoU/A2cazPESTSav48t8g8bou28zF2d1FI9/dp7CkgLO
+	UxZVplB37uli7VXN8qSxMbwsw7Of3tf8OzLmiYZZj5AqWCmJzKn0Qud38n3ZZz026buVsrWenmyLZ
+	uM64EFdXsC/qh0wlQwjy4PzIG/ld6Nmqkenirgpw27I3t4Qifq1XCm82fwVgd7UJyCh0kCBhOkXjI
+	6glMOjS8YVL0ZjkPx/lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrnl-00000008z2v-3GKB;
-	Wed, 03 Jul 2024 04:41:05 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sOrsC-00000008zYm-3f8a;
+	Wed, 03 Jul 2024 04:45:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrni-00000008z0j-0ZiC;
-	Wed, 03 Jul 2024 04:41:03 +0000
+	id 1sOrs6-00000008zXh-2zIQ;
+	Wed, 03 Jul 2024 04:45:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 6B36ECE28B0;
-	Wed,  3 Jul 2024 04:40:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 937ECC32781;
-	Wed,  3 Jul 2024 04:40:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8E03862058;
+	Wed,  3 Jul 2024 04:45:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7995AC32781;
+	Wed,  3 Jul 2024 04:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719981658;
-	bh=b86s8S/BWvsC8b0Mn14aMXJORMOj66Dtkv35CE2w6/I=;
+	s=k20201202; t=1719981933;
+	bh=ivVCeA51TNNPsWY2k1Ev7Ipke2mr3itsaOxAPyIsJRE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IdQs7PgcbxsPwEncmdYaFJmEXnmYSVcHoJr79LohJ1CYXuI/JRvZMhO1hcr18Q+3o
-	 6/nxa2D8sj3fytR16Fq+gNRwD+T6TlovWNZvbslMHfBeJeHGeoERJImjNBrdBhZaGY
-	 EkmM6PtmSK1f894i4a68Td4K13OpcHsT8xQGnljlKzfAxpV64EKxrr48t7LH4UXVFS
-	 2F2x+BoUXDyko4wCeNYLtGp/FeebprTLgySeglF27lgP4oedQF42+T63P5dgtSABZL
-	 Bo6OhpmHgeqpe1OTT/mGGbyzyEPbMstxECbphZixRogIgh85OBkrJfqcU4vMBXv59q
-	 g51bSRCCZzisQ==
-Message-ID: <8593db2e-8a69-418f-b00e-8fafe434dd30@kernel.org>
-Date: Wed, 3 Jul 2024 06:40:27 +0200
+	b=lGCvU4O78jSX5Z/RvG6MGLCGu3VOiw/KJ2zd+NsxhJmZchr9MD2NOK9ST1AXns3zX
+	 rFdrprQoXklrYc5cA1+pUDI9IvxmL/IQ2hB09EahjNP5/wgwVSdJra3s8dNHsqRC1B
+	 hoMZicWiuJEvPMM+AwB8EfChaaHBfGYrgIRbEbI/xEy4w74/FddnT6Hf23grJEmXGz
+	 ErXgLMKa0MbGdZPh7ia42T9Ig9ISFxM60Ok45BRjDoq59SjS2WzP4Xn8qeFMPOt6bX
+	 cM40OSOiTGUo3wxiCxPkfxfNqzHVkXWWf9RT6A7oicjlQ0rIXXSj8b8Af6YEdf71dQ
+	 qiRerIFmh0gtg==
+Message-ID: <7417fd8c-e852-45ee-bac9-d92921036e2f@kernel.org>
+Date: Wed, 3 Jul 2024 06:45:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/47] arm64: dts: qcom: qcs9100: Introduce QCS9100 SoC
- dtsi
+Subject: Re: [PATCH 00/47] arm64: qcom: dts: add QCS9100 support
 To: Tengfei Fan <quic_tengfan@quicinc.com>, andersson@kernel.org,
  konrad.dybcio@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, djakov@kernel.org, mturquette@baylibre.com,
@@ -87,7 +86,7 @@ Cc: robimarko@gmail.com, quic_gurus@quicinc.com,
  linux-pci@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  kernel@quicinc.com
 References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
- <20240703025850.2172008-3-quic_tengfan@quicinc.com>
+ <20240703035735.2182165-1-quic_tengfan@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -133,10 +132,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20240703025850.2172008-3-quic_tengfan@quicinc.com>
+In-Reply-To: <20240703035735.2182165-1-quic_tengfan@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_214102_543679_197ADEBF 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20240702_214535_829507_FE76C488 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,78 +152,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/07/2024 04:58, Tengfei Fan wrote:
-> Introduce QCS9100 SoC dtsi, QCS9100 is mainly used in IoT products.
-> QCS9100 is drived from SA8775p.
-> The current QCS9100 SoC dtsi is directly renamed from the SA8775p SoC
-> dtsi.
-> The QCS9100 platform is currently in the early design stage. Currently,
-> Both the QCS9100 platform and SA8775p platform use non-SCMI resources,
-> In the future, the SA8775p platform will transition to using SCMI
-> resources and it will have new sa8775p-related device tree.
-> This QCS9100 SoC dtsi remains consistent with the current SA8775p SoC
-> dtsi, except for updating the following sa8775p-related compatible names
-> to the qcs9100-related compatible name:
->   - qcom,sa8775p-clk-virt
->   - qcom,sa8775p-mc-virt
->   - qcom,sa8775p-adsp-pas
->   - qcom,sa8775p-cdsp-pas
->   - qcom,sa8775p-cdsp1-pas
->   - qcom,sa8775p-gpdsp0-pas
->   - qcom,sa8775p-gpdsp1-pas
->   - qcom,sa8775p-gcc
->   - qcom,sa8775p-ipcc
->   - qcom,sa8775p-config-noc
->   - qcom,sa8775p-system-noc
->   - qcom,sa8775p-aggre1-noc
->   - qcom,sa8775p-aggre2-noc
->   - qcom,sa8775p-pcie-anoc
->   - qcom,sa8775p-gpdsp-anoc
->   - qcom,sa8775p-mmss-noc
->   - qcom,sa8775p-trng
->   - qcom,sa8775p-ufshc
->   - qcom,sa8775p-qmp-ufs-phy
->   - qcom,sa8775p-qce
->   - qcom,sa8775p-lpass-ag-noc
->   - qcom,sa8775p-usb-hs-phy
->   - qcom,sa8775p-dc-noc
->   - qcom,sa8775p-gem-noc
->   - qcom,sa8775p-dwc3
->   - qcom,sa8775p-qmp-usb3-uni-phy
->   - qcom,sa8775p-gpucc
->   - qcom,sa8775p-smmu-500
->   - qcom,sa8775p-dwmac-sgmii-phy
->   - qcom,sa8775p-llcc-bwmon
->   - qcom,sa8775p-cpu-bwmon
->   - qcom,sa8775p-llcc
->   - qcom,sa8775p-videocc
->   - qcom,sa8775p-camcc
->   - qcom,sa8775p-dispcc0
->   - qcom,sa8775p-pdc
->   - qcom,sa8775p-aoss-qmp
->   - qcom,sa8775p-tlmm
->   - qcom,sa8775p-imem
->   - qcom,sa8775p-smmu-500
->   - qcom,sa8775p-rpmh-clk
->   - qcom,sa8775p-rpmhpd
->   - qcom,sa8775p-cpufreq-epss
->   - qcom,sa8775p-dispcc1
->   - qcom,sa8775p-ethqos
->   - qcom,sa8775p-nspa-noc
->   - qcom,sa8775p-nspb-noc
->   - qcom,sa8775p-qmp-gen4x2-pcie-phy
->   - qcom,sa8775p-qmp-gen4x4-pcie-phy
-> 
-> Signed-off-by: Tengfei Fan <quic_tengfan@quicinc.com>
-> ---
->  .../dts/qcom/{sa8775p.dtsi => qcs9100.dtsi}   | 112 +++++++++---------
->  1 file changed, 56 insertions(+), 56 deletions(-)
->  rename arch/arm64/boot/dts/qcom/{sa8775p.dtsi => qcs9100.dtsi} (97%)
-> 
+On 03/07/2024 05:56, Tengfei Fan wrote:
+> Introduce support for the QCS9100 SoC device tree (DTSI) and the
+> QCS9100 RIDE board DTS. The QCS9100 is a variant of the SA8775p.
+> While the QCS9100 platform is still in the early design stage, the
+> QCS9100 RIDE board is identical to the SA8775p RIDE board, except it
+> mounts the QCS9100 SoC instead of the SA8775p SoC.
 
-How do any things compile at this point? Please squash the patches. Your
-patchset must be bisectable at build level (dtschema validation does not
-have to).
+The same huge patchset, to huge number of recipients was sent twice.
+First, sorry, this is way too big. Second, it has way too many
+recipients, but this is partially a result of first point. Only
+partially because you put here dozen of totally unrelated emails. Sorry,
+that does not make even sense. See form letter at the end how this
+works. Third, sending it to everyone twice is a way to annoy them off
+twice... Fourth,
+
+Please split your work and do not cc dozen of unrelated folks.
+
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC (and consider --no-git-fallback argument). It might
+happen, that command when run on an older kernel, gives you outdated
+entries. Therefore please be sure you base your patches on recent Linux
+kernel.
+
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline), work on fork of kernel
+(don't, instead use mainline) or you ignore some maintainers (really
+don't). Just use b4 and everything should be fine, although remember
+about `b4 prep --auto-to-cc` if you added new patches to the patchset.
+</form letter>
 
 Best regards,
 Krzysztof
