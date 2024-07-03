@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39936C30653
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE329C30653
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2024 04:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PYvWKcHKEize5vaHrMuA3US7owjlWuS1tK8Fh2UUXMk=; b=M8AXntW4XCIZ5x
-	sEKF79sCP38BhmT+UWzWvoLIsp7RxxG+6KHtJVBVbCOdBFWKetnh2GedLCevIMfVKB+xnGaQ04MV8
-	bn8JqYCpjXI0dnzAx9U3gMU761Uy3EShyjjbKnYMeVx2kfCqcqbB/iQVZKf7wE3OoMYZvpIqplmnO
-	ADnZ8LDLbFjryxOCuR1/N45ow02dQ4ib/qluBpuTvcUG59RuGLjW2/+bQLqv+PQLXGDPlgFf8dlla
-	UE1NLGYDpaKbFUVf5Mcb8iTRRtPas6hfPkJfq6B4yVVsZlHY1RNCGwCItUc0VkocPAeryHzWXprOh
-	YLlpd+Dc2zZyoHtWQZAg==;
+	List-Owner; bh=Z+bk9bxGoFYr3LJ8tGllRswlohsTv+OW9f5QgOQqrQY=; b=AMOTLP0ubjG9sJ
+	xyai5ihYPZJuFYuEW6KxHD+PRTlDhd98AJZFlKPu2WrpVuag0GhozDZvN+l6dYmn9LFG5tDReAcFz
+	c6kGOs1pNd9djsjUxLbEDORHlW35OBna4vfRGt++lHyIt3aYzgeDMEVbRcciptfivjX5VrHA31YE4
+	znUAQs73fQAPJjY5K1b7+SaFMmSyoPhNMQriFLMIAQg2ojNtYoo7lBJusEC9U6eFwvzJ6LDFt/J/b
+	SaGYkOVCTq9sMAqBULFmYbJWzjTveUVu4E+oWqfl9v9LOrRWHkQ/kU6nPNN1EklwT9QN+QFZlecVK
+	7/99Eb6dbtuwds2R6sUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrTx-00000008uja-2CJD;
-	Wed, 03 Jul 2024 04:20:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sOrTy-00000008ukC-2chW;
+	Wed, 03 Jul 2024 04:20:38 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sOrTs-00000008uhL-2nyr;
-	Wed, 03 Jul 2024 04:20:34 +0000
+	id 1sOrTt-00000008uhP-1X8W;
+	Wed, 03 Jul 2024 04:20:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7D5A762112;
-	Wed,  3 Jul 2024 04:20:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D42F9C4AF10;
+	by sin.source.kernel.org (Postfix) with ESMTP id 566EACE28B6;
+	Wed,  3 Jul 2024 04:20:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E524CC4AF12;
 	Wed,  3 Jul 2024 04:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1719980429;
-	bh=Cxg67S+/b4PFpqD8c8jDsQk7LHaaGLk2W+TlIyPL5KA=;
+	s=k20201202; t=1719980430;
+	bh=5+RRC9YtK/dpU9PvT6M4Kinr+sN6vQFSkkmB2wAChzw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cHxvaJlIRTeIEa5yxQbgJRndGUYihRVgVhEjwwd0BmcxEKGvhwTuUhe4kOSC/0Zns
-	 EEF3V5+lYu5qldErNDgWMl1McUQVjNs8W/j/DKDtR4Q80pz9RHzOcDy4KRwTVjL9wa
-	 77YeEaVeCA0mBr8iPmJJGE6+4f7GL0RHfeSS9xscpsLKjEIyqTqJkgVmDkKn4h3SBT
-	 i0eMZKAi8e2+OOwCXTYTNNPmt6wmHID+6PXE0VoxqfHdQm8KnEU/Ml4gRYKaut8elu
-	 jkFBzpGnoOLr8//pE0zPeRU4T6CAsxs3jiDBmGaHxGmTQK+D0voIqP3B9mDvUo2foU
-	 WQ3YkURFBJ12Q==
+	b=k4GZm3W301fozxrlMm1PKo9FsrahhfCRNckbTsGEZa9SeQ+BWLat/mKmf07qyo2G3
+	 7HtwKjoOP3sIsaFy2XjRZDzVRuUes1+zYsx28GSHReW4r/TAnQGMOEEKRLYmD64oC3
+	 5HP9MPj/nxQA+V27pTEIfcLwguB9ztP53hOcAocJ8K9oNSLPKWKOorDcVlvgMFJF1s
+	 +n2tF3wXBYNtPARGAecITkoFb4M6nTKpdWYYZeYAdYbdYZZKaSoWocmvH6J+ZT8brS
+	 VN8xCBQKSwOqbotAq8HYrCEO3PdOEojLlkxDblTHAb20rLyhxfhjNFZbG6OokWLJZa
+	 gK2QnmHcjiCBg==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id AD173C41677;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id C5DF7CF3B95;
 	Wed,  3 Jul 2024 04:20:29 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 00/47] arm64: qcom: dts: add QCS9100 support
+Subject: Re: [PATCH 01/47] dt-bindings: arm: qcom: Document QCS9100 SoC and RIDE
+ board
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <171998042970.21654.12559535993133117436.git-patchwork-notify@kernel.org>
+Message-Id: <171998042979.21654.8518238511530738014.git-patchwork-notify@kernel.org>
 Date: Wed, 03 Jul 2024 04:20:29 +0000
-References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
-In-Reply-To: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
+References: <20240703035735.2182165-2-quic_tengfan@quicinc.com>
+In-Reply-To: <20240703035735.2182165-2-quic_tengfan@quicinc.com>
 To: Tengfei Fan <quic_tengfan@quicinc.com>
 Cc: andersson@kernel.org, konrad.dybcio@linaro.org, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, djakov@kernel.org,
@@ -90,8 +91,9 @@ Cc: andersson@kernel.org, konrad.dybcio@linaro.org, robh@kernel.org,
  linux-watchdog@vger.kernel.org, linux-pci@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com, kernel@quicinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240702_212032_862464_6CA66B24 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20240702_212033_932508_9A86C21A 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,21 +115,13 @@ Hello:
 This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 3 Jul 2024 10:58:03 +0800 you wrote:
-> Introduce support for the QCS9100 SoC device tree (DTSI) and the
-> QCS9100 RIDE board DTS. The QCS9100 is a variant of the SA8775p.
-> While the QCS9100 platform is still in the early design stage, the
-> QCS9100 RIDE board is identical to the SA8775p RIDE board, except it
-> mounts the QCS9100 SoC instead of the SA8775p SoC.
+On Wed, 3 Jul 2024 11:56:49 +0800 you wrote:
+> Document the QCS9100 SoC and RIDE board.
 > 
-> The QCS9100 SoC DTSI was directly renamed from the SA8775p SoC DTSI. In
-> the upcoming weeks, Nikunj Kela will develop a new device tree related
-> to SA8775p, specifically supporting the SCMI resource firmware solution
-> for the SA8775p platform. If you're already familiar with the
-> background, feel free to skip part[2], which provides a detailed
-> explanation.
-> 
-> [...]
+> Signed-off-by: Tengfei Fan <quic_tengfan@quicinc.com>
+> ---
+>  Documentation/devicetree/bindings/arm/qcom.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
 
 Here is the summary with links:
   - [01/47] dt-bindings: arm: qcom: Document QCS9100 SoC and RIDE board
@@ -187,30 +181,6 @@ Here is the summary with links:
   - [28/47] dt-bindings: power: qcom,rpmpd: document the QCS9100 RPMh Power Domains
     (no matching commit)
   - [29/47] dt-bindings: net: qcom,ethqos: add description for qcs9100
-    (no matching commit)
-  - [30/47] dt-bindings: PCI: Document compatible for QCS9100
-    (no matching commit)
-  - [31/47] dt-bindings: PCI: qcom-ep: Add support for QCS9100 SoC
-    (no matching commit)
-  - [32/47] dt-bindings: phy: qcom,qmp: Add qcs9100 QMP PCIe PHY
-    (no matching commit)
-  - [33/47] interconnect: qcom: add driver support for qcs9100
-    (no matching commit)
-  - [34/47] clk: qcom: add the GCC driver support for QCS9100
-    (no matching commit)
-  - [35/47] phy: qcom-qmp-ufs: Add QCS9100 support
-    (no matching commit)
-  - [36/47] phy: qcpm-qmp-usb: Add support for QCS9100
-    (no matching commit)
-  - [37/47] clk: qcom: add the GPUCC driver support for QCS9100
-    (no matching commit)
-  - [38/47] phy: qcom: add the SGMII SerDes PHY driver support
-    (no matching commit)
-  - [39/47] soc: qcom: llcc: Add llcc configuration support for the QCS9100 platform
-    (no matching commit)
-  - [40/47] pinctrl: qcom: add the tlmm driver support for qcs9100 platform
-    (no matching commit)
-  - [41/47] clk: qcom: rpmh: Add support for QCS9100 rpmh clocks
     (no matching commit)
 
 You are awesome, thank you!
