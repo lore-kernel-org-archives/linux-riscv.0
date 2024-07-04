@@ -4,71 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43687C30653
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 06:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DCBC30653
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 08:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EXofCDJpsMopr2PXQiUpLTNjHU61dt56j1wHEL7X+Wo=; b=j2qA9ILqzsAenz
-	+wzla5Q7UeadeGfya9DTlqdVOb54mRyrHWxwa17qGFxFQM1wYsVN2piArLQGOiJgIBK/I1YN//P5z
-	42sE5RatL5sPO2/6AZ1FtpSA3IIosi4xPnM9IGfaRYm156sdZH+xT/WGlXzOFqcO9JRpj5fLHjHUF
-	2vmeJ99AZXnV2RbwzjVEBH5/h6UlZe9+h7VkompENBZrE7XIxS+x8fafWithVPxPh6aopygb4+mXu
-	eaN4hjD6IRr80MjCjgW7tl9wkfs27CWu9ulmFcPPGsND3mV3qZm/Vguf/luccE1AkIMelSJuqJ+I7
-	u9KrzFb56wyDpZSNL2mw==;
+	List-Owner; bh=wdP2HY4s8pkJSIRKHdaSh2QXLId7RcD4iOZTAmg4n2o=; b=fRyptS40pP0alX
+	CuxbR+ld4gg+OalGHtRnIrT+Sx/MhPXEkb9747Fga342UTPxS/pNOoDQjQaAdb/NkqP5NCMHAafiN
+	QzGNrpV3xjoJsa+E/s2cd+tUIzF+vTNCdEG6cyXzL4z8ybx8RS/m/nyo094Bk2BKxJ4CR1HqScAmI
+	YT2i0f0P1Mw/uArN/WEsovFewnYHHxGD9P7a95zaoVFyzBVMG2dy6rGoBWXLg5sX/KLjkPuuRDIMD
+	btu4SDppp6gOHDGzveIX09R7BJuuCt+4nq7ASrQ1fglG67jMSTaTwHic2pZqi4GEvKNuJ3We2u6Ds
+	eIJsKyGObXNBtQMlRYFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPFzH-0000000CLD5-3igx;
-	Thu, 04 Jul 2024 06:30:35 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
+	id 1sPHmj-0000000CaI3-1hmz;
+	Thu, 04 Jul 2024 08:25:45 +0000
+Received: from mail-tyzapc01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:280c::801] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPFzE-0000000CLA7-1k2a
+	id 1sPHmg-0000000CaFY-1zpM
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jul 2024 06:30:34 +0000
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4WF6Fv1xlNz9sS8;
-	Thu,  4 Jul 2024 08:30:11 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id tzQAq9F0VSsR; Thu,  4 Jul 2024 08:30:11 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4WF6Fs5QfBz9sRy;
-	Thu,  4 Jul 2024 08:30:09 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id A8A5D8B774;
-	Thu,  4 Jul 2024 08:30:09 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id jUYe5UpM6zxp; Thu,  4 Jul 2024 08:30:09 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.202.46])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 049628B764;
-	Thu,  4 Jul 2024 08:30:08 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	x86@kernel.org,
-	linux-riscv@lists.infradead.org,
-	Oscar Salvador <osalvador@suse.de>
-Subject: [PATCH 3/3] mm: Add p{g/4}d_leaf() in asm-generic/pgtable-nop{4/u}d.h
-Date: Thu,  4 Jul 2024 08:30:05 +0200
-Message-ID: <c8cb83b709740f7ac835997b88c5ddda610f66ab.1720074307.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <b601e1a88e3a5d4d93b130fa20184b555e2a2bea.1720074307.git.christophe.leroy@csgroup.eu>
-References: <b601e1a88e3a5d4d93b130fa20184b555e2a2bea.1720074307.git.christophe.leroy@csgroup.eu>
+	Thu, 04 Jul 2024 08:25:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=oJhHaQ9s59ca0JuWPGFWPsxqZoUYw9T/SqLz7nRLOalj+VqcQiN6qGIyjMICcJKble1Eb5kHgcvnr/JszFLN1qOB9poGZGxlAUJheCbRrBPogxr7QAOK2Al4GIQaGQKdbcZaE7WDzZiDm87J6wTyoPPGJN+wIuSzHMzoC/8c0Rn8Lkjxzg00nLGpo+0BZaqLBOuzaeouby20+7BkJ1Sb6d50/ZUG5jYxi3amKvcrA+fEFllC6poTwu3lGiosIT6YXgMpw3GjWHX5Y3BPcTmZAS4PwhilDx15/YOtst7lNioWKtb9/b78gBaBWfcf5qX5hAQ/iZ3mHmNLJzbBq3lkxg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CD11hrxaN1fVPtS4IvPg21+IKRi+5bTinwortJwHFX4=;
+ b=ZkxuLj419lIwVH1OXFIOTyqDfwIrol4RPmxT3lVeZG8lJAc7ev+TnaYi8qdGrz2ojXL8vkJ1x5G0z40aFUPkx9HEieDTB4PhHzq4HsJ8SjgC4uN4KEjF/MY0coeSAUwzXwi3yOpAbZdJJclO6heXs2eJLPfGCUKcwGJLoRKmEZjn7C3IRgbbjsSo+T558zbjbCvdsmNJYfI5T3lLQL9YpMnk38NvGfiz/reHa4mBo60vjto0W3Cqe5TV2kaWZzuoHlnfY5FGndtaA9VM8mRbizMW6kPR6kfHSzU066RIvqAGF9Lj1sUB0Lqho4FwRdHN9IfS1ftWsojbye6aWG01rw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CD11hrxaN1fVPtS4IvPg21+IKRi+5bTinwortJwHFX4=;
+ b=OvBr/r6e0Y5keEY9EgSFacUcWBV94RzGStQpVRs5fbhcdU/Ai9XbfcmWnX+y+GNqc6hUiNT0AYV6Ia6sj72sfaiudyiuyzjCS7fE1YOiIIia3zcuP21oo67KPxMjYYHlkh6FmB/ykJGdfYJTx16IdUEeW7OsVSTC0G7dKE6L1mmvEjAW0P+xdNY/ii1EC+hl8gBGruVAgo+GOoO3WC3E7rINdHWgGMbSw68WKNTP10hV8glt7Y/fYQcmcbCS6V0sn7uQs5++sJXZmnux2pdIHBn/8nOYZz4KpfxQOgDRFehwFm4aJOvGleqqa6dybU+PFk/wQEB/ZjRrwMbVqr2LJQ==
+Received: from SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ (2603:1096:101:56::12) by SEZPR01MB4504.apcprd01.prod.exchangelabs.com
+ (2603:1096:101:77::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7719.32; Thu, 4 Jul
+ 2024 08:25:17 +0000
+Received: from SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ ([fe80::b674:8f70:6e29:3756]) by SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ ([fe80::b674:8f70:6e29:3756%4]) with mapi id 15.20.7719.029; Thu, 4 Jul 2024
+ 08:25:17 +0000
+Date: Thu, 4 Jul 2024 08:25:10 +0000
+From: Haylen Chu <heylenay@outlook.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: thermal: sophgo,cv1800-thermal: Add
+ Sophgo CV1800 thermal
+Message-ID: <SEYPR01MB4221C23C14DB53299E2E2F12D7DE2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+References: <SEYPR01MB42213F3A032C60C6AF5EB677D7DC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+ <SEYPR01MB42217228213F5F2C739088DED7DC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+ <20240702-aptitude-overripe-8ac9aa3c6b90@spud>
+ <d4b71376-2864-45af-8ad9-92c8a7cde291@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <d4b71376-2864-45af-8ad9-92c8a7cde291@kernel.org>
+X-TMN: [lZI5nQzC7oq0EPAHjeIZBqjy4HTNnJfd]
+X-ClientProxiedBy: TYCPR01CA0155.jpnprd01.prod.outlook.com
+ (2603:1096:400:2b1::17) To SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+ (2603:1096:101:56::12)
+X-Microsoft-Original-Message-ID: <ZoZcZqgI2flzBJ1N@ketchup>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1720074605; l=2466; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=Qtio/5SWrxR4yNgLMS59Jf0uRJ+1ynjUQGU6piFtlq0=; b=azkcAf3wdFGcbqU1O5vMt5uKoTHRw3KHARwsWzN1kcj9JA/2Zqkg3tgnO+WN7dI+hkpsqGuyU Ek7ifyQRmn6BRdM6oZNuS29ECHniE5zPf7j4PVxqF0C1xeD9cC9pPk1
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEYPR01MB4221:EE_|SEZPR01MB4504:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9856da1d-482f-4485-b0b7-08dc9c02d5d7
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|8060799006|4302099013|3412199025|440099028|1602099012;
+X-Microsoft-Antispam-Message-Info: qEvZuUdP72xF0ebWPV3hNwWHuvo85DpteMJr7LqKPry3JT7Rx4j8BctA/0tFYZD936G7cyMUtyDYnLir6AJ+EqelofMXBbXREdsBPbJIEPVZCAZfZBWcwkd572LBZlNlx7Vf5/beDwyz4lWyGnqwuOAz/+e4Fh/6d0Jty14BcBCaocnnI+UQ8Ov2MRgvv62wsVC/uTXMuGC8yk+hOl/4YNfVXaM9iMToq+2yjqfp0KFhn6zlEeXB11ZUS/eRJaefhzVAmwA7Ly5HMLDm+c4zNSa0BgjkRu6m/8aRDlNYaKMolMIdYVyxFHqxI33WTrAqcAoqBTr8YxnCzFoKT8q1bgcBmwllsWNO8lmqfv3fjggPDYMXII7xQ8HMfPs4Wwnb15r9J7DYzHjUncXfTTzg32CqyVFCahw9bxBGQkpcv/UConMZ9SIWJGwW+jgxWAA2usEt0D0urrQjLI8TnXWiUFKl7pQvNon2CIF1Wq9bDorh5xpO1bMkpE08G5XWpWgu6rkEp8YqNdVEpsLOFImO4N3gr0urMt39TQQogYJ+OkbxrztNtSUHhTow+wdw7MXa0L5V0YLyb8OI62bNjTvaaB8p4zgVnSJHVlRMo4kBeBNnDu2VQO2QADMF1EZhM3oT3295FzC3Ty7cfw+x5+O55nIu1EFBkCIljEQDtp3Tcrhun38l24jlc0aLmY0z6rWeP5QUh1Ceev7Em+M8KYnAGDbPg6EFWTzmxYsoPJrUlHo=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Zy/aijjHp6kxmfhvroIQ4KNsS1RInR3QwAOcUJYyIbMvwTilDsAoj2vqMY0l?=
+ =?us-ascii?Q?Yr0pTnNBk8M+JOYaPy35RUNoiZgifEOjrcNA3pI2jdXHcoPz7+f4dyBB4EDE?=
+ =?us-ascii?Q?ADR5xEHYXBNfO2t06Jp+tOndXX3s330PuCz11AVd5PkNt69yXQK8Mzsrt6LB?=
+ =?us-ascii?Q?BLZlBjpgAKe1ccH1pYhFhKwQ+glOwGi7Vxcyr9bD2jm9XFyhnxU6izUmdh7h?=
+ =?us-ascii?Q?zTFFZIwj/uxfi/O/6EZMXSLLk7/qGbfiaf9ioGpX6Pl6vmin22p5cC28I1FS?=
+ =?us-ascii?Q?uyHPzN1Fy3/tDtuAlsznC+moNmKcnogSay0Ytteuj8TQZh1/XOsHcp/dFfCa?=
+ =?us-ascii?Q?RhwKCjAbeXTRjtlOJX4ZNIrG496InU6bp1UpgGKxXO8gNVFwOtcU+95f0aTk?=
+ =?us-ascii?Q?A3GWEBbxvjkePLvZ1YLXYmvxVUoWGAUiDn1AsF+XCMcEXhSNhtFi0y2uDUvt?=
+ =?us-ascii?Q?d8NIKn2yCtTOLGST7VvcLaHoMCkhUjK7BL25DisyMqNjbJxfA3WuMsJHAhWC?=
+ =?us-ascii?Q?/UgA6bdaL7oslvDulOAEf+xlk7kZRxP9PqAzWY4tJVET9iWzwKNUwFwRJqKO?=
+ =?us-ascii?Q?dOvyCQ1w1Lhc8S65Mvt5ZzFDRiv5P9g6O/XM80/LIcyySJ+3Dc1E49okDGRj?=
+ =?us-ascii?Q?QGQ4TkrvHVI4CcjHCjgkxgj7emNXvEmzIXfuRA5RZ6XubhGRIuG1nBXlJ9eC?=
+ =?us-ascii?Q?V0FOORgiWJluGR7GvThH/v/4nDtg9nqcwclm3TJ7E0A21RkLqW4VGyb/8GVR?=
+ =?us-ascii?Q?BCMli73ANPF4oFINyEwWkmAtlUwwgPMAtNdHSHzGFCGHy9HTzRYwBh5N6166?=
+ =?us-ascii?Q?G37mYFBn/5YzT3w1kOV6wY1wkaPvR9GwlaH80aOQcDtNF3tTfzAmeHnY590B?=
+ =?us-ascii?Q?EhPoMfEfxAP2WJgF/TZz37zuBIVOg6kuO96Q6rBTV6TgA8Nj2RNRh0rOgJfc?=
+ =?us-ascii?Q?E8US06OEREYViEv0f+cGAsPfRJrte7ajdF/NYPifUJbUy4+iTIC3akeZCWal?=
+ =?us-ascii?Q?1PNQz21UeMJvHmCJ9ozd5Gsa/bKE7tdf3FbHLv213F7k44tsbR4+DAw7oyyC?=
+ =?us-ascii?Q?3jwrQtexwPjk/2f4Kh8fgFtAwO3xp7APJHK90em/ttZwRNygxDHUKOcnNJ3x?=
+ =?us-ascii?Q?BsVQXgR/t9EPG62KzjAlOzWvqGnOtM2Z/1q8pRwghb97L5V3LYsRjZh/pdqC?=
+ =?us-ascii?Q?iME8kmlJ7QZ4yyNt2V/PIK7+xCGM92dFiQ6ECzBlYJZpCLJ5yaQ2ffZqs9A?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9856da1d-482f-4485-b0b7-08dc9c02d5d7
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR01MB4221.apcprd01.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2024 08:25:17.4512
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR01MB4504
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_233033_161080_CA49E7ED 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240704_012542_542482_9069DCAA 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +140,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
-issues") added pud_leaf() in include/asm-generic/pgtable-nopmd.h
+On Tue, Jul 02, 2024 at 05:09:35PM +0200, Krzysztof Kozlowski wrote:
+> >> +
+> >> +properties:
+> >> +  compatible:
+> >> +    enum:
+> >> +      - sophgo,cv1800-thermal
+> >> +
+> >> +  reg:
+> >> +    maxItems: 1
+> >> +
+> >> +  clocks:
+> >> +    description: The thermal sensor clock
+> >> +
+> >> +  interrupts:
+> >> +    maxItems: 1
+> >> +
+> >> +  accumulation-period:
+> >> +    $ref: /schemas/types.yaml#/definitions/uint32
+> >> +    description: Accumulation period for a sample
+> >> +    enum:
+> >> +      - 512
+> >> +      - 1024
+> >> +      - 2048
+> >> +      - 4096
+> >> +    default: 2048
+> >> +
+> >> +  chop-period:
+> 
+> period in what sort of units? Sounds like time to me, so this would
+> require proper unit suffix.
 
-Do the same for p4d_leaf() and pgd_leaf() to avoid getting them
-erroneously defined by architectures that do not implement the
-related page level.
+In clock ticks.
 
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
----
- include/asm-generic/pgtable-nop4d.h | 1 +
- include/asm-generic/pgtable-nopud.h | 1 +
- include/linux/pgtable.h             | 6 +++---
- 3 files changed, 5 insertions(+), 3 deletions(-)
+When setting to 1024, a time of sample takes (1024 + 2 + 64) clock
+ticks. The clock runs at (25MHz / divider) and the divider is
+configurable.
 
-diff --git a/include/asm-generic/pgtable-nop4d.h b/include/asm-generic/pgtable-nop4d.h
-index 03b7dae47dd4..75c96bbc5a96 100644
---- a/include/asm-generic/pgtable-nop4d.h
-+++ b/include/asm-generic/pgtable-nop4d.h
-@@ -21,6 +21,7 @@ typedef struct { pgd_t pgd; } p4d_t;
- static inline int pgd_none(pgd_t pgd)		{ return 0; }
- static inline int pgd_bad(pgd_t pgd)		{ return 0; }
- static inline int pgd_present(pgd_t pgd)	{ return 1; }
-+static inline int pgd_leaf(pgd_t pgd)		{ return 0; }
- static inline void pgd_clear(pgd_t *pgd)	{ }
- #define p4d_ERROR(p4d)				(pgd_ERROR((p4d).pgd))
- 
-diff --git a/include/asm-generic/pgtable-nopud.h b/include/asm-generic/pgtable-nopud.h
-index eb70c6d7ceff..14aeb8ef2d8a 100644
---- a/include/asm-generic/pgtable-nopud.h
-+++ b/include/asm-generic/pgtable-nopud.h
-@@ -28,6 +28,7 @@ typedef struct { p4d_t p4d; } pud_t;
- static inline int p4d_none(p4d_t p4d)		{ return 0; }
- static inline int p4d_bad(p4d_t p4d)		{ return 0; }
- static inline int p4d_present(p4d_t p4d)	{ return 1; }
-+static inline int p4d_leaf(p4d_t p4d)		{ return 0; }
- static inline void p4d_clear(p4d_t *p4d)	{ }
- #define pud_ERROR(pud)				(p4d_ERROR((pud).p4d))
- 
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 2a6a3cccfc36..b27e66f542d6 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1882,13 +1882,13 @@ typedef unsigned int pgtbl_mod_mask;
-  * - It should cover all kinds of huge mappings (e.g., pXd_trans_huge(),
-  *   pXd_devmap(), or hugetlb mappings).
-  */
--#ifndef pgd_leaf
-+#if !defined(__PAGETABLE_P4D_FOLDED) && !defined(pgd_leaf)
- #define pgd_leaf(x)	false
- #endif
--#ifndef p4d_leaf
-+#if !defined(__PAGETABLE_PUD_FOLDED) && !defined(p4d_leaf)
- #define p4d_leaf(x)	false
- #endif
--#ifndef pud_leaf
-+#if !defined(__PAGETABLE_PMD_FOLDED) && !defined(pud_leaf)
- #define pud_leaf(x)	false
- #endif
- #ifndef pmd_leaf
--- 
-2.44.0
+> > 
+> >> +    description: Period between samples. Should be greater than 524us.
+> > 
+> > The constraint here should be "minimum: 524". What's the upper limit?
+> > 
+> >> +    default: 1000000
+> > 
+> > Rob/Krzysztof, could you comment on the suitability of the three custom
+> > properties here? I know if this was an IIO device, these kinds of things
+> > would be controllable from userspace, and not in the binding. I
+> > mentioned this on the previous version, but I'm not really sure if
+> > thermal devices are somehow different:
+> > https://lore.kernel.org/all/SEYPR01MB4221A739D0645EF0255336EBD7CE2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+> > 
+> 
+> Why would different boards have different values here? Does it affect
+> accuracy? If so, how much?
+> 
+> I doubt there are any boards with different values, thus it sounds like
+> unnecessary tuning parameter.
 
+Theses values affect accuracy in a minor way (about 1 Celsius degree in
+my test) and could be shared between CV18xx/SG20xx SoCs as they have the
+same design.
+
+In the first revision, fixed values are used, and I was asked to add
+support for all possible configuration[1]. Now I think this introduces
+extra unnecessary complexity and should be avoided, since this is a
+simple thermal sensor, tuning seems to be useless.
+
+I suggest renaming "sample-cycle-us" to "sample-rate-hz" and dropping
+other parameters for simplicity.
+
+Best regards,
+Haylen Chu
+
+[1]: https://lore.kernel.org/all/IA1PR20MB49533177BEFC431FC16D1AB8BBF32@IA1PR20MB4953.namprd20.prod.outlook.com/
 
 _______________________________________________
 linux-riscv mailing list
