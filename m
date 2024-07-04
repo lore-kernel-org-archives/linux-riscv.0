@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552ACC30653
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 14:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E7B0C3271E
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 14:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qKdMvTHhnQKgX6nA+yTY5bsGYIpgSK7LytdbT4V8OGk=; b=dyH3gYkjWQUPTF
-	YqgMSXp5K5OWlxw5i7Fe29NUE/aOwVkI49e2Xx17Y2o7a+NJpekQPy/xULeuAMRApCJOfuZ9K7ntu
-	jCwN8Lct4z5xjP6I1a4nn5E2F+raqihQiOtVgFIbR1gYRXTax4o5DNb9zMaKS6VpBa3j+uTfrnWkc
-	yDzNSnMnMVMYfIAvZo/SzDUXbiYgdTYixsvoV7o1CdpM+slRany8tz/vQsSKI8sANCAbKOh88xHua
-	4EfhI3Om/J2Ehfbi6wVvkfc5ngYGXCccoXkbPaYapVll8FCyJkJQE1YWTfQhk28UUT6vxe2QbJBRE
-	DGojWw6NgtZABB6wAdaw==;
+	List-Owner; bh=JWO3dMDaQN3I45cs6KH4W2UYtymxt3vGjwh8XLaEylg=; b=FBw+9ZiwIldWI5
+	1sokWdlucnofVddPD+ehq5oJSg/HuaYBc7Fdoz8KqLFx+lW8GH70lhuLhROgCRMVXeZm884KbGpBI
+	ZQS3waGhVYRRNzR7uADQc+DX24yGVG2z/MsOTybkqZbTY9qFCT4PvP4eDb/hos0L+cFaFSIxIFba5
+	hki2AFN9lrJCJY0kVwDpcoV7Y4Zg5XBY/vcTt2pm+Q3pZ+Iy1ldXc8/las4fKfC7ARvee4eNXmsRZ
+	MyaJEPtY/j6JXfQ+n7AB2O5uKjFuveaKoathpIoMewmCpgQlzPnytsii+GwCTZ4dLN40SOECdFB30
+	zUjHHsiQEOWWAaNan6RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPNaV-0000000DUiF-0Sdt;
-	Thu, 04 Jul 2024 14:37:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sPNah-0000000DUqp-1caY;
+	Thu, 04 Jul 2024 14:37:43 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPNZw-0000000DUOQ-2AxE;
-	Thu, 04 Jul 2024 14:36:57 +0000
+	id 1sPNa5-0000000DURP-1wKQ;
+	Thu, 04 Jul 2024 14:37:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7AA3D627B2;
+	by sin.source.kernel.org (Postfix) with ESMTP id 78C2DCE2B1B;
+	Thu,  4 Jul 2024 14:37:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0372C4AF0F;
 	Thu,  4 Jul 2024 14:36:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3F2EC3277B;
-	Thu,  4 Jul 2024 14:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720103815;
-	bh=Hoz6/13PMjczW4hIS2TpZOmnWw/mZHnZjGM4bmj8L1k=;
+	s=k20201202; t=1720103822;
+	bh=6AvNCHIDCl2FJ0+iZjNz9fWIUodQR9KLWj8XWc9apE4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nCiIyr9LHjT5gUMAqoc6oHpgAmakmhniho62gRjn0hsAsoOu9+Sc78uaog7gP3Vud
-	 j6SMlBVVZkQX2t/Nnq6MTUVEq4TxtyRnuGcjT4TVsdMjoDnx9Rt2tB4l2URlWTDoIp
-	 foynXcxXtGpBNWFYhV8RBl4Sba2UQ1RB+Qd5rI775P5uqxVslaCnMOxWNDMX5M2dIU
-	 N7L4dnblnsifwD8Zq28c7/BF3A8WZw+iKy8w8p6UQjtEQu42q0gBTZOvrDf3WR3paV
-	 a9Ubmkxx5E1NS+6CQBfcBHmUOxKdj6Cak9qg83LEdyoo+Mo87pF1TRBvRS+B3NhvEc
-	 quE1rDW6FiEEg==
+	b=ScYDl+DMyUOLog8Ap5Cuip0pO3+A9qNjjqcju/yJgYyW05wqLt6SFyhe1dFfGExZC
+	 0eEDTWOM2aqnzawCBctPnVBiwQ1VYyUAg4LITJjlPb784KeCW78yatBBlurmRHoo6h
+	 0aWznGQ9KH5R84ZvK/TgZ+XzQQjfafyQh8oIzpNi4rBdoBBrJSQpqGFupi9rZsJti2
+	 FLZK26mH4iNeWrrvAS+JLvL4/kJAWp53NnMlorLx/wpFcxCvMpNJLDx5uV0zMnlFce
+	 dgg3bDMfhj2bnlsN1INV5j8CEn9L2U9wAHhdpBswa4oAeMMD0Xlf39a6XyOFL70xWm
+	 RocQ5bfPRMiRw==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-arch@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>,
@@ -77,17 +77,16 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	loongarch@lists.linux.dev,
 	linux-openrisc@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 02/17] csky: drop asm/gpio.h wrapper
-Date: Thu,  4 Jul 2024 16:35:56 +0200
-Message-Id: <20240704143611.2979589-3-arnd@kernel.org>
+Subject: [PATCH 03/17] um: don't generate asm/bpf_perf_event.h
+Date: Thu,  4 Jul 2024 16:35:57 +0200
+Message-Id: <20240704143611.2979589-4-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20240704143611.2979589-1-arnd@kernel.org>
 References: <20240704143611.2979589-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_073656_710000_43D070F9 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240704_073705_783589_FFC5ADC1 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +105,43 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-The asm/gpio.h header is gone now that all architectures just use
-gpiolib, and so the redirect is no longer valid.
+If we start validating the existence of the asm-generic side of
+generated headers, this one causes a warning:
+
+make[3]: *** No rule to make target 'arch/um/include/generated/asm/bpf_perf_event.h', needed by 'all'.  Stop.
+
+The problem is that the asm-generic header only exists for the uapi
+variant, but arch/um has no uapi headers and instead uses the x86
+userspace API.
+
+Add a custom file with an explicit redirect to avoid this.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/csky/include/asm/Kbuild | 1 -
- 1 file changed, 1 deletion(-)
+ arch/um/include/asm/Kbuild           | 1 -
+ arch/um/include/asm/bpf_perf_event.h | 3 +++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 arch/um/include/asm/bpf_perf_event.h
 
-diff --git a/arch/csky/include/asm/Kbuild b/arch/csky/include/asm/Kbuild
-index 1117c28cb7e8..13ebc5e34360 100644
---- a/arch/csky/include/asm/Kbuild
-+++ b/arch/csky/include/asm/Kbuild
-@@ -1,7 +1,6 @@
+diff --git a/arch/um/include/asm/Kbuild b/arch/um/include/asm/Kbuild
+index 6fe34779291a..6c583040537c 100644
+--- a/arch/um/include/asm/Kbuild
++++ b/arch/um/include/asm/Kbuild
+@@ -1,5 +1,4 @@
  # SPDX-License-Identifier: GPL-2.0
- generic-y += asm-offsets.h
- generic-y += extable.h
--generic-y += gpio.h
- generic-y += kvm_para.h
- generic-y += mcs_spinlock.h
- generic-y += qrwlock.h
+-generic-y += bpf_perf_event.h
+ generic-y += bug.h
+ generic-y += compat.h
+ generic-y += current.h
+diff --git a/arch/um/include/asm/bpf_perf_event.h b/arch/um/include/asm/bpf_perf_event.h
+new file mode 100644
+index 000000000000..0a30420c83de
+--- /dev/null
++++ b/arch/um/include/asm/bpf_perf_event.h
+@@ -0,0 +1,3 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#include <asm-generic/bpf_perf_event.h>
 -- 
 2.39.2
 
