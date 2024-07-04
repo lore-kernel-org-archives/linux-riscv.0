@@ -4,126 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DCBC30653
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 08:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C07C3065C
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 08:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wdP2HY4s8pkJSIRKHdaSh2QXLId7RcD4iOZTAmg4n2o=; b=fRyptS40pP0alX
-	CuxbR+ld4gg+OalGHtRnIrT+Sx/MhPXEkb9747Fga342UTPxS/pNOoDQjQaAdb/NkqP5NCMHAafiN
-	QzGNrpV3xjoJsa+E/s2cd+tUIzF+vTNCdEG6cyXzL4z8ybx8RS/m/nyo094Bk2BKxJ4CR1HqScAmI
-	YT2i0f0P1Mw/uArN/WEsovFewnYHHxGD9P7a95zaoVFyzBVMG2dy6rGoBWXLg5sX/KLjkPuuRDIMD
-	btu4SDppp6gOHDGzveIX09R7BJuuCt+4nq7ASrQ1fglG67jMSTaTwHic2pZqi4GEvKNuJ3We2u6Ds
-	eIJsKyGObXNBtQMlRYFQ==;
+	List-Owner; bh=vb3xEzBWUU9XZfXJL7KSIUTaKfVjxVEhqq3lzf2oQ1U=; b=kYW1JaOxDQlndw
+	KfhEPSOJF2YcNA6APXO/9fvFvDGzKeO7YsYy0pG0px+IEP9pTIrjANqd/Vle5Nz9Dey9dY7hVUnIo
+	V8wikFty57Z9xZ1x1z5C4wp2L9EaECkF1TXEQoZxu5Y0CH81wxc0rK04BeYnWEaTu+3nw4a91DQ2C
+	OgYuHMOM+Gq2TNWUdJcvvuuwEWbadfG2n4Gvei1xSLjqWw1tINkbxwNC65Cx7+TB9NXA/E5SvU8VZ
+	b+UAhrnZ2dry2/uA3+PjDAVBYpa7wQxZGI62T4tBnKnZiYLEaAGegX3+XlgBMmmtZXhVS8kViDoxj
+	BOjZ53BW8yhvYxAjcRAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPHmj-0000000CaI3-1hmz;
-	Thu, 04 Jul 2024 08:25:45 +0000
-Received: from mail-tyzapc01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:280c::801] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	id 1sPHwF-0000000CbgT-1op8;
+	Thu, 04 Jul 2024 08:35:35 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPHmg-0000000CaFY-1zpM
+	id 1sPHwC-0000000CbfN-0sR2
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jul 2024 08:25:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=oJhHaQ9s59ca0JuWPGFWPsxqZoUYw9T/SqLz7nRLOalj+VqcQiN6qGIyjMICcJKble1Eb5kHgcvnr/JszFLN1qOB9poGZGxlAUJheCbRrBPogxr7QAOK2Al4GIQaGQKdbcZaE7WDzZiDm87J6wTyoPPGJN+wIuSzHMzoC/8c0Rn8Lkjxzg00nLGpo+0BZaqLBOuzaeouby20+7BkJ1Sb6d50/ZUG5jYxi3amKvcrA+fEFllC6poTwu3lGiosIT6YXgMpw3GjWHX5Y3BPcTmZAS4PwhilDx15/YOtst7lNioWKtb9/b78gBaBWfcf5qX5hAQ/iZ3mHmNLJzbBq3lkxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CD11hrxaN1fVPtS4IvPg21+IKRi+5bTinwortJwHFX4=;
- b=ZkxuLj419lIwVH1OXFIOTyqDfwIrol4RPmxT3lVeZG8lJAc7ev+TnaYi8qdGrz2ojXL8vkJ1x5G0z40aFUPkx9HEieDTB4PhHzq4HsJ8SjgC4uN4KEjF/MY0coeSAUwzXwi3yOpAbZdJJclO6heXs2eJLPfGCUKcwGJLoRKmEZjn7C3IRgbbjsSo+T558zbjbCvdsmNJYfI5T3lLQL9YpMnk38NvGfiz/reHa4mBo60vjto0W3Cqe5TV2kaWZzuoHlnfY5FGndtaA9VM8mRbizMW6kPR6kfHSzU066RIvqAGF9Lj1sUB0Lqho4FwRdHN9IfS1ftWsojbye6aWG01rw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CD11hrxaN1fVPtS4IvPg21+IKRi+5bTinwortJwHFX4=;
- b=OvBr/r6e0Y5keEY9EgSFacUcWBV94RzGStQpVRs5fbhcdU/Ai9XbfcmWnX+y+GNqc6hUiNT0AYV6Ia6sj72sfaiudyiuyzjCS7fE1YOiIIia3zcuP21oo67KPxMjYYHlkh6FmB/ykJGdfYJTx16IdUEeW7OsVSTC0G7dKE6L1mmvEjAW0P+xdNY/ii1EC+hl8gBGruVAgo+GOoO3WC3E7rINdHWgGMbSw68WKNTP10hV8glt7Y/fYQcmcbCS6V0sn7uQs5++sJXZmnux2pdIHBn/8nOYZz4KpfxQOgDRFehwFm4aJOvGleqqa6dybU+PFk/wQEB/ZjRrwMbVqr2LJQ==
-Received: from SEYPR01MB4221.apcprd01.prod.exchangelabs.com
- (2603:1096:101:56::12) by SEZPR01MB4504.apcprd01.prod.exchangelabs.com
- (2603:1096:101:77::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7719.32; Thu, 4 Jul
- 2024 08:25:17 +0000
-Received: from SEYPR01MB4221.apcprd01.prod.exchangelabs.com
- ([fe80::b674:8f70:6e29:3756]) by SEYPR01MB4221.apcprd01.prod.exchangelabs.com
- ([fe80::b674:8f70:6e29:3756%4]) with mapi id 15.20.7719.029; Thu, 4 Jul 2024
- 08:25:17 +0000
-Date: Thu, 4 Jul 2024 08:25:10 +0000
-From: Haylen Chu <heylenay@outlook.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: thermal: sophgo,cv1800-thermal: Add
- Sophgo CV1800 thermal
-Message-ID: <SEYPR01MB4221C23C14DB53299E2E2F12D7DE2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
-References: <SEYPR01MB42213F3A032C60C6AF5EB677D7DC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <SEYPR01MB42217228213F5F2C739088DED7DC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <20240702-aptitude-overripe-8ac9aa3c6b90@spud>
- <d4b71376-2864-45af-8ad9-92c8a7cde291@kernel.org>
-Content-Disposition: inline
-In-Reply-To: <d4b71376-2864-45af-8ad9-92c8a7cde291@kernel.org>
-X-TMN: [lZI5nQzC7oq0EPAHjeIZBqjy4HTNnJfd]
-X-ClientProxiedBy: TYCPR01CA0155.jpnprd01.prod.outlook.com
- (2603:1096:400:2b1::17) To SEYPR01MB4221.apcprd01.prod.exchangelabs.com
- (2603:1096:101:56::12)
-X-Microsoft-Original-Message-ID: <ZoZcZqgI2flzBJ1N@ketchup>
+	Thu, 04 Jul 2024 08:35:34 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A56C3E0006;
+	Thu,  4 Jul 2024 08:35:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1720082128;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VWar8m3O4fo/jZOi8A6VIxRWgKYWwe4SDSJKBXm4MU8=;
+	b=WUyqWIIgLtb7ykFLsUTyM+0/eHHcIhl5IRjvw2bfVzhIjxXfCwGVhH1pwDAF7crb5ffXu4
+	cORDlXxTlzHgnTdNGHo8uxhVGRZKgXBA9owVfPuSPdG3tcV8HN1G8CBnQopHwcG5SJeK8H
+	BvBfeOHHL9L9NoEuDbh24zce/yRjNMbY6HLX39ovWFAXjSe9Jr40Veeuu209ulSqFDaSFD
+	X1hUKGz6XVt34aElqd5YYkObjRogHKEAdZqAXHnDnLp2kP6g5wEHE6qv59gLVmY/SCSMkZ
+	SABmtWRB7y6xLa1EKLnaz0mID5g2lObdb/lF9i6JUanYXdQi+TFsY1yJaQlrlQ==
+Message-ID: <8d368347-7cee-41af-a033-c495eeb62e2a@bootlin.com>
+Date: Thu, 4 Jul 2024 10:35:25 +0200
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEYPR01MB4221:EE_|SEZPR01MB4504:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9856da1d-482f-4485-b0b7-08dc9c02d5d7
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|8060799006|4302099013|3412199025|440099028|1602099012;
-X-Microsoft-Antispam-Message-Info: qEvZuUdP72xF0ebWPV3hNwWHuvo85DpteMJr7LqKPry3JT7Rx4j8BctA/0tFYZD936G7cyMUtyDYnLir6AJ+EqelofMXBbXREdsBPbJIEPVZCAZfZBWcwkd572LBZlNlx7Vf5/beDwyz4lWyGnqwuOAz/+e4Fh/6d0Jty14BcBCaocnnI+UQ8Ov2MRgvv62wsVC/uTXMuGC8yk+hOl/4YNfVXaM9iMToq+2yjqfp0KFhn6zlEeXB11ZUS/eRJaefhzVAmwA7Ly5HMLDm+c4zNSa0BgjkRu6m/8aRDlNYaKMolMIdYVyxFHqxI33WTrAqcAoqBTr8YxnCzFoKT8q1bgcBmwllsWNO8lmqfv3fjggPDYMXII7xQ8HMfPs4Wwnb15r9J7DYzHjUncXfTTzg32CqyVFCahw9bxBGQkpcv/UConMZ9SIWJGwW+jgxWAA2usEt0D0urrQjLI8TnXWiUFKl7pQvNon2CIF1Wq9bDorh5xpO1bMkpE08G5XWpWgu6rkEp8YqNdVEpsLOFImO4N3gr0urMt39TQQogYJ+OkbxrztNtSUHhTow+wdw7MXa0L5V0YLyb8OI62bNjTvaaB8p4zgVnSJHVlRMo4kBeBNnDu2VQO2QADMF1EZhM3oT3295FzC3Ty7cfw+x5+O55nIu1EFBkCIljEQDtp3Tcrhun38l24jlc0aLmY0z6rWeP5QUh1Ceev7Em+M8KYnAGDbPg6EFWTzmxYsoPJrUlHo=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Zy/aijjHp6kxmfhvroIQ4KNsS1RInR3QwAOcUJYyIbMvwTilDsAoj2vqMY0l?=
- =?us-ascii?Q?Yr0pTnNBk8M+JOYaPy35RUNoiZgifEOjrcNA3pI2jdXHcoPz7+f4dyBB4EDE?=
- =?us-ascii?Q?ADR5xEHYXBNfO2t06Jp+tOndXX3s330PuCz11AVd5PkNt69yXQK8Mzsrt6LB?=
- =?us-ascii?Q?BLZlBjpgAKe1ccH1pYhFhKwQ+glOwGi7Vxcyr9bD2jm9XFyhnxU6izUmdh7h?=
- =?us-ascii?Q?zTFFZIwj/uxfi/O/6EZMXSLLk7/qGbfiaf9ioGpX6Pl6vmin22p5cC28I1FS?=
- =?us-ascii?Q?uyHPzN1Fy3/tDtuAlsznC+moNmKcnogSay0Ytteuj8TQZh1/XOsHcp/dFfCa?=
- =?us-ascii?Q?RhwKCjAbeXTRjtlOJX4ZNIrG496InU6bp1UpgGKxXO8gNVFwOtcU+95f0aTk?=
- =?us-ascii?Q?A3GWEBbxvjkePLvZ1YLXYmvxVUoWGAUiDn1AsF+XCMcEXhSNhtFi0y2uDUvt?=
- =?us-ascii?Q?d8NIKn2yCtTOLGST7VvcLaHoMCkhUjK7BL25DisyMqNjbJxfA3WuMsJHAhWC?=
- =?us-ascii?Q?/UgA6bdaL7oslvDulOAEf+xlk7kZRxP9PqAzWY4tJVET9iWzwKNUwFwRJqKO?=
- =?us-ascii?Q?dOvyCQ1w1Lhc8S65Mvt5ZzFDRiv5P9g6O/XM80/LIcyySJ+3Dc1E49okDGRj?=
- =?us-ascii?Q?QGQ4TkrvHVI4CcjHCjgkxgj7emNXvEmzIXfuRA5RZ6XubhGRIuG1nBXlJ9eC?=
- =?us-ascii?Q?V0FOORgiWJluGR7GvThH/v/4nDtg9nqcwclm3TJ7E0A21RkLqW4VGyb/8GVR?=
- =?us-ascii?Q?BCMli73ANPF4oFINyEwWkmAtlUwwgPMAtNdHSHzGFCGHy9HTzRYwBh5N6166?=
- =?us-ascii?Q?G37mYFBn/5YzT3w1kOV6wY1wkaPvR9GwlaH80aOQcDtNF3tTfzAmeHnY590B?=
- =?us-ascii?Q?EhPoMfEfxAP2WJgF/TZz37zuBIVOg6kuO96Q6rBTV6TgA8Nj2RNRh0rOgJfc?=
- =?us-ascii?Q?E8US06OEREYViEv0f+cGAsPfRJrte7ajdF/NYPifUJbUy4+iTIC3akeZCWal?=
- =?us-ascii?Q?1PNQz21UeMJvHmCJ9ozd5Gsa/bKE7tdf3FbHLv213F7k44tsbR4+DAw7oyyC?=
- =?us-ascii?Q?3jwrQtexwPjk/2f4Kh8fgFtAwO3xp7APJHK90em/ttZwRNygxDHUKOcnNJ3x?=
- =?us-ascii?Q?BsVQXgR/t9EPG62KzjAlOzWvqGnOtM2Z/1q8pRwghb97L5V3LYsRjZh/pdqC?=
- =?us-ascii?Q?iME8kmlJ7QZ4yyNt2V/PIK7+xCGM92dFiQ6ECzBlYJZpCLJ5yaQ2ffZqs9A?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9856da1d-482f-4485-b0b7-08dc9c02d5d7
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR01MB4221.apcprd01.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2024 08:25:17.4512
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR01MB4504
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml: Add
+ Sophgo SARADC binding documentation
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicorn_wang@outlook.com>,
+ Conor Dooley <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ Lars-Peter Clausen <lars@metafoo.de>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com>
+ <20240702-sg2002-adc-v1-1-ac66e076a756@bootlin.com>
+ <b7913f90-7405-4a77-9c57-97ef124de6e1@kernel.org>
+Content-Language: en-US
+From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+In-Reply-To: <b7913f90-7405-4a77-9c57-97ef124de6e1@kernel.org>
+X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_012542_542482_9069DCAA 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20240704_013532_581780_DB7E1438 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,85 +79,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 02, 2024 at 05:09:35PM +0200, Krzysztof Kozlowski wrote:
-> >> +
-> >> +properties:
-> >> +  compatible:
-> >> +    enum:
-> >> +      - sophgo,cv1800-thermal
-> >> +
-> >> +  reg:
-> >> +    maxItems: 1
-> >> +
-> >> +  clocks:
-> >> +    description: The thermal sensor clock
-> >> +
-> >> +  interrupts:
-> >> +    maxItems: 1
-> >> +
-> >> +  accumulation-period:
-> >> +    $ref: /schemas/types.yaml#/definitions/uint32
-> >> +    description: Accumulation period for a sample
-> >> +    enum:
-> >> +      - 512
-> >> +      - 1024
-> >> +      - 2048
-> >> +      - 4096
-> >> +    default: 2048
-> >> +
-> >> +  chop-period:
+Hello Krzysztof,
+Thank you for your feedback
+
+On 7/3/24 7:08 AM, Krzysztof Kozlowski wrote:
+> On 02/07/2024 13:52, Thomas Bonnefille wrote:
+>> The Sophgo SARADC is a Successive Approximation ADC that can be found in
+>> the Sophgo SoC.
+>>
+>> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+>> ---
+>>   .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     | 51 ++++++++++++++++++++++
+>>   MAINTAINERS                                        |  5 +++
+>>   2 files changed, 56 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+>> new file mode 100644
+>> index 000000000000..21fd5dc8e24e
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+>> @@ -0,0 +1,51 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/iio/adc/sophgo,cv18xx-adc.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Sophgo 3 channels Successive Approximation Analog to Digital Converters
+>> +
+>> +maintainers:
+>> +  - Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+>> +
+>> +description:
+>> +  Datasheet at https://github.com/sophgo/sophgo-doc/releases
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: sophgo,cv18xx-saradc
 > 
-> period in what sort of units? Sounds like time to me, so this would
-> require proper unit suffix.
-
-In clock ticks.
-
-When setting to 1024, a time of sample takes (1024 + 2 + 64) clock
-ticks. The clock runs at (25MHz / divider) and the divider is
-configurable.
-
-> > 
-> >> +    description: Period between samples. Should be greater than 524us.
-> > 
-> > The constraint here should be "minimum: 524". What's the upper limit?
-> > 
-> >> +    default: 1000000
-> > 
-> > Rob/Krzysztof, could you comment on the suitability of the three custom
-> > properties here? I know if this was an IIO device, these kinds of things
-> > would be controllable from userspace, and not in the binding. I
-> > mentioned this on the previous version, but I'm not really sure if
-> > thermal devices are somehow different:
-> > https://lore.kernel.org/all/SEYPR01MB4221A739D0645EF0255336EBD7CE2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
-> > 
+> Except that this was never tested... wild-cards are generally not allowed.
 > 
-> Why would different boards have different values here? Does it affect
-> accuracy? If so, how much?
-> 
-> I doubt there are any boards with different values, thus it sounds like
-> unnecessary tuning parameter.
 
-Theses values affect accuracy in a minor way (about 1 Celsius degree in
-my test) and could be shared between CV18xx/SG20xx SoCs as they have the
-same design.
+I realized I made a mistake when using the "make dt_binding_check" 
+command, which led to some errors in this dt_binding. I have now 
+addressed all of them, but I'm not sure I understand your comment.
 
-In the first revision, fixed values are used, and I was asked to add
-support for all possible configuration[1]. Now I think this introduces
-extra unnecessary complexity and should be avoided, since this is a
-simple thermal sensor, tuning seems to be useless.
-
-I suggest renaming "sample-cycle-us" to "sample-rate-hz" and dropping
-other parameters for simplicity.
+I don't see any wildcards in the YAML file. Could you please provide 
+more details on what you expect?
 
 Best regards,
-Haylen Chu
-
-[1]: https://lore.kernel.org/all/IA1PR20MB49533177BEFC431FC16D1AB8BBF32@IA1PR20MB4953.namprd20.prod.outlook.com/
+Thomas
 
 _______________________________________________
 linux-riscv mailing list
