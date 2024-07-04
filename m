@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFEFEC30653
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 13:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B34C30653
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 13:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BdKrh53vsQk6FRTYTLTKs5YiGtUWnwfXf9ZHYmYjtI8=; b=maOj9zIW5O6aoO
-	62W/BOscvj0Jx5EHagnQJ3A4CoR9SihXDt7YuWW9i4VL8jwtzxPig5sUa2PxAxaIeJlRO85bZv/j8
-	7p+FlSIZ8h3Reg8LOR6ik/YAJ7+xDnH9iIMWJsqpE0TenMwTzcB5NaUI9n20CR/EAWSLVvJx8fZuk
-	C3W3gH6+2k6ZVUnrOZs9639kS7NhXLA+eRN0NiUSwtnpuQOX3GApDMEEyn1+1d6MzdDbPh5mBqubE
-	TbE2fx8pyz46G0NvHnKGAFXMBuauPRjLIAahh9+/7vNqFnOK5w1vjg3HO7jbUD7w1HX4hqKzt3cOR
-	Lxu07O38rkpH86dB5Iqw==;
+	List-Owner; bh=zxD06dA7M352uvzqpK+UsEXsryTVAvFklPlETSA32mo=; b=IWiOa9fci4i7Sb
+	MoK86MBwmcoQHZg4VHb6oovCgsFdbg39Lbe8T84gcqoVlggUWP1iYraPKlfIhvudMy1wr+vOAvd5H
+	mnBpjxvzR3chSmxpyznjxdrwCFfejBnbjB0iawULGka9r/F7FDJLpnsptaNwzRet0/I+J70gNWDhR
+	jSVMrKk/guNOsvciAsO1Gn5ZYcNOgEjycMSlt95AQyW968COLFVl8BGHzhJaAARa5QG7k+IO7o7KI
+	iR8Nsw/o63KuXPtTVYvE0WejR9NpKvKC7dfz8O/66f8TjCxvWk1kjDgdQmjFrr5wrhYQg3K/OEvz4
+	o7f8Z7WfH6x3PBwu5qaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPMF2-0000000DEgT-1XmF;
-	Thu, 04 Jul 2024 13:11:16 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sPMFJ-0000000DEsj-2Pji;
+	Thu, 04 Jul 2024 13:11:33 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPMEl-0000000DEXB-1uS1
-	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jul 2024 13:11:01 +0000
+	id 1sPMEl-0000000DEXn-3Q69;
+	Thu, 04 Jul 2024 13:11:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id BEB22CE34C0;
-	Thu,  4 Jul 2024 13:10:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CB4A9C4AF0C;
+	by sin.source.kernel.org (Postfix) with ESMTP id 1B3FACE34C5;
+	Thu,  4 Jul 2024 13:10:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E2A1DC4AF11;
 	Thu,  4 Jul 2024 13:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720098656;
-	bh=d1R6VyIbkJ6U7w801EO8l21bk3qkW3imoEOlfi6mJ0o=;
+	s=k20201202; t=1720098657;
+	bh=lJXnONd5ISVvmE4QQ4QJTEc1T2lWaVBV5IrBFXcFzSs=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=fo2jZkvcZSDt1fGr5ZrtsubKDg0lm7xDjMC9jQnY4iYDYlIxVv8JLu59v3NRhkhb3
-	 +31IvMoMqRPLlLD5TnKhcbpCo+WEl+FmkFY3ULZtIzz0lmwEu8T+L/OkXcGagr4DYd
-	 CsoqzJteqGJOKYigMc5UDq+YNWx+UgHY9sVD08nqjFvsweG2GUZ4gRb5AGXYlvkorr
-	 g254OZ7RieYGkdAlQPCGpbG61KIRqBnBqZuq/bicQ9M4WMOnl//qrOUT1t9sCRdq08
-	 KHsOzteSG9RJ7k1Uhhha9F5VoIwT2QOUpQQ+mj2gwc9CdFhS3nzsXh5VWho1I3KNVl
-	 y1rXL7FyCDNZA==
+	b=Vpwd2tcYqNgW1dMG4DUsuYkKBIfDlCn4PVslQ+vVDvZ3zq5iOcb6vvRYYnY6zPLqm
+	 b7qRPNJMCF708+0X9bllMigap/i9FHO/+hiquNIRAZExPqCwtGbOBjIJuQ7OkQnqn0
+	 sPH8SB9WW3Zr18pR0U7e1oUFPHWfJ1HJqEs8ZH2+2KSpcEudv6FOxA6WTWsch9b6Or
+	 Tab2z58GTWX2feeNdjzi6LpoNRXkbTLsvakMu53Ah1izJcjwti+u6cCNBmIy7ILBgZ
+	 8q99pCDwKY1JTEl8QytqRgm64Qa8FzCXj9BCjgdlSwIP/Xyncj4Y/MSAwHIEK4Njwe
+	 nAqxfUSP9Im+g==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id B9FA3C43331;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D4BA4C433A2;
 	Thu,  4 Jul 2024 13:10:56 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH V2 -fixes] riscv: kexec: Avoid deadlock in kexec crash path
+Subject: Re: [PATCH] randomize_kstack: Remove non-functional per-arch entropy
+ filtering
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172009865675.17306.18375440466203340384.git-patchwork-notify@kernel.org>
+Message-Id: <172009865686.17306.9398253862841269029.git-patchwork-notify@kernel.org>
 Date: Thu, 04 Jul 2024 13:10:56 +0000
-References: <20240626023316.539971-1-songshuaishuai@tinylab.org>
-In-Reply-To: <20240626023316.539971-1-songshuaishuai@tinylab.org>
-To: Song Shuai <songshuaishuai@tinylab.org>
-Cc: linux-riscv@lists.infradead.org, takakura@valinux.co.jp, alex@ghiti.fr,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- bhe@redhat.com, akpm@linux-foundation.org, guoren@kernel.org,
- xianting.tian@linux.alibaba.com, linux-kernel@vger.kernel.org
+References: <20240619214711.work.953-kees@kernel.org>
+In-Reply-To: <20240619214711.work.953-kees@kernel.org>
+To: Kees Cook <kees@kernel.org>
+Cc: linux-riscv@lists.infradead.org, arnd@arndb.de, liuyuntao12@huawei.com,
+ mark.rutland@arm.com, catalin.marinas@arm.com, will@kernel.org,
+ hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+ borntraeger@linux.ibm.com, svens@linux.ibm.com, tglx@linutronix.de,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ gustavoars@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, leobras@redhat.com, imbrenda@linux.ibm.com,
+ pawan.kumar.gupta@linux.intel.com, linux-kernel@vger.kernel.org,
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_061059_789219_142BC638 
-X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-CacheID: sfid-20240704_061100_108552_5F5E38D5 
+X-CRM114-Status: UNSURE (   9.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,23 +86,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+by Kees Cook <kees@kernel.org>:
 
-On Wed, 26 Jun 2024 10:33:16 +0800 you wrote:
-> If the kexec crash code is called in the interrupt context, the
-> machine_kexec_mask_interrupts() function will trigger a deadlock while
-> trying to acquire the irqdesc spinlock and then deactivate irqchip in
-> irq_set_irqchip_state() function.
-> 
-> Unlike arm64, riscv only requires irq_eoi handler to complete EOI and
-> keeping irq_set_irqchip_state() will only leave this possible deadlock
-> without any use. So we simply remove it.
+On Wed, 19 Jun 2024 14:47:15 -0700 you wrote:
+> An unintended consequence of commit 9c573cd31343 ("randomize_kstack:
+> Improve entropy diffusion") was that the per-architecture entropy size
+> filtering reduced how many bits were being added to the mix, rather than
+> how many bits were being used during the offsetting. All architectures
+> fell back to the existing default of 0x3FF (10 bits), which will consume
+> at most 1KiB of stack space. It seems that this is working just fine,
+> so let's avoid the confusion and update everything to use the default.
 > 
 > [...]
 
 Here is the summary with links:
-  - [V2,-fixes] riscv: kexec: Avoid deadlock in kexec crash path
-    https://git.kernel.org/riscv/c/c562ba719df5
+  - randomize_kstack: Remove non-functional per-arch entropy filtering
+    https://git.kernel.org/riscv/c/6db1208bf95b
 
 You are awesome, thank you!
 -- 
