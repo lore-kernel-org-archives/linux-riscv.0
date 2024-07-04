@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6B9C30653
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 16:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E160C3271F
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 16:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oXQW9ymtxe5qMgvDiInZZnmbovHAq2nBO1hNAZfv6Ps=; b=rIENgQuu9wJMF6
-	oQdja0DJXpdFJWycBDrwYAQ7S0dEwHDUQVeWqbtSkXVzVbGE6mhQnUBVVn1GnV7ZW2BjbrceisVVd
-	2Qk70+TypXrmTJqheYAmSRKrfdZFJCKtjokR+foHInFIl9/Q9BLevOAwZBV7xf5S3ffvY/cGgAl3X
-	Us4I3wTBlXs1s1TvJ/gThzl8Ysgvoe22nHLM0sOZqX2GXwQVBV5xi9EjRQ5RgaNfm4f9SChfyK5XC
-	htbXsWv1MwZXhNkHxX3kemYq1A3AF2edCPbaf9pVLTAkkLCGD8Od2ju1mk5GPj7WASo5XHWbUttHe
-	9T+JG1Ec46cUmxGXWJAw==;
+	List-Owner; bh=BJ54ODGGdz9HtP2jr9NTYHKlzZ4qdk3hM9RZPBT1uYA=; b=zYVJOFY5j/gIvm
+	abo2BC7CytoVBIlV+xs7+vZ0kIhX7n798uju/xA0dMWhVCuuOBxAtCle4tSJ9qLD2GXmTGMeHvaCh
+	XDK1DqABTH7QEOcSbY5caLPGmn0uN/EErLuHTF4oNB/MCnf57S93EmYxLm4UXJWvzj2FZ3AHiHCRL
+	DAhiAsWTKMAlWAA4sjhNOtGMFBFzeGXO2jjGRHCuCSe48T3jiDkWFFMkDQcsMeJUsHt5UWYuOwD2q
+	wV3ad7yWD3l2L2vgho5s0YFvwSrJJALA/Vb5+2Xvd+DQLPW191px4Wtm0WOka5SbC9GR4wB1gvHtL
+	gXJTCRS5mcDU8MpAUpXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPPHL-0000000DphD-06No;
-	Thu, 04 Jul 2024 16:25:51 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1sPPRm-0000000Dr85-0MRO;
+	Thu, 04 Jul 2024 16:36:38 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPPHH-0000000Dpfy-2hJ8
+	id 1sPPRh-0000000Dr6s-2aRB
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jul 2024 16:25:49 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 076E52000A;
-	Thu,  4 Jul 2024 16:25:41 +0000 (UTC)
-Message-ID: <4008aeca-352f-489e-ba07-7a11f5ab7ccb@ghiti.fr>
-Date: Thu, 4 Jul 2024 18:25:41 +0200
+	Thu, 04 Jul 2024 16:36:36 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E251A1C0003;
+	Thu,  4 Jul 2024 16:36:26 +0000 (UTC)
+Message-ID: <1cd452af-58cd-468c-9bb6-90f67711d0b0@ghiti.fr>
+Date: Thu, 4 Jul 2024 18:36:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/10] riscv: Implement cmpxchg32/64() using Zacas
+Subject: Re: [PATCH v2 03/10] riscv: Implement cmpxchg8/16() using Zabha
 Content-Language: en-US
 To: Andrea Parri <parri.andrea@gmail.com>,
  Alexandre Ghiti <alexghiti@rivosinc.com>
@@ -47,13 +47,13 @@ Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
 References: <20240626130347.520750-1-alexghiti@rivosinc.com>
- <20240626130347.520750-2-alexghiti@rivosinc.com> <Zn1Hwpcamaz1YaEM@andrea>
+ <20240626130347.520750-4-alexghiti@rivosinc.com> <Zn1StcN3H0r/eHjh@andrea>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <Zn1Hwpcamaz1YaEM@andrea>
+In-Reply-To: <Zn1StcN3H0r/eHjh@andrea>
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_092547_847483_9B8E37A0 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20240704_093633_962309_F84E41C7 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,87 +70,125 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
 
-On 27/06/2024 13:06, Andrea Parri wrote:
->> -#define __arch_cmpxchg(lr_sfx, sc_sfx, prepend, append, r, p, co, o, n)	\
->> +#define __arch_cmpxchg(lr_sfx, sc_cas_sfx, prepend, append, r, p, co, o, n)	\
+On 27/06/2024 13:53, Andrea Parri wrote:
+>> -#define __arch_cmpxchg_masked(sc_sfx, prepend, append, r, p, o, n)	\
+>> +#define __arch_cmpxchg_masked(sc_sfx, cas_sfx, prepend, append, r, p, o, n)	\
 >>   ({									\
->> +	__label__ zacas, end;						\
->>   	register unsigned int __rc;					\
->>   									\
->> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZACAS)) {			\
->> +		asm goto(ALTERNATIVE("nop", "j %[zacas]", 0,		\
+>> +	__label__ no_zacas, zabha, end;					\
+>> +									\
+>> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA)) {			\
+>> +		asm goto(ALTERNATIVE("j %[no_zacas]", "nop", 0,		\
 >> +				     RISCV_ISA_EXT_ZACAS, 1)		\
->> +			 : : : : zacas);				\
+>> +			 : : : : no_zacas);				\
+>> +		asm goto(ALTERNATIVE("nop", "j %[zabha]", 0,		\
+>> +				     RISCV_ISA_EXT_ZABHA, 1)		\
+>> +			 : : : : zabha);				\
 >> +	}								\
 >> +									\
->>   	__asm__ __volatile__ (						\
->>   		prepend							\
->>   		"0:	lr" lr_sfx " %0, %2\n"				\
->>   		"	bne  %0, %z3, 1f\n"				\
->> -		"	sc" sc_sfx " %1, %z4, %2\n"			\
->> +		"	sc" sc_cas_sfx " %1, %z4, %2\n"			\
->>   		"	bnez %1, 0b\n"					\
->>   		append							\
->>   		"1:\n"							\
->>   		: "=&r" (r), "=&r" (__rc), "+A" (*(p))			\
->>   		: "rJ" (co o), "rJ" (n)					\
+>> +no_zacas:;								\
+>>   	u32 *__ptr32b = (u32 *)((ulong)(p) & ~0x3);			\
+>>   	ulong __s = ((ulong)(p) & (0x4 - sizeof(*p))) * BITS_PER_BYTE;	\
+>>   	ulong __mask = GENMASK(((sizeof(*p)) * BITS_PER_BYTE) - 1, 0)	\
+>> @@ -133,6 +145,19 @@
 >>   		: "memory");						\
+>>   									\
+>>   	r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
 >> +	goto end;							\
 >> +									\
->> +zacas:									\
->> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZACAS)) {			\
+>> +zabha:									\
+>> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA)) {			\
 >> +		__asm__ __volatile__ (					\
 >> +			prepend						\
->> +			"	amocas" sc_cas_sfx " %0, %z2, %1\n"	\
+>> +			"	amocas" cas_sfx " %0, %z2, %1\n"	\
 >> +			append						\
 >> +			: "+&r" (r), "+A" (*(p))			\
 >> +			: "rJ" (n)					\
 >> +			: "memory");					\
 >> +	}								\
-> Is this second IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) check actually needed?
-> (just wondering - no real objection)
-
-
-To me yes, otherwise a toolchain without zacas support would fail to 
-assemble the amocas instruction.
-
-
->
->
 >> +end:;									\
-> Why the semicolon?
-
-
-That fixes a clang warning reported by Nathan here: 
-https://lore.kernel.org/linux-riscv/20240528193110.GA2196855@thelio-3990X/
-
-
->
->
 >>   })
->>   
->>   #define _arch_cmpxchg(ptr, old, new, sc_sfx, prepend, append)		\
->> @@ -156,7 +177,7 @@
->>   	__typeof__(ptr) __ptr = (ptr);					\
->>   	__typeof__(*(__ptr)) __old = (old);				\
->>   	__typeof__(*(__ptr)) __new = (new);				\
->> -	__typeof__(*(__ptr)) __ret;					\
->> +	__typeof__(*(__ptr)) __ret = (old);				\
-> This is because the compiler doesn't realize __ret is actually
-> initialized, right?  IAC, seems a bit unexpected to initialize
-> with (old) (which indicates SUCCESS of the CMPXCHG operation);
-> how about using (new) for the initialization of __ret instead?
-> would (new) still work for you?
+> I admit that I found this all quite difficult to read; IIUC, this is
+> missing an IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) check.
 
 
-But amocas rd register must contain the expected old value in order to 
-actually work right?
+I'm not sure we need the zacas check here, since we could use a 
+toolchain that supports zabha but not zacas, run this on a zabha/zacas 
+platform and it would work.
 
 
+>    How about adding
+> such a check under the zabha: label (replacing/in place of the second
+> IS_ENABLED(CONFIG_RISCV_ISA_ZABHA) check) and moving the corresponding
+> asm goto statement there, perhaps as follows? (on top of this patch)
+
+
+If that makes things clearer for you, sure, I can do that.
+
+
+>
+> Also, the patch presents the first occurrence of RISCV_ISA_EXT_ZABHA;
+> perhaps worth moving the hwcap/cpufeature changes from patch #6 here?
 >
 >    Andrea
+>
+> diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+> index b9a3fdcec919..3c913afec150 100644
+> --- a/arch/riscv/include/asm/cmpxchg.h
+> +++ b/arch/riscv/include/asm/cmpxchg.h
+> @@ -110,15 +110,12 @@
+>   	__label__ no_zacas, zabha, end;					\
+>   									\
+>   	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA)) {			\
+> -		asm goto(ALTERNATIVE("j %[no_zacas]", "nop", 0,		\
+> -				     RISCV_ISA_EXT_ZACAS, 1)		\
+> -			 : : : : no_zacas);				\
+>   		asm goto(ALTERNATIVE("nop", "j %[zabha]", 0,		\
+>   				     RISCV_ISA_EXT_ZABHA, 1)		\
+>   			 : : : : zabha);				\
+>   	}								\
+>   									\
+> -no_zacas:;								\
+> +no_zacas:								\
+>   	u32 *__ptr32b = (u32 *)((ulong)(p) & ~0x3);			\
+>   	ulong __s = ((ulong)(p) & (0x4 - sizeof(*p))) * BITS_PER_BYTE;	\
+>   	ulong __mask = GENMASK(((sizeof(*p)) * BITS_PER_BYTE) - 1, 0)	\
+> @@ -148,16 +145,20 @@ no_zacas:;								\
+>   	goto end;							\
+>   									\
+>   zabha:									\
+> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA)) {			\
+
+
+But we need to keep this check, otherwise it would fail to compile on 
+toolchains without Zabha support.
+
+
+> -		__asm__ __volatile__ (					\
+> -			prepend						\
+> -			"	amocas" cas_sfx " %0, %z2, %1\n"	\
+> -			append						\
+> -			: "+&r" (r), "+A" (*(p))			\
+> -			: "rJ" (n)					\
+> -			: "memory");					\
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZAZAS)) {			\
+> +		asm goto(ALTERNATIVE("j %[no_zacas]", "nop", 0,		\
+> +				     RISCV_ISA_EXT_ZACAS, 1)		\
+> +			 : : : : no_zacas);				\
+>   	}								\
+> -end:;									\
+> +									\
+> +	__asm__ __volatile__ (						\
+> +		prepend							\
+> +		"	amocas" cas_sfx " %0, %z2, %1\n"		\
+> +		append							\
+> +		: "+&r" (r), "+A" (*(p))				\
+> +		: "rJ" (n)						\
+> +		: "memory");						\
+> +end:									\
+>   })
+>   
+>   #define __arch_cmpxchg(lr_sfx, sc_cas_sfx, prepend, append, r, p, co, o, n)	\
 >
 > _______________________________________________
 > linux-riscv mailing list
