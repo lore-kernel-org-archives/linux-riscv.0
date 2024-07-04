@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078DCC30653
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 17:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A4E7C30653
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 18:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=km3WmPuCZibNFnOw/zDyO5ddCDxftDID4/FZ1fiAOXw=; b=3/h1FVmX+2m+Yc
-	xPzp7iRdTTDASJTgLtdNr2y5Bu+yk3DYEGr9rRiTOqib1rjFcSDTnZyPEOprzOio7vlrSrwHK4UXE
-	FJmp/KphQeCJ1F8jMAQduA6q5LYJiyWaRecM8hGqVXw63c9eGKt3TzhDdxBtgMQwPNlMJxpUh4OPG
-	3v86QL8R4f8kbVntBG+xqPB/vur0At2X16q0KqjJ7BfyLTRYmmAYa1O2pKdQ9hQnzimn71okgHi3G
-	UyxStr2yLtGydLei4NzIcdfWk/fWW6g3R7tR93ZIvQnh5GNb0hIadudOeqx6OpnNrP58POX1yVypJ
-	lqGAs4MSvvgD7pe3kLyg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eUSTT1Cz5nP6qMt9Fn+Gqjk0fM6K+jr9QZE72vTG1Go=; b=S3Di8LTCIqnvCF
+	WdLrDIsULalwTbDuBTJvElMjJjMNoPmN5ya9dyQR7YUDMyFEUWb39xLV1VsOrp3srIyuEJ1kplrPB
+	IlO40ryTbKRlaJUB6WsZSl8P3uQQvkxRcswhG+6uMMyd663hxdGtyqc8ON1H7klD9tQwJDvWgPx82
+	s7S3nYK0gXCFDPZZfx5tn/gqSq+RypbUPf904f9qzN5xKaZSdm2tqid6d8PLyYfd/wcl5NRGtTpjC
+	2TC8eD7UG+aQLO4Stm9Z0rmlFeACfNSen6eN+CJEDYLAzfqqJYuuRvHIPhwyBN6Xh1oVr4PMJG1NB
+	VwVOhuy/mImsu9jXvpCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPQe7-0000000E5Nf-34SP;
-	Thu, 04 Jul 2024 17:53:27 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1sPQxR-0000000E7m1-0PZK;
+	Thu, 04 Jul 2024 18:13:25 +0000
+Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPQe4-0000000E5MZ-2Gw8
+	id 1sPQxO-0000000E7kj-2ocV
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jul 2024 17:53:26 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1fb222a8eaeso6527175ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jul 2024 10:53:24 -0700 (PDT)
+	Thu, 04 Jul 2024 18:13:24 +0000
+Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-7034d975f18so364175a34.3
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Jul 2024 11:13:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1720115603; x=1720720403; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8uryZ79GMK3Hbevhm1GUwmInwdQUDjClI1eiCDdIwGw=;
-        b=r3gCgqtqWGjavOlgCmgmHDwEXn/1VYRCzqZSNBwElabJBnDL892vTlttLASrqlGE3U
-         tyddgOfVi4OLnDlfq5SFS5/ipTST5reNx6Y5y2TN0XRnD4XCC4O0KidLpKnSoh+reu6l
-         HYYk7R7/GkkelKDkQFsnv4m2Yoxt7BQPRJgpFGmRT7tDqpJPx6rBpbniz7iT0+atZKZ2
-         wDsY2nT1ZYbXJk6O9YWyhuMpIg5VdhRaT/SdpsMgzld2ZtzSSwxFthx8434ZEHZAUo6j
-         /eklB+lJ5N6JIT3mwf/WqWLDvj+Vh118aNoUb88zao6Ib66uh7Vj31HXlLvOto+fiuLK
-         S/+w==
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1720116801; x=1720721601; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=R1zfXTojJsKe3wzSJXZA6AZrGX/lJFvmn/u+9Krof3k=;
+        b=nI0K9mf9E4qaFKLplwlbAPavbO6bJvAZBgI8dC467RjaXq/RJH9llyxGqrVPqd5t7D
+         J4uemXGL+5p2zpXv+XV1WhGMZmQapbkUKYNXNI0Q1w4tkW871oLBrSe3DdWpGlHQzkc4
+         Jaa1gYH//f/9hViMKKB8AlCuQ3RHhHrEh2TMgOvGXvm5CHo2aBdJXbjaQJ/TjGQrZaZr
+         Iv3LJOTmcr01j0SwDtX1Ev4MCkkEqefw5aseUc6tz/J+Z1rzLzubhj6Te3fUI/c/G5NO
+         RNTnDESNkaLsGB7KNEk4vAuiUqj3506fvGfnPrES4MnvXkisncysd7bKUPa0ZHI0X8j8
+         dkEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720115603; x=1720720403;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8uryZ79GMK3Hbevhm1GUwmInwdQUDjClI1eiCDdIwGw=;
-        b=G359nBbRSQBAg2La3x3kfMphs0QuH5P3lM279JaN2RW1aPnJY5KiA2bETQd3+6QRDu
-         EW8/8aGgnURt7XMr8+W8xqhaBDAdJG0Va6/Aqhxml0ZeE6L2LywPwVhPV3rz1Ah1ICYl
-         okwbfYDVu2famCAXHzk/Ua0O0hIIKEQ9ZQd4HXg3u5TLbMTW2pJVh/hPPIQIHv2g0Bzv
-         oGjgEnf4yfv8M/4CpDGiLiQa9ixddMyKJ71/h98FANCIX98twycopFQ0+KpEJBOUmzqa
-         6uBWUrmnndQoVW9peiBksEeBIa5cKCCyJNpnX+wWkUPIUaMN+1KvMPiP4K9GVCvbtvFx
-         g0dw==
-X-Forwarded-Encrypted: i=1; AJvYcCXtBJSEYtErjNX50Qn+7VX/C21oo4h8aik3TxopRRmef76iu9WkBx/kvkzgRJagXuh8kA5RhNFrvxSagiOFdhGjGPkdHSgJOE5j9PvI/OrB
-X-Gm-Message-State: AOJu0YyTX4Hjeab+VmvjkaL2amz2M+PMcfSeHqRvk+BJpdt2MNapk3zh
-	nIBMRjd0M+RVJ5a0gny/ZuQhlZrvApl5WXKJ5pMRE4QpbTdKEvqR2zWyqSS82dg=
-X-Google-Smtp-Source: AGHT+IHr2Ly4uGxHjqpvelPSNVZYUdi1gXcvcSsc8YvBTQFpKVrUUJwR8TdaP1EKvh1cnQR14j81oQ==
-X-Received: by 2002:a17:903:192:b0:1fa:cec7:9a9d with SMTP id d9443c01a7336-1fb33e0de4cmr17233465ad.15.1720115603590;
-        Thu, 04 Jul 2024 10:53:23 -0700 (PDT)
-Received: from x1 ([2601:1c2:1802:170:8756:5e46:4951:e2d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fb3dbd7dcdsm10711545ad.157.2024.07.04.10.53.22
+        d=1e100.net; s=20230601; t=1720116801; x=1720721601;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=R1zfXTojJsKe3wzSJXZA6AZrGX/lJFvmn/u+9Krof3k=;
+        b=RzG6sD1NkCKmU7bbpEZKhw1K/G4M+IiLd4Hc8VKJw5XDHoRhmU/scF0TqpGJ2pk6gt
+         sKkxRfxqPAUeqP7Zr6JEPK5Ub6kNS7NhTGDgxPeoyO1tSnlUzliwVCpRaVcdFWA0Xh1C
+         PYTKiunB0loS1+aeFlGQfYmRkNdWNW4xOJ2R7GkYcAzY+ILU4EQhD0Qfc2KeDh+PG8Tz
+         e5lRXTp64LM8ZlIR9gpLiZE6A4XWK2RrcDH7cZwAG/pnDL9oQ7yBQl852wCmyedjP48W
+         bjM8FBLNxeOxMC4YsQMl0ZwTmgwv/uDYp3VTiTjYSBwslIymB5X9YjMtCAv7Jax0U11c
+         keCA==
+X-Gm-Message-State: AOJu0Ywlt3IJQx4k719N+ZobrJmeo5dmb92YPp+YMWR97uf2Fte6cXnS
+	fAn7FPZBaPhAMU9t6xKnlQ6pHAdn5IIpGwpJVCTJxghfkNemQqwi20IfXkR8jfqmWI8ePUmtmtX
+	8
+X-Google-Smtp-Source: AGHT+IECInmMyw8Royp+E9lIm6aV35f6xO/4XHeeEgDRWi71l+BBUa5MaOnn/GnWrwUqYtT3LbrnHw==
+X-Received: by 2002:a05:6870:b523:b0:24f:ebcd:6aa9 with SMTP id 586e51a60fabf-25e2b8cf1f8mr2162512fac.1.1720116801683;
+        Thu, 04 Jul 2024 11:13:21 -0700 (PDT)
+Received: from x1.hsd1.or.comcast.net ([2601:1c2:1802:170:8756:5e46:4951:e2d])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-72c6d100ea3sm10049195a12.78.2024.07.04.11.13.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jul 2024 10:53:23 -0700 (PDT)
-Date: Thu, 4 Jul 2024 10:53:21 -0700
+        Thu, 04 Jul 2024 11:13:21 -0700 (PDT)
 From: Drew Fustini <drew@pdp7.com>
-To: Drew Fustini <pdp7pdp7@gmail.com>
-Cc: Conor Dooley <conor@kernel.org>,
-	Kanak Shilledar <kanakshilledar@gmail.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] riscv: dts: thead: add basic spi node
-Message-ID: <Zobhkf5qr13rKcWH@x1>
-References: <20240701121355.262259-2-kanakshilledar@gmail.com>
- <20240701121355.262259-5-kanakshilledar@gmail.com>
- <20240703-juice-refreeze-62c468a56ea5@spud>
- <ZobU6K/R3pfHrK9c@x1>
+To: soc@kernel.org
+Cc: linux-riscv@lists.infradead.org,
+	Drew Fustini <drew@pdp7.com>
+Subject: [PATCH v2] MAINTAINERS: thead: add git tree
+Date: Thu,  4 Jul 2024 11:09:17 -0700
+Message-Id: <20240704180913.2516959-1-drew@pdp7.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZobU6K/R3pfHrK9c@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_105324_602805_AAB96788 
-X-CRM114-Status: GOOD (  34.79  )
+X-CRM114-CacheID: sfid-20240704_111322_729034_CA8CA926 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,76 +91,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 04, 2024 at 09:59:20AM -0700, Drew Fustini wrote:
-> On Wed, Jul 03, 2024 at 03:45:37PM +0100, Conor Dooley wrote:
-> > Kanak, Drew,
-> > 
-> > On Mon, Jul 01, 2024 at 05:43:54PM +0530, Kanak Shilledar wrote:
-> > > created spi0 node with fixed clock. the spi0 node
-> > > uses synopsis designware driver and has the following
-> > > compatible "snps,dw-apb-ssi". the spi0 node is connected
-> > > to a SPI NOR flash pad which is left unpopulated on the back
-> > > side of the board.
-> > > 
-> > > Signed-off-by: Kanak Shilledar <kanakshilledar@gmail.com>
-> > > ---
-> > > Changes in v2:
-> > > - Separated from a single patch file
-> > > ---
-> > >  .../boot/dts/thead/th1520-beaglev-ahead.dts      |  9 +++++++++
-> > >  .../boot/dts/thead/th1520-lichee-module-4a.dtsi  |  4 ++++
-> > >  .../riscv/boot/dts/thead/th1520-lichee-pi-4a.dts |  5 +++++
-> > 
-> > Didn't you say there was a flash on one of these two boards?
-> > 
-> > >  arch/riscv/boot/dts/thead/th1520.dtsi            | 16 ++++++++++++++++
-> > >  4 files changed, 34 insertions(+)
-> > > 
-> > > diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> > > index d9b4de9e4757..3103b74e0288 100644
-> > > --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> > > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> > > @@ -17,6 +17,7 @@ aliases {
-> > >  		gpio1 = &gpio1;
-> > >  		gpio2 = &gpio2;
-> > >  		gpio3 = &gpio3;
-> > > +		spi0 = &spi0;
-> > 
-> > "spi" would sort after "serial".
-> > 
-> > >  		serial0 = &uart0;
-> > >  		serial1 = &uart1;
-> > >  		serial2 = &uart2;
-> > > @@ -52,6 +53,10 @@ &sdhci_clk {
-> > >  	clock-frequency = <198000000>;
-> > >  };
-> > >  
-> > > +&spi_clk {
-> > > +	clock-frequency = <396000000>;
-> > > +};
-> > 
-> > I'm pretty sceptical about adding more of these fixed clocks, rather
-> > than waiting for the clock driver. Drew, what do you think? Should we
-> > just add one more to your fixup list or would you rather delay? Guess it
-> > depends on how long more you think that clock driver is likely to take.
-> 
-> I think the clk driver [1] is in good shape but it has not been reviewed
-> by the clk maintainer yet. Thus it is hard to predict any timeline for
-> it getting merged.
-> 
-> SPI support doesn't require any driver changes so I'd be inclined to
-> allow the fixed clock in this case. It will be simple to change it over
-> to a real clock once the clk driver is upstream.
-> 
-> Acked-by: Drew Fustini <drew@pdp7.com>
-> 
-> Thanks,
-> Drew
+Add git tree for T-Head device tree files and, in the future, drivers for
+the T-Head TH1520 SoC.
 
-Sorry, I meant to include the link to the most recent clk series:
-https://lore.kernel.org/linux-riscv/20240623-th1520-clk-v2-0-ad8d6432d9fb@tenstorrent.com/
+Signed-off-by: Drew Fustini <drew@pdp7.com>
+---
+Changes from v1:
+- Add exclusion for thead in the RISC-V MISC SOC SUPPORT entry so that
+  there are not two git trees covering the same platform
 
--Drew
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 120351e41ef7..503d2bd5caef 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19306,6 +19306,7 @@ F:	arch/riscv/boot/dts/
+ X:	arch/riscv/boot/dts/allwinner/
+ X:	arch/riscv/boot/dts/renesas/
+ X:	arch/riscv/boot/dts/sophgo/
++X:	arch/riscv/boot/dts/thead/
+ 
+ RISC-V PMU DRIVERS
+ M:	Atish Patra <atishp@atishpatra.org>
+@@ -19322,6 +19323,7 @@ M:	Guo Ren <guoren@kernel.org>
+ M:	Fu Wei <wefu@redhat.com>
+ L:	linux-riscv@lists.infradead.org
+ S:	Maintained
++T:	git https://github.com/pdp7/linux.git
+ F:	arch/riscv/boot/dts/thead/
+ 
+ RNBD BLOCK DRIVERS
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
