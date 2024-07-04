@@ -4,116 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534B2C30653
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 08:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C44C30653
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 08:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JAaVhnoSX33OSSgOY+BQeLs7KCiCENlLH2n2LfuVod4=; b=plj+8LVH8B7zul
-	Ws3Cz9H+oJiMzjwYnh+rBE+mrEm18mEC+4ic9YCYCjkmIxzOzb8pHA1STN1OCHZjCi3mwCuzoLloF
-	oOQQbsO+rtRc4YsIqNKcjnmYdKHQIHJ3DZXEVjVWIfqLfZ/s19V4X8sDUsJa9d9+vqYL7Bstmt3hh
-	PwP3gLBFUfZbKQC8CAcbmjdNHF1HCICpoSze7NRg6QqamySSNm4A8VYePNZDTLDbjI325mbbxj292
-	k7g5yxUbUWEN6SCtrnSRxctrwXg5fSvKCEFvW51yIgCEIuUg0Pkkz05g/oT30P1Wsm4Nqa0sF4Ecc
-	3LhkPXu+5f/VeO9Vd1XA==;
+	List-Owner; bh=HPHtmbCx/D/XahPPN82xxdInBFOEcrLqD1BuHpkucz8=; b=GeSMIoTA+GELkj
+	OtPF2WUlECeQItkOA+1S13nI7TocTthuzOngp0cIuEvgFfHIKB8pdmjkH4lg0toEXvSz+eSfmmVwr
+	AF2ITYdsukGpr/CL8FFoXL/HTWH0YnfqhaqweAQHiOrsqG/NafNQYFUizfjrWwzH/Hck9OA5RvyQ0
+	9Mi2xGKd0gCL+QCFFGLEVQPvpQkczyzZsjDiJNezFYUI/3eVJPfo525FfE12wSvU69AqHmIDgeb3h
+	aB+8J5ZWV5HBjzR06eCkBQrA8Y1TL2c1UDyhVpJCzG6ZM67BeaHeIHFtGCkSXCv01x7FptTFHrTUh
+	H5w/fpsJa9FZD28Zfp0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPI2K-0000000Ccd9-3vAj;
-	Thu, 04 Jul 2024 08:41:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sPICL-0000000CeKl-41uK;
+	Thu, 04 Jul 2024 08:52:13 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPI2H-0000000CccD-3097
+	id 1sPICI-0000000CeKB-1euQ
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jul 2024 08:41:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 512CB62573;
-	Thu,  4 Jul 2024 08:41:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30918C3277B;
-	Thu,  4 Jul 2024 08:41:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720082508;
-	bh=Sau6sfpL8YENzLqulrYTW3c5o0opYWelOaoKQ6Xul0w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lTDk1Bn/swFidPHgAbv4aU/XRXRGAiGXXiLjNU7aJSlta56Gp81ZTZfFHWB8EKASc
-	 80whYvfFt7BFitqrMNQtpaoT9uCTeLvnxyKmk7EfVHgKSxH/gDWB6/3i6S7IctKHav
-	 1Q6JMKtM2Udx8TlrfysBHLekLS2kUkZx16p4FL8cmgqAxb1fgCc9I2H62Z7GZV8rhw
-	 pdyDOOH0XcDAkZ6nzhzK6u7OYKCSmApcpVehzstlYzzXoUstD3zIFS35IZA4IWF/1K
-	 VlbnWWOsx6CXb2T9pAqQ+KtsdLN7/KYVAx3DFe6fyQPcY7m+iSgwUg4B9KfiDL6rCH
-	 IRWtJSgQ2xHYA==
-Message-ID: <b5a056f1-a733-4d8b-94ad-49489ff26da2@kernel.org>
-Date: Thu, 4 Jul 2024 10:41:39 +0200
+	Thu, 04 Jul 2024 08:52:12 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9E3BF60014;
+	Thu,  4 Jul 2024 08:52:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1720083127;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IDKEjeOdgfEzXewLaWpZ2kvSxdcVTfMIj4W1FAZEaKo=;
+	b=QvbeuyiHV0xdNYQtUPU5sR8XmOZ4dwHKnjvtXtTTlYa4aTJuaZvsZXv5tV8mVUsn7E+PM9
+	yOvzG3rLiaOvFXIxA6qeyO/gBdOnhxLhe2Y3Irv8/dm2aL25YSxD+xaQuO7ml2C37ot5pC
+	5ez3laFbifKSS35JPIhrioDcGeMiih1M4zJ26WldmiczpHxGQskCWubzfX7Ry+GCby4qmh
+	DPRo4tk419q5PaxSDcFWOh8o1yWsNjzTJtcrNCur1x9JjFTusyYdMG/dIphN+TPur/DHo3
+	EdowHlLe0K7KraEFSfWvc0ZgBVWX4vq3GqgM2BdacqnZ5u7IB46ImBqDgSfDEA==
+Message-ID: <0d50df10-4b4e-47c4-930f-cd8f645a7e2d@bootlin.com>
+Date: Thu, 4 Jul 2024 10:52:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: thermal: sophgo,cv1800-thermal: Add
- Sophgo CV1800 thermal
-To: Haylen Chu <heylenay@outlook.com>, Conor Dooley <conor@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto <inochiama@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jisheng Zhang <jszhang@kernel.org>, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml: Add
+ Sophgo SARADC binding documentation
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicorn_wang@outlook.com>,
+ Conor Dooley <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ Lars-Peter Clausen <lars@metafoo.de>, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
-References: <SEYPR01MB42213F3A032C60C6AF5EB677D7DC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <SEYPR01MB42217228213F5F2C739088DED7DC2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
- <20240702-aptitude-overripe-8ac9aa3c6b90@spud>
- <d4b71376-2864-45af-8ad9-92c8a7cde291@kernel.org>
- <SEYPR01MB4221C23C14DB53299E2E2F12D7DE2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+References: <20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com>
+ <20240702-sg2002-adc-v1-1-ac66e076a756@bootlin.com>
+ <b7913f90-7405-4a77-9c57-97ef124de6e1@kernel.org>
+ <8d368347-7cee-41af-a033-c495eeb62e2a@bootlin.com>
+ <577a5623-6dd8-4229-9c07-61e131a01aa8@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <SEYPR01MB4221C23C14DB53299E2E2F12D7DE2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com>
+From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+In-Reply-To: <577a5623-6dd8-4229-9c07-61e131a01aa8@kernel.org>
+X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_014149_888816_EF198F2C 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20240704_015210_772189_6525B198 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,91 +81,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 04/07/2024 10:25, Haylen Chu wrote:
-> On Tue, Jul 02, 2024 at 05:09:35PM +0200, Krzysztof Kozlowski wrote:
+
+
+On 7/4/24 10:39 AM, Krzysztof Kozlowski wrote:
+> On 04/07/2024 10:35, Thomas Bonnefille wrote:
+>> Hello Krzysztof,
+>> Thank you for your feedback
+>>
+>> On 7/3/24 7:08 AM, Krzysztof Kozlowski wrote:
+>>> On 02/07/2024 13:52, Thomas Bonnefille wrote:
+>>>> The Sophgo SARADC is a Successive Approximation ADC that can be found in
+>>>> the Sophgo SoC.
+>>>>
+>>>> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+>>>> ---
+>>>>    .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     | 51 ++++++++++++++++++++++
+>>>>    MAINTAINERS                                        |  5 +++
+>>>>    2 files changed, 56 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+>>>> new file mode 100644
+>>>> index 000000000000..21fd5dc8e24e
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.yaml
+>>>> @@ -0,0 +1,51 @@
+>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>>> +%YAML 1.2
+>>>> +---
+>>>> +$id: http://devicetree.org/schemas/iio/adc/sophgo,cv18xx-adc.yaml#
+>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>> +
+>>>> +title: Sophgo 3 channels Successive Approximation Analog to Digital Converters
+>>>> +
+>>>> +maintainers:
+>>>> +  - Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+>>>> +
+>>>> +description:
+>>>> +  Datasheet at https://github.com/sophgo/sophgo-doc/releases
 >>>> +
 >>>> +properties:
 >>>> +  compatible:
->>>> +    enum:
->>>> +      - sophgo,cv1800-thermal
->>>> +
->>>> +  reg:
->>>> +    maxItems: 1
->>>> +
->>>> +  clocks:
->>>> +    description: The thermal sensor clock
->>>> +
->>>> +  interrupts:
->>>> +    maxItems: 1
->>>> +
->>>> +  accumulation-period:
->>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>> +    description: Accumulation period for a sample
->>>> +    enum:
->>>> +      - 512
->>>> +      - 1024
->>>> +      - 2048
->>>> +      - 4096
->>>> +    default: 2048
->>>> +
->>>> +  chop-period:
->>
->> period in what sort of units? Sounds like time to me, so this would
->> require proper unit suffix.
-> 
-> In clock ticks.
-
-Then please mention it in the property description.
-
-> 
-> When setting to 1024, a time of sample takes (1024 + 2 + 64) clock
-> ticks. The clock runs at (25MHz / divider) and the divider is
-> configurable.
-
-> 
+>>>> +    const: sophgo,cv18xx-saradc
 >>>
->>>> +    description: Period between samples. Should be greater than 524us.
->>>
->>> The constraint here should be "minimum: 524". What's the upper limit?
->>>
->>>> +    default: 1000000
->>>
->>> Rob/Krzysztof, could you comment on the suitability of the three custom
->>> properties here? I know if this was an IIO device, these kinds of things
->>> would be controllable from userspace, and not in the binding. I
->>> mentioned this on the previous version, but I'm not really sure if
->>> thermal devices are somehow different:
->>> https://lore.kernel.org/all/SEYPR01MB4221A739D0645EF0255336EBD7CE2@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+>>> Except that this was never tested... wild-cards are generally not allowed.
 >>>
 >>
->> Why would different boards have different values here? Does it affect
->> accuracy? If so, how much?
+>> I realized I made a mistake when using the "make dt_binding_check"
+>> command, which led to some errors in this dt_binding. I have now
+>> addressed all of them, but I'm not sure I understand your comment.
 >>
->> I doubt there are any boards with different values, thus it sounds like
->> unnecessary tuning parameter.
+>> I don't see any wildcards in the YAML file. Could you please provide
+>> more details on what you expect?
 > 
-> Theses values affect accuracy in a minor way (about 1 Celsius degree in
-> my test) and could be shared between CV18xx/SG20xx SoCs as they have the
-> same design.
+> What is "xx"? Sounds like wildcard. I do not see such SoC compatible.
 > 
-> In the first revision, fixed values are used, and I was asked to add
-> support for all possible configuration[1]. Now I think this introduces
-> extra unnecessary complexity and should be avoided, since this is a
-> simple thermal sensor, tuning seems to be useless.
+
+The point of cv18xx is to have a single compatible for all SoCs of the 
+cv18xx series from Sophgo (cv1800b, cv1812h but also sg2000 and sg2002). 
+I used that as a reflection of the cv18xx.dtsi used for all those SoCs.
+
+Should I create multiple compatible for all the SoCs of a same brand ?
+
+> Best regards,
+> Krzysztof
 > 
-> I suggest renaming "sample-cycle-us" to "sample-rate-hz" and dropping
-> other parameters for simplicity.
-
-Ack for me.
-
-Best regards,
-Krzysztof
-
 
 _______________________________________________
 linux-riscv mailing list
