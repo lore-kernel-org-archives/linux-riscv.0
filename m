@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C7DC3271F
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 21:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DEFC30653
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 21:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WVOdO4BO7oK13HUNbTXB9dUydgVz4Afu0zuEW0UVcxQ=; b=jf9f2QnX+0DPt5
-	dTEnVyN47+ysyHcidHsugieu1UaBt995g0dLCE+bCLBIf2JEJbcUQrv3q/YQy9ZO1A7Brsya/uDIJ
-	gt7bHOmrdCuXilBfwdHaLgLv49unSpr16SkiuIaHA7C9+dca07YoD7Dfq1RleSnaP+LMbPQjWWYse
-	P1BD59LTOG2YIP8nAZi8m3ATF5+Xb8d/GO60mB2+hEluQEKvbsZ3Ec9pNemAyOygrEyAVayIYwr72
-	/STADO54Yr0dRM0yO/b6rsOIEf+mV0ybJ+LlAC9PtUNEJQWSd9czIp993bW7q8+EPHZkMAleRtnAn
-	aXftisXXiI8LP4FsLWpg==;
+	List-Owner; bh=lB16bPLYeDONvcTzPpsRXIyvgO13csOhwPHD7YijYDc=; b=oH58n2OyQms0fA
+	SNQKBYIIM7rMhh8VQm2Gfyl4jsQYhEYlyNGmQ5Q8U/JuJrVEuvWwlEB84R+MzSqO/GO8a1ajI0c+Q
+	HzykNlYYFf9qGUii6PKQ1cfGtlKTFYMeUyzGzgs1ycDqN9RRCpHOpkjsScPcngaMSMUITLPfgC4RZ
+	IUNdkXoI7ymAk+aLIKpFphY/5mbS5Au6DOzBpKyv63uI8/GexCyZLuwjPHuSZkowDc6+x+olKCPIR
+	Y1Z9FMOhCF3vtvDrgorR+HuM+7Yy9TOI6DLcJFVq+exdz5DYf/V9D4JRjwdpVsfrHOlro9mZc4BYL
+	Vhlv2mSYx/Ke9uL7Xb8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPU3w-0000000EQuw-48v8;
-	Thu, 04 Jul 2024 21:32:20 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1sPU5g-0000000ER99-0p4D;
+	Thu, 04 Jul 2024 21:34:08 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPU3s-0000000EQtr-1dN5;
-	Thu, 04 Jul 2024 21:32:18 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id BD86AFF802;
-	Thu,  4 Jul 2024 21:32:03 +0000 (UTC)
+	id 1sPU5b-0000000ER88-0pCQ;
+	Thu, 04 Jul 2024 21:34:05 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2FECD240006;
+	Thu,  4 Jul 2024 21:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1720128729;
+	t=1720128840;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Rey18xTlnMgOgIPL25ImB7B15sMWYzxAsvnHNthV5S0=;
-	b=S0JEVBhI3tfc5ntPMObRrKKeyUXsGRrO+dmrSHHiA/CXiaTrDzUnuWN/8RLan/W8yEPBYy
-	WTaC4P67s78ijbrvczP1KnuPtKQbrRcwlYEqUPZPpZW0nhX/siqNP/GhziUB79nYOQPi8r
-	PhP0fpq9va52mSjevxSqg9gaf/S2Ukug9XtKh8mzSUYLpNZp80MAwL96mMkrYY7WNzzmay
-	5AT/X7DCWHP8tVhsE6o3C1PHb0Q9g3z2DXN4uHMidHU5Rwoaz4Y/LepANuZA6Uuvs21L3L
-	95mP/Ounvba0aITTStBPv4Esd+fhuzK/5YdBxhSIiG700JAP0NMtF9NGxcnshQ==
-Date: Thu, 4 Jul 2024 23:31:55 +0200
+	bh=q5IBUlpk519TSgD6Osr1ZyaFchjMZnggQfjeK80Zda4=;
+	b=OW87YyqxfC/aisrIaK1t9t5rNi1tv8W2h+PNzPy/mbY2MLmPV40lXp/tAQHoWvKu4AWsjJ
+	t1azANkvi0z3C8c1zRY+dEwMFTe4IitMjntGqs0weShRTHE6S9YLuTRM50bq5PQggOGH3h
+	VTb1TQxTb2kbXJ5aFHoZUbrXoTHiCyUiMq8h02kLT12CEGs/CoF9H4DdX4VqNE0u4czR5l
+	eyYcAzvCetxJAj9pUcmrGPPibpICDtqgs90easLdjOXXyAP4rPd46IcoQOzY7rAZwcoezR
+	bPShL3nDBJRC3irR8YI4aF7W8jyTpxGZxv27dKpKX4ap2xqwkURoZOagKsVprQ==
+Date: Thu, 4 Jul 2024 23:33:46 +0200
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
 To: Rob Herring <robh@kernel.org>
 Cc: Miguel Ojeda <ojeda@kernel.org>, Saravana Kannan <saravanak@google.com>,
@@ -75,18 +75,20 @@ Cc: Miguel Ojeda <ojeda@kernel.org>, Saravana Kannan <saravanak@google.com>,
  linux-usb@vger.kernel.org, patches@opensource.cirrus.com,
  linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
  linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 00/20] Simplify of_property_for_each_u32()
-Message-ID: <20240704233155.61b5323c@booty>
-In-Reply-To: <20240703180742.GB1245093-robh@kernel.org>
+Subject: Re: [PATCH 20/20] of: deprecate and rename
+ of_property_for_each_u32()
+Message-ID: <20240704233346.478431f8@booty>
+In-Reply-To: <20240703180111.GA1245093-robh@kernel.org>
 References: <20240703-of_property_for_each_u32-v1-0-42c1fc0b82aa@bootlin.com>
-	<20240703180742.GB1245093-robh@kernel.org>
+	<20240703-of_property_for_each_u32-v1-20-42c1fc0b82aa@bootlin.com>
+	<20240703180111.GA1245093-robh@kernel.org>
 Organization: Bootlin
 X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_143216_754211_ABAD456A 
-X-CRM114-Status: GOOD (  29.92  )
+X-CRM114-CacheID: sfid-20240704_143403_559205_6852B29B 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,63 +107,47 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello Rob,
 
-On Wed, 3 Jul 2024 12:07:42 -0600
+On Wed, 3 Jul 2024 12:01:11 -0600
 Rob Herring <robh@kernel.org> wrote:
 
-> On Wed, Jul 03, 2024 at 12:36:44PM +0200, Luca Ceresoli wrote:
-> > [Note: to reduce the noise I have trimmed the get_maintainers list
-> > manually. Should you want to be removed, or someone else added, to future
-> > versions, just tell me. Sorry for the noise.]
+> On Wed, Jul 03, 2024 at 12:37:04PM +0200, Luca Ceresoli wrote:
+> > of_property_for_each_u32() is meant to disappear. All the call sites not
+> > using the 3rd and 4th arguments have already been replaced by
+> > of_property_for_each_u32_new().
 > > 
-> > This series aims at simplifying of_property_for_each_u32() as well as
-> > making it more difficult to misuse it in the future.
+> > Deprecate the old macro. Also rename it to minimize the number of new
+> > usages and encourage conversion to the of_property_for_each_u32_new() macro
+> > in not(-yet)-upstream code.
 > > 
-> > The long-term goal is changing this pattern:
+> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 > > 
-> >   struct property *prop;
-> >   const __be32 *p;
-> >   u32 val;
-> >  
-> >   of_property_for_each_u32(np, "xyz", prop, p, val) { ... }
+> > ---
 > > 
-> > to this:
+> > Notes:
 > > 
-> >   u32 val;
+> >  * The following files have not been build-tested simply because I haven't
+> >    managed to have a config that enables them so far:
 > > 
-> >   of_property_for_each_u32(np, "xyz", val) { ... }
+> >      drivers/irqchip/irq-pic32-evic.c
+> >      drivers/pinctrl/pinctrl-k210.c
 > > 
-> > So, removing the 3rd and 4th arguments which are typically meant to be
-> > internal. Those two parameters used to be unavoidable until the kernel
-> > moved to building with the C11 standard unconditionally. Since then, it is
-> > now possible to get rid of them. However a few users of
-> > of_property_for_each_u32() do actually use those arguments, which
-> > complicates the transition. For this reason this series does the following:
+> >  * These have not been converted yet as they are not trivial, and they will
+> >    need to use a more specific function that does the lookup they need and
+> >    returns the result:
 > > 
-> >  * Add of_property_for_each_u32_new(), which does not have those two
-> >    arguments (patch 1)
-> >  * Convert _almost_ every usage to of_property_for_each_u32_new()
-> >  * Rename of_property_for_each_u32() to of_property_for_each_u32_old() and
-> >    deprecate it, as a incentive to code not (yet) in mainline to upgrade
-> >    to the *_new() version (last patch)  
+> >      drivers/clk/clk-si5351.c  
 > 
-> I don't really see the point of introducing the _old variant. Let's get 
-> this done in one step.
-> 
-> > 
-> > The plan for the next series is to additionally:
-> > 
-> >  * Convert the few remaining of_property_for_each_u32_old() instantes to
-> >    of_property_for_each_u32_new()
-> >  * Remove of_property_for_each_u32_old()
-> >  * Rename of_property_for_each_u32_new() to of_property_for_each_u32()  
-> 
-> Honestly, I think there's few enough users we could just convert the 
-> whole thing in one patch. It's all got to go thru 1 tree anyways. If 
-> there's new cases in -next, then I'd be happy to send it to Linus at the 
-> end of the merge window.
+> I would do something like this:
 
-Sure, make sense. I'll need to convert the few remaining users, then
-I'm sending a squashed v2.
+Thanks for the suggestions.
+
+I literally did not even try to look at what the code does in these few
+places, and still haven't, simply due to time availability. But I wanted
+to get a first series out as soon as possible as it would probably be
+useful to Peng [0]. Yours will be a good starting point for when I
+tackle those few remaining usages of the "old" macro. Thanks.
+
+[0] https://lore.kernel.org/all/20240628161617.6bc9ca3c@booty/
 
 Luca
 
