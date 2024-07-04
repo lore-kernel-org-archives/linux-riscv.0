@@ -4,56 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E6FC3271F
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 17:51:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078DCC30653
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 17:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x8ncty7bK+M6iGKyzmVdrrtFJSmCgLQVvHrqpeF/7Fc=; b=IbsUFFdGRuroY6onB3tLDRyCj2
-	S3+qQG8b47JY25O9LEuo45ym0L00fNgdOJizWPIsRxkOlv5pzBRWWDYtByg09VYKRFA4UvKIRwtk6
-	sFxQKyCBe2TJtsx0gbXAeWh0BcCMKpEv8Ub0Gw7QFP0B9p+mei+doKNoYBqb05plR5zHEK3NRM2kN
-	GXTXEnu3ZgR5Kwdwa/wRBG2B8sHEUOZ/5cNT088WejFclnu4+Y9pbDaJwB+A8YDgAz1XuCg2vW/8S
-	fJWVOxrNYZ56uyJfi/H2iagT67XWjl/mAMVzjsBRZgGkQkYEwD7XAGtsj2BQK5HAdO7VqdCglXWKB
-	MaWUlbXA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=km3WmPuCZibNFnOw/zDyO5ddCDxftDID4/FZ1fiAOXw=; b=3/h1FVmX+2m+Yc
+	xPzp7iRdTTDASJTgLtdNr2y5Bu+yk3DYEGr9rRiTOqib1rjFcSDTnZyPEOprzOio7vlrSrwHK4UXE
+	FJmp/KphQeCJ1F8jMAQduA6q5LYJiyWaRecM8hGqVXw63c9eGKt3TzhDdxBtgMQwPNlMJxpUh4OPG
+	3v86QL8R4f8kbVntBG+xqPB/vur0At2X16q0KqjJ7BfyLTRYmmAYa1O2pKdQ9hQnzimn71okgHi3G
+	UyxStr2yLtGydLei4NzIcdfWk/fWW6g3R7tR93ZIvQnh5GNb0hIadudOeqx6OpnNrP58POX1yVypJ
+	lqGAs4MSvvgD7pe3kLyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPQcZ-0000000E4vW-2dIg;
-	Thu, 04 Jul 2024 17:51:51 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sPQe7-0000000E5Nf-34SP;
+	Thu, 04 Jul 2024 17:53:27 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPQcW-0000000E4ur-2bAE
+	id 1sPQe4-0000000E5MZ-2Gw8
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jul 2024 17:51:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 89A7FCE34CD;
-	Thu,  4 Jul 2024 17:51:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 843A0C3277B;
-	Thu,  4 Jul 2024 17:51:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720115505;
-	bh=QmNtYETo+LSMjDpgpqGtzayLtLBpJJhN0N8w0nwzzSQ=;
-	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
-	b=TZBKdqndvghJgB+e9TdfXQ0zB/3q3A23PgJezT3r2rmkRq6Qb+Zxt9dSg5XSClKCS
-	 Ws1SgCydHVphcjKZ7LJZmnz8+KoDspbpZi51FwUoogoxOCx9jdcET75KZPWSMu3pfQ
-	 HQg3FWK5ZYGW95IMYi0c8jfEjkPpXDjCieJUh3mnDc8fQm7hMsfrcxr0HeFl4EOKQY
-	 y6IStVppYD9mOjnoOj6NWhjg4HoVJhXwtVuLjZMQZQ8+SURhLZFFyhKf1cX7G0AP9Z
-	 ZJ6Ug372/MvLH9yTJut4Okkuwr3+fvn/piVoRv8uMqRDh5UPwUn+TvWXs0WeDwoboP
-	 xXpZ8SV/tVPeQ==
-Date: Thu, 4 Jul 2024 18:51:42 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Drew Fustini <drew@pdp7.com>
-Cc: soc@kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] MAINTAINERS: thead: add git tree
-Message-ID: <20240704-zesty-audio-4774bf482048@spud>
-References: <20240704174921.2514921-1-drew@pdp7.com>
+	Thu, 04 Jul 2024 17:53:26 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1fb222a8eaeso6527175ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Jul 2024 10:53:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1720115603; x=1720720403; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8uryZ79GMK3Hbevhm1GUwmInwdQUDjClI1eiCDdIwGw=;
+        b=r3gCgqtqWGjavOlgCmgmHDwEXn/1VYRCzqZSNBwElabJBnDL892vTlttLASrqlGE3U
+         tyddgOfVi4OLnDlfq5SFS5/ipTST5reNx6Y5y2TN0XRnD4XCC4O0KidLpKnSoh+reu6l
+         HYYk7R7/GkkelKDkQFsnv4m2Yoxt7BQPRJgpFGmRT7tDqpJPx6rBpbniz7iT0+atZKZ2
+         wDsY2nT1ZYbXJk6O9YWyhuMpIg5VdhRaT/SdpsMgzld2ZtzSSwxFthx8434ZEHZAUo6j
+         /eklB+lJ5N6JIT3mwf/WqWLDvj+Vh118aNoUb88zao6Ib66uh7Vj31HXlLvOto+fiuLK
+         S/+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1720115603; x=1720720403;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8uryZ79GMK3Hbevhm1GUwmInwdQUDjClI1eiCDdIwGw=;
+        b=G359nBbRSQBAg2La3x3kfMphs0QuH5P3lM279JaN2RW1aPnJY5KiA2bETQd3+6QRDu
+         EW8/8aGgnURt7XMr8+W8xqhaBDAdJG0Va6/Aqhxml0ZeE6L2LywPwVhPV3rz1Ah1ICYl
+         okwbfYDVu2famCAXHzk/Ua0O0hIIKEQ9ZQd4HXg3u5TLbMTW2pJVh/hPPIQIHv2g0Bzv
+         oGjgEnf4yfv8M/4CpDGiLiQa9ixddMyKJ71/h98FANCIX98twycopFQ0+KpEJBOUmzqa
+         6uBWUrmnndQoVW9peiBksEeBIa5cKCCyJNpnX+wWkUPIUaMN+1KvMPiP4K9GVCvbtvFx
+         g0dw==
+X-Forwarded-Encrypted: i=1; AJvYcCXtBJSEYtErjNX50Qn+7VX/C21oo4h8aik3TxopRRmef76iu9WkBx/kvkzgRJagXuh8kA5RhNFrvxSagiOFdhGjGPkdHSgJOE5j9PvI/OrB
+X-Gm-Message-State: AOJu0YyTX4Hjeab+VmvjkaL2amz2M+PMcfSeHqRvk+BJpdt2MNapk3zh
+	nIBMRjd0M+RVJ5a0gny/ZuQhlZrvApl5WXKJ5pMRE4QpbTdKEvqR2zWyqSS82dg=
+X-Google-Smtp-Source: AGHT+IHr2Ly4uGxHjqpvelPSNVZYUdi1gXcvcSsc8YvBTQFpKVrUUJwR8TdaP1EKvh1cnQR14j81oQ==
+X-Received: by 2002:a17:903:192:b0:1fa:cec7:9a9d with SMTP id d9443c01a7336-1fb33e0de4cmr17233465ad.15.1720115603590;
+        Thu, 04 Jul 2024 10:53:23 -0700 (PDT)
+Received: from x1 ([2601:1c2:1802:170:8756:5e46:4951:e2d])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fb3dbd7dcdsm10711545ad.157.2024.07.04.10.53.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Jul 2024 10:53:23 -0700 (PDT)
+Date: Thu, 4 Jul 2024 10:53:21 -0700
+From: Drew Fustini <drew@pdp7.com>
+To: Drew Fustini <pdp7pdp7@gmail.com>
+Cc: Conor Dooley <conor@kernel.org>,
+	Kanak Shilledar <kanakshilledar@gmail.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 3/3] riscv: dts: thead: add basic spi node
+Message-ID: <Zobhkf5qr13rKcWH@x1>
+References: <20240701121355.262259-2-kanakshilledar@gmail.com>
+ <20240701121355.262259-5-kanakshilledar@gmail.com>
+ <20240703-juice-refreeze-62c468a56ea5@spud>
+ <ZobU6K/R3pfHrK9c@x1>
 MIME-Version: 1.0
-In-Reply-To: <20240704174921.2514921-1-drew@pdp7.com>
+Content-Disposition: inline
+In-Reply-To: <ZobU6K/R3pfHrK9c@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_105148_854084_A314CF9D 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20240704_105324_602805_AAB96788 
+X-CRM114-Status: GOOD (  34.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,87 +100,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5668951613221137647=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 04, 2024 at 09:59:20AM -0700, Drew Fustini wrote:
+> On Wed, Jul 03, 2024 at 03:45:37PM +0100, Conor Dooley wrote:
+> > Kanak, Drew,
+> > 
+> > On Mon, Jul 01, 2024 at 05:43:54PM +0530, Kanak Shilledar wrote:
+> > > created spi0 node with fixed clock. the spi0 node
+> > > uses synopsis designware driver and has the following
+> > > compatible "snps,dw-apb-ssi". the spi0 node is connected
+> > > to a SPI NOR flash pad which is left unpopulated on the back
+> > > side of the board.
+> > > 
+> > > Signed-off-by: Kanak Shilledar <kanakshilledar@gmail.com>
+> > > ---
+> > > Changes in v2:
+> > > - Separated from a single patch file
+> > > ---
+> > >  .../boot/dts/thead/th1520-beaglev-ahead.dts      |  9 +++++++++
+> > >  .../boot/dts/thead/th1520-lichee-module-4a.dtsi  |  4 ++++
+> > >  .../riscv/boot/dts/thead/th1520-lichee-pi-4a.dts |  5 +++++
+> > 
+> > Didn't you say there was a flash on one of these two boards?
+> > 
+> > >  arch/riscv/boot/dts/thead/th1520.dtsi            | 16 ++++++++++++++++
+> > >  4 files changed, 34 insertions(+)
+> > > 
+> > > diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > index d9b4de9e4757..3103b74e0288 100644
+> > > --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > @@ -17,6 +17,7 @@ aliases {
+> > >  		gpio1 = &gpio1;
+> > >  		gpio2 = &gpio2;
+> > >  		gpio3 = &gpio3;
+> > > +		spi0 = &spi0;
+> > 
+> > "spi" would sort after "serial".
+> > 
+> > >  		serial0 = &uart0;
+> > >  		serial1 = &uart1;
+> > >  		serial2 = &uart2;
+> > > @@ -52,6 +53,10 @@ &sdhci_clk {
+> > >  	clock-frequency = <198000000>;
+> > >  };
+> > >  
+> > > +&spi_clk {
+> > > +	clock-frequency = <396000000>;
+> > > +};
+> > 
+> > I'm pretty sceptical about adding more of these fixed clocks, rather
+> > than waiting for the clock driver. Drew, what do you think? Should we
+> > just add one more to your fixup list or would you rather delay? Guess it
+> > depends on how long more you think that clock driver is likely to take.
+> 
+> I think the clk driver [1] is in good shape but it has not been reviewed
+> by the clk maintainer yet. Thus it is hard to predict any timeline for
+> it getting merged.
+> 
+> SPI support doesn't require any driver changes so I'd be inclined to
+> allow the fixed clock in this case. It will be simple to change it over
+> to a real clock once the clk driver is upstream.
+> 
+> Acked-by: Drew Fustini <drew@pdp7.com>
+> 
+> Thanks,
+> Drew
 
---===============5668951613221137647==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="umQ9gQCL/QRKdSiN"
-Content-Disposition: inline
+Sorry, I meant to include the link to the most recent clk series:
+https://lore.kernel.org/linux-riscv/20240623-th1520-clk-v2-0-ad8d6432d9fb@tenstorrent.com/
 
-
---umQ9gQCL/QRKdSiN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Jul 04, 2024 at 10:49:21AM -0700, Drew Fustini wrote:
-> Add git tree for T-Head device tree files and, in the future, drivers for
-> the T-Head TH1520 SoC.
->=20
-> Signed-off-by: Drew Fustini <drew@pdp7.com>
-> ---
->  MAINTAINERS | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 120351e41ef7..d60b066d5880 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19322,6 +19322,7 @@ M:	Guo Ren <guoren@kernel.org>
->  M:	Fu Wei <wefu@redhat.com>
->  L:	linux-riscv@lists.infradead.org
->  S:	Maintained
-> +T:	git https://github.com/pdp7/linux.git
->  F:	arch/riscv/boot/dts/thead/
-
-Could you squash in
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 691f98fe8ed3..2bb4796d3e12 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19513,6 +19513,7 @@ F:	arch/riscv/boot/dts/
- X:	arch/riscv/boot/dts/allwinner/
- X:	arch/riscv/boot/dts/renesas/
- X:	arch/riscv/boot/dts/sophgo/
-+X:	arch/riscv/boot/dts/thead/
-=20
- RISC-V PMU DRIVERS
- M:	Atish Patra <atishp@atishpatra.org>
-
-please to avoid it being confusing to have 2 different git trees
-covering the same platforms?
-
-Cheers,
-Conor.
-
-
---umQ9gQCL/QRKdSiN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZobhLgAKCRB4tDGHoIJi
-0mYzAP9UUP8jq+98LnIdqdhqMvezMSCLAkgxFIsrHAgt9iB9DwEApUT0igPzr577
-4VbVRzeRjNwXgoLCxCcyoWY8u6+mZAE=
-=2kX8
------END PGP SIGNATURE-----
-
---umQ9gQCL/QRKdSiN--
-
-
---===============5668951613221137647==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-Drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5668951613221137647==--
-
