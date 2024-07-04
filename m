@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A4E7C30653
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 18:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0BD0C3271F
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 18:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=eUSTT1Cz5nP6qMt9Fn+Gqjk0fM6K+jr9QZE72vTG1Go=; b=S3Di8LTCIqnvCF
-	WdLrDIsULalwTbDuBTJvElMjJjMNoPmN5ya9dyQR7YUDMyFEUWb39xLV1VsOrp3srIyuEJ1kplrPB
-	IlO40ryTbKRlaJUB6WsZSl8P3uQQvkxRcswhG+6uMMyd663hxdGtyqc8ON1H7klD9tQwJDvWgPx82
-	s7S3nYK0gXCFDPZZfx5tn/gqSq+RypbUPf904f9qzN5xKaZSdm2tqid6d8PLyYfd/wcl5NRGtTpjC
-	2TC8eD7UG+aQLO4Stm9Z0rmlFeACfNSen6eN+CJEDYLAzfqqJYuuRvHIPhwyBN6Xh1oVr4PMJG1NB
-	VwVOhuy/mImsu9jXvpCg==;
+	List-Archive:List-Unsubscribe:List-Id:From:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pV9b0Eul2JaOsIa0o8coPzwWmoVsW56OJt6ShZpyTYI=; b=iErKcXCOe5i+NW
+	y9SIfphu/sXkOAEYo6OznFqrBk4Lz3AOcPfghj+mgKablcYa9w5dlwos9WmDqqnla+W3kPOReTwGd
+	eEm7CwPb0jsAUrK0lu/Q9zog2XejG/JdbUNXdiwYCOaxRrzqg9ZdqCfJ6Sm+pIu5hKjSlfQikv1XR
+	+X37YJySWK6TbQyYiWn7uf4fO3bb7aa/75ScG+GWvGkbZ9CPPzDrY9ZwaU987lbQ917j7xfgFh/vg
+	SqhnJynaezon9j62Rbfax5VH/M1gUyfGsd2JAxm3IOJqHbfjganwIYkcgUHCDYaVS8VG6Lp0HG5fr
+	yI5TvlaW5LPYAo5ox6Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPQxR-0000000E7m1-0PZK;
-	Thu, 04 Jul 2024 18:13:25 +0000
-Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
+	id 1sPRAA-0000000E8sG-1i1L;
+	Thu, 04 Jul 2024 18:26:34 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPQxO-0000000E7kj-2ocV
+	id 1sPRA7-0000000E8rq-2Qmn
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jul 2024 18:13:24 +0000
-Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-7034d975f18so364175a34.3
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jul 2024 11:13:22 -0700 (PDT)
+	Thu, 04 Jul 2024 18:26:33 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-6e7e23b42c3so497753a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Jul 2024 11:26:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1720116801; x=1720721601; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=R1zfXTojJsKe3wzSJXZA6AZrGX/lJFvmn/u+9Krof3k=;
-        b=nI0K9mf9E4qaFKLplwlbAPavbO6bJvAZBgI8dC467RjaXq/RJH9llyxGqrVPqd5t7D
-         J4uemXGL+5p2zpXv+XV1WhGMZmQapbkUKYNXNI0Q1w4tkW871oLBrSe3DdWpGlHQzkc4
-         Jaa1gYH//f/9hViMKKB8AlCuQ3RHhHrEh2TMgOvGXvm5CHo2aBdJXbjaQJ/TjGQrZaZr
-         Iv3LJOTmcr01j0SwDtX1Ev4MCkkEqefw5aseUc6tz/J+Z1rzLzubhj6Te3fUI/c/G5NO
-         RNTnDESNkaLsGB7KNEk4vAuiUqj3506fvGfnPrES4MnvXkisncysd7bKUPa0ZHI0X8j8
-         dkEg==
+        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1720117590; x=1720722390; darn=lists.infradead.org;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=wGnguu9D1to+hkWzEqASXJj71Kp32uPczCKcWpb8tjY=;
+        b=SswGRy2PLBxqLLC3Qyx6LYaMj+rZwR1Kpny5DgEOLCbj0dSTZXMM6vapUBdfK8fUpY
+         vMoH7UpPY5c5y14TCy3vXkF5qmIketdLqiSqpeaP0H/cRgoWZ85FlvD5nHr6FrRiKIbX
+         wVTIqBvKJuj8aFDQj8OjjpT9X92yhtm5dtOW2NM7M97evbVU8DQ+dezZe2Ta/8j7DxjX
+         hwt1nt5fGjvab0vLzyNKvImjXuTVVNCOm2NO+oRZaJuGNuue2b7JK8KYLEzZIpCO8WBk
+         8pwDB1DL7uiIeKby0G2JUqkAf829bokZrH+zOS/odpT/96lBn4A+0lAYsDdatMQ1yd6C
+         WooQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720116801; x=1720721601;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1720117590; x=1720722390;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=R1zfXTojJsKe3wzSJXZA6AZrGX/lJFvmn/u+9Krof3k=;
-        b=RzG6sD1NkCKmU7bbpEZKhw1K/G4M+IiLd4Hc8VKJw5XDHoRhmU/scF0TqpGJ2pk6gt
-         sKkxRfxqPAUeqP7Zr6JEPK5Ub6kNS7NhTGDgxPeoyO1tSnlUzliwVCpRaVcdFWA0Xh1C
-         PYTKiunB0loS1+aeFlGQfYmRkNdWNW4xOJ2R7GkYcAzY+ILU4EQhD0Qfc2KeDh+PG8Tz
-         e5lRXTp64LM8ZlIR9gpLiZE6A4XWK2RrcDH7cZwAG/pnDL9oQ7yBQl852wCmyedjP48W
-         bjM8FBLNxeOxMC4YsQMl0ZwTmgwv/uDYp3VTiTjYSBwslIymB5X9YjMtCAv7Jax0U11c
-         keCA==
-X-Gm-Message-State: AOJu0Ywlt3IJQx4k719N+ZobrJmeo5dmb92YPp+YMWR97uf2Fte6cXnS
-	fAn7FPZBaPhAMU9t6xKnlQ6pHAdn5IIpGwpJVCTJxghfkNemQqwi20IfXkR8jfqmWI8ePUmtmtX
-	8
-X-Google-Smtp-Source: AGHT+IECInmMyw8Royp+E9lIm6aV35f6xO/4XHeeEgDRWi71l+BBUa5MaOnn/GnWrwUqYtT3LbrnHw==
-X-Received: by 2002:a05:6870:b523:b0:24f:ebcd:6aa9 with SMTP id 586e51a60fabf-25e2b8cf1f8mr2162512fac.1.1720116801683;
-        Thu, 04 Jul 2024 11:13:21 -0700 (PDT)
-Received: from x1.hsd1.or.comcast.net ([2601:1c2:1802:170:8756:5e46:4951:e2d])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-72c6d100ea3sm10049195a12.78.2024.07.04.11.13.20
+        bh=wGnguu9D1to+hkWzEqASXJj71Kp32uPczCKcWpb8tjY=;
+        b=KDa27IboVzaPxssstSKZZnrWt6ggmvGF4Aad4iUMIiIOSPsq7ieR0QGwoz5cx3lGAY
+         VdaoEgip0Lil459PKku+ZjYBPwiRx4i6Y4fTWiTf5eXuPzkbIa50rYsRi6psI+QYugTx
+         /1HfFYtt3geEzeMnJwJG5/4eR/5LHiTitDPdQYjytJD2wNG1KNRbeAl2mNCD5IwEArvg
+         z5ZvXpplCdt7VzvdLd5m+Eh97mCrR8n3yXkp3eZyHRCvX9FkkUup8dwUW/exsU6lC/MG
+         nmvb3qJCp9O8/wHL9xgIBn/qILH8YQbdAQJg6oW6oWGCSARC9bwHwYvpZvGtJVe+balX
+         941g==
+X-Forwarded-Encrypted: i=1; AJvYcCW+3lU+EQAM9v2rMeWjFrmQJ/3hvvawDu8WdmLSFYh3BSjKpkPlW8tbxj+IcVLVMMyqnd9wPZ6Ns0Y/ahA708X8C/2W+aHJSkaBBgvAjRHJ
+X-Gm-Message-State: AOJu0YwAD8D7cQy8/E44vzNhbF0T/0BqHD5oJts4fbi4Tzs5xWU826Qw
+	XtAQL/MIkz8wr3aFLg+0hU073Ma8AnGeDpeSRAG33VJ9Twby/q7QQRObRW/SrWzE3t8FYpWT+te
+	K
+X-Google-Smtp-Source: AGHT+IEWGXLXEp3TtVCqo2VNNnps307PRaGkSJT6/D4KxhXWg/oEmQRwNkjiv/xxVx1VDyeHIbZI/A==
+X-Received: by 2002:a05:6a20:72a5:b0:1bd:22f1:f8de with SMTP id adf61e73a8af0-1c0cc742e65mr2769367637.25.1720117589983;
+        Thu, 04 Jul 2024 11:26:29 -0700 (PDT)
+Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2c99a983cddsm1837474a91.30.2024.07.04.11.26.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jul 2024 11:13:21 -0700 (PDT)
-From: Drew Fustini <drew@pdp7.com>
-To: soc@kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	Drew Fustini <drew@pdp7.com>
-Subject: [PATCH v2] MAINTAINERS: thead: add git tree
-Date: Thu,  4 Jul 2024 11:09:17 -0700
-Message-Id: <20240704180913.2516959-1-drew@pdp7.com>
-X-Mailer: git-send-email 2.34.1
+        Thu, 04 Jul 2024 11:26:29 -0700 (PDT)
+Message-ID: <6686e955.170a0220.68a3d.44dd@mx.google.com>
+Date: Thu, 04 Jul 2024 11:26:29 -0700 (PDT)
 MIME-Version: 1.0
+X-Kernelci-Kernel: v6.10-rc6-8-gc562ba719df5
+X-Kernelci-Report-Type: build
+X-Kernelci-Branch: fixes
+X-Kernelci-Tree: riscv
+Subject: riscv/fixes build: 1 build: 0 failed,
+ 1 passed (v6.10-rc6-8-gc562ba719df5)
+To: kernelci-results@groups.io, kernel-ci-triage@rivosinc.com,
+ linux-riscv@lists.infradead.org
+From: "kernelci.org bot" <bot@kernelci.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_111322_729034_CA8CA926 
-X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-CacheID: sfid-20240704_112631_793651_72AB895D 
+X-CRM114-Status: UNSURE (   3.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,48 +90,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add git tree for T-Head device tree files and, in the future, drivers for
-the T-Head TH1520 SoC.
-
-Signed-off-by: Drew Fustini <drew@pdp7.com>
----
-Changes from v1:
-- Add exclusion for thead in the RISC-V MISC SOC SUPPORT entry so that
-  there are not two git trees covering the same platform
-
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 120351e41ef7..503d2bd5caef 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19306,6 +19306,7 @@ F:	arch/riscv/boot/dts/
- X:	arch/riscv/boot/dts/allwinner/
- X:	arch/riscv/boot/dts/renesas/
- X:	arch/riscv/boot/dts/sophgo/
-+X:	arch/riscv/boot/dts/thead/
- 
- RISC-V PMU DRIVERS
- M:	Atish Patra <atishp@atishpatra.org>
-@@ -19322,6 +19323,7 @@ M:	Guo Ren <guoren@kernel.org>
- M:	Fu Wei <wefu@redhat.com>
- L:	linux-riscv@lists.infradead.org
- S:	Maintained
-+T:	git https://github.com/pdp7/linux.git
- F:	arch/riscv/boot/dts/thead/
- 
- RNBD BLOCK DRIVERS
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+cmlzY3YvZml4ZXMgYnVpbGQ6IDEgYnVpbGQ6IDAgZmFpbGVkLCAxIHBhc3NlZCAodjYuMTAtcmM2
+LTgtZ2M1NjJiYTcxOWRmNSkKCkZ1bGwgQnVpbGQgU3VtbWFyeTogaHR0cHM6Ly9rZXJuZWxjaS5v
+cmcvYnVpbGQvcmlzY3YvYnJhbmNoL2ZpeGVzL2tlcm5lbC92Ni4xMC1yYzYtOC1nYzU2MmJhNzE5
+ZGY1LwoKVHJlZTogcmlzY3YKQnJhbmNoOiBmaXhlcwpHaXQgRGVzY3JpYmU6IHY2LjEwLXJjNi04
+LWdjNTYyYmE3MTlkZjUKR2l0IENvbW1pdDogYzU2MmJhNzE5ZGY1NzBjOTg2Y2FmMDk0MWZlYTI0
+NDkxNTBiY2JjNApHaXQgVVJMOiBodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgv
+a2VybmVsL2dpdC9yaXNjdi9saW51eC5naXQKQnVpbHQ6IDEgdW5pcXVlIGFyY2hpdGVjdHVyZQoK
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT0KCkRldGFpbGVkIHBlci1kZWZjb25maWcgYnVpbGQgcmVw
+b3J0czoKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCmRlZmNvbmZpZyAocmlzY3YsIGNsYW5nLTE2
+KSDigJQgUEFTUywgMCBlcnJvcnMsIDAgd2FybmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVzCgot
+LS0KRm9yIG1vcmUgaW5mbyB3cml0ZSB0byA8aW5mb0BrZXJuZWxjaS5vcmc+CgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
