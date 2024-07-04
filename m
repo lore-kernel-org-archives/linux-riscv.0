@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DACC2BD09
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 02:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E8FC3065C
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jul 2024 03:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jcMdvtZd82MpYDJEtLu1gTBHqFTyrhj0oc6iXDi0gTg=; b=DyUKuuxbZNNjtX
-	rkcVMumWt6QzNRaEvB39dbntxJKTMLF1qGOSR0roZ2VK/fFX/+dEaEm8bkzcYr8gainmGy98iybBL
-	UopsP4w5hspWIfc3Q3UhXs46N9Uo1CjgiC+UNSqA5Fwg7zrqejsfdm5zsyDAfn5o26XkDRFSF6AEN
-	jyqYH2g+yBFDOp+B/ZelloeuKprHD91cXrfU3bc4KuZq5ifU3Ej0fl/AxlEljmgcYb/II3eKkzHlr
-	iLGyjmMJ2op56qEBIGH8LxAwlzmLhSJSY5XT4w/vQYMLpp0InMUabYjf7OKOZF9InRDP6WOW0i8Kf
-	SgWuMSfttgsZzYA6PPvg==;
+	List-Owner; bh=0WwVcbZSbQ83KReIMiI4jOcA8lgEPbPS5iLo6TCg9cw=; b=cXWerjVcoa4BDe
+	44vSBq2CTtIJHix1pXSmtmT8aNwAMsUkaqXVcxKe4mLv9h3DHcnfJ7oUwu6o5KfRlrv3zaSQ92uYn
+	yqMloW+chFYxbtWUlY/4Fc61TnfUy+DZg3lSkcGXP6xihnyvXG3wkyepgV9kSJTUbqI+yXMgODZys
+	JFA7q0/E6AswGHetAFQNVbBJxA4HtFBy4aEzSFJ5kPuhSHG78rNTq5TUcWwnBmNrSG8zBCji1rhz9
+	1P7A9HYbhI0N5gJtebgoQt5qoRJxBCqxc/YEpY/b5xbtQpLfEKguDqGMxDJKmleoQ8e5F+6qzOxZJ
+	ymXEY7qf89lO37O1M05Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPCgi-0000000Byn8-3hUM;
-	Thu, 04 Jul 2024 02:59:12 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1sPDJY-0000000C2Aq-0Fjl;
+	Thu, 04 Jul 2024 03:39:20 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPCge-0000000Bylm-2iyi
+	id 1sPDJU-0000000C29X-0IJ1
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jul 2024 02:59:10 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WF1XH4VH8zdgH2;
-	Thu,  4 Jul 2024 10:57:19 +0800 (CST)
-Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 15B3514011A;
-	Thu,  4 Jul 2024 10:58:57 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemi100008.china.huawei.com (7.221.188.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Thu, 4 Jul 2024 10:58:56 +0800
-Message-ID: <001e41c2-0f88-7bc1-2972-bd5cc036941c@huawei.com>
-Date: Thu, 4 Jul 2024 10:58:55 +0800
+	Thu, 04 Jul 2024 03:39:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1720064356; x=1751600356;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=rSZWX0gWlKWv/j9j9F4F3Urou4mvlKJB7ifrwMMcz9w=;
+  b=W4BXizSoHL11aIoePohIIHqf8ZgRAdxO+hVY1eAuyouHflmVTkunHGzW
+   3TaQj1uPnC9n5MXRlqDTGdjH2keXrkazN/8Cgu1pTZ0sPP9a78nHjC7Mt
+   hQ/dkWlvMUsC5z46o+KCEiXJG0EM4UPDKnciic/2AYm5hZcgUIOFZ6Msq
+   iZiTFADZL339+3XNycYv5T666thfDFk3ZSawx4slrtp9/yMe1ZQJ5HvB0
+   ggYafH1BRM+jp1ldvONfEghVMzfiYYUEQGf4UNmPkpyweVQ4nIgkPOwVN
+   //cwQ+0CPozvolyfDqq1R1T6f4G5mpIhtXmuGwvygJY7fyVoHYNUmpjyI
+   Q==;
+X-CSE-ConnectionGUID: N/aCPIlfR9qVMzfk7ONb0w==
+X-CSE-MsgGUID: /Mw0hvHWQAm7ecWlSKExcA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11122"; a="42745993"
+X-IronPort-AV: E=Sophos;i="6.09,183,1716274800"; 
+   d="scan'208";a="42745993"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2024 20:39:14 -0700
+X-CSE-ConnectionGUID: KPbiy3BOTv2zmQuVt+flyA==
+X-CSE-MsgGUID: cc6XAiE4SLqCt3rnpjN/aQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.09,183,1716274800"; 
+   d="scan'208";a="46472076"
+Received: from lkp-server01.sh.intel.com (HELO 68891e0c336b) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 03 Jul 2024 20:39:10 -0700
+Received: from kbuild by 68891e0c336b with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1sPDJL-000QVm-2I;
+	Thu, 04 Jul 2024 03:39:07 +0000
+Date: Thu, 4 Jul 2024 11:38:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
+	Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v2 01/10] riscv: Implement cmpxchg32/64() using Zacas
+Message-ID: <202407041157.odTZAYZ6-lkp@intel.com>
+References: <20240626130347.520750-2-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v2] riscv: stacktrace: Add USER_STACKTRACE support
-Content-Language: en-US
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <adrian.hunter@intel.com>, <kan.liang@linux.intel.com>,
-	<dev.mbstr@gmail.com>, <samuel.holland@sifive.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>
-References: <20240604034729.841930-1-ruanjinjie@huawei.com>
- <87wmm2y22u.fsf@all.your.base.are.belong.to.us>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <87wmm2y22u.fsf@all.your.base.are.belong.to.us>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemi100008.china.huawei.com (7.221.188.57)
+Content-Disposition: inline
+In-Reply-To: <20240626130347.520750-2-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240703_195909_073482_C0B9DA6E 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20240703_203916_186760_F65BFE9C 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,119 +96,201 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDI0LzcvMyAyMjozNiwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiBKaW5qaWUgUnVhbiA8
-cnVhbmppbmppZUBodWF3ZWkuY29tPiB3cml0ZXM6Cj4gCj4+IEN1cnJlbnRseSwgdXNlcnN0YWNr
-dHJhY2UgaXMgdW5zdXBwb3J0ZWQgZm9yIHJpc2N2LiBTbyB1c2UgdGhlCj4+IHBlcmZfY2FsbGNo
-YWluX3VzZXIoKSBjb2RlIGFzIGJsdWVwcmludCB0byBpbXBsZW1lbnQgdGhlCj4+IGFyY2hfc3Rh
-Y2tfd2Fsa191c2VyKCkgd2hpY2ggYWRkIHVzZXJzdGFja3RyYWNlIHN1cHBvcnQgb24gcmlzY3Yu
-Cj4+IE1lYW53aGlsZSwgd2UgY2FuIHVzZSBhcmNoX3N0YWNrX3dhbGtfdXNlcigpIHRvIHNpbXBs
-aWZ5IHRoZSBpbXBsZW1lbnRhdGlvbgo+PiBvZiBwZXJmX2NhbGxjaGFpbl91c2VyKCkuCj4+Cj4+
-IFNpZ25lZC1vZmYtYnk6IEppbmppZSBSdWFuIDxydWFuamluamllQGh1YXdlaS5jb20+Cj4+IFJl
-cG9ydGVkLWJ5OiBrZXJuZWwgdGVzdCByb2JvdCA8bGtwQGludGVsLmNvbT4KPj4gQ2xvc2VzOiBo
-dHRwczovL2xvcmUua2VybmVsLm9yZy9vZS1rYnVpbGQtYWxsLzIwMjQwNjAxMjEwOS5QREFqWG0y
-aS1sa3BAaW50ZWwuY29tLwo+IAo+IEZvciBmdXR1cmUgcmVmZXJlbmNlOiBUaGUgTFRQIHRhZ3Mg
-c2hvdWxkbid0IGJlIHVzZWQgd2hlbiB5b3UncmUKPiBzcGlubmluZyBhIG5ldyB2ZXJzaW9uLgoK
-VGhhbmsgeW91ISBJJ2xsIHJlbW92ZSBpdC4KCj4gCj4+IC0tLQo+PiB2MjoKPj4gLSBGaXggdGhl
-IGNvY2NpIHdhcm5pbmcsICFBIHx8IEEgJiYgQiBpcyBlcXVpdmFsZW50IHRvICFBIHx8IEIuCj4+
-IC0tLQo+PiAgYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICB8ICAxICsKPj4gIGFy
-Y2gvcmlzY3Yva2VybmVsL3BlcmZfY2FsbGNoYWluLmMgfCA0NiArKy0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0KPj4gIGFyY2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2UuYyAgICAgfCA0MyAr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrCj4+ICAzIGZpbGVzIGNoYW5nZWQsIDQ3IGluc2Vy
-dGlvbnMoKyksIDQzIGRlbGV0aW9ucygtKQo+IAo+IFsuLi5dCj4gCj4+IGRpZmYgLS1naXQgYS9h
-cmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gaW5kZXggMDUyNWVlMmQ2
-M2M3Li42ZWQ5NmQ5MzViOGYgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+PiAr
-KysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gQEAgLTE5Myw2ICsxOTMsNyBAQCBjb25maWcgUklT
-Q1YKPj4gIAlzZWxlY3QgVEhSRUFEX0lORk9fSU5fVEFTSwo+PiAgCXNlbGVjdCBUUkFDRV9JUlFG
-TEFHU19TVVBQT1JUCj4+ICAJc2VsZWN0IFVBQ0NFU1NfTUVNQ1BZIGlmICFNTVUKPj4gKwlzZWxl
-Y3QgVVNFUl9TVEFDS1RSQUNFX1NVUFBPUlQKPj4gIAlzZWxlY3QgWk9ORV9ETUEzMiBpZiA2NEJJ
-VAo+PiAgCj4+ICBjb25maWcgQ0xBTkdfU1VQUE9SVFNfRFlOQU1JQ19GVFJBQ0UKPj4gZGlmZiAt
-LWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3BlcmZfY2FsbGNoYWluLmMgYi9hcmNoL3Jpc2N2L2tl
-cm5lbC9wZXJmX2NhbGxjaGFpbi5jCj4+IGluZGV4IDMzNDhhNjFkZTdkOS4uYzc0NjhhZjc3YzY2
-IDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9wZXJmX2NhbGxjaGFpbi5jCj4+ICsr
-KyBiL2FyY2gvcmlzY3Yva2VybmVsL3BlcmZfY2FsbGNoYWluLmMKPj4gQEAgLTYsMzcgKzYsOSBA
-QAo+PiAgCj4+ICAjaW5jbHVkZSA8YXNtL3N0YWNrdHJhY2UuaD4KPj4gIAo+PiAtLyoKPj4gLSAq
-IEdldCB0aGUgcmV0dXJuIGFkZHJlc3MgZm9yIGEgc2luZ2xlIHN0YWNrZnJhbWUgYW5kIHJldHVy
-biBhIHBvaW50ZXIgdG8gdGhlCj4+IC0gKiBuZXh0IGZyYW1lIHRhaWwuCj4+IC0gKi8KPj4gLXN0
-YXRpYyB1bnNpZ25lZCBsb25nIHVzZXJfYmFja3RyYWNlKHN0cnVjdCBwZXJmX2NhbGxjaGFpbl9l
-bnRyeV9jdHggKmVudHJ5LAo+PiAtCQkJCSAgICB1bnNpZ25lZCBsb25nIGZwLCB1bnNpZ25lZCBs
-b25nIHJlZ19yYSkKPj4gK3N0YXRpYyBib29sIGZpbGxfY2FsbGNoYWluKHZvaWQgKmVudHJ5LCB1
-bnNpZ25lZCBsb25nIHBjKQo+PiAgewo+PiAtCXN0cnVjdCBzdGFja2ZyYW1lIGJ1ZnRhaWw7Cj4+
-IC0JdW5zaWduZWQgbG9uZyByYSA9IDA7Cj4+IC0JdW5zaWduZWQgbG9uZyBfX3VzZXIgKnVzZXJf
-ZnJhbWVfdGFpbCA9Cj4+IC0JCSh1bnNpZ25lZCBsb25nIF9fdXNlciAqKShmcCAtIHNpemVvZihz
-dHJ1Y3Qgc3RhY2tmcmFtZSkpOwo+PiAtCj4+IC0JLyogQ2hlY2sgYWNjZXNzaWJpbGl0eSBvZiBv
-bmUgc3RydWN0IGZyYW1lX3RhaWwgYmV5b25kICovCj4+IC0JaWYgKCFhY2Nlc3Nfb2sodXNlcl9m
-cmFtZV90YWlsLCBzaXplb2YoYnVmdGFpbCkpKQo+PiAtCQlyZXR1cm4gMDsKPj4gLQlpZiAoX19j
-b3B5X2Zyb21fdXNlcl9pbmF0b21pYygmYnVmdGFpbCwgdXNlcl9mcmFtZV90YWlsLAo+PiAtCQkJ
-CSAgICAgIHNpemVvZihidWZ0YWlsKSkpCj4+IC0JCXJldHVybiAwOwo+PiAtCj4+IC0JaWYgKHJl
-Z19yYSAhPSAwKQo+PiAtCQlyYSA9IHJlZ19yYTsKPj4gLQllbHNlCj4+IC0JCXJhID0gYnVmdGFp
-bC5yYTsKPj4gLQo+PiAtCWZwID0gYnVmdGFpbC5mcDsKPj4gLQlpZiAocmEgIT0gMCkKPj4gLQkJ
-cGVyZl9jYWxsY2hhaW5fc3RvcmUoZW50cnksIHJhKTsKPj4gLQllbHNlCj4+IC0JCXJldHVybiAw
-Owo+PiAtCj4+IC0JcmV0dXJuIGZwOwo+PiArCXJldHVybiBwZXJmX2NhbGxjaGFpbl9zdG9yZShl
-bnRyeSwgcGMpID09IDA7Cj4+ICB9Cj4+ICAKPj4gIC8qCj4+IEBAIC01NiwxOSArMjgsNyBAQCBz
-dGF0aWMgdW5zaWduZWQgbG9uZyB1c2VyX2JhY2t0cmFjZShzdHJ1Y3QgcGVyZl9jYWxsY2hhaW5f
-ZW50cnlfY3R4ICplbnRyeSwKPj4gIHZvaWQgcGVyZl9jYWxsY2hhaW5fdXNlcihzdHJ1Y3QgcGVy
-Zl9jYWxsY2hhaW5fZW50cnlfY3R4ICplbnRyeSwKPj4gIAkJCSBzdHJ1Y3QgcHRfcmVncyAqcmVn
-cykKPj4gIHsKPj4gLQl1bnNpZ25lZCBsb25nIGZwID0gMDsKPj4gLQo+PiAtCWZwID0gcmVncy0+
-czA7Cj4+IC0JcGVyZl9jYWxsY2hhaW5fc3RvcmUoZW50cnksIHJlZ3MtPmVwYyk7Cj4+IC0KPj4g
-LQlmcCA9IHVzZXJfYmFja3RyYWNlKGVudHJ5LCBmcCwgcmVncy0+cmEpOwo+PiAtCXdoaWxlIChm
-cCAmJiAhKGZwICYgMHgzKSAmJiBlbnRyeS0+bnIgPCBlbnRyeS0+bWF4X3N0YWNrKQo+PiAtCQlm
-cCA9IHVzZXJfYmFja3RyYWNlKGVudHJ5LCBmcCwgMCk7Cj4+IC19Cj4+IC0KPj4gLXN0YXRpYyBi
-b29sIGZpbGxfY2FsbGNoYWluKHZvaWQgKmVudHJ5LCB1bnNpZ25lZCBsb25nIHBjKQo+PiAtewo+
-PiAtCXJldHVybiBwZXJmX2NhbGxjaGFpbl9zdG9yZShlbnRyeSwgcGMpID09IDA7Cj4+ICsJYXJj
-aF9zdGFja193YWxrX3VzZXIoZmlsbF9jYWxsY2hhaW4sIGVudHJ5LCByZWdzKTsKPj4gIH0KPj4g
-IAo+PiAgdm9pZCBwZXJmX2NhbGxjaGFpbl9rZXJuZWwoc3RydWN0IHBlcmZfY2FsbGNoYWluX2Vu
-dHJ5X2N0eCAqZW50cnksCj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zdGFja3Ry
-YWNlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zdGFja3RyYWNlLmMKPj4gaW5kZXggNTI4ZWM3Y2M5
-YTYyLi45Njg1YTJiYWE1ZDkgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3N0YWNr
-dHJhY2UuYwo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zdGFja3RyYWNlLmMKPj4gQEAgLTE2
-MSwzICsxNjEsNDYgQEAgbm9pbmxpbmUgdm9pZCBhcmNoX3N0YWNrX3dhbGsoc3RhY2tfdHJhY2Vf
-Y29uc3VtZV9mbiBjb25zdW1lX2VudHJ5LCB2b2lkICpjb29raWUKPj4gIHsKPj4gIAl3YWxrX3N0
-YWNrZnJhbWUodGFzaywgcmVncywgY29uc3VtZV9lbnRyeSwgY29va2llKTsKPj4gIH0KPj4gKwo+
-PiArLyoKPj4gKyAqIEdldCB0aGUgcmV0dXJuIGFkZHJlc3MgZm9yIGEgc2luZ2xlIHN0YWNrZnJh
-bWUgYW5kIHJldHVybiBhIHBvaW50ZXIgdG8gdGhlCj4+ICsgKiBuZXh0IGZyYW1lIHRhaWwuCj4+
-ICsgKi8KPj4gK3N0YXRpYyB1bnNpZ25lZCBsb25nIHVud2luZF91c2VyX2ZyYW1lKHN0YWNrX3Ry
-YWNlX2NvbnN1bWVfZm4gY29uc3VtZV9lbnRyeSwKPj4gKwkJCQkgICAgICAgdm9pZCAqY29va2ll
-LCB1bnNpZ25lZCBsb25nIGZwLAo+PiArCQkJCSAgICAgICB1bnNpZ25lZCBsb25nIHJlZ19yYSkK
-Pj4gK3sKPj4gKwlzdHJ1Y3Qgc3RhY2tmcmFtZSBidWZ0YWlsOwo+PiArCXVuc2lnbmVkIGxvbmcg
-cmEgPSAwOwo+PiArCXVuc2lnbmVkIGxvbmcgX191c2VyICp1c2VyX2ZyYW1lX3RhaWwgPQo+PiAr
-CQkodW5zaWduZWQgbG9uZyBfX3VzZXIgKikoZnAgLSBzaXplb2Yoc3RydWN0IHN0YWNrZnJhbWUp
-KTsKPj4gKwo+PiArCS8qIENoZWNrIGFjY2Vzc2liaWxpdHkgb2Ygb25lIHN0cnVjdCBmcmFtZV90
-YWlsIGJleW9uZCAqLwo+PiArCWlmICghYWNjZXNzX29rKHVzZXJfZnJhbWVfdGFpbCwgc2l6ZW9m
-KGJ1ZnRhaWwpKSkKPj4gKwkJcmV0dXJuIDA7Cj4+ICsJaWYgKF9fY29weV9mcm9tX3VzZXJfaW5h
-dG9taWMoJmJ1ZnRhaWwsIHVzZXJfZnJhbWVfdGFpbCwKPj4gKwkJCQkgICAgICBzaXplb2YoYnVm
-dGFpbCkpKQo+PiArCQlyZXR1cm4gMDsKPj4gKwo+PiArCXJhID0gcmVnX3JhID8gOiBidWZ0YWls
-LnJhOwo+PiArCj4+ICsJZnAgPSBidWZ0YWlsLmZwOwo+PiArCWlmICghcmEgfHwgIWNvbnN1bWVf
-ZW50cnkoY29va2llLCByYSkpCj4+ICsJCXJldHVybiAwOwo+PiArCj4+ICsJcmV0dXJuIGZwOwo+
-PiArfQo+PiArCj4+ICt2b2lkIGFyY2hfc3RhY2tfd2Fsa191c2VyKHN0YWNrX3RyYWNlX2NvbnN1
-bWVfZm4gY29uc3VtZV9lbnRyeSwgdm9pZCAqY29va2llLAo+PiArCQkJICBjb25zdCBzdHJ1Y3Qg
-cHRfcmVncyAqcmVncykKPj4gK3sKPj4gKwl1bnNpZ25lZCBsb25nIGZwID0gMDsKPj4gKwo+PiAr
-CWZwID0gcmVncy0+czA7Cj4+ICsJaWYgKCFjb25zdW1lX2VudHJ5KGNvb2tpZSwgcmVncy0+ZXBj
-KSkKPj4gKwkJcmV0dXJuOwo+PiArCj4+ICsJZnAgPSB1bndpbmRfdXNlcl9mcmFtZShjb25zdW1l
-X2VudHJ5LCBjb29raWUsIGZwLCByZWdzLT5yYSk7Cj4+ICsJd2hpbGUgKGZwICYmICEoZnAgJiAw
-eDMpKQo+IAo+IEp1c3QgYW4gb2JzZXJ2YXRpb24gdGhhdCB0aGUgImVudHJ5LT5uciA8IGVudHJ5
-LT5tYXhfc3RhY2siIGNoZWNrIHdhcwo+IHJlbW92ZWQgaW4gdGhpcyBnZW5lcmFsaXphdGlvbiwg
-YnV0IHRoYXQncyBPSyBzaW5jZSBpdCdzIGNoZWNrZWQgaW4KPiBwZXJmX2NhbGxjaGFpbl9zdG9y
-ZSgpLgoKWWVzLCB0aGUgY2hlY2tlZCBpcyBub3QgbmVjZXNzYXJ5LCBiZWNhdXNlIHBlcmZfY2Fs
-bGNoYWluX3N0b3JlKCkgY2hlY2sKImVudHJ5LT5uciA8IGVudHJ5LT5tYXhfc3RhY2siCgpBbHNv
-IHRoZSBjYWxsZXIgZnVuY3Rpb24gc3RhY2tfdHJhY2Vfc2F2ZV91c2VyKCkgcmVnaXN0ZXJzIHRo
-ZQpjb25zdW1lX2VudHJ5IGNhbGxiYWNrICJzdGFja190cmFjZV9jb25zdW1lX2VudHJ5IiBmb3Ig
-c2F2aW5nIHVzZXIgc3RhY2sKdHJhY2VzIGludG8gYSBzdG9yYWdlIGFycmF5LCBpbiB3aGljaCBl
-bnRyeS0+bnIgYWdhaW5zdCBlbnRyeS0+bWF4X3N0YWNrCmlzIHB1dC4KCj4gCj4gTm90IHJlYWxs
-eSBwYXJ0IG9mIHlvdXIgY2hhbmdlLCBidXQgc2hvdWxkbid0IHRoZSBjaGVjayBiZSAweDcgKGNo
-ZWNraW5nCj4gZm9yIDE2QiBzcC9mcCBhbGlnbm1lbnQpLCByYXRoZXIgdGhhbiAweDM/CgpZb3Ug
-YXJlIHJpZ2h0ISBGcm9tIHRoZSBiZWxvdyAiUklTQ1YgQ2FsbGluZyBDb252ZW50aW9uIiA6Cgog
-ICAgIkluIHRoZSBzdGFuZGFyZCBSSVNDLVYgY2FsbGluZyBjb252ZW50aW9uLCB0aGUgc3RhY2sg
-Z3Jvd3MgZG93bndhcmQKCiAgICAgYW5kIHRoZSBzdGFjayBwb2ludGVyIGlzIGFsd2F5cyBrZXB0
-IDE2LWJ5dGUgYWxpZ25lZCIKClNvIHRoZSBzcCBzaG91bGQgYmUgMTYtYnl0ZSBhbGlnbmVkLCBh
-bmQgdGhlICJQVF9TSVpFX09OX1NUQUNLIiBpcyBhbHNvCjE2LWJ5dGUgYWxpZ25lZCwgc28gSSB0
-aGluayB0aGUgZnAgaXMgYWxzbyAxNi1ieXRlIGFsaWduZWQuCgpMaW5rOiBodHRwczovL3Jpc2N2
-Lm9yZy93cC1jb250ZW50L3VwbG9hZHMvMjAxNS8wMS9yaXNjdi1jYWxsaW5nLnBkZgo+IAo+IAo+
-IEJqw7Zybgo+IAo+IAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+Hi Alexandre,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on linus/master v6.10-rc6 next-20240703]
+[cannot apply to arnd-asm-generic/master robh/for-next tip/locking/core]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Implement-cmpxchg32-64-using-Zacas/20240627-034946
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20240626130347.520750-2-alexghiti%40rivosinc.com
+patch subject: [PATCH v2 01/10] riscv: Implement cmpxchg32/64() using Zacas
+config: riscv-randconfig-002-20240704 (https://download.01.org/0day-ci/archive/20240704/202407041157.odTZAYZ6-lkp@intel.com/config)
+compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240704/202407041157.odTZAYZ6-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202407041157.odTZAYZ6-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> kernel/sched/core.c:11873:7: error: cannot jump from this asm goto statement to one of its possible targets
+                   if (try_cmpxchg(&pcpu_cid->cid, &lazy_cid, MM_CID_UNSET))
+                       ^
+   include/linux/atomic/atomic-instrumented.h:4880:2: note: expanded from macro 'try_cmpxchg'
+           raw_try_cmpxchg(__ai_ptr, __ai_oldp, __VA_ARGS__); \
+           ^
+   include/linux/atomic/atomic-arch-fallback.h:192:9: note: expanded from macro 'raw_try_cmpxchg'
+           ___r = raw_cmpxchg((_ptr), ___o, (_new)); \
+                  ^
+   include/linux/atomic/atomic-arch-fallback.h:55:21: note: expanded from macro 'raw_cmpxchg'
+   #define raw_cmpxchg arch_cmpxchg
+                       ^
+   arch/riscv/include/asm/cmpxchg.h:212:2: note: expanded from macro 'arch_cmpxchg'
+           _arch_cmpxchg((ptr), (o), (n), ".rl", "", "     fence rw, rw\n")
+           ^
+   arch/riscv/include/asm/cmpxchg.h:189:3: note: expanded from macro '_arch_cmpxchg'
+                   __arch_cmpxchg(".w", ".w" sc_sfx, prepend, append,      \
+                   ^
+   arch/riscv/include/asm/cmpxchg.h:144:3: note: expanded from macro '__arch_cmpxchg'
+                   asm goto(ALTERNATIVE("nop", "j %[zacas]", 0,            \
+                   ^
+   kernel/sched/core.c:11840:7: note: possible target of asm goto statement
+           if (!try_cmpxchg(&pcpu_cid->cid, &cid, lazy_cid))
+                ^
+   include/linux/atomic/atomic-instrumented.h:4880:2: note: expanded from macro 'try_cmpxchg'
+           raw_try_cmpxchg(__ai_ptr, __ai_oldp, __VA_ARGS__); \
+           ^
+   include/linux/atomic/atomic-arch-fallback.h:192:9: note: expanded from macro 'raw_try_cmpxchg'
+           ___r = raw_cmpxchg((_ptr), ___o, (_new)); \
+                  ^
+   include/linux/atomic/atomic-arch-fallback.h:55:21: note: expanded from macro 'raw_cmpxchg'
+   #define raw_cmpxchg arch_cmpxchg
+                       ^
+   arch/riscv/include/asm/cmpxchg.h:212:2: note: expanded from macro 'arch_cmpxchg'
+           _arch_cmpxchg((ptr), (o), (n), ".rl", "", "     fence rw, rw\n")
+           ^
+   arch/riscv/include/asm/cmpxchg.h:189:3: note: expanded from macro '_arch_cmpxchg'
+                   __arch_cmpxchg(".w", ".w" sc_sfx, prepend, append,      \
+                   ^
+   arch/riscv/include/asm/cmpxchg.h:161:10: note: expanded from macro '__arch_cmpxchg'
+                                                                           \
+                                                                           ^
+   kernel/sched/core.c:11872:2: note: jump exits scope of variable with __attribute__((cleanup))
+           scoped_guard (irqsave) {
+           ^
+   include/linux/cleanup.h:169:20: note: expanded from macro 'scoped_guard'
+           for (CLASS(_name, scope)(args),                                 \
+                             ^
+   kernel/sched/core.c:11840:7: error: cannot jump from this asm goto statement to one of its possible targets
+           if (!try_cmpxchg(&pcpu_cid->cid, &cid, lazy_cid))
+                ^
+   include/linux/atomic/atomic-instrumented.h:4880:2: note: expanded from macro 'try_cmpxchg'
+           raw_try_cmpxchg(__ai_ptr, __ai_oldp, __VA_ARGS__); \
+           ^
+   include/linux/atomic/atomic-arch-fallback.h:192:9: note: expanded from macro 'raw_try_cmpxchg'
+           ___r = raw_cmpxchg((_ptr), ___o, (_new)); \
+                  ^
+   include/linux/atomic/atomic-arch-fallback.h:55:21: note: expanded from macro 'raw_cmpxchg'
+   #define raw_cmpxchg arch_cmpxchg
+                       ^
+   arch/riscv/include/asm/cmpxchg.h:212:2: note: expanded from macro 'arch_cmpxchg'
+           _arch_cmpxchg((ptr), (o), (n), ".rl", "", "     fence rw, rw\n")
+           ^
+   arch/riscv/include/asm/cmpxchg.h:189:3: note: expanded from macro '_arch_cmpxchg'
+                   __arch_cmpxchg(".w", ".w" sc_sfx, prepend, append,      \
+                   ^
+   arch/riscv/include/asm/cmpxchg.h:144:3: note: expanded from macro '__arch_cmpxchg'
+                   asm goto(ALTERNATIVE("nop", "j %[zacas]", 0,            \
+                   ^
+   kernel/sched/core.c:11873:7: note: possible target of asm goto statement
+                   if (try_cmpxchg(&pcpu_cid->cid, &lazy_cid, MM_CID_UNSET))
+                       ^
+   include/linux/atomic/atomic-instrumented.h:4880:2: note: expanded from macro 'try_cmpxchg'
+           raw_try_cmpxchg(__ai_ptr, __ai_oldp, __VA_ARGS__); \
+           ^
+   include/linux/atomic/atomic-arch-fallback.h:192:9: note: expanded from macro 'raw_try_cmpxchg'
+           ___r = raw_cmpxchg((_ptr), ___o, (_new)); \
+                  ^
+   include/linux/atomic/atomic-arch-fallback.h:55:21: note: expanded from macro 'raw_cmpxchg'
+   #define raw_cmpxchg arch_cmpxchg
+                       ^
+   arch/riscv/include/asm/cmpxchg.h:212:2: note: expanded from macro 'arch_cmpxchg'
+           _arch_cmpxchg((ptr), (o), (n), ".rl", "", "     fence rw, rw\n")
+           ^
+   arch/riscv/include/asm/cmpxchg.h:189:3: note: expanded from macro '_arch_cmpxchg'
+                   __arch_cmpxchg(".w", ".w" sc_sfx, prepend, append,      \
+                   ^
+   arch/riscv/include/asm/cmpxchg.h:161:10: note: expanded from macro '__arch_cmpxchg'
+                                                                           \
+                                                                           ^
+   kernel/sched/core.c:11872:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
+           scoped_guard (irqsave) {
+           ^
+   include/linux/cleanup.h:169:20: note: expanded from macro 'scoped_guard'
+           for (CLASS(_name, scope)(args),                                 \
+                             ^
+   2 errors generated.
+
+
+vim +11873 kernel/sched/core.c
+
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11821  
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11822  static void sched_mm_cid_remote_clear(struct mm_struct *mm, struct mm_cid *pcpu_cid,
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11823  				      int cpu)
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11824  {
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11825  	struct rq *rq = cpu_rq(cpu);
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11826  	struct task_struct *t;
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11827  	int cid, lazy_cid;
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11828  
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11829  	cid = READ_ONCE(pcpu_cid->cid);
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11830  	if (!mm_cid_is_valid(cid))
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11831  		return;
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11832  
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11833  	/*
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11834  	 * Clear the cpu cid if it is set to keep cid allocation compact.  If
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11835  	 * there happens to be other tasks left on the source cpu using this
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11836  	 * mm, the next task using this mm will reallocate its cid on context
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11837  	 * switch.
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11838  	 */
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11839  	lazy_cid = mm_cid_set_lazy_put(cid);
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11840  	if (!try_cmpxchg(&pcpu_cid->cid, &cid, lazy_cid))
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11841  		return;
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11842  
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11843  	/*
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11844  	 * The implicit barrier after cmpxchg per-mm/cpu cid before loading
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11845  	 * rq->curr->mm matches the scheduler barrier in context_switch()
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11846  	 * between store to rq->curr and load of prev and next task's
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11847  	 * per-mm/cpu cid.
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11848  	 *
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11849  	 * The implicit barrier after cmpxchg per-mm/cpu cid before loading
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11850  	 * rq->curr->mm_cid_active matches the barrier in
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11851  	 * sched_mm_cid_exit_signals(), sched_mm_cid_before_execve(), and
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11852  	 * sched_mm_cid_after_execve() between store to t->mm_cid_active and
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11853  	 * load of per-mm/cpu cid.
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11854  	 */
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11855  
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11856  	/*
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11857  	 * If we observe an active task using the mm on this rq after setting
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11858  	 * the lazy-put flag, that task will be responsible for transitioning
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11859  	 * from lazy-put flag set to MM_CID_UNSET.
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11860  	 */
+0e34600ac9317d Peter Zijlstra    2023-06-09  11861  	scoped_guard (rcu) {
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11862  		t = rcu_dereference(rq->curr);
+0e34600ac9317d Peter Zijlstra    2023-06-09  11863  		if (READ_ONCE(t->mm_cid_active) && t->mm == mm)
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11864  			return;
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11865  	}
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11866  
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11867  	/*
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11868  	 * The cid is unused, so it can be unset.
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11869  	 * Disable interrupts to keep the window of cid ownership without rq
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11870  	 * lock small.
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11871  	 */
+0e34600ac9317d Peter Zijlstra    2023-06-09  11872  	scoped_guard (irqsave) {
+223baf9d17f25e Mathieu Desnoyers 2023-04-20 @11873  		if (try_cmpxchg(&pcpu_cid->cid, &lazy_cid, MM_CID_UNSET))
+223baf9d17f25e Mathieu Desnoyers 2023-04-20  11874  			__mm_cid_put(mm, cid);
+0e34600ac9317d Peter Zijlstra    2023-06-09  11875  	}
+af7f588d8f7355 Mathieu Desnoyers 2022-11-22  11876  }
+af7f588d8f7355 Mathieu Desnoyers 2022-11-22  11877  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
