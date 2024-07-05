@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14895C3271E
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 17:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DB3C41513
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 18:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qJx7cU6pNV2Q+0LEPKP/CaVvYeBCrni4EP8SDaSajw4=; b=JbAHpWoGOXLcgO
-	/0twF4aDbOgg5m1ToiAJS1IcwL5YkM3SNZlEcUwPp5Gdw082nuc1Z/UfAV+7x/Q8Vx5gM19ve4HUJ
-	sXeuLjIo2cd0ButESSd+haK/yWw6hfk+f6U4u/oHl2/n9C7yvRYJ8C+A64YU94xiYOJB5rp3V4SNQ
-	8yrmJIA3oEanTcGzlb4ATotyl+go7V/leiQqO4VbyQ402Mau/4WmniV4C5+F7cTgqKBAuEgqB21AP
-	FcwXm1RFxEmqwgnWkfDvwPqI6Kb+y7yRYAivUQf+texeAcWCSXiaqGZ/wOs6h/uDwpd/c3ZjAGOkP
-	+tru5rZT12jVtTjfmiCQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3O263zjR58BWKe8SLSgPwqSyRo+OBPVz3UiILTj7epY=; b=Xy7w+x7Z/RalQa
+	ICZ15vzIISwPIxa9ZVzQfHLr70OsYOn0I96/FUgJg332rbYh+E1iwzcwifOLAQVpIOURHzxQ1yB0b
+	SCrizkXlIbK/nhiB+L6CD6LJi81WBO4hLs5wN3uLW+fiyt+/C1BPcfgHGupgMIjSVJRLmKZNlCbO8
+	kMwOWlHsUzfvxIi7wPrPMoiRUGZlM03QARPDSzJiEfYB7WlEMgEy2AT6k+yzzwFprAE88fQMc5BXH
+	jZBCki6SPgeSDW01cucCCD5P3OUbuUkY1ikEaK+ET0nMxqz0LJ/Ad5rIpzhboAMhfKp9Je4LInQpl
+	cQnjbrdNmjqQ+/FhqvXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPnCw-0000000Gak6-2odg;
-	Fri, 05 Jul 2024 17:58:54 +0000
-Received: from mail-vs1-xe31.google.com ([2607:f8b0:4864:20::e31])
+	id 1sPniB-0000000GdlU-0XD3;
+	Fri, 05 Jul 2024 18:31:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPnCs-0000000Gajh-2q9B
+	id 1sPmYf-0000000GWkz-1LBX
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 05 Jul 2024 17:17:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Message-ID:To:From:CC:Subject:Date:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=in/LzK8J9JA83I2h0HE4VR8w3YECSYGz8kwTmF46sLA=; b=oQX3MWgacRh+ly8+EiqnLYeDz0
+	GEnCi1vIJCPukTHm2tUgPuAUgkOIcS8YmonmgQcCIIugr/Hers5rhcr9HxRLzdCSX9Ag8BqYALXHO
+	ZrOgr/peVAvemvKaXUQ7bq5j0gllPEo4R/Zg5NUIFmqHPqzWid/rHo3pzSezZJaayevHkJ9D+Nz8t
+	p3LXP0JyH/M1CZpYgR+NV7KBZu2kWTIE29AGlO6DyOiY0bQi0ufjNUifvtccVeHgfSOL1Ir+n+A4j
+	5ehYdwAujOEZJ2IV7riVKda0Ys1n/W5qnvN0pqjQYpOGZHI9Zw+kDbHgPILbSDQkDrgrUwqiC31me
+	dMlW6Klg==;
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sPmY1-0000000ALan-3mbJ
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jul 2024 17:58:52 +0000
-Received: by mail-vs1-xe31.google.com with SMTP id ada2fe7eead31-48ffc762640so322893137.3
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Jul 2024 10:58:49 -0700 (PDT)
+	Fri, 05 Jul 2024 17:17:15 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1fab03d2f23so13150735ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Jul 2024 10:16:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1720202328; x=1720807128; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6rchAFSlYahM896I1I/OZo7qd5XWpA7Aq79k25WOCCE=;
-        b=ghanAm70c7wW7UaI/wQvpHEbcVYD8oYwIaM8vfE8V5sYqS/3BwSzYC8GW21RqKEkCN
-         QTrtsKV7p/2ducFrTR2oj7asZYUn/S15SetEu5EyhipGtrVNrTKLcVu9PrRMMSWy2dQr
-         GIMzQVA7klC0aHBGnVDRnmQIpGA6MIPrS/UhE=
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1720199793; x=1720804593; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=in/LzK8J9JA83I2h0HE4VR8w3YECSYGz8kwTmF46sLA=;
+        b=LSUSumbF3tVCi7NlpSQv4+cEuZSj9w7jYQKJ0QcQ7Abw2vvhHIRJ2bIOxCWukK8BQZ
+         Dm3C+qCQ78GwPVF3WZMiTZ9eglVH0qpZlNfGeCJLDuxhIw8ISHnfPI7pEGW0hzAzUrYZ
+         GwkLeEM2W1CgoiCaNZZiiXY9eis2ZI+3wB18dNjLvYBOdulixPMbEuedogngYtVh6Brn
+         vy7hAPdmmW/rXRwixDs4YBnDULZrGqY/bRbzOUv+TmuxbjoUiU4ybrvnoIg0D/vo5IrU
+         MkMYWmsrW4lKphLjq/130S2ZWZJLLVxqGc9V5NmrzWe+niKMP51lXDcEKnALMSyk7Uod
+         18PA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720202328; x=1720807128;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6rchAFSlYahM896I1I/OZo7qd5XWpA7Aq79k25WOCCE=;
-        b=JsoTEU+NqfqrsTl0pHRd5oJ0i02sh4pTl2cfJ/Cm11vIMl6L5lrVoVPpTVKwvQPAvc
-         I4L//laP5v/aHpEaUIfsvr0dyZK9fAo4sjzPdWzEqDa5H+tKHJA+C2A2LP4DKl5B1WuX
-         m1C/A/MyRSqXrdw1VlOdmOcc5vjFLMrNXdETEu/2C9hdnZTij/W73b52rw/gmk8qmQC8
-         N0FICP9UZTNNldfB6HWQsPnAIb7XR5SUsx/Oxl2GCjQxqc4t6+191dZN75Kmpw8e0y14
-         3kl82pHjXyT0bj0sAIj9T+cF5j38M0CQivP42Fgx0HHBrjIuRMvKxAV7PziOyqQUotoi
-         5zlA==
-X-Forwarded-Encrypted: i=1; AJvYcCWqNmFYm/Nd5xZlNlkCx48bpgYra9+T+HeQ/jVnwwcnLoADd9Gtb2b5jHv2CjOkjg9NK/rbXNs866bnW3Uw+KQ3hwczHm79szC83Bic+jDS
-X-Gm-Message-State: AOJu0YzIMqhVdquLKbE3xf0gDPXQKdsp6ihayCM9I+6OfKrIoCVYcxc7
-	hjougm5xXnsxLEZGJyTQmvLdihEz01EdqkZ5jjMLdePcawPvlJYfHzsQ7aVVM8H3MYLpf5D/nKL
-	LvDaPng==
-X-Google-Smtp-Source: AGHT+IEPJRyyTF3lBDKTnB9Um/D76FSTwtbFHLlGpKU9/w0wqgR8EWr2I4FBcCPxxsiEOgwxgyJDZg==
-X-Received: by 2002:a67:f44e:0:b0:48f:e0a3:7c0 with SMTP id ada2fe7eead31-48fee7dc049mr6062103137.24.1720202328385;
-        Fri, 05 Jul 2024 10:58:48 -0700 (PDT)
-Received: from mail-vs1-f48.google.com (mail-vs1-f48.google.com. [209.85.217.48])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-810101878b6sm1026025241.2.2024.07.05.10.58.47
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Jul 2024 10:58:47 -0700 (PDT)
-Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-48ffd139a9cso280650137.0
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Jul 2024 10:58:47 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXX4FgvJAvINyHXwPQ1meKC/o/8hNNx6YmF7cZryRyQwDRF8whJK5g4KyU7DuWOOklZfHi8Kd/fd9y1y3sitwVRq6SH6Llh3funQH52PkBB
-X-Received: by 2002:a67:b902:0:b0:48f:b577:e02d with SMTP id
- ada2fe7eead31-48fee7dbfaemr5668127137.25.1720202327405; Fri, 05 Jul 2024
- 10:58:47 -0700 (PDT)
-MIME-Version: 1.0
-References: <20240625040500.1788-1-jszhang@kernel.org> <4d8e0883-6a8c-4eb5-bf61-604e2b98356a@app.fastmail.com>
- <CAHk-=wjDrx1XW1oEuUap=MN+Ku_FqFXQAwDJhyC5Q1CJkgBbFA@mail.gmail.com>
- <CAHk-=wiv=9zGSwsu+=tKNgDg8oBUJn_25OEy_0wqO+rvz7p8wg@mail.gmail.com> <20240705112502.GC9231@willie-the-truck>
-In-Reply-To: <20240705112502.GC9231@willie-the-truck>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Fri, 5 Jul 2024 10:58:29 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wgRgDy8_=uZPZr4LRyF7BiN1nDNzUx7iRzrD0g8O+bh3A@mail.gmail.com>
-Message-ID: <CAHk-=wgRgDy8_=uZPZr4LRyF7BiN1nDNzUx7iRzrD0g8O+bh3A@mail.gmail.com>
-Subject: Re: [PATCH 0/4] riscv: uaccess: optimizations
-To: Will Deacon <will@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Linux-Arch <linux-arch@vger.kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, mark.rutland@arm.com
+        d=1e100.net; s=20230601; t=1720199793; x=1720804593;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=in/LzK8J9JA83I2h0HE4VR8w3YECSYGz8kwTmF46sLA=;
+        b=unZ3PaAe14XXWp62J4C/hr7m5giIxQ+EUjTxmwhsTyoBJ9yOx9Egg0lwRpA70xWi7r
+         tcUwdTTt39kb/Pv6XwqrnW4yAhd6rd1TWcyAtzWswfKvvc1VxJjvfHbVwpljsOi61mh8
+         fiO2mU80lX2kbgDRqwaSQ/MKqybClk4AROTdsqxCzfWaRNw4oXKFsRrleiOf+VQ6Haf1
+         TVkdDKOsiLD4i7dJxZVeoZV3v34hTsEqDVjXIWhowu8m+gWSYENlLmBZhKxhmIXf9HxR
+         eZX/aj24ZR4xZ/CVDGkkZpmlzy0ERDNOvqYbFB80dkuUmqFVrgG+O5wjjR5ZJDcAuDeU
+         n//w==
+X-Gm-Message-State: AOJu0YyN1g27t4ZeDPYY8Af+TQuP0glNzj5Nu0mpKVBO/qVQfwfFA1V6
+	SzDpXknseAccpNkqOMMDFiZYiKxgHq18g2e3PQpEpXvSvKg7N6S+eZuuXHA1OFbXpSjXsEfTsUM
+	a
+X-Google-Smtp-Source: AGHT+IFNDYa52WmZ4834HkFwpR9ug9L4dA+Zn5lnn4mA6g/te+8GNddBhZT6WVVzJ8roKd9SC1D8Rg==
+X-Received: by 2002:a17:902:c951:b0:1fb:29f3:c7d4 with SMTP id d9443c01a7336-1fb33ee5d27mr36230245ad.51.1720199792856;
+        Fri, 05 Jul 2024 10:16:32 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fb5962888csm6993355ad.61.2024.07.05.10.16.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Jul 2024 10:16:32 -0700 (PDT)
+Date: Fri, 05 Jul 2024 10:16:32 -0700 (PDT)
+X-Google-Original-Date: Fri, 05 Jul 2024 10:16:16 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.10-rc7
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-c0537cb4-d700-4259-889e-c87f011e931b@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240705_105851_112841_47A1A4CB 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20240705_181638_235325_C90C0BC3 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,48 +98,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Jul 2024 at 04:25, Will Deacon <will@kernel.org> wrote:
->
-> we'd probably want to use an address that lives between the two TTBRs
-> (i.e. in the "guard region" you mentioned above), just in case somebody
-> has fscked around with /proc/sys/vm/mmap_min_addr.
+The following changes since commit 22a40d14b572deb80c0648557f4bd502d7e83826:
 
-Yes, I don't want to use a NULL pointer and rely on mmap_min_addr.
+  Linux 6.10-rc6 (2024-06-30 14:40:44 -0700)
 
-For x86-64, we have two "guard regions" that can be used to generate
-an address that is guaranteed to fault:
+are available in the Git repository at:
 
- - the kernel always lives in the "top bit set" part of the address
-space (and any address tagging bits don't touch that part), and does
-not map the highest virtual address because that's used for error
-pointers, so the "all bits set" address always faults
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.10-rc7
 
- - the region between valid user addresses and kernel addresses is
-also always going to fault, and we don't have them adjacent to each
-other (unlike, for example, 32-bit i386, where the kernel address
-space is directly adjacent to the top of user addresses)
+for you to fetch changes up to c562ba719df570c986caf0941fea2449150bcbc4:
 
-So on x86-64, the simple solution is to just say "we know if the top
-bit is clear, it cannot ever touch kernel code, and if the top bit is
-set we have to make the address fault". So just duplicating the top
-bit (with an arithmetic shift) and or'ing it with the low bits, we get
-exactly what we want.
+  riscv: kexec: Avoid deadlock in kexec crash path (2024-07-03 13:11:30 -0700)
 
-But my knowledge of arm64 is weak enough that while I am reading
-assembly language and I know that instead of the top bit, it's bit55,
-I don't know what the actual rules for the translation table registers
-are.
+----------------------------------------------------------------
+RISC-V Fixes for 6.10-rc7
 
-If the all-bits-set address is guaranteed to always trap, then arm64
-could just use the same thing x86 does (just duplicating bit 55
-instead of the sign bit)?
+* A fix for the CMODX example in therecently added icache flushing
+  prctl().
+* A fix to the perf driver to avoid corrupting event data on counter
+  overflows when external overflow handlers are in use.
+* A fix to clear all hardware performance monitor events on boot, to
+  avoid dangling events firmware or previously booted kernels from
+  triggering spuriously.
+* A fix to the perf event probing logic to avoid erroneously reporting
+  the presence of unimplemented counters.  This also prevents some
+  implemented counters from being reported.
+* A build fix for the vector sigreturn selftest on clang.
+* A fix to ftrace, which now requires the previously optional index
+  argument to ftrace_graph_ret_addr().
+* A fix to avoid deadlocking if kexec crash handling triggers in an
+  interrupt context.
 
-               Linus
+----------------------------------------------------------------
+Atish Patra (1):
+      drivers/perf: riscv: Do not update the event data if uptodate
+
+Charlie Jenkins (2):
+      documentation: Fix riscv cmodx example
+      riscv: selftests: Fix vsetivli args for clang
+
+Palmer Dabbelt (1):
+      Merge patch series "Assorted fixes in RISC-V PMU driver"
+
+Puranjay Mohan (1):
+      riscv: stacktrace: fix usage of ftrace_graph_ret_addr()
+
+Samuel Holland (2):
+      drivers/perf: riscv: Reset the counter to hpmevent mapping while starting cpus
+      perf: RISC-V: Check standard event availability
+
+Song Shuai (1):
+      riscv: kexec: Avoid deadlock in kexec crash path
+
+ Documentation/arch/riscv/cmodx.rst                 |  4 +-
+ arch/riscv/kernel/machine_kexec.c                  | 10 +----
+ arch/riscv/kernel/stacktrace.c                     |  3 +-
+ arch/riscv/kvm/vcpu_pmu.c                          |  2 +-
+ drivers/perf/riscv_pmu.c                           |  2 +-
+ drivers/perf/riscv_pmu_sbi.c                       | 44 ++++++++++++++++++++--
+ .../testing/selftests/riscv/sigreturn/sigreturn.c  |  2 +-
+ 7 files changed, 49 insertions(+), 18 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
