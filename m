@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 403C4C3271E
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 17:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14895C3271E
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 17:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ORqngote1rN2m18m1BqGTpoNHT/CGXPxYs9sKoIqZGE=; b=G+EOjN+sSDhdDk
-	Mplrsr+x3a+0rwmgw+BL1FSLk4SHQsn13kpUjnDvxvEI8T7SJ8b/OpOlHbiPTS/55mQYpKEM/GMlB
-	/VYiljw5cyEVE+U5ZXyZnoir3w4WLK+YVH0lJbmIHLx30AbcQMSzs8np/QYi4CABOJm8UVv7FD7Jl
-	BBiTayn1TxVUMnX23s5sBEVOimRNdm34CABA+MDpt8Zj73tsjG9fN5h5CG4nIJl/dgJd0AgbXPRHC
-	5ux7Ru5CzRS6Z2Pt9LJHmw2KNNGJUBh9Rc+bNUrnFFAFujU+VLlnQIdNEAYUMy17IuQIGx/eX4tJ6
-	fbcy+IkTH4bUYxsOKg6A==;
+	List-Owner; bh=qJx7cU6pNV2Q+0LEPKP/CaVvYeBCrni4EP8SDaSajw4=; b=JbAHpWoGOXLcgO
+	/0twF4aDbOgg5m1ToiAJS1IcwL5YkM3SNZlEcUwPp5Gdw082nuc1Z/UfAV+7x/Q8Vx5gM19ve4HUJ
+	sXeuLjIo2cd0ButESSd+haK/yWw6hfk+f6U4u/oHl2/n9C7yvRYJ8C+A64YU94xiYOJB5rp3V4SNQ
+	8yrmJIA3oEanTcGzlb4ATotyl+go7V/leiQqO4VbyQ402Mau/4WmniV4C5+F7cTgqKBAuEgqB21AP
+	FcwXm1RFxEmqwgnWkfDvwPqI6Kb+y7yRYAivUQf+texeAcWCSXiaqGZ/wOs6h/uDwpd/c3ZjAGOkP
+	+tru5rZT12jVtTjfmiCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPmj0-0000000GXlm-0DZO;
-	Fri, 05 Jul 2024 17:27:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sPnCw-0000000Gak6-2odg;
+	Fri, 05 Jul 2024 17:58:54 +0000
+Received: from mail-vs1-xe31.google.com ([2607:f8b0:4864:20::e31])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPmiw-0000000GXko-2px8
+	id 1sPnCs-0000000Gajh-2q9B
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jul 2024 17:27:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6AA0762BB1;
-	Fri,  5 Jul 2024 17:27:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC732C116B1;
-	Fri,  5 Jul 2024 17:27:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720200473;
-	bh=UFVPAqRzqVT/p6Fkd12jSpwFaK0O3pMzpk6h3778Y08=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r+GP2NpY0ut/WIX+ybo8MYYpHvTp8h6a8vetEwsE/CbsZlhV+S991AWIZQb+Jg+40
-	 Xub3zFx2IpPojnRyBNL0MkZVtnDZt1V/zZhl2sEeONoOWw7jyoGc9lHYogye7A1WBo
-	 AUHbhFUiJizR4/QRRv0a+vBtq65BJGzTWnCT2Szffa42qipZHQBkX0x4WA8bnciHcB
-	 UPLGQqqHEWbqWMA7tm9Mn/iIcyaFG654UF2ohEHfnpUJ+60mEL8CkilSUEoc8wGBlu
-	 bIOKp4D2LiBLowXpcxchn5BGGI1OhqAU8JU1YXF57oGQbB9lLjEY0fx8VJDrSuQL0R
-	 KLTiruSZV+s+A==
-Date: Fri, 5 Jul 2024 10:27:50 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: kernel test robot <lkp@intel.com>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, Leonardo Bras <leobras@redhat.com>,
-	Guo Ren <guoren@kernel.org>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, llvm@lists.linux.dev,
-	oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v2 01/10] riscv: Implement cmpxchg32/64() using Zacas
-Message-ID: <20240705172750.GF987634@thelio-3990X>
-References: <20240626130347.520750-2-alexghiti@rivosinc.com>
- <202407041157.odTZAYZ6-lkp@intel.com>
+	Fri, 05 Jul 2024 17:58:52 +0000
+Received: by mail-vs1-xe31.google.com with SMTP id ada2fe7eead31-48ffc762640so322893137.3
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Jul 2024 10:58:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1720202328; x=1720807128; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=6rchAFSlYahM896I1I/OZo7qd5XWpA7Aq79k25WOCCE=;
+        b=ghanAm70c7wW7UaI/wQvpHEbcVYD8oYwIaM8vfE8V5sYqS/3BwSzYC8GW21RqKEkCN
+         QTrtsKV7p/2ducFrTR2oj7asZYUn/S15SetEu5EyhipGtrVNrTKLcVu9PrRMMSWy2dQr
+         GIMzQVA7klC0aHBGnVDRnmQIpGA6MIPrS/UhE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1720202328; x=1720807128;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6rchAFSlYahM896I1I/OZo7qd5XWpA7Aq79k25WOCCE=;
+        b=JsoTEU+NqfqrsTl0pHRd5oJ0i02sh4pTl2cfJ/Cm11vIMl6L5lrVoVPpTVKwvQPAvc
+         I4L//laP5v/aHpEaUIfsvr0dyZK9fAo4sjzPdWzEqDa5H+tKHJA+C2A2LP4DKl5B1WuX
+         m1C/A/MyRSqXrdw1VlOdmOcc5vjFLMrNXdETEu/2C9hdnZTij/W73b52rw/gmk8qmQC8
+         N0FICP9UZTNNldfB6HWQsPnAIb7XR5SUsx/Oxl2GCjQxqc4t6+191dZN75Kmpw8e0y14
+         3kl82pHjXyT0bj0sAIj9T+cF5j38M0CQivP42Fgx0HHBrjIuRMvKxAV7PziOyqQUotoi
+         5zlA==
+X-Forwarded-Encrypted: i=1; AJvYcCWqNmFYm/Nd5xZlNlkCx48bpgYra9+T+HeQ/jVnwwcnLoADd9Gtb2b5jHv2CjOkjg9NK/rbXNs866bnW3Uw+KQ3hwczHm79szC83Bic+jDS
+X-Gm-Message-State: AOJu0YzIMqhVdquLKbE3xf0gDPXQKdsp6ihayCM9I+6OfKrIoCVYcxc7
+	hjougm5xXnsxLEZGJyTQmvLdihEz01EdqkZ5jjMLdePcawPvlJYfHzsQ7aVVM8H3MYLpf5D/nKL
+	LvDaPng==
+X-Google-Smtp-Source: AGHT+IEPJRyyTF3lBDKTnB9Um/D76FSTwtbFHLlGpKU9/w0wqgR8EWr2I4FBcCPxxsiEOgwxgyJDZg==
+X-Received: by 2002:a67:f44e:0:b0:48f:e0a3:7c0 with SMTP id ada2fe7eead31-48fee7dc049mr6062103137.24.1720202328385;
+        Fri, 05 Jul 2024 10:58:48 -0700 (PDT)
+Received: from mail-vs1-f48.google.com (mail-vs1-f48.google.com. [209.85.217.48])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-810101878b6sm1026025241.2.2024.07.05.10.58.47
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Jul 2024 10:58:47 -0700 (PDT)
+Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-48ffd139a9cso280650137.0
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Jul 2024 10:58:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXX4FgvJAvINyHXwPQ1meKC/o/8hNNx6YmF7cZryRyQwDRF8whJK5g4KyU7DuWOOklZfHi8Kd/fd9y1y3sitwVRq6SH6Llh3funQH52PkBB
+X-Received: by 2002:a67:b902:0:b0:48f:b577:e02d with SMTP id
+ ada2fe7eead31-48fee7dbfaemr5668127137.25.1720202327405; Fri, 05 Jul 2024
+ 10:58:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <202407041157.odTZAYZ6-lkp@intel.com>
+References: <20240625040500.1788-1-jszhang@kernel.org> <4d8e0883-6a8c-4eb5-bf61-604e2b98356a@app.fastmail.com>
+ <CAHk-=wjDrx1XW1oEuUap=MN+Ku_FqFXQAwDJhyC5Q1CJkgBbFA@mail.gmail.com>
+ <CAHk-=wiv=9zGSwsu+=tKNgDg8oBUJn_25OEy_0wqO+rvz7p8wg@mail.gmail.com> <20240705112502.GC9231@willie-the-truck>
+In-Reply-To: <20240705112502.GC9231@willie-the-truck>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Fri, 5 Jul 2024 10:58:29 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wgRgDy8_=uZPZr4LRyF7BiN1nDNzUx7iRzrD0g8O+bh3A@mail.gmail.com>
+Message-ID: <CAHk-=wgRgDy8_=uZPZr4LRyF7BiN1nDNzUx7iRzrD0g8O+bh3A@mail.gmail.com>
+Subject: Re: [PATCH 0/4] riscv: uaccess: optimizations
+To: Will Deacon <will@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Linux-Arch <linux-arch@vger.kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, mark.rutland@arm.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240705_102754_850095_97A5EFF5 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20240705_105851_112841_47A1A4CB 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,149 +102,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 04, 2024 at 11:38:46AM +0800, kernel test robot wrote:
-> Hi Alexandre,
-> 
-> kernel test robot noticed the following build errors:
-> 
-> [auto build test ERROR on soc/for-next]
-> [also build test ERROR on linus/master v6.10-rc6 next-20240703]
-> [cannot apply to arnd-asm-generic/master robh/for-next tip/locking/core]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Implement-cmpxchg32-64-using-Zacas/20240627-034946
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-> patch link:    https://lore.kernel.org/r/20240626130347.520750-2-alexghiti%40rivosinc.com
-> patch subject: [PATCH v2 01/10] riscv: Implement cmpxchg32/64() using Zacas
-> config: riscv-randconfig-002-20240704 (https://download.01.org/0day-ci/archive/20240704/202407041157.odTZAYZ6-lkp@intel.com/config)
-> compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240704/202407041157.odTZAYZ6-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202407041157.odTZAYZ6-lkp@intel.com/
-> 
-> All errors (new ones prefixed by >>):
-> 
-> >> kernel/sched/core.c:11873:7: error: cannot jump from this asm goto statement to one of its possible targets
->                    if (try_cmpxchg(&pcpu_cid->cid, &lazy_cid, MM_CID_UNSET))
->                        ^
->    include/linux/atomic/atomic-instrumented.h:4880:2: note: expanded from macro 'try_cmpxchg'
->            raw_try_cmpxchg(__ai_ptr, __ai_oldp, __VA_ARGS__); \
->            ^
->    include/linux/atomic/atomic-arch-fallback.h:192:9: note: expanded from macro 'raw_try_cmpxchg'
->            ___r = raw_cmpxchg((_ptr), ___o, (_new)); \
->                   ^
->    include/linux/atomic/atomic-arch-fallback.h:55:21: note: expanded from macro 'raw_cmpxchg'
->    #define raw_cmpxchg arch_cmpxchg
->                        ^
->    arch/riscv/include/asm/cmpxchg.h:212:2: note: expanded from macro 'arch_cmpxchg'
->            _arch_cmpxchg((ptr), (o), (n), ".rl", "", "     fence rw, rw\n")
->            ^
->    arch/riscv/include/asm/cmpxchg.h:189:3: note: expanded from macro '_arch_cmpxchg'
->                    __arch_cmpxchg(".w", ".w" sc_sfx, prepend, append,      \
->                    ^
->    arch/riscv/include/asm/cmpxchg.h:144:3: note: expanded from macro '__arch_cmpxchg'
->                    asm goto(ALTERNATIVE("nop", "j %[zacas]", 0,            \
->                    ^
->    kernel/sched/core.c:11840:7: note: possible target of asm goto statement
->            if (!try_cmpxchg(&pcpu_cid->cid, &cid, lazy_cid))
->                 ^
->    include/linux/atomic/atomic-instrumented.h:4880:2: note: expanded from macro 'try_cmpxchg'
->            raw_try_cmpxchg(__ai_ptr, __ai_oldp, __VA_ARGS__); \
->            ^
->    include/linux/atomic/atomic-arch-fallback.h:192:9: note: expanded from macro 'raw_try_cmpxchg'
->            ___r = raw_cmpxchg((_ptr), ___o, (_new)); \
->                   ^
->    include/linux/atomic/atomic-arch-fallback.h:55:21: note: expanded from macro 'raw_cmpxchg'
->    #define raw_cmpxchg arch_cmpxchg
->                        ^
->    arch/riscv/include/asm/cmpxchg.h:212:2: note: expanded from macro 'arch_cmpxchg'
->            _arch_cmpxchg((ptr), (o), (n), ".rl", "", "     fence rw, rw\n")
->            ^
->    arch/riscv/include/asm/cmpxchg.h:189:3: note: expanded from macro '_arch_cmpxchg'
->                    __arch_cmpxchg(".w", ".w" sc_sfx, prepend, append,      \
->                    ^
->    arch/riscv/include/asm/cmpxchg.h:161:10: note: expanded from macro '__arch_cmpxchg'
->                                                                            \
->                                                                            ^
->    kernel/sched/core.c:11872:2: note: jump exits scope of variable with __attribute__((cleanup))
->            scoped_guard (irqsave) {
->            ^
->    include/linux/cleanup.h:169:20: note: expanded from macro 'scoped_guard'
->            for (CLASS(_name, scope)(args),                                 \
->                              ^
->    kernel/sched/core.c:11840:7: error: cannot jump from this asm goto statement to one of its possible targets
->            if (!try_cmpxchg(&pcpu_cid->cid, &cid, lazy_cid))
->                 ^
->    include/linux/atomic/atomic-instrumented.h:4880:2: note: expanded from macro 'try_cmpxchg'
->            raw_try_cmpxchg(__ai_ptr, __ai_oldp, __VA_ARGS__); \
->            ^
->    include/linux/atomic/atomic-arch-fallback.h:192:9: note: expanded from macro 'raw_try_cmpxchg'
->            ___r = raw_cmpxchg((_ptr), ___o, (_new)); \
->                   ^
->    include/linux/atomic/atomic-arch-fallback.h:55:21: note: expanded from macro 'raw_cmpxchg'
->    #define raw_cmpxchg arch_cmpxchg
->                        ^
->    arch/riscv/include/asm/cmpxchg.h:212:2: note: expanded from macro 'arch_cmpxchg'
->            _arch_cmpxchg((ptr), (o), (n), ".rl", "", "     fence rw, rw\n")
->            ^
->    arch/riscv/include/asm/cmpxchg.h:189:3: note: expanded from macro '_arch_cmpxchg'
->                    __arch_cmpxchg(".w", ".w" sc_sfx, prepend, append,      \
->                    ^
->    arch/riscv/include/asm/cmpxchg.h:144:3: note: expanded from macro '__arch_cmpxchg'
->                    asm goto(ALTERNATIVE("nop", "j %[zacas]", 0,            \
->                    ^
->    kernel/sched/core.c:11873:7: note: possible target of asm goto statement
->                    if (try_cmpxchg(&pcpu_cid->cid, &lazy_cid, MM_CID_UNSET))
->                        ^
->    include/linux/atomic/atomic-instrumented.h:4880:2: note: expanded from macro 'try_cmpxchg'
->            raw_try_cmpxchg(__ai_ptr, __ai_oldp, __VA_ARGS__); \
->            ^
->    include/linux/atomic/atomic-arch-fallback.h:192:9: note: expanded from macro 'raw_try_cmpxchg'
->            ___r = raw_cmpxchg((_ptr), ___o, (_new)); \
->                   ^
->    include/linux/atomic/atomic-arch-fallback.h:55:21: note: expanded from macro 'raw_cmpxchg'
->    #define raw_cmpxchg arch_cmpxchg
->                        ^
->    arch/riscv/include/asm/cmpxchg.h:212:2: note: expanded from macro 'arch_cmpxchg'
->            _arch_cmpxchg((ptr), (o), (n), ".rl", "", "     fence rw, rw\n")
->            ^
->    arch/riscv/include/asm/cmpxchg.h:189:3: note: expanded from macro '_arch_cmpxchg'
->                    __arch_cmpxchg(".w", ".w" sc_sfx, prepend, append,      \
->                    ^
->    arch/riscv/include/asm/cmpxchg.h:161:10: note: expanded from macro '__arch_cmpxchg'
->                                                                            \
->                                                                            ^
->    kernel/sched/core.c:11872:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
->            scoped_guard (irqsave) {
->            ^
->    include/linux/cleanup.h:169:20: note: expanded from macro 'scoped_guard'
->            for (CLASS(_name, scope)(args),                                 \
->                              ^
->    2 errors generated.
+On Fri, 5 Jul 2024 at 04:25, Will Deacon <will@kernel.org> wrote:
+>
+> we'd probably want to use an address that lives between the two TTBRs
+> (i.e. in the "guard region" you mentioned above), just in case somebody
+> has fscked around with /proc/sys/vm/mmap_min_addr.
 
-Ugh, this is an unfortunate interaction with clang's jump scope analysis
-and asm goto in LLVM releases prior to 17 :/
+Yes, I don't want to use a NULL pointer and rely on mmap_min_addr.
 
-https://github.com/ClangBuiltLinux/linux/issues/1886#issuecomment-1645979992
+For x86-64, we have two "guard regions" that can be used to generate
+an address that is guaranteed to fault:
 
-Unfortunately, 'if (0)' does not prevent this (the analysis runs early
-in the front end as far as I understand it), we would need to workaround
-this with full preprocessor guards...
+ - the kernel always lives in the "top bit set" part of the address
+space (and any address tagging bits don't touch that part), and does
+not map the highest virtual address because that's used for error
+pointers, so the "all bits set" address always faults
 
-Another alternative would be to require LLVM 17+ for RISC-V, which may
-not be the worst alternative, since I think most people doing serious
-work with clang will probably be living close to tip of tree anyways
-because of all the extension work that goes on upstream.
+ - the region between valid user addresses and kernel addresses is
+also always going to fault, and we don't have them adjacent to each
+other (unlike, for example, 32-bit i386, where the kernel address
+space is directly adjacent to the top of user addresses)
 
-I am open to other thoughts though.
+So on x86-64, the simple solution is to just say "we know if the top
+bit is clear, it cannot ever touch kernel code, and if the top bit is
+set we have to make the address fault". So just duplicating the top
+bit (with an arithmetic shift) and or'ing it with the low bits, we get
+exactly what we want.
 
-Cheers,
-Nathan
+But my knowledge of arm64 is weak enough that while I am reading
+assembly language and I know that instead of the top bit, it's bit55,
+I don't know what the actual rules for the translation table registers
+are.
+
+If the all-bits-set address is guaranteed to always trap, then arm64
+could just use the same thing x86 does (just duplicating bit 55
+instead of the sign bit)?
+
+               Linus
 
 _______________________________________________
 linux-riscv mailing list
