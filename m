@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677C2C3271F
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 08:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10407C30658
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 09:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FMZcbXTa13lT24hyZCW6reY3fl+/n3zpn+RCgCZr2R0=; b=wdjKExfntTT/4B
-	bcZOTiMELmNVKfk5Bbumy/jTMW9aaVr+iEGQwDFqVlAYQcSEqoxOKq0ueFnUvQImZT6bczfF6dxhK
-	5qMYrbC5EgYtZ6JMk2Ow9Uir+LysfKY9K3bwiXKwig99h1IcuSN/Z8H0t0I5Wi2A4OoQDmha7eyRU
-	p7eCE4bY9wAAXDMlfuxDUevg4n38jxSbzXR19+IqpRSfdfoSUrqKYp1xUhCviy0JdmbF+Gxgw3ZKN
-	wyY1kUT6BabNNMbA+t0FDEIR97nSmQ8fFG0vkS3dhA7QBROeRhoHMReX+/2wxYtjO/7oOOdDdcZi+
-	q6P76d5ImXv+89DuF2Zg==;
+	List-Owner; bh=qSeR11a4SH6OfNS7QYzX8eWbODEMHoQB+pzsVylx9U8=; b=21XZ2v2EuXQG08
+	S5EO7GfV/vGNnvPUyIT55etAmyE2EOFtTUzifegE22qmjmELdJL4S2rTHgVuG14X0YRvsDOX2CyeI
+	kl6Ep1OTscc8EBCPDEd9B4jA2Hg5TjC8U7GTJE//c4J71w8oAKGwrfXm0gSNHnakA4pk9Z2ar6VXK
+	kIACoV6bZy8CrTtdUBEXpOyNBSZxpG4SZjvp4ASkhdphIQY7+i6XNT7CLbfu5WBthAobmbTGgoJVE
+	3uyRRG9LpwSsfJWP4qFquxor6+zPVltdilh9yhIFYGgJOr5FYq+QkBbsnsQmKVi8PnY57iVHbRzCh
+	GlXzj7zZIp9Vaa0edMHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPe9t-0000000FGBa-24SE;
-	Fri, 05 Jul 2024 08:19:09 +0000
-Received: from mail-qt1-f181.google.com ([209.85.160.181])
+	id 1sPeyV-0000000FPMM-0KWw;
+	Fri, 05 Jul 2024 09:11:27 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPe9e-0000000FG8L-47UG;
-	Fri, 05 Jul 2024 08:18:56 +0000
-Received: by mail-qt1-f181.google.com with SMTP id d75a77b69052e-446449e5df5so6932171cf.0;
-        Fri, 05 Jul 2024 01:18:54 -0700 (PDT)
+	id 1sPeyR-0000000FPLb-0wch
+	for linux-riscv@lists.infradead.org;
+	Fri, 05 Jul 2024 09:11:24 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-58c2e5e8649so3690488a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Jul 2024 02:11:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1720170681; x=1720775481; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=tFVTuWApmF08b6diV6/k3QYObKt2iVbPWZ1EGAddbk4=;
+        b=JVT7DFlm2qQcIVNfex6GVJse76FBjRoorlmK/BbYv2LLbIpkpaVh9oWhX/HTzdaDYR
+         jCfM6kcIRXwQwRRxu5uSddc4tO9Ma3Q0EVjUxYs4ZOx3WitwIAEfgNw8i2V9NJ3nRe3X
+         sXCHDdzETUXDy8d+OivA3plhvk+3CA4r22wTCPoI9DcCyVn20YVoi6g082FlvYMsfQEV
+         TdSmFY6p2lXi+3rry0tVEEi8o3UIhMPCseHsj5sL6whz6ZxhzJskuK9kxzj3250vGGe0
+         U+wBscgc+fraSEwMJkEZIs8d/6uOD38El/GP/9a61jdWbHWsb2BwsJFZOP5W+cdsVl1Q
+         vSvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720167533; x=1720772333;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ipFWrtbP2pnadKQDEjq7tVSKBPDnD8noGTMoh58siUs=;
-        b=oQjOKDKVft4/527oH7JsFi5aK3xpNYRedSvTv/CdAV+WMw0O2WmlAyQyfX+t53xVCp
-         WVY0fnVuVl5N+8nc45cuR1fpnRrjGdIMQMCX9ehLJEGk1CjBD6kghE+fes/wgd1ZY5rb
-         0s4LEc4xxco7AUxxzDZgRzozEtgZROme0o9e8hN2nsfd5FSuhYRJckJJ7Frw5XciynUO
-         2QJM6Oj7EzCocpDjsE2HozI+4nzSHHoJxgii1yo7deNK5EP7SiuslN/tQieyDAw6RyHS
-         l4+LapIFOIWnPz9gq2dkTlRApvUqeMWEUZKT4suK4/swBvDhPpym6MbvsEowRrHirwd5
-         VWiw==
-X-Forwarded-Encrypted: i=1; AJvYcCUnCHw5I8ja1j27BhycrUIuT+hgTI/262xAUdaJPPCGVowFishiqK49sSq2EVGGhxABX5diW1V1rxtfjd9awXneiQ5N4prDhWIwMTSdeFWcJBvnxxd9xBahlt4iH0xLWueDqen/bvVVhCl/D9tW7c7d3oc06AMNnigx/b30HuYFF3eZijTk3l94g0eRlxZ+h6+03PWFv1y68D4=
-X-Gm-Message-State: AOJu0Yw7EM6UukiGc9rWuZHIOIs8HIF21nM5EpjJgtb2G8nZi4B6nDCC
-	CGApcTtTNuOjPNMiXlbZsl+SCrd1sUUpFM2QFJLn6JUuwIgSQJUTXa6fTasr
-X-Google-Smtp-Source: AGHT+IF5AehrfMg6ofbCuZOi8LI0el8dxG9XzR6WIWu1thZNhz5EkCFM8gzX2t1kehn2sAOA2oJcuQ==
-X-Received: by 2002:a05:6214:1d0b:b0:6b5:6097:396f with SMTP id 6a1803df08f44-6b5ed09514amr50088666d6.64.1720167533186;
-        Fri, 05 Jul 2024 01:18:53 -0700 (PDT)
-Received: from mail-qv1-f50.google.com (mail-qv1-f50.google.com. [209.85.219.50])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6b5e4c79306sm20135016d6.35.2024.07.05.01.18.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Jul 2024 01:18:53 -0700 (PDT)
-Received: by mail-qv1-f50.google.com with SMTP id 6a1803df08f44-6b5dfa44f24so8238616d6.3;
-        Fri, 05 Jul 2024 01:18:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX+xkuw1Z8mQITRFKFmW9Lw2U369Yhv2tlMMQ5JoRDWj3vZhIedEv/BbOdtYoa3ap8+Tj4epkFzpwNL1mtsAMKEHYoklOrc1lnuD/qPNAN4ppm8Ar8QknC0kjj17ucAsnWz9S49cpRUtGOA6HSqGBCP18ETgQYVaKPgy4VrZpKalz8vVZXt6zxKbOvLm3YBw5B+jtpM2dtce0I=
-X-Received: by 2002:a81:431f:0:b0:633:8b49:f97c with SMTP id
- 00721157ae682-652d842fd27mr38728927b3.37.1720167188020; Fri, 05 Jul 2024
- 01:13:08 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1720170681; x=1720775481;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tFVTuWApmF08b6diV6/k3QYObKt2iVbPWZ1EGAddbk4=;
+        b=dFdcCv2KfZwte6zzLim9mLN6G4vcYyU4rk6nHYmoi6YlWVCjIfZHj6/hz9O+WBax3W
+         utXHlMGr7jLpUMVwr3JirTSb1oZPKkS2KQ/BeNvz4F0CDqJUVDWtO0DTZuBoc//OGRfu
+         0I4FYp+QPHa4eQAaRqGcYjpoDQrbmroB/T4feWC4o29gY75xV7TvZepL9JdNXA9OePcE
+         LvUnRYkgNZIScT0xJjrypn5ajxZUq9zxp1mNQ1Y07+BM0SBX5T02qKmdHRfkPCvI3RcI
+         7jOn8WVepU/ri2zqyk3zzWNa/ZP2jeLK8W3C2k7eoTjaXWB/VUyYlhUH5ErRXcLvS1u5
+         AuKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVCObGld8cCsOtozgVK0kAbfeKJ6Hs39WlpVepKRwc70nJTYl6eW5po98yehLcmOwXuDuRnXKMVvy06WiAmDGj07jXT8BLeCtp9JhKchS7G
+X-Gm-Message-State: AOJu0YxB4uEUQRLqe9kAu3DyjWTZCHqzsoWDbZHXPEPxuA2+3zTDO8Fw
+	Wds+cyX+vCqZFT075exaKye+kooiOGWCrW8YdoGxVQJJYwEf3fSbpHMq9C1ruTsMggbhAz8G+zk
+	SngCn7+oGDYiuKXziGcEx0iDzDBDf/A==
+X-Google-Smtp-Source: AGHT+IES48Ua4k077GMXI81WDVe5sTbjVgDZ5/aHC4u0ds3E3f/Es91e9OxI3B0qRmmnO+D/15fo0gyY/p1G3e8/rwo=
+X-Received: by 2002:a05:6402:2710:b0:57d:4692:ba54 with SMTP id
+ 4fb4d7f45d1cf-58e7ad25580mr3260066a12.6.1720170680522; Fri, 05 Jul 2024
+ 02:11:20 -0700 (PDT)
 MIME-Version: 1.0
-References: <20240704143611.2979589-1-arnd@kernel.org> <20240704143611.2979589-8-arnd@kernel.org>
-In-Reply-To: <20240704143611.2979589-8-arnd@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 5 Jul 2024 10:12:55 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdV-JtJWixt8J45rhZbpb7S90EDhp=x5iGGBhmUZyyQSnw@mail.gmail.com>
-Message-ID: <CAMuHMdV-JtJWixt8J45rhZbpb7S90EDhp=x5iGGBhmUZyyQSnw@mail.gmail.com>
-Subject: Re: [PATCH 07/17] clone3: drop __ARCH_WANT_SYS_CLONE3 macro
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arch@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nicolas@fjasle.eu>, Vineet Gupta <vgupta@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, 
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
+References: <20240701121355.262259-2-kanakshilledar@gmail.com>
+ <20240701121355.262259-5-kanakshilledar@gmail.com> <20240703-juice-refreeze-62c468a56ea5@spud>
+ <ZobU6K/R3pfHrK9c@x1> <Zobhkf5qr13rKcWH@x1>
+In-Reply-To: <Zobhkf5qr13rKcWH@x1>
+From: Kanak Shilledar <kanakshilledar@gmail.com>
+Date: Fri, 5 Jul 2024 14:41:08 +0530
+Message-ID: <CAGLn_=siEF=srN1NLgi1i_EocnQH1HRpCPyTpv+bivQ123iq-w@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] riscv: dts: thead: add basic spi node
+To: Drew Fustini <drew@pdp7.com>
+Cc: Drew Fustini <pdp7pdp7@gmail.com>, Conor Dooley <conor@kernel.org>, 
+	Serge Semin <fancer.lancer@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
 	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Rich Felker <dalias@libc.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "David S. Miller" <davem@davemloft.net>, 
-	Andreas Larsson <andreas@gaisler.com>, Christian Brauner <brauner@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-openrisc@vger.kernel.org, linux-riscv@lists.infradead.org
+	Albert Ou <aou@eecs.berkeley.edu>, linux-spi@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240705_011855_043155_8B9BC91D 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20240705_021123_286779_46D8375D 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +92,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdWwgNCwgMjAyNCBhdCA0OjM44oCvUE0gQXJuZCBCZXJnbWFubiA8YXJuZEBrZXJu
-ZWwub3JnPiB3cm90ZToKPiBGcm9tOiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgo+Cj4g
-V2hlbiBjbG9uZTMoKSB3YXMgaW50cm9kdWNlZCwgaXQgd2FzIG5vdCBvYnZpb3VzIGhvdyBlYWNo
-IGFyY2hpdGVjdHVyZQo+IGRlYWxzIHdpdGggc2V0dGluZyB1cCB0aGUgc3RhY2sgYW5kIGtlZXBp
-bmcgdGhlIHJlZ2lzdGVyIGNvbnRlbnRzIGluCj4gYSBmb3JrKCktbGlrZSBzeXN0ZW0gY2FsbCwg
-c28gdGhpcyB3YXMgbGVmdCBmb3IgdGhlIGFyY2hpdGVjdHVyZQo+IG1haW50YWluZXJzIHRvIGlt
-cGxlbWVudCwgd2l0aCBfX0FSQ0hfV0FOVF9TWVNfQ0xPTkUzIGRlZmluZWQgYnkgdGhvc2UKPiB0
-aGF0IGFscmVhZHkgaW1wbGVtZW50IGl0Lgo+Cj4gRml2ZSB5ZWFycyBsYXRlciwgd2Ugc3RpbGwg
-aGF2ZSBhIGZldyBhcmNoaXRlY3R1cmVzIGxlZnQgdGhhdCBhcmUgbWlzc2luZwo+IGNsb25lMygp
-LCBhbmQgdGhlIG1hY3JvIGtlZXBzIGdldHRpbmcgaW4gdGhlIHdheSBhcyBpdCdzIGZ1bmRhbWVu
-dGFsbHkKPiBkaWZmZXJlbnQgZnJvbSBhbGwgdGhlIG90aGVyIF9fQVJDSF9XQU5UX1NZU18qIG1h
-Y3JvcyB0aGF0IGFyZSBtZWFudAo+IHRvIHByb3ZpZGUgYmFja3dhcmRzLWNvbXBhdGliaWxpdHkg
-d2l0aCBhcHBsaWNhdGlvbnMgdXNpbmcgb2xkZXIKPiBzeXNjYWxscyB0aGF0IGFyZSBubyBsb25n
-ZXIgcHJvdmlkZWQgYnkgZGVmYXVsdC4KPgo+IEFkZHJlc3MgdGhpcyBieSByZXZlcnNpbmcgdGhl
-IHBvbGFyaXR5IG9mIHRoZSBtYWNybywgYWRkaW5nIGFuCj4gX19BUkNIX0JST0tFTl9TWVNfQ0xP
-TkUzIG1hY3JvIHRvIGFsbCBhcmNoaXRlY3R1cmVzIHRoYXQgZG9uJ3QKPiBhbHJlYWR5IHByb3Zp
-ZGUgdGhlIHN5c2NhbGwsIGFuZCByZW1vdmUgX19BUkNIX1dBTlRfU1lTX0NMT05FMwo+IGZyb20g
-YWxsIHRoZSBvdGhlciBvbmVzLgo+Cj4gU2lnbmVkLW9mZi1ieTogQXJuZCBCZXJnbWFubiA8YXJu
-ZEBhcm5kYi5kZT4KCj4gIGFyY2gvbTY4ay9pbmNsdWRlL2FzbS91bmlzdGQuaCAgICAgICAgICAg
-ICAgICAgfCAxIC0KCkFja2VkLWJ5OiBHZWVydCBVeXR0ZXJob2V2ZW4gPGdlZXJ0QGxpbnV4LW02
-OGsub3JnPgoKR3J7b2V0amUsZWV0aW5nfXMsCgogICAgICAgICAgICAgICAgICAgICAgICBHZWVy
-dAoKLS0gCkdlZXJ0IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2YgTGludXggYmV5b25k
-IGlhMzIgLS0gZ2VlcnRAbGludXgtbTY4ay5vcmcKCkluIHBlcnNvbmFsIGNvbnZlcnNhdGlvbnMg
-d2l0aCB0ZWNobmljYWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2VyLiBCdXQKd2hlbiBJ
-J20gdGFsa2luZyB0byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5ICJwcm9ncmFtbWVyIiBvciBzb21l
-dGhpbmcgbGlrZSB0aGF0LgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0tIExpbnVz
-IFRvcnZhbGRzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+> > > > --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > > @@ -17,6 +17,7 @@ aliases {
+> > > >           gpio1 = &gpio1;
+> > > >           gpio2 = &gpio2;
+> > > >           gpio3 = &gpio3;
+> > > > +         spi0 = &spi0;
+> > >
+> > > "spi" would sort after "serial".
+> > >
+> > > >           serial0 = &uart0;
+> > > >           serial1 = &uart1;
+> > > >           serial2 = &uart2;
+
+> > > I'm pretty sceptical about adding more of these fixed clocks, rather
+> > > than waiting for the clock driver. Drew, what do you think? Should we
+> > > just add one more to your fixup list or would you rather delay? Guess it
+> > > depends on how long more you think that clock driver is likely to take.
+> >
+> > I think the clk driver [1] is in good shape but it has not been reviewed
+> > by the clk maintainer yet. Thus it is hard to predict any timeline for
+> > it getting merged.
+> >
+> > SPI support doesn't require any driver changes so I'd be inclined to
+> > allow the fixed clock in this case. It will be simple to change it over
+> > to a real clock once the clk driver is upstream.
+> >
+> > Acked-by: Drew Fustini <drew@pdp7.com>
+
+Alright! I do the suggested edits and send a new patch.
+
+> > Thanks,
+> > Drew
+>
+> Sorry, I meant to include the link to the most recent clk series:
+> https://lore.kernel.org/linux-riscv/20240623-th1520-clk-v2-0-ad8d6432d9fb@tenstorrent.com/
+>
+> -Drew
+
+Thanks and Regards,
+Kanak Shilledar
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
