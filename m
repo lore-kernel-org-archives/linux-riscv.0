@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CAECC30658
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 12:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97053C3271E
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 13:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xo+2EbR9XPjA7Z24jlLvzrvppyzRcob0kdRaN9wNKpA=; b=GiemW1lYNYDvbwvrAMWLbPzHnU
-	0BpFmOdRZPVJ0KHUvMYRA/m89VxMaScE9HGAbA64NxVnnp184ZB7ZxsI+uMX2HibNLcWTnVtsdhB0
-	7aO9flSbDDftswPjrGR4g3NLZsfi28X0Z13zQKyGiu5Egcq40ePnLQSjbR+6q28yDRgLKxpEmxHpz
-	055FYOtjAnxld1zb74Fn3FrZTBSjoXosMutNnRG+M/YgSNayqdx8XgIW+4Hvu3e7KSW4oT69dAO5E
-	/NFLh8H4amVZzIIYp47ZjlX7AZScjDSvcT/Pv00pUj2oqf2A5e/MR8txWDaRKA4SoDONSkwcSheCL
-	GdDsexJg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LyzSbiZNoKlXidl7kW72TGKdaAfY6tILJp/M0p5G1rg=; b=1ygLwJF2Hfrs+k
+	sr3DjJCpS4g34w04p7TFK94X2eySKrFgbfOxZl2aSzu2655hwK9RJQ5tJZjVWH0+HuYmHaumuQ5HU
+	483TdnlahsZyrLg5tyF4z+rM7FsLag43h+683e2vpwL93Etg0NRjHRBE4a68pUW3mv5tApsrpC28B
+	0gPoK9lFZS3MIs+B2DLL/2N3/YqRto30gESmCGYiPuA81E9dbMpByy18NnAOrkbtPaqjKoirua7Bs
+	SekB/89caW1hW7Oyaf4MU8YbrlHsJQx4nTn28Q6cE/bp7M7VezCA/EmErwd1n0tuTcOn92zMdbwy9
+	/PKuimAvD6ObEzExhlJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPiQ0-0000000FxlD-2IqK;
-	Fri, 05 Jul 2024 12:52:04 +0000
+	id 1sPj7u-0000000G55h-17nc;
+	Fri, 05 Jul 2024 13:37:26 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPiPw-0000000FxkR-3C90
+	id 1sPj7r-0000000G54a-02f8
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jul 2024 12:52:02 +0000
+	Fri, 05 Jul 2024 13:37:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 12DE8CE3B6B;
-	Fri,  5 Jul 2024 12:51:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11586C116B1;
-	Fri,  5 Jul 2024 12:51:57 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 74028CE3D92;
+	Fri,  5 Jul 2024 13:37:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8882BC116B1;
+	Fri,  5 Jul 2024 13:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720183918;
-	bh=tywzzqXTM3ofbyDOTsWWX9rMUuX3wToN0cFy8fdbH60=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=h3ATi96gOBVDY6kMulp4OPha8kVtaO5PM+6r5TZxGUbqOXe26N+iTsPMbzE5qaadQ
-	 tgTZsEISXFMJAQTHU4xlt/GbioctJO/9NdSona+2l9JHI+FExr3Z5iU2jFiAajHMFN
-	 c7VnK9BOEJF1EURYMDHlXwzVXUwcMWjvZKP1sSeIYcx5b9Kf+BMff8EuLhMSR9ouls
-	 k+nDYrqnWhUAszMoluFX8zeN1fZYzbRuweutlXsyhaIOJTZ7EnXF8plC0llRMC4Lcc
-	 zMvFOazdQRZmbvOK+M7VUeolBym43fSFwQyNO78udbnBhWrq522Q55CVaaM3Jy3aca
-	 fxWd8Gs3cxicQ==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org
-Cc: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Alexei Starovoitov
- <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
- <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Eduard
- Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, KP
- Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
- <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Pu Lehui <pulehui@huawei.com>
-Subject: Re: [PATCH bpf-next v6 1/3] riscv, bpf: Add 12-argument support for
- RV64 bpf trampoline
-In-Reply-To: <20240702121944.1091530-2-pulehui@huaweicloud.com>
-References: <20240702121944.1091530-1-pulehui@huaweicloud.com>
- <20240702121944.1091530-2-pulehui@huaweicloud.com>
-Date: Fri, 05 Jul 2024 12:51:36 +0000
-Message-ID: <mb61p7ce0roh3.fsf@kernel.org>
+	s=k20201202; t=1720186640;
+	bh=bW7SJuoSHC50Ot48nvepYpmST048P10fAOtJVbkOwyc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=TNsXabrs0ShnwnZTHeRTublv86zHKP2tctDSOXhpV5JHiYkfIquIjJJ/uSOabXsgH
+	 r6WWm4zWABnBro+nEL26vAVfoCEFaZyxrKMUyPVy9hgb0aspNOX2ObU5ElrfF5EZ/H
+	 kvDmCeaZZH+RpayjjJS3YJIYxosHkWP1ybEuR76B5oY8GDd/KSlLxe44r1Zbc5OT1Y
+	 bGKaMlmQtjuBNPU6Jm0MBfQYf+qzOkJwrRBcczWWAB/61gWLNSB0aEk/3R2KVc8+Qi
+	 LB7aHVmDqL3urthn8xe+JHynjTsUMmdYia8B+PMtuvrp+5dZJ155uGDlKm7IAOF5im
+	 15i4Yan94IOBA==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: select ARCH_USE_SYM_ANNOTATIONS
+Date: Fri,  5 Jul 2024 21:23:08 +0800
+Message-ID: <20240705132308.1469-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240705_055201_174342_52D63B39 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20240705_063723_242268_BCAAE39E 
+X-CRM114-Status: UNSURE (   7.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,214 +68,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8705021294045870856=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8705021294045870856==
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+After commit 76329c693924 ("riscv: Use SYM_*() assembly macros instead
+of deprecated ones"), riscv has been to the new style SYM_ assembler
+annotations. So select ARCH_USE_SYM_ANNOTATIONS to ensure the
+deprecated macros such as ENTRY(), END(), WEAK() and so on are not
+available and we don't regress.
 
---=-=-=
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Pu Lehui <pulehui@huaweicloud.com> writes:
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 0525ee2d63c7..c51b32a8ddff 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -62,6 +62,7 @@ config RISCV
+ 	select ARCH_USE_CMPXCHG_LOCKREF if 64BIT
+ 	select ARCH_USE_MEMTEST
+ 	select ARCH_USE_QUEUED_RWLOCKS
++	select ARCH_USE_SYM_ANNOTATIONS
+ 	select ARCH_USES_CFI_TRAPS if CFI_CLANG
+ 	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH if MMU
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+-- 
+2.43.0
 
-> From: Pu Lehui <pulehui@huawei.com>
->
-> This patch adds 12 function arguments support for riscv64 bpf
-> trampoline. The current bpf trampoline supports <=3D sizeof(u64) bytes
-> scalar arguments [0] and <=3D 16 bytes struct arguments [1]. Therefore, we
-> focus on the situation where scalars are at most XLEN bits and
-> aggregates whose total size does not exceed 2=C3=97XLEN bits in the riscv
-> calling convention [2].
->
-> Link: https://elixir.bootlin.com/linux/v6.8/source/kernel/bpf/btf.c#L6184=
- [0]
-> Link: https://elixir.bootlin.com/linux/v6.8/source/kernel/bpf/btf.c#L6769=
- [1]
-> Link: https://github.com/riscv-non-isa/riscv-elf-psabi-doc/releases/downl=
-oad/draft-20230929-e5c800e661a53efe3c2678d71a306323b60eb13b/riscv-abi.pdf [=
-2]
-> Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> Acked-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
-> Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@rivosinc.com>
-> ---
->  arch/riscv/net/bpf_jit_comp64.c | 66 +++++++++++++++++++++++----------
->  1 file changed, 47 insertions(+), 19 deletions(-)
->
-> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_com=
-p64.c
-> index 351e1484205e..685c7389ae7e 100644
-> --- a/arch/riscv/net/bpf_jit_comp64.c
-> +++ b/arch/riscv/net/bpf_jit_comp64.c
-> @@ -15,6 +15,7 @@
->  #include <asm/percpu.h>
->  #include "bpf_jit.h"
->=20=20
-> +#define RV_MAX_REG_ARGS 8
->  #define RV_FENTRY_NINSNS 2
->  /* imm that allows emit_imm to emit max count insns */
->  #define RV_MAX_COUNT_IMM 0x7FFF7FF7FF7FF7FF
-> @@ -692,26 +693,45 @@ int bpf_arch_text_poke(void *ip, enum bpf_text_poke=
-_type poke_type,
->  	return ret;
->  }
->=20=20
-> -static void store_args(int nregs, int args_off, struct rv_jit_context *c=
-tx)
-> +static void store_args(int nr_arg_slots, int args_off, struct rv_jit_con=
-text *ctx)
->  {
->  	int i;
->=20=20
-> -	for (i =3D 0; i < nregs; i++) {
-> -		emit_sd(RV_REG_FP, -args_off, RV_REG_A0 + i, ctx);
-> +	for (i =3D 0; i < nr_arg_slots; i++) {
-> +		if (i < RV_MAX_REG_ARGS) {
-> +			emit_sd(RV_REG_FP, -args_off, RV_REG_A0 + i, ctx);
-> +		} else {
-> +			/* skip slots for T0 and FP of traced function */
-> +			emit_ld(RV_REG_T1, 16 + (i - RV_MAX_REG_ARGS) * 8, RV_REG_FP, ctx);
-> +			emit_sd(RV_REG_FP, -args_off, RV_REG_T1, ctx);
-> +		}
->  		args_off -=3D 8;
->  	}
->  }
->=20=20
-> -static void restore_args(int nregs, int args_off, struct rv_jit_context =
-*ctx)
-> +static void restore_args(int nr_reg_args, int args_off, struct rv_jit_co=
-ntext *ctx)
->  {
->  	int i;
->=20=20
-> -	for (i =3D 0; i < nregs; i++) {
-> +	for (i =3D 0; i < nr_reg_args; i++) {
->  		emit_ld(RV_REG_A0 + i, -args_off, RV_REG_FP, ctx);
->  		args_off -=3D 8;
->  	}
->  }
->=20=20
-> +static void restore_stack_args(int nr_stack_args, int args_off, int stk_=
-arg_off,
-> +			       struct rv_jit_context *ctx)
-> +{
-> +	int i;
-> +
-> +	for (i =3D 0; i < nr_stack_args; i++) {
-> +		emit_ld(RV_REG_T1, -(args_off - RV_MAX_REG_ARGS * 8), RV_REG_FP, ctx);
-> +		emit_sd(RV_REG_FP, -stk_arg_off, RV_REG_T1, ctx);
-> +		args_off -=3D 8;
-> +		stk_arg_off -=3D 8;
-> +	}
-> +}
-> +
->  static int invoke_bpf_prog(struct bpf_tramp_link *l, int args_off, int r=
-etval_off,
->  			   int run_ctx_off, bool save_ret, struct rv_jit_context *ctx)
->  {
-> @@ -784,8 +804,8 @@ static int __arch_prepare_bpf_trampoline(struct bpf_t=
-ramp_image *im,
->  {
->  	int i, ret, offset;
->  	int *branches_off =3D NULL;
-> -	int stack_size =3D 0, nregs =3D m->nr_args;
-> -	int retval_off, args_off, nregs_off, ip_off, run_ctx_off, sreg_off;
-> +	int stack_size =3D 0, nr_arg_slots =3D 0;
-> +	int retval_off, args_off, nregs_off, ip_off, run_ctx_off, sreg_off, stk=
-_arg_off;
->  	struct bpf_tramp_links *fentry =3D &tlinks[BPF_TRAMP_FENTRY];
->  	struct bpf_tramp_links *fexit =3D &tlinks[BPF_TRAMP_FEXIT];
->  	struct bpf_tramp_links *fmod_ret =3D &tlinks[BPF_TRAMP_MODIFY_RETURN];
-> @@ -831,20 +851,21 @@ static int __arch_prepare_bpf_trampoline(struct bpf=
-_tramp_image *im,
->  	 * FP - sreg_off    [ callee saved reg	]
->  	 *
->  	 *		    [ pads              ] pads for 16 bytes alignment
-> +	 *
-> +	 *		    [ stack_argN        ]
-> +	 *		    [ ...               ]
-> +	 * FP - stk_arg_off [ stack_arg1        ] BPF_TRAMP_F_CALL_ORIG
->  	 */
->=20=20
->  	if (flags & (BPF_TRAMP_F_ORIG_STACK | BPF_TRAMP_F_SHARE_IPMODIFY))
->  		return -ENOTSUPP;
->=20=20
-> -	/* extra regiters for struct arguments */
-> -	for (i =3D 0; i < m->nr_args; i++)
-> -		if (m->arg_flags[i] & BTF_FMODEL_STRUCT_ARG)
-> -			nregs +=3D round_up(m->arg_size[i], 8) / 8 - 1;
-> -
-> -	/* 8 arguments passed by registers */
-> -	if (nregs > 8)
-> +	if (m->nr_args > MAX_BPF_FUNC_ARGS)
->  		return -ENOTSUPP;
->=20=20
-> +	for (i =3D 0; i < m->nr_args; i++)
-> +		nr_arg_slots +=3D round_up(m->arg_size[i], 8) / 8;
-> +
->  	/* room of trampoline frame to store return address and frame pointer */
->  	stack_size +=3D 16;
->=20=20
-> @@ -854,7 +875,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_t=
-ramp_image *im,
->  		retval_off =3D stack_size;
->  	}
->=20=20
-> -	stack_size +=3D nregs * 8;
-> +	stack_size +=3D nr_arg_slots * 8;
->  	args_off =3D stack_size;
->=20=20
->  	stack_size +=3D 8;
-> @@ -871,8 +892,14 @@ static int __arch_prepare_bpf_trampoline(struct bpf_=
-tramp_image *im,
->  	stack_size +=3D 8;
->  	sreg_off =3D stack_size;
->=20=20
-> +	if (nr_arg_slots - RV_MAX_REG_ARGS > 0)
-> +		stack_size +=3D (nr_arg_slots - RV_MAX_REG_ARGS) * 8;
-
-Hi Pu,
-Although this is merged now, while working on this for arm64 I realised
-that the above doesn't check for BPF_TRAMP_F_CALL_ORIG and can waste
-some stack space, we should change this to:
-
-if ((flags & BPF_TRAMP_F_CALL_ORIG) && (nr_arg_slots - RV_MAX_REG_ARGS > 0))
-        stack_size +=3D (nr_arg_slots - RV_MAX_REG_ARGS) * 8;
-
-It will save some stack space when BPF_TRAMP_F_CALL_ORIG is not set?
-
-I can send a patch if you think this is worth fixing.
-
-
-Thanks,
-Puranjay
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIoEARYKADIWIQQ3wHGvVs/5bdl78BKwwPkjG3B2nQUCZofsWRQccHVyYW5qYXlA
-a2VybmVsLm9yZwAKCRCwwPkjG3B2nVLvAP90WXi/Yhb+D7G+xMI9Ul4lb/QgzP3o
-mpZFUc3OSw0C9gEA3Pfz/ubFrgU0VX9pgWGQp7va5fPrrL0zh795YgseaQI=
-=wqzf
------END PGP SIGNATURE-----
---=-=-=--
-
-
---===============8705021294045870856==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8705021294045870856==--
-
