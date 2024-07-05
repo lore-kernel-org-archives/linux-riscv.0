@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0033DC30658
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 06:30:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D835C30658
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 06:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cNmrXlGUv5l4Xd31ZG/NlqPSJ6JBdlRSfmtxOU/SfX4=; b=uBvPs8+LRXYqZeO0jRQq0dHlt1
-	xVqIk1RXqacPyKpzc4S6TE5f8ZamcvR/+mA2xDcnHTe7vmqdoPoqCQ67SmYioZ/LweBWU2M+QIO0e
-	06134/+jKJxCfGQiM6UEM807DjgIaBpPqyi2/fhKiYKX5NY7U4lGfEDbfmw78nfAJlrvsVm8Xu9tz
-	qHm9ribBbn7UIQupQdVCivxyKQpqIT08nGdlXydeZEwlto759XTn3HKbOsblb/O2PGKQyEB8Kv0AX
-	7uj3Dg3GMm8Ur4coN6rn7QjlbEE7NneDE8fAa8Z/Nx3shY76cn091SQXc116c2ZhkfCt/wHnDmazP
-	dLeOYFZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HiQEKp2Y/eCjq2qzsvxV/A/bs4IdVsnFl90QbvlOyA0=; b=vCxFgX/RPH1NOE
+	Zr++pu1gwHyJaWJ/MxX3O8/Dy53p3bq8qtYgf6J7P3+OLmAr/ip3Kj1di8HdSahjrq7paqc1nzljY
+	+P1j9X9bNxHZI1vSGJUkJrbXVgl+zUZszoKpwKMfJuy4SVi4vVksapFRufYd/KxWzq7aGEKZcqm74
+	l3ROrBQ2b20QoF5FNtn2o57KV9NDi7/vgkVa7l8YGQawe/u28zp1ws7SAZ+pjt2y8XqMJ6KIvtBL4
+	IYrxFr4pisDd236xShbUBOk2TQRATuR0wNdj3Wc1kIu9YSPyV4Mj7yDrkwUg7DhjdpQD9/1hw+ygh
+	B9rN6KS/UUcONbhwtePA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPcSR-0000000F3CQ-21pq;
-	Fri, 05 Jul 2024 06:30:11 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1sPcar-0000000F43b-3qbb;
+	Fri, 05 Jul 2024 06:38:53 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPcSN-0000000F3C2-3hxQ
+	id 1sPcan-0000000F439-3o4t
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jul 2024 06:30:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1720161008; x=1751697008;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=izJ3y+NkTJsJ80bDCgRyTE8U6iYt3auKIsi7LoIzQKc=;
-  b=ZQA68Ysd5tenckhsS/PSFuZhs38iJbQmMQJIHwIPBRUHeV/114xmgmqO
-   hnh/zwkNDT5KJPs7zneK4ektOfv/X17nd9HWXO3zrJmmQr+1095ooSfce
-   RNRx20UtAh0u+iTlMPCjQM99yN+cOqESnaIFPKPfvY2uI83gseh34L+2Q
-   +/T4SJfFKZWcDwA2H2tm8AZO3LABQaoqqdUQU1GXH2EEOEBEusaN5wESv
-   9/B3nGxQ3R3oHYzJXMDhvm0ye7OkZcD/Z6LAEVPm+vBPddN0X2gmb2bGv
-   YPXG5PrhxoFQqjL6+xSAB0o2BduzaB7eBNGzVN1HqnS/D5YCr2airVnvN
-   g==;
-X-CSE-ConnectionGUID: gdsRTikOT2O4QUp3P+IObg==
-X-CSE-MsgGUID: lqjWRQYaSmmt33bLQNGuLA==
-X-IronPort-AV: E=Sophos;i="6.09,184,1716274800"; 
-   d="asc'?scan'208";a="28877280"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Jul 2024 23:30:06 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 4 Jul 2024 23:29:23 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Thu, 4 Jul 2024 23:29:19 -0700
-Date: Fri, 5 Jul 2024 07:28:58 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: =?utf-8?B?5byg54yb?= <zhangmeng.kevin@spacemit.com>
+	Fri, 05 Jul 2024 06:38:51 +0000
+Date: Fri, 5 Jul 2024 06:38:39 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Yangyu Chen <cyy@cyyself.name>,
+	Inochi Amaoto <inochiama@outlook.com>, linux-serial@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Meng Zhang <zhangmeng.kevin@spacemit.com>
 Subject: Re: [PATCH v3 08/11] riscv: dts: add initial SpacemiT K1 SoC device
  tree
-Message-ID: <20240705-moneybags-showpiece-a21262d4e2aa@wendy>
+Message-ID: <20240705063839.GA3042186@ofsar>
 References: <20240703-k1-01-basic-dt-v3-0-12f73b47461e@gentoo.org>
  <20240703-k1-01-basic-dt-v3-8-12f73b47461e@gentoo.org>
- <21b192b47649688e2400e3968e28905bba186d51.f11b05e2.052c.43d9.be00.bc0a5da97b9c@feishu.cn>
+ <Zoanxksn0nio4MPg@xhacker>
 MIME-Version: 1.0
-In-Reply-To: <21b192b47649688e2400e3968e28905bba186d51.f11b05e2.052c.43d9.be00.bc0a5da97b9c@feishu.cn>
+Content-Disposition: inline
+In-Reply-To: <Zoanxksn0nio4MPg@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_233008_063067_2FF3CB46 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20240704_233850_019665_CE664091 
+X-CRM114-Status: GOOD (  34.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,100 +69,483 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Yangyu Chen <cyy@cyyself.name>, linux-riscv@lists.infradead.org, Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, linux-serial@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Lubomir Rintel <lkundrak@v3.sk>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Yixun Lan <dlan@gentoo.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: multipart/mixed; boundary="===============8837014082141002812=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8837014082141002812==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="r5FHo/hUFI/U0wLN"
-Content-Disposition: inline
 
---r5FHo/hUFI/U0wLN
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 21:46 Thu 04 Jul     , Jisheng Zhang wrote:
+> On Wed, Jul 03, 2024 at 02:55:11PM +0000, Yixun Lan wrote:
+> > From: Yangyu Chen <cyy@cyyself.name>
+> > 
+> > Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
+> > 
+> > Key features:
+> > - 4 cores per cluster, 2 clusters on chip
+> > - UART IP is Intel XScale UART
+> > 
+> > Some key considerations:
+> > - ISA string is inferred from vendor documentation[2]
+> > - Cluster topology is inferred from datasheet[1] and L2 in vendor dts[3]
+> > - No coherent DMA on this board
+> >     Inferred by taking vendor ethernet and MMC drivers to the mainline
+> >     kernel. Without dma-noncoherent in soc node, the driver fails.
+> > - No cache nodes now
+> >     The parameters from vendor dts are likely to be wrong. It has 512
+> >     sets for a 32KiB L1 Cache. In this case, each set is 64B in size.
+> >     When the size of the cache line is 64B, it is a directly mapped
+> >     cache rather than a set-associative cache, the latter is commonly
+> >     used. Thus, I didn't use the parameters from vendor dts.
+> > 
+> > Currently only support booting into console with only uart, other
+> > features will be added soon later.
+> > 
+> > Link: https://docs.banana-pi.org/en/BPI-F3/SpacemiT_K1_datasheet [1]
+> > Link: https://developer.spacemit.com/#/documentation?token=BWbGwbx7liGW21kq9lucSA6Vnpb [2]
+> > Link: https://gitee.com/bianbu-linux/linux-6.1/blob/bl-v1.0.y/arch/riscv/boot/dts/spacemit/k1-x.dtsi [3]
+> > Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> > ---
+> >  arch/riscv/boot/dts/spacemit/k1.dtsi | 376 +++++++++++++++++++++++++++++++++++
+> >  1 file changed, 376 insertions(+)
+> > 
+> > diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> > new file mode 100644
+> > index 0000000000000..a076e35855a2e
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> > @@ -0,0 +1,376 @@
+> > +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> > +/*
+> > + * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
+> > + */
+> > +
+> > +/dts-v1/;
+> > +/ {
+> > +	#address-cells = <2>;
+> > +	#size-cells = <2>;
+> > +	model = "SpacemiT K1";
+> > +	compatible = "spacemit,k1";
+> > +
+> > +	aliases {
+> > +		serial0 = &uart0;
+> > +		serial1 = &uart2;
+> > +		serial2 = &uart3;
+> > +		serial3 = &uart4;
+> > +		serial4 = &uart5;
+> > +		serial5 = &uart6;
+> > +		serial6 = &uart7;
+> > +		serial7 = &uart8;
+> > +		serial8 = &uart9;
+> > +	};
+> > +
+> > +	cpus {
+> > +		#address-cells = <1>;
+> > +		#size-cells = <0>;
+> > +		timebase-frequency = <24000000>;
+> > +
+> > +		cpu-map {
+> > +			cluster0 {
+> > +				core0 {
+> > +					cpu = <&cpu_0>;
+> > +				};
+> > +				core1 {
+> > +					cpu = <&cpu_1>;
+> > +				};
+> > +				core2 {
+> > +					cpu = <&cpu_2>;
+> > +				};
+> > +				core3 {
+> > +					cpu = <&cpu_3>;
+> > +				};
+> > +			};
+> > +
+> > +			cluster1 {
+> > +				core0 {
+> > +					cpu = <&cpu_4>;
+> > +				};
+> > +				core1 {
+> > +					cpu = <&cpu_5>;
+> > +				};
+> > +				core2 {
+> > +					cpu = <&cpu_6>;
+> > +				};
+> > +				core3 {
+> > +					cpu = <&cpu_7>;
+> > +				};
+> > +			};
+> > +		};
+> > +
+> > +		cpu_0: cpu@0 {
+> > +			compatible = "spacemit,x60", "riscv";
+> > +			device_type = "cpu";
+> > +			reg = <0>;
+> > +			riscv,isa = "rv64imafdcv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+> > +			riscv,isa-base = "rv64i";
+> > +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicbom",
+> > +					       "zicbop", "zicboz", "zicntr", "zicond", "zicsr",
+> > +					       "zifencei", "zihintpause", "zihpm", "zfh", "zba",
+> > +					       "zbb", "zbc", "zbs", "zkt", "zvfh", "zvkt",
+> > +					       "sscofpmf", "sstc", "svinval", "svnapot", "svpbmt";
+> > +			riscv,cbom-block-size = <64>;
+> > +			riscv,cbop-block-size = <64>;
+> > +			riscv,cboz-block-size = <64>;
+> > +			mmu-type = "riscv,sv39";
+> > +
+> > +			cpu0_intc: interrupt-controller {
+> > +				compatible = "riscv,cpu-intc";
+> > +				interrupt-controller;
+> > +				#interrupt-cells = <1>;
+> > +			};
+> > +		};
+> > +
+> > +		cpu_1: cpu@1 {
+> > +			compatible = "spacemit,x60", "riscv";
+> > +			device_type = "cpu";
+> > +			reg = <1>;
+> > +			riscv,isa = "rv64imafdcv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+> > +			riscv,isa-base = "rv64i";
+> > +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicbom",
+> > +					       "zicbop", "zicboz", "zicntr", "zicond", "zicsr",
+> > +					       "zifencei", "zihintpause", "zihpm", "zfh", "zba",
+> > +					       "zbb", "zbc", "zbs", "zkt", "zvfh", "zvkt",
+> > +					       "sscofpmf", "sstc", "svinval", "svnapot", "svpbmt";
+> > +			riscv,cbom-block-size = <64>;
+> > +			riscv,cbop-block-size = <64>;
+> > +			riscv,cboz-block-size = <64>;
+> > +			mmu-type = "riscv,sv39";
+> > +
+> > +			cpu1_intc: interrupt-controller {
+> > +				compatible = "riscv,cpu-intc";
+> > +				interrupt-controller;
+> > +				#interrupt-cells = <1>;
+> > +			};
+> > +		};
+> > +
+> > +		cpu_2: cpu@2 {
+> > +			compatible = "spacemit,x60", "riscv";
+> > +			device_type = "cpu";
+> > +			reg = <2>;
+> > +			riscv,isa = "rv64imafdcv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+> > +			riscv,isa-base = "rv64i";
+> > +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicbom",
+> > +					       "zicbop", "zicboz", "zicntr", "zicond", "zicsr",
+> > +					       "zifencei", "zihintpause", "zihpm", "zfh", "zba",
+> > +					       "zbb", "zbc", "zbs", "zkt", "zvfh", "zvkt",
+> > +					       "sscofpmf", "sstc", "svinval", "svnapot", "svpbmt";
+> > +			riscv,cbom-block-size = <64>;
+> > +			riscv,cbop-block-size = <64>;
+> > +			riscv,cboz-block-size = <64>;
+> > +			mmu-type = "riscv,sv39";
+> > +
+> > +			cpu2_intc: interrupt-controller {
+> > +				compatible = "riscv,cpu-intc";
+> > +				interrupt-controller;
+> > +				#interrupt-cells = <1>;
+> > +			};
+> > +		};
+> > +
+> > +		cpu_3: cpu@3 {
+> > +			compatible = "spacemit,x60", "riscv";
+> > +			device_type = "cpu";
+> > +			reg = <3>;
+> > +			riscv,isa = "rv64imafdcv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+> > +			riscv,isa-base = "rv64i";
+> > +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicbom",
+> > +					       "zicbop", "zicboz", "zicntr", "zicond", "zicsr",
+> > +					       "zifencei", "zihintpause", "zihpm", "zfh", "zba",
+> > +					       "zbb", "zbc", "zbs", "zkt", "zvfh", "zvkt",
+> > +					       "sscofpmf", "sstc", "svinval", "svnapot", "svpbmt";
+> > +			riscv,cbom-block-size = <64>;
+> > +			riscv,cbop-block-size = <64>;
+> > +			riscv,cboz-block-size = <64>;
+> > +			mmu-type = "riscv,sv39";
+> > +
+> > +			cpu3_intc: interrupt-controller {
+> > +				compatible = "riscv,cpu-intc";
+> > +				interrupt-controller;
+> > +				#interrupt-cells = <1>;
+> > +			};
+> > +		};
+> > +
+> > +		cpu_4: cpu@4 {
+> > +			compatible = "spacemit,x60", "riscv";
+> > +			device_type = "cpu";
+> > +			reg = <4>;
+> > +			riscv,isa = "rv64imafdcv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+> > +			riscv,isa-base = "rv64i";
+> > +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicbom",
+> > +					       "zicbop", "zicboz", "zicntr", "zicond", "zicsr",
+> > +					       "zifencei", "zihintpause", "zihpm", "zfh", "zba",
+> > +					       "zbb", "zbc", "zbs", "zkt", "zvfh", "zvkt",
+> > +					       "sscofpmf", "sstc", "svinval", "svnapot", "svpbmt";
+> > +			riscv,cbom-block-size = <64>;
+> > +			riscv,cbop-block-size = <64>;
+> > +			riscv,cboz-block-size = <64>;
+> > +			mmu-type = "riscv,sv39";
+> > +
+> > +			cpu4_intc: interrupt-controller {
+> > +				compatible = "riscv,cpu-intc";
+> > +				interrupt-controller;
+> > +				#interrupt-cells = <1>;
+> > +			};
+> > +		};
+> > +
+> > +		cpu_5: cpu@5 {
+> > +			compatible = "spacemit,x60", "riscv";
+> > +			device_type = "cpu";
+> > +			reg = <5>;
+> > +			riscv,isa = "rv64imafdcv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+> > +			riscv,isa-base = "rv64i";
+> > +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicbom",
+> > +					       "zicbop", "zicboz", "zicntr", "zicond", "zicsr",
+> > +					       "zifencei", "zihintpause", "zihpm", "zfh", "zba",
+> > +					       "zbb", "zbc", "zbs", "zkt", "zvfh", "zvkt",
+> > +					       "sscofpmf", "sstc", "svinval", "svnapot", "svpbmt";
+> > +			riscv,cbom-block-size = <64>;
+> > +			riscv,cbop-block-size = <64>;
+> > +			riscv,cboz-block-size = <64>;
+> > +			mmu-type = "riscv,sv39";
+> > +
+> > +			cpu5_intc: interrupt-controller {
+> > +				compatible = "riscv,cpu-intc";
+> > +				interrupt-controller;
+> > +				#interrupt-cells = <1>;
+> > +			};
+> > +		};
+> > +
+> > +		cpu_6: cpu@6 {
+> > +			compatible = "spacemit,x60", "riscv";
+> > +			device_type = "cpu";
+> > +			reg = <6>;
+> > +			riscv,isa = "rv64imafdcv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+> > +			riscv,isa-base = "rv64i";
+> > +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicbom",
+> > +					       "zicbop", "zicboz", "zicntr", "zicond", "zicsr",
+> > +					       "zifencei", "zihintpause", "zihpm", "zfh", "zba",
+> > +					       "zbb", "zbc", "zbs", "zkt", "zvfh", "zvkt",
+> > +					       "sscofpmf", "sstc", "svinval", "svnapot", "svpbmt";
+> > +			riscv,cbom-block-size = <64>;
+> > +			riscv,cbop-block-size = <64>;
+> > +			riscv,cboz-block-size = <64>;
+> > +			mmu-type = "riscv,sv39";
+> > +
+> > +			cpu6_intc: interrupt-controller {
+> > +				compatible = "riscv,cpu-intc";
+> > +				interrupt-controller;
+> > +				#interrupt-cells = <1>;
+> > +			};
+> > +		};
+> > +
+> > +		cpu_7: cpu@7 {
+> > +			compatible = "spacemit,x60", "riscv";
+> > +			device_type = "cpu";
+> > +			reg = <7>;
+> > +			riscv,isa = "rv64imafdcv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+> > +			riscv,isa-base = "rv64i";
+> > +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zicbom",
+> > +					       "zicbop", "zicboz", "zicntr", "zicond", "zicsr",
+> > +					       "zifencei", "zihintpause", "zihpm", "zfh", "zba",
+> > +					       "zbb", "zbc", "zbs", "zkt", "zvfh", "zvkt",
+> > +					       "sscofpmf", "sstc", "svinval", "svnapot", "svpbmt";
+> > +			riscv,cbom-block-size = <64>;
+> > +			riscv,cbop-block-size = <64>;
+> > +			riscv,cboz-block-size = <64>;
+> > +			mmu-type = "riscv,sv39";
+> > +
+> > +			cpu7_intc: interrupt-controller {
+> > +				compatible = "riscv,cpu-intc";
+> > +				interrupt-controller;
+> > +				#interrupt-cells = <1>;
+> > +			};
+> > +		};
+> > +
+> > +	};
+> > +
+> > +	soc {
+> > +		compatible = "simple-bus";
+> > +		interrupt-parent = <&plic>;
+> > +		#address-cells = <2>;
+> > +		#size-cells = <2>;
+> > +		dma-noncoherent;
+> > +		ranges;
+> > +
+> > +		uart0: serial@d4017000 {
+> > +			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+> 
+> no, this is not a correct hw modeling. The doc on spacemit says
+> all the uart support 64 bytes FIFO, declaring xscale only makes
+> use of 32 bytes FIFO.
+yes, I also noticed it's 64 bytes FIFO
 
-On Fri, Jul 05, 2024 at 01:55:43PM +0800, =E5=BC=A0=E7=8C=9B wrote:
-
-> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0=C2=A0 riscv,isa =3D "rv64imafdcv_zicbom_zicbop_zicboz_zicntr_zicond=
-_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpm=
-f_sstc_svinval_svnapot_svpbmt";
-> Linux 6.7 kernel modifies the definition of the "riscv, isa" property, an=
-d describes the extended features in the "riscv, isa-extensions". So, can t=
-he definition of "riscv, isa" be simplified here?
-> Defined as =EF=BC=9A=C2=A0 riscv,isa =3D "rv64imafdcv";
-
-No, they should match, other than vendor extensions. Not every project
-supports the new property.
-
-> This message and any attachment are confidential and may be privileged or=
- otherwise protected from disclosure. If you are not an intended recipient =
-of this message, please delete it and any attachment from your system and n=
-otify the sender immediately by reply e-mail. Unintended recipients should =
-not use, copy, disclose or take any action based on this message or any inf=
-ormation contained in this message. Emails cannot be guaranteed to be secur=
-e or error free as they can be intercepted, amended, lost or destroyed, and=
- you should take full responsibility for security checking.=20
-> =20
-> =E6=9C=AC=E9=82=AE=E4=BB=B6=E5=8F=8A=E5=85=B6=E4=BB=BB=E4=BD=95=E9=99=84=
-=E4=BB=B6=E5=85=B7=E6=9C=89=E4=BF=9D=E5=AF=86=E6=80=A7=E8=B4=A8=EF=BC=8C=E5=
-=B9=B6=E5=8F=AF=E8=83=BD=E5=8F=97=E5=85=B6=E4=BB=96=E4=BF=9D=E6=8A=A4=E6=88=
-=96=E4=B8=8D=E5=85=81=E8=AE=B8=E8=A2=AB=E6=8A=AB=E9=9C=B2=E7=BB=99=E7=AC=AC=
-=E4=B8=89=E6=96=B9=E3=80=82=E5=A6=82=E9=98=81=E4=B8=8B=E8=AF=AF=E6=94=B6=E5=
-=88=B0=E6=9C=AC=E9=82=AE=E4=BB=B6=EF=BC=8C=E6=95=AC=E8=AF=B7=E7=AB=8B=E5=8D=
-=B3=E4=BB=A5=E5=9B=9E=E5=A4=8D=E7=94=B5=E5=AD=90=E9=82=AE=E4=BB=B6=E7=9A=84=
-=E6=96=B9=E5=BC=8F=E9=80=9A=E7=9F=A5=E5=8F=91=E4=BB=B6=E4=BA=BA=EF=BC=8C=E5=
-=B9=B6=E5=B0=86=E6=9C=AC=E9=82=AE=E4=BB=B6=E5=8F=8A=E5=85=B6=E4=BB=BB=E4=BD=
-=95=E9=99=84=E4=BB=B6=E4=BB=8E=E9=98=81=E4=B8=8B=E7=B3=BB=E7=BB=9F=E4=B8=AD=
-=E4=BA=88=E4=BB=A5=E5=88=A0=E9=99=A4=E3=80=82=E5=A6=82=E9=98=81=E4=B8=8B=E5=
-=B9=B6=E9=9D=9E=E6=9C=AC=E9=82=AE=E4=BB=B6=E5=86=99=E6=98=8E=E4=B9=8B=E6=94=
-=B6=E4=BB=B6=E4=BA=BA=EF=BC=8C=E6=95=AC=E8=AF=B7=E5=88=87=E5=8B=BF=E4=BD=BF=
-=E7=94=A8=E3=80=81=E5=A4=8D=E5=88=B6=E3=80=81=E6=8A=AB=E9=9C=B2=E6=9C=AC=E9=
-=82=AE=E4=BB=B6=E6=88=96=E5=85=B6=E4=BB=BB=E4=BD=95=E5=86=85=E5=AE=B9=EF=BC=
-=8C=E4=BA=A6=E8=AF=B7=E5=88=87=E5=8B=BF=E4=BE=9D=E6=9C=AC=E9=82=AE=E4=BB=B6=
-=E6=88=96=E5=85=B6=E4=BB=BB=E4=BD=95=E5=86=85=E5=AE=B9=E8=80=8C=E9=87=87=E5=
-=8F=96=E4=BB=BB=E4=BD=95=E8=A1=8C=E5=8A=A8=E3=80=82=E7=94=B5=E5=AD=90=E9=82=
-=AE=E4=BB=B6=E6=97=A0=E6=B3=95=E4=BF=9D=E8=AF=81=E6=98=AF=E4=B8=80=E7=A7=8D=
-=E5=AE=89=E5=85=A8=E5=92=8C=E4=B8=8D=E4=BC=9A=E5=87=BA=E7=8E=B0=E4=BB=BB=E4=
-=BD=95=E5=B7=AE=E9=94=99=E7=9A=84=E9=80=9A=E4=BF=A1=E6=96=B9=E5=BC=8F=EF=BC=
-=8C=E5=8F=AF=E8=83=BD=E4=BC=9A=E8=A2=AB=E6=8B=A6=E6=88=AA=E3=80=81=E4=BF=AE=
-=E6=94=B9=E3=80=81=E4=B8=A2=E5=A4=B1=E6=88=96=E6=8D=9F=E5=9D=8F=EF=BC=8C=E6=
-=94=B6=E4=BB=B6=E4=BA=BA=E9=9C=80=E8=87=AA=E8=A1=8C=E8=B4=9F=E8=B4=A3=E5=81=
-=9A=E5=A5=BD=E5=AE=89=E5=85=A8=E6=A3=80=E6=9F=A5=E3=80=82
-
-Please fix your mail client/system to not append this. Such footers are
-incompatible with kernel development.
-
-Thanks,
-Conor.
-
---r5FHo/hUFI/U0wLN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZoeSmgAKCRB4tDGHoIJi
-0sF4AQDCX4JI0M03jibGYAqEQ7wU9mHU2p/KBPLAZdO4LNHmkwD/W7rLzQrOADWi
-aweZNUwFUrpe1QE1vQc/UoM1xw3llAU=
-=GiR5
------END PGP SIGNATURE-----
-
---r5FHo/hUFI/U0wLN--
+> 
+> IIRC, 8250_pxa is a xscale uart with 64 bytes FIFO, so this should be
+> "mrvl,pxa-uart" or "mrvl,mmp-uart"
 
 
---===============8837014082141002812==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+for mrvl,pxa-uart, I think you imply to use drivers/tty/serial/8250/8250_pxa.c,
+which turn out doesn't work on k1 SoC, for the record, we need to adjust
+ drivers/tty/serial/8250/Kconfig to enable the driver for ARCH_SPACEMIT,
+ and change uart compatible to "spacemit,k1-uart", "mrvl,pxa-uart"
+
+for mrvl,mmp-uart, I see two choices, one using 8250_pxa.c which has same result
+as mrvl,pxa-uart, another choice would using the driver of 8250_of.c 
+and it work as same as "intel,xscale-uart", I don't see any difference..
+
+P.S: there is possibly a side problem that "mrvl,mmp-uart" from 8250_of.c doesn't 
+really compatile with "mrvl,mmp-uart" from 8250_pxa.c, but I think it's another story
+
+> 
+> > +			reg = <0x0 0xd4017000 0x0 0x100>;
+> > +			interrupts = <42>;
+> > +			clock-frequency = <14857000>;
+> 
+> once clk is ready, you will remove this property and add clk phandles,
+yes, this is exactly the plan
+
+> so why not bring clk, pinctrl, reset before hand?
+> 
+No, we want to have an initial minimal working environment with initramfs + console,
+and start from there to work with clk, pinctrl, reset, it will help us to debug and 
+work in parallel
+
+Note, I have no objection, if maintainer consider to merge this patch series on condition that
+clk, pinctrl, reset are also ready..
+
+
+> > +			reg-shift = <2>;
+> > +			reg-io-width = <4>;
+> > +			status = "disabled";
+> > +		};
+> > +
+> > +		uart2: serial@d4017100 {
+> > +			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+> > +			reg = <0x0 0xd4017100 0x0 0x100>;
+> > +			interrupts = <44>;
+> > +			clock-frequency = <14857000>;
+> > +			reg-shift = <2>;
+> > +			reg-io-width = <4>;
+> > +			status = "disabled";
+> > +		};
+> > +
+> > +		uart3: serial@d4017200 {
+> > +			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+> > +			reg = <0x0 0xd4017200 0x0 0x100>;
+> > +			interrupts = <45>;
+> > +			clock-frequency = <14857000>;
+> > +			reg-shift = <2>;
+> > +			reg-io-width = <4>;
+> > +			status = "disabled";
+> > +		};
+> > +
+> > +		uart4: serial@d4017300 {
+> > +			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+> > +			reg = <0x0 0xd4017300 0x0 0x100>;
+> > +			interrupts = <46>;
+> > +			clock-frequency = <14857000>;
+> > +			reg-shift = <2>;
+> > +			reg-io-width = <4>;
+> > +			status = "disabled";
+> > +		};
+> > +
+> > +		uart5: serial@d4017400 {
+> > +			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+> > +			reg = <0x0 0xd4017400 0x0 0x100>;
+> > +			interrupts = <47>;
+> > +			clock-frequency = <14857000>;
+> > +			reg-shift = <2>;
+> > +			reg-io-width = <4>;
+> > +			status = "disabled";
+> > +		};
+> > +
+> > +		uart6: serial@d4017500 {
+> > +			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+> > +			reg = <0x0 0xd4017500 0x0 0x100>;
+> > +			interrupts = <48>;
+> > +			clock-frequency = <14857000>;
+> > +			reg-shift = <2>;
+> > +			reg-io-width = <4>;
+> > +			status = "disabled";
+> > +		};
+> > +
+> > +		uart7: serial@d4017600 {
+> > +			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+> > +			reg = <0x0 0xd4017600 0x0 0x100>;
+> > +			interrupts = <49>;
+> > +			clock-frequency = <14857000>;
+> > +			reg-shift = <2>;
+> > +			reg-io-width = <4>;
+> > +			status = "disabled";
+> > +		};
+> > +
+> > +		uart8: serial@d4017700 {
+> > +			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+> > +			reg = <0x0 0xd4017700 0x0 0x100>;
+> > +			interrupts = <50>;
+> > +			clock-frequency = <14857000>;
+> > +			reg-shift = <2>;
+> > +			reg-io-width = <4>;
+> > +			status = "disabled";
+> > +		};
+> > +
+> > +		uart9: serial@d4017800 {
+> > +			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+> > +			reg = <0x0 0xd4017800 0x0 0x100>;
+> > +			interrupts = <51>;
+> > +			clock-frequency = <14857000>;
+> > +			reg-shift = <2>;
+> > +			reg-io-width = <4>;
+> > +			status = "disabled";
+> > +		};
+> > +
+> > +		plic: interrupt-controller@e0000000 {
+> > +			compatible = "spacemit,k1-plic", "sifive,plic-1.0.0";
+> > +			reg = <0x0 0xe0000000 0x0 0x4000000>;
+> > +			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>,
+> > +					      <&cpu1_intc 11>, <&cpu1_intc 9>,
+> > +					      <&cpu2_intc 11>, <&cpu2_intc 9>,
+> > +					      <&cpu3_intc 11>, <&cpu3_intc 9>,
+> > +					      <&cpu4_intc 11>, <&cpu4_intc 9>,
+> > +					      <&cpu5_intc 11>, <&cpu5_intc 9>,
+> > +					      <&cpu6_intc 11>, <&cpu6_intc 9>,
+> > +					      <&cpu7_intc 11>, <&cpu7_intc 9>;
+> > +			interrupt-controller;
+> > +			#address-cells = <0>;
+> > +			#interrupt-cells = <1>;
+> > +			riscv,ndev = <159>;
+> > +		};
+> > +
+> > +		clint: timer@e4000000 {
+> > +			compatible = "spacemit,k1-clint", "sifive,clint0";
+> > +			reg = <0x0 0xe4000000 0x0 0x10000>;
+> > +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
+> > +					      <&cpu1_intc 3>, <&cpu1_intc 7>,
+> > +					      <&cpu2_intc 3>, <&cpu2_intc 7>,
+> > +					      <&cpu3_intc 3>, <&cpu3_intc 7>,
+> > +					      <&cpu4_intc 3>, <&cpu4_intc 7>,
+> > +					      <&cpu5_intc 3>, <&cpu5_intc 7>,
+> > +					      <&cpu6_intc 3>, <&cpu6_intc 7>,
+> > +					      <&cpu7_intc 3>, <&cpu7_intc 7>;
+> > +		};
+> > +	};
+> > +};
+> > 
+> > -- 
+> > 2.45.2
+> > 
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+-- 
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8837014082141002812==--
-
