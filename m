@@ -4,77 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97317C30658
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 04:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B71C30658
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jul 2024 05:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x5PJ8GKZPhw+Xvdh1lgg7H9iE/P3kT4RnK1YDkwn8b4=; b=qNrZzUU9muKMDI
-	sQL9S3MAT+LtNZ9E7OxFtAIF7E27iNtw8egV1dIwr2eHwGXiHvPZMXeGnxkmMpinhZfdZ0Ab/hKA1
-	FRuOXyt9hC938b3duH1VoY3hXKmLunrON5bqLsQfYCcbt0zDLsIkzU1eXrldqFlW6AzsWCTewBO9l
-	aII7cotVT8rcrSYfojIj3FLNaQMdcVhw+jEu/EPVFw4IX88fdqXtEKcuXibN+NjZ3cvRgihTOBx4v
-	8vhe/dFywcUrWBDZ/F8cRGkUAQaNrFD0dOjXzqD9uoJJtUK2CiqhXeGYAtcwRsm90NMaRp4L92Cgx
-	NaJuc9EsXGbKXDb34Vcg==;
+	List-Owner; bh=KRYhLi3mNx+MG13LlQ0lTwBqBdUDjDsTszqLCD7/0/o=; b=lbHJuBlJ6YT6vM
+	bvBRAatrrtlX0mn5ie5E77y7NkrWQu1n/Q9GqzLAvO/gvMzwhj6oMk6Ny1Kz4DEzNOvpyjjQK+9LY
+	J3st9nUNK/kh09xx+5oD+57x/hBE31/erMx3zusnQACs9HuogoJIRyhrj6cUFGlWicj8q/kxA+VzQ
+	wjR/zJKqW8D6oo8Q+kH80CLXiC7L7eWktSBr2ELF8XTzJ8rU5GIr8AuX9GLBB4p4q70PL933ZAEKv
+	boUUVIfhKn0BAxu3c7yFk6V5N1iw66LrVZjWtIyqJtBs6N1TwFHmEzF56ouNELiVmn3rnP6mip+Hl
+	0B4dScIPc7iYJ+gdLGaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPaKb-0000000EsTu-3USB;
-	Fri, 05 Jul 2024 04:13:57 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1sPbtI-0000000EyVy-3WF9;
+	Fri, 05 Jul 2024 05:53:53 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sPaKZ-0000000EsTP-1BLC
+	id 1sPbtF-0000000EyV9-3UhF
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jul 2024 04:13:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1720152836; x=1751688836;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=DgJOfUyOSxVhQfMvmhTpdQIhTot3ud+pCunclUi06xE=;
-  b=MEYZchpeuAr2TSrQuexsl/SxsdFLzpCR5xyUSjNNbX1wX2MF4z9fsZLt
-   LfAl8vAEYWO5g3zZh1zrBtCmAjpmkna4XwOhGM01ygjdOTJR91ud79EZo
-   2M0iuDb/I+0PSX3cVR5N9K2V1U2Wy0ZC7szTADqFI17wZILTDEpv8F8OH
-   TDKRDZcPLSZkEDMzwsAmD5IdGhIqpbyAhvI4Xf4gsA84YKzWsqvNimh9w
-   VO2E9lwobrcTDyRGpqAKxnqiYRRVqsUzrtmP36iR+YePr84Q8nwm6zL1C
-   j5xa2yfAP3i0tnD9PGZuQlxXutCcuewa84y2ubMM5f6f39kVw1zuTLzh+
-   Q==;
-X-CSE-ConnectionGUID: LzQflvZXQxKj//lnwKKYyg==
-X-CSE-MsgGUID: MuzPJYuqSv2+4o7h/gkkxw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11123"; a="17542354"
-X-IronPort-AV: E=Sophos;i="6.09,183,1716274800"; 
-   d="scan'208";a="17542354"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2024 21:13:49 -0700
-X-CSE-ConnectionGUID: h6gQyRWgSs6tkoY6PEIYgw==
-X-CSE-MsgGUID: 1toK6P7UQbKpG292BlGNQg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.09,183,1716274800"; 
-   d="scan'208";a="47196195"
-Received: from lkp-server01.sh.intel.com (HELO 68891e0c336b) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 04 Jul 2024 21:13:47 -0700
-Received: from kbuild by 68891e0c336b with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1sPaKO-000RtI-28;
-	Fri, 05 Jul 2024 04:13:44 +0000
-Date: Fri, 5 Jul 2024 12:13:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jisheng Zhang <jszhang@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] riscv: uaccess: use 'asm goto output' for get_user
-Message-ID: <202407051159.ArkAPA6L-lkp@intel.com>
-References: <20240625040500.1788-5-jszhang@kernel.org>
+	Fri, 05 Jul 2024 05:53:51 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 366F940006;
+	Fri,  5 Jul 2024 05:53:45 +0000 (UTC)
+Message-ID: <adce9444-a6c4-4747-afec-d70af4a396d3@ghiti.fr>
+Date: Fri, 5 Jul 2024 07:53:44 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240625040500.1788-5-jszhang@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: vdso: do not strip debugging info for vdso.so.dbg
+Content-Language: en-US
+To: Changbin Du <changbin.du@huawei.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20240611040947.3024710-1-changbin.du@huawei.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240611040947.3024710-1-changbin.du@huawei.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240704_211355_395287_6D4614CB 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20240704_225350_037095_3A4A5276 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,145 +57,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jisheng,
+Hi Changbin,
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.10-rc6]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Jisheng-Zhang/riscv-implement-user_access_begin-and-families/20240626-005352
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20240625040500.1788-5-jszhang%40kernel.org
-patch subject: [PATCH 4/4] riscv: uaccess: use 'asm goto output' for get_user
-config: riscv-randconfig-r121-20240705 (https://download.01.org/0day-ci/archive/20240705/202407051159.ArkAPA6L-lkp@intel.com/config)
-compiler: riscv32-linux-gcc (GCC) 13.2.0
-reproduce: (https://download.01.org/0day-ci/archive/20240705/202407051159.ArkAPA6L-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202407051159.ArkAPA6L-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/compiler_types.h:174,
-                    from <command-line>:
-   net/rfkill/core.c: In function 'rfkill_fop_ioctl':
->> arch/riscv/include/asm/uaccess.h:104:26: error: '__lo' undeclared (first use in this function)
-     104 |                 : "=&r" (__lo), "=r" (__hi)                     \
-         |                          ^~~~
-   include/linux/compiler-gcc.h:84:32: note: in definition of macro 'asm_goto_output'
-      84 |         do { asm volatile goto(x); asm (""); } while (0)
-         |                                ^
-   arch/riscv/include/asm/uaccess.h:148:17: note: in expansion of macro '__get_user_8'
-     148 |                 __get_user_8((x), __gu_ptr, label);             \
-         |                 ^~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:159:9: note: in expansion of macro '__get_user_nocheck'
-     159 |         __get_user_nocheck(x, ptr, __gu_failed);                        \
-         |         ^~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:196:9: note: in expansion of macro '__get_user_error'
-     196 |         __get_user_error(__gu_val, __gu_ptr, __gu_err);         \
-         |         ^~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:226:17: note: in expansion of macro '__get_user'
-     226 |                 __get_user((x), __p) :                          \
-         |                 ^~~~~~~~~~
-   net/rfkill/core.c:1373:21: note: in expansion of macro 'get_user'
-    1373 |                 if (get_user(size, (__u32 __user *)arg)) {
-         |                     ^~~~~~~~
-   arch/riscv/include/asm/uaccess.h:104:26: note: each undeclared identifier is reported only once for each function it appears in
-     104 |                 : "=&r" (__lo), "=r" (__hi)                     \
-         |                          ^~~~
-   include/linux/compiler-gcc.h:84:32: note: in definition of macro 'asm_goto_output'
-      84 |         do { asm volatile goto(x); asm (""); } while (0)
-         |                                ^
-   arch/riscv/include/asm/uaccess.h:148:17: note: in expansion of macro '__get_user_8'
-     148 |                 __get_user_8((x), __gu_ptr, label);             \
-         |                 ^~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:159:9: note: in expansion of macro '__get_user_nocheck'
-     159 |         __get_user_nocheck(x, ptr, __gu_failed);                        \
-         |         ^~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:196:9: note: in expansion of macro '__get_user_error'
-     196 |         __get_user_error(__gu_val, __gu_ptr, __gu_err);         \
-         |         ^~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:226:17: note: in expansion of macro '__get_user'
-     226 |                 __get_user((x), __p) :                          \
-         |                 ^~~~~~~~~~
-   net/rfkill/core.c:1373:21: note: in expansion of macro 'get_user'
-    1373 |                 if (get_user(size, (__u32 __user *)arg)) {
-         |                     ^~~~~~~~
->> arch/riscv/include/asm/uaccess.h:104:39: error: '__hi' undeclared (first use in this function)
-     104 |                 : "=&r" (__lo), "=r" (__hi)                     \
-         |                                       ^~~~
-   include/linux/compiler-gcc.h:84:32: note: in definition of macro 'asm_goto_output'
-      84 |         do { asm volatile goto(x); asm (""); } while (0)
-         |                                ^
-   arch/riscv/include/asm/uaccess.h:148:17: note: in expansion of macro '__get_user_8'
-     148 |                 __get_user_8((x), __gu_ptr, label);             \
-         |                 ^~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:159:9: note: in expansion of macro '__get_user_nocheck'
-     159 |         __get_user_nocheck(x, ptr, __gu_failed);                        \
-         |         ^~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:196:9: note: in expansion of macro '__get_user_error'
-     196 |         __get_user_error(__gu_val, __gu_ptr, __gu_err);         \
-         |         ^~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:226:17: note: in expansion of macro '__get_user'
-     226 |                 __get_user((x), __p) :                          \
-         |                 ^~~~~~~~~~
-   net/rfkill/core.c:1373:21: note: in expansion of macro 'get_user'
-    1373 |                 if (get_user(size, (__u32 __user *)arg)) {
-         |                     ^~~~~~~~
->> arch/riscv/include/asm/uaccess.h:105:24: error: '__ptr' undeclared (first use in this function); did you mean '__p'?
-     105 |                 : "m" (__ptr[__LSW]), "m" (__ptr[__MSW])        \
-         |                        ^~~~~
-   include/linux/compiler-gcc.h:84:32: note: in definition of macro 'asm_goto_output'
-      84 |         do { asm volatile goto(x); asm (""); } while (0)
-         |                                ^
-   arch/riscv/include/asm/uaccess.h:148:17: note: in expansion of macro '__get_user_8'
-     148 |                 __get_user_8((x), __gu_ptr, label);             \
-         |                 ^~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:159:9: note: in expansion of macro '__get_user_nocheck'
-     159 |         __get_user_nocheck(x, ptr, __gu_failed);                        \
-         |         ^~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:196:9: note: in expansion of macro '__get_user_error'
-     196 |         __get_user_error(__gu_val, __gu_ptr, __gu_err);         \
-         |         ^~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/uaccess.h:226:17: note: in expansion of macro '__get_user'
-     226 |                 __get_user((x), __p) :                          \
-         |                 ^~~~~~~~~~
-   net/rfkill/core.c:1373:21: note: in expansion of macro 'get_user'
-    1373 |                 if (get_user(size, (__u32 __user *)arg)) {
-         |                     ^~~~~~~~
+On 11/06/2024 06:09, Changbin Du wrote:
+> The vdso.so.dbg is a debug version of vdso and could be used for debugging
+> purpose. For example, perf-annotate requires debugging info to show source
+> lines. So let's keep its debugging info.
+>
+> Signed-off-by: Changbin Du <changbin.du@huawei.com>
+> ---
+>   arch/riscv/kernel/vdso/Makefile | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+> index f7ef8ad9b550..960feb1526ca 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -45,7 +45,7 @@ $(obj)/vdso.o: $(obj)/vdso.so
+>   # link rule for the .so file, .lds has to be first
+>   $(obj)/vdso.so.dbg: $(obj)/vdso.lds $(obj-vdso) FORCE
+>   	$(call if_changed,vdsold)
+> -LDFLAGS_vdso.so.dbg = -shared -S -soname=linux-vdso.so.1 \
+> +LDFLAGS_vdso.so.dbg = -shared -soname=linux-vdso.so.1 \
+>   	--build-id=sha1 --hash-style=both --eh-frame-hdr
+>   
+>   # strip rule for the .so file
 
 
-vim +/__lo +104 arch/riscv/include/asm/uaccess.h
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
-    94	
-    95	#ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
-    96	#define __get_user_8(x, ptr, label)				\
-    97		asm_goto_output(					\
-    98			"1:\n"						\
-    99			"	lw %0, %2\n"				\
-   100			"2:\n"						\
-   101			"	lw %1, %3\n"				\
-   102			_ASM_EXTABLE_UACCESS_ERR(1b, %l4, %0)		\
-   103			_ASM_EXTABLE_UACCESS_ERR(2b, %l4, %0)		\
- > 104			: "=&r" (__lo), "=r" (__hi)			\
- > 105			: "m" (__ptr[__LSW]), "m" (__ptr[__MSW])	\
-   106			: : label)
-   107	
+Thanks,
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Alex
+
 
 _______________________________________________
 linux-riscv mailing list
