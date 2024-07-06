@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C7CC2BD09
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Jul 2024 11:10:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD27C2BD09
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Jul 2024 12:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1GX89dQbeOkL61CbWJki3mxOllal/pw+LHNZE/RQHNc=; b=qdwyb6npaAI8rs
-	KOJ/m0ERhqpIvwFQSTwNHq5M8NDSvGMKg8MZmpjrci/b5dbWTRS8i+9Cs3wbEw7BjzZ/2o/ptyHdq
-	BznBy9VFzYw9pshjzlkL7Jh/l4CoRABzqDWwNa/Q2Zj4CYqi58YgxM85gy7FOx0t0KSqnUnRc2POV
-	DlC+m2dUxlYzbsCXMsI9ui8PmcRiL/SPP+oVs78RDX8ASJdj/+6iDWmfwwbnzRcKRjDhOf+krvfYm
-	genq2xaO8cKi7syn4/QGuCnJ9a+9H/rcn5/wWbi7WhgcIW0QiKGfXax1RWbJTTa1KQvUspXbmM2vf
-	Ykq34OSKriVrzl0f8a3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sO0sRax9p/7ntxRZNggaGWPa/7SNWG7MCuatoC1B1fI=; b=lzxhC3u51PbsfR9PEKRDahF6F7
+	AoLlLGKVyG8BxdCdpykplJ9FosGzsARJqpDp6eROId8qEM4l/bJfuHmAHMUOk/7ECndLSZ7b94WRt
+	cVkOwu/4ulIzoEkEHnUhem+WOvJdHaFMS8OgRhoPDNBWJSEFM3C8R7PWaGHJdO6QhP1v2eh9fZlZW
+	8i7SJkKLSj7FQ3Ly47QcQC/pjytz5zbAuIG/bMHcSN+AbvuauNn9tpmv6MERIBflEn3QoEglddrAT
+	5NRnBy5owrxlyScZmwuFmcqqOarHUbiUSYItwswfuiLGGMkey6EQPmgFvsW/Cp1mgzIapbE1T9q34
+	y0sDKMhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQ3J2-000000006hX-2f6w;
-	Sat, 06 Jul 2024 11:10:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1sQ4kV-00000000DpV-0fVv;
+	Sat, 06 Jul 2024 12:42:43 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQ3Iz-000000006h2-3fgL
+	id 1sQ4kR-00000000Dp6-3NXa
 	for linux-riscv@lists.infradead.org;
-	Sat, 06 Jul 2024 11:10:15 +0000
+	Sat, 06 Jul 2024 12:42:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3E3CB61BF2;
-	Sat,  6 Jul 2024 11:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29F37C2BD10;
-	Sat,  6 Jul 2024 11:10:07 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 6A136CE2B3D;
+	Sat,  6 Jul 2024 12:42:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE3FBC2BD10;
+	Sat,  6 Jul 2024 12:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720264212;
-	bh=5A5vfBW6U9H7YwwLUBx1pG9cZrxrnGhdVlAs9baicho=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LO4Qf5/QzGeLa9Ex4CIoLIH66jwQYf8YYQrdTpMs6PskMgSpg8OwBlaWG8Oo51iiL
-	 KSLZAmc/XbNXUUvrMVjvCMoL4IPujwJ+gZRlTyoZRIX3cMfJ6Ex4Vu0ZwjZSxKliTg
-	 IslssCvSiEijwFSquaARAhGkQC8+u1ShQwgHuE7wc1jqOiRQnpjK/eLaJ+VrE+xttP
-	 O0ZHoou8g6e+DfWin4hG07Go/ypIeuVnuE8IAtZfK8YC7lWAkoORFfprKfDBJnEWDR
-	 NS0vfih5BtHc55KhIyDaQcra2cje5kKeErHRlFqc5a+0vYNQGceoViQpsY1UWJhbZ/
-	 md0EPQYkfAy/w==
-Date: Sat, 6 Jul 2024 12:10:04 +0100
-From: Jonathan Cameron <jic23@kernel.org>
+	s=k20201202; t=1720269755;
+	bh=5ENXDBMXjmBF8k+3fFYXj93fQplVf1tf/1nvD0CaQKQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BoLWMmPcnjpFf8esl6hgCqhPDj5PqyEsrTzO55nalHLxCPaeZFXfSVSj8yK67wH/G
+	 3uODPanPgVwiAtGQEoikDTOqQji5SZij2Gqua89zyBIrKL24W0Lx0CFjy7vA6QFEeW
+	 XYXW+44HhK5U2uvLj/xKpWbusoyYvc6iJaJWFaYrK+++2prj4yjkQzn3r+j5cbIZ/d
+	 1dEM+qzGBLuOO7Sugn19QX/u2trEToCEYrjbE7aWXH/VJer7XCW0FZo5WznS6z/EPb
+	 2cXYpb+NzaMqvz+H/j7e05o+vM2PrgJofxT0vj/ifXDQA1fklOXROxaOt/4yKBiQlr
+	 rOcyUtJWVtpZQ==
+Date: Sat, 6 Jul 2024 13:42:30 +0100
+From: Conor Dooley <conor@kernel.org>
 To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Cc: Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
- <inochiama@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>, =?UTF-8?B?TWlxdcOobA==?= Raynal
- <miquel.raynal@bootlin.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/3] iio: adc: sophgo-saradc: Add driver for Sophgo
- SARADC
-Message-ID: <20240706121004.37ee9fb5@jic23-huawei>
-In-Reply-To: <20240705-sg2002-adc-v2-2-83428c20a9b2@bootlin.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?iso-8859-1?Q?Miqu=E8l?= Raynal <miquel.raynal@bootlin.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml:
+ Add Sophgo SARADC binding documentation
+Message-ID: <20240706-remote-undergo-3b9dfe44d16f@spud>
 References: <20240705-sg2002-adc-v2-0-83428c20a9b2@bootlin.com>
-	<20240705-sg2002-adc-v2-2-83428c20a9b2@bootlin.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-pc-linux-gnu)
+ <20240705-sg2002-adc-v2-1-83428c20a9b2@bootlin.com>
+ <20240705-unaired-pesticide-4135eaa04212@spud>
+ <6b5459fd-2873-4c26-b986-882413b8d95b@bootlin.com>
 MIME-Version: 1.0
+In-Reply-To: <6b5459fd-2873-4c26-b986-882413b8d95b@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240706_041014_040576_ED5E8DB3 
-X-CRM114-Status: GOOD (  29.01  )
+X-CRM114-CacheID: sfid-20240706_054240_226441_27D14919 
+X-CRM114-Status: GOOD (  30.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,229 +81,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0868649178116635030=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 05 Jul 2024 15:42:24 +0200
-Thomas Bonnefille <thomas.bonnefille@bootlin.com> wrote:
 
-> This adds a driver for the common Sophgo SARADC.
-> 
-> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Some more minor feedback inline.
-
-Thanks,
-
-Jonathan
-
-> diff --git a/drivers/iio/adc/sophgo-cv18xx-adc.c b/drivers/iio/adc/sophgo-cv18xx-adc.c
-> new file mode 100644
-> index 000000000000..dd1188b1923e
-> --- /dev/null
-> +++ b/drivers/iio/adc/sophgo-cv18xx-adc.c
-> @@ -0,0 +1,195 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + *  Sophgo CV18XX series SARADC Driver
-> + *
-> + *  Copyright (C) Bootlin 2024
-> + *  Author: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/completion.h>
-> +#include <linux/dev_printk.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/iio/iio.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/platform_device.h>
-> +
-> +#define CV18XX_ADC_CTRL_REG			0x04
-> +#define		CV18XX_ADC_EN			BIT(0)
-> +#define		CV18XX_ADC_SEL(x)		BIT((x)+4)
-BIT((x) + 4)
-
-> +#define CV18XX_ADC_STATUS_REG			0x08
-> +#define		CV18XX_ADC_BUSY			BIT(0)
-> +#define CV18XX_ADC_CYC_SET_REG			0x0C
-> +#define		CV18XX_ADC_DEF_CYC_SETTINGS	0xF1F0F
-
-I'd prefer to see that broken up into fields if we have any info
-on what they are.
-
-> +#define CV18XX_ADC_CH_RESULT_REG(x)		(0x10+4*(x))
-(0x10 + 4 * (x))
-code style also applies in macros.
-
-> +#define		CV18XX_ADC_CH_RESULT		0xfff
-
-GENMASK(11, 0)
-
-> +#define		CV18XX_ADC_CH_VALID		BIT(15)
-> +#define CV18XX_ADC_INTR_EN_REG			0x20
-> +#define CV18XX_ADC_INTR_CLR_REG			0x24
-> +#define CV18XX_ADC_INTR_STA_REG			0x28
->
-> +
-> +static int cv18xx_adc_read_raw(struct iio_dev *indio_dev,
-> +				  struct iio_chan_spec const *chan,
-> +				  int *val, int *val2, long mask)
-> +{
-> +	switch (mask) {
-> +	case IIO_CHAN_INFO_RAW:
-{
-> +		struct cv18xx_adc *saradc = iio_priv(indio_dev);
-> +		u32 sample;
-> +		int ret;
-> +
-> +		scoped_guard(mutex, &saradc->lock) {
-> +			cv18xx_adc_start_measurement(saradc, chan->scan_index);
-> +			ret = cv18xx_adc_wait(saradc);
-> +			if (ret < 0)
-> +				return ret;
-> +
-> +			sample = readl(saradc->regs + CV18XX_ADC_CH_RESULT_REG(chan->scan_index));
-> +		}
-> +		if (!(sample & CV18XX_ADC_CH_VALID))
-> +			return -ENODATA;
-> +
-> +		*val = sample & CV18XX_ADC_CH_RESULT;
-> +		return IIO_VAL_INT;
-}
-
-> +	case IIO_CHAN_INFO_SCALE:
-> +		*val = 3300;
-> +		*val2 = 12;
-> +		return IIO_VAL_FRACTIONAL_LOG2;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-> +
-> +static irqreturn_t cv18xx_adc_interrupt_handler(int irq, void *private)
-> +{
-> +	struct cv18xx_adc *saradc = private;
-> +
-> +	if (!(readl(saradc->regs + CV18XX_ADC_INTR_STA_REG) & BIT(0)))
-
-Add a define for that BIT(0) and use FIELD_GET() to extract it.
+--===============0868649178116635030==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="aooyyyTiQwVeE6tX"
+Content-Disposition: inline
 
 
-> +		return IRQ_NONE;
-> +
-> +	writel(1, saradc->regs + CV18XX_ADC_INTR_CLR_REG);
+--aooyyyTiQwVeE6tX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Add a define for the 1 here (I guess it's BIT(0)?)
-as well to show what is logically being cleared rather than simply
-the register value.
+On Fri, Jul 05, 2024 at 05:24:19PM +0200, Thomas Bonnefille wrote:
+>=20
+>=20
+> On 7/5/24 5:01 PM, Conor Dooley wrote:
+> > On Fri, Jul 05, 2024 at 03:42:23PM +0200, Thomas Bonnefille wrote:
+> > > The Sophgo SARADC is a Successive Approximation ADC that can be found=
+ in
+> > > the Sophgo SoC.
+> > >=20
+> > > Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> > > ---
+> > >   .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     | 63 +++++++++++=
++++++++++++
+> > >   1 file changed, 63 insertions(+)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-=
+saradc.yaml b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-sarad=
+c.yaml
+> > > new file mode 100644
+> > > index 000000000000..31bd8ac6dfa5
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/iio/adc/sophgo,cv18xx-saradc.=
+yaml
+> > > @@ -0,0 +1,63 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/iio/adc/sophgo,cv18xx-saradc.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title:
+> > > +  Sophgo CV18XX SoC series 3 channels Successive Approximation Analo=
+g to
+> > > +  Digital Converters
+> > > +
+> > > +maintainers:
+> > > +  - Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> > > +
+> > > +description:
+> > > +  Datasheet at https://github.com/sophgo/sophgo-doc/releases
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    oneOf:
+> > > +      - items:
+> > > +          - enum:
+> > > +              - sophgo,cv1800b-saradc
+> > > +          - const: sophgo,cv18xx-saradc
+> >=20
+> > I don't think the fallback here makes sense. If there's other devices
+> > with a compatible programming model added later, we can fall back to the
+> > cv1800b.
+> >=20
+>=20
+> Ok I'll do that, I wasn't sure if it was a good practice to fallback on
+> another SoC specific compatible.
+>=20
+> > > +
+> > > +  reg:
+> > > +    maxItems: 1
+> > > +
+> > > +  interrupts:
+> > > +    maxItems: 1
+> > > +
+> > > +  clocks:
+> > > +    description:
+> > > +      SARADC will use the presence of this clock to determine if the=
+ controller
+> > > +      needs to be explicitly clocked by it (Active domain) or if it =
+is part of
+> > > +      the No-Die Domain, along with the RTC, which does not require =
+explicit
+> > > +      clocking.
+> >=20
+> > What does "explicit clocking" mean? Is it clocked directly (or via
+> > dividers) by a clock on the board or another source?
+> >=20
+>=20
+> It means that, if a clock is provided, the driver will work in "Active
+> Domain" and will use the clock generator of the SoC to get the right clock
+> signal.
+>=20
+> However if no clock is provided, the controller will work in "No-Die" dom=
+ain
+> (Always On) and use the RTCSYS subsystem to get its clock signal.
 
-> +	complete(&saradc->completion);
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static const struct iio_info cv18xx_adc_info = {
-> +	.read_raw = &cv18xx_adc_read_raw,
-> +};
-> +
-> +static int cv18xx_adc_probe(struct platform_device *pdev)
-> +{
-> +	struct cv18xx_adc *saradc;
-> +	struct iio_dev *indio_dev;
-> +	int ret;
-> +
-> +	indio_dev = devm_iio_device_alloc(&pdev->dev, sizeof(*saradc));
-> +	if (!indio_dev)
-> +		return -ENOMEM;
-> +
-> +	saradc = iio_priv(indio_dev);
-> +	indio_dev->name = "sophgo-cv18xx-adc";
-> +	indio_dev->modes = INDIO_DIRECT_MODE;
-> +	indio_dev->info = &cv18xx_adc_info;
-> +	indio_dev->num_channels = ARRAY_SIZE(sophgo_channels);
-> +	indio_dev->channels = sophgo_channels;
-> +
+So it does have a clock, but provided by a different provider. I don't
+really understand why that would "excuse" it from having a clocks
+property, with the RTCSYS as the provider.
 
-One blank line is almost always enough for readability and if you use too many
-we get less code on the screen and hence it hurts readability a little.
+>=20
+> Indeed "explicitly clocked" may not be the right word to describe that,
+> maybe some thing like that is better :
+>=20
+> "SARADC will use the presence of this clock to determine if the controller
+> needs to use the clock generator to get its clock signal (Active domain) =
+or
+> if it is part of the No-Die Domain, along with the RTC, and does not requ=
+ire
+> the clock generator."
 
-> +
-> +	if (IS_ERR(devm_clk_get_optional_enabled(&pdev->dev, NULL)))
-> +		dev_dbg(&pdev->dev, "Can't get clock from device tree, using No-Die domain");
 
-Failure to get a clock is an error and you should exit with a suitable
-dev_err_probe().
-Getting a NULL answer from this call reflects that one wasn't provided
-and your handling here would be appropriate for that.
 
-> +
-> +	saradc->regs = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(saradc->regs)) {
-> +		ret = PTR_ERR(saradc->regs);
-> +		return ret;
+--aooyyyTiQwVeE6tX
+Content-Type: application/pgp-signature; name="signature.asc"
 
-		return PTR_ERR(saradc->regs);
-and drop the brackets.
+-----BEGIN PGP SIGNATURE-----
 
-> +	}
-> +
-> +	saradc->irq = platform_get_irq_optional(pdev, 0);
-> +	if (saradc->irq >= 0) {
-> +		init_completion(&saradc->completion);
-> +		ret = devm_request_irq(&pdev->dev, saradc->irq,
-> +				cv18xx_adc_interrupt_handler, 0,
-> +				dev_name(&pdev->dev), saradc);
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZok7sgAKCRB4tDGHoIJi
+0lbpAQDwZEbhHg3rnEogG8hOoesPmLsMyjpyNzblwX9hRpY4cAEAhWAWi099oKNO
+nEQMmNkQKNvn/HlxM66JXbe1kmIIMAQ=
+=RK8u
+-----END PGP SIGNATURE-----
 
-Where it isn't limited by line length, preferred style is to align to
-just after the opening bracket. e.g.
+--aooyyyTiQwVeE6tX--
 
-		ret = devm_request_irq(&pdev->dev, saradc->irq,
-				       cv18xx_adc_interrupt_handler, 0,
-				       dev_name(&pdev->dev), saradc);
 
-> +		if (ret)
-> +			return ret;
-> +
-> +		writel(1, saradc->regs + CV18XX_ADC_INTR_EN_REG);
-> +
-
-Drop this blank line.
-
-> +	}
-
-One blank here is plenty.
-
-> +
-> +
-> +	mutex_init(&saradc->lock);
-
-Whilst mutex cleanup is of dubious benefit as only helpful if doing particularly forms
-of mutex debugging and looking for use after free etc, we do finally have devm_mutex_init()
-to make it easy so for new code I'm going to encourage it's use but not insist
-on it yet...
-
-	ret = devm_mutex_init(&saradc->lock);
-	if (ret)
-		return;
-
-> +	platform_set_drvdata(pdev, indio_dev);
-> +	writel(CV18XX_ADC_DEF_CYC_SETTINGS, saradc->regs + CV18XX_ADC_CYC_SET_REG);
-> +	ret = devm_iio_device_register(&pdev->dev, indio_dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return 0;
-
-	return devm_iio_device_register().
-
-> +}
-
+--===============0868649178116635030==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0868649178116635030==--
+
