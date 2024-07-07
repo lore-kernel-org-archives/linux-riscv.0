@@ -4,121 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E76C30653
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jul 2024 05:46:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BC5C30653
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jul 2024 14:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qHcrlU39LamiQQ/jzScD92H+ysPPVtgL5aLIE/71LHM=; b=258wKrRWGIHkF2
-	+iJdw95GzwiMFYBF4jkqEKojzoheBFSZrLuW6MnZdPeuCWdAUv/JAzWvWDDtYAyi/2HjbdoN/flFI
-	0d30OSN9Ba3FipG2gE/x45ha9ADFLZytSQwU9zkqNtd3B/EUP88KXOZnD4FGwkTpN/2TWVpuOEu5a
-	LgPD9h2s1DsLme0MiHwXbgD5OMFZXn7f1r79W2FnzTyrRm3xgWKyFXfM+91Kz1NBEis8GX77BlEwd
-	Q0CXlR0HNa5Jyk2AxBEHx9gro4II5e04Djq5uxy2dJJfosK64KFrAncNCmfoUtX65lp4Tj/blzvrp
-	otpdX0mSDIJKHKzK9lWg==;
+	List-Owner; bh=7IDjs9NgzsZo/oZM/iPW9PrrpFtbEdsIgbS7DgV/yCM=; b=DKsbmXbZsX1w8/
+	TeLRMXAhGFYNC1GcbviUK9OYxdRzszqdM1lbSwOJ3fsFawuF7lDV0J8m6cwgZ837+DPt0ThpSDkXh
+	74vgy3LWvixKaFVlVb2kfVLvPBqvJhwIhiW4qxJ1Z7XZuTbbNKcAzh6mfnkfhxegWKKnMHWaj8l/3
+	CC9Ao72zrn9KoawEhUc9zGrI2XbzM6arBG550DOkeOoKKFEYEWYChoqk6LnTY/9+nzs6ILigAISVI
+	LqIUwf2z4Bbm5vKHOk+KDlybGDwxOWPxnM1XTh/+ZYbRdzBqFClmG1J7Q1i26AVYyn9Eoh3D64wN3
+	dKuGbbRuF8KFw/+Mh5Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQKjb-00000001NUc-2VKH;
-	Sun, 07 Jul 2024 05:46:51 +0000
-Received: from mail-mw2nam10olkn20806.outbound.protection.outlook.com ([2a01:111:f403:2c12::806] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1sQSyC-00000001sAZ-0oE3;
+	Sun, 07 Jul 2024 14:34:28 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQKjX-00000001NTQ-3zk4
+	id 1sQSy7-00000001s9h-3F4p
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Jul 2024 05:46:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=XA0cIOsww++TNpxJ4C/nBT2rLUtCZaNas67AIfOx+7vvSltZJmm20Ey+G0K16HxhPRRsRP6qNP5qrRmYra06eWJ17g7riBwMFyczVpM6o7LPU8y2ZiG6MUfeKFlofnYqDVsPjh9uycXRf+nQn5mObhEVb0jLjkhhxIdQv9B6zPoXUpsju82tuW8o+8qBrYzLrGf7o/AN9kmqkzCi0AMTTUtHgw6lOoim4i7q6MWQuwtIhlD8RWMpFsoqJNQH4tY61WZOzbnL6O7aM+ebKLf6Def2JqtmMQwseBVkt+cJWyzV8td1gA/KPk7EeC7iN0jt95dQ5o27vYH3IrIinUHWvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2UtE8jtel5/QsKVNiVKA87I6c0hJEKpQBDNFQ+rKSmE=;
- b=POVqvuA8mYxIN6z6zL8NLdCLL9N9DNdjTZoF2Vw3d/2giyM0M1NYdQTJx4b0eMMtozElZXtt4IyiFtCSY2CAUpF0OFHhEG1emP0iP5vQt3MwNm3hPEjRTBXeTA+BvHuvWMfGUd37eWEzSgBOUsGeX7Sf8Uj5TwJKm+HkfWFl7p/lxSrFHRXG1UJVzDDTJ6I4IkBVwb+ojWU5Srrd2J87N0Nowmk4KeUCGGo0meESHSEb1eynuuQ/htd3FfrmH4KxiAg+7EhQfqNnTsi+2zOFNFqOWIhXPHc9h+8PtWwid6uzxODPmyyA5n3Qsux2TOUS1mNiJFBIDayMFMA6DyDVxw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2UtE8jtel5/QsKVNiVKA87I6c0hJEKpQBDNFQ+rKSmE=;
- b=szmImAS21cXsM63ROp/q2uEsOwAmxifPithzqRkQZkOnZOmcIKPcD6wM/kDdFQs711MEpkuzEq3hAgrJpZMQ1LHH8nSahCcIlRhYcPpLAMMi64WW0gCf3xKLNyO/es7Ilnc8ot7cIc9hHx8hpUhDyEriCwM6osiv3wpZ5g4C8KpDZa/mPL1SsfkM5UpzQCvBD6VuE8Z1L0HADwczMs6QE4rAPToHdP9aWuxfzhWiHquBFQQStSwy/tBnxjLwW41a2juhJcfk9TPxYJQxsjDdDR7W8RdGBG31nLti1VT20SL/gzEwgyoG7F1+8iUSV80RcXA2zYbDO9Fi0sMch0R6Jw==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by PH7PR20MB5033.namprd20.prod.outlook.com (2603:10b6:510:1f3::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7741.34; Sun, 7 Jul
- 2024 05:46:27 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%6]) with mapi id 15.20.7741.033; Sun, 7 Jul 2024
- 05:46:27 +0000
-Date: Sun, 7 Jul 2024 13:45:48 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Guenter Roeck <linux@roeck-us.net>, 
-	Inochi Amaoto <inochiama@outlook.com>
-Cc: Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v6 1/2] dt-bindings: hwmon: Add Sophgo SG2042 external
- hardware monitor support
-Message-ID: <IA1PR20MB4953D5EB014C84CEFA88E2F6BBD92@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953967EA6AF3A6EFAE6AB10BBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953F58B631D836F3863115ABBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <5a2e23f4-d54a-45ae-a09d-e557b110e017@roeck-us.net>
- <IA1PR20MB49539E946C2D5D025932ABEEBBD82@IA1PR20MB4953.namprd20.prod.outlook.com>
- <a0337b42-4cce-42f4-91f6-eca65c62ed47@roeck-us.net>
-Content-Disposition: inline
-In-Reply-To: <a0337b42-4cce-42f4-91f6-eca65c62ed47@roeck-us.net>
-X-TMN: [hQAHzaf7oXU9SwesILM49qt9pONLxAdd1mHB55QBFSY=]
-X-ClientProxiedBy: SI2PR04CA0012.apcprd04.prod.outlook.com
- (2603:1096:4:197::14) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <24oizfnefiv2ddwtkjsjphkbswpagdtvmf432gvhgzj5eqh5nh@ffcw364voaci>
+	Sun, 07 Jul 2024 14:34:27 +0000
+Date: Sun, 7 Jul 2024 16:34:14 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1720362858;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QT/JZYImBb6WANX1g7RQzC4oQ/TM5mv6H1+ZAVtcEXg=;
+	b=XrMFgfi5+bmf2zFPnd/QIDWbDG4J9yVFcVeEfPFcGD2V4UOZ5ewOMdbVTHJblauCULN9Hb
+	Z6m0AJLk0GWA4EVRGXXghlSQIzpCn4/o2i4ipiSbghedsxff4yPEI0b/esgvatT+A22uE4
+	8w7tTDSwhaOphu6075MGsB/4iPHa4q7rxdQOFqZvM0O5Eqnn4cdptR3tjJWbcofNUHUw6z
+	ZdFb//XUubzTHCc0StsOtP/zX7EW6ouxO3ef3jFi9kwwn0uGdZLGO+OJuQgYygrOJ98APw
+	UUxzMePNtAty/VrAEMPjsI5oPTqkcEdTQASoupUBlOEg0fgahzXpwnRl94QcdQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1720362858;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QT/JZYImBb6WANX1g7RQzC4oQ/TM5mv6H1+ZAVtcEXg=;
+	b=jLwhdt4P8vKkACKriOoBEVzOi4lnMiuf/wQLdPJZvmPN6T0VcKicgoqEPBoQvXE+Ew85ut
+	9P7j3KfvcOFFCsBQ==
+From: Nam Cao <namcao@linutronix.de>
+To: Anup Patel <anup@brainfault.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	b.spranger@linutronix.de, Christoph Hellwig <hch@lst.de>,
+	Marc Zyngier <marc.zyngier@arm.com>
+Subject: Re: [PATCH] irqchip/sifive-plic: Fix plic_set_affinity() only
+ enables 1 cpu
+Message-ID: <20240707143414.0ydME30F@linutronix.de>
+References: <20240703072659.1427616-1-namcao@linutronix.de>
+ <CAAhSdy0ZGD-p0iBVPqHF0RKTwvAAMWwYZ0ufioRrO75JzSh1qQ@mail.gmail.com>
+ <20240703123327.CvOiP2Jb@linutronix.de>
+ <CAAhSdy3gZHnSwovxypY5vP438TNPj8h+miqtyBKhEUAdWj=htQ@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH7PR20MB5033:EE_
-X-MS-Office365-Filtering-Correlation-Id: 24ab824b-0e19-43ec-a430-08dc9e482496
-X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|461199028|19110799003|56899033|4302099013|440099028|3412199025|1602099012|1710799026;
-X-Microsoft-Antispam-Message-Info: X5x0C/4uondLkgtVYnpklCyqQAkZooK8rFg1u2CLfWl70VYzhqV3y2yGU1yGFmol2X234p7E0RlYxdzkhWxnM9A1AUgpky40NyU9hYsgP3XcB3y9/+6p3kpP7pIKYm66f4saBKN1h4JjVMzQEGRcos1zoKZKWRBdfEeV/kZZVoDDGf7TYvVDnAyuo4QvC6draeUCI8qayI2LAZThgSIYJv8OjsSLuQ3vmJY2NZx+g25Amvjz6l82SpK36NSx05C65kKtg8+fhucvc0Dco0F8SdUPUO5fzK0x0Xe9QS/Dl4zxxrjDS3F7KbXEoED/1/nyYZKfSVisLFOnQ4XQXKa3qfyz7+o255zjonIAIU/DZK4cwuCs9VYjJ0vXZScAmBvaXd/tc97vodiR3LlbjVV0HtRnX/Y697tR017mMqCfpbkbCKDE3JaiieGKNJF+e0d5P4+o4uX7OoIRVlH+MTKvDkaRH9v9D7m5lVMh3go1pw48X39wWdYvbSrXH5UTgfiXPVJghUOsbQay1dBYoRfUBUKiN08L5KAk2KkvKJgkXinYSmZoEA+WVTJ6Sn632Kr1kxbv8af3IdbIWpp4MPAvgrxs79WW9In/VJaUTFxcX17s4lbGTQQp0vZDMgwn2+7+wYfmEtqdjDHOl5aW9/ygN7Ih4aWmzTq25LLJVl2B68Bbdf9XOYrqic3YcV7dUgBeS25baWOXiH5CQ8cm4cnD/9yB34HeeoXcGIK3ymN6HVEVUQaBtJ8jqqRhDT+9SRH7UGb7srhpKykWWX5ubqWAoBz0EUShByPrpIAGFsO6QZQ=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hQnzKS7SKKNL7IjcIKXlcybsvqNcJMPSf8h4pCbz94dfmXrMDylHQhR8IKeX?=
- =?us-ascii?Q?p0OypHfcIfWSM934RO+J4oZ3rA7fEIAYwdOTH8lyfsOzBak4uyWzO18/jgfo?=
- =?us-ascii?Q?rZ9vshpQxUXJt7Lstsv1i+V54MjTaeULJ/ZvjRrn8XaXj7Wtkqzgp3Hf0HkR?=
- =?us-ascii?Q?AbM4UfAtwZ4BdkA7vQCoz30vQVQNLX6ia2qiPzgoHdXuhvgVOyKRDIhOaiP9?=
- =?us-ascii?Q?3iSbRNICy2oxsGK3Uv52df2c3ur7bmRKa615qHdZcCsKYd9MZEhHtVB8/zQl?=
- =?us-ascii?Q?Orc2TBGE9yrQ47/RZY8n34HTqlzZiOE3ZZiTKH4XInUruOOnvDogqDArC1X+?=
- =?us-ascii?Q?P/tFmIGUlcC4fO+TOwHCyPOtcZJCAlwPylFRFsOF5fCkb6xNQMSRHFdUooP7?=
- =?us-ascii?Q?e7qBwMKWGo6I2+zzx6MI90ATQfNm1CZ/vuT7BnG5xBuDEDv+M+I7WszVmk22?=
- =?us-ascii?Q?F0aXFhuCCvvj1/CMqFbzjeviSOB2Pydev3gQ4bQbRXkVmUZSZFTTNZcrfqus?=
- =?us-ascii?Q?Sfx6ErTwcqLOA1sfdsqA0aZGesfw/BvqLSPcXLi4dBymlxCuTnqhHVFa6pmL?=
- =?us-ascii?Q?MvlXAuGShi6NaasPJIUcrj+OOZA/Soo3Wbo7adnOJ7eQ8BmiCMz81Ng7JRNr?=
- =?us-ascii?Q?DQbB+AZUnKLJpx/K2r3ZL8+xhZevB1sMt4KGHr9db75qywRmxCDWe1lFs5nR?=
- =?us-ascii?Q?GV0UtI7NFCZUWuIB9zjgX6JziwhadYMbsLoMFJENOlbhhIx9cYwy89S/OBkx?=
- =?us-ascii?Q?qb1KVTyWfjZ5CHbEdmkwYWkSwCntwrHy2Hy8sm4QSadkRSGPfy9e1vgJIJOV?=
- =?us-ascii?Q?/QLAs0slRyP3+Pnt9nLn3DsUNcyjBmmtieNjW2Utsn2Gne7Fi/Ufh+fqgn8D?=
- =?us-ascii?Q?MrgLiP05v2WrnwVT9afbK9ZV547x3VcYDeZDVDmhgvZbTXDK723OspYDYZDc?=
- =?us-ascii?Q?vpwI6yRrPkdLcxQSnYHvRkCOicfkOeRWQ3fMh9XwQL61Om9A0LihkxA2xFIz?=
- =?us-ascii?Q?d49xgQus6oLKsGnbgkB43vUlKNPnSgOtkiowTIszbOv8UAjvlKP8t8I6YmoQ?=
- =?us-ascii?Q?z8OOp5RAiDcD0WgSG445pfA1BDUpCB1as0A04SAhmp2ZVozmom8audAH6yP3?=
- =?us-ascii?Q?oQlK7nspVBiERnKqAy3QcjgoEyTeHAi2yVI3myFfXl1iSlXvHHPUP7zFhk6Q?=
- =?us-ascii?Q?TsE5pw/juLxs4cRgxqJX48Dvhhp6TsapCkPujLbY3rl/8M+LPeZP4Esv9Rqs?=
- =?us-ascii?Q?Bi5h0fKeMyjkMPgqrknN?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 24ab824b-0e19-43ec-a430-08dc9e482496
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2024 05:46:27.5405
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR20MB5033
+Content-Disposition: inline
+In-Reply-To: <CAAhSdy3gZHnSwovxypY5vP438TNPj8h+miqtyBKhEUAdWj=htQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240706_224648_021330_39932B06 
-X-CRM114-Status: GOOD (  37.60  )
+X-CRM114-CacheID: sfid-20240707_073424_015634_8A80116A 
+X-CRM114-Status: GOOD (  26.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,119 +81,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 06, 2024 at 06:35:35PM GMT, Guenter Roeck wrote:
-> On 7/6/24 16:34, Inochi Amaoto wrote:
-> > On Sat, Jul 06, 2024 at 09:48:58AM GMT, Guenter Roeck wrote:
-> > > On Wed, Jul 03, 2024 at 10:30:43AM +0800, Inochi Amaoto wrote:
-> > > > Due to the design, Sophgo SG2042 use an external MCU to provide
-> > > > hardware information, thermal information and reset control.
-> > > > 
-> > > > Add bindings for this monitor device.
-> > > > 
-> > > > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > ---
-> > > >   .../hwmon/sophgo,sg2042-hwmon-mcu.yaml        | 43 +++++++++++++++++++
-> > > >   1 file changed, 43 insertions(+)
-> > > >   create mode 100644 Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
-> > > > 
-> > > > --
-> > > > 2.45.2
-> > > > 
-> > > > diff --git a/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml b/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
-> > > > new file mode 100644
-> > > > index 000000000000..f0667ac41d75
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
-> > > > @@ -0,0 +1,43 @@
-> > > > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> > > > +%YAML 1.2
-> > > > +---
-> > > > +$id: http://devicetree.org/schemas/hwmon/sophgo,sg2042-hwmon-mcu.yaml#
-> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > +
-> > > > +title: Sophgo SG2042 onboard MCU support
-> > > > +
-> > > > +maintainers:
-> > > > +  - Inochi Amaoto <inochiama@outlook.com>
-> > > > +
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    const: sophgo,sg2042-hwmon-mcu
-> > > 
-> > > According to the other patch, this actually covers four
-> > > distinct models/devices.
-> > > 
-> > > static const struct sg2042_mcu_board_data[] = {
-> > > > +	{
-> > > > +		.id = 0x80,
-> > > > +		.name = "SG2042 evb x8",
-> > > > +	},
-> > > > +	{
-> > > > +		.id = 0x81,
-> > > > +		.name = "SG2042R evb",
-> > > > +	},
-> > > > +	{
-> > > > +		.id = 0x83,
-> > > > +		.name = "SG2042 evb x4",
-> > > > +	},
-> > > > +	{
-> > > > +		.id = 0x90,
-> > > > +		.name = "Milk-V Pioneer",
-> > > > +	},
-> > > > +};
-> > > > +
-> > > 
-> > > Is it really appropriate to use a single compatible property for all of those ?
-> > > 
-> > > Guenter
-> > 
-> > These board can only be detected at running time (even this should on
-> > a specific board). On real world, it can only sees a MCU onboard.
-> > I don't think it is a good idea to add some bindings to cover these
-> > model. It seems better to remove this array and let userspace to parse
-> > these ids.
-> > 
-> 
-> Isn't that what devicetree is for ? It should either not be necessary
-> to distinguish the models because they all behave the same and all of them
-> are happy with the same compatible property, or there is some difference
-> which should be reflected in devicetree. In other words, either they
-> are all compatible with sophgo,sg2042-hwmon-mcu, and sg2042_mcu_board_data
-> as well as sg2042_mcu_check_board() are unnecessary, or they are not
-> compatible and there should be separate compatible property names.
-> struct of_device_data does have a .data pointer for a reason, after all.
-> 
-> In yet other words, it seems odd to have a devicetree file for Milk-V Pioneer
-> and then to check in the hwmon driver if this is _really_ a Milk-V Pioneer
-> and bail out if it isn't. And I _really_ don't want to deal with continuous
-> driver patches whenever one of the systems using one of those MCUs starts
-> shipping a new firmware version or is deployed on a new board variant.
-> 
-> Thanks,
-> Guenter
-> 
-
-When I firstly added this compatible, I want to match all boards with this
-SoC. This is why I add compatiable like "sg2042-xxx". In driver, I tested
-the id of the MCU to ensure it is sg2042 (although the id can used to detect
-board). And this is why I said that I was not sure it is better to add board
-specific compatible.
-
-I know you concern about continuous patches about new board or new firmware
-version. I was told the MCU use almost the same register layout to provide
-necessary information about its SoC. So is it better to remove the id check
-and let the dts write to decide?
-
-Regards,
-Inochi
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdWwgMDMsIDIwMjQgYXQgMDg6MzE6MzFQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90
+ZToKPiBPbiBXZWQsIEp1bCAzLCAyMDI0IGF0IDY6MDPigK9QTSBOYW0gQ2FvIDxuYW1jYW9AbGlu
+dXRyb25peC5kZT4gd3JvdGU6Cj4gPgo+ID4gT24gV2VkLCBKdWwgMDMsIDIwMjQgYXQgMDU6Mjg6
+MjNQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90ZToKPiA+ID4gT24gV2VkLCBKdWwgMywgMjAyNCBh
+dCAxMjo1N+KAr1BNIE5hbSBDYW8gPG5hbWNhb0BsaW51dHJvbml4LmRlPiB3cm90ZToKPiA+ID4g
+Pgo+ID4gPiA+IHBsaWNfc2V0X2FmZmluaXR5KCkgb25seSBlbmFibGVzIGludGVycnVwdCBmb3Ig
+dGhlIGZpcnN0IHBvc3NpYmxlIENQVSBpbgo+ID4gPiA+IHRoZSBtYXNrLiBUaGUgcG9pbnQgaXMg
+dG8gcHJldmVudCBhbGwgQ1BVcyB0cnlpbmcgdG8gY2xhaW0gYW4gaW50ZXJydXB0LAo+ID4gPiA+
+IGJ1dCBvbmx5IG9uZSBDUFUgc3VjY2VlZHMgYW5kIHRoZSBvdGhlciBDUFVzIHdhc3RlZCBzb21l
+IGNsb2NrIGN5Y2xlcyBmb3IKPiA+ID4gPiBub3RoaW5nLgo+ID4gPiA+Cj4gPiA+ID4gSG93ZXZl
+ciwgdGhlcmUgYXJlIHR3byBwcm9ibGVtcyB3aXRoIHRoYXQ6Cj4gPiA+ID4gMS4gVXNlcnMgY2Fu
+bm90IGVuYWJsZSBpbnRlcnJ1cHQgb24gbXVsdGlwbGUgQ1BVcyAoZm9yIGV4YW1wbGUsIHRvIG1p
+bmltaXplCj4gPiA+ID4gaW50ZXJydXB0IGxhdGVuY3kpLgo+ID4gPgo+ID4gPiBXZWxsLCB5b3Ug
+YXJlIGFzc3VtaW5nIHRoYXQgbXVsdGlwbGUgQ1BVcyBhcmUgYWx3YXlzIGlkbGUgb3IgYXZhaWxh
+YmxlCj4gPiA+IHRvIHByb2Nlc3MgaW50ZXJydXB0cy4gSW4gb3RoZXIgd29yZHMsIGlmIHRoZSBz
+eXN0ZW0gaXMgbG9hZGVkIHJ1bm5pbmcKPiA+ID4gc29tZSB3b3JrbG9hZCBvbiBlYWNoIENQVSB0
+aGVuIHBlcmZvcm1hbmNlIG9uIG11bHRpcGxlIENQVXMKPiA+ID4gd2lsbCBkZWdyYWRlIHNpbmNl
+IG11bHRpcGxlIENQVXMgd2lsbCB3YXN0ZWZ1bGx5IHRyeSB0byBjbGFpbSBpbnRlcnJ1cHQuCj4g
+PiA+Cj4gPiA+IEluIHJlYWxpdHksIHdlIGNhbid0IG1ha2Ugc3VjaCBhc3N1bXB0aW9ucyBhbmQg
+aXQgaXMgYmV0dGVyIHRvIHRhcmdldCBhCj4gPiA+IHBhcnRpY3VsYXIgQ1BVIGZvciBwcm9jZXNz
+aW5nIGludGVycnVwdHMgKGp1c3QgbGlrZSB2YXJpb3VzIG90aGVyIGludGVycnVwdAo+ID4gPiBj
+b250cm9sbGVycykuIEZvciBiYWxhbmNpbmcgaW50ZXJydXB0IHByb2Nlc3NpbmcgbG9hZCwgd2Ug
+aGF2ZSBzb2Z0d2FyZQo+ID4gPiBpcnEgYmFsYW5jZXJzIHJ1bm5pbmcgaW4gdXNlci1zcGFjZSAo
+b3Iga2VybmVsIHNwYWNlKSB3aGljaCBkbyBhCj4gPiA+IHJlYXNvbmFibHkgZmluZSBqb2Igb2Yg
+cGlja2luZyBhcHByb3ByaWF0ZSBDUFUgZm9yIGludGVycnVwdCBwcm9jZXNzaW5nLgo+ID4KPiA+
+IFRoZW4gd2Ugc2hvdWxkIGxlYXZlIHRoZSBqb2Igb2YgZGlzdHJpYnV0aW5nIGludGVycnVwdHMg
+dG8gdGhvc2UgdG9vbHMsCj4gPiByaWdodD8gTm90IGFsbCB1c2UgY2FzZXMgd2FudCBtaW5pbWFs
+bHkgd2FzdGVkIENQVSBjeWNsZXMuIEZvciBleGFtcGxlLCBpZgo+ID4gYSBwYXJ0aWN1bGFyIGlu
+dGVycnVwdCBkb2VzIG5vdCBhcnJpdmUgdmVyeSBvZnRlbiwgYnV0IHdoZW4gaXQgZG9lcywgaXQK
+PiA+IG5lZWRzIHRvIGJlIGhhbmRsZWQgZmFzdDsgaW4gdGhpcyBleGFtcGxlLCBjbGVhcmx5IGVu
+YWJsaW5nIHRoaXMgaW50ZXJydXB0Cj4gPiBmb3IgYWxsIENQVXMgaXMgc3VwZXJpb3IuCj4gCj4g
+VGhpcyBpcyBhIHZlcnkgc3BlY2lmaWMgY2FzZSB3aGljaCB5b3UgYXJlIHRyeWluZyB0byBvcHRp
+bWl6ZSBhbmQgaW4gdGhlCj4gcHJvY2VzcyBodXJ0aW5nIHBlcmZvcm1hbmNlIGluIG1hbnkgb3Ro
+ZXIgY2FzZXMuIFRoZXJlIGFyZSBtYW55IGhpZ2gKPiBzcGVlZCBJT3MgKG5ldHdvcmssIHN0b3Jh
+Z2UsIGV0Yykgd2hlcmUgcmF0ZSBvZiBpbnRlcnJ1cHQgaXMgaGlnaCBzbyBmb3IKPiBzdWNoIElP
+IHlvdXIgcGF0Y2ggd2lsbCBkZWdyYWRlIHBlcmZvcm1hbmNlIG9uIG11bHRpcGxlIENQVXMuCgpO
+bywgaXQgd291bGRuJ3QgImh1cnRpbmcgcGVyZm9ybWFuY2UgaW4gbWFueSBvdGhlciBjYXNlcyIu
+IEl0IHdvdWxkIGdpdmUKdXNlcnMgdGhlIGFiaWxpdHkgdG8gZG8gd2hhdCB0aGV5IHdhbnQsIGlu
+Y2x1ZGluZyBodXJ0aW5nIHBlcmZvcm1hbmNlIGFzCnlvdSBzYWlkLCBvciBpbXByb3ZpbmcgcGVy
+Zm9ybWFuY2UgYXMgSSBwb2ludGVkIG91dCBlYXJsaWVyLgoKSSBhbSB3aWxsaW5nIHRvIGJldCB0
+aGF0IG1vc3QgdXNlcnMgZG9uJ3QgZXZlciB0b3VjaCB0aGlzLiBCdXQgaWYgdGhleSBkbywKdGhl
+eSBiZXR0ZXIga25vdyB3aGF0IHRoZXkgYXJlIGRvaW5nLiBJZiB0aGV5IHdhbnQgdG8gd2FzdGUg
+dGhlaXIgQ1BVCmN5Y2xlcywgc28gYmUgaXQuCgpNeSBwb2ludCBlc3NlbnRpYWxseSBpcyB0aGF0
+IGtlcm5lbCBzaG91bGRuJ3QgZm9yY2UgYW55IHBvbGljeSBvbiB1c2Vycy4KVGhlIG9ubHkgY2Fz
+ZSB0aGlzIG1ha2VzIHNlbnNlIGlzIHdoZW4gdGhlIHBvbGljeSBpcyBfc3RyaWN0bHlfIGJldHRl
+ciB0aGFuCmFueXRoaW5nIGVsc2UsIHdoaWNoIGlzIG5vdCB0cnVlIGhlcmUuIFdoYXQgdGhlIGRy
+aXZlciBzaG91bGQgZG8gaXMKcHJvdmlkaW5nIGEgImdvb2QgZW5vdWdoIGZvciBtb3N0IiBkZWZh
+dWx0LCBidXQgc3RpbGwgbGV0IHVzZXJzIGRlY2lkZQp3aGF0J3MgYmVzdCBmb3IgdGhlbS4KClNp
+ZGUgbm90ZTogaWYgSSBhbSBub3QgbWlzdGFrZW4sIHRoZSBlZmZlY3RpdmUgYWZmaW5pdHkgbWFz
+ayB0aGluZyBpcyBmb3IKaGFyZHdhcmUgbGltaXRhdGlvbiBvZiB0aGUgY2hpcHMgd2hvIGNhbm5v
+dCBlbmFibGUgaW50ZXJydXB0IGZvciBhbGwgQ1BVcwppbiB0aGUgbWFzay4gUklTQy1WIFBMSUMs
+IG9uIHRoZSBvdGhlciBoYW5kLCBjYW4gZW5hYmxlIGludGVycnVwdHMgZm9yIGFueQpDUFUsIGFu
+ZCB0aGVyZWZvcmUgc2hvdWxkIGRvIHNvLgoKQmVzdCByZWdhcmRzLApOYW0KCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
