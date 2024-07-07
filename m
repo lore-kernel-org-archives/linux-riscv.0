@@ -4,54 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399ACC3DA44
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jul 2024 17:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C191C3DA41
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jul 2024 18:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=6BPEqCnI/6ZtHmKMrYb5RxM9MS+YQYBy++pYo2Z2oT8=; b=y0J
-	PBszP9/ZuyS/UkLNhrEqvZOi3/BDkFLWv8JZZRSUsg3jTzkWH3TglPjcldMHEph0iF44I0/f/FlEb
-	2dM5KP8/fST83gSkl+hDEbacSnw47vTG5vKk8eRp8/6CtLV9BTh1Pk/PNEcWQsPg73DdE+o76BtNY
-	gIJiR7q4PQ3BXIsUdxfPwNSmvQTu3wRmFJotggv02nuAhGpoEfrNPz/UTrmotrNSmwyjG/EhOsImw
-	qysscLmPWR2j0k2PgEVhI8bqy6R88fVbQvNZyFEFw5IcsCcdiiicFtJp9Ce/bEP2uI4iVvP6R7hBP
-	3U3bzLns+JXVZLlTDT01YtchrPHFI9w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q/myhyjnYzmqSB9Y2sYAlXXdpErqz85DEBfn8gO5m8Q=; b=3vaOI51Vx4d3ve
+	MUwyUnF1pRx4BguxPNSiIBrWZKTXocxVeNL4fGYSYpbbJ7mslpnCnF+plz54cVnnhPUTZeluBfUgv
+	u3SQNc6tak94BrottBSYPIvr/vf7wFJzfkFTNl30GRf6TY+GTZBVtReBKyYOvq48f8wIi9GI3KgXF
+	90RY2Yfskhk/74Oq/rhYp7Q5EXhfe5AvZMeUg9X735sK/DTw6fGtzUSDONdIvDLeKvX3qijuFhf2T
+	uNrJoO2iRcVY8ZXLHhKEGGeJ2HLeLFNYICAEWcbCIKdqKE3tdEx2SuFmIYFd1i4cqR63Z63BDggs3
+	ZuLj03+lnKDcQWyDPPyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQW9I-000000025vy-1j4g;
-	Sun, 07 Jul 2024 17:58:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sQWbf-000000027TT-35uL;
+	Sun, 07 Jul 2024 18:27:27 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQW9F-000000025vV-08EU
+	id 1sQWbb-000000027Sb-2sci
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Jul 2024 17:58:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B4E3B602E2
-	for <linux-riscv@lists.infradead.org>; Sun,  7 Jul 2024 17:58:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93D9DC3277B;
-	Sun,  7 Jul 2024 17:58:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720375083;
-	bh=72I96rI7uiyl+GtQJzcvhkozVJ9pOKlNEA5uOq7BpIs=;
-	h=Date:From:List-Id:To:Cc:Subject:From;
-	b=JAybygcrTvuH83kAC4TxwlscOgj+cJxWEaLAjJN/zaM5HUwXbiN3ziPuew3ERgnou
-	 p1ZA0ZxwFGZxcW66Bvw1D2IviZG8/ZybL+UyU1jHIFxk00WbN1dvf1COALD95uzMem
-	 OicBOlq16TEUE8GiENSDQC0y190UVYyqnckoRLzQKXycn6OSeEsO24FLgbZy7mhWYh
-	 OpsZz0Yk+9/XBpyIzILkKc+LT9UuDGVDCGWXY8m9csaTdtlSi9UUOw1GHBszkxEK3v
-	 PMnrafxWbq9BLyzqMJEnEF3tSn02tVwuWCY4PEP4sFOpntL5/c4nvR0u2EojqmYpa2
-	 h6GRhiWmIwTOg==
-Date: Sun, 7 Jul 2024 18:58:00 +0100
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V Devicetrees for v6.11
-Message-ID: <20240707-nuttiness-lustfully-4aaf03c991b2@spud>
+	Sun, 07 Jul 2024 18:27:26 +0000
+Date: Sun, 7 Jul 2024 20:27:15 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1720376841;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c3AdbKsKINe9yu2ZBpPq85eLROlYQ2SMJgf9Olj43RQ=;
+	b=GeN9N21T/2EDPgz2wcSKn7uVZnC2kJMMU33LtWBQIoBxioF4NpLKK9EluBqfvWmyMvfx5T
+	fklaTkAjevPfjRSSRbqNJX6bRbf8pURWjKLjd7OBvroC+3l3bG7mkwpyp6jHJI5/IrLrjl
+	qHwxhcUhA7md/ITvGA6aPhckBjQJmZ5oNOjGXa4k2l3X9K0AaC4McXh7Kl0kRWObMfJCpZ
+	RzElxqR8RoVsr3TI1WeRgwlCfbp2dZuUTk+8zg5gCnh5VHV3EgViI+mEuHFenRkrTYIjQu
+	1onfI6fUv9PjzDe6lRH1tGxWKg3AKDuFpyIBOUp3tcEGjiRN9gehnpQVQRaMOA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1720376841;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c3AdbKsKINe9yu2ZBpPq85eLROlYQ2SMJgf9Olj43RQ=;
+	b=qD6iHGJijutmP+XASaeb2zKYkioG8mu2oI5vgEd8JdRpoX6ej5HbvIMfm+sPVTciXtm9AT
+	GskjYGTbghw86LDg==
+From: Nam Cao <namcao@linutronix.de>
+To: zhengyan <zhengyan@asrmicro.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	maz@kernel.org, paul.walmsley@sifive.com, qiaozhou@asrmicro.com,
+	samuel.holland@sifive.com, tglx@linutronix.de,
+	Drew Barbier <drew@sifive.com>
+Subject: Re: [PATCH v2] irqchip/sifive-plic: ensure interrupt is enable
+ before EOI
+Message-ID: <20240707182715.L_REw7VC@linutronix.de>
+References: <69174a28eff44ad1b069887aa514971e@exch03.asrmicro.com>
+ <20240624113523.23-1-zhengyan@asrmicro.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240624113523.23-1-zhengyan@asrmicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240707_105805_227310_BD06510D 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20240707_112724_031081_30DC7261 
+X-CRM114-Status: GOOD (  41.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,135 +75,187 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9207122159081480999=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jun 24, 2024 at 11:35:23AM +0000, zhengyan wrote:
+> RISC-V PLIC cannot "end-of-interrupt" (EOI) disabled interrupts, as
+> explained in the description of Interrupt Completion in the PLIC spec:
+> "The PLIC signals it has completed executing an interrupt handler by
+>  writing the interrupt ID it received from the claim to the claim/complete
+>  register. The PLIC does not check whether the completion ID is the same
+>  as the last claim ID for that target. If the completion ID does not match
+>  an interrupt source that *is currently enabled* for the target, the
+>  completion is silently ignored."
+> 
+>  Commit 9c92006b896c ("irqchip/sifive-plic: Enable interrupt if needed
+>  before EOI")
+>  ensured that EOI is enable when irqd IRQD_IRQ_DISABLED is set, before
+>  EOI
+> 
+>  Commit 69ea463021be ("irqchip/sifive-plic: Fixup EOI failed when masked")
+>  ensured that EOI is successful by enabling interrupt first, before EOI.
+> 
+>  Commit a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask
+>  operations") removed the interrupt enabling code from the previous
+>  commit, because it assumes that interrupt should already be enabled at the
+>  point of EOI.
+> 
+> However, here still miss a corner case that if SMP is enabled. When
+> someone needs to set affinity from a cpu to another the original cpu
+> when handle the EOI meanwhile the IE is disabled by plic_set_affinity
+> 
+> For example, broadcast tick is working,
+> cpu0 is about to response, cpu1 is the next.
+> 1. cpu0 responses the timer irq, read the claim REG, do timer isr event.
+> 2. during the timer isr it will set next event
+> tick_broadcast_set_event -> irq_set_affinity->xxx->
+> plic_set_affinity -> plic_irq_enable
+> 3. in plic_set_affinity disable cpu0's IE and enable cpu1'IE
+> 4. cpu0 do the write claim to finish this irq, while cpu0's IE is disabled,
+> left an active state in plic.
+> 
+> So this patch ensure that won't happened
+> 
+> Signed-off-by: zhengyan <zhengyan@asrmicro.com>
+> ---
+>  drivers/irqchip/irq-sifive-plic.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index 9e22f7e378f5..815ce8aa28f1 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -149,8 +149,10 @@ static void plic_irq_mask(struct irq_data *d)
+>  static void plic_irq_eoi(struct irq_data *d)
+>  {
+>  	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> +	void __iomem *reg = handler->enable_base + (d->hwirq / 32) * sizeof(u32);
+> +	u32 hwirq_mask = 1 << (d->hwirq % 32);
+>  
+> -	if (unlikely(irqd_irq_disabled(d))) {
+> +	if (unlikely((readl(reg) & hwirq_mask) == 0)) {
+>  		plic_toggle(handler, d->hwirq, 1);
+>  		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+>  		plic_toggle(handler, d->hwirq, 0);
 
---===============9207122159081480999==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="4tXnFVVA6r14f/tL"
-Content-Disposition: inline
+I think this patch is fine.
 
+But, I don't like reading hardware registers in the interrupt hot path. It
+may slow things down. Also this patch doesn't allow moving the if condition
+out of this plic_irq_eoi() function into the enabling function (I have been
+thinking about doing that for some time, but too lazy to get to it).
 
---4tXnFVVA6r14f/tL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I *may* have something better.
 
-Hey Arnd,
+From the specification:
+"The PLIC signals it has completed executing an interrupt handler by
+writing the interrupt ID it received from the claim to the claim/complete
+register. The PLIC **does not check** whether the completion ID is the same
+as the last claim ID for that target. If the completion ID does not match
+an interrupt source that is currently enabled for the target, the
+completion is silently ignored."
 
-Should be the final PR from me. I meant to send this stuff out end of
-last week but I ended up getting sick - and I'm going to blame screwing
-up my PR subjects on that...
+Note what I "highlighed": the irq number written back does not have to
+match the irq number last claimed for the CPU. If I interpret this
+correctly, this means *any* claim/complete register can be used to complete
+the interrupt.
 
-There's not really a huge amount in here, I ended up dropping the k230
-that missed last window cos there's been no further interest in getting
-it support outside of the basic uart + interrupt controllers + memory
-configuration dts that Yangyu Chen sent. The board is fairly frustrating
-to work with due to the bootloader setup, and maybe nobody really cares
-since it's fairly underpowered, especially compared to the Spacemit k1
-equipped Banana Pi board. I've stashed it in a branch in case anyone
-surfaces that cares about it. So no vector 1.0 hardware with a dts in the
-kernel yet.
+So, my idea: since irq affinity setting still leaves at least 1 CPU with
+the interrupt enabled; the claim/complete register for that enabled CPU can
+be used for completing interrupt (instead of the original one used for
+claiming). This would avoid some hardware register access in the hot path.
+Also allows another optimization of moving the if condition out of the EOI
+function.
 
-Cheers,
-Conor.
+Something like the patch below. To apply this one cleanly, another patch
+must be applied first:
+https://lore.kernel.org/linux-riscv/20240703072659.1427616-1-namcao@linutronix.de/
 
-The following changes since commit 1613e604df0cd359cf2a7fbd9be7a0bcfacfabd0:
+What I am still a bit unsure about is whether my interpretation of the
+specification is correct. The patch works for my Visionfive 2 board, so the
+question is whether this patch is relying on "undefined behavior", or this
+is really what the spec means. Drew Barbier <drew@sifive.com> seems to be
+the one who wrote that. Do you mind confirming my interpretation?
 
-  Linux 6.10-rc1 (2024-05-26 15:20:12 -0700)
+Best regards,
+Nam
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-for-v6.11
-
-for you to fetch changes up to 2904244a8c46bdd0fee181df693a495f4628a575:
-
-  riscv: dts: starfive: add PCIe dts configuration for JH7110 (2024-07-01 13:20:19 +0100)
-
-----------------------------------------------------------------
-RISC-V Devicetrees for v6.11
-
-T-Head:
-Last change from me before this starts going via Drew's tree is the
-addition of the SBI PMU events node for the th1520.
-
-StarFive:
-A dts for the Pin64 Star64, another board with a jh7110 SoC. This board
-is almost identical to the existing Milk-v Mars and VisionFive 2 boards
-that are already support - just with a different PHY configuration and
-only one of the two PCIe ports exposed. Additionally, the Mars and
-VisionFive 2 get their PCie configuration added.
-
-Microchip:
-A dts for the BeagleV Fire. PCIe is disabled on it for now, as some
-binding and driver changes are required.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (2):
-      dt-bindings: riscv: microchip: document beaglev-fire
-      riscv: dts: microchip: add an initial devicetree for the BeagleV Fire
-
-Henry Bell (2):
-      dt-bindings: riscv: starfive: add Star64 board compatible
-      riscv: dts: starfive: add Star64 board devicetree
-
-Inochi Amaoto (1):
-      riscv: dts: thead: th1520: Add PMU event node
-
-Matthias Brugger (1):
-      riscv: dts: starfive: Update flash partition layout
-
-Minda Chen (1):
-      riscv: dts: starfive: add PCIe dts configuration for JH7110
-
-Yangyu Chen (1):
-      dt-bindings: riscv: Add T-HEAD C908 compatible
-
- Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
- .../devicetree/bindings/riscv/microchip.yaml       |   1 +
- .../devicetree/bindings/riscv/starfive.yaml        |   1 +
- arch/riscv/boot/dts/microchip/Makefile             |   1 +
- .../dts/microchip/mpfs-beaglev-fire-fabric.dtsi    |  82 ++++++++
- .../riscv/boot/dts/microchip/mpfs-beaglev-fire.dts | 223 +++++++++++++++++++++
- arch/riscv/boot/dts/starfive/Makefile              |   1 +
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi    |  69 ++++++-
- arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts |   7 +
- .../boot/dts/starfive/jh7110-pine64-star64.dts     |  65 ++++++
- .../dts/starfive/jh7110-starfive-visionfive-2.dtsi |   8 +
- arch/riscv/boot/dts/starfive/jh7110.dtsi           |  86 ++++++++
- arch/riscv/boot/dts/thead/th1520.dtsi              |  81 ++++++++
- 13 files changed, 621 insertions(+), 5 deletions(-)
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-beaglev-fire-fabric.dtsi
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
-
---4tXnFVVA6r14f/tL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZorXKAAKCRB4tDGHoIJi
-0uo/AP98wGZ+35lf668q1VOJ3CAeMAkQwYt7AgPabvq7aO1hHAEAygP3TIHcsK/U
-RitSn2i8ioggSeskCNm5i3NtmHP+sA0=
-=SVga
------END PGP SIGNATURE-----
-
---4tXnFVVA6r14f/tL--
-
-
---===============9207122159081480999==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index f30bdb94ceeb..117ff9f1c982 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -69,6 +69,7 @@ struct plic_priv {
+ 	void __iomem *regs;
+ 	unsigned long plic_quirks;
+ 	unsigned int nr_irqs;
++	void __iomem **complete;
+ 	unsigned long *prio_save;
+ };
+ 
+@@ -149,13 +150,14 @@ static void plic_irq_mask(struct irq_data *d)
+ static void plic_irq_eoi(struct irq_data *d)
+ {
+ 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
++	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
+ 
+ 	if (unlikely(irqd_irq_disabled(d))) {
+ 		plic_toggle(handler, d->hwirq, 1);
+-		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
++		writel(d->hwirq, priv->complete[d->hwirq]);
+ 		plic_toggle(handler, d->hwirq, 0);
+ 	} else {
+-		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
++		writel(d->hwirq, priv->complete[d->hwirq]);
+ 	}
+ }
+ 
+@@ -164,6 +166,7 @@ static int plic_set_affinity(struct irq_data *d,
+ 			     const struct cpumask *mask_val, bool force)
+ {
+ 	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
++	struct plic_handler *handler;
+ 	struct cpumask new_mask;
+ 
+ 	cpumask_and(&new_mask, mask_val, &priv->lmask);
+@@ -180,6 +183,9 @@ static int plic_set_affinity(struct irq_data *d,
+ 	if (!irqd_irq_disabled(d))
+ 		plic_irq_enable(d);
+ 
++	handler = per_cpu_ptr(&plic_handlers, cpumask_first(&new_mask));
++	priv->complete[d->hwirq] = handler->hart_base + CONTEXT_CLAIM;
++
+ 	return IRQ_SET_MASK_OK_DONE;
+ }
+ #endif
+@@ -516,6 +522,10 @@ static int plic_probe(struct platform_device *pdev)
+ 	priv->prio_save = devm_bitmap_zalloc(dev, nr_irqs, GFP_KERNEL);
+ 	if (!priv->prio_save)
+ 		return -ENOMEM;
++	
++	priv->complete = devm_kcalloc(dev, 1 + nr_irqs, sizeof(*priv->complete), GFP_KERNEL);
++	if (!priv->complete)
++		return -ENOMEM;
+ 
+ 	for (i = 0; i < nr_contexts; i++) {
+ 		error = plic_parse_context_parent(pdev, i, &parent_hwirq, &cpu);
+@@ -577,6 +587,12 @@ static int plic_probe(struct platform_device *pdev)
+ 			writel(1, priv->regs + PRIORITY_BASE +
+ 				  hwirq * PRIORITY_PER_ID);
+ 		}
++
++		if (!nr_handlers) {
++			for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
++				priv->complete[hwirq] = handler->hart_base + CONTEXT_CLAIM;
++		}
++
+ 		nr_handlers++;
+ 	}
+ 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9207122159081480999==--
-
