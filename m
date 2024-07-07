@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC20C2BD09
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jul 2024 01:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9DC9C2BD09
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jul 2024 01:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U9xja5VU3KJi7RmIQ4Ek1OOOAQlQEGqakkCEMkOO940=; b=ttGCnMEI1n5leT
-	MoEJlOOxa/FU22JKUf2P7S1PGFHKM3G+gxh192wEtg07uqmA7wVJBin5tSkGLU7pNHmB0xS7cWjgn
-	zMwg9ShZTriBngwVTPHVVWc68ZqXjLFeOKBkPzacFfTIMGCXHbzL1y7Qk9+C23ZdkLoRggOkPWChJ
-	Ez3E+HdCFwKYPIWJ/bSUqNRzDeDrYOytegs0yrmgz4NHniongDeMmS4ZqZYh3WabrO+bl/o2k9qIf
-	Ik22om7b6EwGP5u+ykurrkOlff5sHeJuVWXl9uZDbQiu7QS7ZXILR38VArxfWwo44eBs7P3Atj5om
-	Pa4xSUjIrkUeDvax+ajA==;
+	List-Owner; bh=ZFe0jCQNz5kj7wKFMuyroxlnfMZo2uwJPdQ1XVDWEFk=; b=H70glfpyDJhj2b
+	+IVRrZKFFp1ckk4anEVKBSlOkcrszFzwXCFtWyF2tjcenHrQeM/WJoamLYklmaC5Oa7wjTYT02PbQ
+	IHqfqWiwWhrcoteT/esrkrmYuK582lsb/CbP312dAWAeggXcZ3KdC8Hym+DqhDqsCrxLrq9JktcK/
+	udfAg8XMsudwljzNBNoju70mmhnGbOZ5RwYtlRxroxIQ73DwLJezRYMtdH8/d0CXcuxPHEP/gqXYI
+	cSvKzM5v8aU9AxmWU9nNmQZcCLQ/JjkxpP8NM6S7DvRKtk5uEpraHrCZBt2Z/o73tAjA0HwwsnXM5
+	uLH0mI0o+79CsH8HbD/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQGZN-00000001ClP-1dvH;
-	Sun, 07 Jul 2024 01:20:01 +0000
-Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
+	id 1sQGoX-00000001Dbc-1PwH;
+	Sun, 07 Jul 2024 01:35:41 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQGZK-00000001Ckw-1Ac1
+	id 1sQGoU-00000001Db8-39u1
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Jul 2024 01:19:59 +0000
-Received: by mail-io1-xd33.google.com with SMTP id ca18e2360f4ac-7fa6f6e45a7so18623939f.1
-        for <linux-riscv@lists.infradead.org>; Sat, 06 Jul 2024 18:19:57 -0700 (PDT)
+	Sun, 07 Jul 2024 01:35:40 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2c961b5f215so1628310a91.0
+        for <linux-riscv@lists.infradead.org>; Sat, 06 Jul 2024 18:35:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1720315197; x=1720919997; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1720316138; x=1720920938; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=19gER6V+PqCJdOhe6PBnQmpdkeHIDtXlX82EoX9sdBE=;
-        b=TIzfcB32UIOheRIQjzNOaJjUIFFbUbhJPxD62gYM/Tr/MvsTeMmH4KDRf4l/trngxW
-         7IrGxaBim1XFSlZ2eeZh/XwXeHNfTTwPFS50j2s4Bb2vdQ9cErxheYtb2OiB8o8pb11z
-         8MXMDRJeXbdMr8wWFzRCtNd9w9fEHngnpaMgSJ6Gb0SgOC3GKSXeS2x/PcjnJ6Ssonuj
-         n022tVPGGcuoA6mWW7o5vaXlozZPuHx3XVRraFjQY5op0eV0xtu054o05uQqLkbb/hEt
-         RBFKXhyL6K6ZjH2s6/KqqRLvUVugzv8OR2W0kQApIL072FlF524iNOlSNVvwUlx2O3U5
-         EzuA==
+        bh=nsguKa8Fd9DPaCpX9PzRwBcETLMtI48yaYMApWrDjW8=;
+        b=OaZCa2QagTdY33cCh/ONZOOigmydRT8RYa7PaDhRXoBm6kGnp/sEM3FjOhPboSLQtI
+         FBNijYTKz4+AZL4FzI+04aLsQlr9/TLVgsdLuj8kXSXOkg0jyehBLa6ZJE5k+i8g3Aq7
+         jdK/Kso+11qjq9cvvXmLcsvqQ9qKbHh7VgZly44e8KBj8KzwNbtgwlBRlOLGEH+HCK1X
+         0CUQZHNa42RmkJhfsuiwu1p6G7bqu/7/hb7LnPSUIRD8teTjkdFSKQ7ljeAg/fLfzW7W
+         pNXhjiSd4/pp89d6arRY1hbYZW/5TXev3pLW8BqLyqZZRWpw2Lf/fLlWiEhvu4DjFw1g
+         M3yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720315197; x=1720919997;
+        d=1e100.net; s=20230601; t=1720316138; x=1720920938;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=19gER6V+PqCJdOhe6PBnQmpdkeHIDtXlX82EoX9sdBE=;
-        b=BvWCYppsNKVVBbX9OC6GlFVWXngy+Np85rFg6bPhM+RF0d47W2CuAWGbXz/s4cIc1v
-         hjJhNG8ROmQc+O99MhaOobe/gSam2a81fMjXOiVmxlTaFoAQeNr8omDwUz0tfLXZ3dKf
-         EI9sYcfw6hxlxF/VlGJ99Bqt3wP55RKr8X2vIZTH2Ib5dIIby0IroaDQmWt2WAP18s/W
-         4j2WgJ4zojY6eDAB4WxeLXKt80HxhpaMRwhPkzv1M330vEOb8KBp94roo14QIO9fpJjZ
-         /eS86/pMmix0V6oISB5V5W0XB4xhonDl5XME3pfJWp/KqWY7oCfF1Iwf05yNSIFAdC5I
-         urmg==
-X-Forwarded-Encrypted: i=1; AJvYcCWB0EqepevNqH0Ul0Wn5wOyg60ngEUPHAg3Y6j66vP9nJjxuZE7yNkKF/KvDoLoDQ5K0+D2pJAecamvFt/7JGyRP6AET4gqoZ392LAaMCtY
-X-Gm-Message-State: AOJu0Yzm1Jg91uYqrXZIvJrtFdnQ18qm535u1W3PscBIbepp9P0lwq79
-	+49gsMCQXiQ4fzaNVkv+OVHHv/OspJGQcHDTajnJTCHJ7eEg6MUNlBz6jQ==
-X-Google-Smtp-Source: AGHT+IFdPMX5bNItqfSSiKUjXNcAyssN26A7ZPrBymkFLpbUN7wyo0MScBAdZlc4nQfMuhr5NQXW2w==
-X-Received: by 2002:a05:6e02:1c27:b0:376:4aa0:1a99 with SMTP id e9e14a558f8ab-383991c0096mr111538605ab.8.1720315197166;
-        Sat, 06 Jul 2024 18:19:57 -0700 (PDT)
+        bh=nsguKa8Fd9DPaCpX9PzRwBcETLMtI48yaYMApWrDjW8=;
+        b=fsic9a5s28vrOCshugJdrKVa/ce8UCU7byvaa0Q5DNsZEzXfGtoFQv6kRch/IfVM+w
+         IZwIHKp+ziztz9VUW9AddYiL32XjLshhQM+hz4Nzx5wWVj2MS5UrxKnp84B2/MpBALso
+         Ob/NYDsJ1My+QX2roTv8oulln+RqjgzdvTmnOyDvu+DZIkCiOjI7I33eMPdreDN1s3i4
+         ElIXctLv+dIUzswGjU6cmWHbV195qSSEax2ja2RAdNnkp8dg+AnL7XBiWcWsjtUiXS66
+         V8y0pkdrVo9KlWEqFLj3fAYmD0mWdepfnHZqCGQchZSlv4uE/c1TUIKTn8E8T7+cl0xs
+         j/KA==
+X-Forwarded-Encrypted: i=1; AJvYcCWo4GGRjb8jKvfs2rNwClsK/G4YUp8eoFCchnKWAkvY53IuxMnfXs0IA+an5pKN6FEz8DZ9SWBgIGnrngwTti0BsyDxTjkJHSsI5Q6qbhak
+X-Gm-Message-State: AOJu0YxcmMS28NT2t4Wu56KX1DwtfMyDjnOkPC+9CM0kXdhyxRtwuIhT
+	aLAvNj54tDAA9hMFu/zdcrtGufQithjZG+8JKg0/KyHfyUOdBMP+
+X-Google-Smtp-Source: AGHT+IFoUAJxvVZfvCiN/bhFxXLAbSuX+gKzkgcu8uug+VjJ8+a7o3oqyy5WCYAmmuP/vmkix0XODg==
+X-Received: by 2002:a05:6a20:9146:b0:1c0:dfb3:4214 with SMTP id adf61e73a8af0-1c0dfb345bemr3921383637.38.1720316137656;
+        Sat, 06 Jul 2024 18:35:37 -0700 (PDT)
 Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fb7794f91bsm9512465ad.191.2024.07.06.18.19.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-1fb3ce7144esm48053225ad.300.2024.07.06.18.35.36
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 06 Jul 2024 18:19:56 -0700 (PDT)
-Message-ID: <7747c4f1-7ef1-407c-a155-99fa0b77de50@roeck-us.net>
-Date: Sat, 6 Jul 2024 18:19:54 -0700
+        Sat, 06 Jul 2024 18:35:36 -0700 (PDT)
+Message-ID: <a0337b42-4cce-42f4-91f6-eca65c62ed47@roeck-us.net>
+Date: Sat, 6 Jul 2024 18:35:35 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/2] drivers: hwmon: sophgo: Add SG2042 external
+Subject: Re: [PATCH v6 1/2] dt-bindings: hwmon: Add Sophgo SG2042 external
  hardware monitor support
-To: Inochi Amaoto <inochiama@outlook.com>, Jean Delvare <jdelvare@suse.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
  Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org
+ linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
 References: <IA1PR20MB4953967EA6AF3A6EFAE6AB10BBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953EC4C486B8D4B186BB848BBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <d2ecc9fd-93cf-4175-8074-b44c06b58313@roeck-us.net>
- <IA1PR20MB4953A4C47F52EBB2F200C50DBBD92@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953F58B631D836F3863115ABBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <5a2e23f4-d54a-45ae-a09d-e557b110e017@roeck-us.net>
+ <IA1PR20MB49539E946C2D5D025932ABEEBBD82@IA1PR20MB4953.namprd20.prod.outlook.com>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -127,10 +128,10 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
  HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
  mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <IA1PR20MB4953A4C47F52EBB2F200C50DBBD92@IA1PR20MB4953.namprd20.prod.outlook.com>
+In-Reply-To: <IA1PR20MB49539E946C2D5D025932ABEEBBD82@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240706_181958_439842_A66CF859 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20240706_183538_837447_3B2404E2 
+X-CRM114-Status: GOOD (  23.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,43 +148,95 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/6/24 17:31, Inochi Amaoto wrote:
-> On Sat, Jul 06, 2024 at 07:52:47AM GMT, Guenter Roeck wrote:
->> On 7/2/24 19:30, Inochi Amaoto wrote:
->>> SG2042 use an external MCU to provide basic hardware information
->>> and thermal sensors.
+On 7/6/24 16:34, Inochi Amaoto wrote:
+> On Sat, Jul 06, 2024 at 09:48:58AM GMT, Guenter Roeck wrote:
+>> On Wed, Jul 03, 2024 at 10:30:43AM +0800, Inochi Amaoto wrote:
+>>> Due to the design, Sophgo SG2042 use an external MCU to provide
+>>> hardware information, thermal information and reset control.
 >>>
->>> Add driver support for the onboard MCU of SG2042.
+>>> Add bindings for this monitor device.
 >>>
 >>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 >>> ---
->>>    Documentation/hwmon/index.rst |   1 +
->>>    Documentation/hwmon/sgmcu.rst |  44 +++
->>>    drivers/hwmon/Kconfig         |  11 +
->>>    drivers/hwmon/Makefile        |   1 +
->>>    drivers/hwmon/sgmcu.c         | 585 ++++++++++++++++++++++++++++++++++
->>>    5 files changed, 642 insertions(+)
->>>    create mode 100644 Documentation/hwmon/sgmcu.rst
->>>    create mode 100644 drivers/hwmon/sgmcu.c
+>>>   .../hwmon/sophgo,sg2042-hwmon-mcu.yaml        | 43 +++++++++++++++++++
+>>>   1 file changed, 43 insertions(+)
+>>>   create mode 100644 Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
 >>>
-...
+>>> --
+>>> 2.45.2
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml b/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
+>>> new file mode 100644
+>>> index 000000000000..f0667ac41d75
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
+>>> @@ -0,0 +1,43 @@
+>>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/hwmon/sophgo,sg2042-hwmon-mcu.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 >>> +
->>> +static int sg2042_mcu_read_temp(struct device *dev,
->>> +				u32 attr, int channel,
->>> +				long *val)
->>> +{
->>> +	struct sg2042_mcu_data *mcu = dev_get_drvdata(dev);
->>> +	long tmp;
+>>> +title: Sophgo SG2042 onboard MCU support
+>>> +
+>>> +maintainers:
+>>> +  - Inochi Amaoto <inochiama@outlook.com>
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: sophgo,sg2042-hwmon-mcu
 >>
->> Why long ?
+>> According to the other patch, this actually covers four
+>> distinct models/devices.
 >>
+>> static const struct sg2042_mcu_board_data[] = {
+>>> +	{
+>>> +		.id = 0x80,
+>>> +		.name = "SG2042 evb x8",
+>>> +	},
+>>> +	{
+>>> +		.id = 0x81,
+>>> +		.name = "SG2042R evb",
+>>> +	},
+>>> +	{
+>>> +		.id = 0x83,
+>>> +		.name = "SG2042 evb x4",
+>>> +	},
+>>> +	{
+>>> +		.id = 0x90,
+>>> +		.name = "Milk-V Pioneer",
+>>> +	},
+>>> +};
+>>> +
+>>
+>> Is it really appropriate to use a single compatible property for all of those ?
+>>
+>> Guenter
 > 
-> just use to calculate the value.
+> These board can only be detected at running time (even this should on
+> a specific board). On real world, it can only sees a MCU onboard.
+> I don't think it is a good idea to add some bindings to cover these
+> model. It seems better to remove this array and let userspace to parse
+> these ids.
 > 
 
-That is not a valid reason. There won't be any overflows, so int would
-be good enough.
+Isn't that what devicetree is for ? It should either not be necessary
+to distinguish the models because they all behave the same and all of them
+are happy with the same compatible property, or there is some difference
+which should be reflected in devicetree. In other words, either they
+are all compatible with sophgo,sg2042-hwmon-mcu, and sg2042_mcu_board_data
+as well as sg2042_mcu_check_board() are unnecessary, or they are not
+compatible and there should be separate compatible property names.
+struct of_device_data does have a .data pointer for a reason, after all.
 
+In yet other words, it seems odd to have a devicetree file for Milk-V Pioneer
+and then to check in the hwmon driver if this is _really_ a Milk-V Pioneer
+and bail out if it isn't. And I _really_ don't want to deal with continuous
+driver patches whenever one of the systems using one of those MCUs starts
+shipping a new firmware version or is deployed on a new board variant.
+
+Thanks,
 Guenter
 
 
