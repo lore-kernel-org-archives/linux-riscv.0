@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0D7C3DA41
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jul 2024 17:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399ACC3DA44
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jul 2024 17:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=veyf/8Fje4/+P7GQbcBmmppplncsPL85UY6cTKmig4E=; b=iOd
-	dTMoKhhStO2plS9w+o8vtTTmHlye8ChtWWqTp9Y2fpxwwIvgZVtBPfhkIq49a7doUBuiajaPByPbv
-	u2JDyZFhD/ZM8DmmDslEuIF+wXlmbPB+j0KJoJPyvvcenIFwXtyMR8nGNeUFjLR67XLaaH+tFIXsN
-	3HqlJV+r5Em0Pe+FR6SdB+TqRIYomLpN95F/aXGp1BbOWsaP2beWu9XIdMkKjImuIU48168pU3r5i
-	q3w12B68FYKSlU9I9G3lXjfQsehAPfhhTDLnEd0bRMDMhyceussYxRg15YtpiPG1roXjZYZ5A8HeS
-	ERnq+4uMAqe/mwH3LaDY/r1uLipudhA==;
+	References:List-Owner; bh=6BPEqCnI/6ZtHmKMrYb5RxM9MS+YQYBy++pYo2Z2oT8=; b=y0J
+	PBszP9/ZuyS/UkLNhrEqvZOi3/BDkFLWv8JZZRSUsg3jTzkWH3TglPjcldMHEph0iF44I0/f/FlEb
+	2dM5KP8/fST83gSkl+hDEbacSnw47vTG5vKk8eRp8/6CtLV9BTh1Pk/PNEcWQsPg73DdE+o76BtNY
+	gIJiR7q4PQ3BXIsUdxfPwNSmvQTu3wRmFJotggv02nuAhGpoEfrNPz/UTrmotrNSmwyjG/EhOsImw
+	qysscLmPWR2j0k2PgEVhI8bqy6R88fVbQvNZyFEFw5IcsCcdiiicFtJp9Ce/bEP2uI4iVvP6R7hBP
+	3U3bzLns+JXVZLlTDT01YtchrPHFI9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQVgs-000000024Ry-3P9D;
-	Sun, 07 Jul 2024 17:28:46 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sQW9I-000000025vy-1j4g;
+	Sun, 07 Jul 2024 17:58:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQVgq-000000024RP-0Ut5
+	id 1sQW9F-000000025vV-08EU
 	for linux-riscv@lists.infradead.org;
-	Sun, 07 Jul 2024 17:28:45 +0000
+	Sun, 07 Jul 2024 17:58:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 41C61CE09CF;
-	Sun,  7 Jul 2024 17:28:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E0C2C3277B;
-	Sun,  7 Jul 2024 17:28:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B4E3B602E2
+	for <linux-riscv@lists.infradead.org>; Sun,  7 Jul 2024 17:58:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93D9DC3277B;
+	Sun,  7 Jul 2024 17:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720373321;
-	bh=dec1lMOTT+MCuRCKzG2P+w3SGTySw92Kkt3knjpum+g=;
+	s=k20201202; t=1720375083;
+	bh=72I96rI7uiyl+GtQJzcvhkozVJ9pOKlNEA5uOq7BpIs=;
 	h=Date:From:List-Id:To:Cc:Subject:From;
-	b=DWs9Ps9bxmvsAWPEh4l4pMiv+4azWznAGl7lv3ysVo8dzIXVbSrNVy4thXeXtfAgu
-	 r+hLX/ex8YdE+m3PblD0yJpHVKbDjrcUoO7pjbOpFFRVjGQN62BS9XQhi0w6nBN8OT
-	 0Ly//sW+2zVz2uIDojiMaz5KfXqJCAVetirBss7AYgo/6F9Ls23RP8loYq1xFhmwVa
-	 JTcMnRcEfs0dVudaRK7G36L46VaKHUXcw789gcxkwvKm+myDcWnnxQeD7Ohtwc3d8m
-	 7kT1qn7aHc93CMZs1LTRHwapxTV12FOur9SxoRJE3WXxXa/aQjz2IY/CJabeXpEHOB
-	 TVb5UVVKIHDLw==
-Date: Sun, 7 Jul 2024 18:28:38 +0100
+	b=JAybygcrTvuH83kAC4TxwlscOgj+cJxWEaLAjJN/zaM5HUwXbiN3ziPuew3ERgnou
+	 p1ZA0ZxwFGZxcW66Bvw1D2IviZG8/ZybL+UyU1jHIFxk00WbN1dvf1COALD95uzMem
+	 OicBOlq16TEUE8GiENSDQC0y190UVYyqnckoRLzQKXycn6OSeEsO24FLgbZy7mhWYh
+	 OpsZz0Yk+9/XBpyIzILkKc+LT9UuDGVDCGWXY8m9csaTdtlSi9UUOw1GHBszkxEK3v
+	 PMnrafxWbq9BLyzqMJEnEF3tSn02tVwuWCY4PEP4sFOpntL5/c4nvR0u2EojqmYpa2
+	 h6GRhiWmIwTOg==
+Date: Sun, 7 Jul 2024 18:58:00 +0100
 From: Conor Dooley <conor@kernel.org>
 To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org, palmer@dabbelt.com
-Subject: [GIT PULL] RISC-V defconfig for v6.11
-Message-ID: <20240707-unused-outflank-aa127ccb2cfe@spud>
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V Devicetrees for v6.11
+Message-ID: <20240707-nuttiness-lustfully-4aaf03c991b2@spud>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240707_102844_364754_6A0E71A0 
-X-CRM114-Status: UNSURE (   6.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240707_105805_227310_BD06510D 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,28 +63,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1361212987095751414=="
+Content-Type: multipart/mixed; boundary="===============9207122159081480999=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1361212987095751414==
+--===============9207122159081480999==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="8e9vZ7cZueqeuYTs"
+	protocol="application/pgp-signature"; boundary="4tXnFVVA6r14f/tL"
 Content-Disposition: inline
 
 
---8e9vZ7cZueqeuYTs
+--4tXnFVVA6r14f/tL
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Hey Arnd,
 
-The 3rd attempt 2 with a fixed $subject.
+Should be the final PR from me. I meant to send this stuff out end of
+last week but I ended up getting sick - and I'm going to blame screwing
+up my PR subjects on that...
 
-Single commit here, I discussed with Palmer about taking these defconfig
-patches for board support etc via the soc tree, so we're gonna try that.
-For now, only one commit here.
+There's not really a huge amount in here, I ended up dropping the k230
+that missed last window cos there's been no further interest in getting
+it support outside of the basic uart + interrupt controllers + memory
+configuration dts that Yangyu Chen sent. The board is fairly frustrating
+to work with due to the bootloader setup, and maybe nobody really cares
+since it's fairly underpowered, especially compared to the Spacemit k1
+equipped Banana Pi board. I've stashed it in a branch in case anyone
+surfaces that cares about it. So no vector 1.0 hardware with a dts in the
+kernel yet.
 
 Cheers,
 Conor.
@@ -96,43 +103,86 @@ The following changes since commit 1613e604df0cd359cf2a7fbd9be7a0bcfacfabd0:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-config-for-v6.11
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-for-v6.11
 
-for you to fetch changes up to d8a7d89abb091fe4c1744241c7a40dbad570fd9e:
+for you to fetch changes up to 2904244a8c46bdd0fee181df693a495f4628a575:
 
-  riscv: defconfig: Enable StarFive JH7110 drivers (2024-06-12 23:16:55 +0100)
+  riscv: dts: starfive: add PCIe dts configuration for JH7110 (2024-07-01 13:20:19 +0100)
 
 ----------------------------------------------------------------
-RISC-V config update for v6.11
+RISC-V Devicetrees for v6.11
+
+T-Head:
+Last change from me before this starts going via Drew's tree is the
+addition of the SBI PMU events node for the th1520.
 
 StarFive:
-Enable most of the options needed for the jh7100 based boards to be
-properly testable with defconfig.
+A dts for the Pin64 Star64, another board with a jh7110 SoC. This board
+is almost identical to the existing Milk-v Mars and VisionFive 2 boards
+that are already support - just with a different PHY configuration and
+only one of the two PCIe ports exposed. Additionally, the Mars and
+VisionFive 2 get their PCie configuration added.
+
+Microchip:
+A dts for the BeagleV Fire. PCIe is disabled on it for now, as some
+binding and driver changes are required.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
 ----------------------------------------------------------------
-Hal Feng (1):
-      riscv: defconfig: Enable StarFive JH7110 drivers
+Conor Dooley (2):
+      dt-bindings: riscv: microchip: document beaglev-fire
+      riscv: dts: microchip: add an initial devicetree for the BeagleV Fire
 
- arch/riscv/configs/defconfig | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+Henry Bell (2):
+      dt-bindings: riscv: starfive: add Star64 board compatible
+      riscv: dts: starfive: add Star64 board devicetree
 
---8e9vZ7cZueqeuYTs
+Inochi Amaoto (1):
+      riscv: dts: thead: th1520: Add PMU event node
+
+Matthias Brugger (1):
+      riscv: dts: starfive: Update flash partition layout
+
+Minda Chen (1):
+      riscv: dts: starfive: add PCIe dts configuration for JH7110
+
+Yangyu Chen (1):
+      dt-bindings: riscv: Add T-HEAD C908 compatible
+
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
+ .../devicetree/bindings/riscv/microchip.yaml       |   1 +
+ .../devicetree/bindings/riscv/starfive.yaml        |   1 +
+ arch/riscv/boot/dts/microchip/Makefile             |   1 +
+ .../dts/microchip/mpfs-beaglev-fire-fabric.dtsi    |  82 ++++++++
+ .../riscv/boot/dts/microchip/mpfs-beaglev-fire.dts | 223 +++++++++++++++++++++
+ arch/riscv/boot/dts/starfive/Makefile              |   1 +
+ arch/riscv/boot/dts/starfive/jh7110-common.dtsi    |  69 ++++++-
+ arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts |   7 +
+ .../boot/dts/starfive/jh7110-pine64-star64.dts     |  65 ++++++
+ .../dts/starfive/jh7110-starfive-visionfive-2.dtsi |   8 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi           |  86 ++++++++
+ arch/riscv/boot/dts/thead/th1520.dtsi              |  81 ++++++++
+ 13 files changed, 621 insertions(+), 5 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-beaglev-fire-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
+
+--4tXnFVVA6r14f/tL
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZorQRgAKCRB4tDGHoIJi
-0q2mAQCIlXjes04MsCW7Tk1ZKu26x6dn7lrn2YLHs7cy1Kt0ngD/Yca8ptVoIVNT
-I+DwPcZgC1lvwW/zu4C/q7gdgR4rTgw=
-=uqw1
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZorXKAAKCRB4tDGHoIJi
+0uo/AP98wGZ+35lf668q1VOJ3CAeMAkQwYt7AgPabvq7aO1hHAEAygP3TIHcsK/U
+RitSn2i8ioggSeskCNm5i3NtmHP+sA0=
+=SVga
 -----END PGP SIGNATURE-----
 
---8e9vZ7cZueqeuYTs--
+--4tXnFVVA6r14f/tL--
 
 
---===============1361212987095751414==
+--===============9207122159081480999==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -143,5 +193,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1361212987095751414==--
+--===============9207122159081480999==--
 
