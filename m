@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B421C3271E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 13:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E991AC3DA42
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 13:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2TsnAmeBP1fTXPFb9eGgnrfKcfLK8XUBR64JyqbtwGg=; b=p2WyoybFvWTZIj
-	5AxHQ7O7vt/2ZYb/7B1z9FJ3ibmLY4CUzU0geuDaQfBDA2hvoNxyOCURJcl1i0BAcumOUzRducbhz
-	XpaXtHVb+eGwApGBEM+b7TD4I3KWBB5MH2C2JxHrWKQWPS8Ra1ldxrYrBy376r20tVwVo620M7rAE
-	LElQpYfnLoGep8baFw7CkrtjjwTFWFvgvtTfqMuscb0JhNXkdrwk6cL/VLq4n2qUTqRIMl0VZ/FPL
-	jUdX/2ZXp47KeL+l9Ylsmxj0rAfE+fuET3T3WkJDFt5DMD3Zei8nkJ/Nu5I5PnDXiDmoJQpSs1ffT
-	+xrTo7CwPzwDan8aMeZg==;
+	List-Owner; bh=MYUK/fKVHjv3VYTulmNKasZjsEQYHQI1g1LZSfsC388=; b=FsDoYOK+t/Y7nT
+	1RUeSAxdjYgzxhqQiapu6dqZ3/Cli947QcLlfaW89M6bD1Ie67H8cZJYBl3GUkLT6aey23dLiSSTP
+	is3p35u5biWjr87sXFW65TcFxHopiDY7c3H20L5ZCH72ysHQjoH+evelhu5wVSwu3szPHnczcffAS
+	CHgGTqe/6/dE1LDGpUk7ZstI3MD6bFofffK6X8wuVktfAeW/cIV/RdMe1FMrat0FtWNTfe3SOulpA
+	DZJSvx74izTf0UXDAxkNGfQAvfQPAsA5LY1WfMP/K+iJcM5ljHgKKjx+bcd/MPSiuwSeTphUegXqW
+	VFlRkhYSI92MgbqudgqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQolI-00000003yRK-0euk;
-	Mon, 08 Jul 2024 13:50:36 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sQonV-00000003ys4-0ynl;
+	Mon, 08 Jul 2024 13:52:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQolE-00000003yQa-3vJ9
+	id 1sQonS-00000003yrT-0shV
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jul 2024 13:50:34 +0000
+	Mon, 08 Jul 2024 13:52:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5D3B9CE0BDB;
-	Mon,  8 Jul 2024 13:50:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A5484C4AF0A;
-	Mon,  8 Jul 2024 13:50:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6B32360D3A;
+	Mon,  8 Jul 2024 13:52:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 227D1C116B1;
+	Mon,  8 Jul 2024 13:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720446629;
-	bh=WnvZTNr1rDc08yZk/OoeLaabq2dA2AD7qw9cOWofT4U=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=dschPgrze49j5OHJp2auz1anudegCLHA4Xf5r5CMQ/RMopH12Hv9OJvhxu6Zdp/72
-	 pI8whWPGdR9qpZOkDVvb3Mmlbyv27rJ2JUX665HCFvZSOrYT6fpv0/gkuBfeC3vZfT
-	 rojxBfey2gA4um/CRZsvgU1ZZl9/5vwdVhqLrfX1BvVsvYDws3YPYIWXubVrgnnHhd
-	 K85u7mfqkN8gbLoRZzjOX+2wnemb0EbHROR5KqMWv4fC4EQxDjh+iMwE5CcPt2IeEU
-	 SDmpRJNuA0a2InvWwooFQ1iFuL2Xo/wArUhFFQ0pwz5kXzpFx+5s4xdAfHt55IhPE6
-	 Z/D17BIh1IAHQ==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 8F336DF3714;
-	Mon,  8 Jul 2024 13:50:29 +0000 (UTC)
+	s=k20201202; t=1720446769;
+	bh=qJjk7aS0JUEnJMP/IcWZ9dq3cQUIML8i3O7nI1+q8P0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qKOWXfacIrPrjs2mon60OPe2CAMWqCusXuoaliTMaI325BnUCgl9hc5oob0h09FWR
+	 jjyYxiEvlkELFtVjm3YJU1WlPCoh83j+jZ3xL17MvSOcVW9HLkTGyWCkOGyyuJNbPG
+	 53WtcqAy993FpNvze6amPwB5XEsLsaseHL3faBpjJzL/r8PubXnVB0NxZdPUqVI8Wc
+	 BtsebfusN4LQesQR3TIag4Qn6NyXu5p3FRSwshiI/UdqC3n3I5/f5IWcD6ZKxMSzjd
+	 xtCj7BiwoBSqIwzBezL+Icfwn7CMdzDoxdQJse5tTXiKBtJS3JElicOHs98XHSTfo3
+	 Xf+TLZJmO4kyw==
+Date: Mon, 8 Jul 2024 14:52:43 +0100
+From: Will Deacon <will@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Linux-Arch <linux-arch@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	mark.rutland@arm.com
+Subject: Re: [PATCH 0/4] riscv: uaccess: optimizations
+Message-ID: <20240708135243.GA11898@willie-the-truck>
+References: <20240625040500.1788-1-jszhang@kernel.org>
+ <4d8e0883-6a8c-4eb5-bf61-604e2b98356a@app.fastmail.com>
+ <CAHk-=wjDrx1XW1oEuUap=MN+Ku_FqFXQAwDJhyC5Q1CJkgBbFA@mail.gmail.com>
+ <CAHk-=wiv=9zGSwsu+=tKNgDg8oBUJn_25OEy_0wqO+rvz7p8wg@mail.gmail.com>
+ <20240705112502.GC9231@willie-the-truck>
+ <CAHk-=wgRgDy8_=uZPZr4LRyF7BiN1nDNzUx7iRzrD0g8O+bh3A@mail.gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next] riscv, bpf: Optimize stack usage of trampoline
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <172044662958.31520.14859964492304138069.git-patchwork-notify@kernel.org>
-Date: Mon, 08 Jul 2024 13:50:29 +0000
-References: <20240708114758.64414-1-puranjay@kernel.org>
-In-Reply-To: <20240708114758.64414-1-puranjay@kernel.org>
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@google.com, haoluo@google.com, jolsa@kernel.org, bjorn@kernel.org,
- pulehui@huawei.com, puranjay12@gmail.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <CAHk-=wgRgDy8_=uZPZr4LRyF7BiN1nDNzUx7iRzrD0g8O+bh3A@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_065033_171790_50D716A8 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240708_065250_405843_17EBF32C 
+X-CRM114-Status: GOOD (  28.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +85,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to bpf/bpf-next.git (master)
-by Daniel Borkmann <daniel@iogearbox.net>:
-
-On Mon,  8 Jul 2024 11:47:58 +0000 you wrote:
-> When BPF_TRAMP_F_CALL_ORIG is not set, stack space for passing arguments
-> on stack doesn't need to be reserved because the original function is
-> not called.
+On Fri, Jul 05, 2024 at 10:58:29AM -0700, Linus Torvalds wrote:
+> On Fri, 5 Jul 2024 at 04:25, Will Deacon <will@kernel.org> wrote:
+> >
+> > we'd probably want to use an address that lives between the two TTBRs
+> > (i.e. in the "guard region" you mentioned above), just in case somebody
+> > has fscked around with /proc/sys/vm/mmap_min_addr.
 > 
-> Only reserve space for stacked arguments when BPF_TRAMP_F_CALL_ORIG is
-> set.
+> Yes, I don't want to use a NULL pointer and rely on mmap_min_addr.
 > 
-> [...]
+> For x86-64, we have two "guard regions" that can be used to generate
+> an address that is guaranteed to fault:
+> 
+>  - the kernel always lives in the "top bit set" part of the address
+> space (and any address tagging bits don't touch that part), and does
+> not map the highest virtual address because that's used for error
+> pointers, so the "all bits set" address always faults
+> 
+>  - the region between valid user addresses and kernel addresses is
+> also always going to fault, and we don't have them adjacent to each
+> other (unlike, for example, 32-bit i386, where the kernel address
+> space is directly adjacent to the top of user addresses)
 
-Here is the summary with links:
-  - [bpf-next] riscv, bpf: Optimize stack usage of trampoline
-    https://git.kernel.org/bpf/bpf-next/c/a5912c37faf7
+I think we're very similar on arm64. The kernel lives at the top (i.e.
+virtual address space descends below 0) and is mapped by TTBR1.
+Userspace lives at the bottom (i.e. virtual address space ascends from
+0) and is mapped by TTBR0. There's an unaddressable gap in the middle
+and it's bit 55 of the address which determines user vs kernel (well, it
+selects the TTBR to be precise).
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+The kernel doesn't map the top 8MiB of its VA space, although talking to
+Mark, it sounds like we might not be as robust as x86 if there's a stray
+dereference of an unaligned error pointer that straddles 0. He can
+elaborate, but we probably can't rely on a pointer of all-ones faulting
+safely for the same reason.
 
+> So on x86-64, the simple solution is to just say "we know if the top
+> bit is clear, it cannot ever touch kernel code, and if the top bit is
+> set we have to make the address fault". So just duplicating the top
+> bit (with an arithmetic shift) and or'ing it with the low bits, we get
+> exactly what we want.
+> 
+> But my knowledge of arm64 is weak enough that while I am reading
+> assembly language and I know that instead of the top bit, it's bit55,
+> I don't know what the actual rules for the translation table registers
+> are.
+> 
+> If the all-bits-set address is guaranteed to always trap, then arm64
+> could just use the same thing x86 does (just duplicating bit 55
+> instead of the sign bit)?
 
+Perhaps we could just force accesses with bit 55 set to the address
+'1UL << 55'? That should sit slap bang in the middle of the guard
+region between the TTBRs and I think it would resolve any issues we may
+have with wrapping. It still means effectively reverting 2305b809be93
+("arm64: uaccess: simplify uaccess_mask_ptr()"), though.
+
+Dunno. Mark, Catalin, what do you guys reckon?
+
+Will
 
 _______________________________________________
 linux-riscv mailing list
