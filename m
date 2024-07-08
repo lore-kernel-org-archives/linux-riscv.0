@@ -4,129 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21856C3271E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 07:48:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D36AC3DA42
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 09:04:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/kC+6SnvbkC3XrCr/vZR1fM35FJSoMwUJvdTmNdxJAs=; b=wI0KlKi+U5s611
-	RotxGatGbmfQKRNXcvZJnQbCz2i+k+HQnXQVWsTxhv7P/Wg30SlasDIODnnUEcrUX2tH2ddMz8v/q
-	uldtveIW6+ev2+cY2xUUmWHVWsmWRxbTZIwt2B/aDjZULASmDOCC4+nF3vjYx4KBQCQBiUdy8KpNP
-	OX2zMB3Dd/Ad8DBh0TGZWbQPBEzAMyRthLIe4eRmbkfXpVqgtAbMiLmz7HsPfVlemfxFMh4ME6fs+
-	DP/2aS4GHYwGWVK6cCv8A7g9wmpmjwsdph3PDoROEL8+IwElblVG8uI1LmGL4bZvMsaBOrh+EaQFU
-	yAx7awJUs0r5QXCfCq1A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6KpaptSHtkI55VUpb1UZgmgjOy6C73toeHW3p6bB+qU=; b=TsTGDxXVFpWHB+7OcBri75ozGM
+	VLdlViiD7rKk5ck1ZYVTt5ATy9r8Rd7N7WmFuob+0eDdpXxgmPdUlMM1SYqc8jCZpW4vw9WW1xuG5
+	q8j6CzqRVcIzFuhGm5TAsF0hO/1BrgqKUsKVR42gDBti6tuGyDGVdPcNXqTOT1DhvW2afc9Tc89UA
+	8HGnl1QFKAEA6DLCzbXdMLq4wTCqI4IEmyFeJ/hK00cMEFE0nh0/+VdmVhDz4y35t5ZplPUhOLSrx
+	DBM/91VyUzdNK4z/y9djXSdHnttCfE95aRvvG5Ny7/HFWvyziIOxbokhs2j/DaxqBBXwMkjhcOKtz
+	NQvGuhHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQj6P-000000034sZ-0cYp;
-	Mon, 08 Jul 2024 07:48:01 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1sQkIg-00000003Dzo-3kba;
+	Mon, 08 Jul 2024 09:04:46 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQj6L-000000034rn-3uTH;
-	Mon, 08 Jul 2024 07:47:59 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4680W7K6001325;
-	Mon, 8 Jul 2024 07:47:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	i/uQYDKEprLvHhEtr15EIS+2LOUqtGYnciWz60brKUQ=; b=C8H2jH4Knqhy89w5
-	tqFeDHt6hlPjff5e1i7KCwZo3309m1ap0ZNrD071Jn3uzlSG4v8v8ewYLJdEZfSN
-	GJKKa99eekiaKcrdXjGyHuw/urdVYF1HTEn5VOepVeCoQJY/20W67edgOXEOm2ad
-	o5Di4F6Eyu3IiRTyHrfCbn8k5PNjzMrHSWG/ukDEc0gLDpLuz9CWXEhHlXKmeBCm
-	EqOtmEZH6+iDvMofCTH0bsR4YLVKoA1+nUHfxZYMdaxWJIGgulKB/vrGdGTndQXJ
-	gKxKzCsX8TvAJoMIGoy/02L8yfqMVZqhYfIx4jgQGbJdkR0BY62oStU0Jr5fgmdl
-	O3+5ow==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 406we8txv0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Jul 2024 07:47:33 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 4687lV2H006833
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 8 Jul 2024 07:47:31 GMT
-Received: from [10.239.132.204] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 8 Jul 2024
- 00:47:09 -0700
-Message-ID: <1b32168b-7d1c-4b18-b4f3-a4979232b515@quicinc.com>
-Date: Mon, 8 Jul 2024 15:47:06 +0800
+	id 1sQkIe-00000003DyG-2ZoL
+	for linux-riscv@lists.infradead.org;
+	Mon, 08 Jul 2024 09:04:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1720429484; x=1751965484;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=0aI49ZEwUflNdgkB5KmEXIC466KnmIbQc17d0H6wyiU=;
+  b=JIXIA/ZcTK/3QRsbanPiN8Eq/SmIWl2kNK79hWujNYGdE/+SUmiWM155
+   /kFygJ3iF/aHQuNf/NmAw9rp7yox1m8/NdcbZeW+9eIoxaqjIU4QJmAQo
+   oDA6MySr3tdUJSgHJKwWuw1JPLDo2wQW+2DqP/gPIxmQc0TGGwhy/gRkJ
+   84oNFcPKun7Xa81n4UhXHsURpaSp3PyUzxLRShNuMR0A5SjqMvHKK6ra9
+   UUZ56seo/wBxkGd/LT02FoVBuVmFdHmCUzimZRjY7D70hoJQol0CRLzY8
+   DK/gyFEKiWyUJw8PiR1t4bbI2G3AAFzZ546QJg0fZdF4eYElM0L2dts22
+   w==;
+X-CSE-ConnectionGUID: LWnYyQa5TX6j0ad61yUt2Q==
+X-CSE-MsgGUID: CijfaiL9TEOC/EC4bECFPg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11126"; a="17754113"
+X-IronPort-AV: E=Sophos;i="6.09,191,1716274800"; 
+   d="scan'208";a="17754113"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2024 02:04:38 -0700
+X-CSE-ConnectionGUID: q9lJAyFqTYyN1F2sobzr4w==
+X-CSE-MsgGUID: VMNX/6kuSp24CnC+3hRKRg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.09,191,1716274800"; 
+   d="scan'208";a="47323026"
+Received: from ijarvine-desk1.ger.corp.intel.com (HELO localhost) ([10.245.247.115])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2024 02:04:34 -0700
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Mon, 8 Jul 2024 12:04:31 +0300 (EEST)
+To: daire.mcnamara@microchip.com
+cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+    conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com, 
+    robh@kernel.org, bhelgaas@google.com, LKML <linux-kernel@vger.kernel.org>, 
+    linux-riscv@lists.infradead.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Subject: Re: [PATCH v6 1/3] PCI: microchip: Fix outbound address translation
+ tables
+In-Reply-To: <20240628115923.4133286-2-daire.mcnamara@microchip.com>
+Message-ID: <6c879527-4578-e3b5-2cc2-cf0638901f24@linux.intel.com>
+References: <20240628115923.4133286-1-daire.mcnamara@microchip.com> <20240628115923.4133286-2-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/47] arm64: qcom: dts: add QCS9100 support
-To: Conor Dooley <conor.dooley@microchip.com>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>
-CC: <andersson@kernel.org>, <konrad.dybcio@linaro.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <djakov@kernel.org>,
-        <mturquette@baylibre.com>, <sboyd@kernel.org>,
-        <jassisinghbrar@gmail.com>, <herbert@gondor.apana.org.au>,
-        <davem@davemloft.net>, <manivannan.sadhasivam@linaro.org>,
-        <will@kernel.org>, <joro@8bytes.org>, <conor@kernel.org>,
-        <tglx@linutronix.de>, <amitk@kernel.org>, <thara.gopinath@gmail.com>,
-        <linus.walleij@linaro.org>, <wim@linux-watchdog.org>,
-        <linux@roeck-us.net>, <rafael@kernel.org>, <viresh.kumar@linaro.org>,
-        <vkoul@kernel.org>, <edumazet@google.com>, <kuba@kernel.org>,
-        <pabeni@redhat.com>, <mcoquelin.stm32@gmail.com>,
-        <robimarko@gmail.com>, <quic_gurus@quicinc.com>,
-        <bartosz.golaszewski@linaro.org>, <kishon@kernel.org>,
-        <quic_wcheng@quicinc.com>, <alim.akhtar@samsung.com>,
-        <avri.altman@wdc.com>, <bvanassche@acm.org>, <agross@kernel.org>,
-        <gregkh@linuxfoundation.org>, <quic_tdas@quicinc.com>,
-        <robin.murphy@arm.com>, <daniel.lezcano@linaro.org>,
-        <rui.zhang@intel.com>, <lukasz.luba@arm.com>,
-        <quic_rjendra@quicinc.com>, <ulf.hansson@linaro.org>,
-        <quic_sibis@quicinc.com>, <otto.pflueger@abscue.de>,
-        <quic_rohiagar@quicinc.com>, <luca@z3ntu.xyz>,
-        <neil.armstrong@linaro.org>, <abel.vesa@linaro.org>,
-        <bhupesh.sharma@linaro.org>, <alexandre.torgue@foss.st.com>,
-        <peppe.cavallaro@st.com>, <joabreu@synopsys.com>,
-        <netdev@vger.kernel.org>, <lpieralisi@kernel.org>, <kw@linux.com>,
-        <bhelgaas@google.com>, <ahalaney@redhat.com>,
-        <krzysztof.kozlowski@linaro.org>, <u.kleine-koenig@pengutronix.de>,
-        <dmitry.baryshkov@linaro.org>, <quic_cang@quicinc.com>,
-        <danila@jiaxyga.com>, <quic_nitirawa@quicinc.com>,
-        <mantas@8devices.com>, <athierry@redhat.com>,
-        <quic_kbajaj@quicinc.com>, <quic_bjorande@quicinc.com>,
-        <quic_msarkar@quicinc.com>, <quic_devipriy@quicinc.com>,
-        <quic_tsoni@quicinc.com>, <quic_rgottimu@quicinc.com>,
-        <quic_shashim@quicinc.com>, <quic_kaushalk@quicinc.com>,
-        <quic_tingweiz@quicinc.com>, <quic_aiquny@quicinc.com>,
-        <srinivas.kandagatla@linaro.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-pm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-phy@lists.infradead.org>, <linux-crypto@vger.kernel.org>,
-        <linux-scsi@vger.kernel.org>, <linux-usb@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-        <linux-riscv@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-        <linux-watchdog@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>, <kernel@quicinc.com>
-References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
- <20240703035735.2182165-1-quic_tengfan@quicinc.com>
- <7417fd8c-e852-45ee-bac9-d92921036e2f@kernel.org>
- <20240703-manager-armless-b13b18c79192@wendy>
-From: Tengfei Fan <quic_tengfan@quicinc.com>
-In-Reply-To: <20240703-manager-armless-b13b18c79192@wendy>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: WJaCcFF2njxbbZhKA7uiH0ECQvUaDd6U
-X-Proofpoint-GUID: WJaCcFF2njxbbZhKA7uiH0ECQvUaDd6U
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
- definitions=2024-07-08_02,2024-07-05_01,2024-05-17_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 impostorscore=0
- bulkscore=0 spamscore=0 suspectscore=0 lowpriorityscore=0 phishscore=0
- priorityscore=1501 mlxlogscore=999 malwarescore=0 mlxscore=0 clxscore=1011
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2406140001
- definitions=main-2407080059
+Content-Type: multipart/mixed; boundary="8323328-728995024-1720429471=:1343"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_004758_129651_1478D98C 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20240708_020444_775595_DEFA56C0 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,48 +82,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
+
+--8323328-728995024-1720429471=:1343
+Content-Type: text/plain; charset=ISO-8859-15
+Content-Transfer-Encoding: QUOTED-PRINTABLE
+
+On Fri, 28 Jun 2024, daire.mcnamara@microchip.com wrote:
+
+> From: Daire McNamara <daire.mcnamara@microchip.com>
+>=20
+> On Microchip PolarFire SoC (MPFS) the PCIe Root Port can be behind one of
+> three general-purpose Fabric Interface Controller (FIC) buses that
+> encapsulate an AXI-M interface. That FIC is responsible for managing
+> the translations of the upper 32-bits of the AXI-M address. On MPFS,
+> the Root Port driver needs to take account of that outbound address
+> translation done by the parent FIC bus before setting up its own
+> outbound address translation tables.  In all cases on MPFS,
+> the remaining outbound address translation tables are 32-bit only.
+>=20
+> Limit the outbound address translation tables to 32-bit only.
+>=20
+> This necessitates changing a size_t in mc_pcie_setup_window
+> to a resource_size_t to avoid a compile error on 32-bit platforms.
+
+Do you really mean "a compile error" here, that is, building 32-bit kernel=
+=20
+fails during compile stage? If not, it would be good to rephrase this line.
+
+Other than that,
+
+Reviewed-by: Ilpo J=E4rvinen <ilpo.jarvinen@linux.intel.com>
+
+--
+ i.
+
+> Fixes: 6f15a9c9f941 ("PCI: microchip: Add Microchip Polarfire PCIe contro=
+ller driver")
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  drivers/pci/controller/pcie-microchip-host.c | 12 +++++++-----
+>  1 file changed, 7 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/c=
+ontroller/pcie-microchip-host.c
+> index 137fb8570ba2..47c397ae515a 100644
+> --- a/drivers/pci/controller/pcie-microchip-host.c
+> +++ b/drivers/pci/controller/pcie-microchip-host.c
+> @@ -23,6 +23,8 @@
+>  /* Number of MSI IRQs */
+>  #define MC_MAX_NUM_MSI_IRQS=09=09=0932
+> =20
+> +#define MC_OUTBOUND_TRANS_TBL_MASK=09=09GENMASK(31, 0)
+> +
+>  /* PCIe Bridge Phy and Controller Phy offsets */
+>  #define MC_PCIE1_BRIDGE_ADDR=09=09=090x00008000u
+>  #define MC_PCIE1_CTRL_ADDR=09=09=090x0000a000u
+> @@ -933,7 +935,7 @@ static int mc_pcie_init_irq_domains(struct mc_pcie *p=
+ort)
+> =20
+>  static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 ind=
+ex,
+>  =09=09=09=09 phys_addr_t axi_addr, phys_addr_t pci_addr,
+> -=09=09=09=09 size_t size)
+> +=09=09=09=09 resource_size_t size)
+>  {
+>  =09u32 atr_sz =3D ilog2(size) - 1;
+>  =09u32 val;
+> @@ -983,7 +985,8 @@ static int mc_pcie_setup_windows(struct platform_devi=
+ce *pdev,
+>  =09=09if (resource_type(entry->res) =3D=3D IORESOURCE_MEM) {
+>  =09=09=09pci_addr =3D entry->res->start - entry->offset;
+>  =09=09=09mc_pcie_setup_window(bridge_base_addr, index,
+> -=09=09=09=09=09     entry->res->start, pci_addr,
+> +=09=09=09=09=09     entry->res->start & MC_OUTBOUND_TRANS_TBL_MASK,
+> +=09=09=09=09=09     pci_addr,
+>  =09=09=09=09=09     resource_size(entry->res));
+>  =09=09=09index++;
+>  =09=09}
+> @@ -1117,9 +1120,8 @@ static int mc_platform_init(struct pci_config_windo=
+w *cfg)
+>  =09int ret;
+> =20
+>  =09/* Configure address translation table 0 for PCIe config space */
+> -=09mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
+> -=09=09=09     cfg->res.start,
+> -=09=09=09     resource_size(&cfg->res));
+> +=09mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start & MC_OUTBOUN=
+D_TRANS_TBL_MASK,
+> +=09=09=09     0, resource_size(&cfg->res));
+> =20
+>  =09/* Need some fixups in config space */
+>  =09mc_pcie_enable_msi(port, cfg->win);
 
 
-On 7/3/2024 2:28 PM, Conor Dooley wrote:
-> On Wed, Jul 03, 2024 at 06:45:00AM +0200, Krzysztof Kozlowski wrote:
->> On 03/07/2024 05:56, Tengfei Fan wrote:
->>> Introduce support for the QCS9100 SoC device tree (DTSI) and the
->>> QCS9100 RIDE board DTS. The QCS9100 is a variant of the SA8775p.
->>> While the QCS9100 platform is still in the early design stage, the
->>> QCS9100 RIDE board is identical to the SA8775p RIDE board, except it
->>> mounts the QCS9100 SoC instead of the SA8775p SoC.
->>
->> The same huge patchset, to huge number of recipients was sent twice.
->> First, sorry, this is way too big. Second, it has way too many
->> recipients, but this is partially a result of first point. Only
->> partially because you put here dozen of totally unrelated emails. Sorry,
->> that does not make even sense. See form letter at the end how this
->> works. Third, sending it to everyone twice is a way to annoy them off
->> twice... Fourth,
->>
->> Please split your work and do not cc dozen of unrelated folks.
-> 
-> One of the extra recipients is cos that of that patch I sent adding the
-> cache bindings to the cache entry, forgetting that that would CC the
-> riscv list on all cache bindings. I modified that patch to drop the riscv
-> list from the entry.
-> 
-> Cheers,
-> Conor.
-
-
-Thank you, Conor!
-
--- 
-Thx and BRs,
-Tengfei Fan
+--8323328-728995024-1720429471=:1343
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323328-728995024-1720429471=:1343--
+
