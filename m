@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238A4C3271E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 12:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4AEBC3271E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 12:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ribU+krinCgl8OeIcHs70haaq4PeIzBR2c8KuI9WzNk=; b=sPad7BIMYrc4LX
-	nihWgrMXGGHYVVQJMCp0bCSIXtSHcxnkeaiAxt0xUSWtLOADopMunqoK21n2+FYe8J5dAIEtvUdim
-	ZvVEDikeQWH+GdEiuygACoZnVxnEyyrSFeC5fBjz/Thas21ymFvk0g72o5NucuOwvsv3mdudjQKT6
-	5uizGqNn2YTwQU/5yZjPD6skGbwoUFqfKRCsDDehjZt1rYY1KYqLnqklCvLwqLMov+5pvROtb5BhL
-	ocJbr9Qg+8zQqEsBlHP90br2LwWjcS85OW8AgIyhZemT3AuWyncViFRvBDWRFjuMDMDTjSHJIFVPa
-	nY7eoVooTHm5Hoq9i6Sw==;
+	List-Owner; bh=gYbz3OHi4y2SducG1YhjQJOL752Icbz/QpEXHYPPcBs=; b=3AX+ocsq4o/HEA
+	5Hpy0i/62qnUWw21Ub9+puLk988xUYv4DXeaIpGTrte7WHHXAYBkjjoi6Xw95mBVXAbIQgD2cFnKB
+	MDgF1dYX7eBdNw4V9SK/yGUdq84RFzGeUJlWnrvjVz3tH/nB4s86lKK0ad+jzjBn988Eyr5MaLYrV
+	eSEGOiWYk+f5CO/MltoACqLvc4148wyKm025p4eH45fjJN8VumnikKb0oLKoz82wwFbBoCb0FMVyv
+	d0DYfQjdUE0ILOlJv+VKxWOSIVelbL2k3oBtA5M3b7a8qKBOWkrSGQrbjShnyouJgAnpiyh99dStC
+	KX6jjx3BPHnbwpgpky/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQnBw-00000003iiU-19Dd;
-	Mon, 08 Jul 2024 12:10:00 +0000
+	id 1sQnCD-00000003irN-273B;
+	Mon, 08 Jul 2024 12:10:17 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQnBt-00000003ifB-07sW;
-	Mon, 08 Jul 2024 12:09:58 +0000
+	id 1sQnC9-00000003ipl-3uW3;
+	Mon, 08 Jul 2024 12:10:16 +0000
 Received: from localhost (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 896DB41830;
-	Mon,  8 Jul 2024 14:09:55 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id B9501412FF;
+	Mon,  8 Jul 2024 14:10:12 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
 	by localhost (disroot.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id TobvjB_VNwxu; Mon,  8 Jul 2024 14:09:52 +0200 (CEST)
+	with ESMTP id VukL3U4tSXAs; Mon,  8 Jul 2024 14:10:11 +0200 (CEST)
 From: Yao Zi <ziyao@disroot.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1720440590; bh=GKh2e7qWA5HsZ7T0GUHBoY32vMBZY1omyDv7U9SNINk=;
+	t=1720440578; bh=W88ii+VfQhuEdGWbttUWogaLqMfwR4mJCLxGUb+XKZA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=NganzT7NufEAIE8f1SUQBP6m7CK+Jj5e3DISmVjHcOtihzo58wlViRJ6YiVazxp2n
-	 BbekamtWZRmsJkelmtO//DPm69sMOXgxIO0y6px3cYwcSUn/gNO8/9qWA3U42lT9Df
-	 kfZ117c5jwF55VXOKpKsFXe2hNGqwxWEQp55FoFoKe6RFFrCScFQVLC9izGp76c67K
-	 31CLsI6uOzpikUeDhJ8/DpxQm3SDkEiVXK7ArAEqwFbarIcNhGifXCpJBDqZdzBw3K
-	 6nlkjdgt89IQSNbNKy8WM/3CPkJeqDXdtFQjz+MV8AMJZwNW3jpQNYj/J6PTxYKiHh
-	 LHmJBVoSoZb1g==
+	b=FaVrGCUPGQKHQMZ+rI+7D5essaiCHjtjUJKnR19ECuJdP8cSUDVcf6jLBXQLkPVPC
+	 /g19/dYim2gSTHwW5cWXCaNJy6Yl2uSxAB26cfwEY95YiZSaglbgaK2FvtCwfnamro
+	 APHVPDhua17q7A51wzGg0CPn6j3lPCHHDybuONtvRiInCeRKNfwmOjnKNHF6F6TU0v
+	 zWLMaaeL9KW4BTWVgPYES4kmRY0MsAn6OyYNfo0Cx+aD5j7/XsacPhJZ1L0Fs9Mfj+
+	 U46Evwial+surXNRiHSVSMJS00zTx7eTlhrnmz9ZAeo1eLIpM6BrbUpYFbUrrxRraj
+	 +D8yhRBrXxa9Q==
 To: Vinod Koul <vkoul@kernel.org>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -59,15 +59,15 @@ To: Vinod Koul <vkoul@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
 Cc: Yao Zi <ziyao@disroot.org>
-Subject: [PATCH 3/3] phy: sophgo: add usb phy driver for Sophgo CV1800 SoCs
-Date: Mon,  8 Jul 2024 12:08:30 +0000
-Message-ID: <20240708120830.5785-4-ziyao@disroot.org>
+Subject: [PATCH 1/3] dt-bindings: phy: add YAML schema for cv1800-usb-phy driver bindings
+Date: Mon,  8 Jul 2024 12:08:28 +0000
+Message-ID: <20240708120830.5785-2-ziyao@disroot.org>
 In-Reply-To: <20240708120830.5785-1-ziyao@disroot.org>
 References: <20240708120830.5785-1-ziyao@disroot.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_050957_375044_F6C92C82 
-X-CRM114-Status: GOOD (  23.63  )
+X-CRM114-CacheID: sfid-20240708_051014_250193_3D7B1B43 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,296 +84,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds a new driver for USB2 phys integrated in Sophgo CV1800 and
-SG200x SoCs, which have the same design.
-
-Most CV1800/SG200x boards have broken VBUS/ID detection, so we force
-ID status to be specified in the device tree. This phy also supports
-charger detection, which could be implemented later.
-
-Unfortunately, there is no description about the phy in the public
-datasheet. The driver was written by reading Sophgo GPL kernel source
-and dumping registers on actual SG2002 devices.
+cv1800-usb-phy driver supports USB 2.0 phys integrated in Sophgo
+Cv1800/SG200x SoCs. Add YAML schema for its binding.
 
 Signed-off-by: Yao Zi <ziyao@disroot.org>
 ---
- drivers/phy/Kconfig                 |   1 +
- drivers/phy/Makefile                |   1 +
- drivers/phy/sophgo/Kconfig          |  10 ++
- drivers/phy/sophgo/Makefile         |   2 +
- drivers/phy/sophgo/phy-cv1800-usb.c | 213 ++++++++++++++++++++++++++++
- 5 files changed, 227 insertions(+)
- create mode 100644 drivers/phy/sophgo/Kconfig
- create mode 100644 drivers/phy/sophgo/Makefile
- create mode 100644 drivers/phy/sophgo/phy-cv1800-usb.c
+ .../bindings/phy/sophgo,cv1800-usb-phy.yaml   | 67 +++++++++++++++++++
+ 1 file changed, 67 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml
 
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 787354b849c7..596b37ab3191 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -92,6 +92,7 @@ source "drivers/phy/renesas/Kconfig"
- source "drivers/phy/rockchip/Kconfig"
- source "drivers/phy/samsung/Kconfig"
- source "drivers/phy/socionext/Kconfig"
-+source "drivers/phy/sophgo/Kconfig"
- source "drivers/phy/st/Kconfig"
- source "drivers/phy/starfive/Kconfig"
- source "drivers/phy/sunplus/Kconfig"
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index 868a220ed0f6..7ff32f0ae08a 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -31,6 +31,7 @@ obj-y					+= allwinner/	\
- 					   rockchip/	\
- 					   samsung/	\
- 					   socionext/	\
-+					   sophgo/	\
- 					   st/		\
- 					   starfive/	\
- 					   sunplus/	\
-diff --git a/drivers/phy/sophgo/Kconfig b/drivers/phy/sophgo/Kconfig
+diff --git a/Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml b/Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml
 new file mode 100644
-index 000000000000..6feb5795f1fc
+index 000000000000..0403d899e23b
 --- /dev/null
-+++ b/drivers/phy/sophgo/Kconfig
-@@ -0,0 +1,10 @@
-+# SPDX-License-Identifier: GPL-2.0-only
++++ b/Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml
+@@ -0,0 +1,67 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright 2019 BayLibre, SAS
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/sophgo,cv1800-usb-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+config PHY_SOPHGO_CV1800_USB
-+	tristate "SOPHGO CV1800 USB 2.0 PHY driver"
-+	depends on OF && (ARCH_SOPHGO || COMPILE_TEST)
-+	select GENERIC_PHY
-+	help
-+	  Enable this to support the USB 2.0 PHY on Sophgo CV1800
-+	  and SG200x SoCs.
-+	  If unsure, say N.
-diff --git a/drivers/phy/sophgo/Makefile b/drivers/phy/sophgo/Makefile
-new file mode 100644
-index 000000000000..b4b9de0697e7
---- /dev/null
-+++ b/drivers/phy/sophgo/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_PHY_SOPHGO_CV1800_USB)	+= phy-cv1800-usb.o
-diff --git a/drivers/phy/sophgo/phy-cv1800-usb.c b/drivers/phy/sophgo/phy-cv1800-usb.c
-new file mode 100644
-index 000000000000..873c72bd95cf
---- /dev/null
-+++ b/drivers/phy/sophgo/phy-cv1800-usb.c
-@@ -0,0 +1,213 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * USB PHY driver for Sophgo CV1800 SoCs.
-+ *
-+ * Copyright 2024 Yao Zi <ziyao@disroot.org>
-+ */
++title: Sophgo CV1800 USB PHY
 +
-+#include <linux/clk.h>
-+#include <linux/device.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/phy/phy.h>
++maintainers:
++  - Yao Zi <ziyao@disroot.org>
 +
-+#define CV1800_REG04				0x04
-+#define CV1800_REG14				0x14
-+#define  CV1800_REG14_UTMI_OVERRIDE		BIT(0)
-+#define  CV1800_REG14_OPMODE_MASK		(0x3 << 1)
-+#define  CV1800_REG14_OPMODE_SHIFT		1
-+#define  CV1800_REG14_XCVRSEL_MASK		(0x3 << 3)
-+#define  CV1800_REG14_XCVRSEL_SHIFT		3
-+#define  CV1800_REG14_TERMSEL			BIT(5)
-+#define  CV1800_REG14_DPPULLDOWN		BIT(6)
-+#define  CV1800_REG14_DMPULLDOWN		BIT(7)
-+#define  CV1800_REG14_UTMI_RESET		BIT(8)
-+#define CV1800_REG20				0x20
-+#define  CV1800_REG20_BC_EN			BIT(0)
-+#define  CV1800_REG20_DCD_EN			BIT(1)
-+#define  CV1800_REG20_DP_CMP_EN			BIT(2)
-+#define  CV1800_REG20_DM_CMP_EN			BIT(3)
-+#define  CV1800_REG20_VDP_SRC_EN		BIT(4)
-+#define  CV1800_REG20_VDM_SRC_EN		BIT(5)
-+#define  CV1800_REG20_CHG_DET			BIT(16)
-+#define  CV1800_REG20_DP_DET			BIT(17)
++properties:
++  compatible:
++    enum:
++      - sophgo,cv1800-usb-phy
 +
-+#define CV1800_PIN_ID_OVERWRITE_EN		BIT(6)
-+#define CV1800_PIN_ID_OVERWRITE_VALUE(v)	((v) << 7)
++  reg:
++    maxItems: 2
 +
-+enum cv1800_usb_phy_role {
-+	CV1800_USB_PHY_HOST	= 0,
-+	CV1800_USB_PHY_DEVICE	= 1,
-+};
++  reg-names:
++    items:
++      - const: phy
++      - const: pin
 +
-+struct cv1800_usb_phy_priv {
-+	void __iomem *regs;
-+	void __iomem *pinreg;
-+	struct clk *clk_apb;
-+	struct clk *clk_125m;
-+	struct clk *clk_33k;
-+	struct clk *clk_12m;
-+	enum cv1800_usb_phy_role role;
-+};
++  clocks:
++    maxItems: 4
 +
-+static void
-+cv1800_usb_phy_set_role(struct cv1800_usb_phy_priv *priv,
-+			enum cv1800_usb_phy_role role)
-+{
-+	writel(CV1800_PIN_ID_OVERWRITE_EN | CV1800_PIN_ID_OVERWRITE_VALUE(role),
-+	       priv->pinreg);
-+}
++  clock-names:
++    items:
++      - const: apb
++      - const: 125m
++      - const: 33k
++      - const: 12m
 +
-+static int cv1800_usb_phy_init(struct phy *phy)
-+{
-+	struct cv1800_usb_phy_priv *priv = phy_get_drvdata(phy);
-+	int ret = 0;
++  "#phy-cells":
++    const: 0
 +
-+	ret = clk_prepare_enable(priv->clk_apb);
-+	if (ret)
-+		return ret;
++  dr_role:
++    enum:
++      - host
++      - device
 +
-+	ret = clk_prepare_enable(priv->clk_125m);
-+	if (ret)
-+		goto err_clk_125m;
++required:
++  - compatible
++  - reg
++  - reg-names
++  - clocks
++  - clock-names
++  - "#phy-cells"
 +
-+	ret = clk_prepare_enable(priv->clk_33k);
-+	if (ret)
-+		goto err_clk_33k;
++additionalProperties: false
 +
-+	ret = clk_prepare_enable(priv->clk_12m);
-+	if (ret)
-+		goto err_clk_12m;
-+
-+	writel(0xa, priv->regs + CV1800_REG04);		/* magic number	*/
-+	writel(0, priv->regs + CV1800_REG14);
-+	writel(0, priv->regs + CV1800_REG20);
-+
-+	cv1800_usb_phy_set_role(priv, priv->role);
-+
-+	return 0;
-+
-+err_clk_12m:
-+	clk_disable_unprepare(priv->clk_33k);
-+err_clk_33k:
-+	clk_disable_unprepare(priv->clk_125m);
-+err_clk_125m:
-+	clk_disable_unprepare(priv->clk_apb);
-+
-+	return ret;
-+}
-+
-+static int cv1800_usb_phy_exit(struct phy *phy)
-+{
-+	struct cv1800_usb_phy_priv *priv = phy_get_drvdata(phy);
-+
-+	clk_disable_unprepare(priv->clk_33k);
-+	clk_disable_unprepare(priv->clk_125m);
-+	clk_disable_unprepare(priv->clk_apb);
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops cv1800_usb_phy_ops = {
-+	.init = cv1800_usb_phy_init,
-+	.exit = cv1800_usb_phy_exit,
-+};
-+
-+static int
-+cv1800b_usb_phy_parse_dt(struct cv1800_usb_phy_priv *priv, struct device *dev)
-+{
-+	const char *role;
-+
-+	if (!of_property_read_string(dev->of_node, "dr_role", &role)) {
-+		if (!strcmp(role, "host")) {
-+			priv->role = CV1800_USB_PHY_HOST;
-+		} else if (!strcmp(role, "device")) {
-+			priv->role = CV1800_USB_PHY_DEVICE;
-+		} else {
-+			dev_err(dev, "invalid dr_role %s", role);
-+			return -EINVAL;
-+		}
-+	} else {
-+		priv->role = CV1800_USB_PHY_DEVICE;
-+	}
-+
-+	return 0;
-+}
-+
-+static int cv1800_usb_phy_probe(struct platform_device *pdev)
-+{
-+	struct cv1800_usb_phy_priv *priv;
-+	struct phy_provider *provider;
-+	struct device *dev = &pdev->dev;
-+	struct phy *phy;
-+	int ret;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	ret = cv1800b_usb_phy_parse_dt(priv, dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to parse dt");
-+
-+	priv->regs = devm_platform_ioremap_resource_byname(pdev, "phy");
-+	if (IS_ERR(priv->regs))
-+		return dev_err_probe(dev, PTR_ERR(priv->regs),
-+				     "failed to map phy registers");
-+
-+	priv->pinreg = devm_platform_ioremap_resource_byname(pdev, "pin");
-+	if (IS_ERR(priv->pinreg))
-+		return dev_err_probe(dev, PTR_ERR(priv->pinreg),
-+				     "failed to map pin register");
-+
-+	priv->clk_apb = devm_clk_get(dev, "apb");
-+	if (IS_ERR(priv->clk_apb))
-+		return dev_err_probe(dev, PTR_ERR(priv->clk_apb),
-+				     "failed to get apb clock");
-+
-+	priv->clk_125m = devm_clk_get(dev, "125m");
-+	if (IS_ERR(priv->clk_125m))
-+		return dev_err_probe(dev, PTR_ERR(priv->clk_125m),
-+				     "failed to get 125m clock");
-+
-+	priv->clk_33k = devm_clk_get(dev, "33k");
-+	if (IS_ERR(priv->clk_33k))
-+		return dev_err_probe(dev, PTR_ERR(priv->clk_33k),
-+				     "failed to get 33k clock");
-+
-+	priv->clk_12m = devm_clk_get(dev, "12m");
-+	if (IS_ERR(priv->clk_12m))
-+		return dev_err_probe(dev, PTR_ERR(priv->clk_12m),
-+				     "failed to get 12m clock");
-+
-+	phy = devm_phy_create(dev, NULL, &cv1800_usb_phy_ops);
-+	if (IS_ERR(phy))
-+		return dev_err_probe(dev, PTR_ERR(phy),
-+				     "cannot create phy");
-+
-+	provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+
-+	phy_set_drvdata(phy, priv);
-+
-+	return PTR_ERR_OR_ZERO(provider);
-+}
-+
-+static const struct of_device_id cv1800_usb_phy_of_match_table[] = {
-+	{ .compatible = "sophgo,cv1800-usb-phy" },
-+	{ },
-+};
-+
-+static struct platform_driver cv1800_usb_phy_platform_driver = {
-+	.driver = {
-+		.name = "cv1800-usb-phy",
-+		.of_match_table = cv1800_usb_phy_of_match_table,
-+	},
-+	.probe = cv1800_usb_phy_probe,
-+};
-+
-+module_platform_driver(cv1800_usb_phy_platform_driver);
-+
-+MODULE_DESCRIPTION("Sophgo CV1800 USB PHY Driver");
-+MODULE_AUTHOR("Yao Zi <ziyao@disroot.org>");
-+MODULE_LICENSE("GPL");
++examples:
++  - |
++    #include <dt-bindings/clock/sophgo,cv1800.h>
++    usb_phy: usb-phy@3006000 {
++        compatible = "sophgo,cv1800-usb-phy";
++        reg = <0x300600 0x60>, <0x3000048 0x4>;
++        reg-names = "phy", "pin";
++        clocks = <&clk CLK_APB_USB>,
++                 <&clk CLK_USB_125M>,
++                 <&clk CLK_USB_33K>,
++                 <&clk CLK_USB_12M>;
++        clock-names = "apb", "125m", "33k", "12m";
++        #phy-cells = <0>;
++    };
 -- 
 2.45.2
 
