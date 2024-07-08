@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB8EC3271E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 11:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BED78C3271E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 11:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1NcXa1iUNWL51Nutvp0bFCIMNXCowzzzlPaVXzCugSE=; b=dbpPUNBvJRljap
-	3OEV+EwOJ8omnj9O4xw9gKA1nuYdmJvwZfWiLs6kN5bTZ3ttSFaNyFdtl7zWFb/yg8c+rxITapNHs
-	R4T7KX/decnGO9pADGv0lxNsNsBX0VFECtvgzkowoGJX+41eqLUaqAIfX+O79b6+WHbxadFmffWRa
-	IunOibJ0G/6qSmHNilIO0+wEJVcZtpgXFbhUeVeqeuPksxA//f7YdCVFQJtIHvKWMs95fctYcLYpt
-	6GDfLE8tfsZjs0xjMxpRhal98Vlcr/rj7RKJ181feMFBiFffc2kWg42dQ0q34EQcN/tXOAGzxZdNR
-	mQ8Jsju8CNKAolXxpI4Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CGfUyZXl/G1iweT4IsBooQuETcGsrJx7+U3belVd8VQ=; b=FhZUtYpEWOzk0+
+	cADwBNAUL/RXOqFxm93PjfcaGjZBiBgHZzUiu+jqOuEXDBNvuQ7iOCtzFSLNk1nrCIYn+R6LvmpfZ
+	dkg+2S2pYsfGSR9pBHAEMMSbl3SOBTwHeEBYcVeODhO1zlyWvv92BPcV5m7g5/giEEsQcD+zWo2Aa
+	pkTG7R5/eTkiQsNWgiKAw1XmihDVU5FvfQ8ScHyQBq2mmWZqLXfasC227DDJr3GUkku+WJQIBFGLe
+	+ct+yt/Z/Lktia/uXuTYwK/NOv+3H1znp67cEMNLnmjeGVC+M59EzxspV2mCBYPOr/r4Kj4IFfmey
+	wjCUCH6CFRiIc4FqC5hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQmju-00000003cAP-3HfD;
-	Mon, 08 Jul 2024 11:41:02 +0000
+	id 1sQmqv-00000003dFx-2l0R;
+	Mon, 08 Jul 2024 11:48:17 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQmjr-00000003c8m-3gjf
+	id 1sQmqs-00000003dFI-1fqF
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jul 2024 11:41:01 +0000
+	Mon, 08 Jul 2024 11:48:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 245F460B8E;
-	Mon,  8 Jul 2024 11:40:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4ABAC116B1;
-	Mon,  8 Jul 2024 11:40:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9C55260ACD;
+	Mon,  8 Jul 2024 11:48:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00EB1C3277B;
+	Mon,  8 Jul 2024 11:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720438856;
-	bh=ggdsiSvYIt3dO3QAER9JNCQH3Vfx9KGbwlDnZxd431k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LsrnwnoVctpTMcIY7idaSAVCnh0RRgWjZgFkRd0ljN8qqc+nP+bfdD738bYDh2SZV
-	 4RM4lgElz1IbThXf+cfAryxDJHT5mN5vyFNapcYQbIyFMOVGMbTnbfU442LzybJth9
-	 bJBqer8uTFRwtPXqJ55nyr7jKsw4Yvm71B6/i4ZfN2ZdfFLYcSzkLK3lAYCbJ723jv
-	 s8VqjDxpo3hM5i7743U6OJrpOafLwp/CMWdAXBOVRg/rMFqXTPFkdTUMQK81GtlYuK
-	 89KKKaC/dF/CcD1Jan8txNKmNwcEJ7N7kA6r4M45obUwGHPFEQGXBwWiP6bVXlcVPM
-	 hLKZWJ0vsFsPg==
-Date: Mon, 8 Jul 2024 19:26:45 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	s=k20201202; t=1720439293;
+	bh=i5ILsQ9VoVlBo8l39ZX3010d75/Wg1BHVm9GReTAJtc=;
+	h=From:To:Subject:Date:From;
+	b=mmQl/e1REfBdTnDJ7gFM+PDLEOQN7XIWFhY4QuDQxRro6Qm3MqA7xLpfL/KVXc6kb
+	 3J43StFsu22DFaNUb7OQeT1Zxyd5XE4cZpiikOjgvEu8CwHM9fvGS6A1raSmL3Cacr
+	 YgsNHkV8Vt2FRt6cuGdxEniYCAw3AypKV27wTSTpS0SjvGek3kbt6sGi+Xeb1zHraA
+	 0y4jkTCNmymZBY0n3m8KVNzGFyGWwQLtS/Hyu+oz8yUY8AJNYpT7h2XVOoXb9DeDVR
+	 3eGtIzIpCAmpf2i+CIoB4sgYhS5JWCJxo13b0yANfNo1Z9iJxylAVFdR2nqyYHFBYF
+	 9W/pCY/LCQ19g==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: select ARCH_USE_SYM_ANNOTATIONS
-Message-ID: <ZovM9YYql8ui9Tp_@xhacker>
-References: <20240705132308.1469-1-jszhang@kernel.org>
- <beb8a766-8143-40ad-912b-b04f7937d4a4@rivosinc.com>
+Subject: [PATCH bpf-next] riscv, bpf: Optimize stack usage of trampoline
+Date: Mon,  8 Jul 2024 11:47:58 +0000
+Message-Id: <20240708114758.64414-1-puranjay@kernel.org>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <beb8a766-8143-40ad-912b-b04f7937d4a4@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_044100_062822_DC923A82 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20240708_044815_557206_FE0C4BDC 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,41 +83,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdWwgMDgsIDIwMjQgYXQgMTE6MjA6NTZBTSArMDIwMCwgQ2zDqW1lbnQgTMOpZ2Vy
-IHdyb3RlOgo+IAo+IAo+IE9uIDA1LzA3LzIwMjQgMTU6MjMsIEppc2hlbmcgWmhhbmcgd3JvdGU6
-Cj4gPiBBZnRlciBjb21taXQgNzYzMjljNjkzOTI0ICgicmlzY3Y6IFVzZSBTWU1fKigpIGFzc2Vt
-Ymx5IG1hY3JvcyBpbnN0ZWFkCj4gPiBvZiBkZXByZWNhdGVkIG9uZXMiKSwgcmlzY3YgaGFzIGJl
-ZW4gdG8gdGhlIG5ldyBzdHlsZSBTWU1fIGFzc2VtYmxlcgo+ID4gYW5ub3RhdGlvbnMuIFNvIHNl
-bGVjdCBBUkNIX1VTRV9TWU1fQU5OT1RBVElPTlMgdG8gZW5zdXJlIHRoZQo+ID4gZGVwcmVjYXRl
-ZCBtYWNyb3Mgc3VjaCBhcyBFTlRSWSgpLCBFTkQoKSwgV0VBSygpIGFuZCBzbyBvbiBhcmUgbm90
-Cj4gPiBhdmFpbGFibGUgYW5kIHdlIGRvbid0IHJlZ3Jlc3MuCj4gCj4gSGkgSmlzaGVuZywKCkhp
-IENsw6ltZW50LAoKPiAKPiBPbiB3aGljaCBicmFuY2gvc2VyaWVzIGlzIGl0IGJhc2VkID8gSSB0
-cmllZCBpdCBhbmQgaXQgZmFpbHMgb24KPiBlcnJhdGFfY2lwLTQzNS5zIHdoaWNoIHN0aWxsIGNv
-bnRhaW5zIHNvbWUgdXNlcyBvZiBFTlRSWSgpOgo+IAo+IEVOVFJZKHNpZml2ZV9jaXBfNDUzX3Bh
-Z2VfZmF1bHRfdHJwKQoKYWhhLCBJIHNlZSB3aGF0IGhhcHBlbmVkLiBJIGRpZCBzb21lIGFzbSAt
-PiBjIGNvbnZlc2lvbiBbMV0KdHdvIHdlZWtzIGFnby4gSSBhbHNvIGNvbnZlcnRlZCB0aGUgc2lm
-aXZlX2NpcF80NTNfcGFnZV9mYXVsdF90cnAgZXRjLgp0byBjIGFzIHdlbGwsIGJ1dCBJIGRlY2lk
-ZWQgdG8gbm90IGJyaW5nIHRvbyBtYW55IGNoYW5nZXMKaW4gdGhlIGxhc3QgbWludXRlLCBzbyB0
-aGUgbGFzdCBwYXRjaCB3YXNuJ3Qgc2VudCBvdXQsIGJ1dAppdCdzIGluIG15IHJlcG8gOykKCkkg
-d2lsbCBzZW5kIG91dCB2MiBzb29uLiBUaGFuayB5b3Ugc28gbXVjaCEKCkxpbms6IGh0dHBzOi8v
-bG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjQwNjE2MTcwNTUzLjI4MzItMS1qc3poYW5n
-QGtlcm5lbC5vcmcvIFsxXQoKPiAKPiBUaGFua3MsCj4gCj4gQ2zDqW1lbnQKPiAKPiA+IAo+ID4g
-U2lnbmVkLW9mZi1ieTogSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgo+ID4gLS0t
-Cj4gPiAgYXJjaC9yaXNjdi9LY29uZmlnIHwgMSArCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5z
-ZXJ0aW9uKCspCj4gPiAKPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNo
-L3Jpc2N2L0tjb25maWcKPiA+IGluZGV4IDA1MjVlZTJkNjNjNy4uYzUxYjMyYThkZGZmIDEwMDY0
-NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCj4gPiArKysgYi9hcmNoL3Jpc2N2L0tjb25m
-aWcKPiA+IEBAIC02Miw2ICs2Miw3IEBAIGNvbmZpZyBSSVNDVgo+ID4gIAlzZWxlY3QgQVJDSF9V
-U0VfQ01QWENIR19MT0NLUkVGIGlmIDY0QklUCj4gPiAgCXNlbGVjdCBBUkNIX1VTRV9NRU1URVNU
-Cj4gPiAgCXNlbGVjdCBBUkNIX1VTRV9RVUVVRURfUldMT0NLUwo+ID4gKwlzZWxlY3QgQVJDSF9V
-U0VfU1lNX0FOTk9UQVRJT05TCj4gPiAgCXNlbGVjdCBBUkNIX1VTRVNfQ0ZJX1RSQVBTIGlmIENG
-SV9DTEFORwo+ID4gIAlzZWxlY3QgQVJDSF9XQU5UX0JBVENIRURfVU5NQVBfVExCX0ZMVVNIIGlm
-IE1NVQo+ID4gIAlzZWxlY3QgQVJDSF9XQU5UX0RFRkFVTFRfVE9QRE9XTl9NTUFQX0xBWU9VVCBp
-ZiBNTVUKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+When BPF_TRAMP_F_CALL_ORIG is not set, stack space for passing arguments
+on stack doesn't need to be reserved because the original function is
+not called.
+
+Only reserve space for stacked arguments when BPF_TRAMP_F_CALL_ORIG is
+set.
+
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+---
+ arch/riscv/net/bpf_jit_comp64.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 685c7389ae7e..0795efdd3519 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -892,7 +892,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 	stack_size += 8;
+ 	sreg_off = stack_size;
+ 
+-	if (nr_arg_slots - RV_MAX_REG_ARGS > 0)
++	if ((flags & BPF_TRAMP_F_CALL_ORIG) && (nr_arg_slots - RV_MAX_REG_ARGS > 0))
+ 		stack_size += (nr_arg_slots - RV_MAX_REG_ARGS) * 8;
+ 
+ 	stack_size = round_up(stack_size, STACK_ALIGN);
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
