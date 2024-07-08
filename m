@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F37C3271E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 12:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41113C3271E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 12:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ScghfT8r23n+hHa13cBV8BnflNFgPytNm02/3mB2Jag=; b=VAQdwRoHzW5EyI
-	0R259mBp2U4KgWMVE+6Rmgakq3vrfQC9w+6c6tC5uTL32ZkT12w8em6Ck+j/fgSm41rVYZfX5MMKE
-	aUgavhVaSzavSTWlm6NtxBkXNn04TgtzcmOnfxZo7yAoVZQDTPY54JYseIvtrXP5fJKbQdLtMK1f/
-	MvQCHt0MGNdCJAto556IPcp96Xj/Y+Lgge+tEvQXeJNgL3U+XTBKIJlrbpwRwFauqtdbeOP6YkK8o
-	S356YdiAgTXxTmDlJLz2eHoEiIIj9czXLK2ovTWTsSnkQpQCeQhDAUnna4x552wbuM+8LOsiR1ndw
-	5MkyU89jS4PMem7fzpNA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rdJhtZr+yXoiZoJE7hunqxu/3oDyXomlv1qjhaDFsSY=; b=S50zMG4kteZm70
+	EKGJWsaFiJvBxbu8wdw8oqMKXtcJZKkQuLRBxu60c+g2bjI5lfMuHQtdDj4ktepePGbuTssquxgf6
+	Bo9A8fQUPhikr6ppZaE9gR/rdRyQ07ZhKmbB6hyUnLvJZnmZ3qxhfQ/h+EgbONyR7196uAPor21Hv
+	fIiWOJaZKV/Gfcd3kUnEcsmgyIiN+LGs7249ijYSvfBhuUJ9r1l0SIZk9pzwOlMSRZa2j+ee+BkFM
+	whgLpthB8qIWpoo+rjO2vEGssNDU2e5QBfiTfQ83dWFUSuvamce+FLKSnEcjtNrKiSqpD0Dn7CgTf
+	LmhQrZZUsZtX2QeCf5uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQn82-00000003hXO-359X;
-	Mon, 08 Jul 2024 12:05:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sQnBg-00000003iZS-13Fw;
+	Mon, 08 Jul 2024 12:09:44 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQn80-00000003hW6-0Q8p
-	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jul 2024 12:05:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 121F76033C;
-	Mon,  8 Jul 2024 12:05:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64675C116B1;
-	Mon,  8 Jul 2024 12:05:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720440354;
-	bh=zYiZL26YpL9nyJBbsDP8s4nzF/bHXrFqq56T1M+s51E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CScz0WZ99qjtrVPURkXM/OG7BWNP/9toOwOYu6FHQmMXHVS6vkrvE9s+tv5Ag5GyX
-	 d+zy08c/3FCc+bWgUIJ7D1QfpyaxOclKyAHbpORvZQ3DzeBDFFpM9eKl8bF8rGjBxg
-	 O8elQO+czjq/PgK0FCDdM25lfRqHJ5rZnhexQ2hQloqpbDSQaznCXUIj6Kkm7W2zar
-	 NA8pOYoEg8GY9ARqy90GQp9O/yRmwRLa4w8v5X27EEMtbutKNUoe1k2Ys/mxs1z7WY
-	 Q5DiUvNWoCzrUZ0ZEEFqFibTyuflF0nlqRRMzfMh5DnQLLR9rKpBDr8DjJik3arWvl
-	 3VRj9O/Fa7eQg==
-Date: Mon, 8 Jul 2024 19:51:43 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] serial: 8250: move mmp|pxa uart earlycon code and add
- xscale earlycon
-Message-ID: <ZovSzxZzZJRS8JWm@xhacker>
-References: <20240706101856.3077-1-jszhang@kernel.org>
- <20240706223323.GYA367.dlan.gentoo>
+	id 1sQnBd-00000003iW2-0rZm;
+	Mon, 08 Jul 2024 12:09:42 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 8E9E041AAD;
+	Mon,  8 Jul 2024 14:09:32 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+	by localhost (disroot.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id ZZdBFLd7Gx_I; Mon,  8 Jul 2024 14:09:31 +0200 (CEST)
+From: Yao Zi <ziyao@disroot.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1720440571; bh=LixmteUS5gYgJ/PPXczu+PsnnDVZsOkJdxUiZfHsntw=;
+	h=From:To:Cc:Subject:Date;
+	b=D8q1AFg9z24hBB18YM8MJt044NefpABngXoUt0Z3FlzL2tkFswv3SlkdPaNOZqPuP
+	 LHCQaSX3n7Vxr6EhXUWfJfoX4IerSx0AJ8uN21Um97G1YY86q5mUNcidnKw1HGPbWz
+	 M6fNSRQIJh00FAHGk8su6FiL4udi2E1aaQbsYG4yU3Av0VDaJkWXYgzm/+cTok5jGz
+	 X0BqirpWpzZ7SroB6ZWUpQhpoff9inRjovijWA52o2KBm6P5kCb9ZH7ZA+/+QEXiEh
+	 MQpev+aQ/v4xG/3+44KTuTN0Ouvd4FhuruqxH+61RNWhPZA+WSIXNESeO/nIN3sGrs
+	 ZH6rPB8wrQxBw==
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Yao Zi <ziyao@disroot.org>
+Subject: [PATCH 0/3] Add USB support for Sophgo CV1800/SG200x SoCs
+Date: Mon,  8 Jul 2024 12:08:27 +0000
+Message-ID: <20240708120830.5785-1-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240706223323.GYA367.dlan.gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_050556_292586_7AC3D037 
-X-CRM114-Status: GOOD (  25.37  )
+X-CRM114-CacheID: sfid-20240708_050941_677597_83587A18 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,97 +83,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 06, 2024 at 10:33:23PM +0000, Yixun Lan wrote:
-> Hi 
-> On 18:18 Sat 06 Jul     , Jisheng Zhang wrote:
-> > There are two other drivers that bind to "mrvl,mmp-uart": the 8250_of
-> > and the 8250_pxa. The previous one is generic and the latter is binded
-> > to ARCH_PXA || ARCH_MMP. Now we may have pxa programming compatible
-> > HW to support, making use of the generic 8250_of seems a good idea.
-> > However, there's no earlycon support if we go with this solution. So
-> > move the mmp|pxa-uart earlycon code to core 8250_early.c.
-> > 
-> > At the same, add xscale earlycon support too, only build test since
-> > I have no xscale machine any more.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  drivers/tty/serial/8250/8250_early.c | 11 +++++++++++
-> >  drivers/tty/serial/8250/8250_pxa.c   | 16 ----------------
-> >  2 files changed, 11 insertions(+), 16 deletions(-)
-> > 
-> > diff --git a/drivers/tty/serial/8250/8250_early.c b/drivers/tty/serial/8250/8250_early.c
-> > index e3f482fd3de4..6176083d0341 100644
-> > --- a/drivers/tty/serial/8250/8250_early.c
-> > +++ b/drivers/tty/serial/8250/8250_early.c
-> > @@ -171,6 +171,17 @@ OF_EARLYCON_DECLARE(ns16550a, "ns16550a", early_serial8250_setup);
-> >  OF_EARLYCON_DECLARE(uart, "nvidia,tegra20-uart", early_serial8250_setup);
-> >  OF_EARLYCON_DECLARE(uart, "snps,dw-apb-uart", early_serial8250_setup);
-> >  
-> > +static int __init early_serial8250_rs2_setup(struct earlycon_device *device,
-> > +					     const char *options)
-> > +{
-> > +	device->port.regshift = 2;
-> just wondering if possible to introduce a generic earlycon sub option? so kernel
+Sophgo CV1800/SG200x SoCs integrate a USB 2.0 phy and a USB 2.0
+controller based on dwc2 IP. This series implements a basic driver
+for the USB phy and add USB-related device tree nodes.
 
-the 8250 ealycon can parse reg-shift from dt too, so no sub option is
-needed. The reason I hardcoded here is: pxa-uart and xscale-uart doesn't
-mandate "reg-shift" property in the binding, while I did see mmp-uart
-mentions "reg-shift" is required in the DT binding.
+Yao Zi (3):
+  dt-bindings: phy: add YAML schema for cv1800-usb-phy driver bindings
+  riscv: dts: sophgo: add nodes for USB phy and controller
+  phy: sophgo: add usb phy driver for Sophgo CV1800 SoCs
 
+ .../bindings/phy/sophgo,cv1800-usb-phy.yaml   |  67 ++++++
+ arch/riscv/boot/dts/sophgo/cv18xx.dtsi        |  23 ++
+ drivers/phy/Kconfig                           |   1 +
+ drivers/phy/Makefile                          |   1 +
+ drivers/phy/sophgo/Kconfig                    |  10 +
+ drivers/phy/sophgo/Makefile                   |   2 +
+ drivers/phy/sophgo/phy-cv1800-usb.c           | 213 ++++++++++++++++++
+ 7 files changed, 317 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/sophgo,cv1800-usb-phy.yaml
+ create mode 100644 drivers/phy/sophgo/Kconfig
+ create mode 100644 drivers/phy/sophgo/Makefile
+ create mode 100644 drivers/phy/sophgo/phy-cv1800-usb.c
 
-> can parse reg-shift from command line parameter instead of hardcoding here,
-> which would benefit more drivers (potentially without adding more OF_EARLYCON_DECLAREs..)
-> 
-> I mean something like this:
-> Documentation/admin-guide/kernel-parameters.txt
-> uart[8250],mmio32,<addr>[,options[,reg-shift=0,1,2,4 ..]]
-> 
-> > +
-> > +	return early_serial8250_setup(device, options);
-> > +}
-> > +OF_EARLYCON_DECLARE(uart, "intel,xscale-uart", early_serial8250_rs2_setup);
-> > +OF_EARLYCON_DECLARE(uart, "mrvl,mmp-uart", early_serial8250_rs2_setup);
-> > +OF_EARLYCON_DECLARE(uart, "mrvl,pxa-uart", early_serial8250_rs2_setup);
-> > +
-> >  #ifdef CONFIG_SERIAL_8250_OMAP
-> >  
-> >  static int __init early_omap8250_setup(struct earlycon_device *device,
-> > diff --git a/drivers/tty/serial/8250/8250_pxa.c b/drivers/tty/serial/8250/8250_pxa.c
-> > index ba96fa913e7f..b5d937f6f3f9 100644
-> > --- a/drivers/tty/serial/8250/8250_pxa.c
-> > +++ b/drivers/tty/serial/8250/8250_pxa.c
-> > @@ -165,22 +165,6 @@ static struct platform_driver serial_pxa_driver = {
-> >  
-> >  module_platform_driver(serial_pxa_driver);
-> >  
-> > -#ifdef CONFIG_SERIAL_8250_CONSOLE
-> > -static int __init early_serial_pxa_setup(struct earlycon_device *device,
-> > -				  const char *options)
-> > -{
-> > -	struct uart_port *port = &device->port;
-> > -
-> > -	if (!(device->port.membase || device->port.iobase))
-> > -		return -ENODEV;
-> > -
-> > -	port->regshift = 2;
-> > -	return early_serial8250_setup(device, NULL);
-> > -}
-> > -OF_EARLYCON_DECLARE(early_pxa, "mrvl,pxa-uart", early_serial_pxa_setup);
-> > -OF_EARLYCON_DECLARE(mmp, "mrvl,mmp-uart", early_serial_pxa_setup);
-> > -#endif
-> > -
-> >  MODULE_AUTHOR("Sergei Ianovich");
-> >  MODULE_LICENSE("GPL");
-> >  MODULE_ALIAS("platform:pxa2xx-uart");
-> > -- 
-> > 2.43.0
-> > 
-> 
-> -- 
-> Yixun Lan (dlan)
-> Gentoo Linux Developer
-> GPG Key ID AABEFD55
+-- 
+2.45.2
+
 
 _______________________________________________
 linux-riscv mailing list
