@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC992C3DA42
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 12:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CEDDC3271E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 12:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:CC:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VaZnwWK4HOmpIaT3Zb8Q5Px/k5PUgKf6CqomElABDUY=; b=IdnpuHtAGIUfSG
-	DkJLCc3UPaTiafccYsg++3BXDN3OrFKFlLMJ/FUjAMzUMl8UbXTbfLahHO2y5+xqX1S3Sw3LsB9wW
-	maNi+7Kc83//gV500rsYXgwiPprXrAXPkdwe+KCzJGiAM7mRPL/qtFdHvrRXsdL3UjkCdq+0xxZDn
-	R4Sjf/oPwkadFnqGCWTSniGHTGZsqd4Rgwlx+wVk+CNocLYunxl4TD/3z4w4dNLa69f0mC0NTR0zM
-	k77IkOvmtRyU5XwEL2gtRcJjjOiU1uOZXjoZyCAkD5Ob7h5CAEZc7t23sKiGLJf1CEurMwDu5ZFWy
-	Gz0iYn0ajIM0vbioKLdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WjHXBLtUzTcrDbM8N8gqYkTJaSF8BPCN78OeADCv/as=; b=fubrLE03laCxmf
+	7xF67edoEauesi55060ATc9uvn3Y10AInL0M1On2rc6GAcQ92tE1QCJMHs546dAfmW1yz9lrcTh0y
+	DB1OQZzSZYIu4xKIZ7uA2XVJr+hjPiRxdss31ycGRZTm8H1p02CGZ7ePyQAP99Rtxo9Lj325YF1vA
+	wtPhHGoYz+QrisFghyYjSsNrxdb/ULaYTGE102t7yBCyUXdSBHlP5cKWtgO4OYoFgC8Jt3vcNXk1q
+	YjTdfKO7wJypS09JBEz3l+fTnL6d9j7SiyBLaZLwdXfyYh6lQItU/Q5Yb9QA6BF7YzRaHIso155Jq
+	+lNuRkGHAYJfDBwfz96Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQn4Y-00000003gS0-4ATd;
-	Mon, 08 Jul 2024 12:02:23 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1sQn69-00000003gxM-1VMS;
+	Mon, 08 Jul 2024 12:04:01 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQn4V-00000003gOc-02eG
+	id 1sQn66-00000003gwE-3HzS
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jul 2024 12:02:21 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4WHjKh19jKzwWBn;
-	Mon,  8 Jul 2024 19:57:28 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 48202140156;
-	Mon,  8 Jul 2024 20:02:08 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 8 Jul 2024 20:02:07 +0800
-Message-ID: <d9abcecb-1de1-4c88-923a-b465fb87ca51@huawei.com>
-Date: Mon, 8 Jul 2024 20:02:06 +0800
+	Mon, 08 Jul 2024 12:04:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1720440238; x=1751976238;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=DzHQZuuhc4rbXcFPPwG2NkNbtLfqLVHjk1sLEJXrM2M=;
+  b=fQomGTbz/x0iE+s5XcbQVN1/AuVWPLHLdicLP5Dk5wXHLElzBr62+5ja
+   Zmm6ud+HjMclp56jQoTq97O8Hwr80KvJo3jwGcJVumoUQJ+Slnh6flSHH
+   2Kwfym40a6N5jZHPeDiqowsTf1ZQ//LBGIWbv3R1gY1joHNTOIfaqeZtH
+   gzDXaEBbao7OVHlrkjmWeVn+94zE/0cCc2c8U+mjWoJ144aNZIpn8iIA+
+   GWyHIKPhbMYNZiOV/gqcB9bYNKdA/d0n7uzyjlvsvUbAOfXKpwdadxvOu
+   UHCZGOpcq9vZErKIKchPdD5wS9ej+WvpMyHAif8S0kbtw4pmzQEIG2CLJ
+   w==;
+X-CSE-ConnectionGUID: yWSMLGqtS1qlXJBTne14GQ==
+X-CSE-MsgGUID: hPiF1mGpTDKpmL4+p1m+5Q==
+X-IronPort-AV: E=McAfee;i="6700,10204,11126"; a="17842461"
+X-IronPort-AV: E=Sophos;i="6.09,191,1716274800"; 
+   d="scan'208";a="17842461"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2024 05:03:57 -0700
+X-CSE-ConnectionGUID: UB7G25qvSoWG4bPE4Ifmqg==
+X-CSE-MsgGUID: xjv/NurHSLi0I06QFYnJZw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.09,191,1716274800"; 
+   d="scan'208";a="85034005"
+Received: from unknown (HELO xiao-desktop.sh.intel.com) ([10.239.159.85])
+  by orviesa001.jf.intel.com with ESMTP; 08 Jul 2024 05:03:55 -0700
+From: Xiao Wang <xiao.w.wang@intel.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	atishp@atishpatra.org
+Cc: anup@brainfault.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xiao Wang <xiao.w.wang@intel.com>
+Subject: [PATCH] drivers/perf: riscv: Remove redundant macro check
+Date: Mon,  8 Jul 2024 20:12:24 +0800
+Message-Id: <20240708121224.1148154-1-xiao.w.wang@intel.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next] riscv, bpf: Optimize stack usage of trampoline
-Content-Language: en-US
-To: Puranjay Mohan <puranjay@kernel.org>
-References: <20240708114758.64414-1-puranjay@kernel.org>
-CC: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
-	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
-	<martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu
-	<song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John Fastabend
-	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev
-	<sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Puranjay Mohan
-	<puranjay12@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20240708114758.64414-1-puranjay@kernel.org>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_050219_253887_890C1408 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20240708_050358_868668_81FA90F5 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,42 +83,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The macro CONFIG_RISCV_PMU must have been defined when riscv_pmu.c gets
+compiled, so this patch removes the redundant check.
 
-On 2024/7/8 19:47, Puranjay Mohan wrote:
-> When BPF_TRAMP_F_CALL_ORIG is not set, stack space for passing arguments
-> on stack doesn't need to be reserved because the original function is
-> not called.
-> 
-> Only reserve space for stacked arguments when BPF_TRAMP_F_CALL_ORIG is
-> set.
-> 
-> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-> ---
->   arch/riscv/net/bpf_jit_comp64.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index 685c7389ae7e..0795efdd3519 100644
-> --- a/arch/riscv/net/bpf_jit_comp64.c
-> +++ b/arch/riscv/net/bpf_jit_comp64.c
-> @@ -892,7 +892,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
->   	stack_size += 8;
->   	sreg_off = stack_size;
->   
-> -	if (nr_arg_slots - RV_MAX_REG_ARGS > 0)
-> +	if ((flags & BPF_TRAMP_F_CALL_ORIG) && (nr_arg_slots - RV_MAX_REG_ARGS > 0))
->   		stack_size += (nr_arg_slots - RV_MAX_REG_ARGS) * 8;
->   
->   	stack_size = round_up(stack_size, STACK_ALIGN);
+Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
+---
+ drivers/perf/riscv_pmu.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-Thanks!
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+index 0a02e85a8951..7644147d50b4 100644
+--- a/drivers/perf/riscv_pmu.c
++++ b/drivers/perf/riscv_pmu.c
+@@ -39,7 +39,6 @@ void arch_perf_update_userpage(struct perf_event *event,
+ 	userpg->cap_user_time_short = 0;
+ 	userpg->cap_user_rdpmc = riscv_perf_user_access(event);
+ 
+-#ifdef CONFIG_RISCV_PMU
+ 	/*
+ 	 * The counters are 64-bit but the priv spec doesn't mandate all the
+ 	 * bits to be implemented: that's why, counter width can vary based on
+@@ -47,7 +46,6 @@ void arch_perf_update_userpage(struct perf_event *event,
+ 	 */
+ 	if (userpg->cap_user_rdpmc)
+ 		userpg->pmc_width = to_riscv_pmu(event->pmu)->ctr_get_width(event->hw.idx) + 1;
+-#endif
+ 
+ 	do {
+ 		rd = sched_clock_read_begin(&seq);
+-- 
+2.25.1
 
-Acked-by: Pu Lehui <pulehui@huawei.com>
 
 _______________________________________________
 linux-riscv mailing list
