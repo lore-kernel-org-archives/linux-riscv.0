@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D8DC3271E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 12:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A771C3271E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 12:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TKJ221zhjnZxtiThK4MmXMmoGhv7sJExgLWPsQhd3yQ=; b=LqS5hptAP2sgq6
-	agTbQru73wH2z0pSN228npgRz0yCnuzKd3XfdpBmhsaUvw331SzCn1toUh4zP1vBCd52yAygT/v27
-	djERfimuGtFB4mcrJ6w59IylorEHhyNsF1NnGUXADoXnlc3HtLKF5Xfq1LFA6gPur03sWxGjayR+v
-	Jqz65TklJVsS6nGNW/S3Mm+KM22X6Y4u25zF1BwJLv8mc5zYNg9RybXULoXI9KG50YxFK+5/wpxVu
-	nISfQCTuRH40jt7Cgz3JmZO4vnnjdlIl9ydhWmSm/elC4OH51RPkW94JlDlRR7W/C3J9mYLKH5Gas
-	PS69Ewh/cSGYrz0MnISw==;
+	List-Owner; bh=5eo6LWCwxoOkKuMVu7Q7Edz/vku8WAwkLyMzFxsAGuk=; b=BDY0v9QJKQIwCv
+	dXGdRF31LSLleu3W9VzwQnhHM9VkamIUJRsYL1Uu2vxdoqiAmL/nFJdCmUfHq1FFGUkLGIl8DyTBK
+	xagU54qLxoDYP1cT2P3cp28w5GCLCwvJUTOq/RfymEAvK1mE7GmQ0CMxBBqr+BWr5uXtOFCCkCfRB
+	R67avraE1yRe/nRsBljlY4CNnI0IcMEBTCe8JIZ5ip8RSJFNAqNB0TO/WNx9mta+6ZGQx9jmU4tpx
+	3sJv/xrMBpBegsHSapnx/i01XFZsRP+tE/RPFTdpX0cDM3XJzk+tQNuxUi8FmBELRmXCSNhaNCarz
+	j3EfZG1IGlBrb1hoS9fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQnPP-00000003lvs-2KZy;
-	Mon, 08 Jul 2024 12:23:55 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1sQnkt-00000003q1G-310C;
+	Mon, 08 Jul 2024 12:46:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQnPL-00000003luC-3nEc
+	id 1sQnkq-00000003q0d-26ZF
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jul 2024 12:23:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7847540006;
-	Mon,  8 Jul 2024 12:23:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1720441427;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7JsbKApEK51Bmx24wtoB9YLZiYCpQ37ANs0wnRzdLyY=;
-	b=dJ9+nW/o+fVVXF1/oX60X3/1FFNguSv7QqTgpSH6ISm1XaTz7AKXh9iLkm92nIsZXzGC/D
-	JV+ZzNriHyLW5xA3/ERIvMSATBKDgZ5ZUQDrrUYZXAE+RlXyy9Q7Cvb61DbjBZ5oUVREy6
-	zXwEvCvGD6Walndgld/sFqpFxVKTamIihqLHfUYpuqKboPZjfr9LN+Th5MGVrzwqQqRFKy
-	HHM6DPQQjQkmMeqT+jabUeQ/nTyNPIPqbYahiPHOXbliqyUwrXWDBEMeYdtp8E9H5PXPuM
-	Tev+LzF9Ibbq9vbj/L/RXYdvcthJKR5KlTkvK0adv+6LvGRSUKAqBEr/8VEgfQ==
-Date: Mon, 8 Jul 2024 14:23:44 +0200
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Conor Dooley <conor@kernel.org>, Thomas Bonnefille
- <thomas.bonnefille@bootlin.com>, Jonathan Cameron <jic23@kernel.org>,
- Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
- <inochiama@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: iio: adc:
- sophgo,cv18xx-saradc.yaml: Add Sophgo SARADC binding documentation
-Message-ID: <20240708142344.47da466e@xps-13>
-In-Reply-To: <304b7bb1-d315-4147-820b-1ec0aa63e759@kernel.org>
-References: <20240705-sg2002-adc-v2-0-83428c20a9b2@bootlin.com>
-	<20240705-sg2002-adc-v2-1-83428c20a9b2@bootlin.com>
-	<20240705-unaired-pesticide-4135eaa04212@spud>
-	<6b5459fd-2873-4c26-b986-882413b8d95b@bootlin.com>
-	<20240706-remote-undergo-3b9dfe44d16f@spud>
-	<20240708083011.058d0c57@xps-13>
-	<304b7bb1-d315-4147-820b-1ec0aa63e759@kernel.org>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
+	Mon, 08 Jul 2024 12:46:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9295160BC6;
+	Mon,  8 Jul 2024 12:46:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 610ACC116B1;
+	Mon,  8 Jul 2024 12:45:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1720442763;
+	bh=05BE5QIkNqGHLnlozE+/nCBRDY5C8lMe8j3HBLlQiBI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KIhtQM98DRc+Q3iqGQRKLHhd1DctOduNh0S+DNqGQ1ehzrJNcvWpyNZv65htncc4N
+	 KOc5BnykMyZ87lhvedTdLfpcJ00LCEb46+qrMMaRLBQ8rT+uTH5p69T/6rIy78q9MB
+	 nWgeZfMdJu1mwB01HOdNcJy/Y4Ff60SKMWjB/KzUJznx/m9dmG9nZvXjYaBv/hK0Hx
+	 gErwQ67NLvpC8mBv53u+vgyY1NpeHyIt/qLHMRDNGd0aGkjyEcBPofjo2T/AsGUegO
+	 MndmCKSd8GGntzi4SYRvtDbcXW3a1QamjfVyrhVSgPE6AsfOibebqcn/nT+JU/C9S6
+	 LAGss79wiDclg==
+Date: Mon, 8 Jul 2024 20:31:45 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Yangyu Chen <cyy@cyyself.name>,
+	Inochi Amaoto <inochiama@outlook.com>, linux-serial@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Meng Zhang <zhangmeng.kevin@spacemit.com>
+Subject: Re: [PATCH v3 08/11] riscv: dts: add initial SpacemiT K1 SoC device
+ tree
+Message-ID: <ZovcMYs1jnmPCWVE@xhacker>
+References: <20240703-k1-01-basic-dt-v3-0-12f73b47461e@gentoo.org>
+ <20240703-k1-01-basic-dt-v3-8-12f73b47461e@gentoo.org>
+ <Zoanxksn0nio4MPg@xhacker>
+ <20240705063839.GA3042186@ofsar>
+ <ZojEEAdUwxPJwqIS@xhacker>
+ <20240706050556.GA3590714@ofsar>
+ <ZokfBzjvwN0IUQIX@xhacker>
+ <20240706142403.GYA4138928.dlan.gentoo>
 MIME-Version: 1.0
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Disposition: inline
+In-Reply-To: <20240706142403.GYA4138928.dlan.gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_052352_379163_9B4BE957 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20240708_054604_973854_603B691E 
+X-CRM114-Status: GOOD (  59.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +89,198 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgS3J6eXN6dG9mLAoKa3J6a0BrZXJuZWwub3JnIHdyb3RlIG9uIE1vbiwgOCBKdWwgMjAyNCAw
-OTozMzowNCArMDIwMDoKCj4gT24gMDgvMDcvMjAyNCAwODozMCwgTWlxdWVsIFJheW5hbCB3cm90
-ZToKPiA+IEhpIENvbm9yLAo+ID4gICAKPiA+Pj4+PiArcHJvcGVydGllczoKPiA+Pj4+PiArICBj
-b21wYXRpYmxlOgo+ID4+Pj4+ICsgICAgb25lT2Y6Cj4gPj4+Pj4gKyAgICAgIC0gaXRlbXM6Cj4g
-Pj4+Pj4gKyAgICAgICAgICAtIGVudW06Cj4gPj4+Pj4gKyAgICAgICAgICAgICAgLSBzb3BoZ28s
-Y3YxODAwYi1zYXJhZGMKPiA+Pj4+PiArICAgICAgICAgIC0gY29uc3Q6IHNvcGhnbyxjdjE4eHgt
-c2FyYWRjICAgIAo+ID4+Pj4KPiA+Pj4+IEkgZG9uJ3QgdGhpbmsgdGhlIGZhbGxiYWNrIGhlcmUg
-bWFrZXMgc2Vuc2UuIElmIHRoZXJlJ3Mgb3RoZXIgZGV2aWNlcwo+ID4+Pj4gd2l0aCBhIGNvbXBh
-dGlibGUgcHJvZ3JhbW1pbmcgbW9kZWwgYWRkZWQgbGF0ZXIsIHdlIGNhbiBmYWxsIGJhY2sgdG8g
-dGhlCj4gPj4+PiBjdjE4MDBiLiAgCj4gPiAKPiA+IEknbSBzb3JyeSBidXQgaXNuJ3QgdGhpcyBz
-bGlnaHRseSBkaXNhZ3JlZWluZyB3aXRoIHRoZSAid3JpdGluZwo+ID4gYmluZGluZ3MiIGRvYyBw
-b2ludGVkIGluIHYxPyBJdCBzYXlzLAo+ID4gCj4gPiAqIERPIHVzZSBmYWxsYmFjayBjb21wYXRp
-YmxlcyB3aGVuIGRldmljZXMgYXJlIHRoZSBzYW1lIGFzIG9yIGEgc3Vic2V0Cj4gPiAgIG9mIHBy
-aW9yIGltcGxlbWVudGF0aW9ucy4KPiA+IAo+ID4gSSBiZWxpZXZlIHdlIGZhbGwgaW4gdGhlICJk
-ZXZpY2VzIGFyZSB0aGUgc2FtZSIgY2F0ZWdvcnksIHNvIEkgd291bGQKPiA+IGhhdmUgbXlzZWxm
-IHdyb3RlIGEgc2ltaWxhciBiaW5kaW5nIGhlcmUgd2l0aCBhIGNvbXBhdGlibGUgbWF0Y2hpbmcK
-PiA+IHRoZW0gYWxsLCBwbHVzIGEgaGFyZHdhcmUtaW1wbGVtZW50YXRpb24tc3BlY2lmaWMgY29t
-cGF0aWJsZSBhcyB3ZWxsOwo+ID4ganVzdCBpbiBjYXNlLiAgCj4gCj4gRmFsbGJhY2sgZnJvbSBv
-bmUgbW9kZWwgdG8gYW5vdGhlci4gVGhlcmUgaXMgbm8gImFub3RoZXIiIG1vZGVsIGhlcmUsCj4g
-YnV0IHdpbGRjYXJkLiBUaGVyZSBpcyBubyBzdWNoIGRldmljZSBhcyBjdjE4eHgsIHJpZ2h0PwoK
-Tm8gdGhlcmUgaXMgbm90LiBCdXQgSSBkb24ndCB0aGluayB0aGVyZSBpcyBhICJiYXNlIiBtb2Rl
-bCBlaXRoZXIuCkp1c3QgbXVsdGlwbGUgU29DcyBuYW1lZCBjdjE4PHNvbWV0aGluZz4gd2l0aCBh
-cHBhcmVudGx5IHRoZSBzYW1lIEFEQy4KClNvIGFjdHVhbGx5IEkgZ3Vlc3MgdGhlIGRpc2N1c3Np
-b24gaGVyZSBpcyBhYm91dCB0aGUgd2lsZGNhcmQKY29tcGF0aWJsZS4gSXQgZmVlbHMgc3RyYW5n
-ZSB0byBtZSB0byBoYXZlIG5vIGdlbmVyaWMgY29tcGF0aWJsZSBlaXRoZXIKd2l0aCBhIHdpbGRj
-YXJkIG9yIHdpdGggYSAiYmFzZSIgaW1wbGVtZW50YXRpb24gKGJlY2F1c2UgdGhlcmUgaXMKcHJv
-YmFibHkgbm9uZSkuIFNvIEkgZ3Vlc3MgdGhlIHNvbHV0aW9uIGhlcmUgaXMgdG8ganVzdCBsaXN0
-IGEgc2luZ2xlCnNwZWNpZmljIGNvbXBhdGlibGUgaW4gdGhlIGVuZC4KClRoYW5rcywKTWlxdcOo
-bAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Sat, Jul 06, 2024 at 02:24:03PM +0000, Yixun Lan wrote:
+> On 18:40 Sat 06 Jul     , Jisheng Zhang wrote:
+> > On Sat, Jul 06, 2024 at 05:05:56AM +0000, Yixun Lan wrote:
+> > > 
+> > > On 12:12 Sat 06 Jul     , Jisheng Zhang wrote:
+> > > > On Fri, Jul 05, 2024 at 06:38:39AM +0000, Yixun Lan wrote:
+> > > > > 
+> > > > > On 21:46 Thu 04 Jul     , Jisheng Zhang wrote:
+> > > > > > On Wed, Jul 03, 2024 at 02:55:11PM +0000, Yixun Lan wrote:
+> > > > > > > From: Yangyu Chen <cyy@cyyself.name>
+> > > > > > > 
+> > > > > > > Banana Pi BPI-F3 motherboard is powered by SpacemiT K1[1].
+> > > > > > > 
+> > > > > > > Key features:
+> > > > > > > - 4 cores per cluster, 2 clusters on chip
+> > > > > > > - UART IP is Intel XScale UART
+> > > > > > > 
+> > > > > > > Some key considerations:
+> > > > > > > - ISA string is inferred from vendor documentation[2]
+> > > > > > > - Cluster topology is inferred from datasheet[1] and L2 in vendor dts[3]
+> > > > > > > - No coherent DMA on this board
+> > > > > > >     Inferred by taking vendor ethernet and MMC drivers to the mainline
+> > > > > > >     kernel. Without dma-noncoherent in soc node, the driver fails.
+> > > > > > > - No cache nodes now
+> > > > > > >     The parameters from vendor dts are likely to be wrong. It has 512
+> > > > > > >     sets for a 32KiB L1 Cache. In this case, each set is 64B in size.
+> > > > > > >     When the size of the cache line is 64B, it is a directly mapped
+> > > > > > >     cache rather than a set-associative cache, the latter is commonly
+> > > > > > >     used. Thus, I didn't use the parameters from vendor dts.
+> > > > > > > 
+> > > > > > > Currently only support booting into console with only uart, other
+> > > > > > > features will be added soon later.
+> > > > > > > 
+> > > > > > > Link: https://docs.banana-pi.org/en/BPI-F3/SpacemiT_K1_datasheet [1]
+> > > > > > > Link: https://developer.spacemit.com/#/documentation?token=BWbGwbx7liGW21kq9lucSA6Vnpb [2]
+> > > > > > > Link: https://gitee.com/bianbu-linux/linux-6.1/blob/bl-v1.0.y/arch/riscv/boot/dts/spacemit/k1-x.dtsi [3]
+> > > > > > > Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> > > > > > > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> > > > > > > ---
+> > > > > > >  arch/riscv/boot/dts/spacemit/k1.dtsi | 376 +++++++++++++++++++++++++++++++++++
+> > > > > > >  1 file changed, 376 insertions(+)
+> > > > > > > 
+> > > > > > > diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> > > > > > > new file mode 100644
+> > > > > > > index 0000000000000..a076e35855a2e
+> > > > > > > --- /dev/null
+> > > > > > > +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> > > > > > > @@ -0,0 +1,376 @@
+> > > > > > > +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> > > > > > > +/*
+> > > > > > > + * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
+> > > > > > > + */
+> > > > > > > +
+> > > > > > > +/dts-v1/;
+> > > > > > > +/ {
+> > > > > > > +	#address-cells = <2>;
+> > > > > > > +	#size-cells = <2>;
+> > > > > > > +	model = "SpacemiT K1";
+> > > > > > > +	compatible = "spacemit,k1";
+> > > > > > > +
+> > > > > > > +
+> > ...
+> > > > > > > +	soc {
+> > > > > > > +		compatible = "simple-bus";
+> > > > > > > +		interrupt-parent = <&plic>;
+> > > > > > > +		#address-cells = <2>;
+> > > > > > > +		#size-cells = <2>;
+> > > > > > > +		dma-noncoherent;
+> > > > > > > +		ranges;
+> > > > > > > +
+> > > > > > > +		uart0: serial@d4017000 {
+> > > > > > > +			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+> > > > > > 
+> > > > > > no, this is not a correct hw modeling. The doc on spacemit says
+> > > > > > all the uart support 64 bytes FIFO, declaring xscale only makes
+> > > > > > use of 32 bytes FIFO.
+> > > > > yes, I also noticed it's 64 bytes FIFO
+> > > > > 
+> > > > > > 
+> > > > > > IIRC, 8250_pxa is a xscale uart with 64 bytes FIFO, so this should be
+> > > > > > "mrvl,pxa-uart" or "mrvl,mmp-uart"
+> > > > > 
+> > > > > 
+> > > > > for mrvl,pxa-uart, I think you imply to use drivers/tty/serial/8250/8250_pxa.c,
+> > > > > which turn out doesn't work on k1 SoC, for the record, we need to adjust
+> > > > 
+> > > > Really? I just tried "mrvl,pxa-uart" with rc6, it works perfectly, and the FIFO
+> > > > in the driver logic is 64bytes now. Am I misssing something or you never tried it?
+> > > > 
+> > > Ok, I realised it's the clock issue
+> > > 
+> > > still, I'm not fully convinced about using "mrvl,pxa-uart",
+> > > e.g this driver hardcoded tz_loadsz to 32, not sure if K1 suffer same problem
+> > > 5208e7ced520 ("serial: 8250_pxa: Configure tx_loadsz to match FIFO IRQ level")
+> > 
+> > I believe the problem commit 5208e7ced520 tries to solve is: the
+> > mmp|pxa-uart only support threshold up to 32Bytes, tz_loadsz will be
+> > fifo size by default, this will cause probleme with 64Bytes FIFO.
+> > 
+> yes, exactly
+> 
+> > > 
+> > > also, what's the preference when choosing driver between 8250_pxa.c vs 8250_of.c?
+> > 
+> > Good question. I have no preference. But there are two problems with
+> > 8250_of, I have sent out patches[1][2] to address them.
+> > 
+> > After these two patches, both the earlycon and uart FIFO logic work too
+> > with below dts properties:
+> > 		uart0: serial@d4017000 {
+> > 			compatible = "mrvl,mmp-uart";
+> to be precise, I think here should be compatible = "mrvl,mmp-uart", "intel,xscale-uart"
+
+see below.
+
+> 
+> but can you check this patch below? it should be ok with your two proposed patches applied
+> https://lore.kernel.org/all/20240703-k1-01-basic-dt-v3-6-12f73b47461e@gentoo.org/
+> 
+> > 			...
+> >                         reg-shift = <2>;
+> >                         reg-io-width = <4>;
+> >                         tx-threshold = <32>;
+> >                         fifo-size = <64>;
+
+I just tried, the previous "spacemit,k1-uart", "intel,xscale-uart"; with above properties
+work too, and the fifo size in driver logic seems correct as well.
+
+> ..
+> >                         no-loopback-test;
+>             need to check, from vendor docs, there is a loopback mode
+
+oh, this property is from the UPF_SKIP_TEST of 8250_pxa.c. This
+property can be removed.
+
+>             see 16.2.4.1 SSCR register description, bit12
+> 
+> https://developer.spacemit.com/#/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf
+> > 			...
+> > 		}
+> > 
+> > Link: https://lore.kernel.org/linux-riscv/20240706082928.2238-1-jszhang@kernel.org/ [1]
+> I have some comments for this patch, and I believe it's a valid fix,
+> without this patch, K1 will also have problem duo to "UART_CAP_UUE | UART_CAP_RTOIE" lost
+> 
+> > Link: https://lore.kernel.org/linux-riscv/20240706101856.3077-1-jszhang@kernel.org/ [2]
+> > 
+> > > it occur to me that 8250_pxa.c is more specially tailored for pxa hardware, while
+> > > 8250_of.c is more generic.. besides, should we consider one more step if we want to
+> > 
+> > there's a work around for Erratum #74 in 8250_pxa, while I believe the
+> do you have any link for this Erratum? let's double check it..
+
+I can't find any link now :(
+
+> 
+> > Errata doesn't exisit in K1, so from this PoV it seems 8250_of is
+> > better, no?
+> > 
+> > > support DMA mode in the future (vendor uart driver has DMA support)?
+> > 
+> > Adding dma engine support to 8250_of is doable.
+> Ok, sounds good to me
+> > 
+> > > 
+> > > 
+> > > > >  drivers/tty/serial/8250/Kconfig to enable the driver for ARCH_SPACEMIT,
+> > > > >  and change uart compatible to "spacemit,k1-uart", "mrvl,pxa-uart"
+> > > > > 
+> > > > > for mrvl,mmp-uart, I see two choices, one using 8250_pxa.c which has same result
+> > > > > as mrvl,pxa-uart, another choice would using the driver of 8250_of.c 
+> > > > > and it work as same as "intel,xscale-uart", I don't see any difference..
+> > > > > 
+> > > > > P.S: there is possibly a side problem that "mrvl,mmp-uart" from 8250_of.c doesn't 
+> > > > > really compatile with "mrvl,mmp-uart" from 8250_pxa.c, but I think it's another story
+> > > 
+> > > -- 
+> > > Yixun Lan (dlan)
+> > > Gentoo Linux Developer
+> > > GPG Key ID AABEFD55
+> 
+> -- 
+> Yixun Lan (dlan)
+> Gentoo Linux Developer
+> GPG Key ID AABEFD55
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
