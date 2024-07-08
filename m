@@ -4,95 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE10C3DA42
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 07:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0049C3271E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 07:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Absf8iQie0ulqxkuh28MIMGihKaXHodjCmE32ywf2wk=; b=fBjYQsohUccNYl
-	bumldv5VN5Y6d1J6NjMv61B7vg033gLZXk7dwhHqpeqwPg53HIsFB8ec6esMMyqPwpOXGMEc1YTMM
-	vUZlAL2SOrSF1yhODhQpQxOZuL6sVzTlK7uwUjjw+aLHFSt65/1mZzo74Kg/qk+yo/xM5K9PQaYqo
-	uB1xvIl4sdBprnBs99BdDb+yGQs7oV1MBcyHr2lUKLrbdpaaXXyn/Ro7AFtkh9p8BicpX0JzUlVMg
-	949U5wvhSnZreoKyS2h7SRedJhxMv5TdRw34nBp+5E0DE3Qhh4L59Rra4OeX8pZxanIdfheQoEggb
-	JdbvSb1c0t8vVG36puNg==;
+	List-Owner; bh=3y6VpDIOa7EKnzwFhMAa/6uudRO3ZUgY25eW7nB5d0c=; b=qgxcoMtqcjK9iC
+	dh5s1BG1Hc3mI7jzyZBloFCbF6Fc3gkkXyLP67E0m4mSBb0t5hjg6g2fKJ0pf322WJtrpRaQc9ttz
+	k3eRMIsjp8wzVj/uuJFzVoL4CvzoQdoDSF7TgGIJHqQbw3s/S0Yin/hiwsSHLdSpH8Ydx9XSndWwz
+	3eXahHxxKleM3EYqHB+iYdG+HN6Y3cjo86SYQ4tVTBuMIdhgS+yV/RV8OG6JSykSC4ys2m9Ocu7sy
+	i/fypZ69Q9gye4rrX+soCDv87M9G/xLtga1ii/1Gv2PyBwdLf51bfRhwTzVxui1tgOP4BLERXyr1W
+	C6eESd3w0ew1/UU/fLIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQiqk-00000003267-1Cen;
-	Mon, 08 Jul 2024 07:31:50 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sQisA-000000032NE-4BEn;
+	Mon, 08 Jul 2024 07:33:19 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQiqf-0000000325B-02OL;
-	Mon, 08 Jul 2024 07:31:47 +0000
+	id 1sQis8-000000032MO-0A1F
+	for linux-riscv@lists.infradead.org;
+	Mon, 08 Jul 2024 07:33:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 673DECE0AB2;
-	Mon,  8 Jul 2024 07:31:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E3BBC116B1;
-	Mon,  8 Jul 2024 07:31:14 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 707DCCE0AB2;
+	Mon,  8 Jul 2024 07:33:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23FF3C116B1;
+	Mon,  8 Jul 2024 07:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720423901;
-	bh=b686QiTKvy8ZMExM84K9kzUt3iG3OHu8RvGNrJ3LUPU=;
+	s=k20201202; t=1720423992;
+	bh=A0VXbThaldSglFo32u5p70kxlO/JzsYI2cfWWiOLsWM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=W2NDqntp1Ulgp8VAPtW9t6MUVRBg2m24WUTXj6PfM3FSPT6WnvnROZIOHULWUqOgT
-	 aWqsNEhpd+JKiouZTJGp7zJZg+KEggH+2wFwNf9Jvcbyr/tjpShaShqhdXl2lVlj49
-	 qjscpyLwq1KwbCmSwqT+Jqat5Y2n7bIV8a/ZPwwr4+gFyY0o1Cs3AUeHCYUskKypQI
-	 Jis8m+kGIeU9LqBdsmcbTFufx5GqCPgZXGDZPzEh5McNcju/zyfQSj/Xf2sKw+pDti
-	 hHmWLNmFSVBozoY7HjZbCxHNC2jlqlgeXUMur4A392g6iSujvhXKe4jHoSKmcPYE0x
-	 RD+heg8f8EMGQ==
-Message-ID: <f8d17f99-cb76-427a-a23c-6777ab8f4370@kernel.org>
-Date: Mon, 8 Jul 2024 09:31:11 +0200
+	b=GvfvbM22UDRINvtifxCox/X+JeZqYyHhVMmTzQbouZWMjnC7X1F9IRdFbOdWWFNQT
+	 V8lEfmC23ArMqRJbn8PyWJVwZOhPKQ5KlOZxSG8oroPQgToyMtcfOouRmdzn+kOfyG
+	 6d13msSioRUBSfqhJwzVyg3KhCn6UHoW47s3ZJp3U9oD+/oOD4KP9vnvtUe61q5sn+
+	 Z6nI+16ddLW5tfkrlrELqcOPIJ8MgVgbEqcp28I2/JP3Xmb6f3C3IJopD4OlrzoQ+A
+	 TuB9u/AEX8yqW78NWwpne5ECccEAN3s29CIYu3PUqjtXI2hI5jY3PLw+wEVPY9C+Ps
+	 SwzvFD1dN/nKg==
+Message-ID: <304b7bb1-d315-4147-820b-1ec0aa63e759@kernel.org>
+Date: Mon, 8 Jul 2024 09:33:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/47] dt-bindings: arm: qcom: Document QCS9100 SoC and
- RIDE board
-To: "Aiqun Yu (Maria)" <quic_aiquny@quicinc.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Tengfei Fan <quic_tengfan@quicinc.com>, andersson@kernel.org,
- konrad.dybcio@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, djakov@kernel.org, mturquette@baylibre.com,
- sboyd@kernel.org, jassisinghbrar@gmail.com, herbert@gondor.apana.org.au,
- davem@davemloft.net, manivannan.sadhasivam@linaro.org, will@kernel.org,
- joro@8bytes.org, conor@kernel.org, tglx@linutronix.de, amitk@kernel.org,
- thara.gopinath@gmail.com, linus.walleij@linaro.org, wim@linux-watchdog.org,
- linux@roeck-us.net, rafael@kernel.org, viresh.kumar@linaro.org,
- vkoul@kernel.org, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com
-Cc: robimarko@gmail.com, bartosz.golaszewski@linaro.org, kishon@kernel.org,
- quic_wcheng@quicinc.com, alim.akhtar@samsung.com, avri.altman@wdc.com,
- bvanassche@acm.org, agross@kernel.org, gregkh@linuxfoundation.org,
- quic_tdas@quicinc.com, robin.murphy@arm.com, daniel.lezcano@linaro.org,
- rui.zhang@intel.com, lukasz.luba@arm.com, quic_rjendra@quicinc.com,
- ulf.hansson@linaro.org, quic_sibis@quicinc.com, otto.pflueger@abscue.de,
- luca@z3ntu.xyz, neil.armstrong@linaro.org, abel.vesa@linaro.org,
- bhupesh.sharma@linaro.org, alexandre.torgue@foss.st.com,
- peppe.cavallaro@st.com, joabreu@synopsys.com, netdev@vger.kernel.org,
- lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
- ahalaney@redhat.com, u.kleine-koenig@pengutronix.de,
- dmitry.baryshkov@linaro.org, quic_cang@quicinc.com, danila@jiaxyga.com,
- quic_nitirawa@quicinc.com, mantas@8devices.com, athierry@redhat.com,
- quic_kbajaj@quicinc.com, quic_bjorande@quicinc.com,
- quic_msarkar@quicinc.com, quic_devipriy@quicinc.com, quic_tsoni@quicinc.com,
- quic_rgottimu@quicinc.com, quic_shashim@quicinc.com,
- quic_kaushalk@quicinc.com, quic_tingweiz@quicinc.com,
- srinivas.kandagatla@linaro.org, linux-arm-msm@vger.kernel.org,
+Subject: Re: [PATCH v2 1/3] dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml:
+ Add Sophgo SARADC binding documentation
+To: Miquel Raynal <miquel.raynal@bootlin.com>, Conor Dooley <conor@kernel.org>
+Cc: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-iio@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-scsi@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, kernel@quicinc.com
-References: <20240703025850.2172008-1-quic_tengfan@quicinc.com>
- <20240703025850.2172008-2-quic_tengfan@quicinc.com>
- <665f6c8c-4f43-4d20-90e9-9e037a942066@kernel.org>
- <fbeb5969-0b3a-455e-88eb-b83734bf2c50@quicinc.com>
- <97c9484b-e257-4163-a104-3457d59bc69b@kernel.org>
- <63eb3f58-d4a4-4a27-b78c-f4cb83e62c63@quicinc.com>
- <f8f3c4d4-bf24-4195-a7b0-eec95cd64b57@linaro.org>
- <c9822569-896c-4d5f-b917-2826bf414e67@quicinc.com>
+ linux-riscv@lists.infradead.org
+References: <20240705-sg2002-adc-v2-0-83428c20a9b2@bootlin.com>
+ <20240705-sg2002-adc-v2-1-83428c20a9b2@bootlin.com>
+ <20240705-unaired-pesticide-4135eaa04212@spud>
+ <6b5459fd-2873-4c26-b986-882413b8d95b@bootlin.com>
+ <20240706-remote-undergo-3b9dfe44d16f@spud> <20240708083011.058d0c57@xps-13>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -138,11 +109,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <c9822569-896c-4d5f-b917-2826bf414e67@quicinc.com>
+In-Reply-To: <20240708083011.058d0c57@xps-13>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_003145_437120_1B235280 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240708_003316_487862_AE6A93A6 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,51 +129,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/07/2024 09:13, Aiqun Yu (Maria) wrote:
+On 08/07/2024 08:30, Miquel Raynal wrote:
+> Hi Conor,
 > 
-> 
-> On 7/8/2024 2:07 PM, Krzysztof Kozlowski wrote:
->> On 08/07/2024 06:45, Aiqun Yu (Maria) wrote:
->>>
->>>
->>> On 7/3/2024 5:33 PM, Krzysztof Kozlowski wrote:
->>>> On 03/07/2024 11:21, Tengfei Fan wrote:
->>>>>>>         - items:
->>>>>>>             - enum:
->>>>>>> +              - qcom,qcs9100-ride
->>>>>>>                 - qcom,sa8775p-ride
->>>>>>> +          - const: qcom,qcs9100
->>>>>>
->>>>>> This changes existing compatible for sa8775p without any explanation in
->>>>>> commit msg.
->>>>>>
->>>>>> Best regards,
->>>>>> Krzysztof
->>>>>>
->>>>>
->>>>> In the next verion patch series, I will provide relevant explanatory 
->>>>> information in this patch commit message.
+>>>>> +properties:
+>>>>> +  compatible:
+>>>>> +    oneOf:
+>>>>> +      - items:
+>>>>> +          - enum:
+>>>>> +              - sophgo,cv1800b-saradc
+>>>>> +          - const: sophgo,cv18xx-saradc  
 >>>>
->>>> TBH, I cannot think of any reasonable explanation for this, especially
->>>> considering rest of the patchset which does not fix resulting dtbs_check
->>>> warning.
->>>
->>> The existing compatible "sa8775p" warning can only be addressed When
->>> @Nikunj's "sa8775p" changes merged.
->>>
->>> Let me know if you have other suggestions for this.
->>
->> I don't have, because I don't understand why do you want/need to change
->> existing board compatible.
+>>>> I don't think the fallback here makes sense. If there's other devices
+>>>> with a compatible programming model added later, we can fall back to the
+>>>> cv1800b.
 > 
-> We can left the current existing sa8775p board compatible as it is. And
-> have a brand new qcs9100 and qcs9100-board item for current non-scmi
-> resources compatible.
+> I'm sorry but isn't this slightly disagreeing with the "writing
+> bindings" doc pointed in v1? It says,
 > 
-> Will that be more reasonable from your end?
+> * DO use fallback compatibles when devices are the same as or a subset
+>   of prior implementations.
+> 
+> I believe we fall in the "devices are the same" category, so I would
+> have myself wrote a similar binding here with a compatible matching
+> them all, plus a hardware-implementation-specific compatible as well;
+> just in case.
 
-Yes, this is what I would expect. If you choose any other way - just
-like I wrote - you need to explain why you are doing this.
+Fallback from one model to another. There is no "another" model here,
+but wildcard. There is no such device as cv18xx, right?
 
 Best regards,
 Krzysztof
