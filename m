@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33411C3271E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 09:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B8BC3271E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jul 2024 09:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LOI4UmMPa3Xwc0r2v5nOZPoowcWGr63HOdGSE5UqYew=; b=ZNAiJCc9Di8UBM
-	mLkHsfC2nRVlbNLxDV9ks1TNZ+/U2bWt2Nw0CkLVaOK2MsbTHVobPabzoXAv0ZKF+KTAaKwG7HnYx
-	6Gpv6RbURqJzTMydR3hOp+f2Q2dsAHhyRUg+/6CWM/VBIRGe57x8dgWyDzItefkiIhp2e4+B6p5QK
-	i7UWCBo0u7EtIlCOxvzZvinkP9N9fu1HBeWDsiq0OZQv2YvUQH5TFDuXozUHkvQ3Ij0sMF4LNYcy4
-	GfqSdafXUHJ94FL3dAoFWI3VQP/hobnwSwD1ld+3v+NjKDUC8uLLqXfsr3JSCpAxUozJy/An66ISh
-	45nM8ZDGIPu0AHYR/3Pw==;
+	List-Owner; bh=ABQ/CAM8pbfbNpzk1SNn1ani3/ZXc36YTuwzAYq3KkQ=; b=m31yX7iUZn12Et
+	xFrmD+ISMUW06WpW/xrHgDiT0GpZ9+ReeAPd8K+Pfk0TtV14LZt1w/k9OBU1pY4hBQNbe7XfmiPUs
+	QTtJmwlplrL+pYL5mbDWW1qSi/ESxGaRxaONxUlbMCOf+bpoJ511FEK/33rzWrgJaB5EbxkW3qGgy
+	VF/mTiZvTf+oh+fhzbIjNXH6cNyseNAvymnsVcpCb3wW45ypcTHZtF/ggfDIfoFy3xC0YK0j0g3FX
+	CzwZAou9oIY7AjucXGCC/hdB218T5gM5oxYrmP2xdw7dcCVFvs0OFTMyZ4SlFyEG2Gn9o1HnGZmZq
+	kuWGnD2L+XqRefXsQXjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQkQd-00000003EhN-1RDf;
-	Mon, 08 Jul 2024 09:12:59 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1sQkVK-00000003FJr-1PL1;
+	Mon, 08 Jul 2024 09:17:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQkQa-00000003Eh0-2YFi
-	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jul 2024 09:12:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1720429977; x=1751965977;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=CAaJk++tecrLaptH+16hNaBiNTEIQYH3fzlW19fwgC8=;
-  b=HhhjHDwhanIM/ZBn5ioqv2C28DFo+wddg4yG1JRLUmvBUVuhxyWO+Gbx
-   bO8RN/poSBl7rBMwTVUooYN2Xg9XBxuU3oZiuDt8k+22mn+qpH1N2Uo3a
-   cOxELzChgI3/4YtKiaM5TgZaNs2j9VErEVoayNg0/BbZy4QeCWTvVJGzL
-   LvWc8xAQ1THl7M34xHXdmWlvv8PM76sxYnMGSx2k3LPI7ilRqJD6wIw0Z
-   UlHqaWZc1MbgYk6EbkkT0AQhW0fb9N4PNAqms+wGSF+KPk3S25ah/HU+W
-   9qQ5vvGUZECv9R3x1SdjFlAyk1kOaWpOp9iLr67tIRtae7bk9kvqDblVw
-   g==;
-X-CSE-ConnectionGUID: nh+YalO8RqaRALnP9MjL+A==
-X-CSE-MsgGUID: gT3Rv00mQuy+pc14567J/A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11126"; a="17436553"
-X-IronPort-AV: E=Sophos;i="6.09,191,1716274800"; 
-   d="scan'208";a="17436553"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2024 02:12:56 -0700
-X-CSE-ConnectionGUID: Bri5CEPIQAqx34xgx/2URQ==
-X-CSE-MsgGUID: WSwuHQr9TZyy0hw2Fm3MbA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.09,191,1716274800"; 
-   d="scan'208";a="47509006"
-Received: from ijarvine-desk1.ger.corp.intel.com (HELO localhost) ([10.245.247.115])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2024 02:12:51 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Mon, 8 Jul 2024 12:12:46 +0300 (EEST)
-To: daire.mcnamara@microchip.com
-cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-    conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com, 
-    robh@kernel.org, bhelgaas@google.com, LKML <linux-kernel@vger.kernel.org>, 
-    linux-riscv@lists.infradead.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Subject: Re: [PATCH v6 2/3] PCI: microchip: Fix inbound address translation
- tables
-In-Reply-To: <20240628115923.4133286-3-daire.mcnamara@microchip.com>
-Message-ID: <addb88b3-1318-d337-052e-088c832bc088@linux.intel.com>
-References: <20240628115923.4133286-1-daire.mcnamara@microchip.com> <20240628115923.4133286-3-daire.mcnamara@microchip.com>
+	id 1sQkV3-00000003FDf-3ssz;
+	Mon, 08 Jul 2024 09:17:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A665160B59;
+	Mon,  8 Jul 2024 09:17:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24D66C4AF0A;
+	Mon,  8 Jul 2024 09:17:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1720430252;
+	bh=fRzukiwiGXpfJgT9MIn/+BOBLSM4o3zDVVIuAEKJfMk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=SfncwpyqaAUcxk4HGvdMNaOlFxT3eL7rjEhJDUvNG62fa9KaXZR/Oz+v8yMCn3ta+
+	 /tccNzu3bQ8q8BfZ5+buUyzDUGywn+y/MY4doi6tGvKR8YdH0AkUVy7qj/f3dh1U8t
+	 3DmwyBV90mFNFHNrVkwT08fRI5lZYSocV/GxUbec27l1frJyIPaJ5MEo2xcS5A41wo
+	 OQcUVsetb6J2S4ud3iH8oqwrz1HWlD9qkxxYl7ODAK2zWmLEWuWboI9Eg77g85aBm0
+	 feGo25bpoB3Q4dHOJ/iwYN0eRuz5gReTmHsiTE3NUWs38X5woOobCbYbObh8AQ4sCW
+	 h2dVIyDDpLCwg==
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-58b0dddab8cso5373481a12.0;
+        Mon, 08 Jul 2024 02:17:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXUPQfJk6iyQCAJLn1VXB8hYRof0pmwuCWthqS1Z+yUXJHu0EP0ifCEXUXNWXATgLvZ3EhH3wN20QT1PC/BdvndrgpNpxhfTvVgvybI3buyAgon7mrALuDeTiEhypMPyP2zIKzNjE6+5OpP7ZzFa5sO76pWdMzGSpymBg9XgeJo2JFQmnKJ7Zc2hO9eJnaaJ8e8bL8YrZ990mE=
+X-Gm-Message-State: AOJu0YyNy/nQR//Va8Ri0sEgtiDVDnK5Jaj6qr1wV4mQH0B6y3vyolZt
+	dohrODXjtwHz6bB1n661H2gTW73jlEYRf9g4r54VlILR1Wukn86AhwGySmiQl5T60/eNoT1Hk77
+	SpTFLbGwVwGCthuCsFkMNgyUr7xw=
+X-Google-Smtp-Source: AGHT+IEItbzjZ1A8AjoY2UEBrBnwgSWQEm3t7mr2+tl/5g9pMSmICjy6tz2b5gKMEgXcn3oWVBAMV2zDOPQcnE6qDs4=
+X-Received: by 2002:a05:6402:50c7:b0:57c:47c3:dc62 with SMTP id
+ 4fb4d7f45d1cf-58e590724ecmr7993184a12.5.1720430250552; Mon, 08 Jul 2024
+ 02:17:30 -0700 (PDT)
 MIME-Version: 1.0
+References: <20240704143611.2979589-1-arnd@kernel.org> <20240704143611.2979589-3-arnd@kernel.org>
+In-Reply-To: <20240704143611.2979589-3-arnd@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 8 Jul 2024 17:17:17 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQ4oDh2yEFpTBRpXauVa1zZAZBMsVvwbx3OUZnKaCLH0w@mail.gmail.com>
+Message-ID: <CAJF2gTQ4oDh2yEFpTBRpXauVa1zZAZBMsVvwbx3OUZnKaCLH0w@mail.gmail.com>
+Subject: Re: [PATCH 02/17] csky: drop asm/gpio.h wrapper
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-arch@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nicolas Schier <nicolas@fjasle.eu>, Vineet Gupta <vgupta@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, 
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "David S. Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, Christian Brauner <brauner@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-openrisc@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_021256_719198_523D7D6D 
-X-CRM114-Status: GOOD (  31.53  )
+X-CRM114-CacheID: sfid-20240708_021734_083717_FD461A46 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,258 +90,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Jun 2024, daire.mcnamara@microchip.com wrote:
-
-> From: Daire McNamara <daire.mcnamara@microchip.com>
-> 
-> On Microchip PolarFire SoC the PCIe Root Port can be behind one of three
-> general purpose Fabric Interface Controller (FIC) buses that encapsulates
-> an AXI-S bus. Depending on which FIC(s) the Root Port is connected
-> through to CPU space, and what address translation is done by that FIC,
-> the Root Port driver's inbound address translation may vary.
-> 
-> For all current supported designs and all future expected designs,
-> inbound address translation done by a FIC on PolarFire SoC varies
-> depending on whether PolarFire SoC in operating in dma-coherent mode or
-> dma-noncoherent mode.
-
-Please improve the use of capital letters in general.
-
-DMA x2
-
-> 
-> The setup of the outbound address translation tables in the root port
-
-Root Port
-
-> driver only needs to handle these two cases.
-> 
-> Setup the inbound address translation tables to one of two address
-> translations, depending on whether the rootport is marked as dma-coherent or
-> dma-noncoherent.
-
-DMA x2
-
-> 
-> Fixes: 6f15a9c9f941 ("PCI: microchip: Add Microchip Polarfire PCIe controller driver")
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  drivers/pci/controller/pcie-microchip-host.c | 106 +++++++++++++++++--
->  1 file changed, 97 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-> index 47c397ae515a..27bfa3b7a187 100644
-> --- a/drivers/pci/controller/pcie-microchip-host.c
-> +++ b/drivers/pci/controller/pcie-microchip-host.c
-> @@ -7,16 +7,20 @@
->   * Author: Daire McNamara <daire.mcnamara@microchip.com>
->   */
->  
-> +#include <linux/align.h>
->  #include <linux/bitfield.h>
-> +#include <linux/bits.h>
->  #include <linux/clk.h>
->  #include <linux/irqchip/chained_irq.h>
->  #include <linux/irqdomain.h>
-> +#include <linux/log2.h>
->  #include <linux/module.h>
->  #include <linux/msi.h>
->  #include <linux/of_address.h>
->  #include <linux/of_pci.h>
->  #include <linux/pci-ecam.h>
->  #include <linux/platform_device.h>
-> +#include <linux/wordpart.h>
->  
->  #include "../pci.h"
->  
-> @@ -32,6 +36,9 @@
->  #define MC_PCIE_BRIDGE_ADDR			(MC_PCIE1_BRIDGE_ADDR)
->  #define MC_PCIE_CTRL_ADDR			(MC_PCIE1_CTRL_ADDR)
->  
-> +#define MC_MAX_NUM_INBOUND_WINDOWS		8
-> +#define MPFS_NC_BOUNCE_ADDR			0x80000000
-> +
->  /* PCIe Bridge Phy Regs */
->  #define PCIE_PCI_IRQ_DW0			0xa8
->  #define  MSIX_CAP_MASK				BIT(31)
-> @@ -99,14 +106,15 @@
->  
->  /* PCIe AXI slave table init defines */
->  #define ATR0_AXI4_SLV0_SRCADDR_PARAM		0x800u
-> -#define  ATR_SIZE_SHIFT				1
-> -#define  ATR_IMPL_ENABLE			1
-> +#define  ATR_SIZE_MASK				GENMASK(6, 1)
-> +#define  ATR_IMPL_ENABLE			BIT(0)
->  #define ATR0_AXI4_SLV0_SRC_ADDR			0x804u
->  #define ATR0_AXI4_SLV0_TRSL_ADDR_LSB		0x808u
->  #define ATR0_AXI4_SLV0_TRSL_ADDR_UDW		0x80cu
->  #define ATR0_AXI4_SLV0_TRSL_PARAM		0x810u
->  #define  PCIE_TX_RX_INTERFACE			0x00000000u
->  #define  PCIE_CONFIG_INTERFACE			0x00000001u
-> +#define  TRSL_ID_AXI4_MASTER_0			0x00000004u
->  
->  #define ATR_ENTRY_SIZE				32
->  
-> @@ -933,6 +941,86 @@ static int mc_pcie_init_irq_domains(struct mc_pcie *port)
->  	return mc_allocate_msi_domains(port);
->  }
->  
-> +static void mc_pcie_setup_inbound_atr(int window_index, u64 axi_addr, u64 pcie_addr, u64 size)
-> +{
-> +	void __iomem *bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-> +	u32 table_offset = window_index * ATR_ENTRY_SIZE;
-> +	void __iomem *table_addr = bridge_base_addr + table_offset;
-> +	u32 atr_sz;
-> +	u32 val;
-> +
-> +	atr_sz = ilog2(size) - 1;
-> +
-> +	val = ALIGN_DOWN(lower_32_bits(pcie_addr), SZ_4K);
-> +	val |= FIELD_PREP(ATR_SIZE_MASK, atr_sz);
-> +	val |= ATR_IMPL_ENABLE;
-> +
-> +	writel(val, table_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
-> +
-> +	writel(upper_32_bits(pcie_addr), table_addr + ATR0_PCIE_WIN0_SRC_ADDR);
-> +
-> +	writel(lower_32_bits(axi_addr), table_addr + ATR0_PCIE_WIN0_TRSL_ADDR_LSB);
-> +	writel(upper_32_bits(axi_addr), table_addr + ATR0_PCIE_WIN0_TRSL_ADDR_UDW);
-> +
-> +	writel(TRSL_ID_AXI4_MASTER_0, table_addr + ATR0_PCIE_WIN0_TRSL_PARAM);
-> +}
-> +
-> +static int mc_pcie_setup_inbound_ranges(struct platform_device *pdev, struct mc_pcie *port)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *dn = dev->of_node;
-> +	struct of_range_parser parser;
-> +	struct of_range range;
-> +	int atr_index = 0;
-> +
-> +	/*
-> +	 * MPFS PCIe root port is 32-bit only, behind a Fabric Interface
-> +	 * Controller FPGA logic block which contains the AXI-S interface.
-> +	 *
-> +	 * From the point of view of the PCIe root port, There are only
-
-, There -> , there
-
-Root Port
-
-> +	 * two supported Root Port configurations
-
-Terminate with either : or .
-
-> +	 *
-> +	 * Configuration 1: for use with fully coherent designs; supports a
-> +	 * window from 0x0 (CPU space) to specified PCIe space.
-> +	 *
-> +	 * Configuration 2: for use with non-coherent designs; supports two
-> +	 * 1 Gb wide windows to CPU space; one mapping cpu space 0 to pcie
-
-Gb means gigabits?? GB is for gigabytes.
-
-CPU
-PCIe
-
-> +	 * space 0x80000000 and mapping cpu space 0x40000000 to pcie
-
-Ditto.
-
-> +	 * space 0xc0000000. This cfg needs two windows because of how
-> +	 * the MSI space is allocated in the AXI-S range on MPFS.
-> +	 *
-> +	 * The FIC interface outside the PCIe block *must* complete the inbound
-> +	 * address translation as per MCHP MPFS FPGA design guidelines.
-> +	 */
-> +	if (device_property_read_bool(dev, "dma-noncoherent")) {
-> +		/*
-> +		 * Always need same two tables in this case.  Need two tables
-> +		 * due to hardware interactions between address and size.
-> +		 */
-> +		mc_pcie_setup_inbound_atr(0, 0, MPFS_NC_BOUNCE_ADDR, SZ_1G);
-> +		mc_pcie_setup_inbound_atr(1, SZ_1G, MPFS_NC_BOUNCE_ADDR + SZ_1G, SZ_1G);
-> +	} else {
-> +		/* Find any dma-ranges */
-
-DMA
-
-> +		if (of_pci_dma_range_parser_init(&parser, dn)) {
-> +			/* No dma-range property - setup default */
-
-DMA
-
-> +			mc_pcie_setup_inbound_atr(0, 0, 0, SZ_4G);
-> +			return 0;
-> +		}
-> +
-> +		for_each_of_range(&parser, &range) {
-> +			if (atr_index >= MC_MAX_NUM_INBOUND_WINDOWS) {
-> +				dev_err(dev, "too many inbound ranges; %d available tables\n",
-> +					MC_MAX_NUM_INBOUND_WINDOWS);
-> +				return -EINVAL;
-> +			}
-> +			mc_pcie_setup_inbound_atr(atr_index, 0, range.pci_addr, range.size);
-> +			atr_index++;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
->  				 phys_addr_t axi_addr, phys_addr_t pci_addr,
->  				 resource_size_t size)
-> @@ -948,8 +1036,9 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
->  	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->  	       ATR0_AXI4_SLV0_TRSL_PARAM);
->  
-> -	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
-> -			    ATR_IMPL_ENABLE;
-> +	val = ALIGN_DOWN(lower_32_bits(axi_addr), SZ_4K);
-> +	val |= FIELD_PREP(ATR_SIZE_MASK, atr_sz);
-> +	val |= ATR_IMPL_ENABLE;
->  	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->  	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
->  
-> @@ -964,11 +1053,6 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
->  	val = upper_32_bits(pci_addr);
->  	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->  	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
-> -
-> -	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
-> -	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
-> -	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
-> -	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
->  }
->  
->  static int mc_pcie_setup_windows(struct platform_device *pdev,
-> @@ -1131,6 +1215,10 @@ static int mc_platform_init(struct pci_config_window *cfg)
->  	if (ret)
->  		return ret;
->  
-> +	ret = mc_pcie_setup_inbound_ranges(pdev, port);
-> +	if (ret)
-> +		return ret;
-> +
->  	/* Address translation is up; safe to enable interrupts */
->  	ret = mc_init_interrupts(pdev, port);
->  	if (ret)
-> 
-
-The code change itself looks fine for the extent I understand it.
-
--- 
- i.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdWwgNCwgMjAyNCBhdCAxMDozNuKAr1BNIEFybmQgQmVyZ21hbm4gPGFybmRAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBGcm9tOiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgo+
+Cj4gVGhlIGFzbS9ncGlvLmggaGVhZGVyIGlzIGdvbmUgbm93IHRoYXQgYWxsIGFyY2hpdGVjdHVy
+ZXMganVzdCB1c2UKPiBncGlvbGliLCBhbmQgc28gdGhlIHJlZGlyZWN0IGlzIG5vIGxvbmdlciB2
+YWxpZC4KPgo+IFNpZ25lZC1vZmYtYnk6IEFybmQgQmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+Cj4g
+LS0tCj4gIGFyY2gvY3NreS9pbmNsdWRlL2FzbS9LYnVpbGQgfCAxIC0KPiAgMSBmaWxlIGNoYW5n
+ZWQsIDEgZGVsZXRpb24oLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL2Nza3kvaW5jbHVkZS9hc20v
+S2J1aWxkIGIvYXJjaC9jc2t5L2luY2x1ZGUvYXNtL0tidWlsZAo+IGluZGV4IDExMTdjMjhjYjdl
+OC4uMTNlYmM1ZTM0MzYwIDEwMDY0NAo+IC0tLSBhL2FyY2gvY3NreS9pbmNsdWRlL2FzbS9LYnVp
+bGQKPiArKysgYi9hcmNoL2Nza3kvaW5jbHVkZS9hc20vS2J1aWxkCj4gQEAgLTEsNyArMSw2IEBA
+Cj4gICMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPiAgZ2VuZXJpYy15ICs9IGFz
+bS1vZmZzZXRzLmgKPiAgZ2VuZXJpYy15ICs9IGV4dGFibGUuaAo+IC1nZW5lcmljLXkgKz0gZ3Bp
+by5oCj4gIGdlbmVyaWMteSArPSBrdm1fcGFyYS5oCj4gIGdlbmVyaWMteSArPSBtY3Nfc3Bpbmxv
+Y2suaAo+ICBnZW5lcmljLXkgKz0gcXJ3bG9jay5oCj4gLS0KPiAyLjM5LjIKPgpMR1RNIQpBY2tl
+ZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+CgotLSAKQmVzdCBSZWdhcmRzCiBHdW8g
+UmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
