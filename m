@@ -4,97 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F177C3DA41
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jul 2024 15:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01919C2BD09
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jul 2024 15:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PuRhjd+fRg7Ro/daF3n4mvYDg0Lxxqh0Hox1KanA41I=; b=I75ctP+u41vKKd
-	+mgO3WQcDg2PJpZpcoxxGcu9QFoV7mMP5dFAdZCv6ICURSMWeQa4H6K2dgnF9YDCp3Jt0bbb8D1pp
-	C7qnXxHWDLTSsyqjSAH8otWhaMqlTN57/CxPsuzRN52GvSbE1WdK2Ch7fiiis0ly0ATspF0l9mgPa
-	XyEyXE4+b91n7jp/0n2mo+guuTQPZ3XdvOUt+eQHbTPUNuklvVz4pNFIKet7N8LwtOfw3G6/AiPX6
-	Dfsg69WAyOOpkxPaPkLYkvX8R332PHWzxrDsyFP5myqmq95gzIcUyxa8dUrHjCOHSR5zHz8qFbPhI
-	qQFPmcDMmG2/QBZho6vw==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=O+IWxbdZuD6VdUY7potNOkYtuQCZLMc+f44TADGnzAI=; b=lEtM/9NoaR7u/Ry97C94u7em4F
+	y1UGubL+bNYpljVJf8Z+z1X0F0jd1HzXW9IXl+qsyu6MCkUk0h9OQAwuilpYwXAZIZqZVeqwT6hy3
+	MudwL0sPZ5Ss8KrwxjcDywqZwlxiy9xUnZBr2kcyLL7tCEt5bh7ziSmKAak3Qccc3pv7V/9WkkH8+
+	p45zlJW9mMxO8deeogvZMgwm8g0cN8d3pcNf6NBTCrSN+y38H5sjvo8kaEStIsRqQcWurUoED8WF6
+	kbMuL+HxICSh+s6ziS85pTLUVfni71tDXXBS273CJPrxztHaAXAP+6LH69KoERelk2+RR/sJumrIT
+	jrBrK2gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRCPT-00000007fis-2eXm;
-	Tue, 09 Jul 2024 15:05:39 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1sRCnN-00000007kWb-3mFf;
+	Tue, 09 Jul 2024 15:30:21 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRCPR-00000007fiJ-3MzQ
+	id 1sRCnM-00000007kVp-1WJ9
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 09 Jul 2024 15:30:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	Date:Sender:Reply-To:Content-ID:Content-Description;
+	bh=YDLxvM+YkWJ7to/f5LmajBldsa+Th5+t3RT63Dj8HL8=; b=UUf0guV61p95yZ/Lk/F2olJ0HE
+	HGO3ssuo8n1KWxdQPqhfdkLlldKansM/F4rrKTocNTBArV8cFPR0PSiYlqZnTBXT4gI1JwTONWGd7
+	gtXCr7CCTcM4nrOCJ/jv7iTL5taOixRLSwvqiS2iYvLosculrHDsN5jt0OwCrhW7L9LG+mxsIpwqK
+	hukNNO/chGebS3j3b7mZs437HE14BaNuSrrJsbMuO/FEj9spTOrO57xo+wosAK4CrmvgQ8/mpwrGw
+	VBHjtf+bxt3imqNalFL42LcxQV57cWe4q06pyI1ZaIabgsDI8yvPRlw8vBYh3vhtNlwJpecEyrUKj
+	GO6LGe4w==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sRCnI-000000081BE-3ZyI
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jul 2024 15:05:39 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 469Bk8sN005080;
-	Tue, 9 Jul 2024 15:05:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	V/SAfd1LwJ9PzmDluPlX5KX7UfHQx2JxVE4o3Ws1Vnc=; b=EIfVYaPpRWi39smp
-	8YMpUU7mUmgdWyJEbyHek+oW7FCJXMIgAHXjDfZXR1QZoLJVOKDvGkovTKGaF+8A
-	9Q1VwXzpfUs65uNsYlr11xYe0GDrd2LIGiLsyiDYEWnINqdHQNuTtPz4QypQWHj+
-	FWnmpqorQ7zz7351b0tL1t9/MavGjz2m0F0Ko37b2ByewnyAvOxGyO9DYj8BElMW
-	gH0u6A5VEtdNGzAATb5dzXvGM9BVZ0Zhgb9MST81U4g5IMgedfVz4SLZ+Nd/JpT1
-	pQSi8CGndAw7Kj5VLc4D8YJlT/LSnkiy5Z3633+WS9Z23RwgR1HSmzyqM5axmvnY
-	07P/Aw==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 408w0r9n5a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Jul 2024 15:05:34 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.17.1.19/8.17.1.19) with ESMTPS id 469F5CZT030170
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 9 Jul 2024 15:05:12 GMT
-Received: from tengfan-gv.ap.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 9 Jul 2024 08:05:06 -0700
-From: Tengfei Fan <quic_tengfan@quicinc.com>
-Date: Tue, 9 Jul 2024 23:04:45 +0800
-Subject: [PATCH v2 2/2] soc: qcom: llcc: Add llcc configuration support for
- the QCS9100 platform
+	Tue, 09 Jul 2024 15:30:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7087F61464;
+	Tue,  9 Jul 2024 15:30:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE69AC3277B;
+	Tue,  9 Jul 2024 15:30:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1720539011;
+	bh=+ZQqls9Ki3eLB72qUlI4VM01dYMXVStw5ak0Hd2lE+M=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=i7AFXYQguJeWjmOqz9Ncvilo/H7LDSdis3d86F0w4rZI+EeJPxk4CNR2fPFxI6DQt
+	 E6TVsVGY+Jg0ZbgkUWIxisxs3vxApiAKTu8tBZyJ4HQ1U57IkfHImWKsHkwPyIHnxY
+	 4eK4M0qupkxLG9e6jP1KoXwb9ezFoxNwj5aElhzELn4YN/Hc0bo++eKPg2XmNeL4dK
+	 DpU8XcM1iwRXblkDKcy5YP1EVgh0J/76imAX3vRGhpxGtHY7qdGHpuEGFna+Scve5D
+	 9p1B/fGT/cditH56ZHavrfxnyVKqLCGa9O0ZM/2GOog1lft1YcsR07sBeFL3Ljr6h0
+	 WtZwQD/ZPxy2g==
+Date: Tue, 09 Jul 2024 09:30:09 -0600
 MIME-Version: 1.0
-Message-ID: <20240709-add_qcs9100_llcc_compatible-v2-2-99d203616eed@quicinc.com>
-References: <20240709-add_qcs9100_llcc_compatible-v2-0-99d203616eed@quicinc.com>
-In-Reply-To: <20240709-add_qcs9100_llcc_compatible-v2-0-99d203616eed@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio
-	<konrad.dybcio@linaro.org>,
-        Conor Dooley <conor@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: <kernel@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
-        <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Tengfei Fan <quic_tengfan@quicinc.com>
-X-Mailer: b4 0.15-dev-a66ce
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1720537501; l=1101;
- i=quic_tengfan@quicinc.com; s=20240709; h=from:subject:message-id;
- bh=F7sxwx+VbFdafr+eirCkMpLzGIBjUnNrqnnfwl+MUlw=;
- b=VbOMk71zWa4A5dy0gP0+xr6jl/YL8QQJyZWia12JWKItAeISKmWoC8izC7GVWc0U2P8Mo8QKx
- 0tHocRZyUYYC7bWz/8W6XSJpVLMhmrgZOfc9CRnxXAWDxbxEH1k5/Mz
-X-Developer-Key: i=quic_tengfan@quicinc.com; a=ed25519;
- pk=4VjoTogHXJhZUM9XlxbCAcZ4zmrLeuep4dfOeKqQD0c=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 1ZDeGA46qikxSDNWBcJ6RW_TcFCdQRSA
-X-Proofpoint-GUID: 1ZDeGA46qikxSDNWBcJ6RW_TcFCdQRSA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16
- definitions=2024-07-09_04,2024-07-09_01,2024-05-17_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 adultscore=0
- impostorscore=0 lowpriorityscore=0 malwarescore=0 mlxlogscore=999
- phishscore=0 spamscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2406140001 definitions=main-2407090099
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Cc: Inochi Amaoto <inochiama@outlook.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>, 
+ Chao Wei <chao.wei@sophgo.com>, Conor Dooley <conor.dooley@microchip.com>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Chen Wang <unicorn_wang@outlook.com>, 
+ Samuel Holland <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+ =?utf-8?q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+In-Reply-To: <20240709-sg2002-v3-0-af779c3d139d@bootlin.com>
+References: <20240709-sg2002-v3-0-af779c3d139d@bootlin.com>
+Message-Id: <172053886159.3452537.17376675816752046144.robh@kernel.org>
+Subject: Re: [PATCH v3 0/5] Add board support for Sipeed LicheeRV Nano
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240709_080538_013969_0DD4C090 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20240709_163017_126469_B11F33DF 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,33 +97,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add llcc configuration support for the QCS9100 platform.
-QCS9100 is drived from SA8775p. Currently, both the QCS9100 and SA8775p
-platform use non-SCMI resource. In the future, the SA8775p platform will
-move to use SCMI resources and it will have new sa8775p-related device
-tree. Consequently, introduce "qcom,qcs9100-llcc" to the LLCC device
-match table.
 
-Signed-off-by: Tengfei Fan <quic_tengfan@quicinc.com>
----
- drivers/soc/qcom/llcc-qcom.c | 1 +
- 1 file changed, 1 insertion(+)
+On Tue, 09 Jul 2024 12:07:15 +0200, Thomas Bonnefille wrote:
+> The LicheeRV Nano is a RISC-V SBC based on the Sophgo SG2002 chip. Adds
+> minimal device tree files for this board to make it boot to a basic
+> shell.
+> 
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+> Changes in v3:
+> - Remove /dts-v1/ directive from sg2002.dtsi file
+> - Add disable-wp property to sdhci node to avoid having a write
+>   protected SD card
+> - Drop changes in cv18xx.dtsi and cv1800b.dtsi
+> - Add fallback compatible to cv1800b in SDHCI node of sg2002.dtsi
+> - Link to v2: https://lore.kernel.org/r/20240612-sg2002-v2-0-19a585af6846@bootlin.com
+> 
+> Changes in v2:
+> - Add SDHCI support
+> - Change device tree name to match the Makefile
+> - Add oscillator frequency
+> - Add aliases to other UARTs
+> - Add aliases to GPIOs
+> - Move compatible for SDHCI from common DT to specific DT
+> - Link to v1: https://lore.kernel.org/r/20240527-sg2002-v1-0-1b6cb38ce8f4@bootlin.com
+> 
+> ---
+> Thomas Bonnefille (5):
+>       dt-bindings: interrupt-controller: Add SOPHGO SG2002 plic
+>       dt-bindings: timer: Add SOPHGO SG2002 clint
+>       dt-bindings: riscv: Add Sipeed LicheeRV Nano board compatibles
+>       riscv: dts: sophgo: Add initial SG2002 SoC device tree
+>       riscv: dts: sophgo: Add LicheeRV Nano board device tree
+> 
+>  .../interrupt-controller/sifive,plic-1.0.0.yaml    |  1 +
+>  .../devicetree/bindings/riscv/sophgo.yaml          |  5 ++
+>  .../devicetree/bindings/timer/sifive,clint.yaml    |  1 +
+>  arch/riscv/boot/dts/sophgo/Makefile                |  1 +
+>  .../boot/dts/sophgo/sg2002-licheerv-nano-b.dts     | 54 ++++++++++++++++++++++
+>  arch/riscv/boot/dts/sophgo/sg2002.dtsi             | 32 +++++++++++++
+>  6 files changed, 94 insertions(+)
+> ---
+> base-commit: d20f6b3d747c36889b7ce75ee369182af3decb6b
+> change-id: 20240515-sg2002-93dce1d263be
+> 
+> Best regards,
+> --
+> Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> 
+> 
+> 
 
-diff --git a/drivers/soc/qcom/llcc-qcom.c b/drivers/soc/qcom/llcc-qcom.c
-index 110b1f89aa59..5a0840df4ba8 100644
---- a/drivers/soc/qcom/llcc-qcom.c
-+++ b/drivers/soc/qcom/llcc-qcom.c
-@@ -1379,6 +1379,7 @@ static int qcom_llcc_probe(struct platform_device *pdev)
- }
- 
- static const struct of_device_id qcom_llcc_of_match[] = {
-+	{ .compatible = "qcom,qcs9100-llcc", .data = &sa8775p_cfgs },
- 	{ .compatible = "qcom,qdu1000-llcc", .data = &qdu1000_cfgs},
- 	{ .compatible = "qcom,sa8775p-llcc", .data = &sa8775p_cfgs },
- 	{ .compatible = "qcom,sc7180-llcc", .data = &sc7180_cfgs },
 
--- 
-2.25.1
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y sophgo/sg2002-licheerv-nano-b.dtb' for 20240709-sg2002-v3-0-af779c3d139d@bootlin.com:
+
+arch/riscv/boot/dts/sophgo/sg2002-licheerv-nano-b.dtb: mmc@4310000: compatible: ['sophgo,sg2002-dwcmshc', 'sophgo,cv1800b-dwcmshc'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/snps,dwcmshc-sdhci.yaml#
+arch/riscv/boot/dts/sophgo/sg2002-licheerv-nano-b.dtb: mmc@4310000: Unevaluated properties are not allowed ('compatible' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mmc/snps,dwcmshc-sdhci.yaml#
+
+
+
+
 
 
 _______________________________________________
