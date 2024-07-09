@@ -4,122 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E5DC3DA45
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jul 2024 02:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 581D3C3DA45
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jul 2024 02:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vtv11Dm3fh9VcQwvOz0mc1Wl0RgPmIID0wEh9jpCD7c=; b=MVJaFr/6PV9cM8
-	bRbFg7DKKxYIJZ7HAdfi7DjbQcdMsm/usGNnAm8Dm1EBO0oZSHdBUUMy6cAI+I//gtpPHzQ5qM+e2
-	SKBR/KwbQ5lQupJzBwBAwOAI1w9JFdvWyM6oVJq53NHxrJEaJuZurkQoaanZ0c3t/CJ8Ti8Ld1sw0
-	50pQhzdwOl1G1MBUoi7BZJEwMwIDoVRrC16G3anfpfwZxeQD+jnUdh6hGuk2PUDMlWFAKI0xYJAKo
-	7iaVKJiggSHpmT+drPwQsF5+YevnujEY5T393aofF69rOADPswnUHIGSAbnrrL/uAzmaaoJ8cOIfE
-	maEUJemMB5buGi3cNpcw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YIOJBw/rm22/s69bTzrzAS323CW5GnZKbfKWz00CIB0=; b=ipkE8PmONfGwUEXgRBj4fzUOT5
+	P263RUUPJ5Yq+cZjM6HnMBKYoRph9Fh6zKTjIAMMlk7ZnYiuXJ/VrM4l4Ww2bxkSY6vw1wTfXlp4l
+	UNLK2tTcsEYa6Gcj9uKs6Y+JPv3S9t5nUuIsdi1NOwDKaj4yCgQ4bWSS7fVES+V+Dj+s8JCMjbmsT
+	TOYOZoKrgM23vJ0GDMJPtl01acsLwfz1MtfYdrqqiCM7scioMXlnWK4rWge+hBEdnGhP2P1/ptsyh
+	iHlyzRlMoUvU5JWHFVf3cPZfT5ZGiroB5aBJ7vfCPg8tSbhx/1xUUaL0XsWmSfF+3adDArJpYTpgs
+	+RuxdtrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sR0DX-00000005bBc-0sL5;
-	Tue, 09 Jul 2024 02:04:31 +0000
-Received: from mail-mw2nam12olkn20820.outbound.protection.outlook.com ([2a01:111:f403:2805::820] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1sR0JO-00000005bo5-1tpQ;
+	Tue, 09 Jul 2024 02:10:34 +0000
+Received: from mail-maxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281b::801] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sR0DL-00000005b7c-0R8F
+	id 1sR0JL-00000005bn8-1k9M
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jul 2024 02:04:29 +0000
+	Tue, 09 Jul 2024 02:10:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=S9aHuVP9kcjrkayGsn5Y3vsq91sKcpu6c9TDc0IiDSoXW6+LDVt/MlxjYjmCKCxVksh1zSYeQJvLCqkjEAybEdyFpKmGttz0X2cydilzDPC2I+qjFBiUWQsUe8FVoWePwchgiDeboGVxVY2BQ05pb2NfzZEBa36HoW2Bv6IbJER9UUvA6OzyC3nPnnby61PlUzkDIDevTq/JAYN+Gnb4c0jNRjmPb07aqhQmkpYR2gSVt3QAZ+avh3o7TKLqUX32gmSnTbwlVW8lkVfsCkRuWs1PwXOJvNr5VavbkbXPuXDEOASsaMqaf30MwSQioBRC4ANgM092PCA80sW6iJaGiA==
+ b=BwSGdkr761r2FFiuY0WZ3AXB7SLs0PeM/Z3o9adfzvad2puRTuCzcDC17Tij85OLkwDZAX04kgTcDAi+/t7gyrj9GvaQDLT6Q6qxgTnWLq9Y5ldgtBalC21/ezDakMZmGropZBzlq8+vh0cFQvuFukvAi8Cr4Oih4dSg2b9dU0CiyahW/M0JApRwA75QOM9g31iMm6l43DTXQiyMpUDp2w1xACGH0gn8aGdP1L12xpN4f2eS3lfmY9l/M3AqcL3wbRftCsReEIVOBYOQkWxVx5iN4eKSkTG1NQ4HlHpja7lX4w1S2goMhdLu5rB2rdrRuvoqev7OgPx71wlcYqU3Kw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NnOPAnhDTOE+coMH2dRD1Dc4s5g0uuYjrHBKhEgyosw=;
- b=FHv9MXz1IzkuGHr5gT8AU3MT/IPDbhmOgu7vq9OFAStL92yQ1lLPzXSMRsd84IffA57GGiU6yK7PLZtb2U4O+YxRwLzkZo+ciVBJNHZwJj+enXl4ieyKrIaCEUGso+x6DSzO3Yy/6Em+8xcB2ez2TT3WV7wIQuB2INLPcLHtEtgRFVY9RyjmRZY/+haoeOvQkNwV6fQZyvilveThzUnqvtZdFQtih6ovga+JvbKTe0zpGPC1T8WeACfauzpMYeACNmCs3ipjPI1calHCcbdX2m4c31MPOA7TN49GGo0OCDZd1po4c7jARZpIg/DMlRgpCHTmMt77rawt22RhHy74Rw==
+ bh=5jSUFOy5gntemettzw+w6U96soX7OTyjJRTws4IYIW0=;
+ b=obN79v2HvbFm0++VGV1jGugc1XCuV7qXaAYoHgI751COhYuusNrTbOro58yVQ/S8rtQ/zMtVeKVPEUTv1Gvh9rDJrVmOvK5DLrUaJWhpsIVCc2ZMG5EkPn4sabhiM2vy77+JjGi5g+h3MDcKydk88p5InDZZF+kCKwiQHTpjIwhz7qxpodjSOgfT1OwM6z5CeoUOVi6PsKDFy7y1WDm9bLz/ppHYeEJuoCO2Zd0xk40gfOMJmg4o3pq4hBVH97M418QNqJ2BIQ5blK8a+0hwDPqYGWH7P+4Rm9RtAQaMGAgzSby0C5oY7ln+UuNWGCWsyeQOwQ09BidBUOacN+rbvw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NnOPAnhDTOE+coMH2dRD1Dc4s5g0uuYjrHBKhEgyosw=;
- b=ELrnBWG0tMErPQDffabDhm+t4OHZiipMeHhyalfKEsTQDwgz2iBI9Vx8gRUjGhOB1bZvDzbwi2OL3Yy/0EyYohIFIXLlXkcsAMW65AYvA+xIj4voJnvLgVey8pCrvfvzub0xB09qVdxZNhH/ueo7Q4CjO6BHJWpVcOzUBq12A2w0z9ZyYAy82qGU8h3lEF6cy7vljGjWexUK+oJGIZUI6oFi5/wJBmPJ22bab4FZClg3qwJ32310ILjTSs8qStXwcDjyO8WkQ3soFzrltAjueOMPBLG/qhc17FiGNEwZOMf7nUIX/+m/UDzotd++EM2NX6Nw1LNAAqzi3mTHvC2G0A==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by CH0PR20MB6708.namprd20.prod.outlook.com (2603:10b6:610:18f::8) with
+ bh=5jSUFOy5gntemettzw+w6U96soX7OTyjJRTws4IYIW0=;
+ b=uphFvTIzs79vtxROLST6SM565GdMGS3LmglEezsZH1bprpoIIHe02afPrk3AAGF3WF21BbpnOs1wDMfc40mIwqhJgMXV0NNhFvM2oFSyu6zgYp8ZtijDgK4DkNs1bums+jYc1KawtjMCJbDNYWSJX3M5p0+5InecVcC5X83dK0p+qe6xXOK9t5iasBwWbMKWZ1W6aD+gvh55/xGDNeNN3V2y14jm7GkaoF2JDNdaFI1Geo68DlTun/e2iybBJ17OecjPAmIFdtF6RVVc4tiYMQcvArP8wHSI3dwT7i6CjhW3E5sbTNHZMXurUtJUtyMwguXhp+LK/+6CgqEMIRFgEA==
+Received: from PN1P287MB2818.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:214::7)
+ by PN0P287MB1971.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1bb::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7741.36; Tue, 9 Jul
- 2024 02:03:56 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::ab0b:c0d3:1f91:d149%6]) with mapi id 15.20.7741.033; Tue, 9 Jul 2024
- 02:03:56 +0000
-Date: Tue, 9 Jul 2024 10:03:18 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Guenter Roeck <linux@roeck-us.net>, 
-	Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicorn_wang@outlook.com>, 
-	Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v6 2/2] drivers: hwmon: sophgo: Add SG2042 external
- hardware monitor support
-Message-ID: <IA1PR20MB4953092189839BB66599E3EFBBDB2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953967EA6AF3A6EFAE6AB10BBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953EC4C486B8D4B186BB848BBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <MA0P287MB2822935DEA9EE418F3411CFAFEDA2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
- <IA1PR20MB4953230DCEDD7DF01134A8A9BBDA2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <MA0P287MB2822676C9CF9443B9A3CB657FEDA2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
- <IA1PR20MB495309AA07F1B77D4DA1EF6BBBDA2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <b12fc4a5-1b12-4d59-bf21-edd583a81b4d@roeck-us.net>
-Content-Disposition: inline
-In-Reply-To: <b12fc4a5-1b12-4d59-bf21-edd583a81b4d@roeck-us.net>
-X-TMN: [qXW+/GPufBYUGm8nu28gQnAc8zygkLKtS4TQcoXNujM=]
-X-ClientProxiedBy: PU1PR04CA0016.apcprd04.prod.outlook.com
- (2603:1096:803:29::28) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <qzo4efgcxs3okmo42zbqldfvku2bei7etul3dqwdvl72fbi6qr@bxa3ex4nqtyb>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7741.35; Tue, 9 Jul
+ 2024 02:10:13 +0000
+Received: from PN1P287MB2818.INDP287.PROD.OUTLOOK.COM
+ ([fe80::5a8a:9e40:a4e8:3e2d]) by PN1P287MB2818.INDP287.PROD.OUTLOOK.COM
+ ([fe80::5a8a:9e40:a4e8:3e2d%4]) with mapi id 15.20.7741.033; Tue, 9 Jul 2024
+ 02:10:13 +0000
+Message-ID: <PN1P287MB2818CC5CE8A26FEB1CE8E7F3FEDB2@PN1P287MB2818.INDP287.PROD.OUTLOOK.COM>
+Date: Tue, 9 Jul 2024 10:10:04 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/3] Add SARADC support on Sophgo SoC
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20240705-sg2002-adc-v2-0-83428c20a9b2@bootlin.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20240705-sg2002-adc-v2-0-83428c20a9b2@bootlin.com>
+X-TMN: [amChUlooZz09YflTWRNrhGx3U/q8mCAa]
+X-ClientProxiedBy: TY2PR02CA0045.apcprd02.prod.outlook.com
+ (2603:1096:404:a6::33) To PN1P287MB2818.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:214::7)
+X-Microsoft-Original-Message-ID: <2eeeb22a-500c-46b3-9730-dae0a469182d@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CH0PR20MB6708:EE_
-X-MS-Office365-Filtering-Correlation-Id: 253ed462-2358-42b7-0429-08dc9fbb63c4
-X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|19110799003|461199028|3412199025|440099028|1710799026;
-X-Microsoft-Antispam-Message-Info: eJ0w805/z/FhvaZ/YWNyB8mAXSmsHD90T/iuPXJs1JNzHNZXtk5Q8ATO7Ui1oNHFjXgzUpmnhz7WK8wpZyUmlMyHQPlE3AuU6ovMxMDEz16GFfBErknHvYYdQSmAgp115DDUrJEKypd/kdc6dwynL50vrdHNX05KhZoSO4qeSQ5Ii0RE/QekYlivOatoU2JzdXF6zUTyjAwM34dXdRjGw797ZtAb5Wj2J6FHH0wWbhPnKnaiEKpJB8sLeVcwC9RhA9UZF0pmvXlGZOVVw+9CTdv3mL8hXmSOWavARVUygC+NaGZWYtSGnisJHHKLR9CtrzaGycoeEdY/mmjPS03xgm7aWMNh+wi6hMOSppwZ5lTeCLVUxYBdCsh+/L9e2ii+Ir9XtXY3O8Sr55vL5qV9/YjmLFVvfV9k7uxtlGfUj5HTjfzGdyA4Vc4w3RXTNYVtusvcjq1ljKCre+44SFejeun8CZpChBs6YThzNwNEJBel4PBmIKk5aYKctrh8RpdIugQhGIOdW6WDOoR3abuiDjen6YfmnkWcWR00xV1DEmRw4prw7TzUek8Gv0EDKf48c0kgtGtdjEnyEeBZzTO/7vzhG0rQL8FBWOGQLzUdNESQbQkPxtJ5Fqtw8Fda6vgmuXqweiZLHc379N0O5XFoJa+j/USN0BYb87Lbum9PWIw=
+X-MS-TrafficTypeDiagnostic: PN1P287MB2818:EE_|PN0P287MB1971:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4d148850-a7ce-4eb4-e73c-08dc9fbc4432
+X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|461199028|19110799003|4302099013|440099028|3412199025|56899033|1602099012;
+X-Microsoft-Antispam-Message-Info: u+8HLC9gBNVvYry6JYWGXFVKWKFhvatwjhkDSSY8VOm9mpffJ/un6Rw9znNDgwbtw9Rb5VZgZUYxpu3HCkABqJbiBOdv6bvwuqSrv1ysSPWHDu+4ENAJOQVNVbntmpNG3P9riQRcoXlBqzFj40u6OFq9/imh+pTvTeAcHpUWXpjyarOK9Ofzuqhh4CuLSh1eqmI3lTNJXvjuM/GFV/2lEydvM0gDba9oYbZv4Hi4g1HNXu+M2fdPSxZ9N9Cu5o0pwGtHtFe+jARgllLY54ecy+XXhL0chv6glJOIbV0WACqhTZvLAyvIw6/mMQatXnMZXIdPpLXrCt3ygUynk1NOp6V39+tkwG/+sNy3/pT5LkwLxtM3KYdfRyqbp8Vt2u8ZIn3WZCLZAtZBLOdfdHRyKX5lpmTKHSDL2LGiNZTwZo9ED91uEBpFTI2WhMGFEKdm0Ld4gKwVw21orvMdU4qZ/+b9fDSCm2WjrczVDUk+bJAJO1gHJ2uTqSztta1AmrFK1fn0Wra7lBJWQFkDqszdMFicXKz+D/KL+VKwfwmOGMUXad146zNUITkQ3yo6xOJxJe5q5c7/5r7GB+FTRmP0p5SBTzuDEwGGhcsyX67rCmNZoOo60nekAq0Ctywb3PIgv25uqAqBJxnz0ckJYvs5Pv44Pr6BR9ljVKl9yUOuhdtKNfxJIPiwL27SvCsAubYDtt0LuZJ2qYETXTyoeysKQwi1/C6AjDGWEDDdg0CbBdhxiLi1lH8AW91VPtdOk9yOLGEto4FJW/edQX7ZuqwJ8Q==
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/0G2oeMhSauLOfxmzel2JBO/L/XYyzJANUOqX2kx/GKSKyj5IyPCgjl5Ssug?=
- =?us-ascii?Q?hMsMEaAxFKF+YttSUV4Z5gqJSg5BOH7h19TIVr6J0N1rsVZlsq/qGgqtq6Yq?=
- =?us-ascii?Q?VPxkk6M8F/kcz/J4zmwpSa93jb99tALOVsLcT53qiTpdJ095R0XztmcqxhKe?=
- =?us-ascii?Q?fN19sZFcWm1Hwau6MhTBzA9rNgAGQQ683b3NGQSPWOCPfj5PJkpiTrLLbYrr?=
- =?us-ascii?Q?7z7KkT5Ym8BZ6qQ2CVmIvUY+q2JOZvHFfSBjAZ3A4CvCxB6ZpSjRUZnDlxTu?=
- =?us-ascii?Q?3fsqBJitg+8W39MVqqNm7wEyMEjY86PZP2x24UIVXTxqzVFgH7FXcAbulLlf?=
- =?us-ascii?Q?JCQzDSLOKizvb8Q/Vd7EJuiDsTUNPaFeztPJkkcGO9J30TjhEzNnXIl+PKg+?=
- =?us-ascii?Q?CpDOcqIaTmfwLFTs8mlggWoDqVlKbz4Ewe31a+3ruDlDI0wmAAF/p8GPRE2D?=
- =?us-ascii?Q?rnKljIGl65Y02FvhtOkipuj/1uKVKdQhiTpUMeQfcAeMNgtW8mo8JrO34j4O?=
- =?us-ascii?Q?zPrSiF62ESvA+Iz6lYrgLkgb+f2fWVhyNUHVVBHV42LuaNKIgZbQWAWIrKWJ?=
- =?us-ascii?Q?qTmdh+H7SiNhbYEldd8oZtBsSy7EU0+QpuwvgsQAkiSEfydXqhUKqhtQHoNh?=
- =?us-ascii?Q?gHioMS4aDIbSBQXifJF1BIkMAUxSNKBm13qKhDf/4kxoJCK5rswe9htFrAVu?=
- =?us-ascii?Q?xK65QPGg+Q84iDWB5XTlDX3X0Xo03DqvF4FibGXYyk7LiJ8W13zWaLMwJ53t?=
- =?us-ascii?Q?JLxo7SLsGEWUPSWNT4CbX5CEmM0wVD4/UgvC0J1k2Y/MlP4C7CdGDKXni9Py?=
- =?us-ascii?Q?Al/LMxTgMAp15ojBufL9QfIKE5Hm/AyS4xhs5gxEq94OSXfIG20celeI4MJ4?=
- =?us-ascii?Q?byQ+bhuJGyJmWPTnfaHxMby/M8B34Vm5eZE1pBjE2B83rHfppIvx0Yb6GmaZ?=
- =?us-ascii?Q?onSGe8bM8mx7T+ZeGjLiu1L3p8rzc2OV2h7vc2C0JmBK5nhdng5MIXNljy7t?=
- =?us-ascii?Q?SZuKDT4IspRxNObDEGcKeiZ07hVyD2YrVDcZ1JnrZFuANIZjq++2R6G9i/OP?=
- =?us-ascii?Q?heb8eeEVnm2nJHnqaAlfWKcV6sX2XvZ9ZldHu0kT7aCN5znH7ZWdP7vp/pAf?=
- =?us-ascii?Q?KH4P3d91tO8iXBz0mZXsPDqSyMUHnMgxZ7J14ehZCdqXru9v7VVCexPkR1hx?=
- =?us-ascii?Q?LMeqUT7YkqKB/nbyPQqDAxDde4LbJBgePw/CApgCQQQiluyfOtnaK73JvySh?=
- =?us-ascii?Q?POoGsfHly/tqqC2mAzi3?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZTR4OVFPWHlUZlhMVFk2QkxGd1U4S01JaTRMT0duWlVwbng0VDNVczl2ZWtH?=
+ =?utf-8?B?YmJlci93Z3ZrNDdOUWZxdVI1VWFkbmVORjhWTGJmVmdRSy81VFNOdzFMZndB?=
+ =?utf-8?B?ODNYSm1vdHg1ay9pdGFrQTJoYUFYS2tlWkZBcHdzUWNNSW5xRGtVdU9WWmhm?=
+ =?utf-8?B?c2hkQlRycVoxYUVHYnhvWEdJaGdKY0RTVUxwcHFlY2tIQStwZjIxbks0MThx?=
+ =?utf-8?B?cXFFa3VsZUt3ak1nM3VCNCtWdE5mbW1ueXcxWjI0Vzk0Rm4wRWpJbXdXWGZC?=
+ =?utf-8?B?TmhIdFBEUFo2L2RKVk9CQzI0bTBkUERvUml3TmFXcXRuQ1ZrdjZhRWJjMisy?=
+ =?utf-8?B?ckQ1VU5lME1qdnluYzJqUnVuYWRrVWpnWGM4ZjFwSzZHditJUldPeXJmWVE3?=
+ =?utf-8?B?Nkx1NHVpYTZueXM5elMrdERuY21qTEFtMDB1MmJmYUpPb2Z0eGg5Tm04bXcw?=
+ =?utf-8?B?MXRrR1NoeTJiN2lPcFdTbWVuQkFQRWFWKzYwMGFXR3pEMHA4SHZSdFZRK0Ey?=
+ =?utf-8?B?cFU3dUlPdHYwUE5iRTQxOXhWdWxOeWhtMG9jbmJGTjhVNExScVkrYWpHSG9u?=
+ =?utf-8?B?a2pkMVZnSzJReUNGRUJ0ZTljdHRtd3psOFBWdzlSbC9YM1JQR3plR2lEajBL?=
+ =?utf-8?B?amxDT2JkM3haVWlrdXNMUGpSUzVyQlJ6ZVhlaEhXZCtNUWtnMGpKSE4wd2hS?=
+ =?utf-8?B?UG5lMVArSmQ3VjNXbVowelFyd0RLb1prUTE4TDdGSjhYVTFYeGloYWE2UmpS?=
+ =?utf-8?B?UitaVjQwOUZnd3liNW1CeVhDdjdoSWRnZjd4QkRPa0IvcmpYOTVRT2dZby9s?=
+ =?utf-8?B?YTNGeGQ0SjY2OGtJaXJaQXpZRHRYREx1ak40YXBwdXBFSXVTdXZGRUYvUVAy?=
+ =?utf-8?B?YlQrcUFvd1B5M0ViTnFzVWlaOHY3cTFWTzFWNlRnOUVqZ1VWN3RKT1JQSllR?=
+ =?utf-8?B?bzlmWjAvZHU1TmExbmJsTGVrS3JtWTBKekpCOTBaZGdHOUkvMjd0Y2R6N01k?=
+ =?utf-8?B?Z1VHRWdKQndKdEtWY09SQUI4cmtqcDNFLzFJRDFlbldpa3pKVUh6bmYwVEt4?=
+ =?utf-8?B?ZHNxQ2FIWmNENGVHa3hjUmhyS3huQm5PME1IQXRsNS9lN2pvb29WRE9lUFFi?=
+ =?utf-8?B?RmgxTnlnV1RpNnl4NEZMa1dQaW9tWHNMajhQd2srWFN5OWh0WmExNWZLUFBF?=
+ =?utf-8?B?TkRaaWV4K01jNmp0OHJyTDF1RGFyMjlPT0pPdU1GU1g2R1g1Y25LcVBVWlNo?=
+ =?utf-8?B?M3NrWDVXNVZVN1c3SXpYMHRqV1pxYjlpTCs1SE8rTmh2ekVxeTFZNVhSdFdy?=
+ =?utf-8?B?ekk5SXE4MDNJU3ZLTGNhR0pldkRjN0ZwN3VFYjE2a1FSSHROd211aFpON0Mz?=
+ =?utf-8?B?TTJ2MGQ2NkpDNjhSUjNmSGFrVXN4c3JrNkw1cUZ4aGtGZlhMMklYWGtIZ3lD?=
+ =?utf-8?B?b01sUCt0OHRVV2hDazFmdEtONHZKSDdxTXMxMklHRC9aTS9OdFpEemRpSmpT?=
+ =?utf-8?B?MEw2N0FqbWxvRGZVaStScnhSQisrNno2bE9MWUxyRG9sM0JRNkJrWHEvWHN4?=
+ =?utf-8?B?dnNaSWVsL2NxT2JrSUQwSDQxRFFpVHRrQjVNS3FFbXhmVlFyY0s3VnUxOXdH?=
+ =?utf-8?B?TmJyUjFvN1VTSEJFd3NUWnM5ZHlnWG1QYTlUbFpIU1VuaUJOVzlsWVlrMzVa?=
+ =?utf-8?Q?F5Fxu6CrZlzCMEjxhYVA?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 253ed462-2358-42b7-0429-08dc9fbb63c4
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4d148850-a7ce-4eb4-e73c-08dc9fbc4432
+X-MS-Exchange-CrossTenant-AuthSource: PN1P287MB2818.INDP287.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2024 02:03:56.4379
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2024 02:10:12.9682
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR20MB6708
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB1971
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_190419_328218_10DACAB9 
-X-CRM114-Status: GOOD (  29.81  )
+X-CRM114-CacheID: sfid-20240708_191031_811940_15F31DE5 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,93 +133,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 08, 2024 at 06:42:14PM GMT, Guenter Roeck wrote:
-> On 7/8/24 15:15, Inochi Amaoto wrote:
-> > On Mon, Jul 08, 2024 at 03:11:37PM GMT, Chen Wang wrote:
-> > > 
-> > > On 2024/7/8 8:53, Inochi Amaoto wrote:
-> > > > On Mon, Jul 08, 2024 at 08:25:55AM GMT, Chen Wang wrote:
-> > > > > On 2024/7/3 10:30, Inochi Amaoto wrote:
-> > > > > > SG2042 use an external MCU to provide basic hardware information
-> > > > > > and thermal sensors.
-> > > > > > 
-> > > > > > Add driver support for the onboard MCU of SG2042.
-> > > > > > 
-> > > > > > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> > > > > > ---
-> > > > > >     Documentation/hwmon/index.rst |   1 +
-> > > > > >     Documentation/hwmon/sgmcu.rst |  44 +++
-> > > > > >     drivers/hwmon/Kconfig         |  11 +
-> > > > > >     drivers/hwmon/Makefile        |   1 +
-> > > > > >     drivers/hwmon/sgmcu.c         | 585 ++++++++++++++++++++++++++++++++++
-> > > > > >     5 files changed, 642 insertions(+)
-> > > > > >     create mode 100644 Documentation/hwmon/sgmcu.rst
-> > > > > >     create mode 100644 drivers/hwmon/sgmcu.c
-> > > > > > 
-> > > > > > diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
-> > > > > > index 03d313af469a..189626b3a055 100644
-> > > > > > --- a/Documentation/hwmon/index.rst
-> > > > > > +++ b/Documentation/hwmon/index.rst
-> > > > > > @@ -203,6 +203,7 @@ Hardware Monitoring Kernel Drivers
-> > > > > >        sch5636
-> > > > > >        scpi-hwmon
-> > > > > >        sfctemp
-> > > > > > +   sgmcu
-> > > > > This driver is for sg2042 only, right? "sgmcu" looks be general for all
-> > > > > sophgo products.
-> > > > Yes, according to sophgo, it use this mechanism for multiple products,
-> > > > so I switch to a general name.
-> > > 
-> > > But multiple != ALL.
-> > > 
-> > > [......]
-> > > 
-> > > 
-> > 
-> > We can add new driver when there is new mechanism.
-> 
-> Now you are contradicting yourself. Either sgmcu is the catch-all
-> driver, or it isn't. How are you going to call that new driver ? sgmcuv2 ?
-> Are we going to have sgmcuv[2-N] over time ?
-> 
+Thank you Thomas for your contribution and welcome.
 
-No, I mean new mechanism that does not use MCU. For example, the chip 
-cv1800b and the incoming sg2380, these chip have different mechanism. 
-For all chip with the MCU, I want to keep only one driver.
-
-> All we know so far is that the driver and the mcu support sg2042. That is how the
-> driver should be named. It is easier to add support a new device with a different
-> name to the existing driver than to add a new driver if the name of an existing driver
-> is too generic.
-> 
-> Ultimately this is similar to wildcards in a file name, which are strongly discouraged.
-> One of the worst examples is drivers/hwmon/ina2xx.c, which does _not_ support all chips
-> from ina200 to ina299. Please don't let us go there.
-> 
-
-> An opposite example is the lm90 driver, which has not problem supporting more than 40
-> different chips with different names because they are all similar. The driver can be named
-> sg2042 and support as many similar variants if that mcu as feasible. It should not be named
-> sgmcu because we can not make the assumption that it will support all mcu variants from
-> sophgo.
-
-Thanks, this is hole I don't consider. I have made an assumption that 
-this driver only serves for sophgo products (especially products with
-this MCU mechanism), which is too limited. Now let me restrict it as
-sg2042 specific and evolve it in the future.
+Just FYI, we are maintaining and tracking all PR status about Sophgo 
+products here at https://github.com/sophgo/linux/wiki.
 
 Regards,
-Inochi
 
-> 
-> Guenter
-> 
+Chen
 
+On 2024/7/5 21:42, Thomas Bonnefille wrote:
+> This patchset adds initial ADC support for Sophgo SoC. This driver can
+> work with or without interrupt and in "Active" and "No-Die" domains
+> depending on if a clock is provided.
+>
+> Link: https://github.com/sophgo/sophgo-doc/releases/download/sg2002-trm-v1.0/sg2002_trm_en.pdf
+>
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+> Changes in v2:
+> - Drop modifications in MAINTAINERS file
+> - Rename the ADC from "sophgo-adc" to "sophgo-cv18xx-adc" to avoid
+>    conflict with ADCs available in future Sophgo SoCs.
+> - Reorder nodes in DT to match DTS coding style
+> - Switch from including <linux/of.h> to <linux/mod_devicetable.h>
+> - Use scoped_guard instead of mutex_lock/unlock
+> - Check IRQ Status in the handler
+> - Change IIO device name
+> - Use devm_clk_get_optional_enabled instead of a clock variable
+> - Init completion before the IRQ request
+> - Removed unnecessary iio_info structure in the private data of the
+>    driver
+> - Use SoC specific compatible in the bindings and device trees
+> - Link to v1: https://lore.kernel.org/r/20240702-sg2002-adc-v1-0-ac66e076a756@bootlin.com
+>
+> ---
+> Thomas Bonnefille (3):
+>        dt-bindings: iio: adc: sophgo,cv18xx-saradc.yaml: Add Sophgo SARADC binding documentation
+>        iio: adc: sophgo-saradc: Add driver for Sophgo SARADC
+>        riscv: dts: sophgo: Add SARADC configuration
+>
+>   .../bindings/iio/adc/sophgo,cv18xx-saradc.yaml     |  63 +++++++
+>   arch/riscv/boot/dts/sophgo/cv1800b.dtsi            |   8 +
+>   arch/riscv/boot/dts/sophgo/cv18xx.dtsi             |  14 ++
+>   drivers/iio/adc/Kconfig                            |  10 ++
+>   drivers/iio/adc/Makefile                           |   1 +
+>   drivers/iio/adc/sophgo-cv18xx-adc.c                | 195 +++++++++++++++++++++
+>   6 files changed, 291 insertions(+)
+> ---
+> base-commit: d20f6b3d747c36889b7ce75ee369182af3decb6b
+> change-id: 20240527-sg2002-adc-924b862cd3f2
+>
+> Best regards,
 
 _______________________________________________
 linux-riscv mailing list
