@@ -4,78 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 830FDC3271E
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jul 2024 01:26:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD79FC3271E
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jul 2024 01:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nZPrWKA4PVl0mzZ/t3YTvsb7Umgovi70OcecHjwkgd8=; b=sAvIhUXTObJp5Z
-	d9Z68L53feusdLgNaHhJylrnVcwd/BlaayvgYNawh2PBWHDBOKUDc5ENC/uWWlxH+LlfQSwjYrS4B
-	sgoexQ3BngPHkCqez3aXLkey0lziUqhzfmFPXwgcGvNnyZAc1Ytcnzm32ZJsLU934HH0qeCu8nzcx
-	eenrV8GnlyU8OEo5v36txNOm2JniQjTdJ50pAKdZWW+HEcY8gXSVfr6Ywiyly02akNZxhUBrQzZxY
-	XSttGoukEfQx2gR/2H5RObNl30zM3pW3vk4Kd0VNhO1FTWJltK2x7aqrFHU1M2ksKKsYv3vyj9huL
-	yjT9yzGdB/AJ28mfjgwg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xsMKPh1yA6FO2ZB8fEZF84byFmr5E7Rn22UzZh4R1ZE=; b=bHc9UXuRFXFKea
+	zEbH1fF01DGGPuV7M7dsSrCMdUwlizh8m6Swom+nn9/Eb/kTkW6ybcRC7P85DeGhmDBh3Jp089gLs
+	A6AU087HFp+cqggSvZQDMwKMXc7WDGUmkspcVvqzQ0zmbn2s1Dk1AVSbZdaweel7pd1vLGaGAgmkp
+	QoBqehpcWg8S1oSm/tp9ZbyWSWPj2V0LUY8woVhf9zTIfnNTKVA03Fz6NIue3IAW1HX3GqpgJjc61
+	YvLqXjgAi3b5vodUhw7dpCSgtdpiruud6Q7rApbLroGgytzwTU6mBdmcJQ2nLJuW/YEXTnUdyTuKl
+	9IF/eyh8nONkS50n+3zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQzcV-00000005XLy-10YT;
-	Tue, 09 Jul 2024 01:26:15 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1sQzs5-00000005Z5D-09PF;
+	Tue, 09 Jul 2024 01:42:21 +0000
+Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sQzcS-00000005XLC-1TAe
+	id 1sQzs2-00000005Z4M-1D8X
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jul 2024 01:26:13 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-52ea5dc3c66so6054045e87.3
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Jul 2024 18:26:11 -0700 (PDT)
+	Tue, 09 Jul 2024 01:42:19 +0000
+Received: by mail-io1-xd32.google.com with SMTP id ca18e2360f4ac-7f978af7e50so97886239f.3
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Jul 2024 18:42:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1720488370; x=1721093170; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=136zt4/6BYW2/kpJsnjidD2iOco9V0C95e+drYPyuRw=;
-        b=DmFwucbpx1tdHk3rVKcvKj6iDTpwdtDaLxqCjrqMljuVhtAkikG0zp+ln6X5nn0zMQ
-         i/VBrq6rDyMzQDhxH3g8Kj4CoSjxwv90XoHlMEwgxCNK6/i/mWpt/EKj1UnjzGzpPZai
-         mG0Oz4r0MWn/+ixQOv5gwRZ1tEtoRf0/TtTZh/qdJjKSgNFPCYSB5F0DHX0ifaRlJllh
-         yHtOYiMUAIm8Me3O77TMzo11ziiaBSjuNEZ4XmpkGxXEkihirUp+Q6B2XMQ9H/bogLFC
-         DDac2G/I1wSVAIiFlnr1ImmVPfXK9ZVGCWODsKMGaux44Y5Q6YWqxE0xvFcpCW6KifLm
-         16Ug==
+        d=gmail.com; s=20230601; t=1720489337; x=1721094137; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=efZGwFEn680Tz97EnfQTVaTzk6j1FWkM3gtbIw3HXUY=;
+        b=QL+7wnZeI/Zp02FOlh0YwPthdsmiX6OsOOLuELRyIHWAIaf4voKPe6s3dxkoEQlUjU
+         Vw9bORgGYj7A7mUBLGozwfp642lGEj3pq/8KoScAwNRDc1LRTLvlmjord7prsH3YwQil
+         P7ESMre08NbVT/zK9W5U2aM5RldbPTfkPfM5lYzMQq4oyOGepnjsQFB/ZBhnZu6ibNqM
+         fVOWmTdofn5iM8XwQwZZ0VArlXmgCdL/uDtuRVHJzOW02cJeFhy0IE0vgar6Go6lEYFX
+         9ovWZU1wtH0zqA1t9+Pt1KWycy466lZfbCkvyV1RUnN1okCVoE3ul1u2GJynXpYMokJy
+         BCYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720488370; x=1721093170;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=136zt4/6BYW2/kpJsnjidD2iOco9V0C95e+drYPyuRw=;
-        b=OiD2LCnRiPIa6sFa1OEF93gprH1tPq7hn6tOR3m0N/0noaZjrxMAiGP3d7/LPTAiJD
-         2SvxvGbhVc3t93RAkgxBmfWG7MZnB1+F0fwATX9Hh/sLBkxi7YasJEs4kzlUxJuXICVC
-         yCVe7Xaow6pDKibVpgk+OTZskmzps6uvivoHWclcc9iTx9NqhJwaPBZsCKNFMY3/mez1
-         2j85+PzQGS1xIPf1JSHb1TSHGernrNTDBPmWJGeRdhds7wmdSw2eFSub6JD1gQZNy+jw
-         VN4GYZo9UCtGEkrZeYDSF008oNzWrcJ8HEusHJxL9DD+MOTiZoZOJw8m45FOyJyFulkj
-         zIGw==
-X-Gm-Message-State: AOJu0YwsvsLSVKrknWcRBfKGaX3PE9zh3nE0aLPUXGq67x6IwCIsV0XB
-	iowj12Ht2le9roUDzHQQ7YR16cdJE/mHY0rySGIakI2rvYt1
-X-Google-Smtp-Source: AGHT+IGsXrwBCqoVWtstjwJhjlsKfpN9TausDkFwy0s1K73M40ZHxTjh/TbzOPXiDOlgDEvYdgHnxA==
-X-Received: by 2002:a05:6512:2349:b0:52c:a20e:4da4 with SMTP id 2adb3069b0e04-52eb99d6033mr800114e87.57.1720488369651;
-        Mon, 08 Jul 2024 18:26:09 -0700 (PDT)
-Received: from localhost (ip-005-147-049-005.um06.pools.vodafone-ip.de. [5.147.49.5])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-a780a8562a2sm35458566b.169.2024.07.08.18.26.08
+        d=1e100.net; s=20230601; t=1720489337; x=1721094137;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=efZGwFEn680Tz97EnfQTVaTzk6j1FWkM3gtbIw3HXUY=;
+        b=kDMnqPLPTPUzKgwOn8V0rbk4aattuIdp5OMijkiIZud0ds8rxFlEgUt2VWuPE6IbEW
+         xZ6/3vhPJckAA+N3BypSvHVx1zAo+oI4ijl/V4f6mWuFjLrIb3J8PslkFPl1MyMJZoC6
+         6NMUmsHjUZRkJaFo9u39oaXnxUaqh/GDpUo8DeBLJT/QLr+2lLClVsXPdEuA22JmLIYx
+         P160CstH7alJryrMArPXhG8fX+4q2jmMiCbHMaN38IypBbSuXntXCcyvpc5XOsnDOiq0
+         Fo6Wc+hWBXMxJ5yqeAjLuWlLKfYbfCcDtWtaBy5e+TqKU5Wuzw5zuBB2KUoDnwKykka8
+         w+fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVKlYyvUZq7DdgmQHpQ1E3lveAa9uPFKV7rVfOJYRRXFjyfDAviU/oz4pgyvttSPqvsip5Y0U5wWQp0rPXmVR1ulvl6WTEE2KXw2FLJPt0S
+X-Gm-Message-State: AOJu0YxC7kVH4a4mJBJ1gjvedVkBF3DWdBxtIb4AF18Pcd9FHo63zgZo
+	Ssf697UsgOlJLvLQIRfYnl9q8v1adLHzqzsd/LBAhn2w8BqwE4cu
+X-Google-Smtp-Source: AGHT+IG8eUAcS4B1l5l4JiSl/3TaEIecY5XR5AN4tDAQCt2iZtbcK0ZRlYGtkKblTEEVqV94WD505g==
+X-Received: by 2002:a05:6e02:214f:b0:382:b446:e139 with SMTP id e9e14a558f8ab-38a5740178fmr14071885ab.11.1720489337076;
+        Mon, 08 Jul 2024 18:42:17 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70b4389abb6sm569002b3a.18.2024.07.08.18.42.14
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Jul 2024 18:26:09 -0700 (PDT)
-From: Daniel Maslowski <cyrevolt@googlemail.com>
-X-Google-Original-From: Daniel Maslowski <cyrevolt@gmail.com>
-To: linux-riscv@lists.infradead.org
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Daniel Maslowski <cyrevolt@gmail.com>
-Subject: [PATCH] riscv/purgatory: align riscv_kernel_entry
-Date: Tue,  9 Jul 2024 03:26:06 +0200
-Message-Id: <20240709012606.748596-1-cyrevolt@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        Mon, 08 Jul 2024 18:42:15 -0700 (PDT)
+Message-ID: <b12fc4a5-1b12-4d59-bf21-edd583a81b4d@roeck-us.net>
+Date: Mon, 8 Jul 2024 18:42:14 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/2] drivers: hwmon: sophgo: Add SG2042 external
+ hardware monitor support
+To: Inochi Amaoto <inochiama@outlook.com>,
+ Chen Wang <unicorn_wang@outlook.com>, Jean Delvare <jdelvare@suse.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <IA1PR20MB4953967EA6AF3A6EFAE6AB10BBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953EC4C486B8D4B186BB848BBDD2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <MA0P287MB2822935DEA9EE418F3411CFAFEDA2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+ <IA1PR20MB4953230DCEDD7DF01134A8A9BBDA2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <MA0P287MB2822676C9CF9443B9A3CB657FEDA2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+ <IA1PR20MB495309AA07F1B77D4DA1EF6BBBDA2@IA1PR20MB4953.namprd20.prod.outlook.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <IA1PR20MB495309AA07F1B77D4DA1EF6BBBDA2@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240708_182612_444569_CA293677 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240708_184218_377387_05340AE6 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,38 +145,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When alignment handling is delegated to the kernel, everything must be
-word-aligned in purgatory, since the trap handler is then set to the
-kexec one. Without the alignment, hitting the exception would
-ultimately crash. On other occasions, the kernel's handler would take
-care of exceptions.
-This has been tested with oreboot and its SBI delegating unaligned
-access exceptions and the kernel configured to handle them.
+On 7/8/24 15:15, Inochi Amaoto wrote:
+> On Mon, Jul 08, 2024 at 03:11:37PM GMT, Chen Wang wrote:
+>>
+>> On 2024/7/8 8:53, Inochi Amaoto wrote:
+>>> On Mon, Jul 08, 2024 at 08:25:55AM GMT, Chen Wang wrote:
+>>>> On 2024/7/3 10:30, Inochi Amaoto wrote:
+>>>>> SG2042 use an external MCU to provide basic hardware information
+>>>>> and thermal sensors.
+>>>>>
+>>>>> Add driver support for the onboard MCU of SG2042.
+>>>>>
+>>>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>>>>> ---
+>>>>>     Documentation/hwmon/index.rst |   1 +
+>>>>>     Documentation/hwmon/sgmcu.rst |  44 +++
+>>>>>     drivers/hwmon/Kconfig         |  11 +
+>>>>>     drivers/hwmon/Makefile        |   1 +
+>>>>>     drivers/hwmon/sgmcu.c         | 585 ++++++++++++++++++++++++++++++++++
+>>>>>     5 files changed, 642 insertions(+)
+>>>>>     create mode 100644 Documentation/hwmon/sgmcu.rst
+>>>>>     create mode 100644 drivers/hwmon/sgmcu.c
+>>>>>
+>>>>> diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
+>>>>> index 03d313af469a..189626b3a055 100644
+>>>>> --- a/Documentation/hwmon/index.rst
+>>>>> +++ b/Documentation/hwmon/index.rst
+>>>>> @@ -203,6 +203,7 @@ Hardware Monitoring Kernel Drivers
+>>>>>        sch5636
+>>>>>        scpi-hwmon
+>>>>>        sfctemp
+>>>>> +   sgmcu
+>>>> This driver is for sg2042 only, right? "sgmcu" looks be general for all
+>>>> sophgo products.
+>>> Yes, according to sophgo, it use this mechanism for multiple products,
+>>> so I switch to a general name.
+>>
+>> But multiple != ALL.
+>>
+>> [......]
+>>
+>>
+> 
+> We can add new driver when there is new mechanism.
 
-Signed-off-by: Daniel Maslowski <cyrevolt@gmail.com>
----
- arch/riscv/purgatory/entry.S | 1 +
- 1 file changed, 1 insertion(+)
+Now you are contradicting yourself. Either sgmcu is the catch-all
+driver, or it isn't. How are you going to call that new driver ? sgmcuv2 ?
+Are we going to have sgmcuv[2-N] over time ?
 
-diff --git a/arch/riscv/purgatory/entry.S b/arch/riscv/purgatory/entry.S
-index 5bcf3af903da..29121650a941 100644
---- a/arch/riscv/purgatory/entry.S
-+++ b/arch/riscv/purgatory/entry.S
-@@ -34,6 +34,7 @@ SYM_CODE_END(purgatory_start)
- 
- .data
- 
-+.align 4
- SYM_DATA(riscv_kernel_entry, .quad 0)
- 
- .end
--- 
-2.34.1
+All we know so far is that the driver and the mcu support sg2042. That is how the
+driver should be named. It is easier to add support a new device with a different
+name to the existing driver than to add a new driver if the name of an existing driver
+is too generic.
+
+Ultimately this is similar to wildcards in a file name, which are strongly discouraged.
+One of the worst examples is drivers/hwmon/ina2xx.c, which does _not_ support all chips
+from ina200 to ina299. Please don't let us go there.
+
+An opposite example is the lm90 driver, which has not problem supporting more than 40
+different chips with different names because they are all similar. The driver can be named
+sg2042 and support as many similar variants if that mcu as feasible. It should not be named
+sgmcu because we can not make the assumption that it will support all mcu variants from
+sophgo.
+
+Guenter
 
 
 _______________________________________________
