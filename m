@@ -4,114 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A17BAC3DA42
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jul 2024 10:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCF5C3DA45
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jul 2024 10:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G3QckuLbG/b7cIub6+EMX0zRDWuzqjNwa1CiBpKwdDw=; b=Uj2zTiQybfq42W
-	nY6f31HeaSV+jz2IMlunU0/Nf/J4u4vc+djKY7Tp5HC/ecqGDmR70FEFZKqG0UyNp4Ok444VBaCt/
-	Dms16DesAsTF921T6zIDw8j3opGh34gMP7Tny07u7LbH0PVS9U0GoNUj12MpzREZTu61o/jxtQvey
-	i9Tz+fJK+I53ovqnAQevU6/5uv3S300LAHCYwtRAwQkCWV+gyg9uwVI+Puq5gpbwn8iZqJuc6C+Z0
-	d0fWO4rrzhDapRrk1uyNgXWSOBEyef8WWtnjQU0itwT70tgkraXOgV/u+Z3lK2oD6V+vWqyr52uU4
-	CtAOVYXzu7A5DFfmUTtA==;
+	List-Owner; bh=cDh/1ZFqCJqMqN/N3depUZRHbC1LiPDYcFvSVklMEtk=; b=MfJ1ojmLJlrmT7
+	lpCjC0pKID0ScE4OtIR7/SbFUcjTWGx+pR6EtyNAlI3J9cofPBQRqj7I97GF9J0OGO5wF8uiNkpAI
+	BQeOJvBTSa5+nV2nf2qndrFiofGgIf3eGZxrUGtxEbKAAO58vdzuXlNtHB1Ak3yvQaMs8IZOJ3407
+	SCFhhfnCL1IzVsW/XxLfk2KL9c4HKM9gia2SDTSE6C59V84KmfpB1zufV+CU0IlNFzqOKO72Onmmh
+	vyqgtKI+qOx45w3lc2u0whECv07WoxuKMts3nu215XUJPxGcFpXcQTyVFZcmuDpYktQ6g1PqEkD75
+	6Jye2oMp1Y7WpKbdT1yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRUYG-0000000ABkt-2slq;
-	Wed, 10 Jul 2024 10:27:56 +0000
-Received: from fout5-smtp.messagingengine.com ([103.168.172.148])
+	id 1sRUh6-0000000ADb2-1tS1;
+	Wed, 10 Jul 2024 10:37:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRUXy-0000000ABhx-3v53;
-	Wed, 10 Jul 2024 10:27:40 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailfout.nyi.internal (Postfix) with ESMTP id 7FA5213807ED;
-	Wed, 10 Jul 2024 06:27:37 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute5.internal (MEProxy); Wed, 10 Jul 2024 06:27:37 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1720607257; x=1720693657; bh=y7I9x5O068
-	rIa6OwNh1cKNoYpCATZicSDmRnAUguLsU=; b=LyoeV7gWDoZN30PXCwvf8Wxeg6
-	VhoBTVUhVW1s1omN6d8MKzk7jEzeXh8G5o3fMq2+GFZyBVg/9/7OEhye+/coWt2O
-	XfAhCV6pfHeQn17iPTTX2lKtnsu7/SS85QVlYeEFAIh8HBt+aTgpZe20ljb+djY9
-	KkAzG4mjhKV0qUKdG0gR+2CejXzNw/FxE5kv6+1kjsvhxagXsgNXyayRyPdaQbeQ
-	4TBQPDKF3YFf+VvY9c/rWAvGbZGkMYb+IU1xgJ04tc8Lwn7CByXKIAgP2f3v93aA
-	AoojIIDVoBGSZB+yjz8jXJf75ilDChNU4VltOrQAj2Dm90JSVQOz8ktykirw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1720607257; x=1720693657; bh=y7I9x5O068rIa6OwNh1cKNoYpCAT
-	ZicSDmRnAUguLsU=; b=TQea+NHxpLxXt64jCbNK563C0E1TLCjGTuZN4XWClfBX
-	Q+hiwNI0APwrfFgBUmFeN+FlkT0ajXZjAbuIrQNBXBMSAspspDtA+vFl5wSJsH6E
-	cf197a4HNOG7bQXAR4Io3DEpsVFMTnNaNAdR20K7xWSpjgQ7DH48OO1jWq65WdVZ
-	KocA8mDU0G6OXbyBpcTXLQml76zE9t4F4YwV0CnWbjiN2MSuT46ZA1ZodsAUvB1Y
-	EMkXZXgPKUePYdiFfv6KLd+xOkVCBcPaKAeZ1lDw51o7t4aMsNfmIySSOVLdSNYT
-	RR8pYHgQg1azc7LSxH3IoyoJBkXtKrOxBa0ztmnx8Q==
-X-ME-Sender: <xms:FWKOZu7OEleYA2ZaQhHK0YTUnp8ZCDHU5Qv_qlmoFX318_1KRZ1MzQ>
-    <xme:FWKOZn4LSmiq1Nz2uEK5cmUYFupZB_cnhbb__NNmw8e_CrlbvFEeBRejSUSAy3RoL
-    fmzX2g8WT0vglJEYbo>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrfedugddvkecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
-    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
-    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
-    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
-    hnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:FWKOZtdwYsGl2L1-gJ_SxX2LvVQtIBz8P-0pqaYJsEiEIkuD8KivmA>
-    <xmx:FWKOZrKhYoVjzenA5bi3dxmDRoOXqMLEY13McAvD4kG-Wyq4f5hJDw>
-    <xmx:FWKOZiKJoBDOxda2I585qtzs7LQ5PYxoOCjycASUr7Si107QHnftyQ>
-    <xmx:FWKOZsyLzbfGhHPd5czHKWB7WVZYFT3G51G187eTM8ruvcR7PmmdPw>
-    <xmx:GWKOZurc55eLY785N_cbAB-SOzxSp53CmaIywxCCzaSOw7ZJQ6KRTTUf>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id C869EB6008F; Wed, 10 Jul 2024 06:27:33 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.11.0-alpha0-568-g843fbadbe-fm-20240701.003-g843fbadb
+	id 1sRUgq-0000000ADWb-3QUg
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 Jul 2024 10:36:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1720607808;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TbJg6z7j+ZQBtm21UhpDM4r/48rTnLX4yDmOeuhoEeA=;
+	b=CMWJS8WwYGV+Zycf/PKu7fc11hU4dXmtdleVOGC2TIGp09tcRScUJKdTXAc7q0c4mqV3qU
+	8njeqNXg7CF3yfitKV7WIVD9raVZRlYXt3PFMvL0RJO7NQ7USRXKGXiYj1jDzpNkVp2ZtX
+	t/FuCAsceNCq6CwBO84P2NFNTN7xy/4=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-186-a07wZjSjMfOCkc_bgrfTiQ-1; Wed,
+ 10 Jul 2024 06:36:41 -0400
+X-MC-Unique: a07wZjSjMfOCkc_bgrfTiQ-1
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 07722196CE01;
+	Wed, 10 Jul 2024 10:36:36 +0000 (UTC)
+Received: from oldenburg.str.redhat.com (unknown [10.45.224.154])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A378D19560AE;
+	Wed, 10 Jul 2024 10:36:24 +0000 (UTC)
+From: Florian Weimer <fweimer@redhat.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Jonathan Corbet <corbet@lwn.net>,  Andrew Morton
+ <akpm@linux-foundation.org>,  Marc Zyngier <maz@kernel.org>,  Oliver Upton
+ <oliver.upton@linux.dev>,  James Morse <james.morse@arm.com>,  Suzuki K
+ Poulose <suzuki.poulose@arm.com>,  Arnd Bergmann <arnd@arndb.de>,  Oleg
+ Nesterov <oleg@redhat.com>,  Eric Biederman <ebiederm@xmission.com>,
+  Shuah Khan <shuah@kernel.org>,  "Rick P. Edgecombe"
+ <rick.p.edgecombe@intel.com>,  Deepak Gupta <debug@rivosinc.com>,  Ard
+ Biesheuvel <ardb@kernel.org>,  Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+  Kees Cook <kees@kernel.org>,  "H.J. Lu" <hjl.tools@gmail.com>,  Paul
+ Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,
+  Albert Ou <aou@eecs.berkeley.edu>,  Christian Brauner
+ <brauner@kernel.org>,  Thiago Jung Bauermann
+ <thiago.bauermann@linaro.org>,  Ross Burton <ross.burton@arm.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-doc@vger.kernel.org,
+  kvmarm@lists.linux.dev,  linux-fsdevel@vger.kernel.org,
+  linux-arch@vger.kernel.org,  linux-mm@kvack.org,
+  linux-kselftest@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-riscv@lists.infradead.org, "Schimpe, Christina"
+ <christina.schimpe@intel.com>, "Pandey, Sunil K"
+ <sunil.k.pandey@intel.com>
+Subject: Re: [PATCH v9 05/39] arm64/gcs: Document the ABI for Guarded
+ Control Stacks
+In-Reply-To: <20240625-arm64-gcs-v9-5-0f634469b8f0@kernel.org> (Mark Brown's
+	message of "Tue, 25 Jun 2024 15:57:33 +0100")
+References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
+	<20240625-arm64-gcs-v9-5-0f634469b8f0@kernel.org>
+Date: Wed, 10 Jul 2024 12:36:21 +0200
+Message-ID: <87a5iph6u2.fsf@oldenburg.str.redhat.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Message-Id: <9b269c2a-c6b5-4fa0-801b-e5e1c3ccb671@app.fastmail.com>
-In-Reply-To: <20240704143611.2979589-13-arnd@kernel.org>
-References: <20240704143611.2979589-1-arnd@kernel.org>
- <20240704143611.2979589-13-arnd@kernel.org>
-Date: Wed, 10 Jul 2024 12:27:13 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Arnd Bergmann" <arnd@kernel.org>, Linux-Arch <linux-arch@vger.kernel.org>
-Cc: "Masahiro Yamada" <masahiroy@kernel.org>,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Nicolas Schier" <nicolas@fjasle.eu>, "Vineet Gupta" <vgupta@kernel.org>,
- "Russell King" <linux@armlinux.org.uk>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, guoren <guoren@kernel.org>,
- "Brian Cain" <bcain@quicinc.com>, "Huacai Chen" <chenhuacai@kernel.org>,
- "WANG Xuerui" <kernel@xen0n.name>, "Dinh Nguyen" <dinguyen@kernel.org>,
- "Jonas Bonn" <jonas@southpole.se>,
- "Stefan Kristiansson" <stefan.kristiansson@saunalahti.fi>,
- "Stafford Horne" <shorne@gmail.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Rich Felker" <dalias@libc.org>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "David S . Miller" <davem@davemloft.net>,
- "Andreas Larsson" <andreas@gaisler.com>,
- "Christian Brauner" <brauner@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 12/17] csky: convert to generic syscall table
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240710_032739_339154_CD90F2BC 
-X-CRM114-Status: UNSURE (   8.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240710_033648_932764_1DC38BD4 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,47 +104,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 4, 2024, at 16:36, Arnd Bergmann wrote:
-> -
-> -#define __NR_set_thread_area	(__NR_arch_specific_syscall + 0)
-> -__SYSCALL(__NR_set_thread_area, sys_set_thread_area)
-> -#define __NR_cacheflush		(__NR_arch_specific_syscall + 1)
-> -__SYSCALL(__NR_cacheflush, sys_cacheflush)
-> +#include <asm/unistd_32.h>
-> +#define __NR_sync_file_range2 __NR_sync_file_range
+* Mark Brown:
 
-A small update: I have folded this fixup into this patch
-and the hexagon one, to ensure we don't define both
-__NR_sync_file_range2 and __NR_sync_file_range. I already
-have patches to clean this up further to avoid both the
-#undef and #define, but that is part of a larger rework
-that is not ready before the merge window.
 
-     Arnd
+> +4.  Signal handling
+> +--------------------
+> +
+> +* A new signal frame record gcs_context encodes the current GCS mode and
+> +  pointer for the interrupted context on signal delivery.  This will always
+> +  be present on systems that support GCS.
+> +
+> +* The record contains a flag field which reports the current GCS configuration
+> +  for the interrupted context as PR_GET_SHADOW_STACK_STATUS would.
+> +
+> +* The signal handler is run with the same GCS configuration as the interrupted
+> +  context.
+> +
+> +* When GCS is enabled for the interrupted thread a signal handling specific
+> +  GCS cap token will be written to the GCS, this is an architectural GCS cap
+> +  token with bit 63 set and the token type (bits 0..11) all clear.  The
+> +  GCSPR_EL0 reported in the signal frame will point to this cap token.
 
-diff --git a/arch/csky/include/uapi/asm/unistd.h b/arch/csky/include/uapi/asm/unistd.h
-index 794adbc04e48..44882179a6e1 100644
---- a/arch/csky/include/uapi/asm/unistd.h
-+++ b/arch/csky/include/uapi/asm/unistd.h
-@@ -1,4 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
- 
- #include <asm/unistd_32.h>
--#define __NR_sync_file_range2 __NR_sync_file_range
-+
-+#define __NR_sync_file_range2 84
-+#undef __NR_sync_file_range
-diff --git a/arch/hexagon/include/uapi/asm/unistd.h b/arch/hexagon/include/uapi/asm/unistd.h
-index 6f670347dd61..a3b0cac25580 100644
---- a/arch/hexagon/include/uapi/asm/unistd.h
-+++ b/arch/hexagon/include/uapi/asm/unistd.h
-@@ -29,4 +29,5 @@
- 
- #include <asm/unistd_32.h>
- 
--#define __NR_sync_file_range2 __NR_sync_file_range
-+#define __NR_sync_file_range2 84
-+#undef __NR_sync_file_range
+How does this marker interfere with Top Byte Ignore (TBI; I hope I got
+the name right)?  The specification currently does not say that only
+addresses pushed to the shadow stack with the top byte cleared, which
+potentially makes the markup ambiguous.  On x86-64, the same issue may
+exist with LAM.  I have not tested yet what happens there.  On AArch64
+and RISC-V, it may be more natural to use the LSB instead of the LSB for
+the mark bit because of its instruction alignment.
+
+We also have a gap on x86-64 for backtrace generation because the
+interrupted instruction address does not end up on the shadow stack.
+This address is potentially quite interesting for backtrace generation.
+I assume it's currently missing because the kernel does not resume
+execution using a regular return instruction.  It would be really useful
+if it could be pushed to the shadow stack, or recoverable from the
+shadow stack in some other way (e.g., the address of the signal context
+could be pushed instead).  That would need some form of marker as well.
+
+Thanks,
+Florian
+
 
 _______________________________________________
 linux-riscv mailing list
