@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED42C2BD09
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jul 2024 01:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0549BC2BD09
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jul 2024 03:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7Zmzh/+AtvihdrC7jWpcAc+GLAdLL70JkrYKye13KY8=; b=KyxlG/SiGIIsoJ
-	aWHw6RvPRMfeRNBTBqtHWfmSxcNg+n+fxwARaLK78/++nEyGRfbuGPcixpr8h//qkpa5mCQ6Ao3/M
-	a5DQp5w1xTnSkNAhL2dTsh1Hjgm29+IkKsLZRoLj8V9OYHtHHEDBflw00q51x6JxUVnq8IkGraDMA
-	6Yndv7XaXC8Z56MkT/JNpdHM9Ur35iOB+/fW1b+5bXXfUp7/2DsOsCHLWjcwoJwWHWfl1Dj6RwrKp
-	wVeXe3Xw+0j/4i8JRLPpvnjg2elgFwIAzeOjaK61py3Zira1n/Ns3wuM2JqvKgdOMOHsDxLlOB5Eo
-	9G43U2Pwb90Fz5HHP9Aw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tA2azagdzn5tSIOB8Hwfq7JRxYomjvQSLVJAOtXnL5s=; b=qg2ZBDkhGRX+hd
+	4VnbYzr0tiUqiuAvrewXA0P1Lw3b2lP/MD8N3DoiUQrnEeue8r1k6at5cOlGEANlOgDpj39bGUrNF
+	nwX0yGaqsi7mWVJagN8eraxaJ9eboeBbFo1RKBX/esNkCQXcGPs9K7jjMSImPQIePqXGLX0ATqje+
+	6zVDLNDVIl2IjRF2r61udr0JILCG5AnIWz+IrZZrhUCnoR/oJeEyC+J3MXXJbwOhlJFi0Fn8kPkf8
+	gBfHKaekza/ic0ESuLnXkjlx9WqbV0je2HQtl3d7/Ayjv0jei8LF9/D5cCc6liwMH2eYdYFjWPvUk
+	Vq9bqmjCx58BkhHG1KkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRMH6-000000095lT-0gPW;
-	Wed, 10 Jul 2024 01:37:40 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sROGY-00000009LKB-11Yy;
+	Wed, 10 Jul 2024 03:45:14 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRMH2-000000095kK-49pX
+	id 1sROGT-00000009LIc-410I
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jul 2024 01:37:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 0671CCE13BC
-	for <linux-riscv@lists.infradead.org>; Wed, 10 Jul 2024 01:37:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A30E3C4AF0F
-	for <linux-riscv@lists.infradead.org>; Wed, 10 Jul 2024 01:37:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720575453;
-	bh=7x3GEkDVh0i0eAqUuwQkrzhqPJO/oHPH+D8jftX54Cg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=q3ieyxy3hJZaA8ysPOrc2YXxe1pB3d1xOvGF9DCxL9Kvq4f0vQFdITMNwBPClFs+Q
-	 cXMSx7MALQlD9VmQkzJp5P1HkU1YKc5mO3yaWA7v/02JKLboxIqA+ZwcoBdnx/DuDp
-	 V011/7qP2DcMuMPT3pCJ7d1pe1P23lI/BejJAzBAjGeo/P7it5uacwi95nt3SAQOhr
-	 xVXTzgQmVgXjbVrpRqU+iGYyQomBHvB5qxRTI3mfOJgZaLthyPCQjppM3OkJ2AgAVq
-	 FStxWUmQIcIa9yeA7gSdQoMxnIFKr1r+gVFvBSP3lH/M2I+Lf2uagwoNoK9qEuk3CM
-	 qvvUR64fbp9Yw==
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-a77c4309fc8so642121366b.3
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Jul 2024 18:37:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWYCnmapGrr4I9MhlHUE2zgycjXjB2waxYpaLBxhieAAM8KmJ9GCIOF+HkGCspng5uMfya1mC+AEpLiJersFYTjoOSuiIkIf2FgjuQl3k5v
-X-Gm-Message-State: AOJu0Yw4k6Uu0+qd7728OciXE2z+r9t/rvp5pA+Gdb2n0xn8iGHRpChx
-	r7f/CYSSe7+bUdXfHD5t7nKudeXiBRGNib+Axlw+Oxe7L4ezHqBJ5zy+a8CNP+uU18Mc0VZgEbj
-	KH2hwJBHPD9znWi2ZNJt9r8btJ+4=
-X-Google-Smtp-Source: AGHT+IHmd+/WXCkt/CKbzdND2sKIp/WdDdZr/w4zRmSZLHYnLmmE0cqn+UtqINsSDCF8jhyBLrwCDzYaroRAc5X3Z8E=
-X-Received: by 2002:a17:907:2dab:b0:a77:d481:d69f with SMTP id
- a640c23a62f3a-a780b89e7cemr299719566b.70.1720575452132; Tue, 09 Jul 2024
- 18:37:32 -0700 (PDT)
+	Wed, 10 Jul 2024 03:45:11 +0000
+Received: from ubt.. (unknown [124.16.141.243])
+	by APP-03 (Coremail) with SMTP id rQCowAAXHNS7A45mMJH4FA--.46888S2;
+	Wed, 10 Jul 2024 11:45:00 +0800 (CST)
+From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Subject: [PATCH] riscv/mm: Add soft-dirty page tracking support
+Date: Wed, 10 Jul 2024 11:30:04 +0800
+Message-Id: <20240710033004.3923527-1-zhangchunyan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20240626130347.520750-1-alexghiti@rivosinc.com> <20240626130347.520750-7-alexghiti@rivosinc.com>
-In-Reply-To: <20240626130347.520750-7-alexghiti@rivosinc.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 10 Jul 2024 09:37:21 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRiQ_zXDAa+Q7rQ4U8qfFGu_ab-y-cLSSOyUVyp0o8KvQ@mail.gmail.com>
-Message-ID: <CAJF2gTRiQ_zXDAa+Q7rQ4U8qfFGu_ab-y-cLSSOyUVyp0o8KvQ@mail.gmail.com>
-Subject: Re: [PATCH v2 06/10] riscv: Implement xchg8/16() using Zabha
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Andrea Parri <parri.andrea@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, 
-	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Leonardo Bras <leobras@redhat.com>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arch@vger.kernel.org
+X-CM-TRANSID: rQCowAAXHNS7A45mMJH4FA--.46888S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxAw4DWF4kXw1rWrW5Kw4fGrg_yoWrKr1kpF
+	Z5GF1rZayYyFn7Kayftr4agrWY9wn3Wa4UXry3Ca1kJayUGrWUXF98Wry3Zry5XFykZ34f
+	ZrZ5tF45Crsrtr7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUyab7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k20xvY0x0EwIxGrwCF
+	x2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14
+	v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY
+	67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2
+	IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_
+	Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8IzuJUUUUU==
+X-Originating-IP: [124.16.141.243]
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiCREOB2aNsCzIUwABs8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240709_183737_445348_76DEF879 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20240709_204510_396245_E416A13C 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,119 +75,167 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdW4gMjYsIDIwMjQgYXQgOToxMOKAr1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdo
-aXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBUaGlzIGFkZHMgcnVudGltZSBzdXBwb3J0IGZv
-ciBaYWJoYSBpbiB4Y2hnOC8xNigpIG9wZXJhdGlvbnMuCj4KPiBTaWduZWQtb2ZmLWJ5OiBBbGV4
-YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4gLS0tCj4gIGFyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vY21weGNoZy5oIHwgMzMgKysrKysrKysrKysrKysrKysrKysrKysrKysrKyst
-LS0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oICAgfCAgMSArCj4gIGFyY2gvcmlz
-Y3Yva2VybmVsL2NwdWZlYXR1cmUuYyAgIHwgIDEgKwo+ICAzIGZpbGVzIGNoYW5nZWQsIDMyIGlu
-c2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9jbXB4Y2hnLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NtcHhjaGcuaAo+
-IGluZGV4IGRhNDJmMzJlYTUzZC4uZWIzNWUyZDMwYTk3IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlz
-Y3YvaW5jbHVkZS9hc20vY21weGNoZy5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9j
-bXB4Y2hnLmgKPiBAQCAtMTEsOCArMTEsMTcgQEAKPiAgI2luY2x1ZGUgPGFzbS9mZW5jZS5oPgo+
-ICAjaW5jbHVkZSA8YXNtL2FsdGVybmF0aXZlLmg+Cj4KPiAtI2RlZmluZSBfX2FyY2hfeGNoZ19t
-YXNrZWQoc2Nfc2Z4LCBwcmVwZW5kLCBhcHBlbmQsIHIsIHAsIG4pICAgICAgICAgICBcCj4gKyNk
-ZWZpbmUgX19hcmNoX3hjaGdfbWFza2VkKHNjX3NmeCwgc3dhcF9zZngsIHByZXBlbmQsIHNjX2Fw
-cGVuZCwgICAgICAgXAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgIHN3YXBfYXBwZW5kLCBy
-LCBwLCBuKSAgICAgICAgICAgICAgICAgICAgICAgIFwKPiAgKHsgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAg
-ICAgICBfX2xhYmVsX18gemFiaGEsIGVuZDsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgXAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiArICAgICAgIGlmIChJU19FTkFCTEVE
-KENPTkZJR19SSVNDVl9JU0FfWkFCSEEpKSB7ICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAg
-ICAgICAgICAgICAgIGFzbSBnb3RvKEFMVEVSTkFUSVZFKCJub3AiLCAiaiAlW3phYmhhXSIsIDAs
-ICAgICAgICAgICAgXAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBSSVND
-Vl9JU0FfRVhUX1pBQkhBLCAxKSAgICAgICAgICAgIFwKPiArICAgICAgICAgICAgICAgICAgICAg
-ICAgOiA6IDogOiB6YWJoYSk7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAg
-ICAgICB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgXAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKQ291bGQgd2UgZXhjaGFuZ2UgdGhlIHNl
-cXVlbmNlIGJldHdlZW4gWmFiaGEgJiBsci9zYz8KSSBtZWFuOgpub3AgLT4gemFiaGEKaiAtPiBs
-ci9zYwoKCj4gICAgICAgICB1MzIgKl9fcHRyMzJiID0gKHUzMiAqKSgodWxvbmcpKHApICYgfjB4
-Myk7ICAgICAgICAgICAgICAgICAgICAgXAo+ICAgICAgICAgdWxvbmcgX19zID0gKCh1bG9uZyko
-cCkgJiAoMHg0IC0gc2l6ZW9mKCpwKSkpICogQklUU19QRVJfQllURTsgIFwKPiAgICAgICAgIHVs
-b25nIF9fbWFzayA9IEdFTk1BU0soKChzaXplb2YoKnApKSAqIEJJVFNfUEVSX0JZVEUpIC0gMSwg
-MCkgICBcCj4gQEAgLTI4LDEyICszNywyNSBAQAo+ICAgICAgICAgICAgICAgICIgICAgICAgIG9y
-ICAgJTEsICUxLCAlejNcbiIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiAgICAgICAg
-ICAgICAgICAiICAgICAgICBzYy53IiBzY19zZnggIiAlMSwgJTEsICUyXG4iICAgICAgICAgICAg
-ICAgICAgICBcCj4gICAgICAgICAgICAgICAgIiAgICAgICAgYm5leiAlMSwgMGJcbiIgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+IC0gICAgICAgICAgICAgIGFwcGVuZCAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiArICAgICAg
-ICAgICAgICBzY19hcHBlbmQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIFwKPiAgICAgICAgICAgICAgICA6ICI9JnIiIChfX3JldHgpLCAiPSZy
-IiAoX19yYyksICIrQSIgKCooX19wdHIzMmIpKSAgICAgICBcCj4gICAgICAgICAgICAgICAgOiAi
-ckoiIChfX25ld3gpLCAickoiICh+X19tYXNrKSAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+
-ICAgICAgICAgICAgICAgIDogIm1lbW9yeSIpOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIFwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gICAgICAgICByID0gKF9fdHlw
-ZW9mX18oKihwKSkpKChfX3JldHggJiBfX21hc2spID4+IF9fcyk7ICAgICAgICAgICAgICAgXAo+
-ICsgICAgICAgZ290byBlbmQ7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIFwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gK3phYmhhOgpqdW1wIGxyL3Nj
-IGltcGxlbWVudGF0aW9uIGJlY2F1c2UgaXQncyBhbHJlYWR5IHNsb3cuCiAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiArICAg
-ICAgIGlmIChJU19FTkFCTEVEKENPTkZJR19SSVNDVl9JU0FfWkFCSEEpKSB7ICAgICAgICAgICAg
-ICAgICAgICAgICBcCj4gKyAgICAgICAgICAgICAgIF9fYXNtX18gX192b2xhdGlsZV9fICggICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICsgICAgICAgICAgICAgICAgICAgICAg
-IHByZXBlbmQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiArICAg
-ICAgICAgICAgICAgICAgICAgICAiICAgICAgIGFtb3N3YXAiIHN3YXBfc2Z4ICIgJTAsICV6Miwg
-JTFcbiIgICAgICBcCj4gKyAgICAgICAgICAgICAgICAgICAgICAgc3dhcF9hcHBlbmQgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgOiAiPSZyIiAociksICIrQSIgKCoocCkpICAgICAgICAgICAgICAgICAgICAgICAg
-XAo+ICsgICAgICAgICAgICAgICAgICAgICAgIDogInJKIiAobikgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIFwKPiArICAgICAgICAgICAgICAgICAgICAgICA6ICJtZW1vcnki
-KTsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAgICAgICB9ICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-XAo+ICtlbmQ6OyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIFwKPiAgfSkKPgo+ICAjZGVmaW5lIF9fYXJjaF94Y2hnKHNmeCwg
-cHJlcGVuZCwgYXBwZW5kLCByLCBwLCBuKSAgICAgICAgICAgICAgICAgICAgIFwKPiBAQCAtNTYs
-OCArNzgsMTMgQEAKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gICAgICAgICBzd2l0Y2ggKHNpemVvZigq
-X19wdHIpKSB7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICAgICAg
-ICAgY2FzZSAxOiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIFwKPiArICAgICAgICAgICAgICAgX19hcmNoX3hjaGdfbWFza2VkKHNjX3NmeCwg
-Ii5iIiBzd2FwX3NmeCwgICAgICAgICAgICAgICBcCj4gKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICBwcmVwZW5kLCBzY19hcHBlbmQsIHN3YXBfYXBwZW5kLCAgICAgXAo+ICsgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgX19yZXQsIF9fcHRyLCBfX25ldyk7ICAgICAg
-ICAgICAgICAgIFwKPiArICAgICAgICAgICAgICAgYnJlYWs7ICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gICAgICAgICBjYXNlIDI6ICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+IC0gICAg
-ICAgICAgICAgICBfX2FyY2hfeGNoZ19tYXNrZWQoc2Nfc2Z4LCBwcmVwZW5kLCBzY19hcHBlbmQs
-ICAgICAgICAgIFwKPiArICAgICAgICAgICAgICAgX19hcmNoX3hjaGdfbWFza2VkKHNjX3NmeCwg
-Ii5oIiBzd2FwX3NmeCwgICAgICAgICAgICAgICBcCj4gKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICBwcmVwZW5kLCBzY19hcHBlbmQsIHN3YXBfYXBwZW5kLCAgICAgXAo+ICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgX19yZXQsIF9fcHRyLCBfX25ldyk7ICAgICAg
-ICAgICAgICAgIFwKPiAgICAgICAgICAgICAgICAgYnJlYWs7ICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gICAgICAgICBjYXNlIDQ6ICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+IGRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmggYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2h3Y2FwLmgKPiBpbmRleCBlMTdkMDA3OGE2NTEuLmY3MWRkZDJjYTE2MyAxMDA2NDQK
-PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPiArKysgYi9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPiBAQCAtODEsNiArODEsNyBAQAo+ICAjZGVmaW5lIFJJU0NW
-X0lTQV9FWFRfWlRTTyAgICAgICAgICAgICA3Mgo+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWkFD
-QVMgICAgICAgICAgICA3Mwo+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWEFOREVTUE1VICAgICAg
-ICAgICAgICAgIDc0Cj4gKyNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aQUJIQSAgICAgICAgICAgIDc1
-Cj4KPiAgI2RlZmluZSBSSVNDVl9JU0FfRVhUX1hMSU5VWEVOVkNGRyAgICAgMTI3Cj4KPiBkaWZm
-IC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jIGIvYXJjaC9yaXNjdi9rZXJu
-ZWwvY3B1ZmVhdHVyZS5jCj4gaW5kZXggNWVmNDhjYjIwZWUxLi5jMTI1ZDgyYzg5NGIgMTAwNjQ0
-Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4gKysrIGIvYXJjaC9yaXNj
-di9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4gQEAgLTI1Nyw2ICsyNTcsNyBAQCBjb25zdCBzdHJ1Y3Qg
-cmlzY3ZfaXNhX2V4dF9kYXRhIHJpc2N2X2lzYV9leHRbXSA9IHsKPiAgICAgICAgIF9fUklTQ1Zf
-SVNBX0VYVF9EQVRBKHppaGludHBhdXNlLCBSSVNDVl9JU0FfRVhUX1pJSElOVFBBVVNFKSwKPiAg
-ICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHppaHBtLCBSSVNDVl9JU0FfRVhUX1pJSFBNKSwK
-PiAgICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHphY2FzLCBSSVNDVl9JU0FfRVhUX1pBQ0FT
-KSwKPiArICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHphYmhhLCBSSVNDVl9JU0FfRVhUX1pB
-QkhBKSwKPiAgICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpmYSwgUklTQ1ZfSVNBX0VYVF9a
-RkEpLAo+ICAgICAgICAgX19SSVNDVl9JU0FfRVhUX0RBVEEoemZoLCBSSVNDVl9JU0FfRVhUX1pG
-SCksCj4gICAgICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQSh6ZmhtaW4sIFJJU0NWX0lTQV9FWFRf
-WkZITUlOKSwKPiAtLQo+IDIuMzkuMgo+CgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+The PTE bit (9) is reserved for software, so we can use it for
+soft-dirty tracking. This patch adds its standard handlers for
+PTE, PMD, and swap entry.
+
+To add swap PTE soft-dirty tracking, we borrow bit (4) which is
+available for swap PTEs on RISC-V systems.
+
+This patch has been tested with the kselftest mm suite in which
+soft-dirty and madv_populate run and pass, and no regressions
+are observed in any of the other tests.
+
+Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+---
+ arch/riscv/Kconfig                    |  1 +
+ arch/riscv/include/asm/pgtable-bits.h | 13 ++++++
+ arch/riscv/include/asm/pgtable.h      | 65 ++++++++++++++++++++++++++-
+ 3 files changed, 78 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index b94176e25be1..2e3ad2925a6b 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -118,6 +118,7 @@ config RISCV
+ 	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+ 	select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
+ 	select HAVE_ARCH_SECCOMP_FILTER
++	select HAVE_ARCH_SOFT_DIRTY
+ 	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+ 	select HAVE_ARCH_TRACEHOOK
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index 179bd4afece4..bab48f5fd1e2 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -19,6 +19,19 @@
+ #define _PAGE_SOFT      (3 << 8)    /* Reserved for software */
+ 
+ #define _PAGE_SPECIAL   (1 << 8)    /* RSW: 0x1 */
++
++#ifdef CONFIG_MEM_SOFT_DIRTY
++#define _PAGE_SOFT_DIRTY	(1 << 9)    /* RSW: 0x2 for software dirty tracking */
++/*
++ * BIT 4 is not involved into swap entry computation, so we
++ * can borrow it for swap page soft-dirty tracking.
++ */
++#define _PAGE_SWP_SOFT_DIRTY	_PAGE_USER
++#else
++#define _PAGE_SOFT_DIRTY	0
++#define _PAGE_SWP_SOFT_DIRTY	0
++#endif /* CONFIG_MEM_SOFT_DIRTY */
++
+ #define _PAGE_TABLE     _PAGE_PRESENT
+ 
+ /*
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index aad8b8ca51f1..46f512f52580 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -408,7 +408,7 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
+ 
+ static inline pte_t pte_mkdirty(pte_t pte)
+ {
+-	return __pte(pte_val(pte) | _PAGE_DIRTY);
++	return __pte(pte_val(pte) | _PAGE_DIRTY | _PAGE_SOFT_DIRTY);
+ }
+ 
+ static inline pte_t pte_mkclean(pte_t pte)
+@@ -436,6 +436,36 @@ static inline pte_t pte_mkhuge(pte_t pte)
+ 	return pte;
+ }
+ 
++static inline int pte_soft_dirty(pte_t pte)
++{
++	return pte_val(pte) & _PAGE_SOFT_DIRTY;
++}
++
++static inline pte_t pte_mksoft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) | _PAGE_SOFT_DIRTY);
++}
++
++static inline pte_t pte_clear_soft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~(_PAGE_SOFT_DIRTY));
++}
++
++static inline int pte_swp_soft_dirty(pte_t pte)
++{
++	return pte_val(pte) & _PAGE_SWP_SOFT_DIRTY;
++}
++
++static inline pte_t pte_swp_mksoft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) | _PAGE_SWP_SOFT_DIRTY);
++}
++
++static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
++{
++	return __pte(pte_val(pte) & ~(_PAGE_SWP_SOFT_DIRTY));
++}
++
+ #ifdef CONFIG_RISCV_ISA_SVNAPOT
+ #define pte_leaf_size(pte)	(pte_napot(pte) ?				\
+ 					napot_cont_size(napot_cont_order(pte)) :\
+@@ -721,6 +751,38 @@ static inline pmd_t pmd_mkdirty(pmd_t pmd)
+ 	return pte_pmd(pte_mkdirty(pmd_pte(pmd)));
+ }
+ 
++static inline int pmd_soft_dirty(pmd_t pmd)
++{
++	return pte_soft_dirty(pmd_pte(pmd));
++}
++
++static inline pmd_t pmd_mksoft_dirty(pmd_t pmd)
++{
++	return pte_pmd(pte_mksoft_dirty(pmd_pte(pmd)));
++}
++
++static inline pmd_t pmd_clear_soft_dirty(pmd_t pmd)
++{
++	return pte_pmd(pte_clear_soft_dirty(pmd_pte(pmd)));
++}
++
++#ifdef CONFIG_ARCH_ENABLE_THP_MIGRATION
++static inline int pmd_swp_soft_dirty(pmd_t pmd)
++{
++	return pte_swp_soft_dirty(pmd_pte(pmd));
++}
++
++static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
++{
++	return pte_pmd(pte_swp_mksoft_dirty(pmd_pte(pmd)));
++}
++
++static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
++{
++	return pte_pmd(pte_swp_clear_soft_dirty(pmd_pte(pmd)));
++}
++#endif /* CONFIG_ARCH_ENABLE_THP_MIGRATION */
++
+ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 				pmd_t *pmdp, pmd_t pmd)
+ {
+@@ -811,6 +873,7 @@ extern pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
+  * Format of swap PTE:
+  *	bit            0:	_PAGE_PRESENT (zero)
+  *	bit       1 to 3:       _PAGE_LEAF (zero)
++ *	bit            4:	_PAGE_SWP_SOFT_DIRTY
+  *	bit            5:	_PAGE_PROT_NONE (zero)
+  *	bit            6:	exclusive marker
+  *	bits      7 to 11:	swap type
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
