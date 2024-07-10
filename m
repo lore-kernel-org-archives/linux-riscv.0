@@ -4,90 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCF5C3DA45
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jul 2024 10:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B308EC3DA45
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jul 2024 10:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cDh/1ZFqCJqMqN/N3depUZRHbC1LiPDYcFvSVklMEtk=; b=MfJ1ojmLJlrmT7
-	lpCjC0pKID0ScE4OtIR7/SbFUcjTWGx+pR6EtyNAlI3J9cofPBQRqj7I97GF9J0OGO5wF8uiNkpAI
-	BQeOJvBTSa5+nV2nf2qndrFiofGgIf3eGZxrUGtxEbKAAO58vdzuXlNtHB1Ak3yvQaMs8IZOJ3407
-	SCFhhfnCL1IzVsW/XxLfk2KL9c4HKM9gia2SDTSE6C59V84KmfpB1zufV+CU0IlNFzqOKO72Onmmh
-	vyqgtKI+qOx45w3lc2u0whECv07WoxuKMts3nu215XUJPxGcFpXcQTyVFZcmuDpYktQ6g1PqEkD75
-	6Jye2oMp1Y7WpKbdT1yw==;
+	List-Owner; bh=8MtWH4+L55ev7bO+TsWbQp2tgUsLMqlmoGaXV4SrH1s=; b=Pol27BQr/DMUBI
+	l6qiAdPace8/0IUsJLPjlsEIG1yMvqKaqKuLmzBaJYIKCu5fY2DwoV/d5S/iaPMerqRe7fyskrDNq
+	QzzReX5CoVNiaigdPgEscb51+cHyMQwaCnk+PRv6co6rW+aXwYTw+TyrP3gDfiYsXzGamAUYWkp6r
+	sCXU7XtkziLHvj35GTqYPphzKPlp/CF8+AwjtX0b6/pZSI9/tUIiN4+7Hs/iJKN+0+/wlTBpYYLfw
+	d2/iHiehI5qO5erOq3v0eU7rCJoB0bKrKMYS9prmb3AlcZL9AFDSOz+OXfaK5Yl7bWRSwzjj1PM+M
+	+8h7DbUrOqIZ+WufA5sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRUh6-0000000ADb2-1tS1;
-	Wed, 10 Jul 2024 10:37:04 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1sRUpN-0000000AFCA-2mfN;
+	Wed, 10 Jul 2024 10:45:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRUgq-0000000ADWb-3QUg
-	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jul 2024 10:36:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1720607808;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TbJg6z7j+ZQBtm21UhpDM4r/48rTnLX4yDmOeuhoEeA=;
-	b=CMWJS8WwYGV+Zycf/PKu7fc11hU4dXmtdleVOGC2TIGp09tcRScUJKdTXAc7q0c4mqV3qU
-	8njeqNXg7CF3yfitKV7WIVD9raVZRlYXt3PFMvL0RJO7NQ7USRXKGXiYj1jDzpNkVp2ZtX
-	t/FuCAsceNCq6CwBO84P2NFNTN7xy/4=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-186-a07wZjSjMfOCkc_bgrfTiQ-1; Wed,
- 10 Jul 2024 06:36:41 -0400
-X-MC-Unique: a07wZjSjMfOCkc_bgrfTiQ-1
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 07722196CE01;
-	Wed, 10 Jul 2024 10:36:36 +0000 (UTC)
-Received: from oldenburg.str.redhat.com (unknown [10.45.224.154])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A378D19560AE;
-	Wed, 10 Jul 2024 10:36:24 +0000 (UTC)
-From: Florian Weimer <fweimer@redhat.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
- <will@kernel.org>,  Jonathan Corbet <corbet@lwn.net>,  Andrew Morton
- <akpm@linux-foundation.org>,  Marc Zyngier <maz@kernel.org>,  Oliver Upton
- <oliver.upton@linux.dev>,  James Morse <james.morse@arm.com>,  Suzuki K
- Poulose <suzuki.poulose@arm.com>,  Arnd Bergmann <arnd@arndb.de>,  Oleg
- Nesterov <oleg@redhat.com>,  Eric Biederman <ebiederm@xmission.com>,
-  Shuah Khan <shuah@kernel.org>,  "Rick P. Edgecombe"
- <rick.p.edgecombe@intel.com>,  Deepak Gupta <debug@rivosinc.com>,  Ard
- Biesheuvel <ardb@kernel.org>,  Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-  Kees Cook <kees@kernel.org>,  "H.J. Lu" <hjl.tools@gmail.com>,  Paul
- Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>,  Christian Brauner
- <brauner@kernel.org>,  Thiago Jung Bauermann
- <thiago.bauermann@linaro.org>,  Ross Burton <ross.burton@arm.com>,
-  linux-arm-kernel@lists.infradead.org,  linux-doc@vger.kernel.org,
-  kvmarm@lists.linux.dev,  linux-fsdevel@vger.kernel.org,
-  linux-arch@vger.kernel.org,  linux-mm@kvack.org,
-  linux-kselftest@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-riscv@lists.infradead.org, "Schimpe, Christina"
- <christina.schimpe@intel.com>, "Pandey, Sunil K"
- <sunil.k.pandey@intel.com>
-Subject: Re: [PATCH v9 05/39] arm64/gcs: Document the ABI for Guarded
- Control Stacks
-In-Reply-To: <20240625-arm64-gcs-v9-5-0f634469b8f0@kernel.org> (Mark Brown's
-	message of "Tue, 25 Jun 2024 15:57:33 +0100")
-References: <20240625-arm64-gcs-v9-0-0f634469b8f0@kernel.org>
-	<20240625-arm64-gcs-v9-5-0f634469b8f0@kernel.org>
-Date: Wed, 10 Jul 2024 12:36:21 +0200
-Message-ID: <87a5iph6u2.fsf@oldenburg.str.redhat.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1sRUp1-0000000AF8G-2lEB;
+	Wed, 10 Jul 2024 10:45:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 62CA261A39;
+	Wed, 10 Jul 2024 10:45:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEBE4C32781;
+	Wed, 10 Jul 2024 10:45:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1720608314;
+	bh=LE/oYnTYJnZzNSZjVdRZsuFUBrpiaPaP6arHr61Ezs0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ul/DvtK2rX+5FMBNGck+kBMzIRGpz4orkB2r1kF3F5/H/AeS899Ul9hgipFnF2Lsm
+	 fqhIZOiv0leypARDaRmv+aZkXZtcOvdUsj+5wap2S1ZSPRJLotPgXA81bc6A5UAr0z
+	 z5VHQSdaDORQpwUmL9AwWVjobHdkprOWnNJAWDyejM5upkZwlW91BAuftToNssIxV9
+	 EPNxe6DUirVuysfk8vJy1WkTXiFl6rFYV46XNiVG+oPrdlwGwMZBTH8vZCI8bMMe5G
+	 /7D7ufOL9UNFYDutNSZl10IpjTK0gCefF+Rg+k1DThhxQ1VVYHUolVBiV04f72Jh8X
+	 OofIXEtB5nDgQ==
+Date: Wed, 10 Jul 2024 12:45:06 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, acpica-devel@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Anup Patel <anup@brainfault.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Robert Moore <robert.moore@intel.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Haibo1 Xu <haibo1.xu@intel.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Subject: Re: [PATCH v6 11/17] ACPI: RISC-V: Initialize GSI mapping structures
+Message-ID: <Zo5mMiWbEtKEeZ2r@lpieralisi>
+References: <20240601150411.1929783-1-sunilvl@ventanamicro.com>
+ <20240601150411.1929783-12-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Content-Disposition: inline
+In-Reply-To: <20240601150411.1929783-12-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240710_033648_932764_1DC38BD4 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20240710_034515_848793_61F264BE 
+X-CRM114-Status: GOOD (  30.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,47 +91,245 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-* Mark Brown:
-
-
-> +4.  Signal handling
-> +--------------------
+On Sat, Jun 01, 2024 at 08:34:05PM +0530, Sunil V L wrote:
+> RISC-V has PLIC and APLIC in MADT as well as namespace devices.
+> Initialize the list of those structures using MADT and namespace devices
+> to create mapping between the ACPI handle and the GSI ranges. This will
+> be used later to add dependencies.
+> 
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/irq.h |  22 ++++++
+>  drivers/acpi/riscv/init.c    |   2 +
+>  drivers/acpi/riscv/init.h    |   4 +
+>  drivers/acpi/riscv/irq.c     | 142 +++++++++++++++++++++++++++++++++++
+>  4 files changed, 170 insertions(+)
+>  create mode 100644 drivers/acpi/riscv/init.h
+> 
+> diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
+> index 8e10a94430a2..44a0b128c602 100644
+> --- a/arch/riscv/include/asm/irq.h
+> +++ b/arch/riscv/include/asm/irq.h
+> @@ -16,4 +16,26 @@ void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void));
+>  
+>  struct fwnode_handle *riscv_get_intc_hwnode(void);
+>  
+> +#ifdef CONFIG_ACPI
 > +
-> +* A new signal frame record gcs_context encodes the current GCS mode and
-> +  pointer for the interrupted context on signal delivery.  This will always
-> +  be present on systems that support GCS.
+> +enum riscv_irqchip_type {
+> +	ACPI_RISCV_IRQCHIP_INTC		= 0x00,
+> +	ACPI_RISCV_IRQCHIP_IMSIC	= 0x01,
+> +	ACPI_RISCV_IRQCHIP_PLIC		= 0x02,
+> +	ACPI_RISCV_IRQCHIP_APLIC	= 0x03,
+> +};
 > +
-> +* The record contains a flag field which reports the current GCS configuration
-> +  for the interrupted context as PR_GET_SHADOW_STACK_STATUS would.
+> +int riscv_acpi_get_gsi_info(struct fwnode_handle *fwnode, u32 *gsi_base,
+> +			    u32 *id, u32 *nr_irqs, u32 *nr_idcs);
+> +struct fwnode_handle *riscv_acpi_get_gsi_domain_id(u32 gsi);
 > +
-> +* The signal handler is run with the same GCS configuration as the interrupted
-> +  context.
+> +#else
+> +static inline int riscv_acpi_get_gsi_info(struct fwnode_handle *fwnode, u32 *gsi_base,
+> +					  u32 *id, u32 *nr_irqs, u32 *nr_idcs)
+> +{
+> +	return 0;
+> +}
 > +
-> +* When GCS is enabled for the interrupted thread a signal handling specific
-> +  GCS cap token will be written to the GCS, this is an architectural GCS cap
-> +  token with bit 63 set and the token type (bits 0..11) all clear.  The
-> +  GCSPR_EL0 reported in the signal frame will point to this cap token.
+> +#endif /* CONFIG_ACPI */
+> +
+>  #endif /* _ASM_RISCV_IRQ_H */
+> diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
+> index 5f7571143245..22db97f7a772 100644
+> --- a/drivers/acpi/riscv/init.c
+> +++ b/drivers/acpi/riscv/init.c
+> @@ -6,7 +6,9 @@
+>   */
+>  
+>  #include <linux/acpi.h>
+> +#include "init.h"
+>  
+>  void __init acpi_riscv_init(void)
+>  {
+> +	riscv_acpi_init_gsi_mapping();
+>  }
+> diff --git a/drivers/acpi/riscv/init.h b/drivers/acpi/riscv/init.h
+> new file mode 100644
+> index 000000000000..0b9a07e4031f
+> --- /dev/null
+> +++ b/drivers/acpi/riscv/init.h
+> @@ -0,0 +1,4 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#include <linux/init.h>
+> +
+> +void __init riscv_acpi_init_gsi_mapping(void);
+> diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
+> index f56e103a501f..0473428e8d1e 100644
+> --- a/drivers/acpi/riscv/irq.c
+> +++ b/drivers/acpi/riscv/irq.c
+> @@ -7,6 +7,21 @@
+>  
+>  #include <linux/acpi.h>
+>  #include <linux/sort.h>
+> +#include <linux/irq.h>
+> +
+> +#include "init.h"
+> +
+> +struct riscv_ext_intc_list {
+> +	acpi_handle handle;
+> +	u32 gsi_base;
+> +	u32 nr_irqs;
+> +	u32 nr_idcs;
+> +	u32 id;
+> +	u32 type;
+> +	struct list_head list;
+> +};
+> +
+> +LIST_HEAD(ext_intc_list);
+>  
+>  static int irqchip_cmp_func(const void *in0, const void *in1)
+>  {
+> @@ -30,3 +45,130 @@ void arch_sort_irqchip_probe(struct acpi_probe_entry *ap_head, int nr)
+>  		return;
+>  	sort(ape, nr, sizeof(*ape), irqchip_cmp_func, NULL);
+>  }
+> +
+> +static void riscv_acpi_update_gsi_handle(u32 gsi_base, acpi_handle handle)
+> +{
+> +	struct riscv_ext_intc_list *ext_intc_element;
+> +	struct list_head *i, *tmp;
+> +
+> +	list_for_each_safe(i, tmp, &ext_intc_list) {
+> +		ext_intc_element = list_entry(i, struct riscv_ext_intc_list, list);
+> +		if (gsi_base == ext_intc_element->gsi_base) {
+> +			ext_intc_element->handle = handle;
+> +			return;
+> +		}
+> +	}
+> +
+> +	acpi_handle_err(handle, "failed to find the GSI mapping entry\n");
+> +}
+> +
+> +int riscv_acpi_get_gsi_info(struct fwnode_handle *fwnode, u32 *gsi_base,
+> +			    u32 *id, u32 *nr_irqs, u32 *nr_idcs)
+> +{
+> +	struct riscv_ext_intc_list *ext_intc_element;
+> +	struct list_head *i, *tmp;
+> +
+> +	list_for_each_safe(i, tmp, &ext_intc_list) {
+> +		ext_intc_element = list_entry(i, struct riscv_ext_intc_list, list);
+> +		if (ext_intc_element->handle == ACPI_HANDLE_FWNODE(fwnode)) {
+> +			*gsi_base = ext_intc_element->gsi_base;
+> +			*id = ext_intc_element->id;
+> +			*nr_irqs = ext_intc_element->nr_irqs;
+> +			if (nr_idcs)
+> +				*nr_idcs = ext_intc_element->nr_idcs;
+> +
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	return -ENODEV;
+> +}
+> +
+> +struct fwnode_handle *riscv_acpi_get_gsi_domain_id(u32 gsi)
+> +{
+> +	struct riscv_ext_intc_list *ext_intc_element;
+> +	struct acpi_device *adev;
+> +	struct list_head *i, *tmp;
+> +
+> +	list_for_each_safe(i, tmp, &ext_intc_list) {
+> +		ext_intc_element = list_entry(i, struct riscv_ext_intc_list, list);
+> +		if (gsi >= ext_intc_element->gsi_base &&
+> +		    gsi < (ext_intc_element->gsi_base + ext_intc_element->nr_irqs)) {
+> +			adev = acpi_fetch_acpi_dev(ext_intc_element->handle);
+> +			if (!adev)
+> +				return NULL;
+> +
+> +			return acpi_fwnode_handle(adev);
+> +		}
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static int __init riscv_acpi_register_ext_intc(u32 gsi_base, u32 nr_irqs, u32 nr_idcs,
+> +					       u32 id, u32 type)
+> +{
+> +	struct riscv_ext_intc_list *ext_intc_element;
+> +
+> +	ext_intc_element = kzalloc(sizeof(*ext_intc_element), GFP_KERNEL);
+> +	if (!ext_intc_element)
+> +		return -ENOMEM;
+> +
+> +	ext_intc_element->gsi_base = gsi_base;
+> +	ext_intc_element->nr_irqs = nr_irqs;
+> +	ext_intc_element->nr_idcs = nr_idcs;
+> +	ext_intc_element->id = id;
+> +	list_add_tail(&ext_intc_element->list, &ext_intc_list);
+> +	return 0;
+> +}
+> +
+> +static acpi_status __init riscv_acpi_create_gsi_map(acpi_handle handle, u32 level,
+> +						    void *context, void **return_value)
+> +{
+> +	acpi_status status;
+> +	u64 gbase;
+> +
+> +	if (!acpi_has_method(handle, "_GSB")) {
+> +		acpi_handle_err(handle, "_GSB method not found\n");
+> +		return AE_OK;
+> +	}
+> +
+> +	status = acpi_evaluate_integer(handle, "_GSB", NULL, &gbase);
+> +	if (ACPI_FAILURE(status)) {
+> +		acpi_handle_err(handle, "failed to evaluate _GSB method\n");
+> +		return AE_OK;
+> +	}
+> +
+> +	riscv_acpi_update_gsi_handle((u32)gbase, handle);
+> +	return AE_OK;
+> +}
+> +
+> +static int __init riscv_acpi_aplic_parse_madt(union acpi_subtable_headers *header,
+> +					      const unsigned long end)
+> +{
+> +	struct acpi_madt_aplic *aplic = (struct acpi_madt_aplic *)header;
+> +
+> +	return riscv_acpi_register_ext_intc(aplic->gsi_base, aplic->num_sources, aplic->num_idcs,
+> +					    aplic->id, ACPI_RISCV_IRQCHIP_APLIC);
+> +}
+> +
+> +static int __init riscv_acpi_plic_parse_madt(union acpi_subtable_headers *header,
+> +					     const unsigned long end)
+> +{
+> +	struct acpi_madt_plic *plic = (struct acpi_madt_plic *)header;
+> +
+> +	return riscv_acpi_register_ext_intc(plic->gsi_base, plic->num_irqs, 0,
+> +					    plic->id, ACPI_RISCV_IRQCHIP_PLIC);
+> +}
+> +
+> +void __init riscv_acpi_init_gsi_mapping(void)
+> +{
+> +	/* There can be either PLIC or APLIC */
+> +	if (acpi_table_parse_madt(ACPI_MADT_TYPE_PLIC, riscv_acpi_plic_parse_madt, 0) > 0) {
+> +		acpi_get_devices("RSCV0001", riscv_acpi_create_gsi_map, NULL, NULL);
+> +		return;
+> +	}
+> +
+> +	if (acpi_table_parse_madt(ACPI_MADT_TYPE_APLIC, riscv_acpi_aplic_parse_madt, 0) > 0)
+> +		acpi_get_devices("RSCV0002", riscv_acpi_create_gsi_map, NULL, NULL);
+> +}
 
-How does this marker interfere with Top Byte Ignore (TBI; I hope I got
-the name right)?  The specification currently does not say that only
-addresses pushed to the shadow stack with the top byte cleared, which
-potentially makes the markup ambiguous.  On x86-64, the same issue may
-exist with LAM.  I have not tested yet what happens there.  On AArch64
-and RISC-V, it may be more natural to use the LSB instead of the LSB for
-the mark bit because of its instruction alignment.
+I don't know if it is needed in RISC-V - it is a question - but how would you
+resolve a GSI mapping before the ACPI intepreter is initialized ?
 
-We also have a gap on x86-64 for backtrace generation because the
-interrupted instruction address does not end up on the shadow stack.
-This address is potentially quite interesting for backtrace generation.
-I assume it's currently missing because the kernel does not resume
-execution using a regular return instruction.  It would be really useful
-if it could be pushed to the shadow stack, or recoverable from the
-shadow stack in some other way (e.g., the address of the signal context
-could be pushed instead).  That would need some form of marker as well.
+This model relies on the _GSB method to be called on the interrupt controller
+device to discover the GSI range it actually covers, I was wondering how this
+works for "devices" (eg components described in static table, eg timers)
+that require a GSI mapping before you are able to retrieve the required
+information from the namespace devices.
 
 Thanks,
-Florian
-
+Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
