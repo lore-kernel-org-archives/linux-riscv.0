@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0265C3DA42
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jul 2024 13:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9FE2C3DA41
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jul 2024 13:08:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RLcqfYfAiV+ULBR1Omkva3R2gbTk/RdkTIgpqiASmdw=; b=FqAftJ6l1p+sJs
-	NCoQdAvxbFJymswIWA6BoN+6BerzoRk+937fUL9ZkzQPUWXiUrKCXpcLo49gZXiJuyXT7X+9M9N85
-	1k329tZ7NzZZ4gBHssLsdYBDOU/PhA8wOuZ2VtEfGEoCgtTu0oRjDoHh6rJkFObEutIb2r5rciNWG
-	cq8Gf2ebdtlrgiz1hAaCgKL6fmYwQg+XvXLA4uu4vdT+atsqFRcrCx2CaUEzjsBBfsxf/72LuWwxQ
-	4cqMJhV24dBylUVJOHPJNgDQLPv29zFokEuU3WZ3RGRdRIRVmeucSPkggFmJobwwsFWGlQfmMdYF3
-	LMV+lzjO9sNw+VzqwkIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wRYl2W8V4+cxfIV7IIln2MAvfHkCfTJo9comUsq8AR4=; b=xD6W/SmNBylnnyHC49ofTZBAxk
+	LeddbijRtb+hvqfBPXgLzZD3T2JErq1h6Hfbfgvw9oyzqOy56moo0eMOzJGuT+lhR7bp2vhZ1OcH/
+	K+S9ACiWwoFDrP03FWz3zc2vtIqIckfroTc1JE1+2wBxsFH4zA779/y6rk1ZhkbgQ8SCIUzWLXNt6
+	sNWFXDaf9IUg3O05rcULK86296C7JyGR7fnjyv9UVIY+mqIrXEog7manSscbUwPz1P4kKiHvGqK6G
+	LCd7kgCFiDjEv5YvZBCRc0AQnUwQUvcyUDXmdDbK8xyDAnpE/K3smPHgqJ7Q4wkiNz2IXE2y//8jn
+	esacaeMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRWwn-0000000AZe1-3L9p;
-	Wed, 10 Jul 2024 13:01:25 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1sRX3s-0000000Ab8q-08O6;
+	Wed, 10 Jul 2024 13:08:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRWwk-0000000AZd7-3DjQ
-	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jul 2024 13:01:24 +0000
+	id 1sRX3Z-0000000Ab0O-38NP;
+	Wed, 10 Jul 2024 13:08:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 3B22DCE1676;
-	Wed, 10 Jul 2024 13:01:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B113C32781;
-	Wed, 10 Jul 2024 13:01:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4584D6190C;
+	Wed, 10 Jul 2024 13:08:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6311EC32782;
+	Wed, 10 Jul 2024 13:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720616479;
-	bh=+4x3HRyWwx+Xd8R65nc5F3s+t/8WKeREvJg/+hwigNc=;
+	s=k20201202; t=1720616905;
+	bh=20hAmUQJ5H0dqXfMYq7iNS/LgEwVNBfRSwX6Fbv7Rx0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Hd+c2OS3wlylXNCVcq2IWuf7/W4hQGqA5CKbwW2oSTLsIClLVvBY937ugu+/OeyZ+
-	 kbM6jbPjPdZNxPiXHMPD1v8PbAdnNeWuAJcUWfn6YWehhOkMDO+Do3jLFhXpJTE45k
-	 ZB2xGkPcUILyGfvyTohqxZl2E0QwrW/+Ixxi0lDfCDFaEgHLOZNPwSgFs4I5+QdPBM
-	 vtejH6Edjgwfg/BZf1cb74pKymF25Ic2waFtmftEamj1Y7NXeQuBPTyfz7z7fTC0Ps
-	 +KqdMxV2kXcwCs4OBI4+WFSoATis5UTvY4QsJnWuH37tKIp9Q2QDnWK/mUFs2eW803
-	 k53IfmUiUItVg==
-Date: Wed, 10 Jul 2024 15:01:15 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Drew Fustini <dfustini@tenstorrent.com>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
-	Conor Dooley <conor@kernel.org>, Jarkko Nikula <jarkko.nikula@linux.intel.com>, 
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, =?utf-8?Q?Miqu=C3=A8l?= Raynal <miquel.raynal@bootlin.com>, 
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: (subset) [PATCH v3 0/3] Add I2C support on TH1520
-Message-ID: <7kki7gjcvt2z23cd2t2p5jmy7plxazlcu37pchfxkpifm76jjz@qtb6rqhngclp>
-References: <20240618-i2c-th1520-v3-0-3042590a16b1@bootlin.com>
- <172059771094.2294116.14777114514280404581.b4-ty@kernel.org>
- <6374ed31-3832-4b17-9d80-f668c419a016@kernel.org>
+	b=S9hM2atZ5ZFhaUOVjx6PR2HXOtRcW2QNjebxTAoB2FvvbNZ4PvOIsIwpDlPboosKj
+	 aUtUzXLMfzd0O5DHyr4sCCAr1JRNez2zaVxXGyiPdJVbKNb37V2ly+VVxzpMDXgG/0
+	 yLekhO+MGKNgwADbhYOjSo5b4rpMXYgWwoL2bNSCBQKmOvzvqtC3rwJbQrGVvORCEw
+	 J4pHDoVTPveEEH9d10qvcPrL+POj3GC5r8YQvSmPXeVF0PMmlfQ/MZUMEctcHXW0qy
+	 0yxxDbGN2tLa8mdEVPGQM3LjZRro94QHKN4+ZoTczDbhEko0b/JGYs5RGeGNJyt6+s
+	 scOo6mzmOh59Q==
+Date: Wed, 10 Jul 2024 14:08:15 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Arnd Bergmann <arnd@kernel.org>,
+	Linux-Arch <linux-arch@vger.kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, guoren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, Dinh Nguyen <dinguyen@kernel.org>,
+	Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S . Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	"linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+	linux-riscv@lists.infradead.org,
+	Aishwarya TCV <Aishwarya.TCV@arm.com>, shuah <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 10/17] arm64: generate 64-bit syscall.tbl
+Message-ID: <Zo6Hv18S35K0hH_7@finisterre.sirena.org.uk>
+References: <20240704143611.2979589-1-arnd@kernel.org>
+ <20240704143611.2979589-11-arnd@kernel.org>
+ <c8c882ad-d508-40b7-9af5-b2a2ddf777c1@sirena.org.uk>
+ <93c84e97-b307-4486-8dfb-e966c96751a1@app.fastmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <6374ed31-3832-4b17-9d80-f668c419a016@kernel.org>
+In-Reply-To: <93c84e97-b307-4486-8dfb-e966c96751a1@app.fastmail.com>
+X-Cookie: Your love life will be... interesting.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240710_060123_274000_CCD46678 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20240710_060825_922679_A541C805 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +97,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1649793496676203009=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
 
-On Wed, Jul 10, 2024 at 10:21:57AM GMT, Krzysztof Kozlowski wrote:
-> On 10/07/2024 09:48, Andi Shyti wrote:
-> > Hi
-> > 
-> > On Tue, 18 Jun 2024 09:42:37 +0200, Thomas Bonnefille wrote:
-> >> This adds I2C support in the device tree of the T-Head TH1520 RISCV-SoC
-> >> and a default configuration for the BeagleV-Ahead. It appears that the
-> >> TH1520 I2C is already supported in the upstream kernel through the
-> >> Synopsis Designware I2C adapter driver.
-> >>
-> >> This patch depends on the clock patch from Drew Fustini
-> >> Link: https://lore.kernel.org/linux-riscv/20240615-th1520-clk-v1-0-3ba4978c4d6b@tenstorrent.com
-> >> and the pinctrl patch from Emil Renner Berthing
-> >> Link: https://lore.kernel.org/linux-riscv/20240103132852.298964-1-emil.renner.berthing@canonical.com
-> >>
-> >> [...]
-> > 
-> > Applied to i2c/i2c-host on
-> > 
-> > git://git.kernel.org/pub/scm/linux/kernel/git/local tree
-> 
-> Something got odd in the git repo above in your ty letters.
+--===============1649793496676203009==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LdSnlI4UojlRSCq3"
+Content-Disposition: inline
 
-yes, I also noticed that sometimes b4 ty is not able to resolve
-to the right repo. I haven't had the time to check what goes
-wrong.
 
-Anyway, thanks, the right repo is:
+--LdSnlI4UojlRSCq3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-git://git.kernel.org/pub/scm/linux/kernel/git/andi.shyti/linux.git
+On Wed, Jul 10, 2024 at 10:57:25AM +0200, Arnd Bergmann wrote:
 
-Andi
+> Thanks for the report! I just panicked a bit and thought I had
+> done something entirely wrong here, but after having a closer
+> look it turned out to be a silly typo:
+
+> -#include <unistd_64.h>
+> +#include <asm/unistd_64.h>
+
+Doh, I should've spotted that even from the very quick look I gave it!
+Thanks for the quick fix.
+
+> I checked that arm64 is the only architecture that has this
+> particular bug, and I tried building kselftest now, which seems
+> to work better. There are still a few warnings and errors
+> I get doing that, but I suspect those are all preexisting
+> issues.
+
+Yeah, not everything there builds cleanly (and there's a bunch of
+external deps you need for many of the suites).
+
+--LdSnlI4UojlRSCq3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmaOh74ACgkQJNaLcl1U
+h9CcQgf+N85DM6dZVHX8s5b4IoK8zBscjfKv6tCiwPcVRTNMH1dJqkR5LYNpb1am
+KnuwKdCAcqascCbdmTx6ZzWDw52YDXohUbXSLkof3qyp5Js5aEyrs51UQTogwoi4
+kW2K0EYgg4Wk0OF5Fe2Iq2ITXeoZ9O++joUeRHwXE9hSesKKiM+kZoHBaKHFQf8G
+KDEhNvrFyrB2F9RDVIHcqt7IlySirRkKj8aWx9Dytd3Z8QtLv8rI6mbWZQ17ym4y
+zDuDf4710dlhVUmR8eYF+JeHyJGcKQMF1BZAqwIkxQHuuP8uaNfhIR/rSOL1okjv
+4LFBmMQqolC9ttdMprhk/DBLuxJAwA==
+=NATo
+-----END PGP SIGNATURE-----
+
+--LdSnlI4UojlRSCq3--
+
+
+--===============1649793496676203009==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1649793496676203009==--
+
