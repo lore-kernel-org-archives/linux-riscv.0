@@ -4,78 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DD17C3DA42
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jul 2024 09:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A17BAC3DA42
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jul 2024 10:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ds0X4/3UThsVj992Y/CF8bmxks2etKf2vnaD0LChhNs=; b=sS+TLBYaBbFQLw
-	RRMps1ynmOUORWIVLkLJOy+xDs+7cn6o0/ayyiGgUrGNJk+3SmP3AJrOZ6eIbY3Ue6imL5w/m6smk
-	/lmN5KHU/4hJnyTqNqm8gILwxiH4ro8xH49OmsQ3C9ZjHwcFWrinh0RJ7cN5L+6YQWz81DXYS9fEh
-	z2I0Ua17hDC3lnmceeMFJYHkC8TrLndcSf2+tRDtTsKkf4Y2OgyfPNY4Tchf1MaZaKarxJP/5G579
-	Lplf7rXlMw7e2kxtxWGTqgZGagdm/Iry/nxrV6q60gDdQEc06SoRuFCOguaZ/LFr4ObAe3D5xcHTF
-	2V5+nCZ1Ya3fRGgjopIw==;
+	List-Owner; bh=G3QckuLbG/b7cIub6+EMX0zRDWuzqjNwa1CiBpKwdDw=; b=Uj2zTiQybfq42W
+	nY6f31HeaSV+jz2IMlunU0/Nf/J4u4vc+djKY7Tp5HC/ecqGDmR70FEFZKqG0UyNp4Ok444VBaCt/
+	Dms16DesAsTF921T6zIDw8j3opGh34gMP7Tny07u7LbH0PVS9U0GoNUj12MpzREZTu61o/jxtQvey
+	i9Tz+fJK+I53ovqnAQevU6/5uv3S300LAHCYwtRAwQkCWV+gyg9uwVI+Puq5gpbwn8iZqJuc6C+Z0
+	d0fWO4rrzhDapRrk1uyNgXWSOBEyef8WWtnjQU0itwT70tgkraXOgV/u+Z3lK2oD6V+vWqyr52uU4
+	CtAOVYXzu7A5DFfmUTtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRTnf-0000000A5gT-20X6;
-	Wed, 10 Jul 2024 09:39:47 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1sRUYG-0000000ABkt-2slq;
+	Wed, 10 Jul 2024 10:27:56 +0000
+Received: from fout5-smtp.messagingengine.com ([103.168.172.148])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRTnc-0000000A5fa-2kyv
-	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jul 2024 09:39:46 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-52eafec1e84so3765977e87.0
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Jul 2024 02:39:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1720604377; x=1721209177; darn=lists.infradead.org;
-        h=mime-version:user-agent:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ARVuzbVHjxxG9dv9mtR/lCDpdt7FDrvxjkqdsUuuHF8=;
-        b=VACIDoe2ZOgFPIWgRR/3Ltbm6ZqU4fJD+HVoVdRHkh1uwP3ldCxItEoLfUCYsA1x82
-         WAtVqW+oU2/oGT7ve3+VhCc71vQUyhBbxWG8KUAbZot1JIT8kvEiqEUUqXWasxshhHby
-         E15hodV6fCxa7XalNFTBycJiWFyWmdZLBOyeq3qyz2hErWIJZoOS8k9u7x9SO9vgEi0P
-         wtaoJ8d3YWEfEeuoFHxLEVp5UDD/6RXP8q0nKBMRKPDFV/rdeIvNGmtlfUI6404Jg2Vj
-         5hDBsNMa3qtQtj0Lr1d1lM5Fga4mEIJYxhG5fbI18W7b7VUHiNIEM6hxPKuQ7vT7tkLA
-         NGJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720604377; x=1721209177;
-        h=mime-version:user-agent:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ARVuzbVHjxxG9dv9mtR/lCDpdt7FDrvxjkqdsUuuHF8=;
-        b=EfcnUSVzVFlRazwzfpMY22zbxzAoxZnTVOs41cWsRJ1scd+KPe6iFkZ2V8SNjVu4lt
-         7exigbtVbimB9C5R8Zwv0YKdFhOuHWP8QI/sNXV54fM73GY7aUzvK60T/+L4lFTmaOu/
-         WSYu9HMU255azedpgyBRn/aEhu9hqn4R41RCKUQGoW9fwyrUt8pSi5T4nuSUyMhfsQEA
-         uFlACRw2CInbnAllkTz3yeyo74rBd7kO00M1Ct+NM8kKSqtNdP4ghpcM/D18pMndajCD
-         t8HJ2V49Dzdey3HAHh9C6lt+HweIlF7VQnRERbLhnQO+AZ9i1/Nxs0WWwCp60ySI29/f
-         Gb2g==
-X-Forwarded-Encrypted: i=1; AJvYcCXsKXxEQMnNgsS/FcDhGD18ApGzNz9vLivtC1+qrRP/ofCtdboKykwCkkyaUHXerXMIj3ABTHUYtoI2ENK7Oo3oInINXQ6oHRIV3i9016sW
-X-Gm-Message-State: AOJu0YxjF37dylYYi9xijQrWrD/Suf2KD6wVb7h/n5UrFuC3hzJOEG2o
-	MmDzh79qn2SjUEAiE+4qE/ssJrk8pvnbMTdE0fo50261phKIzTXEkTrDL1cWiWs=
-X-Google-Smtp-Source: AGHT+IH5HuyWqm0xlysU+IQkoWroaRhheIPJ9ojT9MNnUnqo/Xdu38e9HBXnOtzD4O+1giys97jgbA==
-X-Received: by 2002:a05:6512:3b82:b0:52c:fd49:d42 with SMTP id 2adb3069b0e04-52eb9990d58mr3224222e87.14.1720604377061;
-        Wed, 10 Jul 2024 02:39:37 -0700 (PDT)
-Received: from localhost ([149.71.16.99])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4266f74159csm73618475e9.42.2024.07.10.02.39.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jul 2024 02:39:36 -0700 (PDT)
-From: Punit Agrawal <punit.agrawal@bytedance.com>
-To: paul.walmsley@sifive.com, palmer@dabbelt.com
-Subject: Re: [PATCH v4] RISC-V: Provide the frequency of time CSR via hwprobe
-In-Reply-To: <20240702033731.71955-2-cuiyunhui@bytedance.com> (Yunhui Cui's
-	message of "Tue, 2 Jul 2024 11:37:31 +0800")
-References: <20240702033731.71955-1-cuiyunhui@bytedance.com>
-	<20240702033731.71955-2-cuiyunhui@bytedance.com>
-Date: Wed, 10 Jul 2024 10:39:35 +0100
-Message-ID: <87jzhtmvqg.fsf@bytedance.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1sRUXy-0000000ABhx-3v53;
+	Wed, 10 Jul 2024 10:27:40 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailfout.nyi.internal (Postfix) with ESMTP id 7FA5213807ED;
+	Wed, 10 Jul 2024 06:27:37 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute5.internal (MEProxy); Wed, 10 Jul 2024 06:27:37 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1720607257; x=1720693657; bh=y7I9x5O068
+	rIa6OwNh1cKNoYpCATZicSDmRnAUguLsU=; b=LyoeV7gWDoZN30PXCwvf8Wxeg6
+	VhoBTVUhVW1s1omN6d8MKzk7jEzeXh8G5o3fMq2+GFZyBVg/9/7OEhye+/coWt2O
+	XfAhCV6pfHeQn17iPTTX2lKtnsu7/SS85QVlYeEFAIh8HBt+aTgpZe20ljb+djY9
+	KkAzG4mjhKV0qUKdG0gR+2CejXzNw/FxE5kv6+1kjsvhxagXsgNXyayRyPdaQbeQ
+	4TBQPDKF3YFf+VvY9c/rWAvGbZGkMYb+IU1xgJ04tc8Lwn7CByXKIAgP2f3v93aA
+	AoojIIDVoBGSZB+yjz8jXJf75ilDChNU4VltOrQAj2Dm90JSVQOz8ktykirw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1720607257; x=1720693657; bh=y7I9x5O068rIa6OwNh1cKNoYpCAT
+	ZicSDmRnAUguLsU=; b=TQea+NHxpLxXt64jCbNK563C0E1TLCjGTuZN4XWClfBX
+	Q+hiwNI0APwrfFgBUmFeN+FlkT0ajXZjAbuIrQNBXBMSAspspDtA+vFl5wSJsH6E
+	cf197a4HNOG7bQXAR4Io3DEpsVFMTnNaNAdR20K7xWSpjgQ7DH48OO1jWq65WdVZ
+	KocA8mDU0G6OXbyBpcTXLQml76zE9t4F4YwV0CnWbjiN2MSuT46ZA1ZodsAUvB1Y
+	EMkXZXgPKUePYdiFfv6KLd+xOkVCBcPaKAeZ1lDw51o7t4aMsNfmIySSOVLdSNYT
+	RR8pYHgQg1azc7LSxH3IoyoJBkXtKrOxBa0ztmnx8Q==
+X-ME-Sender: <xms:FWKOZu7OEleYA2ZaQhHK0YTUnp8ZCDHU5Qv_qlmoFX318_1KRZ1MzQ>
+    <xme:FWKOZn4LSmiq1Nz2uEK5cmUYFupZB_cnhbb__NNmw8e_CrlbvFEeBRejSUSAy3RoL
+    fmzX2g8WT0vglJEYbo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrfedugddvkecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    hnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:FWKOZtdwYsGl2L1-gJ_SxX2LvVQtIBz8P-0pqaYJsEiEIkuD8KivmA>
+    <xmx:FWKOZrKhYoVjzenA5bi3dxmDRoOXqMLEY13McAvD4kG-Wyq4f5hJDw>
+    <xmx:FWKOZiKJoBDOxda2I585qtzs7LQ5PYxoOCjycASUr7Si107QHnftyQ>
+    <xmx:FWKOZsyLzbfGhHPd5czHKWB7WVZYFT3G51G187eTM8ruvcR7PmmdPw>
+    <xmx:GWKOZurc55eLY785N_cbAB-SOzxSp53CmaIywxCCzaSOw7ZJQ6KRTTUf>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id C869EB6008F; Wed, 10 Jul 2024 06:27:33 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.11.0-alpha0-568-g843fbadbe-fm-20240701.003-g843fbadb
 MIME-Version: 1.0
+Message-Id: <9b269c2a-c6b5-4fa0-801b-e5e1c3ccb671@app.fastmail.com>
+In-Reply-To: <20240704143611.2979589-13-arnd@kernel.org>
+References: <20240704143611.2979589-1-arnd@kernel.org>
+ <20240704143611.2979589-13-arnd@kernel.org>
+Date: Wed, 10 Jul 2024 12:27:13 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Arnd Bergmann" <arnd@kernel.org>, Linux-Arch <linux-arch@vger.kernel.org>
+Cc: "Masahiro Yamada" <masahiroy@kernel.org>,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Nicolas Schier" <nicolas@fjasle.eu>, "Vineet Gupta" <vgupta@kernel.org>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, guoren <guoren@kernel.org>,
+ "Brian Cain" <bcain@quicinc.com>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "WANG Xuerui" <kernel@xen0n.name>, "Dinh Nguyen" <dinguyen@kernel.org>,
+ "Jonas Bonn" <jonas@southpole.se>,
+ "Stefan Kristiansson" <stefan.kristiansson@saunalahti.fi>,
+ "Stafford Horne" <shorne@gmail.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Rich Felker" <dalias@libc.org>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Andreas Larsson" <andreas@gaisler.com>,
+ "Christian Brauner" <brauner@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>, linux-kbuild@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 12/17] csky: convert to generic syscall table
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240710_023944_724750_40FE33C7 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20240710_032739_339154_CD90F2BC 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,51 +123,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: costa.shul@redhat.com, Palmer Dabbelt <palmer@rivosinc.com>, aou@eecs.berkeley.edu, samitolvanen@google.com, corbet@lwn.net, Anup Patel <anup@brainfault.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, jesse@rivosinc.com, conor.dooley@microchip.com, Yunhui Cui <cuiyunhui@bytedance.com>, andy.chiu@sifive.com, punit.agrawal@bytedance.com, cleger@rivosinc.com, linux-riscv@lists.infradead.org, jrtc27@jrtc27.com, evan@rivosinc.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Jul 4, 2024, at 16:36, Arnd Bergmann wrote:
+> -
+> -#define __NR_set_thread_area	(__NR_arch_specific_syscall + 0)
+> -__SYSCALL(__NR_set_thread_area, sys_set_thread_area)
+> -#define __NR_cacheflush		(__NR_arch_specific_syscall + 1)
+> -__SYSCALL(__NR_cacheflush, sys_cacheflush)
+> +#include <asm/unistd_32.h>
+> +#define __NR_sync_file_range2 __NR_sync_file_range
 
-Yunhui Cui <cuiyunhui@bytedance.com> writes:
+A small update: I have folded this fixup into this patch
+and the hexagon one, to ensure we don't define both
+__NR_sync_file_range2 and __NR_sync_file_range. I already
+have patches to clean this up further to avoid both the
+#undef and #define, but that is part of a larger rework
+that is not ready before the merge window.
 
-> From: Palmer Dabbelt <palmer@rivosinc.com>
->
-> The RISC-V architecture makes a real time counter CSR (via RDTIME
-> instruction) available for applications in U-mode but there is no
-> architected mechanism for an application to discover the frequency
-> the counter is running at. Some applications (e.g., DPDK) use the
-> time counter for basic performance analysis as well as fine grained
-> time-keeping.
->
-> Add support to the hwprobe system call to export the time CSR
-> frequency to code running in U-mode.
->
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> Reviewed-by: Evan Green <evan@rivosinc.com>
-> Reviewed-by: Anup Patel <anup@brainfault.org>
-> Acked-by: Punit Agrawal <punit.agrawal@bytedance.com>
-> ---
->  Documentation/arch/riscv/hwprobe.rst  | 2 ++
->  arch/riscv/include/asm/hwprobe.h      | 2 +-
->  arch/riscv/include/uapi/asm/hwprobe.h | 1 +
->  arch/riscv/kernel/sys_hwprobe.c       | 5 +++++
->  4 files changed, 9 insertions(+), 1 deletion(-)
+     Arnd
 
-The commit looks ready to be merged. Will this picked up for the 6.11
-release?
-
-Once this is merged, we can send out the DPDK change relying on the
-newly added key.
-
-Thanks,
-Punit
-
-[...]
-
+diff --git a/arch/csky/include/uapi/asm/unistd.h b/arch/csky/include/uapi/asm/unistd.h
+index 794adbc04e48..44882179a6e1 100644
+--- a/arch/csky/include/uapi/asm/unistd.h
++++ b/arch/csky/include/uapi/asm/unistd.h
+@@ -1,4 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+ 
+ #include <asm/unistd_32.h>
+-#define __NR_sync_file_range2 __NR_sync_file_range
++
++#define __NR_sync_file_range2 84
++#undef __NR_sync_file_range
+diff --git a/arch/hexagon/include/uapi/asm/unistd.h b/arch/hexagon/include/uapi/asm/unistd.h
+index 6f670347dd61..a3b0cac25580 100644
+--- a/arch/hexagon/include/uapi/asm/unistd.h
++++ b/arch/hexagon/include/uapi/asm/unistd.h
+@@ -29,4 +29,5 @@
+ 
+ #include <asm/unistd_32.h>
+ 
+-#define __NR_sync_file_range2 __NR_sync_file_range
++#define __NR_sync_file_range2 84
++#undef __NR_sync_file_range
 
 _______________________________________________
 linux-riscv mailing list
