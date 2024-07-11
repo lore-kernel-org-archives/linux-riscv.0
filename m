@@ -4,83 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9919DC3271E
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 03:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43135C3271E
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 04:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6ZKNoHrGbhjQSYwx7zKXI/KP4Flrv5PSCZrZXbKksBQ=; b=tmXw2B1POLLknk
-	HuFpTxAi07iP0K5WWLciO6uHLZm9kvYrcoc/++sIkHZgMYvR7J9aY9OtCUtCvgkMrpLgqFNAhs85x
-	Z7SwN4QvBckEFZKldU38PhoM4WbYjsowhz/9FHwkpf0CxQ+u27cu2aKu7QICdg5BQruL8R28BlwXJ
-	BEwJYvrRg3xSlwt2ewb/ua5rIEEoya5qOEOwa5ER648bi4zYsD5aupY7bO4KD2Pt8mP3O3wp5OIsw
-	ffNB/4EFOcp3/Suq4HibIv4GAAaIiI51wr16VnuuE51FKzkZU+TyzJoDAbZ5cSieh1JbPSj2tDaPQ
-	LN2px5tPKoNnlY6/5oNw==;
+	List-Owner; bh=XF8HeEbNviS9RMwQUPDamrsAL/itIIW8aWLr94DaFcQ=; b=AhbCzvHUSVxNEq
+	pBwUkZHByTykW3iz8UoE/jJgsYQQWk2rl9VxN/tiH4TsPPIuxtkdBZ0XCIKG5MgSC1Pir4GiTjTIo
+	BiG+ZK8d7c11It7JZ2ssJk9WhqSFp46+/RukKSYQq4ad2AAyeD9+yUdrogQ+KBgX2GbLX/qTyem6k
+	v3ndzYoef7YspUoM9cwwze4Vjme5cNxr7fJQ09qUFlHR7kB2RR9lGnL1K9xurmz/EB+1ZDC1UVlu2
+	HjZ7K35AKC1u5GAxPT0b/v/UxtDd9lMiRyIX2WQK3O4AKnDUi0lvH18WcGhwOECblmH98CiNN13dZ
+	trDW2wK+GJkxLyvMfWsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRkxb-0000000Ccyv-1nep;
-	Thu, 11 Jul 2024 03:59:11 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1sRld0-0000000Ch33-1hsZ;
+	Thu, 11 Jul 2024 04:41:58 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRkxX-0000000CcyF-22u1
+	id 1sRlcu-0000000Ch10-2h22
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jul 2024 03:59:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1720670347; x=1752206347;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=2hTfSLerBEhuvk5r/a+JgnS4n9dpEaBnFa1d1Xb3oi4=;
-  b=Hq9w+bPYRoREvXv4arm/WtEFmCaYaNnD9r4rb0unAL4es22yH2q713OF
-   fb5x48ireSd0rM5pPsNyJLiiWBqm0slBt0/fUXmSBeJlW/1VCmHvyczAL
-   K2GngKcnzdb8gFsfsYWzzY8D8a0x2ffnkeD0tJqU4Shtj6Y8EPNvlLUpv
-   zHBvh27KDzwbXWLYYDoV/c84ym+AKZ8ynhmI+/pMFKWpCoTs1AzRgSfze
-   spJT3zKYYqL96Kx3Wp43EYkVYaqegpa1vucd8aPuIImVYOpuggXxvh+/R
-   wA7DtK8iOmtbCDetS7p/6ru27wObcE7iIdkYEhtSk/PnK+zVRMfW7vLTn
-   g==;
-X-CSE-ConnectionGUID: 5Jrz/H4jQHCdQSt0SNyZQg==
-X-CSE-MsgGUID: XsvrwIYWTv6zoID6Y9y1uw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11129"; a="18168821"
-X-IronPort-AV: E=Sophos;i="6.09,199,1716274800"; 
-   d="scan'208";a="18168821"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2024 20:59:05 -0700
-X-CSE-ConnectionGUID: ALcnlCyMQ7uK0Tk2qQQtpw==
-X-CSE-MsgGUID: 5del/KQDQQ+K0/aVdZeUkA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.09,199,1716274800"; 
-   d="scan'208";a="52730050"
-Received: from lkp-server01.sh.intel.com (HELO 68891e0c336b) ([10.239.97.150])
-  by fmviesa003.fm.intel.com with ESMTP; 10 Jul 2024 20:59:02 -0700
-Received: from kbuild by 68891e0c336b with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1sRkxP-000Yiy-31;
-	Thu, 11 Jul 2024 03:58:59 +0000
-Date: Thu, 11 Jul 2024 11:58:24 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Ved Shanbhogue <ved@rivosinc.com>, Matt Evans <mev@rivosinc.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v3 4/4] riscv: Stop emitting preventive sfence.vma for
- new userspace mappings with Svvptc
-Message-ID: <202407111151.m5cK0E6R-lkp@intel.com>
-References: <20240702085034.48395-5-alexghiti@rivosinc.com>
+	Thu, 11 Jul 2024 04:41:56 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 5048D21AD9;
+	Thu, 11 Jul 2024 04:41:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1720672909; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CGC4t0EPsoDxakk7kovehODLvnJDDjL515TUwaqwESk=;
+	b=ifQddp+bVIeM+Yx+z9uKTOHtGHhCStkpqcwPYZe6gJ0Dk5hU/dR5KMBejCNnNTG+O6ze5d
+	dh9RObfIQIj7ndmf0GbFkX9sj5fVX6hZkJfmlMEBZw0r9E24oHS/e/WPjQ3wVcgM5TPwhr
+	qTC085XcWU6rkFYGxnRq+wGsOc2T77w=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1720672909;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CGC4t0EPsoDxakk7kovehODLvnJDDjL515TUwaqwESk=;
+	b=huDiHLvd0kRpqQ791FvfFmskD0Uh2F2/dbc1hQTNr8yKgicf6jV6fKPwoSu2sKBZhOVDXU
+	uV4IYonSvhQooODg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1720672909; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CGC4t0EPsoDxakk7kovehODLvnJDDjL515TUwaqwESk=;
+	b=ifQddp+bVIeM+Yx+z9uKTOHtGHhCStkpqcwPYZe6gJ0Dk5hU/dR5KMBejCNnNTG+O6ze5d
+	dh9RObfIQIj7ndmf0GbFkX9sj5fVX6hZkJfmlMEBZw0r9E24oHS/e/WPjQ3wVcgM5TPwhr
+	qTC085XcWU6rkFYGxnRq+wGsOc2T77w=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1720672909;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CGC4t0EPsoDxakk7kovehODLvnJDDjL515TUwaqwESk=;
+	b=huDiHLvd0kRpqQ791FvfFmskD0Uh2F2/dbc1hQTNr8yKgicf6jV6fKPwoSu2sKBZhOVDXU
+	uV4IYonSvhQooODg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 86248136D6;
+	Thu, 11 Jul 2024 04:41:48 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id b21xG4xij2bSFgAAD6G6ig
+	(envelope-from <osalvador@suse.de>); Thu, 11 Jul 2024 04:41:48 +0000
+Date: Thu, 11 Jul 2024 06:41:38 +0200
+From: Oscar Salvador <osalvador@suse.de>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, x86@kernel.org, linux-riscv@lists.infradead.org,
+	Peter Xu <peterx@redhat.com>
+Subject: Re: [PATCH v2 2/3] mm: Remove pud_user() from
+ asm-generic/pgtable-nopmd.h
+Message-ID: <Zo9igs5GoQqjoi0w@localhost.localdomain>
+References: <bcd6ab8246348f18fdc77694e321ee6458f05781.1720597744.git.christophe.leroy@csgroup.eu>
+ <c31a39463929daba6c91917598ec05cf47103af5.1720597744.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240702085034.48395-5-alexghiti@rivosinc.com>
+In-Reply-To: <c31a39463929daba6c91917598ec05cf47103af5.1720597744.git.christophe.leroy@csgroup.eu>
+X-Spamd-Result: default: False [-4.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	MIME_TRACE(0.00)[0:+];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	ARC_NA(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[8];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240710_205907_569270_1ACA298F 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20240710_214152_863557_4E25F8D3 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,89 +131,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
+On Wed, Jul 10, 2024 at 09:51:21AM +0200, Christophe Leroy wrote:
+> Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
+> issues") added pud_user() in include/asm-generic/pgtable-nopmd.h
+> 
+> But pud_user() only exists on ARM64 and RISCV and is not expected
+> by any part of MM.
+> 
+> Add the missing definition in arch/riscv/include/asm/pgtable-32.h
+> and remove it from asm-generic/pgtable-nopmd.h
+> 
+> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 
-kernel test robot noticed the following build errors:
+Reviewed-by: Oscar Salvador <osalvador@suse.de>
 
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on linus/master v6.10-rc7]
-[cannot apply to next-20240710]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Add-ISA-extension-parsing-for-Svvptc/20240702-171920
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20240702085034.48395-5-alexghiti%40rivosinc.com
-patch subject: [PATCH v3 4/4] riscv: Stop emitting preventive sfence.vma for new userspace mappings with Svvptc
-config: riscv-allmodconfig (https://download.01.org/0day-ci/archive/20240711/202407111151.m5cK0E6R-lkp@intel.com/config)
-compiler: clang version 19.0.0git (https://github.com/llvm/llvm-project a0c6b8aef853eedaa0980f07c0a502a5a8a9740e)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240711/202407111151.m5cK0E6R-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202407111151.m5cK0E6R-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from lib/test_bitops.c:10:
-   In file included from include/linux/module.h:19:
-   In file included from include/linux/elf.h:6:
-   In file included from arch/riscv/include/asm/elf.h:12:
-   In file included from include/linux/compat.h:17:
-   In file included from include/linux/fs.h:33:
-   In file included from include/linux/percpu-rwsem.h:7:
-   In file included from include/linux/rcuwait.h:6:
-   In file included from include/linux/sched/signal.h:9:
-   In file included from include/linux/sched/task.h:13:
-   In file included from include/linux/uaccess.h:11:
-   In file included from arch/riscv/include/asm/uaccess.h:12:
->> arch/riscv/include/asm/pgtable.h:498:1: error: label at end of compound statement is a C23 extension [-Werror,-Wc23-extensions]
-     498 | }
-         | ^
-   1 error generated.
-
-
-vim +498 arch/riscv/include/asm/pgtable.h
-
-07037db5d479f9 Palmer Dabbelt          2017-07-10  469  
-07037db5d479f9 Palmer Dabbelt          2017-07-10  470  #define pgd_ERROR(e) \
-07037db5d479f9 Palmer Dabbelt          2017-07-10  471  	pr_err("%s:%d: bad pgd " PTE_FMT ".\n", __FILE__, __LINE__, pgd_val(e))
-07037db5d479f9 Palmer Dabbelt          2017-07-10  472  
-07037db5d479f9 Palmer Dabbelt          2017-07-10  473  
-07037db5d479f9 Palmer Dabbelt          2017-07-10  474  /* Commit new configuration to MMU hardware */
-864609c6a0b5f0 Matthew Wilcox (Oracle  2023-08-02  475) static inline void update_mmu_cache_range(struct vm_fault *vmf,
-864609c6a0b5f0 Matthew Wilcox (Oracle  2023-08-02  476) 		struct vm_area_struct *vma, unsigned long address,
-864609c6a0b5f0 Matthew Wilcox (Oracle  2023-08-02  477) 		pte_t *ptep, unsigned int nr)
-07037db5d479f9 Palmer Dabbelt          2017-07-10  478  {
-b5bdff9ee1fdca Alexandre Ghiti         2024-07-02  479  	asm goto(ALTERNATIVE("nop", "j %l[svvptc]", 0, RISCV_ISA_EXT_SVVPTC, 1)
-b5bdff9ee1fdca Alexandre Ghiti         2024-07-02  480  		 : : : : svvptc);
-b5bdff9ee1fdca Alexandre Ghiti         2024-07-02  481  
-07037db5d479f9 Palmer Dabbelt          2017-07-10  482  	/*
-07037db5d479f9 Palmer Dabbelt          2017-07-10  483  	 * The kernel assumes that TLBs don't cache invalid entries, but
-07037db5d479f9 Palmer Dabbelt          2017-07-10  484  	 * in RISC-V, SFENCE.VMA specifies an ordering constraint, not a
-07037db5d479f9 Palmer Dabbelt          2017-07-10  485  	 * cache flush; it is necessary even after writing invalid entries.
-07037db5d479f9 Palmer Dabbelt          2017-07-10  486  	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
-07037db5d479f9 Palmer Dabbelt          2017-07-10  487  	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
-07037db5d479f9 Palmer Dabbelt          2017-07-10  488  	 */
-864609c6a0b5f0 Matthew Wilcox (Oracle  2023-08-02  489) 	while (nr--)
-864609c6a0b5f0 Matthew Wilcox (Oracle  2023-08-02  490) 		local_flush_tlb_page(address + nr * PAGE_SIZE);
-b5bdff9ee1fdca Alexandre Ghiti         2024-07-02  491  
-b5bdff9ee1fdca Alexandre Ghiti         2024-07-02  492  svvptc:
-b5bdff9ee1fdca Alexandre Ghiti         2024-07-02  493  	/*
-b5bdff9ee1fdca Alexandre Ghiti         2024-07-02  494  	 * Svvptc guarantees that the new valid pte will be visible within
-b5bdff9ee1fdca Alexandre Ghiti         2024-07-02  495  	 * a bounded timeframe, so when the uarch does not cache invalid
-b5bdff9ee1fdca Alexandre Ghiti         2024-07-02  496  	 * entries, we don't have to do anything.
-b5bdff9ee1fdca Alexandre Ghiti         2024-07-02  497  	 */
-07037db5d479f9 Palmer Dabbelt          2017-07-10 @498  }
-864609c6a0b5f0 Matthew Wilcox (Oracle  2023-08-02  499) #define update_mmu_cache(vma, addr, ptep) \
-864609c6a0b5f0 Matthew Wilcox (Oracle  2023-08-02  500) 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
-07037db5d479f9 Palmer Dabbelt          2017-07-10  501  
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Oscar Salvador
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
