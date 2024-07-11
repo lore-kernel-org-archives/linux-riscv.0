@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 746C0C41513
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AC0C3DA47
 	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 10:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aN+rhhmjYHDYp6vx8NcCM2CQM7jfEicuTTKuIZqcP94=; b=HecRpIgKj9Mygv
-	EEtGSx8tslZe9N/SN1ixjitsZ6V2osGSBroMWpyKic+Po699Ls5YM+F51BscHsGuOwWnJZaiJ3mXW
-	4aE8xRSYS2O01Wwy1oEBW9gPX4fq2tMT70QqG1m4hx9nSZY04nqwBUgy5nzjqpbxACcqaOOxqxkh0
-	GzcfI0SEWgMoYO5XfbFF0wZZvrBAfYkQ9foqPru7BgOdiWtiv33szbDx/Kl7KBdj1ACRKQRvPbKHI
-	OYFV+oHQpBCPeQRJMxvP+o7ZgQfuBf3yZ8F0TJHDOQImx8TQ1ddM5R1kpZYUPY/ERc1doIQeOjtEv
-	s4yQlmD4yCPDJofIFwHw==;
+	List-Owner; bh=hHUCtQLcqZipOesnThlUjuX83e2wN4KUPYtf3y3CUxw=; b=GdtH0U7Y49kW77
+	b2w7qwVDbc46wxXJ1U1HP3pPjGp/6WMP2Fea6AB0SspWyUS9NePtL+Vyd64S07W4HxPR47D6VcJgI
+	WGHWC67JMficSAs08JijT4CRSxXMX/mI7vihu2uj3w/dZ2TIQs44MquGPwIgn8uhe0ijxjqKA5FrX
+	ApZdkkdDaZObEERClQ1XVmZ44xQw5zr5tx1p7sd0DK95Ob7Uu4kyzRtpXkw2zGlL+v80xcdwLPXNS
+	8bkkAVM8/fljdnjLkKLk1LlYKmqNlFmc0HSLkjt2C5WZbZTCm3GuGsDWC9lkEIcC6cdOUBIaO/Tk5
+	9vTf/q+F+6/6HfmddJow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRqcT-0000000DRCv-0yLB;
-	Thu, 11 Jul 2024 10:01:45 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1sRqcQ-0000000DRCK-2W4z;
+	Thu, 11 Jul 2024 10:01:42 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRqcN-0000000DR9s-0QhO
+	id 1sRqcM-0000000DR9Y-214q
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jul 2024 10:01:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 574C7240007;
-	Thu, 11 Jul 2024 10:01:35 +0000 (UTC)
+	Thu, 11 Jul 2024 10:01:40 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7C8F524000F;
+	Thu, 11 Jul 2024 10:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1720692096;
+	t=1720692094;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=BPkEiyyZXaXaWAKf4yoZh+8s32yqaBI0vrIZ56akVFE=;
-	b=HnfizYzzYdSlmjzV8cvPB598TUaOqyEyaPnDoVpZ/W9wwSXPE9IoBNuELZtaBgF3fUhJ8K
-	54cANzKBnZZUh/Eb74GZfRDNH1S+VyNM3Vu25YJJILZMWrjdTsO8b5pth58NrZwga0YMD4
-	2W2nVt05Wpng6eORsmbwkZGqBDcbq0G9PQ/catMcaDFKXVxrM9/mArCymKTxl247Zc4GVb
-	mXnJh4QQvhjFawGjE/pzjndIlJiyJkE8P5HIKzZ2LzgBeMfy17AqlMwRzftwdU/vM1E0DV
-	IWzgtnJtSY/7ZEzSZZ2/KMoxRld9l7Srl0zgTqA+/cCLqrSVBC8svkU/ZJasiw==
+	bh=dhYN2esY9mLXkTt3QVpkwWv6jX6N62gsaZnkqzr2dx0=;
+	b=aTQs+JZkyeU+XxLOy6vWw1B+cx26EgYMqWyg/XhJR5qfjwiMQnxKZFCmkVsMzaaxOcN0Ng
+	iAuyn10+KuSSv5uyUwti+CIldlmwuMWR6XZD3bgLjUpXhiv+GqGCbkEetN4lXH60pWav8p
+	rjRz/UQP3QQ3PNlScStCjCqwUgPZjOnhDGmBV8OjjSPPkwfjQBoCpY0ThFOySauTUjdBJS
+	nBSQ7ZK1tKysEOkW7hiCYvV5mR7CS8IMOSts4/DOoZrOPI9gK3Spx4MzwlJRnYYfOxCSeV
+	bIf4S3P5yUBt0iwPk5aPZo39vc4zzV3nZClYcto0XRHCDyQczrkinzBBvK6Mqg==
 From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Date: Thu, 11 Jul 2024 12:01:30 +0200
-Subject: [PATCH v4 3/4] riscv: dts: sophgo: Add initial SG2002 SoC device
- tree
+Date: Thu, 11 Jul 2024 12:01:28 +0200
+Subject: [PATCH v4 1/4] dt-bindings: interrupt-controller: Add SOPHGO
+ SG2002 plic
 MIME-Version: 1.0
-Message-Id: <20240711-sg2002-v4-3-d97ec2367095@bootlin.com>
+Message-Id: <20240711-sg2002-v4-1-d97ec2367095@bootlin.com>
 References: <20240711-sg2002-v4-0-d97ec2367095@bootlin.com>
 In-Reply-To: <20240711-sg2002-v4-0-d97ec2367095@bootlin.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,12 +62,14 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
  =?utf-8?q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-riscv@lists.infradead.org, 
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.0
 X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240711_030139_306782_DDD757F1 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20240711_030138_695224_51E67589 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +86,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add initial device tree for the SG2002 RISC-V SoC by SOPHGO.
+Add compatible string for SOPHGO SG2002 Platform-Level Interruter
+Controller.
 
 Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-The commit adding the bindings for the compatible "sophgo,sg2002-clint"
-has been applied to Daniel Lezcano git tree. This commit may trigger the
-bots because of this missing binding.
----
- arch/riscv/boot/dts/sophgo/sg2002.dtsi | 32 ++++++++++++++++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ .../devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml      | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2002.dtsi b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
-new file mode 100644
-index 000000000000..22eb99d1abf7
---- /dev/null
-+++ b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
-@@ -0,0 +1,32 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2024 Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-+ */
-+
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include "cv18xx.dtsi"
-+
-+/ {
-+	compatible = "sophgo,sg2002";
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x10000000>;
-+	};
-+};
-+
-+&plic {
-+	compatible = "sophgo,sg2002-plic", "thead,c900-plic";
-+};
-+
-+&clint {
-+	compatible = "sophgo,sg2002-clint", "thead,c900-clint";
-+};
-+
-+&clk {
-+	compatible = "sophgo,sg2000-clk";
-+};
-+
-+&sdhci0 {
-+	compatible = "sophgo,sg2002-dwcmshc";
-+};
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index 709b2211276b..7e1451f9786a 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+@@ -67,6 +67,7 @@ properties:
+               - allwinner,sun20i-d1-plic
+               - sophgo,cv1800b-plic
+               - sophgo,cv1812h-plic
++              - sophgo,sg2002-plic
+               - sophgo,sg2042-plic
+               - thead,th1520-plic
+           - const: thead,c900-plic
 
 -- 
 2.45.2
