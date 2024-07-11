@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A6DC3DA47
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 10:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1AAAC3DA47
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 10:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RTZTYNPS1uvUM9yrHTT5YjBoNRkd0Iky1jOZXQuHA3A=; b=Fr3riJxWvOsFDp
-	oO0/7XU88NNMvPHYiCAzhI3C5lc2KxBv7xzJxtdIBjCUbPeCyF3PbsRV6T/vkXtrcnpveloHkZcjV
-	K6SltkxSUe2nJUm98DxX55Txp2peDGHeTQWC9Pgi7EsbQDtMC+OKK5OZN9pSKVt+8ZJ76dY24jQ3r
-	P9GKxRy03RONeblV4c3b3/q6tyi9w5+6FWeGmZ+Td25bYZ2vAE9O5rXvGjR3Uecm1xgrWVjqXWcRY
-	wNUiE0K2170iglIKL8BCTkPXUg7iACoZFmnbvKcgwgXS9wcL0TqoiSHSbj2nF6td7iXb/2dO+KJKH
-	AUmb2TwtExJTXzEkcjfA==;
+	List-Owner; bh=+DqGRMrv/kq6S1hsrRrVfYiYi/ZAWWWiROCvtRD56OE=; b=jtl05f5tFfIm3N
+	fqKCpkAyU2dyKuyL1y3VZPx3PDwqd9SefoBcX7O31qV5qfLOWc7va3LzneQvTtJ27i5YjyVguC4Ac
+	bS8NHOgMYWszHtJo4ESojTvPR3fVHYKcNmhoeh5TGJeO7scuPyMNRvMFCGo/iqaA0eV+y/KbRPOB6
+	1sbXgku4VHpYdM99GvPex0kILRm1os2muQzJ9vmXI8KNfud+iS0VTnWmqLk0wcMFeLBHtRC8WxpAj
+	d+9P6Dm/GHWnPPgL2rntQeiwTR4rHFwOg9gq42vmUsiMf93kUKOGRQ/oNPS88dT/58wwB8bPy/154
+	REeiZQ21GkQrxGI7waqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRqcT-0000000DRDE-3UF4;
-	Thu, 11 Jul 2024 10:01:45 +0000
+	id 1sRqcP-0000000DRCE-3jfM;
+	Thu, 11 Jul 2024 10:01:41 +0000
 Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRqcM-0000000DRA1-1ylo
+	id 1sRqcM-0000000DR9k-0c7k
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jul 2024 10:01:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 4CE8F24000B;
-	Thu, 11 Jul 2024 10:01:36 +0000 (UTC)
+	Thu, 11 Jul 2024 10:01:40 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6804B24000D;
+	Thu, 11 Jul 2024 10:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1720692097;
+	t=1720692095;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ES8mi7d+KSw4EqedKB92e7v4sIMF0mwW3Ict+VP51AU=;
-	b=ZE5BXLR57bsa5m7g8Ihks6LcaGQ8UnM1nMs8mFExm5NEkou3gUFQKZ5WJlV6Hi/mb3mBig
-	VQ8y4xj4eCAKeWRL45ml+xuVcdRPNQO+QAqrvHBlQbxTMMyK3MHUDMsyoSyOEsL29K7QjM
-	KaOnaur4TlpZ8lYTSQGGW/B0HSRH/GCzEPAWsnBxzKHhCBVqD4E3JMaAS5reQ7aMDUPX78
-	uG1cyGb/JsYfIPC9EP0anORiJlLY/RduY1LULOrZVOoXlXr8gjEVCM4i5WF5w/9tgvKQYW
-	n5w0uZcDg/CWZjlcyFzBd2O/JPdBBBXTYkRRFZuoHAW53+dJ4qikKbQ45B2tXQ==
+	bh=lwHOPxVN4WzseMpm8k0NEmyddjr++H2IEYNI4aIOG2w=;
+	b=DhW5kMsQ5gn2k2AdT2xXDh9au2QB3+duzTCPwG6MqjA+hdRdO2GwEYQxJJJuffrgmPotH0
+	L+Ya3FYdDCD8fiLFtj9JnR0uivlYMN7PPmJeJnEFWm4vpKFigWy7rDLYO6B8+gGNnozqN2
+	qM9uL3G4BqoPjUybNkS7SSDmpGBf9em/qWn4zGW11JdEYGt7liy0CA1nJenCb1KXI5EaMM
+	+kS+8U6rDlFvyYqCPqlrZVheLXnOVEURlooNIaLSvSyLEdrbIHk4IQDYFZU/QtAstQkPxX
+	NwZOPMvjQ78oUUfVteK2y0x1vTkkXS25qv4KhUFScd36Vgpi+11VUvSF+7dJMQ==
 From: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Date: Thu, 11 Jul 2024 12:01:31 +0200
-Subject: [PATCH v4 4/4] riscv: dts: sophgo: Add LicheeRV Nano board device
- tree
+Date: Thu, 11 Jul 2024 12:01:29 +0200
+Subject: [PATCH v4 2/4] dt-bindings: riscv: Add Sipeed LicheeRV Nano board
+ compatibles
 MIME-Version: 1.0
-Message-Id: <20240711-sg2002-v4-4-d97ec2367095@bootlin.com>
+Message-Id: <20240711-sg2002-v4-2-d97ec2367095@bootlin.com>
 References: <20240711-sg2002-v4-0-d97ec2367095@bootlin.com>
 In-Reply-To: <20240711-sg2002-v4-0-d97ec2367095@bootlin.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,12 +62,14 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
  =?utf-8?q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-riscv@lists.infradead.org, 
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.0
 X-GND-Sasl: thomas.bonnefille@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240711_030138_785453_6901C7D2 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20240711_030138_503569_5DD90BC1 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,89 +86,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-LicheeRV Nano B [1] is an embedded development platform based on the SOPHGO
-SG2002 chip, the B(ase) version is deprived of Wifi/Bluetooth and Ethernet.
-
-Add only support for UART and SDHCI.
-
-Link: https://wiki.sipeed.com/hardware/en/lichee/RV_Nano/1_intro.html [1]
+Document the compatible strings for the Sipeed LicheeRV Nano B board which
+uses the SOPHGO SG2002 SoC.
 
 Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/sophgo/Makefile                |  1 +
- .../boot/dts/sophgo/sg2002-licheerv-nano-b.dts     | 54 ++++++++++++++++++++++
- 2 files changed, 55 insertions(+)
+ Documentation/devicetree/bindings/riscv/sophgo.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
-index 57ad82a61ea6..47d4243a8f35 100644
---- a/arch/riscv/boot/dts/sophgo/Makefile
-+++ b/arch/riscv/boot/dts/sophgo/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
-+dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-licheerv-nano-b.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
-diff --git a/arch/riscv/boot/dts/sophgo/sg2002-licheerv-nano-b.dts b/arch/riscv/boot/dts/sophgo/sg2002-licheerv-nano-b.dts
-new file mode 100644
-index 000000000000..fc98b6a0ddf7
---- /dev/null
-+++ b/arch/riscv/boot/dts/sophgo/sg2002-licheerv-nano-b.dts
-@@ -0,0 +1,54 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2024 Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-+ */
-+
-+/dts-v1/;
-+
-+#include "sg2002.dtsi"
-+
-+/ {
-+	model = "LicheeRV Nano B";
-+	compatible = "sipeed,licheerv-nano-b", "sipeed,licheerv-nano", "sophgo,sg2002";
-+
-+	aliases {
-+		gpio0 = &gpio0;
-+		gpio1 = &gpio1;
-+		gpio2 = &gpio2;
-+		gpio3 = &gpio3;
-+		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
-+		serial3 = &uart3;
-+		serial4 = &uart4;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+};
-+
-+&osc {
-+	clock-frequency = <25000000>;
-+};
-+
-+&sdhci0 {
-+	status = "okay";
-+	bus-width = <4>;
-+	no-1-8-v;
-+	no-mmc;
-+	no-sdio;
-+	disable-wp;
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-+
-+&uart1 {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+};
+diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+index 9bc813dad098..a14cb10ff3f0 100644
+--- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
++++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+@@ -26,6 +26,11 @@ properties:
+           - enum:
+               - sophgo,huashan-pi
+           - const: sophgo,cv1812h
++      - items:
++          - enum:
++              - sipeed,licheerv-nano-b
++          - const: sipeed,licheerv-nano
++          - const: sophgo,sg2002
+       - items:
+           - enum:
+               - milkv,pioneer
 
 -- 
 2.45.2
