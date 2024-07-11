@@ -4,55 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6177DC3DA45
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 16:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2582C3DA49
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 16:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fFymVm+KsmiBe2aNpF69cGW/qWm+QQrKnZOyI5PbgYM=; b=3Hkaoof3mjR4FYu/mcaWN5MUNm
-	NryBWRemJlpRwT0kcir6Kd1m19D9rgW50ivVHYUEpKQFTJD323i9Bensw9AB8osDWebXFtj1A4hQG
-	ZL5mogLpaaFbVwfruoj27ccFX5VMfOXrNmd/swhA7N0QgT7EN84BScc1d27c6HjPcz/P50naF0S3W
-	aOT3qCnZO1kHWuA+iyYkqInfbGB9oBuXrmrVdkrkuRMwY8q5PMUuGnGIxTLigaNsZiJ+nM2iYrXkU
-	+BXlkQNnO9wsMTbRND9Ld8lbKjJvhcaKRTWRgyKYnLZMVRoZpu67V83J9cQvTOhBbOMXzFStpEUHp
-	8QokUbSQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aOs22PRBbLpP8xeIEga3lTPC3E8XE5OxIhfj8yndWKQ=; b=rrBycw8H0lq+Yr
+	Q7f/fAggFRW+uY/AtaLybKlKnfIEnL5UVo3ANHKqskkI1hChrvBKTtBtymA6gGxGwpwN9AWDOQ4lz
+	sI3QeHCIG+xlD+66aCPJQr2AJhKX63ZiLkZXllkLcbXlj89Z1bn2ZwofJmNbLceVYTJpRc5vFk/YS
+	a3DED+2+ukmOADztfSgFoHPJI1PwvltUojEWuBptNx+9Au6HD8ZRpg2JNZKBPtdzFz/xs/ieYoktB
+	v43TC958t5p3W91ueLOm5ZLZfG+x5r/QktFVxJzBcGwZuqep0DUi32upbfbIimqGVlCupRPiUI6Am
+	SAYltTn6OtIOC5JtkatA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRwLv-0000000EcXb-1Dey;
-	Thu, 11 Jul 2024 16:09:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1sRwY8-0000000EfMx-1Eih;
+	Thu, 11 Jul 2024 16:21:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRwLg-0000000EcTy-41Gy
+	id 1sRwY4-0000000EfLW-3JkG
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jul 2024 16:08:50 +0000
+	Thu, 11 Jul 2024 16:21:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2724261D70;
-	Thu, 11 Jul 2024 16:08:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C810CC32786;
-	Thu, 11 Jul 2024 16:08:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3D03761DA4;
+	Thu, 11 Jul 2024 16:21:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA722C4AF07;
+	Thu, 11 Jul 2024 16:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720714127;
-	bh=dArFzUR62pjSDR9oi4NDee62Jbu4M80ZlukA3ud/HGc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N3/bYjJg8XrRRFZG4jagVHinO0jvF/xbwEHRbT+2yY4CWE87TDAJsJPbYz5HNdZOy
-	 DS3Rct7Y0KOEvuCpeMMEAFKopRpAqf36oYGIKlLWee+vTXkbPea64LNAa9IPTru1C0
-	 jBRNWB0TpyFD5ads4B0ATRVghEhFlZ1n9td1recL8zT7LSFlOpo4Ib+J+beaC9hN1u
-	 DRMnZ/0AfwlsA5toyp/BYS52ehT2zLRByxCtWXUST5G08ZABsY5TLsCb9GBAqFKfvR
-	 BOD5xnIcKYwcPs1SvVwIEwuwAaop3CR5X5vdUrMrWfHLVep+3s6PuUdACnfbJ41dkp
-	 U3u3WD7YCnX4g==
-Date: Thu, 11 Jul 2024 17:08:40 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yixun Lan <dlan@gentoo.org>
-Subject: Re: [PATCH v4 00/10] riscv: add initial support for SpacemiT K1
-Message-ID: <20240711-zeppelin-property-aef2ee5fe999@spud>
-References: <20240709-k1-01-basic-dt-v4-0-ae5bb5e56aaf@gentoo.org>
+	s=k20201202; t=1720714895;
+	bh=2lkZDO62KKSLWoCZyINk2tMegh2s5zBoWrcbbgs+qh4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SLQvcD8Sff05TBENEvofTjbdmesTqf2NPUlspiQ/Voj+aB6BV1h23XrCpi7qwawMV
+	 CifuO2YwsYlm1GHM/RTnoQHcygrdA9Xy4xgB7ORlvIMOQsTJ6KkyruSbqJ16IUMjQ2
+	 rx2kbjHGNrODg8kVu52A1Nssnp0LTI6p0bl8Wbu/pteurjOn6vPOyAMbYKUJmnXItQ
+	 +fNFHszgzdR/sCkO0MGjg+Wl34904u7cTYpd+mSXUlN0hlHu7ytBa6RY5VpuOU391D
+	 e4ZVq9OL9bZSc/eR+mnWtJACTQvzhQhURy17YJonWXwWQxHlijtgYWzLUWEGBc85QI
+	 v+L0gImT8LO8w==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 2/2] serial: 8250_early: add xscale earlycon support
+Date: Fri, 12 Jul 2024 00:07:20 +0800
+Message-ID: <20240711160720.3488-3-jszhang@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240711160720.3488-1-jszhang@kernel.org>
+References: <20240711160720.3488-1-jszhang@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20240709-k1-01-basic-dt-v4-0-ae5bb5e56aaf@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240711_090849_086930_CE869DE3 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20240711_092136_906887_0CAE558F 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,72 +70,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Yangyu Chen <cyy@cyyself.name>, Conor Dooley <conor.dooley@microchip.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, Meng Zhang <zhangmeng.kevin@spacemit.com>, Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Meng Zhang <kevin.z.m@hotmail.com>, linux-serial@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Lubomir Rintel <lkundrak@v3.sk>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Matthias Brugger <matthias.bgg@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: multipart/mixed; boundary="===============0823260512799903917=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+After commit 3a50365d8c79 ("serial: 8250: Add OF support for Xscale
+variant"), 8250_of can support the xscale variant. Now, let's add
+the earlycon support for xscale too.
 
---===============0823260512799903917==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="yHpvReNwxF6wUK2f"
-Content-Disposition: inline
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ drivers/tty/serial/8250/8250_early.c | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/drivers/tty/serial/8250/8250_early.c b/drivers/tty/serial/8250/8250_early.c
+index 2ab61d6673d2..6176083d0341 100644
+--- a/drivers/tty/serial/8250/8250_early.c
++++ b/drivers/tty/serial/8250/8250_early.c
+@@ -178,6 +178,7 @@ static int __init early_serial8250_rs2_setup(struct earlycon_device *device,
+ 
+ 	return early_serial8250_setup(device, options);
+ }
++OF_EARLYCON_DECLARE(uart, "intel,xscale-uart", early_serial8250_rs2_setup);
+ OF_EARLYCON_DECLARE(uart, "mrvl,mmp-uart", early_serial8250_rs2_setup);
+ OF_EARLYCON_DECLARE(uart, "mrvl,pxa-uart", early_serial8250_rs2_setup);
+ 
+-- 
+2.43.0
 
---yHpvReNwxF6wUK2f
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jul 09, 2024 at 03:18:43AM +0000, Yixun Lan wrote:
-> SpacemiT K1 is an ideal chip for some new extension such as RISC-V Vector
-> 1.0 and Zicond evaluation now. Add initial support for it to allow more
-> people to participate in building drivers to mainline for it.
->=20
-> This kernel has been tested upon Banana Pi BPI-F3 board on vendor U-Boot
-> bootflow generated by Armbian SDK[1] and patched OpenSBI[2] to enable
-> Zicboz, which does not in the vendor dts on its U-Boot. Then successfully
-> booted to busybox on initrd with this log[3].
->=20
-> As previous discussion in patch v1[4], maintainer expect more basic drive=
-rs
-> ready before really merging it, which would be fine. For other follow-up =
-patches,=20
-> that are clk, pinctrl/gpio, reset.. My current goal would target at a hea=
-dless
-> system including SD card, emmc, and ethernet.
-
-This stuff is already too late for 6.11 as I already sent my PRs, so
-there's no immediate rush. Is there any progress made on creating the
-clock or pinctrl drivers?
-
-Cheers,
-Conor.
-
---yHpvReNwxF6wUK2f
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZpADiAAKCRB4tDGHoIJi
-0r+HAP4kQtP7z7FMirQkNnNga/iok/jbgojhmbMGEJinXvYMeQEAlQegTv/hhWUO
-JANgyTGsSPtmecPs/EU62TinIgodsgE=
-=13ox
------END PGP SIGNATURE-----
-
---yHpvReNwxF6wUK2f--
-
-
---===============0823260512799903917==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0823260512799903917==--
-
