@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B603EC3DA45
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 16:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B758C3DA49
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 16:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J2w78xcPmX2+dEKUDKwWW01Jd9JF8fF+FotzJZHIRaA=; b=1y0isAaDHU6shg
-	kArnHP/35ir53bm8p7tbhmqJYjShA2/HrjKiyXoLx0IEXVcsP61rbSInmOnzyBU9zAHlX39UmJlK4
-	8yvGBjQiKDYKS6PVnQGtbCoR5jBC5zflvEiCSQg7A3M/XQkVA7RZYm7d0gg9FbW1TSmYFnE3LC4FK
-	dcqE4Z1I5bWl+yPAY0OoK4FGRlc0Rw2J8aY6+kJr/oJwbrvNdy6lh0rL/NZxYDeig7OI/0QkfrXn0
-	QrgvotC/wD3fRJX9uQVAlOJ3Yhp7VjMZAU140BEcm47vIM1qXj+rYOxrKXAi6TXNbDL0Fpldxbz5q
-	wOAna+jxH7jWa72c4ZwA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8mWkPFq2Yd+I/JoNb8nDPnZ0mgwhMAJYBNJxRd0M5Z8=; b=L+BYk2P7DZuNNl
+	ALtCUwOqVibSuX/qTD/8bgtnaIcjoGS7SfUFDMrlvaPpd7sCG5L6yQX65ATtd8dXy1jjYnMH3g1TK
+	X9ol51b5Dml/z6kY22MSNZ4mrHezPwxpwQ+TH3cX1/vue/DQQy4EoNay9SOPhll0En8qmLRUioIVk
+	m8bFQJD3WJHjIcTpHf2QL0wh9phHa8dOmNGCbsku78Vxqqb+ikfFMtmWWaWv/2Qqb8UjZ7GJhtXwv
+	h/An46e+MJku5lANx7MekV9NVItI6h6E0+oT1Yqnf3A5+plVzzbap9KmaPy09nx6vmoOgW03DKAyp
+	3vHNIRQuD0WHpwhzz2XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRx5s-0000000ElaE-42hl;
-	Thu, 11 Jul 2024 16:56:32 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRx5p-0000000ElXa-06in
-	for linux-riscv@lists.infradead.org;
+	id 1sRx5q-0000000ElZ0-2F0C;
 	Thu, 11 Jul 2024 16:56:30 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-70365f905b6so574972a34.0
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Jul 2024 09:56:28 -0700 (PDT)
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1sRx5n-0000000ElX9-3XSE
+	for linux-riscv@lists.infradead.org;
+	Thu, 11 Jul 2024 16:56:29 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3d9dd7e5f6eso622814b6e.2
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Jul 2024 09:56:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1720716987; x=1721321787; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OAoZ+kq55SzE5WBx9TKdQ/R9FJjcK6MhUYBG9cAxnls=;
-        b=IKQjohtOxgErgkgbLqHrbS2GaSrTl97Dgm/DgyT3huetBJrt0vsUIvG+AtebMzfQnM
-         AJyS/89Arkcs0ZP6zMBWPkwIAgK/nMUt+xLEIFqyR39cBJEhnv/3zlDwfXAfYENHI097
-         5zVcJFDXrZkhy4ZL+NM+2S97uek/P+4Q1Tl8ETTgi9uvWEAT8JQyXmPXpBBcf+qUdSBe
-         csGGtfDGyr3fglIrZDX3eKTaVNLO8RbUvtswzaJfOoQtlUj3Y2/mvw9UNn70hYVNloVT
-         zgEMRn7m7WxMnFlKLrcgU9f88iEyp9ocN29zU9fhfGjqlpAkBIPfZ4uGQ0GKh/b64PvP
-         y0hg==
+        d=tenstorrent.com; s=google; t=1720716986; x=1721321786; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Uhr3664pgzsPVbVM9TMlydj6PeeipJCxcTuOvriuu8Y=;
+        b=Xc1O5LspH5yfI1UHA9wduuaBF5FMnxHJtGkUOiOunxEh7bJ4vUVV0zeAEB31g5fVFA
+         CeCELNFkT9nV+f1pRuWBtalsWM0PHB3obHRi7RSkz8Mq2CfrQvEYgErdYNrpJjkGz0Ab
+         9HiDLOu1a3JT18JfpS0HklbJJZ8+QcFqGGlPNk/Mdp70XVvWKSbcEEuKjSWFyAY4Ayr5
+         emETfhkmILXzh/RSnzo8eVzsaRGIVhCO4k+r537pfqEsrWZAR5P0zylxDmBb+2FZh8ew
+         FvLhZWwyMQ5vNkU9KJgVHdwmGk8ROiCHq2U/N3TpfwftZj4gAxXo1kthvM8NGCQ+rk+b
+         dLOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720716987; x=1721321787;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OAoZ+kq55SzE5WBx9TKdQ/R9FJjcK6MhUYBG9cAxnls=;
-        b=NMNCJHAB//PpJEge8RdM+YYDvOL+9RgAhlXASPSTRIQjtkh47EabWR27WiyIOY0upe
-         X8BSBdYqkYUC06F1HYi55dV5kB5GdHYFvHrxjZGQJKVH4waTU7giyneJHfAQcNoW/PQ0
-         Q8Mcj3GkdDJ+JBnXSm0s1Zy9k9FJ7qHRp6W12g3twI9B0gahJTG/7MxLnqAB3Hbwg3Ga
-         z5m8Oa7LMCWJ+NQ0EUxrWghqXpsEX0xqsyEzhior0fiq/RRudQ1AvwBAkGy1/NGRGG1+
-         DIIVytyoFOFwfQq7DEEfAg6+COkpYSulAKwnHrJykFIUYuAYuMaytlYZVMv0S4XroBV4
-         SMxA==
-X-Gm-Message-State: AOJu0YzB+3ffgRNxiX2m1GOGdCzcWR9U2B9A3vhXQbrT2I4w8vryEslc
-	gT3j1Rx/XM6+PHrytbPx69sxe/ZqP74Yniq6s5w/iRCs2eL9SKBEL63rvbFLq/I=
-X-Google-Smtp-Source: AGHT+IEtRPHy2o85PmOJzrWYS6qIrfxXn4kafltJOvylpbKq2XolD1MMytvOuQr0Gsz2YP8CIaHzsA==
-X-Received: by 2002:a05:6358:fd04:b0:1a6:7af3:22ce with SMTP id e5c5f4694b2df-1aade08fa4cmr705244555d.2.1720716987411;
-        Thu, 11 Jul 2024 09:56:27 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1720716986; x=1721321786;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Uhr3664pgzsPVbVM9TMlydj6PeeipJCxcTuOvriuu8Y=;
+        b=ODdJbHQzMOOKaaqDv8AN4xN+c2DnAOFJ3Y63LfJnE3f9keuQNsBiWv7FGPZZJdcI/v
+         F638avEMFExHYz3rPzAxGcva2Glg+GfalQ33tu6nnudQ/aWGaid2S3lXXfyx2tN+L+2X
+         AKIp0nZbd6Tk1jLQUF2fPfRezy9CgdSnkMfblQkevTBg6pnOPv66FbBV2TaRb2N+yaPZ
+         sA3Kc8rpjADI9I5bofyglpzaTE/RgBY3jbxRKeS+sGktcMb8AGFnJjoUJTKJSxwG8SM5
+         fbzs/4d4xBNZCdnzkN5mHmmcsPeCzgNjV/o/uv4wEyH/x3oxOqVw8yk2IGRLq+8nzyy9
+         cfGg==
+X-Gm-Message-State: AOJu0Ywa/+U3a30/Aj4ASn3+7vV9CIe2ej/mPSWbZCn+tik9TtQIYvqg
+	lSX3lXJ/IOOTHCZOuuLFpZRCwSq4xZeOzuUn5kt1TG5Z/0b7PTlRQ0YY6idnI0FAz/6JKshLKhe
+	E
+X-Google-Smtp-Source: AGHT+IE43ZJH2LFhQTINfIakZgTQfA50ql3uXt7MpIZiMFSUweWWsVGkY82v2L0BWYAP0CjJVvhIyA==
+X-Received: by 2002:a05:6870:c34c:b0:254:96ec:bc44 with SMTP id 586e51a60fabf-25eae88a6d3mr7072740fac.28.1720716986246;
+        Thu, 11 Jul 2024 09:56:26 -0700 (PDT)
 Received: from [127.0.1.1] ([2601:1c2:1802:170:5ee9:fea0:d9de:cee8])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-787089bc5f6sm1360038a12.92.2024.07.11.09.56.26
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-787089bc5f6sm1360038a12.92.2024.07.11.09.56.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jul 2024 09:56:27 -0700 (PDT)
+        Thu, 11 Jul 2024 09:56:25 -0700 (PDT)
 From: Drew Fustini <dfustini@tenstorrent.com>
-Date: Thu, 11 Jul 2024 09:56:19 -0700
-Subject: [PATCH v3 1/7] dt-bindings: clock: Document T-Head TH1520
- AP_SUBSYS controller
+Subject: [PATCH v3 0/7] clk: thead: Add support for TH1520 AP_SUBSYS clock
+ controller
+Date: Thu, 11 Jul 2024 09:56:18 -0700
+Message-Id: <20240711-th1520-clk-v3-0-6ff17bb318fb@tenstorrent.com>
 MIME-Version: 1.0
-Message-Id: <20240711-th1520-clk-v3-1-6ff17bb318fb@tenstorrent.com>
-References: <20240711-th1520-clk-v3-0-6ff17bb318fb@tenstorrent.com>
-In-Reply-To: <20240711-th1520-clk-v3-0-6ff17bb318fb@tenstorrent.com>
+X-B4-Tracking: v=1; b=H4sIALIOkGYC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHUUlJIzE
+ vPSU3UzU4B8JSMDIxMDc0MD3ZIMQ1MjA93knGxdg8QUS3OzVKNEE6NUJaCGgqLUtMwKsGHRsbW
+ 1AH6BLJBcAAAA
 To: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
  Fu Wei <wefu@redhat.com>, Yangtao Li <frank.li@vivo.com>, 
  Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
@@ -85,16 +86,16 @@ Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
  Conor Dooley <conor.dooley@microchip.com>, 
  Drew Fustini <dfustini@tenstorrent.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1720716985; l=5553;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1720716985; l=5438;
  i=dfustini@tenstorrent.com; s=20230430; h=from:subject:message-id;
- bh=33rJGU2InhpHnNryWyQ6zmKtIVWZTaHsLeFjChtPSYE=;
- b=6YAGcBp4Fm9bDRfTyXOB2NmXl5D6Sd8k1BQlNn3GXGmffpByWrS3UBfAhRFPbzG1K88DFfOOk
- Pp+pLKSlzibCYiSEM2kmtnt2eZFEehe7vftYoT7cE1swIeVaeNEnZCw
+ bh=1pS4EYjsNn3BXZfRuGoxZnqmwVe33N0u3aWOchDQoRA=;
+ b=uEAXxeZVrDYQjqzTdPCnXigOhQhfpt9gooEApJADDF3FW5O8a32yNOYGEDqxwPmfWFi+XpfXd
+ aobxfmzc/KlABCFDshVCbYzVR+vHfZrdao9pTTGxtkUuNPVtDLJqQMr
 X-Developer-Key: i=dfustini@tenstorrent.com; a=ed25519;
  pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240711_095629_108263_BA0CFC81 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20240711_095627_935233_4A352C40 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,197 +112,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document bindings for the T-Head TH1520 AP sub-system clock controller.
+This series adds support for the AP sub-system clock controller in the
+T-Head TH1520 [1]. Yangtao Li originally submitted this series in May
+2023 [2]. Jisheng made additional improvements and then passed on the
+work in progress to me.
 
-Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-Co-developed-by: Yangtao Li <frank.li@vivo.com>
-Signed-off-by: Yangtao Li <frank.li@vivo.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
+Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
+Link: https://lore.kernel.org/all/20230515054402.27633-1-frank.li@vivo.com/ [2]
+
+Changes in v3:
+ - dt-binding patch has been applied to clk-next by Stephen but I'm
+   keeping it in the series for completeness.
+ - move dt-bindings include after linux includes in driver
+ - change rate to u64 in th1520_pll_vco_recalc_rate()
+ - replace do_div() with normal division operation in both
+   th1520_pll_vco_recalc_rate() and th1520_pll_postdiv_recalc_rate()
+ - add static to ccu_mux structs: c910_i0_clk, c910_clk, uart_sclk
+
+Changes in v2: 
+ - Add clock property to the gpio nodes after Conor asked why they were
+   missing. These clock gates correspond to enable bits in PERI_CLK_CFG.
+ - Drop 2 cell address and size properties from the binding example per
+   Conor and add Reviewed-by from from Conor.
+ - Link: https://lore.kernel.org/linux-riscv/20240623-th1520-clk-v2-0-ad8d6432d9fb@tenstorrent.com/ 
+
+Changes in v1:
+ - Split th1520_clks into groups for gate, mux, div, pll
+ - Convert gate clocks to devm_clk_hw_register_gate_parent_data()
+ - Convert mux clocks to devm_clk_hw_register_mux_parent_data_table()
+ - Split the PLL recalculation into th1520_pll_vco_recalc_rate() and
+   th1520_pll_postdiv_recalc_rate(). Based on Emil's comments in v1,
+   add logic to handle the fractional portion of feedback divide value
+   when the delta-sigma modulator (DSM) is active.
+ - Drop clock-names from the binding per Stephan to avoid relying on
+   anything other than the cell index when describing clk_parent_data
+   (note: I dropped Rob's Rb because I changed the binding patch)
+ - Rename reg/reg2 to cfg0/cfg1 to match the SoC documentation
+ - Rename struct for pll clocks from ccu_mdiv to ccu_pll
+ - Rebase on v6.10-rc3, remove the dts node reordering patch from v3
+   now that it is in mainline
+ - Link: https://lore.kernel.org/linux-riscv/20240615-th1520-clk-v1-0-3ba4978c4d6b@tenstorrent.com/
+
+Changes in RFC v3:
+ - Drop redundant new line and unused clk label from the dts example in
+   the DT binding which I failed to fix in v2.
+ - Add patch [4] from Thomas Bonnefille that fixes dts node ordering in
+   th1520.dtsi. Conor has already merged it into riscv-dt-for-next so
+   the dts patches in this series are based on top of that.
+ - Remove fixed uart clock and converted uart DT nodes to use clocks
+   from the clock controller.
+ - Remove fixed apb clock and converted the dma controller and timer DT
+   nodes to use a clock from the clock controller.
+ - Made ccu_disable_helper() and ccu_enable_helper() to static functions
+ - Follow the advice from Stephen Boyd in Yangtao's original series to
+   not use strings for clk tree topology. Created clk_parent_data arrays
+   to be used with CLK_HW_INIT_PARENTS_DATA instead of parent strings.
+ - Rebase on top of v6.9-rc7
+ - Link: https://lore.kernel.org/all/20240506-th1520-clk-v3-0-085a18a23a7f@tenstorrent.com/
+
+Changes in RFC v2:
+ - squash the header file patch into the DT schema patch
+ - describe the changes I made to original series in the cover letter
+   instead of the individual patches
+ - fix my typo in my email address
+ - Link: https://lore.kernel.org/all/20240426-th1520-clk-v2-v2-0-96b829e6fcee@tenstorrent.com/
+
+Changes in RFC v1 compared to the original series:
+ - corrected the npu_clk enable bit
+ - deduplicated CLK_NPU and CLK_NPU_AXI number in header
+ - fixed c910_i0_clk reg typo
+ - fixed checkpatch and dt_binding_check warnings
+ - rebased on v6.9-rc5
+ - revised commit descriptions
+ - Link: https://lore.kernel.org/all/20240110-clk-th1520-v1-0-8b0682567984@tenstorrent.com/
+
+Thank you,
+Drew
+
 ---
- .../bindings/clock/thead,th1520-clk-ap.yaml        | 53 ++++++++++++
- MAINTAINERS                                        |  2 +
- include/dt-bindings/clock/thead,th1520-clk-ap.h    | 96 ++++++++++++++++++++++
- 3 files changed, 151 insertions(+)
+Drew Fustini (7):
+      dt-bindings: clock: Document T-Head TH1520 AP_SUBSYS controller
+      clk: thead: Add support for T-Head TH1520 AP_SUBSYS clocks
+      riscv: dts: thead: Add TH1520 AP_SUBSYS clock controller
+      riscv: dts: thead: change TH1520 uart nodes to use clock controller
+      riscv: dts: thead: change TH1520 mmc nodes to use clock controller
+      riscv: dts: thead: update TH1520 dma and timer nodes to use clock controller
+      riscv: dts: thead: add clock to TH1520 gpio nodes
 
-diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-new file mode 100644
-index 000000000000..0129bd0ba4b3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-@@ -0,0 +1,53 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/thead,th1520-clk-ap.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: T-HEAD TH1520 AP sub-system clock controller
-+
-+description: |
-+  The T-HEAD TH1520 AP sub-system clock controller configures the
-+  CPU, DPU, GMAC and TEE PLLs.
-+
-+  SoC reference manual
-+  https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-+
-+maintainers:
-+  - Jisheng Zhang <jszhang@kernel.org>
-+  - Wei Fu <wefu@redhat.com>
-+  - Drew Fustini <dfustini@tenstorrent.com>
-+
-+properties:
-+  compatible:
-+    const: thead,th1520-clk-ap
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: main oscillator (24MHz)
-+
-+  "#clock-cells":
-+    const: 1
-+    description:
-+      See <dt-bindings/clock/thead,th1520-clk-ap.h> for valid indices.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - "#clock-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-+    clock-controller@ef010000 {
-+        compatible = "thead,th1520-clk-ap";
-+        reg = <0xef010000 0x1000>;
-+        clocks = <&osc>;
-+        #clock-cells = <1>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index da5352dbd4f3..5b0e9c3534ea 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19318,7 +19318,9 @@ M:	Guo Ren <guoren@kernel.org>
- M:	Fu Wei <wefu@redhat.com>
- L:	linux-riscv@lists.infradead.org
- S:	Maintained
-+F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
- F:	arch/riscv/boot/dts/thead/
-+F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
- 
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
-diff --git a/include/dt-bindings/clock/thead,th1520-clk-ap.h b/include/dt-bindings/clock/thead,th1520-clk-ap.h
-new file mode 100644
-index 000000000000..a199784b3512
---- /dev/null
-+++ b/include/dt-bindings/clock/thead,th1520-clk-ap.h
-@@ -0,0 +1,96 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) 2023 Vivo Communication Technology Co. Ltd.
-+ * Authors: Yangtao Li <frank.li@vivo.com>
-+ */
-+
-+#ifndef _DT_BINDINGS_CLK_TH1520_H_
-+#define _DT_BINDINGS_CLK_TH1520_H_
-+
-+#define CLK_CPU_PLL0		0
-+#define CLK_CPU_PLL1		1
-+#define CLK_GMAC_PLL		2
-+#define CLK_VIDEO_PLL		3
-+#define CLK_DPU0_PLL		4
-+#define CLK_DPU1_PLL		5
-+#define CLK_TEE_PLL		6
-+#define CLK_C910_I0		7
-+#define CLK_C910		8
-+#define CLK_BROM		9
-+#define CLK_BMU			10
-+#define CLK_AHB2_CPUSYS_HCLK	11
-+#define CLK_APB3_CPUSYS_PCLK	12
-+#define CLK_AXI4_CPUSYS2_ACLK	13
-+#define CLK_AON2CPU_A2X		14
-+#define CLK_X2X_CPUSYS		15
-+#define CLK_AXI_ACLK		16
-+#define CLK_CPU2AON_X2H		17
-+#define CLK_PERI_AHB_HCLK	18
-+#define CLK_CPU2PERI_X2H	19
-+#define CLK_PERI_APB_PCLK	20
-+#define CLK_PERI2APB_PCLK	21
-+#define CLK_PERISYS_APB1_HCLK	22
-+#define CLK_PERISYS_APB2_HCLK	23
-+#define CLK_PERISYS_APB3_HCLK	24
-+#define CLK_PERISYS_APB4_HCLK	25
-+#define CLK_OSC12M		26
-+#define CLK_OUT1		27
-+#define CLK_OUT2		28
-+#define CLK_OUT3		29
-+#define CLK_OUT4		30
-+#define CLK_APB_PCLK		31
-+#define CLK_NPU			32
-+#define CLK_NPU_AXI		33
-+#define CLK_VI			34
-+#define CLK_VI_AHB		35
-+#define CLK_VO_AXI		36
-+#define CLK_VP_APB		37
-+#define CLK_VP_AXI		38
-+#define CLK_CPU2VP		39
-+#define CLK_VENC		40
-+#define CLK_DPU0		41
-+#define CLK_DPU1		42
-+#define CLK_EMMC_SDIO		43
-+#define CLK_GMAC1		44
-+#define CLK_PADCTRL1		45
-+#define CLK_DSMART		46
-+#define CLK_PADCTRL0		47
-+#define CLK_GMAC_AXI		48
-+#define CLK_GPIO3		49
-+#define CLK_GMAC0		50
-+#define CLK_PWM			51
-+#define CLK_QSPI0		52
-+#define CLK_QSPI1		53
-+#define CLK_SPI			54
-+#define CLK_UART0_PCLK		55
-+#define CLK_UART1_PCLK		56
-+#define CLK_UART2_PCLK		57
-+#define CLK_UART3_PCLK		58
-+#define CLK_UART4_PCLK		59
-+#define CLK_UART5_PCLK		60
-+#define CLK_GPIO0		61
-+#define CLK_GPIO1		62
-+#define CLK_GPIO2		63
-+#define CLK_I2C0		64
-+#define CLK_I2C1		65
-+#define CLK_I2C2		66
-+#define CLK_I2C3		67
-+#define CLK_I2C4		68
-+#define CLK_I2C5		69
-+#define CLK_SPINLOCK		70
-+#define CLK_DMA			71
-+#define CLK_MBOX0		72
-+#define CLK_MBOX1		73
-+#define CLK_MBOX2		74
-+#define CLK_MBOX3		75
-+#define CLK_WDT0		76
-+#define CLK_WDT1		77
-+#define CLK_TIMER0		78
-+#define CLK_TIMER1		79
-+#define CLK_SRAM0		80
-+#define CLK_SRAM1		81
-+#define CLK_SRAM2		82
-+#define CLK_SRAM3		83
-+#define CLK_PLL_GMAC_100M	84
-+#define CLK_UART_SCLK		85
-+#endif
+ .../bindings/clock/thead,th1520-clk-ap.yaml        |   53 +
+ MAINTAINERS                                        |    3 +
+ arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts |   12 -
+ .../boot/dts/thead/th1520-lichee-module-4a.dtsi    |   12 -
+ arch/riscv/boot/dts/thead/th1520.dtsi              |   73 +-
+ drivers/clk/Kconfig                                |    1 +
+ drivers/clk/Makefile                               |    1 +
+ drivers/clk/thead/Kconfig                          |   12 +
+ drivers/clk/thead/Makefile                         |    2 +
+ drivers/clk/thead/clk-th1520-ap.c                  | 1089 ++++++++++++++++++++
+ include/dt-bindings/clock/thead,th1520-clk-ap.h    |   96 ++
+ 11 files changed, 1293 insertions(+), 61 deletions(-)
+---
+base-commit: 256abd8e550ce977b728be79a74e1729438b4948
+change-id: 20240710-th1520-clk-0ad976e2a42e
 
+Best regards,
 -- 
-2.34.1
+Drew Fustini <dfustini@tenstorrent.com>
 
 
 _______________________________________________
