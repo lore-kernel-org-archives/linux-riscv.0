@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FAFC3DA41
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 11:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97469C41513
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 11:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5NoPP6aSgB0uJjx9YHf8GHOMNwxomFDOVHVdPDXhMAY=; b=wbahSoeuqKlW7FjkKM4VbMH+9+
-	/ddGb+I+Aa2jFfHtRDaxypvCsK9o2aWCZFAS6Cm6IaJkvd6Rt9oBGjHdWYCaHDJNDv5WRa2zsI4wI
-	iEnpP7agvUGjcllRqTrFyoAxCHOSYCSzx6ZHDFc4XDrstEjSkOnO3cd9sFsyEK1xekJI0PFFtwSvs
-	GHJJCn3xR3cWWjElTMx11gDhBscr2Nei9hO/kPdh33rpnHY2R8cih66J5n5I8B/op0uylve4e2iQi
-	U6Yk5ZO26Rk6ZdA5d0J8QUfJsEl0SXfDiPUyKVlEk0LPCJWRFycG2otK+UEOs1X+anDiV0OWOrnef
-	dthJgOVg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MSO2jFTj8eePpGZIRfRsk9mE+0YOxZzFP1STpFHMIJ0=; b=dyqq35FkXw8bsa
+	OdC3vsn4UgK9vr6LJLWLPgwZJdvP2Ny5Qgms1JhBDxoLp+fYyzRzBDbyua+g4wrgMjT0ImQ67OATH
+	Tdrqw4NnK7olYLEtJ/xPVpLS1jZ3e6+U5HHvnNFunfI6I8qICg7JaH4FLaJ9Il3eFy5nnRvbw53Sz
+	0wkEQbN0SxUF4qi4EDac94ycwXtPbIdDAAoWV93Licxk15HEqRXHTxxw4DHYSBAWOqjlK5+ed9Vb1
+	eguYXoyRXbhgRa9GeaJBY8L40074v5VhVhTQutg4PflR/vFXwYb7FTKUsJjxpQqvmPdBoFK7QsJMe
+	QkzIVk2Iyhy0K/cvWdGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRrcD-0000000DfAr-08Qm;
-	Thu, 11 Jul 2024 11:05:33 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1sRrhX-0000000DgcY-2WCy;
+	Thu, 11 Jul 2024 11:11:03 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRrc9-0000000DfA5-35H3
+	id 1sRrhT-0000000DgbS-2Ajt
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jul 2024 11:05:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1720695930; x=1752231930;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=JiYpCqAyIboDSFHKDduO+bx97bBcPjVtQTohMQc4QLg=;
-  b=gRBxbwSfkL2LkiwaaUktDjKYS3NcgDAnF+AGmFRRpDAIHA+qnruW6xE5
-   QyuZf78kITjYUC4kSGOJSUfP9th38QqBBH3JDTx/WMzSRYWstfuFLST0r
-   HYNTeW6qwnRU3Zw1pzYd5ixccqnKEnkVtyfIASUYF3dbeocQjlTI7SOAT
-   AqSRilb/Hg55FmEz+p79Twn7XSEfIGyKBsu95cWw0Tqd4zDmUvI8uBr5t
-   C6OaSEnPdTXIz4EEOPCPPik7jrnN2UZGMtiLbq0v259ebH2ZWVGq7vY4s
-   4f/1+6RvQ2ZJzF2OATb0WaPTFmjPeIoJRZyIe08R/fUO18rchyNUaiUDD
-   Q==;
-X-CSE-ConnectionGUID: m3KNLGSJQQ2/Rtve5ROYpw==
-X-CSE-MsgGUID: l7i8e2MFTfio/wZqxdbd4Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11129"; a="40580183"
-X-IronPort-AV: E=Sophos;i="6.09,199,1716274800"; 
-   d="scan'208";a="40580183"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2024 04:05:27 -0700
-X-CSE-ConnectionGUID: k3DNBoMrRN63B7vi2mAG0A==
-X-CSE-MsgGUID: vycflJQMRyemJRMSn71qtQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.09,199,1716274800"; 
-   d="scan'208";a="53700819"
-Received: from ijarvine-desk1.ger.corp.intel.com (HELO localhost) ([10.245.247.127])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2024 04:05:23 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Thu, 11 Jul 2024 14:05:19 +0300 (EEST)
-To: daire.mcnamara@microchip.com
-cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-    conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com, 
-    robh@kernel.org, bhelgaas@google.com, LKML <linux-kernel@vger.kernel.org>, 
-    linux-riscv@lists.infradead.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Subject: Re: [PATCH v7 2/3] PCI: microchip: Fix inbound address translation
- tables
-In-Reply-To: <20240711102218.2895429-4-daire.mcnamara@microchip.com>
-Message-ID: <b22a15d8-54d5-a8cf-717b-73c5af347755@linux.intel.com>
-References: <20240711102218.2895429-2-daire.mcnamara@microchip.com> <20240711102218.2895429-4-daire.mcnamara@microchip.com>
+	Thu, 11 Jul 2024 11:11:01 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4WKX330h3jz1T5SV;
+	Thu, 11 Jul 2024 19:06:07 +0800 (CST)
+Received: from kwepemi100008.china.huawei.com (unknown [7.221.188.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id EE9ED140361;
+	Thu, 11 Jul 2024 19:10:50 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemi100008.china.huawei.com
+ (7.221.188.57) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 11 Jul
+ 2024 19:10:50 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<samitolvanen@google.com>, <debug@rivosinc.com>, <andy.chiu@sifive.com>,
+	<guoren@kernel.org>, <songshuaishuai@tinylab.org>, <bjorn@rivosinc.com>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH] riscv: Remove unused _TIF_WORK_MASK
+Date: Thu, 11 Jul 2024 19:15:08 +0800
+Message-ID: <20240711111508.1373322-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323328-1175667782-1720695919=:6262"
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemi100008.china.huawei.com (7.221.188.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240711_040529_835072_76D1CD8F 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20240711_041059_741428_B9A7773B 
+X-CRM114-Status: UNSURE (   6.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,59 +66,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Since commit f0bddf50586d ("riscv: entry: Convert to generic entry"),
+_TIF_WORK_MASK is no longer used, so remove it.
 
---8323328-1175667782-1720695919=:6262
-Content-Type: text/plain; charset=ISO-8859-15
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+Fixes: f0bddf50586d ("riscv: entry: Convert to generic entry")
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/riscv/include/asm/thread_info.h | 4 ----
+ 1 file changed, 4 deletions(-)
 
-On Thu, 11 Jul 2024, daire.mcnamara@microchip.com wrote:
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index 5d473343634b..0eead6b7b790 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -111,8 +111,4 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
+ #define _TIF_UPROBE		(1 << TIF_UPROBE)
+ #define _TIF_RISCV_V_DEFER_RESTORE	(1 << TIF_RISCV_V_DEFER_RESTORE)
+ 
+-#define _TIF_WORK_MASK \
+-	(_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED | \
+-	 _TIF_NOTIFY_SIGNAL | _TIF_UPROBE)
+-
+ #endif /* _ASM_RISCV_THREAD_INFO_H */
+-- 
+2.34.1
 
-> From: Daire McNamara <daire.mcnamara@microchip.com>
->=20
-> On Microchip PolarFire SoC the PCIe Root Port can be behind one of three
-> general purpose Fabric Interface Controller (FIC) buses that encapsulates
-> an AXI-S bus. Depending on which FIC(s) the Root Port is connected
-> through to CPU space, and what address translation is done by that FIC,
-> the Root Port driver's inbound address translation may vary.
->=20
-> For all current supported designs and all future expected designs,
-> inbound address translation done by a FIC on PolarFire SoC varies
-> depending on whether PolarFire SoC in operating in coherent DMA mode or
-> noncoherent DMA mode.
->=20
-> The setup of the outbound address translation tables in the Root Port
-> driver only needs to handle these two cases.
->=20
-> Setup the inbound address translation tables to one of two address
-> translations, depending on whether the rootport is being used with cohere=
-nt
-> DMA or noncoherent DMA.
->=20
-> Fixes: 6f15a9c9f941 ("PCI: microchip: Add Microchip Polarfire PCIe contro=
-ller driver")
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Reviewed-by: Ilpo J=E4rvinen <ilpo.jarvinen@linux.intel.com>
-
---=20
- i.
-
---8323328-1175667782-1720695919=:6262
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323328-1175667782-1720695919=:6262--
-
