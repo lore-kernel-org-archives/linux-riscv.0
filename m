@@ -4,81 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB22C3DA45
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 15:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6177DC3DA45
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jul 2024 16:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SoC/FcPTfQv2uM6pfULViEX1+miNKEp6fj9qY735udg=; b=5GAPt0zf5xyPy/
-	B/Sj2LxHNZfwe/NbxfAwhwAkfhFFNCJzfsxcZB08RkTbTjsZbDbGqYCFrawbmb42+iTk65E0zS2Hn
-	38Cg+S3B3yA43mTjv26EdAEHDEs4PaQBJoll8uipM9TU4AKpEOKt22P+HWFCJyI8MPjlu06bgVzNf
-	EkLtwcMmDLrs69dieWak4dwX+1PuS1fWzGL0NRy2szVSRR2oU/x1vMlJoq2d0Gz0nzZwUBRYIeiej
-	5TiVhyMQ6spL6Dh2/3qCHrec2eZNeqgcJlBA2z9W7rdNjnW7Ad6+cQ3coX9t5mwnyx2mqW/Nta6Gc
-	zUw6P9ywSc6luaxg1bjA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fFymVm+KsmiBe2aNpF69cGW/qWm+QQrKnZOyI5PbgYM=; b=3Hkaoof3mjR4FYu/mcaWN5MUNm
+	NryBWRemJlpRwT0kcir6Kd1m19D9rgW50ivVHYUEpKQFTJD323i9Bensw9AB8osDWebXFtj1A4hQG
+	ZL5mogLpaaFbVwfruoj27ccFX5VMfOXrNmd/swhA7N0QgT7EN84BScc1d27c6HjPcz/P50naF0S3W
+	aOT3qCnZO1kHWuA+iyYkqInfbGB9oBuXrmrVdkrkuRMwY8q5PMUuGnGIxTLigaNsZiJ+nM2iYrXkU
+	+BXlkQNnO9wsMTbRND9Ld8lbKjJvhcaKRTWRgyKYnLZMVRoZpu67V83J9cQvTOhBbOMXzFStpEUHp
+	8QokUbSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRw31-0000000EYgi-46Es;
-	Thu, 11 Jul 2024 15:49:31 +0000
+	id 1sRwLv-0000000EcXb-1Dey;
+	Thu, 11 Jul 2024 16:09:03 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sRw2j-0000000EYZE-1TRI;
-	Thu, 11 Jul 2024 15:49:14 +0000
+	id 1sRwLg-0000000EcTy-41Gy
+	for linux-riscv@lists.infradead.org;
+	Thu, 11 Jul 2024 16:08:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2D9CE61D65;
-	Thu, 11 Jul 2024 15:49:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63C08C4AF4D;
-	Thu, 11 Jul 2024 15:49:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2724261D70;
+	Thu, 11 Jul 2024 16:08:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C810CC32786;
+	Thu, 11 Jul 2024 16:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1720712949;
-	bh=ZuSNhp04Wh6EW5lLCQ+g2TTMsPvkJdMs1uzOY5TVPg0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=iEfV6QDWwbMnp9Ta0Jer7ufy7zKuRm0UWvkJW72QY10t6ps7bgp01pqrrI/nPJYK4
-	 aMRh9ZF/IE1zLE2CWaaFQqoH87euXHgcVDUCI8FRHQLRzl0Hn5cM5pGTcdcuB1ubWY
-	 7C0umyGH23O1dml7/cbWgv+m1S0Z5bC39W80eVrXz6QNggeVgiL7GVN5GGQXoSyNXO
-	 x9/a5jfhts/AMfl6Y1Ah/Pvl+GppiyWxzLsd7vdSq8U1uD/hk7ObzadMOrVkHQ6wWX
-	 mp+jdOGkXJyV7+IWDlVnAzxY48Ah5kvgicHHgUyI46+s+fRE2+Q7aNoVeQ82HxcNNS
-	 L2NSAQhoN06lw==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-2eecd2c6432so11605381fa.3;
-        Thu, 11 Jul 2024 08:49:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWKsjFRRvzDX7gYsO6+6zq9pIL+ikqF/An9/0fC+xJNh8Rm4CUbxfxlBmLVVkGepIKMXBvW4jkUNiFhn71oe4f6U2ikQzFxbgRQWRj4xCTFXTKs1CgvHQfRW0UGp6Xgvu2piFQDaSvpBGB0XdfrGbceyUJRxlvIJI5ACxNRAg1hHkLdu4cgF9Q/9pn+Z/HQHvskk9QWx9Zfa7c=
-X-Gm-Message-State: AOJu0YzgdcIx0zR3FkdUhxOz89BBNLZqgyV2yS/u6RYVl68/9xHh9WXT
-	IrxNTgiOasXasAsTV1Lvmbg4pzuIpbI6r5JX75/XhE3OWt8sR07tXZ6zFmHy9s1RVp5Abmgn/ho
-	G6pTNjIPBYWwET++0i/46U0itnTk=
-X-Google-Smtp-Source: AGHT+IF7NQdXn1ehcZ9BG8DZDkjb0sOdI+MsrOYGuBrT+fO/aduK2xqVz6OBibzkuFUSmSL45H3g6KQ3ZY2sharGRnY=
-X-Received: by 2002:a2e:8ed3:0:b0:2ee:4d37:91df with SMTP id
- 38308e7fff4ca-2eeb30fef50mr68275581fa.27.1720712947779; Thu, 11 Jul 2024
- 08:49:07 -0700 (PDT)
+	s=k20201202; t=1720714127;
+	bh=dArFzUR62pjSDR9oi4NDee62Jbu4M80ZlukA3ud/HGc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N3/bYjJg8XrRRFZG4jagVHinO0jvF/xbwEHRbT+2yY4CWE87TDAJsJPbYz5HNdZOy
+	 DS3Rct7Y0KOEvuCpeMMEAFKopRpAqf36oYGIKlLWee+vTXkbPea64LNAa9IPTru1C0
+	 jBRNWB0TpyFD5ads4B0ATRVghEhFlZ1n9td1recL8zT7LSFlOpo4Ib+J+beaC9hN1u
+	 DRMnZ/0AfwlsA5toyp/BYS52ehT2zLRByxCtWXUST5G08ZABsY5TLsCb9GBAqFKfvR
+	 BOD5xnIcKYwcPs1SvVwIEwuwAaop3CR5X5vdUrMrWfHLVep+3s6PuUdACnfbJ41dkp
+	 U3u3WD7YCnX4g==
+Date: Thu, 11 Jul 2024 17:08:40 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Subject: Re: [PATCH v4 00/10] riscv: add initial support for SpacemiT K1
+Message-ID: <20240711-zeppelin-property-aef2ee5fe999@spud>
+References: <20240709-k1-01-basic-dt-v4-0-ae5bb5e56aaf@gentoo.org>
 MIME-Version: 1.0
-References: <20240704143611.2979589-1-arnd@kernel.org> <20240704143611.2979589-3-arnd@kernel.org>
-In-Reply-To: <20240704143611.2979589-3-arnd@kernel.org>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Fri, 12 Jul 2024 00:48:30 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATLVY1xtSMVMro-KMQVPgVHoiRKGX33ajCg8ZU0-EZS2w@mail.gmail.com>
-Message-ID: <CAK7LNATLVY1xtSMVMro-KMQVPgVHoiRKGX33ajCg8ZU0-EZS2w@mail.gmail.com>
-Subject: Re: [PATCH 02/17] csky: drop asm/gpio.h wrapper
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arch@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nicolas@fjasle.eu>, Vineet Gupta <vgupta@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, 
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Rich Felker <dalias@libc.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "David S. Miller" <davem@davemloft.net>, 
-	Andreas Larsson <andreas@gaisler.com>, Christian Brauner <brauner@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-openrisc@vger.kernel.org, linux-riscv@lists.infradead.org
+In-Reply-To: <20240709-k1-01-basic-dt-v4-0-ae5bb5e56aaf@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240711_084913_540604_9E44E17D 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20240711_090849_086930_CE869DE3 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,27 +64,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Yangyu Chen <cyy@cyyself.name>, Conor Dooley <conor.dooley@microchip.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, Meng Zhang <zhangmeng.kevin@spacemit.com>, Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Meng Zhang <kevin.z.m@hotmail.com>, linux-serial@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Lubomir Rintel <lkundrak@v3.sk>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Matthias Brugger <matthias.bgg@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Content-Type: multipart/mixed; boundary="===============0823260512799903917=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdWwgNCwgMjAyNCBhdCAxMTozNuKAr1BNIEFybmQgQmVyZ21hbm4gPGFybmRAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBGcm9tOiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgo+
-Cj4gVGhlIGFzbS9ncGlvLmggaGVhZGVyIGlzIGdvbmUgbm93IHRoYXQgYWxsIGFyY2hpdGVjdHVy
-ZXMganVzdCB1c2UKPiBncGlvbGliLCBhbmQgc28gdGhlIHJlZGlyZWN0IGlzIG5vIGxvbmdlciB2
-YWxpZC4KPgo+IFNpZ25lZC1vZmYtYnk6IEFybmQgQmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+Cj4g
-LS0tCgoKUmV2aWV3ZWQtYnk6IE1hc2FoaXJvIFlhbWFkYSA8bWFzYWhpcm95QGtlcm5lbC5vcmc+
-CgoKPiAgYXJjaC9jc2t5L2luY2x1ZGUvYXNtL0tidWlsZCB8IDEgLQo+ICAxIGZpbGUgY2hhbmdl
-ZCwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvY3NreS9pbmNsdWRlL2FzbS9L
-YnVpbGQgYi9hcmNoL2Nza3kvaW5jbHVkZS9hc20vS2J1aWxkCj4gaW5kZXggMTExN2MyOGNiN2U4
-Li4xM2ViYzVlMzQzNjAgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9jc2t5L2luY2x1ZGUvYXNtL0tidWls
-ZAo+ICsrKyBiL2FyY2gvY3NreS9pbmNsdWRlL2FzbS9LYnVpbGQKPiBAQCAtMSw3ICsxLDYgQEAK
-PiAgIyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+ICBnZW5lcmljLXkgKz0gYXNt
-LW9mZnNldHMuaAo+ICBnZW5lcmljLXkgKz0gZXh0YWJsZS5oCj4gLWdlbmVyaWMteSArPSBncGlv
-LmgKPiAgZ2VuZXJpYy15ICs9IGt2bV9wYXJhLmgKPiAgZ2VuZXJpYy15ICs9IG1jc19zcGlubG9j
-ay5oCj4gIGdlbmVyaWMteSArPSBxcndsb2NrLmgKPiAtLQo+IDIuMzkuMgo+CgoKLS0gCkJlc3Qg
-UmVnYXJkcwpNYXNhaGlybyBZYW1hZGEKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+
+--===============0823260512799903917==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="yHpvReNwxF6wUK2f"
+Content-Disposition: inline
+
+
+--yHpvReNwxF6wUK2f
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jul 09, 2024 at 03:18:43AM +0000, Yixun Lan wrote:
+> SpacemiT K1 is an ideal chip for some new extension such as RISC-V Vector
+> 1.0 and Zicond evaluation now. Add initial support for it to allow more
+> people to participate in building drivers to mainline for it.
+>=20
+> This kernel has been tested upon Banana Pi BPI-F3 board on vendor U-Boot
+> bootflow generated by Armbian SDK[1] and patched OpenSBI[2] to enable
+> Zicboz, which does not in the vendor dts on its U-Boot. Then successfully
+> booted to busybox on initrd with this log[3].
+>=20
+> As previous discussion in patch v1[4], maintainer expect more basic drive=
+rs
+> ready before really merging it, which would be fine. For other follow-up =
+patches,=20
+> that are clk, pinctrl/gpio, reset.. My current goal would target at a hea=
+dless
+> system including SD card, emmc, and ethernet.
+
+This stuff is already too late for 6.11 as I already sent my PRs, so
+there's no immediate rush. Is there any progress made on creating the
+clock or pinctrl drivers?
+
+Cheers,
+Conor.
+
+--yHpvReNwxF6wUK2f
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZpADiAAKCRB4tDGHoIJi
+0r+HAP4kQtP7z7FMirQkNnNga/iok/jbgojhmbMGEJinXvYMeQEAlQegTv/hhWUO
+JANgyTGsSPtmecPs/EU62TinIgodsgE=
+=13ox
+-----END PGP SIGNATURE-----
+
+--yHpvReNwxF6wUK2f--
+
+
+--===============0823260512799903917==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0823260512799903917==--
+
