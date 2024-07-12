@@ -4,118 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40BEDC3DA49
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jul 2024 00:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE534C3DA45
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jul 2024 01:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g9jeRp5aVERFlZXGqorFG1yJjJY/+HfswNt8e5xREYs=; b=QIXF4yOKkhBI/z
-	D/QAj3zTfUPUJu+zkOBmNrwkh02kq0I5SnPvGlPRguji5AiFpvv5R9qUyoHFln8pv5BRKNbbOY51b
-	aeSvgw3nmI9ZykWYe2FzSlSl1lZxU2EYh1xnWw/osK/l+sYfq2pcvHb6foCVzibH1We86LG38f4FY
-	jOA6bDRp4Fo8VhcFzA0XlQe0clyGJUOq7jQNt48OxirtbIvCoVkRXLMNQkbZkk1Y2udxJ+8wt+04h
-	uCpY5VCTPFsJvCRBp/hho/kqjrofnxCEbC7EX/TOUcyMJgL8dfzCPYsfce7dMZusjdXuOggTZM2mI
-	SoNOYp/SM7K7ZBFGtxTg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m/Mhn0BVMso9SO4xpwsGDKgmhyAu6RKu6UuiB7aVJFg=; b=goyEFDmlVgc2mZAuOpfDbOePqx
+	QZbE2OTMAXlH5P6WdUPJx466jc/JeonpuWPD5pGvuzuhY9H/eCW/RJ/32Jz4X3SwLhaPxtwS5EHvD
+	9vKqEPu5VVEOAMI0bjhD0sWel5A3VvQKutopOywQpyGUksRuJogTqOMqvS5IVBKRK8xMgSNUQoMC7
+	qp9zlik2lsllL1pF5Zu9phoDx0vipzXZrocQIftAbrgG/pzy8Yt+DL7P4KDjbhU6i3Vae60iPdi1J
+	2Y7jrVUcQT10Yab+ug1WzCirqkK5PQNSRfvvdz2ueO8JGaZQxL6GxIbfgBg0MIiVF9j+NBKuXY31t
+	qHaUTnUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sS4Hd-0000000Fwte-1nC3;
-	Fri, 12 Jul 2024 00:37:09 +0000
-Received: from mail-dm3nam02olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c05::800] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1sS54Q-0000000G2Rt-1Apf;
+	Fri, 12 Jul 2024 01:27:34 +0000
+Received: from mail-bmxind01olkn20807.outbound.protection.outlook.com ([2a01:111:f403:281c::807] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sS4HY-0000000FwrX-3B2s
+	id 1sS54N-0000000G2NY-04FZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Jul 2024 00:37:07 +0000
+	Fri, 12 Jul 2024 01:27:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OTtgir4TMpQJ5XV1q6JxFLf2iChxYqlXhOQFGdAxF0YGThIPha8c6iUJBbSIoyRGjpVKIB7eIfXqeT1LV3KX8a86TSThVeZhbKikFfFpJa/koGftmnbj4kHY1vjuSr8KEZEuS2xlR8S/FgNKWgBw/Pp65gt+g4UPrbhc9HBpiFaAIO7K9G45S762S5fncwSfGvHnsKVZ8MP3NNpFnbyd9Xcx1nIwZY8otfxRu24y+72wk3WbeNNYHqQsRVUL/w6VXXUWjdqYpDaacxY2vP92xjdB/37bV9viQLhtaLr7T52+W5NcviH6ZzVMIwuDp004CGMXn2nGfKGO1DqyLBQ9aA==
+ b=mDA2EeZXgwdBZutHMl+2Vk162bhJs8kYvNVPC61emnovS8DzGU+Tzbp3CLD6piUBLO3vdBGT1A3j/k1HLrZ6cCT/XpXwxcDCST+cHny5H18WuIx6zevnSZqVJzlc0o0+fb8xdwRDTX/4zmj52NAl3NyoFbmBuOP0QcqteRwFb81gLnVWqPOaO5ilSpedLMpj4y9+c2GDQ+jteEQ2TKNb6v1SeF4OxOhPzYpaDpETIWtmS5Tt/ohQEuoe/qm6+n4nOb4bJBxuGhQyd/HUAAwSQzRRRylqOUIhdVaV1lik0FgTOv1ISo4hV9VZZ1+cn80ygPY8zMPPYnphfISx7d7eMg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6nzou6e7i5zAW1zg3ezCDrgjkIaNj0GNGPtZrR7QKKM=;
- b=bfOyZHhppD7HZFKtzWJHZsOpfR7kofStM/3TOzEivSmpD+LpXFOXYzTZDxmyDAp4BwPUG594LzipEe8lKPOaM1IKnTiBrvm3Vcpic8H/GJ2S5P2d8uVVOTsyGFRkL1CUPNcp1VPznI4s305ZQkUGNR5G2rGICkO7WBQ8l2CiJCd1FABb5temIRjvfgjYEX4gb/dB/+6aKTaI2qPNw+IrnzcXZFi4RB96OaoX+9bVKESU2L9qdrmpIrSFzk0AEPebfq58a/whVDzDTJ0wyxO6iXv0kDUjP6ZFnxmmDgvB7DSUBZuPJ7J/y+HDc0ZbeOIhdWKQuW/WX5BrNKbZisuLHw==
+ bh=IeSHRa69gSaT/Iz9uheBurlGd/xAzO8phN9WvKbBeW8=;
+ b=y235QmBvb00oJf4m/71sdOkdtm4SRUIa29Aw1QpdL9ZGB3p7kJ3gzmecMLiRPM9MKzPbtoEG8OuEEmj1zmo9EA2OBNamxyvdeobk+/IvEOpa8q0QIUTcSX84JPbBTycz21aOny3PddoXM7Uvq2AoPUJhmILUzj75GpN9nzXbbDFJBGTlYnAFXSWe+rPBNAsdY4NI2QzinU0BEU9G7JKU0TneP5Ya0e8OVvUyBnjmz46mB1e2/znkgMySI5zejWXNElHUdcSPluHcnV64B1ysHlO5eUvmFb1s5pj2UIDlYQ+hGPRNYssE9+E/04R2FEcimyuMxQsbOUiyX9JgZVIVEA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6nzou6e7i5zAW1zg3ezCDrgjkIaNj0GNGPtZrR7QKKM=;
- b=FARNnlFW5y6naEucvwYkNJvJ4udT0oS7dIFykCOcuqkWyHwVtKna47ZX86rllU2MVLWGHUqo5RfX+QIlp2H7CANlAhJ1jTp+NFhz4dAy3IpI8Wxg2RPNyNQfZGoPBDqFwXMxdrZrAZo3C/jB19iXuNBlGx1Up2rx6vuVd0K+mZj5HTJnhW2bUqb0IqhmY8pHmtRccI6zngtzuULPBvf0Ra4ODvnogAZJFsPk2dTf97ht6ImIrpHsPESYLxWdb7SGcZGjCVYGPkEIhZifJilEeG653HvF/pm3o2xdbHR610mB7FDXaJMYFi3hjHDnxYnAbvNgabWN/C3589VenG83qw==
-Received: from PH7PR20MB4962.namprd20.prod.outlook.com (2603:10b6:510:1fa::6)
- by MW4PR20MB4453.namprd20.prod.outlook.com (2603:10b6:303:18a::12) with
+ bh=IeSHRa69gSaT/Iz9uheBurlGd/xAzO8phN9WvKbBeW8=;
+ b=p67Ft2KF0l0NG5jnck1hXt5Ic60A3ybdgjkyEOTCVt25788ufIu1JuWq7lzUyvAKyJ/ZeGMomDIC2sVF4z45M2/+3i33r9iPkhlJm6uHfG7f1sn3nVg9PICXKWgD+jbKqE/eo3/g8r4tYhdIK8MHTqmb7XJbgWokdWB2IhNt9+zwuZmq6WQ+Wxq2GEWvw5mBtpe5w5hZarhXL3kwWmyR2ebHz9vDDLgmL6AbwWbjybLGci1qdQ41KWvt2ZqrvCuAOEjjHh1WPunwZywoLRJW8Z4zjMVInAu4gHqUNxRSEa0dJC2DWVSJonOWceZAMBJaqZoSh2pevpHT5k6DcgK/Ug==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by PN2P287MB1407.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:127::11) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7741.35; Fri, 12 Jul
- 2024 00:36:56 +0000
-Received: from PH7PR20MB4962.namprd20.prod.outlook.com
- ([fe80::b5de:b82:43d9:4e8c]) by PH7PR20MB4962.namprd20.prod.outlook.com
- ([fe80::b5de:b82:43d9:4e8c%5]) with mapi id 15.20.7762.020; Fri, 12 Jul 2024
- 00:36:55 +0000
-Date: Fri, 12 Jul 2024 08:36:14 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Rob Herring <robh@kernel.org>, Inochi Amaoto <inochiama@outlook.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Haylen Chu <heylenay@outlook.com>, 
-	Drew Fustini <dfustini@baylibre.com>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/7] dt-bindings: pinctrl: Add pinctrl for Sophgo CV1800
- series SoC.
-Message-ID: <PH7PR20MB496255DD1E7F37B5C9027800BBA62@PH7PR20MB4962.namprd20.prod.outlook.com>
-References: <IA1PR20MB49530F0476B98DBB835B344FBBDE2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB49530D9BC6C8011B730433C2BBDE2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240708162948.GA3356671-robh@kernel.org>
-Content-Disposition: inline
-In-Reply-To: <20240708162948.GA3356671-robh@kernel.org>
-X-TMN: [yJ1jY/erFCKWq/LRC2gbQiLF4fW6Co3kGH2YvgmP9pM=]
-X-ClientProxiedBy: TYCPR01CA0145.jpnprd01.prod.outlook.com
- (2603:1096:400:2b7::18) To PH7PR20MB4962.namprd20.prod.outlook.com
- (2603:10b6:510:1fa::6)
-X-Microsoft-Original-Message-ID: <kbgaoftbspqleqlaeltae52kofabymf3w257pg62sennrxhkdq@u6b2ggj7mebx>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7762.23; Fri, 12 Jul
+ 2024 01:27:12 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::a94:ad0a:9071:806c%5]) with mapi id 15.20.7762.020; Fri, 12 Jul 2024
+ 01:27:12 +0000
+Message-ID: <MA0P287MB2822406AE122B7257B8C57F1FEA62@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Fri, 12 Jul 2024 09:27:06 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/4] Add board support for Sipeed LicheeRV Nano
+To: Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>,
+ Chao Wei <chao.wei@sophgo.com>, Conor Dooley <conor@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ =?UTF-8?Q?Miqu=C3=A8l_Raynal?= <miquel.raynal@bootlin.com>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
+References: <20240711-sg2002-v4-0-d97ec2367095@bootlin.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20240711-sg2002-v4-0-d97ec2367095@bootlin.com>
+X-TMN: [cuj/tQW+JT1Q8m2hZW1RrqtRtejeOrzW]
+X-ClientProxiedBy: SI1PR02CA0019.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::15) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <9758f109-5b13-4a35-ad58-6db0b61b2df3@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR20MB4962:EE_|MW4PR20MB4453:EE_
-X-MS-Office365-Filtering-Correlation-Id: ce83d388-071d-4cc3-1422-08dca20abafa
-X-Microsoft-Antispam: BCL:0;ARA:14566002|19110799003|8060799006|461199028|440099028|3412199025|4302099013|1602099012|1710799026;
-X-Microsoft-Antispam-Message-Info: 5lbc+7ILKO3Kf0HejZAO/Lx2lWWMb0X9YHQXq4YxH7MBXjGfnvY7CohuQmTqqvCsMGAI5Ni84qb/adWWwHeLrpncls8pAxzFe33odQxOGcElIFYY7gGkeJ/yAIZaDv/4AxkZ2JHqUf8WlhjbC5M7qRAS0D28KNEdRkD4UJtT8JdDTttbX0+xL1KwBsvmthwJR7VS6iXSUbv+gJ94uVFuFE2IB1IuZGg/r388lxtNzgk1d2jtb/HX8eswmkQXro03eoCbXY8wdLCJbYhBeR48h7AUFH7H/6rtQpeug5Wcn0huGdyZcwGhLtAnwJUGlkONHDI6Mn98NUGm1DN+pxRoLEhdxwcn8GGKueckR5rOAWKZOescv4Uzzixa8ctGz+CXISv0UilFMfM1qNATdqXxnW6AGN48nUPCxe9AJjfT0DWRmhRZzrO+NTvJ7nGMJN8LiwZumA+nJ1VaqbyZCl512g6kFR5gVpI5UUfmabK9UTjSw5pqOEY/eGk59FbNYZrW+t2EJ6rhUsdQUsrO6/EwI6eOj6Jo58fUh7AnH3Pe3+rQdwDm7OlfIWxsxNLd84b0ulI/ABfqNebG2/ydEf35nW6uqSswWscuqHMBfsxVUold0TVkqKQUbOOYapbzbvHk8BnrpbxoinXhQ8gPqtoa8kbNuASE/w5/ZK3wsuCrC580M7uKUwtJGu/ng7agtxtb0ZC9eIZn1KVngFiChsvGBDLFkSMgl+W932suctZw9gmQx1T6cFzCgkExLyEGHOVhkhB23yeT8eYRmp7QLRyiFcsM5D1D5NJ1XcOg68vTlZo=
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN2P287MB1407:EE_
+X-MS-Office365-Filtering-Correlation-Id: 083be0e6-adcc-4f18-9424-08dca211c119
+X-Microsoft-Antispam: BCL:0;ARA:14566002|19110799003|8060799006|461199028|4302099013|440099028|3412199025|1602099012;
+X-Microsoft-Antispam-Message-Info: mtdGjbvLLFX8W9VUvu5G9Y3d1ndZbWQ+TSJ2hsUZTfADGFoCMZS4225DPLrCOXgyzVoYtbHQijHYZFz02FZAuVi6xlb+/6g/exvNUE2DiP9GEAt4URmDDcpdcs8WVVYr1IpiM9g1bJIzI6bXDd1uhuqZhd+YFuaDSgr9IXrLUpRxyS6whLCaxeTDIfvuGeesAmteyIjU9mnOrJOuXKkIGrBh5a6bxtr9IYnVLzZ3vHHX3h+ogStmnFNga1F8z7tof9uHOty+Sx+rEeOXuCIX2mnXCqnPf/p624tj3lWyQXJ0vsfgIweP4qKECz8QBSkhAy1ioTe73Ztta2wZ1dW5V2AOWLj+kexQCL3wG6V2yrONBYAtjL99j68jwFWRH60SMRvI7iymqTaKkUhtfYJH4+MtaLrQ1/KQ/Z9D5o7QAAnK23D2W/SLzSjqdtiv9vWOYOaUg0I/GVIN8SR0CetGJr+8qWMEdDpR1N/pA5ruqH+ReuyQYC6jYrkkZlokRVX4/5vbToyo21aNlZRBuKPvAtRRYBPUOA3qfm7Z5pLCVKODdyLySlXM5labFh+dSh4t+bQX5cdL981/eyJ0Qq14i7jUxwmgeBfhHsSP2CPB7YQVZGhgJ8uTs6QCEL4DS6d0JuAu8KJgMGm3EVCv8VaSQyYK7p3SBTd2J4812eHXUtbFx/1cwmSnGUN5grEyUKP3Jlbh0WDtzAz2uYRpZ2D5pfV8qx5GS8eXCor4C7yEI9mqgX8tG7dmMxe7m4KRs4NiJTT2/Et0u+aQF/CU1Ka+/g==
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AUi5ibZYH3slvrsBLIF8Tv5e6T6Cvc3FiQShll2P9YcMhbqaPy1Pf6tM5uC0?=
- =?us-ascii?Q?L4CPBbPhk2eN5pjFk+/HsbNpvvgTssN4kA9zBVFZiqxjdlTy+nNDUDdPkw2+?=
- =?us-ascii?Q?aYnY5YVQ9uQZmxCLLfBBgKQQiX2sHbrwkj0ZxedaACpmJElYcmVsHe5J1D3D?=
- =?us-ascii?Q?g4+FWIMmjbhPSkTkzMs7fF5YTv6B2SUD0BAOiDz+8wb/vaD+kg6HfZeUJw1y?=
- =?us-ascii?Q?rl8pEKA3/g2NwKF03hGTE3JrMQYgc49wHA5/T4JcKXA/s+3pue+t9dMgH190?=
- =?us-ascii?Q?Pmfl3uiPYIR4fjjM/9V1+Ak96a5DRGaeOp/il3nD9W4K+v+l+N/Y78pkTIkZ?=
- =?us-ascii?Q?NdiMIbUiczDWDSR/lmFlcEERk09NNdXX9SB6oTUafrdzZuqByPCuRGwyvkDM?=
- =?us-ascii?Q?+AhzEFptmdG9spdYWiTgMM2HYAYW3xM/wM5LHhvbuWu/amFHunfRSatrdcBr?=
- =?us-ascii?Q?YIcRSFZkNSpFUYFYf0saWRHVSGMUkNR/3G67tC1HmchV9og+VryKDweyyWu5?=
- =?us-ascii?Q?H03mxOJgFGAivPqt0QPf2ndQ2bx1T5Kotf6JIoPq0s4+7fjMrGDj3qJIAS5v?=
- =?us-ascii?Q?xirwIgUYbZoG0U/KHlXEfz8DQYJvV4WiQIvLZIfLh0otAhKkfyVuDAxPc2wF?=
- =?us-ascii?Q?mcYTybueyYW4octKbPfguHe2TV/6GM7gREhgyZUIrhjld2cMZLDVvLl+XuKS?=
- =?us-ascii?Q?gtWrI4bRp8C6MCRPYQHeKO8okuZGW60SapzseSKdOyeZyDoc/81KIiPyEFwJ?=
- =?us-ascii?Q?H0qRsVtCIO0gT753SDe22hzybjWjk0C/ycBQXsc0iG4XafzumZzIzhMUohl/?=
- =?us-ascii?Q?iQtc+mAkJtmqJ52DCx4p+gK+b8/AVe8f1Qbu6/6DSNworIdah6owst3GawLd?=
- =?us-ascii?Q?qGwtUerRDWM0CWsE9B0hubvzze/SE23v88ROvVQBNEi7iCoFaYG+Kr+i/I4H?=
- =?us-ascii?Q?OE0q6tGUo7GjJrCdNcgAg3ORnu2RkZEboCZsN20/iRBB1zdx1km51jV/iGVt?=
- =?us-ascii?Q?F4erHAedJLl1j21H/mc00TxLtMEXDYuyiz1OWmL69RYlTFfdaQlUOP4Zmwj+?=
- =?us-ascii?Q?4hiQZJmsIUSoGOuhKBhXZleHQLZ3FC/0+ayQL8J006CKkn2CDhLfHJrHu1TQ?=
- =?us-ascii?Q?z2PtWDaoteYxy+jh/2VwjsX4gqFst512kog1uB+RSMgW4k7DLCYDdOJ5ezY8?=
- =?us-ascii?Q?l/E3bAla4RFAU7X9yXZOXVlCotoqnM1OUj9gbaPGLYwkulA9AwD70hxkdlE8?=
- =?us-ascii?Q?h3eX6M7/ObY0ENkdkHQ4?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZnJkUjhSWlZ5QzBsc3B2ckhyZkNLK2oydldQUVlWVmNHTzlQNlRPTTZubURP?=
+ =?utf-8?B?UGFZbElFRmtzc1VhZjk3NkxnUkRBblVSUk1ZK1g3dnZrL2xFTmdjdGNqN3dy?=
+ =?utf-8?B?U0hSZnFjRjNJSFlOK1A3Z201V1NmVXd3QnlGdDR5YTB2MVIzeVpNRTd1RndV?=
+ =?utf-8?B?VUs2aVlMYlQwelRTNC8xaEFaOWZzelpnMnZnVEREQmNaUnc3N2pKVStpOVZG?=
+ =?utf-8?B?TmFHdVNLS2YyVjR1dzFvQmJoRkp1TWErNW1wYmRMNFQ4bDVmZENDQ1JTT3ZX?=
+ =?utf-8?B?Ulczd1IyUHBLM3pmQ1FQb1JlUHRSSVZTRWFQaVFjaSsycndWM1Z3Ymx1TEFs?=
+ =?utf-8?B?WnlQSmY2aEhXZGM5VUt3dmNkVng1V2NOVC8wYnkyMG9OK25JdjVHeVl3V3NK?=
+ =?utf-8?B?c3RpanUxK3puLytYbGpzVkVHMjdrSWlRbjM0WFhJVU1sQjA3TVQ4SjZNV1RW?=
+ =?utf-8?B?L3VGR3M2WTBpdmVNVm5jMjZoNFRwL003U1FhaStrVFE2TFBIMEQ0c214KzMy?=
+ =?utf-8?B?ZURIZVpGcWdmeXVReVp0TFZYYk5SVi9aM2pTTzVweXpyRmFrYWZpMEY3OWl2?=
+ =?utf-8?B?WnFBSjJjcWJvZnZ2WVUyWkpLYys0V2FmZTdnSlgwa2VoSnk0aGxvTTR6eWVq?=
+ =?utf-8?B?a1N2NnNzU1lITHBtTUx4aHpmQXUxVzZRSzI4YmU1UjJ2eEg4RzdoRTgwQ0JS?=
+ =?utf-8?B?QjBmNmdOK1Q4WXFBSStXZmZ2VElXRlB0WDhWKy9vbXR3K1VtUjdqUTlLN20r?=
+ =?utf-8?B?R2hsSmhuaEFPaDNSQ2NMQlhZREpVUHJpaCtwYVUyTHpoNVFyemwyNXlOaVNL?=
+ =?utf-8?B?b1ROMkVqWGt6eEphQk5icUoxcTZKSk9rS1YzdjhLMnFYYXNxU3F1WGJUSWRo?=
+ =?utf-8?B?QmJyTG1pTElWQjBrOVVRNlN3N0NWYmJRUUgwNkJLNk91VTVPZDVUb21wNXJQ?=
+ =?utf-8?B?dXpwTDhQTVl2R25CODNQZEZFR1VkQmlKOTE0L2FFb3hsd1Q2K09sYlFpdFZM?=
+ =?utf-8?B?NjIydGJhLzhPR0JNRm5PdjVsT3RNY0dBZTZnNm9sbVdsY1VnQzRJUmZEWFZC?=
+ =?utf-8?B?Q2FhZU5rMkVpczROdDRmdksyU0VXanJxSlQvVnZTU1QyeVUrYXFMWUk0bmda?=
+ =?utf-8?B?OEI2RHRna0NvcHdnbWtydkdRVExleG13YjEySUVwOEZMMGs0RzliWURqZDdS?=
+ =?utf-8?B?OEVxK3poaFFrQzZCRmcybzFFeXNDdCtkWmtXQW9USzhQU2pCZGU2L1FIL09U?=
+ =?utf-8?B?SmlFdUVCMjl6RkI2TmhsYWx5a0FXUUVtY21zdW05bzJvcGJDTmdnc2JaamRw?=
+ =?utf-8?B?RnFBd3ZNYVI3SmF3ekMyZjA2UFlVUmxvbVgrUnM2Y1d6U1JJOHJqWU8zby9E?=
+ =?utf-8?B?clNMdS9GTG9hVzJEU3p1b0twMWYzZHZkd0w2WFNBYlNRSHA1eHBUSkh6SFdC?=
+ =?utf-8?B?QTRhdXN1Y1pVVU8wVXNla3drcko2L2IybnBjb3NseVNBelppMXMyWDAvRjdF?=
+ =?utf-8?B?YWZQZ1hmZkZmSDJSV1Zrek1zWlh5SFRmY1Qrb2JPWEwyMU5tU1l6OTg1R3pB?=
+ =?utf-8?B?TE9seWIyOVdkd2pyVlJ3YVNwRWtzMFJwNXozUTBhRXBmcEUyaEwxMGNGUWM4?=
+ =?utf-8?B?TFFKdUVOTmczMU5RTHR6ZDBPSWNQSUxraWZxM252bVd4cFQ0QXNKV2lIdmFj?=
+ =?utf-8?Q?C0IBClaKvxVkaO0Szhr3?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce83d388-071d-4cc3-1422-08dca20abafa
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR20MB4962.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 083be0e6-adcc-4f18-9424-08dca211c119
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jul 2024 00:36:55.4884
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jul 2024 01:27:12.2888
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR20MB4453
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB1407
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240711_173704_884996_31C6187B 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20240711_182731_107813_E574BE63 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,628 +136,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 08, 2024 at 10:29:48AM GMT, Rob Herring wrote:
-> On Thu, Jul 04, 2024 at 01:46:37PM +0800, Inochi Amaoto wrote:
-> > Add pinctrl support for Sophgo CV1800 series SoC.
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> > ---
-> >  .../pinctrl/sophgo,cv1800-pinctrl.yaml        | 120 +++++++++++++++++
-> >  include/dt-bindings/pinctrl/pinctrl-cv1800b.h |  63 +++++++++
-> >  include/dt-bindings/pinctrl/pinctrl-cv1812h.h | 127 ++++++++++++++++++
-> >  include/dt-bindings/pinctrl/pinctrl-cv18xx.h  |  19 +++
-> >  include/dt-bindings/pinctrl/pinctrl-sg2000.h  | 127 ++++++++++++++++++
-> >  include/dt-bindings/pinctrl/pinctrl-sg2002.h  |  79 +++++++++++
-> >  6 files changed, 535 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
-> >  create mode 100644 include/dt-bindings/pinctrl/pinctrl-cv1800b.h
-> >  create mode 100644 include/dt-bindings/pinctrl/pinctrl-cv1812h.h
-> >  create mode 100644 include/dt-bindings/pinctrl/pinctrl-cv18xx.h
-> >  create mode 100644 include/dt-bindings/pinctrl/pinctrl-sg2000.h
-> >  create mode 100644 include/dt-bindings/pinctrl/pinctrl-sg2002.h
-> > 
-> > diff --git a/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
-> > new file mode 100644
-> > index 000000000000..b7e4084b78d6
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/pinctrl/sophgo,cv1800-pinctrl.yaml
-> > @@ -0,0 +1,120 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/pinctrl/sophgo,cv1800-pinctrl.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Sophgo CV1800 Pin Controller
-> > +
-> > +maintainers:
-> > +  - Inochi Amaoto <inochiama@outlook.com>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - sophgo,cv1800b-pinctrl
-> > +      - sophgo,cv1812h-pinctrl
-> > +      - sophgo,sg2000-pinctrl
-> > +      - sophgo,sg2002-pinctrl
-> > +
-> > +  reg:
-> > +    items:
-> > +      - description: pinctrl for system domain
-> > +      - description: pinctrl for rtc domain
-> 
-> Based on the example's addresses, this isn't 1 block, but 2 blocks. Is 
-> this really 1 block, 2 instances of the same block, or 2 different 
-> blocks?
-> 
 
-It is 2 blocks. According to its document, the pin configuration 
-is cross referenced.
+On 2024/7/11 18:01, Thomas Bonnefille wrote:
+> The LicheeRV Nano is a RISC-V SBC based on the Sophgo SG2002 chip. Adds
+> minimal device tree files for this board to make it boot to a basic
+> shell.
+>
+> Signed-off-by: Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+> ---
+> Changes in v4:
+> - Add correct bindings configuration for SG2002 sdhci
+> - Drop commit "dt-bindings: timer: Add SOPHGO SG2002 clint" because it
+>    has already been merged in Daniel Lezcano git tree.
+> - Link to v3: https://lore.kernel.org/r/20240709-sg2002-v3-0-af779c3d139d@bootlin.com
+>
+> Changes in v3:
+> - Remove /dts-v1/ directive from sg2002.dtsi file
+> - Add disable-wp property to sdhci node to avoid having a write
+>    protected SD card
+> - Drop changes in cv18xx.dtsi and cv1800b.dtsi
+> - Add fallback compatible to cv1800b in SDHCI node of sg2002.dtsi
+> - Link to v2: https://lore.kernel.org/r/20240612-sg2002-v2-0-19a585af6846@bootlin.com
+>
+> Changes in v2:
+> - Add SDHCI support
+> - Change device tree name to match the Makefile
+> - Add oscillator frequency
+> - Add aliases to other UARTs
+> - Add aliases to GPIOs
+> - Move compatible for SDHCI from common DT to specific DT
+> - Link to v1: https://lore.kernel.org/r/20240527-sg2002-v1-0-1b6cb38ce8f4@bootlin.com
+>
+> ---
+> Thomas Bonnefille (4):
+>        dt-bindings: interrupt-controller: Add SOPHGO SG2002 plic
+>        dt-bindings: riscv: Add Sipeed LicheeRV Nano board compatibles
+>        riscv: dts: sophgo: Add initial SG2002 SoC device tree
+>        riscv: dts: sophgo: Add LicheeRV Nano board device tree
+>
+>   .../interrupt-controller/sifive,plic-1.0.0.yaml    |  1 +
+>   .../devicetree/bindings/riscv/sophgo.yaml          |  5 ++
+>   arch/riscv/boot/dts/sophgo/Makefile                |  1 +
+>   .../boot/dts/sophgo/sg2002-licheerv-nano-b.dts     | 54 ++++++++++++++++++++++
+>   arch/riscv/boot/dts/sophgo/sg2002.dtsi             | 32 +++++++++++++
+>   5 files changed, 93 insertions(+)
+> ---
+> base-commit: d20f6b3d747c36889b7ce75ee369182af3decb6b
+> change-id: 20240515-sg2002-93dce1d263be
+>
+> Best regards,
+Hi, Thomas,
 
-> > +
-> > +  reg-names:
-> > +    items:
-> > +      - const: sys
-> > +      - const: rtc
-> > +
-> > +  resets:
-> > +    maxItems: 1
-> > +
-> > +patternProperties:
-> > +  '-cfg$':
-> > +    type: object
-> > +    patternProperties:
-> > +      '-pins$':
-> > +        type: object
-> > +        description: |
-> > +          A pinctrl node should contain at least one subnode representing the
-> 
-> It's the '-cfg' node that 'should contain at least one subnode', not 
-> this node.
-> 
+This stuff is already too late for 6.11 as I already sent my PRs. I will 
+handle this next period.
 
-Thanks, I will update the description.
+Cheers,
 
-> > +          pinctrl groups available on the machine. Each subnode will list the
-> > +          pins it needs, and how they should be configured, with regard to
-> > +          muxer configuration, bias, input enable/disable, input schmitt
-> > +          trigger enable/disable, slew-rate and drive strength.
-> > +        $ref: /schemas/pinctrl/pincfg-node.yaml
-> > +
-> > +        properties:
-> > +          pinmux:
-> > +            description: |
-> > +              The list of GPIOs and their mux settings that properties in the
-> > +              node apply to. This should be set using the GPIOMUX or GPIOMUX2
-> > +              macro.
-> > +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pinmux
-> > +
-> > +          bias-pull-up:
-> > +            type: boolean
-> > +
-> > +          bias-pull-down:
-> > +            type: boolean
-> > +
-> > +          drive-strength:
-> > +            $ref: /schemas/types.yaml#/definitions/uint32
-> > +            minimum: 0
-> > +            maximum: 7
-> > +
-> > +          input-schmitt:
-> > +            $ref: /schemas/types.yaml#/definitions/uint32
-> > +            minimum: 0
-> > +            maximum: 7
-> > +
-> > +          slew-rate:
-> > +            enum: [ 0, 1 ]
-> > +
-> > +          sophgo,bus-holder:
-> > +            description: enable bus holder
-> > +            type: boolean
-> > +
-> > +        additionalProperties: false
-> > +
-> > +    additionalProperties: false
-> 
-> In the indented cases, put these before properties or patternProperties.
-> 
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - reg-names
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
-> > +
-> > +    soc {
-> > +        #address-cells = <1>;
-> > +        #size-cells = <1>;
-> > +
-> > +        pinctrl@3001000 {
-> > +            compatible = "sophgo,cv1800b-pinctrl";
-> > +            reg = <0x03001000 0x1000>,
-> > +                  <0x05027000 0x1000>;
-> > +            reg-names = "sys", "rtc";
-> > +
-> > +            uart0_cfg: uart0-cfg {
-> > +                uart0-pins {
-> > +                    pinmux = <PINMUX(PIN_UART0_TX, 0)>,
-> > +                             <PINMUX(PIN_UART0_RX, 0)>;
-> > +                    bias-pull-up;
-> > +                    drive-strength = <2>;
-> > +                    slew-rate = <0>;
-> > +                };
-> > +            };
-> > +        };
-> > +
-> > +        uart0 {
-> > +            pinctrl-0 = <&uart0_cfg>;
-> > +            pinctrl-names = "default";
-> 
-> Not a complete node. Plus the examples for a provider don't show the 
-> consumer side and vice-versa. So drop the node.
-> 
-> > +        };
-> > +    };
-> > +
-> > +...
-> > diff --git a/include/dt-bindings/pinctrl/pinctrl-cv1800b.h b/include/dt-bindings/pinctrl/pinctrl-cv1800b.h
-> > new file mode 100644
-> > index 000000000000..0593fc33d470
-> > --- /dev/null
-> > +++ b/include/dt-bindings/pinctrl/pinctrl-cv1800b.h
-> > @@ -0,0 +1,63 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> > +/*
-> > + * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-> > + *
-> > + * This file is generated from vendor pinout definition.
-> > + */
-> > +
-> > +#ifndef _DT_BINDINGS_PINCTRL_CV1800B_H
-> > +#define _DT_BINDINGS_PINCTRL_CV1800B_H
-> > +
-> > +#include <dt-bindings/pinctrl/pinctrl-cv18xx.h>
-> > +
-> > +#define PIN_AUD_AOUTR			1
-> > +#define PIN_SD0_CLK			3
-> > +#define PIN_SD0_CMD			4
-> > +#define PIN_SD0_D0			5
-> > +#define PIN_SD0_D1			7
-> > +#define PIN_SD0_D2			8
-> > +#define PIN_SD0_D3			9
-> > +#define PIN_SD0_CD			11
-> > +#define PIN_SD0_PWR_EN			12
-> > +#define PIN_SPK_EN			14
-> > +#define PIN_UART0_TX			15
-> > +#define PIN_UART0_RX			16
-> > +#define PIN_SPINOR_HOLD_X		17
-> > +#define PIN_SPINOR_SCK			18
-> > +#define PIN_SPINOR_MOSI			19
-> > +#define PIN_SPINOR_WP_X			20
-> > +#define PIN_SPINOR_MISO			21
-> > +#define PIN_SPINOR_CS_X			22
-> > +#define PIN_IIC0_SCL			23
-> > +#define PIN_IIC0_SDA			24
-> > +#define PIN_AUX0			25
-> > +#define PIN_PWR_VBAT_DET		30
-> > +#define PIN_PWR_SEQ2			31
-> > +#define PIN_XTAL_XIN			33
-> > +#define PIN_SD1_GPIO0			35
-> > +#define PIN_SD1_GPIO1			36
-> > +#define PIN_SD1_D3			38
-> > +#define PIN_SD1_D2			39
-> > +#define PIN_SD1_D1			40
-> > +#define PIN_SD1_D0			41
-> > +#define PIN_SD1_CMD			42
-> > +#define PIN_SD1_CLK			43
-> > +#define PIN_ADC1			44
-> > +#define PIN_USB_VBUS_DET		45
-> > +#define PIN_ETH_TXP			47
-> > +#define PIN_ETH_TXM			48
-> > +#define PIN_ETH_RXP			49
-> > +#define PIN_ETH_RXM			50
-> > +#define PIN_MIPIRX4N			56
-> > +#define PIN_MIPIRX4P			57
-> > +#define PIN_MIPIRX3N			58
-> > +#define PIN_MIPIRX3P			59
-> > +#define PIN_MIPIRX2N			60
-> > +#define PIN_MIPIRX2P			61
-> > +#define PIN_MIPIRX1N			62
-> > +#define PIN_MIPIRX1P			63
-> > +#define PIN_MIPIRX0N			64
-> > +#define PIN_MIPIRX0P			65
-> > +#define PIN_AUD_AINL_MIC		67
-> > +
-> > +#endif /* _DT_BINDINGS_PINCTRL_CV1800B_H */
-> > diff --git a/include/dt-bindings/pinctrl/pinctrl-cv1812h.h b/include/dt-bindings/pinctrl/pinctrl-cv1812h.h
-> > new file mode 100644
-> > index 000000000000..2908de347919
-> > --- /dev/null
-> > +++ b/include/dt-bindings/pinctrl/pinctrl-cv1812h.h
-> > @@ -0,0 +1,127 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> > +/*
-> > + * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-> > + *
-> > + * This file is generated from vendor pinout definition.
-> > + */
-> > +
-> > +#ifndef _DT_BINDINGS_PINCTRL_CV1812H_H
-> > +#define _DT_BINDINGS_PINCTRL_CV1812H_H
-> > +
-> > +#include <dt-bindings/pinctrl/pinctrl-cv18xx.h>
-> > +
-> > +#define PINPOS(row, col)			\
-> > +	((((row) - 'A' + 1) << 8) + ((col) - 1))
-> > +
-> > +#define PIN_MIPI_TXM4			PINPOS('A', 2)
-> > +#define PIN_MIPIRX0N			PINPOS('A', 4)
-> > +#define PIN_MIPIRX3P			PINPOS('A', 6)
-> > +#define PIN_MIPIRX4P			PINPOS('A', 7)
-> > +#define PIN_VIVO_D2			PINPOS('A', 9)
-> > +#define PIN_VIVO_D3			PINPOS('A', 10)
-> > +#define PIN_VIVO_D10			PINPOS('A', 12)
-> > +#define PIN_USB_VBUS_DET		PINPOS('A', 13)
-> > +#define PIN_MIPI_TXP3			PINPOS('B', 1)
-> > +#define PIN_MIPI_TXM3			PINPOS('B', 2)
-> > +#define PIN_MIPI_TXP4			PINPOS('B', 3)
-> > +#define PIN_MIPIRX0P			PINPOS('B', 4)
-> > +#define PIN_MIPIRX1N			PINPOS('B', 5)
-> > +#define PIN_MIPIRX2N			PINPOS('B', 6)
-> > +#define PIN_MIPIRX4N			PINPOS('B', 7)
-> > +#define PIN_MIPIRX5N			PINPOS('B', 8)
-> > +#define PIN_VIVO_D1			PINPOS('B', 9)
-> > +#define PIN_VIVO_D5			PINPOS('B', 10)
-> > +#define PIN_VIVO_D7			PINPOS('B', 11)
-> > +#define PIN_VIVO_D9			PINPOS('B', 12)
-> > +#define PIN_USB_ID			PINPOS('B', 13)
-> > +#define PIN_ETH_RXM			PINPOS('B', 15)
-> > +#define PIN_MIPI_TXP2			PINPOS('C', 1)
-> > +#define PIN_MIPI_TXM2			PINPOS('C', 2)
-> > +#define PIN_CAM_PD0			PINPOS('C', 3)
-> > +#define PIN_CAM_MCLK0			PINPOS('C', 4)
-> > +#define PIN_MIPIRX1P			PINPOS('C', 5)
-> > +#define PIN_MIPIRX2P			PINPOS('C', 6)
-> > +#define PIN_MIPIRX3N			PINPOS('C', 7)
-> > +#define PIN_MIPIRX5P			PINPOS('C', 8)
-> > +#define PIN_VIVO_CLK			PINPOS('C', 9)
-> > +#define PIN_VIVO_D6			PINPOS('C', 10)
-> > +#define PIN_VIVO_D8			PINPOS('C', 11)
-> > +#define PIN_USB_VBUS_EN			PINPOS('C', 12)
-> > +#define PIN_ETH_RXP			PINPOS('C', 14)
-> > +#define PIN_GPIO_RTX			PINPOS('C', 15)
-> > +#define PIN_MIPI_TXP1			PINPOS('D', 1)
-> > +#define PIN_MIPI_TXM1			PINPOS('D', 2)
-> > +#define PIN_CAM_MCLK1			PINPOS('D', 3)
-> > +#define PIN_IIC3_SCL			PINPOS('D', 4)
-> > +#define PIN_VIVO_D4			PINPOS('D', 10)
-> > +#define PIN_ETH_TXM			PINPOS('D', 14)
-> > +#define PIN_ETH_TXP			PINPOS('D', 15)
-> > +#define PIN_MIPI_TXP0			PINPOS('E', 1)
-> > +#define PIN_MIPI_TXM0			PINPOS('E', 2)
-> > +#define PIN_CAM_PD1			PINPOS('E', 4)
-> > +#define PIN_CAM_RST0			PINPOS('E', 5)
-> > +#define PIN_VIVO_D0			PINPOS('E', 10)
-> > +#define PIN_ADC1			PINPOS('E', 13)
-> > +#define PIN_ADC2			PINPOS('E', 14)
-> > +#define PIN_ADC3			PINPOS('E', 15)
-> > +#define PIN_AUD_AOUTL			PINPOS('F', 2)
-> > +#define PIN_IIC3_SDA			PINPOS('F', 4)
-> > +#define PIN_SD1_D2			PINPOS('F', 14)
-> > +#define PIN_AUD_AOUTR			PINPOS('G', 2)
-> > +#define PIN_SD1_D3			PINPOS('G', 13)
-> > +#define PIN_SD1_CLK			PINPOS('G', 14)
-> > +#define PIN_SD1_CMD			PINPOS('G', 15)
-> > +#define PIN_AUD_AINL_MIC		PINPOS('H', 1)
-> > +#define PIN_RSTN			PINPOS('H', 12)
-> > +#define PIN_PWM0_BUCK			PINPOS('H', 13)
-> > +#define PIN_SD1_D1			PINPOS('H', 14)
-> > +#define PIN_SD1_D0			PINPOS('H', 15)
-> > +#define PIN_AUD_AINR_MIC		PINPOS('J', 1)
-> > +#define PIN_IIC2_SCL			PINPOS('J', 13)
-> > +#define PIN_IIC2_SDA			PINPOS('J', 14)
-> > +#define PIN_SD0_CD			PINPOS('K', 2)
-> > +#define PIN_SD0_D1			PINPOS('K', 3)
-> > +#define PIN_UART2_RX			PINPOS('K', 13)
-> > +#define PIN_UART2_CTS			PINPOS('K', 14)
-> > +#define PIN_UART2_TX			PINPOS('K', 15)
-> > +#define PIN_SD0_CLK			PINPOS('L', 1)
-> > +#define PIN_SD0_D0			PINPOS('L', 2)
-> > +#define PIN_SD0_CMD			PINPOS('L', 3)
-> > +#define PIN_CLK32K			PINPOS('L', 14)
-> > +#define PIN_UART2_RTS			PINPOS('L', 15)
-> > +#define PIN_SD0_D3			PINPOS('M', 1)
-> > +#define PIN_SD0_D2			PINPOS('M', 2)
-> > +#define PIN_UART0_RX			PINPOS('M', 4)
-> > +#define PIN_UART0_TX			PINPOS('M', 5)
-> > +#define PIN_JTAG_CPU_TRST		PINPOS('M', 6)
-> > +#define PIN_PWR_ON			PINPOS('M', 11)
-> > +#define PIN_PWR_GPIO2			PINPOS('M', 12)
-> > +#define PIN_PWR_GPIO0			PINPOS('M', 13)
-> > +#define PIN_CLK25M			PINPOS('M', 14)
-> > +#define PIN_SD0_PWR_EN			PINPOS('N', 1)
-> > +#define PIN_SPK_EN			PINPOS('N', 3)
-> > +#define PIN_JTAG_CPU_TCK		PINPOS('N', 4)
-> > +#define PIN_JTAG_CPU_TMS		PINPOS('N', 6)
-> > +#define PIN_PWR_WAKEUP1			PINPOS('N', 11)
-> > +#define PIN_PWR_WAKEUP0			PINPOS('N', 12)
-> > +#define PIN_PWR_GPIO1			PINPOS('N', 13)
-> > +#define PIN_EMMC_DAT3			PINPOS('P', 1)
-> > +#define PIN_EMMC_DAT0			PINPOS('P', 2)
-> > +#define PIN_EMMC_DAT2			PINPOS('P', 3)
-> > +#define PIN_EMMC_RSTN			PINPOS('P', 4)
-> > +#define PIN_AUX0			PINPOS('P', 5)
-> > +#define PIN_IIC0_SDA			PINPOS('P', 6)
-> > +#define PIN_PWR_SEQ3			PINPOS('P', 10)
-> > +#define PIN_PWR_VBAT_DET		PINPOS('P', 11)
-> > +#define PIN_PWR_SEQ1			PINPOS('P', 12)
-> > +#define PIN_PWR_BUTTON1			PINPOS('P', 13)
-> > +#define PIN_EMMC_DAT1			PINPOS('R', 2)
-> > +#define PIN_EMMC_CMD			PINPOS('R', 3)
-> > +#define PIN_EMMC_CLK			PINPOS('R', 4)
-> > +#define PIN_IIC0_SCL			PINPOS('R', 6)
-> > +#define PIN_GPIO_ZQ			PINPOS('R', 10)
-> > +#define PIN_PWR_RSTN			PINPOS('R', 11)
-> > +#define PIN_PWR_SEQ2			PINPOS('R', 12)
-> > +#define PIN_XTAL_XIN			PINPOS('R', 13)
-> > +
-> > +#endif /* _DT_BINDINGS_PINCTRL_CV1812H_H */
-> > diff --git a/include/dt-bindings/pinctrl/pinctrl-cv18xx.h b/include/dt-bindings/pinctrl/pinctrl-cv18xx.h
-> > new file mode 100644
-> > index 000000000000..bc92ad1067ec
-> > --- /dev/null
-> > +++ b/include/dt-bindings/pinctrl/pinctrl-cv18xx.h
-> > @@ -0,0 +1,19 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> > +/*
-> > + * Copyright (C) 2023 Sophgo Ltd.
-> > + *
-> > + * Author: Inochi Amaoto <inochiama@outlook.com>
-> > + */
-> > +
-> > +#ifndef _DT_BINDINGS_PINCTRL_CV18XX_H
-> > +#define _DT_BINDINGS_PINCTRL_CV18XX_H
-> > +
-> > +#define PIN_MUX_INVALD				0xff
-> > +
-> > +#define PINMUX2(pin, mux, mux2)	\
-> > +	(((pin) & 0xffff) | (((mux) & 0xff) << 16) | (((mux2) & 0xff) << 24))
-> > +
-> > +#define PINMUX(pin, mux) \
-> > +	PINMUX2(pin, mux, PIN_MUX_INVALD)
-> > +
-> > +#endif /* _DT_BINDINGS_PINCTRL_CV18XX_H */
-> > diff --git a/include/dt-bindings/pinctrl/pinctrl-sg2000.h b/include/dt-bindings/pinctrl/pinctrl-sg2000.h
-> > new file mode 100644
-> > index 000000000000..4871f9a7c6c1
-> > --- /dev/null
-> > +++ b/include/dt-bindings/pinctrl/pinctrl-sg2000.h
-> > @@ -0,0 +1,127 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> > +/*
-> > + * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-> > + *
-> > + * This file is generated from vendor pinout definition.
-> > + */
-> > +
-> > +#ifndef _DT_BINDINGS_PINCTRL_SG2000_H
-> > +#define _DT_BINDINGS_PINCTRL_SG2000_H
-> > +
-> > +#include <dt-bindings/pinctrl/pinctrl-cv18xx.h>
-> > +
-> > +#define PINPOS(row, col)			\
-> > +	((((row) - 'A' + 1) << 8) + ((col) - 1))
-> > +
-> > +#define PIN_MIPI_TXM4			PINPOS('A', 2)
-> > +#define PIN_MIPIRX0N			PINPOS('A', 4)
-> > +#define PIN_MIPIRX3P			PINPOS('A', 6)
-> > +#define PIN_MIPIRX4P			PINPOS('A', 7)
-> > +#define PIN_VIVO_D2			PINPOS('A', 9)
-> > +#define PIN_VIVO_D3			PINPOS('A', 10)
-> > +#define PIN_VIVO_D10			PINPOS('A', 12)
-> > +#define PIN_USB_VBUS_DET		PINPOS('A', 13)
-> > +#define PIN_MIPI_TXP3			PINPOS('B', 1)
-> > +#define PIN_MIPI_TXM3			PINPOS('B', 2)
-> > +#define PIN_MIPI_TXP4			PINPOS('B', 3)
-> > +#define PIN_MIPIRX0P			PINPOS('B', 4)
-> > +#define PIN_MIPIRX1N			PINPOS('B', 5)
-> > +#define PIN_MIPIRX2N			PINPOS('B', 6)
-> > +#define PIN_MIPIRX4N			PINPOS('B', 7)
-> > +#define PIN_MIPIRX5N			PINPOS('B', 8)
-> > +#define PIN_VIVO_D1			PINPOS('B', 9)
-> > +#define PIN_VIVO_D5			PINPOS('B', 10)
-> > +#define PIN_VIVO_D7			PINPOS('B', 11)
-> > +#define PIN_VIVO_D9			PINPOS('B', 12)
-> > +#define PIN_USB_ID			PINPOS('B', 13)
-> > +#define PIN_ETH_RXM			PINPOS('B', 15)
-> > +#define PIN_MIPI_TXP2			PINPOS('C', 1)
-> > +#define PIN_MIPI_TXM2			PINPOS('C', 2)
-> > +#define PIN_CAM_PD0			PINPOS('C', 3)
-> > +#define PIN_CAM_MCLK0			PINPOS('C', 4)
-> > +#define PIN_MIPIRX1P			PINPOS('C', 5)
-> > +#define PIN_MIPIRX2P			PINPOS('C', 6)
-> > +#define PIN_MIPIRX3N			PINPOS('C', 7)
-> > +#define PIN_MIPIRX5P			PINPOS('C', 8)
-> > +#define PIN_VIVO_CLK			PINPOS('C', 9)
-> > +#define PIN_VIVO_D6			PINPOS('C', 10)
-> > +#define PIN_VIVO_D8			PINPOS('C', 11)
-> > +#define PIN_USB_VBUS_EN			PINPOS('C', 12)
-> > +#define PIN_ETH_RXP			PINPOS('C', 14)
-> > +#define PIN_GPIO_RTX			PINPOS('C', 15)
-> > +#define PIN_MIPI_TXP1			PINPOS('D', 1)
-> > +#define PIN_MIPI_TXM1			PINPOS('D', 2)
-> > +#define PIN_CAM_MCLK1			PINPOS('D', 3)
-> > +#define PIN_IIC3_SCL			PINPOS('D', 4)
-> > +#define PIN_VIVO_D4			PINPOS('D', 10)
-> > +#define PIN_ETH_TXM			PINPOS('D', 14)
-> > +#define PIN_ETH_TXP			PINPOS('D', 15)
-> > +#define PIN_MIPI_TXP0			PINPOS('E', 1)
-> > +#define PIN_MIPI_TXM0			PINPOS('E', 2)
-> > +#define PIN_CAM_PD1			PINPOS('E', 4)
-> > +#define PIN_CAM_RST0			PINPOS('E', 5)
-> > +#define PIN_VIVO_D0			PINPOS('E', 10)
-> > +#define PIN_ADC1			PINPOS('E', 13)
-> > +#define PIN_ADC2			PINPOS('E', 14)
-> > +#define PIN_ADC3			PINPOS('E', 15)
-> > +#define PIN_AUD_AOUTL			PINPOS('F', 2)
-> > +#define PIN_IIC3_SDA			PINPOS('F', 4)
-> > +#define PIN_SD1_D2			PINPOS('F', 14)
-> > +#define PIN_AUD_AOUTR			PINPOS('G', 2)
-> > +#define PIN_SD1_D3			PINPOS('G', 13)
-> > +#define PIN_SD1_CLK			PINPOS('G', 14)
-> > +#define PIN_SD1_CMD			PINPOS('G', 15)
-> > +#define PIN_AUD_AINL_MIC		PINPOS('H', 1)
-> > +#define PIN_RSTN			PINPOS('H', 12)
-> > +#define PIN_PWM0_BUCK			PINPOS('H', 13)
-> > +#define PIN_SD1_D1			PINPOS('H', 14)
-> > +#define PIN_SD1_D0			PINPOS('H', 15)
-> > +#define PIN_AUD_AINR_MIC		PINPOS('J', 1)
-> > +#define PIN_IIC2_SCL			PINPOS('J', 13)
-> > +#define PIN_IIC2_SDA			PINPOS('J', 14)
-> > +#define PIN_SD0_CD			PINPOS('K', 2)
-> > +#define PIN_SD0_D1			PINPOS('K', 3)
-> > +#define PIN_UART2_RX			PINPOS('K', 13)
-> > +#define PIN_UART2_CTS			PINPOS('K', 14)
-> > +#define PIN_UART2_TX			PINPOS('K', 15)
-> > +#define PIN_SD0_CLK			PINPOS('L', 1)
-> > +#define PIN_SD0_D0			PINPOS('L', 2)
-> > +#define PIN_SD0_CMD			PINPOS('L', 3)
-> > +#define PIN_CLK32K			PINPOS('L', 14)
-> > +#define PIN_UART2_RTS			PINPOS('L', 15)
-> > +#define PIN_SD0_D3			PINPOS('M', 1)
-> > +#define PIN_SD0_D2			PINPOS('M', 2)
-> > +#define PIN_UART0_RX			PINPOS('M', 4)
-> > +#define PIN_UART0_TX			PINPOS('M', 5)
-> > +#define PIN_JTAG_CPU_TRST		PINPOS('M', 6)
-> > +#define PIN_PWR_ON			PINPOS('M', 11)
-> > +#define PIN_PWR_GPIO2			PINPOS('M', 12)
-> > +#define PIN_PWR_GPIO0			PINPOS('M', 13)
-> > +#define PIN_CLK25M			PINPOS('M', 14)
-> > +#define PIN_SD0_PWR_EN			PINPOS('N', 1)
-> > +#define PIN_SPK_EN			PINPOS('N', 3)
-> > +#define PIN_JTAG_CPU_TCK		PINPOS('N', 4)
-> > +#define PIN_JTAG_CPU_TMS		PINPOS('N', 6)
-> > +#define PIN_PWR_WAKEUP1			PINPOS('N', 11)
-> > +#define PIN_PWR_WAKEUP0			PINPOS('N', 12)
-> > +#define PIN_PWR_GPIO1			PINPOS('N', 13)
-> > +#define PIN_EMMC_DAT3			PINPOS('P', 1)
-> > +#define PIN_EMMC_DAT0			PINPOS('P', 2)
-> > +#define PIN_EMMC_DAT2			PINPOS('P', 3)
-> > +#define PIN_EMMC_RSTN			PINPOS('P', 4)
-> > +#define PIN_AUX0			PINPOS('P', 5)
-> > +#define PIN_IIC0_SDA			PINPOS('P', 6)
-> > +#define PIN_PWR_SEQ3			PINPOS('P', 10)
-> > +#define PIN_PWR_VBAT_DET		PINPOS('P', 11)
-> > +#define PIN_PWR_SEQ1			PINPOS('P', 12)
-> > +#define PIN_PWR_BUTTON1			PINPOS('P', 13)
-> > +#define PIN_EMMC_DAT1			PINPOS('R', 2)
-> > +#define PIN_EMMC_CMD			PINPOS('R', 3)
-> > +#define PIN_EMMC_CLK			PINPOS('R', 4)
-> > +#define PIN_IIC0_SCL			PINPOS('R', 6)
-> > +#define PIN_GPIO_ZQ			PINPOS('R', 10)
-> > +#define PIN_PWR_RSTN			PINPOS('R', 11)
-> > +#define PIN_PWR_SEQ2			PINPOS('R', 12)
-> > +#define PIN_XTAL_XIN			PINPOS('R', 13)
-> > +
-> > +#endif /* _DT_BINDINGS_PINCTRL_SG2000_H */
-> > diff --git a/include/dt-bindings/pinctrl/pinctrl-sg2002.h b/include/dt-bindings/pinctrl/pinctrl-sg2002.h
-> > new file mode 100644
-> > index 000000000000..3c36cfa0a550
-> > --- /dev/null
-> > +++ b/include/dt-bindings/pinctrl/pinctrl-sg2002.h
-> > @@ -0,0 +1,79 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> > +/*
-> > + * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-> > + *
-> > + * This file is generated from vendor pinout definition.
-> > + */
-> > +
-> > +#ifndef _DT_BINDINGS_PINCTRL_SG2002_H
-> > +#define _DT_BINDINGS_PINCTRL_SG2002_H
-> > +
-> > +#include <dt-bindings/pinctrl/pinctrl-cv18xx.h>
-> > +
-> > +#define PIN_AUD_AINL_MIC		2
-> > +#define PIN_AUD_AOUTR			4
-> > +#define PIN_SD0_CLK			6
-> > +#define PIN_SD0_CMD			7
-> > +#define PIN_SD0_D0			8
-> > +#define PIN_SD0_D1			10
-> > +#define PIN_SD0_D2			11
-> > +#define PIN_SD0_D3			12
-> > +#define PIN_SD0_CD			14
-> > +#define PIN_SD0_PWR_EN			15
-> > +#define PIN_SPK_EN			17
-> > +#define PIN_UART0_TX			18
-> > +#define PIN_UART0_RX			19
-> > +#define PIN_EMMC_DAT2			20
-> > +#define PIN_EMMC_CLK			21
-> > +#define PIN_EMMC_DAT0			22
-> > +#define PIN_EMMC_DAT3			23
-> > +#define PIN_EMMC_CMD			24
-> > +#define PIN_EMMC_DAT1			25
-> > +#define PIN_JTAG_CPU_TMS		26
-> > +#define PIN_JTAG_CPU_TCK		27
-> > +#define PIN_IIC0_SCL			28
-> > +#define PIN_IIC0_SDA			29
-> > +#define PIN_AUX0			30
-> > +#define PIN_GPIO_ZQ			35
-> > +#define PIN_PWR_VBAT_DET		38
-> > +#define PIN_PWR_RSTN			39
-> > +#define PIN_PWR_SEQ1			40
-> > +#define PIN_PWR_SEQ2			41
-> > +#define PIN_PWR_WAKEUP0			43
-> > +#define PIN_PWR_BUTTON1			44
-> > +#define PIN_XTAL_XIN			45
-> > +#define PIN_PWR_GPIO0			47
-> > +#define PIN_PWR_GPIO1			48
-> > +#define PIN_PWR_GPIO2			49
-> > +#define PIN_SD1_D3			51
-> > +#define PIN_SD1_D2			52
-> > +#define PIN_SD1_D1			53
-> > +#define PIN_SD1_D0			54
-> > +#define PIN_SD1_CMD			55
-> > +#define PIN_SD1_CLK			56
-> > +#define PIN_PWM0_BUCK			58
-> > +#define PIN_ADC1			59
-> > +#define PIN_USB_VBUS_DET		60
-> > +#define PIN_ETH_TXP			62
-> > +#define PIN_ETH_TXM			63
-> > +#define PIN_ETH_RXP			64
-> > +#define PIN_ETH_RXM			65
-> > +#define PIN_GPIO_RTX			67
-> > +#define PIN_MIPIRX4N			72
-> > +#define PIN_MIPIRX4P			73
-> > +#define PIN_MIPIRX3N			74
-> > +#define PIN_MIPIRX3P			75
-> > +#define PIN_MIPIRX2N			76
-> > +#define PIN_MIPIRX2P			77
-> > +#define PIN_MIPIRX1N			78
-> > +#define PIN_MIPIRX1P			79
-> > +#define PIN_MIPIRX0N			80
-> > +#define PIN_MIPIRX0P			81
-> > +#define PIN_MIPI_TXM2			83
-> > +#define PIN_MIPI_TXP2			84
-> > +#define PIN_MIPI_TXM1			85
-> > +#define PIN_MIPI_TXP1			86
-> > +#define PIN_MIPI_TXM0			87
-> > +#define PIN_MIPI_TXP0			88
-> > +
-> > +#endif /* _DT_BINDINGS_PINCTRL_SG2002_H */
-> > --
-> > 2.45.2
-> > 
+Chen
+
+
 
 _______________________________________________
 linux-riscv mailing list
