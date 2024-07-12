@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEA8EC2BD09
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jul 2024 11:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A6CC2BD09
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jul 2024 12:11:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:From:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gbfQiA/Q12XXUqMd79lqCUAKvIgyvsQ6mjRQvoWHJJI=; b=nwxWHzUrNzP/24
-	wbIUkjkyXlE588qE3h85tyoIuVP+smhGCmIhkeQVXgjNDdiG6l6RQaOzf2z9kMMFadiLFbh+x3+Nu
-	YgCoJzVZtcPQj30r+3onK2tCpvz6+NgF86kJBnRK3k3Bl8KkJGeJzxoM6zHFfS1fdt5cqrhgtWnHS
-	eL/EXQ44/fjXTtbZJb1i3LELsw/8CQsKYCTHzRYCF24ewNA4eDbYxBC1Y9f/sCsEXT8FRVUQxXNI/
-	GyiTSrF68AyBvwM6g70XD0kzxho+4cAenhSN0psQ6XAzAsr0O6UfhAPsz+AgEObie13TkFXnS3T2V
-	dY+TbIDh0AQ8w0vDJo/Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sPhasXkHpvWMJH5zDBI3k2OtWZ+UeitIoZbxbrRHe5A=; b=DXsQdPasVLpfep
+	5+ZYH+/SsPHR5rbRqwbXbRvIHVvTsL1eGQdNDtBJ7mAEo/iFYqYVyRwZyPM8l/LyjfRQHu5SDDq/y
+	AoAuBkKIhR36KCqRMzfOSS03nyMNKQKKY1AV5CQLrADPAQ9RwWPV5phPv1QO/7EoChgKUmi8o8vgj
+	bd2L0h0YH9asYoGeG4IkfYQSe17Or3OwO92b/As8mDYMgiIFsJu9r2mdNdToL85ZEiszx1KXY3uex
+	eUy/6b+txx3uyqU4rR0hVe8DkrMwdiTSU3y97L1iNCXnN75E+HLDX6vgoJiuaTpBSwMODz9bKxak1
+	e7CLZ2x/+Ek9rHP0Q00Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSEa8-0000000HRqT-3vxx;
-	Fri, 12 Jul 2024 11:36:56 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1sSF7k-0000000HVr7-0zjh;
+	Fri, 12 Jul 2024 12:11:40 +0000
+Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSEa5-0000000HRpx-2tFw
+	id 1sSF7g-0000000HVqC-2x1d
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Jul 2024 11:36:55 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-70afe18837cso1433575b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Jul 2024 04:36:52 -0700 (PDT)
+	Fri, 12 Jul 2024 12:11:38 +0000
+Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-37613975e20so8178245ab.2
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Jul 2024 05:11:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1720784212; x=1721389012; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=8QPyZ5RScU5gTyXOYP4p8Zbe8xfm/1xv6aVNQh5O90M=;
-        b=c96pUyEcdbSSll6LiVjFQGbU/HQ/jRZwcDRG7SMbGaxWpZi6l2k3X7IKgvN0M9OgWd
-         242XDuBGXhmldzu+gbxK11xunB9a2J+IIUwDDKM8axyPqv+dAMciYuraGcKy8vHwPBJK
-         fFdraVOXVqc1rKnrFeEHCqLy3lZ0NT5wtWI0oFWMBkspVLbNKujRh06E4b+IYH0PSFZk
-         /rdOfRhHzPTgTdQ2hvH0UtI9o0hQDgEnxbmvVnwS+Jk4JUwYH5BNKUn3IY51hfm64UmB
-         LL8k4CaDPytJIHOUFfRS28iT7oDI6Hn3gip4ZckArIRj1Z/vmoSTZHNZeVBeSyGhdL2a
-         7kTw==
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1720786295; x=1721391095; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=q1niRraCjqeMyr5cX7PxOFIQ0Sj5Bx+cbn9dmwhfVKo=;
+        b=qxUPNZWEhV2QOpl0+XXrpzUeEi6UIPvbbsdm4R76NIjwYgJYe8doDFz0u/+fZy8HP9
+         /NZ81CFnQDiZCWCKUlX3vpJURXLDrvzkB08PoKFh+fTpiRessr8TThwXk4Hfpsl+f3Ce
+         tTZ1ch9QxqKmOHR3db2Quy2EyM1R4+uOPn1t+tXVHwJ0NRnHpWN9ueYGodNfjJm9iDTL
+         XgtTE2bzl1z1C9XauiJHDD3xfYfDhYu46ybt6figrQJIygRuMeZVB7r37VMSUH0VtApn
+         AMybmRHpJMVUXNjAdKIKUsEzUVdMYG7TrO+UFipDGfeT++McI1/zMEWE5yCYkNvzqI43
+         a0gw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720784212; x=1721389012;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8QPyZ5RScU5gTyXOYP4p8Zbe8xfm/1xv6aVNQh5O90M=;
-        b=sf2jHPBC1irB7JDk/C9ETjYg/exIXSbc8i1ze/xx1vGXp9XSacjhtLvbOqS7FrcgtR
-         wk/ONgi9d4rDB5J58KmA/O9PI3lfPaUNyq60ARjSo4KIbcCzilDFEzmxZyNib1N+fVx3
-         d4Iov/o/qacHOn9J93D6HVqKt+B5t0kcQnOhZTlvyBQkl+NpsCCHDcMJtzrdO6HPwho8
-         g1msTHiXd31cYe48UaL5shFTCwcGEPkoFEdTBT7RVj24Kv+3hUarFwhi3MnKXHMi2AFH
-         54Mpo/LCKtcTu6Zm4Nkg/pto6GXkInrBUc31cMMEh1zplfghyHq66BpAWvlXFOTNZXMi
-         pW1A==
-X-Forwarded-Encrypted: i=1; AJvYcCXFu/bPzPi4E0P27tRwls0CXtWntK4qU6ePYo0G76Zxkn9AH9Qc0h7zhWFkVGwCS5ykJIs4dEeygzN52Rg/VWGqrCXI37Hm8v93YVoTk+WO
-X-Gm-Message-State: AOJu0Yy/NitiNZoiD+KjeGx22MB7/akRu0XtMoN4B7/YXds5MgLmL2Sn
-	CfPcqvCppTQfLleKFbTX6eRFs4XxvU0fF0KQvFB7JNxnFhFWA840G0fpwsJvnvK+DFYQ8r/ucR3
-	z
-X-Google-Smtp-Source: AGHT+IFYp9uXl/P6/Xcfm7oLVZTdy2eelyygNVA6Z94yO88iDTj8a2VnY0+dYVSpsmR4/1WeidEZ4g==
-X-Received: by 2002:a05:6a00:1395:b0:70a:f57c:fa1d with SMTP id d2e1a72fcca58-70b43623b6amr14291802b3a.29.1720784212312;
-        Fri, 12 Jul 2024 04:36:52 -0700 (PDT)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-70b438c3905sm7258379b3a.79.2024.07.12.04.36.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jul 2024 04:36:51 -0700 (PDT)
-Message-ID: <66911553.050a0220.26b25.f281@mx.google.com>
-Date: Fri, 12 Jul 2024 04:36:51 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1720786295; x=1721391095;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=q1niRraCjqeMyr5cX7PxOFIQ0Sj5Bx+cbn9dmwhfVKo=;
+        b=c2mB9ZQ/9x9t5qVOByeEfq7ojJ+7eV/y5Gmv6/a+9popbhJ4lwrzCYcLf7KA3bfrJW
+         RdLKOWgIjH6piFG1AtNfuXnalNBUBhhOW6BoUZ+jPDl/kJKbR/VnRbuBx4iqmFOkGM66
+         ZJiyyMWualOyCX24z/NEF6fQzRmmCubbi2Z3g1bjQqlGyuv5Qc0vxI2wOyxGVkzXPDIO
+         qLTDrzl7ky9ARB1e6s7wW3dzyo6CTn7Gdu4yZx/AiCNGGMjdZJ3ZcY8TaAGUwEGDglih
+         C0IwD3SAN/95r0KuRQgkfvrGhiniprgfXiTSp4HY8EAcw5/PNaGRiU4dqL+CQcdjVsjp
+         d+HQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVfOHa0YP4Kis32dCfSofqX/f6XJ1+90G3KrSOF13WfgImv+QLEZvepre7Wq4+d1rrwgmVz+Vlu6rJ5ASfLsDIaYcQ4JlSzJh/LOxXKva7M
+X-Gm-Message-State: AOJu0Ywennkf+1NMhS0VEajpUanFQEuvytcKU28ON2sMUiTvDUxsttvP
+	5993AQzIlJKNCNuk+mP3JMGX50Er/FTFeNw5d+Ld/IHSz4nQ3yKzkNJiKQ/1kiw/mlkU7Hzzc8+
+	9T2LWrr4XR1DfpMIdUL4SX2C0L8Smh0WuCe7Yrw==
+X-Google-Smtp-Source: AGHT+IGw1561bmQ8Hies93tHQqB5Q5PqXZjp1CmRpstemMFKZKHlxBTBLx9rL+qxO1iavYhxYJ4+gikZG1emGlfAd4M=
+X-Received: by 2002:a05:6e02:1aaa:b0:37a:a9f0:f263 with SMTP id
+ e9e14a558f8ab-38a5910a9dbmr139026545ab.20.1720786295403; Fri, 12 Jul 2024
+ 05:11:35 -0700 (PDT)
 MIME-Version: 1.0
-X-Kernelci-Kernel: v6.10-rc1-55-gc9b8cd139c1d
-X-Kernelci-Report-Type: test
-X-Kernelci-Branch: for-next
-X-Kernelci-Tree: riscv
-Subject: riscv/for-next baseline: 20 runs,
- 2 regressions (v6.10-rc1-55-gc9b8cd139c1d)
-To: kernelci-results@groups.io, kernel-ci-triage@rivosinc.com,
- linux-riscv@lists.infradead.org
-From: "kernelci.org bot" <bot@kernelci.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 12 Jul 2024 17:41:22 +0530
+Message-ID: <CAAhSdy0jae8TYcbChockXDJ9qL+HnA1p3YJQi32NHQsLUtCGDA@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv changes for 6.11
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, 
+	Atish Patra <atishp@rivosinc.com>, KVM General <kvm@vger.kernel.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240712_043653_749756_7F063786 
-X-CRM114-Status: UNSURE (   3.50  )
+X-CRM114-CacheID: sfid-20240712_051136_874288_1FE52929 
+X-CRM114-Status: UNSURE (   8.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,66 +90,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv/for-next baseline: 20 runs, 2 regressions (v6.10-rc1-55-gc9b8cd139c1d)
+Hi Paolo,
 
-Regressions Summary
--------------------
+We have the following KVM RISC-V changes for 6.11:
+1) Redirect AMO load/store access fault traps to guest
+2) Perf kvm stat support for RISC-V
+3) Use HW IMSIC guest files when available
 
-platform             | arch  | lab          | compiler | defconfig              | regressions
----------------------+-------+--------------+----------+------------------------+------------
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig              | 1          
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig+CONFIG_SMP=n | 1          
+In addition to above, ONE_REG support for Zimop,
+Zcmop, Zca, Zcf, Zcd, Zcb and Zawrs ISA extensions
+is going through the RISC-V tree.
 
-  Details:  https://kernelci.org/test/job/riscv/branch/for-next/kernel/v6.10-rc1-55-gc9b8cd139c1d/plan/baseline/
+Please pull.
 
-  Test:     baseline
-  Tree:     riscv
-  Branch:   for-next
-  Describe: v6.10-rc1-55-gc9b8cd139c1d
-  URL:      https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
-  SHA:      c9b8cd139c1dfb95eb86fd6a58cfe2089843d1d4 
+Regards,
+Anup
 
+The following changes since commit 0fc670d07d5de36a54f061f457743c9cde1d8b46:
 
-Test Regressions
----------------- 
+  KVM: selftests: Fix RISC-V compilation (2024-06-06 15:53:16 +0530)
 
+are available in the Git repository at:
 
-platform             | arch  | lab          | compiler | defconfig              | regressions
----------------------+-------+--------------+----------+------------------------+------------
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig              | 1          
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.11-1
 
-  Details:     https://kernelci.org/test/plan/id/66910d31db85c9bf927e7070
+for you to fetch changes up to e325618349cdc1fbbe63574080249730e7cff9ea:
 
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    clang-16 (Debian clang version 16.0.6 (15~deb12u1))
-  Plain log:   https://storage.kernelci.org//riscv/for-next/v6.10-rc1-55-gc9b8cd139c1d/riscv/defconfig/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.txt
-  HTML log:    https://storage.kernelci.org//riscv/for-next/v6.10-rc1-55-gc9b8cd139c1d/riscv/defconfig/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroot-baseline/20230703.0/riscv/rootfs.cpio.gz 
+  RISC-V: KVM: Redirect AMO load/store access fault traps to guest
+(2024-06-26 18:37:41 +0530)
 
+----------------------------------------------------------------
+KVM/riscv changes for 6.11
 
-  * baseline.login: https://kernelci.org/test/case/id/66910d31db85c9bf927e7071
-        failing since 36 days (last pass: riscv-for-linus-6.10-mw1-6-g018b9d9874e72, first fail: v6.10-rc1-9-g6d8e604c9502) 
- 
+- Redirect AMO load/store access fault traps to guest
+- Perf kvm stat support for RISC-V
+- Use HW IMSIC guest files when available
 
+----------------------------------------------------------------
+Anup Patel (2):
+      RISC-V: KVM: Share APLIC and IMSIC defines with irqchip drivers
+      RISC-V: KVM: Use IMSIC guest files when available
 
-platform             | arch  | lab          | compiler | defconfig              | regressions
----------------------+-------+--------------+----------+------------------------+------------
-hifive-unleashed-a00 | riscv | lab-baylibre | clang-16 | defconfig+CONFIG_SMP=n | 1          
+Shenlin Liang (2):
+      RISCV: KVM: add tracepoints for entry and exit events
+      perf kvm/riscv: Port perf kvm stat to RISC-V
 
-  Details:     https://kernelci.org/test/plan/id/6691101c0c53e66b727e70a7
+Yu-Wei Hsu (1):
+      RISC-V: KVM: Redirect AMO load/store access fault traps to guest
 
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig+CONFIG_SMP=n
-  Compiler:    clang-16 (Debian clang version 16.0.6 (15~deb12u1))
-  Plain log:   https://storage.kernelci.org//riscv/for-next/v6.10-rc1-55-gc9b8cd139c1d/riscv/defconfig+CONFIG_SMP=n/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.txt
-  HTML log:    https://storage.kernelci.org//riscv/for-next/v6.10-rc1-55-gc9b8cd139c1d/riscv/defconfig+CONFIG_SMP=n/clang-16/lab-baylibre/baseline-hifive-unleashed-a00.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroot-baseline/20230703.0/riscv/rootfs.cpio.gz 
-
-
-  * baseline.login: https://kernelci.org/test/case/id/6691101c0c53e66b727e70a8
-        failing since 50 days (last pass: riscv-for-linus-6.10-mw1-6-g018b9d9874e72, first fail: v6.9-11099-gc6c901b7d9833) 
-  
+ arch/riscv/include/asm/kvm_aia_aplic.h             | 58 ----------------
+ arch/riscv/include/asm/kvm_aia_imsic.h             | 38 -----------
+ arch/riscv/kvm/aia.c                               | 35 ++++++----
+ arch/riscv/kvm/aia_aplic.c                         |  2 +-
+ arch/riscv/kvm/aia_device.c                        |  2 +-
+ arch/riscv/kvm/aia_imsic.c                         |  2 +-
+ arch/riscv/kvm/trace.h                             | 67 +++++++++++++++++++
+ arch/riscv/kvm/vcpu.c                              |  7 ++
+ arch/riscv/kvm/vcpu_exit.c                         |  2 +
+ tools/perf/arch/riscv/Makefile                     |  1 +
+ tools/perf/arch/riscv/util/Build                   |  1 +
+ tools/perf/arch/riscv/util/kvm-stat.c              | 78 ++++++++++++++++++++++
+ tools/perf/arch/riscv/util/riscv_exception_types.h | 35 ++++++++++
+ 13 files changed, 215 insertions(+), 113 deletions(-)
+ delete mode 100644 arch/riscv/include/asm/kvm_aia_aplic.h
+ delete mode 100644 arch/riscv/include/asm/kvm_aia_imsic.h
+ create mode 100644 arch/riscv/kvm/trace.h
+ create mode 100644 tools/perf/arch/riscv/util/kvm-stat.c
+ create mode 100644 tools/perf/arch/riscv/util/riscv_exception_types.h
 
 _______________________________________________
 linux-riscv mailing list
