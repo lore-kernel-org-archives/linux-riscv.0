@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A6CC2BD09
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jul 2024 12:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6FD8C2BD09
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jul 2024 13:49:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sPhasXkHpvWMJH5zDBI3k2OtWZ+UeitIoZbxbrRHe5A=; b=DXsQdPasVLpfep
-	5+ZYH+/SsPHR5rbRqwbXbRvIHVvTsL1eGQdNDtBJ7mAEo/iFYqYVyRwZyPM8l/LyjfRQHu5SDDq/y
-	AoAuBkKIhR36KCqRMzfOSS03nyMNKQKKY1AV5CQLrADPAQ9RwWPV5phPv1QO/7EoChgKUmi8o8vgj
-	bd2L0h0YH9asYoGeG4IkfYQSe17Or3OwO92b/As8mDYMgiIFsJu9r2mdNdToL85ZEiszx1KXY3uex
-	eUy/6b+txx3uyqU4rR0hVe8DkrMwdiTSU3y97L1iNCXnN75E+HLDX6vgoJiuaTpBSwMODz9bKxak1
-	e7CLZ2x/+Ek9rHP0Q00Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jOevWvoykSrp3Etyay5g9HR5nVEVzdNjrgcKBC/UlNA=; b=lxLkNQ0NoEWiZosJFABtO+8Rgy
+	n35+dJUaxvEvoDNZt59nO96Izk4wxLjDl0f2wTsvWNECdNb6Br+STalhP1R0INwiswwbiGzmOEucJ
+	+YkEDpAQvvguufsGtDIxaMGw2bf54JraR0bkyitFKnYWX4C8MAlCy8qinZfNf1xy0pfnq4scwzOnK
+	8b8YA0VXIw00wlajmL4HK8VdFJ49mKV+STQe35R0ZuAYQ/FF4pDQapXFzlFRDC/akzE77Wjjp1+06
+	VjnSk/ib6mAmLQ9tdqKHw1WaAPLejj0wdAVVk//K8Mipob2KDFxYtFafT4s47wIvHV/vCHGAKn3N8
+	ZwO7jtpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSF7k-0000000HVr7-0zjh;
-	Fri, 12 Jul 2024 12:11:40 +0000
-Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
+	id 1sSGdr-00000000CSo-14YV;
+	Fri, 12 Jul 2024 13:48:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSF7g-0000000HVqC-2x1d
+	id 1sSGdn-00000000CRt-3a4f
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Jul 2024 12:11:38 +0000
-Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-37613975e20so8178245ab.2
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Jul 2024 05:11:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1720786295; x=1721391095; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=q1niRraCjqeMyr5cX7PxOFIQ0Sj5Bx+cbn9dmwhfVKo=;
-        b=qxUPNZWEhV2QOpl0+XXrpzUeEi6UIPvbbsdm4R76NIjwYgJYe8doDFz0u/+fZy8HP9
-         /NZ81CFnQDiZCWCKUlX3vpJURXLDrvzkB08PoKFh+fTpiRessr8TThwXk4Hfpsl+f3Ce
-         tTZ1ch9QxqKmOHR3db2Quy2EyM1R4+uOPn1t+tXVHwJ0NRnHpWN9ueYGodNfjJm9iDTL
-         XgtTE2bzl1z1C9XauiJHDD3xfYfDhYu46ybt6figrQJIygRuMeZVB7r37VMSUH0VtApn
-         AMybmRHpJMVUXNjAdKIKUsEzUVdMYG7TrO+UFipDGfeT++McI1/zMEWE5yCYkNvzqI43
-         a0gw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1720786295; x=1721391095;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=q1niRraCjqeMyr5cX7PxOFIQ0Sj5Bx+cbn9dmwhfVKo=;
-        b=c2mB9ZQ/9x9t5qVOByeEfq7ojJ+7eV/y5Gmv6/a+9popbhJ4lwrzCYcLf7KA3bfrJW
-         RdLKOWgIjH6piFG1AtNfuXnalNBUBhhOW6BoUZ+jPDl/kJKbR/VnRbuBx4iqmFOkGM66
-         ZJiyyMWualOyCX24z/NEF6fQzRmmCubbi2Z3g1bjQqlGyuv5Qc0vxI2wOyxGVkzXPDIO
-         qLTDrzl7ky9ARB1e6s7wW3dzyo6CTn7Gdu4yZx/AiCNGGMjdZJ3ZcY8TaAGUwEGDglih
-         C0IwD3SAN/95r0KuRQgkfvrGhiniprgfXiTSp4HY8EAcw5/PNaGRiU4dqL+CQcdjVsjp
-         d+HQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVfOHa0YP4Kis32dCfSofqX/f6XJ1+90G3KrSOF13WfgImv+QLEZvepre7Wq4+d1rrwgmVz+Vlu6rJ5ASfLsDIaYcQ4JlSzJh/LOxXKva7M
-X-Gm-Message-State: AOJu0Ywennkf+1NMhS0VEajpUanFQEuvytcKU28ON2sMUiTvDUxsttvP
-	5993AQzIlJKNCNuk+mP3JMGX50Er/FTFeNw5d+Ld/IHSz4nQ3yKzkNJiKQ/1kiw/mlkU7Hzzc8+
-	9T2LWrr4XR1DfpMIdUL4SX2C0L8Smh0WuCe7Yrw==
-X-Google-Smtp-Source: AGHT+IGw1561bmQ8Hies93tHQqB5Q5PqXZjp1CmRpstemMFKZKHlxBTBLx9rL+qxO1iavYhxYJ4+gikZG1emGlfAd4M=
-X-Received: by 2002:a05:6e02:1aaa:b0:37a:a9f0:f263 with SMTP id
- e9e14a558f8ab-38a5910a9dbmr139026545ab.20.1720786295403; Fri, 12 Jul 2024
- 05:11:35 -0700 (PDT)
+	Fri, 12 Jul 2024 13:48:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 41ABE61F12;
+	Fri, 12 Jul 2024 13:48:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A787C32786;
+	Fri, 12 Jul 2024 13:48:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1720792131;
+	bh=UAVO/gXLGNIHoqILwVTdS3n2/0dHqnDhY4+Q6hSW59Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S6UHG8RJDoFnnQ1f++vKtWyN5wGmHFUPPQu7B06L3suYJ9aksheWYADKe5WhqdJVH
+	 hFUGrkLQy5HxvKtSAJfXm3D3SGLWQtgdjBcltgTJNcjzp1OZjYCfN7JITz9ozBySVb
+	 m1wdwky67VAbo9fTQkNNVXJK3Awq2l1vvCkmbhou5D65gyV8FqwMy5JcljY0BldpgE
+	 G/WB/8MLfZDIVIwmTu0J4+bag+/Vsgf5X8klPWJ4YDOLhxUr60/gBgdOxQboyMrPxo
+	 SeBjRkCOTCyBDAzQ9qpwQnlNIxF+Vyhw9l2apKyqlxk3bva98RqGfjtdcbZ+0E7VcE
+	 sgvrTu5KvZo4Q==
+Date: Fri, 12 Jul 2024 14:48:46 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Kanak Shilledar <kanakshilledar@gmail.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Drew Fustini <drew@pdp7.com>
+Subject: Re: [PATCH v3 1/1] riscv: dts: thead: add basic spi node
+Message-ID: <20240712-denote-disprove-ce271b70c78c@spud>
+References: <20240705093503.215787-1-kanakshilledar@gmail.com>
+ <20240705093503.215787-2-kanakshilledar@gmail.com>
+ <CAGLn_=tT08KUX0J+WURq=EXKDPj=--Wg3qmCjnzGxNeMcz3NOg@mail.gmail.com>
 MIME-Version: 1.0
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 12 Jul 2024 17:41:22 +0530
-Message-ID: <CAAhSdy0jae8TYcbChockXDJ9qL+HnA1p3YJQi32NHQsLUtCGDA@mail.gmail.com>
-Subject: [GIT PULL] KVM/riscv changes for 6.11
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, 
-	Atish Patra <atishp@rivosinc.com>, KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+In-Reply-To: <CAGLn_=tT08KUX0J+WURq=EXKDPj=--Wg3qmCjnzGxNeMcz3NOg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240712_051136_874288_1FE52929 
-X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-CacheID: sfid-20240712_064852_268396_9AC54F47 
+X-CRM114-Status: UNSURE (   8.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,80 +75,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3365175012756514719=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
 
-We have the following KVM RISC-V changes for 6.11:
-1) Redirect AMO load/store access fault traps to guest
-2) Perf kvm stat support for RISC-V
-3) Use HW IMSIC guest files when available
+--===============3365175012756514719==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="TVaUuin2MQ5RhBaQ"
+Content-Disposition: inline
 
-In addition to above, ONE_REG support for Zimop,
-Zcmop, Zca, Zcf, Zcd, Zcb and Zawrs ISA extensions
-is going through the RISC-V tree.
 
-Please pull.
+--TVaUuin2MQ5RhBaQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Regards,
-Anup
+On Fri, Jul 12, 2024 at 02:11:18PM +0530, Kanak Shilledar wrote:
+> Hi,
+> Any updates on this patch?
 
-The following changes since commit 0fc670d07d5de36a54f061f457743c9cde1d8b46:
+It's too late for 6.11, it'll have to wait until 6.12. If Drew has his
+tree set up already, he can at least queue it.
 
-  KVM: selftests: Fix RISC-V compilation (2024-06-06 15:53:16 +0530)
+Cheers,
+Conor.
 
-are available in the Git repository at:
+--TVaUuin2MQ5RhBaQ
+Content-Type: application/pgp-signature; name="signature.asc"
 
-  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.11-1
+-----BEGIN PGP SIGNATURE-----
 
-for you to fetch changes up to e325618349cdc1fbbe63574080249730e7cff9ea:
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZpE0PgAKCRB4tDGHoIJi
+0rtMAQCWJsLbWrTJXYut90rqVRHP9fRSrbjQdZDQo5ZoXTEV1QEA/54A9PCC3MiB
+dTITiySq8lWR2Wr/Z+OPHYT1jvO59Qo=
+=ocR0
+-----END PGP SIGNATURE-----
 
-  RISC-V: KVM: Redirect AMO load/store access fault traps to guest
-(2024-06-26 18:37:41 +0530)
+--TVaUuin2MQ5RhBaQ--
 
-----------------------------------------------------------------
-KVM/riscv changes for 6.11
 
-- Redirect AMO load/store access fault traps to guest
-- Perf kvm stat support for RISC-V
-- Use HW IMSIC guest files when available
-
-----------------------------------------------------------------
-Anup Patel (2):
-      RISC-V: KVM: Share APLIC and IMSIC defines with irqchip drivers
-      RISC-V: KVM: Use IMSIC guest files when available
-
-Shenlin Liang (2):
-      RISCV: KVM: add tracepoints for entry and exit events
-      perf kvm/riscv: Port perf kvm stat to RISC-V
-
-Yu-Wei Hsu (1):
-      RISC-V: KVM: Redirect AMO load/store access fault traps to guest
-
- arch/riscv/include/asm/kvm_aia_aplic.h             | 58 ----------------
- arch/riscv/include/asm/kvm_aia_imsic.h             | 38 -----------
- arch/riscv/kvm/aia.c                               | 35 ++++++----
- arch/riscv/kvm/aia_aplic.c                         |  2 +-
- arch/riscv/kvm/aia_device.c                        |  2 +-
- arch/riscv/kvm/aia_imsic.c                         |  2 +-
- arch/riscv/kvm/trace.h                             | 67 +++++++++++++++++++
- arch/riscv/kvm/vcpu.c                              |  7 ++
- arch/riscv/kvm/vcpu_exit.c                         |  2 +
- tools/perf/arch/riscv/Makefile                     |  1 +
- tools/perf/arch/riscv/util/Build                   |  1 +
- tools/perf/arch/riscv/util/kvm-stat.c              | 78 ++++++++++++++++++++++
- tools/perf/arch/riscv/util/riscv_exception_types.h | 35 ++++++++++
- 13 files changed, 215 insertions(+), 113 deletions(-)
- delete mode 100644 arch/riscv/include/asm/kvm_aia_aplic.h
- delete mode 100644 arch/riscv/include/asm/kvm_aia_imsic.h
- create mode 100644 arch/riscv/kvm/trace.h
- create mode 100644 tools/perf/arch/riscv/util/kvm-stat.c
- create mode 100644 tools/perf/arch/riscv/util/riscv_exception_types.h
+--===============3365175012756514719==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3365175012756514719==--
+
