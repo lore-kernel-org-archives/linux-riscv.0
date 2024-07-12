@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 052C8C3DA4D
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jul 2024 10:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589D3C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jul 2024 10:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rcR8Y9KFkBrVAjy02jvfjAzqXrxty0Xxm9lhZhrkNww=; b=raVu7W5L2Ys16s
-	MxxmfvdFGIEgdGOpQtSUr4wYbDjuBa7mu1DiyPIpqIou3TBHYafZjWCgfajUQbCNM+BYF1+5vqUfQ
-	PM4oVJsyrMJrnhrGdcbhEsF+h+RabQHMkGZGctebXLCOIPLEBmufW552UEt8ZTDmc1+i6eA5mdzIK
-	6OWxluskdLGPmV/UuDX8fpMrFRikgoyklCNoKNzN8H3c0ffsiYPiMOTm4YixKdHAI/cdjBjh7GIRL
-	PNU2bx4KhIYZ1BkYC+mX+tHolhqePlfnQiGoyCA1H9IsaCukXzXjY/pSE0J3P91tSoJRVl7WmDh1w
-	KotjvSFhRI3qD2LIjeXg==;
+	List-Owner; bh=ygTyJTz6WxI/cCT3TiwhmNkruIxadZ9wFLY8zItJPL8=; b=nB2fB1X7uW8jjk
+	eUSbyVGCpwAoig8cwG8uM6IBJtvU5z6HfTxQ+3yKrtOmc5PxdZKUhr8TH/e8Z6VDqKhywS0d+06SW
+	d/Wfe6eAml52LS7oIOKnbREIUPQcA2vEmSdsS/t8bnkzAiVi/Zm7Vwpmcc371Q1S3RH8+VlxCgpmN
+	2/Ft/Wdey/Rg4uBM5TuW7dfITmS/XM1e4fKy2t4ANy4rP3AWEr8u6guc/7k177uc1lcr8mvuj9MRc
+	CDUOfHb0eQ+4hQI9kWfyoODR5aJi8u+aJWFgiArYOJ9eC+kPXN4PqGQcpjP7jMPOa9228i4puVJGf
+	WOzjWdszi56KNuYOZeew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSDOL-0000000HGJP-2gm8;
-	Fri, 12 Jul 2024 10:20:41 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1sSDOI-0000000HGHY-08IZ;
+	Fri, 12 Jul 2024 10:20:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSDOF-0000000HGG4-0aiE
+	id 1sSDOE-0000000HGFz-0oqQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Jul 2024 10:20:37 +0000
+	Fri, 12 Jul 2024 10:20:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5C9E9CE1A35;
-	Fri, 12 Jul 2024 10:20:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A3984C4AF0B;
+	by dfw.source.kernel.org (Postfix) with ESMTP id CEE4961E8C;
+	Fri, 12 Jul 2024 10:20:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 844FBC4AF07;
 	Fri, 12 Jul 2024 10:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1720779632;
-	bh=VVoIxpcBpsu5DTyIieNUadbasv+xGN5WhTLbUa6mR/c=;
+	bh=saXSXc7EtV5Q2Yrc557rIZq81TgZK3+FXyLIFKgsj6M=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=HuCJckfV+Y2YomYDLLyNFm4QYZDL+JVt6WlrvWFNYv6yVHh+6d8bHsc2cHao9BEVH
-	 7+E5qsJrddW46aPiQAOXRfzEHH1QqtIIybderNU55GqK6rQJTon8+Zx/clW7BIkc1m
-	 b5VBcEAyekiCYDfxuO662s8FQXmWEecRNfBw9b63v2EiczLsNSsrsaatrWkwY3RWFZ
-	 AXhm4TZtuLKSkDy/3obgSBFF/UuPVIfScVJggzpu3/xoTWaV450mdXkWhUppfUQJfF
-	 SrWD0hBQ7HXir7SIl28OHO2epJ8m/fkNAZEV20EujfQPjAF/A1C7Gu0JV6flCEimTN
-	 j/JbUo4xYZn+Q==
+	b=HprjVqNKWKBnZEqhy9YZNpR8SxioY9YsM0R/jhRIH+Y2VBO4L3qw4NIRbj4rIh/DV
+	 i0nWF6kaTkK1AU4pLuiwo8Ad3XiaKG/9qKBIVFOoV08s0pFhEezrE6jcqm4et/jC1J
+	 N3yIidI0F5ncopxbLfcZqMiOtoVkfdXeFvPEhoKVaSpw5/JvJvo/5HgSp0BkMryUyO
+	 swlFycGc4fVcuTeQX9LDrOqO0f/bB6vuLwsiFOp6qti3Wr2Epk8WKWEdOMuAA12agF
+	 MGmimgGkwfaZiOq5eOsbk/ZE8pDDH3kpd8KiBYvuRGu7TMfamDS79z1j2u0CI7HppG
+	 Tdxa7gzffkF/Q==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 90E99C43468;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 78381C433E9;
 	Fri, 12 Jul 2024 10:20:32 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v5] riscv: hwprobe: export highest virtual userspace address
+Subject: Re: [PATCH v5] riscv: Optimize crc32 with Zbc extension
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <172077963258.4770.205626830375405089.git-patchwork-notify@kernel.org>
+Message-Id: <172077963248.4770.592373890802161820.git-patchwork-notify@kernel.org>
 Date: Fri, 12 Jul 2024 10:20:32 +0000
-References: <20240410144558.1104006-1-cleger@rivosinc.com>
-In-Reply-To: <20240410144558.1104006-1-cleger@rivosinc.com>
-To: =?utf-8?b?Q2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPg==?=@ci.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, corbet@lwn.net, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, rehn@rivosinc.com, charlie@rivosinc.com,
- sorear@fastmail.com, jrtc27@jrtc27.com
+References: <20240621054707.1847548-1-xiao.w.wang@intel.com>
+In-Reply-To: <20240621054707.1847548-1-xiao.w.wang@intel.com>
+To: Wang@ci.codeaurora.org, Xiao W <xiao.w.wang@intel.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, charlie@rivosinc.com,
+ andy.chiu@sifive.com, conor.dooley@microchip.com, greentime.hu@sifive.com,
+ ajones@ventanamicro.com, heiko@sntech.de, david.laight@aculab.com,
+ haicheng.li@intel.com, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240712_032035_527160_2FB5C1CA 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20240712_032034_320300_454E382C 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +83,22 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed, 10 Apr 2024 16:45:57 +0200 you wrote:
-> Some userspace applications (OpenJDK for instance) uses the free MSBs
-> in pointers to insert additional information for their own logic and
-> need to get this information from somewhere. Currently they rely on
-> parsing /proc/cpuinfo "mmu=svxx" string to obtain the current value of
-> virtual address usable bits [1]. Since this reflect the raw supported
-> MMU mode, it might differ from the logical one used internally which is
-> why arch_get_mmap_end() is used. Exporting the highest mmapable address
-> through hwprobe will allow a more stable interface to be used. For that
-> purpose, add a new hwprobe key named
-> RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS which will export the highest
-> userspace virtual address.
+On Fri, 21 Jun 2024 13:47:07 +0800 you wrote:
+> As suggested by the B-ext spec, the Zbc (carry-less multiplication)
+> instructions can be used to accelerate CRC calculations. Currently, the
+> crc32 is the most widely used crc function inside kernel, so this patch
+> focuses on the optimization of just the crc32 APIs.
+> 
+> Compared with the current table-lookup based optimization, Zbc based
+> optimization can also achieve large stride during CRC calculation loop,
+> meantime, it avoids the memory access latency of the table-lookup based
+> implementation and it reduces memory footprint.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v5] riscv: hwprobe: export highest virtual userspace address
-    https://git.kernel.org/riscv/c/c9b8cd139c1d
+  - [v5] riscv: Optimize crc32 with Zbc extension
+    https://git.kernel.org/riscv/c/a43fe27d6503
 
 You are awesome, thank you!
 -- 
