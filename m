@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 330EDC3DA45
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jul 2024 07:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 336A3C3DA42
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jul 2024 07:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5LRP0hJwS2Ugsakg5xFhyVn1GG8pcOdIyOfc/GvCK+U=; b=QT0vpHX/SHC2q+
-	DHVSxjvZbFAMyBUI19/+0v+h/P1h7rGavb1ET/aFjeJ2ljoQj0rEwbXfwZUrz+IPU5uyUF4ICj5OZ
-	Asbj44Wqqak+WXLsNfVbiWBql9ELoK66mVA5O3KXjVzuTtY24/NDt8YbFyWemRbAjXjPkE/F9TYXw
-	1WUs8mGm2vO62MUcT7wC+BsORuG/0hEVvjFmVOWRpSBc/z8t8qNmcNRDlPAp2RnBTbg474DaNJVRT
-	LwfLuH7EDnYp3AAhoqklIlb+Zc4BPXbS9rnZ3RFMJ3gsD8AE1Di+mkMz9mvTOHogrUqS3EWXGUChV
-	ZGofsIpxFOXcFAJHOIuw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8sOL5W6jLUzuTXWGu1UmyR5cnCBuWf/R9Scys219pN0=; b=s1pB0DAEMs6znt
+	BXdtm8IfuaENnMVLyqQ2i7B8U10uuFrSKNjKNplRvRfzZpJtYMJMnLTGcNPUqqnsoqAv6bDnjDbIZ
+	QpVms6vtr+/99YytRp3ojbbODs16OXMf+FAzP8zcuL/paiEx4P/UWrAkMLn2tJ7mTJJUzuXpKZYik
+	w5izqOFVhG6eKjUUqPtBRbrONVBrhjUXcpcf12QHrBxldvS+q0nBrMfqYOI+bC8PhSeQbttGwMd/z
+	C3EqRNmhpY2H48tS0y86Y9NJD78dPoW54G7CKCw7T1dDDwZA1jRukXzoUDfDFLtvjJEvFXdROmFh6
+	UgEm/GmACB2A93j/PQjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSWsp-000000024k7-3nkB;
-	Sat, 13 Jul 2024 07:09:27 +0000
+	id 1sSWt6-000000024sJ-3VKU;
+	Sat, 13 Jul 2024 07:09:44 +0000
 Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1sSWsU-000000024Wi-3Crc;
-	Sat, 13 Jul 2024 07:09:08 +0000
+	id 1sSWsa-000000024a1-02Z8;
+	Sat, 13 Jul 2024 07:09:14 +0000
 Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4WLfhT746xz9sST;
-	Sat, 13 Jul 2024 09:08:57 +0200 (CEST)
+	by localhost (Postfix) with ESMTP id 4WLfhW0n1Bz9sSV;
+	Sat, 13 Jul 2024 09:08:59 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from pegase2.c-s.fr ([172.26.127.65])
 	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id EcLfv5DIvfXK; Sat, 13 Jul 2024 09:08:57 +0200 (CEST)
+	with ESMTP id NT0I5H53SC1G; Sat, 13 Jul 2024 09:08:59 +0200 (CEST)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4WLfhT68YXz9sSS;
-	Sat, 13 Jul 2024 09:08:57 +0200 (CEST)
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4WLfhV6fGyz9sSS;
+	Sat, 13 Jul 2024 09:08:58 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id BFAF98B76C;
-	Sat, 13 Jul 2024 09:08:57 +0200 (CEST)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id D26E98B76C;
+	Sat, 13 Jul 2024 09:08:58 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
 	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id Ht0A52iiwZyr; Sat, 13 Jul 2024 09:08:57 +0200 (CEST)
+	with ESMTP id 0WXuODkIT-v3; Sat, 13 Jul 2024 09:08:58 +0200 (CEST)
 Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.233.195])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id B32A58B764;
-	Sat, 13 Jul 2024 09:08:56 +0200 (CEST)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id C367B8B77B;
+	Sat, 13 Jul 2024 09:08:57 +0200 (CEST)
 From: Christophe Leroy <christophe.leroy@csgroup.eu>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
@@ -71,19 +71,20 @@ Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
 	linux-arch@vger.kernel.org,
 	loongarch@lists.linux.dev,
 	linux-mips@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>
-Subject: [PATCH v3 1/5] arch/x86: Drop own definition of pgd,p4d_leaf
-Date: Sat, 13 Jul 2024 09:08:23 +0200
-Message-ID: <c81566e5df160587de50f9095d0ec377114fdba8.1720854135.git.christophe.leroy@csgroup.eu>
+	Peter Xu <peterx@redhat.com>,
+	Oscar Salvador <osalvador@suse.de>
+Subject: [PATCH v3 2/5] mm: Remove pud_user() from asm-generic/pgtable-nopmd.h
+Date: Sat, 13 Jul 2024 09:08:24 +0200
+Message-ID: <a2e995063b48377b048d84fc97b5fb6b54fef62c.1720854135.git.christophe.leroy@csgroup.eu>
 X-Mailer: git-send-email 2.44.0
+In-Reply-To: <c81566e5df160587de50f9095d0ec377114fdba8.1720854135.git.christophe.leroy@csgroup.eu>
+References: <c81566e5df160587de50f9095d0ec377114fdba8.1720854135.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1720854504; l=1436; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=jETqTIBrbMCiSKtThDBVuiOakjqQZl9LJXDhA4Uy90Y=; b=j42rjo6o36t5FwwD7Ik5HJFIbBLA/oCUlT32r6QXUQT1OdEHDQG6EX/TeG2Jo+q73BQzLaMAy OGmrGbcVS1wAtLcieRc2n/Q4O9B0lUFj2TyovGgx73fb20ZcQs3cJV8
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1720854504; l=2533; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=iBVqoMJazAvRQUo1vTp2Zd43IQ2OKhUaCoVnbqsBTJ0=; b=jJMk8U4y7cgZ/vp8633dMxDk0wPNiAX4F6OCHO9eyw5ASH4oMHt8ifjkUfcz5Xn4tKjD9A2nJ JWThXhe1dp2BhqiFdgOfAEseuosECaD6ssSvIM65cfPqwfXUql7AiTb
 X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240713_000906_969285_144E8EE5 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240713_000912_229216_5E50135C 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,49 +101,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Oscar Salvador <osalvador@suse.de>
+Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
+issues") added pud_user() in include/asm-generic/pgtable-nopmd.h
 
-We provide generic definitions of pXd_leaf in pgtable.h when the arch
-do not define their own, where the generic pXd_leaf always return false.
+But pud_user() only exists on ARM64 and RISCV and is not expected
+by any part of MM.
 
-Although x86 defines {pgd,p4d}_leaf, they end up being a no-op, so drop them
-and make them fallback to the generic one.
+Add the missing definition in arch/riscv/include/asm/pgtable-32.h
+and remove it from asm-generic/pgtable-nopmd.h
 
-Signed-off-by: Oscar Salvador <osalvador@suse.de>
+A stub pud_user() is also required for ARM64 after
+commit ed928a3402d8 ("arm64/mm: fix page table check compile
+error for CONFIG_PGTABLE_LEVELS=2")
+
 Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Reviewed-by: Peter Xu <peterx@redhat.com>
+Reviewed-by: Oscar Salvador <osalvador@suse.de>
 ---
- arch/x86/include/asm/pgtable.h | 10 ----------
- 1 file changed, 10 deletions(-)
+v3: Added pud_user() for arm64
+---
+ arch/arm64/include/asm/pgtable.h    | 1 +
+ arch/riscv/include/asm/pgtable-32.h | 5 +++++
+ include/asm-generic/pgtable-nopmd.h | 1 -
+ 3 files changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index 65b8e5bb902c..772f778bac06 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -252,13 +252,6 @@ static inline unsigned long pgd_pfn(pgd_t pgd)
- 	return (pgd_val(pgd) & PTE_PFN_MASK) >> PAGE_SHIFT;
- }
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index f8efbc128446..c818b3328704 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -812,6 +812,7 @@ static inline pmd_t *pud_pgtable(pud_t pud)
  
--#define p4d_leaf p4d_leaf
--static inline bool p4d_leaf(p4d_t p4d)
--{
--	/* No 512 GiB pages yet */
--	return 0;
--}
--
- #define pte_page(pte)	pfn_to_page(pte_pfn(pte))
+ #define pud_valid(pud)		false
+ #define pud_page_paddr(pud)	({ BUILD_BUG(); 0; })
++#define pud_user		false /* Always 0 with folding */
+ #define pud_user_exec(pud)	pud_user(pud) /* Always 0 with folding */
  
- #define pmd_leaf pmd_leaf
-@@ -1396,9 +1389,6 @@ static inline bool pgdp_maps_userspace(void *__ptr)
- 	return (((ptr & ~PAGE_MASK) / sizeof(pgd_t)) < PGD_KERNEL_START);
- }
+ /* Match pmd_offset folding in <asm/generic/pgtable-nopmd.h> */
+diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+index 00f3369570a8..37878ef37466 100644
+--- a/arch/riscv/include/asm/pgtable-32.h
++++ b/arch/riscv/include/asm/pgtable-32.h
+@@ -36,4 +36,9 @@
+ static const __maybe_unused int pgtable_l4_enabled;
+ static const __maybe_unused int pgtable_l5_enabled;
  
--#define pgd_leaf	pgd_leaf
--static inline bool pgd_leaf(pgd_t pgd) { return false; }
--
- #ifdef CONFIG_MITIGATION_PAGE_TABLE_ISOLATION
- /*
-  * All top-level MITIGATION_PAGE_TABLE_ISOLATION page tables are order-1 pages
++static inline int pud_user(pud_t pud)
++{
++	return 0;
++}
++
+ #endif /* _ASM_RISCV_PGTABLE_32_H */
+diff --git a/include/asm-generic/pgtable-nopmd.h b/include/asm-generic/pgtable-nopmd.h
+index 8ffd64e7a24c..b01349a312fa 100644
+--- a/include/asm-generic/pgtable-nopmd.h
++++ b/include/asm-generic/pgtable-nopmd.h
+@@ -30,7 +30,6 @@ typedef struct { pud_t pud; } pmd_t;
+ static inline int pud_none(pud_t pud)		{ return 0; }
+ static inline int pud_bad(pud_t pud)		{ return 0; }
+ static inline int pud_present(pud_t pud)	{ return 1; }
+-static inline int pud_user(pud_t pud)		{ return 0; }
+ static inline int pud_leaf(pud_t pud)		{ return 0; }
+ static inline void pud_clear(pud_t *pud)	{ }
+ #define pmd_ERROR(pmd)				(pud_ERROR((pmd).pud))
 -- 
 2.44.0
 
